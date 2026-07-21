@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5DEC44537
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6EAC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t7NOYoDMT6olxFGzw60Smpmuq9Zq1rekedT00peWm3Q=; b=VRx/4RIoSEFf9hKYZV/QNvdEz+
-	PtebDh41hduStfVc3JJsbl1pEzeOUniqQBYbL1uMQ8/fSBHlXOgvtBwD4kjvZuPodTfp4lXDoFiL9
-	g/jzGbhgqUEQE8K69STduUj14RbufVh/5qjI0p4BB/QLk+ZLr9wOkmOmgcwWYEbyKN3mZ6IIKw5oP
-	a86PhfWFNw7LkkBUmpww52TI1UCBwqo06z4ibXhxUsnNvFOiUSOAT2AWQGWC7ZH0YBgXcMvEYRaQ6
-	9qi+KehO9U2GnNLhSiet7akXL8xU6rupurAWEJKzVRbDwV4aYFnhHhi1uLXJorLMtpaLk7gBtifsb
-	O/0bbexg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pOPCrZROWsDyG1I/C6+7cS4PhF0GrOUguiAaKjDuy/g=; b=3Edo/G7X4zXIj4kru3OqhYGR2i
+	LU2opDzZstvJVA5UPH+bL3wUsCZOfRxo5ifW04jbFOBfPGuFwhzzdozlo6leM9nkBa0+R5i5ivqjL
+	y0obgvSiry+CZaDOqjcsdsoiB3/YQ71/ri7htDtqRbSt9bWKLTJ46xeOZrO9oV8Rw1lI3KMAZSndN
+	mZPaSGWTMHbKyyGFAJDieikwXqjrc7kckat831i+IqeQqZKKUmCEqxEO+eaIBBeS13GpkLHcjHi70
+	rQxLjjUud2sx86K1cKV945Qu4P7MphwOrA+Wm4uCAnLtwVF00vWPyiM2bHcFb59hU2dGtQ+QTz4A+
+	/I0Q5QiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGp6-0000000ALh1-2EV7;
-	Tue, 21 Jul 2026 20:12:16 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGot-0000000ALa6-0zqQ
+	id 1wmGyf-0000000AMuv-30YH;
+	Tue, 21 Jul 2026 20:22:09 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmGyd-0000000AMtz-0Mr5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 20:12:05 +0000
-Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7AB6620B716B;
-	Tue, 21 Jul 2026 13:11:49 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7AB6620B716B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1784664709;
-	bh=t7NOYoDMT6olxFGzw60Smpmuq9Zq1rekedT00peWm3Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OcMZauePWoDDcioo+fKZkPIg6YsAwq9f2vkYGR9KkPI52rBlLlPReViUvcFVV/OdD
-	 f8xbRMLVcXbRvtZLpFsaaRb1B8Oyy851fiI0J5MFAR0r4LvbT9kd5JDXp1hYzpAA2O
-	 gJ0FKXQsincFzFuxcP3fXSPsJBfTu7tiOeq/FT5Y=
-From: Kameron Carr <kameroncarr@linux.microsoft.com>
-To: kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	longli@microsoft.com,
-	mhklinux@outlook.com
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	lpieralisi@kernel.org,
-	sudeep.holla@kernel.org,
-	arnd@arndb.de,
-	thuth@redhat.com,
-	linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: [PATCH v3 3/6] arm64: hyperv: Add per-CPU RSI host call infrastructure for CCA Realms
-Date: Tue, 21 Jul 2026 13:11:45 -0700
-Message-ID: <20260721201148.1441143-4-kameroncarr@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260721201148.1441143-1-kameroncarr@linux.microsoft.com>
-References: <20260721201148.1441143-1-kameroncarr@linux.microsoft.com>
+	Tue, 21 Jul 2026 20:22:08 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5aebd52488cso12364128e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 13:22:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784665324; x=1785270124; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pOPCrZROWsDyG1I/C6+7cS4PhF0GrOUguiAaKjDuy/g=;
+        b=WRuN9JKTthlKTtrK0Et2gfnYhGEil0DEGkM4ng35RJkG56G+Kj4eEtUqidHRYqPoOM
+         kIfXZHaMuwx8Vybb+gwI5pq+zECQVQ6zQ4vq4lYiYw+kzGKiHLMYN2n9/PGI8QHhCy86
+         Q2aINBxORwOo/tBHXm6oV03YGncB2Um9kOmruHstn6XHp0/XsWhqElgXAtTODSwPTXJJ
+         uAb7UJe3jqT025foI8Bo5Z/5CNJDijM6DHSxwNrVyjoQzuZGuaoaPxOglusr4rLlw8eM
+         yaskExIR0R5YhjJyWXFB1/HGc81LQDqLvdct/cv73mkZSDnhpN8H36NxRx70ewkMmZzE
+         O1bA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784665324; x=1785270124;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pOPCrZROWsDyG1I/C6+7cS4PhF0GrOUguiAaKjDuy/g=;
+        b=QuUNY6x4oX0gFgDHEI9g59irxRdgyigVdByi7IWrvioO9/KYXdcEKX03We52d5Xqno
+         12a3Te/ppJj0b0tcOzrPYbeGbFl3AhYA0cg105Pxw8XofPCfyrW5hB5/pZhN2fGtn7iX
+         ie1WYzLGvKennZPf6rt3wbXO/Y+zSt+ks56j9IsZZ6wOu7X7jL8d5ebfC4TPOuGcvNHI
+         0jgmUz//lDqd1hVn6X6m6in0/X7NYkGBmfgX8gNb8uNdBbvnZLg2o7z0UMa2gBOowuDj
+         CnhYCusOPEsPeXINHoizWDyBbj309GtY8BRCqvjxRjRy8j/to08FfslnytdOa9eZJnun
+         gUSg==
+X-Forwarded-Encrypted: i=1; AHgh+RpkatMXgWlpDkjJV6YA+PHVHGgkgjCes052omExugqsfjzysOB3K/zRDvYf0o/TEaCwl8M/pLTl2Gacf63mXzFh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFZi1QpTCyUKOd9r8laUGR8CFf/7APkJ9gOGai0vX0CzPJwghK
+	wUYvm1rN43rn4b0IfFe17RTl0pcxP1ObngSqy04G1+elv9zmu7l7d9/0
+X-Gm-Gg: AR+sD11RQ/AzS6Hd2Du4UIVzpvgWtkfLGADPTFFy4ZR5+pVcVSLWtUDy9L2tMLygKae
+	t4tEM8hMUTNU2eyl7Kf9/dR94BVldWG85DJBDiT08gc7dU0QokwoK6ZzM3gec3xjsdiMzMkzyuD
+	tXw3gpx6kzmamsp6FZu1wYpArXi0Ir1ED28Sfql5TrRK7/A4WYBcJHB82Iyz9fZ4aWY9cH/q8+d
+	PbzaB3pmQSSlk/V9cZF3xSfc3+LjRgcmbr6SPT5n+FobZ0f0Tm24adRk6q/qSZRXJyfMqwd3D81
+	mEuOKe5VkgoaoPvkQ0CQgGs87epLnmPa3/6YHpjV/JSXvwm2USllrRbKBLcHYR0VsiywbNyNT5h
+	yFuUSldvzuNNrE21LlCXpoTb4+U+fzcOp+lStL1XIiNJEAvaBlLX6pMjHkFk82X4eDGFUuNk9lo
+	AAykzgb0AbSm/PIeRI
+X-Received: by 2002:a05:6512:3d03:b0:5b0:1852:936b with SMTP id 2adb3069b0e04-5b28fabeb58mr4630637e87.59.1784665324038;
+        Tue, 21 Jul 2026 13:22:04 -0700 (PDT)
+Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:7b92:9ac1:b9ef:5287])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b2a9d30758sm99909e87.45.2026.07.21.13.22.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 13:22:03 -0700 (PDT)
+Date: Tue, 21 Jul 2026 22:22:02 +0200
+From: Klara Modin <klarasmodin@gmail.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCHv2 wireless] wifi: mt76: fix MAC address for non OF pcie
+ cards
+Message-ID: <al_SAwiLmgT6D_tS@soda.int.kasm.eu>
+References: <20260706232857.807044-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260706232857.807044-1-rosenp@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_131203_613986_944A8B12 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20260721_132207_137498_13DD7A12 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,105 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arm CCA Realms cannot issue Hyper-V hypercalls via HVC; the guest must
-route them through the RSI_HOST_CALL interface, which takes the IPA of a
-per-CPU rsi_host_call structure as its argument.
+Hi,
 
-Add hv_hostcall_array as a per-CPU struct array and allocate it during
-hyperv_init(). The allocation is gated on is_realm_world() so non-Realm
-arm64 Hyper-V guests pay no memory cost.
+On 2026-07-06 16:28:57 -0700, Rosen Penev wrote:
+> If seems the check for err is wrong as the proper macaddr gets written
+> to from the EEPROM itself. Meaning checking err from of_get_mac_address is
+> wrong as the proper macaddr has been written by this point.
+> 
+> Reported-by: Klara Modin <klarasmodin@gmail.com>
+> Closes: https://lore.kernel.org/all/ajRmlyx_AEGybykL@soda.int.kasm.eu/
+> Reported-by: Tobias Klausmann <klausman@schwarzvogel.de>
+> Closes:
+> https://lore.kernel.org/linux-wireless/30a90714-02d8-45f2-a7f1-4cfe0627d50b@skade.local/
+> Fixes: 31ee1582717e ("wifi: mt76: fix of_get_mac_address error handling")
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> Tested-by: Tobias Klausmann <klausman@schwarzvogel.de>
+> Tested-by: Klara Modin <klarasmodin@gmail.com>
+> ---
+>  v2: add extra tags and target wireless
+>  drivers/net/wireless/mediatek/mt76/eeprom.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
+> index b99d7452800f..afdb73661866 100644
+> --- a/drivers/net/wireless/mediatek/mt76/eeprom.c
+> +++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
+> @@ -181,7 +181,7 @@ mt76_eeprom_override(struct mt76_phy *phy)
+>  	if (err == -EPROBE_DEFER)
+>  		return err;
+>  
+> -	if (err) {
+> +	if (!is_valid_ether_addr(phy->macaddr)) {
+>  		eth_random_addr(phy->macaddr);
+>  		dev_info(dev->dev,
+>  			 "Invalid MAC address, using random address %pM\n",
+> -- 
+> 2.55.0
+> 
 
-Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
----
- arch/arm64/hyperv/mshyperv.c      | 28 ++++++++++++++++++++++++++--
- arch/arm64/include/asm/mshyperv.h |  4 ++++
- 2 files changed, 30 insertions(+), 2 deletions(-)
+Ping. No one seems to have picked this up yet, but I suppose it is
+holiday season.
 
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index 4fdc26ade1d74..d9010e64ddd7c 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -15,10 +15,15 @@
- #include <linux/errno.h>
- #include <linux/version.h>
- #include <linux/cpuhotplug.h>
-+#include <linux/slab.h>
- #include <asm/mshyperv.h>
-+#include <asm/rsi.h>
- 
- static bool hyperv_initialized;
- 
-+struct rsi_host_call *hv_hostcall_array;
-+EXPORT_SYMBOL_GPL(hv_hostcall_array);
-+
- int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
- {
- 	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
-@@ -85,6 +90,20 @@ static int __init hyperv_init(void)
- 	if (!hyperv_detect_via_acpi() && !hyperv_detect_via_smccc())
- 		return 0;
- 
-+	/*
-+	 * The RSI host-call buffers are only ever used when
-+	 * is_realm_world() is true. Skip the allocation on non-Realm
-+	 * guests. A single contiguous array of nr_cpu_ids entries is
-+	 * allocated; each CPU indexes into it by its processor ID.
-+	 */
-+	if (is_realm_world()) {
-+		hv_hostcall_array = kcalloc(nr_cpu_ids,
-+					    sizeof(struct rsi_host_call),
-+					    GFP_KERNEL);
-+		if (!hv_hostcall_array)
-+			return -ENOMEM;
-+	}
-+
- 	/* Setup the guest ID */
- 	guest_id = hv_generate_guest_id(LINUX_VERSION_CODE);
- 	hv_set_vpreg(HV_REGISTER_GUEST_OS_ID, guest_id);
-@@ -106,13 +125,13 @@ static int __init hyperv_init(void)
- 
- 	ret = hv_common_init();
- 	if (ret)
--		return ret;
-+		goto free_hostcall_mem;
- 
- 	ret = cpuhp_setup_state(CPUHP_AP_HYPERV_ONLINE, "arm64/hyperv_init:online",
- 				hv_common_cpu_init, hv_common_cpu_die);
- 	if (ret < 0) {
- 		hv_common_free();
--		return ret;
-+		goto free_hostcall_mem;
- 	}
- 
- 	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
-@@ -125,6 +144,11 @@ static int __init hyperv_init(void)
- 
- 	hyperv_initialized = true;
- 	return 0;
-+
-+free_hostcall_mem:
-+	kfree(hv_hostcall_array);
-+	hv_hostcall_array = NULL;
-+	return ret;
- }
- 
- early_initcall(hyperv_init);
-diff --git a/arch/arm64/include/asm/mshyperv.h b/arch/arm64/include/asm/mshyperv.h
-index b721d3134ab66..aed0aa526c8b4 100644
---- a/arch/arm64/include/asm/mshyperv.h
-+++ b/arch/arm64/include/asm/mshyperv.h
-@@ -61,6 +61,10 @@ static inline u64 hv_get_non_nested_msr(unsigned int reg)
- 				ARM_SMCCC_OWNER_VENDOR_HYP,	\
- 				HV_SMCCC_FUNC_NUMBER)
- 
-+/* Per-CPU-indexed RSI host call structures for CCA Realms */
-+struct rsi_host_call;
-+extern struct rsi_host_call *hv_hostcall_array;
-+
- #include <asm-generic/mshyperv.h>
- 
- #endif
--- 
-2.45.4
-
+Regards,
+Klara Modin
 
