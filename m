@@ -4,132 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76F3C4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 21:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30F1C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 21:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yEv/1vUa1ycDI9DEGEAWt6TnWK/WcxYVxV0CCOTNQ8k=; b=YkfjZx0yMuB3ckRi3BOaT65AUB
-	kkH1qUsbwaefSGi7bhUgw7ydjId9Sa45jLvOcFxM7i7WfW/qLc+myGEerq8HZyhcu3xj/+scer9ge
-	r6UIH5l/nXi0YPac+P5vB5s1gM1tj1JzweMXNGf5uCnHlJdba6D2y9SYVdR6eEIAL4uZggerNiFcG
-	tq4hX6e+vgCoz1MXFLnGkXV3zn+ste+Tcy12nEjz5BXHqg5Wa9a/lVi1bZKk1+lol03GB38gEv3n8
-	2nBAqg5Ev/YlTw8l6s7Mm7sxNxiQLon6praPN67JpRWZW9SrZlWQduyvlYqFt90hsUmQVC7J7Hls5
-	VIXuzHFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TaZy8rWxizDk2i8wZ5hDa7OgOIQ8IUWkWFPcFtdx6zU=; b=rgleT5IeJvpgUcyGDuiM5eGFfi
+	82P6UOf6WopaIB3lYCYGgb+Gy5c3libCsHk/bTsk6U0cdBBaNlyz1OS39OK5KI6eDL4iAV+EpuHy0
+	5NlB15gYQP+p/lQjGK89wcGicCkivYB4orAoaKaHOq1H5d9tl83dn4jUXcGn6hx1izXXQE3dcWKCw
+	FsPGlGnvPo879n2MHB9xO2KmCH+cUxjifymesrORcoa9wX0l2g7ZjD1MU3oVSwWRUDyb5bmKd3MBl
+	ZcLTni5Za2N5Odwpc5qOthxyPzlvWQek56+KbDNb9xzSmEw7t1LX2vK5DPAiAkyMxP+bmxBzrW5tI
+	K2VqNihg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmI8G-0000000ASj7-2lbC;
-	Tue, 21 Jul 2026 21:36:08 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wmI8M-0000000ASlj-3bSH;
+	Tue, 21 Jul 2026 21:36:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmI8D-0000000ASiL-2wfQ
+	id 1wmI8I-0000000ASk9-1LcD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 21:36:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C1hBtxO8lIUtsldjGTXREQYG7L9Fo0oWfGlpQCBunhnX0N0woTkEyNeyGlBJXv354+cK1I6bCdmD4t+et5jDyTDSNc/uFyFGTX0q735weKJQzJr3/h56Tjc8ZJ1qj940UOZFCuc+Etuq436FnODT3H7JkIwm/5Glmzgjt5iw9cGM/HuFEPXB/t1PjVjeaaEwk/UH4xSmoPqKQb9VqptE5Rx4B+WKWigxPa1Eg1t+AD5PxoUZpNbBBAYuVIe4EgP3+Xkua9Oc+NHfor8IKQDDN1IT8nI/p2LwnqeZ3Yl5ZDn1BejfOD7pQFUeiFWZUlzGZ0Dhq80zTNAmfKtsHogCXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yEv/1vUa1ycDI9DEGEAWt6TnWK/WcxYVxV0CCOTNQ8k=;
- b=aJ1Rsi2BjodD80ZpC8IXeiBhZMl29IEeJWGRbMaa5VZb5AAuEtEXD7RqTuWc//Nap17ZqpjH7fEukgohTCV4dJi2wqWuVALQ/TA3ZQBP5lrfQc9tiTf0iuIshcGdugWOk7EUzpnfsmlyaDySwjaZdJCaJVzhxWMc6gSYEjep65u7YjMCWWDzne4QHY//2ShjmwrzLi59GwSTD+8kh/UVWNPe1u9f5ztI6+DH0+Yg30mn+2C/ewXwTh/KO6QzcrW06a+YjMbr7XgrlPRp0j+E1BLmN5had31TEmtYQsk1SzNpFjMNv3Nuvemk85PpdxQwpZSP64QY4NxeTIWpb/XWmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yEv/1vUa1ycDI9DEGEAWt6TnWK/WcxYVxV0CCOTNQ8k=;
- b=O5ncosRK6UnUZ6+n3tyxx1+FOT/lU81mLZ7xpaNLSRwiwKQnGR4PbbjCQhk0DKhXc2OdbY5a0Zq/6DPAuZkif9fSg4AiedpOrprxXyHGDAzjNNiDoVo6yg0kY/YDJNWjuws9QKEHiUO26kwrWFxi2XA0WRZILQz4ZrlIgA7klZhU+3QfSBb5P/lDv2r3huWaPn/1ek7RLM5hJ9t6vHjdPj6JoSSw09FgW+BO4e/RhD7kgsDa+stY7+fo4ASyoN7Q4ETPhthVxCoFPR8q56CQLV8wT3Kt1O1/FOU0lt7EjXVq30Rg/tMz4XpndHPM+EmjRObM3AJQswPwwglyeEGcCA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB8835.eurprd04.prod.outlook.com (2603:10a6:20b:42e::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Tue, 21 Jul
- 2026 21:36:02 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.009; Tue, 21 Jul 2026
- 21:36:01 +0000
-Date: Tue, 21 Jul 2026 16:35:51 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: han.xu@oss.nxp.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
-	Han Xu <han.xu@nxp.com>
-Subject: Re: [PATCH v2 1/3] spi: dt-bindings: nxp,imx94-xspi: add DMA
- properties
-Message-ID: <al_mN46VZcFqykpW@SMW015318>
-References: <20260721-xspi_dma_upstream-v2-0-9e19d80e7762@nxp.com>
- <20260721-xspi_dma_upstream-v2-1-9e19d80e7762@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260721-xspi_dma_upstream-v2-1-9e19d80e7762@nxp.com>
-X-ClientProxiedBy: SA9PR03CA0019.namprd03.prod.outlook.com
- (2603:10b6:806:20::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 21 Jul 2026 21:36:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C196760A65;
+	Tue, 21 Jul 2026 21:36:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 097721F00A3E;
+	Tue, 21 Jul 2026 21:36:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1784669769;
+	bh=TaZy8rWxizDk2i8wZ5hDa7OgOIQ8IUWkWFPcFtdx6zU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DQGUkwms88kKMNzryGv1Quff05APms7n5L7H90DmGKxsImF19zWP89U3NdmPNCh/B
+	 KUE3mn6NUboCpkRyVISKHM7zTpsRwwX6QgRbcdCb4+fsvh+bxcJwLrh5w2TePGdQWd
+	 V7UCQ6PRSmppav41WrBKRfAYu4umxo+Q6PnXDxyU=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ben Hutchings <ben@decadent.org.uk>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.1 0680/1067] arm64/mm: Optimize TLB flush in unmap_hotplug_[pmd|pud]_range()
+Date: Tue, 21 Jul 2026 17:21:21 +0200
+Message-ID: <20260721152439.810335999@linuxfoundation.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260721152424.521567757@linuxfoundation.org>
+References: <20260721152424.521567757@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8835:EE_
-X-MS-Office365-Filtering-Correlation-Id: 03266f49-9dde-4d58-9e0a-08dee7700f64
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|23010399003|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: +U8MpErPqUi4n4y9V43ybQEd5l5Q6GPfxN1s/h05ahIcQkBuWLVQEVfyI/Q4HN5nL/L5YMEJek6j6UJX4q7oNsxfLEivBy2zatBGZHUAHaEvOgwvWRsfN9fmzuZ7Dh68KYDqM2VrFFAsJ7HmWUY4OhpJ1nHJ21CUldu8GWSX0MTD/IBqCdNs4BptV+MdlC7SNmctkas1egYZzl4RfUdzw/Y/ShPUn41r7MtwycY6d/juEjdZdjHrpz6djzPEbLRT8PM1Iqp8w8ZXfBavwLyUtw7oDm2vxSADuxyCrLJOyoTIOIgQcOVBS3TUAOs31FkypLG+rRXyI7+xSipgaakEucUh6e6A9Nl5QKIDBbqdzpGyeJk4Ex6bqI/j8luNxfuUyOrezfI5mFuqSMopzhJuBgIuOTXqqpIxcA9TENXBBR5R23EY8f5FhRpCzAy0ssu3KK75bnp5+h/0Qj0S5MFBh6XTueC9+zbUUCsL2vGFggGgQvTcTbpE84RjUBhrQM1W0FdNqiaOeLJrkeUrD1c/0ILEnCARux05jf8BZ7bKbzUBehovOeAiiEq5cZ/zXec4KIN3D6E3MLAPP/2mCEMR/q7TLpkgLDMTLGuuPbe6xSYT3lrpy7QCQncO0MZwMR1lu4g0w5Rf+i5G5qcMsaDB6SZyBHGJ5bfJw+Z2+BYgNrE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hZ99CxIrREySNYPQfzkxxGQPU7F78CaW7mAQ8Zl4Kx82P/Ek65KzMdTp8M4G?=
- =?us-ascii?Q?Sv8ePxSmoFjnRrr95rJMXN4l4AZDrdKMycvW9KdYND9Sg8jFF8/g5oNLF9nt?=
- =?us-ascii?Q?g7C33Rxvt52vG810LAVa2RuZsyVLilw4w89o5umz2bAATNtASC4+mqdLA8r8?=
- =?us-ascii?Q?0xwX7MhAu3i5PKeW7lvEhfEV4x+DOHivuYVMe2XxOrQZji4VkkXFNj2X6cqR?=
- =?us-ascii?Q?OY0CnsEaZKrK9NhJpo67SVhZnXIAvs5+8AfdfeZtsGW1Moxr/J3r9HZlBTQk?=
- =?us-ascii?Q?4cqQ60yWsuI+G42KDHBgqabI10nSQnFUpIrUDbDJbVc7FAmMZVzj0YGMklXC?=
- =?us-ascii?Q?3PaKSq3WyILOSc2Y0XvOrkpDKiz1iHZA5VPxbUOV04yGg5pev2WdcU9Uh8cn?=
- =?us-ascii?Q?Xc4Oc2x/Bt40P2zPSZ8jmK1XPGhycefujCqx93JRypBbECz9YCvXbF9n9Op7?=
- =?us-ascii?Q?9oNIuX+LZKs2F6C+fjfs61OPVxPAu8s/JNELECqt9uVf8QtxRx5caNeltyCg?=
- =?us-ascii?Q?D9HjHGy8eB815xRlVFMDcaJ2YZ2gvsqvSzeEdIGNywU7ae4R9oAkOXU/zZ6z?=
- =?us-ascii?Q?9uoHeN3dNfEczeDrex29aeRqSFIz+46Hv2aydF0U1xBU9K7JIxm4sDUA9SAP?=
- =?us-ascii?Q?TLvuJZ9T1zSoNYWE6CD3Cdicodgcnbqdrb+0wGM6ZjrW05AMPA9MukA7a8lR?=
- =?us-ascii?Q?yUC4HLA2lphzqhxh7uY6Tjb08+ekflEBoEoPFQ3/LvJl3JSr1QzhpPv3NZXz?=
- =?us-ascii?Q?S2t5eOiHDBJDqODftW4YCPT+gdiB3+I4nsscx+6Do78S6ug6iOREJTgcczmK?=
- =?us-ascii?Q?1poXms87OUkjf4vvuLbsxZKdjeFTdlRu13ieLGyME6s3QyAvWbVgEZJnKsK3?=
- =?us-ascii?Q?s58OcY15GXpeHZtMEZ9Sp21GwpUQo9mwiXEJ3UoeuN5JI88/0+LcubogKHFl?=
- =?us-ascii?Q?vhU2uxZragqbpWOtPAREG0hVcfvtf/6cPG109KzxflbAQkqOb1E1DDsn5hPW?=
- =?us-ascii?Q?z7fbuk3YEMynCkvEM0RkPsR4RuSxzIf3MwZfSpRE0OshasrdGU2iwlxlsWAl?=
- =?us-ascii?Q?nAXz9opyi9LcTwexorShX8z9hbERXlFHX1IxtmslpDcNKTvn9A52sZ4SAHyO?=
- =?us-ascii?Q?qu3QqUCsCN8SnPM4kFW/9At+Qx/ABmcYTJGCHQVbDfr816N9qCi5MDShH/LM?=
- =?us-ascii?Q?y2FSwcfLA90DomgtI7b6tmv4j8kxcW0PzS9X+oy2Lw8N+Q4/csdghtnRKm3b?=
- =?us-ascii?Q?qZyKWInKEjfB1MC2S9u1kwmLk6qsiwFfmQ1mMenGGec/Ak6/y1jWuFIhhtlw?=
- =?us-ascii?Q?QvUPoEE7zNASruqFPya1Isjb6D2x2cFDtB/s8zIzxAgLiJjeTeaHVT7WbDzB?=
- =?us-ascii?Q?dJVj++rSPSOYlcwsmQ8xdNLI+zZyNom3KKYNiLjWS/r19bYUx/ZW07cUUQP4?=
- =?us-ascii?Q?6Gz/t7DP6PGoX5bnEX/33P5iJOOKFgh65WXS6Gdr/HLqUkOUj3iUETjpjsWR?=
- =?us-ascii?Q?RnepzZix6tUvdCjv1hPIAIEGpXL2+Ky56hDammJQyWc1j3k7h1dvRBMbXy8R?=
- =?us-ascii?Q?8k8xGkCsdNT5LIZGgQWSy1VDoO0Tr7CY0cZRK91pYcrl49lUkKCyqYGaf+JF?=
- =?us-ascii?Q?CGomUhKrvx9cZv+P17idP7qIXNXfJ/M5timUQzOauZx4epCznbvxw/O4Ri0L?=
- =?us-ascii?Q?uvJRSdYbJo2SU/+e1iPb/nG20UY6yrihTBGnRiIEpoFb9skW572KeQv7ngew?=
- =?us-ascii?Q?6v7BnTXsu9X+1f2ftYBpXTNBkZKmneMNwdnc33zWe8V/zheOvfj9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 03266f49-9dde-4d58-9e0a-08dee7700f64
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 21:36:01.5588
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fXKxFNADCg8rGsgoibxKsZNyQzcdYv/oL9PlZCut5NN8Yg/iS0yuvrVSKbuNGfjWkyB2USneVqhgq5BN8l7puYEY6ViirBdDvJyVDP1SWyjkM767PO4JXmYyg20g49wi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8835
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_143605_744087_3F29020C 
-X-CRM114-Status: GOOD (  14.51  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,44 +77,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 04:01:42PM -0500, han.xu@oss.nxp.com wrote:
-> From: Han Xu <han.xu@nxp.com>
->
-> Add dmas and dma-names to describe TX and RX DMA channels for the i.MX94
-> XSPI controller.
->
-> Signed-off-by: Han Xu <han.xu@nxp.com>
-> ---
+6.1-stable review patch.  If anyone has any objections, please let me know.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+------------------
 
->  Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml b/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
-> index 16a0598c6d033..ccf841f194c06 100644
-> --- a/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
-> @@ -30,6 +30,16 @@ properties:
->        - const: base
->        - const: mmap
->
-> +  dmas:
-> +    items:
-> +      - description: Transmit DMA
-> +      - description: Receive DMA
-> +
-> +  dma-names:
-> +    items:
-> +      - const: tx
-> +      - const: rx
-> +
->    interrupts:
->      items:
->        - description: interrupt for EENV0
->
-> --
-> 2.34.1
->
->
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+
+[ Upstream commit ff4c5a0de1f2ef7737a8688a86e19301e567020d ]
+
+Commit 48478b9f7913 ("arm64/mm: Enable batched TLB flush in
+unmap_hotplug_range") inadvertently introduced redundant TLB
+invalidation when clearing a block entry, resulting in unnecessary
+broadcast invalidation on CPUs without support for range-based
+invalidation.
+
+Re-introduce the old behaviour, along with some expanded comments to
+help people working in this area next time around.
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Hildenbrand <david@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Reported-by: Ben Hutchings <ben@decadent.org.uk>
+Closes: https://lore.kernel.org/all/b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk/
+Fixes: 48478b9f7913 ("arm64/mm: Enable batched TLB flush in unmap_hotplug_range()")
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+[will: Reword comments and commit message]
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/mm/mmu.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 3d7f9732201667..72fb70f2bfb203 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -956,7 +956,13 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+ 			if (free_mapped) {
+ 				/* CONT blocks are not supported in the vmemmap */
+ 				WARN_ON(pmd_cont(pmd));
+-				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
++				/*
++				 * Invalidating a block entry requires just
++				 * a single overlapping TLB invalidation,
++				 * so limit the range of the flush to a single
++				 * page.
++				 */
++				flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
+ 			}
+@@ -986,7 +992,8 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
+ 			if (free_mapped) {
+-				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
++				/* See comment in unmap_hotplug_pmd_range(). */
++				flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
+ 			}
+-- 
+2.53.0
+
+
+
 
