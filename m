@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E7AC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF99C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iB/b1UwOtaJbSu+Pxa91MlG9Tvt3hYteyZAnxyw6gmc=; b=Xbdt+42hMeXvPHEsrnISCkLBbh
-	lPOTn/C61Dd0bd9AHEpB3RlSYwwR2sip9Rb1JlB9kQVPrVsEKdR/vkiOMAb8PNQp/NR3mJZbW5eDc
-	8Fr2qEgq4B31hfDn6uNSzVCuPbP6fasl5d2K3jc4ko5jHrAVj7O1VKLFcq5EWXn8EhuWvIABm2md3
-	JYozGNs5Ls0AQCZx+0mFbFVLiEOmjnJxqwKo2wWWn2ZkNgBSplYq6qqAvGeHBDCt/R/TJ2qMF3fjV
-	hZlbm87jHfHc+794LiOF+AzXpeOo0WNupmJNYEvt2mL2zY+wVh3Mly2J/refec/ye1+2qYvtIlF22
-	wxJ9T0VA==;
+	bh=GQM4Mm47yMEmIT6b1wnTem0Gf2XFWVVbiJS5sqXl9oc=; b=EKl4jtvBz2rvG0Rb7xh+TSFHJ4
+	libFnAoxZwZ45EIlSHSurLABqzFhJ0ROD3v8tMAH8I0pjf0dK5S9u5mGPwsbFmppATI1A7Bxyt1Uq
+	j3Km/Q92yFkqZEt2NqO2D/GOu9Qqo5/LcoC3qJnPd9zlugSnkRFsOzXhIK4YORw//ZwjlZQCwS7O3
+	Qk6CStU18X74K8SncX9da183P+l72kuJ5qqdr7UDpJ8CckFFymay8tWLiR+15JsSMhETFI58hcMVl
+	/Qm0LdQaF2OiLp5AdsrrFUQ/Y8iQXZxQXRfTWHBMvGM3LiQtV8Ke41mf7VwxLhTolMH+ZaVTIgE9m
+	YqZSLXaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmALl-00000009VCA-1tXu;
+	id 1wmALl-00000009VC2-1GuU;
 	Tue, 21 Jul 2026 13:17:33 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmALj-00000009VB4-15pa;
+	id 1wmALi-00000009VBB-3pRQ;
 	Tue, 21 Jul 2026 13:17:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1784639846;
-	bh=R8nUNIgTuASw0mfyVytVdcuNkU/oD+Zh6pHVC1/b5gs=;
+	bh=yp3M1gHt3TXHTEHMMHAEKyTfvSrpHVNKd7x50BdY3rk=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=qK7Pv3RBLBhBo2vXcfS4EkPcVoUCSfA4JqVkzR/9Ib1xqM2AxDJoHQ15tq2wzHm11
-	 ZHEtoLUhjleO+j8oT1eUc8eI99pA17FCnIOIK2YeKpvQXGkvs7A+iRBrbWO7kxXHDk
-	 2levvTtJb3tPEuL+vwoolSyewp6C1ofupQdCh8HbPgRb9mXvRFt2GrtKlJA11qNep3
-	 pFeMABjGE04bSdUlr2d2DZ63r64ulGe9mgfRululaRhOxWedlZQBIqgkniO8ZV3x/B
-	 0g3wc8qJV+5usCHYbHQnLsN4xsxwvST1hm1QYahG4NviKlB/HBsyiQo1ESXRjZSBmI
-	 F7k7l6CotV8wA==
+	b=JUCMIfT6jo2EwwguVRvnzjZrX906A1e9E0WM/Wa18e7fj7F6ZE4kQOYJnj8YJiWg+
+	 Qn78jg84qkqn/i2KqsUlPQhHFE8mhN9UiEq5xmzJoAqh6AifkBGShwwYUQguC0+4rY
+	 lC0dOaRoDyuX/Fa5YzUeiOIUZveF8ZFz8h6Ut/OqZ9OnlaOVSIjNDFqKnVRR0i4KC3
+	 m0AwHElNIHm7la9dMa5xRgkGn18bCqWun0i2p45Yve8+RXXcp/wIs763gUSObioDC3
+	 5k2JgS7jpRe82Rgq9dXKzRMD6SBMZbj+z3CRSP44hUYlFQAb9KLE3Wg7Oahu7pGCHd
+	 bWtF+2L5X3giw==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F23EE17E0910;
-	Tue, 21 Jul 2026 15:17:25 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8640617E0912;
+	Tue, 21 Jul 2026 15:17:26 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -51,18 +51,19 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org
-In-Reply-To: <20260601-mtk-genio-mt6359-pmic-supplies-v1-0-05750080ba59@collabora.com>
-References: <20260601-mtk-genio-mt6359-pmic-supplies-v1-0-05750080ba59@collabora.com>
-Subject: Re: [PATCH 0/3] Mediatek Genio EVK: add MT6365 PMIC supplies
-Message-Id: <178463984593.189936.14763316551159324622.b4-ty@b4>
-Date: Tue, 21 Jul 2026 15:17:25 +0200
+In-Reply-To: <20260701-mediatek-genio-mt6365-cleanup-v2-1-78e3d63b8c05@collabora.com>
+References: <20260701-mediatek-genio-mt6365-cleanup-v2-1-78e3d63b8c05@collabora.com>
+Subject: Re: [PATCH v2] arm64: dts: mediatek: mt6359: use proper compatible
+ for rtc
+Message-Id: <178463984650.189936.3448118682583676840.b4-ty@b4>
+Date: Tue, 21 Jul 2026 15:17:26 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_061731_454911_8B08E9B1 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20260721_061731_109027_8C04F3F7 
+X-CRM114-Status: UNSURE (   8.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,30 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Jun 2026 16:15:44 +0200, Louis-Alexis Eyraud wrote:
-> Several Mediatek and Radxa boards, based on MT8370, MT8390 or MT8395
-> SoC, integrate the MT6365 PMIC, that is a MT6359P variant.
+On Wed, 01 Jul 2026 10:38:21 +0200, Louis-Alexis Eyraud wrote:
+> The MT6359 PMIC include file uses directly "mediatek,mt6358-rtc"
+> compatible string for the rtc subnode, but not its own compatible
+> string.
+> Now that the "mediatek,mt6359-rtc" compatible is properly declared in
+> the dt-bindings, use it with "mediatek,mt6358-rtc" as fallback.
 > 
-> This PMIC dt-bindings for recently gained property definitions for the
-> power inputs for its various buck and LDO regulators ([1]).
-> 
-> The goal of this series is to add the supplies for this PMIC regulators
-> in the following board devicetrees:
-> - MTK Genio 510-EVK
-> - MTK Genio 700-EVK
-> - MTK Genio 1200-EVK
-> - Radxa NIO-12L
 > 
 > [...]
 
 Applied to v7.2-next/dts64, thanks!
 
-[1/3] arm64: dts: mediatek: mt8390-genio-common: Add MT6365 PMIC supplies
-      commit: 917b5c98d768a47daff91f2d21a000bc3e24a7a4
-[2/3] arm64: dts: mediatek: mt8395-genio-common: Add MT6365 PMIC supplies
-      commit: cc90ec9b892061a3e4dbd4e944e18a81758da2ff
-[3/3] arm64: dts: mediatek: mt8395-radxa-nio-12l: Add MT6365 PMIC supplies
-      commit: 759e989b840b4c2ffdb74cf1e1da0cee66e89f4c
+[1/1] arm64: dts: mediatek: mt6359: use proper compatible for rtc
+      commit: 3dc552c1bab6e83bb45af0a49f3a900845a24495
 
 Cheers,
 Angelo
