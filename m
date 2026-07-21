@@ -4,147 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A04BCC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6090C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KsWcVMJwJ2v5K6dzKusBzpR5lVUpfbb9D8XZrMSTi04=; b=amz4rROaJybfpF5RSuO/RHZEur
-	gfzjfKh+wsMxuyN+M1ETefktgbXqcL+68a+sT09mopvRMWBnCw+EQWeolxxEHS8YfKL6wlBem3ohT
-	JpVhP/LN4A2YP4mW/HFnRDhzvglKBwZXoixtjh6c82g0b5ZO8KgAWUsKUmUD1GEhv1zB3jZxUdikM
-	yFYu92ErZjP/iA+q0uZNMItQEzfO41zVVoKpuWxCmdC/84MWHByJmZMlql699LwzwWkr5BGgaw7DK
-	Ps3g41UX3Eplx6WLnzB5LYdCZh5Bk1K9SpcQOKZlfek01qIx/UyvuOR5HZkbc7J3+KFgdrAcO3nVf
-	0nViYbWw==;
+	bh=HYMCpupp8yQkTntIzJ+s6xUACTMSRm9maqPbU9ARNc0=; b=PV2YLN95TLe5bdKo2LCfwebLZe
+	kNY3D7B/5M6cQ/LaJT9axy1xr/FYX/sbnFbvabus6hHaahJWOByizPmYfY0jDIynRkoG0DvhfcLOg
+	Zg4KxqHVk/O3q9KkUQkt41knVUK6lG/psRVTRpnMAF3JqIdBRz9AcEKGYSvT8gW3kKp07O+usOIzt
+	VP3ZqKH8GLTkr+ASkzIncJhi5QH5fDRq5gFNEMYynzpSiUS+xo8REUQrmImz8W9lMZBiwqZKBgdkl
+	lV0hKIdmKFHJZljoBr8ZG9pNnF3U8tk8uEeM7DyYsTD4Xi4IJsJMxdlrH91pNwIT2YeWygQqSERMZ
+	SSi0Bxww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5jt-00000008o2c-1CLc;
-	Tue, 21 Jul 2026 08:22:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wm5kB-00000008o6X-1oCV;
+	Tue, 21 Jul 2026 08:22:27 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5jq-00000008o1d-1S12
+	id 1wm5k4-00000008o4b-0JI3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 08:22:08 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66L6SesX3978764
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:22:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KsWcVMJwJ2v5K6dzKusBzpR5lVUpfbb9D8XZrMSTi04=; b=R0JoYaJJBWBswlFL
-	bDt96RZe/Db2JSAkLola8cMVGdYdnVlLgA02vGpGIntAOgfxcRKYH/L8ChPBX74X
-	MXReYeJ8erk4qCDYJCh+FACaiamNN60GQlFCorU4OKfFgnVa/mYEGR2n+0CTCx0h
-	vRz5Uu5HAUfNoGhNyh6Q/AVA7a8dG9Unatm6VGnHmVkBT2veQM+N4xl+5wcYtse2
-	pTMJRXOOTg5AnxA1ie/rZSvGAi1o+mUATnNo27GNDblSIvWfS3mUesJggZ0VPnsz
-	O5KYuyZ5iuhj6/FepSnATG1lPaT07RcHQbozmOUzfoAPX4SvpBrKUQfryiCP7m9C
-	brcUIg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhqv437y7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:22:05 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ca5d2474c7so199311975ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:22:05 -0700 (PDT)
+	Tue, 21 Jul 2026 08:22:21 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-81e8fa1b8d6so112132957b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:22:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784622139; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IXgc6DMOX9kVmlg5UcF5AwFfEAqIcknBDzOlhX8F2+5gassN+PjJwyyWA5sh3ZDxh6
+         my6WxASXvr1FjPBAR+dQL1bdq5HByl3+PcWA2l+4x/p3zZlnGnVrsnThLy5lrMQJHSur
+         iKGXiaWN31pR5c46h8agMe9iKcHJFHh2Ft2UgZ7IeiCLbZ8zvXuHrlvZbrfdGJFOfnRh
+         pTgnTCfDSZcwMNH99FonpHOo0WpWm+vLospCO14rkqZ8+Nt2QdwWHl3dOUf9hEbkgZ3s
+         CbyMZfXsAvq1TBp1l8V7V1EFz050Q/L9FfVJPcrHu+KrmacRgJPvgpJDHlG/rubeuVad
+         M5kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=HYMCpupp8yQkTntIzJ+s6xUACTMSRm9maqPbU9ARNc0=;
+        fh=bqp4WzUfUY9RDeWItq0cA1bRs5Ai9wCSaD3UxOtNRVU=;
+        b=FlV9Ski1HDT2v7MO+MpvItf+2e3pijVA91rq5x+pCuc4wbmKwgH+1084PDBj4LRZQg
+         +NPvUxp9AlAq/cCg+g9CbqZ8+L3nHrpOol6O30eJBO19hnPhAuW0vWuTxqj2L38OgdeH
+         xNAYr7ADGudrYKVe5Xugv9riADsN5L/+4kYqqibDa9re59jgWZC4+iVvGbYoqiYN0wkn
+         VIjMpOCK9IUwllNCWeV6fHRlLIySydrbkpzbNKhvc04uWNiftdxcVyeLFxp8oeifEe+2
+         f2uWafVCC6G/a7JxzQ1QbimZEG/S5VnRC35W3Z480wCL0hSPc5IKFYBDEjYQoDnuux+x
+         mxmA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784622124; x=1785226924; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KsWcVMJwJ2v5K6dzKusBzpR5lVUpfbb9D8XZrMSTi04=;
-        b=a6GGJIQ6I3QISRGS3W2q1eZbCcdltnA/A1A4mDRTkKlnWQ+FpmiaY/R3VRwr3W8ZC5
-         txLMG3192+SvGvzFwdYmDCSGaqJlMhVgUv0bXsEp8Jw++Ae5zqRFjhK5n7z1r7GdFIK5
-         xyqidPeL21BzNsIvi+7vlZyBO1TGvaZVHiblMvDuIPWVsGVT9jroRIwZ/oCe7qqbtykV
-         QJjT7ZLvLOZQvhbwGf5ZrDEC7fph/bc9Ikck5W7UPN42XZ4Ina1mLoulKZKOUraX8k0A
-         60dvOjsLTUrQqKX/0egcGmxyXzZyZXWkB0kmp+zJetl661THr4Os77Xx5fP/DF2NULZn
-         T72g==
+        d=chromium.org; s=google; t=1784622139; x=1785226939; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HYMCpupp8yQkTntIzJ+s6xUACTMSRm9maqPbU9ARNc0=;
+        b=gBhSiQPGAXf/RILi3RQMdNdQO2S59nmpU66EphBylSX9Nw1YzzpC5DU5uPyPSqfjuz
+         YOnHLH3BpGhCHMxdyOmIGcGsIZhTbv/wlZgaT63ghiKCyUvANXBTZJ04Ey+xsaMuT+/W
+         J52rrjqo3D8uQ5TZfkPTmYOIIfM5sMoY8dNgo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784622124; x=1785226924;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KsWcVMJwJ2v5K6dzKusBzpR5lVUpfbb9D8XZrMSTi04=;
-        b=kn6cYz9yv5RxtVyh7s3uXCXUo1xTATm50coADM2o89pci2jIFSPR8Yfh17R5xWJhdR
-         uZj+FZLpx9ybE+35Lu8yvBeNac8q0anGQFpezj7rBK/hVXhPil8P9k4Ut/Yg71YxMYmf
-         UMDxMnqmAgNVfnJPnemkLMMA6ZT2reMp94Y+AH8sEgpi9nq7fu8WBdS73aF59qUu4ZRl
-         TuDgTwwhuz4t54PAkpc9jevaQOEhPOv21fnmzwOS87bbYFHVX+hrREu/Er/nubZhQfEZ
-         e8olf//mmZFov6csKE+VAeKuEa8qeuHiJwMTLZbx6tPPOZlN+61P7WzjTZid6xNZowlS
-         tk7w==
-X-Forwarded-Encrypted: i=1; AHgh+RqqqdV5MYpgzd8acS5Q+0yrIEweNWZG9/5+aIXaZXXUEeTw4xQk44bEwq2vg6bmq93TDiuUkFsIP1XklVBqUhB1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBbkitcSWcJ7mWloWIbdkmAdKjtJwtMSBqSjqRMrrT7DG3n0Ni
-	LrEzOtSQ9Fna51zvjYFvFcjs0x5gRheMW4AJuXStYnYO1d+DA/bulIwrDvz47YEGzTW4CKniBB1
-	pEJFgJRyYOr9QI3w9s2wEoQDe7rY+JzAZHcvWpuUxs+8gnngCl0g8oegvtyOLEOwFtvP+uNUjV7
-	2v2Q==
-X-Gm-Gg: AR+sD12WovJrPwEB+IoPr/Sfeo0EymVBiqE2Il8YzkoAGIl12zKzZLz5N4OtZTf20H9
-	+DTjBd/Gt9O95fNDbXDT0UMgs6YMrR3Wt4zoYVXMHh+i8pS0g8tAa//xn9Of5a4IB74Zgpbqkil
-	WMu6DY+CEdsd4yRmVDUSYLBc8W8jXhKplyUETHuNHbgBTnj822Wo0ofC0CAdM20y6PCJFumELsA
-	+ZKKRd06LTz/6ZSRhgiQwTJqzL4NmDAhcI5PZURXDcNhLZVPvbbaHdFUkazO6dEqMm7q19qViEV
-	fODjXkhj9kN2VnEeszGa7wnbgYVS8smqZkAedrPkst6LhQAEUFLtKyq0ioa6YqrIgw2/0cR2k/c
-	CkDKMXKgwE9hZCuAuYDKvsAzBvjVuEiH/uQ==
-X-Received: by 2002:a17:903:37c5:b0:2ca:5d9a:ecc6 with SMTP id d9443c01a7336-2cf3494af91mr190418465ad.28.1784622124136;
-        Tue, 21 Jul 2026 01:22:04 -0700 (PDT)
-X-Received: by 2002:a17:903:37c5:b0:2ca:5d9a:ecc6 with SMTP id d9443c01a7336-2cf3494af91mr190418205ad.28.1784622123656;
-        Tue, 21 Jul 2026 01:22:03 -0700 (PDT)
-Received: from [10.218.39.50] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3476ba24sm70079565ad.75.2026.07.21.01.22.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jul 2026 01:22:03 -0700 (PDT)
-Message-ID: <efd5167f-48bf-4dba-b968-d1dac65ccfb8@oss.qualcomm.com>
-Date: Tue, 21 Jul 2026 13:51:30 +0530
+        d=1e100.net; s=20251104; t=1784622139; x=1785226939;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HYMCpupp8yQkTntIzJ+s6xUACTMSRm9maqPbU9ARNc0=;
+        b=B/hPBAfFfSD2udXEtK2cIV5qyE/5amA6i1DjZaYsYsjAjxQegzY2FL5DOu35qWk/KI
+         g9a/f7FLw3jEzE71KA5/VtxjNvjaqWYw6XxK+jQ8ixj6wKAE/jM9ro0OvO6WKh7kvKvc
+         p6SZcn0CS/ttCxhKOQ/0ZlSljM26rCD4HxVwWkxx1ZRvasVhSIda6MWIjIwfN1ZMhTKL
+         /VAr7ao8cfgY1iZP2aIo+D9MZqo8C9UhjawBoeU5OdA6JpTjVV904NFe+ei/yMqIP/5c
+         tccQ39SiWxhIFSMR6uqUREiks5xYOX7+OumHAGasHLx8d5mp0rXlr6dbchbMHF+FfXf+
+         rANA==
+X-Forwarded-Encrypted: i=1; AHgh+RqRbgvE26q4cYKBN2YEvRjnKHHsGcoJqyqTLNwG9zPbBTImhxjcZdkLAmPhsH63yPiMQOKsRS9jGQh4E8ZQixOc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF4dti/YWh1U3/4z5DABMSxo92bzHwReHBim2PAksLHkmOpeKd
+	V19ik90m6DK7khmKCv9997H8c01eqfT1djNbwBIBf9zE50LRcej2DCFytZ2JcfO2NDoYb45y3iN
+	uq7uTsKAGzT1WOC/VYnxNvaVcGJ9g0SPVqW1GdRhMcbBHnLR5vYJCLw==
+X-Gm-Gg: AR+sD13lWn4NkEFXRJzGoq8JAedkSbZUOvQ0xPKrhdw6aJJvg4c5q9IjOGhIXAhnV1z
+	cHAFiQwV0cwPGq7a1j8MPGum+tPnbX3DZS/LtcDyE+l+UDuVe2vPWyVzsnX1wDHC44ItQaLR6YT
+	s/IeDB33mhbu3ZQJFgG68YVrtBr8PhW1OVYcF2Qv6hbOdadPYXlr+fBhGyYnmOo6U70oCcUsECh
+	mfIXYXyQQDUDkemTpfhACWXKYhpdwgaqBZcLoFi2DAowIhuVpiaM99Q4ye07iJYB6FT6+bNWlr1
+	fr8M3V2OcAtMGLZWoJ3pmIvjjw==
+X-Received: by 2002:a05:690c:7342:b0:81d:cc00:cb8e with SMTP id
+ 00721157ae682-81ef27f1cbfmr54139227b3.37.1784622138845; Tue, 21 Jul 2026
+ 01:22:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Add support for contiguous hint bit
-To: Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-        linux-arm-msm@vger.kernel.org, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-References: <20260618-iommu_contig_hint-v1-1-4502a59e6388@oss.qualcomm.com>
- <20260703161228.GA1948451@nvidia.com>
- <b7224dff-7e51-49cb-8421-14d090492dfc@oss.qualcomm.com>
- <20260715113913.GA3775915@nvidia.com> <ald3CuddY6I7gml1@willie-the-truck>
- <2ce09e84-c57f-4087-9dda-07245fadfc02@arm.com>
- <20260715125039.GA50536@nvidia.com>
- <d20d258d-d970-4ef1-bbb6-cdc83fc20c9d@arm.com>
- <20260715180949.GD3775915@nvidia.com>
- <787fa0d3-c1d4-442e-beaa-91a03238f511@arm.com>
-Content-Language: en-US
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-In-Reply-To: <787fa0d3-c1d4-442e-beaa-91a03238f511@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: oDKPhGcpxlbiiadZp6LlLOfLk45Zrvg1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIxMDA4NyBTYWx0ZWRfX8M18e7dlN+oC
- UWyqE4J+I+p7lvpN++TBwjI/B7KwrkWrrj4xaHJpg3/YbSaf+6m0C43azYmxCOuWDLhrpbfgggv
- 4GR1ybH1ar/DXK9UKSOI7JVEes4A6Wjm7hnakqnScywwp5eiEnJJuu38p/YvPARGPxBWFfC/nth
- c/JfXUxLVd4cv8PI1r0ans/b8j1X/g1y3zyr11ktIXrY+wgahC5B3wQuA3oOZ8BykALQzMTc5OC
- 3T0jvs+FLcK2n4VQdWGc/9sGiTvbJmmYag8lVfSCqctw31ivJXz1nVFs4VzowYk07a30+ETFiMh
- pvUzGPcewvZT93d+PKtUzakjpp2BWhGZtf3CsSqH167NqYoYypuDyLd6Tp44g/3LtV60Jg/nhRZ
- +Z4PxieET0BzxiXmrdOmTkpow6qPL59+scl2Ubx+XUy/b1o6c0eqdY8TJhV4nsbNpqVXqbu2K8u
- 7MstWMSjoHJGlzaLf1Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIxMDA4NyBTYWx0ZWRfX5Vh6mNbKhqBB
- rQ9f989BhbHfH3DKX46PQpZ+zMUOt6UamVrJVWGB384cqZNeTGYdhNbMNPB+HPlJamxuAPDubF3
- CQSBEgx8oIPoXiQzQUGBIDuNklHh3k0=
-X-Authority-Analysis: v=2.4 cv=daawG3Xe c=1 sm=1 tr=0 ts=6a5f2c2d cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=sSvbjkl6__CUZ7MaMMgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: oDKPhGcpxlbiiadZp6LlLOfLk45Zrvg1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-20_06,2026-07-20_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 priorityscore=1501 suspectscore=0 malwarescore=0
- clxscore=1015 adultscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607210087
+References: <20260721075226.2347933-1-wenst@chromium.org> <20260721075226.2347933-2-wenst@chromium.org>
+ <20260721080829.4153C1F000E9@smtp.kernel.org>
+In-Reply-To: <20260721080829.4153C1F000E9@smtp.kernel.org>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 21 Jul 2026 16:22:08 +0800
+X-Gm-Features: AUfX_mxfs-owsFVntpy2TfnfT2PivUx0k_MVeEmOEDZDOObrM7yQy9fA6FUILhA
+Message-ID: <CAGXv+5ECnGRwdqRLQG6EQ_bqaezYCrMkczn=MP=wXfLhG3Sh=A@mail.gmail.com>
+Subject: Re: [PATCH v3 1/9] regulator: core: Add "enable and wait" functions
+To: sashiko-reviews@lists.linux.dev, Mark Brown <broonie@kernel.org>
+Cc: conor+dt@kernel.org, dmitry.torokhov@gmail.com, robh@kernel.org, 
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_012206_499977_B7F5BCE0 
-X-CRM114-Status: GOOD (  34.92  )
+X-CRM114-CacheID: sfid-20260721_012220_155953_2EF43D5C 
+X-CRM114-Status: GOOD (  30.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,66 +116,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 21, 2026 at 4:08=E2=80=AFPM <sashiko-bot@kernel.org> wrote:
+>
+> Thank you for your contribution! Sashiko AI review found 2 potential issu=
+e(s) to consider:
+> - [High] The prototype for `regulator_enable_and_wait` in `consumer.h` in=
+correctly names the delay parameter `ms` instead of `wait_us`, inviting dev=
+elopers to pass millisecond values that will be incorrectly interpreted as =
+microseconds.
+> - [High] Sleeping for the consumer delay while holding the recursive `ww_=
+mutex` for the regulator and its entire parent supply chain severely degrad=
+es concurrency, blocking shared regulators and serializing async bulk enabl=
+ement.
+> --
+>
+> --- Patch [1]: [PATCH v3 1/9] regulator: core: Add "enable and wait" func=
+tions ---
+> commit 73793dc0bdc3050ff22074a860d438d5d9cc0b49
+> Author: Chen-Yu Tsai <wenst@chromium.org>
+>
+> regulator: core: Add "enable and wait" functions
+>
+> This commit introduces new "enable and wait" functions to the regulator c=
+ore,
+> allowing consumers to ensure a minimum amount of time has passed since a
+> regulator was actually turned on. It adds a last_on timestamp to the
+> regulator device and updates single and bulk enable APIs to accept a wait=
+ time.
+>
+> > diff --git a/drivers/regulator/core.c b/drivers/regulator/core.c
+> > index 1797929dfe566..d14ce86d8f7bb 100644
+> > --- a/drivers/regulator/core.c
+> > +++ b/drivers/regulator/core.c
+>
+> [ ... ]
+>
+> > @@ -3159,13 +3162,24 @@ static int _regulator_enable(struct regulator *=
+regulator)
+> >               } else if (ret < 0) {
+> >                       rdev_err(rdev, "is_enabled() failed: %pe\n", ERR_=
+PTR(ret));
+> >                       goto err_consumer_disable;
+> > +             } else {
+> > +                     /* regulator already enabled somehow, but timesta=
+mp might be invalid */
+> > +                     if (!rdev->last_on)
+> > +                             rdev->last_on =3D ktime_get_boottime();
+> >               }
+> > -             /* Fallthrough on positive return values - already enable=
+d */
+> >       }
+> >
+> >       if (regulator->enable_count =3D=3D 1)
+> >               rdev->use_count++;
+> >
+> > +     if (wait_us) {
+> > +             ktime_t end =3D ktime_add_us(rdev->last_on, wait_us);
+> > +             s64 remaining =3D ktime_us_delta(end, ktime_get_boottime(=
+));
+> > +
+> > +             if (remaining > 0)
+> > +                     fsleep(remaining);
+> > +     }
+> > +
+>
+> [Severity: High]
+> Does sleeping here while holding the recursive ww_mutex for the regulator=
+ and
+> its parent supply chain cause concurrency issues?
+>
+> Since regulator_enable_and_wait() acquires these locks via
+> regulator_lock_dependent() before calling _regulator_enable_and_wait(), t=
+his
+> sleep happens while the locks are held.
+>
+> In cases like regulator_bulk_enable_and_wait() where async workers are cr=
+eated
+> to enable regulators in parallel, won't this serialize the wait times for=
+ any
+> consumers sharing a parent supply, defeating the purpose of the async des=
+ign?
+
+I suppose the fsleep() needs to be moved outside the lock region.
+
+So instead of changing _regulator_enable(), make it return the last_on
+timestamp, and then act on it in regulator_enable_and_wait() after the
+lock is released.
+
+> >       return 0;
+> >
+> >  err_consumer_disable:
+>
+> [ ... ]
+>
+> > diff --git a/include/linux/regulator/consumer.h b/include/linux/regulat=
+or/consumer.h
+> > index 56fe2693d9b22..a69157c9b5b51 100644
+> > --- a/include/linux/regulator/consumer.h
+> > +++ b/include/linux/regulator/consumer.h
+>
+> [ ... ]
+>
+> > @@ -192,7 +193,7 @@ int devm_regulator_bulk_register_supply_alias(struc=
+t device *dev,
+> >                                             int num_id);
+> >
+> >  /* regulator output control and status */
+> > -int __must_check regulator_enable(struct regulator *regulator);
+> > +int __must_check regulator_enable_and_wait(struct regulator *regulator=
+, unsigned int ms);
+>
+> [Severity: High]
+> Could the naming of this parameter cause consumers to inadvertently pass
+> millisecond values that get interpreted as microseconds?
+
+Yes I missed this part when I changed the API to use microseconds
+instead of milliseconds. Will fix in the next version.
 
 
-On 7/16/2026 5:29 PM, Robin Murphy wrote:
-> On 15/07/2026 7:09 pm, Jason Gunthorpe wrote:
->> On Wed, Jul 15, 2026 at 06:45:09PM +0100, Robin Murphy wrote:
->>
->>>> AFAICR the biggest issue with arm-smmu was it using IO_PGTABLE_ARMV7S
->>>> as well. I think it would be fine to implement all the unique LPAE
->>>> features it needs in iommupt, I did most of them already.
->>>>
->>>> I do have an ARMV7S implementation for iommupt, but I did not solve
->>>> the sub page problem. So while it is functionally working it is not
->>>> usable since it wastes so much memory. That's a tricky problem to
->>>> solve since the algorithms depend on the gather->freelist.
->>>>
->>>> I didn't spend any time trying to do anything about this as I was not
->>>> intending to touch arm-smmu
->>>
->>> Indeed between the irregular table sizes (before you even get to the
->>> Mediatek shenanigans...), and the awkward GFP_DMA limitations and/or reality
->>> that many of the systems using it really don't have memory to waste, I'd
->>> have considered v7s pretty much terminally incompatible with iommu_pages and
->>> the abstraction that iommupt is trying to be... :/
->>
->> At least Matthew has talked about having a sub page allocator with
->> meta data, maybe with the memdesc support someday. Even today we could
->> have iommu-pages allocate a companion struct pointed to from struct
->> page that was sized 4x so it could be used for the freelist.
->>
->> There are some other options for alterantive algorithms that could
->> work without requiring the free list. I had some thoughts about placing
->> the free list inside the data itself as a non-present entry.
->>
->> It is not insolvable, I'm just not sure it is worth doing vs leaving
->> arm-smmu to keep using iopgtable from ARMv7.
-> 
-> Yeah, if you did want to keep bashing at it, then ultimately there are at least a couple more short-descriptor inspired implementations in exynos and omap too, however at this point I don't see the cost:benefit ratio looking at all favourable...
-> 
->> Otherwise to have arm-smmu use iommupt you'd end up with two
->> iommu_domains specialized to 32 and 64 bit page tables, with their own
->> ops and a shared invalidation like how the tlbi struct is providing
->> for smmuv3.
->>
->> It is not outrageously bad, but it certainly is a chunk of work.
->>
->> If the goal is arm-smmu support of CONT then maybe there is some merit
->> in doing iopgtable as a one off feature. But there have been many
->> attempts so far to add CONT and they all had troubles, I had the
->> impression is is not so easy..
-> 
-> I think now that partial unmaps are firmly ruled out and we already have the multi-page map/unmap design it should be pretty minor. I'm also more than happy to stop there, have dirty tracking, splitting/merging and all the fancy new IOMMUFD stuff require iommupt, and keep io-pgtable strictly for the GPUs and "media" IOMMUs that only need to keep providing map/unmap/iova_to_phys for iommu-dma or equivalent usage. By now I'd also say we can reasonably park arm-smmu in the latter category - while technically it could try to support stuff like nesting and vIOMMU (at least on MMU-500), the hardware is in embedded platforms which either don't care at all, or at worst where virtualisation is Xen's problem not ours. As far as I'm aware even the NXP Layerscape platforms are happy with the status quo of just basic VFIO type 1 for DPDK.
-> 
-> Thanks,
-> Robin.
+ChenYu
 
-
-FYI, I've just posted v2 addressing the review comments from the
-earlier round — it doesn't touch the io-pgtable/iommupt split discussed
-above, just the CONT-hint quirk in the existing io-pgtable-arm code.
-
-Thanks,
-Vijay
+> The prototype here defines the parameter as ms, but the implementation an=
+d
+> the parameter passed to ktime_add_us() inside _regulator_enable_and_wait(=
+)
+> treat it strictly as microseconds.
+>
+> If a driver developer passes 10 expecting a 10-millisecond delay based on=
+ this
+> header, the core will interpret it as 10 microseconds. Could this lead to
+> hardware initialization failures due to premature access to unstable powe=
+r
+> supplies?
+>
+> >  int regulator_disable(struct regulator *regulator);
+> >  int regulator_force_disable(struct regulator *regulator);
+> >  int regulator_is_enabled(struct regulator *regulator);
+>
+> --
+> Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260721075226.23=
+47933-1-wenst@chromium.org?part=3D1
 
