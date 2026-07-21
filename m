@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0D9C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDCAC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dd8IzpXvfcf9omad/UCYPVVbU051g1TaDj1g9jolwTk=; b=DmjrNp9rihDjV+iWSFIsgmN2uf
-	pGBx3C3K95IM5wScR+MBHu300yXSbOWdR46AYmNWYwaDCZK6+HNHA12wX4z+9lOXVUjVGSL5CIOwK
-	6zLg3RgGUUbfp6kT/BFML5Jp8KzqWvfDOEOFxeHVsywym4QK2Kdlb/pYfqBxfDvh6TpogLFpNRCjM
-	iQe0fiTWdoUvnqZmqsYvg5NJfs2HjMdgC9rn2d67Qn+AjTsp18ejiWHSuxHHldievt5w7BpzsgitQ
-	1mhxC6LidL0DXVliW5AENyucsGa6bPNkERtSoDoQTe6CXo1WXsJzF9D4KqxGp6jEGJiwkeRx+bJL1
-	EFRAnSFw==;
+	bh=MLtKmgePsVMTaeM3LRrhXggCl62wc5rCPPnL48yidIo=; b=LlcD8KvQ7We0WjLoy55JY8sHhE
+	JYnLp+rky0P34SYlc6FM5vKaJLzQyOiJ3TotR0och9YGWzKZgx41w/k/Fi6UdUWnzOXoCFtmdMBve
+	rOUAE5TjHmlk/sXi4FKH8SybBhELq6EGl4VZTsOTawKNEc665Q288d2GlZhoTfbcb1OulbdySbqcw
+	IZV5G0nWrZJK8CJ39cf7v5PDy1Xw8u6PjrS8ULVWT+qOrKJ/gtoghBfSJRYsI3ZFsB/Gu9VFs4Pb9
+	qS0LN++qwRcpjkTv8OAwV5w87/+YCqpT7l8Mz1KYsOV72sk7smnvnXME+K2GoKl/2uHKXaqQCQhL3
+	EQtrI/8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGT-00000009tGb-2pBk;
-	Tue, 21 Jul 2026 16:24:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmDGb-00000009tQf-05Ga;
+	Tue, 21 Jul 2026 16:24:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGS-00000009tF0-1WB0;
-	Tue, 21 Jul 2026 16:24:16 +0000
+	id 1wmDGZ-00000009tOl-333C;
+	Tue, 21 Jul 2026 16:24:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 21A0E43A0E;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2AF9960A59;
+	Tue, 21 Jul 2026 16:24:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 832A61F000E9;
 	Tue, 21 Jul 2026 16:24:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A98ED1F00A3A;
-	Tue, 21 Jul 2026 16:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651056;
-	bh=dd8IzpXvfcf9omad/UCYPVVbU051g1TaDj1g9jolwTk=;
+	s=k20260515; t=1784651062;
+	bh=MLtKmgePsVMTaeM3LRrhXggCl62wc5rCPPnL48yidIo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=NBYXLOuBqmaFwezx93ecw7m/nA5exRaxX00iO4FbrUlWQTR/no4KZ7zvJ0UebT+pH
-	 KPe5t85aTvpwk9STpAYme+9I79Pc3UW9ruWYP1EPVqRbSjrGHh+VNyyuHOobxLLdbF
-	 UNPQzXpyaVX+tJ+vaqyC4EMtkXQaUrEPWevROWx6Aj2/j/RWHw2lapMfhHp4NAuRgR
-	 jzq+3jCaUaD/D0ofF88IEP/ndOsQxdCoy/3A2burc0pTIFvFtc6qIQcMlDgtf6SbH9
-	 8DLavmBbCBy4XbRI/chv2p1Ia1EMEDGC0Acowle0lUQAF4b9kJP2yJqL/P69RTgGd9
-	 N7nVeGpkBnGVw==
+	b=jpW44nJzttT3pWAEhrIKz5B4sMBsyhohfB0x3ncv13vYzuBX+eor5vRrEJsAn1GEC
+	 8buYNNPOKdsYbmQq4LUYFKbNl9hjm9cLuyrrmuj2vS7L92z3roHNEuY3rwGa7SLFla
+	 mVWiAz9B/42AJBbg/tlAC/rzlktFkH1KdlYTHVvbh+z6r7JDzdaFEoJe4k3cYL4Vn0
+	 CEM3jZKRS8JnGvVzs60HuN1d6KQxlrY56SsI3GVHxg1BN5fUoLnKf3K0RBbDod0UQk
+	 MUO1T9opH9P+jmqCFdx3mbZ949Kz8DemL18bQ0aug9DwEw51oCZgNWGYZpjANkk1fk
+	 cdcD3utSbh+tg==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Tue, 21 Jul 2026 19:23:28 +0300
-Subject: [PATCH RFC 05/18] x86/mm/pat: use a generic helper for the large
- page size
+Date: Tue, 21 Jul 2026 19:23:29 +0300
+Subject: [PATCH RFC 06/18] x86/mm/pat: introduce an inline helper to check
+ if alias needs update
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-generic-set-memory-v0-1-v1-5-2c1fc62306b3@kernel.org>
+Message-Id: <20260721-generic-set-memory-v0-1-v1-6-2c1fc62306b3@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
@@ -84,70 +84,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__should_split_large_page() uses x86 specific page_level_size() to
-calculate the size and mask of the large page.
+Once core parts of change_page_attr() would be moved to common code,
+the processing of alias mappings would be out of line and would require
+a function call for each modified PTE even if the primary target of
+change_page_attr() does not have alias mappings.
 
-In preparation to moving core parts of change_page_attr() to common
-code, introduce generic pgtable_level_size() and pgtable_level_mask()
-helpers and use them in __should_split_large_page().
+Calling a function per PTE just to find out it has nothing to do is
+expensive and resulted in ~30% regression in instrumented cpa-test.
+
+Although cpa-test is a microbenchmark, ~30% regression is still a lot
+and can be easily avoided by inlining the checks that gates processing
+of the alias mapping.
+
+Introduce cpa_should_update_alias() inline helper that checks if the
+alias update is required.
+
+Since on 64-bit an alias could be in the high kernel mapping, pull
+__cpa_pfn_in_highmap() along and rename it to pfn_is_kernel().
 
 No functional change intended.
 
 Assisted-by: Copilot:claude-opus-4.8
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c |  4 ++--
- include/linux/pgtable.h      | 22 ++++++++++++++++++++++
- 2 files changed, 24 insertions(+), 2 deletions(-)
+ arch/x86/include/asm/set_memory.h | 50 +++++++++++++++++++++++++++++++
+ arch/x86/mm/pat/set_memory.c      | 62 +++------------------------------------
+ 2 files changed, 54 insertions(+), 58 deletions(-)
 
+diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
+index 4362c26aa992..332ec300c2ed 100644
+--- a/arch/x86/include/asm/set_memory.h
++++ b/arch/x86/include/asm/set_memory.h
+@@ -3,12 +3,62 @@
+ #define _ASM_X86_SET_MEMORY_H
+ 
+ #include <asm/page.h>
++#include <asm/sections.h>
+ #include <asm-generic/set_memory.h>
+ #include <asm/pgtable.h>
+ 
+ #define set_memory_rox set_memory_rox
+ int set_memory_rox(unsigned long addr, int numpages);
+ 
++#ifdef CONFIG_X86_64
++/*
++ * The kernel image is mapped into two places in the virtual address space
++ * (addresses without KASLR, of course):
++ *
++ * 1. The kernel direct map (0xffff880000000000)
++ * 2. The "high kernel map" (0xffffffff81000000)
++ *
++ * We actually execute out of #2. If we get the address of a kernel symbol, it
++ * points to #2, but almost all physical-to-virtual translations point to #1.
++ *
++ * This is so that we can have both a directmap of all physical memory *and*
++ * take full advantage of the limited (s32) immediate addressing range (2G)
++ * of x86_64.
++ *
++ * See Documentation/arch/x86/x86_64/mm.rst for more detail.
++ */
++static inline bool pfn_is_kernel(unsigned long pfn)
++{
++	unsigned long spfn = __pa_symbol(_text) >> PAGE_SHIFT;
++	/* Do not reference a physical address outside the kernel. */
++	unsigned long epfn = __pa_symbol(roundup(_brk_end, PMD_SIZE) - 1) >> PAGE_SHIFT;
++
++	return pfn >= spfn && pfn <= epfn;
++}
++#else
++static inline bool pfn_is_kernel(unsigned long pfn)
++{
++	/* There is no highmap on 32-bit */
++	return false;
++}
++#endif
++
++static inline bool cpa_should_update_alias(unsigned long vaddr,
++					   unsigned long pfn)
++{
++	/* Primary is not in the direct map, its direct map alias needs update */
++	if (vaddr < PAGE_OFFSET ||
++	    vaddr >= PAGE_OFFSET + (max_pfn_mapped << PAGE_SHIFT))
++		return true;
++
++	/* direct map page that is also part of the kernel highmap */
++	if ((vaddr < (unsigned long)_text || vaddr >= _brk_end) &&
++	    pfn_is_kernel(pfn))
++		return true;
++
++	return false;
++}
++
+ /*
+  * The set_memory_* API can be used to change various attributes of a virtual
+  * address range. The attributes include:
 diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 8a1782f5de3e..ee40962d4ee9 100644
+index ee40962d4ee9..2a087dcedf84 100644
 --- a/arch/x86/mm/pat/set_memory.c
 +++ b/arch/x86/mm/pat/set_memory.c
-@@ -956,8 +956,8 @@ static int __should_split_large_page(pte_t *kpte, unsigned long address,
- 		return -EINVAL;
- 	}
- 
--	psize = page_level_size(level);
--	pmask = page_level_mask(level);
-+	psize = pgtable_level_size(level);
-+	pmask = pgtable_level_mask(level);
- 
- 	/*
- 	 * Calculate the number of pages, which fit into this large
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 4b42ac5c27d9..9eb00ad6d5d2 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -2364,6 +2364,28 @@ static inline const char *pgtable_level_to_str(enum pgtable_level level)
- 	}
+@@ -224,61 +224,6 @@ within(unsigned long addr, unsigned long start, unsigned long end)
+ 	return addr >= start && addr < end;
  }
  
-+/* Size of the memory mapped by a single leaf entry at @level */
-+static inline unsigned long pgtable_level_size(enum pgtable_level level)
-+{
-+	switch (level) {
-+	case PGTABLE_LEVEL_PTE:
-+		return PAGE_SIZE;
-+	case PGTABLE_LEVEL_PMD:
-+		return PMD_SIZE;
-+	case PGTABLE_LEVEL_PUD:
-+		return PUD_SIZE;
-+	case PGTABLE_LEVEL_P4D:
-+		return P4D_SIZE;
-+	default:
-+		return PGDIR_SIZE;
-+	}
-+}
-+
-+static inline unsigned long pgtable_level_mask(enum pgtable_level level)
-+{
-+	return ~(pgtable_level_size(level) - 1);
-+}
-+
- #endif /* !__ASSEMBLY__ */
+-#ifdef CONFIG_X86_64
+-
+-static inline int
+-within_inclusive(unsigned long addr, unsigned long start, unsigned long end)
+-{
+-	return addr >= start && addr <= end;
+-}
+-
+-/*
+- * The kernel image is mapped into two places in the virtual address space
+- * (addresses without KASLR, of course):
+- *
+- * 1. The kernel direct map (0xffff880000000000)
+- * 2. The "high kernel map" (0xffffffff81000000)
+- *
+- * We actually execute out of #2. If we get the address of a kernel symbol, it
+- * points to #2, but almost all physical-to-virtual translations point to #1.
+- *
+- * This is so that we can have both a directmap of all physical memory *and*
+- * take full advantage of the limited (s32) immediate addressing range (2G)
+- * of x86_64.
+- *
+- * See Documentation/arch/x86/x86_64/mm.rst for more detail.
+- */
+-
+-static inline unsigned long highmap_start_pfn(void)
+-{
+-	return __pa_symbol(_text) >> PAGE_SHIFT;
+-}
+-
+-static inline unsigned long highmap_end_pfn(void)
+-{
+-	/* Do not reference physical address outside the kernel. */
+-	return __pa_symbol(roundup(_brk_end, PMD_SIZE) - 1) >> PAGE_SHIFT;
+-}
+-
+-static bool __cpa_pfn_in_highmap(unsigned long pfn)
+-{
+-	/*
+-	 * Kernel text has an alias mapping at a high address, known
+-	 * here as "highmap".
+-	 */
+-	return within_inclusive(pfn, highmap_start_pfn(), highmap_end_pfn());
+-}
+-
+-#else
+-
+-static bool __cpa_pfn_in_highmap(unsigned long pfn)
+-{
+-	/* There is no highmap on 32-bit */
+-	return false;
+-}
+-
+-#endif
+-
+ /*
+  * See set_mce_nospec().
+  *
+@@ -1830,7 +1775,7 @@ static int __cpa_process_fault(struct cpa_data *cpa, unsigned long vaddr,
+ 		cpa->pfn = __pa(vaddr) >> PAGE_SHIFT;
+ 		return 0;
  
- #if !defined(MAX_POSSIBLE_PHYSMEM_BITS) && !defined(CONFIG_64BIT)
+-	} else if (__cpa_pfn_in_highmap(cpa->pfn)) {
++	} else if (pfn_is_kernel(cpa->pfn)) {
+ 		/* Faults in the highmap are OK, so do not warn: */
+ 		return -EFAULT;
+ 	} else {
+@@ -1968,7 +1913,7 @@ static int cpa_process_alias(struct cpa_data *cpa)
+ 	 * to touch the high mapped kernel as well:
+ 	 */
+ 	if (!within(vaddr, (unsigned long)_text, _brk_end) &&
+-	    __cpa_pfn_in_highmap(cpa->pfn)) {
++	    pfn_is_kernel(cpa->pfn)) {
+ 		unsigned long temp_cpa_vaddr = (cpa->pfn << PAGE_SHIFT) +
+ 					       __START_KERNEL_map - phys_base;
+ 		alias_cpa = *cpa;
+@@ -2026,7 +1971,8 @@ static int __change_page_attr_set_clr(struct cpa_data *cpa, int primary)
+ 		if (ret)
+ 			goto out;
+ 
+-		if (primary && !(cpa->flags & CPA_NO_CHECK_ALIAS)) {
++		if (primary && !(cpa->flags & CPA_NO_CHECK_ALIAS) &&
++		    cpa_should_update_alias(__cpa_addr(cpa, cpa->curpage), cpa->pfn)) {
+ 			ret = cpa_process_alias(cpa);
+ 			if (ret)
+ 				goto out;
 
 -- 
 2.53.0
