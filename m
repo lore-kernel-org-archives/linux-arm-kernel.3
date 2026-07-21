@@ -4,79 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F4BC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A082C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slwBi5KP6OQ3DnlZedyezBb4ItPHq8e3XVUJisai6M0=; b=CDl3w/Bj+F6uCLRO4Xje1y93sy
-	5KpS4OVBoWObi9wfacDYU6Zl2rjzqpawvoDyGusj73JkLGUAEbE1yJqvcwDNbuv+T/srzibUSnXxU
-	1Dr0E5j3sUpkKHGiBp+ySvXkWagHn56mAKgW0LSOFnmESg1GJ7gh94B147b/HRYt2eZt7Z53zd3c1
-	3TKVxMI9GEOl+qvFHuiEUACj7wzrNF6YYTUETNcPZ87hXPgUGp1GM4uIsdvxAAtxL3KMNa+Sf/xfD
-	SqRNIbrF/Z02oU8j+NEQwZm8LGuHhSld5+Jh5zvy9QjkzGEY6f8thk2fjJjy9dGMBUiMtts15B5xj
-	HJaB12lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XNgGUgLDxikpwQAtd9a8q8cPJ0Sn1o/cujVuEUBlzWc=; b=2a9U/lXpq5N53n6UBgFqrk43J0
+	nPzJP0my4p1mJ2d8BZfXVVspIQQLOqD/xFJWvIK9u5JiVHCR7WQpwBRmUfHkhaojHBYb4h29WxWEa
+	jqUqnJvK3AShApwdK1DRA1Zkh8eCKo8p3gyqb4Qa5Aw5OJK27s1LiZJh6WXOw3fdhG1vX3CEaUhJQ
+	/n8RjvJwgXZfENYfn5P2RPx1lgxQ5cimfiRIMWmCeV+zNZ9T3kV5h0qvpVfDMPbzBpbiqK/dvR3OK
+	E9uucpDlD9scz1x5oSz6+GCiRq4Y2K/yExZ0VZKRTUojwDSM3m3Uh4ncMrmfPllmnDVspvLCz3JVq
+	yW7xHiAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm85l-00000009G2U-3RJK;
-	Tue, 21 Jul 2026 10:52:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wm8Gp-00000009H5Y-1Lei;
+	Tue, 21 Jul 2026 11:04:19 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm85a-00000009Ftn-3m36;
-	Tue, 21 Jul 2026 10:52:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784631160;
-	bh=YiA5DltXNq9O0aocs7NhApObemt4it0eOdh1BVE1948=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CrUB0g5R0gNqQ1XeAxlQBuDcN2qdwJuJPNk1NNojT/f4bWop5OSCidwv+3lZeY+wB
-	 sgtMu7s3erMIqYmrsHMHkBC3Y0n2r3DXdwQmiXQbFf4p/7lI56sZULil1t4PXmBkI9
-	 x4plD8PgM/2fQRBpQXw3zyFuRTI9wAZlv/BeZMucysFzfbra6HLXdVvHS51uauurMm
-	 ZwlyZA6Aucd4E9falGuBsNJOn7fLBR6TbeUAzNt/n63f+zgUGNdEpU3w0cnrre7Pig
-	 MIC2Gj14tK4DYRRjVrX5mr1dZ+c+rDD3a1VTkVgf0+NnSCjkl/zIqdSF0jm7u34Esr
-	 fE6TJIXL96enw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C45E717E1066;
-	Tue, 21 Jul 2026 12:52:39 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: rafael@kernel.org
-Cc: daniel.lezcano@kernel.org,
-	rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	laura.nao@collabora.com,
-	fshao@chromium.org,
-	wenst@chromium.org,
-	jiapeng.chong@linux.alibaba.com,
-	frank-w@public-files.de,
-	bchihi@baylibre.com,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v2 2/2] thermal/drivers/mediatek/lvts_thermal: Make reset optional for MT8196
-Date: Tue, 21 Jul 2026 12:52:30 +0200
-Message-ID: <20260721105230.101906-3-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260721105230.101906-1-angelogioacchino.delregno@collabora.com>
-References: <20260721105230.101906-1-angelogioacchino.delregno@collabora.com>
+	id 1wm8Gn-00000009H58-1LwZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 11:04:18 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2cc7e86e7aeso84093015ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 04:04:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784631856; x=1785236656; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=XNgGUgLDxikpwQAtd9a8q8cPJ0Sn1o/cujVuEUBlzWc=;
+        b=TgzMYuzqxOhmAxFCKa53SvG3iiJViStxTwTu+hNSvy85UnBCMbRIlFES1i9Oe/qMC1
+         ITCo3XWnzJ8uxMs0lVOVrkMOzd6Iks9AZxdMvY1XuWAO5a54L+kyf2ZcFI/rBbuQeTnl
+         7Piycb488YWJ+46inHRVqweAtpiRXkBmTJ4/D0poGsd7zMXsChEzHI6MuIwNe2KugxwE
+         2ou7kdahm+f8TQe1PtiLHh7JM9yoWMsesVAfnzKP2EtHTY8JjAA3AmF2cvFW2xkmGmku
+         qHpNCeIcxMMJ+1cnoxiDdLsaTCXDRk2gJ7HyyeMOdahK/PYtqahpvqlfyUi0mb3zjVyc
+         fp6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784631856; x=1785236656;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=XNgGUgLDxikpwQAtd9a8q8cPJ0Sn1o/cujVuEUBlzWc=;
+        b=jjKcfnbcFA89kDDXGsZVDN3YfIEnsb4pHF0ezuTwjxvkBhATvcKwsHrmOwkEpO+f+z
+         TrsPTeBwPqgw0W7Es9HLs0cmRFeZ9uvbNLdOi+jhb9bvVlTEr+v9YgEk/B0MbYkazqWF
+         hc2z45K9NxI9U4M57Wv4UbmMu16xUWrD75zrsszsNpoeck5ZTZ/sCEy3vnJC89Wlg/Du
+         bJs01ehBx7p3Q2iyX1gMuYCXH43Wp1VsoEM/z3V9c2j5Yy2jimmci2X6lCWaJXj0WEAm
+         sttNzE5liAOuAK7ZCUmYoopKsrkucTXHufEfrUGXmdaxObYynglUq6Fcft+4T+vOwyzK
+         sy0A==
+X-Forwarded-Encrypted: i=1; AHgh+RrGS4FNgYHPX9OXRusq7+2kmu2A6zEWiyfIVfap/mXdRA2rJY05ksGHtR1HnCTFfypJ9ePCNa9WqwyDbOtfupH/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgmH0MbfvXOOu8Ylpot9qniLwdDp49bsIPaddq+eM8On79JwK+
+	/dO64f969rzXMNL/In0J1CinkptDSXBFzKAddIqBLr9KXp2bZeuAREpa
+X-Gm-Gg: AR+sD10RgRpvuybZvpULNlZy8nonnq47T9VkgUc1AK5ZVFoGVAWfPifex/crAyNumf/
+	IFD62XcBt7FK9saXk77Qr0FmxRT8W2es72LJhkCYpSeSB1JnHzikkc9ynzqf+iEAWpO5mWEKC+T
+	W344wixTqCBoQK5ygbJmNIGiUXCF3V/5dU5GbhpzcK40XwH8Sm+bUxBhekLjgh4widchkJv+MLj
+	po+2Orx9ZAcdpKcNkMnyibXXrTF9ghJrMBd1g0GsBcOzMFm2q4znVZ7EmvZgDaNWS4ZXxouR6sG
+	oYUSllWujcU1PpDiZix7j3cPZDT4onu2HIVrjhK9zDS9QxRaFDzqLf35XRo5UHu/xmWZJwppa1Z
+	4I/44EciVxzxKhJ12RvjJF+Wh7uk4NybtLhsLKd0fPbO4SuvaDYT2VA7G6futm385imJloPiril
+	QAENXaoOgmmUQylqHhavoqR78Y2BCbXCFoTl0996x9XAnE
+X-Received: by 2002:a17:902:fc8e:b0:2cc:ed57:c7c with SMTP id d9443c01a7336-2cf349cc532mr198004405ad.32.1784631855821;
+        Tue, 21 Jul 2026 04:04:15 -0700 (PDT)
+Received: from [10.10.15.228] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3474d305sm72786705ad.72.2026.07.21.04.04.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 04:04:15 -0700 (PDT)
+From: Potin Lai <potin.lai.pt@gmail.com>
+Date: Tue, 21 Jul 2026 19:01:59 +0800
+Subject: [PATCH] ARM: dts: aspeed: sanmiguel: Fix FIO IOEXP interrupt pin
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260721-upstream-sanmiguel-fix-fio-ioexp-intr-v1-1-8245ae0ca590@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAKZRX2oC/yWNywrCMBBFf6XM2oEkvoq/Ii7SOK0jNgkziRRK/
+ 92oi7s4cDlnBSVhUrh0Kwi9WTnFBnbXQXj4OBHyvTE4407m7CzWrEXIz6g+zjxVeuHIS1tCTrR
+ k5FgE7dj3JviDPe4HaK4s1F6/zvX2Z63Dk0L5ymHbPs7MizKJAAAA
+X-Change-ID: 20260721-upstream-sanmiguel-fix-fio-ioexp-intr-1f880ca4153b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
+ Mik Lin <Mik.Lin@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
+ Potin Lai <potin.lai.pt@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784631851; l=1256;
+ i=potin.lai.pt@gmail.com; s=20260522; h=from:subject:message-id;
+ bh=ZreoL/eVPuxj1oFb8/Qv2Bu+o3zQrHOp7wcZG/PkziY=;
+ b=ojdm2efXwuf3QR3Gotk4btNOvBBhEIendW+qye+msS8NzhLD/ZFY6O23pbkZ1cIBBArxCA358
+ 7PntNXICI09CwO2hXZ8mKVYo8qzOH5Y2iXsiLLMWF5Wy7Tx7oAEFEO5
+X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
+ pk=j3/nMxzz1ZPpp1revghyZ8IqOnwi6RWfuxXN2XrNMRE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_035243_093810_A93C3ED7 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20260721_040417_372311_B1728EC6 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,54 +114,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Depending on the SoC+Firmware combination, the LVTS hardware may be
-may be actively used by one or even multiple concurrent MCUs!
-In this case, resetting it may produce either a severe slowdown of
-the entire system, or even a thermal protection AP reset, as some
-MCU(s) may be reading a very high or very low temperature while the
-LVTS is being reset.
+The interrupt properties for fio_ioexp (pca9555 on i2c14) were incorrectly
+configured to gpio1 with ASPEED_GPIO(B, 6).
 
-On those, don't fail if no reset is found as that may be omitted on
-purpose, but still check if there's one, because some board(s) may
-be running on a different bootchain with reduced firmwares or using
-firmwares with reduced functionality.
+Update the interrupt-parent to gpio0 and the interrupt pin to
+ASPEED_GPIO(C, 6) according to the hardware specification.
 
-So, use devm_reset_control_get_optional_exclusive() instead, as the
-LVTS controller always had only one reset and retrieving that by
-index, specifically, always made little sense anyway.
-
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
- drivers/thermal/mediatek/lvts_thermal.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index 92711896ce24..8b779fc5e970 100644
---- a/drivers/thermal/mediatek/lvts_thermal.c
-+++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -1473,7 +1473,20 @@ static int lvts_probe(struct platform_device *pdev)
- 	if (IS_ERR(lvts_td->base))
- 		return dev_err_probe(dev, PTR_ERR(lvts_td->base), "Failed to map io resource\n");
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
+index d7ed497d7227..cb07c3615279 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
+@@ -578,8 +578,8 @@ fio_ioexp: gpio@20 {
+ 		reg = <0x20>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+-		interrupt-parent = <&gpio1>;
+-		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <ASPEED_GPIO(C, 6) IRQ_TYPE_LEVEL_LOW>;
  
--	lvts_td->reset = devm_reset_control_get_by_index(dev, 0);
-+	/*
-+	 * Depending on the SoC+Firmware combination, the LVTS hardware may be
-+	 * may be actively used by one or even multiple concurrent MCUs!
-+	 * In this case, resetting it may produce either a severe slowdown of
-+	 * the entire system, or even a thermal protection AP reset, as some
-+	 * MCU(s) may be reading a very high or very low temperature while the
-+	 * LVTS is being reset.
-+	 *
-+	 * On those, don't fail if no reset is found as that may be omitted on
-+	 * purpose, but still check if there's one, because some board(s) may
-+	 * be running on a different bootchain with reduced firmwares or using
-+	 * firmwares with reduced functionality.
-+	 */
-+	lvts_td->reset = devm_reset_control_get_optional_exclusive(dev, NULL);
- 	if (IS_ERR(lvts_td->reset))
- 		return dev_err_probe(dev, PTR_ERR(lvts_td->reset), "Failed to get reset control\n");
- 
--- 
-2.55.0
+ 		gpio-line-names =
+ 			"", "", "", "",
+
+---
+base-commit: adcf44809e1da6f462927203b008e4cdb2ee1b34
+change-id: 20260721-upstream-sanmiguel-fix-fio-ioexp-intr-1f880ca4153b
+
+Best regards,
+--  
+Potin Lai <potin.lai.pt@gmail.com>
 
 
