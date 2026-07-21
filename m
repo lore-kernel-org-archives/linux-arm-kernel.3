@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87D0C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CEDC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zYTJwHkAf1TmQrTHI65fUCX9+FxnuGE2Bm0tJuySfOA=; b=1Du+AgQFbsxV89xx4ZFGTc2pl4
-	+Si21oN4XzWQKwinWuqRZFkVUHI9B0kLCR7r35B+wVIWZxvtenSTjO7j9S3LUcanobfXkU7BhmCXi
-	n2mAGX4WJ0rhh3WlGiIKhQYgYD66auKwTT3/7Wvate3IxYgiHpiRgfd24ZNPk2wTZLok+aTokLUC7
-	xJ+nHQen0yAjR/Tzs4eSORZAERl69+FWAR+MFUQTwEVVMtIzHPSTq4GQRJ/lHYnVLP4tWpFGsupAg
-	TbSqEp4wg0CYvlwu/HOE47uX5BnxGqiovISN4K1EdmQpFd4vcgCtobTvKQ5GJxtq7W1RVtFWdnD8y
-	f3Lwsk8A==;
+	bh=wWSrAB9EVKT/XWaemQKPpIPZcdC2pMdFep2pkjliXa8=; b=CS72pDPaKKXn4Y5zNx6BQzIR15
+	zREOvBwyaKNOrwV2m1VzicMeIsd2d7IneVOLubZdKrlk3QpLYZjiNGn6f7bLa/9rC0X5moMYfPGVf
+	fjHoh3+IIJ+1m1/zFLQmn5/wtoJTN4cqvfekzSIFQ0h6Hdbgdg1do13XmAGBpQthQkGM0sm4Sru0F
+	Gf+OSjrUt7DDZ/+K3BX09m7TEv67CdMEnWyIhNCb0gg7esa2fYl6GCLOLkqFDm9ypf9TJLD0qtgzs
+	X3z66VfhRyiZkYLrghVHNgHYSj7bef3bcfuPXcNgrAxdPO9iOMRYwlv+1N0SnZDhiI9exwbWCEjlr
+	7MR0mniA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9Wo-00000009PYn-2juQ;
-	Tue, 21 Jul 2026 12:24:54 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1wm9cz-00000009QSr-1anz;
+	Tue, 21 Jul 2026 12:31:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9Wl-00000009PXx-2YZd
+	id 1wm9cx-00000009QSY-3rMc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 12:24:53 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RpTLgcZo7jxk9gnZkRiWtunb8641NF/jdDUnX+ZY1SNPE8Kb6O9ByFHjIgiFNpcQwkwp1MMnu3563mOeZdhLdRc@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784636688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zYTJwHkAf1TmQrTHI65fUCX9+FxnuGE2Bm0tJuySfOA=;
-	b=RydGKs1x/OXGbL9sCs16umYb8xiRI1e4C7iA0GWUFkzIPHErRDJnewIHwoLtEnTHKneGxv
-	/2xL9jHY7qmS5UY4sZyAzGRv0oehI25UNz6qoXwtNgSRoD7OUqIIoQW++5rapU+3VRCZGi
-	eC9/YrH5Y/nwzmZWZEANJY3WyOYnDZE=
-X-Gm-Message-State: AOJu0Ywqz2X8EfB3u5YQmmABI+tgHx4ulAKUpo4ci8ROlM3yIBoxoxZ8
-	PMN3JTCpqvEED4qugnmGOMx92w+smLlnLoNyRmbdUjoQloptfBMzzu2MCOWisFrNGYkJnD9wuO9
-	e88oyrEM1TFSHTJmmDRWBFfrBbQpvKY7JXL/nCcZj
-X-Received: by 2002:a05:622a:aa12:10b0:51c:935d:8d74 with SMTP id
- d75a77b69052e-5260098e461mr13025061cf.9.1784636681231; Tue, 21 Jul 2026
- 05:24:41 -0700 (PDT)
+	Tue, 21 Jul 2026 12:31:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10FD6600AE;
+	Tue, 21 Jul 2026 12:31:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93D601F000E9;
+	Tue, 21 Jul 2026 12:31:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784637074;
+	bh=wWSrAB9EVKT/XWaemQKPpIPZcdC2pMdFep2pkjliXa8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NMAaRN/0pR1UXrKesy1NVUZZb3tGCe/Vlw+6q4IisWckyQHrk7t8f9UFf/nD3eOc2
+	 cDCyPrN6wzIW97ofA8f2c/wOZcBa5yT6IRAiQ8btVup6aqmVGAsCaPvNMbuEE0ea+q
+	 gdY7WVBH3xSnTaTrfUnVBaVXFPSS6ziUrVglN++YJIJJeonhivjr96HgNl/cpK8ecU
+	 NGtirSdm7tyorkJEWFNzDuIDdmKgeLCYl928d21hGD0TfQj7dV7V7bAxdG5f06L2hm
+	 kigSERMdxJZyFtBgL6QvorkJiWKTsBMC3d4eEgC9yuIQX2gmXno0ZvJ/a70zLANA5C
+	 C987wbhcZtg2A==
+Date: Tue, 21 Jul 2026 15:31:07 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v8 02/23] dma-pool: fix page leak in atomic_pool_expand()
+ cleanup
+Message-ID: <20260721123107.GJ110966@unreal>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <20260717180442.110954-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-References: <20260717130317.1953574-1-fuad.tabba@linux.dev>
- <20260717130317.1953574-7-fuad.tabba@linux.dev> <C5D63651-E924-4297-9B4D-6E9DB04D64D8@grrlz.net>
-In-Reply-To: <C5D63651-E924-4297-9B4D-6E9DB04D64D8@grrlz.net>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 21 Jul 2026 13:24:04 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTw8Z5LDEi+1b62EEr2a8fqzBFGMsETsH0suZk76_DsNdw@mail.gmail.com>
-X-Gm-Features: AUfX_myF8APD4JrsQUjpdgeGCuOrmjzvI9FEW6Snxcw0N2xLLub-E89efv0Armo
-Message-ID: <CA+EHjTw8Z5LDEi+1b62EEr2a8fqzBFGMsETsH0suZk76_DsNdw@mail.gmail.com>
-Subject: Re: [PATCH v5 6/7] KVM: arm64: Don't advertise eager page splitting
- under pKVM
-To: Bradley Morgan <include@grrlz.net>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, Quentin Perret <qperret@google.com>, 
-	Vincent Donnefort <vdonnefort@google.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Gavin Shan <gshan@redhat.com>, Dev Jain <dev.jain@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_052451_930512_D33869AD 
-X-CRM114-Status: GOOD (  20.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260717180442.110954-3-aneesh.kumar@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,99 +95,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bradley,
+On Fri, Jul 17, 2026 at 11:34:20PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> atomic_pool_expand() frees the allocated pages from the remove_mapping
+> error path only when CONFIG_DMA_DIRECT_REMAP is enabled.
+> 
+> When CONFIG_DMA_DIRECT_REMAP is disabled, failures after page allocation,
+> such as gen_pool_add_virt(), jump to remove_mapping and return without
+> freeing the pages.
+> 
+> Move __free_pages(page, order) out of the CONFIG_DMA_DIRECT_REMAP block so
+> that cleanup paths always release the allocation.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  kernel/dma/pool.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+> 
+> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
+> index 2b2fbb709242..b0303efbc153 100644
+> --- a/kernel/dma/pool.c
+> +++ b/kernel/dma/pool.c
+> @@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>  {
+>  	unsigned int order;
+>  	struct page *page = NULL;
+> +	bool leak_pages = false;
+>  	void *addr;
+>  	int ret = -ENOMEM;
+>  
+> @@ -115,8 +116,10 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>  	 */
+>  	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+>  				   1 << order);
+> -	if (ret)
+> +	if (ret) {
+> +		leak_pages = true;
+>  		goto remove_mapping;
+> +	}
+>  	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
+>  				pool_size, NUMA_NO_NODE);
+>  	if (ret)
+> @@ -130,14 +133,15 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>  				   1 << order);
+>  	if (WARN_ON_ONCE(ret)) {
+>  		/* Decrypt succeeded but encrypt failed, purposely leak */
+> -		goto out;
+> +		leak_pages = true;
 
-On Tue, 21 Jul 2026 at 12:19, Bradley Morgan <include@grrlz.net> wrote:
->
-> On July 17, 2026 2:03:16 PM GMT+01:00, Fuad Tabba <fuad.tabba@linux.dev>
-> wrote:
-> >Under pKVM the stage-2 walker resolves to pkvm_pgtable_stage2_split(), a
-> >WARN_ON_ONCE(1) stub, yet KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE is still
-> >enabled and reported for non-protected guests: the capability check keys
-> >on the per-VM protected state while the walker dispatch keys on the
-> >host-global mode. Enabling the cap and then dirty-logging the guest
-> >reaches the stub, splatting a userspace-reachable WARN.
-> >
-> >Reject the capability, and stop reporting a chunk size and the
-> >supported block sizes, for every VM once pKVM is enabled, keyed on the
-> >host-global mode like the split dispatch. Gating only protected VMs
-> >would leave the non-protected guests that reach the stub still able to
-> >enable it. Userspace decides whether eager splitting is available from
-> >the block-size bitmap (QEMU falls back to no eager splitting when it
-> >reads 0), so leaving it advertised steers an explicit request into the
-> >enable failure instead of the fallback.
-> >
-> >Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
-> >Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
->
-> Do you think CC stable would be good? I do but sometimes I'm
-> embarrassingly wrong
+Instead of doing this dance with temporal variable, change "goto out" to
+be "return true".
 
-I'd lean against it here. The "Fixes" commit has been in mainline
-since v6.14, the symptom is a WARN rather than a crash or data
-corruption.
+>  	}
+>  remove_mapping:
+>  #ifdef CONFIG_DMA_DIRECT_REMAP
+>  	dma_common_free_remap(addr, pool_size);
+>  free_page:
 
->
-> >---
-> > arch/arm64/include/asm/kvm_pkvm.h | 3 +++
-> > 1 file changed, 3 insertions(+)
-> >
-> >diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> >index 57afb07d6b13..beea00e693a0 100644
-> >--- a/arch/arm64/include/asm/kvm_pkvm.h
-> >+++ b/arch/arm64/include/asm/kvm_pkvm.h
-> >@@ -45,6 +45,9 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
-> >               return true;
-> >       case KVM_CAP_ARM_MTE:
-> >               return false;
-> >+      case KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE:
-> >+      case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
-> >+              return false;
->
->
-> Nit: KVM_CAP_ARM_MTE right above already returns false, fold the two
-> new cases into that and drop the duplicate return. And please put a small
-> comment saying eager splitting is unimplemented under pKVM (WARN
-> stub), so nobody reads the list later and "fixes" it back, here's a
-> example, feel free to bikeshed
+Remove free_page label, and change leftover of "goto free_page" to be
+"goto out"
 
-I'd prefer to keep the separate return. The grouping is deliberate:
-MTE and eager splitting are unrelated features, and the two eager
-splitting caps belong together. The function is self-explanatory from
-its name and header comment, so I don't think an inline comment is
-needed.
+> -	__free_pages(page, order);
+>  #endif
+> +	if (!leak_pages)
+> +		__free_pages(page, order);
 
-Thanks for the reviews!
-/fuad
+Put these checks under out label and rely on page != NULL as a marker.
+if (page)
+ __free_pages(page, order);
 
->
->
->         case KVM_CAP_ARM_MTE:
->         /* eager splitting is unimplemented in pKVM, please don't refix this */
->         case KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE:
->         case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
->                 return false;
->         default:
->                 return !kvm || !kvm_vm_is_protected(kvm);
->         }
->
->
->
->
-> Killing the reporting too is right imo. Qemu reads a 0 block size
-> bitmap and quietly falls back, an explicit enable eating EINVAL is the
-> worse failure mode. Good.
->
-> if u choose not to, it's ok, please add
->
-> Reviewed-by: Bradley Morgan
-> <include@grrlz.net>
->
->
-> >       default:
-> >               return !kvm || !kvm_vm_is_protected(kvm);
-> >       }
-> >
->
-> Thanks!
+>  out:
+>  	return ret;
+>  }
+> -- 
+> 2.43.0
+> 
+> 
 
