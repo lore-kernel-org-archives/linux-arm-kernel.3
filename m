@@ -4,134 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7566FC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76331C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPyT527VBjDBC6YiiOpnjrlcBvlCBiJzZYWSXgfZy5I=; b=3lUiuxLAf9bycIFfv5NSR6Uian
-	/i+RxAjiu6HQt4Z3nyvAYouex8T2xAPs79n0O/r4u6wRQUVUiUZE20IxNLCLEqGsDrjCpMBQqO970
-	pG4gh2au2RCApRo8pZ0oSdi9rC9OEqzHkQTa2+soKD9jL7KzKg31UBJUFkx/FMrpUpMtzvKRBDyvn
-	tzeTiqSr8cMIbUvIFMvoa3JWsQousQpvyIob44p9yWS+LHiyj4AydJuLQk69a9EMyAZYvHvrs75pB
-	HH/a1kmsH86K5R1NbEYh62ngRU6zwVMY1Sc/XVfGXZ7Xizlj6ojZJoGrX4pg7SNjOjR1YXoNM9Kid
-	Mxc1dDDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fWBKtHpQs7Mjv5sBBU83pNN7Nd/6AUX8CaJlXFspUiY=; b=T/v4O8VbdpUzBDJHJYIbwQOxGG
+	00bZFzGRIqQXinIX7XyntikIH5uRkHUwQwj+jVpaIJInSOiofLrUINqjL2t9yqAeCAMzCQeLN2YCi
+	Y7a6KkEQ7Zm3Ue17alLqHuK2pA8AiaQioqAmGPMhYlyOEM5o0xE486xJclGdk3Y+vB5xUsm+6F2+D
+	Hcd8GuuvXeNwuMbLrarQBgA9cHjCFsuZbX4onYJuenapoc9qoldD2zjITV0dVmXx03XfC+bcoUxv6
+	P2ROow54mbokc+VbQbltYOBgEZgPDH3qvjOlLpMJ8CPFUYr8Bwg5CwXeIakE1bFsbRtJrjllbQpo4
+	325m2Vfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCcF-00000009p2p-0plB;
-	Tue, 21 Jul 2026 15:42:43 +0000
-Received: from mail-swedencentralazon11013017.outbound.protection.outlook.com ([52.101.83.17] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wmCcZ-00000009p7v-1MK7;
+	Tue, 21 Jul 2026 15:43:03 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCcD-00000009p27-0zJ9
+	id 1wmCcR-00000009p4R-1YPA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 15:42:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QSDnVCbUALfwTbjBCHFtI0BNZDCqKJexi3pMpidVmXwFN/ddvK2hUnUsVxi5zcfDiUVohEQvtHnL2AAB2s5+etmcJ+BeAIj5EUnHxUEoGFVyFWWZdEmp2/rhvOhX+EXMXaYyXdSXM2b7bL0w6nxx3s194pEDmQ+NN6nBeoeA0wKqOL2Nt2tnqlf1O7q+M0TziZRjnwd3IlpdbcBXOX1Tu2CPXb/CO0As3/yjs07RFnjvfo2H36bTOSDnLDojBGCrnuAlfTguXhqql0s2L2fa9tp+/hUls6PMu7G4nXAnytUs+Kc3/v6enKDkyUENif48JcnBuuR6/0lna6a7ADluHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xovBMCEin7VjXymkTsq+7Fa/oIevsmlhWqFvBVF9F8w=;
- b=qpYswikwMAMV2NHVcFhbnXVjC4sJVaHshOYabaQDTlzNvFLT0pOxfguFCKtP2k6EcdV3cMKWnlJ34WakDE5bvvscJ9MzxBomoxJZLX9NV7KrqDD1Vce4Kr8BZRLwlV424y3vtvVGAiGyXVmw3qYpxlovolNACBqvZ2Q/y/E3sn8TGbGIQ3kgxqT7fGfgsUonnC+WiXI0U9AsMDWxIeslbiPtDMXyOPUlZgnSmsR7in4wJVcRG4UvSWUD5cg8/XYFiQSi9oo+FXCrYvvsmRYqXjO0ZGrKzqe9Ji6nvLdyHFMhX97anA9ZxsYLAaTYkRWuERMBc3tETy8LuVjeZuMJsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xovBMCEin7VjXymkTsq+7Fa/oIevsmlhWqFvBVF9F8w=;
- b=CmWr20xF1FPK6OxzYYDFNf1GiQGU4RJK2Qebseoxetx47nj72b5K1j6giWlg7+ouecAEydv0h99X/ETIBl9nXPbF76zFW7udqPugC/aCraCfH4b9aUzP3uJI24PmThd6gy8mhcK6yJPyP/xq09pi3VbiHNKVWE+cTsQ2UXAGCqfnq85QiVyTEwVGSBm5TJfi68byAk3+nX8lzimRdPx+X9EIX4Xi56J6NwMN/rDc3AVCOUwL//qVLfYbj3mGMJ7ogZ4gYL0e01opFfgOuM8gplLjSyifIXBCNM1KNOJ/1Fs/m8eEdOJqfyq1bc94NTCTLCEH13IsgxRNpJUsgofWCw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI1PR04MB6782.eurprd04.prod.outlook.com (2603:10a6:803:139::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Tue, 21 Jul
- 2026 15:42:34 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.017; Tue, 21 Jul 2026
- 15:42:34 +0000
-Date: Tue, 21 Jul 2026 10:42:22 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 1/2] arm64: dts: imx8qm-ss-conn: add usbotg3 iommu
- information
-Message-ID: <al-TXsoz3UNJC3gg@SMW015318>
-References: <20260720-qm_smmu-v1-0-3689fbd8b516@nxp.com>
- <20260720-qm_smmu-v1-1-3689fbd8b516@nxp.com>
- <2844770.mvXUDI8C0e@steina-w>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2844770.mvXUDI8C0e@steina-w>
-X-ClientProxiedBy: PH8PR15CA0002.namprd15.prod.outlook.com
- (2603:10b6:510:2d2::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 21 Jul 2026 15:43:02 +0000
+X-Gm-Message-State: AOJu0Yz2KYu5lxtXJa1HASG2iGLvlvjoAC57YptOQfYCmYDQdGAqU/B2
+	iMWthRe6Y4AD5+y1jd4tf/V5Tl7Ht/EPzBqqNkQ6uu0Ue5uVMwirPlS8XDe41mRCc9gknWYUbyP
+	02dctAI+mL21OK4LVH2W9/OY3F7s7DB3KH5MzYBIG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784648562;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fWBKtHpQs7Mjv5sBBU83pNN7Nd/6AUX8CaJlXFspUiY=;
+	b=U3AA/wH5WZnLIBNlitthruHFWkjR6ddCZliEqBbSd9q64wY/ycGV3SR0hgl8YAVLoP8Le1
+	JUPioe0ib0hVmTmaWsy5CMTdjvBiGg4zE4B6HQ3OUHgKLu9LnIkS7lk88QGaCWihm5xNb7
+	786RtQDEsUgDXWWGOS02SVwqDb2QFTI=
+X-Received: by 2002:a05:622a:d0e:b0:51c:ca9:3d17 with SMTP id
+ d75a77b69052e-52601f03537mr16476711cf.12.1784648547786; Tue, 21 Jul 2026
+ 08:42:27 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB6782:EE_
-X-MS-Office365-Filtering-Correlation-Id: 557ec0fd-3d2a-418a-2061-08dee73eae9f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|23010399003|4143699003|11063799006|10067099003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: DMoKaSuvCR9aoE3PzeUH2wEk2Qzqei+LVGKa7ZYamDeJ/rCvjzZzak/ze3ZYjVCkEOKX9L/J7ejKY+Mf8QHIyAtIBzq8ctQDiZABF3jHMBgJkWqVE+KLMB6WdBVj2Ci6DItWfgRPb5ZHKumUl/cT8AT1ZhgS8+wnGCfkaR9chFXgukY4BelHBlZ0Qc9dT1geGXbLFCDZX1i5hW8j7gnYf2Yb7p8/P4mLUiAF5IewIJD37NbiyD3uIcH9iAPQ8IoIqC+BswyzJhnsY/4Xix4quMF7EAMNGX60W6Peq6AWQu+H9fZtJ49mdHgdCR9DASfOeTkwhzgemR4M1+nfqsCzc6ah0ZooKSOocAocR9vvTA4oeVIe6wBMrog0wJOmhGN8YyQocKBcpJJsFc8uPtlBgDZo5z215zr/vJJKMVFj0XGFa0Exvda4M9NDtC1OhsFjQIjTxBAofY49xggiWHVY197jlpBMIvDhe71C7PM6p5xdIZAR9UGKhmAVQC2x1q0pKr2N7pkWgS/DfRbyVklTRWKMawi0xPl7l1EkxUX7BOmNXixo+JzvfjEDVJbD6FvU4r59LIgn6yJNrSG54lAUfCfGOigqyZRC4+n/zU6d7Ug=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(23010399003)(4143699003)(11063799006)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?oQzEuIDRLcsykR9erBtSuxPtaGgMyfqbJnyWkcxsXCUPPxDB98CB96Q63k?=
- =?iso-8859-1?Q?RpX3LFN8aiJ/hSAGzwCMFjhL2fmUm52wtIhRxM21A32kr8IRJqk73zD1RF?=
- =?iso-8859-1?Q?weOLsF7jK1yimE5lnwaJs0jYBW98lzfeS/KdK1M2CblHkGXP7Q0pldXnVJ?=
- =?iso-8859-1?Q?2OQGPtsaooDVyWJLhJNRBrUYmtghLsvaQSY9Pr5XJz8OYdvwhJbrl52SGw?=
- =?iso-8859-1?Q?y7FYl9sgXTmArfBH9iqbOosZZooWq3Va9cvERIn5IgVCc4mLLxdTxdw+NF?=
- =?iso-8859-1?Q?sfWs1pClUCe9VTTSsfyvdwHKUu0bdX+Gtt+4zIV4m8yP9QQuhjW2PvErMp?=
- =?iso-8859-1?Q?mDt6FL+MNRPFzjlqLLe1WBGgwYhKojUmnXfj7cI/IxuxTdgWl5OlsBb5bK?=
- =?iso-8859-1?Q?2y/OywpHQR+E8TsMcoUUjWwgmFpuSDhLqu6GxL4atUIL9puM/EEOpuNh9D?=
- =?iso-8859-1?Q?dbEs3gcJcFkcoyjTcO11YVfK/ukF9UebKKQZL4EmPYcTNIEMWZPuKjMHdJ?=
- =?iso-8859-1?Q?ehkpmV9ZRKFvOFph8KQVNBZgDlXLcbXiHfQbPMcns2aRIbx8fTXmA5M50u?=
- =?iso-8859-1?Q?TCAsufPQhY8ggvoAwOXQrlCKVdl1II+sRiwcFHaHAEa9WH87TqreLdLOMW?=
- =?iso-8859-1?Q?aex/3uYdv+YrTyJ46wUZwQGFA9f+VSz0BjYe3o4EAHWqYV3BT2zkHjSszj?=
- =?iso-8859-1?Q?h7wFcwiBVA8W+/0XTqbF6IwIFVaB0WH6XymKcJ7qrQkAKGyc5RCRGcDn+O?=
- =?iso-8859-1?Q?Yj5svvcGEqwVLCjUS8KdKY2pHBSCGztq4UgRESHG+E/JkWiNzy2BG3TtFq?=
- =?iso-8859-1?Q?Xuc02ywuEeLWFiax5DCQ2Tyf8xBw5GT0whhq2WL4XRSZnuZzsS3MJGoLg9?=
- =?iso-8859-1?Q?Td+GNAb0drKNQLucjHdG348xsvTkNLTY+4HTSPwwHyIxOpFSYtDx8G8XQg?=
- =?iso-8859-1?Q?hpyrYXicTzFNhbq4IvD83rjsaDU+povJRtBiDHll782gUH5OZAD9jvi9Gg?=
- =?iso-8859-1?Q?ULXv9c0dFF7q0iOAhmK4jh/cGyBN0IhWZcIxbLXa2ScjloJSBo89Qfgl9z?=
- =?iso-8859-1?Q?XM6oL6y+/H0Sn8MadUt/LJBKLr2YaJPqY7I5QmpHDQGBKN6vnBu6fiSA0i?=
- =?iso-8859-1?Q?wkd8gn434zqsCP1UPsy5HJcsiZI6wVBmVSBB763WnMiTr8jArDGWQFN0X0?=
- =?iso-8859-1?Q?p1UdRwTigX5PsR2sode3R1GuumGqZUhaAuaxSfWXn5rKJXIOQ/QWf+8OJ5?=
- =?iso-8859-1?Q?CawLb5euD0wHZVY8U5/c1SZ3G0MzR9WUCQJpyp/tJBdyJGzXLnZ8hLBobC?=
- =?iso-8859-1?Q?5PMlgH8/Lfz5zam3/vZcE3iX1DvaX7VP/fe4uH48bcPqGkgthr3p7yMSkj?=
- =?iso-8859-1?Q?/7Vs1vgGTQ9RQJBlehM57FqDOMjA/fE7g9D5XmMjWeac73SxIbv3kqMjXF?=
- =?iso-8859-1?Q?UEGdpgGYAwXwbMzUAL6007Tpi1If7ZHup33H38kGb3BDey+4MenNinXI/Y?=
- =?iso-8859-1?Q?ypxzS4Hmdvb5DQqesLh47fjDO52X8EI10ub8r4tbetYFA9VR46+4mcDPu9?=
- =?iso-8859-1?Q?wl5hA3Wrxu6BpYvdSr6H1ZwP28Il7M7xIxLz4nk9QABsR9TxAa9I2afy6b?=
- =?iso-8859-1?Q?yjfOTj57ZeA5y5ke8a7OQ5UWHT8r0oImnHKtX04SM+hH0b8MxJF9o5LrUV?=
- =?iso-8859-1?Q?uauzxZ4/uHDauMWKwj5WdEZd3WFdk+Ya3d4W6lYK1dxAm1ZbQzO25+ZKmS?=
- =?iso-8859-1?Q?GdGwRPzWnXJJV0oqYuKs3QVCu0ppbPz90kZlW+hjjPZHu+vs5ljKpOXai3?=
- =?iso-8859-1?Q?he9oaLXW4IFvcNXayLwNb1hQg7yEi2supvUput5If9qDzlghrmC6?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 557ec0fd-3d2a-418a-2061-08dee73eae9f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 15:42:34.1315
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: u8FeTnfCmkVpQ8rXu6eXCfsQpOiS2BjXdgHu+E11LD9ED6P+cjdE8T1BpvhErqV31Vw2xsok6TyRREMmPwFFyJMxz0fc64UB1mr1doElT3ZbpYozE0lOTIuz15J7P7zS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6782
+References: <20260703154811.3355680-1-sascha.bischoff@arm.com> <20260703154811.3355680-37-sascha.bischoff@arm.com>
+In-Reply-To: <20260703154811.3355680-37-sascha.bischoff@arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 21 Jul 2026 16:42:00 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTybDSAgr44jXNFnssnYq_vVeuZ+1qORS8f4dtQgMzOZ5A@mail.gmail.com>
+X-Gm-Features: AUfX_mxjsFrqC8Gpjv6b_a6EYXug8lYIGCF5p9ytlWNhOuKnl9fC4c65x8uK9Mc
+Message-ID: <CA+EHjTybDSAgr44jXNFnssnYq_vVeuZ+1qORS8f4dtQgMzOZ5A@mail.gmail.com>
+Subject: Re: [PATCH v3 36/40] KVM: arm64: gic-v5: Implement save/restore
+ mechanisms for ISTs
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, 
+	Suzuki Poulose <Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, 
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_084241_276639_3D7F94F5 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260721_084301_575483_C3B560FA 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,67 +79,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 09:48:16AM +0200, Alexander Stein wrote:
-> Hi Frank,
->
-> Am Montag, 20. Juli 2026, 23:10:33 CEST schrieb Frank.Li@oss.nxp.com:
-> > From: Frank Li <Frank.Li@nxp.com>
-> >
-> > Add usbotg3 iommu information.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
-> > index ccf9f510e0f88..1370a571153a5 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
-> > @@ -32,3 +32,7 @@ &usdhc3 {
-> >  	compatible = "fsl,imx8qm-usdhc", "fsl,imx8qxp-usdhc", "fsl,imx7d-usdhc";
-> >  	iommus = <&smmu 0x11 0x7f80>;
-> >  };
-> > +
-> > +&usbotg3_cdns3 {
-> > +	iommus = <&smmu 0x4 0x7f80>;
->
-> Where in the RM can you get these values?
+Hi Sascha,
 
-0x4 is stream ID, any value between 0-31, uboot will use this value to
-config stream ID for bus master by scfw API
+Two things about the new KVM_DEV_ARM_VGIC_GRP_IST interface. Both are
+about the userspace ABI rather than the mechanism.
 
-0x7f80 means tire some bit to high before pass to smmu by hardware.
-I don't think signal defination can be found at public documents.
+...
 
-static int arm_smmu_of_xlate(struct device *dev,
-                             const struct of_phandle_args *args)
-{
-        u32 mask, fwid = 0;
+> +int vgic_v5_save_spi_ist(struct kvm *kvm, struct kvm_device_attr *attr)
+> +{
+> +    u32 __user *uaddr = (u32 __user *)(unsigned long)attr->addr;
+...
+> +    for (unsigned int i = 0; i < kvm->arch.vgic.nr_spis; ++i) {
+...
+> +        __le32 *h_iste_addr = ist.base + i * ist.iste_size;
+> +
+> +        h_iste = READ_ONCE(*h_iste_addr);
+> +        ret = put_user(h_iste, uaddr);
+> +        if (ret)
+> +            return ret;
+> +
+> +        uaddr++;
+> +    }
 
-        if (args->args_count > 0)
-                fwid |= FIELD_PREP(ARM_SMMU_SMR_ID, args->args[0]);
+The kernel writes nr_spis * 4 bytes into attr->addr, but struct
+kvm_device_attr has no length field, so userspace has no way to
+declare how large its buffer is and the kernel has no way to check it.
+The size is implied by nr_spis, which userspace set earlier through
+KVM_DEV_ARM_VGIC_GRP_NR_IRQS, or never set, in which case it defaulted
+to 32.
 
-        if (args->args_count > 1)
-                fwid |= FIELD_PREP(ARM_SMMU_SMR_MASK, args->args[1]);
-}
+put_user() has no idea how large the caller's buffer is. It only fails
+if the address itself is not writable, so writes past the end of a
+short buffer land in whatever happens to be next, with no error
+reported. The documentation states the required size, but nothing
+enforces it.
 
-Frank
+It is also the only variable length buffer in the VGICv5 interface.
+GRP_IRS_REGS is a __u64, USERSPACE_PPIS is a __u64[2], GRP_NR_IRQS is
+a __u32, and none of those can be got wrong.
 
->
-> Thanks and best regards,
-> Alexander
->
-> > +};
-> >
-> >
->
->
-> --
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> http://www.tq-group.com/
->
->
+kvm_device_attr itself is fixed, so no length can be added there.
+Changing what addr points at is still possible while this is unmerged,
+but would not be afterwards. Would it make sense for addr to point at
+a small structure carrying an explicit size, so that the kernel can
+reject a mismatch?
+
+The second point is the LPI IST going into guest memory. I understand
+from the commit message that the shadowing is deliberate and that the
+guest has already allocated the storage, so this is about the
+interface rather than that decision.
+
+Saving the ISTs is a KVM_GET_DEVICE_ATTR, and it writes into guest
+memory. Several of the documented ordering constraints are enforced,
+with -EBUSY when the VGIC is not initialised or when a restore is
+attempted after the VM has run. This one cannot be, because it is
+about when the VMM serialises guest memory:
+
+> These two steps may be performed in either order. However, the guest memory
+> must be serialised after the ISTs have been saved, as saving the LPI IST writes
+> the IST state back into guest memory.
+
+A VMM that snapshots guest memory before saving the ISTs gets no
+error, and the IST contents simply never reach the destination. Live
+migration looks fine to me, since kvm_write_guest() marks the pages
+dirty and a later pass picks them up, but a stop and copy save done in
+the natural order would lose them silently.
+
+Was a userspace buffer considered for the LPI IST as well, the way the
+SPI IST already works? That would remove the ordering requirement
+entirely, and by my reading the worst case is 65536 entries at 32
+bits, so 256 KiB, given the 16 bit clamp on the guest's LPI ID bits.
+
+Cheers,
+/fuad
 
