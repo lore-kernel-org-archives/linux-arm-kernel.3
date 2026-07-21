@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8C4C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75018C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okTMrHZiP0sVY1prxXrRl26i6JyH7ulay0Mr3CLRG44=; b=3EpXHHy4iskDCeLPRQAndNqtPr
-	0nvYp/SsIJF8+OrzlrOZY9daVwKjGhfc4zMhR7jg8gZPE3y9F3hZX+UpBgjKFyDKF3fB0FyfW6SOa
-	JJ57BrJe1FCnOSsWcmfPh3jyDU1C/qVhglBGqEhauDHN0Xd5IKBmYLJFxuOfNxQ7beXAG8baYZCp0
-	/IopWZQSsFBtmyqax8qeUIY/AauuGx83JcRiTv61W7I9WMxwYwhN8rmTX/a3AVBiRMnCaw3+rDcrG
-	Trr7BiAVJcP+3S5e7fLffzGB1DGOJ+9dfMmCHDD8HYeBNB3ayhAXjwtoKMZ3tmCKgTW+1tbkKlghZ
-	HQL9akFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+N5FscJywt+YqGXuLUzhGm/vFoyaAsakSzYz7zyBkkM=; b=WN+nkSVzSF/leZfTphe+iLug8G
+	qB9/lhA0oiWVYsCzJ/xyLb0Qaw5qnVJVPcTqjx6RBoKFL4o/edgW6fOjmLO5LqS2WHzC3L29RHpxr
+	m09+z3cgI4AQsWeim9qVUCIwJ5lBj/AOXmzFOzs8rBUviNA+ygajmHU7zKib8W0M2cg32U1lRP4SM
+	t4v3gd30zN+A7xdKubMb6tNeDXkZtuXNsn0gFtal8+50LlK7rCHeSmgb5UhxLYSNdKgVTw8Nr9wG6
+	5PVOE7vPuCOKDvNtYbPMnTK7UvhXZXEsC2K1fCdp00z/3VPYShPoaIO1T8AdB/a/1/bf8szcPTdzZ
+	Csbwq25g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5Ao-00000008gDS-3ox7;
-	Tue, 21 Jul 2026 07:45:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wm5DK-00000008gWl-1Vh8;
+	Tue, 21 Jul 2026 07:48:30 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5An-00000008gDA-1Ehq
+	id 1wm5DG-00000008gUx-2jWd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 07:45:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D9CE60A9D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:45:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D2951F00ADF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:45:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784619952;
-	bh=okTMrHZiP0sVY1prxXrRl26i6JyH7ulay0Mr3CLRG44=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Ojz3AsS3yLTPkRMTWCGx3vLCWNJy+520RCn2Hza8D9RWBnYJbEh8KKU7q6b9KxNCG
-	 FHzBMRNMV2NDCrmrXTMAIDh9ZXTD4JaCCfqPRiKYxkEDYlZJ79HsJH6w5Bvcqa2j35
-	 /omhQr4tItO8u+8wN+5vTIlZd3EYh61tK8e/CZ7sLleetWTivG2suhIYaIlSpCEyp/
-	 SsGRsiKsxsfU9dORzY9BMmR9Smd6yYuNmJF6wGZiHD3krGX8TLAD12v9/uNGZZx5WY
-	 CmCGVYzGk8bqrjiboPfGsdBPU1t+QrGnJhA7IwQNzCgVmInxUhn16Zd6G1KqYYHiea
-	 YWW+3gTKLQsVQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b011edaf7dso9655571e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 00:45:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrIf9NHKMhKk99JiPY1GZCsJKfJtN7Nn7Fn7kRCOst80Y/YRd1ceRdX/isLiMUGFNVuOp80AjYxHMbkxXRyP+x2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+QBf9RlYskl1/8Y4dbV3dE25p0HVyt+PEx2JdFO2bthdBPn0i
-	MWQ9djrwR29vRhoqDKMl/CTTpsErNQu1RFG1AhYffnjdgndc4dfsWMNwoSTveqcjlT2X4dosjov
-	lO4+5G8rB2RjV2pLWA5FPsQXVBIUkgE4=
-X-Received: by 2002:a05:6512:611:10b0:5ae:bbe4:f4b9 with SMTP id
- 2adb3069b0e04-5b28f9aead9mr2079075e87.55.1784619950751; Tue, 21 Jul 2026
- 00:45:50 -0700 (PDT)
+	Tue, 21 Jul 2026 07:48:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=+N5FscJywt+YqGXuLUzhGm/vFoyaAsakSzYz7zyBkkM=; b=KM7Qc+2Y2fY88mqpbZfgd0x/Fa
+	4ANU8+fOSVPxZjDuMSNs9aa98/gE33fw2FPd3YM41lZh/OjooCfxZl3z70Knyv6Vl5LfwSt4cGWgH
+	Ebu6Fu+WfG9kociLblneNsXzqxSvnkf/z84A87nq61i7h7OlaLFxcZHpidTV5dkhgQSUNT4f+aXP8
+	4LIzmq+jpZ0Y0LztV+0t+yUb8aqgfUzDEdv/qi9SrQ4OPmxqV4fxbyTLtNeIJvrdexVe3r41hpefw
+	JDtyWqAC3GQD81Re3RNmsnWpj2fSICN9klBadgPQEJLV5PP+vj6K2vTPaLcOQUkMSkEnwO7KiesWe
+	G+7A5UIA==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wm5D8-000OWD-1X;
+	Tue, 21 Jul 2026 09:48:18 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wm5D7-000OyO-1Y;
+	Tue, 21 Jul 2026 09:48:18 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Xu Yang <xu.yang_2@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+ Frank.Li@oss.nxp.com
+Subject: Re: [PATCH 1/2] arm64: dts: imx8qm-ss-conn: add usbotg3 iommu information
+Date: Tue, 21 Jul 2026 09:48:16 +0200
+Message-ID: <2844770.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260720-qm_smmu-v1-1-3689fbd8b516@nxp.com>
+References: <20260720-qm_smmu-v1-0-3689fbd8b516@nxp.com>
+ <20260720-qm_smmu-v1-1-3689fbd8b516@nxp.com>
 MIME-Version: 1.0
-References: <20260721052859.171341-1-manikandan.m@microchip.com> <20260721052859.171341-3-manikandan.m@microchip.com>
-In-Reply-To: <20260721052859.171341-3-manikandan.m@microchip.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 21 Jul 2026 09:45:38 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkjY8hwGE9nNnDpuapVyTf-cBJhyZA8B9PE7U-CWmkyjw@mail.gmail.com>
-X-Gm-Features: AUfX_mz_2Va_62Eq0-JUpFBlFm9mhUwZ4GUXlXtPLrXevxSFmqeo3xMHXg5EG2Q
-Message-ID: <CAD++jLkjY8hwGE9nNnDpuapVyTf-cBJhyZA8B9PE7U-CWmkyjw@mail.gmail.com>
-Subject: Re: [PATCH v5 2/7] dt-bindings: nvmem: layouts: add Microchip/SST
- SFDP EUI layout
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
-Cc: pratyush@kernel.org, mwalle@kernel.org, takahiro.kuwano@infineon.com, 
-	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, srini@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, linux@armlinux.org.uk, richardcochran@gmail.com, 
-	arnd@arndb.de, michael@walle.cc, linux-mtd@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28067/Tue Jul 21 08:23:56 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_004826_820306_D57C99C2 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 7:29=E2=80=AFAM Manikandan Muralidharan
-<manikandan.m@microchip.com> wrote:
+Hi Frank,
 
-> Add a binding for the NVMEM layout that exposes the factory-programmed
-> EUI-48 identifier from the Microchip/SST vendor-specific SFDP parameter
-> table (e.g. SST26VF064BEUI) as a "mac-address" NVMEM cell, and reference
-> it from nvmem-layout.yaml.
->
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Am Montag, 20. Juli 2026, 23:10:33 CEST schrieb Frank.Li@oss.nxp.com:
+> From: Frank Li <Frank.Li@nxp.com>
+>=20
+> Add usbotg3 iommu information.
+>=20
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi b/arch/arm=
+64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+> index ccf9f510e0f88..1370a571153a5 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+> @@ -32,3 +32,7 @@ &usdhc3 {
+>  	compatible =3D "fsl,imx8qm-usdhc", "fsl,imx8qxp-usdhc", "fsl,imx7d-usdh=
+c";
+>  	iommus =3D <&smmu 0x11 0x7f80>;
+>  };
+> +
+> +&usbotg3_cdns3 {
+> +	iommus =3D <&smmu 0x4 0x7f80>;
 
-I like it!
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Where in the RM can you get these values?
 
-Yours,
-Linus Walleij
+Thanks and best regards,
+Alexander
+
+> +};
+>=20
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
