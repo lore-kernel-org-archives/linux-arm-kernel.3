@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D45C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FC0C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nokpUTK/BQEU2xPd8dil79b/pTUs86asyupxsitnFKA=; b=lbGU3LVfHbAXlJiFDER5BZp6mE
-	AORJylzplmUkp9aJBUoN9Du3Fe2W/GaTkzJI5xkpsx0YPpHGFXETUbxMCymzhfwfdL2tIkD82NND0
-	zx5tDZ/HwuS5HxCRVp2HsI71jsLcbjklgKSZZKxX0U1wpyBoaBSyL4pDgrRGj2pacSwLFKZpRqcw3
-	oPBFsnLLHSdxEoSWItbGY/z6dP373MNDt5SuUU4cvqnQVzTlSEjfUA9AzHaMJwGwGjS/j3HTJqopL
-	Lm8HwiQVR+n5PwqzlVWwV7jIEOD6Y3lO5J8GhoiJg+/ftMiU2MLAYTTAcK3mP5H7jKbDXXD/uevFW
-	gadFNkYA==;
+	bh=aHE9E+mQ6FecAcifXNkjcLKFQsJdzpbS6vo0hKS7MCs=; b=xUzLutt/JApxrRiIYMgz5Cb/gD
+	vOAdEYAo49BLOs2n1iFgcDkhDjbQDm06V44gLMo0DJAj3QgBYRnJHJvFnrvX178ruh5/PIAThiqrn
+	AtC7069K649b7mnjDU9z/jsejiQaP3x9YTPn0w8UKFXs60ANLxq0rR+vkDLYPk8LmD6F8LD9XvtTl
+	b/FsXhQ9y4h1vP2KtqKaa9WyjD8DVykEai4px07is5u6YA7HAVBZZ/Oy35N5UNoRQn2c6GZN4UoQ7
+	lD+0p0pXjzaJEDhoVDt+WTDllU5ByerpdJ6m+HoVowu35wqqBakuz5kmcy6LSBjMBH2xxCP9Spr0t
+	Hjbl61uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGv-00000009tn0-07vT;
-	Tue, 21 Jul 2026 16:24:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmDHF-00000009uHc-4Bdc;
+	Tue, 21 Jul 2026 16:25:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGt-00000009tll-3AS5;
-	Tue, 21 Jul 2026 16:24:43 +0000
+	id 1wmDHE-00000009uEp-2baA;
+	Tue, 21 Jul 2026 16:25:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F79F40E4F;
-	Tue, 21 Jul 2026 16:24:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1032F1F00A3A;
-	Tue, 21 Jul 2026 16:24:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A9BE42446;
+	Tue, 21 Jul 2026 16:25:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C379D1F00A3F;
+	Tue, 21 Jul 2026 16:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651083;
-	bh=nokpUTK/BQEU2xPd8dil79b/pTUs86asyupxsitnFKA=;
+	s=k20260515; t=1784651104;
+	bh=aHE9E+mQ6FecAcifXNkjcLKFQsJdzpbS6vo0hKS7MCs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=mduyV/4oIfEViBoL6lriq5H4veut2axJNwNq2s8j+Qo/kcJQY2HEyGHhleoOmd1Ba
-	 KqLtqTyZvyOcUE/AJKvW6Fvi+sOLhFoZYGyhft2SjmZUALxgwD5DGq9OsXZr8lT1+t
-	 Z1NUg49kmKteh+uVkht2fdwI7NtwumvsJCfpA9k8YL5d/G4pidA3LDhwZQisFKj0WT
-	 bJlJEAeJYy76RZjM+xZVDhcI3yxkOWWVkJLQMTUtiPeaY8q902iyg65RZ21W/j9hWZ
-	 plSCPQAYE8Bab5QU90e8Xoo9DivS7xzxi6Pg0rG3OxFpbwABrQidREgO0VdToD8Had
-	 qxbQhX+cRlHKQ==
+	b=JGIO4UJ5qxnF1hC6IdbRB7Cz7UAlenF2xGg1HDepQsa9sW3gzBG8KEjpg4eaajMqn
+	 +1z2M14sXjjxZISNdj5pwAqMHTYh+ZMsh7mBT5HDyAo4CqTgBvlVgEdpN1dFHSYHjv
+	 rUbGkkyOrsNatXd86xR+fx/PQ1t8YjkznLPlooouTIhlpQwPD4ct6gTnRbtt7ANt/y
+	 z/SocZF0FQ4ral3W7XLaZeUMwSW4tF3g82+UCiwgH8TzGWqC5EaaSGPxt1pgyfaO7r
+	 j1iXeKTnDY1apTx0ilVi+Jb/uOzHx1utq5agfbvlNdBmjxsPvPlSKQjQ7EZqcXI7ID
+	 eKsxCxxA5cFbQ==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Tue, 21 Jul 2026 19:23:32 +0300
-Subject: [PATCH RFC 09/18] x86/mm/pat: use a single locked lookup for PTE
- verification
+Date: Tue, 21 Jul 2026 19:23:35 +0300
+Subject: [PATCH RFC 12/18] x86/pat/mm, mm/set_memory: abstract the CPA page
+ table lock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-generic-set-memory-v0-1-v1-9-2c1fc62306b3@kernel.org>
+Message-Id: <20260721-generic-set-memory-v0-1-v1-12-2c1fc62306b3@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
@@ -84,204 +84,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently both __should_split_large_page() and __split_large_page()
-verify that the page table entry wasn't changed by another CPU while
-pgd_lock was released.
+x86 requires taking pgd_lock to serialize large page splits against
+parallel page table operations, for instance such as
+arch_sync_kernel_mappings() and pgd allocation and freeing.
 
-pgd_lock must be released between __should_split_large_page() and
-__split_large_page() because split of a large page requires allocation
-of a new page table page.
+Add arch_lock() and arch_unlock() static inlines that replace direct
+locking/unlocking of the pgd_lock in CPA core.
 
-Preallocating the page table page before checking if the large page
-should be split allows running both __should_split_large_page() and
-__split_large_page() inside the same critical section protected by
-pgd_lock and allows dropping the duplicated lookup.
+Since only x86 needs such lock, keep things simple and use #ifdef
+CONFIG_X86 rather than creating an overridable infrastructure.
 
-Move allocation of the page table before the call to
-should_split_large_page() and pull out race-checking lookup into
-cpa_handle_large_page().
+No functional change intended.
 
 Assisted-by: Copilot:claude-opus-4.8
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c | 89 ++++++++++++++++++++------------------------
- 1 file changed, 40 insertions(+), 49 deletions(-)
+ mm/set_memory.c | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index c2a72cd8b832..ef206ba6e254 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -60,6 +60,9 @@ struct cpa_split_data {
- 	unsigned long	address;
- 	pte_t		*kpte;
- 	struct ptdesc	*ptdesc;
-+	enum pgtable_level level;
-+	bool		nx;
-+	bool		rw;
- };
+diff --git a/mm/set_memory.c b/mm/set_memory.c
+index 712264de8e9b..d2846804e4e6 100644
+--- a/mm/set_memory.c
++++ b/mm/set_memory.c
+@@ -14,6 +14,20 @@
+  */
+ static DEFINE_SPINLOCK(cpa_lock);
  
- enum cpa_warn {
-@@ -883,19 +886,12 @@ static int __should_split_large_page(struct cpa_data *cpa,
- {
- 	unsigned long numpages, pmask, psize, lpaddr, pfn, old_pfn;
- 	pgprot_t old_prot, new_prot, req_prot, chk_prot;
-+	enum pgtable_level level = sd->level;
- 	unsigned long address = sd->address;
--	enum pgtable_level level;
- 	pte_t *kpte = sd->kpte;
--	pte_t new_pte, *tmp;
--	bool nx, rw;
--
--	/*
--	 * Check for races, another CPU might have split this page
--	 * up already:
--	 */
--	tmp = _lookup_address_cpa(cpa, address, &level, &nx, &rw);
--	if (tmp != kpte)
--		return 1;
-+	bool nx = sd->nx;
-+	bool rw = sd->rw;
-+	pte_t new_pte;
- 
- 	switch (level) {
- 	case PGTABLE_LEVEL_PMD:
-@@ -1030,16 +1026,10 @@ static int __should_split_large_page(struct cpa_data *cpa,
- static int should_split_large_page(struct cpa_data *cpa,
- 				   struct cpa_split_data *sd)
- {
--	int do_split;
--
- 	if (cpa->force_split)
- 		return 1;
- 
--	spin_lock(&pgd_lock);
--	do_split = __should_split_large_page(cpa, sd);
--	spin_unlock(&pgd_lock);
--
--	return do_split;
-+	return __should_split_large_page(cpa, sd);
- }
- 
- static void split_set_pte(struct cpa_data *cpa, pte_t *pte, unsigned long pfn,
-@@ -1084,23 +1074,11 @@ static int __split_large_page(struct cpa_data *cpa, struct cpa_split_data *sd)
- 	struct ptdesc *ptdesc = sd->ptdesc;
- 	struct page *base = ptdesc_page(ptdesc);
- 	pte_t *pbase = (pte_t *)page_address(base);
-+	enum pgtable_level level = sd->level;
- 	unsigned long address = sd->address;
- 	pte_t *kpte = sd->kpte;
--	unsigned int i, level;
-+	unsigned int i;
- 	pgprot_t ref_prot;
--	bool nx, rw;
--	pte_t *tmp;
--
--	spin_lock(&pgd_lock);
--	/*
--	 * Check for races, another CPU might have split this page
--	 * up for us already:
--	 */
--	tmp = _lookup_address_cpa(cpa, address, &level, &nx, &rw);
--	if (tmp != kpte) {
--		spin_unlock(&pgd_lock);
--		return 1;
--	}
- 
- 	paravirt_alloc_pte(&init_mm, page_to_pfn(base));
- 
-@@ -1133,7 +1111,6 @@ static int __split_large_page(struct cpa_data *cpa, struct cpa_split_data *sd)
- 		break;
- 
- 	default:
--		spin_unlock(&pgd_lock);
- 		return 1;
- 	}
- 
-@@ -1181,23 +1158,13 @@ static int __split_large_page(struct cpa_data *cpa, struct cpa_split_data *sd)
- 	 * just split large page entry.
- 	 */
- 	flush_tlb_all();
--	spin_unlock(&pgd_lock);
- 
- 	return 0;
- }
- 
- static int split_large_page(struct cpa_data *cpa, struct cpa_split_data *sd)
- {
--	spin_unlock(&cpa_lock);
--	sd->ptdesc = pagetable_alloc(GFP_KERNEL, 0);
--	spin_lock(&cpa_lock);
--	if (!sd->ptdesc)
--		return -ENOMEM;
--
--	if (__split_large_page(cpa, sd))
--		pagetable_free(sd->ptdesc);
--
--	return 0;
-+	return __split_large_page(cpa, sd);
- }
- 
- static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
-@@ -1207,13 +1174,31 @@ static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
- 		.address = address,
- 		.kpte = kpte,
- 	};
--	int do_split, err;
-+	int do_split, ret = 1;
-+	pte_t *tmp;
-+
-+	spin_unlock(&cpa_lock);
-+	sd.ptdesc = pagetable_alloc(GFP_KERNEL, 0);
-+	spin_lock(&cpa_lock);
-+	if (!sd.ptdesc)
-+		return -ENOMEM;
-+
++static inline void arch_lock(void)
++{
++#ifdef CONFIG_X86
 +	spin_lock(&pgd_lock);
++#endif
++}
 +
-+	/*
-+	 * Check for races, another CPU might have split this page
-+	 * up already:
-+	 */
-+	tmp = _lookup_address_cpa(cpa, address, &sd.level, &sd.nx, &sd.rw);
-+	if (tmp != kpte)
-+		goto out_free_ptdesc;
- 
- 	/*
- 	 * Check, whether we can keep the large page intact
- 	 * and just change the pte:
- 	 */
- 	do_split = should_split_large_page(cpa, &sd);
-+	ret = do_split;
- 	/*
- 	 * When the range fits into the existing large page, no split is
- 	 * required.
-@@ -1221,16 +1206,22 @@ static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
- 	 * cpa->numpages and cpa->pfn.
- 	 */
- 	if (do_split <= 0)
--		return do_split;
-+		goto out_free_ptdesc;
- 
- 	/*
- 	 * We have to split the large page:
- 	 */
--	err = split_large_page(cpa, &sd);
--	if (err)
--		return err;
-+	ret = split_large_page(cpa, &sd);
-+	if (ret)
-+		goto out_free_ptdesc;
- 
++static inline void arch_unlock(void)
++{
++#ifdef CONFIG_X86
 +	spin_unlock(&pgd_lock);
++#endif
++}
++
+ unsigned long cpa_addr(struct cpa_data *cpa, unsigned long idx)
+ {
+ 	if (cpa->flags & CPA_PAGES_ARRAY) {
+@@ -170,7 +184,7 @@ static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
+ 	if (!sd.ptdesc)
+ 		return -ENOMEM;
+ 
+-	spin_lock(&pgd_lock);
++	arch_lock();
+ 
+ 	/*
+ 	 * Check for races, another CPU might have split this page
+@@ -202,11 +216,11 @@ static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
+ 	if (ret)
+ 		goto out_free_ptdesc;
+ 
+-	spin_unlock(&pgd_lock);
++	arch_unlock();
  	return do_split;
-+
-+out_free_ptdesc:
-+	spin_unlock(&pgd_lock);
-+	pagetable_free(sd.ptdesc);
-+	return ret;
- }
  
- static int collapse_pmd_page(pmd_t *pmd, unsigned long addr,
+ out_free_ptdesc:
+-	spin_unlock(&pgd_lock);
++	arch_unlock();
+ 	pagetable_free(sd.ptdesc);
+ 	return ret;
+ }
 
 -- 
 2.53.0
