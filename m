@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBF0C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6B5C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TaN2NTDmPgA7xbWSLdWhOHnIhSnNjTOIfLYsD08nTAI=; b=2CFxNOY2l0XUtzJIOOhYbcP7ES
-	F/d+HEPsPcPqeYXAM9AmO2aapyBpKRm0L9YFkXD+tdnf0WOhag5+2+m2Uo3NjCJDK2SY9SRdmZasn
-	+R3WijGDz5lQYQYdIXuGzPd1g5dQv4C+bJZfzebyDLfVR231vf+DhB39WUAdlbgpQPNYvVzkSiLTO
-	RuNORh949FgGGwbLCr+80VCm8wAyjeO2L8fpNVhAb4tkjM2GaWukAlFUc8vypyNBE0E1FTUir0Ipg
-	A7Znsqut8+Lxp2qwlImnUwMmHiIA6RZIquX8DBH90wO5A19oewnX6aKaZT7lgvvxEb6r5pL/vMGWI
-	Ji2XGOFQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CQu/v9VbPVOFvypxy+vSIVqVZUuLUc8YlsM7QgQ5RmA=; b=l+na/q0swOQlbUMoH3A152rr96
+	4QW5TeMcHWbvrdMvT6d1AifdWULpZG3O6Kiii/PzofzkppmgC92/WVFgnWT2b7HndZQ7vdIBplL0z
+	U/N1gCURA++Y5V9Ky02tQHevNDJAQn44jnzJEfhAuf9lw15bfyGu3nOsAnA+vREvQf6Re7/49EzxE
+	GmnH+XDphPp9WAig0vzXjM7mG6rN5eyBxVguuplbgWCtQZfPSzo8vb2jSLfRY/wFbswVeMne2IEex
+	6FrmnNw9luEs1KIlBVoVTP46bqk9eqHVDSv39AeFqSn6KbDM8GNHIC/SZhT84x3oRZ4klAV8ML8OE
+	LWRo4ySw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm3su-00000008Viq-0fwT;
-	Tue, 21 Jul 2026 06:23:20 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1wm3sy-00000008Vkc-1XdF;
+	Tue, 21 Jul 2026 06:23:24 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm3sr-00000008ViO-1sHw
+	id 1wm3sw-00000008VjV-1U9A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 06:23:18 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8423f236418so5776955b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 23:23:16 -0700 (PDT)
+	Tue, 21 Jul 2026 06:23:23 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84830c774a0so5744412b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 23:23:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784614996; x=1785219796; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TaN2NTDmPgA7xbWSLdWhOHnIhSnNjTOIfLYsD08nTAI=;
-        b=NUDIw1Fi9nYkJQ7vYYrUprv4yUWrpxW7ojAm4d78ZzbpCB7veVRu4IRqnD0KzMMbx5
-         qJdNrFLl87Km2ys77HOWaZEPFCYIIRt7mw55GXn461Xxg6E/XE1WWxgkLzpHhZ8MEvEW
-         m0UbPwcasAdO/PvbJTqyTpYoRAV/YOMtCUtDAL1O5Nv4IrqAbQR1hSMyYk3XmPVKVD+L
-         sBZHqErPxmLv1OWIi/EaJEwqL3Q9fhmIvzHHRe4xAdTbEuuLwMigpvFqt7B+IhcvdKpA
-         n8U2K8JU1/z7Wr+oMEiNSEi0q46UGKYTvHAkP4y36bjvy03zPPdQw+BhPgIM15ZujjSd
-         RzUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784614996; x=1785219796;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1784615001; x=1785219801; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TaN2NTDmPgA7xbWSLdWhOHnIhSnNjTOIfLYsD08nTAI=;
-        b=ERW1N+WX77wxMurU4NC4L7Phx0P+5AQfYypyXLfGIHowDtd2HG7Jiag4Xyh2Gh1XWw
-         a3+vSjuAnSuzMeX0NEXTGvcetHRqiJS5+YuRx2kJam9hYYW0YkpS+J+J1hGAol0ZuB3c
-         /WhpMJ3/hthTndkpa1b/4x3AG/bIaX2+gh5nh9uVOfnMZ00xxfU0EPYVkP8A7Gq35qDn
-         aFlK3gjn4MYAqDKlTnPZ7iT9LQZsmv+BX6xniCs9iBe1AQ61qSpcBlUpZc+LcNFpLgRU
-         DKHTV5qcG6DFoQ7tcIUr6TF8CSqteWoPMaX6gnn6JWfznCOaIrqQHexJp36Asf5xwYgI
-         P2eg==
-X-Gm-Message-State: AOJu0YyOMtrNpVIB26cBXxHB9Dzd5TEBKKWqPcl/Ve6C2/qgp7gO7vqv
-	ukO8hm/D6LqcoUvtI+6XAaGboWfeQaBqs4lYQYR3EtBTEEZ41wys3c/w
-X-Gm-Gg: AR+sD122UgZgdvuHWfLJmgVH1Lty+Nc1lu78IAV15KoM0ImZ29dqFc5hgqezqREMFzP
-	KK55FFiDR2mJlgZCiFsNG/rOMtumoH1BjLr8dAkl1V1LStiLF3tWbtkRpzhn8ZoA/pUzHlxm3JR
-	/WZSrXCYsUpu1mX2EUCikIFNoVlmLWqL+z2rHTgQObmCWiSO2nJS2VI3RWP5OGQHW+TNFs419OY
-	RbILbYgFAbQrsEyH2CyWLzv4s2eSEW53OGFLr+w+M0m+U9ThAjQLbQlb7nUT5zwkwUrn9aLTqeE
-	Yw9YrgX87NfgOJBOer8y2xlPpAq0P/emxxB9YorUXAFD3PSGJ2ZvbAJz+kEPfw1Ogrw/5mdqocL
-	Ruusjxskwe6P5+qndC9r4o28gXRQZkOlRgc0A3EtK0kijqMN0Ik7hIHansVJOFbGfdwr/vV7rA/
-	E/seQqDj8N9WB7x7/bcq3DQPK3kB8aYszRGroDkAvMUZ4DnPnfTwdvuXqC19ik0bWV
-X-Received: by 2002:a05:6a00:228f:b0:845:3fe5:cddd with SMTP id d2e1a72fcca58-84c29501125mr17502562b3a.36.1784614995643;
-        Mon, 20 Jul 2026 23:23:15 -0700 (PDT)
+        bh=CQu/v9VbPVOFvypxy+vSIVqVZUuLUc8YlsM7QgQ5RmA=;
+        b=oQsIzjfsWVzrsAeFiWvpUy3wR5tYbHVCVnuCa7i9S7oNYdpuBy27ehSODVABsj8hu+
+         t+kU1+r7F2dPiq59PFPq3s3BHOUt98DZyrjkQEIGSOZ5pKQcPE3aCf4uzX/KZ1Gcwj5+
+         hRRNpjn5HCJqwOWr2teeIxC+eDzoVeFnoEJDYHBOISXXqt/lGMn9zOkaTOf2C0R1HiSI
+         Kh/YsksoLXZZINNUNPu64SW5erJRRLm2Bpr5sRRWSuReXuow8zxouu4a8wmnt07h9w6F
+         MHgKEPq5J1EQmHD/V7Qurh8K8+EKkINmJMPE5nd6oXyBOkvERu1eraaQiLP0Dbhj10L9
+         m4qA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784615001; x=1785219801;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CQu/v9VbPVOFvypxy+vSIVqVZUuLUc8YlsM7QgQ5RmA=;
+        b=Bp2T8k8LtriusIsi84r9bkbZyacBC72Y6n5WS3vO/fw1++dwXrKwsIBprM5tzvOxND
+         m4BmMuEoGgRuJTWYO7xpX0CTuvixrpqG8xfcHl/bH0zGFZknlDHfYh38Ka9GILXj54mi
+         O58qOGpgnWNKGQ6QV/AvvYV9014iixMnhfHgGnnNHbuhSjFgbODLufYOvi/SQCSXwo9G
+         8bqlgIxT7qAJRTM8y8sidMsoZNA3zhAvVPPRdo+NjqlC4o8PHFyvDK1NQB/8RAlAR0pt
+         c67WLiFCLQyc9/1Fa4HZD7C87ao+gfJFXi318Za9QtIfX3WzhWx4qpK3vZl0bphKaQ6o
+         VHHw==
+X-Gm-Message-State: AOJu0YyNzZiy9aNKeBqIrrkRjR0I4USwb8YIKT6xbrhfVVseonbQNiKC
+	PRZpNAYhV8CgEOZ/BXhwnC5ShWb1p9w6fYfldJFWead5pTUw/4iRlmlZ
+X-Gm-Gg: AR+sD13M/JNZIweOHWutMagpEjpW/UBYq+zBED4EPK7yx4bjEeiVm09+uV0Ah0iJGOw
+	CZ2bMyu9EEs+fN9np/75oWkw/uqXvswOBShoTnUNUIS8WdR2eX/CJsiIk9X3YODh2K0e3H8Q6vV
+	r6CPqw1FnGCMUJ1WzVxPGazEPodd9wkfPn25zfVqVWTEhuraRdmUm+Uh+GxgF3tUHRK5hJ6qv/5
+	NYY0Q8VVnjWyt58Yt0eNmYwSUzelxfEcNA5zZJEq2cc4BYs+3U1/4ExjF0Bl5rdxRiamfhWo8fW
+	5apT9IDoQle2Hml9maVeSKpiOPY09zH9Q9sqeL6/9CtqEDSHp8UOv3F1Ik3NWOo9XXg5gc0rJ0H
+	nvcuPyvpAZSp0w9887Ex+OjfDJ7icGSbIImUU27XrcQ/J3fc2NihcCeAAFkTEwrf4UVZ+0RIZqw
+	mMYvrEcvvhzrFAv35bFltSVAGXZuqxW9vG7ecG74ZKXfowVwbiaD2qOgZCi1BRypM7
+X-Received: by 2002:aa7:8890:0:b0:848:68cb:5c74 with SMTP id d2e1a72fcca58-84c294970c0mr16543173b3a.60.1784615001381;
+        Mon, 20 Jul 2026 23:23:21 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c4b640050sm4020710b3a.45.2026.07.20.23.23.12
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c4b640050sm4020710b3a.45.2026.07.20.23.23.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 23:23:14 -0700 (PDT)
+        Mon, 20 Jul 2026 23:23:20 -0700 (PDT)
 From: Chi-Wen Weng <cwweng.linux@gmail.com>
 To: ukleinek@kernel.org,
 	robh@kernel.org,
@@ -77,16 +78,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	cwweng@nuvoton.com,
-	cwweng.linux@gmail.com
-Subject: [PATCH v5 0/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Date: Tue, 21 Jul 2026 14:23:06 +0800
-Message-Id: <20260721062308.536947-1-cwweng.linux@gmail.com>
+	cwweng.linux@gmail.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v5 1/2] dt-bindings: pwm: Add Nuvoton MA35D1 PWM controller
+Date: Tue, 21 Jul 2026 14:23:07 +0800
+Message-Id: <20260721062308.536947-2-cwweng.linux@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260721062308.536947-1-cwweng.linux@gmail.com>
+References: <20260721062308.536947-1-cwweng.linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_232317_512451_59D6DB87 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20260720_232322_401383_BE8E67B7 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,115 +107,70 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-This series adds the device tree binding and PWM framework driver for the
-Nuvoton MA35D1 EPWM controller.
+Add device tree binding for the Nuvoton MA35D1 PWM controller.
 
-The MA35D1 EPWM controller provides 6 PWM channels. The hardware supports
-up, down and up-down counter types, auto-reload and one-shot modes, and
-independent and complementary output modes.
+The MA35D1 PWM controller provides 6 PWM channels and uses one register
+region and one functional clock. The binding uses the standard PWM binding
+with three PWM cells.
 
-The initial driver supports independent output mode only and configures a
-channel for up-counting and auto-reload operation when an explicit .apply()
-request is made. The waveform generator drives the output high at the zero
-point and low at the compare-up point.
-
-In up-counting mode, the counter counts from 0 to PERIOD inclusive. With
-the selected waveform actions, CMPDAT = 0 generates a 0% duty cycle and
-CMPDAT > PERIOD generates a 100% duty cycle. The driver keeps PERIOD one
-count below the 16-bit field maximum so that CMPDAT can be programmed
-greater than PERIOD for the full-duty case.
-
-PERIOD and CMPDAT updates are buffered by the hardware and take effect at 
-the end of the current period because the driver selects period loading 
-mode by clearing IMMLDENn,WINLDENn and CTRLDn. When a PWM is disabled,
-POENn and CNTENn are cleared, and the output pin is put into tri-state.
-
-The driver does not modify the PWM controller during probe. This preserves
-PWM outputs that may have been configured and enabled by firmware, such as
-a display backlight. The counter and waveform configuration is changed
-only for the channel passed to .apply().
-
-Since the independent/complementary mode selection is shared by each pair
-of channels, the driver refuses to change an active complementary pair to
-independent mode when the paired channel is already enabled.
-
-Changes in v5:
-- Remove the probe-time controller initialization to preserve PWM outputs
-  configured by firmware.
-- Configure the counter and waveform settings only for the channel passed to
-  .apply().
-- Keep the disable path limited to clearing POENn and CNTENn.
-- Check for an active paired channel before changing a complementary pair to
-  independent mode.
-- Return -EBUSY when changing the shared output mode would disturb an active
-  paired channel.
-- Document that the initial driver supports independent output mode only.
-- Remove the unnecessary <linux/mod_devicetable.h> include.
-- Simplify the WGCTL action field handling and remove the associated static
-  inline mask helpers.
-- Rename the PWM field and period limits to clarify their different
-  semantics.
-- Configure period loading mode explicitly in .apply().
-- Preserve the pair-shared clock prescaler and account for it in period and
-  duty-cycle calculations.
-- Limit the period to 0xffff counter cycles while reserving CMPDAT = 0xffff
-  for the full-duty case.
-  
-Changes in v4:
-- Add a Limitations section to describe the hardware capabilities and driver
-  limitations.
-- Add a link to the MA35D1 reference manual.
-- Replace register address macros containing the base pointer with register
-  offset macros.
-- Add readl/writel/rmw helper functions.
-- Rename TOTAL_CHANNELS to NUM_CHANNELS.
-- Use unsigned long for the cached clock rate.
-- Use devm_clk_rate_exclusive_get().
-- Configure polarity before enabling the counter and output.
-- Add controller initialization for up-counting, auto-reload and independent
-  output mode.
-- Configure the waveform generator for zero-point-high and compare-up-low
-  output.
-- Fix the period conversion because the hardware period is PERIOD + 1 cycles.
-- Limit the maximum PERIOD value to 0xfffe so that CMPDAT = 0xffff can be used
-  to generate 100% duty cycle.
-- Use CNTEN and POEN bits to report the enabled state in .get_state().
-- Disable the PWM by clearing POENn and CNTENn.
-- Fix error message capitalization and trailing newlines.
-- Fix coding style issues reported by review/checkpatch-style tools.
-
-Changes in v3:
-  - Update nuvoton,ma35d1-pwm.yaml
-    - Add maintainers entry
-    - Increase "#pwm-cells" to 3
-    - Update ma35d1 pwm driver
-    - Make include header and macros definitions organized alphabetically
-    - Rename macros REG_PWM_XXXX to MA35D1_REG_PWM_XXXX
-    - Add macros for register address
-
-v2 resend:
-  - Remove wrong 'Reviewed-by' tags.
-
-Changes in v2:
-  - Update nuvoton,ma35d1-pwm.yaml
-    - Fix 'maxItems' of 'reg' to 1.
-    - Remove unused label
-  - Update ma35d1 pwm driver
-    - Remove MODULE_ALIAS()
-    - Add chip->atomic = true
-
-Chi-Wen Weng (2):
-  dt-bindings: pwm: Add Nuvoton MA35D1 PWM controller
-  pwm: Add Nuvoton MA35D1 PWM controller support
-
- .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      |  45 +++
- drivers/pwm/Kconfig                           |  10 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-ma35d1.c                      | 380 ++++++++++++++++++
- 4 files changed, 436 insertions(+)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+---
+ .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
- create mode 100644 drivers/pwm/pwm-ma35d1.c
 
+diff --git a/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml b/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+new file mode 100644
+index 000000000000..47a59bdd14d0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/nuvoton,ma35d1-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Nuvoton MA35D1 PWM controller
++
++maintainers:
++  - Chi-Wen Weng <cwweng@nuvoton.com>
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    enum:
++      - nuvoton,ma35d1-pwm
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 3
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
++
++    pwm@40580000 {
++      compatible = "nuvoton,ma35d1-pwm";
++      reg = <0x40580000 0x400>;
++      clocks = <&clk EPWM0_GATE>;
++      #pwm-cells = <3>;
++    };
 -- 
 2.25.1
 
