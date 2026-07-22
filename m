@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121B9C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF8EC4453E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGWz4AGPTvjqBJii69009HGXG9cV0427s/VqH2p6rLk=; b=FW/x7ejjhAXNTZJtiNwT+LQ342
-	zz6wlq9XIrBqrBTo1Gv7Ui0ri7UKwiTNaATqDRkEkH57aDsNi3gIEvyuvg34EWTQuSUG1FtbHgHP+
-	L8GHVyJAGt8IFNK0wT+0gfSbodkFUctoH0e2wqpgYzA47qiLQ0ec12PCPHa2FSWzUvRqCvW8czMMR
-	9HZnl3hamLWWq+rS9KvRe6+GYzuxZEP+O3xcX1lAbB9EtJ/GymvfGBALXzR3yNMWNkdlOoStze74A
-	KSbmaKs38orIyVDPUnNcgnl29DDWzL/rJhqH1Zc/jxt3qtFQiGroNaljB55wqHDqOJGT6c/yLoPcC
-	30SniW6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oSuyD74UXi2JQL1W616mM8c2GOODdxS4FQDGhYXd3Cg=; b=O+gQNLotlhL4LpBTRb+AeGk/ka
+	iE1qW/AByWDYJ5oUIeMMgmu0K37FMbI/9Fh32EYedPy3V+Ly54L7rpe28NCFlD+uVW2mFMBdq4NgA
+	JmNAj+XfCxFHvw0GhK/ivkBDeli0EDChAm3UxrDw7FVtKWklsY6uViZmxxtlE6X9KAPEyDtXy5iye
+	Rq6fpxCFtVx5e95CJnfv/XvrXGdGSEc8Sn/RO8cFuf4gBVqdEdMhHDcW2FgkGEkt9NPKPEN/OSzDU
+	1kAfA+lv9WLA5ZX99jXbUCTVzbEylTo3zhshUG/csEBAVN/HojlSSkG7MH/U0irqprtAQNlTRJJ0d
+	4xPJp2Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZGI-0000000CGaM-2dg1;
-	Wed, 22 Jul 2026 15:53:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZGG-0000000CGZq-0TTq
+	id 1wmZYj-0000000CIMW-2cQo;
+	Wed, 22 Jul 2026 16:12:37 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmZYf-0000000CILl-3mYP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 15:53:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97C001595;
-	Wed, 22 Jul 2026 08:53:26 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15F543F66F;
-	Wed, 22 Jul 2026 08:53:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784735610; bh=dcp6HTSyuOWcjJDMfXlAQoNquO+oXsqnobogH3j6v8g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cABz2ofccR8DvclNcEDmORPHdPNFDAr1BWe7QCujRVuzOrM0iUm+128bKYrP4DyWB
-	 jAhv4u8hWJWVJY3pg7BwaH8EydZp53TxLEdkRHgwU3BHyZHz4LJ58kRl6QWqaPZXBa
-	 Qut1QGdQ1Mm81GQEyO3Q0wMWPwj2aZLiA+evQqBE=
-Message-ID: <e5cfe018-4b04-4f65-8142-d9ae19eee6a4@arm.com>
-Date: Wed, 22 Jul 2026 17:53:28 +0200
+	Wed, 22 Jul 2026 16:12:36 +0000
+Received: from francesco-nb (unknown [185.12.129.179])
+	by mail11.truemail.it (Postfix) with ESMTPA id A3EB91F822;
+	Wed, 22 Jul 2026 18:12:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1784736750;
+	bh=oSuyD74UXi2JQL1W616mM8c2GOODdxS4FQDGhYXd3Cg=; h=From:To:Subject;
+	b=TsVBUXqWXW0JzEyok9klQ6/7lE3q8wU2gwi+Ae+4zOq9envvlQXwKrW5ApdIjN33u
+	 qto7fciwWexVTlF41nRipaScMfg7r90+0cSM+25e+hL3D2xaUUJZZKGNHOzo3oyd8O
+	 5B0SKZEIePeAdyq8ogmqErkYzgDP5EVt8wSNphScnuqDDrUbDt0wknC3Jpoy/uo7j9
+	 TGNLggtGcqjFDuylzf4wSSZQWLvlct/ntDfbCmnq6hHW6C74pnmvFu7kowK6YxmR8U
+	 7b01uVmkb9UXK9QlwFTmI73kFWaFxXMTRsVhFaR+j/NdN7bFJ/24HjP9JDLs3som/o
+	 3g7ocEE6E2PjA==
+Date: Wed, 22 Jul 2026 18:12:22 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	linux-arm-kernel@lists.infradead.org,
+	Frieder Schrempf <frieder@fris.de>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware
+ driver
+Message-ID: <20260722161222.GA4216@francesco-nb>
+References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
+ <3056369.e9J7NaK4W3@steina-w>
+ <9ceb5fb9-edd0-408f-8f7f-74d5145ae81f@kontron.de>
+ <6611405.mvXUDI8C0e@steina-w>
+ <88bb9b8b-a04a-4a15-b738-0ef39c368bd8@kontron.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/16] arm_mpam: prepare mon_sel locking for MPAM-Fb
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260710144520.917375-1-andre.przywara@arm.com>
- <20260710144520.917375-14-andre.przywara@arm.com>
- <20260710121433.00001ad6@oss.qualcomm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260710121433.00001ad6@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <88bb9b8b-a04a-4a15-b738-0ef39c368bd8@kontron.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_085332_234094_E8B21EF2 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260722_091235_095625_AE82DD1E 
+X-CRM114-Status: GOOD (  48.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +85,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jul 22, 2026 at 05:27:00PM +0200, Frieder Schrempf wrote:
+> On 22.07.26 17:09, Alexander Stein wrote:
+> > Am Mittwoch, 22. Juli 2026, 16:49:10 CEST schrieb Frieder Schrempf:
+> >> On 14.07.26 14:37, Alexander Stein wrote:
+> >>> Am Dienstag, 14. Juli 2026, 14:33:50 CEST schrieb Francesco Dolcini:
+> >>>> On Tue, Jul 14, 2026 at 02:06:38PM +0200, Alexander Stein wrote:
+> >>>>> Am Dienstag, 14. Juli 2026, 11:33:54 CEST schrieb Francesco Dolcini:
+> >>>>>> On Tue, Jul 14, 2026 at 10:43:56AM +0200, Frieder Schrempf wrote:
+> >>>>>>> On 14.07.26 10:32, Francesco Dolcini wrote:
+> >>>>>>>> On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
+> >>>>>>>>> Hi Francesco,
+> >>>>>>>>>
+> >>>>>>>>> On 14.07.26 08:59, Francesco Dolcini wrote:
+> >>>>>>>>>> Hello Frieder,
+> >>>>>>>>>>
+> >>>>>>>>>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
+> >>>>>>>>>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+> >>>>>>>>>>>
+> >>>>>>>>>>> Add the ELE firmware API node and pass its handle to the OCOTP
+> >>>>>>>>>>> driver. This allows us to gain read/write access to the OTP fuses.
+> >>>>>>>>>>
+> >>>>>>>>>> This seems something we should have in the soc dtsi (imx93/imx91), it
+> >>>>>>>>>> does not seems board specific.
+> >>>>>>>>>
+> >>>>>>>>> My original intention was to move as much as possible into the SoC dtsi.
+> >>>>>>>>> The problem is that the memory node is somewhat board specific due to
+> >>>>>>>>> the DDR. And I can't move the firmware node into the SoC dtsi and assign
+> >>>>>>>>> the memory node in the board dts as the checks for all boards not
+> >>>>>>>>> specifying a memory node would fail then.
+> >>>>>>>>
+> >>>>>>>> What is the reason to have this memory address different on various
+> >>>>>>>> boards? Can we have a default in the soc dtsi, and allow the board to
+> >>>>>>>> override the address if needed?
+> >>>>>>>
+> >>>>>>> There is no real point in having different addresses on different
+> >>>>>>> boards. But the node describes memory that is physically on the board
+> >>>>>>> and not on the SoC. And I think that is why DT maintainers want to have
+> >>>>>>> it in the board DT. It's the same with the memory nodes for the
+> >>>>>>> remoteproc drivers to communicate with the Cortex M-Cores in the i.MX.
+> >>>>>>> But maybe I'm wrong and if there is a possibility to move this to the
+> >>>>>>> SoC DT I will definitely take it.
+> >>>>>
+> >>>>> We are talking about reserved memory, so this is highly board-specific.
+> >>>>> So for different hardware variants with different amount of RAM you have to
+> >>>>> go for the minimum anyway.
+> >>>>>
+> >>>>>>>>
+> >>>>>>>> Or can't you add the address in all the boards, and keep everything else
+> >>>>>>>> in the soc dtsi?
+> >>>>>>> This could be a possible way, yes. In that case maybe we could even
+> >>>>>>> create a generic dtsi to contain such defaults for all boards.
+> >>>>>>
+> >>>>>> I would go for this solution, we could have something like
+> >>>>>> `k3-am62-ti-ipc-firmware.dtsi`, include it from all the boards, have a
+> >>>>>> sane default memory address, and have an easy way to override the memory
+> >>>>>> address from the board dts, if needed.
+> >>>>>
+> >>>>> So what is a sane default? At the end of the minimal possible RAM?
+> >>>>> I'm not really fond of something you have to make sure matches to your
+> >>>>> hardware, but won't raise an error if you forgot.
+> >>>>>
+> >>>>> How about providing defaults for the SoC part and users have to provide their
+> >>>>> memory on board-level? Similar to the VPU nodes on imx8qm/imx8qxp. There you
+> >>>>> have to specify memory-region in your board.
+> >>>>
+> >>>> I am personally ok with both solution.
+> >>>>
+> >>>> I think it is easy to have a sane default in this case. You cannot have
+> >>>> less than 256MiB in practice, and this is just about the offset, is not
+> >>>> that you are going to want more memory reserved if the board has more
+> >>>> memory available.
+> >>>>
+> >>>> At the same time, having the memory range in the board dts is also ok to
+> >>>> me.
+> >>>
+> >>> I'm just saying, because we had lots of problem with assumed offsets/length
+> >>> in code/DT for NXP boards. They usually come with big/huge amount of RAM.
+> >>> This breaks for all hardware using a small amount of RAM.
+> >>> So it's better to not have a default than silently breaking things because
+> >>> the default doesn't match.
+> >> I'm revisiting this now and think about how to do it. I would like to
+> >> put a default memory node in the dtsi that dynamically puts the buffer
+> >> somewhere in the first 256MB. I would include the dtsi in all
+> >> i.MX91/i.MX93 boards. I think this should work for all boards.
+> >>
+> >> If I put everything, but the memory node in the default dtsi, as
+> >> Alexander proposed, I think I will run into DT validation errors if not
+> >> all boards provide a memory node, as the property is mandatory.
+> >>
+> >> Is there anything I might be missing?
+> > 
+> > Mh, isn't that exactly the situation you want to catch as a DT author?
+> > Raise errors early if something is missing in the DT.
+> > I would go that way that for all currently existing boards an corresponding
+> > memory node could be added, no? All coming boards will need to provide it..
+> > 
+> Ok, but what would be the benefit compared to putting the node in the
+> common dtsi and including that for all existing boards? People adding
+> new boards would just copy the memory node from some other board anyway.
+> This way we could at least avoid the duplication.
+> 
+> And as I don't know all the details for the existing boards, I can't
+> provide anything better than a default memory node.
 
-On 7/10/26 21:14, Jonathan Cameron wrote:
-> On Fri, 10 Jul 2026 16:45:17 +0200
-> Andre Przywara <andre.przywara@arm.com> wrote:
-> 
->> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
->> interrupt, and when taking an IPI to access these registers on platforms
->> where MSC are not accesible from every CPU. This makes an irqsave
->> spinlock the obvious lock to protect these registers. On systems with SCMI
->> mailboxes it must be able to sleep, meaning a mutex must be used. The
->> SCMI platforms can't support an overflow interrupt.
->> Clearly these two can't exist for one MSC at the same time.
->>
->> Change the mon_sel locking wrapper function to only use a spinlock when
->> the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
->> mutex, but only if we are in a sleepable context. If that's not the
->> case, we return an error. This should not happen, as MPAM-Fb by design
->> does not require an MSC access to happen from a specific CPU, so there
->> is no need for any IPIs or preemption disabling to satisfy CPU
->> constraints. And since overflow interrupts are not supported at the moment
->> anyway, we also wouldn't meet the other case.
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> 
-> I've not been paying attention to this topic, so I might come back
-> with some more feedback after I've had time to think about it a bit!
-> So trivial stuff only for now.
-> 
->>   
->>   static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
->>   {
->>   	raw_spin_lock_init(&msc->_mon_sel_lock);
->> +	mutex_init(&msc->mon_sel_mutex);
-> 
-> I'm not that fussed, but maybe add a call to mutex_destroy().
-> Most likely it'll never help catch anything in this code though..
+What would be the reason for not wanting to have such memory node in the
+first 256MiB defined in this dtsi include?
 
-I just used devm_mutex_init() now, like we already do for the other mutexes.
-
-Cheers,
-Andre
-
-> 
->>   }
->>   
->>   /* Bits for mpam features bitmaps */
-> 
+Francesco
 
 
