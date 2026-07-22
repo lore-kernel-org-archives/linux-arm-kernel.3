@@ -4,92 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F42C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654B2C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XKEJ4GerXAvXM3BRhvBsN82I52BHRWShGxcVmHc+dzI=; b=cxBZ0qHwvyo+JG+R6ioODAPNje
-	ndsQNOJZvVgD1zjjfbySLdp0tntDxyY1tFbQbVcZ0/VsJIBL94YaCv006Z9a38B4CBXtZL5tTW6y3
-	oyfZZ7zxObJRf2ue1i7NF6VKcVFIcIVGZG9Uzd7KhGSWPYo4/28191FNfmRw5PlzEWO+qrWwcegZH
-	ekfwxdH85FkJIzljNkCCJgaa1czgKAeMZuO+a49ddDxG3JROF9vq08ETt61kYKMR6X4BQiAQmBDeF
-	GcZaOrWXPqfoo9J9qGaOaXwogtVaWlGlzCdbqD05OYmDvE4V21nz8Ns+s8wHzC8CzRoU+Torvoo1S
-	18uymx1w==;
+	bh=3vll96HvxjohoJS+PNU+ieDa/RF4H+N4kRxOCCao22w=; b=xm35jfBe76FXbDsFGaIqAUwP/Q
+	r7aorJ2evtUjiqGayQL9ZLgMsgOp5j8PgbWILrUIOSoUWVw7zD9rNvS3UciuPFU/KwS8rOQkWCnZ4
+	b2IWID0MXfHMUfWQNIqeGntyaC/DdsBVOP/goi2qaP/p6FHE4/VEEn38YLBpIrAFSTmKEUxLuqGWD
+	Wt2pMJeTxIRz0pfBM0Rz5DidbiHy4eJ/CCQZdkmDzhhu9xK/bqzQd6Jbx26J2Gb4C+HaTslak7uAC
+	KCgrJSsm4gius19ewsCvomSy1dZLd9ExYHd7qcryEiGvzKllaRvJGe1yZcQOAk1aMgqYUvhPeiOaV
+	AsSmxfkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWGV-0000000Bmr4-47Lw;
-	Wed, 22 Jul 2026 12:41:36 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wmWMw-0000000BnS8-0IOT;
+	Wed, 22 Jul 2026 12:48:14 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWGS-0000000BmqW-3Ioa
+	id 1wmWMt-0000000BnRa-29RQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 12:41:34 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49553515a8bso46841695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 05:41:32 -0700 (PDT)
+	Wed, 22 Jul 2026 12:48:12 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-49548aebcd8so36491105e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 05:48:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784724091; x=1785328891; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=XKEJ4GerXAvXM3BRhvBsN82I52BHRWShGxcVmHc+dzI=;
-        b=cztYQUMdgfn+HZuDLaKEzrxPO1iGNJlaLy2tssrIKHGsf3ZsqRlkyzBFuZDwHSlym5
-         zhnLRXUoZ+Cr/S0F6BW3s5+r3JLqgZXHUa1YjfVgvoKQhkiQCSn8GRLh7GYJKqnnJ5JX
-         ToLCMF39eTwrhnnqqTbu2tpXIBGue2LxIbQpqJQRMjt58fmoEGS2x5KzvfQ8mQ+eyVky
-         Lackj8iP3RI+jzsaKowhfKyo8wWkiGDZANR7Xv01ROjwdrZbk/yd24Bl9goVSaLPNhpa
-         YSD/XQcqb4AwK3iZYOxH3bvjjsVstnkhkic9xYxQZOnwaWyZfKNeiRnOVdRLyora5RYs
-         wYJg==
+        d=linaro.org; s=google; t=1784724490; x=1785329290; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3vll96HvxjohoJS+PNU+ieDa/RF4H+N4kRxOCCao22w=;
+        b=TOeEQkwCl+eD2JHeRGzdIwwP3Gc6IHCoMQITVBoUNI7P+OIFYOV378muft1yPuDFMb
+         YB77ZRxqf7HWTIsEwjjKDas/DTiM5FivQdqFt/MqSeg6bI4yTFlGZkoKv+B4PTxLL14Y
+         FIJAZeeliEhb0Lx2jEbV9rmx6n4KXILLab/uHp9hMOJICK84jKR/2JDc1DmM6Xf4AZ8/
+         xvSxZniT3VfL+hcXoQElazedwZtir8XZayHwP7tcKkWd7GHFwR55Y/8gGeuaqmm7W0r/
+         MYYeNsLbmwsu1beujb+kreF24xzM765yyqxvH+tEgZh6FAR97yJCUyKi/3KrrVQRFwuc
+         ykAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784724091; x=1785328891;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=XKEJ4GerXAvXM3BRhvBsN82I52BHRWShGxcVmHc+dzI=;
-        b=MM3LLoTAkkZbsmRtdFJEgOQs7okCeasjcHagSH98FAsz46rdNpX2x/fON9EGRGTap6
-         7EFun2cjMoL0irqZX/yRAYe+91a6BuiBDsfpBVMVDKstnLL/NiLAQtQ4xIQRszWBD4NX
-         ZOvcC3TbdfTSmeAhxROlN4l6Ab3ehaA0d93a0RtqyW1p+k0jJxF/KaAxPeHRo0aaNTJP
-         Cw+h+Y0vEQI4fQqBXlql0onrRjCXjq+IZL4od6aw+UcGaoU48Sq5S6L0r+ofmay1zUKd
-         kOXe54EVwZZkGJqz46OONzrCU4c+j1sj21xqFTcXigq6j3d7xGvFiSkKMQ1gHca61Ql4
-         0Jpw==
-X-Forwarded-Encrypted: i=1; AHgh+Rr+F91lTn5al+MdSddVXIqiJiA/xFkTr2IJOh/YdJMe6V18saqlNY0Xji/U/QR5aBqLkZPsgTAXTj1vXMf6DHlH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpCQn21SbDbTjolzpYpqy3OGtcn4Okk2tJDzMejW31Gwm/hrtK
-	+dbrx6krsvTAyUwLv2nHoh+7DH9i4Qts3pqtJdeeydwaFt4PHtC+V7jZOairWH6BtrA=
-X-Gm-Gg: AR+sD122S8m2yxBIbnxYMGtqrECghrqvr+p7PvmYaMS+QyMCf1zC5iO21dcUM5J24wi
-	nLdqX7AmOQbO3RwJeLrNr3sYgpsUSoLjEGPqmzeB/KtfjjchNC3hHZPdnSBM5Sg3HsHCy6zkLdD
-	CCbS13t/CY3qvSXCGw1qtRcCZjvYxYw7jJ1cBYH65SV8Vu224h9VrKGQFmdeQEL3Osc9h/owoCZ
-	NoFF6P67Vs8kHD+bsnhATaGO1DO8JIdlxFu3gKGl8xpS37s3KqeNozupj8kj+yKI3ASaif1HZyf
-	1mABDsAlLh7MCdzD7cgKm+jyAOUFps/L7oytgIZjomE1pofdnfTSjN8krE8JIu2Tk+CclGvughl
-	twsOnr60VEVb3lD7g8e2pT69Pt5JxSL448Ve+XQadEK+o1yRjliRlFNGrIlxATGpFklksFoB8Fu
-	a/Y79oU5V/cUE=
-X-Received: by 2002:a05:600c:3b8c:b0:495:5039:391c with SMTP id 5b1f17b1804b1-495503939b1mr240105375e9.26.1784724090821;
-        Wed, 22 Jul 2026 05:41:30 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:a589:14b5:ba97:3626])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4956b5c2108sm92979995e9.2.2026.07.22.05.41.30
+        d=1e100.net; s=20251104; t=1784724490; x=1785329290;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3vll96HvxjohoJS+PNU+ieDa/RF4H+N4kRxOCCao22w=;
+        b=pWHP8IXMrnweu9UCMiKeWNqIAHZqRS7tN2du0HKAg/cPnKFxgHkGcfDMm8FPw49EzQ
+         6Wf7XUgfiis3EXAtVRqQtRyqkVUENMOyfkgOs8X8Wkz/HV8ZEP5euBbgtZGAf6ruUfmn
+         MrwWTqpVUV+N4iQDzj6TBgrsiQXGpHDcLgG/28NWxcQ4cI1ervdx13rvHluZQ0hQ1/vP
+         2qBKAcKNXP63WCStzfQVK3juXEaem6eRoTbETYSGuMxnCz6dc7eLougFdfeBoYp4zmgy
+         TDd1Mr5ImxfTrRfx8G3IvsZc8CAxAhDLSCKMuIZX0HKqcIcdzigIg0TQFaMliB4+1M1K
+         zI5Q==
+X-Forwarded-Encrypted: i=1; AHgh+Rr6A/dkNm5Pr1YvayBF7evNCJf2lyBgUz+dZASBgty1RG9dUUt+nZ0xB7sBGOGpvgv+d4wdcfnDK7Oaw415dZxJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP711ju4+37e0wpKcLMD8ATsqBzDewJEHSie/TVaRb5DfHWqXc
+	TjZb3EOg+jgZhccMxhQ72qYEVWF50wrOHhn3aGPNm4OyhAnZUA//eGhwL0PWggm9530=
+X-Gm-Gg: AR+sD10MiNhrRmOUFrGpyil4qoQChOoInDsepoP6A1lvzTDov5FAqZEwdDwMIcTSHOQ
+	JlallXhuXCZvxgVAF0gVqyH0M6xRphMWRPplCFCUfdE54lKUi5eLLKEAoTcLHMddrx5SXWXjn/Q
+	RBPuRnmdzcyQcKXFfKI3AiXICHl9RnxokuK70TkOhMy42gQaz6sA5v8NhfIKqBr+Qj+E4eHCbaW
+	6303qZtmQ86KZzx/wwcMIQvR60zfhrq7sf14aToFQDknL5OQp9DdOuJHIduz0pQYD2/zSnLvvGC
+	8bJlhxUSE+3PBK9kmes234UBT9HQN0UplNvU1Vf7ol8QoaJc8aRxV6Va7q0rz4zeVjlAnkLoqnV
+	bS0GKxeMLKTYYM6H9WrLScoKEalNSLEZRP9m/ItH7YmMTWHwsO1yyWNNxPQK8IAcvsEanEBMoNz
+	2T3lElmgtR+lCp
+X-Received: by 2002:a05:600c:474e:b0:493:915b:dc4a with SMTP id 5b1f17b1804b1-4954a3d005amr297618495e9.8.1784724489524;
+        Wed, 22 Jul 2026 05:48:09 -0700 (PDT)
+Received: from linaro.org ([2a02:2454:ff24:7210:7ae3:a857:e482:495])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-495653bffefsm131520645e9.9.2026.07.22.05.48.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 05:41:30 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Russell King <linux@armlinux.org.uk>,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] clk: fix self-consuming provider module pinning
-In-Reply-To: <amC4d_RMA5oRR-ap@redhat.com> (Brian Masney's message of "Wed, 22
-	Jul 2026 08:32:55 -0400")
-References: <20260721-clk-provider-pinning-v1-1-63db2e667993@baylibre.com>
-	<al_3V8N9z25ho8g2@redhat.com>
-	<1j4ihrea5u.fsf@starbuckisacylon.baylibre.com>
-	<amC4d_RMA5oRR-ap@redhat.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 22 Jul 2026 14:41:28 +0200
-Message-ID: <1jy0f3ci2v.fsf@starbuckisacylon.baylibre.com>
+        Wed, 22 Jul 2026 05:48:08 -0700 (PDT)
+Date: Wed, 22 Jul 2026 14:47:56 +0200
+From: Stephan Gerhold <stephan.gerhold@linaro.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Udit Tiwari <quic_utiwari@quicinc.com>,
+	Md Sadre Alam <mdalam@qti.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	sashiko-reviews@lists.linux.dev,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM
+ locking
+Message-ID: <amC7_M-HjVZ3sQuT@linaro.org>
+References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
+ <20260721-qcom-qce-cmd-descr-v23-6-1be02deffda9@oss.qualcomm.com>
+ <20260721134853.2B2401F000E9@smtp.kernel.org>
+ <amCGXUUd4VmuQRGD@linaro.org>
+ <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_054132_854242_48334B22 
-X-CRM114-Status: GOOD (  31.38  )
+X-CRM114-CacheID: sfid-20260722_054811_592792_1A04EF27 
+X-CRM114-Status: GOOD (  39.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,97 +121,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mer. 22 juil. 2026 at 08:32, Brian Masney <bmasney@redhat.com> wrote:
+On Wed, Jul 22, 2026 at 02:34:52AM -0700, Bartosz Golaszewski wrote:
+> On Wed, 22 Jul 2026 10:59:09 +0200, Stephan Gerhold
+> <stephan.gerhold@linaro.org> said:
+> > On Tue, Jul 21, 2026 at 01:48:52PM +0000, sashiko-bot@kernel.org wrote:
+> >> Thank you for your contribution! Sashiko AI review found 5 potential issue(s) to consider:
+> >> - [High] State leak causing hardware misconfiguration on channel reuse due to uncleared `lock_scratchpad_addr` and hardcoded direction.
+> >> - [High] Channel state corruption when `bam_slave_config` fails validation.
+> >> - [High] Infinite BH workqueue loop and unratelimited log flood on memory allocation failure.
+> >> - [High] DMA API violation: `lock_ce` buffer shares a cacheline with frequently CPU-modified struct members.
+> >> - [Low] Unused assignment of `hdesc` in IRQ handler.
+> >> --
+> >>
+> >> --- Patch [6]: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking ---
+> >> commit 8b44c5e4935cbb61832adb3262df00b3b606a283
+> >> Author: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> >>
+> >> dmaengine: qcom: bam_dma: add support for BAM locking
+> >>
+> >> This commit adds support for BAM pipe locking by prepending and appending
+> >> dummy command descriptors with LOCK/UNLOCK bits when starting DMA on a TX
+> >> channel. It uses a peripheral-local scratchpad address communicated via slave
+> >> config for the dummy writes.
+> >>
+> >> > diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> >> > index f3e713a5259c2..411c60c4433e2 100644
+> >> > --- a/drivers/dma/qcom/bam_dma.c
+> >> > +++ b/drivers/dma/qcom/bam_dma.c
+> [...]
+> >> [ ... ]
+> >> > @@ -1064,6 +1197,7 @@ static void bam_start_dma(struct bam_chan *bchan)
+> >> >
+> >> >  	lockdep_assert_held(&bchan->vc.lock);
+> >> >
+> >> > +	vd = vchan_next_desc(&bchan->vc);
+> >> >  	if (!vd)
+> >> >  		return;
+> >> >
+> >> > @@ -1072,6 +1206,24 @@ static void bam_start_dma(struct bam_chan *bchan)
+> >> >  		return;
+> >> >
+> >> >  	while (vd && !IS_BUSY(bchan)) {
+> >> > +		/*
+> >> > +		 * Open a LOCK/UNLOCK bracket around each fresh sequence.
+> >> > +		 * Sentinels inserted by bam_setup_pipe_lock() are skipped: they
+> >> > +		 * already have bam_locked set and must not trigger a second pair.
+> >> > +		 */
+> >> > +		if (!bchan->bam_locked) {
+> >> > +			ret = bam_setup_pipe_lock(bchan);
+> >> > +			if (ret) {
+> >> > +				dev_err_ratelimited(bdev->dev,
+> >> > +					"failed to setup the pipe lock, deferring transfer: %d\n",
+> >> > +					ret);
+> >> > +				queue_work(system_bh_highpri_wq, &bdev->work);
+> >> > +				break;
+> >> > +			}
+> >>
+> >> [Severity: High]
+> >> Does requeuing to a high-priority BH workqueue upon ENOMEM cause CPU
+> >> starvation? Because system_bh_highpri_wq executes in softirq context,
+> >> requeuing immediately without sleeping prevents the memory reclaim needed
+> >> to resolve the GFP_NOWAIT failure, leading to an infinite spin loop.
+> >>
+> >
+> > It looks like my suggestion to queue_work() again in the error path of
+> > bam_start_dma() wasn't great if we end up causing an infinite spin loop.
+> > We do need to retry somehow or report an error though, I don't think
+> > aborting and leaving the desccriptors completely unhandled is an option
+> > either... :(
+> >
+> > One option would be to try to avoid the allocation and write the lock
+> > descriptors directly into the FIFO, but this will probably get really
+> > messy as well, since you would need to carefully modify the FIFO
+> > management in several functions ...
+> >
+> > I don't have a good spontaenous idea how to solve this right now. :/
+> >
+> 
+> Pre-allocate the lock descriptors (if needed) in bam_prep_slave_sg()? As in:
+> call bam_make_lock_desc() in bam_prep_slave_sg(), store the descriptors and
+> make bam_setup_pipe_lock() return void as it will no longer be possible for it
+> to fail? It would just grab the preallocated descriptors.
+> 
 
-> Hi Jerome,
->
-> On Wed, Jul 22, 2026 at 09:49:33AM +0200, Jerome Brunet wrote:
->> On mar. 21 juil. 2026 at 18:48, Brian Masney <bmasney@redhat.com> wrote:
->> > On Tue, Jul 21, 2026 at 12:08:17PM +0200, Jerome Brunet wrote:
->> >> clk_hw_get_clk() lets a provider get a struct clk for one of its own
->> >> struct clk_hw.
->> >> 
->> >> When a struct clk is created, the module usage count of the provider
->> >> is unconditionally increased. For a self-consuming provider, this means
->> >> it pins itself and the module can never be unloaded.
->> >> 
->> >> Increasing the module usage count should only be done when the consumer
->> >> lives in a different module from the provider. Use THIS_MODULE to
->> >> capture caller's module and increase the module usage count accordingly.
->> >> 
->> >> It is OK for consumer-only APIs such as clk_get() or of_clk_get() to
->> >> pass a NULL owner. As a result, any provider module will get pinned,
->> >> same as before.
->> >> 
->> >> Fixes: 30d6f8c15d2c ("clk: add api to get clk consumer from clk_hw")
->> >> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->> >> ---
->> >> This issue has been present for a while. Virtually all users of
->> >> clk_hw_get_clk() are affected. The majority are compiled as builtins
->> >> according to the defconfigs. It is not problem in this case but it is
->> >> if the configuration is changed to module.
->> >> 
->> >> The following modules are using clk_hw_get_clk() and are compiled as
->> >> module with some shipped defconfigs:
->> >> * drivers/gpu/drm/msm/disp/mdp4/mdp4_lvds_pll.c
->> >> * drivers/phy/cadence/phy-cadence-sierra.c
->> >> * drivers/pwm/pwm-meson.c
->> >> * sound/soc/codecs/lpass-va-macro.c
->> >> 
->> >> Currently those module cannot be unloaded once they have been loaded.
->> >> 
->> >> """
->> >> rmmod: ERROR: Module blabla-module is in use
->> >> """
->> >> 
->> >> I initially thought about using the dev parameter and compare it
->> >> against the clock own device but this proved unreliable. A clock
->> >> does not always have a backing device and some paths, such as
->> >> clk_get_sys(), do not provide a device either.
->> >> 
->> >> With this applied, we can get back to removing the direct usage
->> >> of the struct clk in struct clk_hw and eventually remove this
->> >> struct member entirely.
->> >
->> > __clk_register() has this comment:
->> >
->> >         /*
->> >          * Don't call clk_hw_create_clk() here because that would pin the
->> >          * provider module to itself and prevent it from ever being removed.
->> >          */
->> >         hw->clk = alloc_clk(core, NULL, NULL);
->> >
->> > With your change, can this code path be updated to use clk_hw_create_clk() ?
->> >
->> 
->> Indeed the comment no longer applies but I think keeping alloc
->> here is best. It avoids "linking a consumer" here where there should not
->> be one. All clocks would appear to have consumer in the clk summary, it
->> would weird. 
->> 
->> The end goal is remove the hw->clk. I've restarted the work to rid the
->> kernel of using this. Some rework don't need clk_hw_create_clk() and are
->> not blocked by this patch but most will.
->> 
->> Once this is done, we could probably merge clk_hw_create_clk() and
->> alloc(), the split won't have purpose anymore.
->
-> That all sounds good.
->
-> I know that Stephen likes to see any changes that are made to clk.c have
-> associated kunit tests to avoid any breakage in the clk core. There's
-> already a bunch of tests in clk_test.c.
+I considered suggesting this, but how do you know which descriptor needs
+it in bam_prep_slave_sg()? It's just the allocation, afaict it doesn't
+tell you anything about the order in which they will be submitted. :/
 
-I know. What I'm fixing here is a bit odd to test though.
+We could always allocate the extra lock descriptors and waste the extra
+memory for the descriptors that won't need it. That should work, but is
+also not great ...
 
-The way I did it was to make a dummy module that registered a clock and
-requested the consumer pointer from it. Test pass if you can rmmod it.
+I was hammering at the code a bit earlier to try the "write the lock
+descriptors directly into the FIFO" approach. It has some advantages,
+but also makes the FIFO management quite a bit trickier, hard to get it
+right without full concentration. :')
 
-Not sure how that would translate to kunit to be honest
+I _think_ it could potentially work, but if you have a simpler idea I'm
+also happy to throw away the mess I started. :-)
 
->
-> Brian
-
--- 
-Jerome
+Thanks,
+Stephan
 
