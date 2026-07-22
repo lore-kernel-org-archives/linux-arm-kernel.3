@@ -4,72 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E61C44533
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62456C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aR/Osk67Ac6HqpyAtQW/S3wFFV0obNj7GHz2cg+og7E=; b=EsHLXI72qY5BS/XvtCqB2oexhj
-	4N1cIqq7711pc3hwFTFTGMOjRqFyPUDyFUg77Wb5cSN1JHCKsbcJYSe21oDnk9ek0f6QLiagb4VdB
-	3e7CqwcCCT+P5JgmLXFZrwgTPFgoEMruP7v7Fq6cGy/6cce9xSrJ7zQhnja8CuPDZMEtnS+nY63CL
-	RhAIY5a8PkzRApCGWoKD4gS197R7QwPKPjSSM3R/ERQvQB8IjS3yOr02pKlojv+P6H8UrdKJvDoDJ
-	M6bjKOh9NyWIo5MJJsJSZlnucIkcGaT6Qm9xgURchm8V9NoKa/JREiUju7GAKp7wyPRS3IYk7lGj4
-	rXT27AFw==;
+	bh=3WacAD3Syue1Alpk5SpO43Ck7Bpm3IsGZlZ043iXb+w=; b=vV3VaBROWVsNu/aC8AJMgbT76h
+	dKg9y+Krq6xfqws0KhSoq2y4tftEjA7iQoJl1r4oGPyt/VuaNR5wiW7YBtdUKfdG7Ox/pb8df0gJA
+	ZPKkuxkHTZ4m0gxlYlvZeWfKwVIcZj1EF3VNysEngZ6d7r02I1Q8bNo7k9DIkr/BJJViRLkUNlF3W
+	DG0vsaj+s8EPStyPCZTBvUvjTS4wCEf7FVC5o2Ga6g5LYxGw1nwxEAUZqwy7O+pzCNkPqY4Q1D3V1
+	TURn54x6wLi2rqYg+UVB26P6/R/5DqQ2f8eRpY5hsZEvP1tKseFZwbH2qx4XGZoxjt6zoTuAkvre5
+	o/z58+MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRlK-0000000B9vA-0EjU;
-	Wed, 22 Jul 2026 07:53:06 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wmRll-0000000BA3J-14pK;
+	Wed, 22 Jul 2026 07:53:33 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRlG-0000000B9tf-0cGU
+	id 1wmRli-0000000BA2K-1K89
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:53:04 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=aR/Osk67Ac6HqpyAtQW/S3wFFV0obNj7GHz2cg+og7E=;
-	b=QZZpp3lBLxPsjGPC91euFBf8ASSiUf8bQhsrEohyp9pkY8APM2++0QHlbYr9jvQhQhoWBsDN8
-	O6Sh9Zjo1YKBxHFEx5tP2x1ztkfziyWsYsdfMj1NJvlwT8orAWgJaN0nZtioFzYHA3XLHtIbJU0
-	d1mtfzQ+lW1LB7ESDuuATcg=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h4mTB0clkz1T4GB;
-	Wed, 22 Jul 2026 15:43:26 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 925B64057D;
-	Wed, 22 Jul 2026 15:52:46 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Jul 2026 15:52:46 +0800
-Message-ID: <5ec6652f-1747-40d1-b0f4-9262f3084757@huawei.com>
-Date: Wed, 22 Jul 2026 15:52:45 +0800
+	Wed, 22 Jul 2026 07:53:31 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66M507ir2797164;
+	Wed, 22 Jul 2026 02:53:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=3WacAD3Syue1Alpk5SpO43Ck7Bpm3IsGZlZ043iXb
+	+w=; b=NYjtViwNYdQA0vxLXvWUSrkpeXtNsu7USPW1MIdN7r7Jnt4MdU5De9Rnf
+	RnH83nV70JMKMh0TaoRe4OvIe9XOjaDAEUaWRQvzvVaW9MFsl/0JWGyGze6coE2w
+	qySxZRHlOSKmx2O2dPxn74Ab0qeHj5/XpsirnyzTaOkIAACmsXrX4cN+ml1GrgSy
+	8swBkG6jYreNOkbyCcX3nE4L+iWkD7kqaYO0Up7RedY8ahm5IPlms+1lDRneEwhq
+	tBVvFEJmnvI4rnbaIDZ32GG7qqnW+Cu8WRdu+P7r/pdG9eiWHuNw5Bep9KSRhodY
+	k8YmBs1vCDj0KuePLquPOtZ23PFtg==
+Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012017.outbound.protection.outlook.com [40.107.200.17])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fjpxvrwhy-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 22 Jul 2026 02:53:23 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RtHPw4C19VSEyQdz27JeuqMs5VdqO3y+xP+0VRwtJn11PqIBmNmfisJzA3vC44RKzr4/VHrE9IxfRsMKINl5QXDdQfQBc1G9Hb7dYM+WyMKy9vpmanRNNjmLeN5ITx7JwUvU7dGLE93K76naPzP3vx2fa+f9BNJq6aJ514HEZWQNxxN7hVG1nIMguzhVwX4xaYOjfqUkqlFtFYYj+l7q+zc2pi7hULb+d+Rs4N60ORZ7Vi31hF0ahLCZMGtdTYycNQhRG4GBGWB9oKJaeCkhz2G3GvMjUJa/vnLeZd9XCNtACRqpyIL7ClD9EyfWUqryI4qg2xlWKJwZtrnQuEin8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3WacAD3Syue1Alpk5SpO43Ck7Bpm3IsGZlZ043iXb+w=;
+ b=gIIEOxrk2pHaOaIl3sDdRYa2JhNGDlq2ZkLuVKnujpL74CxKy1tRzKyFCJ0M+vAHc6Y+qzD9kA384v3qLcsYyo9dXhL1ybwZaNjsiOJK9xe3rL0klKKHtbY2FvkV/PU0gCFxnZ0Q/L4oMjk2STsOyoK+6wD5VNl1IyBqCEV/ThGqHceOHavmvjsA2Ew0/5/kQhWr1+o4JxrofO9LnMTPq93s2MAxA7zw4MxP9BvuVsTIzCL+kH2od02sA3+o+B/4vIHHgn1XUWkwNSNVNizEpmqUdACNaxH7zB/+H2AgMLMrM2vjOshA9YQRESkg8No1af0ijff1zXAT8CLiPbG0Fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3WacAD3Syue1Alpk5SpO43Ck7Bpm3IsGZlZ043iXb+w=;
+ b=UiztIHHMx/jCdE2njfFthgFjR0GPykyGYhnLZEZgq+iVzX1IaU1vm79ZE1dRipB+D3xz/VtMp6f3QAMfWaqv8UgT77qfu9gTsxvW26rDutojiXcKeQ6/joWC/CuLwIif+MeahVi6KroD9ffV10Vg1ca/cb7OFCY0WLTA+tsbQ9Y=
+Received: from BY3PR10CA0013.namprd10.prod.outlook.com (2603:10b6:a03:255::18)
+ by CH3PR10MB6836.namprd10.prod.outlook.com (2603:10b6:610:14f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 07:53:20 +0000
+Received: from SJ1PEPF000023D7.namprd21.prod.outlook.com
+ (2603:10b6:a03:255:cafe::4a) by BY3PR10CA0013.outlook.office365.com
+ (2603:10b6:a03:255::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Wed,
+ 22 Jul 2026 07:53:20 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ1PEPF000023D7.mail.protection.outlook.com (10.167.244.72) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.0 via Frontend Transport; Wed, 22 Jul 2026 07:53:20 +0000
+Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 22 Jul
+ 2026 02:53:17 -0500
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 22 Jul
+ 2026 02:53:17 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 22 Jul 2026 02:53:17 -0500
+Received: from [10.249.138.105] ([10.249.138.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66M7rDlE3345699;
+	Wed, 22 Jul 2026 02:53:15 -0500
+Message-ID: <90ce9862-9698-4158-b417-9e5ee71652b8@ti.com>
+Date: Wed, 22 Jul 2026 13:23:12 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 23/36] arm64/efi: Implement override for IRQ flags
- checks
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-24-vladimir.murzin@arm.com>
- <e1694eb7-3459-43bd-9f37-1066bef43a14@huawei.com>
- <94589fd3-d81c-4603-8226-131894d6af08@arm.com>
- <649a6d54-3335-4523-a683-e2bf7fb865d0@huawei.com>
- <c5ed3515-0ea1-4db4-809a-97020439e1f1@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <c5ed3515-0ea1-4db4-809a-97020439e1f1@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Subject: Re: [PATCH] pmdomain: ti-sci: reject maximal power-domain ID
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Nishanth Menon <nm@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+        Ulf Hansson <ulfh@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20260722041142.95204-1-pengpeng@iscas.ac.cn>
+Content-Language: en-US
+From: Hari Prasath G E <gehariprasath@ti.com>
+In-Reply-To: <20260722041142.95204-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D7:EE_|CH3PR10MB6836:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18d516fc-ce00-4632-1d1e-08dee7c64c4b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|23010399003|22082099003|18002099003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: vMET4Wlmn214X+vdljM/jSrir7q37uAtQmztRXakKb2EDbSK9HNcQlY4Oce9ShUrLW9uz4rJv1nWbcFdwsfQCuhGTpIlAbxBeGyCplDJI+IvT9KcL/R6hD9e96nUl/MOTCLZ5jGktF7pfVgdEWqMGdOrHjT06ZUc1dsm68ZRqpCSCq0pL+8NXAABteT2MOv0oIC9Q84Po231oys+wMvorEa/Y2NUxPz/wo7cfJDto3IJ74kUBwCEh+7X9fYp1y6Zj0DXnvCfW8mExFTlRjiWw4TcMzfwPV9ZRBUEFfaKYsRzkIpi4CR5ZhroZUGfPmJV8ToGNftSKsraWW72nMn5qWLqQr2yc/u0o40WZS12gEcablDptHMRZ8XmzEFd+VvcVLqL4BMDONvLtt7j75TVRk7eYCGv4Ck597VAJvoJYZVl9mxBbjBEjAfI8LqqEunH117nQuEddQS/D8YYVrNPzO2J2SxOH1Gmu18NhX7AcBwJylIUKP2l5rAdCauj4gyK5u96MVK2KdgPfa+/tLnSciAAkAFwZDTZkDs44a846nrw4PfMXMBuAf7S7BEWr1fsMt6fwaHr5p3oR7br+vke/8LciAV6h6LIIHXssWyH/gZMq4VxfpEippr12FS7acGb3vpw8E7OvV1Ff5plt54oqJH3qdJte9eRsz8V+4CBcMHf2InNx5z2BUztakfUebgC+w2MHdTUEk6Q7ED4AQZ3PQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(23010399003)(22082099003)(18002099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: g7af7hNG+FIkh7uPsPfmJT4EuYDh5ksyl8yUbkxmjM/hHTZOGY4Niwe42wl6ndHrFeilrGC0TgCDYITI/1qs4P2UbljUWFgB6BM4yuh8dbcR3omGzmgF5xwrEUlvP3yYXJQCdzukdPr6TFNT27Lhg/xyDEqPvdJjB6gkNia9RUWwR4/kSZtpkJKq4nfQEHh0A5QhmHEsaDhWWVYQyabRJ64XheL6Z1CogloMvvk3Dp4B5WQUPeVh3dU22DeByA4SECZw7Ei3J7O8Q6XkrZhj2jww5tnkgy1z1tz9oYUqndACl+CTDQXszyDQQm+KupJU2KVtZx5qWdH5fX+hTVqjhqnj4KWITm3FVYwZU3Rs6RvCuaeyGTcyD0/ucjXTQ/Vol/eOlZwyAf0HQwQrDQO9teggKc9sS2YM6plPgM7EWhBpAHK9KbJafOgkdXHySJis
+X-Exchange-RoutingPolicyChecked: q3xlaliRVUCaOmpMVpGeXZAM6fwb8Am8R6u3qs2lyThu+ZS8l3xKCYNPiVAH0T12lmz1VWWskuZ7OktFFDOuN7SxIpVhyF2GBWZ5obT4ZmxbUK0SbpG0dE/W9AVyXlAsjwQMo5mf3E0jJhL8FtCKhoquJ2KYhCGeyQ6+3YuYbKQmpvSgXZguf3QWP7HzGhUzv62+CwWtVZ2u1VnQ4NSGpHvF1P8XRLJv57xb9N1W+tqoZ3N+hj6TSbxqPI4ilX38KNDnTD0i9ABTnDkiFuUqcDChhD2wSJgvNPLgesjxLRRnJ4JgFiQMVLNrbhYJRdtBWmZUrncJ2gDhtCCQgJbbEw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 07:53:20.1406
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18d516fc-ce00-4632-1d1e-08dee7c64c4b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D7.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB6836
+X-Authority-Analysis: v=2.4 cv=J+uaKgnS c=1 sm=1 tr=0 ts=6a6076f3 cx=c_pps
+ a=Pcpo/nSjxNMkuCW/QO6CAA==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=VwQbUJbxAAAA:8
+ a=1JBX0sna3Uie_MwCzK4A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: lLJPacgV0Tqb5yjiCb2tRtsnPLHCqHbv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIyMDA3MiBTYWx0ZWRfXwDzbAHFyUY51
+ nZ1JFA3qOloIFIqhc6kQab09L21Wj+ppShXO8QMxgp43q8KFo8V/lQ8AfzlQ3O037I/DH9vseO0
+ uANZFQU1jB9UGiW77LNOH11IX9LLJGpyrXtfCq7df/hIMAusrV3ZFO+Er2B2fBjg6ZOAaax1i0X
+ I5ywNPbinsPlJnDv6lrl0xiMovshICvC63576rKRSOgUWNfW3W3Y+1bLrH6XXjlv/Dp429NgXB1
+ 3451xgrq+9yG2r3xcPIcZGvZSFqvLBTqN0NVAAo+jDvc9X/i3fz7y0fie0Qc2aUiNi7REPffoFO
+ RQdnhUbTmfPtaHh4SJ65wnwBRoG1G/vUom0bnEv1rEboC6vNN7zaYrreUI89KMfQsGJooOW1vZ7
+ 73+EzRCHEFAU+NSWfcyTrXxeV6TbFLysyOoGhWh/lL5K0FaTJcvrrc4en+24SQXey5GPdVkIezg
+ 3mUdEw7B4wg7O0a81kQ==
+X-Proofpoint-ORIG-GUID: lLJPacgV0Tqb5yjiCb2tRtsnPLHCqHbv
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIyMDA3MiBTYWx0ZWRfX1fNv9iA7lV+t
+ YTWi8csZilKYrl1OhnZKiMtj5naceklqLMhNrig1w6S+Nn9mDYPucOid51EpnUF5vvlrxE3vJ+V
+ k1/EROcTLluw36pez/X2jqbprZGn1iI=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-22_02,2026-07-21_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 clxscore=1011 priorityscore=1501 phishscore=0
+ adultscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607220072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_005302_832363_3C7445ED 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260722_005330_649415_C2FF0450 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,88 +176,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/15/2026 8:21 PM, Vladimir Murzin wrote:
-> On 7/15/26 13:09, Jinjie Ruan wrote:
->>
->> On 7/15/2026 8:00 PM, Vladimir Murzin wrote:
->>> On 7/13/26 09:22, Jinjie Ruan wrote:
->>>>> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
->>>>> index e8a9783235cb..479741d52c90 100644
->>>>> --- a/arch/arm64/include/asm/efi.h
->>>>> +++ b/arch/arm64/include/asm/efi.h
->>>>> @@ -5,6 +5,7 @@
->>>>>  #include <asm/boot.h>
->>>>>  #include <asm/cpufeature.h>
->>>>>  #include <asm/fpsimd.h>
->>>>> +#include <asm/interrupts/common_flags.h>
->>>>>  #include <asm/io.h>
->>>>>  #include <asm/memory.h>
->>>>>  #include <asm/mmu_context.h>
->>>>> @@ -48,18 +49,43 @@ void arch_efi_call_virt_teardown(void);
->>>>>  	(efi_rt_stack_top != NULL &&					\
->>>>>  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
->>>>>  
->>>>> -#define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
->>>>> -
->>>>>  /*
->>>>>   * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
->>>>>   * And EFI shouldn't really play around with priority masking as it is not aware
->>>>>   * which priorities the OS has assigned to its interrupts.
->>>> Can this comment be deleted?
->>> The comment still looks valid to me. Why should it be deleted?
->> The current implementation of arch_local_save_flags() can already know
->> the PMR status.
->>
->> 112 static __always_inline unsigned long arch_local_save_flags(void)
->> 113 {
->> 114 >-------arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
->> 115
->> 116 >-------if (system_uses_nmi())
->> 117 >------->-------hwstate.allint = read_sysreg_s(SYS_ALLINT);
->> 118
->> 119 >-------if (system_uses_irq_prio_masking())
->> 120 >------->-------hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
->> 121
->> 122 >-------return hwstate.flags;
->> 123 }
->>
->>
+On 7/22/2026 9:41 AM, Pengpeng Hou wrote:
+> Each power-domain ID comes from Device Tree. The driver allocates the
+> onecell table with max_id + 1 and later uses every saved ID as an index.
+> If an ID is U32_MAX, the allocation count wraps to zero while the index
+> remains maximal.
 > 
-> How is that related? Comment talks about EFI messing up with IRQs.
-
-Not really.
-
-The original comment implies "don't touch PMR, so there's no need to
-save PMR.", so it only save daif.
-
-Now the now code also save and restore PMR and allint, therefore, I
-believe the comments should also be updated
-Maybe，
-
-/*
- * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
- * EFI must not play around with priority masking (PMR), as it is unaware
- * of the priority levels the OS has assigned to its interrupts.
- *
- * However, since EFI may directly toggle DAIF and ALLINT (IRQ/FIQ
-masking) during
- * runtime services, we must save and restore the full exception masking
- * state (DAIF, PMR, and ALLINT) across the EFI call. This guarantees that
- * the OS's GIC priority model remains consistent and correctly synchronized
- * with the DAIF state upon return from EFI, even though EFI itself never
- * touches the PMR register.
- *
-
+> Reject U32_MAX while collecting IDs, before the arithmetic and indexed
+> store can diverge.
 > 
-> Cheers
-> Vladimir
+
+Pls add fixes tag and add CC:stable@vger.kernel.org considering this is 
+a memory corruption fix. Both should go in the commit description above 
+the SOB.
+
+Cheers,
+Hari Prasath G.E
+
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+>   drivers/pmdomain/ti/ti_sci_pm_domains.c | 6 ++++++
+>   1 file changed, 6 insertions(+)
 > 
->>> Cheers
->>> Vladimir
->>>
-> 
-> 
+> diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+> index 949e4115f930..5fad21c317c4 100644
+> --- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
+> +++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+> @@ -251,6 +251,12 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
+>   			if (args.args_count >= 1 && args.np == dev->of_node) {
+>   				bool is_on;
+>   
+> +				if (args.args[0] == U32_MAX) {
+> +					dev_err(dev, "power-domain ID is too large\n");
+> +					of_node_put(args.np);
+> +					return -EINVAL;
+> +				}
+> +
+>   				of_node_put(args.np);
+>   				if (args.args[0] > max_id) {
+>   					max_id = args.args[0];
 
 
