@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4D7C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 04:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA91C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 04:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g8GKCTdhzyHicpm2s9IeJEalCatvuSkOlVRtNie8L7Q=; b=UPkXo/woJ0ywgfDms+RWlSumG1
-	F4N2e1LK0F4HIYedzfpz3g58NcjyRb8NOrB0P9nPR+E3TptkkObAGov9KMcAVlhO827zdufqkBQ7a
-	EDQ2CrYoKtSqhxV1SQOWcjLBQh89v8pX1M77mqUgWvsaLd1bEI8xHSOnkp6sWmpftvUONT4e2Wu2X
-	0pbVS5pvkNaKVRyFKx8aBfd3ImXMTmbFCgmQWl3vsk/7UYCU4NYGLk5Fn+AvDl2BBL67Ic6uA8HHV
-	xVK+aM9b3a9+KQqV/WeRngu7OsB6M1y3msA047N+gkdkwST5tCzUkGFxBfeKq5K4rPy8pqvTCKYBO
-	B8rIngIw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cw+g8044aLFqtXGEWXTOBm0DvocPh9k56AtCHyZmPRw=; b=Kxx3WW/t7ohtxZi6yNpi3qp1Js
+	MpvEUIFXXHqblN8eFHnAaPrSIG9VR8UQ9L51tYrXPbY6uuWfx18AOa9uQaXQJykUWjDnRxKjXgBpG
+	BZSOJ2983T0e+7grbJPS1GVfYPMJ3Q43QF/duhXsZBo2hSE5GFdwaEJcK699a9QCY6wZNCIksBEqT
+	DZSLJUrNhpn0xoXqwF9AP/dSs7zRSWNkeDNImIgABvXQkzQ1beAFOfSbR7nvzUV4Uft8XnRemAsBJ
+	Gdx1vXBfg15SShvD+4eU5RKbnhGF0gUd5W8wK4NYZsv3dYyROyRHIlyGjViSAfNn5Ltgj9R4bwUGq
+	xzw1q/+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmOM5-0000000AreM-2UDM;
-	Wed, 22 Jul 2026 04:14:49 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wmOby-0000000At90-3woB;
+	Wed, 22 Jul 2026 04:31:15 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmOM2-0000000Ardy-3BdR;
-	Wed, 22 Jul 2026 04:14:48 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowAC3JD+0Q2BqaCa7AA--.23602S2;
-	Wed, 22 Jul 2026 12:14:44 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Mark-PK Tsai <mark-pk.tsai@mediatek.com>
-Cc: Daniel Palmer <daniel@thingy.jp>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH] irqchip/mst-intc: reject ranges beyond saved state capacity
-Date: Wed, 22 Jul 2026 12:14:43 +0800
-Message-ID: <20260722041443.10020-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1wmObv-0000000At8N-3AEb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 04:31:13 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4955aa106b1so27192205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 21:31:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784694669; x=1785299469; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cw+g8044aLFqtXGEWXTOBm0DvocPh9k56AtCHyZmPRw=;
+        b=PCGRVEiqVlOTHXnesuYDxiw746oBc8ff0FrwQka1yPLa1LIcvHnwQ2fGdBNmTYYCbw
+         woLQjQxXuo+H2R/5RWg2UsnyPZSJIRhk1eBPS1uy0SPMqFQ/1RuAMA2xroCpGqsRqSwj
+         WPLjak9LUiJHNtkJmZTWbaeNJm3j6LIH4KybJyb13zP/9yraicwAxWx2g3UWmvlLpbwZ
+         YLX+iyc8NvyYHK9eB7Tn6/67sFpuJK8qs36n6oaGIeBrKXw9PN6879O3YZAXvbVhES8t
+         iA6tix6sSRCME/GvizwB1egbJPakKQReZ2lsSBHNgV+1PvD4nmomdn5SxnKVR6xKzlN1
+         JEog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784694669; x=1785299469;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cw+g8044aLFqtXGEWXTOBm0DvocPh9k56AtCHyZmPRw=;
+        b=DTFrfKrmY9HAEaAUuAA+VF61iGv6Ioi5OXDcin6hYHu0ooBkyaVnwEYk76RWrWo1EW
+         tijJEl7FzhMwdhw/GQrRQ1XP3Mo8fu0WhJrkOOVGleNdDtbmzzco6erg+hTX/PlsI1/Q
+         RsDl9Wipp4MevwDPfvUaTh2Fnz5xCR9QcM8DOn1W7CKYgode15E58XENmW0pU8Ukx1Dd
+         hdwO79o1Efij9jvgrdz67Zfk/RU2n5i6FzjEPvGXNsEwFmT0vw8K8i6ZH86iLNxb8u7N
+         QL2anKszyUYcDVDVhwii8+sVAt0tM9waBF9oa92LSXzINKr0bCbO4G4aFqQWfWjVZEx2
+         bV9A==
+X-Forwarded-Encrypted: i=1; AHgh+RrZ0jya81myfhfas8B/v0sTLhKcI0CRHwZqJ/+VRFaJ9my1Okmw7y5eQZNf02sJ58iohF/uDpEEFYCpCxYJKaOL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlHE2wPJL6lK4fvO7jIAtgWxjZ+YbDu8epdiaNJJU1qmvqeRPL
+	YUzuHzM2actmky4j+Hlqlb8fenCGdzjGg/D4dsDi1Ytl2SMtm8YqlmWF
+X-Gm-Gg: AR+sD11fMd5mWaAGG/xyKjDtMLTyV6GyxeppgRFpbQ+a3SupSJnqjW2yPucQua2c4PO
+	Q4GfiBP9n2slmGASj1o4bLSePDJdsbLO9Xqs8AQ15Kb4qo+nbAij5ptjODx/+Iz+5V+s7yM92ie
+	yGvjFrRIKwREEseMaQyEPnVpfgb5+Om2u+EmpeFeZJdSWc767oH/L0XTRjDLdKiGp+f7JeRtO8g
+	N3cIvopybX2Ig5wik0387MQf/N63pYMB7Ep7vIZn5OKzHISy5ugu86ZUipSSVBegf3bFdFVM6OQ
+	6t/hucqLLaGIx7Wnv0epyFtwiLUia4R3zPVRyHkOu4h9QPIcwtbO9VMtfysGLs7RWwgypR+CuiA
+	zvBxLxxSBc8AHcxubPTPa1AasZnXtqaMo37akrcCTzlE2EzzmF7fAQxo+Vd7Nsos+kMg5jbLP5G
+	XnjdR2hY8q7dD2HY6Pvg8v5O57dE/Zchw1RdfI9opVkn5RJ4UfzPXpp3c70hW8Uaw=
+X-Received: by 2002:a05:600c:8b16:b0:495:69eb:27fe with SMTP id 5b1f17b1804b1-49569eb28a0mr35742605e9.11.1784694669049;
+        Tue, 21 Jul 2026 21:31:09 -0700 (PDT)
+Received: from localhost.localdomain ([102.187.228.150])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956537c7desm161495895e9.7.2026.07.21.21.31.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 21:31:08 -0700 (PDT)
+From: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	coresight@lists.linaro.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rt-devel@lists.linux.dev (open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT)
+Cc: Mohamed Ayman <mohamedaymanworkspace@gmail.com>,
+	coresight@lists.linaro.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rt-devel@lists.linux.dev (open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT)
+Subject: [PATCH v4] coresight: Fix scheduling while atomic in coresight_cpu_pm_notify()
+Date: Wed, 22 Jul 2026 07:30:23 +0300
+Message-Id: <20260722043023.6978-1-mohamedaymanworkspace@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
+References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAC3JD+0Q2BqaCa7AA--.23602S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrury3Jw48Cw48Wry7WryrtFb_yoWDArX_u3
-	W5uan7Gr1rKFn5JF97tr17Zry0yF9ruF4qgwnYv3W3JryfW3WrGF1UX3sYya1xuF4Fyr1x
-	CryYvrW0kr9FkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb4AFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
-	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIY
-	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14
-	v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_
-	Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbtxhJ
-	UUUUU==
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_211447_163685_CEE8F87A 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260721_213111_862559_21A833BF 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +112,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The inclusive Device Tree IRQ range determines nr_irqs. Suspend and
-resume then use nr_irqs to walk the fixed saved_status array, which has
-MST_INTC_MAX_IRQS entries. A descending range underflows the unsigned
-subtraction, while a range wider than 64 entries exceeds that array.
+Dropping the last reference to a coresight_device can trigger a kernel
+panic on PREEMPT_RT builds due to a "scheduling while atomic" violation.
 
-Reject both forms before deriving nr_irqs.
+When the CPU enters an idle state, coresight_cpu_pm_notify() is invoked
+with local interrupts disabled. It calls coresight_cpu_get_active_path(),
+which currently uses coresight_get_percpu_source_ref() to get a kobject
+reference, and then immediately drops it with coresight_put_percpu_source_ref().
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+If this put_device() call drops the very last reference (e.g., due to a
+concurrent device unregistration), it synchronously triggers the release
+cascade. On PREEMPT_RT, free_percpu() takes a sleeping spinlock_t.
+Furthermore, any parent device in the release chain might also acquire
+sleeping locks, causing a system crash in the atomic PM context.
+
+Fix this by eliminating the get/put dance entirely in the PM notifier path.
+Since coresight_cpu_pm_notify() runs with IRQs disabled, it is safe to
+read the per-cpu source pointer directly under the coresight_dev_lock,
+check the mode, and return the path without unnecessarily manipulating the
+kobject refcount.
+
+Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
 ---
- drivers/irqchip/irq-mst-intc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/hwtracing/coresight/coresight-core.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/irqchip/irq-mst-intc.c b/drivers/irqchip/irq-mst-intc.c
-index b5335f6fd6d6..1475335d668d 100644
---- a/drivers/irqchip/irq-mst-intc.c
-+++ b/drivers/irqchip/irq-mst-intc.c
-@@ -263,6 +263,10 @@ static int __init mst_intc_of_init(struct device_node *dn,
- 	    of_property_read_u32_index(dn, "mstar,irqs-map-range", 1, &irq_end))
- 		return -EINVAL;
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 6d65c43d5..9461fac9f 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1850,16 +1850,13 @@ static void coresight_release_device_list(void)
+ static struct coresight_path *coresight_cpu_get_active_path(enum cs_mode mode)
+ {
+ 	struct coresight_device *source;
+-	bool is_active = false;
++	struct coresight_path *path = NULL;
  
-+	if (irq_end < irq_start ||
-+	    irq_end - irq_start >= MST_INTC_MAX_IRQS)
-+		return -EINVAL;
-+
- 	cd = kzalloc_obj(*cd);
- 	if (!cd)
- 		return -ENOMEM;
+-	source = coresight_get_percpu_source_ref(smp_processor_id());
+-	if (!source)
+-		return NULL;
+-
+-	if (coresight_get_mode(source) & mode)
+-		is_active = true;
++	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
+ 
+-	coresight_put_percpu_source_ref(source);
++	source = per_cpu(csdev_source, smp_processor_id());
++	if (source && (coresight_get_mode(source) & mode))
++		path = source->path;
+ 
+ 	/*
+ 	 * It is expected to run in atomic context or with the CPU lock held for
+@@ -1868,7 +1865,7 @@ static struct coresight_path *coresight_cpu_get_active_path(enum cs_mode mode)
+ 	 * change. Since the build path has taken a reference on the component,
+ 	 * the path can be safely used by the caller.
+ 	 */
+-	return is_active ? source->path : NULL;
++	return path;
+ }
+ 
+ /* Return: 1 if PM is required, 0 if skip, or a negative error */
 -- 
-2.43.0
+2.34.1
 
 
