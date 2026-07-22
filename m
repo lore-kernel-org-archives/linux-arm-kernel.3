@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5921CC4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB7EC4453C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1w/L0JEj1tAoEtTkbuyiqxCj7tfW27Vj36Bhq5Zj1YU=; b=Rl0yj0LmBIBkNTAfmyQSpqGHiP
-	TxKpICCa1ie2j6oTbB2yQhoL6SPKA/o7i3T7Oe8UuY2TXWBtkBuR6PPX/i0wyjwIT8fbDqgXn1Ceh
-	6ENa4GF0MxreiUGIINLE09wD2OS2DsRFvqFQtYjJrVQi5VK0XYyVyvKBbFZ14ZpBlkR2vhbipIDSo
-	H8XxXJ3e0HOvT9sMbP10oP7bxBR7kB3PgTtLR1L8RQ4sbP8B89xYxMdnbEtxQxx76b2kaORj8qdEl
-	mBXZnE2hSed9Nl285kn6POAfAwZTxbk37WHAa8hIVOKoX9WFoMmi3xlSRh7qrJpw/BjXgWFuw6ZlZ
-	nwMpiSAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bmBbdGqXn7zX22juAuUHe8n2tln6u/foAWFAk2OvEPI=; b=tSyOSUBB3ucM2s
+	nU5jBya5i7wfSVpuNKKCUcIbwi4CEbDSam4L7KnLTpfC1b5ifWVL+U49VkwoXz1ey/7NYADpqotfd
+	dyR+Sph/Lcz2ObSNKXjZFozgI9U2zFhD5PUHJMqDVo60fHk5KSwzTCqCloIeAvGxm8s5CGzdlTQAx
+	7u6yL88HuhQLqAKUClTj67ToL/jK4wLBJt5fYN2OjAjGSnf94MtpSLIwX3K/aho42/6LEAXSXV0S1
+	nKuGvzV44Gbo5E8VzAO4eozlm5Ku4OBUNceHws4niml7QX8k6KbMe29BMzP81ujDqRI2vKuosZBxM
+	EoaBXIijYjeZTNFbwTqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmagt-0000000CSRP-3enH;
-	Wed, 22 Jul 2026 17:25:07 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wmaic-0000000CSoL-2HKJ;
+	Wed, 22 Jul 2026 17:26:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmagq-0000000CSPI-0Wsz
+	id 1wmaib-0000000CSoF-0TmX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 17:25:06 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-848d21bbaffso352197b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:25:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784741103; x=1785345903; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1w/L0JEj1tAoEtTkbuyiqxCj7tfW27Vj36Bhq5Zj1YU=;
-        b=GpXflw+eRTs1qfIuZewT4F6ExyEn/I80lDzWBRBk9Gj7jPq6OSJnQ4tg7gC71yRri+
-         HfceGcbbsMmePQ5OCyDaM7/iu6bYlLewxy3bw/IgOEdpTxQwWOq4TsZ7hFVjkn9wjMMB
-         kWAOei9F4nqYdCHylQm//Aa7qgQ0zthPozJ7H/a8on98A29FacU8Dp1eceQoTF3yG5lz
-         aWQOodL8nKUeELEBdAHVWxppsYqBuDFGh6gFHd3XPAyCV0uSDYNyhiL3Z6D9bKr0tjfe
-         zWwzNHd6mMzKph9PGPysyo0sRrA7mN2m/vCyrd2im80S8ACtCbRPQeLPVdkW81sh03dP
-         MXrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784741103; x=1785345903;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1w/L0JEj1tAoEtTkbuyiqxCj7tfW27Vj36Bhq5Zj1YU=;
-        b=kGp3K1ddlxgCjRofrtgag874OI1xiC5bt7cDOiqTDUzaFNPQVD0UxQEJ/Vy4A1AKRd
-         8QZ3EStN6YL1c7u06gcQr14hcOj+4XchQ0bPBR8J3U7M3yWlhvu+Phmi0fwRcNNVEK9a
-         kmY2MYVMoOxRZ3x+KzBzebw71VA8OYMZgtlZ1kpyiim8uYcq1X47dWrzX61aQ9dfkbhY
-         pYFVj7vEldyBLK3WUZmf11Ew74wVa60GeIHHVxa0jYWNyDb8oMJGV/e+A3Opi++YZ12g
-         +V2R3e33dQXtKOklbT+/77NesDnt8ErlYvi4lC0qcDMbmJNdEW3NtQ8UzTrJTM2VHx0e
-         pnvA==
-X-Forwarded-Encrypted: i=1; AHgh+RpD2FqcdB3SYNS6yXpsL9lL/IqM8RG2Ula1HfJTFRAq+z6SldY+nsXxrn/qbrZ+5kNIctgXXrzALPUb2xcdubYt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHxK028OixSMc5tjaRwXLj67zU0SzhacqLSdeCijdubU6XdwG2
-	XJqL2UCu/oDGOVgu7eULJsJnLTMmmxZiJCXxHSovspUmH1nmorCzORQq6SNe94KS
-X-Gm-Gg: AR+sD12ReVSFpOeKkHC58ZFQTtaoRBhDMiP25V2smNmwRMnRQPYBwQi1a3e0dA0bPrI
-	tJcCAcrmFKkGvQBBLX/B+er0DM4E+K9oHlJCwOVzAkyiYUov5jjTn5QX4yCDBfAGBvLy1ddga07
-	jtO2G/PPVbJJpD7FD5ofH0BfmMRYwF4Ylmj6mvolvKjWgg3BgI0KMsTVvJZYMKv4QEXrn+dWT3c
-	LPkTVDOP8FWhE0EhEx/PT3FM28VVkjQEtlishc3einxqGUHXqOyR16sxEcsktCHUNMNF0R8G2Dk
-	Mqjdywm6TtBG3VRANZzviiqnh/ZMqo0YV/p62Xz3dcYu+0ONhC68gh7ViO6w+aPNPd1y4o4crMG
-	Bi8WwXb3/Za5ukP1xhZBM7iU1y53lxRN9wFHFxRQkjJk0s2TlHw0VGrtbRHGBCVqKpnkczK+yiv
-	dQlvPzWDeGjX2ooVNtEFQd/IHUSrREELiqpRUVAJ9xyHN6
-X-Received: by 2002:a05:6a00:2e07:b0:848:2f84:730 with SMTP id d2e1a72fcca58-84c294e6a56mr23499585b3a.67.1784741102709;
-        Wed, 22 Jul 2026 10:25:02 -0700 (PDT)
-Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e1757488csm1645603b3a.33.2026.07.22.10.24.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 10:25:02 -0700 (PDT)
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>
-Cc: Yingjoe Chen <yingjoe.chen@mediatek.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM SUB-ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b),
-	Akari Tsuyukusa <akkun11.open@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm: mediatek: fix secondary CPU boot on Thumb-2 kernels with Clang
-Date: Thu, 23 Jul 2026 02:24:43 +0900
-Message-ID: <20260722172443.534251-1-akkun11.open@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	Wed, 22 Jul 2026 17:26:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 934D4438C8
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 17:26:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76E7D1F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 17:26:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784741212;
+	bh=bmBbdGqXn7zX22juAuUHe8n2tln6u/foAWFAk2OvEPI=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=VbJBrVX7eJu20xz06ZlMKi8QIRKS8rsZsooY7QwuebBNONta5I0m69DTasLhllPlo
+	 3oi28M/ae9kK6j0h4rD9zTBYSMGWNq/gcMuZOqaxdtaKiFI8lxcB12UqaAjXxtOfg4
+	 JtVu1hwtehUyh98Kw1kDSVxb/hWq5yoTLISGFFfASGtC9z1nOquWQ/LYfiaN71On3X
+	 P1CO9/geM+92BYzHxKNdU+zf65QUR19ZBBE2Ldd1EUg5AEJ0Q9JLMyaIy+vHziNLDi
+	 TIxyunHIMqdDNwQdwM1ZU+XjG8dAOFfN7mnSFcwxuLN/xg9Q56fOSSZkLzbNCdyU1m
+	 79tcQ7BNQhekw==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39ca300db70so101840261fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:26:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp1mDesr51rL1ClPWoUv+5Q5IppNegVEd88y3Ek0ntNiV+Stlcu1IgSYqcqjtlXnv6MnTPdaIXwAuUn7GTwZ0PE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy+JCm0R3VGHFugZ20oTjYx9mJ7VhbPoTIRFM2RnxGx49qCv6k
+	X0Uf7wDqER8N4Rmnp1VCPPBXL6ycDD2QkHs6r3TNsvcdzEl+8uKz94PcGiwS7VAYOyXQgvBnEgR
+	UQfWfNo8xFn9tjw4ijH0b720uuiq80Z4=
+X-Received: by 2002:a05:6512:61b1:b0:5b2:a21a:10e7 with SMTP id
+ 2adb3069b0e04-5b2a21a12d5mr2494227e87.25.1784741210871; Wed, 22 Jul 2026
+ 10:26:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_102504_189889_34089B9E 
-X-CRM114-Status: GOOD (  15.63  )
+References: <20260721223956.13665-1-andre.przywara@arm.com>
+In-Reply-To: <20260721223956.13665-1-andre.przywara@arm.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Thu, 23 Jul 2026 01:26:38 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64E29Tq3vSsVPM1qHgieyZHaNpfwWveYh9ss_Bg212N-A@mail.gmail.com>
+X-Gm-Features: AUfX_mzV8YT9ywm-27dQuVdFcDOwplaJLY2AjiPlfsSw77am-9UWqKDGzOnYCNk
+Message-ID: <CAGb2v64E29Tq3vSsVPM1qHgieyZHaNpfwWveYh9ss_Bg212N-A@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +79,123 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building with CONFIG_THUMB2_KERNEL=y and Clang, secondary CPUs
-fail to come online with "CPU1: failed to come online". The address
-written to the jump register has bit 0 set, causing the secondary CPU
-to start in Thumb mode.
+On Wed, Jul 22, 2026 at 6:43=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+>
+> The Allwinner A523 uses the same GPIO voltage "withstand" programming
+> (setting the input level voltage thresholds) as the previous SoCs, but
+> for some odd reason inverts the encoding of 1.8V vs. 3.3V.
+>
+> Add a new bias voltage type to note this difference, and select it for
+> the A523. At the same time also use the newer "CTL" version, which in
+> addition allows to turn off the withstand programming for I/O voltages
+> other than exact 1.8V or 3.3V (for instance for 2.5V sometimes used for
+> Ethernet PHYs). The A523 has that enable register, but didn't use it
+> so far.
+>
+> This fixes eMMC and reportedly Ethernet operation on some A523 boards.
+>
+> Fixes: 648be4cd9517 ("pinctrl: sunxi: Add support for the Allwinner A523"=
+)
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-secondary_startup_arm is ARM-mode code (.arm) and, on a Thumb-2 kernel,
-expects to be entered in ARM mode in order to switch to Thumb via the
-standard sequence at that label. Starting in Thumb mode causes the CPU
-to execute ARM instructions as Thumb, resulting in an immediate crash.
 
-Clear bit 0 of the entry address so the CPU always starts in ARM mode.
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Tested-by: Chen-Yu Tsai <wens@kernel.org> # Fixes eMMC on Orange Pi 4A
 
-Tested on Lenovo YOGA Tablet 10 (Wi-Fi).
-
-Fixes: 0cda07001a94 ("ARM: mediatek: add smp bringup code")
-Assisted-by: DeepSeek:deepseek-v4-pro
-Cc: stable@vger.kernel.org
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
----
- arch/arm/mach-mediatek/platsmp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/mach-mediatek/platsmp.c b/arch/arm/mach-mediatek/platsmp.c
-index 6b0943d95555..9a7c65fc3ae1 100644
---- a/arch/arm/mach-mediatek/platsmp.c
-+++ b/arch/arm/mach-mediatek/platsmp.c
-@@ -124,7 +124,7 @@ static void __init __mtk_smp_prepare_cpus(unsigned int max_cpus, int trustzone)
- 	 * write the address of slave startup address into the system-wide
- 	 * jump register
- 	 */
--	writel_relaxed(__pa_symbol(secondary_startup_arm),
-+	writel_relaxed(__pa_symbol(secondary_startup_arm) & ~1,
- 			mtk_smp_base + mtk_smp_info->jump_reg);
- }
- 
--- 
-2.54.0
-
+> ---
+>  drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 2 +-
+>  drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   | 2 +-
+>  drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 6 ++++++
+>  drivers/pinctrl/sunxi/pinctrl-sunxi.h         | 2 ++
+>  4 files changed, 10 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinc=
+trl/sunxi/pinctrl-sun55i-a523-r.c
+> index dfdcfa740ecc9..cffc1e53eef14 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+> @@ -26,7 +26,7 @@ static const u8 a523_r_irq_bank_muxes[SUNXI_PINCTRL_MAX=
+_BANKS] =3D
+>  static struct sunxi_pinctrl_desc a523_r_pinctrl_data =3D {
+>         .irq_banks =3D ARRAY_SIZE(a523_r_irq_bank_map),
+>         .irq_bank_map =3D a523_r_irq_bank_map,
+> -       .io_bias_cfg_variant =3D BIAS_VOLTAGE_PIO_POW_MODE_SEL,
+> +       .io_bias_cfg_variant =3D BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV,
+>         .pin_base =3D PL_BASE,
+>  };
+>
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c b/drivers/pinctr=
+l/sunxi/pinctrl-sun55i-a523.c
+> index 801f62abc93df..001bd42afa3ef 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+> @@ -26,7 +26,7 @@ static const u8 a523_irq_bank_muxes[SUNXI_PINCTRL_MAX_B=
+ANKS] =3D
+>  static struct sunxi_pinctrl_desc a523_pinctrl_data =3D {
+>         .irq_banks =3D ARRAY_SIZE(a523_irq_bank_map),
+>         .irq_bank_map =3D a523_irq_bank_map,
+> -       .io_bias_cfg_variant =3D BIAS_VOLTAGE_PIO_POW_MODE_SEL,
+> +       .io_bias_cfg_variant =3D BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV,
+>  };
+>
+>  static int a523_pinctrl_probe(struct platform_device *pdev)
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunx=
+i/pinctrl-sunxi.c
+> index cabcb8b6f38e5..634d9f1f23947 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -718,6 +718,7 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi=
+_pinctrl *pctl,
+>  {
+>         unsigned short bank;
+>         unsigned long flags;
+> +       bool inverted =3D false;
+>         u32 val, reg;
+>         int uV;
+>
+> @@ -757,6 +758,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi=
+_pinctrl *pctl,
+>                 writel(reg | val, pctl->membase +
+>                        sunxi_grp_config_reg(pctl, pin));
+>                 return 0;
+> +       case BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV:
+> +               inverted =3D true;
+> +               fallthrough;
+>         case BIAS_VOLTAGE_PIO_POW_MODE_CTL:
+>                 val =3D uV > 1800000 && uV <=3D 2500000 ? BIT(bank) : 0;
+>
+> @@ -771,6 +775,8 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi=
+_pinctrl *pctl,
+>                 fallthrough;
+>         case BIAS_VOLTAGE_PIO_POW_MODE_SEL:
+>                 val =3D uV <=3D 1800000 ? 1 : 0;
+> +               if (inverted)
+> +                       val =3D !val;
+>
+>                 raw_spin_lock_irqsave(&pctl->lock, flags);
+>                 reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset);
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunx=
+i/pinctrl-sunxi.h
+> index d0936a32123ba..2c8648c3301b6 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> @@ -128,8 +128,10 @@ enum sunxi_desc_bias_voltage {
+>          * Bias voltage is set through PIO_POW_MOD_SEL_REG
+>          * and PIO_POW_MOD_CTL_REG register, as seen on
+>          * A100 and D1 SoC, for example.
+> +        * Some SoCs invert the encoding for 1.8V vs. 3.3V.
+>          */
+>         BIAS_VOLTAGE_PIO_POW_MODE_CTL,
+> +       BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV,
+>  };
+>
+>  struct sunxi_desc_function {
+> --
+> 2.46.4
+>
 
