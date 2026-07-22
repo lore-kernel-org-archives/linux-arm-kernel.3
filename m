@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2ADFC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7519DC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6Ed1fhe7PW7ckJOG+hYO0SyywFktvNrPM+HhA2LjQo=; b=xmmL9hjkvUH+O9ej4hklN5zjaj
-	0yP4lzhHVtrm1wRLmzkPOe2XX7UtkzPGDc7Sg8IWch3wuiTJgZLQraHtaAaqHGb6RhQAJ3uIXyUf7
-	wJ7Q7YFCcj2Ol+HmrvHwZu6es2J1J3j0yQQAxIz4nAig4h+a3N0+2CO2Ar7lihbEeHoVK3bmkpZDs
-	XHgi/s+x8ObZ/iIxdjemUjxjUI8ajES5rEw3+ETlKNT6oPQdcJq2flSqZRO67SsNZWfoYS9DQI6Yk
-	f8NuNy2A5T1jWL70OhtKOPm+Sg+MVYRDoh67ce1DtnHyDoISVGEM42CH96CblaYq4SOv/rwuP8N1j
-	2Auzf1hA==;
+	bh=QaRcpLEUdF6IoGbFgJIRkWkgaVhzZCRkbBhXpj4gKLw=; b=RkDgpaVNxFinEL1lQpwEzSxISA
+	xIIu8BH/fH/DMnyn9THfzQPhN+MVeLR6/+opKf0uTkUNeo4bxqimd5VCBDFunsVKnG+EsDyFw0PTz
+	MLwLN06luAdKbBNVbxKtOAeEUArN/utdo2iOP1yWvR7NuIodTQ3PEW7Qh1btJd2Ki4E0gIiXuvYew
+	yNlxBC+5dPKQUoNsyCp38r8fIaiJzf75NP5PDlrMczFb//SWLOVa2NjYs0J3P9USHKbp5rIS/Ju1d
+	a++MhYdsvKqBi5jEa6I+64ZMZUzh2+2wT4Za7Yg/xOkZFKxjNoZ6Ez9aRgpdiJv3j2q02pYGyqEK1
+	CiqD/U7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmS7J-0000000BDS1-2rD6;
-	Wed, 22 Jul 2026 08:15:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmS9E-0000000BDmw-19Y8;
+	Wed, 22 Jul 2026 08:17:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmS7H-0000000BDRU-2Tyo;
-	Wed, 22 Jul 2026 08:15:47 +0000
+	id 1wmS9D-0000000BDmi-0jUw;
+	Wed, 22 Jul 2026 08:17:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6D0D60A77;
-	Wed, 22 Jul 2026 08:15:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E0C1F00A3A;
-	Wed, 22 Jul 2026 08:15:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD24340837;
+	Wed, 22 Jul 2026 08:17:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D11471F000E9;
+	Wed, 22 Jul 2026 08:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784708146;
-	bh=I6Ed1fhe7PW7ckJOG+hYO0SyywFktvNrPM+HhA2LjQo=;
+	s=k20260515; t=1784708266;
+	bh=QaRcpLEUdF6IoGbFgJIRkWkgaVhzZCRkbBhXpj4gKLw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m/UjfeqV7P0pT4AddZEvv2ntNn8VDrWWTYV3e+pKEv4pEe8sBrum5Ks/ifrw9ThMA
-	 C8uH0jwfiimwFnbcpPD4eDTCjM3UW1B4R5icrhYreoVCK7mHao5Rax7eXU0l8pjTBg
-	 YrSVusT2mFhtIiZm3ldNQgBLP4Ajt0oRkVmLBZVFtFVm0cteLUR5lFUefAo/d90boQ
-	 H+81/pEhHWuArkrKZWP5Ynbqr/EoOD/GmRQwsmlTkCbonesDF8gJ5HWmT6Dj0s2eyl
-	 43dl4lZFzlSaIdne+sYBR83G7UYQPmj7D3dvFdtr+tLq38DVBvRa2rm2+N44TcRfDm
-	 gCuSOZInsw1hw==
-Date: Wed, 22 Jul 2026 10:15:43 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, Mao Jinlong <jinlong.mao@oss.qualcomm.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: coresight-ctcu: document CTCU
- device for shikra
-Message-ID: <20260722-astonishing-loud-labradoodle-bb59ce@quoll>
-References: <20260722-add-coresight-nodes-for-shikra-v3-0-1400a3454e9f@oss.qualcomm.com>
- <20260722-add-coresight-nodes-for-shikra-v3-1-1400a3454e9f@oss.qualcomm.com>
+	b=Zi3uxyFuFk1JS+9CA2TDVFJ8FSsPVn4G9xnAj31FoaUTCqyrTO9NWUYWyKo4jeYx5
+	 dTEN3jFNGR1qstghZrZxhkPmKwsea283HCJe//Zz5GDFLQN25YDSpIvp/oIE+mT18R
+	 Ony7bnRVFfIrWl1CI88b+WM9mQLd8z2TqV6P0QBq8lwDiKMZxIbABKZMTiIBFYibN5
+	 uHa+zZpv0erx8bAHUfyXRLsMZ95H3HQDY95uy5K/3KfbHAP5PxGkYUtwDKJikdwbmS
+	 W3QiKzpkhnzpHCavN9fFp+67kZVigjPVd3HXJ3iE/hl53jDlviMABhqHpNYJK3jmJo
+	 MVwvvBOrikW6A==
+Date: Wed, 22 Jul 2026 10:17:43 +0200
+From: Antoine Tenart <atenart@kernel.org>
+To: zhaoping.shu@mediatek.com
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
+	pabeni@redhat.com, horms@kernel.org, ncardwell@google.com, kuniyu@google.com, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, willemb@google.com, 
+	alice@isovalent.com, sd@queasysnail.net, eilaimemedsnaimel@gmail.com, 
+	imv4bel@gmail.com, hw.he@mediatek.com, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, haijun.liu@mediatek.com, xiayu.zhang@mediatek.com, 
+	lambert.wang@mediatek.com
+Subject: Re: [PATCH net v1] net: gro: avoid nesting GSO skbs in
+ skb_gro_receive_list()
+Message-ID: <amB7wb1A2Oo2dv5d@kwain>
+References: <20260722024214.24845-1-zhaoping.shu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260722-add-coresight-nodes-for-shikra-v3-1-1400a3454e9f@oss.qualcomm.com>
+In-Reply-To: <20260722024214.24845-1-zhaoping.shu@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +74,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 09:13:47AM +0800, Jie Gan wrote:
-> The CTCU device for shikra shares the same configurations as SA8775p.
-> Add a fallback to enable the CTCU for shikra to utilize the compatible
-> of the SA8775p.
+On Wed, Jul 22, 2026 at 10:42:14AM +0800, zhaoping.shu@mediatek.com wrote:
+> From: HW He <hw.he@mediatek.com>
 > 
+> On devices that support both NETIF_F_GRO_HW and NETIF_F_GRO_FRAGLIST,
+> the hardware or driver may deliver packets that have already been
+> aggregated into a GSO skb, either with frags[] or frag_list. GRO may
+> then
+> aggregate the skb again in skb_gro_receive_list().
+> 
+> This can create a nested GSO skb, which is not handled correctly by the
+> later GSO segmentation paths. When the skb is segmented by
+> skb_segment_list(), it not be fully restored to the original packets.
+> 
+> If the skb is marked with SKB_GSO_DODGY before segmentation, for example
+> after a protocol change from IPv6 to IPv4, the nested GSO skb is
+> segmented
+> by skb_segment(), which may hit a NULL pointer dereference when the skb
+> contains a nested frag_list.
+> 
+> Avoid this by setting NAPI_GRO_CB(skb)->flush for GSO skbs before
+> aggregation and by checking the flush flag in skb_gro_receive_list(),
+> following the existing logic in skb_gro_receive().
+> 
+> Signed-off-by: HW He <hw.he@mediatek.com>
+> Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
+> ---
+>  net/core/gro.c         | 2 +-
+>  net/ipv4/tcp_offload.c | 1 +
+>  2 files changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/net/core/gro.c b/net/core/gro.c
+> index 35f2f708f010..27c9813495f3 100644
+> --- a/net/core/gro.c
+> +++ b/net/core/gro.c
+> @@ -229,7 +229,7 @@ int skb_gro_receive(struct sk_buff *p, struct sk_buff *skb)
+>  
+>  int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
+>  {
+> -	if (unlikely(p->len + skb->len >= 65536))
+> +	if (unlikely(p->len + skb->len >= 65536 || NAPI_GRO_CB(skb)->flush))
+>  		return -E2BIG;
 
-This is not arm,coresight-ctcu. This is qcom,coresight-ctcu, so the
-subject is:
-dt-bindings: arm: qcom,coresight-ctcu: add Shikra
+This was already fixed in e751256486d0 ("net: gro: fix double
+aggregation of flush-marked skbs").
+>  
+>  	if (!pskb_may_pull(skb, skb_gro_offset(skb))) {
+> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+> index 3b1fdcd3cb29..c363434a5646 100644
+> --- a/net/ipv4/tcp_offload.c
+> +++ b/net/ipv4/tcp_offload.c
+> @@ -332,6 +332,7 @@ struct sk_buff *tcp_gro_receive(struct list_head *head, struct sk_buff *skb,
+>  		flush |= skb->ip_summed != p->ip_summed;
+>  		flush |= skb->csum_level != p->csum_level;
+>  		flush |= NAPI_GRO_CB(p)->count >= 64;
+> +		NAPI_GRO_CB(skb)->flush |= skb_is_gso(skb);
+>  		skb_set_network_header(skb, skb_gro_receive_network_offset(skb));
+>  
+>  		if (flush || skb_gro_receive_list(p, skb))
 
-I already pointed out this problem at v2. Nothing in your subject is
-telling this is Qualcomm! Not even mentioning such trivial mistakes as
-lowercase shikra everywhere.
+I haven't looked closely but this looks like a second issue and would
+need its own patch with a proper description.
 
-I also do not understand why you add so much redundant information to
-subject. Subject space is precious.
-
-No, at this point you should not make such mistakes.
-
-Please take this feedback to your entire team, so I will not have to
-repeat the same exactly next time.
-
-Best regards,
-Krzysztof
-
+Thanks,
+Antoine
 
