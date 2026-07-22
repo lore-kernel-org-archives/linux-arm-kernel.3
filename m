@@ -4,108 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A37C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB85AC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AgV3CfQUwCOxKpQCcZeddgank8+lUGwPj10cL5YRgn8=; b=P9XNcyM18muoKJMJnlQR6Bsj8D
-	SzzsMml+e7++5EEGPi5cvH0VJZV5FDfC7V4ZNh6H/LsG8g30v3CVTIM1qSI94c0zLV8H5ki37vbds
-	tsUFZUogkeG1U4mzN7fk2EGIOjKR3E2tXbndX+lyOiY6+66FR/ziXIClDQ3ygUy6bJh9iiGHpkdR1
-	3Jvv8cK3AVlzjb5ANjWivCyAd2iWoJcUIoObW4W/c/h8TR+cth01zgaYsRH4mGoqQdnUwRi9990rW
-	vhR5el3+WbBFoag8O2Ys/I0qTtCuNsdt7kUktGU8PZKHjcFRDpYWpWX8UzGKeVdnJ219xXFYC0ZWP
-	RcUF1TWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xbt7lg6ASnf6yol7TditJ/E15XiSCMl2qVhsdgt6Qyw=; b=N4uRW7CK363x6A
+	aux8ci/oJ+1kyVCoFoOBzuvyP65Voqh/J93jcQbZuxi6t+uO6DepNHlVPNb9UlBlP/7jzjC1jYrLW
+	qUGCBc6cil1Jvefxr22m6JK+jHVwOG/LiHA64/8A6tKZXsgtxX6zx46dOo4OioJyoHvKxolIn8owm
+	mV9AA5k98LecHTsRZKnZln564085iPrWkLqi2ptDD3dSU//FsYyiugP2gYUsu5cIqOq5uJiTpfX7P
+	/gCf/pRNtqu8FYOxpUEG3BcgU0DEI93nG3MqbVoT0dlHLkN7PfZo+lD0vTrCyD7NXJasl1aR7QZk6
+	wAvibpHPl1Pp/cPee9GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdjI-0000000CkON-3OWo;
-	Wed, 22 Jul 2026 20:39:48 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1wmdnf-0000000Ckkx-1Y8x;
+	Wed, 22 Jul 2026 20:44:19 +0000
+Received: from mail-106112.protonmail.ch ([79.135.106.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdjF-0000000CkO2-3F3X
+	id 1wmdnb-0000000CkjU-1KG4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 20:39:47 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 714581D000FA;
-	Wed, 22 Jul 2026 16:39:43 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Wed, 22 Jul 2026 16:39:43 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1784752783;
-	 x=1784839183; bh=AgV3CfQUwCOxKpQCcZeddgank8+lUGwPj10cL5YRgn8=; b=
-	PG3xCcFXHJQpgThFFaE/ZZQONEdI23t1R+9LPtodbMydg3Tynges1uH6KswJhLSf
-	XbbK7/Qu9+KkVAlm2FUgHX5G10xMTO2ko6JzxeL5jGZIyrxihltyfuJfJK+VNVFW
-	2ozox8N5x8WCN68bsqebNlrGpPnx+D/aaxY53BbO2o++RD8p9H7fnCX86pBtBmey
-	BV1K+XXK1Lnko+7l52VKUkhhLwugVwd5RzOQsuWC4d3bhdQqeqEkPM6vRCPYylc2
-	aMkoqioDdFjqkH4okICAjI8u5tX8Wpzzlra4TkKv3ihWVEqm2sYGggLJlFP7UfZD
-	xU3LXoKWX/DATwWSW5oRsg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784752783; x=
-	1784839183; bh=AgV3CfQUwCOxKpQCcZeddgank8+lUGwPj10cL5YRgn8=; b=G
-	ZntU8UuZe/gOWBKUr6Q8GltNzwN1EHOH8UyN1e2Lg/ZaD5ihKrpTcM4mo6cpJiC9
-	4Pz9SndFN9PART1bKjHcCyoicG+RGYNbwpLLUgcEjxlNRKRc4nhw6z+E8mJDA2vw
-	COMLAFkcXejsS1S2Yw14gSX+jaKpkwvoqtzL4Cvm0oR6uUzxYGmc3PvYVQr33koO
-	tM0pgCXJkWRQZT6Vm4TMgt/byKJx4nno3v57NkcvtfZSG0F76IYR1szBaotmKGRq
-	wxMplHzv2enOzjUvRTSuTwRSdXmakq5dXywK17FPAanD6NQC+tSuRpRSvYQ/o2gO
-	SKOxhoxuRkagzEkCyDIug==
-X-ME-Sender: <xms:jiphal-KIIvCiIQffsya-AcKwckBuJH2uIrSnEh0kCzW-iFi5Z8-rg>
-    <xme:jiphakgYT0YedyasEwwOldfz4EcS-DY2Z_Jz2Nl0ATO5bTEz4yYMRjVTGxdzyE3VP
-    jCfNtp5nZo7zik9Cw8L9ddusy7mRLvhzp2kYwiajIp_c5nnhrUH3k0>
-X-ME-Proxy-Cause: dmFkZTEFxCd0Ea8kWsgVnw2Dbt/3aQul2rC2oAV6UkFHegQJsFFS0R4+O+23+sWjXW74qd
-    ePkg3xRl7tl77bd/rGjW954UW3Vcaseypa3jbIyxKpf0fmw5I5NKFEVzrjB47TVttFHAL8
-    C4SM7VR6hqDjL7fpVJOmuHWDbaJYE0apCr0EGxLLw3+dWsNVvUD7YW9L39WCGoMrVZDNJm
-    iAO9A4exeTTC8kh6ScvNsHTYlr87owabfxsuHZs4wKPxQ5JxSH1QXkUtoBkaZpsVCauzwL
-    /YTEEdNfogzTkPhu77LGWBE10pL9t+0AFBJ8VtCdE0eABkqx/4sgJYlv0136aUcpn91rVn
-    gI8gNyaNKpeqZu7GiGU5GRCGPG0rG3322Lwa4EA43BL4OnElaDK/c4ZeSLz8udGc+liGJn
-    C2y5CI4R64DsC6E90z5Zbdwr0omvP8qZ+Z4xVyNzzIgLu+smgt5LZmS4MC0ayZRyoVpAi3
-    STCCfeNIbcOi6IsRfiSoel/LlxaVPTk8YFk5XtgvFP/oGcO2r+UZzrVeNuQO1iROylpLcT
-    XhsuGppc6GulX5EZjy0H91z/jL3iRJHVSK6z0hazQP/w+dayfOy3uvvv/a7GrUbhTZ4G6d
-    3cHsQ4t2fWJNnHmsw9a0DSiNBVjJ6yHB4mYoJ1kFqHwBRiI5ZSl9DmDWwAGg
-X-ME-Proxy: <xmx:jiphahyoO8icTS5nw-v-LVNH0718-Wa9hihwtBFUi34YhTUIP1fHqQ>
-    <xmx:jiphaipTWn7oIZdNQLIQzCIpdftpAA2eczpYYeCRVZ4FiWLSOtlEHg>
-    <xmx:jiphaknkm6UIwhS404H9W7esUgfF3vopRZEtG-fr6mzpDYvK_wQ6ag>
-    <xmx:jipharx_vFe6PeYZs3AhMsWAng6SGYKGjQGttMaX0lHCBG-kLNLM5w>
-    <xmx:jyphahwiTPgnuolJuli_AvFbDS2cSxw605l3qtwe9neRrXz4AHj6DA8S>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A119D1820082; Wed, 22 Jul 2026 16:39:42 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 22 Jul 2026 20:44:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
+	s=protonmail3; t=1784753047; x=1785012247;
+	bh=xbt7lg6ASnf6yol7TditJ/E15XiSCMl2qVhsdgt6Qyw=;
+	h=From:Subject:Date:Message-Id:To:Cc:From:To:Cc:Date:Subject:
+	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=YbaHimZl+IzyFfkoTPAKbFfhsyueZIAgmp5oPPeGQ+y4qmAstME7f5MIex0LRY+pr
+	 X6PsKb7supMtDtGXqd90ySBUxC1th2pDQtqffWXoIOzyWYpEfGBq2Lx+M7WtKo9/xd
+	 lVo+DY2HfgXPTQlCKOvb9+n21CwlFaLGEEcMS4Dc8oOHMsdanHCcrycPgABc8ej4Wt
+	 nH/SuZ4c+JrpJCnAkjs6ji1uqezVDUf5/A7ZY1u3O800JBmab5IyT/M/GZzY8QSdhq
+	 dl/a199V7lGeKXivTSpYRzOlBWHVcThR/FuaXSu1n/GheUeaCXf5bT+rwR+77b8kdT
+	 57gY1OTm+WU0A==
+X-Pm-Submission-Id: 4h55nw6NWyz1DDp6
+From: Alexandru Chimac <alex@chimac.ro>
+Subject: [PATCH v3 0/5] clk: samsung: Introduce support for Exynos9610
+ clocks
+Date: Wed, 22 Jul 2026 23:44:01 +0300
+Message-Id: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
 MIME-Version: 1.0
-X-ThreadId: AURDlYaRfEWV
-Date: Wed, 22 Jul 2026 22:39:22 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Julian Braha" <julianbraha@gmail.com>,
- "Aisheng Dong" <aisheng.dong@nxp.com>, "Fabio Estevam" <festevam@gmail.com>,
- "Frank Li" <Frank.Li@nxp.com>, "Jacky Bai" <ping.bai@nxp.com>,
- "Linus Walleij" <linusw@kernel.org>
-Cc: "Chester Lin" <chester62515@gmail.com>,
- "Matthias Brugger" <mbrugger@suse.com>,
- "Ghennadi Procopciuc" <ghennadi.procopciuc@oss.nxp.com>,
- "NXP S32 Linux Team" <s32@nxp.com>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>,
- "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
- "Andrei Stefanescu" <andrei.stefanescu@oss.nxp.com>,
- "Khristine Andreea Barbulescu" <khristineandreea.barbulescu@oss.nxp.com>,
- linux-kernel@vger.kernel.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <0a99e10e-b4c4-4a64-bcb4-fee8d777d0b7@app.fastmail.com>
-In-Reply-To: <20260722202638.135277-1-julianbraha@gmail.com>
-References: <20260722202638.135277-1-julianbraha@gmail.com>
-Subject: Re: [PATCH] pinctrl: s32cc: fix unmet dependency for PINCTRL_S32CC
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23PwQ6CMAwG4FchOzuzFhnIyfcwHmYtsihMNyQQw
+ 7s7ISYeOP5d/q/rWwT2loMok7fw3NtgXRtDukkE1aa9srSXmAUq1CqHTPIwti7sNShJd0e3IE2
+ BZkc7rNCkIvYenis7zObxtGTPz1eku2UoziawJNc0tiuTlodOLjyi+BZqGzrnx/lPPcyN+J6p/
+ er6HqSSaaUhU4hnyIsD1bYxtPVu1nr8Cd8D9JqAUSBIiQuuoNDwL0zT9AF7gkfzJQEAAA==
+X-Change-ID: 20260715-exynos9610-clocks-a82a4c42f2a3
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Alexandru Chimac <alex@chimac.ro>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784753044; l=1722;
+ i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
+ bh=QCFLtqrjxaxKo+IkPyPzKNyVJbZKAG++zQnBYytxjyk=;
+ b=YtVdMQqvrw3I9oyj8Kv0aIb3Z90Md0KX+PV/sky+lp+sLS6ZfR7kEWanv0kEu3C35wtcCf/zD
+ RB6g7IF0d+oDHYvzzq+VEun9JYFnM6YXZCl4HPiKV9s8IqUnO9V+RKB
+X-Developer-Key: i=alex@chimac.ro; a=ed25519;
+ pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_133946_243905_07D518DD 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260722_134416_148725_D5567CBA 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,26 +90,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026, at 22:26, Julian Braha wrote:
-> Currently, PINCTRL_S32CC selects PINCTRL_S32CC which needs GPIOLIB, without
-> selecting or depending on GPIOLIB.
->
-> However, other similar options in this subsystem actually select GPIOLIB
-> instead of depending, so I think we can do the same here.
->
-> This unmet dependency was found by kconfirm, a static analysis tool for
-> Kconfig.
->
-> Fixes: 94cb9e8f2707 ("pinctrl: s32cc: implement GPIO functionality")
-> Signed-off-by: Julian Braha <julianbraha@gmail.com>
+This patchset adds partial support for clocks (no SHUB, MIF, ISP, VIPX
+or MFC) on Exynos9610.
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+---
+Changes in v3:
+- Use correct DRCG_EN offset for dispaud
+- Fix improper clock assignments
 
-The patch looks fine, but I'm curious about what type of rule found
-the mistake. Is this a heuristic that found that drivers/pinctrl/*
-overwhelmingly uses select instead of depends, or did kconfirm
-find a circular dependency that was caused by inconsistent
-rules?
+- Link to v2: https://lore.kernel.org/r/20260716-exynos9610-clocks-v2-0-c13ce8ef1861@chimac.ro
 
-    Arnd
+Changes in v2:
+- Remove device tree node commits
+- Fix binding formatting / example build issues
+- Enable auto clock gating
+- Add USB CMU
+- Remove CPUCL1 CMU (PLL initialization fails with ACG enabled)
+- Update maintainer e-mail, copyright year
+
+- Link to v1: https://lore.kernel.org/r/20250915-exynos9610-clocks-v1-0-3f615022b178@chimac.ro
+
+---
+Alexandru Chimac (5):
+      dt-bindings: clock: samsung: Add Exynos9610 CMU bindings
+      dt-bindings: soc: exynos-sysreg: Add Exynos9610 SYSREG bindings
+      clk: samsung: clk-pll: Add support for pll_1061x
+      clk: samsung: Introduce Exynos9610 clock controller driver
+      MAINTAINERS: Add entry for Exynos9610
+
+ .../bindings/clock/samsung,exynos9610-cmu.yaml     |  335 ++
+ .../soc/samsung/samsung,exynos-sysreg.yaml         |   20 +
+ MAINTAINERS                                        |    9 +
+ drivers/clk/samsung/Makefile                       |    1 +
+ drivers/clk/samsung/clk-exynos9610.c               | 3715 ++++++++++++++++++++
+ drivers/clk/samsung/clk-pll.c                      |   29 +-
+ drivers/clk/samsung/clk-pll.h                      |    1 +
+ include/dt-bindings/clock/samsung,exynos9610-cmu.h |  722 ++++
+ 8 files changed, 4825 insertions(+), 7 deletions(-)
+---
+base-commit: 06a508eb73747a8a71bed89f5766226e433594c5
+change-id: 20260715-exynos9610-clocks-a82a4c42f2a3
+
+Best regards,
+-- 
+Alexandru Chimac <alex@chimac.ro>
+
 
