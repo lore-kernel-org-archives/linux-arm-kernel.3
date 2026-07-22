@@ -4,104 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C0CBC4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F40BC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 00:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kilXo1oxIH6hK33OgqJOAGTQt22AcFxstIL18rwWXUU=; b=qZrzYOKDxyJHM39miO+cMvoxD/
-	/4GcDDTVAO+yYjmqvtXwxADPkBq2OR9D0/gWGZMtHuv1IIzEYW7rOy8TsUG09HVIVETWILV7VHiEl
-	hV1axy0bzKhswnjvDLQ4RsMtfx1IHt1PYNoQg8H0neXJSMQwGWtNQqWu5uL15A4TO6ndLbakPiw18
-	IPE8TLzv+bxZQQ8y3au0Rgu80dcjzLves7mtj6Kc0Go8cbw8EZapfgAPplBtAevMgyEjnDpvIJfja
-	opscX265BJw2JUH8sfkbADNtKJxoS5nHgGt/X5yvOoE4FEn8xPvGGpuLJsEQRqmFrcOd8l79p3Af2
-	0fCUxPnQ==;
+	bh=toWkJN/c66avFQrKLM7pNdxfiQk8eRZ7icrlTVm/3hY=; b=RPDfm+aicZIzd8B2Pg1ZUxRise
+	2Hc1DVLKux7/6g7I59ySCSprqq+SZrH4HJuBNNFbklEwdeH5X6cvpAMO40SBW6hcq5n7kQDbULyBq
+	b9+TpLVGWn8iIDMHspIjT0EY4GxWzgLSt7hbemG+0GccMBiifB3e+FJtrNYZ7OsIvbjLf/2DDR6JZ
+	fvXi/UyKKnqVtvTzX6IH1cx6g3405qlp3lw6wjdCHQuPS+yQlz8wd4hLt/VlcgmPrI6EU9FGjx6qZ
+	jCs+O7+XO62YgazsSKMPuYt+B0rNHWScZ3ORPXSXnYanBV2vieRzb0iwNFRdY1Cx1bZc9hrr0SNNI
+	1rXSwpmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmK35-0000000AbST-2h5L;
-	Tue, 21 Jul 2026 23:38:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wmKSj-0000000AclA-3dgM;
+	Wed, 22 Jul 2026 00:05:25 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmK33-0000000AbRp-3JJp
+	id 1wmKSh-0000000Acki-1a8U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 23:38:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784677132;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kilXo1oxIH6hK33OgqJOAGTQt22AcFxstIL18rwWXUU=;
-	b=iWqzRHP+QJAkUvDa0d/Yd16aEhDo32XotFZLn4ZruE+FXNdKOjujOT8H7s/5amP3AUnjx/
-	qZucQY6hXgmNS6+jvuDpO+CgtJBRLjgl+Ev/vAwfe9pb7GOwPZmpbiTIW06KO7OFhxzR3F
-	gyxtVIGyrhp4HLTuqjSN/3UDmUYSfN4=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-695-831ct9tsNteNayN_2309Wg-1; Tue, 21 Jul 2026 19:38:50 -0400
-X-MC-Unique: 831ct9tsNteNayN_2309Wg-1
-X-Mimecast-MFC-AGG-ID: 831ct9tsNteNayN_2309Wg_1784677130
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-92e695a3b28so1160054485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 16:38:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784677130; x=1785281930;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kilXo1oxIH6hK33OgqJOAGTQt22AcFxstIL18rwWXUU=;
-        b=lBugzyecf6ICOfN6V5FU2pbv+9xHM5P4CyI82wEqHQHEGZEk8mklTiNeS/k4AjfGcp
-         bzfblh0GNwpKTfwG6+866L/KOeYNdjkFacmg2HLAR0cQ18mZhu9btrqZhAkV7dwyPCVU
-         TPBX6+oLKAGZ+rfxsGurG3Ba+2i5TbqWoFZf6v3TI241sYzfi1pkBj45Q++1JBhZ2eu1
-         ukekM2rD4iceWCOg2RWEUCSMWU7bdqZ1xGonYbbjTiEDC2zd7IO+byHvTrs0YUlUXVmZ
-         JtXnqndXLseM0uW+V0oyOoVkfH4kcZwc+YVWSZ2JBOzZ2VSElkuVfVt11v7cj8GvGKyW
-         XO8Q==
-X-Forwarded-Encrypted: i=1; AHgh+RriBicsIBEFtgJIp9bygyM5CMquvWZxxBFePSei6nyTVi3K4IcS9A49bBQhd03X2G28Bv59byAu/JpsjJEKOFDJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHjACdxvcazZCkCxYdOl6TaaXP0vK1uR1jiJLFVwsk8/5DPZXZ
-	2tH2mWle8vXlmHP1pJOdks5bOlfHmAXlYjvkj8F26KHOtS1Bx3jRPWXDeWZt5ozgyK/WdF2J2st
-	WrKf4QzLrvwQgqH173e+PaVqkXm6PD1OxDTW1W5aqlVF/Y6DnWuegT+yh7LaLsHNhKYNakZYQS4
-	/9
-X-Gm-Gg: AR+sD12ARQD3bJr2Ar0Jl5tTryvdjjvrjqXQ0dUW+jvbk18oNm3K4HLifjFMPYX9mbX
-	KNOj2MpZCZ6ouLFHZPdHFCyJo8XTa2OV25rCpQDt1ECaA15hosVM0zx4UX+qvEPsAjd7Ti83W0K
-	KdktVGQPl7cBznYFBbrHf44lZHlm5a0W2RZYhjAqB5dfxbYZDceBD3ctf35aHrlZTZQDyeJp7YX
-	Ijr2OCerFTt3rcTDffyNdYl+7D+p8LzHv+hJyBrFo2eTcmrbQ84ShOLuM7E3olUTENJ+iA/aFr7
-	L3CZvSsom/x2roIzrXmTHlSt3bsOa8lxBFZxRkcU79STta2GkxCC2zGqeISWXnSfSSsKmpILgdV
-	63uAJ4L2lQNny6Bp6jeAoUZOo44eQvUhYCaQ=
-X-Received: by 2002:a05:620a:a489:b0:92e:c0ac:aeb6 with SMTP id af79cd13be357-930f302196dmr161609685a.40.1784677130046;
-        Tue, 21 Jul 2026 16:38:50 -0700 (PDT)
-X-Received: by 2002:a05:620a:a489:b0:92e:c0ac:aeb6 with SMTP id af79cd13be357-930f302196dmr161607085a.40.1784677129543;
-        Tue, 21 Jul 2026 16:38:49 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-930f68a9c76sm20047685a.13.2026.07.21.16.38.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 16:38:48 -0700 (PDT)
-Date: Tue, 21 Jul 2026 19:38:46 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
-	cy.huang@realtek.com, stanley_chang@realtek.com
-Subject: Re: [PATCH v10 08/11] clk: realtek: Add support for MMC-tuned PLL
- clocks
-Message-ID: <amADBr_DnBeGh2jg@redhat.com>
-References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
- <20260713155630.3054636-9-eleanor.lin@realtek.com>
-MIME-Version: 1.0
-In-Reply-To: <20260713155630.3054636-9-eleanor.lin@realtek.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: nat0wSzGvWpU-RnZ7_evWM76i4ivv32Pd_tbMS9zefA_1784677130
-X-Mimecast-Originator: redhat.com
+	Wed, 22 Jul 2026 00:05:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EB7GYCR81JUjUK3m/2EQbJ+UiQ7KfmoOm9lcXIpc6njTrI4K5HvUcymNtipQcNGL1WnzO2OSlEgsv2940l6n89uGTxyC7ZCGi9LAg49czswaHdE8Y8wi3R3kqDPFCT7z7kbC5PxDInfnDHNtszAjuQiFwN85ChpOcBxjoTHL/zn5JovOnAzU7QNHUkiZ4BILSMOGbJz2cnqAhH0RFOKf4XGYtXXlKiqKJ0Jyn2QqkZokioi6vu9xkEtAl03xqy/e+7IKQryUWSVY9XhD4vfwAyXmq6RckBxolnPoP6h/qOM/2fwp6WkyTqRm7Rfsk42M4axmnj1Z1n4crcq+P8hYew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=toWkJN/c66avFQrKLM7pNdxfiQk8eRZ7icrlTVm/3hY=;
+ b=Rbkq3Wxmz+QHPsWvCE5ITxf8TCjt6o4sHO5aWxNPh+KhJO8soBc6IRcLpMDCwqx7JkCsvr955SazCgTtJH7Q4s6fnh02IpjbGAZKkBxIqSXhszhjX9fxh5RKWm1C5kXSjCLrOVeqqCRy/iwKteJEGH96V3UGGP57QYHvievxHiVksXcqV1LOYyrZzk3BDn8ZgeG/KhI7+8MxAvlTEz8xFbFoFfMsnNGKqbtcjCB5vLT1A5SedePof49pWoMTwAcvKsrvYPygieSc+rlztMDaqo8krYiRsbmQPQvUIS21TbLytMj/DjnGCGMg5Onboj61z5rNVAXnnlSidZYNWUmWQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=toWkJN/c66avFQrKLM7pNdxfiQk8eRZ7icrlTVm/3hY=;
+ b=aswCAvJz5WFcVb1UmLdZDZqSTyqy+402ZHa2NCeHvqYKhGMVJ5mXuGisa0urlFfiSuuYH0xMAAegpP4bH7YqTiOJMZyxVsTtOgi4OoLTKis/743wLtqIgEMiiNwimFh9KR/7SdxSaL43jMrRl/yojWqGMRwbz53qtX/GHnlQDqrlS3qTacdWEx1gVitP127C6chvCGOADaRj7ycqaiUmbXiVvPySHeAQe9mIwwRvas91tZw0cVIV6O7J2fH9mrgUoO3Gp9x1meXVFqd5h64BA8agkkWLq6SZKevONIbYr4+lp7qzOYmq0wSxRl10ylu/BaW92Ka1zRMyDtlHDiuZkg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VE1PR04MB7359.eurprd04.prod.outlook.com (2603:10a6:800:1a0::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 00:05:17 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 00:05:16 +0000
+Date: Tue, 21 Jul 2026 19:05:03 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Robert Chiras <robert.chiras@nxp.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 3/7] drm/panel: simple: Add waiken WKS101WX001-WCT
+ support
+Message-ID: <amAJL9TIcDAK7kbh@SMW015318>
+References: <20260715-dxl_lcdif-v2-0-da797562636e@nxp.com>
+ <20260715-dxl_lcdif-v2-3-da797562636e@nxp.com>
+ <alnCL7ylMyvGD-ui@raspi>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <alnCL7ylMyvGD-ui@raspi>
+X-ClientProxiedBy: SA0PR11CA0186.namprd11.prod.outlook.com
+ (2603:10b6:806:1bc::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VE1PR04MB7359:EE_
+X-MS-Office365-Filtering-Correlation-Id: 04903307-522c-4a25-22d4-08dee784e8f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|19092799006|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: lNVn+atDExTHZuHHagXdFzBXLbhVPDUjs9gz2rNfE3hG0o7+nto9J+e7Ln5nfpdCbwMuvGSTsSUQ1Xwtn+d7ZTiXvmBOZJCui4DKNulbGAlkSzyZKiK/rVNVP66JG9tmFr0Qht/VRKiz/7StHlAv7S9OGnSkORT/wLeBPyvCC0NHwg4CBHetOuSCdSfiPUmGYrhFj9k2VwAyhxWBiZ2xHkwdXAZI29fDJH+kRILM86TU2QDpduWJ5NLEsmU5Gyjjhsi5/qeITDatcrGC+TI3pcyBcc2AG4wIxHxYkHrtPW+LShVT/r1Ki9VFRqePVRrX6jBbSGtvBDIyh9i/2CH93mWZiod4BxOymNzEyR+T9JAMa0xzAyKkyyHr+DQMUmt1JVMMFmpod0WzsJQNZ6S8AVd0gn3Y3vU2p5uMRvzkjwPZ4wQxysZ3Fq63NVleIO7dL4EljmE4X8HuslscvoEYK2Yg7DBfUoPe9m2fkvbweF6M/82lDk2c/Q2XXdezDjWk187tt3lPP1nm4XCg1COzb2qpbXGRSBWCvm9H5muVnECGX09Znws0oU0iFOCCrS/279M2f4Q9x2rSDNu1PZwc0UuQBZaVpeExP7IP3wLVVr36fe6ww2sMfV4aDZG5tCds4hhQygwgMJ6xC+IrUaGOA9s1EgCOea06zhhH/4RunKc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(19092799006)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bmWss3XpY2BfDzKW0VfTU0c0mesPrt8Y3mw7XgP/YOTbRonDkBjvZxWtI3MZ?=
+ =?us-ascii?Q?76Kej3j8Zs/IlmYsaTLRg51t6RJDfhv5FgTJhUKe6sZSSmDammpjLO3G1kKL?=
+ =?us-ascii?Q?IAwl/OI10EBClB3EH09zaQSxJT/S9AxRnuZQr7y7uqA9ldux7a93H+NmxSoX?=
+ =?us-ascii?Q?qov7zYtosP+m31Jjb67E4a4QRlR/NX0eQ+k/sB2V9VK3TkKrNY6zl+379il5?=
+ =?us-ascii?Q?c8e+syAa/DKKB33wLIGFLtADoYG687ogrNUEi8KsYoXq/9Iien+4jn8reGKV?=
+ =?us-ascii?Q?hCrYgbkO+u+WDxs9PO4MU4lqII73I1gEWs3EZCZeqHBDNPIP/tS+DPFjvpiR?=
+ =?us-ascii?Q?gttWtoewvE1Knrn4130vbq5jSiBIqonkurTWo2h4u9ZhHErKhjPxhCN3Kum9?=
+ =?us-ascii?Q?DIgedDDuQwUv3u/vBc95s0tEY+a6ZRWG2snYRDJLE+8qpMU/+AsdCzLiG/N1?=
+ =?us-ascii?Q?wVEEnjoEiLDyDAdqb6KKc9q+n8p5fOfjAKew/Saf/d2lLBx5sJyCdKjCgopD?=
+ =?us-ascii?Q?fGPY4dTx/fT8PV8Hiq1xShgSgIi2m6bUFcn5Sm6islds+khQLH7zz6RX/LgD?=
+ =?us-ascii?Q?DpERI6iFZk+2N7ZGreie+F3Jg5Im3OO/a1OVii/spWYAhm+WsDvMRAyUVpej?=
+ =?us-ascii?Q?ayigUcqlspBbq5IZWs7IWiQXFXDu7JBVDHBRUTfbSM07rML4WGoPJJDcBKo+?=
+ =?us-ascii?Q?48NNNJLqJQ2jaZ9bk2CdxyR/88WZEAkNa8rgjCh/mslq0x+SKsLV1wMoBNDW?=
+ =?us-ascii?Q?FhevoIZW/W9gGA2K7urGPAafBru9tCtOVdeBRAoNxcW9/t7qS3F+gAHZrrtb?=
+ =?us-ascii?Q?yKq3p8hbgd2SgryrM8kRmTg+OmSewQMsDUGFYQI6zYE3sMCe3DvawJe/RUic?=
+ =?us-ascii?Q?AU9kuDLejZvl9XqIzE3sovVfQlfGAAXvGCkD20D/KrwjoC5oZXgdEQyUiG9T?=
+ =?us-ascii?Q?s2ZVaCw54KLgabEwjuzGHa14EQv4UWgeGx60XGERGKljHAu+LM+CllSf8T/Y?=
+ =?us-ascii?Q?bk48xIMEJaWUHu2wMuTTjn5tzPI8fsa/dQLrhhoAXZ4DxHTscu18XB/I431G?=
+ =?us-ascii?Q?9XwrmlIo3ZpO0xTxGA4jIqrb/Wh/pysToqr2ZLbLYg7bNI1pYmKvaph+JZng?=
+ =?us-ascii?Q?hPAg4Wutuk41ynnQjbCkVhO4XPM44CMwafGTJjAP7wOC0IcN13Gf6l1sgIWX?=
+ =?us-ascii?Q?82zGEW7n17piAiXxiArNbWZXCSIL0hhgONiTnj1N1MxHbv++USMv4c5NiI6E?=
+ =?us-ascii?Q?oOMZsVSbdjbNnpl7M2/m0YcnU6C+hvtr8MGXLZrXUu5qG9zU9e7JN2d9y8tg?=
+ =?us-ascii?Q?p0HDbSY3LJchnRd0gfIawT8kvC5/KOeY2oOHG5upgFGcD7KwkWjAAnn0DJHp?=
+ =?us-ascii?Q?G0Re8Pd51FcCxqRJBXHv/dBCdKXpzgVQCVAZkrr/Gpp93zAbx2Ud2NN71lXp?=
+ =?us-ascii?Q?PlZUA0gkzzAg6Wixnz37iV7rdwMR6Dp6L1QwaAa26KfxogymPETVfpM2FXf6?=
+ =?us-ascii?Q?be/xble/2mR3j+gplqJ2bJ7qSP5IHl9RP87gd33NHWHLUAaJXZEcb16aPyet?=
+ =?us-ascii?Q?UsF5P/UqDAKIKMhfP23/3016CypQ2f4KAzOOz6OjPsIf/teei4StZChEweHk?=
+ =?us-ascii?Q?49d3pTK1gWR408bSdXt8qY3jrK9f1E8SpgPqeMt0rDYA/iURThBM0H9+ybop?=
+ =?us-ascii?Q?DqR4nYwRLTaAMfbHvaVs8uVUMVhvV/5Clg3agGoNwTdCuEeCX8l4whVgSGIA?=
+ =?us-ascii?Q?PROjarHBoCRdxXYuei0FCATK9kSQzPHxHeHH0gBhlHoH7575MUdp?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04903307-522c-4a25-22d4-08dee784e8f3
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 00:05:16.6125
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kH835lIDn0HF7uMUqzNg1dfYOV4KGP0nD6oQhG+/hUt3GgWC+aFBovbXbryKvgZr7n+NoXsYkMOLG6BceViA6DSzMB3uRdwKilY4O7brQRJE84JjOAqIpF+uebivjwY8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7359
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_163853_902984_323AB27F 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20260721_170523_422688_9254CE6A 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,51 +154,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 11:56:27PM +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
-> 
-> Add clk_pll_mmc_ops for enable/disable, prepare, rate control, and status
-> operations on MMC PLL clocks.
-> 
-> Also add clk_pll_mmc_phase_ops to support phase get/set operations.
-> 
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Jyan Chou <jyanchou@realtek.com>
-> Signed-off-by: Jyan Chou <jyanchou@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> Changes in v10:
-> - None.
-> ---
->  MAINTAINERS                       |   8 +
->  drivers/clk/realtek/Kconfig       |   3 +
->  drivers/clk/realtek/Makefile      |   2 +
->  drivers/clk/realtek/clk-pll-mmc.c | 430 ++++++++++++++++++++++++++++++
->  drivers/clk/realtek/clk-pll.h     |  13 +
->  5 files changed, 456 insertions(+)
->  create mode 100644 drivers/clk/realtek/clk-pll-mmc.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 1fffb1fc5de1..0c8b98ecc4a5 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22747,6 +22747,14 @@ F:	drivers/reset/realtek/*
->  F:	include/dt-bindings/clock/realtek*
->  F:	include/dt-bindings/reset/realtek*
->  
-> +REALTEK SOC PLL CLOCK FOR MMC SUPPORT
-> +M:	Cheng-Yu Lee <cylee12@realtek.com>
-> +M:	Jyan Chou <jyanchou@realtek.com>
-> +M:	Yu-Chun Lin <eleanor.lin@realtek.com>
-> +L:	linux-clk@vger.kernel.org
-> +S:	Supported
-> +F:	drivers/clk/realtek/clk-pll-mmc.c
+On Fri, Jul 17, 2026 at 01:48:31PM +0800, Liu Ying wrote:
+> On Wed, Jul 15, 2026 at 02:34:48PM -0400, Frank.Li@oss.nxp.com wrote:
+> > From: Frank Li <Frank.Li@nxp.com>
+> >
+> > Add support for WKS101WX001-WCT panel, which is an industrial-grade
+> > 10.1-inch IPS TFT LCD capacitive touch screen display module.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > change in v2
+> > - update height to 135 from 136 (sashiko)
+> > ---
+> >  drivers/gpu/drm/panel/panel-simple.c | 31 +++++++++++++++++++++++++++++++
+> >  1 file changed, 31 insertions(+)
+> >
+> > diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
+> > index c09bf3db5e78a..73a21303a612a 100644
+> > --- a/drivers/gpu/drm/panel/panel-simple.c
+> > +++ b/drivers/gpu/drm/panel/panel-simple.c
+> > @@ -5171,6 +5171,34 @@ static const struct panel_desc vl050_8048nt_c01 = {
+> >  	.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE,
+> >  };
+> >
+> > +static const struct drm_display_mode waiken_101wx001_mode = {
+> > +	.clock = 71100,
+> > +	.hdisplay = 1280,
+> > +	.hsync_start = 1280 + 70,
+> > +	.hsync_end = 1280 + 70 + 10,
+> > +	.htotal = 1280 + 70 + 10 + 80,
+> > +	.vdisplay = 800,
+> > +	.vsync_start = 800 + 10,
+> > +	.vsync_end = 800 + 10 + 3,
+> > +	.vtotal = 800 + 10 + 3 + 10,
+> > +	.width_mm = 217,
+> > +	.height_mm = 135,
+> > +	.flags = DRM_MODE_FLAG_NHSYNC | DRM_MODE_FLAG_NVSYNC,
+> > +};
+> > +
+> > +static const struct panel_desc waiken_101wx001_panel = {
+> > +	.modes = &waiken_101wx001_mode,
+> > +	.num_modes = 1,
+> > +	.bpc = 6,
+> > +	.size = {
+> > +		.width = 217,
+> > +		.height = 135,
+> > +	},
+> > +	.bus_format = MEDIA_BUS_FMT_RGB666_1X18,
+>
+> I find a panel specification in link [1] and guess it's for this panel.
+> It indicates that each color component width is 8 in 'RGB Input Interface
+> Description' table.
+>
+> [1] https://community.nxp.com/t5/i-MX-RT-Crossover-MCUs/Optimizing-eLCDIF-throughput/m-p/982741/highlight/true?profile.language=en#M5348
+>
+> > +	.connector_type = DRM_MODE_CONNECTOR_DPI,
+>
+> Seems that the panel also supports LVDS input according to the specification,
+> since it mentions 'RGB or LVDS Interface'?
 
-2 of the 3 names listed here are under the new realtek entry added by
-this series. I'm not sure how common this is but it seems overly
-granular.
+Need hardware rework to use LVDS. Need remove banch of resistors. Should it
+be treat as difference panel by different compatible string? hardware
+actually changed.
 
-Brian
+Frank
 
+>
+> > +	.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE,
+> > +};
+> > +
+> >  static const struct drm_display_mode waveshare_28_lcd_mode = {
+> >  	.clock = 50000,
+> >  	.hdisplay = 480,
+> > @@ -6155,6 +6183,9 @@ static const struct of_device_id platform_of_match[] = {
+> >  	}, {
+> >  		.compatible = "vxt,vl050-8048nt-c01",
+> >  		.data = &vl050_8048nt_c01,
+> > +	}, {
+> > +		.compatible = "waiken,101wx001",
+> > +		.data = &waiken_101wx001_panel,
+> >  	}, {
+> >  		.compatible = "waveshare,2.8inch-panel",
+> >  		.data = &waveshare_28_lcd_panel
+> >
+> > --
+> > 2.43.0
+> >
+>
+> --
+> Regards,
+> Liu Ying
 
