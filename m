@@ -4,82 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3A3C4453D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F27C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JkSfQ41LGLve76G9aY2qA6qogcQZmp40O7x2f52bP9U=; b=fXacRieOgq2fKRb+/8ZrxGTUcG
-	Zz6RWwWbwrDg7//J4LjyFfF7f08YAl9XSGRjNi0YAcQk7DIkq0t7b6b/HG6D4mJLDjDdM2YGqmYRR
-	bKhmZWm4BGf6en2oHdn9TogdUIK0ksAjaEjMzqibILBsBkS6ydO4RezuRM4nECKI9rK4nVP7bg+tn
-	HEIKj3dYt3UJFQR6bQZNscHXPk5U/qP+iD/LAwpkm8OKdrBD4QYvUww61PSdiCD5f63WmExjTUYgd
-	Edv5wAxw1FZQk+3HcT9zlvr9Bq27gFatSS1hyMFH6zBKeFMnOmSzZN8Bc3hZaOzYsmnN+HDeUQB25
-	BVGe7XTA==;
+	bh=YqaZmXNCJsa9hbmdcHJkPagq4EM1gKIfp7+IQsL2QJY=; b=1P+zfpMLl8rO4O8+FvuJDL8Z5E
+	eitNKOuwLGTx5x9RKqF+QHXSRfq5knCbZtyqI0iK2TqPWePwtASs6XrBcHWCS28noFH6bOieXD1Bc
+	cjDS5RZMaDeuKa0eijQmsJ1fpl1t1sXiJeMmQKDJJIeWpMzQ2Pqlt8f+HV699NHFLPsisidGXPIPo
+	TXBm6u78O2o98YdQSpjmZENCRgeL0cMsz4SZtQTuNNHLuYskD7zeCoR+GmEVG02xZd82VEy2zSguC
+	03DJRCpRCk5snoPuvEZ9yxGyFDwws3rLKN1DHi9i806a7KHyiz8/4PtJfCvfA+/BGUdXW73LAM30f
+	xF/wxY+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmagO-0000000CSD6-23Tn;
-	Wed, 22 Jul 2026 17:24:36 +0000
+	id 1wmagZ-0000000CSIh-38JC;
+	Wed, 22 Jul 2026 17:24:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmagL-0000000CSBO-1HmA
+	id 1wmagN-0000000CSC8-2uzd
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Jul 2026 17:24:33 +0000
+	Wed, 22 Jul 2026 17:24:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=JkSfQ41LGLve76G9aY2qA6qogcQZmp40O7x2f52bP9U=; b=JWVV0H4s4YYtcx25tuyuwKKPak
-	EwGApMs0voSwEBDsbE2MLChKkTHDBXKoBkkjczdpALSGqd97h4JBkPV627JCQ3KtmcZriT5/yBZzp
-	0EwHuysmeh/zwuLoNQC4rnK8FLZU++FgXVGWb7Sk6QFODwCcmhU8A4kmSkLux1DhfTaxPZbGZX1TD
-	BtUqwF1FqleW6wGUAISE4AH18yvWYxjf5YjcvdPCZdRVBbaHQZTnewYVvcn/7wQb8ZGzsRNuUrlmu
-	xxw9Y6PRCNmUbz6A3r7ztAHQBsx3k99fQPVMwVTWVH268E+w8YH38jaDYoZ4500gGPU3/AVKDdIPV
-	NlBTK+9w==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wmagH-000000014aq-0wLf
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YqaZmXNCJsa9hbmdcHJkPagq4EM1gKIfp7+IQsL2QJY=; b=bicjNWjIjhGxVxiVK3vSmUmiNo
+	twxxQEU65L8IhpQudE3+XkTFpUQHOYreK/HIykWVnKvZ5oBwA+nXZgIwuciXPwtnMoL7t6TGwnzje
+	C29ncSeyi3PKSAKkgtiXZPiwZkSRTZ3GPub4DvWgFSq1URjbueZ3bGMNhmVp2pqTJSIiZUPgHhiLP
+	hqIymi2we617TEY4/d5krzxBMTcNDcI9sm3+B5zgBYkqQ3i43oN2OAARqDKD8zhn9a2WuJPVP41X6
+	WZwYgC+8wtmVGU6ct7QwLyZCWxb6CIaacVMUweDyV4Nc5hL2DPcy+NljLeiFh8l+JysmRRngRx9RZ
+	hqki1JVw==;
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wmagK-000000014c8-38Ef
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 17:24:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF2111691;
-	Wed, 22 Jul 2026 10:24:22 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7AAD83F66F;
-	Wed, 22 Jul 2026 10:24:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784741067; bh=Kn8pH+9+puB434Y7fFq6KsqVuN6cTxleHuJprPNP4uE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dFyLqZdMDVz9RTUlNC0G0CDfEopVUZLJtThAgFD1HpW0ELuZgxRcDit51HQ+eT6O8
-	 wwLg58HAA1G6NWJmYs6tsTf6+rf3aIS7FZRvPoEn02RUIA/q2ZUM87iw7wPeTaQjuI
-	 Z9oaBH3dJk8iwqWF4FYJr21ZsywXZVUj3XvHsIDY=
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	mark.rutland@arm.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org
-Cc: alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
+	Wed, 22 Jul 2026 17:24:34 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-6626b5ace23so6038791d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:24:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784741070; x=1785345870; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YqaZmXNCJsa9hbmdcHJkPagq4EM1gKIfp7+IQsL2QJY=;
+        b=KZWYWd1CiQKVWmASJqom/3ZjAUUZe9kdHqUsYqNZxwdum4c8EpO3KgNlhPnFQshgz9
+         7NAs2fs87yPP/MC0PZOa1hOmo2OnzdijQ2zQ53M0jhNKsaJSGNGxUPtKjz2b9Yt95EDd
+         s7Pn/CQ6soZsyB1sjxpz2pXO7K7szz7Mcygw4SXOADQGezwTUivHfCpgy9x5qmhn0keE
+         1WiaKGsBB/uUrdrXYK2DSXNh1LtqUHkNDKA9zrc6ORbFsDOr49PKqQRVbVsqqo6j9LLr
+         UshuzJE2ighh/81ClOAJ5lONdDd11H3UuwAxTr7OnbQzG0z+Xf+f0UjIMxevL1Z6155G
+         G2PA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784741070; x=1785345870;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YqaZmXNCJsa9hbmdcHJkPagq4EM1gKIfp7+IQsL2QJY=;
+        b=Qsj2bJNNUn76/UXzVjEQ7bnPTE0gUaSbWdWFcgtPWLgNjaNpWHeyo2Vp5iQqI1U4A6
+         DwHHXhvzOrkSkM+z7j9KjyRjiFRRygypgb4AZJxmGlupfBWhXN4huhP8wPNs3fJMH+Pd
+         QbhVGVdSh/MXN0LlkWKI28NmEWc2HrDBODBYDeEuKQjsmrK8+z75e4v0xUYv9prBoHxN
+         TVfhhf+eGySw8nf0kbtQJm0MmJbM3nRVmnFbiFw+vQwCDymAx0uMuJ0DrrINw1VFGpms
+         Tld2zAV/4nUK7V8YgonMt5YHjklK3QHm/BGUTz0URxUAIRFZOT/MGby+qLeIMgXdgl51
+         eENQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpnnMYu80GDSs9+GdnZWgShIU1gHc/cZ4KVXZ9LWFSZc+9zVNfDRDJnn9tSzf8plIvGiMg37GwLMg/KRb4yzI+4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzwY/VW8eHAN0USSa29RuanNG3WZs/gv1e8hB/JhmRdiJAKFuE
+	jMtIFiztoGZZRwl4ZspFd6OkYW/KCc/3raUAF1b7dW9HQSJV93+AbJ9g
+X-Gm-Gg: AR+sD11wsF7N80ZOD8FR6Fps/F9FCwGsV3HHQWQANXtTynqwoe0czIiKaqHPJprWhzP
+	BHDaWjOWgZSiH1reLO6f/dvs2+kVRi6z+LcnGER0RS6BEV0mmXSuxS7f4uOJk9TDZ5BmKiit9rG
+	0rcTJncNv3LU6bd9oWIrSIlmKrasefntaJ9MGS87V6yMAgbBcpTd2MA68RDCV2mpY9/8NYU61Gy
+	M+Lp4K80ni1bk9N/VPKNCrytHpQhiK1GDVtIa0EpSY5y0xHMmSe48tgwPpLtNOREAZ12TkTwv5I
+	ZEVvN/SNOgehmArZg0xO69BFDFPTbeVEhyyor4AL5aPpdmxIWrBs8GoViWIV5KxqaFMfiA12IEC
+	RIc3C95SwIYOGO63RiAGN3icLEB9gBI4tvwAu7Ep/GzVSu6+MbAGAbadLZN26MBVdApNf9sfmT1
+	TmbTuUQZYLBDVz39bFLZbAOBjPbMyd713WWdg6
+X-Received: by 2002:a05:690c:a99:b0:81e:66a0:136b with SMTP id 00721157ae682-81f33cb39cdmr14100257b3.31.1784741070165;
+        Wed, 22 Jul 2026 10:24:30 -0700 (PDT)
+Received: from localhost.localdomain ([2a0d:3344:2841:7708:a101:2b8a:f76:a00f])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81f33f35417sm16652167b3.47.2026.07.22.10.24.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 10:24:29 -0700 (PDT)
+From: =?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
+To: andre.przywara@arm.com,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: =?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] perf: Generic hotplug/cpumask for system PMUs
-Date: Wed, 22 Jul 2026 18:24:17 +0100
-Message-ID: <b8aae1114794a348ecfb4e9cf7a792b3ac300d56.1784653319.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.54.0.dirty
-In-Reply-To: <cover.1784653319.git.robin.murphy@arm.com>
-References: <cover.1784653319.git.robin.murphy@arm.com>
+Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
+Date: Wed, 22 Jul 2026 19:23:56 +0200
+Message-ID: <20260722172356.2509190-1-juanmanuellopezcarrillo@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260721223956.13665-1-andre.przywara@arm.com>
+References: <20260721223956.13665-1-andre.przywara@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_182429_538149_71FDE25F 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20260722_182432_982065_A6A7C31B 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,266 +124,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using the distinction of "uncore" PMUs being x86-style sliced across
-standard ACPI topological scopes, and "system" PMUs being arbitrary
-independent instances, while the former's PERF_PMU_SCOPE_SYS_WIDE has
-some overlap with the latter, it still involves some assumptions which
-don't quite carry over. System PMUs may be associated with irregular
-subsets of CPUs, and they usually have overflow interrupts, which
-require maintaining specific CPU affinity to avoid races against
-reading or scheduling out events.
+Hi Andre,
 
-Fortunately, with the generic uncore machinery in place, it doesn't
-take much to extend with a new PMU-defined scope to do the job for
-system PMUs - all we really need is a way for the core code to retrieve
-a per-PMU cpumask, which can simply be a pointer rather than needing a
-function method, plus a couple of methods to cover the driver-specific
-work currently done by all the many, many open-coded hotplug states.
+Tested-by: Juan Manuel Lopez Carrillo <juanmanuellopezcarrillo@gmail.com>
 
-Not only does this save whole swathes of boilerplate in drivers, it also
-finally eliminates the fiddly race condition where depending on the
-order in which cpuhp_setup_state/add_instance() is called relative to
-perf_pmu_register(), one would theoretically risk either missing a
-hotplug event, or attempting to migrate an uninitialised PMU.
+I hit this exact bug on the Orange Pi 4A (T527) from the Ethernet side, so this
+confirms the "reportedly Ethernet" with a concrete hardware data point.
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- include/linux/perf_event.h | 19 ++++++++++
- kernel/events/core.c       | 76 +++++++++++++++++++++++++++++++++-----
- 2 files changed, 85 insertions(+), 10 deletions(-)
+Without the fix, GMAC1 (RGMII, YT8531 PHY) is RX-dead: the link comes up at
+1Gbps but rx_packets stays 0, so DHCP never completes and the board is
+unreachable. The PJ bank rail is 1.8V, but POW_MOD_SEL was left in 3.3V mode, so
+the RGMII input thresholds were wrong and the MAC never saw RXC/RXD.
 
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 48d851fbd8ea..ff29c45eb082 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -317,6 +317,8 @@ enum perf_pmu_scope {
- 	PERF_PMU_SCOPE_CLUSTER,
- 	PERF_PMU_SCOPE_PKG,
- 	PERF_PMU_SCOPE_SYS_WIDE,
-+	/* Dynamically determined by PMU driver via pmu->cpumask */
-+	PERF_PMU_SCOPE_CPUMASK,
- 	PERF_PMU_MAX_SCOPE,
- };
- 
-@@ -350,6 +352,7 @@ struct pmu {
- 	 * PMU scope
- 	 */
- 	unsigned int			scope;
-+	const struct cpumask		*cpumask;
- 
- 	struct perf_cpu_pmu_context * __percpu *cpu_pmu_context;
- 	atomic_t			exclusive_cnt; /* < 0: cpu; > 0: tsk */
-@@ -589,6 +592,22 @@ struct pmu {
- 	 * Check period value for PERF_EVENT_IOC_PERIOD ioctl.
- 	 */
- 	int (*check_period)		(struct perf_event *event, u64 value); /* optional */
-+
-+	/*
-+	 * For PMUs to manage any private CPU-affine state, e.g. IRQs.
-+	 *
-+	 * Called from CPU hotplug. PMUs with PERF_PMU_SCOPE_CPUMASK may
-+	 * return true if pmu->cpumask was updated and PMU context should be
-+	 * be migrated to a new CPU; otherwise should return false.
-+	 *
-+	 * ->exit_cpu() runs from CPUHP_AP_PERF_OFFLINE context, unless @cpu
-+	 * is already absent from pmu->cpumask
-+	 * ->init_cpu() runs from CPUHP_AP_PERF_ONLINE context, unless @cpu is
-+	 * already present in pmu->cpumask, plus once for each online CPU upon
-+	 * initial registration
-+	 */
-+	bool (*exit_cpu)		(struct pmu *pmu, int cpu); /* optional */
-+	bool (*init_cpu)		(struct pmu *pmu, int cpu); /* optional */
- };
- 
- enum perf_addr_filter_action_t {
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 954c36e28101..506bdd3c572c 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -12651,6 +12651,13 @@ perf_event_mux_interval_ms_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(perf_event_mux_interval_ms);
- 
-+static void perf_scope_init_cpu(void *info)
-+{
-+	struct pmu *pmu = info;
-+
-+	pmu->init_cpu(pmu, smp_processor_id());
-+}
-+
- static inline const struct cpumask *perf_scope_cpu_topology_cpumask(unsigned int scope, int cpu)
- {
- 	switch (scope) {
-@@ -12664,9 +12671,11 @@ static inline const struct cpumask *perf_scope_cpu_topology_cpumask(unsigned int
- 		return topology_core_cpumask(cpu);
- 	case PERF_PMU_SCOPE_SYS_WIDE:
- 		return cpu_online_mask;
-+	case PERF_PMU_SCOPE_CPUMASK:
-+		return cpumask_of(cpu);
-+	default:
-+		return NULL;
- 	}
--
--	return NULL;
- }
- 
- static inline struct cpumask *perf_scope_cpumask(unsigned int scope)
-@@ -12682,16 +12691,26 @@ static inline struct cpumask *perf_scope_cpumask(unsigned int scope)
- 		return perf_online_pkg_mask;
- 	case PERF_PMU_SCOPE_SYS_WIDE:
- 		return perf_online_sys_mask;
-+	default:
-+		return NULL;
- 	}
-+}
- 
--	return NULL;
-+static inline const struct cpumask *perf_pmu_cpumask(const struct pmu *pmu)
-+{
-+	switch (pmu->scope) {
-+	case PERF_PMU_SCOPE_CPUMASK:
-+		return pmu->cpumask;
-+	default:
-+		return perf_scope_cpumask(pmu->scope);
-+	}
- }
- 
- static ssize_t cpumask_show(struct device *dev, struct device_attribute *attr,
- 			    char *buf)
- {
- 	struct pmu *pmu = dev_get_drvdata(dev);
--	struct cpumask *mask = perf_scope_cpumask(pmu->scope);
-+	const struct cpumask *mask = perf_pmu_cpumask(pmu);
- 
- 	if (mask)
- 		return cpumap_print_to_pagebuf(true, buf, mask);
-@@ -12849,6 +12868,12 @@ int perf_pmu_register(struct pmu *_pmu, const char *name, int type)
- 		      "Can not register a pmu with an invalid scope.\n"))
- 		return -EINVAL;
- 
-+	if (pmu->scope == PERF_PMU_SCOPE_CPUMASK && !pmu->cpumask) {
-+		if (WARN_ONCE(!pmu->init_cpu, "PMU must provide cpumask or init callback\n"))
-+			return -EINVAL;
-+		pmu->cpumask = cpu_none_mask;
-+	}
-+
- 	pmu->name = name;
- 
- 	if (type >= 0)
-@@ -12918,6 +12943,16 @@ int perf_pmu_register(struct pmu *_pmu, const char *name, int type)
- 	INIT_LIST_HEAD(&pmu->events);
- 	spin_lock_init(&pmu->events_lock);
- 
-+	/*
-+	 * Finally, if appropriate give the PMU a chance to initialise any
-+	 * of its own CPU-affine state. Note that we're serialised against
-+	 * perf_event_{init,exit}_cpu() themselves by virtue of pmus_lock.
-+	 */
-+	if (pmu->init_cpu) {
-+		for_each_online_cpu(cpu)
-+			smp_call_function_single(cpu, perf_scope_init_cpu, pmu, 1);
-+	}
-+
- 	/*
- 	 * Now that the PMU is complete, make it visible to perf_try_init_event().
- 	 */
-@@ -13124,11 +13159,11 @@ static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
- 
- 	if (pmu->scope != PERF_PMU_SCOPE_NONE && event->cpu >= 0) {
- 		const struct cpumask *cpumask;
--		struct cpumask *pmu_cpumask;
-+		const struct cpumask *pmu_cpumask;
- 		int cpu;
- 
- 		cpumask = perf_scope_cpu_topology_cpumask(pmu->scope, event->cpu);
--		pmu_cpumask = perf_scope_cpumask(pmu->scope);
-+		pmu_cpumask = perf_pmu_cpumask(pmu);
- 
- 		ret = -ENODEV;
- 		if (!pmu_cpumask || !cpumask)
-@@ -13138,7 +13173,8 @@ static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
- 		if (cpu >= nr_cpu_ids)
- 			goto err_destroy;
- 
--		event->event_caps |= PERF_EV_CAP_READ_SCOPE;
-+		if (pmu->scope <= PERF_PMU_SCOPE_SYS_WIDE)
-+			event->event_caps |= PERF_EV_CAP_READ_SCOPE;
- 	}
- 
- 	return 0;
-@@ -15169,7 +15205,7 @@ static void perf_event_clear_cpumask(unsigned int cpu)
- 
- 	cpumask_clear_cpu(cpu, perf_online_mask);
- 
--	for (scope = PERF_PMU_SCOPE_NONE + 1; scope < PERF_PMU_MAX_SCOPE; scope++) {
-+	for (scope = PERF_PMU_SCOPE_NONE + 1; scope <= PERF_PMU_SCOPE_SYS_WIDE; scope++) {
- 		const struct cpumask *cpumask = perf_scope_cpu_topology_cpumask(scope, cpu);
- 		struct cpumask *pmu_cpumask = perf_scope_cpumask(scope);
- 
-@@ -15186,10 +15222,19 @@ static void perf_event_clear_cpumask(unsigned int cpu)
- 
- 	/* migrate */
- 	list_for_each_entry(pmu, &pmus, entry) {
-+		bool cpumask_migrate = false;
-+
-+		if (pmu->init_cpu && (!pmu->cpumask || cpumask_test_cpu(cpu, pmu->cpumask)))
-+			cpumask_migrate = pmu->exit_cpu(pmu, cpu);
-+
- 		if (pmu->scope == PERF_PMU_SCOPE_NONE ||
- 		    WARN_ON_ONCE(pmu->scope >= PERF_PMU_MAX_SCOPE))
- 			continue;
- 
-+		target[PERF_PMU_SCOPE_CPUMASK] = -1;
-+		if (cpumask_migrate && !WARN_ON_ONCE(!pmu->cpumask))
-+			target[PERF_PMU_SCOPE_CPUMASK] = cpumask_any_but(pmu->cpumask, cpu);
-+
- 		if (target[pmu->scope] >= 0 && target[pmu->scope] < nr_cpu_ids)
- 			perf_pmu_migrate_context(pmu, cpu, target[pmu->scope]);
- 	}
-@@ -15227,6 +15272,7 @@ static void perf_event_setup_cpumask(unsigned int cpu)
- {
- 	struct cpumask *pmu_cpumask;
- 	unsigned int scope;
-+	struct pmu *pmu;
- 
- 	/*
- 	 * Early boot stage, the cpumask hasn't been set yet.
-@@ -15234,7 +15280,7 @@ static void perf_event_setup_cpumask(unsigned int cpu)
- 	 * Always unconditionally set the boot CPU for the perf_online_<domain>_masks.
- 	 */
- 	if (cpumask_empty(perf_online_mask)) {
--		for (scope = PERF_PMU_SCOPE_NONE + 1; scope < PERF_PMU_MAX_SCOPE; scope++) {
-+		for (scope = PERF_PMU_SCOPE_NONE + 1; scope <= PERF_PMU_SCOPE_SYS_WIDE; scope++) {
- 			pmu_cpumask = perf_scope_cpumask(scope);
- 			if (WARN_ON_ONCE(!pmu_cpumask))
- 				continue;
-@@ -15243,7 +15289,7 @@ static void perf_event_setup_cpumask(unsigned int cpu)
- 		goto end;
- 	}
- 
--	for (scope = PERF_PMU_SCOPE_NONE + 1; scope < PERF_PMU_MAX_SCOPE; scope++) {
-+	for (scope = PERF_PMU_SCOPE_NONE + 1; scope <= PERF_PMU_SCOPE_CPUMASK; scope++) {
- 		const struct cpumask *cpumask = perf_scope_cpu_topology_cpumask(scope, cpu);
- 
- 		pmu_cpumask = perf_scope_cpumask(scope);
-@@ -15255,6 +15301,16 @@ static void perf_event_setup_cpumask(unsigned int cpu)
- 		    cpumask_any_and(pmu_cpumask, cpumask) >= nr_cpu_ids)
- 			cpumask_set_cpu(cpu, pmu_cpumask);
- 	}
-+
-+	/* Allow migrating if the new CPU is preferable (e.g. NUMA locality) */
-+	list_for_each_entry(pmu, &pmus, entry) {
-+		bool cpumask_migrate = false;
-+
-+		if (pmu->init_cpu && (!pmu->cpumask || !cpumask_test_cpu(cpu, pmu->cpumask)))
-+			cpumask_migrate = pmu->init_cpu(pmu, cpu);
-+		if (cpumask_migrate && !WARN_ON_ONCE(!pmu->cpumask))
-+			perf_pmu_migrate_context(pmu, cpu, cpumask_any(pmu->cpumask));
-+	}
- end:
- 	cpumask_set_cpu(cpu, perf_online_mask);
- }
--- 
-2.54.0.dirty
+With your patch applied, RX comes back: the board gets a DHCP lease, and a 500 MB
+transfer lands with ~365k rx_packets and rx_crc_errors = 0. So the CTL_INV
+variant fixes it the right way, at the driver level.
 
+For transparency on what I actually tested: I applied it on top of current
+mainline (torvalds 248951ddc14d, v7.2-rc4 + a few). It didn't apply cleanly there
+— it looks based on a newer pinctrl-sunxi tree — so I rebased one hunk (the
+BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV case in sunxi_pinctrl_set_io_bias_cfg()) onto
+that tree; the change itself is unchanged.
+
+FWIW I'd independently reverse-engineered the same inverted encoding (bit=1 ->
+3.3V mode on the A523, vs earlier SoCs; the BSP calls it "power_mode_reverse"),
+so this matches what I saw on hardware, and I'm glad it's handled generically now
+instead of my board-specific DT hack.
+
+One note from poking at this, in case it's useful for edge cases: on this board a
+few banks behave specially — PF is the SD UHS 1.8/3.3V switch (best left alone),
+and PB/PH take their voltage from VCCIO rather than a per-bank bit. Happy to test
+those paths on hardware if useful.
+
+Thanks,
+Juan Manuel
 
