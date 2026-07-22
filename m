@@ -4,103 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD27C4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A38C4453C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wEYFAq4AuY+FzksAFP6rIn759EzN+icZzsnHDMDm53o=; b=BNJuORY2bX7Zfr9JX3XT1NXTfe
-	awwihLMEcI+FnRngKbM5BQRnve8LyAYDB8FasoaL3zCDz49OFEwGLOWHN2oVJvnhgsNsxaGwFuGtW
-	whRrKdGPVU+YngrxBb64+hWAlJt8DXEVSfqOGAQbwd4UfEU1V3b4TPKmaZ44GQt5k5V6SGVSEDWl7
-	6jfZ6QQ/JAyfkXrFZxXyAcbONEwD8rynwpFvwanhFPnld0DcR8AFqYu7p6BAseZWbAMpjhTWjHcaI
-	q/eV3czJCEPdH8MXg9lKJe10/Bo0Sg2pM1/yPOeBs2hcg8c2lOnfHMhHRF8jPTccnV4+GLigkrjty
-	k0Utk4yw==;
+	bh=HSvjf38vMtMmQc0azSkvS9HzRBHAqlFIJMPM5jC+7Y4=; b=xXIPjMgokzYpYQwWN1/B8uhpEH
+	+ivcYqrko79vjwSDBll0LFKNe6adEYYzZPuzUdqWsc/D+/mRas4x2U1/LWlDkrkBCTIshV9M+xmAg
+	EgBS4e8An8c+FUshZAWGl2sJxfqP40O5JJoJtfR1Id+Q4NWx4YN6WW6W0e7HvRukRBuYbnquCm8w/
+	whDKEkkDt1A71Ibxr0ZvVwzGE4U+Eyj7UBS13rlR7ynlfxAAFfZiTReLcr0PstI4NmMYPqCvVkImB
+	I//1WR0D2VZRwErMdPkuN0tyni0/LOEqBR9vi73UeUaLkSuGlGoOxQ5NkEsgAY7/OVdAleb3QYVWb
+	HaNPkHKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmaG5-0000000COt4-0YeP;
-	Wed, 22 Jul 2026 16:57:25 +0000
-Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmaG2-0000000COsE-1rj5
+	id 1wmaGG-0000000COwk-1164;
+	Wed, 22 Jul 2026 16:57:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmaGA-0000000COum-19ew
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 16:57:23 +0000
-Received: by mail-ua1-x92a.google.com with SMTP id a1e0cc1a2514c-9725084c547so4118790241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 09:57:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784739440; x=1785344240; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wEYFAq4AuY+FzksAFP6rIn759EzN+icZzsnHDMDm53o=;
-        b=b2BVDONLyLtdxl7EwYOL9MNDeGgXA2YGAmDgjJ7SPO66FFWI3JXEs6be6VZVQjXbMh
-         QKIJnU3HnIRpOPD4/qdzJIT0sFvvEDUcxLzRyoJXJo7MwNLgkchRhotWBKv70qQX9Q+8
-         3Q+WTYH4RuF89NU178iY3oTnFO3WKMn8KzvO0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784739440; x=1785344240;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wEYFAq4AuY+FzksAFP6rIn759EzN+icZzsnHDMDm53o=;
-        b=k0WiZTmDkXguM710wP447HfRyOcmV9jgBg2BHOpqmLZYQdx0iJsVCgBIK35QVsk6SO
-         kYoG3HrItu5T/COMYmCkszK6X01/IJ5SqS4hgjGDKgTtkbE3eZHuVg88p1GWUittqhbZ
-         MUTKJh6yijx/1M2li382d94hX/IZYLTkCf7UgjAH1IC/Bj8zKKyYJB3ZzxX+XwR7K9JO
-         RxfGiYlr8C3Vy+TeZqucTLxWBXQfvIsW/UhzrvOgAiAFDfvKeGshy/lY7QgF8EfbOpyA
-         milAdtHfL2ybJYZVBTyiwPxHaLWNUp+JGFazjyzvzNSTIQibG7gFfA6y767r+mMgy/h7
-         UX0w==
-X-Forwarded-Encrypted: i=1; AHgh+RqgNH+w2EUgGdxiYw9frFlSSMd5Km7aXPtTHYGYkNOBKkEQt4HLYppRHIJfIgw7wPUEdRleuMSy4H6vAAqz0Av9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmbVMchV42eabARhtcQEhBgSFdZjL5qZtklw9f/7QRDrXD/ZUs
-	aWda353PwqM4PZHzPg1zqNuBxZqV68Mf9XVm408dIVkgwjXLhpsG1XPbQksobArBWjCZtNMjZRA
-	xapM=
-X-Gm-Gg: AR+sD13+4BNMBfk4n94zgvo0LIZZKhgxJWEY7NHImKWTSoRqSBvCbqyJr+125mJPKAD
-	u0XTxb4LkeRtRuHFZjEs3jwS8vy7nEMkx5S17pCKRwJNL6UgWN7ay5Wznvf0KFjt3d/Mq4CVJsy
-	Th2YqIP4mvTcTYdcR0tPQrLFLLG/MhD8DO07/0HRkPaplljf1mIwSI7BNk3QOFTsUX4/6T5kcTB
-	wEnl4Z3I1oIP5oyWrjdai/8ptDx7iLDDjtAOSU0+k8SuOODud9W5Vd4Pxusno9PasHJKYBxxXCv
-	eMmiMrs6xQkZchDpxc3LAtU2u6f9UkY5s0Z1jSEiM3vlOa1tURZTJ+5eGcA0t/v7M5LqxXn5yxX
-	cQiri5w20X3BXF5Ugb7gBEBd4Sh7+TxnOwQWi2y0aHRuGME87y0LeVjDLBS0paqZGCsYcyjSQBm
-	DayQO+lrHQWtsFXI/QjwOpO0niPXdhTOgrkONTYGMZ
-X-Received: by 2002:a05:6102:3e2a:b0:631:ff40:22b5 with SMTP id ada2fe7eead31-74753705f43mr9619430137.21.1784739440260;
-        Wed, 22 Jul 2026 09:57:20 -0700 (PDT)
-Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-74ad2e92ad2sm3232971137.0.2026.07.22.09.57.19
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jul 2026 09:57:19 -0700 (PDT)
-Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-966d70b9e1cso4306958241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 09:57:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqTyRBUZS00jNzHQ4wy6VnViPa288EN1WMlaR2J2UMKy3S+eZdCOoM4PhjK0H6ZZTqsEVjwBBs6Y1lzA8UrIp+O@lists.infradead.org
-X-Received: by 2002:a05:6102:1612:b0:6e7:5c89:3fc0 with SMTP id
- ada2fe7eead31-7475374957emr9783635137.25.1784739438261; Wed, 22 Jul 2026
- 09:57:18 -0700 (PDT)
+	Wed, 22 Jul 2026 16:57:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 305341595;
+	Wed, 22 Jul 2026 09:57:25 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 56B513F59E;
+	Wed, 22 Jul 2026 09:57:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784739449; bh=89rxrucrxjzgj1aXXruDju15cxQ7ViY2HScZnUbY+Us=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qvxQGplyMWJ84m/QGsKMKGDaXMfvYIJ26QHQqruZwOZ6xtxOWQcxeFK1HcWCY4Gy2
+	 gZZgXXVEGmkuwXJs6zAuv3UDj3NeSO5OHERNhVgvvfQIZm1YgWKuJNEgGLcMnbLa2N
+	 XC5MaqmIkUxeVtU7Zf8mvFkFjf9zfzWZLNBnC1f0=
+Message-ID: <8ac6cb78-07cf-4bba-ab70-a26476ad637c@arm.com>
+Date: Wed, 22 Jul 2026 18:57:28 +0200
 MIME-Version: 1.0
-References: <20260714222338.2965707-1-dianders@chromium.org>
- <20260714152138.6.Ia186a29119b4b5c409815b755e0c2c3965b0495f@changeid>
- <8e3025c5-16a0-40d7-affa-098ca37699c7@kernel.org> <CAD=FV=Vrd9AxO-NY_CP2h+f21qt4uGY2pOoFgacV+G5bnfd32Q@mail.gmail.com>
- <20260722141004.GB548057-robh@kernel.org>
-In-Reply-To: <20260722141004.GB548057-robh@kernel.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 22 Jul 2026 09:57:07 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=V=ZdgC4fY4PadBFxomeqVD0E0CdeD3=PrcCFB1brXgWw@mail.gmail.com>
-X-Gm-Features: AUfX_mwQnLQAqN0MjW9caLrzNlzhz2FE4RbdPofEVajHvqOI-LXTbiHSC_fioOY
-Message-ID: <CAD=FV=V=ZdgC4fY4PadBFxomeqVD0E0CdeD3=PrcCFB1brXgWw@mail.gmail.com>
-Subject: Re: [PATCH 6/7] dt-bindings: mailbox: goog-mba: Add goog-mba mailbox bindings
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Joonwon Kang <joonwonkang@google.com>, Subhash Jadavani <sjadavani@google.com>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 14/16] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260710144520.917375-1-andre.przywara@arm.com>
+ <20260710144520.917375-15-andre.przywara@arm.com>
+ <2947c85a-572d-41f9-a45f-0b9691a98276@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <2947c85a-572d-41f9-a45f-0b9691a98276@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_095722_522899_C2AFD76F 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20260722_095730_509954_B7EFB163 
+X-CRM114-Status: GOOD (  30.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,37 +83,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Ben,
 
-On Wed, Jul 22, 2026 at 7:10=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
-:
->
-> > Sure, it means that if someone unexpectedly makes a new Google
-> > mailbox-array that's totally incompatible then the
-> > "google,mailbox-array" sounds too generic, but that doesn't feel like
-> > the end of the world. You could call the new mailbox array designed in
-> > the year 2037 the "google,2037-mailbox-array" and things would overall
-> > be less confusing than using the "google,lga-mailbox-array" as the
-> > generic.
->
-> What exactly do we need to do to stop having this conversation? We've
-> done this scheme and version numbers and it never ends well.
->
-> The reality is the h/w folks can't help themselves from changing things,
-> so nothing remains unchanged for very many generations.
+On 7/15/26 18:17, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 7/10/26 15:45, Andre Przywara wrote:
+>> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
+>> alternative way of accessing the "Memory System Components" (MSC) in an
+>> MPAM enabled system.
+>> Normally the MSCs are MMIO mapped, but in some implementations this
+>> might not be possible (MSC located outside of the local socket, MSC
+>> mapped secure-only) or desirable (direct MMIO access too slow or needs
+>> to be mediated through a control processor). MPAM-fb standardises a
+>> protocol to abstract MSC accesses, building on the SCMI protocol.
+>>
+>> Add functions that do an MSC read or write access by redirecting the
+>> request through a firmware interface. For now this done via an ACPI
+>> PCC shared memory and mailbox combination.
+>>
+>> Since the protocol used is only a small subset of the full SCMI spec,
+>> and the SCMI protocol has no full ACPI support anyway, open-code the
+>> SCMI message generation and handshake, for just the fields we need.
+>>
+>> [1] https://developer.arm.com/documentation/den0144/latest
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/Makefile        |   2 +-
+>>   drivers/resctrl/mpam_devices.c  |  26 +++-
+>>   drivers/resctrl/mpam_fb.c       | 208 ++++++++++++++++++++++++++++++++
+>>   drivers/resctrl/mpam_internal.h |  20 +++
+>>   include/linux/arm_mpam.h        |   2 +-
+>>   5 files changed, 251 insertions(+), 7 deletions(-)
+>>   create mode 100644 drivers/resctrl/mpam_fb.c
+>>
 
-Stop having the conversation with me, or with everyone?
+[ ... ]
 
-With me, I'll stop pushing since I think I understand pretty well
-where you and Krzysztof stand on the matter now. Even here, I wasn't
-pushing hard on the matter but I was trying to understand exactly
-where the boundary was. As I understood it, things with enough
-"identification" to disambiguate themselves could use something more
-generic, especially if no preexisting binding existed. I clearly
-misunderstood. Mea culpa for the noise on this one.
+>> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+>> new file mode 100644
+>> index 000000000000..7d7409910f28
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_fb.c
+>> @@ -0,0 +1,208 @@
 
-I'm not sure how to avoid repeating the conversation with the rest of
-the world. I think this will always be a confusing topic.
+[ ... ]
 
--Doug
+>> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
+>> +				u16 reg, u32 *result, int mpam_fb_command)
+>> +{
+>> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
+>> +	struct acpi_pcct_ext_pcc_shared_memory *pcc_shmem;
+>> +	struct pcc_mbox_chan *chan;
+>> +	void __iomem *payload_ofs;
+>> +	u32 status;
+>> +	int ret;
+>> +
+>> +	if (!pcc_chan)
+>> +		return -ENODEV;
+>> +
+>> +	chan = pcc_chan->pcc_chan;
+>> +
+>> +	guard(mutex)(&pcc_chan->pcc_chan_lock);
+>> +
+>> +	switch (mpam_fb_command) {
+>> +	case MPAM_MSC_WRITE_CMD:
+>> +		ret = mpam_fb_build_write_message(msc_id, reg, *result,
+>> +						  token, chan->shmem);
+>> +		break;
+>> +	case MPAM_MSC_READ_CMD:
+>> +		ret = mpam_fb_build_read_message(msc_id, reg,
+>> +						 token, chan->shmem);
+>> +		break;
+>> +	case MPAM_PROTOCOL_VERSION:
+>> +		ret = mpam_fb_build_version_message(token, chan->shmem);
+>> +		break;
+>> +	}
+>> +	if (ret < 0)
+>> +		return ret;
+>> +
+>> +	ret = mbox_send_message(chan->mchan, NULL);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +
+>> +	pcc_shmem = chan->shmem;
+>> +	payload_ofs = chan->shmem + sizeof(*pcc_shmem);
+>> +	status = readl(&pcc_shmem->command);
+>> +	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token)
+>> +		return -ETIMEDOUT;
+>> +
+>> +	ret = readl(payload_ofs + 0x0);
+>> +	if (ret < 0) {
+>> +		switch (ret) {
+>> +		case MPAM_FB_ERR_NOT_SUPPORTED:
+>> +			return -EOPNOTSUPP;
+>> +		case MPAM_FB_ERR_INVALID_PARAMETERS:
+>> +			return -EINVAL;
+>> +		case MPAM_FB_ERR_NOT_FOUND:
+>> +			return -ENOENT;
+>> +		case MPAM_FB_ERR_OUT_OF_RANGE:
+>> +			return -ERANGE;
+> 
+> Does it make sense to have individual translations for any of the other errors? Which one do you
+> think is most likely?
+
+I don't think it's really that useful. For most errors there is no good 
+mapping between MPAM-Fb and the generic Linux error codes, and when they 
+are propagated up it's unclear what they mean, really.
+I wonder if we should print or log the original error code, but 
+otherwise not sweat it to find a perfect match for every MPAM-Fb code.
+
+Cheers,
+Andre
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+>> +		default:
+>> +			return -EINVAL;
+>> +		}
+>> +	}
+>> +
+>> +	if (mpam_fb_command != MPAM_MSC_WRITE_CMD)
+>> +		*result = readl(payload_ofs + 0x4);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result)
+>> +{
+>> +	return mpam_fb_send_request(msc->pcc_chan, msc->mpam_fb_msc_id,
+>> +				    reg, result, MPAM_MSC_READ_CMD);
+>> +}
+>> +
+>> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
+>> +{
+>> +	return mpam_fb_send_request(msc->pcc_chan, msc->mpam_fb_msc_id,
+>> +				    reg, &value, MPAM_MSC_WRITE_CMD);
+>> +}
+>> +
+>> +int mpam_fb_get_protocol_version(struct mpam_msc *msc)
+>> +{
+>> +	u32 version;
+>> +	int ret;
+>> +
+>> +	ret = mpam_fb_send_request(msc->pcc_chan, 0,
+>> +				   0, &version, MPAM_PROTOCOL_VERSION);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return version;
+>> +}
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> index 7b6e0df904f8..c3c4ddb4a561 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -11,6 +11,7 @@
+>>   #include <linux/io.h>
+>>   #include <linux/jump_label.h>
+>>   #include <linux/llist.h>
+>> +#include <linux/mailbox_client.h>
+>>   #include <linux/mutex.h>
+>>   #include <linux/resctrl.h>
+>>   #include <linux/spinlock.h>
+>> @@ -57,6 +58,15 @@ struct mpam_garbage {
+>>   	struct platform_device	*pdev;
+>>   };
+>>   
+>> +struct mpam_pcc_chan {
+>> +	struct list_head	pcc_chans;
+>> +	struct mbox_client	pcc_cl;
+>> +	struct pcc_mbox_chan	*pcc_chan;
+>> +	struct mutex		pcc_chan_lock; /* only one message at a time */
+>> +	int			subspace_id;
+>> +	int			refcount;
+>> +};
+>> +
+>>   struct mpam_msc {
+>>   	/* member of mpam_all_msc */
+>>   	struct list_head	all_msc_list;
+>> @@ -66,6 +76,8 @@ struct mpam_msc {
+>>   
+>>   	/* Not modified after mpam_is_enabled() becomes true */
+>>   	enum mpam_msc_iface	iface;
+>> +	struct mpam_pcc_chan	*pcc_chan;
+>> +	int			mpam_fb_msc_id;	/* in its own name space */
+>>   	u32			nrdy_usec;
+>>   	cpumask_t		accessibility;
+>>   	bool			has_extd_esr;
+>> @@ -501,6 +513,14 @@ static inline void mpam_resctrl_offline_cpu(unsigned int cpu) { }
+>>   static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+>>   #endif /* CONFIG_RESCTRL_FS */
+>>   
+>> +/* MPAM-Fb Firmware-backed protocol wrappers */
+>> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
+>> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
+>> +int mpam_fb_get_protocol_version(struct mpam_msc *msc);
+>> +
+>> +#define PCC_TYPE3_MSG_PAYLOAD_OFS	0x10
+>> +#define MPAM_FB_MAX_MSG_SIZE	(PCC_TYPE3_MSG_PAYLOAD_OFS + 4 * sizeof(u32))
+>> +
+>>   /*
+>>    * MPAM MSCs have the following register layout. See:
+>>    * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
+>> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+>> index f92a36187a52..002f56e15362 100644
+>> --- a/include/linux/arm_mpam.h
+>> +++ b/include/linux/arm_mpam.h
+>> @@ -12,7 +12,7 @@ struct mpam_msc;
+>>   
+>>   enum mpam_msc_iface {
+>>   	MPAM_IFACE_MMIO,	/* a real MPAM MSC */
+>> -	MPAM_IFACE_PCC,		/* a fake MPAM MSC */
+>> +	MPAM_IFACE_PCC,		/* using the MPAM-Fb firmware redirection */
+>>   };
+>>   
+>>   enum mpam_class_types {
+> 
+
 
