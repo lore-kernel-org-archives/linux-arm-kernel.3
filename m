@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95F8C4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD65EC4453C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zeqQNC9dxpeHtC4McTJMo5VPAei5GmbsiOwZwfryttQ=; b=Eivwr+1EyJ1tHG
-	KYsFcLGrpNVN4uzBKSZxQMc0YscwT/uM5mge9MgIlyWFHWgEF46ReS+1rxriz7YBzd4rHm36WpffT
-	UNjtZyjLDfvlWJ9cxlDM7ARCPgJIE0ZblTiEcsP6R8QTq6St+yk65frdOBACBTRKqvpcHGtXtXOgI
-	E22qs6gfGzoOAetiNftKNBjaPNbbZ8xQDQpiDaDSGdzLmEkXQVIKfQdYwKSIUnxKpjRVg4ahht94I
-	2eVW0yGlpDyIZRNq9QcYCa27LYSLJFpl+5YPCqI1Wo0Cgh51M1GOYwEHMWTOfXz1/Rp77gnsk9oZA
-	kgD3h7/RKZmDoqoP6Fpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M6pHnweHoy5aN7cOaUlywg+lPDf6Ba0mkFFB6TRU+kI=; b=Y92Vmy3MqR2EnqOgizm68t6lMu
+	2ahrdFAcl2Kk8UpT78KvhcO90buCcS+BtiyH6RYS7S9wzyjxLgax2HpHmmv+3kDCUvUppNuV89+0N
+	pBXnltdzfx9y6q6p88TzlcUg4zhU6uH1mmwYvJk2gOVh/sFJqgUlMKnaPKVhlJGJ8rqRodv7vEI43
+	38He6kJC9qL0jz0TcWa9XwJNIh7POyE+v6Cnfrsv68OaSyNOHtPh2nlXeTiKGMOpJ9wiCEBRkhgFm
+	wCGdFlCTKjoS1ZaCZS3kydj4GyUQ5sphAT6t3ksmFTMmpmTqHWoppTQnMbbt2m+ljP80zzD+N4OVP
+	vNWA6f0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZZR-0000000CIVX-0DW7;
-	Wed, 22 Jul 2026 16:13:21 +0000
-Received: from mail-m103131191138.xmail.ntesmail.com ([103.131.191.138])
+	id 1wmZbv-0000000CIsM-3srF;
+	Wed, 22 Jul 2026 16:15:55 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZZK-0000000CIQF-1sTd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 16:13:16 +0000
-Received: from [127.0.1.1] (unknown [36.129.139.90])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 472ee9f29;
-	Thu, 23 Jul 2026 00:13:01 +0800 (GMT+08:00)
-From: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-Subject: [PATCH v2 0/2] arm64: dts: qcom: qcs6490-rubikpi3: Add IMX219
- camera overlays
-Date: Thu, 23 Jul 2026 00:12:38 +0800
-Message-Id: <20260723-rubikpi-next-20260615-v2-0-47c5add80114@thundersoft.com>
+	id 1wmZbs-0000000CIrN-3nwP;
+	Wed, 22 Jul 2026 16:15:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784736938; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PDWqtAHATy4t8nnhTQFIRRfVRp8llenGrkZQRI6i5UzPJfpUr2bmDprLApynVG4eP6SKEX106WqiUM/D5Irj8Z4Rv7KluV2zX94oWr9xEb+CfZxofRQKl0ryOFhzS+/ut1uip1nFR/UwC/5Rc7AcunyZHttMG6rwcja0ZA+FCvc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784736938; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=M6pHnweHoy5aN7cOaUlywg+lPDf6Ba0mkFFB6TRU+kI=; 
+	b=a1O3m4W/cRdXGYl9BUxN89hQmXyU6dB5G9jCZcwJ+25eJ6AhbYT1LCVXJ5qazVZrX/RWMX56EFTmV7aMhqqtAMbdun3SL3XvSy+4qJBTCmSCpicUIKC2MqktlOTBgXiDU7zEPZEFfC9fCzKn6eKBwLlFiR0Bmlb6n7Tjoa2KTOg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784736938;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=M6pHnweHoy5aN7cOaUlywg+lPDf6Ba0mkFFB6TRU+kI=;
+	b=Un1pEjbOMq4Di5MKWNwwSOtwZfugb8qLZwzBZubTmn2Z/YHvRbxSVDIn0Zr0gIRQ
+	JaqZZMLqliB2xcOUS3Q/kRmCIz14nWfsG5SDLl8c2xluvwtM8rUoUjXO0nKcCO0/hRK
+	SVYC0tkEcCLCOYM/CUJb+pQ02MGTup33iPjC3DaU=
+Received: by mx.zohomail.com with SMTPS id 1784736936244387.407806640693;
+	Wed, 22 Jul 2026 09:15:36 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id E5F2618090F; Wed, 22 Jul 2026 18:15:30 +0200 (CEST)
+Date: Wed, 22 Jul 2026 18:15:30 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Alexey Charkov <alchark@flipper.net>
+Cc: Quentin Schulz <quentin.schulz@cherry.de>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Wyon Bi <bivvy.bi@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
+	Elaine Zhang <zhangqing@rock-chips.com>, Detlev Casanova <detlev.casanova@collabora.com>, 
+	Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>, 
+	Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: rockchip: Fractional PLL coefficient on
+ RK3588/RK3576 is two's complement
+Message-ID: <amDqgsh38FJN0tNC@venus>
+References: <20260721-rk3588-fracpll-v1-1-b289bf17cf17@flipper.net>
+ <7f3924ab-52fc-4fb6-91b4-42a5e55d5c76@cherry.de>
+ <CAKTNdwE=s6XG==4HvbaEV86DATWO6egVxLgNE4LpjFaXNQP7_g@mail.gmail.com>
+ <b0111164-3726-4a1b-bc3a-0e678ea2ecad@cherry.de>
+ <amDC9ZfBAD2xbhqa@venus>
+ <CAKTNdwFEEd2LF0F2E2yR5jPfYB4sh-NaYyXn2GTFwCpACaqAfw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPbrYGoC/6WOQQqDMBREryJZN8VEjdpV71FcRP1pPkUjP1Es4
- t0bpQcodPkG5s1szAMheHZLNkawoEc3RpCXhHVWj0/g2EdmMpUqVUJxmlt8TchHWAP/pgXPlcx
- FqXWlCs1idyIwuJ7eRxPZkBt4sAT6F9siuOBZX6u2qrO6NOYe7Dz2QN6ZcO3ccExY9MHR+3y+i
- GPof22z7/sHk3DASRMBAAA=
-X-Change-ID: 20260616-rubikpi-next-20260615-462417aa865a
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Roger Shimizu <rosh@debian.org>, linux-arm-msm@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Hongyang Zhao <hongyang.zhao@thundersoft.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784736781; l=2096;
- i=hongyang.zhao@thundersoft.com; s=20260127; h=from:subject:message-id;
- bh=XKSyz3rotSlKX1BqouvmaSVj7RopHzI3qas4x53oa+M=;
- b=XADByVQZ4Absf2IRhJZ3nthW8M2bYqMEyC3OBhnlHKRuiJGMNYUFIo8mWIM9/agUNow1JBAlF
- y8xdrSsHcJpC1xSKOFSuQZDgxjM9ztTRr4rHRVQYqIgiyp443uUtRRE
-X-Developer-Key: i=hongyang.zhao@thundersoft.com; a=ed25519;
- pk=D9yL5W9Zj0lPBDAq9gzY++1849VlXuTWAkROzZ88J/4=
-X-HM-Tid: 0a9f8a9a13b409d5kunm8c572dff4a6e5a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZH0lKVk5NQ01CSEJJQk1KGlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlITVVKSUJVSkhCVUJLWVdZFhoPEhUdFFlBWU9LSFVKS0
-	lPT09IVUpLS1VKQktLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=Xq8Lvvevs8CxyKd34U94tBj/KJmRvaQ0t51HccmhqPNgZ6Oo+TNpCC3ApEgH8ULD/6cayo+EUe53VBwjj2vZPTrBEkpgq5vZF62taNtYSQAVHYC2A9IXNn/jlkwyKaONcw8L1Ca69o77dIxGP5G4lyovCyksgw5WYKVpCILrkpM=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=zeqQNC9dxpeHtC4McTJMo5VPAei5GmbsiOwZwfryttQ=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="32vooojpiitecxiz"
+Content-Disposition: inline
+In-Reply-To: <CAKTNdwFEEd2LF0F2E2yR5jPfYB4sh-NaYyXn2GTFwCpACaqAfw@mail.gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.732.17
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_091314_757971_9CCA4A10 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_091553_005682_D3D222A6 
+X-CRM114-Status: GOOD (  40.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +93,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RUBIK Pi 3 provides two camera connectors but ships without camera
-modules, and each connector can be used with different sensors. Describe
-only the board-level 3.3 V output rail in the base DTS and add optional,
-per-connector overlays for Raspberry Pi Camera Module V2 IMX219 sensors.
 
-CAM1 is connected to CCI1 and CSIPHY1, while CAM2 is connected to CCI0
-and CSIPHY4. The overlays can be used independently or combined, and the
-Makefile provides composed DTBs for both single-camera configurations and
-the dual-IMX219 configuration.
+--32vooojpiitecxiz
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] clk: rockchip: Fractional PLL coefficient on
+ RK3588/RK3576 is two's complement
+MIME-Version: 1.0
 
-Both dual-camera and single-camera configurations have been validated on
-the RUBIK Pi 3.
+Hello Alexey,
 
-Signed-off-by: Hongyang Zhao <hongyang.zhao@thundersoft.com>
----
-Changes in v2:
-- Keep the optional IMX219 sensors out of the base board DTS and add one
-  overlay per camera connector.
-- Add composed DTBs for CAM1, CAM2, and dual-IMX219 configurations.
-- Correct the power model: VCC3V3_OUTPUT is board-level, while each
-  PWR_EN controls the module-local sensor rails.
-- Model the 24 MHz sensor input clock separately for each camera module.
-- Describe CAMERA1_GPIO and CAMERA2_GPIO as privacy indicator LEDs and
-  associate each one with the corresponding sensor.
-- Drop output-high and output-low from the GPIO pinctrl states.
-- Rebase onto next-20260721.
-- Link to v1: https://lore.kernel.org/r/20260616-rubikpi-next-20260615-v1-1-3d96b89397ff@thundersoft.com
+On Wed, Jul 22, 2026 at 05:54:15PM +0400, Alexey Charkov wrote:
+> On Wed, Jul 22, 2026 at 5:44=E2=80=AFPM Sebastian Reichel
+> <sebastian.reichel@collabora.com> wrote:
+> > On Wed, Jul 22, 2026 at 02:59:25PM +0200, Quentin Schulz wrote:
+> > > On 7/22/26 1:00 PM, Alexey Charkov wrote:
+> > > > On Wed, Jul 22, 2026 at 2:35=E2=80=AFPM Quentin Schulz <quentin.sch=
+ulz@cherry.de> wrote:
+> > > > > On 7/21/26 9:17 PM, Alexey Charkov wrote:
+> > > > > > Not adding Cc stable, because while this fixes a real bug it's =
+not a
+> > > > > > regression, as the issue was introduced in the same commit that=
+ added the
+> > > > > > RK3576/RK3588 support.
+> > > > >
+> > > > > I don't think this is a valid reason :)
+> > > >
+> > > > I believe Linus frowns upon changes like "it never worked, but we've
+> > > > fixed it now" being submitted as fixes. It's been broken for years,
+> > > > and since nobody complained yet, going via the normal development p=
+ath
+> > > > (i.e. -next) seems perfectly fine to me.
+> > >
+> > > My bet is because of the Fixes: it'll get backported anyway even
+> > > if you don't put Cc: stable. In any case, I don't care too much :)
+> >
+> > FWIW you are mixing up things. Linus does not handle the stable
+> > kernels. He does the release candidates and the initial version of
+> > every kernel release. The stable releases are handled by the stable
+> > maintainers. Linus only said, that he does not want to get these
+> > kind of fixes during late -rc phase. That makes sense considering
+> > fixes also have a chance of introducing regressions.
+> >
+> > But if patches end up in a pull request for an -rc kernel or in the
+> > pull request for the next merge window depends on the maintainer
+> > applying the patch (i.e. Heiko). The maintainer can queue a patch
+> > with all those tags into the normal for-next queue targeting the
+> > following merge window. This results in the patch being in
+> > linux-next for a while, then being added to the master branch during
+> > a merge window and then being added to the stable trees (as stable
+> > only picks patches that are in mainline).
+> >
+> > The maintainer can also merge a patch to the queue for -rc kernels
+> > without the Cc stable. That is exactly what happens for a regression
+> > from a normal patch in the merge window, since the affected patch
+> > wouldn't be in any stable kernel.
+> >
+> > TLDR: The Cc stable tag has nothing to do with Linus.
+>=20
+> Indeed, I made a logical leap here. In my view, however, this patch
+> doesn't need to go into 7.2 fixes (it wasn't broken during the 7.2
+> merge window), nor necessarily into stable backports (no-one seems to
+> have used the affected PLL rates in older kernels, so there is nothing
+> to fix for them either).
+>=20
+> However, it will become relevant for driving arbitrary display clocks
+> for DP video output because several display modes (and consequently,
+> PLL rates) I needed for those monitors I tested require new table
+> entries with negative PLL coefficients. Those would be 7.3+ material
+> anyway.
 
----
-Hongyang Zhao (2):
-      arm64: dts: qcom: qcs6490-rubikpi3: Add 3.3 V output supply
-      arm64: dts: qcom: qcs6490-rubikpi3: Add IMX219 camera overlays
+That's a different argument. FWIW I don't see any issues with not
+Cc'ing stable. I suggest to put that info into the commit
+description. E.g.:
 
- arch/arm64/boot/dts/qcom/Makefile                  |  15 +++
- .../qcs6490-thundercomm-rubikpi3-cam1-imx219.dtso  | 117 +++++++++++++++++++++
- .../qcs6490-thundercomm-rubikpi3-cam2-imx219.dtso  | 117 +++++++++++++++++++++
- .../boot/dts/qcom/qcs6490-thundercomm-rubikpi3.dts |  24 +++++
- 4 files changed, 273 insertions(+)
----
-base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
-change-id: 20260616-rubikpi-next-20260615-462417aa865a
+While this patch fixes a few PLL rates, there are no known users of
+the affected rates in the mainline kernel. Thus there is no need to
+backport this. The fixed rate calculation will become relevant for
+driving arbitrary display clocks for DP video output in the future.
 
-Best regards,
--- 
-Hongyang Zhao <hongyang.zhao@thundersoft.com>
+That helps anyone to understand what is going on regarding stable
+backport (incl. the bot).
 
+Greetings,
+
+-- Sebastian
+
+--32vooojpiitecxiz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpg7JcACgkQ2O7X88g7
++pow7Q/9EW+wY9JpCb5S4paI8GIRGS5rnbJay/pUKrWROaoT74PrU4sZgoRaA+bT
+84fZ0m28wkZ6ZVKCokysF9IlTL+K3s24Mz3+ZvjKrTo4l7k8t142Rn4yyIeU2bQP
+ZbOG13Wr9BSE97oWnXwCWlNNcv3J5BPd/Aw/vlExejhqf/gnw3ZhgBcPC5HFIYGs
+IQvmd5rTvj43Q+PgdKQwDmyhTSaLnhn32lmeADODWagnEP803877jq1gkg31aQjn
+KyQ4L1JMP2kidNVVwpMrfkUw5wLyZKY3XgjMtNkkMySZwuABNp9rfEFE03MHmzWQ
+6eq/KXDgdPohAnpfMoo2GFOdLcvy+9tlkLmRkGTzvL8KUy6PokJThz3049K8tfce
+qTbFXvMlQN9sMKHGNX+z9AV00MPMcpmNBGKKY3npNY3MTu60Ycqp0r1WGR16Isxc
+LIBRZu1vNyoVoAZRvCClc61buBeJqdaDmhpTwxxm2u8MzBkBwtNAQ6ZLbABJ0qFg
+j23YPrmXhcpqEY/h53fW/tBT+6jWskB2caFN7ktB/+YAuvh0HR51qwD0y9lK5U4S
+CNs6FiKT9luwrM8fGE1zspOp29xJfiqvii/Dt5OXgYUzqC+ZVL0Ic7jQ12uCxyQ2
+LyYhP/3n31ytwDQr6qMPDrPt4OQudGczZFjijnwwPuxGvzOMGUY=
+=ssKd
+-----END PGP SIGNATURE-----
+
+--32vooojpiitecxiz--
 
