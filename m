@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3A5C4453D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44A1C44539
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAaWVXp7htB6pd1cjG1QCcAG4F8gffJDPJKffSqmwRI=; b=UmhYiNPaXStvYvS8kSltblr7R1
-	OF9neFiiaWCqCUfcwwUpwDReHvdRKt3JUqU0yr+GYZOzQkpU3dgaSNIjMLhz3llS6vLkqbfkm/uGx
-	M4MKppSDOe1KB43Tv3BwBaUGPGv+a/F6/RntC0lGhKphNwgICQqYErVZvZkkLW/9BumJv5jRYp+i5
-	w2WeQ5XOtZerxL+v2bDfHtmo+u09IqkaWDuO/3YRSSzlGeMYFqSi4yYk4AFbQX02VxRZ0+ndzLv5Y
-	7Oma3Dup8SIlbbd1x9kx2FHKSfYfkjhUEiwSBWyOHZoExBb2Dwv5pwuQiUMVhUCv1jpdLc8uNgCHn
-	H+kyak3w==;
+	bh=qy3LcChpmVPkZFpX/FyAcZIZ4iiBtn32rR6Vy9EHCMs=; b=BybNCLhdkzBje0izQPNP5o2XBh
+	SC5E91LNHLdc/w+2kQqbdDfpnZhozB9XYDN909/G3rLSWE4O7n4QPETGZ46yKQhBFy/lKWSTaAYBJ
+	DsEDrakdqHYzO1LIf3kZ3UYswWcYuPB8V6nsg0LXs4ZAAHLjsB4WWipKKLuFGTdO1U+Xaqga/8aGL
+	xbEY1DTHe4QKh5dwHNNPSKJoekXfRdWEknPotlLpIfJpDzk3Rsu0kAPK4DwHDAZ4l+zSKzIy2Vnc7
+	NBhF5A2nVGfUmYUsodsyyTOyGMpp9bClZ7/KNQQoXPqwj/hlF2rswvZUM8X1pSA1W20U0jW/fgp+z
+	e8wAjNGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbW-0000000B6iG-416M;
-	Wed, 22 Jul 2026 07:42:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmRbX-0000000B6ig-0m1m;
+	Wed, 22 Jul 2026 07:42:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbV-0000000B6fp-1Eil
+	id 1wmRbV-0000000B6gC-1cML
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 22 Jul 2026 07:42:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 75A6660A65;
-	Wed, 22 Jul 2026 07:42:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A0A81F00AC4;
-	Wed, 22 Jul 2026 07:42:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28FD543766;
+	Wed, 22 Jul 2026 07:42:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E8161F00ACF;
+	Wed, 22 Jul 2026 07:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784706176;
-	bh=AAaWVXp7htB6pd1cjG1QCcAG4F8gffJDPJKffSqmwRI=;
+	s=k20260515; t=1784706177;
+	bh=qy3LcChpmVPkZFpX/FyAcZIZ4iiBtn32rR6Vy9EHCMs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WExykvXJO/7dwIQyy+HhxJwZ9vCm77VxMR+nSLr6QZ5b12/UAkuNffJR/tO+9WJPx
-	 8dqvmeU1bdN3L4e2/6Gc3PC6It40MBJS47vrcUL5HqkM3Y79eUQWB+HVUIFATCiUP8
-	 9iE72x9UZJI1m7a1rU83sI3SSud2t6ppU7N1MdO7OzBLsoldk1HvzIesIM+4AhXT0s
-	 b1c8X+HtcIk+e2yErOUua668InnZ+RjlpAIw7fwJl1UNUJRKAF3LfdbBm4IYUVah38
-	 v1VEQOoJ6HKWKzEOcEx+gOBi4b0GME0hfmtFFF94ZRJ71VSSayxgLGUMfhrUntajaG
-	 iMuHSnkW4KNig==
+	b=VJGGt7AJVNILRClh3RMmco73Rs4s7M5u3ND5wdy9AVz66MBPTeO84ZAJMvxeQ+Ftr
+	 Su8Si7TsXZvQOLpHYLFltuk/lHuR5leQmaDmtiVunDd4l54kVHUwD+slQdqGKxSt+C
+	 oV1grVE7MXo7lTZReIEnvzqqA/SKAb7Bc1mbjzl008lCJ8GkSdYRENB5UGuzynWiQo
+	 nkClCulBXim4KCuoO8rJdu1SdxSmzZMrH6XClFHDz7iUkPwAcYLFGjNfawR+Qm9sd5
+	 Jib4o8NFKFijFpJYpXSlA1nmRQOFcEFaDQE/qZ+nt2c/Z5ouQSijDtrVGmw5jpMQcf
+	 qaDtacYok4DRw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmRbR-00000007VfN-3jpJ;
-	Wed, 22 Jul 2026 07:42:53 +0000
+	id 1wmRbT-00000007VfN-1J70;
+	Wed, 22 Jul 2026 07:42:55 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 01/28] arm64: sysreg: Emit RESx/UNKN values for Mapping/Fields definitions
-Date: Wed, 22 Jul 2026 08:42:07 +0100
-Message-ID: <20260722074234.3330999-2-maz@kernel.org>
+Subject: [PATCH v3 05/28] KVM: arm64: Plumb HCRX_EL2.SRMASKEn in HCRX_EL2 sanitisation
+Date: Wed, 22 Jul 2026 08:42:11 +0100
+Message-ID: <20260722074234.3330999-6-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260722074234.3330999-1-maz@kernel.org>
 References: <20260722074234.3330999-1-maz@kernel.org>
@@ -85,50 +85,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sysreg file is using the Mapping or Fields qualifiers to indicate
-that a given encoding is only a mapping to a particular register (or
-an instance of a more generic register definition).
-
-As a result, we don't output any definition, and instead expect
-the canonical definitions to be used.
-
-This works rather well for individual fields, but creates problems
-for macros that refer to more generic classes of bits such as RESx.
-
-Relax the above rule by emitting the RESx and UNKN values for Mapping
-and Fields qualifiers as well.
+HCRX_EL2.SRMASKEn is a new bit enabling FEAT_SRMASK for a guest.
+We don't plan to support it any time soon, but it doesn't hurt to
+actively document it, specially as we are going to add more bits
+we actually care about.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/gen-sysreg.awk | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/config.c | 1 +
+ arch/arm64/tools/sysreg | 4 +++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-index 86860ab672dc7..e099f7d3b2833 100755
---- a/arch/arm64/tools/gen-sysreg.awk
-+++ b/arch/arm64/tools/gen-sysreg.awk
-@@ -228,7 +228,7 @@ $1 == "EndSysreg" && block_current() == "Sysreg" {
- }
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 96ddcefc71eb5..c61d62b796023 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -904,6 +904,7 @@ static const DECLARE_FEAT_MAP_FGT(hdfgwtr2_desc, hdfgwtr2_masks,
  
- # Currently this is effectivey a comment, in future we may want to emit
--# defines for the fields.
-+# defines for the fields. "Mapping" does emit the RESx/UNKN definitions.
- ($1 == "Fields" || $1 == "Mapping") && block_current() == "Sysreg" {
- 	expect_fields(2)
  
-@@ -239,9 +239,9 @@ $1 == "EndSysreg" && block_current() == "Sysreg" {
- 	print ""
+ static const struct reg_bits_to_feat_map hcrx_feat_map[] = {
++	NEEDS_FEAT(HCRX_EL2_SRMASKEn, FEAT_SRMASK),
+ 	NEEDS_FEAT(HCRX_EL2_PACMEn, feat_pauth_lr),
+ 	NEEDS_FEAT(HCRX_EL2_EnFPM, FEAT_FPMR),
+ 	NEEDS_FEAT(HCRX_EL2_GCSEn, FEAT_GCS),
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 3171c87eb2447..28755f70f0bf0 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4545,7 +4545,9 @@ Fields	ZCR_ELx
+ EndSysreg
  
- 	next_bit = -1
--	res0 = null
--	res1 = null
--	unkn = null
-+	res0 = $2 "_RES0"
-+	res1 = $2 "_RES1"
-+	unkn = $2 "_UNKN"
- 
- 	next
- }
+ Sysreg	HCRX_EL2	3	4	1	2	2
+-Res0	63:25
++Res0	63:27
++Field	26	SRMASKEn
++Res0	25
+ Field	24	PACMEn
+ Field	23	EnFPM
+ Field	22	GCSEn
 -- 
 2.47.3
 
