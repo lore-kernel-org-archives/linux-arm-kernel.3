@@ -4,66 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 475C7C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 22:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB13C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 22:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1yt0WgvKT27v4eREUBs6jn/NX4CYQFhNSkUReMZx1fo=; b=pk2svlsLrgnIwKiYPFGXU9OYPi
-	0qmaf1Z5NSi4uNZ//Vp3E6fGjaJHZ9yln6GatP7nGYmyqIIxw56UT1/vg1iALA6Hav9qT0F68SZll
-	VjIePWenPEaQAfAQsAitnIOKdFx6UitvwIHIsz1Yj5y3w5GH0dR/uYVJySHkb0HAFxcAmiw2JDvSX
-	+ZiKZlmK+UFDZo9aeHAl440TV79tYBSN85Lf5+kGdi+TeeN/4hk7GiUKDPX8SfNseYbwqdCXWffbw
-	KLVWlXESENWA9KOkI8G4PkYS9s8/8JiK5HDyj7kZT54EvxznKlYSvBt8LNy4wA3iRKyRgQ3Rl6UXX
-	4/TcrR9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dzh+u8g2oTrGk15zbCCaLlZ2ss9LOmUi0TBJdDVVgsY=; b=PmaiCUdJtDXh/fL798ZrnopAg6
+	Jo+KbDhmQZDd7Mm3M80cw1mNgVz6ajrtpfHTI5Bc7EnkfmUP5ksLEx0UT9hsh4b9VUvBBA+28zYQ9
+	sONu5Vqr3K6tHG2xvN6lGYIVkstBiSsscGTbLB96k8oaQO5KE1or7MnLlbS7FjLakxEzCVQYnv/Ri
+	uCGkEFaIBVRlSCwC4Vi7Y/W7TVtHH5/Os71SiIyJSP9MqRsrAl/8hY6/miFZDPGKCU+Hdn3tHFOCf
+	sxfFlzuRzSFnrOQ/jOgLdQBwe+qYsnTN+/8srihGOmCOtY33Em4ES8a54pFM9xrJWKROGbc0KFMqr
+	krSlIi2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmezl-0000000Cs6m-0RrK;
-	Wed, 22 Jul 2026 22:00:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmezi-0000000Cs5r-1Mqu
+	id 1wmezy-0000000Cs9f-0qyE;
+	Wed, 22 Jul 2026 22:01:06 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmezv-0000000Cs88-2nuO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 22:00:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BB981595;
-	Wed, 22 Jul 2026 15:00:43 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 869EB3F66F;
-	Wed, 22 Jul 2026 15:00:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784757647; bh=3MvGD1eFKe1vEcFRnSpsEpa0JYSXdYF12OcBVgaAJiU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DQelirpGLPKsacn9h+egBlDB6+GT1AZD7LVjwqMTd3idUcsZvgDYICoe/gUxKIqCK
-	 s6ZXmpdcAHCbOExSqv7gGQiIgYeecP4lSpCG3FFz4vxwglYSPa13gxgOLJtmN6I6fz
-	 hdgoCzSVUFfQHN739oMqQilKLOdMDAa7q24D4hr4=
-Date: Wed, 22 Jul 2026 23:56:48 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Justin Suess <utilityemal77@gmail.com>
-Cc: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Sashiko
- <sashiko-bot@kernel.org>
-Subject: Re: [PATCH v2 2/3] arm64: dts: allwinner: a523: add IR receiver
- nodes
-Message-ID: <20260722235648.40350459@ryzen.lan>
-In-Reply-To: <20260722201717.2205609-3-utilityemal77@gmail.com>
-References: <20260722201717.2205609-1-utilityemal77@gmail.com>
-	<20260722201717.2205609-3-utilityemal77@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Wed, 22 Jul 2026 22:01:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JqstPal/3B48kxFCTLJ18v9po+wbxKhZYLfFj26sgN2HyredoFsVJszCIMMwN1V8+eyn95uKCSsWbcqHQ5F1kEd7adR+NgBflSX/3l4ESnHcpEb0WWX64KILXvqepfft6JQropM2s54oRCI7Cton4IVOVtj+RDEvUzmdN6AWj6EleiifOxaIbp/zhu9oi/Au2q3BHSH8w2sH+XgP7ZMtmlaN0qJRbjVkbQ6DCtph5rAs6+XV+b+zDbP6NzAcVxrwIuioCq8NhfVPVhttLtx5UcAXehh9ZupqNaCt7jS4gROIRQ1W+5ffyIiimhTXarSZXsqb9oP3lAOQfADs/XjI0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dzh+u8g2oTrGk15zbCCaLlZ2ss9LOmUi0TBJdDVVgsY=;
+ b=dTEp+IUdJrO0p8KEqAkhWlkwgSXpEyLAkRfinQhDcKF6Y+IR2hyzJMYcj60/jIAcqt2rfRZjepIgzKb5Ctq39yX//Mw/kmus2AhZfKmGIVoTchVT7VFKci1xQ9lVBe6YdQyQTWGJW4dlW+pDSsXaONgtW8bOJxQjJ+fIjhaohlrA5T3dBe62shgPEi7Q/3JC8G1cI7puYklKMv+A7FsQlC4xvA0RQTcMrEEUmpzqZpmhyItELdKp80Ewn3nVHtAMJT/kD6mpaV9pGLTuK82Nd5Ms0vBwHCHGc8r13sPyc9OscwoCtn1toA1XxceqvwwVU3g8ryIYJYGxmsFEmQqZ4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dzh+u8g2oTrGk15zbCCaLlZ2ss9LOmUi0TBJdDVVgsY=;
+ b=jqXm30wr4CE7odO8o2SiW6lt/ml/h0Pc3OEBTqrmxG8nmp6zfWRxMI61Gldg6N5UQSmWx2M9ZwzSoVwAsrhWrTdILBrWbUToVN8vw2DfC0RpqliNvaNAVdbvzEoyKXMvIHdX5+p39/70ZQ7oEwWI0nZ7TxeR3P/Y6MKrJvinim2LLVPyHcWVGQ5lRV4C+qVQxuzTwdPn0IYDZBoj5e0yRtyhKocMPEQUeMIXyGTSOYHQFUKdhZzzEmAbkyLkLz4Y5/Bdw73gK9WO8jNmJnJYSkJkkRFPecB2nj1M6dE7LQIIHA664PoIvfuTykIDx/KuNrdDW1ZdowXJAsWwgnVZCg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9079.eurprd04.prod.outlook.com (2603:10a6:20b:446::12)
+ by AMBPR04MB11809.eurprd04.prod.outlook.com (2603:10a6:20b:6ee::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 22:00:58 +0000
+Received: from AS8PR04MB9079.eurprd04.prod.outlook.com
+ ([fe80::9761:3d78:e9db:2308]) by AS8PR04MB9079.eurprd04.prod.outlook.com
+ ([fe80::9761:3d78:e9db:2308%3]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 22:00:58 +0000
+From: han.xu@oss.nxp.com
+Subject: [PATCH v3 0/3] Add DMA support for i.MX94 and improve AHB read
+ performance
+Date: Wed, 22 Jul 2026 17:00:41 -0500
+Message-Id: <20260722-xspi_dma_upstream-v3-0-6b7ff50cae8e@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIk9YWoC/22NQQ6CMBBFr0JmbU07kFZceQ9DCGlHmQXQtEhqS
+ O9uxa3L95L//g6RAlOEa7VDoI0jL3OB+lSBHYf5SYJdYUCJWmpUIkXPvZuG/uXjGmiYRI2NlcY
+ 1VikNZecDPTgdzXtXeOS4LuF9XGz4tb+a+VvbUEjRkmrdRZIxGm9z8me7TNDlnD/Y8pkdsAAAA
+ A==
+X-Change-ID: 20260621-xspi_dma_upstream-324c07d4c116
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-spi@vger.kernel.org, Han Xu <han.xu@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784757654; l=1853;
+ i=han.xu@nxp.com; s=20240131; h=from:subject:message-id;
+ bh=7etQG759ePgtTITefq+GNiXp30Z1rxO+X4yKCeAiHYY=;
+ b=nfTuNzLzLKv/nT4BKoDCsit3qfidoAjnwVs+mQd3BFOx9YRwN5+OJoIf8xN0i4avxYk50V+ij
+ xUaluCVWufqDkuCtWSeRqjUkwxkF3reshyV0diGKat/Dnbye8ITj5Fc
+X-Developer-Key: i=han.xu@nxp.com; a=ed25519;
+ pk=XSryOlQ4EKXqt7ZHz2D+BcDu1AWYF0m5bX48xQOVF5A=
+X-ClientProxiedBy: SA1PR02CA0011.namprd02.prod.outlook.com
+ (2603:10b6:806:2cf::28) To AS8PR04MB9079.eurprd04.prod.outlook.com
+ (2603:10a6:20b:446::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9079:EE_|AMBPR04MB11809:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95475767-9a2b-4004-de2c-08dee83cb5c4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|19092799006|376014|7416014|11063799006|10067099003|6133799003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: nWZDuoc3GrMu6bIkQ4M9+wK+//mdU74VOK5aoX3kJR6bsl0MWrLlpmy7VRjM7VUX9uECjhQK8llqPR/gDXhI2yYOu5aswXFx93blfoNr3B9Qi4q7C8A1ccZ1cSucslBR9URbgTvS1q0gttpHNEA2z65Ykl+p29o9qtuZZJhTzm+hDAsjovegLyNNyF10zrvA8lDfITjdMcmw5bzsKU17JFJVRPHd4LIeHY2F0ethBS3YbYjdt+Ux9xbO/9gsvapsS2Yf9iWYSQs8ILWOX8h2OxeFbTcWB975coTozPRgV0Xv/uN/9HRR5DbtuuOTqZdlYRPNuPn5VxVb6GfM5r3+PsURvbU1IhUCeO4akHu6nZNGDzhmZUp9C9FcV922K9FB/Av5MytGTZ/YYJUJ6zgHCInp1IhWwlFcCnG/z3knqyiabihrzwD+owI1ReVEg4Hk09mqFNZfScYUxczqilf4tTe+MxFodDg69TMm79jphtQFDn5ZQ3t9QPttFIEPs0wyJ+xIQ9oMbqL16nxhLBULTWlGo4LKfPcdt7Du4eGZHxtr0HOHlfD/iH2rYkyKzvMmCq31atnXJgAaXfH2jx6w4P99yqzFB58akK89+PpwWzyUfEaU35pUVLl/hJjxWTJhFu0Uy3iqdS/CJla1Mv5Blgko/RPS4N5la9S2HdmNRFM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9079.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(19092799006)(376014)(7416014)(11063799006)(10067099003)(6133799003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SmFwK3BUSFhTb1NlVDAzc2p2VzR4Uzd3OUx4djI4ZzdJbmNNb29XSFpEOUJ6?=
+ =?utf-8?B?bVFHc0dyMXBXZVRrZ2RtWnlTR0dWdHVQeGZlZ1hHMGtEenBnc1hWb0pWeFRW?=
+ =?utf-8?B?cFI1azgzbktpSlh2ZXEwRTd6WS8yaHBTSHVzaytVTVZLRi9ocTUzNWV3YVhZ?=
+ =?utf-8?B?TXBXdlA3VFI3dDRFYVdLSFNxRkFwN3FJOGNvd0ZhM3RzSDlyditnaThIQ3NS?=
+ =?utf-8?B?cXZpN3IxQ3Vnc0p0WHcwVUJOU0tYQSs0SzZtOW1ROTQ1em1lUGNHTlpPdFJQ?=
+ =?utf-8?B?ZlBSWWtiQnpqc2JHVGorbEladzRUbHZkVmFWTzFuT0RoYVBQM2lDeE1EZUhm?=
+ =?utf-8?B?U1p4cEJMKzJacjVlRmtqYUJXTnVxVW9UVG92aUN2S0RTYk5FOWYzL3p5eHJE?=
+ =?utf-8?B?Z25jM21PU2lwZVpHSk85ckllNGpiOERkbzBJMFNMZkNSL2k2aW1rb3hNaUdR?=
+ =?utf-8?B?WHI3OEpJQXNrZWRnemhzejYxd3pPTHgvTE5kUVR0enhqZU1zWnRDQ1ZwU2Fk?=
+ =?utf-8?B?WTBpbXB6Vnh3eTFRSjd2Z2NYMjBPa2dUYTEyOW55WEVIY0Y4ZXd5c1BDMmRO?=
+ =?utf-8?B?UlpmT0FiS2YyNnlTcEEybGhoQWlyZlNlblZhV0lyWTJLRGNXN0tBNkY3WW4w?=
+ =?utf-8?B?UEhrcTZTNnhkdTVtbjhlK2dXbzBCcko3aE0zWkhCd0t2dW5LbHNLa0lHdzQ4?=
+ =?utf-8?B?M2NXV1VKTmlreG8wdDZhS1pvYjNVRjZGcnVkbmhLRDRLWEtZQ3YvRmtudUxa?=
+ =?utf-8?B?d1VvTTQxTGpTdmZYTXdSQ1pjVHIvM2NjNEZaUVE2dmZkblBmM1JrblBWejNL?=
+ =?utf-8?B?UEl4QVppRnRud2dmWHVBT3NGbmNldlZxREl5UklkeVRUcmtrcWl6N2pmM2VL?=
+ =?utf-8?B?UUI1YmRTY3hPQ3lhZHZGeEw1a29URUk4blY2eGtYS0Z3aTR6aWNPKzkyOUk4?=
+ =?utf-8?B?WUxLWlRmUjRGVVowVVRONmY5VFJxdmRxWENHSVAyZDNMZFgxSTRKckVLZzFF?=
+ =?utf-8?B?ZGdmMFhxb09xeEo4TFloTWF1Q2dZTCtkQmF0VGNQdlN3amlQKzhqSjNzTmpG?=
+ =?utf-8?B?b2RGdmdVK0tsajdCZWFxKzBpWTVuQVp4cHB4VExHb29hS3F6SzNOdDhDaTg2?=
+ =?utf-8?B?MTNLTUp5OVE5UkxqeEN6dlZWTG5QZVBsM2dZUFhOSldHMlQyNDNHY2t5dCs1?=
+ =?utf-8?B?YmwwbmZzUUpIa3M2bGJqR0Z6b0VNNllqcHo4dmtHelJHRGhUdW8wOTlTTXVR?=
+ =?utf-8?B?VDRVYjRPYmdGd3o2dXI4UzYxWm9kNGN4UWVVbGEzY3RXaWRrSVdZY2lNS25r?=
+ =?utf-8?B?MVEzd0kxa2F0MzhsbWd4d1A1WDZJM1hGdVlXVXJPNm9rT3psSVd6dFdjQVVs?=
+ =?utf-8?B?SE4vMnNveHNON0RFR1lVU0ZaRGUvRnFEY1VURkYvUW9nSm9QVHU4QlpOK3RQ?=
+ =?utf-8?B?NmlXRlJsMnlqaEI2RzQ3TGl3WkUvQitKQmFBTTA5dmN2dHo1Nkw2bkF3QXRw?=
+ =?utf-8?B?RGdvVmhhakp5RUJMY3RUYlRFRWk3ODlSeThnYm55V2pPL3J3Y1JXZkhyUHp2?=
+ =?utf-8?B?KzZhY2d4WjNYZ2dvbGNwZTNPWGpFeTdRcW1ucGEwODlZMXF4WmIyODJzWDBi?=
+ =?utf-8?B?THZETDd1eXFoeVNmdnROUkQyV0RmSXZ5aWJHTC9QUHZCRWsvSmN6b01QMDZS?=
+ =?utf-8?B?Q1Q1VTEvQkhVWTY5UGdpcUZLa3pXb2JuVGt2Z0wyaDVzcjdXYnROS1FqM1gr?=
+ =?utf-8?B?UER2dzMzd05WWC9FZzFoNmtlYWduWk9sZ0FrVE9LN3V4bXNnSUVZWk1pZWtn?=
+ =?utf-8?B?NUZxMmxvV3hpTk56QXdDVXdWVXVJNFNzTkQ2a0ZtbTdXK0g0dlppaklNNU1Z?=
+ =?utf-8?B?ZGVyQ2J3d255YWR2NHQ1Mnd3aUExKzJQVjR1NUUrdVVWaGJldmdXMlJOS0d4?=
+ =?utf-8?B?ajhiQU40ZmZQOVlsYURSekFHc2FiSjdyRnFkRWVyM2tsMFplS2d3ZWlzSXRK?=
+ =?utf-8?B?THk3NFR5bzQwVjJ2UHE4aWxFUVVQRGRWNlkwWXVETWdmT1FrSFFydmpKd0NI?=
+ =?utf-8?B?em1XQ1FHWExBODlkQm5oUHNTYmdoOEM5U1hxTTJXYlA4blJ3RDgzV3QrcXJC?=
+ =?utf-8?B?NUQ3UURqeUp0V1AwYXJLUlRtSC9zR2ZTVXVON1N6SlYrRk5zQmNvSFFRTUtY?=
+ =?utf-8?B?bzNqQ2gyM2lnSjVTVmNWMlBOL1FIV1REQmVvc3MzZzFQamJLclgzUERKMitM?=
+ =?utf-8?B?d0pjQUc0VDVybFplZnVrTm9KYTl4endHTllDQkpZZWRRdTNXZVBhQ1BiUllV?=
+ =?utf-8?B?VGdvSFZyTnVnZ1BkL2NDSksyK1pIaHBkMGJZTjdWTW1KNU9RTEVRTVJhUUpQ?=
+ =?utf-8?Q?KgimXlnyFesinyviWSZmmIA1Fwlc/1P3NEdAy?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95475767-9a2b-4004-de2c-08dee83cb5c4
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9079.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 22:00:58.0337
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z8YcWubGr+Z3M1ymsPWZlWqvYXqvBDqhQz2tHFxgXTVEx0h3cN0rEiW1qOJGZmaRMK9IDdvRd9kf7yd2VHynDr0b0zYVd1vXzxWBftO+hlk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB11809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_150050_540295_015B58D7 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20260722_150103_726146_506FA2B0 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +164,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 16:17:16 -0400
-Justin Suess <utilityemal77@gmail.com> wrote:
+This series adds DMA support to the NXP XSPI controller on i.MX94
+and enables the use of DMA for AHB read operations to improve
+performance.
 
-Hi Justin,
+On i.MX943 EVK, the measured read throughput improves 4x higher, from
+approximately 70 MB/s to 290 MB/s when DMA is used.
 
-thanks for the update!
+Changes in v3:
+- Addressed feedback from Sashiko review on the v2 patch set for Patch 2:
+- Map AHB MMIO source via dma_map_resource() to ensure correct IOMMU translation.
+- Cast memmap_phy to phys_addr_t to prevent address truncation.
+- Replace u64 modulo with bitmask to avoid 64-bit division link errors on 32-bit architectures.
+- Move nxp_xspi_dma_init() after devm_add_action_or_reset() to fix DMA channel leak on probe failure.
 
-> The A523 has two CIR receivers, both compatible with the A31 CIR: one
-> in the CPUX domain, clocked from the main CCU, and one in the RTC
-> power domain, clocked from the R-CCU.
-> 
-> Add nodes for both instances, disabled by default. Since the RX signal
-> of each instance can be routed to more than one pin, boards with an IR
-> receiver are expected to add the pinctrl properties next to where they
-> enable the node. Keep the PL11 pin description in the dtsi, as boards
-> commonly use that pin for the RTC domain instance.
-> 
-> Cc: Andre Przywara <andre.przywara@arm.com>
-> Signed-off-by: Justin Suess <utilityemal77@gmail.com>
+Changes in v2:
+- Reorder the patch series.
+- Adjust DT binding patch subject lines to match SPI subsystem conventions.
+- Update commit message to include ~4x AHB read performance improvement.
+- Rename DMA timeout macro to indicate time unit and document timeout selection.
+- Simplify DMA channel initialization flow.
+- Add CPU fallback path when DMA read fails.
+- Clarify/fix DMA alignment handling based on DMA engine requirements.
+- Drop unrelated formatting change in probe().
 
-I compared the values against the manual, and can confirm that they
-match. Also tested both interfaces. Just one nit below, but regardless:
+Signed-off-by: Han Xu <han.xu@nxp.com>
+---
+Han Xu (3):
+      spi: dt-bindings: nxp,imx94-xspi: add DMA properties
+      spi: nxp-xspi: Improve AHB read performance with DMA
+      arm64: dts: imx94-xspi: add the DMA channels
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+ .../devicetree/bindings/spi/nxp,imx94-xspi.yaml    |  10 ++
+ arch/arm64/boot/dts/freescale/imx94.dtsi           |   4 +
+ drivers/spi/spi-nxp-xspi.c                         | 143 ++++++++++++++++++++-
+ 3 files changed, 154 insertions(+), 3 deletions(-)
+---
+base-commit: 6815fea1fdef000a5718bc1ec8968020d98528a6
+change-id: 20260621-xspi_dma_upstream-324c07d4c116
 
-> ---
->  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 28 +++++++++++++++++++
->  1 file changed, 28 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> index ca6a16807049..19771aac68e5 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -327,6 +327,17 @@ ccu: clock-controller@2001000 {
->  			#reset-cells = <1>;
->  		};
->  
-> +		ir: ir@2005000 {
-> +			compatible = "allwinner,sun55i-a523-ir",
-> +				     "allwinner,sun6i-a31-ir";
-> +			reg = <0x02005000 0x400>;
-> +			interrupts = <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&ccu CLK_BUS_IR_RX>, <&ccu CLK_IR_RX>;
-> +			clock-names = "apb", "ir";
-> +			resets = <&ccu RST_BUS_IR_RX>;
-> +			status = "disabled";
-> +		};
-> +
->  		ledc: led-controller@2008000 {
->  			compatible = "allwinner,sun55i-a523-ledc",
->  				     "allwinner,sun50i-a100-ledc";
-> @@ -927,6 +938,23 @@ r_i2c_pins: r-i2c-pins {
->  				allwinner,pinmux = <2>;
->  				function = "r_i2c0";
->  			};
-> +
-> +			r_ir_rx_pin: r-ir-rx-pin {
-> +				pins = "PL11";
-> +				allwinner,pinmux = <2>;
-> +				function = "s_cir";
-
-I think the function name should be "s_cir_rx", as there are IR TX pins
-as well. And we used "{s_,}[c]ir_rx" for previous SoCs already.
-
-Cheers,
-Andre
-
-> +			};
-> +		};
-> +
-> +		r_ir: ir@7040000 {
-> +			compatible = "allwinner,sun55i-a523-ir",
-> +				     "allwinner,sun6i-a31-ir";
-> +			reg = <0x07040000 0x400>;
-> +			interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&r_ccu CLK_BUS_R_IR_RX>, <&r_ccu CLK_R_IR_RX>;
-> +			clock-names = "apb", "ir";
-> +			resets = <&r_ccu RST_BUS_R_IR_RX>;
-> +			status = "disabled";
->  		};
->  
->  		pck600: power-controller@7060000 {
+Best regards,
+--  
+Han Xu <han.xu@nxp.com>
 
 
