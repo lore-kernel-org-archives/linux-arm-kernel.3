@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83919C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 23:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7A1C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 23:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIR2aZg+xSlzdC+THihRnIZxjcQHJIbSYqES+kLIcgE=; b=ZQymTkFTnePdpes0lroK9GdCH6
-	yhwMQje7ULP12gSfRqu4m4JDVOflK9UXtxCW974RAlPytgGKUTDXasuHfmSf8LK1UaiW/w5VDfgtr
-	HJHy7UX0pGOVw510EvG87kGPr79Q2VbcJLoRKpzqUtobmQYJLGQC0cGU0I6V3/7N0NWo2lIPJvPrU
-	9bN6jXzomzorX0AJlcT0WObYKBLW6tPYU/BEnL+k+2l3DiMIHcQLnQDRJ47wWbuq1N4U29SDJ7pPQ
-	gRZT6fSh6H6u/8xNff4mIY/+zozhQT1JhTAAdAAeeHMWXgat5/xtXKPIj7XQ58FJhFW8AuumxyL7h
-	tWKr6/EQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qgIx2gbKb5iWCG1ogTe9qMQNQTnak53463bbnfl8YvU=; b=xIpxWflrRMY26hbfBKjPkTvc8E
+	Gkd45PIBfj6w0gXEXYmEQ5CSEe3ADR/frhpBF8j3uoGiMDPLZiOE6wAJBd7t/wdAz/gZk1aTAVYoS
+	FMsYlF+NzzqNaMoreThopJmVLvlZMsmuY+fBmh3yKTD2UmBjd3VjoocQYplek0S0ADija0W2DxmqI
+	08bgkiWy9bnmhH4/O/dZ3k7QHGDQ1toIlOE8uVSMVB95RppI9lvwhHddm7Ybcr4rdgDCT3REUj9uJ
+	K4CGZ31z+BAY/sL+bbUHRxOY+PtDTBbOk5fsJhvJPPjZ4WOIRUX91mozuZmQU/dxvYbcdG7Hh6qqj
+	Mpfdc3sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmgIS-0000000Cx5v-4AIH;
-	Wed, 22 Jul 2026 23:24:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmgU6-0000000CxSA-413v;
+	Wed, 22 Jul 2026 23:36:18 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmgIR-0000000Cx5d-1wd2
+	id 1wmgU3-0000000CxQw-34FP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 23:24:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E883443B07
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 23:24:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC5951F00AC4
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 23:24:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784762654;
-	bh=pIR2aZg+xSlzdC+THihRnIZxjcQHJIbSYqES+kLIcgE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Dzw40YWRKT8n+7ectGuV1OCFrsqCpe78u7qy5n3lG/JprJTuImlHxiZFhTa4fJYzj
-	 ziaawODn6aQCc3c61+F0HgkuFbbGtazOU5aikQBaosQWYlT6Tlj+P9aju5zcVxLlpD
-	 fXRCE4MxXOwy+xeFbcuTxfvyVKvjr9+CwMVnXCOR7spwMuV2lp2GB3C0zlzS4qkJ4S
-	 teedKg+xABAJmCciQGeA0bvn9q2ys5W2fd95ZjSJh+kQYAJfvj4Df0eNpl0woZtPOH
-	 1+2AModLUfxf2HZy0mfeSTYBNWkfDJMb3yTV/rbVQRTIiLk/AvXfrqq+sSAad05SOm
-	 Nv4gXx/W+jmuQ==
-Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-84e04df8c46so18139b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 16:24:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Ros0af/+b7+DtPMr5eh96sZV0ljTcxR5RsBI4h/oc4yRJEasfChK8eFPJUVd35bJjkF/eIS219eNX9oiRH9IEhg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8g9cczWUSlj4576jIgzYKB9iELaDqysrkRBjEwOYOPiUO9A+E
-	c1AbXE/F1a/C5WL2WRr0OiL8LRyi2kHvhmQaZSbFzo0FLwh8OMhEwRkKnV3/Fpnfls3J0GBanSB
-	k8Bab3Ltx8AdPD67xL5p/HhESK0ez7w==
-X-Received: by 2002:a05:6a20:b786:b0:3c3:724d:ae7a with SMTP id
- adf61e73a8af0-3c44afb4d98mr594092637.9.1784762654438; Wed, 22 Jul 2026
- 16:24:14 -0700 (PDT)
+	Wed, 22 Jul 2026 23:36:17 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-80dc4a68e4aso642197b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 16:36:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784763374; x=1785368174; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qgIx2gbKb5iWCG1ogTe9qMQNQTnak53463bbnfl8YvU=;
+        b=n7pnRLrThxiERsDwWOqxGlKKptaZwBO65XGh5khwsLqJ5WxR1rwrdF69ju1nWXfdC+
+         9Og4Q4ID7/96bOFWkxP7JeuGZ6QW0372oFs+cC6nzDnKZGWpZhLK0qnHn5hiw8qeM5ua
+         sgTLcXqKethwyiVZi3gIuOdG2VTQ1Pu1rEKMI0bCgWdrYIibLvGPmIdHkV2FH8jgpix2
+         mkk/ka9Xhb6+yBCcoKgJGbzN05xH/4bO9UmXUxdwjDQJay1R1KmAGYfO/MnFxhThdPUT
+         ooLKnRqxNR2xNt1yrNWhrmg+sHJrBuMw5u6eZOP6GMaa7Us/EetY8wlx+KIxdXldLAbJ
+         z/4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784763374; x=1785368174;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qgIx2gbKb5iWCG1ogTe9qMQNQTnak53463bbnfl8YvU=;
+        b=YsNVbdfNdHUwAzbX47oamXEILll3VFKWlM5VHAEibWCOIJ6kmeikVEnlMrMr445Oen
+         fP74uJck89gmBg/VyqTkyoiI/Z7c4pSzWLdWOnJ5ITmxqVRRw9grGQrcpjMhaJ9AsaS8
+         007BwFP75de/C1rQZlHfA71xcs2c8tJQ4gZO/1uz8ICKMaJM1lQiREQNuulZokMm8R8W
+         RljS76jxVrahUVflH31FnO1LVzNxElIxQjQ4fmjlq/j1SIsnu1CJdUskh0XTmromZ9Go
+         hnLhVxzAont9IhdNHHD/vYlZHKSN+O/ThbQDsKK8FxD6xXN/Yc3JGM0p9G7HDQIqCzMF
+         5tXw==
+X-Forwarded-Encrypted: i=1; AHgh+RrR1wF80dS0Fw2wKe7AGPPWz1fzFp52BxZ4P9jKqVOAX4d6/P6U2Lokw5IUdlU4yNm7rnIhuMe5MV9ob/C1DCq/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoJlA8yzf3lDnCy89i3qBVWAEMHm7x5lTHISsUl2b8WFrGYziH
+	hyKgxTvCRltJy+2hlv5ZaPTEFN4FBSiR9o1AX80FBkTf7bGZ83f4hIGf
+X-Gm-Gg: AR+sD12/33J6VntPDqGVd85dZT4lK1BqGSOcYh1qcZZUSnpSX7mScYmk4eaoakIdkEX
+	2fYQK4hXOioRhSJoMKeMmoI4Oa42DTsCuBFyBvXpVpnFCqMReHQeCB+qn971UcBrfGrinREqPEy
+	jaZFYxWcH9ZNnwxnnG445WRuXJOZF6L6LqSyCx6FI2eApolEBrAmyQ8nsSHgiHDL7J2CGniBWsA
+	neK1tCrs4F1WoIhiOjX8AVCUyQ51FI/ePlELxvFrMXQJDdZCiHZn3SRcgHtcJGBTCrePK2HnyHw
+	f+Ul2mcZGf7vpTMm43vmuinIyyIBUa3HxmtpsqsoMiYbNU69P0C7uNB5f1GpJeBe+tPwo9DpIN3
+	BvUc3RLdyaaCfpCQAh8GvQmbdqSO26OkX9uWitZuXQBbI840siJcO/Jfb7eTLPcbCO4KgVq1+0I
+	98vkw6vUp/Cv8quAnKsjRDnBrYJz8b7QWVaG49
+X-Received: by 2002:a05:690c:6c12:b0:81f:4247:de29 with SMTP id 00721157ae682-81f4c3bf31amr2438677b3.68.1784763374425;
+        Wed, 22 Jul 2026 16:36:14 -0700 (PDT)
+Received: from zenbox ([2600:1700:18fb:6011:4392:41cd:1ce2:e391])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81f33c627c9sm20937027b3.19.2026.07.22.16.36.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 16:36:13 -0700 (PDT)
+From: Justin Suess <utilityemal77@gmail.com>
+To: Sean Young <sean@mess.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Sashiko <sashiko-bot@kernel.org>,
+	Justin Suess <utilityemal77@gmail.com>
+Subject: [PATCH v3 0/4] media: rc: sunxi-cir: support the A523/H728/T527 IR receiver
+Date: Wed, 22 Jul 2026 19:36:00 -0400
+Message-ID: <20260722233604.3001063-1-utilityemal77@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260707150528.2270739-1-ruoyuw560@gmail.com>
-In-Reply-To: <20260707150528.2270739-1-ruoyuw560@gmail.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 22 Jul 2026 23:24:01 +0000
-X-Gmail-Original-Message-ID: <CAAOTY_9C2H4hJX0c5PAR8ucMYemPQcgYraqk37m0MbD-5BkL6w@mail.gmail.com>
-X-Gm-Features: AUfX_mzXfIMvg4FClh2R9zHPqGW4oykaN4gfuRtC-scHkPiIE15gTbt7k6lUwDc
-Message-ID: <CAAOTY_9C2H4hJX0c5PAR8ucMYemPQcgYraqk37m0MbD-5BkL6w@mail.gmail.com>
-Subject: Re: [PATCH] drm/mediatek: Check CRTC state before freeing
-To: Ruoyu Wang <ruoyuw560@gmail.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_163615_780429_7BD943E8 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ruoyu Wang <ruoyuw560@gmail.com> =E6=96=BC 2026=E5=B9=B47=E6=9C=887=E6=97=
-=A5=E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=883:05=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> mtk_crtc_reset() destroys the current CRTC state only when crtc->state
-> is non-NULL, but it always converts crtc->state to struct mtk_crtc_state
-> and passes the result to kfree().
->
-> When reset is called without an existing state, container_of(NULL, ...)
-> does not produce NULL. Keep the mtk state free in the same crtc->state
-> guard as the helper state destruction.
->
-> This issue was found by a static analysis checker and confirmed by
-> manual source review.
+Hi,
 
-Applied to mediatek-drm-fixes [1], thanks.
+Quick series respin for easier application.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+This series adds support for the CIR receiver on the
+Allwinner A523/T527/H728 family (sun55i).
 
-Regards,
-Chun-Kuang.
+One-line function name change s_cir -> s_cir_rx at Andre's
+suggestion, with his patch for the Avaota A1 applied on top
+for convenience.
 
->
-> Fixes: 2d267b81898e ("drm/mtk: Use __drm_atomic_helper_crtc_reset")
-> Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_crtc.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediat=
-ek/mtk_crtc.c
-> index 8e552cdc3b53b..97e3ff412e6ee 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_crtc.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
-> @@ -154,10 +154,10 @@ static void mtk_crtc_reset(struct drm_crtc *crtc)
->  {
->         struct mtk_crtc_state *state;
->
-> -       if (crtc->state)
-> +       if (crtc->state) {
->                 __drm_atomic_helper_crtc_destroy_state(crtc->state);
-> -
-> -       kfree(to_mtk_crtc_state(crtc->state));
-> +               kfree(to_mtk_crtc_state(crtc->state));
-> +       }
->         crtc->state =3D NULL;
->
->         state =3D kzalloc_obj(*state);
-> --
-> 2.51.0
->
+v2: https://lore.kernel.org/linux-sunxi/20260722201717.2205609-1-utilityemal77@gmail.com/
+v1: https://lore.kernel.org/linux-sunxi/20260702214750.3428694-1-utilityemal77@gmail.com/
+
+Andre Przywara (1):
+  arm64: dts: allwinner: a523: enable IR on the Avaota A1
+
+Justin Suess (3):
+  media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
+  arm64: dts: allwinner: a523: add IR receiver nodes
+  arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
+
+ .../media/allwinner,sun4i-a10-ir.yaml         |  8 +++--
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 35 +++++++++++++++++++
+ .../dts/allwinner/sun55i-h728-x96qpro+.dts    |  6 ++++
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   |  6 ++++
+ 4 files changed, 52 insertions(+), 3 deletions(-)
+
+
+base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+-- 
+2.54.0
+
 
