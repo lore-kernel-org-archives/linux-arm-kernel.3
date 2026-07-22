@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80669C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A4BC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5fhUXRBucbEjHSBxCAVReD3KXg+ZJkdZM06djNRZSSc=; b=c1fxV5lK5IXLL2dcZpCxMnHmqs
-	vW4R/hgG3lfFIGVMAqslyTi6P/JJxrnZHPifp5OreatbDanvesnX8GjiNY6oNoAHKw5a7CqhvU6kg
-	7y0/z+4WIC40CncIQvnXeXJcsR1ybRAHwPrkUbmKRmnC41QIf8ptkERqUpbh9YdmxaXM6HSIH9oXb
-	X9vpoeen3ZH3MrmcrxA4sazw3fdMcNKG68qEZiz7Mk73Btz98qZNfMCGkWzomkR/j3uKpoV6MUtN7
-	yJSKKNMxbG+kiAGtvFaLMyck6yr908INLGiWHOMoYdrM8jBNd7N1aLcd0Pux4g6prTM6RwAshjb67
-	YU1TzAkw==;
+	bh=+eXziWrVe6iq+ExZQ6O6xmITHayaDdJsXK4xTLpyju8=; b=c3Alr3TIm6WxRlj33Uc3JjhSsW
+	vP5iBnPkMMTtgJiGuAfwAOJOPeiRiAivW62KLU3oeQkSEWvacoHRgCzB27mMY0+7g5zxE8L/c46M8
+	azI8pL1V4rtlk1h0sgOzDxdLwYcKkbQTdSFSzcO3y6uk05r+7NY6Mx97sz2cvCgkoo9Ns7EUs458E
+	DH1Kh6vQAaLccxRw9gIp4+34EiVcU8MTbS3LpD6FyXiADK5qCErCweMfFlQWxo5TVlv4G2h50N8Op
+	YjqK8lMf3haN/GkJj36K9ODEK7o36Z972t0L7jVb0RkPXu/lztu/ylJGsiQaOYK01P0T7BFIgNTp3
+	pv0qN8pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYa7-0000000C6xJ-0odB;
-	Wed, 22 Jul 2026 15:09:59 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wmYb7-0000000C78W-1ekQ;
+	Wed, 22 Jul 2026 15:11:01 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYa4-0000000C6wN-3GLy
+	id 1wmYb4-0000000C77n-02oh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 15:09:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=5fhUXRBucbEjHSBxCAVReD3KXg+ZJkdZM06djNRZSSc=; b=D85Grurx16yfpxhrk5PbUCYh18
-	ISnQbDhSF/dsGTJDRoMA+3D9XPeiF3JAMYZM9rN5AUbVZbuuPGLfZDHyJY4X+DJiLpdZdfP9f4kfX
-	0OE8N1HcmnPT2nXO16omTb1b69KksrX8/5fnk+TfHcSSIV1GZ9YJBJD7HVkXxgp4XWrZ85eFduV3q
-	3EmDq7EU8j5MHjbbHv3TIkMwomc2DLXpqW+4NfskmtOEHeVVIhxBpF2sfWsUV/8JBotjEM+d7zex0
-	HqUeij0dem8o7TrUuBarquC/Fr8vlmOl3U23ZSZJA0cNsK3jdgrad+JcmPdqPKJ5q8k9PWULGmkNp
-	IV5mVDhA==;
-Received: from sslproxy04.your-server.de ([78.46.152.42])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wmYZu-00021G-2t;
-	Wed, 22 Jul 2026 17:09:46 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wmYZu-00020D-0U;
-	Wed, 22 Jul 2026 17:09:46 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Francesco Dolcini <francesco@dolcini.it>,
- Frieder Schrempf <frieder.schrempf@kontron.de>
-Cc: linux-arm-kernel@lists.infradead.org, Frieder Schrempf <frieder@fris.de>,
- Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware driver
-Date: Wed, 22 Jul 2026 17:09:44 +0200
-Message-ID: <6611405.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <9ceb5fb9-edd0-408f-8f7f-74d5145ae81f@kontron.de>
-References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
- <3056369.e9J7NaK4W3@steina-w>
- <9ceb5fb9-edd0-408f-8f7f-74d5145ae81f@kontron.de>
+	Wed, 22 Jul 2026 15:11:00 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RrICbji+Y4lxMDT6Q6ZvCD+Boi3aGuhq379pwTkILQfoiuS0ZNyvXkbszDaxZ/WnxQDG4LDheKdM60AKbFhRU8Z@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784733054;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+eXziWrVe6iq+ExZQ6O6xmITHayaDdJsXK4xTLpyju8=;
+	b=JEEwsbdk1wB3KF+RLfmi6+FOHwyulqajd2gZ1wzC889Sm1SX1U8WA5PLTrjgLsKtVfmRQn
+	O7RJFY68DC9ftA1Yd7TSXMC/kDthpsmca4O638P0b805P+lDr+sYt5yso7xoRKghznRz6v
+	zTpH7zI4zLOFNEvFmoUUgB4BloDVYJE=
+X-Gm-Message-State: AOJu0YwYtABuEsoWoZH1i4Y04LvS0zSde52h8ncZqbE01Io57lPMEsyp
+	xSiRuJQavwqdtfDCflOcOSEYxTTK5Xdv78QnERmIujFHIgGGpCBncq3/wHbyQS+1HGCLXFT6ne1
+	BhT8O0fjhuP/qJMOU6IPv+EGV/2Zw/f0TCZBf724f
+X-Received: by 2002:a05:622a:1819:b0:50d:edb1:6bd1 with SMTP id
+ d75a77b69052e-527ef056bdcmr9238801cf.13.1784733045941; Wed, 22 Jul 2026
+ 08:10:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28068/Wed Jul 22 08:24:50 2026)
+References: <20260703154811.3355680-1-sascha.bischoff@arm.com>
+ <CA+EHjTx4RHdZEnkLwF=ptKiONYzG+roaoKA+pN3K8xZQB2ohGA@mail.gmail.com> <f84f1481f0a0fe0abe9c8b7b044c9987368005d2.camel@arm.com>
+In-Reply-To: <f84f1481f0a0fe0abe9c8b7b044c9987368005d2.camel@arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 22 Jul 2026 16:10:09 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTz5oM=5CtTqWJ5W0svZXTH5TaAyr9fceFNHsd7T=Yq67Q@mail.gmail.com>
+X-Gm-Features: AUfX_mw9L8L6cSBsUGZVddvjS8Pti3Yc-w-b5bisisvngAzfQGu0uw0y7hIVvCQ
+Message-ID: <CA+EHjTz5oM=5CtTqWJ5W0svZXTH5TaAyr9fceFNHsd7T=Yq67Q@mail.gmail.com>
+Subject: Re: [PATCH v3 00/40] KVM: arm64: Add GICv5 IRS support
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
+	Timothy Hayes <Timothy.Hayes@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, nd <nd@arm.com>, 
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>, 
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_080956_948475_953AD51F 
-X-CRM114-Status: GOOD (  44.36  )
+X-CRM114-CacheID: sfid-20260722_081058_206238_BD6844D8 
+X-CRM114-Status: GOOD (  36.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,128 +81,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 22. Juli 2026, 16:49:10 CEST schrieb Frieder Schrempf:
-> On 14.07.26 14:37, Alexander Stein wrote:
-> > Am Dienstag, 14. Juli 2026, 14:33:50 CEST schrieb Francesco Dolcini:
-> >> On Tue, Jul 14, 2026 at 02:06:38PM +0200, Alexander Stein wrote:
-> >>> Am Dienstag, 14. Juli 2026, 11:33:54 CEST schrieb Francesco Dolcini:
-> >>>> On Tue, Jul 14, 2026 at 10:43:56AM +0200, Frieder Schrempf wrote:
-> >>>>> On 14.07.26 10:32, Francesco Dolcini wrote:
-> >>>>>> On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
-> >>>>>>> Hi Francesco,
-> >>>>>>>
-> >>>>>>> On 14.07.26 08:59, Francesco Dolcini wrote:
-> >>>>>>>> Hello Frieder,
-> >>>>>>>>
-> >>>>>>>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
-> >>>>>>>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
-> >>>>>>>>>
-> >>>>>>>>> Add the ELE firmware API node and pass its handle to the OCOTP
-> >>>>>>>>> driver. This allows us to gain read/write access to the OTP fus=
-es.
-> >>>>>>>>
-> >>>>>>>> This seems something we should have in the soc dtsi (imx93/imx91=
-), it
-> >>>>>>>> does not seems board specific.
-> >>>>>>>
-> >>>>>>> My original intention was to move as much as possible into the So=
-C dtsi.
-> >>>>>>> The problem is that the memory node is somewhat board specific du=
-e to
-> >>>>>>> the DDR. And I can't move the firmware node into the SoC dtsi and=
- assign
-> >>>>>>> the memory node in the board dts as the checks for all boards not
-> >>>>>>> specifying a memory node would fail then.
-> >>>>>>
-> >>>>>> What is the reason to have this memory address different on various
-> >>>>>> boards? Can we have a default in the soc dtsi, and allow the board=
- to
-> >>>>>> override the address if needed?
-> >>>>>
-> >>>>> There is no real point in having different addresses on different
-> >>>>> boards. But the node describes memory that is physically on the boa=
-rd
-> >>>>> and not on the SoC. And I think that is why DT maintainers want to =
-have
-> >>>>> it in the board DT. It's the same with the memory nodes for the
-> >>>>> remoteproc drivers to communicate with the Cortex M-Cores in the i.=
-MX.
-> >>>>> But maybe I'm wrong and if there is a possibility to move this to t=
-he
-> >>>>> SoC DT I will definitely take it.
-> >>>
-> >>> We are talking about reserved memory, so this is highly board-specifi=
-c.
-> >>> So for different hardware variants with different amount of RAM you h=
-ave to
-> >>> go for the minimum anyway.
-> >>>
-> >>>>>>
-> >>>>>> Or can't you add the address in all the boards, and keep everythin=
-g else
-> >>>>>> in the soc dtsi?
-> >>>>> This could be a possible way, yes. In that case maybe we could even
-> >>>>> create a generic dtsi to contain such defaults for all boards.
-> >>>>
-> >>>> I would go for this solution, we could have something like
-> >>>> `k3-am62-ti-ipc-firmware.dtsi`, include it from all the boards, have=
- a
-> >>>> sane default memory address, and have an easy way to override the me=
-mory
-> >>>> address from the board dts, if needed.
-> >>>
-> >>> So what is a sane default? At the end of the minimal possible RAM?
-> >>> I'm not really fond of something you have to make sure matches to your
-> >>> hardware, but won't raise an error if you forgot.
-> >>>
-> >>> How about providing defaults for the SoC part and users have to provi=
-de their
-> >>> memory on board-level? Similar to the VPU nodes on imx8qm/imx8qxp. Th=
-ere you
-> >>> have to specify memory-region in your board.
-> >>
-> >> I am personally ok with both solution.
-> >>
-> >> I think it is easy to have a sane default in this case. You cannot have
-> >> less than 256MiB in practice, and this is just about the offset, is not
-> >> that you are going to want more memory reserved if the board has more
-> >> memory available.
-> >>
-> >> At the same time, having the memory range in the board dts is also ok =
-to
-> >> me.
-> >=20
-> > I'm just saying, because we had lots of problem with assumed offsets/le=
-ngth
-> > in code/DT for NXP boards. They usually come with big/huge amount of RA=
-M.
-> > This breaks for all hardware using a small amount of RAM.
-> > So it's better to not have a default than silently breaking things beca=
-use
-> > the default doesn't match.
-> I'm revisiting this now and think about how to do it. I would like to
-> put a default memory node in the dtsi that dynamically puts the buffer
-> somewhere in the first 256MB. I would include the dtsi in all
-> i.MX91/i.MX93 boards. I think this should work for all boards.
->=20
-> If I put everything, but the memory node in the default dtsi, as
-> Alexander proposed, I think I will run into DT validation errors if not
-> all boards provide a memory node, as the property is mandatory.
->=20
-> Is there anything I might be missing?
+Hi Sascha,
 
-Mh, isn't that exactly the situation you want to catch as a DT author?
-Raise errors early if something is missing in the DT.
-I would go that way that for all currently existing boards an corresponding
-memory node could be added, no? All coming boards will need to provide it..
+On Wed, 22 Jul 2026 at 15:40, Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+...
+> > I have started working through this series and will send per-patch
+> > comments as I go, starting with the userspace interface since that's
+> > trickier to change later. I am still coming up to speed on GICv5, so
+> > please take these with that in mind. A couple of series level things
+> > first, while v4 is still open.
+>
+> Thanks a lot for taking the time and for any and all comments.
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+Thanks, that answers most of what I was after.
+
+...
+
+> I have a set of tests that look at the various "components" that we
+> have in the GICv5 KVM implementation, including the IST save/restore.
+> This latter test does also save/restore the IRS MMIO regs as part of
+> testing the IST save/restore.
+
+Good that the round trip already exists, that was really the question.
+One thing I could not tell from the output: does the test compare the
+restored state against the saved state field by field, so that a
+dropped field fails it, rather than just a save and restore within one
+VM? That is what would give the confidence you asked for on omitted
+state. If it already does, worth a line in the cover letter.
+
+> These do add a further ~2k lines to review across 9 commits, which is
+> why I'd not included them in the series posting. The git diff --stat
+> for the local series with these included is currently:
+
+I would still land them in tree rather than point at them: out-of-tree
+tests give reviewers nothing to run and no regression cover, which is
+where the ordering constraints most need it. The test code is not the
+expensive part of the review, the ~6000 lines of IRS and table code
+are, so the selftests help more than they cost. If nine commits is too
+much at once, the IST save/restore one is the piece I would most want
+alongside the save/restore code, the rest can follow.
+
+...
+
+> Noted - I should have been clearer here. The intent was that the
+> save/restore functionality was bundled together with the IRS, SPI, and
+> LPI support. With this series it becomes possible to run something real
+> with KVM on a GICv5 system. Prior to this series, we only had PPI
+> support which also meant a single VPE, and no ability to run anything
+> particularly meaningful.
+>
+> Personally, I'm quite happy to do whatever is best for the reviewers to
+> make things as easy to review as possible. I can either extend the
+> series with the set of selftests, or I can drop the save/restore
+> support for the time being. Happy to hear your thoughts. FWIW, I
+> believe that Marc preferred them to land together for the reason above.
+
+Makes sense, no objection to keeping them together. Worth putting in
+the v4 cover letter so the next reader does not have to ask. One thing
+on the reasoning: "run something real" argues for SPI and LPI landing
+together, since a guest boots without save/restore. Bundling
+save/restore itself reads more like not shipping a feature userspace
+can create but not migrate, then retrofitting the ABI later. If that
+is the reason, worth saying so.
+
+Cheers,
+/fuad
 
 
+>
+> Thanks again for your input.
+> Sascha
+>
+> >
+> > Cheers,
+> > /fuad
+> >
+> >
+> >
+> > >
+> > > Thanks,
+> > > Sascha
+> > >
+> > > [1]
+> > > https://lore.kernel.org/all/20260319154937.3619520-1-sascha.bischoff@arm.com/
+> > > [2] https://developer.arm.com/documentation/aes0070/latest
+> > > [3] https://developer.arm.com/documentation/108086/latest
+> > > [4] https://linaro.atlassian.net/wiki/x/CQAF-wY
+> > > [5]
+> > > https://lore.kernel.org/all/20260116182606.61856-1-sascha.bischoff@arm.com/
+> > > [6]
+> > > https://gitlab.arm.com/linux-arm/linux-sb/-/tree/gicv5_kvm_irs_support_v3
+> > > [7]
+> > > https://lore.kernel.org/all/20260427160547.3129448-1-sascha.bischoff@arm.com/
+> > > [8]
+> > > https://lore.kernel.org/all/20260521144846.1899475-1-sascha.bischoff@arm.com/
+> > >
+> > > Sascha Bischoff (40):
+> > >   irqchip/gic-v5: Allow KVM setup without a maintenance IRQ
+> > >   irqchip/gic-v5: Provide OF IRS config frame attrs to KVM
+> > >   irqchip/gic-v5: Set up gic_kvm_info on ACPI hosts
+> > >   KVM: arm64: gic-v5: Define remaining IRS MMIO registers
+> > >   arm64/sysreg: Add GICv5 GIC VDPEND and VDRCFG encodings
+> > >   arm64/sysreg: Update ICC_CR0_EL1 with LINK and LINK_IDLE fields
+> > >   KVM: arm64: gic-v5: Extract host IRS caps from IRS config frame
+> > >   KVM: arm64: gic-v5: Add VPE doorbell domain
+> > >   KVM: arm64: gic-v5: Create and manage VM and VPE tables
+> > >   KVM: arm64: gic-v5: Introduce guest IST alloc and management
+> > >   KVM: arm64: gic-v5: Implement VMT/vIST IRS MMIO Ops
+> > >   KVM: arm64: gic-v5: Keep GICv5 vCPU limit model-specific
+> > >   KVM: arm64: gic-v5: Implement VPE IRS MMIO Ops
+> > >   KVM: arm64: gic-v5: Set up VMTEs and VPE doorbells
+> > >   KVM: arm64: gic-v5: Add resident/non-resident hyp calls
+> > >   KVM: arm64: gic-v5: Request doorbells when VPEs enter WFI
+> > >   KVM: arm64: gic-v5: Introduce struct vgic_v5_irs and IRS base
+> > > address
+> > >   KVM: arm64: gic-v5: Add IRS IODEV support to MMIO handlers
+> > >   KVM: arm64: gic-v5: Add KVM_VGIC_V5_ADDR_TYPE_IRS to UAPI
+> > >   KVM: arm64: gic-v5: Add GICv5 IRS IODEV and MMIO emulation
+> > >   KVM: arm64: gic-v5: Initialise per-VM IRS state
+> > >   KVM: arm64: gic-v5: Register the IRS IODEV
+> > >   KVM: arm64: gic-v5: Set IRICHPPIDIS based on IRS enable state
+> > >   KVM: arm64: selftests: Update vGICv5 selftest to set IRS address
+> > >   KVM: arm64: gic-v5: Introduce SPI AP list
+> > >   KVM: arm64: gic-v5: Add GIC VDPEND and GIC VDRCFG hyp calls
+> > >   KVM: arm64: gic-v5: Track SPI state for in-flight SPIs
+> > >   KVM: arm64: gic: Introduce set_pending_state() to irq_op
+> > >   KVM: arm64: gic-v5: Support SPI injection
+> > >   Documentation: KVM: Extend VGICv5 docs for
+> > > KVM_VGIC_V5_ADDR_TYPE_IRS
+> > >   KVM: arm64: gic-v5: Add GICv5 SPI injection to irqfd
+> > >   KVM: arm64: gic-v5: Mask per-vcpu PPI state in
+> > >     vgic_v5_finalize_ppi_state()
+> > >   KVM: arm64: gic-v5: Add GICv5 EL1 sysreg userspace accessors
+> > >   KVM: arm64: gic-v5: Handle userspace accesses to IRS MMIO region
+> > >   KVM: arm64: gic-v5: Add CoreSight MMIO regs to IRS
+> > >   KVM: arm64: gic-v5: Implement save/restore mechanisms for ISTs
+> > >   Documentation: KVM: Document KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS for
+> > >     VGICv5
+> > >   Documentation: KVM: Add KVM_DEV_ARM_VGIC_GRP_IRS_REGS to VGICv5
+> > > docs
+> > >   Documentation: KVM: Add docs for KVM_DEV_ARM_VGIC_GRP_IST
+> > >   Documentation: KVM: Add the VGICv5 IRS save/restore sequences
+> > >
+> > >  .../virt/kvm/devices/arm-vgic-v5.rst          |  237 ++-
+> > >  arch/arm64/include/asm/kvm_asm.h              |    4 +
+> > >  arch/arm64/include/asm/kvm_hyp.h              |    4 +
+> > >  arch/arm64/include/asm/sysreg.h               |   18 +-
+> > >  arch/arm64/include/uapi/asm/kvm.h             |    7 +
+> > >  arch/arm64/kvm/Makefile                       |    3 +-
+> > >  arch/arm64/kvm/arm.c                          |    2 +-
+> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   34 +
+> > >  arch/arm64/kvm/hyp/vgic-v5-sr.c               |   55 +
+> > >  arch/arm64/kvm/sys_regs.c                     |    6 +-
+> > >  arch/arm64/kvm/vgic-sys-reg-v5.c              |  519 +++++
+> > >  arch/arm64/kvm/vgic/vgic-init.c               |  111 +-
+> > >  arch/arm64/kvm/vgic/vgic-irqfd.c              |   17 +-
+> > >  arch/arm64/kvm/vgic/vgic-irs-v5.c             | 1138 ++++++++++
+> > >  arch/arm64/kvm/vgic/vgic-kvm-device.c         |  252 ++-
+> > >  arch/arm64/kvm/vgic/vgic-mmio.c               |    6 +
+> > >  arch/arm64/kvm/vgic/vgic-mmio.h               |    2 +
+> > >  arch/arm64/kvm/vgic/vgic-v5-tables.c          | 1855
+> > > +++++++++++++++++
+> > >  arch/arm64/kvm/vgic/vgic-v5-tables.h          |  112 +
+> > >  arch/arm64/kvm/vgic/vgic-v5.c                 | 1220 ++++++++++-
+> > >  arch/arm64/kvm/vgic/vgic.c                    |   39 +-
+> > >  arch/arm64/kvm/vgic/vgic.h                    |   21 +-
+> > >  arch/arm64/tools/sysreg                       |    4 +-
+> > >  drivers/irqchip/irq-gic-v5-irs.c              |   19 +-
+> > >  drivers/irqchip/irq-gic-v5.c                  |  117 +-
+> > >  include/kvm/arm_vgic.h                        |  165 +-
+> > >  include/linux/irqchip/arm-gic-v5.h            |  256 ++-
+> > >  include/linux/irqchip/arm-vgic-info.h         |    5 +
+> > >  tools/arch/arm64/include/uapi/asm/kvm.h       |    7 +
+> > >  tools/testing/selftests/kvm/arm64/vgic_v5.c   |    6 +
+> > >  .../selftests/kvm/include/arm64/gic_v5.h      |    3 +
+> > >  31 files changed, 6093 insertions(+), 151 deletions(-)
+> > >  create mode 100644 arch/arm64/kvm/vgic-sys-reg-v5.c
+> > >  create mode 100644 arch/arm64/kvm/vgic/vgic-irs-v5.c
+> > >  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.c
+> > >  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.h
+> > >
+> > > --
+> > > 2.34.1
+> > >
+>
 
