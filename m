@@ -4,71 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F9EDC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8FDC4453B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aee5s1edqbgsHAo4tjJhHBYFBXZbzIQhAfflgu0Qfl0=; b=lkRTVkAnpmGX3d746Cp8JH3FZM
-	ZUw31lu+Z96Wx/b2L66LdXP9XnzmqjYnlXxnVChTWSdsAGVoiksUGFDowksZLxIiD6OkvCbD/Z93E
-	xXDOfNheOZ3fhmLkCUOZLvg/8IKBJ+7MVc+VKeRJVy//mGl3FRJYEIvF9QQyIz+JoTBcXHIAVowaJ
-	zTzZELZVbnSraQt3hXkQl3JnHZsvg6q9fGsKUnT/1Oqy4bl/puHhoAbRf1k/J8MAfB8ZyEnN+WWMk
-	uVPwlaUBTRChAiil1cICdk6zcSvLIA3c5922PWAg6NWEa5lzYFJ4F98qhA1XBzPvISbHMhDdUMuYx
-	yvYIc+cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NkPKMk7MVapNd2zmqS5l8beGNHYpl4HXQlvHxGO4S+c=; b=GbrNRfezjFsOSGQr6vMpqr68P1
+	UlVJRg1prbCSS2uVJggIpSLbUBXMVf5eOvrlJEY/MWRPGdMFVC4wYLz8c9pNcvWCg8KFnaRz2fr8p
+	stlQqE/p+on0lRVdT5d+GKgqf3Fg8AVkCOQxOYftXcC58sP9965C2mbWS/qTt11+GFQC1SihnsSSq
+	Vg8Fcx+lH2Gh9mRN80nRIZxzQewqshdH1yZFnGuTBfzRI44YnxToVoBmOXXErBs1+caRRp3RTQC1F
+	JzKj+r2LZN+0tjll4KtNOJ7nDRaTNikQAw4uhDY4DJaTrLcweEEEoOJcn0U+aSehXkH8lzDYaMiAj
+	QpM7lffA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSkM-0000000BJIZ-0Ir5;
-	Wed, 22 Jul 2026 08:56:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmSmy-0000000BJYu-2Lu8;
+	Wed, 22 Jul 2026 08:58:52 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSkJ-0000000BJII-3u1F;
-	Wed, 22 Jul 2026 08:56:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 098AB60A6B;
-	Wed, 22 Jul 2026 08:56:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C7D71F000E9;
-	Wed, 22 Jul 2026 08:55:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784710566;
-	bh=aee5s1edqbgsHAo4tjJhHBYFBXZbzIQhAfflgu0Qfl0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LDc46chI52fVENs42kG9+KBWM0nMhxZUJWhF2TcA//k7EVRXGYtJIEDCNw2MhaQxf
-	 rAF7wicCMnhKVgjkDR5Va+tqdiK93/9KRL0amUDK1fkF/CYvi+4b0yXY0txmWTHBzm
-	 FN3BEIyh2bx7nj0aCMQm2RenxGNCsPp3x2xisyF711bY3BDHZJZ9cBgDQ/wkNXvhIf
-	 qeOmqal8BqfD6umsvhZ23KsidOUZWvPxo4euKNMG6AxVL0LbwZcNyrf3FjZpQ5BNd/
-	 UqsVNpLJjq1PTHsuaT0kzYYLLQVD1E7gJWUegOsyo5+fFSYuWRWanDXNRVLIlnutd/
-	 QQ65f9GU69gTg==
-Date: Wed, 22 Jul 2026 09:55:46 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>, 
-	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
-	Borislav Petkov <bp@alien8.de>, Brendan Jackman <jackmanb@google.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	David Hildenbrand <david@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
-	Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Suren Baghdasaryan <surenb@google.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
-	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>
-Subject: Re: [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on
- debug_pagealloc_enabled()
-Message-ID: <amCFgFTmP1Jy_uRG@lucifer>
-References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
- <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
- <al-oTOKY7vkdPHr5@lucifer>
- <al-6woCPBH5d-lwP@kernel.org>
+	id 1wmSmv-0000000BJYV-3Ux0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 08:58:51 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cae1a3a744so92201405ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 01:58:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784710728; x=1785315528; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NkPKMk7MVapNd2zmqS5l8beGNHYpl4HXQlvHxGO4S+c=;
+        b=iV2UJuOpfEz+zF9mq7I+qUAELI923xpYWSqGmDrW1mhKydLVv49+RKd1dRiXvYtDVF
+         gcciypfTOgRpoFz/nUhwi9a+UisoHRWVbWGtH+rT++6X8aZ9KbJh2EejOtITKPTOvJPK
+         Pk6CY+xs/wT+vXfyCaH/Uy2LIL2x3H1ybRq2tSuJbC1bOFZDw6LcPeP35REFIHRCXgsv
+         OaHC2Md9xoyczA5J2ND2HNhOG0fngfTait34rrNZqj0z4djwC9WTc4f6Nr4RZXnI719D
+         Grd/nal2Ex2Q3asKvDrEnGHXKFjAWbssIRekzBjktp9ml7yxneQSuxvxHgetW5Xp5hHX
+         qJiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784710728; x=1785315528;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NkPKMk7MVapNd2zmqS5l8beGNHYpl4HXQlvHxGO4S+c=;
+        b=heNrGvlFT9BFnOb4iPPFTcotUQ4STKs0oqOU1fvxhRMdSt2Y0lma2CTGsXP7Uqoxc8
+         pY9HtobO8dw2v/+2eReJ0skP4rhF/6lPfvaXK6BZMESEnoMQaU6AfVlMUxkKY9fuGArG
+         Ita0G/5fAiq2KiSWzrdPYAQF9AeX9YISihGd7Q7FH9R1w0F2MD1GUtOLAJc+Hmod9I1W
+         de5xJbdXIw5+v5Njo95jmIKPr2MoXrCgRKF+biRe6NlMjTPAF4XCadmMBl8U1DC5qoyA
+         c9WyqiaVr7ttXGA6UXlH9bdaFnDPf9fSYgCvhiEjn109hS7me9kB4NwT+E1diXUUJMdu
+         1Uyg==
+X-Forwarded-Encrypted: i=1; AHgh+RqekJoM4GtBX97V6frFVg1nyne9AV1EFfVC+u7mlZBUiadDRNiQ/MHI11KRX6R6kP2c3+5SMTMbkPfuS8y97KrX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxODpAibdATmtLdAc135QGA2bRMXg16dRtEIoubpfN0xSHI6aIt
+	UlFU2Hsz6ZTqva+e/UTeLN8YSWP4L0Mr+5rcWNm741fzoHqSFd212CKpLoYTYQ==
+X-Gm-Gg: AR+sD11F8wgaRUkXB5Q4Dlrn0IScoLISoeNymkI+MYzPARu+9BUIWQyQhP6wwV4Sljf
+	6bybSwxmJu4tZmkU4WdWEh52asaQBcloVhswtYC2EgFBXMzl1cKRQAy75qKdL3DACnhJMRDd/E9
+	PHBTDNjva+Dlg0l2R46sdyKeMk7CUfUcUSaIiK9sEAbPPlBnBpmZw6as8/JAOLI5/vUjLXSEPiv
+	MPRKcwouQBYBzCcthW4OaTMXuyN4GAnjHVWTO1fmZBMwvUK21AJfK09eqmmHX6+GfzTk/zYw5PP
+	6Ny6cBpdxssXHO09LqIf9xof5t6MuQBjujS5cDJLoC5q5h84sFqwXLa0VQwGZ0lBpm95bqGct2X
+	Xel8rPnhTWJTlyScEwVNtxaB8q/e4aQm6gie1xcCuDMYt8WxAuiOdx8pHPLEIuAIU/T+LAvhAV7
+	d0ED6ypUBILb29/0ZCCTc0SErA
+X-Received: by 2002:a17:902:f786:b0:2ca:caa5:9c04 with SMTP id d9443c01a7336-2cf3495ffccmr251154795ad.23.1784710728213;
+        Wed, 22 Jul 2026 01:58:48 -0700 (PDT)
+Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8f2e621dsm11137535ad.48.2026.07.22.01.58.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 01:58:47 -0700 (PDT)
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
+To: dev.jain@arm.com
+Cc: david@kernel.org,
+	akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	linux-mm@kvack.org,
+	urezki@gmail.com,
+	will@kernel.org,
+	Xueyuan.chen21@gmail.com,
+	ajd@linux.ibm.com,
+	anshuman.khandual@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rppt@kernel.org,
+	ryan.roberts@arm.com,
+	baohua@kernel.org,
+	leo.yan@arm.com
+Subject: Re: [PATCH v7 6/7] mm/vmalloc: map contiguous pages in batches for vmap() if possible
+Date: Wed, 22 Jul 2026 16:58:41 +0800
+Message-Id: <20260722085841.3047673-1-jiangwen6@xiaomi.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <CAHKocdEeYvdWq2hoot2cbJ1jhKnZbkbayRX841_gdv5gntQ4cw@mail.gmail.com>
+References: <CAHKocdEeYvdWq2hoot2cbJ1jhKnZbkbayRX841_gdv5gntQ4cw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <al-6woCPBH5d-lwP@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_015849_895176_420B6224 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +112,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 09:30:26PM +0300, Mike Rapoport wrote:
-> On Tue, Jul 21, 2026 at 06:16:33PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > On Tue, Jul 21, 2026 at 07:23:24PM +0300, Mike Rapoport (Microsoft) wrote:
-> > > The splitting and merging of kernel page table mappings between small and
-> > > large is protected by cpa_lock. The merging is relatively new but the
-> > > splitting is ancient.
-> > >
-> > > The splitting has a locking optimization: since DEBUG_PAGEALLOC forces all
-> > > mappings to 4k, there are no large pages to split. So the code that *might*
-> > > cause a split can just skip the locking (and a few other things).
-> > >
-> > > This is entertaining, but it adds complexity and makes for weird locking
-> > > rules. Plus it's all for a debugging feature which makes the kernel super
-> > > slow in the first place. Optimizing something which is already super slow
-> > > and not used in production is not the best way to spend our complexity
-> > > budget.
-> > >
-> > > Stop gating cpa_lock on debug_pagealloc_enabled() to simplify the code
-> > > and the locking rules.
-> > >
-> > > [ dhansen: flesh out changelog ]
-> > >
-> > > Suggested-by: Dave Hansen <dave.hansen@intel.com>
-> > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
-> > > Link: https://patch.msgid.link/20260715144519.934289-1-rppt@kernel.org
-> > > Link: https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
-> >
-> > Hmm this patch is already taken separately though? ([0]) (obv. commented there
-> > already with review feedback).
-> >
-> > Intended to be with this series as some kind of background or? Probably better
-> > to separate out given it's a live patch
->
-> From the cover letter:
->
->   Patch 1 is already applied to the tip tree and I posted patch 2
->   separately [4], but I included them both here for the completeness.
+Hi David and Dev,
 
-Well that'll teach me for skipping the cover letter ;) Fair enough!
+The updated diff is blow.
 
->
-> > Thanks, Lorenzo
->
-> --
-> Sincerely yours,
-> Mike.
+Subject: [PATCH] mm/vmalloc: simplify vmap batching helper and limit scan by PFN alignment
 
-Cheers, Lorenzo
+Pass the current page pointer directly to the batching helper, and
+limit the contiguous scan by PFN alignment before checking for a batch
+size. This keeps the helper interface simpler and avoids scanning more
+pages than can actually be mapped together.
+
+Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+
+---
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 92f9cd5e9def5..2f7e6128cbd7c 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -3558,7 +3558,7 @@ static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
+ }
+ 
+ static inline int get_vmap_batch_order(struct page **pages,
+-		pgprot_t prot, unsigned int max_steps, unsigned int idx)
++		pgprot_t prot, unsigned int nr_pages)
+ {
+ 	unsigned long pfn;
+ 	unsigned int nr_contig;
+@@ -3567,16 +3567,16 @@ static inline int get_vmap_batch_order(struct page **pages,
+ 	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
+ 		return 0;
+ 
+-	nr_contig = num_pages_contiguous(&pages[idx], max_steps);
++	/* Limit nr_pages by pfn alignment */
++	pfn = page_to_pfn(*pages);
++	if (pfn > 0)
++		nr_pages = min_t(unsigned int, nr_pages, 1UL << __ffs(pfn));
++
++	nr_contig = num_pages_contiguous(pages, nr_pages);
+ 	if (nr_contig < 2)
+ 		return 0;
+ 
+ 	order = ilog2(nr_contig);
+-	pfn = page_to_pfn(pages[idx]);
+-
+-	/* Limit order by pfn alignment */
+-	if (pfn > 0)
+-		order = min_t(int, order, __ffs(pfn));
+ 
+ 	if (vm_shift(prot, PAGE_SIZE << order) == PAGE_SHIFT)
+ 		return 0;
+@@ -3587,8 +3587,8 @@ static inline int get_vmap_batch_order(struct page **pages,
+ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+ 		pgprot_t prot, struct page **pages)
+ {
+-	unsigned int count = (end - addr) >> PAGE_SHIFT;
+-	unsigned int prev_shift = 0, idx = 0;
++	const unsigned int nr_pages = (end - addr) >> PAGE_SHIFT;
++	unsigned int prev_shift = 0, batch_start = 0;
+ 	unsigned long map_addr = addr, batch_end = addr;
+ 	int err;
+ 
+@@ -3597,26 +3597,26 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+ 	if (err)
+ 		goto out;
+ 
+-	for (unsigned int i = 0; i < count; ) {
++	for (unsigned int i = 0; i < nr_pages; ) {
+ 		unsigned int shift = PAGE_SHIFT +
+-			get_vmap_batch_order(pages, prot, count - i, i);
++			get_vmap_batch_order(pages + i, prot, nr_pages - i);
+ 
+ 		if (!i)
+ 			prev_shift = shift;
+ 
+ 		if (shift != prev_shift) {
+ 			err = vmap_pages_range_noflush_walk(map_addr, batch_end,
+-					prot, pages + idx, prev_shift);
++					prot, pages + batch_start, prev_shift);
+ 			if (err)
+ 				goto out;
+ 			prev_shift = shift;
+ 			map_addr = batch_end;
+-			idx = i;
++			batch_start = i;
+ 		}
+ 
+ 		/*
+-		 * Once small pages are encountered, the remaining pages
+-		 * are likely small as well.
++		 * Once we fail to batch pages, we expect to fail batching
++		 * for all remaining pages, so just give up.
+ 		 */
+ 		if (shift == PAGE_SHIFT)
+ 			break;
+@@ -3627,8 +3627,8 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+ 
+ 	/* Remaining */
+ 	if (map_addr < end)
+-		err = vmap_pages_range_noflush_walk(map_addr, end,
+-				prot, pages + idx, prev_shift);
++		err = vmap_pages_range_noflush_walk(map_addr, end, prot,
++				pages + batch_start, prev_shift);
+ 
+ out:
+ 	flush_cache_vmap(addr, end);
 
