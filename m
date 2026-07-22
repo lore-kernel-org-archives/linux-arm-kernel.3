@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F437C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45209C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Content-Transfer-Encoding:Mime-Version:From:To:Cc:Subject:Message-Id:Date:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CVMvqT2UQr1txHFCMAIcwU7vZqub1auWVL1fnTiKFZE=; b=IfccrStoLdIEPUwaZsGq/N5Kw6
-	J5bA0KicyiUv3GsyHYmNvBGJP042UZ42VU/g+9LuHRqv/+58qW5QfzCTtxRnxuy1S82nMEtJtX/y/
-	92yvJG5mKbT8tFQd6TxZsq5/8t1dpcXan2e0pRTsLsjtV26rLL+kTFmwXOfhptHhMIhahRM/3LPn+
-	YX/HjbeMpHOPOcIQaB47Hc/sT9KQa5+Rut5Nw/bA4AZtWRM9JXRsdJtoOc9rv6q/Dx6VMvNtpWzyR
-	RrLODEHJJof9uG4JNxfPKDr5apNVFOjpcddlqe54eQwJ6AWkllMvwcf92WeStmtwwhW8Ln6xzDCVS
-	9DbQkxOw==;
+	bh=D0GUxHD8Q9JSYP82sYc8lospznA2NKpGPVZdowq2lU0=; b=dWrhEY1aBGQk65Xv3wJOmHSu6I
+	CULiDOkzJK7ATtwnJb2u7nkH1/GMqlUD5HfhGij4HDQhOn/LbRI+d2MIIIytZyYeeQiOs0J0pPh4w
+	ADkcnQN7JWN3wTLeFef5SHXRp9In9BxudSxkFohDZjJShqXVdaZZZ9YfYjb/8l3r1TGXQ+71wdwNd
+	ZFF5T49H/JPafF0ZYdM63e/mF6jcqNj3ydgIasynfQpBzQoktMoBNj3469nJqDSWhTvBFw26EZayv
+	2QjHgKqAg22innOPLZxKZGNShpcV2x5jxtHowamYs/yO/do6gDWALa6ZGJ6hVAng2d3vtzsUn/EII
+	d4R8BKAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSz4-0000000BLkr-3UW5;
-	Wed, 22 Jul 2026 09:11:22 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wmT0W-0000000BM1p-0kiF;
+	Wed, 22 Jul 2026 09:12:52 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSz2-0000000BLk5-0gbe
+	id 1wmT0T-0000000BM0U-1xIi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:11:22 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1C60A1A1144;
-	Wed, 22 Jul 2026 09:11:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DF2FE60388;
-	Wed, 22 Jul 2026 09:11:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FAFF11BD0ADC;
-	Wed, 22 Jul 2026 11:11:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784711473; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=CVMvqT2UQr1txHFCMAIcwU7vZqub1auWVL1fnTiKFZE=;
-	b=z2mUyKFafy0l5dpLU+0DGap45Kxpu05bFTufLn+AejhY8o/GNw+bsMIGqsZ+wiE4M52cUb
-	tJ2kf9T2YiRxOqhr2rWzY6HX0HaZTrXAkwRwYkiIApKjq6ixTgX+STS1gkAJGd5e/6BVDK
-	GToI/hX/BbykAokOk8TWHpHPFG8V07FtMaqxnbrhnkb/T4rB9QWpMae8QNrsMiy7H/LA64
-	CBxKwBYvzKbIdeqwP++7cQtAxs+z3x9pM+K4I1TBW6Z2Gjrq8TuQOPUI1fgOKPRLrxeDV9
-	sIjNA1KMA98U1kfDDJO4VYRUgzaOUz1xNXwlEr4Ixh4tdw5zVeqvwFdXq3uDLw==
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 22 Jul 2026 11:10:53 +0200
-Message-Id: <DK4ZERBN7IS2.2T8E05JZI0IY8@bootlin.com>
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code
- creating the connector to a subfunction
-Cc: "Laurent Pinchart" <laurent.pinchart@ideasonboard.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
- <jagan@amarulasolutions.com>, "Marek Szyprowski"
- <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>, "Stefan Agner"
- <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
- <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: aerc 0.21.0
-References: <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
- <20260626-polite-hairy-perch-25e1aa@houat>
- <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
- <20260626-classy-nightingale-of-romance-1cacad@houat>
- <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
- <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
- <20260707123205.GB211515@killaraus.ideasonboard.com>
- <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
- <20260716-stoic-muskox-from-asgard-c12b65@houat>
- <DK0QXI6KF7PC.3DJW38KB8MJED@bootlin.com>
- <20260720-eel-of-immense-triumph-3e24e0@penduick>
-In-Reply-To: <20260720-eel-of-immense-triumph-3e24e0@penduick>
-X-Last-TLS-Session-Version: TLSv1.3
+	Wed, 22 Jul 2026 09:12:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784711537; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=hScHYgI6q9Fkjb+rlRUwihK1ZpvLtqWCZ+wixYeYWC+v02EEGUTownQft6R05DevC+9M2whU+HhA+nhR9hqTXfZWmIVSg3MVfT3jFsaPGvi7iSwzCMlu3vE0EMhumeonnNF2JwCRcAvjWZ/8fXtnIdl2C9SbIdcWUmRTD7uNS5M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784711537; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=D0GUxHD8Q9JSYP82sYc8lospznA2NKpGPVZdowq2lU0=; 
+	b=OUYc4YQgOwzEis+yM/5q3gNJ5Va3yQE+/zQHI3WOhmppbMAJKqS6NClg48tiyS1qNZlEymjHq3aLyA6xZ+ZEf6B6h4JNU8irPTHKo/mz/iTQ2Z4qr076oxxNyCp38wH/gJj9K//Et/FdUwZ+qF762Id6olVVTzgy0LvS4oPBoio=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784711536;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=D0GUxHD8Q9JSYP82sYc8lospznA2NKpGPVZdowq2lU0=;
+	b=TYDF4QF2JGljZ7mxhAkB3Lnb+CtQtnfYLPL7Gtyy+d3+L1RILAztYONN9ImgG2If
+	jvMKJN+cbtpLiWN8NiPGOWo1xxvlnb1YR6pMQWfy9YBEuOhDuhTZ11hEHjnBjLmmJaB
+	PhYbEOskHk4uGvzHVO/sCcmN85i5xtluhm9GTN34=
+Received: by mx.zohomail.com with SMTPS id 1784711534503217.6681008874317;
+	Wed, 22 Jul 2026 02:12:14 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 22 Jul 2026 11:11:47 +0200
+Subject: [PATCH v8 1/5] drm/scdc-helper: Don't use ssize_t return type for
+ scdc_read/write
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260722-scdc-link-health-v8-1-cd1dacbb85d9@collabora.com>
+References: <20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com>
+In-Reply-To: <20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Daniel Stone <daniel@fooishbar.org>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_021120_352955_7815390B 
-X-CRM114-Status: GOOD (  41.86  )
+X-CRM114-CacheID: sfid-20260722_021249_549534_D37CD178 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,169 +94,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+drm_scdc_read and drm_scdc_write, both of which are only used within
+drm_scdc_helper (although exported), use a ssize_t as their return type.
 
-On Mon Jul 20, 2026 at 4:28 PM CEST, Maxime Ripard wrote:
-> On Fri, Jul 17, 2026 at 11:41:33AM +0200, Luca Ceresoli wrote:
->> Hi Maxime,
->>
->> On Thu Jul 16, 2026 at 3:22 PM CEST, Maxime Ripard wrote:
->> > On Thu, Jul 16, 2026 at 10:37:24AM +0200, Luca Ceresoli wrote:
->> >> >> > Now if the bridges start doing it themselves we should go back t=
-o
->> >> >> > those encoder drivers and ditch all the drm_bridge_connector fro=
-m
->> >> >> > there?
->> >> >> >
->> >> >> > I must be missing something. Can you elaborate on this?
->> >> >>
->> >> >> drm_bridge_connectors bring together a (complete) bridge chain and=
- a
->> >> >> connector. If you don't have either anymore, then we shouldn't kee=
-p it
->> >> >> around.
->> >> >>
->> >> >> What I was suggesting before was only a suggestion. I guess we cou=
-ld
->> >> >> also make the encoder own the hotplug handling code and create the
->> >> >> drm_bridge_connector when the chain is complete, and remove it whe=
-n it's
->> >> >> no longer the case.
->> >> >
->> >> > That's an interesting option. We don't have to keep drm_bridge_conn=
-ector
->> >> > in its current form, but I don't think we should go back to individ=
-ual
->> >> > bridge driver creating connectors, especially now that we have brid=
-ge
->> >> > chains where the connector ops are implemented collectively by mult=
-iple
->> >> > bridges.
->> >>
->> >> I definitely agree we don't want to add burden back on the encoder.
->> >
->> > I don't think Laurent mentioned the encoder anywhere.
->>
->> Ah, indeed, sorry! However, I think both the bridges and the encoder
->> drivers should equally have the minimum burden on them.
->>
->> Right now the recommended practice is:
->>
->>  - bridges do not create connectors (thanks to DRM_BRIDGE_ATTACH_NO_CONN=
-ECTOR)
->>  - encoders just call drm_bridge_connector_init(), which does all the
->>    common operations to populate a suitable drm_connector
->>
->> So all common operations involved in connector creation and bridge chain
->> analysis are implemented in common code, not per-bridge or
->> per-encoder. That's good.
->
-> I agree, but another way to phrase it is: bridges aren't aware of how
-> the chain is setup, the encoder ties it all together.
->
->> >> >> We can discuss alternatives too. But either way, we shouldn't have=
- it
->> >> >> stick around.
->> >>
->> >> Bottom line, I roughly see three ideas mentioned:
->> >>
->> >>  1. (this series) extend the drm_bridge_connector to create the
->> >>     drm_connector based on bridge hotplug events [+rename it]
->> >>  2. - keep the drm_bridge_connector (mostly) as is
->> >>     - let each encoder driver add/remove it based on bridge hotplug e=
-vents
->> >>     =3D> more burden on encoder drivers -> no
->> >
->> > Can you motivate that with *any* reason? Because I really feel like it=
-'s
->> > the best solution going forward.
->>
->> My understanding of your idea (maybe a bit overstressed just to ensure i=
-t's
->> clear) is that:
->>
->>  - the drm_bridge_connector should stay (almost) unmodified
->
-> Yes, and bridges should ideally remain as lightly affected as possible.
+This would make sense if they returned the number of bytes read/written
+on success, and negative errno otherwise. However, they return 0 on
+success.
 
-I fully agree.
+Demote them to "int" as their return type, in order to avoid needlessly
+using 64 bits when less suffices.
 
-> We have probably around 100 bridge drivers at the moment, having some
-> kind of opt-in to enable hotplug would mean that we can't expect hotplug
-> to work on a new platform, which should be a last resort.
+No functional change.
 
-A few changes to each bridge wanting to support hotplug will unavoidably be
-needed. The .get_next_bridge callback we mentioned in the discussion for
-patch 30 at least. I'm keeping any other changes, if any, to a minimum.
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Reviewed-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/display/drm_scdc_helper.c | 8 ++++----
+ include/drm/display/drm_scdc_helper.h     | 8 ++++----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
->>  - there should be no new "manager" component (not sure this is actually
->>    your opinion, can you comment on this specifically?)
->>  - every encoder driver would have to:
->>    - register to receive hotplug events
->>    - when receiving one such event, find out whether the hardware is
->>      complete or not (by calling drm_bridge_connector_pipeline_is_comple=
-te()
->>      or so)
->>    - create/destroy a drm_bridge_connector based on hotplug events
->>
->> Is this somewhat close to what you have in mind?
->
-> Yes. To make things a bit more precise, we need two things: the encoder
-> to put the chain together, and "something" (that you used to call
-> manager) to react to hotplug events and handle the bridge
-> detach/destruction, connector creation/destruction, etc and should stick
-> around when we enable hotplug.
->
-> What I'm suggesting is that, since the encoder already owns and creates
-> the chain in the first place, and is there forever, it's only natural
-> for the encoder to be that "something", and we don't necessarily mean
-> creating a new entity or piece of code. A bunch of helpers and hooks a
-> probably going to be enough.
+diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/drm/display/drm_scdc_helper.c
+index df878aad4a36..8403f2390ab6 100644
+--- a/drivers/gpu/drm/display/drm_scdc_helper.c
++++ b/drivers/gpu/drm/display/drm_scdc_helper.c
+@@ -67,8 +67,8 @@
+  * Returns:
+  * 0 on success, negative error code on failure.
+  */
+-ssize_t drm_scdc_read(struct i2c_adapter *adapter, u8 offset, void *buffer,
+-		      size_t size)
++int drm_scdc_read(struct i2c_adapter *adapter, u8 offset, void *buffer,
++		  size_t size)
+ {
+ 	int ret;
+ 	struct i2c_msg msgs[2] = {
+@@ -107,8 +107,8 @@ EXPORT_SYMBOL(drm_scdc_read);
+  * Returns:
+  * 0 on success, negative error code on failure.
+  */
+-ssize_t drm_scdc_write(struct i2c_adapter *adapter, u8 offset,
+-		       const void *buffer, size_t size)
++int drm_scdc_write(struct i2c_adapter *adapter, u8 offset, const void *buffer,
++		   size_t size)
+ {
+ 	struct i2c_msg msg = {
+ 		.addr = SCDC_I2C_SLAVE_ADDRESS,
+diff --git a/include/drm/display/drm_scdc_helper.h b/include/drm/display/drm_scdc_helper.h
+index 34600476a1b9..e9ccaeba56dd 100644
+--- a/include/drm/display/drm_scdc_helper.h
++++ b/include/drm/display/drm_scdc_helper.h
+@@ -31,10 +31,10 @@
+ struct drm_connector;
+ struct i2c_adapter;
+ 
+-ssize_t drm_scdc_read(struct i2c_adapter *adapter, u8 offset, void *buffer,
+-		      size_t size);
+-ssize_t drm_scdc_write(struct i2c_adapter *adapter, u8 offset,
+-		       const void *buffer, size_t size);
++int drm_scdc_read(struct i2c_adapter *adapter, u8 offset, void *buffer,
++		  size_t size);
++int drm_scdc_write(struct i2c_adapter *adapter, u8 offset, const void *buffer,
++		   size_t size);
+ 
+ /**
+  * drm_scdc_readb - read a single byte from SCDC
 
-That's the idea I had reached too, yes. Except the "bunch of helpers and
-hooks" could be perhaps as small as one single helper function or little
-more.
+-- 
+2.55.0
 
-> This is where the opt-in part should be, and I'd like, if possible, for
-> hotplug-enabled encoders to work with any bridge.
->
->> To me the best solution to add hotplug support is that encoder drivers
->> replace the single drm_bridge_connector_init() call with a single call t=
-o
->> something new (let's call it a hotplug manager), which takes care of all
->> the common aspects: registering to receive bridge hotplug events, findin=
-g
->> out whether the hardware pipeline is complete or not, and add/remove the
->> drm_connector based on that.
->>
->> In other words, the changes on encoder drivers would be similar to patch
->> 37. In a nutshell:
->>
->>   -	connector =3D drm_bridge_connector_init(lcdif->drm, encoder);
->>   +	drm_hotplug_manager =3D drm_hotplug_manager_init(lcdif->drm, encoder=
-);
->>
->> All the hotplug logic would be in common code, and any maintenance and
->> future improvements to it would stay in a single place, benefitting all
->> encoders at once.
->>
->> What do you think about this?
->
-> From a high level point-of-view, I think we mostly agree.
-
-Good.
-
-> We can argue
-> on the name, and if we should merge it with something else
-> (drm_encoder_init, drm_bridge_attach, something else?) but that's the
-> path forward I think.
-
-OK, let's see what I can come up with in v2.
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
