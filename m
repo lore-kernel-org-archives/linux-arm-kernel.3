@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59723C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA7BC4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f1wOx0e4PjnlF3z9WLHEYARB2GSoN4b0UX9bWrnaH3c=; b=zMaj1h8epA1HZcgZ0UrKUedzqG
-	v/H4Jdo17GIFMfGVPoYw5Kogo+N7CQKRMF1Cw/D24K4U09GcRAm5F0/fdyASvYgkbr+zFL77eQRcj
-	rDX7iiujHwcT+odCGAloO5qt1D4vkDw/4rmA3vGrNU/13CsWK3iHCinOyTBPG7e9ux5d5SuKNRRwO
-	QPgCR6oVorBAxTfUNCyVFx2IqPoOaSQNhq9yWWf6PvOG1yQ54aNuNyb45NSootnadZi82C21r4BBg
-	BiF5wp3Yfw0xOQwaUAClV8rVrIMurU4IjyVF1Z2AUr9oOvPhVCFgjQ8sBmwf9N4S4P448rOyC/jLV
-	Mpu8AYcw==;
+	bh=yWtHuqnTqW9SLdraO93l+DGah0VpZgdlob2IbGFczGM=; b=snNek4654rA6OIYzAM0GUOEAvw
+	JtvNrwJIgf2MbCB9oMsLHE3o9ODvrqPy4hFVCd1XQzWYLl+8EfTQgIG7XqVv8EDUTsE31CaYG3E3j
+	5HEykrduTvZGrc3Qd36w9k/8RgWqwIzDusHK84FfN/oCE8iwmbuBS81gFskzHHVB+x5oALqeuvrhP
+	BxkKXwzAdzIAije0Z6qVb/rn6W0dFsHkEW9fUlzVhALlUTwA0GKsezYdjezjWyCE0eJ09y3Hq3E6V
+	7BhAGNi/dfN0pPGzUPZD2Hy+glTt0H9bhpgRAlIDjXP+NIA2v9DmIXqiOdELmtPZJg6LpBPQjMajB
+	uHfVJp0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmefZ-0000000CpMQ-1iE3;
-	Wed, 22 Jul 2026 21:40:01 +0000
+	id 1wmeg0-0000000CpXB-2dGx;
+	Wed, 22 Jul 2026 21:40:28 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmefV-0000000CpKp-2mbj
+	id 1wmefa-0000000CpNL-0vx1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 21:39:57 +0000
+	Wed, 22 Jul 2026 21:40:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E48CC43FDC;
-	Wed, 22 Jul 2026 21:39:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B77A1F00A3A;
-	Wed, 22 Jul 2026 21:39:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F3B3E43FD1;
+	Wed, 22 Jul 2026 21:40:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7948E1F00A3F;
+	Wed, 22 Jul 2026 21:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784756395;
-	bh=f1wOx0e4PjnlF3z9WLHEYARB2GSoN4b0UX9bWrnaH3c=;
+	s=k20260515; t=1784756401;
+	bh=yWtHuqnTqW9SLdraO93l+DGah0VpZgdlob2IbGFczGM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FV3up+hKKYgBreJt+xgk9qax0vNTRVcRIerlpcYvJJHFkhgMsoucwlRE5dVJVQAUk
-	 NOlaCo6qFmrDUWShS2RAfkllGOVrpRZeeBAfEj2xXaL65AFASCVyoQ1w+/xtYmJPQG
-	 BhW19lZxp72vmGZyaxEo/cuhnq3Uvz0D04ymSYpQ3dyGhCLwEdYwB4s8Dimd1+FQut
-	 4IkAqpkLCT+q8XwUidRGtcQQM59e6Pm/Jrv9mUfVZnryPkH43Sl4l2BM2NKVEPK4zF
-	 lT3HNeglZh+8GdzQ2CFnty4o8eBGg+9m9WuRIR4RJZ0NxY4rW7uCfcTv++ZdOnHzGC
-	 Yn1nhDKXxPlLg==
+	b=S1Dfi8YyEl6vyEKr83gS8maBJDojpNuLsez2F6xCXFPd9wfppENt0wP+Oor03fqkQ
+	 DgfrQMtlorzPtISyAqKmWwSuY8DXHp9xZdfonj/SYO9fzbml6TO/+O2g0/Nqxv22lE
+	 rumzQUoJmozPC9BkIW7g5Jl7Y+BBQ5gsgO8lDhsceTWV9mkP+TxIU7H4K7ThvYNrXR
+	 mT4bpemgptfKJgvpdsta6a20PRK0TZC/1GDiF4dsK6FDnDCRtvtFtCj+16E50hbRco
+	 kcIFATpABOo0hUdhuKunynEgrlMqEDaBxDRryANaSg6wZEvq66e+cJxH3Ig3g028wo
+	 3kDh+kVEkIqdQ==
 From: Will Deacon <will@kernel.org>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>
+To: robin.clark@oss.qualcomm.com,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	Haoxiang Li <haoxiang_li2024@163.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
 	iommu@lists.linux.dev,
-	Aditya Sherawat <asherawa@qti.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Aastha Pandey <aastha.pandey@oss.qualcomm.com>
-Subject: Re: [PATCH v6 0/7] drm/msm: Add support for Shikra GPU (A704)
-Date: Wed, 22 Jul 2026 22:39:20 +0100
-Message-ID: <178472212670.2848256.16113852617483173149.b4-ty@kernel.org>
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/qcom: Remove sysfs device on probe failure path
+Date: Wed, 22 Jul 2026 22:39:22 +0100
+Message-ID: <178472514942.2872651.16544710591935905775.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260710-shikra-gpu-v6-0-b388ec5dce77@oss.qualcomm.com>
-References: <20260710-shikra-gpu-v6-0-b388ec5dce77@oss.qualcomm.com>
+In-Reply-To: <20260623071245.1985938-1-haoxiang_li2024@163.com>
+References: <20260623071245.1985938-1-haoxiang_li2024@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -101,20 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jul 2026 00:11:59 +0530, Akhil P Oommen wrote:
-> Adreno A704 GPU found in Shikra is an IP reuse of A702 GPU with very
-> minimal changes. The only KMD facing difference is the chipid and the
-> zap firmware which is specified via devicetree.
+On Tue, 23 Jun 2026 15:12:45 +0800, Haoxiang Li wrote:
+> In qcom_iommu_device_probe(), if iommu_device_register()
+> fails, the sysfs device created by iommu_device_sysfs_add()
+> is not released. Add a goto label to do the cleanup.
 > 
-> Mesa side support is already merged:
-> https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/41762
 > 
-> [...]
 
-Applied bindings update to iommu (arm/smmu/bindings), thanks!
+Applied to iommu (arm/smmu/updates), thanks!
 
-[3/7] dt-bindings: arm-smmu: Document GPU SMMU for Shikra SoC
-      https://git.kernel.org/iommu/c/20b4f0f120ea
+[1/1] iommu/qcom: Remove sysfs device on probe failure path
+      https://git.kernel.org/iommu/c/c579f18e7959
 
 Cheers,
 -- 
