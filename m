@@ -4,109 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80CEEC4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F437C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Content-Transfer-Encoding:Mime-Version:From:To:Cc:Subject:Message-Id:Date:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fzc7jLJOwKFZM50nrRR9HIoeoA67mID89Z/e+R2bL4o=; b=1FmqZRw6xfAPkZTuLI1VQOOFww
-	NoODqdU6jspYzlBDE85rEXoWJPDp3oL8VQ7dsJ3owf0g4Qkd601/EulnPrf1OpxTydBcy1bEkg3mv
-	l6/BhuM8eBv+FsNyd4N1kX/xKiVkqzODN1f1FFffSs6Tm2sQA8N6YLYtxtn5s3xYLqfKKypb5Kjx0
-	I5eGF2yx4BeXrUewD2yRbVKbzJ/QTpXNTVxpEbcVrMMkI7MVcO9k8Kcup46CHifSeHV38qhueN41I
-	AslYxYotVtNUFGFBHRvuTo8XYqLBlQLfw+kJhoX1+7NneLYc38grHokjuP2ASp4VgWgPX3CeFYVVf
-	yWB25seQ==;
+	bh=CVMvqT2UQr1txHFCMAIcwU7vZqub1auWVL1fnTiKFZE=; b=IfccrStoLdIEPUwaZsGq/N5Kw6
+	J5bA0KicyiUv3GsyHYmNvBGJP042UZ42VU/g+9LuHRqv/+58qW5QfzCTtxRnxuy1S82nMEtJtX/y/
+	92yvJG5mKbT8tFQd6TxZsq5/8t1dpcXan2e0pRTsLsjtV26rLL+kTFmwXOfhptHhMIhahRM/3LPn+
+	YX/HjbeMpHOPOcIQaB47Hc/sT9KQa5+Rut5Nw/bA4AZtWRM9JXRsdJtoOc9rv6q/Dx6VMvNtpWzyR
+	RrLODEHJJof9uG4JNxfPKDr5apNVFOjpcddlqe54eQwJ6AWkllMvwcf92WeStmtwwhW8Ln6xzDCVS
+	9DbQkxOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSuC-0000000BKwU-20qm;
-	Wed, 22 Jul 2026 09:06:20 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1wmSz4-0000000BLkr-3UW5;
+	Wed, 22 Jul 2026 09:11:22 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSuA-0000000BKvL-177d
+	id 1wmSz2-0000000BLk5-0gbe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:06:19 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-81ee41aaec1so63937257b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 02:06:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784711177; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DhAFAoZf1EdAZ8N2jDHC7+U/ipOqetSPrQPb/Ul/bctcOxsK8ns841aMB/8c4P/B+W
-         COvDa8PrrIrXEtG8AwULxDGn0COLpmdF7bXJjs98kQNN9eaHln63lDwQqRmcLZo8iyfB
-         deIGN+uqFsJH4uB3j6QGjp0zdP6a0ILseuv1LSuEnt05iszs0qhaWflKpI90lkYbNVLf
-         yrhrvQA6gxFRmJC1QPLSMtyV/nlWX87mZ2ju+ZsVyzVUOWolw0XCzL6DzHVs8Ysr0ahZ
-         mSj8OMA16gmeh+9L4P8mpaxQcWyXABgmLjqpa3AvVr4mF+4UTnm3HvJD32HKVjFvXK8T
-         0C+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Fzc7jLJOwKFZM50nrRR9HIoeoA67mID89Z/e+R2bL4o=;
-        fh=vHVI+DP0t5xCl/spbWhyeijT46eBukwfsWxvj2Q2RDo=;
-        b=iDMFkisyrI8ZjFtqbe/ghbRdiknFJVKCiQt0rzCpSUehMEcBLoJM8Rr4lNn9bMOxlm
-         IHwt3UHkZJIhSqKPmPO1Wpp2E2F0ghV9bPA0ThQhd/i9fuO1aenUd3IGaFka2YxTOi9U
-         mcpW3MAsS7v57mIG9WiU8oYWJQwCfm/eM9t5KIimrdfz56Sm/S/7vj/dUSat3tnkAR4J
-         X9N6Mcrwl9CjLa6ZDUUnST80TIqbWEJrA41M/L++dYZm8GNfh9uzMs5GnkR/lTQnk0KZ
-         lI9HdRWIyX9jMFZtlDHQ8qmTlb43AwnUwwFvcjLFF0HTqKSvdmbNYULE2qQNH5iHyDMH
-         uXZg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784711177; x=1785315977; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Fzc7jLJOwKFZM50nrRR9HIoeoA67mID89Z/e+R2bL4o=;
-        b=DmPbVlCbzcbMkl+ge8OusYFCLCoztYqGQoy+fQ4C+P3LJ3qoCjVMoF1L+O5HJvgnPA
-         n9OxKN502zjLruuyM90O2Bf2VhUU123TLcuzgKFnqS3xpa/SlTtzKCP8oGqiO/HS3HIa
-         SkTz+2OqJqduumyr/GZL9CxL3tH/2umz5eB1w=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784711177; x=1785315977;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Fzc7jLJOwKFZM50nrRR9HIoeoA67mID89Z/e+R2bL4o=;
-        b=ESLzCfKGOzyzGjR4SN3U3BId40nv0AzZh2Fs5HCb75YBgUpPdIU+BslGZyCQYyCiLt
-         c2MIdj47c69W2wla+ULtJBHkZuau+BqwaJ5aOV440llw65e95laS3Ylcx0EOPVictdsi
-         apf9ojEHXjOZXDhbikc97awrXdulwaDo3putx7PuESocPbSh1ThM3dCHyK4Xu6y/teUm
-         iu87wV6YOAV1/5Gs23xaPIGUlkP+SXjhsWQDg+R57UV23QS9lfcqKEwt90/E54RoPmJd
-         Opw12ONbSGVh1sLhqt5kCqUWJTAndNaq70aig8T94lYytEnraIHLYBM9VA07+geYeRBS
-         4N+w==
-X-Forwarded-Encrypted: i=1; AHgh+RoYgsgwtFMSDLEkBeuI42EI0gL2v4HrmXORvrfH+2No8LUwNGV+yKr8zdCg4WA5/MpmYaSBo54d9wBEWbRh+GOW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjoHOh5vDHsTMIVa2mev/EuCb5Y48aUOrzDqwRagJGCrJ3jl7v
-	AKOT/gjSG+tQro23JLSTba222/Q2eb5v3r3qcwWTynEN6Mck98TbUiiLpDr6H+lN4XjELFYCJ2W
-	sRRIcUzZcbEBqGXFfvHksHRgPaywB3JbVUqSwx1cryf2OOBwFc1TycA==
-X-Gm-Gg: AR+sD13MlZmh5DbYRNMhnfEDxpU63wb/W84wIFwd+vYZSNM0g2HMLGXyieM/OOL0Keo
-	ius8caaaTEucuaTw4ORf5IuOfbrVnHBE+c+BxCgDM5iotKx7ITF41PKP5TzFcFPcf3LSuePMqui
-	dcOEhilR8ug3bzuqUY1my2jzsgRdk8ufPRcAFqs1G9qJQS9k0oP9fgybmP5x0I/1m35iFwO9+lD
-	YfG7NwRpzTQ4vmmH6w7GZO7iTKQ4Lp/qx7hg5RC/iz5d5zUpiuodWUWAKXf/XQK+JprJjBXiDWv
-	dh+4gHfCWF4WOT8m
-X-Received: by 2002:a05:690c:6c8d:b0:81e:6d03:40cf with SMTP id
- 00721157ae682-81ef26ae40bmr73897997b3.54.1784711177267; Wed, 22 Jul 2026
- 02:06:17 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260721075226.2347933-1-wenst@chromium.org> <20260721075226.2347933-2-wenst@chromium.org>
- <al9BwHbG5IX0mIem@ashevche-desk.local>
-In-Reply-To: <al9BwHbG5IX0mIem@ashevche-desk.local>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 22 Jul 2026 17:06:06 +0800
-X-Gm-Features: AUfX_mw54F9BihKerjVbrM-HX0v6EAfSTuk3G7vvEfoFi_SJki_3pQoN0j1OPTM
-Message-ID: <CAGXv+5HXtSovddkws58oUfUcucC3GKqTt-GgvXs27ALFjyFRrw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/9] regulator: core: Add "enable and wait" functions
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
-	Andi Shyti <andi.shyti@kernel.org>, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 22 Jul 2026 09:11:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 1C60A1A1144;
+	Wed, 22 Jul 2026 09:11:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DF2FE60388;
+	Wed, 22 Jul 2026 09:11:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FAFF11BD0ADC;
+	Wed, 22 Jul 2026 11:11:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784711473; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=CVMvqT2UQr1txHFCMAIcwU7vZqub1auWVL1fnTiKFZE=;
+	b=z2mUyKFafy0l5dpLU+0DGap45Kxpu05bFTufLn+AejhY8o/GNw+bsMIGqsZ+wiE4M52cUb
+	tJ2kf9T2YiRxOqhr2rWzY6HX0HaZTrXAkwRwYkiIApKjq6ixTgX+STS1gkAJGd5e/6BVDK
+	GToI/hX/BbykAokOk8TWHpHPFG8V07FtMaqxnbrhnkb/T4rB9QWpMae8QNrsMiy7H/LA64
+	CBxKwBYvzKbIdeqwP++7cQtAxs+z3x9pM+K4I1TBW6Z2Gjrq8TuQOPUI1fgOKPRLrxeDV9
+	sIjNA1KMA98U1kfDDJO4VYRUgzaOUz1xNXwlEr4Ixh4tdw5zVeqvwFdXq3uDLw==
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 22 Jul 2026 11:10:53 +0200
+Message-Id: <DK4ZERBN7IS2.2T8E05JZI0IY8@bootlin.com>
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code
+ creating the connector to a subfunction
+Cc: "Laurent Pinchart" <laurent.pinchart@ideasonboard.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
+ <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
+ <jagan@amarulasolutions.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>, "Stefan Agner"
+ <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
+ <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+X-Mailer: aerc 0.21.0
+References: <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
+ <20260626-polite-hairy-perch-25e1aa@houat>
+ <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+ <20260626-classy-nightingale-of-romance-1cacad@houat>
+ <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+ <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
+ <20260707123205.GB211515@killaraus.ideasonboard.com>
+ <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
+ <20260716-stoic-muskox-from-asgard-c12b65@houat>
+ <DK0QXI6KF7PC.3DJW38KB8MJED@bootlin.com>
+ <20260720-eel-of-immense-triumph-3e24e0@penduick>
+In-Reply-To: <20260720-eel-of-immense-triumph-3e24e0@penduick>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_020618_318559_D12A0CCE 
-X-CRM114-Status: GOOD (  29.20  )
+X-CRM114-CacheID: sfid-20260722_021120_352955_7815390B 
+X-CRM114-Status: GOOD (  41.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,95 +101,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 5:54=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
->
-> On Tue, Jul 21, 2026 at 03:52:15PM +0800, Chen-Yu Tsai wrote:
-> > In device power sequencing and initialization use cases, it is common
-> > for the driver to enable the regulator and then wait for a certain
-> > period of time to pass before continuing.
-> >
-> > In cases where the regulator supply is always on, or has been turned on
-> > or left on by another consumer, the driver could shorten the delay or
-> > skip it altogether, provided that enough time has already passed since
-> > the regulator was _actually_ turned on.
-> >
-> > Tracking this requires support from the regulator core. Introduce a
-> > "last turned on" timestamp field to the regulator device, and "enable
-> > and wait" functions to the single and bulk regulator consumer APIs.
-> > The existing "enable without wait" functions are then converted to
-> > macros that expand to the new functions.
-> >
-> > One case in particular is not optimized yet: a regulator left on either
-> > by hardware reset default or by the bootloader, but does not have the
-> > "regulator-boot-on" property set. As the enable timestamp only gets
-> > updated when enabled by a consumer or by the core, the first enablement
-> > always needs to wait.
->
-> ...
->
-> > -/* locks held by regulator_enable() */
-> > -static int _regulator_enable(struct regulator *regulator)
-> > +/* locks held by regulator_enable_and_wait() */
-> > +static int _regulator_enable_and_wait(struct regulator *regulator, uns=
-igned int wait_us)
->
-> Hmm...
-> This comment a bit confusing, perhaps adding some lockdep annotations hel=
-p?
->
-> ...
+Hi Maxime,
 
-It's already there, just outside the diff context, the first line after
-the variable declarations:
-
-        lockdep_assert_held_once(&rdev->mutex.base);
-
-> > +     if (wait_us) {
-> > +             ktime_t end =3D ktime_add_us(rdev->last_on, wait_us);
-> > +             s64 remaining =3D ktime_us_delta(end, ktime_get_boottime(=
-));
-> > +
-> > +             if (remaining > 0)
-> > +                     fsleep(remaining);
+On Mon Jul 20, 2026 at 4:28 PM CEST, Maxime Ripard wrote:
+> On Fri, Jul 17, 2026 at 11:41:33AM +0200, Luca Ceresoli wrote:
+>> Hi Maxime,
+>>
+>> On Thu Jul 16, 2026 at 3:22 PM CEST, Maxime Ripard wrote:
+>> > On Thu, Jul 16, 2026 at 10:37:24AM +0200, Luca Ceresoli wrote:
+>> >> >> > Now if the bridges start doing it themselves we should go back t=
+o
+>> >> >> > those encoder drivers and ditch all the drm_bridge_connector fro=
+m
+>> >> >> > there?
+>> >> >> >
+>> >> >> > I must be missing something. Can you elaborate on this?
+>> >> >>
+>> >> >> drm_bridge_connectors bring together a (complete) bridge chain and=
+ a
+>> >> >> connector. If you don't have either anymore, then we shouldn't kee=
+p it
+>> >> >> around.
+>> >> >>
+>> >> >> What I was suggesting before was only a suggestion. I guess we cou=
+ld
+>> >> >> also make the encoder own the hotplug handling code and create the
+>> >> >> drm_bridge_connector when the chain is complete, and remove it whe=
+n it's
+>> >> >> no longer the case.
+>> >> >
+>> >> > That's an interesting option. We don't have to keep drm_bridge_conn=
+ector
+>> >> > in its current form, but I don't think we should go back to individ=
+ual
+>> >> > bridge driver creating connectors, especially now that we have brid=
+ge
+>> >> > chains where the connector ops are implemented collectively by mult=
+iple
+>> >> > bridges.
+>> >>
+>> >> I definitely agree we don't want to add burden back on the encoder.
+>> >
+>> > I don't think Laurent mentioned the encoder anywhere.
+>>
+>> Ah, indeed, sorry! However, I think both the bridges and the encoder
+>> drivers should equally have the minimum burden on them.
+>>
+>> Right now the recommended practice is:
+>>
+>>  - bridges do not create connectors (thanks to DRM_BRIDGE_ATTACH_NO_CONN=
+ECTOR)
+>>  - encoders just call drm_bridge_connector_init(), which does all the
+>>    common operations to populate a suitable drm_connector
+>>
+>> So all common operations involved in connector creation and bridge chain
+>> analysis are implemented in common code, not per-bridge or
+>> per-encoder. That's good.
 >
-> This style is discouraged as it makes maintenance harder. Better
+> I agree, but another way to phrase it is: bridges aren't aware of how
+> the chain is setup, the encoder ties it all together.
 >
->                 s64 remaining;
+>> >> >> We can discuss alternatives too. But either way, we shouldn't have=
+ it
+>> >> >> stick around.
+>> >>
+>> >> Bottom line, I roughly see three ideas mentioned:
+>> >>
+>> >>  1. (this series) extend the drm_bridge_connector to create the
+>> >>     drm_connector based on bridge hotplug events [+rename it]
+>> >>  2. - keep the drm_bridge_connector (mostly) as is
+>> >>     - let each encoder driver add/remove it based on bridge hotplug e=
+vents
+>> >>     =3D> more burden on encoder drivers -> no
+>> >
+>> > Can you motivate that with *any* reason? Because I really feel like it=
+'s
+>> > the best solution going forward.
+>>
+>> My understanding of your idea (maybe a bit overstressed just to ensure i=
+t's
+>> clear) is that:
+>>
+>>  - the drm_bridge_connector should stay (almost) unmodified
 >
->                 remaining =3D ktime_us_delta(end, ktime_get_boottime());
->                 if (remaining > 0)
->                         fsleep(remaining);
+> Yes, and bridges should ideally remain as lightly affected as possible.
 
-Ack. FYI this will be rewritten based on concerns from Sashiko. The
-wait will be pushed over to regulator_enable(), i.e. outside the scope
-of the lock.
+I fully agree.
 
-> > +     }
+> We have probably around 100 bridge drivers at the moment, having some
+> kind of opt-in to enable hotplug would mean that we can't expect hotplug
+> to work on a new platform, which should be a last resort.
+
+A few changes to each bridge wanting to support hotplug will unavoidably be
+needed. The .get_next_bridge callback we mentioned in the discussion for
+patch 30 at least. I'm keeping any other changes, if any, to a minimum.
+
+>>  - there should be no new "manager" component (not sure this is actually
+>>    your opinion, can you comment on this specifically?)
+>>  - every encoder driver would have to:
+>>    - register to receive hotplug events
+>>    - when receiving one such event, find out whether the hardware is
+>>      complete or not (by calling drm_bridge_connector_pipeline_is_comple=
+te()
+>>      or so)
+>>    - create/destroy a drm_bridge_connector based on hotplug events
+>>
+>> Is this somewhat close to what you have in mind?
 >
-> ...
+> Yes. To make things a bit more precise, we need two things: the encoder
+> to put the chain together, and "something" (that you used to call
+> manager) to react to hotplug events and handle the bridge
+> detach/destruction, connector creation/destruction, etc and should stick
+> around when we enable hotplug.
 >
-> >       /* private: Internal use */
-> >       int ret;
-> > +     unsigned int wait_us;
+> What I'm suggesting is that, since the encoder already owns and creates
+> the chain in the first place, and is there forever, it's only natural
+> for the encoder to be that "something", and we don't necessarily mean
+> creating a new entity or piece of code. A bunch of helpers and hooks a
+> probably going to be enough.
+
+That's the idea I had reached too, yes. Except the "bunch of helpers and
+hooks" could be perhaps as small as one single helper function or little
+more.
+
+> This is where the opt-in part should be, and I'd like, if possible, for
+> hotplug-enabled encoders to work with any bridge.
 >
-> If you want to make it more private (the above is only for kernel-doc) ad=
-d
-> __private annotation that will affect how sparse will check this.
-
-Nice. Will add that.
-
-> ...
+>> To me the best solution to add hotplug support is that encoder drivers
+>> replace the single drm_bridge_connector_init() call with a single call t=
+o
+>> something new (let's call it a hotplug manager), which takes care of all
+>> the common aspects: registering to receive bridge hotplug events, findin=
+g
+>> out whether the hardware pipeline is complete or not, and add/remove the
+>> drm_connector based on that.
+>>
+>> In other words, the changes on encoder drivers would be similar to patch
+>> 37. In a nutshell:
+>>
+>>   -	connector =3D drm_bridge_connector_init(lcdif->drm, encoder);
+>>   +	drm_hotplug_manager =3D drm_hotplug_manager_init(lcdif->drm, encoder=
+);
+>>
+>> All the hotplug logic would be in common code, and any maintenance and
+>> future improvements to it would stay in a single place, benefitting all
+>> encoders at once.
+>>
+>> What do you think about this?
 >
-> > -int __must_check regulator_enable(struct regulator *regulator);
-> > +int __must_check regulator_enable_and_wait(struct regulator *regulator=
-, unsigned int ms);
->
-> ms or us? Please, double check all units.
+> From a high level point-of-view, I think we mostly agree.
 
-Yeah this should be us.
+Good.
 
+> We can argue
+> on the name, and if we should merge it with something else
+> (drm_encoder_init, drm_bridge_attach, something else?) but that's the
+> path forward I think.
 
-Thanks
-ChenYu
+OK, let's see what I can come up with in v2.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
