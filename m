@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BE2C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75EBAC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OoWM7pBOqa18SUex0sYevxYDNDoEu6I4WKgYnrqvYmU=; b=atxXudFAAVvTvj
-	fG7aUMs7sgRogNItsx9vRnZR+87VCmI+qACBEFT7VPiMM+kWB579UIv4SzrWfZu0DIIBiCThW+Ifp
-	q1Ihb1eccWE+XEBhDuqI2ZveKICSwnXzoDWubAEnmqjqs+h8AvNL277ysVbTzriwW1ge+OwZ2Y3dI
-	RtvQ2hSyntDyOeGsg0BipvPR1cg6ZkfkZ74+gMjwjJIn1lzn6jVNvmBcndXxvoz2Z5nfsJtJKsrDd
-	wjRssIzG5MbR9v+KDlQ95YqPo2Rt3wVT2mQQEPFvE1zumYmM+DO8VjKx/Rhgg9eSpfI1DE2jxeDQY
-	fYqNBPlI3u74DPXo7iXQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1UFXFpEyhH0o78ophoiUhGPEsgEAqoMWoguEg8fSnYs=; b=Z7q7KuLTeXWfbS0f3EWnlyla5f
+	57c10BAcMXnd2UaCx2rGhNCCsSeyJzJfH49kPtXzZdTj/celgbKRwU/ClOe3xb7YLYZsbn/IQ5ryL
+	FSDETv4UfvUmEiDVuSC79taYo7oqUAMoOGS++QdCO7L9jwIgempU9QZSb08KfdBOzYPhkJb+h7jjd
+	OU0u5GVl2utM2JkDlAu32F9U2v/uhcj7DZHIHDHwuZ4Wqu8BRxw8LTT49wQnlKf/tZSzGsnf6bdC7
+	loyz9Uj5z/IUvOvh+/a/kpSq8a98ZkVMlXpn+E+IU12F2S5q+Qk/uZiidXY2+p1emyGgkCWJX5Np9
+	700sj+Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXeq-0000000Bzw3-0zhX;
-	Wed, 22 Jul 2026 14:10:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXeo-0000000Bzvc-0Vyo
+	id 1wmXfG-0000000Bzzt-1X0q;
+	Wed, 22 Jul 2026 14:11:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmXfF-0000000Bzze-25ni
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 14:10:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3977C1595;
-	Wed, 22 Jul 2026 07:10:40 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD39A3F59E;
-	Wed, 22 Jul 2026 07:10:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784729444; bh=S3qDyxjCgWx/3CINJwgv8rZNPBp4TE92ksnKh5kY3JI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=n97dv15VjEL6RFb+LRN5eVaXpOofHDU/53KyfAPBDSHnYb1lb8tX5roJQUHVzOL1v
-	 M56fe/2IaGeYAE15vKTgU5rEDcxcz6IpCFZthadChhoLTIFTiwldxIO+5Kgutdlrof
-	 w/PvS1DkWn8GICbF8q7T0YE2eXAR+UKpBCvTG3vM=
-Message-ID: <343e3814-4da5-4d88-8bca-77d40089665a@arm.com>
-Date: Wed, 22 Jul 2026 15:10:40 +0100
+	Wed, 22 Jul 2026 14:11:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 143A543EDB
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 14:11:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06CB71F0155A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 14:11:13 +0000 (UTC)
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39c953950dfso96882711fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 07:11:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro8bdYAAKsJg5PB3g+LOzOmd9GKMxdYRLtFVk2Vp0GCxntgdWriZgrPkyS0vC4Kimf6J5RlY2nDkjAAJx9So66i@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKpKx7RoPrOVFuogMeiwOd+3VAuLskxp+U/cVnL0wElFynpjwN
+	I4qN7L+4IZxeaWQiQcd/bEg0RvgshUYy/ASRuCVAXh+DxCDoEaunw5ZMEVFglHnVM2sqbmFd7w8
+	GgFeGszxxBFC+bk8SBeowoawigCG8d9FFgzALIsH04A==
+X-Received: by 2002:a05:651c:1989:b0:39d:560a:fd9 with SMTP id
+ 38308e7fff4ca-39eb27bfd05mr51615621fa.18.1784729471362; Wed, 22 Jul 2026
+ 07:11:11 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 22 Jul 2026 07:11:10 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 22 Jul 2026 07:11:10 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <amC7_M-HjVZ3sQuT@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 18/36] arm64: gicv3: remove GIC_PRIO_PSR_I_SET
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-19-vladimir.murzin@arm.com>
- <2b14daf3-576f-4b37-b233-e0e1e2c76f2d@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <2b14daf3-576f-4b37-b233-e0e1e2c76f2d@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_071046_258737_B6D177C0 
-X-CRM114-Status: GOOD (  22.07  )
+References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
+ <20260721-qcom-qce-cmd-descr-v23-6-1be02deffda9@oss.qualcomm.com>
+ <20260721134853.2B2401F000E9@smtp.kernel.org> <amCGXUUd4VmuQRGD@linaro.org>
+ <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com> <amC7_M-HjVZ3sQuT@linaro.org>
+Date: Wed, 22 Jul 2026 07:11:10 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MdnSyPmbK0skMx686=wSe52nnuWgCNJ0uSoKs_=HyAq-Q@mail.gmail.com>
+X-Gm-Features: AUfX_mzDtm5YjAae_ksl_tQdx3fXsW-UWLgM9ZMbUilUXBQ6QQqNPU4983jvSLM
+Message-ID: <CAMRc=MdnSyPmbK0skMx686=wSe52nnuWgCNJ0uSoKs_=HyAq-Q@mail.gmail.com>
+Subject: Re: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking
+To: Stephan Gerhold <stephan.gerhold@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
+	Frank Li <Frank.Li@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	sashiko-reviews@lists.linux.dev, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,104 +84,120 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/22/26 09:20, Jinjie Ruan wrote:
-> 
-> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
->> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+On Wed, 22 Jul 2026 14:47:56 +0200, Stephan Gerhold
+<stephan.gerhold@linaro.org> said:
+> On Wed, Jul 22, 2026 at 02:34:52AM -0700, Bartosz Golaszewski wrote:
+>> On Wed, 22 Jul 2026 10:59:09 +0200, Stephan Gerhold
+>> <stephan.gerhold@linaro.org> said:
+>> > On Tue, Jul 21, 2026 at 01:48:52PM +0000, sashiko-bot@kernel.org wrote:
+>> >> Thank you for your contribution! Sashiko AI review found 5 potential issue(s) to consider:
+>> >> - [High] State leak causing hardware misconfiguration on channel reuse due to uncleared `lock_scratchpad_addr` and hardcoded direction.
+>> >> - [High] Channel state corruption when `bam_slave_config` fails validation.
+>> >> - [High] Infinite BH workqueue loop and unratelimited log flood on memory allocation failure.
+>> >> - [High] DMA API violation: `lock_ce` buffer shares a cacheline with frequently CPU-modified struct members.
+>> >> - [Low] Unused assignment of `hdesc` in IRQ handler.
+>> >> --
+>> >>
+>> >> --- Patch [6]: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking ---
+>> >> commit 8b44c5e4935cbb61832adb3262df00b3b606a283
+>> >> Author: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+>> >>
+>> >> dmaengine: qcom: bam_dma: add support for BAM locking
+>> >>
+>> >> This commit adds support for BAM pipe locking by prepending and appending
+>> >> dummy command descriptors with LOCK/UNLOCK bits when starting DMA on a TX
+>> >> channel. It uses a peripheral-local scratchpad address communicated via slave
+>> >> config for the dummy writes.
+>> >>
+>> >> > diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+>> >> > index f3e713a5259c2..411c60c4433e2 100644
+>> >> > --- a/drivers/dma/qcom/bam_dma.c
+>> >> > +++ b/drivers/dma/qcom/bam_dma.c
+>> [...]
+>> >> [ ... ]
+>> >> > @@ -1064,6 +1197,7 @@ static void bam_start_dma(struct bam_chan *bchan)
+>> >> >
+>> >> >  	lockdep_assert_held(&bchan->vc.lock);
+>> >> >
+>> >> > +	vd = vchan_next_desc(&bchan->vc);
+>> >> >  	if (!vd)
+>> >> >  		return;
+>> >> >
+>> >> > @@ -1072,6 +1206,24 @@ static void bam_start_dma(struct bam_chan *bchan)
+>> >> >  		return;
+>> >> >
+>> >> >  	while (vd && !IS_BUSY(bchan)) {
+>> >> > +		/*
+>> >> > +		 * Open a LOCK/UNLOCK bracket around each fresh sequence.
+>> >> > +		 * Sentinels inserted by bam_setup_pipe_lock() are skipped: they
+>> >> > +		 * already have bam_locked set and must not trigger a second pair.
+>> >> > +		 */
+>> >> > +		if (!bchan->bam_locked) {
+>> >> > +			ret = bam_setup_pipe_lock(bchan);
+>> >> > +			if (ret) {
+>> >> > +				dev_err_ratelimited(bdev->dev,
+>> >> > +					"failed to setup the pipe lock, deferring transfer: %d\n",
+>> >> > +					ret);
+>> >> > +				queue_work(system_bh_highpri_wq, &bdev->work);
+>> >> > +				break;
+>> >> > +			}
+>> >>
+>> >> [Severity: High]
+>> >> Does requeuing to a high-priority BH workqueue upon ENOMEM cause CPU
+>> >> starvation? Because system_bh_highpri_wq executes in softirq context,
+>> >> requeuing immediately without sleeping prevents the memory reclaim needed
+>> >> to resolve the GFP_NOWAIT failure, leading to an infinite spin loop.
+>> >>
+>> >
+>> > It looks like my suggestion to queue_work() again in the error path of
+>> > bam_start_dma() wasn't great if we end up causing an infinite spin loop.
+>> > We do need to retry somehow or report an error though, I don't think
+>> > aborting and leaving the desccriptors completely unhandled is an option
+>> > either... :(
+>> >
+>> > One option would be to try to avoid the allocation and write the lock
+>> > descriptors directly into the FIFO, but this will probably get really
+>> > messy as well, since you would need to carefully modify the FIFO
+>> > management in several functions ...
+>> >
+>> > I don't have a good spontaenous idea how to solve this right now. :/
+>> >
 >>
->> `GIC_PRIO_PSR_I_SET` was used to keep track of sections of the kernel
->> where interrupts always need to reach the CPU and could not be masked
-> Did I miss something? I have not seen this usage of GIC_PRIO_PSR_I_SET.
-> In the kernel code I have observed, the use of GIC_PRIO_PSR_I_SET is
-> always because the interrupt has already been masked by the DAIF.I bit.
-> 
-
-It attempts to describe the semantics of GIC_PRIO_PSR_I_SET. We
-use it in cases where GIC_PRIO_IRQOFF is not possible. Instead,
-we set DAIF.I and program PMR to GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET.
-
-GIC_PRIO_PSR_I_SET lets us distinguish such cases from plain
-GIC_PRIO_IRQON
-
->> via interrupt priorities, or DAIF bypassed the status of the PMR.
+>> Pre-allocate the lock descriptors (if needed) in bam_prep_slave_sg()? As in:
+>> call bam_make_lock_desc() in bam_prep_slave_sg(), store the descriptors and
+>> make bam_setup_pipe_lock() return void as it will no longer be possible for it
+>> to fail? It would just grab the preallocated descriptors.
 >>
->> This flag unmasked IRQs when OR'd to GIC_PRIO_IRQOFF and ensured that
-> Did I miss something? I didn't see the code related to the OR'd to
-> GIC_PRIO_IRQOFF.
-> 
+>
+> I considered suggesting this, but how do you know which descriptor needs
+> it in bam_prep_slave_sg()? It's just the allocation, afaict it doesn't
+> tell you anything about the order in which they will be submitted. :/
+>
+> We could always allocate the extra lock descriptors and waste the extra
+> memory for the descriptors that won't need it. That should work, but is
+> also not great ...
+>
 
-It describes concept of GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET, but wrongly
-refers to GIC_PRIO_IRQOFF. I'll fix that.
+Oh, I was thinking about having pointers to lock/unlock descriptors in struct
+bam_chan and to just grab them in bam_setup_pipe_lock() when needed and then
+next time we enter bam_slave_prep_sg(), we see we consumed them so let's
+re-allocate them. And of course: don't do it at all if pipe locking is not
+supported.
 
-> otherwise, LGTM
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
-> 
+Bartosz
 
-Thanks
-Vladimir
-
->> that IRQs were seen as disabled by the `local_irqs_...` functions,
->> as they would only check the PMR if pseudo-NMIs were enabled.
->>
->> This is not needed anymore as our IRQ masking APIs now know how to handle
->> interrupt priorities properly and in parallel with DAIF : remove it.
->>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/include/asm/ptrace.h         | 2 --
->>  include/linux/irqchip/arm-gic-v3-prio.h | 8 --------
->>  2 files changed, 10 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
->> index 192eb97cd50b..c630165882e8 100644
->> --- a/arch/arm64/include/asm/ptrace.h
->> +++ b/arch/arm64/include/asm/ptrace.h
->> @@ -24,8 +24,6 @@
->>  #define GIC_PRIO_IRQON		GICV3_PRIO_UNMASKED
->>  #define GIC_PRIO_IRQOFF		GICV3_PRIO_IRQ
->>  
->> -#define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
->> -
->>  /* Additional SPSR bits not exposed in the UABI */
->>  #define PSR_MODE_THREAD_BIT	(1 << 0)
->>  #define PSR_IL_BIT		(1 << 20)
->> diff --git a/include/linux/irqchip/arm-gic-v3-prio.h b/include/linux/irqchip/arm-gic-v3-prio.h
->> index 44157c9abb78..464bf1d29453 100644
->> --- a/include/linux/irqchip/arm-gic-v3-prio.h
->> +++ b/include/linux/irqchip/arm-gic-v3-prio.h
->> @@ -20,17 +20,11 @@
->>   * GICV3_PRIO_NMI is the PMR view of the priority of pseudo-NMIs. This can be
->>   * written to the PMR to mask pseudo-NMIs.
->>   *
->> - * On arm64 some code sections either automatically switch back to PSR.I or
->> - * explicitly require to not use priority masking. If bit GICV3_PRIO_PSR_I_SET
->> - * is included in the priority mask, it indicates that PSR.I should be set and
->> - * interrupt disabling temporarily does not rely on IRQ priorities.
->>   */
->>  #define GICV3_PRIO_UNMASKED	0xe0
->>  #define GICV3_PRIO_IRQ		0xc0
->>  #define GICV3_PRIO_NMI		0x80
->>  
->> -#define GICV3_PRIO_PSR_I_SET	(1 << 4)
->> -
->>  #ifndef __ASSEMBLER__
->>  
->>  #define __gicv3_prio_to_ns(p)	(0xff & ((p) << 1))
->> @@ -45,8 +39,6 @@ static_assert(__gicv3_prio_valid_ns(GICV3_PRIO_IRQ));
->>  static_assert(GICV3_PRIO_NMI < GICV3_PRIO_IRQ);
->>  static_assert(GICV3_PRIO_IRQ < GICV3_PRIO_UNMASKED);
->>  
->> -static_assert(GICV3_PRIO_IRQ < (GICV3_PRIO_IRQ | GICV3_PRIO_PSR_I_SET));
->> -
->>  #endif /* __ASSEMBLER */
->>  
->>  #endif /* __LINUX_IRQCHIP_ARM_GIC_V3_PRIO_H */
-> 
-
+> I was hammering at the code a bit earlier to try the "write the lock
+> descriptors directly into the FIFO" approach. It has some advantages,
+> but also makes the FIFO management quite a bit trickier, hard to get it
+> right without full concentration. :')
+>
+> I _think_ it could potentially work, but if you have a simpler idea I'm
+> also happy to throw away the mess I started. :-)
+>
+> Thanks,
+> Stephan
+>
 
