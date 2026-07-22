@@ -4,161 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DA9C44533
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDA1C44533
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/sjeRpn9BssHS0FCtGdQxM5xUeDnRf/+QPldCey/10=; b=j9UtQ8Ms6konhhakpRqohGAA3r
-	HcesTO1AN0j21xQ696DVSIZfc9gCIGZzv6iF+CFk/5mzLxaryhdBoUN8bNpj+lEbpAgfCFFD0b2Pl
-	pVQ8VxoCmZD3LEHqijRiiQ4qRSPZFYRbrPchbD8wDmYnBWDX1EJI80+vvIl1foMxBdN7LD2QN8GVM
-	xnx1Xwi6U3HJgGsIXqPw6nZN/kMpA3abJM30YkvEcK5QbjTu+WE9Uk/ThSTlEQZkdAvZ3rpXhJI8L
-	YrfgR7iKXA5xsTJxl7MocwygS33uYdnBp2c0+MC6/7HYgUE495creo2gi9W5eg/DvK2hW9b2WB6He
-	5ZrO5KSQ==;
+	bh=ME4lepCTDaiBdE3UAEs86uArPM75PRdP2/SxaEDo12E=; b=ob/ct9nSY2lF8uWhR3sMll06SW
+	JlIkYkZwqlvWpTc+vO43uCH3Uhp/iU00/SWkP7THlEx8eBFkLl6aK59iO0eHHcX9Ugf1JdDCf8sV4
+	xqXDFNNbS6uIDiKNR3IiSN1TWYILYh0Dec+xHtOV/AIHqwV1P3FyqgVpM/t8/gG9QvMJuH200Xsag
+	MBYXS5OUXthkMIyt0AlmV2obIhQtLh0ZSGaBcqubQXPKI0odqfvpJsPTgUurTk5r5hodRyun6BjLa
+	WpCB4cihVeQ5i4ZozAJWUjybFRu3YFluwi1tI7Eawn4CwoY6a3QDW9LjdLbrsAkg5hPxadSSS93cZ
+	rYMEJ65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRZ9-0000000B6B2-24qG;
-	Wed, 22 Jul 2026 07:40:31 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmRZg-0000000B6IZ-0u8N;
+	Wed, 22 Jul 2026 07:41:04 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRZ5-0000000B6AP-39Lt
+	id 1wmRZc-0000000B6H1-2QF5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:40:28 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66M53lu03767875
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 07:40:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=T/sjeRpn9BssHS0FCtGdQxM5
-	xUeDnRf/+QPldCey/10=; b=a6AiptuvNdJiTbm64FRiiwTW4/xZa1RuSpl6OVUl
-	4QPetK5kihgfJFPFKj7iMnQV4q3npN1dTs81MkXarbti4nzalNQJQ+vnJx3+d5ja
-	Pqbt5OQOpJup6Z/x8DgC9EPu21QubXNJKDRBnwoCcUOmh434Ow/ZlIhYH8EP5OYM
-	UkHorDzdJUt0fjixZJI5/TfAViZG+fUuCCMMpF+uPrRpsoEa55J4MPAw+4d9l0Ac
-	H67NO3iFRdrZvIKQk7ng8oqe2ShZ3PxrsOpSjC5eOuxyyvaxUuQG+qiOhYL4mpzg
-	KEiZJDbfGXRkkJsFq0iaxNnk9u+Srd4hjO00MJ/PmUtOuQ==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fjnu4rwwg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 07:40:27 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-37fca5f21b1so5641514a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 00:40:26 -0700 (PDT)
+	Wed, 22 Jul 2026 07:41:02 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-495590dde14so32303395e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 00:40:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784706026; x=1785310826; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=T/sjeRpn9BssHS0FCtGdQxM5xUeDnRf/+QPldCey/10=;
-        b=Gwg8SRVNYvvGBHzJXBFwVENjZieVZeWulNCALtrrU0Zk6W3qPo93r2bsgct7FX1NK6
-         y7Mq7tfurVsf3uuHU1j5bgAj9btwRf9qahB9PqjrT6ZiD1abYxSsrQamBQyi1VNoiS2M
-         CAum/f81opTqsIZYKoLYtfMsFRKj8oqpru+wP4I33CHqPSycjSKWVFAQrSBcQQ2DXLiD
-         CP5E2FRwlIVsIBd7njURBmnj34pJ6Co/+o7FLhZqNEugfE1lxvQoqlKeCzFcqtRcEbUA
-         kAG73lPNjPZGlyIFRiNbHNJuMzorBD7s3k2Gb5XMFOO4Xqof/x+fN2zu44PPnwBdWqkT
-         NZ/A==
+        d=baylibre.com; s=google; t=1784706058; x=1785310858; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ME4lepCTDaiBdE3UAEs86uArPM75PRdP2/SxaEDo12E=;
+        b=FmznA7fxJzSUvyHvBwvAlF+x2WHQ4rMeRahoDZ2QaJfVt0KxS7QOauc4j6pJRzj1RO
+         7z/a+ASXoAfB7JztzAqZ6Vt+LNEMtbJ92hdw5w5El7WUeFfkwPo6NReAeMnL1Vi5GcR7
+         Isn0E9zJvEeD1e2zdgaOXrpMrCF/vPE3YmF7hV21OACRXQPtRnh3uzjXBnY+KZWpJUGf
+         gjOPL+z39cK8NuP0Fux23ljJGd0YJt9MiyfABKhKoOM77jGd921WMbss3EUb2FP097M6
+         R7ybOdnBlTn3DVJ+xQh/UKO9I93L39CHcWS6hR7InQSwTcL/Ik3Y5trQ6u67qx7aUn2t
+         yghQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784706026; x=1785310826;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=T/sjeRpn9BssHS0FCtGdQxM5xUeDnRf/+QPldCey/10=;
-        b=bPYi6Wv37erBlV/QDOWpYZ0WnN1UL3ZoNc7qzEpyZX08u1evEYqPU6NOWmF4L2zRIm
-         d61R6lNvhiyLSPxCCq0vwe2x8sf4zHP+DNFZKEnqFegSw35LRU5RY4lX7FoEjdrG0n3U
-         +nCg9Y5xf8Fq3BHTozbnHRzBUDouaxSs6Ke7msG+cUjbw0sYZreGiD7mD1yQ/WrMmMlz
-         yzm1O6aLkqhczAkWRywj+zevK4AiKQbGAvw2i1SXVsBr0G3GxWirW2f67uMPXTWFO3eW
-         7hOcYhDq48KtH3d69jzB+w5pR+ZCgesBjteBwldYAImVRWS3PAgrle/O/cZpMpkWLuno
-         5+Yw==
-X-Forwarded-Encrypted: i=1; AHgh+RqvyP0SAMNtX2lvws2mILWvNXGj5elB2kDoqgpHXIILvWdRBCFDdMf0hO6khlc4senypt8YLkQ95zSLtrntNEZu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgZuHMUDVTHXvhTLKZRzcKIMYEsQ//hSqcPQin8hrUWup02nE0
-	nGCcyXpQni+Tq9HWqVgDtljztuxmzqyM2/jnKP8BiNaPaEJWm3P+eEHnYSa7kVJZiG+QR8McmlR
-	2gcRc22AWHn0jMgpDA+fK/TpHnS3b7L1rX4D8ygQ2SR6sLbCLPtyIHBTrfQJrVeh47MuGpT1sBP
-	//J26YruXd9X+A
-X-Gm-Gg: AR+sD11gXdwUkaaI8VUg5tZ4LRl5pGuMDgW5l6QJoExZpxGaljcUpmUjfBdIGiGSF2f
-	vQPF6XyF0QIR+tTwC53ylIshN1rP52nRW+7xcpVoLYYD2bMcBZ+jg1ASiO+DHGq2MdorQ/9uNk/
-	PivIw2enROYRBUIhqcZESOYKYpV0IDlrotbdKhBVDR25Y0Ujnwgp5d15bL1oz6nZBB0Nj545ZxO
-	vsjNSzSsNuNj34CZyqVuTdeyo5jyfCf3+ThL06PYZ7G1Iy9zrvKxEsToSx4w/ffBeja+hmOPOG4
-	yI7PwIZ9KKE5DtFQZxB1TrfCQ7r+iLXWqenAx7LJoJW2uTZ4SeEJjqYEQLI3CLz6hWVszZWE3LJ
-	Cn85C/B8n0JBTlxwpYbpc/jNqLv3/0aMD8g==
-X-Received: by 2002:a17:90b:5844:b0:37f:a913:1554 with SMTP id 98e67ed59e1d1-38ea37961d2mr2544843a91.16.1784706026119;
-        Wed, 22 Jul 2026 00:40:26 -0700 (PDT)
-X-Received: by 2002:a17:90b:5844:b0:37f:a913:1554 with SMTP id 98e67ed59e1d1-38ea37961d2mr2544812a91.16.1784706025638;
-        Wed, 22 Jul 2026 00:40:25 -0700 (PDT)
-Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13d130a7738sm3935997c88.9.2026.07.22.00.40.15
+        d=1e100.net; s=20251104; t=1784706058; x=1785310858;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ME4lepCTDaiBdE3UAEs86uArPM75PRdP2/SxaEDo12E=;
+        b=fxxD3qfyIXXNpAvlm6iKzTWTrnw4/rELuafSo/ZGvn6MatmYJzoYIMdZ0FMKkIm2Ou
+         M4eNk/PJnEIn7oEgKG4oFi0q4SJZFwdP7xmolUDzcsaKl0sP00Wdy7JiF6SYLTInPP2r
+         Cf0j6jVY8eAgF7LRuwMEFSqSoxEh0nPPzVpb1iP41hfo4JiX6t33H20GaBVdlzxUBHvY
+         LovOOI9qFN/lY0uNswLiRJDQ+cjeKYEPVVBYBJ6+itnbeAqtqt+Fl9xdpw/cg9vxkYEn
+         RxT4skmpj4xvlRchLzMixeTRR1YnfSSMl0AukS7NiiMKSJaXiE7xLP/10VLo5b9Kg7+1
+         vkyw==
+X-Forwarded-Encrypted: i=1; AHgh+RoH9pRAMeedBAo6LcoOJvlDfLNYrrQAy3pWoNYRer7wyw2cjsJiLFog0I+oYxB6YzO54cIPHE3ndjnYHHOqoJUx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsDRGdUDgpIg1WP38t0LcEBNK9V4C+qwQkyLvdnNVPvb9tO+xn
+	VUUA2mKn9Y1eIiwFeBbbKYsO1HEjEf7fcW176sKtRuLTkMFZPvtvL8T7TsfDEU7n288=
+X-Gm-Gg: AR+sD114g5C3kwjODzM1oS3rwmOQ6EYUZz6aZkeYWy1sqDihk/hXcTWPbuXrc/zJsph
+	9JWZB9QGlfDRtKM0+kQOoPrkhofjLT1Zq8GFvn8qgrNDUN9Si/NFtZO5L/twv/UWHaD53j5SaSM
+	FlpxH743XMamugrI7NG22YHYfuSJJZX55CtHAi3BLomtqN4rSBhkomIws95KEXFtOs7kgRjwzUx
+	HMTyDRBhPhfAZe4pNsfG779d2TkI/Ly2z1sMjxMoqo2PTAVfxh6ax4X8mHRpooeSJvGaew0bu6i
+	a7hTkuxYOTcThsO59BmkJ8XK3K0ugZP2RMAK5iaXvJoE1jy+9LYxGTHb6hbzQJmcHEhuf3TELkf
+	Cam2sFn+rg6HIdJ2wFV89DGnqM4sOdbeHBx1krXz/xlZgAn0dlpWtvjMMtTe9FFEJ6Vgs3+O7CG
+	lY
+X-Received: by 2002:a05:600c:21da:b0:495:3e08:ad24 with SMTP id 5b1f17b1804b1-4954a51b524mr172945825e9.33.1784706057686;
+        Wed, 22 Jul 2026 00:40:57 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:a589:14b5:ba97:3626])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f85c52fc0sm3587920f8f.23.2026.07.22.00.40.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 00:40:25 -0700 (PDT)
-Date: Wed, 22 Jul 2026 13:10:13 +0530
-From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v23 03/13] power: reset: reboot-mode: Add support for
- predefined reboot modes
-Message-ID: <0c55125d-5304-415d-86c0-a589c612babf@quicinc.com>
-References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
- <20260714-arm-psci-system_reset2-vendor-reboots-v23-3-e7453c548c21@oss.qualcomm.com>
+        Wed, 22 Jul 2026 00:40:56 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,  Kevin Hilman <khilman@baylibre.com>,
+  Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
+  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Takashi Iwai <tiwai@suse.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-sound@vger.kernel.org
+Subject: Re: [PATCH 2/2] ASoC: meson: meson-card: use priv instead of card
+ on each functions
+In-Reply-To: <87y0f3zwrt.wl-kuninori.morimoto.gx@renesas.com> (Kuninori
+	Morimoto's message of "Wed, 22 Jul 2026 00:35:34 +0000")
+References: <87v7a9i0o8.wl-kuninori.morimoto.gx@renesas.com>
+	<87se5di0n8.wl-kuninori.morimoto.gx@renesas.com>
+	<1jfr1ceqx5.fsf@starbuckisacylon.baylibre.com>
+	<874ihs0vz3.wl-kuninori.morimoto.gx@renesas.com>
+	<87y0f3zwrt.wl-kuninori.morimoto.gx@renesas.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Wed, 22 Jul 2026 09:40:55 +0200
+Message-ID: <1ja4rjeak8.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260714-arm-psci-system_reset2-vendor-reboots-v23-3-e7453c548c21@oss.qualcomm.com>
-X-Proofpoint-GUID: ofFzaltPIGUJCaf7XDxaRf8C07R0JdYv
-X-Authority-Analysis: v=2.4 cv=KLhqylFo c=1 sm=1 tr=0 ts=6a6073eb cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=ZcGSZn2CXGzCaGrIrKoA:9 a=CjuIK1q_8ugA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIyMDA3MCBTYWx0ZWRfXwaWa1inLYgEF
- XXsHr5U71kfbQV/Z5CbAAH6AiZVzfCrkJDcRY3a3ysZ0csOoL/7U3j1UJwMjUjwinAhI6WWLA2l
- EhTPRD9tBxn7FjVjBAKmrAheewjS4xgMf6rVhh4UVtgYgGQhd3h74yy0wB+4rrrpxCnayLY7dZ3
- KgkAW1cWhq41G3lq1BcYkprASlBblYkLjaZWuE8nGvvt9x+bYfRuZfcNlV3lQWGU6v/BMscnQVi
- 2NI4mfh5mTWSDa1u7B65YmXSSa2OhPcD39Z7tZOwGUk85fQmsPeeatNMHyvgkdpEUGV2gK7gdOe
- C0Aa/SdWkmON8Nt9rnFyfP3+mApffvvBSeuqbmZFm4YlCkHLzT8Z8cFZW8XJ4I9uVKp0bj5rGMj
- nFwhiCmGG7IjpQ3mJOx97946jHoWL3ODSnmUomXMHL5O5Tco/9L3zsHjw8TPgKa2LbeuPmGKx88
- HxeedZzms/8FEA1pOGg==
-X-Proofpoint-ORIG-GUID: ofFzaltPIGUJCaf7XDxaRf8C07R0JdYv
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIyMDA3MCBTYWx0ZWRfX2llD5jv6ot+d
- lkX5ucOolsPrwnlyMvRfFgtScyJVscynX91XVHPbNXdQz7a3qbMVfRW5zHbWNWWshMhQbOgl/H8
- Iy5jKdmZBNGphcvNY74v5Nl8rE3iY5s=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-22_02,2026-07-21_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 spamscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 malwarescore=0 phishscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607220070
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_004027_799233_D2EBE951 
-X-CRM114-Status: GOOD (  23.52  )
+X-CRM114-CacheID: sfid-20260722_004100_722161_1E5115DF 
+X-CRM114-Status: GOOD (  29.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,72 +107,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 10:46:31PM +0530, Shivendra Pratap wrote:
-> reboot-mode based drivers can define a reboot-mode by adding it under
-> the reboot-mode node in device tree. This limits such drivers, to define
-> any predefined reboot-modes statically within the driver and creates a
-> dependency on device-tree.
-> 
-> Extend the reboot-mode framework to handle predefined modes alongside
-> those defined in device tree. Drivers can now define their own
-> reboot-modes and register them via the framework. A centralized init
-> call has been added to the reboot-mode framework and adopted by
-> existing drivers. This ensures driver state is initialized together
-> with predefined modes.
-> 
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> @@ -195,35 +264,17 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
->  			continue;
->  		}
->  
-> -		info = kzalloc(sizeof(*info), GFP_KERNEL);
-> -		if (!info) {
-> -			ret = -ENOMEM;
-> -			goto error;
-> -		}
-> -
-> -		if (!memchr_inv(magic, 0, count * sizeof(u32))) {
-> -			pr_debug("reboot mode %s with zero magic values\n", prop->name);
-> -			info->count = -1;
-> -		} else {
-> -			memcpy(info->magic, magic, count * sizeof(u32));
-> -			info->count = count;
-> -		}
-> -
-> -		info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-> -		if (!info->mode) {
-> -			ret =  -ENOMEM;
-> -			goto error;
-> -		} else if (info->mode[0] == '\0') {
-> -			kfree_const(info->mode);
-> -			ret = -EINVAL;
-> -			pr_err("invalid mode name(%s): too short!\n", prop->name);
-> +		info = reboot_mode_create_info(prop->name + len, magic, count);
-> +		if (IS_ERR(info)) {
-> +			ret = PTR_ERR(info);
->  			goto error;
->  		}
->  
->  		list_add_tail(&info->list, &reboot->head);
-> -		info = NULL;
->  	}
->  
-> +predefined_modes:
-> +	list_splice_tail_init(&reboot->predefined_modes, &reboot->head);
->  	reboot->reboot_notifier.notifier_call = reboot_mode_notify;
->  	register_reboot_notifier(&reboot->reboot_notifier);
->  
+On mer. 22 juil. 2026 at 00:35, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com> wrote:
 
-This splice here makes me ask why we need separate API for registering
-pre-defined reboot modes? why not extend `struct reboot_mode_driver` to
-pass on the pre-defined modes and let `reboot_mode_register()` take care
-of both OF & pre-defined modes. 
+> Hi Jerome, again
+>
+> I now double checked.
+>
+>> > The change is simple but it will make more complex to backport fix an
+>> > older kernel once this fix is applied. So again, getting more context to
+>> > understand what you are trying to accomplish and why it needs a standard
+>> > card variable name would help.
+>> 
+>> Basically, after "Card capsuling" has done, we can't directly use card->xxx
+>> anymore. So we need to update all of such code.
+>> I would like to update such code as much as possible in advance.
+>> Otherwise, "Card capsuling" patch itself will be more complex and difficult
+>> to review.
+>
+> Current functions get "card" as parameter to get "dev".
+>
+> 	func(card, ...)
+> 	{
+> 		struct device *dev = card->dev;
+> 		...
+> 	}
+>
+> After "Card capsuling", we will use "card_driver" instead.
+> But switching "card" to "card_driver" only is not enough, on Meson case,
+> because "card_driver" don't have "dev".
+>
+> On Meson case, it don't need to keep "card" in priv anymore after
+> "Card capsuling". So I would like to add "dev" in priv instead, and remove
+> "card", like this.
+>
+> 	struct meson_card {
+> 	 	...
+> -		struct snd_soc_card card;
+> +		struct snd_soc_card_driver card_driver;
+> +		struct device *dev;
+> 		...
+> 	};
+>
+> Then, we can get both "card_driver" and "dev" from "priv".
+>
+> If we can switch to use "priv" instead of "card" *now*, the diff will be
+> more small when "Card capsuling", because the patch will have
+> "Card capsuling diff" (A) + "switch card to priv" (B).
+>
+> This diff of (B) part is doing very simple things, but is big volume,
+> because it is sharing the code on Meson.
+>
+> -	func(card, ...)
+> +	func(priv, ...)
+> 	{
+> -		struct device *dev = card->dev;
+> +		struct device *dev = priv->dev;
+> +		struct snd_soc_card_driver *card_driver = priv->card_driver;
+>  		...
+> - 		snd_soc_card_xxx(card, ...);
+> + 		snd_soc_card_xxx(card_driver, ...);
+> 		...
+> 	}
+>
+> -	func(card, ...);
+> +	func(priv, ...);
+>
+> If we can merge (B) part first, remaining part (A) can be simple.
+> But yes, the backport will be complex.
+>
+> Thank you for your help !!
+>
+> Best regards
+> ---
+> Kuninori Morimoto
 
-The semantics of `reboot_mode_reset_predefined_modes()` is very
-confusing. It is not clear if any client driver needs to really call
-before unregistering? The unregister it self is cleaning up these
-pre-defined modes since they are spliced.
+I think getting the device from the card (or other ASoC element) is a
+regular pattern. I get what you are trying to do with what you call
+capsuling but maybe you should add an API to query those things from
+the framework ? like Something snd_soc_card_get_dev(card) ?
 
-Thanks,
-Pavan
+The driver then does not have poke the internals of the card but can
+still get stuff like that from it
+
+-- 
+Jerome
 
