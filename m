@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CB7C4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961F0C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPjciZgu6lIAEUFV6/Ka2KEfnA2GxcOi/d9Jo5kmH/M=; b=Hv+2e1vnF3c+XuNVe4IWCFYzS9
-	EIJqnkxTgGC7i6jxr0cXcJulGkKxrVPONFmR0b2Ilg7Gapx90cF8HlOKFR4bbI0PSzUZP4Oz8GqbZ
-	q1fBMUauCqRQHaKuNjCrNrFrLPAuEqMxSdkJ1+J4JoM6n/rI1X15PBdpB+8RA2Cfw/rwWrwpkYKhl
-	B7oxcKrd8hjCydM1UAFZEMpRSiEdKja6boGG3/jZdc1mFgLBXhfF9Zk+538DqJ55i0x9JB7UnZayx
-	LwUVSRlbbqfvcWFoq3lsUyyBkg0KRLvl6Q9PIOA0UuWom0okD25hbkJSo4kVRlJz4eauXUY8LIiAB
-	ypPgImPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=waIuGDxzOof05Vhn6AjjPmoLjfrUS90zPIn5MbLu1PU=; b=F/ivIA6/joS63paQEaIGlLklr9
+	PHpwH9evbgo779G3UUSzHCftzOm/5oE5iZMmAYrL24zSuR94QKeKjQDuICmJmmysnRMq3wFZb/rlI
+	Ymt/egmx9HcjWNKGj51KmS/mJZIhQQqHS7qFOf19G7hh694Qx9ERSuUblWnkHAWvOpmVtxdMEmMCe
+	umY95OpsYdD9JYknN9rD+QVZF06TBnzSlbz3PVQxW4gzX+utsvG57L1ypHrmkdg6qeNoZwA5C+Qva
+	mWOMVMb3MGJuGPhvVj/PbVH8XrquM0LltZtae61mnR+T+G2lv+EXTZ4Y7lG2rsoEOHi1NEZtamQFu
+	orxC2QPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYno-0000000C8y3-3fmk;
-	Wed, 22 Jul 2026 15:24:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmYqd-0000000C9D7-18VJ;
+	Wed, 22 Jul 2026 15:27:03 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYnn-0000000C8xf-021s
+	id 1wmYqZ-0000000C9CU-3xxz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 15:24:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BF0E600AB;
-	Wed, 22 Jul 2026 15:24:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93C211F000E9;
-	Wed, 22 Jul 2026 15:24:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784733845;
-	bh=EPjciZgu6lIAEUFV6/Ka2KEfnA2GxcOi/d9Jo5kmH/M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NznqlKVcbnI5yXI0tPxRHoYPbEq02xDWAarChyV/EZhc6njhQN0757P+csA/GPdx2
-	 28frovJhXFnC/3oesqAe62Pzt+CXMWzfLxpDjczPQBWmklAqwrOAH43de87I02MGf5
-	 +fykRtDCiwcunahouDbYgHsYrNmoldyOfPNhkPBcOyP2Nog7R35uG9Q0nAaB0w6aag
-	 tScpfVlUSm2iaOFZarMpMF8eCYcCAuReUGvht5am6Ah+qkaUCtEnnc3GVj+TmnBtKw
-	 W+xY3MWg8trvuEQaW/+7/snNl+E4ra800Lug/mw/GOFLzCjLsJGXXKbxEnLetZn9y3
-	 hLU5RRDwZoSMg==
-Date: Wed, 22 Jul 2026 10:24:03 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Cc: linux-clk@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	devicetree@vger.kernel.org, git@amd.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/8] dt-bindings: clock: clocking-wizard: Add
- static-config mode support
-Message-ID: <178473384283.951931.3125163724375199734.robh@kernel.org>
-References: <20260709111403.1579159-1-shubhrajyoti.datta@amd.com>
- <20260709111403.1579159-2-shubhrajyoti.datta@amd.com>
+	Wed, 22 Jul 2026 15:27:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1784734017;
+	bh=waIuGDxzOof05Vhn6AjjPmoLjfrUS90zPIn5MbLu1PU=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=lnCHSx6RJJJ/FNMGq6GCjXdFeUZFW9bzPLhcrXaf5K21B+BxKMAc1VUoJZDPvHn4k
+	 h1Jf/kBPDawh3n2oXk1KvNNcbm9jpVHPqgdUkEwuql1s0xJijctTgmaKLYTTeJYnWt
+	 B50j4tPhWLJanhtinsmYfKbnEORudQRL0bhPj9EjmnN5RAYpMqmcYNhnrmt3fUAioe
+	 abqR6ClYwXtG2v+/kG+F/lgKCt6uEdOl8xVs4Uz85OCbIG62qf+8ECUSXH100tR/nI
+	 y4/Rnt5hqxKKPLLgyBEUEjbBiIGr0zZCH6CF7Oc3qafgnmGM/bX0VwyDK/2m4D/TSX
+	 4f/yIhcWArxgw==
+Received: from [127.0.1.1] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 715DA656B7;
+	Wed, 22 Jul 2026 23:26:57 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260706180307.635369-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260706180307.635369-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v2] ARM: dts: aspeed: Correct indentation
+Message-Id: <178473401740.1970914.2575839372513973839.b4-ty@b4>
+Date: Thu, 23 Jul 2026 00:56:57 +0930
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260709111403.1579159-2-shubhrajyoti.datta@amd.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_082700_182834_005BF874 
+X-CRM114-Status: UNSURE (   5.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +73,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 06 Jul 2026 20:03:08 +0200, Krzysztof Kozlowski wrote:
+> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
+> No functional impact (same DTB).
 
-On Thu, 09 Jul 2026 16:43:56 +0530, Shubhrajyoti Datta wrote:
-> Static-config MMCM/PLL ratios are fixed at IP build time, so the kernel
-> cannot read per-output multiply/divide from registers and needs DT pairs
-> to register fixed-factor clocks. Also add the tuples by pair in example.
-> 
-> In static-config mode the IP exposes only fixed-factor clock outputs and
-> has no runtime-programmable registers, so reg is not required.
-> Make reg optional for static-config
-> 
-> In static-config mode the AXI bus interface is unused, so s_axi_aclk
-> is not required. Allow clocks/clock-names to have only one entry
-> (clk_in1) when xlnx,static-config is present and enforce two entries
-> otherwise. Update the static-config example accordingly.
-> 
-> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-> ---
-> 
-> Changes in v2:
-> Merged the similar patches
-> Allow check for current dt even if it is unused.
-> 
->  .../bindings/clock/xlnx,clocking-wizard.yaml  | 53 +++++++++++++++++--
->  1 file changed, 48 insertions(+), 5 deletions(-)
-> 
+Thanks, I've applied this to the BMC tree.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+-- 
+Andrew Jeffery <andrew@codeconstruct.com.au>
 
 
