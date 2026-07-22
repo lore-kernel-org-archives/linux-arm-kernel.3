@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC22C4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0851C531C8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F1AT8pfTT5H3v1VSsbczUJFUDFVFL+qUil+wR6QR9Z4=; b=y8vO7g6j7xDafU5dMX8tRmqj2B
-	HKZCmO04pXgf4JgFDNFVdAW8WW+YKSA/15AKfXgRLi0Ys2Nd1BLgRZpB5ctx+nCTgTi/l9rgkZWPd
-	U6klYyExuT9Tb/BtGkSUfQ9lyDAwKtY20Qa250KpdLD6cXRh7zmFPv605v9IN5XNT5EF15Im/Hzh1
-	Sjp6jyMDaJIMAomux8n9ZN8+CtSoVNkzHo3jMhQ99mAp9gGNHQ4KmE/qlsQa5aGP9Bg1ifystyw+N
-	2eqBk3Nz+fFMg4cCPv7ZenCOjdHfTRw6ryTM4HhVJmua6aQCjKdzvyEsrpgQapEHUPmZUTFU/8mj4
-	k7mcZmzw==;
+	bh=urFu3N3DSFlg/Z5Zm400OYF9XCFOkrVrIat2GhiYAqY=; b=G/+6u7/9x/jBk/jTk+62u7Tu9R
+	d76xvP2zGgcqlQbrP512sGsgyLBg+t5JW0gSQzMvgcVMtaJy98GiSjhsBTui98M5LYGzPf2OSydQN
+	slisYKsO0p/VfRmyn+t3mJoMj4eVYBLDvL9x9SZVmst76GSK5Fg0cs6eEU0GTj/gaIvDPuiWy9LWY
+	NbmxSa0FmYbxG+NXBCJOnJ2mNcq1mCyp11mbYvd352ZjBm3dMTtZY8cISpxe/w2NbcOgprg0Je+Nk
+	YWsR3q5Lt8NaSNKxMmHZrE82VlPcpzsieyMFwgkV9nXJH0G7sZ8jlLqgKXO2xw2Eq6yRfaNp98AWv
+	EDJqhorQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRc3-0000000B7BT-30YX;
-	Wed, 22 Jul 2026 07:43:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmRc1-0000000B753-0EHi;
+	Wed, 22 Jul 2026 07:43:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbY-0000000B6kG-3kxc
+	id 1wmRbW-0000000B6gk-36iT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:43:00 +0000
+	Wed, 22 Jul 2026 07:42:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93B13436F9;
-	Wed, 22 Jul 2026 07:43:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 772461F01561;
-	Wed, 22 Jul 2026 07:43:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 31D1B60A68;
+	Wed, 22 Jul 2026 07:42:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAB3D1F00ADB;
+	Wed, 22 Jul 2026 07:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784706180;
-	bh=F1AT8pfTT5H3v1VSsbczUJFUDFVFL+qUil+wR6QR9Z4=;
+	s=k20260515; t=1784706177;
+	bh=urFu3N3DSFlg/Z5Zm400OYF9XCFOkrVrIat2GhiYAqY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=OdyhEVxXoqKa25VJptJXxiw45sOAbru7dSEqqmxiVwfQOeFYC2hGRNRRNlyZpFDPl
-	 x1DHZf+CX8CYtUz2e3jlH0pOe1BZb39KbXVP9CfckCRbIV2QbqG0sWqJmymBEZzQIw
-	 rAdrnRZFKz08hKxBBxVLxqXJspNSfBti8FdvyjVIyJA7roufWa2FJBwmlKNduaFjtB
-	 V/ERBoX5H8XhwCTwrBRyRPhk193vonYQxL/uUmfqLkd1svloJ9Lw9SOlHOyN2EAJC+
-	 STny7t1BlhB8/EjXcvHhIWzeCX/MTvTe+VAe6RcsQJe0B5Dx5ZCCXZ77XKc7TiutDS
-	 4+olmh+3GHQqA==
+	b=NSJOePfwpCBswzYMseYDK8Th1ldxovXiBtYfVLgVwOocC/bJIvWiuLl0uuw/TN1Eq
+	 UxZd6/cv8hN45OiTiL8315lGSy+6Wk/6qceH5aE2wJvHeEPgN2MED/6u3UVfb7XX7I
+	 uPBQPC3fq82PAha36gHBw6Hb2HUW0U0CsGT4QYAjKwrIArOSfLNgf5lk+9Tm4zIqQb
+	 z3BMWcRdhn/KkM4aVPe28ge9xUx/Hwguyj0I7GFunijtewLMdyRsMzMHEIsf5b9FOv
+	 OrMdCB4rmYz1lWzSaSEZIL4WE1NfhkgjOOLNUqRoZOyeHamXNpPmWGHLcOs+Zrb5rW
+	 YjhQQNMrkeh5g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmRbW-00000007VfN-32sq;
-	Wed, 22 Jul 2026 07:42:58 +0000
+	id 1wmRbU-00000007VfN-0vo9;
+	Wed, 22 Jul 2026 07:42:56 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 20/28] KVM: arm64: Add sanitisation for NVHCR_EL2
-Date: Wed, 22 Jul 2026 08:42:26 +0100
-Message-ID: <20260722074234.3330999-21-maz@kernel.org>
+Subject: [PATCH v3 09/28] KVM: arm64: Relax CPTR_EL2 handling when FEAT_NV2p1 is present
+Date: Wed, 22 Jul 2026 08:42:15 +0100
+Message-ID: <20260722074234.3330999-10-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260722074234.3330999-1-maz@kernel.org>
 References: <20260722074234.3330999-1-maz@kernel.org>
@@ -85,75 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just like any other VNCR-based register, NVHCR_EL2 requires some
-level of sanitisation. Being specified as a live copy of HCR_EL2,
-it adopts the exact same format, but depends on FEAT_NV3 instead.
+With FEAT_NV2P1, it is no longer necessary to trap CPTR_EL2 accesses
+via CPACR_EL1, as CPACR_EL1.TCPAC is guaranteed to be stateful.
 
-A subtle aspect is that we only want to apply the sanitisation if
-FEAT_NV3 is actually present, as the VNCR location is otherwise
-used to back accesses to HCR_EL2.
+Prevent such trapping and context switch CPACTR_EL1 in NV contexts
+when NV2P1 is present.
 
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c | 15 +++++++++++++++
- arch/arm64/kvm/nested.c |  4 ++++
- 2 files changed, 19 insertions(+)
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 5 +++--
+ arch/arm64/kvm/hyp/vhe/switch.c         | 3 +++
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c      | 8 +++++---
+ arch/arm64/kvm/sys_regs.c               | 5 ++++-
+ 4 files changed, 15 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 467f57eb8e6bb..1053676551aff 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -1019,6 +1019,9 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
- static const DECLARE_FEAT_MAP(hcr_desc, HCR_EL2,
- 			      hcr_feat_map, FEAT_AA64EL2);
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 8e5f492f39086..7b27296c94607 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -108,9 +108,10 @@ static inline void __activate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
+ 	 * The architecture is a bit crap (what a surprise): an EL2 guest
+ 	 * writing to CPTR_EL2 via CPACR_EL1 can't set any of TCPAC or TTA,
+ 	 * as they are RES0 in the guest's view. To work around it, trap the
+-	 * sucker using the very same bit it can't set...
++	 * sucker using the very same bit it can't set. FEAT_NV2p1 fixes it.
+ 	 */
+-	if (vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
++	if (!cpus_have_final_cap(ARM64_HAS_NV2P1) &&
++	    vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
+ 		val |= CPTR_EL2_TCPAC;
  
-+static const DECLARE_FEAT_MAP(nvhcr_desc, NVHCR_EL2,
-+			      hcr_feat_map, FEAT_NV3);
-+
- static const struct reg_bits_to_feat_map sctlr2_feat_map[] = {
- 	NEEDS_FEAT(SCTLR2_EL1_NMEA	|
- 		   SCTLR2_EL1_EASE,
-@@ -1393,6 +1396,7 @@ void __init check_feature_map(void)
- 	check_reg_desc(&hdfgwtr2_desc);
- 	check_reg_desc(&hcrx_desc);
- 	check_reg_desc(&hcr_desc);
-+	check_reg_desc(&nvhcr_desc);
- 	check_reg_desc(&sctlr2_desc);
- 	check_reg_desc(&tcr2_el2_desc);
- 	check_reg_desc(&sctlr_el1_desc);
-@@ -1592,6 +1596,17 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
- 	case HCR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hcr_desc, 0, 0);
- 		break;
-+	case NVHCR_EL2:
-+		/*
-+		 * Only apply sanitisation if we do have FEAT_NV3.
-+		 * Otherwise, the register aliases with HCR_EL2 in VNCR,
-+		 * and we're better off relying on data transfers between
-+		 * NVHCR_EL2 and HCR_EL2 to sanitise things.
-+		 */
-+		resx = (kvm_has_nv3(kvm) ?
-+			compute_reg_resx_bits(kvm, &nvhcr_desc, 0, 0) :
-+			(typeof(resx)){});
-+		break;
- 	case SCTLR2_EL1:
- 	case SCTLR2_EL2:
- 		resx = compute_reg_resx_bits(kvm, &sctlr2_desc, 0, 0);
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 35a1c42ad3f84..f646894fec9a9 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1830,6 +1830,10 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 	resx = get_reg_fixed_bits(kvm, HCR_EL2);
- 	set_sysreg_masks(kvm, HCR_EL2, resx);
+ 	/*
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 684cebf23aa0e..a8da40568a048 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -443,6 +443,9 @@ static bool kvm_hyp_handle_cpacr_el1(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
+ 	int rt;
  
-+	/* NVHCR_EL2 */
-+	resx = get_reg_fixed_bits(kvm, NVHCR_EL2);
-+	set_sysreg_masks(kvm, NVHCR_EL2, resx);
++	if (cpus_have_final_cap(ARM64_HAS_NV2P1))
++		return false;
 +
- 	/* HCRX_EL2 */
- 	resx = get_reg_fixed_bits(kvm, HCRX_EL2);
- 	set_sysreg_masks(kvm, HCRX_EL2, resx);
+ 	if (!is_hyp_ctxt(vcpu) || esr_sys64_to_sysreg(esr) != SYS_CPACR_EL1)
+ 		return false;
+ 
+diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+index be685b63e8cf2..6f0f046e4ca4e 100644
+--- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
++++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+@@ -42,10 +42,12 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
+ 		u64 val;
+ 
+ 		/*
+-		 * We don't save CPTR_EL2, as accesses to CPACR_EL1
+-		 * are always trapped, ensuring that the in-memory
+-		 * copy is always up-to-date. A small blessing...
++		 * Without FEAT_NV2p1, we don't save CPTR_EL2, as accesses
++		 * to CPACR_EL1 are always trapped, ensuring that the
++		 * in-memory copy is always up-to-date. A small blessing...
+ 		 */
++		if (cpus_have_final_cap(ARM64_HAS_NV2P1))
++			__vcpu_assign_sys_reg(vcpu, CPTR_EL2, read_sysreg_el1(SYS_CPACR));
+ 		__vcpu_assign_sys_reg(vcpu, SCTLR_EL2,	 read_sysreg_el1(SYS_SCTLR));
+ 		__vcpu_assign_sys_reg(vcpu, TTBR0_EL2,	 read_sysreg_el1(SYS_TTBR0));
+ 		__vcpu_assign_sys_reg(vcpu, TTBR1_EL2,	 read_sysreg_el1(SYS_TTBR1));
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 6b47d936efb32..1dfc1f88bec82 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -326,7 +326,10 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+ 			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
+ 			return val;
+ 		case CPTR_EL2:
+-			return __vcpu_sys_reg(vcpu, reg);
++			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
++				return read_sysreg_el1(SYS_CPACR);
++			else
++				return __vcpu_sys_reg(vcpu, reg);
+ 		default:
+ 			WARN_ON_ONCE(1);
+ 		}
 -- 
 2.47.3
 
