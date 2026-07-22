@@ -4,64 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A340C44533
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3C3C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hOn/ZeYFEt90v4SbNQ99qlDa7WKtJmwoKpXWMJ48EF4=; b=CQx06rRZ6I/QeR4RFK4/lZcJBF
-	DPfo+hNpxT+sBFk4hpdRKJDl60jnxIATFQs/8KeEpAcDzYb4sjQYQ/e4DPwanXs0zTpLTnvD3ro+L
-	X70q1a+8MOznj6tEbpJDjbr/jo/8RjuhbrhNesODz6ep3Aid1hMeVIzvT7pRzqopobZHiMw5VKlFh
-	IkcLts4DI1n0vc5OrYtvaBXiptK/QJuEKZVil0bzgHh9Md8lWQDsE4lvJRjpXeHoP8Fly3VX6H+vN
-	xq5mTLUylnb8w2z3zHiiyBxV+g8EDqYmir94JH3CRc0DJjRSwO4iosT1K//gWdLDrF12ZTE5Qig9O
-	j+8vLOSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kq2PpBE58j0HiItWIAvzWbWFnxfLN/jemWO8rBkdTFk=; b=zmuVQroCUNeh8ztJd2mo5+1A6z
+	4JHHEKnfnV0wtuOKhaUnZq5SJdnSQrQ075CaKzfwobsLLhjUlRynfZiRFzvQhmeG6jB//mo9w21eR
+	UWyzVMc/ms+W0I/Ldm5boARqHLKkMZiaMgrsZUwdOtrRy4nRWYDmmfyHiZpkp0dVFUNWDy8cgCLhj
+	W3NByfOY1B3qE+CvESRuVZvE+denfEvhKzxkeYzVnzQjE0bsb+qqEkC7dsPEjtNob6dHJkhHsOUYD
+	cyCzlj5LJODNSs7eT3uFrBum6/5oHIVbq6NjpEDqCmqzPe9AmX2etKuIshM564u1Gc5kwoqu8tfDo
+	G9f5gGLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSGg-0000000BF3g-2BE1;
-	Wed, 22 Jul 2026 08:25:30 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wmSGu-0000000BF9d-0k5V;
+	Wed, 22 Jul 2026 08:25:44 +0000
+Received: from mail-francesouthazon11011055.outbound.protection.outlook.com ([40.107.130.55] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSGU-0000000BEzF-49qO
+	id 1wmSGm-0000000BF5z-467L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 08:25:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1784708713;
-	bh=hOn/ZeYFEt90v4SbNQ99qlDa7WKtJmwoKpXWMJ48EF4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UTY9Lb+opA/KTpD+FrTRNA9espkHW7lHwQ4IJBGIF6dZXxjDtSEx4xaF0Xn0Wp2kh
-	 mf//8iLI5IQhN2UYDR15PbRmZ1+ZJJXGPJhPNo3f/5XGUorFdn1n+89c8h7XbXIbH1
-	 aaglcS9hDxERkqJo+cFupEkWqajKWDbB3sHiqZiNk931w14X2J/QVQlgU1LocJLjis
-	 xwXKVnJLBlfmpemrtXhuyfRMzMabCFb3kn7nU+2Lo1ebCBb1XCeVVk/kjLTdMMPd+X
-	 brVkTA+80u6931dzfivIJWirOmV9EM39fk/RfbVLd/hfnwKV2ElrAvYCq1GvYdU+YQ
-	 Ckooh5WjeeEbA==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 2D7D3662E1;
-	Wed, 22 Jul 2026 16:25:12 +0800 (AWST)
-Message-ID: <3b6aa85161702da4322cc361e500a90c832af6a7.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 2/2] ARM: dts: aspeed: Add NVIDIA VR-NVL BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Jacky Huang	
- <jackyhuang@nvidia.com>, joel@jms.id.au, robh@kernel.org,
- conor+dt@kernel.org, 	andrew@lunn.ch
-Cc: devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org
-Date: Wed, 22 Jul 2026 17:55:11 +0930
-In-Reply-To: <3523fefc-8ba8-4512-b088-7a94a2df73f8@oss.qualcomm.com>
-References: <20260710054849.3178747-1-jackyhuang@nvidia.com>
-	 <20260710054849.3178747-3-jackyhuang@nvidia.com>
-	 <b707f061cbdfe52f8d72ccd33ec177113e20a5e5.camel@codeconstruct.com.au>
-	 <3523fefc-8ba8-4512-b088-7a94a2df73f8@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Wed, 22 Jul 2026 08:25:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TSdXxhEWfOr4p1nxUSSwDmHbGEz6enPGuYAwkaGSA1DiKykMoEv4Y0k97vs6kG/OOCuvlCvEOWAqiZyXajWl4B0Ejs9WJc8uaSIT3IlkU3IgMUdaP5v3EpUr4qss5wTQdgVX3wnw41EIz046vrwixd0/wLTcJEeOhLg5EZPsL/bN1c1ZUqFA7vrdh+w1seeFsbuUwSbHCdqeCnuQIsDbIha/deIzrcM07RHtFAw79j0vXsz7oqws6+qfQzGZgivcXN4Lx70NVwSE7mHBRYtyGX1+XloqO4WHzQqDc4bypeULcO+LR1+YFMX0RzapIzZppjUwpndKB9oQxRX9JXF3Mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kq2PpBE58j0HiItWIAvzWbWFnxfLN/jemWO8rBkdTFk=;
+ b=r3GcJRk+RPrAOkb2tobkOwIrWt6cR+f4Gku0s9VI1RF6xBGhqqxOEpa0sctPSAuckZsosN/gh/lWieJ+RaJlFb8stp3HH218sV3bdZxYe+qg/tzCS1NlczWJT0qk+FNNwrdMVQ9lbhf3GN/Z38h7ez97YX60Y0/eVXT3eSFebblSeZY6BbIALVmRB+pi7VzNCWaTJOx+93XwZiRnx0n4X+lBU9mO5qHmqYM21V4vGcikbIWqoOjf0OC3nuOJjkF5YaRtuC5cvDRyzWzXLj01+uFDYoVqMADH/Pi1O/kzbEEMmsxb6XscRr1wdQ+qFpSUEJ9R5r0aIhUJiQ1fiHCmXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kq2PpBE58j0HiItWIAvzWbWFnxfLN/jemWO8rBkdTFk=;
+ b=d5wccF0fZB3rF2oUM3i5wvp4J76NbH587L5LfPyEk3K4vVhRbwqrmEes29Bed7kdV9/qyLImu6sD4CsGEK9AY4P3n55PekMQU+bIMw95Qm0Fr8QHpQzy3r2J4LkDslcHsUTydEymMOGjUD1VbuD6Wm30fjUvKq4rWvAhch1GSdyMebSWSfluCQMBxNztmdGyvTRD/9HNyY5k/5AvBIgNx5wwD/rqfnCYULSDlbhRT87/tdxya5lv15gZlCsXzBTIKAiQllYl38epJ7sVbObelzhKDcSN644rbmLjTin1BTwdfGVQZlbVhomLV7GMb5F8wCb44SzN9YuFogZIyozibA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9)
+ by DB9PR04MB9498.eurprd04.prod.outlook.com (2603:10a6:10:360::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 08:25:30 +0000
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5]) by DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5%4]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 08:25:29 +0000
+From: Zhipeng.wang_1@oss.nxp.com
+To: robh@kernel.org,
+	saravanak@kernel.org,
+	ulfh@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	peng.fan@nxp.com,
+	aisheng.dong@nxp.com,
+	jindong.yue@nxp.com,
+	xuegang.liu@nxp.com,
+	devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v4 0/3] pmdomain: imx: build the SCU power domain driver as a module
+Date: Wed, 22 Jul 2026 17:25:19 +0900
+Message-Id: <20260722082522.3747962-1-Zhipeng.wang_1@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA5P287CA0362.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:219::19) To DB8PR04MB6858.eurprd04.prod.outlook.com
+ (2603:10a6:10:113::9)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8PR04MB6858:EE_|DB9PR04MB9498:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59eda8cc-97b4-44c5-fb4d-08dee7caca57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|23010399003|7416014|376014|18002099003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: yLfxSIEU6iaDI0qjf9DSapPQ/lNZWPup7VyET0H3QdeIAliGBM7lSEsu5o1a7mcTaZu0iwFo6nMwzY07iNnju4XmuOX4TYoi65uNyj6S2lxHm9uxBfrrUSYR/mtgSqZz3RcmN1TJ9LjWsW/RWkQo9CIBXvISLYauioFcSfnqjS/LQi2Z5UM/qlvoQjUWNoXyRaJ3PfSMhqMzD64yWBpv3lf/c0QO9vPYHXWU1vrjmv4cUmXwPxOOiOwyZCBnnKsmhROMWkueFOcnK7UnWBpxJOfH3dXO8kc9HUCu1XQ7KyLcYOn9Cd6zFqSgSxiwlUWeC6y9+0fr+xc8hFjiLL1dnGQPAWR8GK+nV8nvIpDdIW5fxX5kvXzPFC/CIHm1en1zOiqh+glIypO+HkgPKPZrDWl4NFa75RMj96EdZvORDIdQQAcksMr9EdXANi2mJa8BHEGprohEiTfwf/+9K2aV1KENVhlsHaQd1B74D+aw0Yh2Mrgf4WFDU7kaoBEbt8xc2p5AN6SqwfKxwT7At20sY9PUWA7yC2wo6y8Xu94E43RhGgFDygIuO/96zuAvjyQ3wBWnh3Czq0edWwgUeDVjeGj93PIyEt7ydpOH+nOzOHatZSOnXwvgP8C1gq4A0Mfy9Off0eNBa6zylX9VvvTq94ebnc0+goJ2bS5Yi2/UK5s=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(23010399003)(7416014)(376014)(18002099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CdEvgdfRe9yJp4L/Y9JlmCaRWI5DE222hGAVsOsLiVh95I/UYHoIm9Z2ih5P?=
+ =?us-ascii?Q?BmHBJa5h8Q9K2hN0+TRCDcnU93CeVa4Ir24qdZGmFesQcrBAktFx8OCdnP9z?=
+ =?us-ascii?Q?pq9Y2+DN0sdnW7hlJ0YGc03/JX5OVRQ5rLOLA26yjRbB2fJJo+MospcjaKXj?=
+ =?us-ascii?Q?qCdPNELFcOLjr4yuf7qZpLIwIgC6zVPesaIo0xRmRuz5kwkzW9ZRJ6UJZm0P?=
+ =?us-ascii?Q?mv5kgZ334NKJmLlhGvSMyPWEu5VwTTCFNgEgGpxRiszdlg1ynR8keScBn+hl?=
+ =?us-ascii?Q?0C/lvtCq0QYUB6Kf4BFy7B5fxkoyJnb1czlWjcehqaAx8ez8dHbwiVHyYjC4?=
+ =?us-ascii?Q?PWsdrSKWL7zm9Y8pu2MJB01oTEnHOLqAF70FzgAxlKK7bf8OQ+MVhCqM+dHv?=
+ =?us-ascii?Q?1RIGQF8mNJUr3U2Y5+F/ny4iNkqhyuJQUmhYURHiW3OsYTTBidgriXnOyRY6?=
+ =?us-ascii?Q?XxdZcQlmeST+opJqmZ1ZgudsTmfjSRJHkPubdMJiHvsuK2Y+ybzfL5xTQptu?=
+ =?us-ascii?Q?CPnqnlQShl2b7Bxf1nh9kJVHhyVzODyM6FBe2MrswEHHbnw7CSPxRmIRRaXT?=
+ =?us-ascii?Q?/56O8gFB+rTwQEhZZ1yfDxhECBQSWvvmUEHUTU/5UPU3FcsYJjugEBtBqhTm?=
+ =?us-ascii?Q?8ObHX8wHCrE8WN2zGFv/AUZCtYgnj68+iPNkWQM0+3vMpBF6HBz2h7vL5WGn?=
+ =?us-ascii?Q?lLuibP52faFTshK2ST8lLrCpWo9SF45gTs157iYoX8HKzF1yaN8uADUIyNXu?=
+ =?us-ascii?Q?jvzDaoEIV8orOXhdBOnT+FXHSSsDJtZt7bhGasVk8I9hzmgVji72dG0x/ct5?=
+ =?us-ascii?Q?dXGgQfR2WKe12vZqicZOBPov4SvYPKqBc6tbUHr/OMpwwSOfMts1K0Jt5ihu?=
+ =?us-ascii?Q?6hjX6Xa+idKJhzDo2NTXfyzvlDFOWUzmpZlM8ssgTTGO9b11EOFhhC2xSwI6?=
+ =?us-ascii?Q?CXSHnvzveSGqgvuB6lfP6hL0axSg1hpAOGyjsA5FPcpobxKnZYPZCmilz6Wp?=
+ =?us-ascii?Q?KB3JK5ccDLKt7eWYep4q9y6x0/kGIVLCum3ruUKGq+WIYUBBLoeeqM6T1Kg1?=
+ =?us-ascii?Q?CWz0/4I2SKMXciI90cB9ZXN0rCC4RCu5h2zZXaxzTOLkc4DGLGrF6/IVo0fb?=
+ =?us-ascii?Q?0KwdHmF7oHBnDRve2xhQm5wAoYyIeP0Qylshji3i/p9Y+sz/XM/uwlMotbbG?=
+ =?us-ascii?Q?/rbgEaRHnBj99OuiZIqUOH/dQNbQt5FOtLvRhpK1IwivHP4w2tZKUOX8km+C?=
+ =?us-ascii?Q?32gpfW9eYEM5c/6KFWW28NAgXnvQ7ZETaaCne/a1U/0fTWMlB5LrxDE6JieL?=
+ =?us-ascii?Q?ldTTG3xydRAlqQwa1XeDcpdWCKZDYuognK1cLglo4UR9WsCSLGKea+5bULWA?=
+ =?us-ascii?Q?4Q5oUoPBVf2VCI6JdpB+wtflcdTTo6smAC0dOzT0ndA7yVohFmVoicDFiyhc?=
+ =?us-ascii?Q?suJaNpV+BoJsvjJTr4gJSQhX0CilfjjJLyHcQ92uSP28seHj3VU1OMaMRAHS?=
+ =?us-ascii?Q?RJRoRJ4dywyKoKBAA5rNU9Ncg/XJJ3WpAwFNSf8/OyCG4mZj25izm3DS4I/F?=
+ =?us-ascii?Q?InQZV+bqXLn4V3gqJQzKPWhx/4Si5vbgMDjquDoILw3js02TOxxes+Sr+/NQ?=
+ =?us-ascii?Q?kGDEFe7WIdcW9IgD5mZizfCQ2t3DcvvX2zqqJ+hsfcHFgNjAhWl25sIfHdrx?=
+ =?us-ascii?Q?txgQsSqaxPPzVSvRDMHDzMzGx2l6N+xA6ApC00L+rOkTDcM2UpnhaTnpjEkq?=
+ =?us-ascii?Q?6s+lA5z2Qy8HV+SRqHDUnUIhMWsoP+Ye61v/9eyLeImNxvZUZv5E?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59eda8cc-97b4-44c5-fb4d-08dee7caca57
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6858.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 08:25:29.8652
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /ltAf1xZHXkr/EI/v2yNGVbaDh+1U1T+mzl1E97xOIey+TH9Ot/vT+wEBerLInMPGY0wv89/zFkTnmmUh7v2qubagGrRoKTGTN23+IWOoBziIizbukbCDErKBJZRRvIb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9498
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_012519_235292_F50665C0 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260722_012537_021272_978A009A 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +148,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-07-22 at 10:21 +0200, Krzysztof Kozlowski wrote:
-> On 22/07/2026 09:45, Andrew Jeffery wrote:
-> > Hi Jacky,
-> >=20
-> > On Fri, 2026-07-10 at 14:46 +0900, Jacky Huang wrote:
-> > > Add the device tree for the Aspeed AST2600 BMC for NVIDIA's Vera
-> > > Rubin NVL compute platform.
-> > >=20
-> > > MAC0 uses phy-mode =3D "rgmii-id" because the on-board PHY supplies
-> > > both RGMII internal delays.=C2=A0 The matching U-Boot device tree doe=
-s not
-> > > enable SoC-side MAC clock delays, leaving the MAC internal delay at
-> > > zero so the PHY-provided delay is not doubled by the MAC controller.
-> > >=20
-> > > The corresponding U-Boot change has been submitted to openbmc/u-boot:
-> > > Link: https://lore.kernel.org/all/20260629105202.1417679-1-jackyhuang=
-@nvidia.com/
-> > >=20
-> > > Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> > > Signed-off-by: Jacky Huang <jackyhuang@nvidia.com>
-> > > ---
-> > > v3: reword the &mac0 comment per Andrew Lunn's feedback.
-> > >=20
-> > > =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> > > =C2=A0.../aspeed/aspeed-bmc-nvidia-vr-nvl-bmc.dts=C2=A0=C2=A0 | 901 +=
-+++++++++++++++++
-> > > =C2=A02 files changed, 902 insertions(+)
-> > > =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-v=
-r-nvl-bmc.dts
-> >=20
-> > We now have scripts/dtc/dt-check-style, and going forward I'm asking
-> > that all new devicetree submissions pass in strict mode.
->=20
-> Thanks!
->=20
-> >=20
-> > Currently:
-> >=20
-> > =C2=A0=C2=A0 $ ../scripts/dtc/dt-check-style --mode strict ../arch/arm/=
-boot/dts/aspeed/aspeed-bmc-nvidia-vr-nvl-bmc.dts 2>&1 | wc -l
-> > =C2=A0=C2=A0 152
-> >=20
-> > Can you please address those?
->=20
-> Just a note: --strict might not be ready yet. It reports some false
-> positives which need addressing (I have plans for this, but busy with
-> other things...), so expectation currently is:
-> 1. No warnings from standard mode
-> 2. Review and investigate warnings from 'strict' mode, but do not fix
-> them automatically without thinking
+From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 
-Understood.
+This series makes the i.MX SCU power domain driver buildable as a
+loadable module, which is required for Android devices using the
+Generic Kernel Image (GKI) where SoC-specific drivers must be modules.
 
-Thanks,
+Patch 1 exports of_stdout (which the driver references to find the
+console's power domain) from the OF core with EXPORT_SYMBOL_GPL().
 
-Andrew
+Patch 2 converts CONFIG_IMX_SCU_PD from bool to tristate and adds
+MODULE_DEVICE_TABLE() for autoloading. subsys_initcall() is used so
+that when built-in the provider probes before its consumers (e.g. the
+SCU clock driver at device_initcall level). No module_exit() is
+provided since the provider cannot be safely removed at runtime.
+
+Patch 3 adds MODULE_SOFTDEP("pre: imx_scu_pd") to the i.MX8QXP clock
+driver so that modprobe loads the power domain module first when both
+are built as modules.
+
+Because of the cross-subsystem dependency (patches touch drivers/of,
+drivers/pmdomain, and drivers/clk), I would suggest taking the whole
+series through one tree.
+
+Changes in v4:
+- Add patch 3: MODULE_SOFTDEP in clk-imx8qxp to guarantee module load
+  order when both drivers are modules. (Sashiko bot)
+
+Changes in v3:
+- Use subsys_initcall() instead of module_init() to fix probe ordering
+  between the power domain provider and the SCU clock consumer when
+  both are built-in. (Sashiko bot)
+
+Changes in v2:
+- Drop module_platform_driver() which provides module_exit() and could
+  lead to use-after-free on module unload. Use module_init() only, so
+  the module cannot be unloaded. (Sashiko bot)
+
+Zhipeng Wang (3):
+  of: export of_stdout symbol
+  pmdomain: imx: scu-pd: allow building as a module
+  clk: imx: imx8qxp: add soft dependency on SCU power domain driver
+
+ drivers/clk/imx/clk-imx8qxp.c | 1 +
+ drivers/of/base.c             | 1 +
+ drivers/pmdomain/imx/Kconfig  | 2 +-
+ drivers/pmdomain/imx/scu-pd.c | 8 +++++++-
+ 4 files changed, 10 insertions(+), 2 deletions(-)
+
+-- 
+2.34.1
 
