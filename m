@@ -4,206 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE018C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 652E5C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPgk8zreWEmRxJf155x+O3b2yKEBb6gGoGNewl4z4dc=; b=kxxS0aXfRf68gfZhyo8SFNGhrj
-	zvaRsdx48yBvM7QL3d2U+waQhi/U9luC6Ccob7HBnNUPwGosxQ0gRCQiETlyXn7kLEOoGFOzsJCoX
-	ij314Aao5gyiRZixtB80lAcolSc515EOf3H2To5xiHsoja6DRPlRM08d3QNh/SEIEqbal4/ev+Ljo
-	I4iVP/LrAjNyxWnDUviFrgSSjtOWRcmSlZQRSok/FDNH5Yn8JXtZ4xC5V9L56MOT90WWp0+6ygTuq
-	rDkCV67y6ok9C6flaVhTR5LcKrCKLi40l7dsF3Hmgy0osbyu4hQFZZaezhvqsEQQTUYDiNpMiqtMm
-	nyIsbQWg==;
+	bh=RNf+StBq+Xe+3jbYQBIhdsx2jh5oqIZIvT85TkHHRhA=; b=SCvak+w2LWG+yzTSWoZjN74yRD
+	BdEgfnKXfarpx7BZaAdDR3JQcxDGL3ELp+Roa+OMUfTv2jHLbHCggGJRkIfTxJ+9NklrxednO4akf
+	SRLfyoCj/WhmXlum/bEGurv23ms7BL24FkXylkHBtBd1kaD+vVEYSDPaq7MlfxnV24PPM7K5Vk6yf
+	LaDJle5YgqKWRDz2WJDG+esAOtpADE58fKAown+4zRL9lmBPolppJAcZS5VRlKoZM4OqZWDoBliLc
+	FKwu/uopZ09ZwcAcSKWjtZtp2JAtAFJunSjYhlT8LzpLrxqvfevGSbQGPu7VzQn+ia2mUTC02TIxE
+	VGt3jCuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmbAe-0000000CWQI-138Y;
-	Wed, 22 Jul 2026 17:55:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wmbCi-0000000CWls-32wD;
+	Wed, 22 Jul 2026 17:58:00 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmbAd-0000000CWQC-0WIi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Jul 2026 17:55:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:CC:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=aPgk8zreWEmRxJf155x+O3b2yKEBb6gGoGNewl4z4dc=; b=gkUijWlBVRBSnYDsLf+NVT1YHX
-	9YDegzsfW4rqF03s4g4KtWOnTLsA7NsnM6sxxBeX3nBxW3kqvXML1Uu6z5EPATydM0YgisnZMtiQs
-	1JnvS7nLSsJwOusNNHapKx+uoopKQbzR4mSE4CQ8nGkwGyx1u4rbdjZsSFz8sX0scu1fnNzUN76Hi
-	+sqLuJzgGb/yyzoDjWNzOpL48jKRf5cT30CVeKM4MONgFDi+itnozA0ZSSTJC8O/eQqQ0FhNEzhG7
-	c9q2+S5mjH764txJ79iRVJGchyCRdtwehHwdZAy7ZW1pdSY2OsDx1P1fARxAtimTSuEuWE8c4GXSS
-	XApFc1rw==;
-Received: from mgamail.intel.com ([198.175.65.13])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wmbAZ-0000000161s-3ljM
+	id 1wmbCf-0000000CWlL-3WCa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 17:55:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784742948; x=1816278948;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=uUTz3fiM5jX0AfNvDIrSrhAYo1pyLNR3KjZwGxngOnU=;
-  b=X11FvtGRdyqxh+OZM92naMfy+jba4VCej13FvyHOdj/YhTddNCoeGVvY
-   addJ541dnUc6SrJ8jd/UEobjRfXmWTae7BbL0rQDpXzv0pw1qZqammNVO
-   wXnJTgRZILAVZP1Qqt44y3V30OUJ6B/Jl/7ZE0S6w+3ukTUhP89sWfThR
-   dy7iU2iHaOTtl6/yX3d4taSnA3tzN6aI4JxOM06afPXSAWEc2svjJmuKB
-   HLsrHUPmfoXrursbxWbaCDp0zCsKAgwptJ6aGB/cGyZJu68EYjD8v4ge2
-   /ZGMenpM5+81Nh2RA12Q6KcKFMYP+ygUJJSF1QbScS2DcpsXp+sqJn/Ov
-   Q==;
-X-CSE-ConnectionGUID: IC6wPneVRMCT3qX28PoO3g==
-X-CSE-MsgGUID: M26AHN1JSBeHPTp0Pox9/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="96525572"
-X-IronPort-AV: E=Sophos;i="6.25,178,1779174000"; 
-   d="scan'208";a="96525572"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 10:55:43 -0700
-X-CSE-ConnectionGUID: Mcqjx038Q1CpzsErJlQHPw==
-X-CSE-MsgGUID: f9ssUWOMQ8SWPNsD+s9Ftw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,178,1779174000"; 
-   d="scan'208";a="254772799"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 10:55:42 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Wed, 22 Jul 2026 10:55:41 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43 via Frontend Transport; Wed, 22 Jul 2026 10:55:41 -0700
-Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.5) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Wed, 22 Jul 2026 10:55:41 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fHPbJ+QGgZPIBqJ6YiLrtiH3RmiUpu51jJCUUqknYcTw7++qeyeIp0pprXygsfEz4nueVF+8sgdVkVi5oNGZK6Ru/YBItcnNqgLQmzUvZmnmqsMVIHLe7KHWVgqJZT+aO8P+MZr9hnmPlzasYZuhwaSOZAeS1hTcE/J2b93Pb5Zq3vMbDolDBagGQj1QNJmQqIX1/4R9WTwPZS+DX5ZALToJlh61+M+aus3lEDVcTlRy6fzdwVljI6sR85pTpQ6NhfQs4fxJW7IpRoUiCvioH2EICCcWO8Sle35Uu0Ckj8N3v15KBXj2Rgt8ig6XjVMdPMKY27PehyFKJhf0+erYAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aPgk8zreWEmRxJf155x+O3b2yKEBb6gGoGNewl4z4dc=;
- b=vCAtwS6J7XAxzqC0TzF3/yZ6b6geOrOMe4MPbDrIN4NfRxc+801Sv3qCGlYz/5s0G+YjWsMYl6f5KdCGjrVN6ZoRFY1X7jhSpu1DkQ5/6xYHhqGd8l8oAuFzHBuNwhRucQ1mah1ndvWCsrEKkaaeFEbOm9e531gkHXU97iqpUY19FezzmY5X/KOZTEhyCKL9Rd+R2j3DSHOfjEPDxyBCfJdSJ3eAlM/FQwVmPltalyLdFwrqduK32mALvOAoKOEhsRv8jU+f8SbDAtn41GMetD19BGhPKwO+2QA9pfCTgjtCVUTl3DDGK+iQ8DhJxyQLzL/lQ9seIq3v/yT0fdrpIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SA1PR11MB6967.namprd11.prod.outlook.com (2603:10b6:806:2bb::15)
- by SJ1PR11MB6084.namprd11.prod.outlook.com (2603:10b6:a03:489::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Wed, 22 Jul
- 2026 17:55:37 +0000
-Received: from SA1PR11MB6967.namprd11.prod.outlook.com
- ([fe80::36a9:3aca:a63e:c8f4]) by SA1PR11MB6967.namprd11.prod.outlook.com
- ([fe80::36a9:3aca:a63e:c8f4%3]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 17:55:37 +0000
-Message-ID: <0f625961-8e2d-4ed9-ab5a-fd95bcb4c87a@intel.com>
-Date: Wed, 22 Jul 2026 19:55:26 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] ASOC: Unify code style for platform_device_id
- arrays
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
-	<u.kleine-koenig@baylibre.com>
-CC: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Lars-Peter Clausen <lars@metafoo.de>, =?UTF-8?Q?Nuno_S=C3=A1?=
-	<nuno.sa@analog.com>, Srinivas Kandagatla <srini@kernel.org>, Shengjiu Wang
-	<shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam
-	<festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, Frank Li
-	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Peter Ujfalusi
-	<peter.ujfalusi@linux.intel.com>, Bard Liao
-	<yung-chuan.liao@linux.intel.com>, Kai Vehmanen
-	<kai.vehmanen@linux.intel.com>, Pierre-Louis Bossart
-	<pierre-louis.bossart@linux.dev>, Sylwester Nawrocki
-	<s.nawrocki@samsung.com>, Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	=?UTF-8?Q?Amadeusz_S=C5=82awi=C5=84ski?=
-	<amadeuszx.slawinski@linux.intel.com>, <linux-sound@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-References: <cover.1784528081.git.u.kleine-koenig@baylibre.com>
- <093867d47c079d2aaab06bccaae734c54c342a7d.1784528081.git.u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Cezary Rojewski <cezary.rojewski@intel.com>
-In-Reply-To: <093867d47c079d2aaab06bccaae734c54c342a7d.1784528081.git.u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: VI1PR09CA0172.eurprd09.prod.outlook.com
- (2603:10a6:800:120::26) To SA1PR11MB6967.namprd11.prod.outlook.com
- (2603:10b6:806:2bb::15)
+	Wed, 22 Jul 2026 17:57:59 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RpZT+nQZ34NxQzsu/LdrIjNx/3ePvT2pAtd+HsFoEtnNleRt23oTjUec/mZ9Be1tiD4E5lo78sL8DAKG3KaFWGj@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784743074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RNf+StBq+Xe+3jbYQBIhdsx2jh5oqIZIvT85TkHHRhA=;
+	b=QYHPEr0qUpBcl7wkBDBM2a1XNGnk9/kddjb7MhJYsmekC4rGq/RqIr1M8Hh0TtZ/w9L2xV
+	Xp1r1Q59eLsIGnAIlXGqu7y6bFeyIETBw3EVcujelgFb4qliPn9xP/aiqKCECYwvvClpeY
+	y+1l2WU4kZLVMKDBTDg4V1d2qdcXybA=
+X-Gm-Message-State: AOJu0Yy6a28RFnwNYBH9ms2LDnJ23yt1A3BWW/rx9pNqNk46ozvPRVpU
+	+RNnRgAcYcRZfYDkKJ0xmUnXL9k2rlduXMKbRzR1Hp/J6u2WZRk6JyJv1Hl24aBuCeYnb0xXdw7
+	UTMe0lRwxfEaF06GHd/fmO1kGJaWpPrVVIJ/oPZit
+X-Received: by 2002:a05:622a:a981:10b0:517:6dc0:698d with SMTP id
+ d75a77b69052e-5283b8641f5mr863721cf.0.1784743059542; Wed, 22 Jul 2026
+ 10:57:39 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR11MB6967:EE_|SJ1PR11MB6084:EE_
-X-MS-Office365-Filtering-Correlation-Id: dfb36f3c-a120-4e42-0bc9-08dee81a6f53
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|22082099003|18002099003|4143699003|10067099003|56012099006|5023799004|11063799006;
-X-Microsoft-Antispam-Message-Info: 1AwikF2assXGfQCTWIJ6Ivp/eSdxLLIjCiAsU2YVFH8JWvPepC344Ejl+ZK64Vg034TELUw0TFmTfbmajhSCOskupQHLyjmsYk0qA6VHfGQF8nQE9RdC5mxZdXL6+jNFEaIcSX8c6NRssG3W7KcP5DbD/PZxEEyE7DMQbgqLWrJM7caTS45c1saiCYfAzm02c0yztyk6vCepgQDFPYX5MZxefcHRJ5DbJpCMlou7+YiQPylYcWcpuUmCMM7D0+2C94nh05BjLtXbSpW3qffLTMrq/xOBObLxcQDgBnADaveg8gDY7pTUPFnp92COPN/a93kI6YpXfY3xTe7dlW21D+0nsrMk8XB2pRE9TDj+45g3guWXVXKvFsz0pr4VGNMao2lLbAB7lHNpfG/ARaGlDaK7Sio2HCGRqNeaHUGhvjcvH7chU/6Zyk4d9zbZzVD1jo1WKJVR2cDj2GIpdQNgmI8BGbDmHiD8LzqbdRtLux0izlLds+5AO+1xQc0rO+iw9FvmCCVyQSH0lQbQUaKYVjQW2pHEJ6hHiXzGB8uubua6igRxTpjySWu5QBfEXy5pmoQARdkJgJ7SV16+QrKNZaWWfAbybEINaRX7Ofk4v028yRGMorPE1THpSSp5Y6fPjVz3rNsYtk0VjD69QZFOVgtwbj+1Pwbg3E/JVdAgAzI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR11MB6967.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(22082099003)(18002099003)(4143699003)(10067099003)(56012099006)(5023799004)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y2xQQWpwRWwyMnFYUHZRemhWR2djY052TmgwNEdzaVoyU3o5Rkh2OFhxQ0J0?=
- =?utf-8?B?aTdzR1oyUTMxV0tOR0xVM0lHTWl3ZEs1ZkcxT0ZaMUtpMHRFclFCYnUxeCtQ?=
- =?utf-8?B?aXNKeXdOK09sYXZEbUtMNWR0M3kvT0N2N1ZpNFphQU1ROVBUT1JoeXlUY3py?=
- =?utf-8?B?Rk56Q2xoSGlBTFltRzRVUGNuQlA0OEpRbVJWVFZzalBYZTBTT05hcS9ZUGh3?=
- =?utf-8?B?Ym1kdGVpTndBNlRhWE1RRUZaUTJ5SHBIRngxUmpSRUpTVjA4UkhXeC9xNTls?=
- =?utf-8?B?OFJmck1VYWdxY2kramRJelZiZm02ZU9GV0JUOU5rRFBUWEt2S3FwOGhZbHly?=
- =?utf-8?B?UCtMZEpzaXQ1NktXRFZmQW9NQ0VqVEFoenFHZFM3N1dGUTMwc0gxM0xHSzZU?=
- =?utf-8?B?c01FTkVaN2tUN0NPMXlQNFpnaEEwTU5PMXlJdWxhN2YwS0pKR1RSTTNHQ3kw?=
- =?utf-8?B?NS9lNnBDSlF0TkZMWXBwSWo2MWZGQUQ0WmRwUE0vL1Frb1M5R3ZySk5CMURV?=
- =?utf-8?B?MThPYmx4RmNTNHlpTFdaU2tGNk8yQzRGRklyYk80RDNsUFg5RzJzTXhteGlY?=
- =?utf-8?B?RXlpQzhsOTZXYnd1REIvb3lsMDhLTUpheUVtWmcyaXk1Ymo3U1pwTytjYWhC?=
- =?utf-8?B?enhhTmp1MERXQ01jcjgyeklVOFVxWDZTenFqbkRtN3AvTGp3dTFIcDBMNC9G?=
- =?utf-8?B?Uy9OQTJuZUswM1ZPVVZpZDIzVTc4cTk5VDBhN0VYT0tJbi9ma2h6bFRaZ01n?=
- =?utf-8?B?eTV1MWJWVE1rWFJpVHZoVEtSckRnTGwzdkwrZ3RSZ2syYy9TSWw4V1BMZ1Q3?=
- =?utf-8?B?NWRvSytvcWp0cFpzaUgvdkZFa0pZVXlKZk1jbEhRek8rVnAwWFZwRnRtLzRR?=
- =?utf-8?B?c0VDTTRJM0Z1UHZ4aFR0bW1nMkRoV2VHOTB3TlVDWkI0Z2Zud1k1eUVLdURL?=
- =?utf-8?B?SnlrZHZkRGlWbXRVRGtOdm9aNGVIK1J5NnlPK3Z6bSt4Vk1JT0g2dWh1Qi8y?=
- =?utf-8?B?T29YT0lubDdqb1F0MWYrRVM0VDQ4aHkxQ3g5SDVzQVBYa2g0VzVkS1IzS0VP?=
- =?utf-8?B?WloxalVkNUQxeUlzeCtFUWNYaktPNDEzK0c5YzJGYk9LRUo3TmxkYkZ4V3ZW?=
- =?utf-8?B?UkR4RGgzektlVUJGV011dURrN216Y2xxZmRDajE1TTZjV20xM2dybVN6NUk5?=
- =?utf-8?B?Z0FKWmF2Q3E3VWtMVjd3a3F1RTVmZ2lZL1lkTFlHY20wKzNSVHorR0owMC9L?=
- =?utf-8?B?SmFsM0hyTWJNOGR6LzJZbVNqdUpJdHBJdU1Hd3pGcXJJS2Q0bGh1Y2VNZnhL?=
- =?utf-8?B?SXVXeDdtYjdUTXBrUWowdmR1b1hEL2RUUzFJTUhqTWNwU1pQTG9SeUM0UE9K?=
- =?utf-8?B?ajkyajlra2JrTENCVzhTZjFyb0pHOWJwaERaNDBJdFZsUWh2Y2kvalVRcnk3?=
- =?utf-8?B?ZUJ5WUNmYUlUdkdEZWxHUjV4MVM0UEJyM0sreFVFRUR0Zk9VbUFGN3YveHNV?=
- =?utf-8?B?OTFtVk84NGRsY0FTUVh0MjNYN1VLNmNiWU5EWjlpNWQxOEFFajZkc0FHUlU3?=
- =?utf-8?B?QVF2MTV2d2p0blc3eGpCTERvTlA2dWp2azd2UDZpM0RqblFFdHlFOXBJWGlV?=
- =?utf-8?B?blNvQTFEclc5UGlUWElyaDY1T2ZZMmZLWHBTRzhESDlHRENlaGZPN3N5d2p6?=
- =?utf-8?B?VW9NenpZaWtoS2NWM2FrRWxvZ1JLL3F1cXR0NmNwSnBFVGRwVEFNa0JndXJw?=
- =?utf-8?B?MEdCOTFHOU54eDdyQ3lDZENKWTVmNXdjbVFxYno1cGxoUGNuenNBamg1MERI?=
- =?utf-8?B?MFc4UmlUSEVxc3lNelRGNzh0RXNiM3owMmlid3lCSWRvOEluVFQzRUY3NHlz?=
- =?utf-8?B?aVZ1Ty9YT1hraWJLSnlsZmRsdW1LOHd1R0JOWURyYjZBSWViclZSb2dEcFQ1?=
- =?utf-8?B?UlZlMk11SGtmcHBFTGl1R0FZeXhDbStDbkYyTkN3WVhwN2ZjeXI5dDJGRTV3?=
- =?utf-8?B?YkJsYldRRDl6b01hU1dVS1M2TXFhTUY4QUxGVWpPekdyalRkWHNJNHVheW1j?=
- =?utf-8?B?VzYxbHVtcC9WNXYwdmFtVmJ1V2c4MFEvbmQrcVUvL2tjaHVoSFdSNTcyZ2VX?=
- =?utf-8?B?bzNQMEVmSytrS2xHWlNUdU9pU04vL2RpdmdFNU1BVURGNkNneEZNQlpFeHJ1?=
- =?utf-8?B?RUozMHNxWHZCZ3BNMGpMN2YxRHYxVmpLeHFTejZ1NnZ6elZWUnNsOVk3UU5D?=
- =?utf-8?B?dWlkcS8xMVYwdkVGYUhkdDk1TUVIZTFnVXlzT0diNUdYbkF0VE5sUHdFWUhu?=
- =?utf-8?B?dGpKOEx6NTZPbjhkQ1dKU205a0w5SldWWTNweFppNHFKb0xMWWwxclRsRWFx?=
- =?utf-8?Q?Khl1ZRFbPPUZ+KCc=3D?=
-X-Exchange-RoutingPolicyChecked: IvIALKb+7eelKapkNWVZIA+V2JRCTbJUe8CIzaPlxmnPeAy6JM/LcGjEe+YTGFwFIDBQ91k7U2voUgZhE824aP9rzWmvP1Z5Ljzta2b0MMoOrkUynDs/opbiFDGb3ctbABpJokad8z6KdsOi/G52Juzc2gNoXIQn2jEVz79qLEvlzbE5AEn5VkYda9uCJkDyzy/EnC8S0QPn6rem5KWdOLBvd2vfQqP7RfXkf7UAQw7tKiK5Y/8tXXuxg5vXEJe1mmLr83TmWe8Nae+0yxjHp0A2pQgaczPTmyZ47F3ai9oajg1XPCdyDjySX35TO+GP3WPvH23nvy3vk0hF2dBbgA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: dfb36f3c-a120-4e42-0bc9-08dee81a6f53
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR11MB6967.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 17:55:37.0273
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MqMyaspXr5WqFE/Vg5jVtp2/CUJkFXEHQCDRqtx8EkX0I4DfQ7Ff+ZcMk262osWnRGJjIsQ3xpGOJGYGvEWvfF3X4glqOAkvv1pvSk6G5CA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR11MB6084
-X-OriginatorOrg: intel.com
+References: <20260703154811.3355680-1-sascha.bischoff@arm.com>
+ <20260703154811.3355680-37-sascha.bischoff@arm.com> <CA+EHjTybDSAgr44jXNFnssnYq_vVeuZ+1qORS8f4dtQgMzOZ5A@mail.gmail.com>
+ <71dc44828b55c848ca7bc842cb13b34681617ac7.camel@arm.com>
+In-Reply-To: <71dc44828b55c848ca7bc842cb13b34681617ac7.camel@arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 22 Jul 2026 18:57:02 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwMHxwpRLi0BEx5ykH+Nc1Oxja=6DYmdeS=3A3yzYYRzg@mail.gmail.com>
+X-Gm-Features: AUfX_mxTwAstkGjzWOdnvL1hFBOCWR33UqAdcJvL9E7YW2li2DEVUoBMCGBfKY8
+Message-ID: <CA+EHjTwMHxwpRLi0BEx5ykH+Nc1Oxja=6DYmdeS=3A3yzYYRzg@mail.gmail.com>
+Subject: Re: [PATCH v3 36/40] KVM: arm64: gic-v5: Implement save/restore
+ mechanisms for ISTs
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
+	Timothy Hayes <Timothy.Hayes@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, nd <nd@arm.com>, 
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>, 
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_185548_393663_128C3550 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_105758_336361_E7255CEE 
+X-CRM114-Status: GOOD (  28.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,42 +83,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/20/2026 8:23 AM, Uwe Kleine-König (The Capable Hub) wrote:
+Hi Sascha,
 
->   sound/soc/au1x/db1200.c                |  2 +-
->   sound/soc/codecs/adau7118-hw.c         |  2 +-
->   sound/soc/codecs/bt-sco.c              | 10 +++-------
->   sound/soc/codecs/wcd934x.c             |  6 ++----
->   sound/soc/fsl/imx-pcm-rpmsg.c          |  6 +++---
->   sound/soc/intel/avs/boards/da7219.c    |  6 ++----
->   sound/soc/intel/avs/boards/dmic.c      |  6 ++----
->   sound/soc/intel/avs/boards/es8336.c    |  6 ++----
->   sound/soc/intel/avs/boards/hdaudio.c   |  6 ++----
->   sound/soc/intel/avs/boards/i2s_test.c  |  6 ++----
->   sound/soc/intel/avs/boards/max98357a.c |  6 ++----
->   sound/soc/intel/avs/boards/max98373.c  |  6 ++----
->   sound/soc/intel/avs/boards/max98927.c  |  6 ++----
->   sound/soc/intel/avs/boards/nau8825.c   |  6 ++----
->   sound/soc/intel/avs/boards/pcm3168a.c  |  6 ++----
->   sound/soc/intel/avs/boards/probe.c     |  2 +-
->   sound/soc/intel/avs/boards/rt274.c     |  2 +-
->   sound/soc/intel/avs/boards/rt286.c     |  2 +-
->   sound/soc/intel/avs/boards/rt298.c     |  2 +-
->   sound/soc/intel/avs/boards/rt5514.c    |  2 +-
->   sound/soc/intel/avs/boards/rt5640.c    |  2 +-
->   sound/soc/intel/avs/boards/rt5663.c    |  2 +-
->   sound/soc/intel/avs/boards/rt5682.c    |  2 +-
->   sound/soc/intel/avs/boards/ssm4567.c   |  2 +-
->   sound/soc/samsung/i2s.c                |  2 +-
+...
 
-This change is outstanding when compared to patches 1-4 which follow the 
-  per-driver approach.  I'd expect one driver per scope e.g.: Intel's 
-avs split away from the rest.
+> I think that this is a great idea. It makes a lot more sense than
+> blindly trusting that the VMM has done the correct thing. With this,
+> KVM can validate that the VMM at least claims to have done what we'd
+> expect.
+>
+> I guess you had something like this in mind?
+>
+>     struct kvm_vgic_v5_ist {
+>         __u64 spi_ist_addr;
+>         __u64 spi_ist_size;
+>     };
+>
+> Which then means that we can do:
+>
+>     struct kvm_vgic_v5_ist ist_attr;
+>     size_t expected = kvm->arch.vgic.nr_spis * sizeof(__u32);
+>
+>     if (copy_from_user(&ist_attr, uaddr, sizeof(ist_attr)))
+>         return -EFAULT;
+>
+>     if (ist_attr.spi_ist_size != expected)
+>         return -EINVAL;
+>
+>     if (!ist_attr.spi_ist_addr)
+>         return -EINVAL;
+...
 
-Nitpick: s/ASOC/ASoC/
+> When I originally designed this API, I was keen to re-use the guest
+> memory here so had quickly dismissed this approach. However, looking at
+> it again now, I think it makes a lot of sense, especially as we are
+> limiting the guest to 16-bits of ID space - this wasn't the case
+> originally which allowed the size of the ISTs to balloon significantly,
+> and hence it made more sense to re-use the guest's memory.
+>
+> > That would remove the ordering requirement
+> > entirely, and by my reading the worst case is 65536 entries at 32
+> > bits, so 256 KiB, given the 16 bit clamp on the guest's LPI ID bits.
+>
+> I am actually in favour of this approach. It removes the asymmetry
+> between the LPI and SPI ISTs on the save/restore path, and avoids the
+> explicit iteration over guest memory to save or restore the LPI IST.
+>
+> With this, the proposed struct would become the following.
+>
+>     struct kvm_vgic_v5_ist {
+>         __u64 spi_ist_addr;
+>         __u64 spi_ist_size;
+>         __u64 lpi_ist_addr;
+>         __u64 lpi_ist_size;
+>     };
+>
+> The VMM would need to read the guest's IRS_IST_CFGR and IST_IST_BASER
+> to determine if the guest is using LPIs or not, and how many it needs
+> to provide storage for. If no LPIs are in use, then allow
+> lpi_ist_addr/lpi_ist_size to be 0, but otherwise the size must match.
+>
+> Does this align with what you had in mind?
 
-If it comes to v3, I'd appreciate having a separate patch for the 
-avs-driver components with the following title applied:
+Pretty much, yes. Folding the LPI IST in the same way is better than I
+expected. All __u64 also avoids implicit padding.
 
-ASoC: Intel: avs:
+The LPI size is the one that matters. The SPI size is nr_spis * 4, and
+nr_spis is something the VMM set itself through GRP_NR_IRQS, so the
+two sides cannot disagree. The LPI size is derived from IST_CFGR
+instead, so that is the buffer where the kernel computing the expected
+size and rejecting a mismatch earns its keep. The entry is a fixed 4
+bytes either way, since only the architected 32-bit ISTE is exposed,
+so sizeof(__u32) is right.
+
+The main thing I would ask is that the checks be strict both ways,
+since turning silent acceptance into -EINVAL is really the point of
+the size field. Two cases: reject a non-zero lpi_ist_addr when the
+kernel has no LPI IST, not just allow 0 when it does; and on restore,
+reject rather than silently skip when the LPI IST is not configured
+yet, which as far as I can see makes an out-of-order restore, the IST
+buffer before IST_CFGR and IST_BASER, a no-op.
+
+Another thing your proposal cleanly resolves is the ordering point
+from my earlier mail. Once the LPI IST save writes the userspace
+buffer instead of guest memory, the requirement to serialise guest
+memory after saving the ISTs goes away, since the save no longer
+touches guest memory.
+
+Cheers,
+/fuad
 
