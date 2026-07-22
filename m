@@ -4,77 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8333C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 03:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7587AC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 03:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UyfeTtjC2ZIxhQHTBzzT24VyhmFbnqE24bjSAL7D0M0=; b=LxP5cfEW0Py2ITy+wNHEbuxGKh
-	ARY48L726EmJYqAu+8B6Juu6nHkQCzbSOmhqe3WZF9Bsg6tXr/p90RN0ybGxp3yak+9Jpc1rKAzBa
-	mHGzrsOXd8Sds9vxtWnT9JO0mYhr1HUfU7v+G/QDbJgilAA7yCm0vBS5NTUd3kjEpoOgpIWrQewvR
-	K+/QRIKfSPLuKjAXzrgtV4Yo/FvG6nMV7aJ/R8qOrmnvVWPBPjbpg5KJMgJ4tQpuv5gb1jZQi2ZXk
-	Sr7/0RTNs12mTicZXWVVqN2/hH515i7IFUKkCy4V7b+L9iW2qE5r5MGFq9ETfNLkbK06qZ0VhI7AP
-	RQE70bow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=; b=abklP+zjGto6mV0VhUgVplZJNk
+	WThUMkm12tZViQ1XZQ++fataxIjtyfKbY1GqyjxnRK0NoGWxja8c5kSwermYAIm/NcpJpXm23achZ
+	GDBP2NCE/SDkEBN/Upqaa4TmJmkUVrlQ1NrEFcqudwvNpUcI+G7/xemMx1ROTM7+MCXhQls2f/aJt
+	z82bpt/l/G+i3lfP0wU99HBw+H1xVxqL4pmJEj7B2KZnOmQJUKN0MntglGifZe6EITP4Xum4pmJPO
+	uGhW/qa1nmqJZ7lDx5OMygbPVQv2f7gx2/Si9yC7t4iHyfiBXbtcN+WN7oLP8nQ65BhTpmINCeXyC
+	079vpzmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmMup-0000000AmRo-3FvS;
-	Wed, 22 Jul 2026 02:42:35 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wmNkF-0000000ApJ2-0Kdp;
+	Wed, 22 Jul 2026 03:35:43 +0000
+Received: from mail-yw1-f180.google.com ([209.85.128.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmMum-0000000AmRJ-4AEr;
-	Wed, 22 Jul 2026 02:42:34 +0000
-X-UUID: f91418fe857611f1acbe4559397dec65-20260721
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=UyfeTtjC2ZIxhQHTBzzT24VyhmFbnqE24bjSAL7D0M0=;
-	b=uRE3I9s73UtNQnCH1Ggdc+jPjkpYkIOObCZOurF9JQLFsUnwLBO/LFeQcJ/5O7RUW6ig6Cbq3AxjcVLAmk5FsQcfaqFOT6WK4dGuOB1/8YvQV6kH+c9sOVcukNTH8wZMqjA/ZOWw249kU2bnA5aio+a6KuA624e8WgqxorW+dIg=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.18,REQID:dd320a5b-582a-4445-988f-5bc0418c1ad2,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:8a735a6,CLOUDID:976f8d3f-46cf-453a-bd84-ad9fc7cb0e8c,B
-	ulkID:nil,BulkQuantity:0,SF:102|123|836|865|888|898,TC:-5,Content:0|15|50|
-	99|100|101|123,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,CO
-	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f91418fe857611f1acbe4559397dec65-20260721
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <zhaoping.shu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1565529495; Tue, 21 Jul 2026 19:42:25 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 22 Jul 2026 10:42:23 +0800
-Received: from mcddlt001.gcn.mediatek.inc (10.19.240.15) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 22 Jul 2026 10:42:21 +0800
-From: <zhaoping.shu@mediatek.com>
-To: <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <ncardwell@google.com>,
-	<kuniyu@google.com>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <willemb@google.com>,
-	<alice@isovalent.com>, <sd@queasysnail.net>, <eilaimemedsnaimel@gmail.com>,
-	<imv4bel@gmail.com>, <hw.he@mediatek.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: <haijun.liu@mediatek.com>, <xiayu.zhang@mediatek.com>,
-	<lambert.wang@mediatek.com>, Zhaoping Shu <zhaoping.shu@mediatek.com>
-Subject: [PATCH net v1] net: gro: avoid nesting GSO skbs in skb_gro_receive_list()
-Date: Wed, 22 Jul 2026 10:42:14 +0800
-Message-ID: <20260722024214.24845-1-zhaoping.shu@mediatek.com>
-X-Mailer: git-send-email 2.17.0
+	id 1wmNk7-0000000ApFW-3LYX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 03:35:40 +0000
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-81062fdeaf5so51592527b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 20:35:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784691334; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MrmqKtE/HNL6EJyqZVpitxM1AWtgeLsOlRQucrNOtDKJx5YcB8IlWLkTIFxIn4CtEo
+         8VbNVRWaWFAPfWjLzxU90GXsX3ea4QN1OSBGYcTkxccZc2FdAd3o6FKgCxKbozW5h1tZ
+         Ge8q9msBOYvNfcC3Fp1blD7+imtVXlA3s6Ofl/FDiAcdq69IxKvOHaBXK0swWlEQ/qLy
+         BSjRHSxMWDhKkuFg8/erxONdf9UegX9OfG7CiadZt3IAP2huAZu/P5hA1KZYa7BZ31QG
+         Jnxy2qr2yKLWcU5mJca7rN/Dho3XQlIwPTYyTqa7BCX+rpyAhJRYROmvQhOPfygT0WxQ
+         eK/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=;
+        fh=aXtKxBcS02+0VC6Af4JkjWe1Mrdfg+0qpr58/3MawoM=;
+        b=AeZKgupOpw4U8ZlnjJEQXsvM3ZRMXZcofU1JYQfDRCytd/y0sz31Ck2Qt88PwUNyYX
+         GMRlLJ3s1fNajhIdn3etSkx7l9Z0wIw+QKGumyLxgtkyVVTzmqgtAyGsXdBNSoXBCnNd
+         HtsIvfze1awf+UCSXsrtLhhyJrx+6m8SzjO9boXHXhI9t2IZolQ32j149BhVRRcJ9ihV
+         LTCiOC4FiqPnobxdmSHCpzrJYVWh3UVxvVRK1gtipNNYGEpK8ttThgSHlArdCnuQ+VWs
+         /8qt1cTymthNH3NsJVNiqsn14dWc/8Ccnbqhs01832OryxqGxqJ3S4z6i4a0ThWFZmhS
+         91kA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1784691334; x=1785296134; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=;
+        b=ofBCccbqYeR5eTFvBPWV5epGOEkkDwCZSZOWTC7ZCGGnoWZ40lEq01eT4Ew2OG8qtX
+         mmTJdffo54yXmIUOoxjczKrbG1E/0QP+sH7ytb+pBg9JjWYHfEZN/RaBs2vyk/VBLmCw
+         agDmMIef5sHLRgdGcO7W3/1TGmDEtAq1s7TJQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784691334; x=1785296134;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=;
+        b=d6yUBaXACTKnEMO+IdOpH2uZpUxuGMfyYmazpnWH6qL4srTGJ5gNhv3MZqgXM2yWmo
+         aKT++0xnp2yspvg3er3v9HQRow5V3UlnSw8y+x0uvSxeR/mE5jXbpi5uNoSg0/y8CtaX
+         uIcAQcZJUUU8gcHqqkOrK704ehpO5E0A3jNI7lnVJqCIr2D1GKSfPEXstqJcQiosh3mY
+         c/Yt0634nW9yWOL9g3lkW9iTT9UEbfXpLQv+1D2cazmfYv7x30EeWJMD2e+RKsWqKoU9
+         cB3odVsbuWDYmiebkjgwAiiCuzMwSJu4tlseQ75c8gWb4yr3cwL7Zgn4kHM8ggqB2AHl
+         XDyQ==
+X-Forwarded-Encrypted: i=1; AHgh+RopfuNJaSGfG5IHSWO9ZzHbG44vFQIDdcg7Sx1N+f5jGIoR4mKc44Y+MDfzoBdbUe3SFOkBCOuPPrJQd4Jlu/YM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFtLjNtnNnO/o0s6+8fY1FyyNrLtMWUq90OKhQeuHz8wHp6bZc
+	/MxI6ZC31Qikt/uJgfubYrScbx9WQZnt70V7JMAJjST2+j1KDm/jUiDG/03GS+1atzNgF1OuM6B
+	c/D4nJxe7sjgglVn2tNdxrlPg4S3qvqQHn2CWTwU3
+X-Gm-Gg: AR+sD12TUjhWVfs15ktlQKl90hTYHSF5KMmBGPZaZPI6zU6sxblpH3PbPz9ZbHN8oLU
+	aWKUPCGqMCl/4z3rZD8Cgu6qiLAdxKBCRm6bk0n/dS4tdzzlrnB1yhAtQbY8TzhY3V9cdq9yPa4
+	+fl16zgnSgLIUVYM0iXLrtKJ1b8gYHCQMV/W9vD25SAZACyzmY5gO3qiv9MeV58c5jwI5/D2Ky3
+	1e2IlZM5XE6KrUk7ib5xe79T9O8grm6ZtrvC+yZj2bAIqGztfJRxUak/6QUiDIamEQaQQlAwbWy
+	Ou5PbHfoDfnoO+c=
+X-Received: by 2002:a05:690c:c4c5:b0:81e:f308:cfa3 with SMTP id
+ 00721157ae682-81f33bfed62mr7716127b3.14.1784691334267; Tue, 21 Jul 2026
+ 20:35:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
-X-MTK: N
+References: <20260721105230.101906-1-angelogioacchino.delregno@collabora.com> <20260721105230.101906-2-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260721105230.101906-2-angelogioacchino.delregno@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 22 Jul 2026 11:35:22 +0800
+X-Gm-Features: AUfX_mwF5azxEMhr_2WNLIrQ4cJxk5YI9R_dQgFYT_P0qpGKSy3wJnLrxRQxP90
+Message-ID: <CAGXv+5G-mVf3b7ygb8h4sTtYkACjc9B-VenTqOvbBQO9Pasgug@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: thermal: mediatek: Make resets
+ optional for MT8196
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	p.zabel@pengutronix.de, matthias.bgg@gmail.com, laura.nao@collabora.com, 
+	fshao@chromium.org, jiapeng.chong@linux.alibaba.com, frank-w@public-files.de, 
+	bchihi@baylibre.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_194233_097540_CE3C023B 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20260721_203535_862519_D53822EE 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +120,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: HW He <hw.he@mediatek.com>
+On Tue, Jul 21, 2026 at 6:52=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Both LVTS-AP and LVTS-MCU may be shared with SoC-internal MCUs
+> running some sort of firmware that checks thermals in order to
+> scale frequency, or to take action for critical SoC thermal
+> protection - and this is seen on most MT8196 boards.
 
-On devices that support both NETIF_F_GRO_HW and NETIF_F_GRO_FRAGLIST,
-the hardware or driver may deliver packets that have already been
-aggregated into a GSO skb, either with frags[] or frag_list. GRO may
-then
-aggregate the skb again in skb_gro_receive_list().
+Yes the number of MCUs on this SoC is a bit crazy, and the OS
+has almost no control over them. :D
 
-This can create a nested GSO skb, which is not handled correctly by the
-later GSO segmentation paths. When the skb is segmented by
-skb_segment_list(), it not be fully restored to the original packets.
+> Make resets optional, as doing a HW reset on such boards will
+> result in either an immediate thermal protect shutdown or in
+> a rather important and usually permanent system slowdown.
+>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 
-If the skb is marked with SKB_GSO_DODGY before segmentation, for example
-after a protocol change from IPv6 to IPv4, the nested GSO skb is
-segmented
-by skb_segment(), which may hit a NULL pointer dereference when the skb
-contains a nested frag_list.
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Avoid this by setting NAPI_GRO_CB(skb)->flush for GSO skbs before
-aggregation and by checking the flush flag in skb_gro_receive_list(),
-following the existing logic in skb_gro_receive().
-
-Signed-off-by: HW He <hw.he@mediatek.com>
-Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
----
- net/core/gro.c         | 2 +-
- net/ipv4/tcp_offload.c | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/net/core/gro.c b/net/core/gro.c
-index 35f2f708f010..27c9813495f3 100644
---- a/net/core/gro.c
-+++ b/net/core/gro.c
-@@ -229,7 +229,7 @@ int skb_gro_receive(struct sk_buff *p, struct sk_buff *skb)
- 
- int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
- {
--	if (unlikely(p->len + skb->len >= 65536))
-+	if (unlikely(p->len + skb->len >= 65536 || NAPI_GRO_CB(skb)->flush))
- 		return -E2BIG;
- 
- 	if (!pskb_may_pull(skb, skb_gro_offset(skb))) {
-diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
-index 3b1fdcd3cb29..c363434a5646 100644
---- a/net/ipv4/tcp_offload.c
-+++ b/net/ipv4/tcp_offload.c
-@@ -332,6 +332,7 @@ struct sk_buff *tcp_gro_receive(struct list_head *head, struct sk_buff *skb,
- 		flush |= skb->ip_summed != p->ip_summed;
- 		flush |= skb->csum_level != p->csum_level;
- 		flush |= NAPI_GRO_CB(p)->count >= 64;
-+		NAPI_GRO_CB(skb)->flush |= skb_is_gso(skb);
- 		skb_set_network_header(skb, skb_gro_receive_network_offset(skb));
- 
- 		if (flush || skb_gro_receive_list(p, skb))
--- 
-2.17.0
-
+> ---
+>  .../bindings/thermal/mediatek,lvts-thermal.yaml     | 13 ++++++++++++-
+>  1 file changed, 12 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/devicetree/bindings/thermal/mediatek,lvts-ther=
+mal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.=
+yaml
+> index 975235130670..29f431fcdcd5 100644
+> --- a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yam=
+l
+> +++ b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yam=
+l
+> @@ -94,12 +94,23 @@ allOf:
+>          nvmem-cell-names:
+>            minItems: 2
+>
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          not:
+> +            contains:
+> +              enum:
+> +                - mediatek,mt8196-lvts-ap
+> +                - mediatek,mt8196-lvts-mcu
+> +    then:
+> +      required:
+> +        - resets
+> +
+>  required:
+>    - compatible
+>    - reg
+>    - interrupts
+>    - clocks
+> -  - resets
+>    - nvmem-cells
+>    - nvmem-cell-names
+>
+> --
+> 2.55.0
+>
 
