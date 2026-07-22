@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765A9C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F9EDC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+8i98HYtw9O3iLHT5n6VoL8lXyUup+N9VQpWycqqtU4=; b=Hk07LSKozSqYVw94DoyerSykjz
-	a02+wQiPSBj5Scd7Xpn0Qk4icORqSRUFdLO5rPbKxz3KMp1XifSjfLBrsLjipSOpumJdGwmU+5GY5
-	qlqdneMqhtyehEi8lMKc52ZPaSgSg4jlcthTbj4Cu00aa6dRi530N0RYo+g5m1jGklMj/MCSQaflH
-	aD12DLA7GuN3hbM4u5YRzCM4vvXr2/0stryCYCmVSBziR2o2IrDFr4o0D1WBaDY1rOzq+lSXjJxRk
-	Ao5qh9jsLLV0myhWfVHIqsFa1li73buPUlo1mWwWwH7gCdlUIP82smBZsGYuYMlQ764YZAbHrhoAp
-	xMFZBxbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aee5s1edqbgsHAo4tjJhHBYFBXZbzIQhAfflgu0Qfl0=; b=lkRTVkAnpmGX3d746Cp8JH3FZM
+	ZUw31lu+Z96Wx/b2L66LdXP9XnzmqjYnlXxnVChTWSdsAGVoiksUGFDowksZLxIiD6OkvCbD/Z93E
+	xXDOfNheOZ3fhmLkCUOZLvg/8IKBJ+7MVc+VKeRJVy//mGl3FRJYEIvF9QQyIz+JoTBcXHIAVowaJ
+	zTzZELZVbnSraQt3hXkQl3JnHZsvg6q9fGsKUnT/1Oqy4bl/puHhoAbRf1k/J8MAfB8ZyEnN+WWMk
+	uVPwlaUBTRChAiil1cICdk6zcSvLIA3c5922PWAg6NWEa5lzYFJ4F98qhA1XBzPvISbHMhDdUMuYx
+	yvYIc+cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSeO-0000000BIjh-1017;
-	Wed, 22 Jul 2026 08:50:00 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wmSkM-0000000BJIZ-0Ir5;
+	Wed, 22 Jul 2026 08:56:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSeJ-0000000BIgI-3DRj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 08:49:58 +0000
-X-UUID: 44efcb8285aa11f1aa26b74ffac11d73-20260722
-X-CTIC-Tags: HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
-	HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE
-	HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME
-	IP_TRUSTED, SRC_TRUSTED, DN_TRUSTED, SA_TRUSTED, SA_EXISTED
-	SN_TRUSTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS
-	CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS, GTI_RG_INFO, GTI_C_BU
-	AMN_GOOD, ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:4612328b-8a2b-49d8-a191-45815e19401b,IP:15,
-	URL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:-10
-X-CID-INFO: VERSION:1.3.12,REQID:4612328b-8a2b-49d8-a191-45815e19401b,IP:15,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-10
-X-CID-META: VersionHash:e7bac3a,CLOUDID:896384ec597e9bc3af9490702a4f8d11,BulkI
-	D:260722164940PZX1QA53,BulkQuantity:0,Recheck:0,SF:10|66|78|102|127|136|86
-	5|898,TC:nil,Content:0|15|50,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,Bulk:nil,Q
-	S:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,
-	ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 44efcb8285aa11f1aa26b74ffac11d73-20260722
-X-User: pengcan@kylinos.cn
-Received: from lenovo [(116.128.244.171)] by mailgw.kylinos.cn
-	(envelope-from <pengcan@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 89399544; Wed, 22 Jul 2026 16:49:37 +0800
-From: Can Peng <pengcan@kylinos.cn>
-To: rafael@kernel.org,
-	daniel.lezcano@kernel.org
-Cc: rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Can Peng <pengcan@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] thermal/drivers/imx: Disable clock on runtime resume failure
-Date: Wed, 22 Jul 2026 16:49:09 +0800
-Message-ID: <20260722084909.463437-1-pengcan@kylinos.cn>
-X-Mailer: git-send-email 2.53.0
+	id 1wmSkJ-0000000BJII-3u1F;
+	Wed, 22 Jul 2026 08:56:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 098AB60A6B;
+	Wed, 22 Jul 2026 08:56:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C7D71F000E9;
+	Wed, 22 Jul 2026 08:55:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784710566;
+	bh=aee5s1edqbgsHAo4tjJhHBYFBXZbzIQhAfflgu0Qfl0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LDc46chI52fVENs42kG9+KBWM0nMhxZUJWhF2TcA//k7EVRXGYtJIEDCNw2MhaQxf
+	 rAF7wicCMnhKVgjkDR5Va+tqdiK93/9KRL0amUDK1fkF/CYvi+4b0yXY0txmWTHBzm
+	 FN3BEIyh2bx7nj0aCMQm2RenxGNCsPp3x2xisyF711bY3BDHZJZ9cBgDQ/wkNXvhIf
+	 qeOmqal8BqfD6umsvhZ23KsidOUZWvPxo4euKNMG6AxVL0LbwZcNyrf3FjZpQ5BNd/
+	 UqsVNpLJjq1PTHsuaT0kzYYLLQVD1E7gJWUegOsyo5+fFSYuWRWanDXNRVLIlnutd/
+	 QQ65f9GU69gTg==
+Date: Wed, 22 Jul 2026 09:55:46 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Borislav Petkov <bp@alien8.de>, Brendan Jackman <jackmanb@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+	Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>
+Subject: Re: [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on
+ debug_pagealloc_enabled()
+Message-ID: <amCFgFTmP1Jy_uRG@lucifer>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+ <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
+ <al-oTOKY7vkdPHr5@lucifer>
+ <al-6woCPBH5d-lwP@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_014956_111390_91DC1BA0 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <al-6woCPBH5d-lwP@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,54 +83,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_thermal_runtime_resume() enables the thermal clock before
-powering up the sensor and enabling measurements.
+On Tue, Jul 21, 2026 at 09:30:26PM +0300, Mike Rapoport wrote:
+> On Tue, Jul 21, 2026 at 06:16:33PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Tue, Jul 21, 2026 at 07:23:24PM +0300, Mike Rapoport (Microsoft) wrote:
+> > > The splitting and merging of kernel page table mappings between small and
+> > > large is protected by cpa_lock. The merging is relatively new but the
+> > > splitting is ancient.
+> > >
+> > > The splitting has a locking optimization: since DEBUG_PAGEALLOC forces all
+> > > mappings to 4k, there are no large pages to split. So the code that *might*
+> > > cause a split can just skip the locking (and a few other things).
+> > >
+> > > This is entertaining, but it adds complexity and makes for weird locking
+> > > rules. Plus it's all for a debugging feature which makes the kernel super
+> > > slow in the first place. Optimizing something which is already super slow
+> > > and not used in production is not the best way to spend our complexity
+> > > budget.
+> > >
+> > > Stop gating cpa_lock on debug_pagealloc_enabled() to simplify the code
+> > > and the locking rules.
+> > >
+> > > [ dhansen: flesh out changelog ]
+> > >
+> > > Suggested-by: Dave Hansen <dave.hansen@intel.com>
+> > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > > Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+> > > Link: https://patch.msgid.link/20260715144519.934289-1-rppt@kernel.org
+> > > Link: https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
+> >
+> > Hmm this patch is already taken separately though? ([0]) (obv. commented there
+> > already with review feedback).
+> >
+> > Intended to be with this series as some kind of background or? Probably better
+> > to separate out given it's a live patch
+>
+> From the cover letter:
+>
+>   Patch 1 is already applied to the tip tree and I posted patch 2
+>   separately [4], but I included them both here for the completeness.
 
-If either regmap_write() fails, the function returns with the clock
-still enabled. This leaves the clock enable count unbalanced after a
-failed runtime resume.
+Well that'll teach me for skipping the cover letter ;) Fair enough!
 
-Disable the clock on those failure paths before returning the error.
+>
+> > Thanks, Lorenzo
+>
+> --
+> Sincerely yours,
+> Mike.
 
-Fixes: 4cf2ddf16e17 ("thermal/drivers/imx: Implement runtime PM support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Can Peng <pengcan@kylinos.cn>
----
- drivers/thermal/imx_thermal.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-index 5aaacbc53478..b0e88b6a9352 100644
---- a/drivers/thermal/imx_thermal.c
-+++ b/drivers/thermal/imx_thermal.c
-@@ -832,12 +832,12 @@ static int imx_thermal_runtime_resume(struct device *dev)
- 	ret = regmap_write(map, socdata->sensor_ctrl + REG_CLR,
- 			   socdata->power_down_mask);
- 	if (ret)
--		return ret;
-+		goto disable_clk;
- 
- 	ret = regmap_write(map, socdata->sensor_ctrl + REG_SET,
- 			   socdata->measure_temp_mask);
- 	if (ret)
--		return ret;
-+		goto disable_clk;
- 
- 	/*
- 	 * According to the temp sensor designers, it may require up to ~17us
-@@ -846,6 +846,11 @@ static int imx_thermal_runtime_resume(struct device *dev)
- 	usleep_range(20, 50);
- 
- 	return 0;
-+
-+disable_clk:
-+	clk_disable_unprepare(data->thermal_clk);
-+
-+	return ret;
- }
- 
- static const struct dev_pm_ops imx_thermal_pm_ops = {
--- 
-2.53.0
-
+Cheers, Lorenzo
 
