@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 041EAC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:49:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E61C44533
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sxEitlPnYg2kH9kyoModuHYbzqhDL9bDDTtUAFaKepw=; b=SeyZUg7e2IeNVTHl4WM8onLGsB
-	f3YRK5STnriJ6nnhEtml1WZfACmoQ9tx7ZMiAfP3oFmrERcpdAdT5LayEXx9WdfKliPMWdWDDmF6p
-	aHy73tq+kIVu5sghtvsdp484T2t5tyWXpeuO01zqXE7pQkq75KXdOolI8RwRSBgKu4LvWbLsR5biX
-	6FjN6jleQCcN3n5O9iMD+0PaljBEZSFBopq+5SzGRl+at/PmSRODYmx6/HBEb2ZznsKK9krbElX36
-	qGKI/VVwlFeA3xMDhiycqhMDTR9DC03VO/HE/1FZb3lX4BEwKrxh47/IZtjqfOuDT4R/QKBr/tGet
-	kPDKBeOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aR/Osk67Ac6HqpyAtQW/S3wFFV0obNj7GHz2cg+og7E=; b=EsHLXI72qY5BS/XvtCqB2oexhj
+	4N1cIqq7711pc3hwFTFTGMOjRqFyPUDyFUg77Wb5cSN1JHCKsbcJYSe21oDnk9ek0f6QLiagb4VdB
+	3e7CqwcCCT+P5JgmLXFZrwgTPFgoEMruP7v7Fq6cGy/6cce9xSrJ7zQhnja8CuPDZMEtnS+nY63CL
+	RhAIY5a8PkzRApCGWoKD4gS197R7QwPKPjSSM3R/ERQvQB8IjS3yOr02pKlojv+P6H8UrdKJvDoDJ
+	M6bjKOh9NyWIo5MJJsJSZlnucIkcGaT6Qm9xgURchm8V9NoKa/JREiUju7GAKp7wyPRS3IYk7lGj4
+	rXT27AFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRhz-0000000B9VC-1Xv4;
-	Wed, 22 Jul 2026 07:49:39 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wmRlK-0000000B9vA-0EjU;
+	Wed, 22 Jul 2026 07:53:06 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRhx-0000000B9UC-0wvC
+	id 1wmRlG-0000000B9tf-0cGU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:49:38 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-472326ca506so9352468f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 00:49:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784706575; x=1785311375; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=sxEitlPnYg2kH9kyoModuHYbzqhDL9bDDTtUAFaKepw=;
-        b=fSKl6ExB5kDhFw+WRGAhbcfAciCxQM8iGtCw2naqtNwith9G28tC24PM6dI7RWfmJk
-         VCw7Arzm/tFyxdwHxjWuK82P1Nd8qn5ord58k5mUBp1x0WLUeZ8x2mu/HMalEUlHLQKd
-         d8W7t8BxP/ctY1aPkU4lrF6+o4jp3I4EWd9MUqhb1zfKsyEHH9I9xe2FzcrN8JxJ3OiE
-         5WqfEUvWJW+O0V8fh97twR0MkPjSiTvMmLTr05GkRRdaba5TxKIcxZb5poNdBE/k9Uy5
-         vjwrE6ZnG4GepNq08BCfkS5LytTgYS6I+Qf8JnlidcjaKolGXAo4jf0842lg31elcgSe
-         qoSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784706575; x=1785311375;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=sxEitlPnYg2kH9kyoModuHYbzqhDL9bDDTtUAFaKepw=;
-        b=C0OT1bRMAr47Wlo1bClqBsQOR/LcPRo+ezljyz5cTLiFvGIYp+qL4+vZwjXzqHrauV
-         9NBtJaVSifCfAu0Xr2zg66xfETaRsGsCVPGjNgE/w4EamMHrrP6jQmmbhNdCDh4MIYQm
-         Qz3CcUz+lu5TupCIyGEw3oqM3KpdWWpdhxIC0YmnGFqn/6lKObPlCnBb7MUOPQLbPNkW
-         MxKnjimQx208O/DzAQYVqP/hX0YN1k/OdZx3mhs3u/ZJ++NS20cvyDdbCNyHR2TxRv1v
-         +GKUk72bQV1tiKgz/+WToAgXmOXElGUt/2Rs8wmXJLyMKyKvtt2J95tqZ/Cc0CH0l6xR
-         lcqg==
-X-Forwarded-Encrypted: i=1; AHgh+Rrnv9TiJ9CzI4kEojaSIdXWcj+PPAWBevH6reoMchrhhzyVUWkWYEdyWxXf0d1elVS5UvweOIsqkMM+XpFjmg5d@lists.infradead.org
-X-Gm-Message-State: AOJu0YzafobKzypKj81SaxFyGHML19dfFJerkj5/mhxgRgInxT+jRTzR
-	dygsaedL5wgHPBg06t8GLgZKqssZavYvBJ3F7NvUIAHgfSaUwuBwYxlmi23URVagrPI=
-X-Gm-Gg: AR+sD12pCK87I2kpfO4GmO17i2mnHdfoBdn5IOtdH9JIBcGHTrdyVfO26Sy1IB2ORS4
-	KYhCeCUdQssL/5ogSc4zZx8uzgSSxn40i0jzG6b8xkNxqyUTtLLu0AXNWs7wvJYNYOD3P8pL6a6
-	P4ttUdT8o1x0gtDuef9k0RA1JOtR5fOusSt5TIRJ7J8Nw3xvh5BukmhtjFHmEIa8yV7upt/8MU3
-	XhzytwV8WMjm4qn5OScBPhXNLMtvSsJ+ZMVtfFUgb1KdzDxqU6/ySb4njXuvvHna/th9ucLCt/X
-	zjdwU3fSF+HRJzcKgdjx8k1plD7o7ywcqGG5VNovRrmh7D/QgsDZTz5uEafoJVCmhkSjGDQL1P5
-	7lJ6dC2eRIX7FXdO0jF2kqDjOvihcpa2g+jTlx+qxOxkikEbuqruwQi78oDwXCLzrM7d09eOvos
-	UL
-X-Received: by 2002:a05:600c:1554:b0:493:c10c:22f0 with SMTP id 5b1f17b1804b1-4954a50d963mr288452635e9.20.1784706575219;
-        Wed, 22 Jul 2026 00:49:35 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:a589:14b5:ba97:3626])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4956ab22e74sm40387815e9.1.2026.07.22.00.49.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 00:49:34 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Russell King <linux@armlinux.org.uk>,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] clk: fix self-consuming provider module pinning
-In-Reply-To: <al_3V8N9z25ho8g2@redhat.com> (Brian Masney's message of "Tue, 21
-	Jul 2026 18:48:55 -0400")
-References: <20260721-clk-provider-pinning-v1-1-63db2e667993@baylibre.com>
-	<al_3V8N9z25ho8g2@redhat.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 22 Jul 2026 09:49:33 +0200
-Message-ID: <1j4ihrea5u.fsf@starbuckisacylon.baylibre.com>
+	Wed, 22 Jul 2026 07:53:04 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=aR/Osk67Ac6HqpyAtQW/S3wFFV0obNj7GHz2cg+og7E=;
+	b=QZZpp3lBLxPsjGPC91euFBf8ASSiUf8bQhsrEohyp9pkY8APM2++0QHlbYr9jvQhQhoWBsDN8
+	O6Sh9Zjo1YKBxHFEx5tP2x1ztkfziyWsYsdfMj1NJvlwT8orAWgJaN0nZtioFzYHA3XLHtIbJU0
+	d1mtfzQ+lW1LB7ESDuuATcg=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h4mTB0clkz1T4GB;
+	Wed, 22 Jul 2026 15:43:26 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 925B64057D;
+	Wed, 22 Jul 2026 15:52:46 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 22 Jul 2026 15:52:46 +0800
+Message-ID: <5ec6652f-1747-40d1-b0f4-9262f3084757@huawei.com>
+Date: Wed, 22 Jul 2026 15:52:45 +0800
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 23/36] arm64/efi: Implement override for IRQ flags
+ checks
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-24-vladimir.murzin@arm.com>
+ <e1694eb7-3459-43bd-9f37-1066bef43a14@huawei.com>
+ <94589fd3-d81c-4603-8226-131894d6af08@arm.com>
+ <649a6d54-3335-4523-a683-e2bf7fb865d0@huawei.com>
+ <c5ed3515-0ea1-4db4-809a-97020439e1f1@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <c5ed3515-0ea1-4db4-809a-97020439e1f1@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_004937_281796_779E834E 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20260722_005302_832363_3C7445ED 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +84,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mar. 21 juil. 2026 at 18:48, Brian Masney <bmasney@redhat.com> wrote:
 
-> Hi Jerome,
->
-> On Tue, Jul 21, 2026 at 12:08:17PM +0200, Jerome Brunet wrote:
->> clk_hw_get_clk() lets a provider get a struct clk for one of its own
->> struct clk_hw.
->> 
->> When a struct clk is created, the module usage count of the provider
->> is unconditionally increased. For a self-consuming provider, this means
->> it pins itself and the module can never be unloaded.
->> 
->> Increasing the module usage count should only be done when the consumer
->> lives in a different module from the provider. Use THIS_MODULE to
->> capture caller's module and increase the module usage count accordingly.
->> 
->> It is OK for consumer-only APIs such as clk_get() or of_clk_get() to
->> pass a NULL owner. As a result, any provider module will get pinned,
->> same as before.
->> 
->> Fixes: 30d6f8c15d2c ("clk: add api to get clk consumer from clk_hw")
->> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->> ---
->> This issue has been present for a while. Virtually all users of
->> clk_hw_get_clk() are affected. The majority are compiled as builtins
->> according to the defconfigs. It is not problem in this case but it is
->> if the configuration is changed to module.
->> 
->> The following modules are using clk_hw_get_clk() and are compiled as
->> module with some shipped defconfigs:
->> * drivers/gpu/drm/msm/disp/mdp4/mdp4_lvds_pll.c
->> * drivers/phy/cadence/phy-cadence-sierra.c
->> * drivers/pwm/pwm-meson.c
->> * sound/soc/codecs/lpass-va-macro.c
->> 
->> Currently those module cannot be unloaded once they have been loaded.
->> 
->> """
->> rmmod: ERROR: Module blabla-module is in use
->> """
->> 
->> I initially thought about using the dev parameter and compare it
->> against the clock own device but this proved unreliable. A clock
->> does not always have a backing device and some paths, such as
->> clk_get_sys(), do not provide a device either.
->> 
->> With this applied, we can get back to removing the direct usage
->> of the struct clk in struct clk_hw and eventually remove this
->> struct member entirely.
->
-> __clk_register() has this comment:
->
->         /*
->          * Don't call clk_hw_create_clk() here because that would pin the
->          * provider module to itself and prevent it from ever being removed.
->          */
->         hw->clk = alloc_clk(core, NULL, NULL);
->
-> With your change, can this code path be updated to use clk_hw_create_clk() ?
->
 
-Indeed the comment no longer applies but I think keeping alloc
-here is best. It avoids "linking a consumer" here where there should not
-be one. All clocks would appear to have consumer in the clk summary, it
-would weird. 
+On 7/15/2026 8:21 PM, Vladimir Murzin wrote:
+> On 7/15/26 13:09, Jinjie Ruan wrote:
+>>
+>> On 7/15/2026 8:00 PM, Vladimir Murzin wrote:
+>>> On 7/13/26 09:22, Jinjie Ruan wrote:
+>>>>> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
+>>>>> index e8a9783235cb..479741d52c90 100644
+>>>>> --- a/arch/arm64/include/asm/efi.h
+>>>>> +++ b/arch/arm64/include/asm/efi.h
+>>>>> @@ -5,6 +5,7 @@
+>>>>>  #include <asm/boot.h>
+>>>>>  #include <asm/cpufeature.h>
+>>>>>  #include <asm/fpsimd.h>
+>>>>> +#include <asm/interrupts/common_flags.h>
+>>>>>  #include <asm/io.h>
+>>>>>  #include <asm/memory.h>
+>>>>>  #include <asm/mmu_context.h>
+>>>>> @@ -48,18 +49,43 @@ void arch_efi_call_virt_teardown(void);
+>>>>>  	(efi_rt_stack_top != NULL &&					\
+>>>>>  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
+>>>>>  
+>>>>> -#define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+>>>>> -
+>>>>>  /*
+>>>>>   * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
+>>>>>   * And EFI shouldn't really play around with priority masking as it is not aware
+>>>>>   * which priorities the OS has assigned to its interrupts.
+>>>> Can this comment be deleted?
+>>> The comment still looks valid to me. Why should it be deleted?
+>> The current implementation of arch_local_save_flags() can already know
+>> the PMR status.
+>>
+>> 112 static __always_inline unsigned long arch_local_save_flags(void)
+>> 113 {
+>> 114 >-------arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+>> 115
+>> 116 >-------if (system_uses_nmi())
+>> 117 >------->-------hwstate.allint = read_sysreg_s(SYS_ALLINT);
+>> 118
+>> 119 >-------if (system_uses_irq_prio_masking())
+>> 120 >------->-------hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+>> 121
+>> 122 >-------return hwstate.flags;
+>> 123 }
+>>
+>>
+> 
+> How is that related? Comment talks about EFI messing up with IRQs.
 
-The end goal is remove the hw->clk. I've restarted the work to rid the
-kernel of using this. Some rework don't need clk_hw_create_clk() and are
-not blocked by this patch but most will.
+Not really.
 
-Once this is done, we could probably merge clk_hw_create_clk() and
-alloc(), the split won't have purpose anymore.
+The original comment implies "don't touch PMR, so there's no need to
+save PMR.", so it only save daif.
 
-> Brian
+Now the now code also save and restore PMR and allint, therefore, I
+believe the comments should also be updated
+Maybe，
 
--- 
-Jerome
+/*
+ * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
+ * EFI must not play around with priority masking (PMR), as it is unaware
+ * of the priority levels the OS has assigned to its interrupts.
+ *
+ * However, since EFI may directly toggle DAIF and ALLINT (IRQ/FIQ
+masking) during
+ * runtime services, we must save and restore the full exception masking
+ * state (DAIF, PMR, and ALLINT) across the EFI call. This guarantees that
+ * the OS's GIC priority model remains consistent and correctly synchronized
+ * with the DAIF state upon return from EFI, even though EFI itself never
+ * touches the PMR register.
+ *
+
+> 
+> Cheers
+> Vladimir
+> 
+>>> Cheers
+>>> Vladimir
+>>>
+> 
+> 
+
 
