@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC43C4453C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D21EC4453F
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,49 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f2lJrxd6Nalv5HaaLi6junqwG40jgWm/nMzs4KqBY7I=; b=DRlARU5CN+ueX+CEIbvUOFa0pC
-	u8Gi4fRLRWo8ixXQuTq5jN6xrIqesXI7sqZ3dKtKFAVPc7xQuhJMRzVULbxCBxMrCaDZLfJfmj4wk
-	RCT7O2IRaj4i8/lJTKdfD3bhZDlyXCJKeFJ8Eec3EF+vpw4j/C0wmLQkLlr7mxHSJG8lrAFx6wjy+
-	JbhhmYy4NKV5htLF8gGTmyvtQurrOzUBYVI9v9LQPqy47wx7M/ySVkvqPA6q60SEp+yDsTQULcWEu
-	zpYci/TT/HEARWk3qN21IqD1QnN7G8s12PcljBu/FFXRgcIVeTut289C4yDsAl3IJyxhp2+fElQJx
-	pFA3E0Sg==;
+	bh=WyMySADOfkdNBmTgBv+BFxJNFcV8ar22rjFpLcVIsQY=; b=XYENV6QD0M6yvJExM3l17Ohu53
+	7ARQ5v5Jih2vOukOVfPVJAMWEzayvN39Prs9z8EfJYPbL6X61jVJ/J3AgEugMqUfwQJNZ+kUUQCZo
+	ccFgo7agYgnCNf3kWOYLf7GBRHRmNWV5Qcb+5gxLsW2e0tm/oz7CMyop9NbeWXWt9POYIF3S2HTnQ
+	CgQCbQJ2Saa7IDrIdbFAIaeuLTdQTYHP25Uq3w5IREKYWByDiph29VYcE8EXG9Y005e22wMHddXic
+	0sFm9ACp+WEvUyMUgxO1GIN8okLr59YgmFQhddDcXdFOkhI5ykq7e1WktB/L34cARipvSKdXWZSwR
+	neiC7ldA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmeh0-0000000CpzS-0Gtt;
+	id 1wmeh0-0000000Cpzi-17VD;
 	Wed, 22 Jul 2026 21:41:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmeg8-0000000CpgY-3nJX
+	id 1wmegH-0000000CpnO-2Jpv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 21:40:36 +0000
+	Wed, 22 Jul 2026 21:40:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5896360A5C;
-	Wed, 22 Jul 2026 21:40:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD2FB1F000E9;
-	Wed, 22 Jul 2026 21:40:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 05273600AD;
+	Wed, 22 Jul 2026 21:40:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B5D11F000E9;
+	Wed, 22 Jul 2026 21:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784756436;
-	bh=f2lJrxd6Nalv5HaaLi6junqwG40jgWm/nMzs4KqBY7I=;
+	s=k20260515; t=1784756444;
+	bh=WyMySADOfkdNBmTgBv+BFxJNFcV8ar22rjFpLcVIsQY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Cqz3AHG/3zxrLwgmIt62MI6W81hxeTRQPhpZ62H88J9s4PPpiFGh4SfJEKKMyGcE6
-	 2aOLp9vh73RETxFhy8B/wpU36T7h0vHNTfMOHkoi2SvfLZNdVCB5gku1vTzKXfIHHF
-	 RvVc5x3IXEEKpBeq2mnStE0j4ZPmJC4IubgWfcugTs7dbrg8PWY+6zHdeIXYw8MYAG
-	 G0yGIcwfDXhONtFMWnFHLVxdsJ6g+BQbi3aoB5RJCVD2qujv7EbAGZ8a+3Q56UCBMO
-	 wRmMcZyos6Vv1gvireLo4hIdYOdhhuov2kq0lXfwAYXy6kf6f/6sYH+Zjv6OYS1pQT
-	 74Wilj937zIEQ==
+	b=OEJuj4js+JtTJv0NsZkWb23cfLqGJ4yOfUWB6+wNiXLXql714QOzMzTSTAVbaFiUp
+	 idzif4ciWotZpzFvCh7+k05v5RaQ7F2MQq6OUN7g45CC0qa5T/27dYV+NcUSLuPkHu
+	 x2NHvFm6NHrqrOe4B0BpZYEBDMr0JWkH3pU+kOeKU+uCjTN0omjH12vBTKeyXrCXuh
+	 RjIF9SpTcWbx3/FUyWFOj+XfXT01MlkO/az5dTx9lMpnkhnDIuDv9c0pKGS/p4jmpz
+	 5U4Ao3XjEGNWMfZ7P67MjsUNWSCRgOWWuLaREbcyD+1BqfUmgGQIRJrMeoDOUMUV1v
+	 N+6igEw9pgRMQ==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: catalin.marinas@arm.com,
+	rafael@kernel.org,
+	lenb@kernel.org,
+	saket.dumbre@intel.com,
+	beata.michalska@arm.com,
+	zhenglifeng1@huawei.com,
+	sumitg@nvidia.com,
+	zhanjie9@hisilicon.com,
+	geert+renesas@glider.be,
+	cuiyunhui@bytedance.com,
+	vanshikonda@os.amperecomputing.com,
+	ionela.voinescu@arm.com,
+	jeremy.linton@arm.com,
+	viresh.kumar@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	linuxarm@huawei.com,
+	Pengjie Zhang <zhangpengjie2@huawei.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] virt: arm-cca-guest: Drop unused assignment of platform_device_id driver data
-Date: Wed, 22 Jul 2026 22:39:33 +0100
-Message-ID: <178475158624.1080735.3587711943339470959.b4-ty@kernel.org>
+	prime.zeng@hisilicon.com,
+	wanghuiqiang@huawei.com,
+	xuwei5@huawei.com,
+	lihuisong@huawei.com,
+	yubowen8@huawei.com,
+	wangzhi12@huawei.com
+Subject: Re: [PATCH v2 0/2] CPPC: reduce FFH feedback-counter sampling skew on arm64
+Date: Wed, 22 Jul 2026 22:39:35 +0100
+Message-ID: <178475048433.1329854.7282103675861242164.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <1420ce71c3be5056a384be9c733f5df3277bf61a.1781690829.git.u.kleine-koenig@baylibre.com>
-References: <1420ce71c3be5056a384be9c733f5df3277bf61a.1781690829.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <20260708082818.808041-1-zhangpengjie2@huawei.com>
+References: <20260708082818.808041-1-zhangpengjie2@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,20 +94,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Jun 2026 12:28:26 +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> The driver explicitly sets the .driver_data member of struct
-> platform_device_id to zero without relying on that value. Drop this
-> unused assignment.
+On Wed, 08 Jul 2026 16:28:16 +0800, Pengjie Zhang wrote:
+> The legacy CPPC feedback-counter path reads the delivered and reference
+> performance counters separately.
 > 
-> While touching this array use a named initializer for .name.
-> 
+> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
+> served through a cross-CPU counter read helper. Reading the counters
+> separately therefore widens the sampling window between them and can
+> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under heavy
+> load, the skew is observable as transient values that may exceed the
+> platform maximum, as discussed in [1] and [2].
 > 
 > [...]
 
-Applied to arm64 (for-next/coco), thanks!
+Applied to arm64 (for-next/acpi), thanks!
 
-[1/1] virt: arm-cca-guest: Drop unused assignment of platform_device_id driver data
-      https://git.kernel.org/arm64/c/ecc2e046869e
+[1/2] ACPI: CPPC: add paired FFH feedback-counter read hook
+      https://git.kernel.org/arm64/c/9aa7df520523
+[2/2] arm64: topology: read CPPC FFH feedback counters in one operation
+      https://git.kernel.org/arm64/c/42971d5329d9
 
 Cheers,
 -- 
