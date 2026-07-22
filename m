@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3BF4C4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 00:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2C4C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 00:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G3zas7MpBZKk+oDgMVzjx3UamWGdsP8MxVU5Ixr7UTA=; b=iX81sGPs1xs73Ygn6HO9BlWYk1
-	72Kl9EjVK48YlniTM5HSDw8jL+Q/c/xSZIgF+aEeNGwEVZAaGQwcX2J/q5MdEueJPLt6PduYpVOzV
-	RwQ2iD9Dx/gjDTv2Z7DFNJ3DX6m3xS/8eGImTS8JGUTZdsAXXw/vxrcbq+ndyC0RgjIbSjXJoSAwf
-	NQu5fxmfA7z6GNR8Xu725vrmDdbW8pe1EPplCrgbkXe9W6/4QHY2qXP5V4V7WhUEu+AnFDpSsZfFa
-	A/3EFInkce6jJ4tWPWZzOG2g5QfvbH69WuONzMd0ytvAHoMUg0UrLoKKZr7kzDGnv3FgJRAauBejt
-	HdDzJljA==;
+	bh=xfdA8PjhansQQlhSR9YDUwPKGR0NyVBeknW7CLPJrcY=; b=rovIPiA/H/VqQCEwChbD8TpAic
+	CLrpR4uxYQ8+J+a/CtwSWF3QPxefS++FsYeTvhYwvsZvNuw1KsiNjBgzXoHGVTPVyGfrxCvrD0eQv
+	Klyomjfu5d85GaC4KcJ/MwLDfxaqFkzlX0u/V6hAqyDYOC4BlfsWMnjLu2JhQtE3M+1UYpkeuxXnC
+	WCScg4LlEzGdBhpFJZXzBAT6h/eNaYeFY5dMttMLElvAWMbo70TC+IsoGcdUBErdUGsENmga4sBrf
+	dvahgtO8yVctIveAV1c8Z46Jyts/rIB4FLROFUrU7lZCnuRyao/yBJQz52bHrlUhYgsVJse4seGfp
+	Sn0yH96w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmLGU-0000000AfRa-3PTg;
-	Wed, 22 Jul 2026 00:56:50 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1wmLIk-0000000Afc8-08Ep;
+	Wed, 22 Jul 2026 00:59:10 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmLGR-0000000AfR4-3z3V
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 00:56:49 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8ef7b7651ecso56643206d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 17:56:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784681806; x=1785286606; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=G3zas7MpBZKk+oDgMVzjx3UamWGdsP8MxVU5Ixr7UTA=;
-        b=fCSAVttYlDUnjIY/RBAgcqs3XnDQtI56+ozYu9FhCj0aaCj+6oZ7a4w7ulLTUM/TUE
-         mRCGC10jX/DyzOgIc8v0WwLalg9syvbJVvfFpO2/Vweio9qXvddoyfUGXGaEEsLaU9ei
-         ShQHTMSGHYkZlpf0qaDHXLwAQ/2XOUAQ12VDqZjeyYtpFMTp6Ik2nFEL0SttmRIjn+a9
-         TGFVrGE9NrVR4KaBjyebJe6YiKWYSjyyHbfOFhyswDA/XD2tb3XI10SQh7zVprOo97SC
-         AX/MPStadZ8qYqarFM6HEDAHxwUM/i8M6qQQxlubUSOOHKwR29Ypy1Z2cYkb3eraNXZT
-         iPqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784681806; x=1785286606;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=G3zas7MpBZKk+oDgMVzjx3UamWGdsP8MxVU5Ixr7UTA=;
-        b=p3gXG8J81rXccYBGjyJwETbfVn8x7ZJYW+HtlITGObEqu+YkVptKxffFQ/1ELIkHTO
-         SCRQhXI1vWINslRVhX0JSxdDOA1bwjqV61LdEJSQb/ZNcq2xjroZBYmXR7/xB57jpWbJ
-         673y7BaGNIXR50a7mSpgdgN+mHVYBA6GL61wdm0NSj7yzZBlL/veaq7VryWeUqefXMiD
-         Bm6A/Se+omIiF2gS8vsviTMXx4G+r+HjpfD5SMD7zbLZPpz0IZ61lk2S86tf0wdAMd6j
-         2xXIHpvFS6j8Us+XyQ8jgF0Yd7W0zdC07UJOvOKeC4VAuDksArs6S9Z7xQZkW5WrmNQW
-         7ziA==
-X-Forwarded-Encrypted: i=1; AHgh+RoNasdTM0908y+4E4s/W0Rhy+Vwfk6TbPa+S+fdgylzsinb/jf0l16Bo4pMjq4MM/O3scGOvPIqehx/detoK9PO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6YfnjtT4b4wFJm+7Tvq6CEXmHfWUBUplEi0kAxbM/0CPhU7Em
-	sGD5XnwUmP+Ls2Je9M53YR90LsItf1ugfbDDEAVCqk33Kbz60zERWg7X
-X-Gm-Gg: AR+sD12dE4YQfGoaQKtqhWsPgDDsY1UirU3YE6M/nnJeCLVzxzVi4K0OciAAJy+sFvj
-	Kq4WZgB9nMLR5ltUwjllIVN05j6PQkQMHqmsO67u/RMoEJmKtGqruD4H3wsIcrcxAIUAIZamKGc
-	jKk7x/AQy8MwKdoPtM2TJl0K166FBi8e3FtyOrZX8Y6HO3Dk5D5YHwH/FiXg9pv5pu9hmjGy1Lw
-	4TfjQ51JGGmKba71fkP1/XiKujz0xwR8vlxv1q6T0i7QHWmPoBfNLgTnHGyszx1mYFW2L50ufId
-	I82G7XigcNvY+jgiLu53w6I53dhebVcxJu0GL0NLuoCU2Uh587eK0OcdAtiKkKRd8e2XPb9znrI
-	swJALhXGEVi5OV19/rbwzGO8X8OjZLdE1rr5KURMJh76vOSiOr7m35ofqP1CxjjNi4dwrf4Flx3
-	XBEwxa17+EB8rz0+wvP1NK6bm4zmhJM9H3AYXIxX/GXeSiGjL7vHgIxQ==
-X-Received: by 2002:ad4:4ee4:0:b0:8f2:22c8:e71b with SMTP id 6a1803df08f44-907b9bfed43mr25560426d6.24.1784681806174;
-        Tue, 21 Jul 2026 17:56:46 -0700 (PDT)
-Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-907baa27cfcsm8623966d6.44.2026.07.21.17.56.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 17:56:45 -0700 (PDT)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Brian Masney <bmasney@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
+	id 1wmLIh-0000000Afbk-35kZ;
+	Wed, 22 Jul 2026 00:59:09 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wmLIO-000000000wX-0G8R;
+	Wed, 22 Jul 2026 00:58:48 +0000
+Date: Wed, 22 Jul 2026 01:58:43 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	linux-clk@vger.kernel.org,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hermes Wu <hermes.wu@ite.com.tw>,
+	Allen Chen <allen.chen@ite.com.tw>,
+	Pin-yen Lin <treapking@chromium.org>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: sunxi-ng: ccu_mp: fix clocks without P dividers
-Date: Tue, 21 Jul 2026 20:56:43 -0400
-Message-ID: <20260722005643.1208942-1-enzo.adriano.code@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-mediatek@lists.infradead.org
+Cc: Chen-Yu Tsai <wenst@chromium.org>
+Subject: [PATCH v4 0/5] drm/bridge: it6505: DP audio support + shared-DAI
+ hw_params fix
+Message-ID: <cover.1784681487.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_175648_002571_53BAECA9 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260721_175907_798095_DE8EC347 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,61 +77,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some sunxi-ng MP clocks have an M divider but no P divider. The A523
-MBUS, IOMMU and DRAM clocks use this layout and also require the update
-bit when changing their rate.
+This series revives HDMI/DP audio support for the ITE IT6505 DP
+bridge, originally posted by Jiaxin Yu [1], rebased onto current
+-next and with the feedback on that original posting addressed: the
+stale &client->dev usages reported by AngeloGioacchino Del Regno [2]
+are gone (the driver meanwhile gained it6505->dev), and the
+"#sound-dai-cells" binding property requested by Chen-Yu Tsai [3] has
+since been added by commit 325af1bef5b9 ("dt-bindings: display:
+bridge: it6505: Add #sound-dai-cells").
 
-ccu_mp_set_rate() unconditionally builds and applies a mask for the P
-field. With a zero-width P field this produces an invalid GENMASK()
-range and can clear bits outside a P divider, including the clock gate.
+Patch 1 fixes a pre-existing use-after-free in the driver's remove()
+path: none of link_works, hdcp_wait_ksv_list or hdcp_work were ever
+cancelled before devres frees the it6505 struct, unless DRM core
+happened to call the bridge's .detach() first. The extcon notifier
+and the threaded IRQ are quiesced before the work items are
+cancelled, so they cannot requeue them. It is needed before patch 4
+so that wiring up the new hdmi-audio-codec platform_device does not
+add another caller into an already-broken teardown path.
 
-The callback also ignores CCU_FEATURE_UPDATE_BIT, so hardware that
-requires the update bit may not latch the new divider value.
+Patch 2 adds the missing pm_runtime_disable() in the same teardown
+path, another pre-existing bug: unbind followed by a rebind triggered
+"Unbalanced pm_runtime_enable!".
 
-Only update the P field when it exists, and set CCU_SUNXI_UPDATE_BIT for
-MP clocks carrying the feature. This matches the existing sunxi-ng div,
-mux and gate helper behavior.
+Patch 3 fixes a third pre-existing bug: it6505->audio.channel_count
+is zero until either DP link training or a valid ALSA hw_params call
+has run, but it6505_enable_audio_infoframe() indexes an 8-entry table
+with channel_count - 1 unconditionally, which is an out-of-bounds
+stack read if the audio-FIFO-error IRQ fires first. It also fixes a
+debug print that logged the previous channel count instead of the
+rejected one. Needed before patch 4 for the same reason as patch 1:
+that patch starts exercising the audio-FIFO-error IRQ path in a
+configuration (shared I2S bus) where it is actually likely to fire
+before any display has ever been hotplugged.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/r/20260712081341.9D1431F00A3D@smtp.kernel.org
-Fixes: 6702d17f54a8 ("clk: sunxi-ng: a523: add video mod clocks")
-Assisted-by: Codex:gpt-5
-Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+Patch 4 wires up the previously-unused it6505 audio helpers via
+hdmi_codec_ops, which unblocks the mt8186-mt6366 sound card that
+references it6505 as the I2S3 codec.
+
+Patch 5 is a follow-up fix so that audio hw_params are accepted even
+when the it6505 DP output has no display (and thus no encoder)
+attached. This is needed when the it6505 shares its I2S bus with
+another codec, as on the MediaTek MT8186 "steelix" Chromebooks, where
+the shared I2S3 must keep working for the speaker path regardless of
+the it6505 link state.
+
+Tested on a MediaTek MT8186 (google,steelix) Chromebook.
+Actual HDMI/DP audio output could not be tested lacking the USB-C
+adapter cable. However, making the it6505 at least probe and fixing
+the obviously missing things makes the sound card on the Chromebook
+come up and internal speakers and microphone as well as the headset
+mini-jack work as expected (both tested).
+
+[1] https://lore.kernel.org/all/20230730180803.22570-4-jiaxin.yu@mediatek.com/
+[2] https://lore.kernel.org/all/c35ef2d8-ab40-484b-9a4c-38f2f3e7d99c@collabora.com/
+[3] https://lore.kernel.org/all/CAGXv+5G2tP9i8VrUc6-xs2d72_nL9XH9iSCeixzA2AM7X5fXOQ@mail.gmail.com/
 ---
-Based on clk-next 8cdeaa50eae8 (Linux 7.2-rc2).
-Tested with strict checkpatch and an arm64 W=1 build of ccu_mp.o.
-No hardware runtime claim is made.
+v4:
+ * patch 1: quiesce the scheduling sources before cancelling work:
+   unregister the extcon notifier (made idempotent for that) and
+   disable the IRQ first, and only cancel the work items once the
+   DRM-facing interfaces are removed; initialise extcon_wq at probe
+   time to avoid a WARN_ON(!work->func) splat when unbinding a
+   never-attached bridge; retitled. Both flagged by Sashiko AI
+   review, the WARN_ON also confirmed by Chen-Yu Tsai.
+ * new patch 2: disable runtime PM on remove, a pre-existing issue
+   flagged by Sashiko AI review
+ * patch 3 (formerly 2): no changes, collected Chen-Yu Tsai's
+   Reviewed-by
+ * patch 4 (formerly 3): start out muted until ALSA unmutes the
+   stream; update the mute state and the cached stream parameters
+   under audio_lock; probe the audio input and enable audio under
+   audio_lock in the audio-FIFO-error IRQ handler, re-checking the
+   mute state under the lock; unregister the audio codec device only
+   after event sources and work items are quiesced. All flagged by
+   Sashiko AI review.
+ * patch 5 (formerly 4): move the audio parameter defaults from
+   it6505_variable_config() to probe time so a display hotplug no
+   longer clobbers the parameters cached from hw_params, flagged by
+   Sashiko AI review
 
- drivers/clk/sunxi-ng/ccu_mp.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+v3: https://lore.kernel.org/all/cover.1784600387.git.daniel@makrotopia.org/
+ * new patch 1: cancel link_works, hdcp_wait_ksv_list and hdcp_work in
+   it6505_i2c_remove(), fixing a pre-existing use-after-free flagged
+   by automated review of v2
+ * new patch 2: guard it6505_enable_audio_infoframe() against
+   channel_count == 0 and fix a debug log printing the wrong channel
+   count, both pre-existing bugs flagged by automated review of v2
+ * patch 3 (formerly patch 1): serialise it6505_enable_audio() /
+   it6505_disable_audio() with a new audio_lock mutex, resolving the
+   "input welcome on whether a lock is warranted" note in the commit
+   message; track explicit mute state so the audio-FIFO-error IRQ
+   no longer re-enables audio out from under an ALSA-requested mute,
+   both issues flagged by automated review of v2
+ * patch 4 (formerly patch 2): no changes
 
-diff --git a/drivers/clk/sunxi-ng/ccu_mp.c b/drivers/clk/sunxi-ng/ccu_mp.c
-index 7cdb0eedc69b..aa6cb20447f1 100644
---- a/drivers/clk/sunxi-ng/ccu_mp.c
-+++ b/drivers/clk/sunxi-ng/ccu_mp.c
-@@ -237,12 +237,17 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsigned long rate,
- 
- 	reg = readl(cmp->common.base + cmp->common.reg);
- 	reg &= ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp->m.shift);
--	reg &= ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p.shift);
-+	if (cmp->p.width)
-+		reg &= ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p.shift);
-+	if (cmp->common.features & CCU_FEATURE_UPDATE_BIT)
-+		reg |= CCU_SUNXI_UPDATE_BIT;
- 	reg |= (m - cmp->m.offset) << cmp->m.shift;
--	if (shift)
--		reg |= ilog2(p) << cmp->p.shift;
--	else
--		reg |= (p - cmp->p.offset) << cmp->p.shift;
-+	if (cmp->p.width) {
-+		if (shift)
-+			reg |= ilog2(p) << cmp->p.shift;
-+		else
-+			reg |= (p - cmp->p.offset) << cmp->p.shift;
-+	}
- 
- 	writel(reg, cmp->common.base + cmp->common.reg);
- 
+v2: https://lore.kernel.org/all/cover.1784561622.git.daniel@makrotopia.org/
+ * it6505: store the hdmi-codec platform_device and unregister it on
+   i2c remove, fixing a resource leak / use-after-free
+ * it6505: initialise the delayed audio work before registering the
+   codec device
+ * it6505: synchronously cancel the delayed audio work on audio
+   shutdown and on driver remove (cancel_delayed_work_sync)
+ * it6505: rework the mute path to cancel pending work synchronously
+   and disable audio immediately when muting, removing a race
+ * patch 2: drop the encoder check entirely instead of returning 0
+   early, so the stream parameters are always cached; rewrite the
+   commit message accordingly
+
+v1: https://lore.kernel.org/all/cover.1784393979.git.daniel@makrotopia.org/
+
+Daniel Golle (4):
+  drm/bridge: it6505: quiesce event sources and work on remove()
+  drm/bridge: it6505: disable runtime PM on remove
+  drm/bridge: it6505: guard against zero channel count in audio
+    infoframe
+  drm/bridge: it6505: Don't reject audio hw_params without an encoder
+
+Jiaxin Yu (1):
+  drm/bridge: it6505: Add audio support
+
+ drivers/gpu/drm/bridge/ite-it6505.c | 213 +++++++++++++++++++++-------
+ 1 file changed, 163 insertions(+), 50 deletions(-)
+
+
+base-commit: 0718283ab28bc3907e10b61a6b4be6fefa1cbb2f
 -- 
-2.53.0
+2.55.0
 
