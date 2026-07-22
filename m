@@ -4,94 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECF4C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D90C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8bdrG0QFqxIH5pXZGRRRAY6FI2BH/CW3w4wZSetZqPY=; b=TRgfUzffLH4gBBAWVR8pGLuAbr
-	C7zcc7UUUtnFgLKVtxFuq4tUX8qzqAxJ74OnYABF4zs0E+XNZRVVA6s6bHX+9jZ8+fh+56+fXbGpq
-	XRqgOOCqhullnoi6zgjl5TO540n/82qf2tly5pljwylpv8iR7IUokcopxQw6cCrTo/FSyH/eV8Qnu
-	zQvY7QzZkx2RjO7l1Dht7+77KnxvcRwA2FMTU5eZGmd5h373rdXDi+3yCZi0IUtIMGMgVVZ+X6l2p
-	Rlf2i1msuyqPkttVsQnJpyo7cTmTUgD5TInJnTQORh+i5ZI4uX/2nAT5bXmswEp0qylXB4OCSvRAi
-	hqgyerZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8/i2h3fXqCKYIETEcTeDcQ3hXjI3p7AUtM6QhRAHkXE=; b=j04lXaH54O/+nOtEEuH27KD8vk
+	WSf2S8i10salZWx7sBMZbg/dGwsFHtbGAZbU3qogyx3nsU3Athg3ocJiaQLBrtVFam8QJ7HwDQ+wE
+	ateAjpnLGDJ1w4bm4RhPsTIun8tA3jYi9uOmgdzoktTqrAcLGEGbOQVVXB9+TZOHNUltviS7CHvI4
+	Yp8n6PqroJCRilJtBKs+pAIlCnspftPjqFed6OViaa+JIvubDOWmHT1KnfT1QJnG7E7NWBqntDIeu
+	ajUEVhgty9nvk6snmPfL70hPt9N5ikIhnqM3Ug93rAQXJl+DlDKXzbu8u2kYFQ+5i7ZXjd81/7Aks
+	7JlS1DmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmR04-0000000B1VW-0m6E;
-	Wed, 22 Jul 2026 07:04:16 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wmR3I-0000000B1hr-3HOY;
+	Wed, 22 Jul 2026 07:07:36 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmR01-0000000B1Ub-1W2S
+	id 1wmR3F-0000000B1hP-3siR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:04:14 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38dc69c74b8so9830861a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 00:04:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784703852; x=1785308652; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8bdrG0QFqxIH5pXZGRRRAY6FI2BH/CW3w4wZSetZqPY=;
-        b=CstAp+3gqi8Bo4n/XHTOczUreVYtE9xEvaGUhw/oK033C9p97Ty2r5qPLYsmvyFerH
-         5muaQ7l7BcsWjt6PNtyjXBGzzWhtfy35DUe8z0b4+DM0GY/jgDUn0PSp+z7d0a/RqzJk
-         8uanW0EVHUR2CLoRAsloiAzU5J6mzWmw6P8XPtK3nOuhd1iUgJKsQBj61u2TtkHMqglR
-         1dT/ieziWYEI6Nwr/kFVGUgHjLEPHK/uS5iGHsrT3YVXiGes+AITLPJ/NHEQwZIsQ2w2
-         t8luuuMYNMmJuwX2FbeI2XJA8pMFw5sM9EcRDQOWTuhGYFln+Je+O7TzHmVLOarTdwBN
-         S9JA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784703852; x=1785308652;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8bdrG0QFqxIH5pXZGRRRAY6FI2BH/CW3w4wZSetZqPY=;
-        b=d5ACYjiIA7fvCmG4MIzJchu0SqrfW9s8Tv8JBOuAcsxtcoE4GN/aA0+tlGmIO0SfGm
-         oZY9Xs6j1kSEqO5kBjXSdBP2eetYio2DXgAeht38Lbz7cWGfAYM1+Wv9Lfscwz4wjRyX
-         citUXW5QgdwukBl3eVpFeZCUC3fi0vpCEbX1nl3FnqBsJ9KtK/Bm8gm8lnVa46QvcsP+
-         chn8oXfVFCLKNUwSXH1JRvK/IU9fWr/+CRy5armZqD8i6SQNYnHyURNsa0KBKqP1koRb
-         tNQ7aJ5a3LuGfbLpTnk4O1jVLabkfo2USShbtBVE/QVekwmOMNVSd+mavZQlRh+nWTky
-         eLng==
-X-Forwarded-Encrypted: i=1; AHgh+RrFQpYLzdcyup5f59TTjTTUo8mFvMMg8iLiKt1ImWNuT9VB1eV34hJBdP1hMWkL16jl4t9hgcKcY2q+jmkrjXkC@lists.infradead.org
-X-Gm-Message-State: AOJu0YymzZwhkbpCZRwM7mDIhHegAaGHM9Z7tNS2G5v+Qx5poznuOV7Z
-	QXZIkUBvH0qbU0nBVFCobs8VSb4gPo4VwOEjKGO+TPHZTXG1H+6Z44hB
-X-Gm-Gg: AR+sD13auJ96qonrB53uFln0foiWlCdWgCD2lMvVyG7ALZCQ8wIxl8kDy4OLKJu7g28
-	3Pso53dXCXygNAA9+7j0ctjr3/iFl9Ic8Z1JQWffoLOYXPUK2hKryc9tAUJNIQ7TRDzWZc8ix7b
-	MPFvtVMdTB75xLVtBm5vCMmBxpwZTvm6OvussCux0bBDcHB4Da4GgkZM9GVOnRcFSVrAiXKu+R0
-	vBwgnJyuzBEP2rBIYhg+Tzpmx7nWodx+p1O6B7VBLe4r965gfobTbaZgC1k9JMziGFtjUBrpASs
-	/q3diN7Dy0cn3dG5x9TYLwdcRtsrAjm9jndohRJAStXg06p0H9SCoI4NRMBzw6H/BB+u10ghA8p
-	o5YLoikow0buYCFn/60I+Zav7yQ5AYPFK9SrhEk6PSVXkX3giUFJovkuOq+mLinL4pDrw8j9+Ma
-	riJ4KdAz7M00419Mt4AJEI4HoRWd5MQDLV3e9tY7pAcho1FrAxFeFqDjNvylfa5qK/pvzuczwmP
-	GswOOxo9JTT09qquIBxVuY=
-X-Received: by 2002:a17:90b:2e90:b0:368:ed26:15b2 with SMTP id 98e67ed59e1d1-38e4b43c408mr21798100a91.8.1784703851941;
-        Wed, 22 Jul 2026 00:04:11 -0700 (PDT)
-Received: from localhost.localdomain ([101.251.7.10])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13d130a8421sm3203259c88.10.2026.07.22.00.04.06
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 22 Jul 2026 00:04:11 -0700 (PDT)
-From: Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>
-Cc: Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Wed, 22 Jul 2026 07:07:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uOANiBKORjLxJ9SLLAPq0PWFK3kIfpHrZvI+DJCqcPDnGumZ6UDRw7vPhEQPipvOuUcW6P3VtX5z8jCzsnjB8uYdcyVn6X+ko90sQus2BBcyIWadVYvWD4neI1CYlOu6sDUV495xOMpJuXgspWGEg8yx7ujWComWvrnZuWykNXajLK5tQXSl+ssfmzm9H7+lP7yG8rli1awlCyLilpaP99f6CSgW2JfQpfE1Y3SIXpsONy+pgLciy+wEiJpBoMt4b5567jxKmGcIO2+BRpr6GXyrRQukalKlmm1KU5WSBu/S/M2uKwmdBb7lv2iSCTJpBajfhKmSLfGBRplk9UkOUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8/i2h3fXqCKYIETEcTeDcQ3hXjI3p7AUtM6QhRAHkXE=;
+ b=W8ml8ODWJUHXDsussCSb7VJ5azP7L6EwCFzTysaklF8tAaa/eDudLRkLDJoV/HHX8n4jes0iklYvEcF62HLTjW1xsG6ile+awb5zAVYBlHlrG7ymQL437OwdMnhAtezUsyA1VZZPe0bDuFcggInzwcb7vC0gzZRZQPSjBB/zz6wh7SaINQ3xnXhf5B/lyHYtMD9+5aTKadbCnbBzt2FqhH/N0gnEt4AaMWDlAQ8qwhVizx8/aa3EXgYoT5egvh8LXcKWF7B7Gvb+767d/cHct8dPgpUWh2XSS9sYLq78sFlFWiq7BXZWB7llm6KHOiyV7sqzBSZErlARVTW2hKK5ig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8/i2h3fXqCKYIETEcTeDcQ3hXjI3p7AUtM6QhRAHkXE=;
+ b=nmts4jEJ/S837EjOqX0BdxUzZf9tBLuijo8I7bag0ldc+FGBDv2L9Qy+T0bIEobOYK06Ihyw1Ok/cYBJqSxDpme0u8gZp1rk/VRBkr/32T7PXtR/GClyWgs3r5qW65FClEleQPbRFHDFPfVSV1yG946YWS1AVPVX0gy8ULsLpaK3u/FPIIWdfLuuuFWHLIrf6eMyF58nMNfyw6QUB80jDowVaQIYieXdKhqJy8zK4ncyYrDM2QlwacdvFw8fSfDX+EYRaVCk3U3n09x4Yd33TNja1Gn3RF4QsGMLi1ofWpp/T7zgpc04CAW8uCEXmKfDdXjm5SG33zQgBuc653Hruw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by GVXPR04MB9952.eurprd04.prod.outlook.com (2603:10a6:150:117::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 07:07:27 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 07:07:27 +0000
+From: hongxing.zhu@oss.nxp.com
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	stable@vger.kernel.org,
-	Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
-Subject: [PATCH] wifi: mt76: mt7925: validate CLC firmware records
-Date: Wed, 22 Jul 2026 12:49:02 +0545
-Message-ID: <20260722070402.45328-1-acharyalaxman8848@gmail.com>
-X-Mailer: git-send-email 2.51.2
-MIME-Version: 1.0
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Leonardo Costa <leoreis.costa@gmail.com>,
+	Leonardo Costa <leonardo.costa@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v4] PCI: imx6: Fix i.MX6Q/DL boot hang caused by improper PHY power sequencing
+Date: Wed, 22 Jul 2026 15:10:30 +0800
+Message-Id: <20260722071030.2504711-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA0PR01CA0055.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ac::11) To PAXPR04MB8096.eurprd04.prod.outlook.com
+ (2603:10a6:102:1c7::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|GVXPR04MB9952:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d24d209-4be0-4ba9-728b-08dee7bfe34c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|1800799024|23010399003|11063799006|5023799004|56012099006|10067099003|18002099003|6133799003|921020;
+X-Microsoft-Antispam-Message-Info: buDd5ctUjlSGNlpYLTir52srOTFjtYWARFdxZ49yfrzPZl9IUvupSlCn4v+fET/joW1Ktlq/fUdNY4knVPcD+/8q1HyVfobApMsxFe45RSwDeRgN1R8LJMH0jkpIUlV0oCLxv3f9pXVAapoq2PNPiwK8TedSPjQ1JVA9GvALkv+oKg+A7zBXtosfYPXSg6OL2pI6PPT7Ghrxtbg9iFtHov823ghfPRDCHrKEPmQFnBJptZa9+2oovwCyMYAqPZZXqaMkVeU1/9LyHBDqblIsGk2u/LBNg6dCah21rHZa9wEQwizZ7YUR6GNjaTzU3+tWfh1Ev9nbgysYH2bbcPZTwxCPcTW0Tg0OMiB/0X9AzuxJJCehkoRqtrbwi6u5/fA4bxFVOA/rK1Pu4mQnD3ZMinOLCQB+SocO3G7b5NuemlfXl7rN7r/9OQs5OuMYd18ZU2JAG+7wySHG7LOgeocHUvxnLUmoGS/Crl6dAQnlgx+K8Md5VH6wwJX/eeWFT/J/D/rlYgLElObloVlWBefvlcD4lAOvSCSC2NToln+UrRb+UkJTVjYNG/AjnOfbDQYNOYpsQqT9T9hh7nXj5MfzVIe33MrQb5QinU20JWwdIaI8+9R+/4oVVVLi4J8iE1Vw5tz+u/XgwfKlj2or/4dzZ1DoMj4HzRAsbyWOz3QdDm9+pRYk9ORs+/lBfTctS6m122iJvgdnP58N47gV07TF1g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(1800799024)(23010399003)(11063799006)(5023799004)(56012099006)(10067099003)(18002099003)(6133799003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2FkeG93aVkwaHZMc3JBdGpSdlVsZmpiZUFNSXpLWndpeTZDSVhDbmdVU1FV?=
+ =?utf-8?B?TlpPZUpyclpxUEFyUzFDbjZFNmNYMGROU0FvZjhxeTdiNEM4ckZPZTR4V0c1?=
+ =?utf-8?B?OUVBd2I2aHNNb2t3Y0hnWkxwWlZ3emlVVTB3S1dkeHpnQjlRQm9pYWkvU0dY?=
+ =?utf-8?B?d2pCWGpOYjltbmQxZW80eEtoTXRWRjlJNG9aMXJqbFBUNDFYZXV1S3FXUmZG?=
+ =?utf-8?B?VllCZ3p2Vkg2WW1KNzhNRFJ5SlZNd2tOTXNPOUhycFBWT2UyeU5FejdMbmQy?=
+ =?utf-8?B?ck9lQ3dRdEEvZ1d4MEN0OThCV0lNZFpvQm1Oc1BSMittcjJXK2Nkc2Z6Mjly?=
+ =?utf-8?B?OHVCUFYzTTFtb0w5TXh6a1pmVXJpQWFqcFRudkJhclgvWTArQ01Ic0pwTm5u?=
+ =?utf-8?B?cWpDZy9nalRBV2p3MzN4WGF5N3E0L21DVm8xUWcrZEJadVdLR1VvWVBONTF6?=
+ =?utf-8?B?TzQvcXpROCtRWDRmaHlZbDVZVTZVaTU2SWxENC82MS9iaGttK0xpdndlN25i?=
+ =?utf-8?B?Y0c0OTRscFJ1aElwd0dWWXZWOHdWY09ZaXgvZERubVRidGNhd3FjQ2plMGhL?=
+ =?utf-8?B?ZWtBTG1oZ3BIa0dKbTlCQitURFhScm9wdnB1RG5BZXArakQ4c2JYbDg1TlJB?=
+ =?utf-8?B?aGs3N0IweWo0MmZ1OXFJMHJ0aVpSSnl0Y1VMUlBSMjBZWGVUZ1Y4djB0Tmdp?=
+ =?utf-8?B?Sjl3UXZtTlQ3UHRSbmF6K0djV0FkUGx6c0hPNmEvbm54dzhWSmhWZWkzZnZQ?=
+ =?utf-8?B?OWdwNDRwOU94anhtcUhTNDNZTGllanFvOWllbzF6aU56cjNnTm8rM3h1U0ZT?=
+ =?utf-8?B?VmhweVRsQ2dmNWxraERvK3dCcWNwTVlOSCtGWkZMRk9va21iTmNKUmhuakFM?=
+ =?utf-8?B?M0VkT0dUYWFrTmtZY3hob3Q2OGU0Zmtib01nMmtRV0xYYk9SRUtqNWpUR2kv?=
+ =?utf-8?B?QWtBYUFKcHFhUE54TDcwQkplT0NvZDA0OW1lSEhkTC92aEtGd3FJamtuR1FI?=
+ =?utf-8?B?aEZQWE9IbmdWUkd3SFR2M2tiN2ptMmU1L1VsaHRKaXJORHJFSmJMNkhXWWhp?=
+ =?utf-8?B?SFo0YVQzU1dXY0xuZWFUR1ZwTzZ4TWUzTjNmdi9mcFJQZUFZSEVjQTYwN0l6?=
+ =?utf-8?B?a2R2Szk3ZG9CSE5pbnpGWFBIZzBVVWlkb3Z3aUtGK0Fta3ZON1F5Ly91Q3JP?=
+ =?utf-8?B?OE1KYUJpV3MydktRazBmTS81RmJranVKRmVvMWZjNGxLMjJLZjVjeEozSnZX?=
+ =?utf-8?B?clFheFBYTEliRmluRzd4bHBNeVMxVVc4VklwTXgvc3dQY2xuWVBxNWxnR0JF?=
+ =?utf-8?B?UmFnQ3pVdG0vQUdKNW1teXhSU3dZM2RsdXJZMW15bXoySnpIczlBR3dkZHMr?=
+ =?utf-8?B?R043MGloKzY5UkR3eWZhTlUrUjFGU3ovVzNHSFVvS1FRR21MbmlqQ3JsNTRq?=
+ =?utf-8?B?U0dveW4xWlFrSXVvSDZZckxkeW92RXF0NWU3N3dUS3BobEtEVmFPSWNLNEQ0?=
+ =?utf-8?B?c1VlMjF5SHJKTHExN1FzUVBBb3NJR3lNcEsydmFRZ2QvZm02QXF6MTNMRTl5?=
+ =?utf-8?B?aEwveEhDOGE3U0o1TlpSY0lMVEVkOVdOUi9oVTFCcVpNRldVSGZ5L1pyRG8z?=
+ =?utf-8?B?VGowOXJ6OHVZT3FCckUyVi9zVGpyblRlNDRicGlzZ0lYYXVYWU01WmNDNjY1?=
+ =?utf-8?B?MXZLRVJ2MHA3RS9VaC8rUlBEa1NyUkY5a2Zmd0NUeWxwZVNwTm4wRDd1djhR?=
+ =?utf-8?B?Sld6aWFSM0ZhSktQeEh0bVgxeTd2RUgxUWw2cVRyRmt0enlEVzA4SWxaOTZN?=
+ =?utf-8?B?NWZYUmk5aWJVR2pQVW93Q0JkeUVHNHF1c0NmWlJ2Ty85U0hURmtGZDZOQ0lC?=
+ =?utf-8?B?TlpPWFl2NzR0emROUVdGU3c5SXRVcDhjM2xIRm9PZzJKU2pMNjVPUHNpUW9z?=
+ =?utf-8?B?RXdIS1hrUmZldGYvR1c1cmpyeFRpSG8wR2l1Y210ck55ZU1hK1dvNTFjb0F6?=
+ =?utf-8?B?bkg3NGRpUjhxVGwwZWdqTC9HbDNkNi9NWDJJcmdhL1lqT0FmNDhja3JnVWJ5?=
+ =?utf-8?B?dTBWdDJaYWZ5MzZHeXIrNlY1UU02aGt3UnFXakJ0Um54Y21mVDR5MGZQcTRh?=
+ =?utf-8?B?K0hEVEdmRjhOWncrWTNQcWZIWk5ITXdocXVWZ090a2ttUWxoWFFlcWFmeGVM?=
+ =?utf-8?B?TUJHZ0tCUWxPVUtleEtlMEVFOVZVY2VVU1ZVU3JYd1c0anIwQ0JmeTZRWWhw?=
+ =?utf-8?B?ZmxBZGJUNm9XTDFNMW5YYmR1MGt0SXZSb0hkMUtIRDJXaWlJTDlJMkxZNjNi?=
+ =?utf-8?B?OVQ1T05yZXV3TjFrNjVZWHQ5SzE2d3R4c2hJY1VFaW5iR3h0V0tlNHowRDlM?=
+ =?utf-8?Q?JcN2CMTSx48TmRo6SqckWoZAAHU6RWui32o39?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d24d209-4be0-4ba9-728b-08dee7bfe34c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 07:07:27.6656
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qHihtgPWHGEVW0QuT0RoQMmpF+hId+Hmv+CXWYxP+oyndwLyt2ODrhKMxHdT268C5rss3TWK6CXVg3of+j2lXkMvBTD8Sn14GslpVCEmda9DhwYYaiEi9J8oyl0BQ+2Y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9952
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_000413_405139_80877D58 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20260722_000734_139186_829B8EC4 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,92 +159,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CLC region is supplied by firmware, but the loader trusts the region
-count and each record length. A malformed image can make the region table
-pointer precede the firmware buffer, make the record loop fail to advance,
-or index phy->clc past its end. Validate the table and record bounds
-before dereferencing or copying.
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
-Fixes: c948b5da6bbe ("wifi: mt76: mt7925: add Mediatek Wi-Fi7 driver for mt7925 chips")
-Cc: stable@vger.kernel.org
-Signed-off-by: Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
+Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+introduced a boot hang on i.MX6Q/DL variants by reordering the
+initialization sequence, which exposed a critical PHY power control issue.
+
+Root cause:
+Before commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators"),
+the sequence was:
+  1. imx_pcie_assert_core_reset() - asserts TEST_PD, asserts REF_CLK_EN
+  2. imx_pcie_clk_enable() - clears TEST_PD, asserts REF_CLK_EN
+  3. Link training starts with TEST_PD properly cleared ✓
+
+After commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators"),
+the sequence became:
+  1. imx_pcie_clk_enable() - clears TEST_PD, asserts REF_CLK_EN
+  2. imx_pcie_assert_core_reset() - re-asserts TEST_PD, asserts REF_CLK_EN
+  3. imx_pcie_deassert_core_reset() - does NOT clear TEST_PD
+  4. Link training starts with TEST_PD still asserted ✗
+
+The reordering caused TEST_PD to be cleared prematurely in clk_enable(),
+then re-asserted by assert_core_reset(), and never cleared again before
+link training, resulting in the boot hang.
+
+The fix requires two interdependent changes that cannot be split:
+1. Move TEST_PD control to imx6q_pcie_core_reset() where it belongs
+   logically with reset operations
+2. Remove TEST_PD manipulation from imx6q_pcie_enable_ref_clk() to
+   prevent premature clearing
+
+Applying only change #1 results in device detection failure because
+TEST_PD gets cleared too early in clk_enable(), then re-asserted in
+assert_core_reset(), then cleared again in deassert_core_reset(). This
+premature clearing disrupts the proper PHY power-up sequence.
+
+Both changes together ensure the correct sequence:
+  1. REF_CLK_EN asserted in clk_enable() (TEST_PD untouched)
+  2. TEST_PD asserted in assert_core_reset()
+  3. TEST_PD cleared in deassert_core_reset()
+  4. Link training starts with proper PHY state ✓
+
+The previous delay in imx6q_pcie_enable_ref_clk() was a workaround for
+async reset synchronization when ref clock and PHY power were coupled.
+With proper sequencing, this delay is no longer needed.
+
+The i.MX6Q/DL PCIe PHY requires approximately 120us between TEST_PD
+de-assertion and link training start. Add usleep_range(200, 500) in
+imx6q_pcie_core_reset() after clearing TEST_PD to satisfy this
+requirement.
+
+Additional changes:
+Add explicit imx_pcie_assert_core_reset() calls in error paths and
+host_exit() to ensure no power leak.
+
+Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reported-by: Leonardo Costa <leoreis.costa@gmail.com>
+Closes: https://lore.kernel.org/lkml/20260629143439.361560-1-leoreis.costa@gmail.com/
+Tested-by: Leonardo Costa <leonardo.costa@toradex.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- .../net/wireless/mediatek/mt76/mt7925/mcu.c   | 32 ++++++++++++++-----
- 1 file changed, 24 insertions(+), 8 deletions(-)
+Changes in v4:
+Refer to Sashiko' reivew of v3 patch.
+- Adjust imx_pcie_assert_core_reset() in imx_pcie_host_exit().
+- Add the delay explicitly after TEST_PD is cleared, since the PERST# GPIO
+might be optional.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index e94fa544ff20..76e30bf4ce0f 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -803,8 +803,9 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
- 	struct mt76_dev *mdev = &dev->mt76;
- 	struct mt792x_phy *phy = &dev->phy;
- 	const struct firmware *fw;
-+	size_t clc_len, fw_data_len, len, offset = 0;
- 	u8 *clc_base = NULL, hw_encap = 0;
--	int ret, i, len, offset = 0;
-+	int ret, i;
+Changes in v3:
+Update the commit descriptions to address the following items.
+- Clarify the root cause of this regresssion.
+- Describe why both changes are mandatory required to fix this
+  regression.
+- Justify the delay removal also.
+
+Changes in v2:
+Per Sashiko's review, invoke imx_pcie_assert_core_reset() explicitly
+in error path of imx_pcie_host_init() and imx_pcie_host_exit().
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 41 ++++++++++++++-------------
+ 1 file changed, 22 insertions(+), 19 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index e25f938eefe23..c94b5e991aecd 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -681,21 +681,12 @@ static int imx_pcie_attach_pd(struct device *dev)
  
- 	dev->phy.clc_chan_conf = 0xff;
- 	dev->regd_user = false;
-@@ -829,13 +830,21 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
- 	}
+ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+ {
+-	if (enable) {
+-		/* power up core phy and enable ref clock */
+-		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+-		/*
+-		 * The async reset input need ref clock to sync internally,
+-		 * when the ref clock comes after reset, internal synced
+-		 * reset time is too short, cannot meet the requirement.
+-		 * Add a ~10us delay here.
+-		 */
+-		usleep_range(10, 100);
+-		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+-	} else {
+-		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+-		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+-	}
++	if (enable)
++		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				IMX6Q_GPR1_PCIE_REF_CLK_EN);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				  IMX6Q_GPR1_PCIE_REF_CLK_EN);
  
- 	hdr = (const void *)(fw->data + fw->size - sizeof(*hdr));
-+	if (hdr->n_region > (fw->size - sizeof(*hdr)) / sizeof(*region)) {
-+		dev_err(mdev->dev, "Invalid firmware region table\n");
-+		ret = -EINVAL;
-+		goto out;
-+	}
-+	fw_data_len = fw->size - sizeof(*hdr) -
-+		      hdr->n_region * sizeof(*region);
-+
- 	for (i = 0; i < hdr->n_region; i++) {
- 		region = (const void *)((const u8 *)hdr -
- 					(hdr->n_region - i) * sizeof(*region));
- 		len = le32_to_cpu(region->len);
+ 	return 0;
+ }
+@@ -826,6 +817,12 @@ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
  
- 		/* check if we have valid buffer size */
--		if (offset + len > fw->size) {
-+		if (len > fw_data_len - offset) {
- 			dev_err(mdev->dev, "Invalid firmware region\n");
- 			ret = -EINVAL;
- 			goto out;
-@@ -852,11 +861,19 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
- 	if (!clc_base)
- 		goto out;
+ static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ {
++	if (assert)
++		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				IMX6Q_GPR1_PCIE_TEST_PD);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				  IMX6Q_GPR1_PCIE_TEST_PD);
+ 	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_SW_RST,
+ 			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+ 	if (!assert)
+@@ -836,11 +833,15 @@ static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
  
--	for (offset = 0; offset < len; offset += le32_to_cpu(clc->len)) {
--		clc = (const struct mt7925_clc *)(clc_base + offset);
-+	for (offset = 0; offset < len; offset += clc_len) {
-+		if (len - offset < sizeof(*clc)) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
+ static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ {
+-	if (!assert)
+-		return 0;
++	if (assert)
++		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				IMX6Q_GPR1_PCIE_TEST_PD);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				  IMX6Q_GPR1_PCIE_TEST_PD);
  
--		if (clc->idx >= ARRAY_SIZE(phy->clc))
--			break;
-+		clc = (const struct mt7925_clc *)(clc_base + offset);
-+		clc_len = le32_to_cpu(clc->len);
-+		if (clc_len < sizeof(*clc) || clc_len > len - offset ||
-+		    clc->idx >= ARRAY_SIZE(phy->clc)) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
+-	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+-	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
++	if (!assert)
++		usleep_range(200, 500);
  
- 		/* do not init buf again if chip reset triggered */
- 		if (phy->clc[clc->idx])
-@@ -869,8 +886,7 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
- 			continue;
+ 	return 0;
+ }
+@@ -1451,6 +1452,7 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 	return 0;
  
- 		phy->clc[clc->idx] = devm_kmemdup(mdev->dev, clc,
--						  le32_to_cpu(clc->len),
--						  GFP_KERNEL);
-+						  clc_len, GFP_KERNEL);
+ err_phy_off:
++	imx_pcie_assert_core_reset(imx_pcie);
+ 	phy_power_off(imx_pcie->phy);
+ err_phy_exit:
+ 	phy_exit(imx_pcie->phy);
+@@ -1470,6 +1472,7 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
  
- 		if (!phy->clc[clc->idx]) {
- 			ret = -ENOMEM;
++	imx_pcie_assert_core_reset(imx_pcie);
+ 	if (imx_pcie->phy) {
+ 		if (phy_power_off(imx_pcie->phy))
+ 			dev_err(pci->dev, "unable to power off PHY\n");
 -- 
-2.51.2
+2.34.1
 
 
