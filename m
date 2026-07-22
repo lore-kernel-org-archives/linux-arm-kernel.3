@@ -4,86 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C3AC44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6EBC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:40:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J/4AwJDlUc6G4FSUtMAB2vODvWwQjx1d0P5R5iMgpjI=; b=nAw41Q/+skonHxZO4xnKNcUHXd
-	gcSCiF9h3lEuqO3JCDkuPVTrT2h4AEreED56qzfAMxGh5a5nXol0ZB0Zfc0yCVzTLv1TJndQ5I+Vu
-	xVPkxeovMjyHZLv6NLcsfi9nBRahen7xYK0CgEmuS+Z53rL6AlAyLRcEHBmUb4LcwnpTFOCPtkMeU
-	582H+fFSoy4IsKGDLbsAGFUmpyYGuaT1uZhKIelVCFVqojpavAwJ7Nnz6Y9j/yt4wqmQCrz+/tlr5
-	BVoNZUJsy6SEs3l4wpnUfK8nzm6AOw0imy9yQmiggdOBDvWPTOKGUEZfGXk4mrGyFh5enIDVaRY/G
-	YRD2+1iQ==;
+	bh=eYJOxwafJl8OVO7ncar+6PV1o72DMzw1345lwAkie64=; b=Rr4Aw1zQIFyf60GcQiTpu01L/I
+	9m2gSSZ2InZ6p82enJuqtt5mf6s4eEDUJCjJWqiIh48qBXX9FlGflRPosfrkiy7H5LqRrBtI98pFK
+	jVcfLUh6E+oGn/E7qr9R481RRMParZQTwHmZnYoT1Pa8LOxK8Ynba1cET+B6+LMOFxMF+nSGh3tIP
+	F6Em9wQ1H//+WKaKQqs+23tCJPH4k16xgk1oxnpdBTZrIXxPCoO74yh2oVCfsjove7eRjN0dsF4Mk
+	PKSxzl86N4IGfzWpT6z699c5bGWX3AMz1U+YOwm2lp26Qn2k3rYY6PLm5+LlJcaPHviVsCyh/KAM9
+	IO6nk/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmefQ-0000000CpJl-0sSo;
-	Wed, 22 Jul 2026 21:39:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmefZ-0000000CpMi-25O7;
+	Wed, 22 Jul 2026 21:40:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmefP-0000000CpJY-188d
+	id 1wmefY-0000000CpLX-07Xb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 21:39:51 +0000
+	Wed, 22 Jul 2026 21:40:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 427BB600AD;
-	Wed, 22 Jul 2026 21:39:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 971A31F000E9;
-	Wed, 22 Jul 2026 21:39:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A3A6600DA;
+	Wed, 22 Jul 2026 21:39:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FB331F000E9;
+	Wed, 22 Jul 2026 21:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784756388;
-	bh=J/4AwJDlUc6G4FSUtMAB2vODvWwQjx1d0P5R5iMgpjI=;
+	s=k20260515; t=1784756398;
+	bh=eYJOxwafJl8OVO7ncar+6PV1o72DMzw1345lwAkie64=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=brRzAZBda7UZHIg4veJxZLCYpAqd3lCO2ZMyHBAzG56VDW8Zr41kajFzsuVf16Qen
-	 jfveSt7reJYPqIKL3ap9i1AnIyHiFlS2Tm2AphtXD9AmgXbcX/tXagmG+t+IpMhD1A
-	 cwtRgmM7wLAMuu+ewZgaPPBKxQQowjI+KwaYQcE/ftJy2R4yI3g/+/pTG5vCEffyze
-	 hBzeg+QNlgQ8LQurTVNRWREViUly0jR3ypJbAUy9STmVgZ1bPpdG76mL2ABYqgxY5u
-	 +mgrWmQyS2Er3Bx/3LapCmBRVzBgGijicDWB1Yop4ngvwCcd3OHRjq2U63RXJIEvIh
-	 9R8xWkFBQzGFw==
+	b=g2T0ggEP+OzKgwGT1ua3fLRCEfsJHCUoE8FKfLu3rnKwkTwl4OJh4SY5bVUZGP20Z
+	 ycu63WdemDnA4UHLqyRNyMJ7QDhBuZsNWPVsTb5RReFpLEwdiW5x85yqL858gXVBHD
+	 2SbD5Qjb2Br81+olXRINqIV5qrw8U8x52zk9Et1epHCO5GDbboegW6SSAUq4cN4dZO
+	 aOf9+DV94dTf6HUPM6m20DbTqXqMDK0XrZoli/ySD1i3Oxxx3SSw2+bEGxNRrHwnu5
+	 lHLAqWw9fEreSZyWtuDLA+E679GcXpSQNFCmunk2SrLeiQQ7jYSRrW89JP7tv8pLhj
+	 7veJ2m+sxh3DQ==
 From: Will Deacon <will@kernel.org>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
 	Robin Murphy <robin.murphy@arm.com>,
 	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>
+	Esteban Urrutia <esteuwu@proton.me>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
 	iommu@lists.linux.dev,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
-Subject: Re: [PATCH v2 0/9] drm/msm: Support for Eliza GPU
-Date: Wed, 22 Jul 2026 22:39:19 +0100
-Message-ID: <178472234101.2849821.2122520947416470747.b4-ty@kernel.org>
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	phone-devel@vger.kernel.org,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Add SM8450 MDSS compatible
+Date: Wed, 22 Jul 2026 22:39:21 +0100
+Message-ID: <178472263086.2852085.5726009348827145429.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260718-eliza-gpu-v2-0-64379dbebd7a@oss.qualcomm.com>
-References: <20260718-eliza-gpu-v2-0-64379dbebd7a@oss.qualcomm.com>
+In-Reply-To: <20260711-sm8450-qol-smmu-v2-1-41a6fba41c3e@proton.me>
+References: <20260711-sm8450-qol-smmu-v2-1-41a6fba41c3e@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -101,20 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 18 Jul 2026 02:11:25 +0530, Akhil P Oommen wrote:
-> Adreno 722 found in Eliza chipset belongs to the A7x Gen1 family. It is
-> derived from A730 and shares the same IP-level configurations: HWCG
-> registers, protected registers, GBIF CX registers and gmu_cgc_mode.
-> Major differences include smaller cache/core counts, 1MB GMEM, no
-> Concurrent Binning & LPAC support. Some of the peripheral blocks like
-> RSCC are from A740 that resulted in updates to RSC layout.
+On Sat, 11 Jul 2026 23:14:01 -0400, Esteban Urrutia wrote:
+> Add the compatible for the MDSS client on the Snapdragon 8 Gen 1 so it can
+> be properly configured by the IOMMU driver.
+> 
+> Otherwise, there is an unhandled context fault, because the framebuffer is
+> already configured in UEFI.
+> 
 > 
 > [...]
 
-Applied bindings update to iommu (arm/smmu/bindings), thanks!
+Applied to iommu (arm/smmu/updates), thanks!
 
-[4/9] dt-bindings: arm-smmu: Document GPU SMMU for Eliza SoC
-      https://git.kernel.org/iommu/c/925f98235a72
+[1/1] iommu/arm-smmu-qcom: Add SM8450 MDSS compatible
+      https://git.kernel.org/iommu/c/d149c8b2c014
 
 Cheers,
 -- 
