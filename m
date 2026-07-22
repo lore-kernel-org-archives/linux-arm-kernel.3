@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0E0C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465C3C4453F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L5j5knED6q3pX0T/5tJ3M251cDQCJBmX/HJ95U5CMOc=; b=ePi68YLvW9vWBs/m35YLLKNF5g
-	xQrug/UW0mLLk9fH9nt550KC5SfI9fraG+2iLhVqllHINAX0VH6p0emW4FhRJjPQzebmwm0teuZta
-	P4S68kxY4MHPde8FVpIPrwrZGeWlKERBZSrRxysfhawt3HX5WYBnRRMXHuDS0g32NLVu7Dcsxkfr/
-	VUIYBkg6deEFYg2elm2FM9NaIcc9UarQ1avFWUH2xleqEE+HKmV/q6JG9k7vzyy3MS7wzIqE35amk
-	Eau0i+YvVvY1mUHN0kj+6+YXe6R9NZ8ABTLKoCUvejJA2E5gwJ4Gt5mYDTEjAbM67zwgpFA+pyHs0
-	kmBdj9Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d7KPqKKtt32qdvy6pdhb4zQY6/OdX+QnrgvqOiCn6pU=; b=crn6w0OLciGFbwHX9Hg5FPKkNO
+	Ke1VKEC4Y6DiZcEopM9ILJCqrgKiN7Rc3t4U1rY/LHt3znhgkpecPbVMFEYK5ZhSKfdCjDv0ZjQVV
+	xChX/DCA2l6iFgn1nW7kdYDvUetT2sWQ0Ncod90NMls/1hSU56WpSX0qlC4uwxVtLOIOHhqPLmmlZ
+	cbV3TwAlYx5iir9/yfTXaDbYZQcCNUUxQXq5krtSz60kJPKcxGT7/6td+yb8olwTO4oH8Q/IQf+IN
+	n9FWM8X4RyxuBx4aMwsdL+D7lXA/WDEig5TgqDwyjP3fLgzbp5ac/hiTjTx1U2gTD/MAFktLKIyrh
+	zRwzp9eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmU7L-0000000BXpl-1Q7B;
-	Wed, 22 Jul 2026 10:23:59 +0000
-Received: from extorris.mess.org ([92.243.27.206])
+	id 1wmU7w-0000000BY9M-27am;
+	Wed, 22 Jul 2026 10:24:36 +0000
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmU77-0000000BXfi-0BEH;
-	Wed, 22 Jul 2026 10:23:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1784715821; bh=1yP18ZTlPXUiRlBsdmIVfczBqI+60MXCB3xkhNeyZNs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BGF1/F+WLHXV6j/0OEn+ZivJ0nB6Px4t1hqikgOOJCqP/zbNmrLiYBHIjtVLQrh2j
-	 SQVD/svrmElcKeMa8BJkPDMY6Mrfh3Kt/70XD28Fcno5rWyq+MMeFts9Y303i/o9Ob
-	 n9dAbulXhuKI6Wu9fogxwm9sOtNXeXthu9vhRHuCmzI4MxxK1icoo0AJ7c6j8K90XB
-	 CETWzUYEAB8vV7L85WZBqLyDEHwZdF4Vi5pYF8TnOxNtBlXCLr8vQOVDnBa/6Q5DLm
-	 pw1zUbIBWekaczkjsTpWMh3S2VSN2t8tl3ij/BfZhjwkVU9vkQ2gZd2JZkVYA1Sfht
-	 4N3aOQuid40+A==
-Received: by extorris.mess.org (Postfix, from userid 1004)
-	id EC5544252A; Wed, 22 Jul 2026 11:23:41 +0100 (BST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1784715820; bh=1yP18ZTlPXUiRlBsdmIVfczBqI+60MXCB3xkhNeyZNs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aUxM38mdUebm/sODIPjAEyhB2MYCSGA5vpuK9NuaD41gzIs8jVMeNLFQfZw/PDYsf
-	 4c1/O/w90NCefxlE0SWSsMHmHR3+ExQSDNaXRQ+bUZ6M9c9J7uYxDOU2TleYAKxt5G
-	 grc9w6L5D76tEycvdqZexf15/PFQs+d0DIiXxVBYM5EpdHkxhD/5nM2u8bcBU3gn5q
-	 E5kgB1lhkHZJ5D5dd1ZRgTEwghIFFUmSENv3wswcIX1XZLUDTJeoqPp5noRWuPF8oK
-	 OtwxAwdnROdN8y1cNziAk0PcSIkbZEf6H0fnqlT+qSDRtIMCzswiLFT+SghNwRV6Px
-	 dm1cmKhlZ8z6g==
-Received: from maru.local (unknown [62.232.99.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by extorris.mess.org (Postfix) with ESMTPSA id 6AA5F42538;
-	Wed, 22 Jul 2026 11:23:40 +0100 (BST)
-From: Sean Young <sean@mess.org>
-To: linux-media@vger.kernel.org,
-	Sean Young <sean@mess.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Viktor Prutyanov <viktor.prutyanov@phystech.edu>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
+	id 1wmU7s-0000000BY7c-3O5n
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 10:24:34 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id E47607A0141;
+	Wed, 22 Jul 2026 06:24:31 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Wed, 22 Jul 2026 06:24:32 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1784715871; x=1784802271; bh=d7KPqKKtt3
+	2qdvy6pdhb4zQY6/OdX+QnrgvqOiCn6pU=; b=PNyLSZhQMIjX+s9LApIcugWgZr
+	8RJto+1uQmDxR+797Ab3+s9DxXNrnriBohsVcUbNlNt5zxa58EOos50Sfzjt+QCQ
+	i9BobrwpD2KaffuwlNldy3UNSBn54gLZIpQ3dgKLaSzHD5SPj+q2gudKkjeZBtUN
+	C0iggNgeh2Yi0JTPD8HXFuW1F14ML7ScJ9qLeTYP02iAdtJqCRN9XdWIYlNsO5r3
+	2CfSMeIzEHN0fqDMyKUdAYiowG+FbeB3cwSuAa+2Yh618Vi0Rma3CZE9LnNOwKo+
+	2N9Rn9XvLTdPfVeHAiqFRhxrWf8sDkOWa81z24cmJynGvWi9XERnN57bvciA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1784715871; x=1784802271; bh=d7KPqKKtt32qdvy6pdhb4zQY6/OdX+Qnrgv
+	qOiCn6pU=; b=fJoKYZRufhJM22N65aLY1OcDi2jgt2GOVNoLtW2Y5P8OmseV9CX
+	21or68/LSP8ew/VhK0E9dLYRX8waN6TuXf9yrhBt5nvgjWax7aro6LXa2LfulZCe
+	VE6aOwomiDDW0wFOL8UyJTR2WvVwkdwaGI1HxNzb3ALi8QdONQgDKKlW0hA++i5O
+	V75Ktx6D3toIGsX/c/cEMXg9hoEV4Le7M0qrTQ7JjwJi3OS4V01LwEjSjibDP3Ib
+	FwqUi2WQ84k54RZ99d1h54eIhVhuegYnXZmbjcAMvaf5ikTDZjTDq+ecueNN/Xra
+	qqG9zLtqKCTDJDsiUQ7+zmL4/ZBtKxIaXew==
+X-ME-Sender: <xms:X5pgavF5VobabwctdUJSi54TqKjyGl9o2CnYAaO663t1gTwWDGJt5g>
+    <xme:X5pgao5YWMRe4gcqSrccwNUMWNqCmdbdoDnwAYBB3xz0gM3qK6J9AEE6ab9WkoHUM
+    qxGhgvN7fT1E88lXpnAoNPrY7zfXb0ekDPp9-ryImBXm8BlJNDXn8Q>
+X-ME-Received: <xmr:X5pgalmBuzOUAsSr08pSRYWf8Ix5ZBubVmKTCVju84RYCxHqqhepqLwgIBYjt1ILTZnE2lgl-DlaOT4-kmREsVjlmCDRn90B2mI>
+X-ME-Proxy-Cause: dmFkZTFR4qs4EzJbzKeAVnWQV4FuYpX9MCEikNX0fQpLTgiwJwvXpFXR8ZcfR3FjZgIlXL
+    2IYhwWJDSLDALFeP3nrh0kStT1Vg4aX7W4wIo41jab3eEk6zTW8TgM9jk32vgYakBUlw1X
+    Uc2Ndl7wl9YUY+E4/SA+lGWFdt2z1K7L+kKb0MxZfJU+I4Fhp3JMttrP8m91O4sJCWRVp9
+    mR2Wxtuf3Weeju/eMDM18yXKM0e8BgV9sURH/GO2K1uRsdZ+5MTr5DkanEkjF0Iy43wEK2
+    jSk0/t3pZdUO9vv7+2igz0Q7OaGAOrJUFP9BfBhcvtK2IxOCiSXzX/8jg/O4ojVk//7Yoe
+    +P6BzpWV27uIv3uUqBYC0rgiqgbB+gg6G3qpp60jLwSUMnO9WpMk6yE7mNQ2lnzl0ht3MK
+    kIxt6IuHvNgADyhja2n8talh7Ljyfftj7WLypBp5Af9QFR8FhAugsrqU5e7Ou/EHLaV14V
+    CYWeKcIIl/TNYdyQsmnJTeHbNJQITQRoaNd5MAqPbiasCEiS2uO9pkvV+iIUzLSadgTWKb
+    T9bL8NMJYlSpuAEdF6in+N0Sww/rE/ITATpEk8td1N7t5C42H6tzSp3HMNzhqVfSHHuIkB
+    ZpwkjlI9eWQztJXGRvs/ejpVxlKaXk2JYHSudZA3d2Pq2rh3dVko6V/P2ewA
+X-ME-Proxy: <xmx:X5pgaj4KjRmzHlomMjuRDoCLNp5ilCnr1jdvcMPYytOc80-u0DXQAA>
+    <xmx:X5pgamTohimYc8LOelQxWT7dkXc6eLarokdnHcxw9AGxtVHuvejuQg>
+    <xmx:X5pgahxCbbBCeIOEUlU-ZWOEuBzbPsbPl4SRTEg4iMTkvldRxD1jww>
+    <xmx:X5pgauq2ehUIREMCCXcNvG8KjNr1Lm0JDONZupyAOVDoMADKtFNpaw>
+    <xmx:X5pgarB-YygeEoIA-CoL5IS75cOnbpXN7sWseERvwmYZNrqhdU1PQ7h0>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 22 Jul 2026 06:24:30 -0400 (EDT)
+Date: Wed, 22 Jul 2026 12:24:29 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 09/13] media: meson-ir-tx: Ensure probe error is propagated
-Date: Wed, 22 Jul 2026 11:23:21 +0100
-Message-ID: <b34fb1c2603376b4ae99829fafae49897d975625.1784715737.git.sean@mess.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <cover.1784715737.git.sean@mess.org>
-References: <cover.1784715737.git.sean@mess.org>
+Subject: Re: [PATCH v2] cpufreq: apple-soc: Calculate frequency as a 64-bit
+ value
+Message-ID: <20260722102429.GB4159739@robin.jannau.net>
+References: <20260720-cpufreq-64-v2-1-72bd9b4e5ca0@chaosmail.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260720-cpufreq-64-v2-1-72bd9b4e5ca0@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_032345_219881_C32B534C 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20260722_032432_914027_93244702 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,38 +109,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_clk_get_enabled() may return -EPROBE_DEFER which needs to be
-propagated else the probe will not be deferred, it will fail instead.
+On Mon, Jul 20, 2026 at 09:25:10AM +0200, Sasha Finkelstein wrote:
+> The current frequency calculation is done in 32 bit, causing problems
+> if run on a future SoC that can boost higher than 4.2GHz. Ideally, we
+> should use a true u64 instead of unsigned long and "knowning" that this
+> only runs on 64 bit machines, but the core code uses ulong everywhere,
+> so this should be good enough.
 
-Fixes: 49be1c78d575 ("media: rc: introduce Meson IR TX driver")
-Signed-off-by: Sean Young <sean@mess.org>
----
- drivers/media/rc/meson-ir-tx.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+It depends on 'ARCH_APPLE || (COMPILE_TEST && 64BIT)' so it only gets
+built for 64-bit architectures so the unsigned long won't cause compiler
+warnings/errors.
 
-diff --git a/drivers/media/rc/meson-ir-tx.c b/drivers/media/rc/meson-ir-tx.c
-index abb107d19e8c..174d5135e1bb 100644
---- a/drivers/media/rc/meson-ir-tx.c
-+++ b/drivers/media/rc/meson-ir-tx.c
-@@ -290,7 +290,7 @@ static int meson_irtx_mod_clock_probe(struct meson_irtx *ir,
- 
- 	clock = devm_clk_get_enabled(ir->dev, "xtal");
- 	if (IS_ERR(clock))
--		return -ENODEV;
-+		return PTR_ERR(clock);
- 
- 	*clk_nr = IRB_MOD_XTAL3_CLK;
- 	ir->clk_rate = clk_get_rate(clock) / 3;
-@@ -324,7 +324,7 @@ static int meson_irtx_probe(struct platform_device *pdev)
- 
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0)
--		return -ENODEV;
-+		return irq;
- 
- 	ir->dev = dev;
- 	ir->carrier = MIRTX_DEFAULT_CARRIER;
--- 
-2.55.0
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+> Changes in v2:
+> - Minor style fixes
+> - Link to v1: https://patch.msgid.link/20260703-cpufreq-64-v1-1-c406c705319a@chaosmail.tech
+> ---
+>  drivers/cpufreq/apple-soc-cpufreq.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-soc-cpufreq.c
+> index 638e5bf72185..5ad274a1e6ae 100644
+> --- a/drivers/cpufreq/apple-soc-cpufreq.c
+> +++ b/drivers/cpufreq/apple-soc-cpufreq.c
+> @@ -288,7 +288,7 @@ static int apple_soc_cpufreq_init(struct cpufreq_policy *policy)
+>  
+>  	/* Get OPP levels (p-state indexes) and stash them in driver_data */
+>  	for (i = 0; freq_table[i].frequency != CPUFREQ_TABLE_END; i++) {
+> -		unsigned long rate = freq_table[i].frequency * 1000 + 999;
+> +		unsigned long rate = freq_table[i].frequency * 1000UL + 999;
+>  		struct dev_pm_opp *opp = dev_pm_opp_find_freq_floor(cpu_dev, &rate);
+>  
+>  		if (IS_ERR(opp)) {
+> 
 
+Reviewed-by: Janne Grunau <j@jannau.net>
+
+Janne
 
