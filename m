@@ -4,65 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E28C4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2BEC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8fr9CdNLLI6F9qEcy88cckOJsZcetmPMoGFEMHCefOg=; b=QDzMB9rXlRm2z9
-	M3c7OCze9GZDHN7zS2v0Z0+pSLxpfNt6r/geg3/D0nmCUIPcuqPtlcMR+AtVB7GYbH+lzGRnYR68U
-	6k9oly2r7yfafy2S2Q53ZQVLBEMNYWGsLjD9dpN16EWQNvd0p3WFN99UQnguNYKm0g0gVD3WGCt2y
-	QyhNnnrSdiU/ni4AUEnLXed1DXnyUURSzwtmu9JxhkezVEkNfCvmfc+WxBsEFSmx6hfHqEGDcEJMk
-	lId7GqovUPzamJZVHdAxMNc9XR+S86iOHnfxdIoarryaQCT/R/JAGSzsYBa/JdJwzwrRJUiQhlU3s
-	tijOGT6jqRbkUkYSJIzw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dNnBgtMvRWoIDKMpvV9eibQpg+sWb3zuYV0OsS+F7RY=; b=JUeedipTXKDpSt7u6GyQhSr0w0
+	eHDr9TKZcbGEfviJ+mdYoH+VH7kE2ZUp4JWJ/PmTfFDoJyBlua8kcyFh76xbEGgYF3/kgI8+MyxSf
+	jJWq0mS+B+/3yBzpGvX2yOnem5LA+bDZ3iN1c40ElcdkQhHdyJFR3X5YnQ00F7X83E0E92sp5UF+M
+	67yvTppBx773+I7dh29lJsCsxmbwKrOPMiHamiJC++dzmjEhn5QT7sH+pZPknSs+MGfaA8+7vBYwZ
+	uvwtoSwgtdKPdBckXpp5yXI1qqrv+a2okEjaDXSdQdfH6UOOOwrUq1vf7BZH39xtAaiOkROYeQfKP
+	14QK2XWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRst-0000000BCE1-2bSf;
-	Wed, 22 Jul 2026 08:00:55 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wmRyZ-0000000BCb2-0dZ1;
+	Wed, 22 Jul 2026 08:06:47 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRsq-0000000BCD7-2UGb
+	id 1wmRyW-0000000BCZs-1sSG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 08:00:54 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=8fr9CdNLLI6F9qEcy88cckOJsZcetmPMoGFEMHCefOg=;
-	b=upmWTa0ugmceZhP90CGnC+DsZavWGH83CoBWVGMhArnyq59t2YmJbH2eJRlDtz6V1szFjO8UI
-	okZYsx2aEYvzoH2io4kI3XuybCZBfzypY0FzdXjFdqmC62ZhGgPS9KzN3ZSEDI782D7L6S47NEf
-	EFQ4X71uq/NcpMiYW5fQbzI=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h4mfJ70RJz1cySC;
-	Wed, 22 Jul 2026 15:51:20 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 340AA4048B;
-	Wed, 22 Jul 2026 16:00:42 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Jul 2026 16:00:41 +0800
-Message-ID: <0d58a4b5-52fa-4f75-8e0d-59a38f9f5046@huawei.com>
-Date: Wed, 22 Jul 2026 16:00:40 +0800
+	Wed, 22 Jul 2026 08:06:45 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-69e8ea2783aso5801391a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 01:06:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784707602; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VUkZg6Fp/Aq3lVOpGF/rCffNrp0aCxnxHJUZdxpo4V9YGNZ92llwHgPQesFuUoA+UI
+         J1oGB3gUtDWKckkQNwDF90FCwBSKxzFo2hkvfOHhvTCEUqG5n4Fz0K1M5iz6ci0XwJru
+         ntWfYGliT94tYBITh8oJV1ZMtHojItW5GS5IWGkw9JsPUOyLWaFDUTd2oBkiEYmCQV7M
+         L39y2wzfYvYnSdLmpVx35OnvqWLTgE3+w9B1gq0D+Jh8IwVa30e5po5+sIikQceYp1AC
+         IcysYsBGhRG7HL/A1Tcn1DZTiyhAVVFskDUV5etssdOzLcnoCHdNfLLxCMGU/XAsSQp/
+         Oftg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=dNnBgtMvRWoIDKMpvV9eibQpg+sWb3zuYV0OsS+F7RY=;
+        fh=uj47YBXA2Km+/l/vMcgF/quqMXnx7kcCgfWLzI1j0os=;
+        b=eP+UYQrfTVU2PRsL7JKxralYTVQC646jWdzzRZq4PGFWpbU/vWoZSyiT6IYCzMVtz1
+         +ZMSrhlxUtZ4wwy3EAqIcMCOJuq4mLmYPOj/RLx/3At1qlk7VJHFLL5pFHkC+ZsYPbJ1
+         rmmmjz3UbYQ8mRqN3BRnRATu5/onY16MstjxN6PrZXo9a/yI4asCrC4YpSnkPwBNcy2n
+         qkSG6JkZWcCbaXMc309Ep9FTjQlTRnVzhOHLo8RpKuIaYI8eKL44axr4vSCJXuVZ++g9
+         +p1jERB3hwral8egrPUw1uXDYyMtV+QuvsMe9hCB/qOE8qdGZZX9Hiu9wnlDNemw9kcF
+         V8JA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1784707602; x=1785312402; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dNnBgtMvRWoIDKMpvV9eibQpg+sWb3zuYV0OsS+F7RY=;
+        b=a5na9YPrODDR7svb0cxbD7Qn0nzK0EDISG6tFBSlnHZ0uC4awz0rex3taDbqqvY5Nv
+         HMeyzIpH87dARIFG6m0Mdq5NNoKc7FrA+o/usjSzkMfJdSBgFaLWO7JRodQa2X7Y4Ush
+         oYntSxuJi+/BIiz3JzongKVjhpl8KLCBQkHLAnq5IVPo401Duy5tXZhEOuw8ZpTqfacc
+         4z05j6jOXs9dofjdJH4i/Azoq9Y4nLOIl/zy4lKSRZJIbwg6ZtCON5vBY6VZhC2DBp7/
+         xMnq1hXnt7eKuexoapqI6wwXe25Q98G9kfDp8JL1Ck94nzIDvlwzodOwVqbmXy9Lup6C
+         P5/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784707602; x=1785312402;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dNnBgtMvRWoIDKMpvV9eibQpg+sWb3zuYV0OsS+F7RY=;
+        b=n1IakovkZnn0M2YVLKGlZj0PC1KGFFvuy5iVyZwYMwNiGj03xvWBh5XcF9gf3fEU6d
+         je+3enQS425u88CVo8LLHeU7cwddLcRtMiTtYVGlpsIYng+greGzNJJMcm9Rz7rs7cd4
+         riht1EYyFvw+F9cskkfZgqofi6XvyDuZ6WmvdMi4aehmWrVX6i8+dpTr8qEbag7RxPe8
+         ID20mqQ4hLDT1VYfTjYT/9jxYZnEnvJx65aEnAPlngIjCgI60nRsoL49y9D2azvzkqoy
+         TYXm/8INfe+bn3ZYKcbQA9VRRDD/9Zq0BHrGEs5hvpOcp05LRDKmVwEqt+CET+r/Vbd1
+         DDLA==
+X-Forwarded-Encrypted: i=1; AHgh+RrnEYgnAhu/JPtcR8x4bJiiFXYKctQObNFBpTipC6nccGZzUJcYEXmKaumUWx/2kcoB2MrOdvwgltHZOX/tAPj6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxY7J1yY8s6KtFKnQsQ8YEDIWS7XZt25tCymzXgytNUAapBINQW
+	1HkiFjQZCsT9Sg/RwKBzcyI2PrQutpzGYjS+0dOHuCqy/3WNhdp6Ci37KWqVPPuUSsOSz8LxHCj
+	trUexTx1k6qxSlG4kdGoaltm5Nao4yZnpj3uduCv5gA==
+X-Gm-Gg: AR+sD13oQ1iUEUj9SLxl79tRBfK5kKDrW1lbxbA32wxPlaYZH3Skkz4JUbxA3FltTNI
+	l8Gi8CqCrmZmPg6RMaOtLjpz+vjYHs/vVDLNwd+Di9+LxSrSCo38seNoie4PmxB4ykyIhxmG7hG
+	pLNoZ4nyFHPlgnR15vT/+80G/+qpiSzwTi6LMpgGVMsUnK1GsW4skf6ItR8ZgWxdIZMKC1KHEO7
+	XlKZOUlO2kQSwO0rXjaxAm9h2rNEeMtA1g0r+QCpvipoeok0fLxNDSgi+ZCjDu6/mPGuPzxBVaY
+	FRohuil3CLePHtAF/WSlS2D8GA01
+X-Received: by 2002:a17:907:72cd:b0:c16:3187:997e with SMTP id
+ a640c23a62f3a-c16b46ade61mr848716466b.7.1784707602465; Wed, 22 Jul 2026
+ 01:06:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 17/36] arm64: remove daifflags.h
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-18-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-18-vladimir.murzin@arm.com>
+References: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
+ <20260721-synopsys-dw-dp-improvements-v4-10-f0f4a4ede712@collabora.com>
+In-Reply-To: <20260721-synopsys-dw-dp-improvements-v4-10-f0f4a4ede712@collabora.com>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Wed, 22 Jul 2026 12:06:33 +0400
+X-Gm-Features: AUfX_mzBw-mJbEQ5WnpY1t4r4yErUbUBJRWK9UICtFzIcvZnEWvrXDi7mlfnRTM
+Message-ID: <CAKTNdwE6OOPHYpMQXYfWPtdA26AiPJjSi6N_J-yGSU0mSL7HSg@mail.gmail.com>
+Subject: Re: [PATCH v4 10/10] drm/bridge: synopsys: dw-dp: Add audio support
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Damon Ding <damon.ding@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@collabora.com, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_010052_976960_5E4DCED8 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20260722_010644_497963_630235EE 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,268 +129,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sebastian,
 
-
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> Interrupt masking is now split in different APIs and `local_daif_...`
-> functions are not in use anymore.
-> The `DAIF_...` masks defines are now in `asm/interrupts/common_flags.h`,
-> so we can safely remove `daifflags.h` and all `#include`s referring to it.
-> 
-> Only kprobes.c and process.c use `DAIF_...` masks defines, so add the
-> new header there.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+On Tue, Jul 21, 2026 at 9:52=E2=80=AFPM Sebastian Reichel
+<sebastian.reichel@collabora.com> wrote:
+>
+> Implement audio support for the Synopsys DesignWare DisplayPort
+> controller.
+>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->  arch/arm64/include/asm/daifflags.h    | 123 --------------------------
->  arch/arm64/include/asm/entry-common.h |   1 -
->  arch/arm64/include/asm/kvm_host.h     |   1 -
->  arch/arm64/include/asm/mmu_context.h  |   1 -
->  arch/arm64/kernel/debug-monitors.c    |   1 -
->  arch/arm64/kernel/probes/kprobes.c    |   2 +-
->  arch/arm64/kernel/signal.c            |   1 -
->  arch/arm64/kernel/traps.c             |   1 -
->  arch/arm64/mm/fault.c                 |   1 -
->  9 files changed, 1 insertion(+), 131 deletions(-)
->  delete mode 100644 arch/arm64/include/asm/daifflags.h
+>  drivers/gpu/drm/bridge/synopsys/dw-dp.c | 230 ++++++++++++++++++++++++++=
++++++-
+>  1 file changed, 229 insertions(+), 1 deletion(-)
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Thanks for your work on this!
 
-> 
-> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-> deleted file mode 100644
-> index 8f097a2d9099..000000000000
-> --- a/arch/arm64/include/asm/daifflags.h
-> +++ /dev/null
-> @@ -1,123 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-only */
-> -/*
-> - * Copyright (C) 2017 ARM Ltd.
-> - */
-> -#ifndef __ASM_DAIFFLAGS_H
-> -#define __ASM_DAIFFLAGS_H
-> -
-> -#include <linux/irqflags.h>
-> -
-> -#include <asm/arch_gicv3.h>
-> -#include <asm/barrier.h>
-> -#include <asm/cpufeature.h>
-> -#include <asm/ptrace.h>
-> -
-> -#define DAIF_PROCCTX		0
-> -#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
-> -#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> -#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> -
-> -
-> -/* mask/save/unmask/restore all exceptions, including interrupts. */
-> -static __always_inline void local_daif_mask(void)
-> -{
-> -	WARN_ON(system_has_prio_mask_debugging() &&
-> -		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
-> -						    GIC_PRIO_PSR_I_SET)));
-> -
-> -	asm volatile(
-> -		"msr	daifset, #0xf		// local_daif_mask\n"
-> -		:
-> -		:
-> -		: "memory");
-> -
-> -	/* Don't really care for a dsb here, we don't intend to enable IRQs */
-> -	if (system_uses_irq_prio_masking())
-> -		gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
-> -
-> -	trace_hardirqs_off();
-> -}
-> -
-> -static __always_inline unsigned long local_daif_save_flags(void)
-> -{
-> -	unsigned long flags;
-> -
-> -	flags = read_sysreg(daif);
-> -
-> -	if (system_uses_irq_prio_masking()) {
-> -		/* If IRQs are masked with PMR, reflect it in the flags */
-> -		if (read_sysreg_s(SYS_ICC_PMR_EL1) != GIC_PRIO_IRQON)
-> -			flags |= PSR_I_BIT | PSR_F_BIT;
-> -	}
-> -
-> -	return flags;
-> -}
-> -
-> -static __always_inline unsigned long local_daif_save(void)
-> -{
-> -	unsigned long flags;
-> -
-> -	flags = local_daif_save_flags();
-> -
-> -	local_daif_mask();
-> -
-> -	return flags;
-> -}
-> -
-> -static __always_inline void local_daif_restore(unsigned long flags)
-> -{
-> -	bool irq_disabled = flags & PSR_I_BIT;
-> -
-> -	WARN_ON(system_has_prio_mask_debugging() &&
-> -		(read_sysreg(daif) & (PSR_I_BIT | PSR_F_BIT)) != (PSR_I_BIT | PSR_F_BIT));
-> -
-> -	if (!irq_disabled) {
-> -		trace_hardirqs_on();
-> -
-> -		if (system_uses_irq_prio_masking()) {
-> -			gic_write_pmr(GIC_PRIO_IRQON);
-> -			pmr_sync();
-> -		}
-> -	} else if (system_uses_irq_prio_masking()) {
-> -		u64 pmr;
-> -
-> -		if (!(flags & PSR_A_BIT)) {
-> -			/*
-> -			 * If interrupts are disabled but we can take
-> -			 * asynchronous errors, we can take NMIs
-> -			 */
-> -			flags &= ~(PSR_I_BIT | PSR_F_BIT);
-> -			pmr = GIC_PRIO_IRQOFF;
-> -		} else {
-> -			pmr = GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET;
-> -		}
-> -
-> -		/*
-> -		 * There has been concern that the write to daif
-> -		 * might be reordered before this write to PMR.
-> -		 * From the ARM ARM DDI 0487D.a, section D1.7.1
-> -		 * "Accessing PSTATE fields":
-> -		 *   Writes to the PSTATE fields have side-effects on
-> -		 *   various aspects of the PE operation. All of these
-> -		 *   side-effects are guaranteed:
-> -		 *     - Not to be visible to earlier instructions in
-> -		 *       the execution stream.
-> -		 *     - To be visible to later instructions in the
-> -		 *       execution stream
-> -		 *
-> -		 * Also, writes to PMR are self-synchronizing, so no
-> -		 * interrupts with a lower priority than PMR is signaled
-> -		 * to the PE after the write.
-> -		 *
-> -		 * So we don't need additional synchronization here.
-> -		 */
-> -		gic_write_pmr(pmr);
-> -	}
-> -
-> -	write_sysreg(flags, daif);
-> -
-> -	if (irq_disabled)
-> -		trace_hardirqs_off();
-> -}
-> -
-> -#endif
-> diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-> index 1905765159aa..73d82a8d8e95 100644
-> --- a/arch/arm64/include/asm/entry-common.h
-> +++ b/arch/arm64/include/asm/entry-common.h
-> @@ -6,7 +6,6 @@
->  #include <linux/thread_info.h>
->  
->  #include <asm/cpufeature.h>
-> -#include <asm/daifflags.h>
->  #include <asm/fpsimd.h>
->  #include <asm/mte.h>
->  #include <asm/stacktrace.h>
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index bae2c4f92ef5..74358e93f1bb 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -23,7 +23,6 @@
->  #include <asm/barrier.h>
->  #include <asm/cpufeature.h>
->  #include <asm/cputype.h>
-> -#include <asm/daifflags.h>
->  #include <asm/fpsimd.h>
->  #include <asm/kvm.h>
->  #include <asm/kvm_asm.h>
-> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-> index 803b68758152..b3354a1350cf 100644
-> --- a/arch/arm64/include/asm/mmu_context.h
-> +++ b/arch/arm64/include/asm/mmu_context.h
-> @@ -19,7 +19,6 @@
->  
->  #include <asm/cacheflush.h>
->  #include <asm/cpufeature.h>
-> -#include <asm/daifflags.h>
->  #include <asm/gcs.h>
->  #include <asm/proc-fns.h>
->  #include <asm/cputype.h>
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index e271fbac5f82..5db27c7e86bb 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -19,7 +19,6 @@
->  
->  #include <asm/cpufeature.h>
->  #include <asm/cputype.h>
-> -#include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
->  #include <asm/exception.h>
->  #include <asm/kgdb.h>
-> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-> index 43a0361a8bf0..d9d25d184309 100644
-> --- a/arch/arm64/kernel/probes/kprobes.c
-> +++ b/arch/arm64/kernel/probes/kprobes.c
-> @@ -24,9 +24,9 @@
->  #include <linux/vmalloc.h>
->  
->  #include <asm/cacheflush.h>
-> -#include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
->  #include <asm/insn.h>
-> +#include <asm/interrupts/common_flags.h>
->  #include <asm/irq.h>
->  #include <asm/text-patching.h>
->  #include <asm/ptrace.h>
-> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-> index 38e6fa204c17..2276d316cc9e 100644
-> --- a/arch/arm64/kernel/signal.c
-> +++ b/arch/arm64/kernel/signal.c
-> @@ -22,7 +22,6 @@
->  #include <linux/syscalls.h>
->  #include <linux/pkeys.h>
->  
-> -#include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
->  #include <asm/elf.h>
->  #include <asm/exception.h>
-> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> index 914282016069..77b6be6fc4c1 100644
-> --- a/arch/arm64/kernel/traps.c
-> +++ b/arch/arm64/kernel/traps.c
-> @@ -33,7 +33,6 @@
->  #include <asm/atomic.h>
->  #include <asm/bug.h>
->  #include <asm/cpufeature.h>
-> -#include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
->  #include <asm/efi.h>
->  #include <asm/esr.h>
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 85e23388f9bb..83aca64745f0 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -34,7 +34,6 @@
->  #include <asm/cpufeature.h>
->  #include <asm/efi.h>
->  #include <asm/exception.h>
-> -#include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
->  #include <asm/esr.h>
->  #include <asm/kprobes.h>
+Quick question. It looks like the audio-related change along with the
+DT binding update is independent of the hotplug/PM part, and shouldn't
+really depend on the (large!) USBDP PHY changes. Would it be possible
+to split it out as a separate mini-series, so that the whole thing
+doesn't have to wait for the fate of the USBDP PHY series?
 
+Best regards,
+Alexey
 
