@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6597C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C3BC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NUB9M22I6lR5cIA4XgQ8HOaVa6MjFO6+CCyfQOO+5Dc=; b=qK/FgtWwPF8yidaY0ZSKr/9iIo
-	BuOKI+ucgXUa94hOYWeCa8I5oBQQPDwMa+EsVlipIw/F+522ko3xcCsWn1KoI64Z56lY94RvIOcI2
-	uf8lxB//8EVtcU7s0Q7sFdLSCu5b24YIlPoOfbDoAlB4g5ZzPJ0DMFMnfx1uSStW56id8le6062PC
-	to9ozTdnwTexrcN61o3Twh1RWoNHblUOSFRjtcH1JSFgQihFspBbFVbR2TXElj0MF+5v4x4/r7ok6
-	DzqY2fGZCC51nAsjhNLlv3fkC8lhEogdM+hIKKMn99IHUNOAAmX1tT39JGaRe6mYtl7oZx0TKm1T4
-	/71kfgkQ==;
+	bh=QDe8YvYJlu1JYh0yp9syTuhzrxaVjIvimEEjOf5rRHI=; b=Yw3yqj666ltmY6UsXrK3qvFuHx
+	OQ2WScU6NzlF4njfC08559fmoJHOcM0ef1eRawJBeBP+7GDcyQ0DgXk/hooZ7O2h96e3bv00y+hxv
+	t2DNOa4AP25t5KpQZFL9lFSaPJ5KNkyvl7PPvEHxtBpM1Q9kG51IPqXOa+rz/+2rkI0Qi4mDl+bqn
+	5vlpOpbeVenFYbhkehVGrdmIfqnUIr4+luMiirzZA40aTeorE1q/UsK2+sQWp8QCc7luM/3n2uYkW
+	3vjvTjEWGfwjCFe5jOOSbV4JlVxI76M4P68nT2DlBLinuwYDiZWye+892iEOZdBXJoYsH3RWPJuq3
+	ABHED5Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbW-0000000B6h8-2j6V;
-	Wed, 22 Jul 2026 07:42:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmRbz-0000000B72p-3Z0H;
+	Wed, 22 Jul 2026 07:43:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbV-0000000B6fr-0Hw9
+	id 1wmRbV-0000000B6gV-47yq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:42:57 +0000
+	Wed, 22 Jul 2026 07:42:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9DF043F1D;
-	Wed, 22 Jul 2026 07:42:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F4E01F00A3E;
-	Wed, 22 Jul 2026 07:42:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BBA3743EA4;
+	Wed, 22 Jul 2026 07:42:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C301F00ADF;
+	Wed, 22 Jul 2026 07:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784706176;
-	bh=NUB9M22I6lR5cIA4XgQ8HOaVa6MjFO6+CCyfQOO+5Dc=;
+	s=k20260515; t=1784706177;
+	bh=QDe8YvYJlu1JYh0yp9syTuhzrxaVjIvimEEjOf5rRHI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YGXWfeH65qo8S0vJpI8aSz6wdBn5ctl9HqUq7XwSb0wdxMVw9eqUpzK9rMdq2oTY+
-	 OV7NM0ubWod5uiAfy5Tt6mMeOATcT01M2k0YfTBzeuJOmSKsqU9MEk18+6BjzeEteS
-	 M30u5ZOG6Qh0AeOQ9BpdYvnEHmc7Q0dFygBXgoPm57jR6r1Gkk+LnuiVaQJn1NXZGD
-	 gx+JkJ3ffybIEYCVH8Dry8ZKwL/RdyQ3jZpSrcMJArUutNhEZyMW+NswgcUx8s6eT7
-	 vvftP4Dz7z6w1XMUXD7Wpf70r1xXyenhfX2/CFxLSAD5GejNCUCDOLwx6hbTnBgRHV
-	 F+l2OnxAm6zfw==
+	b=fUZGt4+DXlIejv/l/C+PeL+u/GYxaylHBLpy8TuPp5L2MmhQtHy+tMFDh3xO/ov4o
+	 Fnz+8qw9cMaOJvfW15g1fRvmFIeY38hVuiASMCIpHdSXtt2lSohmy6O2f7DhT5PRud
+	 ECtKmlQeHufflamTEy/NK5krjGw2WPgMfc1V8vthfu7Yb64v9ib5C/L4VAdp+feanF
+	 x21ArEMy0zfkvjcnMXFGKBlsjO1l0RvmuKW1zI/VkzStJczSLFIYgZQFChU4PuYPZm
+	 X1g6CH5z1DQss50e/E3vqt/vntpXvagyskMZ/ZOUbXJidV0sLuhJX8Vudl8JjtUg7o
+	 +O1b5rGt3TLAg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmRbS-00000007VfN-3UI4;
-	Wed, 22 Jul 2026 07:42:54 +0000
+	id 1wmRbT-00000007VfN-4C4p;
+	Wed, 22 Jul 2026 07:42:56 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 03/28] KVM: arm64: Merge guest's HCRX_EL2 using NV_HCRX_GUEST_EXCLUDE
-Date: Wed, 22 Jul 2026 08:42:09 +0100
-Message-ID: <20260722074234.3330999-4-maz@kernel.org>
+Subject: [PATCH v3 08/28] arm64: Add ARM64_HAS_NV2P1 capability
+Date: Wed, 22 Jul 2026 08:42:14 +0100
+Message-ID: <20260722074234.3330999-9-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260722074234.3330999-1-maz@kernel.org>
 References: <20260722074234.3330999-1-maz@kernel.org>
@@ -85,66 +85,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The way we merge the guest-provided HCRX_EL2 value with the host's
-is bonkers. We try to make it look like the FGT registers by using
-positive and negative polarities for traps, but most of these bits
-are not strictly about trapping, as they actively change the way
-some architectural state is managed.
+As we're about to deal with FEAT_NV2P1, add a new capability that
+will be used to key any support for it.
 
-It would be far better to deal with these bits like we do for
-HCR_EL2, by enumerating the list of bits we don't allow the guest
-to override. This is simplified by the fact that HCRX_EL2 only
-affects EL1, and not EL2.
-
-Re-jig the HCRX_EL2 handling with a macro that list the bits excluded
-from the merge (TMEA, PTTWI, EnIDCP128).
-
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+ arch/arm64/tools/cpucaps | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 4bf624a49591d..8e5f492f39086 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -325,6 +325,24 @@ static inline void __deactivate_traps_mpam(void)
- 		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
- }
- 
-+/*
-+ * Just like for HCR_EL2, we can't let the guest mess with some of the
-+ * basics we rely on in HCRX_EL2. However, the major difference is that
-+ * HCRX_EL2 only affects EL1, and never EL2 (sudden outburst of sanity, I
-+ * guess). So it is always the guest inflicting it on its own guestx.
-+ *
-+ * Things we don't want to let the guest control are:
-+ *
-+ * - TMEA: That's for us to decide how an SEA is routed, not the guest.
-+ *
-+ * - PTTWI: Similarly, it is for us to decide whether Reduced Coherency for
-+ *   the PTW is a thing. It really isn't.
-+ *
-+ * - EnIDCP128: We don't allow IMPDEF sysregs -- full stop.
-+ */
-+#define NV_HCRX_GUEST_EXCLUDE	(HCRX_EL2_TMEA	    | HCRX_EL2_PTTWI | \
-+				 HCRX_EL2_EnIDCP128)
-+
- static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
-@@ -350,8 +368,8 @@ static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
- 		u64 hcrx = vcpu->arch.hcrx_el2;
- 		if (is_nested_ctxt(vcpu)) {
- 			u64 val = __vcpu_sys_reg(vcpu, HCRX_EL2);
--			hcrx |= val & __HCRX_EL2_MASK;
--			hcrx &= ~(~val & __HCRX_EL2_nMASK);
-+			hcrx |= (val & ~NV_HCRX_GUEST_EXCLUDE);
-+			hcrx &= ~(~val & ~NV_HCRX_GUEST_EXCLUDE);
- 		}
- 
- 		ctxt_sys_reg(hctxt, HCRX_EL2) = read_sysreg_s(SYS_HCRX_EL2);
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 9b85a84f6fd49..242dc211d8efa 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -51,6 +51,7 @@ HAS_LS64_V
+ HAS_LSUI
+ HAS_MOPS
+ HAS_NESTED_VIRT
++HAS_NV2P1
+ HAS_BBML2_NOABORT
+ HAS_PAN
+ HAS_PMUV3
 -- 
 2.47.3
 
