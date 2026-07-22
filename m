@@ -4,113 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732EBC44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B5CC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hhejqqk/YejfwiP6Ga/bYKh4OsY78ne2Bp/UpWOM4CI=; b=Ef9yoTvyLeDIB7IrOgr73+EizG
-	eQludZm0wVFQQ4aWjS2Zb6KKXojxA0wfX8hFPrDwLx8p0KV8T4souVETWKSCVKXM3dlEzyMlwJ7WU
-	DWT82satHZPtn13hcInhESNl1O84Qo9M8+/1wiHwdPnT7cg6i5SNzdXYW5bSzaMt+j+wBwYxWhYGZ
-	Bv2zBldIpbEvam5GPtp3p8WTs5ibIhdLmJvFVH2hGe/A67XOrEd3F5Y37loRj8/XLt9i52GMzReB3
-	hdNwDLLcJ8AX2EOWf2NTNC6aA7nbhgtuXB6TxaEOUdDc9JWe3rfII35M/yAiYvB0ttEh9Wfvf17R7
-	SQ1yPyag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQ73H3bGQoaeEYC19ljWf7vTqmYu0YeC6DqeoEq6l/8=; b=vXXbAaUzI3UkxlyfPRhjRNEwPd
+	S4XVRuv4gD63AXEIoDJLxybewoeo892y8n4S6OWuF3BjM6KG+fTW/E6ydQ/MkmCwkl+lc6QvXtp93
+	ykbk9Wip0NTNOh8oSl7rL07V1PLkboQcLNm7qNftGy6XPooqpmmSvqfEBz9mAtSXZkX/YwZUQeIJ/
+	TDMoYqF2V6QWftWpqkkeCQge+SZ9xSgAfh5tRjx1lFwVMYJdGx5OlCT8i+NlloK73+ix4Jaha2DUh
+	sHB3OVknFjqIlcx7xaJAracmhDBWoqDtSB46V668hA/Alv7ObOmi9TyoNqyqj0zeqxS7shEy+4XEM
+	l5iBcihw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYFp-0000000C4mB-1LOv;
-	Wed, 22 Jul 2026 14:49:01 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wmYGB-0000000C4vp-20uH;
+	Wed, 22 Jul 2026 14:49:23 +0000
+Received: from mail-francecentralazon11023131.outbound.protection.outlook.com ([40.107.162.131] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYFX-0000000C4Z6-0av3
+	id 1wmYG8-0000000C4tV-3uKM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 14:48:44 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4954a2e73a9so35390465e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 07:48:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784731721; x=1785336521; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Hhejqqk/YejfwiP6Ga/bYKh4OsY78ne2Bp/UpWOM4CI=;
-        b=hOypchjyVByQiLUnjr/cGYqJ/55QUJbDmY+ldvnDBPfKETyr5AiHemGad7K6u/6k4e
-         HAGhdMPfvxJaYA9vp6Anpx1znFN0zwkkvpL0bzt0uJB6cV34LO2Ba5F2h9Ifzu3fo925
-         wPYaik5oPsvrGX0m+rKylX/FJlen+UN7Uz40Ls74PRwo1zNUykLcAi2cwWJqkf6qGpUI
-         EJHUUg/xN4nngkg61LWNSGdOeN05N1PD3M01il3Buny3fD+S3e/7VMSICZK2U3icgRcC
-         8WKSTvPi0kykPHReFAOz/6sI+9Hint2jucUS9FJJTT27ViPJMd5q9u/XqRgDb+3zvZUM
-         jWfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784731721; x=1785336521;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Hhejqqk/YejfwiP6Ga/bYKh4OsY78ne2Bp/UpWOM4CI=;
-        b=p1s7E/tmogiEcPnfNOWhNLPTB9hDg+6jY3pTLUhDGfGntHlQP0WCFm7Li10QPmGM+w
-         2ELNLQ+kOj/c4T46Z0gS8+vh24Cs1/520hiqGErjFsiMmH/M+rHcRAR7P+cSvpSK7pNr
-         DIdyJYvmLOr7AW0dZDnqTaGy94YdBQzQxounQxvaX0jBvzlJYENHlZql39BCtYA9qzmJ
-         /SuNMkJfBMX9qfP2/wEshNcBnvs/1A6JcvNwZughZtDENFTAUjwnbL2093ZHwf2FYeWt
-         P6aFI27ZHfj4XtRiirj0rhJ3K/GGAkdvUdcE/yJ9cEA7mqDREFLM8GQjhru57cNrjmiE
-         Prjw==
-X-Forwarded-Encrypted: i=1; AHgh+Rpj0JEnK4EN5StYZWqUZ3lc3hnbPwe78HobD/OpNgKRgd35fcBwhfnniWeyz1rYJcUcR4VaIJDmuaqzloVzSukv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqfmrZUwmhcQynwyTACAI61m73tsB/WD4y9fle6zp8ro/XdtvD
-	NiLDRr6qQ+qIcVHeN6X5pPW+qr+D2acOqsA1gWPryy7PMwApW1zX+8/x3oXwp+6Q6os=
-X-Gm-Gg: AR+sD121+nmYv5DbI8q5MTEcJ4SbTLr58PFS0XHFM1qsyPL69mv/oZOrd4JShRhqsJx
-	9WzyU3l9gK0XboGCWcVTsyWsB5Hz9iG9KXYukz9qGV8JLpqw8jvygBoiTKmo1TG3W+j7optVeCG
-	fXR4f8oOgDlgF4y/TZkAKTQfu/IC9zzF2mz1xtD1AKdWPfIv2qfW1Xz8i/JvWzyJD5VzYhKmxan
-	XIf30YfSloGjWbpjUHn+l/3ticHrQ+TgaUyMOL0BinfY1XO+q9BdHen1yvwy2FKOQF1PiKPAUuU
-	dK/DY4zmHZ7PGyxCQAjhbSTkrjZzTyrU8sVSglDX7BvQPZnygZmXaM+HDUrBheRKFaW6zrXbUBO
-	vESYkltHLlerN7ntQNFZfr4uR3Otu+8xo6uApYhKm3m05X4vy+/mRtxgczxJum+5gMZ0X2l/+kB
-	GTaHkCQstr2Ys=
-X-Received: by 2002:a05:600c:6812:b0:495:5eca:f9b3 with SMTP id 5b1f17b1804b1-4955ecafb22mr143440495e9.26.1784731721250;
-        Wed, 22 Jul 2026 07:48:41 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:a589:14b5:ba97:3626])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4956a967289sm74385765e9.11.2026.07.22.07.48.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 07:48:40 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Wed, 22 Jul 2026 16:48:22 +0200
-Subject: [PATCH v6 4/4] clk: sunxi-ng: sun6i-rtc: add a733 support
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Wed, 22 Jul 2026 14:49:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YlnHJG8j3hFCsBjXi7shSZ3/QfBseyyGHatzJ+xXylxWGL7u1BSVF5WAPnHQFHuYIdswDfPNAco/Pnk3BOEsoPX6xsaoemM8oaBkbgfsaZYF8l+Y8blLlfO43xGMfRSJRIWruVOL/IfPYKWELnGqXj7QJvibdvJo8NqAC66WYvUWHE+DUynSafCVFy0nKdk7eH7k7sfXYOFtvJp2edKH0FG1VlmW0SwECoJtakjU1Dt1LUNwZdG6sja7ZoQYkWiRw4NlSOeHia0krPc/pqUTn97YVoRwEw293eVEgc3le9i5g8lU33GEIBjAoTQ979XlDnFIa3PwUITG6M24q7e+4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cQ73H3bGQoaeEYC19ljWf7vTqmYu0YeC6DqeoEq6l/8=;
+ b=N3IoashRaXyAVfzOulV0vfVJqis2cATMtQI3VcUQXWTMo3KQ4ysg7ZFQWMNGuOngzlL65TAXsktEmmu8GSOPVhR4WENJjpPGBePxwO0e590mPOcwCg4GyfujmVSmsOsFICULQj33xsfLil8bxPMKkcmU8TqtAad6Jo9If1ZYEB/26D5pRP7ZOpyZZa7nvAnyeruh09sXbfnnCDSrsSMkQKZb5itp5l8+KdUhMBtcl8pobmTeQALuHnmgkpy8mZQaHQKcv2KkITgryH/W0LPJ993zdlhARs/w/DDGn6T+9/5aC5nXIgdvQajM2PVjIUV9Yv1nZXZIrjmEX2tpYdxoYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cQ73H3bGQoaeEYC19ljWf7vTqmYu0YeC6DqeoEq6l/8=;
+ b=BJwlyeg7u2FJpQULS71hAmO3Dyz01l7F6lMS7Q1MAr6ApjY4M+WEg5fdjM2Bv893wHVkpdGyZOWQh3u457oHNVtSzG8KFfUq5sHTCSlUJvF6i+sTgAxdhhDESpMRRmIG5Pk9uba108XPCDVYK6axL9kTzJX+/GF54UF4u3YfgmLITXqKnh1nMlxlla0b8Rm35n6iRrT97qfRIj0nNYMjBW3KFbo/qSsg/W03SzgbLe5XykG4wznNBQOZ4XEoYZs/m7USD2rVE4rayZlEB8WVx6Hsf927K/KOiUqH/FxInoJNx7ObyKXmvrmma/1dHRquTg31ANoCniQ8/5H2hmgIeg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by GVXPR10MB8742.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1e8::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 14:49:12 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 14:49:12 +0000
+Message-ID: <9ceb5fb9-edd0-408f-8f7f-74d5145ae81f@kontron.de>
+Date: Wed, 22 Jul 2026 16:49:10 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware
+ driver
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Francesco Dolcini <francesco@dolcini.it>
+Cc: linux-arm-kernel@lists.infradead.org, Frieder Schrempf <frieder@fris.de>,
+ Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)"
+ <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
+ <2420855.ElGaqSPkdT@steina-w> <20260714123350.GD22086@francesco-nb>
+ <3056369.e9J7NaK4W3@steina-w>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <3056369.e9J7NaK4W3@steina-w>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-a733-rtc-v6-4-631cca28cc9a@baylibre.com>
-References: <20260722-a733-rtc-v6-0-631cca28cc9a@baylibre.com>
-In-Reply-To: <20260722-a733-rtc-v6-0-631cca28cc9a@baylibre.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6141; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=ZxtEY0Po9koFr9SK/FxQWL9lGl95syc2R11eiKw1uuc=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYNg9Waoqq3MZucyId8+AceAKymJeYhrmU7zeh
- UM3CcGJcruJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamDYPQAKCRDm/A8cN/La
- hdXlD/4vKyXXdx7/8DZD/I9kaq/bXldqR1mvVfp2cVuODKb5kp6rUP+iGMydJY02oSkCtZ0TCzR
- IexfQP9NvFfsSX4jAHij7HCz6EvwMpjEp4aZU8qgfEv3EDrHgwS3ZxQZLKNd1TQvg4Dl6LCtC+R
- ISb2VLG9rOlHeIsWKbztvAm6s9AX2vPSmGjqk0hAqOi9918vSYEwS7XaXRp+i6KuHoHUwwyUscD
- dKdapZ4DKGJd44UCXdeye3ofL2zS+pzWoFn70xXpRuqmpDqpF/5wlB/qMFp8kLNSTMQ51RNa68n
- IAqSF84X0bxNafRprdjF6scSibQmhYDpOCTEL5NU+fGy7ZTzLXOM1zDQh07ML8eHUpeJHZju824
- uLIcmnjvvg3jd53mKyRqJ9QyqWPGj1KSutZyrAeazTYBl/ypfz2FfoyTt2x7FQiwXyYYqW2SS2n
- sCTqusUmjRby13s6/Y0pKVu0EnLis3KyYuQxFsUMmY76PHxSbJIWnV4YMtGEAvX2pLeWrTSEZU9
- QmwPYoRP9r8u+jGZyOLzQSWP9Fc59nsc9U4dgIlIy4alSQ4zFNACCmZVZka6DuIy+/3+17dwPD6
- jBCxzFi/7xyaH1ZvT+iz5HS7hZLgcgvw7if5KmS4qwopsQmUZ+sfu9Biaj595FVP8AjMKKyk/nV
- kF4eMhJhI0Z1DUw==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+X-ClientProxiedBy: FR4P281CA0210.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e5::11) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|GVXPR10MB8742:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85c07f8f-6bb0-4300-13b1-08dee80064dc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|56012099006|11063799006|4143699003|10067099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: ejo6blgO6OOlLsOb7c7tqWwUIi5RF04j0oB5p1Ssy+7dt+v7j4UobJaj0LIiKJ9UfUbQ1Tiu2iswwkpZ2spYI76lojeuthZdGgGujpbCUzvmbtbvKdD4/ou5g9gR9emo6BrwnLukH+2h+7qYtnPQthwDmiVWhUiyhn9Zzs4MitN+0i8RVnxe2QrG9JN6KcKnvCpVyhn8iMgC7BzdtEzkd8Rz6M+gd5wCgQf7seMwJONWYIrDmhsVnqlw5u075Pj/IfBnrR03W/GxWEBJszzN93JywPpxmlvgQwkslsd/tFUG7kIlEpI/fJ1MOqCyXbCKXKLZuntU84/e8RxgJsQ0Su9WMDpOnvH96kJu9AmxNCu5pjxYSzEQ3nBcdm6SgIEsyR8J5VJIJCi8jj5f7yLcVEq0DWSAVNNgkC+9z6UpPNc/qrYYtuemTKsj01LVPxRGxau4+2EIh+kVxt3Whxmi0E8kYrJuAOBI9MX4FIcI/2MweWpUNMBaAkEJ9cUi0zL/AJZnDqLlLdCpqod/lNrCfEfQIl3rQNn2oOm17gQFO8+Ih3K/OmG0O3sXFdomFJFZtbQKumMRUbgGAOjmOkFZpp13E5OFgZa1qtBG9wTay/kALUfHa//kizD45wD0yfq+FUhsa5y5f8NoY2XENeVUErJ3CWytxjFprRCDSL/Qo6k=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(56012099006)(11063799006)(4143699003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SjM4eTBESExQSC9ERkZQRlZ2N3JjU3owNElWcXY2UUhGVVZuK2xqenErQ2tI?=
+ =?utf-8?B?UmFncXhOZkZLb0diaUtwNGhxVk5LSkZuQk1xQWxDdW5aVVViVStQMHZHWlN1?=
+ =?utf-8?B?OXp0ZEdmYmdNTmpkMzdZa1NIZlgxVklWL2hKS1V4WFd3VFZyUTMzWmdZb0pH?=
+ =?utf-8?B?d2I4bHFPUnJtaEZ3a09wUTNCelF0aWR5QlNZYmk3NzJ5RWMxYzk0T0FyY3Jz?=
+ =?utf-8?B?cFdyRjNJRGhiV2hjQ2p0RFE4VncwUTg4WURacmFXcmd3SnJMWG1lcW81Zkdo?=
+ =?utf-8?B?ZWxjNFhIYWZsWnhtN1g2L044T3hhb3dXQkVsN1dJcHphZDluYTZ3eGZUdGx2?=
+ =?utf-8?B?WkkvbFNXQ1E3K0UxNHdtZU1XaWk3NjNnN041cS9tY2I1U1B4dlVzMGd6WE93?=
+ =?utf-8?B?Q1NoL01tRWI0ZVVLaUtwMXVzMDdwMVVaazVnNDVFQVB3SG5CZkRGSTBKeUJ4?=
+ =?utf-8?B?NWdmUGoxRVUzTk5TSzNjRkVFVm0vUXlLQlBNU0l2UVYrSzNOM2xXaFZpWmhS?=
+ =?utf-8?B?UUl2MlVqcWxSWmVSWERHc29FcVBRVDVWVkZyTDY3Q2JCckhJS1JaZGtXSUxJ?=
+ =?utf-8?B?V3hLQ1VEdVRFYTNNYm04cXdabkozYk1IQjRNRktsZFRqMTB3aVYyb0VIZDBr?=
+ =?utf-8?B?SEVtNnVuV3hzSGc2eHlLNDRxRm1MaFNGK29LVDZObUNZVXk3MGVMdENFQ0tH?=
+ =?utf-8?B?dWxUZS9vNVhyeG9jbkY3OXp2S25hU3ZDQVlYbWs2MzcwUDFnaytpQVJmYzNs?=
+ =?utf-8?B?NjV6eXVJbDZReG8wNStFUTJndE04ZmlmWXF1STBYMmhtdCtja1UrMGw2TUZ6?=
+ =?utf-8?B?U2dBczAzTExyYVN4bnRtVnYrTE5yaFBCelVPWmUwV2RYUFpkbWx3NUtjNTVp?=
+ =?utf-8?B?L001Wll4cHFHOFhGUUM0Q0RIT1hCK0R0d0hiRG5WbEVCOVA5UXVWYlVWV2NI?=
+ =?utf-8?B?eTN4REdDUEp1VWdpYkQwbG5aV0g4S01CSGdoQ0F3RmNOKzczZXJsRzFEMTBs?=
+ =?utf-8?B?M2xBa3FzZmRaNGdjbG5RTWRVM3BvTmRqR0RWcnFLdjdhV3R6cjlONlYwZGlk?=
+ =?utf-8?B?d0Q1NDhVcEp6MHlyb1pnWWd1WDhzZWU4UXBxTi9GNU9pTjkrdlcwRUhYK0lm?=
+ =?utf-8?B?bXJQUnlFQWRYWERVMEpJNUpIWWxLVloyWi9rS2Vob3lZc1NEdWtEemVxV0Zw?=
+ =?utf-8?B?RHljU2U4RWQxU1dYcFJhWUI2NUF5bEVmQnVaWlplbkNxWldINmpGalZMdmQ1?=
+ =?utf-8?B?QysrVTR5aW5VajlocHNpYU0xR2ViazhlMGhqOS9Md01CTHdKTjZRSjR4djZq?=
+ =?utf-8?B?RDduTUtseWQ3VDhZaDZwbXlNSUF6bVM0MVZXZk5Lc2l3R3l2ZGZNZ1R1Z0Yx?=
+ =?utf-8?B?RFhZT2tCbU5sTDNnTWFWT1UwYnJCQmluaFpIU0RKd1poUVRiS2p1cGNueUhy?=
+ =?utf-8?B?dmtXdEJXeUNYcnM3QktBb3cvU240RmVqZFJyWFM5OFgveGRlVXNDK3JjSkIr?=
+ =?utf-8?B?RDZPbVlhd05LcXE5dlFwRHhLcUZUVWlZb2tSWldTRWF3OGxhek9BTFNFTTNV?=
+ =?utf-8?B?SktxNXBJVGFRR3dyTlNHN29zamlPRG5Ua2lTTGxOelBEMVJNclhZN2taVTN2?=
+ =?utf-8?B?S2VJTnlZUzVUTVE2alNFcncxOHc1b0RwdGRJaVhUUEVPbnViQlpMTTFlcjNx?=
+ =?utf-8?B?UytkTWs4WEs1NW1ramNWQTRrSzZndmNZb29qT3dhcG5obWFyZThtb1N3Rm5T?=
+ =?utf-8?B?T09hY2tvU3VITDIxR1VIaW5UaGxBcWpsRWJEM3pReEwvYTlzaXg2Y28rdDAw?=
+ =?utf-8?B?U2Z1L3lRTjJ3eDY0cUNBVjJsbzlOREpIb0FSSFR4TjErbERvUWlCaDl0YVlr?=
+ =?utf-8?B?cTU0aG1YZHNTQXFxOHp2NkdkOUR2eVZzMjVCMVZPNGxtb3ltOWVUTWVPcndF?=
+ =?utf-8?B?YS9XSFdTazRGTUlYbGVXT2xWTElUQklNTi8zY253dGIrQTBNTExZVDFQR0NN?=
+ =?utf-8?B?Z1dMb08zelk0UUZJSmVVZmpjVk02NkxOZ052RlFXQkdoZW16UzdDQTU1WCs1?=
+ =?utf-8?B?ZUJuU0ttNFBIUEFIZ0c3UkpuN013QTk2MmdsdmxKM2NXVEYrL3owT1ZuNmhx?=
+ =?utf-8?B?UDUxdi9kVzMrMEVZSFZaMVJoN0JKUjdzZU1kS25scW5mTzQvNkUyb1Jxd3hG?=
+ =?utf-8?B?Ry8ySWN4d2Nad3lIZUkzeDhpd3h6aG8wYUxFeVFrN09UNEF5Q21zTEthUFhC?=
+ =?utf-8?B?OEtjVmZrTFAxa0tCbzFYNkhYTkdwRVpxSElpaDE5aCtlelhoTy9MdXczSEFk?=
+ =?utf-8?B?dXliRHkxYzNiS1FBWGVHbUNxUWdMQVNaajk0WlpQR1JFaWh5Zyt3WWQzcXR1?=
+ =?utf-8?Q?qaH/6Oc+AtFaucrc=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85c07f8f-6bb0-4300-13b1-08dee80064dc
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 14:49:12.3849
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: g9RZ+awgI832DJVDRUmThUte8eaam9Niwr3ZCQuKOHdYewhTkA4rWt8e7OtKoRariKcGB/5tQtr9HJsDZHAiBiMfU6W7/mOyWF7ZuRLtd6Y=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8742
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_074843_229654_5B32CB81 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20260722_074920_999064_138E0DF4 
+X-CRM114-Status: GOOD (  30.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,181 +159,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the sun60i a733 CCU RTC.
+On 14.07.26 14:37, Alexander Stein wrote:
+> Am Dienstag, 14. Juli 2026, 14:33:50 CEST schrieb Francesco Dolcini:
+>> On Tue, Jul 14, 2026 at 02:06:38PM +0200, Alexander Stein wrote:
+>>> Am Dienstag, 14. Juli 2026, 11:33:54 CEST schrieb Francesco Dolcini:
+>>>> On Tue, Jul 14, 2026 at 10:43:56AM +0200, Frieder Schrempf wrote:
+>>>>> On 14.07.26 10:32, Francesco Dolcini wrote:
+>>>>>> On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
+>>>>>>> Hi Francesco,
+>>>>>>>
+>>>>>>> On 14.07.26 08:59, Francesco Dolcini wrote:
+>>>>>>>> Hello Frieder,
+>>>>>>>>
+>>>>>>>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
+>>>>>>>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>>>>>>>>>
+>>>>>>>>> Add the ELE firmware API node and pass its handle to the OCOTP
+>>>>>>>>> driver. This allows us to gain read/write access to the OTP fuses.
+>>>>>>>>
+>>>>>>>> This seems something we should have in the soc dtsi (imx93/imx91), it
+>>>>>>>> does not seems board specific.
+>>>>>>>
+>>>>>>> My original intention was to move as much as possible into the SoC dtsi.
+>>>>>>> The problem is that the memory node is somewhat board specific due to
+>>>>>>> the DDR. And I can't move the firmware node into the SoC dtsi and assign
+>>>>>>> the memory node in the board dts as the checks for all boards not
+>>>>>>> specifying a memory node would fail then.
+>>>>>>
+>>>>>> What is the reason to have this memory address different on various
+>>>>>> boards? Can we have a default in the soc dtsi, and allow the board to
+>>>>>> override the address if needed?
+>>>>>
+>>>>> There is no real point in having different addresses on different
+>>>>> boards. But the node describes memory that is physically on the board
+>>>>> and not on the SoC. And I think that is why DT maintainers want to have
+>>>>> it in the board DT. It's the same with the memory nodes for the
+>>>>> remoteproc drivers to communicate with the Cortex M-Cores in the i.MX.
+>>>>> But maybe I'm wrong and if there is a possibility to move this to the
+>>>>> SoC DT I will definitely take it.
+>>>
+>>> We are talking about reserved memory, so this is highly board-specific.
+>>> So for different hardware variants with different amount of RAM you have to
+>>> go for the minimum anyway.
+>>>
+>>>>>>
+>>>>>> Or can't you add the address in all the boards, and keep everything else
+>>>>>> in the soc dtsi?
+>>>>> This could be a possible way, yes. In that case maybe we could even
+>>>>> create a generic dtsi to contain such defaults for all boards.
+>>>>
+>>>> I would go for this solution, we could have something like
+>>>> `k3-am62-ti-ipc-firmware.dtsi`, include it from all the boards, have a
+>>>> sane default memory address, and have an easy way to override the memory
+>>>> address from the board dts, if needed.
+>>>
+>>> So what is a sane default? At the end of the minimal possible RAM?
+>>> I'm not really fond of something you have to make sure matches to your
+>>> hardware, but won't raise an error if you forgot.
+>>>
+>>> How about providing defaults for the SoC part and users have to provide their
+>>> memory on board-level? Similar to the VPU nodes on imx8qm/imx8qxp. There you
+>>> have to specify memory-region in your board.
+>>
+>> I am personally ok with both solution.
+>>
+>> I think it is easy to have a sane default in this case. You cannot have
+>> less than 256MiB in practice, and this is just about the offset, is not
+>> that you are going to want more memory reserved if the board has more
+>> memory available.
+>>
+>> At the same time, having the memory range in the board dts is also ok to
+>> me.
+> 
+> I'm just saying, because we had lots of problem with assumed offsets/length
+> in code/DT for NXP boards. They usually come with big/huge amount of RAM.
+> This breaks for all hardware using a small amount of RAM.
+> So it's better to not have a default than silently breaking things because
+> the default doesn't match.
+I'm revisiting this now and think about how to do it. I would like to
+put a default memory node in the dtsi that dynamically puts the buffer
+somewhere in the first 256MB. I would include the dtsi in all
+i.MX91/i.MX93 boards. I think this should work for all boards.
 
-Compared to the a523, this SoC has a different input oscillator divider
-which auto-detects the oscillator rate and select a divider to provide
-a fixed 32768Hz clock. It also provides several phy reference clocks
-with dedicated clock gates.
+If I put everything, but the memory node in the default dtsi, as
+Alexander proposed, I think I will run into DT validation errors if not
+all boards provide a memory node, as the property is mandatory.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 77 ++++++++++++++++++++++++++++++++++--
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.h |  2 +-
- 2 files changed, 75 insertions(+), 4 deletions(-)
+Is there anything I might be missing?
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index 25dd87e78eb7..98ae10307f43 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -44,9 +44,15 @@
- #define DCXO_CTRL_REG			0x160
- #define DCXO_CTRL_CLK16M_RC_EN		BIT(0)
- 
-+#define DCXO_GATING_REG			0x16c
-+
-+#define CLK_NUMBER_NO_GATES		(CLK_OSC24M_32K_DIV + 1)
-+
- struct sun6i_rtc_match_data {
- 	bool				have_ext_osc32k		: 1;
- 	bool				have_iosc_calibration	: 1;
-+	bool				have_dcxo_status	: 1;
-+	bool				have_phy_ref_gates	: 1;
- 	bool				rtc_32k_single_parent	: 1;
- 	const struct clk_parent_data	*osc32k_fanout_parents;
- 	u8				osc32k_fanout_nparents;
-@@ -213,7 +219,12 @@ static struct ccu_mux osc32k_clk = {
- 	},
- };
- 
--/* This falls back to the global name for fwnodes without a named reference. */
-+/*
-+ * This falls back to the global name for fwnodes without a named reference.
-+ * NOTE: osc24M name might be misleading the oscillator could also be a 26MHz
-+ * or a 19.2MHz one starting with the a733. The original name is kept anyway
-+ * in case anything is relying on it.
-+ */
- static const struct clk_parent_data osc24M[] = {
- 	{ .fw_name = "hosc", .name = "osc24M" }
- };
-@@ -227,8 +238,30 @@ static struct clk_fixed_factor osc24M_32k_div_clk = {
- 					    0),
- };
- 
--static SUNXI_CCU_GATE_HW(osc24M_32k_clk, "osc24M-32k", &osc24M_32k_div_clk.hw,
--			 LOSC_OUT_GATING_REG, BIT(16), 0);
-+static struct clk_div_table osc24M_32k_div_a733_table[] = {
-+	{ .val = 0, .div = 732 },
-+	{ .val = 1, .div = 586 },
-+	{ .val = 2, .div = 793 },
-+	{ .val = 3, .div = 732 },
-+	{ /* Sentinel */ },
-+};
-+
-+static struct ccu_div osc24M_32k_div_a733_clk = {
-+	.enable = BIT(1),
-+	.div	= _SUNXI_CCU_DIV_TABLE_FLAGS(14, 2,
-+					     osc24M_32k_div_a733_table,
-+					     CLK_DIVIDER_READ_ONLY),
-+	.common	= {
-+		.reg		= DCXO_CTRL_REG,
-+		.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc24M-32k-div",
-+							   osc24M,
-+							   &ccu_rodiv_ops,
-+							   0),
-+	},
-+};
-+
-+static SUNXI_CCU_GATE(osc24M_32k_clk, "osc24M-32k", "osc24M-32k-div",
-+		      LOSC_OUT_GATING_REG, BIT(16), 0);
- 
- static const struct clk_hw *rtc_32k_parents[] = {
- 	&osc32k_clk.common.hw,
-@@ -267,6 +300,15 @@ static struct ccu_mux osc32k_fanout_clk = {
- 	},
- };
- 
-+static SUNXI_CCU_GATE_FW(hosc_serdes1_clk, "hosc-serdes1", "hosc",
-+		      DCXO_GATING_REG, BIT(5), 0);
-+static SUNXI_CCU_GATE_FW(hosc_serdes0_clk, "hosc-serdes0", "hosc",
-+		      DCXO_GATING_REG, BIT(4), 0);
-+static SUNXI_CCU_GATE_FW(hosc_hdmi_clk, "hosc-hdmi", "hosc",
-+		      DCXO_GATING_REG, BIT(1), 0);
-+static SUNXI_CCU_GATE_FW(hosc_ufs_clk, "hosc-ufs", "hosc",
-+		      DCXO_GATING_REG, BIT(0), 0);
-+
- static struct ccu_common *sun6i_rtc_ccu_clks[] = {
- 	&iosc_clk,
- 	&iosc_32k_clk,
-@@ -275,6 +317,11 @@ static struct ccu_common *sun6i_rtc_ccu_clks[] = {
- 	&osc24M_32k_clk.common,
- 	&rtc_32k_clk.common,
- 	&osc32k_fanout_clk.common,
-+	&osc24M_32k_div_a733_clk.common,
-+	&hosc_serdes1_clk.common,
-+	&hosc_serdes0_clk.common,
-+	&hosc_hdmi_clk.common,
-+	&hosc_ufs_clk.common,
- };
- 
- static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks = {
-@@ -288,6 +335,10 @@ static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks = {
- 		[CLK_OSC24M_32K]	= &osc24M_32k_clk.common.hw,
- 		[CLK_RTC_32K]		= &rtc_32k_clk.common.hw,
- 		[CLK_OSC24M_32K_DIV]	= &osc24M_32k_div_clk.hw,
-+		[CLK_HOSC_UFS]		= &hosc_ufs_clk.common.hw,
-+		[CLK_HOSC_HDMI]		= &hosc_hdmi_clk.common.hw,
-+		[CLK_HOSC_SERDES0]	= &hosc_serdes0_clk.common.hw,
-+		[CLK_HOSC_SERDES1]	= &hosc_serdes1_clk.common.hw,
- 	},
- };
- 
-@@ -330,6 +381,15 @@ static const struct sun6i_rtc_match_data sun55i_a523_rtc_ccu_data = {
- 	.osc32k_fanout_nparents	= ARRAY_SIZE(sun50i_r329_osc32k_fanout_parents),
- };
- 
-+static const struct sun6i_rtc_match_data sun60i_a733_rtc_ccu_data = {
-+	.have_ext_osc32k	= true,
-+	.have_iosc_calibration	= true,
-+	.have_dcxo_status	= true,
-+	.have_phy_ref_gates	= true,
-+	.osc32k_fanout_parents	= sun50i_r329_osc32k_fanout_parents,
-+	.osc32k_fanout_nparents	= ARRAY_SIZE(sun50i_r329_osc32k_fanout_parents),
-+};
-+
- static const struct of_device_id sun6i_rtc_ccu_match[] = {
- 	{
- 		.compatible	= "allwinner,sun50i-h616-rtc",
-@@ -343,6 +403,10 @@ static const struct of_device_id sun6i_rtc_ccu_match[] = {
- 		.compatible	= "allwinner,sun55i-a523-rtc",
- 		.data		= &sun55i_a523_rtc_ccu_data,
- 	},
-+	{
-+		.compatible	= "allwinner,sun60i-a733-rtc",
-+		.data		= &sun60i_a733_rtc_ccu_data,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, sun6i_rtc_ccu_match);
-@@ -375,6 +439,13 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 	osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
- 	osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
- 
-+	if (data->have_dcxo_status)
-+		sun6i_rtc_ccu_hw_clks.hws[CLK_OSC24M_32K_DIV] =
-+			&osc24M_32k_div_a733_clk.common.hw;
-+
-+	if (!data->have_phy_ref_gates)
-+		sun6i_rtc_ccu_hw_clks.num = CLK_NUMBER_NO_GATES;
-+
- 	return devm_sunxi_ccu_probe(dev, reg, &sun6i_rtc_ccu_desc);
- }
- 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-index ab7b92b47f59..4f4f4cb00f1d 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-@@ -11,6 +11,6 @@
- #define CLK_RTC_32K		6
- #define CLK_OSC24M_32K_DIV	7
- 
--#define CLK_NUMBER		(CLK_OSC24M_32K_DIV + 1)
-+#define CLK_NUMBER		(CLK_HOSC_SERDES1 + 1)
- 
- #endif /* _CCU_SUN6I_RTC_H */
-
--- 
-2.47.3
-
+Thanks for your feedback!
 
