@@ -4,101 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97675C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16C3C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGs0rfz9r6IQCOxNIuyFl8cjjmJTI88JpUD6LUtWFpQ=; b=eIdUnoMgTtXbZUH7oosZPdb90t
-	hGRFquRnBF3x3jIyhpquzay6F0pSMQOaNNl9AjMvFE9Ast9kVx45LMNzI04B9jyh5coGN/rWfkeIM
-	w/NUPTFl6YqBnxGRqAH3WGXsSd8LB13OwDG/0gEgyebwy6H4RFfMbT3En/MWPCWBj8L9TFCCunVH3
-	ah7mtSE/+A0BYTGkXnwsg1ZgUa845WRH7KE2NkWHCXf/NJ6+QVq2pkRoDLr8AQ+qRq6XXpVZt5HnP
-	KsoKMA6Hsii5vQWDfI0ZSEqJAXzmJWiXOZ3smTFE4thnf9/w5orFat7SgQQMmrmxwhrq4XKghM5jC
-	58IqP4fg==;
+	bh=/oXthBgWL2WsyuAw9FODkIMrZHNZHIEdWRRRjhViSb8=; b=EGInj+QGkEYkIe+v+hm89JZVmD
+	yp/R49uc7RzP9ZHRX0ciAZqrGafV6ErPIeIpgaLqC4hebMA5UX4IwITIyKblwKaCW2ey8M8p1RSyx
+	4kCvv6cfsvKuUAP4uBo7ufRgir8TF0NNjsNqLI3dK7I1Jv4xGlAC+MR63e31YFQPkOEVWVgWUm8s/
+	mGjxaF34DDSzk9S/sIw1C4yRDdMMU5i9uxSHmVvzyxXr8Gg+L/h9FX4xSpUWuuQqbd4RZ+rVLMhkW
+	cycbkRmAM07RNLXktbqsjl0Uvr0EYT/CdLQFncM3G0JBcDdWfiDhkqAxgvUSO7UJ/e3034QoPnk9/
+	p/+iV7VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmeGp-0000000CnDM-0MaU;
-	Wed, 22 Jul 2026 21:14:27 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wmeR5-0000000Co8q-2MxF;
+	Wed, 22 Jul 2026 21:25:03 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmeGm-0000000CnCm-1YQU
+	id 1wmeR3-0000000Co8I-1VjS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 21:14:25 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-471eeac43bfso12218772f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 14:14:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784754862; x=1785359662; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sGs0rfz9r6IQCOxNIuyFl8cjjmJTI88JpUD6LUtWFpQ=;
-        b=oHZBIsKNjr8i/OeWSPKiR4U1yUdfFP5VYHdGWFIUMh5fJqebGTuM0vohxqVsj5yI+0
-         qL0o6Rt3r26ESv5uhqTO6Zv+JQ9TsXddjes5Ht8yFm0muVKULaK8MrhRn0lfldlV1dip
-         CaZCQPJMrULHwfFHRQcKwm8PkutAHEitUYmBmERwxz5xSdheKhAzWthBOW9koumIQqTO
-         R7bKalxY3EvdQMrHL7FydUVp0NMjrARUXciTqLbuucBioNzEOUhk2gLk686ejzCeeOTw
-         eYxVc6dlgzbofScliqHWb79ioRN/98/Lusw2sytOGBrN3ChNXqDMjbaKtGku2E8DCJMv
-         yw8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784754862; x=1785359662;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=sGs0rfz9r6IQCOxNIuyFl8cjjmJTI88JpUD6LUtWFpQ=;
-        b=LFR2wcvzuH229ZilD6dzvgmsXn7D0dfHP7G5tNPXCUwHUk7+xjKZQU4boJk+bXCO/3
-         /GmtvuQJHr4nbeuahxtfDXyYxknmcy0BPN+oj2IdVb2q+Ph5qrNzJjs0A0PM6JRwJWdk
-         V3CWBGp6SSiADnoqMwHzP9T/RguZTh7Wi5tlkckDAqlQfDFM7fHBZYnD51uQkbh70IKA
-         xqpLno4YMvsZ/eVAShyx26x7kFN7ttppdlB96JQAi3tDt1+JE5TkNES9BVNti3/1EkrE
-         RvByQwBM9acpuOAseihL9GVmpem7wxYw/PkhfJjH7aV50K++/cES0l/L7TBdONB5QKKV
-         EuyA==
-X-Forwarded-Encrypted: i=1; AHgh+RqSNwkflAXjqkyiA+q7/r28B6rdhYiDc4OYXzeLj+oFDOLphwFVEq/lWQVVdlL8vXkzjJ7O85nxzsTQVIE8i6jL@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywq5hUr7NbEBUJAgWcp29nv2/FFdjCyvxG60cEsrbeK65gS6UnE
-	lYcvgbh754PrftFenpeOS7e+AUaXmo/qK7I1cNfNItTRUge12cshoiYS
-X-Gm-Gg: AR+sD10FO9ABo3zzfoECtk2J25BxrWUhmzDKXIKLZY6u5m9wb71912LqEtto3kJYMiE
-	Upwxd87G7RNc9DFyE9PhDKiXm7vXd5AZqDHiCtXVT3vhmLH/BDvAiqbsS9n2klW4YMidlUflfQg
-	p++VQLyzXnVlX/eorairWG0b87Y8ESNhZhP7BGbRAImn7zMDbhQIQ+5FRbrWGLRBhZ0ftZqfwWb
-	XuOjt5/SaQvf0xjoVeqC8yBjzK782V4Ni/qmdqpsHkxs//Yw/uS/08wX5Yfb2SWUc31vOV1hh8V
-	i+EmXwL49fz2CBC9w3uXiSG1hUKYbTPOBXVtWHaMfRLRwfkAW6XLJhnFpI7Lg5mNML1IZ5RA7Kv
-	p444Fr9CXNtxC+n3kvqCEcv5cDUyWmHaEeLtmQlvkn+3WEOU65+HRGv95n3+SbQzd75bHU7yqbh
-	MUMi2FhzpCbTOoz4JdSF8my5VykJ9KmEwrEZSv4WCpaH4r3aq9VuX8mMbaDZ8cMaoyTb3/4A==
-X-Received: by 2002:a05:600c:46c7:b0:493:c47f:3c55 with SMTP id 5b1f17b1804b1-49573cb966cmr3744405e9.5.1784754862459;
-        Wed, 22 Jul 2026 14:14:22 -0700 (PDT)
-Received: from [10.128.10.232] (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956b021fa6sm66296175e9.2.2026.07.22.14.14.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jul 2026 14:14:21 -0700 (PDT)
-Message-ID: <9b2d40b1-a21e-4ccb-a80b-27f1a24afc82@gmail.com>
-Date: Wed, 22 Jul 2026 22:14:20 +0100
+	Wed, 22 Jul 2026 21:25:02 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 19A081D000D7;
+	Wed, 22 Jul 2026 17:25:00 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Wed, 22 Jul 2026 17:25:00 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1784755499;
+	 x=1784841899; bh=/oXthBgWL2WsyuAw9FODkIMrZHNZHIEdWRRRjhViSb8=; b=
+	LFB3Hbaey8wfBM4nEgYXtjmLBFIkk6ubkbye9yy+9erM/UcUC6yanHhCr7hxbDa7
+	zQqi1u1PCXadnIEQszDalgibelIdMbCzazTOMp7bQ2L/nsPURX/4mlnphytPA2NT
+	BlbBSuEi/cIByuiGVOdgzenSEsTfoYhP2cMHrOvJvmP07aFggEb6Eiy2LimOmodr
+	CRowxoj9AxJdukQLchZCxE0aM7rNKKQk6xiy0Mf6QaU03hmt6RPQur9GwKv6BMQs
+	bYg3NhwhX7vkbS6jnpIaXylroZSACGPQm9hRv9Q+DczPXRuX+QP1PQiZkanCahr8
+	UGtHX1lVO1zt+UFp/280tg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784755499; x=
+	1784841899; bh=/oXthBgWL2WsyuAw9FODkIMrZHNZHIEdWRRRjhViSb8=; b=O
+	IwpBdVQFsnAlZoDqWzvNP47zSL8Xx0wn63ZWP+W87T2Avrze9ph+9opnBNu1K4Qm
+	WWSIU8s6KcFWFgZodbB1HN1QIHgl2jAuurIz4WX82TdwOt/vjuMplj9fpgVBK5jY
+	tOGZDaQWiCHPda1wj3ztkGRITrKzvYThN2w0uedRV2QuZil5H/N3jf/Dm/r3hM8P
+	flmHcpmu7je+wU1Q1tAFr5zJMO9rEcZNfr3G1JUAfzqAL5f4IX0nnYsMJI5vZ4tN
+	L4IdiHbtpsSwoau8+2rh9hAZLsGOnLeyGCiy11CELAm7ZW2nvIFBbNENNeXeOms8
+	E0ob1ICB/k/WN2pQlMXTQ==
+X-ME-Sender: <xms:KzVhajLpMWVGPAfhER6bO7pcF-0ylf8rBUQfnkR0WMuiulUY3auOlA>
+    <xme:KzVhah8Kah-H-o67cJatdYxpSh8vghQ4IC1TVNqLNUJtAxR8KqfoVGTih6xKb_Ink
+    euiiarn83CvJ6hY7Ox965aXXGZEl8G3l2Xrkbl5cb29YwV4fmCImMc>
+X-ME-Proxy-Cause: dmFkZTEjr22xFxlfckGcwF7Su7O+DsLlQ5Omj7gXCdykkIBKLgg28rpAqcXQxb688gYgT0
+    z03ettfMzUuLoc6jSk88XwUpqZndfbz6c7Yam9whwvnvx9NzbC1oVGsyefS/3CoFkkbxFw
+    /LCjgUHpV2NQ5TO6TOCgscTo3xegFADEYU3ChCN4Bh/8cK4HpiKLuGgOlUrsTNJH6dM96X
+    XiSI9u7iQYKUuhe8LZL3+gjMR3xha1J1++t8YgsDG1GIW/+ZZ43cTBX2tXFzCFgbiJzp4c
+    vd7lB/5dsHhJFxWVfIwmbe/aw8M93n1wdPJf/7ogEtJXXizM+X/m1eb+F6J3rCSXksRvFM
+    vIU5pNjUwSH/tBm1e/Y96K4NSu/z81eXUJJsRUHOv37WBDxnd7j2GejRFUWz3GcTBwhd2O
+    FIJX1wgQkiRdfbPrfme97FpWdEdpDsDXRrgESLLJwhrRbhRRzaByC7p7TzpBODeMLtn4zx
+    mJ5RZzucGKz2mgD1/bipNphOE8BEpn/bSlJJBx+C/H+MADw5l9u/HKNpRi8VHgh4QWS5Ig
+    K8j/kj+Gk9xc5V07AyVobl87smo5fJjmDG2YUDloipU7ZHzO1R4r/TC1P+NHUdVDl5EY/Z
+    NnH06qDReDIxPxootHWmql9n2DGBuwwDEvc3bha1ossde1QbdXIk/Kdcyytg
+X-ME-Proxy: <xmx:KzVhapeZezwZoba39T-jbZAqgG2FRtacA5u8fgbjlHA-2B3bBp9E2Q>
+    <xmx:KzVhaomm7LfK9hOnS_fewr2DdEDyzQkRKe2I2D_Jw66yXPma2SN0Jw>
+    <xmx:KzVhary9ZN22I9rBpB33P2NCa30SQlSb3dOm_opNFPeCW0zqLTpk0Q>
+    <xmx:KzVharNnortpdlyjnrXs2nnZC_bFlKVRkAuiXyIgmZKDiBsy8bVSfw>
+    <xmx:KzVhap9keECPjgSAJVUNOHW8W9w4aBadPAz-mZoU7yyhXfVKP6HM0qjd>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 54B9B1820082; Wed, 22 Jul 2026 17:24:59 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: s32cc: fix unmet dependency for PINCTRL_S32CC
-To: Arnd Bergmann <arnd@arndb.de>, Aisheng Dong <aisheng.dong@nxp.com>,
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Linus Walleij <linusw@kernel.org>
-Cc: Chester Lin <chester62515@gmail.com>, Matthias Brugger
- <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>,
- Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
+X-ThreadId: AURDlYaRfEWV
+Date: Wed, 22 Jul 2026 23:24:39 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Julian Braha" <julianbraha@gmail.com>,
+ "Aisheng Dong" <aisheng.dong@nxp.com>, "Fabio Estevam" <festevam@gmail.com>,
+ "Frank Li" <Frank.Li@nxp.com>, "Jacky Bai" <ping.bai@nxp.com>,
+ "Linus Walleij" <linusw@kernel.org>
+Cc: "Chester Lin" <chester62515@gmail.com>,
+ "Matthias Brugger" <mbrugger@suse.com>,
+ "Ghennadi Procopciuc" <ghennadi.procopciuc@oss.nxp.com>,
+ "NXP S32 Linux Team" <s32@nxp.com>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
+ "Andrei Stefanescu" <andrei.stefanescu@oss.nxp.com>,
+ "Khristine Andreea Barbulescu" <khristineandreea.barbulescu@oss.nxp.com>,
  linux-kernel@vger.kernel.org,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
  linux-arm-kernel@lists.infradead.org
+Message-Id: <6d67c0f8-3e2a-436d-afe4-89a856ffd0f0@app.fastmail.com>
+In-Reply-To: <9b2d40b1-a21e-4ccb-a80b-27f1a24afc82@gmail.com>
 References: <20260722202638.135277-1-julianbraha@gmail.com>
  <0a99e10e-b4c4-4a64-bcb4-fee8d777d0b7@app.fastmail.com>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <0a99e10e-b4c4-4a64-bcb4-fee8d777d0b7@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
+ <9b2d40b1-a21e-4ccb-a80b-27f1a24afc82@gmail.com>
+Subject: Re: [PATCH] pinctrl: s32cc: fix unmet dependency for PINCTRL_S32CC
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_141424_432584_5225A608 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20260722_142501_449275_A4A0C46E 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,42 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/22/26 21:39, Arnd Bergmann wrote:
-> The patch looks fine, but I'm curious about what type of rule found
-> the mistake. Is this a heuristic that found that drivers/pinctrl/*
-> overwhelmingly uses select instead of depends, or did kconfirm
-> find a circular dependency that was caused by inconsistent
-> rules?
+On Wed, Jul 22, 2026, at 23:14, Julian Braha wrote:
+> On 7/22/26 21:39, Arnd Bergmann wrote:
+>> The patch looks fine, but I'm curious about what type of rule found
+>> the mistake. Is this a heuristic that found that drivers/pinctrl/*
+>> overwhelmingly uses select instead of depends, or did kconfirm
+>> find a circular dependency that was caused by inconsistent
+>> rules?
+>
+> Not a heuristic, kconfirm-smt is the first complete SMT solver for
+> Kconfig (as in, all semantics of the Kconfig language are used to
+> automatically encode all Kconfig files as SMT constraints).
 
-Not a heuristic, kconfirm-smt is the first complete SMT solver for
-Kconfig (as in, all semantics of the Kconfig language are used to
-automatically encode all Kconfig files as SMT constraints).
+Ok, thanks for your detailed explanation. It turns out that there
+is a typo in your patch description, and I further misread it:
 
-There have been many previous SAT solvers for Kconfig, and there was one
-that attempted to detect unmet dependencies (Kismet) but that one has
-both false positives and false negatives because it approximates
-everything as boolean logic.
+| Currently, PINCTRL_S32CC selects PINCTRL_S32CC which needs GPIOLIB,
+| without selecting or depending on GPIOLIB.
 
-In contrast, kconfirm-smt uses SMT integers and strings to model Kconfig
-int/hex and strings (unsurprisingly). I believe I am the first to do
-this.
+Clearly, this should have said
 
-So, to detect unmet dependencies, kconfirm-smt runs a check on every
-single selector-selectee pair using this routine:
-1. Add the constraints to the model that the option is enabled, and its
-selector is enabled, and its dependencies aren't met.
-2. If Z3 finds a solution (as in, the constraints are still satisfiable)
-then we know that there is an unmet dependency.
-3. Reset the constraints back to the original model, and loop ^^^
+| ... PINCTRL_S32G2 selects PINCTRL_S32CC ...
 
-You can also use kconfirm-smt to do better random config generation than
-randconfig ;)
+to explain the actual bug. ;-)
 
-Also, you can give it a partial .config file, and it will randomize the
-rest of the options that are not in it.
-
-Give it a try, I would love some feedback:
-https://github.com/julianbraha/kconfirm/tree/smt#usage-examples
-
-- Julian Braha
+      Arnd
 
