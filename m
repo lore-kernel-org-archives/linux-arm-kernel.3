@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C0AC4451C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929D7C4452B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 02:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yf0pm8fqpIF/cYpev0NfuPXTHX9J6olYRDfRygpeqDs=; b=gHtvRZe9PJAs91d+HDzzVgevI0
-	QZ5RCisrC7LYGFqxKWAUBlAFQMQ15zuUPF6GIn48GmAF3s2XLARnehuO1s7vdMKvGjnfN/0Yi3UwQ
-	1+UfOhUSuLUF8X2F+2nrf5ssXxdmnyijPIfdXa1wFilF87Z0vJyhSBA62ZZHIW8hrnSceS2oDHXsY
-	X6/kJN8QyEF7lkSdhu+ehbmxg+a1xBSrAoYT/dn/VSETx2fbfiONH74fALOnsntcxMLnyBMQ6D7j8
-	Yga3xfBuKbaNh1v5OAbD0TqE20Sy1c6RRIbpFOzJ3t8Zm7D9LW5jhWNVlXVRXazscFy6G1jzpMvN3
-	coXXZQLg==;
+	bh=lCuGU0UcRcG2jar7uHkOsLcZmTEy3MKGt9gOjdNOtis=; b=V4kQSFY2nCm6DUiGloLfDX6h02
+	ZdFBt/Js+22kmlQzFuPdqceXaRQmjZklETZuv8Gg3qZIepcnOi4ezHqkqXqq+q5y/zv1xSdg8h8a0
+	UmJjwc6xmrBYLFLsnYkjKEpZKJnsW68mpn8z/dObTKFSPxNlsLMKJAzskbdOxKnZzDa1dZpobJx4g
+	+hMEteppHqnzPijz9ZLmn9o/IpMpYUxkYOGCGAo3ZKQhFHLF9p04Kp8zOMhTnx5TM5oKbuN/c/Qr6
+	ZWtUMlMVQ3Y9aVA6tQDNXs50RwfCUEMo4P9KgN5g3QY0ckVmLv516TCXMfwteIEgPBQucd+9VJqrS
+	R2QlSsiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmMrU-0000000AlyN-09HI;
+	id 1wmMrU-0000000Alyg-0hAm;
 	Wed, 22 Jul 2026 02:39:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmMrS-0000000Alxx-0PP5
+	id 1wmMrS-0000000Alxw-0a3u
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 22 Jul 2026 02:39:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94FB444FB5;
+	by sea.source.kernel.org (Postfix) with ESMTP id 876D4436F7;
 	Wed, 22 Jul 2026 02:39:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6E9A4C2BD00;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6260CC2BCB8;
 	Wed, 22 Jul 2026 02:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1784687945;
-	bh=mhJJOiGSAySJ9mUo6G70qcgxDi+mETTMgMGHEkSRrZQ=;
+	bh=noP7SLtTy6bRV7+vDOu0XXWL530DjmB63o88p0NEPPI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LbmKITDZEXXBQ/8IH4zFGCagaFgNSujRWX5VLt+adrB/x57qVc4itup7K6wnkjMyb
-	 rFuYm6STR9yWOyn4nuAXr524KG/rhk6l40a5tP7p1c3l3YV/zaLfRpAXYTsY2bHDr+
-	 4bleXFu0MJRVMTPmZMZvMI5iRVJfxRXEddBFI8xosozlWusSBSRkJfgeLiAStOKCua
-	 VdnzYJKEwaBLOemWPnSI3OJ7e+OFZBIMExKNFEa10XGkVfMMdYPmwhHoOPVw2zJndj
-	 972uAFe6Y99MMzhXWCmkk59a6xm8gbeE9lg2U/vtzGhIndZYC4DZeaBg5CMH/L2Vww
-	 h08ZM2CuCdmgA==
+	b=vChfd3TQJdklUQPqg0W0Kz4uVFSoFU/HwVH2NtfPponDBh6pzPhwgn7moELJFigZE
+	 MhUBbTgUrV2CWOEhFM3SZd25D7aarp0jcXfuSLRd80yvbVna7O1rD41gsqBxoat/T2
+	 LQGlGJTVB7kbKwvucOBGPJhGNFr6/uKw3108CsKlGp15sDAp2L521lqs3EdMTY2eg/
+	 XqbFXtcR/C5G1kEvhAvGAuhnTrDA9KtV+HR/9mzEdVlWtRiL7jRvW/SkT3N+jT3m9F
+	 SMyT8Gjp8ZvLOUIP1omt8hKBCfON768znuprxLAkyg3PGJT03+tCKco10zb917daaO
+	 2PeM7JXEO42ww==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5057FC4452B;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F0BBC4452D;
 	Wed, 22 Jul 2026 02:39:05 +0000 (UTC)
 From: Haoning CHENG via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Date: Wed, 22 Jul 2026 10:11:42 +0800
-Subject: [PATCH v11 2/3] thermal/drivers/imx: Fix rounding and clamp for
- i.MX7D alarm
+Date: Wed, 22 Jul 2026 10:11:41 +0800
+Subject: [PATCH v11 1/3] dt-bindings: thermal: imx: Document calibration
+ offset property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-b4-symana21-11221-imx-thermal-support-upstream-6-18-v11-2-90e4e46c0a13@cn.bosch.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260722-b4-symana21-11221-imx-thermal-support-upstream-6-18-v11-1-90e4e46c0a13@cn.bosch.com>
 References: <20260722-b4-symana21-11221-imx-thermal-support-upstream-6-18-v11-0-90e4e46c0a13@cn.bosch.com>
 In-Reply-To: <20260722-b4-symana21-11221-imx-thermal-support-upstream-6-18-v11-0-90e4e46c0a13@cn.bosch.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -66,13 +66,13 @@ To: "Rafael J. Wysocki" <rafael@kernel.org>,
 Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>, 
- Frank Li <Frank.Li@nxp.com>
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784687940; l=1704;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784687940; l=2030;
  i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=9D7qX15817iSb+CvnZ+YgaTi5ivABKiNn7DaNl6d+D8=;
- b=dSw6FYxkkFm4fLIdK3ERIvfsuKpJ5CRCHad0nEFRulApxe/Ltr4d82vb9DxLAVNZPjv4gN7WY
- pEdrAkUTcVzA+8+TdoZVcNESzLrRQIHS+THTN+DIwlqbfGg2Z1ICtLv
+ bh=Ue37UPF1teuZxiSxC/xhzQKQfZyk1Yq+nuequgJPOG4=;
+ b=ABwbGlbH3nVJiQM3RU0KiJXtVhO5x9aUjwRw7+Wwy9UUumZfzoR8s6zJYVAQ21SP7ibyoWgQr
+ YBxqBfD5SDiDKow5vBJUINNZbcQMtV7XTAus2mhOixYRfral2GmYQAg
 X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
  pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
 X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
@@ -95,48 +95,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 
-Convert the alarm temperature from millicelsius to degrees for i.MX7D
-using ceiling division instead of integer division, ensuring rounding
-errors do not cause the alarm to trigger below the intended threshold.
-Use DIV_ROUND_UP() for non-negative values and plain integer division
-for negative values, since C rounds toward zero which is equivalent to
-ceiling when the divisor is positive.
+The TEMPMON sensor reading may deviate from the theoretical SoC
+junction temperature. Document the optional
+fsl,temp-calibration-offset-millicelsius property, a signed offset
+in millicelsius applied to correct the sensor reading toward the
+theoretical junction temperature.
 
-Add clamp() to ensure the hardware register value stays within the 9-bit
-range (0..0x1ff) of the i.MX7D alarm field, preventing silent truncation
-if an out-of-range value is written.
+The offset is determined through thermal characterization by
+comparing the sensor output against the calculated junction
+temperature. When absent, the offset is zero.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
-Signed-off-by: Haoning Cheng <Haoning.CHENG@cn.bosch.com>
+Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 ---
- drivers/thermal/imx_thermal.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ Documentation/devicetree/bindings/thermal/imx-thermal.yaml | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-index 38c993d1bcb3..7f7d1116b9d6 100644
---- a/drivers/thermal/imx_thermal.c
-+++ b/drivers/thermal/imx_thermal.c
-@@ -240,10 +240,16 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
+diff --git a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+index 949b154856c5..503a6e7a2c68 100644
+--- a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+@@ -59,6 +59,17 @@ properties:
+   clocks:
+     maxItems: 1
  
- 	data->alarm_temp = alarm_temp;
++  fsl,temp-calibration-offset-millicelsius:
++    minimum: -20000
++    maximum: 20000
++    description:
++      A signed offset, in millicelsius, applied to the TEMPMON
++      sensor reading to correct it toward the theoretical SoC
++      junction temperature. The offset is determined through
++      thermal characterization by comparing the sensor output
++      against the calculated junction temperature. The range is
++      limited to ±20 °C. When absent, no offset is applied.
++
+   "#thermal-sensor-cells":
+     const: 0
  
--	if (data->socdata->version == TEMPMON_IMX7D)
--		alarm_value = alarm_temp / 1000 + data->c1 - 25;
--	else
-+	if (data->socdata->version == TEMPMON_IMX7D) {
-+		if (alarm_temp >= 0)
-+			alarm_temp = DIV_ROUND_UP(alarm_temp, 1000);
-+		else
-+			alarm_temp /= 1000;
-+		alarm_value = alarm_temp + data->c1 - 25;
-+		alarm_value = clamp(alarm_value, 0, 0x1ff);
-+	} else {
- 		alarm_value = (data->c2 - alarm_temp) / data->c1;
-+	}
- 
- 	regmap_write(map, soc_data->high_alarm_ctrl + REG_CLR,
- 		     soc_data->high_alarm_mask);
+@@ -109,6 +120,7 @@ examples:
+             nvmem-cells = <&tempmon_calib>, <&tempmon_temp_grade>;
+             nvmem-cell-names = "calib", "temp_grade";
+             clocks = <&clks IMX6SX_CLK_PLL3_USB_OTG>;
++            fsl,temp-calibration-offset-millicelsius = <(-6400)>;
+             #thermal-sensor-cells = <0>;
+         };
+     };
 
 -- 
 2.43.0
