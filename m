@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FCDC4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBDCC4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sWDWsM9TBRItqToA/efliUD8bssiJSLzstCW4+0QWoE=; b=NGYhVQa7rRWBgdzNoooHDzhkm2
-	SibzXAWjQgKWFhbTJhI3F8wt6wVvsLUb2gl+kKQnjrMK1sNGkuTNWu1KBXS8QO8XJSf9QeSlA3YUb
-	hEd9MlCqS4dD9/uL2cwsbztYCK1CJ5QUh1GuZ11LSNVPUJ5ZPViG+VzT4rBwAJMBy60c3SLo+LUPW
-	sG9lWUOiOexKOxh/xRynjjRRNDK3CdHBUJf5VHqTDFYiGdCsie7fW5Ew854VpZ6TlH3AoGrf3u5o2
-	L/RGzA3p4kiu8FEX4fExbhmNPs2worvbNCmhFjagPKaLbXT4u7lEvfjIjc907hKHczgOUWcFIvyCE
-	j44vf2aQ==;
+	bh=7egaasjyS8ZJi5/A+1wWirXvHFkWLfG+x6Fwihwtfek=; b=tEmnFFg+uSPN5e11Mn2v8h3CAZ
+	bS4K8SBeLJ8mI7INtHEa1ZUkk0ClmEn6uhmcUvwGTC+RGXVrOL4KxoqGR4HZ9gcR593j8uEOfk+6x
+	PJ1pivNVQqTZG7z+86YqTTShpJtVPSPlTjGxcSZ4PxrFCq3G2Z8v5nRmyqMSeWHs3TD4tGG5j3A8+
+	NFDOhLk2oC7LybWXdaCHvsep17q6XDCIKpSlt8RG+8pjbtXDvfxHCVS9qdFg77lmfd1DHVrywmasG
+	c20yKIfw4yokpfLa2WE0MS8e7ieRKohT+PYCIqb5cnEEuInHVd+T10wO0wchV/2MlAZg7Bw/PHbxM
+	UxYlmBcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTkc-0000000BTxJ-31nz;
-	Wed, 22 Jul 2026 10:00:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wmTli-0000000BUB1-07uT;
+	Wed, 22 Jul 2026 10:01:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTkY-0000000BTwG-2017;
-	Wed, 22 Jul 2026 10:00:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=sWDWsM9TBRItqToA/efliUD8bssiJSLzstCW4+0QWoE=; b=AwgZpszx5epBC4Iy5r0MfWV7nm
-	NqsefgU0PQJF7xw8wCPw9mDwW1avyoqiCPDSl6Byd4DUNYl7/auQYEpedEmoTNniJ4vIcqfbzfW29
-	Lzc0U9RmTHeJMvLoxb8mwDTiPo/rB0aTGIJNYUn6rENStzqvpNln1B2NHIkaWZ2ahkiZWlxIKv8FQ
-	cuoa2tlp+gFkdkBakUUi83prtZEI5g6vFAKypdM4XkE4/urMmDKIGrZ9RcG+cU+Ri78pFlzb7znC7
-	Mu5ZiDTPI9jepe3KCqBwVSIPvuZhee94BeM2P9byVXTXOd5HJPMmJcqDAFL/5qMMo+zq24XI+OAsE
-	ah9a+nPQ==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.dufresne@collabora.com,
- Jiaxing Hu <gahing@gahingwoo.com>
-Cc: ezequiel@vanguardiasur.com.ar, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiaxing Hu <gahing@gahingwoo.com>
-Subject: Re: [RFC PATCH 2/3] media: rockchip: add VEPU510 H.264 encoder driver for
- RK3576
-Date: Wed, 22 Jul 2026 12:00:16 +0200
-Message-ID: <3096814.BaHzMo0RvP@diego>
-In-Reply-To: <20260722073417.2064667-3-gahing@gahingwoo.com>
-References: <20260722073417.2064667-1-gahing@gahingwoo.com>
- <20260722073417.2064667-3-gahing@gahingwoo.com>
+	id 1wmTlg-0000000BUAn-08qr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 10:01:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EF2C45066
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:01:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 323CE1F00ADF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:01:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784714495;
+	bh=7egaasjyS8ZJi5/A+1wWirXvHFkWLfG+x6Fwihwtfek=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=fmvu7cyex6PSZOKU92j1PBbDR9fWWe15jgJUpmG2UHufwrvwv+d/U+oGd4XWvgW/C
+	 pbYo6eEbBoCaEAi0TC4VtOfc8Z1vzIHsHGbgJJtV+jUAi1ul3P65JlpNBWzwi4nLGs
+	 WgreYoE0pE2QtPyJB/d12TMtcCgm+WqlGY+JvbcAkJC4KUNGFOHkUBKveMCVPkkTPH
+	 lD5jLZcegvZT3ZPlM/SC6IYJWKBohzS57msKpnNRuT2/ou+V7jp0vUrqZPKzU0Hrh4
+	 Hh5tFYIb7LG9teIbSvAsT/oLu4+C4YnkqrSGHoaMUJXZ/CoVfqbFyv8nj7uWxfN45I
+	 5SOlhYBrSIQHg==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b2aa3be376so610637e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 03:01:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro7ktZplm0AuU1F+l7skzOSdZp0vVANEgLWsASMlKGRpGOmIViPFsD5XdZcHcfaSptRJYIpplZzeqC1VKdrqZ1W@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpiB/2w9/5EXOKK6lg6SZKLR5CpY0IBabjJyCIjUEJZQHcRrVZ
+	sJL3E98nsGbzOf7x01lsQeWOG5xy0O0ptBM4WMfdadf1I7GnscLr78VaZ5wR6c74KukHc527215
+	h60+CV+fXlb5/KwcNVs0uLVx3+0VcYItw6mB9bz3YvA==
+X-Received: by 2002:a05:6512:4384:b0:5ae:cee7:52bf with SMTP id
+ 2adb3069b0e04-5b28f8615d2mr3888545e87.9.1784714493736; Wed, 22 Jul 2026
+ 03:01:33 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 22 Jul 2026 03:01:32 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 22 Jul 2026 03:01:32 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <c7f5d4cf-07ee-4716-bb8d-83bcd0b2f8d0@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_030026_571984_B1005006 
-X-CRM114-Status: GOOD (  20.57  )
+References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
+ <20260714-arm-psci-system_reset2-vendor-reboots-v23-8-e7453c548c21@oss.qualcomm.com>
+ <CAMRc=McxoC6711rmXmPb9t21bBsTeBMJ3ieZ1XhyTqMLaMS-4Q@mail.gmail.com> <c7f5d4cf-07ee-4716-bb8d-83bcd0b2f8d0@oss.qualcomm.com>
+Date: Wed, 22 Jul 2026 03:01:32 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mdo=vEOUD0=U0dWu3ry7_ZqLaFz4Mwk_qv2viYQYNAq=g@mail.gmail.com>
+X-Gm-Features: AUfX_mz_52H5aVX8o5s_GYgqmkBXwWl26GDtvaXPn6ge5d65lgGY7if6PzG_jAY
+Message-ID: <CAMRc=Mdo=vEOUD0=U0dWu3ry7_ZqLaFz4Mwk_qv2viYQYNAq=g@mail.gmail.com>
+Subject: Re: [PATCH v23 08/13] mfd: core: Add firmware-node support to MFD cells
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, mfd@lists.linux.dev, 
+	Srinivas Kandagatla <srini@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Sebastian Reichel <sre@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Christian Loehle <christian.loehle@arm.com>, Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,81 +100,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 22. Juli 2026, 09:34:16 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Jiaxing Hu:
-> Add a from-scratch stateful V4L2 mem2mem driver for the Rockchip RK3576
-> VEPU510 H.264 hardware video encoder (raw NV12 in, H.264 Annex-B out),
-> modelled on the verisilicon/hantro device_run()/codec_ops split rather
-> than the downstream MPP-service/task-queue model.
->=20
-> The two encoder cores (rkvenc0/rkvenc1) are exposed as two independent
-> V4L2 M2M device nodes, each driving one physical core standalone; the
-> downstream vendor CCU cross-core load-balancing is not implemented.
->=20
-> Register field semantics were worked out by trial-and-error against
-> Rockchip's own open-source userspace codec library (rockchip-linux/mpp)
-> and cross-checked against a real register-write trace of the downstream
-> vendor stack running the same encode.
->=20
-> Intra (I-frame) encoding is confirmed working on real hardware (Radxa
-> ROCK 4D): it produces valid H.264 that the reference decoders accept.
-> Inter (P-frame) encoding still hits a hardware-watchdog stall in the
-> reference-read datapath -- this is the main open question for this RFC;
-> see the cover letter for the full symptom analysis.
->=20
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+On Tue, 21 Jul 2026 14:48:46 +0200, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> said:
+>>
+>>> +		struct device_node *named_np;
+>>> +
+>>> +		fwnode = device_get_named_child_node(parent, cell->named_fwnode);
+>>> +		if (!fwnode) {
+>>> +			ret = -ENODEV;
+>>> +			goto fail_alias;
+>>> +		}
+>>> +
+>>> +		named_np = to_of_node(fwnode);
+>>> +		if (named_np) {
+>>> +			ret = mfd_claim_of_node_to_dev(pdev, named_np);
+>>> +			fwnode_handle_put(fwnode);
+>>> +			if (ret == -EAGAIN)
+>>> +				ret = -EBUSY;
+>>> +			if (ret)
+>>> +				goto fail_alias;
+>>> +		} else {
+>>> +			ret = mfd_claim_named_fwnode(pdev, fwnode);
+>>> +			if (ret) {
+>>> +				fwnode_handle_put(fwnode);
+>>> +				if (ret == -EAGAIN)
+>>> +					ret = -EBUSY;
+>>> +				goto fail_alias;
+>>> +			}
+>>> +			device_set_node(&pdev->dev, fwnode);
+>>> +			fwnode_handle_put(fwnode);
+>>> +		}
+>>
+>> What is the reason to have this split into OF and fwnode functions? I don't
+>> really see why you would need to do it twice, isn't fwnode sufficient for the
+>> OF node case too?
+>
+> We do a duplicate check here before adding the named_fwnode and split it
+> for two reasons:
+> 1. of_node list pre-exists. We add a new list of fwnode. of_node based
+> duplicate check go wrong, if its checked with the fwnode list.
+> 2. of_node need to go to its respective list as fwnode list, release
+> path, is different for us.
+>
 
-[...]
+I see. This could use a unification to fwnodes as well but that's out of scope
+for this series.
 
-> diff --git a/drivers/media/platform/rockchip/rkvenc/rkvenc.c b/drivers/me=
-dia/platform/rockchip/rkvenc/rkvenc.c
-> new file mode 100644
-> index 000000000..d70bcc5fb
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkvenc/rkvenc.c
-> @@ -0,0 +1,892 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Rockchip VEPU510 (RK3576) hardware video encoder driver.
-> + *
-> + * Copyright (C) 2026 Jiaxing Hu <gahing@gahingwoo.com>
-> + *
-> + * Architecture notes (see also rkvenc-regs.h):
-> + *
-> + *  - This is a *stateful* V4L2 mem2mem encoder (raw NV12 in on OUTPUT,
-> + *    H.264 Annex-B out on CAPTURE) modelled on
-> + *    drivers/media/platform/verisilicon's hantro_drv.c device_run()/
-> + *    codec_ops{run,done} split, NOT on rkvdec's stateless request-API
-> + *    decoder pattern =E2=80=94 an encoder has no per-frame bitstream to=
- parse,
-> + *    so there is nothing analogous to rkvdec_run_preamble/postamble her=
-e.
-> + *
-> + *  - The vendor downstream driver (rockchip-linux/kernel,
-> + *    drivers/video/rockchip/mpp/mpp_rkvenc2.c) groups rkvenc0/rkvenc1
-> + *    under a "CCU" (rockchip,rkv-encoder-rk3576-ccu) that does pure
-> + *    software task-queue load balancing across both cores, plus an
-> + *    optional DCHS (dual-core-handshake) register protocol used only
-> + *    when *deliberately* splitting one frame's rows across both cores.
-> + *    There is no hardware descriptor/link-list engine behind it (unlike
-> + *    the decoder's CCU). v1 of this driver does not implement either:
-> + *    rkvenc0 and rkvenc1 are exposed as two independent V4L2 M2M device
-> + *    nodes, each driving one physical core standalone =E2=80=94 the same
-> + *    simplification rkvdec itself makes for multi-core VDPU hardware
-> + *    (see rkvdec_disable_multicore()).
-
-At least the comment and from a casual look also the code get this
-backwards. The idea is to explicitly _not_ expose multiple video devices.
-
-See
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
-vers/media/platform/rockchip/rkvdec/rkvdec.c#n1613
-
-Any (future) scheduling should happen inside the driver, and not get
-offloaded onto _every_ userspace application individually.
-
-
-Heiko
-
-
+Bart
 
