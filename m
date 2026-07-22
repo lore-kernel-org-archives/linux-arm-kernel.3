@@ -4,69 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A4BC44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B9FC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+eXziWrVe6iq+ExZQ6O6xmITHayaDdJsXK4xTLpyju8=; b=c3Alr3TIm6WxRlj33Uc3JjhSsW
-	vP5iBnPkMMTtgJiGuAfwAOJOPeiRiAivW62KLU3oeQkSEWvacoHRgCzB27mMY0+7g5zxE8L/c46M8
-	azI8pL1V4rtlk1h0sgOzDxdLwYcKkbQTdSFSzcO3y6uk05r+7NY6Mx97sz2cvCgkoo9Ns7EUs458E
-	DH1Kh6vQAaLccxRw9gIp4+34EiVcU8MTbS3LpD6FyXiADK5qCErCweMfFlQWxo5TVlv4G2h50N8Op
-	YjqK8lMf3haN/GkJj36K9ODEK7o36Z972t0L7jVb0RkPXu/lztu/ylJGsiQaOYK01P0T7BFIgNTp3
-	pv0qN8pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qXzXulSKAPLcRuX3YZiepbKZUvKjmLNyPDEVWHi2rOQ=; b=zWYYSaQ+oWFAge7bzDLvTqOs6T
+	9s9WmRlN7cKNP4uGArHN2EeSx44x1WgU7BI6+oPeznfQ+q6DvhHZyfbWp0FxlI+uNFIDUqHXxMO1S
+	TzadiKv8jdLc/ZPBh+dNj1OwD/c2k3R7CS8MjtToYj1i46ORKR7lm4iZE8pIa7gdgUbFGfavN9Qsc
+	6Lwh14zMnjC6t3tAjjXumMUoHDWYf3E5JMwGlgvgvJCK+DDFVWszz/byCe+Q2jvYLfv5NZD/Ab7Uy
+	glvO+k2eMtsDZ2s/849VWD046cDICF7M/LONjzip7SwWL7tVkXyc8TVGenfg6ydd4SBI6lpNc62+J
+	HFv0RgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYb7-0000000C78W-1ekQ;
-	Wed, 22 Jul 2026 15:11:01 +0000
-Received: from out-184.mta0.migadu.com ([91.218.175.184])
+	id 1wmYfU-0000000C7aW-1538;
+	Wed, 22 Jul 2026 15:15:32 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYb4-0000000C77n-02oh
+	id 1wmYfR-0000000C7Zx-1Wst
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 15:11:00 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RrICbji+Y4lxMDT6Q6ZvCD+Boi3aGuhq379pwTkILQfoiuS0ZNyvXkbszDaxZ/WnxQDG4LDheKdM60AKbFhRU8Z@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784733054;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+eXziWrVe6iq+ExZQ6O6xmITHayaDdJsXK4xTLpyju8=;
-	b=JEEwsbdk1wB3KF+RLfmi6+FOHwyulqajd2gZ1wzC889Sm1SX1U8WA5PLTrjgLsKtVfmRQn
-	O7RJFY68DC9ftA1Yd7TSXMC/kDthpsmca4O638P0b805P+lDr+sYt5yso7xoRKghznRz6v
-	zTpH7zI4zLOFNEvFmoUUgB4BloDVYJE=
-X-Gm-Message-State: AOJu0YwYtABuEsoWoZH1i4Y04LvS0zSde52h8ncZqbE01Io57lPMEsyp
-	xSiRuJQavwqdtfDCflOcOSEYxTTK5Xdv78QnERmIujFHIgGGpCBncq3/wHbyQS+1HGCLXFT6ne1
-	BhT8O0fjhuP/qJMOU6IPv+EGV/2Zw/f0TCZBf724f
-X-Received: by 2002:a05:622a:1819:b0:50d:edb1:6bd1 with SMTP id
- d75a77b69052e-527ef056bdcmr9238801cf.13.1784733045941; Wed, 22 Jul 2026
- 08:10:45 -0700 (PDT)
+	Wed, 22 Jul 2026 15:15:30 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49553515a8bso48908835e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:15:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1784733327; x=1785338127; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qXzXulSKAPLcRuX3YZiepbKZUvKjmLNyPDEVWHi2rOQ=;
+        b=gwXdaPllMqQOg0pLrYSF1PQf6m1ZoqmhLkXuL4RTwFZSyeoAlIJxZbc4YWGmvKg4BK
+         g90pej2dW2XWmGhPVTTF5vRuqV1e+5apYEDFAYbvHHjtAbO13NnpY8/iO22oVR5lplHk
+         HcdrigR0fj8AOGa3oN/pUABVT1L0pvd2XwA62EPqwcpRklp4XwpodqnLrYgVAipjaWbw
+         L2mHw3G+pjFr5s6uci/S0LypNAeu/yIJaC9FYiuNtLmHYO8wN+OtNz6mls8vvrR6M6zU
+         Czogy2E4wUOKJ3FCIlyYzi71ffVrq5QpaR+bk4loR6KJzzui9Uck+q9f5+4H9TOLleKQ
+         FAXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784733327; x=1785338127;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qXzXulSKAPLcRuX3YZiepbKZUvKjmLNyPDEVWHi2rOQ=;
+        b=Wg9S9eV82zIQDdt1KT7sL9dxLfMYdW6NPUjVe/+zUaiSXSAnXj2hzlQ3lpuYX7tXmr
+         KMyDpezjdUfLMHS0c5PWO1SVLOO6TQxOVA2cxgmH96vGTFTBTt3Pvq1raIaNdYfCfHGq
+         BFVsPSQ5SuLUH8AolNObRqym7S3iSzx+NjdYOJmSk9/HQZpGq/mRoP6xImsp2f35xeeM
+         nQ2HfGsnIBWXIjPnwAGMJ9VX/o84SnOzRD4p6vCvXGxzQ3iLBgPBnSc1uPMEqg/ciX0m
+         V9+EHIn52Hk7LPnPny07eSZLNnx960lgBP8zecabwaZJUlo8HGvJC92tADZZYssY7iYt
+         m/PQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrZtowCqlSCLmA3h1WQrTRA9Fc+nNM554kciiVZ9lXeFdu7+LdWsX/m5FEs3b4QEzc3gATLQwVxz2aWbZxIKETu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3tlZLddeIK45EtL+ZsEZYBplV//gDzl6pfZzEQ0z8Zu0ZJZMG
+	g9qg8jMTsHweeQ8K1crOsrBZBAGIO9nzl+sObTljEueFrpvBfLcGEOT5IG4rJAW5psk=
+X-Gm-Gg: AR+sD11Oh+OWu4mH25htE851rHuJaacpKWPsdl8bjBqPV0W19utLcI/S8m9nv0ufhld
+	5KWd7LAq1A7WehXrUE0JAk4h5FWLwHb5z7cajIQDkp2SqQ3YnjvOz2stUNuAREbYnPN8oYrwmPu
+	qrEV6yR/DzRLwdMb1J7P9TMWmjF9XL045hMoSgSRGY1ZjxJsqr4vugXAOj3L5M2O6AEInxafShZ
+	G01nbGCvLoIEPPrjxT1zMCCPISfZFqILgKnKVMVdLfqjKDEAZIh8J4obV/PGgVy7qPaSLFz3JZL
+	nLiuvXdSupmwZunrV+U96So3hBjW/4+o3lT2VWKoV7tSODe/ermoEFCm8mcC84gZIBTxHAzmjmG
+	JXG7u3Clj51TF/yL9FIlE8I87Oj/Fe535BVGc3100meOtYTAh4/G1C1a1cWJCtakmIsTMZiY6Ph
+	DJ0QaW8bH4Ik4dNbIqmrvdeRvaQN8X2k9dkJbfcl+SqHTJZEzZsdnNGoLKOFRzAuO+igfZEqfhb
+	EoKek9l8ZAu5zydM9jRAsDmHOTY
+X-Received: by 2002:a05:600c:3153:b0:493:e97c:216e with SMTP id 5b1f17b1804b1-4954a41382fmr284426115e9.39.1784733327405;
+        Wed, 22 Jul 2026 08:15:27 -0700 (PDT)
+Received: from gregwork.sec.9e.network ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956a500dbfsm70595615e9.6.2026.07.22.08.15.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 08:15:26 -0700 (PDT)
+From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	corey@minyard.net,
+	devicetree@vger.kernel.org
+Cc: openipmi-developer@lists.sourceforge.net,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+Subject: [PATCH v2 1/2] ipmi: kcs_bmc_aspeed: g6: Add KCS Channel 4 over PCIe
+Date: Wed, 22 Jul 2026 15:11:57 +0000
+Message-ID: <a283420c1fb6a99df5331e078c7f15b3c97822c6.1784732161.git.gregoire.layet@9elements.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <cover.1784732161.git.gregoire.layet@9elements.com>
+References: <cover.1784732161.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
-References: <20260703154811.3355680-1-sascha.bischoff@arm.com>
- <CA+EHjTx4RHdZEnkLwF=ptKiONYzG+roaoKA+pN3K8xZQB2ohGA@mail.gmail.com> <f84f1481f0a0fe0abe9c8b7b044c9987368005d2.camel@arm.com>
-In-Reply-To: <f84f1481f0a0fe0abe9c8b7b044c9987368005d2.camel@arm.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 22 Jul 2026 16:10:09 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTz5oM=5CtTqWJ5W0svZXTH5TaAyr9fceFNHsd7T=Yq67Q@mail.gmail.com>
-X-Gm-Features: AUfX_mw9L8L6cSBsUGZVddvjS8Pti3Yc-w-b5bisisvngAzfQGu0uw0y7hIVvCQ
-Message-ID: <CA+EHjTz5oM=5CtTqWJ5W0svZXTH5TaAyr9fceFNHsd7T=Yq67Q@mail.gmail.com>
-Subject: Re: [PATCH v3 00/40] KVM: arm64: Add GICv5 IRS support
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-	Timothy Hayes <Timothy.Hayes@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, nd <nd@arm.com>, 
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>, 
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_081058_206238_BD6844D8 
-X-CRM114-Status: GOOD (  36.14  )
+X-CRM114-CacheID: sfid-20260722_081529_430842_4B518EB6 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,188 +110,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
+Created a 5th KCS channel to match against the KCS 4 over PCIe addresses.
 
-On Wed, 22 Jul 2026 at 15:40, Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-...
-> > I have started working through this series and will send per-patch
-> > comments as I go, starting with the userspace interface since that's
-> > trickier to change later. I am still coming up to speed on GICv5, so
-> > please take these with that in mind. A couple of series level things
-> > first, while v4 is still open.
->
-> Thanks a lot for taking the time and for any and all comments.
+The ASPEED AST2600 has a PCIe to LPC controller. It includes a KCS
+interface on channel 4. This is a fully KCS-compatible interface
+that is exposed over PCIe.
 
-Thanks, that answers most of what I was after.
+The 5th channel created is only valid on the AST2600.
+This cannot be used for AST2400 and AST2500 chips, as they don't have LPC
+over PCIE.
 
-...
+Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
+---
+ drivers/char/ipmi/kcs_bmc_aspeed.c | 39 ++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
 
-> I have a set of tests that look at the various "components" that we
-> have in the GICv5 KVM implementation, including the IST save/restore.
-> This latter test does also save/restore the IRS MMIO regs as part of
-> testing the IST save/restore.
+diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
+index a13a3470c17a..4d93af2455b8 100644
+--- a/drivers/char/ipmi/kcs_bmc_aspeed.c
++++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
+@@ -26,7 +26,7 @@
+ 
+ #define DEVICE_NAME     "ast-kcs-bmc"
+ 
+-#define KCS_CHANNEL_MAX     4
++#define KCS_CHANNEL_MAX     5
+ 
+ /*
+  * Field class descriptions
+@@ -102,6 +102,12 @@
+ #define     LPC_LSADR12_LSADR2_SHIFT 16
+ #define     LPC_LSADR12_LSADR1_MASK  GENMASK(15, 0)
+ #define     LPC_LSADR12_LSADR1_SHIFT 0
++#define PCIE_LPC_HICRB       0x900
++#define PCIE_LPC_HICRC       0x904
++#define PCIE_LPC_LADR4       0x910
++#define PCIE_LPC_IDR4        0x914
++#define PCIE_LPC_ODR4        0x918
++#define PCIE_LPC_STR4        0x91C
+ 
+ #define OBE_POLL_PERIOD	     (HZ / 2)
+ 
+@@ -191,6 +197,9 @@ static void aspeed_kcs_outb(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 data)
+ 	case 4:
+ 		regmap_update_bits(priv->map, LPC_HICRC, LPC_HICRC_IRQXE4, LPC_HICRC_IRQXE4);
+ 		break;
++	case 5:
++		regmap_update_bits(priv->map, PCIE_LPC_HICRC, LPC_HICRC_IRQXE4, LPC_HICRC_IRQXE4);
++		break;
+ 	default:
+ 		break;
+ 	}
+@@ -278,6 +287,14 @@ static int aspeed_kcs_set_address(struct kcs_bmc_device *kcs_bmc, u32 addrs[2],
+ 
+ 		break;
+ 
++	case 5:
++		if (nr_addrs == 1)
++			regmap_write(priv->map, PCIE_LPC_LADR4, ((addrs[0] + 1) << 16) | addrs[0]);
++		else
++			regmap_write(priv->map, PCIE_LPC_LADR4, (addrs[1] << 16) | addrs[0]);
++
++		break;
++
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -344,6 +361,11 @@ static int aspeed_kcs_config_upstream_irq(struct aspeed_kcs_bmc *priv, u32 id, u
+ 		val = (id << LPC_HICRC_ID4IRQX_SHIFT) | (hw_type << LPC_HICRC_TY4IRQX_SHIFT);
+ 		regmap_update_bits(priv->map, LPC_HICRC, mask, val);
+ 		break;
++	case 5:
++		mask = LPC_HICRC_ID4IRQX_MASK | LPC_HICRC_TY4IRQX_MASK | LPC_HICRC_OBF4_AUTO_CLR;
++		val = (id << LPC_HICRC_ID4IRQX_SHIFT) | (hw_type << LPC_HICRC_TY4IRQX_SHIFT);
++		regmap_update_bits(priv->map, PCIE_LPC_HICRC, mask, val);
++		break;
+ 	default:
+ 		dev_warn(priv->kcs_bmc.dev,
+ 			 "SerIRQ configuration not supported on KCS channel %d\n",
+@@ -373,6 +395,9 @@ static void aspeed_kcs_enable_channel(struct kcs_bmc_device *kcs_bmc, bool enabl
+ 	case 4:
+ 		regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_LPC4E, enable * LPC_HICRB_LPC4E);
+ 		return;
++	case 5:
++		regmap_update_bits(priv->map, PCIE_LPC_HICRB, LPC_HICRB_LPC4E, enable * LPC_HICRB_LPC4E);
++		return;
+ 	default:
+ 		pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
+ 		return;
+@@ -452,6 +477,10 @@ static void aspeed_kcs_irq_mask_update(struct kcs_bmc_device *kcs_bmc, u8 mask,
+ 			regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_IBFIE4,
+ 					   enable * LPC_HICRB_IBFIE4);
+ 			return;
++		case 5:
++			regmap_update_bits(priv->map, PCIE_LPC_HICRB, LPC_HICRB_IBFIE4,
++					   enable * LPC_HICRB_IBFIE4);
++			return;
+ 		default:
+ 			pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
+ 			return;
+@@ -492,6 +521,7 @@ static const struct kcs_ioreg ast_kcs_bmc_ioregs[KCS_CHANNEL_MAX] = {
+ 	{ .idr = LPC_IDR2, .odr = LPC_ODR2, .str = LPC_STR2 },
+ 	{ .idr = LPC_IDR3, .odr = LPC_ODR3, .str = LPC_STR3 },
+ 	{ .idr = LPC_IDR4, .odr = LPC_ODR4, .str = LPC_STR4 },
++	{ .idr = PCIE_LPC_IDR4, .odr = PCIE_LPC_ODR4, .str = PCIE_LPC_STR4 },
+ };
+ 
+ static int aspeed_kcs_of_get_channel(struct platform_device *pdev)
+@@ -575,11 +605,16 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
+ 	if (channel < 0)
+ 		return channel;
+ 
++	np = pdev->dev.of_node;
++	if (channel == 5 && !of_device_is_compatible(np, "aspeed,ast2600-kcs-bmc")) {
++		dev_err(&pdev->dev, "LPC over PCIE KCS4 only supported on ast2600\n");
++		return -ENODEV;
++	}
++
+ 	nr_addrs = aspeed_kcs_of_get_io_address(pdev, addrs);
+ 	if (nr_addrs < 0)
+ 		return nr_addrs;
+ 
+-	np = pdev->dev.of_node;
+ 	rc = of_property_read_u32_array(np, "aspeed,lpc-interrupts", upstream_irq, 2);
+ 	if (rc && rc != -EINVAL)
+ 		return -EINVAL;
+-- 
+2.54.0
 
-Good that the round trip already exists, that was really the question.
-One thing I could not tell from the output: does the test compare the
-restored state against the saved state field by field, so that a
-dropped field fails it, rather than just a save and restore within one
-VM? That is what would give the confidence you asked for on omitted
-state. If it already does, worth a line in the cover letter.
-
-> These do add a further ~2k lines to review across 9 commits, which is
-> why I'd not included them in the series posting. The git diff --stat
-> for the local series with these included is currently:
-
-I would still land them in tree rather than point at them: out-of-tree
-tests give reviewers nothing to run and no regression cover, which is
-where the ordering constraints most need it. The test code is not the
-expensive part of the review, the ~6000 lines of IRS and table code
-are, so the selftests help more than they cost. If nine commits is too
-much at once, the IST save/restore one is the piece I would most want
-alongside the save/restore code, the rest can follow.
-
-...
-
-> Noted - I should have been clearer here. The intent was that the
-> save/restore functionality was bundled together with the IRS, SPI, and
-> LPI support. With this series it becomes possible to run something real
-> with KVM on a GICv5 system. Prior to this series, we only had PPI
-> support which also meant a single VPE, and no ability to run anything
-> particularly meaningful.
->
-> Personally, I'm quite happy to do whatever is best for the reviewers to
-> make things as easy to review as possible. I can either extend the
-> series with the set of selftests, or I can drop the save/restore
-> support for the time being. Happy to hear your thoughts. FWIW, I
-> believe that Marc preferred them to land together for the reason above.
-
-Makes sense, no objection to keeping them together. Worth putting in
-the v4 cover letter so the next reader does not have to ask. One thing
-on the reasoning: "run something real" argues for SPI and LPI landing
-together, since a guest boots without save/restore. Bundling
-save/restore itself reads more like not shipping a feature userspace
-can create but not migrate, then retrofitting the ABI later. If that
-is the reason, worth saying so.
-
-Cheers,
-/fuad
-
-
->
-> Thanks again for your input.
-> Sascha
->
-> >
-> > Cheers,
-> > /fuad
-> >
-> >
-> >
-> > >
-> > > Thanks,
-> > > Sascha
-> > >
-> > > [1]
-> > > https://lore.kernel.org/all/20260319154937.3619520-1-sascha.bischoff@arm.com/
-> > > [2] https://developer.arm.com/documentation/aes0070/latest
-> > > [3] https://developer.arm.com/documentation/108086/latest
-> > > [4] https://linaro.atlassian.net/wiki/x/CQAF-wY
-> > > [5]
-> > > https://lore.kernel.org/all/20260116182606.61856-1-sascha.bischoff@arm.com/
-> > > [6]
-> > > https://gitlab.arm.com/linux-arm/linux-sb/-/tree/gicv5_kvm_irs_support_v3
-> > > [7]
-> > > https://lore.kernel.org/all/20260427160547.3129448-1-sascha.bischoff@arm.com/
-> > > [8]
-> > > https://lore.kernel.org/all/20260521144846.1899475-1-sascha.bischoff@arm.com/
-> > >
-> > > Sascha Bischoff (40):
-> > >   irqchip/gic-v5: Allow KVM setup without a maintenance IRQ
-> > >   irqchip/gic-v5: Provide OF IRS config frame attrs to KVM
-> > >   irqchip/gic-v5: Set up gic_kvm_info on ACPI hosts
-> > >   KVM: arm64: gic-v5: Define remaining IRS MMIO registers
-> > >   arm64/sysreg: Add GICv5 GIC VDPEND and VDRCFG encodings
-> > >   arm64/sysreg: Update ICC_CR0_EL1 with LINK and LINK_IDLE fields
-> > >   KVM: arm64: gic-v5: Extract host IRS caps from IRS config frame
-> > >   KVM: arm64: gic-v5: Add VPE doorbell domain
-> > >   KVM: arm64: gic-v5: Create and manage VM and VPE tables
-> > >   KVM: arm64: gic-v5: Introduce guest IST alloc and management
-> > >   KVM: arm64: gic-v5: Implement VMT/vIST IRS MMIO Ops
-> > >   KVM: arm64: gic-v5: Keep GICv5 vCPU limit model-specific
-> > >   KVM: arm64: gic-v5: Implement VPE IRS MMIO Ops
-> > >   KVM: arm64: gic-v5: Set up VMTEs and VPE doorbells
-> > >   KVM: arm64: gic-v5: Add resident/non-resident hyp calls
-> > >   KVM: arm64: gic-v5: Request doorbells when VPEs enter WFI
-> > >   KVM: arm64: gic-v5: Introduce struct vgic_v5_irs and IRS base
-> > > address
-> > >   KVM: arm64: gic-v5: Add IRS IODEV support to MMIO handlers
-> > >   KVM: arm64: gic-v5: Add KVM_VGIC_V5_ADDR_TYPE_IRS to UAPI
-> > >   KVM: arm64: gic-v5: Add GICv5 IRS IODEV and MMIO emulation
-> > >   KVM: arm64: gic-v5: Initialise per-VM IRS state
-> > >   KVM: arm64: gic-v5: Register the IRS IODEV
-> > >   KVM: arm64: gic-v5: Set IRICHPPIDIS based on IRS enable state
-> > >   KVM: arm64: selftests: Update vGICv5 selftest to set IRS address
-> > >   KVM: arm64: gic-v5: Introduce SPI AP list
-> > >   KVM: arm64: gic-v5: Add GIC VDPEND and GIC VDRCFG hyp calls
-> > >   KVM: arm64: gic-v5: Track SPI state for in-flight SPIs
-> > >   KVM: arm64: gic: Introduce set_pending_state() to irq_op
-> > >   KVM: arm64: gic-v5: Support SPI injection
-> > >   Documentation: KVM: Extend VGICv5 docs for
-> > > KVM_VGIC_V5_ADDR_TYPE_IRS
-> > >   KVM: arm64: gic-v5: Add GICv5 SPI injection to irqfd
-> > >   KVM: arm64: gic-v5: Mask per-vcpu PPI state in
-> > >     vgic_v5_finalize_ppi_state()
-> > >   KVM: arm64: gic-v5: Add GICv5 EL1 sysreg userspace accessors
-> > >   KVM: arm64: gic-v5: Handle userspace accesses to IRS MMIO region
-> > >   KVM: arm64: gic-v5: Add CoreSight MMIO regs to IRS
-> > >   KVM: arm64: gic-v5: Implement save/restore mechanisms for ISTs
-> > >   Documentation: KVM: Document KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS for
-> > >     VGICv5
-> > >   Documentation: KVM: Add KVM_DEV_ARM_VGIC_GRP_IRS_REGS to VGICv5
-> > > docs
-> > >   Documentation: KVM: Add docs for KVM_DEV_ARM_VGIC_GRP_IST
-> > >   Documentation: KVM: Add the VGICv5 IRS save/restore sequences
-> > >
-> > >  .../virt/kvm/devices/arm-vgic-v5.rst          |  237 ++-
-> > >  arch/arm64/include/asm/kvm_asm.h              |    4 +
-> > >  arch/arm64/include/asm/kvm_hyp.h              |    4 +
-> > >  arch/arm64/include/asm/sysreg.h               |   18 +-
-> > >  arch/arm64/include/uapi/asm/kvm.h             |    7 +
-> > >  arch/arm64/kvm/Makefile                       |    3 +-
-> > >  arch/arm64/kvm/arm.c                          |    2 +-
-> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   34 +
-> > >  arch/arm64/kvm/hyp/vgic-v5-sr.c               |   55 +
-> > >  arch/arm64/kvm/sys_regs.c                     |    6 +-
-> > >  arch/arm64/kvm/vgic-sys-reg-v5.c              |  519 +++++
-> > >  arch/arm64/kvm/vgic/vgic-init.c               |  111 +-
-> > >  arch/arm64/kvm/vgic/vgic-irqfd.c              |   17 +-
-> > >  arch/arm64/kvm/vgic/vgic-irs-v5.c             | 1138 ++++++++++
-> > >  arch/arm64/kvm/vgic/vgic-kvm-device.c         |  252 ++-
-> > >  arch/arm64/kvm/vgic/vgic-mmio.c               |    6 +
-> > >  arch/arm64/kvm/vgic/vgic-mmio.h               |    2 +
-> > >  arch/arm64/kvm/vgic/vgic-v5-tables.c          | 1855
-> > > +++++++++++++++++
-> > >  arch/arm64/kvm/vgic/vgic-v5-tables.h          |  112 +
-> > >  arch/arm64/kvm/vgic/vgic-v5.c                 | 1220 ++++++++++-
-> > >  arch/arm64/kvm/vgic/vgic.c                    |   39 +-
-> > >  arch/arm64/kvm/vgic/vgic.h                    |   21 +-
-> > >  arch/arm64/tools/sysreg                       |    4 +-
-> > >  drivers/irqchip/irq-gic-v5-irs.c              |   19 +-
-> > >  drivers/irqchip/irq-gic-v5.c                  |  117 +-
-> > >  include/kvm/arm_vgic.h                        |  165 +-
-> > >  include/linux/irqchip/arm-gic-v5.h            |  256 ++-
-> > >  include/linux/irqchip/arm-vgic-info.h         |    5 +
-> > >  tools/arch/arm64/include/uapi/asm/kvm.h       |    7 +
-> > >  tools/testing/selftests/kvm/arm64/vgic_v5.c   |    6 +
-> > >  .../selftests/kvm/include/arm64/gic_v5.h      |    3 +
-> > >  31 files changed, 6093 insertions(+), 151 deletions(-)
-> > >  create mode 100644 arch/arm64/kvm/vgic-sys-reg-v5.c
-> > >  create mode 100644 arch/arm64/kvm/vgic/vgic-irs-v5.c
-> > >  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.c
-> > >  create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.h
-> > >
-> > > --
-> > > 2.34.1
-> > >
->
 
