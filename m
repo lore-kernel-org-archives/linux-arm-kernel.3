@@ -4,114 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE375C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D39AC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awrVTQ1VekJ4Xb6s/ONNNBSESRBX7h9MN6iG9XhSyGo=; b=zJ99JShoutAawtCML8gpAdV4c6
-	8CyzLolg55+RjTGLGpRXh/NMzhL/A82niAo1DqJOJg18V/kt0O01o+4KBVvsij5w+cvqm5s17zCyf
-	I/n3HR8azIngAB6HnUrhER9QmVIPNZLhGWhk67cYo7GyJrjDmqmRMJqsryRrvC7DqJ/brQaWIJFRR
-	18N/cQW62v8v3DzfQ5ec9WT3a0M4KzUUb4EROUsE46d06SPJ3jXGMJzt00mOE7yFhFXOcdhUt6tID
-	G1MUG51uxGYZpGkbqjlExuOC920Ys5zr0eG6n0KTKCwP6syNKjMALt1I8FQ3Fmd7/z87q5yI8KKgK
-	AWz9D9+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eGHLLTFq6+Nt1smEaCIO+JVgCw0QzLY1sW8gMQNSGCE=; b=rkxrkE7/w36u3p
+	5zMaNolRrOahTx5tUk/JQXcbRIuBM32kngWUb5EGNz6IoOenbI/baN1S0is/Ikhy/exjBhOrJPZF0
+	8EGwab6OQSUfuSlrdfeOfRL08TpwT5d0P63+AFHgctHtLJO5/Iw5WerPCUJiet9luzZXyuCalCZuj
+	Tnh+WI3YNKsEHzi53dNMUDkHnmsIjf70QcimneDQKBdJI49iT6SCv15N/R1frTUYdTP0OKetN4k8s
+	BrPKDkKVzCa4UQsonioRclFVim9NT+r1lYqNHA7djkbja1mEqmoKi6QzRZ80rLpfHCLMEsWeTivR2
+	cMRrRxugmcfBtvhLGboA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXP5-0000000BxFo-3avS;
-	Wed, 22 Jul 2026 13:54:31 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXP3-0000000BxEi-13m0
+	id 1wmXQW-0000000BxVQ-19n9;
+	Wed, 22 Jul 2026 13:56:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmXQT-0000000BxUz-3eEt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 13:54:30 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c1600d040e4so931433866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 06:54:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784728467; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XTcCstWkTPhiI8Y233Hgls14WgBx5fte5xZsIOn5ZY/dBkMFuJOfLgY1eK492NqJm0
-         Pp2JD2DlZxNOg63jjGsLxOtDbpeXRne0hBFsWu83kCIYoWQkkeDmPGFw0p/mZmQ5Bq+W
-         2wGUNzHO67vuN109YK+UMF3zUFBaj3BvErYCog2Pq1bc6qqvVmwnj5E2ZhtpkJzuMxSq
-         zG62mm4mEw4HYvnozbXho6/1VPPU4oCd+CSWaNmPEdESD3mAiALpqCg1Q20cFnEjmFRl
-         3PAaA5F7RKPBolv9rW7cXlfZ3VgU9f+aJWM1cxNSgkDwqrN44DMqYLDgBlz3rwHSqP95
-         YfBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=awrVTQ1VekJ4Xb6s/ONNNBSESRBX7h9MN6iG9XhSyGo=;
-        fh=5R5xT0NDj62buIJ3eLaW0e/cK0Z4QdBw2aRucK4+r9g=;
-        b=DxX8FVVWR9JpFj+vTicsQh3sKUARICaAtioBqwztNk9XILfTwG3AhwZzZufAVcNW+I
-         TAAK7IXrNYxLPwGnTt4dYAQv+yU8flgKmx9GVpFNT7AJF87yxEAKjVJ7wgbIvezAXLfW
-         PxnQI/Rb8hsUGQrKfow+szkOv4ipuPemm2k6Usamukl9MhtE/wUWGd82x1ere6do9u/S
-         OGmRxZFyNJpReuDXkjib36h+GZqIYE8r2beaqkYiD0riVHtj13qd78mZZTkzhv3P24MX
-         PCuaynNDVUFBW0gJDkvAIJtGan3ItiHL4v0wyUU6K7tY1ryU0HAVUtCfnEH06AOEr7Om
-         42Jg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1784728467; x=1785333267; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=awrVTQ1VekJ4Xb6s/ONNNBSESRBX7h9MN6iG9XhSyGo=;
-        b=YJQStS5etQFoxNNUtOH8pQ9jeZKZ4uelfOUaykZ1Co/4hcWUjefWscRx2HioaKJe2O
-         7JI1164riIDbZQQfvrVNIWNXfg26K0JKkp9CkTjXXOv0shtw7YdQSx4JMGjXNzaLcxjq
-         MHfBq98zhs4jC9RdAxqGLH/Ss+d6R4JAdit84wCXt3mb++BVwDrhhdS0+8h9RM/3tE6Q
-         OSREw+bPS6KkT01XcNu1zs1Q/h5QNlAJIV8dzoajh00GUho3/sx66v2H6PSCBcX7VrnE
-         sCnJqFHkfx+cTQ9l7Id7s9bHsYksa/uNHS5HcUFno+e75uS4SllTgbZiRBf014J3DUFW
-         IGGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784728467; x=1785333267;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=awrVTQ1VekJ4Xb6s/ONNNBSESRBX7h9MN6iG9XhSyGo=;
-        b=dyXFXiEdfAFqbhnLaIAhkZ3ApSMUl6hZ8QC+msjYEUO064hxGIgk1Z428iGm9Fr42V
-         JzXiK9Q9zdVzLvcETUjkQW2+PUDa0LqSwUZzykaSrKSwgEPET+jksV1ORWoou5w7dHP5
-         MWOUS0+qa59jSWPuPDjeBQdDV0Ln9hjpdUdBmJ7pSJ+HjNUQ1gbXghF1nY+Cqew2Wus5
-         VmfO6ARLPlp3OR9I64xPEpFKcwjBZhghxW3Pf7gf3EELA3cXoWs0swHDV84lWkrFh/o0
-         KzGUdF4m5fBahUReC2t+1FWBVVAqZ7nFRmMeXLbDFjigX9dFjbHuX7JU0fP8V2l0WteR
-         SQnQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrAnEqt9/aAd7SSA1F9YrLQBH8lJDAj0fwEYp/UZIOd64WMTL14PJv4siXwwcYG4jULv7/6ljfHU01f9szShxO5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzaOP4NAMm64rpLmoEf7k3bq88+8rsJtunWPYOQt2O6brZslR9
-	v+hYhaTbr8bOymoHVqt6KXTXOwFJ5ISETnXBaxus0+CVR6JGK5g4M1KYaB0Rst+izU21Muxql5Q
-	izLz9hWBhn4QgGP4By+clQirk7KGHwtm2OnArZFgLCQ==
-X-Gm-Gg: AR+sD13isY99P6ZVsUtm9MrhxcU5a7QlNGFBcJjhIqGgIxVKmXh49wrZ+9dKRnJ0lFm
-	zTDS+VB5/0Pu4E48D3JbAPliork2Sh/I38Vk7TgIESJ8D8xa5Ns/cNIqz0bL0SDmMbECpqkNH9d
-	erQo55FBEnWXCWeJR74Xn2MjlrmgvTQMVMWZ7vRUO7VxPBWdTGfpBPnlhGaHj6KErQvk/zPdrCt
-	G28w93gBm/r78W6ZZM6aGzlp6MwQwNWyypOLKh1piqFUtDE0D6up0i2MIH+K6pvJAlftzCoi/P/
-	at7Jn3xwPY7DQ3rKqw==
-X-Received: by 2002:a17:907:a684:b0:c16:aee0:5422 with SMTP id
- a640c23a62f3a-c1c30a69e59mr189324266b.6.1784728467074; Wed, 22 Jul 2026
- 06:54:27 -0700 (PDT)
+	Wed, 22 Jul 2026 13:55:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 514F81595;
+	Wed, 22 Jul 2026 06:55:52 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B97963F59E;
+	Wed, 22 Jul 2026 06:55:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784728556; bh=1v6JkK3ysiKqvtwQqy9fbnv+L0N8nmRx4VylcePzd00=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RR1/Zq/rNbgrvdWjfVyHFjy2s+44p0W9FeK4A1U93X+W0DY39H95xa2uy9Wamp72A
+	 gHf7YuiKPN4LsAKXkPAsmRHdAD7epq6/uuPVCaH6VDh5V98ks+qX9lQguKV5VSiHBj
+	 0wvn+PoUhrfqxNh6P4p8mxIfj+msarKTDjcQErtQ=
+Message-ID: <023e200c-2458-4604-bdb7-f861be639049@arm.com>
+Date: Wed, 22 Jul 2026 14:55:52 +0100
 MIME-Version: 1.0
-References: <20260721-rk3588-fracpll-v1-1-b289bf17cf17@flipper.net>
- <7f3924ab-52fc-4fb6-91b4-42a5e55d5c76@cherry.de> <CAKTNdwE=s6XG==4HvbaEV86DATWO6egVxLgNE4LpjFaXNQP7_g@mail.gmail.com>
- <b0111164-3726-4a1b-bc3a-0e678ea2ecad@cherry.de> <amDC9ZfBAD2xbhqa@venus>
-In-Reply-To: <amDC9ZfBAD2xbhqa@venus>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Wed, 22 Jul 2026 17:54:15 +0400
-X-Gm-Features: AUfX_mzETQep4O3vKsGAnWDqzknYtAlD9NY9GlA6VK-u5lN0h7PUcE9Fa-TFX_4
-Message-ID: <CAKTNdwFEEd2LF0F2E2yR5jPfYB4sh-NaYyXn2GTFwCpACaqAfw@mail.gmail.com>
-Subject: Re: [PATCH] clk: rockchip: Fractional PLL coefficient on
- RK3588/RK3576 is two's complement
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Quentin Schulz <quentin.schulz@cherry.de>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Wyon Bi <bivvy.bi@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, Detlev Casanova <detlev.casanova@collabora.com>, 
-	Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>, 
-	Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 30/36] arm64: irq: Report FEAT_NMI masking local IRQs
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-31-vladimir.murzin@arm.com>
+ <b9d0683d-4469-4a8c-be1d-77d8b9836c0a@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <b9d0683d-4469-4a8c-be1d-77d8b9836c0a@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_065429_316762_15670979 
-X-CRM114-Status: GOOD (  30.78  )
+X-CRM114-CacheID: sfid-20260722_065558_015541_F4463C72 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,73 +67,158 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On 7/21/26 10:06, Jinjie Ruan wrote:
+> 
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> As we clear SCTLR_EL1.SPINTMASK when enabling FEAT_NMI, ALLINT masks
+>> IRQs and FIQs regardless of superpriority.
+>> Update irqflags.h and `regs_irqs_disabled()` to take it into account,
+>> so we properly keep track of
+>>
+>> We have documentation at the top of irqflags.h which explains the DAIF
+>> masking. Since the additional masking with NMIs is related and also
+>> covers the IF in DAIF, extend the comment to note what's going on
+>> with NMIs.
+>>
+>> Co-developed-by: Mark Brown <broonie@kernel.org>
+>> Signed-off-by: Mark Brown <broonie@kernel.org>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/irqflags.h | 17 +++++++++++++++++
+>>  arch/arm64/include/asm/ptrace.h   |  9 ++++++++-
+>>  2 files changed, 25 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+>> index b571d34bf11d..a291a231d644 100644
+>> --- a/arch/arm64/include/asm/irqflags.h
+>> +++ b/arch/arm64/include/asm/irqflags.h
+>> @@ -20,6 +20,16 @@
+>>   * always masked and unmasked together, and have no side effects for other
+>>   * flags. Keeping to this order makes it easier for entry.S to know which
+>>   * exceptions should be unmasked.
+>> + *
+>> + * With the addition of the FEAT_NMI extension we gain an additional
+>> + * class of superpriority IRQ/FIQ which is separately masked with a
+>> + * choice of modes controlled by SCTLR_ELn.{SPINTMASK,NMI}.
+>> + * Linux sets SPINTMASK to 0 and NMI to 1 which results in ALLINT.ALLINT
+>> + * masking both superpriority interrupts and IRQ/FIQ regardless of the
+>> + * I and F settings. Since these superpriority interrupts are being
+>> + * used as NMIs we do not include them in the interrupt masking here,
+>> + * anything that requires that NMIs be masked needs to explicitly do so,
+>> + * but we do check for ALLINT masking IRQs/FIQs.
+>>   */
+>>  
+>>   /*
+>> @@ -103,6 +113,9 @@ static __always_inline unsigned long arch_local_save_flags(void)
+>>  {
+>>  	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+>>  
+>> +	if (system_uses_nmi())
+>> +		hwstate.allint = read_sysreg_s(SYS_ALLINT);
+>> +
+>>  	if (system_uses_irq_prio_masking())
+>>  		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+>>  
+>> @@ -117,6 +130,10 @@ static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+>>  	if (hwstate.daif & PSR_I_BIT)
+>>  		return true;
+>>  
+>> +	/* SCTLR_EL1.SPINTMASK is clear, so ALLINT masks *all* IRQs/FIQs. */
+>> +	if (system_uses_nmi() && hwstate.allint > 0)
+> The ">0" here doesn't seem very rigorous, maybe:
+> 
+> if (system_uses_nmi() && hwstate.allint & ALLINT_ALLINT)
+> 
 
-On Wed, Jul 22, 2026 at 5:44=E2=80=AFPM Sebastian Reichel
-<sebastian.reichel@collabora.com> wrote:
->
-> Hello Alexey,
->
-> On Wed, Jul 22, 2026 at 02:59:25PM +0200, Quentin Schulz wrote:
-> > On 7/22/26 1:00 PM, Alexey Charkov wrote:
-> > > On Wed, Jul 22, 2026 at 2:35=E2=80=AFPM Quentin Schulz <quentin.schul=
-z@cherry.de> wrote:
-> > > > On 7/21/26 9:17 PM, Alexey Charkov wrote:
-> > > > > Not adding Cc stable, because while this fixes a real bug it's no=
-t a
-> > > > > regression, as the issue was introduced in the same commit that a=
-dded the
-> > > > > RK3576/RK3588 support.
-> > > >
-> > > > I don't think this is a valid reason :)
-> > >
-> > > I believe Linus frowns upon changes like "it never worked, but we've
-> > > fixed it now" being submitted as fixes. It's been broken for years,
-> > > and since nobody complained yet, going via the normal development pat=
-h
-> > > (i.e. -next) seems perfectly fine to me.
-> >
-> > My bet is because of the Fixes: it'll get backported anyway even
-> > if you don't put Cc: stable. In any case, I don't care too much :)
->
-> FWIW you are mixing up things. Linus does not handle the stable
-> kernels. He does the release candidates and the initial version of
-> every kernel release. The stable releases are handled by the stable
-> maintainers. Linus only said, that he does not want to get these
-> kind of fixes during late -rc phase. That makes sense considering
-> fixes also have a chance of introducing regressions.
->
-> But if patches end up in a pull request for an -rc kernel or in the
-> pull request for the next merge window depends on the maintainer
-> applying the patch (i.e. Heiko). The maintainer can queue a patch
-> with all those tags into the normal for-next queue targeting the
-> following merge window. This results in the patch being in
-> linux-next for a while, then being added to the master branch during
-> a merge window and then being added to the stable trees (as stable
-> only picks patches that are in mainline).
->
-> The maintainer can also merge a patch to the queue for -rc kernels
-> without the Cc stable. That is exactly what happens for a regression
-> from a normal patch in the merge window, since the affected patch
-> wouldn't be in any stable kernel.
->
-> TLDR: The Cc stable tag has nothing to do with Linus.
+Agree.
 
-Indeed, I made a logical leap here. In my view, however, this patch
-doesn't need to go into 7.2 fixes (it wasn't broken during the 7.2
-merge window), nor necessarily into stable backports (no-one seems to
-have used the affected PLL rates in older kernels, so there is nothing
-to fix for them either).
+>> +		return true;
+>> +
+>>  	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
+>>  		return true;
+>>  
+>> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+>> index c630165882e8..096d85d75bd7 100644
+>> --- a/arch/arm64/include/asm/ptrace.h
+>> +++ b/arch/arm64/include/asm/ptrace.h
+>> @@ -206,9 +206,16 @@ static inline void forget_syscall(struct pt_regs *regs)
+>>  		(regs)->pmr >= GIC_PRIO_IRQON :				\
+>>  		true)
+>>  
+>> +#define irqs_allint_clear(regs)				\
+>> +	(system_uses_nmi() ?				\
+>> +		((regs)->pstate & PSR_ALLINT_BIT) == 0:	\
+>> +		true)
+>> +
+>>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+>>  {
+>> -	return (regs->pstate & PSR_I_BIT) || !irqs_priority_unmasked(regs);
+>> +	return (regs->pstate & PSR_I_BIT) ||
+>> +		!irqs_priority_unmasked(regs) ||
+>> +		!irqs_allint_clear(regs);
+> Why not define the logic for disable? The semantics of
+> regs_irqs_disabled() is "interrupts disabled".
+> 
+> 204 #define
+> irqs_priority_masked(regs)>----->------->------->------->-------\
+> 205 >-------(system_uses_irq_prio_masking()
+> ?>------>------->------->-------\
+> 206 >------->-------(regs)->pmr == GIC_PRIO_IRQOFF
+> :>------->------->-------\
+> 207 >------->-------false)
+> 208
+> 209 #define irqs_allint_masked(regs)>------->------->------->-------\
+> 210 >-------(system_uses_nmi() ?>--->------->------->-------\
+> 211 >------->-------((regs)->pstate & PSR_ALLINT_BIT) :>----\
+> 212 >------->-------false)
+> 213
+> 214 static __always_inline bool regs_irqs_disabled(const struct pt_regs
+> *regs)
+> 215 {
+> 216 >-------return (regs->pstate & PSR_I_BIT) ||
+> 217 >------->-------irqs_priority_masked(regs) ||
+> 218 >------->-------irqs_allint_masked(regs);
+> 
 
-However, it will become relevant for driving arbitrary display clocks
-for DP video output because several display modes (and consequently,
-PLL rates) I needed for those monitors I tested require new table
-entries with negative PLL coefficients. Those would be 7.3+ material
-anyway.
+That's in line with my proposal [1], with that it would look like
 
-Best regards,
-Alexey
+static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+{
+        if (regs->pstate & PSR_I_BIT)
+                return true;
+
+        if (system_uses_nmi())
+                return !!(regs->pstate & PSR_ALLINT_BIT);
+
+        if (system_uses_irq_prio_masking()) {
+                WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
+                             regs->pmr != GIC_PRIO_IRQOFF &&
+                             regs->pmr != GIC_PRIO_IRQON);
+
+                return regs->pmr != GIC_PRIO_IRQON;
+        }
+
+        return false;
+}
+
+
+[1] https://lore.kernel.org/linux-arm-kernel/fedf2b3e-14ed-4483-8cdf-d31f1ac97b84@arm.com/
+
+> otherwise, LGTM
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+>>  }
+>>  
+>>  #define interrupts_enabled(regs)	(!regs_irqs_disabled(regs))
+> 
+
+Cheers
+Vladimir
 
