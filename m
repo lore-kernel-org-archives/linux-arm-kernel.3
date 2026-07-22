@@ -4,144 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B28C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 19:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C377C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 19:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O0+VZdEOqANgO7pyLaK7INuAmo5wjtv8EwKI8iqwh7w=; b=YXM2JxqDcKldsMEDfWlpGdMygm
-	Bv5WEZCS4uWQGUnq0Ne5vIiYXD2QtaOiZ8WCiY303sxBA0bVp+5nB5C++ekKQIFmba2V5001qBGON
-	jQ5KZOaLBZR80cj34qIqd4iAuKrYVDQFbMWddzuCjMKEbx0LYqXnfU3w/VUQWZJ3BuEM4p9y47q1q
-	u/4wAcOAnz4GuXPu0EYg55Te6t0Y08n/mERwZ9jAyU1ZeLyDCBe3vq2lp5A8W746a0czxxlV6TzAz
-	8ToYcxLmlgWVnGGM07jmnOmr2sjzWlQyp8e3TZPUqxM9Y9isvu3L7XsE9PS/3JA4Gb5dkKgLzHVcx
-	of8aHgRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k3cKZHNKkxiMPr147PoKWBfyqUlokFrq1vkTgSjLR2M=; b=37E9WVQ93vuG/KEpBLteEdDcnt
+	whPtpwwLiNgDlZHReMCcygMy+hWOpC0CxGsHpDcBCeeEl1zTSM4e/x1hyGSsr1lwVRNTD1Zd0Bikx
+	iUhU6lRfTQ0KzoKaAdc9PZXC8TOukAAXIsmaFEPaittcUO8mybmUh8Ka7NdY6lM56rUOeHzXEliI5
+	thh8NOtbN6HA8sw3YZ7TxRn9sZeYurjzlnmzT0+y7oXzr1aj8XVePdAsqfCZLhfOTtJ9gxghppT2j
+	HtbwUc/448t9HDdsPMJBGDV488PAKudAeV8bSEBmrazBcOXSfEEs5apuG7w06QXxXnTwatFp/27Dq
+	Rh4PluFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmcf4-0000000Ce0Q-2if5;
-	Wed, 22 Jul 2026 19:31:23 +0000
-Received: from mail-centralusazon11010056.outbound.protection.outlook.com ([52.101.61.56] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1wmciM-0000000CeKi-3Dtp;
+	Wed, 22 Jul 2026 19:34:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmcf1-0000000Cdzx-3555
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 19:31:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rr1nkOxCiJ14kE4Q0ETysXrhRc8cMyjGOO8BIePd2/PNNYywtfPdH8nGxGQ7LQmDtjkIoC9Y+64h+pZDpSVepyKzcxDvSEv9Omwq7cHrDJnZyO8DFeCnSESyWZ3D21Piz8v/hckLlXhVS2uHptOUIVEXyUghAUwZ+V75UYx05oqUuIlGE20xj+oJ+JWOcC2CfFi/BSAwXkKfACRjnCqb5NEvMMEGV78mUkekq9c79qbeEDTRlxODk1dTkAJCn/XZYJD+pXblfWCKfzvdgIu3uMjCKTrAbgAJIKzxx6wSI0MJFM3dE9Iz5+k6b3Nzq3r08/uh1KdIyYXWPaHdQaLz2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O0+VZdEOqANgO7pyLaK7INuAmo5wjtv8EwKI8iqwh7w=;
- b=pgiwJB5Olis2wRs0zk/9wopcye7kaZuESEY74ahMv0LzoKSYmcgY3imtKuAHVbe9FWwaFI5z44eVIWaqhuDAT8b3Mx/AMrej6aEELa2C+NsPPaT0FfM9nBqKCmL2elK3HVoIFsWeimBaYAozblOeYedMjRMtJzvON177BanyY7KxZxXuI3Jq7js7QC7v97DdtV/9iEHOscQ1AC9azMNwEQI0GVpKSwjRT9TR189CZhly+Eae86uwHAjUWQi3WyC2ebtqteEAxqtPvki8/GieOFjaCvM2fCAfbogOSCLB40ECNIqe+qiB8uGtqpgAAZX5+guDUU3Opo3nQg0W5EMFCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O0+VZdEOqANgO7pyLaK7INuAmo5wjtv8EwKI8iqwh7w=;
- b=M0Ik0ADI2TBQNKShOl2wtXkatVWpB7gBlpJcaPHWUAMTM4kX8HdApIbj4fIl0kyXwmNpCG/qp8gWpmarg3kDwS4eXdjbVc2ZnxjO6tgECgclz3znWS4VMCR9LVhj8DD30FlHCMRr0Q+OfHmnB1UfDiFkezVrmy5QzgbA+31gL3Xp6gzRyKWyXnMoxKIU+g+kgP6MxxSU15B02BtQr3lCj2dwRLiPTsnJ3/OEOpMM/mwoXNM7+v/hRQFphqfGM6Zx6AGXnkIXvQqe0aFeG46GPdl2SUtrkYc4bZTdJwt9+uNSIwm5/uus31D9FVdJhoBTyajMSVYQ9rIAkGeovuzARA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
- by MN0PR12MB5906.namprd12.prod.outlook.com (2603:10b6:208:37a::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 19:31:08 +0000
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286%5]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 19:31:08 +0000
-Date: Wed, 22 Jul 2026 15:31:07 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Russell King <linux@armlinux.org.uk>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Jason Gunthorpe <jgg@ziepe.ca>, John Allen <john.allen@amd.com>,
-	Kees Cook <kees@kernel.org>, Leon Romanovsky <leon@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org
-Cc: sunyi <279644543@qq.com>
-Subject: Re: [PATCH 0/5] bitmap: align bitmap_find_next_zero_area_off()
- output with the rest of the API
-Message-ID: <amEaewg9HgUKL0ml@yury>
-References: <20260709020312.133977-1-ynorov@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260709020312.133977-1-ynorov@nvidia.com>
-X-ClientProxiedBy: MN0P221CA0024.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:208:52a::24) To LV3PR12MB9356.namprd12.prod.outlook.com
- (2603:10b6:408:20c::21)
+	id 1wmciL-0000000CeK8-0baw;
+	Wed, 22 Jul 2026 19:34:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id AF0C6600AB;
+	Wed, 22 Jul 2026 19:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 095871F000E9;
+	Wed, 22 Jul 2026 19:34:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784748883;
+	bh=k3cKZHNKkxiMPr147PoKWBfyqUlokFrq1vkTgSjLR2M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=BCdLAaRbUhLJZE0yjvfo44pq6kTbR5XON2H4wcewN+EtmS+2Tjm2tRLuWee60Wddh
+	 HvbKJpKRdqnu7TY7jk4hAphw9smS28PAjm9/jBkfaSTg9Is2vO+M3bvvls+ErCMd+u
+	 NVYaNhQQ1ovkQo0XTlw9JfDzTwZW54Lg82E10CvL5KCWmxAqMD/xw0LEeu7O0kQ+CV
+	 BdrwAsPxqf331Jio+jdWyqGkGWe4yqe7QcoZM3CuoNkqVYTHe4G5IYAOqBiS5DPysW
+	 wrZUsc0f3BpyeKqEhPaD2x7ozsF82Ew1pmIRf7e8lY9LkWEWIlJD72fQ4HYnhX7+vZ
+	 gqiaIzQ+oEDmg==
+Date: Wed, 22 Jul 2026 12:34:42 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Chenguang Zhao <chenguang.zhao@linux.dev>
+Cc: nbd@nbd.name, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ netdev@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Chenguang Zhao
+ <zhaochenguang@kylinos.cn>
+Subject: Re: [PATCH net] net: ethernet: mtk_eth_soc: pass eth to
+ mtk_handle_irq_rx in poll_controller
+Message-ID: <20260722123442.0434e14a@kernel.org>
+In-Reply-To: <20260717022339.301914-1-chenguang.zhao@linux.dev>
+References: <20260717022339.301914-1-chenguang.zhao@linux.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|MN0PR12MB5906:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6c16df1-86be-4cca-513a-08dee827c788
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|6133799003|11063799006|10067099003|56012099006|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: ZEF502ZqI6ZpATaGMZ9KYiQmgxpBRgNQmjE7JaU7aWcKS1qNZcKxAqHPeh8VBNvmOTaDt7TojFMj3c9vpW37grhtKhno9y7oyG6xRERnYjRYTIZnKFbd3RzSaNtQfu9d8gSccnzAHsiBMxmpyZpertpTolRkIHl9jtKQ3Yqd/0TMw8cik/reRtvtihxt6Cm1vUWrFq1j3UgAxg+6h37ReoJMBauGHi8GAYHyhzMyAks8U7DemoUGTeCFYglR8QsrFkKefnBXDPm64y1Qy66inZDj3wVdlV7V6LEv1osIPVbs/GtstOS3Je/MLw5/M6DBtX/Qi4IEHWAg2Aux8aWd3XGAr0mDtBeV87JZc31XyikPM23A1CoTC7MAxz5YP0OwYXZB5GzbbrbIzHqawyxDwg4tDBi0bziCp9+S5p8TCoX+owAEsHeP8mSYgu62uPY0D1YkP2phO4TKljMcl9JOVMbcVp5WOVSsSFmP8aSHPPCBEXv29ENDUZSbTc6bKZiQX8LfzZKQO0oVctL4uLBHPEOGQygmqYx85KLf2QTskoj6IACKJ8Q2csbCx9mZIPIjTWzqPhAlkHHe8nN+Ze6j///UbnyHM0lTgrl6PQ7kih/VOK83ipDURG1dlMRa02KnrN1kGdWYFomyTiGQFOCjZX2Qgja4U65fTgQ4YEukAsLHWzZK2cjsn4ceRRYvm9mtDqk5K+EfrK6nAdf/N4498w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(6133799003)(11063799006)(10067099003)(56012099006)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?otIvzF09iBbzcHD7+B+EO7qXo9+x7YxB9aJD/zjDjY/6MVjpKJnPFSw+xKrn?=
- =?us-ascii?Q?zLNJusjbgbP9Uqz8ERrGI6xLwHMybOYz72j+gE+rlBik6XDeCQhdBUpdQAlO?=
- =?us-ascii?Q?U58jqkBjSBlDqJ6bLVvn7Bj95SnpXo2EtG8/X2CycQjFdacICLD1+0FA+vbB?=
- =?us-ascii?Q?7lt5yefBmeGJRGYe1lUEImU8RdzenTuzpyGZOhWI4VWyOAr1JYzofpCD43dO?=
- =?us-ascii?Q?2YggB1rFV/xLNWEiluCWL3CRSSNJvC1kXe/97bRr7HgsYm5ypNi6zrsQ8YSa?=
- =?us-ascii?Q?ymw1uM6krZq99Folhu0DPrsFmUhpAoEDEst/Hu80hSCHe28u0JsfE/ltu1P2?=
- =?us-ascii?Q?GJjlWEsCKwXuiwSL7kvyx3r1zLB9ExD+XyTDIYfvuK1mmT1aAYCDHtzFTSx0?=
- =?us-ascii?Q?4Tzw9pZ/TYPgDV3pFoqaRVscn2myKGnzWEMJ2GQ2+aGJmGsC/C3vA153X7Yf?=
- =?us-ascii?Q?d+8Lvw4X2h3zd/1hwYIMCOoY8tPcOpt5xEJP/SjMJsc7vqG8BmrSxzrtxV9E?=
- =?us-ascii?Q?boW0Hh1dbbmOzy2qRL6petVXUyUM/tAOlQJ9c8NP37QNUzeMHfZsZfkbmgs6?=
- =?us-ascii?Q?o1reFao2tyIFSWNKrurHMJdxbeV0H6ihngjcNRkIKAcYYT5EHvq/4Am3b5Jm?=
- =?us-ascii?Q?1lJkXGSKEkimGI4CdIpBgGC5xPudhoS1sjr3kVWccpyEuOJe7sq8hGAXh+U8?=
- =?us-ascii?Q?a4xllUlySNkz+J4qk8JXCbnSPP+d+xf5OFOW4UNJc6Es6lWmTiy8Iv7HtuU2?=
- =?us-ascii?Q?u9SrW9VHXWYUP7NskgeccpuJLACIfwYbSlQn9Gzadg7hHXw5PDlkCO2oenMa?=
- =?us-ascii?Q?lxSy0AsILOiPSbRm4xWdei6yjpeJiOJYi93HaI4Jmuvwoc0bdyz7WqBGkFUN?=
- =?us-ascii?Q?JvcSYLuNvlWgcrMLs4xMCXdwtTCceX9ggMyNKuH4T//AMTM8OYIF1IYCSEOr?=
- =?us-ascii?Q?l2jU20pcBi2QvPq+s1kvyP1zXM9ELD0oZA1ZHaRFVED7eV7Ah242L43RBHvf?=
- =?us-ascii?Q?uNhcrPC3f3MU/AFQN7Qu+hOFIO0htllykcCtkkTQGIwDfpKg8K4BXqbfsSYH?=
- =?us-ascii?Q?FW0mWvWmHdGTQPA3dRpvoYkT2YN5VeKM0WzTgcF3ud8cqMsQkCykTRanPxUD?=
- =?us-ascii?Q?75pdsqk5pJQ/YNS1tnunwYSmk9eMlOkRvcK65wzDuqggkqQZ84CBExog8fb7?=
- =?us-ascii?Q?PKrEqxKDVZnY1Ba1anDKGVEz4/6xGpbviqCF8FPP1HrDG75rLn/QbtKnFEYb?=
- =?us-ascii?Q?C47poVIGVTSQ4SzaqyrL/QbMhsxleQe/14jXMyIlOAuApiFsNg5CP2gYq1Ed?=
- =?us-ascii?Q?DNY/7SZxJgTNioCyVF+WAbFLl1s90sAFbAJiK8zi3uRUI9mQH+0TESIp7Eak?=
- =?us-ascii?Q?RPLH83duuwcgvrZuihP/4GWvJWg5A03+G8dMoT9JL5cx7pgz1hpzQTbyfWxe?=
- =?us-ascii?Q?QHv3MnB5b4w6or/t7zlEK3Bn2e1iwHHBEt753WFlCanZUwJeTM1eiYoa7x7Q?=
- =?us-ascii?Q?gTQ1hGJ1jUIR30EaYDJ5SlZ0iMnGnxBU/zSnZdy1RogfFrAiCY48mkuuJW9G?=
- =?us-ascii?Q?u0i/7MG46TtXkIowvALY/AqDSIp+QCcSMcD/Gzca3h7+8A/bIKMPNmgENLdu?=
- =?us-ascii?Q?sX4o3cpU3Q/DutlWcWK88qGtMEKbOr6dJytCx7P01agWQVkKMqlkCVA82L2/?=
- =?us-ascii?Q?q10gaLSDX644FLmMe9iMKSETLsu2YyO+WgdzpwwL9bCHc4rhlu6RpSqZjsYW?=
- =?us-ascii?Q?bLJCbtFxQA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6c16df1-86be-4cca-513a-08dee827c788
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 19:31:08.4673
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l+n7J6gtw2Otrv0Py+0hI8y/Gr2lWAE8eJ+TlTDdOgDm3flQnYITuKW1RDzdn2KsjsMLP5aDP63jxTvDFnD+9Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5906
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_123119_777803_C70678BF 
-X-CRM114-Status: GOOD (  14.49  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,40 +72,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-OK, adding in bitmap-for-next. Thanks everyone for review!
+On Fri, 17 Jul 2026 10:23:39 +0800 Chenguang Zhao wrote:
+> From: Chenguang Zhao <zhaochenguang@kylinos.cn>
+> 
+> mtk_handle_irq_rx expects a struct mtk_eth * (matching the request_irq
+> cookie), but mtk_poll_controller incorrectly passed the net_device *.
+> Calling ndo_poll_controller with CONFIG_NET_POLL_CONTROLLER enabled
+> would then crash.
 
-Thanks,
-Yury
-
-On Wed, Jul 08, 2026 at 10:03:06PM -0400, Yury Norov wrote:
-> Bitmap search functions return a value greater than or equal to nbits when
-> no suitable bits are found. bitmap_find_next_zero_area_off() is an
-> exception: it returns a value greater than nbits.
-> 
-> Align the function with the rest of the API and adjust the affected callers
-> accordingly.
-> 
-> Patches 1-4 are sent only to their respective maintainers and mailing
-> lists. Patch 5 and the cover letter are sent to all recipients.
-> 
-> On top of -next. I plan to carry the series with bitmap-for-next.
-> 
-> Yury Norov (5):
->   ARM: dma-mapping: Treat bitmap size as allocation failure
->   powerpc/msi: Treat bitmap size as allocation failure
->   crypto: ccp: Treat bitmap size as allocation failure
->   media: s5p-mfc: Treat bitmap size as allocation failure
->   bitmap: Return size when no zero area is found
-> 
->  arch/arm/mm/dma-mapping.c                            |  4 ++--
->  arch/powerpc/sysdev/msi_bitmap.c                     |  2 +-
->  drivers/crypto/ccp/ccp-dev-v3.c                      |  2 +-
->  drivers/crypto/ccp/ccp-dev-v5.c                      |  6 +++---
->  drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr.c |  2 +-
->  include/linux/bitmap.h                               |  3 +++
->  lib/bitmap.c                                         | 10 ++++------
->  7 files changed, 15 insertions(+), 14 deletions(-)
-> 
-> -- 
-> 2.53.0
+missing sign-off and fixes tags
 
