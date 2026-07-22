@@ -4,98 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2433DC4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94654C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivYBWU5cN/JEQ/dOoSRXx/VTuv2YZc+EvRKHLDz+SQA=; b=s+QLSVT7aTNxghNuTTAOmK3TPD
-	LCikGLK4C2b6es2SWn2GnYG3mP3SD88uOBfAVjbklmMrB9feIKb4Pa5qqLlCNvOKJ5TX1mNZQdiVT
-	36k7mY2uBOA6+q43yztEq/5KwAxnE0/f1moB8YBD4HBPeUGGnBSW/K/vMim7aDcWCy6KxM2j3bdET
-	ciz/SAn1CcgxXcy0+wYRrnfnJe1SzHjnSAx4/C9K/QIhidcd9+dN+ek+6BV4nPmY0w04lq7g/J1bU
-	bkpdQURsmwcQAWXEEhE86oqGUKOddAAGQ644/S6+VGcQJQsAN8evN3oQeZoBxV1j1h/StkFoUfmNa
-	E3P4Z68A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n2UyvVxwi6nb8Gck/NJhelSg7PUIFLLdwXt/Q4oFRJI=; b=KhISlZOKrk+SWzefKrnZ9GVipZ
+	H3JYRCSI18WOcgwqrnmcXpcVm0mpciNhopDOKuq1p1V6vnIR8TW2m3FoAG82j67yFSFo5HYgla/DH
+	G3PxlKtld15/9b029/M8F3xHv1NS1nKQou9d2/IVM6d5TmOqKgdBuJC/j3q/1/Qrm/+SJZeCf2E69
+	pJesXXulbExRCU3tfZfPyAQOnX8nz8oKXvThzTpKOVhHKCFMp1/Wx5YzmR4VbyfkMw6/mHo7KqYIx
+	7s4LqXz+irD4oW9IVKinL+MiyVZrnBVGHZ0h9ymkwKXEex0QnKvmp27cIYnayCRott38IRgKIprV/
+	55QUF3PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdO2-0000000Ch3R-05YH;
-	Wed, 22 Jul 2026 20:17:50 +0000
-Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
+	id 1wmdRO-0000000Chmn-3MFC;
+	Wed, 22 Jul 2026 20:21:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdNp-0000000Cgwq-1rBp
+	id 1wmdRN-0000000ChmQ-2505
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 20:17:38 +0000
-Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-6689402c7bfso915496d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 13:17:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784751456; x=1785356256; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ivYBWU5cN/JEQ/dOoSRXx/VTuv2YZc+EvRKHLDz+SQA=;
-        b=BVcBOqR/Nkd3LdnETL31RB1FswcMkwmPXKmoyU3WXHFbn3XgRZnXucco4VZpbMjagd
-         yI/R/IcBGxH7arCcUblaG/HMArjxqdZV1k4VJFtEGTDES1ueydQmN590FeQB54ojMimQ
-         mmJq4vggVJmM6wMRtP3LW3a00Wje8sTbXB8Ydg9JERpFv7q/DDLi3xad3l5gQHWdaVUA
-         cd8K8eFlj/gTyxuU61Zy77LWppTWAz/WpiI7VII856uLgPIBo7JmhcPDbZi4ym+omatO
-         tDvCLVskOQb7ckXr3XD5oLLbMkCVFjl0K2FW8RMHLxO2PaTYhzdLCwhZbkW/kdSUCLvT
-         jrgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784751456; x=1785356256;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ivYBWU5cN/JEQ/dOoSRXx/VTuv2YZc+EvRKHLDz+SQA=;
-        b=sALXxVgBj+zxMDh6hDp+9ZuQjje+smTh/7Sy3dKdl1DiUfOawMSIibfcho52KOpKxD
-         M4ILxjD9qf56FcyXTqLxXjEJFekyIV3clo5LrDdNS/QeG6BnnrMfPHk/+xyWgOmI567G
-         ndQA5jxcs51zwyFhJLA2lPg0xmeS1LoaMsNcnXVy/EVk5H0bb0iq8RKemRHiMf+BX7HR
-         oKGNz+46hYkdvevSIi8OEA2+/Idrdik7KqigwBvPnd+Hl+vO4XsQEMSg9InMVW4QncQQ
-         AO8ldf7T7aTIP11yVIESO2FO64Qq8joDMbxo4NzL9arAX56+MIoOJEWujIbORDQJygQg
-         +c5Q==
-X-Forwarded-Encrypted: i=1; AHgh+Ro7r554ctvFekDI4qgKziJpc8wIL7OOOHdV5dkR18rUBtCwybc3JeDGntyoZNlX0VwheNQmz2bnYXYs7nCXdpvV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO/XZQ/FFlmRpmNjNO/64saeA0ZnNlbDWT0l5cmUPLIQ55sEUo
-	nDQfspBNQCexQqhD/bMvtXk0U8OqGLVJRw5jA1Fv0WKWQFAtIpCesDum
-X-Gm-Gg: AR+sD10DyKMVDY/MW95lvJQAIh/+pul930VqJ0YMZz6L7OI3D4Zc2f1Mut7KLVF8Jss
-	iA0bWIkf4U2vAEddorPvFeTMszUcyatpIDCx2W7lpXkjSmMfO8KMQFiwII7q23beGRpxProWxFa
-	Gk7NrmNk4qrUeWnySdlNQUpfhBlClzF/DBf85yKcA5YivHCkRf53VxkEywYKvhM/xaMuUINfG8t
-	O+6+pPh/KV9lqO27d7YR/Vbgp1oSz3HXq8T33u3iivk/hyn+BRo2Gzhr66Po8bGYDifW8OyGE1o
-	xXhy94yNKvuFbo4aP3lCEPyO/ln2bohioXZwpnusermKKL6tattUMs3mYU8H1tQwHaea/dmq5x6
-	D4tv4O3yKHGxOXO8mGTA0oBHT0wp2gy8oP6egvcNVZWWJN4n7/Ao9zrPXtQXED7waBHfFYEHm4N
-	lcfTqAp/JaQvWyAN2oKdbmhHpJUUtEjudzO1zp
-X-Received: by 2002:a53:b083:0:b0:668:9128:28dd with SMTP id 956f58d0204a3-668a4f87cbfmr21361d50.81.1784751456120;
-        Wed, 22 Jul 2026 13:17:36 -0700 (PDT)
-Received: from zenbox ([2600:1700:18fb:6011:4392:41cd:1ce2:e391])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6689056dfbasm1958866d50.9.2026.07.22.13.17.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 13:17:35 -0700 (PDT)
-From: Justin Suess <utilityemal77@gmail.com>
-To: Sean Young <sean@mess.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Wed, 22 Jul 2026 20:21:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D417A40E46;
+	Wed, 22 Jul 2026 20:21:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6EEA1F000E9;
+	Wed, 22 Jul 2026 20:21:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784751676;
+	bh=n2UyvVxwi6nb8Gck/NJhelSg7PUIFLLdwXt/Q4oFRJI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=CzHaLII+nRvAcI3VKD4XImX+tvfNT8mknfqiKBz2jpl6YMPlm+kEyENt/j/1Ncquj
+	 a+cvz27AKn7A1jgBx1oEOJCSZnX5cSO8ZOplLXiK5duv8CDROrm26V197bo3GHJdp2
+	 jZ02vogO40wz4YryYDi2WVlmMvT1gb8jpURWjRfmhHINQTF/hXTCFMa7E3wYrUQ8WK
+	 LeaCz53SdAvMPdfP+/QRflLiyZClHDPjhFfyzi+6e9sSpR8TbSMzMpZ9hArObrq0LO
+	 JgPdlPsSkZEELKvHklr1O7SHTidCUSQd+QvxdmtbhiyiRvHvZiifHVXg2JHnB8dJax
+	 lgJsgo8dvAVlg==
+Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wmdRK-00000007lEN-2ptI;
+	Wed, 22 Jul 2026 20:21:14 +0000
+Date: Wed, 22 Jul 2026 21:22:37 +0100
+Message-ID: <878q72rcz6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Sashiko <sashiko-bot@kernel.org>,
-	Justin Suess <utilityemal77@gmail.com>
-Subject: [PATCH v2 3/3] arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
-Date: Wed, 22 Jul 2026 16:17:17 -0400
-Message-ID: <20260722201717.2205609-4-utilityemal77@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260722201717.2205609-1-utilityemal77@gmail.com>
-References: <20260722201717.2205609-1-utilityemal77@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_131737_485630_1E11EBAC 
-X-CRM114-Status: GOOD (  11.98  )
+	John <therealgraysky@proton.me>,
+	Daniel Drake <dan@reactivated.net>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712 broken EL2 virtual timer
+In-Reply-To: <325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
+References: <20260710080958.491620-1-maz@kernel.org>
+	<325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 91.161.240.24
+X-SA-Exim-Rcpt-To: jonathanh@nvidia.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, therealgraysky@proton.me, dan@reactivated.net, m.szyprowski@samsung.com, florian.fainelli@broadcom.com, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com, linux-tegra@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +89,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The X96Q Pro+ TV box has an IR receiver window on the front panel,
-wired to the SoC CIR input on PL11.
+On Wed, 22 Jul 2026 15:14:39 +0100,
+Jon Hunter <jonathanh@nvidia.com> wrote:
+> 
+> 
+> On 10/07/2026 09:09, Marc Zyngier wrote:
+> > It appears that the bcm2712 SoC found in the relatively popular
+> > RPi5 has a broken EL2 virtual timer.
+> > 
+> > We do not know the reason why the timer isn't working (the timer
+> > is ticking, but the interrupt never fires), and the SoC vendor
+> > doesn't communicate on the reason why this isn't working, leaving
+> > users and maintainers in the dark.
+> > 
+> > Paper over the issue by detecting the broken HW, falling back to
+> > the physical timer instead, and let the user know about it.
+> > Also taint the kernel as the machine is definitely not compliant
+> > with the spec, and we don't know what else is wrong with it.
+> > 
+> > Reported-by: John <therealgraysky@proton.me>
+> > Reported-by: Daniel Drake <dan@reactivated.net>
+> > Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> > Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > ---
+> >   drivers/clocksource/arm_arch_timer.c | 24 +++++++++++++++++++++++-
+> >   1 file changed, 23 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+> > index 4adf756423de9..7b4a98df6962b 100644
+> > --- a/drivers/clocksource/arm_arch_timer.c
+> > +++ b/drivers/clocksource/arm_arch_timer.c
+> > @@ -1090,6 +1090,27 @@ static int __init arch_timer_common_init(void)
+> >   	return arch_timer_arch_init();
+> >   }
+> >   +static bool __init has_broken_el2_vtimer(void)
+> > +{
+> > +	/*
+> > +	 * SoCs described here have been found to be broken, though no
+> > +	 * explanation has been volunteered by the vendor. Let the user know
+> > +	 * we're papering over the vendor's lack of communication.
+> > +	 */
+> > +	static const char * const broken_el2_vtimer[] __initconst = {
+> > +		"brcm,bcm2712",
+> > +		NULL
+> > +	};
+> > +
+> > +	if (of_machine_compatible_match(broken_el2_vtimer)) {
+> > +		add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
+> > +		pr_warn_once(HW_ERR "Known broken EL2 virtual timer, ignoring it\n");
+> 
+> After this change you will now get two warnings; the above and the
+> below. Is this what you want?
 
-Enable the CIR receiver in the RTC power domain and mux its RX
-signal to PL11.
+Absolutely.
 
-Tested on an X96 Pro+ with ir-keytable and nec keybindings with
-the remote that it came with in the box.
+> 
+> > +		return true;
+> > +	}
+> > +
+> > +	return false;
+> > +}
+> > +
+> >   /**
+> >    * arch_timer_select_ppi() - Select suitable PPI for the current system.
+> >    *
+> > @@ -1115,7 +1136,8 @@ static int __init arch_timer_common_init(void)
+> >   static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
+> >   {
+> >   	if (is_kernel_in_hyp_mode()) {
+> > -		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
+> > +		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI] &&
+> > +		    !has_broken_el2_vtimer())
+> >   			return ARCH_TIMER_HYP_VIRT_PPI;
+> >     		pr_warn_once(FW_BUG "VHE-capable CPU without EL2
+> > virtual timer interrupt\n");
+> 
+> 
+> I have posted something similar for Tegra [0], but because this is not
+> expected to work, I wanted to avoid the warnings here. We test for
 
-Signed-off-by: Justin Suess <utilityemal77@gmail.com>
----
- arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts | 6 ++++++
- 1 file changed, 6 insertions(+)
+"not expected to work"? In which parallel universe is that a thing?
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-index a96927fbdadd..1eaee20acaab 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-@@ -266,6 +266,12 @@ reg_dcdc3_323: dcdc3 {
- 	};
- };
- 
-+&r_ir {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&r_ir_rx_pin>;
-+	status = "okay";
-+};
-+
- &r_pio {
- /*
-  * Specifying the supply would create a circular dependency.
+> kernel warnings and ideally we would not warn if is known not to
+> work. We could always display an info level print if it is needed.
+
+No. These warnings are required because the HW is broken, and violates
+the basics of the architecture, which the kernel relies on. That's
+important information that needs to be captured, and that's why the
+kernel also gets tainted.
+
+This applies to any implementation that hasn't been bothered to follow
+the spec. Don't worry, you're in good company.
+
+	M.
+
 -- 
-2.54.0
-
+Jazz isn't dead. It just smells funny.
 
