@@ -4,53 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C241C44536
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0435C4453A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5xR9lfxVBp+1iWG64wonKPk1rj2cn2xQhAXOALOb208=; b=mvcSTFMU9ZFGS1F2B0d90k8ZCc
-	ljJMUA9i3eLE6rR8X3D7FboaXwpp3w8pV92yRTMAigaUPx9EmWwHznNumklJ7NA+H2FUDZsTWQTY0
-	A1skgcY0GRV8nF+Htmcp+5az/u7qkUzpO8xwkw5tsJbQsxG0qbOUr+yYYvuKiIRu2TLuJqVPKvlln
-	ERVDnn2V2ih00q0zXnGQBioZTn5NdplqbMNFxSCTgxgZozjDe5Goiie698q26lJIq4Sg4EZFbhJ+u
-	TPjBEYcjtnhHH3dUntPetCYBS25ERwTOpadmjjj2wD2Sc6wewPzenF9+O53ORHGs1Zni0jHPB7k4H
-	udO/pJTw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Zztw9dliJ8CpVCPBMITrdBqyBV3IdyTXCICScSVRTF0=; b=1Yay6IovHd0/iG
+	jAhuZS9ugqn00lcin82ZHUM4flmdgApcUqdVlUDqeNZgB3EGHwR+hm791EjtFjS6QzrNoWU7EYeIs
+	KJdeW6sFg7WiSpKijC3UQyPshgTvyJXgbF7TnN1kLl58u/i3q5j4TjDisU0zfzPDjeXv1mrXkFezr
+	0Hac4JxT7817GFiL9GYVbWrPU6NZs9qCCAyYffFYEpAKQdov3kAyXJibx4GPmhM1cDxhkQi60SWYH
+	0NiGULa7wk6uPnwBMc979orazZBZ6CKwNn0LKDHHnrLdudailD0w1uZtkbfjtF3/zmEWQh2EiezvI
+	8C7c5r4XFtIUA9JC56aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdns-0000000Ckqr-1YrI;
-	Wed, 22 Jul 2026 20:44:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmdnr-0000000CkpQ-3ctk;
+	Wed, 22 Jul 2026 20:44:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdnl-0000000Ckmp-1Fyg;
-	Wed, 22 Jul 2026 20:44:25 +0000
+	id 1wmdnf-0000000Ckkr-3Q66;
+	Wed, 22 Jul 2026 20:44:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B78EC600AB;
-	Wed, 22 Jul 2026 20:44:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E33DE1F000E9;
-	Wed, 22 Jul 2026 20:44:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3990D41420;
+	Wed, 22 Jul 2026 20:44:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 940771F00A3D;
+	Wed, 22 Jul 2026 20:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784753064;
-	bh=5xR9lfxVBp+1iWG64wonKPk1rj2cn2xQhAXOALOb208=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=b/RiO+ACph5jy/GuoCKfUzOkaOZhf103zUoAvFgpXzNXOgiCLE5PprER53Pk0s2Y/
-	 kYp/0IdU2XD6WedoeFXNSe0LfcH5xkezKfx8vUmWUG1mlfjOJcU/SkXirOnFrBS5Qz
-	 8KZ6Ds1n5j1XiggVmhLGCSQgBRycJL+oz9dOhJ60sjWV+aOXLGafX2VijnnyvChDHF
-	 P0/DWHVnV6NQXXawLGjYazMboFdXNvsa1NMxpQb7DeqVqhO+0o7kTgKG0tOHurqGMZ
-	 jqF6LenxvIsq+3kxg5Q9nKK15yIqyOmHbMZwZ9M0bvRdjl1gcEbHKHZjFZZ+7s88Rn
-	 7Z3ymiUYJ4LcQ==
+	s=k20260515; t=1784753059;
+	bh=Zztw9dliJ8CpVCPBMITrdBqyBV3IdyTXCICScSVRTF0=;
+	h=From:Subject:Date:To:Cc;
+	b=eYk0EA9PiwzK+JZ/AU+PF91SmVSKKHHpjucfjA0mvDORmw6zRC7MfdsjNiwZSAuyH
+	 Z6hrgA7hsKLT+ZrNskVvsbOYpcr4feAIisPO9zuZUlDowQZuMZ1KAZJ/+M4FQP/yfU
+	 LiX+eCYUskhbn51HawadM5dbuJ70wbrBShvRx2uWwlBjqzdP22p4UACrDsGAFxE0F+
+	 rW19rNcyS+lTuXxzEXzdcwqY0U3mtc9c+6S8/ecZSt9EsmsuPkuxVvz+oNr1pxFoIV
+	 p+0St/cE12qmvNQ7JFARaN85qASNMxQ5xXBCCq69AKwb0z0j3lHbFWYhf8TAX5OtAP
+	 ZJq5RSOLAwqzQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 22 Jul 2026 22:44:01 +0200
-Subject: [PATCH net-next v10 2/3] net: airoha: fix ETS QoS stats counter
- underflow and cross-channel corruption
+Subject: [PATCH net-next v10 0/3] airoha: add the capability to configure
+ GDM3/GDM4 as WAN/LAN on demand
+Date: Wed, 22 Jul 2026 22:43:59 +0200
+Message-Id: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-airoha-ethtool-priv_flags-v10-2-d2562c5dd942@kernel.org>
-References: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
-In-Reply-To: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43Q22rDMAwA0F8pfp6H5bv7tP8YY/iiNGYlKU4IH
+ aX/PpOXeQTMMAgsoSOhB1mwZFzI+fQgBbe85HmqH2AvJxJHP12Q5lQThDOuWX3U5zKPnuI6rvN
+ 8pbeSt8/h6i8LDdp7w2INlpHafys45PuOv5MJVzrhfSUftTLmZZ3L9z51g73+D38DClQyCDy6A
+ d0Ab19YJry+zuWysxtvKdOjeKWM5NF4DwiWHyjRUrZHiUoJtChSFIMBdaBkQwHrUZIyqhlaFwd
+ uB/QHSrUU9ChVqQiQkFlpdTreSjcUdz1KV8rqEDVjSUCIB8r8UoZ1tzKVChKUCElKye2Bsi0le
+ pStFAMVvPLROsQD5RqKd7dylXIRVLLBgFf6D/V8Pn8AmhyGzyYDAAA=
+X-Change-ID: 20260606-airoha-ethtool-priv_flags-b6aa70caa780
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -58,7 +63,8 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: Simon Horman <horms@kernel.org>, 
  Alexander Lobakin <aleksander.lobakin@intel.com>, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Jacob Keller <jacob.e.keller@intel.com>
+ netdev@vger.kernel.org, Jacob Keller <jacob.e.keller@intel.com>, 
+ Madhur Agrawal <madhur.agrawal@airoha.com>
 X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,88 +80,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-airoha_qdma_get_tx_ets_stats() has two bugs:
-- The hardware counters read via airoha_qdma_rr() are 32-bit values
-  but are stored in u64 locals and subtracted from u64 baselines. When
-  a 32-bit hardware counter wraps around, the subtraction produces a
-  large underflow value passed to _bstats_update().
-- The baseline counters (cpu_tx_packets, fwd_tx_packets) are stored as
-  single per-device fields, but airoha_qdma_get_tx_ets_stats() is
-  called with different channel values (0-3). Each call reads a
-  different channel's hardware counter but overwrites the same
-  baseline, corrupting the delta computation for other channels.
+Add the capability to configure GDM3/GDM4 as WAN/LAN on demand when QoS
+offload is created or destroyed.
+Make dev->qdma an RCU pointer so the TX path can safely dereference it
+without holding RTNL.
+Introduce airoha_qdma_start() and airoha_qdma_stop() helpers.
 
-Fix both by:
-- Narrowing the counter locals and baselines to u32 so that 32-bit
-  unsigned subtraction handles wrap-around naturally.
-- Grouping the baselines into a per-channel qos_stats array so each
-  channel tracks its own previous counter value independently.
-- Splitting the delta addition into two statements so the first u32
-  delta is widened to u64 on assignment and the second is added in
-  u64 arithmetic, preventing overflow when both deltas are large.
-
-Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
-Reviewed-by: Simon Horman <horms@kernel.org>
-Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 18 +++++++++++-------
- drivers/net/ethernet/airoha/airoha_eth.h |  7 ++++---
- 2 files changed, 15 insertions(+), 10 deletions(-)
+Changes in v10:
+- Fix a theoretical race condition between tx completion NAPIs moving the
+  net_device between different QDMA.
+- Rebase on top of next-next main branch
+- Link to v9: https://lore.kernel.org/r/20260721-airoha-ethtool-priv_flags-v9-0-9c15d8b71a56@kernel.org
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 41c1a0ffbdd8..aaf2a4717d12 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2482,16 +2482,20 @@ static int airoha_qdma_get_tx_ets_stats(struct net_device *netdev, int channel,
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_qdma *qdma = dev->qdma;
-+	u32 cpu_tx_packets, fwd_tx_packets;
-+	u64 tx_packets;
- 
--	u64 cpu_tx_packets = airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
--	u64 fwd_tx_packets = airoha_qdma_rr(qdma,
--					    REG_CNTR_VAL((channel << 1) + 1));
--	u64 tx_packets = (cpu_tx_packets - dev->cpu_tx_packets) +
--			 (fwd_tx_packets - dev->fwd_tx_packets);
-+	cpu_tx_packets = airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
-+	fwd_tx_packets = airoha_qdma_rr(qdma,
-+					REG_CNTR_VAL((channel << 1) + 1));
-+	tx_packets = (u32)(cpu_tx_packets -
-+			   dev->qos_stats[channel].cpu_tx_packets);
-+	tx_packets += (u32)(fwd_tx_packets -
-+			    dev->qos_stats[channel].fwd_tx_packets);
- 
- 	_bstats_update(opt->stats.bstats, 0, tx_packets);
--	dev->cpu_tx_packets = cpu_tx_packets;
--	dev->fwd_tx_packets = fwd_tx_packets;
-+	dev->qos_stats[channel].cpu_tx_packets = cpu_tx_packets;
-+	dev->qos_stats[channel].fwd_tx_packets = fwd_tx_packets;
- 
- 	return 0;
- }
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index bf1c249255bd..bf44be9f0954 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -553,9 +553,10 @@ struct airoha_gdm_dev {
- 	struct airoha_eth *eth;
- 
- 	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
--	/* qos stats counters */
--	u64 cpu_tx_packets;
--	u64 fwd_tx_packets;
-+	struct {
-+		u32 cpu_tx_packets;
-+		u32 fwd_tx_packets;
-+	} qos_stats[AIROHA_NUM_QOS_CHANNELS];
- 
- 	u32 flags;
- 	int nbq;
+Changes in v9:
+- Rebase on top of next-next main branch
+- Link to v8: https://lore.kernel.org/r/20260703-airoha-ethtool-priv_flags-v8-0-015ba5ac89ee@kernel.org
 
+Changes in v8:
+- Rebase on top of next-next to fix conflicts.
+- Link to v7: https://lore.kernel.org/r/20260701-airoha-ethtool-priv_flags-v7-0-b4153bd44428@kernel.org
+
+Changes in v7:
+- Fix ETS stats accounting in patch 2/3
+- Reset ETS stats accounting in airoha_dev_set_qdma().
+- Link to v6: https://lore.kernel.org/r/20260629-airoha-ethtool-priv_flags-v6-0-86bc600d31bc@kernel.org
+
+Changes in v6:
+- Rebase on top of next-next
+- Add patch 1/3: "rename airoha_priv_flags to airoha_dev_flags"
+- Drop patch 2/3: "refactor QDMA start/stop into reusable helpers"
+- Link to v5: https://lore.kernel.org/r/20260611-airoha-ethtool-priv_flags-v5-0-c11de08486d1@kernel.org
+
+Changes in v5:
+- Add patch 1/3: use int instead of atomic_t for qdma users counter
+- Protect dev->flags with flow_offload_mutex mutex.
+- Introduce AIROHA_PRIV_F_QOS in order to handle better WAN/LAN
+  switching.
+- Link to v4: https://lore.kernel.org/r/20260610-airoha-ethtool-priv_flags-v4-0-60e89cf28fea@kernel.org
+
+Changes in v4:
+- Move back QDMA TX/RX DMA enable to airoha_dev_open()/airoha_dev_stop().
+- Configure GDM3/4 as WAN if GDM2 is not available in ndo_init()
+  callback.
+- Protect qdma pointer in airoha_gdm_dev struct using RCU.
+- Rely on rtnl_dereference() to access qdma pointer in the control path.
+- Add airoha_qdma_start() and airoha_qdma_stop() utility routines in
+  patch 1/2
+- Link to v3: https://lore.kernel.org/r/20260608-airoha-ethtool-priv_flags-v3-1-3e8e3dc3f715@kernel.org
+
+Changes in v3:
+- Do not introduce ethtool private flags support to configure LAN/WAN
+  for GDM3/4 and rely on tc qdisc offload for it instead.
+- Set GDM3/4 ports as LAN by default.
+- Move QDMA TX/RX DMA enable from airoha_dev_open() to airoha_probe()
+  and the corresponding disable from airoha_dev_stop() to airoha_qdma_cleanup().
+- Link to v2: https://lore.kernel.org/r/20260607-airoha-ethtool-priv_flags-v2-1-742c7aa1e182@kernel.org
+
+Changes in v2:
+- Rework airoha_dev_set_wan_flag routine
+- Enable GDM_STRIP_CRC_MASK in airoha_disable_gdm2_loopback()
+- Do not always reset REG_SRC_PORT_FC_MAP6 in
+  airoha_disable_gdm2_loopback() but use the same condition used in
+  airoha_enable_gdm2_loopback().
+- Link to v1: https://lore.kernel.org/r/20260606-airoha-ethtool-priv_flags-v1-1-401b2c9fe9f1@kernel.org
+
+---
+Lorenzo Bianconi (3):
+      net: airoha: rename airoha_priv_flags to airoha_dev_flags
+      net: airoha: fix ETS QoS stats counter underflow and cross-channel corruption
+      net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS offload
+
+ drivers/net/ethernet/airoha/airoha_eth.c  | 268 ++++++++++++++++++++++++++----
+ drivers/net/ethernet/airoha/airoha_eth.h  |  26 ++-
+ drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
+ drivers/net/ethernet/airoha/airoha_regs.h |   1 +
+ 4 files changed, 261 insertions(+), 43 deletions(-)
+---
+base-commit: 88f380ef2304db4c68bc4bf14fc6c1604f6dd15c
+change-id: 20260606-airoha-ethtool-priv_flags-b6aa70caa780
+
+Best regards,
 -- 
-2.55.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
