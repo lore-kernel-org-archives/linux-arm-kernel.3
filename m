@@ -4,154 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B5EC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 01:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3546AC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 01:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i72Smus/MomVi1gL5/IUEiX7dGY4dThFVkcF2vaqwmo=; b=doUaAtyU1vJ3KyOX92RO/VYCyZ
-	TQZwIrGnKOpbv9Lz/9D7wXzCb68+EP8IN/WdYemTzWPtmy+hZgbO7YU9/GpAjcMwXahwaY+M3Paj4
-	fwqx/E2jELPmwQQoN5b0T4KrdYzzA8V7yYbEiVXghAb84t+eINL9qYoyMcdmhRwo5NOqR67OLvr0i
-	epqK3IApqCZLlrhjo/w88NKtCOmoBvFdqcB0tHBurO1VnNKtcxbNlxWAonY5pX4Q+mIuSFr1sx8N2
-	SimW0vJYMPRJBRo9+ZDbhRUut6E7aE6sGgTDHD/PUMBR5aeSu/F0KEXtpkvz5EHawKAd6SMYgjL0V
-	X7TUSG2g==;
+	bh=v/F3Cx1xcn3Z8bkcwc/qbIs6lHXoXeL+G0duvvALM5Y=; b=XUwuMNdgFiazQxb8Y53w/CM6hg
+	u302zbdYwt+RLTWcA1T2+cwMSJo4bqWcfmXfBFycIrh+T2oTkRer/oXxgyGft6zL//LCcjEIJxfVk
+	XTfoV7hKrPySW47Qq8369ZdjcB9xVmgbeSlDJmC+mcBjl2bL6uTM8bd+KjFXWSImIt5BdgNt/pQ/3
+	dT5EaoIDYsoUSXBrlMlpfOHVr3lmqpgSdeRURW1opVLznI+RGJa+grla3zHeVIbeQVx5zv2vbNtys
+	HXEJtruPxZI8LK+PhLie1vlaCLpCUiJ8iRvKvwtWndmdCjX1c9SoAjZZK/cdrgNWn09sxbulY8KXm
+	Mh1bgHCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmM0H-0000000Aj3h-0qzf;
-	Wed, 22 Jul 2026 01:44:09 +0000
-Received: from mail-northeuropeazon11010057.outbound.protection.outlook.com ([52.101.84.57] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wmM2A-0000000AjBc-2N2F;
+	Wed, 22 Jul 2026 01:46:06 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmM0E-0000000Aj3A-1XFo
+	id 1wmM27-0000000AjBE-00Wv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 01:44:07 +0000
+	Wed, 22 Jul 2026 01:46:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X1l6W1QSMR9NgEaA9rc6Lqc57Eu+uHS2F2jbZtYx+rG+QMUlJVk+6PQBuIDcwXCSNuFnmTc1twO3IzDCofoxUUWocFWxByqnGZVxQB0u4pqkawzkg1VYXFGOyS/mb4AM/grxIOCxQG/32EMDl5BnkcxaiictYpTk0uqT9+to/AeOqWvC5lQBrk8D5aQWk4sLo5KwAYai1X5y/CGB1lh5zjIuzIljgxRg/NS81p6JyMLf5kisxko2UhkFsrL6qT9jwt6RFVPBclDTIfjx3rqQmc/GnLUlZKXAXDRjnJDFbky/Ap0hFqk7hSDzCMTkbbG+uGyOWywPN7d32mP0LT4Ung==
+ b=yA4HQhNGUGbUl0REELsgOVBdChLArPeXIDBEV9ZSF18JHnLPDTg+s5Xyr0a3GLvGQrZNirolDSDstHYYNZk3xePJV8ti6dp1io8KQCYfigzJ3gf1sDfnnL3lgxXwULjYTAHgUn8XEXp66fJgNR/n/flpkCxVOiyZqi4GF7Y0Y82opOZuHQPRUJix/eyGX+Svz6Ozdc8hpnUUZXtMvCnWQuifTohzsFlxI3IGQ/LmEcrRr2YWt3v4IHiej2jv0Ee7JrgN7I/lxvqhpl3+0NjKu+SnIooAzuR4rBF/ZqvftYta8DLew6RpFRZOeMbSjSHD4n830bPFl0JHPCn1TaRLAQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i72Smus/MomVi1gL5/IUEiX7dGY4dThFVkcF2vaqwmo=;
- b=g92vew6T8Fs0K0ACYeIkv5IiGDTZAbvxg47qz5RaHfI/vhRgdOwMpKfNbevD8mxLgVPn7P/5wRwt7Dt0ohHIkOL9/uAznNKu2rCsE2jCmQssRXGJvI0Nct6+Q4N29alqgUQgrgQdUzoCyO3v0p/TTz3Dt785JXI+55PlcuRWRZ6mMEkEewK3JZM2vEriXIxFYIarltOtuLYwS9y2cBl4EOdeBtB9k6Nx876ZvViad92OM2C7p3LNf2QKV86Tglyds3x3wooVFsTRtfUNOrnpiGgPTGhmrNYmvVlUow+vtk2S3jgtC0RaiiWWcTv5vAz7y8OmoDPfiI9bofbG9q1ViA==
+ bh=v/F3Cx1xcn3Z8bkcwc/qbIs6lHXoXeL+G0duvvALM5Y=;
+ b=xARl0jCjZrI42h/9iuM0lC0xFVxMj8TJ6rw0x8hGY0Zf4vNFMoWZG9ltUWVu/rqLwpdk3w04n0ro1TofUEOgPjTsVqpH9tMDyamElpPWrOG2OctnNB/+yrWiaCOtlOMf/T5jn/q0awoFjGdfkzw4YGJTp8SRgpq/8G3pE5jR66wdL/rdFzykyR0p4jqkoLuIgS6KhcI2DnDt8HF0YU3Hl8/sm2m9VhLNj/p1vrJBRbqWBhtTSLYaOirIbTWirRf2euUd+PGBiP4G57+bVnWayOMREUVp7sAJvMBxZCI1H8EmakJNrN/5ITKXLp00sWeXtouh8SWeD/cblyK2vlSJXg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i72Smus/MomVi1gL5/IUEiX7dGY4dThFVkcF2vaqwmo=;
- b=CaNYEaa7EVj7j76OA+NCU9moatMdau2mk+umlU6mE7LpCLGU5iQMAlhKmrJxwctQP8HKQvF79eobf1yxvSFzeN76RcBxgJ9dwSJ0Hq3bdjPY77/1CvHLMSS/k3uqgPmCRw6i/utmUOaNJJjlkuoxQ0cAyrBLkNLKRi0z1GDW6PsCL20L43gF/QkLJ8a4SdLAeHH0pTQQhuSFxUXo/1bXEFCb3FgW+V6CA8gPBu55TKNp1vYG1qpKfqtukk3Q4wDlpmsT7Q7SYhzXRVz+SZY95kGKJ3fR9duEmRRET+g+6EI8Xk+7qYb1jxBgo63/ILmEowSRthPIwMkLW+oCrJEnPA==
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by DU0PR04MB9671.eurprd04.prod.outlook.com (2603:10a6:10:317::17) with
+ smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
+ dkim=pass header.d=cixtech.com; arc=none
+Received: from SEYPR06MB6226.apcprd06.prod.outlook.com (2603:1096:101:df::13)
+ by OSNPR06MB8955.apcprd06.prod.outlook.com (2603:1096:604:49d::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 01:43:56 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 01:43:56 +0000
-From: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, "G.N. Zhou (OSS)"
-	<guoniu.zhou@oss.nxp.com>
-CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"c.hemp@phytec.de" <C.Hemp@phytec.de>, =?utf-8?B?U3RlZmFuIFJpZWRtw7xsbGVy?=
-	<s.riedmueller@phytec.de>, Jacopo Mondi <jacopo@jmondi.org>, Loic Poulain
-	<loic.poulain@oss.qualcomm.com>, Bryan O'Donoghue <bod@kernel.org>, Aisheng
- Dong <aisheng.dong@nxp.com>, "G.N. Zhou" <guoniu.zhou@nxp.com>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH v2 3/6] media: nxp: imx8-isi: Fix per-stream reference
- counting for multiplexed streams
-Thread-Topic: [PATCH v2 3/6] media: nxp: imx8-isi: Fix per-stream reference
- counting for multiplexed streams
-Thread-Index: AQHdGXuPHFzBcIsNr0KGD1x+pTp5sw==
-Date: Wed, 22 Jul 2026 01:43:56 +0000
-Message-ID: <AS8PR04MB9080F37BEBE3EB54D861D4DAFAC12@AS8PR04MB9080.eurprd04.prod.outlook.com>
-References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
- <20260720-isi-v2-3-45845bc5d4fa@oss.nxp.com>
- <20260720210346.GD50424@killaraus.ideasonboard.com>
-In-Reply-To: <20260720210346.GD50424@killaraus.ideasonboard.com>
+ 2026 01:45:53 +0000
+Received: from SEYPR06MB6226.apcprd06.prod.outlook.com
+ ([fe80::56e8:777c:d80e:d364]) by SEYPR06MB6226.apcprd06.prod.outlook.com
+ ([fe80::56e8:777c:d80e:d364%5]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 01:45:53 +0000
+From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
+To: Brian Masney <bmasney@redhat.com>
+CC: "mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
+	<sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, cix-kernel-upstream
+	<cix-kernel-upstream@cixtech.com>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v10 2/4] clk: cix: add sky1 audss clock controller
+Thread-Topic: [PATCH v10 2/4] clk: cix: add sky1 audss clock controller
+Thread-Index: AQHdGAa+uATadAQ190WzEUhpNkaxArZ4jFaAgAA5c+A=
+Date: Wed, 22 Jul 2026 01:45:52 +0000
+Message-ID: <SEYPR06MB6226C74C33B3EE124E3E0F2C82C12@SEYPR06MB6226.apcprd06.prod.outlook.com>
+References: <20260720051505.1252774-1-joakim.zhang@cixtech.com>
+ <20260720051505.1252774-3-joakim.zhang@cixtech.com>
+ <al_vGXIW2bP8uGJ5@redhat.com>
+In-Reply-To: <al_vGXIW2bP8uGJ5@redhat.com>
 Accept-Language: zh-CN, en-US
-Content-Language: en-US
+Content-Language: zh-CN
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
+ header.d=none;dmarc=none action=none header.from=cixtech.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|DU0PR04MB9671:EE_
-x-ms-office365-filtering-correlation-id: ca1ed6e5-fced-4108-5eda-08dee792b192
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-traffictypediagnostic: SEYPR06MB6226:EE_|OSNPR06MB8955:EE_
+x-ms-office365-filtering-correlation-id: 0b7aa30e-110f-4752-e7c2-08dee792f70e
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|19092799006|1800799024|22082099003|18002099003|3023799007|38070700021|10067099003|56012099006|11063799006|5023799004|4143699003|6133799003;
-x-microsoft-antispam-message-info: C35ojjwFp1eMvMGraHFpsqIINnLEsMfM5dl0f9A0RzY4BI8bj59Z+G89dx6QheqefkoeJCOJ6KGMqcgPMjYMQfVxO8cPG+w9Jm3bqHMdWA162+OEcDmwrxtVuPrHCBFafmg+VuFafRfSnH6cm0rf1ARAjtR0kREyFfKKT117YYHXGDR4azn/Sv6wOr9KMKfzML1Mfr05PKbSti/JBPLJIdjh9q6+BQlQUCz9NxiQeBZ+b08rl/2Be707BckL8pmui3uxAy5DkBO6zyVLkIuQpbbScu+vD1axjBSvyYz5tNIQsxm4SKIhOyYlL0DWpnfzxc5kfFGPSdK6n1vI1TNUAl9krNeUuwr+kPNo61RilFyg7Rnyx0hd6T8b6rYhdsFU4SXH+UGH9wUVrvFMWDjH52b5y+WGEVXFWmG20isif3OyKgutDSnYDMbBuWzbLEFTEBQTUYjKChgkoU1FIcgiJKF0xZunp8V3UGyCcPq5S6sRRChS+cc8XbAkYncs6OrGfwPKZjmLj6xMgXz5GdtLxnVbX/FMe2oHwhfYdcmUXG6vFfu8NL5IVDEbR2sEa8kvv3+bvT+QO5IrCFP+eTgEwNBQDZ9/e34KOIEkDSFaxwC9FtouK29qTrJiE9J4RPBclQGzVUu85BwDy4PSRm8ReeCIFuNfjtDkIjbtk7D1jIhkD5uFUDSyDYuLOqTuU8xLaylRz9A77e8BLi2+bY5TXa3ZEFICtzVdqUA4/3R2xrI=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(19092799006)(1800799024)(22082099003)(18002099003)(3023799007)(38070700021)(10067099003)(56012099006)(11063799006)(5023799004)(4143699003)(6133799003);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|10067099003|4143699003|56012099006|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: 8vq3M2FfnCM+QCtw6AVy+6FvIoxNbvF+wHvi5JPTQWsJAkC7V6poEIeqSLRKsbZ1oOZAP865NnBl0dlQegRNZXG90fneSkfc8gfTHz335F5PVaCPznNtTRu6t2CMUC3Zv10aOwN6c8F1DxKZi0MqnFQqvV+9FtBFRgEZox7ndET4XvTtAaOaF0YuNBKQElUkkJEHg9yADPnNH/mNJsHWV1jr9R4+Lfwb1/vS4ZRt5utJVkji4CNcuE+RDkoGP6/U1XHA2iba4fWHNp1NLhwGZxOhtYmI6itue8vIAGWa4Oz/djpmK1QzMPvti7wgl8yN4p5uJuMilgoZ29bjYXIFmOa/Ru65fZt5RXF0kCi6eXTma4dDp2i4rCtDQ+avHJUh5MdzpilsK3VqSE4gF7oGqijF7kSXASo9Kki9Bc5kDHPWpO3BewlXbzDx9IOt9nqe1V/+G2FThn2Egv7wujZTCh0DE89IHCINjxgQ/RP6KqsucnOcWgDqLzaaQINvluyiZC00X59vP9MLh7mYwgh0CBHYVbw3gsyjbMzFY5lVknXnlFfhmLV6Q3OHV3Xpgir934i+OLfBKxe/7qU3m4yv2vD/4zoeRd612LirtkrMMWC15pIXiBdpCb7Wur69WbxMCu0gp+WFHce/yJOpZRs5ObQ4+0GuVj7AQ7osPcEiaTAV3GtbZm2Ayzcffy6pCXdXArHiF1FwUc9dUQ5q+5URsw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB6226.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZkZWTEUwRW9sTVozWHBWeEpEeEl6TnY1SWhhSTlTa25aWldIYXA0V25NRjlo?=
- =?utf-8?B?NE9wU1JkQkRKMmFmS0xrQUFOTlBFUk9NZ3BPNC9MbjJ1SCttOXozazk1UXJL?=
- =?utf-8?B?Wm5zTWQwRC9lb0g3MmtnK1RVOUVreGRHU09JZmVSQWtqbHE4OENQd2RmaUoz?=
- =?utf-8?B?a2tCd1pFYWVlejNZSnhNaWpDSDNCdXF2bmFnSEYyVTR6dC94UjZ6QkJ6SXNE?=
- =?utf-8?B?OGNoRm5pd08vL2dndG51WVZoQmZNUWhSd29hVmFOUmhLbkt5WVV3d20wb253?=
- =?utf-8?B?L2xRRHBmVXpRTW9IR0ZncWRTM2JxeEpNbFVYbWJLOTFlM2oxUjRIUXZTNkhK?=
- =?utf-8?B?MWNrQlFOejMySHp0MjE3OUc4RnBTc3Q5RHBUdjRnVW9jSStSck1zeExZWFVh?=
- =?utf-8?B?eVdtTk9za05oQ0MxK09kcUZ1KzdjSzdrTmxja2hYSElMQ294NVIxazBldGU1?=
- =?utf-8?B?cVdqWXo4cGg0NmgrMjIvcitlZmlwaFpacEVJUkhrdVBWeW5UeVc1bUR1Y21a?=
- =?utf-8?B?MGl1c3V2dUV0OXpQNFJQV1VXSE01RG1XQnlVSTFYYmpuTVc3YVNVeFI3VkZz?=
- =?utf-8?B?RlFhenJURDJoTVFzY3Q1TnlCY1FpbFNGTG5YZnV3emlZc3RZeEVINkNDOVVI?=
- =?utf-8?B?bm91ajRuK3orU3FaVjRSMU1BRlZKL3U4VmxhRUQxeGl3MW5XVDJOVzZNT3Va?=
- =?utf-8?B?b2FOMzdTV3F1UEs1QTNic04xeUF6Y2pGL3ZzZW00THVDRk9HN0s3a3l4MjhJ?=
- =?utf-8?B?cnRpbEVCOTdKbTdmTUNRZ3E1bUhpYlArcFRMd2Y3V3o1NWl4ZG1VcFBXSXpy?=
- =?utf-8?B?L3dMNGsxNWtLeHJWcHNwQW5IeGpCR3EyK0syQUUyZHVEYVRzb3BqSHlPVGVa?=
- =?utf-8?B?TGxabnVrME1sVzhWdFFoMm03VzhDd3RYSVhQZzg5WURzNHUzendtVUNSUTNr?=
- =?utf-8?B?cmt2MlNJckI5WEVST0c0bjJMMXM3L1R0WnkzamszeXN5VloxMHFobXFORFd3?=
- =?utf-8?B?bG54RHMva2Y0WnByY3FIbjFmZEowYWlCK3FZdzI2ejJ0dzRuRTFwaG9UZ2FI?=
- =?utf-8?B?M3lsVmIyQ0ZIc0xHbzQ0bkQ0RGR2MTlmRDBpMkt4UFBVckxsa045bnNXZE5P?=
- =?utf-8?B?L05NODUwSktlckZuM05Sc2hMb09yZGgrdmdZeWVLVWZqVmxidkxlVHdVUDlJ?=
- =?utf-8?B?eGJBZ0ZHbW5hcnY2VHVzOXIvOU95N2IvMVFraGlENC9CbWhKM0JQKzdiTEw4?=
- =?utf-8?B?Z1Iwdm40Sjd3cTNNNVExRTNiUDFVYVlJZ3BwaG5wVHIwdmh2cW14dHZoK0Zw?=
- =?utf-8?B?RlF2VTJ2Q2FGcHJrY1Z4ZFVrdWNIZG9TVlNqQzdiVFRuamxSWVRhYUJRUDlP?=
- =?utf-8?B?MHpqVHk2RksxZDJSTmxuU2hnOWRoTnR3R0V1Z0h3dE9WYzlKd0o1MFV5Q21G?=
- =?utf-8?B?SXROd2g5bkdYdTlLTzRDZm85RGlMRS9JNWxub3ppVjN5Rm85OEFlYStEVXVO?=
- =?utf-8?B?U1kzY24wVXJiUEFQY3haWndNSWRIYnM4WjI4Lyt2c3hRVmVodlhaNW1tL1lP?=
- =?utf-8?B?c0xwNnZRL2tKam1mMEwyWm1MeXlJTGYvNHoyc3o4YWZ2Tk1uS3YyMlAyUG5k?=
- =?utf-8?B?MkxjUzVOVGhkZUpmWWE0QnJnQXZ2aXQyUlNjQ1hrR3Q2dGpmd3Nick92VjM0?=
- =?utf-8?B?MHRIckxxcWVGR21NTzNkQWhsZkNFWit1TGJlVTRqZFB5bno1SzNGd0hIbUlO?=
- =?utf-8?B?dzZxNVVkWWRHZUVRaWd4U1pjNkFoOWxuY01MeHBOR0gwNFd1NGE2dFF0MXVG?=
- =?utf-8?B?d1NQTktUelNQZHZQZERWY3VhakVyS2dnT2RpTlRLYWUzT2ZBQ2kra2R6SVIr?=
- =?utf-8?B?RlgvaHRFWmU3RDlodE5aRmFwN1NEZ3lWOU1oWTNxeFB5UWNOMUxid0YzSEww?=
- =?utf-8?B?U0JUVVY5d2ZZdy9JOWphMVJoeWE3cFJyMmZIenVzalM5R3NaTkZOd2FTWUVt?=
- =?utf-8?B?dGZwQWNTMitWZzVxSHA5NGZqVEJYc1JNUjlySlRMUUp5SUdBUWdvL0NTYklT?=
- =?utf-8?B?azlQUklYY1BNQW5melovaUNNOTRGcUtGSTdQRE5lemExUDNSdG9OOVd2d3A3?=
- =?utf-8?B?QTd3WkNJcnhGbW5xeVNTVEJyUUxLcnZ0MTVheG1Ucm53WDF1NTV1cGFCandP?=
- =?utf-8?B?bmxoVTgvZWZHNDRoa2JrSmJSUjA3QWtKZHRXWDBtNXVPNForSDV4MUw5QW1X?=
- =?utf-8?B?d0x1YVhGZzRKVzNITU1JTGEyMG00QXJhdmFSemw1M3gyZCszbzZEbjExWU5L?=
- =?utf-8?B?SVJiMjVUTk45TWNrdmJuSCtsb2FCUHFaMGJBREJwTGNsZjNUYk1GQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?nWY82NHcpTtwYnZqbKWmYUQaE2l4dySM6JK3w9m/uY+o2Gn5XdpUU7YsNr0+?=
+ =?us-ascii?Q?wVDkVsa5M3yi6ckIjog6vPQbTkI4196RuXa8fXwKxwtBwtkyYjP0aHxX1Yw1?=
+ =?us-ascii?Q?VUy2f3QhHuu0ppgBi/m/o4iN5Pqf2QZZPLdbeo51Uhv4p4Ock01vY53gjbQF?=
+ =?us-ascii?Q?L2YX0tCV8+X6irT4IJDq5vIP8W/eawy84QD/eGL9M8Oae9oa7QiWcNQy+vLW?=
+ =?us-ascii?Q?0z/l7OAkgxYXBLNm/8gAFLFBSv2bX2ZMZzvaCRXTlcQTvajSBc5cyfQ2jku7?=
+ =?us-ascii?Q?7fOqQ+yrxYammla9CYe9z8QG7EuCna30V7JPTHFYL8UrrBOz/TH9+Y0OA05b?=
+ =?us-ascii?Q?dnDOc1/V+mIs/eWQjPBSqLnNKec4CQK29JTMaOoEeFkVbTxQMRq3cEz2cVem?=
+ =?us-ascii?Q?lvLdAVCbn1iMTEmBHvnnzS2fUK41zCdA+hL7G+b4WQ29FC9z367Qm90hR8IQ?=
+ =?us-ascii?Q?KsxR6VQ++zwVFz9+RIPzo4PD741yPgSOyV0msNWcdooArqPSiO4U7Xdm6ek2?=
+ =?us-ascii?Q?l1ly1INGfi0hGN7pvWSwKO/HywyH5OpzKSnIDxPBJlAMV21DnP+dY4UHRFbS?=
+ =?us-ascii?Q?wbyKFTTFotz3gkT0j7OQDvXlTb53huTkYrx4F6XSFi85nO+SGVjCBNnb4XQv?=
+ =?us-ascii?Q?PTzhqbU8ybveqLwBuhQTlQu2sdJdrIHel14VtmPFdBN45dIjzLBAHEw4X751?=
+ =?us-ascii?Q?Ql7JmUegj+ACYYXBvNbvWrDRM2gMWfNIaC0FthQ0ZnptdDIhX+ylMSv4JOgK?=
+ =?us-ascii?Q?/KchWxKUfWZtbDwuv3MJE+wR78hGLQK2B56/pOPqfiNtzoeSqt1qksYEpCoF?=
+ =?us-ascii?Q?XjTabzXKhUWNYM9aH64kWJTgu35QO/my80rbFmPPJdFE8UEmzlrpmcmNk4/s?=
+ =?us-ascii?Q?4JQYaJoSJRzNqcyGmAgMwTKJhhVkpxsz4u8YuZjTKtlf/071yB5u0O71WErw?=
+ =?us-ascii?Q?9gLSkdk6VLpyCY7dljF18oys2bOoI219PJIfMuJwIbShWhtbfbJt1ICELEv4?=
+ =?us-ascii?Q?K0BfcDT07IxeBLM/ulTLsfvf9VOfMQtRfF0SpnWhGHjctSLGW2c5r++jVYam?=
+ =?us-ascii?Q?ELB3aqHlTayOwKg5+tkKHv8Iofmds0yw0MDVNsEAVNBmSRKyDSoXzsWsh9q+?=
+ =?us-ascii?Q?U9YD01tr05uxxOllbRkV+faT1mZlAJcq/LFOFMT4XTA/am1rAgIBRLRJL/YD?=
+ =?us-ascii?Q?P7WuHqyLAi2tFpgQ7Bywx2iU6yMU+N8jeHRXfTEhqFJzBf9iea3++Lc8dS/X?=
+ =?us-ascii?Q?k0T9H/0WQ3DsfVNpm35r7LIJHP03hVE0xAXE823fJy7FQ58RSABTAv6so1Cb?=
+ =?us-ascii?Q?crT4yd9AYr4iZG0f5sxjPJP+zQpf2Vmh3mAW7LBYtb8GimqJEqR1c6K8IlMn?=
+ =?us-ascii?Q?u3gC+o6pIgRQxVgtoU6hkLFEjNnKi6AlG/sLsDhvm1tQnbAN36/y45g4pWI2?=
+ =?us-ascii?Q?yKqBVkQ6K4BlV3pCK8qXa/bNQ9BZq0wV9P868inMh7Abz+KtSgoTG+fcSjUr?=
+ =?us-ascii?Q?jgRn+uHugUNc/mEP+OfTgZn0IaXGJDEJ7x4PkCm5Bh5JSn8bIAKBDLCOl3Rk?=
+ =?us-ascii?Q?Cp0RnqWtLOCSyy1lHOHuzOdCZV9fmiHtNPNgoWIS41ibN+s8LJf0zoRpDeoL?=
+ =?us-ascii?Q?24XuLfV0w+LlGKcwKevszG6QwMEiSSSWNoXbq1xi99g/EtUsC4Jf8rTbcER2?=
+ =?us-ascii?Q?rC5Lg1QFPX0giAsT29xr5U6GTIq4QW6Lgp159gdxa2aTtWr6hIA0Kyy+n9xS?=
+ =?us-ascii?Q?mwpq4I/0kA=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
+X-OriginatorOrg: cixtech.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca1ed6e5-fced-4108-5eda-08dee792b192
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jul 2026 01:43:56.2843
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB6226.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b7aa30e-110f-4752-e7c2-08dee792f70e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jul 2026 01:45:52.8990
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: vAzm/TnJXErmCvc+T9qZLv/Tpt3ffpfvCLti9M83FkANv+1AzbUUEyf8TnWRg9pTaUEgjYX1b9jEMHsCoSdxKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9671
+X-MS-Exchange-CrossTenant-userprincipalname: rkJi/doP1DvZOn9GBSJj3MUr/jJ5UJS/ovaiPf1Xy3SPpnZvlen+bh9KjIaCy/0D6fi7vWrM1qk4+0EsXkgV5qjXKDdk0KdlM+W4+MrkGFA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR06MB8955
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_184406_548744_A010F816 
-X-CRM114-Status: GOOD (  30.79  )
+X-CRM114-CacheID: sfid-20260721_184603_184823_21EF4CE6 
+X-CRM114-Status: GOOD (  29.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,215 +142,474 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTGF1cmVudCwNCg0KVGhhbmtzIGZvciB0aGUgcmV2aWV3Lg0KDQo+IC0tLS0tT3JpZ2luYWwg
-TWVzc2FnZS0tLS0tDQo+IEZyb206IExhdXJlbnQgUGluY2hhcnQgPGxhdXJlbnQucGluY2hhcnRA
-aWRlYXNvbmJvYXJkLmNvbT4NCj4gU2VudDogVHVlc2RheSwgSnVseSAyMSwgMjAyNiA1OjA0IEFN
-DQo+IFRvOiBHLk4uIFpob3UgKE9TUykgPGd1b25pdS56aG91QG9zcy5ueHAuY29tPg0KPiBDYzog
-TWF1cm8gQ2FydmFsaG8gQ2hlaGFiIDxtY2hlaGFiQGtlcm5lbC5vcmc+OyBGcmFuayBMaQ0KPiA8
-ZnJhbmsubGlAbnhwLmNvbT47IFNhc2NoYSBIYXVlciA8cy5oYXVlckBwZW5ndXRyb25peC5kZT47
-IFBlbmd1dHJvbml4DQo+IEtlcm5lbCBUZWFtIDxrZXJuZWxAcGVuZ3V0cm9uaXguZGU+OyBGYWJp
-byBFc3RldmFtDQo+IDxmZXN0ZXZhbUBnbWFpbC5jb20+OyBjLmhlbXBAcGh5dGVjLmRlOyBTdGVm
-YW4gUmllZG3DvGxsZXINCj4gPHMucmllZG11ZWxsZXJAcGh5dGVjLmRlPjsgSmFjb3BvIE1vbmRp
-IDxqYWNvcG9Aam1vbmRpLm9yZz47IExvaWMgUG91bGFpbg0KPiA8bG9pYy5wb3VsYWluQG9zcy5x
-dWFsY29tbS5jb20+OyBCcnlhbiBPJ0Rvbm9naHVlIDxib2RAa2VybmVsLm9yZz47DQo+IEFpc2hl
-bmcgRG9uZyA8YWlzaGVuZy5kb25nQG54cC5jb20+OyBHLk4uIFpob3UgPGd1b25pdS56aG91QG54
-cC5jb20+Ow0KPiBsaW51eC1tZWRpYUB2Z2VyLmtlcm5lbC5vcmc7IGlteEBsaXN0cy5saW51eC5k
-ZXY7IGxpbnV4LWFybS0NCj4ga2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LWtlcm5l
-bEB2Z2VyLmtlcm5lbC5vcmc7DQo+IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVjdDog
-UmU6IFtQQVRDSCB2MiAzLzZdIG1lZGlhOiBueHA6IGlteDgtaXNpOiBGaXggcGVyLXN0cmVhbSBy
-ZWZlcmVuY2UNCj4gY291bnRpbmcgZm9yIG11bHRpcGxleGVkIHN0cmVhbXMNCj4gDQo+IE9uIE1v
-biwgSnVsIDIwLCAyMDI2IGF0IDExOjM0OjA1QU0gKzA4MDAsIEd1b25pdSBaaG91IHdyb3RlOg0K
-PiA+IFRoZSBJU0kgY3Jvc3NiYXIgZmFpbHMgdG8gcHJvcGVybHkgZW5hYmxlIG11bHRpcGxlIHN0
-cmVhbXMgZnJvbQ0KPiA+IGRpZmZlcmVudCB2aXJ0dWFsIGNoYW5uZWxzIG9uIHRoZSBzYW1lIGlu
-cHV0IHBhZC4gT25seSB0aGUgZmlyc3QNCj4gPiBzdHJlYW0gZ2V0cyBlbmFibGVkIGluIGhhcmR3
-YXJlLCBzdWJzZXF1ZW50IHN0cmVhbXMgYXJlIHNpbGVudGx5IGlnbm9yZWQuDQo+ID4NCj4gPiBU
-aGUgZHJpdmVyIHVzZXMgYSBzaW5nbGUgZW5hYmxlX2NvdW50IHBlciBpbnB1dCB0byB0cmFjayB0
-aGUgaW5wdXQgc3RhdGUuDQo+ID4gV2hlbiBlbmFibGVfY291bnQgaXMgbm9uLXplcm8sIHRoZSBj
-b2RlIGFzc3VtZXMgdGhlIGlucHV0IGlzIGFscmVhZHkNCj4gPiBhY3RpdmUgYW5kIHNraXBzIGNh
-bGxpbmcgdjRsMl9zdWJkZXZfZW5hYmxlX3N0cmVhbXMoKSBmb3IgYWRkaXRpb25hbCBzdHJlYW1z
-Og0KPiA+DQo+ID4gICBDYWxsIDE6IGVuYWJsZV9zdHJlYW1zKHN0cmVhbSAwKQ0KPiA+ICAgICAt
-PiBlbmFibGVfY291bnQgPT0gMCwgZW5hYmxlIGdhc2tldCBhbmQgc3RyZWFtIDAgaW4gaGFyZHdh
-cmUNCj4gPiAgICAgLT4gZW5hYmxlX2NvdW50ID0gMQ0KPiA+DQo+ID4gICBDYWxsIDI6IGVuYWJs
-ZV9zdHJlYW1zKHN0cmVhbSAxKQ0KPiA+ICAgICAtPiBlbmFibGVfY291bnQgPT0gMSwgc2tpcCBo
-YXJkd2FyZSBlbmFibGUgKEJVRyEpDQo+ID4gICAgIC0+IGVuYWJsZV9jb3VudCA9IDINCj4gPiAg
-ICAgLT4gc3RyZWFtIDEgbmV2ZXIgZ2V0cyBlbmFibGVkDQo+ID4NCj4gPiBTaW1pbGFybHkgb24g
-ZGlzYWJsZSwgd2hlbiBlbmFibGVfY291bnQgcmVhY2hlcyB6ZXJvLCBBTEwgc3RyZWFtcyBhcmUN
-Cj4gPiBkaXNhYmxlZCByZWdhcmRsZXNzIG9mIHdoaWNoIHN0cmVhbXMgYXJlIGFjdHVhbGx5IHN0
-aWxsIGFjdGl2ZS4NCj4gPg0KPiA+IEZpeCB0aGlzIGJ5IHRyYWNraW5nIHBlci1zdHJlYW0gc3Rh
-dGUgdXNpbmc6DQo+ID4gLSBlbmFibGVkX3N0cmVhbXMgKHU2NCBiaXRtYXNrKTogdHJhY2tzIHdo
-aWNoIHN0cmVhbXMgYXJlIGN1cnJlbnRseQ0KPiA+IGVuYWJsZWQNCj4gPiAtIGVuYWJsZWRfY291
-bnRbXSAoYXJyYXkpOiBwZXItc3RyZWFtIHJlZmVyZW5jZSBjb3VudGVyIHRvIHN1cHBvcnQgdGhl
-IHNhbWUNCj4gPiAgIHN0cmVhbSBiZWluZyBlbmFibGVkL2Rpc2FibGVkIG11bHRpcGxlIHRpbWVz
-DQo+ID4NCj4gPiBOb3cgZWFjaCBzdHJlYW0gaXMgaW5kZXBlbmRlbnRseSBlbmFibGVkL2Rpc2Fi
-bGVkIGluIGhhcmR3YXJlIGJhc2VkIG9uDQo+ID4gdGhlIGVuYWJsZWRfc3RyZWFtcyBiaXRtYXNr
-LCB3aGlsZSBlbmFibGVkX2NvdW50W10gcHJvdmlkZXMgcmVmZXJlbmNlDQo+ID4gY291bnRpbmcg
-Zm9yIHNjZW5hcmlvcyB3aGVyZSB0aGUgc2FtZSBzdHJlYW0gaXMgZW5hYmxlZCBtdWx0aXBsZQ0K
-PiA+IHRpbWVzLCBzdWNoIGFzIGR1cGxpY2F0ZSBjYXNlcyBpbiB0aGUgSVNJIHN0cmVhbS4NCj4g
-Pg0KPiA+IEZpeGVzOiBjZjIxZjMyOGZjYWYgKCJtZWRpYTogbnhwOiBBZGQgaS5NWDggSVNJIGRy
-aXZlciIpDQo+ID4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcNCj4gDQo+IEFzIGZhciBhcyBJ
-IHVuZGVyc3RhbmQsIG9ubHkgbmV3ZXIgU29DcyBzdXBwb3J0IG11bHRpLXN0cmVhbSBmb3IgSVNJ
-IGlucHV0cw0KPiAocGxlYXNlIHRlbGwgbWUgaWYgdGhhdCdzIGluY29ycmVjdCkuIFRob3NlIFNv
-Q3Mgd2VyZSBub3Qgc3VwcG9ydGVkIHdoZW4gdGhlIElTSQ0KPiBkcml2ZXIgd2FzIG1lcmdlZCwg
-c28gSSBkb24ndCB0aGluayB0aGlzIHNob3VsZCBiZSBiYWNrcG9ydGVkIHRvIHN0YWJsZSBrZXJu
-ZWxzLg0KPiBUaGUgc3ViamVjdCBsaW5lIHNob3VsZCB0aGVuIHJlYWQgIkltcGxlbWVudCBwZXIt
-c3RyZWFtIC4uLiIgaW5zdGVhZCBvZiAiRml4DQo+IHBlci1zdHJlYW0gLi4uIiBhbmQgdGhlIGNv
-bW1pdCBtZXNzYWdlIGFkYXB0ZWQgYWNjb3JkaW5nbHkuDQo+IA0KPiA+IFNpZ25lZC1vZmYtYnk6
-IEd1b25pdSBaaG91IDxndW9uaXUuemhvdUBvc3MubnhwLmNvbT4NCj4gPiAtLS0NCj4gPiBDaGFu
-Z2VzIGluIHYyOg0KPiA+IC0gVXNlIGZpeGVkLXNpemUgYXJyYXkgZm9yIGVuYWJsZWRfY291bnQg
-aW5zdGVhZCBvZiBkeW5hbWljIGFsbG9jYXRpb24NCj4gPiAtIFVzZSBCSVRfVUxMKCkgbWFjcm8g
-Zm9yIHU2NCBiaXRtYXNrIG9wZXJhdGlvbnMNCj4gPiAtIFVzZSBNWENfSVNJX01BWF9TVFJFQU1T
-ICg2NCkgYXMgbG9vcCBib3VuZGFyeSBpbnN0ZWFkIG9mIG51bV9zb3VyY2VzDQo+ID4gLSBSZW1v
-dmUgbXhjX2lzaV9zdHJlYW1fY291bnRlcnNfYWxsb2MvZnJlZSBmdW5jdGlvbnMNCj4gPiAtLS0N
-Cj4gPiAgLi4uL21lZGlhL3BsYXRmb3JtL254cC9pbXg4LWlzaS9pbXg4LWlzaS1jb3JlLmggICAg
-fCAgNyArLQ0KPiA+ICAuLi4vcGxhdGZvcm0vbnhwL2lteDgtaXNpL2lteDgtaXNpLWNyb3NzYmFy
-LmMgICAgICB8IDc2ICsrKysrKysrKysrKysrKystLS0tLS0NCj4gPiAgMiBmaWxlcyBjaGFuZ2Vk
-LCA2MyBpbnNlcnRpb25zKCspLCAyMCBkZWxldGlvbnMoLSkNCj4gPg0KPiA+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL254cC9pbXg4LWlzaS9pbXg4LWlzaS1jb3JlLmgNCj4g
-PiBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbnhwL2lteDgtaXNpL2lteDgtaXNpLWNvcmUuaA0K
-PiA+IGluZGV4IDc1NDdhNjU1OWQ0Yy4uOWFkYmUyZmU3Y2Y4IDEwMDY0NA0KPiA+IC0tLSBhL2Ry
-aXZlcnMvbWVkaWEvcGxhdGZvcm0vbnhwL2lteDgtaXNpL2lteDgtaXNpLWNvcmUuaA0KPiA+ICsr
-KyBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbnhwL2lteDgtaXNpL2lteDgtaXNpLWNvcmUuaA0K
-PiA+IEBAIC0xODQsOCArMTg0LDEzIEBAIHN0cnVjdCBteGNfaXNpX2RtYV9idWZmZXIgew0KPiA+
-ICAJZG1hX2FkZHJfdAkJCWRtYTsNCj4gPiAgfTsNCj4gPg0KPiA+ICsvKiBWNEwyIHN1YmRldiBt
-YXggc3RyZWFtIElEIGlzIDYzLCBuZWVkIDY0IGNvdW50ZXJzICgwLTYzKSAqLw0KPiA+ICsjZGVm
-aW5lIE1YQ19JU0lfTUFYX1NUUkVBTVMJCTY0DQo+ID4gKw0KPiA+ICBzdHJ1Y3QgbXhjX2lzaV9p
-bnB1dCB7DQo+ID4gLQl1bnNpZ25lZCBpbnQJCQllbmFibGVfY291bnQ7DQo+ID4gKwl1NjQJCQkJ
-ZW5hYmxlZF9zdHJlYW1zOw0KPiA+ICsJLyogUGVyLXN0cmVhbSByZWZlcmVuY2UgY291bnRlciAq
-Lw0KPiA+ICsJdW5zaWduZWQgaW50DQo+IAllbmFibGVkX2NvdW50W01YQ19JU0lfTUFYX1NUUkVB
-TVNdOw0KPiANCj4gWW91IGNhbiBzYXZlIHNvbWUgbWVtb3J5IGhlcmUgYnkgcmVwbGFjaW5nIHVu
-c2lnbmVkIGludCB3aXRoIHU4LiBUaGUgY291bnRlcg0KPiBjYW4gbmV2ZXIgZ28gYWJvdmUgdGhl
-IG51bWJlciBvZiBJU0kgb3V0cHV0cywgYXMgc3RyZWFtcyBjYW4gYmUgZW5hYmxlZCBvbmNlDQo+
-IG9ubHkuDQo+IA0KPiA+ICB9Ow0KPiA+DQo+ID4gIHN0cnVjdCBteGNfaXNpX2Nyb3NzYmFyIHsN
-Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9ueHAvaW14OC1pc2kvaW14
-OC1pc2ktY3Jvc3NiYXIuYw0KPiA+IGIvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9ueHAvaW14OC1p
-c2kvaW14OC1pc2ktY3Jvc3NiYXIuYw0KPiA+IGluZGV4IDMyOGQwOGEyNzhlYS4uNjQ1NzZmNmJk
-NDVjIDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbnhwL2lteDgtaXNp
-L2lteDgtaXNpLWNyb3NzYmFyLmMNCj4gPiArKysgYi9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL254
-cC9pbXg4LWlzaS9pbXg4LWlzaS1jcm9zc2Jhci5jDQo+ID4gQEAgLTMzNyw2ICszMzcsOCBAQCBz
-dGF0aWMgaW50IG14Y19pc2lfY3Jvc3NiYXJfZW5hYmxlX3N0cmVhbXMoc3RydWN0DQo+IHY0bDJf
-c3ViZGV2ICpzZCwNCj4gPiAgCXN0cnVjdCBteGNfaXNpX2Nyb3NzYmFyICp4YmFyID0gdG9faXNp
-X2Nyb3NzYmFyKHNkKTsNCj4gPiAgCXN0cnVjdCB2NGwyX3N1YmRldiAqcmVtb3RlX3NkOw0KPiA+
-ICAJc3RydWN0IG14Y19pc2lfaW5wdXQgKmlucHV0Ow0KPiA+ICsJdTY0IHN0cmVhbXNfdG9fZW5h
-YmxlOw0KPiA+ICsJdW5zaWduZWQgbG9uZyBzdHJlYW07DQo+IA0KPiB1bnNpZ25lZCBpbnQgaXMg
-ZW5vdWdoLCB0aGlzIGlzIGEgY291bnRlciwgbm90IGEgYml0bWFzay4NCj4gDQo+ID4gIAl1NjQg
-c2lua19zdHJlYW1zOw0KPiA+ICAJdTMyIHNpbmtfcGFkOw0KPiA+ICAJdTMyIHJlbW90ZV9wYWQ7
-DQo+ID4gQEAgLTM1MCwzMCArMzUyLDQ3IEBAIHN0YXRpYyBpbnQNCj4gPiBteGNfaXNpX2Nyb3Nz
-YmFyX2VuYWJsZV9zdHJlYW1zKHN0cnVjdCB2NGwyX3N1YmRldiAqc2QsDQo+ID4NCj4gPiAgCWlu
-cHV0ID0gJnhiYXItPmlucHV0c1tzaW5rX3BhZF07DQo+ID4NCj4gPiAtCS8qDQo+ID4gLQkgKiBU
-T0RPOiBUcmFjayBwZXItc3RyZWFtIGVuYWJsZSBjb3VudHMgdG8gc3VwcG9ydCBtdWx0aXBsZXhl
-ZA0KPiA+IC0JICogc3RyZWFtcy4NCj4gPiAtCSAqLw0KPiA+IC0JaWYgKCFpbnB1dC0+ZW5hYmxl
-X2NvdW50KSB7DQo+IA0KPiBMZXQncyBrZWVwIGEgc2hvcnQgY29tbWVudCBoZXJlOg0KPiANCj4g
-CS8qIEVuYWJsZSB0aGUgZ2Fza2V0IHdoZW4gdGhlIGZpcnN0IHN0cmVhbSBpcyBlbmFibGVkIGZv
-ciB0aGlzIGlucHV0LiAqLw0KPiANCj4gPiArCWlmICghaW5wdXQtPmVuYWJsZWRfc3RyZWFtcykg
-ew0KPiA+ICAJCXJldCA9IG14Y19pc2lfY3Jvc3NiYXJfZ2Fza2V0X2VuYWJsZSh4YmFyLCBzdGF0
-ZSwgcmVtb3RlX3NkLA0KPiA+ICAJCQkJCQkgICAgIHJlbW90ZV9wYWQsIHNpbmtfcGFkKTsNCj4g
-PiAgCQlpZiAocmV0KQ0KPiA+ICAJCQlyZXR1cm4gcmV0Ow0KPiA+ICsJfQ0KPiA+DQo+ID4gKwkv
-Kg0KPiA+ICsJICogVHJhY2sgcGVyLXN0cmVhbSBlbmFibGUgY291bnRzIHRvIHN1cHBvcnQgbXVs
-dGlwbGV4ZWQgc3RyZWFtcy4NCj4gPiArCSAqIE9ubHkgZW5hYmxlIHN0cmVhbXMgdGhhdCBhcmUg
-bm90IGFscmVhZHkgZW5hYmxlZC4NCj4gPiArCSAqLw0KPiA+ICsJc3RyZWFtc190b19lbmFibGUg
-PSBzaW5rX3N0cmVhbXMgJiB+aW5wdXQtPmVuYWJsZWRfc3RyZWFtczsNCj4gPiArDQo+ID4gKwlp
-ZiAoc3RyZWFtc190b19lbmFibGUpIHsNCj4gPiAgCQlyZXQgPSB2NGwyX3N1YmRldl9lbmFibGVf
-c3RyZWFtcyhyZW1vdGVfc2QsIHJlbW90ZV9wYWQsDQo+ID4gLQkJCQkJCSBzaW5rX3N0cmVhbXMp
-Ow0KPiA+ICsJCQkJCQkgc3RyZWFtc190b19lbmFibGUpOw0KPiA+ICAJCWlmIChyZXQpIHsNCj4g
-PiAgCQkJZGV2X2Vycih4YmFyLT5pc2ktPmRldiwNCj4gPiAgCQkJCSJmYWlsZWQgdG8gZW5hYmxl
-IHN0cmVhbXMgMHglbGx4IG9uDQo+ICclcyc6JXU6ICVkXG4iLA0KPiA+IC0JCQkJc2lua19zdHJl
-YW1zLCByZW1vdGVfc2QtPm5hbWUsIHJlbW90ZV9wYWQsDQo+IHJldCk7DQo+ID4gLQkJCW14Y19p
-c2lfY3Jvc3NiYXJfZ2Fza2V0X2Rpc2FibGUoeGJhciwgc2lua19wYWQpOw0KPiA+IC0JCQlyZXR1
-cm4gcmV0Ow0KPiA+ICsJCQkJc3RyZWFtc190b19lbmFibGUsIHJlbW90ZV9zZC0+bmFtZSwNCj4g
-cmVtb3RlX3BhZCwgcmV0KTsNCj4gPiArCQkJZ290byBlcnJfZ2Fza2V0X2Rpc2FibGU7DQo+ID4g
-IAkJfQ0KPiA+ICsNCj4gPiArCQlpbnB1dC0+ZW5hYmxlZF9zdHJlYW1zIHw9IHN0cmVhbXNfdG9f
-ZW5hYmxlOw0KPiA+ICAJfQ0KPiA+DQo+ID4gLQlpbnB1dC0+ZW5hYmxlX2NvdW50Kys7DQo+ID4g
-KwkvKiBJbmNyZW1lbnQgcmVmZXJlbmNlIGNvdW50IGZvciBhbGwgcmVxdWVzdGVkIHN0cmVhbXMg
-Ki8NCj4gPiArCWZvciAoc3RyZWFtID0gMDsgc3RyZWFtIDwgTVhDX0lTSV9NQVhfU1RSRUFNUzsg
-c3RyZWFtKyspIHsNCj4gDQo+IAlmb3IgKHVuc2lnbmVkIGludCBzdHJlYW0gPSAwOyBzdHJlYW0g
-PCBNWENfSVNJX01BWF9TVFJFQU1TOw0KPiBzdHJlYW0rKykgew0KPiANCj4gYW5kIGRyb3AgdGhl
-IGxvY2FsIHZhcmlhYmxlIGFib3ZlLg0KPiANCj4gPiArCQlpZiAoIShzaW5rX3N0cmVhbXMgJiBC
-SVRfVUxMKHN0cmVhbSkpKQ0KPiA+ICsJCQljb250aW51ZTsNCj4gPiArDQo+ID4gKwkJaW5wdXQt
-PmVuYWJsZWRfY291bnRbc3RyZWFtXSsrOw0KPiA+ICsJfQ0KPiANCj4gRWFjaCBJU0kgcGlwZSBw
-cm9jZXNzZXMgYSBzaW5nbGUgc3RyZWFtICh0aGUgZHJpdmVyIHVzZXMgdGhlDQo+IFY0TDJfU1VC
-REVWX1JPVVRJTkdfTk9fTl9UT18xIHZhbGlkYXRpb24gZmxhZywgYW5kIHBhdGNoIDIvNiBlbnN1
-cmVzDQo+IHRoYXQgb25seSBzdHJlYW0gMCBpcyBhY2NlcHRlZCBvbiB0aGUgc291cmNlIHNpZGUg
-b2YgdGhlIGNyb3NzYmFyKS4gVGhpcyBtZWFucw0KPiB0aGF0IHRoYXQsIGFmdGVyIHRyYW5zbGF0
-aW5nIHN0cmVhbXNfbWFzayB0byB0aGUgc2luayBzaWRlLCBzaW5rX3N0cmVhbXMgc2hvdWxkDQo+
-IGhhdmUgYSBzaW5nbGUgYml0IHNldCwgYW5kIHN0cmVhbXNfdG9fZW5hYmxlIHdpbGwgaGF2ZSBl
-aXRoZXIgMCBvciAxIGJpdCBzZXQuDQoNClllcywgeW91IGFyZSBhYnNvbHV0ZWx5IGNvcnJlY3Qu
-DQoNCj4gDQo+IElmIHRoYXQgZXhwbGFuYXRpb24gaXMgY29ycmVjdCAocGxlYXNlIGxldCBtZSBr
-bm93IGlmIHlvdSBkaXNhZ3JlZSksIHRoZW4gdGhpcyBsb29wDQo+IGNhbiBiZSByZXBsYWNlZCB3
-aXRoDQo+IA0KPiAJaW5wdXQtPmVuYWJsZWRfY291bnRbX19mZnM2NChzaW5rX3N0cmVhbXMpXSsr
-Ow0KPiANCj4gPg0KPiA+ICAJcmV0dXJuIDA7DQo+ID4gKw0KPiA+ICtlcnJfZ2Fza2V0X2Rpc2Fi
-bGU6DQo+ID4gKwlpZiAoIWlucHV0LT5lbmFibGVkX3N0cmVhbXMpDQo+ID4gKwkJbXhjX2lzaV9j
-cm9zc2Jhcl9nYXNrZXRfZGlzYWJsZSh4YmFyLCBzaW5rX3BhZCk7DQo+ID4gKw0KPiA+ICsJcmV0
-dXJuIHJldDsNCj4gPiAgfQ0KPiA+DQo+ID4gIHN0YXRpYyBpbnQgbXhjX2lzaV9jcm9zc2Jhcl9k
-aXNhYmxlX3N0cmVhbXMoc3RydWN0IHY0bDJfc3ViZGV2ICpzZCwNCj4gPiBAQCAtMzgzLDYgKzQw
-Miw4IEBAIHN0YXRpYyBpbnQgbXhjX2lzaV9jcm9zc2Jhcl9kaXNhYmxlX3N0cmVhbXMoc3RydWN0
-DQo+IHY0bDJfc3ViZGV2ICpzZCwNCj4gPiAgCXN0cnVjdCBteGNfaXNpX2Nyb3NzYmFyICp4YmFy
-ID0gdG9faXNpX2Nyb3NzYmFyKHNkKTsNCj4gPiAgCXN0cnVjdCB2NGwyX3N1YmRldiAqcmVtb3Rl
-X3NkOw0KPiA+ICAJc3RydWN0IG14Y19pc2lfaW5wdXQgKmlucHV0Ow0KPiA+ICsJdTY0IHN0cmVh
-bXNfdG9fZGlzYWJsZSA9IDA7DQo+ID4gKwl1bnNpZ25lZCBsb25nIHN0cmVhbTsNCj4gDQo+IHVu
-c2lnbmVkIGludCBoZXJlIHRvby4NCj4gDQo+ID4gIAl1NjQgc2lua19zdHJlYW1zOw0KPiA+ICAJ
-dTMyIHNpbmtfcGFkOw0KPiA+ICAJdTMyIHJlbW90ZV9wYWQ7DQo+ID4gQEAgLTM5NiwxOSArNDE3
-LDM2IEBAIHN0YXRpYyBpbnQNCj4gPiBteGNfaXNpX2Nyb3NzYmFyX2Rpc2FibGVfc3RyZWFtcyhz
-dHJ1Y3QgdjRsMl9zdWJkZXYgKnNkLA0KPiA+DQo+ID4gIAlpbnB1dCA9ICZ4YmFyLT5pbnB1dHNb
-c2lua19wYWRdOw0KPiA+DQo+ID4gLQlpbnB1dC0+ZW5hYmxlX2NvdW50LS07DQo+ID4gKwkvKg0K
-PiA+ICsJICogRGVjcmVhc2UgdGhlIGVuYWJsZSBjb3VudCBmb3IgZWFjaCBzdHJlYW0uIE9ubHkg
-ZGlzYWJsZSBzdHJlYW1zDQo+ID4gKwkgKiB3aG9zZSBjb3VudCByZWFjaGVzIHplcm8uDQo+ID4g
-KwkgKi8NCj4gPiArCWZvciAoc3RyZWFtID0gMDsgc3RyZWFtIDwgTVhDX0lTSV9NQVhfU1RSRUFN
-Uzsgc3RyZWFtKyspIHsNCj4gDQo+IAlmb3IgKHVuc2lnbmVkIGludCBzdHJlYW0gPSAwOyBzdHJl
-YW0gPCBNWENfSVNJX01BWF9TVFJFQU1TOw0KPiBzdHJlYW0rKykgew0KPiANCj4gPiArCQlpZiAo
-IShzaW5rX3N0cmVhbXMgJiBCSVRfVUxMKHN0cmVhbSkpKQ0KPiA+ICsJCQljb250aW51ZTsNCj4g
-Pg0KPiA+IC0JaWYgKCFpbnB1dC0+ZW5hYmxlX2NvdW50KSB7DQo+ID4gLQkJcmV0ID0gdjRsMl9z
-dWJkZXZfZGlzYWJsZV9zdHJlYW1zKHJlbW90ZV9zZCwgcmVtb3RlX3BhZCwNCj4gPiAtCQkJCQkJ
-ICBzaW5rX3N0cmVhbXMpOw0KPiA+IC0JCWlmIChyZXQpDQo+ID4gLQkJCWRldl9lcnIoeGJhci0+
-aXNpLT5kZXYsDQo+ID4gLQkJCQkiZmFpbGVkIHRvIGRpc2FibGUgc3RyZWFtcyAweCVsbHggb24N
-Cj4gJyVzJzoldTogJWRcbiIsDQo+ID4gLQkJCQlzaW5rX3N0cmVhbXMsIHJlbW90ZV9zZC0+bmFt
-ZSwgcmVtb3RlX3BhZCwNCj4gcmV0KTsNCj4gPiArCQlpZiAoIShpbnB1dC0+ZW5hYmxlZF9zdHJl
-YW1zICYgQklUX1VMTChzdHJlYW0pKSkNCj4gPiArCQkJY29udGludWU7DQo+ID4NCj4gPiAtCQlt
-eGNfaXNpX2Nyb3NzYmFyX2dhc2tldF9kaXNhYmxlKHhiYXIsIHNpbmtfcGFkKTsNCj4gPiArCQlp
-ZiAoLS1pbnB1dC0+ZW5hYmxlZF9jb3VudFtzdHJlYW1dID09IDApDQo+ID4gKwkJCXN0cmVhbXNf
-dG9fZGlzYWJsZSB8PSBCSVRfVUxMKHN0cmVhbSk7DQo+ID4gIAl9DQo+IA0KPiBTaW1pbGFybHkg
-aGVyZSwgdGhlIHdob2xlIGxvb3AgY291bGQgYmUgcmVwbGFjZWQgYnkNCj4gDQo+IAlpZiAoLS1p
-bnB1dC0+ZW5hYmxlZF9jb3VudFtfX2ZmczY0KHN0cmVhbSldID09IDApDQo+IAkJc3RyZWFtc190
-b19kaXNhYmxlIHw9IEJJVF9VTEwoc3RyZWFtKTsNCj4gDQo+IEFub3RoZXIgb3B0aW9uIGlzIHRv
-IHN0b3JlIHRoZSBpbmZvcm1hdGlvbiBpbiB0aGUgbXhjX2lzaV9waXBlIHN0cnVjdHVyZSBpbiB0
-aGUNCj4gZm9ybSBvZiB0d28gbmV3IGZpZWxkczoNCj4gDQo+IAl1bnNpZ25lZCBpbnQgaW5wdXQ7
-DQo+IAl1bnNpZ25lZCBpbnQgaW5wdXRfc3RyZWFtOw0KPiANCj4gVGhlIGZpZWxkcyB3b3VsZCBi
-ZSBzZXQgdG8gdGhlIGlucHV0IGluZGV4IGFuZCB0aGUgc2luayBzdHJlYW0gbWFzayBpbg0KPiBt
-eGNfaXNpX2Nyb3NzYmFyX2VuYWJsZV9zdHJlYW1zKCk6DQo+IA0KPiANCj4gCXN0cnVjdCBteGNf
-aXNpX3BpcGUgKnBpcGUgPSAmeGJhci0+aXNpLT5waXBlc1twYWQgLSB4YmFyLQ0KPiA+bnVtX3Nv
-dXJjZXNdOw0KPiANCj4gCS4uLg0KPiANCj4gCXBpcGUtPmlucHV0ID0gc2lua19wYWQ7DQo+IAlw
-aXBlLT5pbnB1dF9zdHJlYW0gPSBzaW5rX3N0cmVhbXM7DQo+IA0KPiBJbiB0aGlzIGZ1bmN0aW9u
-IHlvdSB3b3VsZCB0aGVuIGRvIChjb21wbGV0ZWx5IHVudGVzdGVkKQ0KPiANCj4gCXN0cnVjdCBt
-eGNfaXNpX3BpcGUgKnBpcGUgPSAmeGJhci0+aXNpLT5waXBlc1twYWQgLSB4YmFyLQ0KPiA+bnVt
-X3NvdXJjZXNdOw0KPiANCj4gCS4uLg0KPiANCj4gCXBpcGUtPmlucHV0ID0gMDsNCj4gCXBpcGUt
-PmlucHV0X3N0cmVhbSA9IDA7DQo+IA0KPiAJLyoNCj4gCSAqIENoZWNrIGlmIGFueSBvdGhlciBw
-aXBlIHJlY2VpdmVzIHRoZSBzYW1lIGlucHV0IHN0cmVhbS4gSWYgc28gd2UNCj4gCSAqIGNhbid0
-IGRpc2FibGUgaXQgeWV0LCBzbyByZXR1cm4gaW1tZWRpYXRlbHkuDQo+IAkgKi8NCj4gCWZvciAo
-aSA9IDA7IGkgPCB4YmFyLT5pc2ktPnBkYXRhLT5udW1fY2hhbm5lbHM7ICsraSkgew0KPiAJCXN0
-cnVjdCBteGNfaXNpX3BpcGUgKnBpcGUgPSAmeGJhci0+aXNpLT5waXBlc1tpXTsNCj4gDQo+IAkJ
-aWYgKHBpcGUtPmlucHV0ID09IHNpbmtfcGFkICYmDQo+IAkJICAgIHBpcGUtPmlucHV0X3N0cmVh
-bSA9PSBzaW5rX3N0cmVhbXMpDQo+IAkJCXJldHVybiAwOw0KPiAJfQ0KPiANCj4gCWlucHV0LT5l
-bmFibGVkX3N0cmVhbXMgJj0gfnNpbmtfc3RyZWFtczsNCj4gDQo+IFRoZSBhZHZhbnRhZ2Ugb2Yg
-dGhpcyBpcyB0aGF0IHdlIHdvbid0IGhhdmUgdG8gYWRkIGEgNjQgZW50cmllcyBhcnJheSB0byBl
-YWNoDQo+IGlucHV0LiBJJ20gbm90IHRvbyBjb25jZXJuZWQgYWJvdXQgdGhlIG1lbW9yeSB1c2Fn
-ZSAoZXZlbiBpZiByZWR1Y2luZw0KPiBtZW1vcnkgdXNhZ2UgaXMgYWx3YXlzIG5pY2UsIG1vcmUg
-Zm9yIHRoZSBpbXByb3ZlbWVudCBpbiBjYWNoZSBsb2NhbGl0eSB0aGFuDQo+IGZvciB0aGUgbWVt
-b3J5IHNhdmluZyBpdHNlbGYpLCBidXQgdGhlIDY0IGVudHJpZXMgZmVlbCBhIGJpdCBhcmJpdHJh
-cnkuDQo+IA0KPiBXaGF0IGRvIHlvdSB0aGluayBpcyBiZXN0ID8NCg0KVGhhbmsgeW91IGZvciB0
-aGUgZGV0YWlsZWQgcmV2aWV3IGFuZCBzdWdnZXN0aW9ucyENCg0KSSBhZ3JlZSB0aGF0IHRoZSBz
-ZWNvbmQgYXBwcm9hY2ggaXMgYmV0dGVyLiBTdG9yaW5nIHRoZSBpbnB1dCBhbmQgaW5wdXRfc3Ry
-ZWFtIA0KZGlyZWN0bHkgaW4gdGhlIG14Y19pc2lfcGlwZSBzdHJ1Y3R1cmUgaXMgY2xlYW5lciBh
-bmQgYXZvaWRzIHRoZSBhcmJpdHJhcnkgNjQgDQplbnRyaWVzIGFycmF5LiBUaGUgaW1wcm92ZWQg
-Y2FjaGUgbG9jYWxpdHkgaXMgYWxzbyBhIG5pY2UgYmVuZWZpdC4NCg0KSSB3aWxsIGFkb3B0IHRo
-aXMgYXBwcm9hY2ggaW4gdGhlIG5leHQgdmVyc2lvbi4NCg0KVGhhbmtzIGFnYWluIGZvciB0aGUg
-c3VnZ2VzdGlvbiENCg0KPiANCj4gPiArCWlmICghc3RyZWFtc190b19kaXNhYmxlKQ0KPiA+ICsJ
-CXJldHVybiAwOw0KPiA+ICsNCj4gPiArCXJldCA9IHY0bDJfc3ViZGV2X2Rpc2FibGVfc3RyZWFt
-cyhyZW1vdGVfc2QsIHJlbW90ZV9wYWQsDQo+ID4gKwkJCQkJICBzdHJlYW1zX3RvX2Rpc2FibGUp
-Ow0KPiA+ICsJaWYgKHJldCkNCj4gPiArCQlkZXZfZXJyKHhiYXItPmlzaS0+ZGV2LA0KPiA+ICsJ
-CQkiZmFpbGVkIHRvIGRpc2FibGUgc3RyZWFtcyAweCVsbHggb24gJyVzJzoldTogJWRcbiIsDQo+
-ID4gKwkJCXN0cmVhbXNfdG9fZGlzYWJsZSwgcmVtb3RlX3NkLT5uYW1lLCByZW1vdGVfcGFkLA0K
-PiByZXQpOw0KPiA+ICsNCj4gPiArCWlucHV0LT5lbmFibGVkX3N0cmVhbXMgJj0gfnN0cmVhbXNf
-dG9fZGlzYWJsZTsNCj4gPiArDQo+ID4gKwlpZiAoIWlucHV0LT5lbmFibGVkX3N0cmVhbXMpDQo+
-ID4gKwkJbXhjX2lzaV9jcm9zc2Jhcl9nYXNrZXRfZGlzYWJsZSh4YmFyLCBzaW5rX3BhZCk7DQo+
-ID4gKw0KPiA+ICAJcmV0dXJuIHJldDsNCj4gPiAgfQ0KPiA+DQo+IA0KPiAtLQ0KPiBSZWdhcmRz
-LA0KPiANCj4gTGF1cmVudCBQaW5jaGFydA0K
+
+Hello Brian,
+
+> -----Original Message-----
+> From: Brian Masney <bmasney@redhat.com>
+> Sent: Wednesday, July 22, 2026 6:14 AM
+> To: Joakim Zhang <joakim.zhang@cixtech.com>
+> Cc: mturquette@baylibre.com; sboyd@kernel.org; robh@kernel.org;
+> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de; cix-kern=
+el-
+> upstream <cix-kernel-upstream@cixtech.com>; linux-clk@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org
+> Subject: Re: [PATCH v10 2/4] clk: cix: add sky1 audss clock controller
+>=20
+> EXTERNAL EMAIL
+>=20
+> Hi Joakim,
+>=20
+> A few questions / issues mostly related to pm runtime usage.
+>=20
+> On Mon, Jul 20, 2026 at 01:15:03PM +0800, joakim.zhang@cixtech.com wrote:
+> > From: Joakim Zhang <joakim.zhang@cixtech.com>
+> >
+> > Add a platform driver for the Cix Sky1 AUDSS CRU. The driver maps the
+> > CRU registers and registers mux, divider and gate clocks for DSP,
+> > SRAM, HDA, DMAC, I2S, mailbox, watchdog and timer blocks.
+> >
+> > Four SoC-level audio reference clocks are enabled as inputs to the
+> > internal clock tree. The driver releases the AUDSS NOC reset, enables
+> > runtime PM and instantiates the auxiliary reset device.
+> >
+> > Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+> > ---
+> >  drivers/clk/Kconfig              |    1 +
+> >  drivers/clk/Makefile             |    1 +
+> >  drivers/clk/cix/Kconfig          |   16 +
+> >  drivers/clk/cix/Makefile         |    3 +
+> >  drivers/clk/cix/clk-sky1-audss.c | 1211
+> > ++++++++++++++++++++++++++++++
+> >  5 files changed, 1232 insertions(+)
+> >  create mode 100644 drivers/clk/cix/Kconfig  create mode 100644
+> > drivers/clk/cix/Makefile  create mode 100644
+> > drivers/clk/cix/clk-sky1-audss.c
+> >
+> > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig index
+> > 1717ce75a907..cfcaab39068a 100644
+> > --- a/drivers/clk/Kconfig
+> > +++ b/drivers/clk/Kconfig
+> > @@ -509,6 +509,7 @@ source "drivers/clk/actions/Kconfig"
+> >  source "drivers/clk/analogbits/Kconfig"
+> >  source "drivers/clk/aspeed/Kconfig"
+> >  source "drivers/clk/bcm/Kconfig"
+> > +source "drivers/clk/cix/Kconfig"
+> >  source "drivers/clk/eswin/Kconfig"
+> >  source "drivers/clk/hisilicon/Kconfig"
+> >  source "drivers/clk/imgtec/Kconfig"
+> > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile index
+> > cc108a75a900..87c992f0df54 100644
+> > --- a/drivers/clk/Makefile
+> > +++ b/drivers/clk/Makefile
+> > @@ -119,6 +119,7 @@ obj-$(CONFIG_ARCH_ARTPEC)         +=3D axis/
+> >  obj-$(CONFIG_ARC_PLAT_AXS10X)                +=3D axs10x/
+> >  obj-y                                        +=3D bcm/
+> >  obj-$(CONFIG_ARCH_BERLIN)            +=3D berlin/
+> > +obj-y                                        +=3D cix/
+> >  obj-$(CONFIG_ARCH_DAVINCI)           +=3D davinci/
+> >  obj-$(CONFIG_COMMON_CLK_ESWIN)               +=3D eswin/
+> >  obj-$(CONFIG_ARCH_HISI)                      +=3D hisilicon/
+> > diff --git a/drivers/clk/cix/Kconfig b/drivers/clk/cix/Kconfig new
+> > file mode 100644 index 000000000000..c92a9a873893
+> > --- /dev/null
+> > +++ b/drivers/clk/cix/Kconfig
+> > @@ -0,0 +1,16 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +# Audio subsystem clock support for Cixtech SoC family menu "Clock
+> > +support for Cixtech audss"
+>=20
+> s/audss/AUDSS/
+>=20
+> Or how about spelling out Audio Subsystem Clock Driver
+
+Will change the menu title to spell out Audio Subsystem (or use AUDSS).
+
+> [snip]
+>=20
+> > +static const struct clk_ops sky1_audss_clk_mux_ops =3D {
+> > +     .get_parent =3D sky1_audss_clk_mux_get_parent,
+> > +     .set_parent =3D sky1_audss_clk_mux_set_parent,
+> > +     .determine_rate =3D sky1_audss_clk_mux_determine_rate,
+>=20
+> Does this need an enable/disable for the pm_runtime get/put?
+
+Will comments below.
+
+> > +};
+> > +
+> > +static inline struct sky1_clk_divider *to_sky1_clk_divider(struct
+> > +clk_divider *div) {
+> > +     return container_of(div, struct sky1_clk_divider, div); }
+> > +
+> > +static unsigned long sky1_audss_clk_divider_recalc_rate(struct clk_hw =
+*hw,
+> > +                                                     unsigned long
+> > +parent_rate) {
+> > +     struct clk_divider *divider =3D to_clk_divider(hw);
+> > +     struct sky1_clk_divider *sky1_div =3D to_sky1_clk_divider(divider=
+);
+> > +     unsigned int val;
+> > +
+> > +     regmap_read(sky1_div->regmap, sky1_div->offset, &val);
+> > +     val =3D val >> divider->shift;
+> > +     val &=3D clk_div_mask(divider->width);
+> > +
+> > +     return divider_recalc_rate(hw, parent_rate, val, divider->table,
+> > +                                divider->flags, divider->width); }
+> > +
+> > +static int sky1_audss_clk_divider_determine_rate(struct clk_hw *hw,
+> > +                                              struct clk_rate_request
+> > +*req) {
+> > +     struct clk_divider *divider =3D to_clk_divider(hw);
+> > +     struct sky1_clk_divider *sky1_div =3D
+> > +to_sky1_clk_divider(divider);
+> > +
+> > +     /* if read only, just return current value */
+> > +     if (divider->flags & CLK_DIVIDER_READ_ONLY) {
+> > +             u32 val;
+> > +
+> > +             regmap_read(sky1_div->regmap, sky1_div->offset, &val);
+> > +             val =3D val >> divider->shift;
+> > +             val &=3D clk_div_mask(divider->width);
+> > +
+> > +             return divider_ro_determine_rate(hw, req, divider->table,
+> > +                                              divider->width,
+> > +                                              divider->flags, val);
+> > +     }
+> > +
+> > +     return divider_determine_rate(hw, req, divider->table, divider->w=
+idth,
+> > +                                   divider->flags); }
+> > +
+> > +static int sky1_audss_clk_divider_set_rate(struct clk_hw *hw,
+> > +                                        unsigned long rate,
+> > +                                        unsigned long parent_rate) {
+> > +     struct clk_divider *divider =3D to_clk_divider(hw);
+> > +     struct sky1_clk_divider *sky1_div =3D to_sky1_clk_divider(divider=
+);
+> > +     int value;
+> > +     unsigned long flags =3D 0;
+> > +     u32 val;
+> > +
+> > +     value =3D divider_get_val(rate, parent_rate, divider->table,
+> > +                             divider->width, divider->flags);
+> > +     if (value < 0)
+> > +             return value;
+> > +
+> > +     if (divider->lock)
+> > +             spin_lock_irqsave(divider->lock, flags);
+> > +     else
+> > +             __acquire(divider->lock);
+> > +
+> > +     if (divider->flags & CLK_DIVIDER_HIWORD_MASK) {
+> > +             val =3D clk_div_mask(divider->width) << (divider->shift +=
+ 16);
+> > +     } else {
+> > +             regmap_read(sky1_div->regmap, sky1_div->offset, &val);
+> > +             val &=3D ~(clk_div_mask(divider->width) << divider->shift=
+);
+> > +     }
+> > +     val |=3D (u32)value << divider->shift;
+> > +     regmap_write(sky1_div->regmap, sky1_div->offset, val);
+> > +
+> > +     if (divider->lock)
+> > +             spin_unlock_irqrestore(divider->lock, flags);
+> > +     else
+> > +             __release(divider->lock);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static const struct clk_ops sky1_audss_clk_divider_ops =3D {
+> > +     .recalc_rate =3D sky1_audss_clk_divider_recalc_rate,
+> > +     .determine_rate =3D sky1_audss_clk_divider_determine_rate,
+> > +     .set_rate =3D sky1_audss_clk_divider_set_rate,
+>=20
+> Does this need an enable/disable for the pm_runtime get/put?
+
+Will comments below.
+
+> > +};
+> > +
+> > +static inline struct sky1_clk_gate *to_sky1_clk_gate(struct clk_gate
+> > +*gate) {
+> > +     return container_of(gate, struct sky1_clk_gate, gate); }
+> > +
+> > +static void sky1_audss_clk_gate_endisable(struct clk_hw *hw, int
+> > +enable) {
+> > +     struct clk_gate *gate =3D to_clk_gate(hw);
+> > +     struct sky1_clk_gate *sky1_gate =3D to_sky1_clk_gate(gate);
+> > +     int set =3D gate->flags & CLK_GATE_SET_TO_DISABLE ? 1 : 0;
+> > +     unsigned long flags =3D 0;
+> > +     u32 reg;
+> > +
+> > +     set ^=3D enable;
+> > +
+> > +     if (gate->lock)
+> > +             spin_lock_irqsave(gate->lock, flags);
+> > +     else
+> > +             __acquire(gate->lock);
+> > +
+> > +     if (gate->flags & CLK_GATE_HIWORD_MASK) {
+> > +             reg =3D BIT(gate->bit_idx + 16);
+> > +             if (set)
+> > +                     reg |=3D BIT(gate->bit_idx);
+> > +     } else {
+> > +             regmap_read(sky1_gate->regmap, sky1_gate->offset, &reg);
+> > +
+> > +             if (set)
+> > +                     reg |=3D BIT(gate->bit_idx);
+> > +             else
+> > +                     reg &=3D ~BIT(gate->bit_idx);
+> > +     }
+> > +
+> > +     regmap_write(sky1_gate->regmap, sky1_gate->offset, reg);
+> > +
+> > +     if (gate->lock)
+> > +             spin_unlock_irqrestore(gate->lock, flags);
+> > +     else
+> > +             __release(gate->lock);
+> > +}
+> > +
+> > +static int sky1_audss_clk_gate_enable(struct clk_hw *hw) {
+> > +     sky1_audss_clk_gate_endisable(hw, 1);
+>=20
+> pm_runtime_get ?
+>=20
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static void sky1_audss_clk_gate_disable(struct clk_hw *hw) {
+> > +     sky1_audss_clk_gate_endisable(hw, 0);
+>=20
+> pm_runtime_put ?
+
+No. Runtime PM is handled by CCF: rpm_enabled is set when the provider has =
+PM enabled before registration, and clk_prepare() (as well as set_rate/set_=
+parent) already calls pm_runtime_resume_and_get() on the provider. That run=
+s our runtime_resume before clk ops touch the CRU, so extra get/put in the =
+clk_ops would be redundant. Doing get/put in .enable/.disable would also be=
+ wrong because those callbacks can run in atomic context and must not sleep=
+.
+
+> > +}
+> > +
+> > +static int sky1_audss_clk_gate_is_enabled(struct clk_hw *hw) {
+> > +     struct clk_gate *gate =3D to_clk_gate(hw);
+> > +     struct sky1_clk_gate *sky1_gate =3D to_sky1_clk_gate(gate);
+> > +     u32 reg;
+> > +
+> > +     regmap_read(sky1_gate->regmap, sky1_gate->offset, &reg);
+> > +
+> > +     /* if a set bit disables this clk, flip it before masking */
+> > +     if (gate->flags & CLK_GATE_SET_TO_DISABLE)
+> > +             reg ^=3D BIT(gate->bit_idx);
+> > +
+> > +     reg &=3D BIT(gate->bit_idx);
+> > +
+> > +     return !!reg;
+> > +}
+> > +
+> > +static const struct clk_ops sky1_audss_clk_gate_ops =3D {
+> > +     .enable =3D sky1_audss_clk_gate_enable,
+> > +     .disable =3D sky1_audss_clk_gate_disable,
+> > +     .is_enabled =3D sky1_audss_clk_gate_is_enabled, };
+> > +
+> > +static struct clk_hw *sky1_audss_clk_register(struct device *dev,
+> > +                                           const char *name,
+> > +                                           const char * const *parent_=
+names,
+> > +                                           int num_parents,
+> > +                                           struct regmap *regmap,
+> > +                                           const u32 *mux_table,
+> > +                                           struct muxdiv_cfg *mux_cfg,
+> > +                                           struct muxdiv_cfg *div_cfg,
+> > +                                           struct gate_cfg *gate_cfg,
+> > +                                           unsigned long flags,
+> > +                                           spinlock_t *lock) {
+> > +     const struct clk_ops *sky1_gate_ops =3D NULL;
+> > +     const struct clk_ops *sky1_mux_ops =3D NULL;
+> > +     const struct clk_ops *sky1_div_ops =3D NULL;
+> > +     struct sky1_clk_divider *sky1_div =3D NULL;
+> > +     struct sky1_clk_gate *sky1_gate =3D NULL;
+> > +     struct sky1_clk_mux *sky1_mux =3D NULL;
+> > +     struct clk_hw *hw =3D ERR_PTR(-ENOMEM);
+> > +     struct clk_parent_data *parent_data;
+> > +     int i;
+> > +
+> > +     parent_data =3D devm_kcalloc(dev, num_parents, sizeof(*parent_dat=
+a),
+> GFP_KERNEL);
+> > +     if (!parent_data)
+> > +             return ERR_PTR(-ENOMEM);
+> > +
+> > +     for (i =3D 0; i < num_parents; i++)
+> > +             parent_data[i].name =3D parent_names[i];
+> > +
+> > +     if (mux_cfg->offset >=3D 0) {
+> > +             sky1_mux =3D devm_kzalloc(dev, sizeof(*sky1_mux), GFP_KER=
+NEL);
+> > +             if (!sky1_mux)
+> > +                     return ERR_PTR(-ENOMEM);
+> > +
+> > +             sky1_mux->mux.reg =3D NULL;
+> > +             sky1_mux->mux.shift =3D mux_cfg->shift;
+> > +             sky1_mux->mux.mask =3D BIT(mux_cfg->width) - 1;
+> > +             sky1_mux->mux.flags =3D mux_cfg->flags;
+> > +             sky1_mux->mux.table =3D mux_table;
+> > +             sky1_mux->mux.lock =3D lock;
+> > +             sky1_mux_ops =3D &sky1_audss_clk_mux_ops;
+> > +             sky1_mux->regmap =3D regmap;
+> > +             sky1_mux->offset =3D mux_cfg->offset;
+> > +     }
+> > +
+> > +     if (div_cfg->offset >=3D 0) {
+> > +             sky1_div =3D devm_kzalloc(dev, sizeof(*sky1_div), GFP_KER=
+NEL);
+> > +             if (!sky1_div)
+> > +                     return ERR_PTR(-ENOMEM);
+> > +
+> > +             sky1_div->div.reg =3D NULL;
+> > +             sky1_div->div.shift =3D div_cfg->shift;
+> > +             sky1_div->div.width =3D div_cfg->width;
+> > +             sky1_div->div.flags =3D div_cfg->flags | CLK_DIVIDER_POWE=
+R_OF_TWO;
+> > +             sky1_div->div.lock =3D lock;
+> > +             sky1_div_ops =3D &sky1_audss_clk_divider_ops;
+> > +             sky1_div->regmap =3D regmap;
+> > +             sky1_div->offset =3D div_cfg->offset;
+> > +     }
+> > +
+> > +     if (gate_cfg->offset >=3D 0) {
+> > +             sky1_gate =3D devm_kzalloc(dev, sizeof(*sky1_gate), GFP_K=
+ERNEL);
+> > +             if (!sky1_gate)
+> > +                     return ERR_PTR(-ENOMEM);
+> > +
+> > +             sky1_gate->gate.reg =3D NULL;
+> > +             sky1_gate->gate.bit_idx =3D gate_cfg->shift;
+> > +             sky1_gate->gate.flags =3D gate_cfg->flags;
+> > +             sky1_gate->gate.lock =3D lock;
+> > +             sky1_gate_ops =3D &sky1_audss_clk_gate_ops;
+> > +             sky1_gate->regmap =3D regmap;
+> > +             sky1_gate->offset =3D gate_cfg->offset;
+> > +     }
+> > +
+> > +     hw =3D devm_clk_hw_register_composite_pdata(dev, name, parent_dat=
+a,
+> num_parents,
+> > +                                             sky1_mux ? &sky1_mux->mux=
+.hw : NULL,
+> sky1_mux_ops,
+> > +                                             sky1_div ? &sky1_div->div=
+.hw : NULL, sky1_div_ops,
+> > +                                             sky1_gate ? &sky1_gate->g=
+ate.hw : NULL,
+> sky1_gate_ops,
+> > +                                             flags);
+> > +     if (IS_ERR(hw)) {
+> > +             dev_err(dev, "register %s clock failed with err =3D %ld\n=
+",
+> > +                     name, PTR_ERR(hw));
+> > +             return hw;
+> > +     }
+> > +
+> > +     return hw;
+> > +}
+> > +
+> > +static int sky1_audss_clks_get(struct sky1_audss_clks_priv *priv) {
+> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
+> >devtype_data;
+> > +     int i;
+> > +
+> > +     for (i =3D 0; i < devtype_data->clk_num; i++) {
+> > +             priv->clks[i] =3D devm_clk_get(priv->dev, devtype_data->c=
+lk_names[i]);
+> > +             if (IS_ERR(priv->clks[i]))
+> > +                     return dev_err_probe(priv->dev, PTR_ERR(priv->clk=
+s[i]),
+> > +                                          "failed to get clock %s", de=
+vtype_data->clk_names[i]);
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int sky1_audss_clks_enable(struct sky1_audss_clks_priv *priv)
+> > +{
+> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
+> >devtype_data;
+> > +     int i, err;
+> > +
+> > +     for (i =3D 0; i < devtype_data->clk_num; i++) {
+> > +             err =3D clk_prepare_enable(priv->clks[i]);
+> > +             if (err) {
+> > +                     dev_err(priv->dev, "failed to enable clock %s\n",
+> > +                             devtype_data->clk_names[i]);
+> > +                     goto err_clks;
+> > +             }
+> > +     }
+> > +
+> > +     return 0;
+> > +
+> > +err_clks:
+> > +     while (--i >=3D 0)
+> > +             clk_disable_unprepare(priv->clks[i]);
+> > +
+> > +     return err;
+> > +}
+> > +
+> > +static void sky1_audss_clks_disable(struct sky1_audss_clks_priv
+> > +*priv) {
+> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
+> >devtype_data;
+> > +     int i;
+> > +
+> > +     for (i =3D 0; i < devtype_data->clk_num; i++)
+> > +             clk_disable_unprepare(priv->clks[i]);
+> > +}
+> > +
+> > +static int sky1_audss_clks_set_rate(struct sky1_audss_clks_priv
+> > +*priv) {
+> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
+> >devtype_data;
+> > +     int i, err;
+> > +
+> > +     for (i =3D 0; i < devtype_data->clk_num; i++) {
+> > +             err =3D clk_set_rate(priv->clks[i], devtype_data->clk_rat=
+e_default[i]);
+> > +             if (err) {
+> > +                     dev_err(priv->dev, "failed to set clock rate %s\n=
+",
+> > +                             devtype_data->clk_names[i]);
+> > +                     return err;
+> > +             }
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static void sky1_audss_clk_rpm_cleanup(void *data) {
+> > +     struct device *dev =3D data;
+> > +
+> > +     if (!pm_runtime_status_suspended(dev))
+> > +             pm_runtime_force_suspend(dev);
+> > +
+> > +     pm_runtime_disable(dev);
+>=20
+> Take a look at pm_runtime_force_suspend() in drivers/base/power/runtime.c=
+. It
+> already calls pm_runtime_disable(), so if it's not suspended then there i=
+s a double
+> disable here.
+
+Good catch. pm_runtime_force_suspend() already calls pm_runtime_disable(). =
+I'll drop the extra disable (or only disable when already suspended).
+
+Thanks,
+Joakim
+
 
