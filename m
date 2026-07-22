@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2F0C531BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08452C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qu0m+xAQAt0EQLmRWMyPn4FwJte4pJSptUN/+z4Ekis=; b=jMFP/1XBtr96uwEKJFrQ1XfZtY
-	tDCDVcPNVlC1k96Bk5zLcAJQG5tJN7+Wlzw3crnR8jU2lgMr8FUPBRyxZMDY+1la44NQVZK/MVvuO
-	1/XkNUn8UvAGEg/aI7XFTp27dqdXspIM13LU37S7ikAG7EpDDRQGKt9jTxRKa6blcnd3UNdBn9nou
-	DI85x73S3M3WH1pr+MFgqfcNmjsBq2E7SjIwKO2NJq9MGNZK9MZb6NMdT93oQbMBhLvreW5obL0JV
-	Vg+nw2mS1qyw0ZFwrfKHDEPigmLyTIJHQ7xt1jnK/ZNOCJ1tCySSILfPtx17kTJsMsK4qM/LTvV0W
-	rQNr/nOA==;
+	bh=B3rErr10p9wOACNt+wLol9UrYf5v0rNYumxMy4SRbfs=; b=4I8BLpKIYAaicgiGa1+txWcBjg
+	k9jl+fPs1gvs62uOMCcPkpzqd6gMkYoCAzx4nz+jXW7ye1NfrE/pQ0UJAZzgFI2MR0M8Mu/wrWEKX
+	ilAjrxvddN4c96E060xQjK28wp6/U0DwhMGsw8gHm17UopTYVYCEbIWZVKfZPUzIl0R3gNCFN36it
+	944P0NEs+AvPoEtVg4LQnO5uBh1i/hN20k0eA5RW1ryrq8oIrF2HmbejpL/dJgpm4RIOFGi5hpMkt
+	sA1tAJ6sBn+DOpLLAruBW924a1kixa1o2jTGKIAOVWXiF0090mJFgpQDCO8I8iJvWoAnFK7uxPCJo
+	NRnocFBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdnf-0000000Ckko-05cR;
-	Wed, 22 Jul 2026 20:44:19 +0000
-Received: from mail-106113.protonmail.ch ([79.135.106.113])
+	id 1wmdns-0000000Ckpu-0BXY;
+	Wed, 22 Jul 2026 20:44:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdnb-0000000CkjX-1rll
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 20:44:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
-	s=protonmail3; t=1784753053; x=1785012253;
-	bh=Qu0m+xAQAt0EQLmRWMyPn4FwJte4pJSptUN/+z4Ekis=;
-	h=From:Date:Subject:Message-Id:References:In-Reply-To:To:Cc:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=ode5UeJ5HjsK5Rud7ZUu7Qq+7LjrW8uNG86MpYCDNqhw/71dG3ViAN5PL9wePcn6u
-	 K/qM8q5XrSsnPVzXjJjei3GPsipDvgtMoWEcPhpQd5PntUEmDhekQj8WaYE1++9m6T
-	 QQmbF6mfFpHKB+Jy7akk4NS5X7sAWzZnQyzpPPMGgs5E/PXeGXlXNR697LscA8UKrG
-	 E6H6Mz8bBC47CktU5l+23zM2WmDvVQ+xAGsLQrmKjESWGaqRxp8Ot0lfcEUFVEX2py
-	 sxqYzBfqbgI9Z0Gd2y+AuddbAzIA+al2vay3nkBrf7OYPxu8oOvIr+1+cNm0OmVaql
-	 45R4xE9XAiDxw==
-X-Pm-Submission-Id: 4h55p306d7z1DDp7
-From: Alexandru Chimac <alex@chimac.ro>
-Date: Wed, 22 Jul 2026 23:44:03 +0300
-Subject: [PATCH v3 2/5] dt-bindings: soc: exynos-sysreg: Add Exynos9610
- SYSREG bindings
+	id 1wmdni-0000000Ckm8-3ZtP;
+	Wed, 22 Jul 2026 20:44:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EDCEC600AF;
+	Wed, 22 Jul 2026 20:44:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 242031F000E9;
+	Wed, 22 Jul 2026 20:44:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784753061;
+	bh=B3rErr10p9wOACNt+wLol9UrYf5v0rNYumxMy4SRbfs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=TClIpQjPHfNb2UC+86DccO1ZrMk2+zy5rLUTHbdUN31XdnfQmEyzF0g00UYVJvCt4
+	 FXhV4YAcs5lWiKtyTP2/gpdsVZW7ab/ZGgLSaH0Q2SUFy141vcrOpLy6haasxqnace
+	 6hhwS6L9eGbDYygci9yZTfTRBGHXkgZpaJcVmMhumYjv07vi2jDBbTYnEGPhr/JYiA
+	 AiFqAUMG4h1dchH/GhbOXm4fscuN2vH0YcCHEUJpkTTtubdQ3HFcREsOzPasDqLqG0
+	 MaMTXTfHgA9P07wMsqz+1DaUoobIBHqX3iXyFQ8EbvjqU0/peqdI1ZCDe5rMPbRuP7
+	 ez0lmxyiPoqZQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 22 Jul 2026 22:44:00 +0200
+Subject: [PATCH net-next v10 1/3] net: airoha: rename airoha_priv_flags to
+ airoha_dev_flags
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-exynos9610-clocks-v3-2-c672a2a30889@chimac.ro>
-References: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
-In-Reply-To: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Alexandru Chimac <alex@chimac.ro>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
+Message-Id: <20260722-airoha-ethtool-priv_flags-v10-1-d2562c5dd942@kernel.org>
+References: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
+In-Reply-To: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, 
+ Alexander Lobakin <aleksander.lobakin@intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Jacob Keller <jacob.e.keller@intel.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784753044; l=2259;
- i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
- bh=nBnT0ILRGS71445iQQ/k8sTjno21gC0qcL7Lqu3ZheI=;
- b=KhcjUlCc3EaKNQtUETeJwzjGEcuSogP/LFdwuPO/hcUQlVvT0uMEg7j5ScFX6SbzcUMlFVesD
- D/v6Zbsf6bjD+mtwIojkb7zVkTJeS0el+WlQAktBY0QnOjNEeE90c9G
-X-Developer-Key: i=alex@chimac.ro; a=ed25519;
- pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_134416_148301_1C68968E 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +74,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bindings for SYSREG nodes (required for ACG), compatible with the
-standard syscon driver.
+Rename the airoha_priv_flags enum to airoha_dev_flags and the
+AIROHA_PRIV_F_WAN flag to AIROHA_DEV_F_WAN. The "priv_flags" naming
+dates back to an earlier design that used ethtool private flags; since
+this series switched to tc qdisc offload for LAN/WAN configuration,
+align the naming to reflect that these are per-device flags rather than
+ethtool private flags. No functional change.
 
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../bindings/soc/samsung/samsung,exynos-sysreg.yaml  | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
+ drivers/net/ethernet/airoha/airoha_eth.h | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-index fcdb9ffd2644..eb4194cadcd7 100644
---- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-@@ -35,6 +35,16 @@ properties:
-               - samsung,exynos8895-fsys1-sysreg
-               - samsung,exynos8895-peric0-sysreg
-               - samsung,exynos8895-peric1-sysreg
-+              - samsung,exynos9610-apm-sysreg
-+              - samsung,exynos9610-cam-sysreg
-+              - samsung,exynos9610-core-sysreg
-+              - samsung,exynos9610-cpucl0-sysreg
-+              - samsung,exynos9610-dispaud-sysreg
-+              - samsung,exynos9610-fsys-sysreg
-+              - samsung,exynos9610-g2d-sysreg
-+              - samsung,exynos9610-g3d-sysreg
-+              - samsung,exynos9610-peri-sysreg
-+              - samsung,exynos9610-usb-sysreg
-               - samsung,exynos990-peric0-sysreg
-               - samsung,exynos990-peric1-sysreg
-               - samsung,exynosautov920-hsi0-sysreg
-@@ -107,6 +117,16 @@ allOf:
-               - samsung,exynos8895-fsys1-sysreg
-               - samsung,exynos8895-peric0-sysreg
-               - samsung,exynos8895-peric1-sysreg
-+              - samsung,exynos9610-apm-sysreg
-+              - samsung,exynos9610-cam-sysreg
-+              - samsung,exynos9610-core-sysreg
-+              - samsung,exynos9610-cpucl0-sysreg
-+              - samsung,exynos9610-dispaud-sysreg
-+              - samsung,exynos9610-fsys-sysreg
-+              - samsung,exynos9610-g2d-sysreg
-+              - samsung,exynos9610-g3d-sysreg
-+              - samsung,exynos9610-peri-sysreg
-+              - samsung,exynos9610-usb-sysreg
-               - samsung,exynos990-peric0-sysreg
-               - samsung,exynos990-peric1-sysreg
-     then:
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 59001fd4b6f7..41c1a0ffbdd8 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -2039,7 +2039,7 @@ static int airoha_dev_init(struct net_device *netdev)
+ 		fallthrough;
+ 	case AIROHA_GDM2_IDX:
+ 		/* GDM2 is always used as wan */
+-		dev->flags |= AIROHA_PRIV_F_WAN;
++		dev->flags |= AIROHA_DEV_F_WAN;
+ 		break;
+ 	default:
+ 		break;
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index f6d01a8e8da1..bf1c249255bd 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -543,8 +543,8 @@ struct airoha_qdma {
+ 	DECLARE_BITMAP(qos_channel_map, AIROHA_NUM_QOS_CHANNELS);
+ };
+ 
+-enum airoha_priv_flags {
+-	AIROHA_PRIV_F_WAN = BIT(0),
++enum airoha_dev_flags {
++	AIROHA_DEV_F_WAN = BIT(0),
+ };
+ 
+ struct airoha_gdm_dev {
+@@ -667,7 +667,7 @@ static inline u16 airoha_qdma_get_txq(struct airoha_qdma *qdma, u16 qid)
+ 
+ static inline bool airoha_is_lan_gdm_dev(struct airoha_gdm_dev *dev)
+ {
+-	return !(dev->flags & AIROHA_PRIV_F_WAN);
++	return !(dev->flags & AIROHA_DEV_F_WAN);
+ }
+ 
+ static inline bool airoha_is_7581(struct airoha_eth *eth)
 
 -- 
-2.54.0
+2.55.0
 
 
