@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D52C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BE2C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GKC9UuiVWxD/MFzLYjOHg83pmVBtg7m7d81lYjsbO4o=; b=rw7xxHT0WsJGzXnQD9nJKyM4YY
-	pnvQXFdUR/Zfx5RN6geP3xQPVslXtQunJI59uKZop88Q31n8OQUaQaA5g3t1Uzfc3ZEwPuOjW1+bo
-	Y0OlV3SCxRSV/AOKzROIWNWg2HzHu9xN3H4mr9KSr4A+2Y1jGsvu4xoZAD26LSSIQYDv5UMUhOnIN
-	ez6BX03vdzD5B/3CylBcJWy91El4Xl/1Xf4pfCHIxe6BQWW/TG3g7yEmaN/gvg0g/yamdwuYO96yh
-	+OxkH+amEj1hU2wp2I7lXhmDnd2ieFNeuaOVzFL7fGa+dgCGY9w8IypUVpZKfSZ8FZL4fl9NgeFTB
-	6xmVLplg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OoWM7pBOqa18SUex0sYevxYDNDoEu6I4WKgYnrqvYmU=; b=atxXudFAAVvTvj
+	fG7aUMs7sgRogNItsx9vRnZR+87VCmI+qACBEFT7VPiMM+kWB579UIv4SzrWfZu0DIIBiCThW+Ifp
+	q1Ihb1eccWE+XEBhDuqI2ZveKICSwnXzoDWubAEnmqjqs+h8AvNL277ysVbTzriwW1ge+OwZ2Y3dI
+	RtvQ2hSyntDyOeGsg0BipvPR1cg6ZkfkZ74+gMjwjJIn1lzn6jVNvmBcndXxvoz2Z5nfsJtJKsrDd
+	wjRssIzG5MbR9v+KDlQ95YqPo2Rt3wVT2mQQEPFvE1zumYmM+DO8VjKx/Rhgg9eSpfI1DE2jxeDQY
+	fYqNBPlI3u74DPXo7iXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXeC-0000000BzrS-01y7;
-	Wed, 22 Jul 2026 14:10:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXeA-0000000BzrJ-4437
+	id 1wmXeq-0000000Bzw3-0zhX;
+	Wed, 22 Jul 2026 14:10:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmXeo-0000000Bzvc-0Vyo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 14:10:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC99E600AB;
-	Wed, 22 Jul 2026 14:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DE471F000E9;
-	Wed, 22 Jul 2026 14:10:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784729405;
-	bh=GKC9UuiVWxD/MFzLYjOHg83pmVBtg7m7d81lYjsbO4o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FBKZJysHWtyygCrX8kFOgyhfU6JsT4+b8mD57jr1fEBBFHnR1CwvpG9Dej2mjrENQ
-	 TD2HffbkHINJ4F9QFThkAws/a93D69vf8qsp+1OFudLsj9/kL1mJsRgPeyQjm4FNty
-	 h1TIfz/RZoQNSICrYttVQTabtwHH8B9UGM2X/Melqh+gCZzVBOsZ0Wn67GIX53qKB2
-	 dh6yUEVATyElmTWiwdAmoVWfbQ7HOhQzROthiI+RxeDfpcP++ZFV7dKiEyGHlhyvfC
-	 UdZx13hKoS56mTpYZ3zXrgVeE/Bo7Tijz7toMzQkCII+LvDK7l7bx8vC7xqnVZkc7K
-	 pLl2PMKBLjOaw==
-Date: Wed, 22 Jul 2026 09:10:04 -0500
-From: Rob Herring <robh@kernel.org>
-To: Doug Anderson <dianders@chromium.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Joonwon Kang <joonwonkang@google.com>,
-	Subhash Jadavani <sjadavani@google.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Lucas Wei <lucaswei@google.com>,
-	Brian Norris <briannorris@chromium.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 6/7] dt-bindings: mailbox: goog-mba: Add goog-mba mailbox
- bindings
-Message-ID: <20260722141004.GB548057-robh@kernel.org>
-References: <20260714222338.2965707-1-dianders@chromium.org>
- <20260714152138.6.Ia186a29119b4b5c409815b755e0c2c3965b0495f@changeid>
- <8e3025c5-16a0-40d7-affa-098ca37699c7@kernel.org>
- <CAD=FV=Vrd9AxO-NY_CP2h+f21qt4uGY2pOoFgacV+G5bnfd32Q@mail.gmail.com>
+	Wed, 22 Jul 2026 14:10:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3977C1595;
+	Wed, 22 Jul 2026 07:10:40 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD39A3F59E;
+	Wed, 22 Jul 2026 07:10:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784729444; bh=S3qDyxjCgWx/3CINJwgv8rZNPBp4TE92ksnKh5kY3JI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=n97dv15VjEL6RFb+LRN5eVaXpOofHDU/53KyfAPBDSHnYb1lb8tX5roJQUHVzOL1v
+	 M56fe/2IaGeYAE15vKTgU5rEDcxcz6IpCFZthadChhoLTIFTiwldxIO+5Kgutdlrof
+	 w/PvS1DkWn8GICbF8q7T0YE2eXAR+UKpBCvTG3vM=
+Message-ID: <343e3814-4da5-4d88-8bca-77d40089665a@arm.com>
+Date: Wed, 22 Jul 2026 15:10:40 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD=FV=Vrd9AxO-NY_CP2h+f21qt4uGY2pOoFgacV+G5bnfd32Q@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 18/36] arm64: gicv3: remove GIC_PRIO_PSR_I_SET
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-19-vladimir.murzin@arm.com>
+ <2b14daf3-576f-4b37-b233-e0e1e2c76f2d@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <2b14daf3-576f-4b37-b233-e0e1e2c76f2d@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_071046_258737_B6D177C0 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,89 +67,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 09:49:14AM -0700, Doug Anderson wrote:
-> Hi,
+On 7/22/26 09:20, Jinjie Ruan wrote:
 > 
-> On Tue, Jul 14, 2026 at 9:51 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> >
-> > On 15/07/2026 00:21, Douglas Anderson wrote:
-> > > Introduce bindings for the MailBox Array IP block present in Laguna
-> > > SoCs (AKA "lga", AKA "Google Tensor G5").
-> > >
-> > > Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> > > ---
-> > >
-> > >  .../bindings/mailbox/google,mba.yaml          | 216 ++++++++++++++++++
-> >
-> > Filename must match compatible.
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> `GIC_PRIO_PSR_I_SET` was used to keep track of sections of the kernel
+>> where interrupts always need to reach the CPU and could not be masked
+> Did I miss something? I have not seen this usage of GIC_PRIO_PSR_I_SET.
+> In the kernel code I have observed, the use of GIC_PRIO_PSR_I_SET is
+> always because the interrupt has already been masked by the DAIF.I bit.
 > 
-> Whoops! Will fix in v2.
-> 
-> 
-> > > +properties:
-> > > +  compatible:
-> > > +    items:
-> > > +      - enum:
-> > > +          - google,lga-mailbox-array
-> > > +      - const: google,mailbox-array
-> >
-> > Don't use generic fallback. Just the SoCs.
-> 
-> Sure, if you insist.
-> 
-> In general the "mba" hardware is designed with enough identification
-> registers that we should be able to autodetect which variant we're on.
-> Thus, my hope is to not ever need to reference the SoC-specific
-> variant in the driver itself. It's not the end of the world to use the
-> "google,lga-mailbox-array" as the generic, I guess...
-> 
-> I don't suppose I can change your mind here? If we take
-> "google,lga-mailbox-array" as the generic, then going foward a few
-> generations we end up with:
-> 
-> properties:
->   compatible:
->     oneOf:
->       - const: google,lga-mailbox-array
->       - items:
->           - enum:
->               - google,next-mailbox-array
->               - google,nextnext-mailbox-array
->               - google,another-mailbox-array
->           - const: google,lga-mailbox-array
-> 
-> If we keep "google,mailbox-array" as the generic, then going forward a
-> few generations we end up with this, which seems nicer / less
-> confusing:
-> 
-> properties:
->   compatible:
->     items:
->       - enum:
->           - google,lga-mailbox-array
->           - google,next-mailbox-array
->           - google,nextnext-mailbox-array
->           - google,another-mailbox-array
->       - const: google,mailbox-array
 
-I find 4 strings nicer than 5 strings.
+It attempts to describe the semantics of GIC_PRIO_PSR_I_SET. We
+use it in cases where GIC_PRIO_IRQOFF is not possible. Instead,
+we set DAIF.I and program PMR to GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET.
 
-> Sure, it means that if someone unexpectedly makes a new Google
-> mailbox-array that's totally incompatible then the
-> "google,mailbox-array" sounds too generic, but that doesn't feel like
-> the end of the world. You could call the new mailbox array designed in
-> the year 2037 the "google,2037-mailbox-array" and things would overall
-> be less confusing than using the "google,lga-mailbox-array" as the
-> generic.
+GIC_PRIO_PSR_I_SET lets us distinguish such cases from plain
+GIC_PRIO_IRQON
 
-What exactly do we need to do to stop having this conversation? We've 
-done this scheme and version numbers and it never ends well.
+>> via interrupt priorities, or DAIF bypassed the status of the PMR.
+>>
+>> This flag unmasked IRQs when OR'd to GIC_PRIO_IRQOFF and ensured that
+> Did I miss something? I didn't see the code related to the OR'd to
+> GIC_PRIO_IRQOFF.
+> 
 
-The reality is the h/w folks can't help themselves from changing things, 
-so nothing remains unchanged for very many generations.
+It describes concept of GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET, but wrongly
+refers to GIC_PRIO_IRQOFF. I'll fix that.
 
-Rob
+> otherwise, LGTM
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> 
+
+Thanks
+Vladimir
+
+>> that IRQs were seen as disabled by the `local_irqs_...` functions,
+>> as they would only check the PMR if pseudo-NMIs were enabled.
+>>
+>> This is not needed anymore as our IRQ masking APIs now know how to handle
+>> interrupt priorities properly and in parallel with DAIF : remove it.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/ptrace.h         | 2 --
+>>  include/linux/irqchip/arm-gic-v3-prio.h | 8 --------
+>>  2 files changed, 10 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+>> index 192eb97cd50b..c630165882e8 100644
+>> --- a/arch/arm64/include/asm/ptrace.h
+>> +++ b/arch/arm64/include/asm/ptrace.h
+>> @@ -24,8 +24,6 @@
+>>  #define GIC_PRIO_IRQON		GICV3_PRIO_UNMASKED
+>>  #define GIC_PRIO_IRQOFF		GICV3_PRIO_IRQ
+>>  
+>> -#define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
+>> -
+>>  /* Additional SPSR bits not exposed in the UABI */
+>>  #define PSR_MODE_THREAD_BIT	(1 << 0)
+>>  #define PSR_IL_BIT		(1 << 20)
+>> diff --git a/include/linux/irqchip/arm-gic-v3-prio.h b/include/linux/irqchip/arm-gic-v3-prio.h
+>> index 44157c9abb78..464bf1d29453 100644
+>> --- a/include/linux/irqchip/arm-gic-v3-prio.h
+>> +++ b/include/linux/irqchip/arm-gic-v3-prio.h
+>> @@ -20,17 +20,11 @@
+>>   * GICV3_PRIO_NMI is the PMR view of the priority of pseudo-NMIs. This can be
+>>   * written to the PMR to mask pseudo-NMIs.
+>>   *
+>> - * On arm64 some code sections either automatically switch back to PSR.I or
+>> - * explicitly require to not use priority masking. If bit GICV3_PRIO_PSR_I_SET
+>> - * is included in the priority mask, it indicates that PSR.I should be set and
+>> - * interrupt disabling temporarily does not rely on IRQ priorities.
+>>   */
+>>  #define GICV3_PRIO_UNMASKED	0xe0
+>>  #define GICV3_PRIO_IRQ		0xc0
+>>  #define GICV3_PRIO_NMI		0x80
+>>  
+>> -#define GICV3_PRIO_PSR_I_SET	(1 << 4)
+>> -
+>>  #ifndef __ASSEMBLER__
+>>  
+>>  #define __gicv3_prio_to_ns(p)	(0xff & ((p) << 1))
+>> @@ -45,8 +39,6 @@ static_assert(__gicv3_prio_valid_ns(GICV3_PRIO_IRQ));
+>>  static_assert(GICV3_PRIO_NMI < GICV3_PRIO_IRQ);
+>>  static_assert(GICV3_PRIO_IRQ < GICV3_PRIO_UNMASKED);
+>>  
+>> -static_assert(GICV3_PRIO_IRQ < (GICV3_PRIO_IRQ | GICV3_PRIO_PSR_I_SET));
+>> -
+>>  #endif /* __ASSEMBLER */
+>>  
+>>  #endif /* __LINUX_IRQCHIP_ARM_GIC_V3_PRIO_H */
+> 
+
 
