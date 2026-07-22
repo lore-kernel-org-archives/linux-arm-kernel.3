@@ -4,148 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EE3C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 352D9C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cFRVJGykRzaNCMBGOZWpOnBCzRB1NIhPbLZUWYQH1/A=; b=X4/a+GVan8Dagu5+xbk6qbrdzO
-	Wi6jwtI82qYyJkaJ+q3txnfOpXQ1fqpAPwl7eT7/xQUnM2a0F2SPaIgEe6RNxH1fm1IxAQV1mohmS
-	ZtfNeedlG1Ox12pkbbP/W/8RQU8HI1c3jq7mpp/XvPBgbEh4Qfb8sXPKh0LfvdOUoWIcCkgeLTBQp
-	4a2QumTSE7Db/7hqPQuZk8A60LTI2c7w2yCElwQn9Sxnf8TXkXxv5sr+1EGnJyHCYRcZI/+bHNsra
-	HknDkfi52QqQEDG7IQGJ2kGkDUQtiT4ioK6cpVwOrLkO3Ny8WNo/F1nf/LS/pwsfUGFN/SZOfm1ho
-	zyTKWsuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iIC+L9SRUgouwms6wXkTg2Wb9d2ocgYi1ZK4mto5XS0=; b=msChLQuPqUNtl2aXMqnTk9ttEL
+	6oMn4kyIzsUasbJUo2ZCN3lnCUqlh2MOylNpVh+sDzOWc1ZsJaV2Pa29f9LIdwtQwrCUJ4kA0LaMB
+	yu0ycQywZUPZiA1XvGJ9Xaodc3SYLYP7NOlhB9hVVrUATbGovqr0GzxdH9a5CZOM4b+cHgdfYoNvQ
+	Ty5gYK+UcSxe2Bx2qzKpI4x7L+vhAnf/qZrCZ8YTuEXY4GehYmyjVkOAdQy0GCt+81zaKxHa5zdg/
+	Wzjp5bKduvlKl6luoOXS1YTRT+z1Mwh8mrHVytmovHcXVW7pS0++hsKVCGruyWr7+t4587kpH+nhY
+	2xFpQTfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYqv-0000000C9I5-1Zgo;
-	Wed, 22 Jul 2026 15:27:21 +0000
-Received: from mail-northeuropeazon11022086.outbound.protection.outlook.com ([52.101.66.86] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wmYeU-0000000C7SU-0MdO;
+	Wed, 22 Jul 2026 15:14:30 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYqh-0000000C9Dz-1zDX
+	id 1wmYeP-0000000C7Rs-1bST
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 15:27:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I2tPSCVEUrODKnpLhlVDhe7UJC3ijGbqAs918Usi4I7CEML+ENGe6zTd4EK35RS2N1llLweKa9buFPAj80da4DeXnXoGDzKCiFP1od0Tk0JxLUrwyfS7VK1IlCCEGXeAYkiQpsnz7HbN1lO6HBf7XllYk7V9hTm3g7wFiNTJPlGPyG+5vgGotmsM0n5Iaryl4vO2kr5204AmZtbNdm7GyMh63dNkXMPLAisKXhaTuKCUQz9Pb0N2kAS+ADad0+ZeVqtBpF4Hl/crIaCZ69UkUxNnOYY7ZWzdS2bMTf5Oo7L3K7UHmu/sjRcxj3WcGtExG7dlP1rSPgXLhlg0vBTCRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cFRVJGykRzaNCMBGOZWpOnBCzRB1NIhPbLZUWYQH1/A=;
- b=mf4+8CRaXCtRswdFdc3mbU/uTltYo2YAkvfpgpy42lXSPxT1QKYuh+EexqCegt8YPCHn/PfyCu7j7qoOUOmFpxPudAfc+686bwskzItWoto/qN4i4mDthQZ9G3Rt7cHOJUUonzilRZzmUZrDYqMqCrbr7L2tzr5jqvYc07/X68zQlybrQcsSIu0JngMBFfMPaAdkMlMYKL9O+R16j5grSrBVyRQ8N/zV1habvkWfU/+q6YuGGNS6FNvdhWqdtkj8Gm5Y6WRHvKJ1Z4e8tniBAs8ZxQaBSxYveJ8Zo0RDYXeXJl92kSeMCmXQTLH6d840L40NpOrYwayXiCLp3H9ABw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cFRVJGykRzaNCMBGOZWpOnBCzRB1NIhPbLZUWYQH1/A=;
- b=WwoJjI71rTGYjyAZpK+rHDxtSm9nob7/ScxPLuoKytmWXafxkM+mzGAg+iCRuGYlev9QIbzkhSdac4r9S4XVkZ2FLFxgtlRFjNDs1MA8ZpqCYm6dq0v8Tvq8HUcUo9HaUY+y3uZ5MkyuXGd68Wm8Eqa9jWn4eDbyVVs+YhAsumyRBmsuUi/8nehSaZedWi/QnOXi7VJZZZ8+4PgiOLw2OTEcnLPBH3gaf201UtNlVV2IaGamrSBnoor2C6PoxxFWZggwz0pql/eIU/TybCmbc/O9zyXaNujd+xmFty1+/AZnh26zpvNn7+/XJxiE9h8fAESSK3GgEkqXOeR9F5eDHw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by AS1PR10MB7958.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:47f::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 15:27:02 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 15:27:02 +0000
-Message-ID: <88bb9b8b-a04a-4a15-b738-0ef39c368bd8@kontron.de>
-Date: Wed, 22 Jul 2026 17:27:00 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware
- driver
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Francesco Dolcini <francesco@dolcini.it>
-Cc: linux-arm-kernel@lists.infradead.org, Frieder Schrempf <frieder@fris.de>,
- Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)"
- <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
- <3056369.e9J7NaK4W3@steina-w>
- <9ceb5fb9-edd0-408f-8f7f-74d5145ae81f@kontron.de>
- <6611405.mvXUDI8C0e@steina-w>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <6611405.mvXUDI8C0e@steina-w>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0319.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:eb::17) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	Wed, 22 Jul 2026 15:14:28 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4955aa106b1so32941195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:14:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1784733263; x=1785338063; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iIC+L9SRUgouwms6wXkTg2Wb9d2ocgYi1ZK4mto5XS0=;
+        b=FE+I5Tx7C3dG3gEgNWFsd7amj+rLoyX9CCr33mACU1jqzy9PSryCpLqjZLtVfkkuHf
+         dzOnoA3CH5RcAT9oI9pnyGwDtoai+gBEoiOxPGQAvuj6npCnOEG1gH6DfT01WTpkWkfq
+         rcjUwg7tS+cziP+otwGVA4LykOpn0pCLHXgxDS6G9hlmgEGcdF7aqG4Iy9uTCTMhKRUy
+         jIZUG6jhbN6hb51pC0ByMWzX3EfsIbP0S2tmfyoVzREYXNRa2slebmCbeOjCr1Mvxg3m
+         K9j9Q4ttO8s0iOqPndiEXNNw2r6EYPAu/FKD+FDBB5K5wYr9QfaZU1M12IPhFCkHtsmN
+         4YLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784733263; x=1785338063;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iIC+L9SRUgouwms6wXkTg2Wb9d2ocgYi1ZK4mto5XS0=;
+        b=YtKRrBqIkmdX0V5IJJnfjVrj1y9sbHpvn2kSjol6oZSnSSz7q9djABwE9KhhEpxK+k
+         sYlMr9M8kWqtwMWcOE6sqf5gRZuP185s4HONYrjhotnqKIYtbrAhsnl6FO5jO6Q9QuNO
+         v5+Zes5FGSQzszsiyvQ7DyK2Dz7zKQJ74u0xjK/KAUZOMp55ba7huQ14hrx6OH2FtnUZ
+         N9VaY/6qi5E6IcLnNbDlVrb6Pl3oyH04SRdqgmSnzDq0fBFc8cxAwMv94iDAQxRtZZ7X
+         Xbc/9gnvy6JMBh4d69sTJGk8eF5UU6+ZaK83wAvUyrjU72mqSlu8WfxPN2kM0KzFxLbd
+         Wuqg==
+X-Forwarded-Encrypted: i=1; AHgh+RqCwHIHhyx64xWGmd5AE0Ky1sOfi/FtjsSac7svDqbDIZOZyxNVK3g/9Ad6Q4yTyeHFR2wWYRAk1hj1wWlQMXPI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEEj9vWkSbl79TI2kQ23mww16HTFyIcDqjSPeVHqa/KEyAymXG
+	Lez0lAfQcQjx7twyRK4ysTiVqldEMq/95JtIhr/qzwo/z7pt2F7Btlfx5yowH4oOCZE=
+X-Gm-Gg: AR+sD13wHiGvfPo5ogcMVNkEoOuR9o6Lzlglsnq9bS6DaYowlgcMStppMQbHTatTumm
+	V6a5oDwXuJTWH4m6qAIJmZ9RMLidesuKQQcoVWWsUo+foUJBsXTwnvo9McHgyEZBpKIGxSi3oeO
+	ckfoUimPa9oeo2idVpuEnUnNMcMC11FQEE9G5XOtXffMi2p1lYzoQFuUi6UV7zj0NzGQkji5bdX
+	QvEHk0ilKE4PIgejTht3J+ujqVuL9xl66ar9iR4YrR1yPuz93fnTA2Cq/Zi3Nj9Y6F37HGgmmna
+	Y4hWP4dTDVN1vw64VYlTC0/PXvO2dO++dGi55G995GeoDjkef+JRVeuGoszw371lK4p7lN/+DIi
+	Q5pl6yUUYK1afeHNGebJXR9z2UF1All5oRJG5lyOmQGQFgvUZfrVb9OLWt9oEdkCZo0i0nvVEnK
+	/QDbKeUpQAyT9vJgCx3V98iXx2TH9uV7FPvcNN5Uy1hpPonTPX+UmUUhKO9QtOQWLm1jvPpOUac
+	u0p8rU0qeBHxlOW/w==
+X-Received: by 2002:a05:600c:c84:b0:495:4689:1e98 with SMTP id 5b1f17b1804b1-4954a3ed426mr259964805e9.10.1784733263489;
+        Wed, 22 Jul 2026 08:14:23 -0700 (PDT)
+Received: from gregwork.sec.9e.network ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956a500dbfsm70595615e9.6.2026.07.22.08.14.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 08:14:23 -0700 (PDT)
+From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	corey@minyard.net,
+	devicetree@vger.kernel.org
+Cc: openipmi-developer@lists.sourceforge.net,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+Subject: [PATCH v2 0/2] soc: aspeed: ipmi: add KCS Channel 4 over PCIe
+Date: Wed, 22 Jul 2026 15:11:56 +0000
+Message-ID: <cover.1784732161.git.gregoire.layet@9elements.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AS1PR10MB7958:EE_
-X-MS-Office365-Filtering-Correlation-Id: 273bdb14-a43f-4704-ffcf-08dee805adb2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|56012099006|11063799006|10067099003|4143699003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: mLCwHU4h4Y3X0GQU8AgWJb63hyi9WTH6HCSS2hUT14r0ZaRkJ3ZxrJBb6pExt528xutF6x3E8K1gXzwSgCcz2woMFDlDbo/AeC1b44bd4u2N2+X8g1SdsrzOHHvQwjqAizwFbv/1B1JjTm85+oL4kozhOm+EvdVHZ+FoLnVJYnAfgXA5E+NzU1rjvGYF2Il5l8DTxqiBQoVncxo0y0x9Fs+b5/rTjnxLQKgN1pjDrGY/txWI//xDphvuzfFUNyOfrGIpzLiOOrQAFFnYa6Kz20s0hJ3kS+VDjAOiQp4I9HN7NSn531nUQtTWh/vsK0qYE/9qd5huN0x6RFky8g45RPkDafFhgPKm/y+rwZ1fZewRtyb/1gqCoEcwJwYF0UXofoPTeNvXrbnUCH0Syx+IgABIg3t17RY21rrKQZDJSzJpHzpzI5KIA0f7xm71S3/LaJyFAIbyjiRBor6PHO7M49forE1rCJzwbUF5rOZIF2379T+utjiQyzKUw+SFQq2gNxY3/yY99E6Swf8QW/yYsnvgqvtT/Kuah55pcAvWM6W93sXz5wC968BvNpi26IcxxVrHT1b/tDAbl7CAk1vV5CgoVr0G7g1DrdaR4luCEULRUZcmYzmx0dZMVZpIvWBZVKYVs/LASVaon6H57gmineMTpc+uMgOCn5vQwhz/CHY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(56012099006)(11063799006)(10067099003)(4143699003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?akYzNEY0ZWloYjJST2s4aGt2b3RTUGU2KzU4OWdoRFZMdklNQjlFeEp0d2NR?=
- =?utf-8?B?ODFmSjFEeExIRVdOTTl5bVhhaVo2Nm55dWVjTXFxMDBrdnNHb0U1QnV5Q2VI?=
- =?utf-8?B?M2FtNEYyUFVwb0tvdVVTNk1PNWlmTUptaUs1bVhMS1RyODR5VGhzalIyM1Rv?=
- =?utf-8?B?TEl5UDdDVThCYy9TTDN2blVwODMzaU15S1FxeHdzVGdQQmc2MUtndUw4clUr?=
- =?utf-8?B?OXJTWjYvcllRTkdNZmxCU2ViSjQvUUt3Z1JpTS9JRlgvTmNsUm1mMlhMNjU5?=
- =?utf-8?B?T3FOZkFBUGhOZFVpYy9lbHpDNXJ4c2dHWlliaGJQekZFbTErckVCdlBtQll1?=
- =?utf-8?B?eUpJRjYyc1FvODhMS3NiYWlDaDRzTmpqTGQzbjdHWE43Q0g3YUlFOWtXY1lw?=
- =?utf-8?B?L2ljWnFpUGtOcnY2ZkgxQ1VUVjYveVNkS05TWlcwYnU4dng2TmovM054OWNh?=
- =?utf-8?B?eS8zRG5aNHoyQlM4dW4vNTZVYkk0TnNNT2lDL2dmcXkwdFFJRVo5NTVNemhF?=
- =?utf-8?B?R2xMdFV1Yyt2Z2laYXlvM3QzdFZTTWJpU0RORDB5ZTNtSTM2M25uem43bnVx?=
- =?utf-8?B?N3dVMFhHSEYyRnNyVEpTcC81aSsxYnV2MzZOK3hRL2h1L2YyeGRCQ3M5ejZl?=
- =?utf-8?B?b3NDLzhlekVTMWxiZVUzK0t0UGs5WFA3U1E4YWlRK2QwY0pWR0dQb2lTTnps?=
- =?utf-8?B?RTZPYVU3d0tNcFBxZWNIdWt1UjBLNHlkamwxN2s4TStMZFJKdUxVYXlHRnZD?=
- =?utf-8?B?eFUvUW5MYnQzUEcySmNIMmc2bkQ0a1JrRlAwQlAwS3dLTVVSUi9sdU1QZU1z?=
- =?utf-8?B?blhES0oxQkw5S0FwSS8vY3oxOVVsdDZkOXp1Y2gxMUo1S1FaZWQ1WFRCVDRL?=
- =?utf-8?B?RkdhR2dnYnFXcUp6UGNQUDFZVUtLcUtUYklwKzVSVTAyTDRJdS9VUlZaOXI1?=
- =?utf-8?B?bGY2VXF2UEYvZmJZYU1jWE14R094MlR4M3k2b01CVzdHSXhabjZmMjFWMjlX?=
- =?utf-8?B?TDhWTFdNTldPazBoWkpkVHR6WXFFcGN6K3pZWDJiNkllZHJocG1qbk0vaytE?=
- =?utf-8?B?R281R3dFNjlEc1FVMmFoMGpYTGwzMDROYmpEOW9XV2l1RG9yMFNSa0pycmtp?=
- =?utf-8?B?TWN1ZW1tSnp5MFVmbjVXUXZmTGludm9TdVl2MkM0ZTJqNkQvdWlYNlhTc1c2?=
- =?utf-8?B?MHh3Z2tXNXI3SmsxZEJqdkt2eTR0UEI1eGoySXNrVUM3MnBrUElaMHV0VWZU?=
- =?utf-8?B?K0RYMXh5L2VyM25aaWo3NU1jNlF5cEgvOTg2MEdUUkh6c3dDV2lhNm5md1VK?=
- =?utf-8?B?T3lndnowa3lWckJydXk0MVBMVGc4emxwM0xLQytLeUl3KysreGJFMERjVlBk?=
- =?utf-8?B?ME5nbEFuK0lUNVdWQTdBYy9LVU81NU5QdW5JQlNhajFxQlNhYzhnWm0xQWpa?=
- =?utf-8?B?ZE5VdUF6bTN4TzFmdzhJbWZ1TmtoMmR4ZmdUUDNMQm1hay95UDBRbm5JdTJn?=
- =?utf-8?B?RkR3azg0NExJOGhMZXhoVkVFekZpVWpVSURrazZPay9CaWd6Q0I0Rm1ueU9T?=
- =?utf-8?B?VGRXOVRYeGFRWnJ2VThCQm04c1JYWEZld3ZZQjRsdTJjdENuQkF1K2NkVUc0?=
- =?utf-8?B?a2FZQ1F0d0RmYnExMlBYRmxVbnFpMmw0bmRQS2lEemhCaksyUDlPUjVqQkhz?=
- =?utf-8?B?a3B2VlFPeXdLcXFMK0xMaUdIQi9ROVgrdFQvRTFReUQ2VU9OZll0dnlnMVBT?=
- =?utf-8?B?MlFYQjI5ZU10MTlKYWhSTFViL3NoMkludm5RUGJPYUU0dTh2R2ptMFZrSm5y?=
- =?utf-8?B?MXBZSDJLSFBrVml4UUxFRUFyVktabGVndVZYYXI4WDNMaFNlUXFDRVdIRmNR?=
- =?utf-8?B?UDViYW9CbHJKWTJaRUFpQm4vdFcrOHB2R3BKeDFJWmQxNXB2MThrblhxZWVK?=
- =?utf-8?B?aVNnOGpzclVhQ21MRlNNSVJpWmxvVXU2SWU0aXBDMXRwU2JHUzJXUzZ3WWhT?=
- =?utf-8?B?VWdyWnUycDNzd3VNUFNsUHJiWThvM1hYZlNmOTRPZjloeTA4dWhMQzhTNFRP?=
- =?utf-8?B?bFVOY0d5NVQwN1JkYm94dkpDMmhWUUlCOVJOSXBlbGhrSEhtdS95QlgwVTVl?=
- =?utf-8?B?ci9VakRkbXF0bWg3Ynhsb0VLbWhVK0xUQ25ibUxhRFVqdUY5eWJkMTNMWjF2?=
- =?utf-8?B?bDVnb0R4K0JlNVNSaXpST3c0cDJ4M3hWMWQ4c3FrOW4rYWcvcEZlK1I5K2c5?=
- =?utf-8?B?dExCcWJsaHlZWUpjekRrbzdsY3EwRWdTL1cyeG53MmUrdzROaVlTQThpbkZQ?=
- =?utf-8?B?SzY4bzhNSkMzLzBIV3Q2cHUwK0xGaWRadVRsdG5Hcm9oTWcrWUt6Y3ArSjVM?=
- =?utf-8?Q?BM17EDj9wQgtD1vA=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 273bdb14-a43f-4704-ffcf-08dee805adb2
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 15:27:02.2047
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L1ieOIxeM7MKGg+pRNunNVR4rWKGS57JDBvyH89YwWygEUxVf85e3siONPkAQCjh5OtCkwp5wXg6kEozFFML4GGPqubzoXToSeuZQk3iYR8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR10MB7958
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_082707_528480_4F26A52C 
-X-CRM114-Status: GOOD (  32.94  )
+X-CRM114-CacheID: sfid-20260722_081425_545273_78C8A496 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,106 +107,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22.07.26 17:09, Alexander Stein wrote:
-> Am Mittwoch, 22. Juli 2026, 16:49:10 CEST schrieb Frieder Schrempf:
->> On 14.07.26 14:37, Alexander Stein wrote:
->>> Am Dienstag, 14. Juli 2026, 14:33:50 CEST schrieb Francesco Dolcini:
->>>> On Tue, Jul 14, 2026 at 02:06:38PM +0200, Alexander Stein wrote:
->>>>> Am Dienstag, 14. Juli 2026, 11:33:54 CEST schrieb Francesco Dolcini:
->>>>>> On Tue, Jul 14, 2026 at 10:43:56AM +0200, Frieder Schrempf wrote:
->>>>>>> On 14.07.26 10:32, Francesco Dolcini wrote:
->>>>>>>> On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
->>>>>>>>> Hi Francesco,
->>>>>>>>>
->>>>>>>>> On 14.07.26 08:59, Francesco Dolcini wrote:
->>>>>>>>>> Hello Frieder,
->>>>>>>>>>
->>>>>>>>>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
->>>>>>>>>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->>>>>>>>>>>
->>>>>>>>>>> Add the ELE firmware API node and pass its handle to the OCOTP
->>>>>>>>>>> driver. This allows us to gain read/write access to the OTP fuses.
->>>>>>>>>>
->>>>>>>>>> This seems something we should have in the soc dtsi (imx93/imx91), it
->>>>>>>>>> does not seems board specific.
->>>>>>>>>
->>>>>>>>> My original intention was to move as much as possible into the SoC dtsi.
->>>>>>>>> The problem is that the memory node is somewhat board specific due to
->>>>>>>>> the DDR. And I can't move the firmware node into the SoC dtsi and assign
->>>>>>>>> the memory node in the board dts as the checks for all boards not
->>>>>>>>> specifying a memory node would fail then.
->>>>>>>>
->>>>>>>> What is the reason to have this memory address different on various
->>>>>>>> boards? Can we have a default in the soc dtsi, and allow the board to
->>>>>>>> override the address if needed?
->>>>>>>
->>>>>>> There is no real point in having different addresses on different
->>>>>>> boards. But the node describes memory that is physically on the board
->>>>>>> and not on the SoC. And I think that is why DT maintainers want to have
->>>>>>> it in the board DT. It's the same with the memory nodes for the
->>>>>>> remoteproc drivers to communicate with the Cortex M-Cores in the i.MX.
->>>>>>> But maybe I'm wrong and if there is a possibility to move this to the
->>>>>>> SoC DT I will definitely take it.
->>>>>
->>>>> We are talking about reserved memory, so this is highly board-specific.
->>>>> So for different hardware variants with different amount of RAM you have to
->>>>> go for the minimum anyway.
->>>>>
->>>>>>>>
->>>>>>>> Or can't you add the address in all the boards, and keep everything else
->>>>>>>> in the soc dtsi?
->>>>>>> This could be a possible way, yes. In that case maybe we could even
->>>>>>> create a generic dtsi to contain such defaults for all boards.
->>>>>>
->>>>>> I would go for this solution, we could have something like
->>>>>> `k3-am62-ti-ipc-firmware.dtsi`, include it from all the boards, have a
->>>>>> sane default memory address, and have an easy way to override the memory
->>>>>> address from the board dts, if needed.
->>>>>
->>>>> So what is a sane default? At the end of the minimal possible RAM?
->>>>> I'm not really fond of something you have to make sure matches to your
->>>>> hardware, but won't raise an error if you forgot.
->>>>>
->>>>> How about providing defaults for the SoC part and users have to provide their
->>>>> memory on board-level? Similar to the VPU nodes on imx8qm/imx8qxp. There you
->>>>> have to specify memory-region in your board.
->>>>
->>>> I am personally ok with both solution.
->>>>
->>>> I think it is easy to have a sane default in this case. You cannot have
->>>> less than 256MiB in practice, and this is just about the offset, is not
->>>> that you are going to want more memory reserved if the board has more
->>>> memory available.
->>>>
->>>> At the same time, having the memory range in the board dts is also ok to
->>>> me.
->>>
->>> I'm just saying, because we had lots of problem with assumed offsets/length
->>> in code/DT for NXP boards. They usually come with big/huge amount of RAM.
->>> This breaks for all hardware using a small amount of RAM.
->>> So it's better to not have a default than silently breaking things because
->>> the default doesn't match.
->> I'm revisiting this now and think about how to do it. I would like to
->> put a default memory node in the dtsi that dynamically puts the buffer
->> somewhere in the first 256MB. I would include the dtsi in all
->> i.MX91/i.MX93 boards. I think this should work for all boards.
->>
->> If I put everything, but the memory node in the default dtsi, as
->> Alexander proposed, I think I will run into DT validation errors if not
->> all boards provide a memory node, as the property is mandatory.
->>
->> Is there anything I might be missing?
-> 
-> Mh, isn't that exactly the situation you want to catch as a DT author?
-> Raise errors early if something is missing in the DT.
-> I would go that way that for all currently existing boards an corresponding
-> memory node could be added, no? All coming boards will need to provide it..
-> 
-Ok, but what would be the benefit compared to putting the node in the
-common dtsi and including that for all existing boards? People adding
-new boards would just copy the memory node from some other board anyway.
-This way we could at least avoid the duplication.
+The ASPEED AST2600 has a PCIe to LPC controller. It includes a KCS
+interface on channel 4. This is a fully KCS-compatible interface
+that is exposed over PCIe.
 
-And as I don't know all the details for the existing boards, I can't
-provide anything better than a default memory node.
+Add pcie_kcs4 to existing LPC bus in aspeed-g6.dtsi.
+Modify kcs_bmc_aspeed driver to detect the PCIe over LPC channel.
+
+In the driver, this PCIe over LPC channel will be detected as Channel 5.
+In the datasheet this is defined as Channel 4 over PCIe.
+
+The Channel 4 name is still referenced in the offsets macros.
+
+The host need a driver to activate the MSI interrupts with the PCIe BMC
+Device.
+
+Tests:
+With the patch [2] adding PCIe BMC device for Virtual UART, the MSI
+interrupts are correctly setups. The Host driver is build and side
+loaded on the host. The ipmi_si driver on the host is loaded manually
+with the KCS address given by hand. 'ipmitool mc info' is run to confirm
+it's working.
+
+Tested on : Asus IPMI Expansion Card, AST2600.
+```
+# insmod aspeed-host-bmc-dev.ko
+# lspci -vvv -d 1a03:2402
+02:01.0 Unassigned class [ff00]: ASPEED Technology, Inc. Device 2402
+	Subsystem: ASPEED Technology, Inc. Device 2402
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin A routed to IRQ 154
+	IOMMU group: 12
+	Region 0: Memory at 82080000 (32-bit, non-prefetchable) [size=4K]
+	Region 1: Memory at 82040000 (32-bit, non-prefetchable) [size=256K]
+	Capabilities: [40] Power Management version 3
+		Flags: PMEClk- DSI- D1+ D2+ AuxCurrent=375mA PME(D0+,D1+,D2+,D3hot+,D3cold+)
+		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [50] MSI: Enable+ Count=32/32 Maskable- 64bit+
+		Address: 00000000fee00818  Data: 0000
+	Kernel driver in use: aspeed-host-bmc-dev
+
+# modprobe ipmi_si type=kcs addrs=0x82040E88 regspacings=4 regsizes=1 regshifts=0
+
+# ipmitool mc info
+Device ID                 : 32
+Device Revision           : 1
+Firmware Revision         : 26.04
+IPMI Version              : 2.0
+Manufacturer ID           : 2623
+Manufacturer Name         : ASUSTek Computer Inc.
+...
+```
+
+The original patch [1] review set to use the existing LPC bus and
+modify the kcs_bmc_aspeed driver.
+
+[1] https://lore.kernel.org/linux-aspeed/de49f2032f5b1f170161dcd6191c0daa48f0b0c2.1784117715.git.gregoire.layet@9elements.com/
+[2] https://lore.kernel.org/linux-aspeed/51e455417bdcfe608270c6cb2806b1fd971fb998.1783524645.git.gregoire.layet@9elements.com/
+
+Grégoire Layet (2):
+  ipmi: kcs_bmc_aspeed: g6: Add KCS Channel 4 over PCIe
+  ARM: dts: aspeed-g6: add pcie-kcs4
+
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi |  7 +++++
+ drivers/char/ipmi/kcs_bmc_aspeed.c      | 39 +++++++++++++++++++++++--
+ 2 files changed, 44 insertions(+), 2 deletions(-)
+
+
+base-commit: 03f906d8f5541e8bb741035981304feceed5993d
+--
+2.54.0
 
