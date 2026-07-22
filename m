@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C20CC4453C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892CAC44536
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TxEYmlqGGiYq3Bc30IofrgYGCXgAw0TDgEYkHxOaSog=; b=SodNMtKwi8B5qlHXMQQuSqdXx9
-	seCUsOdoQhhtvMWbJ8kl25le6AQJQpE6CPKlfUFQCqOS4C2gfzDhkELFDuKvBIwwEvO2A2k/qHPSU
-	wL8So21LL4K8g6yrRKve++M6TiOiIeFdt7Av6HgttTz8mAY696vgm+Rd9hcIlyd9acDesaAb5fRkx
-	Z28icOUhomsTZ/LsI3/3MCF0uzroHT5vmWQNXwcxYVvw1vMskAES0H+lvf1rYGsc/4l1MDVGjLGO1
-	KdhHFXu527BscRZG7BgfEet78rZsmQgMZmoSU3CJmI8h5ejoXaYKJrQNa0aCgan7SAnyZxonD8vpZ
-	vz0/FVcA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YtMpol975CvesO8Q6KUokIqjrd11Vgy1F01PUcLSm7w=; b=QTMmePbcEQrP8T38JZ0sYJ4+IX
+	5x1ix5MlSdDf/jFNKiffw7br7N2iZomin6oM+HIsnLYXnwlzLZTkGkPHYWDu8QHhYiaKOaBcfwuKz
+	vbcMY6gn+8265TP1qd9ugAe9nRohdYV21ExZAAAoh2cV1+4A9Cag9WV/C2t6RSZ63QkyL1epIeeyK
+	v/xxBRMfuYiCDDkx9s0+pUj6LMkWLqHFs21Xcu6ouJVAGL5MgqlQUqAoXpvZ2cLCFEQiytHl672g1
+	SPSvwdqenTR+1RS3IgjU7q+gRq1JnfqUI1KVK/J2atvtDF5kpcCMeVMMoqHfka6bqSLZKDtJeQvpA
+	H+yhMI2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmaqu-0000000CTed-0pWx;
+	id 1wmaqu-0000000CTev-1DW2;
 	Wed, 22 Jul 2026 17:35:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmaqs-0000000CTeD-2a5W
+	id 1wmaqs-0000000CTeG-3iqm
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 22 Jul 2026 17:35:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3DBD600C3;
-	Wed, 22 Jul 2026 17:35:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB451F00A3D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7848341622;
 	Wed, 22 Jul 2026 17:35:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD641F000E9;
+	Wed, 22 Jul 2026 17:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784741725;
-	bh=TxEYmlqGGiYq3Bc30IofrgYGCXgAw0TDgEYkHxOaSog=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZafguT7DuXfAqRN1DjjINYsRkMFXjM1pCVCPbbT0ELGaqm/m3P1wFO0HchscpckLp
-	 hDsDPquf95CEYh+vNNOpZNIBzL/NeZWIxrYZ3c+AJEf7y9VjqUS8Lq4j1K5jENpnDt
-	 MPnhpRxS3vO2+OlKkgYwlC0hwgn4bhoGPSMKsskdE1PLG/5ZzCWyxwtou3Nh1t2U6e
-	 vKZ37g1Dp7j58q2qPOeYdPHCFcy7cqnwdIRCkVchIxICaeItb15v3LfFcbw4YVIS4v
-	 aa/Hu0sqW3TtuWZdbvpB9kRnirvD7koFceetkE85lxB/i9t7sOddbM03pzqIPiIbX5
-	 uHB+ImqKmK2QQ==
+	s=k20260515; t=1784741724;
+	bh=YtMpol975CvesO8Q6KUokIqjrd11Vgy1F01PUcLSm7w=;
+	h=From:To:Cc:Subject:Date;
+	b=bPc/t9w8P+EPgdRNVaaddVA7qtlGOaL0rjdlTn1S1BRLkOAvncUpTrxlJK/1/+cBQ
+	 4r2fi+0PMG5QDv50Oqqdhx3hRnhAjhVy3tIg7RcaddcI80Ua2aWjbXENPIfBU7FQFX
+	 2LkyWyjEvlewNNIYU7V0Lev3TUu9RkPOUA5aC1w8SEFm5k4p81hBhQLFej3NUlr67D
+	 c5Lv27ohXE6ZTifH8YBhh39ka971zR6t2E/6SVSWsaRgMjHwm4XGJJqZM55QJaeh1k
+	 eHlfMYP1oZWwV/hRnUt7OgGH1LvxLWqEa3E9600B8V4B2FS5DPCGeVLEStmnkt93do
+	 zfhwnxbaiJvTw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: arm-scmi@vger.kernel.org
 Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 2/2] firmware: arm_scmi: Unrequest devices if driver registration fails
-Date: Wed, 22 Jul 2026 18:35:21 +0100
-Message-ID: <20260722173521.2184378-2-sudeep.holla@kernel.org>
+Subject: [PATCH 1/2] firmware: arm_scmi: Roll back partial protocol table registration
+Date: Wed, 22 Jul 2026 18:35:20 +0100
+Message-ID: <20260722173521.2184378-1-sudeep.holla@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260722173521.2184378-1-sudeep.holla@kernel.org>
-References: <20260722173521.2184378-1-sudeep.holla@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -69,45 +67,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_driver_register() requests protocol devices before registering the
-driver. If driver_register() fails, those requests remain in the global
-IDR and retain pointers to the module's ID table. Once the failed module
-load releases that storage, later request matching or SCMI device creation
-can dereference the stale pointers.
+scmi_protocol_table_register() can leave earlier requests registered when
+a later entry in the same ID table fails. Each request retains a pointer
+to the driver's ID table, so a failed module load can leave a dangling
+pointer after the module storage is released.
 
-Unrequest the complete protocol table before returning the registration
-failure. At this point table registration succeeded, so every entry is
-owned by the current registration attempt.
+Unrequest only the successfully registered prefix, in reverse order,
+before returning the failure. Leave the failed entry and the remaining
+entries untouched because matching requests can be owned by another
+driver.
 
-Fixes: d3cd7c525fd2 ("firmware: arm_scmi: Refactor protocol device creation")
+Fixes: 2858f6e5f064 ("firmware: arm_scmi: Add multiple protocols registration support")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/bus.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/firmware/arm_scmi/bus.c | 31 ++++++++++++++++++++-----------
+ 1 file changed, 20 insertions(+), 11 deletions(-)
+
+Hi,
+
+Couple of more issues[2] reported as part of review of [1]. These
+are addressing those issues.
+
+Regards,
+Sudeep
+
+[1] https://patch.msgid.link/20260722095250.2011630-1-sudeep.holla@kernel.org
+[2] https://sashiko.dev/#/patchset/20260722095250.2011630-1-sudeep.holla@kernel.org
 
 diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index af3d28717cd2..a86fa18fc5d2 100644
+index df396ab638dd..af3d28717cd2 100644
 --- a/drivers/firmware/arm_scmi/bus.c
 +++ b/drivers/firmware/arm_scmi/bus.c
-@@ -395,10 +395,14 @@ int scmi_driver_register(struct scmi_driver *driver, struct module *owner,
- 	driver->driver.mod_name = mod_name;
+@@ -135,17 +135,6 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+ 	return ret;
+ }
  
- 	retval = driver_register(&driver->driver);
--	if (!retval)
--		pr_debug("Registered new scmi driver %s\n", driver->name);
-+	if (retval) {
-+		scmi_protocol_table_unregister(driver->id_table);
-+		return retval;
+-static int scmi_protocol_table_register(const struct scmi_device_id *id_table)
+-{
+-	int ret = 0;
+-	const struct scmi_device_id *entry;
+-
+-	for (entry = id_table; entry->name && ret == 0; entry++)
+-		ret = scmi_protocol_device_request(entry);
+-
+-	return ret;
+-}
+-
+ /**
+  * scmi_protocol_device_unrequest  - Helper to unrequest a device
+  *
+@@ -191,6 +180,26 @@ static void scmi_protocol_device_unrequest(const struct scmi_device_id *id_table
+ 	}
+ }
+ 
++static int scmi_protocol_table_register(const struct scmi_device_id *id_table)
++{
++	const struct scmi_device_id *entry;
++	int ret;
++
++	for (entry = id_table; entry->name; entry++) {
++		ret = scmi_protocol_device_request(entry);
++		if (ret)
++			goto err_unrequest;
 +	}
- 
--	return retval;
-+	pr_debug("Registered new scmi driver %s\n", driver->name);
 +
 +	return 0;
- }
- EXPORT_SYMBOL_GPL(scmi_driver_register);
- 
++
++err_unrequest:
++	while (entry != id_table)
++		scmi_protocol_device_unrequest(--entry);
++
++	return ret;
++}
++
+ static void
+ scmi_protocol_table_unregister(const struct scmi_device_id *id_table)
+ {
 -- 
 2.43.0
 
