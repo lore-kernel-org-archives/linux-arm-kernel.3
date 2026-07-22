@@ -4,98 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C11B7C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BFAC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YkleSo/mHT7B7/DelUTKo1SDFA3O4GZirFnblobGSyk=; b=4MrWPgZes7hVQ4q32eR+SRwOAm
-	hkwhwvkKmZLpWNWpEbQwiMr8hBBekNwYkpWLH3ys0pIRrSRM7uKMHv2V0qPXSpSkKzT1HgJznGw8c
-	cQwSpulk31ZPjemxtzbOVQThCxyEFxI4OATuqDAsVbOkpDPdfu+shHJPKK/dgkT0ho6FXjcl6F0nz
-	Uf0zXiLYNK4c5XXbhoQonhkHTlw5nZK/pCu9WPINNqOzoadvHOcrzPODG4dvfgj42V5ShgK/5NhHF
-	2ZxGQUdbTvb7tjT8GhDUSzz4zF7IilnefTNbDlxDaFcriAU8c9oGrNS6qYw7rrDP/L3e3wD7v8Odg
-	51paD96A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D0tE+FUuEMBR+jo617axIAMr7kzhlvh02eokOi/8wGY=; b=cQNc/oAwyBv8tfonfLIWcmWDXo
+	dq9B4NHO0+ZE4tJrZGoPoWOTDXxZ76SpUzEsnQ0SDHa2Dzr2Ak/l4dTqCdkMxodBZqAOrDl8yimXw
+	Z8AJPWMrkM+IJ055/2D1RNL0VyPcGey3ohd0WoXHks3AbB/QU62rS/vZRnijIDEPIwh8GHvgdktTg
+	O0iyoQQ2yw3mRWuYOMJcCGQaNDlIf1vQIqfRGMm6+lNvoc14WgwXvmuDhFQA/kqwgr81Rkscl/u3g
+	Z5F6pisxL0qdqmyC0oV9ISPW+HbKtRiYTRnJaCzvauq56HRbPQr/j/KzRFX9wl73/99vc/ezsQYLW
+	Y5rJ9LiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWri-0000000Bsqo-0HMg;
-	Wed, 22 Jul 2026 13:20:02 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1wmWro-0000000Bssx-0lVs;
+	Wed, 22 Jul 2026 13:20:08 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWrf-0000000Bspo-1BYi
+	id 1wmWrk-0000000BsrS-16N5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 13:20:00 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-ca7bea5e5b3so8996800a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 06:19:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784726398; x=1785331198; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YkleSo/mHT7B7/DelUTKo1SDFA3O4GZirFnblobGSyk=;
-        b=EabYW2YIWnNgeDAwS+rEUP0Z2A9eaALPBJw+ZcPSXc0ubabVVF2iAiI93Ims4ArZtk
-         /gTh8rcP6t/St//JKsRDyqJElWWxdO3i/MUjZFWvkYNdct7TMo1/dydiVxbd5w9k/eGk
-         /x7tLh/0wy/gggbIYYIpKpnlsIRmPnGoc3lzhxOUhBGyEGd2PmRGrStnIsUau95iiFhw
-         +oOPYWso4nZMgvTon/F3ipkejBx6pvgvZ7a+OPRJSSREdnuFfroSb8zicCRqGERpYqul
-         JYak/fRBZTuziDJEuKLrnZmo+uSaxIgaGfsKzyG7IxvaJJ2dQRd8k6BTIFoGEfU+k2Ap
-         185Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784726398; x=1785331198;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YkleSo/mHT7B7/DelUTKo1SDFA3O4GZirFnblobGSyk=;
-        b=Ds7HAPAD0o4rcV/QlDsW1qzyoxl6D9FLcVJt1EIMPkNV3XSG6yYfZggZA/ay/4qS1i
-         rxXRSTa3M8TcUv09Uzb8rv6ljscgW/CWmZVAY/c0gsPwv93R31De/7JKWX7cN+SELMHT
-         VFlCaILHk9D0lnPqF3eHtON/7mnHZqw/BF6wfBNOPrTZvb+B9us5pKo+rPASDbR150BV
-         R2gkLClcNOECCH6iT1WhHQnQjTyOSjoQHVPz/cFJ59CSrl4piord5kOgE3BZ6ZkpCi5S
-         0jUZnn7jT13KJGO8gL4aJMcPhmSMpuYf+fJx/VX4aSl54lXJh7CF5a2+qZ0LvgrJdVA7
-         HPGA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq/CxN0FMRYkNyIXICunMtKBuGystH9l77oWl1KfIe3LjbIl0BvBwJtaF1P+MrctDvTW99ZNSNghHgh4pkQiBc7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCF1gIhKMmA7hxibdbMou4dMExXD1FE+Lvly9CIfJLxhmKc/BY
-	+WHw+zs2ikN4X+H7UKh7p1W2tu4rMlBkVjAFnylEu8hHpDERZy+36cU1
-X-Gm-Gg: AR+sD10bcRGrpUYkEfwYe/P5MpbbVmxEu9h46h0QC/cxZMhIPwp7hF2IG33aT3CXMOD
-	AwkVvnJ2raoA0acJ1+p8saXMQaANJyis2pTOxZo5SFqtUCsk4mUSZn7VG3urxptZzqwjywd01uE
-	+uczD/AHfVnqizydBKA9pNXBUJpS/65/SIjyPjy3M28eVriajDte87odJbKwbe72vp4Rtxl4X+z
-	4+Slj7BFetNL923wZ9YR4hbodXbsAztAicJnLEIEMSNq2f2nHJuM70Q8wYdnOjF/bS4scBYPcFb
-	W3Po50EwxVdhi1n2bREMbHHqb0v4qOH43zYh8EWd+FT/UqdDTTJuXjMWQ0GprjazvzXGBkf905V
-	9bk3RmeK9n+htQsJD/AaozamrmUXCUkhx0MH+pdkBmlHjqp8VYX/u3yzhXezy7x0Ob1JH+2SyzM
-	uh
-X-Received: by 2002:a05:6a21:6110:b0:3c3:a140:938a with SMTP id adf61e73a8af0-3c3ad947db0mr26030102637.45.1784726397859;
-        Wed, 22 Jul 2026 06:19:57 -0700 (PDT)
-Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbb8f18ba96sm1112292a12.17.2026.07.22.06.19.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 06:19:57 -0700 (PDT)
-From: Zxyan Zhu <zxyan0222@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Hariprasad Kelam <hkelam@marvell.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zxyan Zhu <zxyan0222@gmail.com>
-Subject: [PATCH net] net: stmmac: Skip PHY attach if custom PCS is in use
-Date: Wed, 22 Jul 2026 21:19:18 +0800
-Message-Id: <20260722131918.685761-1-zxyan0222@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 22 Jul 2026 13:20:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TJ7i/eyvJjHeafsP5rTIpncZqBZ8nc/w2Z9/MhoTYl8aVVXQ0pW/7Za255PpjIfUqtqZb4nHCYSW6w5QbHqQf4GSWyA/qHzHxWeoyo1A4VFZiVUGFi5Yz3ZNHk9v+Ghca7Xdji5GpplUGrbkmMCuhe5wbZdZhXfNhoHvJ+myvgLZV+N4qeWlGCejtt1YnxJqnX/LOimm89hZdP+XY5eiNpEJ5FXAsrNG27AFba3Q6G1DQmMS0W3jjrGGZnM3PlsOpgQH3FgKbKRGfUNEnYcT5vTI1LRb+IbJWImlkmylhJ5pGyzYE8U9bbhl4vKQfjLgpMDR04gm+WPwYSjk3r+xtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D0tE+FUuEMBR+jo617axIAMr7kzhlvh02eokOi/8wGY=;
+ b=UrirpCT4c5J2hTnVyb0V+vjp0zQG0FUn1cgDJ9N+G+gT96XR8LmkYrQyBjlTe27mAIDCeQkEksHZB+SR3hlkV0E6+c5CdFlpXZyem89XlPm6y1AdPr0z2dpxFqMylmj9uit8mq9vGgYSqnMmt1RLxMJfo3BYOjO4BjJ0Rvhy9lQ+2vODqtSLhLfQOrKOqeS2uQY6zrFPtH/JXF5JWfSwVv8SJYRxjUtl5RqsQhk7F040Zo7t92yRcH3fQ2rbIwFlTkzl9KMu0i/oDQrn8D1hPcS4JpRxNLplDG/FPE3zmc7BxdzDxcey57SOEaZqLQSRK6Djw5GaO1Z5j2jf6c78bQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D0tE+FUuEMBR+jo617axIAMr7kzhlvh02eokOi/8wGY=;
+ b=k3CoXHCOgdGiZUntvvg2ZgBL4mQ1g82slPEm6MBfvL5jBw3Ylwr0Umgomr9rAkT4/+97V5RHyF29bFmnftZeoPEDcLk1wpGoDwgGwdKj4kA6NDQVk4ElpgPnULl02EICgcd7tbeveeXFopjgaPpEWeKODc2sRiN0g7a4TBk2hZP9b8c9ayvOJmHgj5G3bsuKAqvr/kl2B7erXCt2F/Ol4i7Mjex7rzhDBOq1/JLk/cBzy9/lsV3KS5HLcU9hZTuaB3cl7RvWn5kTgG3zzzInYT/sEOyLHiWEpiN70xMUE2pU6ivcYJTdihAYBupPSLpJzEwQ0XCZzg9C0V6vnyDveQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
+ by CY5PR12MB6454.namprd12.prod.outlook.com (2603:10b6:930:36::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 13:19:57 +0000
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 13:19:57 +0000
+Message-ID: <df8cde1e-cf6e-44f5-b650-ec186c62a92c@nvidia.com>
+Date: Wed, 22 Jul 2026 14:19:52 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: tegra: Drop CPU masks from GICv3 PPI
+ interrupts
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Thierry Reding <thierry.reding@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <cover.1781103355.git.geert+renesas@glider.be>
+ <0be8708c53609bb64bfa31d84dffc5c2d56b5679.1781103355.git.geert+renesas@glider.be>
+Content-Language: en-US
+From: Jon Hunter <jonathanh@nvidia.com>
+In-Reply-To: <0be8708c53609bb64bfa31d84dffc5c2d56b5679.1781103355.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P195CA0018.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d6::15) To SJ1PR12MB6051.namprd12.prod.outlook.com
+ (2603:10b6:a03:48a::18)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|CY5PR12MB6454:EE_
+X-MS-Office365-Filtering-Correlation-Id: e9a7b530-207b-4334-2d02-08dee7f3ed13
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|10070799003|7416014|366016|11063799006|56012099006|4143699003|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: dhNVbn3i9ts/PTgTbtcw3V1vJH9RGLcjpj+p86DHYdUAbi4qz5jCKAO9Ry4L0DPnyhrhmIQnHfzVlhwSpoRpWWUhstXF/x7oV1sFN45O4wAfcnN9hnex/U8iOlwY2SMztLVNwKYnEJUV6zWbsCOpkRKQo5gDKby2OKYlRC+bX2cbrpUJdIbMGha8n1ib4kKz+QGQPUdkdOvYqcxziD4+OOc+NIQdlSXXgXIEo7gvzQKXc6BdjDxuNn+SLPCV5vSq2JkiEulC85KgL32bDlqsvPCSSL5T5xyb352Ia2PmSfS/3KBjsvAiIjcOHt35vFjBuAdk6sVJL7hjq3V5O4365+YMkYzaCh552lBbffzs7DmKtx/w30fV2zWjwMRdu0ShNJjd0Zv+wF7rHNwlWEOONrhCSFvptDDDPdm6QpF733eclJ5ePYYGhEWtTTx1hvcUYxzOCWG4sXrfy0uExhmso55sz5sZTbnXiME4kn11l/ssh8/vun4j7j6PaHB35Y4KAKEjIUK4vnRly6nfAHHmOu8XVImTXzfxbF8bVqfqTruyqCDp2khAZGn9Ym9Z8yD59WmFjPXowBPLuHUbxbu4rPAD0hogFo6mIJdaaKyDbiXGbJtaRh6OvAvp83KUhNGRAi7OfJiZ/gzYjhEC8FYLBjSPaAcLeXxBlbyttxx7ei0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(10070799003)(7416014)(366016)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cnhvaGVsdzNySFdFbktyQmQweXg3SzNXR2xFeVZEUmdkdUlMazR3S2RFdnla?=
+ =?utf-8?B?RjY3N1FjZSt1dHUxZllObFhzR3l0YzdORmJiLzBFME80NndodkFuVUF3Mktq?=
+ =?utf-8?B?a2UvL2VoZUEwRTA5bDNnc1FLUW9zQjIyUyt4SkozZWNTb29JYXBGOG91TlVR?=
+ =?utf-8?B?UyszSWw4NFRXUGFrSzE0d0d4YUJ0SVQ0akZpeWJESG1BSjBueVVkSDR0N2d2?=
+ =?utf-8?B?NFhTTDdjbEhLT3Y2czBmcFJhYnd4bnhpd3cvQXhZTDBTekxEaUVyeFh4Y1Bt?=
+ =?utf-8?B?VmFjeWFZZU0wT0lGd2NhUHdZSFlKMm5IMmE3aCsvK29aYVhERmdlc2ZSRXd5?=
+ =?utf-8?B?c1o3aW50STNnRW5BTlhPOUZEN0h5U1lLNUZWQkwvVFBUR0U5V1pEcE1YdWNv?=
+ =?utf-8?B?QjZlT3JwOGVXQW5qTWVHYWR2WEFueENhQWdubUFxNXNhQU1JT2pqalZmT0Q0?=
+ =?utf-8?B?VmtFTkE1V2tlWDRORHMyWjRneXlOcktFYzFoTlM5RHVpaWZOWkxJUnVqeE96?=
+ =?utf-8?B?N1h2aDkxcHBLbkNUV0lYSTBqVERBRDUxNVI5OVNEQ2MxVVpnVE9HVU9BR0FS?=
+ =?utf-8?B?WHE3VjB0VHBBamFQVE5JY1VpM2FmY2tQR3NOeGJ3enJPK0RFbkxvZG9IMXVw?=
+ =?utf-8?B?MVpCWDZMOUhlTEZWQ1ZVMmpBQlVCZjhIamw0aHpDS0ZDTmQ2TzQ0elN2cXJM?=
+ =?utf-8?B?Z0pUWUgxdWZ4bVFWQ3I4RU5MUkxiUHJBQ1lGTlJGZ0s1dFZkS3dRdVFUb1A2?=
+ =?utf-8?B?OXM3RjVMaDBLKzYzY0pxaDNVZ1JxZTRpZmhLWmNJemc2bmxHNC9OYzJjMFNp?=
+ =?utf-8?B?dW1wUXBBVE9obDkwMVNqSzhObnk5MHAyQ3hJSVkzVUZjK05SVi8ydzdxMEZ3?=
+ =?utf-8?B?SUs4bTJZdUp2SVR2UklBRzJqNk1JQ0E1MGFvb2V1QXpBMlNxYzBheW0rSmh5?=
+ =?utf-8?B?N0UrTVVQcGNNYllmUGY2NVVVYS9oN2xpbm54TXZQVFNraGU1V1EwOVc2dWtG?=
+ =?utf-8?B?a2o2bzdSSURTMGFXRk13NWpJWEpiNVdyVUpEbXM3MjJRc1BPVW8wc2pFMDNy?=
+ =?utf-8?B?OGJ1NTBZRFl4R2pqYVEvYzZYQW9HZ0VKNDV4UmRITm1GblplMlRFcmszbWRS?=
+ =?utf-8?B?MmF6cG1Vb0o5Zkc3Rk5iYSt0ZllnRW81YzJwMEJEN2RwcXVUVWJXc1FGWnV0?=
+ =?utf-8?B?dXdWZXBwY1hSazBKaXcrQUlGbTVrdm9uNS9UdmtVd0hjOC9PQXNhdkxYNkl6?=
+ =?utf-8?B?VXJ4YXNmQ3BJcEthT3dudUpFNTEzNlZGREM3K0dVOVdFOUVucGp3UmhBa3F1?=
+ =?utf-8?B?U1dIVjhQVCtXc1pUVmpPeVpjTXV4dGNBSHpncEtDOHQxTDBWYTVjeDRsMkl5?=
+ =?utf-8?B?TmEwQUx0TFRkRy96NDVmbVVnNWdsY2lHZ29qRXlYUHZ6ZFJ6WWsrSTdxZ1U3?=
+ =?utf-8?B?T3Vsc1FrV2xUOUdwa3BEeWlHV1pERE9qTnVBOVRqU1NCNGEzVFVWeDVsb3Fm?=
+ =?utf-8?B?anROZlBUaHFOMjc3UXRDTCtkbVl1YXFPOUxaVVo5cUJqOHhaWUxtMXdtUXk0?=
+ =?utf-8?B?UkkzaFlLeWo0NzNjcFR0UGI2bVUyQlRWZ1lVOEkwalZUZFJ5M3BMaHJMbFhF?=
+ =?utf-8?B?ZG9TM3kzd05OWFBxYW1IZ2lrckpUcXVHUUNzVUdFSlFJbTRSejVhaDFtM2Vv?=
+ =?utf-8?B?Y2NRVnEvK2l5YWlMU1lCS01nRFZkckNWbkRIWjM3V0pIazFMT1ZLSUo2N1J5?=
+ =?utf-8?B?SEp4dUdmckN0clBjYkF6UjRqMDJyc1FJQzk0WkVOUVRZeWwveUNjUDd5ckVM?=
+ =?utf-8?B?M0tuTXBZcUJyVlpIMVdJTXZ0MlFIdTM1NnM1RGIzeStDUWhDZTJzalRja1hM?=
+ =?utf-8?B?bkI2S3VmMldqaE5GY2c3b2x0eVBQUHhhb2plV3pxVjNmK1hmTGlnUGxqY1Ra?=
+ =?utf-8?B?dVFtNWJlTURuMW5Mc1doYzJ3a2xUV3dMNCtWdUQxNHVUVlI0SGRUK2hMZCt4?=
+ =?utf-8?B?cG9NUk8yRUdIbjZNTUFqVGU0U2JOSElSMnNCczl2YUlsM0V3Q0FEajZNV2s2?=
+ =?utf-8?B?VzJFK1E5NVB0ZUUwaS9vNU8xL1VCa2x3eXNUQUZrWTFLWmVVOWRTTWs0UzYx?=
+ =?utf-8?B?b1ZQVTFSTmU1R2d6YXZDSGtRcnVEaEM0V0wrblpHNVpEemkyL3JPSFZLc1d5?=
+ =?utf-8?B?WXVGTllCQlhEV25zMnpGUTAxaitMMWZZd3YrM2UrOTdqbDhGcStwbHcrVG1j?=
+ =?utf-8?B?bkFrR09uRHFOcGVFS0R3UlQ2Q1NYbTRXODB6RS9MUXNYMWdJMjU1ZTdWUXJS?=
+ =?utf-8?B?WFAva09zcFhDekxJallRRnJVanlJaGJjK1I5LzdxQXIyeGlTeHBQa2pUQWIv?=
+ =?utf-8?Q?BoOKel+GryGjIYG8NxRdpVUiCYUH7/BqTpfLZyo1h6uFY?=
+X-MS-Exchange-AntiSpam-MessageData-1: 27/DJ2O8TrFS8g==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9a7b530-207b-4334-2d02-08dee7f3ed13
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 13:19:57.6362
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 99cBhjeUwgsK9CumHmaXwAVPRl3KxAeLmKTcRc3iXzfTCeU9AJhtLZ/399h8TSvyhZf5iSGTrIg2wbCiBdcZdg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6454
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_061959_372983_C6CD8FFD 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20260722_062004_330512_4F5A2BBB 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,42 +155,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a platform provides a custom PCS via the pcs_init callback
-(e.g., for USXGMII with in-band autoneg), the MAC's phylink_pcs
-is already configured. In this case, phylink validates against
-the PCS's supported interfaces and manages link state through
-the PCS, so no traditional PHY device is needed.
 
-Without this, stmmac_init_phy() falls through to the
-no-phy-node path and errors out with "no phy found" when
-the DT has no phy-handle for such interfaces.
+On 10/06/2026 16:09, Geert Uytterhoeven wrote:
+> Unlike older GIC variants, the GICv3 DT bindings do not support
+> specifying a CPU mask in PPI interrupt specifiers.  Drop the masks.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> v2:
+>    - No changes.
+> ---
+>   arch/arm64/boot/dts/nvidia/tegra234.dtsi | 10 +++++-----
+>   1 file changed, 5 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/nvidia/tegra234.dtsi b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+> index 04a95b6658caaa92..390609fee09c9da0 100644
+> --- a/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+> +++ b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+> @@ -4083,7 +4083,7 @@ gic: interrupt-controller@f400000 {
+>   			reg = <0x0 0x0f400000 0x0 0x010000>, /* GICD */
+>   			      <0x0 0x0f440000 0x0 0x200000>; /* GICR */
+>   			interrupt-parent = <&gic>;
+> -			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+>   
+>   			#redistributor-regions = <1>;
+>   			#interrupt-cells = <3>;
+> @@ -5869,10 +5869,10 @@ tj-thermal {
+>   
+>   	timer {
+>   		compatible = "arm,armv8-timer";
+> -		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> -			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> -			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+>   		interrupt-parent = <&gic>;
+>   		always-on;
+>   	};
 
-Skip the PHY attach when priv->hw->phylink_pcs is already set
-and no phy-handle is specified in the device tree, allowing
-platform PCS implementations to handle the link autonomously.
 
-Fixes: f0ef433fc264 ("net: stmmac: introduce pcs_init/pcs_exit stmmac operations")
-Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Reviewed-by: Jon Hunter <jonathanh@nvidia.com>
+Tested-by: Jon Hunter <jonathanh@nvidia.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2a0d7eff88d3..54c5281e91ab 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1346,6 +1346,10 @@ static int stmmac_init_phy(struct net_device *dev)
- 		int addr = priv->plat->phy_addr;
- 		struct phy_device *phydev;
- 
-+		/* If a custom PCS is in use, no PHY is needed */
-+		if (priv->hw->phylink_pcs)
-+			return 0;
-+
- 		if (addr < 0) {
- 			netdev_err(priv->dev, "no phy found\n");
- 			return -ENODEV;
+Thanks!
+Jon
+
 -- 
-2.34.1
+nvpublic
 
 
