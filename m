@@ -4,121 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAC0C531BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 289EDC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHuLEbDSaZejT/beyJkVYabylDCBHHg7aam/fEkHqeg=; b=DNEoAMcV9MnHL3QGi4cJj/zrFW
-	bbdnhZvdOMgScAU6qlNB1/T2WZuaoZStb/M5htNrYMyRChVJe3r+fUNJiPb8DthUrxbMifqgpHtgQ
-	S4ANnbrvxtwyj28nIW8LY3OUUcTohb+JVjY8l+rGd8J/oq5UMcRD7kOpS9PMlNfK67nQVkXSbkOT2
-	0UUAcf1RnNK40JFe3lR79kIvaKozVBhZMD9DhOUPUbOxB2QnrDtneH2EWm1FdTRSX73utFTZ4AIxY
-	sqhwGuVAs/bBWVbZ1nzqxwBUayW/cDr/OeYRz/DKbqyOTTJAfeJ2CIa504XW0xi6cN6Tdd6Ck9GJy
-	Hu6z9zPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6SDsO25Rk7rGd75+RSY95wTDn5tS6ra/XRsVnBi1d1U=; b=HS5Zkrji5sff5ZhBijxX7k2YUl
+	npS6rES3mGm1PXQ0U0bnReltLg606bcu95bGtp9X9WVk+7S7r7XSeVMIkc1mrs/heEGNpAeLqwKw7
+	npoO78CTYIcmaq3mLx+1eAsDgdv9VVRgOZCP/TAk/NzwpRY4j/KQbNbiCw48z5aN1lRxsWTUeNpBs
+	bY/MtEz+0QrmoaWe+UNc6na3A9uzFR9o6rwYAuZdNw8sKm6weZHtT3bt45CIX+0cxGRy5/ZaARs1u
+	p5Kv5aZB7UFSzxiYqqwsXvZdj1mAf08LtGwoGvzOqBSk2/s/PsqWFYE4Ipg5vuzov4Wy0fPirzg5+
+	PXooKJ1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTgg-0000000BT3L-2AMK;
-	Wed, 22 Jul 2026 09:56:26 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wmTj6-0000000BTbU-1OFX;
+	Wed, 22 Jul 2026 09:58:56 +0000
+Received: from mailout2.hostsharing.net ([2a01:37:3000::53df:4ee9:0])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTgW-0000000BSye-2Vs0
+	id 1wmTj2-0000000BTZU-2HQ7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:56:17 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-47f7027ca11so2641329f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 02:56:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1784714175; x=1785318975; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iHuLEbDSaZejT/beyJkVYabylDCBHHg7aam/fEkHqeg=;
-        b=CWaF8BmhUtChMclS83svsyRrgqMmjOKIHQa3Aipy2lNK7LbV2vNJ6pPP0asRXB1IQo
-         TdRAqeHLDENJZA6r7A4s26Rdy9Hn9piZvpV4X/wCPwlld4mZDXTJONa1oWwOEYgh9FNH
-         zdCmDAlfI+djnU0yH/MxaQ2n2RLRGcPdyJmTQh6AMeI27hix+Dxhq6xuxVsufERxGr3I
-         Bt4rTv+dsQWqoaKJRrpo53wn6GgDywlRGsZKZsdqgaSZU7q+xm2JIDxLMrBESRNKVlUh
-         pofREHGP1toKcM8kOXlC5uCFkXZqR3T0GMoBfA98JH9X9U5KbL93VBkXdlLyA+rMCehi
-         pZ3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784714175; x=1785318975;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iHuLEbDSaZejT/beyJkVYabylDCBHHg7aam/fEkHqeg=;
-        b=G2i/PVJAGqGSsOJOw6ekcGvWu4x9i7guTj1IDOGwHW8qrU57r5U8EWYQu9jx/rtxGd
-         FBxmYRQR2zXTniaroSh/IF9kuW5I1ugAKI6qKM+nA3LlP+Zo+iYeQZxHpa4v8HVlvafP
-         a1t6Hq2XUOasOLAxC4XMvWpU41/+wBEAeuT9/lBKhBbESCHhJ7AyuhAT2hv3lTSlQium
-         13I4zyfhrLLVVU1BOZAJBusGv9YI6L0eWhst8jVx7WTC2qZnJI/UObclh9PwqzHJSPeK
-         HRL1CTGV6gJaF40vsbjTurjoEAY6xNvo53FayGen6my48t/+NSRxitK6x8ewyNkCbceT
-         953g==
-X-Forwarded-Encrypted: i=1; AHgh+RqBeKePMQ3BrAphh7x0BNNZvDl588/CUSANBxJS9oh/E2Rg1yZUbCA7nMpL9yqFLHSKd33DKb3LAWkdq16uLhlk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQWhUAX+hYp4VxhLMAUNMfE5ANoc1V0idQ/uBO5VPatltOjgBh
-	HHJcsGqXAopEI2T9RPzBwBLhRrpbzJoO55zzFe87d8WbKL5oCDrmDxSF0mFD7tLt59U=
-X-Gm-Gg: AR+sD105qdi6QM6JrB0+QOaGucjrPj3+XsJWcGmiuNGTujzmdLmBmP5vShO+tsmo7kG
-	L78MLnUFyPrTqG5Da4rxCW8TDN0eSsaLNRh3TEBMmyNFL4BEuExHtUKC+VRdT4KVe6QeaOQqNnq
-	J//pcXRxQW2RvhfUDy4RppYqUgRMzEAt6L0WQf7UKX3evFLLJSWGEXbqvUwlCgDAE2eR/3G8fdj
-	TBJ2yHQrklaf3wMnzoh5h139nIAR57Ky9NYNOa7lBfeHkPddxJt8W1IASU0Skd024EwlSDz5nxb
-	zgHRTe8tVnqAY+vZHJlsFA8jy5aJO2lSvrMEztvhPvBpV87KxvWvNsE3atQLXSSV0EUBjY9qk5S
-	6QUDI1R636iPyE6jSFSbepHNN6CjPu0/3V70Yg6Udfq8ch5ZI/ZGF6LTKbXR9C0pV6bAuTl24Xt
-	x3RYOA9ed2U8h4ubzB6XUrH/IEgiB27OAq5Q==
-X-Received: by 2002:a7b:c054:0:b0:495:5172:661f with SMTP id 5b1f17b1804b1-49551726896mr145313155e9.19.1784714174726;
-        Wed, 22 Jul 2026 02:56:14 -0700 (PDT)
-Received: from gpeter-l.roam.corp.google.com ([2a00:23c7:314c:4601:ea7:d5d4:79db:6d52])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c532d4sm4414533f8f.22.2026.07.22.02.56.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 02:56:14 -0700 (PDT)
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 22 Jul 2026 10:55:56 +0100
-Subject: [PATCH v2 5/5] arm64: defconfig: enable Tensor G5 SoC family
+	Wed, 22 Jul 2026 09:58:55 +0000
+Received: from h08.hostsharing.net (h08.hostsharing.net [IPv6:2a01:37:1000::53df:5f1c:0])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
+	 client-signature ECDSA (secp384r1) client-digest SHA384)
+	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
+	by mailout2.hostsharing.net (Postfix) with ESMTPS id 0AFC210611;
+	Wed, 22 Jul 2026 11:58:44 +0200 (CEST)
+Received: by h08.hostsharing.net (Postfix, from userid 100393)
+	id E9FB062749F4; Wed, 22 Jul 2026 11:58:43 +0200 (CEST)
+Date: Wed, 22 Jul 2026 11:58:43 +0200
+From: Lukas Wunner <lukas@wunner.de>
+To: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
+Cc: Mark Brown <broonie@debian.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
+Message-ID: <amCUU5WNbcgn3UR-@wunner.de>
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-6-fourdollars@debian.org>
+ <al81PmK1UMr2g8p-@wunner.de>
+ <CAAT15mPuO71WbbS2ZpWjceCVj3FUTqHLi3wbbeV7B33JHbPRsQ@mail.gmail.com>
+ <CAAT15mPrwAqLmFVF730G+iJugzNzaT=HDj_7G5-wXbhBNU7ANg@mail.gmail.com>
+ <f7449a69-98e3-41c0-b535-847b8c520e10@sirena.org.uk>
+ <CAAT15mNppZ6nPQ9a8Hp54XK4BXndfv+G24n4VeQ1X8GOk6fSyQ@mail.gmail.com>
+ <CAAT15mMc73=cnqx7jvPXWjVUuzr-E54qh5+BR3d_G6m3NoXrng@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-contrib-pg-pixel10-initial-dts-v2-5-3abae9717feb@linaro.org>
-References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
-In-Reply-To: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-serial@vger.kernel.org, soc@lists.linux.dev, 
- Douglas Anderson <dianders@chromium.org>, Juan Yescas <jyescas@google.com>, 
- RD Babiera <rdbabiera@google.com>, Brian Norris <briannorris@google.com>, 
- William McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- Peter Griffin <peter.griffin@linaro.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=677;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=oIzmlAN/xUiGauIafN2ymeVSPRAXQ0H9cGKuE1HfPGQ=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqYJO3DxirCREaSZRzg4By9L4oe1J/cKMZY4ZRt
- ZPqiKTOSPuJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCamCTtwAKCRDO6LjWAjRy
- utGoD/sGLlwsGbwkdHEoU3rAfAkSpRk76WlD1svFDSQzLco2bqGuiTMl95XleeZ8dmzd096IdtW
- H30hsxlgxBJYlta1JVJ9bJ6Pr4QZdcqUozZHu014CLJPwbUgN05bdvIPEo1PPWzxmqU5Gh1nwtS
- MRQWy4EGtgrITrtH/nFixj/0hyF8ybyszDS7TXB+pJm8PJO0zpKs5afVVF2laknXV/aIwGCtl35
- IrUkDWIFLztAUmtjRgQ48VRHKgUoKVaGpyh2BKm9DfBDWwBn+wkHL+ReniPyQZ/ilLOx1XvjhnV
- 7NofygNm8k8wD1uUtqLpWjZyhLipwz9A2eRG9r8wz2y1zfcNxnHb1yBtIYGbwQGGzE8aY2z+3rn
- gfTc/LZywh1O7NMTE0Wgn9tdfHTJCQSqN1l1GR4bL6eZzIZB2WJu6LMVkaaPsTLRRWF04i1ScrG
- UCLELmalD5o44hHK0IRMwgbCgo3gZqGtTSTCDWuLX+vZArU/FJ97qZ73VJUkUmWpHPg2ZTNuwyp
- IhNuRKnMPh66HGyXCx34fj76bLz8dm8zeQeSKWLl9GbpVKU1/fBilq5BoSsG/wiQ/ianK2TNYkZ
- fVXm4MVq//TvqkvYyLr8o8co/LJT81FTfF5gRCU9Vm0hAwz0zG81Q/shtwCJa1ZzyOAhK0Ei0/9
- WKg+qry3+sd1fyw==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAAT15mMc73=cnqx7jvPXWjVUuzr-E54qh5+BR3d_G6m3NoXrng@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_025616_658914_FD172B84 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20260722_025852_734770_8BD672D8 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,28 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Google Tensor G5 (Laguna) SoC family in the arm64
-defconfig. This SoC family is found in Pixel 10 and later phones.
+On Wed, Jul 22, 2026 at 12:09:44AM +0800, Shih-Yuan Lee (FourDollars) wrote:
+> This confirms the root cause is not a software IRQ routing issue but
+> rather that the DMA controller's interrupt line is physically
+> non-functional on this motherboard.
 
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Like Andy says, the DMA controller is internal to the SkyLake-Y-ULX
+with SunrisePoint-PCH (Intel 100 Series Chipset), it's not something
+that needs to be connected on the mainboard.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index f4dfd0cc853c..930a4f27ee56 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -50,6 +50,7 @@ CONFIG_ARCH_BLAIZE=y
- CONFIG_ARCH_BST=y
- CONFIG_ARCH_CIX=y
- CONFIG_ARCH_EXYNOS=y
-+CONFIG_ARCH_GOOGLE=y
- CONFIG_ARCH_SPARX5=y
- CONFIG_ARCH_K3=y
- CONFIG_ARCH_LG1K=y
+I've just looked through the Specification Update for Intel 100 Series
+Chipset and it doesn't list DMA-related errata.  Hm...
 
--- 
-2.55.0.229.g6434b31f56-goog
-
+Lukas
 
