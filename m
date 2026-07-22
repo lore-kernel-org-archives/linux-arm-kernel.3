@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302FAC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DCFC44533
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A14ppm5s1tdrlsW/OlHvzkknoaEf+T+jw9oz7qfeSvE=; b=vL1Zibk9wa6vR3TwyITUmyUS3e
-	ksrtZP+31yoeZgcFBWHQMV3ghfH9TcrAzNqHZaK3a8/nwmbY03a6mY+OOAncU+DTMmG8qqnsSljef
-	0NlVi4AiUnMLtWDNAvClFA3DzLI1wwyjawrPZV/6MRtFlqt09rCZ+a0n2LndrXpB7WaD7HUrRrw8S
-	FRFNfZO/NTLoug3qPgsT23q7yc8TiFD+79GtEjT51hOVaL4y+AZ6Q/hwjaSp3NBu9P/va6cELUsS4
-	8rloBeHgHpayGRt219tifNWokxuupKMDKfO98QOQED8HhAu6VTo95SnMNNzIChIF9BR/oNQsLkv62
-	QIcW2uVQ==;
+	bh=2HQRXDYmfcMi0mg0rXCEwcS43+FjhTVzFh1WHpcJ8v8=; b=k2sjcPv/RJtGVkWll7L8PL3ChI
+	y45wwvDGbW1OlI/YpAyfOWityVHRTXry5rJnkKnPM7ScejLk4g44ERu6YCWw53EoZEBcwitHoIjQJ
+	JR7UYk9BLhQpwfZeGLVKGNfHifmZS8+SEAH3moltt5yor2Ts1n1w7L+wzrC/5Pzm25wUI1TemI0WI
+	o0n58dTTNuogE9d5J1SIHgU1RMP9604vIss73ZACZ/AF3R9gB5KytjXY6wkBBSPLiHy0BYWlTgH6L
+	SWXTTyOC0gcJUhrEfNt+MQOCpZ0LQ5s/yt/CJOba++V5uO1DqjBrTORHLbIAz3vvm+/ULQ9iI3LdL
+	U8wxEpFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSEs-0000000BEWj-3gpa;
-	Wed, 22 Jul 2026 08:23:38 +0000
+	id 1wmSEy-0000000BEYi-0nQ1;
+	Wed, 22 Jul 2026 08:23:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSEr-0000000BEWP-2Y2w
+	id 1wmSEw-0000000BEXk-2gJq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 08:23:37 +0000
+	Wed, 22 Jul 2026 08:23:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1852541351;
-	Wed, 22 Jul 2026 08:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 735B41F000E9;
-	Wed, 22 Jul 2026 08:23:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 68D2241351;
+	Wed, 22 Jul 2026 08:23:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A0E51F000E9;
+	Wed, 22 Jul 2026 08:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784708615;
-	bh=A14ppm5s1tdrlsW/OlHvzkknoaEf+T+jw9oz7qfeSvE=;
+	s=k20260515; t=1784708622;
+	bh=2HQRXDYmfcMi0mg0rXCEwcS43+FjhTVzFh1WHpcJ8v8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=I/Jb9GJs/idWGsjadocqbEp6fF0jbCsip9MABnnd6HtnhvyGdIsSr1hkRxIHVvH9K
-	 RBbCEtRciFzLvXKQ43w/l38tbNC29xgYOqSdXImJ6SiwF+b9cjKPWejq/fDhFfpPw/
-	 2RV8un8hXB/myo5CkB83QDucwlPp1MVd4hbDanUa3jJLdkDWeBbcNeQhkAKMEC+x3Q
-	 2ArxToAHEDeMqTjSoeeMY2kGzM0F2N14Xb7HsmBYhhaSomANRe9j+yk6em6B3lCBTK
-	 eD7svQwQTV98imDn5ZNpjEBg6sEIlMHlxj6URBOWl4no5j0zYaIMwVVGA7G6OUAf05
-	 exXHnJq01ONVg==
+	b=MPWRaPFxhRjkVElc+W5o308lLNxP5Ys6kO5p9kB1VEmTysf8gS8Hn3bT+nQbcEo8A
+	 sFQTMu6ojHLBdafrhZWH97OxKFJF0+LRFcYDiUqEYh0fudPyZ7dOCR881nxuiuT/cx
+	 5xasg0pgOh/ikVXebVWbsnqTflE0u7HjA6fm8eRreBKcLKKU+qF/2JScNkBkKZblig
+	 6oOZDhmEruw6RJXeHbQH+/iCBJyw8UDPbxfir0N9jGvazRR+Bs5QEmtNvKqkdOAQW9
+	 IBipSd+u8ZWiAByNHZlwOCCNa+LyaxHkUoV0zgMZfFaQDV5AyZbBEaBgp/5ucX7qo/
+	 OhXqNkqEZwbpw==
 From: Will Deacon <will@kernel.org>
-To: mark.rutland@arm.com,
-	james.clark@linaro.org,
-	yangyccccc@gmail.com,
-	Besar Wicaksono <bwicaksono@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	treding@nvidia.com,
-	jonathanh@nvidia.com,
-	vsethi@nvidia.com,
-	rwiley@nvidia.com,
-	sdonthineni@nvidia.com,
-	mochs@nvidia.com,
-	nirmoyd@nvidia.com,
-	skelley@nvidia.com
-Subject: Re: [PATCH v5] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
-Date: Wed, 22 Jul 2026 09:23:20 +0100
-Message-ID: <178467005826.101695.3006121587111968763.b4-ty@kernel.org>
+	linux-perf-users@vger.kernel.org,
+	zeev@amazon.com,
+	blakgeof@amazon.com,
+	avivb@amazon.com,
+	ilkka@os.amperecomputing.com
+Subject: Re: [PATCH v6 0/2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+Date: Wed, 22 Jul 2026 09:23:23 +0100
+Message-ID: <178466981527.100304.690835278646398901.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260608234135.1856911-1-bwicaksono@nvidia.com>
-References: <20260608234135.1856911-1-bwicaksono@nvidia.com>
+In-Reply-To: <cover.1782824005.git.robin.murphy@arm.com>
+References: <cover.1782824005.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -84,27 +77,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 08 Jun 2026 23:41:35 +0000, Besar Wicaksono wrote:
-> The PMCCNTR_EL0 in NVIDIA Olympus CPU may increment while
-> in WFI/WFE, which does not align with counting CPU_CYCLES
-> on a programmable counter. Add a MIDR range entry and refuse
-> PMCCNTR_EL0 for cycle events on affected parts so perf does
-> not mix the two behaviors.
+On Tue, 30 Jun 2026 14:01:16 +0100, Robin Murphy wrote:
+> v5: lore.kernel.org/r/20260603150025.30980-1-avivb@amazon.com
 > 
-> Also keep PMCCNTR_EL0 unavailable to EL0 direct counter reads
-> on affected CPUs. When userspace counter access is enabled,
-> avoid setting PMUSERENR_EL0.CR for PMUs that must avoid
-> PMCCNTR_EL0, while still allowing direct reads from programmable
-> event counters. For 64-bit userspace CPU_CYCLES events on PMUs
-> without native long event counters, reject the event if the only
-> valid direct-read path would be PMCCNTR_EL0.
+> Hi all,
+> 
+> I'm reposting Aviv's series partly for visibility, since the previous
+> versions were buried in a thread, but also to respin patch #1 - Aviv had
+> fixed up the bugs in my initial draft, but I also get reports against the
+> original commit on my branch, so I ended up taking a second look, and
+> deciding the improvement was worthwhile.
 > 
 > [...]
 
 Applied to arm64 (for-next/perf), thanks!
 
-[1/1] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
-      https://git.kernel.org/arm64/c/49f2413f9b55
+[1/2] perf/arm-cmn: Move DTM index data out of hw_perf_event
+      https://git.kernel.org/arm64/c/56603c28d916
+[2/2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+      https://git.kernel.org/arm64/c/9d0b1714e1af
+
+If you get a chance, please can you take a look at Sashiko's comment on
+the second patch? It said something similar on Aviv's v5:
+
+  https://sashiko.dev/#/patchset/cover.1782824005.git.robin.murphy@arm.com
 
 Cheers,
 -- 
