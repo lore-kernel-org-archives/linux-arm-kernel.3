@@ -4,160 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979CBC44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1056C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ye0pmBSQNQpD1Ixqlj4iy6xzBJOLNvLjVgnEcTk9udc=; b=hun4uVF7HId9UhCILlQpb5Q5ix
-	ZLrlalNO8bmLIwW8ClXs9xV+lzKYRhF6FpTCJOTYHC/IEHJqyDRUFafQMl3PTlve5PXOeuqDc0U58
-	1NGDHd2UryzD7jyMbLYUPKAkKGKjzm5jVNwWEc+BSqUc7o5jNGye8dS8QxbaDlM4RbBfCGVkSS+3r
-	3nc2PQKuQfUnTp17uj2bVtfMcCBL/AL6fa3MLQpVCawYwPSsgyMcoA+vWpnEPw/6npOefvQnhihjV
-	ilW07JQO7HQRBO/6S1/ttvmMQ004RpKENQBSFHXpziVxT/XDHWfIbkurTI4RKG/MqeMkJS4UKTM2C
-	2kVL5RWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VV0qrn4KY7nA38b0DSGAU/JYHL7vbYLpsuhnyM+8ttc=; b=mZ5NKP/WX+neMbNZrJL08M8tmp
+	/dwE7WU1wshKxBYmYjsFO28UIFs89WCMbELnw2Vmxf9QBkAndAoJ4QkQAAzwWApoKxhypP8D/uJ5D
+	dMR0zJvliJYWge6wKgu1OSv6ZqKquLC3oUIs+h/wVMaS8ghvDNldYM+6X7Yus2Kn5rTByQmpXustH
+	0tJqGyOqSOIvUaw+7PV1mjmoPZQz8bS76NKlMIYxwHrcSFwIBumH56v3uAI5sxQ+YIVOxOzMAjDjD
+	rXNloBA1scoMIMcBVBFdnnuLy3XDucpHdsQAYsiuPlA7NKTxALAlCQdcIewoYKc76C4ZG/yAxg+oO
+	IXEX5Tdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSt4-0000000BKX5-39bD;
-	Wed, 22 Jul 2026 09:05:10 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmStF-0000000BKbC-0DrB;
+	Wed, 22 Jul 2026 09:05:21 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSt1-0000000BKWM-3Wgr
+	id 1wmSt8-0000000BKXd-3VF2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:05:09 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66M8xdm1123841
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 09:05:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=ye0pmBSQNQpD1Ixqlj4iy6xz
-	BJOLNvLjVgnEcTk9udc=; b=Lb+Y2MtEJL6mOdAV5TsbUJUb129e0wN+miUU7+Jx
-	FKNDJWSplwfsPeWSA75BTsexEAgrOjgg8YE2bYUvzSLlzXEUNJVCXwUydVdYS893
-	bOdOWNDMD24CoHqRbkKyJEpijqOu4bn7zvMBMriMWizf/yS6JtJy4YcagRetnnK1
-	gknUkbWROgC4UKkN0FHfoH55XHKq7TXfJNJhzW639SSxUN44c2xVgDSvcEDLXlDB
-	hCs2m+PgRXrJJWWXe+ORcJfN8vHz/dpE2IHrec4BVz/eTrs4SYxmJFR5yXpAhA/y
-	BQNfKX8Zd9oVPNXcY8UD0aKKtfcdblHCz2wjkpuoVOdsiw==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fjnu4s97v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 09:05:07 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cb6cf425e86so4781510a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 02:05:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784711107; x=1785315907; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ye0pmBSQNQpD1Ixqlj4iy6xzBJOLNvLjVgnEcTk9udc=;
-        b=JEX/CVpCx7yor5uPIbTHCyhDQxGNW+4MocEFzPj3E81LRqUI2e9qmUv0uoU/l+mlNy
-         NHAeKiThfEZvgxXpDe5JuEm9ImRUhTH8hTfoQ29EipmdQ6HLaXPyyG3ezvuuxSSPPZCI
-         58+YsQ0RTmJ4kkkkxEqoWYs0RPBNwEMNErCjND/oxyge85BelVfi/E9w1OWq/2BGIdt+
-         1DEOiWth+0YNtkkC/6aWIZgD2QV7ygsoe/m//djV1TmeMRGLA9HSHu+XwJkga7aevsdk
-         CQAF6FuUM1V/uXHyJ9HQIPM5XLz8eDY4eW3WkSSr1SVgvoaH4wV5AnSdpD+bui121Npf
-         /aiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784711107; x=1785315907;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ye0pmBSQNQpD1Ixqlj4iy6xzBJOLNvLjVgnEcTk9udc=;
-        b=KadWiC+2eLkF/AnSMFj5zuJjuBuF1VfulM5PvHxqga4i7BtsgG127aXXKdGfGbsZkF
-         MW7DKS0L8iSM7movNZXnwtq1LsEfx2EWkVbmTJ28lOj3kjXOzE43B4d32mrxgIgafa3N
-         JBy5YuM41P4srUP7Kmiwj/Byray1IEiiyEgasvERKt5bcZsJjzgNKOesBDuur3AnOSeN
-         PIGq8oVbWyJHSvvCwClBNj3a7rLPCdLGn6fvzLKEKUG2rjOKyXCy19byvV6kk9NIa6zD
-         Y9IXeJnhTS0Xy0bxYAUDzn8I2590bOo0UR0+d6LC2OdH2KICLAWskPYa/KTBBL27iHI1
-         bYQQ==
-X-Forwarded-Encrypted: i=1; AHgh+RokHF6H8Mp7lnVWNOa9IwG8rAbE2pwYc1N1qiqCp0nUg61+34t/M6Kuzv6l5sQLiFp39mACxX9aZcrSQrOjQZSc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/UbS/SGXKb6wRKON6SP118oW9CNpqxBVfkXVswMEn9rJHWeex
-	zFG9/f9hfS6XRbO7RSOrIZTeRM1Y1askFiZUavCDc50cLnJMB4+jESr1+oWyDzwkNUQe5xD+EeC
-	eAzI4O6YW5L/cGXTCiDPMeJUCSwCelkA12HScWrVhsrTveewAh8uHd1vbnvZAFp3FULU4mnx2J5
-	T/1g==
-X-Gm-Gg: AR+sD12M/cayMkAjcI7sJY9FWvG5s5UeObr74rIUd0xP5HFXJioUUwF1fw5PpoNCo9d
-	cYEv+8cncWSoY2S5nbdJw7Gzc4cnpTQtf6iw/FxHCTXTUit4OW+40HEi/+NZMICu5JbRSjXgpiY
-	cF5v4TZ/J5Ji0x09hfQVdyXZ2EromTS89oGbvk+GVWYi2HQzTOAAkMHkhewyTHax4p9pNF1Aazz
-	2gdgqHxhZYVF3tZVMGLxclN5NrUPOmyiYvl8m1WaLaKeZuzPBb0sUztAgjH0pYy7hkneZaICHse
-	os2KWJDXB90QzaD4Ac1dsgFy13a7LxTSVGRkm93NfywXpH0s1NuUGpCtrzTCsQJSsS5zeIQ4hvZ
-	e6AJzrRqybDJQueeCxSP3Y1nGWCso2kHRIQ==
-X-Received: by 2002:a05:6a21:1506:b0:3b3:2703:115 with SMTP id adf61e73a8af0-3c3ad665a9fmr23634854637.16.1784711106465;
-        Wed, 22 Jul 2026 02:05:06 -0700 (PDT)
-X-Received: by 2002:a05:6a21:1506:b0:3b3:2703:115 with SMTP id adf61e73a8af0-3c3ad665a9fmr23634822637.16.1784711105994;
-        Wed, 22 Jul 2026 02:05:05 -0700 (PDT)
-Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3147e1bc886sm6811568eec.26.2026.07.22.02.04.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 02:05:05 -0700 (PDT)
-Date: Wed, 22 Jul 2026 14:34:54 +0530
-From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v23 03/13] power: reset: reboot-mode: Add support for
- predefined reboot modes
-Message-ID: <9367ec1e-d01c-489d-aa3a-fb361538331d@quicinc.com>
-References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
- <20260714-arm-psci-system_reset2-vendor-reboots-v23-3-e7453c548c21@oss.qualcomm.com>
+	Wed, 22 Jul 2026 09:05:16 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=VV0qrn4KY7nA38b0DSGAU/JYHL7vbYLpsuhnyM+8ttc=;
+	b=HF7G4AGVflF0r8/IfOHece+nk12Xcr5wzPhGlIBSpFa2bh9i19nX9iZCxm106RFyV2wwX9uOP
+	9Qqq9bmsFzksCgJoWQ8tZ7XswyWxI5pJfcp1xxU0MxZboqXermDHMOm9pvOS80I7Z2D2RZAPuY1
+	dRXckItHHEX7xEO2CIqZRGo=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h4p4j0lDMz1cyR3;
+	Wed, 22 Jul 2026 16:55:49 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5BB1E4048B;
+	Wed, 22 Jul 2026 17:05:10 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 22 Jul 2026 17:05:09 +0800
+Message-ID: <e0f77ad6-fce6-435f-9dd3-e10378cb29b9@huawei.com>
+Date: Wed, 22 Jul 2026 17:05:09 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260714-arm-psci-system_reset2-vendor-reboots-v23-3-e7453c548c21@oss.qualcomm.com>
-X-Proofpoint-GUID: SwZ7hGksz1xIJf1vC3RmbgofYhZWJVhX
-X-Authority-Analysis: v=2.4 cv=KLhqylFo c=1 sm=1 tr=0 ts=6a6087c3 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=2P-C3DqZnQur8SwEehsA:9 a=CjuIK1q_8ugA:10 a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIyMDA4NCBTYWx0ZWRfX7bRoyfY1SqwJ
- 72j2CdCCKfIStRArYfWgvE5IHoPSBydD2UeJGZXWRVMxkRrnfwliYJ0PRjRS70PkxmuTgSOR7Ge
- 0fPQ3vR8ISQjOH8Jn3fIJLvuJu2kq6Ln5Ddwqig1DDNcMCIwkCcL2r4YxfZZZLZcTx/O8v0BfU1
- VuMr/Yv1cQKVugQoOrNX8mvWsNvysNAvCHj5II9ah79x1rUklHjlBIIQF8fNfKY0UHxHeb68L5k
- RJcfrfJ1lu+0guglZs9L4Yk72GsolGPOVPOEumV3Bn3836Ie9rKMUo3+Lum/MRu45GLZMBn8eL6
- g9wMx587fsGayXxV3wJLb6HEDy8VmwLTVKKCITuA+3f5AbMmRgwNQW5BuEBdqfWqOyO1SLPVluY
- +VwBhgQcUo1xsR2jmnPjnVPJf5AEBRdtlFd+6ONCL4yc6Cp4b68FjvjXq/y2grXjkfVndTV9tpD
- oZhbDiJVGRHbwjzdtYA==
-X-Proofpoint-ORIG-GUID: SwZ7hGksz1xIJf1vC3RmbgofYhZWJVhX
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIyMDA4NCBTYWx0ZWRfX6XWQSSxdmpYf
- x5ZIQnPFYvD5pjJ5cb5AVgBFeX7bx7WeC7Zz/rd7N/Z+lbQK7eBnm9aIOifM4vrfGffsTggVeo8
- 1PsoQprGk5lGBPXNLoDql1D4A6dtZbU=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-22_03,2026-07-21_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 spamscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 malwarescore=0 phishscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607220084
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 14/36] arm64: interrupts: introduce generic interrupt
+ masking helpers
+To: Vladimir Murzin <vladimir.murzin@arm.com>, "Liao, Chang"
+	<liaochang1@huawei.com>, <linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-15-vladimir.murzin@arm.com>
+ <03dbefa5-6828-4b62-8f43-45b631c49289@huawei.com>
+ <31e2fdb7-063e-44a3-b667-766213839992@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <31e2fdb7-063e-44a3-b667-766213839992@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_020507_886385_2CD0691C 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20260722_020515_221978_2AA61531 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,24 +82,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 10:46:31PM +0530, Shivendra Pratap wrote:
-> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
-> index 34a81e4b4f95..b216c7595f7e 100644
-> --- a/include/linux/reboot-mode.h
-> +++ b/include/linux/reboot-mode.h
-> @@ -4,18 +4,34 @@
->  
->  #include <linux/types.h>
->  
-> +struct reboot_mode_entry {
-> +	const char *name;
-> +	u32 magic[3];
-> +	int count;
-> +};
-> +
 
-I see some where `count < 0` check, should not this be size_t or u32?
 
-Thanks,
-Pavan
+On 7/16/2026 5:37 PM, Vladimir Murzin wrote:
+> On 7/15/26 10:30, Liao, Chang wrote:
+>> 在 2026/7/9 20:13, Vladimir Murzin 写道:
+>>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>
+>>> As for the entry code, we want to replace `local_daif_...` helpers
+>>> so that they can properly handle both DAIF and PMR, as well controlling
+>>> their use more strongly.
+>>>
+>>> Introduce new `local_all_irqs_...` helpers to replace them, which should
+>>> only be called in save/restore pairs.
+>>>
+>>> Save the requested interrupt state as well, so we can check for
+>>> inconsistent interrupt masking in between save and restore.
+>>>
+>>> There are two exceptions where it does not make sense to force
+>>> save/restore pairs for modifying the interrupt masks:
+>>>  - when initializing a CPU or
+>>>  - preparing to turn it off.
+>>>
+>>> As we otherwise want to force save/restore pairs, those cases are
+>>> handled with specific helpers, making clear that they should not be
+>>> used outside of those cases, enforced with `CONFIG_DEBUG_IRQFLAGS`
+>>> enabled.
+>>>
+>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>>> ---
+>>>  arch/arm64/include/asm/interrupts/masking.h | 101 ++++++++++++++++++++
+>>>  1 file changed, 101 insertions(+)
+>>>  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
+>>>
+>>> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+>>> new file mode 100644
+>>> index 000000000000..66ee03f7ab68
+>>> --- /dev/null
+>>> +++ b/arch/arm64/include/asm/interrupts/masking.h
+>>> @@ -0,0 +1,101 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>>> +/*
+>>> + * Copyright (C) 2025 Arm Ltd.
+>>> + */
+>>> +#ifndef __ASM_INTERRUPTS_MASKING_H
+>>> +#define __ASM_INTERRUPTS_MASKING_H
+>>> +
+>>> +#include <asm/arch_gicv3.h>
+>>> +#include <asm/bug.h>
+>>> +#include <asm/cpufeature.h>
+>>> +#include <asm/interrupts/common_flags.h>
+>>> +#include <asm/ptrace.h>
+>>> +
+>>> +typedef struct arm64_exc_hwstates {
+>>> +	arm64_exc_hwstate_t saved;
+>>> +	arm64_exc_hwstate_t expected;
+>>> +} arm64_exc_hwstates_t;
+>>> +
+>>> +#ifdef CONFIG_DEBUG_IRQFLAGS
+>>> +/* Make sure the CPU init/tear down masking functions are only used once. */
+>>> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_init_done);
+>>> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_final_done);
+>>> +#endif
+>>> +
+>>> +static inline
+>>> +arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
+>>> +{
+>>> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
+>>> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
+>>> +
+>>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>>> +		bool pnmi = system_uses_irq_prio_masking();
+>>> +
+>>> +		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
+>>> +			     actual.daif == DAIF_MASK);
+>>> +
+>>> +		WARN_ON_ONCE(new < ERROR_CONTEXT &&
+>>> +			     actual.daif == DAIF_ERRCTX);
+>>> +
+>>> +		WARN_ON_ONCE(new < NONMI_CONTEXT &&
+>>> +			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
+>>> +
+>>> +		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
+>>> +			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
+>>> +			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
+>>> +	}
+>>> +
+>>> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
+>> Is it necessary to compare pmr field unconditionally here, does this function's
+>> usage imply a strict dependency on pseudo NMI？If this function moves forward to
+>> support FEAT_NMI, checking PMR seems unneccesary.
+
+I also think that this function seems to forcibly require the
+implementation of pseudo NMI and FEAT_NMI.
+
+Can the arm64_update_exc_hwstate() and similar functions pass the target
+exception mask and current exception mask, and the function internally
+performs the check of "update_pmr" or "update_allint"?
+
+>>
+> 
+> Yes, it is not necessary, but it is cheap. :) However, I think I need
+> to revisit this approach. More on that below...
+> 
+>>> +
+>>> +	if (!arch_irqs_disabled_flags(actual.flags))
+>>> +		trace_hardirqs_off();
+>>> +
+>>> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
+>>> +}
+>>> +
+>>> +static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
+>>> +{
+>>> +	arm64_debug_exc_hwstate(states.expected);
+>>> +
+>>> +	if (!arch_irqs_disabled_flags(states.saved.flags))
+>>> +		trace_hardirqs_on();
+>>> +
+>>> +	arm64_update_exc_hwstate(states.saved, true);
+>> I'm curious why it forces update_pmr to true for this specific path?
+>>
+> 
+> We force an update because we cannot fully trust that the HW state
+> matches the expected state. The expected state exists for debug
+> purposes only.
+> 
+> In the local_all_irqs_save_mask() case above, we have just read the HW
+> state, so we can use that information to avoid some unnecessary HW
+> updates.
+> 
+> I think it would be better to provide two versions of
+> arm64_update_exc_hwstate(): a strong version and a relaxed version,
+> with the strong version being the default. That would let us limit the
+> relaxed version to places where we know it is safe to skip redundant
+> HW updates.
+> 
+> 
+>>> +}
+>>> +
+>>> +#ifdef CONFIG_DEBUG_IRQFLAGS
+>>> +static inline
+>>> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>>> +{
+>>> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
+>>> +	if (context == PROCESS_CONTEXT)
+>>> +		trace_hardirqs_on();
+>>> +	arm64_update_exc_context(context, true);
+>>> +	__this_cpu_write(irqs_masks_cpu_init_done, true);
+>>> +	__this_cpu_write(irqs_masks_cpu_final_done, false);
+>>> +}
+>>> +
+>>> +static inline void local_all_irqs_final_mask(void)
+>>> +{
+>>> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
+>>> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+>>> +	trace_hardirqs_off();
+>>> +	__this_cpu_write(irqs_masks_cpu_final_done, true);
+>>> +	__this_cpu_write(irqs_masks_cpu_init_done, false);
+>>> +}
+>>> +#else /* CONFIG_DEBUG_IRQFLAGS */
+>>> +static inline
+>>> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>>> +{
+>>> +	if (context == PROCESS_CONTEXT)
+>>> +		trace_hardirqs_on();
+>>> +	arm64_update_exc_context(context, true);
+>>> +}
+>>> +
+>>> +static inline void local_all_irqs_final_mask(void)
+>>> +{
+>>> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+>>> +	trace_hardirqs_off();
+>>> +}
+>>> +#endif /* CONFIG_DEBUG_IRQFLAGS */
+>>> +#endif /* __ASM_INTERRUPTS_MASKING_H */
+>>
+>> -- BR Liao, Chang
+>>
+> 
+> Cheers
+> Vladimir
+> 
+
 
