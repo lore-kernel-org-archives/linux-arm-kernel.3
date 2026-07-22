@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7587AC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 03:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C0FC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 03:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=; b=abklP+zjGto6mV0VhUgVplZJNk
-	WThUMkm12tZViQ1XZQ++fataxIjtyfKbY1GqyjxnRK0NoGWxja8c5kSwermYAIm/NcpJpXm23achZ
-	GDBP2NCE/SDkEBN/Upqaa4TmJmkUVrlQ1NrEFcqudwvNpUcI+G7/xemMx1ROTM7+MCXhQls2f/aJt
-	z82bpt/l/G+i3lfP0wU99HBw+H1xVxqL4pmJEj7B2KZnOmQJUKN0MntglGifZe6EITP4Xum4pmJPO
-	uGhW/qa1nmqJZ7lDx5OMygbPVQv2f7gx2/Si9yC7t4iHyfiBXbtcN+WN7oLP8nQ65BhTpmINCeXyC
-	079vpzmw==;
+	bh=FKTf/d7nFmKcsSFUbAB3exdk2dVsrnMxmbCxkgyTBek=; b=ksqosfGfoeqAykbsbASFqVeGgw
+	7HdYC3F+qTe1o2jjNyQo2LxB1nnhw86OTaJDsuCUP1FcuiaN0pMbI4tHykDHNC5g/bJAw30TwtelO
+	g7H0a+rEgEUNmgw77y3EvARt06Y5pWNzHE5YFmBdq5j3p0QxZofc+NX79UsWjawTtYEpP4QwZ7oj4
+	L4oELuHqk6lClw9FcmWIQVwCw7Lhj9E+Wjv+E/jSOyuPsSD8ogAj1Nnle4mXJwIj8VfdxGG58nnbh
+	ro5sJFZy4Hig37cjJ+04AkuNcDAGC6SwiCCZcNbhOY/N9K+xe//VA40oA8u2lIE4NhQ1BWlVIyfcL
+	QhwnHU3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmNkF-0000000ApJ2-0Kdp;
-	Wed, 22 Jul 2026 03:35:43 +0000
-Received: from mail-yw1-f180.google.com ([209.85.128.180])
+	id 1wmNlp-0000000ApgU-0Vcp;
+	Wed, 22 Jul 2026 03:37:21 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmNk7-0000000ApFW-3LYX
+	id 1wmNlm-0000000Apfp-0fnI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 03:35:40 +0000
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-81062fdeaf5so51592527b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 20:35:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784691334; cv=none;
+	Wed, 22 Jul 2026 03:37:19 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-81eef95653fso44485247b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 20:37:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784691437; cv=none;
         d=google.com; s=arc-20260327;
-        b=MrmqKtE/HNL6EJyqZVpitxM1AWtgeLsOlRQucrNOtDKJx5YcB8IlWLkTIFxIn4CtEo
-         8VbNVRWaWFAPfWjLzxU90GXsX3ea4QN1OSBGYcTkxccZc2FdAd3o6FKgCxKbozW5h1tZ
-         Ge8q9msBOYvNfcC3Fp1blD7+imtVXlA3s6Ofl/FDiAcdq69IxKvOHaBXK0swWlEQ/qLy
-         BSjRHSxMWDhKkuFg8/erxONdf9UegX9OfG7CiadZt3IAP2huAZu/P5hA1KZYa7BZ31QG
-         Jnxy2qr2yKLWcU5mJca7rN/Dho3XQlIwPTYyTqa7BCX+rpyAhJRYROmvQhOPfygT0WxQ
-         eK/A==
+        b=q+8BsiB+AnuXY4DZzzmIRWeZjfRxuIhNMNqDrJN/jrqFgzcfiHr7tRsf3HsBqrFAsv
+         zEce4Nu+smp+D3gheElRlCDrvyi2DNEeyD4+T8LB442H9F5bMDbbNtcU82sQGx7crTxo
+         fOIpygIRlArUQN/weg1Gk2Yz0CA7Gg/nulj/mmWgY9Dl4607aQbjN/HFae6YW3eBtgoF
+         eFcnEV2Da3E6VsOlF2q1K28SRHMWkzeN+Od34bmOx8/39/+DQh87chzqpx3MUVygsYhM
+         wnCTc2rN665fl2fR4EBBabVj3ei/JYhv+0DTfqhy6zu3Ne3eZj1puhTGksdZs+B9fFOv
+         yXEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=;
-        fh=aXtKxBcS02+0VC6Af4JkjWe1Mrdfg+0qpr58/3MawoM=;
-        b=AeZKgupOpw4U8ZlnjJEQXsvM3ZRMXZcofU1JYQfDRCytd/y0sz31Ck2Qt88PwUNyYX
-         GMRlLJ3s1fNajhIdn3etSkx7l9Z0wIw+QKGumyLxgtkyVVTzmqgtAyGsXdBNSoXBCnNd
-         HtsIvfze1awf+UCSXsrtLhhyJrx+6m8SzjO9boXHXhI9t2IZolQ32j149BhVRRcJ9ihV
-         LTCiOC4FiqPnobxdmSHCpzrJYVWh3UVxvVRK1gtipNNYGEpK8ttThgSHlArdCnuQ+VWs
-         /8qt1cTymthNH3NsJVNiqsn14dWc/8Ccnbqhs01832OryxqGxqJ3S4z6i4a0ThWFZmhS
-         91kA==;
+        bh=FKTf/d7nFmKcsSFUbAB3exdk2dVsrnMxmbCxkgyTBek=;
+        fh=O/pf2pvkQkBYSiH09StK8x7Xgm7oylquDvk9YXh+OzA=;
+        b=oYejqxiCExtZuErPapEOFR+E8TvIHYaeX47a0cxF39PxmVqILx1Qyehq+TJlgw+Ir1
+         J7w23gHRhhQN+SCpT9phU0N6jVLxHmQ/6bbN6JLOhHKyeZDOvx4mDxGnId8DPX89WRlZ
+         iwJAh9StcjdapOLAAOf+oVS4veakw+HkcYVXv22b/krSYg2UAmYY8E4QJfqYe2ldR381
+         X5BAf6/cfnteHMBdSI119nWjpMZCZZKWp+CVXGyLrICZCuxwIC5DWxY1oiDAEs3dHhho
+         U4QUZV+LsF2RPK7TZJ2q5QT0e9MXB39UpmnLhWM6c+PhKPNS9ofhHxmOwtU9x0SfHqD5
+         oKpQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784691334; x=1785296134; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1784691437; x=1785296237; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=;
-        b=ofBCccbqYeR5eTFvBPWV5epGOEkkDwCZSZOWTC7ZCGGnoWZ40lEq01eT4Ew2OG8qtX
-         mmTJdffo54yXmIUOoxjczKrbG1E/0QP+sH7ytb+pBg9JjWYHfEZN/RaBs2vyk/VBLmCw
-         agDmMIef5sHLRgdGcO7W3/1TGmDEtAq1s7TJQ=
+        bh=FKTf/d7nFmKcsSFUbAB3exdk2dVsrnMxmbCxkgyTBek=;
+        b=fza2AwSYge2VG0WGu5bijCgoOCfJMfGaPiEdJR6uycBjFpHwwcxTvtUqwXjKvj4rI7
+         sufk6QaIHsEG4uXoAlitsBGFmKn98N/QZTRLd+l8TryPkMwWv9pkyBg/K5ecUdE2RgBo
+         0HNQbelv91xI8sNGiDtieYKt1sc5ws8wJ4eI4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784691334; x=1785296134;
+        d=1e100.net; s=20251104; t=1784691437; x=1785296237;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=fwHOybM5kh7M76hGR48ziCvoLZNoVKPyP3zXf5iOrYY=;
-        b=d6yUBaXACTKnEMO+IdOpH2uZpUxuGMfyYmazpnWH6qL4srTGJ5gNhv3MZqgXM2yWmo
-         aKT++0xnp2yspvg3er3v9HQRow5V3UlnSw8y+x0uvSxeR/mE5jXbpi5uNoSg0/y8CtaX
-         uIcAQcZJUUU8gcHqqkOrK704ehpO5E0A3jNI7lnVJqCIr2D1GKSfPEXstqJcQiosh3mY
-         c/Yt0634nW9yWOL9g3lkW9iTT9UEbfXpLQv+1D2cazmfYv7x30EeWJMD2e+RKsWqKoU9
-         cB3odVsbuWDYmiebkjgwAiiCuzMwSJu4tlseQ75c8gWb4yr3cwL7Zgn4kHM8ggqB2AHl
-         XDyQ==
-X-Forwarded-Encrypted: i=1; AHgh+RopfuNJaSGfG5IHSWO9ZzHbG44vFQIDdcg7Sx1N+f5jGIoR4mKc44Y+MDfzoBdbUe3SFOkBCOuPPrJQd4Jlu/YM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFtLjNtnNnO/o0s6+8fY1FyyNrLtMWUq90OKhQeuHz8wHp6bZc
-	/MxI6ZC31Qikt/uJgfubYrScbx9WQZnt70V7JMAJjST2+j1KDm/jUiDG/03GS+1atzNgF1OuM6B
-	c/D4nJxe7sjgglVn2tNdxrlPg4S3qvqQHn2CWTwU3
-X-Gm-Gg: AR+sD12TUjhWVfs15ktlQKl90hTYHSF5KMmBGPZaZPI6zU6sxblpH3PbPz9ZbHN8oLU
-	aWKUPCGqMCl/4z3rZD8Cgu6qiLAdxKBCRm6bk0n/dS4tdzzlrnB1yhAtQbY8TzhY3V9cdq9yPa4
-	+fl16zgnSgLIUVYM0iXLrtKJ1b8gYHCQMV/W9vD25SAZACyzmY5gO3qiv9MeV58c5jwI5/D2Ky3
-	1e2IlZM5XE6KrUk7ib5xe79T9O8grm6ZtrvC+yZj2bAIqGztfJRxUak/6QUiDIamEQaQQlAwbWy
-	Ou5PbHfoDfnoO+c=
-X-Received: by 2002:a05:690c:c4c5:b0:81e:f308:cfa3 with SMTP id
- 00721157ae682-81f33bfed62mr7716127b3.14.1784691334267; Tue, 21 Jul 2026
- 20:35:34 -0700 (PDT)
+        bh=FKTf/d7nFmKcsSFUbAB3exdk2dVsrnMxmbCxkgyTBek=;
+        b=KR3qOrnDkVM6z3cjmJqhTtUyUvCEO29ZF9DURU5/vmyeMyNx7ogj1VAWb00bnA0kGT
+         W1moBIPgdzbn1NmQ9+OUNhEaBLmuDq8YVm313RkyrdwMA8+X8TCQbGtRoA7xQZAK/SNJ
+         ekqBQYfOT+LtiT+6vHy6bT0/AzcubjKSSXmen48NKNl3VaxX2fbhba3ikGvl4QnNL1JZ
+         aDnP5TE4sW4LDOYji0TXRaYDbsvtMyBsa3vWquQbCEqEJz42Ext2N0CNZXdMcDeZ84uD
+         ez9S0yP58J82wMKsBA7baG4h58YjITqLysCNgEf42LN3MxsuwEMfIZz/O1a/+QvgSNtl
+         3RtQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqBAcwyc5p3UQN7Vy6nBp+gJDFXMKyuZA4YpkXzt+iXRdg/PALLqzG1I+NbkSbhcSBUrPDHNdHLt7iRRsizlPe5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ1Sqr57q+ZLaEZ96zlmU0EIUUj3053UhQNKUvPy6a6Ilnicrc
+	1+6XckcPZ+mB5KD++22wXDv1rLd9Hf/GLDZEE+plGITh/aLL0kBL0iTemthIWr7zmP1AKDZRghD
+	TApo4w/tBuVUJMEAgZWzng/8hiAdkHgmWK6YJ1+Ej
+X-Gm-Gg: AR+sD11vWXmrOzX8JP3dwKFGGB1ZntC5ERINOWMoLqhGPmrnPzHe13O6lxHtL7nJUK3
+	CH4WgWjN2r9DePCkrv8/mTDwoHXR9l15kDvrE+0SyTfLC/0BCaOvNCyv1BNl2KaVWRCZEFSSa/Q
+	ktUjJNaGsFOa8fEvm90EMxKU5HuiNC2qBXY2iUSKQQyLOU7mqZ+cjA87kFkinBTbGqtJtmh1Mv/
+	3WDZH1J1qCcqu8v36YP/sE/2yBqmTk14Qk3IGdyqrdXEzP1XhiCzn7VK2QNgPuJcTGfDW2f9avY
+	zx4mtbBJBOE3WrU=
+X-Received: by 2002:a05:690c:6c0d:b0:812:996f:176f with SMTP id
+ 00721157ae682-81ef22d3ea4mr70445607b3.11.1784691436993; Tue, 21 Jul 2026
+ 20:37:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260721105230.101906-1-angelogioacchino.delregno@collabora.com> <20260721105230.101906-2-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260721105230.101906-2-angelogioacchino.delregno@collabora.com>
+References: <20260721105230.101906-1-angelogioacchino.delregno@collabora.com> <20260721105230.101906-3-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260721105230.101906-3-angelogioacchino.delregno@collabora.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 22 Jul 2026 11:35:22 +0800
-X-Gm-Features: AUfX_mwF5azxEMhr_2WNLIrQ4cJxk5YI9R_dQgFYT_P0qpGKSy3wJnLrxRQxP90
-Message-ID: <CAGXv+5G-mVf3b7ygb8h4sTtYkACjc9B-VenTqOvbBQO9Pasgug@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: thermal: mediatek: Make resets
+Date: Wed, 22 Jul 2026 11:37:05 +0800
+X-Gm-Features: AUfX_my3u1BuHiEh3Upx2wok8eAOOGJ_r8yDp0XbplwggDqqh2JVTYtoDhYXOKI
+Message-ID: <CAGXv+5GrPZCZ=jNRi1AtduyZoB8DF_FUZev2CXhu4WzGri6U3A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] thermal/drivers/mediatek/lvts_thermal: Make reset
  optional for MT8196
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com, 
@@ -104,8 +104,8 @@ Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_203535_862519_D53822EE 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260721_203718_206841_CD98F940 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,61 +123,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Jul 21, 2026 at 6:52=E2=80=AFPM AngeloGioacchino Del Regno
 <angelogioacchino.delregno@collabora.com> wrote:
 >
-> Both LVTS-AP and LVTS-MCU may be shared with SoC-internal MCUs
-> running some sort of firmware that checks thermals in order to
-> scale frequency, or to take action for critical SoC thermal
-> protection - and this is seen on most MT8196 boards.
-
-Yes the number of MCUs on this SoC is a bit crazy, and the OS
-has almost no control over them. :D
-
-> Make resets optional, as doing a HW reset on such boards will
-> result in either an immediate thermal protect shutdown or in
-> a rather important and usually permanent system slowdown.
+> Depending on the SoC+Firmware combination, the LVTS hardware may be
+> may be actively used by one or even multiple concurrent MCUs!
+> In this case, resetting it may produce either a severe slowdown of
+> the entire system, or even a thermal protection AP reset, as some
+> MCU(s) may be reading a very high or very low temperature while the
+> LVTS is being reset.
+>
+> On those, don't fail if no reset is found as that may be omitted on
+> purpose, but still check if there's one, because some board(s) may
+> be running on a different bootchain with reduced firmwares or using
+> firmwares with reduced functionality.
+>
+> So, use devm_reset_control_get_optional_exclusive() instead, as the
+> LVTS controller always had only one reset and retrieving that by
+> index, specifically, always made little sense anyway.
 >
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
 abora.com>
 
 Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-
-> ---
->  .../bindings/thermal/mediatek,lvts-thermal.yaml     | 13 ++++++++++++-
->  1 file changed, 12 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/devicetree/bindings/thermal/mediatek,lvts-ther=
-mal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.=
-yaml
-> index 975235130670..29f431fcdcd5 100644
-> --- a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yam=
-l
-> +++ b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yam=
-l
-> @@ -94,12 +94,23 @@ allOf:
->          nvmem-cell-names:
->            minItems: 2
->
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          not:
-> +            contains:
-> +              enum:
-> +                - mediatek,mt8196-lvts-ap
-> +                - mediatek,mt8196-lvts-mcu
-> +    then:
-> +      required:
-> +        - resets
-> +
->  required:
->    - compatible
->    - reg
->    - interrupts
->    - clocks
-> -  - resets
->    - nvmem-cells
->    - nvmem-cell-names
->
-> --
-> 2.55.0
->
 
