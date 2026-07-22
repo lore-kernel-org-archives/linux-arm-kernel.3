@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5781C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 22:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F0EC4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 22:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9LnfC+rkBddPUTEmyrBeCB6it5XFBAKgLuygLa0ssI=; b=rMZty4tYsXzeMew8jih9HMd69d
-	hm2R7VthuSGUjJSLBd17LpOT6KZA9RIABGl0Eykjl22YiJcyhiJbGXm1yeC+QOq7md5uGQt8lo5xC
-	8TNu2il5mTb7iucFwLr2oC5KxoR+tI8T+CpFhSovOO/9udpS7VtgOSR6occty9/LSWcxH4s0z2ldG
-	AfR+u73Z2azn8GbZwA4IEZTBtdy+9jkBlIZUWRHjuEnHDVmeiuGa62fsNefwRjftvqGKNeIKBAoR1
-	Ct/Fb3hjy8zdw4tdND5+8jQacq4UzmK4MtMaIme7r2qfZTBOSUdn8Alp50VYPNUBzL+Lp3yzKa0z+
-	DJJPpiBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HIw9OEMEts2mc0uM7JDzsqy3m6f22NXMb0t+Km02/1E=; b=UsxXvtAxxIj9l48N0btHcgeQWq
+	Sk3dRrPYZKkYN8hMu+e+yESXlsblSoimqm3IfKuXYkELrxynqGpG0wDU+MDvSNb5KNz9J0Q9YjrBw
+	QoBY6NxIVG6+BaeBw49iC3ELDcv7upodA6MWUKx27RxHrWVobVJ3DRaP8vIovLuLwfSew4W5HOG2g
+	/GefJiUHw7r7gVEbEGx5hCq6S9w4fSXlQly9PZMG3pMHAkLbz50EA8OukM8lUw4hlH7fyRK5ivlPF
+	YdJAT7viyNMb0V+AEjeStr3Mnfn7i7Hg28eobpfS5ozD7zK/MPA87lSnDwby6M+YRu3hvWHxi/XZY
+	bHTIsoeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmfJA-0000000CtWp-0JDP;
-	Wed, 22 Jul 2026 22:20:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmfJ9-0000000CtWj-0arm
+	id 1wmfPF-0000000CtwU-2kld;
+	Wed, 22 Jul 2026 22:27:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmfPD-0000000Ctvy-1hNj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 22:20:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4698560051;
-	Wed, 22 Jul 2026 22:20:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04E561F000E9;
-	Wed, 22 Jul 2026 22:20:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784758854;
-	bh=P9LnfC+rkBddPUTEmyrBeCB6it5XFBAKgLuygLa0ssI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=g9GUDb5WUEMSpsLSskIIIv5j9AtR0yLg7VUkYUsDCdLgbgPmbda6LlT797prLYM0W
-	 9VbPd2CdYukOW03StQa2YF8vsmOD7gBd6QjoAPZB8nsXYsOCSLotSO9kX74+6RH3k2
-	 3WCsOatO7btw+kfWSan9ZlEb4o6rJ4Nl457Tvs6ZiRdG5DW40H099XCHwMPDsdu3YU
-	 dPeEiKDST/VhJfZ/r3jNXM/jkRHzuODEPevQvaEL9E+1RsHczxiEKZE2DMED17smVs
-	 2zS/wuug7gQaf7U0/Q6KLFYq1HAHo+M8vy9LzQ94tglPJkBds2BKUgZuhBWQNuwwtu
-	 YjUHYrjWMCJ2A==
-Date: Wed, 22 Jul 2026 23:20:48 +0100
-From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>, jgg@ziepe.ca, nicolinc@nvidia.com
-Cc: joro@8bytes.org, jpb@kernel.org, catalin.marinas@arm.com,
-	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Add HAFT support for SVA
-Message-ID: <amFCQDrEowvL28O_@willie-the-truck>
-References: <878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com>
- <amDEmlcyC3Tfmkel@willie-the-truck>
- <acd85a2a-af1f-4ebf-8370-773338d4fd15@arm.com>
+	Wed, 22 Jul 2026 22:27:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9EDA1595;
+	Wed, 22 Jul 2026 15:27:04 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB4173F86F;
+	Wed, 22 Jul 2026 15:27:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784759228; bh=HIw9OEMEts2mc0uM7JDzsqy3m6f22NXMb0t+Km02/1E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sy1be+jxIE6mAhNCz4yVoudLUwraB2jhqKFqsiryvgFS9LE/Z1ytwYzmBjL7ft9ri
+	 gbZfdG5DIjkvpkELRRr12aGowp3gnRg2DeCEJoMd/11xiy7gl+P47YJg0f4WM2kgHU
+	 3Jb2qZJxKnOVoiK+bqbTt8OoBn/aNSuUnwVMO9yQ=
+Date: Thu, 23 Jul 2026 00:23:19 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Juan Manuel =?UTF-8?B?TMOzcGV6?= Carrillo
+ <juanmanuellopezcarrillo@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
+Message-ID: <20260723002319.2793cdaf@ryzen.lan>
+In-Reply-To: <20260722172356.2509190-1-juanmanuellopezcarrillo@gmail.com>
+References: <20260721223956.13665-1-andre.przywara@arm.com>
+	<20260722172356.2509190-1-juanmanuellopezcarrillo@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acd85a2a-af1f-4ebf-8370-773338d4fd15@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_152711_552470_3C7DE7EE 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,65 +75,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 05:56:25PM +0100, Robin Murphy wrote:
-> On 22/07/2026 2:24 pm, Will Deacon wrote:
-> > On Wed, Jul 01, 2026 at 06:45:17PM +0100, Robin Murphy wrote:
-> > > Since table access flags cannot be software-managed, if process
-> > > pagetables are using HAFT then SVA must require the SMMU to support and
-> > > enable it too, otherwise page aging is liable to get out of whack.
-> > > 
-> > > Cc: <stable@vger.kernel.org>
-> > > Fixes: 62df5870ebf7 ("arm64: Enable ARCH_HAS_NONLEAF_PMD_YOUNG")
-> > > Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> > > ---
-> > >   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 5 +++++
-> > >   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 6 ++++++
-> > >   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 3 +++
-> > >   3 files changed, 14 insertions(+)
-> > 
-> > This looks ok to *me*, but Sashiko raises two interesting points:
-> > 
-> > https://sashiko.dev/#/patchset/878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com
-> > 
-> > 1. This may break hitless updates when transitioning to a faulting entry.
-> 
-> What does that even mean?
+On Wed, 22 Jul 2026 19:23:56 +0200
+Juan Manuel L=C3=B3pez Carrillo <juanmanuellopezcarrillo@gmail.com> wrote:
 
-Hey, I'm not daft enough to spend time on all the Sashiko reviews going
-on! That's why I pointed it out without trying to comprehend it :)
+Hi Juan,
 
-> We might block traffic in the process of _explicitly blocking traffic_!?
-> Whoop-de-do, surely?
+> Hi Andre,
+>=20
+> Tested-by: Juan Manuel Lopez Carrillo <juanmanuellopezcarrillo@gmail.com>
+>=20
+> I hit this exact bug on the Orange Pi 4A (T527) from the Ethernet side, s=
+o this
+> confirms the "reportedly Ethernet" with a concrete hardware data point.
 
-Hmm. I have very vague memories that there were some virtualisation (?)
-cases where Jason and Nicolin cared about the type of event that would
-be generated by concurrent DMA (e.g. bad CD vs translation fault) but
-maybe I'm misremembering.
+Thanks, this odd patch of yours (poking POW_MOD_SEL in
+pinctrl-sun55i-a523.c) actually made me connect the dots: I looked at
+that patch last week, more randomly and out of curiosity, but dismissed
+it initially. Then Sashiko commented on my "overvolting" patch pointing
+out it changes the "withstand" programming, which reminded me of that
+"reversed bits" situation, and I could confirm this with the manual and
+an experiment.
 
-> But either way, HAFT has bog all to do with EPD0, and it must be cleared if
-> HA is cleared, otherwise the CD becomes illegal.
+> Without the fix, GMAC1 (RGMII, YT8531 PHY) is RX-dead: the link comes up =
+at
+> 1Gbps but rx_packets stays 0, so DHCP never completes and the board is
+> unreachable. The PJ bank rail is 1.8V, but POW_MOD_SEL was left in 3.3V m=
+ode, so
+> the RGMII input thresholds were wrong and the MAC never saw RXC/RXD.
+>=20
+> With your patch applied, RX comes back: the board gets a DHCP lease, and =
+a 500 MB
+> transfer lands with ~365k rx_packets and rx_crc_errors =3D 0. So the CTL_=
+INV
+> variant fixes it the right way, at the driver level.
 
-That appears to be the case.
+Great to hear that, and thanks for testing! There is more to enabling
+Ethernet on the box, though, right? The EMAC25M pin needs to be
+configured correctly - not even sure that works cleanly with mainline?
+And what are the delay values that work for you?
+The BSP install on my box is dead, so I cannot poke around there easily.
+=20
+> For transparency on what I actually tested: I applied it on top of current
+> mainline (torvalds 248951ddc14d, v7.2-rc4 + a few). It didn't apply clean=
+ly there
 
-> > 2. IORT has HTTU overrides for HA/HD. Does it (will it?) have anything
-> >     for HAFT? At the moment, it looks like you'll trigger a warning
-> >     message.
-> 
-> Oh, seems I did miss that fiddly fw_features line, so I guess it has half a
-> point that the warning can wonky if both IDR0 and IORT do (correctly) report
-> HAFT. Pretty sure we're already a bit broken if IORT ever did try to
-> override HTTU _upwards_, though.
+Ah yeah, sorry, just saw that I made it in top of my WIP A733 pinctrl
+series. I should apply rather cleanly to v7.2-rc1, no?
 
-Ah, I hadn't spotted that you'd already added the IORT part, so yes, this
-just looks like the mask needs extending.
+> =E2=80=94 it looks based on a newer pinctrl-sunxi tree =E2=80=94 so I reb=
+ased one hunk (the
+> BIAS_VOLTAGE_PIO_POW_MODE_CTL_INV case in sunxi_pinctrl_set_io_bias_cfg()=
+) onto
+> that tree; the change itself is unchanged.
+>=20
+> FWIW I'd independently reverse-engineered the same inverted encoding (bit=
+=3D1 ->
+> 3.3V mode on the A523, vs earlier SoCs; the BSP calls it "power_mode_reve=
+rse"),
+> so this matches what I saw on hardware, and I'm glad it's handled generic=
+ally now
+> instead of my board-specific DT hack.
+>=20
+> One note from poking at this, in case it's useful for edge cases: on this=
+ board a
+> few banks behave specially =E2=80=94 PF is the SD UHS 1.8/3.3V switch (be=
+st left alone),
+> and PB/PH take their voltage from VCCIO rather than a per-bank bit. Happy=
+ to test
 
-> > Given Jason's comments, it's probably worth sending the idreg override
-> > patch as well...
-> 
-> Fair enough, I'm blessed with a moment of calm just now so I should be able
-> to find time to have a crack at that tomorrow...
+But that is true for all Allwinner SoCs, basically: some ports are
+powered by the same VCCIO power pin (typically at 3.3V), and there is
+no per-bank supply pin. Look at the data sheet (not user manual), that
+mentions that. Also we have a comment to that effect in the DT.
 
-Brill, thank you.
+Cheers,
+Andre
 
-Will
+> those paths on hardware if useful.
+>=20
+> Thanks,
+> Juan Manuel
+>=20
+
 
