@@ -4,139 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155FAC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569A4C44533
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNV+Sw/HN03bGWc4Qmapa2Si2X7O6CE7EIyH+uSxPYI=; b=P07Yl/+x5br5A+UyyyL/y4Mwp6
-	XlqWnDkvJPU9L4MB5MII8jhV5n7SeaCuW1Y3yyLndIQv9sRKHghk/heuSRyFyWZsRHHsuiRLbAZgr
-	GYg5Su5FSDZfdzeiCLVuCdNi42/WeOq825vgJH0agXVJrGgrdqiitlCD/dSPZ9iC4fWipQJb7XguU
-	G/vQCMVcv/VOoeokrT0mH2aMaxY8VrdvqAuHfRdBoB0jTaL8+mlNKWXgVGCgVRk/mFyF5JDJZHQjM
-	6cZVXvGj2m/4hJPylhMBmjb1xq9eMsVeI2fBwjZPS5McWqx7fYum7FUEGwSyCI3/7b/2+htypfae+
-	7g69xjAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JveG0oejOW2O9COzeYw/2B+NG7nZfbNpTQXg7A1ksyo=; b=tguJD/bLhY9menkjMH5OiopxO3
+	EA74iUEj1dFUpB0bM+R3MDomXu/ppgz46lxx/UmSCZBkYUeFIpMH5KNheCp1oCh22MokVffTK3yJ3
+	voc3nlZMD73Ns/wNKco97rYPCTgtoE8jsDxERDm3XHXCfJ7QZDbxFjhXdA5x8X/1OH/+i983iTXZ0
+	1pewTha0nfCEyxP/Q5lIklx4EwuHjHuWibKVd9XOvKjWNj3UY5/X8zGHkSqXqXC/xSaQcZo5ifC9T
+	upwLsxoHzv1MwRifKoUiIaRRUYISyiijS35q5uTGP6ZWKdkxrZZ7rBGqKe+xUtEB95tSt/W63M7Lf
+	nQG5MoYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSHU-0000000BFSx-2qBI;
-	Wed, 22 Jul 2026 08:26:20 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wmSIu-0000000BFke-3eLL;
+	Wed, 22 Jul 2026 08:27:48 +0000
+Received: from esa8.hc1455-7.c3s2.iphmx.com ([139.138.61.253])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSHS-0000000BFR6-0pOV
+	id 1wmSIr-0000000BFjL-2X7p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 08:26:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y20m5hmFEKsfBNK3qOh/LBdCXsWKSjIi4/bv43SgdgoNegtuZtjd544Ds/RUXlAzsVyo7L5EP9Q/len32c8FnFPsvS1ipwrcBdh5tTXGLxMF0ULBAr1p/LKP/w8LGq4IuR4c8cF9l6Plj7Wh315honziF1NspTeis9BvF7H9A0GK4imSP2rrsqjWSuZMWi8cW1DCDgftxJXF2QvaGQTMHKSoZSUTNcAWdETv/F+HMe3rEhRbRrNGlwqjlac/89Hsuf49bwNTXn0EQs+E8k7d1K6v5S/rVntvf5S/tVTUv5FncXf1Z6PLp73CoWnE76myQ3+TnM8Fx+/lynMk3G41iw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lNV+Sw/HN03bGWc4Qmapa2Si2X7O6CE7EIyH+uSxPYI=;
- b=IKZnUK05Zz2QCLysZKRrfHlXMSzzqA05NjLAYyGik1P15Lho12s4/pi3yzVUQgmnF/8WSlFQhVaZrMJSY6x99HrPOzl40uH9u8S9lmcsi5F85VOSbMuWRq+rIS+GjAHEaqCkaKi7Ol0DSkkVZeEiugs0X4+Evp17vrOxCK7KMnDXSuTgCa55aVQ1vvRfOscYL0obu1eKEAtdI8kEkZHcffa9z5LlG29459Z8g6PMTqAwid9FLwh231Zl/rIe6oBsMub3SviMNTIOe6Y4mW87BVc3vqZ0hI+/9H88vAz6jGMJdsH6NeXD7RP9Srv+15RC3rJoesGWszA3vxUJXfMtDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lNV+Sw/HN03bGWc4Qmapa2Si2X7O6CE7EIyH+uSxPYI=;
- b=PmJY5GKB2G0HsGkh8HZasAfHs1lziGSucYz+cMsr+/WrA8j1w+rB7msAIzRiE0lvbsnmUtfOQ9VsVKYp6TAlhPJJ/IkQZ7ULVysdXu1sMwzmJviF7C0UNKkQOIFpYYovufzru7sgTWrjVj4yY1ii5cRd++O0ui3GWfZh2zaVU4asfD5HMlXPVZfvwh2mde3dtKQjUXtgUNmHYoxI7Nh2CIQdn/n91PDpCjvjYJ/L4PQrxTzdsxlROrXmrrbXBAI0t852rBWczvLcL6+U377IkEFpI1RD64ED818N5oaRSUCbH8PQluvg1wyYCFLwcMLM/N8RdCoTMWoJAzW43wM0jA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9)
- by DB9PR04MB9498.eurprd04.prod.outlook.com (2603:10a6:10:360::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 08:26:14 +0000
-Received: from DB8PR04MB6858.eurprd04.prod.outlook.com
- ([fe80::bc6f:5fd7:462:d0b5]) by DB8PR04MB6858.eurprd04.prod.outlook.com
- ([fe80::bc6f:5fd7:462:d0b5%4]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 08:26:14 +0000
-From: Zhipeng.wang_1@oss.nxp.com
-To: robh@kernel.org,
-	saravanak@kernel.org,
-	ulfh@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	peng.fan@nxp.com,
-	aisheng.dong@nxp.com,
-	jindong.yue@nxp.com,
-	xuegang.liu@nxp.com,
-	devicetree@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v4 3/3] clk: imx: imx8qxp: add soft dependency on SCU power domain driver
-Date: Wed, 22 Jul 2026 17:25:22 +0900
-Message-Id: <20260722082522.3747962-4-Zhipeng.wang_1@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260722082522.3747962-1-Zhipeng.wang_1@oss.nxp.com>
-References: <20260722082522.3747962-1-Zhipeng.wang_1@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0166.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1cf::7) To DB8PR04MB6858.eurprd04.prod.outlook.com
- (2603:10a6:10:113::9)
+	Wed, 22 Jul 2026 08:27:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1784708867; x=1816244867;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=6/Cy2Lm2NZMPaXXZdMdvVBBo9YiQl5f2TUMPmfny+2k=;
+  b=l10Ar2pcBNOjopLXhdXmcvKH1YgoikSh2BEvkw11iukuxcwlyhIg1poO
+   eC4BUma4ggFzNypoOoXNlIchD3SE5HYBEfrrlt3NSYV+d8nqqf5Q5pT1/
+   /4PYfIRcvRrOR5r1I//kgc8WwbLhzR8kgu5/RrtwsS6/jgBvrLnq3obMu
+   hJNIEln+CNlBjtCVXRtyjeqjaUqTkzvEQiewAEgyZ6jisYfJ9HCNYVZgW
+   j4bsRtgI+0B+Xi1iltVKwei3QX2Fty2gQtydgh5aT9gyBBUKwgsy9PvWv
+   iTQYuMz2mN1apaD5wbKC8Xb3X1yx0Trnev/TMhHjst6spTx96Qq1Hii7x
+   A==;
+X-CSE-ConnectionGUID: LMrvxJjLQUWlkQ4YcOYm+g==
+X-CSE-MsgGUID: /G+sfGXIRzKbiNUq7pAkZg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11853"; a="236168811"
+X-IronPort-AV: E=Sophos;i="6.25,178,1779116400"; 
+   d="scan'208";a="236168811"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa8.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 17:27:43 +0900
+Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id D7AB01002B89
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:27:40 +0000 (UTC)
+Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 9085686127C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:27:40 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.69.159])
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with SMTP id 212C0404331;
+	Wed, 22 Jul 2026 08:27:29 +0000 (UTC)
+Date: Wed, 22 Jul 2026 17:27:29 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 12/37] KVM: arm64: CCA: Support the VGIC in realms
+Message-ID: <amB-opawGgF6jNHB@FCCLS0092175.localdomain>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-13-steven.price@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB8PR04MB6858:EE_|DB9PR04MB9498:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10739405-5095-4b6f-3915-08dee7cae4be
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|23010399003|7416014|376014|22082099003|18002099003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: gBUwToO+R8vgp/k2vKzJE1j/P8/52jX2mloC3I2h1WwfohU0yqey8oOdaro4I6Atn4P/2LEwx9Ggsrc197TTb8ttO3te019K9g0btoHAT+lPbL8pqUIFenSNZdqGPZv+LSP6cWNb+ss7yUFj5G9FVbsSrXrOjEL/4sifbPOZ5tNFzUDL0jccmZeeaLQ0G5yobSPeX1ubTxq5VL0SroyAgnT16VL614V6uVpxczhSaVb53ij/kxGpoCB5Wu0LZuoexOC/0SkwwXlYsGwOA0BJbEbfStI5QcI8CgZNN95ak4XLRLXziByt/nm1tgaXw9x5llvDyiuwFoWqGcDI3qVkBBznmMywq0X1la4VO/jhXf8ce9H56McVVEP1QRYJuqLRRGN7U9wUiQPSRZRbC8cpOE+aU1UZ3PfyINqE83C0BETQnsreP0jWi4jt2B1td6ZeXHj6pkelBamOrWYO4VlyzNMP/FEK/gbImX4A21L0EAzMjMsjn7WrjngqWkfiXY1mOhV9KJnObBBcNTG1yvIogN/j1HITqJaEInKYmH6kuNSxwfjF2ZlKr8rWrhyhj+TibqPD+baJ/DZ2iBhCGgHlYvGPPljdZKnZVoPy0BakkufTE6pRkSTwfcRKOa56zgbV2Ac2yjtQTlayBO2c64HTYc4sYFkzpAkU3kIc+2QxbtM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(23010399003)(7416014)(376014)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rGe744N6/psRFzBx0Nk0YaU99M0/eCY6uI5ghQkTvD5T7C5mQTD58LuME+vY?=
- =?us-ascii?Q?DXaearLncbnL0cPUiZTkJORX0nOCQcDVGBkFc1vlw+G8RQbba0RRGqucCYkF?=
- =?us-ascii?Q?K560cqpiaDvN5irYSQTIV9QlpGi6JCBo9wJa095eGws9JpMEZzG7cBBzpSD3?=
- =?us-ascii?Q?fdwm/QsdiwlvmnMpsT34g98PNrt/pp5TXpx1eQolnTtfwCSH0NeEeYbglO8o?=
- =?us-ascii?Q?ZIfNJm+3WH9a1Lf7ZZqLmCdStN6N6TR8osoTVM0Ixuj1hJdh1mE/zZHk+/LP?=
- =?us-ascii?Q?bVaQ72FxDOwCMM8pjydBm83eRLFNpojtF2Mt7g3aFVaGTvUDmtPQjbVBX9uT?=
- =?us-ascii?Q?SzaygVsgLl8MeS/Npzg5F1M4TGxPZmUR1/pU0g5BAH9stNWzBjTeH1lmx/Wo?=
- =?us-ascii?Q?3Cgg87eXMqoaYfU9ZDJjQcmLhYSky0xIFTPxSVmf683OwvKl/83XsToZq2SU?=
- =?us-ascii?Q?hk9PiUF5ksh0jUpSETbskSGYrFAUWXGvj+WHiou3mSx9Bex1FWkyQe13pigg?=
- =?us-ascii?Q?M1PNoh2TcftKLwWoQ3ibY9VUdbcVG76y7Y8PFwkmlxK+yRPPHnuwVdrcYZ3X?=
- =?us-ascii?Q?7sXKbpSxMtjwdOAKS8m+IX8nfOtRCrFP7gpx4I9fSbeBTQnn7hs8awJ1xxwA?=
- =?us-ascii?Q?H01xInJxUoDzn3MtFsjJv2pIzOYiMj2Fj2Qby5RfLvYZv/IUWv+yOZ70W9z2?=
- =?us-ascii?Q?SRRglNxHJskEgLO2kR57UESHe7XSNgesF1xO75nyLobAIGvh3B1fk1O29TRW?=
- =?us-ascii?Q?loSft5Sd/r3nno/jtvQpUAZckUX+2DbdvB9weeA2RQVwb5887/JCDttBw1dA?=
- =?us-ascii?Q?4SpBjlLDQzZCt8MmqApkqgMPE98reu4kaCG9OqwI4WI25KSmUXy0+RpUWO3w?=
- =?us-ascii?Q?2/XXZd82VqXhAdBgPsjb4lOKqsXC960Hy6fJmbpvJ/uz74bd6YIQn753CLnh?=
- =?us-ascii?Q?ONgWqXu4SvH4QOi8hxwSxHE2UDMPA14Jfv3yE5b1zT3Fi00EpxL5MqPAwHn6?=
- =?us-ascii?Q?IwlpLOIOlVAYwX68WDPN4YsC6spVMC4T63tkZocIonHSIgOZNrQU2Tr8gqrA?=
- =?us-ascii?Q?+9lkRNvtDtW9pJT71WnOA6O0L84dvb+Vxl/jcMuGUu0+PjmKt63dcxhPttug?=
- =?us-ascii?Q?b/xFM80akgVOhDeIEiNHiAZvwHHzHL/iIcFmDNNVuPtPymh0GAao4vq7Epv0?=
- =?us-ascii?Q?mz1gpiEa08EZ4NycTUmgG7RR80wERhhJ3hA3d91huVNb5c56Gya9d4gzuE75?=
- =?us-ascii?Q?sRTP96XWlSCmSnRqXg3n6lXGidHnXB1HhROxziAsNX/XNKpt5w7G0nkvtmSJ?=
- =?us-ascii?Q?JRqBNY4Pg4kUdfaHAzfnMsTaTI9lAMjGmT2rbO3MQsHuBfh7jbHZOv13gHU5?=
- =?us-ascii?Q?eiImDXCjP1fV70fnwN3+nTxzAvnC2kEogRW/2dgHbBUwRa7wT5zPpJV3yiz9?=
- =?us-ascii?Q?HmH1dsMzkNlWfv4+T9ATXANCEGzu6exHFkidDgvN8yu8oS8Ql/lbdk5IGp1Y?=
- =?us-ascii?Q?JLZHt9r4tC5Pn4WELlwWake77vVzMbPmA3f1VJgcstRH/yiPqnxf0+WZ9wcs?=
- =?us-ascii?Q?azVBlOvE/eBE2vBWSZnDvA+HVxKHVl3tWNLjjkbaR8WMTDP0C6gygxghkPFI?=
- =?us-ascii?Q?C640xsKUrQsldbnyHEcbsDHYj597UryCvVBbiv603wEFiJHSRf+8xwsLlo93?=
- =?us-ascii?Q?Lsc1Tlxrh/LCUKym154/1MLAbukKI/hbeu8RDOiEajOiq1cVpURo1cU+Wprl?=
- =?us-ascii?Q?GOKifvU6vbEWwPh2fIOuiASwpPwmpWSaySy42Sz6HM64m95UqX104wwbcSOp?=
-X-MS-Exchange-AntiSpam-MessageData-1: 9DoyLrcAo3ctvQ==
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10739405-5095-4b6f-3915-08dee7cae4be
-X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6858.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 08:26:14.1296
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GmB2rQTz5BdQ2sdKhY4hdneBBJkCGOByU8yVrYnemPvOqjFmB0NO0yERYz5gvC7aix7soWk+SH1M4EGQUkGBgheLGvXwhZ5FSTcXRJxdS2HNrMwjeA58Oj0U1GLMt4oL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9498
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260715142841.80544-13-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_012618_239214_043AF753 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260722_012746_066708_AAD701B5 
+X-CRM114-Status: GOOD (  30.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,34 +101,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+On 07/15 15:28, Steven Price wrote:
+> The RMM provides emulation of a VGIC to the realm guest. With RMM v2.0
+> the registers are passed in the system registers so this works similar
+> to a normal guest, but kvm_arch_vcpu_put() need reordering to early out,
+> and realm guests don't support GICv2 even if the host does.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
 
-The i.MX8QXP SCU clock driver manually attaches power domains to each
-clock device via of_genpd_add_device() in imx_clk_scu_attach_pd().
-If the SCU power domain provider has not probed yet, the attachment
-fails silently with a pr_warn() and the clock device is registered
-without a power domain.
+Hi Steven,
 
-When both drivers are built as modules, there is no implicit
-dependency to guarantee load order. Add MODULE_SOFTDEP("pre:
-imx_scu_pd") so that modprobe loads the SCU power domain module
-before the clock module.
+I've been testing this series and found that when the host CPU doesn't have
+ARM64_HAS_ICH_HCR_EL2_TDIR this series doesn't work as expected.
 
-Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
----
- drivers/clk/imx/clk-imx8qxp.c | 1 +
- 1 file changed, 1 insertion(+)
+Since commit 2a28810cbb8b ("KVM: arm64: GICv3: Detect and work around the lack
+of ICV_DIR_EL1 trapping"), when the host CPU doesn't support this feature, KVM
+traps all GIC sysreg accesses in the common group. However, currently trap
+handlers for ICC_{PMR,RPR,CTLR}_EL1 registers are missing [0]. So when Realm
+guests try to access those registers, KVM traps them but just emits the warning
+shown in [1], and Realm guests fail to boot.
 
-diff --git a/drivers/clk/imx/clk-imx8qxp.c b/drivers/clk/imx/clk-imx8qxp.c
-index c781425a005e..23ef6b959dee 100644
---- a/drivers/clk/imx/clk-imx8qxp.c
-+++ b/drivers/clk/imx/clk-imx8qxp.c
-@@ -373,3 +373,4 @@ module_exit(imx8qxp_clk_exit);
- MODULE_AUTHOR("Aisheng Dong <aisheng.dong@nxp.com>");
- MODULE_DESCRIPTION("NXP i.MX8QXP clock driver");
- MODULE_LICENSE("GPL v2");
-+MODULE_SOFTDEP("pre: imx_scu_pd");
--- 
-2.34.1
+As far as I can tell, the CCA requirements don't require the
+ARM64_HAS_ICH_HCR_EL2_TDIR feature. If that's the case, this seems to be a
+problem. Is there any workaround for this issue, or should we implement trap
+handlers for those registers?
 
+Thanks,
+Kohei
+
+[0]
+static const struct sys_reg_desc sys_reg_descs[] = {
+    ...
+	{ SYS_DESC(SYS_ICC_PMR_EL1), undef_access },
+	{ SYS_DESC(SYS_ICC_RPR_EL1), undef_access },
+	{ SYS_DESC(SYS_ICC_CTLR_EL1), undef_access },
+};
+
+[1]
+------------[ cut here ]------------
+Unexpected undefined exception injection to REC
+WARNING: arch/arm64/kvm/inject_fault.c:330 at kvm_inject_undefined+0x100/0x148, CPU#1: kvm-vcpu-0/370
+Modules linked in:
+CPU: 1 UID: 0 PID: 370 Comm: kvm-vcpu-0 Not tainted 7.2.0-rc1-00096-gd6d40e6a3103 #161 PREEMPT(lazy)
+[...]
+Call trace:
+ kvm_inject_undefined+0x100/0x148 (P)
+ undef_access+0x18/0x30
+ perform_access+0x54/0x1d0
+ kvm_handle_sys_reg+0xfc/0x308
+ rec_exit_sys_reg+0x34/0x168
+ handle_rec_exit+0x12c/0x4c8
+ kvm_arch_vcpu_ioctl_run+0x7a0/0x9a8
+ kvm_vcpu_ioctl+0x180/0xb50
+ __arm64_sys_ioctl+0xb4/0x118
+ invoke_syscall.constprop.0+0xb8/0x120
+ do_el0_svc+0x48/0xc8
+ el0_svc+0x44/0x248
+ el0t_64_sync_handler+0xa0/0xe8
+ el0t_64_sync+0x198/0x1a0
+---[ end trace 0000000000000000 ]---
+ [...]
+
+> ---
+> Changes from v12:
+>  * GIC registers are now passed in the system registers rather than via
+>    rec_entry/rec_exit which removes most of the changes.
+> Changes from v11:
+>  * Minor changes to align with the previous patches. Note that the VGIC
+>    handling will change with RMM v2.0.
+> Changes from v10:
+>  * Make sure we sync the VGIC v4 state, and only populate valid lrs from
+>    the list.
+> Changes from v9:
+>  * Copy gicv3_vmcr from the RMM at the same time as gicv3_hcr rather
+>    than having to handle that as a special case.
+> Changes from v8:
+>  * Propagate gicv3_hcr to from the RMM.
+> Changes from v5:
+>  * Handle RMM providing fewer GIC LRs than the hardware supports.
+> ---
+>  arch/arm64/kvm/arm.c            | 11 ++++++++---
+>  arch/arm64/kvm/vgic/vgic-init.c |  2 +-
+>  2 files changed, 9 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 38fac98cd6a4..2959a1451232 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -791,19 +791,24 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>  		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+>  	}
+>  
+> +	kvm_timer_vcpu_put(vcpu);
+> +	kvm_vgic_put(vcpu);
+>  	kvm_vcpu_put_debug(vcpu);
+> +
+> +	vcpu->cpu = -1;
+> +
+> +	if (vcpu_is_rec(vcpu))
+> +		return;
+> +
+>  	kvm_arch_vcpu_put_fp(vcpu);
+>  	if (has_vhe())
+>  		kvm_vcpu_put_vhe(vcpu);
+> -	kvm_timer_vcpu_put(vcpu);
+> -	kvm_vgic_put(vcpu);
+>  	kvm_vcpu_pmu_restore_host(vcpu);
+>  	if (vcpu_has_nv(vcpu))
+>  		kvm_vcpu_put_hw_mmu(vcpu);
+>  	kvm_arm_vmid_clear_active();
+>  
+>  	vcpu_clear_on_unsupported_cpu(vcpu);
+> -	vcpu->cpu = -1;
+>  }
+>  
+>  static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 907057881b26..fd77db35ef02 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -81,7 +81,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>  	 * the proper checks already.
+>  	 */
+>  	if (type == KVM_DEV_TYPE_ARM_VGIC_V2 &&
+> -		!kvm_vgic_global_state.can_emulate_gicv2)
+> +	    (!kvm_vgic_global_state.can_emulate_gicv2 || kvm_is_realm(kvm)))
+>  		return -ENODEV;
+>  
+>  	/*
+> -- 
+> 2.43.0
+> 
+> 
 
