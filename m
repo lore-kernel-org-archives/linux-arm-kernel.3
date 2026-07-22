@@ -4,55 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A727AC4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB23EC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qlKAgjUTz3ha6QiVsjTkpfhGgkJKIWWW6C4R7gJRz7k=; b=vym1G9GAdOx3APzhyPiKGCslzJ
-	SOnUK/f4yUtH/ZHgj6HmtzGRIcNKh03xxNRymIlw5qxjdFxAI9NYlFNRwudZAkDLfpICq2MUYqMGv
-	W9l0iJQSvBc2kMjvaeO+pKAhz9DRuuDIdJsB6nimW40tm7ZMiH4meTQME3YiFEw/svdaFlEy8K8N3
-	e+FF3gouKR57/mzwLV60/aVr9JhtaPciZUazDFaOjR7cLYZ1MuGzUk63juVe9pLSyCCTHaxq5IqHM
-	Fvx4QRXgaqf0xF96CUEexl/4FBDZNELxhcmXLa3CBCVA+YSgpQ7SCM6s7/GjVdloAbdBjPgFyvShn
-	XAjIeYaA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W5B5GUChOv3uxM5Bl1oEYzwpLoEqDRyYha0AZCrUVeg=; b=H2Csbz+TuLnn6rUgNFFcND6MMU
+	uGCH5pual9rx+U3j3f7GYoCA1Mt6YY1BzHb0v2vA7gY0dNjIL5jgQmmIo/YXuAiIz7PJ1Byu2Hexo
+	/rlwNKkp+s2KXdclqv9TFObmAjuD4Ee3/ICe+e5jydw4Ehd2YSxsMjZG83NqhHr1CZwUu21zRl1zX
+	sc+AKuys0NQQi2QlEg9xXUuJ3BmDSMttxK9mBqkiugQQtwnvoYdNIWWQUB3Blrv4JbCmwOrYYpl4Z
+	7YI3QzNM/YUViT0xH1+IonmcVfm43vs7j2hV7kPuOguKYJjj1mZAEc8FNuj9SglCQfCAoqXbZiLLe
+	CbPpE4Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWVJ-0000000BoQx-1lhh;
-	Wed, 22 Jul 2026 12:56:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWVF-0000000BoPQ-28MR
+	id 1wmWW5-0000000BodJ-2zM8;
+	Wed, 22 Jul 2026 12:57:41 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmWW2-0000000Bocu-2RTc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 12:56:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3FB4D1595;
-	Wed, 22 Jul 2026 05:56:44 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A4473F66F;
-	Wed, 22 Jul 2026 05:56:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784725008; bh=+OzFfXYisrdBCYz9wTiLahc6tNmP4ymseQrwjwWbniU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EPXnYbWYKD2kvgXSw+92UavvQueC0EluSQteIq1a4JNgIFbe5JpwvQTV+/M+DXNzz
-	 0ls1Rs23zKUfWSrIfG7hYvRBC+UoXoZEmROFC5U0pMsRGbcMdSMFvIlfIwEk4O2a8f
-	 UZEz6mPNlpPL+8uLA63M7s/KbJHUMCYTsrw+3oZU=
-Date: Wed, 22 Jul 2026 13:56:44 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 0/2] arm64/debug: clean up some HW BP edge cases
-Message-ID: <amC-DMTrqvAFSpe5@J2N7QTR9R3>
-References: <20260527161553.97676-1-ada.coupriediaz@arm.com>
- <amCp2vHU0XKhC6xT@willie-the-truck>
+	Wed, 22 Jul 2026 12:57:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rFvcnrUB9swgxWXQpXfbcXF9scSo0m6/r0Ry421jv8v+CdbGFBwu5/Rc1iBY5vv+Mmyp2P/F7zP2kcLKenBW/SNIBAFb4rtYuQjUU4cp2ci+lkpBcC7LU+2GFEor8cDevMyPszqubMwwHLeP/OIFnUhvulU7N3h858Ml4iy6oD1+0Nfcmlmrjo6135QI0cP+Xbx9gBg2ljDdoteey3m+Ikc1+lN/WF2A9yPdXRenttf1l2yDS163y1MOz6FQ1oG8sBiZPP2ynw/Hv5pMEGu6BOTk54LMvrWYxyxYyEx2MYEQwuo7ngloSweSZZhNMjMKM5NCMd1U8as3GlgjF7g81Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W5B5GUChOv3uxM5Bl1oEYzwpLoEqDRyYha0AZCrUVeg=;
+ b=b5CRob743lhA2oEhWRt17R3JQPZjcSe1cddmDoSRIaEY8O98ZYHld+qv/KO9gdIiAUWLJKRk0iCO7SKr/pvIi/I4yLJjnVwRjJJnECDf4tX/H82jSD/bK5SpylY8q9v1q3mnuEV3/FxoZCQxGTPzMz65/uXlksoAB/ka1gG+X2YeK1vIz3HBcAVEmEetwtuV2dUfgwji0hmr4/3yQjY/MJ9fH8FMiSLqOvI2kO8IXIhQCwOGKbH70vVYW/mnibNLvo7A4gOov0d66KpzJ612xFuBJIhEKRbi3QmkxWzQEgfvVoEnM3kr96CcFgPl9SDeh99DRIaxouTGLmMfemw/0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W5B5GUChOv3uxM5Bl1oEYzwpLoEqDRyYha0AZCrUVeg=;
+ b=Dn8Lvn5s9qgkip7ENEmHasJLV88a5+597XKrI8TXsCqwljD33p6KhcCWW91a3U3qK8QDJRQcm+ajtwfmKEbRDijvPbZlBiTa/dusuorNUrtPuoPFmMB+GK0N5CQjSzDH2h4LcUxBHizmu4ncjyy+7HmxED9t1zebtfTZIyhKHuxD7B2dbP6v8tZcbEyaxzcFIr3kbdhJZCT5CHkYz5GMalBtG0M/AKfk1WbK8DEf9PT5wHbu0tzcjj4FvWxpZBYtzjwUZBBNivRyMTAxv6nLzuDltu31WW3o6qSIJc+Jn8MmP/aeHwAo8vfpBKwVnZzLy2t7snjJUoEPk3WVCAlPwA==
+Received: from DSZP220CA0008.NAMP220.PROD.OUTLOOK.COM (2603:10b6:5:280::9) by
+ IA0PPF7D094C5BF.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bd4) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Wed, 22 Jul
+ 2026 12:57:29 +0000
+Received: from DS1PEPF00017096.namprd05.prod.outlook.com
+ (2603:10b6:5:280:cafe::64) by DSZP220CA0008.outlook.office365.com
+ (2603:10b6:5:280::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Wed,
+ 22 Jul 2026 12:57:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS1PEPF00017096.mail.protection.outlook.com (10.167.18.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Wed, 22 Jul 2026 12:57:28 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 22 Jul
+ 2026 05:57:13 -0700
+Received: from moonraker.home (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 22 Jul
+ 2026 05:57:11 -0700
+From: Jon Hunter <jonathanh@nvidia.com>
+To: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	"Daniel Lezcano" <daniel.lezcano@kernel.org>, Thomas Gleixner
+	<tglx@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, Jon Hunter <jonathanh@nvidia.com>
+Subject: [PATCH] clocksource/drivers/arm_arch_timer: Mark EL2 virtual timer broken for Tegra194/234
+Date: Wed, 22 Jul 2026 13:56:51 +0100
+Message-ID: <20260722125651.148595-1-jonathanh@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amCp2vHU0XKhC6xT@willie-the-truck>
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.231.37]
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017096:EE_|IA0PPF7D094C5BF:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5e4f42e4-4d5c-46ca-6332-08dee7f0c950
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|36860700016|82310400026|5023799004|11063799006|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: W+5KVCnOVQJ93cxBQMBEg4klx+J+5EmyOQvWEvVPLUqmhYImqCJVTY1bn2J+uw2W06B2pVytWKMEZJGEjd5w3GpQMHIyeGlyetRgmUNp75O7REym5OcMwsaxg/WuNtReiKDuGz/agBI6r6jQD44wNCVoKxhRodA0LT9RBIyIHuU4psy4kQUFwhx0BxYCy6UN/9FeZhTx32RqVMmoHx4IZOH1VTK1tziq4vP4npUZs3ogTijmy4lQ2n/97hQic0VoZaxOFuSNoaL9a88BJb1n3WX9Hp7WLQPGPLXG9Qek61w4WQj0Ljf0DaAhXIuZNGu0jJIbtYX8tj/nTQjGXw3dPbQCn1YdQ2Zm5drBBZkK0iiiMsguDzgEI6Yx9I/QYI6QIg87sQfg1VE7SGI+I32/iQM66fw1rkfgZVZKRF+gG/ZcuzQEkcqO1Ve8LqCZvWqYeO4xD4S6hksyoKFUzcDc44xos4iQgG3az5Izp7vaKo1cTWS1FtHrN0Ts2i/A8/ypblLfBdllLsErqYpY3Ay10gUcVLam/Onwnrt/s9JxEsbKyeXuknI3bLeryv9cfMBL9BYlAL+RNUAtbITshvjl2nDyxUFK2fVROXN7JBMWBEqLQmQ3FFiJpstz/en1632p4BKj71ZFTwqD7Mm3UMkv5LfbhNoiph9skkAVjSKQfDz9oOPik12wx/onlgz6CCIgqmUNjmyOZYjFXGLpeUNUYg==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(36860700016)(82310400026)(5023799004)(11063799006)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 3SchrC4BNWLUowUqE7dNpQ6cgflPSzac0gDYrfVhrFhGaRHdZWs+ghsU19CqoB00dpZiMFvu40bMfriv6bhoKxzSbLgi9NLjaNmRMZ+mO0p6YZDH+L3LcgRLTXC1hRk5QbPTfkat2nGCDFQzi9bV0zYcnmHfs4ktW3g27mZKOwkfqMYbXddnUhMpXps4+AMo7EnfDHm/PviIclodP8i/MkWf5PvvxaV7Rv9DXJ/b4JMRxx3o5lR2r/9fF47a05lwq1gGafTSodEQ89bYLovd8UpoHXcbCJgh2L9P+3dBE2udfyUBKAeAGQWVAM4m5Ago0bcLjtZ8tr/pirh1f0UcKoBTX5qjVvXNSMlE8yfRJBSbYwA6KtHF+sZULy7c5vgF9iH6LQMpNTvINMVkyviY4sR1sejQRj0tPXGNZRYio4rU10y8XTySzv697F/WVFFo
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 12:57:28.7331
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e4f42e4-4d5c-46ca-6332-08dee7f0c950
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017096.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF7D094C5BF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_055649_588853_F0352F32 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20260722_055738_622260_D97CE142 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,45 +123,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 12:30:34PM +0100, Will Deacon wrote:
-> On Wed, May 27, 2026 at 05:15:51PM +0100, Ada Couprie Diaz wrote:
-> > This is a small series focused on fixing some unsoundess and edge case
-> > related to hardware breakpoints and watchpoints.
-> > 
-> > It is motivated in part by the recent discussion on the
-> > FEAT_Debugv8p6 series[0][1] regarding unclear guarantees on interruptions.
-> > 
-> > It doesn't address the issue of instrumentation, as NO_KPROBE is not
-> > sufficient to prevent it (specifically ftrace) and would require a pass
-> > over the whole debug handling code.
-> > 
-> > The bugs themselves are very much of the self-inflicted
-> > "you should not be doing this" kind and not urgent, but it does solve
-> > some of the questions on the FEAT_Dbugv8p6 series.
-> > 
-> > Most of the raw additions are comments trying to give more context to
-> > understand `hw_breakpoint_thread_switch()`.
-> 
-> Hmm. From what I can tell, these patches are trying to handle various
-> cases where we take a debug exception while executing the hw_breakpoint
-> code itself. Even with these two fixes, is perf expecting to handle that
-> sort of thing? I think it would be a lot more robust if we just prevented
-> this from happening in the first place, similarly to the discussion from
-> the other day around kprobes [2].
+The following warning is being observed on Tegra194 and Tegra234
+platforms ...
 
-Since [2] mentions noinstr, it's worth noting that noinstr alone isn't
-sufficient. Watchpoints also use this path, and we can't practically
-filter watchpoint addresses to avoid hitting a watchpoint here.
+ arch_timer: [Firmware Bug]: VHE-capable CPU without EL2 virtual timer
+  interrupt
 
-I assume you'd be happy with masking debug exceptions entirely?
+Adding the missing EL2 virtual timer in device-tree for Tegra194 and
+Tegra234 is causing boot issues for both devices.
 
-Mark.
+The Tegra194 device includes a GIC-400 which defines PPIs for sec-phys,
+phys, virt and hyp-phys timer interrupts (per the dt-binding
+arm,arch_timer.yaml) but there is no PPI hyp-virt (EL2 virtual) timer
+and hence this is not supported for this device.
 
-> Will
-> 
-> [2] https://lore.kernel.org/all/alpuL10h7-OK2hFb@willie-the-truck/
+The Tegra234 device does have a PPI for the EL2 virtual timer, but
+during CPU idle transitions into low-power states this timer is not
+preserved currently by firmware and hence causes boot issues when CPU
+idle is enabled.
+
+Avoid the warning for Tegra194 and Tegra234 devices by marking the EL2
+virtual timer as broken.
+
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Jon Hunter <jonathanh@nvidia.com>
+---
+ drivers/clocksource/arm_arch_timer.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 4adf756423de..b9ccb560ff8f 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -1090,6 +1090,17 @@ static int __init arch_timer_common_init(void)
+ 	return arch_timer_arch_init();
+ }
+ 
++static bool __init has_broken_el2_vtimer(void)
++{
++	static const char * const broken_el2_vtimer[] __initconst = {
++		"nvidia,tegra194",
++		"nvidia,tegra234",
++		NULL
++	};
++
++	return of_machine_compatible_match(broken_el2_vtimer);
++}
++
+ /**
+  * arch_timer_select_ppi() - Select suitable PPI for the current system.
+  *
+@@ -1115,6 +1126,9 @@ static int __init arch_timer_common_init(void)
+ static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
+ {
+ 	if (is_kernel_in_hyp_mode()) {
++		if (has_broken_el2_vtimer())
++			return ARCH_TIMER_HYP_PPI;
++
+ 		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
+ 			return ARCH_TIMER_HYP_VIRT_PPI;
+ 
+-- 
+2.43.0
+
 
