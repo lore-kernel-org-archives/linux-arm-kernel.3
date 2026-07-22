@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 866B9C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC22C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZwUtkaBfc1/bGDoMdw8wkMEGT7WDFKoW/EX/Xh2aA+Y=; b=icUKnfS8nz8YWN2j1DMca07khd
-	OANlsGFCOwovxsFbe0mV7x08zPMiJ6D8Q88w3ZkCTMbbB9aUzvYl1Kqi2qFz16i1/0nUHfVNKjD++
-	e+UVtz3Xhw1xWJVIugB0voIAYmklld/5ctM6crOpOrnKaBsTyo6eII2rB7BjlP60gFCvj9ldiFPQ1
-	Q2pm0xgwIeT+35Y+K/lYUAOiUutW2VyqS4TlRf6Hql45pbTJt+VEbyvn14uXJSmEwOwpFsaRrtoVi
-	B4wMUvX7WccxOETHHtt2WD+/cz6kfjm9olSg79p8P6IT+z17uQhTHNENohWLUDbvQugiEAQxVkE9/
-	tAn13Row==;
+	bh=F1AT8pfTT5H3v1VSsbczUJFUDFVFL+qUil+wR6QR9Z4=; b=y8vO7g6j7xDafU5dMX8tRmqj2B
+	HKZCmO04pXgf4JgFDNFVdAW8WW+YKSA/15AKfXgRLi0Ys2Nd1BLgRZpB5ctx+nCTgTi/l9rgkZWPd
+	U6klYyExuT9Tb/BtGkSUfQ9lyDAwKtY20Qa250KpdLD6cXRh7zmFPv605v9IN5XNT5EF15Im/Hzh1
+	Sjp6jyMDaJIMAomux8n9ZN8+CtSoVNkzHo3jMhQ99mAp9gGNHQ4KmE/qlsQa5aGP9Bg1ifystyw+N
+	2eqBk3Nz+fFMg4cCPv7ZenCOjdHfTRw6ryTM4HhVJmua6aQCjKdzvyEsrpgQapEHUPmZUTFU/8mj4
+	k7mcZmzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRc7-0000000B7N8-1V4h;
-	Wed, 22 Jul 2026 07:43:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmRc3-0000000B7BT-30YX;
+	Wed, 22 Jul 2026 07:43:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRba-0000000B6mL-3cyn
+	id 1wmRbY-0000000B6kG-3kxc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:43:02 +0000
+	Wed, 22 Jul 2026 07:43:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BF3E60A7B;
-	Wed, 22 Jul 2026 07:43:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F41031F0155A;
-	Wed, 22 Jul 2026 07:43:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 93B13436F9;
+	Wed, 22 Jul 2026 07:43:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 772461F01561;
+	Wed, 22 Jul 2026 07:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784706182;
-	bh=ZwUtkaBfc1/bGDoMdw8wkMEGT7WDFKoW/EX/Xh2aA+Y=;
+	s=k20260515; t=1784706180;
+	bh=F1AT8pfTT5H3v1VSsbczUJFUDFVFL+qUil+wR6QR9Z4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LYR559Cq+9PmDBj5i3IMaVxCT3dz5SRrMtWEQVLpWjcZcymRRwRSCWEDAZT1LJWTA
-	 ihXqYYfFwHNHAnKZdHAO5BTr62JpieqqbWm41vq5xjftXE7kjgukXRi8/eCI9civVn
-	 VJz2I8qqhxnWPLR24aUxFxcV8pgIkZZkKS0RJ4OTuvL/GQH2xkXnUSf2q2ivc2T0i7
-	 rHVB+ZLi27SxcblOoJGh/cXGrbvr0LcY65iJLTfTe92xWHx58PTFPCtIE0d2eWmiGS
-	 ReXu7QwqPfuoufD2P5XWTVBAJ0NukKpKXhbBArrsWnfN+E5/XiloBFlo4rIwomRdQj
-	 dH9mAzvAbuH+w==
+	b=OdyhEVxXoqKa25VJptJXxiw45sOAbru7dSEqqmxiVwfQOeFYC2hGRNRRNlyZpFDPl
+	 x1DHZf+CX8CYtUz2e3jlH0pOe1BZb39KbXVP9CfckCRbIV2QbqG0sWqJmymBEZzQIw
+	 rAdrnRZFKz08hKxBBxVLxqXJspNSfBti8FdvyjVIyJA7roufWa2FJBwmlKNduaFjtB
+	 V/ERBoX5H8XhwCTwrBRyRPhk193vonYQxL/uUmfqLkd1svloJ9Lw9SOlHOyN2EAJC+
+	 STny7t1BlhB8/EjXcvHhIWzeCX/MTvTe+VAe6RcsQJe0B5Dx5ZCCXZ77XKc7TiutDS
+	 4+olmh+3GHQqA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmRbY-00000007VfN-1PkQ;
-	Wed, 22 Jul 2026 07:43:00 +0000
+	id 1wmRbW-00000007VfN-32sq;
+	Wed, 22 Jul 2026 07:42:58 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 27/28] KVM: arm64: Expose FEAT_NV3 to guests
-Date: Wed, 22 Jul 2026 08:42:33 +0100
-Message-ID: <20260722074234.3330999-28-maz@kernel.org>
+Subject: [PATCH v3 20/28] KVM: arm64: Add sanitisation for NVHCR_EL2
+Date: Wed, 22 Jul 2026 08:42:26 +0100
+Message-ID: <20260722074234.3330999-21-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260722074234.3330999-1-maz@kernel.org>
 References: <20260722074234.3330999-1-maz@kernel.org>
@@ -85,37 +85,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Further enable FEAT_NV3 by making it visible to NV guests.
+Just like any other VNCR-based register, NVHCR_EL2 requires some
+level of sanitisation. Being specified as a live copy of HCR_EL2,
+it adopts the exact same format, but depends on FEAT_NV3 instead.
+
+A subtle aspect is that we only want to apply the sanitisation if
+FEAT_NV3 is actually present, as the VNCR location is otherwise
+used to back accesses to HCR_EL2.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/nested.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/config.c | 15 +++++++++++++++
+ arch/arm64/kvm/nested.c |  4 ++++
+ 2 files changed, 19 insertions(+)
 
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 467f57eb8e6bb..1053676551aff 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -1019,6 +1019,9 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
+ static const DECLARE_FEAT_MAP(hcr_desc, HCR_EL2,
+ 			      hcr_feat_map, FEAT_AA64EL2);
+ 
++static const DECLARE_FEAT_MAP(nvhcr_desc, NVHCR_EL2,
++			      hcr_feat_map, FEAT_NV3);
++
+ static const struct reg_bits_to_feat_map sctlr2_feat_map[] = {
+ 	NEEDS_FEAT(SCTLR2_EL1_NMEA	|
+ 		   SCTLR2_EL1_EASE,
+@@ -1393,6 +1396,7 @@ void __init check_feature_map(void)
+ 	check_reg_desc(&hdfgwtr2_desc);
+ 	check_reg_desc(&hcrx_desc);
+ 	check_reg_desc(&hcr_desc);
++	check_reg_desc(&nvhcr_desc);
+ 	check_reg_desc(&sctlr2_desc);
+ 	check_reg_desc(&tcr2_el2_desc);
+ 	check_reg_desc(&sctlr_el1_desc);
+@@ -1592,6 +1596,17 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
+ 	case HCR_EL2:
+ 		resx = compute_reg_resx_bits(kvm, &hcr_desc, 0, 0);
+ 		break;
++	case NVHCR_EL2:
++		/*
++		 * Only apply sanitisation if we do have FEAT_NV3.
++		 * Otherwise, the register aliases with HCR_EL2 in VNCR,
++		 * and we're better off relying on data transfers between
++		 * NVHCR_EL2 and HCR_EL2 to sanitise things.
++		 */
++		resx = (kvm_has_nv3(kvm) ?
++			compute_reg_resx_bits(kvm, &nvhcr_desc, 0, 0) :
++			(typeof(resx)){});
++		break;
+ 	case SCTLR2_EL1:
+ 	case SCTLR2_EL2:
+ 		resx = compute_reg_resx_bits(kvm, &sctlr2_desc, 0, 0);
 diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index f646894fec9a9..70d605e60cfb3 100644
+index 35a1c42ad3f84..f646894fec9a9 100644
 --- a/arch/arm64/kvm/nested.c
 +++ b/arch/arm64/kvm/nested.c
-@@ -1728,7 +1728,7 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
- 		 * You get EITHER
- 		 *
- 		 * - FEAT_VHE without FEAT_E2H0
--		 * - FEAT_NV limited to FEAT_NV2(p1)
-+		 * - FEAT_NV limited to FEAT_NV2(p1)/NV3
- 		 * - HCR_EL2.NV1 being RES0
- 		 *
- 		 * OR
-@@ -1741,7 +1741,9 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
- 			val = 0;
- 		} else {
- 			val &= ID_AA64MMFR4_EL1_NV_frac;
--			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-+			if (cpus_have_final_cap(ARM64_HAS_NV3))
-+				val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR4_EL1, NV_frac, NV3);
-+			else if (cpus_have_final_cap(ARM64_HAS_NV2P1))
- 				val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR4_EL1, NV_frac, NV2P1);
- 			else
- 				val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
+@@ -1830,6 +1830,10 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+ 	resx = get_reg_fixed_bits(kvm, HCR_EL2);
+ 	set_sysreg_masks(kvm, HCR_EL2, resx);
+ 
++	/* NVHCR_EL2 */
++	resx = get_reg_fixed_bits(kvm, NVHCR_EL2);
++	set_sysreg_masks(kvm, NVHCR_EL2, resx);
++
+ 	/* HCRX_EL2 */
+ 	resx = get_reg_fixed_bits(kvm, HCRX_EL2);
+ 	set_sysreg_masks(kvm, HCRX_EL2, resx);
 -- 
 2.47.3
 
