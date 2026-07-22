@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A4BC4453D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0E0C44539
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbs10KidpIGqlIc5os/QD3BMwoPJkkDhyGReQO8E1Eg=; b=hDKeh0OwLIqwx3qoA/OuiGE9Gl
-	gKIh+qCewcW3CuQMkQqAUBok44FJtlMLrSPfkjmoB9yXDEwZRElQWov99arXR17D9B6jlTEk77rH8
-	Co7JuQEZeHE/7iDcg2GvG8xevyNGgst68SH0N8nWXbBehosht4d0Ph41ob5CuM2MkG3557KhUItVS
-	RH/J54QeMENibJ1W10/w3gTWK/RiIN7uvkD9gYVPUn8cMHdk0PJ85p4rtXM6cSsWp/+2Ji0Mb+zOp
-	+Xw6fl/FPzM6avUC3lGWMPIQa8cX3ZSQ77jOWibmHsbc57Fgp+gFmU0Wt2tKA8Kdo42iKlWwfAy5U
-	EIEThn4g==;
+	bh=L5j5knED6q3pX0T/5tJ3M251cDQCJBmX/HJ95U5CMOc=; b=ePi68YLvW9vWBs/m35YLLKNF5g
+	xQrug/UW0mLLk9fH9nt550KC5SfI9fraG+2iLhVqllHINAX0VH6p0emW4FhRJjPQzebmwm0teuZta
+	P4S68kxY4MHPde8FVpIPrwrZGeWlKERBZSrRxysfhawt3HX5WYBnRRMXHuDS0g32NLVu7Dcsxkfr/
+	VUIYBkg6deEFYg2elm2FM9NaIcc9UarQ1avFWUH2xleqEE+HKmV/q6JG9k7vzyy3MS7wzIqE35amk
+	Eau0i+YvVvY1mUHN0kj+6+YXe6R9NZ8ABTLKoCUvejJA2E5gwJ4Gt5mYDTEjAbM67zwgpFA+pyHs0
+	kmBdj9Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmU7L-0000000BXpB-09lR;
+	id 1wmU7L-0000000BXpl-1Q7B;
 	Wed, 22 Jul 2026 10:23:59 +0000
 Received: from extorris.mess.org ([92.243.27.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmU76-0000000BXfP-2Ogl;
-	Wed, 22 Jul 2026 10:23:46 +0000
+	id 1wmU77-0000000BXfi-0BEH;
+	Wed, 22 Jul 2026 10:23:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1784715820; bh=v0aZIk+G8qQOaUMq8H69z/O75gsUb1OibfhX/UC/5PI=;
+	t=1784715821; bh=1yP18ZTlPXUiRlBsdmIVfczBqI+60MXCB3xkhNeyZNs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=p8nIqaVy2DRAugJh8aw//UBb54MV40uLKDuKRL1RlRkX+MpGQcinX4Og9iqb3+Z6l
-	 C9vTi7FtrqrajL9bKCSxY4S69e5YoaXj9FP785NDijsteKl8d3oSMfJ+O0eLtkWFyK
-	 bNG6N3Ai7ykyR+R+lEScdY/++kzhcf7gLgUP/yHpFDlaS11CNpuKxBu2ojkO71EU1j
-	 RK2jydoXQyr/9pa9yoViRbJJV/EaghpzUisfrEJe/6rzzEHwJirrnsDf47ZFP4KYJp
-	 kPi+MXEVF3zqhzY/fCIqZhV+HZhMzZFScF6eLJNacTqFkrlVBn+ttXWzWhvwlEF+Tq
-	 pL69BC263WWrQ==
+	b=BGF1/F+WLHXV6j/0OEn+ZivJ0nB6Px4t1hqikgOOJCqP/zbNmrLiYBHIjtVLQrh2j
+	 SQVD/svrmElcKeMa8BJkPDMY6Mrfh3Kt/70XD28Fcno5rWyq+MMeFts9Y303i/o9Ob
+	 n9dAbulXhuKI6Wu9fogxwm9sOtNXeXthu9vhRHuCmzI4MxxK1icoo0AJ7c6j8K90XB
+	 CETWzUYEAB8vV7L85WZBqLyDEHwZdF4Vi5pYF8TnOxNtBlXCLr8vQOVDnBa/6Q5DLm
+	 pw1zUbIBWekaczkjsTpWMh3S2VSN2t8tl3ij/BfZhjwkVU9vkQ2gZd2JZkVYA1Sfht
+	 4N3aOQuid40+A==
 Received: by extorris.mess.org (Postfix, from userid 1004)
-	id 70BF04254C; Wed, 22 Jul 2026 11:23:40 +0100 (BST)
+	id EC5544252A; Wed, 22 Jul 2026 11:23:41 +0100 (BST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1784715819; bh=v0aZIk+G8qQOaUMq8H69z/O75gsUb1OibfhX/UC/5PI=;
+	t=1784715820; bh=1yP18ZTlPXUiRlBsdmIVfczBqI+60MXCB3xkhNeyZNs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mDQMFol5QBHHj3Osr3lFNkgmOfBFQ3HLbZ0N14Iuyn3D4GVP/e2erCiWqaO/I0u3n
-	 vDdg3N6fLu3cEJCs1HxkpKzVW2c61m/Z+/WiOGdAL1EPqvDxz8YX2JjSJFAdfU840n
-	 93TeS/6TRrvENsGMVBQrTSe2HSHrvG67Hansj69c9xhhzRH+MeS7Fwv7t6RnIyiekt
-	 sBHMtgtLfctNuQTjSscPdiBiSYfQ1KGFzCVDCItN8NddINsVqBDGq1ckSb0SlbGF30
-	 lmh6f0MreVpEmGqoGikiSJ8NjdQyGq8Mg27wQRHzoMgbnOkc1eV+a4I2uqJhidYcvu
-	 kHlBw1NVeHQfw==
+	b=aUxM38mdUebm/sODIPjAEyhB2MYCSGA5vpuK9NuaD41gzIs8jVMeNLFQfZw/PDYsf
+	 4c1/O/w90NCefxlE0SWSsMHmHR3+ExQSDNaXRQ+bUZ6M9c9J7uYxDOU2TleYAKxt5G
+	 grc9w6L5D76tEycvdqZexf15/PFQs+d0DIiXxVBYM5EpdHkxhD/5nM2u8bcBU3gn5q
+	 E5kgB1lhkHZJ5D5dd1ZRgTEwghIFFUmSENv3wswcIX1XZLUDTJeoqPp5noRWuPF8oK
+	 OtwxAwdnROdN8y1cNziAk0PcSIkbZEf6H0fnqlT+qSDRtIMCzswiLFT+SghNwRV6Px
+	 dm1cmKhlZ8z6g==
 Received: from maru.local (unknown [62.232.99.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by extorris.mess.org (Postfix) with ESMTPSA id 247FB4252C;
-	Wed, 22 Jul 2026 11:23:39 +0100 (BST)
+	by extorris.mess.org (Postfix) with ESMTPSA id 6AA5F42538;
+	Wed, 22 Jul 2026 11:23:40 +0100 (BST)
 From: Sean Young <sean@mess.org>
 To: linux-media@vger.kernel.org,
 	Sean Young <sean@mess.org>,
@@ -65,17 +65,17 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 07/13] media: meson-ir-tx: Ensure clock is disabled on unbind
-Date: Wed, 22 Jul 2026 11:23:19 +0100
-Message-ID: <ff9948f8d30ceb0f7d2c962097798dc9ed8a1a40.1784715737.git.sean@mess.org>
+Subject: [PATCH v3 09/13] media: meson-ir-tx: Ensure probe error is propagated
+Date: Wed, 22 Jul 2026 11:23:21 +0100
+Message-ID: <b34fb1c2603376b4ae99829fafae49897d975625.1784715737.git.sean@mess.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1784715737.git.sean@mess.org>
 References: <cover.1784715737.git.sean@mess.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_032344_747016_F5909D58 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260722_032345_219881_C32B534C 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +90,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clk_prepare_enable() needs a call to clk_disable_unprepare() on
-driver unbind. Make it devm managed.
+devm_clk_get_enabled() may return -EPROBE_DEFER which needs to be
+propagated else the probe will not be deferred, it will fail instead.
 
 Fixes: 49be1c78d575 ("media: rc: introduce Meson IR TX driver")
 Signed-off-by: Sean Young <sean@mess.org>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 ---
  drivers/media/rc/meson-ir-tx.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/media/rc/meson-ir-tx.c b/drivers/media/rc/meson-ir-tx.c
-index fded2c256f2a..e7bb107e6a84 100644
+index abb107d19e8c..174d5135e1bb 100644
 --- a/drivers/media/rc/meson-ir-tx.c
 +++ b/drivers/media/rc/meson-ir-tx.c
-@@ -288,8 +288,8 @@ static int meson_irtx_mod_clock_probe(struct meson_irtx *ir,
- 	if (!np)
- 		return -ENODEV;
+@@ -290,7 +290,7 @@ static int meson_irtx_mod_clock_probe(struct meson_irtx *ir,
  
--	clock = devm_clk_get(ir->dev, "xtal");
--	if (IS_ERR(clock) || clk_prepare_enable(clock))
-+	clock = devm_clk_get_enabled(ir->dev, "xtal");
-+	if (IS_ERR(clock))
- 		return -ENODEV;
+ 	clock = devm_clk_get_enabled(ir->dev, "xtal");
+ 	if (IS_ERR(clock))
+-		return -ENODEV;
++		return PTR_ERR(clock);
  
  	*clk_nr = IRB_MOD_XTAL3_CLK;
+ 	ir->clk_rate = clk_get_rate(clock) / 3;
+@@ -324,7 +324,7 @@ static int meson_irtx_probe(struct platform_device *pdev)
+ 
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq < 0)
+-		return -ENODEV;
++		return irq;
+ 
+ 	ir->dev = dev;
+ 	ir->carrier = MIRTX_DEFAULT_CARRIER;
 -- 
 2.55.0
 
