@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B2CC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECF4C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C55jJmDfmGi6xpILXoNlr/fLTzAI61lVTFq8ZnYY1Ss=; b=Ll0aQX56avMZo9IuRTQzlCtLtv
-	+eVTUYw9Uu719Nch/nKiE7chXpC6u5bilnogl2F+ONjpeQZNmUtkDVNeHa98dF7gn+4570/KYboeu
-	ATZ/nFo44yzok1pLvaOhCnnAFmra+ikU5IYfdnB+6d7ftRXl6gMLjdUwVQ8GMmCzLU9AUXH0odBO4
-	vo5+57cRCwVnFnCpkWSssa2OrqfTV2xlheupCm2M7FFk3yFsoSg/F+yCquasoWY8m7ATiD6ejxo8h
-	Ufb+xs6EKn+V3Dyfmdv8KbCPjRSdQzWLyc6Ttrweh1Ft1Jls2qKUCJ+T/MAi85r+GvFdN3LOiUtti
-	wtaGr9Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8bdrG0QFqxIH5pXZGRRRAY6FI2BH/CW3w4wZSetZqPY=; b=TRgfUzffLH4gBBAWVR8pGLuAbr
+	C7zcc7UUUtnFgLKVtxFuq4tUX8qzqAxJ74OnYABF4zs0E+XNZRVVA6s6bHX+9jZ8+fh+56+fXbGpq
+	XRqgOOCqhullnoi6zgjl5TO540n/82qf2tly5pljwylpv8iR7IUokcopxQw6cCrTo/FSyH/eV8Qnu
+	zQvY7QzZkx2RjO7l1Dht7+77KnxvcRwA2FMTU5eZGmd5h373rdXDi+3yCZi0IUtIMGMgVVZ+X6l2p
+	Rlf2i1msuyqPkttVsQnJpyo7cTmTUgD5TInJnTQORh+i5ZI4uX/2nAT5bXmswEp0qylXB4OCSvRAi
+	hqgyerZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmQwn-0000000B1L9-3In5;
-	Wed, 22 Jul 2026 07:00:53 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wmR04-0000000B1VW-0m6E;
+	Wed, 22 Jul 2026 07:04:16 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmQwk-0000000B1Kg-2Eav;
-	Wed, 22 Jul 2026 07:00:52 +0000
+	id 1wmR01-0000000B1Ub-1W2S
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 07:04:14 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38dc69c74b8so9830861a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 00:04:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1784703648;
-	bh=C55jJmDfmGi6xpILXoNlr/fLTzAI61lVTFq8ZnYY1Ss=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=L4ROw7WmxD0DtmLKlIjP2iYeD33ovUCxgEUFLf71Ovsb1jkdAagvaoppTpL0ATlN/
-	 NQXSxgO8Nx0vj91tGSZACMYqo0NGJ+fjv53HUK4niolcSHps04ETXjiB3gAVNRsF96
-	 qOPyznz4DllyhGchKA14oBLQWTmX4FGnhNWfq0jhv8Xwa2AWGmNxRC4bjV/cb33QT+
-	 HY+1jeTBEB1Sr4YCBUbGGsTcUVhcHpP42qJ49UeT5ZZ73Fz3bA7Ol7p2wA2SQ7UVr7
-	 z/AExnCM14rq2P04jrvVGWPQ8lk/f7vTzM5DCJQYAyOMi6iRR7j0wp/wy4H90Du5iV
-	 S1bCyb8/Aycmw==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 23BB465B37;
-	Wed, 22 Jul 2026 15:00:47 +0800 (AWST)
-Message-ID: <ca289e45bbde8e8a2f823a1660aa0a8f88e94bc4.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2 2/3] phy: add AST2700 usb3.2 phy driver
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>, Philipp Zabel
- <p.zabel@pengutronix.de>
-Cc: "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
- "devicetree@vger.kernel.org"
-	 <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	 <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	 <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	 <linux-kernel@vger.kernel.org>
-Date: Wed, 22 Jul 2026 16:30:46 +0930
-In-Reply-To: <TY2PPF5CB9A1BE6AE5B658D558EBDF24450F2F82@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20260116-upstream_usb3phy-v2-0-0b0c9f3eb6f4@aspeedtech.com>
-		 <20260116-upstream_usb3phy-v2-2-0b0c9f3eb6f4@aspeedtech.com>
-	 <ddb133ca1a3be605ee776b2276c1907c9ad32491.camel@codeconstruct.com.au>
-	 <TY2PPF5CB9A1BE6AE5B658D558EBDF24450F2F82@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=gmail.com; s=20251104; t=1784703852; x=1785308652; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8bdrG0QFqxIH5pXZGRRRAY6FI2BH/CW3w4wZSetZqPY=;
+        b=CstAp+3gqi8Bo4n/XHTOczUreVYtE9xEvaGUhw/oK033C9p97Ty2r5qPLYsmvyFerH
+         5muaQ7l7BcsWjt6PNtyjXBGzzWhtfy35DUe8z0b4+DM0GY/jgDUn0PSp+z7d0a/RqzJk
+         8uanW0EVHUR2CLoRAsloiAzU5J6mzWmw6P8XPtK3nOuhd1iUgJKsQBj61u2TtkHMqglR
+         1dT/ieziWYEI6Nwr/kFVGUgHjLEPHK/uS5iGHsrT3YVXiGes+AITLPJ/NHEQwZIsQ2w2
+         t8luuuMYNMmJuwX2FbeI2XJA8pMFw5sM9EcRDQOWTuhGYFln+Je+O7TzHmVLOarTdwBN
+         S9JA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784703852; x=1785308652;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8bdrG0QFqxIH5pXZGRRRAY6FI2BH/CW3w4wZSetZqPY=;
+        b=d5ACYjiIA7fvCmG4MIzJchu0SqrfW9s8Tv8JBOuAcsxtcoE4GN/aA0+tlGmIO0SfGm
+         oZY9Xs6j1kSEqO5kBjXSdBP2eetYio2DXgAeht38Lbz7cWGfAYM1+Wv9Lfscwz4wjRyX
+         citUXW5QgdwukBl3eVpFeZCUC3fi0vpCEbX1nl3FnqBsJ9KtK/Bm8gm8lnVa46QvcsP+
+         chn8oXfVFCLKNUwSXH1JRvK/IU9fWr/+CRy5armZqD8i6SQNYnHyURNsa0KBKqP1koRb
+         tNQ7aJ5a3LuGfbLpTnk4O1jVLabkfo2USShbtBVE/QVekwmOMNVSd+mavZQlRh+nWTky
+         eLng==
+X-Forwarded-Encrypted: i=1; AHgh+RrFQpYLzdcyup5f59TTjTTUo8mFvMMg8iLiKt1ImWNuT9VB1eV34hJBdP1hMWkL16jl4t9hgcKcY2q+jmkrjXkC@lists.infradead.org
+X-Gm-Message-State: AOJu0YymzZwhkbpCZRwM7mDIhHegAaGHM9Z7tNS2G5v+Qx5poznuOV7Z
+	QXZIkUBvH0qbU0nBVFCobs8VSb4gPo4VwOEjKGO+TPHZTXG1H+6Z44hB
+X-Gm-Gg: AR+sD13auJ96qonrB53uFln0foiWlCdWgCD2lMvVyG7ALZCQ8wIxl8kDy4OLKJu7g28
+	3Pso53dXCXygNAA9+7j0ctjr3/iFl9Ic8Z1JQWffoLOYXPUK2hKryc9tAUJNIQ7TRDzWZc8ix7b
+	MPFvtVMdTB75xLVtBm5vCMmBxpwZTvm6OvussCux0bBDcHB4Da4GgkZM9GVOnRcFSVrAiXKu+R0
+	vBwgnJyuzBEP2rBIYhg+Tzpmx7nWodx+p1O6B7VBLe4r965gfobTbaZgC1k9JMziGFtjUBrpASs
+	/q3diN7Dy0cn3dG5x9TYLwdcRtsrAjm9jndohRJAStXg06p0H9SCoI4NRMBzw6H/BB+u10ghA8p
+	o5YLoikow0buYCFn/60I+Zav7yQ5AYPFK9SrhEk6PSVXkX3giUFJovkuOq+mLinL4pDrw8j9+Ma
+	riJ4KdAz7M00419Mt4AJEI4HoRWd5MQDLV3e9tY7pAcho1FrAxFeFqDjNvylfa5qK/pvzuczwmP
+	GswOOxo9JTT09qquIBxVuY=
+X-Received: by 2002:a17:90b:2e90:b0:368:ed26:15b2 with SMTP id 98e67ed59e1d1-38e4b43c408mr21798100a91.8.1784703851941;
+        Wed, 22 Jul 2026 00:04:11 -0700 (PDT)
+Received: from localhost.localdomain ([101.251.7.10])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13d130a8421sm3203259c88.10.2026.07.22.00.04.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 22 Jul 2026 00:04:11 -0700 (PDT)
+From: Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>
+Cc: Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	stable@vger.kernel.org,
+	Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
+Subject: [PATCH] wifi: mt76: mt7925: validate CLC firmware records
+Date: Wed, 22 Jul 2026 12:49:02 +0545
+Message-ID: <20260722070402.45328-1-acharyalaxman8848@gmail.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_000050_859616_AFF7F1F3 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20260722_000413_405139_80877D58 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,46 +106,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-07-15 at 05:55 +0000, Ryan Chen wrote:
->=20
-> >=20
-> > > +	}
-> > > +
-> > > +	/* Wait for USB3 PHY internal SRAM initialization done */
-> > > +	ret =3D readl_poll_timeout(aspeed_phy->regs + PHY3S00, val,
-> > > +				 val & PHY3S00_INIT_DONE,
-> > > +				 USEC_PER_MSEC, 10 * USEC_PER_MSEC);
-> > > +	if (ret) {
-> > > +		dev_err(aspeed_phy->dev, "SRAM init timeout\n");
-> > > +		goto err_assert_reset;
-> > > +	}
-> > > +
-> > > +	val =3D readl(aspeed_phy->regs + PHY3S00);
-> > > +	val |=3D PHY3S00_SRAM_BYPASS;
-> > > +	writel(val, aspeed_phy->regs + PHY3S00);
-> >=20
-> > According to the datasheet PHY3S00[15] (PHY3S00_INIT_DONE above)
-> > indicates that the PHY internal SRAM initialisation is complete. The da=
-tasheet
-> > reports the SRAM is used for configuration of calibration among other t=
-hings.
-> > PHY3S00[6] instructs the PHY that software has completed loading the
-> > configuration data into SRAM, however PHY3S00_SRAM_BYPASS (PHY3S00[7])
-> > tells the PHY to load configuration from "hard wired" values.
-> >=20
-> > Is it necessary to wait for SRAM initialisation to complete if we're by=
-passing it?
-> > Or are there other side-effects involved in the setting of PHY3S00[15]?
->=20
-> Yes, it is necessary to wait SRAM initial, the driver polls PHY3S00[15].
-> It reports that the boot loader in the PCS has finished initialising the=
-=20
-> SRAM (loading the contents into the PCS), and that initialisation has
-> to complete before sram_bypass (PHY3S00[7]) may be asserted.=20
->=20
+The CLC region is supplied by firmware, but the loader trusts the region
+count and each record length. A malformed image can make the region table
+pointer precede the firmware buffer, make the record loop fail to advance,
+or index phy->clc past its end. Validate the table and record bounds
+before dereferencing or copying.
 
-Can you improve the comment then to make it clear that the wait is
-necessary despite the bypass?
+Fixes: c948b5da6bbe ("wifi: mt76: mt7925: add Mediatek Wi-Fi7 driver for mt7925 chips")
+Cc: stable@vger.kernel.org
+Signed-off-by: Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
+---
+ .../net/wireless/mediatek/mt76/mt7925/mcu.c   | 32 ++++++++++++++-----
+ 1 file changed, 24 insertions(+), 8 deletions(-)
 
-Andrew
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+index e94fa544ff20..76e30bf4ce0f 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+@@ -803,8 +803,9 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
+ 	struct mt76_dev *mdev = &dev->mt76;
+ 	struct mt792x_phy *phy = &dev->phy;
+ 	const struct firmware *fw;
++	size_t clc_len, fw_data_len, len, offset = 0;
+ 	u8 *clc_base = NULL, hw_encap = 0;
+-	int ret, i, len, offset = 0;
++	int ret, i;
+ 
+ 	dev->phy.clc_chan_conf = 0xff;
+ 	dev->regd_user = false;
+@@ -829,13 +830,21 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
+ 	}
+ 
+ 	hdr = (const void *)(fw->data + fw->size - sizeof(*hdr));
++	if (hdr->n_region > (fw->size - sizeof(*hdr)) / sizeof(*region)) {
++		dev_err(mdev->dev, "Invalid firmware region table\n");
++		ret = -EINVAL;
++		goto out;
++	}
++	fw_data_len = fw->size - sizeof(*hdr) -
++		      hdr->n_region * sizeof(*region);
++
+ 	for (i = 0; i < hdr->n_region; i++) {
+ 		region = (const void *)((const u8 *)hdr -
+ 					(hdr->n_region - i) * sizeof(*region));
+ 		len = le32_to_cpu(region->len);
+ 
+ 		/* check if we have valid buffer size */
+-		if (offset + len > fw->size) {
++		if (len > fw_data_len - offset) {
+ 			dev_err(mdev->dev, "Invalid firmware region\n");
+ 			ret = -EINVAL;
+ 			goto out;
+@@ -852,11 +861,19 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
+ 	if (!clc_base)
+ 		goto out;
+ 
+-	for (offset = 0; offset < len; offset += le32_to_cpu(clc->len)) {
+-		clc = (const struct mt7925_clc *)(clc_base + offset);
++	for (offset = 0; offset < len; offset += clc_len) {
++		if (len - offset < sizeof(*clc)) {
++			ret = -EINVAL;
++			goto out;
++		}
+ 
+-		if (clc->idx >= ARRAY_SIZE(phy->clc))
+-			break;
++		clc = (const struct mt7925_clc *)(clc_base + offset);
++		clc_len = le32_to_cpu(clc->len);
++		if (clc_len < sizeof(*clc) || clc_len > len - offset ||
++		    clc->idx >= ARRAY_SIZE(phy->clc)) {
++			ret = -EINVAL;
++			goto out;
++		}
+ 
+ 		/* do not init buf again if chip reset triggered */
+ 		if (phy->clc[clc->idx])
+@@ -869,8 +886,7 @@ static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
+ 			continue;
+ 
+ 		phy->clc[clc->idx] = devm_kmemdup(mdev->dev, clc,
+-						  le32_to_cpu(clc->len),
+-						  GFP_KERNEL);
++						  clc_len, GFP_KERNEL);
+ 
+ 		if (!phy->clc[clc->idx]) {
+ 			ret = -ENOMEM;
+-- 
+2.51.2
+
 
