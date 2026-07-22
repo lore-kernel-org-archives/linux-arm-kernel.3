@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D945C531C8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C241C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+Zg16Nd+8Y71u1eWZhDdWW4ImjjdugVLt2zrpnJS8c=; b=13nLhmBvedZPlRgQFAIIgNYtMH
-	hZtsCKi0q8hTV8zLyIFULCG17mrjdu0h6BciVxWS+3Ty++h7MulS//Vk01EzayykpW/zMnq4PSIjW
-	wmNRNqGCRHWd/R4qez2QPp0TNUjXIjNk3Q6ryFJ2cMxwqP+kjlVuoUXrdNqKA+L4A2x0u0mTDPvJs
-	/zhed8YlaoXZyMzGa7PJF6svym4JG5IvasYKXiu7EChatEyLxOUGM5Wq9XlRrPSY3Dv6fdYJohx8T
-	JtR01a7SVhUVbyz7vwTZDkicL5zRfr9NfMJtQK2nLAAJv+oKiRBAO8qcNYyg0umOrrg/OFTQTsIJY
-	pFZYAQ/Q==;
+	bh=5xR9lfxVBp+1iWG64wonKPk1rj2cn2xQhAXOALOb208=; b=mvcSTFMU9ZFGS1F2B0d90k8ZCc
+	ljJMUA9i3eLE6rR8X3D7FboaXwpp3w8pV92yRTMAigaUPx9EmWwHznNumklJ7NA+H2FUDZsTWQTY0
+	A1skgcY0GRV8nF+Htmcp+5az/u7qkUzpO8xwkw5tsJbQsxG0qbOUr+yYYvuKiIRu2TLuJqVPKvlln
+	ERVDnn2V2ih00q0zXnGQBioZTn5NdplqbMNFxSCTgxgZozjDe5Goiie698q26lJIq4Sg4EZFbhJ+u
+	TPjBEYcjtnhHH3dUntPetCYBS25ERwTOpadmjjj2wD2Sc6wewPzenF9+O53ORHGs1Zni0jHPB7k4H
+	udO/pJTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdnr-0000000Ckok-1zeT;
-	Wed, 22 Jul 2026 20:44:31 +0000
-Received: from mail-43171.protonmail.ch ([185.70.43.171])
+	id 1wmdns-0000000Ckqr-1YrI;
+	Wed, 22 Jul 2026 20:44:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdnd-0000000Ckjb-0Gww
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 20:44:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
-	s=protonmail3; t=1784753055; x=1785012255;
-	bh=c+Zg16Nd+8Y71u1eWZhDdWW4ImjjdugVLt2zrpnJS8c=;
-	h=From:Date:Subject:Message-Id:References:In-Reply-To:To:Cc:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=ah7B1VZ2lgy5N8NphkQArBrW71+Tpxwvo3UikPcXLYENJB0gMQ7wQZaQ2byx21VOI
-	 /SxwN3isaiMosqMF7XoHD/ygcQxOriYlU7R6H+uWBBwUwcq38PSfDa1jk61GsEgS0z
-	 PCCuq8WYqYJFqmJOhB83IrFmENn1ao6wTb9la4aqJNSy7FN1z0Rc3lmdY5KaqQATJ8
-	 yBSYZ37GRJlRyhsy6s5tDAzJ5sM5gWm4xAM+QjOhFXmpNGL/Bh/ZOCPUKvDQaOSsNI
-	 4sGEfKsxVguESKnOY12y4bSRapYBEjUiCi6HMCAkckMmGpyRZGY5ajlgtFhoHnB8lz
-	 Lz+CwBsXHmovQ==
-X-Pm-Submission-Id: 4h55p51vXBz1DDXJ
-From: Alexandru Chimac <alex@chimac.ro>
-Date: Wed, 22 Jul 2026 23:44:04 +0300
-Subject: [PATCH v3 3/5] clk: samsung: clk-pll: Add support for pll_1061x
+	id 1wmdnl-0000000Ckmp-1Fyg;
+	Wed, 22 Jul 2026 20:44:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B78EC600AB;
+	Wed, 22 Jul 2026 20:44:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E33DE1F000E9;
+	Wed, 22 Jul 2026 20:44:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784753064;
+	bh=5xR9lfxVBp+1iWG64wonKPk1rj2cn2xQhAXOALOb208=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=b/RiO+ACph5jy/GuoCKfUzOkaOZhf103zUoAvFgpXzNXOgiCLE5PprER53Pk0s2Y/
+	 kYp/0IdU2XD6WedoeFXNSe0LfcH5xkezKfx8vUmWUG1mlfjOJcU/SkXirOnFrBS5Qz
+	 8KZ6Ds1n5j1XiggVmhLGCSQgBRycJL+oz9dOhJ60sjWV+aOXLGafX2VijnnyvChDHF
+	 P0/DWHVnV6NQXXawLGjYazMboFdXNvsa1NMxpQb7DeqVqhO+0o7kTgKG0tOHurqGMZ
+	 jqF6LenxvIsq+3kxg5Q9nKK15yIqyOmHbMZwZ9M0bvRdjl1gcEbHKHZjFZZ+7s88Rn
+	 7Z3ymiUYJ4LcQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 22 Jul 2026 22:44:01 +0200
+Subject: [PATCH net-next v10 2/3] net: airoha: fix ETS QoS stats counter
+ underflow and cross-channel corruption
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-exynos9610-clocks-v3-3-c672a2a30889@chimac.ro>
-References: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
-In-Reply-To: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Alexandru Chimac <alex@chimac.ro>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
+Message-Id: <20260722-airoha-ethtool-priv_flags-v10-2-d2562c5dd942@kernel.org>
+References: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
+In-Reply-To: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, 
+ Alexander Lobakin <aleksander.lobakin@intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Jacob Keller <jacob.e.keller@intel.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784753044; l=4101;
- i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
- bh=aT/7UDwG7HucZEHkHhBoKSD+EL5+NRiwl5XDslaNRL0=;
- b=Zrb5hMnWLoZ1jMurX2CF1f2GuwWZxbhvxNoH0kvPnc/9TAJq7iwNRYhufVi9XgZG6yoOEyFE+
- 2+APvrbuPQnBEgtTKdE4I8jCg/jsqDzmMkI7k98CjVmjmI6lbidFYm1
-X-Developer-Key: i=alex@chimac.ro; a=ed25519;
- pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_134417_268871_C70FBDFE 
-X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,111 +74,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These PLLs are found in the Exynos9610 and Exynos9810 SoCs, and
-are similar to pll_1460x (using CON3 instead of CON1), so the code
-for that can handle this PLL with a few small adaptations.
+airoha_qdma_get_tx_ets_stats() has two bugs:
+- The hardware counters read via airoha_qdma_rr() are 32-bit values
+  but are stored in u64 locals and subtracted from u64 baselines. When
+  a 32-bit hardware counter wraps around, the subtraction produces a
+  large underflow value passed to _bstats_update().
+- The baseline counters (cpu_tx_packets, fwd_tx_packets) are stored as
+  single per-device fields, but airoha_qdma_get_tx_ets_stats() is
+  called with different channel values (0-3). Each call reads a
+  different channel's hardware counter but overwrites the same
+  baseline, corrupting the delta computation for other channels.
 
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+Fix both by:
+- Narrowing the counter locals and baselines to u32 so that 32-bit
+  unsigned subtraction handles wrap-around naturally.
+- Grouping the baselines into a per-channel qos_stats array so each
+  channel tracks its own previous counter value independently.
+- Splitting the delta addition into two statements so the first u32
+  delta is widened to u64 on assignment and the second is added in
+  u64 arithmetic, preventing overflow when both deltas are large.
+
+Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
+Reviewed-by: Simon Horman <horms@kernel.org>
+Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/clk/samsung/clk-pll.c | 29 ++++++++++++++++++++++-------
- drivers/clk/samsung/clk-pll.h |  1 +
- 2 files changed, 23 insertions(+), 7 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 18 +++++++++++-------
+ drivers/net/ethernet/airoha/airoha_eth.h |  7 ++++---
+ 2 files changed, 15 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
-index e74552846ba3..2cda87235fa2 100644
---- a/drivers/clk/samsung/clk-pll.c
-+++ b/drivers/clk/samsung/clk-pll.c
-@@ -781,15 +781,20 @@ static unsigned long samsung_pll46xx_recalc_rate(struct clk_hw *hw,
- 	u64 fvco = parent_rate;
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 41c1a0ffbdd8..aaf2a4717d12 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -2482,16 +2482,20 @@ static int airoha_qdma_get_tx_ets_stats(struct net_device *netdev, int channel,
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+ 	struct airoha_qdma *qdma = dev->qdma;
++	u32 cpu_tx_packets, fwd_tx_packets;
++	u64 tx_packets;
  
- 	pll_con0 = readl_relaxed(pll->con_reg);
--	pll_con1 = readl_relaxed(pll->con_reg + 4);
--	mdiv = (pll_con0 >> PLL46XX_MDIV_SHIFT) & ((pll->type == pll_1460x) ?
-+	if (pll->type == pll_1061x)
-+		pll_con1 = readl_relaxed(pll->con_reg + 0xc);
-+	else
-+		pll_con1 = readl_relaxed(pll->con_reg + 0x4);
-+	mdiv = (pll_con0 >> PLL46XX_MDIV_SHIFT) & (((pll->type == pll_1460x)
-+				|| (pll->type == pll_1061x)) ?
- 				PLL1460X_MDIV_MASK : PLL46XX_MDIV_MASK);
- 	pdiv = (pll_con0 >> PLL46XX_PDIV_SHIFT) & PLL46XX_PDIV_MASK;
- 	sdiv = (pll_con0 >> PLL46XX_SDIV_SHIFT) & PLL46XX_SDIV_MASK;
- 	kdiv = pll->type == pll_4650c ? pll_con1 & PLL4650C_KDIV_MASK :
- 					pll_con1 & PLL46XX_KDIV_MASK;
+-	u64 cpu_tx_packets = airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
+-	u64 fwd_tx_packets = airoha_qdma_rr(qdma,
+-					    REG_CNTR_VAL((channel << 1) + 1));
+-	u64 tx_packets = (cpu_tx_packets - dev->cpu_tx_packets) +
+-			 (fwd_tx_packets - dev->fwd_tx_packets);
++	cpu_tx_packets = airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
++	fwd_tx_packets = airoha_qdma_rr(qdma,
++					REG_CNTR_VAL((channel << 1) + 1));
++	tx_packets = (u32)(cpu_tx_packets -
++			   dev->qos_stats[channel].cpu_tx_packets);
++	tx_packets += (u32)(fwd_tx_packets -
++			    dev->qos_stats[channel].fwd_tx_packets);
  
--	shift = ((pll->type == pll_4600) || (pll->type == pll_1460x)) ? 16 : 10;
-+	shift = ((pll->type == pll_4600) || (pll->type == pll_1460x)
-+		 || (pll->type == pll_1061x)) ? 16 : 10;
+ 	_bstats_update(opt->stats.bstats, 0, tx_packets);
+-	dev->cpu_tx_packets = cpu_tx_packets;
+-	dev->fwd_tx_packets = fwd_tx_packets;
++	dev->qos_stats[channel].cpu_tx_packets = cpu_tx_packets;
++	dev->qos_stats[channel].fwd_tx_packets = fwd_tx_packets;
  
- 	fvco *= (mdiv << shift) + kdiv;
- 	do_div(fvco, (pdiv << sdiv));
-@@ -827,7 +832,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
- 	}
+ 	return 0;
+ }
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index bf1c249255bd..bf44be9f0954 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -553,9 +553,10 @@ struct airoha_gdm_dev {
+ 	struct airoha_eth *eth;
  
- 	con0 = readl_relaxed(pll->con_reg);
--	con1 = readl_relaxed(pll->con_reg + 0x4);
-+	if (pll->type == pll_1061x)
-+		con1 = readl_relaxed(pll->con_reg + 0xc);
-+	else
-+		con1 = readl_relaxed(pll->con_reg + 0x4);
+ 	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+-	/* qos stats counters */
+-	u64 cpu_tx_packets;
+-	u64 fwd_tx_packets;
++	struct {
++		u32 cpu_tx_packets;
++		u32 fwd_tx_packets;
++	} qos_stats[AIROHA_NUM_QOS_CHANNELS];
  
- 	if (!(samsung_pll46xx_mpk_change(con0, con1, rate))) {
- 		/* If only s change, change just s value only*/
-@@ -845,7 +853,7 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
- 		lock = 0xffff;
- 
- 	/* Set PLL PMS and VSEL values. */
--	if (pll->type == pll_1460x) {
-+	if ((pll->type == pll_1460x) || (pll->type == pll_1061x)) {
- 		con0 &= ~((PLL1460X_MDIV_MASK << PLL46XX_MDIV_SHIFT) |
- 			(PLL46XX_PDIV_MASK << PLL46XX_PDIV_SHIFT) |
- 			(PLL46XX_SDIV_MASK << PLL46XX_SDIV_SHIFT));
-@@ -862,7 +870,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
- 			(rate->sdiv << PLL46XX_SDIV_SHIFT);
- 
- 	/* Set PLL K, MFR and MRR values. */
--	con1 = readl_relaxed(pll->con_reg + 0x4);
-+	if (pll->type == pll_1061x)
-+		con1 = readl_relaxed(pll->con_reg + 0xc);
-+	else
-+		con1 = readl_relaxed(pll->con_reg + 0x4);
- 	con1 &= ~((PLL46XX_KDIV_MASK << PLL46XX_KDIV_SHIFT) |
- 			(PLL46XX_MFR_MASK << PLL46XX_MFR_SHIFT) |
- 			(PLL46XX_MRR_MASK << PLL46XX_MRR_SHIFT));
-@@ -873,7 +884,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
- 	/* Write configuration to PLL */
- 	writel_relaxed(lock, pll->lock_reg);
- 	writel_relaxed(con0, pll->con_reg);
--	writel_relaxed(con1, pll->con_reg + 0x4);
-+	if (pll->type == pll_1061x)
-+		writel_relaxed(con1, pll->con_reg + 0xc);
-+	else
-+		writel_relaxed(con1, pll->con_reg + 0x4);
- 
- 	/* Wait for PLL lock */
- 	return samsung_pll_lock_wait(pll, PLL46XX_LOCKED);
-@@ -1700,6 +1714,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
- 	case pll_4650:
- 	case pll_4650c:
- 	case pll_1460x:
-+	case pll_1061x:
- 		if (!pll->rate_count)
- 			init.ops = &samsung_pll46xx_clk_min_ops;
- 		else
-diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
-index d6eb3246611b..44f5e99d303d 100644
---- a/drivers/clk/samsung/clk-pll.h
-+++ b/drivers/clk/samsung/clk-pll.h
-@@ -45,6 +45,7 @@ enum samsung_pll_type {
- 	pll_531x,
- 	pll_1051x,
- 	pll_1052x,
-+	pll_1061x,
- 	pll_0717x,
- 	pll_0718x,
- 	pll_0732x,
+ 	u32 flags;
+ 	int nbq;
 
 -- 
-2.54.0
+2.55.0
 
 
