@@ -4,103 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD25EC44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63D4C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BW7OEygY66DEhI2gw8GlDcm88r50fl2ii7fNHg4fiQg=; b=yZNHdbRZn4tQ5wSbi7gJAuj43H
-	gG0pRdyo9q6BF684xYLZo7NqUonbL+M8tWAFEKQzLZoDR3ryoHUIM/Nl4KktloOadwVt8fOsmZCgW
-	fzD06oancKIx7/2QNqlH7oXqIGg+IHA2rNaHb4ABsxTrW2yiC/0WJw6EXKzJ38+45DW6yfERI8gah
-	lD+9XqoS2Sc46TqlJlTJ7DwSYoQ8c4Mzu5PjpnYji3ptCyrZDRFQj3QVakIZzH/di8AA+DwwXhOSM
-	jKDYM8CQq4TfAZhZjAQ1V3+nnuI3DR5wQobJXKjOjnZdcmH/A/XkRQYUnbnsahQxJoZT/fpuqEeav
-	f3+7AxlA==;
+	bh=8GUJifulnF9NKKvYooKjAvGy9FNr/AbbrtaqS1uKmFA=; b=N2G6bzQFVO93LGPUaifoAIQVdw
+	P1NOGVjap6bRVKyGpAgkMuJNpm2h43pPjzpEVxBaZVS5Coj+L6BF060cUBbH5Azn3uT3dzdH1p3lb
+	FUzQdfbJrFAaoRGxPg2BnKdRECQFX97pqr2SQ5UIyBbH5+k/MobeqxClwfv9l2inQNlkjAhGaLiBF
+	TXMeEHOIO0l9pev4bqy/oFcjAUutKIHKWt6imbCRjywuNIIPc2obxHsd1Tr/S1YACToBYwUNipiY3
+	AkttPKVQbldF0JhtNaPsEZmLpTBQi60VBkESIZWEKaNCvg16tqqG98SB9XqbvINADdXdsz9GydGU4
+	SKC3QM2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVvB-0000000Bk55-11V1;
-	Wed, 22 Jul 2026 12:19:33 +0000
-Received: from m101-out-mua-6.websupport.se ([109.235.175.106])
+	id 1wmVvx-0000000BkGY-3VC8;
+	Wed, 22 Jul 2026 12:20:21 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVv8-0000000BjU5-1qBH
+	id 1wmVvu-0000000BkES-3WxR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 12:19:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
-	s=mail; t=1784722636;
-	bh=BW7OEygY66DEhI2gw8GlDcm88r50fl2ii7fNHg4fiQg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PZGxsJNnB+OFXdwYg3vSq7H0PZ9wkf8d+wjSIewLXQec5tpvQFZZav/DKzKbQJOBJ
-	 yyWvCk6eIzphNAoON7RMUI/Hqka9xZ8MUfGOzCsqA46Xzw7H6s/mhotFsbrEFOixtR
-	 39veTDQzlVvjiFTbwFcYOjHyMQoaKykqKE9W1hlQK7GCX+Bla9xHOR81YZBawzXEad
-	 UvEEu5WVxt+ZqB2QoovzSydsb8nwalEEij+vthmwWPECLN/oiQZxBQHQF/HnwpIuSK
-	 r7+lxUhsZDZdD6l77nW8aIyt7NrCMQ2XvsN9cxQoIYtIzRcfZgERrErj+4GI60cF95
-	 Po0jzOFFPtQ4w==
-Received: from m101-u7-ing.websupport.se (unknown [10.30.7.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4h4tY85C6mz1qYv;
-	Wed, 22 Jul 2026 14:17:16 +0200 (CEST)
-X-Authenticated-Sender: per@palvencia.se
-Authentication-Results: m101-u7-ing.websupport.se;
-	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
-Received: from rpi (unknown [193.180.91.63])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: per@palvencia.se)
-	by m101-u7-ing.websupport.se (Postfix) with ESMTPSA id 4h4tY621RkzqHv;
-	Wed, 22 Jul 2026 14:17:14 +0200 (CEST)
-Date: Wed, 22 Jul 2026 14:17:00 +0200
-From: Per Larsson <per@palvencia.se>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
-Message-ID: <20260722141700.7fe240f1@rpi>
-In-Reply-To: <20260721223956.13665-1-andre.przywara@arm.com>
-References: <20260721223956.13665-1-andre.przywara@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 22 Jul 2026 12:20:20 +0000
+Received: from monstersaurus.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 34698447;
+	Wed, 22 Jul 2026 14:19:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1784722756;
+	bh=OR3C+MZQvvsJuOWJcFo5RnW0WVeS2gXhbaRmc10Nc0s=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=QnLtmuoqSRVW2RE4pWzzl2zfoCHKnNf4wS5ejRLNBzCXqZc2+HvRhttqGshbHEhhr
+	 Hy9uicCJ6lyKN8MNEDwvaHBny+Wp9iBWq8p/wR0eQhIRP24sKvS+JsouJayamGKz13
+	 rZI71iNII6zxmDUM3NYsxmT1UHZQ7CRjPVFfHiH4=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Action: no action
-X-Out-Spamd-Result: default: False [1.90 / 1000.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TAGGED_RCPT(0.00)[dt];
-	RCVD_COUNT_ZERO(0.00)[0];
-	BAYES_HAM(0.00)[41.58%];
-	ASN(0.00)[asn:35790, ipnet:193.180.91.0/24, country:SE];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	HAS_X_AS(0.00)[];
-	ALIAS_RESOLVED(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	LOCAL_OUTBOUND(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,gmail.com,sholland.org,vger.kernel.org,lists.infradead.org,lists.linux.dev]
-X-Out-Rspamd-Queue-Id: 4h4tY621RkzqHv
-X-Out-Rspamd-Server: m101-rspamd-out-5
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 1114
-X-purgate-ID: 155908::1784722636-3C7051C6-336E3020/0/0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260722105914.GA72270@francesco-nb>
+References: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com> <20260713-v1-verdin-imx8mm-dtbos-v1-6-4acd63db4504@toradex.com> <al5mDqeFE8QVbUd9@lizhi-Precision-Tower-5810> <3ak4ffamwvdrtgw3bivzvrbtkmyh7g3lvuk4xwvdiuzizi3iu3@uxqvyif7rvpx> <178471622928.2174993.5439033710284861967@ping.linuxembedded.co.uk> <20260722105914.GA72270@francesco-nb>
+Subject: Re: [PATCH 6/8] arm64: dts: freescale: imx8mm-verdin: Add Toradex OV5640 CSI Cameras
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Ernest Van Hoecke <ernestvanhoecke@gmail.com>, Frank Li <Frank.li@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+To: Francesco Dolcini <francesco@dolcini.it>, Francesco Dolcini <francesco.dolcini@toradex.com>
+Date: Wed, 22 Jul 2026 13:20:13 +0100
+Message-ID: <178472281366.2174993.11700327197935285507@ping.linuxembedded.co.uk>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_051930_767042_74DAAAEE 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20260722_052019_028938_09457807 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +66,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 00:39:56 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
+Hi Francesco,
 
-> The Allwinner A523 uses the same GPIO voltage "withstand" programming
-> (setting the input level voltage thresholds) as the previous SoCs, but
-> for some odd reason inverts the encoding of 1.8V vs. 3.3V.
-> 
-> Add a new bias voltage type to note this difference, and select it for
-> the A523. At the same time also use the newer "CTL" version, which in
-> addition allows to turn off the withstand programming for I/O voltages
-> other than exact 1.8V or 3.3V (for instance for 2.5V sometimes used
-> for Ethernet PHYs). The A523 has that enable register, but didn't use
-> it so far.
-> 
-> This fixes eMMC and reportedly Ethernet operation on some A523 boards.
-> 
-> Fixes: 648be4cd9517 ("pinctrl: sunxi: Add support for the Allwinner
-> A523") Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
+Quoting Francesco Dolcini (2026-07-22 11:59:14)
+> Hello Kieran,
+>=20
+> On Wed, Jul 22, 2026 at 11:30:29AM +0100, Kieran Bingham wrote:
+> > Quoting Ernest Van Hoecke (2026-07-22 10:27:32)
+> > > On Mon, Jul 20, 2026 at 02:16:46PM -0400, Frank Li wrote:
+> > > > On Mon, Jul 13, 2026 at 05:06:27PM +0200, Ernest Van Hoecke wrote:
+> > > > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > >
+> > > > > Add device tree overlays for the Toradex OV5640 CSI Camera on Ver=
+din CSI_1.
+> > > > >
+> > > > > The default overlay describes the current CSI Camera Set 5MP OV56=
+40 with a
+> > > > > 27 MHz on-board oscillator. Add a separate 24 MHz overlay for the=
+ legacy
+> > > > > camera module.
+> > > > >
+> > > > > Link: https://developer.toradex.com/hardware/accessories/cameras/=
+csi-camera-module-5mp-ov5640-arducam
+> > > > > Link: https://www.toradex.com/accessories/csi-camera-ov5640
+> > > > > Link: https://developer.toradex.com/hardware/legacy-products/othe=
+r/csi-camera-module-5mp-ov5640/
+> > > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > > ---
+> > > > >  arch/arm64/boot/dts/freescale/Makefile             |  6 ++
+> > > > >  .../dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso  | 17 +++++
+> > > > >  .../boot/dts/freescale/imx8mm-verdin-ov5640.dtsi   | 78 ++++++++=
+++++++++++++++
+> > > > >  .../boot/dts/freescale/imx8mm-verdin-ov5640.dtso   | 18 +++++
+> > > > >  4 files changed, 119 insertions(+)
+> ...
+> > I think with the Toradex ecosystem there would be some value in
+> > supporting or helping with the ongoing dt-connectors or dt-addons topics
+> > so that we can abstract the hardware which is being 'added'.
+> >=20
+> > I think it's important that we tackle the problem of combinatorial
+> > explosions of overlays when we can add a component to multiple
+> > platforms.
+> >=20
+> > For example, your OV5640 camera could be added to many different boards
+> > - and each board could have many different cameras - in different ports.
+> >=20
+> > We should not be copy/pasting overlays for each combination, or we'll
+> > have 'thousands' of identical overlays.
+>=20
+> I see your point, and I agree that it would be valuable to move this
+> topic forward. I will raise it internally at Toradex and see how we can
+> contribute.
+>=20
+> At the same time, quoting Marex (https://lore.kernel.org/all/dec2a7f6-80f=
+d-4692-8936-969f8837a555@nabladev.com/):
+>=20
+>  | DT connectors have been discussed for the last 10 or so years and thre=
+e=20
+>  | is still no real progress.
+>  |=20
+>  | I would be happy to send a follow up patchset which would convert the =
 
-I'd say this looks like the correct fix. With this (and removing
-the incorrect voltage bump "fix") the eMMC on my X96QPro+ works.
-Not seeing any regressions, so
+>  | DTOs to whatever connector implementation format lands in the future, =
 
-Tested-by: Per Larsson <per@palvencia.se>
+>  | but I am concerned that waiting for DT connectors will block this=20
+>  | patchset from landing for a long time.
+
+Indeed, it's been around for a long time - and yet the problem persists,
+and that's why it worries me here. It won't be fixed until someone works
+on it or supports the development.
+
+Marex is an independent community developer - without someone buying produc=
+ts
+to support his development. It wouldn't be fair to push back on him
+personnally. He has no mechanism to support the development required.
+
+--
+Kieran
+
+
+>=20
+>=20
+> Francesco
+>
 
