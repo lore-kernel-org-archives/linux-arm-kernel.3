@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A9DC4453D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 23:36:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EAB8C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 23:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9smGZPIePSsY0cU9QHa9y4DXLJagF50l0voTZ623s+g=; b=aS3D0qui4oZ9wxCVW43EljjGyH
-	POmfsNtHBiXBX/rQXPnaByM3pRU9dA+CX6kCzk50v74icq8qtIn0uTJzlZTlZRV8EeoPnDW3toYIh
-	pEm7RHRealhxE9l0O80ChMxRj5PwHY6mVlzmjiGezDQ/cqzAq57apNXtHDoM8QL7vsGkvJlSnlTCc
-	dtpcwYOUOCSZT7DdB3GgiktF22k17Xd57R9WfxY5MVVTXt8P1CCAsXrtjWyJZ3YzS6bVAeCQ0cCe5
-	Qef2tNURPVj+nSW2gc3pwfH6Fp3J3SQl20DeTe2N4MqkNKiaEKEkFpi6ZA/nHa9ZcSE9QnXg/6y4N
-	u/vwlXgA==;
+	bh=gSow7P/U4ty7TVa1wStrr2GU4gsF6dil0NdrrF14oGU=; b=A7UiGTuxydnGZfYvwTbxqfIAcL
+	eZqc6n8xcQJ0UZPUKVcF9Knu93523W0Df12AYtjZaX25d9YBSBnbInpNJtwb67vdO0gZ1h7aa6Ot/
+	eq1DDxe5n4poFpA28Zw7DkUKwNcEUIZOkSI7APUuODn7vMYRy7rqCmVMvGLGRcnWOKQjcHrqlawgz
+	prrL/I2nUEVCF6VJodoBtExDP8mZvl8JGwhuXDPATgwkB87ZSVQsSBOS3xJh0//QE8nnBadKUp5pk
+	KG+4jPGNCB8XjD8Eo4o0mqgg31kgJ7nmsHlLi01fL3tQz80gwgGWasyLqjQA1qy6eWlDInmwUDANK
+	rvnK8wAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmgUE-0000000CxUY-17NT;
+	id 1wmgUE-0000000CxUv-1eOB;
 	Wed, 22 Jul 2026 23:36:26 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmgU8-0000000CxSU-35Ww
+	id 1wmgU9-0000000CxSs-3aQQ
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 22 Jul 2026 23:36:22 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-81e6f2ee60bso27337b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 16:36:20 -0700 (PDT)
+Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-6689f36ae56so8059d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 16:36:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784763379; x=1785368179; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784763381; x=1785368181; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9smGZPIePSsY0cU9QHa9y4DXLJagF50l0voTZ623s+g=;
-        b=dAoCzHWV98mmOLa57U2BXpjM8tJZ7ro9MwGQVJmoTFrdq1K1EPa23i6yqttNViKhmk
-         fDMk5JqAe/jmqj2e+sAUoS32sxlrLmREIMZSSG+zUSIxEDZMuMVlN/v0qE2YAgB9T/lF
-         q5IUugoKICi+G6lvQb2lsQB7q1bENszVI+c/ZxZvQfKDBosPeGwnnQk8Lx162HlLu9bf
-         f3zi0886rhgjknz81cm1LupJzRHkFWmpKLBvpgDs3sf6xp5scoVewKdUj9G7K3HHVR9W
-         ES0CsWZDBYucquo3taLrIZ0O3Jv+iouM7gyh+j/W4bcT9+zTPlm/JPNGYrv6gUaptGgM
-         ClLQ==
+        bh=gSow7P/U4ty7TVa1wStrr2GU4gsF6dil0NdrrF14oGU=;
+        b=AliCOglVN8RSNA2VKtqZTeQWnks5eQsujNoqNyCn+Auoq54ZHSpBfrPk7c4T8Vspjn
+         aj5mNpnpiK3d768TXU9aTsIRrQgR4Ic224KJ0mVYXRcbMYZd2ws/oa06br4ZMqzDbD1g
+         OON6nOgIoE0s6icwtDIPisy7+BvC4CQNedWaUVteglkp8KftFQgsxbfrbKH2yvCgJTBA
+         keHzRWOyjG9xgbSI4dLydEhRRKNV5xpeGXnUukZmHUidoKk1DQsgWZNPZxIxh9utsfIi
+         lDZLvvhRYz3Ntb7UWnvfmxX8NDP6N5kRq4QfJTPZMM3I6GOxhyz8P0x5E4jZsKG/DFnD
+         H8eQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784763379; x=1785368179;
+        d=1e100.net; s=20251104; t=1784763381; x=1785368181;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9smGZPIePSsY0cU9QHa9y4DXLJagF50l0voTZ623s+g=;
-        b=sei5sUKbiimshw9GsOtcDSYrhYuNNQ5Orde4OD5VvXOjQBJ1qygcCF9gR6oq+UdjbS
-         Z1RchSy/IJoJgR7/KCOCK8pO4NT6vX6i9oht8ewb9NlO2spXGKZYcsWNGYFbuD23gx9U
-         NVDNdLQAsNe3tmKgjVrqJw447k6X6iJucNKVGuPdPIK5Bd1uknxQ+quAO1QOIWneEjVp
-         3aXI2sK2DmORPiHnSs3oHZwEG91Ucl7NoKeZ9EpYsTY/e0SUEQLIAojZx3tSuHww84xG
-         q8OgwNCh/miDx4LLzaChGnGnm2/phLdIIrLg9nqF7YpADhdMUDQ21sL+bpXLoOuk8f8X
-         qLYQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq0PflYH3Ne/rQE0D/OiF43BfZXubhvYWNZX0Q/kgoXVj8LRUILxhJaNgXhAgLU5yBC99erU06o8SxwbhSd5cTd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8kTKFzo3s1ZLNssq96OR1M/sR0B5d1rxBovgve2ikrOw//z2I
-	1GajpA2TuzWTlTaQFBo68fsSMzBjRjBjmnjtwEUTqkFBQZf766HfMB6h
-X-Gm-Gg: AR+sD10j9469VFwbAI+ho+PfCyBHgepR5xffrE+t2JW9XUoujhKsLwBeCdnjjZXdmgZ
-	+5PCiElyP91rnaNTe9vsSdArbzkQVZ6cDdMLmtbCVFr4Gtq0T+fsV/glo5gfqfF9D9ey9c1KVJb
-	wKtpulhJBjVtjDOGI1SfJAW9mJhrJfXcG3u1UWKPyEovrZtxEa7gDFH02KNk+dwsIa9R+88EBLa
-	IVC9YMDl9bbICaw6D2i5WmEzgdVu62HeXC7wkUtDYeZNccnieidQymB9hfej4nMjow9V32rdoe0
-	89Ybj6+VfhyNv6imNyVZZW5AGdbLRPxsugBGo+oAp8xrSVpWr8GilwzrvaykZSzEjgzk2Cc0zgi
-	l5ZihYY/gmL4hsI5fqCmij0GhLSJ4u4KiLN4NV+5vu0lA0Z+PI/ck+A+s5hvyJrUzfyUTLw684P
-	XY6Xly7lV2d+UDjTA5ZxYVumMlXMmvkYirieuN2oKByhQ29Bc=
-X-Received: by 2002:a05:690c:6e89:b0:812:9e6d:d47c with SMTP id 00721157ae682-81f4d3b498emr1003157b3.10.1784763379557;
-        Wed, 22 Jul 2026 16:36:19 -0700 (PDT)
+        bh=gSow7P/U4ty7TVa1wStrr2GU4gsF6dil0NdrrF14oGU=;
+        b=SIh58+SXu45f8Q0DaB49NpCxe3QF8MLA1Ri9m6myvVngiKEXBLlstw6dFxRuzgNh98
+         E5ns+FrjkzMg8G/Wx4U12EmWr08eJqup6i5awxehwKo5gu84ZOCBBh3YjCF2TCyi6oZP
+         85LBy+0VnyhzhstyT3OcsK86KWJlOq/U9xZcu2aUZCXIW8WgrraQOrYr4PVotORCjQBN
+         JArdKHrgSlf6JzLnR/LAKQ+VkrnNPooPQpOW2SvIKxAS1+B/KQBlqHcAAyYBzqU7W04/
+         S44N9Jw5Xot982846NU7+28DfHJBG/2YvyUi+YzlEadpMHyuyyuf/ve7WaoBOAzLB9hq
+         +mGQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rowz2YWJ2n+zvA4VpqiflIJPUCbMBvX5MBIIz+y6l1xSm8ozAGGvc7KgX10XQkbna8aBzgNY5+rQ7GmnI3E9gAn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP3rtB+wEWtGxkrjxlbHoPWz/QOzlalt7PKRUReSUa74x2TnfM
+	jhT/GuOSnrEroQ1+nx27bibFhZQCWj5FkgCj8llabDJUV2iHFal0EbwR
+X-Gm-Gg: AR+sD11YtdDN9cD3YjRBbnZpCFq1U3GAw9gOYMe2UMjjzM36UHl0qjT4xukOsn4s+lb
+	dYwKAFFjMeJyDmknRVOHcMa9A8PwjSrGIegfwJ2kITURRmS/nfnhoIF+fSF8FDWiYZGEyffUxZF
+	644IBRaY8mZoxhpWBXn+FRWPdpHlpVua2S8c+1qOLOk6u2PcFFuEM8IHibtfnA2amIxZef1GTrI
+	aan6myUWkf6eFH6pYIqwlrCzjFbJCLTPEm6O37OHQd8l8SZnRir9rsb8Ykishz0NjLVea0YpmIp
+	wZ5AlsPTmhkRtjgDLN2wneO4/6/+SGefKalmcBWAlC/OdB8GtRiAAz0gSSNDrIMyv9BPBzw/8Hp
+	pLljncopXln5mZljX0XgitlGPpkoGUG/Xj9aSum8I4/obx9jCgWlCDzxK0Jvty7BqIVm4ZQ40Qz
+	c1MPIyIEFtayF4IEYPf6Q1B5d10Q82KT2uvqs5
+X-Received: by 2002:a05:690c:d07:b0:80c:90ed:c79f with SMTP id 00721157ae682-81f4c30b5e3mr2230927b3.52.1784763380753;
+        Wed, 22 Jul 2026 16:36:20 -0700 (PDT)
 Received: from zenbox ([2600:1700:18fb:6011:4392:41cd:1ce2:e391])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81f33c627c9sm20937027b3.19.2026.07.22.16.36.18
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81f33c627c9sm20937027b3.19.2026.07.22.16.36.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 16:36:19 -0700 (PDT)
+        Wed, 22 Jul 2026 16:36:20 -0700 (PDT)
 From: Justin Suess <utilityemal77@gmail.com>
 To: Sean Young <sean@mess.org>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -84,19 +84,18 @@ Cc: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	Sashiko <sashiko-bot@kernel.org>,
-	Justin Suess <utilityemal77@gmail.com>,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v3 3/4] arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
-Date: Wed, 22 Jul 2026 19:36:03 -0400
-Message-ID: <20260722233604.3001063-4-utilityemal77@gmail.com>
+Subject: [PATCH v3 4/4] arm64: dts: allwinner: a523: enable IR on the Avaota A1
+Date: Wed, 22 Jul 2026 19:36:04 -0400
+Message-ID: <20260722233604.3001063-5-utilityemal77@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260722233604.3001063-1-utilityemal77@gmail.com>
 References: <20260722233604.3001063-1-utilityemal77@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_163621_033126_F1EF1163 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260722_163621_910623_277DE691 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,39 +110,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The X96Q Pro+ TV box has an IR receiver window on the front panel,
-wired to the SoC CIR input on PL11.
+From: Andre Przywara <andre.przywara@arm.com>
 
-Enable the CIR receiver in the RTC power domain and mux its RX
-signal to PL11.
+The Avaota A1 board has an IR receiver chip on the PCB (next to the
+Ethernet jacks), wired to the PI8 pin on the SoC.
 
-Tested on an X96 Pro+ with ir-keytable and nec keybindings with
-the remote that it came with in the box.
+Add the pin description to the PIO DT node, and enable the CIR receiver
+in the main power domain.
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Tested-by: Andre Przywara <andre.przywara@arm.com>
-Signed-off-by: Justin Suess <utilityemal77@gmail.com>
+Tested on the board with evtest and some random TV remote control.
+
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi          | 7 +++++++
+ arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 6 ++++++
+ 2 files changed, 13 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-index a96927fbdadd..1eaee20acaab 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-@@ -266,6 +266,12 @@ reg_dcdc3_323: dcdc3 {
- 	};
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index c2de662140ce..219fd76a4710 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -155,6 +155,13 @@ i2s2_pi_pins: i2s2-pi-pins {
+ 				bias-disable;
+ 			};
+ 
++			/omit-if-no-ref/
++			ir_rx_pin: ir-rx-pin {
++				pins = "PI8";
++				allwinner,pinmux = <3>;
++				function = "cir_rx";
++			};
++
+ 			/omit-if-no-ref/
+ 			ledc_ph_pin: ledc-ph-pin {
+ 				pins = "PH19";
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index 474354fbfcec..994f1e4f0ce7 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -100,6 +100,12 @@ &gpu {
+ 	status = "okay";
  };
  
-+&r_ir {
++&ir {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&r_ir_rx_pin>;
++	pinctrl-0 = <&ir_rx_pin>;
 +	status = "okay";
 +};
 +
- &r_pio {
- /*
-  * Specifying the supply would create a circular dependency.
+ &ledc {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&ledc_ph_pin>;
 -- 
 2.54.0
 
