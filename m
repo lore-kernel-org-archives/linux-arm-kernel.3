@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA7E3C4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 04:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B388C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 04:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5QAF2Lw4oeE46KCHv6UvGEYXiTgmzQTefjbI95s4UN8=; b=ki62jdtZI1AGa05WTtopBppkTx
-	QtuJ69NU1XCHVYpsSuse1B77qL0++uLu5TENzhfWqtbwkwzILUDNbm1kZ0YliMMPNycAd6WKFjaF4
-	srZTXHInYB4zQnnTfDJyDaynNFDomActvkDyYZk4doX2UzQss9uS26pI8/reUb1dxbs7BiGytVIsl
-	kEfJYq3F/4RAwk0P4yJuW9wC1YCu1xOa57cc2TAhVNDfTWbKCOQ9mwDZEq1WDiKzn8o1fYcqpLkn/
-	P6rnBriCfuqjvKHuoYR83kBtsQQwlzbNPxqKjutBdh0dkTkGUfxK5kOmeWNTm5IDZ6s6DD6Ty75ww
-	CVaQNvdQ==;
+	bh=XorWm5VVE7es/rfkdrOw72LejV5fgeSxHuzj5qbOPEo=; b=mTeKdEirkmF8Uz4mb47stoT2xh
+	rc/91EDBmQgFTsmj2xqPtvLWe7yki9h+S2HxfzGjvtiqtiO0ak6PkC+z2ugAHdqwvw1ND2Eg9X4Uh
+	uhwBAGnZbfoMriFV7mXk1V67b09W/+GByTCybYnWF1rDRTAjRat9BGYE4RYFtifbkJQHbsn6gHrtR
+	awHzMukTEVuWOknXYs8Dm9mEZz5kfkSdd9Kcg3f743y/Z3+JEsPFQnfRjuQRrj6ZbWWpi+KvKeDPd
+	Z/Qig80O3O4qIhHEBvZsfkXw1EzWMp9aoAfOjw/8I0RdsZYMptDzaEpIKb1j6oU7khm3Gp45yoF5r
+	o6lRBpMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmOGD-0000000ArC0-3X1T;
-	Wed, 22 Jul 2026 04:08:45 +0000
+	id 1wmOJB-0000000ArPA-0wS1;
+	Wed, 22 Jul 2026 04:11:49 +0000
 Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmOGA-0000000ArBd-1EJr
+	id 1wmOJ8-0000000ArOX-06ml
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 04:08:45 +0000
+	Wed, 22 Jul 2026 04:11:47 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowAAHKkNAQmBqvge7AA--.34195S2;
-	Wed, 22 Jul 2026 12:08:33 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowAB35T_+QmBqYBe7AA--.34013S2;
+	Wed, 22 Jul 2026 12:11:42 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Inki Dae <inki.dae@samsung.com>
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Joonyoung Shim <jy0922.shim@samsung.com>,
-	dri-devel@lists.freedesktop.org,
+To: Nishanth Menon <nm@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
+	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH] drm/exynos: limit G2D GEM map count
-Date: Wed, 22 Jul 2026 12:08:32 +0800
-Message-ID: <20260722040832.80135-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] pmdomain: ti-sci: reject maximal power-domain ID
+Date: Wed, 22 Jul 2026 12:11:42 +0800
+Message-ID: <20260722041142.95204-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAHKkNAQmBqvge7AA--.34195S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cr18CF4ktryfGFyDKFWfKrg_yoW8CryDpF
-	43Gry2y3y5XayxtFWIyanY9Fy5Wasaka9FgF4xC3s7uF1qvF18X3WrtFy2qa45urWfJr4j
-	yr1DAas7uFy7A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+X-CM-TRANSID: zQCowAB35T_+QmBqYBe7AA--.34013S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Xw1Utry3Jw1UXrWDKF1ftFb_yoWkXrg_Cw
+	1jkFZIkrW5Grn09r4Syr43ZFy09FWDuw1j9F4Igry3Aw1DXw18J398u3Z7W3ZxWrWDG3sx
+	tas8Zr1fArs3ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb4kFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
+	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
 	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUFg4SDUUUU
+	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
+	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIY
+	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14
+	v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8
+	JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUO73vUU
+	UUU
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_210842_753019_1F67AA98 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260721_211146_491298_668392A7 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +82,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-exynos_g2d_set_cmdlist_ioctl() accepts cmd_buf_nr from userspace and
-later uses it to index the fixed reg_types array while validating GEM
-mapping commands. The existing G2D command-page limit is much larger
-than that array.
+Each power-domain ID comes from Device Tree. The driver allocates the
+onecell table with max_id + 1 and later uses every saved ID as an index.
+If an ID is U32_MAX, the allocation count wraps to zero while the index
+remains maximal.
 
-Keep ordinary commands bounded by the command-page capacity, but bound
-GEM mapping commands by MAX_REG_TYPE_NR before storing or validating
-them. Perform the checks before taking a command-list node so an invalid
-request cannot consume an entry from the free list.
+Reject U32_MAX while collecting IDs, before the arithmetic and indexed
+store can diverge.
 
-Fixes: d7f1642c90ab ("drm/exynos: add G2D driver")
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/gpu/drm/exynos/exynos_drm_g2d.c | 16 ++++++----------
- 1 file changed, 6 insertions(+), 10 deletions(-)
+ drivers/pmdomain/ti/ti_sci_pm_domains.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_g2d.c b/drivers/gpu/drm/exynos/exynos_drm_g2d.c
-index e92a4d872c41..2dfea16f32cb 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_g2d.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_g2d.c
-@@ -1151,21 +1151,17 @@ int exynos_g2d_set_cmdlist_ioctl(struct drm_device *drm_dev, void *data,
- 	int size;
- 	int ret;
+diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+index 949e4115f930..5fad21c317c4 100644
+--- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
++++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+@@ -251,6 +251,12 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
+ 			if (args.args_count >= 1 && args.np == dev->of_node) {
+ 				bool is_on;
  
--	node = g2d_get_cmdlist(g2d);
--	if (!node)
--		return -ENOMEM;
--
--	/*
--	 * To avoid an integer overflow for the later size computations, we
--	 * enforce a maximum number of submitted commands here. This limit is
--	 * sufficient for all conceivable usage cases of the G2D.
--	 */
-+	/* GEM mapping commands also populate fixed-size buf_info arrays. */
- 	if (req->cmd_nr > G2D_CMDLIST_DATA_NUM ||
--	    req->cmd_buf_nr > G2D_CMDLIST_DATA_NUM) {
-+	    req->cmd_buf_nr > MAX_REG_TYPE_NR) {
- 		dev_err(g2d->dev, "number of submitted G2D commands exceeds limit\n");
- 		return -EINVAL;
- 	}
- 
-+	node = g2d_get_cmdlist(g2d);
-+	if (!node)
-+		return -ENOMEM;
++				if (args.args[0] == U32_MAX) {
++					dev_err(dev, "power-domain ID is too large\n");
++					of_node_put(args.np);
++					return -EINVAL;
++				}
 +
- 	node->event = NULL;
- 
- 	if (req->event_type != G2D_EVENT_NOT) {
+ 				of_node_put(args.np);
+ 				if (args.args[0] > max_id) {
+ 					max_id = args.args[0];
 -- 
-2.50.1 (Apple Git-155)
+2.43.0
 
 
