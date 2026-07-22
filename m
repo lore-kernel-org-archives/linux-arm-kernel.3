@@ -4,143 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BFAC44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE0EC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0tE+FUuEMBR+jo617axIAMr7kzhlvh02eokOi/8wGY=; b=cQNc/oAwyBv8tfonfLIWcmWDXo
-	dq9B4NHO0+ZE4tJrZGoPoWOTDXxZ76SpUzEsnQ0SDHa2Dzr2Ak/l4dTqCdkMxodBZqAOrDl8yimXw
-	Z8AJPWMrkM+IJ055/2D1RNL0VyPcGey3ohd0WoXHks3AbB/QU62rS/vZRnijIDEPIwh8GHvgdktTg
-	O0iyoQQ2yw3mRWuYOMJcCGQaNDlIf1vQIqfRGMm6+lNvoc14WgwXvmuDhFQA/kqwgr81Rkscl/u3g
-	Z5F6pisxL0qdqmyC0oV9ISPW+HbKtRiYTRnJaCzvauq56HRbPQr/j/KzRFX9wl73/99vc/ezsQYLW
-	Y5rJ9LiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:In-Reply-To:Date:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=0OUYkqz3oMV82NBiRzhZsN3Su7jaCGkuk4svSuitAHk=; b=OC2nwhqkUmZsh/
+	7bkVAzTagRw9SZuqDA32JSMnZ7/Kiqhwd/uHAiBDnqUPzbcX7zokfaD/e7qSE+Ef6kHUtphT22R7h
+	IZuEO9kmT5u3A8rOZrSyfnoXl+fTVQMF/HQc/EGK4S9DAAoSCrQwNGl9mjaYBpSjXdDOqTsR7U8dy
+	avriziIjhmwQ+pKtWUnG8SyuTrUGjlC8VpNzc/yKCT/FDOATq62rBePDaeFo0Q/AM+MADNK2P7+ot
+	I+NAH4nf4wI0DkEKr0LjF9BHvObUISU62/OvhYfoV2UkmjlgCxkkjz8QScZEP25MCZWtzHDrPR++u
+	uzAjDdLcguAKj2wA1d7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWro-0000000Bssx-0lVs;
-	Wed, 22 Jul 2026 13:20:08 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wmWsP-0000000Bt6i-1g0l;
+	Wed, 22 Jul 2026 13:20:45 +0000
+Received: from mail-oi1-f198.google.com ([209.85.167.198])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWrk-0000000BsrS-16N5
+	id 1wmWsM-0000000Bt4o-0r8Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 13:20:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TJ7i/eyvJjHeafsP5rTIpncZqBZ8nc/w2Z9/MhoTYl8aVVXQ0pW/7Za255PpjIfUqtqZb4nHCYSW6w5QbHqQf4GSWyA/qHzHxWeoyo1A4VFZiVUGFi5Yz3ZNHk9v+Ghca7Xdji5GpplUGrbkmMCuhe5wbZdZhXfNhoHvJ+myvgLZV+N4qeWlGCejtt1YnxJqnX/LOimm89hZdP+XY5eiNpEJ5FXAsrNG27AFba3Q6G1DQmMS0W3jjrGGZnM3PlsOpgQH3FgKbKRGfUNEnYcT5vTI1LRb+IbJWImlkmylhJ5pGyzYE8U9bbhl4vKQfjLgpMDR04gm+WPwYSjk3r+xtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D0tE+FUuEMBR+jo617axIAMr7kzhlvh02eokOi/8wGY=;
- b=UrirpCT4c5J2hTnVyb0V+vjp0zQG0FUn1cgDJ9N+G+gT96XR8LmkYrQyBjlTe27mAIDCeQkEksHZB+SR3hlkV0E6+c5CdFlpXZyem89XlPm6y1AdPr0z2dpxFqMylmj9uit8mq9vGgYSqnMmt1RLxMJfo3BYOjO4BjJ0Rvhy9lQ+2vODqtSLhLfQOrKOqeS2uQY6zrFPtH/JXF5JWfSwVv8SJYRxjUtl5RqsQhk7F040Zo7t92yRcH3fQ2rbIwFlTkzl9KMu0i/oDQrn8D1hPcS4JpRxNLplDG/FPE3zmc7BxdzDxcey57SOEaZqLQSRK6Djw5GaO1Z5j2jf6c78bQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D0tE+FUuEMBR+jo617axIAMr7kzhlvh02eokOi/8wGY=;
- b=k3CoXHCOgdGiZUntvvg2ZgBL4mQ1g82slPEm6MBfvL5jBw3Ylwr0Umgomr9rAkT4/+97V5RHyF29bFmnftZeoPEDcLk1wpGoDwgGwdKj4kA6NDQVk4ElpgPnULl02EICgcd7tbeveeXFopjgaPpEWeKODc2sRiN0g7a4TBk2hZP9b8c9ayvOJmHgj5G3bsuKAqvr/kl2B7erXCt2F/Ol4i7Mjex7rzhDBOq1/JLk/cBzy9/lsV3KS5HLcU9hZTuaB3cl7RvWn5kTgG3zzzInYT/sEOyLHiWEpiN70xMUE2pU6ivcYJTdihAYBupPSLpJzEwQ0XCZzg9C0V6vnyDveQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
- by CY5PR12MB6454.namprd12.prod.outlook.com (2603:10b6:930:36::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 13:19:57 +0000
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 13:19:57 +0000
-Message-ID: <df8cde1e-cf6e-44f5-b650-ec186c62a92c@nvidia.com>
-Date: Wed, 22 Jul 2026 14:19:52 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: tegra: Drop CPU masks from GICv3 PPI
- interrupts
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Thierry Reding <thierry.reding@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <cover.1781103355.git.geert+renesas@glider.be>
- <0be8708c53609bb64bfa31d84dffc5c2d56b5679.1781103355.git.geert+renesas@glider.be>
-Content-Language: en-US
-From: Jon Hunter <jonathanh@nvidia.com>
-In-Reply-To: <0be8708c53609bb64bfa31d84dffc5c2d56b5679.1781103355.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P195CA0018.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d6::15) To SJ1PR12MB6051.namprd12.prod.outlook.com
- (2603:10b6:a03:48a::18)
+	Wed, 22 Jul 2026 13:20:43 +0000
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-48f0c5d20c6so14280671b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 06:20:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784726440; x=1785331240;
+        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0OUYkqz3oMV82NBiRzhZsN3Su7jaCGkuk4svSuitAHk=;
+        b=qj4y0k8vaetQ6Jp1AUybbdwH/vDjZGDSVvktg6wZC5Ot+VlYJ8+pRYGFjS5K/e1teV
+         Bg1ynnby6567cHhMFdilR+BAxtLBkq3VmmHtcXPL8Q5rhOnaT3kbdYfBXNr6OlnApXLE
+         Mj1GmVxOqga0MYZ4wvdqwWxXbKsy71flUZparqmqyl+2PcuaYpOi+WFhX0nHAcAMIj6/
+         eeSA7e5n+/wS1WAGf/Px+Tzuu22XzccyfII3+pYxGKWD0gfTSuRt+YZZ/ufm3Eqi3SD6
+         6idONLl4Q+dYY+uGYUAvnLt1r1a9aXvHtwA00YAnxYHoY1VgP/CMKddCeRsor+5DjDNa
+         L7iA==
+X-Forwarded-Encrypted: i=1; AHgh+RpNXKmsdD0Mbq4RbdCbObvITYUT6pftYekwoSVDvC8Tcd5w2pzXKlIAlMCVv9z2OxUnr9YXNSFijq9+hO69rxQA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaS7JaBVPAz0/bKPVyZjTsYW3kxR73Tm3z6WDV2zPc6CcJFcIR
+	/OwsvZSxKaTSTHewfUaHCrhySYW3dCixnU2kY8zw7lTWIMudd4s2muIhbwRJS7sEMcbbsh5jWOn
+	T0NJnZlzSYM6b+Ffe9SnLUnCJSzg1pkCndfY/O/YvjMh66/pj21sq7b3M5u0=
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|CY5PR12MB6454:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9a7b530-207b-4334-2d02-08dee7f3ed13
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|10070799003|7416014|366016|11063799006|56012099006|4143699003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: dhNVbn3i9ts/PTgTbtcw3V1vJH9RGLcjpj+p86DHYdUAbi4qz5jCKAO9Ry4L0DPnyhrhmIQnHfzVlhwSpoRpWWUhstXF/x7oV1sFN45O4wAfcnN9hnex/U8iOlwY2SMztLVNwKYnEJUV6zWbsCOpkRKQo5gDKby2OKYlRC+bX2cbrpUJdIbMGha8n1ib4kKz+QGQPUdkdOvYqcxziD4+OOc+NIQdlSXXgXIEo7gvzQKXc6BdjDxuNn+SLPCV5vSq2JkiEulC85KgL32bDlqsvPCSSL5T5xyb352Ia2PmSfS/3KBjsvAiIjcOHt35vFjBuAdk6sVJL7hjq3V5O4365+YMkYzaCh552lBbffzs7DmKtx/w30fV2zWjwMRdu0ShNJjd0Zv+wF7rHNwlWEOONrhCSFvptDDDPdm6QpF733eclJ5ePYYGhEWtTTx1hvcUYxzOCWG4sXrfy0uExhmso55sz5sZTbnXiME4kn11l/ssh8/vun4j7j6PaHB35Y4KAKEjIUK4vnRly6nfAHHmOu8XVImTXzfxbF8bVqfqTruyqCDp2khAZGn9Ym9Z8yD59WmFjPXowBPLuHUbxbu4rPAD0hogFo6mIJdaaKyDbiXGbJtaRh6OvAvp83KUhNGRAi7OfJiZ/gzYjhEC8FYLBjSPaAcLeXxBlbyttxx7ei0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(10070799003)(7416014)(366016)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cnhvaGVsdzNySFdFbktyQmQweXg3SzNXR2xFeVZEUmdkdUlMazR3S2RFdnla?=
- =?utf-8?B?RjY3N1FjZSt1dHUxZllObFhzR3l0YzdORmJiLzBFME80NndodkFuVUF3Mktq?=
- =?utf-8?B?a2UvL2VoZUEwRTA5bDNnc1FLUW9zQjIyUyt4SkozZWNTb29JYXBGOG91TlVR?=
- =?utf-8?B?UyszSWw4NFRXUGFrSzE0d0d4YUJ0SVQ0akZpeWJESG1BSjBueVVkSDR0N2d2?=
- =?utf-8?B?NFhTTDdjbEhLT3Y2czBmcFJhYnd4bnhpd3cvQXhZTDBTekxEaUVyeFh4Y1Bt?=
- =?utf-8?B?VmFjeWFZZU0wT0lGd2NhUHdZSFlKMm5IMmE3aCsvK29aYVhERmdlc2ZSRXd5?=
- =?utf-8?B?c1o3aW50STNnRW5BTlhPOUZEN0h5U1lLNUZWQkwvVFBUR0U5V1pEcE1YdWNv?=
- =?utf-8?B?QjZlT3JwOGVXQW5qTWVHYWR2WEFueENhQWdubUFxNXNhQU1JT2pqalZmT0Q0?=
- =?utf-8?B?VmtFTkE1V2tlWDRORHMyWjRneXlOcktFYzFoTlM5RHVpaWZOWkxJUnVqeE96?=
- =?utf-8?B?N1h2aDkxcHBLbkNUV0lYSTBqVERBRDUxNVI5OVNEQ2MxVVpnVE9HVU9BR0FS?=
- =?utf-8?B?WHE3VjB0VHBBamFQVE5JY1VpM2FmY2tQR3NOeGJ3enJPK0RFbkxvZG9IMXVw?=
- =?utf-8?B?MVpCWDZMOUhlTEZWQ1ZVMmpBQlVCZjhIamw0aHpDS0ZDTmQ2TzQ0elN2cXJM?=
- =?utf-8?B?Z0pUWUgxdWZ4bVFWQ3I4RU5MUkxiUHJBQ1lGTlJGZ0s1dFZkS3dRdVFUb1A2?=
- =?utf-8?B?OXM3RjVMaDBLKzYzY0pxaDNVZ1JxZTRpZmhLWmNJemc2bmxHNC9OYzJjMFNp?=
- =?utf-8?B?dW1wUXBBVE9obDkwMVNqSzhObnk5MHAyQ3hJSVkzVUZjK05SVi8ydzdxMEZ3?=
- =?utf-8?B?SUs4bTJZdUp2SVR2UklBRzJqNk1JQ0E1MGFvb2V1QXpBMlNxYzBheW0rSmh5?=
- =?utf-8?B?N0UrTVVQcGNNYllmUGY2NVVVYS9oN2xpbm54TXZQVFNraGU1V1EwOVc2dWtG?=
- =?utf-8?B?a2o2bzdSSURTMGFXRk13NWpJWEpiNVdyVUpEbXM3MjJRc1BPVW8wc2pFMDNy?=
- =?utf-8?B?OGJ1NTBZRFl4R2pqYVEvYzZYQW9HZ0VKNDV4UmRITm1GblplMlRFcmszbWRS?=
- =?utf-8?B?MmF6cG1Vb0o5Zkc3Rk5iYSt0ZllnRW81YzJwMEJEN2RwcXVUVWJXc1FGWnV0?=
- =?utf-8?B?dXdWZXBwY1hSazBKaXcrQUlGbTVrdm9uNS9UdmtVd0hjOC9PQXNhdkxYNkl6?=
- =?utf-8?B?VXJ4YXNmQ3BJcEthT3dudUpFNTEzNlZGREM3K0dVOVdFOUVucGp3UmhBa3F1?=
- =?utf-8?B?U1dIVjhQVCtXc1pUVmpPeVpjTXV4dGNBSHpncEtDOHQxTDBWYTVjeDRsMkl5?=
- =?utf-8?B?TmEwQUx0TFRkRy96NDVmbVVnNWdsY2lHZ29qRXlYUHZ6ZFJ6WWsrSTdxZ1U3?=
- =?utf-8?B?T3Vsc1FrV2xUOUdwa3BEeWlHV1pERE9qTnVBOVRqU1NCNGEzVFVWeDVsb3Fm?=
- =?utf-8?B?anROZlBUaHFOMjc3UXRDTCtkbVl1YXFPOUxaVVo5cUJqOHhaWUxtMXdtUXk0?=
- =?utf-8?B?UkkzaFlLeWo0NzNjcFR0UGI2bVUyQlRWZ1lVOEkwalZUZFJ5M3BMaHJMbFhF?=
- =?utf-8?B?ZG9TM3kzd05OWFBxYW1IZ2lrckpUcXVHUUNzVUdFSlFJbTRSejVhaDFtM2Vv?=
- =?utf-8?B?Y2NRVnEvK2l5YWlMU1lCS01nRFZkckNWbkRIWjM3V0pIazFMT1ZLSUo2N1J5?=
- =?utf-8?B?SEp4dUdmckN0clBjYkF6UjRqMDJyc1FJQzk0WkVOUVRZeWwveUNjUDd5ckVM?=
- =?utf-8?B?M0tuTXBZcUJyVlpIMVdJTXZ0MlFIdTM1NnM1RGIzeStDUWhDZTJzalRja1hM?=
- =?utf-8?B?bkI2S3VmMldqaE5GY2c3b2x0eVBQUHhhb2plV3pxVjNmK1hmTGlnUGxqY1Ra?=
- =?utf-8?B?dVFtNWJlTURuMW5Mc1doYzJ3a2xUV3dMNCtWdUQxNHVUVlI0SGRUK2hMZCt4?=
- =?utf-8?B?cG9NUk8yRUdIbjZNTUFqVGU0U2JOSElSMnNCczl2YUlsM0V3Q0FEajZNV2s2?=
- =?utf-8?B?VzJFK1E5NVB0ZUUwaS9vNU8xL1VCa2x3eXNUQUZrWTFLWmVVOWRTTWs0UzYx?=
- =?utf-8?B?b1ZQVTFSTmU1R2d6YXZDSGtRcnVEaEM0V0wrblpHNVpEemkyL3JPSFZLc1d5?=
- =?utf-8?B?WXVGTllCQlhEV25zMnpGUTAxaitMMWZZd3YrM2UrOTdqbDhGcStwbHcrVG1j?=
- =?utf-8?B?bkFrR09uRHFOcGVFS0R3UlQ2Q1NYbTRXODB6RS9MUXNYMWdJMjU1ZTdWUXJS?=
- =?utf-8?B?WFAva09zcFhDekxJallRRnJVanlJaGJjK1I5LzdxQXIyeGlTeHBQa2pUQWIv?=
- =?utf-8?Q?BoOKel+GryGjIYG8NxRdpVUiCYUH7/BqTpfLZyo1h6uFY?=
-X-MS-Exchange-AntiSpam-MessageData-1: 27/DJ2O8TrFS8g==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9a7b530-207b-4334-2d02-08dee7f3ed13
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 13:19:57.6362
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 99cBhjeUwgsK9CumHmaXwAVPRl3KxAeLmKTcRc3iXzfTCeU9AJhtLZ/399h8TSvyhZf5iSGTrIg2wbCiBdcZdg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6454
+X-Received: by 2002:a05:6808:170b:b0:49b:dcb8:e2b5 with SMTP id
+ 5614622812f47-4a4d022413dmr11716902b6e.19.1784726440406; Wed, 22 Jul 2026
+ 06:20:40 -0700 (PDT)
+Date: Wed, 22 Jul 2026 06:20:40 -0700
+In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6a60c3a8.42649fcc.22d900.0013.GAE@google.com>
+Subject: [syzbot ci] Re: arch, mm: create a generic set_memory/change_page_attr
+ core
+From: syzbot ci <syzbot+ciff95a07853f6d218@syzkaller.appspotmail.com>
+To: akpm@linux-foundation.org, aou@eecs.berkeley.edu, bp@alien8.de, 
+	catalin.marinas@arm.com, chenhuacai@kernel.org, dave.hansen@intel.com, 
+	dave.hansen@linux.intel.com, david@kernel.org, hpa@zytor.com, 
+	jackmanb@google.com, jgross@suse.com, kevin.brodsky@arm.com, 
+	liam@infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, ljs@kernel.org, loongarch@lists.linux.dev, 
+	luto@kernel.org, mhocko@suse.com, mingo@kernel.org, mingo@redhat.com, 
+	palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org, rppt@kernel.org, 
+	surenb@google.com, tglx@kernel.org, vbabka@kernel.org, will@kernel.org, 
+	x86@kernel.org
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_062004_330512_4F5A2BBB 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260722_062042_260360_08613F5B 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,56 +87,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+syzbot ci has tested the following series
 
-On 10/06/2026 16:09, Geert Uytterhoeven wrote:
-> Unlike older GIC variants, the GICv3 DT bindings do not support
-> specifying a CPU mask in PPI interrupt specifiers.  Drop the masks.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v2:
->    - No changes.
-> ---
->   arch/arm64/boot/dts/nvidia/tegra234.dtsi | 10 +++++-----
->   1 file changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/nvidia/tegra234.dtsi b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
-> index 04a95b6658caaa92..390609fee09c9da0 100644
-> --- a/arch/arm64/boot/dts/nvidia/tegra234.dtsi
-> +++ b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
-> @@ -4083,7 +4083,7 @@ gic: interrupt-controller@f400000 {
->   			reg = <0x0 0x0f400000 0x0 0x010000>, /* GICD */
->   			      <0x0 0x0f440000 0x0 0x200000>; /* GICR */
->   			interrupt-parent = <&gic>;
-> -			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
->   
->   			#redistributor-regions = <1>;
->   			#interrupt-cells = <3>;
-> @@ -5869,10 +5869,10 @@ tj-thermal {
->   
->   	timer {
->   		compatible = "arm,armv8-timer";
-> -		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
->   		interrupt-parent = <&gic>;
->   		always-on;
->   	};
+[v1] arch, mm: create a generic set_memory/change_page_attr core
+https://lore.kernel.org/all/20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org
+* [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on debug_pagealloc_enabled()
+* [PATCH RFC 02/18] x86/mm/pat: fix effective RW computation in lookup_address_in_pgd_attr()
+* [PATCH RFC 03/18] x86/mm/pat: replace x86-speficic pg_level with generic pgtable_level
+* [PATCH RFC 04/18] x86/mm/pat: use page table accessors for effective RW/NX bits
+* [PATCH RFC 05/18] x86/mm/pat: use a generic helper for the large page size
+* [PATCH RFC 06/18] x86/mm/pat: introduce an inline helper to check if alias needs update
+* [PATCH RFC 07/18] x86/mm/pat: introduce cpa_handle_large_page()
+* [PATCH RFC 08/18] x86/mm/pat: use cpa_split_data structure to pass split parameters
+* [PATCH RFC 09/18] x86/mm/pat: use a single locked lookup for PTE verification
+* [PATCH RFC 10/18] x86/mm/pat: move the large page size calculation to should_split_large_page
+* [PATCH RFC 11/18] x86/mm/pat, mm: set_memory: pull change_page_attr() core to mm/
+* [PATCH RFC 12/18] x86/pat/mm, mm/set_memory: abstract the CPA page table lock
+* [PATCH RFC 13/18] mm/set_memory: read page table entries with pXdp_get()
+* [PATCH RFC 14/18] x86/mm/pat, mm: move cpa-test to mm
+* [PATCH RFC 15/18] riscv: convert set_memory to the generic CPA implementation
+* [PATCH RFC 16/18] riscv: make set_direct_map_*_noflush actually noflush
+* [PATCH RFC 17/18] loongarch: convert set_memory to the generic CPA implementation
+* [PATCH RFC 18/18] loongarch: make set_direct_map_*_noflush actually noflush
+
+and found the following issue:
+WARNING in arch_should_split_large_page
+
+Full report is available here:
+https://ci.syzbot.org/series/08799ddb-4fca-4e5c-a2a7-a16eb2845851
+
+***
+
+WARNING in arch_should_split_large_page
+
+tree:      bpf-next
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/bpf/bpf-next.git
+base:      dc59e4fea9d83f03bad6bddf3fa2e52491777482
+arch:      amd64
+compiler:  Debian clang version 22.1.8 (++20260613092233+e80beda6e255-1~exp1~20260613092250.77), Debian LLD 22.1.8
+config:    https://ci.syzbot.org/builds/9a435490-f68f-4ca0-96ae-457a5caa17e6/config
+
+Demotion targets for Node 1: null
+debug_vm_pgtable: [debug_vm_pgtable         ]: Validating architecture page table helpers
+Key type .fscrypt registered
+Key type fscrypt-provisioning registered
+kAFS: Red Hat AFS client v0.1 registering.
+Btrfs loaded, assert=on, zoned=yes, fsverity=yes
+Key type big_key registered
+Key type encrypted registered
+AppArmor: AppArmor sha256 policy hashing enabled
+ima: No TPM chip found, activating TPM-bypass!
+Loading compiled-in module X.509 certificates
+Loaded X.509 cert 'Build time autogenerated kernel key: dc5bfa299b381f3c121e230b24acaec0874c302b'
+ima: Allocated hash algorithm: sha256
+ima: No architecture policies found
+evm: Initialising EVM extended attributes:
+evm: security.selinux (disabled)
+evm: security.SMACK64 (disabled)
+evm: security.SMACK64EXEC (disabled)
+evm: security.SMACK64TRANSMUTE (disabled)
+evm: security.SMACK64MMAP (disabled)
+evm: security.apparmor
+evm: security.ima
+evm: security.capability
+evm: HMAC attrs: 0x1
+PM:   Magic number: 2:551:79
+netconsole: network logging started
+gtp: GTP module loaded (pdp ctx size 128 bytes)
+rdma_rxe: loaded
+cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+clk: Disabling unused clocks
+ALSA device list:
+  #0: Dummy 1
+  #1: Loopback 1
+  #2: Virtual MIDI Card 1
+md: Waiting for all devices to be available before autodetect
+md: If you don't use raid, use raid=noautodetect
+md: Autodetecting RAID arrays.
+md: autorun ...
+md: ... autorun DONE.
+EXT4-fs (sda1): mounted filesystem b4773fba-1738-4da0-8a90-0fe043d0a496 ro with ordered data mode. Quota mode: none.
+VFS: Mounted root (ext4 filesystem) readonly on device 8:1.
+devtmpfs: mounted
+VFS: Pivoted into new rootfs
+Freeing unused kernel image (initmem) memory: 26964K
+Write protecting the kernel read-only data: 221184k
+Testing CPA: undo ffffffff81000000-ffffffff8e800000
+------------[ cut here ]------------
+CPA detected W^X violation: 00000000000001a1 -> 00000000000001a3 range: 0xffffffff81000000 - 0xffffffff811fffff PFN 1000
+WARNING: arch/x86/mm/pat/set_memory.c:601 at arch_should_split_large_page+0x493/0x710, CPU#0: swapper/0/1
+Modules linked in:
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:arch_should_split_large_page+0x49e/0x710
+Code: 00 48 8b 44 24 20 48 25 00 f0 ff ff 48 8b 4c 24 08 4c 8d 04 08 49 ff c8 48 8d 3d 4d 66 e1 0e 4c 89 ee 48 89 ea 4c 8b 4c 24 18 <67> 48 0f b9 3a eb 05 e8 46 37 4d 00 4c 89 f7 48 89 ee e8 9b 39 4d
+RSP: 0000:ffffc900000679f0 EFLAGS: 00010296
+RAX: 0000000000200000 RBX: 0000000000000123 RCX: ffffffff81000000
+RDX: 00000000000001a3 RSI: 00000000000001a1 RDI: ffffffff905a8280
+RBP: 00000000000001a3 R08: ffffffff811fffff R09: 0000000000001000
+R10: 0000000000000003 R11: 0000000000000000 R12: 0000000000000002
+R13: 00000000000001a1 R14: 00000000000001a3 R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ffff88818d95a000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: ffff88823ffff000 CR3: 000000000e946000 CR4: 00000000000006f0
+Call Trace:
+ <TASK>
+ __change_page_attr_set_clr+0x936/0x12d0
+ change_page_attr_set_clr+0x3ac/0x450
+ set_memory_rw+0x8c/0xd0
+ mark_rodata_ro+0xf0/0x140
+ kernel_init+0x4e/0x1d0
+ ret_from_fork+0x514/0xb70
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
 
 
-Reviewed-by: Jon Hunter <jonathanh@nvidia.com>
-Tested-by: Jon Hunter <jonathanh@nvidia.com>
+***
 
-Thanks!
-Jon
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+  Tested-by: syzbot@syzkaller.appspotmail.com
 
--- 
-nvpublic
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
 
+To test a patch for this bug, please reply with `#syz test`
+(should be on a separate line).
+
+The patch should be attached to the email.
+Note: arguments like custom git repos and branches are not supported.
 
