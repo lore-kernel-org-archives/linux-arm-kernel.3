@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F89CC531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE0CC531BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qwFCKwMu1VVxkoN6pTWe+Js9jsf9ELHP4hu1h1ieftY=; b=kbDMYwcjBLHECY0o8/E+ClzkT7
-	OZc0JCeBiOQveNPvYMV3xWODko99GEbtP3tAZvceqMzb6nz4wzWGhhySLB6LfvVFBO5ugCAZtozub
-	074ZduUKpLKQ8cwcFZqknOP2AaKAqQNxv/rfi0wq3oOqOXtpv6xPHA3cqYqbCljL8Kuftdo/tZRPa
-	BIL4IiRZlQ5m2QQSROZoe7++T6oA6UTWAzTqsmtjaozPurjiB8DFlmNzq3eie3108+eeQxsBFDiKJ
-	qbg3R2rSFtwgoCmR10R9OaCJGNwzl97+w64edh26PnspVeZ+6lNaU1XUikXmmOk7TfvC8Y/663dCf
-	Xn1m0H+Q==;
+	bh=hi61mDjaFFGA7jutUZXTiHDuccr2E2lD0FKGjiIEpSg=; b=WkVSlHuj/krxl84MlZUsN34TXj
+	CG8bMTjXZo+0za+d8AhzVenUUGw5qj9gPZ20N3IXtLFGeWm1magDQAq/2+y9zyyz0OAE8D2i0euuV
+	bF2l/6ZYABY0B2vEE8Sg6ByVKklHYVqqOhb3KiPldyWVfSARwvEXzHmpImzSA28ui+uT4PylNkX0+
+	LeG79EYTqnQHXPbQY54MWquMsOr5F4UmC+x1JURvYIgfpBOW5a6zikepeS8zruU4v/8FIJau8cYlH
+	LUDI+Qat4HnVeFBNGM9icomCTHTZVt2JUEB80xN46m96bFkVPkxv0R+50PPZdHTBx82TmdLgZeaMO
+	zZ966tNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdnr-0000000Ckp2-2Pzw;
-	Wed, 22 Jul 2026 20:44:31 +0000
-Received: from mail-43171.protonmail.ch ([185.70.43.171])
+	id 1wmdns-0000000Ckrv-33M7;
+	Wed, 22 Jul 2026 20:44:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdnc-0000000CkjV-29ra
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 20:44:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
-	s=protonmail3; t=1784753051; x=1785012251;
-	bh=qwFCKwMu1VVxkoN6pTWe+Js9jsf9ELHP4hu1h1ieftY=;
-	h=From:Date:Subject:Message-Id:References:In-Reply-To:To:Cc:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=MZG57ImtcDc6Red2hDOG9UQb9SplZ8Rrh35qaiVQXFfAs75ra0yfuFavbE+n9+c2U
-	 jmQw0prVagwxzYrbXy5ajvp/tq8XpQinBGyDziKYhejzwM1kBM/lR85XFNHcRLd+rU
-	 +5N5i8hyQEJMqPuEctQGej1Qaed5mZmLlEaAst4XAPUICj0CzhjvywkUvwFhSW87Nu
-	 IpS+xL5LdlyWGJGc5TwkP94hMNZ3XfMLoWx7AnDFh85aqGybPdVJCLBdZM7GYUB6PT
-	 siWPeuGqZh5wpOLntYf/++9VnC2SQV2tWyUAoYxh/ohRybcoLb2CRxr5Ornp7ms/qK
-	 /zmZXdV149fiA==
-X-Pm-Submission-Id: 4h55nz3jbfz1DDp9
-From: Alexandru Chimac <alex@chimac.ro>
-Date: Wed, 22 Jul 2026 23:44:02 +0300
-Subject: [PATCH v3 1/5] dt-bindings: clock: samsung: Add Exynos9610 CMU
- bindings
+	id 1wmdno-0000000Ckns-391o;
+	Wed, 22 Jul 2026 20:44:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B7775600B0;
+	Wed, 22 Jul 2026 20:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E324A1F00ACA;
+	Wed, 22 Jul 2026 20:44:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784753067;
+	bh=hi61mDjaFFGA7jutUZXTiHDuccr2E2lD0FKGjiIEpSg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=QkOyqGsxjUXPVtTG4eheRLWkx/UlZHWHBBvZi9eUgq9rXZ9/3My3EuFQjZ9Bb3R+Y
+	 JA3CrRN9vIBU8zTI4Xoeyfj+hBiKkJMIxejgvs3G7A85vFFfobdU8trWKaNC5GzNTH
+	 DMd4yucL+qL9MJftdcapCD9sWiL84MXACrOXX4k4JYwdoq3sMwAX15T8AlHcVyOK+g
+	 pXStxYfXZP+tvUu8GPYlp1gauPLU0OQyKcQbuSX9v+NfB5rW7+u20Go/EKYI4AahGc
+	 ywDmn6h9ftOFawQ57jzkKSfwmsy9HQV4Y7/hqdXaPNQZV7TfKeVrajqDkPDDze7Knk
+	 F9GJtmrGUkopA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 22 Jul 2026 22:44:02 +0200
+Subject: [PATCH net-next v10 3/3] net: airoha: defer GDM3/GDM4 WAN mode and
+ GDM2 loopback to QoS offload
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-exynos9610-clocks-v3-1-c672a2a30889@chimac.ro>
-References: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
-In-Reply-To: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Alexandru Chimac <alex@chimac.ro>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
+Message-Id: <20260722-airoha-ethtool-priv_flags-v10-3-d2562c5dd942@kernel.org>
+References: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
+In-Reply-To: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, 
+ Alexander Lobakin <aleksander.lobakin@intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Madhur Agrawal <madhur.agrawal@airoha.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784753044; l=38762;
- i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
- bh=FjDh0PbWlYWN0+ArN8VQq+RW/aEXfty/5+O9nh5Zmh0=;
- b=R31LDQZfzZHrym4zKVEIZfTpzbIIcP9zEKgZ4TmBLdK85XhAuO7kIfLIp5IPpNPht1oWblL71
- H0RKHDqAYwdBWzSaZkRoRt8NybjYJCQRzD+O43ojvE4dWF3t/yyXQn8
-X-Developer-Key: i=alex@chimac.ro; a=ed25519;
- pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_134417_023314_F4A3E11F 
-X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,1087 +74,590 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This clock management unit has a topmost block (CMU_TOP)
-that generates top clocks for other blocks, alongside 20
-other blocks, out of which 11 are currently implemented.
+GDM3 and GDM4 ports require GDM2 loopback to be enabled for hardware
+QoS offload to function. Without it, HTB and ETS offload on these ports
+do not work.
+Previously, GDM3/GDM4 ports were automatically configured as WAN with
+GDM2 loopback enabled during ndo_init().
+Add the capability to configure GDM3/GDM4 as WAN/LAN on demand when QoS
+offload is created or destroyed.
+Hook airoha_enable_qos_for_gdm34() into TC_HTB_CREATE so that requesting
+HTB offload on a GDM3/GDM4 LAN port switches it to WAN mode and enables
+GDM2 loopback.
+Introduce the AIROHA_DEV_F_TX_QOS flag to track whether a device has an
+active TX qdisc (HTB/ETS); clear it on TC_HTB_DESTROY. The device keeps
+its WAN role after qdisc teardown so that its configuration is preserved
+until another device explicitly needs the WAN role for QoS offload.
+If another GDM3/GDM4 device already holds the WAN role without an active
+TX qdisc, demote it to LAN before promoting the requesting device. Skip
+the demotion when the requesting device is itself already the WAN device.
+Since airoha_dev_set_qdma() can now be called on a running device to
+migrate between QDMA blocks, make dev->qdma an RCU pointer so the TX path
+can safely dereference it without holding RTNL.
+When migrating between QDMA blocks, stop TX queues and synchronize RCU
+before swapping the pointer to ensure no in-flight ndo_start_xmit holds
+the old pointer. After the swap, mask TX completion interrupts on the
+old QDMA and call napi_synchronize() to drain any remaining completions
+before waking TX on the new QDMA. This prevents concurrent calls to
+dql_completed() from two independent NAPI instances on the same netdev
+TX queues.
+Hold flow_offload_mutex in airoha_enable_qos_for_gdm34() and
+airoha_disable_qos_for_gdm34() around the dev->flags update,
+airoha_dev_set_qdma() and GDM2 loopback configuration, serializing
+against concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER
+offload path.
+Introduce airoha_qdma_deref() helper that wraps rcu_dereference_protected()
+with a lockdep condition accepting either rtnl_lock or flow_offload_mutex,
+and use it across all control-path dereferences of the RCU-protected
+dev->qdma pointer.
+Add airoha_disable_gdm2_loopback() to disable GDM2 hw loopback.
 
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
+Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../bindings/clock/samsung,exynos9610-cmu.yaml     | 335 ++++++++++
- include/dt-bindings/clock/samsung,exynos9610-cmu.h | 722 +++++++++++++++++++++
- 2 files changed, 1057 insertions(+)
+ drivers/net/ethernet/airoha/airoha_eth.c  | 248 +++++++++++++++++++++++++++---
+ drivers/net/ethernet/airoha/airoha_eth.h  |  15 +-
+ drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
+ drivers/net/ethernet/airoha/airoha_regs.h |   1 +
+ 4 files changed, 243 insertions(+), 30 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/samsung,exynos9610-cmu.yaml b/Documentation/devicetree/bindings/clock/samsung,exynos9610-cmu.yaml
-new file mode 100644
-index 000000000000..62372a543479
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/samsung,exynos9610-cmu.yaml
-@@ -0,0 +1,335 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/samsung,exynos9610-cmu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index aaf2a4717d12..06f866d7137e 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -934,7 +934,7 @@ static void airoha_qdma_wake_netdev_txqs(struct airoha_queue *q)
+ 			if (!dev)
+ 				continue;
+ 
+-			if (dev->qdma != qdma)
++			if (rcu_access_pointer(dev->qdma) != qdma)
+ 				continue;
+ 
+ 			netdev = netdev_from_priv(dev);
+@@ -1866,8 +1866,8 @@ static int airoha_dev_open(struct net_device *netdev)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+ 	struct airoha_gdm_port *port = dev->port;
+-	struct airoha_qdma *qdma = dev->qdma;
+ 	u32 pse_port = FE_PSE_PORT_PPE1;
++	struct airoha_qdma *qdma;
+ 	int err;
+ 
+ 	netif_tx_start_all_queues(netdev);
+@@ -1875,6 +1875,7 @@ static int airoha_dev_open(struct net_device *netdev)
+ 	if (err)
+ 		return err;
+ 
++	qdma = airoha_qdma_deref(dev);
+ 	if (netdev_uses_dsa(netdev))
+ 		airoha_fe_set(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
+ 			      GDM_STAG_EN_MASK);
+@@ -1898,7 +1899,6 @@ static int airoha_dev_stop(struct net_device *netdev)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+ 	struct airoha_gdm_port *port = dev->port;
+-	struct airoha_qdma *qdma = dev->qdma;
+ 
+ 	netif_tx_disable(netdev);
+ 	airoha_set_vip_for_gdm_port(dev, false);
+@@ -1906,7 +1906,7 @@ static int airoha_dev_stop(struct net_device *netdev)
+ 	if (--port->users)
+ 		airoha_ppe_set_xmit_frame_size(dev);
+ 	else
+-		airoha_set_gdm_port_fwd_cfg(qdma->eth,
++		airoha_set_gdm_port_fwd_cfg(dev->eth,
+ 					    REG_GDM_FWD_CFG(port->id),
+ 					    FE_PSE_PORT_DROP);
+ 	return 0;
+@@ -1989,6 +1989,53 @@ static int airoha_enable_gdm2_loopback(struct airoha_gdm_dev *dev)
+ 	return 0;
+ }
+ 
++static int airoha_disable_gdm2_loopback(struct airoha_gdm_dev *dev)
++{
++	struct airoha_gdm_port *port = dev->port;
++	struct airoha_eth *eth = dev->eth;
++	int i, src_port;
++	u32 pse_port;
 +
-+title: Samsung Exynos9610 SoC clock controller
++	src_port = eth->soc->ops.get_sport(dev->port, dev->nbq);
++	if (src_port < 0)
++		return src_port;
 +
-+maintainers:
-+  - Alexandru Chimac <alex@chimac.ro>
-+  - Chanwoo Choi <cw00.choi@samsung.com>
-+  - Krzysztof Kozlowski <krzk@kernel.org>
++	airoha_fe_clear(eth,
++			REG_SP_DFT_CPORT(src_port >> fls(SP_CPORT_DFT_MASK)),
++			SP_CPORT_MASK(src_port & SP_CPORT_DFT_MASK));
 +
-+description: |
-+  Exynos9610 clock controller is comprised of several CMU units, generating
-+  clocks for different domains. Those CMU units are modeled as separate device
-+  tree nodes, and might depend on each other. The root clock in that root tree
-+  is an external clock: OSCCLK (26MHz). This external clock must be defined
-+  as a fixed-rate clock in the device tree.
++	airoha_fe_set(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
++		      GDM_STRIP_CRC_MASK);
++	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
++				    FE_PSE_PORT_DROP);
++	airoha_fe_clear(eth, REG_GDM_LPBK_CFG(AIROHA_GDM2_IDX),
++			LPBK_CHAN_MASK | LPBK_MODE_MASK | LPBK_EN_MASK);
++	pse_port = airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
++						 : FE_PSE_PORT_PPE1;
++	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(AIROHA_GDM2_IDX),
++				    pse_port);
 +
-+  CMU_TOP is a top-level CMU, where all base clocks are prepared using PLLs and
-+  dividers; all other clocks of function blocks (other CMUs) are usually
-+  derived from CMU_TOP.
++	airoha_fe_rmw(eth, REG_FE_WAN_PORT, WAN0_MASK,
++		      FIELD_PREP(WAN0_MASK, AIROHA_GDM2_IDX));
 +
-+  Each clock is assigned an identifier and client nodes can use this identifier
-+  to specify the clock which they consume. All clocks available for usage
-+  in clock consumer nodes are defined as preprocessor macros in
-+  'include/dt-bindings/clock/samsung,exynos9610-cmu.h'.
++	for (i = 0; i < eth->soc->num_ppe; i++)
++		airoha_fe_clear(eth, REG_PPE_DFT_CPORT(i, AIROHA_GDM2_IDX),
++				DFT_CPORT_MASK(AIROHA_GDM2_IDX));
 +
-+properties:
-+  compatible:
-+    enum:
-+      - samsung,exynos9610-cmu-top
-+      - samsung,exynos9610-cmu-apm
-+      - samsung,exynos9610-cmu-cam
-+      - samsung,exynos9610-cmu-cmgp
-+      - samsung,exynos9610-cmu-core
-+      - samsung,exynos9610-cmu-cpucl0
-+      - samsung,exynos9610-cmu-dispaud
-+      - samsung,exynos9610-cmu-fsys
-+      - samsung,exynos9610-cmu-g2d
-+      - samsung,exynos9610-cmu-g3d
-+      - samsung,exynos9610-cmu-peri
-+      - samsung,exynos9610-cmu-usb
++	/* Enable VIP and IFC for GDM2 */
++	airoha_fe_set(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
++	airoha_fe_set(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
 +
-+  clocks:
-+    minItems: 1
-+    maxItems: 5
++	if (port->id == AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
++		u32 mask = FC_ID_OF_SRC_PORT_MASK(dev->nbq);
 +
-+  clock-names:
-+    minItems: 1
-+    maxItems: 5
++		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6, mask,
++			      FC_MAP6_DEF_VALUE & mask);
++	}
 +
-+  "#clock-cells":
-+    const: 1
++	return 0;
++}
 +
-+  reg:
-+    maxItems: 1
+ static struct airoha_gdm_dev *
+ airoha_get_wan_gdm_dev(struct airoha_eth *eth)
+ {
+@@ -2015,15 +2062,50 @@ airoha_get_wan_gdm_dev(struct airoha_eth *eth)
+ static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
+ {
+ 	struct net_device *netdev = netdev_from_priv(dev);
++	struct airoha_qdma *cur_qdma, *qdma;
+ 	struct airoha_eth *eth = dev->eth;
+-	int ppe_id;
++	int i, ppe_id;
+ 
+ 	/* QDMA0 is used for lan ports while QDMA1 is used for WAN ports */
+-	dev->qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
+-	netdev->irq = dev->qdma->irq_banks[0].irq;
++	qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
++	cur_qdma = airoha_qdma_deref(dev);
 +
-+required:
-+  - compatible
-+  - "#clock-cells"
-+  - clocks
-+  - clock-names
-+  - reg
++	if (cur_qdma) {
++		/* Ensure any in-flight packets for the old QDMA in the TX path
++		 * has completed before swapping the QDMA pointer.
++		 */
++		netif_tx_stop_all_queues(netdev);
++		synchronize_rcu();
++	}
 +
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-top
++	rcu_assign_pointer(dev->qdma, qdma);
++	netdev->irq = qdma->irq_banks[0].irq;
+ 
+ 	ppe_id = !airoha_is_lan_gdm_dev(dev) && airoha_ppe_is_enabled(eth, 1);
+ 	airoha_ppe_set_cpu_port(dev, ppe_id, airoha_get_fe_port(dev));
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
++	/* Seed qos_stats baselines with the new QDMA block's current
++	 * counter values to avoid a spurious spike on the first stats
++	 * query after init or migration.
++	 */
++	for (i = 0; i < ARRAY_SIZE(dev->qos_stats); i++) {
++		dev->qos_stats[i].cpu_tx_packets =
++			airoha_qdma_rr(qdma, REG_CNTR_VAL(i << 1));
++		dev->qos_stats[i].fwd_tx_packets =
++			airoha_qdma_rr(qdma, REG_CNTR_VAL((i << 1) + 1));
++	}
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
++	if (cur_qdma) {
++		/* Wait for the pending TX completion on the old QDMA */
++		airoha_qdma_irq_disable(&cur_qdma->irq_banks[0],
++					QDMA_INT_REG_IDX0, INT_TX_MASK);
++		for (i = 0; i < ARRAY_SIZE(cur_qdma->q_tx_irq); i++)
++			napi_synchronize(&cur_qdma->q_tx_irq[i].napi);
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-apm
++		airoha_qdma_irq_enable(&cur_qdma->irq_banks[0],
++				       QDMA_INT_REG_IDX0, INT_TX_MASK);
++		netif_tx_wake_all_queues(netdev);
++	}
+ }
+ 
+ static int airoha_dev_init(struct net_device *netdev)
+@@ -2178,9 +2260,9 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 				   struct net_device *netdev)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_qdma *qdma = dev->qdma;
+ 	u32 nr_frags, tag, msg0, msg1, len;
+ 	struct airoha_queue_entry *e;
++	struct airoha_qdma *qdma;
+ 	struct netdev_queue *txq;
+ 	struct airoha_queue *q;
+ 	LIST_HEAD(tx_list);
+@@ -2189,6 +2271,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 	u16 index;
+ 	u8 fport;
+ 
++	rcu_read_lock();
++	qdma = rcu_dereference(dev->qdma);
+ 	qid = airoha_qdma_get_txq(qdma, skb_get_queue_mapping(skb));
+ 	tag = airoha_get_dsa_tag(skb, netdev);
+ 
+@@ -2238,6 +2322,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 		netif_tx_stop_queue(txq);
+ 		q->txq_stopped = true;
+ 		spin_unlock_bh(&q->lock);
++		rcu_read_unlock();
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_APM bus clock (from CMU_TOP)
+ 		return NETDEV_TX_BUSY;
+ 	}
+ 
+@@ -2303,6 +2389,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 				FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
+ 
+ 	spin_unlock_bh(&q->lock);
++	rcu_read_unlock();
+ 
+ 	return NETDEV_TX_OK;
+ 
+@@ -2315,6 +2402,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ error:
+ 	dev_kfree_skb_any(skb);
+ 	netdev->stats.tx_dropped++;
++	rcu_read_unlock();
+ 
+ 	return NETDEV_TX_OK;
+ }
+@@ -2394,17 +2482,19 @@ static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
+ 					 const u16 *weights, u8 n_weights)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++	struct airoha_qdma *qdma;
+ 	int i;
+ 
++	qdma = airoha_qdma_deref(dev);
+ 	for (i = 0; i < AIROHA_NUM_QOS_QUEUES; i++)
+-		airoha_qdma_clear(dev->qdma, REG_QUEUE_CLOSE_CFG(channel),
++		airoha_qdma_clear(qdma, REG_QUEUE_CLOSE_CFG(channel),
+ 				  TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i));
+ 
+ 	for (i = 0; i < n_weights; i++) {
+ 		u32 status;
+ 		int err;
+ 
+-		airoha_qdma_wr(dev->qdma, REG_TXWRR_WEIGHT_CFG,
++		airoha_qdma_wr(qdma, REG_TXWRR_WEIGHT_CFG,
+ 			       TWRR_RW_CMD_MASK |
+ 			       FIELD_PREP(TWRR_CHAN_IDX_MASK, channel) |
+ 			       FIELD_PREP(TWRR_QUEUE_IDX_MASK, i) |
+@@ -2412,12 +2502,12 @@ static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
+ 		err = read_poll_timeout(airoha_qdma_rr, status,
+ 					status & TWRR_RW_CMD_DONE,
+ 					USEC_PER_MSEC, 10 * USEC_PER_MSEC,
+-					true, dev->qdma, REG_TXWRR_WEIGHT_CFG);
++					true, qdma, REG_TXWRR_WEIGHT_CFG);
+ 		if (err)
+ 			return err;
+ 	}
+ 
+-	airoha_qdma_rmw(dev->qdma, REG_CHAN_QOS_MODE(channel >> 3),
++	airoha_qdma_rmw(qdma, REG_CHAN_QOS_MODE(channel >> 3),
+ 			CHAN_QOS_MODE_MASK(channel),
+ 			__field_prep(CHAN_QOS_MODE_MASK(channel), mode));
+ 
+@@ -2481,10 +2571,11 @@ static int airoha_qdma_get_tx_ets_stats(struct net_device *netdev, int channel,
+ 					struct tc_ets_qopt_offload *opt)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_qdma *qdma = dev->qdma;
+ 	u32 cpu_tx_packets, fwd_tx_packets;
++	struct airoha_qdma *qdma;
+ 	u64 tx_packets;
+ 
++	qdma = airoha_qdma_deref(dev);
+ 	cpu_tx_packets = airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
+ 	fwd_tx_packets = airoha_qdma_rr(qdma,
+ 					REG_CNTR_VAL((channel << 1) + 1));
+@@ -2751,16 +2842,18 @@ static int airoha_qdma_set_tx_rate_limit(struct net_device *netdev,
+ 					 u32 bucket_size)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++	struct airoha_qdma *qdma;
+ 	int i, err;
+ 
++	qdma = airoha_qdma_deref(dev);
+ 	for (i = 0; i <= TRTCM_PEAK_MODE; i++) {
+-		err = airoha_qdma_set_trtcm_config(dev->qdma, channel,
++		err = airoha_qdma_set_trtcm_config(qdma, channel,
+ 						   REG_EGRESS_TRTCM_CFG, i,
+ 						   !!rate, TRTCM_METER_MODE);
+ 		if (err)
+ 			return err;
+ 
+-		err = airoha_qdma_set_trtcm_token_bucket(dev->qdma, channel,
++		err = airoha_qdma_set_trtcm_token_bucket(qdma, channel,
+ 							 REG_EGRESS_TRTCM_CFG,
+ 							 i, rate, bucket_size);
+ 		if (err)
+@@ -2796,11 +2889,12 @@ static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
+ 	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+ 	int err, num_tx_queues = AIROHA_NUM_TX_RING + channel + 1;
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_qdma *qdma = dev->qdma;
++	struct airoha_qdma *qdma;
+ 
+ 	/* Here we need to check the requested QDMA channel is not already
+ 	 * in use by another net_device running on the same QDMA block.
+ 	 */
++	qdma = airoha_qdma_deref(dev);
+ 	if (test_and_set_bit(channel, qdma->qos_channel_map)) {
+ 		NL_SET_ERR_MSG_MOD(opt->extack,
+ 				   "qdma qos channel already in use");
+@@ -2836,7 +2930,7 @@ static int airoha_qdma_set_rx_meter(struct airoha_gdm_dev *dev,
+ 				    u32 rate, u32 bucket_size,
+ 				    enum trtcm_unit_type unit_type)
+ {
+-	struct airoha_qdma *qdma = dev->qdma;
++	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
+ 	int i;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
+@@ -3011,10 +3105,11 @@ static void airoha_tc_remove_htb_queue(struct net_device *netdev, int queue)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+ 	int num_tx_queues = AIROHA_NUM_TX_RING;
+-	struct airoha_qdma *qdma = dev->qdma;
++	struct airoha_qdma *qdma;
+ 
+ 	airoha_qdma_set_tx_rate_limit(netdev, queue, 0, 0);
+ 
++	qdma = airoha_qdma_deref(dev);
+ 	clear_bit(queue, qdma->qos_channel_map);
+ 	clear_bit(queue, dev->qos_sq_bmap);
+ 
+@@ -3040,6 +3135,98 @@ static int airoha_tc_htb_delete_leaf_queue(struct net_device *netdev,
+ 	return 0;
+ }
+ 
++static void airoha_disable_qos_for_gdm34(struct net_device *netdev)
++{
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++	struct airoha_gdm_port *port = dev->port;
++	int err;
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_apm_bus
++	if (port->id != AIROHA_GDM3_IDX &&
++	    port->id != AIROHA_GDM4_IDX)
++		return;
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-cam
++	err = airoha_disable_gdm2_loopback(dev);
++	if (err)
++		netdev_warn(netdev,
++			    "failed disabling GDM2 loopback: %d\n", err);
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CAM bus clock (from CMU_TOP)
++	dev->flags &= ~AIROHA_DEV_F_WAN;
++	airoha_dev_set_qdma(dev);
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_cam_bus
++	airoha_set_macaddr(dev, netdev->dev_addr);
++	airoha_ppe_set_xmit_frame_size(dev);
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-cmgp
++	if (netif_running(netdev))
++		airoha_set_gdm_port_fwd_cfg(dev->eth,
++					    REG_GDM_FWD_CFG(port->id),
++					    FE_PSE_PORT_PPE1);
++}
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CMGP bus clock (from CMU_APM)
++static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
++				       struct netlink_ext_ack *extack)
++{
++	struct airoha_gdm_dev *wan_dev, *dev = netdev_priv(netdev);
++	struct airoha_gdm_port *port = dev->port;
++	struct airoha_eth *eth = dev->eth;
++	int err = -EBUSY;
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: gout_cmu_cmgp_bus
++	if (port->id != AIROHA_GDM3_IDX &&
++	    port->id != AIROHA_GDM4_IDX) {
++		/* HW QoS is always supported by GDM1 and GDM2 */
++		return 0;
++	}
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-core
++	if (!airoha_is_lan_gdm_dev(dev)) /* Already enabled */
++		return 0;
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CORE bus clock (from CMU_TOP)
-+            - description: CMU_CORE CCI clock (from CMU_TOP)
-+            - description: CMU_CORE G3D clock (from CMU_TOP)
++	mutex_lock(&flow_offload_mutex);
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: gout_cmu_core_bus
-+            - const: gout_cmu_core_cci
-+            - const: gout_cmu_core_g3d
++	wan_dev = airoha_get_wan_gdm_dev(eth);
++	if (wan_dev) {
++		if ((wan_dev->flags & AIROHA_DEV_F_TX_QOS) ||
++		    wan_dev->port->id == AIROHA_GDM2_IDX) {
++			NL_SET_ERR_MSG_MOD(extack,
++					   "QoS configured for WAN device");
++			goto error_unlock;
++		}
++		airoha_disable_qos_for_gdm34(netdev_from_priv(wan_dev));
++	}
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-cpucl0
++	dev->flags |= AIROHA_DEV_F_WAN;
++	airoha_dev_set_qdma(dev);
++	err = airoha_enable_gdm2_loopback(dev);
++	if (err)
++		goto error_disable_wan;
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CPUCL0 debug clock (from CMU_TOP)
-+            - description: CMU_CPUCL0 switch clock (from CMU_TOP)
-+            - description: HPM clock (from CMU_TOP)
++	err = airoha_set_macaddr(dev, netdev->dev_addr);
++	if (err)
++		goto error_disable_loopback;
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_cpucl0_dbg
-+            - const: dout_cmu_cpucl0_switch
-+            - const: dout_cmu_hpm
++	airoha_dev_set_xmit_frame_size(netdev);
++	if (netif_running(netdev)) {
++		u32 pse_port;
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-dispaud
++		pse_port = airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
++							 : FE_PSE_PORT_PPE1;
++		airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id),
++					    pse_port);
++	}
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_DISPAUD audio clock (from CMU_TOP)
-+            - description: CMU_DISPAUD CPU clock (from CMU_TOP)
-+            - description: CMU_DISPAUD display clock (from CMU_TOP)
++	mutex_unlock(&flow_offload_mutex);
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_dispaud_aud
-+            - const: dout_cmu_dispaud_cpu
-+            - const: dout_cmu_dispaud_disp
++	return 0;
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-fsys
++error_disable_loopback:
++	airoha_disable_gdm2_loopback(dev);
++error_disable_wan:
++	dev->flags &= ~AIROHA_DEV_F_WAN;
++	airoha_dev_set_qdma(dev);
++error_unlock:
++	mutex_unlock(&flow_offload_mutex);
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_FSYS bus clock (from CMU_TOP)
-+            - description: CMU_FSYS external MMC clock (from CMU_TOP)
-+            - description: CMU_FSYS embedded MMC clock (from CMU_TOP)
-+            - description: CMU_FSYS embedded UFS clock (from CMU_TOP)
++	return err;
++}
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_fsys_bus
-+            - const: dout_cmu_fsys_mmc_card
-+            - const: dout_cmu_fsys_mmc_embd
-+            - const: dout_cmu_fsys_ufs_embd
+ static int airoha_tc_htb_destroy(struct net_device *netdev)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+@@ -3048,6 +3235,8 @@ static int airoha_tc_htb_destroy(struct net_device *netdev)
+ 	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
+ 		airoha_tc_remove_htb_queue(netdev, q);
+ 
++	dev->flags &= ~AIROHA_DEV_F_TX_QOS;
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-g2d
+ 	return 0;
+ }
+ 
+@@ -3067,24 +3256,33 @@ static int airoha_tc_get_htb_get_leaf_queue(struct net_device *netdev,
+ 	return 0;
+ }
+ 
+-static int airoha_tc_setup_qdisc_htb(struct net_device *dev,
++static int airoha_tc_setup_qdisc_htb(struct net_device *netdev,
+ 				     struct tc_htb_qopt_offload *opt)
+ {
+ 	switch (opt->command) {
+-	case TC_HTB_CREATE:
++	case TC_HTB_CREATE: {
++		struct airoha_gdm_dev *dev = netdev_priv(netdev);
++		int err;
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_G2D G2D clock (from CMU_TOP)
-+            - description: CMU_G2D MSCL clock (from CMU_TOP)
++		err = airoha_enable_qos_for_gdm34(netdev, opt->extack);
++		if (err)
++			return err;
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_g2d_g2d
-+            - const: dout_cmu_g2d_mscl
++		dev->flags |= AIROHA_DEV_F_TX_QOS;
+ 		break;
++	}
+ 	case TC_HTB_DESTROY:
+-		return airoha_tc_htb_destroy(dev);
++		return airoha_tc_htb_destroy(netdev);
+ 	case TC_HTB_NODE_MODIFY:
+-		return airoha_tc_htb_modify_queue(dev, opt);
++		return airoha_tc_htb_modify_queue(netdev, opt);
+ 	case TC_HTB_LEAF_ALLOC_QUEUE:
+-		return airoha_tc_htb_alloc_leaf_queue(dev, opt);
++		return airoha_tc_htb_alloc_leaf_queue(netdev, opt);
+ 	case TC_HTB_LEAF_DEL:
+ 	case TC_HTB_LEAF_DEL_LAST:
+ 	case TC_HTB_LEAF_DEL_LAST_FORCE:
+-		return airoha_tc_htb_delete_leaf_queue(dev, opt);
++		return airoha_tc_htb_delete_leaf_queue(netdev, opt);
+ 	case TC_HTB_LEAF_QUERY_QUEUE:
+-		return airoha_tc_get_htb_get_leaf_queue(dev, opt);
++		return airoha_tc_get_htb_get_leaf_queue(netdev, opt);
+ 	default:
+ 		return -EOPNOTSUPP;
+ 	}
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index bf44be9f0954..b43a08e93795 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -544,12 +544,13 @@ struct airoha_qdma {
+ };
+ 
+ enum airoha_dev_flags {
+-	AIROHA_DEV_F_WAN = BIT(0),
++	AIROHA_DEV_F_WAN	= BIT(0),
++	AIROHA_DEV_F_TX_QOS	= BIT(1),
+ };
+ 
+ struct airoha_gdm_dev {
++	struct airoha_qdma __rcu *qdma;
+ 	struct airoha_gdm_port *port;
+-	struct airoha_qdma *qdma;
+ 	struct airoha_eth *eth;
+ 
+ 	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+@@ -685,6 +686,16 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
+ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+ 			     struct airoha_gdm_dev *dev);
+ 
++extern struct mutex flow_offload_mutex;
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-g3d
++static inline struct airoha_qdma *
++airoha_qdma_deref(struct airoha_gdm_dev *dev)
++{
++	return rcu_dereference_protected(dev->qdma,
++					 lockdep_rtnl_is_held() ||
++					 lockdep_is_held(&flow_offload_mutex));
++}
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_G3D switch clock (from CMU_TOP)
-+            - description: HPM clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_g3d_switch
-+            - const: dout_cmu_hpm
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-peri
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_PERI bus clock (from CMU_TOP)
-+            - description: CMU_PERI IP clock (from CMU_TOP)
-+            - description: CMU_PERI UART clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_peri_bus
-+            - const: dout_cmu_peri_ip
-+            - const: dout_cmu_peri_uart
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-usb
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_USB bus clock (from CMU_TOP)
-+            - description: CMU_USB DPGTC clock (from CMU_TOP)
-+            - description: CMU_USB DRD clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_usb_bus
-+            - const: dout_cmu_usb_dpgtc
-+            - const: dout_cmu_usb_usb30drd
-+
-+additionalProperties: false
-+
-+examples:
-+  # Clock controller node for CMU_FSYS
-+  - |
-+    #include <dt-bindings/clock/samsung,exynos9610-cmu.h>
-+
-+    cmu_fsys: clock-controller@13400000 {
-+        compatible = "samsung,exynos9610-cmu-fsys";
-+        reg = <0x13400000 0x8000>;
-+        #clock-cells = <1>;
-+
-+        clocks = <&oscclk>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_BUS>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_MMC_CARD>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_MMC_EMBD>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_UFS_EMBD>;
-+        clock-names = "oscclk",
-+                      "dout_cmu_fsys_bus",
-+                      "dout_cmu_fsys_mmc_card",
-+                      "dout_cmu_fsys_mmc_embd",
-+                      "dout_cmu_fsys_ufs_embd";
-+    };
-+...
-diff --git a/include/dt-bindings/clock/samsung,exynos9610-cmu.h b/include/dt-bindings/clock/samsung,exynos9610-cmu.h
-new file mode 100644
-index 000000000000..1169373b2a7a
---- /dev/null
-+++ b/include/dt-bindings/clock/samsung,exynos9610-cmu.h
-@@ -0,0 +1,722 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Device tree binding constants for Exynos9610 clocks
-+ *
-+ * Copyright (c) 2026, Alexandru Chimac <alex@chimac.ro>
+ void airoha_ppe_set_xmit_frame_size(struct airoha_gdm_dev *dev);
+ void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 fport);
+ bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index fdb973fc779c..3ccdf9fccb4a 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -15,7 +15,10 @@
+ #include "airoha_regs.h"
+ #include "airoha_eth.h"
+ 
+-static DEFINE_MUTEX(flow_offload_mutex);
++/* Serialize airoha_gdm_dev flags, QDMA pointer and PPE CPU port
++ * configuration.
 + */
-+
-+#ifndef _DT_BINDINGS_CLOCK_EXYNOS9610_CMU_H
-+#define _DT_BINDINGS_CLOCK_EXYNOS9610_CMU_H
-+
-+/* CMU_TOP PLLs */
-+#define CLK_FOUT_SHARED0_PLL		1
-+#define CLK_FOUT_SHARED1_PLL		2
-+#define CLK_FOUT_MMC_PLL		3
-+
-+/* CMU_TOP muxes */
-+#define CLK_MOUT_PLL_SHARED0		4
-+#define CLK_MOUT_PLL_SHARED1		5
-+#define CLK_MOUT_PLL_MMC		6
-+#define CLK_MOUT_CMU_APM_BUS		7
-+#define CLK_MOUT_CMU_CAM_BUS		8
-+#define CLK_MOUT_CMU_CIS_CLK0		9
-+#define CLK_MOUT_CMU_CIS_CLK1		10
-+#define CLK_MOUT_CMU_CIS_CLK2		11
-+#define CLK_MOUT_CMU_CIS_CLK3		12
-+#define CLK_MOUT_CMU_CORE_BUS		13
-+#define CLK_MOUT_CMU_CORE_CCI		14
-+#define CLK_MOUT_CMU_CORE_G3D		15
-+#define CLK_MOUT_CMU_CPUCL0_DBG		16
-+#define CLK_MOUT_CMU_CPUCL0_SWITCH	17
-+#define CLK_MOUT_CMU_CPUCL1_SWITCH	18
-+#define CLK_MOUT_CMU_DISPAUD_AUD	19
-+#define CLK_MOUT_CMU_DISPAUD_CPU	20
-+#define CLK_MOUT_CMU_DISPAUD_DISP	21
-+#define CLK_MOUT_CMU_FSYS_BUS		22
-+#define CLK_MOUT_CMU_FSYS_MMC_CARD	23
-+#define CLK_MOUT_CMU_FSYS_MMC_EMBD	24
-+#define CLK_MOUT_CMU_FSYS_UFS_EMBD	25
-+#define CLK_MOUT_CMU_G2D_G2D		26
-+#define CLK_MOUT_CMU_G2D_MSCL		27
-+#define CLK_MOUT_CMU_G3D_SWITCH		28
-+#define CLK_MOUT_CMU_HPM		29
-+#define CLK_MOUT_CMU_ISP_BUS		30
-+#define CLK_MOUT_CMU_ISP_GDC		31
-+#define CLK_MOUT_CMU_ISP_VRA		32
-+#define CLK_MOUT_CMU_MFC_MFC		33
-+#define CLK_MOUT_CMU_MFC_WFD		34
-+#define CLK_MOUT_CMU_MIF_BUSP		35
-+#define CLK_MOUT_CMU_MIF_SWITCH		36
-+#define CLK_MOUT_CMU_PERI_BUS		37
-+#define CLK_MOUT_CMU_PERI_IP		38
-+#define CLK_MOUT_CMU_PERI_UART		39
-+#define CLK_MOUT_CMU_USB_BUS		40
-+#define CLK_MOUT_CMU_USB_DPGTC		41
-+#define CLK_MOUT_CMU_USB_USB30DRD	42
-+#define CLK_MOUT_CMU_VIPX1_BUS		43
-+#define CLK_MOUT_CMU_VIPX2_BUS		44
-+#define CLK_MOUT_CLK_CMU_CMUREF		45
-+#define CLK_MOUT_CMU_CMUREF		46
-+
-+/* CMU_TOP dividers */
-+#define CLK_DOUT_CMU_SHARED0_DIV2	47
-+#define CLK_DOUT_CMU_SHARED0_DIV3	48
-+#define CLK_DOUT_CMU_SHARED0_DIV4	49
-+#define CLK_DOUT_CMU_SHARED1_DIV2	50
-+#define CLK_DOUT_CMU_SHARED1_DIV3	51
-+#define CLK_DOUT_CMU_SHARED1_DIV4	52
-+#define CLK_DOUT_CMU_MMC_DIV2		53
-+#define CLK_DOUT_AP2CP_SHARED0_PLL_CLK	54
-+#define CLK_DOUT_AP2CP_SHARED1_PLL_CLK	55
-+#define CLK_DOUT_CMU_APM_BUS		56
-+#define CLK_DOUT_CMU_CAM_BUS		57
-+#define CLK_DOUT_CMU_CIS_CLK0		58
-+#define CLK_DOUT_CMU_CIS_CLK1		59
-+#define CLK_DOUT_CMU_CIS_CLK2		60
-+#define CLK_DOUT_CMU_CIS_CLK3		61
-+#define CLK_DOUT_CMU_CORE_BUS		62
-+#define CLK_DOUT_CMU_CORE_CCI		63
-+#define CLK_DOUT_CMU_CORE_G3D		64
-+#define CLK_DOUT_CMU_CPUCL0_DBG		65
-+#define CLK_DOUT_CMU_CPUCL0_SWITCH	66
-+#define CLK_DOUT_CMU_CPUCL1_SWITCH	67
-+#define CLK_DOUT_CMU_DISPAUD_AUD	68
-+#define CLK_DOUT_CMU_DISPAUD_CPU	69
-+#define CLK_DOUT_CMU_DISPAUD_DISP	70
-+#define CLK_DOUT_CMU_FSYS_BUS		71
-+#define CLK_DOUT_CMU_FSYS_MMC_CARD	72
-+#define CLK_DOUT_CMU_FSYS_MMC_EMBD	73
-+#define CLK_DOUT_CMU_FSYS_UFS_EMBD	74
-+#define CLK_DOUT_CMU_G2D_G2D		75
-+#define CLK_DOUT_CMU_G2D_MSCL		76
-+#define CLK_DOUT_CMU_G3D_SWITCH		77
-+#define CLK_DOUT_CMU_HPM		78
-+#define CLK_DOUT_CMU_ISP_BUS		79
-+#define CLK_DOUT_CMU_ISP_GDC		80
-+#define CLK_DOUT_CMU_ISP_VRA		81
-+#define CLK_DOUT_CMU_MFD_MFC		82
-+#define CLK_DOUT_CMU_MFD_WFD		83
-+#define CLK_DOUT_CMU_MIF_BUSP		84
-+#define CLK_DOUT_CMU_PERI_BUS		85
-+#define CLK_DOUT_CMU_PERI_IP		86
-+#define CLK_DOUT_CMU_PERI_UART		87
-+#define CLK_DOUT_CMU_USB_BUS		88
-+#define CLK_DOUT_CMU_USB_DPGTC		89
-+#define CLK_DOUT_CMU_USB_USB30DRD	90
-+#define CLK_DOUT_CMU_VIPX1_BUS		91
-+#define CLK_DOUT_CMU_VIPX2_BUS		92
-+#define CLK_DOUT_CLK_CMU_CMUREF		93
-+#define CLK_DOUT_CMU_OTP		94
-+
-+/* CMU_TOP gates */
-+#define CLK_GOUT_CMU_MIF_SWITCH		95
-+#define CLK_GOUT_CLK_CMU_OTP_CLK	96
-+#define CLK_GOUT_CMU_APM_BUS		97
-+#define CLK_GOUT_CMU_CAM_BUS		98
-+#define CLK_GOUT_CMU_CIS_CLK0		99
-+#define CLK_GOUT_CMU_CIS_CLK1		100
-+#define CLK_GOUT_CMU_CIS_CLK2		101
-+#define CLK_GOUT_CMU_CIS_CLK3		102
-+#define CLK_GOUT_CMU_CORE_BUS		103
-+#define CLK_GOUT_CMU_CORE_CCI		104
-+#define CLK_GOUT_CMU_CORE_G3D		105
-+#define CLK_GOUT_CMU_CPUCL0_DBG		106
-+#define CLK_GOUT_CMU_CPUCL0_SWITCH	107
-+#define CLK_GOUT_CMU_CPUCL1_SWITCH	108
-+#define CLK_GOUT_CMU_DISPAUD_AUD	109
-+#define CLK_GOUT_CMU_DISPAUD_CPU	110
-+#define CLK_GOUT_CMU_DISPAUD_DISP	111
-+#define CLK_GOUT_CMU_FSYS_BUS		112
-+#define CLK_GOUT_CMU_FSYS_MMC_CARD	113
-+#define CLK_GOUT_CMU_FSYS_MMC_EMBD	114
-+#define CLK_GOUT_CMU_FSYS_UFS_EMBD	115
-+#define CLK_GOUT_CMU_G2D_G2D		116
-+#define CLK_GOUT_CMU_G2D_MSCL		117
-+#define CLK_GOUT_CMU_G3D_SWITCH		118
-+#define CLK_GOUT_CMU_HPM		119
-+#define CLK_GOUT_CMU_ISP_BUS		120
-+#define CLK_GOUT_CMU_ISP_GDC		121
-+#define CLK_GOUT_CMU_ISP_VRA		122
-+#define CLK_GOUT_CMU_MFC_MFC		123
-+#define CLK_GOUT_CMU_MFC_WFD		124
-+#define CLK_GOUT_CMU_MIF_BUSP		125
-+#define CLK_GOUT_CMU_MODEM_SHARED0	126
-+#define CLK_GOUT_CMU_MODEM_SHARED1	127
-+#define CLK_GOUT_CMU_PERI_BUS		128
-+#define CLK_GOUT_CMU_PERI_IP		129
-+#define CLK_GOUT_CMU_PERI_UART		130
-+#define CLK_GOUT_CMU_USB_BUS		131
-+#define CLK_GOUT_CMU_USB_DPGTC		132
-+#define CLK_GOUT_CMU_USB_USB30DRD	133
-+#define CLK_GOUT_CMU_VIPX1_BUS		134
-+#define CLK_GOUT_CMU_VIPX2_BUS		135
-+
-+/* CMU_APM muxes */
-+#define CLK_MOUT_PLL_APM_BUS_USER		1
-+#define CLK_MOUT_PLL_DLL_USER			2
-+#define CLK_MOUT_CMU_SHUB_BUS			3
-+#define CLK_MOUT_CLK_APM_BUS			4
-+
-+/* CMU_APM dividers */
-+#define CLK_DOUT_CMU_SHUB_BUS			5
-+#define CLK_DOUT_CLK_APM_BUS			6
-+
-+/* CPU_APM gates */
-+#define CLK_GOUT_CMU_CMGP_BUS			7
-+#define CLK_GOUT_CLK_APM_CMU_PCLK		8
-+#define CLK_GOUT_CLK_APM_OSCCLK_CLK		9
-+#define CLK_GOUT_CLK_APM_OSCCLK_RCO_CLK		10
-+#define CLK_GOUT_APM_APBIF_GPIO_ALIVE_PCLK	11
-+#define CLK_GOUT_APM_APBIF_PMU_ALIVE_PCLK	12
-+#define CLK_GOUT_APM_APBIF_RTC_ALIVE_PCLK	13
-+#define CLK_GOUT_APM_APBIF_TOP_RTC_ALIVE_PCLK	14
-+#define CLK_GOUT_APM_GREBEINTEGRATION_HCLK	15
-+#define CLK_GOUT_APM_INTMEM_ACLK		16
-+#define CLK_GOUT_APM_INTMEM_PCLK		17
-+#define CLK_GOUT_APM_LHM_AXI_P_GNSS_CLK		18
-+#define CLK_GOUT_APM_LHM_AXI_P_CLK		19
-+#define CLK_GOUT_APM_LHM_AXI_P_MODEM_CLK	20
-+#define CLK_GOUT_APM_LHM_AXI_P_SHUB_CLK		21
-+#define CLK_GOUT_APM_LHM_AXI_P_WLBT_CLK		22
-+#define CLK_GOUT_APM_LHS_AXI_D_CLK		23
-+#define CLK_GOUT_APM_LHS_AXI_LP_SHUB_CLK	24
-+#define CLK_GOUT_APM_MAILBOX_AP2CP_PCLK		25
-+#define CLK_GOUT_APM_MAILBOX_AP2CP_S_PCLK	26
-+#define CLK_GOUT_APM_MAILBOX_AP2GNSS_PCLK	27
-+#define CLK_GOUT_APM_MAILBOX_AP2SHUB_PCLK	28
-+#define CLK_GOUT_APM_MAILBOX_AP2WLBT_PCLK	29
-+#define CLK_GOUT_APM_MAILBOX_APM2AP_PCLK	30
-+#define CLK_GOUT_APM_MAILBOX_APM2CP_PCLK	31
-+#define CLK_GOUT_APM_MAILBOX_APM2GNSS_PCLK	32
-+#define CLK_GOUT_APM_MAILBOX_APM2SHUB_PCLK	33
-+#define CLK_GOUT_APM_MAILBOX_APM2WLBT_PCLK	34
-+#define CLK_GOUT_APM_MAILBOX_CP2GNSS_PCLK	35
-+#define CLK_GOUT_APM_MAILBOX_CP2SHUB_PCLK	36
-+#define CLK_GOUT_APM_MAILBOX_CP2WLBT_PCLK	37
-+#define CLK_GOUT_APM_MAILBOX_SHUB2GNSS_PCLK	38
-+#define CLK_GOUT_APM_MAILBOX_SHUB2WLBT_PCLK	39
-+#define CLK_GOUT_APM_MAILBOX_WLBT2ABOX_PCLK	40
-+#define CLK_GOUT_APM_MAILBOX_WLBT2GNSS_PCLK	41
-+#define CLK_GOUT_APM_PEM_CLK			42
-+#define CLK_GOUT_APM_PGEN_LITE_CLK		43
-+#define CLK_GOUT_APM_PMU_INTR_GEN_PCLK		44
-+#define CLK_GOUT_APM_BUS_CLK			45
-+#define CLK_GOUT_APM_GREBE_CLK			46
-+#define CLK_GOUT_APM_SPEEDY_PCLK		47
-+#define CLK_GOUT_APM_SYSREG_PCLK		48
-+#define CLK_GOUT_APM_WDT_PCLK			49
-+#define CLK_GOUT_APM_XIU_DP_ACLK		50
-+
-+/* CMU_CAM muxes */
-+#define CLK_MOUT_PLL_CAM_BUS_USER			1
-+
-+/* CMU_CAM dividers */
-+#define CLK_DIV_CLK_CAM_BUSP				2
-+
-+/* CMU_CAM gates */
-+#define CLK_GAT_CLK_CAM_CMU_PCLK			3
-+#define CLK_GAT_CLK_CAM_OSCCLK_CLK			4
-+#define CLK_GOUT_CAM_BUSD				5
-+#define CLK_GOUT_CAM_BTM_ACLK				6
-+#define CLK_GOUT_CAM_BTM_PCLK				7
-+#define CLK_GOUT_CAM_LHS_ATB_CAMISP_CLK			8
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_3AA			9
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS0		10
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS1		11
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS2		12
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS3		13
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_RDMA			14
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS0		15
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS1		16
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS2		17
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS3		18
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_PAFSTAT_CORE		19
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_PPMU_CAM		20
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_DMA			21
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_SMMU_CAM		22
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_XIU_D_CAM		23
-+#define CLK_GOUT_CAM_IS6P10P0_PCLK_PGEN_LITE_CAM0	24
-+#define CLK_GOUT_CAM_IS6P10P0_PCLK_PGEN_LITE_CAM1	25
-+#define CLK_GOUT_CAM_IS6P10P0_PCLK_PPMU_CAM		26
-+#define CLK_GOUT_CAM_LHM_AXI_P_CLK			27
-+#define CLK_GOUT_CAM_LHS_ACEL_D_CLK			28
-+#define CLK_GOUT_CAM_BUSD_CLK				29
-+#define CLK_GOUT_CAM_BUSP_CLK				30
-+#define CLK_GOUT_CAM_SYSREG_PCLK			31
-+
-+/* CMU_CMGP muxes */
-+#define CLK_MOUT_CLK_CMGP_ADC			0
-+#define CLK_MOUT_CLK_CMGP_I2C			1
-+#define CLK_MOUT_CLK_CMGP_USI00			2
-+#define CLK_MOUT_CLK_CMGP_USI01			3
-+#define CLK_MOUT_CLK_CMGP_USI02			4
-+#define CLK_MOUT_CLK_CMGP_USI03			5
-+#define CLK_MOUT_CLK_CMGP_USI04			6
-+
-+/* CMU_CMGP dividers */
-+#define CLK_DOUT_CLK_CMGP_ADC			7
-+#define CLK_DOUT_CLK_CMGP_I2C			8
-+#define CLK_DOUT_CLK_CMGP_USI00			9
-+#define CLK_DOUT_CLK_CMGP_USI01			10
-+#define CLK_DOUT_CLK_CMGP_USI02			11
-+#define CLK_DOUT_CLK_CMGP_USI03			12
-+#define CLK_DOUT_CLK_CMGP_USI04			13
-+
-+/* CMU_CMGP gates */
-+#define CLK_GOUT_CMGP_CMU_PCLK			14
-+#define CLK_GOUT_CLK_CMGP_OSCCLK_RCO_CLK	15
-+#define CLK_GOUT_CMGP_ADC_PCLK_S0		16
-+#define CLK_GOUT_CMGP_ADC_PCLK_S1		17
-+#define CLK_GOUT_CMGP_GPIO_PCLK			18
-+#define CLK_GOUT_CMGP_I2C_CMGP00_IPCLK		19
-+#define CLK_GOUT_CMGP_I2C_CMGP00_PCLK		20
-+#define CLK_GOUT_CMGP_I2C_CMGP01_IPCLK		21
-+#define CLK_GOUT_CMGP_I2C_CMGP01_PCLK		22
-+#define CLK_GOUT_CMGP_I2C_CMGP02_IPCLK		23
-+#define CLK_GOUT_CMGP_I2C_CMGP02_PCLK		24
-+#define CLK_GOUT_CMGP_I2C_CMGP03_IPCLK		25
-+#define CLK_GOUT_CMGP_I2C_CMGP03_PCLK		26
-+#define CLK_GOUT_CMGP_I2C_CMGP04_IPCLK		27
-+#define CLK_GOUT_CMGP_I2C_CMGP04_PCLK		28
-+#define CLK_GOUT_CMGP_BUS_CLK			29
-+#define CLK_GOUT_CMGP_I2C_CLK			30
-+#define CLK_GOUT_CMGP_USI00_CLK			31
-+#define CLK_GOUT_CMGP_USI01_CLK			32
-+#define CLK_GOUT_CMGP_USI02_CLK			33
-+#define CLK_GOUT_CMGP_USI03_CLK			34
-+#define CLK_GOUT_CMGP_USI04_CLK			35
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2CP_PCLK	36
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2GNSS_PCLK	37
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2PMU_AP_PCLK	38
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2PMU_SHUB_PCLK	39
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2SHUB_PCLK	40
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2WLBT_PCLK	41
-+#define CLK_GOUT_CMGP_SYSREG_PCLK		42
-+#define CLK_GOUT_CMGP_USI_CMGP00_IPCLK		43
-+#define CLK_GOUT_CMGP_USI_CMGP00_PCLK		44
-+#define CLK_GOUT_CMGP_USI_CMGP01_IPCLK		45
-+#define CLK_GOUT_CMGP_USI_CMGP01_PCLK		46
-+#define CLK_GOUT_CMGP_USI_CMGP02_IPCLK		47
-+#define CLK_GOUT_CMGP_USI_CMGP02_PCLK		48
-+#define CLK_GOUT_CMGP_USI_CMGP03_IPCLK		49
-+#define CLK_GOUT_CMGP_USI_CMGP03_PCLK		50
-+#define CLK_GOUT_CMGP_USI_CMGP04_IPCLK		51
-+#define CLK_GOUT_CMGP_USI_CMGP04_PCLK		52
-+
-+/* CMU_CORE muxes */
-+#define CLK_MOUT_PLL_CORE_BUS_USER			1
-+#define CLK_MOUT_PLL_CORE_CCI_USER			2
-+#define CLK_MOUT_PLL_CORE_G3D_USER			3
-+#define CLK_MOUT_CLK_CORE_GIC				4
-+
-+/* CMU_CORE dividers */
-+#define CLK_DOUT_CLK_CORE_BUSP				5
-+
-+/* CMU_CORE gates */
-+#define CLK_GOUT_CLK_CORE_CMU_PCLK			6
-+#define CLK_GOUT_CORE_AD_APB_CCI_550_PCLKM		7
-+#define CLK_GOUT_CORE_AD_APB_DIT_PCLKM			8
-+#define CLK_GOUT_CORE_AD_APB_PDMA0_PCLKM		9
-+#define CLK_GOUT_CORE_AD_APB_PGEN_PDMA_PCLKM		10
-+#define CLK_GOUT_CORE_AD_APB_PPFW_MEM0_PCLKM		11
-+#define CLK_GOUT_CORE_AD_APB_PPFW_MEM1_PCLKM		12
-+#define CLK_GOUT_CORE_AD_APB_PPFW_PERI_PCLKM		13
-+#define CLK_GOUT_CORE_AD_APB_SPDMA_PCLKM		14
-+#define CLK_GOUT_CORE_AD_AXI_GIC_ACLKM			15
-+#define CLK_GOUT_CORE_ASYNCSFR_WR_DMC0_PCLK		16
-+#define CLK_GOUT_CORE_ASYNCSFR_WR_DMC1_PCLK		17
-+#define CLK_GOUT_CORE_AXI_US_A40_64TO128_DIT_ACLK	18
-+#define CLK_GOUT_CORE_BAAW_P_GNSS_PCLK			19
-+#define CLK_GOUT_CORE_BAAW_P_MODEM_PCLK			20
-+#define CLK_GOUT_CORE_BAAW_P_SHUB_PCLK			21
-+#define CLK_GOUT_CORE_BAAW_P_WLBT_PCLK			22
-+#define CLK_GOUT_CORE_CCI_550_ACLK			23
-+#define CLK_GOUT_CORE_DIT_ICLKL2A			24
-+#define CLK_GOUT_CORE_GIC400_AIHWACG_CLK		25
-+#define CLK_GOUT_CORE_LHM_ACEL_D0_ISP_CLK		26
-+#define CLK_GOUT_CORE_LHM_ACEL_D0_MFC_CLK		27
-+#define CLK_GOUT_CORE_LHM_ACEL_D1_ISP_CLK		28
-+#define CLK_GOUT_CORE_LHM_ACEL_D1_MFC_CLK		29
-+#define CLK_GOUT_CORE_LHM_ACEL_D_CAM_CLK		30
-+#define CLK_GOUT_CORE_LHM_ACEL_D_DPU_CLK		31
-+#define CLK_GOUT_CORE_LHM_ACEL_D_FSYS_CLK		32
-+#define CLK_GOUT_CORE_LHM_ACEL_D_G2D_CLK		33
-+#define CLK_GOUT_CORE_LHM_ACEL_D_USB_CLK		34
-+#define CLK_GOUT_CORE_LHM_ACEL_D_VIPX1_CLK		35
-+#define CLK_GOUT_CORE_LHM_ACEL_D_VIPX2_CLK		36
-+#define CLK_GOUT_CORE_LHM_ACE_D_CPUCL0_CLK		37
-+#define CLK_GOUT_CORE_LHM_ACE_D_CPUCL1_CLK		38
-+#define CLK_GOUT_CORE_LHM_AXI_D0_MODEM_CLK		39
-+#define CLK_GOUT_CORE_LHM_AXI_D1_MODEM_CLK		40
-+#define CLK_GOUT_CORE_LHM_AXI_D_ABOX_CLK		41
-+#define CLK_GOUT_CORE_LHM_AXI_D_APM_CLK			42
-+#define CLK_GOUT_CORE_LHM_AXI_D_CSSYS_CLK		43
-+#define CLK_GOUT_CORE_LHM_AXI_D_G3D_CLK			44
-+#define CLK_GOUT_CORE_LHM_AXI_D_GNSS_CLK		45
-+#define CLK_GOUT_CORE_LHM_AXI_D_SHUB_CLK		46
-+#define CLK_GOUT_CORE_LHM_AXI_D_WLBT_CLK		47
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_CPU_CLK		48
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_CP_CLK		49
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_NRT_CLK		50
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_RT_CLK		51
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_CPU_CLK		52
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_CP_CLK		53
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_NRT_CLK		54
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_RT_CLK		55
-+#define CLK_GOUT_CORE_LHS_AXI_P_APM_CLK			56
-+#define CLK_GOUT_CORE_LHS_AXI_P_CAM_CLK			57
-+#define CLK_GOUT_CORE_LHS_AXI_P_CPUCL0_CLK		58
-+#define CLK_GOUT_CORE_LHS_AXI_P_CPUCL1_CLK		59
-+#define CLK_GOUT_CORE_LHS_AXI_P_DISPAUD_CLK		60
-+#define CLK_GOUT_CORE_LHS_AXI_P_FSYS_CLK		61
-+#define CLK_GOUT_CORE_LHS_AXI_P_G2D_CLK			62
-+#define CLK_GOUT_CORE_LHS_AXI_P_G3D_CLK			63
-+#define CLK_GOUT_CORE_LHS_AXI_P_GNSS_CLK		64
-+#define CLK_GOUT_CORE_LHS_AXI_P_ISP_CLK			65
-+#define CLK_GOUT_CORE_LHS_AXI_P_MFC_CLK			66
-+#define CLK_GOUT_CORE_LHS_AXI_P_MIF0_CLK		67
-+#define CLK_GOUT_CORE_LHS_AXI_P_MIF1_CLK		68
-+#define CLK_GOUT_CORE_LHS_AXI_P_MODEM_CLK		69
-+#define CLK_GOUT_CORE_LHS_AXI_P_PERI_CLK		70
-+#define CLK_GOUT_CORE_LHS_AXI_P_SHUB_CLK		71
-+#define CLK_GOUT_CORE_LHS_AXI_P_USB_CLK			72
-+#define CLK_GOUT_CORE_LHS_AXI_P_VIPX1_CLK		73
-+#define CLK_GOUT_CORE_LHS_AXI_P_VIPX2_CLK		74
-+#define CLK_GOUT_CORE_LHS_AXI_P_WLBT_CLK		75
-+#define CLK_GOUT_CORE_PDMA_CORE_ACLK_PDMA0		76
-+#define CLK_GOUT_CORE_PGEN_LITE_SIREX_CLK		77
-+#define CLK_GOUT_CORE_PGEN_PDMA_CLK			78
-+#define CLK_GOUT_CORE_PPCFW_G3D_ACLK			79
-+#define CLK_GOUT_CORE_PPCFW_G3D_PCLK			80
-+#define CLK_GOUT_CORE_PPFW_CORE_MEM0_CLK		81
-+#define CLK_GOUT_CORE_PPFW_CORE_MEM1_CLK		82
-+#define CLK_GOUT_CORE_PPFW_CORE_PERI_CLK		83
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL0_ACLK		84
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL0_PCLK		85
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL1_ACLK		86
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL1_PCLK		87
-+#define CLK_GOUT_CORE_BUSD_CLK				88
-+#define CLK_GOUT_CORE_BUSP_G3D_OCC_CLK			89
-+#define CLK_GOUT_CORE_BUSP_CLK				90
-+#define CLK_GOUT_CORE_BUSP_OCC_CLK			91
-+#define CLK_GOUT_CORE_CCI_CLK				92
-+#define CLK_GOUT_CORE_CCI_OCC_CLK			93
-+#define CLK_GOUT_CORE_G3D_CLK				94
-+#define CLK_GOUT_CORE_G3D_OCC_CLK			95
-+#define CLK_GOUT_CORE_GIC_CLK				96
-+#define CLK_GOUT_CORE_OSCCLK_CLK			97
-+#define CLK_GOUT_CORE_SFR_APBIF_CMU_TOPC_PCLK		98
-+#define CLK_GOUT_CORE_SIREX_ACLK			99
-+#define CLK_GOUT_CORE_SIREX_PCLK			100
-+#define CLK_GOUT_CORE_SPDMA_CORE_ACLK_PDMA1		101
-+#define CLK_GOUT_CORE_SYSREG_PCLK			102
-+#define CLK_GOUT_CORE_TREX_D_ACLK			103
-+#define CLK_GOUT_CORE_TREX_D_CCLK			104
-+#define CLK_GOUT_CORE_TREX_D_GCLK			105
-+#define CLK_GOUT_CORE_TREX_D_PCLK			106
-+#define CLK_GOUT_CORE_TREX_D_NRT_ACLK			107
-+#define CLK_GOUT_CORE_TREX_D_NRT_PCLK			108
-+#define CLK_GOUT_CORE_TREX_P_ACLK_P_CORE		109
-+#define CLK_GOUT_CORE_TREX_P_CCLK_P_CORE		110
-+#define CLK_GOUT_CORE_TREX_P_PCLK			111
-+#define CLK_GOUT_CORE_TREX_P_PCLK_P_CORE		112
-+#define CLK_GOUT_CORE_XIU_D_ACLK			113
-+
-+/* CMU_CPUCL0 PLLs */
-+#define CLK_FOUT_CPUCL0_PLL				1
-+
-+/* CMU_CPUCL0 muxes */
-+#define CLK_MOUT_PLL_CPUCL0_DBG_USER			2
-+#define CLK_MOUT_PLL_CPUCL0_SWITCH_USER			3
-+#define CLK_MOUT_CLK_CPUCL0_PLL				4
-+
-+/* CMU_CPUCL0 dividers */
-+#define CLK_DOUT_CLK_CLUSTER0_ACLK			5
-+#define CLK_DOUT_CLK_CLUSTER0_CNTCLK			6
-+#define CLK_DOUT_CLK_CLUSTER0_PCLKDBG			7
-+#define CLK_DOUT_CLK_CPUCL0_CMUREF			8
-+#define CLK_DOUT_CLK_CPUCL0_CPU				9
-+#define CLK_DOUT_CLK_CPUCL0_PCLK			10
-+
-+/* CMU_CPUCL0 gates */
-+#define CLK_GOUT_CLK_CPUCL0_CMU_PCLK			11
-+#define CLK_GOUT_CLK_CPUCL0_HPM_TARGETCLK_C		12
-+#define CLK_GOUT_CLK_CPUCL0_OSCCLK_CLK			13
-+#define CLK_GOUT_CLK_CLUSTER0_CPU			14
-+#define CLK_GOUT_CPUCL0_ADM_APB_G_CSSYS_CORE_PCLKM	15
-+#define CLK_GOUT_CPUCL0_ADS_AHB_G_CSSYS_FSYS_HCLKS	16
-+#define CLK_GOUT_CPUCL0_ADS_APB_G_CSSYS_CPUCL1_PCLKS	17
-+#define CLK_GOUT_CPUCL0_ADS_APB_G_P8Q_PCLKS		18
-+#define CLK_GOUT_CPUCL0_AD_APB_P_DUMP_PC_CPUCL0_PCLKM	19
-+#define CLK_GOUT_CPUCL0_AD_APB_P_DUMP_PC_CPUCL1_PCLKM	20
-+#define CLK_GOUT_CPUCL0_BUSIF_HPMCPUCL0_PCLK		21
-+#define CLK_GOUT_CPUCL0_CSSYS_DBG_PCLKDBG		22
-+#define CLK_GOUT_CPUCL0_DUMP_PC_CPUCL0_PCLK		23
-+#define CLK_GOUT_CPUCL0_DUMP_PC_CPUCL1_PCLK		24
-+#define CLK_GOUT_CPUCL0_LHM_AXI_P_CPUCL0_CLK		25
-+#define CLK_GOUT_CPUCL0_LHS_AXI_D_CSSYS_CLK		26
-+#define CLK_GOUT_CPUCL0_DBG_CLK				27
-+#define CLK_GOUT_CPUCL0_PCLK_CLK			28
-+#define CLK_GOUT_CPUCL0_SECJTAG_CLK			29
-+#define CLK_GOUT_CPUCL0_SYSREG_PCLK			30
-+
-+/* CMU_DISPAUD PLLs */
-+#define CLK_FOUT_AUD_PLL				1
-+
-+/* CMU_DISPAUD muxes */
-+#define CLK_MOUT_PLL_DISPAUD_AUD_USER			2
-+#define CLK_MOUT_PLL_DISPAUD_CPU_USER			3
-+#define CLK_MOUT_PLL_DISPAUD_DISP_USER			4
-+#define CLK_MOUT_CLK_AUD_BUS				5
-+#define CLK_MOUT_CLK_AUD_CPU				6
-+#define CLK_MOUT_CLK_AUD_CPU_HCH			7
-+#define CLK_MOUT_CLK_AUD_FM				8
-+#define CLK_MOUT_CLK_AUD_UAIF0				9
-+#define CLK_MOUT_CLK_AUD_UAIF1				10
-+#define CLK_MOUT_CLK_AUD_UAIF2				11
-+
-+/* CMU_DISPAUD dividers */
-+#define CLK_DOUT_CLK_AUD_AUDIF				12
-+#define CLK_DOUT_CLK_AUD_BUS				13
-+#define CLK_DOUT_CLK_AUD_CPU				14
-+#define CLK_DOUT_CLK_AUD_CPU_ACLK			15
-+#define CLK_DOUT_CLK_AUD_CPU_PCLKDBG			16
-+#define CLK_DOUT_CLK_AUD_DSIF				17
-+#define CLK_DOUT_CLK_AUD_FM				18
-+#define CLK_DOUT_CLK_AUD_FM_SPDY			19
-+#define CLK_DOUT_CLK_AUD_UAIF0				20
-+#define CLK_DOUT_CLK_AUD_UAIF1				21
-+#define CLK_DOUT_CLK_AUD_UAIF2				22
-+#define CLK_DOUT_CLK_DISPAUD_BUSP			23
-+
-+/* CMU_DISPAUD gates */
-+#define CLK_GOUT_CLK_DISPAUD_ABOX_BCLK_UAIF0		24
-+#define CLK_GOUT_CLK_DISPAUD_ABOX_BCLK_UAIF1		25
-+#define CLK_GOUT_CLK_DISPAUD_ABOX_BCLK_UAIF2		26
-+#define CLK_GOUT_CLK_DISPAUD_CMU_PCLK			27
-+#define CLK_GOUT_CLK_DISPAUD_CLK_AUD_UAIF0_CLK		28
-+#define CLK_GOUT_CLK_DISPAUD_CLK_AUD_UAIF1_CLK		29
-+#define CLK_GOUT_CLK_DISPAUD_CLK_AUD_UAIF2_CLK		30
-+#define CLK_GOUT_CLK_DISPAUD_OSCCLK_CLK			31
-+#define CLK_GOUT_DISPAUD_ABOX_ACLK			32
-+#define CLK_GOUT_DISPAUD_ABOX_BCLK_DSIF			33
-+#define CLK_GOUT_DISPAUD_ABOX_BCLK_SPDY			34
-+#define CLK_GOUT_DISPAUD_ABOX_CCLK_ASB			35
-+#define CLK_GOUT_DISPAUD_ABOX_CCLK_CA7			36
-+#define CLK_GOUT_DISPAUD_ABOX_CCLK_DBG			37
-+#define CLK_GOUT_DISPAUD_ABOX_OSC_SPDY			38
-+#define CLK_GOUT_DISPAUD_AXI_US_32TO128_ACLK		39
-+#define CLK_GOUT_DISPAUD_CLK_DISPAUD_AUD		40
-+#define CLK_GOUT_DISPAUD_CLK_DISPAUD_DISP		41
-+#define CLK_GOUT_DISPAUD_BTM_ABOX_ACLK			42
-+#define CLK_GOUT_DISPAUD_BTM_ABOX_PCLK			43
-+#define CLK_GOUT_DISPAUD_BTM_DPU_ACLK			44
-+#define CLK_GOUT_DISPAUD_BTM_DPU_PCLK			45
-+#define CLK_GOUT_DISPAUD_DFTMUX_AUD_CODEC_MCLK		46
-+#define CLK_GOUT_DISPAUD_DPU_ACLK_DECON			47
-+#define CLK_GOUT_DISPAUD_DPU_ACLK_DMA			48
-+#define CLK_GOUT_DISPAUD_DPU_ACLK_DPP			49
-+#define CLK_GOUT_DISPAUD_GPIO_DISPAUD_PCLK		50
-+#define CLK_GOUT_DISPAUD_LHM_AXI_P_DISPAUD_CLK		51
-+#define CLK_GOUT_DISPAUD_LHS_ACEL_D_DPU_CLK		52
-+#define CLK_GOUT_DISPAUD_LHS_AXI_D_ABOX_CLK		53
-+#define CLK_GOUT_DISPAUD_PERI_AXI_ASB_ACLKM		54
-+#define CLK_GOUT_DISPAUD_PERI_AXI_ASB_PCLK		55
-+#define CLK_GOUT_DISPAUD_PPMU_ABOX_ACLK			56
-+#define CLK_GOUT_DISPAUD_PPMU_ABOX_PCLK			57
-+#define CLK_GOUT_DISPAUD_PPMU_DPU_ACLK			58
-+#define CLK_GOUT_DISPAUD_PPMU_DPU_PCLK			59
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CPU_ACLK_CLK		60
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CPU_CLKIN_CLK		61
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CPU_PCLKDBG_CLK	62
-+#define CLK_GOUT_DISPAUD_CLK_AUD_DSIF_CLK		63
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CLK			64
-+#define CLK_GOUT_DISPAUD_CLK_BUSP_CLK			65
-+#define CLK_GOUT_DISPAUD_CLK_DISP_CLK			66
-+#define CLK_GOUT_DISPAUD_SMMU_ABOX_CLK			67
-+#define CLK_GOUT_DISPAUD_SMMU_DPU_CLK			68
-+#define CLK_GOUT_DISPAUD_SYSREG_PCLK			69
-+#define CLK_GOUT_DISPAUD_WDT_AUD_PCLK			70
-+
-+/* CMU_FSYS muxes */
-+#define CLK_MOUT_PLL_FSYS_BUS_USER		1
-+#define CLK_MOUT_PLL_FSYS_MMC_CARD_USER		2
-+#define CLK_MOUT_PLL_FSYS_MMC_EMBD_USER		3
-+#define CLK_MOUT_PLL_FSYS_UFS_EMBD_USER		4
-+
-+/* CMU_FSYS gates */
-+#define CLK_GOUT_FSYS_CMU_PCLK			5
-+#define CLK_GOUT_FSYS_OSCCLK_CLK		6
-+#define CLK_GOUT_FSYS_ADM_AHB_SSS_HCLKM		7
-+#define CLK_GOUT_FSYS_BTM_ACLK			8
-+#define CLK_GOUT_FSYS_BTM_PCLK			9
-+#define CLK_GOUT_FSYS_GPIO_PCLK			10
-+#define CLK_GOUT_FSYS_LHM_AXI_P_CLK		11
-+#define CLK_GOUT_FSYS_LHS_ACEL_D_CLK		12
-+#define CLK_GOUT_FSYS_MMC_CARD_ACLK		13
-+#define CLK_GOUT_FSYS_MMC_CARD_SDCLKIN		14
-+#define CLK_GOUT_FSYS_MMC_EMBD_ACLK		15
-+#define CLK_GOUT_FSYS_MMC_EMBD_SDCLKIN		16
-+#define CLK_GOUT_FSYS_PGEN_LITE_CLK		17
-+#define CLK_GOUT_FSYS_PPMU_ACLK			18
-+#define CLK_GOUT_FSYS_PPMU_PCLK			19
-+#define CLK_GOUT_FSYS_BUS_CLK			20
-+#define CLK_GOUT_FSYS_SYSREG_PCLK		21
-+#define CLK_GOUT_FSYS_UFS_EMBD_ACLK		22
-+#define CLK_GOUT_FSYS_UFS_EMBD_CLK_UNIPRO	23
-+#define CLK_GOUT_FSYS_UFS_EMBD_FMP_CLK		24
-+#define CLK_GOUT_FSYS_XIU_D_ACLK		25
-+
-+/* CMU_G2D muxes */
-+#define CLK_MOUT_PLL_G2D_G2D_USER	1
-+#define CLK_MOUT_PLL_G2D_MSCL_USER	2
-+
-+/* CMU_G2D dividers */
-+#define CLK_DOUT_CLK_G2D_BUSP		3
-+
-+/* CMU_G2D gates */
-+#define CLK_GOUT_CLK_G2D_CMU_PCLK	4
-+#define CLK_GOUT_CLK_G2D_OSCCLK_CLK	5
-+#define CLK_GOUT_G2D_AS_AXI_JPEG_ACLKM	6
-+#define CLK_GOUT_G2D_AS_AXI_JPEG_ACLKS	7
-+#define CLK_GOUT_G2D_AS_AXI_MSCL_ACLKM	8
-+#define CLK_GOUT_G2D_AS_AXI_MSCL_ACLKS	9
-+#define CLK_GOUT_G2D_CLK_G2D_G2D	10
-+#define CLK_GOUT_G2D_CLK_G2D_MSCL	11
-+#define CLK_GOUT_G2D_BTM_ACLK		12
-+#define CLK_GOUT_G2D_BTM_PCLK		13
-+#define CLK_GOUT_G2D_G2D_ACLK		14
-+#define CLK_GOUT_G2D_JPEG_FIMP_CLK	15
-+#define CLK_GOUT_G2D_LHM_AXI_P_CLK	16
-+#define CLK_GOUT_G2D_LHS_ACEL_D_CLK	17
-+#define CLK_GOUT_G2D_MSCL_ACLK		18
-+#define CLK_GOUT_G2D_PGEN100_LITE_CLK	19
-+#define CLK_GOUT_G2D_PPMU_ACLK		20
-+#define CLK_GOUT_G2D_PPMU_PCLK		21
-+#define CLK_GOUT_G2D_BUSP_CLK		22
-+#define CLK_GOUT_G2D_SYSMMU_CLK		23
-+#define CLK_GOUT_G2D_SYSREG_PCLK	24
-+#define CLK_GOUT_G2D_XIU_D_MSCL_ACLK	25
-+
-+/* CMU_G3D PLLs */
-+#define CLK_FOUT_G3D_PLL			1
-+
-+/* CMU_G3D muxes */
-+#define CLK_MOUT_G3D_SWITCH_USER		2
-+#define CLK_MOUT_CLK_G3D_BUSD			3
-+
-+/* CMU_G3D dividers */
-+#define CLK_DOUT_CLK_G3D_BUSD			4
-+#define CLK_DOUT_CLK_G3D_BUSP			5
-+
-+/* CMU_G3D gates */
-+#define CLK_GOUT_CLK_G3D_CMU_PCLK		6
-+#define CLK_GOUT_CLK_G3D_G3D_CLK		7
-+#define CLK_GOUT_CLK_G3D_HPM_TARGETCLK_C	8
-+#define CLK_GOUT_CLK_G3D_OSCCLK_CLK		9
-+#define CLK_GOUT_G3D_BTM_ACLK			10
-+#define CLK_GOUT_G3D_BTM_PCLK			11
-+#define CLK_GOUT_G3D_BUSIF_HPMG3D_PCLK		12
-+#define CLK_GOUT_G3D_GRAY2BIN_CLK		13
-+#define CLK_GOUT_G3D_LHM_AXI_G3DSFR_CLK		14
-+#define CLK_GOUT_G3D_LHM_AXI_P_CLK		15
-+#define CLK_GOUT_G3D_LHS_AXI_D_CLK		16
-+#define CLK_GOUT_G3D_LHS_AXI_G3DSFR_CLK		17
-+#define CLK_GOUT_G3D_PGEN_LITE_CLK		18
-+#define CLK_GOUT_G3D_BUSD_CLK			19
-+#define CLK_GOUT_G3D_BUSP_CLK			20
-+#define CLK_GOUT_G3D_SYSREG_PCLK		21
-+
-+/* CMU_PERI muxes */
-+#define CLK_MOUT_PLL_PERI_BUS_USER		1
-+#define CLK_MOUT_PLL_PERI_IP_USER		2
-+#define CLK_MOUT_PLL_PERI_UART_USER		3
-+
-+/* CMU_PERI dividers */
-+#define CLK_DOUT_CLK_PERI_I2C			4
-+#define CLK_DOUT_CLK_PERI_SPI0			5
-+#define CLK_DOUT_CLK_PERI_SPI1			6
-+#define CLK_DOUT_CLK_PERI_SPI2			7
-+#define CLK_DOUT_CLK_PERI_USI_I2C		8
-+#define CLK_DOUT_CLK_PERI_USI_USI		9
-+
-+/* CMU_PERI gates */
-+#define CLK_GOUT_CLK_PERI_I2C			10
-+#define CLK_GOUT_CLK_PERI_SPI0			11
-+#define CLK_GOUT_CLK_PERI_SPI1			12
-+#define CLK_GOUT_CLK_PERI_SPI2			13
-+#define CLK_GOUT_CLK_PERI_USI_I2C		14
-+#define CLK_GOUT_CLK_PERI_USI_USI		15
-+#define CLK_GOUT_PERI_AXI2AHB_MSD32_ACLK	16
-+#define CLK_GOUT_PERI_BUSIF_TMU_PCLK		17
-+#define CLK_GOUT_PERI_CAMI2C_0_IPCLK		18
-+#define CLK_GOUT_PERI_CAMI2C_0_PCLK		19
-+#define CLK_GOUT_PERI_CAMI2C_1_IPCLK		20
-+#define CLK_GOUT_PERI_CAMI2C_1_PCLK		21
-+#define CLK_GOUT_PERI_CAMI2C_2_IPCLK		22
-+#define CLK_GOUT_PERI_CAMI2C_2_PCLK		23
-+#define CLK_GOUT_PERI_CAMI2C_3_IPCLK		24
-+#define CLK_GOUT_PERI_CAMI2C_3_PCLK		25
-+#define CLK_GOUT_PERI_I2C_0_PCLK		26
-+#define CLK_GOUT_PERI_I2C_1_PCLK		27
-+#define CLK_GOUT_PERI_I2C_2_PCLK		28
-+#define CLK_GOUT_PERI_I2C_3_PCLK		29
-+#define CLK_GOUT_PERI_I2C_4_PCLK		30
-+#define CLK_GOUT_PERI_I2C_5_PCLK		31
-+#define CLK_GOUT_PERI_I2C_6_PCLK		32
-+#define CLK_GOUT_PERI_GPIO_PCLK			33
-+#define CLK_GOUT_PERI_LHM_AXI_P_CLK		34
-+#define CLK_GOUT_PERI_MCT_PCLK			35
-+#define CLK_GOUT_PERI_OTP_CON_TOP_PCLK		36
-+#define CLK_GOUT_PERI_PWM_MOTOR_PCLK_S0		37
-+#define CLK_GOUT_PERI_BUS_CLK			38
-+#define CLK_GOUT_PERI_I2C_CLK			39
-+#define CLK_GOUT_PERI_SPI_0_CLK			40
-+#define CLK_GOUT_PERI_SPI_1_CLK			41
-+#define CLK_GOUT_PERI_SPI_2_CLK			42
-+#define CLK_GOUT_PERI_UART_CLK			43
-+#define CLK_GOUT_PERI_USI00_I2C_CLK		44
-+#define CLK_GOUT_PERI_USI00_USI_CLK		45
-+#define CLK_GOUT_PERI_SPI_0_PCLK		46
-+#define CLK_GOUT_PERI_SPI_0_IPCLK		47
-+#define CLK_GOUT_PERI_SPI_1_PCLK		48
-+#define CLK_GOUT_PERI_SPI_1_IPCLK		49
-+#define CLK_GOUT_PERI_SPI_2_PCLK		50
-+#define CLK_GOUT_PERI_SPI_2_IPCLK		51
-+#define CLK_GOUT_PERI_SYSREG_PCLK		52
-+#define CLK_GOUT_PERI_UART_IPCLK		53
-+#define CLK_GOUT_PERI_UART_PCLK			54
-+#define CLK_GOUT_PERI_USI00_I2C_IPCLK		55
-+#define CLK_GOUT_PERI_USI00_I2C_PCLK		56
-+#define CLK_GOUT_PERI_USI00_USI_IPCLK		57
-+#define CLK_GOUT_PERI_USI00_USI_PCLK		58
-+#define CLK_GOUT_PERI_WDT_CLUSTER0_PCLK		59
-+#define CLK_GOUT_PERI_WDT_CLUSTER1_PCLK		60
-+
-+/* CMU_USB muxes */
-+#define CLK_MOUT_USB_BUS_USER				1
-+#define CLK_MOUT_USB_DPGTC_USER				2
-+#define CLK_MOUT_USB_USB30DRD_USER			3
-+
-+/* CMU_USB gates */
-+#define CLK_GOUT_CLK_USB_OSCCLK_CLK			4
-+#define CLK_GOUT_CLK_USB_CMU_PCLK			5
-+#define CLK_GOUT_USB_BTM_ACLK				6
-+#define CLK_GOUT_USB_BTM_PCLK				7
-+#define CLK_GOUT_USB_DP_LINK_DPTX_LINK_DT_GTC_CLK	8
-+#define CLK_GOUT_USB_DP_LINK_DPTX_LINK_PCLK		9
-+#define CLK_GOUT_USB_LHM_AXI_P_CLK			10
-+#define CLK_GOUT_USB_LHS_ACEL_D_CLK			11
-+#define CLK_GOUT_USB_PGEN_LITE_CLK			12
-+#define CLK_GOUT_USB_PPMU_ACLK				13
-+#define CLK_GOUT_USB_PPMU_PCLK				14
-+#define CLK_GOUT_USB_BUS_CLK				15
-+#define CLK_GOUT_USB_SYSREG_PCLK			16
-+#define CLK_GOUT_USB_USB30DRD_ACLK_PHYCTRL_20		17
-+#define CLK_GOUT_USB_USB30DRD_ACLK_PHYCTRL_30_0		18
-+#define CLK_GOUT_USB_USB30DRD_ACLK_PHYCTRL_30_1		19
-+#define CLK_GOUT_USB_USB30DRD_BUS_CLK_EARLY		20
-+#define CLK_GOUT_USB_USB30DRD_REF_CLK			21
-+#define CLK_GOUT_USB_US_D_ACLK				22
-+
-+#endif
++DEFINE_MUTEX(flow_offload_mutex);
+ static DEFINE_SPINLOCK(ppe_lock);
+ 
+ static const struct rhashtable_params airoha_flow_table_params = {
+@@ -86,8 +89,8 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *ppe)
+ 
+ void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 fport)
+ {
+-	struct airoha_qdma *qdma = dev->qdma;
+-	struct airoha_eth *eth = qdma->eth;
++	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
++	struct airoha_eth *eth = dev->eth;
+ 	u8 qdma_id = qdma - &eth->qdma[0];
+ 	u32 fe_cpu_port;
+ 
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 6fed63d013b4..442b48c9b991 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -375,6 +375,7 @@
+ 
+ #define REG_SRC_PORT_FC_MAP6		0x2298
+ #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
++#define FC_MAP6_DEF_VALUE		0x1b1a1918
+ 
+ #define REG_WAN_MTU0			0x2300
+ #define WAN_MTU1_MASK			GENMASK(29, 16)
 
 -- 
-2.54.0
+2.55.0
 
 
