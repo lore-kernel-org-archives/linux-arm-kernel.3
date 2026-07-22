@@ -4,72 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC75C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA140C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3GCVFozR6/36hQtPeMO4srDIGrlB3Wpr1gIirTgwllo=; b=pdFPO1ipZnBPwi
-	Ii/MJnqd0JeJVoeNACbomVJURvRC066VDIK6wEXZ598Co9UsYLpKPm0OMbFgmMPduXAPg4NLfFpjs
-	o7/uFIEowjox4s5ZIJsesc8ooWqIi6JlT2J0FQhJ14PmdRx4N709SQqQeclUUc1/afUsUi/qLf284
-	G7WaCCo7SNUDBJq3FeVsBfIlw9Cn/zRbyE+MPosrlHL23X/2g/6EcU0sUlsMZKWjW1uR7UISjGlMB
-	lDKIZKOhkb1stnbPWsivSS6uBsoobVg5OOpNxmLN2CXkLx+qceoJANPXbnixJfBki9kpcuqCl3nF9
-	e41Yq+bewjKnWG0i79Ag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FREZyWM8VfEUqtRssBmvcCZRsIRjMsjiffnAM7/TbXA=; b=SgZoihVMAxUirr/raKQ80vWrWh
+	b2iJzAtdHj01xGl8yCPrIbUXoRmJWgsANwrUdYh4Ks5yTHqtkifGT/NnmKB2CShtUhKKa6K1aZ0E4
+	4hoXinHbTPsD1jFfN//t72x/XkfgP7nLtXw04eWcleD9xHW8e37yazLxukrNnESnV5DqmVXMuvFvL
+	FwtTafhkjgnelmJrJc75WfCVF4WMwAjan9c5i1DQlliWY2KP/QHbwpbQ7tJ3f3L6v0WCquxdu7UTD
+	FzgKvgy/kyZFp9PDvIw8uQgSbC/d99e0vSZ9CENVLR4iPHa8X8kZ3tlm+7oQEma5iTstBLq3X1xKN
+	jcAVYfJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSX2-0000000BI8A-0hMM;
-	Wed, 22 Jul 2026 08:42:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmSXO-0000000BIDg-1C9F;
+	Wed, 22 Jul 2026 08:42:46 +0000
+Received: from mail-koreacentralazon11013060.outbound.protection.outlook.com ([40.107.44.60] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSX1-0000000BI7S-0GD8
+	id 1wmSXM-0000000BICs-0gC9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 08:42:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 716DB60A67
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:42:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 282801F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:42:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784709742;
-	bh=3GCVFozR6/36hQtPeMO4srDIGrlB3Wpr1gIirTgwllo=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=DT+084QDMVKqHEeRnu2hI6oOkT9iXLZ2pd+eCbFbu3QhSzoYr2Ew2yNDwaYHNz/ZO
-	 /74q/6ppB41cTB+YcbErz/MafEEIxntA/nBirMOJnEJYGD2ckUjgiTiJaSpr5yfgkf
-	 Ic4J6b+Z3RUmO/pWgFKh4WHgwyDaIat4gP9ykHX18s9ilpRMDcINW85XwXS/8aK2As
-	 lNDKH0ZHm8LybWToRf8hJusvnHjwZoYmLGgyPME9IDLAf5eTjqKIDZSupFWAsX2eu4
-	 Q/0ghcmx0Yr1aKbz0RRCVOcaw4O+CkguU+aIRfOMF5ve5BeQODIXfGguij+zIBU5ZB
-	 84JwbX7ofhiKQ==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b29599b81cso4209423e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 01:42:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqzpCErcM3001eCgWzqkZ5YkvQOqEt8580rKB/elo1MikiyK0FBWFLpg+aFpS793E2LpG7M2wCaQxWwh8MJebA9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb1Rp5Z4qP8m0VaSzJHSioXrZUZXyh8R9hW/7U7j91akeL7pQ0
-	bvNKq29DgRA31VGqwduFHMmiwkVUhltJoOIzgK5oxl7QyLc++LRM7vVR6kKFd9Dafu3cisoL4yr
-	OlZGGPtcJkq4nw4WUZwss0+RI3hfgDrQ=
-X-Received: by 2002:a05:6512:68b:b0:5ae:aeeb:e902 with SMTP id
- 2adb3069b0e04-5b28f860f54mr4955614e87.13.1784709740582; Wed, 22 Jul 2026
- 01:42:20 -0700 (PDT)
+	Wed, 22 Jul 2026 08:42:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=siWRHjh1XQoVx5wnp9Z95pksHptMT0p0iAgNXtQRrFyO77JK5Eexa/3M0Ju+wGdlA8k2L3Je9wsIJUUcqFzOYh4Wb7obdD4xQGXUZPe/ffOD2SQm8uo+ACF2pQ1YkhwCvG5x7H4w6MaqII37TwdZwjmzcV8UmvjiN4R1wNTVPeA7NFzHdv5gTxB9ceyFiHRiZj+OUazaP1Dh/FvxgoPOxkCDyK4A9tyBmzaiZKR6X2bkRVFooimtjq4SwwEuA7GDAz4fkAhPysLe1ecyGCDxBo4Zmk68kZn2JoqxuOEA/SKYLS2z0PSS4R7affVRrRtW9SMBsD6okw9TqMlWnN3ytA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FREZyWM8VfEUqtRssBmvcCZRsIRjMsjiffnAM7/TbXA=;
+ b=sl0db1nclzBTteQ96jLbwQ23S03dalztqPk6653H8z4++g6Mzj+0eO+7uCB8Ln4oXaXMVuTljXRV+yODNeqHJ+yLFv/TnKZFlF71eGSWF7eoZkdS/FP2FCDwY9XyG7KFg53BDhQYWigqDU60DPuj+3GxieV3qv8YbwCeIMrui7uNbIPmwhF/lKRVwPayPeido3APPex+eppuUbrljJmjp20AB620uVxAZsMbIqM7bbaJpvOxDJ9/X/VmkiNhDI0HVxfbngFnaIJxnXOoln2107FQCBjEVumSAP2JbFwUuqezybQ40iEyym/I2JIkoazjGha1xEpXLcVz+beavbN6Eg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FREZyWM8VfEUqtRssBmvcCZRsIRjMsjiffnAM7/TbXA=;
+ b=h/f3DiumtKX3AXHlz3zrHbSkCA6wOWFO1IEUVo4Pa3oj2tJQ+gF3Iq6NCSgdVm3KyUI6qzh+tTHV2NEYX8lU6HOUqLuJa+9JM1c0l5kA4w7CNaYdxMxn3YC51ktt0fsXvX4v21gb5I7oGt/tsYG4vYvr9tyljrW0WNRdll+NQnqhYm/BIPB7RzZOSRbn2oZKAqLSFp++DTg0o/3hNl4fM8QfGskiGeIzxuRCHoEkPuhh7yHn0KgKbRvKuaRDLc2A5Kc1lv4c30JjUIQPMw3+MBhOaCXMadtn94G6qXsDEPJD4cdXbZ4bJAm9ZhPvxwITZW6z5nuv+v7170pRknboYA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by TY1PPF6C31DB54F.apcprd06.prod.outlook.com (2603:1096:408::919) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Wed, 22 Jul
+ 2026 08:42:35 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 08:42:35 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Andy Shevchenko <andy@kernel.org>,
+	Sander Vanheule <sander@svanheule.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	linux-watchdog@vger.kernel.org (open list:WATCHDOG DEVICE DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support)
+Cc: Pan Chuang <panchuang@vivo.com>
+Subject: [PATCH 0/9] watchdog: Remove redundant error messages on IRQ request failure
+Date: Wed, 22 Jul 2026 16:42:08 +0800
+Message-Id: <20260722084218.79073-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI3PR02CA0006.apcprd02.prod.outlook.com
+ (2603:1096:4:295::13) To SEZPR06MB5832.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::12)
 MIME-Version: 1.0
-References: <20260713083808.168957-1-justin.yeh@mediatek.com>
- <20260713083808.168957-4-justin.yeh@mediatek.com> <10f4ec41-5f90-4b19-a59a-26a76f533a77@collabora.com>
-In-Reply-To: <10f4ec41-5f90-4b19-a59a-26a76f533a77@collabora.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 22 Jul 2026 16:42:06 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64Sus+p1qPqhAgrc_gYYKvVGkV2CnGHYN70i0zv+BuOkg@mail.gmail.com>
-X-Gm-Features: AUfX_mwrltgWgwW5znwwtpoI8YTcDd_8mc2DbQawWOHLvv4LKE280kFlIdLVJos
-Message-ID: <CAGb2v64Sus+p1qPqhAgrc_gYYKvVGkV2CnGHYN70i0zv+BuOkg@mail.gmail.com>
-Subject: Re: [PATCH v6 3/5] pinctrl: mediatek: allow common drivers to be
- built as modules
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Justin Yeh <justin.yeh@mediatek.com>, Sean Wang <sean.wang@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|TY1PPF6C31DB54F:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e4c4739-4b51-4f67-d0db-08dee7cd2d4d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|23010399003|1800799024|376014|7416014|366016|18002099003|921020|38350700014|11063799006|6133799003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: OcAKMuvWbeUVeEvZHOP1uJxAB71e075S6FHkkUNrAWiYrsJg75qjDl0XH+N9M06O4/XpShhz2BOPSQYt6bUpPnOy8QfU6UDVuLCxscXpQMySaCts1Jhz45GRJUKsc9xHJsvi//50Vbwu9BI62SYFS1Q5zTVhte2zmVlQbokuGdIxOs07TEIeQ2GZg6Qbv5EasGwHaafhDtYpRF9/gQVY73ixngtO/CdkKBKW+3Ihpt5qvDbrsItfQV1KyjYbeAm3Nd/uftchY5WZ/KETZ4ooOz8qtS1wfE3bBB7LavosiFUBzhdY9mHbI8NMpzIWspU6yztNcEJkdyqqjNZM8lg7I0udTAJAk8moIIrr5SEUdFhfq28fa3CloJvqLHM1lwMrao8asl8YJTjCJ47F85uvmA9U8RvBJs7vMj8MSeDMsmCn305Jm0t+2Cg8OXcON6HziEfBmKGaABEw9Q4SWL1pyFYe+nhfBLWVSmdDxUSq5cREsMh5y4ZZz/wAUXXgDmk8VkwGS8rx0oMUauIUMU6g2IZPo3lY6XbgaMwcpubB1OqqyHRTEJ48kyqY5wBIJDyFJaJLPvL/8B4ZU7p9frxEkuEbChytVCYv06RDUqjyCGbxW+skX77APBT/a3CSXA2Q69k5yLO5hzYZVhs+JKMeLzTXmr7UZgF88mqSqrERnJ3JKRmQBngLzHYpYFHEcJUDpdXWdqytU6eEPVxOBndbfL1wpPpjaJB/XfNcswnMrKFO4uaEGoVYX+2NXl7M1s7w
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(23010399003)(1800799024)(376014)(7416014)(366016)(18002099003)(921020)(38350700014)(11063799006)(6133799003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Yyf4tc3wSDutOPMFViBHozphl1C/FOTyd+/jpBj5An2tuhJuYS6opEydwmIH?=
+ =?us-ascii?Q?ObrreIDQVJRi42iXXWsCM/bkk6DJA9FycU1hZPxXe4nS7EkKuF+xsFgaMGK2?=
+ =?us-ascii?Q?gnnvJejQ9CJNT7AfjaWfVxcglw6cyx6jMkRlIMYePoPcnDGfjJxPM+KAHoPJ?=
+ =?us-ascii?Q?dpxpxcHqIft65MFk8DM1AFC//sfLqokL08j0k85M8Z9mfTMynbASlnYz6T0M?=
+ =?us-ascii?Q?ft/pjYmR3Pq1egEYu4gBPx90riXdinGAQwBeqcojNKrUJVG0RFBwAwnPRBG1?=
+ =?us-ascii?Q?tGCz450GiZC9YDxvdaE97HlR4D1Fl2v7C5r6TFnFpDfSm5mQ9/NjyLBji3Kx?=
+ =?us-ascii?Q?+QTJ4i93EjjEILrV/hhHGsodVnpiLL+/jACSpC0rLR10i+rzqW1F8MgouSrC?=
+ =?us-ascii?Q?+7a34Pqc57VPgF+MoEWR92sFBP+hpk76suBIdWlhgYZzg9nin/+27cE26hjh?=
+ =?us-ascii?Q?belvevfGMqjX6n5nGH7vxoeEP/+uEeHLBZ5JOuegxojTxeFhX5J0BvBdumKv?=
+ =?us-ascii?Q?wdOQ9XUWNzLW7uGE/TB78Ts4e691DxOqAHazVBTK49Tx7UVNvWP8M1v10w4M?=
+ =?us-ascii?Q?Ay6p4IrHQIN7t/BBRIW/nUdWr38AilIe93B+Z90hgIDaIKpyEMapLJVnlYIv?=
+ =?us-ascii?Q?lPfFOYvpzdg4qxt6mJ+afxdRc544rf8zaEH1HEqVVdVavCCW0jxa6DRJLr2b?=
+ =?us-ascii?Q?yqhUO3ecU7q7LumoK9yhwhFuN1lRbxo68oRnTSEfgVMCd+oYdkEcSv8/xs29?=
+ =?us-ascii?Q?Ms4p28UqCaN5iYpr7LA5RTlhF+QJLWjnGLBhjICos2Y9TlbqYm9/zUcMr7vp?=
+ =?us-ascii?Q?fGd1wZpvxTLlewuGAV3fg6KGr79+41uVosqw5KtxlFJTcWIV0FVv6e4XubD4?=
+ =?us-ascii?Q?jNNj7cyrM3eiml/WotQegAuTl7feL0lQlNvEiYb7NmnHdfqeV5QblZvqt8j9?=
+ =?us-ascii?Q?Xad1ZshhTo3OB2QVi9BfGnQf4fXhppj1nqOtMzOaD/jnCk0IJB8U6mr5DhT3?=
+ =?us-ascii?Q?91+9ZWsGpMMBkwusXl9zb4+E+cPAshb51LlgFGm+QG8JIdnPGCSjA4b9LCkM?=
+ =?us-ascii?Q?1Qcr9jtWxeumUSGXCmb7SaB88lsHYe+NeQiRc8pR15S5hLbQ+1PjlyAK6A93?=
+ =?us-ascii?Q?Eo91tGNDkFYT9R3qf++VguHiVQUTFDAoac5vsUkxCC5dTJX8NYyqXrhSkXzb?=
+ =?us-ascii?Q?giJTwi1Z2O0kR7I0jgKrgDcveZj7NA2bZahqqR6h6fvV+UG/Gnve2zozsxco?=
+ =?us-ascii?Q?d0tf3rssCOhrkAeFzzW4/dNsOV9Bj+BsZ3LRIUjNxGWCbXUn1suo0JFU8SBb?=
+ =?us-ascii?Q?ewPFb+a4tR8zoMf4nXwbu4jmMFfmYDUSPMWQY/tTEHtLsCLbK+hOM5InsHad?=
+ =?us-ascii?Q?3IEE5CTMJduPGGDl34XSG3LCktO4j8/3qyotggLyUTgInXh+4UzpB5Z+FlXU?=
+ =?us-ascii?Q?HhulpAWYnA+Zdh2W5e3PPqzb9GUcaD4z4kPyhPRXK86qDNZDYIlbmoj1LFqy?=
+ =?us-ascii?Q?G8O/CLrvGIqkAN0J/615qTV9wbyQFG6fzzbvdajtO0AToYY80v/lUhMaz/88?=
+ =?us-ascii?Q?hLR0zPjncOp7HFcKVTEGLGsOFsRoENd5GAGfZsX3lFnRP/RJFnO9LqdBWrws?=
+ =?us-ascii?Q?y3pR9rdMI606bxDtqkbFhAdcBETldZ/hrr4H7b0WouWsiyZzV1tVXWTiqOtc?=
+ =?us-ascii?Q?/y49ZkS3x5StWmoIrNRNlBc9duRzSSZNGGidNzmuCV2CHJdPOubb+jc713Ki?=
+ =?us-ascii?Q?Q0kyCN7NOQ=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e4c4739-4b51-4f67-d0db-08dee7cd2d4d
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 08:42:35.0078
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fsjCMdrgClUPazrd7CZ8o41xFiOkXbxbojl1HVJfC3nJ+mKT8pEKd8BqGLII++gJ0PDifA/KmoDuW4iCtU3MhA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PPF6C31DB54F
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_014244_201061_FEFD8F66 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,73 +143,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 4:36=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> On 7/13/26 10:37, Justin Yeh wrote:
-> > The MediaTek SoC pinctrl drivers link against the shared implementation=
-s
-> > in pinctrl-mtk-common.c (v1), pinctrl-moore.c and pinctrl-mtmips.c. The=
-se
-> > were built-in only: their Kconfig symbols were bool, they did not expor=
-t
-> > their entry points and they carried no MODULE_LICENSE().
-> >
-> > To let the individual SoC drivers be built as loadable modules (require=
-d
-> > for Android GKI + vendor_dlkm, where vendor drivers must live outside t=
-he
-> > GKI vmlinux), the shared code they depend on has to be modular too.
-> > Otherwise selecting a SoC driver as =3Dm forces the common symbol to =
-=3Dy and
-> > the resulting module fails to link against the unexported common entry
-> > points.
-> >
-> > Convert PINCTRL_MTK, PINCTRL_MTK_MOORE and PINCTRL_MTK_MTMIPS to
-> > tristate, export the entry points used by the SoC drivers, and add
-> > MODULE_DESCRIPTION()/MODULE_LICENSE() to the three common files.
-> >
-> > The v2 common code (PINCTRL_MTK_V2) is already modular, but mtk_rmw() w=
-as
-> > never exported. It is called directly by SoC drivers such as mt7623, so
-> > export it as well to keep those drivers linking once they are modular.
-> >
-> > Rather than exporting these shared symbols into the global namespace,
-> > export them in the "MTK_PINCTRL" symbol namespace with
-> > EXPORT_SYMBOL_NS_GPL() so they are only visible to drivers that opt in.
-> > Each SoC driver that uses them therefore declares
-> > MODULE_IMPORT_NS("MTK_PINCTRL").
-> >
-> > Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
->
-> Some of the pinctrl drivers are missing
->        MODULE_DEVICE_TABLE(of, [match_array])
->
-> ...therefore module build will fail.
+Commit
+55b48e23f5c4 ("genirq/devres: Add error handling in devm_request_*_irq()")
+added automatic error logging to devm_request_threaded_irq() and
+devm_request_any_context_irq() via the new devm_request_result() helper,
+which prints device name, IRQ number, handler functions, and error code
+on failure.
 
-Would it fail though? IIRC this statement is optional. It will still build
-without it, but the module won't be loaded automatically when a matching
-device is found.
+Since devm_request_irq() is a static inline wrapper around
+devm_request_threaded_irq(), it also benefits from this
+automatic logging.
 
-This is a different kind of failure.
+Remove the now-redundant dev_err() and dev_err_probe() calls
+in watchdog drivers that follow these devm_request_*_irq()
+functions, as the core now provides more detailed diagnostic
+information on failure.
 
-We probably still want to add them right now while we are modifying all
-the drivers though.
+Pan Chuang (9):
+  watchdog: bd96801_wdt: Remove redundant dev_err_probe()
+  watchdog: cadence_wdt: Remove redundant dev_err()
+  watchdog: intel-mid_wdt: Remove redundant dev_err()
+  watchdog: keembay: Remove redundant dev_err_probe()
+  watchdog: marvell_gti: Remove redundant dev_err_probe()
+  watchdog: orion: Remove redundant dev_err()
+  watchdog: realtek_otto: Remove redundant dev_err_probe()
+  watchdog: sama5d4: Remove redundant dev_err()
+  watchdog: sprd: Remove redundant dev_err()
 
+ drivers/watchdog/bd96801_wdt.c      | 3 +--
+ drivers/watchdog/cadence_wdt.c      | 6 +-----
+ drivers/watchdog/intel-mid_wdt.c    | 4 +---
+ drivers/watchdog/keembay_wdt.c      | 4 ++--
+ drivers/watchdog/marvell_gti_wdt.c  | 2 +-
+ drivers/watchdog/orion_wdt.c        | 8 ++------
+ drivers/watchdog/realtek_otto_wdt.c | 2 +-
+ drivers/watchdog/sama5d4_wdt.c      | 4 +---
+ drivers/watchdog/sprd_wdt.c         | 4 +---
+ 9 files changed, 11 insertions(+), 26 deletions(-)
 
-ChenYu
+-- 
+2.34.1
 
-> Have you tested compiling the kernel with *all of the MediaTek pinctrl dr=
-ivers*
-> set as module??? :-)
->
-> Cheers,
-> Angelo
->
-> > ---
->
 
