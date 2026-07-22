@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08452C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D945C531C8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 20:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3rErr10p9wOACNt+wLol9UrYf5v0rNYumxMy4SRbfs=; b=4I8BLpKIYAaicgiGa1+txWcBjg
-	k9jl+fPs1gvs62uOMCcPkpzqd6gMkYoCAzx4nz+jXW7ye1NfrE/pQ0UJAZzgFI2MR0M8Mu/wrWEKX
-	ilAjrxvddN4c96E060xQjK28wp6/U0DwhMGsw8gHm17UopTYVYCEbIWZVKfZPUzIl0R3gNCFN36it
-	944P0NEs+AvPoEtVg4LQnO5uBh1i/hN20k0eA5RW1ryrq8oIrF2HmbejpL/dJgpm4RIOFGi5hpMkt
-	sA1tAJ6sBn+DOpLLAruBW924a1kixa1o2jTGKIAOVWXiF0090mJFgpQDCO8I8iJvWoAnFK7uxPCJo
-	NRnocFBg==;
+	bh=c+Zg16Nd+8Y71u1eWZhDdWW4ImjjdugVLt2zrpnJS8c=; b=13nLhmBvedZPlRgQFAIIgNYtMH
+	hZtsCKi0q8hTV8zLyIFULCG17mrjdu0h6BciVxWS+3Ty++h7MulS//Vk01EzayykpW/zMnq4PSIjW
+	wmNRNqGCRHWd/R4qez2QPp0TNUjXIjNk3Q6ryFJ2cMxwqP+kjlVuoUXrdNqKA+L4A2x0u0mTDPvJs
+	/zhed8YlaoXZyMzGa7PJF6svym4JG5IvasYKXiu7EChatEyLxOUGM5Wq9XlRrPSY3Dv6fdYJohx8T
+	JtR01a7SVhUVbyz7vwTZDkicL5zRfr9NfMJtQK2nLAAJv+oKiRBAO8qcNYyg0umOrrg/OFTQTsIJY
+	pFZYAQ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdns-0000000Ckpu-0BXY;
-	Wed, 22 Jul 2026 20:44:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmdnr-0000000Ckok-1zeT;
+	Wed, 22 Jul 2026 20:44:31 +0000
+Received: from mail-43171.protonmail.ch ([185.70.43.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmdni-0000000Ckm8-3ZtP;
-	Wed, 22 Jul 2026 20:44:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EDCEC600AF;
-	Wed, 22 Jul 2026 20:44:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 242031F000E9;
-	Wed, 22 Jul 2026 20:44:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784753061;
-	bh=B3rErr10p9wOACNt+wLol9UrYf5v0rNYumxMy4SRbfs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TClIpQjPHfNb2UC+86DccO1ZrMk2+zy5rLUTHbdUN31XdnfQmEyzF0g00UYVJvCt4
-	 FXhV4YAcs5lWiKtyTP2/gpdsVZW7ab/ZGgLSaH0Q2SUFy141vcrOpLy6haasxqnace
-	 6hhwS6L9eGbDYygci9yZTfTRBGHXkgZpaJcVmMhumYjv07vi2jDBbTYnEGPhr/JYiA
-	 AiFqAUMG4h1dchH/GhbOXm4fscuN2vH0YcCHEUJpkTTtubdQ3HFcREsOzPasDqLqG0
-	 MaMTXTfHgA9P07wMsqz+1DaUoobIBHqX3iXyFQ8EbvjqU0/peqdI1ZCDe5rMPbRuP7
-	 ez0lmxyiPoqZQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 22 Jul 2026 22:44:00 +0200
-Subject: [PATCH net-next v10 1/3] net: airoha: rename airoha_priv_flags to
- airoha_dev_flags
+	id 1wmdnd-0000000Ckjb-0Gww
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 20:44:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
+	s=protonmail3; t=1784753055; x=1785012255;
+	bh=c+Zg16Nd+8Y71u1eWZhDdWW4ImjjdugVLt2zrpnJS8c=;
+	h=From:Date:Subject:Message-Id:References:In-Reply-To:To:Cc:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=ah7B1VZ2lgy5N8NphkQArBrW71+Tpxwvo3UikPcXLYENJB0gMQ7wQZaQ2byx21VOI
+	 /SxwN3isaiMosqMF7XoHD/ygcQxOriYlU7R6H+uWBBwUwcq38PSfDa1jk61GsEgS0z
+	 PCCuq8WYqYJFqmJOhB83IrFmENn1ao6wTb9la4aqJNSy7FN1z0Rc3lmdY5KaqQATJ8
+	 yBSYZ37GRJlRyhsy6s5tDAzJ5sM5gWm4xAM+QjOhFXmpNGL/Bh/ZOCPUKvDQaOSsNI
+	 4sGEfKsxVguESKnOY12y4bSRapYBEjUiCi6HMCAkckMmGpyRZGY5ajlgtFhoHnB8lz
+	 Lz+CwBsXHmovQ==
+X-Pm-Submission-Id: 4h55p51vXBz1DDXJ
+From: Alexandru Chimac <alex@chimac.ro>
+Date: Wed, 22 Jul 2026 23:44:04 +0300
+Subject: [PATCH v3 3/5] clk: samsung: clk-pll: Add support for pll_1061x
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-airoha-ethtool-priv_flags-v10-1-d2562c5dd942@kernel.org>
-References: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
-In-Reply-To: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, 
- Alexander Lobakin <aleksander.lobakin@intel.com>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Jacob Keller <jacob.e.keller@intel.com>
+Message-Id: <20260722-exynos9610-clocks-v3-3-c672a2a30889@chimac.ro>
+References: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
+In-Reply-To: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Alexandru Chimac <alex@chimac.ro>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784753044; l=4101;
+ i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
+ bh=aT/7UDwG7HucZEHkHhBoKSD+EL5+NRiwl5XDslaNRL0=;
+ b=Zrb5hMnWLoZ1jMurX2CF1f2GuwWZxbhvxNoH0kvPnc/9TAJq7iwNRYhufVi9XgZG6yoOEyFE+
+ 2+APvrbuPQnBEgtTKdE4I8jCg/jsqDzmMkI7k98CjVmjmI6lbidFYm1
+X-Developer-Key: i=alex@chimac.ro; a=ed25519;
+ pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_134417_268871_C70FBDFE 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,61 +85,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the airoha_priv_flags enum to airoha_dev_flags and the
-AIROHA_PRIV_F_WAN flag to AIROHA_DEV_F_WAN. The "priv_flags" naming
-dates back to an earlier design that used ethtool private flags; since
-this series switched to tc qdisc offload for LAN/WAN configuration,
-align the naming to reflect that these are per-device flags rather than
-ethtool private flags. No functional change.
+These PLLs are found in the Exynos9610 and Exynos9810 SoCs, and
+are similar to pll_1460x (using CON3 instead of CON1), so the code
+for that can handle this PLL with a few small adaptations.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
-Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Alexandru Chimac <alex@chimac.ro>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- drivers/net/ethernet/airoha/airoha_eth.h | 6 +++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ drivers/clk/samsung/clk-pll.c | 29 ++++++++++++++++++++++-------
+ drivers/clk/samsung/clk-pll.h |  1 +
+ 2 files changed, 23 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 59001fd4b6f7..41c1a0ffbdd8 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2039,7 +2039,7 @@ static int airoha_dev_init(struct net_device *netdev)
- 		fallthrough;
- 	case AIROHA_GDM2_IDX:
- 		/* GDM2 is always used as wan */
--		dev->flags |= AIROHA_PRIV_F_WAN;
-+		dev->flags |= AIROHA_DEV_F_WAN;
- 		break;
- 	default:
- 		break;
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index f6d01a8e8da1..bf1c249255bd 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -543,8 +543,8 @@ struct airoha_qdma {
- 	DECLARE_BITMAP(qos_channel_map, AIROHA_NUM_QOS_CHANNELS);
- };
+diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+index e74552846ba3..2cda87235fa2 100644
+--- a/drivers/clk/samsung/clk-pll.c
++++ b/drivers/clk/samsung/clk-pll.c
+@@ -781,15 +781,20 @@ static unsigned long samsung_pll46xx_recalc_rate(struct clk_hw *hw,
+ 	u64 fvco = parent_rate;
  
--enum airoha_priv_flags {
--	AIROHA_PRIV_F_WAN = BIT(0),
-+enum airoha_dev_flags {
-+	AIROHA_DEV_F_WAN = BIT(0),
- };
+ 	pll_con0 = readl_relaxed(pll->con_reg);
+-	pll_con1 = readl_relaxed(pll->con_reg + 4);
+-	mdiv = (pll_con0 >> PLL46XX_MDIV_SHIFT) & ((pll->type == pll_1460x) ?
++	if (pll->type == pll_1061x)
++		pll_con1 = readl_relaxed(pll->con_reg + 0xc);
++	else
++		pll_con1 = readl_relaxed(pll->con_reg + 0x4);
++	mdiv = (pll_con0 >> PLL46XX_MDIV_SHIFT) & (((pll->type == pll_1460x)
++				|| (pll->type == pll_1061x)) ?
+ 				PLL1460X_MDIV_MASK : PLL46XX_MDIV_MASK);
+ 	pdiv = (pll_con0 >> PLL46XX_PDIV_SHIFT) & PLL46XX_PDIV_MASK;
+ 	sdiv = (pll_con0 >> PLL46XX_SDIV_SHIFT) & PLL46XX_SDIV_MASK;
+ 	kdiv = pll->type == pll_4650c ? pll_con1 & PLL4650C_KDIV_MASK :
+ 					pll_con1 & PLL46XX_KDIV_MASK;
  
- struct airoha_gdm_dev {
-@@ -667,7 +667,7 @@ static inline u16 airoha_qdma_get_txq(struct airoha_qdma *qdma, u16 qid)
+-	shift = ((pll->type == pll_4600) || (pll->type == pll_1460x)) ? 16 : 10;
++	shift = ((pll->type == pll_4600) || (pll->type == pll_1460x)
++		 || (pll->type == pll_1061x)) ? 16 : 10;
  
- static inline bool airoha_is_lan_gdm_dev(struct airoha_gdm_dev *dev)
- {
--	return !(dev->flags & AIROHA_PRIV_F_WAN);
-+	return !(dev->flags & AIROHA_DEV_F_WAN);
- }
+ 	fvco *= (mdiv << shift) + kdiv;
+ 	do_div(fvco, (pdiv << sdiv));
+@@ -827,7 +832,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 	}
  
- static inline bool airoha_is_7581(struct airoha_eth *eth)
+ 	con0 = readl_relaxed(pll->con_reg);
+-	con1 = readl_relaxed(pll->con_reg + 0x4);
++	if (pll->type == pll_1061x)
++		con1 = readl_relaxed(pll->con_reg + 0xc);
++	else
++		con1 = readl_relaxed(pll->con_reg + 0x4);
+ 
+ 	if (!(samsung_pll46xx_mpk_change(con0, con1, rate))) {
+ 		/* If only s change, change just s value only*/
+@@ -845,7 +853,7 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 		lock = 0xffff;
+ 
+ 	/* Set PLL PMS and VSEL values. */
+-	if (pll->type == pll_1460x) {
++	if ((pll->type == pll_1460x) || (pll->type == pll_1061x)) {
+ 		con0 &= ~((PLL1460X_MDIV_MASK << PLL46XX_MDIV_SHIFT) |
+ 			(PLL46XX_PDIV_MASK << PLL46XX_PDIV_SHIFT) |
+ 			(PLL46XX_SDIV_MASK << PLL46XX_SDIV_SHIFT));
+@@ -862,7 +870,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 			(rate->sdiv << PLL46XX_SDIV_SHIFT);
+ 
+ 	/* Set PLL K, MFR and MRR values. */
+-	con1 = readl_relaxed(pll->con_reg + 0x4);
++	if (pll->type == pll_1061x)
++		con1 = readl_relaxed(pll->con_reg + 0xc);
++	else
++		con1 = readl_relaxed(pll->con_reg + 0x4);
+ 	con1 &= ~((PLL46XX_KDIV_MASK << PLL46XX_KDIV_SHIFT) |
+ 			(PLL46XX_MFR_MASK << PLL46XX_MFR_SHIFT) |
+ 			(PLL46XX_MRR_MASK << PLL46XX_MRR_SHIFT));
+@@ -873,7 +884,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 	/* Write configuration to PLL */
+ 	writel_relaxed(lock, pll->lock_reg);
+ 	writel_relaxed(con0, pll->con_reg);
+-	writel_relaxed(con1, pll->con_reg + 0x4);
++	if (pll->type == pll_1061x)
++		writel_relaxed(con1, pll->con_reg + 0xc);
++	else
++		writel_relaxed(con1, pll->con_reg + 0x4);
+ 
+ 	/* Wait for PLL lock */
+ 	return samsung_pll_lock_wait(pll, PLL46XX_LOCKED);
+@@ -1700,6 +1714,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_4650:
+ 	case pll_4650c:
+ 	case pll_1460x:
++	case pll_1061x:
+ 		if (!pll->rate_count)
+ 			init.ops = &samsung_pll46xx_clk_min_ops;
+ 		else
+diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
+index d6eb3246611b..44f5e99d303d 100644
+--- a/drivers/clk/samsung/clk-pll.h
++++ b/drivers/clk/samsung/clk-pll.h
+@@ -45,6 +45,7 @@ enum samsung_pll_type {
+ 	pll_531x,
+ 	pll_1051x,
+ 	pll_1052x,
++	pll_1061x,
+ 	pll_0717x,
+ 	pll_0718x,
+ 	pll_0732x,
 
 -- 
-2.55.0
+2.54.0
 
 
