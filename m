@@ -4,87 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE10C4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:18:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD25EC44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 12:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGngy/xAjovr39en+AtDgaGCW5clw1V0MawqcNH44fo=; b=tpYXQ0CXH3t1OFoq+fwvDJa6rr
-	vhkbD7xMtPYAHq7FHfl5hTPFnozwmZjPD649BZ8c5nr4z6qXPEYVmISfyf+ebZi8+RDQ/0FFtsSU4
-	afD+W+8wUzKAe4nb55HOXNYly/JLME1Xv0I2g+6UXLOL5pjCLNSD3IL3IT83J6+MHtU0CcK4uv/mO
-	L87wZWe7IODDFYEnIhQp82BNDScL0ww66lfjJIca7AVs5Lwjh+P3ftZwzbQb/STdAN7V4Kfswjfoi
-	pDXVVavsLE2B3kpHB0NPmghkmKaJvRuCM5gKdfU1Z/dZ7eJdirErUqR24hkhYJTOa78TquSpQkyyp
-	t2WCLBhg==;
+	bh=BW7OEygY66DEhI2gw8GlDcm88r50fl2ii7fNHg4fiQg=; b=yZNHdbRZn4tQ5wSbi7gJAuj43H
+	gG0pRdyo9q6BF684xYLZo7NqUonbL+M8tWAFEKQzLZoDR3ryoHUIM/Nl4KktloOadwVt8fOsmZCgW
+	fzD06oancKIx7/2QNqlH7oXqIGg+IHA2rNaHb4ABsxTrW2yiC/0WJw6EXKzJ38+45DW6yfERI8gah
+	lD+9XqoS2Sc46TqlJlTJ7DwSYoQ8c4Mzu5PjpnYji3ptCyrZDRFQj3QVakIZzH/di8AA+DwwXhOSM
+	jKDYM8CQq4TfAZhZjAQ1V3+nnuI3DR5wQobJXKjOjnZdcmH/A/XkRQYUnbnsahQxJoZT/fpuqEeav
+	f3+7AxlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVu6-0000000BjtU-3gIZ;
-	Wed, 22 Jul 2026 12:18:26 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wmVvB-0000000Bk55-11V1;
+	Wed, 22 Jul 2026 12:19:33 +0000
+Received: from m101-out-mua-6.websupport.se ([109.235.175.106])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVu4-0000000BjsZ-4A6l;
-	Wed, 22 Jul 2026 12:18:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784722702;
-	bh=hkrp+yDQRqwNUpeTFXjADV7o+wwH+RGlwUA/SvJw0HI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IetJodkqZT8jjWJexpncST6NRGxRRena5iFVjRMs/sIB69M3KYTnqEfEsRVESwMG1
-	 SHsAPJP8p0J6ieVCWd7tZn92GM4hnwMVHDj9k4xkx67ES2CS7NSPiJY/Glg1735iyL
-	 VR5f6XtjNAmNBeoz1j2rUk0S1XFOWmaM4mVcSs2YC4thsOOVfC959Ju3PK0ZakFnzg
-	 kCYTrebVzz+KXzq+pUv19la6ZAfcg3yjKGCabSvdOVcboSQP0Isy2u+J3lawwfOEcQ
-	 dERjibTQRf55wtYuwEs6tCAbXNDk42VDyqJ9/Dkw5q+R5D/ti14jBMvg2ZEWprn9U4
-	 N5C8T0TjbHy0w==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	id 1wmVv8-0000000BjU5-1qBH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 12:19:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
+	s=mail; t=1784722636;
+	bh=BW7OEygY66DEhI2gw8GlDcm88r50fl2ii7fNHg4fiQg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PZGxsJNnB+OFXdwYg3vSq7H0PZ9wkf8d+wjSIewLXQec5tpvQFZZav/DKzKbQJOBJ
+	 yyWvCk6eIzphNAoON7RMUI/Hqka9xZ8MUfGOzCsqA46Xzw7H6s/mhotFsbrEFOixtR
+	 39veTDQzlVvjiFTbwFcYOjHyMQoaKykqKE9W1hlQK7GCX+Bla9xHOR81YZBawzXEad
+	 UvEEu5WVxt+ZqB2QoovzSydsb8nwalEEij+vthmwWPECLN/oiQZxBQHQF/HnwpIuSK
+	 r7+lxUhsZDZdD6l77nW8aIyt7NrCMQ2XvsN9cxQoIYtIzRcfZgERrErj+4GI60cF95
+	 Po0jzOFFPtQ4w==
+Received: from m101-u7-ing.websupport.se (unknown [10.30.7.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C197F17E0177;
-	Wed, 22 Jul 2026 14:18:21 +0200 (CEST)
-Message-ID: <ba22b854-be4b-4146-9e72-1da13bf41c08@collabora.com>
-Date: Wed, 22 Jul 2026 15:18:21 +0300
+	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4h4tY85C6mz1qYv;
+	Wed, 22 Jul 2026 14:17:16 +0200 (CEST)
+X-Authenticated-Sender: per@palvencia.se
+Authentication-Results: m101-u7-ing.websupport.se;
+	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
+Received: from rpi (unknown [193.180.91.63])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: per@palvencia.se)
+	by m101-u7-ing.websupport.se (Postfix) with ESMTPSA id 4h4tY621RkzqHv;
+	Wed, 22 Jul 2026 14:17:14 +0200 (CEST)
+Date: Wed, 22 Jul 2026 14:17:00 +0200
+From: Per Larsson <per@palvencia.se>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
+Message-ID: <20260722141700.7fe240f1@rpi>
+In-Reply-To: <20260721223956.13665-1-andre.przywara@arm.com>
+References: <20260721223956.13665-1-andre.przywara@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
- <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
- <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
- <534b921c-638c-4fc3-b89e-5dfc1f269f96@collabora.com>
- <20260713-statuesque-nonchalant-seagull-b9c39d@houat>
- <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
- <20260715-ancient-zealous-eagle-b13e94@houat>
- <dfca9032-98ca-4c61-b1b1-85fd05283d77@collabora.com>
- <20260716-astute-nippy-moose-bd22b5@houat>
- <62b3bsa7ucgo2g7w75wudt3aundl3hv57qgjr6kqfteve56rf7@w42tah2fnvml>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <62b3bsa7ucgo2g7w75wudt3aundl3hv57qgjr6kqfteve56rf7@w42tah2fnvml>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-Rspamd-Action: no action
+X-Out-Spamd-Result: default: False [1.90 / 1000.00];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_RHS_NOT_FQDN(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TAGGED_RCPT(0.00)[dt];
+	RCVD_COUNT_ZERO(0.00)[0];
+	BAYES_HAM(0.00)[41.58%];
+	ASN(0.00)[asn:35790, ipnet:193.180.91.0/24, country:SE];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[11];
+	HAS_X_AS(0.00)[];
+	ALIAS_RESOLVED(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	LOCAL_OUTBOUND(0.00)[];
+	FREEMAIL_CC(0.00)[kernel.org,gmail.com,sholland.org,vger.kernel.org,lists.infradead.org,lists.linux.dev]
+X-Out-Rspamd-Queue-Id: 4h4tY621RkzqHv
+X-Out-Rspamd-Server: m101-rspamd-out-5
+X-purgate-type: clean
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-purgate-size: 1114
+X-purgate-ID: 155908::1784722636-3C7051C6-336E3020/0/0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_051825_200344_75B8341E 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20260722_051930_767042_74DAAAEE 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,88 +115,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/22/26 9:51 AM, Dmitry Baryshkov wrote:
-> On Thu, Jul 16, 2026 at 03:50:29PM +0200, Maxime Ripard wrote:
->> On Wed, Jul 15, 2026 at 01:46:12PM +0300, Cristian Ciocaltea wrote:
->>> On 7/15/26 11:55 AM, Maxime Ripard wrote:
->>>> On Mon, Jul 13, 2026 at 01:23:00PM +0300, Cristian Ciocaltea wrote:
->>>>> On 7/13/26 11:50 AM, Maxime Ripard wrote:
->>>>>> On Thu, Jul 09, 2026 at 10:25:54PM +0300, Cristian Ciocaltea wrote:
->>>>>>> On 7/3/26 11:54 PM, Cristian Ciocaltea wrote:
->>>>>>>> On 7/3/26 5:34 PM, Dmitry Baryshkov wrote:
->>>>>>>>> On Thu, Jul 02, 2026 at 05:46:17PM +0300, Cristian Ciocaltea wrote:
->>>>>>>>>> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
->>>>>>>>>>
->>>>>>>>>> - A scrambler_supported flag to indicate whether the source supports the
->>>>>>>>>>   scrambling capability, in which case the newly introduced
->>>>>>>>>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
->>>>>>>>>>   are mandatory
->>>>>>>>>
->>>>>>>>> Do we need a flag? What would it mean if the flag is set, but the
->>>>>>>>> callbacks are not? Can we drop the flag and use the presence of the
->>>>>>>>> callbacks as a way to identify that scrambler is enabled?
->>>>>>>>
->>>>>>>> The flag is intended to be set only within drmm_connector_hdmi_init_with_caps()
->>>>>>>> when drivers advertise HDMI 2.x capability, in which case it also ensures the
->>>>>>>> callbacks are provided.  
->>>>>>>>
->>>>>>>> We could drop the flag and instead have the init helper clear the callbacks if
->>>>>>>> they were provided for HDMI 1.x.  This might slightly reduce code readability,
->>>>>>>> as it relies on checking the presence of individual callbacks - especially since
->>>>>>>> we plan to extend this further with HDMI 2.1 support, providing four or five
->>>>>>>> additional FRL-specific callbacks.
->>>>>>>
->>>>>>> I tried to replace the flag with a helper that checks the presence of (one of)
->>>>>>> the callbacks, but it's not straightforward to unset those for non-HDMI 2.x
->>>>>>> cases since the hdmi_funcs argument is immutable.
->>>>>>
->>>>>> I'm not sure why we would need to unset them. If the driver states that
->>>>>> it support HDMI 2.0, then it needs to be there, if it doesn't, then who
->>>>>> cares? it's not going to be used. We can log a warning that it's
->>>>>> inconsistent I guess, but there's no need to actively remove it.
->>>>>
->>>>> I was trying to address the use case where drivers provide the scrambler
->>>>> callbacks despite not supporting HDMI 2.0.
->>>>
->>>> Scrambling got introduced with HDMI 2.0. That doesn't make sense, but
->>>> it's not a total deal breaker, it's just going to be here unused. Hence
->>>> why I was suggesting to put a warning there if you wanted to.
->>>>
->>>>> If we replace the scrambler_supported flag with a helper checking the
->>>>> presence of the scrambler callbacks, then we would need to ensure the
->>>>> callbacks do not exist in this case.
->>>>
->>>> Keep it simple:
->>>>
->>>> if (hdmi_version >= HDMI_VERSION_2_0)
->>>>    if (funcs->scrambler_enable)
->>>>       hdmi->scramblers_supported = true
->>>>    else
->>>>       return -EINVAL
->>>> else
->>>>     drm_warn(warn, "Inconsistent HDMI version");
->>>>
->>>> We don't need anything more than that.
->>>
->>> I dropped the scrambler_supported flag and introduced a helper:
->>>
->>> static inline bool
->>> drm_connector_hdmi_scrambler_supported(struct drm_connector *connector)
->>> {
->>> 	return connector->hdmi.funcs && connector->hdmi.funcs->scrambler_enable;
->>
->> I'd add disable to that test
+On Wed, 22 Jul 2026 00:39:56 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
+
+> The Allwinner A523 uses the same GPIO voltage "withstand" programming
+> (setting the input level voltage thresholds) as the previous SoCs, but
+> for some odd reason inverts the encoding of 1.8V vs. 3.3V.
 > 
-> I'd make it an error, if there is only scrambler_enable without
-> scrambler_disable (or vice versa).
+> Add a new bias voltage type to note this difference, and select it for
+> the A523. At the same time also use the newer "CTL" version, which in
+> addition allows to turn off the withstand programming for I/O voltages
+> other than exact 1.8V or 3.3V (for instance for 2.5V sometimes used
+> for Ethernet PHYs). The A523 has that enable register, but didn't use
+> it so far.
+> 
+> This fixes eMMC and reportedly Ethernet operation on some A523 boards.
+> 
+> Fixes: 648be4cd9517 ("pinctrl: sunxi: Add support for the Allwinner
+> A523") Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
 
-hdmi_init() already guaranties that both scrambler callbacks must be present
-when supported_hdmi_ver indicates HDMI_VERSION_2_0, and neither of them
-otherwise.
+I'd say this looks like the correct fix. With this (and removing
+the incorrect voltage bump "fix") the eMMC on my X96QPro+ works.
+Not seeing any regressions, so
 
-Regardless, I've already added scrambler_disable to the check above to improve
-code readability.
-
-Thanks,
-Cristian
+Tested-by: Per Larsson <per@palvencia.se>
 
