@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E37C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF91C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=keKA3TlG+DaLEUEaEDJmog5OO6jAFV1sLmP/aGQcwRA=; b=gNH4WhycnN3PBK7CcDfJbzZikU
-	yMpxT14U4MoDi6+BF0DVsekDNQ8kTDIWm8e88YehKlFBkBduFc3XIErT+qpMdU9BKIDuUtPFK3e+Y
-	2LDw1JntOMwfxIun8iEaEMzfBGcyAnoB/itmSFy2fdjdI2iQ1Q2g1AYgsTrTW2122drIGCAyLsaGf
-	ebM16uvMEFF6zsCRQdxcJKvd2ye7G4jK3RYGKQ60EG3Og1RkLwiBxzy/wJPW+Ux8nzDvlnI4T9Lis
-	eIQmmWnQHB+vLCqzhq4B/1fdWVTJNHwwvWmYmqeyduVLxfpe2UqIAP/Ufhr/hEhi1ytirXar/+wo+
-	Im5Sq8uw==;
+	bh=v2nl4VWueEk9cKUhbw+kqvh7s/L/Uh+km+tAT2bP7fg=; b=YcDWOihTAjf8OeoslU8l3t9hBs
+	NMExb2yDx5s7zqeC9C0GhDCx6+L+bcwSN9lPUuBjVyb9MDzMxVEpNkQxx00zT9RBha/glMoiiD1Uj
+	TONWhh6OsH5Mqow8RZ+0h5Bs8UHI7lvGTdcm8yu+90CAGRwANB1iuxUDVEE6dJp7vJEdawUw6zjd6
+	vD7a5joHVRlR9kgOHUkE8iEJzUy0iPmtPWZqucODqXvO3sUpBrp384VLv7rzlM/MI56hDAe1dCTuD
+	UgZAEBDtcOb1FJAJdZQsyl6aNO36uQdXgTJFBDUZK+VI4FSzM5wtF5sH/TQ9sbuRYC1QFLaedwrto
+	AlWg837g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTnD-0000000BURq-0tZZ;
-	Wed, 22 Jul 2026 10:03:11 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1wmTnL-0000000BUV7-22Su;
+	Wed, 22 Jul 2026 10:03:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTnA-0000000BUQX-0Wkd
+	id 1wmTnH-0000000BUTD-2fIF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 10:03:09 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id B33BD7A00FD;
-	Wed, 22 Jul 2026 06:03:04 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Wed, 22 Jul 2026 06:03:04 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1784714584; x=1784800984; bh=keKA3TlG+D
-	aLEUEaEDJmog5OO6jAFV1sLmP/aGQcwRA=; b=JRhtTuVEliUcZMjRNFdamt8xk0
-	cR++RlzQH6z8VjhM6yg1tso36vYeUGFDsDC3JfPjSfoV8iHV9n2cw6aguii0BVfv
-	CwNsZMYITuAiG9aKOvoYn1YANhorVhjrRFAizhKZEvtrcpmjfBjpbDReVIidSehr
-	ckdSX5PQlqlNoRW73xGJvpVzPZeo4diwRtp9gTKELNEcAStQ586Hi7H6EJYNpphG
-	AT1y4Qw+qXx+TBXAJFABeA6kieyHVefsoqvZGUgujeDlCGQi6duUUaMd3sT8k5me
-	iRLay5O8ofeR7NmNMk3xE8VFLtJIzqMLQF9P6+hOKcRrJXwVKeVs9zBbVZYg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1784714584; x=1784800984; bh=keKA3TlG+DaLEUEaEDJmog5OO6jAFV1sLmP
-	/aGQcwRA=; b=DD/hIJHCfnM5x57RyHoh5f9AQMTIcB7DPor0TEDiu6j7dm3Ma0l
-	KkQO6hYHCe/jT2GjwdL+tSUmmQijdLjwG1hPxyO1sJx52PyvXESqYR1260IOHC7d
-	x3U5D07/1cyqSvjLlHaa38F3L6Avex/xLPzsj7+twRMnHHyBcdliMNAMRfQWxsgG
-	9Ji61ZzcJAxI/U3fMFWJERWcMfZItASAI2MIjkre4ly4Pia/aesbh34THbjIeM0B
-	zaMeX8sLTVXrRNgk0Urk+lxka8FM3JE1xPC0HYF8m0uBcEKXJ4GKPXbhUHjgIwNb
-	oXLBoZrMpr8vbdgXUaOlcl7NqaLpxTUkCyQ==
-X-ME-Sender: <xms:WJVgarfKM_7a4ihsIll2hRUPbcDHnPJ1_r5M9LsKWswwoVaM5djv8Q>
-    <xme:WJVgarQZL6n9kW86Qf3F2Y4Dq8K9oltwH4BnzQQ3kcxpxe7o6TcB127VPMIJATSdX
-    KVwEYY6a8BFZiwrzdXQEkkqRleCaP5ilv2N0QvppQr05kqr7dzEp_4U>
-X-ME-Received: <xmr:WJVgakYF8JeuYb1tmk4RYfcHBP85iyxF5VZTaaPIzhkP2ubvtvfl9Yi8vQ0U-01oqYrK4uOI-bGMKXoDmXp8yNBlJErrKP7E5Us>
-X-ME-Proxy-Cause: dmFkZTFMHwcTuNUz+Dcyz4D6Eq3Ysli2skDtxz3i8YUC46qtzqdEaZEA3XhE58UAQKCIxg
-    8WwMgfQJVjUb9e6CGiVSPzkF/1zRCVGoCwyv6/SYTO5SGpHIM2laUyY9O5u+1/YhFgSsEe
-    ImAxI33mVE1jDPhNk6jQV1GB1SsqUtD77jLpI+2pX/PT4TiE0UeBzTXZgi5bQ5/BZQHjMo
-    WZs3sxHWiO/P3X0RA6BKW1YLqXwYJr6xq2Q/oftQ7WhWQcYiD1sBjWOOXvRSuJEbBpa42w
-    OyIK0OJADwqzymSV3W5ANqZecViPgytan5OrBwnlHtbA1dB4wX5rqw/IMRnVB4f9GGbyTD
-    B/UGbJJmkilsTCD6V4AeeGXe3zZfZ4oWQpTSfgld0wWNbp6V+8oSgZhldSRf9uzjPa8lXt
-    0dpwvazIlr75A3gICNKnqycyWmfIuT4wZMh46PVqNCSdX2TN2dr+kxcigbj5Rf0vSfqZa9
-    Q0s8s/L8d8USfmHVvRe7ub35Q46SLmLI8YUH7cuZj7zuJZDccO8LhQZ5kjbXEzjrdOuS4v
-    ykPBtQAAFxiawcm2VkhsX9tn0aCfvYyGPwxVlrthqiUlURscdxsh2oI6ONBGTjGKIww0I7
-    liEjVoIWNpBCeGO2leyqZVPXoLtcNwb5DwOfb0kbcyVQnmnegVkts/LOaecA
-X-ME-Proxy: <xmx:WJVgaucd4HRIqrelKWrPiXhGS08dKjpWgOWfgHfD6fxUVf-dS_kVuQ>
-    <xmx:WJVgalIDy5RErK_SUH0yMiUnQEvAKy_tG9PkUo0SrW-byHHkma61tg>
-    <xmx:WJVgarIz7V-Gc9Txf8u1HJCq-Mr7dlCTqfVK9yiiRCipCwMA6IGnnw>
-    <xmx:WJVgakV9xyDMfkdYLF8oOb36mNwdnsUqgl4XrchHoZpBKNygkownAQ>
-    <xmx:WJVgagW-NqsXY_3voi300yzs0QImcoDauZMleI0Tegsy-xa6WfSE_lho>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 22 Jul 2026 06:03:03 -0400 (EDT)
-Date: Wed, 22 Jul 2026 12:03:02 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] mfd: macsmc: Fix key count endianness annotation
-Message-ID: <20260722100302.GA4159739@robin.jannau.net>
-References: <20260719-b4-macsmc-be32-fix-v1-1-c7b1936307fa@kernel.org>
+	Wed, 22 Jul 2026 10:03:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id AFB9860A78
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:03:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62D6E1F01559
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:03:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784714594;
+	bh=v2nl4VWueEk9cKUhbw+kqvh7s/L/Uh+km+tAT2bP7fg=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=aGMuUyLHguxVRr1lFjeEqsXxI5a3BDv/DaaV4zoODVdfUElN6OPq6bkx5ATub1s7X
+	 NqCOBztx6noD+QfHAvSgTWe7vgJnIbtFqRfBncNwEd8MZhJAPkwQ6o1PmCErDh2eSF
+	 54ujH4MI/X8WrSdzSMvJdDCh0pZpi+hUqSU2T1bUPAGLbQO4yixldnti713LXPNkci
+	 YythZGNmbpNbSYX0SZ1YxdtUM26wau81e41aUGstklcHdYCONGNwfqBX6p8ICowp/6
+	 g9HicL6hWe6OdIC4YCD4+8eDDyuWsnOkh3GMzOh/RFUuABV1W9tcDEy8Izwff+b8ok
+	 dcHRMOjcvphAQ==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5b2aab18795so599960e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 03:03:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpQetCLo2YDGcyhByNoXPK2Qg/rCNMtg+e5K/5LrjzmWvJ7h9Fs8vy1sXrQ6vmWf2xUNBaOu/6F5ey/NyxRLTDW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+bGJM1HlBwiilOF4D/4i++JsxwPiTulGWIexl4ra9L0zoYVS0
+	fEsFE4GjMF7jCmFZUVsJlgD0uXyeytvpgxpXSFa1IBIOZ3PX8eYlixh9+1i/5y7v3xdC5KcOIcS
+	BeH6iuo7PzrgUkOTh/9+ysbPz3gQRwT3SmXcNsVeVOQ==
+X-Received: by 2002:a05:6512:3185:b0:5ae:b2e3:fc24 with SMTP id
+ 2adb3069b0e04-5b28fabb0afmr5670333e87.60.1784714593132; Wed, 22 Jul 2026
+ 03:03:13 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 22 Jul 2026 03:03:08 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 22 Jul 2026 03:03:08 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <CAGXv+5H_V+J0cvrYjMFdKAQVrPKxPdtimXMc+hwHenwxhb9mDQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260719-b4-macsmc-be32-fix-v1-1-c7b1936307fa@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_030308_356598_231B76D8 
-X-CRM114-Status: GOOD (  18.36  )
+References: <20260721065413.2306137-1-wenst@chromium.org> <20260721065413.2306137-4-wenst@chromium.org>
+ <CAMRc=McsCRBxXMj0xC8H0cgdZZ=Z9_4u_DS9b2z0pLE0=gZr+g@mail.gmail.com> <CAGXv+5H_V+J0cvrYjMFdKAQVrPKxPdtimXMc+hwHenwxhb9mDQ@mail.gmail.com>
+Date: Wed, 22 Jul 2026 03:03:08 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MfZ1Yk6OJaCGphTYToMVfe_UU4dhOGmGVCbwqBV9S-a2g@mail.gmail.com>
+X-Gm-Features: AUfX_mz93U1zn17dWP9tyqRdXvFYbDQgxlYVyw0vjRryfcxfP9O2fsTk4G3zrhY
+Message-ID: <CAMRc=MfZ1Yk6OJaCGphTYToMVfe_UU4dhOGmGVCbwqBV9S-a2g@mail.gmail.com>
+Subject: Re: [PATCH v6 03/16] power: sequencing: Add pwrseq_power_is_on()
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +97,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 19, 2026 at 03:00:32PM +0200, Sven Peter wrote:
-> SMC firmware returns the value of the #KEY key in big-endian unlike most
-> other keys. Reading it through apple_smc_read_u32() into a plain u32
-> and then converting with be32_to_cpu() makes sparse complain:
-> 
->   drivers/mfd/macsmc.c:462:26: sparse: cast to restricted __be32
-> 
-> Read the raw value into a __be32 using apple_smc_read() instead.
-> 
-> Fixes: e038d985c982 ("mfd: Add Apple Silicon System Management Controller")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202607181046.OANjIoqR-lkp@intel.com/
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/mfd/macsmc.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-> index 358feec2d088..514cba7dc897 100644
-> --- a/drivers/mfd/macsmc.c
-> +++ b/drivers/mfd/macsmc.c
-> @@ -410,7 +410,7 @@ static int apple_smc_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
->  	struct apple_smc *smc;
-> -	u32 count;
-> +	__be32 count;
->  	int ret;
->  
->  	smc = devm_kzalloc(dev, sizeof(*smc), GFP_KERNEL);
-> @@ -461,8 +461,10 @@ static int apple_smc_probe(struct platform_device *pdev)
->  	dev_set_drvdata(&pdev->dev, smc);
->  	BLOCKING_INIT_NOTIFIER_HEAD(&smc->event_handlers);
->  
-> -	ret = apple_smc_read_u32(smc, SMC_KEY(#KEY), &count);
-> -	if (ret)
-> +	ret = apple_smc_read(smc, SMC_KEY(#KEY), &count, sizeof(count));
-> +	if (ret >= 0 && ret != sizeof(count))
-> +		ret = -EINVAL;
-> +	if (ret < 0)
->  		return dev_err_probe(smc->dev, ret, "Failed to get key count");
->  	smc->key_count = be32_to_cpu(count);
->  
-> 
+On Wed, 22 Jul 2026 11:01:20 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
+> On Tue, Jul 21, 2026 at 5:08=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.=
+org> wrote:
+>>
+>> >
+>> > +/**
+>> > + * pwrseq_power_is_on() - Queries the last requested state of the pow=
+er sequencer.
+>> > + * @desc: Descriptor referencing the power sequencer.
+>> > + *
+>> > + * This returns the last requested state of the power sequencer.
+>> > + *
+>> > + * Returns:
+>> > + * On success, 1 for on and 0 for off; negative error number on failu=
+re.
+>> > + */
+>> > +int pwrseq_power_is_on(struct pwrseq_desc *desc)
+>> > +{
+>> > +     if (!desc)
+>> > +             return -EINVAL;
+>> > +
+>> > +     return desc->powered_on;
+>> > +}
+>> > +EXPORT_SYMBOL_GPL(pwrseq_power_is_on);
+>> > +
+>>
+>> Didn't we agree on introducing an enum to make it future-proof for when =
+we
+>> also pull in pwrseq_is_controllable() from Loic?
+>
+> My bad. I misunderstood and thought it wasn't needed yet.
 
-Reviewed-by: Janne Grunau <j@jannau.net>
+It's not technically needed *yet* but since we know where we're going, it
+makes sense to be proactive.
+
+>
+>> I think this should work like so:
+>>
+>> enum {
+>>         PWRSEQ_STATE_UNKNOWN,
+>>         PWRSEQ_STATE_ON,
+>>         PWRSEQ_STATE_OFF,
+>> };
+>>
+>> int pwrseq_get_state(struct pwrseq_desc *desc)
+>> {
+>
+> I think you still want this here?
+>
+>           if (!desc)
+>                     return -EINVAL;
+>
+>
+
+Yes.
+
+Bart
 
