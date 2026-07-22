@@ -4,133 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B97C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 03:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68F8C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 03:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXsFUedM3bC2oR7kFlvCdtbhigWYbkfccQEtrdp7LkA=; b=iGVGHAEAEDcq/VHrYllQjm1mKW
-	UCCxt06d+/kG+OlIzS+RnrOn4xekNAU3heG8wyD2ZW9Pxk2TkdeEaTvA5nBYC9WYuHg6LkQzaouht
-	Uj5ciEf+3fOTrpYoV07remWOi2lG4wNsCU9fb5SAeJhhVY7AJZGzPYEv7NsNvUX+OxP0G/0XKq+BY
-	UATckBhK5819sPuXnCYCw3miaj4nFkQqbMmhgh/YB17H9TPpA9dSe25s3GsFmWt/sR842kBfrQi2Q
-	5MaIY0iuBQ0j6ewCxz2oWSvFsNVnAsWnMbcM+L6p5ToY2uOPjsXGtwTMSDqdm0dAO+uV/YuVhj5aq
-	wdFFgdlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T9UUSEVoX23+teHyHVc4XnhVE7Bddxb84RHflEA9fy0=; b=oKUmcemjxRjHRPhWXRJ2DrvFTi
+	kD4QNdXchP7U9GR4W1Oq/QKeA5/iwVqiuftvI6G+TxU3uIN8WlQ2AG/j3ORI7EvtlD2aTK7w8U4+3
+	79CRBvwk71GDslugdlxLkwIoYR+rCPWhmisq496HAjZ9JC2ZiTdTVPj0181I2IRpi2ERyCs111PnW
+	xEyGJLX2arBOfM/rgMlnhGszV0amL5UoT9Qk3GdrKA0FrpOx+41WxY9VU1KF1/ZBmTUcOrmLhTqe/
+	5PH/CjHDBWZc7KD1H5Pq0rqTxf2RtJo1lA3SClNCntaEY6N0QVKCuazdiiPeNV39YjcA2/ucAjJy0
+	u6mQAdXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmNvN-0000000AqIF-1vqH;
-	Wed, 22 Jul 2026 03:47:13 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wmO03-0000000AqZx-0BsI;
+	Wed, 22 Jul 2026 03:52:03 +0000
+Received: from mail-4319.protonmail.ch ([185.70.43.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmNvG-0000000AqGV-1Qsq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 03:47:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L5gr1N4bFDy0JxGqS4l0jY4tprQ/9s2p6i3L0NqeXTIvBcjmkrBddd6/eqm6hvzVv3S5n4AjcjJdNaxb0ZuNRfv2TrZ0A+ij1eKGIGYJFrM6qp7HwvAg0igNTEd6+8wGMu4ZZ5qCQIhgUdXmFornS0UxkHQhjhUgSfnKR6RFuS6Xkp/66pIsJX8eeZFGl/NC0t26dHWI8GEnWkLwwKjI7rdSOfnXEGqpht0hBh9s0C3lzRDVLQ9phAMhxCYxtsnTQGbhtaguKQCRyX5nuZReUTyl9RkaLWI6aNJdT+Qgb8taircDOuRaJBo7WwdItg0r8qWtDnTog0VwViH0Anw86A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eXsFUedM3bC2oR7kFlvCdtbhigWYbkfccQEtrdp7LkA=;
- b=CHSKZmBvIaHoNrv1q4CCJOK/h4BsaXbL8iympD+/a3R1eJTgEPu7ZbnJeNeTYLtXmCKWBqoaqfFfBiad0iIb9J/xu5xadKxsCnZ7KaebeasuVQC0Mf8zn05U7EQTUqQei5aEf8uH/vsBlMszm0ZXIHBSESjjJX9befezZIkiKaAo7FHFG36niR0WR9H9K42BYA91QT1W0wUvARE36E5tQeoS3Is2X6VXfFlEs7ZhdGB1450e0htZvtFuaSfErs8fZn/ethM5uSg2lxOz05CokN7Pry1IF1vvWrA7phMIhENEaW3twf/G0Me3da/F44HG2rzjrCFjHIq9f4nzQP53uA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eXsFUedM3bC2oR7kFlvCdtbhigWYbkfccQEtrdp7LkA=;
- b=CtOZ2B3bRKSTAuRNnfxHH5kJ7F28CHa3/nYU1gz0zNH1qGXpFFid60R/kX+Ln5go7hBe5Ygdr5//tMwi4xpiL/xPgmWraPTszsDgdN6qKtL1o7mLu8QpG7tC9hFhRv5zMyweTN+ovTEUMmR0g830iTdy4cqHyP5KY5+s505lvf3ZeXHQjZgjQBq601ntzsE+vvPUdR2UpzgSin/Kz7J71aO7Xz+If6JA57ZezrrrHwM5V9OQqyb7cnfVSWXy0oowRaxMN60aq65iSvttqnid2PSCSuJ83JQJyky0hEFg8i3rtZ0olyl4TYCuf+npUIStwLLtKBZ/qC56z1xu98eM3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by SEZPR06MB8863.apcprd06.prod.outlook.com (2603:1096:101:33a::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 03:46:52 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 03:46:52 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Sherry Sun <sherry.sun@nxp.com>,
-	Robin Gong <yibin.gong@nxp.com>,
-	Pan Chuang <panchuang@vivo.com>,
-	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
-	linux-serial@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
-Subject: [PATCH 2/5] serial: imx: Remove redundant dev_err()
-Date: Wed, 22 Jul 2026 11:43:30 +0800
-Message-Id: <20260722034342.316755-3-panchuang@vivo.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260722034342.316755-1-panchuang@vivo.com>
-References: <20260722034342.316755-1-panchuang@vivo.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TYCPR01CA0131.jpnprd01.prod.outlook.com
- (2603:1096:400:26d::19) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
+	id 1wmO00-0000000AqZA-1pjg;
+	Wed, 22 Jul 2026 03:52:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1784692314; x=1784951514;
+	bh=T9UUSEVoX23+teHyHVc4XnhVE7Bddxb84RHflEA9fy0=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=narpR5eI5Dv7nRg39pOtG91KL4+Z/eaWBUeoCzoR5r0rRoFgA/4E2GItrEfmdKLF3
+	 JAx6yzJdT2aswrUNP6GQ7b0I1h7AFjcwDDwXDS2DPt28CYyi4eRS+Ageu6lz3Q29Ok
+	 xWw2hMYMWh961eHo5f83WjQJepZSZAmktjML6bvLl7edMoriJGWsY+F6gG6K7DfWw1
+	 9FUuLR9Fe0i4U+aDpsLTMR0nB2iVb/TzwDJW6D2YTevx2O3vT2b1m8by5WdyNQwOl6
+	 ZKzZZ6spVIOHGOTEWWKN9p3TrKMHxNu9Pltsk4sm33yofS+YdAVS1SMM2Stle5AKwb
+	 s6EVEw234BUfA==
+Date: Wed, 22 Jul 2026 03:51:50 +0000
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Ryan Leung <untilscour@protonmail.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ryan Leung <untilscour@protonmail.com>
+Subject: [PATCH] wifi: mt76: mt7996: add thermal zone device registration
+Message-ID: <20260722-mt7996-thermal-zone-v1-1-88896e6e9985@protonmail.com>
+Feedback-ID: 184418679:user:proton
+X-Pm-Message-ID: 9e14f46cfdb4bf39a41e6629e5d0f893ba5c57c3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SEZPR06MB8863:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0749b530-2a0e-4de8-069b-08dee7a3de12
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|52116014|921020|38350700014|11063799006|56012099006|10067099003|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: e4svmrCMjymqGbzjqcZC3XcmNUumbPe0Ndq/hjz+aKNTfzIDZ8pqJ499Xt3pRF/Zpjd/r80o7wwfQI388GXWbJm8FCGuKQ1RBuAEO9RC77LFW1r+HaULJ1O4WLV/u4d3QztXa7V6prNV5+GGN9cNylS1nMM5Qwwg12PfuN1zbZuUx6xGzoy6IoJW6LGWuMBv5nDYU1m1ardS5O7zTMbS48/vwyD/F2manFCju2Rw6SkptZxTSjhbvfmIgkyX7B/lDm3X1qh3y/jVL55eErhiFYYLndpS2uKB0F6TUAq2qtdgUSPfJM589mhuLi7DUvTTBwr5tA7GVph/O8Mmj7Vb+eSbKQb+vAXlXTQwHTHpRmC5XBPe6/Og7BQBZuqEybO5UfQgcfkt/mcAcQhQBL4pLOtTDaMZNHH3EhA7bROJnARRPFee6XiIY4OpTl4k1CeZpWNm3Ohyev6wJRdvLED3sH9JYEhF/v6p8mAOA7mu2vBKnujDZJ92pfF29JlZHwGukRUUuz40Mutyb6EqpzIurqNybfLTzC4hoLmGMJSfH+oQuZfl1P4DNVQH/0ipEklka9Q4QN5VI820cuGIXLvkH348vC25qykr2/uiNmymInTq28e2m/LBX7UclaVcgQm80cWcdhLTWWx3vJ29Oor+cxOF6t07Urmx5/7hWdKhSKF8K3WiU0bXlCf0eYmFg+OT5D6cqpu6xCi2Syc2vjtkVEljO5zWF3RuaGzuuXQ2vd2X7UP9AUlp1IjVmLutjcZ4
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(52116014)(921020)(38350700014)(11063799006)(56012099006)(10067099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?epWgFiz9PEtsKElrqqLp+w1ogMsMKQdCLXr+nVW3umtEhPZ6MeWrPiV0mY4p?=
- =?us-ascii?Q?xs8InjA9wwST1XjT4bgNBo3KK18jCJCYvFGRm2qMGo+F9mUZf0V8B/jIFYc0?=
- =?us-ascii?Q?OfbssALTqUnRxyd5h0MsnzNgtZNyxzyP0C0YKVEAv+4Ej9lZ6d3nuO5ZEVrc?=
- =?us-ascii?Q?TvtPcbzkU46YDDobViqC3+Kw+3ZcaMkI6PjoOQABiovqb6dm+buW+Oh98/kr?=
- =?us-ascii?Q?W+u8T3LdviwOX3E4tZIsYYWSWsQnG/3sDtQ0AYA9K0f01ckP0DidsqySHng+?=
- =?us-ascii?Q?v6afag5g+flrGGu41mjqn4Km50PalBPi2UvAxLn6CzFrTP8DOQWrLgPImkRG?=
- =?us-ascii?Q?44/0M49xGcf6alIad+Cg8C6O5ntxXynh9aCnmH2VGeDMeHkkASsHEszBFJSw?=
- =?us-ascii?Q?+JgGJ5rrzOIaaal4FXC4kLT4upXZnosGDgOwsPALiYjZZdv2OprwirjrBHT4?=
- =?us-ascii?Q?2IJ4qKxqFpfAoOmHBowR9OiBlMjPmT9KEE9v4hp5q12I2XW0RZX2PoSO0ZMH?=
- =?us-ascii?Q?ZM38OmovjEH3RfMiLlFk5iVbFwxXRimgmpS2J3+V8OLRfWj2CiZTrqxFDgik?=
- =?us-ascii?Q?HjAIp5X/CrOJOmf5TxE5aerO16jotkIz6MF+Mnv816s8Cehyy2lg77NIY+OX?=
- =?us-ascii?Q?y1Mq986hEOQnWGjKifn90FVwpkexpM5k8dUO1ZGPr4DdE74pTgDCwVPCGVRN?=
- =?us-ascii?Q?Kkn3XYhExnu7+pwzQGF9/SSZGvymGZNPNZbWvgRFxKiOMSVp4fVhYbj1CprK?=
- =?us-ascii?Q?NXWs1HgCjY9NK7w+TyBcYh+7hHNxWW2unpFW+uT1ZuR76PxMqk1BeZPrLs7u?=
- =?us-ascii?Q?wr40vRSjBUkrVmcdc8UuFBIMA9a0opv0qBxEieC8RHXaM2Uub2FCHbG63Kes?=
- =?us-ascii?Q?hk3RfGj8uUKB7jEf6SjsCvgqW32N0jajtZbxYG9YZ3clHPY2sYEb3lRe+CgN?=
- =?us-ascii?Q?XLH5ndlA0OoUWw6VdKUu3pMLx7K/3pNT8eHyCFpFMEaX+X79HOPo/wH+r3AH?=
- =?us-ascii?Q?uNu6ZMqn+DgEAOpwzLZ9MqcisAL2W3Fz/K3xWiRjCFfJ+TAXIrID249oCXR4?=
- =?us-ascii?Q?fTa4DiGl5SjKpGkw0R+BocPxhsAUlAJTPL2h4AdbeiuQ3zssOBXXzeoPcXtl?=
- =?us-ascii?Q?nCP+jL3gxkS3TKQ5jBeJ6PBQn0XfqyGMwHgYYYPAJ6UiHZ2Jy3msEezotDxU?=
- =?us-ascii?Q?kDPwTo9g0Lm0/fZ0ad4ZE1Il/kplFQTrNMXYr+b5TYOCz9ZnN+lCqqQZGX0N?=
- =?us-ascii?Q?z9oz39j9jb85VyiUyF5x8b4LT6SKnVZ/mMaN3AX9InKJsQrstWSYV5bMQUQl?=
- =?us-ascii?Q?FiHXIeDFitm060cWhjNKqhMJZWJ+W35rEnO8Ln5zIJ7f5CfecXe/9lKeHwUH?=
- =?us-ascii?Q?YsVTCrqB/ywdcfjIaSRklK2p1xazHMybXpqKwI0NrK9V38LCBi1gr8BmzgWj?=
- =?us-ascii?Q?pXHv90Ir/mmZWAklDplrXHPLPUDZ/oaHOzZPcWeSZ9uELnT8yX6VOcWgXHcl?=
- =?us-ascii?Q?CtK6Ivd+ERHRPZGBrscUlbBGVMKPCvqTvWoxljREj2o7WFpGGrDoNBI0W5FZ?=
- =?us-ascii?Q?gabYO0MYEPA+9Sv7MK93B4MYM7Pi6vKF1qfsx7SoZ5VxZJJUmU3Sk82Guefn?=
- =?us-ascii?Q?9tbH/rlVvaxQlYUtJ/toX+2GUaPLunuVzCDfncSh/sM6LTq1ncYLKHAlvZxm?=
- =?us-ascii?Q?Pet95vOTn8btj9P5wuCUCC/2GGyVGFqSRf3xmfMJi72hCWucMCNMPtYClsZE?=
- =?us-ascii?Q?+L4jybW0Zg=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0749b530-2a0e-4de8-069b-08dee7a3de12
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 03:46:52.5872
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8jUtR/iuNCTrBke0yZN63J6UtT4z1euIgq5POeok5o3fLW0ORg9c0bbb8mKlX9vmQQ5wj3nldBo+EUORpqQ+Uw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB8863
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_204706_388346_2CB18780 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260721_205200_711449_2CF5DE23 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,60 +65,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-devm_request_*_irq()"), devm_request_irq() automatically logs
-detailed error messages on failure. Remove the now-redundant
-driver-specific dev_err() calls.
+Register the mt7996 phy as a thermal zone sensor using
+devm_thermal_of_zone_register() so that device tree thermal-zones
+nodes can reference the Wi-Fi chip as a temperature source. This
+allows the kernel thermal governor to control external cooling
+devices such as PWM fans based on Wi-Fi chip temperature.
 
-Signed-off-by: Pan Chuang <panchuang@vivo.com>
+Registration is non-fatal: -ENODEV is returned when no
+thermal-sensors DT property references this device, which is the
+expected case on platforms without a thermal zone configured.
+
+Signed-off-by: Ryan Leung <untilscour@protonmail.com>
 ---
- drivers/tty/serial/imx.c | 19 ++++---------------
- 1 file changed, 4 insertions(+), 15 deletions(-)
+This is essentially the same as the previous patch for mt7915 [1] but calls
+mt7996_mcu_get_temperature without mutex, consistent with the existing hwmo=
+n
+mt7996_thermal_temp_show callback.
 
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 251a50c8aa38..95fdb60e06a7 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -2602,34 +2602,23 @@ static int imx_uart_probe(struct platform_device *pdev)
- 	if (txirq > 0) {
- 		ret = devm_request_irq(&pdev->dev, rxirq, imx_uart_rxint, 0,
- 				       dev_name(&pdev->dev), sport);
--		if (ret) {
--			dev_err(&pdev->dev, "failed to request rx irq: %d\n",
--				ret);
-+		if (ret)
- 			goto err_clk;
--		}
- 
- 		ret = devm_request_irq(&pdev->dev, txirq, imx_uart_txint, 0,
- 				       dev_name(&pdev->dev), sport);
--		if (ret) {
--			dev_err(&pdev->dev, "failed to request tx irq: %d\n",
--				ret);
-+		if (ret)
- 			goto err_clk;
--		}
- 
- 		ret = devm_request_irq(&pdev->dev, rtsirq, imx_uart_rtsint, 0,
- 				       dev_name(&pdev->dev), sport);
--		if (ret) {
--			dev_err(&pdev->dev, "failed to request rts irq: %d\n",
--				ret);
-+		if (ret)
- 			goto err_clk;
--		}
- 	} else {
- 		ret = devm_request_irq(&pdev->dev, rxirq, imx_uart_int, 0,
- 				       dev_name(&pdev->dev), sport);
--		if (ret) {
--			dev_err(&pdev->dev, "failed to request irq: %d\n", ret);
-+		if (ret)
- 			goto err_clk;
--		}
- 	}
- 
- 	imx_uart_ports[sport->port.line] = sport;
--- 
-2.34.1
+I don't know if mt7996 also needs mutex locks such as those in commit
+e733647566ec ("wifi: mt76: mt7915: hold dev->mutex while interacting with t=
+he thermal state") [2]
+
+[1] https://patch.msgid.link/20260719-mt7915-thermal-zone-device-registrati=
+on-v2-1-0eac68c2741e@protonmail.com
+[2] https://patch.msgid.link/20241230194202.95065-10-nbd@nbd.name
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/init.c   | 28 ++++++++++++++++++=
+++++
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  1 +
+ 2 files changed, 29 insertions(+)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net=
+/wireless/mediatek/mt76/mt7996/init.c
+index d6f9aa1ab52d..115145f993d0 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -236,6 +236,23 @@ static const struct thermal_cooling_device_ops mt7996_=
+thermal_ops =3D {
+ =09.set_cur_state =3D mt7996_thermal_set_cur_throttle_state,
+ };
+=20
++static int mt7996_thermal_get_temp(struct thermal_zone_device *tz, int *te=
+mp)
++{
++=09struct mt7996_phy *phy =3D thermal_zone_device_priv(tz);
++=09int val;
++
++=09val =3D mt7996_mcu_get_temperature(phy);
++=09if (val < 0)
++=09=09return val;
++
++=09*temp =3D val * 1000;
++=09return 0;
++}
++
++static const struct thermal_zone_device_ops mt7996_tz_ops =3D {
++=09.get_temp =3D mt7996_thermal_get_temp,
++};
++
+ static void mt7996_unregister_thermal(struct mt7996_phy *phy)
+ {
+ =09struct wiphy *wiphy =3D phy->mt76->hw->wiphy;
+@@ -277,6 +294,17 @@ static int mt7996_thermal_init(struct mt7996_phy *phy)
+ =09phy->throttle_temp[MT7996_CRIT_TEMP_IDX] =3D MT7996_CRIT_TEMP;
+ =09phy->throttle_temp[MT7996_MAX_TEMP_IDX] =3D MT7996_MAX_TEMP;
+=20
++=09phy->tzone =3D devm_thermal_of_zone_register(phy->dev->mt76.dev,
++=09=09=09=09=09=09   phy->mt76->band_idx, phy,
++=09=09=09=09=09=09   &mt7996_tz_ops);
++=09if (IS_ERR(phy->tzone)) {
++=09=09if (PTR_ERR(phy->tzone) !=3D -ENODEV)
++=09=09=09dev_warn(phy->dev->mt76.dev,
++=09=09=09=09 "failed to register thermal zone%d: %ld\n",
++=09=09=09=09 phy->mt76->band_idx, PTR_ERR(phy->tzone));
++=09=09phy->tzone =3D NULL;
++=09}
++
+ =09if (!IS_REACHABLE(CONFIG_HWMON))
+ =09=09return 0;
+=20
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/n=
+et/wireless/mediatek/mt76/mt7996/mt7996.h
+index 0d6488522ba7..1207b5c7e98b 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -372,6 +372,7 @@ struct mt7996_phy {
+=20
+ =09struct ieee80211_sband_iftype_data iftype[NUM_NL80211_BANDS][NUM_NL8021=
+1_IFTYPES];
+=20
++=09struct thermal_zone_device *tzone;
+ =09struct thermal_cooling_device *cdev;
+ =09u8 cdev_state;
+ =09u8 throttle_state;
+
+---
+base-commit: 69bd85e933c617a84fa54fcc80e628e98afdc45d
+change-id: 20260722-mt7996-thermal-zone-a1de7cb1d728
+
+Best regards,
+-- =20
+Ryan Leung <untilscour@protonmail.com>
+
 
 
