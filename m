@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B612C4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C20CC4453C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 17:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R644bVMJpbI5wr8azKmQH+phgfEYQY/Mpi+UsoV/eo0=; b=ix3FzJb5Pyra6I5OMS62opHKW8
-	9fdCAZJbAjJZaUaV6wdzdiaw84h5d4T3IjGUz+kq+6x1bOmfpiedVLAKLdnd4DeqFgfPUM/61iU/8
-	CPG6Li/xjOpe8m58K7uhRW36TBz1hddywsyCScQ6a57p3HbIRzHLkTgZ7HVuC3lJMKLLQWpx058oy
-	mLAsqO2dfJTU0CxFTW8DfUuI2IjhhpRMpqygXlaxN0jxSHMwRgJxk8j/ozErZZ0j6beH8VUGE8dD+
-	1+L/P9RBaBawdYpMy/+bmYV9vZgtZVbE4xGSIEndyOi67lPWjDOc3GsX6tFqMp8j3WzfebmyWwpFV
-	iDiGu0LA==;
+	bh=TxEYmlqGGiYq3Bc30IofrgYGCXgAw0TDgEYkHxOaSog=; b=SodNMtKwi8B5qlHXMQQuSqdXx9
+	seCUsOdoQhhtvMWbJ8kl25le6AQJQpE6CPKlfUFQCqOS4C2gfzDhkELFDuKvBIwwEvO2A2k/qHPSU
+	wL8So21LL4K8g6yrRKve++M6TiOiIeFdt7Av6HgttTz8mAY696vgm+Rd9hcIlyd9acDesaAb5fRkx
+	Z28icOUhomsTZ/LsI3/3MCF0uzroHT5vmWQNXwcxYVvw1vMskAES0H+lvf1rYGsc/4l1MDVGjLGO1
+	KdhHFXu527BscRZG7BgfEet78rZsmQgMZmoSU3CJmI8h5ejoXaYKJrQNa0aCgan7SAnyZxonD8vpZ
+	vz0/FVcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmaki-0000000CT4e-05cH;
-	Wed, 22 Jul 2026 17:29:04 +0000
+	id 1wmaqu-0000000CTed-0pWx;
+	Wed, 22 Jul 2026 17:35:28 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmakh-0000000CT4C-2cq9
+	id 1wmaqs-0000000CTeD-2a5W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 17:29:03 +0000
+	Wed, 22 Jul 2026 17:35:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA6DA600AB;
-	Wed, 22 Jul 2026 17:29:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E101F000E9;
-	Wed, 22 Jul 2026 17:29:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E3DBD600C3;
+	Wed, 22 Jul 2026 17:35:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB451F00A3D;
+	Wed, 22 Jul 2026 17:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784741342;
-	bh=R644bVMJpbI5wr8azKmQH+phgfEYQY/Mpi+UsoV/eo0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=HenOrNzBlkGjNT2ZGgzTj9JkaN/Pg+ClQJYBrhh5tFYzSTNHJhzz9i2tElewFjnaM
-	 VWIrU+KEoZDUzP93ZSRJwpFW9cXSX5UZCxPe1Z7uOjyLrDVrmeQNK3U7TMYxjM2r+g
-	 TLRQBNeimdXHkmHgb5jS3RbnxaSYKV+xJ+/zuWM5nQh4tw3TxwDEc4hcGHiO52FM4r
-	 vQ9x6eFir53ZzIfMOFPxYaiGCqx8MjGoYz65Baq/+URqcl2SWjc9NQ48EO01rV7mHg
-	 liJw8iXTDYpIo3dpd1D65QjTDLmHYk0eoGbg/tigQCPj013DeYWDimv6AnVLUW0iKi
-	 ba0ev+D7hXj+w==
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Andre Przywara <andre.przywara@arm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <20260720215128.5761-1-andre.przywara@arm.com>
-References: <20260720215128.5761-1-andre.przywara@arm.com>
-Subject: Re: [PATCH] ARM: dts: allwinner: a10: Fix PMU interrupt
-Message-Id: <178474134045.3407214.16203991079219097416.b4-ty@kernel.org>
-Date: Thu, 23 Jul 2026 01:29:00 +0800
+	s=k20260515; t=1784741725;
+	bh=TxEYmlqGGiYq3Bc30IofrgYGCXgAw0TDgEYkHxOaSog=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ZafguT7DuXfAqRN1DjjINYsRkMFXjM1pCVCPbbT0ELGaqm/m3P1wFO0HchscpckLp
+	 hDsDPquf95CEYh+vNNOpZNIBzL/NeZWIxrYZ3c+AJEf7y9VjqUS8Lq4j1K5jENpnDt
+	 MPnhpRxS3vO2+OlKkgYwlC0hwgn4bhoGPSMKsskdE1PLG/5ZzCWyxwtou3Nh1t2U6e
+	 vKZ37g1Dp7j58q2qPOeYdPHCFcy7cqnwdIRCkVchIxICaeItb15v3LfFcbw4YVIS4v
+	 aa/Hu0sqW3TtuWZdbvpB9kRnirvD7koFceetkE85lxB/i9t7sOddbM03pzqIPiIbX5
+	 uHB+ImqKmK2QQ==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: arm-scmi@vger.kernel.org
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH 2/2] firmware: arm_scmi: Unrequest devices if driver registration fails
+Date: Wed, 22 Jul 2026 18:35:21 +0100
+Message-ID: <20260722173521.2184378-2-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260722173521.2184378-1-sudeep.holla@kernel.org>
+References: <20260722173521.2184378-1-sudeep.holla@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +69,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 23:51:28 +0200, Andre Przywara wrote:
-> The Performance Monitoring Unit of the Cortex-A8 cores in the Allwinner
-> A10 SoC is connected to interrupt line 66, not 3. This is shown in the
-> manual (where interrupt 3 is assigned to UART2, also in our .dtsi), but
-> has also been confirmed by triggering an PMU overflow interrupt and
-> inspecting the IRQ controller status registers (from U-Boot).
-> Please note that "perf stat" does not use interrupts, this might explain
-> why this evaded the initial testing.
-> 
-> [...]
+scmi_driver_register() requests protocol devices before registering the
+driver. If driver_register() fails, those requests remain in the global
+IDR and retain pointers to the module's ID table. Once the failed module
+load releases that storage, later request matching or SCMI device creation
+can dereference the stale pointers.
 
-Applied to sunxi/dt-for-7.3 in sunxi, thanks!
+Unrequest the complete protocol table before returning the registration
+failure. At this point table registration succeeded, so every entry is
+owned by the current registration attempt.
 
-[1/1] ARM: dts: allwinner: a10: Fix PMU interrupt
-      https://git.kernel.org/sunxi/linux/c/eb7051f75646
+Fixes: d3cd7c525fd2 ("firmware: arm_scmi: Refactor protocol device creation")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/bus.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-Best regards,
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index af3d28717cd2..a86fa18fc5d2 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -395,10 +395,14 @@ int scmi_driver_register(struct scmi_driver *driver, struct module *owner,
+ 	driver->driver.mod_name = mod_name;
+ 
+ 	retval = driver_register(&driver->driver);
+-	if (!retval)
+-		pr_debug("Registered new scmi driver %s\n", driver->name);
++	if (retval) {
++		scmi_protocol_table_unregister(driver->id_table);
++		return retval;
++	}
+ 
+-	return retval;
++	pr_debug("Registered new scmi driver %s\n", driver->name);
++
++	return 0;
+ }
+ EXPORT_SYMBOL_GPL(scmi_driver_register);
+ 
 -- 
-Chen-Yu Tsai <wens@kernel.org>
+2.43.0
 
 
