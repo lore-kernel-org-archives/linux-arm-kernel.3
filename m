@@ -4,115 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445E0C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF17C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BVQ32j56Dr60NJMwmM+X8AwJaAcbdmT9panK+KSnLpY=; b=NcdoVj70nkE0qErnr34Hy58mgp
-	p7kcB3+5rAaAQHp1cMTCn/2TLiG22Y6Li9Cn+XoP49O9+QDV6GdBJB7yDSHkYmd/oMLyWDtydlC4r
-	CWrleCFQh8QuOrBXb0HPiZxOSxS5Ph7SRenPvUPJ/VBXb8KeP6H5hyZ8t0+4FJd8J0n9oQScENnKE
-	zFA1jTBjNl+BU+EpFFONoKh6uneW/lf44acycrbrRUqz2Av6+jPQIM9Ed5GBE2zW884A2FsB6HOqg
-	7OSTAvHmuR6tNwOi91cepHNifzck0PZWWChWqDxtP+KVfLOKwKqYh88p0p7SqPJGWhGycH0KGg+R3
-	XmXx7Aww==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mrf6cN3veEepc7FHXyJjwN1P3+1BroqMx1ZIOs0+mdw=; b=KdXO+/egUuOciVHi9Zu1sDrk/0
+	OYUBmCQQ0ToPMsNr322mzfFzkxhGduTkn+tLDCQkEJyT+sP4d7idNqhn+Mc3Y2pxOf4l/XZAxKKfl
+	Vu44epUZcn2NrjFQpXhc4nH5KC+KnXj6MIhT6j1WjJWdSj9+m9AKlVdTRQve5WMKbxu3bwl2wsgxY
+	alrP2Hr91XO8SVlMx2he6ufSrPTgM2uFO45F7EH6NsOmggnom5ozPbkMc/Pltt82vBuOTnyRUN/f4
+	ysH7NlXUoVVo7gManVfNXaKOkZCk85ryxdsa7ryQh7axh++MHPvnWYCusejE/r9njZjF3gdENx6gn
+	iLGfo8MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSpb-0000000BJyW-29zx;
-	Wed, 22 Jul 2026 09:01:35 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmSpY-0000000BJxH-24Ug
+	id 1wmSsJ-0000000BKNl-0q3L;
+	Wed, 22 Jul 2026 09:04:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmSsF-0000000BKMy-4ATa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:01:33 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-81ea0b7d137so97832477b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 02:01:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784710891; cv=none;
-        d=google.com; s=arc-20260327;
-        b=lguf9INVemo3x6BLXQhSZGzLezgjTwCGnO0to4QI6G3yfGNp8sONGYJb0rDL9VNTbU
-         FLTCqthMTvm2lABrdnYlvhfk+m65Fz+XxzKm8PyvBD7VLzV5by8M1wttX4z5Yzz9dzKY
-         paS0nmU3d2dSJoYiJ6jynH2yQOFynUiYoxa/YJQYegMnF4a37gkl+KfSvYfEbVZVe2xk
-         uvY6cbAp8gPkSNDD+4BDUzb7QD1YS45VMCSrSqgDD4a8BI81D/hj9SMMS6yLOrvb2Q5H
-         PPORqlHoF7XjsxSGzcRha89Vg0KoCnjvWuLobyuPAa3mDwZ2HQffGdhZdruuOeWDNrnv
-         F7TQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BVQ32j56Dr60NJMwmM+X8AwJaAcbdmT9panK+KSnLpY=;
-        fh=1mwlLcAz81PEa/rY+Dp9fn59oeepT6cTc9+88fo/XTo=;
-        b=Puk9alxs+aCuy5vYflm5wnR5tUh2cUhlguIjqQ2RqLsBPzZC8lTVVCd7mgYTpgjwN4
-         9r3gOi9kzyMD6QIMJ8I1Tuj+keA9habR+KLiGwASO/E3lkGsyX9D8T+6pzj78PBhoct1
-         m0LQrK+LRZl/XR5kdiJ56kXX6qaiSbVxrH5SGpzUscmVJYaj53rrvJmWv32ayZMIpRgM
-         01oEy0cmg8Kl3ob7HmaObvbSCLil2fm6DckmjDS/5gNpHOPrWIG2Y25lP3tcHeWdx7+I
-         3D+rMalmOV/cl4EOvqRpP89M6dUe2RmRbllHkHAfA1E1nxLNgW5U/3TMN2+b84Iudmq/
-         SZFQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784710891; x=1785315691; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BVQ32j56Dr60NJMwmM+X8AwJaAcbdmT9panK+KSnLpY=;
-        b=lMgIcdugTHq9h1WJCJQU/0QfLyNwdKhrZmYjHs4eVhgJmZTXlVPcwmxasgYBhbnosc
-         Lgd4bGUm54Si8DRV6kNr5yCGqCGYr+uaFFGzxg+7N9g/LT3f1/J8T+YhGChjN5lxbkeS
-         7KExPyS2MFWU/nxOZVnHvgv1qu6F9+aP6ImAw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784710891; x=1785315691;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BVQ32j56Dr60NJMwmM+X8AwJaAcbdmT9panK+KSnLpY=;
-        b=tAkQyamkmlQcBa/SjLBJCMeErhnOoj/AkidBM2fTO781/teGFD8MfO3+Jf54wSdBwS
-         rzCM+h17oyPhOp+6ihyq1EZd3x1lLp3nX18O2Axp5FwC+W8yuljgd+VAZ382j/Gp309W
-         CQYPkUQRMmW10EpYNaZk+TbRpL51ue5rPFnyfu7v8MUFTxPV1hwbfG/oW2to0uvIVgP6
-         fvBG5t+br3OVnn9Opy4dC7ru/P7lfH7o5ceLGhaGrQhUbf/0BbytX8rj05YQsi04uAHL
-         KrSMcdnjyg4wsIILCCDD4FF47BFAX556SBKBxmHEwMXELwlz1/4pDU2H05Ti8a/HZb17
-         5AtA==
-X-Forwarded-Encrypted: i=1; AHgh+Rre4xnPrMGJ6fQHzRhUHsyG+pAgTJ0+ocDEFMIjoNoVugtVzpRSTkxImyem1FZMj5Cc9WXNakd0AwtQQg5BsMrD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6dK5/LwCYmMb7Bb0Jw9GnpuGVDDUtkcy8A9N6wjH46J74uQl7
-	UAKVHdZZWKpRY4z2bu69XQf80KLwoDN52UasrTu5/fDHcRCPycO54KkOsqcgV4X40c3/ZnUql6Z
-	KksRKW9mRr6zYzSCQfYjuwk0P/mbFRYqxM1IMR8eL
-X-Gm-Gg: AR+sD11Vih1fLclWd0pETKIsWiNdORBdqmHg0QvTXHSXDk73ZTBAwkpYipHKh/Vk9Do
-	wOO7hL8ZSSIe//wce5HMUpuwDWPso3uD6/U4QI0Cp9GKEDYR5RFmVsX5UUUeyMwG4gVJpHzlGZi
-	eMtUR5f/+wOobfktfzQm4V60GjIZE4vJ948YNO0VhRcKxV+xkY7vTsLJfmCT+OR8cwFkW8Xk81i
-	1N9tKuKzYROk3CWnnPcvv8FBXXYMxXpn+PZYOEXPg1R4S5Dt4RAy9BegqWLr8o+Ow/um9sxb0W2
-	ROlU+ybttjCac4Q4
-X-Received: by 2002:a05:690c:e0c:b0:81e:6a1c:e30b with SMTP id
- 00721157ae682-81ef28da7b0mr69266347b3.67.1784710891191; Wed, 22 Jul 2026
- 02:01:31 -0700 (PDT)
+	Wed, 22 Jul 2026 09:04:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E8D41595;
+	Wed, 22 Jul 2026 02:04:12 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A33BF3F86F;
+	Wed, 22 Jul 2026 02:04:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784711056; bh=Uy08OORctNYlnzgl0dsDXziNd6DInQRYFzqtacEn7L8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=E/qgmAozHkMq3Ywwistu37+/zUddgE929GJtnoSOaUIk2X4IzugM1Ug+gW0kSXdmk
+	 YmEQH3I7tUSa+BJfRr/22bjgaWkCVuobRrtOS9uPALNgo5uiZ9QXF1+ipXR5qBnh4K
+	 Y+qO+G20HRIjtp8y/dQk4JunzzFjuKgw3zwo61+Q=
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: steven.price@arm.com,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: [PATCH v4] KVM: arm64: Reject guest_memfd memslots when the VM has MTE
+Date: Wed, 22 Jul 2026 10:03:54 +0100
+Message-ID: <20260722090354.94245-1-alexandru.elisei@arm.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-References: <20260721065413.2306137-1-wenst@chromium.org> <20260721065413.2306137-4-wenst@chromium.org>
- <CAMRc=McsCRBxXMj0xC8H0cgdZZ=Z9_4u_DS9b2z0pLE0=gZr+g@mail.gmail.com>
-In-Reply-To: <CAMRc=McsCRBxXMj0xC8H0cgdZZ=Z9_4u_DS9b2z0pLE0=gZr+g@mail.gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 22 Jul 2026 17:01:20 +0800
-X-Gm-Features: AUfX_mzymMOrnzz3ZSisQQjvbDECVUbqfaXF7TwtpwvIT3XYymwiPHVmpWvFgt8
-Message-ID: <CAGXv+5H_V+J0cvrYjMFdKAQVrPKxPdtimXMc+hwHenwxhb9mDQ@mail.gmail.com>
-Subject: Re: [PATCH v6 03/16] power: sequencing: Add pwrseq_power_is_on()
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_020132_574684_771052B0 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20260722_020420_187715_A38FD45E 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,102 +75,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 5:08=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
->
-> On Tue, 21 Jul 2026 08:53:58 +0200, Chen-Yu Tsai <wenst@chromium.org> sai=
-d:
-> > The power sequencing consumer API already does power on state tracking
-> > internally. Expose the state to consumers through pwrseq_power_is_on()
-> > so that they don't have to reimplement it locally.
-> >
-> > Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> > ---
-> > Changes since v5:
-> > - Reverted back to returning -EINVAL if descriptor is NULL
-> >
-> > Changes since v4:
-> > - Make pwrseq_power_is_on() return 1 if descriptor is NULL, i.e. if
-> >   the descriptor is optional, matching the other pwrseq consumer APIs
-> >
-> > Changes since v3:
-> > - Added missing stub function for !POWER_SEQUENCING
-> >
-> > Changes since v2:
-> > - New patch
-> >
-> > Needs to go in with "usb: hub: Power on connected M.2 E-key connectors"
-> > as it is a build time dependency. Bartosz wants the change on an
-> > immutable branch to pull into the pwrseq tree.
-> > ---
-> >  drivers/power/sequencing/core.c | 18 ++++++++++++++++++
-> >  include/linux/pwrseq/consumer.h |  6 ++++++
-> >  2 files changed, 24 insertions(+)
-> >
-> > diff --git a/drivers/power/sequencing/core.c b/drivers/power/sequencing=
-/core.c
-> > index 02f42da91598..72b96d36920e 100644
-> > --- a/drivers/power/sequencing/core.c
-> > +++ b/drivers/power/sequencing/core.c
-> > @@ -968,6 +968,24 @@ int pwrseq_power_off(struct pwrseq_desc *desc)
-> >  }
-> >  EXPORT_SYMBOL_GPL(pwrseq_power_off);
-> >
-> > +/**
-> > + * pwrseq_power_is_on() - Queries the last requested state of the powe=
-r sequencer.
-> > + * @desc: Descriptor referencing the power sequencer.
-> > + *
-> > + * This returns the last requested state of the power sequencer.
-> > + *
-> > + * Returns:
-> > + * On success, 1 for on and 0 for off; negative error number on failur=
-e.
-> > + */
-> > +int pwrseq_power_is_on(struct pwrseq_desc *desc)
-> > +{
-> > +     if (!desc)
-> > +             return -EINVAL;
-> > +
-> > +     return desc->powered_on;
-> > +}
-> > +EXPORT_SYMBOL_GPL(pwrseq_power_is_on);
-> > +
->
-> Didn't we agree on introducing an enum to make it future-proof for when w=
-e
-> also pull in pwrseq_is_controllable() from Loic?
+The user cannot use MTE on VMAs created by mapping a guest_memfd file,
+as arch_calc_vm_flag_bits() does not set VM_MTE_ALLOWED.
 
-My bad. I misunderstood and thought it wasn't needed yet.
+When creating a guest_memfd backed memslot,
+kvm_arch_prepare_memory_region() rejects the memslot if MTE is enabled for
+the VM and if guest_memfd has been mapped in a VMA that intersects the
+memslot.
 
-> I think this should work like so:
->
-> enum {
->         PWRSEQ_STATE_UNKNOWN,
->         PWRSEQ_STATE_ON,
->         PWRSEQ_STATE_OFF,
-> };
->
-> int pwrseq_get_state(struct pwrseq_desc *desc)
-> {
+However, the documentation for KVM_SET_USER_MEMORY_REGION2 explicitly
+states that the only condition for userspace_addr is for it to be a legal
+userspace address, but the mapping is not required to be valid nor
+populated at memslot creation.
 
-I think you still want this here?
+If userspace sets userspace_addr to an address that hasn't been mapped, or
+if userspace_addr belongs to a VMA that isn't backed by the guest_memfd
+file, or if the VMA doesn't intersect the memslot, memslot creation is
+successful and KVM ends up with a VM with MTE and guest_memfd-backed
+memslots.
 
-          if (!desc)
-                    return -EINVAL;
+The same happens if the order is reversed: when userspace enables MTE, KVM
+does not check if memslots backed by guest_memfd are already present.
 
+Fix both issues by rejecting guest_memfd-backed memslots when MTE is
+enabled, and by rejecting MTE when guest_memfd-backed memslots are already
+present.
 
->         /* Only once this is upstream. */
->         if (!pwrseq_is_controllable(desc))
->                 return PWRSEQ_STATE_UNKNOWN;
->
->         return desc->powred_on ? PWRSEQ_STATE_ON : PWRSEQ_STATE_OFF;
-> }
->
-> Bart
+Fixes: 32e200bd6e44 ("KVM: arm64: Enable support for guest_memfd backed memory")
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+---
 
+v3 can be found at [1].
 
-Thanks
-ChenYu
+Changes in v4:
+
+* Fixed the wording in docs (Fuad)
+* Added Reviewed-by from Fuad (thanks!)
+
+[1] https://lore.kernel.org/kvmarm/20260721100654.476582-1-alexandru.elisei@arm.com/
+
+ Documentation/virt/kvm/api.rst |  6 ++++++
+ arch/arm64/kvm/arm.c           | 25 +++++++++++++++++++------
+ arch/arm64/kvm/mmu.c           |  4 ++++
+ 3 files changed, 29 insertions(+), 6 deletions(-)
+
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index a5f9ee92f43e..e3003a241d5b 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -8414,6 +8414,12 @@ When this capability is enabled all memory in memslots must be mapped as
+ attempts to create a memslot with an invalid mmap will result in an
+ -EINVAL return.
+ 
++``guest_memfd``, even though it is an anonymous file, is not supported with MTE.
++Attempting to create a memslot backed by ``guest_memfd`` when the MTE capability
++is enabled, or attempting to enable the MTE capability after
++``guest_memfd``-backed memslots have been created, will result in an -EINVAL
++return.
++
+ When enabled the VMM may make use of the ``KVM_ARM_MTE_COPY_TAGS`` ioctl to
+ perform a bulk copy of tags to/from the guest.
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 50adfff75be8..9a6c72a18672 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -149,14 +149,27 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+ 		set_bit(KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
+ 			&kvm->arch.flags);
+ 		break;
+-	case KVM_CAP_ARM_MTE:
+-		mutex_lock(&kvm->lock);
+-		if (system_supports_mte() && !kvm->created_vcpus) {
+-			r = 0;
+-			set_bit(KVM_ARCH_FLAG_MTE_ENABLED, &kvm->arch.flags);
++	case KVM_CAP_ARM_MTE: {
++		struct kvm_memory_slot *memslot;
++		int bkt;
++
++		guard(mutex)(&kvm->lock);
++		if (!system_supports_mte() || kvm->created_vcpus)
++			break;
++
++		r = 0;
++		guard(mutex)(&kvm->slots_lock);
++		kvm_for_each_memslot(memslot, bkt, kvm_memslots(kvm)) {
++			if (kvm_slot_has_gmem(memslot)) {
++				r = -EINVAL;
++				break;
++			}
+ 		}
+-		mutex_unlock(&kvm->lock);
++		if (r == 0)
++			set_bit(KVM_ARCH_FLAG_MTE_ENABLED, &kvm->arch.flags);
+ 		break;
++
++	}
+ 	case KVM_CAP_ARM_SYSTEM_SUSPEND:
+ 		r = 0;
+ 		set_bit(KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED, &kvm->arch.flags);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6c941aaa10c6..2d95203386ba 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2652,6 +2652,10 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 	if (kvm_slot_has_gmem(new) && !kvm_memslot_is_gmem_only(new))
+ 		return -EINVAL;
+ 
++	/* guest_memfd is incompatible with MTE. */
++	if (kvm_slot_has_gmem(new) && kvm_has_mte(kvm))
++		return -EINVAL;
++
+ 	hva = new->userspace_addr;
+ 	reg_end = hva + (new->npages << PAGE_SHIFT);
+ 
+
+base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+-- 
+2.55.0
+
 
