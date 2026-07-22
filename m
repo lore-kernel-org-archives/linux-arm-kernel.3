@@ -4,79 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A73C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA39C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BGNGta0Th1BbHantorEBy2MK9WW2yjWjTxgQGn2Ki7A=; b=j8aeX0ioPLOID/nORJaXNBtQzp
-	ItF93P5yFs2wJZTj4mLOyIdnWQ2goXw/pQ6UE4S9inpeQYDzTf/7HVsbUzUjc8GkYrCUv2GBEHN9v
-	XYF4+wrrGKqvuvUDysH2SSfa0KjMfvoOK39+1yhsOGyFKqduSKA1ySr6coPtGN5s9yAhdxtBsdBW1
-	lpiwQttSQLLJ2tLsE7RiRzvcfojXCjJ1tf8s0vsgpl+sjmItaRzkpqL9ilXVVDCOripwmFsxthNgV
-	4nS2WcLmCIPIPxy4QLIBW+iHGoovcRW/WXtjoNlmf96pVid5mErA0XRGgilSFj8kYeH4rdKraVi+m
-	gftmMO3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Be7ki6vK/xn0+oCLdCDxbR/0FpklBhaV2q9V9xUdT4=; b=EL4GjoVjLFNNY5qC3UMJSkAkmm
+	28aQOCT6ZzXsU92TT7oW+BrvxgxJ35E/h28qDC1k2kzj9otdlhJS5upL3m9eP6uD8Bb64CgSIh+WK
+	iHFSFXoVvhiaNqdwyBe+GdzoiBjpcgT+tlTT3jWqKPUZonRbjTHLhXRs2UDv251u0f6PD2YYv+RWh
+	xjWtW9oloGJGBk1eUMpZAYKrlnaNHC19kjuzIZxaJZBeBRBr1kbttmVIrKG4lkt1WL/GN2kM+9Xym
+	RshHqzwspsqlw7upsKTp6qHPA2LzOqaaU5fHe5fpDJSX2AYnTM3adk60i2W5K4MrruSQCmyX5MZ+Z
+	Rpz0ovcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXFC-0000000Bw2Z-3tZ1;
-	Wed, 22 Jul 2026 13:44:18 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wmXJ2-0000000Bwc0-1xzv;
+	Wed, 22 Jul 2026 13:48:16 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXF9-0000000Bw1v-44xU;
-	Wed, 22 Jul 2026 13:44:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784727845; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=h8tWv/wBPEDSBfIo/DI73iRDbFHi6RiaCVImxXmEgtIgy06N/KdSmmNQXwlJtlwvRZ8Ws3pE+JfhMQcbvemIkkSG00N6Q6z1BobqiKGTELk2mIN/dwo6rbGyjkzOnXIqudy40L+6wYU7MrvRy/qV15O1ThBsM3iqTOQjYd4FEOA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784727845; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=BGNGta0Th1BbHantorEBy2MK9WW2yjWjTxgQGn2Ki7A=; 
-	b=DMYewNjgiNpe0C+Cm+cDQ7ekMukv8EOAg+FqPrc+2/QOswEHdCu/wTa4oJD6LgQAMvwLDwgT1r7HBcim7sGOhHxLKk/19NdeSJlm6N5QVVxpum1qs9ylbv6+GruKLJ55qIK6VYM90VSgs0h4SSDOkgEC1VQUrJgInxcUpiEbBGQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784727845;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=BGNGta0Th1BbHantorEBy2MK9WW2yjWjTxgQGn2Ki7A=;
-	b=h8g7xu2gzADe2+6650Mi4Fd9f8IlRhciEePMNKtgYwoIK/GjN9aQtpfq5s8eLx0r
-	YQlbfviEuQ9NjpUu0qwX/uejoEDU7nI7hhue0kbAlkFMQXv/sM3sTLxW4QS03P3ss6G
-	hbKdZUj+xl700ISMi9tp5m85d1r/tCAUSy342ID8=
-Received: by mx.zohomail.com with SMTPS id 1784727842465237.23228134706085;
-	Wed, 22 Jul 2026 06:44:02 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 608C318090F; Wed, 22 Jul 2026 15:43:57 +0200 (CEST)
-Date: Wed, 22 Jul 2026 15:43:57 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Alexey Charkov <alchark@flipper.net>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Wyon Bi <bivvy.bi@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, Detlev Casanova <detlev.casanova@collabora.com>, 
-	Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>, 
-	Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: rockchip: Fractional PLL coefficient on
- RK3588/RK3576 is two's complement
-Message-ID: <amDC9ZfBAD2xbhqa@venus>
-References: <20260721-rk3588-fracpll-v1-1-b289bf17cf17@flipper.net>
- <7f3924ab-52fc-4fb6-91b4-42a5e55d5c76@cherry.de>
- <CAKTNdwE=s6XG==4HvbaEV86DATWO6egVxLgNE4LpjFaXNQP7_g@mail.gmail.com>
- <b0111164-3726-4a1b-bc3a-0e678ea2ecad@cherry.de>
+	id 1wmXIz-0000000Bwb0-1TDM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 13:48:14 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66MDWVg51027040
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 13:48:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=7Be7ki6vK/xn0+oCLdCDxbR/
+	0FpklBhaV2q9V9xUdT4=; b=G4BI1watR9030JH3rl0J/3CNSSnWc6Kc8DdT3/88
+	hg24BRR+yqvQy+IolUOyKC4OAQ5CHy/1bdVWlAZZdvBGhZbjZVp3nTnf1yUe9VUu
+	870pnyjDNYGixgo7CBgfl/I0MnTDKwzQon5n0aw9gLHxPc2u8SACus2KNkpzT5TA
+	9O/ajon9KezgR9JXod2NtwenE+zhnRFO4qUg5ePvnzVKn7K+R0S932kJ/S5YiR+7
+	XmDwIRygTYpZ/1hFm0Ow4YXcW/zgrDN8duiMaQ8Y+/QiXNBshSMJ0wwwWzLoruJO
+	Zwg9OKDwa7u0U3h7gbk9kJqO6V+SVqn2KmFApagoddRjZA==
+Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fjt7999wn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 13:48:11 +0000 (GMT)
+Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-7ec5495f105so7525282a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 06:48:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784728091; x=1785332891; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7Be7ki6vK/xn0+oCLdCDxbR/0FpklBhaV2q9V9xUdT4=;
+        b=B10PkptYwk/EVFtCwUVxNFwWmliGFIr7bAe8IFBaLFbTOwqE8zO6RNiMxj+dVaHZh+
+         5pnhsRq+5vJsKy4pvCkdjw1vMZhrimCjI9xCi/kV0hq8eFnrrxTxBoSgaPLMtrVTYoUa
+         2B+2SZj1owmijFNrMvLzPYADgor74rcmuK11ABtUvX/WHWJV5Kjb163QJkkYy8NxSEAx
+         rJEBs/tuSGaHn0tGTTtslGLDRfvmILeXMDDe544N6KPpMx948k9aetZrYeTS688Wa6xI
+         K9C5SgVamOR+NJZF8pwNT59Xt9F6m3W2eDW/DxyKxdE2H/JUjL13olS3SdDNsKFu2SoU
+         ZFiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784728091; x=1785332891;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7Be7ki6vK/xn0+oCLdCDxbR/0FpklBhaV2q9V9xUdT4=;
+        b=eD+Q5Y72YZ49jhUPGpUV/fTrC7bjJR7xMnFt1khEXxKGfdgalPYzD0fsQWOLWQBD+C
+         OD97Xez4nUwM9Lq6EFNPAHXUn0uiv42oK/XwtkqZPwwECV5mU3LmnqDOGnVXwhtbfQAC
+         EaVDTVbsTPRjzCYitDpMy4lCncKEb1IAx8IlnrBsvjyz+Zb73vVGYGOhDYQY4/qnw1eh
+         HxOOPdT6cVm4rGl52rZpxZBshYL7g3cFyBYCwhqN6TL7GvFJ7kpz5rD/yHYJzOfmoWLt
+         t+8By8cYNsok7e7wkjJUKScgA8n0ENSvdxXppFO2fyyC2hhJ6/kyelm3ok71SPbZc17O
+         0Ijg==
+X-Forwarded-Encrypted: i=1; AHgh+RoEjrzKxOqCskbON2+ZFshu71S5+NVm6W5rxrg9CcsuQm1+ZuLApgxMja2kmoMfTN07pDHqsy3t41LG2kwZ0JJH@lists.infradead.org
+X-Gm-Message-State: AOJu0YznOiU3Y7bKgt+9MpHXhCjBufqDk1LkbKk6sBcZTf/bDayV7SY+
+	8sNxG8AO6ODLeErdgaWuYRRKlaqAG3Yit7j5sORyzLVeTDOxRb0qrPbSIUHr8YWwVjFt1oGpMPp
+	yFeZT7gimCmTFNI04ImnOsT26ZduQro6FGGtJt/IOP9NhevXLmnWRRb9rk3wROOERoNHN2KoRBy
+	j3Sw==
+X-Gm-Gg: AR+sD10e452b3Y07kXCdbkvFL0iYDDZ8tyvHmjZiar0uY+fKQELap023vnw5iA9bcqx
+	M71IQn6SOO0jDK3xIA1/ogkm20LSnq5MVvT+mvhwujSoGk7VYfjFNE68cQ86H/n7lH4jcl9P834
+	Oxpi8qS9NPuaIIEtwYLgnhXzejsB8ZtbR4aWP/4tkR4p4r9xmEm2EDGED/sihoYGOcgGviC4Nog
+	y3lMlkVo3CUa+8qxf5rfqlyFoeK9iZuYo5oE8aQlMv13s8C69hvlXjrMuKvuDtY8hjmp67fg/Nq
+	L7c0oN8q8V9BS75/YUSaBAnDz1cvDt0lyKRoPmfYxsUpklexeWBURuOG1LozH2K3py8HNpSBZZ8
+	Vz9on7EG4UyjKXg==
+X-Received: by 2002:a05:6820:178e:b0:6a3:8898:1811 with SMTP id 006d021491bc7-6a5366916ebmr12060447eaf.13.1784728090843;
+        Wed, 22 Jul 2026 06:48:10 -0700 (PDT)
+X-Received: by 2002:a05:6820:178e:b0:6a3:8898:1811 with SMTP id 006d021491bc7-6a5366916ebmr12060388eaf.13.1784728088469;
+        Wed, 22 Jul 2026 06:48:08 -0700 (PDT)
+Received: from oss.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6aa73256e7dsm1571864eaf.0.2026.07.22.06.48.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 06:48:08 -0700 (PDT)
+Date: Wed, 22 Jul 2026 19:17:59 +0530
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Zxyan Zhu <zxyan0222@gmail.com>, netdev@vger.kernel.org,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S . Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Russell King <rmk+kernel@armlinux.org.uk>,
+        Serge Semin <fancer.lancer@gmail.com>,
+        Romain Gantois <romain.gantois@bootlin.com>,
+        Hariprasad Kelam <hkelam@marvell.com>,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: Skip PHY attach if custom PCS is in use
+Message-ID: <amDKD/9aPYXctiWI@oss.qualcomm.com>
+References: <20260722131918.685761-1-zxyan0222@gmail.com>
+ <b8f125be-e91f-4b44-8664-5746edb28f33@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b0111164-3726-4a1b-bc3a-0e678ea2ecad@cherry.de>
-Content-Transfer-Encoding: quoted-printable
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.708.77
-X-ZohoMailClient: External
+In-Reply-To: <b8f125be-e91f-4b44-8664-5746edb28f33@bootlin.com>
+X-Authority-Analysis: v=2.4 cv=Sr6gLvO0 c=1 sm=1 tr=0 ts=6a60ca1b cx=c_pps
+ a=7uPEO8VhqeOX8vTJ3z8K6Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=VwQbUJbxAAAA:8 a=PHq6YzTAAAAA:8 a=A-68_CoszbapnMyn-RYA:9 a=CjuIK1q_8ugA:10
+ a=EXS-LbY8YePsIyqnH6vw:22 a=ZKzU8r6zoKMcqsNulkmm:22
+X-Proofpoint-ORIG-GUID: 9FafN50ouPIThYWxN8DuzKSUSwt6y-CK
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIyMDEzNSBTYWx0ZWRfXzJEfxgDoBvn3
+ I0BKuE439E1reGYwPKohE9dR//RvMN6hwHyWlxLF+Z0PmtGVaNzNflpC5EGHg1sSzXa1H+dffvW
+ uHwcQGjukT/qXfSTF/uNeGhxb5HDQLkOXPS5OVvNc0cOTQRGdowtI25j1T06UF4CF7BmBvEk1C3
+ Wtf3XfWwtgJwUAY2lDV62bFPVPcLG1ilN2CqvPecXmmGGFKTv/Q0DYI7qimWO1vH+huHykRcGnR
+ W6OFcroumVwE+Qf41/h2n6ifHxf2A7aWAUnX0A8oU7ffP9oDKqPXRelN6NoZlQ+gSKFMcEXx6Lk
+ elmP5Qaeg3JnHvld4h5Uy+vR68yZsExLFh96EQN2tA8r3IKI6zWajbB8CqKc3h0pW7fdzBmc2Np
+ b0kjkLi1xLZSbbnQHReF80/SCaJhidJbd4YF5h53YXFlCPWou3sz5DZLKjuA19B7X9OmTfrK2pi
+ MGCBZjBG5RD7OmyQ60A==
+X-Proofpoint-GUID: 9FafN50ouPIThYWxN8DuzKSUSwt6y-CK
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIyMDEzNSBTYWx0ZWRfXz9aC33EqbKC/
+ T4oAaoNUKfdnUU0qovEOaDKfj4HziwWR7QnT1I+oFoKin1cMeoB2AqB4ILHsIRCg+0k1raLDiPJ
+ TDOujqUNRM6GXAPdcSE9HQtqMKAx7Xk=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-22_04,2026-07-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
+ adultscore=0 clxscore=1015 impostorscore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607220135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_064416_067084_40C8FD04 
-X-CRM114-Status: GOOD (  24.15  )
+X-CRM114-CacheID: sfid-20260722_064813_515628_759F883A 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,54 +158,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alexey,
+On Wed, Jul 22, 2026 at 03:40:08PM +0200, Maxime Chevallier wrote:
+> Hi,
+> 
+> +Mohd
+> 
+> On 7/22/26 15:19, Zxyan Zhu wrote:
+> > When a platform provides a custom PCS via the pcs_init callback
+> > (e.g., for USXGMII with in-band autoneg), the MAC's phylink_pcs
+> > is already configured. In this case, phylink validates against
+> > the PCS's supported interfaces and manages link state through
+> > the PCS, so no traditional PHY device is needed.
+> > 
+> > Without this, stmmac_init_phy() falls through to the
+> > no-phy-node path and errors out with "no phy found" when
+> > the DT has no phy-handle for such interfaces.
+> > 
+> > Skip the PHY attach when priv->hw->phylink_pcs is already set
+> > and no phy-handle is specified in the device tree, allowing
+> > platform PCS implementations to handle the link autonomously.
+> 
+> Hmpf this bug again...
+> 
+> There have been multiple attempts at solving this, cf this thread :
+> 
+> https://lore.kernel.org/netdev/E1w66jW-0000000E3qS-23fW@rmk-PC.armlinux.org.uk/
+> 
+> Now, there wasn't any conclusion on that, but I _think_ the proper
+> solution is to re-apply Russell's original patch (the one in the link above)
+> and to add this current patch on top of it.
+> 
+> Russell states that this may (will ?) break qcom-ethqos, but OTOH
+> we're in need for a solution here, and with the pace of PCS-related
+> work that impacts stmmac, there's going to be a point where we may
+> need to think about compatibility.
+> 
+> TBF I don't understand the qcom-ethqos issue, maybe Mohd can help
+> with testing here ?
+> 
 
-On Wed, Jul 22, 2026 at 02:59:25PM +0200, Quentin Schulz wrote:
-> On 7/22/26 1:00 PM, Alexey Charkov wrote:
-> > On Wed, Jul 22, 2026 at 2:35=E2=80=AFPM Quentin Schulz <quentin.schul=
-z@cherry.de> wrote:
-> > > On 7/21/26 9:17 PM, Alexey Charkov wrote:
-> > > > Not adding Cc stable, because while this fixes a real bug it's no=
-t a
-> > > > regression, as the issue was introduced in the same commit that a=
-dded the
-> > > > RK3576/RK3588 support.
-> > >=20
-> > > I don't think this is a valid reason :)
-> >=20
-> > I believe Linus frowns upon changes like "it never worked, but we've
-> > fixed it now" being submitted as fixes. It's been broken for years,
-> > and since nobody complained yet, going via the normal development pat=
-h
-> > (i.e. -next) seems perfectly fine to me.
->=20
-> My bet is because of the Fixes: it'll get backported anyway even
-> if you don't put Cc: stable. In any case, I don't care too much :)
+Sure, I can help test out qcom-ethqos and see if and where it breaks.
 
-FWIW you are mixing up things. Linus does not handle the stable
-kernels. He does the release candidates and the initial version of
-every kernel release. The stable releases are handled by the stable
-maintainers. Linus only said, that he does not want to get these
-kind of fixes during late -rc phase. That makes sense considering
-fixes also have a chance of introducing regressions.
+We could not arrive at a conclusion the last time because I ran out of
+options to try and find a proper solution. So if it still breaks, I will
+spend some time and brainstorm qcom-ethqos's interaction with the
+integrated PCS, again.
 
-But if patches end up in a pull request for an -rc kernel or in the
-pull request for the next merge window depends on the maintainer
-applying the patch (i.e. Heiko). The maintainer can queue a patch
-with all those tags into the normal for-next queue targeting the
-following merge window. This results in the patch being in
-linux-next for a while, then being added to the master branch during
-a merge window and then being added to the stable trees (as stable
-only picks patches that are in mainline).
+	Ayaan
 
-The maintainer can also merge a patch to the queue for -rc kernels
-without the Cc stable. That is exactly what happens for a regression
-from a normal patch in the merge window, since the affected patch
-wouldn't be in any stable kernel.
-
-TLDR: The Cc stable tag has nothing to do with Linus.
-
-Greetings,
-
--- Sebastian
 
