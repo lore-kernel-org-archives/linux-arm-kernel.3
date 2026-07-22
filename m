@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BAFC4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246C3C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1AsC7BFG5mj92FJSoHowKooJs6gEPFD7nWYs6mjDbh0=; b=Jt4ygdoQJw4CjJfVQ8y1GhPwKd
-	bIdC9JRvHTI3+SDR/hqtumm5k9AHxpOYAuihFen/phEmw/ALNIDe3/LRCkgnTDIt/z5AuvKCZQjPj
-	9IxNIiM2wXMI2yK8QldZyfaihiwhtIw9rJ7zTBmxCns3sGdijg0foMqJaMvFMTeU1iN4xKgSsqSgy
-	s9Q8+Ye/QHZbgt3OoWx/eJ+9ZgAeRXc9yD71xcdGfMZjVc3pvtFR0/msMR9Da+hsnI5K/ziT2FPOy
-	RcPfx851vReojSGjJgA+qOJexBPabcZMCs9i0LGkY7AkLpmw989tIWyDjyK/3llu2HarAYFWegKXj
-	6YAdEXNQ==;
+	bh=GL2pSyfUqjuPmverPU2rNkWROn+3SQ8dGrBCAoNYays=; b=gqyYvHSM7dFBm9GAW0lWZ7Mg22
+	f0u4LEx8rIoFKGkdb2aJP0OgCjxMJ8rN40bQzEO2RCXQAGu0vM5mUbPo/F3ozM3bgifJNYKsaEw6P
+	KWG/pdGM1kHKm0aBFlNKGNA+UKmNdkPIAfVjPGrQdCF4C89PxXUkwghbNc/gd+CTPXeD1j0s3H7P/
+	ANpk85iiq5o/SeMdpCWB0SvHb6qv60eCyPieRBkBf5oYpR7aTbdlcjBtHD57TOOlW34ovjOPT7KcH
+	8JaRm2Up717nxUpNn4CftqxBFs2STKw8a9ymtLpyf/NaCEjcsZq+oPrtglCYrWstYcg2vucz0iUyN
+	iqLxp1Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wma5L-0000000CNyo-1Zfy;
-	Wed, 22 Jul 2026 16:46:19 +0000
+	id 1wmaBE-0000000COSR-05Sg;
+	Wed, 22 Jul 2026 16:52:24 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wma5K-0000000CNyQ-1gS3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 16:46:18 +0000
+	id 1wmaBD-0000000COSC-0bnU;
+	Wed, 22 Jul 2026 16:52:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C061600B0;
-	Wed, 22 Jul 2026 16:46:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4934B1F000E9;
-	Wed, 22 Jul 2026 16:46:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1BF0A600C3;
+	Wed, 22 Jul 2026 16:52:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D851F000E9;
+	Wed, 22 Jul 2026 16:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784738777;
-	bh=1AsC7BFG5mj92FJSoHowKooJs6gEPFD7nWYs6mjDbh0=;
+	s=k20260515; t=1784739141;
+	bh=GL2pSyfUqjuPmverPU2rNkWROn+3SQ8dGrBCAoNYays=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cnxW2ckTw/3C5NxLkORl5zEfiqs3MuVpK71LXlX/M3EOPYsLP4fEOP5TG3KFwmZwL
-	 eXHbOns5sAw1gmrYHWLYxMzIJdRONeyyvIbd1rVKus/sJoBQ7iK1bKd6k+c+qvgZGU
-	 Hc2HeW6o7Ex9GmPXO8x8WiJSQj98rj/KqpSOIIZeZpNiJ1sTS23LnrNC/H+aUIaSY9
-	 oBilkqgwShMHwo1Y3GD2NInFd15JkDWknwaWMOC4XUTA3B05w2+xyXA5Ixpb8FuRwh
-	 Tj/WMuZWZEQ06ZuHY36i8inF0GtRb5lX2xnHo2mxmw4bNIE0t81fkWFLzqSrzTHAM3
-	 0ywAdQNCIO/aQ==
-Date: Wed, 22 Jul 2026 17:46:12 +0100
-From: Conor Dooley <conor@kernel.org>
-To: han.xu@oss.nxp.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
-	Han Xu <han.xu@nxp.com>
-Subject: Re: [PATCH v2 1/3] spi: dt-bindings: nxp,imx94-xspi: add DMA
- properties
-Message-ID: <20260722-divinity-urethane-da0cab030adb@spud>
-References: <20260721-xspi_dma_upstream-v2-0-9e19d80e7762@nxp.com>
- <20260721-xspi_dma_upstream-v2-1-9e19d80e7762@nxp.com>
+	b=DpFHoyV0VFzABFLUPR7icr9hWT7ghJ6g3aNli0e/diFud0wL7Cm3kFotmEPSNYqHj
+	 4WmkKbR8kP0jQFRPjeO5JmcDEGYx08WsaNe55rJZ/lx/OlHO/4TAIH32OMch3eu0+r
+	 hEBY031rVJByEP4q9/pdc9MbqGiWu2j0dCeHvz7d1G6W76sT4KNnywdZUSc/kHDvRi
+	 IRmUVnCUp6x1vGfZv71ZPpQjS9FRzGlNsbOCwUAvmMs0urk3vjTxkoz6Umm1NG9EAI
+	 bS2umLIzRe5jJQx0+q784VYxhZON5JEwdkrw4Y4CE9ERy9LT+tZkN6uZfW4KAi/IpD
+	 I9OoC79v7RBZw==
+Date: Wed, 22 Jul 2026 11:52:19 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-clk@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	linux-pci@vger.kernel.org, Brian Masney <bmasney@redhat.com>,
+	devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v4 3/4] dt-bindings: PCI: mediatek-gen3: Split Airoha
+ schema and document 2-lanes
+Message-ID: <178473913929.1097113.176772633054348550.robh@kernel.org>
+References: <20260714115848.8537-1-ansuelsmth@gmail.com>
+ <20260714115848.8537-4-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uzpimjthc/PatwgU"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260721-xspi_dma_upstream-v2-1-9e19d80e7762@nxp.com>
+In-Reply-To: <20260714115848.8537-4-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +84,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---uzpimjthc/PatwgU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jul 21, 2026 at 04:01:42PM -0500, han.xu@oss.nxp.com wrote:
-> From: Han Xu <han.xu@nxp.com>
->=20
-> Add dmas and dma-names to describe TX and RX DMA channels for the i.MX94
-> XSPI controller.
->=20
-> Signed-off-by: Han Xu <han.xu@nxp.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
+On Tue, 14 Jul 2026 13:58:45 +0200, Christian Marangi wrote:
+> To permit proper documentation of required property to support PCIe
+> configured for 2-lanes mode, split the Airoha schema part from the
+> mediatek-gen3 schema to a dedicated schema.
+> 
+> A PCIe configured for 2-lanes mode require an additional reg for the
+> secondary PCIe to be configured and the airoha,scu phandle to correctly
+> configure the PCIe MUX.
+> 
+> Rework the mediatek-gen3 schema to drop any redundant constraint previsouly
+> introduced for Airoha PCIe properties.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
->  Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml b/=
-Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
-> index 16a0598c6d033..ccf841f194c06 100644
-> --- a/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
-> @@ -30,6 +30,16 @@ properties:
->        - const: base
->        - const: mmap
-> =20
-> +  dmas:
-> +    items:
-> +      - description: Transmit DMA
-> +      - description: Receive DMA
-> +
-> +  dma-names:
-> +    items:
-> +      - const: tx
-> +      - const: rx
-> +
->    interrupts:
->      items:
->        - description: interrupt for EENV0
->=20
-> --=20
-> 2.34.1
->=20
+>  .../bindings/pci/airoha,en7581-pcie.yaml      | 244 ++++++++++++++++++
+>  .../bindings/pci/mediatek-pcie-gen3.yaml      |  77 +-----
+>  2 files changed, 249 insertions(+), 72 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml
+> 
 
---uzpimjthc/PatwgU
-Content-Type: application/pgp-signature; name=signature.asc
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCamDz1AAKCRB4tDGHoIJi
-0gBjAQDDaTVY/p3HfrZwRPlKeI6O0mHfuCHsA7jzs8i8/hBsHQEAn37K39nj07xY
-j6UCwmnMPTvle1FzwgbmdqflUB0/0Ao=
-=Wa/1
------END PGP SIGNATURE-----
-
---uzpimjthc/PatwgU--
 
