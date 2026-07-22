@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D929AC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A4BC4453D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04rpi8Qi0ASHQrqKFAWwcdZ+O/U1M86p5o7kV03aHOQ=; b=U+aWe66pvCgnaxNemoopFQr271
-	lxpGJqS/7ZVF1/tFaA87JYlF35zXIXzm3gEG0k2KutnZUSzWhZrRdoKNSH8fwYh3mh8rgdBijQfg3
-	iO0lrQc0AieWtielkk1SwVpz6XDxSRE5Ac+sL9AXVCECwU7jJpizTkQJXzkqcXlS0zY6ZW5cdhhdh
-	f8q1okouNpHwPi97rz/6ER0WqcRQxHxSEbAObBdOGIyyPpPNk5AArSTFcTgZH7N3zi5hfqFVsI5+P
-	E4TbIE40nAuZZgAKflnHLXGhV1uPbBLRahVGE52DMoAUHEY/eiUMW8SfUWrQaahP6EdkdyZHdAucB
-	vi0Z5bEA==;
+	bh=nbs10KidpIGqlIc5os/QD3BMwoPJkkDhyGReQO8E1Eg=; b=hDKeh0OwLIqwx3qoA/OuiGE9Gl
+	gKIh+qCewcW3CuQMkQqAUBok44FJtlMLrSPfkjmoB9yXDEwZRElQWov99arXR17D9B6jlTEk77rH8
+	Co7JuQEZeHE/7iDcg2GvG8xevyNGgst68SH0N8nWXbBehosht4d0Ph41ob5CuM2MkG3557KhUItVS
+	RH/J54QeMENibJ1W10/w3gTWK/RiIN7uvkD9gYVPUn8cMHdk0PJ85p4rtXM6cSsWp/+2Ji0Mb+zOp
+	+Xw6fl/FPzM6avUC3lGWMPIQa8cX3ZSQ77jOWibmHsbc57Fgp+gFmU0Wt2tKA8Kdo42iKlWwfAy5U
+	EIEThn4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmU78-0000000BXhY-2jBH;
-	Wed, 22 Jul 2026 10:23:46 +0000
+	id 1wmU7L-0000000BXpB-09lR;
+	Wed, 22 Jul 2026 10:23:59 +0000
 Received: from extorris.mess.org ([92.243.27.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmU76-0000000BXfJ-1nUP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 10:23:45 +0000
+	id 1wmU76-0000000BXfP-2Ogl;
+	Wed, 22 Jul 2026 10:23:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1784715819; bh=PFYYQhVg4NRarAQ81g5gFeRQ3Pkd+XUXZYeUxj9P9Kk=;
+	t=1784715820; bh=v0aZIk+G8qQOaUMq8H69z/O75gsUb1OibfhX/UC/5PI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=a+ppJtpyAATcCXU3G/xQl9DMxrcl1gkAlSh56EZ72Mol1bjLALaDa3jQSbG5XHons
-	 ZOLc65wXl2ksd58VogQ0DEv5Jhbs/DNAAgD5od+bCs4Z++hYekZTsvOOk6F3yR40V9
-	 184JLGyS5F7C6RigdI1ZNBrkpeBvHwLNIjRJ1TIqWVb49JcE2R8gHlFcAKWprNVsp6
-	 DUf5oXk+y0IptKnyjcGO6s3qcijjGX8eXtXCYa2D2lDKDp+zJvvz5lLFZxft+nswF2
-	 D8BSuHsh1vlFyo7WaeZICleToJbrpgY+UAXBD2/h5cYJZtn2egslW1LFlccwYZOu5N
-	 2JUeJeQJS/4MA==
+	b=p8nIqaVy2DRAugJh8aw//UBb54MV40uLKDuKRL1RlRkX+MpGQcinX4Og9iqb3+Z6l
+	 C9vTi7FtrqrajL9bKCSxY4S69e5YoaXj9FP785NDijsteKl8d3oSMfJ+O0eLtkWFyK
+	 bNG6N3Ai7ykyR+R+lEScdY/++kzhcf7gLgUP/yHpFDlaS11CNpuKxBu2ojkO71EU1j
+	 RK2jydoXQyr/9pa9yoViRbJJV/EaghpzUisfrEJe/6rzzEHwJirrnsDf47ZFP4KYJp
+	 kPi+MXEVF3zqhzY/fCIqZhV+HZhMzZFScF6eLJNacTqFkrlVBn+ttXWzWhvwlEF+Tq
+	 pL69BC263WWrQ==
 Received: by extorris.mess.org (Postfix, from userid 1004)
-	id 8C0E142530; Wed, 22 Jul 2026 11:23:39 +0100 (BST)
+	id 70BF04254C; Wed, 22 Jul 2026 11:23:40 +0100 (BST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1784715818; bh=PFYYQhVg4NRarAQ81g5gFeRQ3Pkd+XUXZYeUxj9P9Kk=;
+	t=1784715819; bh=v0aZIk+G8qQOaUMq8H69z/O75gsUb1OibfhX/UC/5PI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Uv2FKRFT84ykdKx7onLLSFTGseJbNEemYGtWO+rOyasrKPrnWmQMAdrYVvhXq0ZNx
-	 pQ85hOrm9R2FigNnlnekCma9uR1rl/MjaBsHQ7eDL7a4NXvE+At+/MhuCJIItC5hdX
-	 0HNuWSjKRxyGHc93YXKf/YZ2VIU4h5Ug0/f8t/r92u/kfXNjeW7StJztyptjttCzRx
-	 kP0iiW9C4oVsY5ub4bY3PykIaKMRa3BwrwcZ0G3ZafuTLMbo5i0JSvE1+LPA5ZBKq+
-	 vWb4JwcuhyekZ3rleVemrKwscQ0Y3wHBtAgngJ0Ol0qAi0+60AuNBYp1y7cvkQNR0U
-	 QsqmOC9ssDEcg==
+	b=mDQMFol5QBHHj3Osr3lFNkgmOfBFQ3HLbZ0N14Iuyn3D4GVP/e2erCiWqaO/I0u3n
+	 vDdg3N6fLu3cEJCs1HxkpKzVW2c61m/Z+/WiOGdAL1EPqvDxz8YX2JjSJFAdfU840n
+	 93TeS/6TRrvENsGMVBQrTSe2HSHrvG67Hansj69c9xhhzRH+MeS7Fwv7t6RnIyiekt
+	 sBHMtgtLfctNuQTjSscPdiBiSYfQ1KGFzCVDCItN8NddINsVqBDGq1ckSb0SlbGF30
+	 lmh6f0MreVpEmGqoGikiSJ8NjdQyGq8Mg27wQRHzoMgbnOkc1eV+a4I2uqJhidYcvu
+	 kHlBw1NVeHQfw==
 Received: from maru.local (unknown [62.232.99.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by extorris.mess.org (Postfix) with ESMTPSA id 6F0C042526;
-	Wed, 22 Jul 2026 11:23:38 +0100 (BST)
+	by extorris.mess.org (Postfix) with ESMTPSA id 247FB4252C;
+	Wed, 22 Jul 2026 11:23:39 +0100 (BST)
 From: Sean Young <sean@mess.org>
 To: linux-media@vger.kernel.org,
 	Sean Young <sean@mess.org>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Viktor Prutyanov <viktor.prutyanov@phystech.edu>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 06/13] media: sunxi-cir: Ensure no more interrupts can occur before free
-Date: Wed, 22 Jul 2026 11:23:18 +0100
-Message-ID: <d16aa75a7f94678499b37e45a5215f231658e0b0.1784715737.git.sean@mess.org>
+Subject: [PATCH v3 07/13] media: meson-ir-tx: Ensure clock is disabled on unbind
+Date: Wed, 22 Jul 2026 11:23:19 +0100
+Message-ID: <ff9948f8d30ceb0f7d2c962097798dc9ed8a1a40.1784715737.git.sean@mess.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1784715737.git.sean@mess.org>
 References: <cover.1784715737.git.sean@mess.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_032344_612720_73B4E802 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20260722_032344_747016_F5909D58 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only call rc_free_device() once the hardware has been stopped.
+clk_prepare_enable() needs a call to clk_disable_unprepare() on
+driver unbind. Make it devm managed.
 
-Fixes: dccc0c3ddf8f ("media: rc: fix race between unregister and urb/irq callbacks")
+Fixes: 49be1c78d575 ("media: rc: introduce Meson IR TX driver")
 Signed-off-by: Sean Young <sean@mess.org>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 ---
- drivers/media/rc/sunxi-cir.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/media/rc/meson-ir-tx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/rc/sunxi-cir.c b/drivers/media/rc/sunxi-cir.c
-index 28e840a7e5b8..af1ee08ffdbe 100644
---- a/drivers/media/rc/sunxi-cir.c
-+++ b/drivers/media/rc/sunxi-cir.c
-@@ -374,8 +374,8 @@ static void sunxi_ir_remove(struct platform_device *pdev)
- 	struct sunxi_ir *ir = platform_get_drvdata(pdev);
+diff --git a/drivers/media/rc/meson-ir-tx.c b/drivers/media/rc/meson-ir-tx.c
+index fded2c256f2a..e7bb107e6a84 100644
+--- a/drivers/media/rc/meson-ir-tx.c
++++ b/drivers/media/rc/meson-ir-tx.c
+@@ -288,8 +288,8 @@ static int meson_irtx_mod_clock_probe(struct meson_irtx *ir,
+ 	if (!np)
+ 		return -ENODEV;
  
- 	rc_unregister_device(ir->rc);
--	rc_free_device(ir->rc);
- 	sunxi_ir_hw_exit(&pdev->dev);
-+	rc_free_device(ir->rc);
- }
+-	clock = devm_clk_get(ir->dev, "xtal");
+-	if (IS_ERR(clock) || clk_prepare_enable(clock))
++	clock = devm_clk_get_enabled(ir->dev, "xtal");
++	if (IS_ERR(clock))
+ 		return -ENODEV;
  
- static void sunxi_ir_shutdown(struct platform_device *pdev)
+ 	*clk_nr = IRB_MOD_XTAL3_CLK;
 -- 
 2.55.0
 
