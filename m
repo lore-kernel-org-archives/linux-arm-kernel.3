@@ -4,101 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6545C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FAAC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 13:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1m9B3TqTXQp52+cm2Y/AlOog6dUAN0pTGZwsxsnFWrM=; b=zY7BhUBgseZIdFnKTwhzwaErOn
-	HDTzc484HMk0/Y2zQUF7Ak10aP2kYGN097G1R/CQNR2rFuOQJiKuawBCx9n4mo1d3rgioxfKfqwxq
-	XtExbNUy4kUxVuR8cQPiEgLTmsh3z7V7H05AiOjZtzcD2xaJtrHP3DoBhHSoj4zE6ytbWUdiB8h60
-	IEholKqgWvj9dhfwck2lWSCOgYvgFVKa6pzlKrva0HKyu5808xZEX2VrY9HrYm448EgKHex5qC82g
-	+qxOnmFFOVS3znzFMU4cne7Molo1JrWc3F0Es1SyZObop0gtN22Qqua0AkEdVNRN7GCE6XT29C6fA
-	YCAQBoKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ApJyUh3UbJCU7bYezlSCZRoniO4a+n5FZCqwiX7BHiA=; b=rkdMBgPRi9tAUv
+	ziswzVjV5nn14ZgKOIrgYrOzBjYJtsb/y0po/SUIW80FBCxvwH5wuu2rt832rMdjH1kmNPI21/gJJ
+	AfAyiBM/eHt6aYW+/sKIs41LbwhnGPs0QgDkpezDG2z+IDpKVxWXIszPj8DTdGLMlKaM2ffAPjE0S
+	0el0vjIH0plWYso76IYIynQ2++uZMJ88MX6OhTAOMcm+BjaG65ZfQ1Iv4H5zNpca/K5CcU/2smTeQ
+	9J7HpoXSAASO6xKsU5ysnrziQU9a/WcEnBfPcxK//WCntEmuAIzz46JdqRkIR0xqcZP5K/zFGz0YO
+	V9LDEWvDie/sz3wxZ9aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWwl-0000000BtuA-1jkJ;
-	Wed, 22 Jul 2026 13:25:15 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wmWz0-0000000BuIY-3UqB;
+	Wed, 22 Jul 2026 13:27:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmWwh-0000000BttJ-3FOQ
+	id 1wmWyz-0000000BuIR-3bdB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 13:25:13 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84a2dcede83so12239950b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 06:25:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1784726709; x=1785331509; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1m9B3TqTXQp52+cm2Y/AlOog6dUAN0pTGZwsxsnFWrM=;
-        b=FzBe8We4F8gO+ZMmnFV7tg2l9L/Ky11ypRuOcp8RzAgiJjP4aD3F44Z0nhoqQY/z/Y
-         1mvo+VreAHud1uC1MfEHQqz4u0CS4pVGQ/VW2sme0Z9QKAhYcdPT8f4jy5dSZmPLDYtX
-         PbbtA2M3FfKPYocn2XTvNK8dD7XVj06985azGzykxhCxqzNvFsR8mIIMCPr4+bw849QR
-         PYthNi8mECG0wOP5Vgld549FQ0tl4AIJn7ucUzPtB9c+xG5yvvS9mx0cFCRDfAYuwwRB
-         U1HFHJAb+rzTjDSnx74T/U5EPTAtSpEwfQ/Px1S/ofgE+EvCaxzKVCgzkQbxcjx848wn
-         4mUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784726709; x=1785331509;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=1m9B3TqTXQp52+cm2Y/AlOog6dUAN0pTGZwsxsnFWrM=;
-        b=MTAOaNqSr4ncJXbi1WodTmjAuP3YjjE/fCVxeLSXqsLmcKUlpgEttSLlI9fROWinr1
-         YkMcgEGySVDG6G2Y3vaPOPiDNKnCn4r7y8VL3OGchqn2wfzuhHsuulZ0mJu79NO/SXdS
-         zVCEEokolk3bIlmSs3sa6y8g15XodXMQb1wh+SIN/xg+kFig/oSv4OwPfkcxYZKBgrPE
-         DfUl+PTwuiiaHN6j2KIQcEfR2uNh56q46ujWAXrS3N+CXrpjT9tbrvAOrApjAVNZSHMc
-         GpI3XSbg2M1wv8efw9+35jXPZ/qGP5CU+QNFYPukv0+CgW1/YacQsMbiMqoj5HIkyU6S
-         wpVQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrE2lCdaTENYchNVklHe0xrqa6euf5KFiEkK4Peqv8AaSe/PsHHB3RtfT4zVQ9YX7R7wDMzVnKeq8hFpRwspMWv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFhRvZUp2ld3v2pDezq1ie8BS0NQr8385k/xlIna8ujZSvpRue
-	cuZDgLh/3JvDQwvWNaipBXNWPyMAaJbhLjgaJNC3Ev+n+0kJTjUWBNQdGXzsV3f+K3c=
-X-Gm-Gg: AR+sD11sRgxWEhL/Nzvh4tbxooXEDw8rNG0ZL9eXFBnZZKor3+YiXiRNtYtdJpWrsp+
-	10IDJWbZgyBV3BcMEzXC80E9YWqSdFOskWfxhdyqDK1t830aIbLXpItbGOBNOhrt2ujUFEDXMj9
-	dJcQBrXpfrKZntXfszz0OXBrG+/NTt0rukHutU+GFNtDydllaOis+2Pbkk+U1jAUZf1FETruZaW
-	qysPvlPlDBD/g3rgBDaJe9tVpnFKvMDL80p7NLeNk0Gqv1e863d8fQI+05TKJvHfwOTfGJZA4cH
-	oNkphQNZ4iYTtwFXQFXfJ1ZzV7pVo2H6/57t32RDoNMyjGXK6H2hGExSuUirKrAt/i/+7H+5pGH
-	f9KxKGYch84zCcASFfPqvgOltutr3HN+oaZkkCPvA1UxgOpU8nA724jM1y/0=
-X-Received: by 2002:a05:6a00:13aa:b0:84a:2ec8:fac1 with SMTP id d2e1a72fcca58-84c29545550mr24635234b3a.72.1784726709431;
-        Wed, 22 Jul 2026 06:25:09 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:4f::])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e17602046sm1332323b3a.59.2026.07.22.06.25.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 06:25:08 -0700 (PDT)
-Date: Wed, 22 Jul 2026 06:25:08 -0700
-From: Joe Damato <joe@dama.to>
-To: wei.fang@oss.nxp.com
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
-	wei.fang@nxp.com, chleroy@kernel.org, maxime.chevallier@bootlin.com,
-	imx@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RESEND v4 net-next 10/14] net: enetc: refactor SI VLAN
- promiscuous mode configuration
-Message-ID: <amDEtJmcET788Lls@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, wei.fang@oss.nxp.com,
-	claudiu.manoil@nxp.com, vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	linux@armlinux.org.uk, wei.fang@nxp.com, chleroy@kernel.org,
-	maxime.chevallier@bootlin.com, imx@lists.linux.dev,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-References: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
- <20260720014317.1059359-11-wei.fang@oss.nxp.com>
+	Wed, 22 Jul 2026 13:27:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3893E600B0
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 13:27:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E36101F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 13:27:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784726852;
+	bh=ApJyUh3UbJCU7bYezlSCZRoniO4a+n5FZCqwiX7BHiA=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=SR3ASgFWKE/KdgtrekweY39je4RT7GbVcIE/5kF2hpxGoOlzumcpO2ejJqeMtvzuf
+	 eJjJmyKd2Poe5IiH1kiz0ZGmBj2H7Iue5v9q+IQLaD5oK+ELDgk3PlZZZHVAIMzTqA
+	 mOdR1hTAAykYtm053CdiZDrqikP+IqBQFzEH1uMDAEJzb9kxs/d+PxFy9JkQ/AVaj3
+	 jzfuCL/l03nM/ACkdl4cz0k7eZmDUYT2G46iJJzvQVw/yZpEARQhsvpAfFkzb6aw9b
+	 r+8sCUt4PUCTnCFn7A2angVujWjmZ3/6cmoVdohyo183qpyXFKWTSo6E9weLJ2emvY
+	 oRgmOpijin0Iw==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aeb2bc82ccso11133137e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 06:27:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrOk0gpyZKwMd+vwlCNdq2hGQ/a+4SfkTU0M9DskEUj4Qip7C5cGzgOOVrjMOwCzEyT6xSy7eOuE2mLpwIatKD2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwagKq25Y01EBF4ppYffxVRkicwBnxcf7TTuNwCagcgYcdsgayF
+	+G52AN1s3InK7jdEbpJ+VRbCpqvyyIugbkNEDmkBdfF3K01aPtEpAfe5ursPqn7+sdlJ3uOEOBy
+	FhKK+CsiKWr6xLOlyN9KqCNvG9c9qkYY=
+X-Received: by 2002:a05:6512:3b8f:b0:5b0:1eed:f700 with SMTP id
+ 2adb3069b0e04-5b28f84a354mr5404025e87.13.1784726851335; Wed, 22 Jul 2026
+ 06:27:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260720014317.1059359-11-wei.fang@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_062511_960357_514E8EFF 
-X-CRM114-Status: GOOD (  21.31  )
+References: <20260722005643.1208942-1-enzo.adriano.code@gmail.com>
+In-Reply-To: <20260722005643.1208942-1-enzo.adriano.code@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 22 Jul 2026 21:27:19 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67GDBTq8vdxNxBfNVSe=oStcgaJzm0ig2WAEXNQSkVa1g@mail.gmail.com>
+X-Gm-Features: AUfX_mzpEMNkvXDj_jwLU41n9C8mnaNfF_ommIlmxQC2pGV6dZOxfrP1tBmIfHo
+Message-ID: <CAGb2v67GDBTq8vdxNxBfNVSe=oStcgaJzm0ig2WAEXNQSkVa1g@mail.gmail.com>
+Subject: Re: [PATCH] clk: sunxi-ng: ccu_mp: fix clocks without P dividers
+To: Enzo Adriano <enzo.adriano.code@gmail.com>, Andre Przywara <andre.przywara@arm.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Junhui Liu <junhui.liu@pigmoral.tech>, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,48 +79,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 09:43:12AM +0800, wei.fang@oss.nxp.com wrote:
-> From: Wei Fang <wei.fang@nxp.com>
-> 
-> Remove the enetc_set_vlan_promisc(), enetc_enable_si_vlan_promisc() and
-> enetc_disable_si_vlan_promisc() functions, and introduce a new unified
-> function enetc_set_si_vlan_promisc() to enable or disable VLAN
-> promiscuous mode for a specific SI. This simplifies the logic and makes
-> the interface more straightforward. The vlan_promisc_simap field in
-> struct enetc_pf is no longer needed to track the current state.
-> 
-> As ENETC V4 only changes the address offset of PSIPVMR register compared
-> to V1 without any functional difference, enetc_set_si_vlan_promisc() can
-> be moved to enetc_pf_common.c in the future with minor adjustments to be
-> reused by the ENETC V4 driver
-> 
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+On Wed, Jul 22, 2026 at 8:56=E2=80=AFAM Enzo Adriano
+<enzo.adriano.code@gmail.com> wrote:
+>
+> Some sunxi-ng MP clocks have an M divider but no P divider. The A523
+> MBUS, IOMMU and DRAM clocks use this layout and also require the update
+> bit when changing their rate.
+>
+> ccu_mp_set_rate() unconditionally builds and applies a mask for the P
+> field. With a zero-width P field this produces an invalid GENMASK()
+> range and can clear bits outside a P divider, including the clock gate.
+>
+> The callback also ignores CCU_FEATURE_UPDATE_BIT, so hardware that
+> requires the update bit may not latch the new divider value.
+>
+> Only update the P field when it exists, and set CCU_SUNXI_UPDATE_BIT for
+> MP clocks carrying the feature. This matches the existing sunxi-ng div,
+> mux and gate helper behavior.
+
+No. If the clock only has one divider, then it should use the single divide=
+r
+clk class. That one also supports CCU_FEATURE_UPDATE_BIT.
+
+ChenYu
+
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/r/20260712081341.9D1431F00A3D@smtp.kernel=
+.org
+> Fixes: 6702d17f54a8 ("clk: sunxi-ng: a523: add video mod clocks")
+> Assisted-by: Codex:gpt-5
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
 > ---
->  .../net/ethernet/freescale/enetc/enetc_hw.h   |  5 ++-
->  .../net/ethernet/freescale/enetc/enetc_pf.c   | 36 ++++++++-----------
->  .../net/ethernet/freescale/enetc/enetc_pf.h   |  1 -
->  3 files changed, 16 insertions(+), 26 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_hw.h b/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-> index 66bfda60da9c..16da732dc5de 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-> @@ -185,9 +185,8 @@ enum enetc_bdr_type {TX, RX};
->  #define  PSIPMMR_SI_MAC_MP(n)	BIT((n) + 16)
->  
->  #define ENETC_PSIPVMR		0x001c
-> -#define ENETC_VLAN_PROMISC_MAP_ALL	0x7
-> -#define ENETC_PSIPVMR_SET_VP(simap)	((simap) & 0x7)
-> -#define ENETC_PSIPVMR_SET_VUTA(simap)	(((simap) & 0x7) << 16)
-> +#define  PSIPVMR_SI_VLAN_P(n)	BIT(n) /* n = SI index */
-
-I suppose it would have been nice to only have a single space after #define
-above.
-
-The rest of the code looks right and I think the promisc logic is clearer, so:
-
-Reviewed-by: Joe Damato <joe@dama.to>
+> Based on clk-next 8cdeaa50eae8 (Linux 7.2-rc2).
+> Tested with strict checkpatch and an arm64 W=3D1 build of ccu_mp.o.
+> No hardware runtime claim is made.
+>
+>  drivers/clk/sunxi-ng/ccu_mp.c | 15 ++++++++++-----
+>  1 file changed, 10 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu_mp.c b/drivers/clk/sunxi-ng/ccu_mp.=
+c
+> index 7cdb0eedc69b..aa6cb20447f1 100644
+> --- a/drivers/clk/sunxi-ng/ccu_mp.c
+> +++ b/drivers/clk/sunxi-ng/ccu_mp.c
+> @@ -237,12 +237,17 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsig=
+ned long rate,
+>
+>         reg =3D readl(cmp->common.base + cmp->common.reg);
+>         reg &=3D ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp->m.shift);
+> -       reg &=3D ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p.shift);
+> +       if (cmp->p.width)
+> +               reg &=3D ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p=
+.shift);
+> +       if (cmp->common.features & CCU_FEATURE_UPDATE_BIT)
+> +               reg |=3D CCU_SUNXI_UPDATE_BIT;
+>         reg |=3D (m - cmp->m.offset) << cmp->m.shift;
+> -       if (shift)
+> -               reg |=3D ilog2(p) << cmp->p.shift;
+> -       else
+> -               reg |=3D (p - cmp->p.offset) << cmp->p.shift;
+> +       if (cmp->p.width) {
+> +               if (shift)
+> +                       reg |=3D ilog2(p) << cmp->p.shift;
+> +               else
+> +                       reg |=3D (p - cmp->p.offset) << cmp->p.shift;
+> +       }
+>
+>         writel(reg, cmp->common.base + cmp->common.reg);
+>
+> --
+> 2.53.0
 
