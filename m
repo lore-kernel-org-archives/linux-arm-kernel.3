@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72815C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28016C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t50jIyY6JuQksTKR2lD2BGO6e64BxG6DBdZAx/JaL/A=; b=miDx/3j16J/RVxzLTL+Nr5rydo
-	07ntAeGnV8GF6DW8xV47kxa53SGPVqvAhRttxpDWSkb89zDUwwtvZPhVZgW6T3+J/mfYGPrXhTRGy
-	T7AoGEV/stRUNDchoM844Ub8hzKnx8trg56xWtDHqU/sEAVR+aGb0clDMfUfnJEdpDAcry2VciViv
-	+DBTnWzzv4WkV4wiDF3lUAGFHfjtKIEij1ASuZVKYSQ51fdUlivR/TrcfKXO6reOi56t6dS/yvhty
-	8fP+guNTTJ9CxiP/7vj/dEikfPUaDF8sdeXo9p9P1d2pTclQ2GWf7R/eNYfrmHihIwoxH5wxZGLx/
-	NCci3pxw==;
+	bh=/Bz0kOVpQ5EYH3MZETJm5OMDFXRozPcW4LBmQ5++M2c=; b=NsHtbJv1Wm0Fmy1u7TxpaI10hW
+	dbBAY/2EWI4awc5iHzUUui/iIsomwdShebvTd99wRSJ878OOQoCwBpUSsFE3RSvaXSolepGxEFUHo
+	APwk8U7JYnTwHINiL7WOpxEkP1wpNcoILSGuUL6opO847avTR5O/JcOj3YUkegbcWNOLmBAIqEFxG
+	JzQVdT4Rr7FydTvvSCxw4K1Br+0E7g5lbIvna4pAIvuW27AGfHGtjF4mOEwaGyE71Pa+MTd1IMXcH
+	etJJthSiKYQRnk5Qz8Ke7QX3gWTeByzmzxlSnrfsHwwhY428V2+SADo5SZZvFbC/cZFbSIVF36cuj
+	LR3LXFxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmT0W-0000000BM1l-0M8W;
-	Wed, 22 Jul 2026 09:12:52 +0000
+	id 1wmT0h-0000000BM7t-2dad;
+	Wed, 22 Jul 2026 09:13:03 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmT0T-0000000BM0V-1stZ
+	id 1wmT0f-0000000BM67-2Bh1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:12:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784711543; cv=none; 
+	Wed, 22 Jul 2026 09:13:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784711559; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=V8zLT8/LivfLRz9xb+mbi8Ln3CrvLNF791HCyAQdkolEqISCDqwhZjc1fj4KXPXSQ03cCXluqHV7VoiDKxS+oamOVW2uT1SVh0vQeepFcSiU2+DZqoCY5wxOQTJ/uF0zIkDU1qC6NKll7rz/Vh9N8fpzsgGtxJHyVWPsJUywmXw=
+	b=Ed6g9APePcwCYn0JNNPA9ST+yflkjqVKOt4lnYZ9CPWdxc9dm5K+TyCjE2Oxcxsj0NktVh41rt4RsEnCjZvm8cLzX4pn9O83jfCX7xCYIpNNkhtCmjveLugNT+5xyD5nw9CzFA/GPEjjda/BbFLlv35FhyaV0/tqumdkqpB00Yg=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784711543; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=t50jIyY6JuQksTKR2lD2BGO6e64BxG6DBdZAx/JaL/A=; 
-	b=SmGFh7zF+WHQmBzNRiAZe6nA6P9PMJ7L/AMZzV3+QB0zRLBXN1xtxc8mVFxzcVPDxUoxN99YHfDpCpud2KdAfMMUhFVSnleoBmltsP8JTiiwVlZU/464HTrBh4hj5kPXOzSJgUKKhFJX8W8P0X5SqAwDzudbUgr4tBqxy7Ap04w=
+	t=1784711559; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/Bz0kOVpQ5EYH3MZETJm5OMDFXRozPcW4LBmQ5++M2c=; 
+	b=Z4ydMRRRPPYPhi5FkSdiJuhECEht+JEU2+dO/RZAHKW1HHUudmb27Kmw9w8ffl5zVs8MA1acMxrU4ar27vYa3vcd4ka2xR5wdBb8Z52ODgk64qV+JuwKO0haXHu9R0Fc+CR2gudkYSREpWXfAnCPUn+fCQLiZqI/yHcE95EyYnc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784711542;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784711559;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=t50jIyY6JuQksTKR2lD2BGO6e64BxG6DBdZAx/JaL/A=;
-	b=DOSsKexYWlEed4CaROGdyxGGES0KCkHaSirYawO3yJhvyeNrFGuw8JL0iFUhycAm
-	Fp+DOiMOfoP1X9MebxxiiXR2N4Q1hBf+6Omd4aW1rJE8VHTP9aedj9b32URXAmPrmOS
-	zN1Kms26b0ldB4UW/KtLyOCfEHkQgkeUBHiKmHdY=
-Received: by mx.zohomail.com with SMTPS id 17847115402831006.1481549752529;
-	Wed, 22 Jul 2026 02:12:20 -0700 (PDT)
+	bh=/Bz0kOVpQ5EYH3MZETJm5OMDFXRozPcW4LBmQ5++M2c=;
+	b=G2tLvos0NrUX4ZV2ofI20ACxDLLMeLjU3biRBHZfKDfSmHJlSDMLIdv82G3EB35S
+	1+et/b7s8RpgViNvrAR/IzIuMc1U2FBJgG8LYLyho1wIfh1Mn/3JLyTCMxDf4NgoDGy
+	70+3fOmP+xbE392Edlqo3CLKp5Svm4aBgBdSVwOE=
+Received: by mx.zohomail.com with SMTPS id 1784711558114144.08746265131617;
+	Wed, 22 Jul 2026 02:12:38 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 22 Jul 2026 11:11:48 +0200
-Subject: [PATCH v8 2/5] drm/scdc-helper: Add scdc_status debugfs entry
+Date: Wed, 22 Jul 2026 11:11:51 +0200
+Subject: [PATCH v8 5/5] drm/display: hdmi-state-helper: Init SCDC debugfs
+ for HDMI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-scdc-link-health-v8-2-cd1dacbb85d9@collabora.com>
+Message-Id: <20260722-scdc-link-health-v8-5-cd1dacbb85d9@collabora.com>
 References: <20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com>
 In-Reply-To: <20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com>
 To: Jani Nikula <jani.nikula@linux.intel.com>, 
@@ -77,8 +78,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_021249_528474_11F600BE 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260722_021301_616988_B794D071 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,270 +94,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCDC provides status information on the current display link. At the
-very least, it may be useful to expose this info through debugfs.
+Initialise the SCDC debugfs file for connectors that call the HDMI state
+helper's debugfs_init helper. This makes all connectors that use the
+helper expose the scdc_status file in their connector debugfs.
 
-Add a debugfs entry for it under the connector, which displays a few
-more details parsed out of the SCDC registers. A new
-drm_scdc_debugfs_init function can be called by the connector
-implementation to initialise the debugfs file.
-
+Acked-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/display/drm_scdc_helper.c | 186 ++++++++++++++++++++++++++++++
- include/drm/display/drm_scdc_helper.h     |  32 +++++
- 2 files changed, 218 insertions(+)
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/drm/display/drm_scdc_helper.c
-index 8403f2390ab6..97256b272329 100644
---- a/drivers/gpu/drm/display/drm_scdc_helper.c
-+++ b/drivers/gpu/drm/display/drm_scdc_helper.c
-@@ -24,7 +24,9 @@
- #include <linux/export.h>
- #include <linux/i2c.h>
- #include <linux/slab.h>
-+#include <linux/debugfs.h>
- #include <linux/delay.h>
-+#include <linux/overflow.h>
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 8d5ee10ceb87..709524b40c26 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -13,6 +13,7 @@
+ #include <drm/display/drm_hdmi_cec_helper.h>
+ #include <drm/display/drm_hdmi_helper.h>
+ #include <drm/display/drm_hdmi_state_helper.h>
++#include <drm/display/drm_scdc_helper.h>
  
- #include <drm/display/drm_scdc_helper.h>
- #include <drm/drm_connector.h>
-@@ -276,3 +278,187 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
- 	return true;
+ /**
+  * DOC: hdmi helpers
+@@ -1116,6 +1117,7 @@ void drm_hdmi_connector_debugfs_init(struct drm_connector *connector,
+ 		return;
+ 
+ 	create_hdmi_infoframe_files(connector, dir);
++	drm_scdc_debugfs_init(connector, root);
  }
- EXPORT_SYMBOL(drm_scdc_set_high_tmds_clock_ratio);
-+
-+static void
-+drm_scdc_parse_status0_flags(u8 val, struct drm_scdc_status_flags *flags)
-+{
-+	flags->clock_detected = val & SCDC_CLOCK_DETECT;
-+	flags->ch0_locked = val & SCDC_CH0_LOCK;
-+	flags->ch1_locked = val & SCDC_CH1_LOCK;
-+	flags->ch2_locked = val & SCDC_CH2_LOCK;
-+}
-+
-+static int drm_scdc_parse_error_counters(const u8 scdc[256], u16 counter[3])
-+{
-+	u8 sum = 0;
-+	int i;
-+
-+	for (i = SCDC_ERR_DET_0_L; i <= SCDC_ERR_DET_CHECKSUM ; i++)
-+		sum = wrapping_add(u8, sum, scdc[i]);
-+
-+	if (sum)
-+		return -EPROTO;
-+
-+	for (i = 0; i < 3; i++) {
-+		if (scdc[SCDC_ERR_DET_0_H + i * 2] & SCDC_CHANNEL_VALID)
-+			counter[i] =  (scdc[SCDC_ERR_DET_0_H + i * 2] &
-+				       ~SCDC_CHANNEL_VALID) << 8 |
-+				       scdc[SCDC_ERR_DET_0_L + i * 2];
-+		else
-+			counter[i] = 0;
-+	}
-+
-+	return 0;
-+}
-+
-+/**
-+ * drm_scdc_read_state - Update state from SCDC
-+ * @connector: pointer to a &struct drm_connector on which to operate on
-+ * @state: pointer to a &struct drm_scdc_state to fill
-+ *
-+ * Reads the entire 256 byte SCDC state and parses it.
-+ *
-+ * Returns: %0 on success, negative errno on failure.
-+ */
-+int drm_scdc_read_state(struct drm_connector *connector, struct drm_scdc_state *state)
-+{
-+	struct i2c_adapter *ddc;
-+	struct drm_scdc *scdc;
-+	u8 *buf = state->scdc;
-+	int ret;
-+
-+	if (!state || !connector)
-+		return -ENODEV;
-+
-+	scdc = &connector->display_info.hdmi.scdc;
-+	ddc = connector->ddc;
-+
-+	if (!scdc->supported || !ddc)
-+		return -EOPNOTSUPP;
-+
-+	/* Read in 128-byte chunks, to work around DP<->HDMI converters with issues. */
-+	ret = drm_scdc_read(ddc, 0, buf, 128);
-+	if (ret)
-+		return ret;
-+
-+	ret = drm_scdc_read(ddc, 128, &buf[128], 128);
-+	if (ret)
-+		return ret;
-+
-+	state->scrambling_enabled = buf[SCDC_TMDS_CONFIG] & SCDC_SCRAMBLING_ENABLE;
-+	state->tmds_bclk_x40 = buf[SCDC_TMDS_CONFIG] & SCDC_TMDS_BIT_CLOCK_RATIO_BY_40;
-+
-+	state->scrambling_detected = buf[SCDC_SCRAMBLER_STATUS] & SCDC_SCRAMBLING_STATUS;
-+
-+	drm_scdc_parse_status0_flags(buf[SCDC_STATUS_FLAGS_0], &state->stf);
-+	ret = drm_scdc_parse_error_counters(buf, state->error_count);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL(drm_scdc_read_state);
-+
-+#define scdc_print_str(_f, key, s) \
-+	(seq_printf((_f), "%-30s: %s\n", (key), (s)))
-+#define scdc_print_flag(_f, key, val) \
-+	(scdc_print_str((_f), (key), str_yes_no((val))))
-+#define scdc_print_dec(_f, key, val) \
-+	(seq_printf((_f), "%-30s: %d\n", (key), (val)))
-+
-+static int scdc_status_show(struct seq_file *m, void *data)
-+{
-+	struct drm_connector *connector = m->private;
-+	struct drm_scdc *scdc = &connector->display_info.hdmi.scdc;
-+	struct drm_scdc_state *st;
-+	int i, ret;
-+
-+	drm_connector_get(connector);
-+
-+	ret = mutex_lock_interruptible(&connector->dev->mode_config.mutex);
-+	if (ret)
-+		goto err_conn_put;
-+
-+	if (connector->status != connector_status_connected) {
-+		ret = -ENODEV;
-+		goto err_conn_put;
-+	}
-+
-+	if (scdc->supported) {
-+		st = kzalloc_obj(*st);
-+		if (!st) {
-+			ret = -ENOMEM;
-+			goto err_unlock;
-+		}
-+		ret = drm_scdc_read_state(connector, st);
-+		if (ret)
-+			goto err_free_state;
-+
-+		for (i = 0; i < ARRAY_SIZE(st->scdc); i += 16)
-+			seq_printf(m, "%*ph\n", 16, &st->scdc[i]);
-+
-+		seq_puts(m, "\n----------------\n\n");
-+	}
-+
-+	scdc_print_flag(m, "SCDC Supported", scdc->supported);
-+	if (!scdc->supported) {
-+		ret = 0;
-+		goto err_unlock;
-+	}
-+
-+	scdc_print_flag(m, "Sink Read Request Capable", scdc->read_request);
-+	scdc_print_flag(m, "Scrambling Supported", scdc->scrambling.supported);
-+	scdc_print_flag(m, "Low Rate Scrambling Supported", scdc->scrambling.low_rates);
-+
-+	mutex_unlock(&connector->dev->mode_config.mutex);
-+
-+	drm_connector_put(connector);
-+
-+	scdc_print_flag(m, "Scrambling Enabled", st->scrambling_enabled);
-+	scdc_print_flag(m, "Scrambling Detected", st->scrambling_detected);
-+
-+	if (st->tmds_bclk_x40)
-+		scdc_print_str(m, "TMDS Bit Clock Ratio", "1/40");
-+	else
-+		scdc_print_str(m, "TMDS Bit Clock Ratio", "1/10");
-+
-+	scdc_print_flag(m, "Clock Detected", st->stf.clock_detected);
-+	scdc_print_flag(m, "Channel 0 Locked", st->stf.ch0_locked);
-+	scdc_print_flag(m, "Channel 1 Locked", st->stf.ch1_locked);
-+	scdc_print_flag(m, "Channel 2 Locked", st->stf.ch2_locked);
-+
-+	scdc_print_dec(m, "Channel 0 Errors", st->error_count[0]);
-+	scdc_print_dec(m, "Channel 1 Errors", st->error_count[1]);
-+	scdc_print_dec(m, "Channel 2 Errors", st->error_count[2]);
-+
-+	kfree(st);
-+
-+	return 0;
-+
-+err_free_state:
-+	kfree(st);
-+err_unlock:
-+	mutex_unlock(&connector->dev->mode_config.mutex);
-+err_conn_put:
-+	drm_connector_put(connector);
-+
-+	return ret;
-+}
-+DEFINE_SHOW_ATTRIBUTE(scdc_status);
-+
-+/**
-+ * drm_scdc_debugfs_init - Initialize scdc files in connector debugfs
-+ * @connector: pointer to &struct drm_connector to operate on
-+ * @root: debugfs &struct dentry for the debugfs root of @connector
-+ *
-+ * Creates SCDC-related debugfs files for @connector. Must be called after
-+ * @root is already created.
-+ */
-+void drm_scdc_debugfs_init(struct drm_connector *connector, struct dentry *root)
-+{
-+	if (!root || !connector)
-+		return;
-+
-+	debugfs_create_file("scdc_status", 0444, root, connector, &scdc_status_fops);
-+}
-+EXPORT_SYMBOL(drm_scdc_debugfs_init);
-diff --git a/include/drm/display/drm_scdc_helper.h b/include/drm/display/drm_scdc_helper.h
-index e9ccaeba56dd..e0b79d79e1ff 100644
---- a/include/drm/display/drm_scdc_helper.h
-+++ b/include/drm/display/drm_scdc_helper.h
-@@ -30,6 +30,34 @@
+ EXPORT_SYMBOL(drm_hdmi_connector_debugfs_init);
  
- struct drm_connector;
- struct i2c_adapter;
-+struct dentry;
-+
-+struct drm_scdc_status_flags {
-+	/* Status Register 0 */
-+	bool clock_detected;
-+	bool ch0_locked;
-+	bool ch1_locked;
-+	bool ch2_locked;
-+};
-+
-+struct drm_scdc_state {
-+	/** @stf: contents of the status flag registers */
-+	struct drm_scdc_status_flags stf;
-+	/** @scramling_enabled: true if TMDS scrambling is on */
-+	bool scrambling_enabled;
-+	/** @scrambling_detected: true if the sink actually detected scrambling */
-+	bool scrambling_detected;
-+	/**
-+	 * @tmds_bclk_x40: true if TMDS bit period is 1/40th of the TMDS
-+	 * clock period, false if it's 1/10th of the clock period.
-+	 */
-+	bool tmds_bclk_x40;
-+	/** @error_count: character error counts for each channel */
-+	u16 error_count[3];
-+
-+	/** @scdc: raw SCDC data buffer */
-+	u8 scdc[256];
-+};
- 
- int drm_scdc_read(struct i2c_adapter *adapter, u8 offset, void *buffer,
- 		  size_t size);
-@@ -77,4 +105,8 @@ bool drm_scdc_get_scrambling_status(struct drm_connector *connector);
- bool drm_scdc_set_scrambling(struct drm_connector *connector, bool enable);
- bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector, bool set);
- 
-+int drm_scdc_read_state(struct drm_connector *connector,
-+			struct drm_scdc_state *state);
-+void drm_scdc_debugfs_init(struct drm_connector *connector, struct dentry *root);
-+
- #endif
 
 -- 
 2.55.0
