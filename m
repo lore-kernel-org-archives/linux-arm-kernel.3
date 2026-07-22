@@ -4,83 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B6FC4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA2FC4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iyMdeIjesJ+k58luJXaL+sqCBtei9UFC6fuSl+9RZtM=; b=DOdMLyRQdwwkYNVQXAMk3XVEom
-	HTx+7eoNtsT7+vr7oLR9SdMQ0WXOj6kFZf2M9d2zhE7HFRjn3Fiv2X7kMyGI1I+p7e52j+fvBaEEJ
-	iOftZOb/78PAGpdpdkaUYjLc+XMHXTnEd1QQfsQ2rVuC9HHDWrM/p4fX8CleCBEyzdyEmo8ZlnNz6
-	Hd3tXoI0pDIYhnNNjb+u75TarZNN7DElieK2CH+4cQZTVguUxqDvPNz27UVDNCUFAdQZGAvGa5BEj
-	ediSSf+vtVHRJ62vaROIxtlYTDW+OTWfdxw9zauGrhuqnDn8d6h+3hlB+C4kvMXl7kL7pYFDq8/3X
-	q8c0yyyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g3lqVgOIoFj+rmr1wuewolWPCx+pZ7RII1LrDRzyZJ0=; b=BjVdovDr578ZlIWmEwu6JglYvw
+	buhT3TULeNoL7LqSz8jlD1o9HSBrl1Rlv0mLXD87cV3AjU01O2Wv1yCq8kwxVHKj+QEjOW75jiR8A
+	np5513HxNAJEB+WyqZiT30TEv5mTfYiNmTHCxbWkajiWrh6aMWzPvPjC9pqxk4buE/t7jmeFafspo
+	wl60gdKmAp8iQoCZKYj/hasG8gjgR8/hxCbB3ittwmoZXBA05o4CrhqBCzD0F+opU7bKpKfMm1Ipr
+	mXRdcUlYuuohK5ybNbFSDG+jrwPuExNDakuvM/sZdcMjdtlT4VIdnmfKeyV+8/I3CwM3t2bsFIX4j
+	dxw4lwDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmT0h-0000000BM7U-25nT;
-	Wed, 22 Jul 2026 09:13:03 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wmT31-0000000BMi5-0bos;
+	Wed, 22 Jul 2026 09:15:27 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmT0e-0000000BM5R-0wOP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:13:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784711553; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=BtiExc6BExPv2oPxfEnpsI7xA2VLmpH80GLgRj75o6USMKBDYPIFKJiQjsbpjzEWKFNXcSLuWHD62dZRe1tAdsFFPBx0aq5KsOJUsoY/cM9eS7l5wQBDrpTdfnzs2tW1OJ+Rs4YyMi5S9MDqTROj17kU4Bmjl2ahR/ZApbyr1Q4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784711553; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=iyMdeIjesJ+k58luJXaL+sqCBtei9UFC6fuSl+9RZtM=; 
-	b=VwDCJi38iJOZKcg30bZV5q4dx4NejMKciMMaqpDSxqjvuBJN7xXYRQpllc3G36cnBsVBnPBSKeEpx0eNZoMJeptGR79b2C/6iX/O44hhfxYCm1qsb8cQjh7d8zUlouDMELUcRgwNejyimw5PDpPjV7SeTidjWA8A7DhDsUQfgZ8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784711553;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=iyMdeIjesJ+k58luJXaL+sqCBtei9UFC6fuSl+9RZtM=;
-	b=AAltFSdhoPdoaO2KYSQtzGfzwpyuxjcg2fE0W1pqpKcTQ4AKUQsZDzrrMeNFyVwy
-	1qBI//aS9VPKohPXA6+F67QuCkVjeVIvih8kVIN1MfbPfj7mu0afcP+MP78MOfqwOro
-	hUWsOgYswpGULKAQeL5GveMxfvr1a07MWG+8RdGU=
-Received: by mx.zohomail.com with SMTPS id 1784711552275117.3981724913416;
-	Wed, 22 Jul 2026 02:12:32 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 22 Jul 2026 11:11:50 +0200
-Subject: [PATCH v8 4/5] drm/debugfs: Move HDMI debugfs registration to
- state helper
+	id 1wmT2x-0000000BMh8-328V;
+	Wed, 22 Jul 2026 09:15:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JYuQ6JXYCVT5EGN6JDaJZLujGnfPfHI3ZOeiUmNKDyEpYa3h7GrF2STCHg9q35HFNfNqC8SRKKd0PNWicrc5eOAbCJjU0zWcYcS5cLXBmeltKF+bLK2XrQK+OhLfsX2ZIOMp4tNrCStMUcsabl08hhNhs5Vgvplr7QtY5kxvGja8uCuEF3tnwYn90MCZ5nbbK0E3tz5oio58KqD/er1OTTLWRm/a0VCnjgM9RyxHRCEyIoFpwXz+hM6yIgLlMO2UZeDyXaeLsVL+0/aF+J9fekMGpOjfLZ/tlXPbVpIG5+UR3mvoiNYff/dgZZBj7StjSVyhBI+fCnqs1FadtdmH/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g3lqVgOIoFj+rmr1wuewolWPCx+pZ7RII1LrDRzyZJ0=;
+ b=FGeo/OJCDAqCkAv0X3VocDVHswIa6FuGW5VapmgkoZY9xnzbVSoDGgv97QojRxFMzMe7HDtAbUpnPJxkBKDigNyUNYdKdWbpzM6hAG2HT6gMV3Yxb4nFzHIOFtGSrjRpbsss7tYoDrcK6vQuM3SL3pz/oTlWqrKt32TKYrJCrTVFOKMhgwkOHlvAN6bWpTunJ3NTeL/BWCiKrYmMWeSJJARxF6+0Inm8KTpdsKt5uVc5F7EP1rlCdvqhyJ3ApFpLVFjRFM12tdmn3AyKtj1LqUO/PuNp1MarXz9q69IvzVidt0zApVVG9TCwt0ZDD5Jzi0A4oqgTqIQElOAzmWgVDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g3lqVgOIoFj+rmr1wuewolWPCx+pZ7RII1LrDRzyZJ0=;
+ b=VreIfh/Ik0ZWFx0uTcq23fPF8/3STEescgcZK0bugI9K5yZ81o0MC/E8w4awVVvDYKmhKFEqansXrs01XQZKUymjSGUQFsl8tqYqDmBwjDBFSThMgVBQ3DmZOUnv3TqaQKfONTWMUaqS8VmktqJnsOTXLnH+r1b2Doopl7Sb3BnW8l0OTd3j+fBb+ZS0bwE8tw2wpPxakevEwD8qsCMd39ve6izmpk3sYfmZ0xBnLBAEi46kSRDDWEcJxn3ALjqh2J2J2wahWvju/6awjKvLvN3HUnj98RGi3PGr5IBKvO9dHrci1fjrsFWWfA9M//C2Drnv/l4odGpuu13APWEPKA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13) by GV4PR04MB11289.eurprd04.prod.outlook.com
+ (2603:10a6:150:28f::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 09:15:15 +0000
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
+ 09:15:15 +0000
+Date: Wed, 22 Jul 2026 12:15:11 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Tanjeff Moos <tanjeff.moos@westermo.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Michael Walle <mwalle@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 phy-next 1/9] soc: fsl: guts: perform fsl_guts_init()
+ error teardown in reverse order of setup
+Message-ID: <u7ihkf5cwaijzwkpf2mezokjfb2f77gqycn4p64drzj5lxa7zd@5irimzukasw4>
+References: <20260721231603.67865-1-vladimir.oltean@nxp.com>
+ <20260721231603.67865-2-vladimir.oltean@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260721231603.67865-2-vladimir.oltean@nxp.com>
+X-ClientProxiedBy: AM9P193CA0021.EURP193.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21e::26) To GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260722-scdc-link-health-v8-4-cd1dacbb85d9@collabora.com>
-References: <20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com>
-In-Reply-To: <20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Daniel Stone <daniel@fooishbar.org>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|GV4PR04MB11289:EE_
+X-MS-Office365-Filtering-Correlation-Id: 232c868d-a886-49bc-7bd3-08dee7d1bde5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|23010399003|366016|6133799003|22082099003|18002099003|11063799006|56012099006|10067099003|4143699003;
+X-Microsoft-Antispam-Message-Info: 6c8HDU88BO5yv0vP4oykq8ktqzjGWKx3p89p25G7+fb4c3RXe5ePzdjWmB/3znRHZbzOUFAc0VhAksF763I6Lsmque7Ul8uuAVSlBOjHE2YAvGE+ybW3BeT2gPuBFMLV2uPhKuFcrsQlTfnlMTPnSVzSM392qxdYnyx1j/w84LHegICPaZ3WPC7Rdp9Ho0xpDB5B4hpyy08d+IRWSyY14FfqLmoCMUCkkA6HpZjl8a1PeHQjdCT+lVJZK5tMsDKFTgJGm2NpppxPUnsFS/T7swUD0Td/6qv4bYSRaprWDCI3QMruOQTeQMbpmLg7CD0B5FgbsatvshvLwu3CpW+bRvINERNrkAHBnKPRKqtWqLW+inI/DL3SklefMh+onTcasZ8qsc6L8upwJOMOQs1TzN+Akz4PIrrmyJc01e2361PoaBEKlYNFDElLgQHBqlq9wQLmed2yMauFK/EU53cX1hTqNVtRGiNVMu1A9EZ+tQiuUrM3bVQylTVqN/xiA6jusz1yx3mujU/J6VhbHa7qPlH4qZ3ET7rEnO58rO6y46GoIyb6hgYz5Xlc9S0WtD+Ewh+Ur9atWXvo2yiPHRIfusSsjn4IJ1qwPZgikGzSsBc5mvD2jfnreuqFfLVZ2ScKRcUD07rLOCKBcVlynCqNk4L49khoSE+17GgtO0WOK6U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(11063799006)(56012099006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rz28qeBfal7gd0Vc8IM8d4bICksFPgMNfOB0QzhC9VVv8iRjrBve4X7y/3Il?=
+ =?us-ascii?Q?XgwVVgigZq1nk5UMFb4EDTL8Rgo+Zb1PARlW+RwmyVNJ8yU6VgMmHfT37/ZY?=
+ =?us-ascii?Q?J2zC/XlNxgyxeaP9rxo1/LY8G4GKcXB9ZnPoreAeY+q9AL8h/PBqNAgZB8a9?=
+ =?us-ascii?Q?P00o8tmbCjYirM0ZrpDUOujc8/LjBgr+0PES+yrnvzNrHnrTh45L1AUIeJEN?=
+ =?us-ascii?Q?UXb9l3VtTDbMUMipUtsL2/8kzwlANWVL4l0QPm3T5FVydVpFPcRR7etfVGQf?=
+ =?us-ascii?Q?rpQPrpyPrAXmu/z5xNuY61Wcmi1t603CroOILON8nMXzURuxfbuS9W5lJu0s?=
+ =?us-ascii?Q?iLBfr8H7mvsmkADLKIeUychmAWkAE9bulhXpoI4gH1HPjcXPB9OfHgIcytUx?=
+ =?us-ascii?Q?iaI7iQr4D4Tt3uzPFjlkWyWDZ9K5m2mBc3S6hoNFq5creUKxWSUIF3ZHxOiR?=
+ =?us-ascii?Q?nNQkl1X7oouIcvYXVhzuIsMAxaCaWrFMM8ab3lVy6diDrUzmqbE3fOQPKFP1?=
+ =?us-ascii?Q?xfQUPHlaGRScOr1JitNjYKe9vo+IkQb3juRchMXUO7i5PfW6yfs/t3q5Er1/?=
+ =?us-ascii?Q?Sd1IRaTHN/CoK3jIhvlGxrJVktgLRbLH+1dG8hZg9Z7ICGIcO3W7Pn5MI3p9?=
+ =?us-ascii?Q?V93sHkThzz4TbAWSkHcFMeEYqqw+JbrSilZBDaG8FsSGPYjNURzw+8S4YduM?=
+ =?us-ascii?Q?NDPRmkg6CXQd3+eZES/j+bL4+nXMx7/aS/Le6m0UAMZ2gAXtXuOUd/gUjV7P?=
+ =?us-ascii?Q?bK0OkfNpiCI4N6kMWRQTCDrLrLtn6Ac2CttMuGVz/kKgxR1ZZjOvl/vSGNUj?=
+ =?us-ascii?Q?P+SZ1QSh7HNN70Sv70nEd8LI2SX5PLt2HxGoDY5eiY5E1uil9wm55ofsJXOu?=
+ =?us-ascii?Q?I3dqMbtLV4bxCemIJxTpG6St8wDfop2z52/Loxjd6vXoBLUCWHxBrP59AvDA?=
+ =?us-ascii?Q?yyTVEms4SHO+cAHVszeqCwIe4JQTFheDJFfm/Re+txDMIxSbgIblC196vPs8?=
+ =?us-ascii?Q?qFzevTH172m6g64ej+SFxVqJ4OSVfPu34RDeE6KeyFx1v3T1Ayep4zH3tNtL?=
+ =?us-ascii?Q?mBLYxe0guzPlN9cPFvQdvIIvvtmIWhts8Ih2yfgYRVN1vRD6phQ6AdbndGuh?=
+ =?us-ascii?Q?1ln7fQEnH2dP3ueIfVcqvRlPKKcacO86yRktvM24HFJT2emtVSY9F3ky6ikx?=
+ =?us-ascii?Q?+cI80pCfdY9pPBtoejZsUDdVtu0RiBjPxfjVHsm6AMZP9iOK7yAJvfxXBGfy?=
+ =?us-ascii?Q?kqMLom1vLjj6PfhnSm5ZuhgZ0kveUmyIQa0MkmcCfDgZdDKT6cR9Kn5FUlTU?=
+ =?us-ascii?Q?Ph/RvYCcdGZxPhbjhjoZl1DTCGR1Z/0AaFfTyGl8iuS2Wz37Nt8IRTOPKSbT?=
+ =?us-ascii?Q?NkfH0A9U8fCLqA3uiMBX7VwuCRk43wr1kEJlhrsCYmR5laZFZHioc+UWaccw?=
+ =?us-ascii?Q?qAmStBxHQ08TNFCPr/AI/tW/IY+1he92s8qQhMswy1RwliUV6WbIeX7maI+B?=
+ =?us-ascii?Q?T4AA22tzRpJyHrNKPtqN7Oo8zo32W4pbLNHK7Gf0uOuiJbC2zw55bhqe0F8B?=
+ =?us-ascii?Q?emIhXvtQ069UM4/DPDV16FGe38e74mOlvK4Leyg/RtBBwqRyMjzbqE+4X+0m?=
+ =?us-ascii?Q?tQ0NWYqZiKUyPyT5+X6B0Fh/M/W49rXeYLzvmODmit/IrqXazZBD0v1bRO34?=
+ =?us-ascii?Q?+TJV9qDjrRFSssP1bthfHop3+y0qpotuJNlL8Tno/aHH1uxZ69igu0EwwmRa?=
+ =?us-ascii?Q?U2cNaKi/uA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 232c868d-a886-49bc-7bd3-08dee7d1bde5
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 09:15:15.4413
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: btKvFQDhfavbyDqZcr8qqcMMX1RyEhMTZ97DiM5eNKbyqE1cqoG7vMt9ur9yDHWgvI5NIRrdHUeC2419j+eobg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11289
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_021300_347774_3E75E164 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20260722_021523_773666_870BDF47 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,435 +139,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI debugfs files are only useful for connectors that already make
-use of the HDMI state helpers. In addition, relying on HDMI-specific
-functions in drm_debugfs.c can lead to circular linking problems later
-down the line.
+On Wed, Jul 22, 2026 at 02:15:55AM +0300, Vladimir Oltean wrote:
+> fsl_guts_init() is about to get much more complicated and the central
+> error handling procedure cannot scale in its current design, unless we
+> add a lot of "if" conditions to detect what has been allocated and what
+> hasn't.
+> 
+> Currently the code relies on the fact that kfree(NULL) is safe, but this
+> doesn't scale to the case where "soc_dev_attr" itself is NULL, because
+> this would dereference "soc_dev_attr->family" and friends of a NULL
+> pointer.
+> 
+> Convert to the more typical error handling pattern where the teardown is
+> in the strict reverse order of setup, and a teardown step is only called
+> if its corresponding setup step was executed.
+> 
+> At the same time, maintain the optionality of soc_dev_attr->serial_number
+> by not checking whether that kasprintf() has returned NULL. In the error
+> path, kfree(NULL) is safe, so we don't need to add an "if" condition for
+> it. Michael Walle has confirmed that ignoring the error was intentional,
+> and we preserve that:
+> https://lore.kernel.org/linux-phy/DK44809N7Y8I.J2Z3U4N32H0Q@kernel.org/
+> 
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
-Move hdmi_debugfs_add() and friends to a new helper in
-drm_hdmi_state_helper.c, and make all current users (vc4, sun4i, bridge)
-either use it as a debugfs_init func, or call it directly in its
-debugfs_init func.
-
-Suggested-by: Maxime Ripard <mripard@kernel.org>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Acked-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/display/drm_bridge_connector.c  |   3 +
- drivers/gpu/drm/display/drm_hdmi_state_helper.c | 154 +++++++++++++++++++++++
- drivers/gpu/drm/drm_debugfs.c                   | 157 ------------------------
- drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c          |   1 +
- drivers/gpu/drm/vc4/vc4_hdmi.c                  |   1 +
- include/drm/display/drm_hdmi_state_helper.h     |   3 +
- 6 files changed, 162 insertions(+), 157 deletions(-)
-
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 8b54069fa53a..00feb73e63d7 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -263,6 +263,9 @@ static void drm_bridge_connector_debugfs_init(struct drm_connector *connector,
- 		if (bridge->funcs->debugfs_init)
- 			bridge->funcs->debugfs_init(bridge, root);
- 	}
-+
-+	if (bridge_connector->bridge_hdmi)
-+		drm_hdmi_connector_debugfs_init(connector, root);
- }
- 
- static struct drm_connector_state *
-diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index ce17eeefc2da..8d5ee10ceb87 100644
---- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -1,5 +1,6 @@
- // SPDX-License-Identifier: MIT
- 
-+#include <linux/debugfs.h>
- #include <linux/export.h>
- 
- #include <drm/drm_atomic.h>
-@@ -965,6 +966,159 @@ drm_hdmi_connector_mode_valid(struct drm_connector *connector,
- }
- EXPORT_SYMBOL(drm_hdmi_connector_mode_valid);
- 
-+static ssize_t
-+audio_infoframe_read(struct file *filp, char __user *ubuf, size_t count, loff_t *ppos)
-+{
-+	struct drm_connector_hdmi_infoframe *infoframe;
-+	struct drm_connector *connector;
-+	union hdmi_infoframe *frame;
-+	u8 buf[HDMI_INFOFRAME_SIZE(AUDIO)];
-+	ssize_t len = 0;
-+
-+	connector = filp->private_data;
-+	mutex_lock(&connector->hdmi.infoframes.lock);
-+
-+	infoframe = &connector->hdmi.infoframes.audio;
-+	if (!infoframe->set)
-+		goto out;
-+
-+	frame = &infoframe->data;
-+	len = hdmi_infoframe_pack(frame, buf, sizeof(buf));
-+	if (len < 0)
-+		goto out;
-+
-+	len = simple_read_from_buffer(ubuf, count, ppos, buf, len);
-+
-+out:
-+	mutex_unlock(&connector->hdmi.infoframes.lock);
-+	return len;
-+}
-+
-+static const struct file_operations audio_infoframe_fops = {
-+	.owner   = THIS_MODULE,
-+	.open    = simple_open,
-+	.read    = audio_infoframe_read,
-+};
-+
-+static int create_hdmi_audio_infoframe_file(struct drm_connector *connector,
-+					    struct dentry *parent)
-+{
-+	struct dentry *file;
-+
-+	if (!connector->hdmi.funcs ||
-+	    !connector->hdmi.funcs->audio.write_infoframe)
-+		return 0;
-+
-+	file = debugfs_create_file("audio", 0400, parent, connector, &audio_infoframe_fops);
-+	if (IS_ERR(file))
-+		return PTR_ERR(file);
-+
-+	return 0;
-+}
-+
-+#define DEFINE_INFOFRAME_FILE(_f) \
-+static ssize_t _f##_read_infoframe(struct file *filp, \
-+				   char __user *ubuf, \
-+				   size_t count,      \
-+				   loff_t *ppos)      \
-+{ \
-+	struct drm_connector_hdmi_infoframe *infoframe; \
-+	struct drm_connector_state *conn_state; \
-+	struct drm_connector *connector; \
-+	union hdmi_infoframe *frame; \
-+	struct drm_device *dev; \
-+	u8 buf[HDMI_INFOFRAME_SIZE(MAX)]; \
-+	ssize_t len = 0; \
-+	\
-+	connector = filp->private_data; \
-+	dev = connector->dev; \
-+	\
-+	drm_modeset_lock(&dev->mode_config.connection_mutex, NULL); \
-+	\
-+	conn_state = connector->state; \
-+	infoframe = &conn_state->hdmi.infoframes._f; \
-+	if (!infoframe->set) \
-+		goto out; \
-+	\
-+	frame = &infoframe->data; \
-+	len = hdmi_infoframe_pack(frame, buf, sizeof(buf)); \
-+	if (len < 0) \
-+		goto out; \
-+	\
-+	len = simple_read_from_buffer(ubuf, count, ppos, buf, len); \
-+	\
-+out: \
-+	drm_modeset_unlock(&dev->mode_config.connection_mutex); \
-+	return len; \
-+} \
-+\
-+static const struct file_operations _f##_infoframe_fops = { \
-+	.owner = THIS_MODULE, \
-+	.open = simple_open, \
-+	.read = _f##_read_infoframe, \
-+}; \
-+\
-+static int create_hdmi_## _f ## _infoframe_file(struct drm_connector *connector, \
-+						struct dentry *parent) \
-+{ \
-+	struct dentry *file; \
-+	\
-+	if (!connector->hdmi.funcs || \
-+	    !connector->hdmi.funcs->_f.write_infoframe) \
-+		return 0; \
-+	file = debugfs_create_file(#_f, 0400, parent, connector, &_f ## _infoframe_fops); \
-+	if (IS_ERR(file)) \
-+		return PTR_ERR(file); \
-+	\
-+	return 0; \
-+}
-+
-+DEFINE_INFOFRAME_FILE(avi);
-+DEFINE_INFOFRAME_FILE(hdmi);
-+DEFINE_INFOFRAME_FILE(hdr_drm);
-+DEFINE_INFOFRAME_FILE(spd);
-+
-+static int create_hdmi_infoframe_files(struct drm_connector *connector,
-+				       struct dentry *parent)
-+{
-+	int ret;
-+
-+	ret = create_hdmi_audio_infoframe_file(connector, parent);
-+	if (ret)
-+		return ret;
-+
-+	ret = create_hdmi_avi_infoframe_file(connector, parent);
-+	if (ret)
-+		return ret;
-+
-+	ret = create_hdmi_hdmi_infoframe_file(connector, parent);
-+	if (ret)
-+		return ret;
-+
-+	ret = create_hdmi_hdr_drm_infoframe_file(connector, parent);
-+	if (ret)
-+		return ret;
-+
-+	ret = create_hdmi_spd_infoframe_file(connector, parent);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+void drm_hdmi_connector_debugfs_init(struct drm_connector *connector,
-+				     struct dentry *root)
-+{
-+	struct dentry *dir;
-+
-+	dir = debugfs_create_dir("infoframes", root);
-+	if (IS_ERR(dir))
-+		return;
-+
-+	create_hdmi_infoframe_files(connector, dir);
-+}
-+EXPORT_SYMBOL(drm_hdmi_connector_debugfs_init);
-+
- static int clear_infoframe(struct drm_connector *connector,
- 			   const struct drm_connector_infoframe_funcs *funcs,
- 			   const char *type)
-diff --git a/drivers/gpu/drm/drm_debugfs.c b/drivers/gpu/drm/drm_debugfs.c
-index ae1c6126c2c5..a72f9723d3a9 100644
---- a/drivers/gpu/drm/drm_debugfs.c
-+++ b/drivers/gpu/drm/drm_debugfs.c
-@@ -633,161 +633,6 @@ static const struct file_operations drm_connector_fops = {
- 	.write = connector_write
- };
- 
--static ssize_t
--audio_infoframe_read(struct file *filp, char __user *ubuf, size_t count, loff_t *ppos)
--{
--	struct drm_connector_hdmi_infoframe *infoframe;
--	struct drm_connector *connector;
--	union hdmi_infoframe *frame;
--	u8 buf[HDMI_INFOFRAME_SIZE(AUDIO)];
--	ssize_t len = 0;
--
--	connector = filp->private_data;
--	mutex_lock(&connector->hdmi.infoframes.lock);
--
--	infoframe = &connector->hdmi.infoframes.audio;
--	if (!infoframe->set)
--		goto out;
--
--	frame = &infoframe->data;
--	len = hdmi_infoframe_pack(frame, buf, sizeof(buf));
--	if (len < 0)
--		goto out;
--
--	len = simple_read_from_buffer(ubuf, count, ppos, buf, len);
--
--out:
--	mutex_unlock(&connector->hdmi.infoframes.lock);
--	return len;
--}
--
--static const struct file_operations audio_infoframe_fops = {
--	.owner   = THIS_MODULE,
--	.open    = simple_open,
--	.read    = audio_infoframe_read,
--};
--
--static int create_hdmi_audio_infoframe_file(struct drm_connector *connector,
--					    struct dentry *parent)
--{
--	struct dentry *file;
--
--	if (!connector->hdmi.funcs ||
--	    !connector->hdmi.funcs->audio.write_infoframe)
--		return 0;
--
--	file = debugfs_create_file("audio", 0400, parent, connector, &audio_infoframe_fops);
--	if (IS_ERR(file))
--		return PTR_ERR(file);
--
--	return 0;
--}
--
--#define DEFINE_INFOFRAME_FILE(_f) \
--static ssize_t _f##_read_infoframe(struct file *filp, \
--				   char __user *ubuf, \
--				   size_t count,      \
--				   loff_t *ppos)      \
--{ \
--	struct drm_connector_hdmi_infoframe *infoframe; \
--	struct drm_connector_state *conn_state; \
--	struct drm_connector *connector; \
--	union hdmi_infoframe *frame; \
--	struct drm_device *dev; \
--	u8 buf[HDMI_INFOFRAME_SIZE(MAX)]; \
--	ssize_t len = 0; \
--	\
--	connector = filp->private_data; \
--	dev = connector->dev; \
--	\
--	drm_modeset_lock(&dev->mode_config.connection_mutex, NULL); \
--	\
--	conn_state = connector->state; \
--	infoframe = &conn_state->hdmi.infoframes._f; \
--	if (!infoframe->set) \
--		goto out; \
--	\
--	frame = &infoframe->data; \
--	len = hdmi_infoframe_pack(frame, buf, sizeof(buf)); \
--	if (len < 0) \
--		goto out; \
--	\
--	len = simple_read_from_buffer(ubuf, count, ppos, buf, len); \
--	\
--out: \
--	drm_modeset_unlock(&dev->mode_config.connection_mutex); \
--	return len; \
--} \
--\
--static const struct file_operations _f##_infoframe_fops = { \
--	.owner = THIS_MODULE, \
--	.open = simple_open, \
--	.read = _f##_read_infoframe, \
--}; \
--\
--static int create_hdmi_## _f ## _infoframe_file(struct drm_connector *connector, \
--						struct dentry *parent) \
--{ \
--	struct dentry *file; \
--	\
--	if (!connector->hdmi.funcs || \
--	    !connector->hdmi.funcs->_f.write_infoframe) \
--		return 0; \
--	file = debugfs_create_file(#_f, 0400, parent, connector, &_f ## _infoframe_fops); \
--	if (IS_ERR(file)) \
--		return PTR_ERR(file); \
--	\
--	return 0; \
--}
--
--DEFINE_INFOFRAME_FILE(avi);
--DEFINE_INFOFRAME_FILE(hdmi);
--DEFINE_INFOFRAME_FILE(hdr_drm);
--DEFINE_INFOFRAME_FILE(spd);
--
--static int create_hdmi_infoframe_files(struct drm_connector *connector,
--				       struct dentry *parent)
--{
--	int ret;
--
--	ret = create_hdmi_audio_infoframe_file(connector, parent);
--	if (ret)
--		return ret;
--
--	ret = create_hdmi_avi_infoframe_file(connector, parent);
--	if (ret)
--		return ret;
--
--	ret = create_hdmi_hdmi_infoframe_file(connector, parent);
--	if (ret)
--		return ret;
--
--	ret = create_hdmi_hdr_drm_infoframe_file(connector, parent);
--	if (ret)
--		return ret;
--
--	ret = create_hdmi_spd_infoframe_file(connector, parent);
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--static void hdmi_debugfs_add(struct drm_connector *connector)
--{
--	struct dentry *dir;
--
--	if (!(connector->connector_type == DRM_MODE_CONNECTOR_HDMIA ||
--	      connector->connector_type == DRM_MODE_CONNECTOR_HDMIB))
--		return;
--
--	dir = debugfs_create_dir("infoframes", connector->debugfs_entry);
--	if (IS_ERR(dir))
--		return;
--
--	create_hdmi_infoframe_files(connector, dir);
--}
--
- void drm_debugfs_connector_add(struct drm_connector *connector)
- {
- 	struct drm_device *dev = connector->dev;
-@@ -815,8 +660,6 @@ void drm_debugfs_connector_add(struct drm_connector *connector)
- 	debugfs_create_file("output_bpc", 0444, root, connector,
- 			    &output_bpc_fops);
- 
--	hdmi_debugfs_add(connector);
--
- 	if (connector->funcs->debugfs_init)
- 		connector->funcs->debugfs_init(connector, root);
- }
-diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-index e99f52ebb26f..e6c4f121ad0c 100644
---- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-@@ -292,6 +292,7 @@ static void sun4i_hdmi_connector_reset(struct drm_connector *connector)
- }
- 
- static const struct drm_connector_funcs sun4i_hdmi_connector_funcs = {
-+	.debugfs_init		= drm_hdmi_connector_debugfs_init,
- 	.detect			= sun4i_hdmi_connector_detect,
- 	.fill_modes		= drm_helper_probe_single_connector_modes,
- 	.reset			= sun4i_hdmi_connector_reset,
-diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 17c8635c5afa..ea1f2013b20e 100644
---- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-+++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -513,6 +513,7 @@ static void vc4_hdmi_connector_reset(struct drm_connector *connector)
- }
- 
- static const struct drm_connector_funcs vc4_hdmi_connector_funcs = {
-+	.debugfs_init = drm_hdmi_connector_debugfs_init,
- 	.force = drm_atomic_helper_connector_hdmi_force,
- 	.fill_modes = drm_helper_probe_single_connector_modes,
- 	.reset = vc4_hdmi_connector_reset,
-diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
-index 13375bd0f4ae..596c57d9d250 100644
---- a/include/drm/display/drm_hdmi_state_helper.h
-+++ b/include/drm/display/drm_hdmi_state_helper.h
-@@ -3,6 +3,7 @@
- #ifndef DRM_HDMI_STATE_HELPER_H_
- #define DRM_HDMI_STATE_HELPER_H_
- 
-+struct dentry;
- struct drm_atomic_commit;
- struct drm_connector;
- struct drm_connector_state;
-@@ -29,5 +30,7 @@ void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector);
- enum drm_mode_status
- drm_hdmi_connector_mode_valid(struct drm_connector *connector,
- 			      const struct drm_display_mode *mode);
-+void drm_hdmi_connector_debugfs_init(struct drm_connector *connector,
-+				     struct dentry *root);
- 
- #endif // DRM_HDMI_STATE_HELPER_H_
-
--- 
-2.55.0
-
+Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 
