@@ -4,85 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF91C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C071C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2nl4VWueEk9cKUhbw+kqvh7s/L/Uh+km+tAT2bP7fg=; b=YcDWOihTAjf8OeoslU8l3t9hBs
-	NMExb2yDx5s7zqeC9C0GhDCx6+L+bcwSN9lPUuBjVyb9MDzMxVEpNkQxx00zT9RBha/glMoiiD1Uj
-	TONWhh6OsH5Mqow8RZ+0h5Bs8UHI7lvGTdcm8yu+90CAGRwANB1iuxUDVEE6dJp7vJEdawUw6zjd6
-	vD7a5joHVRlR9kgOHUkE8iEJzUy0iPmtPWZqucODqXvO3sUpBrp384VLv7rzlM/MI56hDAe1dCTuD
-	UgZAEBDtcOb1FJAJdZQsyl6aNO36uQdXgTJFBDUZK+VI4FSzM5wtF5sH/TQ9sbuRYC1QFLaedwrto
-	AlWg837g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3REs2qGjomqbxDR0NSQ8ilL5HrSoQvM8Tf4GumzfTic=; b=TvRvyexIbrzSVL760VskNWR0UR
+	/gbDcCDZp3sMawhROvBhcRmqUexrOHeRfg4WAKG7OF7Sd91Lv3GcEiuuctZISPv7T2ZezDDnNlFD9
+	eQFkTrMGtHhxgDPPpvVT8wXpPRYv/KkcQDSRZ4HCQlGVX8lI8nsWRg6OB0QfiMkAh2dFPgGsS+Pa3
+	9LwL7h9+UthxVVx1Nrse3Rot0VMOTOETkxt/QcJqHvZhqmdZ6/Hgu72Euca8XZbG2N79PoFuW+avx
+	B3VNH7Ly5GFv8WmKka70yFQGfPguBcfXCmGs9MqElAOTNJXCBwQ5A2WPL6KjdWDm0SgcCbbMXkf1/
+	LyjXRKGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTnL-0000000BUV7-22Su;
-	Wed, 22 Jul 2026 10:03:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmTrZ-0000000BV3E-0xY6;
+	Wed, 22 Jul 2026 10:07:41 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTnH-0000000BUTD-2fIF
+	id 1wmTrX-0000000BV2s-0SvE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 10:03:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AFB9860A78
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:03:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62D6E1F01559
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 10:03:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784714594;
-	bh=v2nl4VWueEk9cKUhbw+kqvh7s/L/Uh+km+tAT2bP7fg=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=aGMuUyLHguxVRr1lFjeEqsXxI5a3BDv/DaaV4zoODVdfUElN6OPq6bkx5ATub1s7X
-	 NqCOBztx6noD+QfHAvSgTWe7vgJnIbtFqRfBncNwEd8MZhJAPkwQ6o1PmCErDh2eSF
-	 54ujH4MI/X8WrSdzSMvJdDCh0pZpi+hUqSU2T1bUPAGLbQO4yixldnti713LXPNkci
-	 YythZGNmbpNbSYX0SZ1YxdtUM26wau81e41aUGstklcHdYCONGNwfqBX6p8ICowp/6
-	 g9HicL6hWe6OdIC4YCD4+8eDDyuWsnOkh3GMzOh/RFUuABV1W9tcDEy8Izwff+b8ok
-	 dcHRMOjcvphAQ==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5b2aab18795so599960e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 03:03:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpQetCLo2YDGcyhByNoXPK2Qg/rCNMtg+e5K/5LrjzmWvJ7h9Fs8vy1sXrQ6vmWf2xUNBaOu/6F5ey/NyxRLTDW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+bGJM1HlBwiilOF4D/4i++JsxwPiTulGWIexl4ra9L0zoYVS0
-	fEsFE4GjMF7jCmFZUVsJlgD0uXyeytvpgxpXSFa1IBIOZ3PX8eYlixh9+1i/5y7v3xdC5KcOIcS
-	BeH6iuo7PzrgUkOTh/9+ysbPz3gQRwT3SmXcNsVeVOQ==
-X-Received: by 2002:a05:6512:3185:b0:5ae:b2e3:fc24 with SMTP id
- 2adb3069b0e04-5b28fabb0afmr5670333e87.60.1784714593132; Wed, 22 Jul 2026
- 03:03:13 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 22 Jul 2026 03:03:08 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 22 Jul 2026 03:03:08 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <CAGXv+5H_V+J0cvrYjMFdKAQVrPKxPdtimXMc+hwHenwxhb9mDQ@mail.gmail.com>
+	Wed, 22 Jul 2026 10:07:40 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4956869750eso10705315e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 03:07:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1784714856; x=1785319656; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=3REs2qGjomqbxDR0NSQ8ilL5HrSoQvM8Tf4GumzfTic=;
+        b=tcT/cWqt0L2/Y2aJOG70CVMptD7YZtzOGmDOcGLbMW2SBO5706pdGzBgf0aNasx2tP
+         jcW1g7CzHIRy55cONlwrNF4B1GdYty6k3CX055tcB2qJs5Jg+M6imyZhMs/2X7kwSgPv
+         L4cH7iL69ZY0GrVsRR6GC6Oc2PVADP+DZ2Ad8qVt/AzHX/S6NsNyD6zsiST10YQgNvWH
+         9SjbIaVZNhmAsat1ZsgJXR9uktSsSg8IpazHCy1c0TFWIIPcRC62ll2fJDqSDUgdSdaM
+         bFZEzDOF0HbbvSaV3OvawYyF6mP3FOm/9kBX+czBTi9S3CDAWwnkRJUva1L/hDLzr1Ji
+         lTsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784714856; x=1785319656;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=3REs2qGjomqbxDR0NSQ8ilL5HrSoQvM8Tf4GumzfTic=;
+        b=P7ACaj142X6p+9hkBt79suG/Ab8vTJGDJEqcaE5KqDFmOY4uwHJnFXH2PV7s2FE/h6
+         LoTxn/hBnGnfKyA2bjORpZa+io0I8dzVqV/8cRmjsLCS1916BiO5+Mp8kJps5QLipri7
+         Qi9ANOCTQfKa+MbYlW8SukEnF9YWnAIHllGzsfF5L/cV0tbuOGEftDdz2l+GBnT//xeP
+         i9gXl8dc/jP9VgBdYNaaAszi9+ovY30cT4bwunr4CpNhS2KzzSp9RrOEk2tNeVP2WZMk
+         IgQ9hqpx+PgnsLqooWLnvNcytMHKreYV3Zr7EGhL3EchhGjbftUgibKYGEgYEt8aenxc
+         iM8g==
+X-Forwarded-Encrypted: i=1; AHgh+Rqfr1mQh/9ZlmuBPkrLJdPS8vD2hAaVrezLm+m+8FXqCX1aaTeGNU83F736zOoRzkUe6IaTjz28mECM0W0154ln@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/OU0RUDk/WjIpAjVd+6D0xWQlmo5qmZAaBBCB3b+MMb58yhnE
+	BPRPltorImYVPjh5RDTcHyhe/O8+klbNRiDtlKJaMIGgq7x+9iR3StPAS0Ula/oVorE=
+X-Gm-Gg: AR+sD13lGSTlk/B2DjJehCHq0jOKZbhxb+qZUf7ktt3X5Oy20KC2TzZ32Vb5/YkYK1w
+	2IIFht/YmFTrAxl014QuoXUsO4YjakYoPFkcBnGtqEfowiLbrGiiFbdYRkmBcXVEmTy3ly/RLxn
+	fl4hSjT7y7Tbb8SCU9Q3uVt21YuHzj9AkOLZh61URSAm+N9c++WsQuJe2vPo5NfjzdwzQxa0IZM
+	rLOoeDm/WZgySrRAPLsnK5eDpzM2r+HZ5+ajBnZpysVk1/DOuwPhP4SCOc3A7n70MWwpTw+OANh
+	IMkxJPw3+lCt1OzAjG8I/ekQdxfjMC8w4nWuXJ2NO63YRJsxUnJfXEzdcOa3EG4j5QcQN7zwNG2
+	vfb2gWpk9pbf+H/K5Xb8wC1L8NVTDhvl/25VMrQp/6pUj3cICEb87jC6LOmWJPeydX3JoXNqHJO
+	AszO7ViF852M8URrhLPsFFm8k=
+X-Received: by 2002:a05:600c:4585:b0:495:3eb2:b763 with SMTP id 5b1f17b1804b1-4954a50c51bmr246233625e9.21.1784714856416;
+        Wed, 22 Jul 2026 03:07:36 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956a4f25b6sm56086095e9.2.2026.07.22.03.07.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 03:07:36 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Date: Wed, 22 Jul 2026 12:07:30 +0200
+Subject: [PATCH] drm: fix missing header include for drm_panel_put()
 MIME-Version: 1.0
-References: <20260721065413.2306137-1-wenst@chromium.org> <20260721065413.2306137-4-wenst@chromium.org>
- <CAMRc=McsCRBxXMj0xC8H0cgdZZ=Z9_4u_DS9b2z0pLE0=gZr+g@mail.gmail.com> <CAGXv+5H_V+J0cvrYjMFdKAQVrPKxPdtimXMc+hwHenwxhb9mDQ@mail.gmail.com>
-Date: Wed, 22 Jul 2026 03:03:08 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MfZ1Yk6OJaCGphTYToMVfe_UU4dhOGmGVCbwqBV9S-a2g@mail.gmail.com>
-X-Gm-Features: AUfX_mz93U1zn17dWP9tyqRdXvFYbDQgxlYVyw0vjRryfcxfP9O2fsTk4G3zrhY
-Message-ID: <CAMRc=MfZ1Yk6OJaCGphTYToMVfe_UU4dhOGmGVCbwqBV9S-a2g@mail.gmail.com>
-Subject: Re: [PATCH v6 03/16] power: sequencing: Add pwrseq_power_is_on()
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260722-panel-fix-kms-panel-put-v1-1-ebde56446ee5@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAGGWYGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDcyMj3YLEvNQc3bTMCt3s3GIor6C0RNfYItnA3NLE0CjNwlgJqLugKBW
+ oCGxydCyEX1yalJWaXAIyTqm2FgBMJKMtewAAAA==
+X-Change-ID: 20260722-panel-fix-kms-panel-put-38c079412f83
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Yannick Fertre <yannick.fertre@foss.st.com>, 
+ Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+ Philippe Cornu <philippe.cornu@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Albert Esteve <aesteve@redhat.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ Neil Armstrong <neil.armstrong@linaro.org>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1966;
+ i=neil.armstrong@linaro.org; h=from:subject:message-id;
+ bh=g7/eALbrieKWG+a53MxxDem/J0HE9S+G/F/iwhj41eQ=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBqYJZnXQr6E0bZ+prdCer0OHkH30wy9EoEP5dhovRB
+ +qgdEB+JAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCamCWZwAKCRB33NvayMhJ0e1OEA
+ CcwEihOXsJfN3H92DygMrdNgASLoPt8ng4ShFdeyVmwcjH8KAOi3alcKUuGqlI/uYLI1vQkeuFDoYx
+ np3ywKiZ6jvYrYwGnysbJ52twLrF7lLrnT8yISsZckIsN60fckNkkfIaJhufdLhGnUM+pdf6pGiofI
+ vKy4+ZCidkkSLe4/YgWs6gIMWC6YAiKPH6BuwjZNv3UlCKG8XOOSp4+cUN6o8fnHZ2WVJ7vN6s0XMY
+ Sf0a4Tg2IBuQxUMMGiNR/5Fi84os8S8gjs5x2b+xYGOO5m3HrpdGJaC2PRTxevHKW6R9CSEEHGKG8r
+ 1/INHJX3YzTuFVTM04IFizTk5WA2W3lOnsQhAq1Hh3yEV04VP91kO5mVBd0LBLkzRytLhoxyQG0HiX
+ 6u1+iqwpf+YGMlvoljOeDydqSqTMp6ATkk6da1Hl9EYEy/CeCU2ot2/bQQGq2xo0usQwxBST89AQen
+ VqoZSjf4fMZHm+X7MHc8DgbOdPqag2vg5bfWaxEjL4oq/Wuj49t88YE5ugb1oEKdSz/TMd7uztn00p
+ qWIzKj1vrbKRCTwspahUEKbqt8GsJtVIRCbq9Ct5r24qvpr4RjCT+puehfixjtrKyKul26i/UrUvzL
+ LvXcG3SJjZYTaoj7YDfveJ1zPlTP4kvr33BPm0gtjqCv2B1rcPV9cMGO2t7w==
+X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
+ fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_030739_206513_ADEB25E8 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,61 +133,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 11:01:20 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
-> On Tue, Jul 21, 2026 at 5:08=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.=
-org> wrote:
->>
->> >
->> > +/**
->> > + * pwrseq_power_is_on() - Queries the last requested state of the pow=
-er sequencer.
->> > + * @desc: Descriptor referencing the power sequencer.
->> > + *
->> > + * This returns the last requested state of the power sequencer.
->> > + *
->> > + * Returns:
->> > + * On success, 1 for on and 0 for off; negative error number on failu=
-re.
->> > + */
->> > +int pwrseq_power_is_on(struct pwrseq_desc *desc)
->> > +{
->> > +     if (!desc)
->> > +             return -EINVAL;
->> > +
->> > +     return desc->powered_on;
->> > +}
->> > +EXPORT_SYMBOL_GPL(pwrseq_power_is_on);
->> > +
->>
->> Didn't we agree on introducing an enum to make it future-proof for when =
-we
->> also pull in pwrseq_is_controllable() from Loic?
->
-> My bad. I misunderstood and thought it wasn't needed yet.
+Some DRM drivers lacked the drm_panel.h include to use drm_panel_put()
+after the commit b71a623598d3 ("drm/panel: of_drm_find_panel() return a counted reference").
 
-It's not technically needed *yet* but since we know where we're going, it
-makes sense to be proactive.
+Fixes: b71a623598d3 ("drm/panel: of_drm_find_panel() return a counted reference")
+Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+---
+ drivers/gpu/drm/imx/dcss/dcss-kms.c | 1 +
+ drivers/gpu/drm/mxsfb/mxsfb_drv.c   | 1 +
+ drivers/gpu/drm/stm/ltdc.c          | 1 +
+ 3 files changed, 3 insertions(+)
 
->
->> I think this should work like so:
->>
->> enum {
->>         PWRSEQ_STATE_UNKNOWN,
->>         PWRSEQ_STATE_ON,
->>         PWRSEQ_STATE_OFF,
->> };
->>
->> int pwrseq_get_state(struct pwrseq_desc *desc)
->> {
->
-> I think you still want this here?
->
->           if (!desc)
->                     return -EINVAL;
->
->
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+index 01e0c10b6ea1..7c5a6e2bc89a 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+@@ -13,6 +13,7 @@
+ #include <drm/drm_gem_dma_helper.h>
+ #include <drm/drm_gem_framebuffer_helper.h>
+ #include <drm/drm_of.h>
++#include <drm/drm_panel.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_vblank.h>
+ 
+diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+index 7cb19c15bf39..8b4a500347fb 100644
+--- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
++++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+@@ -29,6 +29,7 @@
+ #include <drm/drm_mode_config.h>
+ #include <drm/drm_module.h>
+ #include <drm/drm_of.h>
++#include <drm/drm_panel.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_vblank.h>
+ 
+diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
+index daf198edb42f..8818dcf98da7 100644
+--- a/drivers/gpu/drm/stm/ltdc.c
++++ b/drivers/gpu/drm/stm/ltdc.c
+@@ -34,6 +34,7 @@
+ #include <drm/drm_gem_atomic_helper.h>
+ #include <drm/drm_gem_dma_helper.h>
+ #include <drm/drm_of.h>
++#include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_simple_kms_helper.h>
 
-Yes.
+---
+base-commit: 0f065acf44aeb8c32691d88cc87004fd2e54e902
+change-id: 20260722-panel-fix-kms-panel-put-38c079412f83
 
-Bart
+Best regards,
+--  
+Neil Armstrong <neil.armstrong@linaro.org>
+
 
