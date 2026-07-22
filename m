@@ -4,95 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5078C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3833C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 10:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EU/+Qn2XRS4DDn4lGHvzZzxZVrDtGY5ngYyeG3iNo5M=; b=sy6xJVZ2f329B/BEmm4YDuM4S8
-	kkykrjehA62ygbHZrkvQlTkdV/WIzjV0q6M5k/EASkGNN2E7fjaje4MSgq26w7mOgGgbltm1UBz8L
-	1tgVEyxFPcCr5J4cWno7HHNMlCH2Z8AeLWfZONqCl0xBeXnEulwWHiDFWB8fy1mnV6wykmwQhu+9A
-	hhs7eGcxi27B040oQ2nREZSXHs5bG8cDQEYqxVjYYJYJCcUDID7Y+QxyaearnDrVF590PY5dO518j
-	DBJzeTWkE6XZglQVKJh/bFd73Ygk/dHUWQI9uwWzIPTqta83I4F5kQxPDe0TVbMqHhu+Bb0Td/bLA
-	sHvOZ/tg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E9uOQoYcuC+/A4J3Yh72l0gAD4P1upO+3pVQE+zAmCg=; b=kH65xDFgMzTFTiFms5FAUu3o1t
+	2r5LqmR8nrDLHctxxcEJJvcht8J5bRFAOS+13FbWBF8xfL+3cr2pMRxEd1B+ur0mUXup7h7bypHY3
+	HNb6jJcCZh3aRQo/h/nFc5Z5Vk1xrcVXeL1Nh7/ZWZKbvNPCHEX2xJGKD5am6LuVZUFUZJAzNzFU8
+	HecbwJ/tGNah5dQFqcytsuI8B3n29yJ+5VqLB++lkFeTK8VvxpAWGTHsf3TsJ/+YRZt5HdH2v7GBb
+	gKrec9tdnB+tFczE9YxmJOxR3pMH/mIeGN46q2l3FSVC8tFf9XBFH8u2I6ym/sKMCORUWVm02whtd
+	bUKZTzEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmUOw-0000000Ba6n-0dqg;
-	Wed, 22 Jul 2026 10:42:10 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmUOu-0000000Ba6C-0R1A
+	id 1wmUPt-0000000BaCv-226i;
+	Wed, 22 Jul 2026 10:43:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmUPq-0000000BaC1-0Pin
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 10:42:09 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4954a32cf1eso21851055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 03:42:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784716926; x=1785321726; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EU/+Qn2XRS4DDn4lGHvzZzxZVrDtGY5ngYyeG3iNo5M=;
-        b=otDU+yvZ+f4YxfdeJcgYCJC4H97BUYV8S84lid1mmstif83DAHwSkuIwXubWQ6fIUh
-         pBpz45/hSiVkd8YO7osI3OtqHkvnv/BQRgFiA4MGwho/G/U1zKHSikiryvt50zrWWpx6
-         08aG3S5L1Tj5LGf1gr9CKTbkVRFAiwabVyjE36/WfJbbBvOVA0XFpjXPn1LPgXtdvhgX
-         MSSNFPFO9iqKRmUnsls30XdWtxdt6UOPC6pgcVuNG3+NVPxHYq4Jrn1gEx1HsO/VdXh3
-         B5k5dKGvIBrxmjO5Bd1DsTZJXQ3EFqMcF2uhisfxEKkqJwZsoB6MacO08T1rxTkg3gRr
-         ebVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784716926; x=1785321726;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EU/+Qn2XRS4DDn4lGHvzZzxZVrDtGY5ngYyeG3iNo5M=;
-        b=H3jr0wNG6e3N5SjIEUOPxbzjMrFtZNnnyJp5qyHNsiIViqO7keY4FzVqkTwW/ODig7
-         IpYA8fajb+l+PpZTNaSSAOl6/1pdDQgVVe46i4oiUnuyde5QBFPUXlpV/j7a4E5WKPP9
-         W94SfOfHQXcv73KHSnoziKEuDx6zYiccUVQThPZTA5U3vmQgleg0h8CrATfagT1+/oMd
-         +LBaYMTVxLIoWZJk9+boO9yGcmNUtx2cTeDLJ7JFF+QmQQvdShMdnBnyYeqK61HNRrBf
-         vEAmMK4jlfAQyqqOLGc/6op+1POXQDZrktPw5SoDFFWFI2pkAm5We+bAiqu/AGyIIEb5
-         zMMw==
-X-Forwarded-Encrypted: i=1; AHgh+Roh2+K2ATkQU2odwCParJxSxL5lejlZNktZMv4J4H78zLJLm7jgzHHl1avIjiw8SDOJ9GuoHZ6c3kq7Egh0RRos@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3PaUsDrClBlm4NG1wg21YDL4i9cfh74FOwhsjiNIqmQxrRYiz
-	R4pW4CIWgLCkBViUtYtChI9O2R9/8q8yt9rJ2hYblF7ZSm30c+twsVEE
-X-Gm-Gg: AR+sD11uOIQG3fw7FxAMFofoQPVS65IcOORV5Evnb8OpXv85Trir9Jkat5L/m2bjGiB
-	rpeNSurnDnrzG0OELM7SvVrgMzKN2vBok6QE2IHqgv803/frlalIv+jpwsnRS/nNrglAtbb4vr4
-	+kV9s8ZTjvBRLYD643WOURkSSQCx41WI2f7tc5sUOI2H3KFACJHPTob8LjbVqIldNar/G+bQRFY
-	ozShy4PYCzdNEVh8ZamEx+JLc/V5DfpWfpyeyPO9LruG7BIUDa7rkL0LYNl242b6QgRn1FjuFt6
-	r1nTVAPzcgsBlrchdtEfu6OsgCiC/BaUOYL8cQ9HU75Q90vvkgp3AO5wS6naLpL992q2oUpDcc3
-	nZc2d9vElLupqdDO6p7lyWx1RmSeqy9A4PPxEx8H7QcrPLIlRtTDldwRvRMjNsHWLxrc5sDLusW
-	OC+sucInCZB/5UVHyXIz+zoFGrlbkIwD590MD1weOY+guimhh70smSRQ1z0y+tbjwTsdnce/OdK
-	USomxz7oT25+l0=
-X-Received: by 2002:a05:600c:5490:b0:495:6130:7805 with SMTP id 5b1f17b1804b1-49561307a51mr114097015e9.14.1784716925698;
-        Wed, 22 Jul 2026 03:42:05 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-495653c98ebsm126602615e9.13.2026.07.22.03.42.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 03:42:05 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v1 1/1] arm64: dts: imx8qm-ss-dma: add LPUART4
-Date: Wed, 22 Jul 2026 12:42:00 +0200
-Message-ID: <20260722104200.17729-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	Wed, 22 Jul 2026 10:43:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5C85D1595;
+	Wed, 22 Jul 2026 03:43:00 -0700 (PDT)
+Received: from [10.57.86.212] (unknown [10.57.86.212])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 595953F58B;
+	Wed, 22 Jul 2026 03:43:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784716984; bh=avX17YujvNShW2/vZDJ2Xhz8U8M9SPol+g9H8Fsfkek=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PwdlpcaLICCnQKTjVr/boQjIfDTRYauUxMkoR19UaYRGcUW8z4apZyLX4Nqwx2mUH
+	 hkUDfmr9J9z3dp4HkAyBIc/lrLnEoPicvIvaqRNvt813QT4Ct60p74NOMRp3Q5iZHi
+	 pDIDMtAzC2uFC1B9nuS41KGOGqw8glxlAuDxB6lo=
+Message-ID: <c1cd8fac-9656-4f3f-890f-bcb8f605d0a0@arm.com>
+Date: Wed, 22 Jul 2026 11:42:57 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/2] perf/arm-cmn: Add workarounds for CMN-S3 on
+ Graviton5
+To: Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, kernel-team@android.com, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ zeev@amazon.com, blakgeof@amazon.com, avivb@amazon.com,
+ ilkka@os.amperecomputing.com
+References: <cover.1782824005.git.robin.murphy@arm.com>
+ <178466981527.100304.690835278646398901.b4-ty@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <178466981527.100304.690835278646398901.b4-ty@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_034208_182113_784CF1EF 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260722_034306_192830_199F28BC 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On 2026-07-22 9:23 am, Will Deacon wrote:
+> On Tue, 30 Jun 2026 14:01:16 +0100, Robin Murphy wrote:
+>> v5: lore.kernel.org/r/20260603150025.30980-1-avivb@amazon.com
+>>
+>> Hi all,
+>>
+>> I'm reposting Aviv's series partly for visibility, since the previous
+>> versions were buried in a thread, but also to respin patch #1 - Aviv had
+>> fixed up the bugs in my initial draft, but I also get reports against the
+>> original commit on my branch, so I ended up taking a second look, and
+>> deciding the improvement was worthwhile.
+>>
+>> [...]
+> 
+> Applied to arm64 (for-next/perf), thanks!
+> 
+> [1/2] perf/arm-cmn: Move DTM index data out of hw_perf_event
+>        https://git.kernel.org/arm64/c/56603c28d916
+> [2/2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+>        https://git.kernel.org/arm64/c/9d0b1714e1af
+> 
+> If you get a chance, please can you take a look at Sashiko's comment on
+> the second patch? It said something similar on Aviv's v5:
+> 
+>    https://sashiko.dev/#/patchset/cover.1782824005.git.robin.murphy@arm.com
 
-Add the missing LPUART4 node to the i.MX8QM DMA subsystem description.
+I did already respond to that back on v3 or so - the code is correct 
+compared to what the standard CMN tooling generates. The main DTC always 
+has a logical ID of 0, while secondary DTCs inherit the logical ID of 
+whatever XP they are attached to (and in this case the main DTC is on XP 
+0 anyway so it works out neatly).
 
-The peripheral is present in the SoC and its LPCG clock controller is
-already described, but the UART device node is currently missing.
-Describe its registers, interrupt, clocks, power domain and eDMA
-channels based on the NXP downstream device tree.
+Subsequently I did also spend a while trying to make sense of the 
+generation scripts themselves, and while I couldn't find any obvious 
+proof that the DTC domain numbers (other than 0) will always line up 
+with the logical ID order (although there definitely looks to be some 
+sorting of things before the XP logical IDs are assigned), apparently 
+it's not been an issue for anything anyone's built so far, and if it did 
+become one, then it's a problem for arm_cmn_init_dtcs() to solve in general.
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi
-index 974e193f8dcb..25c5e4423163 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi
-@@ -8,6 +8,22 @@
- /delete-node/ &adma_pwm_lpcg;
- 
- &dma_subsys {
-+	lpuart4: serial@5a0a0000 {
-+		compatible = "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
-+		reg = <0x5a0a0000 0x1000>;
-+		interrupts = <GIC_SPI 349 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-parent = <&gic>;
-+		clocks = <&uart4_lpcg 1>, <&uart4_lpcg 0>;
-+		clock-names = "ipg", "baud";
-+		assigned-clocks = <&clk IMX_SC_R_UART_4 IMX_SC_PM_CLK_PER>;
-+		assigned-clock-rates = <80000000>;
-+		power-domains = <&pd IMX_SC_R_UART_4>;
-+		dma-names = "rx","tx";
-+		dmas = <&edma2 20 0 1>,
-+		       <&edma2 21 0 0>;
-+		status = "disabled";
-+	};
-+
- 	uart4_lpcg: clock-controller@5a4a0000 {
- 		compatible = "fsl,imx8qxp-lpcg";
- 		reg = <0x5a4a0000 0x10000>;
--- 
-2.47.3
-
+Cheers,
+Robin.
 
