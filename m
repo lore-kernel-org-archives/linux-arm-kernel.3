@@ -4,70 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705FFC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 04:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D04C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 04:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQIaw6RUIl9sIBDtTmFb37A91uvQrFJH4fhuTcF8/Xg=; b=OUNr09grNd+DZ6XsOKtBuLAdfV
-	keQ8XbJpoW6VsRe8gCBIly44OdCQrTM076d76HLmbC9LDBkbmqiJvyAzjVqet35JjV+IBujt8g3+l
-	XQVbF57cdjMdSUZVJCTeysE+CDSHF6nKKSPpBiz6knBsFxffB7BtNuMjsOpCiXO9WvDEkZ7zSzMNf
-	dLKIl0yoOgrNzgZ48zGSaJ29Vmb8TZOjt2D3MvD+4MtmlSGS19m+aC3T3OXO+5sUk28TS0HSUw7s+
-	CT/NZQ0Pafn7jcwr6K/W6EPDsSr4oyGDJE0yYY97JbRmFc8GA70LnYeIEJRRYQfjIfSXtdomQsyQE
-	3vB4lD3w==;
+	bh=NOqA35cjN5v4HEhdb5FUASaRphDo/4ElJRhVBlLYRp8=; b=q9/mR2OuRfrYaasHMVpfMA0v1h
+	iQ662IGnpg9ZZ/IlxtqV3/Ow+PZ1DC0WaY4alPJWE1Bb75voBf1PN47aVt+mgmjrBBCopfXyUmZJp
+	Stli8FX9QEfcmxcrkq4E1MAcZNXQg2GsRU2y2BmnSys1UkwEgDi/MWY3N5lRHtLn+PPvMI+1w2+5i
+	nkd2LfDfX+FgA9CrfxbFmezXiL8Hn5h7Tphog5ZuohUxUIoXiq6yRrN0/pKzUoBtthLVqchwu2ldF
+	51PQOflivFaps2O6HvMOOUoeZ8klZlMi6YrAnF1992iUbmQOnpvJ8EfAlo4ukGxYzdnMYG4M3CTm4
+	GoIYhfZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmOe2-0000000AtI5-2RTP;
-	Wed, 22 Jul 2026 04:33:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmOdz-0000000AtHZ-24wf
+	id 1wmOmc-0000000Atf6-1quM;
+	Wed, 22 Jul 2026 04:42:14 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmOmZ-0000000Ateg-0fQ5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 04:33:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9867152B;
-	Tue, 21 Jul 2026 21:33:11 -0700 (PDT)
-Received: from [10.164.19.44] (unknown [10.164.19.44])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00E363F86F;
-	Tue, 21 Jul 2026 21:33:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784694796; bh=qUwOyYyxJlbMFmKAIAJ1m806FYR7SWozC8Yg9pfLJo0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J8StVHGQbtg0VuqzhPoahZpWhk3VEW2Mz09ov6/YpK0U9xNEaJP1SMI4FmTGve2Bn
-	 QM1KpqpA8kfKdVYel3jLY3MRJe/jEQ/78fiS12mJC5DaucwegF2PT1QHl7fPSxpQAf
-	 vDWwsyVfBfFS2O1trdUQ6CxFX2XwDPaJhRfGK+z0=
-Message-ID: <4bb234f7-5f3a-452d-92dd-a1e62b6f39aa@arm.com>
-Date: Wed, 22 Jul 2026 10:03:04 +0530
+	Wed, 22 Jul 2026 04:42:13 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66M1EqKV2369191;
+	Tue, 21 Jul 2026 23:42:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=NOqA35cjN5v4HEhdb5FUASaRphDo/4ElJRhVBlLYR
+	p8=; b=WKY8jeBjyAGnX2rDER1ewKS/9kOsYh0CUYQCqBY7bB6VKZxs2F7pX9yCF
+	33qhsQB6VgpmnKVy56mIQB3glrxW0HllJLWq60fbVe3gPeZrzb+9+rBbktakrUme
+	mTldv2QQc6VSbUgY6stNlYDSMlQdpQvdyyQO/aoYnUBYeJeGNbs1V1X0eArizJmN
+	MTd0/4c+LMWqVfwQk4OImd0OGhIfqZWviYDj+cOEvR5b4gStqCVJZ9u+0tzJxAkS
+	GQtnWSVQudQQPgwVq4my43BKen+TGROO95vlYF1smTchI2wE66ga3VbduphcPlpS
+	kE6mS6CkevZme2GWB3J4weUMlDjog==
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011059.outbound.protection.outlook.com [40.107.208.59])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4fjhyrsfup-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 21 Jul 2026 23:42:06 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IESSYXShpmZ+QSA/DKtyWP+gbggOxfno0RGHky60NuhPL8Unsgj/IAYjRnvM3z/h0UkuDzsFS9ShDjFIgau59Oo8YmvCoQCBY3l6+CMOGNxzBHTAAmgeb8QAumgwhBXdxIkQsknooonVGNFZAkgtGBr20SexAc/rM5IbfvWr4ItEjVIu874nFXJQ1N/ttEWfapR8LBWTNfFZ5YLXChruI8PRg3UsaI6SddNwi3RmMMeexO1rwMvWfyB0UVi69R6MK0ddrlSPfWeKXD3puSxuvKQkdyus5biB9lM0KQxL5cLmDJYqAgabpyyTpn7ZL2QOs/ucYZpPEaZ+hRNNLFTFvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NOqA35cjN5v4HEhdb5FUASaRphDo/4ElJRhVBlLYRp8=;
+ b=uim5/aTTDnXlCAfHj4azTGlEfVC0o645rATqc75/8gbRAPmfJzy54dbZRzAuJwUqS7sbrTEOFQ0iFiJu07S4+ec+lsudAWlPT9EkjMCJ5dNZCiCD6efOrPoZFBoJyFjii+PtAmRHMv/Ebpvf9F/D80edLBidaRloX0q46SuTPBBlKgEnODOpShBPTDp4MmxmH+L2blZsofComcG9pUGNBO3k3RXXeMteSb+ouGipkey1R+LDJmg9V8eW+J28l1TG38JP48Yb6uLb+9mJma7eJveMvaYwgutXNjO2m8jwWWIx4LZgAWwI+AU3hgKyefKECj/r5wYmF0nZfGIoyxZ9XA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NOqA35cjN5v4HEhdb5FUASaRphDo/4ElJRhVBlLYRp8=;
+ b=WNG40siCFL4RCDuiZmaFV62tsWvezxNBL8jpuZP+p1KtVy29D1RrTvMlOMtq172kCyH7x2UMWtipMklOQSfy4k7kQ9bnMh9+IHmg+UsP14PBIhJek2aiIixyE2wUHQM4yAdrSgydQo34yx0F1rZaOj//F4a/YWDiWniH+Qnhcm8=
+Received: from SJ0PR13CA0097.namprd13.prod.outlook.com (2603:10b6:a03:2c5::12)
+ by DSVPR10MB997961.namprd10.prod.outlook.com (2603:10b6:8:3ad::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
+ 2026 04:42:05 +0000
+Received: from CO1PEPF000066E6.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c5:cafe::2e) by SJ0PR13CA0097.outlook.office365.com
+ (2603:10b6:a03:2c5::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Wed,
+ 22 Jul 2026 04:42:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CO1PEPF000066E6.mail.protection.outlook.com (10.167.249.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Wed, 22 Jul 2026 04:42:04 +0000
+Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 21 Jul
+ 2026 23:42:03 -0500
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 21 Jul
+ 2026 23:42:03 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 21 Jul 2026 23:42:03 -0500
+Received: from [10.24.68.110] (uda0492258.dhcp.ti.com [10.24.68.110])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66M4g0VJ2994440;
+	Tue, 21 Jul 2026 23:42:00 -0500
+Message-ID: <fa22b4e3-4df5-4088-b867-fa4f0030d1cf@ti.com>
+Date: Wed, 22 Jul 2026 10:15:10 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/6] Fix incorrect access of hugetlb pte entries
-To: Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>
-Cc: muchun.song@linux.dev, osalvador@suse.de, ljs@kernel.org,
- david@kernel.org, liam@infradead.org, catalin.marinas@arm.com,
- kernel-team@android.com, riel@surriel.com, vbabka@kernel.org,
- harry@kernel.org, jannh@google.com, lance.yang@linux.dev, kas@kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, apopple@nvidia.com,
- rcampbell@nvidia.com, ziy@nvidia.com, matthew.brost@intel.com,
- joshua.hahnjy@gmail.com, rakie.kim@sk.com, byungchul@sk.com,
- gourry@gourry.net, ying.huang@linux.alibaba.com, ak@linux.intel.com,
- nao.horiguchi@gmail.com, mel@csn.ul.ie, j-nomura@ce.jp.nec.com,
- pfalcato@suse.de, tglx@kernel.org, dave.hansen@intel.com,
- jpoimboe@kernel.org, linux-arm-kernel@lists.infradead.org,
- ryan.roberts@arm.com, anshuman.khandual@arm.com
-References: <20260703114202.365553-1-dev.jain@arm.com>
- <178464737122.1305746.12295190523058911270.b4-ty@kernel.org>
- <20260721133636.df1a012df895054d3fd34a2e@linux-foundation.org>
+CC: <linux-pci@vger.kernel.org>, <bhelgaas@google.com>,
+        <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <vigneshr@ti.com>, <linux-omap@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <s-vadapalli@ti.com>
+Subject: Re: [PATCH] PCI: j721e: Fix incorrect max_lanes for J7200
+To: Takuma Fujiwara <t-fujiwara1@ti.com>
+References: <20260721155743.3347659-1-t-fujiwara1@ti.com>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260721133636.df1a012df895054d3fd34a2e@linux-foundation.org>
-Content-Type: text/plain; charset=UTF-8
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <20260721155743.3347659-1-t-fujiwara1@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E6:EE_|DSVPR10MB997961:EE_
+X-MS-Office365-Filtering-Correlation-Id: 581c038f-72d8-470d-346e-08dee7ab942e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|56012099006|10067099003|6133799003|18002099003|22082099003|13003099007;
+X-Microsoft-Antispam-Message-Info: WN3FAB/xhuYSpUxnemHKisytarwFi6y/3pXaWcdSoAzk5gCH5Y1o121oBeWEt8epNC59G2QfPyPJMB2LpVpBcs+x5N32K7ld1pkZtX3pqvpBLYop86KWHIM4aXM75sAyqdM/J4UDzEr0bFJ4hazaU+GAB3PdvEnLX1L3G4t1qNjmwgMkaOgCfkEobnOxkC+26zGt0Vtzl+rF0J1IHHuiZyOuBa30988NtBsjV6Qs4fLMBZk3AYG6AKJ3uGz3ZdQ74OpvVrxMCIehrJDVSd36RvmMPnPoeMKjqEsOnW5rSc/LPvhps92ZbnXQhsoutqNjjoSeaZy3+oem1t/DhaYGVhGzvDk7EM+afM3qYuj1BhjLIJIZPtt16s+PYy/WpoALuYyFa0O+H2gJhAw3xVk11dBM1klAkmidtVHLn8gWkTARPdYvaHoaRhMh/PROfNQz/x/16mkpKjcjYaHvPtgfOn4T756Q7joWfdNLRomo2VyBowBvpOupr2GtNhEfayMPwfIrJ2GVreq7BmrS4GTcRGbszJnibKeCKnmwGPuDOMpHHr1c6LYiC0oBBbo8KUeen/52xHOjI+wYHdhkISm1gBAG8vgd6z4Jfcmg5CjFuSbpZUbijkbB7FypMfDuzuhXsJHNwdc15FJoTU5M/c5h8uGJWw5s6gREf7Z3VBcLvBrX7Wx0gD/UusXnywOshRVRwWEE3sp6//aaVi8Fgxa9kg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: TdCY/sRM6sJ2jCD0VqFVJfkB8FHctqm18HrP2ULEZ9sMMu0OGDb/AfNcBP1pgggFsjcPpaifTMD9K+2/10jGDOgyru7Q/6DGiDkDlaN8wwi/jmw9VNMGZb8FQuU6l+zENtbw0/NVtKJ9ZP+tiJfklyzfc6qJXKgG8ouHD0jyavPSiWLCdXJQf5NmMqBBhAw41IGQVsYIEHaZEEtjN5Rk+zR/+oLE5BwsXEI4tZA0IzXbTn4Dc4lPeqtHppgjpKrg8BW5piZ+RkYbSZHhuBKPn5ZHXgzMGxk6ey/LXZJxkKgeThLJ5DjIX/fUFOMsUqt/qdHSu0XTVdeoO2nx7l3pNFrSHrgxw04hLSUUrmBOSaggfbqHvAbS3XHjoZP07wQTxDz99eOUusqw1NWoMz0z0yWg+eSWodExTVdVUcsJRqwwaPeNsVzObNri7D2fNVnm
+X-Exchange-RoutingPolicyChecked: eHjdQFbm8jVnXHeABdsJtZS7sMFxQ57qmdnyGZ6BpLO1kOrBw8/J+j5JqPfrTus3WOCWAW4YpNEKXuy4pItFndI4sthpY3wvKc62jFbi5wyagAv95Rcm4yQ4q5vzgUL5805bgIfqjIoYroJXwhxe2uLvSbnPTRZO1Fx1Rhl427eH3PGR9mekXtx8SOPgT4oAYdRVHRN0SOcNEm9YenXYdUVvb8aPYgxEHmDyZxbZsI0mxgi/+UUvUWzcw3nw1BA6GNPsboP0gkrr3A4H+Cj3TAoFwyP6mjFkOVQ1KXWIEphDhqWtUQLudWDreAMT6DsbhVKv1RmbP0RQZG4xSTaLVg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 04:42:04.3394
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 581c038f-72d8-470d-346e-08dee7ab942e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR10MB997961
+X-Authority-Analysis: v=2.4 cv=AemB2XXG c=1 sm=1 tr=0 ts=6a604a1e cx=c_pps
+ a=mhFp5NV/8UFWlOcEKiO6Eg==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8
+ a=kPIsrOBxfzZrCd9i_NkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIyMDA0MCBTYWx0ZWRfX47BzZpj5JKMF
+ DHUjv/dufguvxV0Pluf3dmxAWAUl3rRoVJ91TLHTlyDoPiZLyNBMi2+3qTJTYK28Eyaf7ymfA4E
+ WxicOmb4lUXWmSdZUQ86m5Mvg5KB1Ham9P9Tdu13KlEhs70qMDkZJDrZDJulqMoTtXH0hXCz52E
+ +LASD5yRfHjN2Xh//la7fms0+XawDdhUz1XBPo1g40pKsz+JbKs8m26M2YI0NCa6+ZEFFl0wYCp
+ awl+NdkjBjMz5JEkbihSYAMHc+dU8HsTzByUtc0Ck1vqOp5fRQac+eXRQfMEuTANerUFF/qyKTm
+ 03wL1tGRjEpI7XPXiCS0vGfuWHe+EESArHgaFg9Bg5tVsQlgdygqqcGqXsim8mLZn6Qjvvp6dy6
+ TKyq/dbHEtYlBAP80QHi39TnruCIFsOmU0aMrutXxSjO5/uQX+aax7lyofMyGv2H7aqnY9GPnPH
+ bGchT9pyk+luSb+UUUg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIyMDA0MCBTYWx0ZWRfX07cEkDWcBSJj
+ QMEY3KHvsEqGY/NpIfw8L1p8o6z2x4mRMZRYvvLmivPew9jM7Gzf5sGkhASu4MN2g5+NDYgfU80
+ 0J0xN5jv/XkSHjSzhWTZUz/57DHjnlc=
+X-Proofpoint-ORIG-GUID: lWAQjtYgNP9CIofMI_m20iXE6A2AFXxW
+X-Proofpoint-GUID: lWAQjtYgNP9CIofMI_m20iXE6A2AFXxW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-22_01,2026-07-21_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 adultscore=0 priorityscore=1501 suspectscore=0
+ bulkscore=0 clxscore=1011 lowpriorityscore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607220040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_213319_864369_73582772 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20260721_214211_410120_0ABDE904 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +178,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 22/07/26 2:06 am, Andrew Morton wrote:
-> On Tue, 21 Jul 2026 18:18:38 +0100 Will Deacon <will@kernel.org> wrote:
+On 21/07/26 21:27, Takuma Fujiwara wrote:
+> The PCIe Controller in the J7200 SoC supports a 4-lane configuration.
+> However, j7200_pcie_rc_data and j7200_pcie_ep_data incorrectly set
+> .max_lanes = 2, limiting operation to fewer lanes than the hardware
+> supports.
 > 
->> On Fri, 03 Jul 2026 11:41:53 +0000, Dev Jain wrote:
->>> There are various places which use ptep_get() to get the pte entry
->>> corresponding to a hugetlb folio. Some arches (like s390) have special
->>> handling to compute the pteval, so they provide huge_ptep_get(). Use this
->>> helper consistently.
->>>
->>> Additionally, some code paths may provide huge_ptep_get with an unaligned
->>> address. This is a problem on arm64 (I checked other arches and it looks
->>> fine for them), which is fixed in patch 1. The fix is made to be
->>> to huge_ptep_get() - that is wider churn and we can do that later.
->>>
->>> [...]
->>
->> Applied first patch to arm64 (for-next/fixes), thanks!
->>
->> [1/6] arm64: make huge_ptep_get handled unaligned addresses
->>       https://git.kernel.org/arm64/c/9175a8c7cfe88
->>
->> I'm hoping Andrew can drop this from the mm tree to avoid a duplicate,
->> but I didn't hear back yet and I'd like to land the fix.
+> Set .max_lanes = 4 for both j7200_pcie_rc_data and j7200_pcie_ep_data to
+> match the hardware capability.
 > 
-> I can redo Dev's series to omit [1/6].  The patches apply that way, but
-> there might be build-time or runtime issues running the other patches
-> without [1/6] present, haven't looked.
-> 
-> Also, review indicates that the changelog requires updating
-> (https://lore.kernel.org/all/2b9d60a2-8698-46b0-80ae-b8747a66a85b@kernel.org/)
-> and I believe that Dev plans to do that.
+> See J7200 Technical Reference Manual (SPRUIU1D), section 12.2.3.1.1
+> for further details: https://www.ti.com/lit/pdf/spruiu1d
 
-Oh I was banking on you to do that : )
-
-@Will if you could edit the commit message with the following userspace visible
-effect:
-
-"On systems where CONT_PTES != CONT_PMDS (meaning page size is 16K), we could collect
-excess a/d bit state, meaning extra work for the kernel. Even worse, we may iterate
-beyond the PTE table and dereference a garbage ptep pointer to access physical
-memory we don't own. Since the ptep pointer is a linear map address, we may run off
-the end of the linear map, dereference a VA not mapped into the kernel pgtables and
-cause kernel panic."
+Thank you for identifying and fixing this.
 
 > 
-> IOW, it would be better to carry this in mm.git with your ack.
+> Fixes: 3ac7f14084f5 ("PCI: j721e: Add per platform maximum lane settings")
+> Signed-off-by: Takuma Fujiwara <t-fujiwara1@ti.com>
+
+Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+
+> ---
+>   drivers/pci/controller/cadence/pci-j721e.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> Do you plan to upstream this in 7.2-rcX?  If so then I can hang onto
-> this patch until it appears in mainline.  Or something.
+> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> index b29a35fbfb5f9..a029c4e9c05f6 100644
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -381,7 +381,7 @@ static const struct j721e_pcie_data j7200_pcie_rc_data = {
+>   	.quirk_detect_quiet_flag = true,
+>   	.linkdown_irq_regfield = J7200_LINK_DOWN,
+>   	.byte_access_allowed = true,
+> -	.max_lanes = 2,
+> +	.max_lanes = 4,
+>   };
+>   
+>   static const struct j721e_pcie_data j7200_pcie_ep_data = {
+> @@ -389,7 +389,7 @@ static const struct j721e_pcie_data j7200_pcie_ep_data = {
+>   	.quirk_detect_quiet_flag = true,
+>   	.linkdown_irq_regfield = J7200_LINK_DOWN,
+>   	.quirk_disable_flr = true,
+> -	.max_lanes = 2,
+> +	.max_lanes = 4,
+>   };
+>   
+>   static const struct j721e_pcie_data am64_pcie_rc_data = {
+
+Regards,
+Siddharth.
 
 
