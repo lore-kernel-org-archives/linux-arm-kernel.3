@@ -4,137 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA7AC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8315DC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0egRuN5Dmr7gJaWHYdDui7Y+hFn26oAjmmAntaO3KIk=; b=b2bjOoZSJaGymDkXICS2Nj3put
-	gI99imfSCzDNsSRpaYY2SU8FVf53151LaAjNY4q6wQ3ytIrIFYKLweySOhkWbghEfzxBDnUcVniZq
-	vwSSEOVYQhSnwhOeKceSIWbtWBYJ0b68u6kIin0cTwD7og+lS8zYcAIMg5nGWm8YZsWAHmm3ZTW71
-	wDOBWIk06DZNYSVS/d1Qi2oKS/K0O3jH+qqCrg3ZzjAbG3BWRj6zN4Eg1m47sZZTHU8Cb+KGtZylt
-	3G+WMGPR0uIcbmo66XMRTnrEOXnKu2UBDoJqxuhS6uAs7L5HJuZfWz71GGxYtV2u1J4OQ5eiIloh0
-	0vQjkIuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K9/chxFPPa22IO8qa27xxpbmwA43QsAQuqs/BaliX5M=; b=vZp5eG/8q95CzXlDgJ07rKbFdq
+	hZIDwE+KXuslrjkLmmHK7PFgnGHVkxRAWGNTd+FHUPpi0FHjyQ55qbshbV3dpWfvteYBH5XHTTf4R
+	LiweCqvEajIkVRIwzm+UNNumLygePNuVflZAVCoe5VdcKR0AtZtIBl+67mCI/CXC7R3r/HUlUTl7u
+	VS/nGx+KyGAR9XqRpfWlfj5c7yom80wL2RpN5WzLQydRvDMFSH4/NLrAkmDxi6nxlDlLCqAHroIcV
+	HBfMB8IsHoBd2WZiPJS9U2amR4DpjExh9AlzxrHFhPPDilFooYp6LiOKqpHYz886DIJxn++yixjnd
+	6u2EkHiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRBC-0000000B2gK-3Krm;
-	Wed, 22 Jul 2026 07:15:46 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wmRC3-0000000B2y6-0Hff;
+	Wed, 22 Jul 2026 07:16:39 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRBA-0000000B2eK-1mVk
+	id 1wmRC0-0000000B2wH-2ktw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:15:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XIkNh+aAeA+h3m9hnYSOx0I+kABFFyjkt12gTiXtjwqvHXdPKYigGrXCzsH4GcvosEwfxMJuaU0qtP6vy+Or14y7/F54TrbC8HpDvtJw4OtC9Urhz8j7Sgehbq8M2qGPrhVYi27H0gPsXAtn01OXlhvRGMY7XRCJYRm1BmDImr1GJyQz7Aw/0clXuDd2TaiH0vZRkNUvF6kiJo+wr77EQ+TlgDEJrso6Iq2PS2KAJ1FpdqCsYFUYTvXtaghM5MoOl+MqgG7iuZarFO6ym207+VbJsRMjqr3+OuCrIku2hr9JhlBLKB1mWKgu+5xJK5AgC8Akbm9H9d4xvrRmgRs81g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0egRuN5Dmr7gJaWHYdDui7Y+hFn26oAjmmAntaO3KIk=;
- b=ORBftuSiOgEApIP7HVcpAciVZQWuhpoVLE1R6Jo7imEcNHVJ0EuO1aWTewzITmA7wmNtyLbaOzO7I2wP0liLKc9kuw9061RcIln3LRBxHcw+fCIo1NASatqyCWqZzeBWowQi+tyVKgKSxgi1uUk86x3dF1daAoZjS34/TvOB8P9jc8lm3pznjQ8WOSlWnl4G8oJPQk79VLKhsM+Rm9g++AhrXv1saaSluPJ5KLbZItygRDfgoLkrhWJNnE2QIdOodk2pgF0nMPkC2iCvFCsTZGk3BZKk0npOA0oppoKl6sxhZIY0MIs0aVtFOvc4ZMdkjnEvsHbB78uvEo1W+1UZDw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0egRuN5Dmr7gJaWHYdDui7Y+hFn26oAjmmAntaO3KIk=;
- b=fhSsSBF4fEHpfzyLKSPo43IWyEHsCQlg+IGD7EM2y5QoKl+BbrOcl58aVLZP9qYwE1YtK6J0bJEUJrGTAzi0goyEOaTA/7pt0bFLiwZeJxTPihzm/XMGRFL7dGSUSGDUVUTrgVUHOcr1Y0vlDQOJiofDUhpJDRkAMNvFnxkDDMyWcj2ySvJUJGAyMxNrOPzIazNbAJ+UfGafvfCCYr6ybI4K5S/ZOZPND/A3o3Q+jm09KWi+1De90Pj8WxE6nY7gGWK6hrPmWHSZ4CPUd7mM78Zp6m9RfP+DkyVz9RFSig+h0z6F56aj/7HO2ZvizKBIVWeleJVA8CytusAjwwNLSg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9)
- by GVXPR04MB11523.eurprd04.prod.outlook.com (2603:10a6:150:289::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 07:15:41 +0000
-Received: from DB8PR04MB6858.eurprd04.prod.outlook.com
- ([fe80::bc6f:5fd7:462:d0b5]) by DB8PR04MB6858.eurprd04.prod.outlook.com
- ([fe80::bc6f:5fd7:462:d0b5%4]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 07:15:41 +0000
-From: Zhipeng.wang_1@oss.nxp.com
-To: robh@kernel.org,
-	saravanak@kernel.org,
-	ulfh@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	peng.fan@nxp.com,
-	aisheng.dong@nxp.com,
-	jindong.yue@nxp.com,
-	xuegang.liu@nxp.com,
-	devicetree@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] pmdomain: imx: scu-pd: allow building as a module
-Date: Wed, 22 Jul 2026 16:15:12 +0900
-Message-Id: <20260722071512.3494011-3-Zhipeng.wang_1@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260722071512.3494011-1-Zhipeng.wang_1@oss.nxp.com>
-References: <20260722071512.3494011-1-Zhipeng.wang_1@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0300.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:220::12) To DB8PR04MB6858.eurprd04.prod.outlook.com
- (2603:10a6:10:113::9)
+	Wed, 22 Jul 2026 07:16:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1784704594;
+	bh=K9/chxFPPa22IO8qa27xxpbmwA43QsAQuqs/BaliX5M=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=IjLWOwwF+Vkg/0/TOKB9y0d4L/1Iimn/gdWdnmdiBRcqFsYOQd7ZSO6YumYjqsIEk
+	 SUQyAUcHyTsJ3QMKaVP51PuvnDeST0/SLcVuMDBdq90V5+xSPv03yBwW/+Jl7+Ti9K
+	 pGCmPPKpfJ8MFlYthmoutoBPPmSyM1eaxVkfdb3YC/6ciK2vb+ydDf7mh3nTk6KyCv
+	 3pUIMAo39htGVcsv1BlbVy266/QaimoBFpgmoHmffolwDc0I+dy5oRqNfGUqADgGKw
+	 CI0s39eiWAhPuvoVCZxOtNo3FirpFBedm0e04+EtRsZKqDw0rPv7Wf5ML0KqqbGg3J
+	 AmBAvWONOVvhw==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7810065B37;
+	Wed, 22 Jul 2026 15:16:32 +0800 (AWST)
+Message-ID: <e3e3d647b9194b7ea4b88241a37df184bbdb307c.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] EDAC: Remove redundant dev_err()
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Pan Chuang <panchuang@vivo.com>, Talel Shenhar <talel@amazon.com>, 
+ Borislav Petkov
+	 <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, Stefan Schaeckeler
+	 <sschaeck@cisco.com>, Joel Stanley <joel@jms.id.au>, Andre Przywara
+	 <andre.przywara@arm.com>, Robert Richter <rric@kernel.org>, Khuong Dinh
+	 <khuong@os.amperecomputing.com>, "open list:EDAC-CORE"
+	 <linux-edac@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+ "moderated list:ARM/ASPEED MACHINE SUPPORT"
+	 <linux-arm-kernel@lists.infradead.org>, "moderated list:ARM/ASPEED MACHINE
+ SUPPORT" <linux-aspeed@lists.ozlabs.org>
+Date: Wed, 22 Jul 2026 16:46:32 +0930
+In-Reply-To: <20260713131510.332386-1-panchuang@vivo.com>
+References: <20260713131510.332386-1-panchuang@vivo.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB8PR04MB6858:EE_|GVXPR04MB11523:EE_
-X-MS-Office365-Filtering-Correlation-Id: cf2863c7-ad5e-4e35-4afe-08dee7c10993
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|23010399003|366016|22082099003|18002099003|56012099006|11063799006|10067099003|6133799003;
-X-Microsoft-Antispam-Message-Info: 6SU2Xi2MnIL0Rsj5WupowLseSo17k4dA4P1Pn9mFmh+3ogMYRwmyoPHt5b4zJsGuSoN/tamYrM3m+4PqYy+Iw0qAaxw8wpdJu1Fxk34cJ9yZW9pP5BgqGkP5eCQzNYh4KKjN8iiX2M5eLq6AEgyMl4Ah9ufMqlSHn9YhSmaWrmOSqE46XQY4v0elpDD6iBga1jizgJkPuPZGpyaCYkcWa4gwKA5zDDRPcGNhWuvbk13oavbqtV5QZrHkAseQr0qW66C/Y1aKGyIBczGItWQDYFGTCe7gjGfeaaKgGijrHiV9wGhe7zC2l3x9I9kvLMvAxrHNFMM1o9H8R8M4fKRQUycAiXxcJ95a6dDc14+OvMw/CByqqezBhfmNTLyT/tnTyaF53TNraiGE+OmODIKOdiuGdLu6WUr9pfW3WIM+a68vcAYYhonbUywWT60m6D/A0DzTNkOu72Dherv72QKnqSwfj2w3SauwAkNnuyYlmEIlf8SpUfj+paC9wLJ8qLTdZ33bo3Cl+k03Xg86bADEXZvDb5qc/2p1zLwjJxQYUfb8Gjg2aBOEIcw8KYvIFHLtka2jLyXmtXuNcarPfjXmpSKsZZU6b+fxYNJdQ+98nzhEJK/iWV0/MJFOFv/3451A2Ab46IxAttyiB47RmOFrBvcJv20N4otEQxv3qiM6dUE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(23010399003)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S3fuCHVVgKJJucR3GXZFB86S7Ai0wBoZhcbCXbLldmamLeIao+dUuyXgEbh3?=
- =?us-ascii?Q?0IXYrApopK/FtHUgBd80SbENDwQRRQR0dx30li98D2ldaoRow01/PsfHKKAS?=
- =?us-ascii?Q?3CDfpZMe0cLb6QojakCYDLnkvFppZoPuMNZ0FFwht+dn817Xybdcwp/LW2nP?=
- =?us-ascii?Q?UMm8HRfceWPdB7WxtKnNoEe/9qdmnWFQKVuz3cgShvetcdpEF2Bp7HwFA7sb?=
- =?us-ascii?Q?1kaYnAm9nodEgq9X+NIHqavDB6YwoylyPwS3z7xaEVxYtey/TrMZ+WKxVSfw?=
- =?us-ascii?Q?TeHz3jqnXCL8/38aCC/5dJysifBURDkBePAWJF/hCYI+rt1M/GbS+8PCn+Rw?=
- =?us-ascii?Q?jVEC0Gbo2LVDr27+ERVIVs0g8mAHUVCHJy9DCt6MiKAC6x23ui9NDosG8nHB?=
- =?us-ascii?Q?O7Mw0YzknyW06MjlJK1uKiptn0OumnuUyPy6/OGX3JGfiiCqm/xt/7BCY+I9?=
- =?us-ascii?Q?Q1ubWKBZhWhzFBf+T+NM9rVOoP4u6PY3zacyny5qubcsp7ROZ3XPAnAmCCl0?=
- =?us-ascii?Q?76clJYqgve4EoDt/FoGI7ehDlfpzmAEPp+KKZPNSM3UDc7YCCqvPMoWEy9wh?=
- =?us-ascii?Q?xwRHv2XaS98e/O1Qoa/ndID8p7KFE+xcdBt8HiOVFAJ0HyiFbfhWPq+lBtQh?=
- =?us-ascii?Q?OK2y6TP5bA23HrT/s73jq+F0mEs7UZIkYYm7sry7f8d8s9/xC0UgVWCJyUYX?=
- =?us-ascii?Q?a2ZL2+QzevY263xUdumWxisAgphl4cA5FQdgE4XbbbCZ0rFmojc8v9/Q71lL?=
- =?us-ascii?Q?g2W3f3P9MYKKjw26FarnGIBRfI//5FPz6FjYlu5KrJVzKPx7rnxz0xDrMn9A?=
- =?us-ascii?Q?VygOwhrBxsAxp4Q9uzXAKyT7/ju6z5CnDdKMU4VoMMxaPMGACsDHyFWbaJPQ?=
- =?us-ascii?Q?FaGgJ7Pj7OGwJMvVL2fgDWNBIh7mCCIP+6KFATA/66EzR0kpHx8gKbchtQ9e?=
- =?us-ascii?Q?IquiG9DZHT3IncZHoKhffBY0gAVYlI3huqPoo4LOnlKM3cREMFIHKCkNAtmZ?=
- =?us-ascii?Q?KEh/LtnoZTF6rZ1zu7vCGXiGd6UyZGknh/CyNRm2bhnwTZ1+wfKeB3kBONh8?=
- =?us-ascii?Q?we2xc5EZDjWrOmgCMoawV6j+t5mIedI6W6CmrDQw+0bR2h6y9oglE/AaYlJp?=
- =?us-ascii?Q?6seEw2aQwYTY5f77qSAg1aGPgHtSPzpW2uSFmzuA58ZQdgL+cSN8NPLJzs95?=
- =?us-ascii?Q?i8UzV6nlqSqVPE6JQu477QlCcQtShWJIqqP6dcTVhas73LV5Jf2qHUYjXJ0M?=
- =?us-ascii?Q?SbQwMmTNnf7pVIVEy5QAmVDdN+tzdnpjg6xgdwDb7tEYuBjXNEkM+GNyUyWe?=
- =?us-ascii?Q?75NUN0EQxYZWUwG1ZfIEI/ZWTdNZXf+MVFVf9fnf0YXNF+yIoK7eVEaTNtZb?=
- =?us-ascii?Q?WuZ1k7XUyG8ublJRKYbnq7CpFOFMzaNkxkX8r+V97vQj89wGDX20+nE7p0tQ?=
- =?us-ascii?Q?xeAbCD+rsuZc4mqqTvtr+yZ+Eg86zkRI0Rk2injLlUGb5w2ZwItoPEx0vGMl?=
- =?us-ascii?Q?1G6L06WR5FR73aW6TzhwLrqy404p+NHFo80Iw+RpeZ5fJD024PHTEYDbPpPR?=
- =?us-ascii?Q?F0vItFlwOhQ/6QQJwGrkUvbDBejII/iKbXsVhzCDoNDBfV71XMkbeqvRI6gI?=
- =?us-ascii?Q?APv/6/ZTdVbxsXAfHgrb/+s/f0RbUOfWPgvzcziksIvd3+R4eTiIPrKXBdUk?=
- =?us-ascii?Q?PVvs7hBtBmA4ashz85/MYVJD9H+9bZjKbPs7JgqR9fy8xfVWQfKaZjpNRlOp?=
- =?us-ascii?Q?1qSz1RxjaAzvTIoHeKdybVc7tGYiZiPB+A3+rmVe+HqDKW8RQGeF?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cf2863c7-ad5e-4e35-4afe-08dee7c10993
-X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6858.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 07:15:40.9758
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9PU3HGRde039zy7Z+zgKooNRFcN6VXPlkWPTjW4uvJxJEUepOYo8aHhUnOXRp+1Sy8DeDNYXvVOkrK0BEYTQO+SiTcg0+n3NJdEBO7NaqXec5xJgi618LIMPQHyLTu84
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11523
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_001544_489984_35424206 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20260722_001636_888854_0A856EA8 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,74 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+On Mon, 2026-07-13 at 21:15 +0800, Pan Chuang wrote:
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"),
+> devm_request_irq() and devm_request_threaded_irq() automatically log
+> detailed error messages on failure. Remove the now-redundant
+> driver-specific dev_err() calls.
+>=20
+> Signed-off-by: Pan Chuang <panchuang@vivo.com>
+> ---
+> =C2=A0drivers/edac/al_mc_edac.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 12 =
+++----------
+> =C2=A0drivers/edac/aspeed_edac.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 4 =
++---
 
-Convert CONFIG_IMX_SCU_PD from bool to tristate to allow building as a
-loadable module. This is needed on Android devices using the Generic
-Kernel Image (GKI), where SoC-specific drivers must be built as modules
-rather than built into the core kernel image.
-
-For i.MX8Q devices running Android with a GKI kernel, the SCU power
-domain driver must be loadable. Without tristate support, power domains
-cannot be properly initialized, preventing these systems from
-functioning under GKI.
-
-Use subsys_initcall() so that when built-in the power domain provider
-probes before its consumers (e.g. the SCU clock driver at
-device_initcall level), fixing "failed to attached the power domain"
-warnings at boot. When built as a module, subsys_initcall() is
-equivalent to module_init(). No module_exit() is provided because the
-SCU power domain provider is a system-level resource that cannot be
-safely removed at runtime.
-
-Add MODULE_DEVICE_TABLE() for OF-based module autoloading.
-
-Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
----
- drivers/pmdomain/imx/Kconfig  | 2 +-
- drivers/pmdomain/imx/scu-pd.c | 8 +++++++-
- 2 files changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pmdomain/imx/Kconfig b/drivers/pmdomain/imx/Kconfig
-index 00203615c65e..472e9dec6bd4 100644
---- a/drivers/pmdomain/imx/Kconfig
-+++ b/drivers/pmdomain/imx/Kconfig
-@@ -21,7 +21,7 @@ config IMX9_BLK_CTRL
- 	depends on PM_GENERIC_DOMAINS
- 
- config IMX_SCU_PD
--	bool "IMX SCU Power Domain driver"
-+	tristate "IMX SCU Power Domain driver"
- 	depends on IMX_SCU
- 	help
- 	  The System Controller Firmware (SCFW) based power domain driver.
-diff --git a/drivers/pmdomain/imx/scu-pd.c b/drivers/pmdomain/imx/scu-pd.c
-index 3ec33667a308..e3f9e741daf7 100644
---- a/drivers/pmdomain/imx/scu-pd.c
-+++ b/drivers/pmdomain/imx/scu-pd.c
-@@ -531,6 +531,7 @@ static const struct of_device_id imx_sc_pd_match[] = {
- 	{ .compatible = "fsl,scu-pd", &imx8qxp_scu_pd},
- 	{ /* sentinel */ }
- };
-+MODULE_DEVICE_TABLE(of, imx_sc_pd_match);
- 
- static struct platform_driver imx_sc_pd_driver = {
- 	.driver = {
-@@ -540,7 +541,12 @@ static struct platform_driver imx_sc_pd_driver = {
- 	},
- 	.probe = imx_sc_pd_probe,
- };
--builtin_platform_driver(imx_sc_pd_driver);
-+
-+static int __init imx_sc_pd_driver_init(void)
-+{
-+	return platform_driver_register(&imx_sc_pd_driver);
-+}
-+subsys_initcall(imx_sc_pd_driver_init);
- 
- MODULE_AUTHOR("Dong Aisheng <aisheng.dong@nxp.com>");
- MODULE_DESCRIPTION("IMX SCU Power Domain driver");
--- 
-2.34.1
-
+Reviewed-by: Andrew Jeffery <andrew@codeconstruct.com.au> # aspeed
 
