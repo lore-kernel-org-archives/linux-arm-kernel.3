@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C3BC4452D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B980CC44539
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QDe8YvYJlu1JYh0yp9syTuhzrxaVjIvimEEjOf5rRHI=; b=Yw3yqj666ltmY6UsXrK3qvFuHx
-	OQ2WScU6NzlF4njfC08559fmoJHOcM0ef1eRawJBeBP+7GDcyQ0DgXk/hooZ7O2h96e3bv00y+hxv
-	t2DNOa4AP25t5KpQZFL9lFSaPJ5KNkyvl7PPvEHxtBpM1Q9kG51IPqXOa+rz/+2rkI0Qi4mDl+bqn
-	5vlpOpbeVenFYbhkehVGrdmIfqnUIr4+luMiirzZA40aTeorE1q/UsK2+sQWp8QCc7luM/3n2uYkW
-	3vjvTjEWGfwjCFe5jOOSbV4JlVxI76M4P68nT2DlBLinuwYDiZWye+892iEOZdBXJoYsH3RWPJuq3
-	ABHED5Dg==;
+	bh=7qRzhMyRtUFwvrdRgEcMK88rCkmdI2qILS64BOePkLQ=; b=sAWz0SCoLuPY2jKUFH/kBY8hQJ
+	mMFBFn4QKdB4p/XGK3kADGyZCt6uFZ2++5/41LRgttyz/Q9iCWZtfSc4AIinwzRR4+Sfvm0IOqI6a
+	LRLkC4CiDzG8KQju+usD3LuT1UNsW/cCbU8VUUImNx7QcsOCJVGBEyA4Q1VnVk2z2xh96UvDl78Hn
+	BqwbnVWSFqj2YMbe/QfI6GszM2FmF1rI7tkwJx6j1tyqlBRGfZhflVjVrP611YmokD5DrVQE+doBm
+	PLMvz9Kw+MAu/pjKUQGM6GAQZyvshrxc9ZT5ptwgQbs2BI+oLtslX+vGPtzuTfmyS7WWkv/aUdwCk
+	kSZuEEVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbz-0000000B72p-3Z0H;
-	Wed, 22 Jul 2026 07:43:27 +0000
+	id 1wmRc0-0000000B73W-1Gq0;
+	Wed, 22 Jul 2026 07:43:28 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbV-0000000B6gV-47yq
+	id 1wmRbW-0000000B6gh-1oYb
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 22 Jul 2026 07:42:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBA3743EA4;
-	Wed, 22 Jul 2026 07:42:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C301F00ADF;
-	Wed, 22 Jul 2026 07:42:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 343C143A86;
+	Wed, 22 Jul 2026 07:42:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D741F00AC4;
+	Wed, 22 Jul 2026 07:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784706177;
-	bh=QDe8YvYJlu1JYh0yp9syTuhzrxaVjIvimEEjOf5rRHI=;
+	s=k20260515; t=1784706178;
+	bh=7qRzhMyRtUFwvrdRgEcMK88rCkmdI2qILS64BOePkLQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fUZGt4+DXlIejv/l/C+PeL+u/GYxaylHBLpy8TuPp5L2MmhQtHy+tMFDh3xO/ov4o
-	 Fnz+8qw9cMaOJvfW15g1fRvmFIeY38hVuiASMCIpHdSXtt2lSohmy6O2f7DhT5PRud
-	 ECtKmlQeHufflamTEy/NK5krjGw2WPgMfc1V8vthfu7Yb64v9ib5C/L4VAdp+feanF
-	 x21ArEMy0zfkvjcnMXFGKBlsjO1l0RvmuKW1zI/VkzStJczSLFIYgZQFChU4PuYPZm
-	 X1g6CH5z1DQss50e/E3vqt/vntpXvagyskMZ/ZOUbXJidV0sLuhJX8Vudl8JjtUg7o
-	 +O1b5rGt3TLAg==
+	b=YBD+yLi2XeTbE9COI5JC1T2ghyv72IlBatdeTQoOr/oazg3L/iT95hCwQwzeKJZCe
+	 JCJ4dFhFtqZ17qE12FQpbRr9PNY6ypfO+KMkF/slAxRRa9iS7FiF+Nda7Eq4PQ8Tkm
+	 EGhnw5TVmwJrCM3/c0lygtnluCq68gX9kH+6/6vSqn1b/K1vG2chZMOEmPawfJK1AM
+	 XCbKyoDqr2iaWBc/Ss/hsKSIcXTefl2XMcMpopQt9GFTfbgQcHu7cUOAcv1c4jDfhW
+	 LVwFALGJb1rHlb4fY+LNQQNHKvG+W1adtaJPvPUvnFZifS4EQAOHhjOzwlYaQSGlUR
+	 j4tw62ooqh4Jw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmRbT-00000007VfN-4C4p;
+	id 1wmRbU-00000007VfN-1txg;
 	Wed, 22 Jul 2026 07:42:56 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 08/28] arm64: Add ARM64_HAS_NV2P1 capability
-Date: Wed, 22 Jul 2026 08:42:14 +0100
-Message-ID: <20260722074234.3330999-9-maz@kernel.org>
+Subject: [PATCH v3 10/28] KVM: arm64: Relax CNTHCTL_EL2 handling when FEAT_NV2p1 is present
+Date: Wed, 22 Jul 2026 08:42:16 +0100
+Message-ID: <20260722074234.3330999-11-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260722074234.3330999-1-maz@kernel.org>
 References: <20260722074234.3330999-1-maz@kernel.org>
@@ -85,26 +85,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As we're about to deal with FEAT_NV2P1, add a new capability that
-will be used to key any support for it.
+With NV2p1, it is no longer necessary to use the split approach
+where bits of CNTHCTL_EL2 cannot be accessed via CNTKCTL_EL1,
+and we can treat the CNTKCTL_EL1 accessor as if it was "normal".
+
+Key the special casing on FEAT_NV2P1 not being implemented.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/cpucaps | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/kvm/arch_timer.c        | 10 ++++++++--
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 13 ++++++++++---
+ arch/arm64/kvm/sys_regs.c          |  6 ++++--
+ 3 files changed, 22 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 9b85a84f6fd49..242dc211d8efa 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -51,6 +51,7 @@ HAS_LS64_V
- HAS_LSUI
- HAS_MOPS
- HAS_NESTED_VIRT
-+HAS_NV2P1
- HAS_BBML2_NOABORT
- HAS_PAN
- HAS_PMUV3
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 4155fe89b58a1..db60facad9f3c 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -876,8 +876,14 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
+ 	assign_clear_set_bit(tvt02, CNTHCTL_EL1NVVCT, clr, set);
+ 	assign_clear_set_bit(tpt02, CNTHCTL_EL1NVPCT, clr, set);
+ 
+-	/* This only happens on VHE, so use the CNTHCTL_EL2 accessor. */
+-	sysreg_clear_set(cnthctl_el2, clr, set);
++	/*
++	 * This only happens on VHE, so use the CNTHCTL_EL2 accessor, unless
++	 * we are sure CNTKCTL_EL1 is completely stateful with FEAT_NV2p1.
++	 */
++	if (!cpus_have_final_cap(ARM64_HAS_NV2P1))
++		sysreg_clear_set(cnthctl_el2, clr, set);
++	else
++		sysreg_clear_set(cntkctl_el1, clr, set);
+ }
+ 
+ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+index 6f0f046e4ca4e..0c4ef1ce32ae7 100644
+--- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
++++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+@@ -69,11 +69,18 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
+ 		 * The EL1 view of CNTKCTL_EL1 has a bunch of RES0 bits where
+ 		 * the interesting CNTHCTL_EL2 bits live. So preserve these
+ 		 * bits when reading back the guest-visible value.
++		 *
++		 * While NV2p1 fixes some of that, it makes CNTHCTL_EL2.ECV
++		 * even more broken than it already was with NV2.
+ 		 */
+ 		val = read_sysreg_el1(SYS_CNTKCTL);
+-		val &= CNTKCTL_VALID_BITS;
+-		__vcpu_rmw_sys_reg(vcpu, CNTHCTL_EL2, &=, ~CNTKCTL_VALID_BITS);
+-		__vcpu_rmw_sys_reg(vcpu, CNTHCTL_EL2, |=, val);
++		if (!cpus_have_final_cap(ARM64_HAS_NV2P1)) {
++			val &= CNTKCTL_VALID_BITS;
++			__vcpu_rmw_sys_reg(vcpu, CNTHCTL_EL2, &=, ~CNTKCTL_VALID_BITS);
++			__vcpu_rmw_sys_reg(vcpu, CNTHCTL_EL2, |=, val);
++		} else {
++			__vcpu_assign_sys_reg(vcpu, CNTHCTL_EL2, val);
++		}
+ 	}
+ 
+ 	__vcpu_assign_sys_reg(vcpu, SP_EL2,	 read_sysreg(sp_el1));
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 1dfc1f88bec82..9439c5b2b1fe8 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -322,8 +322,10 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+ 		switch (reg) {
+ 		case CNTHCTL_EL2:
+ 			val = read_sysreg_el1(SYS_CNTKCTL);
+-			val &= CNTKCTL_VALID_BITS;
+-			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
++			if (!cpus_have_final_cap(ARM64_HAS_NV2P1)) {
++				val &= CNTKCTL_VALID_BITS;
++				val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
++			}
+ 			return val;
+ 		case CPTR_EL2:
+ 			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
 -- 
 2.47.3
 
