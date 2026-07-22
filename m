@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7519DC4452D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0EA5C4453B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QaRcpLEUdF6IoGbFgJIRkWkgaVhzZCRkbBhXpj4gKLw=; b=RkDgpaVNxFinEL1lQpwEzSxISA
-	xIIu8BH/fH/DMnyn9THfzQPhN+MVeLR6/+opKf0uTkUNeo4bxqimd5VCBDFunsVKnG+EsDyFw0PTz
-	MLwLN06luAdKbBNVbxKtOAeEUArN/utdo2iOP1yWvR7NuIodTQ3PEW7Qh1btJd2Ki4E0gIiXuvYew
-	yNlxBC+5dPKQUoNsyCp38r8fIaiJzf75NP5PDlrMczFb//SWLOVa2NjYs0J3P9USHKbp5rIS/Ju1d
-	a++MhYdsvKqBi5jEa6I+64ZMZUzh2+2wT4Za7Yg/xOkZFKxjNoZ6Ez9aRgpdiJv3j2q02pYGyqEK1
-	CiqD/U7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nyIGlzMp8KtUkHTmmzLTDwn4GTo9DZ59gUjGug7RCBk=; b=TUbmynYDZQSgwbd9dv6qRMQ2Wj
+	wtTCb10s7RHrEExAwDbatRtRcnQ4Pp6zVo8tjFh6zg7Ik2QZa1yvxJ8l6PmAaBFJUqB1H9P79zp6r
+	2VEuVBsplfuT4g+Q2vMvQ5zi4LbJMu7cz168Cfqfn+L+AhKwc2yc629Ukin8AuTHFcBAEZY0EWQLt
+	qBIBHSHLktEnkBhGp8gQoe/C/jUxwaTH3+dtFJ3cW88UqwdAKLuaSRa2jNmecWpVHN3l4FKRp1rNj
+	ZhcE7yKXxVDEt1VK+iQurb5xlzI96qqqhLReeKVJ/Yb7GcPVMbrL5m6Atj+oeFD5dv477g7+3cFir
+	Iq0Vh/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmS9E-0000000BDmw-19Y8;
-	Wed, 22 Jul 2026 08:17:48 +0000
+	id 1wmRc4-0000000B7Cm-0INh;
+	Wed, 22 Jul 2026 07:43:32 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmS9D-0000000BDmi-0jUw;
-	Wed, 22 Jul 2026 08:17:47 +0000
+	id 1wmRbY-0000000B6kL-47UT
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Jul 2026 07:43:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD24340837;
-	Wed, 22 Jul 2026 08:17:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D11471F000E9;
-	Wed, 22 Jul 2026 08:17:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BAB0343766;
+	Wed, 22 Jul 2026 07:43:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A050E1F01564;
+	Wed, 22 Jul 2026 07:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784708266;
-	bh=QaRcpLEUdF6IoGbFgJIRkWkgaVhzZCRkbBhXpj4gKLw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Zi3uxyFuFk1JS+9CA2TDVFJ8FSsPVn4G9xnAj31FoaUTCqyrTO9NWUYWyKo4jeYx5
-	 dTEN3jFNGR1qstghZrZxhkPmKwsea283HCJe//Zz5GDFLQN25YDSpIvp/oIE+mT18R
-	 Ony7bnRVFfIrWl1CI88b+WM9mQLd8z2TqV6P0QBq8lwDiKMZxIbABKZMTiIBFYibN5
-	 uHa+zZpv0erx8bAHUfyXRLsMZ95H3HQDY95uy5K/3KfbHAP5PxGkYUtwDKJikdwbmS
-	 W3QiKzpkhnzpHCavN9fFp+67kZVigjPVd3HXJ3iE/hl53jDlviMABhqHpNYJK3jmJo
-	 MVwvvBOrikW6A==
-Date: Wed, 22 Jul 2026 10:17:43 +0200
-From: Antoine Tenart <atenart@kernel.org>
-To: zhaoping.shu@mediatek.com
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
-	pabeni@redhat.com, horms@kernel.org, ncardwell@google.com, kuniyu@google.com, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, willemb@google.com, 
-	alice@isovalent.com, sd@queasysnail.net, eilaimemedsnaimel@gmail.com, 
-	imv4bel@gmail.com, hw.he@mediatek.com, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, haijun.liu@mediatek.com, xiayu.zhang@mediatek.com, 
-	lambert.wang@mediatek.com
-Subject: Re: [PATCH net v1] net: gro: avoid nesting GSO skbs in
- skb_gro_receive_list()
-Message-ID: <amB7wb1A2Oo2dv5d@kwain>
-References: <20260722024214.24845-1-zhaoping.shu@mediatek.com>
+	s=k20260515; t=1784706180;
+	bh=nyIGlzMp8KtUkHTmmzLTDwn4GTo9DZ59gUjGug7RCBk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=TaelijfD72iwipgFCmGA/AUi2T3n/3bSJbgipGJHBkv0bsgEhc1mNqKoaKRGfRDjU
+	 L/+MrLKTAv6+kIcfPOSa6kUAAVR144c04Akvrx6glBJRjtTKjguY9smmbULWd9tz2A
+	 UVQXATcUZUbvaEoEyrQ5iO3oUm9aLwJfnFs18oKjQjjXZBKP4GtPSNOF5Krz/STKTj
+	 ifBFq4ejPldU/ruYmipy2WCeKGOcseC4Ki6G3G8lxOdQmW2H8VBKyo4NDZKiJvD5AJ
+	 2l78lve8fCDZF4SHLdW2W50bdLz2gVKSAm9SAPLV+Ok1gbJQFPmPREx8rINRlDK51+
+	 hEsqFMCcyiBXg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wmRbW-00000007VfN-3wf8;
+	Wed, 22 Jul 2026 07:42:59 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH v3 21/28] KVM: arm64: Add NVHCR_EL2 handling to the sysreg array
+Date: Wed, 22 Jul 2026 08:42:27 +0100
+Message-ID: <20260722074234.3330999-22-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260722074234.3330999-1-maz@kernel.org>
+References: <20260722074234.3330999-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260722024214.24845-1-zhaoping.shu@mediatek.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, yaoyuan@linux.alibaba.com, weilin.chang@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,68 +85,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 10:42:14AM +0800, zhaoping.shu@mediatek.com wrote:
-> From: HW He <hw.he@mediatek.com>
-> 
-> On devices that support both NETIF_F_GRO_HW and NETIF_F_GRO_FRAGLIST,
-> the hardware or driver may deliver packets that have already been
-> aggregated into a GSO skb, either with frags[] or frag_list. GRO may
-> then
-> aggregate the skb again in skb_gro_receive_list().
-> 
-> This can create a nested GSO skb, which is not handled correctly by the
-> later GSO segmentation paths. When the skb is segmented by
-> skb_segment_list(), it not be fully restored to the original packets.
-> 
-> If the skb is marked with SKB_GSO_DODGY before segmentation, for example
-> after a protocol change from IPv6 to IPv4, the nested GSO skb is
-> segmented
-> by skb_segment(), which may hit a NULL pointer dereference when the skb
-> contains a nested frag_list.
-> 
-> Avoid this by setting NAPI_GRO_CB(skb)->flush for GSO skbs before
-> aggregation and by checking the flush flag in skb_gro_receive_list(),
-> following the existing logic in skb_gro_receive().
-> 
-> Signed-off-by: HW He <hw.he@mediatek.com>
-> Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
-> ---
->  net/core/gro.c         | 2 +-
->  net/ipv4/tcp_offload.c | 1 +
->  2 files changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/net/core/gro.c b/net/core/gro.c
-> index 35f2f708f010..27c9813495f3 100644
-> --- a/net/core/gro.c
-> +++ b/net/core/gro.c
-> @@ -229,7 +229,7 @@ int skb_gro_receive(struct sk_buff *p, struct sk_buff *skb)
->  
->  int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
->  {
-> -	if (unlikely(p->len + skb->len >= 65536))
-> +	if (unlikely(p->len + skb->len >= 65536 || NAPI_GRO_CB(skb)->flush))
->  		return -E2BIG;
+Expose NVHCR_EL2 to userspace, and treat the direct access as UNDEF,
+as that would only outline a bug in our exception routing.
 
-This was already fixed in e751256486d0 ("net: gro: fix double
-aggregation of flush-marked skbs").
->  
->  	if (!pskb_may_pull(skb, skb_gro_offset(skb))) {
-> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
-> index 3b1fdcd3cb29..c363434a5646 100644
-> --- a/net/ipv4/tcp_offload.c
-> +++ b/net/ipv4/tcp_offload.c
-> @@ -332,6 +332,7 @@ struct sk_buff *tcp_gro_receive(struct list_head *head, struct sk_buff *skb,
->  		flush |= skb->ip_summed != p->ip_summed;
->  		flush |= skb->csum_level != p->csum_level;
->  		flush |= NAPI_GRO_CB(p)->count >= 64;
-> +		NAPI_GRO_CB(skb)->flush |= skb_is_gso(skb);
->  		skb_set_network_header(skb, skb_gro_receive_network_offset(skb));
->  
->  		if (flush || skb_gro_receive_list(p, skb))
+The generic accessors are also updated to deal with the relatively
+uncommon location of that register.
 
-I haven't looked closely but this looks like a second issue and would
-need its own patch with a proper description.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/sys_regs.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-Thanks,
-Antoine
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 9439c5b2b1fe8..0aeb2e736fde3 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -221,6 +221,20 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+ 		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
+ 			loc->loc = SR_LOC_SPECIAL;
+ 		break;
++	case NVHCR_EL2:
++		/*
++		 * Yes, NVHCR_EL2 maps to itself when loaded in nested
++		 * context. If you feel like the architecture is double
++		 * backing on itself upside down, you're not alone.
++		 */
++		WARN_ON_ONCE(!kvm_has_nv3(vcpu->kvm));
++		if (is_hyp_ctxt(vcpu)) {
++			loc->loc = SR_LOC_MEMORY;
++		} else {
++			loc->loc = SR_LOC_LOADED | SR_LOC_MAPPED;
++			loc->map_reg = NVHCR_EL2;
++		}
++		break;
+ 	default:
+ 		loc->loc = locate_direct_register(vcpu, reg);
+ 	}
+@@ -260,6 +274,7 @@ static u64 read_sr_from_cpu(enum vcpu_sysreg reg)
+ 	case DACR32_EL2:	val = read_sysreg_s(SYS_DACR32_EL2);	break;
+ 	case IFSR32_EL2:	val = read_sysreg_s(SYS_IFSR32_EL2);	break;
+ 	case DBGVCR32_EL2:	val = read_sysreg_s(SYS_DBGVCR32_EL2);	break;
++	case NVHCR_EL2:		val = read_sysreg_s(SYS_NVHCR_EL2);	break;
+ 	default:		WARN_ON_ONCE(1);
+ 	}
+ 
+@@ -298,6 +313,7 @@ static void write_sr_to_cpu(enum vcpu_sysreg reg, u64 val)
+ 	case DACR32_EL2:	write_sysreg_s(val, SYS_DACR32_EL2);	break;
+ 	case IFSR32_EL2:	write_sysreg_s(val, SYS_IFSR32_EL2);	break;
+ 	case DBGVCR32_EL2:	write_sysreg_s(val, SYS_DBGVCR32_EL2);	break;
++	case NVHCR_EL2:		write_sysreg_s(val, SYS_NVHCR_EL2);	break;
+ 	default:		WARN_ON_ONCE(1);
+ 	}
+ }
+@@ -2861,6 +2877,16 @@ static unsigned int vncr_el2_visibility(const struct kvm_vcpu *vcpu,
+ 	return REG_HIDDEN;
+ }
+ 
++static unsigned int nvhcr_el2_visibility(const struct kvm_vcpu *vcpu,
++					const struct sys_reg_desc *rd)
++{
++	if (el2_visibility(vcpu, rd) == 0 &&
++	    kvm_has_feat(vcpu->kvm, ID_AA64MMFR4_EL1, NV_frac, NV3))
++		return 0;
++
++	return REG_HIDDEN;
++}
++
+ static unsigned int sctlr2_visibility(const struct kvm_vcpu *vcpu,
+ 				      const struct sys_reg_desc *rd)
+ {
+@@ -3774,6 +3800,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 			 sve_el2_visibility),
+ 
+ 	EL2_REG_VNCR(HCRX_EL2, reset_val, 0),
++	EL2_REG_FILTERED(NVHCR_EL2, undef_access, reset_val, 0,
++			 nvhcr_el2_visibility),
+ 
+ 	EL2_REG(TTBR0_EL2, access_rw, reset_val, 0),
+ 	EL2_REG(TTBR1_EL2, access_rw, reset_val, 0),
+-- 
+2.47.3
+
 
