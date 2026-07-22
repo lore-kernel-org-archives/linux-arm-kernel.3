@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B13AC4453C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2045AC4453C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 16:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X4nlqSDTQfKgXnssLdmt4BpD3msEFfZZnZiCI8vkwJk=; b=d1o2XkQdUWuC3NzUDTZbM0wWrq
-	y0pUXQd0W1EhBkxKyFMpk2C1jIQ3hySIihBgtyFitig84O9zFv11IvUlIewoHeB7OmwYhKHdXt+Tf
-	ncQ95ifMyOIvooBrqc+wosoCMV133GMrYDvmollLUClq1B+JGz11b6bxXMcZEUDBC8JuZHriLnR8Z
-	MNqcGR9r/tkTKqE9OwJUmNZnkrD2C2hopqGWtBEZk/bagCIByrF6dP53z8yluZWJPanQLSXJ+H5HF
-	sQCB1tjBW9pLN939MFeA/JT+IV3l7Xd1ZQvxXF1iUzx5YnoIb9tMATQMTYHDzMfgQDUKaRG4DRR4r
-	JTvCWrxw==;
+	bh=X4aOAhCIGbQmkj8pfrFxHkKi8Xrm93t52GBvPKdZXrs=; b=d8w+eC6IbxJZoxihrppoyFDR9Z
+	TE3AJam3QmRQlTB4FO1MP/iya+4hsa389tXwov15rDpgekEkO145/RK0AsnXYwQnOvJSNgMPMbSUc
+	yZaVKo9UR3t0qIE0falc73pDBb/PtyloNoFbFESI3EH7ZZv4eebpiZMzBoMHcRW7yTMkeZkPKwI3E
+	/SzzYuSP3oXktR0Lzv0NJBsNfbuzjUQ5YUWaO0gMuntmy9R6XnK3Uxn9ntmVXdnqQzcwqplDWM98t
+	RGpTpYQoiHUbROdQopT39wyZf16boZeT/DGTCxl+95Wf1OtSuwcH5878Q7baSiyx+KL5F6WQIeArd
+	f8Wkh3Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZhg-0000000CK6L-2WRB;
-	Wed, 22 Jul 2026 16:21:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmZjL-0000000CKKV-3nCt;
+	Wed, 22 Jul 2026 16:23:35 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZhf-0000000CK5k-29bL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 16:21:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76421600AB;
-	Wed, 22 Jul 2026 16:21:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88F581F000E9;
-	Wed, 22 Jul 2026 16:21:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784737310;
-	bh=X4nlqSDTQfKgXnssLdmt4BpD3msEFfZZnZiCI8vkwJk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K1Yl/ye9GP5zGKTMMfFEQjKOVnbf06k9O6M9LFLkIXuL3qh8TZ4CE1JuxW+NQxlt7
-	 j6DdGu1sHJhsqKlIh/tvLdfemqB+/FJU+2jHRsbhCfmd2/RxFGIBRi7FQ21FqrJlLZ
-	 TWrVkMVfbhn5cv6lGEuM4mp0802PWhXMSIKzx6NU393U8iT7usXc41YoxRmbQNqRAK
-	 ZWau1UuybNFE2JOfF6ithDRuCR1LdESOauAZDApQWntLyTj6Hto12+L6kuGbX34yaM
-	 3ibRtv/kBrl9v1RCfklHGv5Ljsq+8D27BKJkzmOoW/LSloBTphcwdM8rrVADvm4V21
-	 giYYr9J77kX5Q==
-Date: Wed, 22 Jul 2026 18:21:31 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
-	rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, 
-	arnd@arndb.de, gregkh@linuxfoundation.org, daniel@riscstar.com, 
-	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, alexandre.torgue@foss.st.com, 
-	ast@kernel.org, boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, 
-	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com, 
-	inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com, 
-	livelycarpet87@gmail.com, mcoquelin.stm32@gmail.com, me@ziyao.cc, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com, rohan.g.thomas@altera.com, 
-	sdf@fomichev.me, siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com, 
-	wens@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 12/14] gpio: tc956x: add TC956x/QPS615 support
-Message-ID: <p5sfrfa5prxsuznqdjnuusgkj4vyl3aom7gorpdxb2iroxjpgp@7wyx4rceybac>
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-13-elder@riscstar.com>
- <dhnylud7o5dhaaq6kvbes4vkml3ppa5ev542j2lyxdijibknzg@pfcy22wz6jav>
- <df217d83-272a-4d4c-8aba-a87e4b8869fc@riscstar.com>
- <z6fllvxd5r7bln6t6o5cacf2k35c47mnavvkmda6l4gnjaanin@52o34je2alxw>
+	id 1wmZjJ-0000000CKK2-34cW;
+	Wed, 22 Jul 2026 16:23:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=X4aOAhCIGbQmkj8pfrFxHkKi8Xrm93t52GBvPKdZXrs=; b=vA6xfOIOdGbL7huGD/ih26/ABU
+	Im2+evznOv+fllB1iqbxLTtiHmj/XMRijTT0QNbDDHxbwbQK1pxWm9dRJ+BwPpnV3FdvwqBudl1sK
+	JCnDEZaJcQwmp1YEOJKYRyH06adXqR/RKbhDU5PpBDVw2jjslXKlH8DfOCLHfHe9L+EosVmBMuufV
+	3jEIgfMR2661FMvcL4aq41d3Lz8/XRoelHQhEzwcD/mS2hThJ2KhlY6H/h12R76u1XMLq+geRkhaT
+	A3z3wLKDRIlJpP6gTdkFlgQJV2jn/GewsULlvbYgVV6CVOGj10eo2XbJlfpTBoJLhSVUlBJL+jtrB
+	+naTNsBQ==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Quentin Schulz <quentin.schulz@cherry.de>,
+ Alexey Charkov <alchark@flipper.net>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Wyon Bi <bivvy.bi@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>,
+ Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: rockchip: Fractional PLL coefficient on RK3588/RK3576 is
+ two's complement
+Date: Wed, 22 Jul 2026 18:23:10 +0200
+Message-ID: <3482742.0oRPG1VZx4@diego>
+In-Reply-To: <CAKTNdwE=s6XG==4HvbaEV86DATWO6egVxLgNE4LpjFaXNQP7_g@mail.gmail.com>
+References: <20260721-rk3588-fracpll-v1-1-b289bf17cf17@flipper.net>
+ <7f3924ab-52fc-4fb6-91b4-42a5e55d5c76@cherry.de>
+ <CAKTNdwE=s6XG==4HvbaEV86DATWO6egVxLgNE4LpjFaXNQP7_g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <z6fllvxd5r7bln6t6o5cacf2k35c47mnavvkmda6l4gnjaanin@52o34je2alxw>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_092333_831679_1A25A1F7 
+X-CRM114-Status: GOOD (  28.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,27 +76,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 04:43:21PM +0200, Manivannan Sadhasivam wrote:
+Am Mittwoch, 22. Juli 2026, 13:00:47 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Alexey Charkov:
+> Hi Quentin,
+>=20
+> On Wed, Jul 22, 2026 at 2:35=E2=80=AFPM Quentin Schulz <quentin.schulz@ch=
+erry.de> wrote:
+> >
+> > Hi Alexey,
+> >
+> > On 7/21/26 9:17 PM, Alexey Charkov wrote:
+> > > When the PLL rates table was first committed for RK3588 (and later re=
+used
+> > > for RK3576), the fractional PLL coefficient was defined as an unsigned
+> > > value, while the TRM clearly states that it is a two's complement 16-=
+bit
+> > > value.
+> > >
+> > > Rockchip's downstream kernel later revised the fractional PLL code [1=
+] to
+> > > account for the two's complement nature of the coefficient, but that
+> > > change wasn't upstreamed.
+> > >
+> > > Change the PLL table definition to use two's complement for the
+> > > fractional coefficient and update its users accordingly.
+> > >
+> > > Note that a negative fractional coefficient is meant to be subtracted=
+ from
+> > > the next larger integer multiplier, so the _m values in the table are
+> > > also adjusted accordingly for the two negative-k entries.
+> > >
+> > > While at it, fix the denominator of the fractional PLL calculation to=
+ use
+> > > 65536 instead of 65535, as per the TRM (RK3576 TRM Part 1 V1.2, Secti=
+on
+> > > 2.13.1.4 Setting Guide on P, M, S, and K):
+> > >
+> > > Fout =3D ((m + k/65536) * Fin) / (p * 2^s)
+> > >
+> > > Link: https://github.com/flipperdevices/rockchip-linux/commit/7a72bc0=
+5dcc3a51e85ae531749e6270bf9b9212d [1]
+> > > Fixes: f1c506d152ff ("clk: rockchip: add clock controller for the RK3=
+588")
+> > > Fixes: cc40f5baa91b ("clk: rockchip: Add clock controller for the RK3=
+576")
+> > > Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> > > ---
+> > > Not adding Cc stable, because while this fixes a real bug it's not a
+> > > regression, as the issue was introduced in the same commit that added=
+ the
+> > > RK3576/RK3588 support.
+> > >
+> >
+> > I don't think this is a valid reason :)
+>=20
+> I believe Linus frowns upon changes like "it never worked, but we've
+> fixed it now" being submitted as fixes. It's been broken for years,
+> and since nobody complained yet, going via the normal development path
+> (i.e. -next) seems perfectly fine to me.
 
-[...]
+Personally, I also don't think this _needs_ a stable tag.
+The whole if it ain't broke thing ....
 
-> > - Does the TC9563 chip have only *one* function on its embedded
-> >   endpoint, supporting just one Ethernet?
-> >     - If so, this driver will have to be modified to support
-> >       the second embedded function and Ethernet controller.
-> > 
-> 
-> The driver assumes only one endpoint, but the binding lists 2. So the driver is
-> not complying with its own binding now :/
-> 
-> So technically, the driver supports 2 integrated endpoints.
-> 
+If stable-maintainers do think it valuable on their own (without stable tag)
+then by all means, but changing how the PLL rate stuff works has the
+_ability_ to introduce other behaviour _somewhere_.
 
-I was wrong here. Driver supports only one endpoint and that's due to TC9563's
-hw limitation. I confused two functions defined in the binding with endpoints.
 
-- Mani
+> > In any case, this patch is doing too many things at once. I see the
+> > following things that would warrant individual patches:
+> >
+> > 1) fix the wrong denominator, stable candidate IMO,
+>=20
+> I could split this one out, but since it's a trivial one-liner, I'd
+> like to hear what Heiko prefers.
 
--- 
-மணிவண்ணன் சதாசிவம்
+yes please.
+=2D Subject: Foo and Bar
+=2D Commit message with "while at it"
+are clear indicators that the change wants to get split ;-)
+
+So please split out that "while at it" part. The rest can stay
+together though.
+
+
+Thanks
+Heiko
+
+
 
