@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7184CC4453F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946DCC531C8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 21:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+eMYlOGfJ10tYybtvyrsW1lB+RoAnjB3FfjZYdMkZkE=; b=tHNtGqcdsDYOZ7WgSIAxibmyTU
-	QtG34gusWFaa7QuXzKPUPkeUfQtyr3fQSshWEB+VQpDN//jD0Y1WFGjHZCQsEOdTY7njn9m6aRz/C
-	jxY2/+Xtmypaacg5nxdCLdVbJBhEL7jhgelE91aCUbwbyat3dWjjj3hV3Y7j52n+VWsduB93A9fBC
-	06J9sraifQ9+QJl+XxUdc1HZ7PMIGMyKSMC0uyzuDFY8P/k6eor4BHlQUiBCTuMaNPc8isMRQ3ZZ8
-	jotZMeORTs9XODLvaP33CBGgdw2yolGpzxm6hJz0KiVAXmXAXeI5D21shIzu0LOHUhmdnOxi0Ee/D
-	jmuksieg==;
+	bh=oakyfwRPUlUhIuYXETLwbO8Sp1BJjGX0KU4hVjSlLFg=; b=M50IgEZkrtQ64cokm/s7HtaUbP
+	o6tpPHFRniqVglrg4A5giHZlAfZ1U4T6wArE3muQKIKjyIwC1HJOEqSgo5PlNV/p4gaJBk8g2tju0
+	cMlkUhepa2jHSdwu9g75h/XA8TgTggQn4b7yxTdkUvZG7kWOdHN98cx38xzUxvzZQAZ1SPZfVpJ8b
+	qDU1VeEqE+y0f29hOqYXArXYQ9A0qS6Wm8UHtYkndlitFMfz188KE02FG/WwnbQDQ73A50hFgxTdA
+	yq4+sYY0qQiHXFNnh8DFlWvO+34x9TP5ciefv+5sGSjBUZm1nXQZGNECpoMNKUHN6aFTcimEO0iBL
+	g5Q/jrAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmeg0-0000000CpXm-3SYU;
-	Wed, 22 Jul 2026 21:40:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmeg1-0000000CpYy-1tG2;
+	Wed, 22 Jul 2026 21:40:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmefm-0000000CpSE-0XPa
+	id 1wmefy-0000000CpWK-1Z1O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 21:40:14 +0000
+	Wed, 22 Jul 2026 21:40:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A480B43FE5;
-	Wed, 22 Jul 2026 21:40:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F19DB1F00A3D;
-	Wed, 22 Jul 2026 21:40:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC270600E1;
+	Wed, 22 Jul 2026 21:40:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C73F1F00A3D;
+	Wed, 22 Jul 2026 21:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784756413;
-	bh=+eMYlOGfJ10tYybtvyrsW1lB+RoAnjB3FfjZYdMkZkE=;
+	s=k20260515; t=1784756425;
+	bh=oakyfwRPUlUhIuYXETLwbO8Sp1BJjGX0KU4hVjSlLFg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AUPZN7pWFQ8uxNPRAe4YDaLWmhexm824Tfmx7Fb/7Qj8Xjp1s+JDFfA0QfJ2sC2Hn
-	 aXnEEM6d1eIruBNgHtfE6cnyP2fxiBhmrHGdhcKL9yUmaxwS6wfPTbyYPNdxfLMvaI
-	 GLwleQEecZXVWfg2JhxChcVGypsbOvolr65aisR/x1JfjW/gX+OsHFLF8x8GvzXL+N
-	 lhiquT01UYjN0fDVSZ6aS3PGWTFq++8xZO62wmfSy6ZllHAU3wb5OWHmfirAWz4qtX
-	 Al+yVvDRcGgr4+p8XPw8aHh+sfIYnsv0DuFQtCPky6xPCFeDiLsy6CemEV0iTUUL4u
-	 cneF5UJf738sA==
+	b=PJ5CUgjYAwDgRiGGS3h7AtnZtmjG3+vrAiye1YPjWil6HDwtkq825XgIjTEqphk2E
+	 Npqq9t/eNT1XXJpiooKqUla6glq0mGSSgjWJWckpQ4PZfKQZ1uBzjWGPBZM6FE8JD4
+	 5aAfrknKKwFdBffjtwy8mLzfKcizqX4crEWeZIIxaxGA04q08nez7HNfb53DLA2rCu
+	 VZW1BmrV87VZmYDHmr9KtkuMztFfCBa7MceKfLFSU7Hr7ewQez65Mug6c+uSwhBCMW
+	 r7/DdMT0yQJqaLmPSjHK8uXsbVk/DhiEFKhBLwrmBFfDq/T6XhlE7SlH6MXDiTP1AQ
+	 P0PMk341I2ADQ==
 From: Will Deacon <will@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	"Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
+To: Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Kees Cook <kees@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	llvm@lists.linux.dev,
-	bpf@vger.kernel.org,
-	Florent Revest <revest@chromium.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huawei.com>
-Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
-Date: Wed, 22 Jul 2026 22:39:25 +0100
-Message-ID: <178475345276.2109707.13204683362381752837.b4-ty@kernel.org>
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Pan Chuang <panchuang@vivo.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] iommu: arm: Remove redundant dev_err()/dev_err_probe()
+Date: Wed, 22 Jul 2026 22:39:29 +0100
+Message-ID: <178472595619.2878707.2602583908071504457.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
-References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+In-Reply-To: <20260714133246.575556-1-panchuang@vivo.com>
+References: <20260714133246.575556-1-panchuang@vivo.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -85,23 +83,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026 05:19:25 +0000, Jose Fernandez (Anthropic) wrote:
-> On arm64, HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS is currently selected
-> only when DYNAMIC_FTRACE_WITH_CALL_OPS is available. CALL_OPS, in
-> turn, is mutually exclusive with kCFI: the pre-function NOPs it needs
-> would change the offset of the pre-function type hash (see
-> baaf553d3bc3 ("arm64: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS")),
-> and the compiler support needed to reconcile the two does not exist
-> yet.
+On Tue, 14 Jul 2026 21:32:43 +0800, Pan Chuang wrote:
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
+> automatically log detailed error messages on failure. Remove
+> the now-redundant driver-specific dev_err() and dev_err_probe() calls.
 > 
-> [...]
+> 
 
-Applied to arm64 (for-next/misc), thanks!
+Applied to iommu (arm/smmu/updates), thanks!
 
-[1/2] arm64: ftrace: prepare ftrace_modify_call() for use without CALL_OPS
-      https://git.kernel.org/arm64/c/123b4fc0f857
-[2/2] arm64: ftrace: allow DIRECT_CALLS without CALL_OPS
-      https://git.kernel.org/arm64/c/9315e22b0c0a
+[1/1] iommu: arm: Remove redundant dev_err()/dev_err_probe()
+      https://git.kernel.org/iommu/c/13a86292681d
 
 Cheers,
 -- 
