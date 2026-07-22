@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7600C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD81C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 09:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i4WgNrEKdg3Ic3C4pPexVwOX2zafZ8GZg4cnbInNRII=; b=WAQDes116GoVS3A9kJEM48SBk3
-	eoh1cjJtCmFEcBw+R25LIA2vnCyKkyszHBx8P8y60VN9lo/ISLaqsomyt62g4wd9WTwUZvEl7Ym0z
-	gBfQJaZZWO8P3+lVOxkz97P/kdQp+RbCssmQedkY0BBbUjMJIq+GG5Av4BGXFjDfmBW5W8KIl0iEM
-	RzK05QqFUfC00p98rRB3wBJP+zLGPSZo86ptuqdYKk/JmThHcf+qDJBXHfG+rQBiolP4JKDuVSVoL
-	WFZC8aFrtgTbpqx8x/hjabsaCIdjwgw47wPENawjXE0Z4QWP9gz+kpfSlhOKjb6rFjPswoTFLwJzq
-	YVM2L8/Q==;
+	bh=K3BAwkX4e0yTBdzLE/9XMWKMSFzQsojzSVvnX9l/QZo=; b=bvAUndeBK7B1sptRBBZZRw7gaq
+	uE+uMoTlcoxycCIkyqLmobWso3bV189c4rwY+JkHJPUaPAnyz/Y7EXyMOQOF0bFIl5JyBT8lESmRy
+	yV5bvIFPjBVcL+NNHXQ69TlJY1Mdd9r4tUF2EjT0xLnFZaR/c2SVWX65hNpYUQY584/sAEVOeNKBm
+	PhEOZlmQVcmGCxhaFOa2SJEI9t1LbMOCAccnRDdX0gXFikRD/4iAV2gSgtCQ+pZhZUz9o4FnvtSjr
+	VisAqEcFLT6t/dGNVhABHC4aKlHJQir0KHSPQ1nki/mcR0JN/Y+GrlB/9dazUj1b9lJy8VofvlJKv
+	o3Yuor/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTLv-0000000BQeE-026v;
-	Wed, 22 Jul 2026 09:34:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmTLs-0000000BQdw-3bfq
+	id 1wmTNE-0000000BQwC-158T;
+	Wed, 22 Jul 2026 09:36:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmTNA-0000000BQvL-1HqH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 09:34:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1711360A7C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 09:34:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C10CE1F01559
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 09:34:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784712895;
-	bh=i4WgNrEKdg3Ic3C4pPexVwOX2zafZ8GZg4cnbInNRII=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=Cu6Mc/sTiHEugnS/UEUP5o1+6fDnZqVfmlxJQqiFffjcMGqHzy+gRrrDqF5vE3wCX
-	 jDfzbDes4z1Vi0jlCuNfJ5S0dC1KAONP/jSJeLDrvazOVYPa6UM0wAtDAiUagN89ri
-	 p5U0TDZ7Cv15Kmj7t/aHdNiEeIr1/mcbOu3MIIh86c33Si5/Y2kubgA2tVudJ5aqKj
-	 AK35MmbSuTb5RsAz0tT7fx81y8C9OPKS8raXuKAu3KHhXvJsrcDyWG3/yBGeIA7GaU
-	 g9NvPL48PxcMkPwS4T/GY9Y/6CBaVDVG4gLgEVlX8KRHc8oRagh/LLFfZflsA8+ivm
-	 ev8j87IUsQxaQ==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5b15c6fb864so5850116e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 02:34:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpqWQmmuK9afgWplbWPEikGL8AHMi/yWZQc73kk+IVnWlQrZx3h15neMazFBzFyJtmhaY1f9RjVuwHA7hUD14Cd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxB/Hy5QV7hyMKuxFdQXU9f7AK6ItdrVRvG5Yj4FO2NyvxSql2I
-	HBimJV5f3AGg+mg9aCC9lxHZuhgWFhFgyIyvbKAGw9jW9GhV9zl9I8v5E1oC2iXZLS0LPBSW1b+
-	QwQQl9NmNbHi2/eLJbuFtJHEQa5oyFmrDIeyqrOHlpw==
-X-Received: by 2002:a05:6512:6f:b0:5ae:b0c0:16bc with SMTP id
- 2adb3069b0e04-5b28f890184mr3237380e87.27.1784712894372; Wed, 22 Jul 2026
- 02:34:54 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 22 Jul 2026 02:34:52 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 22 Jul 2026 02:34:52 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <amCGXUUd4VmuQRGD@linaro.org>
+	Wed, 22 Jul 2026 09:36:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B22441595;
+	Wed, 22 Jul 2026 02:36:10 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60C193F86F;
+	Wed, 22 Jul 2026 02:36:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784712974; bh=O7EJYDmByoTpsITBBymwn3nowadBexEAS2hMkYKxPgw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p+96pLlSDOM6+k2/MeXzTMznCRtWimKXzB4tZA92QDqgSOl1NjfUhJS9lG6GG2p5N
+	 bi0O/7yZ1vIOSsokI2+i6rrzLGeAR0mlIrLwTZfXK87JhsURFk+oz8FzSyeN1Ge4FY
+	 mHRsI05xgc+t/aDcEBztVuIkH8Y7lIyPqamtbWMk=
+Date: Wed, 22 Jul 2026 10:36:06 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, cl@gentwo.org, dennis@kernel.org,
+	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
+	will@kernel.org, david@kernel.org, akpm@linux-foundation.org,
+	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+Message-ID: <amCPBrdltFSE_fEf@J2N7QTR9R3>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
 MIME-Version: 1.0
-References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
- <20260721-qcom-qce-cmd-descr-v23-6-1be02deffda9@oss.qualcomm.com>
- <20260721134853.2B2401F000E9@smtp.kernel.org> <amCGXUUd4VmuQRGD@linaro.org>
-Date: Wed, 22 Jul 2026 02:34:52 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com>
-X-Gm-Features: AUfX_mwVr6pWOzeRIi6v2GZNWX7GGrq8Md8rkImjzrBVx4v9bKKGCd1iVRWIwX0
-Message-ID: <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com>
-Subject: Re: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	brgl@kernel.org, sashiko-reviews@lists.linux.dev, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_023616_426820_65DE05A2 
+X-CRM114-Status: GOOD (  45.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,191 +75,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 10:59:09 +0200, Stephan Gerhold
-<stephan.gerhold@linaro.org> said:
-> On Tue, Jul 21, 2026 at 01:48:52PM +0000, sashiko-bot@kernel.org wrote:
->> Thank you for your contribution! Sashiko AI review found 5 potential issue(s) to consider:
->> - [High] State leak causing hardware misconfiguration on channel reuse due to uncleared `lock_scratchpad_addr` and hardcoded direction.
->> - [High] Channel state corruption when `bam_slave_config` fails validation.
->> - [High] Infinite BH workqueue loop and unratelimited log flood on memory allocation failure.
->> - [High] DMA API violation: `lock_ce` buffer shares a cacheline with frequently CPU-modified struct members.
->> - [Low] Unused assignment of `hdesc` in IRQ handler.
->> --
->>
->> --- Patch [6]: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking ---
->> commit 8b44c5e4935cbb61832adb3262df00b3b606a283
->> Author: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
->>
->> dmaengine: qcom: bam_dma: add support for BAM locking
->>
->> This commit adds support for BAM pipe locking by prepending and appending
->> dummy command descriptors with LOCK/UNLOCK bits when starting DMA on a TX
->> channel. It uses a peripheral-local scratchpad address communicated via slave
->> config for the dummy writes.
->>
->> > diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
->> > index f3e713a5259c2..411c60c4433e2 100644
->> > --- a/drivers/dma/qcom/bam_dma.c
->> > +++ b/drivers/dma/qcom/bam_dma.c
->> [ ... ]
->> > @@ -72,6 +76,11 @@ struct bam_async_desc {
->> >
->> >  	struct bam_desc_hw *curr_desc;
->> >
->> > +	/* BAM locking infrastructure */
->> > +	bool is_lock_desc;
->> > +	struct scatterlist lock_sg;
->> > +	struct bam_cmd_element lock_ce;
->> > +
->> >  	/* list node for the desc in the bam_chan list of descriptors */
->> >  	struct list_head desc_node;
->>
->> [Severity: High]
->> Does placing lock_ce immediately adjacent to desc_node risk a DMA API
->> violation? lock_ce is mapped for DMA via dma_map_sg(), but desc_node is
->> actively modified by the CPU via list_add_tail() during bam_start_dma()
->> while the mapping is active. On non-coherent architectures, could this
->> cause cacheline tearing or stale data writebacks if they share the same
->> cacheline?
->>
->
-> I think this complaint was there in some revisions before. Could be
-> mostly a false positive given that the lock_ce is just DMA_MEM_TO_DEV
-> (i.e. read-only for the BAM)...
->
+On Tue, Jul 21, 2026 at 04:20:50PM -0700, Yang Shi wrote:
+> On 7/16/26 6:23 AM, Ryan Roberts wrote:
+> > On 15/07/2026 19:04, Yang Shi wrote:
+> > But I think that there are other issues with this concept that likely block it
+> > from being accepted upstream; see below...
 
-Yes, I ignored it because it's not a problem for us in this case.
+> > We have observed a few performance regressions recently, for which the root
+> > cause is increased use of this_cpu_*. We have somebody at Arm about to start an
+> > investigation into whether in-kernel rseq can solve the problem.
+> 
+> It is good to know someone is exploring the alternative path. But I doubt
+> restart sequence can really boost the performance. It needs check whether
+> preemption (or cpu migration) happens in the middle of percpu operations
+> then manipulate the ip to restart the operation.
 
->> [ ... ]
->> > @@ -676,13 +691,26 @@ static void bam_free_chan(struct dma_chan *chan)
->> >  static int bam_slave_config(struct dma_chan *chan,
->> >  			    struct dma_slave_config *cfg)
->> >  {
->> > +	struct bam_config *peripheral_cfg = cfg->peripheral_config;
->> >  	struct bam_chan *bchan = to_bam_chan(chan);
->> > +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
->> >
->> >  	guard(spinlock_irqsave)(&bchan->vc.lock);
->> >
->> >  	memcpy(&bchan->slave, cfg, sizeof(*cfg));
->> >  	bchan->reconfigure = 1;
->> >
->>
->> [Severity: High]
->> Is it safe to overwrite bchan->slave and set bchan->reconfigure = 1 before
->> validating the configuration direction below? If cfg->direction !=
->> DMA_MEM_TO_DEV, this returns -EINVAL to the caller, but the channel
->> retains the rejected parameters and will apply them on the next transfer
->> because bchan->reconfigure remains set.
->>
->
-> Yeah, better to swap the order.
->
+With the rseq approach, that check happens out-of-line in exception
+handling code, *only* when preemption occurs, so in the fast path there
+is *no code whatsoever* to check for preemption/migration, and no
+branches to cause a restart.
 
-Sigh... ok.
+Please note that with the approach I've prototyped, the exception
+handling code doesn't even adjust the PC; we just adjust a GPR
+containing the address. The forward progress guarantees (and behaviour
+under contention) should be the same as a single instruction. The fixup
+logic itself is trivial.
 
->> > +	/*
->> > +	 * This is required to setup the pipe locking and must be done even
->> > +	 * before the first call to bam_start_dma().
->> > +	 */
->> > +	if (bdata->pipe_lock_supported && peripheral_cfg) {
->> > +		if (cfg->direction != DMA_MEM_TO_DEV)
->> > +			return -EINVAL;
->> > +
->> > +		bchan->lock_scratchpad_addr = peripheral_cfg->lock_scratchpad_addr;
->> > +	}
->>
->> [Severity: High]
->> If bam_slave_config() is called without peripheral_cfg, should
->> bchan->lock_scratchpad_addr be reset to 0 to avoid leaking state from a
->> prior configuration? If the previous lock_scratchpad_addr is retained,
->> bam_start_dma() might erroneously inject dummy lock descriptors on new
->> transfers.
->>
->
-> Probably unlikely to happen, but yeah.
->
-> I would also check if (cfg->peripheral_size == sizeof(peripheral_cfg)),
-> just to be safe.
->
+Please see my message where I outlined that approach in detail:
 
-Ok.
+  https://lore.kernel.org/linux-arm-kernel/al_DpFJFcmVhxpvW@J2N7QTR9R3/
 
->> [ ... ]
->> > @@ -919,13 +959,19 @@ static u32 process_channel_irqs(struct bam_device *bdev)
->> >  			 * push back to front of desc_issued so that
->> >  			 * it gets restarted by the work queue.
->> >  			 */
->> > +
->> > +			list_del(&async_desc->desc_node);
->> >  			if (!async_desc->num_desc) {
->> > -				vchan_cookie_complete(&async_desc->vd);
->> > +				hdesc = async_desc->desc;
->> > +
->>
->> [Severity: Low]
->> Is the assignment to hdesc used anywhere? It appears to be assigned here but
->> is never read.
->>
->
-> Yeah, I think I pointed this out before.
->
+I expect that should come with a reasonable benefit, but I don't have
+benchmark figures yet as I haven't finished converting the xchg and
+cmpxchg implementations.
 
-Dang it, I removed one but seem to have missed this.
+> It sounds like it just moved the cost from one place to the other
+> place and it also seems hacky TBH.
 
->> [ ... ]
->> > @@ -1064,6 +1197,7 @@ static void bam_start_dma(struct bam_chan *bchan)
->> >
->> >  	lockdep_assert_held(&bchan->vc.lock);
->> >
->> > +	vd = vchan_next_desc(&bchan->vc);
->> >  	if (!vd)
->> >  		return;
->> >
->> > @@ -1072,6 +1206,24 @@ static void bam_start_dma(struct bam_chan *bchan)
->> >  		return;
->> >
->> >  	while (vd && !IS_BUSY(bchan)) {
->> > +		/*
->> > +		 * Open a LOCK/UNLOCK bracket around each fresh sequence.
->> > +		 * Sentinels inserted by bam_setup_pipe_lock() are skipped: they
->> > +		 * already have bam_locked set and must not trigger a second pair.
->> > +		 */
->> > +		if (!bchan->bam_locked) {
->> > +			ret = bam_setup_pipe_lock(bchan);
->> > +			if (ret) {
->> > +				dev_err_ratelimited(bdev->dev,
->> > +					"failed to setup the pipe lock, deferring transfer: %d\n",
->> > +					ret);
->> > +				queue_work(system_bh_highpri_wq, &bdev->work);
->> > +				break;
->> > +			}
->>
->> [Severity: High]
->> Does requeuing to a high-priority BH workqueue upon ENOMEM cause CPU
->> starvation? Because system_bh_highpri_wq executes in softirq context,
->> requeuing immediately without sleeping prevents the memory reclaim needed
->> to resolve the GFP_NOWAIT failure, leading to an infinite spin loop.
->>
->
-> It looks like my suggestion to queue_work() again in the error path of
-> bam_start_dma() wasn't great if we end up causing an infinite spin loop.
-> We do need to retry somehow or report an error though, I don't think
-> aborting and leaving the desccriptors completely unhandled is an option
-> either... :(
->
-> One option would be to try to avoid the allocation and write the lock
-> descriptors directly into the FIFO, but this will probably get really
-> messy as well, since you would need to carefully modify the FIFO
-> management in several functions ...
->
-> I don't have a good spontaenous idea how to solve this right now. :/
->
+The existing (high) cost is removed from the fast path. A new (low) cost
+is added to the rare path where we perform an exception return into the
+middle of a critical section.
 
-Pre-allocate the lock descriptors (if needed) in bam_prep_slave_sg()? As in:
-call bam_make_lock_desc() in bam_prep_slave_sg(), store the descriptors and
-make bam_setup_pipe_lock() return void as it will no longer be possible for it
-to fail? It would just grab the preallocated descriptors.
+I don't think this is any more hacky than percpu page tables. It's far
+more contained to the relevant pieces of code (only the this_cpu_*() ops
+and exception entry/return).
 
-Bart
+> It may reduce the preempt_disable/preempt_enable cost somehow for some
+> less contended cases, but it may be worse for high contended cases.
+> The percpu page table can work well for both.
+
+It entirely removes the preempt_disable/preempt_enable cost.
+
+I don't follow your concern with contention. Any contention on the
+memory location is going to be independent of preemption, and if a
+thread is preempted mid-operation, the impact is going to be the same
+with either the adress fixup or percpu page tables -- I don't think you
+avoid that.
+
+> S390 implemented restart sequence. Heiko didn't share too much benchmark
+> data, just confirmed there is no regression and I had a lengthy discussion
+> with him
+> (https://lore.kernel.org/lkml/20260520092243.264847-1-hca@linux.ibm.com/).
+
+As above, for s390 Heiko didn't implement a restart sequence; he
+implemented an address fixup sequence. There is no restart.
+
+The discussion you had there seemed to focus on the s390 implementation
+details (e.g. why he used an address fixup rather than a restart), and
+the benefits of removing the preempt_count manipulation (which all the
+approaches, including mine, do).
+
+Am I missing some key detail?
+
+> Improving this_cpu performance is just one of the usecase of percpu page
+> table. The other potential usecase is kernel text replication I mentioned at
+> LSFMM. The idea is not new, someone else has explored it, see https://lore.kernel.org/linux-arm-kernel/ZMKNYEkM7YnrDtOt@shell.armlinux.org.uk/.
+
+That was looked at in the past, but people weren't keen given the
+complexity it would lead to, which is why it never saw much traction.
+
+> Percpu page table can make kernel support it more naturally.
+
+Perhaps, but the only difference is that you've moving the support code
+into the core kernel mm code. I think the general concerns people have
+with percpu page tables still apply.
+
+[...]
+
+> > > Known Issues
+> > > ============
+
+> > > 3. Shared TLB machines
+> > > ----------------------
+> > > Some machines may share TLB between CPUs, for example, SMT machines may share
+> > > TLB between the two hardware threads in one core.
+> > > The per cpu page table just can't work with it. Maybe we need a new
+> > > cpufeature to indicate whether per cpu page table is allowed or not. Then
+> > > just enable it for not-shared-TLB machines.
+> > The architectural feature you're referring to here is FEAT_TTCNP (common not
+> > private). There are many CPUs out there that use this feature (not just those
+> > that support SMT).
+> > 
+> > FEAT_TTCNP is mandatory from Armv8.2 and the presence of the feature only tells
+> > you whether you can legally set the CnP bit - it doesn't actually tell you if
+> > the HW does any sharing - there is no way to detect this. So making per-cpu
+> > pgtables mutually exclusive with CNP is a non-starter as all CPUs from v8.2
+> > onwards advertise CNP.
+> > 
+> > Even ignoring the CNP problem, you'll end up installing the per-cpu TLB entries
+> > tagged with whatever user ASID happens to be installed at the time. Which means
+> > you could end up with lots of duplicated TLB entries all differing only by ASID.
+> > It's probably not the end of the world, but it seems... inefficient.
+> 
+> Really? I thought ASID will be ignored if nG == 0.
+
+The nG bit only applies to leaf entries (Page or Block descriptors). All
+intermediate entries (Table descriptors) are ASID tagged.
+
+> > The only way I can see to make this work fully is to rely on FEAT_ASID2, which
+> > allows specifying separate ASIDs for TTBR0 and TTBR1. Then each CPU can have
+> > it's own (permanently installed) ASID for local mappings in TTBR1. That would
+> > solve the CNP issue. FEAT_ASID2 is optional from v9.4 and mandatory from v9.5.
+> 
+> I agree it is safer to handle CNP problem by depending on FEAT_ASID2.
+
+I think that depending on FEAT_ASID2 is a non-starter.
+
+There is no extant hardware with FEAT_ASID2, and I don't think we want
+to maintain distinct versions of hte percpu code accross architecture
+versions.
+
+Mark.
 
