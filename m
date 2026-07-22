@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CE8C44533
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE59C4453D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 08:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iCt+W24qHMFaTA0Io95tX4AdmwGE6NhPJNdH8ob9BSs=; b=pSUJ/EE41IHVCb
-	WFhij8d+CWwf3niILziMkjVhfvosJByhb94kITQNAu064VjB1Sw1zi58R/qUimVofH28nbH/aOz5/
-	R6lFS0Gnbm8+5x4qTySrgY0a3uExUsJmM7OoI0T+A5ECR+oDIukCUk/Kdv2FUluBXq1/SIfgB1tNH
-	6kEeBlqCkWbzyXCmFf5JKAFiTO3U0pLhOAEaB6mzfVGTBFLOhjjlkzli70oQbb6mXugUSZ93raho4
-	YITeu86kIGtpc8Yh7fbbqAVg3voXA4IPGcqpWtBMautOGpwiy8jLGqnaU065gY5zB5AAfdiFRZb+j
-	mKJpwaqKuiI1lelbUPBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e9aAGd8HBtSs0CyHVA1cqr8BBW3AKtLoj7xoH2q/MK0=; b=HNTHfnAfRGAShzM4KYt9WPi2JW
+	86GdtwTVQT9SI/q8P5pGpYq0oT7gVe0JkZ6GTChCGD9CPUMe1Gs+2lqPlRmlfT+uXy6lr3ehfE0Sy
+	CoIUtY+Z5saiTVKjq6dCd9XRGKivNzif/RrllA5/n+ndI9IPznfizeGslqrys2GrOYhFboBwAbIkX
+	+f/jOLPJbiMivmjYu98glDqtLdLMq+WRmwXzNs6V22sv0nEkBMQt2E3ygnJj9PRIFGYj301SZFdWl
+	kgzuU2rAMAHGwdq58fYfnrSalvE1n322kM5al3Vh8h6dGOWMnXsCQCCysyELGDujptjzB6r3WiRxA
+	Fp2lJwRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmST8-0000000BHJi-13Ji;
-	Wed, 22 Jul 2026 08:38:22 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wmSUL-0000000BHQT-2Y6i;
+	Wed, 22 Jul 2026 08:39:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmST4-0000000BHIP-00iz
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 08:38:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=iCt+W24qHMFaTA0Io95tX4AdmwGE6NhPJNdH8ob9BSs=;
-	b=3aR+YNQlbyC2XGcL5L9kIiX2M+2GeKbBn9HSWeNQR4Rq+kI9u6cfDOQzaN9Fxl0fqFwTvx6pm
-	sxeJsE2kbuW+Z6B/fzaPAnciop4CjCRpckUkiGNokgJIR+ELR4mLk8AnMfQMVqdCsWFmK6/in3O
-	DLpfdEKTspwhx03priWz8PE=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h4nTT72WhzmVXs;
-	Wed, 22 Jul 2026 16:28:45 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id CFCB640578;
-	Wed, 22 Jul 2026 16:38:08 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Jul 2026 16:38:08 +0800
-Message-ID: <a8e3e9da-feca-4876-84f7-ddbb1e3d34c8@huawei.com>
-Date: Wed, 22 Jul 2026 16:38:07 +0800
+	id 1wmSUL-0000000BHPs-0L40;
+	Wed, 22 Jul 2026 08:39:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 93F1A43272;
+	Wed, 22 Jul 2026 08:39:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 691D8C2BCC7;
+	Wed, 22 Jul 2026 08:39:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784709576;
+	bh=QQCi8joyIQJkB/7W6FFWGEeP6YN+mclhm8poIQ026HY=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=jcW/b/cIFCOrDCNQFMdgN0r8V5wQB4EfkdIp6CaIsRNV1hO9xl2l4LlQDcmbxTSop
+	 xnz0aw9HdjUJQbXo5dKpv5pBUsbr0Zb1ZYUQYhK9HqAghw+m8VWTfgPNOb7bBk7/UV
+	 ZD1eWHzyp8Ln/YmKhmoF9DtSGFWjAaeJvoCqzsa7y+b5ScCDmF3L1K4UG1JMmH1PyC
+	 E4caJATseBQop5g+pTcieeQkaVKbKPYNC5FDS3mCJe8LfZDM72dWS53wQhbbKAQXax
+	 l5u+k8huQMhSA7ZZPmO9rVQJjBaTDxXwUbBXYAUkznZiTUC/NkFBFzH2Uc1xMvY6XP
+	 QiLhkV+pU50Jw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 53711C4451C;
+	Wed, 22 Jul 2026 08:39:36 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Subject: [PATCH 0/3] Power: Add power domain for A9
+Date: Wed, 22 Jul 2026 08:39:30 +0000
+Message-Id: <20260722-a9-pm-v1-0-1fe20a44bf2d@amlogic.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 16/36] arm64: cpuidle: use new helpers to bypass
- interrupt priority masking
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-17-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-17-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_013818_388925_6DFD62E7 
-X-CRM114-Status: GOOD (  30.29  )
+X-B4-Tracking: v=1; b=H4sIAMKBYGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDcyMj3URL3YJcXePUtCTjNKNEkxRzIyWg2oKi1LTMCrA50bG1tQDAyC7
+ HVwAAAA==
+X-Change-ID: 20260722-a9-pm-3efb3f2a4d72
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jianxin Pan <jianxin.pan@amlogic.com>, Ulf Hansson <ulfh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784709572; l=814;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=QQCi8joyIQJkB/7W6FFWGEeP6YN+mclhm8poIQ026HY=;
+ b=WLQ47soAxbaZK576/tY+iiZaJ+qwcSMeFxILfLIWBKgQ9gUpoJkMTVFTUiaU9RzgZsL9M+dAC
+ J6phS4teZz6CL993sARjLs4UT/eYb9BYbCni9oX3A4iZJRMwX2xfUXU
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,147 +86,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add power controller driver support for Amlogic A9 SoC.
 
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Xianwei Zhao (3):
+      dt-bindings: power: Add Amlogic A9 power domains
+      pmdomain: amlogic: Add support for A9 power domains controller
+      arm64: dts: amlogic: a9: Add power domain controller node
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> When the CPU goes into WFI and pseudo-NMIs are in use, we need to make
-> sure that interrupts are not masked by the PMR otherwise they would not
-> reach the CPU and wake it up.
-> 
-> Now that we have a proper API that handles both DAIF and PMR, extend it
-> to provide helpers allowing to temporarily switch to masking interrupts
-> via DAIF only when interrupt priorities are in use.
-> This could allow other parts of the code to make use of it and makes it
-> easier to check for proper use.
-> 
-> Replace the custom cpuidle helper with those new helpers.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/cpuidle.h            | 14 ++---
->  arch/arm64/include/asm/interrupts/masking.h | 58 +++++++++++++++++++++
->  2 files changed, 62 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/cpuidle.h b/arch/arm64/include/asm/cpuidle.h
-> index 2047713e097d..0c7ccdaf1832 100644
-> --- a/arch/arm64/include/asm/cpuidle.h
-> +++ b/arch/arm64/include/asm/cpuidle.h
-> @@ -5,22 +5,17 @@
->  #include <asm/proc-fns.h>
->  
->  #ifdef CONFIG_ARM64_PSEUDO_NMI
-> -#include <asm/arch_gicv3.h>
-> +#include <asm/interrupts/masking.h>
->  
->  struct arm_cpuidle_irq_context {
-> -	unsigned long pmr;
-> -	unsigned long daif_bits;
-> +	arm64_exc_hwstates_t arm64_context;
->  };
->  
->  #define arm_cpuidle_save_irq_context(__c)				\
->  	do {								\
->  		struct arm_cpuidle_irq_context *c = __c;		\
->  		if (system_uses_irq_prio_masking()) {			\
-> -			c->daif_bits = read_sysreg(daif);		\
-> -			write_sysreg(c->daif_bits | PSR_I_BIT | PSR_F_BIT, \
-> -				     daif);				\
-> -			c->pmr = gic_read_pmr();			\
-> -			gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET); \
-> +			c->arm64_context = local_all_irqs_force_daif_save(); \
->  		}							\
->  	} while (0)
->  
-> @@ -28,8 +23,7 @@ struct arm_cpuidle_irq_context {
->  	do {								\
->  		struct arm_cpuidle_irq_context *c = __c;		\
->  		if (system_uses_irq_prio_masking()) {			\
-> -			gic_write_pmr(c->pmr);				\
-> -			write_sysreg(c->daif_bits, daif);		\
-> +			local_all_irqs_force_daif_restore(c->arm64_context); \
->  		}							\
->  	} while (0)
->  #else
-> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
-> index 19d32618b2b9..9dc37a571094 100644
-> --- a/arch/arm64/include/asm/interrupts/masking.h
-> +++ b/arch/arm64/include/asm/interrupts/masking.h
-> @@ -99,6 +99,64 @@ static inline void local_all_irqs_final_mask(void)
->  }
->  #endif /* CONFIG_DEBUG_IRQFLAGS */
->  
-> +/*
-> + * In some cases, WFI or guest entry for example, we always want interrupts
-> + * to reach the CPU even if masked. Masking via the PMR prevents them from
-> + * reaching the CPU and waking it up.
-> + * Force IRQ masking using DAIF by raising the priority mask
-> + * and setting the IF flags.
-> + *
-> + * Should only be called when IRQs are already masked.
-> + */
-> +static inline arm64_exc_hwstates_t local_all_irqs_force_daif_save(void)
-> +{
-> +	arm64_exc_hwstates_t states = {};
-> +	/*
-> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
-> +	 * while keeping interrupts masked.
-> +	 */
-> +	WARN_ON_ONCE(!irqs_disabled());
-> +
-> +	if (system_uses_irq_prio_masking()) {
-> +	        states.saved.daif = read_sysreg(daif);
-> +	        states.saved.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
-> +		/*
-> +		 * We might have IF set or unset. In case IF already set orring with IF
-> +		 * won't change anything, combined with PMR set to IRQON we might become
-> +		 * one of contexts: CRITICAL, ERROR or NONMI. In case IF is unset (which
-> +		 * also implies that DA is unset) orring with IF and combining with PMR
-> +		 * set to IRQON would effectively gives us NONMI context.
-> +		 */
-> +		states.expected.daif = states.saved.daif | DAIF_PROCCTX_NOIRQ;
-> +		states.expected.pmr = GIC_PRIO_IRQON;
-> +
-> +		arm64_update_exc_hwstate(states.expected, true);
-> +	}
-> +
-> +	return states;
-> +}
-> +
-> +/*
-> + * Return to masking with the PMR, restoring previously saved DAIF and PMR.
-> + *
-> + * IRQs or interrupt priority masking should not have been re-enabled in between
-> + * the save and restore.
-> + */
-> +static inline
-> +void local_all_irqs_force_daif_restore(arm64_exc_hwstates_t states)
-> +{
-> +	/*
-> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
-> +	 * while keeping interrupts masked.
-> +	 */
-> +	WARN_ON_ONCE(!irqs_disabled());
-> +
-> +	if (system_uses_irq_prio_masking()) {
-> +		arm64_debug_exc_hwstate(states.expected);
-> +		arm64_update_exc_hwstate(states.saved, true);
-> +	}
-> +}
+ .../bindings/power/amlogic,meson-sec-pwrc.yaml     |  1 +
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi        | 10 ++++
+ drivers/pmdomain/amlogic/meson-secure-pwrc.c       | 69 ++++++++++++++++++++++
+ include/dt-bindings/power/amlogic,a9-pwrc.h        | 61 +++++++++++++++++++
+ 4 files changed, 141 insertions(+)
+---
+base-commit: 544455a3a844edd6107b15cd0ab0b657399f2d49
+change-id: 20260722-a9-pm-3efb3f2a4d72
 
-The newly introduced two helper functions seem to have been used only
-once in the end, and they do not update ALLINT. So, is it necessary to
-introduce these two helpers?
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-> +
->  /*
->   * During early boot, we unmask PSR.DA before the GIC has been set up.
->   * If we use IRQ priority masking, the PMR and PSR will be out of sync
 
 
