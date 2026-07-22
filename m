@@ -4,112 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2FBAC44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB250C44539
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 14:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v1zNXC882j0BCwBxeji6HC1ZHjIGfjhbbSn9tIs8/0s=; b=e/VfsIFsVxwLAoG6p2ICZqbf44
-	rhZWKBmP1czKzUFEMjPs9sd1JI6BLXF5l6P8fuKQJhW5kJ/4Zptmu2rFzIj/W+xTDc8a9R2KUWaDk
-	GMrhxQUOfOr15DqYQjWmLQdjQx0JZW61sRT4om5BbYOPdbCqx79aB8mXH3vx1unGpCP5yMrOi1cID
-	j6xhkNJdi4oE0ZLT/rKWwvgOZXw82mjaYcqhhN2vmsV55mOJQubX20ppiqeptUuHqmPbol8GVrs0m
-	JVRKZGtqRoRkXB13XWc1yejc6/Bm9gKDQJue3siLK3h6PiP92I0pH/rzq9W9dLAr02AKER//dDEOh
-	bm76cR7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j5WRfwe5s7CD4n1/aXk/GuB0uSEMmPxIt38DrP+sT9s=; b=ttAaZSpsoNXFBw8K005118cZxk
+	GSeIlEW3eG1HCdY4fChKQrDAbbDZ1H1wuLmn0kApg7ijWqZSM4bJy9cas2CMWiBRixoK3eQ36FfQp
+	nQPI5f6aQFq8eEjw2/+4w+HDOtPI34wA79k8vWZs9FznnWVRnbRzbFpr4cYEuACZ4Sb7aK+Rkwb6s
+	L30ajJCwEecs6x0lPvdRXG8dC5cZ2FELgOc/cT/k6CUCZIULmawOJPT4cm4wVlwrxzXS6IMgUh/vu
+	lzr67Z8PSjzNNiZbW94o34N9sJkC8oNHhxOaA2F3X9GXY2nXQ+nSt7/WXYzZ1WVlWnvHxE6sOAVuw
+	Cg1smcJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXpK-0000000C0yb-487q;
-	Wed, 22 Jul 2026 14:21:38 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wmXpd-0000000C12F-0Tbp;
+	Wed, 22 Jul 2026 14:21:57 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXoi-0000000C0vf-1Yeh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 14:21:37 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49545ba3d4eso32916935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 07:20:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1784730058; x=1785334858; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=v1zNXC882j0BCwBxeji6HC1ZHjIGfjhbbSn9tIs8/0s=;
-        b=v7tOeYCgD0cL7pTkMXfThcGAVOyeFFr8z37O9MWcKjfDAsdNCSS75WnqI91OADnUoP
-         Fi3enEMc5aYv7UKGvE7D2IxGfPyEbixmbotRF/lfxfhe0sFDqwP+auJR+wx55xkjIP3+
-         2cWuO719rIX5+I2zvFV4XHeEzcgMq2KJgn9sFY7Rec5jSynMF0qvFZgqaMFFvLIEmM37
-         h49cggYoPCkLAn2EQybGxMRNQtOc3sVkSUhXY1DYHJZ8OtRJ4IHLD1/ThJFSOV9FjtRX
-         HcTup33IYjK51NorO+k/oYPP9wQbvhvGCsKDIr1TY0HPBHCzD4f9SsNRFC6X1+mczbnw
-         LI7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784730058; x=1785334858;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=v1zNXC882j0BCwBxeji6HC1ZHjIGfjhbbSn9tIs8/0s=;
-        b=RsfYTngPMteqj+8KIwowQ0SVQcK1EABJpcy6IO5cQvVMFWcPU39jXVZo0TxNbYUXD2
-         zTxRV2WwF9UQ/Hp2OUhERssaJmH1TIep5zbF+jFGGEO8r+7vc7nRQ3SWtK65APmo/EdG
-         xRzyXiNoqFFxBohDsiO1MYGNEX4h/fUSE6fFWHLnn2OofTYv5VD6BWG6glB4kdpjrA3K
-         xsT3HVKVzcc5q1/FmnZgPte0kuTS/AVl0VSyeAVoOhxzao8GvQwv/5K8BOkLwv8JU2EZ
-         lMoXb1iV1NaoJtYMSy3NzKR/7WSplSdxnYEbS4hEaNf4247lnEOxRavXpLd7gnMEjYbb
-         927g==
-X-Forwarded-Encrypted: i=1; AHgh+RrQcSEuWBBsFBfjZcDBS1xGif/6ZA2GIMeJtlQPySeOxURvblFqFbIJiah72sZVBhKs8FPySfTdEZEebxU8TOHP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3jMSKXLLk7oZNkKoMfWbbXcIjlGFkW9aXMJT4e8HLzCp21+9c
-	2dTcu4SQx+R2Ur6lnFufcZuIa6Q4ikCES694dJFpNrHJCd8PK69RNRYLxEXOB5jTQyniVhsY6tD
-	CGFK52p0=
-X-Gm-Gg: AR+sD12Oy1YELVN8SyQ0EH6oWsbdEU4i8s7Otl8WNvsXlskKD1ky+tDyvpU64USFPrP
-	bFdil02kSodkGdZar+29Py1I/lp2u2XpEsUusFvTrOFROTPnQm1A+vvq+nPhnBAMvpK9aG6Th5W
-	ZJ33UTomzK4shjWeRXkRCNFI09U31i72AyBCr58eqsJTMn0vKnnXC8kErgWMSeuBevtz7gFR5tl
-	QNAAUecB3LvXkAjRT3vmYYXqeVWxDqDZwZ3XBBD/ERihhlPwPMlUQ0zpx7jFdQo4sN9w1vvYotq
-	qICN1fonkKuLrHt3VRIZKg4cbj70+6WBBYGh6n+hLhm6jqdLCVylSlFRxNPTyQLkmvRXXsJmftm
-	gR3LzJHCIYR5hi2X/lM59/pVg6ORt68DfsEN8KyZ7LC067Y5Dd0Z4icBtO4mJIwh3hI7ECeqMcF
-	H8JYt3SWhs075s7pnzxymKLe4=
-X-Received: by 2002:a05:600c:3b01:b0:495:4fd4:144b with SMTP id 5b1f17b1804b1-4954fd419e8mr224754385e9.21.1784730058312;
-        Wed, 22 Jul 2026 07:20:58 -0700 (PDT)
-Received: from linaro.org ([2a02:2454:ff24:7210:7ae3:a857:e482:495])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956d475e24sm40717585e9.0.2026.07.22.07.20.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 07:20:57 -0700 (PDT)
-Date: Wed, 22 Jul 2026 16:20:52 +0200
-From: Stephan Gerhold <stephan.gerhold@linaro.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Udit Tiwari <quic_utiwari@quicinc.com>,
-	Md Sadre Alam <mdalam@qti.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
+	id 1wmXpX-0000000C10d-1VSA;
+	Wed, 22 Jul 2026 14:21:56 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2F21E1A1051;
+	Wed, 22 Jul 2026 14:21:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F0DFD60388;
+	Wed, 22 Jul 2026 14:21:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD5B311BD3A22;
+	Wed, 22 Jul 2026 16:21:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784730106; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=j5WRfwe5s7CD4n1/aXk/GuB0uSEMmPxIt38DrP+sT9s=;
+	b=q9U+aIf/4yDREUm1HYpEzUsh0wIcz3rw2jHYkX5xMjcB7JLX50HQtTMbtSUvrI+VGae9vu
+	YVn7SJP2PnfWlPRMHtkm3ieV2/EjSyukXuPY/zb3qRlGRCpIZ93uyHhkEhfaMIJ2itr58P
+	m4fuxIAyPKu+js9RoCTwmMzZWdiIB/E61TY1nRJ6h2SCwjls1890/wwN/Eo++VVj9Jg7hv
+	cBSEzLVgL3MVo8OtY7lK0sul9jXiSg3JI59jlM0m+npiflq+X01XX8jTtz3s71A//I9284
+	mrnjhne27BDlfP8nEzrkqxzU4wCNDZfNqiT8QqIpKoQG8aQDG8j/BAWR9cmDJg==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Yao Zi <me@ziyao.cc>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
 	linux-arm-kernel@lists.infradead.org,
-	sashiko-reviews@lists.linux.dev,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM
- locking
-Message-ID: <amDRxPkdvbA-iVer@linaro.org>
-References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
- <20260721-qcom-qce-cmd-descr-v23-6-1be02deffda9@oss.qualcomm.com>
- <20260721134853.2B2401F000E9@smtp.kernel.org>
- <amCGXUUd4VmuQRGD@linaro.org>
- <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com>
- <amC7_M-HjVZ3sQuT@linaro.org>
- <CAMRc=MdnSyPmbK0skMx686=wSe52nnuWgCNJ0uSoKs_=HyAq-Q@mail.gmail.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-rockchip@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	s32@nxp.com
+Subject: [PATCH net] MAINTAINERS: Add myself for stmmac ethernet driver maintainance
+Date: Wed, 22 Jul 2026 16:21:24 +0200
+Message-ID: <20260722142125.1767689-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMRc=MdnSyPmbK0skMx686=wSe52nnuWgCNJ0uSoKs_=HyAq-Q@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_072100_463521_25756B29 
-X-CRM114-Status: GOOD (  42.91  )
+X-CRM114-CacheID: sfid-20260722_072151_537924_4CDC9AD8 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,127 +102,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 07:11:10AM -0700, Bartosz Golaszewski wrote:
-> On Wed, 22 Jul 2026 14:47:56 +0200, Stephan Gerhold
-> <stephan.gerhold@linaro.org> said:
-> > On Wed, Jul 22, 2026 at 02:34:52AM -0700, Bartosz Golaszewski wrote:
-> >> On Wed, 22 Jul 2026 10:59:09 +0200, Stephan Gerhold
-> >> <stephan.gerhold@linaro.org> said:
-> >> > On Tue, Jul 21, 2026 at 01:48:52PM +0000, sashiko-bot@kernel.org wrote:
-> >> >> Thank you for your contribution! Sashiko AI review found 5 potential issue(s) to consider:
-> >> >> - [High] State leak causing hardware misconfiguration on channel reuse due to uncleared `lock_scratchpad_addr` and hardcoded direction.
-> >> >> - [High] Channel state corruption when `bam_slave_config` fails validation.
-> >> >> - [High] Infinite BH workqueue loop and unratelimited log flood on memory allocation failure.
-> >> >> - [High] DMA API violation: `lock_ce` buffer shares a cacheline with frequently CPU-modified struct members.
-> >> >> - [Low] Unused assignment of `hdesc` in IRQ handler.
-> >> >> --
-> >> >>
-> >> >> --- Patch [6]: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking ---
-> >> >> commit 8b44c5e4935cbb61832adb3262df00b3b606a283
-> >> >> Author: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> >> >>
-> >> >> dmaengine: qcom: bam_dma: add support for BAM locking
-> >> >>
-> >> >> This commit adds support for BAM pipe locking by prepending and appending
-> >> >> dummy command descriptors with LOCK/UNLOCK bits when starting DMA on a TX
-> >> >> channel. It uses a peripheral-local scratchpad address communicated via slave
-> >> >> config for the dummy writes.
-> >> >>
-> >> >> > diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> >> >> > index f3e713a5259c2..411c60c4433e2 100644
-> >> >> > --- a/drivers/dma/qcom/bam_dma.c
-> >> >> > +++ b/drivers/dma/qcom/bam_dma.c
-> >> [...]
-> >> >> [ ... ]
-> >> >> > @@ -1064,6 +1197,7 @@ static void bam_start_dma(struct bam_chan *bchan)
-> >> >> >
-> >> >> >  	lockdep_assert_held(&bchan->vc.lock);
-> >> >> >
-> >> >> > +	vd = vchan_next_desc(&bchan->vc);
-> >> >> >  	if (!vd)
-> >> >> >  		return;
-> >> >> >
-> >> >> > @@ -1072,6 +1206,24 @@ static void bam_start_dma(struct bam_chan *bchan)
-> >> >> >  		return;
-> >> >> >
-> >> >> >  	while (vd && !IS_BUSY(bchan)) {
-> >> >> > +		/*
-> >> >> > +		 * Open a LOCK/UNLOCK bracket around each fresh sequence.
-> >> >> > +		 * Sentinels inserted by bam_setup_pipe_lock() are skipped: they
-> >> >> > +		 * already have bam_locked set and must not trigger a second pair.
-> >> >> > +		 */
-> >> >> > +		if (!bchan->bam_locked) {
-> >> >> > +			ret = bam_setup_pipe_lock(bchan);
-> >> >> > +			if (ret) {
-> >> >> > +				dev_err_ratelimited(bdev->dev,
-> >> >> > +					"failed to setup the pipe lock, deferring transfer: %d\n",
-> >> >> > +					ret);
-> >> >> > +				queue_work(system_bh_highpri_wq, &bdev->work);
-> >> >> > +				break;
-> >> >> > +			}
-> >> >>
-> >> >> [Severity: High]
-> >> >> Does requeuing to a high-priority BH workqueue upon ENOMEM cause CPU
-> >> >> starvation? Because system_bh_highpri_wq executes in softirq context,
-> >> >> requeuing immediately without sleeping prevents the memory reclaim needed
-> >> >> to resolve the GFP_NOWAIT failure, leading to an infinite spin loop.
-> >> >>
-> >> >
-> >> > It looks like my suggestion to queue_work() again in the error path of
-> >> > bam_start_dma() wasn't great if we end up causing an infinite spin loop.
-> >> > We do need to retry somehow or report an error though, I don't think
-> >> > aborting and leaving the desccriptors completely unhandled is an option
-> >> > either... :(
-> >> >
-> >> > One option would be to try to avoid the allocation and write the lock
-> >> > descriptors directly into the FIFO, but this will probably get really
-> >> > messy as well, since you would need to carefully modify the FIFO
-> >> > management in several functions ...
-> >> >
-> >> > I don't have a good spontaenous idea how to solve this right now. :/
-> >> >
-> >>
-> >> Pre-allocate the lock descriptors (if needed) in bam_prep_slave_sg()? As in:
-> >> call bam_make_lock_desc() in bam_prep_slave_sg(), store the descriptors and
-> >> make bam_setup_pipe_lock() return void as it will no longer be possible for it
-> >> to fail? It would just grab the preallocated descriptors.
-> >>
-> >
-> > I considered suggesting this, but how do you know which descriptor needs
-> > it in bam_prep_slave_sg()? It's just the allocation, afaict it doesn't
-> > tell you anything about the order in which they will be submitted. :/
-> >
-> > We could always allocate the extra lock descriptors and waste the extra
-> > memory for the descriptors that won't need it. That should work, but is
-> > also not great ...
-> >
-> 
-> Oh, I was thinking about having pointers to lock/unlock descriptors in struct
-> bam_chan and to just grab them in bam_setup_pipe_lock() when needed and then
-> next time we enter bam_slave_prep_sg(), we see we consumed them so let's
-> re-allocate them. And of course: don't do it at all if pipe locking is not
-> supported.
-> 
+The stmmac driver based on Synopsys' dwmac IP is used in a very wide
+variety of SoCs and is currently very actively used and contributed to.
 
-Sadly, I think(?) from the API perspective it is valid to
-dmaengine_prep_slave_*() a couple of buffers and them issue them
-separately, e.g.:
+It has been orphaned in January 2025 after the previous maintainers
+became inactive, but Russell King was providing very valuable reviews
+and fixes for the driver at that point.
 
-	desc1= dmaengine_prep_slave_*();
-	desc2 = dmaengine_prep_slave_*();
+Now we're seeing more and more activity on the driver, but are lacking
+people to test and review contributions to both glue drivers as well as
+core stmmac code.
 
-	dmaengine_submit(desc1);
-	dma_async_issue_pending(chan);
+I have access to some variety of stmmac-based platforms such as socfpga
+CycloneV, imx8mp, some Allwinner SoCs and stm32mp1xx boards that I can
+run regression tests on, and I'm offering to step-up as a maintainer for
+driver, for the time being at least.
 
-	// do a bunch of other random stuff
-	// bam_setup_pipe_lock() consumes lock descriptors
+Let's hope other people will eventually join this effort.
 
-	dmaengine_submit(desc2);
-	dma_async_issue_pending(chan);
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
 
-In this situation, we wouldn't have any lock descriptors allocated
-anymore?
+Sorry for the huge CC list, I tried to include all stmmac glue
+maintainers and associated lists.
 
-Thanks,
-Stephan
+ MAINTAINERS | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a674e36529f7..bea104a7e522 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25972,8 +25972,9 @@ F:	Documentation/devicetree/bindings/phy/st,stm32mp25-combophy.yaml
+ F:	drivers/phy/st/phy-stm32-combophy.c
+ 
+ STMMAC ETHERNET DRIVER
++M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
+ L:	netdev@vger.kernel.org
+-S:	Orphan
++S:	Maintained
+ F:	Documentation/networking/device_drivers/ethernet/stmicro/
+ F:	drivers/net/ethernet/stmicro/stmmac/
+ 
+-- 
+2.55.0
+
 
