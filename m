@@ -4,62 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5A0C44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 11:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C010C4453C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 11:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWcCusQ28FbVznAVl+tc3Bd3miMXsSj/x/rAhqbfUa4=; b=u5sPG2VMXM9fOpnBGGhYNG13Ds
-	Z0qgb0SxStkxz7SJ+iCHk0JiEJKi+fJa5KmI65li/YeQtLFvNnUvrmRqxWQGeIk+ng3dWhRYbFYDq
-	B7HtiIFq9yTPeWQ654mXKWsF4LyyAE/SXgYqolvHZVtufoYVuPMKbUU1Z/RRb5TXWVtOoPxf5pfHi
-	rZkBk+0YEPx/fgoRFX1tYn0esCdGDwT+iRAGj7uqH3kzw25k8LPYbKywSG1SEwx1JxKs3vKTI89X+
-	KHYHE3O7tf1CofAc7aBe3yenlsCDO/PWQTJutgRbmqe2pL47jDjHWoZ5u/ndE9wL1Q6dM4KDpfAbq
-	CDC7lUbQ==;
+	bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=; b=p4CzQYUmSqNhnG8OAHJQepYrub
+	4NO22Z6RL8FqAunis23Yd8D3iVPi1HevsPAJpED/DyS8qE5YY5+X/fnlT4R/t28vAnOCnZP3It77J
+	tmXvrWlPf8pT6Do8q0B2RotcxaNwyp/EAmmzJNaFLegIay7J7chdiGtERZ+esnw+wEeSdEfXDK4Pv
+	AwB0USt9IowmvX21YPLpAtq+zZIRlliEUOSQgJh6l6NIlS3O1pXGYWLBo7TmdxBpdamr0k4yhCG/h
+	uv43+Els+XE+W5Bzu0kDGoHUNkfH5Cvab9+V/H5s7M7GFKgPJ3jc3c9EGyaD9bv9m85oijk+8E935
+	B/+BhXWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVPc-0000000BftV-2328;
-	Wed, 22 Jul 2026 11:46:56 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wmVSy-0000000BgFi-486j;
+	Wed, 22 Jul 2026 11:50:24 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVPI-0000000BfqX-3Hr7
+	id 1wmVSw-0000000BgEa-0RMS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 11:46:38 +0000
+	Wed, 22 Jul 2026 11:50:23 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2caea3f742bso147969095ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 04:50:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784721020; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qcsVVIYHC192aMCxXkrcXABcupzplKB80ctiN8Y854RcPDg8s6AzkQTcdFTR4ZqxyW
+         ygG9Y/TQJlvlpOyEoDOo5s22lWYfAryhS0A0yYxc+5xqJqWJ1Lp2jnXUkHYe1yNMJ3+J
+         ZHdhF1/n38aIWw4Cc9kh2sAB06ySCZkZlVaEcsDe9ngSJELjlt68o7jUVChMwhVH5a1c
+         oVPqUBJzOuhz5Wqti/3sjFcOfYY09awrOkRnpyq3dJRJpt/KRdSY4qCwpYQeBWSKk/Hj
+         50rrr+q5an0px0E1LhlQBEkHuWVHuiF/tWiXqyDymE0OR0RYD/wXV5PLZQJbOggQbGfE
+         eTbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=;
+        fh=juRlGxrQTl+zXwFGKhlqG2ZrxlXsO1FWa9kYoqpBK5g=;
+        b=bZke4Thplmfr1KPwVTkWxkJVG5uco+FiLDccHeevhGNkikWrFQvcXeQnwF6IsG5VNF
+         MpEkpASswJDYYWzgt3FPBKK7XYgGYYisVz1oYSDjZgJMGzI7H7JRS8xOdttMmSynxIjP
+         3EmvhmGi9UgrD04hPxtjQZM8DIdvy2hrIrqs5jjeI1B+ibFIVoBhSgX8QNwx2bF7WqIe
+         gIY78ZQOQcXUe1B9q1LVIJbxku2cKc12hlAgUhN5lG1SntKjf3wbft26Zeuv3fj+AToS
+         ulDPV2rB4LoBiIv4Coo7EWXzD0YshY73S7lKVE+PcDplw1SexEl5hAVEE7NuoNIvk0sm
+         Awdw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1784720794;
-	bh=BWcCusQ28FbVznAVl+tc3Bd3miMXsSj/x/rAhqbfUa4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JkpvVUfUdMIzlFefv4cRZkhynvd7wAubwbSMBmvFJ0Q/21oUq6YfApbKZ2Z0m/eJt
-	 ogG3DApQoHwMFnVc5Xr34XUsOpmAPxRSuYzscQviykpMsgO8TJpMg2F6nWr/AAbzkh
-	 GuZw4E0wvX8lCTatFcpdWz8bOljjcmbs0i0WKUkmPO1cWYw4uauY/tb1S5BHDk1JnL
-	 R9n14gFWYxA/DXpssirUUjl3o1mdkZ1qaBwTqh1ZUdfgxohrbir6sbZMGUQtWqXdnG
-	 R7pVczUByMRRndbcPq/N5w+bsWqs1qZ0aYPXlyhxFTvzjWCgmyhjziiqvy2551u5ZT
-	 k0IxNzNLX4QwQ==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 6DB93662E1;
-	Wed, 22 Jul 2026 19:46:34 +0800 (AWST)
-Message-ID: <de6f82c5601a4481e418270171e803340368bd2a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v8 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Kyle Hsieh <kylehsieh1995@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Wed, 22 Jul 2026 21:16:34 +0930
-In-Reply-To: <20260615-ventura2_initial_dts-v8-2-c89f92c80447@gmail.com>
-References: <20260615-ventura2_initial_dts-v8-0-c89f92c80447@gmail.com>
-	 <20260615-ventura2_initial_dts-v8-2-c89f92c80447@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=gmail.com; s=20251104; t=1784721020; x=1785325820; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=;
+        b=Hmllt2oVfnif3SaxJI9y7xaWTA2yQjT3qOQDB7bUqSAG1OyqxWLqYShRsvB0l3aV+X
+         yNoLadI+xRHbp91WNsRbd+7o1s2bmBnstPtC+36MIZB8CNIYcwRXqQ83zMHVxxS/G6oZ
+         FW5Dc83aG42pxYin0KBqB+J4rEe0jpkUHWFJwhg5RH5b5u+Igq/O1cv0u0Pvn+GgqJZX
+         uQKp8UseN42jDPKN7lEhHPfUtPMSbwQHE+iwUuDYtp1VtnhLRR6VWcNB9m3cpeBYPqBV
+         a/SqcgMv53ZHYYsJkYSspJjoWe2rJkPAgy1dAIv3hc6pclJmD7WT0KPnsaiHeAjO2EkR
+         3N8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784721020; x=1785325820;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=;
+        b=RN33wNj2IoP9XShHIpqbKHTOiHvOiG+JR1QOAgxvmQgOVi8XeGKHG7a/rTTF3WSW2n
+         T913h+vfW3/WmUbT7g9z1pNgb6Lzzsmy60CB1gdPKOOeYYbA9rrznZyZOGXH6+meWi3h
+         GkaynLd3BHa4+Yhq3LgujxdHyA7xs/umkHN68szc3bos67kTMEJFCoSvsFmT8TYoAijk
+         D4zFku1h5OC62fCXXe+Loi/+nPpCVYYcgJxM5U9thraOoB4NDK/mv4bfZGKs+8C+WqjR
+         q5xE/DLLDUEAX+SVWNrgLJaW6tga9X40tUPvOCgTYO7AyKviP3DYnrwm14pASSb3KBgj
+         mV9w==
+X-Forwarded-Encrypted: i=1; AHgh+RpE5xaA/9IRMuDB0LoqBkiOpglt0gDAU5dptEqv6ndzIy1bjnmpDRp7u7VmD3UwD4AmpgsoXUgcNhmICT2JfCNk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTPnck0VH4DpP7AbXEK2tixew5pw9RYvxbsGEjnXEtCPWu5Awb
+	iQk/zus/PWf0HRShoIJGQvh/n6WPZTjSsd/1unDOHj9PosvTtS+gaZcFLdJgrYeG5KSRF27GNOF
+	rY9ddexrj+sFVbPfQQ1uIten78pOqs3s=
+X-Gm-Gg: AR+sD11Cv9g1bR55spmgYMvrWTB42uWuUuWaC0aBegGXNonk7YD1pzjg3z0ISNZCVu+
+	w5sfu0TkfSNEvFHHJe4xNLqNr4rw8hBcf1A1wkOPnEptKwIeKA2qi+0Etdazui6bn5Cv1tdCP2A
+	FaDE910bjUZxGBev5hKEuqB5rzEwIuh8Bp9CZ0P7m6mEBIXbSM/PZSo25x1UANA8WhWyPr4mSGB
+	/u0FI7ZuEROl5Ho2xTrLCEQAaDVnejRt7R9EUF2qGJPVXrU5SQBs9+E1pb7sEsmI+UmC5NXrDHd
+	+RU4VAgTf658V+RH
+X-Received: by 2002:a17:903:3c6d:b0:2cf:9c35:82d9 with SMTP id
+ d9443c01a7336-2cf9c358a44mr8759895ad.10.1784721020533; Wed, 22 Jul 2026
+ 04:50:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260622005613.21870-1-phucduc.bui@gmail.com> <CAABR9nG6BL+-urEg0qDzJHYmowm7O=du_0T4+K2ogdrcD30CXA@mail.gmail.com>
+ <CAABR9nF8GebpxX0ry-MMLCfsyPJ6EUpkEtYdASAep2jX+d5gnw@mail.gmail.com> <xrl5n7J2R2GNQC1ABA20Mw@collabora.com>
+In-Reply-To: <xrl5n7J2R2GNQC1ABA20Mw@collabora.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Wed, 22 Jul 2026 18:50:08 +0700
+X-Gm-Features: AUfX_mzEis5-yMHxueiT7BVXSfRPH7RVBNtfS-uZsE6HjdS-QePUSBci-Ql7jW4
+Message-ID: <CAABR9nEbm2UdqdE6hCrW0RJOqp26=A8CPPSfCTxDHy7=zx_jFw@mail.gmail.com>
+Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control
+ exclusively to Runtime PM
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Mark Brown <broonie@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+	Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_044637_028828_1DE815D5 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260722_045022_142687_51D4148C 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,77 +120,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-06-15 at 10:46 +0800, Kyle Hsieh wrote:
-> Ventura2 is a Rack Management Controller. It is a modular
-> device designed to manage liquid cooling systems and monitor hardware
-> states within an IT rack. The system uses an AST2600 BMC for management.
->=20
-> RMCv2 serves several critical roles:
-> - Detects liquid leakage at both tray and rack levels.
-> - Communicates with and controls liquid cooling equipment.
-> - Manages leakage events and executes system recovery protocols.
->=20
-> Key hardware features include:
-> - An extensive I2C and IO expander topology to support comprehensive
-> =C2=A0 sensor monitoring and backward compatibility with legacy trays.
-> - MCTP over I2C support for asynchronous device communications.
-> - A dual-flash design for BMC firmware redundancy.
->=20
-> Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../dts/aspeed/aspeed-bmc-facebook-ventura2.dts=C2=A0=C2=A0=C2=A0 |=
- 2903 ++++++++++++++++++++
-> =C2=A02 files changed, 2904 insertions(+)
+Hi Nicolas,
 
-We now have scripts/dtc/dt-check-style. Running it over the dts with '-
--mode relaxed' yields 49 instances of 'mixed-indent-chars' - these must
-be fixed. Further, can you please look at the output with '--mode
-strict', address all the warnings that are reasonable, and then discuss
-what's left?
+Thanks for confirming and for the detailed feedback.
 
-Otherwise, there are still some concerns reported against the bindings:
+> > Regarding the case where PM configuration is not enabled, with the old
+> > source code, I suspect there is an unbalanced clk_disable_unprepare()
+> > call on hclk when the driver is unbound after a successful probe under
+> > CONFIG_PM=n.
+>
+> If "old source code" refers to what's currently in the tree with the
+> devm_clk_get_enabled, then yes. There's the manual resume function
+> call which isn't balanced.
+>
+> I think your follow-up patch does make sense in light of that.
+>
 
-   $ make CHECK_DTBS=3Dy aspeed/aspeed-bmc-facebook-ventura2.dtb W=3D1
-   ...
-     DTC [C] arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb
-   arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: /ahb/apb/lpc@=
-1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast26=
-00-lhc']
-   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
-ot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: fan-controller@20 (maxim,ma=
-x31790): 'channel@2', 'channel@5' do not match any of the regexes: '^fan@[0=
--9]+$', '^pinctrl-[0-9]+$'
-           from schema $id: http://devicetree.org/schemas/hwmon/maxim,max31=
-790.yaml
-   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
-ot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: i2c@400 (aspeed,ast2600-i2c=
--bus): Unevaluated properties are not allowed ('aspeed,hw-timeout-ms' was u=
-nexpected)
-           from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.ya=
-ml
-   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
-ot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: adc@48 (ti,ads1015): '#addr=
-ess-cells' is a required property
-           from schema $id: http://devicetree.org/schemas/iio/adc/ti,ads101=
-5.yaml
-   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
-ot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: adc@48 (ti,ads1015): '#size=
--cells' is a required property
-           from schema $id: http://devicetree.org/schemas/iio/adc/ti,ads101=
-5.yaml
-   arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: /ahb/apb/bus@=
-1e78a000/i2c@580/power-monitor@69: failed to match any schema with compatib=
-le: ['pmbus']
-   arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: /ahb/apb/bus@=
-1e7a0000/syscon@0: failed to match any schema with compatible: ['aspeed,ast=
-2600-i3c-global', 'syscon']
+> > I noticed that Nicolas tested and ACKed the use of devm_clk_get_enabled(),
+> > so I'm not sure whether that testing included the CONFIG_PM=n configuration.
+>
+> Nope, I basically never build with PM/RPM disabled.
+>
 
-Can you please tidy these up?
+> > > You are right, pm_runtime_get_noresume() doesn't set RPM_ACTIVE. I
+> > > think we need to add
+> > > pm_runtime_set_active() before pm_runtime_enable(). Otherwise, with CONFIG_PM,
+> > > the pm_runtime_put() at the end of probe() might skip the suspend,
+> > > since the core still considers
+> > > the device suspended .
+>
+> Agreed, this needs fixing. That is an odd behaviour of the PM API.
+>
 
-Thanks,
+I'll update the commit message accordingly and include the runtime PM state fix
+in the next revision.
 
-Andrew
+Best regards,
+Phuc
 
