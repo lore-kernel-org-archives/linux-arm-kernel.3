@@ -4,108 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C010C4453C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2789C44539
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 11:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=; b=p4CzQYUmSqNhnG8OAHJQepYrub
-	4NO22Z6RL8FqAunis23Yd8D3iVPi1HevsPAJpED/DyS8qE5YY5+X/fnlT4R/t28vAnOCnZP3It77J
-	tmXvrWlPf8pT6Do8q0B2RotcxaNwyp/EAmmzJNaFLegIay7J7chdiGtERZ+esnw+wEeSdEfXDK4Pv
-	AwB0USt9IowmvX21YPLpAtq+zZIRlliEUOSQgJh6l6NIlS3O1pXGYWLBo7TmdxBpdamr0k4yhCG/h
-	uv43+Els+XE+W5Bzu0kDGoHUNkfH5Cvab9+V/H5s7M7GFKgPJ3jc3c9EGyaD9bv9m85oijk+8E935
-	B/+BhXWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F3Dkfw2rThKmblSn6dJgs/kOCT5YlcgW4swpoqzbgQE=; b=PPrLqVIqrFYKGMyYvsKZCg0JL8
+	TNby/dO6hmnCs97hZErmp8+6RLhlPtIQY8BynffQgA7dceImbAiKyKWczpSjwrGz6VWX1y74b9Htq
+	xMIW8LttYraNgerXE50Sd7icgaGNiNpI7Jb1BPf9f7F4I10O9c+CJksKrNw1v3azUAZ0pFpj88gw8
+	i9/3fhkkO+d14uD1bDibOGfkyl9yLWKDyjipGrpMnjmf7/U8LX1o0L8pYqlt2OMadxvFBfojX2dtz
+	NkgJqkMti3Ohgigy6fP2Vm3oy/IMRtJKYHMY1pXo6XgB+pON9T3OkBql3Blw46ZwAZdaltLPiWHju
+	P9kIcdrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVSy-0000000BgFi-486j;
-	Wed, 22 Jul 2026 11:50:24 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wmVSz-0000000BgG6-0j6B;
+	Wed, 22 Jul 2026 11:50:25 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVSw-0000000BgEa-0RMS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 11:50:23 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2caea3f742bso147969095ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 04:50:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784721020; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qcsVVIYHC192aMCxXkrcXABcupzplKB80ctiN8Y854RcPDg8s6AzkQTcdFTR4ZqxyW
-         ygG9Y/TQJlvlpOyEoDOo5s22lWYfAryhS0A0yYxc+5xqJqWJ1Lp2jnXUkHYe1yNMJ3+J
-         ZHdhF1/n38aIWw4Cc9kh2sAB06ySCZkZlVaEcsDe9ngSJELjlt68o7jUVChMwhVH5a1c
-         oVPqUBJzOuhz5Wqti/3sjFcOfYY09awrOkRnpyq3dJRJpt/KRdSY4qCwpYQeBWSKk/Hj
-         50rrr+q5an0px0E1LhlQBEkHuWVHuiF/tWiXqyDymE0OR0RYD/wXV5PLZQJbOggQbGfE
-         eTbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=;
-        fh=juRlGxrQTl+zXwFGKhlqG2ZrxlXsO1FWa9kYoqpBK5g=;
-        b=bZke4Thplmfr1KPwVTkWxkJVG5uco+FiLDccHeevhGNkikWrFQvcXeQnwF6IsG5VNF
-         MpEkpASswJDYYWzgt3FPBKK7XYgGYYisVz1oYSDjZgJMGzI7H7JRS8xOdttMmSynxIjP
-         3EmvhmGi9UgrD04hPxtjQZM8DIdvy2hrIrqs5jjeI1B+ibFIVoBhSgX8QNwx2bF7WqIe
-         gIY78ZQOQcXUe1B9q1LVIJbxku2cKc12hlAgUhN5lG1SntKjf3wbft26Zeuv3fj+AToS
-         ulDPV2rB4LoBiIv4Coo7EWXzD0YshY73S7lKVE+PcDplw1SexEl5hAVEE7NuoNIvk0sm
-         Awdw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784721020; x=1785325820; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=;
-        b=Hmllt2oVfnif3SaxJI9y7xaWTA2yQjT3qOQDB7bUqSAG1OyqxWLqYShRsvB0l3aV+X
-         yNoLadI+xRHbp91WNsRbd+7o1s2bmBnstPtC+36MIZB8CNIYcwRXqQ83zMHVxxS/G6oZ
-         FW5Dc83aG42pxYin0KBqB+J4rEe0jpkUHWFJwhg5RH5b5u+Igq/O1cv0u0Pvn+GgqJZX
-         uQKp8UseN42jDPKN7lEhHPfUtPMSbwQHE+iwUuDYtp1VtnhLRR6VWcNB9m3cpeBYPqBV
-         a/SqcgMv53ZHYYsJkYSspJjoWe2rJkPAgy1dAIv3hc6pclJmD7WT0KPnsaiHeAjO2EkR
-         3N8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784721020; x=1785325820;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Ftngr6uIQGGwpB63XFYD2rUJOFykaHdNqhOYri/BMvc=;
-        b=RN33wNj2IoP9XShHIpqbKHTOiHvOiG+JR1QOAgxvmQgOVi8XeGKHG7a/rTTF3WSW2n
-         T913h+vfW3/WmUbT7g9z1pNgb6Lzzsmy60CB1gdPKOOeYYbA9rrznZyZOGXH6+meWi3h
-         GkaynLd3BHa4+Yhq3LgujxdHyA7xs/umkHN68szc3bos67kTMEJFCoSvsFmT8TYoAijk
-         D4zFku1h5OC62fCXXe+Loi/+nPpCVYYcgJxM5U9thraOoB4NDK/mv4bfZGKs+8C+WqjR
-         q5xE/DLLDUEAX+SVWNrgLJaW6tga9X40tUPvOCgTYO7AyKviP3DYnrwm14pASSb3KBgj
-         mV9w==
-X-Forwarded-Encrypted: i=1; AHgh+RpE5xaA/9IRMuDB0LoqBkiOpglt0gDAU5dptEqv6ndzIy1bjnmpDRp7u7VmD3UwD4AmpgsoXUgcNhmICT2JfCNk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTPnck0VH4DpP7AbXEK2tixew5pw9RYvxbsGEjnXEtCPWu5Awb
-	iQk/zus/PWf0HRShoIJGQvh/n6WPZTjSsd/1unDOHj9PosvTtS+gaZcFLdJgrYeG5KSRF27GNOF
-	rY9ddexrj+sFVbPfQQ1uIten78pOqs3s=
-X-Gm-Gg: AR+sD11Cv9g1bR55spmgYMvrWTB42uWuUuWaC0aBegGXNonk7YD1pzjg3z0ISNZCVu+
-	w5sfu0TkfSNEvFHHJe4xNLqNr4rw8hBcf1A1wkOPnEptKwIeKA2qi+0Etdazui6bn5Cv1tdCP2A
-	FaDE910bjUZxGBev5hKEuqB5rzEwIuh8Bp9CZ0P7m6mEBIXbSM/PZSo25x1UANA8WhWyPr4mSGB
-	/u0FI7ZuEROl5Ho2xTrLCEQAaDVnejRt7R9EUF2qGJPVXrU5SQBs9+E1pb7sEsmI+UmC5NXrDHd
-	+RU4VAgTf658V+RH
-X-Received: by 2002:a17:903:3c6d:b0:2cf:9c35:82d9 with SMTP id
- d9443c01a7336-2cf9c358a44mr8759895ad.10.1784721020533; Wed, 22 Jul 2026
- 04:50:20 -0700 (PDT)
+	id 1wmVSw-0000000BgEW-3xts;
+	Wed, 22 Jul 2026 11:50:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784721016;
+	bh=OOkAMe5UF/WOH3fkqozayM8HxNs0tFDK0/zEC/ufH8I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z/8xhR+oSr7zSuITAXdjxAA6ucyaMSQK655Uy2KZ2lT0fC0DKsqcgLdtRWLT5WjaD
+	 /VITUpAKoGI08xb/kNwMUWuuo/TiQpR9B37Bn6/typT9rk8Yr43IZr587b576iCEfu
+	 Y1bjsb+esHvnMejDUKhQkg9YqyLvTV2IaOjrwLqcWpVM4Nc/IstOAdDpr3UeJopETG
+	 J9+B5H18F4t3WMXcho2AvATzeEdgOABsFMOj1B/MsmsHc4jJAha+Jz5HV/dJrCKWR8
+	 7Df3foPjjjpVPy3FREUXTu6mDh3olmK7tbMPRWCa+a4vhj2xWJzBVwl0WAOu5GNmcj
+	 Fm5FRP/tu2cIw==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 21A5A17E0177;
+	Wed, 22 Jul 2026 13:50:16 +0200 (CEST)
+Message-ID: <bd03b8df-ff36-4eb3-986b-a307dfa37815@collabora.com>
+Date: Wed, 22 Jul 2026 14:50:15 +0300
 MIME-Version: 1.0
-References: <20260622005613.21870-1-phucduc.bui@gmail.com> <CAABR9nG6BL+-urEg0qDzJHYmowm7O=du_0T4+K2ogdrcD30CXA@mail.gmail.com>
- <CAABR9nF8GebpxX0ry-MMLCfsyPJ6EUpkEtYdASAep2jX+d5gnw@mail.gmail.com> <xrl5n7J2R2GNQC1ABA20Mw@collabora.com>
-In-Reply-To: <xrl5n7J2R2GNQC1ABA20Mw@collabora.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Wed, 22 Jul 2026 18:50:08 +0700
-X-Gm-Features: AUfX_mzEis5-yMHxueiT7BVXSfRPH7RVBNtfS-uZsE6HjdS-QePUSBci-Ql7jW4
-Message-ID: <CAABR9nEbm2UdqdE6hCrW0RJOqp26=A8CPPSfCTxDHy7=zx_jFw@mail.gmail.com>
-Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control
- exclusively to Runtime PM
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Mark Brown <broonie@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
+ init helper
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
+ <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
+ <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
+ <20260707-illegal-tuna-of-force-1c06e3@houat>
+ <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
+ <80374deb-3246-413f-a043-66bcdb438ab1@collabora.com>
+ <20260715-fair-opalescent-rhino-c6407b@houat>
+ <45113534-94ad-4a0f-8014-c04e9ab67a26@collabora.com>
+ <hbnni3gonklcmfmsgsup7lcusvnqcu5jivq7hhzrus2el5c55i@kvm75nfqyntf>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <hbnni3gonklcmfmsgsup7lcusvnqcu5jivq7hhzrus2el5c55i@kvm75nfqyntf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_045022_142687_51D4148C 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20260722_045023_322234_2F75EA57 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,41 +98,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+On 7/22/26 9:46 AM, Dmitry Baryshkov wrote:
+> On Wed, Jul 15, 2026 at 01:34:19PM +0300, Cristian Ciocaltea wrote:
+>> On 7/15/26 11:50 AM, Maxime Ripard wrote:
+>>> On Fri, Jul 10, 2026 at 01:27:37PM +0300, Cristian Ciocaltea wrote:
+>>>> On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
+>>>>> Hi Maxime,
+>>>>>
+>>>>> On 7/7/26 7:10 PM, Maxime Ripard wrote:
+>>>>>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
+>>>>>>> Hi Dmitry,
+>>>>>>>
+>>>>>>> Thanks for your quick review!
+>>>>>>>
+>>>>>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
+>>>>>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
+>>>>>>>>> In preparation for adding HDMI 2.x source capabilities, introduce struct
+>>>>>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
+>>>>>>>>> helper.
+>>>>>>>>>
+>>>>>>>>> The existing drmm_connector_hdmi_init() helper currently takes
+>>>>>>>>> individual capability arguments such as supported_formats and max_bpc.
+>>>>>>>>> Adding more HDMI-specific arguments to that function would not scale
+>>>>>>>>> well, so move those values into a dedicated capabilities structure and
+>>>>>>>>> implement the existing helper as a wrapper around the new caps-based
+>>>>>>>>> interface.
+>>>>>>>>
+>>>>>>>> I think, it was an intention of Maxime: make sure that every driver is
+>>>>>>>> forced to provide some values here. With the struct-based init it is
+>>>>>>>> easy to overlook or to ommit a value.
+>>>>>>>
+>>>>>>> Agreed that the struct-based init loses the compile-time guarantee that every
+>>>>>>> argument is explicitly provided - that's a real downside.  
+>>>>>>>
+>>>>>>> I'd argue it's recoverable, though: the init helper validates the mandatory
+>>>>>>> fields, so a driver that omits a required value gets rejected at init time
+>>>>>>> rather than silently misconfigured.  The "you must provide sane values" property
+>>>>>>> is expected to be preserved, just enforced at runtime instead of by the
+>>>>>>> compiler. 
+>>>>>>
+>>>>>> Yeah, I don't think we can win with C here. Rust might, but we're
+>>>>>> probably a long way from that.
+>>>>>>
+>>>>>>> The main motivation for the struct is scalability/maintainability as we add HDMI
+>>>>>>> 2.x capabilities: new fields go into the struct rather than growing the helper's
+>>>>>>> argument list, so existing callers don't need churny signature updates on every
+>>>>>>> extension.
+>>>>>>>
+>>>>>>> FWIW, in the previous revision we discussed addressing the concern with a
+>>>>>>> callback instead.  Sadly, I had to discard that approach, as it proved not
+>>>>>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
+>>>>>>> would have required either stateful callbacks, or storing redundant/temporary
+>>>>>>> cap data in driver-private structures just to satisfy the callback.
+>>>>>>
+>>>>>> I just realized something reviewing your patch: we don't necessarily
+>>>>>> need an extra argument or a callback, we can just put these fields into
+>>>>>> drm_hdmi_connector_funcs directly, and then validate them in init.
+>>>>>
+>>>>> If I understand correctly, we should drop the drm_connector_hdmi_caps struct
+>>>>> introduced by this patch and move all its fields into drm_hdmi_connector_funcs.
+>>>>>
+>>>>> In that case, how should we proceed with drmm_connector_hdmi_init()? 
+>>>>
+>>>> Actually, this brings us to the callback issue: we cannot compute caps
+>>>> dynamically, as it only works with static data, since funcs is supposed to be
+>>>> immutable.
+>>>
+>>> Does it? The core and helpers must consider it immutable but it doesn't
+>>> have to. drm_bridge_connector for example could totally allocate it and
+>>> dynamically create it based on the bridge capabilities.
+>>
+>> If we take the VC4 case, is it fine to drop the const from the static
+>> drm_connector_hdmi_funcs to allow dynamically setting up supported_hdmi_ver and
+>> max_bpc in vc4_hdmi_connector_init()?
+>>
+>> static struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
+>> 	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,
+>> 	...
+>> }
+>>
+>> static int vc4_hdmi_connector_init() 
+>> {
+>> 	...
+>>     
+>> 	if (vc4_hdmi->variant->supports_hdr)
+>> 		vc4_hdmi_hdmi_connector_funcs.max_bpc = 12;
+>>
+>> 	if (vc4_hdmi->variant->max_pixel_clock >= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ)
+>> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_2_0;
+>> 	else if (vc4_hdmi->variant->max_pixel_clock >= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
+>> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
+>> 	...
+>> }
+> 
+> I'm sorry for the late response, I was OoO. Why do we want to put data
+> into the funcs part? My suggestion would be to put the data into the
+> drm_connector_hdmi itself.
+> 
+> 
+> Setting connector->hdmi.supported_hdmi_ver = HDMI_VERSION_1_4; is more
+> idiomatic than passing it through the funcs.
+On 7/22/26 9:46 AM, Dmitry Baryshkov wrote:
+> On Wed, Jul 15, 2026 at 01:34:19PM +0300, Cristian Ciocaltea wrote:
+>> On 7/15/26 11:50 AM, Maxime Ripard wrote:
+>>> On Fri, Jul 10, 2026 at 01:27:37PM +0300, Cristian Ciocaltea wrote:
+>>>> On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
+>>>>> Hi Maxime,
+>>>>>
+>>>>> On 7/7/26 7:10 PM, Maxime Ripard wrote:
+>>>>>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
+>>>>>>> Hi Dmitry,
+>>>>>>>
+>>>>>>> Thanks for your quick review!
+>>>>>>>
+>>>>>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
+>>>>>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
+>>>>>>>>> In preparation for adding HDMI 2.x source capabilities, introduce struct
+>>>>>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
+>>>>>>>>> helper.
+>>>>>>>>>
+>>>>>>>>> The existing drmm_connector_hdmi_init() helper currently takes
+>>>>>>>>> individual capability arguments such as supported_formats and max_bpc.
+>>>>>>>>> Adding more HDMI-specific arguments to that function would not scale
+>>>>>>>>> well, so move those values into a dedicated capabilities structure and
+>>>>>>>>> implement the existing helper as a wrapper around the new caps-based
+>>>>>>>>> interface.
+>>>>>>>>
+>>>>>>>> I think, it was an intention of Maxime: make sure that every driver is
+>>>>>>>> forced to provide some values here. With the struct-based init it is
+>>>>>>>> easy to overlook or to ommit a value.
+>>>>>>>
+>>>>>>> Agreed that the struct-based init loses the compile-time guarantee that every
+>>>>>>> argument is explicitly provided - that's a real downside.  
+>>>>>>>
+>>>>>>> I'd argue it's recoverable, though: the init helper validates the mandatory
+>>>>>>> fields, so a driver that omits a required value gets rejected at init time
+>>>>>>> rather than silently misconfigured.  The "you must provide sane values" property
+>>>>>>> is expected to be preserved, just enforced at runtime instead of by the
+>>>>>>> compiler. 
+>>>>>>
+>>>>>> Yeah, I don't think we can win with C here. Rust might, but we're
+>>>>>> probably a long way from that.
+>>>>>>
+>>>>>>> The main motivation for the struct is scalability/maintainability as we add HDMI
+>>>>>>> 2.x capabilities: new fields go into the struct rather than growing the helper's
+>>>>>>> argument list, so existing callers don't need churny signature updates on every
+>>>>>>> extension.
+>>>>>>>
+>>>>>>> FWIW, in the previous revision we discussed addressing the concern with a
+>>>>>>> callback instead.  Sadly, I had to discard that approach, as it proved not
+>>>>>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
+>>>>>>> would have required either stateful callbacks, or storing redundant/temporary
+>>>>>>> cap data in driver-private structures just to satisfy the callback.
+>>>>>>
+>>>>>> I just realized something reviewing your patch: we don't necessarily
+>>>>>> need an extra argument or a callback, we can just put these fields into
+>>>>>> drm_hdmi_connector_funcs directly, and then validate them in init.
+>>>>>
+>>>>> If I understand correctly, we should drop the drm_connector_hdmi_caps struct
+>>>>> introduced by this patch and move all its fields into drm_hdmi_connector_funcs.
+>>>>>
+>>>>> In that case, how should we proceed with drmm_connector_hdmi_init()? 
+>>>>
+>>>> Actually, this brings us to the callback issue: we cannot compute caps
+>>>> dynamically, as it only works with static data, since funcs is supposed to be
+>>>> immutable.
+>>>
+>>> Does it? The core and helpers must consider it immutable but it doesn't
+>>> have to. drm_bridge_connector for example could totally allocate it and
+>>> dynamically create it based on the bridge capabilities.
+>>
+>> If we take the VC4 case, is it fine to drop the const from the static
+>> drm_connector_hdmi_funcs to allow dynamically setting up supported_hdmi_ver and
+>> max_bpc in vc4_hdmi_connector_init()?
+>>
+>> static struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
+>> 	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,
+>> 	...
+>> }
+>>
+>> static int vc4_hdmi_connector_init() 
+>> {
+>> 	...
+>>     
+>> 	if (vc4_hdmi->variant->supports_hdr)
+>> 		vc4_hdmi_hdmi_connector_funcs.max_bpc = 12;
+>>
+>> 	if (vc4_hdmi->variant->max_pixel_clock >= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ)
+>> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_2_0;
+>> 	else if (vc4_hdmi->variant->max_pixel_clock >= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
+>> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
+>> 	...
+>> }
+> 
+> I'm sorry for the late response, I was OoO. Why do we want to put data
+> into the funcs part? My suggestion would be to put the data into the
+> drm_connector_hdmi itself.
+> 
+> 
+> Setting connector->hdmi.supported_hdmi_ver = HDMI_VERSION_1_4; is more
+> idiomatic than passing it through the funcs.
 
-Thanks for confirming and for the detailed feedback.
+I've already done the conversion so that vendor, product, supported_formats and
+max_bpc values previously passed as arguments are now provided through
+drm_connector_hdmi_funcs, along with the additional supported_hdmi_ver and
+supported_tmds_char_rate fields.
 
-> > Regarding the case where PM configuration is not enabled, with the old
-> > source code, I suspect there is an unbalanced clk_disable_unprepare()
-> > call on hclk when the driver is unbound after a successful probe under
-> > CONFIG_PM=n.
->
-> If "old source code" refers to what's currently in the tree with the
-> devm_clk_get_enabled, then yes. There's the manual resume function
-> call which isn't balanced.
->
-> I think your follow-up patch does make sense in light of that.
->
+In most cases it wasn't necessary to pass this data dynamically (with the
+exception of the bridge connector and some kunit tests), so it was just a matter
+of extending the immutable hdmi_funcs structs.
 
-> > I noticed that Nicolas tested and ACKed the use of devm_clk_get_enabled(),
-> > so I'm not sure whether that testing included the CONFIG_PM=n configuration.
->
-> Nope, I basically never build with PM/RPM disabled.
->
+I'll send v9 a bit later today so we can discuss directly on the code changes.
 
-> > > You are right, pm_runtime_get_noresume() doesn't set RPM_ACTIVE. I
-> > > think we need to add
-> > > pm_runtime_set_active() before pm_runtime_enable(). Otherwise, with CONFIG_PM,
-> > > the pm_runtime_put() at the end of probe() might skip the suspend,
-> > > since the core still considers
-> > > the device suspended .
->
-> Agreed, this needs fixing. That is an odd behaviour of the PM API.
->
+FWIW, in the VC4 case, I followed Maxime's suggestion and introduced three 
+hdmi_funcs instances (+ a macro to avoid duplication) and assigned them to the
+corresponding vc4_hdmi_variant entries:
 
-I'll update the commit message accordingly and include the runtime PM state fix
-in the next revision.
+#define VC4_HDMI_CONNECTOR_FUNCS_COMMON						\
+	.vendor			 = "Broadcom",					\
+	.product		 = "Videocore",					\
+	.supported_formats	 = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |	\
+				   BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) |	\
+				   BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444),	\
+	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,		\
+	.avi = {								\
+		.clear_infoframe = vc4_hdmi_clear_avi_infoframe,		\
+		.write_infoframe = vc4_hdmi_write_avi_infoframe,		\
+	},									\
+	.hdmi = {								\
+		.clear_infoframe = vc4_hdmi_clear_hdmi_infoframe,		\
+		.write_infoframe = vc4_hdmi_write_hdmi_infoframe,		\
+	},									\
+	...
 
-Best regards,
-Phuc
+static const struct drm_connector_hdmi_funcs vc4_hdmi_connector_funcs_hdmi14 = {
+	VC4_HDMI_CONNECTOR_FUNCS_COMMON,
+	.max_bpc		= 12,
+	.supported_hdmi_ver	= HDMI_VERSION_1_4,
+};
+
+static const struct drm_connector_hdmi_funcs vc4_hdmi_connector_funcs_hdmi20 = {
+	VC4_HDMI_CONNECTOR_FUNCS_COMMON,
+	.max_bpc		= 12,
+	.supported_hdmi_ver	= HDMI_VERSION_2_0,
+	.scrambler_enable	= vc4_hdmi_scrambler_enable,
+	.scrambler_disable	= vc4_hdmi_scrambler_disable,
+};
+
+
+static const struct vc4_hdmi_variant bcm2712_hdmi0_variant = {
+	...
+	.hp_detect		= vc5_hdmi_hp_detect,
+	.hdmi_funcs		= &vc4_hdmi_connector_funcs_hdmi20,
+};
+
+vc4_hdmi_connector_init()
+{
+	...
+	ret = drmm_connector_hdmi_init(dev, connector,
+				       &vc4_hdmi_connector_funcs,
+				       vc4_hdmi->variant->hdmi_funcs,
+				       DRM_MODE_CONNECTOR_HDMIA,
+				       vc4_hdmi->ddc);
+	...
+}
+
 
