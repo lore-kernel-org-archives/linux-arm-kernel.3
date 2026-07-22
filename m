@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B9FC44539
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A340C4453C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 15:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXzXulSKAPLcRuX3YZiepbKZUvKjmLNyPDEVWHi2rOQ=; b=zWYYSaQ+oWFAge7bzDLvTqOs6T
-	9s9WmRlN7cKNP4uGArHN2EeSx44x1WgU7BI6+oPeznfQ+q6DvhHZyfbWp0FxlI+uNFIDUqHXxMO1S
-	TzadiKv8jdLc/ZPBh+dNj1OwD/c2k3R7CS8MjtToYj1i46ORKR7lm4iZE8pIa7gdgUbFGfavN9Qsc
-	6Lwh14zMnjC6t3tAjjXumMUoHDWYf3E5JMwGlgvgvJCK+DDFVWszz/byCe+Q2jvYLfv5NZD/Ab7Uy
-	glvO+k2eMtsDZ2s/849VWD046cDICF7M/LONjzip7SwWL7tVkXyc8TVGenfg6ydd4SBI6lpNc62+J
-	HFv0RgtQ==;
+	bh=zvXtHoyutTzc9UQI/R1yf3uc5dETK64DOW+MCP8cwFs=; b=r93j3REB9QA+ARalqH8eQKfBZe
+	ZpShMyJL6jrY34XJfnRn/HBvTXdV/rLB40mZP2MYKetKxs/bKrOppdnhv1cWDdqRsFeCCtTEHGY8I
+	r1vWSoNDFgKfs0/FuYW/KBHfnSbheePDbsIaqJIIbtfZ3uDj9Nb0LWXjCKNRF1KXSp3QLhdZBUFK+
+	N9+mzlpc0bikWokS/vaUieQCaKL2UCsXaxK36Gz2mhEF68hpK8YcyGysar5TA8TnLVZQRG8ie41Vh
+	mDDewMpZBnI2PGDBlIP2snoJh7YaAflv8IsnNpgtBOWpfFCKDfikSxB6RST2NBfpadLQDe6CXjGpU
+	/lNt6d8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYfU-0000000C7aW-1538;
-	Wed, 22 Jul 2026 15:15:32 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wmYfZ-0000000C7bz-1aHH;
+	Wed, 22 Jul 2026 15:15:37 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYfR-0000000C7Zx-1Wst
+	id 1wmYfV-0000000C7aV-0I07
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 15:15:30 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49553515a8bso48908835e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:15:28 -0700 (PDT)
+	Wed, 22 Jul 2026 15:15:34 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-495437bb891so52510795e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 08:15:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1784733327; x=1785338127; darn=lists.infradead.org;
+        d=9elements.com; s=google; t=1784733331; x=1785338131; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=qXzXulSKAPLcRuX3YZiepbKZUvKjmLNyPDEVWHi2rOQ=;
-        b=gwXdaPllMqQOg0pLrYSF1PQf6m1ZoqmhLkXuL4RTwFZSyeoAlIJxZbc4YWGmvKg4BK
-         g90pej2dW2XWmGhPVTTF5vRuqV1e+5apYEDFAYbvHHjtAbO13NnpY8/iO22oVR5lplHk
-         HcdrigR0fj8AOGa3oN/pUABVT1L0pvd2XwA62EPqwcpRklp4XwpodqnLrYgVAipjaWbw
-         L2mHw3G+pjFr5s6uci/S0LypNAeu/yIJaC9FYiuNtLmHYO8wN+OtNz6mls8vvrR6M6zU
-         Czogy2E4wUOKJ3FCIlyYzi71ffVrq5QpaR+bk4loR6KJzzui9Uck+q9f5+4H9TOLleKQ
-         FAXg==
+        bh=zvXtHoyutTzc9UQI/R1yf3uc5dETK64DOW+MCP8cwFs=;
+        b=O+cmm38YsKgLFWkPbUFRkSVzte6baUoOknSavQbseTO3h4pIDYyYHcDSpdhuN2fBBh
+         clO0Uycxb/dZuvCDXNY8rsS0/ij7csa8Mzs2/QFOMG/OvsxGl3/PdMwAZmINzeACYFR7
+         PDtpSa/xu20EP5Qjj0ORkEKcWUnX29VzoaKux1vHe69WP1vKLT2Z4Zh/udqRxbSl3qdk
+         PgK9w30fzdM0g1rCq5KEyHK0o0Fr2fAa+JYrv1nvxa3AW+VMmqQjYx8xMxYucMtqvGGk
+         R6KyMcKzmVDrNZbwh06PzMsB4oGzvPLuOWMfHIPVx3ZS+Fmo4pBtst3pQn/IHOp6WKax
+         0fkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784733327; x=1785338127;
+        d=1e100.net; s=20251104; t=1784733331; x=1785338131;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=qXzXulSKAPLcRuX3YZiepbKZUvKjmLNyPDEVWHi2rOQ=;
-        b=Wg9S9eV82zIQDdt1KT7sL9dxLfMYdW6NPUjVe/+zUaiSXSAnXj2hzlQ3lpuYX7tXmr
-         KMyDpezjdUfLMHS0c5PWO1SVLOO6TQxOVA2cxgmH96vGTFTBTt3Pvq1raIaNdYfCfHGq
-         BFVsPSQ5SuLUH8AolNObRqym7S3iSzx+NjdYOJmSk9/HQZpGq/mRoP6xImsp2f35xeeM
-         nQ2HfGsnIBWXIjPnwAGMJ9VX/o84SnOzRD4p6vCvXGxzQ3iLBgPBnSc1uPMEqg/ciX0m
-         V9+EHIn52Hk7LPnPny07eSZLNnx960lgBP8zecabwaZJUlo8HGvJC92tADZZYssY7iYt
-         m/PQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrZtowCqlSCLmA3h1WQrTRA9Fc+nNM554kciiVZ9lXeFdu7+LdWsX/m5FEs3b4QEzc3gATLQwVxz2aWbZxIKETu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3tlZLddeIK45EtL+ZsEZYBplV//gDzl6pfZzEQ0z8Zu0ZJZMG
-	g9qg8jMTsHweeQ8K1crOsrBZBAGIO9nzl+sObTljEueFrpvBfLcGEOT5IG4rJAW5psk=
-X-Gm-Gg: AR+sD11Oh+OWu4mH25htE851rHuJaacpKWPsdl8bjBqPV0W19utLcI/S8m9nv0ufhld
-	5KWd7LAq1A7WehXrUE0JAk4h5FWLwHb5z7cajIQDkp2SqQ3YnjvOz2stUNuAREbYnPN8oYrwmPu
-	qrEV6yR/DzRLwdMb1J7P9TMWmjF9XL045hMoSgSRGY1ZjxJsqr4vugXAOj3L5M2O6AEInxafShZ
-	G01nbGCvLoIEPPrjxT1zMCCPISfZFqILgKnKVMVdLfqjKDEAZIh8J4obV/PGgVy7qPaSLFz3JZL
-	nLiuvXdSupmwZunrV+U96So3hBjW/4+o3lT2VWKoV7tSODe/ermoEFCm8mcC84gZIBTxHAzmjmG
-	JXG7u3Clj51TF/yL9FIlE8I87Oj/Fe535BVGc3100meOtYTAh4/G1C1a1cWJCtakmIsTMZiY6Ph
-	DJ0QaW8bH4Ik4dNbIqmrvdeRvaQN8X2k9dkJbfcl+SqHTJZEzZsdnNGoLKOFRzAuO+igfZEqfhb
-	EoKek9l8ZAu5zydM9jRAsDmHOTY
-X-Received: by 2002:a05:600c:3153:b0:493:e97c:216e with SMTP id 5b1f17b1804b1-4954a41382fmr284426115e9.39.1784733327405;
-        Wed, 22 Jul 2026 08:15:27 -0700 (PDT)
+        bh=zvXtHoyutTzc9UQI/R1yf3uc5dETK64DOW+MCP8cwFs=;
+        b=EptbMOVOGGkpaL2XGPwGvC4RLPGBDaQUgRLvcp1ln2ZTKvUZOm5jyUg6wnGrVgMaY+
+         DJ9/QaWjtCOQjuT4q1ErUID0I1kwjRJZJ8M3rV7ANQGNXTcDINUV/gfwRBpYKr12cfGa
+         9nMIUiwQDfuVwo91FtxO5L+RmcXOsX8ziH5XlDpZNIzpoy8mIECn+ud6KPXPQnkYsade
+         LxFF3wLbnS0xG3TwTC7kS2FSGre1ZsAbc2JXmnacHAzWM2Txv/PhmELPDlKAjpP3/Irg
+         FRft2ZXy9/FCB7UHh5D47Wp5pvRQTl2ijErsCnckTEb4OnzM1EYiYa1ZYul1NM9Q2gBo
+         FQWQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpzS5j3GV4dlmSQRIddM0pXrwbwBzXVztiATvU9+QguY+SYoaQzBnnaodxisRDVmt1NAo8AxlJdju1Xw1f51ICE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiKJ+YulVx+iItgYhRs2+ssV9sT0qG9tFv32gCn5TsInTptVQE
+	cRhUTMgRt8uH1DszYfiFUPEZLzqy5hYOzy7d4MpfKsEZwSNIrJ+MuMOJNo/WBDICRQA=
+X-Gm-Gg: AR+sD10/DwPra4fuDpjyxabn8Gvde9gQuZ5zHEyjV9edX3fR5b5rBs8n1EQyvSHQr0T
+	AKJr4ifrI++iG2G6IxgRy3S10EDAo9FzQCfvv6GI8+SRFoLMt9rj8cMxniNmPgyI7SNEKWX6tsD
+	XNhIiSMoH66l/NbrL0VCjCyNg40zTuEd1KN4MQDDWcRTJgDrwPw78hL93AjVBrhjysWVjyUwJTN
+	6WSGmIz+Ng5yXIQSkCqGPdCpeVNpMNcvqlSge+g+enp1iT1uW+kbcmX5FoHlaCegJZRrvufarHY
+	IyMnVF5uGKbxu4P306In5RLW+mccgv2It1JN0e9QUieBWmTfoQQCnuoXGotIp+hJzA2f2V9gHW2
+	6Xlb+rIk0O2NLXDwKUJAFI4ZkWQL4xUumqRR36qWhiks3XRatABVXo3IuSegS+NY/IPM3cOq03W
+	PfCzCTH4OKoO5BO+q32ZC6aegb8mG9+AVpWCTqCoTyn59l3QHHlnJlAZ/dGihXA68VSPg+ea77b
+	fWcYTc9P3JvAWz0Dg==
+X-Received: by 2002:a05:600c:548a:b0:493:f783:c46a with SMTP id 5b1f17b1804b1-4956a4ef5d1mr47012145e9.6.1784733331147;
+        Wed, 22 Jul 2026 08:15:31 -0700 (PDT)
 Received: from gregwork.sec.9e.network ([188.111.3.154])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956a500dbfsm70595615e9.6.2026.07.22.08.15.25
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956a500dbfsm70595615e9.6.2026.07.22.08.15.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 08:15:26 -0700 (PDT)
+        Wed, 22 Jul 2026 08:15:30 -0700 (PDT)
 From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
 To: joel@jms.id.au,
 	andrew@codeconstruct.com.au,
@@ -84,9 +84,9 @@ Cc: openipmi-developer@lists.sourceforge.net,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
-Subject: [PATCH v2 1/2] ipmi: kcs_bmc_aspeed: g6: Add KCS Channel 4 over PCIe
-Date: Wed, 22 Jul 2026 15:11:57 +0000
-Message-ID: <a283420c1fb6a99df5331e078c7f15b3c97822c6.1784732161.git.gregoire.layet@9elements.com>
+Subject: [PATCH v2 2/2] ARM: dts: aspeed-g6: add pcie-kcs4
+Date: Wed, 22 Jul 2026 15:11:58 +0000
+Message-ID: <0b97a66762efc05c9073c14112cc489624871947.1784732161.git.gregoire.layet@9elements.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1784732161.git.gregoire.layet@9elements.com>
 References: <cover.1784732161.git.gregoire.layet@9elements.com>
@@ -94,8 +94,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_081529_430842_4B518EB6 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260722_081533_131610_A94230CE 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,131 +110,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Created a 5th KCS channel to match against the KCS 4 over PCIe addresses.
+Add pcie_kcs4 node to the LPC bus in the ast2600 g6 common dtsi.
 
 The ASPEED AST2600 has a PCIe to LPC controller. It includes a KCS
 interface on channel 4. This is a fully KCS-compatible interface
 that is exposed over PCIe.
 
-The 5th channel created is only valid on the AST2600.
-This cannot be used for AST2400 and AST2500 chips, as they don't have LPC
-over PCIE.
+This can be used by the host for IPMI when the PCIe BMC Device is
+activated.
+
+While the datasheet provides interrupt numbers for KCS channels 1, 2,
+3 and 4 over PCI, not all 4 are described in the "PCIe to LPC Controller"
+section. Since only the KCS channel 4 is described, only this channel is
+added.
+
+The pcie_kcs4 uses existing "aspeed,ast2600-kcs-bmc" compatible as it's a
+standard KCS interface.
 
 Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
 ---
- drivers/char/ipmi/kcs_bmc_aspeed.c | 39 ++++++++++++++++++++++++++++--
- 1 file changed, 37 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
-index a13a3470c17a..4d93af2455b8 100644
---- a/drivers/char/ipmi/kcs_bmc_aspeed.c
-+++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
-@@ -26,7 +26,7 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 56bb3b0444f7..a93fa4cf5d8f 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -617,6 +617,13 @@ kcs4: kcs@114 {
+ 					status = "disabled";
+ 				};
  
- #define DEVICE_NAME     "ast-kcs-bmc"
- 
--#define KCS_CHANNEL_MAX     4
-+#define KCS_CHANNEL_MAX     5
- 
- /*
-  * Field class descriptions
-@@ -102,6 +102,12 @@
- #define     LPC_LSADR12_LSADR2_SHIFT 16
- #define     LPC_LSADR12_LSADR1_MASK  GENMASK(15, 0)
- #define     LPC_LSADR12_LSADR1_SHIFT 0
-+#define PCIE_LPC_HICRB       0x900
-+#define PCIE_LPC_HICRC       0x904
-+#define PCIE_LPC_LADR4       0x910
-+#define PCIE_LPC_IDR4        0x914
-+#define PCIE_LPC_ODR4        0x918
-+#define PCIE_LPC_STR4        0x91C
- 
- #define OBE_POLL_PERIOD	     (HZ / 2)
- 
-@@ -191,6 +197,9 @@ static void aspeed_kcs_outb(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 data)
- 	case 4:
- 		regmap_update_bits(priv->map, LPC_HICRC, LPC_HICRC_IRQXE4, LPC_HICRC_IRQXE4);
- 		break;
-+	case 5:
-+		regmap_update_bits(priv->map, PCIE_LPC_HICRC, LPC_HICRC_IRQXE4, LPC_HICRC_IRQXE4);
-+		break;
- 	default:
- 		break;
- 	}
-@@ -278,6 +287,14 @@ static int aspeed_kcs_set_address(struct kcs_bmc_device *kcs_bmc, u32 addrs[2],
- 
- 		break;
- 
-+	case 5:
-+		if (nr_addrs == 1)
-+			regmap_write(priv->map, PCIE_LPC_LADR4, ((addrs[0] + 1) << 16) | addrs[0]);
-+		else
-+			regmap_write(priv->map, PCIE_LPC_LADR4, (addrs[1] << 16) | addrs[0]);
++				pcie_kcs4: kcs@914 {
++					compatible = "aspeed,ast2600-kcs-bmc";
++					reg = <0x914 0x1>, <0x918 0x1>, <0x91c 0x1>;
++					interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH>;
++					status = "disabled";
++				};
 +
-+		break;
-+
- 	default:
- 		return -EINVAL;
- 	}
-@@ -344,6 +361,11 @@ static int aspeed_kcs_config_upstream_irq(struct aspeed_kcs_bmc *priv, u32 id, u
- 		val = (id << LPC_HICRC_ID4IRQX_SHIFT) | (hw_type << LPC_HICRC_TY4IRQX_SHIFT);
- 		regmap_update_bits(priv->map, LPC_HICRC, mask, val);
- 		break;
-+	case 5:
-+		mask = LPC_HICRC_ID4IRQX_MASK | LPC_HICRC_TY4IRQX_MASK | LPC_HICRC_OBF4_AUTO_CLR;
-+		val = (id << LPC_HICRC_ID4IRQX_SHIFT) | (hw_type << LPC_HICRC_TY4IRQX_SHIFT);
-+		regmap_update_bits(priv->map, PCIE_LPC_HICRC, mask, val);
-+		break;
- 	default:
- 		dev_warn(priv->kcs_bmc.dev,
- 			 "SerIRQ configuration not supported on KCS channel %d\n",
-@@ -373,6 +395,9 @@ static void aspeed_kcs_enable_channel(struct kcs_bmc_device *kcs_bmc, bool enabl
- 	case 4:
- 		regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_LPC4E, enable * LPC_HICRB_LPC4E);
- 		return;
-+	case 5:
-+		regmap_update_bits(priv->map, PCIE_LPC_HICRB, LPC_HICRB_LPC4E, enable * LPC_HICRB_LPC4E);
-+		return;
- 	default:
- 		pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
- 		return;
-@@ -452,6 +477,10 @@ static void aspeed_kcs_irq_mask_update(struct kcs_bmc_device *kcs_bmc, u8 mask,
- 			regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_IBFIE4,
- 					   enable * LPC_HICRB_IBFIE4);
- 			return;
-+		case 5:
-+			regmap_update_bits(priv->map, PCIE_LPC_HICRB, LPC_HICRB_IBFIE4,
-+					   enable * LPC_HICRB_IBFIE4);
-+			return;
- 		default:
- 			pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
- 			return;
-@@ -492,6 +521,7 @@ static const struct kcs_ioreg ast_kcs_bmc_ioregs[KCS_CHANNEL_MAX] = {
- 	{ .idr = LPC_IDR2, .odr = LPC_ODR2, .str = LPC_STR2 },
- 	{ .idr = LPC_IDR3, .odr = LPC_ODR3, .str = LPC_STR3 },
- 	{ .idr = LPC_IDR4, .odr = LPC_ODR4, .str = LPC_STR4 },
-+	{ .idr = PCIE_LPC_IDR4, .odr = PCIE_LPC_ODR4, .str = PCIE_LPC_STR4 },
- };
- 
- static int aspeed_kcs_of_get_channel(struct platform_device *pdev)
-@@ -575,11 +605,16 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
- 	if (channel < 0)
- 		return channel;
- 
-+	np = pdev->dev.of_node;
-+	if (channel == 5 && !of_device_is_compatible(np, "aspeed,ast2600-kcs-bmc")) {
-+		dev_err(&pdev->dev, "LPC over PCIE KCS4 only supported on ast2600\n");
-+		return -ENODEV;
-+	}
-+
- 	nr_addrs = aspeed_kcs_of_get_io_address(pdev, addrs);
- 	if (nr_addrs < 0)
- 		return nr_addrs;
- 
--	np = pdev->dev.of_node;
- 	rc = of_property_read_u32_array(np, "aspeed,lpc-interrupts", upstream_irq, 2);
- 	if (rc && rc != -EINVAL)
- 		return -EINVAL;
+ 				lpc_ctrl: lpc-ctrl@80 {
+ 					compatible = "aspeed,ast2600-lpc-ctrl";
+ 					reg = <0x80 0x80>;
 -- 
 2.54.0
 
