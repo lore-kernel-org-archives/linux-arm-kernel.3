@@ -4,112 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C15DC4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 18:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26391C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 18:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+5ssgy8v1nToduf2dudMHLP7F3zMv+EGGsLhk51SR5k=; b=XbuKa5fbIroVZ1SbxJMGbW44jl
-	lqNz3PQOOLTb1BvmklJRQZB2RnJIHwoGrY4wmjWEmBySyUWmP3HpMkn8Tfrx1cQ0I4h0KZB4UauYd
-	nSytsVOLAw09C4mpWC/gVraf8BuAqJAz1ejnV5RYpfMt1TphZ4Jg8ZUPFLBurL0S8G2GF+hcCzpTZ
-	oJD/ICHrSsX4m7gpsoL0Pw2o/5g1POw89BZxdrHy7VDdjgbA7BZNU0bvImF0P7NsLBGRAZk3K+oOf
-	StNw7KYDQgDqpKAEVZCE/Jth/3p0FNzKEBoETiYoSKAoVkCF0TK0Tfnv/3z9zfk9KBE35E4auhQgd
-	+KrH6VAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VsZKe67h58zD6TPYh/iONlX3wxFqEjCYjEE0t327lqs=; b=JLrhQ45fPE27ED9mldrg4ILf6c
+	M3LTX0SQL0zpYJRi6zsWfWbO362+fgCN+WdsskH25zRPm+r40EgUcSFE/OWs5Z7wCvXU9b2cjJ7Xu
+	VsZnNz11iQM6U4fAeCMmwK0rMI+Q3xmW3im9eb62KZvZDNv4/wGsllrcJ94vCST/ShxTAlbWnTN9N
+	8OYGjrEWYIkUciK25+LoR75lueg/Mzt2LQvQxRJeSDVrqdnoa7nKD6osNXP21ahvXHMYh+92yuk48
+	aZ7W9ggOxkFiR3vK8P8jZrXAYwKYDId7yuCUophQ3PGiCWgNHQGVet7HOAmtJpz6mp1tM+zekVHch
+	GleFc3zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmbJ4-0000000CXWL-2X4x;
-	Wed, 22 Jul 2026 18:04:34 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmbJ2-0000000CXVW-1bBL
+	id 1wmbXI-0000000CYm4-3SC4;
+	Wed, 22 Jul 2026 18:19:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmbXF-0000000CYlh-1mMm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 18:04:33 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-51c01c79467so14471cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 11:04:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784743471; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nh7SyOtqflHZ758GkHzAdSLIUZ03W/XJSAwBdYRC21/tDvikDR4c+5//gC6YwzSWGT
-         Ybx/ZLU/5dqgLeDrSkYYRD6rzGckIywfrmno6kbdNW3mj5qcS8/Z3ekJcJAbaVxFP9DX
-         iN+VHvDDCu7oZgx1cXgxjzHO5UMuVBtCvpajSSi5fxh6Fa2+Iwg0Uo7s6Phn8ekpVNyE
-         UywCZIa2vl1vnT23g1BR5ZSEPsGeC6LexRktbqPITXuEY99rMxbkM3diObuIfgYiqQJC
-         zv3AAUVLEfFsFHt72A9JsrhK7d77VQL7NycOZuPybJf006+Hse1h4eK1AWOWd8uFSDDZ
-         asXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+5ssgy8v1nToduf2dudMHLP7F3zMv+EGGsLhk51SR5k=;
-        fh=sWA0r7pwBnAIIwh6lhOu3L5CURv6JHeOW2TfOX0Q55U=;
-        b=CGiUN+8h4XfVbWrhbL2rdFDgZCBLmt7yqBHJVtxMa4IUd/b5sIBwHAimBy+6mJoyWC
-         rMrJWB1Q8F7Lhh6U9XqZlLZkFq6pIeP/oIhmIGTiF9hyZepz+xsH8DB7A7WkcQUA8MAK
-         5Pwk8kSLAEjhM8K7RoZ5gERw+EjvyLZ44PRbPrMmYX3bQd+ZoGL7p9i9CM5J2MG117Sm
-         8LZ1IFfuuG106Fi11PzpfVKqrtQ8z2rlmZbL7i3SSaCai8kf5UFNUbJuUr3WPGNIpsfG
-         GjoblO7jY7t72lsBFKQbe0dWtVk0wfyevIeLymzcBQAnWXQqVGfGfz6N+TmG3tJSwpUb
-         la4Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784743471; x=1785348271; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+5ssgy8v1nToduf2dudMHLP7F3zMv+EGGsLhk51SR5k=;
-        b=DneW3YhcBoKZKg/zxyGopucVu9/o14sZnDNdWvgwbYrqYZaFzYWUjincLMMXiCrAWD
-         L9uTMyQ4GdTG4yK+POEYbF4oKlhoxLZxqAIBsX+5ZIMjlN0G3tLx1gmn01N+EADcSoN2
-         vTgCHLrpF2QVSvFjmbJ8VtwGmSljRcdA3HYhb7OF2wYyu4OKUsbCAeCUph9cGCfh0ti9
-         O+Gs8BIKdCxHYBSTaq+09i3dMD/s4HGYzvRsDxAr+FF0w4C/WFEo6NCmJuCErYqY3chN
-         rypvk+j8jw9hc0E99syP0nrpkc9s6lIFwh3k3ac6P6CW9+3Q+40DOa9hBO4mIU2UjiaE
-         mRmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784743471; x=1785348271;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+5ssgy8v1nToduf2dudMHLP7F3zMv+EGGsLhk51SR5k=;
-        b=sqY/Hw4lwGwkJIC4akMKUxAEO90mRRVLmNqORocU3Ajk6nImXRJDI+mcdScghQktyI
-         soJVWffVggKRD+taOnlCfciBHdd7jV4uPpgkNnQiKt3b9mtoOoGd5VtX6N+ptfn2uKJ1
-         qoHWI/HP1pEXeSz6yPXjurz8Oe/lVW2O1Jd2imWPst+ZvBUwtfT/hecAiUon2NrrNcdn
-         GWlhIPXmh6WUxa40FPFi1U1KtmTky7bVvjNHuSKI8/EFacnSTJ0sJFbcfZVUzKqIqXIc
-         A0MGjZeduL1T5NlJGVbI62CzV5EcuCdzEzdxY64UcdefvAat11srilVOWDz2wQoiAQp+
-         Ap3w==
-X-Forwarded-Encrypted: i=1; AHgh+Rpr9WAaY+UhBKweBIDVCHfthHF0I/Ok9cE+h5pbOF/R3zi3vo5vK94/S9DT5h/CpTI/OQ/3wWWsRr6novjBA1m1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw+29IM/BT7TxdZNtzOLx+bne8Q5L3LAdRIR3OJvpDXcmqV0BV
-	b3iNHQJFPuheBrl3tpeL99oV57LIaF0kXOYhIImm705l7rWyZILGWAPutb+m0YxRi/NPiBmRdoc
-	rUv7QaKkdkF6O6BqyqaN2cpI+2oRRrJkRO7bWG7Rq
-X-Gm-Gg: AR+sD12CZqtCWEpMzFbH60CBV2R/HRRPkBqtUtqgKts7X6/AhMLKAr8vGce3ERVeDgQ
-	CtV4hgTO5qahNB1c68Fx8mSbxqgPe+OIiHQCW88inJBe9KT7VJHRgTWv/0akRRP2xe+aywk28m8
-	duv3IM3pZePuCyLRna1t5ohRL0wIlLAp/9UGlNq5iw2VXAppgr0C0VlmkX8ZwULRwAy2D+BVOgm
-	OgSFrAyYZAxdXWnlMJzx01ETdtGFOHpakI+95imzsjTKVPV2p9U++TwxVw=
-X-Received: by 2002:ac8:43cb:0:b0:51c:935d:8d74 with SMTP id
- d75a77b69052e-5283be3e9d4mr374341cf.9.1784743470255; Wed, 22 Jul 2026
- 11:04:30 -0700 (PDT)
+	Wed, 22 Jul 2026 18:19:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FDE21595;
+	Wed, 22 Jul 2026 11:19:05 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B5263F59E;
+	Wed, 22 Jul 2026 11:19:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784744349; bh=gexUY3MO1NYMIt5+4b+Z9AIUlrWUUcj9/Dzpwo5+F+A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bolhfH6nwRwlZ9Rt3oQdeQtyGNQNwRenYiTJbVSlKyM4HgMURSH7uIWdk9u24659s
+	 2k1ZgV/+heCaAiqMwoGsFmvLA+hXuMW6ELfIoI9wb6jJ4oFjYfiYROeaVy0CbVald8
+	 470GVt3Ty9QsOpWvz+uIJHVKDIrr1Y+DFPdxaTBY=
+Date: Wed, 22 Jul 2026 19:18:59 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Linus Walleij <linusw@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>
+Subject: Re: [PATCH v17 15/15] arm64: vdso: Expose sigreturn address on vdso
+ to the kernel
+Message-ID: <amEJkyKFvVOkiGao@J2N7QTR9R3>
+References: <20260721081858.1169276-1-ruanjinjie@huawei.com>
+ <20260721081858.1169276-16-ruanjinjie@huawei.com>
+ <CAD++jL=Ou_HF5VchexnjUf9qwzrz0xgY+NhA5gZhOwiwdxUi-g@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260718111340.159896-1-linux@yoavmoshe.com> <CABCJKudqGL+BFFcz3qsuoJB6S_OAt-vs2yqePC_=oy+JzmPpVw@mail.gmail.com>
- <3046e60d-509f-471f-bd15-3ce78c87500b@yoavmoshe.com> <20260721180950.GA3684684@ax162>
- <180001f5-bddd-4e58-8442-f7ef3c979500@yoavmoshe.com> <CABCJKufhvTxmVm8y7xr4RWWKsoZk0h8UGBnem+F5fknnimaqPA@mail.gmail.com>
- <7f273a08-b29c-4e15-b340-898b251efe57@yoavmoshe.com>
-In-Reply-To: <7f273a08-b29c-4e15-b340-898b251efe57@yoavmoshe.com>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Wed, 22 Jul 2026 11:03:53 -0700
-X-Gm-Features: AUfX_mwbxqkU-iAMaiWQ1yNey3EgrzgXznb4NhUQjYMjtNDBUtwxFYY_8mI2M90
-Message-ID: <CABCJKud+GsBVv+XMTsi_4QAaTHo7jXD2Hyvi9wqKd7x3i2xyAg@mail.gmail.com>
-Subject: Re: [PATCH v3] ARM: imx: Fix suspend/resume crash with Clang CFI
-To: "Yo'av Moshe" <linux@yoavmoshe.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Russell King <linux@armlinux.org.uk>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jL=Ou_HF5VchexnjUf9qwzrz0xgY+NhA5gZhOwiwdxUi-g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_110432_427996_3C371FA0 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260722_111913_583130_1290C636 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,22 +67,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: thuth@redhat.com, wad@chromium.org, anshuman.khandual@arm.com, kees@kernel.org, catalin.marinas@arm.com, yeoreum.yun@arm.com, kevin.brodsky@arm.com, linux-kernel@vger.kernel.org, oleg@redhat.com, luto@amacapital.net, pengcan@kylinos.cn, peterz@infradead.org, broonie@kernel.org, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, ryan.roberts@arm.com, will@kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 10:47=E2=80=AFAM Yo'av Moshe <linux@yoavmoshe.com> =
-wrote:
->
-> I think the issue might be a parameter mismatch: in C, the pointer is
-> declared as taking a parameter `void (*)(void __iomem *)`, but in assembl=
-y
-> `imx6_suspend` has no parameters, so Clang generates two different hashes
-> for them?
+On Tue, Jul 21, 2026 at 10:55:03AM +0200, Linus Walleij wrote:
+> On Tue, Jul 21, 2026 at 10:19 AM Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+> 
+> > Syscall User Dispatch (SUD) must not intercept the signal trampoline
+> > code, otherwise returning from a signal with a locked selector may
+> > cause infinite recursion into the signal handler.
+> >
+> > Provide an arm64 implementation of arch_syscall_is_vdso_sigreturn()
+> > to exclude these sigreturn syscalls from dispatch.
+> >
+> > For native 64-bit tasks, check whether the current PC matches the 'svc #0'
+> > instruction inside the vDSO sigreturn trampoline (defined in
+> > arch/arm64/kernel/vdso/sigreturn.S as below).
+> >
+> >         SYM_CODE_START(__kernel_rt_sigreturn)
+> >                 mov     x8, #__NR_rt_sigreturn
+> >                 svc     #0
+> >         SYM_CODE_END(__kernel_rt_sigreturn)
+> >
+> > For COMPAT tasks, verify that the instruction falls within the dedicated
+> > 'sigpage' range, since compat signal handlers use this architecture-
+> > specific page (not the vDSO) for their return trampoline. This prevents
+> > SUD from incorrectly dispatching syscalls issued during signal return.
+> >
+> > Suggested-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> > Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> > Suggested-by: kemal <kmal@cock.li>
+> > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> I'm a bit scared about SUD.
+> 
+> Certainly we can merge patches 1-14 first and iron out
+> any trouble related to that and split this off so a separate
+> series to be applied lated?
 
-As long as the C prototype for the assembly function matches the
-function pointer type, the hashes should also match. Can you dump the
-hash prefix from the OCRAM and compare it to the disassembly of the
-call site?
+I had already asked Jinie to drop SUD back in v14, and he had agreed:
 
-Sami
+  https://lore.kernel.org/lkml/akegeU59jSK9t7FX@J2N7QTR9R3/
+  https://lore.kernel.org/lkml/3ac6d4be-7c57-44c2-80a0-408e2c6f8136@huawei.com/
+
+Jinjie, please drop this for now, as we had _already_ agreed.
+
+I will look over the rest of the series soon.
+
+Mark.
 
