@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2D6C531BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19230C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 07:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLmrcXzgSh6kVfmUn8DHrwgH54mD1mlSJlkD4Me8Yyk=; b=kzpgBZbMPrNL5S7C5ihnRbimpo
-	e1imugWACiI5jBtoGkysfZTVi35ynPf95q/JYbWhK8mR0VW2Y/OFda+IITx6xauG4GoknGzVMuPWk
-	Q7faa8k+/jSGEce8hWUkEamfQlKrR1UvmzTCSHaT+/buAUdxCmwli23Z2oPbF0QVzIDvi811cyWm7
-	zSY2lRXLWna8/cgrEwlKBAhklxXbMy4tSQiamGB5euvY/UqErjlbrNiWumhzOe3xB0qd9kA1gPOQ/
-	8H9fI6jVpOJWFRFFPB1TCdSZAVl/G+3vTq0nyQV53tQ2jSdA7JonvXOeZ5ZdAn8X/ri9pvVxEo3MR
-	tX7bJT7w==;
+	bh=07dRYKXgRyU3x0X5on17tlJ7LESqf7TzRfpEcaCKSac=; b=4TzauAn3X3dxQJexlMPXEOnWjX
+	XsHNh7fHiRbfkBGSnX/teHJIkHOANtALjDGGzX2/22droLUl1k4PoonhqcQI5SBjtruEtgBnI9x/c
+	OP3tUXgQIi1F4P3oH2YRh2eSjuACiLNwuD3Qu6iKMVK1nh+MBADOlMDj6MJujJrsR+yUsfNRJ0ZY3
+	wa87sIjOSChFBnQDjoFLNJTqfqkyn9nyXI/SS9ujtakLynvHHjCUoZ5sXyY1iN/m1mm2dBp14qitB
+	mLz5XpZwKx/BQPbQTQl5gCDu5h2FWDKCb40d53xzNELUa0oshRcjd/kHa43a/0OUMaSoMxaBLrIwa
+	Fz/mFoIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRc2-0000000B79m-48v7;
-	Wed, 22 Jul 2026 07:43:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmRc1-0000000B762-25aa;
+	Wed, 22 Jul 2026 07:43:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRbY-0000000B6ja-1gb6
+	id 1wmRbX-0000000B6iF-1mgo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 07:43:00 +0000
+	Wed, 22 Jul 2026 07:42:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CEA7360A77;
-	Wed, 22 Jul 2026 07:42:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 763A41F01560;
-	Wed, 22 Jul 2026 07:42:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AA72060A7E;
+	Wed, 22 Jul 2026 07:42:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6068E1F000E9;
+	Wed, 22 Jul 2026 07:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784706179;
-	bh=kLmrcXzgSh6kVfmUn8DHrwgH54mD1mlSJlkD4Me8Yyk=;
+	s=k20260515; t=1784706178;
+	bh=07dRYKXgRyU3x0X5on17tlJ7LESqf7TzRfpEcaCKSac=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KTkPCTuTvnbmXBge7WEihszZKG+8qLPUg3AowkH1HKwXRq9VSvY0VNoQJlLS8x/Rz
-	 KM0Kd7vkLTRYkC1vpAU0S6on7VIoG6W04/QR9niVFcVF5cUF61wRMLzfnhIgKu8mlF
-	 paa7BrlAdyNg7vMVYS3L0EPUscPVWTA3EzY3Lth5az4ux1HXSnfWEqrPbeMFuHu4aE
-	 jIvT9Uz5nTMJGR1QlWd6AJYxgkVkB+KVAKVk2yMusOLCYAZXiNNnfSAUv1Nft49YaB
-	 A61j7Ns4Yvns3Ai04s4NmK02blJFeLZXrDeh4xWraX0yXj7N+417BZL3toUyBag2zS
-	 3bK7nu+0bB4+g==
+	b=PAmcTda1WQ9W/sc+o91nL9LtHai/Dh4NdHfL4JRHGAXw5ZXq0eJtFXcjPRJUSPB3w
+	 TztnxH7GzFJtyC+XRw3XAUCrpf/NRLaAYHnHN1jXFAjYuEHKp0vZ0C+5ejmiw55di2
+	 OQY+t/E9hW+u5ARKb4wZsbzuOoFRPdA8e4OGfQaYEYyOvbkQWViI6M/vC+OGieXTMJ
+	 2LAGhBvdDi5tmVlLLbbBxaiZ97A2IBBruX675/NO4T1TP3NcFgPl79Xyvdjt53Co6c
+	 Y0rXEeNZLJWR4WU9ishl8/7IWpnTYfw/yZVOXwjOr2AiJoIGdg/GwNuK6l1W9i94eI
+	 3uHGsjvxgXCwA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmRbV-00000007VfN-3WIM;
-	Wed, 22 Jul 2026 07:42:57 +0000
+	id 1wmRbU-00000007VfN-2pd7;
+	Wed, 22 Jul 2026 07:42:56 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 16/28] KVM: arm64: Split NV-specific exit fixups from the non-NV handling
-Date: Wed, 22 Jul 2026 08:42:22 +0100
-Message-ID: <20260722074234.3330999-17-maz@kernel.org>
+Subject: [PATCH v3 11/28] KVM: arm64: Expose FEAT_NV2p1 to NV guests
+Date: Wed, 22 Jul 2026 08:42:17 +0100
+Message-ID: <20260722074234.3330999-12-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260722074234.3330999-1-maz@kernel.org>
 References: <20260722074234.3330999-1-maz@kernel.org>
@@ -85,58 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to facilitate further changes, move the NV handling of
-early fixups in its own helper. This also makes the code slightly
-simpler to parse.
+Since NV2p1 is reducing the number of traps, it is valuable to expose
+it to NV guests. Do so.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/vhe/switch.c | 18 +++++++++++-------
- 1 file changed, 11 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/nested.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index a8da40568a048..53af19212895d 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -539,18 +539,15 @@ static const exit_handler_fn hyp_exit_handlers[] = {
- 	[0x3F]				= kvm_hyp_handle_impdef,
- };
- 
--static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
- {
--	synchronize_vcpu_pstate(vcpu);
--
- 	/*
- 	 * If we were in HYP context on entry, adjust the PSTATE view
- 	 * so that the usual helpers work correctly. This enforces our
- 	 * invariant that the guest's HYP context status is preserved
- 	 * across a run.
- 	 */
--	if (vcpu_has_nv(vcpu) &&
--	    unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
-+	if (unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
- 		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
- 
- 		switch (mode) {
-@@ -567,8 +564,15 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	}
- 
- 	/* Apply extreme paranoia! */
--	BUG_ON(vcpu_has_nv(vcpu) &&
--	       !!host_data_test_flag(VCPU_IN_HYP_CONTEXT) != is_hyp_ctxt(vcpu));
-+	BUG_ON(!!host_data_test_flag(VCPU_IN_HYP_CONTEXT) != is_hyp_ctxt(vcpu));
-+}
-+
-+static bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
-+{
-+	synchronize_vcpu_pstate(vcpu);
-+
-+	if (vcpu_has_nv(vcpu))
-+		fixup_nv_guest_exit(vcpu);
- 
- 	return __fixup_guest_exit(vcpu, exit_code, hyp_exit_handlers);
- }
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index dfb96edbdc43c..35a1c42ad3f84 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1728,7 +1728,7 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		 * You get EITHER
+ 		 *
+ 		 * - FEAT_VHE without FEAT_E2H0
+-		 * - FEAT_NV limited to FEAT_NV2
++		 * - FEAT_NV limited to FEAT_NV2(p1)
+ 		 * - HCR_EL2.NV1 being RES0
+ 		 *
+ 		 * OR
+@@ -1740,7 +1740,11 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features)) {
+ 			val = 0;
+ 		} else {
+-			val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
++			val &= ID_AA64MMFR4_EL1_NV_frac;
++			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
++				val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR4_EL1, NV_frac, NV2P1);
++			else
++				val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
+ 			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, E2H0, NI_NV1);
+ 		}
+ 		break;
 -- 
 2.47.3
 
