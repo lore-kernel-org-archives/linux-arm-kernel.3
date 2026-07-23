@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B709C44536
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3651DC4453F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 01:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKdIL71OW8377COSueQQB9UY5Qo71kH7cDT61xcV7v0=; b=CshxEXWokZP2VBE0RI0lCeq8FZ
-	84ZQdnDmRdU4fH8honbNOO/ECqUr9vUQvQbqZz5iL4+WLJPCSp/AtUZOkheA+F0MwtM0VjemxwqCS
-	X6SwIZH9P1237KgcAGMxSHxxvzZJYGPWr2ozItz1Rlx5+LyxhX8euwRcrfKWF/0Jw+EyQ+byf8KOx
-	mCVnz988u+Gk8cSsbtnm3SKftNA0jFCbxHKf08z41Llnv9YK6NvKZ/jzJOEOUA1niFPOazhyQgUGE
-	PHUVAuYIhnc7T1nCiMISLZi96SIUAVKOZuE+tSMWqLLym8gsOxEpNlE+beS8j+yLge5wXNtJkX+70
-	leRHS+ww==;
+	bh=q/SkKj1UNGnjsQKW7Pc9sXWy23wEpDbi+lkSyabN24Q=; b=FSq+jJIQczREKOdMTBCcnxRji7
+	msDhVkiGN0iwxND0c34HLaNMfbhVLZS6zmNwIzFK2EeTPlu3N14OMDQ84UIcI7aA6iGA4y2u26rhn
+	awyOxGQ+2wVoxyaHZVdGiw/vINZglxgxsA6xCFhpwXORbqJeodRtm05uiH4aysfjP3hcue6yz/RNv
+	LSYF0huqHFOh58rjI0VcoSkJUYBo8w0PL1IwGT4aoNPMtwRsSEFWly/jSFGPuOUbOAMzYBZ1KHiar
+	WWIMqqChYZ/j0aaginClmjCUxu4FNvS44O3bIM55XK5uIPZwBoMttoegwReRWnXtN//uRpANTgpXZ
+	TCTGRb6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiOE-0000000D6p9-108J;
+	id 1wmiOE-0000000D6oq-0bM1;
 	Thu, 23 Jul 2026 01:38:22 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiLU-0000000D3Fk-2QWu;
+	id 1wmiLT-0000000D3DA-0Npw;
 	Thu, 23 Jul 2026 01:35:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784770530;
-	bh=hse6ZoBRDdkgueZEFZSp6DqlC7adzsHmGMK2OKfFL4E=;
+	s=mail; t=1784770529;
+	bh=LYpIGWFeHlxx1fVwt8S006d+7lbpWnUBcfPCYM40698=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TYzLOWviL9pa0KhzNYiVr0m0TPKlqorlneP2coDDfoXCLH8Xh2S2pmV0Rjim01RmR
-	 u6cExqeIQhPAPCZKHmM8HYPYgCLXwinhxpFFjXCLrOeNivHWK1CiuUbPLhcrKmaynW
-	 /KKIQe7g29JTLbMWktiMb4b9xYnrOVlfulJESfq7ALqxMFMdn6Du9W3diOgSChGkYa
-	 UcbH5IZHQTbcgvN/OZkV++dUDA2ws//3AI+I/xG8MM+DKYZPXPkr4YKfhMltXMQ9es
-	 qr9tcd373vNEITpo/vM/IfP8FQq08cGzK/mRAAeip9aeP53ulvOYA47xDZo7Ey9nRy
-	 g0Gxqw4V3vMXA==
+	b=MU/4B/ndGHGqa8IAlmRcoXOwNXpyLqEZ54uk8VBK9JgCKjoaopYQairCb6JSdKRwp
+	 2EvObD75dJQzrtb8ozO0Ml/Bp2+LXegfjibw5265DRsPl6EvPtLpVXcZq8hPLZ7LkV
+	 OrnqOMgsqu5tV0soFnoQew6zlexYOtwxq6JsCJdVgM1LZB4Gjp62zDxs6thp0/tQtY
+	 a7ES+iiCMvHBwAMsVjjCI2OqQSkJU2ZrQ1rhOiscH9skjCorKcYT+LUwboON9yyczZ
+	 vmkTvzW2jCQ906c0FnPS3+f7dnZhDY17hC84BYYdo/4i4ehEteie+/LB5WQNeOunKB
+	 KdO+cNJ62NY7g==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A3E2B17E3686;
-	Thu, 23 Jul 2026 03:35:30 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3F0EE17E1313;
+	Thu, 23 Jul 2026 03:35:29 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 23 Jul 2026 04:35:30 +0300
-Subject: [PATCH v9 41/61] drm/bridge: inno-hdmi: Advertise HDMI 1.2
- capabilities
+Date: Thu, 23 Jul 2026 04:35:28 +0300
+Subject: [PATCH v9 39/61] drm/vc4: hdmi: Defer pixel clock validation to
+ HDMI helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-dw-hdmi-qp-scramb-v9-41-4fb12ea22ac9@collabora.com>
+Message-Id: <20260723-dw-hdmi-qp-scramb-v9-39-4fb12ea22ac9@collabora.com>
 References: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
 In-Reply-To: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -75,9 +75,8 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_183532_850199_98D4C03C 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_183531_333977_68E68E1D 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,32 +91,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
-supported HDMI version.  This is not yet enforced, but will become
-mandatory once the migration to the new caps-based HDMI connector
-initialization API is completed.
+drm_atomic_helper_connector_hdmi_check() rejects modes whose computed
+TMDS character rate exceeds the connector limit before invoking the
+driver's .tmds_char_rate_valid() hook.
 
-Since inno_hdmi_phy_config.pixelclock does not exceed 165 MHz for any of
-the chip variants handled by the driver, advertise HDMI 1.2 as the
-supported version.
+BCM2835 is capped at 162 MHz, slightly below the 165 MHz limit of HDMI
+1.2.  Set supported_tmds_char_rate in vc4_hdmi_connector_funcs_hdmi10 so
+that the limit inferred from supported_hdmi_ver is overridden by the
+lower hardware constraint.  All other chip variants rely on the standard
+HDMI 1.4/2.0 limits, so the default validation suffices.
+
+This allows vc4_hdmi_connector_clock_valid() to be simplified by
+dropping the now-redundant max_pixel_clock field from struct
+vc4_hdmi_variant.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/inno-hdmi.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 10 +---------
+ drivers/gpu/drm/vc4/vc4_hdmi.h |  3 ---
+ 2 files changed, 1 insertion(+), 12 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
-index dd35f5a875d3..ea3447d4f285 100644
---- a/drivers/gpu/drm/bridge/inno-hdmi.c
-+++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-@@ -1119,6 +1119,7 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
- 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	hdmi->bridge.vendor = "Inno";
- 	hdmi->bridge.product = "Inno HDMI";
-+	hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_2;
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index 8e5676c5527e..5370d585cd28 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -1528,12 +1528,8 @@ vc4_hdmi_connector_clock_valid(const struct drm_connector *connector,
+ 			       const struct drm_display_mode *mode,
+ 			       unsigned long long clock)
+ {
+-	const struct vc4_hdmi *vc4_hdmi = connector_to_vc4_hdmi(connector);
+ 	struct vc4_dev *vc4 = to_vc4_dev(connector->dev);
  
- 	hdmi->bridge.ddc = inno_hdmi_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
+-	if (clock > vc4_hdmi->variant->max_pixel_clock)
+-		return MODE_CLOCK_HIGH;
+-
+ 	if (!vc4->hvs->vc5_hdmi_enable_hdmi_20 && clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
+ 		return MODE_CLOCK_HIGH;
+ 
+@@ -1578,6 +1574,7 @@ static const struct drm_connector_hdmi_funcs vc4_hdmi_connector_funcs_hdmi12 = {
+ 	VC4_HDMI_CONNECTOR_FUNCS_COMMON,
+ 	.max_bpc		= 8,
+ 	.supported_hdmi_ver	= HDMI_VERSION_1_2,
++	.supported_tmds_char_rate = 162000000,
+ };
+ 
+ static const struct drm_connector_hdmi_funcs vc4_hdmi_connector_funcs_hdmi14 = {
+@@ -3184,7 +3181,6 @@ static const struct vc4_hdmi_variant bcm2835_variant = {
+ 	.encoder_type		= VC4_ENCODER_TYPE_HDMI0,
+ 	.debugfs_name		= "hdmi_regs",
+ 	.card_name		= "vc4-hdmi",
+-	.max_pixel_clock	= 162000000,
+ 	.registers		= vc4_hdmi_fields,
+ 	.num_registers		= ARRAY_SIZE(vc4_hdmi_fields),
+ 
+@@ -3204,7 +3200,6 @@ static const struct vc4_hdmi_variant bcm2711_hdmi0_variant = {
+ 	.encoder_type		= VC4_ENCODER_TYPE_HDMI0,
+ 	.debugfs_name		= "hdmi0_regs",
+ 	.card_name		= "vc4-hdmi-0",
+-	.max_pixel_clock	= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ,
+ 	.registers		= vc5_hdmi_hdmi0_fields,
+ 	.num_registers		= ARRAY_SIZE(vc5_hdmi_hdmi0_fields),
+ 	.phy_lane_mapping	= {
+@@ -3233,7 +3228,6 @@ static const struct vc4_hdmi_variant bcm2711_hdmi1_variant = {
+ 	.encoder_type		= VC4_ENCODER_TYPE_HDMI1,
+ 	.debugfs_name		= "hdmi1_regs",
+ 	.card_name		= "vc4-hdmi-1",
+-	.max_pixel_clock	= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ,
+ 	.registers		= vc5_hdmi_hdmi1_fields,
+ 	.num_registers		= ARRAY_SIZE(vc5_hdmi_hdmi1_fields),
+ 	.phy_lane_mapping	= {
+@@ -3262,7 +3256,6 @@ static const struct vc4_hdmi_variant bcm2712_hdmi0_variant = {
+ 	.encoder_type		= VC4_ENCODER_TYPE_HDMI0,
+ 	.debugfs_name		= "hdmi0_regs",
+ 	.card_name		= "vc4-hdmi-0",
+-	.max_pixel_clock	= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ,
+ 	.registers		= vc6_hdmi_hdmi0_fields,
+ 	.num_registers		= ARRAY_SIZE(vc6_hdmi_hdmi0_fields),
+ 	.phy_lane_mapping	= {
+@@ -3289,7 +3282,6 @@ static const struct vc4_hdmi_variant bcm2712_hdmi1_variant = {
+ 	.encoder_type		= VC4_ENCODER_TYPE_HDMI1,
+ 	.debugfs_name		= "hdmi1_regs",
+ 	.card_name		= "vc4-hdmi-1",
+-	.max_pixel_clock	= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ,
+ 	.registers		= vc6_hdmi_hdmi1_fields,
+ 	.num_registers		= ARRAY_SIZE(vc6_hdmi_hdmi1_fields),
+ 	.phy_lane_mapping	= {
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.h b/drivers/gpu/drm/vc4/vc4_hdmi.h
+index f6159c9e6144..61486e7b4ba2 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.h
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.h
+@@ -29,9 +29,6 @@ struct vc4_hdmi_variant {
+ 	/* Filename to expose the registers in debugfs */
+ 	const char *debugfs_name;
+ 
+-	/* Maximum pixel clock supported by the controller (in Hz) */
+-	unsigned long long max_pixel_clock;
+-
+ 	/* List of the registers available on that variant */
+ 	const struct vc4_hdmi_register *registers;
+ 
 
 -- 
 2.55.0
