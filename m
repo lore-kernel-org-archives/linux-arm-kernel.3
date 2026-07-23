@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1694FC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058CCC531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vvDVjXMkBmC823RzTkpYCZMBAfM5/raWm5UVKD1gJ1A=; b=mKAUQtyzNVZkRnBvokAshSFUO9
-	+EyFAHY1AL2FkprmsT+4vzZHHpWvCtRkexoTHeRuYIvT/09TSvGYJwncZ61yGgn6Pt22MjlRVsNr+
-	UoOMXPt9qMBMse08bFplHT+KHSJ4IJdYU5uhINy/FGPJdGl4GVPfjktJseGSDEG9HjCsoSZLYe5ap
-	muW8QtA1TI0Lj3gro9eT8Ypbe3qh71BgSLrGPZon7Eth5oIfuTORm3FSayRgteu24Hfmlv9Qw58L/
-	G7EDPF4Db5aip53qITS/dkoOgMgBQ435OuReBPHm4dxOfja6huxu24DJIAdsHi751PBqlfLx7ULw9
-	tYuIFDyA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6bsRp+ajnq60cOIr9z3y3rvK7i49Z/Q7M7NmV1U7G5E=; b=YLqoxR2h04iPNQ3RYwpXXlla4+
+	XutlrjembLpnhjVu6VGg0Lzj+5STz6+eNPhtY3ZDv+LmHu9amKfTnXtNxXXKp0qfYhD4/gjLOQKJY
+	7h59IxJvHYCFZ3bkjt7uFK3IpBlbjDilDriYdCJKjwFBGg66NTiARql5uiod3fgFwxyONHb9TBdwA
+	vCUfq5ccmH4hVF+pi1AqyHPrZPTF9jwb8MKvk/khCYyAWYXUqBfwqLQodBEaw/+Fr8oZUQy4xtz3e
+	SPd/PjpEAj6bBpxL7xCWEDLXwEnfweNHS772XMIBgdHXNxliOGdDj7JKLspr2eh6xzcd5slag8D6Q
+	Obp5aBKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzxN-0000000F1uR-0VnK;
-	Thu, 23 Jul 2026 20:23:49 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wmzxU-0000000F1wC-1fkb;
+	Thu, 23 Jul 2026 20:23:56 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzxL-0000000F1tQ-011s
+	id 1wmzxL-0000000F1tf-3ZXq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 20:23:48 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so1132279f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:23:45 -0700 (PDT)
+	Thu, 23 Jul 2026 20:23:49 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-476a130c138so1064328f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:23:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1784838224; x=1785443024; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vvDVjXMkBmC823RzTkpYCZMBAfM5/raWm5UVKD1gJ1A=;
-        b=YgvcIXnk2XWRaL3eeU01YV4qZsYkfsNup5HVpeJUaQNw7j4NTLCcjJWuP5sCii4On3
-         wGxmzCZ+dLhaht+F8FgC8yNZv+Ieo6iXolXXxrEyedpENKlFU3Pl6Om+tCoUh2BPDcmW
-         vaVtX7uwrQvAo/VYv5WZAXhLzeVoa4HUALj1w=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784838224; x=1785443024;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=amarulasolutions.com; s=google; t=1784838226; x=1785443026; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vvDVjXMkBmC823RzTkpYCZMBAfM5/raWm5UVKD1gJ1A=;
-        b=rKhUIF8Gomtta57yaDrvQbSczICUsAK13EfIhMDEqe0nk9X0OVE5FWD46ck0Gpxssn
-         GO/uqf2UVT/oqXFyUc/AEY+ZzGJ5fHT3rqHoDLD+BxDZnTPDonCoSyh+AwnN1DrT/zM3
-         Db1PL0/ejT1YbGeIjjgcZJiP2GkUad5tG9RE/EVN2kqdlFrB2wWqjfT2P9abk0rDjCRD
-         uHHSfGQeidMlb0qpQUw/8LMIUVpQWUD6fli2CS6/RUlnQfD2Al7/JYWDJ5LhtsvJRKCJ
-         la8CTLC320cyB65aNrGLBPz4cML4XYk4n7FPZ+TDXOIgccyRjCZ2XjaSrXuxNtKcovXc
-         cOFA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr3a3U65W/j0JjA+x6N2ukls+T9XHvG6wd/oWsT9lh7tl+NaCGJOUNyd30qrfToxiS/zrx88+8121OxN8tncW++@lists.infradead.org
-X-Gm-Message-State: AOJu0YzduOd8i/o6vjFGQrFF2oYsuASbw8b1VhWEw6cm7XMcTjUA092Q
-	5dqAiENTO4eg9UhGFQk8mEINAymGW/bKaHuodgJ18w15eLSof+gJTzZE5SAy644dhY0Ie5fsu6T
-	Piyeg
-X-Gm-Gg: AR+sD127dsRYST/KCIxvTyV3lW9G7Y8SdqfKlOSO36w97UNf4GdqM/F3J+erjRC75rH
-	euTjwGiTEZWABQX7aoBMtpWxw8Q5fjohim2hm8juZrJXK0lvVFKFzNXDU3VlOvP2QauJgyI+CPL
-	DQJFUXsHgK88vk2k2Q1MNH9Yl00QrQzkFLTx08udIfrU1wEYqZV3bTIDYfyfE7n5BsLljmNEDiy
-	S1tfI4ufc8EDMNj1JferYDUikzs/2nAOo/vfZnIosthZ7+ruf6I9oWQpRtk20CMr4osTJuo4+Bu
-	Oyn3QadziH42yBoZLDw92RH19bUZ/hdUlOkG0MeVNZSej7Vt7jNPahYJLRRI1637vNoRZ/S5KCf
-	e8NU3AHH7yH9mBAMFUd+JPilzMs04jGuZMHFe9ooTDybPC/AHnCaMXO1xuSG4Q075kYhAk73cY+
-	wiBJ2hOoY4JZmknSN9DBBYfTp8VbS96jI0EQ57Oi+YADIPP3U7JqF0P3dvC3z4c7rki4LAIYiU5
-	qzjIpc+rz9e+w+uKyo7MWA16ks2Fk/qM2M3/L5KLTbpLMFbl+GFLaA0EvkzEF4AZtkWzlHQ/hPG
-X-Received: by 2002:a05:6000:18a2:b0:474:64bf:8fb6 with SMTP id ffacd0b85a97d-47f8dc993a7mr5621124f8f.39.1784838224153;
-        Thu, 23 Jul 2026 13:23:44 -0700 (PDT)
+        bh=6bsRp+ajnq60cOIr9z3y3rvK7i49Z/Q7M7NmV1U7G5E=;
+        b=HX/ngC1DBh0YHTVICkfC6iPswYzI2uKfck2q60tq7tfHhwT8YeMqMjVEo67z/uYuhU
+         wa2EETGQvthBlKej7Pic/JjfwbqnZgSD9OMPHWEkgqSc8OF7Idtt49LX6V4oI52GflSl
+         FtJAW3BeLf+8pd6tdhXKXUaw6FebDnwLCkPEw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784838226; x=1785443026;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6bsRp+ajnq60cOIr9z3y3rvK7i49Z/Q7M7NmV1U7G5E=;
+        b=tMirA/0t+7nNZhxN02aGVhbPcKYnFZnYsk0LZbfPdxBCX+c/i62WTooaQXPyk0Rl77
+         zLXvWaNLY+4BwkvwdGqrwDYdDVwumMWNLI8zcP1hslKWTEz6PvWhOU0ZkIE/2ExRu3H2
+         4jJyqYB+/w6cJQGYIeO7lwnP/3pEdu8OMzQ9aRwLrRaTDWnlRw7T9krU22DFVCC7hQre
+         Pf+vo/mQO3OugnyAU/a6APXPh9wFvPtrtvRUqJ8jsEAAULICCPWH6yxoLC0XJex9ckju
+         NoUIM8aqmo7Fe4Zvs4IDSzoxqr1tXXXzi9CDrayWiN9TRvVkgRxeUW1omOD+lh99MQkb
+         dx/g==
+X-Forwarded-Encrypted: i=1; AHgh+RqI8c7cqwJMlKmg2eDQqkVfEAxZEN4lkQK5dX3DqgOxmt8sYKXo6cbEbQ0KDCyinA+Uy0kdOa3rGaU6NunGFxkO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBYEwmFh+QUG5uKYHAYvYP7OsCX01UEMhd9E74UgTd1CPhjFBb
+	8yvuC3FfWtQlCurg1ODuauTYQ/QrfOUHdGYmi+h3X++DR91hkTl7cXCEmaV3Z+UWxEs=
+X-Gm-Gg: AR+sD126Gtj+bZ5TDun4+UtVG+2TuA2AOXXNycPN/gM5NKDX30kNUgT89f7+zu2A0zq
+	4BhWbJ+oMRqJ8BNBKgH23naB0lwrV6GEow2/zfMz4psdlRoF+LGMPQ4Nebbl0EWe5cReQuM+yVE
+	2AEeXX25AT3VlDP5SyglRWaeWP+B01e7BI6e5ordecPaGyWkA3wr+uKzuNcPKiehX3dWyf74VIh
+	sjF6GjHSUXodoMjE1ZQc+moy+eNL7vXdl8sJaisPRy3BAfOCbNb2BpBWVzhWKcAkenS26V33Xvb
+	AzMS6ODkndPOMrgvvIlhk4AbNli+ei/53PFAGhNzTSpx8i2Jm3Qg3SRYVNq3il8xC/CebGSBz2X
+	jHVnWvAzO5TJcWUaTI+DQkBRt0jNZQS/OIJyGGVqrmYuUBovUZRFMqxMX/NiVDNkS6tonEJMaPb
+	6w0RGcNVD+T0WndXrNpR2PwR9KZi2ucGU144dxQecC4Y79X1Ak4IAa7Y6qFnCIyhFKg3R4NLO6o
+	dqsEAit5Rx558DI+6u4DjA6po3z1bQB1/5LVhOKrzsklXxPmou15xNfcmX3ZRL90/BWwfsNG3eq
+X-Received: by 2002:a05:6000:4a06:b0:47f:5289:d5e2 with SMTP id ffacd0b85a97d-47f8dc9c774mr5891425f8f.40.1784838225881;
+        Thu, 23 Jul 2026 13:23:45 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com (host-79-17-119-233.retail.telecomitalia.it. [79.17.119.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c631fdsm17516051f8f.28.2026.07.23.13.23.41
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c631fdsm17516051f8f.28.2026.07.23.13.23.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 13:23:43 -0700 (PDT)
+        Thu, 23 Jul 2026 13:23:45 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
@@ -78,16 +78,17 @@ Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 1/3] ARM: dts: stm32: add missed arm,num-irq-priority-bits for stm32f429
-Date: Thu, 23 Jul 2026 22:23:33 +0200
-Message-ID: <20260723202339.974529-1-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH 2/3] ARM: dts: stm32: add missed arm,num-irq-priority-bits for stm32f746
+Date: Thu, 23 Jul 2026 22:23:34 +0200
+Message-ID: <20260723202339.974529-2-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260723202339.974529-1-dario.binacchi@amarulasolutions.com>
+References: <20260723202339.974529-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_132347_066514_28562573 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_132347_895082_8C062857 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,20 +105,20 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Add missed arm,num-irq-priority-bits to fix below CHECK_DTBS warning:
 
-arch/arm/boot/dts/st/stm32f429-disco.dtb: interrupt-controller@e000e100 (arm,armv7m-nvic): 'arm,num-irq-priority-bits' is a required property
+arch/arm/boot/dts/st/stm32f746-disco.dtb: interrupt-controller@e000e100 (arm,armv7m-nvic): 'arm,num-irq-priority-bits' is a required property
 	from schema $id: http://devicetree.org/schemas/interrupt-controller/arm,nvic.yaml
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
- arch/arm/boot/dts/st/stm32f429.dtsi | 4 ++++
+ arch/arm/boot/dts/st/stm32f746.dtsi | 4 ++++
  1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32f429.dtsi b/arch/arm/boot/dts/st/stm32f429.dtsi
-index ad91b74ddd0d..f94500cd90cc 100644
---- a/arch/arm/boot/dts/st/stm32f429.dtsi
-+++ b/arch/arm/boot/dts/st/stm32f429.dtsi
-@@ -794,6 +794,10 @@ rng: rng@50060800 {
+diff --git a/arch/arm/boot/dts/st/stm32f746.dtsi b/arch/arm/boot/dts/st/stm32f746.dtsi
+index 208f8c6dfc9d..82912cf9c4e2 100644
+--- a/arch/arm/boot/dts/st/stm32f746.dtsi
++++ b/arch/arm/boot/dts/st/stm32f746.dtsi
+@@ -721,6 +721,10 @@ usbotg_fs: usb@50000000 {
  	};
  };
  
@@ -126,7 +127,7 @@ index ad91b74ddd0d..f94500cd90cc 100644
 +};
 +
  &systick {
- 	clocks = <&rcc 1 SYSTICK>;
+ 	clocks = <&rcc 1 0>;
  	status = "okay";
 ---
 base-commit: d326f83e819c53aa05c40d64f5805d6237b6aa1b
