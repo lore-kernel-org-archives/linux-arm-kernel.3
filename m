@@ -4,106 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2771EC531D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 14:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B245BC531D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 14:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jlz4RirT2ApEMmnQX3AOsLAbmiz2q30wOmfHPI3CAeM=; b=1A47l9ZawC53clgoy6gAa2/+0y
-	vn4hM3OzMIAVRsPXLvD9837KZ8LjOkvBPwcbcx6vv+d34DHrDoTKcGGxBZvMJeFDjKjeyHhxnchLO
-	okJMu0otfCTlOTgeVkyp6kiprtTj8iSn0GcZ8GRMSrlRIXxmShiwn9gCN7QbrT/SK0q7fYiQh1iEA
-	na72PTpJdKEoUSteVxD5zufWuUU1nnd7nXpFEh8rl6SnMv3XKoAuw+QrpoTNgtowOrDhIojfWTZJw
-	4KpAl6pGv7ZZK046AFgUTYaYY7pRZMYPFijZArXr7ZIIc+bDE9pkn3G6CA0cFK4bXIx3upIQHPgwy
-	Yus1naoA==;
+	bh=BxzLiWI4cdI/ksC9wsJhk90k2fWRCD0GRES3OUH/72g=; b=Ur36lkWtknd/qjYkIh46J8VPu1
+	zkveJNb2ir3V7/gVJmgYXZt2asTumFbVjSYWhlXbNWbX3sspZT5UaLMAL3RRFcnW20+bi1cAj0Su/
+	guAV3ChSo3d40eymGZQQiGUM87KITMgNBQeBT8q5qCmNskAiYyCvZGvVSgzZPn4OOrVrk95KIoOnR
+	2SOeBesgocAND0SBlbJwWf9+AnBioCeL5edVEsUOImHA7l67W4/gnXWl83rFuEuG6BnB/XaR7JzrH
+	I80oe1cZ+2BmrkpAtKSQcNTM/50dlaWZU1e7havBJzPHQaWHJfZd84FZpAzu56IKMSU7OO5KeHYWm
+	iFukmHkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtL9-0000000EMTW-0J5o;
-	Thu, 23 Jul 2026 13:19:55 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1wmtEZ-0000000EKyR-1NXm;
+	Thu, 23 Jul 2026 13:13:07 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtL6-0000000EMSf-3UlH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 13:19:53 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-51c01c79467so258681cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 06:19:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784812791; cv=none;
-        d=google.com; s=arc-20260327;
-        b=FABI+8OAb/ulSz8BOhIo0jxTnFjPW/JVGwjaM23RCtrkjPMlAVkmEM7ePxdWGAfzDv
-         ER+dOemvDYl+0PkAhzjsHSxebFIatdLtb5bZe+bRnXU8jHzSVSv2ZuIjeEK9pvJvUhka
-         ymnfdlys6gD8jeb8gARe4b8WJr4yYFy2lXbxPQxzdD+FxPeNI6wX6iknsMUbzXQSWXND
-         VMUSec1rZ6nS5A972zzQhJ9kP8lehrdLcN2FwW7Ir+zpjUGZEol6zfgmwOzZxOGrjHHA
-         RqjBZe4hU4KGDtnOsuoVk/5l+WiGoJ2zZsslMySi1KZKAmDBaFJx0QcKfbIn1y0E+9LQ
-         IHzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Jlz4RirT2ApEMmnQX3AOsLAbmiz2q30wOmfHPI3CAeM=;
-        fh=FqB+mGAdj1Xv0iM0WJmgiZuLeYfqtqrNoQISUMAeC3U=;
-        b=R2h/mb46Gj3tbWtr/iKKbWA4QgKxLC11qs4+L20cLwxE1vjNVSsJicaZPsTjBNGPxA
-         f5zlEM7W4/Ydt30HNWNiaNAuOI92U55+QSEqf0j8w7o4gGwrKWo/cXBZxDwjPMLRl+TV
-         1hWOb/s0ULnBI6wbLa9koyNN/22t64o8Kd6IR2ZCj6z5szSRSi1xRO1+hxQZq8KqHwyr
-         2Sed5bCTiYlCv4o53S+kwawnveqdRYVKmwxoZOMe+PLffPsgkNFKGPGqjrzSgYrcj61R
-         KlR/KVWVyd5yfi4+tU22Aplj0K8VHVrt+JbLyAYK9R5y9XmcfVuADFW3mM41a32XuMvc
-         un1g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784812791; x=1785417591; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Jlz4RirT2ApEMmnQX3AOsLAbmiz2q30wOmfHPI3CAeM=;
-        b=B0abJ0gN+BokwryNiA6SFYha7O/2c80NOcgCpGcxWq00fuKCiQCdvBi4JUoCExf5vH
-         olBYmW8182vs7eVL1qOoc6IXAo06Nb9SVudE/lziRfLFjVXYEqmJFVg8vqz9srIxYrx/
-         EuVoJa6KTFfadwUgLGOeDDSzw7fbxRxtZubxdyV510MrgxhltSJAkbVP1fTMVI8LPA6O
-         bgW2/M1THt6EJizOdornR5xnkddCzB1l1y87hY2C4fDNg4Ao8BhHd/8gbfxw8iqc+qrX
-         eLbQ6egok/vkWu7GJ/T6LfzTsw7fBe8GCe/PHBn/PcKDPZJvrVbE7ifOYz+b+PUNx+ee
-         xH8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784812791; x=1785417591;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Jlz4RirT2ApEMmnQX3AOsLAbmiz2q30wOmfHPI3CAeM=;
-        b=iIkXZvU95w3X9LJ/FrNJmshQ1J/jJtUUEmjkoT0t1BRfwsM2lndq4OaIPdpcDzCrNa
-         5lIdP/m6S1TS9AQ8bKn51TxbugjPjrAIe/7z2ydoQNelfLQ0uBn/tB2phnh6FF5iQwHv
-         6aT0hmVVLC/7QG7KCFkJwgE6fxXuY+zLFZonxl6rFIcdsKHc6JeogPeQrqX7EXlOrwe6
-         FzPlprUt1qktBeuQ9Ds4MvQmWs4sSJrRH5Lg+O7xJRQ1Sy5uzkfWCwpdPS42MubgoxcU
-         FHF1TBEFLb5iJm2BiIzoCinBdjHY33Rpg/iUKbmjSJbztOEWGLOcn8KZN+8XxcWOo3US
-         RE5w==
-X-Forwarded-Encrypted: i=1; AHgh+RqOOlzy7X9fsABOSWHeE2wkDsj/oXAErZfYIrXCOsaN6NCF7XoFs4nDl7h2Tiq2DxS3r80xWkNr5/jMNIteyFTa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPieyVzweqQbvbENiT3zba030RAQhz4dcGOMnuDoYWH+q17rhg
-	qPgPW91oGQamPsJLvY2eH53Yec9GvjXcLOs29QoCSKRkYk5C30pAchiIJpETXmXvJ2BNdSjJvxx
-	E4gzO1m90O3K7mpjbayxBmcpeObYIKf+Zq/y6FIrB
-X-Gm-Gg: AR+sD116r3ANF5fyIXNyu/Qc0c8Kudnti2O/l/0eha24+eS9BSdZJQbf2kwFqt/2n4r
-	Ok+F78gtzacaJM0b4K5btFkpJImBGqUGoVyvSpiPlrHZIrB5VaiKnKDngMKppIGt3ABMYQaAoYX
-	U5/6PNHqVCaSMQZExJWnbBU5VOGocaGOs2ZKVntSXfyOUkg4RjYZfNhIJQipGv+wRIGEWZhr8Gb
-	TTLbJ20FW8PALN/Yeul1xhCxeb+lI9ow3iH4rwlkJofkEvqwpJuDO8UEB5OYg==
-X-Received: by 2002:a05:622a:aa4d:20b0:517:38aa:c2b3 with SMTP id
- d75a77b69052e-5283bb02792mr9778161cf.14.1784812790765; Thu, 23 Jul 2026
- 06:19:50 -0700 (PDT)
+	id 1wmtEH-0000000EKkK-1LTP;
+	Thu, 23 Jul 2026 13:12:51 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=BxzLiWI4cdI/ksC9wsJhk90k2fWRCD0GRES3OUH/72g=;
+	b=ktXP12RJZscAAV64qHCLX9bFBZTEthSmNzZJA32uDAc8Jl1wLU/UCJKG9ppMSBN8YTgKj42MP
+	ctEVPL1wW/rBxnvWU0S9zFc66jOO/Vjv2w2HwpjycCNWS3mNp4ID7gv4FR1cg5jdOBz4ebeRJ8t
+	as4UYiMhA2km2qDToX7J+8g=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4h5WWq1zYMzRhVH;
+	Thu, 23 Jul 2026 21:03:19 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 742B040538;
+	Thu, 23 Jul 2026 21:12:41 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Jul
+ 2026 21:12:39 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maddy@linux.ibm.com>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
+	<akpm@linux-foundation.org>, <baoquan.he@linux.dev>, <rppt@kernel.org>,
+	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <thuth@redhat.com>,
+	<ruanjinjie@huawei.com>, <vladimir.murzin@arm.com>, <mark.rutland@arm.com>,
+	<ardb@kernel.org>, <james.morse@arm.com>, <leitao@debian.org>,
+	<yeoreum.yun@arm.com>, <robh@kernel.org>, <kees@kernel.org>,
+	<coxu@redhat.com>, <sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
+	<adityag@linux.ibm.com>, <hbathini@linux.ibm.com>, <makb@juniper.net>,
+	<piliu@redhat.com>, <graf@amazon.com>, <liaoyuanhong@vivo.com>,
+	<jbouron@amazon.com>, <bauerman@linux.ibm.com>, <bgwin@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <kexec@lists.infradead.org>
+Subject: [PATCH 3/8] powerpc/kexec_file: Prevent kexec range truncation
+Date: Thu, 23 Jul 2026 21:12:37 +0800
+Message-ID: <20260723131242.1537633-4-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260723131242.1537633-1-ruanjinjie@huawei.com>
+References: <20260723131242.1537633-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-References: <20260720171513.1415357-1-vdonnefort@google.com> <20260720171513.1415357-5-vdonnefort@google.com>
-In-Reply-To: <20260720171513.1415357-5-vdonnefort@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 23 Jul 2026 14:19:00 +0100
-X-Gm-Features: AUfX_mzXDP5kjyl7adkMau_slK5ytHRPwGWiWf56fyQqQaMq0ZgmYKXic-0afsY
-Message-ID: <CA+EHjTwZftoD=D2G_1S271CPTdYhCcRwQGHYzwVS4OMLzAx-HA@mail.gmail.com>
-Subject: Re: [PATCH v3 04/17] KVM: arm64: Add a heap allocator for the pKVM hyp
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_061952_907471_17CFE700 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_061249_680772_7F3D1C66 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,31 +86,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+Sashiko AI review pointed out the following issue.
 
-On Mon, 20 Jul 2026 at 18:15, Vincent Donnefort <vdonnefort@google.com> wrote:
+The __merge_memory_ranges() function incorrectly handles overlapping
+memory ranges when merging them. Although sort_memory_ranges() sorts all
+ranges by their start address in ascending order beforehand, the merge
+logic remains defective in two ways:
 
-> +static unsigned long hyp_allocator_reclaimable(struct hyp_allocator *allocator)
-> +{
-> +       unsigned long reclaimable = 0;
-> +       struct chunk_hdr *chunk;
-> +
-> +       guard(hyp_spinlock)(&allocator->lock);
-> +
-> +       chunk = allocator->head;
-> +       while (chunk) {
-> +               reclaimable += hyp_allocator_chunk_reclaimable(allocator, chunk, NULL, NULL);
-> +               chunk = chunk_get_next(chunk);
-> +       }
+1. It compares the current range's start against the previous element (i-1)
+   instead of the running target index (idx)
 
-Sashiko raised this, again, confusingly in a different patch.
-hyp_allocator_reclaimable() counts only the per-chunk reclaimable
-pages, but hyp_allocator_reclaim() drains allocator->mc first, so the
-memcache pages are reclaimable yet not counted here. When mc holds the
-only free pages and there are no reclaimable chunks, this returns 0,
-pkvm_shrinker_count() reports SHRINK_EMPTY, and scan() is never called
-to free them. Should you add allocator->mc.nr_pages to the total?
+2. It unconditionally overwrites 'ranges[idx].end' with 'ranges[i].end'.
 
-Cheers,
-/fuad
+This logic flaw leads to critical memory truncation when a larger memory
+range completely subsumes subsequent smaller ranges.
+
+For example, consider a sorted input array with three ranges:
+  Range A (idx=0): [0x1000 - 0x9000]
+  Range B (i=1):   [0x2000 - 0x5000] (completely inside Range A)
+  Range C (i=2):   [0x6000 - 0x8000] (completely inside Range A)
+
+1. When i=1 (Range B):
+   ranges[1].start (0x2000) <= ranges[0].end + 1 (0x9001) is TRUE.
+   The code executes: ranges[0].end = ranges[1].end, which erroneously
+   shrinks Range A's end from 0x9000 down to 0x5000.
+
+2. When i=2 (Range C):
+   ranges[2].start (0x6000) <= ranges[1].end + 1 (0x5001) is FALSE.
+   The code falls into the else block, creating a broken new range.
+
+As a result, valid memory fragments [0x5001 - 0x5fff] and [0x8001 - 0x9000]
+are completely lost from the kexec exclude lists, potentially allowing
+the crash kernel to overwrite active memory, causing data corruption
+or crashes.
+
+Fix this by ensuring the start of the current range is compared against the
+end of the active merged range (idx), and use max() to safely prevent the
+outer boundary from being truncated.
+
+Cc: Sourabh Jain <sourabhjain@linux.ibm.com>
+Cc: Hari Bathini <hbathini@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: stable@vger.kernel.org
+Fixes: 180adfc532a8 ("powerpc/kexec_file: Add helper functions for getting memory ranges")
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/powerpc/kexec/ranges.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/arch/powerpc/kexec/ranges.c b/arch/powerpc/kexec/ranges.c
+index e5fea23b191b..539061d14a77 100644
+--- a/arch/powerpc/kexec/ranges.c
++++ b/arch/powerpc/kexec/ranges.c
+@@ -21,6 +21,7 @@
+ #include <linux/of.h>
+ #include <linux/slab.h>
+ #include <linux/memblock.h>
++#include <linux/minmax.h>
+ #include <linux/crash_core.h>
+ #include <asm/sections.h>
+ #include <asm/kexec_ranges.h>
+@@ -105,19 +106,16 @@ static void __merge_memory_ranges(struct crash_mem *mem_rngs)
+ 	struct range *ranges;
+ 	int i, idx;
+ 
+-	if (!mem_rngs)
++	if (!mem_rngs || mem_rngs->nr_ranges <= 1)
+ 		return;
+ 
+ 	idx = 0;
+-	ranges = &(mem_rngs->ranges[0]);
++	ranges = mem_rngs->ranges;
+ 	for (i = 1; i < mem_rngs->nr_ranges; i++) {
+-		if (ranges[i].start <= (ranges[i-1].end + 1))
+-			ranges[idx].end = ranges[i].end;
++		if (ranges[i].start <= (ranges[idx].end + 1))
++			ranges[idx].end = max(ranges[idx].end, ranges[i].end);
+ 		else {
+ 			idx++;
+-			if (i == idx)
+-				continue;
+-
+ 			ranges[idx] = ranges[i];
+ 		}
+ 	}
+-- 
+2.34.1
+
 
