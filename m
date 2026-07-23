@@ -4,171 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82279C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18361C531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1SQ6fBG0Ah0G+Ee6NE98a2a6c+tVDqglySr17bUd1/A=; b=MP/M2W8c5OvcJV5zh+TxkRfd7F
-	kTr6ecGz1TN3H8O67PLc/wwpmvY3Yfk/4wC8L8JNN4Lf6ZBMAOZBF2L1nLifZYNdpEQdudhxa/AbT
-	qxa/I1cR0mHGTvW8j8t3oXNJQWtVgdNos8fEvCGACEUIw+JqD1ifF+YIW/7LJ0dvHUI1R6aIcWhVa
-	xKwItmSPLWO6EN9LN5zkROgi1lnW/x1hvLsW9mRsA3B02Ham8D4PWtCL0qeCSViHmdDQR4AzP7jux
-	AW8a4dNHnGTAzQHRXhzkaxTlg4f8KHHT/h+CkyONfC6ZZeW+YOdch/RZxNTJSCc7NJ+U6lfOXZHDu
-	f8h8BzRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rMKSwtZHtjgdlF9Y2LNT13qUbh7U8eJLngFZngp7Gpg=; b=VG+BD/eWKVQxbbnRhfl9hrYS/E
+	GM7b4d3i37oPLL1OKnyiYvSVnsv3NXL4HirTuTdiadl35UtbCXv3NVTZJlQFdRO/dsXXuMS3rE4ji
+	1MtKECeUobDrPIG394g9KUnXqsnjPt1rKQdNhBOOkBF1iGsyOCc20vtXDUsnqin9eaKrpJNRyEDew
+	y9KmJ5v+paCXgywUzrEfM8HDuHpR78AuiLkc8xi7l0ymRQJOSGsdjrkEtxTmMlDi+99+tpwV51gJG
+	5xcfODZq0nQzgQ6lTQEqyC9csnYuDiQavfuq+RHtD+6Q43xnTYgXdv1+/y6e7mXigSxLUB5tDSEny
+	FhffTj5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwvx-0000000Em7t-3460;
-	Thu, 23 Jul 2026 17:10:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmwnf-0000000ElCA-1Puc;
+	Thu, 23 Jul 2026 17:01:35 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwvb-0000000ElwT-0vem
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 17:09:48 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66NCvgqW020907
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 17:09:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1SQ6fBG0Ah0G+Ee6NE98a2a6c+tVDqglySr17bUd1/A=; b=M3Cyl69cXgWU+3dl
-	7bZAy7BvT8ATtm3EmclgD+SEr2bQw8cSOVLhtaJhn7ZSSkX73hw1dOnFW1crM8v6
-	HSzMrM0ZOVdDwOA1cewEqzMubBtGJ5VRXHFeQ4XWK9udOO+vobgj1+UwA0d8zRX8
-	1XpLlV4R0vPns/pv2z0LPcGynJHMdUfXSvbkET7ky71A0qo517tubAsyBzPKsx9P
-	Sb0EnIocFF2dkj/BeCWNvyqWaTm+zMzBtff/RLNuFwF0f1KY5mU30UwfLLKcHR0g
-	mdoIqiKel7XyGsl0UJ49GBj+W8wcvMICOwvW3jHmjT4DP3DrrRZlv9zsUUsMUZeE
-	3rRtLA==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fk6c7mbdj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 17:09:46 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c075c1e25so13466421cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 10:09:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784826586; x=1785431386; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1SQ6fBG0Ah0G+Ee6NE98a2a6c+tVDqglySr17bUd1/A=;
-        b=SRwpRyOHt7TYB9RE7100Om+1y1Otj32fg2mLwB+4LamHm+xgCkTUXJSKOY+gf/iCkT
-         t8WX/yBz66MgFl0COZamwTbnk/9lJXyScsd3Z2/DsG1ISk3yjjdtlTNRxiBkZ8CoJAWx
-         cFZfLHYFJqFohoban4c8cHalFb2ofMkcogXUSJ2a17dr4F4Ckhyepg+2hW7E9kt9M59f
-         muWeh+lG5iLTMdchfJKf+LyVkVfRYv36gxE/pnp+m1oNt7mlJamCcxBI338G10ApOc0K
-         iBZhZUkugPLOKg7g3vTiNCwUO1+iZBalZuGswEfH2X59TKUnGuiHF3Jw65TpRZEj0j9m
-         YXeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784826586; x=1785431386;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1SQ6fBG0Ah0G+Ee6NE98a2a6c+tVDqglySr17bUd1/A=;
-        b=CCFhhUS3yTUCMcCEkaPVz9S59+F1hiEa7xmwXliF95y8/7cIJtiIkvPCfbQarTPRtO
-         c7PyDlkWv0k+Jo959Dq/R+XfAwFUfg6MEX8CYBLiWW5TU+szHgcvAeBNSP+VXCbsrXQc
-         zREdTmzUP5ddV3Ue7hdhxC9F9ZPXm/Hk7uN6Psd8im9rkMmlsWk0G4B45Il+2QR0iPhG
-         NpxkHeJ3g1BnzBDWW8MFVkg7rHYbIE5C3aVGQlajM7LqH2ICR6ylJne7VP+sGwoFBCNm
-         s0pzVuS4hK4jqFxXuWmxk/lXE5TcILRfhO03EzpEyc/4q2jXxDLO9U7MkdC8m6rM98Aw
-         w8jg==
-X-Forwarded-Encrypted: i=1; AHgh+RpRNHcVDl0QU0zyp2T2P6zuFFZGaP/8aaVCYL2MbqmmNk++XMWrcZ+YniAVdnpRTTCuBbDEcSoC0JnAovF1ENpM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpgLLVuFtXTyZ0r/PTrwEAXhGN1qGMe6tFNuhM4eamEn/9iYCw
-	air1mUVNCJlQUcBRqciEUUGjCINbUh1lMIXykoXIez4t3xMXeo0MaLcfzZEhNHQgRNRvGp5+Vi7
-	te17+Y/4J+KWPfD43pCqF1twizyy+sHgfjCqYSoXvoUya+Ztl4+nISBiRc0ZygKcKM5jG8K6gnF
-	47XQ==
-X-Gm-Gg: AR+sD125C1W8LOFB8nOOI3TSkGUllzpH7QMHb1gtXT4xWp6vhqlQbMHM2s9+Czt7IZ7
-	MotXDs7uWwAm+pvf0+5xZ1ZVs5/FwOvgjsFG8B5BhsLf25Jpyf+y1cP/7rhIbYd0c+maGjlZSd3
-	rl//Ym31Z66hTVEoFIpbbg8BaMBR4pnEpkKzneZIbUhW2gZkzVpGy152BPXWPVw5jc2mG9f4ZXF
-	wtYO2WWjYcW7qZiM/SgO6zTauvzW00HBVtJlnQMxbc/hVNWEiuxkJ1UYt4KO5s71BWTwM7RGT1M
-	Eyc9cstbRe58yieTvPPPvP1tPtPFbFTV1Cm+pGvM6w6TJ+s9k5hazWZ3gXM2BN/y+Grn5/ot/0R
-	aCR1oa6XwqdPFk6fPyL2Wp/oY+lb/
-X-Received: by 2002:ac8:580d:0:b0:51a:f94e:ce51 with SMTP id d75a77b69052e-5283ded5b72mr32348691cf.50.1784826585692;
-        Thu, 23 Jul 2026 10:09:45 -0700 (PDT)
-X-Received: by 2002:ac8:580d:0:b0:51a:f94e:ce51 with SMTP id d75a77b69052e-5283ded5b72mr32348161cf.50.1784826584952;
-        Thu, 23 Jul 2026 10:09:44 -0700 (PDT)
-Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:cd9c:212:1357:7832])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85b9a64dsm18472999f8f.1.2026.07.23.10.09.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 10:09:43 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Thu, 23 Jul 2026 19:09:10 +0200
-Subject: [PATCH v24 04/14] dmaengine: qcom: bam_dma: Extend the driver's
- device match data
+	id 1wmwnc-0000000ElBU-0WCA;
+	Thu, 23 Jul 2026 17:01:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784826042; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=doS9sUPk+xpDWSk8tCrzWBa+aaPxn1Jb+AA0lPlS3//cL+6+Dlr3R6UIBq1LBXs5WJeBKRj5RDAK7xlTahbemgSo/xTIhGhOnjwHvkargsQoxr5y8A2SeXEcxfPnTb5uhhryTB+nUaP1QRVJ8CGImSTUxamGMM6coFS3RXPV9Ug=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784826042; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=rMKSwtZHtjgdlF9Y2LNT13qUbh7U8eJLngFZngp7Gpg=; 
+	b=YFQfjKEi0XTVS+E1Q7qXhMxuxhb5gXIjxwniYiu2T+mCFxsg/jJbLhBN5lqGWr64CMBnNvjVIU/EgjHvmljStijdK8ZnfMoj2WicqCrEe5oQe/0Uprd4TYZeSpKZQ+WC9C0veBRvcnfVLvyS11H638SgbhCW9mJ/j8/T+LKQh+o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784826042;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=rMKSwtZHtjgdlF9Y2LNT13qUbh7U8eJLngFZngp7Gpg=;
+	b=Dl0kJ+qgOiIYFbVvHNu4IwgO8vb8YneY5/bpzX6VCYTCGqXv7iB74202ozSCxoXV
+	8k6eJR2j/nN7DnWuRFph9tzFIZo5EoKkI+CfosRHErnYcAgQYbxlTHhOlVrl1RiF6TX
+	zR0RjsU98kQ2lEATtqBR/hKXCDfndYFt+hZ8E5dg=
+Received: by mx.zohomail.com with SMTPS id 1784826038872548.0819904631492;
+	Thu, 23 Jul 2026 10:00:38 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id C4FB31808C6; Thu, 23 Jul 2026 19:00:31 +0200 (CEST)
+Date: Thu, 23 Jul 2026 19:00:31 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Damon Ding <damon.ding@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Alexey Charkov <alchark@flipper.net>, 
+	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 09/10] dt-bindings: display: rockchip: dw-dp: Fix
+ sound DAI cells
+Message-ID: <amJE9v5OHDBWzRwD@venus>
+References: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
+ <20260721-synopsys-dw-dp-improvements-v4-9-f0f4a4ede712@collabora.com>
+ <20260722-enchanted-mandrill-of-refinement-adc7b3@quoll>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-qcom-qce-cmd-descr-v24-4-4f87bb4d9938@oss.qualcomm.com>
-References: <20260723-qcom-qce-cmd-descr-v24-0-4f87bb4d9938@oss.qualcomm.com>
-In-Reply-To: <20260723-qcom-qce-cmd-descr-v24-0-4f87bb4d9938@oss.qualcomm.com>
-To: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-        Thara Gopinath <thara.gopinath@gmail.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>,
-        Udit Tiwari <quic_utiwari@quicinc.com>,
-        Md Sadre Alam <mdalam@qti.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Stephan Gerhold <stephan.gerhold@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-        Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-        Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-        Andy Gross <agross@codeaurora.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>
-Cc: dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        brgl@kernel.org, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4322;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=HGeQqzQf8+DrUa/4bzOvLohFWS/bDVC1MPHUwVaBFAE=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqYkrCvDnscYF5kUf6Mp/2eDen/yDbwikQKtft1
- KTtqtdDMMiJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCamJKwgAKCRAFnS7L/zaE
- w6OuD/4zPA74drmfeqhUyo1KEaxXhhhdfBx0+mCETQAaXZVxinzUTtMU+cYKtozIiJYUIMZKNyB
- 1ZsCFc/FE+fv1NUvXZ9a4yxkzuvG0Ec//565pchVrOHrPbjOs0yiM3JpMYVVumzriF2lREehVEj
- Ia7f91E5ODhFX6Yccp2hApR/40AM27icIGK9J+2fbozO4SyXtiVPv9aV5sUtVYLfm5tEjvz4Ghc
- yxvd5wJnqscNrNy02SUj4U1doUnv798meLMxu+uHqa/ai9BB70qToYFzK8dlMiLdn8GgDD5KlPA
- 8HCHp1pmWtZZjXrVTtYxOvJzUNyeH7aDieBtPxWhUzbwX518OFObCqa2lLcdQSbWDVPUbhsNZUI
- 1M9SBkpgVDrCeKWEcMU8baGVJhZq4wTjR11ZveOQZSueF8lwVvJkTqDjlURRM8gxdqaraZFHhQ0
- IA8QA+VGg0Pge0nSFjOaOCrjGwnP4r/ueMLWWXj2oB4Qh4xRtCtDJJhcceohh0Ntz8QerbEIKfw
- 0ebYD7qKfqPMJMrvf2Vy9b6xfTY7ScWG/523eJsfdpDYYQB5tMVMFTBBc/CbIA54zGmq760eEoQ
- lywH38YJ2y34AkORmBVzyQQup/qNHWjGED4lBcETXH3GG9ycdgNS8E1y6j0bB34yCPvGQ5DuuMU
- sgMmdCddSoiSchQ==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-GUID: si9CVpvH4WjlTEKz9gu8XkxPiUGUYakV
-X-Proofpoint-ORIG-GUID: si9CVpvH4WjlTEKz9gu8XkxPiUGUYakV
-X-Authority-Analysis: v=2.4 cv=baZbluPB c=1 sm=1 tr=0 ts=6a624ada cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=KKAkSRfTAAAA:8
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=ioP1PY9e4_dTeLeN8ycA:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDE2NyBTYWx0ZWRfXwG78qesGjbBv
- 7l+Fb7vxNLYm/vepimAYjXHUQx5gw9bnfYIV+2+BW6h/omESWhKBoAYCuGcteHOPJKozAim8a9z
- ss53Mfv6C8xYf1C32xeCEVuxwP/wOmw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDE2NyBTYWx0ZWRfX7ty0UEX6q73N
- DhR8UFSqhC5rUg5yqhxU6HARx13xB1A33PSzyGmsrnsDXAnKbPBVpz0xpynNQcBvu/2Dxyyxysw
- m7gw/Y3RalFqLtASRaBdq+SiFg8k+DvDywp8eZTepdULFGeHkcWW1flD1q5/5iJl8TUuMlAv4La
- 7fJQBbh6h6gzkzKki5QJVt+LmJ+lSXu+cxh/ckHU2pN8fIeNaRgtMS/083gL5a+0GSfmEbq7dYK
- lzIsGFA8R+nvUy0ETO0Nn2K8aFfn9Z2xLeSjGAV8bZJYWyCAk1W+Do4t7AuZ/1yEWPBkOnLF3C9
- 5MG1F/Fw09hpNbxPUAiwP4Iz1lUz4a8X3E0rCGUAwBPXmlD1sCSyqErrBOcSry6fqBE9+mW2M/x
- ofHxqzdMrkBKAIp3LwFIaBMgcSxu89FsHb0rBwaWTB8kiJWXwdJARAS7DhBhokWBptBdzYyP2AQ
- IRgq6Fhu7Gx/oGo5AbA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-23_04,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 lowpriorityscore=0 phishscore=0 suspectscore=0
- adultscore=0 impostorscore=0 priorityscore=1501 bulkscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230167
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="24edahvaidyqhl6v"
+Content-Disposition: inline
+In-Reply-To: <20260722-enchanted-mandrill-of-refinement-adc7b3@quoll>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.802.37
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_100947_301710_F109F96A 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20260723_100132_225266_3179B83D 
+X-CRM114-Status: GOOD (  22.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,125 +96,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-In preparation for supporting the pipe locking feature flag, extend the
-amount of information we can carry in device match data: create a
-separate structure and make the register information one of its fields.
-This way, in subsequent patches, it will be just a matter of adding a
-new field to the device data.
+--24edahvaidyqhl6v
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 09/10] dt-bindings: display: rockchip: dw-dp: Fix
+ sound DAI cells
+MIME-Version: 1.0
 
-Reviewed-by: Dmitry Baryshkov <lumag@kernel.org>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
- drivers/dma/qcom/bam_dma.c | 34 +++++++++++++++++++++++++++-------
- 1 file changed, 27 insertions(+), 7 deletions(-)
+Hi,
 
-diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-index ea3df28e777f99c0532761b6aee6807ab23ab4ca..8ce0fe085c5fea6cc614edd692b5cfd264b94d5a 100644
---- a/drivers/dma/qcom/bam_dma.c
-+++ b/drivers/dma/qcom/bam_dma.c
-@@ -113,6 +113,10 @@ struct reg_offset_data {
- 	unsigned int pipe_mult, evnt_mult, ee_mult;
- };
- 
-+struct bam_device_data {
-+	const struct reg_offset_data *reg_info;
-+};
-+
- static const struct reg_offset_data bam_v1_3_reg_info[] = {
- 	[BAM_CTRL]		= { 0x0F80, 0x00, 0x00, 0x00 },
- 	[BAM_REVISION]		= { 0x0F84, 0x00, 0x00, 0x00 },
-@@ -142,6 +146,10 @@ static const struct reg_offset_data bam_v1_3_reg_info[] = {
- 	[BAM_P_FIFO_SIZES]	= { 0x1020, 0x00, 0x40, 0x00 },
- };
- 
-+static const struct bam_device_data bam_v1_3_data = {
-+	.reg_info = bam_v1_3_reg_info,
-+};
-+
- static const struct reg_offset_data bam_v1_4_reg_info[] = {
- 	[BAM_CTRL]		= { 0x0000, 0x00, 0x00, 0x00 },
- 	[BAM_REVISION]		= { 0x0004, 0x00, 0x00, 0x00 },
-@@ -171,6 +179,10 @@ static const struct reg_offset_data bam_v1_4_reg_info[] = {
- 	[BAM_P_FIFO_SIZES]	= { 0x1820, 0x00, 0x1000, 0x00 },
- };
- 
-+static const struct bam_device_data bam_v1_4_data = {
-+	.reg_info = bam_v1_4_reg_info,
-+};
-+
- static const struct reg_offset_data bam_v1_7_reg_info[] = {
- 	[BAM_CTRL]		= { 0x00000, 0x00, 0x00, 0x00 },
- 	[BAM_REVISION]		= { 0x01000, 0x00, 0x00, 0x00 },
-@@ -200,6 +212,10 @@ static const struct reg_offset_data bam_v1_7_reg_info[] = {
- 	[BAM_P_FIFO_SIZES]	= { 0x13820, 0x00, 0x1000, 0x00 },
- };
- 
-+static const struct bam_device_data bam_v1_7_data = {
-+	.reg_info = bam_v1_7_reg_info,
-+};
-+
- static const struct reg_offset_data bam_v2_0_reg_info[] = {
- 	[BAM_CTRL]		= { 0x0000, 0x00, 0x00, 0x00 },
- 	[BAM_REVISION]		= { 0x1000, 0x00, 0x00, 0x00 },
-@@ -229,6 +245,10 @@ static const struct reg_offset_data bam_v2_0_reg_info[] = {
- 	[BAM_P_FIFO_SIZES]	= { 0xC820, 0x00, 0x1000, 0x00 },
- };
- 
-+static const struct bam_device_data bam_v2_0_data = {
-+	.reg_info = bam_v2_0_reg_info,
-+};
-+
- /* BAM CTRL */
- #define BAM_SW_RST			BIT(0)
- #define BAM_EN				BIT(1)
-@@ -422,7 +442,7 @@ struct bam_device {
- 	bool powered_remotely;
- 	u32 active_channels;
- 
--	const struct reg_offset_data *layout;
-+	const struct bam_device_data *dev_data;
- 
- 	struct clk *bamclk;
- 	int irq;
-@@ -440,7 +460,7 @@ struct bam_device {
- static inline void __iomem *bam_addr(struct bam_device *bdev, u32 pipe,
- 		enum bam_reg reg)
- {
--	const struct reg_offset_data r = bdev->layout[reg];
-+	const struct reg_offset_data r = bdev->dev_data->reg_info[reg];
- 
- 	return bdev->regs + r.base_offset +
- 		r.pipe_mult * pipe +
-@@ -1234,10 +1254,10 @@ static void bam_channel_init(struct bam_device *bdev, struct bam_chan *bchan,
- }
- 
- static const struct of_device_id bam_of_match[] = {
--	{ .compatible = "qcom,bam-v1.3.0", .data = &bam_v1_3_reg_info },
--	{ .compatible = "qcom,bam-v1.4.0", .data = &bam_v1_4_reg_info },
--	{ .compatible = "qcom,bam-v1.7.0", .data = &bam_v1_7_reg_info },
--	{ .compatible = "qcom,bam-v2.0.0", .data = &bam_v2_0_reg_info },
-+	{ .compatible = "qcom,bam-v1.3.0", .data = &bam_v1_3_data },
-+	{ .compatible = "qcom,bam-v1.4.0", .data = &bam_v1_4_data },
-+	{ .compatible = "qcom,bam-v1.7.0", .data = &bam_v1_7_data },
-+	{ .compatible = "qcom,bam-v2.0.0", .data = &bam_v2_0_data },
- 	{}
- };
- 
-@@ -1261,7 +1281,7 @@ static int bam_dma_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	}
- 
--	bdev->layout = match->data;
-+	bdev->dev_data = match->data;
- 
- 	bdev->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(bdev->regs))
+On Wed, Jul 22, 2026 at 09:22:03AM +0200, Krzysztof Kozlowski wrote:
+> > diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchi=
+p,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,=
+dw-dp.yaml
+> > index 2b0d9e23e943..c4f8959dd65d 100644
+> > --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp=
+=2Eyaml
+> > +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp=
+=2Eyaml
+> > @@ -25,7 +25,7 @@ description: |
+> >    * Supports up to 8/10 bits per color component
+> >    * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
+> >    * Pixel clock up to 594MHz
+> > -  * I2S, SPDIF audio interface
+> > +  * I2S, S/PDIF audio interface
+> > =20
+> >  properties:
+> >    compatible:
+> > @@ -46,7 +46,7 @@ properties:
+> >        - description: DisplayPort AUX clock
+> >        - description: HDCP clock
+> >        - description: I2S interface clock
+> > -      - description: SPDIF interfce clock
+> > +      - description: S/PDIF interfce clock
+> > =20
+> >    clock-names:
+> >      minItems: 3
+> > @@ -83,7 +83,8 @@ properties:
+> >      maxItems: 1
+> > =20
+> >    "#sound-dai-cells":
+> > -    const: 0
+> > +    const: 1
+> > +    description: 0 for I2S, 1 for S/PDIF
+>=20
+> This is ABI change, which might be backwards compatible or not, but
+> commit msg should explain that. I can easily imagine drivers where
+> written that way that they will fail with an old DTB.
 
--- 
-2.47.3
+It sure is an ABI break on paper, but I don't think it makes sense
+to have an enum allowing 0 or 1.
 
+mainline kernel:
+At the moment mainline RK3576 dtsi does not have any
+#sound-dai-cells in its DP node and RK3588 has it set to <0>
+(Which will complain after this change. I have a fix for that
+updating it to <1>). But the mainline kernel has absolutely no
+driver support for audio and doesn't use the property at all.
+Not having the cell means the driver would have to assume that
+either I2S or S/PDIF is meant implicitly. But that is also not
+documented.
+
+vendor kernel:
+The only other driver for the DP controller that I am aware of is
+=66rom the vendor kernel tree. That does have #sound-dai-cells =3D 1 on
+RK3588 and uses subnodes for RK3576 (and thus no #sound-dai-cells at
+all).
+
+Thus I argue this is a theoretical ABI break, which affects nothing.
+I will look into adding this info to the commit message after
+dropping the other ideas for <2> and the subnodes.
+
+Greetings,
+
+-- Sebastian
+
+--24edahvaidyqhl6v
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpiSKkACgkQ2O7X88g7
++poM0RAApP2rNA3K/01XsRMbbhbADGMBv3BNt+uco66/KnZMQp6/l4t14Aev8Jcj
+nSgeSHh7TQwORQc5LFT+pNWNXBkLSYfY9hKQ91TNG8i51JyxLsUEZw2LUFXlL8TH
+PemKZCoaUikZqp/bKTxaULuTYW7Q8i7FkFytohTnnyQx6sxppTSj9mE6CeJC6Wif
+ljJRqhvTd+wLw2yab7L+fGMttwtLmo/ad3oO4GUIjh43YKExs4ee7+3U4COkuFX3
+VY6sDFbxQE2g3b4YBqCuYqHxljMl300P4/8N1PRoYvo3IEPYEuqTPinkuviSbPjQ
+wakqJARxmE3WyVHvE3qFqdg5U/jkn1Pp52Knr6p69Z96wKZdDOMJjF3C+/cKS8Mg
+cgQIY+E6PXtaSVcVozKGAc72ohBNtGm721M6dckJ1u9Ch+A7QdK3jlHPPzgpNKVO
+rE7PgzD57uxjgc6+S0tja9QAQpyO0SVGzBb9Iyi3d4g8hp2Sxa5WDiiPoO/cGH6k
+JkpgOFjS9ttdGjvlGUgdnfRv7t+zhZpgNPZPdVEhq11HNxU2zuPLHkP9gTMe7pVf
+xCXwbb0BzrNf0KZuQWSTZVB1QTx9Fa9U4TyjvsTs5iYidmhAKmhi5XDcb8RYLPyO
+oIAtQHge6m+uVo29D2LjcG6JKvJgNs9rgOdl8Z/tlan150EYVqU=
+=mgtU
+-----END PGP SIGNATURE-----
+
+--24edahvaidyqhl6v--
 
