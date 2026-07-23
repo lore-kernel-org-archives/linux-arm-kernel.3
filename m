@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4607FC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 21:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCF6C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 21:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jPX8Qo4WfHXuWtgG3KrlsoZlJSWwTSu8oW28laBWyKA=; b=GI6lDsTFlb4KJHZtH6+SF7LTeO
-	apCi1bWHG9FHDr01zwF/Y8I+t37aJi9kbYhoml5x25qC9TeY70cjBt/k+q/6lgJvMcR/F4Np5Ktz/
-	CJlmeDXfXAEXofRfY7FyJdaA55ojYKIEZBr/2V4sMFNwlwA27GHb85yY4woQVuE8LXeJ/vGSPUjyL
-	NHYfQBrpt/fJtmthNytr+ti9lZHK4Tl+7Q4p7eMdHLyzJHPoqk9ntAv7cg6sgSCOpr+uI3UMYX5cL
-	EdKwrx029lKFn/CuYIk5ZleLsSyXYFOnSiYtJqrbgFk9aK7Ar0k513BvnPQd3brZ0bAebR5ha3yHA
-	GhdLmKbw==;
+	bh=SLdXhgYMtQZkOZKJBRViZWi5CKisW6NN1fRZfJwSl64=; b=PXBQKOkFNfr7XarBBMY0/mD5DF
+	s7OcG0QN50M8n8weFRCYTOvAFoK+1alAUPHPkFgtRuu9Y4LhmVneAi+82aimoJWqE3TwcYdl6GFWi
+	hzCBlqEp71FgWgp6BfFZSgcHGdqkCh3upI5/gh327qHVBmt+hJ0/zz6rd/07AOm0Q6/1pH5xN403i
+	tgkS8kP42ohaZ0NSEYXizPmcTJuznc+qoeSn1+7fqVp7gqAvWj6wdOAHo17fJ1Bxi7yygIFnVqWN9
+	DFc489/qeyhp7A971k1by9E4F32YzbAdgclonzM5DYUAp5NtMRzkCUeC5uPY7jSXLbSAa1FwBjBbt
+	TEjMjmUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn0ei-0000000F60S-3cvv;
-	Thu, 23 Jul 2026 21:08:36 +0000
+	id 1wn0fB-0000000F66k-0GmX;
+	Thu, 23 Jul 2026 21:09:05 +0000
 Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn0eg-0000000F5zj-34QO;
-	Thu, 23 Jul 2026 21:08:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784840903; cv=none; 
+	id 1wn0f8-0000000F66C-3ZNL;
+	Thu, 23 Jul 2026 21:09:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784840931; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ZofzkxPKEd7lf4sDW9ciklCThBWOnDQ2GEu7rPIcNaZveH9q1nkb8kM48CYwN8GMvpuJnjxPky3on0RqbGebq8g3fVMumPEvh1gd1mpW3+ZFUDxm60Cf8a91YM086VgWBTS+gZvD/RJYzE1VwLFNiBHsbcA6a+IidzjsoqP8wwc=
+	b=nWZ907QV3to2K81Jlq1kCqW0gDPRSsxVhJObunskYpoa3kdZynXbXnleneHqnZ5LOEoAV8VlYSwr0wT8Lhl0A6SNAqfzYQzZGNPiuccr/M1aDRZCFJYIIqvRj4hzCCDhBbwOHBFnifN7nOQPDHkwcrzThh0stqsRXwnZpiavzgQ=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784840903; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=jPX8Qo4WfHXuWtgG3KrlsoZlJSWwTSu8oW28laBWyKA=; 
-	b=MUo8/zrAo8wr/AzKX4gpdUEUQCPaHTcqH4dLsSk+G0+4FPxWbet1ZIYyRJz5kc7HbT6i1zyrQsfSDypga842FuSbIdNWAiMvbi5bkAuoHTtjZy5hlx/oaKAyBf7ND+R+HcxVFFzvUe3rNZu6TuzneKEiCvpgpg38yqto651n3Ic=
+	t=1784840931; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SLdXhgYMtQZkOZKJBRViZWi5CKisW6NN1fRZfJwSl64=; 
+	b=TyiaX/zhBYtcwALXeLfhnhuhGms3+npx/pBzVA48DeRp1oPDazJwGGkPLSQGCcg7nItQGr9xNlQWcxBYvIXS/doI0u5MHhYcpfJ0tt1JeM+y9rVWAdBelK06Q7KK/50ne7fztjHyLDjJUvgegGhbqrMPsr8CJSKAYm5aDPXr0yw=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
 	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784840903;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784840931;
 	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
 	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=jPX8Qo4WfHXuWtgG3KrlsoZlJSWwTSu8oW28laBWyKA=;
-	b=hcA++BWE7+onuKGfOK8O7BxIQ+Jb2Es4UNStWGXOCVpgMqc5KzTXngemk9NMCmFf
-	Z/5eEncvx3EMoJeG5bGDCH5D8NW+Z/8z330px0NWVDnptX7H+UjRkrPqVT88yzY3mKy
-	eOIGz1lJusekYanCOTU5MKzSEySqKiWs/JaMmVGI=
-Received: by mx.zohomail.com with SMTPS id 1784840899618134.47086648505854;
-	Thu, 23 Jul 2026 14:08:19 -0700 (PDT)
-Message-ID: <6f38788b-c577-4c79-8a27-3c0942ba1400@collabora.com>
-Date: Fri, 24 Jul 2026 00:08:14 +0300
+	bh=SLdXhgYMtQZkOZKJBRViZWi5CKisW6NN1fRZfJwSl64=;
+	b=cOUdxoT/oo0DFrQSVGZIqcmHWUyyFaoTZQfve53gbLm8uXsiwQeD9tmfuUHVWDuu
+	9mhJw3ce2gCzbITHs3JKOkL0Aq1Spp8RdVP6OATBL8/IN6fxxcD3TbQ6VciRhDCuPxo
+	WGOJcIg1z5fCIy0XNYkDQ/m1PsVFJ0O0WyPSKfLk=
+Received: by mx.zohomail.com with SMTPS id 1784840928227899.1785246524836;
+	Thu, 23 Jul 2026 14:08:48 -0700 (PDT)
+Message-ID: <9a05f046-e408-4b2e-abc1-4aef85838d28@collabora.com>
+Date: Fri, 24 Jul 2026 00:08:43 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: add HDMI RX audio on RK3588
+Subject: Re: [PATCH v4 4/4] arm64: dts: rockchip: enable HDMI RX audio capture
+ on Orange Pi 5 Plus
 To: Igor Paunovic <royalnet026@gmail.com>,
  Mauro Carvalho Chehab <mchehab@kernel.org>
 Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
@@ -60,16 +61,16 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20260721064115.64809-1-royalnet026@gmail.com>
- <20260721064115.64809-4-royalnet026@gmail.com>
+ <20260721064115.64809-5-royalnet026@gmail.com>
 Content-Language: en-US
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-In-Reply-To: <20260721064115.64809-4-royalnet026@gmail.com>
+In-Reply-To: <20260721064115.64809-5-royalnet026@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_140834_826042_8D298A20 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260723_140902_948348_5BA73493 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +86,51 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/21/26 09:41, Igor Paunovic wrote:
-> The Synopsys HDMI RX controller exposes two digital audio interfaces,
-> one for I2S (0) and one for S/PDIF (1). Add the #sound-dai-cells
-> property so audio cards can reference them as a codec, as documented
-> by the snps,dw-hdmi-rx binding.
+> Enable the shared HDMI RX sound card and the i2s7_8ch interface it
+> uses. Together with the audio capture support in the snps_hdmirx
+> driver this exposes a capture-only ALSA card fed by the HDMI input.
 > 
-> Add a shared simple-audio-card routing the receiver I2S DAI to
-> i2s7_8ch, the receive-only I2S interface dedicated to HDMI RX, with
-> the receiver as bitclock and frame master. The card is named
-> "RK3588 HDMI-IN", which is what users see in alsamixer and what ALSA
-> UCM matches on. It mirrors the existing HDMI TX sound cards in this
-> file and is disabled by default, since not every RK3588 board routes
-> HDMI RX audio; boards that do only need to flip its status.
+> Tested on the Orange Pi 5 Plus with multiple HDMI sources: capture
+> follows the source sample rate and stays in sync via the FIFO-level
+> clock tracking in the driver.
 > 
 > Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
 > ---
-> Changes in v4 (both suggested by Sebastian Reichel):
-> - define the whole sound card here as a shared, disabled-by-default
->   node mirroring the HDMI TX cards, instead of per board
-> - name the card "RK3588 HDMI-IN": the name is user-visible in
->   alsamixer and matched by ALSA UCM
+> Changes in v4:
+> - only enable the shared hdmi_receiver_sound card and i2s7_8ch, now
+>   that the card definition lives in rk3588-extra.dtsi (Sebastian
+>   Reichel)
 > 
-> New in v3 (as "add #sound-dai-cells to the RK3588 HDMI receiver").
->  arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
+> New in v3.
+>  arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> index a264001..e0dce15 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> @@ -23,6 +23,23 @@
->  		};
->  	};
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> index 9950d11..9f9a303 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> @@ -171,6 +171,10 @@
+>  	status = "okay";
+>  };
 >  
-> +	hdmi_receiver_sound: hdmi-receiver-sound {
-> +		compatible = "simple-audio-card";
-> +		simple-audio-card,format = "i2s";
-> +		simple-audio-card,name = "RK3588 HDMI-IN";
-> +		simple-audio-card,bitclock-master = <&hdmiin_codec>;
-> +		simple-audio-card,frame-master = <&hdmiin_codec>;
-> +		status = "disabled";
+> +&hdmi_receiver_sound {
+> +	status = "okay";
+> +};
 > +
-> +		hdmiin_codec: simple-audio-card,codec {
-> +			sound-dai = <&hdmi_receiver 0>;
-> +		};
-> +
-> +		simple-audio-card,cpu {
-> +			sound-dai = <&i2s7_8ch>;
-> +		};
-> +	};
-> +
->  	reserved-memory {
->  		#address-cells = <2>;
->  		#size-cells = <2>;
-> @@ -338,6 +355,7 @@
->  		reset-names = "axi", "apb", "ref", "biu";
->  		rockchip,grf = <&sys_grf>;
->  		rockchip,vo1-grf = <&vo1_grf>;
-> +		#sound-dai-cells = <1>;
->  		status = "disabled";
->  	};
+>  &hdptxphy0 {
+>  	status = "okay";
+>  };
+> @@ -247,6 +251,10 @@
+>  	status = "okay";
+>  };
 >  
+> +&i2s7_8ch {
+> +	status = "okay";
+> +};
+> +
+>  &led_blue_gpio {
+>  	gpios = <&gpio3 RK_PA6 GPIO_ACTIVE_HIGH>;
+>  	status = "okay";
 
 Reviewed-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 
