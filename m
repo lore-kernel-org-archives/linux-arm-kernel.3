@@ -4,129 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E4AC531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 16:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD79C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 16:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Subject:Date:Cc:To:From:References:In-Reply-To:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQjSPnzfIWrOwL0jPhkeM1kgPtoDazwwAAJDaT5efhU=; b=sMHozxVM8LNKk+fMB+xAxdbxho
-	YZVVubUlRNiLTmjKNmxZoRyjrmMVuaA0dVgipsSB6iRnBwiEnOTMr8fRNRiCQTleSyf02Eu3rqvgK
-	cUFKac7eVPMia1krfqhAw0J2P5JM6SoKgdobPNEnLtEexZJ7wqvYWGWdH3wdMelQuAWkXVJtPeEAw
-	f3XmQaqQWoP/Sak0/U2v3N6t5wC04Ch+zhaXxXiCJW6ArXzNwFUKcXbSXVVRYwuHbR4WlWXPeqO9A
-	eZFEdfZFqNBIpbRwmUrZT9TdNcVmloQLBvBg/z4U19jwu11r8Y1LU2zSCPMiufw4o/nziLF2xdP7t
-	O4EhVVWg==;
+	bh=5kpsH1cjjEvu9jrR6sTEQ63vP2nPPGUnsP0jqkIfrNs=; b=aXEt2LGko6Gv3/H+eFRQ1zJOS6
+	nyYBc5NNahoIJVa1qCI3jSoLnjza9IZAyaY5lCtxAGyjLIdxb6dlQXL8B76Af7ADJfBi28AgagupB
+	FSo0WRm70jw3VH/6Ub4RCt/n4BQF3/TFXLO5cBEKLLVJ+kJ0NQKfRnilC44vsGorBGkRVxOWkcUL0
+	YvKVRoaCWIBBUqqy+DuRyz/wRddVXbPVwPmS+yzyW+dYaVMZ6awmg02nhdiMm3/O2rOtWUyVn05xr
+	Ow7XOxJoWc+e/7LfwJDSz9k4GkNHGHzO4IE0PK2qWkeZ2rrbHPAAtjScRJFyA04iZqmmjNJ9V9ibg
+	CrA/h72Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo1QD-00000001KvY-2zTU;
+	id 1wo1QD-00000001Kub-1XBT;
 	Sun, 26 Jul 2026 16:09:49 +0000
-Received: from mail-eastus2azolkn19010016.outbound.protection.outlook.com ([52.103.12.16] helo=BN1PR04CU002.outbound.protection.outlook.com)
+Received: from mail-eastus2azolkn19011032.outbound.protection.outlook.com ([52.103.12.32] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo1QA-00000001Kqo-3tZL
+	id 1wo1Pz-00000001Kmz-1CuA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 16:09:48 +0000
+	Sun, 26 Jul 2026 16:09:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vHtU3OQNF+mOrr9fZsFUdWYBGci9oUrPfrFTnDmWDWZtZuOwfyP5C83uNkSQwCc664uGNDRT5sON8EKpX8Qs9EPLfx9aDsqJUNnl38y3h+sW6jSV/YtclTTHZkzBlfbk8Mg+0GiW+oWoJwcVLAButbb1Vb2Dq3fcfoCM3NwRRLTpaIkkKdSveCJo0YoVNz8SRgcVVNpLFhvQCSwM47SCjSuOLGbBo/UOhlf3KSMce6Z7gxt77m88DXXTtbF4PPPJ02ix5hQoQwGjOynQhAqciC2dSy/I/uLUdS5viNlFPzsgD4e1G2GK2U/LY3XD8blXFcEyVf4RVs+XgYFs1KaBTA==
+ b=x10ReprNqxjKqSCIPtDWKGtHtzHEuLQsLJKaRkCy6bvsumrLmGT6QNNgJ1hydzg/0AQ/1KqTngkp4vnTwKXCruq0tAG7P6sSKZ2OaeZRVk722+Hf9P2IQJZ2Euo61zDTYnSLR64lycFBI0VTufYn5kpivMM6t+RqqRf73kTOZGQR1XmypulPVScYBiMmXWKDnO54tETG0FyqdXrKGO+Ubwy/BBlbk6X0x1sz+hKML7XYeGefDU/D3CB7CD4mEB/6mqcP+vc+dQDuPlcYblYRFssBXyYK16JpS1vGXl/eWZG5BCTFhtNGdF+5yqsUFQfP1uI7rcGkCIPGoyub1dW5qw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XQjSPnzfIWrOwL0jPhkeM1kgPtoDazwwAAJDaT5efhU=;
- b=ef8ELm8vaTEWlY7O8jH+2Y4T/TKMSPPEmmME8m8S7Zk6yoO+LuepDuHwL+JJjy1xAay3xU6f9/7xN9n5mJ/V3AGC9y6POMSTc1C7dswjaTEcMeAJSHqe3eQ/xAyRNyKDp2Q1IIrm+qk/OYkBaRVsqeGpUTSwnooNnqZkSbfTScsRouUOrAi4kI1b49UItGWWZgzTHnEDT3Ngpi0ZYfxO6TMDYXtqOIUOoFkfsezNIisC7yJRiArZID5SFfL8Tvffvn6/Z/19YVAYpa5+X4pr+1RceDFlkheft61Q7K9uW7lkv51hhjNXtSu2yrCM17qVNYPBI6PtfeHa+I1CMhlbSQ==
+ bh=5kpsH1cjjEvu9jrR6sTEQ63vP2nPPGUnsP0jqkIfrNs=;
+ b=ODetNvInxkJeSDiecJbznNS1Vnl6yLD3p1WhLoMvyPg2jLM7kB710mAOq6UofnZVLkM4Mo/FgQtX3kIfpZL8Uw+ppeiEQMGAyHFTiqn3QPYC0CwSxdqYJIKE3HYcPvw1HTD13LTv2hT/+PxBAYq3HFgmBmMunqpbrmtEsmKg31MNmtr5l9FtmjtguOF6+W+vLyHlO38yYsn4tLBxNFMZwkCcIZROnMR5q0WwRH9rog9jm2PLSU7zD4strfh1QkFs5q+d1H0nhtz/9XU1aHKvH7vwEoJsrTUM3PTFb9q7KsCJBh6cQ/jY2STpfi8Ec55etcrlTuniLd/g7Wyvb8TNmA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XQjSPnzfIWrOwL0jPhkeM1kgPtoDazwwAAJDaT5efhU=;
- b=h1fWwvitqshPYL97cACr4AQBHzZliXf80sHXCpxyJ4h5iYNuJtzoQyFJd32c89jR4lWOGDS9p60GjXCvXYKuiVlnY1ZFnCqFsyslkGtfZ3YAotxUBoPAXie3InkIzcZKJLjNAWmBt1sgso4lH/3NIdaEh59kPjd43JYQHber0UhOrVQoZQJe4S54bb2GQlxRArHTpdpFzH+RrCzVxxM9Y0CRy70P7xiqaF5wp9H0eRJaiZ2B42fqyEAeTq4lWmc7BuM1QUz1zdncOIZXszNixBN+cuJw+zAGf4JheHvlOazq3JfT9glVJHlcrjo4U9Gjve3CE0FiyTjHNFFKo8qUvg==
+ bh=5kpsH1cjjEvu9jrR6sTEQ63vP2nPPGUnsP0jqkIfrNs=;
+ b=kFe3Q6daDNYcAG0xHBVlDa0xszRYglHIkUBsJvFd95cYK2RCM59ZMdOul8VwpOUVhLUPWhLfE4S6Olblz058Ihi8P/BQG8oAlbbWnhNZOtrplXlirS/q6+phfIat1e/7nJE2cBU9eP3l5VYFSsEtAxhnYa1WtQd2L9jUIZNn5rnQaErSBsTCAKwi4Su3h8GpuZMo1oFwH36tr1SSRABExNAJDKr8qDwRGDdcM52St89aC3d1k96GKxdJgGzd5eIPtiQimxt4rjqNwAgJbqOGNfF+Bi/EHsadQtfMuU/GsX9bwo0Ucs0UA0YoO6Bw0T7ZWqtis/mjCxk/+UmZKdlA9A==
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
  by SN7PR19MB4765.namprd19.prod.outlook.com (2603:10b6:806:100::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Sun, 26 Jul
- 2026 16:09:44 +0000
+ 2026 16:09:32 +0000
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374]) by MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374%5]) with mapi id 15.21.0245.012; Sun, 26 Jul 2026
- 16:09:44 +0000
-Message-ID: <MN0PR19MB6091A0C198F893B465E57E34ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
+ 16:09:32 +0000
+Message-ID: <MN0PR19MB6091BD038D1C31CA2480047FACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
 In-Reply-To: <cover.1785080950.git.liucj1228@outlook.com>
 References: <cover.1785080950.git.liucj1228@outlook.com>
 From: Liu Changjie <liucj1228@outlook.com>
-To: Russell King <linux@armlinux.org.uk>,
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-Date: Thu, 23 Jul 2026 23:49:19 +0800
-Subject: [PATCH 6/9] ARM: stm32: add STM32H7R7 platform support
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 23 Jul 2026 23:48:58 +0800
+Subject: [PATCH 3/9] clk: stm32: add STM32H7RS RCC driver
 Content-Type: text/plain
 X-ClientProxiedBy: TPYP295CA0008.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:9::9)
  To MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
-X-Microsoft-Original-Message-ID: <922e9de1a9459cc41471e543a7e9857175dc5c47.1785080950.git.liucj1228@outlook.com>
+X-Microsoft-Original-Message-ID: <11b65028436c6aca994298d061cee10fd5774949.1785080950.git.liucj1228@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MN0PR19MB6091:EE_|SN7PR19MB4765:EE_
-X-MS-Office365-Filtering-Correlation-Id: 539b7362-07a5-4f84-8211-08deeb304eb4
-X-Microsoft-Antispam: BCL:0;ARA:14566002|16051099003|51005399006|24021099003|15080799012|23021999003|5072599009|25010399006|41001999006|37011999003|19110799012|8060799015|3412199025|440099028|26104999009|40105399003;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sMh96j24iClfWNjqkCO4A+iXnA57QOHmKWK5SHwY1LaFgGgnDnU6WK+vUwtD?=
- =?us-ascii?Q?Z2NonPHsr6HbCDeIDFq5XWcrI7YeNLNyo6KGTePX2JcUbmqpx4Jnbi7M0kDg?=
- =?us-ascii?Q?FdOehmeteY+ppduHlLCwL64ECm9xowLHPQ2IysXmVHxXFdYfTXFeeZxcDnWu?=
- =?us-ascii?Q?dgzIw0zxX9JqqmT7OoJg9bjei9MQx4dXAfTI6bvb3ow3yEAcL8sydNh/i5w6?=
- =?us-ascii?Q?32pwncYKLQvLYnBzYsjdoGuWLm0fmu/EGSHbXI3NTIHaJ33lAVuEs3xAs8Nd?=
- =?us-ascii?Q?GRAxjQpORlbq+jOKpos5WD4HC1RPU7VKyBzwtlWaRDUF8d86XZQSts8SD92b?=
- =?us-ascii?Q?1SvEWaijXczyB+85OEXDpIKQpe/HFgzEmp4ri556JYnTFP4uq4FGR3UZNWH6?=
- =?us-ascii?Q?FpdLOpW7DHqmHjJea8DNhqQ64mdQlEGc9zF+RWfd+m5uGF/ltPujlcqq8yw0?=
- =?us-ascii?Q?fo7PpDmAaMKP964Mtd0uWk1Qw4vmBhQHbrpRSuSIcT8Kj/iHEK8i29hkZfRS?=
- =?us-ascii?Q?ibV8b/r6hz8Tomm6a0GAnX8QuLUZgTWX7lsiV+3dX9yPd17wY09yEtdXec5Q?=
- =?us-ascii?Q?KX0VtpH/x3vwOnps12pBpPiOULuvDt7A88HaUy8hyG/yD4shX1yRynJ5jZHO?=
- =?us-ascii?Q?dXzRACzzudknrfuopibWoPLoRATN17PnZGKoBMYHJXovQ6mOE1XeK+i3/SQG?=
- =?us-ascii?Q?IlxcsVSwz9vc2WUZKygp50USfDU395Mtaj94OKRAz+G82pIhwI+bY+BnDzbL?=
- =?us-ascii?Q?fZF3Jntk8LhLxDa3BvyiFBssXzom5SmAtQe2kc69iP7jkh+l/nWXfJD8MJQb?=
- =?us-ascii?Q?pd7OgPd7YnSjS0CuwhVfGNubXjBe69KnGvEVF92X59mUSmELzo1+PIUW38gc?=
- =?us-ascii?Q?bhpEmymej86jtl1fcoAE3MKvWfcmxwFzwDf3D2ZqMerl1h5pYCBoFwuaoD3D?=
- =?us-ascii?Q?CyYxCg3BKfLlvR7A6su0hP/jeKs8NTGLk9ZFQTWddHM6ok59EkpOv4CWrlwc?=
- =?us-ascii?Q?QY4r/UWG7aqByf/5N5kc0d1Hkw=3D=3D?=
+X-MS-Office365-Filtering-Correlation-Id: 58867787-ddc1-417c-abe6-08deeb304784
+X-Microsoft-Antispam: BCL:0;ARA:14566002|51005399006|24021099003|15080799012|23021999003|5072599009|25010399006|41001999006|37011999003|19110799012|8060799015|12091999003|3412199025|440099028|26104999009|40105399003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9zbs7l7AUNpmP6WMrFb5O2jWiKPA6FWPttbEiNrJR/G9+IUpFXeFN2DI4zU0?=
+ =?us-ascii?Q?8jVJxmcMzvBb1hn+873IcijtNg7ElDSLDw1JcnlMHtQYbmjgRmE5XmykFzx4?=
+ =?us-ascii?Q?W95su/pYKoStLFNl/lBqgsMA+UsYJXPaR7+F6s19wugJ4nxQVIGtqtSIvI6o?=
+ =?us-ascii?Q?2F5QDfEoFN66Lf2f7g/Mad1vR4rPtU7H1Q1+npRCOA6ZZ70p6iqD7IzpO0cn?=
+ =?us-ascii?Q?WWu124TCcOrdZ4a12AEYpiHBJ2dzaTI5JR9w+WFgqtI2BKPvvRUwGs4EDZGt?=
+ =?us-ascii?Q?yUY5crjBfxpWtyU6ob53VcTAwepG181Lx10XVkAu+e4NygaOSY6gxdrCMd4P?=
+ =?us-ascii?Q?kHEqCvaKk4tBPA8nlzFkEL/kzBmoLsyi56ETz1THe54TOeFdlBh8EYDdtNt3?=
+ =?us-ascii?Q?Sat/DXZ5Sj8t4y8bZ3NrzcTAGvWKlIC1o0MldI2V7jqZ+IbtVtQ5vLQJ8cYQ?=
+ =?us-ascii?Q?xFILBLopeb6aobnl9lMxfY7zmi3hcqxd1/RhMObMzQpFLuUdMGiaXfTKGLdB?=
+ =?us-ascii?Q?E1USHT1vjxilm8RYAEHSqglrIM/EGqt+f7bCC9VbmLIwYGiagnBpDqtirhgQ?=
+ =?us-ascii?Q?SDyc1RQZBWS64QoTegVSAtKF7aoIW2VMREORcIUWA3UZL9HNUF0chtpBNIVI?=
+ =?us-ascii?Q?d4rW9ACbXvgn65PTdQD6g3osfdLK9tEste+xGudMD9+sfpMDwMVOPpvnnqgP?=
+ =?us-ascii?Q?fXcSu773cgXcK0AFnzVKdMh52p5L9GZHMgEaqtefbpR0tFXK9EA/9wIrw8ws?=
+ =?us-ascii?Q?b6OcMrNpfTh3H9i4CtIAOQ52Fu+v94NmjtJnDPfb5WTFn0GjCzxw4mcB2g+w?=
+ =?us-ascii?Q?KN80WtGcV0wwLprjsAfxzBRDWnMjafk8mkPGGk/8deH92/ZjFFs9zIMG5hzx?=
+ =?us-ascii?Q?xm9hT29XwCcqNIXiA1DdYD2Z3HJg5RpOM/IrlcIHyqx8+v6EBNFu4+xdpSOj?=
+ =?us-ascii?Q?uvTU0TMCzz/WgQ4EvYapzOwQWGUKqaR9M0Jj8NCzmp/pgjF4PPmuanIt34yN?=
+ =?us-ascii?Q?Ms4rFpROuVQO5F8nBjzW4AKRaQ=3D=3D?=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bnuxvtj9GKRXskEyZP5JO5JhdVgkkL+KInEPFO8e0r2yd7lP5uYoUWmOts7a?=
- =?us-ascii?Q?4dE9rYB9oOKN5zbOV43OPlfFbuGNATn4OS7wThlYNaZlHnmEAl2yzO8tYHur?=
- =?us-ascii?Q?CKAmIlRd1ofL/ueIXpow6o/zKhaNgCWjn3YmtQcdMPK4PuWbvjuPuVd4f4k9?=
- =?us-ascii?Q?irWyfJoJsCmNhkHTJRWKZAKtMP0y2aW/oMxFIV1xhlrYNXepTpnkXh/dzBu0?=
- =?us-ascii?Q?Cm7Qj5l1n73fS2CDrBxONp8aCDcbX6KQzfWpLiZBeOki6MtNJ4sXPry4UCZN?=
- =?us-ascii?Q?gk21nDummcSpupxH3VkPiPKlcQoWl53KUfiY3yHI/kXBX9xg84cZSJhVmVJZ?=
- =?us-ascii?Q?7dLIRpu0OGcyJmFQJPyJ32smhF04kO5OnbVIvoU4gJIca7VUt6ItdeMZhDe7?=
- =?us-ascii?Q?d9rpt01dZVoSGDolkaTEodDYUg5SmaCuPzqpVUn55JHedUKouAtwd9JkEYl/?=
- =?us-ascii?Q?cqKIQX5MzNUFr5XFRd97HDZc9E4ev3AIm+U/f1V+Jt3BWbYxB6jvgqnrhPYp?=
- =?us-ascii?Q?bg/oLlazwLn36PkOVI1g5UZRQhOxQxuh37s1PCHYhjuIvRS63Po0CLq3Lbst?=
- =?us-ascii?Q?0YZsaIN38LhSxKAWgy2hczECPP74yrxwvXuy1dBP6WUTTeZAqTobY+F6+gjn?=
- =?us-ascii?Q?DM9uUnnjSDQ6YR/Muitp2CvSFGIchvTrg8zOdgRZTPhw4wWHPzv5jZlvadum?=
- =?us-ascii?Q?Zp8l3qOqvzBo0DurpEAZxLk29udBhw5S3aiY8p5UdUdXCWgmhi2b7RwtBvgr?=
- =?us-ascii?Q?F1f5/aClWKy3t7fvEOSUQyDfyS1b6+R0JCPmYPkIdglT9XmBVx97pkYaS5q6?=
- =?us-ascii?Q?WNDV6UQWa3Y8xuZVyB/sr5mfZ2YCpn/vITJUvSpWRvQeSHf7v2xk2n5NJwIn?=
- =?us-ascii?Q?opx41AX5Mlh5imwlP1lzoiar8cqombH8d9c6zOOn98obJ+rwC7Ks3Ppds03B?=
- =?us-ascii?Q?PCQboW3JotHuwY+pcXtyVBd9uU1YQiH2o6oYQt9MWHNngN7YGcOxIYohBGgk?=
- =?us-ascii?Q?dmkPXNwaRlf63hxKmIlxVOLTCl9MiV2+NaGc8JAdHL5PA6Ffq4HzJPr9Z7Nu?=
- =?us-ascii?Q?UCC3u+XfEeuc1u3kojIoLIma/6qAbFL6RS9KEhuXRUaMBuZwEF5x6DkpCW73?=
- =?us-ascii?Q?LcO610e6FqeqZAkcrgoykZ/5jhCN5NJjyK8PIl1PLQN80d3srHYj1MnDg1Kt?=
- =?us-ascii?Q?YZFYmjoGaQMXZVxbOEs0F92njLtomMuuzg7s9eRjt6Hq7y9osoFUmd1UZUGy?=
- =?us-ascii?Q?z30LVmHCsnE78xeXoUI5UYgH00rCYR1elGo8NGI2lYikjGxU1Eql7H1DUZXG?=
- =?us-ascii?Q?6d6bGeL8swLYVYmYCaG1wA9iNB3B5DIP7AQZc4dmp+GJ5hBEbsxr3y2jrziz?=
- =?us-ascii?Q?3gwcCcmW8KTXaLJhSTrItrf1NyV9wzLIM9yEcpF8k428t3K+Ig=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UJ76Y/bruiFZZklQOEU8A/zF+VJQUjEMzyvaZUfsJJ/OoswIiB7s23w4kHbz?=
+ =?us-ascii?Q?6dMksl9yZD8cqIEm2odrbX8PH81PRO+7qHaBInuN99eBScTGtP3B37pfGOUm?=
+ =?us-ascii?Q?3UpSwwIqd/UJPHBLQ0xth/wQWepNkd5OWzt/KdwwdJIIkP6opPJCmbWdgvWJ?=
+ =?us-ascii?Q?jKPF5EvfY5IFJNPh8FDtVcDNiMz5feglKR2EPT8Ammi1DIm/mQ7xfr2+sCIo?=
+ =?us-ascii?Q?ivNVqbi75IvoWM4wNL9ZWThz8JUYd9fvSmPgxSxHILYnxXxHhktJtu9sIpd6?=
+ =?us-ascii?Q?dr6I0HZMgjr4YYmEaXI2B0g0FnSUc97/cZmjYGiqyA367BNlZEQm+58YRQPv?=
+ =?us-ascii?Q?+PCxkCUhD20BCWCVZrPI4KrIKRkA6BVURPo06kknWo3TuHxuq6IzqiwfdoOD?=
+ =?us-ascii?Q?wDeBUDpms71wajrQ9a+OAOqDUUd4M6rdRSbWuiNn1bvUgV1b5ofttHn5/FGK?=
+ =?us-ascii?Q?Tfh1mV2pS7yD2Pi+Jk8oQKcSyM3kiYTU4bat7whgpYrWYXyMRw3XQHeRqmwV?=
+ =?us-ascii?Q?ZeFF8JHSsH5wlQGdt/mqT/z7uVLdhds5GlSgCSZPGLPuT6Ed1stiCZx8X+nx?=
+ =?us-ascii?Q?4Qs3HidmRXanu8w0iqlWXmsA8DEuen/RbnxZaDtM809Nc9JpY9c8aq3ed6HX?=
+ =?us-ascii?Q?IZI0wpiMu4CvIY2shaiqYzd55rYB4Zg+CpKwD00sNDdg3hFtmUPL9zk467e0?=
+ =?us-ascii?Q?jK+ErERLE8gIFtBCmcNbu4Ls39uqB/Hy4hL0Ym9ln66VN4jE84HrZuTl6fh3?=
+ =?us-ascii?Q?5HcLQytyAfIhGFlO600K0afG+tBF3IxrcTab0NdTJ4lC4AFe3QdhZv3MOnny?=
+ =?us-ascii?Q?vXRpw6pSEbbs2YpY0/hdJXs4QtQQ+DEKp3FPQa7dCkOFCh3eNmoZP+v9zMvZ?=
+ =?us-ascii?Q?n9sbu3kKrwYkTEyUhWYjInyNMgZcAI+J3gC9gJxQFHTV8ioSscYVlz3r3abk?=
+ =?us-ascii?Q?8k7Vd/OqtAiaX0bmynYNbMNJ+7Xfk9NsQ8dSplOJOl1E5BvDKd0EY+vTPLty?=
+ =?us-ascii?Q?SkCqkz028HKScM2UtDGMSIWJw27Ih53ODugTKjohySWmeLQER8Zydhxbl+YZ?=
+ =?us-ascii?Q?steA1tHGF3fsuPGRhrvg9c6ERAR3ym2Zkz0PI6EKSbKvmsMntRYP+Q5AAIpu?=
+ =?us-ascii?Q?nS8rRL96zO8xfD7nR+NN277vW8Of2CXJzOpdOFJXC1Xz7vru1ArwGUVWrAXu?=
+ =?us-ascii?Q?Kxnuvbz+GURLFioOh0sbX7cQeNMtqWTdM2STIP5asjPc0bIhJNuUCpdbr5w1?=
+ =?us-ascii?Q?NjZb2Dw71M9s4NUYP5Qqfjmbnz/yGM9SCMtLDSa4pOTS/83M7I0roVjHNGL3?=
+ =?us-ascii?Q?ePYa7mY6Zvgd+DNdmRdFjfaDxCsjggH9nXeSkLsutiscL9jn2rq6qSdUQJb5?=
+ =?us-ascii?Q?bv9R7mS3swUvjrEUNvEK8rFeUEaJ1k1nSADp4D3LGQtrGKsVtg=3D=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 539b7362-07a5-4f84-8211-08deeb304eb4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58867787-ddc1-417c-abe6-08deeb304784
 X-MS-Exchange-CrossTenant-AuthSource: MN0PR19MB6091.namprd19.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 16:09:44.7704
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 16:09:32.7650
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR19MB4765
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_090946_969053_AB602E66 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260726_090935_338217_FDE2A4E9 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,92 +143,519 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable STM32H7R7 in the STM32 machine selection and compatible table.
-Add low-level UART4 debug output using the register layout shared by
-the STM32F7 and STM32H7 USART block.
+Register the active STM32H7RS system, bus and selected peripheral
+clocks without reprogramming the PLLs used for execute-in-place.
+Decode the PLL2 S and T outputs used by SDMMC from PLL2DIVR2.
+Expose gates for TIM5, UART4, GPIO banks A-H and M-P, and SDMMC1.
 
 Signed-off-by: Liu Changjie <liucj1228@outlook.com>
 ---
- arch/arm/Kconfig.debug         | 12 ++++++++++++
- arch/arm/include/debug/stm32.S |  2 +-
- arch/arm/mach-stm32/Kconfig    |  8 ++++++++
- arch/arm/mach-stm32/board-dt.c |  1 +
- 4 files changed, 22 insertions(+), 1 deletion(-)
+ drivers/clk/Kconfig         |   5 +
+ drivers/clk/Makefile        |   1 +
+ drivers/clk/clk-stm32h7rs.c | 466 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 472 insertions(+)
+ create mode 100644 drivers/clk/clk-stm32h7rs.c
 
-diff --git a/arch/arm/Kconfig.debug b/arch/arm/Kconfig.debug
-index 366f162e1..e76750d9e 100644
---- a/arch/arm/Kconfig.debug
-+++ b/arch/arm/Kconfig.debug
-@@ -1202,6 +1202,17 @@ choice
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index 1717ce75a..5d1562a8a 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -448,6 +448,11 @@ config COMMON_CLK_STM32H7
+ 	help
+ 	  Support for stm32h7 SoC family clocks
  
- 		  If unsure, say N.
- 
-+	config STM32H7RS_DEBUG_UART
-+		bool "Use STM32H7RS UART for low-level debug"
-+		depends on MACH_STM32H7R7
-+		select DEBUG_STM32_UART
-+		help
-+		  Say Y here if you want kernel low-level debugging support on
-+		  STM32H7RS platforms. The ART-Pi2 debug console is UART4 at
-+		  physical address 0x40004c00.
-+
-+		  If unsure, say N.
-+
- 	config STM32MP1_DEBUG_UART
- 		bool "Use STM32MP1 UART for low-level debug"
- 		depends on MACH_STM32MP157
-@@ -1582,6 +1593,7 @@ config DEBUG_UART_PHYS
- 	default 0x20201000 if DEBUG_BCM2835
- 	default 0x3e000000 if DEBUG_BCM_KONA_UART
- 	default 0x3f201000 if DEBUG_BCM2836
-+	default 0x40004c00 if STM32H7RS_DEBUG_UART
- 	default 0x40010000 if STM32MP1_DEBUG_UART
- 	default 0x40011000 if STM32F4_DEBUG_UART || STM32F7_DEBUG_UART || \
- 				STM32H7_DEBUG_UART
-diff --git a/arch/arm/include/debug/stm32.S b/arch/arm/include/debug/stm32.S
-index b6d9df30e..2a8c25ede 100644
---- a/arch/arm/include/debug/stm32.S
-+++ b/arch/arm/include/debug/stm32.S
-@@ -10,7 +10,7 @@
- #endif
- 
- #if defined(CONFIG_STM32F7_DEBUG_UART) || defined(CONFIG_STM32H7_DEBUG_UART) || \
--	defined(CONFIG_STM32MP1_DEBUG_UART)
-+	defined(CONFIG_STM32H7RS_DEBUG_UART) || defined(CONFIG_STM32MP1_DEBUG_UART)
- #define STM32_USART_SR_OFF		0x1C
- #define STM32_USART_TDR_OFF		0x28
- #endif
-diff --git a/arch/arm/mach-stm32/Kconfig b/arch/arm/mach-stm32/Kconfig
-index 630b992f3..ebf9fb637 100644
---- a/arch/arm/mach-stm32/Kconfig
-+++ b/arch/arm/mach-stm32/Kconfig
-@@ -40,6 +40,14 @@ config MACH_STM32H743
- 	bool "STMicroelectronics STM32H743"
- 	default y
- 
-+config MACH_STM32H7R7
-+	bool "STMicroelectronics STM32H7R7"
-+	default y
++config COMMON_CLK_STM32H7RS
++	def_bool COMMON_CLK && MACH_STM32H7R7
 +	help
-+	  Support for STMicroelectronics STM32H7R7 Cortex-M7
-+	  microcontrollers. This enables support for boards based on the
-+	  STM32H7R7 SoC, such as the RT-Thread ART-Pi2.
++	  Support for STM32H7RS SoC family clocks
 +
- endif # ARMv7-M
- 
- if ARCH_MULTI_V7
-diff --git a/arch/arm/mach-stm32/board-dt.c b/arch/arm/mach-stm32/board-dt.c
-index e6233c872..d1207b84a 100644
---- a/arch/arm/mach-stm32/board-dt.c
-+++ b/arch/arm/mach-stm32/board-dt.c
-@@ -19,6 +19,7 @@ static const char *const stm32_compat[] __initconst = {
- 	"st,stm32h743",
- 	"st,stm32h747",
- 	"st,stm32h750",
-+	"st,stm32h7r7",
- 	"st,stm32mp131",
- 	"st,stm32mp133",
- 	"st,stm32mp135",
+ config COMMON_CLK_MMP2
+ 	def_bool COMMON_CLK && (MACH_MMP2_DT || MACH_MMP3_DT)
+ 	help
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index cc108a75a..3dcb2f525 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -98,6 +98,7 @@ obj-$(CONFIG_COMMON_CLK_SI570)		+= clk-si570.o
+ obj-$(CONFIG_COMMON_CLK_SP7021)		+= clk-sp7021.o
+ obj-$(CONFIG_COMMON_CLK_STM32F)		+= clk-stm32f4.o
+ obj-$(CONFIG_COMMON_CLK_STM32H7)	+= clk-stm32h7.o
++obj-$(CONFIG_COMMON_CLK_STM32H7RS)	+= clk-stm32h7rs.o
+ obj-$(CONFIG_COMMON_CLK_TPS68470)      += clk-tps68470.o
+ obj-$(CONFIG_CLK_TWL6040)		+= clk-twl6040.o
+ obj-$(CONFIG_CLK_TWL)			+= clk-twl.o
+diff --git a/drivers/clk/clk-stm32h7rs.c b/drivers/clk/clk-stm32h7rs.c
+new file mode 100644
+index 000000000..b82a24822
+--- /dev/null
++++ b/drivers/clk/clk-stm32h7rs.c
+@@ -0,0 +1,466 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Clock driver for the STM32H7RS Reset and Clock Controller.
++ *
++ * The first-stage firmware configures the oscillators and PLLs before Linux
++ * starts executing from external NOR.  The driver reconstructs that running
++ * clock tree from RCC registers and gives Linux ownership of peripheral clock
++ * gates without disturbing the XIP-critical PLL configuration.
++ */
++
++#include <linux/clk.h>
++#include <linux/clk-provider.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/math64.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_clk.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++
++#include <dt-bindings/clock/stm32h7rs-clks.h>
++
++#define RCC_CR			0x000
++#define RCC_CFGR		0x010
++#define RCC_CDCFGR		0x018
++#define RCC_BMCFGR		0x01c
++#define RCC_APBCFGR		0x020
++#define RCC_PLLCKSELR		0x028
++#define RCC_PLLCFGR		0x02c
++#define RCC_PLL1DIVR1		0x030
++#define RCC_PLL1FRACR		0x034
++#define RCC_PLL2DIVR1		0x038
++#define RCC_PLL2FRACR		0x03c
++#define RCC_PLL3DIVR1		0x040
++#define RCC_PLL3FRACR		0x044
++#define RCC_CCIPR1		0x04c
++#define RCC_CCIPR2		0x050
++#define RCC_PLL2DIVR2		0x0c4
++#define RCC_AHB5ENR		0x134
++#define RCC_AHB4ENR		0x140
++#define RCC_APB1ENR1		0x148
++
++#define RCC_CR_HSIDIV_SHIFT	3
++#define RCC_CFGR_SWS_SHIFT	3
++#define RCC_CFGR_TIMPRE		BIT(15)
++#define RCC_PLLCFGR_FRACEN(_pll)	BIT(((_pll) - 1) * 11)
++#define RCC_PLL_ON(_pll)	BIT(24 + (((_pll) - 1) * 2))
++
++#define RCC_CDCFGR_CPRE_SHIFT	0
++#define RCC_BMCFGR_BMPRE_SHIFT	0
++#define RCC_APBCFGR_PPRE1_SHIFT	0
++#define RCC_APBCFGR_PPRE2_SHIFT	4
++#define RCC_APBCFGR_PPRE4_SHIFT	8
++#define RCC_APBCFGR_PPRE5_SHIFT	12
++
++#define RCC_CCIPR1_SDMMC12SEL	BIT(2)
++#define RCC_CCIPR2_UARTSEL_MASK	GENMASK(2, 0)
++
++#define HSI_RATE		64000000UL
++#define CSI_RATE		4000000UL
++
++static DEFINE_SPINLOCK(stm32h7rs_rcc_lock);
++
++static const u16 pll_divr_offset[] = {
++	RCC_PLL1DIVR1, RCC_PLL2DIVR1, RCC_PLL3DIVR1,
++};
++
++static const u16 pll_fracr_offset[] = {
++	RCC_PLL1FRACR, RCC_PLL2FRACR, RCC_PLL3FRACR,
++};
++
++static const u8 pll_m_shift[] = { 4, 12, 20 };
++
++enum stm32h7rs_pll_output {
++	PLL_P,
++	PLL_Q,
++	PLL_R,
++	PLL_S,
++	PLL_T,
++};
++
++static unsigned long stm32h7rs_hsi_rate(void __iomem *base)
++{
++	u32 div = (readl_relaxed(base + RCC_CR) >> RCC_CR_HSIDIV_SHIFT) & 0x3;
++
++	return HSI_RATE >> div;
++}
++
++static unsigned long stm32h7rs_pll_rate(void __iomem *base, unsigned int pll,
++					unsigned int output,
++					unsigned long hse_rate)
++{
++	static const u8 output_shift[] = { 9, 16, 24 };
++	u64 numerator;
++	unsigned long parent_rate;
++	u32 divr1, frac = 0, m, n, out_div, source;
++
++	if (pll < 1 || pll > ARRAY_SIZE(pll_divr_offset) || output > PLL_T)
++		return 0;
++
++	if (output > PLL_R && pll != 2)
++		return 0;
++
++	if (!(readl_relaxed(base + RCC_CR) & RCC_PLL_ON(pll)))
++		return 0;
++
++	source = readl_relaxed(base + RCC_PLLCKSELR) & GENMASK(1, 0);
++	switch (source) {
++	case 0:
++		parent_rate = stm32h7rs_hsi_rate(base);
++		break;
++	case 1:
++		parent_rate = CSI_RATE;
++		break;
++	case 2:
++		parent_rate = hse_rate;
++		break;
++	default:
++		return 0;
++	}
++
++	m = (readl_relaxed(base + RCC_PLLCKSELR) >> pll_m_shift[pll - 1]) & 0x3f;
++	if (!m || !parent_rate)
++		return 0;
++
++	divr1 = readl_relaxed(base + pll_divr_offset[pll - 1]);
++	n = (divr1 & GENMASK(8, 0)) + 1;
++	if (readl_relaxed(base + RCC_PLLCFGR) & RCC_PLLCFGR_FRACEN(pll))
++		frac = (readl_relaxed(base + pll_fracr_offset[pll - 1]) >> 3) &
++			GENMASK(12, 0);
++
++	if (output <= PLL_R) {
++		out_div = ((divr1 >> output_shift[output]) &
++			   GENMASK(6, 0)) + 1;
++	} else {
++		u32 divr2 = readl_relaxed(base + RCC_PLL2DIVR2);
++		u8 shift = output == PLL_S ? 0 : 8;
++
++		out_div = ((divr2 >> shift) & GENMASK(2, 0)) + 1;
++	}
++
++	numerator = (u64)parent_rate * (n * 8192ULL + frac);
++	return div64_u64(numerator, (u64)m * 8192ULL * out_div);
++}
++
++static unsigned long stm32h7rs_ahb_rate(unsigned long parent_rate, u32 val)
++{
++	static const u16 div_table[] = { 2, 4, 8, 16, 64, 128, 256, 512 };
++
++	if (val < 8)
++		return parent_rate;
++
++	return parent_rate / div_table[val - 8];
++}
++
++static unsigned long stm32h7rs_sys_rate(void __iomem *base,
++					unsigned long hse_rate)
++{
++	unsigned long rate;
++	u32 cpre, source;
++
++	source = (readl_relaxed(base + RCC_CFGR) >> RCC_CFGR_SWS_SHIFT) & 0x7;
++	switch (source) {
++	case 0:
++		rate = stm32h7rs_hsi_rate(base);
++		break;
++	case 1:
++		rate = CSI_RATE;
++		break;
++	case 2:
++		rate = hse_rate;
++		break;
++	case 3:
++		rate = stm32h7rs_pll_rate(base, 1, PLL_P, hse_rate);
++		break;
++	default:
++		return 0;
++	}
++
++	cpre = (readl_relaxed(base + RCC_CDCFGR) >> RCC_CDCFGR_CPRE_SHIFT) & 0xf;
++	return stm32h7rs_ahb_rate(rate, cpre);
++}
++
++static unsigned long stm32h7rs_apb_rate(void __iomem *base,
++					unsigned long hclk_rate, u8 shift)
++{
++	u32 prescaler = (readl_relaxed(base + RCC_APBCFGR) >> shift) & 0x7;
++
++	if (prescaler < 4)
++		return hclk_rate;
++
++	return hclk_rate >> (prescaler - 3);
++}
++
++static unsigned long stm32h7rs_timer_rate(void __iomem *base,
++					  unsigned long hclk_rate,
++					  unsigned long pclk_rate)
++{
++	u32 prescaler = (readl_relaxed(base + RCC_APBCFGR) >>
++			 RCC_APBCFGR_PPRE1_SHIFT) & 0x7;
++
++	if (prescaler < 4)
++		return pclk_rate;
++
++	if (!(readl_relaxed(base + RCC_CFGR) & RCC_CFGR_TIMPRE))
++		return pclk_rate * 2;
++
++	return prescaler < 6 ? hclk_rate : pclk_rate * 4;
++}
++
++static unsigned long stm32h7rs_uart4_rate(void __iomem *base,
++					  unsigned long hse_rate,
++					  unsigned long lse_rate,
++					  unsigned long pclk1_rate)
++{
++	u32 source = readl_relaxed(base + RCC_CCIPR2) & RCC_CCIPR2_UARTSEL_MASK;
++
++	switch (source) {
++	case 0:
++		return pclk1_rate;
++	case 1:
++		return stm32h7rs_pll_rate(base, 2, PLL_Q, hse_rate);
++	case 2:
++		return stm32h7rs_pll_rate(base, 3, PLL_Q, hse_rate);
++	case 3:
++		return stm32h7rs_hsi_rate(base);
++	case 4:
++		return CSI_RATE;
++	case 5:
++		return lse_rate;
++	default:
++		return 0;
++	}
++}
++
++static unsigned long stm32h7rs_sdmmc1_rate(void __iomem *base,
++					   unsigned long hse_rate)
++{
++	if (readl_relaxed(base + RCC_CCIPR1) & RCC_CCIPR1_SDMMC12SEL)
++		return stm32h7rs_pll_rate(base, 2, PLL_T, hse_rate);
++
++	return stm32h7rs_pll_rate(base, 2, PLL_S, hse_rate);
++}
++
++static int __init h7rs_register_fixed(struct clk_hw_onecell_data *data,
++				      unsigned int id, const char *name,
++				       unsigned long rate)
++{
++	struct clk_hw *hw;
++
++	hw = clk_hw_register_fixed_rate(NULL, name, NULL, CLK_IS_CRITICAL, rate);
++	if (IS_ERR(hw))
++		return PTR_ERR(hw);
++
++	data->hws[id] = hw;
++	return 0;
++}
++
++static int __init h7rs_register_gate(struct clk_hw_onecell_data *data,
++				     unsigned int id, const char *name,
++				      const char *parent_name,
++				      void __iomem *base, u16 offset,
++				      u8 bit_idx)
++{
++	struct clk_hw *hw;
++
++	hw = clk_hw_register_gate(NULL, name, parent_name, CLK_IGNORE_UNUSED,
++				  base + offset, bit_idx, 0,
++				  &stm32h7rs_rcc_lock);
++	if (IS_ERR(hw))
++		return PTR_ERR(hw);
++
++	data->hws[id] = hw;
++	return 0;
++}
++
++struct stm32h7rs_gate {
++	u8 id;
++	u8 bit_idx;
++	u16 offset;
++	const char *name;
++	const char *parent_name;
++};
++
++static const struct stm32h7rs_gate stm32h7rs_gates[] __initconst = {
++	{ STM32H7RS_TIM5_CK, 3, RCC_APB1ENR1, "tim5", "tim5_ker" },
++	{ STM32H7RS_UART4_CK, 19, RCC_APB1ENR1, "uart4", "uart4_ker" },
++	{ STM32H7RS_GPIOA_CK, 0, RCC_AHB4ENR, "gpioa", "h7rs_hclk" },
++	{ STM32H7RS_GPIOB_CK, 1, RCC_AHB4ENR, "gpiob", "h7rs_hclk" },
++	{ STM32H7RS_GPIOC_CK, 2, RCC_AHB4ENR, "gpioc", "h7rs_hclk" },
++	{ STM32H7RS_GPIOD_CK, 3, RCC_AHB4ENR, "gpiod", "h7rs_hclk" },
++	{ STM32H7RS_GPIOE_CK, 4, RCC_AHB4ENR, "gpioe", "h7rs_hclk" },
++	{ STM32H7RS_GPIOF_CK, 5, RCC_AHB4ENR, "gpiof", "h7rs_hclk" },
++	{ STM32H7RS_GPIOG_CK, 6, RCC_AHB4ENR, "gpiog", "h7rs_hclk" },
++	{ STM32H7RS_GPIOH_CK, 7, RCC_AHB4ENR, "gpioh", "h7rs_hclk" },
++	{ STM32H7RS_GPIOM_CK, 12, RCC_AHB4ENR, "gpiom", "h7rs_hclk" },
++	{ STM32H7RS_GPION_CK, 13, RCC_AHB4ENR, "gpion", "h7rs_hclk" },
++	{ STM32H7RS_GPIOO_CK, 14, RCC_AHB4ENR, "gpioo", "h7rs_hclk" },
++	{ STM32H7RS_GPIOP_CK, 15, RCC_AHB4ENR, "gpiop", "h7rs_hclk" },
++	{ STM32H7RS_SDMMC1_CK, 8, RCC_AHB5ENR, "sdmmc1", "sdmmc1_ker" },
++};
++
++static void __init stm32h7rs_rcc_init(struct device_node *np)
++{
++	struct clk_hw_onecell_data *clk_data;
++	unsigned long hse_rate, lse_rate;
++	unsigned long sys_rate, hclk_rate;
++	unsigned long pclk1_rate, pclk2_rate, pclk4_rate, pclk5_rate;
++	unsigned long timer_rate, uart4_rate, sdmmc1_rate;
++	struct clk_hw *timer_hw = NULL, *uart4_hw = NULL, *sdmmc1_hw = NULL;
++	struct clk *input;
++	void __iomem *base;
++	unsigned int fixed_count = 0, gate_count = 0;
++	unsigned int i;
++	u32 bmpre;
++	int ret;
++
++	base = of_iomap(np, 0);
++	if (!base) {
++		pr_err("%pOF: unable to map RCC registers\n", np);
++		return;
++	}
++
++	input = of_clk_get(np, 0);
++	if (IS_ERR(input)) {
++		pr_err("%pOF: unable to get HSE input clock\n", np);
++		goto err_unmap;
++	}
++	hse_rate = clk_get_rate(input);
++	clk_put(input);
++
++	input = of_clk_get(np, 1);
++	if (IS_ERR(input)) {
++		pr_err("%pOF: unable to get LSE input clock\n", np);
++		goto err_unmap;
++	}
++	lse_rate = clk_get_rate(input);
++	clk_put(input);
++
++	clk_data = kzalloc(struct_size(clk_data, hws, STM32H7RS_MAX_CLKS),
++			   GFP_KERNEL);
++	if (!clk_data)
++		goto err_unmap;
++	clk_data->num = STM32H7RS_MAX_CLKS;
++
++	sys_rate = stm32h7rs_sys_rate(base, hse_rate);
++	bmpre = (readl_relaxed(base + RCC_BMCFGR) >>
++		  RCC_BMCFGR_BMPRE_SHIFT) & 0xf;
++	hclk_rate = stm32h7rs_ahb_rate(sys_rate, bmpre);
++	pclk1_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE1_SHIFT);
++	pclk2_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE2_SHIFT);
++	pclk4_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE4_SHIFT);
++	pclk5_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE5_SHIFT);
++	timer_rate = stm32h7rs_timer_rate(base, hclk_rate, pclk1_rate);
++	uart4_rate = stm32h7rs_uart4_rate(base, hse_rate, lse_rate, pclk1_rate);
++	sdmmc1_rate = stm32h7rs_sdmmc1_rate(base, hse_rate);
++
++	if (!sys_rate || !hclk_rate || !pclk1_rate || !pclk2_rate ||
++	    !pclk4_rate || !pclk5_rate || !timer_rate || !uart4_rate ||
++	    !sdmmc1_rate) {
++		pr_err("%pOF: invalid boot clock configuration\n", np);
++		goto err_free;
++	}
++
++	ret = h7rs_register_fixed(clk_data, STM32H7RS_SYS_CK,
++				  "h7rs_sys_ck", sys_rate);
++	if (ret)
++		goto err_register;
++	fixed_count++;
++	ret = h7rs_register_fixed(clk_data, STM32H7RS_HCLK,
++				  "h7rs_hclk", hclk_rate);
++	if (ret)
++		goto err_register;
++	fixed_count++;
++	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK1,
++				  "h7rs_pclk1", pclk1_rate);
++	if (ret)
++		goto err_register;
++	fixed_count++;
++	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK2,
++				  "h7rs_pclk2", pclk2_rate);
++	if (ret)
++		goto err_register;
++	fixed_count++;
++	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK4,
++				  "h7rs_pclk4", pclk4_rate);
++	if (ret)
++		goto err_register;
++	fixed_count++;
++	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK5,
++				  "h7rs_pclk5", pclk5_rate);
++	if (ret)
++		goto err_register;
++	fixed_count++;
++
++	timer_hw = clk_hw_register_fixed_rate(NULL, "tim5_ker", NULL,
++					      CLK_IS_CRITICAL, timer_rate);
++	if (IS_ERR(timer_hw)) {
++		ret = PTR_ERR(timer_hw);
++		timer_hw = NULL;
++		goto err_register;
++	}
++	uart4_hw = clk_hw_register_fixed_rate(NULL, "uart4_ker", NULL,
++					      CLK_IS_CRITICAL, uart4_rate);
++	if (IS_ERR(uart4_hw)) {
++		ret = PTR_ERR(uart4_hw);
++		uart4_hw = NULL;
++		goto err_register;
++	}
++	sdmmc1_hw = clk_hw_register_fixed_rate(NULL, "sdmmc1_ker", NULL,
++					       CLK_IS_CRITICAL, sdmmc1_rate);
++	if (IS_ERR(sdmmc1_hw)) {
++		ret = PTR_ERR(sdmmc1_hw);
++		sdmmc1_hw = NULL;
++		goto err_register;
++	}
++
++	for (i = 0; i < ARRAY_SIZE(stm32h7rs_gates); i++) {
++		const struct stm32h7rs_gate *gate = &stm32h7rs_gates[i];
++
++		ret = h7rs_register_gate(clk_data, gate->id, gate->name,
++					 gate->parent_name, base,
++					   gate->offset, gate->bit_idx);
++		if (ret) {
++			pr_err("%pOF: failed to register %s clock: %d\n",
++			       np, gate->name, ret);
++			goto err_register;
++		}
++		gate_count++;
++	}
++
++	ret = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, clk_data);
++	if (ret) {
++		pr_err("%pOF: failed to add clock provider: %d\n", np, ret);
++		goto err_register;
++	}
++
++	pr_info("STM32H7RS RCC: sys=%lu hclk=%lu pclk1=%lu tim5=%lu uart4=%lu sdmmc1=%lu\n",
++		sys_rate, hclk_rate, pclk1_rate, timer_rate, uart4_rate,
++		sdmmc1_rate);
++	return;
++
++err_register:
++	while (gate_count) {
++		const struct stm32h7rs_gate *gate;
++
++		gate = &stm32h7rs_gates[--gate_count];
++		clk_hw_unregister_gate(clk_data->hws[gate->id]);
++	}
++	if (sdmmc1_hw)
++		clk_hw_unregister_fixed_rate(sdmmc1_hw);
++	if (uart4_hw)
++		clk_hw_unregister_fixed_rate(uart4_hw);
++	if (timer_hw)
++		clk_hw_unregister_fixed_rate(timer_hw);
++	while (fixed_count)
++		clk_hw_unregister_fixed_rate(clk_data->hws[--fixed_count]);
++	pr_err("%pOF: failed to register clocks: %d\n", np, ret);
++err_free:
++	kfree(clk_data);
++err_unmap:
++	iounmap(base);
++}
++
++CLK_OF_DECLARE_DRIVER(stm32h7rs_rcc, "st,stm32h7rs-rcc", stm32h7rs_rcc_init);
 -- 
 2.55.0
 
