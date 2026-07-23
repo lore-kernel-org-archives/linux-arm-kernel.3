@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B43C531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:45:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A74C531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9iRhNi+yUXKfpfAd3BQD5gtcqdXgAesz130Ref+69T0=; b=R/mbr9jfGVcReaCWP3coUrUNft
-	ErZGfFBSvxh0Uw+mpclZtQrrG1mOOaV1Eelb4efLWrCqbangM1V6YfdWqdCCOvkEP0UCyaC8oCdqo
-	xHDQRztZSJyyTN4cCkzN1vBWaM43pNup/ddk3v3vP3UCWiPHxVSmu9Nma4PK4DV771mt0xCEG4rSR
-	hW/ncgFaHP5IFGpsIlx4R5l8pUjSBQ4dGAkSrmdt7UThpg+1mXbzY6CUQQAwIYxifVYsHQZOY48Mn
-	Dt/x93GL7M2egmvYY9qkwgSUQIeKBD8I2N0D2Qcyr8BqWaEY127I5Wp5xTbmJjEF5iiDEypV9isOn
-	oV72lJXQ==;
+	bh=uFC0FJn2K9QjmbX+4U2bvjdaTYDQukKzSXYkqzp4f24=; b=Yao2HP9HxwqDfRQDYCULhDlaO3
+	pjsVILXkjFaduWS8ev24mqSr/qFDgUn4gETac+SCNV8iWEOBLwMZVOBmudiBsJedqFcD+fb05UG9r
+	1W9bmWZagesxOfcSQZOaRkVW+tPLl8729AZTAahhTTbOQshri2cBGGeEc5aKffKm7NI9zJhWpoBh+
+	PJYwZl749P3a32AsTKPpSpnkRxPtdowGpFOYC2vK8X0oyZq+1eFC13HXqrKoMAO5WZEbW9hd+ObbS
+	0EEYYq0KEne/q4THfih0Cg7CSLRNuihkc1pNVsUQLTxi7u/nfEH8q12iR8q02Nt27GvPrwUvEj/nv
+	YeMHvefA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmw1f-0000000EgZS-2ICd;
-	Thu, 23 Jul 2026 16:11:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmw18-0000000EgFT-1o1v
+	id 1wmvlg-0000000EeVV-2Uyo;
+	Thu, 23 Jul 2026 15:55:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmvlb-0000000EeSC-2BzX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 16:11:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FB5343EE5;
-	Thu, 23 Jul 2026 16:11:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4A371F000E9;
-	Thu, 23 Jul 2026 16:11:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784823085;
-	bh=9iRhNi+yUXKfpfAd3BQD5gtcqdXgAesz130Ref+69T0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Va66P9RpFS7zFNo8rf/NAGDRn9gBhUncM5Fxaotxl0jrI7ssKffoQEfkuNj9GSaa3
-	 5Ihhb47C5QGVojU9c6GH/spIbM4E4kAs8tdw1TI2jZV7fgA7+3jyu8pft41z3yUge2
-	 6hlulT0Av560w0gFbbyH/dCSKN6AqFS8N7FIuwrCdlzSQ1E2ruY/ramCC/hcrdc/zr
-	 YU+Qhq5Nyi8q8uddK8xamr3dOgIXefnFZetJJpgSGS4tWI60Bx/BKeAA+jL/FSi0Vi
-	 qO4eCrOm1k1nh1CykBB8/YLmTC5iZV16P6ZJx66xlBSLiRJUZN49+0/y7k1m/vHzmu
-	 P9Bf2c0M9nJKw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wmw0v-0000000872h-2eaX;
-	Thu, 23 Jul 2026 16:11:13 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kernel-team@android.com,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: Re: [PATCH] KVM: arm64: Add missing hyp_enter when trapping sysreg
-Date: Thu, 23 Jul 2026 17:11:11 +0100
-Message-ID: <178482303777.3351010.5347305905050874552.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260617095238.1530121-1-vdonnefort@google.com>
-References: <20260617095238.1530121-1-vdonnefort@google.com>
+	Thu, 23 Jul 2026 15:55:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD91D176A;
+	Thu, 23 Jul 2026 08:55:18 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78E4C3F66F;
+	Thu, 23 Jul 2026 08:55:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784822122; bh=zuii4y3ZJEsm4812TF2ly2vpc/bQP8awGaQF3cHeW2A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=B1p47kdnYLlMlEOvDF7EeUClQq+qwW1K8JHUITjYfSp2J5KEGVUdJyCaYpmJi2RnO
+	 uv6VYIUFQv/venwh0oXEZnUDhsItAt9WNczRsVwS11WhxcGHojakSThvpPMbf9vdCM
+	 RsV40R2bPaHKQZE2VavexMvvKxyPAFYH0hsswoQk=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Srinivas Ramana <sramana@qti.qualcomm.com>,
+	Niyas Sait <niyas.sait@arm.com>,
+	Lee Trager <lee@trager.us>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 06/10] arm_mpam: propagate MSC access errors for state saving function
+Date: Thu, 23 Jul 2026 17:54:50 +0200
+Message-ID: <20260723155454.1760823-7-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260723155454.1760823-1-andre.przywara@arm.com>
+References: <20260723155454.1760823-1-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, vdonnefort@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kernel-team@android.com, fuad.tabba@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_085523_637860_36B1251C 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +86,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Jun 2026 10:52:38 +0100, Vincent Donnefort wrote:
-> Add a missing hypervisor event call for hyp_enter on sysreg trapping,
-> causing an unbalanced hyp_enter/hyp_exit.
-> 
-> The enum hyp_enter_exit_reason is not ABI, so we can keep the ERET
-> reasons at the end for clarity.
-> 
-> 
-> [...]
+Allow the mpam_save_mbwu_state() function to return an error, and
+propagate read and write errors from the lower level up.
 
-Applied to fixes, thanks!
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+ drivers/resctrl/mpam_devices.c | 29 ++++++++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
 
-[1/1] KVM: arm64: Add missing hyp_enter when trapping sysreg
-      commit: e7821048e8d72a94b1fb7422f8b45aa374ff076f
-
-Cheers,
-
-	M.
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index bcff53477133..6329443c451f 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -1833,22 +1833,37 @@ static int mpam_save_mbwu_state(void *arg)
+ 
+ 		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+ 			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+-		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+-		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
+-		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
+-		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
++		ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
++		if (ret)
++			return ret;
++		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
++		if (ret)
++			return ret;
++		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
++		if (ret)
++			return ret;
++		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
++		if (ret)
++			return ret;
+ 
+ 		if (mpam_ris_has_mbwu_long_counter(ris)) {
+ 			ret = mpam_msc_read_mbwu_l(msc, &val);
+ 			if (ret)
+ 				return ret;
+-			mpam_msc_zero_mbwu_l(msc);
++			ret = mpam_msc_zero_mbwu_l(msc);
++			if (ret)
++				return ret;
+ 		} else {
+ 			u32 val32;
+ 
+-			mpam_read_monsel_reg(msc, MBWU, &val32);
++			ret = mpam_read_monsel_reg(msc, MBWU, &val32);
++			if (ret)
++				return ret;
++
+ 			val = val32;
+-			mpam_write_monsel_reg(msc, MBWU, 0);
++			ret = mpam_write_monsel_reg(msc, MBWU, 0);
++			if (ret)
++				return ret;
+ 		}
+ 
+ 		cfg->mon = i;
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.43.0
 
 
