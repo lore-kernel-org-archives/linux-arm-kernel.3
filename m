@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D313C531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54014C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eM65QZLrWtYxIQiPT84qffHAidOGo3FICK3E0OXeoJo=; b=xFKYwsoMqbmr+CX9g+oIRz2VGb
-	f9P9ZOsDLiu6YSzWsxdUrKkINo5fHwxJVWh0Mms3FjKdRv1rm0aTY0y7SAT/1h7L1zGW0CVSmo8ho
-	V61JfWOemGuBzT8t4M3KaQhdG90ao7lcRhTsEp8HSj5K5/abrG5XePfXSAMdRYcQa4Naz6mwXqD3r
-	A26wIY+VBj2BKbupwhMhDRDG28OOoXj4jU4e5/pEFUqIbOWxsuUQKGfBBbKN0im0S6xqrQR/U/v+f
-	Y70l49Lhg1FKjlupEaMyGZcZzYT1YNzlD3lgMYgzEDrpc16qkzIF8HSkjyXArDdNNn75S5dP7ath4
-	4uNBl4Jg==;
+	bh=8I9WwvhFbEM9iAa53dhbxA1gFJZWlii6YXBZUb5eEow=; b=p5poQix8y3dl/xcFnhVC7rlreh
+	0WM+t/+rJlVEDaFkR4d3ZVDytrmgbqPFWslkC6ViAOUwuvE72CGblN6ycXKsYfOZoSyCNxPy3eu+d
+	LgSg6ZpEMtNyiqxICMVOQR7oy7t3NJVzzdQGJ6s7oBFdL3a4YKGmUCYzpRzWkqq8/MnVk/8uw/MzL
+	R6/n6SFaRpY+8d+EWhvLSGeHqe1oZHQyy8UzWK5Fajh+TkLr3wQGD12RUgl2bSzIvpEwTmjJG/Aix
+	cp8dS9PFXo5cooCOnsxdi1Kd2LQ4xnrp1u2nfEnvg1teFvVpCOtTze23DW32IyJiX26TFlL34y3IO
+	svzCRpfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn0NH-0000000F4j3-1GPt;
-	Thu, 23 Jul 2026 20:50:35 +0000
+	id 1wn0T2-0000000F56c-44Sh;
+	Thu, 23 Jul 2026 20:56:32 +0000
 Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn0NE-0000000F4iW-48we;
-	Thu, 23 Jul 2026 20:50:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784839818; cv=none; 
+	id 1wn0T0-0000000F55u-1Daj;
+	Thu, 23 Jul 2026 20:56:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784840177; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=XMG/wr4GN4vLYna9aU05B4HrXbD6HwxQ9DsJPRslUljs/9cAloicWqRSsLUMHs5c6vu5P37fi7oEWupHs6ZoJnLQIKXy7MDeFtqrjWXEB8cqe4qvOmQiA+ZyOGDl7loEJTTdk9avMJst6z9ijGF6SQTkURsLLHbqblq0DQ0Ybmc=
+	b=D9+jE3ftNDflNHtQS33dbevRLkr8wXunkO2Onj2Lu/ALSlCFoj4c/61dJdpCBiSYp4iPNhXABhUuS7YflA/qcxSuPjLHqR1+lPmGIya4dZett6ngj4pL7rymaVQ1PcRxoaXgatWY0o38gDW/DNaqVt2FmL4MSQwilBey6hKUI58=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784839818; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=eM65QZLrWtYxIQiPT84qffHAidOGo3FICK3E0OXeoJo=; 
-	b=OxU8crpuLIfTfXyNuVpPUMYgrK7x44YMeGPATsa5zLa8UGZujZSraMhXYXduemhlPBIa1b1ucf7jYUJ9dAASLJ2TqyBzHXmP6LD8EE73nTNRwed6pxP4NVVKNRExjgD6ProZT3trOzqIFBufjJzIcoI+Di2f81GPrvxXpVP4WP8=
+	t=1784840177; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8I9WwvhFbEM9iAa53dhbxA1gFJZWlii6YXBZUb5eEow=; 
+	b=ZhMp2BG2WaLBVBGgodkSC30NjhHbJ3KsVF/bY1FLG31ri8YaxXA6TECod9WY6qTBaYO9bofUE04gasDYF4xi1LJ89G7tWkqXNy4hXzTUUxmW0k/yRLb0rzjGzRuEUxoz79WaknWRB4dppASuGICKwHoaU706yudRJbcWB4JqKNo=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
 	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784839818;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784840177;
 	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
 	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=eM65QZLrWtYxIQiPT84qffHAidOGo3FICK3E0OXeoJo=;
-	b=ZiTB9pM5t2Ueeg9IP/5bxQYmUT0C61Z3Ef+pSNXhTVr2ByZFg9PZKStLTyml4zYD
-	5sS5sJq34hQ/BxWyisIwE779c1SPJ5WGLl3yjZDGEznrufd5umBTUwspcgxJ7L+5TJc
-	kpXufWJPajCzKkj3z4k1y3JNtv4YHQOPxxxn75jc=
-Received: by mx.zohomail.com with SMTPS id 1784839814772605.7006110620167;
-	Thu, 23 Jul 2026 13:50:14 -0700 (PDT)
-Message-ID: <58b7f1fd-997c-48af-9a7c-a0a5738a5d42@collabora.com>
-Date: Thu, 23 Jul 2026 23:50:09 +0300
+	bh=8I9WwvhFbEM9iAa53dhbxA1gFJZWlii6YXBZUb5eEow=;
+	b=M+mj4sirUiKmA5b2cRUrbBUrgIrqj3ze6YoyZu5iEJApefiJ0nJ+aClAPDiKbTaf
+	RezgtJvXsCx0NyK+9kMOFnrEbIBilEBehJiuPgWU/V+Kti2WURFxjHPQ00gv+HiRCe0
+	cLFBysy7TYOsMxDZ/VFghjCc/x2ls9Nb04Bn5mT4=
+Received: by mx.zohomail.com with SMTPS id 1784840175686843.6352557845835;
+	Thu, 23 Jul 2026 13:56:15 -0700 (PDT)
+Message-ID: <1ac66aab-8985-4441-8ce1-07e2ea5183bd@collabora.com>
+Date: Thu, 23 Jul 2026 23:56:11 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] media: synopsys: hdmirx: add HDMI audio capture
+Subject: Re: [PATCH v3 2/4] media: synopsys: hdmirx: add HDMI audio capture
  support
-To: Igor Paunovic <royalnet026@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
  linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260721064115.64809-1-royalnet026@gmail.com>
- <20260721064115.64809-3-royalnet026@gmail.com>
-From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+References: <20260718085728.6797-1-royalnet026@gmail.com>
+ <20260718085728.6797-3-royalnet026@gmail.com>
+ <25922edc-4ff1-4d28-9a64-2c28b2b690cb@collabora.com>
+ <CAEWPSH70FecQRuGtA=S8+_CnLY5sMyf1j57Uwzwv54zceS1HZg@mail.gmail.com>
+ <b8d63f61-b73e-412e-8119-ced1afdd4551@collabora.com>
+ <CAEWPSH5j3tYNb1JKRGwa00PVnYAgCKS+B-Qz07D8Z7TJea5cMw@mail.gmail.com>
 Content-Language: en-US
-In-Reply-To: <20260721064115.64809-3-royalnet026@gmail.com>
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <CAEWPSH5j3tYNb1JKRGwa00PVnYAgCKS+B-Qz07D8Z7TJea5cMw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_135033_147403_78FAFE35 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20260723_135630_393993_9167CA83 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +89,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/21/26 09:41, Igor Paunovic wrote:
-> The Synopsys DesignWare HDMI RX controller extracts the audio stream
-> embedded in the incoming HDMI signal and feeds it to an on-SoC I2S
-> controller. Expose it as an ALSA capture device by registering the
-> generic hdmi-codec as a child of the controller, so that a
-> simple-audio-card in the device tree can bind the HDMI RX audio DAI.
+On 7/21/26 08:31, Igor Paunovic wrote:
+> Hi Dmitry,
 > 
-> The sample rate is recovered from the ACR N/CTS values together with the
-> measured TMDS character rate. A periodic worker keeps the local audio
-> reference clock locked to the source by nudging it in small ppm steps to
-> hold the audio FIFO fill level near its target, which avoids FIFO
-> under/overflow and the resulting dropped samples.
+>> Re-arming will be best option if it works properly.
 > 
-> Across system suspend the worker is stopped before the controller
-> clocks are gated. Resume fully resets the controller, wiping the audio
-> configuration, so when a capture stream is active it re-programs the
-> audio path from the last known sample rate and re-arms the worker,
-> whose rate change and FIFO error paths resynchronize once the source
-> delivers audio again.
+> Went back to it and made it work properly -- with one honest caveat
+> at the end.
 > 
-> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-> ---
-> Changes in v4:
-> - use swab32() for the ACR word reversal: readl() already abstracts
->   bus endianness, so the reversal must be unconditional (be32_to_cpu
->   is a no-op on big-endian)
-> - support system suspend: stop the worker in suspend before the
->   clocks are gated; resume fully resets the controller, so re-program
->   the audio path and re-arm the worker while a capture stream is
->   active, through a hdmirx_audio_setup() helper shared with
->   hw_params() (Dmitry Osipenko; validated with an active capture
->   stream across suspend/resume)
+> Plain cancel/re-arm could not have been enough as previously
+> written: hdmirx_resume() fully resets the controller via
+> reset_control_bulk_assert/deassert in hdmirx_enable(), wiping the
+> audio configuration (I2S_EN, AUDIO_ENABLE, FIFO thresholds), and
+> the worker's error path never re-programs those -- it only resyncs
+> the clock rate and reinits the FIFO. So v4 does:
 > 
-> Changes in v3:
-> - restore the v1 audio teardown in remove(): audio_shutdown() already
->   stops the worker when the stream closes, so the extra flag clear
->   and trailing cancel added in v2 were redundant (Dmitry Osipenko)
-> - rename the ACR read locals and add a comment documenting the
->   register byte packing
-> - drop the get_dai_id stub so OF-graph cards resolve the DAI index
->   from the reg property
+> - suspend: cancel_delayed_work_sync() on the audio worker before
+> the clocks are gated (audio_streaming stays set);
+> - resume: if a capture stream is active, re-program the whole
+> audio path (clock from the last known sample rate, FIFO
+> thresholds, I2S_EN, AUDIO_ENABLE) and re-arm the worker.
 > 
-> Changes in v2:
-> - register the S/PDIF DAI so the indexes match the binding and reject
->   it with -EOPNOTSUPP until wired up (Sebastian Reichel)
-> - use platform_device_register_data() and drop the fixed 32-bit DMA
->   mask (Dmitry Osipenko)
-> - don't leave an ERR_PTR in audio_pdev on registration failure
-> - fix teardown ordering in remove()
-> - stop the worker before reprogramming shared state in hw_params()
-> - look up the "audio" clock by name instead of indexing clks[1]
-> - keep the worker on system_unbound_wq when re-arming
->  .../platform/synopsys/hdmirx/snps_hdmirx.c    | 306 ++++++++++++++++++
->  .../platform/synopsys/hdmirx/snps_hdmirx.h    |   8 +
->  2 files changed, 314 insertions(+)
+> The programming is factored out of hw_params() into a shared
+> hdmirx_audio_setup() helper so resume and hw_params cannot drift.
+> I also checked that nothing in the post-resume hotplug re-init path
+> (plugout/plugin/submodule_init/controller_init) touches the audio
+> bits, so the restore survives the replug dance resume triggers.
+> 
+> Measured on the Orange Pi 5 Plus (pm_test=devices, i.e. full device
+> suspend/resume callbacks, active capture stream with live audio
+> through the whole cycle): on resume the capture simply continues --
+> audio was flowing again the moment the display came back, no
+> userspace intervention, clean dmesg, no oops in any of the ~6
+> cycles exercised tonight.
+> 
+> The caveat: a *second* suspend/resume cycle in the same boot leaves
+> the audio datapath silent (the I2S slave sees no bit clock, so
+> capture reads time out) even though the resume restore re-programs
+> everything, and a fresh stream open does not recover it -- only a
+> reboot does. Notably this happens with plain no-stream suspend
+> cycles as well, so it is not caused by (and would not be prevented
+> by) either the re-arm or the -EBUSY approach -- it looks like more
+> controller state lost on repeated reset that neither hw_params nor
+> resume currently covers, likely the same warm-up state machine I
+> described in the v3 testing note (audio needing a video STREAMON
+> after a replug). I am instrumenting the register state next to
+> root-cause it; I'd treat it as a follow-up rather than a v4
+> blocker, but happy to hear if you see it differently -- and curious
+> whether the 5B shows the same second-cycle behavior.
+> 
+> v4 follows with the re-arm plus the dts and binding changes already
+> mentioned.
+> 
+> One more small thing the audio bit exposes, for a possible
+> follow-up: hdmirx_cec_update_bits() is a non-atomic RMW (the read
+> and the write each take rst_lock separately), and with audio added
+> there are now two writers of GLOBAL_SWENABLE, so a CEC adapter
+> enable racing an audio enable/disable could in theory lose the
+> other side's bit. Mainline today has a single writer, so it is not
+> a bug there. Can send a small patch making it atomic if you think
+> it is worth it.
 
-Note: Current variant of audio support requires userspace to manually
-select appropriate audio freq on capture. This needs to be improved
-later on for regular userspace apps by dynamically registering audio
-CODEC on HDMI cable plug event and reading out actual audio freq on the
-wire, restricting the CODEC's rate, which might require extension of the
-hdmi_codec_ops.
-
-Reviewed-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-Tested-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Feel free to send the follow ups.
 
 -- 
 Best regards,
