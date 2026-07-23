@@ -4,138 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FEDC44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 06:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A7AC531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 06:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=py0PkpOVrtAFryFHHG6/VqvQSvx0m+zmCOHtGcv+wk4=; b=04JALl8Kit0Ph3/QzdmgPCtOd8
-	2G5hrMm1fZ4hSmHvhYQ1zTZAchBjn8/gTNOJU2PZlHiocuHpPMK9zFcdjsTj61xmjIs/6WK4ColoI
-	FL+paRqoixi/KF7crULw168TZygzaGJISIA4rooF68nv5GaJPlawFObEKcCn4BvhS/hXzSxVJ4QUO
-	SfWCObc+mVuV0p9k4PCNFU0Rlo4ujrSB0dXk/tdYAQ+Q0cR1ARc8WDRd87VAMy/Th7muXyaUh8Tl5
-	8K8FM6rPhffjJx9JdbC2RbZHQGS/Hz4j7JXM1n7yp1o6xH8Pyw6RFy8Ck1OVN5JuqDoU/6Pds3bUr
-	tprovkkw==;
+	bh=RMgJTnpmW/wyGYoBefUw5nTaoyE3tD3ieELr6nMHW40=; b=uJkYkReQrQ9XbX6s8cuuS09NCc
+	KUFRmeICVeD97e3FOdfdsYzM+REEHVlcurUEpAux2ZFneT2AtyMY8If0rjB/AgS4udofOCBvxoOjl
+	xuVSQzLTUIYOIkzhZ116PIaPVIDOAsZi/3mSJodjNF/OtYIdT1LBjcym3/9L2oNXUb1HRKz5TmPYj
+	tQByxPC268+XcxQMo4DWD8Zg4bBiwT9JL8oQz5uNC1HtSXhfiMpI48DFEThpB0/mXJpBbdYulvaL1
+	3rBlbXIo/WGl6JuguT/83Nz+OfO4vWmQpm1Zw+J0whrSNMerfmvq8Uu/4+S0A3sgw2Kb+OwGRKGaf
+	rqTGHQjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmfQ-0000000DWuh-13sX;
-	Thu, 23 Jul 2026 06:12:24 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wmmzF-0000000DY7y-0VPJ;
+	Thu, 23 Jul 2026 06:32:53 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmfN-0000000DWtf-1T6Z
+	id 1wmmzC-0000000DY7X-0EOV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 06:12:22 +0000
+	Thu, 23 Jul 2026 06:32:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784788370; x=1816324370;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=rhRfyiAm8q2cgyYNjTI8QiVShBIARbUAubBU03TuWm0=;
+  b=DWq8lPuDPMVnLvB0iDeHHBKojilaL2UOMYc0LgwDowNVWXXgGPKqPhRf
+   nlWMJnHaROVRsmatDcQyeXberHy1cvrm7vNajgTJ8/EBNUoyzoZvR9EpT
+   JqyOAGeLNHOJF2x3yGdVaAvtsACrXUxGLmpAXu2w5L2un+Cv3aLeDoi2s
+   GZcN3ArSJtHeNwuCJFb+YZaTX0NLkdWZtAJ82Ypck46kMRSclkIXQ8Uww
+   owBCev+osEgoR7ufAaRm1C+R0Qc8LLm84/Z2oc0RMd1Y2aMMlo3n46GV9
+   BKUXxiytF2eIPvNtIm6lZxZg3HKy7h0+hg9gyYNNSCzcjum5RB+Y27QgE
+   g==;
+X-CSE-ConnectionGUID: npp7oK/LTyqPXyL5lzbpAA==
+X-CSE-MsgGUID: m+Y6jtPuQD+T9B7S46TY2g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="96806146"
+X-IronPort-AV: E=Sophos;i="6.25,180,1779174000"; 
+   d="scan'208";a="96806146"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 23:32:48 -0700
+X-CSE-ConnectionGUID: FmWhOgY2TBKzxi5ZUxghJg==
+X-CSE-MsgGUID: frpednw4R5iMBj1aCrs67A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,180,1779174000"; 
+   d="scan'208";a="254383299"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 23:32:48 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43; Wed, 22 Jul 2026 23:31:37 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43 via Frontend Transport; Wed, 22 Jul 2026 23:31:37 -0700
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.12)
+ by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43; Wed, 22 Jul 2026 23:30:59 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P97PW39dOSMxpfQm6t+1BoZQD5XXTEw2A6wl5D1LXyTCaRdI0XweKt5TOy9+gvdfHHLvBNc+6hSwNesH90pqgVs9Z3CrCfl1nxbNOy6GDZ1ROzZkZ1nPl50pnkzMUE4HQWi2xvUkrkj8bubUxCr1ciohKH0izfIgPhkuHWrXvrDmlon5A25IMKaG0bfgJ8Gq0D4g5DkA2nVgeCVI3ItqybVgvRbw3pSa0DqQMndr7o4hxNsw/Y/iJDT1JVnhqNuRLqkKmgDHTFfCRhr5+Fwl+1Oz8qvbB+NeYtMbI+K0m2jx817f+U8ZsvuQpGNVxoqwYWxlMDCFiR4PwyZFUi+hxQ==
+ b=TIRHJXwvhYLYJSNzdAGR/M81WvY91g+jrDaOyyExFN96FJlXtRgx6UKLtj25EyWw4rx75BxeXcdu2wd/sz9Dcp7sNr3OZSP7aY7g7GWv0+t2dKnlR0TgAvhdnLs/TyRvTkibvI1c+cxUeZiRaW+UHGbQirrpHejOeujlp1ByqWUyMgtOKUnc9lVPoiCVryOaN+urzQRncRpUNHbfhREmTnkxIc72P+9YXBugBsFx8UgkuKysf5zA2yLl0xd2aPHq8uj5W3VeTY36jZtoe+D/nI+aKkW/gw7mjv5twrq6ho1Mi7cNLwH8KDd7L5art58CVYJMSczLFHSc1cdYCGWeew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=py0PkpOVrtAFryFHHG6/VqvQSvx0m+zmCOHtGcv+wk4=;
- b=ZyvmThyfpdxvcgKwCE1pbi1lMqGImQXVe8QqtskmBKKFXcZIDIGMJtl2sPLNUGZwtM+1Mv3yRgBLTcZ3f65oLcXmq16rvm7qw9o+kqIN2nQDBbkwiPlkYNndbbZblD44sKbBmSg2Cns322t53o0Wsm9W6WnK2LC7ZK6lylJ6qCI22864KszKpOoWcToy5oB5TwygXIwEhZ8Vaa8huGrSyxbbCmFHIsb4J7xSHGm6nOR81JdptsWpAmIt9CMDePhC7rmlTheAfFDoVuIxsaHkjsK5TKmRFxw6moGWMalJmkWGQhf3APHEDEl6RkH2j250wdcjrPMHudXdWhOPXwgwfw==
+ bh=RMgJTnpmW/wyGYoBefUw5nTaoyE3tD3ieELr6nMHW40=;
+ b=qmVC4rb3mWfMpk5PIKNriVrGcFENYKzgdfaF9H4U75UN3HQiZNQYxLDINMsFhg6yxaqi3iI7Kaoab5akNClw5D6RPl6KSLeArXAw85o5lJy9dwDUPR4bV/pFEuPY3b/ybpXw/41RFmN6hXgTa/Nv2u405EXnEbu8iiH3rfXf7IjJ5Maom3TRT6QWaUtngkQZMqHxoVVnSJweg+328Tk2nFXXWUxzGNj9/37x7fMYNhhhA17NP8Jm+HEOizQfoc0J5lMdyfeFHfDMxHQ0dZ0nlwxlaNVOIvG12hj87HJ+LdiBNY4vOP4V2Cn2QFDNn5T5uxCqI/HjJPBt5wyU3UA3fQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=py0PkpOVrtAFryFHHG6/VqvQSvx0m+zmCOHtGcv+wk4=;
- b=U17m7+gmcN97DyYptDcQTu/5RDM/aRqewIgDPfmoMxutBFf1fjxQxfW75VYjReaQlPhHmqQqmLJ6JHZ2h3zALm6mtB0LDSngmCZnrDnX+6ca6vnVS1NTF6gzqWQ58RvY+NOTSqKzOccxA+euKgc4VEceRA/T68KoMhGmiZF69C9AYzzSYSWYT5RHWcG3TH6Y3ZRTCp3vb6OshsxcaPvVoDKaRIn7bkDJpmAdWXPVe9TXYnsG4XfYQWHbrsgtP2KAZwLR86ENLGJZEdPacuF7riHtO/ACRdeKfG+0uBPoCw7WieVdR/Bdwts4U2khILLr3LdFcz34vFnLGXObgA5rDA==
-Received: from TY0PR06MB6855.apcprd06.prod.outlook.com (2603:1096:405:13::10)
- by JH0PR06MB7125.apcprd06.prod.outlook.com (2603:1096:990:8f::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Thu, 23 Jul
- 2026 06:12:07 +0000
-Received: from TY0PR06MB6855.apcprd06.prod.outlook.com
- ([fe80::9405:99c0:aadd:7e05]) by TY0PR06MB6855.apcprd06.prod.outlook.com
- ([fe80::9405:99c0:aadd:7e05%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 06:12:07 +0000
-From: YC Hsieh <yc_hsieh@aspeedtech.com>
-To: Jammy Huang <jammy_huang@aspeedtech.com>,
-	=?iso-8859-1?Q?Gr=E9goire_Layet?= <gregoire.layet@9elements.com>,
-	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "corey@minyard.net" <corey@minyard.net>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-CC: "openipmi-developer@lists.sourceforge.net"
-	<openipmi-developer@lists.sourceforge.net>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/2] soc: aspeed: ipmi: add KCS Channel 4 over PCIe
-Thread-Topic: [PATCH v2 0/2] soc: aspeed: ipmi: add KCS Channel 4 over PCIe
-Thread-Index: AQHdGezQ0quMicaHf02veNXAwWBHIbZ6caMwgAAum+Y=
-Date: Thu, 23 Jul 2026 06:12:07 +0000
-Message-ID: <TY0PR06MB6855DF99AEBD19C2CA2CE98093C02@TY0PR06MB6855.apcprd06.prod.outlook.com>
-References: <cover.1784732161.git.gregoire.layet@9elements.com>
- <TYZPR06MB65685CF6F0969A3F400AEA2BF1C02@TYZPR06MB6568.apcprd06.prod.outlook.com>
-In-Reply-To: <TYZPR06MB65685CF6F0969A3F400AEA2BF1C02@TYZPR06MB6568.apcprd06.prod.outlook.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY0PR06MB6855:EE_|JH0PR06MB7125:EE_
-x-ms-office365-filtering-correlation-id: 1c675693-e992-4092-dc98-08dee881531c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|38070700021|6133799003|56012099006|10067099003|4143699003|18002099003|22082099003;
-x-microsoft-antispam-message-info: KhswXOFidl30Tj/rnE5K8+CFgial/SmL2DalRLXy6cRRVAhgM9NBvxjzF1PqzpZ7PB5Kb/gGHGz4RBj4eQyhuUIIqgKui0VaSDGr8QUBK4KlL/TLC7XUMiOz7cqSEmHX4X8nQ5z8+2OG6LY2wVm5PenBtm8fOCKViSEPGBVFP0tzC+VHx2K8zi48wR1MURjw3JVCTO7BUE4B43Mw5+N+KkjrkrcODB5I5H3ppzhQ7YDGNIrvudHwlYMuCOH/H9a10Z6KYyHSDqL2DZJpAicKNCH9waC+f74NFhWIPz8yqV8+xY+pHHFYgPvZnCYxQk6FRNxcxFG2eKYza9FLPNBnwNMl45bnMzPVMPMxLmNDpkRonj2l3aJ3S2damVVz67syiXVG45J5X+oj6v490MRW7HDTZ0r8eRIqkgmU2EK3KYJP3DxXzAembKKoJR66P/Yvb7aDV/i1OqxknVtQ3l5EydpyU0IG31IKJ/ZtNfsMAJ5ccmolNDFrkr5+qu8nR/fzsn8Yz5lA0m6I4l5WhMlJpqYAxQTUU/hlWKhC+xru2k2ywSs/Owd8JlBD3Z+e1YhsaDYvIB7EtBcua0vSmqnnnlpVqX07QnM09+HZnIxaYuTLpmsMevgch/Xe+C8VRSuhfmf4+cRM6Gk6VeDA1AV658UZhZYEn/+vWMIi8cElOO8MHtr7kgSspGbzZxaIiWvH1ASmAJaLW9oKubNTS33SfAU2zA+wmi1h7WqHSk+ZIC0=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR06MB6855.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(38070700021)(6133799003)(56012099006)(10067099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?n08wWIb0JQV5KjOQISaudLDAhunIGmQXnyrAteKowP22vxNUp0EWI0Oemc?=
- =?iso-8859-1?Q?3RsZMIHLWjieiAoduSYuMZDdfZnVsALFmmHKudBcAETkhRfFrhbq9gBmhg?=
- =?iso-8859-1?Q?NNugF1S2Pa42H+G3U+7Wna3JhKeVxAUvkMZJepJNdbAUFv5lpEBxCFmbT9?=
- =?iso-8859-1?Q?9u52Wa9SoX6y25ZLm0XwU4ggEdGnXSHqo5VoecX8PeE1077vInvdCdKXf7?=
- =?iso-8859-1?Q?PvojUQuHfkd2g0kXBkqqWOFTwbQRAyprBmVKv0d5JfPu3mO6KTSghB9Z67?=
- =?iso-8859-1?Q?xEuSx4oig7nnFZw7ZO53cu8+EKnQ1aUBoRNh/9IFqRCNBZ1n4dp29n+7wq?=
- =?iso-8859-1?Q?+nzylJ/wfnYoDdI2qr7XETKWOCt241H+sjOtUQVwsXI01jwu6tSJZUaVCl?=
- =?iso-8859-1?Q?jjzIsxkC1ywI9bbvkAxndHEIwBNy+vlRmt7hetKg2eEOoakas7/yFKjrgp?=
- =?iso-8859-1?Q?GoW/C4pAyfPFmzeJ0ETgNlhWKudd7qhsEyRMLhNQy5ukKY4iu6wZ9C6n8T?=
- =?iso-8859-1?Q?ZS8Yv2ZifgSXO980ZyepX+Ppu2p3tr5yJcGA2/2b0TpKJUPMoWAEPS3X/9?=
- =?iso-8859-1?Q?FfJrHm1C8cyA6ulPEM1zqd0ZqMEdgUn2nDI76AvO4HCQZIhxHtSO2i5EiV?=
- =?iso-8859-1?Q?8tocbwLy439VPWbTMqJsoX2kK0QUwcjMVSoJurNqW96SBEm3Cf+Ix2V78X?=
- =?iso-8859-1?Q?rlfXW3VUuvqOMD6ssmRBOUkhvabo/5XLnAvuc+VvMLPVKIs8qg26s3ud33?=
- =?iso-8859-1?Q?I9ZF6ihByxLu6HZi9wbujdQHERq9SUOsN+j3N0+myu4t8XoMlqqK7ZlfT+?=
- =?iso-8859-1?Q?l7/OPQerWRZWZZPVDEzng1MXTx1co+Axj493KQyhgaJ/ktZdZfvQEmww4m?=
- =?iso-8859-1?Q?Mx5M+N9tN193W3FpGuySUxifVImKoJ0r3r+tO+vJmla2A3neRbTGvGTYf0?=
- =?iso-8859-1?Q?eTVvGFS1BMutkVUlOB1QReQjSpj2s6YGdLXSetz60e15+bVgby7Xer/KU5?=
- =?iso-8859-1?Q?ikX0yS33OejSqe26C5sgwcAJ+ZRTifhm85jc/mspx5IhhQypzsaJ/rNmj6?=
- =?iso-8859-1?Q?uiI/pc667njhSDbNTWEdSjg8OsuJG7WDhOazep9VnGWl+ZCxtOLS8unEHq?=
- =?iso-8859-1?Q?pK4gRqI68Ym0cTVw+2ZAm/9RNW9UJLZJURb0ecyV3jUvk+L/uRsuI++l2O?=
- =?iso-8859-1?Q?oMlJd9jNWFWQIstTky9ntJNJy216YQeesBIW0fccVDqvrbWF7/9yw/NMx1?=
- =?iso-8859-1?Q?myWpye/gZCzUyd2fGq9L/tAN44nqq+DT47E4w75VwgVyf0UUHQEeYQ8MuD?=
- =?iso-8859-1?Q?UW8L4ByLBMuwrzliY8z5mrFk5hMQm9Xy5YTL6qHEXnFZUuPV85cLly5D0N?=
- =?iso-8859-1?Q?BiPBxfY3zKWgG6LgO4GMksUtXl7u3n5MmRNwlUM56wDhU2RQ31j5nQg+6c?=
- =?iso-8859-1?Q?wSXUklSQA3XF4s45uk16GSEb4yhIipTDBcXQQ7/87L87g5Ho+Rp/UVGiYH?=
- =?iso-8859-1?Q?L59xtO+cx97EYzanSvZCdAILgkeqTMDPk45sv5hQUwZR3iVBe6ucCohXq9?=
- =?iso-8859-1?Q?3sSVW5LozNm1+40HASKzH4wGpN08Y9BICtl0802yiZkIYPSVimfdNraVjn?=
- =?iso-8859-1?Q?Wo1UVH1RGfToh5q1lXDeBWFivPj0CeJMk11NZ30BuIh9QkKAJvcuPYOFwj?=
- =?iso-8859-1?Q?vdwmWCbloHpZMBJKLSURYf4ClUZ6/R7WBgpIS/sb6titoLwDBXOKWKTivF?=
- =?iso-8859-1?Q?e2EZHYnePpC7BR06q6lQHwUXqWgb1fZTOlC5W76KEHjx4AV9eNaZHPY844?=
- =?iso-8859-1?Q?19kRastJnw=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB7631.namprd11.prod.outlook.com (2603:10b6:8:14e::14)
+ by DS7PR11MB7929.namprd11.prod.outlook.com (2603:10b6:8:e5::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.10; Thu, 23 Jul 2026 06:30:57 +0000
+Received: from DS0PR11MB7631.namprd11.prod.outlook.com
+ ([fe80::cdd2:4a9a:9dca:5825]) by DS0PR11MB7631.namprd11.prod.outlook.com
+ ([fe80::cdd2:4a9a:9dca:5825%5]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 06:30:57 +0000
+Message-ID: <80993b70-352f-4069-84c7-39a04c061e98@intel.com>
+Date: Thu, 23 Jul 2026 12:00:42 +0530
+User-Agent: Mozilla Thunderbird
+Subject: [REGRESSION]: [PATCH mm-hotfixes v5 3/5] x86/mm/pat: acquire init_mm
+ read lock on attribute change to avoid UAF
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Andrew Morton
+	<akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, "Liam R.
+ Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, "Shakeel
+ Butt" <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, "Mike
+ Rapoport" <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Uladzislau Rezki
+	<urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, Dave Hansen
+	<dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, "Peter
+ Zijlstra" <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, "Ingo
+ Molnar" <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain
+	<dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+CC: David Carlier <devnexen@gmail.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, "Denis V. Lunev" <den@virtuozzo.com>,
+	<stable@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
+	<intel-gfx@lists.freedesktop.org>, "intel-xe@lists.freedesktop.org"
+	<intel-xe@lists.freedesktop.org>
+References: <20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org>
+ <20260717-series-vmap-race-fix-v5-3-606a0ac6d3e5@kernel.org>
+Content-Language: en-GB
+From: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>
+In-Reply-To: <20260717-series-vmap-race-fix-v5-3-606a0ac6d3e5@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA1PR01CA0184.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:d::13) To DS0PR11MB7631.namprd11.prod.outlook.com
+ (2603:10b6:8:14e::14)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB7631:EE_|DS7PR11MB7929:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8fbaf93-9051-4ef7-0197-08dee883f40d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|6133799003|56012099006|5023799004|11063799006|10067099003|4143699003|13003099007|921020|12006099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ow/GuNEnkgnvrrz1wkk3wmkzGZCC5lWSS0JgaEKHdURa+ZBnP0vmlapJepSHf6wzMdhDeIMo83g2IzKlsoUI9X6C0Qv6irQl5r6A3lQEovYMsW+O68qvdoStkidQ2oVtvHSlXZAQw88/lWxZhHhUv7fV+rU3wlWn8RO8bEYhzX0E/qj8BwbBcwTuuo8uZ+CMPHuOZTNo7qB5ROaU2FiXNR6WabyC8iyoGlczLSdtqhaB0b+/0qeHVMJWJSU+E3jcIuL49S47pA9PXFk2HPCKoW+fw8LWwokPuoaOlKQlmFbO96InYdVvgY2QcoIUf1q3b8VsMQ5V1O5j+VUeIEVxTodv6wkcKLoWQ8G0hDIPOUE9WZ/4wZ4P/yOsGxKIx5HFD7gJ9u4ru2LoykZBc7MtIWOQa+jewyrloLOfYu5qi0pXVT8R8/kFCIixOz1n1cYe05KLowBp3bk8lrKUKiwAXftYDt4xgO/idHP70kYLje3zg6+cBHyHinskPocFGtFS720RMwZ8df/UoXAB8Wdl6hgugZgMnJvj2d5lw6U6tgRSkL5E4l/QGYhtJVtJcZpecpDNfIyYCsfXrUmZ4wF01hs6yzRUVtp/jJfs184BrMSkM4KbzmBR601sEEadsSIF5Loq/7oFybmPx/GgkVDE7CXWfgvPWSYwYyMYIZ7Z3GM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7631.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(6133799003)(56012099006)(5023799004)(11063799006)(10067099003)(4143699003)(13003099007)(921020)(12006099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elNBbjEwN05zOEdkMW1kZnVFak83SmNaM0hXY2Rtdk00Z2tEZUtmZkVUZVhq?=
+ =?utf-8?B?TFNqam5lOEN2RXBPNC9EWTdERVpGcDdzZndpbm4xR1hibUZVZzZMbVRLRVlG?=
+ =?utf-8?B?SktOYnhUR3I2Q2ZxOWFRTlVEUUFhdEgrN0hSWlZCRk1JazhHWGJwNlFDWHhN?=
+ =?utf-8?B?amNVNVlZczI4aXpEY2VqN1dpMFYxR1FDWGZ1TnR4WXQ3Q0dmQXdPQTZRb0pY?=
+ =?utf-8?B?NEkxNWt3Sk0xb3VDemYxa3ZMZVUzV3llc3BBSFdSY1A0N1NFdDQ5NUNXNzBz?=
+ =?utf-8?B?TGFvQkwzdE00cjNvU1UzcEJwTzFlUDBpcjdtcWxwUlZEZEpnUjlDK1RRNUhQ?=
+ =?utf-8?B?eWFMSFRvOWdEUFVPN3J0VEZMUHNWV1NjdnJQT2s2dHdRZ3JiM0s2Q0NKeHhM?=
+ =?utf-8?B?SkxZVm9RNDJWWDY4ZzlxQW1tRTFSSk9pQnRsYlZlQjVJMGYwLzJCRFhjLzFJ?=
+ =?utf-8?B?bTlaem83dStkNnV0YUpZNnlJQkRNMVEyK0kzdUVNMGphYm4rMTNIS01xbnpx?=
+ =?utf-8?B?NnRPSVduKzhJOGdjVFdUa2VmbGpuUmN0QXB0UEFqUnI0NVVBKzErcjNVSGRV?=
+ =?utf-8?B?L1cvOTN1bnZjWmhkTGFnMkVsaHc2N1JMWlZSYzlCYlgwazRSWmNTc2FRWXpx?=
+ =?utf-8?B?L3Y2V1FrZ3BzQzBnRDBtOFc0YUxMTEd0cnhiMzRCeDVjbXc3RWM2TUQ0RXNu?=
+ =?utf-8?B?OU1EMWFHaUcyNEpSVTJrbk5jNDdwRTlORWdrSlZHWS8rOUpMODNpeXA0ZFRG?=
+ =?utf-8?B?U3MycXBLbVFObVlSbldjVlVnZUpTWjBkallrbWRRWk1NZ0ZpTlRBQitrSGVy?=
+ =?utf-8?B?Y3JiOFVRZTEzWnB2Z0FkLzJIUit6R1pBenNSeGxtUHdJdTlyTDFjRjgyTTJz?=
+ =?utf-8?B?WUlhQWxteEVyU3RRVFU4dUlhQ3p2V3p5OXlGaTJpOGtMM2NELytCb2MwWE9T?=
+ =?utf-8?B?VXZhc3gyT2pOWFk0elJtMWtmMGJoYWZRMWZ5QTQ3Nm5jaWhwSVZYaGlXU25H?=
+ =?utf-8?B?YlY0bGptRmNYNTFFdDUwTXgvUHRiMXB5UThPQ0gzZmhBNERRQlN3djJ2WXBu?=
+ =?utf-8?B?QmtLS3pxQWo0WGFPTjFmTVNlNWZjM2QxY1lPN0hZa2x0eERaRTJML1lVTUVF?=
+ =?utf-8?B?M09SSzZQOU1mVGI5TE5VODA0RDhLNEd0NC9RYlJxNWhvcEtLMW1xSTZTVjc4?=
+ =?utf-8?B?aUhtRCsrRzdqcjlUSnU0TWJFYm5DRmFsMUtIV2RCdU5nZklDcXZONk90cThQ?=
+ =?utf-8?B?S2FtaExDNmJGQ1ZlTFhEVkxMWEd3em9SaEZBZ1NsUjkxckJFeEEzYml5SmxO?=
+ =?utf-8?B?NWJlMmdXR0swT3FsRVVnVWpiQVJWbFFiT0tJRkVodWw5L1h2Z2crVlNnOUMz?=
+ =?utf-8?B?SDROdC9qazQ2RythQzhJODlBYzhKcVJDZGwvN1AwcFBpWDU2dVZpTjU5dUhX?=
+ =?utf-8?B?SlgyL2kvY0pVV1YzZGJ1d2ZqbEZPTXUvclE3NjBpWXI1SFVzd1JrSDlXSnBi?=
+ =?utf-8?B?TjBtdkFFSytoM1JuOUhsRGlNNDhTZllDUldFcHZ5UlJBRHN0aDhYMFRib1dn?=
+ =?utf-8?B?bDl0TWhYZks4VUdKR3VmMzh0Z0NFK3NYRlZMcWNFQXpRaWNlMGZiZkwzNkpx?=
+ =?utf-8?B?WE14Y3lJWlR6ZStUcGVBMWtzRUJqMjlBR0hwNHBpdGJ1SHU5UU8rVjd3TE9i?=
+ =?utf-8?B?U3YrSmZrZ1ZoSlkyV1RqbVBXNElFUDRES3JCMVlDUlZwR0xweHNZL3pOMnBW?=
+ =?utf-8?B?Ym5leVNsKzUwYVQxYitVSGhtUVhkb3lCNlBNUkRieHgwUWVmQy9heEtWU1lF?=
+ =?utf-8?B?aEhQUTFOWk9acCtMWnQ3Z05VUC82a2l0S0RHQVZPbkxvZVpqaHdOS1dNUjUv?=
+ =?utf-8?B?aS9VMlJFUmlOeGlEL2toeXByMUkyZVdsYmhRVG40allBV3UyL3pMNlQ1MWVW?=
+ =?utf-8?B?VjFMNkJMMGV0RmZVWlRjVVlOY3cvcVlIYVo3cU1oN2ZoNUFodDcxRXppYXlX?=
+ =?utf-8?B?Wm1ZUlpsdC8vdUE3ZVQ5cmxsYUJSZUFKbVVSSTFZZkpsNjJ4ejRqS1BaSDZl?=
+ =?utf-8?B?WVNkSVNkTjZxZ05idlExZ0FTMVl3LzBjS0RFSkhjRFZmcVluWjlMSnR3ZVRp?=
+ =?utf-8?B?UnlnUWJQZThQak9mYk5XbXM1WkdBa1BqbFRYUUtGUFdORDFFRjFmRWM0ZXJo?=
+ =?utf-8?B?ZWM3b1FkZTlXY3NRQktmR2FtalUyQUI1M3RnS01IMDZmZmsyVEc0K2YzV0Ry?=
+ =?utf-8?B?Q0ZWVGRjMHFhU2hwVC9ocG1sZEdOZG5JaWJFSWZqV3BNUStVTXRuL1JNSXpi?=
+ =?utf-8?B?TzJyWVh1NVZ6M0NjOFZHTzBtcDV1TmNIbnFuekxDaXNoOCtRYmdFRmVEWnNv?=
+ =?utf-8?Q?PHITbtNqw1qF+tVA=3D?=
+X-Exchange-RoutingPolicyChecked: IO0PGJqz0ySIMrYsEj84JrsQKt+ieB9RZ7GM/QQSjWYwqnQLlmad1aAlTzEsgzgMaWR/cXpPHxVSJQ7d5UGiVAuJFhWf+nkMReXzE22sTEoz6xzPD2Zyq/I+9vluM9E0M1HX5uGcn5N8u2sXmGbgj0f3pB8cOMcRuQnaCo64P7D4jmZxWgk55TIuhz6sxAnh7pDF/sZvO2KN2CNaOI1fXViODEn2Orx974xEaxEmYw20kmBadGQFXrrm8H17OLhTktEw0MAaDNIlt+x9oD3uwW6uOqiIvDRFjV95dwqhgco/BmYgkW38VsT4gZmncQG25fLY8qcf+wBJ/45OF/e8ig==
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8fbaf93-9051-4ef7-0197-08dee883f40d
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7631.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY0PR06MB6855.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c675693-e992-4092-dc98-08dee881531c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jul 2026 06:12:07.5571
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 06:30:56.9652
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: bWVg5g7FxTBZoaC6A6Kx5N0isglJWO5Ghttsso3/Z5u6XDJIU4VU7l5GGhAqOrzgzoMVKd9a21y4iQPIXVJvmA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB7125
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HxGEFSRvkcMEJmlUmtutbg8we1exxViVTM04LideO63OdaSDfZss1R66I1V9bWAtFu1EPbT9SoK4+2OBS+Ve1AQjaJSDRC9kqIv0ik5mNg4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB7929
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_231221_400663_6DE90468 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20260722_233250_153803_6C74151E 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,114 +198,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The PCIe-to-LPC bridge on the AST2600 exposes 4 channels, matching the LP=
-C=0A=
-> controller's own KCS1-4, not just channel 4.=0A=
-> It would be better If you can provide a way to handle multiple LPC contro=
-ller for=0A=
-> kcs channels.=0A=
-=0A=
-I raised an RFC to discuss support for multiple LPC controllers in [1].=0A=
-=0A=
-Perhaps we should first take other people's opinions into consideration=0A=
-before moving forward.=0A=
-=0A=
-[1] https://lkml.org/lkml/2026/7/23/429=0A=
-=0A=
-> >=0A=
-> > The ASPEED AST2600 has a PCIe to LPC controller. It includes a KCS inte=
-rface=0A=
-> > on channel 4. This is a fully KCS-compatible interface that is exposed =
-over=0A=
-> > PCIe.=0A=
-> >=0A=
-> > Add pcie_kcs4 to existing LPC bus in aspeed-g6.dtsi.=0A=
-> > Modify kcs_bmc_aspeed driver to detect the PCIe over LPC channel.=0A=
-> >=0A=
-> > In the driver, this PCIe over LPC channel will be detected as Channel 5=
-.=0A=
-> > In the datasheet this is defined as Channel 4 over PCIe.=0A=
-> >=0A=
-> > The Channel 4 name is still referenced in the offsets macros.=0A=
-> >=0A=
-> > The host need a driver to activate the MSI interrupts with the PCIe BMC=
-=0A=
-> > Device.=0A=
-> >=0A=
-> > Tests:=0A=
-> > With the patch [2] adding PCIe BMC device for Virtual UART, the MSI=0A=
-> > interrupts are correctly setups. The Host driver is build and side load=
-ed on the=0A=
-> > host. The ipmi_si driver on the host is loaded manually with the KCS ad=
-dress=0A=
-> > given by hand. 'ipmitool mc info' is run to confirm it's working.=0A=
-> >=0A=
-> > Tested on : Asus IPMI Expansion Card, AST2600.=0A=
-> > ```=0A=
-> > # insmod aspeed-host-bmc-dev.ko=0A=
-> > # lspci -vvv -d 1a03:2402=0A=
-> > 02:01.0 Unassigned class [ff00]: ASPEED Technology, Inc. Device 2402=0A=
-> >        Subsystem: ASPEED Technology, Inc. Device 2402=0A=
-> >        Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop-=0A=
-> > ParErr- Stepping- SERR- FastB2B- DisINTx+=0A=
-> >        Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=3Dmedium > >TAb=
-ort-=0A=
-> > <TAbort- <MAbort- > >SERR- <PERR- INTx-=0A=
-> >        Latency: 0=0A=
-> >        Interrupt: pin A routed to IRQ 154=0A=
-> >        IOMMU group: 12=0A=
-> >        Region 0: Memory at 82080000 (32-bit, non-prefetchable) [size=3D=
-4K]=0A=
-> >        Region 1: Memory at 82040000 (32-bit, non-prefetchable) [size=3D=
-256K]=0A=
-> >        Capabilities: [40] Power Management version 3=0A=
-> >                Flags: PMEClk- DSI- D1+ D2+ AuxCurrent=3D375mA=0A=
-> > PME(D0+,D1+,D2+,D3hot+,D3cold+)=0A=
-> >                Status: D0 NoSoftRst- PME-Enable- DSel=3D0 DScale=3D0 PM=
-E-=0A=
-> >        Capabilities: [50] MSI: Enable+ Count=3D32/32 Maskable- 64bit+=
-=0A=
-> >                Address: 00000000fee00818  Data: 0000=0A=
-> >        Kernel driver in use: aspeed-host-bmc-dev=0A=
-> >=0A=
-> > # modprobe ipmi_si type=3Dkcs addrs=3D0x82040E88 regspacings=3D4 regsiz=
-es=3D1=0A=
-> > regshifts=3D0=0A=
-> >=0A=
-> > # ipmitool mc info=0A=
-> > Device ID                 : 32=0A=
-> > Device Revision           : 1=0A=
-> > Firmware Revision         : 26.04=0A=
-> > IPMI Version              : 2.0=0A=
-> > Manufacturer ID           : 2623=0A=
-> > Manufacturer Name         : ASUSTek Computer Inc.=0A=
-> > ...=0A=
-> > ```=0A=
-> >=0A=
-> > The original patch [1] review set to use the existing LPC bus and modif=
-y the=0A=
-> > kcs_bmc_aspeed driver.=0A=
-> >=0A=
-> > [1]=0A=
-> > https://lore.kernel.org/linux-aspeed/de49f2032f5b1f170161dcd6191c0daa48=
-f0=0A=
-> > b0c2.1784117715.git.gregoire.layet@9elements.com/=0A=
-> > [2]=0A=
-> > https://lore.kernel.org/linux-aspeed/51e455417bdcfe608270c6cb2806b1fd97=
-1f=0A=
-> > b998.1783524645.git.gregoire.layet@9elements.com/=0A=
-> >=0A=
-> > Gr=E9goire Layet (2):=0A=
-> >   ipmi: kcs_bmc_aspeed: g6: Add KCS Channel 4 over PCIe=0A=
-> >   ARM: dts: aspeed-g6: add pcie-kcs4=0A=
-> >=0A=
-> >  arch/arm/boot/dts/aspeed/aspeed-g6.dtsi |  7 +++++=0A=
-> >  drivers/char/ipmi/kcs_bmc_aspeed.c      | 39=0A=
-> > +++++++++++++++++++++++--=0A=
-> >  2 files changed, 44 insertions(+), 2 deletions(-)=0A=
-> >=0A=
-> >=0A=
-> > base-commit: 03f906d8f5541e8bb741035981304feceed5993d=0A=
-> > --=0A=
-> > 2.54.0=
+Hello Lorenzo,
+
+On 7/17/2026 11:00 PM, Lorenzo Stoakes (ARM) wrote:
+> A previous commit protected us against races between ptdump and CPA
+> collapse, however one still exists between attribute changes and collapse
+> as reported by Denis V. Lunev (linked).
+> 
+> When an attribute change arises, a lockless page table walker obtains a PTE
+> entry, which is later written to via set_pte_atomic():
+> 
+> ...
+> -> change_page_attr_set_clr()
+> -> __change_page_attr_set_clr()
+> -> __change_page_attr()
+> 	-> _lookup_address_cpa()
+> 	-> lookup_address_in_pgd_attr()
+> 	-> [ lockless page table walker ]
+> -> set_pte_atomic()
+> 
+> There is nothing preventing a concurrent CPA collapse which can free the
+> PTE that was retrieved here, resulting in a use-after-free.
+> 
+> With the mmap write lock taken on init_mm over CPA collapse, we can now
+> resolve this race by acquiring an mmap read lock on init_mm over
+> __change_page_attr_set_clr().
+> 
+> This locks across the whole operation over which the walk and the PTE entry
+> write occurs, solving the race.
+> 
+> It is safe to do this here, as no spinlocks are held upon entry to
+> __change_page_attr_set_clr().
+> 
+> The CPA_COLLAPSE flag is only set by set_memory_rox(), which exclusively
+> operates upon vmalloc ranges, and on x86 only within the module mapping
+> space.
+> 
+> This is important, because some callers directly invoke
+> __change_page_attr_set_clr(), bypassing this lock. However, none of these
+> operate within the module mapping space.
+> 
+> * cpa_process_alias() - a recursive helper called by
+>    __change_page_attr_set_clr().
+> * __set_memory_enc_pgtable() - operates on the direct mapping and (via
+>    __vmbus_establish_gpadl()) the vmalloc mapping space.
+> * __set_pages_[n]p() - called by set_direct_map_[invalid, default,
+>    valid]_noflush(), __kernel_map_pages() - operates on the direct map.
+> * kernel_[un]map_pages_in_pgd() - operates on EFI ranges.
+> 
+> This work is based upon Denis V. Lunev's excellent analysis of the bug with
+> gratitude.
+> 
+
+This seems to be causing regression in our linux-next CI [1] on some of 
+the older machines (fi-elk-e7500, fi-ilk-650, fi-pnv-d510)
+
+<4> [196.236867] ======================================================
+<4> [196.236878] WARNING: possible circular locking dependency detected
+<4> [196.236890] 7.2.0-rc4-next-20260720-next-20260720-g3fe08b9796f3+ #1 
+Tainted: G S   U       L
+<4> [196.236906] ------------------------------------------------------
+<4> [196.236916] core_hotunplug/5687 is trying to acquire lock:
+<4> [196.236927] ffffffff839048b8 ((init_mm).mmap_lock){++++}-{4:4}, at: 
+change_page_attr_set_clr+0x10a/0x220
+<4> [196.236958]
+but task is already holding lock:
+<4> [196.236969] ffff88810c852238 (&vm->mutex){+.+.}-{4:4}, at: 
+i915_ggtt_driver_release+0xab/0x260 [i915]
+<4> [196.237572]
+which lock already depends on the new lock.
+<4> [196.237585]
+the existing dependency chain (in reverse order) is:
+<4> [196.237597]
+-> #2 (&vm->mutex){+.+.}-{4:4}:
+<4> [196.237617]        i915_gem_shrinker_taints_mutex+0x35/0x70 [i915]
+<4> [196.238267]        i915_address_space_init+0x226/0x2a0 [i915]
+<4> [196.238961]        i915_ggtt_init_hw+0x2c/0x140 [i915]
+<4> [196.239638]        i915_driver_hw_probe+0x208/0x380 [i915]
+<4> [196.240260]        i915_driver_probe+0x113/0x5b0 [i915]
+<4> [196.240883]        i915_pci_probe+0xe0/0x1d0 [i915]
+
+Detailed log can be seen found in [2]
+
+We confirmed that reverting the patch solves the issue.
+
+Could you please check why the patch causes this regression and provide
+a fix if necessary?
+
+Regards
+Chaitanya
+
+[1] https://intel-gfx-ci.01.org/tree/linux-next/combined-alt.html?
+[2] 
+https://intel-gfx-ci.01.org/tree/linux-next/next-20260720/fi-ilk-650/igt@core_hotunplug@unbind-rebind.html
+
+-- Bisect Logs --
+
+git bisect start
+# status: waiting for both good and bad commits
+# good: [2b74f1f2024486c7a81915528b6aa7f8f5daa021] Merge patch series 
+"software node: provide support for fw_devlink"
+git bisect good 2b74f1f2024486c7a81915528b6aa7f8f5daa021
+# status: waiting for bad commit, 1 good commit known
+# bad: [3fe08b9796f36ef437ab9328e7dd1e5ff2d66603] Add linux-next 
+specific files for 20260720
+git bisect bad 3fe08b9796f36ef437ab9328e7dd1e5ff2d66603
+# bad: [19137e3cffc35f327bd14d7b8b02f739f1e5c7bc] Merge branch 'main' of 
+ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git
+git bisect bad 19137e3cffc35f327bd14d7b8b02f739f1e5c7bc
+# skip: [4f9e9b2e992ca79e090771e244bc2096709e13c6] Merge branch 
+'mm-unstable' of 
+ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/akpm/mm
+git bisect skip 4f9e9b2e992ca79e090771e244bc2096709e13c6
+# good: [1aa4e2ed7caafbbbedff89fb226a982413469baf] dt-bindings: clock: 
+Replace bouncing emails
+git bisect good 1aa4e2ed7caafbbbedff89fb226a982413469baf
+# good: [daec24a5ed5da77a108e246ad77aa8b889911f93] wifi: iwlwifi: 
+validate payload length in iwl_pnvm_complete_fn
+git bisect good daec24a5ed5da77a108e246ad77aa8b889911f93
+# bad: [247e42b76590a27408e5eea7009067cac5ad9feb] Merge branch 
+'for-next' of 
+ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
+git bisect bad 247e42b76590a27408e5eea7009067cac5ad9feb
+# bad: [d623282ba80e07d3bd7608d905b143041f865f3b] Merge branch 
+'tty-linus' of 
+ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git
+git bisect bad d623282ba80e07d3bd7608d905b143041f865f3b
+# good: [6f5156d7a31a8c3b0f34af4675c9299c8f877cbe] Merge tag 
+'pm-7.2-rc4' of 
+git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm
+git bisect good 6f5156d7a31a8c3b0f34af4675c9299c8f877cbe
+# good: [7d6ca51a444234ca436d7c19282825797507fe82] Merge tag 
+'drm-fixes-2026-07-18-1' of https://gitlab.freedesktop.org/drm/kernel
+git bisect good 7d6ca51a444234ca436d7c19282825797507fe82
+# bad: [499079fbac564b04cce6a750111bf1c36aaeb4d5] Merge branch 
+'mm-hotfixes-unstable' of 
+ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/akpm/mm
+git bisect bad 499079fbac564b04cce6a750111bf1c36aaeb4d5
+# good: [a2b81de43ca64832fe09844bbf97d1251115d80f] Merge tag 
+'io_uring-7.2-20260717' of 
+git://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux
+git bisect good a2b81de43ca64832fe09844bbf97d1251115d80f
+# bad: [b55b09b68a9cd81d2c1f4004e4c258cbfa61b16f] x86/mm/pat: acquire 
+init_mm read lock on attribute change to avoid UAF
+git bisect bad b55b09b68a9cd81d2c1f4004e4c258cbfa61b16f
+# good: [841587a3eaad22b288d9701f783e20a5046e76b4] mm/hugetlb: fix null 
+nodemask in alloc_fresh_hugetlb_folio
+git bisect good 841587a3eaad22b288d9701f783e20a5046e76b4
+# good: [2272f397e66bd9f78c2e1f524f8e7b1e01e15005] ocfs2: fix boundary 
+check in ocfs2_check_dir_entry() to use buffer offset
+git bisect good 2272f397e66bd9f78c2e1f524f8e7b1e01e15005
+# good: [a5bba3c7f83071427f5f770b53ce5c59f8ed0af0] fs/proc/task_mmu: fix 
+PAGEMAP_SCAN written state for PMD holes
+git bisect good a5bba3c7f83071427f5f770b53ce5c59f8ed0af0
+# good: [f539349310317df97b5f1b501c4c6dc2a73c3c37] mm/vmalloc: acquire 
+init_mm lock on huge vmap to avoid ptdump UAF
+git bisect good f539349310317df97b5f1b501c4c6dc2a73c3c37
+# good: [c6d14c413d47a772a54f6aa7e545a15abc06b1d0] x86/mm/pat: acquire 
+init_mm write lock on collapse to avoid UAF
+git bisect good c6d14c413d47a772a54f6aa7e545a15abc06b1d0
+# first bad commit: [b55b09b68a9cd81d2c1f4004e4c258cbfa61b16f] 
+x86/mm/pat: acquire init_mm read lock on attribute change to avoid UAF
+
+
+> Link: https://lore.kernel.org/all/20260626163213.2284080-1-den@openvz.org/
+> Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>   arch/x86/mm/pat/set_memory.c | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> index d1e63f7d267f..301fb9e77d91 100644
+> --- a/arch/x86/mm/pat/set_memory.c
+> +++ b/arch/x86/mm/pat/set_memory.c
+> @@ -2122,7 +2122,9 @@ static int change_page_attr_set_clr(unsigned long *addr, int numpages,
+>   	cpa.curpage = 0;
+>   	cpa.force_split = force_split;
+>   
+> -	ret = __change_page_attr_set_clr(&cpa, 1);
+> +	/* Avoid race with concurrent CPA collapse. */
+> +	scoped_guard(mmap_read_lock, &init_mm)
+> +		ret = __change_page_attr_set_clr(&cpa, 1);
+>   
+>   	/*
+>   	 * Check whether we really changed something:
+> 
+
 
