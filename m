@@ -4,113 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4EE9C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7154C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQzDk6eLJ3OVzLdnUWi9gbK+31evwXTddGNItHuRUwQ=; b=bh9OA/LiO8t4t3N2SeQk3O93IN
-	OvLWykF63G3Luod5gqF0dP4z3Oj4WSZ8dWOrn/6Ix0M/vJ3G6ek3bgMix1DfhvZ+XJpwR76TRX96o
-	ilr26Y0r5xhsdkn8+uxlazwtEufZ2aWeNIMla+8fnVq2Ir4EH0coTSGtpaUy/UIPI2DuV6LggpJXy
-	+CooVKsoy//YO51Vs7tDaZVXOF/7W5+Wn4+nUmtLb8LZWv6YlEAPGTEWjNdssLH6vtUu8gHYoVrGd
-	tA2okCzIcYW8k+lky003od3NCii7BoqGWXMAs9xsxZpg/3wLtSOQF6hZCqkuebpOuzom6gTAvt7LF
-	OpFebU3A==;
+	bh=oZqy2KiailBWbxdwbEZpw+HvFPOjzz7WcrT6wURhw9c=; b=pl0QNxjTdrX52DVVFnG46vG80s
+	0Z5ng37DmOC8mCyc6K9vV36Q62XLFf8GC+3NKQq3xtz9OswMzfpz0x0RuM9fdCLIWJuC/Wt/IquK/
+	ccMbQ/p3hRSQ6PKMaD0ddiPIyBkFJpH2ya8fCMfXcZY6WPNBy0n7L56LcBk8QvU8P0XhiUQPqnQJU
+	FHv5YFa5AQTfV/ZUXbyOThxSMASIPOheAo1ngfg079JHY+j1EG7sVOreXb8p0gNjW5MJkS1YgxUQq
+	hISYs3bRFREr5AVPkfRqERKMVyvL0/cZcoXjF8x5b7h4gzpOqGX4iX1QfUwla8mOc7rfOJRpzugpI
+	epjCh5Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmz06-0000000ExAF-2EIS;
-	Thu, 23 Jul 2026 19:22:34 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1wmz2G-0000000ExRY-3Zkc;
+	Thu, 23 Jul 2026 19:24:48 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmz04-0000000Ex9l-3kS6
+	id 1wmz2D-0000000ExQi-2661
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 19:22:34 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-51c01c79467so52431cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 12:22:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784834550; cv=none;
-        d=google.com; s=arc-20260327;
-        b=p+kioR4vhlI6IPYzRjQCYHPFR+R+f629oDtwvp1M7p2dGxJEC3ubX2z/OyBelzW6lv
-         +uO3en95OBgcPMRCMbHxMKPLXXFc8r7ho1Ve8R93DCGr9NaUZzMEqstIf7RY4CYVPys/
-         ++dZzwVvb+wUKT3u4yJUG8W5mXUkdG/hLRtuIwvGobt18/gJOrn9F9aXWRGwWGJSkF+/
-         mlCgBDAsNiii4K6gYLPL9TMnI90ux6FbLNRHCg+sKxvT50BJfdptR7I7bddqOuoqep9D
-         0FPzQic/73c4prwX8IJpfFY1TdCvVIHxKwKJ9CeGXg2fO9U5kIHX3bh5vbWDOpR/kpaD
-         /x9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CQzDk6eLJ3OVzLdnUWi9gbK+31evwXTddGNItHuRUwQ=;
-        fh=lMgXtWKGtNCnjE6/65ukN+twtARApIct+Kzk030tnw8=;
-        b=CyupOL8VYm2rU6CJs9rFNCEHL9Ge8PgWbnKVMZaNKo8Ce5dReDXAVkB2N86Gg6wM/W
-         Ktk18ly5kdPTUAu88NEAWIIGWcPMSUwNoE2mr9Ul9QyEekscNJt1MPjbnA66PfDsjUi2
-         4b4mRHZ4ueof3Q0+T1R/r2iyq+/0Rpm2pUlopqJO5Te2yvtluxKBi+d4DTOnS+b/7zr2
-         yKsrODJdsfWgbiBtoVbdTkyv9PKEtopG6K6tXyBpiG1VGLx1+5LsdUyfDQMFq7cpIqYJ
-         hhr0HmEoTgJBDLE3Hum/ftqq0bcnJ2dNiit2o7lmX+IzHjomAsp2xr5SeXghQyKxS8wm
-         fWfQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784834550; x=1785439350; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CQzDk6eLJ3OVzLdnUWi9gbK+31evwXTddGNItHuRUwQ=;
-        b=fbCY+j51gcJUUGW8h7Bm3CjCUZZA0CJuzb2BExC5zJrXj/Y3nxvFfc7gQjOddDYNua
-         1kkgeVaqCMqP7D8rpa005MdRp5Ljae7vugpFTgkCDSsj5d55VGeo4ne4+dP4t5ZzT0RB
-         twvFrg6DAg2w6OUQjRPij0tcaGEtNr91FUJFikhsKS7q+JyzsMztmBAtIf0LeW1RVF/4
-         6nDrR+fp0sdYUnqyxqDPelm9lAjh0q0Jh8yNDOYbVYZnYyGeWXQOdg5VkKETVwP+7e2Q
-         OnZdpSRnoxpRHQJgYQgwCn9Q2l6s8l726GB+hoaYdyRicnfNi6cgHolTTedfoSh7jC8U
-         WAMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784834550; x=1785439350;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CQzDk6eLJ3OVzLdnUWi9gbK+31evwXTddGNItHuRUwQ=;
-        b=fCvXMEjOnmkS7WxzTUgLNAtSbnnvw6bB4DoYZAd+kUkV3nOOD0a4u3cnx5MzBKPH+9
-         8G+FK0B3sqC1BgHi64r7ObLL/ie3za5eSv2XZdQcJ0X0sR9o04XdkaUrF1nIEueyRkKm
-         +XhnbQafJOcqZB2L1Q0rJyZ9UGLhxxwlTnm1Y6bqTP+TfMoZGpcaIe95oWY7kOLYCax+
-         8TchnjxZIY7HX1LquRqzBduH1bXPd0lSBQciTLzWKEodXrqzlR5bCaocJKzhwM24B75n
-         GsKxAciqgi07HPoQz4TnRYrQJpSJG7u8e78MTUXwvX6hCt/KG3p/je5JB7t7DE2D8KxR
-         kCXg==
-X-Forwarded-Encrypted: i=1; AHgh+RqwW3L6CRpiCEFPTLShz38F8xHEWLSlsmkHjyIosDznePX12o6smxDJI53HPG9+VTRc9AIdQECgzZD6ILdNzCJj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOnPKSpkqdFGTdEBS3jN6K1kSLleIg5ROYxeHo7aXNAhKI8OiI
-	rrYh3k2ncVIS9JcL+CDbupG1c6D9OXPgp8l/jWVitkL+P8GMeiOdH4zBQagiXd3VaqiDZCTIpCn
-	V0HmnXrukiB5olw5s2zPcXUQKwVoTseBfxe7433QZ
-X-Gm-Gg: AR+sD12ubnYRi0Auu5t9jb2vwgwl2w1I+Rgilwd/Sj3oc6OTQ4Kr5KSu2Ie7vWMgXq5
-	V0k0JzR9N5YMDhU8zlrpkpcFZDxvEeLvJELWZtzFj1zUOfOmJ0nUBig5tRpdzW9fukpYhBsuHAh
-	ZB+W24arftXNAPIuWM8+cS/drKON68X05c6HjzNFX5VAm9RSFz5mc3GrSDMGB6HsX7DsHJX7YBu
-	h4+Et+ozGZuMYpcDTMtjGxg5CV5nPQWJxQr4czR2Uzue/snL7V8S6x5+tNsvkx0zSX5gg==
-X-Received: by 2002:a05:622a:5790:b0:51c:ad5:93be with SMTP id
- d75a77b69052e-5284a9ed117mr1848021cf.8.1784834549852; Thu, 23 Jul 2026
- 12:22:29 -0700 (PDT)
+	Thu, 23 Jul 2026 19:24:47 +0000
+Received: from mail01.layka.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 5742F8005E;
+	Thu, 23 Jul 2026 21:24:28 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id wkwcVC02_uHg; Thu, 23 Jul 2026 21:24:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1784834667; bh=Kx/SqQ5YypakUXn6zd5yZDIz4kpBBehlvhVjWn5tQFo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=lYt8B6Ec8aCKgHoeIAWI5TNzhPf7xhbGeO1SuXw3/brsqt7GjpBKlviQGv4IzTLOv
+	 5iB+qRE719Msg0JRxLIFA8Ad7h71dSJnUIB+ucopXoxJBDZfLopkg+/rr8L+LGrf4l
+	 h7kpa5AjgAw7jmgUOKGwj02GfXibxIWFx6i/sVhRP/b5XHAnl/NZZORFlRWS/7sUKB
+	 4a/Dn1dnhaRcU3TmdHkls9hBjWSV2ORJyk8+CQM8SQ+QkTwXFcZn8nRHI9egBW1yjb
+	 0dZlR8J1yX3DJuqQUbZsl6sOGC+wVF8PafN2uFiUMzH24ztlZQ3OJr+39aV057YtUR
+	 OZQc6EWW77pjw==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Fri, 24 Jul 2026 00:54:03 +0530
+Subject: [PATCH 1/5] Input: zinitix - check all available fingers for every
+ touch event
 MIME-Version: 1.0
-References: <20260718111340.159896-1-linux@yoavmoshe.com> <CABCJKudqGL+BFFcz3qsuoJB6S_OAt-vs2yqePC_=oy+JzmPpVw@mail.gmail.com>
- <3046e60d-509f-471f-bd15-3ce78c87500b@yoavmoshe.com> <20260721180950.GA3684684@ax162>
- <180001f5-bddd-4e58-8442-f7ef3c979500@yoavmoshe.com> <CABCJKufhvTxmVm8y7xr4RWWKsoZk0h8UGBnem+F5fknnimaqPA@mail.gmail.com>
- <7f273a08-b29c-4e15-b340-898b251efe57@yoavmoshe.com> <CABCJKud+GsBVv+XMTsi_4QAaTHo7jXD2Hyvi9wqKd7x3i2xyAg@mail.gmail.com>
- <415ffa24-a30b-43b2-aa6a-a1cde3bd4ef0@yoavmoshe.com>
-In-Reply-To: <415ffa24-a30b-43b2-aa6a-a1cde3bd4ef0@yoavmoshe.com>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Thu, 23 Jul 2026 12:21:52 -0700
-X-Gm-Features: AUfX_mwIn057sYLi7onMumtMkCOBiIb6bjljRVwkdb130ocIXYLLv9gbv_H9dWo
-Message-ID: <CABCJKud9B8vB-J8f0HLHw6EgEKVWzy+Q1PrNxpO_6yCGtEyi8A@mail.gmail.com>
-Subject: Re: [PATCH v3] ARM: imx: Fix suspend/resume crash with Clang CFI
-To: "Yo'av Moshe" <linux@yoavmoshe.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Russell King <linux@armlinux.org.uk>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260724-zinitix-modes-v1-1-f6df7d86a878@disroot.org>
+References: <20260724-zinitix-modes-v1-0-f6df7d86a878@disroot.org>
+In-Reply-To: <20260724-zinitix-modes-v1-0-f6df7d86a878@disroot.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Michael Srba <Michael.Srba@seznam.cz>, 
+ Linus Walleij <linusw@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_122232_941949_5B72E87B 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260723_122445_999564_6A5EBA4A 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,30 +79,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 6:30=E2=80=AFAM Yo'av Moshe <linux@yoavmoshe.com> w=
-rote:
->
-> On 2026-07-22 8:03 PM, Sami Tolvanen wrote:
-> > As long as the C prototype for the assembly function matches the
-> > function pointer type, the hashes should also match. Can you dump the
-> > hash prefix from the OCRAM and compare it to the disassembly of the
-> > call site?
-> Here is what I saw when checking the disassembly in vmlinux:
->
-> 1. Call site expected hash in pm-imx6.c: 0xA488EBFC
-> 2. SYM_TYPED_FUNC_START hash prefix in suspend-imx6.S: 0xd4d4d4d4
+When this initial driver was first added to tree, that is, in commit
+26822652c85e ("Input: add zinitix touchscreen driver"), the touch_event
+struct had a field called finger_cnt. It was supposed to report how many
+fingers are touching the screen.
 
-What's the value for the __kcfi_typeid_imx6_suspend symbol in
-vmlinux.o? I would expect the hash value to look a bit more random.
+But then, in commit e941dc13fd37 ("Input: zinitix - do not report shadow
+fingers"), some touchscreens reportedly exposed a bit mask for the
+fingers, instead of the count. So the code was changed to bitwise
+iteration.
 
-> It looks like because suspend-imx6.S is an assembly file, Clang emits
-> the default assembly type ID (0xd4d4d4d4) for it, which doesn't match
-> the C call site expectation (0xA488EBFC).
+With my testing on the ZT7548 touchscreen of the Galaxy J6, I find the
+former to be true. This shows that there's two valid methods depending
+on what hardware the driver is made to work on.
 
-Clang doesn't actually emit type hashes for assembly functions.
-SYM_TYPED_FUNC_START just adds a reference to the
-__kcfi_typeid_<functionname> symbol that contains a hash calculated
-for the C prototype.
+One solution is to implement both methods, and use some flag to select
+between the two. However, this introduces more implementation overhead,
+and a possibility of regression on devices the driver is expected to work.
 
-Sami
+Instead, unconditionally check all fingers. The finger_mask field is now
+left unused, thus serving as padding bytes in the struct. For each
+finger, zinitix_report_finger() is called if the status reports the
+SUB_BIT_EXIST bit, so phantom fingers are not going to be a thing.
+
+Moreover, the android driver [1] does exactly that, so it's a tried
+method of implementation.
+
+Link: https://android.googlesource.com/kernel/bcm/+/23d376ef33aa4c500a5ea24a290f029d5f8e2de3/drivers/input/touchscreen/zinitix_touch.c#1942 [1]
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+ drivers/input/touchscreen/zinitix.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/input/touchscreen/zinitix.c b/drivers/input/touchscreen/zinitix.c
+index 0c36765bd79f..3421b8ffb19b 100644
+--- a/drivers/input/touchscreen/zinitix.c
++++ b/drivers/input/touchscreen/zinitix.c
+@@ -445,7 +445,6 @@ static irqreturn_t zinitix_ts_irq_handler(int irq, void *bt541_handler)
+ 	struct bt541_ts_data *bt541 = bt541_handler;
+ 	struct i2c_client *client = bt541->client;
+ 	struct touch_event touch_event;
+-	unsigned long finger_mask;
+ 	__le16 icon_events;
+ 	int error;
+ 	int i;
+@@ -470,8 +469,7 @@ static irqreturn_t zinitix_ts_irq_handler(int irq, void *bt541_handler)
+ 		zinitix_report_keys(bt541, le16_to_cpu(icon_events));
+ 	}
+ 
+-	finger_mask = touch_event.finger_mask;
+-	for_each_set_bit(i, &finger_mask, MAX_SUPPORTED_FINGER_NUM) {
++	for (i = 0; i < MAX_SUPPORTED_FINGER_NUM; i++) {
+ 		const struct point_coord *p = &touch_event.point_coord[i];
+ 
+ 		/* Only process contacts that are actually reported */
+
+-- 
+2.54.0
+
 
