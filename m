@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE30C531D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 14:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAF2C531D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 14:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j4KV6sQuWKd8eS0AoGbKfckVEhtCT+5lyhSl3SyfXiA=; b=Rv+9+K903+6v+RUZ877pVksk1h
-	hmCQm/72JEJoiUrhfRuXsll4pLftYwspNejxlxGOXiyZzTmPxdqNa7hDpST5HeImIihMfEX4Afyk2
-	K+0rCjIqCrhjz40avtIlw+NEwCmjschEwxVbGnQ9dY2rH8ck0iOL+LRZbniITcEdrhUx5BEN9S5Jj
-	7cX9V6bQRuCcEaiQ/ygnAHa+ZOfg4d+UI0BtOXWqFmiYgW2s3Kf0neIsMV6i57r2KqLlxHDIXVwRM
-	6ZIIDSRiTgHQhePvKn8gq4yQGpyXsfX/FpwjtSo4glYgNTDOEjSm+weZ+lZKjGXZGyGf7NM7O+2vW
-	makTY0JQ==;
+	bh=rA0O4ClmUVEoh3f94Y+vEhegRimMiCmv23Q9yV4+wRQ=; b=dOlEEjl+WKN7TrnYDgrCLInjtd
+	Qz1Z87RfUl9ZW481o9pnkKbIm7mjG+pcBWAszLs/s4J/rPFuWvw8NFn25j83l1QfpcJplWxBh7DoM
+	UXzaP2UE29s7RSk4xr0oo0GLbh3Wy5+5w2eBoEK8lqL/+BBaaLnL9qH5Alvn6taSxm/wreZtzw8nd
+	pEoKmP9adi26MDN0pbIeMAuSPdZdMQ4WwLQhMDRjKf5H5w7745GZ2YVqIGVunGWnqdI8/V4tOhnvT
+	Pzubj8xPVmve4Gsw33namm2FhhXkAdvNS8p/mRh9Vnim+kRmje1iQmqgwGXmua4M603tzyDcnzcOK
+	JK4LtbsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtEZ-0000000EKyy-2AdN;
-	Thu, 23 Jul 2026 13:13:07 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wmuIn-0000000EUIA-2dg2;
+	Thu, 23 Jul 2026 14:21:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtEG-0000000EKkP-1men;
-	Thu, 23 Jul 2026 13:12:52 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=j4KV6sQuWKd8eS0AoGbKfckVEhtCT+5lyhSl3SyfXiA=;
-	b=urWVc2P0ENx4blIXgZ5M+OtVOKt+sYZN9XXmSTw7XVqALzzXo3TdRX3PE3VyxIOZg4VByloEe
-	b5mediW2Oh8/2F/+uq6eOWGBNEW5vePZYXQabopjTR9MCFdRxcV0zfyBmUqk4FKqGTQWuwkCBw2
-	vOlOwKMDaDkSBYHJGl9FVOM=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h5WWh261Gz1prKd;
-	Thu, 23 Jul 2026 21:03:12 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id B9D8640538;
-	Thu, 23 Jul 2026 21:12:37 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Jul
- 2026 21:12:35 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <maddy@linux.ibm.com>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
-	<akpm@linux-foundation.org>, <baoquan.he@linux.dev>, <rppt@kernel.org>,
-	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <thuth@redhat.com>,
-	<ruanjinjie@huawei.com>, <vladimir.murzin@arm.com>, <mark.rutland@arm.com>,
-	<ardb@kernel.org>, <james.morse@arm.com>, <leitao@debian.org>,
-	<yeoreum.yun@arm.com>, <robh@kernel.org>, <kees@kernel.org>,
-	<coxu@redhat.com>, <sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
-	<adityag@linux.ibm.com>, <hbathini@linux.ibm.com>, <makb@juniper.net>,
-	<piliu@redhat.com>, <graf@amazon.com>, <liaoyuanhong@vivo.com>,
-	<jbouron@amazon.com>, <bauerman@linux.ibm.com>, <bgwin@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <kexec@lists.infradead.org>
-Subject: [PATCH 1/8] powerpc/crash: Fix possible memory leak in update_crash_elfcorehdr()
-Date: Thu, 23 Jul 2026 21:12:35 +0800
-Message-ID: <20260723131242.1537633-2-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260723131242.1537633-1-ruanjinjie@huawei.com>
-References: <20260723131242.1537633-1-ruanjinjie@huawei.com>
+	id 1wmuIl-0000000EUHr-3mu7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 14:21:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A8C960A6C;
+	Thu, 23 Jul 2026 14:21:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 258431F000E9;
+	Thu, 23 Jul 2026 14:21:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784816491;
+	bh=rA0O4ClmUVEoh3f94Y+vEhegRimMiCmv23Q9yV4+wRQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=M8QdiKPKfruE5fG2RaIwODjw+vgzXq2cH/x6I+b/3itmT9HeryfA90xu4Kg5h4Vmh
+	 P89TfBY0fRsg4qwOYh83utM7xE6SvZSV+vp7Z52ZkefW5k2nbcO3I+cchvRyt7+jak
+	 ium1U2QO9a/IXO4HEWCFOlgggKZjHf9toTKBUMeW9ADzMWhhJrtycpjRJqUY1Iyw2N
+	 S/uExPb1dsnq6LQ1G/xEEo0Ywec9fRrzRPq9wS0SUtZL3lsAUuGi+mvrysqq/CR8Jv
+	 efzOiz0ygSBuvlm7Xrf46pEynF1T1yHC892P3QmVWR/ayNSI8441jzHol7wTZsr7EN
+	 vZ9hBnzWZguNw==
+Date: Thu, 23 Jul 2026 15:21:25 +0100
+From: Mark Brown <broonie@kernel.org>
+To: han.xu@oss.nxp.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-spi@vger.kernel.org, Han Xu <han.xu@nxp.com>
+Subject: Re: [PATCH v3 2/3] spi: nxp-xspi: Improve AHB read performance with
+ DMA
+Message-ID: <5a437693-21a5-4a32-aa17-a1e36fe564d0@sirena.org.uk>
+References: <20260722-xspi_dma_upstream-v3-0-6b7ff50cae8e@nxp.com>
+ <20260722-xspi_dma_upstream-v3-2-6b7ff50cae8e@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_061249_024682_3D002821 
-X-CRM114-Status: GOOD (  11.86  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9Jg1gxkaRhzjWA0C"
+Content-Disposition: inline
+In-Reply-To: <20260722-xspi_dma_upstream-v3-2-6b7ff50cae8e@nxp.com>
+X-Cookie: (null cookie
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +78,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In get_crash_memory_ranges(), if crash_exclude_mem_range() failed
-after realloc_mem_ranges() has successfully allocated the cmem
-memory, it just returns an error but leaves cmem pointing to
-the allocated memory, nor is it freed in the caller
-update_crash_elfcorehdr(), which cause a memory leak, goto out
-to free the cmem.
 
-Cc: Sourabh Jain <sourabhjain@linux.ibm.com>
-Cc: Hari Bathini <hbathini@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Fixes: 849599b702ef ("powerpc/crash: add crash memory hotplug support")
-Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/powerpc/kexec/crash.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--9Jg1gxkaRhzjWA0C
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/arch/powerpc/kexec/crash.c b/arch/powerpc/kexec/crash.c
-index 60a917a6beaa..775895f31037 100644
---- a/arch/powerpc/kexec/crash.c
-+++ b/arch/powerpc/kexec/crash.c
-@@ -502,7 +502,7 @@ static void update_crash_elfcorehdr(struct kimage *image, struct memory_notify *
- 	ret = get_crash_memory_ranges(&cmem);
- 	if (ret) {
- 		pr_err("Failed to get crash mem range\n");
--		return;
-+		goto out;
- 	}
- 
- 	/*
--- 
-2.34.1
+On Wed, Jul 22, 2026 at 05:00:43PM -0500, han.xu@oss.nxp.com wrote:
 
+> +	timeout = wait_for_completion_timeout(&xspi->dma_rx_c, NXP_XSPI_DMA_TOUT);
+> +	if (!timeout) {
+
+I'll apply this since the issues are getting a bit theoretical but a
+fixed timeout will have scaling issues - you can configure a very large
+transfer on a slow bus (eg, 1M at 1MHz) and have a bad time.  I'm not
+sure that would be a good idea in the first place.
+
+--9Jg1gxkaRhzjWA0C
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpiI2QACgkQJNaLcl1U
+h9ALoQf/eRd5XC9B+m+uk8SVMqVagA9x4UsMBkV4SrRH2mY37diQ5bpB9cr79tFi
+wjf794ZOWhcmtsQQZgv2DEtj4wq3WJbRQ32NsvLc+eFp8I/MX+Ljp2C83ajdZ1yG
+KIpsaBYlCzBxDlz8Ykzf3002eqavi9rpzUvdMLok/J1S3HX8O0Ovvb94L6IR19No
+Z+GqxtJFnURhgx/2IkD3HnT/ZE30O5BcLLhEtiBfRT+D3frfWEG9Ezem0ud/V5yx
+TlR0F+Rw7kUs5SlVnR64uQ55C1v/MLzb6zr3gSjE761Yz+D0v5LOHWITDb+22yf0
+IVDAmUGHDZw1d0kuWZ4EBaDz8HhzYg==
+=DILC
+-----END PGP SIGNATURE-----
+
+--9Jg1gxkaRhzjWA0C--
 
