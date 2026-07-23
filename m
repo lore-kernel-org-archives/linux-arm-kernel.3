@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FE9C531D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 01:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBDBC531CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 01:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvl3lul6lS2dVKlMleOGMTYaeptAc7MWBvFtyJ2mfwc=; b=MIGnJtjw6aMt9TQET6GxDU7+5G
-	dCsLW+BpTDKEMh8VxGPH4bToX/vgMkq1hDmejZst0owk3qNxLgARsdfrPyvm6X3BjLFO8Kf0rE+TH
-	FDF1a+hyNedQgY+ROo/66c40bDjKlVda1yHaR5YiTp4aVze4a+FasEs+pvmixw0dEDi84SSWczYzP
-	toX+M3cfUr/S5B+VuwOvjr//YG0sh0Ry4E6Oox36adLkrwSbFDu3KKenr9F5nP3GVFqxzY3m7eJY9
-	ZYTlUSJE4HgM2u3ehCqBsiCn/5AJfgBXqDG3Ygw4ch/o756PFmRaEf6MQgXDbPgxEDkET3tw0T+mK
-	DOA3eLgQ==;
+	bh=eg1/5qBS+HCWRx01Rp3REEusv9E8uCucWgDqEenFXA8=; b=1smz1/XLrL8jkRw8298xUKlLYz
+	P9gJY14bZlSCbUxHsl8RjXzZljjJNUypnsy//2SKSvVGFtbb391cNSVsXRIY1owMkacXLw+EmRB+N
+	xivioh4X3xxn6VTfV9zJ8kn6H+ZD/i1z683Hd3mMJH6U5DmxKM/9zridVPhwA0cPHhsQqhEDNaFPM
+	bH7obEBziJLvixWkFqzlb5i+rzUixrZu3GPU3Ps0tcx07lyrAFNzRx2BuNXkzWYMXaUgJmsOqUTat
+	6MK07JINTd8LtALf6k4sv6QSsgTzj3UXPY9nXxXwY91VOiu3CW0zjk2dh3M/lf6eYepp0/Yrse/BH
+	W9HJ2cKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiLq-0000000D45i-3kzo;
-	Thu, 23 Jul 2026 01:35:54 +0000
+	id 1wmiLi-0000000D3hk-0Ef4;
+	Thu, 23 Jul 2026 01:35:46 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiLF-0000000D2ye-3wBP;
-	Thu, 23 Jul 2026 01:35:19 +0000
+	id 1wmiLB-0000000D2tf-0v3c;
+	Thu, 23 Jul 2026 01:35:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784770516;
-	bh=2geCQNKhnwPXaJ/bHUlwxRKPeZYSVig3y46QWPBRk50=;
+	s=mail; t=1784770511;
+	bh=qurORQ6igqDJlK3F/3fKY6xyx3u4PU6ljmbOomijTtA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BZytFqV/0RBDH2izdzsIUK80Bjmokva2f8oiB8+Xpgs4+K/DcHTIcW6oXzxXc5J6b
-	 9hwzK7zt4mNcjPHSUy0gvb2f5/7MnekUmTqtAstA21oEun8FheRn78dAc6WiRCbZIu
-	 DqlXrygikif7kpMtm4uSUS2E9e66F/zLkypNth79eVGys+1ylnovXbkOoOBte3gpXl
-	 uF3K39Tg3szNuLeeAmx7Hp620ptljfv5go4jVt+uSxRH5EjO+yWxlbXwl8K9RBt9u5
-	 Hp/l9rznXkvGzTBlOOR5diS0m5GiRMu6bPdC3WzYe5PEBm12WbhmYX/3a2BBdy7K7i
-	 AHPHqkQNUkCiQ==
+	b=LAkZC9d2hEPRI9CEf8cALWSsMXzEoux3qpHktQdDZbXzXKRs+kufX1A4deGEgERAV
+	 KQVMqFmLm/LFCJx4+6CbFKNaKcgHpXzYnDqskZFsLszMrYBtra4MUIRQ4DH/v2WLg+
+	 hoGK24JTBZ8fIXacgbHT8EeYEJm1DYgjLo16CmNo8J5ElWYZqzkjCaGUw20f/98RCM
+	 Vc8Sz1/26tdkq1+PEsZxMR5y+CHM9jFG20phNua5A3kniJ9LLaJ4Q/zmbMDx+siGiy
+	 P+WK/DHUnAPK+mMwzVvF9N1pkwIG1c6NYSaXE6WBk7ULBLzprM28t377ItUkAptmvj
+	 LDtQyw4QQvFIw==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0913117E124A;
-	Thu, 23 Jul 2026 03:35:16 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 25F2817E062C;
+	Thu, 23 Jul 2026 03:35:11 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 23 Jul 2026 04:35:09 +0300
-Subject: [PATCH v9 20/61] drm/bridge: dw-hdmi-qp: Provide
- .{enable,disable}_hpd() PHY ops
+Date: Thu, 23 Jul 2026 04:35:02 +0300
+Subject: [PATCH v9 13/61] drm/display: bridge_connector: Switch to
+ .detect_ctx() connector helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-dw-hdmi-qp-scramb-v9-20-4fb12ea22ac9@collabora.com>
+Message-Id: <20260723-dw-hdmi-qp-scramb-v9-13-4fb12ea22ac9@collabora.com>
 References: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
 In-Reply-To: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -73,11 +73,13 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- Maud Spierings <maud_spierings@hotmail.com>
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_183518_139038_1516E0F2 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20260722_183513_431493_B12B35D9 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +94,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the .hpd_enable() and .hpd_disable() bridge callbacks and
-extend dw_hdmi_qp_phy_ops with corresponding hooks.
+Replace the .detect() connector_funcs callback with the atomic-aware
+.detect_ctx() connector_helper_funcs hook.
 
-This enables the DRM core to control when HPD interrupts are armed,
-which is needed to prevent premature interrupt delivery before the
-connector is fully initialized, and to properly quiesce HPD during
-suspend.
+This is preparatory work to allow propagating the modeset acquire
+context through drm_atomic_helper_connector_hdmi_hotplug() to the HDMI
+connector framework, enabling SCDC state recovery via CRTC reset when
+the sink reconnects during an active display pipeline.
 
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>
 Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 18 ++++++++++++++++++
- include/drm/bridge/dw_hdmi_qp.h              |  2 ++
- 2 files changed, 20 insertions(+)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 69 +++++++++++++-------------
+ 1 file changed, 35 insertions(+), 34 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 7475b6b71836..a0613f0d2ebc 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -1189,6 +1189,22 @@ static int dw_hdmi_qp_cec_transmit(struct drm_bridge *bridge, u8 attempts,
- #define dw_hdmi_qp_cec_transmit NULL
- #endif /* CONFIG_DRM_DW_HDMI_QP_CEC */
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 8a833c813101..0d44a270b636 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -208,39 +208,6 @@ static void drm_bridge_connector_disable_hpd(struct drm_connector *connector)
+  * Bridge Connector Functions
+  */
  
-+static void dw_hdmi_qp_bridge_hpd_enable(struct drm_bridge *bridge)
+-static enum drm_connector_status
+-drm_bridge_connector_detect(struct drm_connector *connector, bool force)
+-{
+-	struct drm_bridge_connector *bridge_connector =
+-		to_drm_bridge_connector(connector);
+-	struct drm_bridge *detect = bridge_connector->bridge_detect;
+-	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
+-	enum drm_connector_status status;
+-
+-	if (detect) {
+-		status = detect->funcs->detect(detect, connector);
+-
+-		if (hdmi)
+-			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
+-
+-		drm_bridge_connector_hpd_notify(connector, status);
+-	} else {
+-		switch (connector->connector_type) {
+-		case DRM_MODE_CONNECTOR_DPI:
+-		case DRM_MODE_CONNECTOR_LVDS:
+-		case DRM_MODE_CONNECTOR_DSI:
+-		case DRM_MODE_CONNECTOR_eDP:
+-			status = connector_status_connected;
+-			break;
+-		default:
+-			status = connector_status_unknown;
+-			break;
+-		}
+-	}
+-
+-	return status;
+-}
+-
+ static void drm_bridge_connector_force(struct drm_connector *connector)
+ {
+ 	struct drm_bridge_connector *bridge_connector =
+@@ -307,7 +274,6 @@ drm_bridge_connector_color_format(const struct drm_connector_state *conn_state)
+ }
+ 
+ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+-	.detect = drm_bridge_connector_detect,
+ 	.force = drm_bridge_connector_force,
+ 	.fill_modes = drm_helper_probe_single_connector_modes,
+ 	.atomic_create_state = drm_bridge_connector_create_state,
+@@ -322,6 +288,40 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+  * Bridge Connector Helper Functions
+  */
+ 
++static int drm_bridge_connector_detect_ctx(struct drm_connector *connector,
++					   struct drm_modeset_acquire_ctx *ctx,
++					   bool force)
 +{
-+	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++	struct drm_bridge_connector *bridge_connector =
++		to_drm_bridge_connector(connector);
++	struct drm_bridge *detect = bridge_connector->bridge_detect;
++	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
++	enum drm_connector_status status;
 +
-+	if (hdmi->phy.ops->enable_hpd)
-+		hdmi->phy.ops->enable_hpd(hdmi, hdmi->phy.data);
++	if (detect) {
++		status = detect->funcs->detect(detect, connector);
++
++		if (hdmi)
++			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
++
++		drm_bridge_connector_hpd_notify(connector, status);
++	} else {
++		switch (connector->connector_type) {
++		case DRM_MODE_CONNECTOR_DPI:
++		case DRM_MODE_CONNECTOR_LVDS:
++		case DRM_MODE_CONNECTOR_DSI:
++		case DRM_MODE_CONNECTOR_eDP:
++			status = connector_status_connected;
++			break;
++		default:
++			status = connector_status_unknown;
++			break;
++		}
++	}
++
++	return status;
 +}
 +
-+static void dw_hdmi_qp_bridge_hpd_disable(struct drm_bridge *bridge)
-+{
-+	struct dw_hdmi_qp *hdmi = bridge->driver_private;
-+
-+	if (hdmi->phy.ops->disable_hpd)
-+		hdmi->phy.ops->disable_hpd(hdmi, hdmi->phy.data);
-+}
-+
- static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
- 	.atomic_get_output_bus_fmts = drm_atomic_helper_bridge_get_hdmi_output_bus_fmts,
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-@@ -1197,6 +1213,8 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
- 	.atomic_enable = dw_hdmi_qp_bridge_atomic_enable,
- 	.atomic_disable = dw_hdmi_qp_bridge_atomic_disable,
- 	.detect = dw_hdmi_qp_bridge_detect,
-+	.hpd_enable = dw_hdmi_qp_bridge_hpd_enable,
-+	.hpd_disable = dw_hdmi_qp_bridge_hpd_disable,
- 	.edid_read = dw_hdmi_qp_bridge_edid_read,
- 	.hdmi_tmds_char_rate_valid = dw_hdmi_qp_bridge_tmds_char_rate_valid,
- 	.hdmi_clear_avi_infoframe = dw_hdmi_qp_bridge_clear_avi_infoframe,
-diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index 6ea9c561cfef..b80fceffc315 100644
---- a/include/drm/bridge/dw_hdmi_qp.h
-+++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -17,6 +17,8 @@ struct dw_hdmi_qp_phy_ops {
- 	void (*disable)(struct dw_hdmi_qp *hdmi, void *data);
- 	enum drm_connector_status (*read_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*setup_hpd)(struct dw_hdmi_qp *hdmi, void *data);
-+	void (*enable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
-+	void (*disable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- };
+ static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
+ 					       struct drm_bridge *bridge)
+ {
+@@ -413,6 +413,7 @@ static int drm_bridge_connector_atomic_check(struct drm_connector *connector,
  
- struct dw_hdmi_qp_plat_data {
+ static const struct drm_connector_helper_funcs drm_bridge_connector_helper_funcs = {
+ 	.get_modes = drm_bridge_connector_get_modes,
++	.detect_ctx = drm_bridge_connector_detect_ctx,
+ 	.mode_valid = drm_bridge_connector_mode_valid,
+ 	.enable_hpd = drm_bridge_connector_enable_hpd,
+ 	.disable_hpd = drm_bridge_connector_disable_hpd,
 
 -- 
 2.55.0
