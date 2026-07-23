@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E085C531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56189C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y6hmrvX6/zADRHHfcMX+3cn85LWUnEyDle0EN1gIv1U=; b=yhYaPCq1TE53jNmyoTj36wR83P
-	WFiae+gFP7Nu5T5CTuXizhmlMM2980jF+RRUVAvz96yFATeQ46WaVQH6rIghZH9YlBWA6Wx4tQ+Zv
-	n7wXo4sVTdZdg8LYD6cfJ3W0kvMX/Yb3kZLsehkftSQNquw13Tu6iutSQStU8Iu4B+1ZTtk2nRQan
-	4SRNudjd9qDMEoz6jHNNiUdn11ZcwM67IuIwAddy8qIHP7QrfIYSWhvjOymhr6R/6XRO5xyo5KnuM
-	PifvrNyHi7x0tTX5tEGAt1JpUs34dwVYMV3fp0Jbs4ZTyesMl8Vy/fCXB9BOE19FxCiTqWfLWGMLc
-	0JDXINlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dFwgKc73uUJDN4kHIYJs7aHcj+aG+Wu703kNh0YjsDg=; b=ONq+mNGM2zaOv0
+	fUulQiY6qDAvCzV6OD2lkhlkY435nkiV0A5AGOE9F1+JhSwIm4TQMzFuITBDShDcj1j7RhgEvJ9Fb
+	/te5Y4w5btmKcNffEGRS3XfM3qQ5yiCRqalMhGVVJIGStT58+8KUjf+/qkUxNgRQme0VMo+8ucK5t
+	Ip680m+zvQcEDfHJSWKaAUU2v9d4Q8sm3p8uNzYgQ9728Ejq8GuFd+MBveHVL/3vAv63HcafBlcab
+	RTIMz29KhPtjZS/QY5Ah2nQFCVSsJFj1UXYdY4j5MDjURG3E+KY0qoC7ja1t6G0WpYKgJlBpZEk6y
+	xY1v/5tPQzfp90D4mULA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmxCn-0000000Eoy2-08Kg;
-	Thu, 23 Jul 2026 17:27:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmxE8-0000000Ep7A-0vMH;
+	Thu, 23 Jul 2026 17:28:56 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmxCl-0000000Eoxn-0Z3p
+	id 1wmxE5-0000000Ep6E-0dnv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 17:27:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F1EF438B1;
-	Thu, 23 Jul 2026 17:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C631F000E9;
-	Thu, 23 Jul 2026 17:27:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784827650;
-	bh=y6hmrvX6/zADRHHfcMX+3cn85LWUnEyDle0EN1gIv1U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gac3z5KbG41u/i25YuRaqpwAtHTcf5k/ZvCq1DY0njO4UCRju3KkpQGAATBL4LxWg
-	 UZ+8QSxHYCjqs0cu0KekgrzuOmuM1qlPeXxwNx4U9TB0Z8BWyPK0XnCRIAs4b6AGw+
-	 doJaBXXN19Dlj6fQdPHQLmyRUpRP5oXtVZ+kL8j1s6Kw4JtMjyjBYbvAlrQXBTltz4
-	 dCBsXfhYdeTNSEDvCN7cgxe1mK4tXcmJFdm838K+SyboKhXKQGwLt4jrJACPCa3k7Z
-	 EhlI2kTGQRMlY/kM/44oD9Glha91fJ5DWx1ZAiv6FYcaOG1l6uqQSBPRGHyF+NvQ61
-	 BqpcXlQkglhyA==
-Date: Thu, 23 Jul 2026 10:27:28 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Udit Tiwari <quic_utiwari@quicinc.com>,
-	Md Sadre Alam <mdalam@qti.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Stephan Gerhold <stephan.gerhold@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-	Andy Gross <agross@codeaurora.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, brgl@kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v24 00/14] crypto/dmaengine: qce: introduce BAM locking
- and use DMA for register I/O
-Message-ID: <20260723172728.GA93534@quark>
-References: <20260723-qcom-qce-cmd-descr-v24-0-4f87bb4d9938@oss.qualcomm.com>
+	Thu, 23 Jul 2026 17:28:55 +0000
+Received: from mail01.layka.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 634DB88254;
+	Thu, 23 Jul 2026 19:28:49 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id xBHW57MMBbBa; Thu, 23 Jul 2026 19:28:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1784827728; bh=ZOm1CUFG2zTNpg9nFY6xska/JOIUFcW8kvB1OU0zRw0=;
+	h=From:Subject:Date:To:Cc;
+	b=JLkA2Bz9sj5geTmL1XiLYYQ6p/JjRIChIcfSEjROsbZqj8Rv3eMLHGL6rZzliCSa/
+	 /BV9Kk7sMnRCkwOtiQqQwp/IsLKifB/lJKO4YyirGNs/TlCWgnADLDw5E0wPsW+nm0
+	 sCfkuzECIGBEOzo2KBe2emDyYWQFwuK1ZrdMH0IbbdOvzyS7tMlDe32R7WAfuEGFK1
+	 GJa9pcKTh1uBU/UDb1uNDC1wi4IA/H7BueXXQckc6ax0pcuwF/UTaWdhw6VZvQYPR8
+	 aLb2jtL/VeoUMbNEYSh3hojMtF6vCOFfIVbcI4mundIoSi/JvLCYZfqJJLJNDN/3wA
+	 y1fh0dNK7F0Yw==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH 0/3] Add Sharp GP2AP070S Proximity Driver and enable it in
+ Galaxy J6 (j6lte)
+Date: Thu, 23 Jul 2026 22:58:32 +0530
+Message-Id: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260723-qcom-qce-cmd-descr-v24-0-4f87bb4d9938@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDcyNj3fQCo8QCA3ODYt0081QDQyMDS3ODRFMloPqCotS0zAqwWdGxEH5
+ xaVJWanIJyACl2loASkmqTW0AAAA=
+X-Change-ID: 20260723-gp2ap070s-f7e0120970a5
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_102853_625437_3E72EFA5 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +84,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 07:09:06PM +0200, Bartosz Golaszewski wrote:
-> Currently the QCE crypto driver accesses the crypto engine registers
-> directly via CPU. Trust Zone may perform crypto operations simultaneously
-> resulting in a race condition.
+Sharp GP2AP070S is a promixity sensor (NOT an ambient light sensor) in
+mobile devices. This sensor chip is found in mobile devices, including
+(but perhaps not limited to) Samsung Galaxy J6 (codename: j6lte).
 
-You've claimed elsewhere that this isn't actually a problem currently
-(since the problem will be introduced by a future TrustZone software
-update).  If true, shouldn't the cover letter and commit messages be
-corrected accordingly?
+To the best of my knowledge, there's no public documentation available
+for this device. [1] is a downstream kernel implementation, which has
+been the single source for developing this driver. Some bits have also
+been stolen from existing GP2AP* drivers available in iio/light.
 
-However, what if someone runs a LTS kernel on a system that has this
-TrustZone update?  None of these patches have Cc stable, so LTS kernels
-won't get them.
+The last patch in this series touches the device tree sources to add the
+light sensor node in j6lte. This needs to be accepted into next only
+when the former patches are in next.
 
-Also, won't these changes further exacerbate the performance issues with
-this driver?  This series adds a lot of additional overhead, for example
-by replacing fast MMIO writes with DMA transactions using highly
-fragmented scatterlists (see qce_write()).  There are also new dynamic
-memory allocations, which can fail.  In addition, there can now be an
-additional delay to wait for TrustZone to stop using the hardware.
+[1] https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c
 
-> Tested with tcrypt.ko, kcapi and cryptsetup.
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Kaustabh Chakraborty (3):
+      dt-bindings: iio: proximity: add Sharp GP2AP070S proximity sensor
+      iio: proximity: add driver for Sharp GP2AP070S proximity sensor
+      arm64: dts: exynos7870-j6lte: add Sharp GP2AP070S proximity sensor
 
-Did this include testing that this patch series solves the problem it
-claims to -- synchronizing between Linux and TrustZone?
+ .../bindings/iio/proximity/sharp,gp2ap070s.yaml    |  59 +++
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  55 ++-
+ drivers/iio/proximity/Kconfig                      |  11 +
+ drivers/iio/proximity/Makefile                     |   1 +
+ drivers/iio/proximity/gp2ap070s.c                  | 502 +++++++++++++++++++++
+ 5 files changed, 626 insertions(+), 2 deletions(-)
+---
+base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
+change-id: 20260723-gp2ap070s-f7e0120970a5
 
-- Eric
+Best regards,
+--  
+Kaustabh Chakraborty <kauschluss@disroot.org>
+
 
