@@ -4,103 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237AAC44532
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 23:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6582BC44532
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 00:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fvcmYZzoXJ2+AFhLmq8yWDeYXcFpMi5b7436MW8Ch78=; b=Q3fhc0UFqGkURP8fDhJJDRD1SE
-	lb1NqeXJxV6Y4oUIfBUOCj38Adu6lHxOAM4ANXuYha7tc7Sc19KcfghYnysj/VQtpoVAY5j7IgPHw
-	4CimJqAG8MQDUVJZsO3VEowGl6omEK7vaBMBhNv1K02+SyUZ40oO67vaSS/rqgxuxrHXCAq1QA+Aw
-	cQbYkW5vgXXrNqFQd8mWsX/Y2Ife4JppbQlQZVENY0B+h5QMHoQTo56FbxeocespBItkaAUHFzKqD
-	/qCm5chX2B7UJwQLYOidZDTNVBYEmSd5SUnYTww1RKc75ENO2MUiVBfM6bsdA8EJ/eB76m9q5tJbV
-	BesXhLXQ==;
+	bh=mx3sj4OEXzWvByuX0+hJLjXZ1jc9I/pCn0J0KekMIfE=; b=NGOlWe+Vw+sjI65w6KtgqirLVQ
+	UFPrUNf1v2g3psRp+HZIXEEycvT0/0kxYhTcIlqmwGZEg/2M9qqeD+oJ3c1bfexrYIj+MakxQ+DsD
+	TDwti1ROaUQYxP//Vy5GJfESAGgPnEswE9/4+IMFsYRKtfnaN3etkBx/rWjuMRIfBrOl77wZvsPET
+	2Wcrqwx0V+MEIJhtgk0x9JFE4djBZ7zdR5LuWTqlEhr6mnhM/36k6JULZwOF8QSGgFwdXfhyDchLX
+	cz5ugeuQwpvjFPXOoq+RRIY/RT6/WRHOhoD0jFuxuEl3Yre+9/BscoSz+RItpY27Fy2dFhCof501a
+	mtUoW6fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmgpF-0000000CyUn-26Uu;
-	Wed, 22 Jul 2026 23:58:09 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1wmhNH-0000000D0AG-1rQo;
+	Thu, 23 Jul 2026 00:33:19 +0000
+Received: from mail-northeuropeazon11012011.outbound.protection.outlook.com ([52.101.66.11] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmgpC-0000000CyUN-2yCN
+	id 1wmhNE-0000000D09q-2dSi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 23:58:07 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-ca97d139d8dso47009a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 16:58:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784764685; x=1785369485; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=fvcmYZzoXJ2+AFhLmq8yWDeYXcFpMi5b7436MW8Ch78=;
-        b=m6okmG6Zt3buVvG6Bt++9J3G+fTDLy2yLQXlHFIg7HHH2cmlB1nUfZhbLJVpdpIcXA
-         zozR/Pt39ASupjGyEZ4VKOH78F8Q6WKGhVNvTb5DV7rk+gDn5A0FqDdoL+CL3XXrNNCp
-         qXoSNp0SAWPAtbQxbltol/8Gi+miaJn52GN34=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784764685; x=1785369485;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fvcmYZzoXJ2+AFhLmq8yWDeYXcFpMi5b7436MW8Ch78=;
-        b=l3ZE8p/Wxcq+H81r2/MMLznT6XKkXgWZ+GmcsqYC0yeKixXl2gsaoqceG75yPvQNd7
-         LlPY5nvf7jVupihlvQuVsAVKJxWxDLBnDk4drErMej3yf8YYXRws51oz0jNrsltaL+uK
-         ohN/5k50hpIBBrp7h6hqH+yj97XoFu6+CxHStYSIqHZ1uSTQracGoVvnB9BZ/yI3VAvx
-         Z6vaCWsYTuRYC8sGLF/kw8heea/WGqoMd82h0S+wXFhzftC2zHDrhLX0XnqhhxxvS4cz
-         VOlC41viwo04DbMlwoPrIu851JA3GXZ7Ux2C4+NmZPgOO1w4sqgzI2TasA/lBMJFsl7w
-         7jmA==
-X-Forwarded-Encrypted: i=1; AHgh+RqAf51cQLN+VWPSnA65FReAvkJfIa4b4QSDW2vFZWG4Q5dM+UoYOwFjyGgeR9LDlDd24Yn1oJW9YNUTOCvRDbpv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAnUSW5GqO/hOqnAmkrdHEnXcCfrGSdhdGW3SYlZHQ13FZN+HA
-	JtZ+E4VQyr/RbzJFL4CcG9eBcx6Ka+dhPQtKNUGbkBxhi5K6ITxUWic1SDUX0wMGvw==
-X-Gm-Gg: AR+sD10IoGg4L33Kd4OJLo3yKLCAEUGi71OB2Jz0y0GR3qoYIyc1gu8lWB9BQApEXC9
-	2R/16Cyh9nRBfWDhCx02ir3paAacEODmEIWFJPJ67gcjoJfXTAP+3r/H6BA3fLSmYu/rGt6SZEL
-	3cFNwEObJ7q7QQRDJRPckhnHz6LC2a2jJbXcBcp3ox+cz6Z0hlyfKxM55I1D5gn5qsWQTrrLVHP
-	ThItkaJN8yM7XfhmNbtGwaefBRLAdu2jm23LnBNmYFnHX9oh+oGMEFUQaio5ZkZhhwKO7NN82e+
-	W0vwik9PovjuFdHQrcTzTLwY+qAzkv0X0VZrTmTAx3XhxXeR8L1iNrb0a4t7D/0q7awjMcuEH71
-	RJoVhYaTcsyplxAfdQvvJDZmcfIrUukIDKa0QWk9FUfmMJMo6kjyXE0OgOIvLzjWmY09iinWl8v
-	TWa8gBRavs+qv+G1PWpuZN77sYHPke8kuVVASZym2D
-X-Received: by 2002:a05:6a21:e8c:b0:3a2:7ef4:81df with SMTP id adf61e73a8af0-3c44affc928mr723987637.26.1784764685561;
-        Wed, 22 Jul 2026 16:58:05 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e7c:8:f3fd:a899:78ad:64d4])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-3147df09a9dsm12945475eec.19.2026.07.22.16.58.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jul 2026 16:58:04 -0700 (PDT)
-Date: Wed, 22 Jul 2026 16:58:02 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: Peter Griffin <peter.griffin@linaro.org>
+	Thu, 23 Jul 2026 00:33:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mNXRkU3DCKNgZ092BrpHcYwgTZ382mv1pNVfoRO2KEh7UevL1wuGvWhmEo1ux2PUyp8mlJKtMRf1HhlK2cLXFlFTklHmjszRVFfbYpO/5z1Mdtv/lrhWBiNY4w6H6jCM0dfkld9Mo4AurUwh3bmiaU+IXoQm6/OOylmx5rbAIkxCZRutaZZRzYkzTSrrLZf4miwbjdpkZsRVLOwmc2v1L5WXPb5HKXFzuV+3qE/NN2YTQ4caFgv7AfQyI6u/sp4iPsz41KsCBVSVH2DAWK1DYRPJoXI3AzegjBDcqo3njfWuYJ2bcb4QE4ey0KHxqhrIgRZ7REavPWg8eR3Oj+3FXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mx3sj4OEXzWvByuX0+hJLjXZ1jc9I/pCn0J0KekMIfE=;
+ b=BK6LG7WZCRymxmEIbyzOcmrVdcWdLNvHUY2oDkl9nqK4v899qaLrAleQjjD6VEnUiojnEMzu93yi287H4qb5TaXZNW4+mzWZcMe7Mr/p2clAq552fGOx+wSRFhwMbFzG/edUYyeIrgUrRrI88XalgZ3GnRvpkce8rnWlr/vU8xhOdgjoRx/3FKPgz1fQ2UAIdKEBXPJX0Ou/dqikGKJCVCHdMkN7f0Zwpmrfxs0SMoX6xkJloJcPdQOmp6tWPuReS3eHsVuEja1O1LStHbOKOije+srnwTr+iOAUXi8gh8GoI0xZ6ii1gJYZRCqkdIIZ+fy6Djdpgeo6GbIVDLBe9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mx3sj4OEXzWvByuX0+hJLjXZ1jc9I/pCn0J0KekMIfE=;
+ b=GodQmjT0e5y5pR7oL6YkMO5FiaoLKAW32xgHXDfykSnE+lNnSMaK2kpCl2wFbdJ+HOK1c3L3WyTjSlGgs7MX3ZdHOim2a49NSyJRZWCOv+dKnwGsOA1pG88K6+sIjQV+aO/ShBHIp6SVxFsdpDDfpWYTrreaU83W3ID/fAzZP5NqW7jUZIrime70uMIcFz0I0lpK/R7oIDFk4LtJGPErTFprIUWl1DgVr6gb2Ghss3k5yu0GUjiRYry5TzqIK3AXO3Ri8eCJfLQQCyzJEXWEsiHh4fhBfZ2q9t8hBl1/QE1lNkIhJyjdpuN2B693mIrawCYC/yAh3QQORiPGncvE5Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB9836.eurprd04.prod.outlook.com (2603:10a6:800:1d9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Thu, 23 Jul
+ 2026 00:33:11 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
+ 00:33:11 +0000
+Date: Wed, 22 Jul 2026 19:32:58 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: han.xu@oss.nxp.com
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
-	soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>,
-	Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>,
-	William McVicker <willmcvicker@google.com>, kernel-team@android.com
-Subject: Re: [PATCH v2 0/5] Add Laguna/Tensor G5 SoC and Frankel, Blazer &
- Mustang boards
-Message-ID: <amFZCkt1EXtOjOYW@google.com>
-References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
-MIME-Version: 1.0
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+	Han Xu <han.xu@nxp.com>
+Subject: Re: [PATCH v3 2/3] spi: nxp-xspi: Improve AHB read performance with
+ DMA
+Message-ID: <amFhOs8aXWZxIrIn@SMW015318>
+References: <20260722-xspi_dma_upstream-v3-0-6b7ff50cae8e@nxp.com>
+ <20260722-xspi_dma_upstream-v3-2-6b7ff50cae8e@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
+In-Reply-To: <20260722-xspi_dma_upstream-v3-2-6b7ff50cae8e@nxp.com>
+X-ClientProxiedBy: SN7PR04CA0169.namprd04.prod.outlook.com
+ (2603:10b6:806:125::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB9836:EE_
+X-MS-Office365-Filtering-Correlation-Id: 523ce8b3-c729-4613-3367-08dee851f95a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|366016|1800799024|376014|4143699003|11063799006|6133799003|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: qrSGpM4KjKHhjkbwgLzsQfCPSiWmgQ3oVnDVTzz5lWmkJnvxXYTjgkXaVx1nOhUVVTzYdFTbUGt537K07vEFLowX7olG1B6V0OmxhXbek17x4JB92axnFIFNFXSi36niwPXkuOB255KTaiIREcr9wGKahPHHJkwmzs+U68jkJi5StMpasc7NgwhK5cyocYHKX1B5OSGi9g1UMGcqDx22HJRRo2Gshq8uHtARgkSNHtADjVcHAKRSOyIcHxJbuMKTvXMYWECnGwHSFPCTggtTTJaPjYUmaK77yJ7SCvs0FQBM8LvTLmLZE3/SzvDxxm8EdYfCMetCZfsxJvpHYE1px+L06t+vMKZE3kg4qVGle0Rln3n7oegt3ZOK2Vi47j7W/M1UUeeuG5g7oKVP2Oc9k6LpI9aZQ6Y6lt8NUTSx5HAZAUx7ikH/SXW/wCyY+N5INaqVv0nnX+hQwD+jXHBsqbVSEggy34c02aPfc5yfo+UjNBrNjOtkHZCvALBrmWZEH0zhxVYZp3LxAyEelvrhTpLoDFUyUPnB9P2w2/wv21foIXFufmnObJyPhWk1NXpB/jVnxF+UHzTKkpSzHxxSnlma7591AD0SDwNGw1u3uVssnqbS9elWetx+ao2sU4SrjZHZP6HQ5TwvNnJkcd8msQfMIbfODb15+X++zh8Y2Os=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(366016)(1800799024)(376014)(4143699003)(11063799006)(6133799003)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kOhyoI/5Uz5SKMEZYnraXUIaLVvFFUvHizKwL5igz3ANKaC4XUdHVGISJs5f?=
+ =?us-ascii?Q?BL0ULL51qz5OZT99V7vrpmE1V3ooybEesQHj7dNE7q/pveTrEgSAbWvQJio6?=
+ =?us-ascii?Q?gCH30BupIPfxTmu8Ct26KECT2dvaKRkBiRKSf0lFWls7d2Q+SOee4tUi04zK?=
+ =?us-ascii?Q?jYscl8UGhUbPl2uwJ9ektHOsw0eaD0ZNoqEeEDC7Oke7G9Q+CXxWTDW0JUTS?=
+ =?us-ascii?Q?6E7g7HFUCoIokvRoe6I7dWPLkkS/BNJQd2ScMC2l2dTiSTLYKFS6s6Y6Uefp?=
+ =?us-ascii?Q?oauaGZySCLL830x2vyrpQdmNbQNNEOLmoq5wRgtMYn0uc7ECXRHAp4woAY3I?=
+ =?us-ascii?Q?E94knIpBPiDWeWpbmn8GnIn4GUKRLeY6Tg0TEvYsxspO+Zg02AmS47QyJjJg?=
+ =?us-ascii?Q?syiJXpMqHEiBIYq7NBj0A9Epiz/hAGFHogyAvETnTbUpsOrcjWTmx58MmjPJ?=
+ =?us-ascii?Q?XCqPHtDquoSFkHfPNnztaBgywuTJy3NNp/LUwCp5PeooVtdyTnlf8ShEDje8?=
+ =?us-ascii?Q?P/8ECRRxvYv5C39wK5ocVCpMEVyeSf8RNK8wY8V4+IOulidySz1QN1SCVZNI?=
+ =?us-ascii?Q?Dp5cSglQcCkWbRLml2QGjQ10W0HUjsCnMKRp6Ja1WtdvuZPqXO4U8ONKncEd?=
+ =?us-ascii?Q?727i8OoinUgL7T5/lvGUIBb/lNtHIz0aeZDS8evMNNe+u3H2HjoA5q22h94d?=
+ =?us-ascii?Q?DMb+QYpFkcSOc854rL24/5fB1EUWwnbDQQBwnR8HtZJ80neO2A93hGZonuNu?=
+ =?us-ascii?Q?Fei0QvOQCn8ngRnOGS5p475jknha53AOS0LKtjRAEoEv9pq192gvJ7ZLQCSP?=
+ =?us-ascii?Q?j0M6wJHAZeBLJoQd2epl+smp9hshKL0K4IUJFmwTLP6V6W5OBEKqb+UUuqA2?=
+ =?us-ascii?Q?pDehF2ebBlrN0i06pQ8jijVtfcUHBoaTSA5W4SA8q2rqXbfjWWZpunAiGExq?=
+ =?us-ascii?Q?fIteO4X+x8xDtRn1UY3eERPiJfWg1Ex3qhNeGo04nXlz/eW8wItvJWRQZqre?=
+ =?us-ascii?Q?XrLvLujLWTJjJlRa42rzb2E4qigTq5KZg0kboQ9AjdSvBf6KkEPigKsPpoc7?=
+ =?us-ascii?Q?1G6rlb8yJHvpVOaL/0mPH86FGMd7fBJCQsRuCHYFm+QYIKQKrHX76HowYk/g?=
+ =?us-ascii?Q?iaCyI8Hneq3dQy/zCrJ6MfssEdDUnmkzXeeG3JuxgtYoX7ApT7/sKCDEgqU3?=
+ =?us-ascii?Q?C7aGS4dFJhHi6a3o2onH9vzAPqrsqpkEf9rihWkXtpxcjo7u+XxR6MHi+VUg?=
+ =?us-ascii?Q?tp5rnrBaXO7MxN89epLrD1fmllitEexn82uuI48a5F7PAnl35jhjU05k/n4O?=
+ =?us-ascii?Q?RwpjanTBmh0mI+D3QJv2fFitOa7cnOUPB7QfuRQKxoF2p1GQWCppyRgDENMR?=
+ =?us-ascii?Q?oRQVg2BB0r78s4lbEPtu/wrUlzn5r2NkqdDNsR6MVF/lZXfm+ULqOXQ5/Owj?=
+ =?us-ascii?Q?4uCqv6s/wiiaJIeGqYNlZ96Ki0s+NA+letbr40wNwysOR1ZVx1kdgDjgPu7a?=
+ =?us-ascii?Q?0YlBTDCQnVG0jRwe4Rioq0mXu7BeT99K3qLiXYxS09Yx1TQoACpVGmQ67znp?=
+ =?us-ascii?Q?SNtz6kdtNrtttvQRmSPwatgl2XL1JZlghTY1UJ+xKsEN2OZ6DnuVMDY2O4fu?=
+ =?us-ascii?Q?tVsMZBrTg1XrVTL98a+YvtFdBOiGlsPSuznRQrnEIo5Irf3osevsULBIx56z?=
+ =?us-ascii?Q?reT50n3/qj/AzFWhnB1jU+QPcxvvrQzCQ6qq2B6e8Ee9n5KMy6ItwhQR0VBG?=
+ =?us-ascii?Q?BGRi+NgHZdgeduUnOpN9S5QIGuCtZ2bygAOwVczhDmQlKDfgoHDQ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 523ce8b3-c729-4613-3367-08dee851f95a
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 00:33:10.9698
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Cuoked8hwtinPmLEsvEKE2yEECzGIhspP2tXYTd87JD0T/41g5+shNZR8Y8njAAM5G8t06RVziGB4J10Ht4bOgm5PWKvCV3tbpqc9OPkMGD06w1KSk5H4UASYOSqZUhZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9836
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_165806_752607_4E81DD87 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20260722_173316_819439_5B0FFD69 
+X-CRM114-Status: GOOD (  33.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,53 +144,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 10:55:51AM +0100, Peter Griffin wrote:
-> Hi folks,
-> 
-> This series adds initial basic support for Laguna (Tensor G5 SoC)
-> found in Frankel (Pixel 10), Blazer (Pixel 10 Pro) and Mustang (Pixel
-> 10 Pro XL) phones.
-
-...
-
->       arm64: defconfig: enable Tensor G5 SoC family
-
-I'm not able to apply this one cleanly in my tree, although resolving
-the context conflict is trivial.
-
-> 
->  Documentation/devicetree/bindings/arm/google.yaml  |  48 ++-
->  .../bindings/serial/snps-dw-apb-uart.yaml          |   1 +
->  MAINTAINERS                                        |   1 +
->  arch/arm64/Kconfig.platforms                       |   8 +
->  arch/arm64/boot/dts/Makefile                       |   1 +
->  arch/arm64/boot/dts/google/Makefile                |   6 +
->  arch/arm64/boot/dts/google/lga-blazer.dts          |  15 +
->  arch/arm64/boot/dts/google/lga-frankel.dts         |  16 +
->  arch/arm64/boot/dts/google/lga-mustang.dts         |  15 +
->  arch/arm64/boot/dts/google/lga-pixel-common.dtsi   |  23 ++
->  arch/arm64/boot/dts/google/lga.dtsi                | 423 +++++++++++++++++++++
->  arch/arm64/configs/defconfig                       |   1 +
->  12 files changed, 539 insertions(+), 19 deletions(-)
+On Wed, Jul 22, 2026 at 05:00:43PM -0500, han.xu@oss.nxp.com wrote:
+> From: Han Xu <han.xu@nxp.com>
+>
+> Use eDMA for XSPI AHB read to improve the performance.
+>
+> Read with CPU
+> root@imx943evk:~# dd if=/dev/mtd0 of=/dev/null bs=32M count=1
+> 1+0 records in
+> 1+0 records out
+> 33554432 bytes (34 MB, 32 MiB) copied, 0.479719 s, 69.9 MB/s
+>
+> Read with DMA
+> root@imx943evk:~# dd if=/dev/mtd0 of=/dev/null bs=32M count=1
+> 1+0 records in
+> 1+0 records out
+> 33554432 bytes (34 MB, 32 MiB) copied, 0.115788 s, 290 MB/s
+>
+> Signed-off-by: Han Xu <han.xu@nxp.com>
 > ---
-> base-commit: 17c7841d09ee7d33557fd075562d9289b6018c90
 
-I don't find this base commit in Linus's tree. I only found it in
-linux-next after fetching this hash directly -- it's a linux-next tag
-from 20260507? Seems like an odd old choice. Might be worth refreshing
-your base.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Apart from that and a small note on patch 4, it works for me:
-
-Tested-by: Brian Norris <briannorris@chromium.org>
-Reviewed-by: Brian Norris <briannorris@chromium.org>
-
-Thanks!
-
-> change-id: 20260710-contrib-pg-pixel10-initial-dts-49f5ec657b66
-> 
-> Best regards,
-> -- 
-> Peter Griffin <peter.griffin@linaro.org>
-> 
+>  drivers/spi/spi-nxp-xspi.c | 143 ++++++++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 140 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/spi/spi-nxp-xspi.c b/drivers/spi/spi-nxp-xspi.c
+> index 037eac24e6fd2..70cbc3ef658b6 100644
+> --- a/drivers/spi/spi-nxp-xspi.c
+> +++ b/drivers/spi/spi-nxp-xspi.c
+> @@ -35,6 +35,8 @@
+>  #include <linux/clk.h>
+>  #include <linux/completion.h>
+>  #include <linux/delay.h>
+> +#include <linux/dmaengine.h>
+> +#include <linux/dma-mapping.h>
+>  #include <linux/err.h>
+>  #include <linux/errno.h>
+>  #include <linux/interrupt.h>
+> @@ -303,6 +305,12 @@
+>  	(opr)) << (((idx) % 2) * OPRND_SHIFT))
+>
+>  #define NXP_XSPI_MIN_IOMAP	SZ_4M
+> +/*
+> + * It takes 0.5s to access the entire area with DMA,
+> + * leaving a 10x safety margin
+> + */
+> +#define NXP_XSPI_DMA_TOUT_MS	5000
+> +#define NXP_XSPI_DMA_TOUT	msecs_to_jiffies(NXP_XSPI_DMA_TOUT_MS)
+>  #define NXP_XSPI_MAX_CHIPSELECT		2
+>  #define POLL_TOUT_US		5000
+>
+> @@ -336,6 +344,9 @@ struct nxp_xspi {
+>  	/* mutex lock for each operation */
+>  	struct mutex lock;
+>  	int selected;
+> +	int dma_copy_align;
+> +	struct dma_chan *dma_rx;
+> +	struct completion dma_rx_c;
+>  #define XSPI_DTR_PROTO		BIT(0)
+>  	int flags;
+>  	/* Save the previous operation clock rate */
+> @@ -796,6 +807,95 @@ static int nxp_xspi_ahb_read(struct nxp_xspi *xspi, const struct spi_mem_op *op)
+>  	return 0;
+>  }
+>
+> +static int nxp_xspi_dma_init(struct device *dev, struct nxp_xspi *xspi)
+> +{
+> +	struct dma_chan *rx;
+> +
+> +	rx = dma_request_chan(dev, "rx");
+> +	if (IS_ERR(rx)) {
+> +		int ret = PTR_ERR(rx);
+> +
+> +		if (ret == -EPROBE_DEFER)
+> +			return ret;
+> +		dev_dbg(dev, "NO DMA RX channel, falling back to CPU read\n");
+> +		xspi->dma_copy_align = 1;
+> +		return 0;
+> +	}
+> +
+> +	xspi->dma_rx = rx;
+> +	init_completion(&xspi->dma_rx_c);
+> +	xspi->dma_copy_align = 1 << rx->device->copy_align;
+> +
+> +	return 0;
+> +}
+> +
+> +static void nxp_xspi_dma_rx_callback(void *data)
+> +{
+> +	struct nxp_xspi *xspi = data;
+> +
+> +	complete(&xspi->dma_rx_c);
+> +}
+> +
+> +static int nxp_xspi_ahb_dma_read(struct nxp_xspi *xspi,
+> +				 const struct spi_mem_op *op)
+> +{
+> +	struct dma_async_tx_descriptor *desc;
+> +	struct dma_chan *chan = xspi->dma_rx;
+> +	unsigned long timeout;
+> +	dma_addr_t src_addr, dst_addr;
+> +	int ret = 0;
+> +
+> +	dst_addr = dma_map_single(chan->device->dev,
+> +				  op->data.buf.in, op->data.nbytes,
+> +				  DMA_FROM_DEVICE);
+> +	if (dma_mapping_error(chan->device->dev, dst_addr)) {
+> +		dev_err(xspi->dev, "failed to map DMA dst buffer\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	src_addr = dma_map_resource(chan->device->dev,
+> +				    (phys_addr_t)xspi->memmap_phy + op->addr.val,
+> +				    op->data.nbytes,
+> +				    DMA_TO_DEVICE, 0);
+> +	if (dma_mapping_error(chan->device->dev, src_addr)) {
+> +		dev_err(xspi->dev, "failed to map DMA src resource\n");
+> +		ret = -ENOMEM;
+> +		goto err_unmap_dst;
+> +	}
+> +
+> +	desc = dmaengine_prep_dma_memcpy(chan, dst_addr, src_addr,
+> +					 op->data.nbytes,
+> +					 DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
+> +	if (!desc) {
+> +		dev_err(xspi->dev, "failed to prepare AHB RX DMA descriptor\n");
+> +		ret = -EIO;
+> +		goto err_unmap_src;
+> +	}
+> +
+> +	desc->callback = nxp_xspi_dma_rx_callback;
+> +	desc->callback_param = xspi;
+> +	reinit_completion(&xspi->dma_rx_c);
+> +	dmaengine_submit(desc);
+> +	dma_async_issue_pending(chan);
+> +
+> +	timeout = wait_for_completion_timeout(&xspi->dma_rx_c, NXP_XSPI_DMA_TOUT);
+> +	if (!timeout) {
+> +		dev_err(xspi->dev, "AHB RX DMA timeout\n");
+> +		dmaengine_terminate_sync(chan);
+> +		ret = -ETIMEDOUT;
+> +	}
+> +
+> +err_unmap_src:
+> +	dma_unmap_resource(chan->device->dev, src_addr,
+> +		op->data.nbytes, DMA_TO_DEVICE, 0);
+> +
+> +err_unmap_dst:
+> +	dma_unmap_single(chan->device->dev, dst_addr,
+> +			 op->data.nbytes, DMA_FROM_DEVICE);
+> +
+> +	return ret;
+> +}
+> +
+>  static int nxp_xspi_fill_txfifo(struct nxp_xspi *xspi,
+>  				 const struct spi_mem_op *op)
+>  {
+> @@ -1016,10 +1116,21 @@ static int nxp_xspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
+>  	 *     all use IP write.
+>  	 */
+>  	if ((op->data.dir == SPI_MEM_DATA_IN) && !needs_ip_only(xspi)
+> -		&& ((op->addr.val + op->data.nbytes) <= xspi->memmap_phy_size))
+> -		err = nxp_xspi_ahb_read(xspi, op);
+> -	else
+> +		&& ((op->addr.val + op->data.nbytes) <= xspi->memmap_phy_size)) {
+> +		/* use DMA for transfers no less than ahb_buf_size, when DMA is available */
+> +		if (xspi->dma_rx && op->data.nbytes >= xspi->devtype_data->ahb_buf_size) {
+> +			err = nxp_xspi_ahb_dma_read(xspi, op);
+> +			if (err) {
+> +				dev_warn_ratelimited(xspi->dev,
+> +					"DMA read failed (%d), falling back to CPU read\n", err);
+> +				err = nxp_xspi_ahb_read(xspi, op);
+> +			}
+> +		} else {
+> +			err = nxp_xspi_ahb_read(xspi, op);
+> +		}
+> +	} else {
+>  		err = nxp_xspi_do_op(xspi, op);
+> +	}
+>
+>  	nxp_xspi_sw_reset(xspi);
+>
+> @@ -1029,6 +1140,7 @@ static int nxp_xspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
+>  static int nxp_xspi_adjust_op_size(struct spi_mem *mem, struct spi_mem_op *op)
+>  {
+>  	struct nxp_xspi *xspi = spi_controller_get_devdata(mem->spi->controller);
+> +	int alignment = xspi->dma_copy_align;
+>
+>  	if (op->data.dir == SPI_MEM_DATA_OUT) {
+>  		if (op->data.nbytes > xspi->devtype_data->txfifo)
+> @@ -1042,6 +1154,22 @@ static int nxp_xspi_adjust_op_size(struct spi_mem *mem, struct spi_mem_op *op)
+>  		if (!needs_ip_only(xspi) && (op->addr.val < xspi->memmap_phy_size)
+>  			&& ((op->addr.val + op->data.nbytes) > xspi->memmap_phy_size))
+>  			op->data.nbytes = xspi->memmap_phy_size - op->addr.val;
+> +
+> +		/*
+> +		 * For AHB DMA read, align the transfer to the DMA alignment
+> +		 * boundaries. If the start address is unaligned, shorten this
+> +		 * transfer so the next one starts on an aligned boundary.
+> +		 * Otherwise, if the length is unaligned, round it down.
+> +		 */
+> +		if (xspi->dma_rx && !needs_ip_only(xspi) &&
+> +		    (op->data.nbytes >= xspi->devtype_data->ahb_buf_size)) {
+> +			if (op->addr.val & (alignment - 1))
+> +				op->data.nbytes =
+> +					ALIGN(op->addr.val, alignment) - op->addr.val;
+> +			else if (op->data.nbytes & (alignment - 1))
+> +				op->data.nbytes =
+> +					ALIGN_DOWN(op->data.nbytes, alignment);
+> +		}
+>  	}
+>
+>  	return 0;
+> @@ -1203,6 +1331,10 @@ static void nxp_xspi_cleanup(void *data)
+>
+>  	if (xspi->ahb_addr)
+>  		iounmap(xspi->ahb_addr);
+> +	if (xspi->dma_rx) {
+> +		dmaengine_terminate_sync(xspi->dma_rx);
+> +		dma_release_channel(xspi->dma_rx);
+> +	}
+>  }
+>
+>  static int nxp_xspi_probe(struct platform_device *pdev)
+> @@ -1283,6 +1415,11 @@ static int nxp_xspi_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>
+> +	/* DMA is optional, failure(other than -EPROBE_DEFER) falls back to CPU */
+> +	ret = nxp_xspi_dma_init(dev, xspi);
+> +	if (ret == -EPROBE_DEFER)
+> +		return ret;
+> +
+>  	ctlr->bus_num = -1;
+>  	ctlr->num_chipselect = NXP_XSPI_MAX_CHIPSELECT;
+>  	ctlr->mem_ops = &nxp_xspi_mem_ops;
+>
+> --
+> 2.34.1
+>
+>
 
