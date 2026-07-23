@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B14DC44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 944F7C4453E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HixnQA3D1zRULVvBB/jeOOlU4aEEUieqrpIsljYruxo=; b=1mfqyjARZFiG4BKHU/uzvYVbei
-	wIS0fSImV2ZwM6/DO8TlDeVL6X0IgC0C4wylxHrk8DCShir0c0OJZxoFXQtisaclZSWNVLJ6YROKd
-	EP2heFn9hYZUtB0KwX4wqa4GRpE7ehXdYeVtRqq9Lm0ZZLZ6nyGht47i0x2+FNxTKGrpkZtMii3lX
-	8TH5qGerTkXfyoIYFitA74e7S8V0GV1MWIU6ugGbg2PI1iP3hhXW9rapXCcCBBZou+K3CrqJh+cUk
-	nVLaa66wH//RMjQOAdmMqaRC9SfMcoAMAr4dueJC6jfOJ9PmoMbjl5YEt3rCGlTgAYJ40orS0+Uje
-	0VnjI25A==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KGWaV3dBS1OYfyiBm+OHVmrMntuT7QMC6qkZgu/DlKE=; b=0K7GmyhvGuUGLUTAt+Je2VFrcM
+	UQtsI0Y3B4earsjUdqc6sA2xlZA8vOBCcZsHbQ9svFf8H5tEw7/ogQGZXoj6q39wjTdDBeqSpFrsm
+	B/2MvmgfZb9/mk4vwQ3ZX9kDfwaVHneoipCzjcbJuoEtFKxqZVZfJAW8ZgWgt7P+s8iXp2PLfFIIa
+	PFh3bIDHcsw4KqVnt3xy6nxNBsVhusTFIeOrDOhWMY/mVLklPBgK11CI4ygRcjWBHNwR/jLGpFdGF
+	a8OptiZKiaLU47wOVzox+d6VGVek/RCsj9zPZw2YJm6iPUhEE3H3Qd4PEwJ8BHubeqnXl/Pgo6VSv
+	2evmMhBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmQT-0000000DVc9-3exa;
-	Thu, 23 Jul 2026 05:56:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmQQ-0000000DVbi-3fWC
+	id 1wmmRS-0000000DVlf-1bFO;
+	Thu, 23 Jul 2026 05:57:58 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmmRP-0000000DVko-4AyG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 05:56:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C26761595;
-	Wed, 22 Jul 2026 22:56:46 -0700 (PDT)
-Received: from [10.163.164.40] (unknown [10.163.164.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D6B183F66F;
-	Wed, 22 Jul 2026 22:56:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784786210; bh=KcTgjcA70uHRnfNgnpW+62gzgY1lyZt3T5+9Cc8aQjk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uMlYCK/ZZIGP3HbtRNdq+Fm0VXtKTnfAr36S56S1rMUqVyuneRX2WrHTtJqGoqkw4
-	 Ip+fLIXXW1O/dm9yAuhGb640Ed+ZCxFgn4py8b1G2AXme6UxLvXttA8l4C0rrzP2V7
-	 7FIrTRK3FzlsdIreST9KI2TdioJgmYwOnypgakJ4=
-Message-ID: <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
-Date: Thu, 23 Jul 2026 11:26:43 +0530
+	Thu, 23 Jul 2026 05:57:57 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784786262;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=KGWaV3dBS1OYfyiBm+OHVmrMntuT7QMC6qkZgu/DlKE=;
+	b=Ijq8RnNvwAKCSaJzfobED/7AlZAT1eEUQCDBDgr6TYebg5Llioy5bWqfOz5GuZV94yihdQ
+	0vGURIWVn64ini6ikFARXy162dFFrqks37HUhP1j0wX9df8kQ46mjRT8vp0E5WUx1cHDMb
+	FV42d1m6i8ivOOuLWOVew+hAsiOu+Rw=
+From: Chenguang Zhao <chenguang.zhao@linux.dev>
+To: nbd@nbd.name,
+	lorenzo@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: netdev@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	chenguang.zhao@linux.dev,
+	Chenguang Zhao <zhaochenguang@kylinos.cn>
+Subject: [PATCH net v2] net: ethernet: mtk_eth_soc: pass eth to mtk_handle_irq_rx in poll_controller
+Date: Thu, 23 Jul 2026 13:57:35 +0800
+Message-Id: <20260723055735.885112-1-chenguang.zhao@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
- reaching head.S
-To: Jinjie Ruan <ruanjinjie@huawei.com>,
- Naman Jain <namjain@linux.microsoft.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>,
- Fuad Tabba <fuad.tabba@linux.dev>, Thomas Gleixner <tglx@kernel.org>,
- Pengjie Zhang <zhangpengjie2@huawei.com>,
- mrigendrachaubey <mrigendra.chaubey@gmail.com>,
- Saurabh Sengar <ssengar@linux.microsoft.com>
-References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
- <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_225655_214854_D56FA7CC 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20260722_225756_169046_5C499401 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Chenguang Zhao <zhaochenguang@kylinos.cn>
 
+mtk_handle_irq_rx expects a struct mtk_eth * (matching the request_irq
+cookie), but mtk_poll_controller incorrectly passed the net_device *.
+Calling ndo_poll_controller with CONFIG_NET_POLL_CONTROLLER enabled
+would then crash.
 
-On 23/07/26 8:19 AM, Jinjie Ruan wrote:
-> 
-> 在 2026/7/22 19:30, Naman Jain 写道:
->> When a secondary CPU fails to come online, __cpu_up() falls back to
->> __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
->> distinguish a CPU that never executed head.S (firmware/hypervisor never
->> dispatched it, so it never ran a single instruction) from one that
->> entered head.S, started executing, and then got stuck somewhere in kernel
->> bring-up. Add a change to let us tell those two cases apart, which
->> narrows down where to look when a CPU goes missing during boot.
-> I previously encountered this issue when debugging the parallel startup
-> of ARM64 secondary cores. It is difficult for the kernel to determine
-> whether the secondary core is hung in the firmware or whether it has not
-> executed a single instruction. So I think this motive is reasonable.
+Fixes: 8186f6e382d8 ("net-next: mediatek: fix compile error inside mtk_poll_controller()")
+Signed-off-by: Chenguang Zhao <zhaochenguang@kylinos.cn>
+---
+v2:
+ - Add SOB and Fixes tag.
 
-Why should kernel determine the difference here ? Would not the firmware
-know if it has started any secondary CPU for the kernel which must have
-come inside head.S ? If the cpu gets hung inside firmware while starting
-up then the debug responsibilities belong there instead.
+v1:
+ https://lore.kernel.org/all/20260717022339.301914-1-chenguang.zhao@linux.dev/
 
-Still wondering what's the rationale for this change.
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index 5d291e50a47b..351444fb4871 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3467,7 +3467,7 @@ static void mtk_poll_controller(struct net_device *dev)
+ 
+ 	mtk_tx_irq_disable(eth, MTK_TX_DONE_INT);
+ 	mtk_rx_irq_disable(eth, eth->soc->rx.irq_done_mask);
+-	mtk_handle_irq_rx(eth->irq[MTK_FE_IRQ_RX], dev);
++	mtk_handle_irq_rx(eth->irq[MTK_FE_IRQ_RX], eth);
+ 	mtk_tx_irq_enable(eth, MTK_TX_DONE_INT);
+ 	mtk_rx_irq_enable(eth, eth->soc->rx.irq_done_mask);
+ }
+-- 
+2.25.1
+
 
