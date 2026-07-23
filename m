@@ -4,105 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6837CC44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AEFC44524
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87tY0XBF0Spy12g+WsA7Jvhj0xZPDxN4sdYFmxhScf0=; b=yKA2811oqJjktOFdrlJw1DJlxO
-	Hsq2EBzl26i/9njG0HGKWv5N9QmtmxMsM/T2LPkOA8IoW7v2dv0kOX/QVfwnd5c4QhlgybIAM22F4
-	ImrXwqE+DTgrSa3wvIOJuigehI4eaN7OpR6KLCdlbjBVQxkc1GjJ/7j2MdeXPWT/Os3V4FK9h43jx
-	tu8jtnCziysQEmusnqIi6L8aprp+J4TO1HHNqdFUuEDWaHhoH85iZJddfQZ4keienh00hoLQqatpQ
-	LNwzd4ce6lEd1yA2VeU0zjM12whG6Q0Bt2iJs0s1gb5TFrXR9KMkZhjFuWhAts20K/7s8RlbFeIAD
-	/MZKhT6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=npvx1Rov5V/ign/oNITAn9lusftU9TKPldrXYwuOVG4=; b=wjPUwt+9TUmKrWhG3v0U+boYV1
+	hmfIkEzCHCm4V2f5R2PvFmVKbK7PMOFd3LJoNpeK0jSnDTwCrlOQ43RD8U7uwGLLaUFmJEscc94j3
+	VDLXy5787pkLgKqljkdiE06fpnO7JAMpUxnx9nKs7CKfiXLIGgROWst24BPDfP9b1lOrPWdQv/CYm
+	CzkxbkZ6JaV12EOHUVCdHFQo7jvRElux4i7iyzOq3cLz8uoS5/1KatMtAH7zYtTCiR6DJY2jLA7Iv
+	ug274zttYkyFqKIATRWrovVugABguUq3JrbzeogruMhu5zZE3VVslOWpWucYOfafgJ0ja4uARIsQo
+	UPPLjBgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmnjE-0000000Dd0F-3Y75;
-	Thu, 23 Jul 2026 07:20:24 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmnjC-0000000DczI-0q7j
+	id 1wmnpL-0000000DdYm-2TdH;
+	Thu, 23 Jul 2026 07:26:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmnpG-0000000DdXx-2XOm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 07:20:23 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-51c01c79467so176361cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 00:20:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784791219; cv=none;
-        d=google.com; s=arc-20260327;
-        b=L9tgsDbdtJKBRjWPyNPG5CYQPK4Tk7kEhRt/nbj5kgP/ZvH1P10IrniKjF5+Sar5mk
-         HymqIBvcB7z4qji6P3qz3odv0KCYO4RYagnwiX8kh5oTElpmv02m8kY89ZMfDcxB4czk
-         fPVBP9hLT//EyiiolTD2E/lh1HbjwDNjcjkbJFYUsesfc3epe4tO56vvFi9bZKc0EPZI
-         TIz59KuQ0d0ksK0EG5r+s0HmWsoXFPrPPWP5r5tPJphMwe8BbYgy711CIgmP+fFtvcf4
-         sKhmnhnjmdFuBG8zCX1PmXKiPV9HGeRINdOluOiFayq8OCQQA6LB1y/rr7otw1sVcB8x
-         0o1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=87tY0XBF0Spy12g+WsA7Jvhj0xZPDxN4sdYFmxhScf0=;
-        fh=bxBWsVVgQ3WSZppKoeAJwwYu+dssTwBCl0JIugv+wlw=;
-        b=q8QCH+nUOvh++3Fpumq+el25LPK1kxCIGyTigguK1MW/X1QPjX12xPQlDIA/+XkgVt
-         06MfVEIrgvHzWr5wdX2ToJhPXYpgEMC+nYAMf0Cd+HMI2xg+KRU50MAL7lKQcv6ZU7M7
-         Jj1LrzLn4JRRAJnkrnGqMt1NTDpUO20rr7fkgaxgg2kCtp4Ro7t1nAuaaJPvUNh2rhE4
-         fh6dbzV9rplQDeuXy3TYq/S9lgQOy18e5fOo1vs7YjvWCMvpRsPuti7Q/4NiSAQ2KeVn
-         nBVjkjBFB5p/n+cmfVQY6r8k8Ed92IMXjZ5I+2iQ7WMm1QOk2MUcSRpg8Wh1SWqqdChF
-         eVFw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784791219; x=1785396019; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=87tY0XBF0Spy12g+WsA7Jvhj0xZPDxN4sdYFmxhScf0=;
-        b=LDj6+O4NUmkhQoowQTcv9VlQmGp0HJX0HcZZEbGrmiyr3VXtKHx82a3Bq8S9i4hJqb
-         B9J8DPo5CZkege+VkebZwwrpksNmAiMTkDJFIxE2Evdz48alwpfDKbrRH4wv1hf5eiPx
-         7vkhRlXcmcUcKPS+YYlnFI4BFjo3UPeQL4bbOVyBmnkAaTDWBjNyWjdv1boelHdTIzMG
-         YpMsCglRAV07cJnwCtPJmCBmIfPzLF5C4txMxemiHAGq6fXhqTunLX27ZDDTU2eNsBJA
-         TzmCDidYY2M5zdvkkGO0qdXxirlZOy5xseqQGxl4bkPJ8rcb7/mUkc9dYU+lrK5rVJmX
-         3z1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784791219; x=1785396019;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=87tY0XBF0Spy12g+WsA7Jvhj0xZPDxN4sdYFmxhScf0=;
-        b=hvJFD9pMqmYj4QcIFyoKLRtdiS4VGg9jNqQjpLH9ajIs697LUaCtAKWUn1IuAHUrvO
-         lsv7Rqe01FR4HinUMekUoq5O6N4y1e9qEELs2OD03Bixp33cSoyIf1BktCioN2lYoUKF
-         9dJQw7Hf+pMdRuXWA8tfg3oTTUuZiKj5IeQH5DyH6h0xRDCjcUYdFJjnccypDaeyZdKi
-         YGxLUgzHnijp7GrPUyzStVYXa0b1nEbDtoQVZs5C3u/ZtE/d7mOR70XlocHoccYEYlP7
-         29Wb6Md5vyXEcUyxWeTH2dogTQqvjZFNEfHoTL/mUOIqDuEYp0MzrQXwD1M64r9LcuRB
-         XY0A==
-X-Forwarded-Encrypted: i=1; AHgh+Rr0XM+MRogCcVxJibRibmeUn9+kRrSnGqoumtUbpf3wmuwJnCCF+0owAc4HdP8+u3VCEh6lrooRmIAWd2ndHlCv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHrPz5NGumwuOo46NckQm64bqdjFl5Kr8sLX3D/AKFluOqkDnE
-	D5pUtfQ76RNhKdOSoC+XKh7rhtGxtwGF3s0U8K8uuV2sUTM3kNXsLY2yT1jmRvmafI+bQ8pvZHP
-	aoJNFw0Wg0o2lTsthds3nSvkLE1ETOvKAN4Pz5Z5R
-X-Gm-Gg: AR+sD11cU8uma/OxnbQ3qScOMRaJBZ5PH/hIu3/NE8SeUv3G1a218zyNhc384ENmpRx
-	MOtls8t7Teof3OfcnTlieGx0fkVkZfQGKekxKh59D3VaLilT4be7idrvM60s7/E8qNVQhK6hW0+
-	QgNQSiihU7H1Kk6F2JxTBFzhHiB/QSYMJZWWMdawAfTXFFrDJt8pZyQLMtLvBuy8PKXb+yNIt5X
-	ZH+LZ72MkjzHNuxJkcjNUdjDrpKeBqinH87Yw6gVsTItEPWOBWKK+sDEkQXAA==
-X-Received: by 2002:a05:622a:9006:b0:51c:7a8b:c3ff with SMTP id
- d75a77b69052e-5283bbeb11cmr7210611cf.24.1784791218948; Thu, 23 Jul 2026
- 00:20:18 -0700 (PDT)
+	Thu, 23 Jul 2026 07:26:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F75C1BA8;
+	Thu, 23 Jul 2026 00:26:32 -0700 (PDT)
+Received: from [10.163.164.40] (unknown [10.163.164.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AC7D3F66F;
+	Thu, 23 Jul 2026 00:26:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784791596; bh=fQuZig5GU+0ps47Kg12JnM/El3X9xLJIqbg58kBalr0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bJPVYry9PIJ3A/ep4TkHZ19XXXBNH7h7R90L2lOV7qdvqmNZOu0QKcplp+57BfaMW
+	 /89CQz+bPUvnOhQlzHmX4imQRWqyTYxkB0EHPMBIulUkfkO749VvgHk/ZmVWNL7u7Y
+	 NyTTeFlBquEj44xjWAE3gQ3BamZfYXjPT+iE++yQ=
+Message-ID: <2fe1b74f-70b1-4b24-b416-02db6d41a6d2@arm.com>
+Date: Thu, 23 Jul 2026 12:56:30 +0530
 MIME-Version: 1.0
-References: <20260720171513.1415357-1-vdonnefort@google.com>
-In-Reply-To: <20260720171513.1415357-1-vdonnefort@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 23 Jul 2026 08:19:41 +0100
-X-Gm-Features: AUfX_myAcHFefmBWGcQK4TCfe3jKMad7iXPD1hE8cSakhsQCWUus-2VShzvp7rI
-Message-ID: <CA+EHjTzN-68kBkOGfOqdBnRHs8HRotDuQaPACYK_N4Vw8S4ehw@mail.gmail.com>
-Subject: Re: [PATCH v3 00/17] KVM: arm64: Introduce pKVM hypervisor heap allocator
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/6] arm64: cpufeature: Extend bbml2_noabort support
+ list
+To: Linu Cherian <linu.cherian@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Gavin Shan <gshan@redhat.com>
+References: <20260723044034.2983651-1-linu.cherian@arm.com>
+ <20260723044034.2983651-4-linu.cherian@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260723044034.2983651-4-linu.cherian@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_002022_535609_FFBCCF75 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20260723_002639_515629_FFD53351 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,140 +76,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tested on QEMU: npVM/pVM boots, the in-hyp allocator selftest, and
-hyp-trace buffer load; allocator top-up path confirmed via the
-kvm_handle_pkvm_hyp_req tracepoint (HYP_ALLOC).
 
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
 
-Cheers,
-/fuad
+On 23/07/26 10:10 AM, Linu Cherian wrote:
+> Add below cpus to the midr list, which supports
+> BBML2_NOABORT.
+> 
+> Cortex A520(AE)
+> Cortex A715
+> Cortex A720(AE)
+> Cortex A725
+> Neoverse N3
+> C1-Nano
+> C1-Pro
+> C1-Ultra
+> C1-Premium
+> 
+> C1-Ultra and C1-Premium both suffer from erratum 3683289,
+> where Break-Before-Make must be followed to avoid a livelock.
+> For both CPUs, the erratum is fixed from r1p1.
+> Hence we do not enable BBML2_NOABORT for CPU revisions <= r1p0.
+> 
+> The relevant SDENs are:
+> * C1-Ultra: https://developer.arm.com/documentation/111077/9-00/
+> * C1-Premium: https://developer.arm.com/documentation/111078/9-00/
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  4 ++++
+>  arch/arm64/kernel/cpufeature.c              | 10 ++++++++++
+>  2 files changed, 14 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 014aa1c215a1..57c778446936 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -242,10 +242,14 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Neoverse-V3AE   | #4193784        | ARM64_ERRATUM_4118414       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| ARM            | C1-Premium      | #3683289        | N/A                         |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | C1-Premium      | #4193780        | ARM64_ERRATUM_4118414       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | C1-Pro          | #4193714        | ARM64_ERRATUM_4193714       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| ARM            | C1-Ultra        | #3683289        | N/A                         |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | C1-Ultra        | #4193780        | ARM64_ERRATUM_4118414       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | MMU-500         | #562869,        | ARM_SMMU_MMU_500_CPRE_ERRATA|
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 9a22df0c5120..98d2cfc2dc90 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2152,6 +2152,16 @@ bool cpu_supports_bbml2_noabort(void)
+>  		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+>  		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+>  		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
+> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
+> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
+> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
+> +		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
+> +		MIDR_ALL_VERSIONS(MIDR_C1_NANO),
+> +		MIDR_ALL_VERSIONS(MIDR_C1_PRO),
+> +		/* Erratum 3683289 fixed in r1p1 */
+> +		MIDR_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf, 0xf),
+> +		MIDR_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf, 0xf),
 
-On Mon, 20 Jul 2026 at 18:15, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> pKVM historically lacked a dynamic memory allocator: all hypervisor-side
-> VM and VCPU structures had to be sized on the host, allocated as
-> contiguous pages and donated to the hypervisor.
->
-> This design tightly coupled the hypervisor's memory footprint to
-> host-side constraints, complicated memory reclaim, and severely
-> restricted VM scalability.
->
-> This patch series introduces a dynamically-mapped custom heap allocator
-> (hyp_allocator) to the pKVM hypervisor. The initial users are the
-> pkvm_hyp_vm and pkvm_hyp_vcpu structs, and the hypervisor tracing
-> metadata.
->
-> In the near future, this heap allocator is expected to be leveraged to
-> support SVE in protected VMs and in the distant future, it will also
-> support dynamic device assignment.
->
-> By moving to a hypervisor-managed dynamic allocator, we also allow
-> deduplicating the donation/reclaim path of EL2-private structures.
->
-> The main building blocks for this series are:
->
-> 1. pkvm_hyp_req:
-> ----------------
-> When the hypervisor heap allocator goes out of memory (-ENOMEM), it
-> suspends the hypercall, embeds a PKVM_HYP_REQ_HYP_ALLOC top-up request
-> into the SMCCC HVC return registers, and exits back to the host.
->
-> This building block will also be useful for the future huge-mapping
-> support in protected guests, allowing EL2 to raise requests such as
-> block splitting back to the host.
->
-> 2. hyp_allocator:
-> ----------------
-> This heap allocator manages a reserved VA space range, dynamically
-> mapping and unmapping physical pages on-demand to minimise the pKVM
-> hypervisor footprint. As memory is reclaimed and relinquished to the
-> host, unmapped holes are introduced within the VA space. To prevent
-> orphan mapped regions, neighboring unused chunks cannot be merged if
-> they are separated by an unmapped region.
->
-> The allocator chunk metadata is stored directly into the VA space range.
-> To minimize metadata overhead, chunks only link to each other via a
-> relative 32-bit offset.
->
-> A simple hardening of the metadata is added via a simple 32-bit hash.
->
-> 3. shrinker:
-> ------------
-> As the heap allocator isn't reclaimed actively on VM or tracing
-> teardown, a shrinker is added to allow the host to reclaim unused memory
-> from the hypervisor when the host is under heavy memory pressure.
->
-> v2 -> v3:
->   - Remove unsafe WARN_ON(hyp_spin_is_locked(&pkvm_pgd_lock)) check in hyp_allocator_alloc() (Sashiko)
->   - Modify MIN_ALLOC_SIZE to 16-bytes to comply with FPSIMD alignment requirements (Sashiko)
->   - Allow hyp topup/reclaim HVCs pre-deprivilege
->   - Add enum symbols to pkvm_hyp_req_handle event (Fuad)
->   - Various clarification in commit descriptions (Fuad)
->   - Restore unmap_donated_memory() for PGD on error path (Fuad)
->   - Renamed __hyp_allocator_map -> pkvm_map_private_va_range (Fuad)
->   - Collected Fuad's Reviewed-by tags
->   - Rebased on 7.2-rc4
->
-> v1 -> v2:
->   - Rebased series on 7.2-rc2.
->   - Use scope-based hyp_spinlock.
->   - Fix best_missing/best_data_size priority in hyp_allocator_find_efficient_chunk() (Sashiko)
->   - Fix missing free_hyp_memcache() in pkvm_hyp_topup() (Sashiko)
->   - Fix unused selftest_init() warning when !CONFIG_NVHE_EL2_DEBUG (Sashiko)
->   - Fix missing shrinker_free() in teardown_hyp_mode() (Sashiko)
->
-> v1: https://lore.kernel.org/r/20260520152650.4107895-1-vdonnefort@google.com
->
-> Vincent Donnefort (17):
->   KVM: arm64: Add pkvm_private_va_range_pa
->   KVM: arm64: Add pkvm_remove_mappings
->   KVM: arm64: Add pkvm_map_private_va_range
->   KVM: arm64: Add a heap allocator for the pKVM hyp
->   KVM: arm64: Allow kvm_hyp_memcache usage outside of stage-2
->   KVM: arm64: Add pkvm_hyp_req infrastructure
->   KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
->   KVM: arm64: Add reclaim interface for the pKVM heap alloc
->   KVM: arm64: Add selftests for the pKVM heap allocator
->   KVM: arm64: Add a shrinker for pKVM
->   KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
->   KVM: arm64: Move hyp_vm refcount into the structure
->   KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
->   KVM: arm64: Alloc pkvm_hyp_vcpu using pKVM heap allocator
->   KVM: arm64: Reject hyp trace descriptors with fewer CPUs than
->     hyp_nr_cpus
->   KVM: arm64: Reject hyp trace descriptors with fewer than 3 pages
->   KVM: arm64: Alloc simple_buffer_page using pKVM hyp allocator
->
->  arch/arm64/include/asm/kvm_asm.h           |    4 +
->  arch/arm64/include/asm/kvm_host.h          |   14 +-
->  arch/arm64/include/asm/kvm_mmu.h           |    3 +
->  arch/arm64/include/asm/kvm_pkvm.h          |  102 ++
->  arch/arm64/kvm/arm.c                       |    2 +
->  arch/arm64/kvm/hyp/hyp-constants.c         |    2 -
->  arch/arm64/kvm/hyp/include/nvhe/alloc.h    |   24 +
->  arch/arm64/kvm/hyp/include/nvhe/mm.h       |    3 +
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h     |   19 +-
->  arch/arm64/kvm/hyp/include/nvhe/spinlock.h |    4 +
->  arch/arm64/kvm/hyp/nvhe/Makefile           |    2 +-
->  arch/arm64/kvm/hyp/nvhe/alloc.c            | 1223 ++++++++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c         |  124 +-
->  arch/arm64/kvm/hyp/nvhe/mm.c               |   51 +
->  arch/arm64/kvm/hyp/nvhe/pkvm.c             |  100 +-
->  arch/arm64/kvm/hyp/nvhe/setup.c            |    6 +
->  arch/arm64/kvm/hyp/nvhe/trace.c            |   70 +-
->  arch/arm64/kvm/hyp_trace.c                 |   15 +-
->  arch/arm64/kvm/mmu.c                       |    4 +-
->  arch/arm64/kvm/pkvm.c                      |  159 ++-
->  arch/arm64/kvm/trace_pkvm.h                |   45 +
->  21 files changed, 1831 insertions(+), 145 deletions(-)
->  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/alloc.h
->  create mode 100644 arch/arm64/kvm/hyp/nvhe/alloc.c
->  create mode 100644 arch/arm64/kvm/trace_pkvm.h
->
->
-> base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
-> --
-> 2.55.0.229.g6434b31f56-goog
->
+This in line with what Mark had suggested earlier.
+>  		{}
+>  	};
+>  
 
