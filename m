@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8838BC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B57C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=hd35ezz/qRRzqlESySsTjZX8Na6y63xNvZlfn93+y/A=; b=zVcqhij/nDGUmX
-	l7h3MQy0//Xj7lbdMMVRaQVRDphuN/TI6CrJyXVikg8BDCCMPCOWYU9UhoKiBltH2hvolQJTFECpn
-	HCcXeeWnIn4rzq+ooLiyXss5pE6yN+rSmqcMK+Nno6PqpgeDyIP/AzWILsbMRWXvkjPFbRWqhNgEF
-	biMG7s14H94t5JKy2A28K1BdHjcKrMLHuXldJE5juUhS/qnjo8vxwB8a61MQGCYsn1yN9lWjPABgV
-	wuZ84e72qfeJXqWbkwxgj0RF48+2QM09ag8d4aNWfJZNYSvx4+94oNe5wou//3husYkRLVdkx3sQ5
-	0t9Q9BNtiDkEkDycNDbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+8l2CuJj29/q9WU4sYROsZI8M/M6cU4ae8pKFk3sZ3Y=; b=tcgK+SsoI4V8fEunPWWYGXhTli
+	q9bUS4fwNWFOhCuVk9yiAjPV78ofWgkSOukXPWRdeITcfrAT/VER+wW4K8EHiDZclRBH3pJX5xPDm
+	vK+1jx14ZJ0yin/WYF1/78cwncma3OubKSR7UqdTT2682dhm2uIk8UzXOD8v6mX6lR61m2iMZLKt0
+	cMoBt2PsyWU+WaOiYSCpVBHDTwm0jcGz5ivemg2QHF6b7QAyTZ2iStObCiypd0f8S9Zoi9t5sLmQE
+	m2jOqC/oQsWebn5bo+VVqkN8aELJtD9akfzvbCxvziZ0i3kObWBCHmVXCN87BDpt6oOH71Cn3q81w
+	ABNlrDoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzQP-0000000F0Gs-3JCo;
-	Thu, 23 Jul 2026 19:49:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmzWc-0000000F0ay-2WbS;
+	Thu, 23 Jul 2026 19:56:10 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzQO-0000000F0Gh-2sax;
-	Thu, 23 Jul 2026 19:49:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92CB7600AD;
-	Thu, 23 Jul 2026 19:49:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B5B61F000E9;
-	Thu, 23 Jul 2026 19:49:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784836183;
-	bh=hd35ezz/qRRzqlESySsTjZX8Na6y63xNvZlfn93+y/A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=oHEyfqKs+qIAGhNg8ku1g8HLye7HRNceaQR5nVhVORDSMRPvDk5wJbiNVYoltP0ef
-	 q3c3c1LUZJ0v0v+iHt0YGC0IV/s+1w4CjvF4V+/r69vHOuUCPc1o2j7dIx45ovP4xy
-	 Zv3WOK1re0ATDkbTpUQuM+l86aabi0dJ7acys2+7UqhnEKVF9BbNxxw1M4at8UNbjl
-	 KSRO8OKGHbwWChQdq2B67fHz9S0nS0SJM5B4gk8tL39wDX1Aq97vhVxFsRJaeIkLkQ
-	 nsDUoDR+e2QFZPQwFHXcuSJdBgdaMZNZlzHv5E49nuHfHWmtJnE7uC+mqmfWrL0KD7
-	 eh4AIHVTo9MKg==
-Date: Thu, 23 Jul 2026 14:49:41 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 4/4] PCI: mediatek-gen3: Add 2-lanes mode support for
- Airoha AN7581
-Message-ID: <20260723194941.GA850329@bhelgaas>
+	id 1wmzWa-0000000F0ad-0AsS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 19:56:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784836553; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lCuCz8qiU79E2KM7pC6ns4c+KN+wN3MUMmKekj5UpeIkuVZUbZ0v819kUJg4cEC6qCOcB2mUZAdjEMulb5OrpYZdEX7g1TyXQPMKGWw4QaUag3KqelWrDWhvafo/FCY5846EJvL7oa9KvUyq5XEiGA9dPkSR0Tp9AOvCs6VkTXI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784836553; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=+8l2CuJj29/q9WU4sYROsZI8M/M6cU4ae8pKFk3sZ3Y=; 
+	b=oKawccNzREyJ/TJmcyxmvq5/kQ3OeuMyNPUK9Ixni15ugICKcT12+UQYRTkvVok5MzFa3Z7AsSr7BnTIOEEpPBYfO/kwcZd8F70yBby+ZeXosKc1w0bWy2Tpyn3P1jOC4tatSJS471vLEFRfmDFLC2MUM2O5kiuEdsIWvanFYJ0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=yoavmoshe.com;
+	spf=pass  smtp.mailfrom=linux@yoavmoshe.com;
+	dmarc=pass header.from=<linux@yoavmoshe.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784836553;
+	s=zoho; d=yoavmoshe.com; i=linux@yoavmoshe.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=+8l2CuJj29/q9WU4sYROsZI8M/M6cU4ae8pKFk3sZ3Y=;
+	b=RwdQAppcb4zIri7Pn7AjcvfwJyN87cEvPLUizLsGlboJusa84hYmEjSxXbEgh6kR
+	QeJZmq4zfAs947qJhiGZljmnu7yRqFr229+wOqrVQGPpgc0/pehLm3ykZaSfxs19RUx
+	0BgCcsXnCKfGxMjezpJGphoATzIpNs8EwfCcFedg=
+Received: by mx.zohomail.com with SMTPS id 1784836550137418.0442233386244;
+	Thu, 23 Jul 2026 12:55:50 -0700 (PDT)
+Message-ID: <12a46993-82a5-4109-87fa-61b8fcf764aa@yoavmoshe.com>
+Date: Thu, 23 Jul 2026 21:55:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6a626006.4d70c427.b2b96.c939@mx.google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] ARM: imx: Fix suspend/resume crash with Clang CFI
+To: Sami Tolvanen <samitolvanen@google.com>, Yo'av Moshe <linux@yoavmoshe.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Russell King <linux@armlinux.org.uk>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ llvm@lists.linux.dev, stable@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260718111340.159896-1-linux@yoavmoshe.com>
+ <CABCJKudqGL+BFFcz3qsuoJB6S_OAt-vs2yqePC_=oy+JzmPpVw@mail.gmail.com>
+ <3046e60d-509f-471f-bd15-3ce78c87500b@yoavmoshe.com>
+ <20260721180950.GA3684684@ax162>
+ <180001f5-bddd-4e58-8442-f7ef3c979500@yoavmoshe.com>
+ <CABCJKufhvTxmVm8y7xr4RWWKsoZk0h8UGBnem+F5fknnimaqPA@mail.gmail.com>
+ <7f273a08-b29c-4e15-b340-898b251efe57@yoavmoshe.com>
+ <CABCJKud+GsBVv+XMTsi_4QAaTHo7jXD2Hyvi9wqKd7x3i2xyAg@mail.gmail.com>
+ <415ffa24-a30b-43b2-aa6a-a1cde3bd4ef0@yoavmoshe.com>
+ <CABCJKud9B8vB-J8f0HLHw6EgEKVWzy+Q1PrNxpO_6yCGtEyi8A@mail.gmail.com>
+Content-Language: en-GB, sv-SE
+From: Yo'av Moshe <linux@yoavmoshe.com>
+In-Reply-To: <CABCJKud9B8vB-J8f0HLHw6EgEKVWzy+Q1PrNxpO_6yCGtEyi8A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_125608_170845_5967CAC6 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +95,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 08:40:03PM +0200, Christian Marangi wrote:
-> On Wed, Jul 22, 2026 at 12:40:10PM -0500, Bjorn Helgaas wrote:
-> > On Tue, Jul 14, 2026 at 01:58:46PM +0200, Christian Marangi wrote:
-> > > The Airoha AN7581 SoC supports configuring the first PCIe0 lane to 2-lanes
-> > > mode (2x link) by bonding it with the second PCIe lane (PCIe1). This is
-> > > done by configuring the PCIe MUX in the SCU register.
-> ...
+On 2026-07-23 9:21 PM, Sami Tolvanen wrote:
+> What's the value for the __kcfi_typeid_imx6_suspend symbol in
+> vmlinux.o? I would expect the hash value to look a bit more random.
+Checking vmlinux.o with `llvm-readelf -s vmlinux.o` indeed shows:
 
-> > > -	 * Airoha EN7581 performs PCIe reset via clk callbacks since it has a
-> > > -	 * hw issue with PCIE_PE_RSTB signal. Add wait for the time needed to
-> > > -	 * complete the PCIe reset.
-> > > +	 * Old Airoha EN7581 clock driver performed PCIe reset via
-> > > +	 * clk callbacks since it has a hw issue with PCIE_PE_RSTB signal.
-> > > +	 * This is now handled by dedicated PERSTOUT resets with clk
-> > > +	 * driver only enabling the refclk.
-> > 
-> > This reference to the "old Airoha EN7581 clock driver" makes me think
-> > there's a dependency between a EN7581 clock driver change and this
-> > PERSTOUT change.  If so, please mention the commit SHA1 for the EN7581
-> > clock driver change so they're connected and people backporting to
-> > older kernels know to be careful to get both of them.
-> > 
-> > It sounds like this PERSTOUT change might be independent of the x2
-> > configuration support.  If so, it should be done in a separate patch.
-> 
-> thanks for the review. The clock change can go on a separate patch but
-> since the hash will change when it will get merged what should I use as
-> reference? Also any hint on the tag to use or the format?
+  a488ebfc  0 NOTYPE  WEAK  DEFAULT  ABS __kcfi_typeid_imx6_suspend
 
-Where is the clock change?  Is it the one in this series ([PATCH v4
-2/4] clk: en7523: add support for dedicated PCIe PERSTOUT reset)?
-
-If so, perhaps this PERSTOUT change and the clk-en7523.c PERSTOUT
-change could be in the same patch?  It would just require an ack from
-the clk folks and then we could merge it via PCI.
+Yo'av
 
