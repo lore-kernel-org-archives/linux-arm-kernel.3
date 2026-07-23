@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41219C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7CBC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lNhsWaCOFhbQHHDnSl6n0G8/WNkaQONVm0oZW9lnXh0=; b=IF63lCPbo9Pjk4
-	0TgpkaQxf8h1abg1aCh2zZx7GG8JhWQx3gy1cbaNgIamxgl9TWFRC2KlBbxIwDl3cR45WzpyJkjxC
-	5N2OcDeXKH1CfE/ru/QrJQYDS2ZrduG6uR9Tgi2lp0Y6P8qsfKL7yAAGdQPjshtTli8wD1bYjYTOi
-	xsLVpC7hYpR+bimkl2cLr/kGkN+3gte457sGNGjsks5vu/9Gy7H0dc/K1QFZzcJMKjFnl80SV8xbr
-	rJeDCkirDD4uifGp+tNEJpMCVGydGHu0wVDxavvEiuLj3S51TJvqwYoTFF+0ER4tt2GBHjKZZXi8D
-	mN+qfS64Ad4v8g8qprFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G0M9MI9dB901g7cMmjTeOdPTQ6Gbf1ggOTiUNsSEHfQ=; b=rjHdqZXn8myy834EX4MWgDil+6
+	osCP42z4jK+Y1R3ZRNPuLmVYipcz9Si/SRmCeY7Tx1JEPY1lLGHgVvrExdibzfXU8moIe8lFUO9YQ
+	8r4DvoU4X7vO7v+UV0VX0Y9UkKrplnKqrxfR4nAGRW8LxjDAiLHEVtodzVp9LRHNx36bPP4I95jLY
+	HDRsLdZpLBE88RL+HUgCmjNsOniPpvTL42fGhnJc97hgA8cX887/UczI8JdXSySDJm53afxbAm1b7
+	JhntO2fZcc1iYI/a0Bt1Js6tGEARTv8MaWtaii1l56zXn/i2vN9+ZfU7EO3a2uqube5y7hOCuNsj2
+	hpCjRfvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzBH-0000000EyLp-205V;
-	Thu, 23 Jul 2026 19:34:07 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1wmzGt-0000000EyYB-34Rz;
+	Thu, 23 Jul 2026 19:39:55 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzBF-0000000EyLJ-06BV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 19:34:06 +0000
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 767938444E;
-	Thu, 23 Jul 2026 21:24:19 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id ok0EQX9YxwfW; Thu, 23 Jul 2026 21:24:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1784834658; bh=0IyY3WD1+waTTaaDTZVwe6gg2HdaKZ9OBT8RRjdbj1s=;
-	h=From:Subject:Date:To:Cc;
-	b=NUtEnkGWLMDuU/4EXZJvE5m5wo/pV5Xqombi8N+R+Y/V2ulyrC/TSSGFfsDPkYoXG
-	 +HGp6+g+EXljg6sWaFkVIfFS14mXkuBafwJx8h6lpnlwlJP+Bm91qO4tAEiN0tIMBU
-	 pFJa3SVNbqQOdp01I8H39FUomaJpum9pNZ9rIkk+lG+kmXT0A1fnxAmepBLqxZr4Ji
-	 BoRh8zoTZ0Qesn2Lmq5nh/J5UgVvbiKi14UfZkWr0YQE+QhpMf+ehOyEEps95hAai/
-	 xqeL6M/s9t/I8eIgoOBFks5CI6YQJ0CWbyuQ7g+DiKxlDNj09mRGWM1qaLSG2gl2gR
-	 Q98H6bmhGbK8w==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Subject: [PATCH 0/5] Support zinitix touch modes 0 and 1, dt changes to
- Galaxy J6 (j6lte)
-Date: Fri, 24 Jul 2026 00:54:02 +0530
-Message-Id: <20260724-zinitix-modes-v1-0-f6df7d86a878@disroot.org>
+	id 1wmzGr-0000000EyXZ-00Fb;
+	Thu, 23 Jul 2026 19:39:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784835588;
+	bh=G0M9MI9dB901g7cMmjTeOdPTQ6Gbf1ggOTiUNsSEHfQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=Pfv6T1TPiUoHMM8XOwWq3m9en+TZtkiHrQ2rbxona1O1sAaw25V90llKOZcuzq3f7
+	 j68dTeoDGGFEtv6qdvAFgBM8BhHhUj9xDL2zPqB7HSg2Ia6CpY0HLHMF4OBicd4icm
+	 hK7V43P/axbMKKilDlAJ9dsbhUJ00ExG9dxCAtbXATaaalmhzvLEnfbH9qctlVehG7
+	 t+rnoePEbI5Z1kquA8jSiue5lGvcaH3uTW8X5ETrVSiwYAYMsDaPyzkgXtEBWe4tDl
+	 otZc6woBFcv91VTkf1f1ozczcSAnT6ad3K8p1AiGJYB5U+Q+dyBZFkt/fTbOmp5Ovk
+	 Nge3QqZdiDmJQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D36BA17E0A46;
+	Thu, 23 Jul 2026 21:39:46 +0200 (CEST)
+Message-ID: <252d53c9e497530f9416599f9991b02c0c276a1f.camel@collabora.com>
+Subject: Re: [RFC PATCH 0/3] media: rockchip: VEPU510 H.264 encoder for
+ RK3576
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: Jiaxing Hu <gahing@gahingwoo.com>, detlev.casanova@collabora.com, 
+	mchehab@kernel.org, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, ezequiel@vanguardiasur.com.ar,
+ linux-media@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Thu, 23 Jul 2026 15:39:45 -0400
+In-Reply-To: <amJgcHf2vVDb75nR@collins>
+References: <20260722073417.2064667-1-gahing@gahingwoo.com>
+	 <082e1141c38205222a91abf13b1a97d9a00e117a.camel@collabora.com>
+	 <20260723004642.2075233-1-gahing@gahingwoo.com>
+	 <210b72e32d1bd757a36b2baf532dd9f7d46ca5dc.camel@collabora.com>
+	 <amJgcHf2vVDb75nR@collins>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-dZVtlSGeZCfvrclufsh3"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBG4avIrBtIoyjpVaQLTf7qCEbJqIji3
- U3b5bd47yRBZAi9spMiNhaeQsLzkZHrm9BBsU8mo02pK5OrgwMvvKtx8hBlXeELbVsL5JSaOeL
- D++9Xv/+WtR3glu+ErusG7RyfkHEAAAA=
-X-Change-ID: 20260723-zinitix-modes-9c4d409b9ee3
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Michael Srba <Michael.Srba@seznam.cz>, 
- Linus Walleij <linusw@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_123405_210495_F64C8D35 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260723_123953_203744_948ED884 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +96,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The zinitix family of touchscreens support at least three modes, called
-0, 1, and 2. At least some digitizers (including, but not limited to
-ZT7548) are able to support multiple modes. Currently, the driver in
-linux supports mode 2 only. This series aims to add support for modes 0
-and 1, accompanied with necessary architectural changes.
 
-Among other things, perhaps the biggest difference between multiple
-modes is how the touch report schema is laid out. Modes may skip
-reporting certain properties such as touch width and pressure. For more
-implementation details, the android driver [1] can be referred to, which
-was also the primary reference material for these changes.
+--=-dZVtlSGeZCfvrclufsh3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The last patch is for the Samsung Galaxy J6 (samsung-j6lte), which has a
-zinitix touchscreen digitizer. By default, mode 2 is assumed for the
-touchscreen, however the downstream kernel driver [1] for this device
-uses mode 0 by default. This creates an issue with aftermarket
-digitizers where mode 2 implementation isn't available simply because
-it's not required by the driver downstream.
+Hi Paul.
 
-This last patch needs to be accepted into next only when the former
-patches are in next.  
+Le jeudi 23 juillet 2026 =C3=A0 20:41 +0200, Paul Kocialkowski a =C3=A9crit=
+=C2=A0:
+> In my opinion it would be fine to have two drivers, but it's really up
+> to you. Since you already have a v4l2 base for it, I would encourage you
+> to move it to my proposal, which will probably be finalized in a shorter
+> time frame than the other proposal and lets you reuse the code you've
+> already written. Then you could also add RK3576 support to the drm-ish
+> Vulkan Video proposal without too much work when it is ready, reusing the
+> RK3588 work.
 
-[1] https://github.com/samsungexynos7870/android_kernel_samsung_exynos7870/blob/master/drivers/input/touchscreen/zinitix/zinitix_zt75xx_ts.c
+My main concern is that once you exposed an API, the transition path is nea=
+r
+impossible unless you accept to support both APIs concurrently. So I may ra=
+ise a
+slight objection on the above proposal. Once we have the code shared (Detle=
+v is
+working on it), you'll see that Detlev (and Daniel Almeida) implementation =
+is
+just a step ahead, and adding RK3576 to an RK3588 is just a minor update (i=
+ts
+the same chip, different minor version). On top of which, once the kernel d=
+river
+will have settled, adding more codecs will mostly (or entirely) happen in
+userspace.
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
-Kaustabh Chakraborty (5):
-      Input: zinitix - check all available fingers for every touch event
-      Input: zinitix - do not ignore non-moving fingers
-      Input: zinitix - add support for modes 0 and 1
-      dt-bindings: input/ts/zinitix: document mode 0
-      arm64: dts: exynos7870-j6lte: set mode 0 as default for zinitix touchscreen
+With no offense, the RFC here requires significant work before it can be
+upstreamed. A lot of the code is hex tables generated from inspecting a run=
+ning
+driver. So there is a lot of work to decipher this into clean code.
 
- .../bindings/input/touchscreen/zinitix,bt400.yaml  |   4 +-
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |   2 +
- drivers/input/touchscreen/zinitix.c                | 144 +++++++++++++++++++--
- 3 files changed, 136 insertions(+), 14 deletions(-)
----
-base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
-change-id: 20260723-zinitix-modes-9c4d409b9ee3
+On that aspect, if you are missing any reference code or technical
+documentation, let us know, though I believe most of this is public informa=
+tion
+for this chip.
 
-Best regards,
---  
-Kaustabh Chakraborty <kauschluss@disroot.org>
+regards,
+Nicolas
 
+--=-dZVtlSGeZCfvrclufsh3
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHQEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCamJuAQAKCRDZQZRRKWBy
+9ChrAQDFYy3+9EG1k90i3qFuQHquFaa7OckWKYC1S7LgGkjApAD2KOYjLf8wKd7p
+VqiNDw9wJaVm7ANxBYaRrp7s4J2DCw==
+=OgIE
+-----END PGP SIGNATURE-----
+
+--=-dZVtlSGeZCfvrclufsh3--
 
