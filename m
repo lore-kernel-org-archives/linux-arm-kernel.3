@@ -4,156 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959A8C531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC18C531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RzewoZLDE2rAlD15CzIQzW0NEiPr58IQ8Fi4keIROY=; b=e0SyJI9pntPmnsXQZXMZCqZ0vn
-	s+oB5LrFl9aJ/TbKZvNUAnwltDmNqHw13sQmGcHWugN3VTdjd9HlfddJWl1a5UUskpJ8esQSTlE3t
-	fcgB+CEn/0g3602a/oJd2QB9TZrTQ5Y7QJB71i1CB62JE354fpVLYczjHJSIGTcbAj+10JjXQvjWq
-	N95JVF9K8LG1lQ1l8f02L+5na+T5tczjvP8d/V4Nk0CGb6WYBe5RsMQXGEG5rTjNNUggxHH/C7G5E
-	T3cFF5TmNiqzuzh4GcqHEoSbon+OywbOf4J9i3hJOUJoTaViN5sWu4OFX+mdieWEA1vbPL6Hwzl2f
-	zzLDjdHg==;
+	bh=3bmXdjhA3HTwHbyEK6JtJWrwrPDwDFR73RowlJS9lG4=; b=mz3ieMgmcS8V7suVbMXr5YmqKQ
+	+iDVxjROUNVJ7e7vOz7QNC7IPnrih2+hBYFXrDdFSVG+mSOfOj8a6ovj5NOFYmnoZp/GI6oDaP9VQ
+	sGHwruAhhVE8j5RDjsOAFiAsOnaYuQtxka+vWdVBo482HlVuAU2Vt4kVCVWCZKXnhmp5mEQaIF3Dd
+	k2Knwtkvk58aoHAVpmLAI6hD6iHp06Wmq4wsVBXjyrU4F9k8FRxzj+J8hVgFwCdU4Lfisb8pIr7B3
+	fcmID+QmSUkLpVrrPlC+/2SN1pk7YrgYqkdS0/UFXbeggQ7kHGvixsbToIK7uc7GYKXJGubcRaMaK
+	/nvD4tBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwp8-0000000ElNM-2v6i;
-	Thu, 23 Jul 2026 17:03:06 +0000
-Received: from mail-westeuropeazon11010017.outbound.protection.outlook.com ([52.101.69.17] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wmwpX-0000000ElQp-3PsS;
+	Thu, 23 Jul 2026 17:03:31 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwp5-0000000ElMs-1Fse
+	id 1wmwpI-0000000ElOj-03jx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 17:03:05 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=SSMgymGLfw8ekxZfNkpFlNrJtBwGctc0MkmgIge4PJuzSBaM3+EwCKz4yV85SPAtrY0sGxad3djG5hqf/vmRqLuhUcqMKuxLJn0JKaOcgiaYKQAJub+fL5inkjL3GUz9sWr7VPVTn2yivjTG8JVkkqLpBvma4PKgNY482TEFWQhNW+FUbe7ektLTpThWzskkXuDQm3PMqXlklFePUC/4pSVFHom+IsAHN/NlEBnXvagN3TFR3VR7A2GkDth+4+7JyDIPu5UDmqGKxG7saVH8KleUeo7UpOolgIZKU7XuobnOb8/QEvHuTcHiJndM/eL+c2Gu+A9NqZ/Jw8Jggdq6uQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0RzewoZLDE2rAlD15CzIQzW0NEiPr58IQ8Fi4keIROY=;
- b=CLeQO3RDmexaDVCDtzIjMiXtOupzUjr6hFfb2pva5ggPMYZJhs5HOGal7e1SkYNTTFtiB1SZ0UbBO6HVvIe5D/E9u0JCU5BEtlPm/tkpmNwO0yrN4CTO+2qLzcsBfVlM+3KhSN7rZKwrFAr90yb2YYL9CkHYuHIKe9+jRL8SLB5I3kyRCEu73lQjH6l19wNtrKUC51AB2b5MNtV/7HsP0sFZt8hl5BwtMJoFSj8PgH1BhVTRePtAkonRwS+/QONHarzx2m+k41fQt4Ro4wsLGSKVDhIc3yHTcEYc1129tIw9z/dpmAA09LVI32pFwSpzYmmhcIn9x4x8HqFuVoFsow==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0RzewoZLDE2rAlD15CzIQzW0NEiPr58IQ8Fi4keIROY=;
- b=l7Pj1zdgY84smYMC3AnEJwcDVKYtFlO+zmISQi9PWBB4LivQQRJ0dAN8zcdgyHsf+R2SU1KifjIiujjcWi0ZK615b656qtIbHy7PtLhARk1Cs5iN7guz7FZv7y2Tf/DsYp6/6d1Vxd3FegI39Sttf3QGLKke05TJr0Czp5iCtMs=
-Received: from AS9PR06CA0060.eurprd06.prod.outlook.com (2603:10a6:20b:463::26)
- by AMDPR08MB11508.eurprd08.prod.outlook.com (2603:10a6:20b:719::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
- 2026 17:02:54 +0000
-Received: from AM3PEPF0000A79A.eurprd04.prod.outlook.com
- (2603:10a6:20b:463:cafe::37) by AS9PR06CA0060.outlook.office365.com
- (2603:10a6:20b:463::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Thu,
- 23 Jul 2026 17:02:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF0000A79A.mail.protection.outlook.com (10.167.16.105) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
- via Frontend Transport; Thu, 23 Jul 2026 17:02:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U/A3n3hkhjq4QFpLYjDllwPBcRmmrhnI67RzIBOwUyHwUXXL2BRTZWYL8MSyqRLNqffwwGx5hSmz6tAobVExOoYetuZWOAP9mMJFhmsocw5ACUDrnQDZ2ke/p99MBroWVaUUXQ3D7he2esYbaHQooo96flB4whwP58LF3XWh6UgvnnHRTrKBtl5hhyl5bMJmNYQg3J0mCwI3S3AMLEFtlmoJeJmBectnm6+H+SNGeHUi24pwYCWs3YTx9HV6fN1wPaE4Vw5J2K3sXd5g6MvEA2LaikoaSzWNq7Y20iCLy8jX61YEE+cy3LIVVTPG2BknSGDv/p8vZqRs72gTQ6PJTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0RzewoZLDE2rAlD15CzIQzW0NEiPr58IQ8Fi4keIROY=;
- b=MQuxA6wapgtqpLLhFAY/3oSuyhBA/VTP2Mb86QBnCtUVIuDHoshtoVqMk4H/U1v9VxXn5sgGFUSIuiiGGw7jEaQ8mAUF/5jyByMieZfMP7QA9kVkvU5VGeiI3BBOz+SqI1feqAqa4qgOqo1V7a6/YcE2PkUpKhXsZmLSmAPM8LmxSwjx37mOhFz/Q5cfwEsWGGvKjTVwRbsgmtn148AYiLew2PRy3yqwvD2g1uOE78l8/n627FyIetnc9PBKOODA/iNPPLZSQJ8g6SqLEiAEXTcuVesUZOGj33gKyDHwvS+q2Uy72N547f2J4SLGfpeHCZjrbiC9kmZe7I4luOm4RQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0RzewoZLDE2rAlD15CzIQzW0NEiPr58IQ8Fi4keIROY=;
- b=l7Pj1zdgY84smYMC3AnEJwcDVKYtFlO+zmISQi9PWBB4LivQQRJ0dAN8zcdgyHsf+R2SU1KifjIiujjcWi0ZK615b656qtIbHy7PtLhARk1Cs5iN7guz7FZv7y2Tf/DsYp6/6d1Vxd3FegI39Sttf3QGLKke05TJr0Czp5iCtMs=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from VI1PR08MB3421.eurprd08.prod.outlook.com (2603:10a6:803:80::16)
- by PAWPR08MB10973.eurprd08.prod.outlook.com (2603:10a6:102:468::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 17:01:51 +0000
-Received: from VI1PR08MB3421.eurprd08.prod.outlook.com
- ([fe80::e079:6bd:fbe0:89b4]) by VI1PR08MB3421.eurprd08.prod.outlook.com
- ([fe80::e079:6bd:fbe0:89b4%3]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 17:01:51 +0000
-Message-ID: <47b4e62e-b001-465c-9c3b-ea0636925387@arm.com>
-Date: Thu, 23 Jul 2026 18:01:49 +0100
-User-Agent: Mozilla Thunderbird
-Cc: usama.anjum@arm.com, Zi Yan <ziy@nvidia.com>,
- Pedro Falcato <pfalcato@suse.de>, Ryan Roberts <ryan.roberts@arm.com>,
- Lorenzo Stoakes <ljs@kernel.org>, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- "Liam R. Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>, linux-s390@vger.kernel.org
-Subject: Re: mm: opaque hardware page-table entry handles
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-References: <74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com>
- <31d36023-d728-4eee-90f8-158c7066f565@kernel.org>
- <e22407d8-4509-4a53-9ba4-491b9d5c5ef7@arm.com>
- <4bfeb697-9c1f-4316-96bb-9bfd66f959df@kernel.org>
- <6110202c-057b-4701-8c04-1a76ee7bb9ab@arm.com>
- <20260721124057.2820903Adf-agordeev@linux.ibm.com>
- <3c21586c-0ffe-4ebc-97f1-803e8acfc5c1@arm.com>
- <716f73c1-41cc-48a5-b0e1-a47403a30da1@kernel.org>
-Content-Language: en-US
-From: Muhammad Usama Anjum <usama.anjum@arm.com>
-In-Reply-To: <716f73c1-41cc-48a5-b0e1-a47403a30da1@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO3P123CA0032.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:388::8) To VI1PR08MB3421.eurprd08.prod.outlook.com
- (2603:10a6:803:80::16)
+	Thu, 23 Jul 2026 17:03:17 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4954afac04bso9332495e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 10:03:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1784826194; x=1785430994; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=3bmXdjhA3HTwHbyEK6JtJWrwrPDwDFR73RowlJS9lG4=;
+        b=MeXhmeMT/EZA3PZP134Qw0Hf7kcKp5DYdDtzr4yXpC/5rOu51l+Df0APdjYfcsKFbt
+         2AN/OJvNUz3H0OzDvDOhxjs3l42Pp38oRiZ87D+O+zIpsKN89uv2mFCJI06bQ+26AbbS
+         v61EqwH20yhmOMzFqioRSCQC9vV925EuTyvedowbEV06vJ1VAJnP+j2ulkKiem+XdBUQ
+         kx45LPZCNlZHJjUj0J08jYmfyLFAXX/0QFmAs8o16T58TFELN2vgvHVvuD6OExBrXGDa
+         TJ/JkOAdVqyivf/VPCul/RoV6/1x1+KWNR3Wd4kDu2yRghyeq6/VEO3FweMy4gUCJwJ5
+         esdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784826194; x=1785430994;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=3bmXdjhA3HTwHbyEK6JtJWrwrPDwDFR73RowlJS9lG4=;
+        b=gNiwzHmBULNkQ3ssOBN4B8/hHEMTVNoN6JXHExxFW/geySNvrT+2PFsqxrW+yKlxki
+         ioAtINhrfyd9PO9eR95Cpzr4s1zzZfIg7hmpBwWx3AoScBS2VzxXEe9kZKhtChPtpXzL
+         u76tbvgqj2daIkmDefpUadWpo/l5FK/v8xZLf8inBjCjlI5K2diBNp+Q1ujzo9fcKDdl
+         ByAITsOwwSekvrrcbBNtO92sBYmSllHXECIOa372U1xbEjJP/miAyHyK5amc8PdoB9Yt
+         fcInuYBvfsRTgk4aiylfKrH/FyDHlzarfOsh1/DAPNxgWwgmh0fsdZfW0pAEtRylMbvh
+         xcdA==
+X-Forwarded-Encrypted: i=1; AHgh+RrRj8YKwqu2IrdhIpqikSMXYYNfYHI0mCc/+WrGG10shOyhi9fkJifG/4eHdZjqIYE/DN0AQ2wmejf5FyF8j46L@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgoIB+vl2WyM0csZu4hfQED3KSv46lbXmZAJCX7ee/GKd+y4KC
+	EIKoBEbO09xZ4WV87j/IiDE/YfGXnwmNAaeCU+9EdkjCQ7X4gt/84o3EV/paE/VoCwU=
+X-Gm-Gg: AR+sD13trU02ki9yqlFjWgxhX3cX3j3OW+1UzVt+g68t+m4NM7x+PAANWPOCEYPdQtU
+	ptz5XDGjvQ+YqaW6c/5ZYs033QDtvdevDm6Mc97bQOsHGgRcJhTId85vgADp2D7in4X3mvN55VT
+	QKUQNyg536TStyja87UF1XR18Zvs1va/OseTupDwiCW0QnanrREkuucbewBff27+U2mSq01fW4F
+	qN263OrknOS7PrGWCx5/tnJnDYI619TiSJCM9Dl1rd1Bo+pFNokMhc1f14ljUs8Jh0ATuQgD5Gq
+	3mW7q3Z3h09XXSwweAsVOUrYBgwKPKeBfhr8ILXaBXLL7FsO71bT9H1bPll+6uEjjhCcKvSgzhM
+	Q5Fz3XMHkjoztJobLtW4Vv5/oTjhvhhh64KpBdutoIOhvgY+2u4+InJfDxG1zsGWEO8vEGCWgAj
+	djiZR3DJAhgAM=
+X-Received: by 2002:a05:600c:4ed1:b0:493:f5bf:4da4 with SMTP id 5b1f17b1804b1-49573d11690mr46042655e9.28.1784826194117;
+        Thu, 23 Jul 2026 10:03:14 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:5f98:8c28:3e2c:1c72])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4957af16f72sm8890055e9.0.2026.07.23.10.03.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 10:03:13 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Brian Masney <bmasney@redhat.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Russell King <linux@armlinux.org.uk>,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] clk: fix self-consuming provider module pinning
+In-Reply-To: <amIn3DO_65uyItS_@redhat.com> (Brian Masney's message of "Thu, 23
+	Jul 2026 10:40:28 -0400")
+References: <20260723-clk-provider-pinning-v2-1-8dad72eb79f0@baylibre.com>
+	<amIn3DO_65uyItS_@redhat.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Thu, 23 Jul 2026 19:03:11 +0200
+Message-ID: <1jbjbxd4fk.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: VI1PR08MB3421:EE_|PAWPR08MB10973:EE_|AM3PEPF0000A79A:EE_|AMDPR08MB11508:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3fe14330-8f29-4ebb-25a2-08dee8dc3c78
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|18002099003|22082099003|4143699003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info-Original: Cawm+FfjxnM7wLmzkgmEVFXFTZY0YMsJgthdJttvTxqwDA5xuCycNi6R0G7KFF5dHthH9JmLeFJswuMztpPii8MhndUDDmS9lmi6MKJSr5P4q7VLfzfgonjnU7JVKt+mAqTXSepIFq3Bnf42ltnM2MMDqVT9ov96aTF84di34SiCvteu80UXn4Uk4oXPq4tUvBbeW4GOOZufJhZDpY9rMt2K8kEWnsdhIvb5XplqAaC1f2o2ucUr1YO1OnCVSSWgFLqJ21XCGlZRW74mjH64Dzlxt8a33yc1DxhoPacy6vhDDwRea8DxgBwUJR2HqTe4XuuP6S5t6PBTZrrKjI2UKuxxs2/3Ia1j8IKEiiWPVv8AZA13AnY5CorVmQlPaFy2E7Vhacp3C8khoeMySqqO6ThPU4EqCn9KJ9+/w0hxojk5wU+8dLxsj2IiA4O/Y/ASjQ3yVBYfi0AwFCzKUvxa1bCluGnNlkW3JvGp2GTVSW8AzSK4N7J6COyK79tYOMF0uKRL8N/QYOFleIL9Tp/l9L60JrQsrkfTskSVyv7LlAkCayDHgeokFrQsCtO8eXyBblMjSnmQHfeJkdlfOkfYT/BbXusH/k/VDktrw79ZwRBpp55i6VxWZnqNlrLYkf01hnoiq73hoJWAvFgF03nNUHithYsAWt75cv4BgxsMa/Y=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR08MB3421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(18002099003)(22082099003)(4143699003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: gQh8vBYgSPdVTncSOL3f6FF4kgNP/WGQsGezgKIawLZu8+5MJcyP6iQdEahY5QBUIru/pc3+DvVGlVx9e0YrYAicoYnhh6FblZcQ75F9Qje+JulMoZfX16SQU6+EFajThApylUp+wqUmgf/9t5g8292JVGYOISy+1rhiI9e80WhEeWirQNuXNlOvY3mF01QmByxRbpcXryJAfGsorpfq6AG9OxUK8cuTwF5zim0WbFGDhJmJJak10wNNpy8OD0R/kFEHd1tOe3Ozeu/FOpFQEeOo2MJtN4Fh1t/01FX5XJ3uUWZYkwdUt4ZjuhIt9osuLj39uyTZp5RAcDEmal3ZHw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10973
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A79A.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 7160bd6c-6af5-4e81-3b22-08dee8dc1703
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|14060799003|35042699022|82310400026|376014|1800799024|4143699003|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: HCQMKbyDfOmNIiKHLzXGPrsIXJpb1dVgcal8fl7qnCm1qqO8wom0SQmMYG63eLrIj/L/jILL4U/jaURe9VNelfI7lMw0do4OUX2ODenR/KUgH/vM4uW/6qEhhyXxox/KEvCG6enP65R5AJWSvXrySkWMnstN2hiQUhw3IRdlRk0ZJTx7OaOyROftjfvY1pYCl8WsfwTxGga/K1GaS/6y0V+ACRDZFLUYEW+UPwa5A8jmuVEisWCPXjt5G1bgJ7bQAjllAgRzMl6avrPWLBbM8IIoZ6XFlns2HqUfctQA4pZUJEfzVz+QU0TYJbn3DWHgWOaTVX5RBl6PG/AmuF3EVj/VNJ+5zJnnL4CCCDZoiFAAoyx9AlPa2nDqK0uPZR79Xgm/TuxBTKnf9GhcExuB4FvMM5BpC0YKIMuxZiyT9yjUapDMzJxJfPF5O7nZftdLq9xd/1LQNkT4pg10gXCDHaO2EfJ+FEfYiKYI2INji9il0gepSH1suuiiXTVDhNkbGI/TxpehG7AeXL6yBzo3J/9Sey1VMXswcvAvl92nPSq8fYrXGgfvy/jJqvGeNUN0/9BVyo3Z2CNSgchc7H0yacvw4/rZ5ecDvbW+0jGQjElJ3SwLeirEqJMP8e5mCfsBeyDv6ZBH5xEfIjzizevY2gqbjxQ2jFU88TOpzAFlSbRxGVAhTD0XmlLrUfnqMeCjUBuX3BiG1lxaE3FveyqcKA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(14060799003)(35042699022)(82310400026)(376014)(1800799024)(4143699003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: EfROl10OGV8zCSeqHdPpYq3ow2lVeSGecm/impmA7wzt+LPtapgiruEXBa8tVCWtQa7Rxvu6FZuP28hnoyDYAyU9J/b+0Ulp1UhgKRCjm52S3QtpNcSJ6w4MyLzSI+pQ64UIbarpM2FPPozLn+dpU+qVEdz+0Ze1Xfb8dvYamBXhL8xCtgmxwKC6K1vWrrR7jnYiYh1Zd8sIlcBFGBR7o0j8Q24AybgkE8QGtFpRik5NpH70iC8M38a1QHdMNcKUYzWxU1U2wy1Nshdb9zPdF6+OdteHE/I+rO5lxQ9e0v79YnNt4VDPGQRB/nsiMkabJB3WlspwmVBM+QdI65XoRrjsDQ0lU/XOOujpa5saJE2rKarEyT0/hOWprLRU7Tap4h/vW8+p0k7MHmGfWpdpwcm+0PuskK1kiKr8XFbGnxu2RDHKmkpeCqKxXVva+M40
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 17:02:53.7252
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3fe14330-8f29-4ebb-25a2-08dee8dc3c78
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A79A.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR08MB11508
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_100303_472310_D8F110FB 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20260723_100316_098493_E10C56F8 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,44 +102,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/07/2026 5:38 pm, David Hildenbrand (Arm) wrote:
-> 
->> So after the conversion, it doesn't makes sense to keep STRICT_MM_TYPECHECKS
->> around. Please correct me if I'm wrong.
->>
->> This brings another thing in my mind that in ideal world we would just
->> turn STRICT_MM_TYPECHECKS on for all arches all the time. But the problem
->> with it is that STRICT_MM_TYPECHECKS defines pte_t which will stay double
->> meaning still. So we want sort of STRICT_MM_TYPECHECKS with different name
->> and separate stack and hardware types.
-> 
-> I think STRICT_MM_TYPECHECKS is also to avoid catching when passing a pte_t into
-> a function that consumes a pmd_t, and vice versa.
-> 
-> STRICT_MM_TYPECHECKS makes the compiler generate worse code today, which is why
-> we don't enable it always.
-> 
->>
->>>
->>> We would like to keep it, and I guess some other architectures too.
->> David had summarized it well. We'll convert generic code to use hw_p*_t
->> types which would be typedef to p*_t for those architectures which don't
->> care about. But if an architecture wants to interpret these types
->> differently or want to make sure the type is enforced and not directly
->> dereferenced, they need to convert the arch code a well. But it can be
->> done slowly.
-> 
-> I think what Alexander meant is: they want to keep STRICT_MM_TYPECHECKS (or
-> something that achieves something similar :) ). So as long as that keeps on
-> working, all good :)
-Thank you for clarifying.
+On jeu. 23 juil. 2026 at 10:40, Brian Masney <bmasney@redhat.com> wrote:
 
-It has been a month since I started this discussion. We don't have any
-disagreement on it. Should I proceed to post first part patch series considering
-most people must already have viewed these emails and are on-board with it?
+> Hi Jerome,
+>
+> On Thu, Jul 23, 2026 at 03:00:51PM +0200, Jerome Brunet wrote:
+>> clk_hw_get_clk() lets a provider get a struct clk for one of its own
+>> struct clk_hw.
+>> 
+>> When a struct clk is created, the module usage count of the provider
+>> is unconditionally increased. For a self-consuming provider, this means
+>> it pins itself and the module can never be unloaded.
+>> 
+>> Increasing the module usage count should only be done when the consumer
+>> lives in a different module from the provider. Use THIS_MODULE to
+>> capture caller's module and increase the module usage count accordingly.
+>> 
+>> It is OK for consumer-only APIs such as clk_get() or of_clk_get() to
+>> pass a NULL owner. As a result, any provider module will get pinned,
+>> same as before.
+>> 
+>> Fixes: 30d6f8c15d2c ("clk: add api to get clk consumer from clk_hw")
+>> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+>> ---
+>> This issue has been present for a while. Virtually all users of
+>> clk_hw_get_clk() are affected. The majority are compiled as builtins
+>> according to the defconfigs. It is not problem in this case but it is
+>> if the configuration is changed to module.
+>> 
+>> The following modules are using clk_hw_get_clk() and are compiled as
+>> module with some shipped defconfigs:
+>> * drivers/gpu/drm/msm/disp/mdp4/mdp4_lvds_pll.c
+>> * drivers/phy/cadence/phy-cadence-sierra.c
+>> * drivers/pwm/pwm-meson.c
+>> * sound/soc/codecs/lpass-va-macro.c
+>> 
+>> Currently those module cannot be unloaded once they have been loaded.
+>> 
+>> """
+>> rmmod: ERROR: Module blabla-module is in use
+>> """
+>> 
+>> With this applied, we can get back to removing the direct usage
+>> of the struct clk in struct clk_hw and eventually remove this
+>> struct member entirely.
+>> ---
+>> Changes in v2:
+>> - Update comment in __clk_register()
+>> - Add missing documention for the new parameter of clk_hw_create_clk()
+>> - No functional change
+>> - Link to v1: https://patch.msgid.link/20260721-clk-provider-pinning-v1-1-63db2e667993@baylibre.com
+>
+> Reviewed-by: Brian Masney <bmasney@redhat.com>
+>
+> This looks good to me. I'm planning to send Stephen a pull next week for
+> content that I think is ready during this development cycle, however I'm
+> not going to include this. I suspect he's going to want a kunit test for
+> this and I know it's going to be complicated. My suggestion is to post
+> some kind of rough test scenario for this, even if it's initially not in
+> kunit. As I get some spare time at work, I can help you to see if we can
+> get a kunit test together for this.
+>
+> Brian
+
+I understand but I'm not adding an new API, I'm fixing a real problem in
+an existing one in the kernel now. The related API is already used in
+some kunit, so there is some coverage already.
+
+The problem was known (as the comment in __clk_register() was showing) and
+there was no kunit then ... so it is a bit strange to delay fixing the
+problem because there is not kunit associated with it now.
+
+That said, I'll check was I can do. acutally loading and unloading
+module in kunit does not really feasible. Maybe poking the owner
+field with __clk_hw_get_clk(). This is not really supposed to used
+directly (which is why I did not add the documentation around it)
+and it's bit fake but I do not really a way around it.
 
 -- 
-Thanks,
-Usama
-
+Jerome
 
