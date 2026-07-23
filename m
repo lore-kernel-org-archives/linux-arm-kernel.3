@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA55C531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC7DC531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+k5jSvDUMU4cPoKCVbhaqWyx0o46NejDYXogafOH/14=; b=TiJgP0bEtI6IDyTU1+GICLg7l3
-	V0FUVsqHq64/AsjXi8V+4mSPTmgV6NeEY+7UMHXMTNdPxWi5l2HXEUvQ96IjxMI09CMx36DYiNdc7
-	V8dTKgE8DndDV3Esy4nU+3HMrACeUvx0qdDHfN1W033mEz9anT4RzvuvWhADsOOw1kXIxA+RjZ84d
-	QZxZ4wQ5LtLDY7cl7zz4Y+R5l43mzg4w0oUlP01Jkf7Fbt115p6r8Otu3W4gcRqIsSBbDdn/jmbkq
-	RC7eOfowFtkherNY9k6YwSoiAskB1FG+aQrfxne9Wm4xP5AuXipLScaTHBTjXFOmw/vnq7A8owes9
-	vov2CSng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PDRKfVv1qWyvVa1COFLzJ7BEn2acoJlNWoIveDyamYA=; b=SNzA4PFgMw+yTGpnhwzbu3qzj8
+	DvHA7QDo4YbHBlGadIXO4Eg7p3CMOH6tVI9N5PzaJQefdS9p3uaNc2oS+CWwgBH9rvosgwkq88Cf0
+	XIyUYu8X9toiUkSy7cmwwkiUQ3SpeRQ4OgH+Q0kPlh4wc7YsKBpHeVFzV01uR+BBS5f4JYcDI/r5t
+	hn7z+xfORjS12wEy1h3ry7prkPkay76zPmPocyZ8kXZJc0+SOqVdC8+s5m9Kyisl3q1la6lmCUAVo
+	j0qnvDAi2jx2tvTR3hYDT/L/dUcJamkSg8Rf/K1kYe5Fzp2VTsqnijqUOxmqEEZX5O9TZoPcJ3JvW
+	IAZW6kbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvo7-0000000EfKa-3zzd;
-	Thu, 23 Jul 2026 15:57:59 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wmvrB-0000000EfbX-34L4;
+	Thu, 23 Jul 2026 16:01:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvo4-0000000EfK2-3BE7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 15:57:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=+k5jSvDUMU4cPoKCVbhaqWyx0o46NejDYXogafOH/14=; b=gAyuiqoaNTqTsUT9injp3BMG12
-	nfA6QwCZL8GbIkkY1cyrdejhukJJS8PU9RzJhPnS22TcosMiR9DIIBxS8m7CPYO50EaW5wBaqpmUT
-	hkqAM7oKggKSDB0V1l+O5SZTedqwsWHn8XjshgBGfMFiCyUkXZ37wHBeDWF2Hp+b8C7AWKNC8QDVI
-	Iw1uXONA6sWCxIotmNASIrvvggneFglyqtIiITurqS2tvUD8T5yDSogk6OOWSIYsabBo08mn0cGUV
-	Zegw0Glp7nm5yuLKnq2v2lzt9ViIQA4672vOibC9VGjdzDkFVXGUQJkV08ygDSSD9opOnF1EYvg/o
-	FGSk8UrA==;
-Received: from [179.118.191.219] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1wmvnS-003VA4-9g; Thu, 23 Jul 2026 17:57:18 +0200
-Message-ID: <a701b60b-d343-4a7f-b298-e76c6c3a6cbc@igalia.com>
-Date: Thu, 23 Jul 2026 12:57:10 -0300
+	id 1wmvrA-0000000Efb1-1olf;
+	Thu, 23 Jul 2026 16:01:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D84264037F;
+	Thu, 23 Jul 2026 16:01:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0A21F000E9;
+	Thu, 23 Jul 2026 16:01:04 +0000 (UTC)
+Date: Thu, 23 Jul 2026 17:00:59 +0100
+From: Lee Jones <lee@kernel.org>
+To: rva333@protonmail.com
+Cc: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Ben Grisdale <bengris32@protonmail.ch>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: mfd: mediatek: mt6397: add mt6323
+ PMIC EFUSE
+Message-ID: <20260723160059.GB3526803@google.com>
+References: <20260713-mt6323-nvmem-v3-0-205c39267a24@protonmail.com>
+ <20260713-mt6323-nvmem-v3-1-205c39267a24@protonmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/4] arm64: vdso32: Implement
- __vdso_futex_robust_try_unlock()
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>,
- Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
- Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
- Uros Bizjak <ubizjak@gmail.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
- <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, kernel-dev@igalia.com
-References: <20260720-tonyk-robust_arm-v6-0-7e68c122047e@igalia.com>
- <20260720-tonyk-robust_arm-v6-4-7e68c122047e@igalia.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-In-Reply-To: <20260720-tonyk-robust_arm-v6-4-7e68c122047e@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_085757_091424_E09DF3E6 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260713-mt6323-nvmem-v3-1-205c39267a24@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +71,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em 20/07/2026 13:03, André Almeida escreveu:
-> Based on aarch64 implementation, provide a 32 bit entry point for
-> this vDSO.
+On Mon, 13 Jul 2026, Roman Vivchar via B4 Relay wrote:
+
+> From: Roman Vivchar <rva333@protonmail.com>
 > 
-> In order to keep compatibility with arm64_futex_robust_unlock_get_pop(),
-> make sure to store the pop address at r2 and the compare result value
-> at r3.
+> The MediaTek mt6323 PMIC includes an EFUSE used for storing calibration
+> data.
 > 
-> Signed-off-by: André Almeida <andrealmeid@igalia.com>
-
-[...]
-
-> +__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-> +{
-> +	register __u32 *pop_reg asm("r2") = pop, result_reg asm("r3") = 0;
-> +	__u32 val, zero = 0;
+> Add the devicetree binding documentation for the MediaTek mt6323 EFUSE.
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  .../devicetree/bindings/mfd/mediatek,mt6397.yaml    | 21 +++++++++++++++++++++
+>  1 file changed, 21 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+> index 3cbc0dc12c31..d2de227ae7a6 100644
+> --- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+> @@ -159,6 +159,23 @@ properties:
+>      required:
+>        - compatible
+>  
+> +  efuse:
+> +    type: object
+> +    unevaluatedProperties: false
+> +    description:
+> +      The efuse is responsible for storing calibration data, such as thermal
+> +      sensor calibration.
 > +
-> +	asm volatile (
-> +		".globl						  "
-> +		"__futex_list32_try_unlock_cs_start,		  "
-> +		"__futex_list32_try_unlock_cs_success,		  "
-> +		"__futex_list32_try_unlock_cs_end		\n"
+> +    properties:
+> +      compatible:
+> +        const: mediatek,mt6323-efuse
 > +
-> +		"retry:						\n"
-> +		"	ldrex %[val], %[lock]			\n"
-> +		"	cmp %[tid], %[val]			\n"
-> +		"	bne __futex_list32_try_unlock_cs_end	\n"
-> +		"	strex %[result], %[zero], %[lock]	\n"
+> +      nvmem-layout:
+> +        $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
+> +
+> +    required:
+> +      - compatible
+> +
+>    leds:
+>      type: object
+>      additionalProperties: false
+> @@ -307,6 +324,10 @@ examples:
+>          interrupt-controller;
+>          #interrupt-cells = <2>;
+>  
+> +        efuse {
+> +          compatible = "mediatek,mt6323-efuse";
 
-Actually, this should be `stlex` instead for the store release semantics.
+Nit: This tabbing looks off to me.
 
-> +		"__futex_list32_try_unlock_cs_start:		\n"
-> +		"	cmp %[result], #0			\n"
-> +		"	bne retry				\n"
-> +		"__futex_list32_try_unlock_cs_success:		\n"
-> +		"	str %[zero], %[pop_reg]			\n"
-> +		"__futex_list32_try_unlock_cs_end:		\n"
+The example below uses 4-spaces, this uses 2.
+
+> +        };
 > +
-> +		: [val] "=&r" (val), [result] "=r" (result_reg)
-> +		: [tid] "r" (tid), [lock] "Q" (*lock), [pop_reg] "Q" (*pop_reg), [zero] "r" (zero)
-> +		: "cc", "memory"
-> +	);
-> +
-> +	return val;
-> +}
+>          leds {
+>              compatible = "mediatek,mt6323-led";
+>              #address-cells = <1>;
+> 
+> -- 
+> 2.54.0
+> 
 > 
 
+-- 
+Lee Jones
 
