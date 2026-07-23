@@ -4,74 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC997C531D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 14:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2C7C531D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 14:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g6Yc92QoPew3HKCUSB4m4dcNc/Vm+OS2U2S/yW9Jc5s=; b=aYbvUSVzuer3LxZvrwhdVIXpMP
-	lj8XbBQVFOabs+FDQR/Fuw0IdhZ40qBcQ5P6NeYouiiKHmBdjK5PHs0ktHqO4nQrEjB6GQOHz+WEi
-	Yqn9mgI1w7ARBljLsG8A1amWDXE2A6gy9v64VoXwZRqXhjcl8a0SamumaQuX+m0ASejtxtNHBgR/O
-	4kE8s4buAUii4lskxgCLjksuieDYbstto90KtmQRJZ5IIHf6Ef/JuEkpns502Uh2wk6WC6Znl+vkP
-	mRmnGnS0rWPpcynGlSMCjlkq2A4WNXR1edR3FOtPnL7UjFyZXntrMnH8M2mYL2D/ptUIERtOgY2Hr
-	+LHkMqPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6+hmPlSmIlhY7Usf2sojZTZDoy+FFqdHv2OD7jWVlbI=; b=nCwYFWZuvFZN/6Uexq8wUKQ777
+	Gj6CBAOVe7jUXoYIceQlbks+f0RT/PPYBj3En7pO+12OMctvRyFsO2JyTwNKG4D0UGHapmb783xnn
+	vPrv/8FSk/yGlFttS/sfBqZrOXmkrOqowrtJsLCwCRo8AzaCZOxKCFgR5otSVPnO9U2GVhucv97qt
+	tPKG3jbFotCs9lM+A3gP0JvlRykB2cPMNObt03sBuMvxRlACnVcrC+naAcva5d2QbhgcbQq2HMRQr
+	phg7jmrOO2vs2D0WKcikTTTP9DARnLtYBbrE8XRgi81raU/XUpknHuFIx56j5y7nHvWDkBfYxDl5U
+	mgSLyDbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtEZ-0000000EKze-33kG;
-	Thu, 23 Jul 2026 13:13:07 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtEK-0000000EKmD-0WgI;
-	Thu, 23 Jul 2026 13:12:54 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=g6Yc92QoPew3HKCUSB4m4dcNc/Vm+OS2U2S/yW9Jc5s=;
-	b=PMkEsVqm6RFMXPIx5WaZOO4oyxpChpDlu75jTj/srJ2HGDLlOkNp3qiV3qa4CDLyysFBUdUTA
-	nepizQTBGA+aHVCVAVcMVIDuxeZDc/8XC92aP/bkwa/wbPJ/zhPXtRoRs/4/g1V0vbwo5FHpxup
-	cq6AY7K/hd/XyBTFQ92IJpE=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4h5WWl4fWDz12LDF;
-	Thu, 23 Jul 2026 21:03:15 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id D040240538;
-	Thu, 23 Jul 2026 21:12:48 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Jul
- 2026 21:12:46 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <maddy@linux.ibm.com>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
-	<akpm@linux-foundation.org>, <baoquan.he@linux.dev>, <rppt@kernel.org>,
-	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <thuth@redhat.com>,
-	<ruanjinjie@huawei.com>, <vladimir.murzin@arm.com>, <mark.rutland@arm.com>,
-	<ardb@kernel.org>, <james.morse@arm.com>, <leitao@debian.org>,
-	<yeoreum.yun@arm.com>, <robh@kernel.org>, <kees@kernel.org>,
-	<coxu@redhat.com>, <sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
-	<adityag@linux.ibm.com>, <hbathini@linux.ibm.com>, <makb@juniper.net>,
-	<piliu@redhat.com>, <graf@amazon.com>, <liaoyuanhong@vivo.com>,
-	<jbouron@amazon.com>, <bauerman@linux.ibm.com>, <bgwin@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <kexec@lists.infradead.org>
-Subject: [PATCH 7/8] arm64: kexec_file: Simplify load_other_segments()
-Date: Thu, 23 Jul 2026 21:12:41 +0800
-Message-ID: <20260723131242.1537633-8-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260723131242.1537633-1-ruanjinjie@huawei.com>
-References: <20260723131242.1537633-1-ruanjinjie@huawei.com>
+	id 1wmuHB-0000000ETxK-07QK;
+	Thu, 23 Jul 2026 14:19:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmuH9-0000000ETvy-0lwB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 14:19:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07B471477;
+	Thu, 23 Jul 2026 07:19:46 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 091D03F59E;
+	Thu, 23 Jul 2026 07:19:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784816390; bh=xotGZCcqGk4Abt5amgAtbtEB69CUE008GfZhtAtUor8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=vTsWg/h+6NaqsdqnazNd81BA5VKVRkVpxobgONsG0oHUSLSI7QJZRRM3uUKG7XOpl
+	 O0BqmyIr2Y5SqrV1ITi890y+nUIEvHiHl2o40kuE6r/YBOvx4gXuS/6VAktN+VEDsv
+	 fLCgQwEX2sgTtE547hUgAlXJ1owsHwvWTYoZ7FII=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	catalin.marinas@arm.com,
+	joro@8bytes.org
+Cc: jpb@kernel.org,
+	jgg@nvidia.com,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/2] iommu/arm-smmu-v3: Fix SVA vs. HAFT issues
+Date: Thu, 23 Jul 2026 15:19:42 +0100
+Message-ID: <cover.1784814923.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_061252_483774_823D503A 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20260723_071951_268497_ACBC6DB4 
+X-CRM114-Status: UNSURE (   8.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,75 +71,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use `kbuf` fields directly in crash_prepare_headers() so the local
-variables "headers" and "headers_sz" can be removed.
+v1: https://lore.kernel.org/all/878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com/
 
-Additionally, assign the allocated buffer to `image->elf_headers` before
-calling kexec_add_buffer(). If kexec_add_buffer() fails, the explicit
-vfree() in the error path can be eliminated, as the allocated elf header
-memory will be automatically freed via `image->elf_headers` in
-arch_kimage_file_post_load_cleanup().
+Per the discussion on v1, the aim here is just to make things safe and
+functionally correct for now, and now with a command-line option for
+distro users to get themselves out of a corner if they really need to,
+I think that's reasonable enough for HAFT being a very new feature.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Baoquan He <bhe@redhat.com>
-Cc: Breno Leitao <leitao@debian.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm64/kernel/machine_kexec_file.c | 24 +++++++++---------------
- 1 file changed, 9 insertions(+), 15 deletions(-)
+Thanks,
+Robin.
 
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index 2f750e5f4fcc..3d907f8ee594 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -89,36 +89,30 @@ int load_other_segments(struct kimage *image,
- 	kbuf.buf_min = kernel_load_addr + kernel_size;
- 
- #ifdef CONFIG_CRASH_DUMP
--	/* load elf core header */
--	void *headers;
--	unsigned long headers_sz;
- 	if (image->type == KEXEC_TYPE_CRASH) {
--		ret = crash_prepare_headers(true, &headers, &headers_sz, NULL);
-+		ret = crash_prepare_headers(true, &kbuf.buffer, &kbuf.bufsz, NULL);
- 		if (ret) {
- 			pr_err("Preparing elf core header failed\n");
- 			goto out_err;
- 		}
- 
--		kbuf.buffer = headers;
--		kbuf.bufsz = headers_sz;
-+		if (unlikely(image->elf_headers))
-+			vfree(image->elf_headers);
-+
-+		image->elf_headers = kbuf.buffer;
-+		image->elf_headers_sz = kbuf.bufsz;
-+
- 		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
--		kbuf.memsz = headers_sz;
-+		kbuf.memsz = kbuf.bufsz;
- 		kbuf.buf_align = SZ_64K; /* largest supported page size */
- 		kbuf.buf_max = ULONG_MAX;
- 		kbuf.top_down = true;
- 
- 		ret = kexec_add_buffer(&kbuf);
--		if (ret) {
--			vfree(headers);
-+		if (ret)
- 			goto out_err;
--		}
--
--		if (unlikely(image->elf_headers))
--			vfree(image->elf_headers);
- 
--		image->elf_headers = headers;
- 		image->elf_load_addr = kbuf.mem;
--		image->elf_headers_sz = headers_sz;
- 
- 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
- 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+
+Robin Murphy (2):
+  arm64: Add override for MMFR1.HAFDBS
+  iommu/arm-smmu-v3: Add HAFT support for SVA
+
+ Documentation/admin-guide/kernel-parameters.txt | 3 +++
+ arch/arm64/kernel/pi/idreg-override.c           | 2 ++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 5 +++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 9 ++++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 3 +++
+ 5 files changed, 21 insertions(+), 1 deletion(-)
+
 -- 
-2.34.1
+2.54.0.dirty
 
 
