@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FF4C531F7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A834CC531FA
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KbX5W39FWqeMlA+gIBZZdlhJ3hBcabaMBE9NTMEIYzg=; b=vLP4mxHokvoB1ZDLTuXL50iOJD
-	S1q1MUCi2IZ76Sb/iuGfRSkge7dmeVgSmVizipkvV6VSjdmT5nZ7xnM218aYK1a2uIQHjWdwKuv4w
-	JCwrDqHSCkKvNiD56yQCm+lso+7tZnPgP3amrOPLXzSZcvwQ+MhJhho/WZKMn9rliZbEyX/HdblWn
-	kphvXx8O3eoUBpwi8XS2XtdmRo1UCVNxxn5iqM21aAodqHvJhsgZSWTl43ZkE3Fn33VSy6RbFPhxD
-	GzuvXgeqB4798fTmFYsMZtOWNs9KPE/PqO3amF9iYwzXO3bYP1bbR33SWbzCJ4Five8UV1miAoV4f
-	sf6hpYgw==;
+	bh=cQ/a78zKcnzi3wuFBoD/ZmfJN8yrdQDZz6t6y6GL1po=; b=3SPPJHR0GSLZVQ6aVDifFrVMZv
+	1QN1wE30cl4vOyuYvteGXpWTGludNfXoXa3i/o44tsy7mrAebaQtO4a8afYdYB0zHiGEM6QmaBUuZ
+	MjF+CVP+tjuy8YL4GI/oVqgFJhw3R/8jE7Rxs+bvaGtA1ULsflc2WcUcMdHyjDLAkX1OHwgMCnTkd
+	SjMk4AMvgtSy4MOuCAJ7yHSMABkBotEeukGkjYQpKvHhd4oiNMsz9v3PFNqTfrKxqW4XQrBuoB5wA
+	iqZp2+pDF7n5FMxiuRHMmkn/5l9qEJdQROmRIDVm4uktJipBCDMlNn2sL8MTz18eH/RkJMXqdXZNr
+	jlmxlzpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmw18-0000000EgFR-0maf;
+	id 1wmw18-0000000EgG6-1eQO;
 	Thu, 23 Jul 2026 16:11:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmw12-0000000EgDp-21vn
+	id 1wmw16-0000000EgFE-3l1J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 16:11:20 +0000
+	Thu, 23 Jul 2026 16:11:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB70940B95;
-	Thu, 23 Jul 2026 16:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E204B1F000E9;
-	Thu, 23 Jul 2026 16:11:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A24860A8C;
+	Thu, 23 Jul 2026 16:11:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E70F51F00A3A;
+	Thu, 23 Jul 2026 16:11:23 +0000 (UTC)
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmw0m-00000008721-0s2F;
-	Thu, 23 Jul 2026 16:11:04 +0000
+	id 1wmw0s-0000000872c-3fEC;
+	Thu, 23 Jul 2026 16:11:10 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
+To: Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Zeng Heng <zengheng4@huawei.com>,
+	Wei Xu <xuwei5@hisilicon.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	Lucas Wei <lucaswei@google.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 0/2] KVM: arm64: vgic: Fix racy LPI release and re-registration handling
-Date: Thu, 23 Jul 2026 17:11:01 +0100
-Message-ID: <178482303771.3351010.3978266372982748047.b4-ty@b4>
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2] KVM: arm64: vgic: Avoid double-deactivate of IRQs in the nested context.
+Date: Thu, 23 Jul 2026 17:11:07 +0100
+Message-ID: <178482303767.3351010.4100459132454242259.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260715105137.3973823-3-clopez@suse.de>
-References: <20260715105137.3973823-3-clopez@suse.de>
+In-Reply-To: <20260714231158.496808-1-scott@os.amperecomputing.com>
+References: <20260714231158.496808-1-scott@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, clopez@suse.de, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Rcpt-To: oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, scott@os.amperecomputing.com, mark.rutland@arm.com, zengheng4@huawei.com, xuwei5@hisilicon.com, vladimir.murzin@arm.com, lucaswei@google.com, kuninori.morimoto.gx@renesas.com, Sascha.Bischoff@arm.com, yangyicong@hisilicon.com, yeoreum.yun@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -77,23 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 12:51:36 +0200, Carlos López wrote:
-> Fix a couple of potential issues that could arise from racy LPI release
-> and re-registration for the same INTID.
+On Tue, 14 Jul 2026 16:11:58 -0700, D Scott Phillips wrote:
+> In the nested state, the physical interrupt has already been
+> deactivated through the HW bit in the LR. The extra deactivation
+> would be harmless but can hit an errata case on AmpereOne, so
+> avoid it here.
 > 
-> The issue fixed in patch 1 can manifest itself through either a
-> leaked LPI structure, or a prematurely deleted LPI. The issue fixed
-> in patch 2 could materialize as a spurious -ENOMEM failure when
-> registering an LPI.
+> On AmpereOne, deactivating a physical interrupt through
+> ICC_DIR_EL1 or ICC_EOIR1_EL1 (depending on EOImode) which is not
+> active, but is the highest priority pending interrupt causes the
+> cpu to lose the interrupt pending state and also prevents the
+> delivery of future interrupts.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/2] KVM: arm64: vgic: Fix race between LPI release and re-registration
-      commit: cbfe2b24a1ea9de35032dbdd100fdc700f5be92d
-[2/2] KVM: arm64: vgic: Mitigate potential LPI registration failure
-      commit: 21f12496fdd357ad4e1fcdd07dc80ab7378f7d24
+[1/1] KVM: arm64: vgic: Avoid double-deactivate of IRQs in the nested context.
+      commit: 8a570b19b4b16a8a3b5ffa2b332bd5613110b2d8
 
 Cheers,
 
