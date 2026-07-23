@@ -4,79 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DA4C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63143C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8+lHjdE+3DloA2hsk7g0E45gyAxlw5fhHa47aoUOQ2E=; b=FhMlcbYH3hZh5d7m51h07TeNmj
-	uQ140gZHioIv8+kvtt/nUHKDcYD/j8rc2H0ZgDmJzAzXP/7FrfiiuClBif88F/fBP1+V3VlNzwof7
-	R+l8iTHFU4MyqIPTKqS0sXHgyEBi6xBlrK4r0YOm1VFKAOHKlcUQmB71SPtv8dmgoyAtdhExGO7Mn
-	iMvs2lT86cqE8VZC/HeiRRehUeB1GCybzUKIy3VKdkdGSbDVXjFBLCTSW7ME4PLQ8dLKvzZysFgxh
-	Z4nCokuoVUTKVhswo+G3+2PYTFwEOXTnRHDNjOAqfDKU9ucNWXDIoeStwaN7urhtxo+Zsqb6Xo1lC
-	rmUrk/Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s4tehzPf7uu/ei0Ds6mLsD/PtUbJuEqJ+QFyCb16DaM=; b=OJlW6YqNJi0whrDQ8KcywCjzUD
+	ShYLruCaogxZRdpAepiCSWNqvz15KLFI44FppMXazQ+Hf++O0wIhV4xFJbd1q4wsu1MN64yRg7FQH
+	+u9NwJX++5IDzUwKsGGfFsN6/ew1HHwIjUzZpX7IREzEMJdrqPN0hAviJXtLdDAN/EUpxH9EY3zkM
+	sHtfun4JCHjhmsM0hY/8Cd5dCkAGmexEdcnYpJY0eRWeN5R0OKUv1dQFfdTowRLA+/NqAjc731bay
+	yXxk2ZZ7OQ30Scy56h7CDiXTRmG24eCmef0BP2aClWTolFWft2DxM0LjFrjGnG66/MXYBABMp1wLA
+	Ppvv+gaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmy3J-0000000Esd3-3Ukr;
-	Thu, 23 Jul 2026 18:21:49 +0000
-Received: from mail-wr1-x448.google.com ([2a00:1450:4864:20::448])
+	id 1wmysk-0000000EwNG-3GLJ;
+	Thu, 23 Jul 2026 19:14:58 +0000
+Received: from mail-francesouthazon11011029.outbound.protection.outlook.com ([40.107.130.29] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmy3H-0000000EscU-29Zr
+	id 1wmysY-0000000EwIn-1EjN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 18:21:48 +0000
-Received: by mail-wr1-x448.google.com with SMTP id ffacd0b85a97d-47f753a0aa0so536282f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 11:21:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784830905; x=1785435705; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8+lHjdE+3DloA2hsk7g0E45gyAxlw5fhHa47aoUOQ2E=;
-        b=cefKzv5dapLYNZBjssmz78vv7ze03HHHUn0Qp9xWgvGABetINadr2sn0PvHsS4q3dQ
-         fL9k86ng7HXRIHaDktkKhKY5X6YRFjKgqbGQCesqjHsmCIHuDfD8ox3ar1M7AY8pU9zX
-         rMrVvG5RGedxw/XVCQV8cfvTK0lifzABE4bPaGXGERRwBD9yqKVFHBqx/DgpnVBjuqfR
-         rTWpDioXXPM8R/aYVPVqeqvDkF2PX2veHaJu95T/1aMnIodvHoHq2gveAZJeyKh5Hy8z
-         0Fk+ak14h/hpeXsg1ZNuQyX0THeGzbFVK+RCn8B8Kb8j25zEpdMwhma2U4pYCk7fneAJ
-         /QJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784830905; x=1785435705;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8+lHjdE+3DloA2hsk7g0E45gyAxlw5fhHa47aoUOQ2E=;
-        b=TAf93szWN1jmCyI2YoTaQmnirZQ6FiZR/JQxTg3Z2kVGrvZlnRfrCpD0/qwlbr77Ww
-         c+9MRYYHwnKz14C/A1AjzJagzLkZyzYBynXf8HBUopK9mkYMl1KVb+7tK3UQW5XxMCOG
-         eE+7k2GYJdwG3DnxHaw/jnLZPLdMJ0UR1a/cpJApRPDJ8RekE3PzFo799Pohix1ooAVg
-         t4wJ0W9CCFptmkvXyA87p7HwNUxI8NIbJ6REjzLQrweMsUoe7m1dDib4WrHd8u30NFAv
-         6U3iKmH0DGfGQw3vOhcR4Xvd0MrKBkCX3lz6NKvY64FTHe7SU8wr3Fdr4ay+bSvgVIve
-         N5Yg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq00K91Hj0ZYGOivy7LgSdXC8Jb3JoDIh82CCn0pwbWnKQMm4TuWVEqDM9VmDUoci64DqriwieSdpkb7cEz4cWL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2/BCAPayytxYjBF4gETzb9NMfibgJUmJsyQhev9nVOnflDA5e
-	jZ9hchiwfOEWZgBWZY7kZ85GkQoZ4aS1Ro/KzW6sRMo+o28UZVsRD3DuWPdI8FKj/qN/1LEh2cF
-	tNumvMczJM+spRw==
-X-Received: from wrbdv10.prod.google.com ([2002:a05:6000:d8a:b0:47f:501a:8813])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2011:b0:46f:7d90:8121 with SMTP id ffacd0b85a97d-47f8d71c689mr5489116f8f.14.1784830904536;
- Thu, 23 Jul 2026 11:21:44 -0700 (PDT)
-Date: Thu, 23 Jul 2026 18:21:38 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260723182140.4025575-1-smostafa@google.com>
-Subject: [RFC PATCH v2 0/2] KVM: arm64: Add support for BBM level 3
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, sebastianene@google.com, keirf@google.com, 
-	linu.cherian@arm.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 23 Jul 2026 19:14:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XwiA8gJuEpwCLVsFY88ntEuvqewvownXX1t1BX3ku0EEOywJEnVxSyrdZavlU8lJWIQSKC51hnhk+nO7CTCn00AqWA42DhYZ6jMV6WVRfPpLqehBZk+84ERB0f0ALQUXtF+L/cs9gTHiV1atAjAut+CcIQCZr9NuY5zwbEBSH+ajE9w3fZUDRhpJ926rjhwdP+Xx0VPslCjUyPKYjuHnG+OeIo5g1K3RV5Fliw/4tGnKBoccFYfxsI0JedQD22lG8VvqJUXpAlNyPtIGyJMbvFWz5Q6xMb3Pk1bW/KkWGu3o1Fx7Ay23/biKUYFciJfKkP0BivRmAhvXz8uZbRcH4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s4tehzPf7uu/ei0Ds6mLsD/PtUbJuEqJ+QFyCb16DaM=;
+ b=KclaY6Hjsc/tMR6F6k3or5uqGT8pr6TzmdzbDAIiFxK1+kZKd0/IzMmepwEG6+KuZTQ3O65H12wyNaOBP8JAClDbXbZaI0HzzHFHMxJ7zY5/wIFvq6lBbpjPdZA+bUiMEiR3t2xz5xYUDegWAaYiiUSt2UpxWc2RpvEBwIzYXT5U/oP+yoacpH2ZRzxOzr/fH+siihSpd5NW9qfMUatZGg5G2RQoBIpviEkSBiSjFisX9EHscOJY5pE1euJT3K6oVBVTVrvEXaaAPdR/7AfVjcBGVWQagLQmHLPD4LPilZpi4AaF1BU1Bud+YkqFetXI0R02L+1nZeANIZuf7TC/eA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s4tehzPf7uu/ei0Ds6mLsD/PtUbJuEqJ+QFyCb16DaM=;
+ b=cQ5Imk22VTlBDmTs3b6dzaRmedCUwNdnPJGBuaQ0IdowwIM9dD6zRLQYH/OGnMg1TL8Je2RnfiBRJViQN4LqSP5oSNMYpE2NT73qFa7Gr9NXcI7LKBMcpWYi0ybtyf/ULLh5OFhdr7VQpJ1bj0wyv5IK8H+ayGbaMOgRt+n1VCcoINVXVR8WRODxbrFYuBfmCaBhiWZ6OP4M3RJcDmW9Xat+NCJc76mxp5DVyzHrt4KRHtgkor8FdQtawyrOB3B7sU9ebjb1SJiklffL15GCO/u+CDcYokEtWngQbaKo1+Xyei45ex0oSrjZhhWLon5o8l72qhTjMDMWw9sunvDXhA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM0PR04MB6818.eurprd04.prod.outlook.com (2603:10a6:208:186::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
+ 2026 19:14:42 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 19:14:42 +0000
+From: Frank.Li@oss.nxp.com
+Date: Thu, 23 Jul 2026 15:14:18 -0400
+Subject: [PATCH v3 4/4] ARM: dts: imx6ul-tx6ul: rename disp0 to display0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-arm_dts_ldb-v3-4-96c784b2b84f@nxp.com>
+References: <20260723-arm_dts_ldb-v3-0-96c784b2b84f@nxp.com>
+In-Reply-To: <20260723-arm_dts_ldb-v3-0-96c784b2b84f@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+ Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784834058; l=859;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=0hpK498VUO8dxtBKG2KA9GUlzyB29UEOvgq/J4+0ua0=;
+ b=yH5c/yV0Mq+7dDqYrI5agBvOk2c7EXNU4T1fHZJkye3zDcX4IZaB+7jDuA4je0ktLantKsidS
+ L2SWMtaFFqRBD+ZZKJb1RZ8K6TbDZpGRAyZPIcmgIjS6itJRYTECdaz
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SA0PR11CA0071.namprd11.prod.outlook.com
+ (2603:10b6:806:d2::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB6818:EE_
+X-MS-Office365-Filtering-Correlation-Id: b91775d3-192b-4741-f66a-08dee8eea613
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|56012099006|10067099003|11063799006|22082099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: RRqBDuUhfOCG14RFxUmTzJM+5mDcE916C9c6L8h+y4k49Q5NHN42BkBuP1MTlxeO40YYpeMHA1aRw+dfyp0rimGrGDrZ/pceIRFeNSQXk395vFo+C11b8vm0aMNt3HC0gw1iRySrXuYHBcFZ07yQoIfnWdmp7y4B0oiYArVYue3Qb2AClJxWdUvJ+b+9kgiIa7JXxA7wF1xBdOON1e+pKGGUZ9K6VWdQIACGvuhDUfldHpiK15QhpOSJ3N8HHNTXzTlEd0B+T4OH5ahSUHtKbq6aRjUL4SP2fOPT5MhIvgPEUDi/4lSO5k7uCOBwjTR87NndPiDdSMKJb1ZYneuBx5EQsFH22J1eDWK+xOyfUAKmr91MdlQ8qdmTX/I0gjgs3ZNlfPBbIz1s8nNeXw3Wtffl2FpAS8WO1XepyniUxYuzghN+cYjEXYRZgajku7nY8R0MLE4B5MTmfuXcBRklmtFo1RI9BaSoDWl03crEHQyWNJApNfhJ5g1rR7fsXDYEcHURfIWDnZ+Fc327mcB1gW6db1HlChMpcEFX1XEkOWwe3wT6sYoSQDifS52ppt2z5wy8IK4NbMcgXDgSzZs6Z5VOVuGuCUbp33pRgdJAC+gldMKDbtGv5uOApPhuPQFSSGCp7dGW+NGn9k+6Dh0sukrWKE9asjjXyzQn3hqAWJ9iIUmA18+hyyVZT4roWpm85G20cTzAiBuh71kBRzGRGQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eTRJZmdjUkIza3dCai96Zm9FRVhZZDZCMVJrNEFTVW9WWjhINHpxbGttL29H?=
+ =?utf-8?B?NXc3K1ZiYjk4WlVJYnFBVmJiZ0IrTTN4OFN5YnBiQUhBc2xXRmN6Z0FKdEZ3?=
+ =?utf-8?B?TmZrcnVaZ0UxRXNwS2ZGUCs5NlVqWXozWTAyTGY3WThRTnBMTm1HNlRwZlYv?=
+ =?utf-8?B?UTVIelE0MTNWc1hUd3VMN3BUNGovTkFaZ3VXUllLNXYzQXFJamlWVlFLemRI?=
+ =?utf-8?B?OGFURFU5N3BETER1RW15bWxaMkVRVkNSd2IzV09kMjVycSs2RFNKZFExLys4?=
+ =?utf-8?B?K1Z4RnpOQjhyS0JHQ3hUWm5NaFBqWCswTkhkMWpvb0dCdjM3NC9mSFpxWEEy?=
+ =?utf-8?B?ZjQvNWYxaE5TK2lTS1pIcXVOTit1YUJxN2hab20rWTZGa1VmNlVlWmdmRFNi?=
+ =?utf-8?B?aXREVEVVWE13TDBLZlpZZDBmTEIyenpUZmJSalRoWGtDbjNrV0R0Zm04ZzRx?=
+ =?utf-8?B?VldUMUVlVHJ4NGR2UklpcHVPNk5Db0krbHRUZlNaWnpPM0IwMGxTUWlkRDNW?=
+ =?utf-8?B?ai9WU05aTFphN081WDVpeFpNSGxRemU4eXRUYnpOZUFXOHpJUVBqSVBaQWZm?=
+ =?utf-8?B?akJxcmhtd05DMjljRmpoKytTVG9PamRPS0dXZnhNNkZPWnZqQnJ0MHVqblpP?=
+ =?utf-8?B?b2dpTXhuMmt4RmpoVk1kWWNYVjNSZHgrcElwOG9BWUhlcFVFa3lZbm52TTdi?=
+ =?utf-8?B?dGUxTTRXQlJuM3lkZ28rOEFDVGFmYVhhVzdySGxwWGpTMWxFc05vVnFqY3B6?=
+ =?utf-8?B?NGIvUFNCMXExSGtuVWtEbGZHd0hJblY3TFJCVSs4aThMZFhKQTJ2WDloRlo1?=
+ =?utf-8?B?VkRuMkMwdFlCV2twbHgrb2Nna3g4cjlpQzNqczVYQXZtNnNOWGpBUnl0a3NR?=
+ =?utf-8?B?L2ZibnF2azNmZFQrSjdXU0c5U1NwdURoNXVqV3F6WkE2RGluTkUySzhNRktF?=
+ =?utf-8?B?UUxBdURrWlp1RXB0R1M1ZVVPdmZHRFlpdXVGRWlwcHJOOWQrVHM0dFp0SEhn?=
+ =?utf-8?B?V2NTaTRRSWVUdWpBdmpkQmxXcE1BRDVudmhMSTNFWmw2SXI2SUpvSytpZFEr?=
+ =?utf-8?B?aGM4bUMxZlZqMGUyQmFxVyswVVdtWlIwSkxQdDJiYVlLeStmL2hEd3RuZWZX?=
+ =?utf-8?B?cFdScUcwR2YzL3NZK3VpNE5tZkJ5ejkwZVFMVVltb09HUjd1S0FBSHhGV3Fh?=
+ =?utf-8?B?OUdPSVQ3RXdSMlIyenNub1hSVVc4N0NhZUhrZm1TU2dRL0hzTGhUb2R0c0dE?=
+ =?utf-8?B?cnYyenU4M2tEbDEzcHg5cFQxbFJQd3lacTVjS3BFR3FqMjIrTnJ6WXBwSHBV?=
+ =?utf-8?B?T0J1Y2lHRytrTzhBUTAvUUxObUlZbHRtQWZjMVpiRXVJK2w5UTgrRUFYUXNt?=
+ =?utf-8?B?NFNjYWpGWGVSRVNFV1IvVU9NSGlXOFk4dUxRem8vNmpyRnBLbjJXVFhNYUQr?=
+ =?utf-8?B?ejVpampVak1zVlhaRjN6K0lNek8yaE5nQXFPK2xWMEJNQkFURDZGdHlXR3Z3?=
+ =?utf-8?B?VkVWa1RqbzFVdldDS1FDbjhtaUtacmJ6SktMZk9vMUZOZkJQcll6RXNTUksw?=
+ =?utf-8?B?VjlhVUg1Nkx0K2pmaFB4bk9oYkUxbndRRlJmckNZRXMvSlVmaGNFdU0wSUx4?=
+ =?utf-8?B?dW9tS2lGeDYxcXpPNHBOZ2VFVEdtSEhTWEJmNnFjKzM0WFB2ejBGM3ZUNTJz?=
+ =?utf-8?B?TmQxbCtlakluVGZmU01HNXRBRUl0NnMzTTZGNThKN2xMd0VSWVBzYTBTS2d4?=
+ =?utf-8?B?RkJnRjIvbUVGMndBVGw0L3JBczlpemEydkp6VjVkSXlDeFhqZjU1SDdZOVpr?=
+ =?utf-8?B?bU5XUjR1d2JuK3ZLOFZlQnUyQzRLOURLa29sdXZibFRrUGpoenhUcUhkUGpI?=
+ =?utf-8?B?ZnVOYk5RRGZwRW04YUZPVmp1U1pIbXQzdmhTaVVSZjAxNXJEREFoMElxcWRz?=
+ =?utf-8?B?Z0IvSXJ1c3Z1YnBaUVVwMStPcUdwTVBoSjFiNVVhVUd0SDgzdStMcysrSzBq?=
+ =?utf-8?B?V3NHQmU4R1Fna3hzZG5RUitkcGh4VzN4RlltbVM2VWRVUldMQklkZG9sTTFD?=
+ =?utf-8?B?QzhQcVpGcWU2d0FGTFNlaGlWOFlFKzBZZkl0bUVzdW5lMEZ1bWIvRWtPK3RP?=
+ =?utf-8?B?Y3NMQ0tyNnA0cU1wdkswSW9qWlEzaGUrNy9Da3BFZGlmWjhwQkxqaGdjdUpQ?=
+ =?utf-8?B?YWtwb0RnMzdyRmJyM0RpdHFvVklzdVRhVVk1a1BCbitoeXdQL0cxUnBnSjJy?=
+ =?utf-8?B?ZXJRYXhvNmg5ZmNwU0JwNEZhbWdLNi9UcW8yeTdnaHB5VEhaaVdRZldGSWZB?=
+ =?utf-8?B?aG42VEg2UE05NXNHbTBIZkMzUnJ2bHIySUhZYm4yRkI4R3dyNnpKQ0tRaXVI?=
+ =?utf-8?Q?TlZiOGGRwP5LdpsIpuxG9+W7KxV+5wjAVp3eT?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b91775d3-192b-4741-f66a-08dee8eea613
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 19:14:42.0933
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XHvhG2h/enUyX8nEyxLWMC6pvHrrYnJssab6LrTU8PZKcubwwkcQ3cBTkF4DcV0FoB1/cq1EkbGMYC6JkyAP86k5zAYmg6tpzNvecSjyMYYe3OFmeD8zYjZs67FdhH8A
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6818
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_112147_571686_F9D8158C 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20260723_121446_345765_7319D50E 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +161,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for BBM level 3 to KVM pgtable, it
-depends on [1]
+From: Frank Li <Frank.Li@nxp.com>
 
-Changes from v1:
-https://lore.kernel.org/all/20260717130901.2239134-1-smostafa@google.com/
-- Limit BBML3 to systems with FWB and DIC and remove race check.
+Change node name disp0 to display0 to match binding define.
 
-Motivation
-==========
-I have been looking into this for the context of:
-- Page table sharing between the host CPU stage-2 and the SMMUv3 for
-  protected KVM.
-- Use the pagtable code to populate SMMUv3 stage-2 shadowed
-  page table [2]
+Fix the following CHECK_DTBS warning:
+  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0010.dtb: lcdif@21c8000 (fsl,imx6ul-lcdif): 'disp0' does not match any of the regexes: '^pinctrl-[0-9]+$'
 
-However, BBM level 3 is still useful for CPU only operations as it
-avoids intermediately breaking translation.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Design
-======
-Some of the conditions that BBM level 3 will be useful in (RWHZWS):
-1) A change to a PTE memory type, shareability, cacheability or OA
-2) Changing from block to table
-3) Changing from table to block
-
-At the moment in the hyp page table code:
-- For #1) stage2_map_walker_try_leaf(): Replaces a leaf with another
-  one which does not match the same OA/perms/attrs.
-
-- For #2) Switch block to table is used from:
-  - kvm_pgtable_stage2_split(): Explicitly splitting a block (used
-    for dirty logging), where a block is replaced by a table with
-    the same attributes.
-  - stage2_map_walk_leaf(): Updating a mapping that is partially
-    part of an existing block.
-
-- #3) Does not exist in the code at the moment as coalescing is not
-  supported.
-
-The first patch is a preparation to be able to clean up the old pte
-for BBML3, the second patch adds the main logic.
-
-Initially, I encapsulated the full logic of BBM in one function,
-which was not readable, due to different ordering and dealing with
-CMO, TLBI.
-
-Instead, I kept the logic into 2 functions, where BBML3 is added in
-the make step.
-
-One interesting case, as BBML3 will update the PTE atomically, it
-can only know it raced with another core at the point of the cmpxchg
-failing, unlike the SW implementation which locks the PTE first.
-And as we must issue CMOs to the new mapped page before the update,
-that means with BBML3 racing cores will issue redundant CMOs, to
-avoid this, we limit the use of BBML3 to systems with FWB and DIC.
-
-Testing
-=======
-This was tested:
-- C1-Pro cores, unfortunately the version I have does not run
-  upstream, I backported the patches to Android kernel (6.18).
-
-- mainline(7.2-rc3) kernel on a Qualcomm X1 with a hacked cpufeature
-  as it does not support BBM, I did not see conflict aborts or TLB
-  corruption.
-
-I tested with VHE and protected (hvhe) modes, running VMs
-(and protected), and running some selftests, that might exercise and
-stress this path tools/testing/selftests/kvm:
-- demand_paging_test
-- memslot_perf_test
-- memslot_modification_stress_test
-- dirty_log_test
-
-Future work
-===========
-Some other changes that would be useful:
-- Eagerly install table on block split, we can now replace a block
-  with a fully populated table atomically when we unmap a partial
-  part of the block.
-
-- Use BBML3 in the hypervisor stage-1 with nvhe/protected mode to
-  improve preformance and reduce memory usage as now it is forced
-  to use leaf mappings.
-
-There is more to support page table sharing (such as dealing with
-TLB invalidation, coherency...), I submitted a talk to LPC to discuss
-this further.
-
-[1] https://lore.kernel.org/all/20260723044034.2983651-1-linu.cherian@arm.com/
-[2] https://lore.kernel.org/linux-iommu/20260715115906.2664882-1-smostafa@google.com/
-
-Mostafa Saleh (2):
-  KVM: arm64: Add stage2_clean_old_pte()
-  KVM: arm64: Support BBM level 3
-
- arch/arm64/kvm/hyp/pgtable.c | 123 +++++++++++++++++++++++++----------
- 1 file changed, 87 insertions(+), 36 deletions(-)
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+index 192c6a95ae589..2f6916c0359c5 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+@@ -369,7 +369,7 @@ &lcdif {
+ 	display = <&display>;
+ 	status = "okay";
+ 
+-	display: disp0 {
++	display: display0 {
+ 		bits-per-pixel = <32>;
+ 		bus-width = <24>;
+ 		status = "okay";
 
 -- 
-2.55.0.229.g6434b31f56-goog
+2.43.0
 
 
