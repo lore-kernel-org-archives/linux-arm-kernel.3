@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 561ECC531D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803FFC531D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvvA47yK9RFkS+3kJ0N4nXWgy3089ah7H4jN9EcLvHQ=; b=PBdfkpo67M/ETyg8uavaCWURDe
-	7ZlcqhJaTsqLNJIRUCeUDaid8q+YkSVNhhVFmZVvuEPpAV7o5XaXsSyZAgc+AIzrvwDsp1zVj93pf
-	sPKknzJ9dIq1AyXWR1bG8CoevUToxEIJgUm1pYUjjtj+7LBtpDyFHA2UWdiawAI4PTd7FD/pY6hGy
-	ajnhyTR6w6VR2kGwdrGelcyyno3bELQckLRoyCQ1Unlsuk7YV3AXfKQd3TglFbSnCht4GKzW56t3h
-	xHDtwc12emYK1Lz/LI6Wp1zl5aWos02y0s7el3m/2Zh2DFaSGtr9ev+d0SPhuPqmkccwXwB3ByzYG
-	7ebXJE3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r0+Dds94k3kKFRsIETTe3NLyFQQqe/ZYPqy6VWenGsE=; b=IwF3th9aSa/UuGlC3EZV83bVNC
+	BrCrmu9hA0FLTc/uU2VkovogaIUyhENUAJc9N42/MuhoOra+kTPmxdtrwR0dARQchS1mwKlQxVz3m
+	yEbDSSQW/oQEkt/0AqQd2MF9eM5kcB0CZ4ZOfl8KGTyHXZwlH9+mfYvMqoWfOmmQbc9X8zuOxNny8
+	pnz1KsUVoG1g5Iw6reAlo/EM2dJwQu7zg17wGmRMNImHaJAbXz4//gLIa0OeY2Oa0RAYu8n+kC9C+
+	eJHCQBxSyZ0JvSDhXboSPiFXyRXm82VGmCF2s49rUgFsc4Mrgi+qbagybOlchuryhzwSB//1PNVr1
+	eOOFWWCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvN3-0000000Ebkt-3W1i;
-	Thu, 23 Jul 2026 15:30:01 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wmvIT-0000000EbEY-0LeO;
+	Thu, 23 Jul 2026 15:25:17 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvMy-0000000Ebib-207f
+	id 1wmvIN-0000000EbDa-11T3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 15:29:57 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4954df200ddso5039625e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:29:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1784820594; x=1785425394; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qvvA47yK9RFkS+3kJ0N4nXWgy3089ah7H4jN9EcLvHQ=;
-        b=OswPGR5S8gFjSNkUfXNVy+4EZMY6pkyE75qN2BfWnw8F/DmCTtoMiKz/pGzkuL3Wtk
-         jvXNk+sIzuPfpA8uQSuNnik08XISZzoTqO+6U5u6E1gverk151tb3LMMdT7YTtp6r7Vh
-         ubYM2H7GleU16NQniOpUGGkNBRVYlSRe2pCAIqcCfakghu8his6d3SH2lMlW4VwCOEz/
-         6XUe6bHVDhBSA/FiYkM10PCR2vY6jeyXg55UaIzWcJ5xA61XYF2h4V4BVCr3pquzstVN
-         sgUyzyLj9+HxjXvnnmx6FS1P3VhS0d3GjkMNcux2zLnegOcqKcTqu1FPAiw98ijder9n
-         AZQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784820594; x=1785425394;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qvvA47yK9RFkS+3kJ0N4nXWgy3089ah7H4jN9EcLvHQ=;
-        b=tGNfVUl7XEh7dbJDQgIMuSrKKV7xObjk3g+mBPbvH10rObKXBd5vEVylWosybsRGfq
-         itBgIi+OOivWoeP6DqGtDTH0hxGoGxeqzsTAym5k/3wThQeY9w2pOrxaYoYDWPhh9xp9
-         5n9ufAKgP7WQxwqYWwancRGW8p8u2xQfSkQTjsTZXXK7Lw3D87f6yYyCm9nh4NgfdQGW
-         ExiX4ECEhx2bhca5q5IBvdDf65dEsYQGfOdbP6dmE5mJCQaCKs2Fefvm/OLV35KUD6WD
-         Ud5cum9yUMPT0/tHGK8g+N7N39VGcQBzgWJRgwVeDDfXQLW97kC5PRcKSd/oe7yhb+fj
-         G3ig==
-X-Forwarded-Encrypted: i=1; AHgh+RrOYsNxHfY4UUpeSV5voxnzqzhL7Pxsakn6YMMPuTDzqwFe+8laanV8PfLm5T5dS83JBpQH9h3rDiEfHMu8ZCov@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIzPZHyqoOvBwkaZwqMYVfkS/z8IXOePyvTQtRMib4ZNkcW5vO
-	UKdcat2JsPtL8/yH9cbeH/1CKH3M9FwRu6fL5EBV8vOyN1hUYbtMnio5oAx/vEH1QHo=
-X-Gm-Gg: AR+sD10y6ChM50WW28sBf7ase0hWRFkzkc6Grk0759waKgdcEunMdLXPxHGPqekhUU9
-	RxPjVnMy5o2Sj3v9I+Vl77tAsflQjZVz3dQcNBUFeHKKfr/we+rqB6STdOf8njnR0OyzoGvdtq+
-	+kdYGbpejCb05LEG1l/87DHwEVpqsBj8dl/xOY8aHzsROL60EEX5Rn3cdlKKaBPqTjfvZepxXM7
-	qxCAxB7Zif73cAYZId8QRFgwsH6IdaU+Fs3w4iEiyZ7olgres5SjwDqAtfkpxqVNlLPexJPG/qZ
-	3up0PkJI7g1jJ5Oc3XLwMpf3V4ES1Y72ueF1F3b/1NQwho7tIHXvDnPJxoZe5JHVZE1ZAjMyB/w
-	LmJpVQ5uQWmfy/fsnicBkqVTbjXKSOMtTAXvM90uWppa7+lFSS0U5XoEs1fir5fofuf8d5JIJfM
-	CGUk2eQ6LY858RveAxiVyhNxM8dhx1YpmLQYIcGTsBWV02059oSNncxg03smdUEAHkoQ==
-X-Received: by 2002:a05:600c:654b:b0:495:5375:2510 with SMTP id 5b1f17b1804b1-49573cff63dmr26167785e9.24.1784820594260;
-        Thu, 23 Jul 2026 08:29:54 -0700 (PDT)
-Received: from [127.0.1.1] ([2.122.8.179])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49574653f83sm36952525e9.0.2026.07.23.08.29.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 08:29:53 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Thu, 23 Jul 2026 16:29:47 +0100
-Subject: [PATCH v2 2/2] arm64: dts: exynos850: Add acpm SRAM node
+	Thu, 23 Jul 2026 15:25:16 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260723152507euoutp01aa2b2ea0723cfe88cf649fd059b97e7a~E9Jz6_48q2619726197euoutp01u
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 15:25:07 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260723152507euoutp01aa2b2ea0723cfe88cf649fd059b97e7a~E9Jz6_48q2619726197euoutp01u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1784820307;
+	bh=r0+Dds94k3kKFRsIETTe3NLyFQQqe/ZYPqy6VWenGsE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Z53GhoWTtFb8HbB+vpPW1apeC/v+bvuMgmaqwFvovB1tCAvU9yF0ZkqPxlTqPIcnX
+	 UKptLoXaTf/ha80lztFsIJQTgx7ZQvMpdnO7iBYxw3MWnOfD+C0uz9zM7PzB6ztGsK
+	 tbJcmcNnNM/9iZq4FuLnSeOZUDGaQG7jFz1g8wnA=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260723152506eucas1p1a29e976831a01873f677f02fe9d05669~E9JzicgTr1906719067eucas1p1F;
+	Thu, 23 Jul 2026 15:25:06 +0000 (GMT)
+Received: from AMDC4622.eu.corp.samsungelectronics.net (unknown
+	[106.120.77.34]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260723152506eusmtip17ad2aedb5e984e537272d33d6d72f158~E9JzFZs-v0480504805eusmtip1f;
+	Thu, 23 Jul 2026 15:25:06 +0000 (GMT)
+Date: Thu, 23 Jul 2026 17:24:58 +0200
+From: Jakub Raczynski <j.raczynski@samsung.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net v3 0/2] net/stmmac: Secure against failures of DMA
+ memory allocation
+Message-ID: <amIySsYvx+ZhOXzm@AMDC4622.eu.corp.samsungelectronics.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-exynos850_sram-v2-2-c94968e52f42@linaro.org>
-References: <20260723-exynos850_sram-v2-0-c94968e52f42@linaro.org>
-In-Reply-To: <20260723-exynos850_sram-v2-0-c94968e52f42@linaro.org>
-To: Sam Protsenko <semen.protsenko@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
+In-Reply-To: <20260723072352.6db4df7f@kernel.org>
+X-CMS-MailID: 20260723152506eucas1p1a29e976831a01873f677f02fe9d05669
+X-Msg-Generator: CA
+Content-Type: multipart/mixed;
+	boundary="----F80QVkSs0AhR68Zg0oSW-b5-i4-oaHVRPVEJevbh2s58A1oD=_81ef1_"
+X-RootMTR: 20260715123609eucas1p276498c4701060ffbb6789cb096696a31
+X-EPHeader: CA
+X-CMS-RootMailID: 20260715123609eucas1p276498c4701060ffbb6789cb096696a31
+References: <CGME20260715123609eucas1p276498c4701060ffbb6789cb096696a31@eucas1p2.samsung.com>
+	<20260715123602.51950-1-j.raczynski@samsung.com>
+	<20260723072352.6db4df7f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_082956_541570_D965E043 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_082511_892625_B44767CF 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SRAM is used by the ACPM protocol to retrieve the ACPM channels
-information and configuration data. Add the SRAM node.
+------F80QVkSs0AhR68Zg0oSW-b5-i4-oaHVRPVEJevbh2s58A1oD=_81ef1_
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
 
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- arch/arm64/boot/dts/exynos/exynos850.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+On Thu, Jul 23, 2026 at 07:23:52AM -0700, Jakub Kicinski wrote:
+> On Wed, 15 Jul 2026 14:36:00 +0200 Jakub Raczynski wrote:
+> > This series fixing two issues related to fails of
+> > __alloc_dma_rx_desc_resources(). Original issue from 1st patch is related to
+> > page_pool that has happened in testing env, while second was requested by
+> > Sashiko to have similar change for DMA allocation. 
+> > To have complete fix for all failures of __alloc_dma_rx_desc_resources(),
+> > merge two fixes into series.
+> 
+> Clashiko is not impressed by the second patch.
+> Is it possible to avoid calling the functions in semi-consistent state?
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index 3881f573ec08..9a8d92aae9a8 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -917,6 +917,11 @@ spi_2: spi@11d20000 {
- 			};
- 		};
- 	};
-+
-+	apm_sram: sram@2039000 {
-+		compatible = "samsung,exynos850-acpm-sram";
-+		reg = <0x0 0x2039000 0x40000>;
-+	};
- };
- 
- #include "exynos850-pinctrl.dtsi"
+Again clash against AI lost, damn you AI. Although I cannot say its wrong.
+My bad I didn't really respond to it sooner, especially 13 character Fixes tag,
+wonder how that slipped past internal review...
 
--- 
-2.51.0
+Now being serious, regarding calling in semi-consistent, it is matter of
+symmetry between open/close or alloc/dealloc paths.
+Since __alloc_dma_{tx/rx}_desc_resources does full initialization,
+__free_dma_{tx/rx}_desc_resources should be able to handle whole cycle.
+So if __alloc_ failed in the middle, __free_ should handle that state,
+whatever it might be.
 
+One thing I will say that AI review is not even about patches themselves,
+but about
+"If the intent is to make __free_dma_rx_desc_resources() safe to
+run twice on the same queue, [...]",
+which is the point, although original patch was generated by
+real issue that occured. Other issues it reports are valid but did not
+trigger.
+
+So AI is right that everything should be handled in one patchset when
+this is touched, but funnily it didn't report it previous review.
+Will send another version that will fix all these issues/complains
+at some point.
+
+BR
+Jakub Raczynski
+
+------F80QVkSs0AhR68Zg0oSW-b5-i4-oaHVRPVEJevbh2s58A1oD=_81ef1_
+Content-Type: text/plain; charset="utf-8"
+
+
+------F80QVkSs0AhR68Zg0oSW-b5-i4-oaHVRPVEJevbh2s58A1oD=_81ef1_--
 
