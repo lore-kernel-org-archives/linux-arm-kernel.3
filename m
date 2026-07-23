@@ -4,82 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B486FC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 18:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00CDC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 18:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N52o3BVp773wN3Idd00jSA0m0Lpy2g57ImYGMyeejhc=; b=o2MkDu9oN+txDIoKFNcTJTQA3/
-	J9hDboADQNm1DKgCdHPdFOZoGMsJl0fAmGddEgiVfTE8gZ2KezWL5YZyFfdpXJ1D1kreYaXscUFJf
-	wGdEm547lVzqOatA3JswOwlMWJiCxZMPOPCXAl5FEFZNUzMQeOgM88fOTDqEGiZc4tumqoFbTOrQT
-	Dnwwv2fohForXS8CwmcA9fMm6m8wf6h/i/PosDhNz/Dank8WijL8nrpSBXJfWOfGfDu5XLii+bYVC
-	+nE6dOKxUfjg8qHXmmW7fJDPZQSaVnQJv9Sa4bhoNDpGOFGvRY2B4tphdaHGmZfgBsg4v4BcuyHsP
-	NxqPdqJA==;
+	bh=CeLeFCHm3Fak8vEBW3rHQ8HD8+EilDqh5QmGS3mhuWc=; b=u7U83qpAMwa97WTWk5LcfQKsX9
+	mygs4RaSLRZT4ymKT5T46jN1SG11py8AzS3kGug+NpuGZiYvWSJpuGQbGa/HjsDZC8FYCtLxv4n1w
+	ZlsFOcwRZz3hTg1kJ0aVC562Cqd3rGGOOBsDzNrHx9oQKnJkuxsy4R05OEyy89+7bxRaDlnSjsGgv
+	JEHh8DGCW2uwdPMilASCDsDAOD6UEDbXQ62ZcpoeHt9BADH0Z22r2vCOmIciCBtjt7WrUoTHpCv8H
+	rX5PoLBza7+72PReRVPnpIMkfK96nmChnLqNfRDhrOI5RUd5j3pi2ClB7ZRRMf5T1P6WA8Q4atbpA
+	YrovwDXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmy3R-0000000EsfL-0I7D;
-	Thu, 23 Jul 2026 18:21:57 +0000
-Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
+	id 1wmyG5-0000000EtYw-1bfE;
+	Thu, 23 Jul 2026 18:35:01 +0000
+Received: from mail-westeuropeazon11011071.outbound.protection.outlook.com ([52.101.70.71] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmy3N-0000000Esdl-3qON
+	id 1wmyG2-0000000EtYH-43zw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 18:21:55 +0000
-Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4957287363bso6601635e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 11:21:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784830911; x=1785435711; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=N52o3BVp773wN3Idd00jSA0m0Lpy2g57ImYGMyeejhc=;
-        b=VVEMONnbAugMvQA82BeNI42wYaANytLROGWQcK8/Z71A1gir7A/hHI6NfkHSeKttdr
-         pG/efYe1878G2qWTQtuzBCidnLg9IOhspotKE1WQYWMc+shyNG6GnKBFZEILjxBiQo4k
-         jRTIwqdzfG8+bzVdRm+Lhy63SqqYgts92rUdKgd1f/fySWPw5Bdylu7alk+GsSap5rCL
-         K6nqfqvGQ96H8kpiRwuE3SUDGEiD1gy6hzyQU3gXNkccorGx4FYyGfjnavkBRrq4rIFb
-         H2tACVUPTgFEEBBgaWBw8EI0Jh9HhBq10HnNlGaY7vJCgOco1TLj521pZY/WYMJZxU1P
-         UtJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784830911; x=1785435711;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=N52o3BVp773wN3Idd00jSA0m0Lpy2g57ImYGMyeejhc=;
-        b=c9Yrr6g7XS13Ry2Co7Oa9UszQU8y9mz1cJpaPry9oE6InzicujjKm5euywrDcemahI
-         a8ACi7El4QSExEiwS01M7yhhnsJbc6mOw5JD1YytBYWN84GPgrHfiI6n61T8exEZ9lE+
-         xHEqnuwwmpgsIpwucdnHn5aFuLHAAvbFYTmaK2Ny/FeW4h/kX3EarYYhWvA5qrmeWojR
-         TExgzBQHmjo5em2BjFAqXZqnGd0EcVwyEe0u3kkZkmRYHXV0l/v6OAMX52jPELPAb9hY
-         SHkXK7yAtmRSdEDEXHs4x9PbcL/XqaBABNXuqQP1sdCJFjRKpdHTJeHocAq1tMabYvYN
-         /Bbg==
-X-Forwarded-Encrypted: i=1; AHgh+RrA9m/nk+2WdBTX0F2tjhOuDxRoJuPiyVWYMFQgyVbmxMRgb9ov7Z6EdMHY/+wwMlpkYB6A5EunVh+4XZ2UPVxh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnX2XPJzNoisUWVrVrJtNNwIR+BMNSQGPlcsJ1HHNdhbkiT2LB
-	zWqneNp0RTXBb6O0b/fTlhTafWrO7Fik+RF6W4siCLrWuWjdTPpY29vqArad6PYQAd2kFlmoUy4
-	AjLLz9QTOUAKlrg==
-X-Received: from wrhm19.prod.google.com ([2002:a05:6000:1813:b0:472:9520:f359])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a7b:c84c:0:b0:495:3eb2:b763 with SMTP id 5b1f17b1804b1-49573cffa2emr35967485e9.21.1784830911229;
- Thu, 23 Jul 2026 11:21:51 -0700 (PDT)
-Date: Thu, 23 Jul 2026 18:21:40 +0000
-In-Reply-To: <20260723182140.4025575-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260723182140.4025575-1-smostafa@google.com>
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260723182140.4025575-3-smostafa@google.com>
-Subject: [RFC PATCH v2 2/2] KVM: arm64: Support BBM level 3
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, sebastianene@google.com, keirf@google.com, 
-	linu.cherian@arm.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 23 Jul 2026 18:35:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z8gw1dVDoUKXZsn8wPf5huvdc+U2kdoXfqjdicix/Ae44oDLFxiLRSf3YKDpui8C29FvcP8Jz5s4awoZEOLr1WktGw2u1KwAr2gwBcp2//VNhjWb1EYafQwIu28lBCNky9gdz15xVOYwAH9x8YWhGRY5191HplJ0txAEgVh5ezM4iI4dN07dq2qltvnLbJEpQ9vvKHofZh0lZ1ZtYP2fcR29JqhJKa9IQgl2vez/O1x9PVeyQs/+SwDFtRB78JXZ7LGqrVeSxXn2gW5/4XrUwfu1gR3fLml6Ka9es45PsOjJbFWix/upfDGj38JZmc8q2FCfwxjwbulhiZnTVXYzcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CeLeFCHm3Fak8vEBW3rHQ8HD8+EilDqh5QmGS3mhuWc=;
+ b=TC9h+AH+Oosqtt0dMPjgat+dnEYY+F2q1KaZbEa+YYUxvySwh/b2mPaI0Ex6xvFjQ4m9DAqaP+OVrNSPWlVMxddO2MZ63g2UqrKclo44dOnzTuy8bhGvgCBjCOBvRtKMDETj0OPMGVUfwYb45dTu7bKeMPoktgkdsFBZVMm292owMgy1fXt+5OflXsr+dkl3HM3ClHskAQTKynfipJ+TOt/QxEiYFqN9Ww8MbTAn8eQrLRlVatV8nethFY1xF95BBMebrpXpw9HWWMzci6t1FAVHOSFUslk4K+I4dyjkEa4l3OkGP1y6oH0hC6H/gTSq0fQJCPWw+70A4sg6jM1RKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CeLeFCHm3Fak8vEBW3rHQ8HD8+EilDqh5QmGS3mhuWc=;
+ b=t98FcVPEQu3ik138VOCmg1jb3ykMJ0Qnn4FrKGq8cPZP8raNBB7U66RxSXJVwM6IsiT1+WnNpOIT60WjK377gdn9btotSAkrGJtIwfy7rUsTUg8O6YB5pJCphZsny66mfBVrZiPcunoSh7+h148bAdI3SslN3bD/uM2QGVLV/Y5b0cvaf3XMRilaUgibOXI18so4SmOBa73ir7JRUQCbdyQfU+OLBjDTDNnaqTBnlx1gCkZulErFqb9AbddP/TRlN0EqA53xrBw60aQCRaGOWtH8/WT6PozvUEAagA0vJdlCUCIb2MSI+RhmFvkLdrB12iQNvuSOW47ZyU8X9NwASw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS1PR04MB9632.eurprd04.prod.outlook.com (2603:10a6:20b:477::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
+ 2026 18:34:53 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 18:34:53 +0000
+Date: Thu, 23 Jul 2026 13:34:43 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Frieder Schrempf <frieder@fris.de>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
+	Frieder Schrempf <frieder.schrempf@kontron.de>
+Subject: Re: [PATCH v3 03/11] firmware: imx: ele: Export API functions
+Message-ID: <amJew0ynuWRybpJm@SMW015318>
+References: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+ <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-3-e26930345b4c@kontron.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-3-e26930345b4c@kontron.de>
+X-ClientProxiedBy: SA1P222CA0184.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c4::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS1PR04MB9632:EE_
+X-MS-Office365-Filtering-Correlation-Id: f18033ca-6bfe-475d-79c3-08dee8e91648
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|7416014|376014|1800799024|6133799003|56012099006|11063799006|10067099003|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: oAn2QcCwddMp/bf0/JUCZGoTZScxQkU3qidyZ/b41QhrdQfUiQW+GirGTmUQJxTShqvl5f9jVdWYNKPhbY5Q1xLiNT/z9gx2bIaGoR1Z05ka/wUwKgII/3Q5FXLZ8jZBVU7CZKhsGMZ5cQSfBiy8INaCaJMRnypFNNciFKCEVkPrGmiFL9R8HCPwJQCJLYNOUELKU8LD8nJWIhEOHAu8VhDxRg09FQleyf3UO2ytUnumboTH/8nWGJlNR0FTYmnzTYAUQYYpEFQdTNrOPv+V0T11ZG65CKLH50Bpvs73nGxznWQgE2NTOMXOni3IjbVEko78NTPSQ57w7EOG6vWVze1iHpSsezYxvpYJGwL5Ib3nx/jPJVh+E5pjgUguqFDKrxUF/sH2PvWOTLkoer7rNlGzrdCXPBjHM/wZPX7q2hsF66kf/Ugf2IyB1Q6AGD6k5gjaB5qSO8XbgijWthsRPg6pC1ecRFsu3sdsix66kDp8OpjrHEcw/Llwaz6RYCBdVQSPJ6NxmJCEXX9s0q7Br9oZZpg8JXztGtFw4MkD5fXK+xWG97fCnoOD6SaOT3H3YUqeIV7R0eAifQ7znJ+rWj/lHjNCiLu76hzbjLLijDRo17ynOU4hQJ3ApLAAdvFZYybr2xJjEK2zU70Ph90s4+jtBkyGfHq6mvcGsJnreLM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(7416014)(376014)(1800799024)(6133799003)(56012099006)(11063799006)(10067099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zsBmcirRtaNbxlVkE7leWKjQGCqiO28Bt/8bAz9IEcjXIpP3lSV6UOmMu7Me?=
+ =?us-ascii?Q?zqlU4kMSkB1Inr32RezIYUs7CF4SVxelkrYLJI+W+kvc9Svj5siIWiLUYzxr?=
+ =?us-ascii?Q?SbkafTNiX3vgyDvsQQcG7IAq/Tkgax4nSvX9EKp9zaLSjgZIiYfcmpAcpL10?=
+ =?us-ascii?Q?WvY0EwzmxmmC3U2E8gES3vexKL1R9DuZt533IAk6p3sz3XXV/FsvJTGMU2Yi?=
+ =?us-ascii?Q?ZOT0Ry00+9EhQTBuIOdTsMx3IROam9z9QoAbafUJRR3FRLGk34bSzqRB6m/P?=
+ =?us-ascii?Q?Nvk8a7zNSNcUXFQpsNyH43ibH72C53n8VMiJUEWObm3TtUpu/C1S7vVRSjWq?=
+ =?us-ascii?Q?HBtSgT62Y7KuSlpe9RMO6Eywt0ZmrrRD/dTHLG1a3dijfPSXA12dCL69r8JF?=
+ =?us-ascii?Q?tmi6qnjKTmlwYDcsFyrEzW3OrwiLAwnK+9Qi/puWaE2idoRr0uh5VDE62MEF?=
+ =?us-ascii?Q?QqzK4HXK0z5QWzmlOqVBPVZK2XRBqjpjaQYi1Mi+yK6EPe1Xt9Bxn/Bsut60?=
+ =?us-ascii?Q?diiNO9r36d3Mtzph57A/rfkcXGJEO1pALzsC6pRbFjR/sTECAUbFHUgWdC5W?=
+ =?us-ascii?Q?HJ7NQpnGuoYF1EzrMZyBijBdhUb8xLe0mNSsYhBi4noj9imhjKLr4ljU9wtn?=
+ =?us-ascii?Q?j8YTJHdeEJHMSdZy03iwr1VqthjOpCSaLP9JVgYWOL5MobLLM9BdWjn14byl?=
+ =?us-ascii?Q?4WcXbVYpqIkLdlKa/57+tACS688lWGp9BBepmHhqVmtcKBCB+tnKgiWZPTqb?=
+ =?us-ascii?Q?xJaKmfYuHE55FfmqnqRA4gNeyW7t+w6uZGXcbYDlegXBQBcjnXbPvHgLp3r6?=
+ =?us-ascii?Q?FGFzmRmL4NfxSWpYNdcAXkL99Mo98PieHg31TsCZ5Sh+H5g/GOWJOlV3GYdb?=
+ =?us-ascii?Q?g0N+Bpy0Jj2qzX3GFrqelNwftJR4eRtrcCBux4bl14oiKsqnXzAzRGVvrvJF?=
+ =?us-ascii?Q?KL0wD/CRNWmUvlCEYb2mtYSIa/GtGWSAIJZxFZTdI95621JBuDzIY70wh/Xi?=
+ =?us-ascii?Q?B5Jcc6s79qjw2keSCjFL1Noo+CdXzOuDmLs+QBH76U1BbmyMmlxviahMrxLs?=
+ =?us-ascii?Q?xcvsRjHZbNlNWCfkW40hKr04DsNKvMU2TKBJQ0/2+jO9nk79ZgE5B83Wem14?=
+ =?us-ascii?Q?OEJRZEjBIH3+n4TNKaN2KkWX2mT7cov3abYt8Ec6qZ/Keo04gXVjrAs/FKHa?=
+ =?us-ascii?Q?DRL9uohZt5SFEBLocUxJMVwq6S0ymh57MKG6VyaroHJEjOmUn2khCHjBUZ73?=
+ =?us-ascii?Q?9rrHy1F7D1Rot2ldMnvUKyA47o2zTW+gJOX2ELJ2CTYUvcSgXvYoqMnq3asT?=
+ =?us-ascii?Q?7qLfXluaYbILtFvluy+66vVoa54Lqtb8gv70CqWES+joEvk5olW/aU44mv+I?=
+ =?us-ascii?Q?Q9kjvpJx8uTX33d7hLVOHTQYXwLJrGq3I2Zyai2stLNTYPdprSn8LoIG8F6x?=
+ =?us-ascii?Q?TZB2HuGTDfz8KYxj1b9RB2kzxn+uaaodSB8Yl5LobsiC9bdPAchERskmcpAC?=
+ =?us-ascii?Q?OGVWoTJZgrKWbCZ6UHrSQMQqfykvg6r+VL/tWn+DCHH3HYigSlB6W3UNBZX6?=
+ =?us-ascii?Q?Z6tCjYCkL3AtYObZIvw0eBRwQ3Z4a+pxdWXwskRvkxgdJCx2v5XTe83W8Yfm?=
+ =?us-ascii?Q?+b7S2r3qXa32N/1pxxA4WVmCfDNT09hfuEDHiUBNsyESRNbXoP4afIyE1QiH?=
+ =?us-ascii?Q?pZOTXC/ewr3vQX2T5wDDPIROdP7sMhh8dIg2dULOCJLGqGocdJGBBDukz6fa?=
+ =?us-ascii?Q?IAoqx+E/wMPdfZXZ1xWHhx1bfUpSQ2zzPmsgF7eJbS2v+OHqgOWO?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f18033ca-6bfe-475d-79c3-08dee8e91648
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 18:34:53.4503
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eHQSQzvwPQ7q4ecvmZqZNv181q0aqD30Le7BeFVGBwwhEUIJVzwnPCcrqjkA/H+c7l/M+XYGOIZ2jfz0Mh8otkOhxy2AwBCeC/Hu6YMlYH4qfpUE1eNFD4D2iSyagGQ3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9632
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_112153_992294_F8E3A1A3 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20260723_113459_168830_B86E011E 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,144 +145,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the system supports hardware Break-Before-Make (BBM) level 3, use it
-to replace stage-2 PTEs directly. Otherwise, fall back to the software
-BBM sequence.
+On Thu, Jul 23, 2026 at 09:27:25AM +0200, Frieder Schrempf wrote:
+> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>
+> Export generic ELE API functions to send and receive messages. This
+> allows drivers to implement functions based on the ELE API.
+>
+> Assisted-by: Claude:claude-opus-4-8
+> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+> ---
 
-For BBML3 the sequence is:
-1) Get a reference count on the containing table for the new PTE.
-2) Atomically update the PTE with the new valid descriptor.
-3) Invalidate the TLB for the old PTE.
-4) Drop the reference count holding the old PTE.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-One interesting case, as BBML3 will update the PTE atomically, it
-can only know it raced with another core at the point of the cmpxchg
-failing, unlike the SW implementation which locks the PTE first.
-And as we must issue CMOs to the new mapped page before the update,
-that means with BBML3 racing cores will issue redundant CMOs.
-To avoid this, limit BBML3 support for systems with DIC and FWB,
-which does not require CMOs.
-
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- arch/arm64/kvm/hyp/pgtable.c | 58 +++++++++++++++++++++++++++++++-----
- 1 file changed, 51 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index d670da8882a5..4644b596f020 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -835,10 +835,24 @@ static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
- 		mm_ops->put_page(ctx->ptep);
- }
- 
-+/*
-+ * We assume that KVM will never change the OA of an active translation.
-+ * If the host needs to move the backing PFN, it should do an explicit
-+ * unmap to issue the required TLBI.
-+ */
-+static bool stage2_use_bbml3(void)
-+{
-+	return system_supports_bbml3() &&
-+	       cpus_have_final_cap(ARM64_HAS_STAGE2_FWB) &&
-+	       cpus_have_final_cap(ARM64_HAS_CACHE_DIC);
-+}
-+
- /**
-  * stage2_try_break_pte() - Invalidates a pte according to the
-  *			    'break-before-make' requirements of the
-- *			    architecture.
-+ *			    architecture, if BMML3 is supported it
-+ *			    will be used, meaning that this function
-+ *			    won't break the PTE.
-  *
-  * @ctx: context of the visited pte.
-  * @mmu: stage-2 mmu
-@@ -854,6 +868,10 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
- {
- 	kvm_pte_t locked_pte;
- 
-+	/* All handled in stage2_make_pte() */
-+	if (stage2_use_bbml3() && kvm_pte_valid(ctx->old))
-+		return true;
-+
- 	if (stage2_pte_is_locked(ctx->old)) {
- 		/*
- 		 * Should never occur if this walker has exclusive access to the
-@@ -873,16 +891,35 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
- 	return true;
- }
- 
--static void stage2_make_pte(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t new)
-+static bool stage2_make_pte(const struct kvm_pgtable_visit_ctx *ctx, struct kvm_s2_mmu *mmu,
-+			    kvm_pte_t new)
- {
- 	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
- 
--	WARN_ON(!stage2_pte_is_locked(*ctx->ptep));
--
- 	if (stage2_pte_is_counted(new))
- 		mm_ops->get_page(ctx->ptep);
- 
-+	if (stage2_use_bbml3() && kvm_pte_valid(ctx->old)) {
-+		/*
-+		 * Barrier is required because stage2_try_set_pte() uses
-+		 * WRITE_ONCE for non-shared walks, lacking release semantics
-+		 * used in the software BBM case.
-+		 */
-+		smp_wmb();
-+		if (!stage2_try_set_pte(ctx, new)) {
-+			/* Raced with another core. */
-+			if (stage2_pte_is_counted(new))
-+				mm_ops->put_page(ctx->ptep);
-+			return false;
-+		}
-+
-+		stage2_clean_old_pte(ctx, mmu);
-+		return true;
-+	}
-+
-+	WARN_ON(!stage2_pte_is_locked(*ctx->ptep));
- 	smp_store_release(ctx->ptep, new);
-+	return true;
- }
- 
- static bool stage2_unmap_defer_tlb_flush(struct kvm_pgtable *pgt)
-@@ -1014,7 +1051,8 @@ static int stage2_map_walker_try_leaf(const struct kvm_pgtable_visit_ctx *ctx,
- 	    stage2_pte_executable(new))
- 		mm_ops->icache_inval_pou(kvm_pte_follow(new, mm_ops), granule);
- 
--	stage2_make_pte(ctx, new);
-+	if (!stage2_make_pte(ctx, data->mmu, new))
-+		return -EAGAIN;
- 
- 	return 0;
- }
-@@ -1069,7 +1107,10 @@ static int stage2_map_walk_leaf(const struct kvm_pgtable_visit_ctx *ctx,
- 	 * will be mapped lazily.
- 	 */
- 	new = kvm_init_table_pte(childp, mm_ops);
--	stage2_make_pte(ctx, new);
-+	if (!stage2_make_pte(ctx, data->mmu, new)) {
-+		mm_ops->put_page(childp);
-+		return -EAGAIN;
-+	}
- 
- 	return 0;
- }
-@@ -1560,7 +1601,10 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	 * writes the PTE using smp_store_release().
- 	 */
- 	new = kvm_init_table_pte(childp, mm_ops);
--	stage2_make_pte(ctx, new);
-+	if (!stage2_make_pte(ctx, mmu, new)) {
-+		kvm_pgtable_stage2_free_unlinked(mm_ops, childp, level);
-+		return -EAGAIN;
-+	}
- 	return 0;
- }
- 
--- 
-2.55.0.229.g6434b31f56-goog
-
+>  drivers/firmware/imx/ele_base_msg.c | 42 ++++++++++----------
+>  drivers/firmware/imx/ele_common.c   | 35 ++++++++++++++++-
+>  drivers/firmware/imx/ele_common.h   | 14 -------
+>  drivers/firmware/imx/se_ctrl.c      |  6 +--
+>  drivers/firmware/imx/se_ctrl.h      | 14 +------
+>  include/linux/firmware/imx/se_api.h | 78 +++++++++++++++++++++++++++++++++++++
+>  6 files changed, 137 insertions(+), 52 deletions(-)
+>
+> diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
+> index 28b835f2880f..a4ab45efdd63 100644
+> --- a/drivers/firmware/imx/ele_base_msg.c
+> +++ b/drivers/firmware/imx/ele_base_msg.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/cleanup.h>
+>  #include <linux/completion.h>
+>  #include <linux/dma-mapping.h>
+> +#include <linux/firmware/imx/se_api.h>
+>  #include <linux/genalloc.h>
+>
+>  #include "ele_base_msg.h"
+> @@ -106,8 +107,8 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
+>  		}
+>  	}
+>
+> -	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> -			    ELE_GET_INFO_REQ, ELE_GET_INFO_REQ_MSG_SZ, true);
+> +	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> +				ELE_GET_INFO_REQ, ELE_GET_INFO_REQ_MSG_SZ, true);
+>
+>  	tx_msg->data[0] = upper_32_bits(get_info_addr);
+>  	tx_msg->data[1] = lower_32_bits(get_info_addr);
+> @@ -120,8 +121,8 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
+>  		return ret;
+>  	}
+>
+> -	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_GET_INFO_REQ,
+> -				      ELE_GET_INFO_RSP_MSG_SZ, true);
+> +	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_GET_INFO_REQ,
+> +					  ELE_GET_INFO_RSP_MSG_SZ, true);
+>  	if (ret < 0) {
+>  		ele_get_info_cleanup(priv, get_info_data, get_info_addr, get_info_len);
+>  		return ret;
+> @@ -156,16 +157,16 @@ int ele_ping(struct se_if_priv *priv)
+>  	if (!rx_msg)
+>  		return -ENOMEM;
+>
+> -	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> -			    ELE_PING_REQ, ELE_PING_REQ_SZ, true);
+> +	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> +				ELE_PING_REQ, ELE_PING_REQ_SZ, true);
+>
+>  	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_PING_REQ_SZ,
+>  			       rx_msg, ELE_PING_RSP_SZ);
+>  	if (ret < 0)
+>  		return ret;
+>
+> -	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_PING_REQ,
+> -				      ELE_PING_RSP_SZ, true);
+> +	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_PING_REQ,
+> +					  ELE_PING_RSP_SZ, true);
+>
+>  	return ret;
+>  }
+> @@ -196,8 +197,9 @@ int ele_service_swap(struct se_if_priv *priv,
+>  	if (!rx_msg)
+>  		return -ENOMEM;
+>
+> -	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> -			    ELE_SERVICE_SWAP_REQ, ELE_SERVICE_SWAP_REQ_MSG_SZ, true);
+> +	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> +				ELE_SERVICE_SWAP_REQ, ELE_SERVICE_SWAP_REQ_MSG_SZ,
+> +				true);
+>
+>  	tx_msg->data[0] = flag;
+>  	tx_msg->data[1] = addr_size;
+> @@ -212,8 +214,8 @@ int ele_service_swap(struct se_if_priv *priv,
+>  	if (ret < 0)
+>  		return ret;
+>
+> -	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_SERVICE_SWAP_REQ,
+> -				      ELE_SERVICE_SWAP_RSP_MSG_SZ, true);
+> +	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_SERVICE_SWAP_REQ,
+> +					  ELE_SERVICE_SWAP_RSP_MSG_SZ, true);
+>  	if (ret)
+>  		return ret;
+>
+> @@ -248,8 +250,8 @@ int ele_fw_authenticate(struct se_if_priv *priv, dma_addr_t contnr_addr,
+>  	if (!rx_msg)
+>  		return -ENOMEM;
+>
+> -	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> -			    ELE_FW_AUTH_REQ, ELE_FW_AUTH_REQ_SZ, true);
+> +	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> +				ELE_FW_AUTH_REQ, ELE_FW_AUTH_REQ_SZ, true);
+>
+>  	tx_msg->data[0] = lower_32_bits(contnr_addr);
+>  	tx_msg->data[1] = 0;
+> @@ -260,8 +262,8 @@ int ele_fw_authenticate(struct se_if_priv *priv, dma_addr_t contnr_addr,
+>  	if (ret < 0)
+>  		return ret;
+>
+> -	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_FW_AUTH_REQ,
+> -				      ELE_FW_AUTH_RSP_MSG_SZ, true);
+> +	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_FW_AUTH_REQ,
+> +					  ELE_FW_AUTH_RSP_MSG_SZ, true);
+>
+>  	return ret;
+>  }
+> @@ -286,8 +288,8 @@ int ele_debug_dump(struct se_if_priv *priv)
+>  	if (!rx_msg)
+>  		return -ENOMEM;
+>
+> -	se_fill_cmd_msg_hdr(priv, &tx_msg->header, ELE_DEBUG_DUMP_REQ,
+> -			    ELE_DEBUG_DUMP_REQ_SZ, true);
+> +	imx_se_fill_cmd_msg_hdr(priv, &tx_msg->header, ELE_DEBUG_DUMP_REQ,
+> +				ELE_DEBUG_DUMP_REQ_SZ, true);
+>
+>  	msg_ex_cnt = 0;
+>  	do {
+> @@ -298,8 +300,8 @@ int ele_debug_dump(struct se_if_priv *priv)
+>  		if (ret < 0)
+>  			return ret;
+>
+> -		ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_DEBUG_DUMP_REQ,
+> -					      ELE_DEBUG_DUMP_RSP_SZ, true);
+> +		ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_DEBUG_DUMP_REQ,
+> +						  ELE_DEBUG_DUMP_RSP_SZ, true);
+>  		if (ret) {
+>  			dev_err(priv->dev, "Dump_Debug_Buffer Error: %x.", ret);
+>  			break;
+> diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
+> index fbb6e584341a..f9c56fd42af0 100644
+> --- a/drivers/firmware/imx/ele_common.c
+> +++ b/drivers/firmware/imx/ele_common.c
+> @@ -3,11 +3,26 @@
+>   * Copyright 2025 NXP
+>   */
+>
+> +#include <linux/export.h>
+> +
+>  #include "ele_base_msg.h"
+>  #include "ele_common.h"
+>  #include "ele_fw_api.h"
+>  #include "se_ctrl.h"
+>
+> +/* Fill a command message header with a given command ID and length in bytes. */
+> +int imx_se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se_msg_hdr *hdr,
+> +			u8 cmd, u32 len, bool is_base_api)
+> +{
+> +	hdr->tag = priv->if_defs->cmd_tag;
+> +	hdr->ver = (is_base_api) ? priv->if_defs->base_api_ver : priv->if_defs->fw_api_ver;
+> +	hdr->command = cmd;
+> +	hdr->size = len >> 2;
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(imx_se_fill_cmd_msg_hdr);
+> +
+>  int se_chk_tx_msg_hdr(struct se_if_device_ctx *dev_ctx, struct se_msg_hdr *header)
+>  {
+>  	struct se_if_priv *priv = dev_ctx->priv;
+> @@ -261,6 +276,21 @@ int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
+>  	return err;
+>  }
+>
+> +/*
+> + * Send/receive blocking call for external drivers, operating on the SE
+> + * interface private data (the misc device context is resolved internally).
+> + */
+> +int imx_se_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
+> +			void *rx_msg, int exp_rx_msg_sz)
+> +{
+> +	if (!priv)
+> +		return -EINVAL;
+> +
+> +	return ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, tx_msg_sz,
+> +				rx_msg, exp_rx_msg_sz);
+> +}
+> +EXPORT_SYMBOL_GPL(imx_se_msg_send_rcv);
+> +
+>  static bool check_hdr_exception_for_sz(struct se_if_priv *priv,
+>  				       struct se_msg_hdr *header)
+>  {
+> @@ -402,8 +432,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
+>  	}
+>  }
+>
+> -int se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
+> -			    u8 msg_id, u8 sz, bool is_base_api)
+> +int imx_se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
+> +				u8 msg_id, u8 sz, bool is_base_api)
+>  {
+>  	struct se_msg_hdr *header = &msg->header;
+>  	u32 status;
+> @@ -450,6 +480,7 @@ int se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
+>
+>  	return 0;
+>  }
+> +EXPORT_SYMBOL_GPL(imx_se_val_rsp_hdr_n_status);
+>
+>  int se_save_imem_state(struct se_if_priv *priv, struct se_imem_buf *imem)
+>  {
+> diff --git a/drivers/firmware/imx/ele_common.h b/drivers/firmware/imx/ele_common.h
+> index b63a3fbf087a..8f0739960d4d 100644
+> --- a/drivers/firmware/imx/ele_common.h
+> +++ b/drivers/firmware/imx/ele_common.h
+> @@ -28,20 +28,6 @@ int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
+>  		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz);
+>
+>  void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg);
+> -
+> -int se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
+> -			    u8 msg_id, u8 sz, bool is_base_api);
+> -
+> -/* Fill a command message header with a given command ID and length in bytes. */
+> -static inline void se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se_msg_hdr *hdr,
+> -				       u8 cmd, u32 len, bool is_base_api)
+> -{
+> -	hdr->tag = priv->if_defs->cmd_tag;
+> -	hdr->ver = (is_base_api) ? priv->if_defs->base_api_ver : priv->if_defs->fw_api_ver;
+> -	hdr->command = cmd;
+> -	hdr->size = len >> 2;
+> -}
+> -
+>  int se_save_imem_state(struct se_if_priv *priv, struct se_imem_buf *imem);
+>
+>  int se_restore_imem_state(struct se_if_priv *priv, struct se_imem_buf *imem);
+> diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
+> index 3c14964830a6..53f252d2f111 100644
+> --- a/drivers/firmware/imx/se_ctrl.c
+> +++ b/drivers/firmware/imx/se_ctrl.c
+> @@ -911,9 +911,9 @@ static int se_ioctl_cmd_snd_rcv_rsp_handler(struct se_if_device_ctx *dev_ctx,
+>  		"message received, start transmit to user");
+>
+>  	rsp_status_err =
+> -		se_val_rsp_hdr_n_status(priv, rx_msg, tx_msg->header.command,
+> -					cmd_snd_rcv_rsp_info.rx_buf_sz,
+> -					tx_msg->header.ver == priv->if_defs->base_api_ver);
+> +		imx_se_val_rsp_hdr_n_status(priv, rx_msg, tx_msg->header.command,
+> +					    cmd_snd_rcv_rsp_info.rx_buf_sz,
+> +					    tx_msg->header.ver == priv->if_defs->base_api_ver);
+>
+>  	if (!rsp_status_err) {
+>  		err = se_dev_ctx_cpy_out_data(dev_ctx);
+> diff --git a/drivers/firmware/imx/se_ctrl.h b/drivers/firmware/imx/se_ctrl.h
+> index af7738ad76cd..76082e8b977c 100644
+> --- a/drivers/firmware/imx/se_ctrl.h
+> +++ b/drivers/firmware/imx/se_ctrl.h
+> @@ -7,6 +7,7 @@
+>  #define SE_CTRL_H
+>
+>  #include <linux/bitfield.h>
+> +#include <linux/firmware/imx/se_api.h>
+>  #include <linux/miscdevice.h>
+>  #include <linux/mailbox_client.h>
+>  #include <linux/semaphore.h>
+> @@ -95,22 +96,9 @@ struct se_if_device_ctx {
+>  	struct kref refcount;
+>  };
+>
+> -/* Header of the messages exchange with the EdgeLock Enclave */
+> -struct se_msg_hdr {
+> -	u8 ver;
+> -	u8 size;
+> -	u8 command;
+> -	u8 tag;
+> -}  __packed;
+> -
+>  #define SE_MU_HDR_SZ		4
+>  #define SE_MU_HDR_WORD_SZ	1
+>
+> -struct se_api_msg {
+> -	struct se_msg_hdr header;
+> -	u32 data[];
+> -};
+> -
+>  struct se_if_defines {
+>  	const u8 se_if_type;
+>  	u8 cmd_tag;
+> diff --git a/include/linux/firmware/imx/se_api.h b/include/linux/firmware/imx/se_api.h
+> index b1c4c9115d7b..90104ecaaede 100644
+> --- a/include/linux/firmware/imx/se_api.h
+> +++ b/include/linux/firmware/imx/se_api.h
+> @@ -11,4 +11,82 @@
+>  #define SOC_ID_OF_IMX8ULP		0x084d
+>  #define SOC_ID_OF_IMX93			0x9300
+>
+> +/**
+> + * struct se_msg_hdr - Header of the messages exchanged with the secure enclave.
+> + * @ver: API version the message conforms to (base or firmware API version).
+> + * @size: Message size in 32-bit words, including the header.
+> + * @command: Command identifier.
+> + * @tag: Message tag identifying it as a command or a response.
+> + */
+> +struct se_msg_hdr {
+> +	u8 ver;
+> +	u8 size;
+> +	u8 command;
+> +	u8 tag;
+> +}  __packed;
+> +
+> +/**
+> + * struct se_api_msg - A message exchanged with the secure enclave.
+> + * @header: Message header describing the command and its length.
+> + * @data: Command or response payload, sized per @header.size.
+> + */
+> +struct se_api_msg {
+> +	struct se_msg_hdr header;
+> +	u32 data[];
+> +};
+> +
+> +/* Opaque handle to a secure-enclave interface instance. */
+> +struct se_if_priv;
+> +
+> +/**
+> + * imx_se_fill_cmd_msg_hdr() - Populate the header of a command message.
+> + * @priv: Secure-enclave interface instance the command targets.
+> + * @hdr: Message header to be filled in.
+> + * @cmd: Command identifier to place in the header.
+> + * @len: Total message length in bytes, including the header.
+> + * @is_base_api: %true to tag the message with the base API version, %false to
+> + *               use the firmware API version.
+> + *
+> + * Fill in the tag, version, command and size fields of @hdr so that the message
+> + * can be sent to the secure enclave.
+> + *
+> + * Return: 0 on success.
+> + */
+> +int imx_se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se_msg_hdr *hdr,
+> +			    u8 cmd, u32 len, bool is_base_api);
+> +
+> +/**
+> + * imx_se_msg_send_rcv() - Send a command to the secure enclave and wait for the
+> + *                         response.
+> + * @priv: Secure-enclave interface instance to communicate with.
+> + * @tx_msg: Buffer holding the command message to send.
+> + * @tx_msg_sz: Size of the command message in bytes.
+> + * @rx_msg: Buffer receiving the response message.
+> + * @exp_rx_msg_sz: Expected size of the response message in bytes.
+> + *
+> + * Blocking send/receive helper for external drivers. The transaction is
+> + * serialized internally and the misc device context is resolved from @priv.
+> + *
+> + * Return: number of bytes received on success, or a negative error code.
+> + */
+> +int imx_se_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
+> +			void *rx_msg, int exp_rx_msg_sz);
+> +
+> +/**
+> + * imx_se_val_rsp_hdr_n_status() - Validate a response header and status code.
+> + * @priv: Secure-enclave interface instance the response came from.
+> + * @msg: Response message to validate.
+> + * @msg_id: Command identifier the response is expected to match.
+> + * @sz: Expected response size in bytes.
+> + * @is_base_api: %true if the command used the base API version, %false if it
+> + *               used the firmware API version.
+> + *
+> + * Check that the response tag, command identifier, size and API version match
+> + * the expectations, and that the enclave reported a successful status.
+> + *
+> + * Return: 0 if the response is valid and successful, or a negative error code.
+> + */
+> +int imx_se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
+> +				u8 msg_id, u8 sz, bool is_base_api);
+> +
+>  #endif /* __SE_API_H__ */
+>
+> --
+> 2.55.0
+>
+>
 
