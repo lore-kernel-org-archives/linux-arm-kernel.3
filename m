@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A834CC531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F74C531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQ/a78zKcnzi3wuFBoD/ZmfJN8yrdQDZz6t6y6GL1po=; b=3SPPJHR0GSLZVQ6aVDifFrVMZv
-	1QN1wE30cl4vOyuYvteGXpWTGludNfXoXa3i/o44tsy7mrAebaQtO4a8afYdYB0zHiGEM6QmaBUuZ
-	MjF+CVP+tjuy8YL4GI/oVqgFJhw3R/8jE7Rxs+bvaGtA1ULsflc2WcUcMdHyjDLAkX1OHwgMCnTkd
-	SjMk4AMvgtSy4MOuCAJ7yHSMABkBotEeukGkjYQpKvHhd4oiNMsz9v3PFNqTfrKxqW4XQrBuoB5wA
-	iqZp2+pDF7n5FMxiuRHMmkn/5l9qEJdQROmRIDVm4uktJipBCDMlNn2sL8MTz18eH/RkJMXqdXZNr
-	jlmxlzpA==;
+	bh=OUOMMMwQfpWkQuL5zRBMp7jRaM606M40dEn2DKXdTFA=; b=C9/LgbxL2DnNcAZzWpME2gFzi/
+	0IRcVRQkZ5gbOr0Ug1z5jo0V0l4WPk8v55/l6zHxArTo/miPB7pmEwrex/t4QBDwNs7dHRoGZ10Gw
+	Y+lyPbIDWvZ1RwuYHtMEOMH2456BnBbkvP//ZzdwzvkBhpuGZ3fI3OfP51q7jLGg+MPvz7rZ8FjGv
+	rbcVtEtF/QBOYIHreC3kWhNUDrGfzlbJPPX9uThFR0DNvr+BPhYx5yGeF7UVaWrwGyO9cOoPuGREd
+	m5uCaGz/FGgHQQAkSaGfC/ifWcFpq9lrTkTgXbMlaurPqzThiTvRUQijQDnhE+WvPJUXosvW2sEON
+	VFC/Pl4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmw18-0000000EgG6-1eQO;
-	Thu, 23 Jul 2026 16:11:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmw1f-0000000Ega5-3CnY;
+	Thu, 23 Jul 2026 16:11:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmw16-0000000EgFE-3l1J
+	id 1wmw1B-0000000EgIY-1FF4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 16:11:24 +0000
+	Thu, 23 Jul 2026 16:11:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A24860A8C;
-	Thu, 23 Jul 2026 16:11:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E70F51F00A3A;
-	Thu, 23 Jul 2026 16:11:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E94E40BD4;
+	Thu, 23 Jul 2026 16:11:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E9B1F00A3A;
+	Thu, 23 Jul 2026 16:11:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784823088;
+	bh=OUOMMMwQfpWkQuL5zRBMp7jRaM606M40dEn2DKXdTFA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=BY5ndC9e6eqpbogkfVicaynkK/X9u5jVfXDJ9lwTRKo0LQwFDTuqAjy7lkONiG/j9
+	 cbuoF8vT8/wFU5rZFeTF3xE+pt5RgEyD0/7PEBIg9dHzLqIrusA2ga5bzyiQKSrD4V
+	 iZ5/pJBHUpszfKZMvKrT80fk3LLlBT3yHTAUtTCloc3E46iaeR1BXm5SWN+GiQYWQ7
+	 u/7b2VOFq4vtOk6ll3IOQWqWWcjlq8UBBixLVKYLwuEsmLX2yF2DTffVpizXUVxCrx
+	 HvVeoZtKJ1GYzH9LCeEtG8RDAXQwtoXY9R1ZtUr2+Vw2JIXfMoyW/YW2vFfvTBaqpH
+	 Rt3YSh/blp1UA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wmw0s-0000000872c-3fEC;
-	Thu, 23 Jul 2026 16:11:10 +0000
+	id 1wmw11-00000008734-1ATM;
+	Thu, 23 Jul 2026 16:11:19 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	D Scott Phillips <scott@os.amperecomputing.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Lucas Wei <lucaswei@google.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
+To: oupton@kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2] KVM: arm64: vgic: Avoid double-deactivate of IRQs in the nested context.
-Date: Thu, 23 Jul 2026 17:11:07 +0100
-Message-ID: <178482303767.3351010.4100459132454242259.b4-ty@b4>
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH v2] KVM: arm64: Fix hyp_trace clock disabling
+Date: Thu, 23 Jul 2026 17:11:16 +0100
+Message-ID: <178482303773.3351010.6581445728887586605.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260714231158.496808-1-scott@os.amperecomputing.com>
-References: <20260714231158.496808-1-scott@os.amperecomputing.com>
+In-Reply-To: <20260715105100.3178255-1-vdonnefort@google.com>
+References: <20260715105100.3178255-1-vdonnefort@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, scott@os.amperecomputing.com, mark.rutland@arm.com, zengheng4@huawei.com, xuwei5@hisilicon.com, vladimir.murzin@arm.com, lucaswei@google.com, kuninori.morimoto.gx@renesas.com, Sascha.Bischoff@arm.com, yangyicong@hisilicon.com, yeoreum.yun@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,24 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 16:11:58 -0700, D Scott Phillips wrote:
-> In the nested state, the physical interrupt has already been
-> deactivated through the HW bit in the LR. The extra deactivation
-> would be harmless but can hit an errata case on AmpereOne, so
-> avoid it here.
+On Wed, 15 Jul 2026 11:51:00 +0100, Vincent Donnefort wrote:
+> Fix the disable path in hyp_trace_clock_enable(), which fell through to
+> re-initialize and reschedule the clock after cancelling the work. Return
+> early instead.
 > 
-> On AmpereOne, deactivating a physical interrupt through
-> ICC_DIR_EL1 or ICC_EOIR1_EL1 (depending on EOImode) which is not
-> active, but is the highest priority pending interrupt causes the
-> cpu to lose the interrupt pending state and also prevents the
-> delivery of future interrupts.
+> While at it, cleanup hyp_trace_clock::lock which is unused and
+> hyp_trace_clock::running which is redundant: the trace_remote framework
+> already serializes calls to the callback enable_tracing.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/1] KVM: arm64: vgic: Avoid double-deactivate of IRQs in the nested context.
-      commit: 8a570b19b4b16a8a3b5ffa2b332bd5613110b2d8
+[1/1] KVM: arm64: Fix hyp_trace clock disabling
+      commit: bbece712cfc7f286b2908ac120dcf700279d87eb
 
 Cheers,
 
