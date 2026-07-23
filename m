@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F57C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5A2C44524
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqQFt11wRLk0RXD2GjnBPO36Ju47FY1BOW01qu3lNFw=; b=CceGp8Kdu8QPZBn8YnuepEi7oM
-	8godVUp/yCqMBEwPsDjwyCGQ/0lzrFJyk+G9HOh6pDrxSQtH5xzwpV6GHXL2yZHXbetZaXXpuwpdf
-	IDi6EJMvdRz0G3gm3RHCchUK7iF3c9986pD6Vai3abmxX6IVrRRs+A5EGajEszjJ7ZpAV+ryw9Qdo
-	OdWzEdium93GvdoM+ubMsWrFeWnGBMzYxlbNjobLxzsURagEBu14hM4RQyKX2fGaGYUyMekjOhaTM
-	MEHjRC33ncTRftgoYFswL1SfL/1X9737HjU5x1TZ+l6+pD8LOsfJvtg2+TeVvqvJikCY8i618Mgzm
-	1l1eMwiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SS5Fq1fjhacEFCwY09UnpGTFkVdqZKZLoS3gtTzDLmM=; b=b6uuwTeaTTromo+++YtEFHE8Oa
+	cDFzM7LqMPL47rPq+fDnw7XQLS9JYd5ok20/bbBIgLEw1ySDghicRhya+0jBk+2i4trLhQ8b+ig0i
+	Kz6F/yAvtkh7gnC9mbM51VmMh9m4Knxk/O6DZQdkS/FKUpYzYDkwiPb0d8P+86XsZicWDmhTi2CFw
+	8CGkhLq+n4mMYjLbCCD3Zyb09sVxc2NVs6lkYPtRk3GV9aq64JbrWMuF6RE2lV5OLfoF8kVr/W6Hc
+	Dfw6+IKi5p+P2duMvde5RzYZ2+utGwYiJe19ymhE7f85jBlj29niDFb1N4viPObmZgpms1ujRynAK
+	NBSA2x4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmoLW-0000000Dgt2-3FUK;
-	Thu, 23 Jul 2026 07:59:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmoLU-0000000Dgsa-0mek
+	id 1wmoSk-0000000DhFj-31fs;
+	Thu, 23 Jul 2026 08:07:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmoSi-0000000DhFZ-451k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 07:59:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B30E1477;
-	Thu, 23 Jul 2026 00:59:51 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8916B3F66F;
-	Thu, 23 Jul 2026 00:59:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784793595; bh=PZ9cLd5vXkqOcuFGnstrDDKPwunq3EKIElywadcD1Iw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=in8JzGId0LC6dWY2LG9U0bwdrm9y2fF3m1ARSmEluWsmMdrRWnb+EKMBXrBI7dxOD
-	 LKpuBQq2q3TL14hNjQRo/UF8UTKHsIQOssMkZQoD002FPpztu3NxCdBqE+8jQ/MDuI
-	 noaTYFrjxhlkfG/oUs7w2cvZcojS5yIHdjen7lxg=
-Message-ID: <f28ea754-5b13-4bf4-a3a6-585605f38ff1@arm.com>
-Date: Thu, 23 Jul 2026 09:59:53 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] media: rc: sunxi-cir: support the A523/H728/T527
- IR receiver
-To: Justin Suess <utilityemal77@gmail.com>, Sean Young <sean@mess.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Sashiko <sashiko-bot@kernel.org>
-References: <20260722233604.3001063-1-utilityemal77@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260722233604.3001063-1-utilityemal77@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_005956_568947_F8066760 
-X-CRM114-Status: GOOD (  14.40  )
+	Thu, 23 Jul 2026 08:07:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E3664143B;
+	Thu, 23 Jul 2026 08:07:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50D211F000E9;
+	Thu, 23 Jul 2026 08:07:24 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wmoSd-00000007wI9-39fQ;
+	Thu, 23 Jul 2026 08:07:19 +0000
+Date: Thu, 23 Jul 2026 09:07:19 +0100
+Message-ID: <868q72dt8o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: Steven Price <steven.price@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 12/37] KVM: arm64: CCA: Support the VGIC in realms
+In-Reply-To: <amGwgAfHWX2P9pZx@FCCLS0092175.localdomain>
+References: <20260715142841.80544-1-steven.price@arm.com>
+	<20260715142841.80544-13-steven.price@arm.com>
+	<amB-opawGgF6jNHB@FCCLS0092175.localdomain>
+	<86cxwfe5m8.wl-maz@kernel.org>
+	<amGwgAfHWX2P9pZx@FCCLS0092175.localdomain>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: enju.kohei@fujitsu.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +97,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Justin,
-
-thanks for the update, but ...
-
-On 7/23/26 01:36, Justin Suess wrote:
-> Hi,
+On Thu, 23 Jul 2026 07:38:16 +0100,
+Kohei Enju <enju.kohei@fujitsu.com> wrote:
 > 
-> Quick series respin for easier application.
-
-please try to avoid that. Leave *at least* 24 hours between revisions, 
-to give all reviewers at least a chance to look at the series. Otherwise 
-they might get frustrated if they started reviewing a series, and get 
-ambushed by an updated version in the middle of the process.
-And in this case here you are probably waiting for a DT maintainer 
-review still.
-Also maintainers can fix up minor issues when doing the merge, so there 
-is no pressing need to send a whole new series for just a minor hiccup 
-or just for adding the tags.
-
-> This series adds support for the CIR receiver on the
-> Allwinner A523/T527/H728 family (sun55i).
+> On 07/22 10:27, Marc Zyngier wrote:
+> > >
+> > > As far as I can tell, the CCA requirements don't require the
+> > > ARM64_HAS_ICH_HCR_EL2_TDIR feature. If that's the case, this seems to be a
+> > > problem. Is there any workaround for this issue, or should we implement trap
+> > > handlers for those registers?
+> > 
+> > No. Either you support TDIR, like any modern CPU, or you don't run
+> > CCA. I'm not adding yet another level of emulation for this.
 > 
-> One-line function name change s_cir -> s_cir_rx at Andre's
-> suggestion, with his patch for the Avaota A1 applied on top
-> for convenience.
+> However, I'm still not aware of any requirement in the CCA architecture,
+> or in Armv8-A/Armv9-A, that mandates TDIR support.
 
-Thanks for taking that in, but please note that you would need add your 
-Signed-off-by: on top of the author's in this case, to document the flow 
-of patches, and for legal reasons.
+The GICv3 architecture has deprecated the lack of TDIR support since
+the very first release of the specification in 2015, because it was
+quickly identified as an architecture bug. CCA mandates GICv3 support
+as written in the spec, and relying on deprecated features 11 years
+later is not acceptable.
 
-Nothing worth to a respin again ;-), just wait for the DT approval and 
-for what Chen-Yu suggests.
+By any definition, this is buggy hardware, and I don't feel a strong
+urge to support it.
 
-Cheers,
-Andre
+> 
+> When you say "you don't run CCA", is that because the architecture
+> requires it,
 
-> v2: https://lore.kernel.org/linux-sunxi/20260722201717.2205609-1-utilityemal77@gmail.com/
-> v1: https://lore.kernel.org/linux-sunxi/20260702214750.3428694-1-utilityemal77@gmail.com/
-> 
-> Andre Przywara (1):
->    arm64: dts: allwinner: a523: enable IR on the Avaota A1
-> 
-> Justin Suess (3):
->    media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
->    arm64: dts: allwinner: a523: add IR receiver nodes
->    arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
-> 
->   .../media/allwinner,sun4i-a10-ir.yaml         |  8 +++--
->   .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 35 +++++++++++++++++++
->   .../dts/allwinner/sun55i-h728-x96qpro+.dts    |  6 ++++
->   .../dts/allwinner/sun55i-t527-avaota-a1.dts   |  6 ++++
->   4 files changed, 52 insertions(+), 3 deletions(-)
-> 
-> 
-> base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+See above.
 
+> or because that's the current KVM policy? If it's the
+> latter, we'd be interested in adding the required emulation to make it
+> work.
+
+And I say no to this. Enough. This isn't a "policy*. This is a hard
+red line. "Do Not Cross".
+
+We already have the most complicated interrupt architecture ever, and
+I have zero desire to add even more complexity to it. Because I'm the
+idiot who ends-up maintaining this horror, and not you.
+
+So no, no more emulation code. CCA in KVM won't handle systems that do
+not support TDIR, unless you rewrite the CCA support so that it can
+use the *existing* emulation code without any change.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
