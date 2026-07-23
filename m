@@ -4,144 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915A2C531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 03:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4CEC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 03:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pBuX7HtChxENgZMCSsWZYD3XpjVUNik8WN2aQEjE0c8=; b=EJSd9DK9EPQXpnehtgVOvNR63T
-	mxpHEyxcfp+P9NE5/flsr5hBlgBoBe7ljzkJvL1OQwoSo10Et9oEdRIz5YiPYZpbwJPKLanRA2mdL
-	dT8miic0xZo186DsjDUcW10peLm728WV1up5tUX9vguj8aF2hOuJJf0FdlGqyXpaFzvtk8OmTneVh
-	L2h/JYf4pZpE4DVsFchiyWE1n7MRbjN1vMIX7cbZ/kDBgRq5ZCfa4Dqu+e7G3t4ipLRjQJLiH4vpm
-	0rifWSNeTXuqCDejG6XnCr4yVArnF+CeoOFU2YL5BDDLNjxuQAektNF2iASG7T7kn/66jAckeHrGw
-	+1VXh6aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lOUHlISHN2hFyVqtE9ja+cUg/vkLc94AtfxJ/5loP+E=; b=nDBFXqLe8m5oD8f8tBeNzFHnZ+
+	3SaKUc27DpUCrnY/rf/UUctbLvnxNnEBZvCGr1DDnkgwF2nyEH821fWTaIUQe3LVAMDgZlCoDx4eJ
+	9DduZ9h6+8ZIP0ZkNoISB8/ZUQPF3Fobzb66u5Abo/oAXdTYs0DmGntLyys9+U19UHl9VBbLHrlqI
+	JIxwraSbHIhmCx0hR+Fwiim8X/Z2na1Hg9oRt9YxMPHDcqy7Wa+3bOlK7XtKO8RIdKL3dX1FxXh5F
+	MIOCSC5H7tI6BYqrM+sc6BvOHOlY2hqT1zo81qcDJb1ROfM/HnbO7scnZhkgC9uQ9j7tTzDRqz329
+	cQ++znvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmkQT-0000000DL9L-16s1;
-	Thu, 23 Jul 2026 03:48:49 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wmiLm-0000000D3ty-2z1n;
+	Thu, 23 Jul 2026 01:35:50 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmkQM-0000000DL6v-116e
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 03:48:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NosL2JNu3uD2/pCyCIubXCyOOGCeM23yB1hixGsI0axQTjnq1esTAsirxjnxsoK60kvESpSswyMeMowQETnO6rt+qQR1kFTWwlLkmuIKGvKn3DGcEqqVDwwz5OR/om8Bm1RF3b4g3jd4Fa8zAzjoEAW2gYwBnAclGcPro40KXX4lg13UzqEWWdS9PIxwRCX+sqQRMmYG1fsjS7iwp6ZeJgBJ/eUZ0ozyHp/CiHVHmllj3VZq/72VA9V01QPKcIfCb9JAOPpqOy13JiLJuGwcUvT627ZSz6e6HuSkhHtUhbWQRdujgQ0s0hWROPs11pQJcIkdUfeh6KCQlpF33BflOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pBuX7HtChxENgZMCSsWZYD3XpjVUNik8WN2aQEjE0c8=;
- b=SObp/OHXJxc9Ncbhxd1QaCHqFk562lg53radT1BNkIeO1tO9c9g/+eDjPl5BN931JVFiNqvESfFQjaxk+Cjqb9KGhxhwZQnUvYNRuW4/od0CYtBLKTaptcouKszQCxN+Sn9lPq+7mCaYxjnLXYtua7z/D5JGmwWbdmF9QA8AMiGv78RCdFewhSB+wtCkwzDOTpSLQ2+J2XcnzpsQfUiqbitge1FTvI2bjIxC4Lc9cncKdmfQGvfS9JnzQx9C5WM/SMMzn4NbgEZObo8UJNuA/T8xJwVXnM1sFvKDXb3Lng4yG9P9RrfCkoe213aE3KuatESN+P/LnU/fZpQkmpql5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pBuX7HtChxENgZMCSsWZYD3XpjVUNik8WN2aQEjE0c8=;
- b=E4ZShuOt/QLjAuUeNSUSD+5ZA8j+Vmk8nC3rLvwU+kV3OKqtZk1ylqRri1T0SKFl4sLYu+bGEXV05cAe514Is9LpSlxQdcCvQ20fCQtjffoOu7nAUhNBHRNMqqAkK4Jee4JFPxwSKkM0uO4X7OTfGntzYDjkRp+hIkQAHEoLt53VPR6QBIDPiR5rYeEcTtpTmVP+AWS7pTxAbElKlfncl/GgtQIpUjgi4DgSSmE4vNOt4Ri7UyAnRT/cdkOB1aYhgJqB5GX8XX7/JPuCh5ZP4QSZ6/iLqxDzsfNDYxe9ZlmNUguNtck0UmJghdz8CnEPuK13jv+8Cf7nMNwGQFoRiw==
-Received: from TYZPR06MB6568.apcprd06.prod.outlook.com (2603:1096:400:45f::6)
- by SG2PR06MB5240.apcprd06.prod.outlook.com (2603:1096:4:1da::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 03:48:09 +0000
-Received: from TYZPR06MB6568.apcprd06.prod.outlook.com
- ([fe80::b803:eff4:ebd4:9393]) by TYZPR06MB6568.apcprd06.prod.outlook.com
- ([fe80::b803:eff4:ebd4:9393%3]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 03:48:06 +0000
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-To: =?utf-8?B?R3LDqWdvaXJlIExheWV0?= <gregoire.layet@9elements.com>,
-	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "corey@minyard.net" <corey@minyard.net>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, YC Hsieh
-	<yc_hsieh@aspeedtech.com>
-CC: "openipmi-developer@lists.sourceforge.net"
-	<openipmi-developer@lists.sourceforge.net>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2 0/2] soc: aspeed: ipmi: add KCS Channel 4 over PCIe
-Thread-Topic: [PATCH v2 0/2] soc: aspeed: ipmi: add KCS Channel 4 over PCIe
-Thread-Index: AQHdGezQ0quMicaHf02veNXAwWBHIbZ6caMw
-Date: Thu, 23 Jul 2026 03:48:06 +0000
-Message-ID: <TYZPR06MB65685CF6F0969A3F400AEA2BF1C02@TYZPR06MB6568.apcprd06.prod.outlook.com>
-References: <cover.1784732161.git.gregoire.layet@9elements.com>
-In-Reply-To: <cover.1784732161.git.gregoire.layet@9elements.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR06MB6568:EE_|SG2PR06MB5240:EE_
-x-ms-office365-filtering-correlation-id: 02484ada-ccaf-46d6-9874-08dee86d34cd
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|1800799024|366016|38070700021|6133799003|56012099006|10067099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: qMEBB0lEvq8ZY0gCd10JNoNc9ZoBIk7ZKWA4rgAKx5nfoQjZcG7rC8XbnJ0qn8Lope4fiYJIJdczshodgiGbJ+1pXhmev+tWgTLOcFVgyfA6yVSRxUBkHWlPr5AcflmtDRJmRIy0f1351DNrwrnaZkkapRuG1uRM6Qb1zr35CKAiw4QmHejxSd9TYyIUcfTxj/OQcRrqH6J0ceT7Zgd2YewXEeXghCGJViceU89cjEuz8q4H37iXvxdl3hEEo9OX8OXO5aoSh3RkRDCAbanEvv1HoIwWmsFyaUX1Q1KRir5dwyaLiKW5tOWlwEzJvePBAku5PjMOHB8aql+ZQK1mjiOwq1/8QSgNZEj+p0R1O3Jzd0jCQcvPFcu7DRzBTnl111e49JiC+oiXvHpmM5dUNPQGrxuG+yAIq4DmFHisf95hTUn9cvKQkjzx9CnGt8jxr0L2/2ByiMhjzgTb6t76fRrEK2KyN28ni+HIv1HM9+tt1zHIy0KXjZI+EC8+7PirHLp6BCRNwm8+u/NtEs/vQNbRh9v1b1Tpgb1Ise6AX7VwHuibIOv+da06D3P+v8Z4b0O5KyHwv4YMlobcOjMd9jT7HaNYJ9k9Doo/M/pKYlLbVeBTiuxRbH0oW2uPmzX3u8vCPGqWx4B7XaiQNwcnRC9khxD57A1zGOeUQdECoDONo/d7gpOgIRobeZDHsWkFX6Gg3TKM6yIZhB07fwl2Na4ArBMrYXIwQYjtbv7AnGE=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB6568.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(1800799024)(366016)(38070700021)(6133799003)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eUJwY2lsVzh1ZE9TWFFscjl2Y3UzYVFwZEdsRUhuM0tZTEJhTnFhZEI0bW1w?=
- =?utf-8?B?OE02SGRmMm1FSDUyMWJMNmVWY1k4S3FuZTN0OTZyZE0vUFdFajlZdXUyd2ly?=
- =?utf-8?B?RStCZVJrNlNkYlpTRm9NcUV6aUd3UVBaYUNna0F6UENHR3N4SlVyVm9OaFFk?=
- =?utf-8?B?OFhjRXFzak5ZcFdPNjgzU2dVMnFFUHVKRGN3bUdjbzlkclpIQmZwbjZhaSth?=
- =?utf-8?B?MFQrZXArb1ZTQ29vcVhjbTh6VHlKcGp0dFR1dHZwN1Z5YjFlbEVVcHNTR01a?=
- =?utf-8?B?L0p5Zjh1QTcybXg1NEpIYWpaSG5xU1hYSFI1dXdwY0pRbjNqUmJyMlloSWNO?=
- =?utf-8?B?UmszcnNhL21rNktPWXdCRW5Kb2lyY1ZFdnd1bDRQaUM4eThaaUpoTHJKNkhN?=
- =?utf-8?B?S2VTUDdWYlIyNmJTN1habjc5SUJzeVFRb0RPdjJGMTFySTF3d2JXaWE2cEdM?=
- =?utf-8?B?UXF3Q0JpbDhXcDZRWnpqd1ZJQlg4Sy9vY3lnMjRWR3Rmb2VYZFRPSWhub0g2?=
- =?utf-8?B?WXFFRjRNU2J0RFpwdkZDdHRTeVlMeCs0dWhPRmFxY3V1MnpmTXBVWjNlU0o4?=
- =?utf-8?B?NDZYbWx0ek82OW5tblpVb2pLaW5EVG9waXcveDkxYU5Bb1dhT2E4ak9hMUta?=
- =?utf-8?B?VkxleGFkT3VaVllwSVFEbGNIVkgzaW44M3lHS3dCVmI1NGRyc1hmalB4aEJo?=
- =?utf-8?B?OXdGSFJpYWMvUCttenBCbkVkbTB6NnZ5aHROUUFJMFh0VE1GZ2dpTUF0ZDhD?=
- =?utf-8?B?NmVpd0FJemVtVmlRN0JtWjlwcm5ZK21WWitzUkhHWlBsaEdlS0tuM1YvTzFk?=
- =?utf-8?B?Q1FjWHVGNi9BSmJkYVI3T3Bkc2gyLzhLdWUxMUxBRC9ZZXRBVitVaGRhTE1T?=
- =?utf-8?B?SHA1UkNrb1o4MzVMZjl6a2FvdWJnd1kzYTdTcFNBWk43TTlJOE9nYXNKdXQy?=
- =?utf-8?B?TGFVSnpyTjU2Ykd2aXlXaVYzQldWUEVsaTdOWm56dUpvcTZhNllyUWI3TlA2?=
- =?utf-8?B?bWdLRFU4MkFNeFI4WlMyRzRZQkNXb21XY1UwemZLRmk4VFFnaEJDQ3M1SnhW?=
- =?utf-8?B?UUtxVzBvOHpuSkpXZFN2bVk1Z0lpbjhlV21TTk5WTXNFaXhxNm1WVEVSWklF?=
- =?utf-8?B?Y0lxT2k5WDZLSXdRd1hoSUpTdnoxR0k1Zm1CRnZzTCtmNzR2c05ackdvT2Zh?=
- =?utf-8?B?a2ZOL29VM2phMUpVd1VuS1hEb1Y1OVNCTENVM1BPd0Q0VE82L0psN2tuTHlW?=
- =?utf-8?B?QjA1bDFydjlKQTNCa2hwblczWG1iRVZ0OGRjTkE1UjE1bm1ZZytZKy9aUmVY?=
- =?utf-8?B?Wm5QZ0NPcm1IbVBFQjVNaEIrMTVoUzNKSWFoa29kUkh0VUd5U2RaajZTa1dX?=
- =?utf-8?B?NTl6aElNYitxMkE2V2srMmIvdEdQZk5vS0Z4TURGMzljaE9NSGhjaDhHS2dD?=
- =?utf-8?B?L1c2dHNaNGNmT1o1VHArNFZ4cEsxMVFmcGhnRWhxb2hhQzdCOVRaWXhaSmxm?=
- =?utf-8?B?bXdGSmE3OTJHSlQ4L2VhREF3SlZraDlZTXFiV2U0ZGhvalJSajMrNTk0bGZR?=
- =?utf-8?B?M3VpT0pxdER5aXpiT3NydGJzZ0RDVzRtYVdNZDc2ZEdLK2c1YUxXSlR4WjBD?=
- =?utf-8?B?blhvUlFpNUwySUkvZnVEUnQ1RGhrL1pVNEdzd3ZSaTU3VmRlcWJxcUFQOU05?=
- =?utf-8?B?VFkyZ2tLbGdVeU9WaW9OQUxWMWNMUFlmQlJiZXFvTzIyRlNuUUdUMmI5RndR?=
- =?utf-8?B?NUVWVWlDTW9LdS9tdlYyRXRCdnNaWWQrNzdHZUc4ZWJud09ZWFlDMzhjUzFi?=
- =?utf-8?B?VjFKMk90RkJMRCtHc3hHaXBlNk9kQXdDZ3c0MERldlBxaGpUSS9Hc1djSWxh?=
- =?utf-8?B?R3F0d2lGOFcxQ3h2M2xnbG9mYWFSWlJjclRMeUhISEl6b1kxV0d4b04yU283?=
- =?utf-8?B?dkpITWFMdWRaamx4MnhmSEhwTnhiVFI1Yk9IdFp6eU5SVFhJTE8zNUNZeGxN?=
- =?utf-8?B?Q0VOQzFrWEJVSUpqQStzRTQ2bFZDNGJrWUN0bDc0OXBNZk1rbHFpbUcrTlpL?=
- =?utf-8?B?RmlyL0RlZ1I2NlkxNTZPajBxbEh6N2xTU0ltSEVkOURtK29LMEVzSnF1bnR2?=
- =?utf-8?B?dDRVM1QxLzJjM2xyTERTeTh6NGNQRmlvQTA2Y2ltNE4vaHZoNXdZT3JLa3Qy?=
- =?utf-8?B?QTRnWWV3OU9Jb2x0UXliQXcwUEZ4blU4SkFYTUpiWERlWVBVWHZPWVF0UU45?=
- =?utf-8?B?N2wwVVUrTTY0QVhqTW9mWDF0eUtqZkhveVlZd3VqdWdWck9VOGZ4U2duK1hC?=
- =?utf-8?B?M3hTTGJsOEMwZkJsNURMR0Q3TVllMEQ5NjRVQXEyM1UxK1o2MUdiZz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1wmiLD-0000000D2vA-2XnA;
+	Thu, 23 Jul 2026 01:35:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784770513;
+	bh=N85WYXIyp7svItL0OlXT1YwLpcigKtFADFHc3tqyBI8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=HuozuEYQjDGrD+aO2hWV29yWSyjX86YxKJ8aWpwKBgt05Iz1o7cSAc7pi4t97DERl
+	 X5POZHdPocTfa2/pmhWlSVulADddNiomEWXuh0cESQktffvJ4OK8i5cAdyNpAc6xNt
+	 kPpyxAvnfz1zN1j6NV9uTYrkcJM8FzaMCWxkAxXnFTmNVu2PbZBePTNigpsUG/8+UV
+	 tTFLVgIUcr1A0JsWXhXI/2opENJD2BkEIf8xsHvX+7aqb3a5SsCGXpXoAsnxHF3feb
+	 dK976oti0QS8TjdIGVoHtiCgXLD7dIqEJ7nsf+1akY+nRIb9kXVooFV8qExxI0gZXd
+	 +xAVRkRlBlQdA==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3EF1717E1313;
+	Thu, 23 Jul 2026 03:35:13 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 23 Jul 2026 04:35:05 +0300
+Subject: [PATCH v9 16/61] drm/display: hdmi-state-helper: Pass acquire ctx
+ to hotplug helpers
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB6568.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02484ada-ccaf-46d6-9874-08dee86d34cd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jul 2026 03:48:06.8099
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: JgzFGKw1QEN5gIylmyt1gseAf9lldEZCtIVyhievoOxxMSFTrlHrmHblJgU4fYEX7yXsaqe8ltSuWENpd+hzCNn3wlZpO57HUYaHZsQSngA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5240
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-dw-hdmi-qp-scramb-v9-16-4fb12ea22ac9@collabora.com>
+References: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
+In-Reply-To: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+ Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, 
+ Phong LE <ple@baylibre.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_204842_313999_ACE6A6C9 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20260722_183515_896934_29DFAEB2 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,63 +91,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgR3LDqWdvaXJlLA0KDQpUaGFua3MgZm9yIHRoZSBwYXRjaC4NClRoZSBQQ0llLXRvLUxQQyBi
-cmlkZ2Ugb24gdGhlIEFTVDI2MDAgZXhwb3NlcyA0IGNoYW5uZWxzLCBtYXRjaGluZyB0aGUgTFBD
-IA0KY29udHJvbGxlcidzIG93biBLQ1MxLTQsIG5vdCBqdXN0IGNoYW5uZWwgNC4NCkl0IHdvdWxk
-IGJlIGJldHRlciBJZiB5b3UgY2FuIHByb3ZpZGUgYSB3YXkgdG8gaGFuZGxlIG11bHRpcGxlIExQ
-QyBjb250cm9sbGVyIGZvcg0Ka2NzIGNoYW5uZWxzLg0KDQo+IA0KPiBUaGUgQVNQRUVEIEFTVDI2
-MDAgaGFzIGEgUENJZSB0byBMUEMgY29udHJvbGxlci4gSXQgaW5jbHVkZXMgYSBLQ1MgaW50ZXJm
-YWNlDQo+IG9uIGNoYW5uZWwgNC4gVGhpcyBpcyBhIGZ1bGx5IEtDUy1jb21wYXRpYmxlIGludGVy
-ZmFjZSB0aGF0IGlzIGV4cG9zZWQgb3Zlcg0KPiBQQ0llLg0KPiANCj4gQWRkIHBjaWVfa2NzNCB0
-byBleGlzdGluZyBMUEMgYnVzIGluIGFzcGVlZC1nNi5kdHNpLg0KPiBNb2RpZnkga2NzX2JtY19h
-c3BlZWQgZHJpdmVyIHRvIGRldGVjdCB0aGUgUENJZSBvdmVyIExQQyBjaGFubmVsLg0KPiANCj4g
-SW4gdGhlIGRyaXZlciwgdGhpcyBQQ0llIG92ZXIgTFBDIGNoYW5uZWwgd2lsbCBiZSBkZXRlY3Rl
-ZCBhcyBDaGFubmVsIDUuDQo+IEluIHRoZSBkYXRhc2hlZXQgdGhpcyBpcyBkZWZpbmVkIGFzIENo
-YW5uZWwgNCBvdmVyIFBDSWUuDQo+IA0KPiBUaGUgQ2hhbm5lbCA0IG5hbWUgaXMgc3RpbGwgcmVm
-ZXJlbmNlZCBpbiB0aGUgb2Zmc2V0cyBtYWNyb3MuDQo+IA0KPiBUaGUgaG9zdCBuZWVkIGEgZHJp
-dmVyIHRvIGFjdGl2YXRlIHRoZSBNU0kgaW50ZXJydXB0cyB3aXRoIHRoZSBQQ0llIEJNQw0KPiBE
-ZXZpY2UuDQo+IA0KPiBUZXN0czoNCj4gV2l0aCB0aGUgcGF0Y2ggWzJdIGFkZGluZyBQQ0llIEJN
-QyBkZXZpY2UgZm9yIFZpcnR1YWwgVUFSVCwgdGhlIE1TSQ0KPiBpbnRlcnJ1cHRzIGFyZSBjb3Jy
-ZWN0bHkgc2V0dXBzLiBUaGUgSG9zdCBkcml2ZXIgaXMgYnVpbGQgYW5kIHNpZGUgbG9hZGVkIG9u
-IHRoZQ0KPiBob3N0LiBUaGUgaXBtaV9zaSBkcml2ZXIgb24gdGhlIGhvc3QgaXMgbG9hZGVkIG1h
-bnVhbGx5IHdpdGggdGhlIEtDUyBhZGRyZXNzDQo+IGdpdmVuIGJ5IGhhbmQuICdpcG1pdG9vbCBt
-YyBpbmZvJyBpcyBydW4gdG8gY29uZmlybSBpdCdzIHdvcmtpbmcuDQo+IA0KPiBUZXN0ZWQgb24g
-OiBBc3VzIElQTUkgRXhwYW5zaW9uIENhcmQsIEFTVDI2MDAuDQo+IGBgYA0KPiAjIGluc21vZCBh
-c3BlZWQtaG9zdC1ibWMtZGV2LmtvDQo+ICMgbHNwY2kgLXZ2diAtZCAxYTAzOjI0MDINCj4gMDI6
-MDEuMCBVbmFzc2lnbmVkIGNsYXNzIFtmZjAwXTogQVNQRUVEIFRlY2hub2xvZ3ksIEluYy4gRGV2
-aWNlIDI0MDINCj4gCVN1YnN5c3RlbTogQVNQRUVEIFRlY2hub2xvZ3ksIEluYy4gRGV2aWNlIDI0
-MDINCj4gCUNvbnRyb2w6IEkvTy0gTWVtKyBCdXNNYXN0ZXIrIFNwZWNDeWNsZS0gTWVtV0lOVi0g
-VkdBU25vb3AtDQo+IFBhckVyci0gU3RlcHBpbmctIFNFUlItIEZhc3RCMkItIERpc0lOVHgrDQo+
-IAlTdGF0dXM6IENhcCsgNjZNSHotIFVERi0gRmFzdEIyQi0gUGFyRXJyLSBERVZTRUw9bWVkaXVt
-ID5UQWJvcnQtDQo+IDxUQWJvcnQtIDxNQWJvcnQtID5TRVJSLSA8UEVSUi0gSU5UeC0NCj4gCUxh
-dGVuY3k6IDANCj4gCUludGVycnVwdDogcGluIEEgcm91dGVkIHRvIElSUSAxNTQNCj4gCUlPTU1V
-IGdyb3VwOiAxMg0KPiAJUmVnaW9uIDA6IE1lbW9yeSBhdCA4MjA4MDAwMCAoMzItYml0LCBub24t
-cHJlZmV0Y2hhYmxlKSBbc2l6ZT00S10NCj4gCVJlZ2lvbiAxOiBNZW1vcnkgYXQgODIwNDAwMDAg
-KDMyLWJpdCwgbm9uLXByZWZldGNoYWJsZSkgW3NpemU9MjU2S10NCj4gCUNhcGFiaWxpdGllczog
-WzQwXSBQb3dlciBNYW5hZ2VtZW50IHZlcnNpb24gMw0KPiAJCUZsYWdzOiBQTUVDbGstIERTSS0g
-RDErIEQyKyBBdXhDdXJyZW50PTM3NW1BDQo+IFBNRShEMCssRDErLEQyKyxEM2hvdCssRDNjb2xk
-KykNCj4gCQlTdGF0dXM6IEQwIE5vU29mdFJzdC0gUE1FLUVuYWJsZS0gRFNlbD0wIERTY2FsZT0w
-IFBNRS0NCj4gCUNhcGFiaWxpdGllczogWzUwXSBNU0k6IEVuYWJsZSsgQ291bnQ9MzIvMzIgTWFz
-a2FibGUtIDY0Yml0Kw0KPiAJCUFkZHJlc3M6IDAwMDAwMDAwZmVlMDA4MTggIERhdGE6IDAwMDAN
-Cj4gCUtlcm5lbCBkcml2ZXIgaW4gdXNlOiBhc3BlZWQtaG9zdC1ibWMtZGV2DQo+IA0KPiAjIG1v
-ZHByb2JlIGlwbWlfc2kgdHlwZT1rY3MgYWRkcnM9MHg4MjA0MEU4OCByZWdzcGFjaW5ncz00IHJl
-Z3NpemVzPTENCj4gcmVnc2hpZnRzPTANCj4gDQo+ICMgaXBtaXRvb2wgbWMgaW5mbw0KPiBEZXZp
-Y2UgSUQgICAgICAgICAgICAgICAgIDogMzINCj4gRGV2aWNlIFJldmlzaW9uICAgICAgICAgICA6
-IDENCj4gRmlybXdhcmUgUmV2aXNpb24gICAgICAgICA6IDI2LjA0DQo+IElQTUkgVmVyc2lvbiAg
-ICAgICAgICAgICAgOiAyLjANCj4gTWFudWZhY3R1cmVyIElEICAgICAgICAgICA6IDI2MjMNCj4g
-TWFudWZhY3R1cmVyIE5hbWUgICAgICAgICA6IEFTVVNUZWsgQ29tcHV0ZXIgSW5jLg0KPiAuLi4N
-Cj4gYGBgDQo+IA0KPiBUaGUgb3JpZ2luYWwgcGF0Y2ggWzFdIHJldmlldyBzZXQgdG8gdXNlIHRo
-ZSBleGlzdGluZyBMUEMgYnVzIGFuZCBtb2RpZnkgdGhlDQo+IGtjc19ibWNfYXNwZWVkIGRyaXZl
-ci4NCj4gDQo+IFsxXQ0KPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1hc3BlZWQvZGU0
-OWYyMDMyZjViMWYxNzAxNjFkY2Q2MTkxYzBkYWE0OGYwDQo+IGIwYzIuMTc4NDExNzcxNS5naXQu
-Z3JlZ29pcmUubGF5ZXRAOWVsZW1lbnRzLmNvbS8NCj4gWzJdDQo+IGh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL2xpbnV4LWFzcGVlZC81MWU0NTU0MTdiZGNmZTYwODI3MGM2Y2IyODA2YjFmZDk3MWYN
-Cj4gYjk5OC4xNzgzNTI0NjQ1LmdpdC5ncmVnb2lyZS5sYXlldEA5ZWxlbWVudHMuY29tLw0KPiAN
-Cj4gR3LDqWdvaXJlIExheWV0ICgyKToNCj4gICBpcG1pOiBrY3NfYm1jX2FzcGVlZDogZzY6IEFk
-ZCBLQ1MgQ2hhbm5lbCA0IG92ZXIgUENJZQ0KPiAgIEFSTTogZHRzOiBhc3BlZWQtZzY6IGFkZCBw
-Y2llLWtjczQNCj4gDQo+ICBhcmNoL2FybS9ib290L2R0cy9hc3BlZWQvYXNwZWVkLWc2LmR0c2kg
-fCAgNyArKysrKw0KPiAgZHJpdmVycy9jaGFyL2lwbWkva2NzX2JtY19hc3BlZWQuYyAgICAgIHwg
-MzkNCj4gKysrKysrKysrKysrKysrKysrKysrKystLQ0KPiAgMiBmaWxlcyBjaGFuZ2VkLCA0NCBp
-bnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQ0KPiANCj4gDQo+IGJhc2UtY29tbWl0OiAwM2Y5
-MDZkOGY1NTQxZThiYjc0MTAzNTk4MTMwNGZlY2VlZDU5OTNkDQo+IC0tDQo+IDIuNTQuMA0KDQo=
+In preparation for supporting SCDC status synchronization on hotplug
+events, extend drm_atomic_helper_connector_hdmi_hotplug() and
+drm_atomic_helper_connector_hdmi_update() to take a struct
+drm_modeset_acquire_ctx argument.  This will be used when a CRTC reset
+is required.
+
+Additionally, change their return type from void to int to allow
+propagation of errors such as -EDEADLK caused by lock contention.
+
+Update existing callers accordingly.  Note that in the VC4 case, the
+return code is ignored, as it cannot fail: being in the .detect_ctx()
+call path, the connection mutex is already held through ctx, and it
+bails out early because the driver relies on a local SCDC
+state-management implementation, and therefore does not yet expose the
+scrambler capability through the common helpers.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/display/drm_bridge_connector.c  |  8 ++++--
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 34 ++++++++++++++++++++-----
+ drivers/gpu/drm/vc4/vc4_hdmi.c                  |  2 +-
+ include/drm/display/drm_hdmi_state_helper.h     |  6 +++--
+ 4 files changed, 39 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index ed3b5b73a88a..1dcce4ab8035 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -297,12 +297,16 @@ static int drm_bridge_connector_detect_ctx(struct drm_connector *connector,
+ 	struct drm_bridge *detect = bridge_connector->bridge_detect;
+ 	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
+ 	enum drm_connector_status status;
++	int ret;
+ 
+ 	if (detect) {
+ 		status = detect->funcs->detect(detect, connector);
+ 
+-		if (hdmi)
+-			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
++		if (hdmi) {
++			ret = drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
++			if (ret == -EDEADLK)
++				return ret;
++		}
+ 
+ 		drm_bridge_connector_hpd_notify(connector, status);
+ 	} else {
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 92be6278ea44..04d5196a2010 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -1199,8 +1199,9 @@ drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *con
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
+ 
+-static void
++static int
+ drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
++					struct drm_modeset_acquire_ctx *ctx,
+ 					enum drm_connector_status status)
+ {
+ 	const struct drm_edid *drm_edid;
+@@ -1210,7 +1211,7 @@ drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
+ 		drm_connector_hdmi_audio_plugged_notify(connector, false);
+ 		drm_edid_connector_update(connector, NULL);
+ 		drm_connector_cec_phys_addr_invalidate(connector);
+-		return;
++		return 0;
+ 	}
+ 
+ 	if (connector->hdmi.funcs->read_edid)
+@@ -1227,20 +1228,28 @@ drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
+ 		drm_connector_hdmi_audio_plugged_notify(connector, true);
+ 		drm_connector_cec_phys_addr_set(connector);
+ 	}
++
++	return 0;
+ }
+ 
+ /**
+  * drm_atomic_helper_connector_hdmi_hotplug - Handle the hotplug event for the HDMI connector
+  * @connector: A pointer to the HDMI connector
++ * @ctx: Lock acquisition context to be used for resetting CRTC
+  * @status: Connection status
+  *
+  * This function should be called as a part of the .detect() / .detect_ctx()
+  * callbacks for all status changes.
++ *
++ * Returns:
++ * Zero on success, error code on failure.
++ * If @ctx is set, it might also return -EDEADLK.
+  */
+-void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
+-					      enum drm_connector_status status)
++int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
++					     struct drm_modeset_acquire_ctx *ctx,
++					     enum drm_connector_status status)
+ {
+-	drm_atomic_helper_connector_hdmi_update(connector, status);
++	return drm_atomic_helper_connector_hdmi_update(connector, ctx, status);
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
+ 
+@@ -1255,6 +1264,19 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
+  */
+ void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector)
+ {
+-	drm_atomic_helper_connector_hdmi_update(connector, connector->status);
++	struct drm_modeset_acquire_ctx ctx;
++	int ret;
++
++	drm_modeset_acquire_init(&ctx, 0);
++
++retry:
++	ret = drm_atomic_helper_connector_hdmi_update(connector, &ctx, connector->status);
++	if (ret == -EDEADLK) {
++		drm_modeset_backoff(&ctx);
++		goto retry;
++	}
++
++	drm_modeset_drop_locks(&ctx);
++	drm_modeset_acquire_fini(&ctx);
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_force);
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index 72ff95ca97de..7f613f912368 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -375,7 +375,7 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
+ 	 * the lock for now.
+ 	 */
+ 
+-	drm_atomic_helper_connector_hdmi_hotplug(connector, status);
++	drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
+ 
+ 	if (status != connector_status_connected)
+ 		return;
+diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
+index 13375bd0f4ae..c26c6a87795e 100644
+--- a/include/drm/display/drm_hdmi_state_helper.h
++++ b/include/drm/display/drm_hdmi_state_helper.h
+@@ -7,6 +7,7 @@ struct drm_atomic_commit;
+ struct drm_connector;
+ struct drm_connector_state;
+ struct drm_display_mode;
++struct drm_modeset_acquire_ctx;
+ struct hdmi_audio_infoframe;
+ 
+ enum drm_connector_status;
+@@ -22,8 +23,9 @@ int drm_atomic_helper_connector_hdmi_update_audio_infoframe(struct drm_connector
+ int drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *connector);
+ int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *connector,
+ 						       struct drm_atomic_commit *state);
+-void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
+-					      enum drm_connector_status status);
++int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
++					     struct drm_modeset_acquire_ctx *ctx,
++					     enum drm_connector_status status);
+ void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector);
+ 
+ enum drm_mode_status
+
+-- 
+2.55.0
+
 
