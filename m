@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862C9C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3284C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjBDuxRoTymXhYZbg5DT7GQlkHF6XG9c4ffbxQF07YA=; b=A4iDVcQ34Yi5WQu02t/yB7v/NC
-	HbijJSUcpi314ETQfEdXVUx/Chlml4lRNSzxlxqQE+HCNccT2yjH3WKswJ6Q9wjps9/zbobs/mF/h
-	FzLptEUBN8nWyRPpENB9ksD7+INqN7meJ7XtAJX/HLGa48oFfWqGlbhwG7+7ng34hYvt+1mlTIv3C
-	6lRLwgCHY1gBiqhESe+hD3+OzpFSiEZoaSN/6J5HYat8PYw5aHF+dRSrvMCiiMEzt9F36/HuIoFzr
-	SBdIlu8CcdEns7hf05O/NWmg/egnb94ROyanBqSkCbK2205O2NPRzXSIeanX/nN7WibeoYb3NgMut
-	/5bKE42A==;
+	bh=n+PO7sYjoqkoCNw3sBQCCaj+6WMmpLchwWbeVlk0qeM=; b=hwKBxku8BEFaXZSYdF1d7N502d
+	4pMkSP8K+CuEh95gu+gD3WZMsS6Yad/0MbkKUcDEvZGxRYSg6Bl6akzvheLwipf4OsSkWP+8eLwIM
+	a5nSoGwink9CQzxOFdY0lX9QlLxuInH1h4VaEcyUB6mHx6ryvHrrYa1tBN7bJOE9i2wLZ2PPIb2Bx
+	NKTD8ZxLnGfbifi4f9SBr4ZuIdkUVcBGVeRnrj5Sz0I78PZev7l+V1HRldzXEHZYwHRQ3PEF2+7ld
+	Uy69Dx/IZcZz3igVgORaWfHOP0JjCovOt+Ahva47lxBF/IjzEQ19fSmN3Rd+Nt3PGDl/XDJnrZDZX
+	OsvW3ZIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpt2-0000000DuBf-0kNf;
+	id 1wmpt2-0000000DuCK-24hq;
 	Thu, 23 Jul 2026 09:38:40 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpsp-0000000Dtu4-1QK3
+	id 1wmpsp-0000000DttW-0rQw
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 23 Jul 2026 09:38:34 +0000
 Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id EB2421FB90;
+	by mail11.truemail.it (Postfix) with ESMTPA id 1EA9D1FB8B;
 	Thu, 23 Jul 2026 11:38:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1784799505;
-	bh=rjBDuxRoTymXhYZbg5DT7GQlkHF6XG9c4ffbxQF07YA=; h=From:To:Subject;
-	b=dVO6wwUU5F4bNOq8u8U2FJGaaufwMY4eXLkziJSt9gFRihZtJWCs+oKyn6MIiOkXy
-	 1FAaQP0VMDheR9MrpLdOzwzU4em/gV+JDSy8j9m+6itzbO2/WEevEyVEFKQsX/cItT
-	 7ri5XSl37tv8NwLXGUzOOVP5/c0Eq+I2wu98HBIIO0tr6Q3jx9FE25ttsh6TkyTmNg
-	 SaVOPkbU0xmRGmhfzWMkrY5sWX59onqQNaE45RXGSTYaP9p97Sm06PFG/XfbPm0CFb
-	 BK+91ZsYEa/K+W2DqX45LTE4IjCHgTnWVCL6u4apQSCbPBZIOePWg7Gsse84Lc7+O4
-	 GagYmDLHjJIrg==
+	s=default; t=1784799504;
+	bh=n+PO7sYjoqkoCNw3sBQCCaj+6WMmpLchwWbeVlk0qeM=; h=From:To:Subject;
+	b=O4Am82IeMk1I8SyPwwCl0Z1iLy4C1fCxtV4MjISW7+wHk5F1/6B2R8DieCFvWLVqS
+	 +mOUY2QwWlLkDOfyrMZpeZ3nXvpnESytQjmkoN74wASvXFgCvIQYBkOxlNuMAdBZq+
+	 35ERA9JnXvzvOZrpbY2hwrQ90bRfb9AaqcoZ89iHT04xiR0KhoZXyeJdEejZjWcTll
+	 lo+D25km4dYqhfDz1PXNKXC5Ya+osjV4xYewG0xVlaalOKf6Ij28/7r3TNtgwX+vKT
+	 Pv/eQfcOqzt/WdImSMKA1GbDiqUgVCtBN/vLtnicm0epnybwyYkgU6Ttp1p0BjSaiI
+	 BTm47u8IHpYxw==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Marek Vasut <marex@denx.de>,
 	Stefan Agner <stefan@agner.ch>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -61,16 +61,16 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 4/4] ARM: dts: imx7-colibri: Set LCDIF bus-width
-Date: Thu, 23 Jul 2026 11:38:11 +0200
-Message-ID: <20260723093813.180089-5-francesco@dolcini.it>
+Subject: [PATCH v2 3/4] ARM: dts: imx6ull-colibri: Set LCDIF bus-width
+Date: Thu, 23 Jul 2026 11:38:10 +0200
+Message-ID: <20260723093813.180089-4-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260723093813.180089-1-francesco@dolcini.it>
 References: <20260723093813.180089-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_023827_554969_A065B02E 
+X-CRM114-CacheID: sfid-20260723_023827_408829_8B3EA01D 
 X-CRM114-Status: UNSURE (   7.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,21 +89,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-The lcd DPI interface on colibri imx7 uses a 18-bit width bus, set
+The lcd DPI interface on colibri imx6ull uses a 18-bit width bus, set
 the bus-width property accordingly.
 
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
 v2: use the common bus-width property instead of the legacy interface-pix-fmt
 ---
- arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi | 1 +
+ arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-index 8666dcd7fe97..c4088d3c5ab1 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-@@ -537,6 +537,7 @@ &lcdif {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
+index ec3c1e7301f4..1eb1cf2d7395 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
+@@ -229,6 +229,7 @@ &lcdif {
  
  	port {
  		lcdif_out: endpoint {
