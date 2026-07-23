@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB18C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 06:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B07C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 06:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPnxwzBAhZxcG9oWTVfy2nq7tEgZYFpIDiq2DYBjWcA=; b=AuS9oUJVa0El3mZSfdm3uRfXDd
-	0PKhPKynH4QnbU51BxxEIDskT5PO09vAxPvpP2QKDtVX9EHexdJ6jIk5THV6DtMCywueydpxj+jxy
-	3mZTESq/03sKxUVY8qCCRyxTUjfyPq6UJuYRr+LzixqBEJ4zzj79Kk3MjExp3aiUGECtjbm0Qu+eh
-	UMmCgn/Iea7rLWNkvcj3okyQqtii4FuZjJQQ/6koSoPiTQS6P0YSg2wZqW1BXbpnKGsyo+sACg/5y
-	ZgItZVZE+g15tOnra12GSlKO8S89Ro3GXLWOhNCbl4HWkw6hVQ8/Vj7NNZQr5UZQVBuwqZEYznQTN
-	avpviD9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r/wo5qkTiWPE5WEbPdgXRwQ9wzzCE47c7pf8Jdna6Xw=; b=dXP9JuXp0lXCFMmSimrJYps5Xd
+	5qppLL3P8e6pOjBosDdWt2NQjDFYO284JmKSeFzXrrr9iBTSpaj/bzt3tY4nHPnXXVU9J7Xbpax5V
+	NzOFQos6mY2gqj/snjg+J/UJOJWlg4S0/IGG27NxN+ty1fkMe/V/On5+P7HEetjrng1CF0hU0k7AP
+	YPiEoEhO3ZEdlnSEGu1t1Z54KNWkBIFHlla2JeTmzGI/njlBXZLFmpzHsHP6a4zYBZM84tVnva4aO
+	yt15wjerBLMw4X9FoyN0Vd1Pf9rQjI96ZbR9gmYVMF0W84UaAzjBpxL8dUg9UlrPO9qLkNKLtj2rU
+	NaaPLx9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmn4G-0000000DYcw-3BVh;
-	Thu, 23 Jul 2026 06:38:04 +0000
-Received: from mail-m60119.netease.com ([210.79.60.119])
+	id 1wmn4t-0000000DYlZ-0CSN;
+	Thu, 23 Jul 2026 06:38:43 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmn4B-0000000DYbW-3D15;
-	Thu, 23 Jul 2026 06:38:02 +0000
-Received: from [172.16.12.74] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4746d9e60;
-	Thu, 23 Jul 2026 14:37:43 +0800 (GMT+08:00)
-Message-ID: <97e28cf5-dd68-499f-9b05-95690807a5b6@rock-chips.com>
-Date: Thu, 23 Jul 2026 14:37:43 +0800
+	id 1wmn4n-0000000DYkD-3Ica
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 06:38:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1784788718; x=1816324718;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=payJ3POf8Eo8bsLxE8/JrwlXF6UVj18G9W8zHieXETk=;
+  b=D2KE4HqxUsu2v//Rf2h9wyuwB6/AWkR0qDl9FqQ2g3dxtKANpQnQeh2p
+   gR0Az8ZcmVB0Gc/WvnDvYnekD1bmjw5aWkUrlziMPaXcV4MqsKVCWVJm8
+   CuNEKbG2GC5nSfLXPaYk+HeJE5VEd17G/gtxDNhwcnmJMl+WWsn6IhU9G
+   pTkTsUxfzhiC74D7VWAjU8lH1sEYRuAsOpzFAjLSPMKxKsamcuX0Gny7s
+   XOLdrxKu/RtKRe8YLREhykeBJE/kKwDh0Bm4h3j2nUvAw53SqnThyyvIT
+   i6dT/YEPpdRUcCyFrB6cmh7aI7cXQdc1EfgnmVjFSoBPp3geT59i/lZs6
+   g==;
+X-CSE-ConnectionGUID: m7jv8G+AQvirKOWdjrVU5w==
+X-CSE-MsgGUID: W7laQu/6TECKdpTCGpc9Aw==
+X-Ironport-Invalid-End-Of-Message: True
+X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="248334440"
+X-IronPort-AV: E=Sophos;i="6.25,180,1779116400"; 
+   d="scan'208";a="248334440"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2026 15:38:33 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id B7EEF10000C0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 06:38:32 +0000 (UTC)
+Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 62E8B1002995
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 06:38:32 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.10.80.137])
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with SMTP id C57BB1802ED6;
+	Thu, 23 Jul 2026 06:38:23 +0000 (UTC)
+Date: Thu, 23 Jul 2026 15:38:16 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 12/37] KVM: arm64: CCA: Support the VGIC in realms
+Message-ID: <amGwgAfHWX2P9pZx@FCCLS0092175.localdomain>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-13-steven.price@arm.com>
+ <amB-opawGgF6jNHB@FCCLS0092175.localdomain>
+ <86cxwfe5m8.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/5] Add eDP lane mapping support
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260707040613.1992841-1-damon.ding@rock-chips.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20260707040613.1992841-1-damon.ding@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9f8db1bbfc03a8kunmce2c72a238580c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGh1IS1ZCQxlOHk5NGB
-	pMSE1WFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
-	tIVUpLSEpKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=BRDErc+nOga+bu2rulXIPEgszcRtzplx0OBArAZBL8pXrQtJGw2+BRjUNroUJKjfDGWnaHBTTqPQhcrAsMdYAORLDKlyrnpFquwd/zm15pJqzIeaHNc3sV6C06heK9Nu1/Z3lF0D6jdo0w77EZEhEmpvp2/J+n1epPFgzk+9QV4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=hPnxwzBAhZxcG9oWTVfy2nq7tEgZYFpIDiq2DYBjWcA=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <86cxwfe5m8.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_233800_425899_BA1A2C1E 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260722_233839_211952_74A45DCE 
+X-CRM114-Status: GOOD (  31.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +105,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping.
+On 07/22 10:27, Marc Zyngier wrote:
+> On Wed, 22 Jul 2026 09:27:29 +0100,
+> Kohei Enju <enju.kohei@fujitsu.com> wrote:
+> > 
+> > On 07/15 15:28, Steven Price wrote:
+> > > The RMM provides emulation of a VGIC to the realm guest. With RMM v2.0
+> > > the registers are passed in the system registers so this works similar
+> > > to a normal guest, but kvm_arch_vcpu_put() need reordering to early out,
+> > > and realm guests don't support GICv2 even if the host does.
+> > > 
+> > > Signed-off-by: Steven Price <steven.price@arm.com>
+> > 
+> > Hi Steven,
+> > 
+> > I've been testing this series and found that when the host CPU doesn't have
+> > ARM64_HAS_ICH_HCR_EL2_TDIR this series doesn't work as expected.
+> 
+> What modern CPU doesn't support TDIR? The only CPUs I know of that are
+> stuck in this mode are old ARMv8.0 CPUs, and anything else was fixed.
 
-On 7/7/2026 12:06 PM, Damon Ding wrote:
-> This series adds configurable eDP physical lane mapping support via
-> device tree data-lanes property.
-> 
-> Lane mapping is mainly used for below scenarios:
-> 1. Correct PCB lane swap and differential line routing crossover
->     without hardware changes;
-> 2. Adapt mismatched lane pin definitions between SoC and eDP panel;
-> 3. Support multiple panel hardware variants on the same board
->     by configuring data-lanes in device tree only.
-> 
-> The series includes driver implementation and device tree binding
-> updates to support custom lane mapping configuration from endpoint
-> node, and keeps default linear lane order if no configuration is given.
-> 
-> Patch 1: Add endpoint data-lanes property to analogix-dp binding
-> Patch 2: Add DRM DP helper API to validate DP lane counts
-> Patch 3: Restore mandatory for samsung,link-rate and samsung,lane-count
->           properties
-> Patch 4: Add validation for samsung,lane-count property as preparation
-> Patch 5: Implement lane mapping in analogix_dp driver
-> 
-> Damon Ding (5):
->    dt-bindings: display: bridge: analogix-dp: Add data-lanes support for
->      endpoint
->    drm/dp: Add helper to validate DP lane counts
->    drm/bridge: analogix_dp: Restore mandatory samsung DP DT properties
->    drm/bridge: analogix_dp: Add validation for samsung,lane-count
->      property
->    drm/bridge: analogix_dp: Add support for optional data-lanes mapping
-> 
->   .../bindings/display/bridge/analogix,dp.yaml  | 19 +++--
->   .../rockchip/rockchip,analogix-dp.yaml        |  1 +
->   .../drm/bridge/analogix/analogix_dp_core.c    | 70 +++++++++++++++++--
->   .../drm/bridge/analogix/analogix_dp_core.h    |  4 +-
->   .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 15 ++--
->   .../gpu/drm/bridge/analogix/analogix_dp_reg.h |  4 ++
->   include/drm/display/drm_dp_helper.h           |  6 ++
->   7 files changed, 101 insertions(+), 18 deletions(-)
-> 
-> ---
-> 
-> Changes in v2:
-> - Add lane mapping application scenarios in commit message.
-> - Remove redundant deprecated property 'data-lanes' for eDP node.
-> - Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
-> 
-> Changes in v3:
-> - Squash [PATCH v2 2/3] into [PATCH v2 1/3].
-> - Add unevaluatedProperties: false to both the port@1 and endpoint
->    nodes.
-> 
-> Changes in v4:
-> - Add validation for samsung,lane-count property as preparation.
-> 
-> Changes in v5:
-> - Add DRM DP helper API to validate DP lane counts.
-> - Apply DRM DP helper API to check the validity of samsung,lane-count
->    property.
-> - Add Acked-by and Reviewed-by tags.
-> 
-> Changes in v6:
-> - Add a seperate commit to restore mandatory samsung DP DT properties.
-> - Add Reviewed-by tag.
-> 
+Hi Marc, thank you for the response.
 
+I'm afraid I can't share the details due to my company's policy, but at
+least I happen to be testing on such a system.
+
+> 
+> > 
+> > Since commit 2a28810cbb8b ("KVM: arm64: GICv3: Detect and work around the lack
+> > of ICV_DIR_EL1 trapping"), when the host CPU doesn't support this feature, KVM
+> > traps all GIC sysreg accesses in the common group. However, currently trap
+> > handlers for ICC_{PMR,RPR,CTLR}_EL1 registers are missing [0]. So when Realm
+> > guests try to access those registers, KVM traps them but just emits the warning
+> > shown in [1], and Realm guests fail to boot.
+> 
+> This isn't missing. This is handled by the early emulation in
+> vgic-v3-sr.c, which of course CCA completely bypasses. Too bad.
+
+That makes sense.
+
+> 
+> > 
+> > As far as I can tell, the CCA requirements don't require the
+> > ARM64_HAS_ICH_HCR_EL2_TDIR feature. If that's the case, this seems to be a
+> > problem. Is there any workaround for this issue, or should we implement trap
+> > handlers for those registers?
+> 
+> No. Either you support TDIR, like any modern CPU, or you don't run
+> CCA. I'm not adding yet another level of emulation for this.
+
+However, I'm still not aware of any requirement in the CCA architecture,
+or in Armv8-A/Armv9-A, that mandates TDIR support.
+
+When you say "you don't run CCA", is that because the architecture
+requires it, or because that's the current KVM policy? If it's the
+latter, we'd be interested in adding the required emulation to make it
+work.
+
+Thanks,
+Kohei
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
+> 
 
