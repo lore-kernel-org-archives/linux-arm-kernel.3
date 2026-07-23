@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EEBC531CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBDAC531CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HqzpRenBrC0k573Xz55iMUEOlsnWt7HrE0/NCI0Oux4=; b=Desb5esrJSNmCApZke8kJBghQy
-	i0jQKM5LOcVNQuy7bCaOHAfZZWahBlSF4rCsy5inhGS2j9MNbHDpL7R2Hat6BNAg1dI6y4ZrP2X7U
-	aJd2y0CEUTh2XhEQCoJsl2P8A/aBm5qxMnMtW0apXfa2qzAs5WpIaoVvyyG6bEGgHIfHAugtDmjIc
-	Tfqd2q9fmoR3BEbRyjHqTiJwSP5NLw5lD+iY58qWUCGG6dGc9Cph4VAKEk4hmbprYj+plMVLZJxoU
-	jFGVgBWS9fPLX16kx8nHVRqVKgYjsoZ8+T52Hu53WBm3l8AkH95J1lzpTrWUh6LZocV2Gfit9x5Dw
-	6cdbotJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBRyczQwUicQtBBF1Rfna0wwogsOMJkyennASZbUqG0=; b=fcTCckHTYLryy5qyQJrpOrQdRI
+	YD/0bBtj83B5nvMPnRBZCDjtd4aMgwS4arRHjw5TcDAMiFh4W0bL+aeSGQA37js7joXdIa6yIFDKX
+	JCaOBA4HK4Yctyq0fS05Jo654nDU4Keh4ylsA/bWPc4KO4YRayyqlpOGF5JHMzNVLeCHNZQY6O1O1
+	ReqcjbTu0dxMhcJt4GR/ne/HJxZhnaQwZ7ZP6VMbPO4sMSS8SbH4JGTtPsa0oZ8wgPdDPOo/V659v
+	ZIViszr3u2KPMsgM4gFKGwrSxu+rzNPeFUGQnGKtR9HfbgvcVCRUcanieqUGqFvsaWyXBZZJe8CVP
+	jXj57/VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsK3-0000000EDI3-047G;
-	Thu, 23 Jul 2026 12:14:43 +0000
-Received: from out-179.mta0.migadu.com ([91.218.175.179])
+	id 1wmtEa-0000000EL0U-07cO;
+	Thu, 23 Jul 2026 13:13:08 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsJz-0000000EDGy-3qwW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 12:14:41 +0000
-Message-ID: <c9e0ec43-5906-43e2-a674-589117d44ce6@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784808862;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HqzpRenBrC0k573Xz55iMUEOlsnWt7HrE0/NCI0Oux4=;
-	b=wtNxnFBbvRysCrVy7Zn+LE1e5eZ/6vy0CWb31IiOnUJOAXHkpwaYeNLv6bnnw4PBachhtk
-	48gIzVlZ8lmhK/QQiBO0C9yhjGyP2dTFK1vdpbvj6vDcOBBoc14qAKL93H1Le88reQgaOv
-	Fiwhz1foGDDP6K6bf5maTTfCyyy0pIc=
-Date: Thu, 23 Jul 2026 13:14:03 +0100
+	id 1wmtEK-0000000EKm1-0bF1;
+	Thu, 23 Jul 2026 13:12:55 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=XBRyczQwUicQtBBF1Rfna0wwogsOMJkyennASZbUqG0=;
+	b=xrXL96KMqhACloc5kZ0eU2CaXFKslQqforMcwbaswUh74FG5EwH0b3dSRzgaZd34mKBmBongL
+	mBF3AnK/w4jpfBEJwjtyu2ylTcTT9snI7+G3oZot7nUJoLyF5FW8OrsIL1K/i9X8eeNqE1TXLnJ
+	3AWjsUMYGnE+d+EzlGzbFqA=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4h5WXB1VM1zpStj;
+	Thu, 23 Jul 2026 21:03:38 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2F4014057D;
+	Thu, 23 Jul 2026 21:12:45 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Jul
+ 2026 21:12:43 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maddy@linux.ibm.com>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
+	<akpm@linux-foundation.org>, <baoquan.he@linux.dev>, <rppt@kernel.org>,
+	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <thuth@redhat.com>,
+	<ruanjinjie@huawei.com>, <vladimir.murzin@arm.com>, <mark.rutland@arm.com>,
+	<ardb@kernel.org>, <james.morse@arm.com>, <leitao@debian.org>,
+	<yeoreum.yun@arm.com>, <robh@kernel.org>, <kees@kernel.org>,
+	<coxu@redhat.com>, <sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
+	<adityag@linux.ibm.com>, <hbathini@linux.ibm.com>, <makb@juniper.net>,
+	<piliu@redhat.com>, <graf@amazon.com>, <liaoyuanhong@vivo.com>,
+	<jbouron@amazon.com>, <bauerman@linux.ibm.com>, <bgwin@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <kexec@lists.infradead.org>
+Subject: [PATCH 5/8] arm64: kexec_file: Fix CMA page leaks in segment placement retry loops
+Date: Thu, 23 Jul 2026 21:12:39 +0800
+Message-ID: <20260723131242.1537633-6-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260723131242.1537633-1-ruanjinjie@huawei.com>
+References: <20260723131242.1537633-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 1/4] perf/core: Fix sched_task callbacks for CPU-wide
- branch stack events
-To: Puranjay Mohan <puranjay@kernel.org>, bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay12@gmail.com>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Leo Yan <leo.yan@arm.com>,
- Rob Herring <robh@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, James Clark <james.clark@linaro.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>,
- Ravi Bangoria <ravi.bangoria@amd.com>, Stephane Eranian
- <eranian@google.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- kernel-team@meta.com
-References: <20260616155716.2631508-1-puranjay@kernel.org>
- <20260616155716.2631508-2-puranjay@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20260616155716.2631508-2-puranjay@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_051440_164927_CF1D6B2F 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260723_061252_582730_26733400 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,52 +86,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Sashiko AI code review pointed out, during kexec image placement retry
+loops in image_load(), the loader attempts to find a suitable memory
+hole for the kernel and its associated segments (initrd, dtb, etc.).
+When a placement attempt fails midway, it restores `image->nr_segments` to
+its initial state to purge failed segments.
 
+However, this truncation causes a memory leak. Any CMA pages allocated
+via kexec_add_buffer() during the failed attempt are tracked  in
+the `image->segment_cma` array. Because the subsequent cleanup
+kimage_free_cma() cleanup only iterates up to the truncated `nr_segments`
+boundary, these allocated CMA pages outside the new boundary permanently
+leaked.
 
-On 16/06/2026 16:57, Puranjay Mohan wrote:
-> perf_pmu_sched_task() returns early when cpuctx->task_ctx is non-NULL,
-> deferring to perf_ctx_sched_task_cb() in the context sched_in/out
-> paths. But perf_ctx_sched_task_cb() only walks the task context's
-> pmu_ctx_list -- PMUs that have only CPU-wide events are not on that
-> list and their sched_task callback is silently skipped.
-> 
-> On ARM64 with CPU-wide branch recording:
-> 
->   perf record -b -e cycles -a -- ls
-> 
-> armv8pmu_sched_task() is skipped whenever the scheduled task has an
-> unrelated perf event (e.g. a software event), and branch records leak
-> across task boundaries.
-> 
-> A second problem exists in __perf_pmu_sched_task(): it passes
-> cpc->task_epc directly to pmu->sched_task(), but task_epc is NULL for
-> PMUs with only CPU-wide events. When perf_pmu_sched_task() does reach
-> the loop (because cpuctx->task_ctx is NULL), this causes a NULL
-> pointer dereference:
-> 
->   Unable to handle kernel NULL pointer dereference at virtual address 00[.]
->   PC is at armv8pmu_sched_task+0x14/0x50
->   Call trace:
->     armv8pmu_sched_task+0x14/0x50 (P)
->     perf_pmu_sched_task+0xac/0x108
->     __perf_event_task_sched_out+0x6c/0xe0
-> 
-> Fix both:
-> 
->  - Remove the blanket early return in perf_pmu_sched_task() when
->    cpuctx->task_ctx is set. Instead, skip individual CPCs that have a
->    task_epc (those are handled by perf_ctx_sched_task_cb()). CPCs
->    without a task_epc are CPU-only and must be handled here.
-> 
->  - Fall back to &cpc->epc in __perf_pmu_sched_task() when task_epc is
->    NULL, so the callback always gets a valid pmu_ctx.
-> 
-> Fixes: bd2756811766 ("perf: Rewrite core context handling")
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> ---
->  kernel/events/core.c | 17 +++++++++++++----
->  1 file changed, 13 insertions(+), 4 deletions(-)
-> 
-Acked-by: Usama Arif <usama.arif@linux.dev>
+Fix this by using kexec_free_segment_cma() to explicitly release the
+associated CMA buffers in the failure paths before `image->nr_segments`
+is reduced.
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>
+Cc: Pratyush Yadav <pratyush@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Kees Cook <kees@kernel.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Baoquan He <bhe@redhat.com>
+Cc: Coiby Xu <coxu@redhat.com>
+Cc: Alexander Graf <graf@amazon.com>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: stable@vger.kernel.org
+Fixes: 07d24902977e4 ("kexec: enable CMA based contiguous allocation")
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/arm64/kernel/kexec_image.c        | 1 +
+ arch/arm64/kernel/machine_kexec_file.c | 5 ++++-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+index b70f4df15a1a..ffcb7f9075e6 100644
+--- a/arch/arm64/kernel/kexec_image.c
++++ b/arch/arm64/kernel/kexec_image.c
+@@ -107,6 +107,7 @@ static void *image_load(struct kimage *image,
+ 		 * We couldn't find space for the other segments; erase the
+ 		 * kernel segment and try the next available hole.
+ 		 */
++		kexec_free_segment_cma(image, kernel_segment_number);
+ 		image->nr_segments -= 1;
+ 		kbuf.buf_min = kernel_segment->mem + kernel_segment->memsz;
+ 		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index 854d872dfd0f..e48f29167b38 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -179,7 +179,10 @@ int load_other_segments(struct kimage *image,
+ 	return 0;
+ 
+ out_err:
+-	image->nr_segments = orig_segments;
++	while (image->nr_segments > orig_segments) {
++		kexec_free_segment_cma(image, image->nr_segments - 1);
++		image->nr_segments--;
++	}
+ 	kvfree(dtb);
+ 	return ret;
+ }
+-- 
+2.34.1
 
 
