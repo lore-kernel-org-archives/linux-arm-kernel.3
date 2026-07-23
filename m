@@ -4,82 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E110C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFE4C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Pr9th7Q/0UArs0i/KXSaVLwzvEgsB6lvyrr/8f4KOw=; b=Hg7KU2NS9W7TU0kDIIh7s3rNDL
-	1UFKyJc7Y66ZyGP/lwYHURudM5iGw3pFbOGiRJZJuI4TUrBtUW/Q80uLejXNfY1TTXKWG93CGOCOv
-	J15ovpc9huxB9RH27Ugl0WdFtMMO25QiQDerJ65hmITRRhKtJZJ/c3bQmvSNc8P+mtumUTJPUA+hw
-	4p0kqbhOQ7UiaqNPxVYLMP+65P9347DAhdcjtEDrDUgTi6OdrY4mPo2qOX6nDx2rEwjqiW5J2Tsn2
-	+Ooj0W3zBlIQVJ0lWi1BiS7TJu5AFjQqPesae9X0x8cT1iHgFcg7wmU5b1J6eAZ1WAhNaWpBECNBn
-	0kqSDC0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e6WsCFBlYRn1eppH/r0p2GAnXcM6Tcve6Mk4y0UJSa4=; b=4RQfqaOHb/uFwgCZrx9akz0ypl
+	l9OYIf44WSOhEHA/xkg2EOIFcRR30GvjvvJbC+VaWMmPCzYG8bdV9X+SzLJjBtHWC7/p4xNgQpP1U
+	7YvKoSvvZaOfJ2l/zWw1TnHquai679DrgAz5bbi5GvX8wosKyZftfqOv9HkRa4Q5r8cyF+kjkyaxy
+	nG9AvCJY71nEoCAb3QXREmhhxijmrsN+GYRHbVeHUHu5t4Dvb2rz9I36e906qcfbvOCL/VHRVhWu8
+	nj4OHa/keOZKOJdq2zeQ+a6FqRYu5tBezfETowEqw/dyy0rhZJ2Q5xmznslDt8tR6nQdZEKgA5lZo
+	Gh5my6Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpUA-0000000Dodn-163s;
-	Thu, 23 Jul 2026 09:12:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wmpUH-0000000Doh5-46yW;
+	Thu, 23 Jul 2026 09:13:05 +0000
+Received: from mail-francesouthazon11011060.outbound.protection.outlook.com ([40.107.130.60] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpU7-0000000Docw-1Ds3;
-	Thu, 23 Jul 2026 09:12:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784797972;
-	bh=NEmV2fqvR/cLJUCeISN7mSdpl+4odir3BIdW8hvoBrI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h3U2hpK6Vq/y18j2Z7pwLk5QmUsUccohgcjBkxw/kU/h0qX1QPgLGv4oZSIQqFZ1D
-	 Y//0Qz4e3IkZYS/7JZLaitvt8JBEpCPVK0icmtYBCGjr4x8SrsN9BCmefDN4p8vRC4
-	 Mkr+mafYgJv9P/+vc1qLayZ56jFRW7P+KYiA4eozVIVj7B6R8UzOiOOqnMhbQIYAOv
-	 WNQNPt/DQE/CA6dXVk3uFtC67UhwsOixY9QhfNdKLxLsHfiwyqqQeRztlfqU7IpbZi
-	 LF6US/IlmDwrfR0Hfy8S3kwoRwH2yFmHyvNb7RBm3/XsBc03DO+SWacrCeoZrxNT8Y
-	 LiWeMlPEJRLVg==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6E5CE17E0018;
-	Thu, 23 Jul 2026 11:12:51 +0200 (CEST)
-Message-ID: <297c6368-5ca3-456b-8e6c-bc8cd5cf48cb@collabora.com>
-Date: Thu, 23 Jul 2026 12:12:50 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 46/61] drm/rockchip: rk3066_hdmi: Advertise HDMI 1.4
- capabilities
-To: Diederik de Haas <diederik@cknow-tech.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Algea Cao <algea.cao@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
-References: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
- <20260723-dw-hdmi-qp-scramb-v9-46-4fb12ea22ac9@collabora.com>
- <DK5TUJBKSK19.ZXEOSCVMTN6T@cknow-tech.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <DK5TUJBKSK19.ZXEOSCVMTN6T@cknow-tech.com>
-Content-Type: text/plain; charset=UTF-8
+	id 1wmpUF-0000000DofE-1Uo5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 09:13:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ho6PMjhEtPdLCNb3nMCiesQZBeI192r9xwhvrp4BSJTIXcSib3RlEdBLa97tbGw7hJqidjMvl6ABctsfdaC2IXYtuZ1/g6lwjLHTYaMYvCcT4FcmVElFT0+1F/tnHsq3OSU7t0AiOMc8vmoFfz+3ujwElbtUCaLzB9zyQOk9gFOnbiIEID6m45wDMtmwJqPlPZg9XfvLPDdrlOOMoNEExjmKKrdWnhS+Y1r98Mp/gOG8MzpNJE+4xy3WEWzlcvo2oh5YlYLChngZKFSPlUjdH4OAU2oaMoN1M9CeIWamPaJge9NcNHhRYAG0mMP0+dbZHWcwLvRwiAfxPd36aTibFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e6WsCFBlYRn1eppH/r0p2GAnXcM6Tcve6Mk4y0UJSa4=;
+ b=GHrlf+fv4e9h6DhbFG8L0G/rXpO9GF0OW4DVcsbj+GKUpKM3JX1b7+CsFNUI41ZYT3IzXhXvAw9t0hra+7N/MA4vHAyxo8a/6LDMCCgTlkOn5PdiMSJkWseURRgqaWZB43OrTc+abpCAZTCfGB1r9nSfBpGWmflp/LGbC4X4ShevExpSmN/n8Wl4l4ifwal1WZx9PD4ax7seR/zJMAjJsBka1k6xieULmDG4pm/RKN/bvqPkzx8VvAptgWH38mN+uVAK4FGbUVq95oJBHHY6zemm04/qPNayHTj4Qb2mXmP1wb6/QvetsU+mZ5uGRB4piJBn21348ulQU9rT/rUhAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e6WsCFBlYRn1eppH/r0p2GAnXcM6Tcve6Mk4y0UJSa4=;
+ b=mcuGtWMM/nW5tjK2hpKfv7otsNqUurcCPUatoe/S+JrwtMGoEAkd+OEPLaQrksdUGwvfxdjHOLB9tt1BoZbX0N0GS9toFHRYetXQmJ0Yhg1YcVxxzFDCfR1DGx+krnYKMzBI9Y0uscSGnj/5kJbeaPW+frwM8sOQCZrsRgWbuYuO/OqJ0rDPKWj7Y76O/Mqv1d1qoIRR9KmqdFH6JBtA2xggxd/gNydcLuafRK7Tm7RZmzeajRAPSuujN6CZQf5iwjkhuz6oQs531m3XJHiOq5Hi4JvRsqI9NbzvATfgwwOEt/C/V6N1QJsLe4IKrD3W7SRdWARta4t+Dc8nbp8GPg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
+ by DB9PR04MB8363.eurprd04.prod.outlook.com (2603:10a6:10:24b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Thu, 23 Jul
+ 2026 09:12:58 +0000
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
+ 09:12:58 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH v3 0/3] imx8-isi: Format support enhancements
+Date: Thu, 23 Jul 2026 17:16:36 +0800
+Message-Id: <20260723-isi-v3-0-594919eae847@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPTbYWoC/1WMyw6CMBBFf4XM2pKhtiCu/A/joo+pdCElrWkwh
+ H+3YIxxeW7uOQskip4SnKsFImWffBgLHA8VmEGNd2LeFgaOvMWWt6w8GKJDqVEIZXoozymS8/N
+ eud4KDz49Q3zt0dxs69fvdz83DJkl0s7qRmOnLyGlepyn2oQHbIXMf1bH8WPxYgl5ElIbaYVT/
+ 9a6rm9pbmKNzgAAAA==
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Christian Hemp <c.hemp@phytec.de>, 
+ Stefan Riedmueller <s.riedmueller@phytec.de>, 
+ Jacopo Mondi <jacopo@jmondi.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Bryan O'Donoghue <bod@kernel.org>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
+ linux-media@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Guoniu Zhou <guoniu.zhou@oss.nxp.com>, 
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+ Robert Chiras <robert.chiras@nxp.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784798197; l=3662;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=EjsagpwydBfLXQ5cq9FrJ8fN6LqLhoYX15UJmDPeH24=;
+ b=4tA0sUi19A/oWnDOT+R+lZ59nmIJ/U9nSUOqhe4doD3kLFyvsr1f+gAuHyEbMJGAjxI9TFICN
+ Nkzod8IF7QsCjrg52Sx0R9OtQ71yp0zW8YStdL/IYEbZ9YdruaQyBDp
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI3PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:4:295::18) To GV1PR04MB11513.eurprd04.prod.outlook.com
+ (2603:10a6:150:284::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|DB9PR04MB8363:EE_
+X-MS-Office365-Filtering-Correlation-Id: b048d1a6-b2e0-4885-80e6-08dee89a9651
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|19092799006|376014|7416014|1800799024|13003099007|921020|18002099003|56012099006|11063799006|10067099003|6133799003;
+X-Microsoft-Antispam-Message-Info: OAVlRXZhTHySC0dXkXr2jZdj7BeCJrO/DJXPLQkzFoh90KnfQSQzaTyFR4ZXsxCWYkWNVVrSpYZJH5Bzi0tg7aW40F8qFLtZZ2e3vfpIQnlTSCk468O7+eL0HmXhhuqdhUGnBPNCfXl/bsY8fRAhJiOVr7ULt/Xvxj5WjCmEqdgDvr/KMtTSZ7ltUuJNMU5jnm7CESBE5vVf2I850a64gVk4+dhUIlVrCzGeUueSuNwdKdFBzjbfnqCb0iHs95PLjhYBJdap5gSA+Y3YsbxJluS22hQR4BRC8yTS/6EKwvi+hzy61CYI7GEmOe6Om6LnoBvVVQ9NkpvJdAdFwUe3h+S+yIv4jzKcFVJP2gMCNwuLz7KZFyJs7fxYRjUM2nCxl9d+R1ZJO7J7GHjnqELNPYtRuniBUXFALMwTe8y8Eb0l9/k2FQTL9FEBFbJfnzFmsDin3SHjYuGoGIKUhLW5TuIgZdONzF1+SlVSqHKXJCx2Jcy4fReCWr+nG5cwE5674iliqMx6qZIbKId3oRPyKde/E5qpreccf2fBra3rY3pL+93UtRYUn16PsPTBlaJbcYR53xR/KDw+Z7MqApdDe9PfNSwpc/HCD77w7hQjM6axtUWg++2BDiq5I42nxQ/XkmxiyxvYuLvu76lv0xvgeOs2+dG42OVrpvvhXwdSOv696ASJW9LtWhZn5bivqu/G78s82qouyOLPxJQ7JObPwQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(376014)(7416014)(1800799024)(13003099007)(921020)(18002099003)(56012099006)(11063799006)(10067099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RUhUOWVtZVFzZFhybTZFQit4Ri9MbCszWlVIUTRRak5vZU83U2ZuTmRUMFZY?=
+ =?utf-8?B?d3dGRlhRaUZqVGI0YnB3TXZsNFRxZ2tKWlkxR3VqYXJ0Z0w4NkpYTkZYTC9p?=
+ =?utf-8?B?bm5JN0FPTDUvZkdHSmsrc2Y0UzkvTTAyVGFNYVRTd216UHhIRXZKeVJaN1hz?=
+ =?utf-8?B?U205MzBOenVkYUFOWDN1cExRV3k3bUpWd0FJZmZCTDJlQkEwVnRSNExsT2JZ?=
+ =?utf-8?B?T0hrRElsSC9maGRwTVVGQlFBY2w3dUM2Q1ZQMzVmUXZhaS9lWFY0ckVJVUpk?=
+ =?utf-8?B?RUZDTEFLa3ZKbS9QS1N6dEsyL2EzMnFEQkxiOXdOTkRJSEdrQnVBN2NtRGtS?=
+ =?utf-8?B?b3o2NUpHRDJxSzlzTnZHOEdjOEVaUHcxaXdOaytMY1JTRGl0V2hoN2pnR3Y3?=
+ =?utf-8?B?VmZVbHhQOVFUalp1RFhRaW5TM1VFVzcvVk9MbmpSWUV2Y0pWRkFFUDJDWmk4?=
+ =?utf-8?B?NGwzUEM2THFGVTl0MTh0S3kyOUxkTkVrV0RoT2MrVitTRDRFaS8rbmtiN1lt?=
+ =?utf-8?B?VURyRW1sQk9uSktmeTFwODdrcVpDOThFZDc0YUs4Y05SSWhWYUx5OFR2WWwr?=
+ =?utf-8?B?ZDlqcEk4eW5FdnpCY29TbU15TEVTUitSN0Rqc2pRV3o4SzFDZmpsYy9LSXJW?=
+ =?utf-8?B?eFJicVRpbTJMWVhNWFFFNlpVK1hvOGhRK0dIak9DYWhCQ2tCS1NXVU5MMjFO?=
+ =?utf-8?B?NlAxQUV3VW1yQjcyRU4wcFNNYVdQMW9GY2x1eTVwb0g0R0VMNjgyKy9mNytD?=
+ =?utf-8?B?ZGxXQnBENUxlMEUvNWY4K1JTYUUwKy9lbndBN0FNSmNRajFPOGJhdXRmVlpi?=
+ =?utf-8?B?aU5wSGdKdDRoQWh6WGVMNDhvVHBYZktHbGZJUFJ5dW5yM3FMUkFhNldpMWZj?=
+ =?utf-8?B?aTVaL0J1SE1sQ256Rng0UHpxRWVndGxuUmhqV3lyNjZtTGFGN1JQMm9Zb1RK?=
+ =?utf-8?B?enBTTk1UdE4vWktXd1ArSmZzRVB5QXFtK3FUOXl1TlpVNHhJOXlQS2JyKzdR?=
+ =?utf-8?B?WHFsQmtPNmM3aUxQcmMzNGlpaEM1bDFab1R0WFVCN0F2alBpRzV4ODNEVGUx?=
+ =?utf-8?B?Yy8wNmJkVHNOdWROUEtDajJ4SjFmNGlRQTE1L0VibytVV2hWRmdMc09LYTF4?=
+ =?utf-8?B?SGVqMm9UL2lhOUhCM3ZndXhNeEpQZ1NDK2g5QnJ6UDladHFMOXV6dTNiZzI1?=
+ =?utf-8?B?VU1RVEtRNnV4QWNzUEVSQTM2WS8rRTNzSHB0TGpTMG1wRmFiNllRZFA0RjhL?=
+ =?utf-8?B?UU5BZVZMNmFzVll4blp6Z2hUejlJanpUamtyck9EZWxrVFR3amE2N1Y3RUh5?=
+ =?utf-8?B?a2J0NEpYRkdsYml2d2p0S2NRY2hGaVFudHdBN3oreDZRd0ZoSWRqSW50R0to?=
+ =?utf-8?B?WTlEb1YrTXFXUzZmeU9UeXZNeG9ZOUZ4L01mRDU1MjlyQU1UMHU2a2NjaFYv?=
+ =?utf-8?B?UlBwN09xNmJiYkNxUWhKOTdRWUJ2WEhyNUM1YlZEUWErVGlQenhEalhkVmtF?=
+ =?utf-8?B?TDZDWTdNL2l2dFVUeDlvMGpYNjY3cDY0VDlhYkliUlY0MzNkNGdFRk04RGlt?=
+ =?utf-8?B?eDdhV2x1NmZuUnpzTnRFRmMrQWU4TTgwSG11SWtsMXltdkxYRTdUVE53K0cv?=
+ =?utf-8?B?a25zTExEUi9pWk9MNVROaFpINGtGVVhob1ppTXR1S2VDWkVML0JqOXYvMXBn?=
+ =?utf-8?B?R05qRW5XRnIwZFJsZHZVbzd3UnlsRWpoLzE2RU83dE40S2VjMlpkYVBoTTVx?=
+ =?utf-8?B?alVVcHg3d29yeG1YVzhZenZueUZJYjNuZUJGVUpjSi9SZndZVi8rb1dkWXlh?=
+ =?utf-8?B?bmk5SzlRamxoQUpaNktqMjQ1VVgxRVRuM3g4ZGF5dHg1d2V4dGF6c3M0NWtW?=
+ =?utf-8?B?WjY1R0N1SmlwVTZIWU1mZitTOGFBVXArMFNmSGRvamYzcE0wcW5qY09VdDVQ?=
+ =?utf-8?B?ckErYnZQc1VvbTE3dldwV3Npa2hxV2NRM2lvVWJKRWQ0R1dIZHhpeW1abUlv?=
+ =?utf-8?B?WHVGdmVZS1pmbFhkbHhDUUFNb1JXcHdsYUpqdzBwOFd1L2hXZUpnVHRZWlho?=
+ =?utf-8?B?eGZSMCtqUS9GQW5aT3lmY1IzVkwrVjJ3Z2o0czZ1N2FiNXU5NklVOUhXempZ?=
+ =?utf-8?B?SkZtUDRGdTdOZnBZRjdvaVQvVmk2NFBTNURZNERuTjg1cW8rdGIyN0c5V2F6?=
+ =?utf-8?B?TjdxclhBQlk1cjlzWXYvZk00VndQWlJhVTAvMjlNdVJhQ2hxN1hBcnR3ZFF2?=
+ =?utf-8?B?d0ErRFVBdWdlT2tYZzUzYmk3MUpFTlZoSmRrQWdqSGlOV1U1Mk5mbk44TlVh?=
+ =?utf-8?B?NGo5UTROZkx3WVpuWTNpWFZ5REZuSy9EYXduRUx4OTRVVTJNTEh1ZkJwRXVU?=
+ =?utf-8?Q?MCahZFAmqCoIY7BEWF4Ih8jF2ka1OfGjN6o8x?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b048d1a6-b2e0-4885-80e6-08dee89a9651
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:12:57.9925
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: THxJEDTmrcnMIbHtcrFxwHnj5GogfigAtiBOg7Kf2D9Qiehs0QITPX1t+4D7IoFOxBeT5bFh6CHoC4iRGCxUU5St3YPXzSwRA78hmmOzAbNtKmfKcRuQflNkhtLnb9DO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8363
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_021255_503130_16F00ADA 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20260723_021303_409378_10417259 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,61 +168,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
+This is a follow-up series to the imx8-isi bug fixes and format support
+patches [1]. Patches 1/6, 2/6, and 5/6 from v2 have been merged into the
+maintainer's branch (pinchart/for-next/media/nxp). This series contains
+the remaining 3 patches rebased on top of the merged changes.
 
-On 7/23/26 12:02 PM, Diederik de Haas wrote:
-> Hi Cristian,
-> 
-> On Thu Jul 23, 2026 at 3:35 AM CEST, Cristian Ciocaltea wrote:
->> Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
->> supported HDMI version.  This is not yet enforced, but will become
->> mandatory once the migration to the new caps-based HDMI connector
->> initialization API is completed.
->>
->> The RK3066 HDMI TX supports HDMI 1.4a, as described in commit
->> f84d3d37b7fb ("drm: rockchip: introduce rk3066 hdmi").  However, the
->> driver does not currently enforce a maximum TMDS character rate, it only
->> filters non-CEA modes and excludes VIC 1 (640x480) via the .mode_valid
->> callback.
->>
->> Advertise HDMI 1.4 support for now so that modes exceeding the 340 MHz
->> TMDS limit are rejected by the core.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/rockchip/rk3066_hdmi.c | 2 ++
->>  1 file changed, 2 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
->> index f28d6a883e09..c080abe676c4 100644
->> --- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
->> +++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
->> @@ -14,6 +14,7 @@
->>  #include <drm/drm_probe_helper.h>
->>  
->>  #include <linux/clk.h>
->> +#include <linux/hdmi.h>
->>  #include <linux/mfd/syscon.h>
->>  #include <linux/platform_device.h>
->>  #include <linux/regmap.h>
->> @@ -712,6 +713,7 @@ rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
->>  	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
->>  	hdmi->bridge.vendor = "Rockchip";
->>  	hdmi->bridge.product = "RK3066 HDMI";
->> +	hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_3;
-> 
-> Is this correct or should this be HDMI_VERSION_1_4 ?
-> In the other 'Advertise HDMI N.M capabilities' patches, there is a (direct)
-> match between the version mention in the commit summary and the
-> supported_hdmi_ver property, but not here.
+Patch 1 implements per-stream reference counting in the crossbar to properly
+enable multiple streams from different virtual channels on the same input pad.
 
-This is indeed a mismatch between the commit description and the actual code
-changes.  It has no functional impact, as HDMI 1.3 and HDMI 1.4 are equivalent
-in terms of the maximum supported TMDS character rate, which is what we
-currently infer.
+Patch 2 adds support for 16-bit raw Bayer formats (SBGGR16, SGBRG16,
+SGRBG16, SRGGB16) and Y16 (16-bit monochrome).
 
-I'll set it to HDMI_VERSION_1_4 in the next revision.
+Patch 3 extends RGB format support by adding BGRA32, RGBA32, BGRX32, RGBX32,
+and ARGB2101010 formats.
 
-Thanks,
-Cristian
+[1] https://lore.kernel.org/r/20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com
+
+Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+---
+Changes in v3:
+- Rebased on maintainer's branch which already includes v2 patches 1/6,
+  2/6, and 5/6 (stream ID validation fixes and color map correction)
+- Series reduced from 6 patches to 3 patches (remaining unmerged patches)
+- Patch numbering updated: v2 3/6 -> v3 1/3, v2 4/6 -> v3 2/3, v2 6/6 -> v3 3/3
+- [1/3] Change from "Fix" to "Implement" as multi-stream support is for newer
+  SoCs not present when the driver was merged (Laurent)
+- [1/3] Remove Fixes and Cc: stable tags (Laurent)
+- [1/3] Store input/input_stream in mxc_isi_pipe instead of using per-stream
+  counters array, avoiding arbitrary 64-entry limit (Laurent)
+- [1/3] Use UINT_MAX to mark pipe as inactive to distinguish from valid pad 0
+- [2/3] Remove "high-end" from description as RAW16 is common now (Laurent)
+- [2/3] Add Y16 (16-bit monochrome) format support (Laurent)
+- [2/3] Add Reviewed-by tag from Laurent
+- [3/3] Drop M2M_OUT for ABGR32/BGRA32/RGBA32 as ISI ignores alpha bits (Laurent)
+- [3/3] Remove Android requirements from commit message as alpha formats
+  cannot be used as M2M input (Laurent)
+- [3/3] Add Tested-by tag from Laurent Pinchart
+- Link to v2: https://lore.kernel.org/r/20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com
+
+Changes in v2:
+- [1/6] Split v1 patch 1/5 into two patches: this patch fixes the core
+  for_each_active_route() bug, next patch adds additional stream
+  validation (Frank Li)
+- [2/6] New patch split from v1 1/5: adds stream ID validation on top of
+  for_each_active_route() fix (Frank Li)
+- [2/6] Remove incorrect sink_stream validation
+- [3/6] Use fixed-size array for enabled_count instead of dynamic allocation
+- [3/6] Use BIT_ULL() macro for u64 bitmask operations
+- [3/6] Use MXC_ISI_MAX_STREAMS (64) as loop boundary instead of num_sources
+- [3/6] Remove mxc_isi_stream_counters_alloc/free functions
+- [4/6] Add Reviewed-by tag from Frank Li
+- [5/6] Reword commit description for clarity (Frank Li)
+- [6/6] Add Reviewed-by tag from Frank Li
+- Link to v1: https://lore.kernel.org/r/20260629-isi-v1-0-deebfdb1b07b@oss.nxp.com
+
+---
+Guoniu Zhou (2):
+      media: nxp: imx8-isi: Implement per-stream reference counting for multiplexed streams
+      media: nxp: imx8-isi: Add additional 32-bit RGB format support
+
+Laurentiu Palcu (1):
+      media: nxp: imx8-isi: Add 16-bit raw Bayer format support
+
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  5 +-
+ .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 66 ++++++++++-----
+ .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    | 31 +++++++
+ .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 96 ++++++++++++++++++++++
+ 4 files changed, 178 insertions(+), 20 deletions(-)
+---
+base-commit: 4d32fbba9d23f50d157ed4a37c9e8fbce61c904a
+change-id: 20260626-isi-00f05b044ac9
+
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+
 
