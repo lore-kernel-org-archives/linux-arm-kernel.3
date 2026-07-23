@@ -4,115 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC7DC531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53109C531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CUO8C4g2gaArh4Y4Dlt29OXXWCzGAsxU5Y8v+yOgtp0=; b=uf9r+XjZUeltp8kU7a6SgxTBzD
-	aPk5tvRsOp6Rxmc/5ez2/tkFgjpAGk2HdDQBkmy71RXh8yPNos2Hhdh6bb9963ZaljghGxT+pw3ub
-	WE9bIfrr/EFZC9DYjGbu5B529fvDdV71VQ1GEhfZuVJt9FE4U4+S/hLPRLqIsZW0gZUXzqD2MMAm/
-	iE3cfbcCBnLs0u0yEIVTo1oHs21yvmpcMwWkHoobKFtoMZpvMKhEMzUCw/UcAKUvzIa/gbISXJ+EV
-	SbltPevgoYDixHRgS/p6RlognjxxnqZPs4B2JKSfut3lkg38vijSiwX60VxNl4ydGf3ToTI421nrO
-	kQEWCZTQ==;
+	bh=Weyp/oLhKZLkacjeN1Ftw2HMrf7BTwE3TsZf9PvNHAQ=; b=McceswWdYv8VNFemMVPpkxaHjC
+	5fzeM0TtiRB+aQdSdNbe9jojAzNc6V1tnhmARFWEn+M6sh1yRgastTxQegRQF6FZrQ5LY7mPfcDJN
+	4OjVqr0uCmidselie6EmYyrnTuLGUGxYXVDgEXGIXXKLfM6Ffva0W6gelv43LjLKmzBpgJOlrpPxx
+	Pr0QBa21DEDq6u6A+gKH+n4Uq2QDtOQIA1MNwglWibeoxzUmW/iZSTXnvVZrkPK7AKmezqKGV8Siu
+	56MEflBzLyCtZg0YQPaJ+Sl51pVOa3L4FakeaUc0Z4kMb8lE1//UwK+ExZYbGFeAVo1aTUEbmxvXK
+	dpjY4J6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwRJ-0000000Ejfn-0gDB;
-	Thu, 23 Jul 2026 16:38:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmw1f-0000000EgZn-2iiM;
+	Thu, 23 Jul 2026 16:11:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwRH-0000000EjfJ-3prz
+	id 1wmw19-0000000EgHP-3WCe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 16:38:28 +0000
+	Thu, 23 Jul 2026 16:11:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2FCA60A58;
-	Thu, 23 Jul 2026 16:38:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 155ED1F000E9;
-	Thu, 23 Jul 2026 16:38:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 448EE60A67;
+	Thu, 23 Jul 2026 16:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBD541F00A3A;
+	Thu, 23 Jul 2026 16:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784824706;
-	bh=CUO8C4g2gaArh4Y4Dlt29OXXWCzGAsxU5Y8v+yOgtp0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=CeMVKs5XYRbmdHnZWBRbIOqlnBLNOn4YY2wMWAwayfNfMto7y/YliPtgQRBpZUmTT
-	 vr19Tp4i8Wn8VkHl+4XE9zaPN4O1GKjEX2pMXsObb21kIktQoVMW4AxauYM7mFqsqy
-	 m9Vfa5aIPEAoUj2XLgE811bhN1BpHteetKbAGL5fm88oTXU8xJ0uJTDJgsw5Cdqvvv
-	 3kfPW67BOYQdcVgtsWd02pt9jPfjCc1B1jL3Qe4VFfPdK2ERG3xSGp2d2kucltgaZ4
-	 tsbkuGb4ZFTZOHIRVYEoFAE0PsnhkIQB2+/JG5y2b3OGNsB5jMcgjpaLsNqzciGxke
-	 LIL16JRMH+F/Q==
-Message-ID: <716f73c1-41cc-48a5-b0e1-a47403a30da1@kernel.org>
-Date: Thu, 23 Jul 2026 18:38:02 +0200
+	s=k20260515; t=1784823087;
+	bh=Weyp/oLhKZLkacjeN1Ftw2HMrf7BTwE3TsZf9PvNHAQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=oj34C3EP08ZKjzQnPJu842SViTXjFZ4wZwO94E6yE9pq/0b/m7TY7D32jSflXGsph
+	 HCn6Sb/Ce3BwLgCJqcUIM71tpjeynpCxkU0k4CUNA6RySAi0REBEmXsLsRR489wLI8
+	 Wg/aOjDJ42/1LLM38t4KM4X6iDrFIk+njibI8Uae2dulMFiIWruI5dkWZW+QXcYSo4
+	 um35Eczjv1F0FgIh89afKna3ODWziZhG6VbnFqNGTBRWs4GRtuQFPCwt1+AShh8LyL
+	 8DWpOADHHXfSqr+/EVAXoUFVj+pqeovjm+1KfwGgWSwHqHEY6tSL/862yKJzoGaLjO
+	 MFJAjH+BWTrJA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wmw0y-0000000872z-1KXd;
+	Thu, 23 Jul 2026 16:11:16 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH v2 0/2] KVM: arm64: KVM: arm64: Fix potential leak in hyp_trace_buffer_alloc_bpages_backing
+Date: Thu, 23 Jul 2026 17:11:13 +0100
+Message-ID: <178482303775.3351010.17818493792689450146.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260710114819.2689386-1-vdonnefort@google.com>
+References: <20260710114819.2689386-1-vdonnefort@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: mm: opaque hardware page-table entry handles
-To: Muhammad Usama Anjum <usama.anjum@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Zi Yan <ziy@nvidia.com>, Pedro Falcato <pfalcato@suse.de>,
- Ryan Roberts <ryan.roberts@arm.com>, Lorenzo Stoakes <ljs@kernel.org>,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- "Liam R. Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>, linux-s390@vger.kernel.org
-References: <74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com>
- <31d36023-d728-4eee-90f8-158c7066f565@kernel.org>
- <e22407d8-4509-4a53-9ba4-491b9d5c5ef7@arm.com>
- <4bfeb697-9c1f-4316-96bb-9bfd66f959df@kernel.org>
- <6110202c-057b-4701-8c04-1a76ee7bb9ab@arm.com>
- <20260721124057.2820903Adf-agordeev@linux.ibm.com>
- <3c21586c-0ffe-4ebc-97f1-803e8acfc5c1@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <3c21586c-0ffe-4ebc-97f1-803e8acfc5c1@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,38 +88,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-> So after the conversion, it doesn't makes sense to keep STRICT_MM_TYPECHECKS
-> around. Please correct me if I'm wrong.
+On Fri, 10 Jul 2026 12:48:17 +0100, Vincent Donnefort wrote:
+> This series provides two fixes for the nVHE/pKVM hyp trace remote buffer
+> allocation.
 > 
-> This brings another thing in my mind that in ideal world we would just
-> turn STRICT_MM_TYPECHECKS on for all arches all the time. But the problem
-> with it is that STRICT_MM_TYPECHECKS defines pte_t which will stay double
-> meaning still. So we want sort of STRICT_MM_TYPECHECKS with different name
-> and separate stack and hardware types.
-
-I think STRICT_MM_TYPECHECKS is also to avoid catching when passing a pte_t into
-a function that consumes a pmd_t, and vice versa.
-
-STRICT_MM_TYPECHECKS makes the compiler generate worse code today, which is why
-we don't enable it always.
-
+> Changelog:
 > 
->>
->> We would like to keep it, and I guess some other architectures too.
-> David had summarized it well. We'll convert generic code to use hw_p*_t
-> types which would be typedef to p*_t for those architectures which don't
-> care about. But if an architecture wants to interpret these types
-> differently or want to make sure the type is enforced and not directly
-> dereferenced, they need to convert the arch code a well. But it can be
-> done slowly.
+> v2:
+>   - Added patch: "KVM: arm64: Fix hyp_trace_desc allocation size in
+>     hyp_trace_load()"
+>   - Collected Reviewed-by and Tested-by tags from Fuad Tabba for the
+>     leak fix
+>   - Do not set bpages_backing_* on __map_hyp() failure (Fuad)
+> 
+> [...]
 
-I think what Alexander meant is: they want to keep STRICT_MM_TYPECHECKS (or
-something that achieves something similar :) ). So as long as that keeps on
-working, all good :)
+Applied to fixes, thanks!
 
--- 
+[1/2] KVM: arm64: Fix potential leak in hyp_trace_buffer_alloc_bpages_backing
+      commit: df7a9d376f7a388ecfacf8dfe0b5819ddfba6972
+[2/2] KVM: arm64: Fix hyp_trace_desc allocation size in hyp_trace_load()
+      commit: ca28278d10ec234592989ad370d58294b9d43e0f
+
 Cheers,
 
-David
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
+
 
