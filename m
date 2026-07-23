@@ -4,136 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCD2C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 16:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE8FC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 16:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Subject:Date:Cc:To:From:References:In-Reply-To:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jwLvHbFMsrnvIb8/HywdysqQLGBUS88ozn6AgAuahnQ=; b=3M5OcALGAWNz3ujPiC65KKXBvA
-	PVR++kCHor4A7EY1bNStoeDAfnpjRc59KsXflibDERxYZUkPz9dowaotsdYn+w8/Ve4cLw0QmQ52p
-	UfQ7zh1MXv/CkhPCCR2KU1noBcDvCruKgWDy0Fpm2XAehlR42pG7j7HsqHl2EpafwqJSuY/MOp/Hg
-	bKcF7x32t4cShwjxaZ+lYtDNx4MUb9WGCONgIQHDfMkzjvuIU/n6M81PvLg/iK86WKSeQKrZB6ocp
-	PpDos2Y4KiPU/XL4mzH+SaSAFGirAqvSGgiT9SsaV/UgnEbJSy+cBCwnSSliM9ZW3iFDUtLZcGNhg
-	i0/Ko9mw==;
+	bh=XQjSPnzfIWrOwL0jPhkeM1kgPtoDazwwAAJDaT5efhU=; b=sGcHKIhwUe7sBjChM0paLPeJIO
+	l91YX6/Tq3hPxqbJiYhQIT8/uNdXRzVs9Irc4yywwrRN2nJa4U6koEmmvkhMr1H6O1t0fNwzdPoAI
+	5JyjRfsv7sgNZD/rilhzKpX8GQA6MOl9rXoz2F2QSCr2qAxkMquHgs2KBulAT1B32UxZRuraJrF/1
+	6XlJx4ha71+glkssj9M6MSVTfyBT7BC/iTyvI2Bpl58d/nZE7lurW/Kl8R3IZXUlrq4bBUlQvF6K9
+	Wu6qCo7RtJ68efy/jBDwhtOw3TGxbXyRcjuoRwuISQbWycIZ8ZkjfPbzDO4Q8N7VC5qje/cgrBKI2
+	BumbU6CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo1UF-00000001M5w-1qMp;
+	id 1wo1UF-00000001M6j-2txy;
 	Sun, 26 Jul 2026 16:13:59 +0000
 Received: from mail-eastus2azolkn190110000.outbound.protection.outlook.com ([2a01:111:f403:d101::] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo1U6-00000001M0l-2xY9
+	id 1wo1UD-00000001M2T-0QuH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 16:13:51 +0000
+	Sun, 26 Jul 2026 16:13:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UX+Wb52SXguepn4rHNlnHff5kOy1ZowTuua+yohTjg/bLGSkdocmxGzzeOmwbb+liOhT/OlkWMjUNq6mn+jSqKKoBeAswU/R8m2MDwfuZsDwwlQwpRjvWn8lY86Uh6nvmTKYmLEl2WXv+frnUwUuK2z+C6vB9DkUJiDPFnXPu2KluQLKTVqahLmNFrAZAvVGF8VJrqfhAHRbOESOFxrDVOn7DHe+li88D65XZAchcuTj4kMIXs06NJvGF4WzeDwzUPdIsrfRVznWWW6Ohc/NZdm+8NRPJstxBUn38CQ1KEXcRs38Ml8C4zO609BLTbxUHAuhjdBzENDMN6Ne/G/B8w==
+ b=il0Azr6YzRyant6qlPaVLki3X8A6G209HrfBc4PXG9q9z5Vvrz7XfRm1wJArEDkyF0lG3XtxkP1ZhifmMKMGzk5e+OnH0aFB14J7vx+RhGUi8Jfz6TTIvbXyVFCZ8tyzqtd37zjwlUPGdZsgJ7URSJWc92y7KWSNX3kJxwh4lbayJq3FMoG+Vd/g40K0glEY53YvkM47N009nLMnMz0wMlKBXG/0si7drpQsAXoj71ddpaSCil6Z5ke5QUUOus5G3PtIGlei5jvpQzKyzROoMZVwlgEt4B7iIQqsE1kET/CO9ARziyfEG6BQrnEHqZn1n2QFQDr5A4zOegqbWrKVFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jwLvHbFMsrnvIb8/HywdysqQLGBUS88ozn6AgAuahnQ=;
- b=SK6OG1FUfQdVIEZQkT2PeoIv63lWZ/VttQmQ2nZ8/GAdLAzw7xgTAiqPcEyl1ZarZKVSU/9byAgOlpE1dCsOjehuDX9GZTxXD2Ao2tzMbkuCtxF165zwN/Ew3N1p49vHPeQmCwcQ4v58LmRA6Ro47D89dJ/Z8R1A+jiemkV7aEfrII+dlF6QP1Z9gWplv30e1au73WQY54cc/inXrdFdcSkb4KT7+iTyW/lgQhCDzQqOIVl30MHTfBWD1XFF9S+4wf01TG8CwebRMWI5xTPhPMq4XL6xy8RFiQOBAq0yE9Om0ciVrR2S2WmIuPDjkKo+jIYLWmpbKSuCc474AvRswQ==
+ bh=XQjSPnzfIWrOwL0jPhkeM1kgPtoDazwwAAJDaT5efhU=;
+ b=Pon3RK5JnVINLweS7NSvV8sLM+aZ1dIZANC5VpLogY5As7tuSQs+ldFqHOpSss6PTZwMNjvhQ6PnaUPMPjH2B0oRvHxSCIClwhoNL/RgUhMMfWTHXOU/jBuA10RDr+5VDjjwGaq7Qk4qmcrFhbqx52Sx3xlsQd3znhaDcloDq7ouCLQAlYBCQUcox7eQMCVSBkM1nEkE50kpWtHPssXl8DUa3+N2habhnsfmvGuMzSmdn8SIhsGalgH7fhSsnM8q6kpXkSGzx6TC06r+Q1MdKjP6/yL2Ur/t/X2hUp68lqrIZKCZsX6TXw+ucWnuejV616QQ6kp9riX5lJ+O6FfxHg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jwLvHbFMsrnvIb8/HywdysqQLGBUS88ozn6AgAuahnQ=;
- b=RGn+VGPFFYzjZXsWjpYnmdk0g9EW1ifTVi6g64q2KRCOaSVc1aGyulfmiFdfz32HnZ9XjTqXDo5lGh9q9ejDs8iERsOtwCg8VYrQfyOdG1NDNlSqUgSedTCocwycVsBST2McxXNAG/lUzTS5+RPcIpk6Vnce2FBKf1law3knryVACOKIVJjWI+7JqEgPm01AqNc7/xtJjlk3/3TNZqAo/CZrB0I4CKnJfsqoEPAZNkM69Jgw9UV60yx8zscKGTLjjN+JTP6iQvwx2yZeT1+bZL5VTuHL+swScxyghbVi0nWHqsR1nroWf67uRXRXFVoUBrF0sWzR3p011JsaB7UEtA==
+ bh=XQjSPnzfIWrOwL0jPhkeM1kgPtoDazwwAAJDaT5efhU=;
+ b=FrsPaomWY7zUCa64rYGbMmdPL8yaYevodEEoqFPnwKqxJWvWFMolDjppGIE8fuMDuNv99B20Y+23B4UB9zlh0SEBVeWAxlhHs8Nljyn4jZ0li+dTsVrE9R/C0QeracZoqhJZFm+9f20Gq0iXoF9gZKQNjd4rsOZD/PYMkSdmudm+gTpyVH1E1BgWwqvQQlnPWP0ceUpLrd22Yja+zrSY86pjiGG3+hfXbMa3++V1g2l+vvwus/Jk+MujyXw/HrHLAGTkjbfrZkNNTtlMraX4hFrekJJ7QGpf+Yfx5b16BYsO/+wCJDCiCNHLeZ+6p0ZTdELzaP56lqkYcEGax3MBiA==
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
  by PH7PR19MB6807.namprd19.prod.outlook.com (2603:10b6:510:1b9::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Sun, 26 Jul
- 2026 16:13:47 +0000
+ 2026 16:13:54 +0000
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374]) by MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374%5]) with mapi id 15.21.0245.012; Sun, 26 Jul 2026
- 16:13:47 +0000
-Message-ID: <MN0PR19MB60911808D97295FFDEB04003ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
+ 16:13:54 +0000
+Message-ID: <MN0PR19MB609186548542EFB23E4C2CD7ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
 In-Reply-To: <MN0PR19MB60912FA1E75E4E55B2E27D34ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
 References: <MN0PR19MB60912FA1E75E4E55B2E27D34ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
 From: Liu Changjie <liucj1228@outlook.com>
-To: Antonio Borneo <antonio.borneo@foss.st.com>,
- Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+To: Russell King <linux@armlinux.org.uk>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 23 Jul 2026 23:49:03 +0800
-Subject: [PATCH RESEND 4/9] dt-bindings: pinctrl: stm32: add STM32H7RS
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Date: Thu, 23 Jul 2026 23:49:19 +0800
+Subject: [PATCH RESEND 6/9] ARM: stm32: add STM32H7R7 platform support
 Content-Type: text/plain
 X-ClientProxiedBy: TPYP295CA0051.TWNP295.PROD.OUTLOOK.COM
  (2603:1096:7d0:8::11) To MN0PR19MB6091.namprd19.prod.outlook.com
  (2603:10b6:208:382::21)
-X-Microsoft-Original-Message-ID: <178508244881.28466.9849090368386221666.artpi2-resend-4@outlook.com>
+X-Microsoft-Original-Message-ID: <178508245757.28466.507148269367095293.artpi2-resend-6@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MN0PR19MB6091:EE_|PH7PR19MB6807:EE_
-X-MS-Office365-Filtering-Correlation-Id: f73add4f-30ba-4332-fcad-08deeb30df3f
-X-Microsoft-Antispam: BCL:0;ARA:14566002|2604032031799003|704163111799003|8060799015|19110799012|37011999003|12121999013|23021999003|15080799012|51005399006|24021099003|16051099003|25010399006|5072599009|40105399003|440099028|3412199025|26104999009;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sVqREtoR8IZB5SbySguxxLpFMy5YJwjlG5Xw+XSATL4oiiQKvHTdgD8Z4zPt?=
- =?us-ascii?Q?Mbnz0hiLWl/k+ENqWgTCZ2SxYvZDlyneGjgKLWmar/U6otJU4bCYYiYSRJ6z?=
- =?us-ascii?Q?7TI/JWm6G078IswbmeBNZ5f58hGY3IJ9lRFMXFOW2VgWxJ+sXXmkO4FrFPom?=
- =?us-ascii?Q?/5k1gqrB2wun+oGnTy/zJ5a9QIv1/VVDOzWZGlfz3uLMQMsex+gqbbBvA7rW?=
- =?us-ascii?Q?vMkYhoQqZQBPHhxdRgi8/50+pLpApNVVckQz/zk1I+uiLf7FYZAiVsKKiM7R?=
- =?us-ascii?Q?2Zf5kyg1Xb2Ur7zTh2LGrQsNJptYzHhSL9YyOq+OhXbxXBpvKwULxSGX2BHY?=
- =?us-ascii?Q?pNOgdUN4lhhuzlZ7nIte4pSLonQSR11RwP3E6SLP8x5OdzR1LvbsdV5FNvoP?=
- =?us-ascii?Q?Puygp4AwWRtqjyEP9eepOA/lGDFfKi5THJ//G4HZrr0YewQ/b8KpBp4TEaoA?=
- =?us-ascii?Q?mwXg7rwRCSrZnR4SjUV7Djas0rVNi5JMHWHlue6+yDSS8X5JFKDqRjxAcLWA?=
- =?us-ascii?Q?4IhyxAK5jLBBVQjW30/F5x5Oczn5MnqgbP1qAg9KrQUHKiRsUM3PHatHrNCB?=
- =?us-ascii?Q?nL3v4dYlY7/OpDa7sX0Lx/x9SqMnfJfKWvt1B/YYFuQwyFbus/81KUwnp0Js?=
- =?us-ascii?Q?X1eJg7wIK0nStd1Hl+blk4BRE3LEbz7KMDd59FMeEStkfNDBEhmTKZGJ66H0?=
- =?us-ascii?Q?bcdgq8PON1sCVP41K6lqranXKg/6+Dkhh2d5FNqVPkbBUZNcPRHbuTDzGSix?=
- =?us-ascii?Q?ziTbyWn5HljvNRqKPEdFM09ospwVgIxApcpShmJt6Ze65cARdffpmnG+QpHQ?=
- =?us-ascii?Q?DtwSBZQa+pVxmvOMDuiysRuZdBsxa1rO/hDcpXRmPzezJr3w2+LI5SI9xcbK?=
- =?us-ascii?Q?HIGyU68AQFouOA15+/n4fdHHmVTjN3/4dSOPLK4i845HMg+5RFQFymqybvIp?=
- =?us-ascii?Q?5POFqvuwNd4648wj6dPLJC4us9YrXE2ktZDQdnTCdApf76Ny4vKJEJIprfWt?=
- =?us-ascii?Q?Fg8KhIMnnlKIK/VPiXLXccCGp5T287DPFpGGiGIetr1PpVyauiwWpj+vKiCx?=
- =?us-ascii?Q?xK686R/7q/3/JEtmkR/XmLwVf6AqFIOy4AjiuUSbabjGFu6ZvN0Juot2ciog?=
- =?us-ascii?Q?HP4fH9rg4YkB?=
+X-MS-Office365-Filtering-Correlation-Id: ae627028-8cb8-4da2-f10d-08deeb30e366
+X-Microsoft-Antispam: BCL:0;ARA:14566002|2604032031799003|704163111799003|41001999006|8060799015|19110799012|37011999003|23021999003|15080799012|51005399006|24021099003|16051099003|25010399006|5072599009|40105399003|440099028|3412199025|26104999009;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AjVH0iaM6PIQK+4ML/pWKm2tVdgLqNRYQRiYxCh3uE4EG/FIt45f39P0MTiK?=
+ =?us-ascii?Q?4SNpp5uzp5gD0Jxx6Vc43iWdq9QCqvVEPiMgJNYAgVF96ywY36L0FEI3jk15?=
+ =?us-ascii?Q?fe20FLztKvO+O6ejz28P3GpnXEcT4HMp4w0+CrqbwR0qqIG30bIULaFewWyg?=
+ =?us-ascii?Q?2SqNDsmAND3reu2HuebcGjQTh3gweJUHP8rT29EYJ2bKND8k91jKsfqfluDW?=
+ =?us-ascii?Q?QLlCqHwFQZFyewYURYieNy628GjtQOlH8BX5NWQH5rQ2aTDVgqDxqECem7BG?=
+ =?us-ascii?Q?MWX/nrK5W7kalU+TWGr7xylrp90oE5AZqA2c3WtebaduHnCM23H4mcvVUPHD?=
+ =?us-ascii?Q?vBczqZOGzsluNrC+6QWxonyrQCpr4FECBtbAIxXGz7U0R9EM1sAV9Jqp4sjW?=
+ =?us-ascii?Q?dGCI2ef9csjFMeau/bYAuNZiwsQxrevaDVpLYrDCwoiqlFAXVA+2FYmhioZi?=
+ =?us-ascii?Q?R6pvunFJPuAKdaQKwbuISaewGcUK076RA0Dqy90QLNEuGQpIdabWTJIb+VCg?=
+ =?us-ascii?Q?iHoQ5nakVPd2Urx1slqFj8KqcqeEQSq+qJzto71oH3tI1LJfgM8wVKVsg/x2?=
+ =?us-ascii?Q?z5pcRV5jGcUOzPEVBtZ5p4kwYTdDJp+M1365iQw2EaTlnSOUMJVDEXXnLw6p?=
+ =?us-ascii?Q?wfew19AB5f9rCbOrvYAfNTFCPL6LlfMPyiUSM8beVNCq4qUcJT8CwvvwWIpC?=
+ =?us-ascii?Q?8RSfmA06S4AlfmUFyZCfTQuxHm8Xhlq2ogHNTeeb3UEu9OByE1amlKBdWV30?=
+ =?us-ascii?Q?JFd+pg84zwI9JNbbYhK4j7upWZOZatrd/2CiV1Rl5KaOutN/Nv0IAlZY//Wg?=
+ =?us-ascii?Q?81q7Ew5GTTIPAJlH7qll2ypNAx7/cTav/Xs6P0PMe6/LxWMti0glUGciQqwW?=
+ =?us-ascii?Q?5XSqwaK+oPOyBk9687TwtpscX21X5AixrRsodTZ0R8W3oDSYMt4TKmxYtLzs?=
+ =?us-ascii?Q?++bUZRbn9N2p/FXbQSJC3+s+ZDuTXZ2Lj3ZrVGVgMiah6YYRbxwGIURjdKNL?=
+ =?us-ascii?Q?ThSfatqtQmx6OxGNPcT5Gglsx79s/DbmfgfG+9btgR26ogON6tW0JMDW2Ap9?=
+ =?us-ascii?Q?Jqgtx/djsBH3MBZA9lBxTqxtS+ZLiWkDZYpH7kgTKuAS6jXyM2Jd66nw8o9b?=
+ =?us-ascii?Q?7JE2o+29jql/?=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BFsHt4r0SJGj7usw1jm9Jfcq0qL1QiOz9arg9ei+0iGxq/p8IShcgs5ZhujT?=
- =?us-ascii?Q?g/ibabLCgGeyHlzD9UtkM6hHnEpZUDGPkQHZ77OGCnovWBZKf8Bl0apcNVQ9?=
- =?us-ascii?Q?ZnQGrTA5mahXOogfP6rTPz5y47OXt5Awpm2UYufFQ9H2L5f7gDbyUR+T/pAR?=
- =?us-ascii?Q?jDiRLdi4kHSWiPJmODRtbK+HjP8GT2D6mU0Rwh8D+331K1aq9EQHTROxk3o4?=
- =?us-ascii?Q?StybLnWIDCnXh4l+xCe8FtfwMGa3wiOEvYboDj4almNm+YUkSB7wsiGSV9S6?=
- =?us-ascii?Q?RnGBhfwCMr4SyNkOSFmoktXMmhfNM6v+j0723CLAEInc3T+UCszXuQfsK+E2?=
- =?us-ascii?Q?bI5VKql1MlwJJDuPi43kS9KAIJrYrki5ubzcHSFEUD0Mb/xPfyf3pl9aG3hg?=
- =?us-ascii?Q?4VkMG+GrUrDs/T4fGy5oTW15J+N1yMOiM84UeoSScUikdtU+hgUKbP+6Iv5O?=
- =?us-ascii?Q?G01M3iouyLLkSePljodxZjSYyxMIEhBo1tsZ2AZHniOVoBF8A6Pp1t+G8vq2?=
- =?us-ascii?Q?YLF3l6heqg9BSiOye3VWizupb+DhFdR4jgz3fKskM48MdM5IxRnjJE828TI0?=
- =?us-ascii?Q?JwiXdCJLkcu1IYjD8n2Z2Dwi9TZ/la7Rkm0ruhR9Y5nTf/2rMVZliOuvvdFG?=
- =?us-ascii?Q?P4BitelrR7OTuJ7AFk9AmND1UUkGthiYqR2kseVSZCR6KXjUpbPR05So/yrM?=
- =?us-ascii?Q?0lKAIXmdMuaF3KLssBuYLJAcVuZy78yOuf0J4kk2RuoNQHZrry3bAedrnTKQ?=
- =?us-ascii?Q?qOCoRmjJX88QJYUkDBVi7Ovw+ZfH7pMdEA3ydqBx0vYtC5KMp28cG/PWn15A?=
- =?us-ascii?Q?cgzsHZa9uS47AUtbKV8kI/R6s0zO3RSXm4FoolJRQLC4idHwD4xud0FkVruf?=
- =?us-ascii?Q?vrWu4JnmYIdNV9eFEf5QFHDEjPF11bnfVFFTfXuX+0Lgem6po7Mtx7+/58h5?=
- =?us-ascii?Q?kmaBWX+BN9KFqHO6CO4c0/vDJ7KCiWXB4RH9DTRWsJM2fKOQZreipy7n20Oy?=
- =?us-ascii?Q?cW27v7lsXU5s3cwXdW72OKdg43c3MLbcvYusvMDvRzkZrWq0TWRAb3Iu9PzY?=
- =?us-ascii?Q?sZ77VI47uWU0TQmcO42toaL51OSh0TqxyZCSYxPxniKWNDKqBes3KWQTQJGb?=
- =?us-ascii?Q?/2rBw/ekrtHq+dgw8dEy8JPSe4L6qs69W2SfF5kXFCyn0oUN5pfU8ip9LoT9?=
- =?us-ascii?Q?3FbbJ4w4iLkXn8n0YYV2wJ4BjZCjIbZD3gUJQuASm0WrYefYZCiCT1mSEM5k?=
- =?us-ascii?Q?iqosTnzbsfshOeaodsVMlf+3QiITjjauKPDt5QPx+7IwAFGOypLQxvnDKM5l?=
- =?us-ascii?Q?MINnRDqgAUbzMGwaSIhItQ9ZI5HLHzPqurPaXeYiiLfffIdO+hMgQIP3LOe1?=
- =?us-ascii?Q?3K96tuU7syjOjQ5Z1hDflYDaDeLrwhPXtbkHBNXOB/BRPSuMcQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DHzc5fNQauMwl0u7g1laNi/qaNQ0g4fnszqSGFzd91FbvZzroH7M7hYHTFvv?=
+ =?us-ascii?Q?km6yFqpOIFa4MB5U2pKj65FnXJ34bscS84uRps5aIY5EV9ejNjUuPjLHlz6b?=
+ =?us-ascii?Q?TTYaraIoburx+51RpBChhaiSj7NcXGVrVgnOR4d3xzRCi/p5vEBW8MFf0LMq?=
+ =?us-ascii?Q?z4XBTGrZ65vwB8WXTx+Z/zqsHjsn/j/NlTQuFEpXezKbw6mJVFKfIZq7Qo12?=
+ =?us-ascii?Q?qOqoGNUBYJliDPgfbP/xn05j266mUEe4Vyf2mrwTDO2tfFPC0A3hOxSkT2GU?=
+ =?us-ascii?Q?7OFDLm6YO6cI7HNQEx1ZtJI+0y5PpQlU42ceV2x8KhEKMV7zlv1fm/2UG1LE?=
+ =?us-ascii?Q?37xiZqkXx7b9k8IFZNZFpIuAnar+/jRI9bzbN5HD++PItpCMaOhg+qVVNXdY?=
+ =?us-ascii?Q?ZvlpZehZZxKogf79MURMEzv7Lvu8OetcxCGWI2uW9BEClujikgMOy3VQUwE3?=
+ =?us-ascii?Q?hBhxB46a7MJBRVEyATaJgClX/PV8tsvGYB8y6l/nQ5bKhSg0c6xaoWWcvsYu?=
+ =?us-ascii?Q?To5zNnTAB1R2IirYbyCIRk2lK0vsuiQ4n7ItqNyozM+lBS3R2xOGZ/YyxSp7?=
+ =?us-ascii?Q?vGiDtU7x96IsHP+OIU8ebxz4UaBqaIRYFlqABTsJbYiyvkD0/Z1HIwWEdMP6?=
+ =?us-ascii?Q?x8HBYtbuXGKqKM1VKxmkYjCnyEEwpQuvkRs+hViOnz/GLIBmjFGAqMsoOdDM?=
+ =?us-ascii?Q?V7YLyrzP5fvCoYIjb22z6Ca8vrmsUaInxQXsko1qcpLI+IQO5IP3D7lc5nwU?=
+ =?us-ascii?Q?emd567o24ony68b+ARRNpKSlpU/W3RPmk+CL4sB4yiCH48QvrJsum3IzmpsL?=
+ =?us-ascii?Q?Dm4mzjCxq/dibb2licpDEsFmX8XtSNWqb4LoPTpCW/vjkKFTA5v5QVpn290c?=
+ =?us-ascii?Q?USN6Gl+cQ52pmJNgqX3TG/IGx/7A5cP87GPMYLh9l7PQdNLBl/91RFUGBDQX?=
+ =?us-ascii?Q?kdhgMZ8OZFULUHMxb9iGspOn4wpG3RePFs56rx6QvmD6ls9sBcczATzRT4Tc?=
+ =?us-ascii?Q?U0Qf8p/T8fOqyRsAgO4nkT5JHWYIC6WT7gxgZocCsERs1bXHbuc9Y6hxb3hK?=
+ =?us-ascii?Q?7oSztBqpqZiVjBqfaqtPKtmv5/4IBF/77MdNaaQhBPFeIFUP3v5SE7fYNhyM?=
+ =?us-ascii?Q?/YR71Jr7IrSP8n1LYbAL8/YS9/x0jmfEFY9NrM42carEv9toYjgbm1ktMNDj?=
+ =?us-ascii?Q?d/nfhINOYzZXH3gYzarmsjdAzi1tUpLD+EgeC6wk4io0d/U6J0aID+HwsJrX?=
+ =?us-ascii?Q?yHp5JERbGkEEf0/FdfNUVATxbxRLyzYjVCTPDy4O6hTPPYqiUsdLlhmIWdGi?=
+ =?us-ascii?Q?eirsvn7t+KLNSYqBL8hGpWpZkc9wW0gNjfHKgocv+ES7ZHL+6eYQ9mf9Hkgg?=
+ =?us-ascii?Q?ve2k1vCk0PXOkQLUUokUebJNg7WhBWrDAGkBJ1Z6BwAL8fPG/Q=3D=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f73add4f-30ba-4332-fcad-08deeb30df3f
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae627028-8cb8-4da2-f10d-08deeb30e366
 X-MS-Exchange-CrossTenant-AuthSource: MN0PR19MB6091.namprd19.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 16:13:47.2117
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 16:13:54.1416
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR19MB6807
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_091350_742406_257CEEB7 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260726_091357_142335_F1B69C45 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,47 +144,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the STM32H7RS pin controller compatible. The H7RS family exposes
-GPIO banks M through P, so extend the bank names and EXTI I/O port
-selector range accordingly.
+Enable STM32H7R7 in the STM32 machine selection and compatible table.
+Add low-level UART4 debug output using the register layout shared by
+the STM32F7 and STM32H7 USART block.
 
 Signed-off-by: Liu Changjie <liucj1228@outlook.com>
 ---
- .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml      | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ arch/arm/Kconfig.debug         | 12 ++++++++++++
+ arch/arm/include/debug/stm32.S |  2 +-
+ arch/arm/mach-stm32/Kconfig    |  8 ++++++++
+ arch/arm/mach-stm32/board-dt.c |  1 +
+ 4 files changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-index 76d956b4a..6e74485b1 100644
---- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-@@ -24,6 +24,7 @@ properties:
-       - st,stm32f746-pinctrl
-       - st,stm32f769-pinctrl
-       - st,stm32h743-pinctrl
-+      - st,stm32h7rs-pinctrl
-       - st,stm32mp135-pinctrl
-       - st,stm32mp157-pinctrl
-       - st,stm32mp157-z-pinctrl
-@@ -115,6 +116,10 @@ patternProperties:
-           - GPIOI
-           - GPIOJ
-           - GPIOK
-+          - GPIOM
-+          - GPION
-+          - GPIOO
-+          - GPIOP
-           - GPIOZ
+diff --git a/arch/arm/Kconfig.debug b/arch/arm/Kconfig.debug
+index 366f162e1..e76750d9e 100644
+--- a/arch/arm/Kconfig.debug
++++ b/arch/arm/Kconfig.debug
+@@ -1202,6 +1202,17 @@ choice
  
-       st,bank-ioport:
-@@ -123,7 +128,7 @@ patternProperties:
-           to select GPIOs as interrupts).
-         $ref: /schemas/types.yaml#/definitions/uint32
-         minimum: 0
--        maximum: 11
-+        maximum: 15
+ 		  If unsure, say N.
  
-     patternProperties:
-       "^(.+-hog(-[0-9]+)?)$":
++	config STM32H7RS_DEBUG_UART
++		bool "Use STM32H7RS UART for low-level debug"
++		depends on MACH_STM32H7R7
++		select DEBUG_STM32_UART
++		help
++		  Say Y here if you want kernel low-level debugging support on
++		  STM32H7RS platforms. The ART-Pi2 debug console is UART4 at
++		  physical address 0x40004c00.
++
++		  If unsure, say N.
++
+ 	config STM32MP1_DEBUG_UART
+ 		bool "Use STM32MP1 UART for low-level debug"
+ 		depends on MACH_STM32MP157
+@@ -1582,6 +1593,7 @@ config DEBUG_UART_PHYS
+ 	default 0x20201000 if DEBUG_BCM2835
+ 	default 0x3e000000 if DEBUG_BCM_KONA_UART
+ 	default 0x3f201000 if DEBUG_BCM2836
++	default 0x40004c00 if STM32H7RS_DEBUG_UART
+ 	default 0x40010000 if STM32MP1_DEBUG_UART
+ 	default 0x40011000 if STM32F4_DEBUG_UART || STM32F7_DEBUG_UART || \
+ 				STM32H7_DEBUG_UART
+diff --git a/arch/arm/include/debug/stm32.S b/arch/arm/include/debug/stm32.S
+index b6d9df30e..2a8c25ede 100644
+--- a/arch/arm/include/debug/stm32.S
++++ b/arch/arm/include/debug/stm32.S
+@@ -10,7 +10,7 @@
+ #endif
+ 
+ #if defined(CONFIG_STM32F7_DEBUG_UART) || defined(CONFIG_STM32H7_DEBUG_UART) || \
+-	defined(CONFIG_STM32MP1_DEBUG_UART)
++	defined(CONFIG_STM32H7RS_DEBUG_UART) || defined(CONFIG_STM32MP1_DEBUG_UART)
+ #define STM32_USART_SR_OFF		0x1C
+ #define STM32_USART_TDR_OFF		0x28
+ #endif
+diff --git a/arch/arm/mach-stm32/Kconfig b/arch/arm/mach-stm32/Kconfig
+index 630b992f3..ebf9fb637 100644
+--- a/arch/arm/mach-stm32/Kconfig
++++ b/arch/arm/mach-stm32/Kconfig
+@@ -40,6 +40,14 @@ config MACH_STM32H743
+ 	bool "STMicroelectronics STM32H743"
+ 	default y
+ 
++config MACH_STM32H7R7
++	bool "STMicroelectronics STM32H7R7"
++	default y
++	help
++	  Support for STMicroelectronics STM32H7R7 Cortex-M7
++	  microcontrollers. This enables support for boards based on the
++	  STM32H7R7 SoC, such as the RT-Thread ART-Pi2.
++
+ endif # ARMv7-M
+ 
+ if ARCH_MULTI_V7
+diff --git a/arch/arm/mach-stm32/board-dt.c b/arch/arm/mach-stm32/board-dt.c
+index e6233c872..d1207b84a 100644
+--- a/arch/arm/mach-stm32/board-dt.c
++++ b/arch/arm/mach-stm32/board-dt.c
+@@ -19,6 +19,7 @@ static const char *const stm32_compat[] __initconst = {
+ 	"st,stm32h743",
+ 	"st,stm32h747",
+ 	"st,stm32h750",
++	"st,stm32h7r7",
+ 	"st,stm32mp131",
+ 	"st,stm32mp133",
+ 	"st,stm32mp135",
 -- 
 2.55.0
 
