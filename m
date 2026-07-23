@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A90D8C44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5F1C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WrPrN9cV2PmibleLWI7XuTVzlsJZ0VJtDkclEP6rqXQ=; b=r8s4BlbQa72KDoQWUMRxGh1N4O
-	y6mnbKrCkdl4ZS9+T7Iz7JpLkVy6cDEl5NM7JzSYNLEa/SxRDg2QGKP1ef/1/i2k9mG689cMjOHK3
-	E6PmB+V1ED6qdr5IgS9qN0arM9BTIEZPNqCvo0N3SMuoSkqbjZ0qg0tnwZ9OkijARz0p+fkEgNRRq
-	JowhPeHdzjbtfagveyp2yqbElnLTisAGqAuvxeaYjqsoTy1TBBODhK+Q+DAz6vj/+adSwqN/pujJz
-	6aHnJJaC2AqEBKxuaXugX/qCh8/Rzzhv2OUHocaRsPtCz5a+HB1iRdiScXUxb85nCHAVAGoFytTYT
-	FJgFPKQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b6DqJBZMRrtqgXe1EMHqbmVcaqG/4/r6dtGHJCM8y1k=; b=vP/iciPtJuqZ3WpKcUEj6NtT6j
+	qW1W89f+99TnpkaT08tr0QWTNGxkRuVZVZOf72H7F6MggENUMMMuPgIx3TK4yZnl2gHlsLiEl4Do9
+	PkAQidbYLv79sE2F4L9JMBNvxF7WhaovcMPJbCuECjfzy6EQjdD+jVAhHO6Iw3VArbzRbqNHQdEYc
+	ViiM8Ej6uwhLwDS8tNZN1mrdtx0mSS0fYFddr+1Bq2GUcmoyzYc2kQeM0L/33A4HC/fsmKqsDzyE4
+	5rtOxZP5OMGGVZVC9eq1tSUmmqKb0CMDCh8blhQgRrjWxPdhIevqweFBVuOlMGK6ZCjJo5s2Wo6a0
+	eCULsaCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmoHk-0000000DgNP-2LS2;
-	Thu, 23 Jul 2026 07:56:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmoIN-0000000DgSa-0E71;
+	Thu, 23 Jul 2026 07:56:43 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmoHj-0000000DgNH-23CQ
+	id 1wmoIJ-0000000DgRH-2Fv0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 07:56:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D700E41706;
-	Thu, 23 Jul 2026 07:56:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 784001F000E9;
-	Thu, 23 Jul 2026 07:55:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784793362;
-	bh=WrPrN9cV2PmibleLWI7XuTVzlsJZ0VJtDkclEP6rqXQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=lEqG26STPwmO5CnbjQJ8E9MYTEoMF6Q0RlYzHX4Nl7lhQbyIPIujiRUHYQjir+d/r
-	 B1mUvrIxbGAUNBfgR6NfnqRt4926ESZt3Qv/4JTDflifujpN+scI9OwAjAny/fumqq
-	 j4EEZ/LU+loG0nI4gTL97ef1bUmhzwM5iK6p16Uj/Nf+/MIXuEIVh1TJSf02475CsX
-	 IiKhOaANjC7IAD35rAXrpftJ6WMj661dSOdnuvU9fMhnFw8I+jsx76AZuguSSb/jjo
-	 nrXiLZs8d9TUWYRfr5Vdy1XoEL/lxAM4RS4nzIwNdYLgMkE7uNtEuR8/Ekab8knrKy
-	 7jSLQNu+2Z2xA==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v8 0/6] Switch Arm SMCCC firmware services to an SMCCC bus
-In-Reply-To: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
-References: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
-Date: Thu, 23 Jul 2026 13:25:52 +0530
-Message-ID: <yq5aik666sxj.fsf@kernel.org>
+	Thu, 23 Jul 2026 07:56:41 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-475417f010dso206544f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 00:56:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784793396; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ohvfv4/KqL5E1TOvf3MCVx3vAwwfx3cPDCVwnDA6L5Y5iTNYLaHzbdiRsnXN6JrHS1
+         PefnNJvFtySdH886ZYqf7sRQ9HveHt7hbB4MLHhVPevc90GMTqYGtrrPvJOxn4WpN2F8
+         ImADwTZxj1uWHTr4ELh8L6Ads1tPR95EmIefSo5N3EkB22m2dRNKrladPDxzGgC5hCib
+         Q9fKjlOyvYPc3nYCdtmTzBUyWadaDeOhiArIlrZLEb9NYvleBlk90/C6nis6OdgzT+VG
+         R+hutAT+EBWc60u0Z8iSaiK74uL5BYtmQaQQwwXoW700zVRXaHecKLRBt1Absn9KP3F0
+         L13g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=b6DqJBZMRrtqgXe1EMHqbmVcaqG/4/r6dtGHJCM8y1k=;
+        fh=gapJs0Bt+h0n6NS80D2PdHOxDPT44q+ZP+BbWCn1Byo=;
+        b=d6I4Ydyr/x9BJnpPjsPBfXJ2tPtmNko4FS3MWNAihVl8LP2l3QIQ8p0gvHF5mElt2g
+         hrVkq2VRG/tYYE3MkYCzYCy+mu0KxqFlGt0eNCd4/jfblCXScH1monOWbgQP5Mf9gcZ4
+         5/7L1II0x8B/GRXGslh9TKpynNwXHa18Ezz762cXRSxvPmVH1na0VPC8B4Z5IlMbqt9H
+         GFgJG4vMGBf1IseymvcnbP2+sZ45qlLXjugLSxWIgOfvMy5zHDr4H/0P4mZhBdNPpfUq
+         3riJj9uRjlqoXqw7Hld1kGs3l+CvzDCOK5TwEeXHW0QdEqOhwUhAWvBPz9gmt45o9Wbd
+         7G0g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1784793396; x=1785398196; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=b6DqJBZMRrtqgXe1EMHqbmVcaqG/4/r6dtGHJCM8y1k=;
+        b=efXxsn37IsSLoS8GNKUglau5QJagahLPbyh98D65Q0nw8TVR6KrTYRDiqe/x4p/e0/
+         AmjnZRzaRd1NFg/AgZ5ZGsfNfzHsinVXkPOK0nON1eIe5nSjKqDaysAS9o2bp8oN+p4d
+         0ZR9p+e9N/R97Eu756dYxeWkN6HIFwLAWz7k/cOepa1u6z8qS1TT42p0hhOYVRjlHmb5
+         fGX2Xd3apjjJWp6yFLqBoq8vKt1Oul/dwRX3WaH8Z69zWGYSdwLalTt3t/6trJ9U2171
+         R4ejR84DrMEmLPqWvZMkgjmoArOxcoGaoR3B5BEt72L8cEHRHFQSp7NQGi69J4gTUMZF
+         1egw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784793396; x=1785398196;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=b6DqJBZMRrtqgXe1EMHqbmVcaqG/4/r6dtGHJCM8y1k=;
+        b=ajeT3a4Ls5KoAtpICObvZWf891FHQJGyt3K0ev1Dx7xrasm+nR3DXkXlpQhP/7KxP4
+         jytGdzLkJkxP+fZ6kHP1JwOVz0HLrIIBvsJBBOceQ2u3GIrQjeuN9lxTUeZYssj5EFHg
+         4Gq3srIE6EaVHp+2FBVaCu0Ns6qHVT82U1J0HL5xeSLuG5rUk2N+iHJwwGXE1zwDOo26
+         NDTBPO0JQav0/SUbPTWO3yKnT2zhY+7aaIg5uSW+ATzgQxSJwzza1xQvp8bZMAbF+RuJ
+         Lbk4T7e+4+msErUHkhCXxP6AU/m5Hwc9Y8iY/RjBhapZkSHM1sOeGN0ScjVJPtc8h8xR
+         90PQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq7NgXJW5UVJtoOsqhifhTxYEE4Q0AyLHsJfKSVOSIJaZqNYbo8eUMxBIrExbKeGPjG894trXhG2O4FgFXGGB5E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6CDZmEUgVEndczjjULdlQ2iaXfect1mCWP9vUHDYXtQG1alD4
+	EckN931pK56ZwZxYvJShcfpR0AUvHsk4KdU8dFtl+xQWiC2js8nOrCxmfdEmr3dY3xS8f8POdCr
+	jdaP62jlyqJOkOHr0P/BE/NvmAnr5pHHU/sA6P97LTw==
+X-Gm-Gg: AR+sD10//FQqvlYcc2jSVsMKNryEX73gzD57gl2GMHas9Ud+b7SNJRvTPxbmwztutoZ
+	mW6DKC7jq+m+R3SPrSwkLKEn6f4BUMhSLVZtUkYMdGQrzPly8cvVQp5sfLhbH8ONK5W9DyS7GrW
+	gBT2bYR8RKs9XiBIVFzYfgjAvKWbPHcUgzLwy1OGO1IBN5cvOKhoCbttu2zZMAouoUgvhN7Z/0A
+	P7o5jJm6Ob0Gy6JlYGJkRE1AqBXmYBtTFbjVeAWy+kz6GkODDNlMVsDmjcogwDZKwbMNwviG0cp
+	PTm0J74vG4EvvT+M8ZrgqAlaKJQe2qt06K6Kt9PAg4jcqAw=
+X-Received: by 2002:a05:6000:4717:b0:47f:9254:d45c with SMTP id
+ ffacd0b85a97d-47f9254d53dmr642099f8f.31.1784793396668; Thu, 23 Jul 2026
+ 00:56:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <cover.1784732161.git.gregoire.layet@9elements.com>
+ <0b97a66762efc05c9073c14112cc489624871947.1784732161.git.gregoire.layet@9elements.com>
+ <afa321db51d5e6cc8e0c15badc7204faa0925251.camel@codeconstruct.com.au>
+In-Reply-To: <afa321db51d5e6cc8e0c15badc7204faa0925251.camel@codeconstruct.com.au>
+From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Date: Thu, 23 Jul 2026 09:56:24 +0200
+X-Gm-Features: AUfX_mxaanYxpNJpBfBXDiyLmy6JFC6syJV6bIP4iGx_AuR3yr8T2VahIy9zQKo
+Message-ID: <CAFi2wKbNCVqZzApbG_xcDzyrN6yt_Wc01PVVqtPROcjVnp8hRg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed-g6: add pcie-kcs4
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: joel@jms.id.au, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	corey@minyard.net, devicetree@vger.kernel.org, 
+	openipmi-developer@lists.sourceforge.net, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_005639_984508_D7463063 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
-
-> As discussed here:
-> https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
+> >  arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 7 +++++++
+> >  1 file changed, 7 insertions(+)
+> >
+> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dt=
+s/aspeed/aspeed-g6.dtsi
+> > index 56bb3b0444f7..a93fa4cf5d8f 100644
+> > --- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+> > +++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+> > @@ -617,6 +617,13 @@ kcs4: kcs@114 {
+> >                                       status =3D "disabled";
+> >                               };
+> >
+> > +                             pcie_kcs4: kcs@914 {
 >
-> The earlier CCA guest support used an arm-cca-dev platform device as a pure
-> software anchor for the TSM class device. That platform device did not
-> correspond to a DT/ACPI described device, MMIO range, interrupt, or other
-> platform resource; it existed only to make the CCA guest driver bind and to
-> place the resulting TSM device in the driver model. The same pattern also
-> exists for smccc_trng. Creating separate platform devices for such
-> SMCCC-discovered features is misleading, because those features are not
-> independent platform devices.
->
-> This series adds an Arm SMCCC bus for services discovered through the SMCCC
-> firmware interface. The bus provides SMCCC device and driver registration
-> helpers, name-based matching, uevent modalias generation, and a sysfs modalias
-> attribute. SMCCC service drivers can use MODULE_DEVICE_TABLE(arm_smccc, ...)
-> to emit arm_smccc:<name> aliases, allowing userspace to autoload service
-> drivers when the SMCCC core registers matching firmware-service devices.
->
-> The series then moves SMCCC TRNG and the Arm CCA guest RSI service off the
-> platform bus. When the SMCCC core discovers the corresponding firmware
-> service, it registers an arm-smccc device for that service. The hwrng
-> arm_smccc_trng driver and the Arm CCA guest TSM provider are converted to
-> SMCCC drivers that bind to those discovered devices.
->
-> The old arm-cca-dev platform device has also been used by userspace as a Realm
-> guest indicator. Removing it without a replacement would leave userspace
-> depending on an internal driver-binding device. This series therefore adds
-> /sys/firmware/cca/realm_guest as a stable, architecture-provided ABI for
-> detecting whether the kernel is running as an Arm CCA Realm guest, and then
-> removes the dummy arm-cca-dev platform-device registration.
->
+> Nodes need to be ordered by ascending address:
 
+The existing kcs4 node is already not in ascending order of address.
 
-Hi Will and Catalin,
+'kcs4: kcs@114' is before 'lpc_ctrl: lpc-ctrl@80'
 
-Gentle ping. Can this be picked up for the next merge window?
+pcie_kcs4 has been placed here to have ascending addresses locally on
+the kcs nodes and still
+having all the kcs nodes next to each other. This matches the kcs4
+node ordering.
 
--aneesh
+If ascending address is still preferred, I'll change pcie_kcs4 order of cou=
+rse.
+
+Regards,
+Gr=C3=A9goire
 
