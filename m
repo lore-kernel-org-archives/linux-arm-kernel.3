@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109F7C531CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F378C44524
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2DrCCgjjRhvhXwPOzjA88mH14we2i+73DIlEmfsWFVA=; b=Te4h0rf985Hu23AHWuu2KQX0DA
-	Ruva8xPS/ECBiQ3B4BYGEnFxWvhHMDaynR2B7gp/SbfrcYXMwB1+S1G+QonNNNDd2Zhf9hyBNP1Ks
-	N9i94GmDMc467jF4RQlao+TpKbKl7i4cSlikDpyd0rpbeabYEn5w48ZMLlgD9/InWdvOMSjwa9Fwo
-	0M21X7EVIt/IsL1Ulm8TOTe7AFzTKxNSUyD9tlj0mvhlaGcPRFl9desK5DlyE1mJ8U+giO9cQMTv7
-	UkPbrcPWzo0DXbGI5XtyDfyzbLD/cwBOFLj+h3aX/CSrVAfB13Idn5lsP/0p/2YA3TBmiiIeAoMyy
-	vd0ypvcg==;
+	bh=7+cCcM6CiilxYn20d+2/sNJaaaPBtgLi+l7OMsmE4UA=; b=l+o19IyRSKMiGmcxuCbUQNi5Fx
+	jN8YzMNBhz8jQjQ2WTkjKAOhcHxu0ep1viexB166a8Sg0Jr9/1/A/Xw9jwejVNQOJxmbb8bhYXlMj
+	nXWzaE5knlJYGAvxX5iIkP3CgH/RdisaWU6GWOlnMoNLjRGAurG2ohW5Fl5OzLdDKfXpTFwj2vKJz
+	FEOOflo8akIMjraEL81a5cVk7hKrJWMYWdsEojkqgtwi4YoXP6hHAiBC+qkaeF2JQpl/bwxcXE4+M
+	cYbtrkM/ledT5lFIKZnd/db4ZfsVNOug3gjwahtZGxrhc2DcX5pthnfFIGl4vs0Zwxzr5pClc6gZS
+	aiucunxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmlau-0000000DRaQ-1UR1;
-	Thu, 23 Jul 2026 05:03:40 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1wmlbL-0000000DRdq-1zl3;
+	Thu, 23 Jul 2026 05:04:07 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmlas-0000000DRZt-1rvD
+	id 1wmlbJ-0000000DRdL-2z2K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 05:03:39 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-384930ca5e2so224286a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 22:03:38 -0700 (PDT)
+	Thu, 23 Jul 2026 05:04:06 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2cea3004256so2966235ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 22:04:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784783017; x=1785387817; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784783045; x=1785387845; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2DrCCgjjRhvhXwPOzjA88mH14we2i+73DIlEmfsWFVA=;
-        b=khoday+8CdExYhDnUqOWRvKZkOSKth8Qnk9KPJGwgXf3Ob7lkeBVV4KBFDCKae1O7I
-         k7MEcs/g1zb15JZucnqQC7t/IepOgCjT1XRTPK5dPPV4jtHa5n5pXH2ebF4izor5hFxt
-         IIjhfs2OpFWppZxkOtjpJ+SsVG9vFgcl0ea7p7bmsPVXgD/54QmK+mSGpWY4S+dOh2n2
-         4MklmHI5qaEwuacNkt0np3yfyS7KbZagbfaIOmh16Vql4KuCSdbezfy8uhbw0741aheO
-         12KACcDHAbsAG8PMzDEUnHQXlHdaJxOzvl86YjTRqLnGCEL5O1VGcIY4/5KzKBI/ObeC
-         p4+Q==
+        bh=7+cCcM6CiilxYn20d+2/sNJaaaPBtgLi+l7OMsmE4UA=;
+        b=c883sjB2n7e35/z3WsJJrwZaBb36zNkLwNeHx1DSPd5ZwTFF+xh79SytmwWA+EkWGv
+         dssTVWfYdFkzQ1Czr5W1qfwJhkpnCWDQCNTFz4CBJXOxPbIw6UiL94EZT9n+w4rh8Nsw
+         Qgpa0EDa1SL8hi1bPf4ArZ5eZxkjFHyKCJJI1q+Jb3LyFzu7dsHlpeX8dfEHuFY8x+dX
+         dg8ou8njRRpchul+TIAG2FKSy/Byp5zRNGrhJXFnmCbcZv3lFrg7Vi5/WshE0KbyB875
+         TRppqzU3dm+PULKZsZma6/KztM/cqdG4sfoxlFMPwYrrT0tGieeySJnk67iOmGlC+hvT
+         1eng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784783017; x=1785387817;
+        d=1e100.net; s=20251104; t=1784783045; x=1785387845;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2DrCCgjjRhvhXwPOzjA88mH14we2i+73DIlEmfsWFVA=;
-        b=kolLZxEBWNG44hKNMLb5psfA5h4hNaUqVRGKDpT953G6bCsVgAMW9d/Xw31mYciES1
-         /L23ABCc4o3XmdEYbBAiTAY59Emx8hYchg4seqRgeKtk13p3m+hxnTiFMfvv2+zGrDKr
-         SnHgfl5K+3TNuioR2gbzz2yWli9+Zarh7NRwIKxqk/O/tevJxwSZ4Mfwb/ftzjMBBvjw
-         RsmSez0aWOq0iTBrRs/s6jdYRzL2FoTyzghICdJsaMJOpQZZxm9kfYSX4csb55buUf6Q
-         h2JTDk3Z1L93I83wWe4m7Jd8gUogHcwF+asurIICw3l1ZFvLXDQkKWTcN56xKSuNt7VO
-         welQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rpq5sHZjmMNofcjQ8vW9sXSAL1/qzE562c8WZq2RaSN2chmlk53xVJ15qHGzfNWnnzwu/Yn0ND0OolUdGMA/Air@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGjaSIVwpIotW7P3SoHO3Rr8MQuiWx3l5GLiR39Q2f3MV747sQ
-	qLtw0JG8Ns/oP1YKi7VvPJKm7SxE8uC+dSuLFlysMTT8ZW7OurlHUjwa
-X-Gm-Gg: AR+sD11wID7ewxpQrP2TIkrbHvqxK/AKTKMQ/3K741XajXrTL/b00WguxGdEXsSBcub
-	qLsfeemSqLhuXwcbI4auz4acgh3wv9yyVcYrvZTz+pSZZxBmpMjBIZ9hCrfTXi7yzCJjjWdvU7y
-	EFSN0NUJadQVY3smZcUstYG6Y5XKTp/YV8B/jiAUFZkBacKgwB+Gpm0KDlpYhg1tP3xM32yfa0U
-	YS07lsjaksoTCVM9gOF73yUGp9OKneK10/m0twRVu8wvV3EbjOaPAuqpErg19EN5ueWK3MVRh1m
-	6T65svHczLQv02BzpIOnwvYGRfZgHdXyjGGo3/joYdbAFz61xx2Ko471v9bsoj/Bl5FYD7eibzY
-	JchCdW/VYPYG0fJCSz8iP7KtNgZNbzekgbgD288ffLEiK8aEfd9D+11PiQqgDqqMBU9aTYc0iZw
-	sWKQO1bo228vBSXfcntdtRSh8fdNgvn68cutXEsbcwfCdSSWQ/2byiIH/doSL9UQJj2bKceLeno
-	Eq/FAwV28FLjiOojickWEyB6CJKhMiIXHcJqp/Tw2M59BA8qGNrlPY=
-X-Received: by 2002:a17:90b:48c9:b0:381:85c0:1d9d with SMTP id 98e67ed59e1d1-38ec660080amr1742228a91.27.1784783017427;
-        Wed, 22 Jul 2026 22:03:37 -0700 (PDT)
+        bh=7+cCcM6CiilxYn20d+2/sNJaaaPBtgLi+l7OMsmE4UA=;
+        b=g+Rd0pH1nYKUC108fSy5u3ZaCgbKrbCBPaw/WUZdCt96xAYmAwEW195T6XNP0CusUr
+         4Jsr8cg5f8njGzC3OvSAcOoIdUqExjHn5GwuV7iQsDjWVP9cSAoL3bQxTCQF52wNz2aV
+         m9bwpiO9I2ya0sqwAxO81eT2hLi+c0PafB9OOxO/7955+jM0g4TGlpXU7AXexiAB0PII
+         YD+MElUig7I4mz8v3Swx4Q7KMc2sDyHQgfPEoeHvdoyOjyr5pVZ7XbYy6oQQmbQQZXHg
+         4YUteJgx1JuNqiSalBvr0+UwZmoE9bovtlCjdJwBMKC5H/hIZRbOZ1/WqDUoW0waYGls
+         xKqg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro1Vs09uJfusfMae/cqH7HyAiG9zi/sV+auEwg/6rBSkuKp3a9Qw/EMYiulZfuaI5Y5ABLC3nWYLAYDCn2jFq2c@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWznG/phhBPk5DRPTzndYt2ApJgJgPPCBxS4kbUYrkYUwXIpCQ
+	Eazvg9GwOtQkf3ldQY3ickUpTvamo7e8ctbM1rwYaHk5KAEL6tlIoFNS
+X-Gm-Gg: AR+sD13GFsKzwXOJdTVOMxNWLz/usPqeEOnPhfV5oupGS80t3/BEV/X4wIzPK40pQdr
+	eZ74ubwyKjCQJHfYY9b/BCkC/I2UfGVZWGPayUkCxT2mkNDbI2XEJOpfr6sj/IBvX0TdCLCJ42z
+	b+YGZVfOABV6m9+SUqYMfL81xfCwhpCTny1H74y5X1lZlZtZb6u6+fpFsAnAmX67/jHYas74J/1
+	i0cFmotpSief7eJTdh6p0o3oJe4Cl3ZyyCHokQL6ftMgmgyEv6zwJ61SgRNrHC1X7I3cKu7xySK
+	5NOmPuUWg1lWA16V6PW81641INlsM1HByCB6D//u5utp3cH25eg2WGjVEH1WJsLMh6TYAVQdJ1N
+	0t55gnpYHLN2WUw+bEZQhHQ53pGT7gtoxtJKLTLzSsx9wHvc6CfHkxkuX03dlzpP19nz76fE3As
+	N/gGYauSswnSSmaUKvZ2w5Jy74fGb7j0ujact0kL4Te8AnJoBs/RwxvrTDuH6+6TYvPyjP9jNXU
+	d1DL93G+vZh5mTS8KKoTUGupEtG79+A04xy8pqVr3UPPdZSRXeQ+PQ=
+X-Received: by 2002:a17:902:ea06:b0:2cc:85a7:36ee with SMTP id d9443c01a7336-2cfa6c71839mr19269585ad.32.1784783044719;
+        Wed, 22 Jul 2026 22:04:04 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38ecab4c518sm291676a91.3.2026.07.22.22.03.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8f3b46absm25394675ad.80.2026.07.22.22.04.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 22:03:36 -0700 (PDT)
+        Wed, 22 Jul 2026 22:04:04 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: dmaengine@vger.kernel.org
 Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
 	Vinod Koul <vkoul@kernel.org>,
 	Frank Li <Frank.Li@kernel.org>,
-	Eugen Hristev <ehristev@kernel.org>,
-	Rosen Penev <rosenp@gmail.com>,
+	Dan Williams <djbw@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:MICROCHIP AT91 DMA DRIVERS),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] dmaengine: at_hdmac: fix sparse '__iomem' cast warning in memset helpers
-Date: Wed, 22 Jul 2026 22:03:34 -0700
-Message-ID: <20260723050335.270146-1-rosenp@gmail.com>
+Subject: [PATCH] dmaengine: at_hdmac: fix memory leak in atc_prep_slave_sg
+Date: Wed, 22 Jul 2026 22:04:02 -0700
+Message-ID: <20260723050402.272606-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_220338_490172_F8A1E084 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20260722_220405_755256_EA486A9E 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,74 +102,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both atc_prep_dma_memset() and atc_prep_dma_memset_sg() declare vaddr
-as 'void __iomem *' but assign the return of dma_pool_alloc(), which
-returns 'void *' (not iomem memory). This causes sparse to warn about
-a cast removing the __iomem address space at the dereference site.
+The default case in the direction switch returns NULL without freeing
+the descriptor allocated earlier via kzalloc_flex(). Add the missing
+kfree(desc) before returning.
 
-The struct field memset_vaddr is also typed as 'int *', which is
-neither the type returned by dma_pool_alloc() nor the type used for
-the actual writes.
-
-Fix by declaring vaddr as 'u32 *' in both functions and changing
-memset_vaddr in struct at_desc from 'int *' to 'u32 *'. This matches
-the actual usage and eliminates the need for the (u32 *) cast.
-
-Fixes: 5d8c5bea0da9 ("dmaengine: at_hdmac: add COMPILE_TEST support")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202607231110.8MqNRj0Q-lkp@intel.com/
+Fixes: 808347f6a317 ("dmaengine: at_hdmac: add DMA slave transfers")
 Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/dma/at_hdmac.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ drivers/dma/at_hdmac.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-index e5b30a57c477..f9c336630fa2 100644
+index f9c336630fa2..c06f70dbc4c5 100644
 --- a/drivers/dma/at_hdmac.c
 +++ b/drivers/dma/at_hdmac.c
-@@ -244,7 +244,7 @@ struct at_desc {
- 	/* Memset temporary buffer */
- 	bool				memset_buffer;
- 	dma_addr_t			memset_paddr;
--	int				*memset_vaddr;
-+	u32				*memset_vaddr;
- 	struct atdma_sg			sg[] __counted_by(sglen);
- };
+@@ -1381,6 +1381,7 @@ atc_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
+ 		}
+ 		break;
+ 	default:
++		kfree(desc);
+ 		return NULL;
+ 	}
  
-@@ -1097,7 +1097,7 @@ atc_prep_dma_memset(struct dma_chan *chan, dma_addr_t dest, int value,
- 	struct at_dma_chan	*atchan = to_at_dma_chan(chan);
- 	struct at_dma		*atdma = to_at_dma(chan->device);
- 	struct at_desc		*desc;
--	void __iomem		*vaddr;
-+	u32			*vaddr;
- 	dma_addr_t		paddr;
- 	char			fill_pattern;
- 	int			ret;
-@@ -1126,10 +1126,10 @@ atc_prep_dma_memset(struct dma_chan *chan, dma_addr_t dest, int value,
- 	/* Only the first byte of value is to be used according to dmaengine */
- 	fill_pattern = (char)value;
- 
--	*(u32*)vaddr = (fill_pattern << 24) |
--		       (fill_pattern << 16) |
--		       (fill_pattern << 8) |
--		       fill_pattern;
-+	*vaddr = (fill_pattern << 24) |
-+		 (fill_pattern << 16) |
-+		 (fill_pattern << 8) |
-+		  fill_pattern;
- 
- 	desc = kzalloc_flex(*desc, sg, 1, GFP_ATOMIC);
- 	if (!desc)
-@@ -1168,7 +1168,7 @@ atc_prep_dma_memset_sg(struct dma_chan *chan,
- 	struct at_dma		*atdma = to_at_dma(chan->device);
- 	struct at_desc		*desc;
- 	struct scatterlist	*sg;
--	void __iomem		*vaddr;
-+	u32			*vaddr;
- 	dma_addr_t		paddr;
- 	size_t			total_len = 0;
- 	int			i;
 -- 
 2.55.0
 
