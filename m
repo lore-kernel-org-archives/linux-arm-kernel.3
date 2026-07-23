@@ -4,140 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB99C531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB60C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P6+vnyR5eXlKJkZ7Bh5V3t9UMJkUM5dQwItaDud5ea8=; b=txbYa9YrDYvpuVIDjQDwE8Od92
-	OuxreEI056FxwoanvY9aqASv3fJj5Fe+VTNoig+5CjoL/O+TLHdnbL1P5MFiM5ISJENIwkyKSSN65
-	NN16LxMwS6QoZYx/8r0+KX70pK/vcxz/r1G51ZTW5Q+5PBXbrOsUH5BHBBsTmiI/FHawAynXaSgpS
-	BS6wRo9ItAarJm7UPLcTXXuZIbQlTH7/o0CPFYk6v2zs9Zw9t12TbH9fAcoBFTjWvlEhsL5Alb/MG
-	r3fLjvjQYlUaDcNEZYMmVxVHhuCEFpYv1uCCumn7b95MMIDbvibQjh4HpeaaUsSyRNmLkNVpG0Amd
-	yUu/g7MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fTOcu42UHW/tzjChPP5Y5xWXBE76kyS+Nt5sireQSms=; b=xZo09XwBzV0D8COQNc+KwNmqg3
+	fDpNMvXUp2DKp8+jplX1W5rCmagEQMjkbxqer4BzXr1fjcsPy48dQ0O+IV5/RUzQ0uLREnbqT3+3o
+	U43tMlrX6A3vSMoiLsRTDfw7DrYLiPwiBueOLKLt4+MVwd2q3gwELq77DVazoxWRIRJAbpzkEexKp
+	3EQ2tYXphMpM3ActXkZyTKbllCIa8PjHm8bBi7rznIFTPfQuTMU6Dyz1DjdQs/Il5nTxb7WOGrNxm
+	Ew8ZfXTNwRQU5ID/NC0SI8h7zcB+38c8SqviFbJFh5OI4lecJ2EyvBCN1sOGqW5c/InBmLYBoIq5r
+	zAJQ+abQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmss2-0000000EGoG-0rP0;
-	Thu, 23 Jul 2026 12:49:50 +0000
-Received: from mail-northeuropeazon11021099.outbound.protection.outlook.com ([52.101.65.99] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wmssi-0000000EGso-1R9u;
+	Thu, 23 Jul 2026 12:50:32 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsrz-0000000EGnU-13am
+	id 1wmssg-0000000EGsG-0Uza
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 12:49:49 +0000
+	Thu, 23 Jul 2026 12:50:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IQDx0K/W2UjM19cjBVJ625EpOM5SHAb0a1TNTWvaNwSaSR5656fVjvkcqif4ejobMVqFQEh+NcK9uQz81xK3ILKf7TO30GkMWvR2iQKPJPRiYeMMZNQp+lkWhrvBDUtLe8BWc0FnOO2gMApNsY77K4xtZHQ4EjiFQULNcs/XTW4i6QOWuTJ8AKoLc0EoeuCVu1c6n/SiAB1R9W0A1MbCxirdGmnOwnjKVSP7mwc3KBEYX+mSDFdPXQiuTHBFafM/kKC+kG+bgarxa/YIS+4hUB3sd6RMyi+wfp3pFsXJ+CF2wQld8j6fMpT7U1WSTSNB++nJq6em7qjwMC6k0JHLHw==
+ b=ZFi6lyWng8Qjr+CxlPj2txipZE+4F/uOqiuZ6RWoY/aKDj5zsdatz4lg80+6LPt6Malm7QLLU9SP9llqqLJLuIqVefarB/Chun90sIooOAlK3iyFXid+wcDMOx8kQIiRw7qdDTfZWVe5KbUCI69FcrCGDIbT+pf2K3rf0C82QJUsvBBLt1yGg+oJoVSlrPJntAPyf1HGz57Qv0aD4yJIdfqa3DHIavACFDr6hRQS7WhIilMqGf42fzdQXb/H8FJ4jWX+i/z0OUKT+usImbxYyDr69NGNzF9fWXh508C8bzgYCMfNKCaq0KNtwG+jvMrxF/FjAtGqsNBEH3oyF5x12g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P6+vnyR5eXlKJkZ7Bh5V3t9UMJkUM5dQwItaDud5ea8=;
- b=fgpPJG+l75cxKHjFNQgqmjVznyYxTj1Pf7thEkkSlH7E6VpArd7QJZTIb1TvWU/sixvhc35V+CP03e90u0y/ti0wUGo0O50B6rxy431MxfZis/UzbLRPgV6LUIW/TLVvPNrStrHRUA2UoAWSMRiJqtw0/nSp+DgMJBTrf2puG3JGpWztIJOf9M/ZwqIHldzWeZRGBKsLST4K6VIe7NrjVkjhaBmE6baNz/Ee+VQ23F6S6oBY5Sr6nXQI7nlmlx+HstDb/0xWNyA5YwtXejQkZc5dgmVxu8PziynOm9VxwWRLEdWIbARrZ/ZdThSfmJtJjgJ8zqJlrQrStbjDnRF5og==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
+ bh=fTOcu42UHW/tzjChPP5Y5xWXBE76kyS+Nt5sireQSms=;
+ b=qlxWrnAX7T+LVUUf/JPb4lv0oBN/SiyByRgXbL0HbrGUSYBTQOg5lwyyXMieigw2Y+ZlYNaH/kQMqtGSK80cB90FS9wvaNEvCwnGq2b8Q86ce4+mNLBxvRKnvg/+ZP+AjE8sg5D0qsCcCP9CuzF7w/lIkMYnaUOPfgpUhg0liIB4XLMW8UKRfD98ZtP8pyEesQQKW/I34bMI0vHQYTTQx+vpZsgxwHP/XujODhR5iYm9kHrJCeDd3cp2R6zOQaa+ty6hcdGvUT3WKyUvCnAqEUqpUM7UGahDGQ/+7BfG5e39qRkcnx5wtVTBHTAJjpRW6XgT0HGKHgAbslDa70AGEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P6+vnyR5eXlKJkZ7Bh5V3t9UMJkUM5dQwItaDud5ea8=;
- b=PWnUO+KNBfZMQSU8ZY783VCC9JVAMvhI+dT7/vx0xbo4PSwsDvNwlymu5oJ9Mttn4+FaHCcsm9XQd5n+PGOufYXJswqoOKizX5sa6JagBw+z4aG7XshdOe1Ssmcn8lDgr6w4VgEn4rIFdFKv0mBgnB6SelG3oy0KJpDbpef9S5IJtEfU12cemeoenc0Y3Juf0nmOeBRzoOAX8zuqSOvF8/6u6Nb5Ca5ObL0Tw/jkK9EZv9mV2BV7ZO+iAqI2eI+0xq8z88/xVoScKeKEXgYo4cDRBt/4z/jD4xvTcyOsVaERj0LaX+HFZLVTuYsBmDB28fXQA64VJP22swD2yTmopA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by GVXPR10MB8507.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1e2::17) with
+ bh=fTOcu42UHW/tzjChPP5Y5xWXBE76kyS+Nt5sireQSms=;
+ b=mlQON8sKYe5NjpWLZ/v40zgPN9tBZnNk5jjGgKQvHtUfNubsjhM7qYm3z7rjpK0A3ep4oC1tTxHYV+CacJlVOx5aL82pPdkURgpikoVTpjEFkuy2WvLdUNAkQ4CSIS/1C4yI/r4XelnG/AeSkVnWj/Y3y6GzzYNXs6DiW8MFEtQ=
+Received: from BYAPR21CA0010.namprd21.prod.outlook.com (2603:10b6:a03:114::20)
+ by IA0PR12MB7676.namprd12.prod.outlook.com (2603:10b6:208:432::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 12:49:38 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 12:49:37 +0000
-Message-ID: <fd6268c7-18e2-40bf-9d78-5f3a45ba319d@kontron.de>
-Date: Thu, 23 Jul 2026 14:49:35 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] pmdomain: imx8mp-blk-ctrl: keep gpc power domain
- on if blk-ctrl pd is on during system pm
-To: Xu Yang <xu.yang_2@nxp.com>, ulf.hansson@linaro.org, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- peng.fan@nxp.com, jun.li@nxp.com, rafael.j.wysocki@intel.com,
- a.fatoum@pengutronix.de, ping.bai@nxp.com, shawnguo@kernel.org,
- l.stach@pengutronix.de
-Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260204111142.2147646-1-xu.yang_2@nxp.com>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20260204111142.2147646-1-xu.yang_2@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR0P281CA0225.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ac::13) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
+ 2026 12:50:16 +0000
+Received: from SJ1PEPF000023CD.namprd02.prod.outlook.com
+ (2603:10b6:a03:114:cafe::1) by BYAPR21CA0010.outlook.office365.com
+ (2603:10b6:a03:114::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5 via Frontend Transport; Thu, 23
+ Jul 2026 12:50:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF000023CD.mail.protection.outlook.com (10.167.244.8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 12:50:15 +0000
+Received: from xsjarunbala50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 23 Jul
+ 2026 07:50:12 -0500
+From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+To: <michal.simek@amd.com>, <git@amd.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+Subject: [PATCH 0/4] firmware: xilinx: Clean up firmware and TF-A state on kexec
+Date: Thu, 23 Jul 2026 05:48:37 -0700
+Message-ID: <20260723124841.2567827-1-jay.buddhabhatti@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|GVXPR10MB8507:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0884bedc-5863-4e86-4fb1-08dee8b8da67
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CD:EE_|IA0PR12MB7676:EE_
+X-MS-Office365-Filtering-Correlation-Id: 387b5b54-37af-4c09-e183-08dee8b8f14d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|921020|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: w7Ciw1vzH4/Ftf5Z+70mPxg9HmuSfb1oxnssygcHE4xsu4UkmGvG7KIZ6H/RWaFlP5hXl9U64Cl1jPYB5VBdybSTeFufPRJ9BLVaFzgsLUBGvqI1ECEk68sX2CvzJlktaqeaqQudLlp1SuDgEuAnqbxmJfDeegj2oAF9MztSHDKmszx70JVRwCdlzpfFy7GrMf5GDXSINc700gbjOrpyIdFLoTCcMSXaaiFLHEF7Bv7feqTpFyMLgtepDj1KMgAvCnQSH5lzYHL/WaH2xDYUokWlkjaWYA+x+r3Yqhq7+yIr8aBqeVU/cB64Zz5K7bHvJWq4o7ImJDxx9Gv2UVxG+WDYHRhZOjyUVLTSuvAhz6XuI/nXV+UrC2kykvIYUv1FGSyobbSBQaL5I0R4u9T5WRC5LzHfluq/kBIwRZxdj1iaI+dhGYNEroJnIr9qve+PjpwvIrisEsr2ermhWFitYZcYxljvyoEqaqORx2mF644s7JH8gSm4omknlbRBxKI7gVvjN2YxqtQQvNkbiRMWVZeTcD+YYY4BNPkYItP4cbI0pWeYRBegGVkXfOHZGbUFE3EQTC0w6Luz1dlZpFnwoYBIR4kPj98fpFKKzjxpWprlucDS4boNAUkdQLTN0YjjW4SOaQx7fQFjBK4prKt/JNx96gIZysivNSM4mFFyKXtW97CZfWMoc+HIpLHnS85lLbcHtTkg5FnuZxtaCTn0HA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(921020)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|82310400026|1800799024|6133799003|56012099006|10067099003|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: 4ivW0tJFOj7wIzOUaFrrnQHE+mmAKBYssb/mQ3pkE9fMbniDCgZrxZRZFmni7/J8BmUHMycZ07U51xuXcv9KAynwtZY3/NI0QFbWVf2NQwy9yKLydMmIhSOsnuHEW5Ml4JKa9vFV8u9GlcV3xQHAim6M7A6oi9644E0K3J9Aq0RdJlrzVyKpJQyjAWHueHzeCocw3sh59JWarh0F+ylGLvn46pSL+nlxk8ls+3zA0DCECgsI46CrLbxUlYNON4RW2TYE3qLnu9y5Y4ky7cMrMJOT6aBmBjUiZ23E2hc5xCU22CNzT/vCZfsvwl+960EpCfCiZYgfCDVFCByqzdxHpBDseIO67Q17w48fPwRLr42s7E66VKJvAwiRoEY8CpUjr5zJj3dCk2ime721QgUpu33FJLE9PTTMyWkLp96WpnRAFM9MjXDxjlURn9ydDIzCOYu6/o/Sl41nzW0N50TvsQOroo7u9mvR0F0Ff7n/d/2WVgiP1acVdd14SiWgxHLE3I9LysptOrjik/VAO6fXfGJ98kobIfI1cvZgi/O6yYHOqF4zhML7WEIpK980BGlI2aIRr+rNCwOt/mrq/4xDzUX4wZkNxvsDuoSpiqSfvQPOgHk+lSP0G372khEpvnEO7B3CHI3yElAFHseOkoG8AQAtH4MtxyDLXdJs1fWplDt86vLUDBZykRBgC7X4ebD8Mnu1h16zAeI93UjXOEbKyw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(82310400026)(1800799024)(6133799003)(56012099006)(10067099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dHBQd2M2cHQwWE1YRmNlMkZJdjg5eWZkcUJLTG4vK0RZS29tdmpya1Q3STZU?=
- =?utf-8?B?TXp6UUxrcWlkMmJLalZHWUVGUnh5R3B2WktRRFZOWWllUjV3aWVIaGIzcllC?=
- =?utf-8?B?Qm85ZGF5TGc0c1BnZHo1YTRxZzJ5NXlRa28xQTVZK2IwZzBVV2NlclRQTWRr?=
- =?utf-8?B?Rmo2NUI0MWNXdXoxWmppMkVZaDVtenFkeGxwMGpWN21oQ1hhOGcwdDNrMnE3?=
- =?utf-8?B?aXdIZGdqejlXVEVPa1psMFdVY2NMRkJKcXQxajNudnBHVmxoanhZZGw1RFo3?=
- =?utf-8?B?RFZaN0JONVhYTHlLUkJ1TlJIM3M5R0V6TzRnK251T1pBY3lYS1BVOFJBU3BL?=
- =?utf-8?B?elVvVDFPeTA1MXVpU2xYZVMyNjZubFIyNDY2N0Zoa1NMSDJNUTdwUlFQM3Bx?=
- =?utf-8?B?NVlkdWh3SWdPLzRSM3VtUEtKYUlXdmE2NUhmR01lT004Q0RKcXNjV2VKR1RC?=
- =?utf-8?B?WEhmeW1MVGpBRVRYZml1Ky9TL3hYWkw3REs1a21jRjdZMzd5TlVCRzdnWlZ5?=
- =?utf-8?B?Q2NvOHc2RXhtM0R2Kzk0eWxabmw4Z0RvT0J0KzFqT1ZzQ3A0dElrbm5NbmFY?=
- =?utf-8?B?ZTZwdTB0NzFhSy9nc3RNc2JZYWpJTzZDMnYyNkR1alZOcWZSdkl6N1hWNTdp?=
- =?utf-8?B?YWFZck1vVHpTMklzT2liTXJUbmx5cVNsZWVMZjdpcm4wbDBhbFJPSjRteTZU?=
- =?utf-8?B?R0tscVIrZzhVcUduV3h6Ym1oRGtDSU9rUkJHRUdzQU82VjVySnlHcHZMUkkv?=
- =?utf-8?B?Y2VHcUlxNmdwRlhSK1o2ZWJEUXNPYmFRY1FZZUFKUGZEUytJTHphWm44Tzcz?=
- =?utf-8?B?emtoMlVpc1NZVUtzUExqT3F3TVFZdjFjTGpsMkFpOFRrLytmNTJkdGVMZmFP?=
- =?utf-8?B?VjZBMTRzZkxJaWtyenB3bTkrM0lkdms4NitkamhEazdPeXdhM2NzK1AyRGl1?=
- =?utf-8?B?cEUrQ3lSbExpR2pSYVJ4aC9tUXpRY01uNjVTNG01TVRUdnFpR241ZzRRWHBt?=
- =?utf-8?B?RzBUbXN0eUdvSFlBcW12LzR3WVRwL0tGNDRJbm95VlNMSytBRUYwS1lWeFl4?=
- =?utf-8?B?TnRuci83N0pJMHNjanl2YUsxQlNCNXhEdytQcUhoSUNodVgwSUJVejZmVzRT?=
- =?utf-8?B?ZkZzVFp6eUUrV0h4dzRZQUxybThVdmVTZ1ZwdnBhL2NNSTFPdU1JOWhWN0du?=
- =?utf-8?B?cDlCVXNFbjhIQzRVUUNhbDJtNjFiL056eER1aGtGZVR2V2JyaDc4dWRGanFp?=
- =?utf-8?B?SjRGbnVmdzVrZTBHRkpmYng4OUtKdUtiUVJhbE5XY3ByRFQ2cjIxZXNEVlNS?=
- =?utf-8?B?UERLcWtmNEQvTVM1Q085blA0MlB2WFFjYmJHNWZGK0JNNzNFNnprRVowdHEv?=
- =?utf-8?B?UXlES2gxNUpMZHNzK3pVTlIxVXNCSzJLM1lSb2ltTjhvNTczRm1wbjZPSWVF?=
- =?utf-8?B?YklScWFlaDFKV1p5anMyQWFHVEcyWlAwNmpNRHI4QzdGRkVaVjl5NlRFbmJt?=
- =?utf-8?B?TFVSVXBIRWVJUkgrMFdVMkN6K3JpZmhQSlpwVmVPL1B0cCsvZEQrTkJsck54?=
- =?utf-8?B?N2FPTEQwS3k5YWZmOFoybkNNa2ZjMlAzK2R2aEVvMk9CTmNtVW53MWQ5K3ZT?=
- =?utf-8?B?c21KVGFwUEtJMDhyZjh3MlpHcWxtYWVmdjlXWU0xdlMxcXZZeGZXTHZsL1F1?=
- =?utf-8?B?SFpYdkNvOUZROHdkQVpEYnc4a2wwczdheTBydUVFbUVNdU1GK29NVFFTTzA3?=
- =?utf-8?B?c0U5RytDTkpGR291bjAyckpFRXhkVTRWRnduNXpPeHVvSzNiUU1mM1M1dzRx?=
- =?utf-8?B?V042TFNJSUNkWnBvOEF0amVSSXhUazIveEc4TXJTSGZXMEpmNHVRTHJMS1pu?=
- =?utf-8?B?NVNWcUYvSjhSU2U5MGxkSXg5V1ZMcDNWQkVNMG5GblFoYWduSFlRWmR6RzdK?=
- =?utf-8?B?L0NOLzhFZHJoWEZTdkRLMGZjNCtLeW9zT21OeThQRXgwNGphdkEwT2tIV2Q0?=
- =?utf-8?B?cmR4THJTK1g5dE9XRDdsM0RIS1B5aWhXN0d4M0lyRDU0RnlSeWFKQk9UVFhr?=
- =?utf-8?B?TVhJL2x3d0FyeTBwQ1ZJVXlUWm43TEp5ZG1TUlhXSHIzMjdTOHVsVFJQU3hX?=
- =?utf-8?B?ZFNmSGZGRGhYNXdiOUFuZGJtS1dKd2pPcWRFSnlOZkJ2N1ZEU2FwYWkzYTJq?=
- =?utf-8?B?TkRIaGY5a1k0SHVDV0FnU3h3ck1MQ3NYd0FJTm5Kamx4dnNYYjREVzcvTGJG?=
- =?utf-8?B?ekl2MkxRaFJzQzE5YTZDZnQ4alJ4OFczYmhjL3owazBqODR4RXZYcUxXVmhU?=
- =?utf-8?B?UDlWbmdtazJMZDlRbUFkNWlZUXRubnJjMEhUTGhEZnJ5NmN5M1RNbXRDc0lL?=
- =?utf-8?Q?/11isXLWPGybcoSI=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0884bedc-5863-4e86-4fb1-08dee8b8da67
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 12:49:37.4112
+X-MS-Exchange-AntiSpam-MessageData-0: JDiUDvnNCGE4e5QDT6DoRovn0tzqIl2SB85WEcn0kqi7w0oXak09ngtRXb5p1NKuVqX/FdIylEoUkjJ656NOlB3QOlxXHQQAAZUYM7t8ruWfat0OlzH56TZaYStsWkypFQ0cffGOvRU2cMZnXbrct/T3lqaUbMMJimWz566WNB+wJJ7gWGxygcVp6rC5qY+cpj4MPmNa4m/63PGxsVdOmuRNdduTyVzdSNfrNh11ePmpUE7+6axa6j5T3uMxnNDeIX6SRKpEIPMrVfSKgLJ1EhRYTPjD1Qwq5XiGV5KHe4PBhq+PJ1fnCxaobCOFCwEgRISn7PDkMqeBtkIVuuPJ8p2/B/31y3x2w3WsUJaeV71BgGGbV2FGcaJ4q1cXANQqxU/6Y/4CcLl21TUPg/gu8SODQjpwkiYKvUj8Zr8VvBwyn813wwnmBj+fQpBO0pE1
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 12:50:15.1953
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a1MJsXmSrLDb7+phSNlgXtRIvS1f4Ut2HAdVuQpotNf2dsXhUsdLcJf3ihhK+SrS0CdnaARKKThKbpqZFx2a7tvdbvHDjxCYSNEFVOX1S3g=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8507
+X-MS-Exchange-CrossTenant-Network-Message-Id: 387b5b54-37af-4c09-e183-08dee8b8f14d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CD.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7676
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_054947_777600_9A14CF65 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20260723_055030_159476_6640A246 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,104 +118,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+During a kexec restart, only the kernel is reloaded while the state held
+in TF-A and the platform firmware persists. This leaves the freshly
+booted kernel out of sync with the firmware for things like the SGI
+number, shutdown scope, allocated peripheral devices and registered
+notifier callbacks, which can lead to unexpected behaviour after a
+kexec.
 
-On 04.02.26 12:11, Xu Yang wrote:
-> Current design will power off all dependent GPC power domains in
-> imx8mp_blk_ctrl_suspend(), even though the user device has enabled
-> wakeup capability. The result is that wakeup function never works
-> for such device.
-> 
-> An example will be USB wakeup on i.MX8MP. PHY device '382f0040.usb-phy'
-> is attached to power domain 'hsioblk-usb-phy2' which is spawned by hsio
-> block control. A virtual power domain device 'genpd:3:32f10000.blk-ctrl'
-> is created to build connection with 'hsioblk-usb-phy2' and it depends on
-> GPC power domain 'usb-otg2'. If device '382f0040.usb-phy' enable wakeup,
-> only power domain 'hsioblk-usb-phy2' keeps on during system suspend,
-> power domain 'usb-otg2' is off all the time. So the wakeup event can't
-> happen.
-> 
-> In order to further establish a connection between the power domains
-> related to GPC and block control during system pm, register a notifier
-> to power_dev, so that GPC power domain will know that block control power
-> domain is on and will not power off itself.
-> 
-> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Fixes: 556f5cf9568a ("soc: imx: add i.MX8MP HSIO blk-ctrl")
-> Cc: stable@kernel.org
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-This patch got backported to v6.1.y and for me it breaks the boot on
-i.MX8MP with the log below (tested with 6.1.175).
+Introduce a mechanism to clear the stale firmware/TF-A state so the
+reloaded kernel starts from a clean baseline:
 
-Reverting the two patches of this series fixes the issue. What is the
-correct way to fix this for the 6.1 stable branch? Should the patches be
-reverted?
+  - Add TF_A_CLEAR_PM_STATE to clear TF-A specific PM state.
+  - Add PM_DEV_ALL_PERIPH to release all peripheral devices in one call.
+  - Add PM_ALL_NOTIFIERS to unregister all notifier callbacks in one call.
 
-Thanks
-Frieder
+On a graceful kexec reboot the cleanup is performed from
+zynqmp_firmware_shutdown(); on a crash (kdump) restart it is performed
+from zynqmp_firmware_probe() of the reloaded kernel. Each cleanup step
+is guarded by a feature check so it degrades gracefully on firmware/TF-A
+versions that do not implement the new APIs.
 
-[    1.164011] imx8mp-blk-ctrl 32fc0000.blk-ctrl: error -ENODEV: failed
-to add power notifier
-[    1.171108] Unable to handle kernel NULL pointer dereference at
-virtual address 0000000000000210
-[    1.179932] Mem abort info:
-[    1.182731]   ESR = 0x0000000096000004
-[    1.186492]   EC = 0x25: DABT (current EL), IL = 32 bits
-[    1.191833]   SET = 0, FnV = 0
-[    1.194891]   EA = 0, S1PTW = 0
-[    1.198041]   FSC = 0x04: level 0 translation fault
-[    1.202960] Data abort info:
-[    1.205836]   ISV = 0, ISS = 0x00000004
-[    1.209676]   CM = 0, WnR = 0
-[    1.212662] [0000000000000210] user address but active_mm is swapper
-[    1.219044] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-[    1.225340] Modules linked in:
-[    1.228403] CPU: 2 PID: 1 Comm: swapper/0 Not tainted
-6.1.175-ktn-ked-0.0.0 #1
-[    1.235663] Hardware name: Kontron BL i.MX8MP OSM-S (DT)
-[    1.241001] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS
-BTYPE=--)
-[    1.247999] pc : dev_pm_domain_detach+0x0/0x40
-[    1.252461] lr : imx8mp_blk_ctrl_probe+0x494/0x580
-[    1.257276] sp : ffff80000997ba00
-[    1.260601] x29: ffff80000997bb70 x28: ffff0000c0aaa9a0 x27:
-00000000ffffffed
-[    1.267774] x26: ffff800008e37c78 x25: ffff800008e37ab8 x24:
-ffff800008e37af0
-[    1.274949] x23: 0000000000000007 x22: ffff0000c0945010 x21:
-0000000000000038
-[    1.282124] x20: 0000000000000188 x19: ffff0000c0fa6580 x18:
-ffffffffffffffff
-[    1.289299] x17: 20646461206f7420 x16: 64656c696166203a x15:
-5645444f4e452d20
-[    1.296474] x14: 726f727265203a6c x13: 7265696669746f6e x12:
-ffff80000962c280
-[    1.303649] x11: 00000000000000dd x10: ffff80000962c280 x9 :
-00000000ffffdfff
-[    1.310824] x8 : ffff8000096dc280 x7 : 000000000002ffe8 x6 :
-0000000000000000
-[    1.318001] x5 : 80000000ffffe000 x4 : 0000000000000000 x3 :
-0000000000000000
-[    1.325174] x2 : 0000000000000000 x1 : 0000000000000001 x0 :
-0000000000000000
-[    1.332351] Call trace:
-[    1.334801]  dev_pm_domain_detach+0x0/0x40
-[    1.338913]  platform_probe+0x68/0xe0
-[    1.342586]  really_probe+0xc0/0x3e0
-[    1.346174]  __driver_probe_device+0x84/0x190
-[    1.350549]  driver_probe_device+0x3c/0x110
-[    1.354751]  __driver_attach+0xf4/0x200
-[    1.358599]  bus_for_each_dev+0x74/0xe0
-[    1.362451]  driver_attach+0x24/0x30
-[    1.366038]  bus_add_driver+0x17c/0x240
-[    1.369886]  driver_register+0x78/0x130
-[    1.373736]  __platform_driver_register+0x24/0x30
-[    1.378463]  imx8mp_blk_ctrl_driver_init+0x1c/0x28
-[    1.383274]  do_one_initcall+0x48/0x2b0
-[    1.387126]  kernel_init_freeable+0x22c/0x29c
-[    1.391499]  kernel_init+0x24/0x134
-[    1.395001]  ret_from_fork+0x10/0x20
-[    1.398592] Code: d65f03c0 d65f03c0 00000000 00000000 (f9410802)
-[    1.404715] ---[ end trace 0000000000000000 ]---
+Also rework the feature-check logic so TF-A specific APIs are validated
+through PM_API_FEATURES (the dedicated TF-A mechanism) instead of
+PM_FEATURE_CHECK, falling back to the legacy PM_FEATURE_CHECK for
+backward compatibility.
 
+Jay Buddhabhatti (4):
+  firmware: xilinx: Add support to clear TF-A PM state
+  firmware: xilinx: Release all peripheral devices from firmware
+  firmware: xilinx: Clear firmware notifiers across kexec transitions
+  firmware: xilinx: Use TF-A feature check for TF-A specific APIs
+
+ drivers/firmware/xilinx/zynqmp.c     | 106 +++++++++++++++++++++++----
+ include/linux/firmware/xlnx-zynqmp.h |  10 ++-
+ 2 files changed, 100 insertions(+), 16 deletions(-)
+
+-- 
+2.34.1
 
