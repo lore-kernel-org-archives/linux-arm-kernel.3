@@ -4,83 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD5AC531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5C3C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zqlExQTi34Vn0AaR8ZDU58SPW0BEKC/6+I4dyD6LomQ=; b=jnpfahCOCzP6E9/2RYJpUnosv6
-	8DDhdMX8E5zAwPvWSz4913/s8zmSyWVhaNmDw8tryVFPMZFr8tH04K79SHS7+LD/fWwzY+e2bpCHD
-	kPK47dNEioJ8FQtFGE4QRXDqlFKmwL20JfKdWRCNhC/YAHbRRry8FQVhpbWI8h6sACrjSfioj4q7J
-	tH/hhqNdeZNvgDSGudWgVN4INlQ2dF7dvhTExs7EKvfyO8f4XHNWcgF2pNN28RVyCYKVOQjytz28u
-	/EYBV291Cfmu9kQJlCgHWh8gSVucSh9K5rzi5R9+ENTVCgFj+n5Scz/GHektAmGNIOaxaOCje2JmP
-	Yo94IpmQ==;
+	bh=fb9v+58VYqfu5j0ZTAc6ZUpL5aul4K4dCH3ti6OXA+8=; b=SPuq6k9+Di/mxYdVCT/sLY8udB
+	S7OPP75IeTP2btVrQp4LHnNj2/UBTkslQKfqmePwVrD4AL7b7I1FaU59ptv/F0czROEy+lrPpRAqt
+	TvBrZ9ZzmOl1qx87kVGk/jxfxgJwTEc/seMPp/cvtsFgeJHnWScrnWZu5+N0uPJZBN8h+vxWKNBk5
+	D9HEslZFPbnaHUrEO2lLf/DlWy0ChCVXy3se6L6ybjzghsucXae3yzOm4yFSth5jYkMD7hyxk9Gey
+	gOEfyctz03UZ/9t1lX0PbPrDRAJOiiMx2TmFvChMBKamLp07WmBWnumIuDE0fMe3QyEnyvepbbX3x
+	Wzx4QJqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmot9-0000000Dk9h-18e3;
-	Thu, 23 Jul 2026 08:34:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmpnI-0000000Dqyy-0hri;
+	Thu, 23 Jul 2026 09:32:44 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmot6-0000000Dk6P-3GXC;
-	Thu, 23 Jul 2026 08:34:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 201AC45159;
-	Thu, 23 Jul 2026 08:34:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F30EAC2BCF6;
-	Thu, 23 Jul 2026 08:34:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784795680;
-	bh=9KZCx8hRIuFnuQaUfkpyPI9phX66kKoSewyedpvHO24=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=CJ6LR17W25PiMADL7Xc8QcOqIcNPD9Xndj4xai7R18VtkpQnLQLRrUvik9PpqTJUO
-	 0w5Do+2DUuKQ3jQCKYjufwCW80PZn2T9t2GyCQpwQjJM4w3EigtCwdKvi1zGK+QIfe
-	 pfzcF94hj4KAzUhTiyUm03l1WGBN8oXXq3ooJ/0WIP6nGm/cH+TFFgO5W7NXupA6qd
-	 w8E2i+ieWbTR5PZUJdAkmTeYPuHYPrIuZe4g9AJ4ORdXOx7CWDwExrdqj9aC6SfM0d
-	 z40jfXCQes5iUW4+4pQnqsvz0RquWDWBu9lQvBc6EwFLOdUAlMCvJQz2Q4mULNkUwQ
-	 J7n4K0Umkgc/A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DFCB9C531C7;
-	Thu, 23 Jul 2026 08:34:39 +0000 (UTC)
-From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
-Date: Thu, 23 Jul 2026 16:34:31 +0800
-Subject: [PATCH v5 6/7] net: wwan: t9xx: Add AT & MBIM WWAN ports
+	id 1wmpnE-0000000Dqy6-41FJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 09:32:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t7WxZCE8sMDQYi3qx2qbh0O0GjH0KQXUMf0OfwfM2e00JwyoZNop+/NN91Y+eaMTqXiolTldARqLk/gESvEg3cKPZjWBj3kQofoyT9dlsm6yeoZLs66Q81rGFUcM3HgPlFNgmXzukRMOrit1XqMO/HcAEElhRCJemYv6grjqBvkGY0IMetw5slk/SJJvDb776AoPC7AlrfjWy1f0X9eMYF1f4QuNMOzEulhi90azqZcplTr21W1307NX8mpbqr8sSZzxNVMG95/4Znm48sIOaBB9dDCCjC3GvGxiwlTxi9H1m0abzqEfV9/OjrcZZ7LQaSszasth3ruAqlDHJOYEJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fb9v+58VYqfu5j0ZTAc6ZUpL5aul4K4dCH3ti6OXA+8=;
+ b=M7Frvp58OuWYaJveoRJQEemNAJ3cSNjGpVkiZEHPok9zh9NwoUxRgGY8rcSlmpErbk3B68XNovBluR6gc1x6gUmkBdFJTTwFyd1LuI6inGIpYlh9D6lLd7ipv6O0HWqAKaqo0zgH8RDSwGzKw2JEdyaIuER4q/Y/GNah18t7+mqzGKmpPaNeGovgatR33IKdVoIpTLfdSQTV6/LmhO2aWucddr52Ai1eZMKWyGLSwS3EHsRU+m6g3f/KdnGnfXnUrwOcnBnVH4OyRGmaQV8X155yiYjRrXou20h3WKdvGBReo5Vjx/rMeJHchXRWehz2QrD+xSNVcs++22VthJMQ6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fb9v+58VYqfu5j0ZTAc6ZUpL5aul4K4dCH3ti6OXA+8=;
+ b=v/xuoLN8kVrWHsbdoWS8FCd4ReqC6anY/yMu+qFcUjW7gN12C4XEdds4eC8xXFxpF8SoQr7dVMieKxg3/Mxlz+tgtLobs2RRs3GFDwzl7zSAN8U4N8kqYa46+CnlCRb/J1kinZsHmZH8ZYA7uLhrTGOpNesEqMsQI6S9Ngw32mmeshaFXurOIkQVjeFg14ekZTSwPQ4/ZUyDHf5CupYCR0naT7ReRta8j7hjI9EjD1hTqReHl6OHoQa7kSznxsBdPBeLb1qrk382kAX2YM0pbQCUaDEpcs+v17CCHRsd9XOp8kRaL2COF1jcm+4K6ap7SxJSp4YS9lFsRBCHhS/uOA==
+Received: from BN9PR03CA0143.namprd03.prod.outlook.com (2603:10b6:408:fe::28)
+ by DM4PR18MB5428.namprd18.prod.outlook.com (2603:10b6:8:18d::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 09:32:34 +0000
+Received: from BN1PEPF0000468A.namprd05.prod.outlook.com
+ (2603:10b6:408:fe:cafe::5a) by BN9PR03CA0143.outlook.office365.com
+ (2603:10b6:408:fe::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Thu,
+ 23 Jul 2026 09:32:34 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ BN1PEPF0000468A.mail.protection.outlook.com (10.167.243.135) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
+ via Frontend Transport; Thu, 23 Jul 2026 09:32:33 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 353A34186B58;
+	Thu, 23 Jul 2026 02:32:33 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Date: Thu, 23 Jul 2026 02:32:18 -0700
+Subject: [PATCH v2 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-t9xx_driver_v1-v5-6-b27afb99ccbb@compal.com>
-References: <20260723-t9xx_driver_v1-v5-0-b27afb99ccbb@compal.com>
-In-Reply-To: <20260723-t9xx_driver_v1-v5-0-b27afb99ccbb@compal.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Sergey Ryazanov <ryazanov.s.a@gmail.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Jack Wu <jackbb_wu@compal.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, 
- Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, 
- Minano Tseng <Minano.tseng@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Robert Yu <robert_yu@compal.com>, 
- Jeff Chang <Jeff_Chang@compal.com>
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-doc@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784795676; l=14306;
- i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
- bh=PwAk/gcFhHIXR4n/wefz4zEIclG5I0SyeX0+3b2BTds=;
- b=+Ob2IKKCzok+2vKv9VCEKf8Rld3HWfJandTCb4aXKF/K9y5dChO9sFjqzUulgIaJub87aFPFt
- uB+ibtQvtwDA1WuHpHHBqXT07GzzBXqx7MeXMohhxZ4me6to/USSd1k
-X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
- pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
-X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
- auth_id=793
-X-Original-From: Jack Wu <jackbb_wu@compal.com>
+Message-Id: <20260723-axiado-ax3000-pwm-v2-1-22002f0b281d@axiado.com>
+References: <20260723-axiado-ax3000-pwm-v2-0-22002f0b281d@axiado.com>
+In-Reply-To: <20260723-axiado-ax3000-pwm-v2-0-22002f0b281d@axiado.com>
+To: Akhila Kavi <akavi@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Petar Stepanovic <pstepanovic@axiado.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784799153; l=2320;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=CrM9KcdTYuwGYQ9WJlE26qPNJiZO6cBuRg88p8mavlg=;
+ b=rs9+ixrP7K4rNMdJOiNmWEdLzxbzGara+7+T2jeOY+BQXuu/CEmfzWIFWvFwPP3YPkFKByHdM
+ bek2ud+yH1pBTmzi9sxj5l3sZLpECcbWHQ5gSOW8DO04PUpKx4UvqY1
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468A:EE_|DM4PR18MB5428:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9d1d5ff2-809d-4486-29d3-08dee89d5379
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|36860700016|82310400026|13003099007|10067099003|56012099006|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: sfgryO4YgCPvmkP22L9yWaD6J6/ZO0f8PM3FwRb93xzJBdqPvB72ViG6FMqKRxq/2gO+p9g1mMvlzUJD5Vma8BDO110dSi/Ekx4EkZMrEs3nc5PUiGu5ScSGC2hRrFA01euO06CXce8+A/CPzVx2CkCelJ2emRQQ3DJEXZKh0ZZwGSZ7m8og1zVC6GxyN9mgkk8Cre6F8zP+qaR89mSUR5z/hZKZVovY5ufABHJIAPlD26HhZaDbHp8U4puSjN/NsSo/dgICOCwoKPHYTeeSqkA4IVSE7BxD1kRTMWQcsz77gzIgLU/7dXaGnsk6NYqLCMWIx0e15H4EhMUVXntQwQXwGepaQRxjV0mYlrSrbTG5YPI4mQZCuED2p7/7YGRG648obRbY3wYAcHnqwR3xE/m6/XdsHOnE+QSW8jUy+Scm23FaIfvyq9S6Ur1ba2QIQjTLUHnU91ZNr24ousB0ManbUZrNSoIp3mDzHF1o4nS8ILcEYdG1zGRK6w5yg6Ln6XOSFn1tvjfQjaK1ncGrfi+wSUGYxhpLjoAPXcrAW+SbHw+0bdVYN/ibzr1nzOK52UxNcoN1ezG4XkTWdnmTOzWgp/rah/LyxszytnC5xaM8iBNGyLo41F1LoiPxq4b5SFK8vxgkttHp1343YQPG8g==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(36860700016)(82310400026)(13003099007)(10067099003)(56012099006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: OQKYQ64rQfamWGFWmgynqyc/TFvetqW2t+DQQ3z8n+cRPhfN6mz9iTfhkI1n3gfdMWSesV7oa/4D1o2H99NataCLMJ5a1l/nAmRgQ66q+Pla8C/Mtp3kzjCBBXuSLC+gMGjddHg+5pVvyxRNDlNJ4F14goMWSqL0SLqlls7GbqYIEWFtQX+YuiyaC6LhTgivXql9TvmCRyyi1TEg7iF1YN+LUvmKBfCyRsPa9SM1PW2QL87KDELP6kkUxcYbGslM22MM0mizv8Cxiqc1XN1Bzoq5qoj/DMJNX8Y670NPS/mlXqMjHPlRlYi2l+CWyo4cLyISFYOAvV+SaZg3hbGxpNP+JheBsKIIbB6Eh/Vns/NQCIDzGiFu8EH4gyXgbQwJSoR8GBOL2wWGk5fp7CZRViNB+ZoOQ9isa8dV1CySPDYn9HneFbSH2DWrYpwa5o3g
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:32:33.9401
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d1d5ff2-809d-4486-29d3-08dee89d5379
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468A.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR18MB5428
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_023241_006959_A9300F24 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,521 +126,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jackbb_wu@compal.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Wu <jackbb_wu@compal.com>
+The Axiado AX3000 and AX3005 SoCs include PWM controllers that can be
+used to generate configurable PWM output signals.
 
-Add AT & MBIM ports to the port infrastructure.
-The WWAN initialization method is responsible for creating the
-corresponding ports using the WWAN framework infrastructure. The
-implemented WWAN port operations are start, stop, tx, tx_blocking
-and tx_poll.
-
-Signed-off-by: Jack Wu <jackbb_wu@compal.com>
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 ---
- drivers/net/wwan/t9xx/mtk_port.c               |  26 ++
- drivers/net/wwan/t9xx/mtk_port.h               |  13 +
- drivers/net/wwan/t9xx/mtk_port_io.c            | 335 +++++++++++++++++++++++++
- drivers/net/wwan/t9xx/mtk_port_io.h            |   5 +
- drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c |   8 +
- 5 files changed, 387 insertions(+)
+ .../devicetree/bindings/pwm/axiado,ax3000-pwm.yaml | 51 ++++++++++++++++++++++
+ MAINTAINERS                                        |  8 ++++
+ 2 files changed, 59 insertions(+)
 
-diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
-index 6199fd3310de..7682983dbebf 100644
---- a/drivers/net/wwan/t9xx/mtk_port.c
-+++ b/drivers/net/wwan/t9xx/mtk_port.c
-@@ -819,6 +819,29 @@ int mtk_port_ch_disable(struct mtk_port *port)
- 	return ret;
- }
+diff --git a/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
+new file mode 100644
+index 000000000000..02da1cedad24
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
+@@ -0,0 +1,51 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/axiado,ax3000-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Axiado AX3000 PWM controller
++
++maintainers:
++  - Petar Stepanovic <pstepanovic@axiado.com>
++  - Akhila Kavi <akavi@axiado.com>
++  - Prasad Bolisetty <pbolisetty@axiado.com>
++
++description:
++  The Axiado PWM controller found on the AX3000 and AX3005 SoCs.
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    enum:
++      - axiado,ax3000-pwm
++      - axiado,ax3005-pwm
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - "#pwm-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    pwm@80801c00 {
++      compatible = "axiado,ax3000-pwm";
++      reg = <0x80801c00 0x1000>;
++      #pwm-cells = <2>;
++      clocks = <&clk>;
++    };
++
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b2040011a386..9999480376cc 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4312,6 +4312,14 @@ S:	Orphan
+ F:	Documentation/devicetree/bindings/sound/axentia,*
+ F:	sound/soc/atmel/tse850-pcm5142.c
  
-+static int mtk_port_enable_by_type(struct mtk_port_mngr *port_mngr, int tbl_type)
-+{
-+	struct mtk_port **ports;
-+	int ret, idx;
++AXIADO AX3000 PWM DRIVER
++M:	Petar Stepanovic <pstepanovic@axiado.com>
++M:	Akhila Kavi <akavi@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++L:	linux-pwm@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
 +
-+	if (tbl_type < 0 || tbl_type >= PORT_TBL_MAX)
-+		return -EINVAL;
-+
-+	ports = kcalloc(port_mngr->port_cnt, sizeof(struct mtk_port *), GFP_KERNEL);
-+	if (!ports)
-+		return -ENOMEM;
-+
-+	ret = radix_tree_gang_lookup(&port_mngr->port_tbl[tbl_type],
-+				     (void **)ports, 0, port_mngr->port_cnt);
-+	for (idx = 0; idx < ret; idx++) {
-+		if (ports[idx]->enable)
-+			ports_ops[ports[idx]->info.type]->enable(ports[idx]);
-+	}
-+
-+	kfree(ports);
-+	return 0;
-+}
-+
- static void mtk_port_disable(struct mtk_port_mngr *port_mngr)
- {
- 	struct radix_tree_iter iter;
-@@ -850,6 +873,9 @@ void mtk_port_mngr_fsm_state_handler(struct mtk_fsm_param *fsm_param, void *arg)
- 	case FSM_STATE_OFF:
- 		mtk_port_disable(port_mngr);
- 		break;
-+	case FSM_STATE_READY:
-+		mtk_port_enable_by_type(port_mngr, PORT_TBL_MD);
-+		break;
- 	default:
- 		break;
- 	}
-diff --git a/drivers/net/wwan/t9xx/mtk_port.h b/drivers/net/wwan/t9xx/mtk_port.h
-index ba69eb37c7f9..f009715bf22c 100644
---- a/drivers/net/wwan/t9xx/mtk_port.h
-+++ b/drivers/net/wwan/t9xx/mtk_port.h
-@@ -56,6 +56,10 @@ enum mtk_ccci_ch {
- 	/* to MD */
- 	CCCI_CONTROL_RX				= 0x2000,
- 	CCCI_CONTROL_TX				= 0x2001,
-+	CCCI_UART2_RX				= 0x200A,
-+	CCCI_UART2_TX				= 0x200C,
-+	CCCI_MBIM_RX				= 0x20D0,
-+	CCCI_MBIM_TX				= 0x20D1,
- };
- 
- enum mtk_port_flag {
-@@ -73,6 +77,7 @@ enum mtk_port_tbl {
- 
- enum mtk_port_type {
- 	PORT_TYPE_INTERNAL,
-+	PORT_TYPE_WWAN,
- 	PORT_TYPE_MAX
- };
- 
-@@ -81,6 +86,13 @@ struct mtk_internal_port {
- 	int (*recv_cb)(void *arg, struct sk_buff *skb);
- };
- 
-+struct mtk_wwan_port {
-+	/* w_lock protects wwan_port when recv data and disable port at the same time */
-+	struct mutex w_lock;
-+	int w_type;
-+	void *w_port;
-+};
-+
- struct mtk_port_cfg {
- 	enum mtk_ccci_ch tx_ch;
- 	enum mtk_ccci_ch rx_ch;
-@@ -110,6 +122,7 @@ struct mtk_port {
- 	char dev_str[MTK_DEV_STR_LEN];
- 	struct mtk_port_mngr *port_mngr;
- 	struct mtk_internal_port i_priv;
-+	struct mtk_wwan_port w_priv;
- };
- 
- struct mtk_port_mngr {
-diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
-index 5dc0e1191332..882254b74026 100644
---- a/drivers/net/wwan/t9xx/mtk_port_io.c
-+++ b/drivers/net/wwan/t9xx/mtk_port_io.c
-@@ -3,6 +3,10 @@
-  * Copyright (c) 2022, MediaTek Inc.
-  */
- #include <linux/netdevice.h>
-+#include <linux/poll.h>
-+#include <linux/slab.h>
-+#include <linux/wait.h>
-+#include <linux/wwan.h>
- 
- #include "mtk_port_io.h"
- 
-@@ -41,6 +45,145 @@ static void mtk_port_struct_init(struct mtk_port *port)
- 	init_waitqueue_head(&port->rx_wq);
- }
- 
-+static int mtk_port_copy_data_from(void *to, union user_buf from, unsigned int len,
-+				   unsigned int offset, bool from_user_space)
-+{
-+	if (from_user_space) {
-+		if (copy_from_user(to, from.ubuf + offset, len))
-+			return -EINVAL;
-+	} else {
-+		memcpy(to, from.kbuf + offset, len);
-+	}
-+
-+	return 0;
-+}
-+
-+static int mtk_port_common_write_frag_skb(struct mtk_port *port, struct sk_buff *skb,
-+					  union user_buf buf, u32 packet_size,
-+					  u32 cur_pos, bool from_user_space)
-+{
-+	struct sk_buff *frag_skb, *tmp = NULL;
-+	u32 frag_size;
-+	int ret;
-+
-+	frag_size = min(packet_size, port->tx_frag_size);
-+	ret = mtk_port_copy_data_from(skb_put(skb, frag_size),
-+				      buf, frag_size,
-+				      cur_pos, from_user_space);
-+	if (ret) {
-+		dev_err(port->port_mngr->ctrl_blk->mdev->dev,
-+			"Failed to copy skb for port(%s)\n", port->info.name);
-+		goto err_reset_skb;
-+	}
-+	cur_pos += frag_size;
-+	packet_size -= frag_size;
-+	if (!packet_size)
-+		return cur_pos;
-+
-+	while (packet_size > 0) {
-+		frag_skb = __dev_alloc_skb(port->tx_mtu, GFP_KERNEL);
-+		if (!frag_skb) {
-+			ret = -ENOMEM;
-+			goto err_free_frag_list;
-+		}
-+
-+		frag_size = min(packet_size, port->tx_frag_size);
-+		ret = mtk_port_copy_data_from(skb_put(frag_skb, frag_size),
-+					      buf, frag_size,
-+					      cur_pos, from_user_space);
-+		if (ret) {
-+			dev_err(port->port_mngr->ctrl_blk->mdev->dev,
-+				"Failed to copy frag_skb for port(%s)\n", port->info.name);
-+			dev_kfree_skb_any(frag_skb);
-+			goto err_free_frag_list;
-+		}
-+		skb->data_len += frag_size;
-+		skb->len += frag_size;
-+		cur_pos += frag_size;
-+		packet_size -= frag_size;
-+		if (!tmp)
-+			skb_shinfo(skb)->frag_list = frag_skb;
-+		else
-+			tmp->next = frag_skb;
-+		tmp = frag_skb;
-+	}
-+	return cur_pos;
-+
-+err_free_frag_list:
-+	frag_skb = skb_shinfo(skb)->frag_list;
-+	while (frag_skb) {
-+		tmp = frag_skb->next;
-+		frag_skb->next = NULL;
-+		dev_kfree_skb_any(frag_skb);
-+		frag_skb = tmp;
-+	}
-+	skb_shinfo(skb)->frag_list = NULL;
-+err_reset_skb:
-+	skb->data_len = 0;
-+	return ret;
-+}
-+
-+static int mtk_port_common_write(struct mtk_port *port, union user_buf buf, unsigned int len,
-+				 bool from_user_space)
-+{
-+	u32 packet_size, left_cnt = len, cur_pos;
-+	struct sk_buff *skb;
-+	int ret;
-+
-+	if (len == 0)
-+		return -EINVAL;
-+
-+start_write:
-+	ret = mtk_port_status_check(port);
-+	if (ret)
-+		goto end_write;
-+
-+	skb = __dev_alloc_skb(port->tx_mtu, GFP_KERNEL);
-+	if (!skb) {
-+		ret = -ENOMEM;
-+		goto end_write;
-+	}
-+
-+	skb_reserve(skb, sizeof(struct mtk_ccci_header));
-+
-+	packet_size = min_t(u32, left_cnt, port->tx_mtu - sizeof(struct mtk_ccci_header));
-+	cur_pos = len - left_cnt;
-+	/* Support scatter gather transmission */
-+	if (port->tx_mtu > port->tx_frag_size) {
-+		ret = mtk_port_common_write_frag_skb(port, skb, buf, packet_size,
-+						     cur_pos, from_user_space);
-+		if (ret < 0)
-+			goto err_free_skb;
-+	} else {
-+		ret = mtk_port_copy_data_from(skb_put(skb, packet_size),
-+					      buf, packet_size,
-+					      cur_pos, from_user_space);
-+		if (ret) {
-+			dev_err(port->port_mngr->ctrl_blk->mdev->dev,
-+				"Failed to copy data for port(%s)\n", port->info.name);
-+			goto err_free_skb;
-+		}
-+	}
-+
-+	ret = mtk_port_send_data(port, skb);
-+	if (ret < 0) {
-+		if (ret == -EINTR)
-+			left_cnt -= packet_size;
-+		goto end_write;
-+	}
-+
-+	left_cnt -= ret;
-+	if (left_cnt)
-+		goto start_write;
-+	else
-+		goto end_write;
-+
-+err_free_skb:
-+	dev_kfree_skb_any(skb);
-+end_write:
-+	return (len > left_cnt) ? (len - left_cnt) : ret;
-+}
-+
- static int mtk_port_internal_init(struct mtk_port *port)
- {
- 	mtk_port_struct_init(port);
-@@ -233,6 +376,198 @@ static const struct port_ops port_internal_ops = {
- 	.recv = mtk_port_internal_recv,
- };
- 
-+static int mtk_port_wwan_open(struct wwan_port *w_port)
-+{
-+	struct mtk_port *port;
-+	int ret;
-+
-+	port = wwan_port_get_drvdata(w_port);
-+	ret = mtk_port_get_locked(port);
-+	if (ret)
-+		return ret;
-+
-+	ret = mtk_port_common_open(port);
-+	if (ret)
-+		mtk_port_put_locked(port);
-+
-+	return ret;
-+}
-+
-+static void mtk_port_wwan_close(struct wwan_port *w_port)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+
-+	mtk_port_common_close(port);
-+	mtk_port_put_locked(port);
-+}
-+
-+static int mtk_port_wwan_write(struct wwan_port *w_port, struct sk_buff *skb)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+	union user_buf user_buf;
-+	int ret;
-+
-+	if (unlikely(!skb->len)) {
-+		consume_skb(skb);
-+		return 0;
-+	}
-+
-+	port->info.flags &= ~PORT_F_BLOCKING;
-+	user_buf.kbuf = (void *)skb->data;
-+	ret = mtk_port_common_write(port, user_buf, skb->len, false);
-+	if (ret < 0)
-+		return ret;
-+
-+	consume_skb(skb);
-+	return 0;
-+}
-+
-+static int mtk_port_wwan_write_blocking(struct wwan_port *w_port, struct sk_buff *skb)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+	union user_buf user_buf;
-+	int ret;
-+
-+	if (unlikely(!skb->len)) {
-+		consume_skb(skb);
-+		return 0;
-+	}
-+
-+	port->info.flags |= PORT_F_BLOCKING;
-+	user_buf.kbuf = (void *)skb->data;
-+	ret = mtk_port_common_write(port, user_buf, skb->len, false);
-+	if (ret < 0)
-+		return ret;
-+
-+	consume_skb(skb);
-+	return 0;
-+}
-+
-+static __poll_t mtk_port_wwan_poll(struct wwan_port *w_port, struct file *file,
-+				   struct poll_table_struct *poll)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+	union ctrl_hif_cmd_data hif_cmd;
-+	struct mtk_ctrl_blk *ctrl_blk;
-+	__poll_t mask = 0;
-+
-+	poll_wait(file, &port->trb_wq, poll);
-+	if (mtk_port_status_check(port))
-+		return EPOLLERR | EPOLLHUP;
-+
-+	ctrl_blk = port->port_mngr->ctrl_blk;
-+	hif_cmd.rx_ch = port->info.rx_ch;
-+	if (!ctrl_blk->ops->send_cmd(ctrl_blk->mdev, HIF_CTRL_CMD_CHECK_TX_FULL, &hif_cmd))
-+		mask |= EPOLLOUT | EPOLLWRNORM;
-+
-+	return mask;
-+}
-+
-+static const struct wwan_port_ops wwan_ops = {
-+	.start = mtk_port_wwan_open,
-+	.stop = mtk_port_wwan_close,
-+	.tx = mtk_port_wwan_write,
-+	.tx_blocking = mtk_port_wwan_write_blocking,
-+	.tx_poll = mtk_port_wwan_poll,
-+};
-+
-+static int mtk_port_wwan_init(struct mtk_port *port)
-+{
-+	mtk_port_struct_init(port);
-+	port->enable = false;
-+
-+	mutex_init(&port->w_priv.w_lock);
-+
-+	switch (port->info.rx_ch) {
-+	case CCCI_MBIM_RX:
-+		port->w_priv.w_type = WWAN_PORT_MBIM;
-+		break;
-+	case CCCI_UART2_RX:
-+		port->w_priv.w_type = WWAN_PORT_AT;
-+		break;
-+	default:
-+		port->w_priv.w_type = WWAN_PORT_UNKNOWN;
-+		break;
-+	}
-+
-+	return 0;
-+}
-+
-+static void mtk_port_wwan_exit(struct mtk_port *port)
-+{
-+	if (test_bit(PORT_S_ENABLE, &port->status))
-+		ports_ops[port->info.type]->disable(port);
-+}
-+
-+static void mtk_port_wwan_enable(struct mtk_port *port)
-+{
-+	struct mtk_port_mngr *port_mngr;
-+	int ret;
-+
-+	port_mngr = port->port_mngr;
-+
-+	if (test_bit(PORT_S_ENABLE, &port->status))
-+		return;
-+
-+	ret = mtk_port_ch_enable(port);
-+	if (ret && ret != -EBUSY)
-+		return;
-+
-+	port->w_priv.w_port = wwan_create_port(port_mngr->ctrl_blk->mdev->dev,
-+					       port->w_priv.w_type,
-+					       &wwan_ops, NULL, port);
-+	if (IS_ERR(port->w_priv.w_port)) {
-+		dev_warn(port_mngr->ctrl_blk->mdev->dev,
-+			 "Failed to create wwan port for (%s)\n", port->info.name);
-+		port->w_priv.w_port = NULL;
-+		mtk_port_ch_disable(port);
-+		return;
-+	}
-+
-+	set_bit(PORT_S_WR, &port->status);
-+	set_bit(PORT_S_ENABLE, &port->status);
-+}
-+
-+static void mtk_port_wwan_disable(struct mtk_port *port)
-+{
-+	struct wwan_port *w_port;
-+
-+	if (!test_and_clear_bit(PORT_S_ENABLE, &port->status))
-+		return;
-+
-+	clear_bit(PORT_S_WR, &port->status);
-+	w_port = port->w_priv.w_port;
-+	mutex_lock(&port->w_priv.w_lock);
-+	port->w_priv.w_port = NULL;
-+	mutex_unlock(&port->w_priv.w_lock);
-+
-+	mtk_port_ch_disable(port);
-+	wwan_remove_port(w_port);
-+}
-+
-+static int mtk_port_wwan_recv(struct mtk_port *port, struct sk_buff *skb)
-+{
-+	mutex_lock(&port->w_priv.w_lock);
-+	if (!port->w_priv.w_port) {
-+		mutex_unlock(&port->w_priv.w_lock);
-+		return -ENXIO;
-+	}
-+
-+	wwan_port_rx(port->w_priv.w_port, skb);
-+	mutex_unlock(&port->w_priv.w_lock);
-+	return 0;
-+}
-+
-+static const struct port_ops port_wwan_ops = {
-+	.init = mtk_port_wwan_init,
-+	.exit = mtk_port_wwan_exit,
-+	.reset = mtk_port_reset,
-+	.enable = mtk_port_wwan_enable,
-+	.disable = mtk_port_wwan_disable,
-+	.recv = mtk_port_wwan_recv,
-+};
-+
- const struct port_ops *ports_ops[PORT_TYPE_MAX] = {
- 	&port_internal_ops,
-+	&port_wwan_ops,
- };
-diff --git a/drivers/net/wwan/t9xx/mtk_port_io.h b/drivers/net/wwan/t9xx/mtk_port_io.h
-index 0c10e893b7e0..ea92cd22dba0 100644
---- a/drivers/net/wwan/t9xx/mtk_port_io.h
-+++ b/drivers/net/wwan/t9xx/mtk_port_io.h
-@@ -23,6 +23,11 @@ struct port_ops {
- 	int (*recv)(struct mtk_port *port, struct sk_buff *skb);
- };
- 
-+union user_buf {
-+	void __user *ubuf;
-+	void *kbuf;
-+};
-+
- void *mtk_port_internal_open(struct mtk_md_dev *mdev, char *name, int flag);
- int mtk_port_internal_close(void *i_port);
- int mtk_port_internal_write(void *i_port, struct sk_buff *skb);
-diff --git a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-index 8611561dd67c..aab09cab360c 100644
---- a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-+++ b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
-@@ -16,6 +16,10 @@ static const int mtk_srv_cfg_m9xx[NR_CLDMA][HW_QUE_NUM] = {
- 
- /* the number of RX GPDs should be at last two */
- static const struct queue_info mtk_queue_info_m9xx[] = {
-+	{CCCI_UART2_TX, CCCI_UART2_RX, CLDMA1, TXQ(5), RXQ(5),
-+	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
-+	{CCCI_MBIM_TX, CCCI_MBIM_RX, CLDMA1, TXQ(2), RXQ(2),
-+	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
- 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, CLDMA1, TXQ(0), RXQ(0),
- 	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
- 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, CLDMA0, TXQ(0), RXQ(0),
-@@ -23,6 +27,10 @@ static const struct queue_info mtk_queue_info_m9xx[] = {
- };
- 
- static const struct mtk_port_cfg port_cfg_m9xx[] = {
-+	{CCCI_UART2_TX, CCCI_UART2_RX, PORT_TYPE_WWAN, "AT",
-+		PORT_F_ALLOW_DROP},
-+	{CCCI_MBIM_TX, CCCI_MBIM_RX, PORT_TYPE_WWAN, "MBIM",
-+		PORT_F_ALLOW_DROP},
- 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, PORT_TYPE_INTERNAL, "MDCTRL",
- 		PORT_F_ALLOW_DROP},
- 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, PORT_TYPE_INTERNAL, "SAPCTRL",
+ AXIS ARTPEC ARM64 SoC SUPPORT
+ M:	Jesper Nilsson <jesper.nilsson@axis.com>
+ M:	Lars Persson <lars.persson@axis.com>
 
 -- 
 2.34.1
-
 
 
