@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E52FC531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2252CC531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KyeSUqWtXmsZhkcIZfwQ+RcEz6iQQJw+gHcfulf9QVI=; b=MhnzdWARBZ5qfIW5QcdJ98b2q8
-	V3qeoaf/DrprkMUu+IqZyvsUmVof8yg5cC66F0BLcl2rHy1JNSxt1h4H+7REfAlLECb358NM2gzkC
-	kJ3PDOfuGVhHQ14vrTSMvadd8+t816sXHjalIxtiTvXTFIeco5skV7540oV0NeOgyGkaPp0p+AGxR
-	NbhBxh0EO4Ez6E4+BmyPdqMCtcWag+eV8RiyqIQ+Y3x6miTdw075XdOdWX3vrHkgID0v1Bvmakqm2
-	d6XOxyMoTENwmUH26Asq45qMUfd0e3V1Q4mxMDESZLh7bK3inPhWHJfcx+4n9vyd15CnnUFl0sv0j
-	fzAwz0Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yAtmVwwG7NwqUnf243ukuW2WaRPFl9N+D4QXJl5egn4=; b=1GXEbvdYg8al/OukySdtmOSp+D
+	71+/nFnjaQvacKPEkLQAZVaDNW3PUh830X02moQbUkxGikl3vKzs9JC7IgrizARva7TTAv8Fd21W4
+	HKbcjuzadbM57+k0Xk1GF4Yo4P1DKQrj28ZNSulwX6tYXTaDpFS9Yco18ADKDDKz2dikl1ogNHPAG
+	ytFXJvVgErNJ38I2wiN8Gyy7s/K9ECZu54GhwmAaCncs/PlXPtQD2zrf3+PCJDz5hO4+in5wVnljW
+	IrKQfoqvgcw+TsK+RMf8DiZvmaeV82+M7OcLqemAksWHr7ZbGlyVJdIwMDsIqidXwRo7N1NKYlePi
+	yLK7RSKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqx1-0000000E3sA-0U94;
-	Thu, 23 Jul 2026 10:46:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmr2q-0000000E4TO-3Gxh;
+	Thu, 23 Jul 2026 10:52:52 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqwz-0000000E3rv-1JcG
+	id 1wmr2n-0000000E4SO-0ZJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 10:46:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5343E600B1;
-	Thu, 23 Jul 2026 10:46:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028DA1F000E9;
-	Thu, 23 Jul 2026 10:46:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784803608;
-	bh=KyeSUqWtXmsZhkcIZfwQ+RcEz6iQQJw+gHcfulf9QVI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=aFPkJBQDYavdLZhQEvRpFjUTe8DJYjoDj8/i7duy81xS44BBWPgeh0LassAVl8k1H
-	 N5Ld38kqv/zOFLuXWe8Y7MIy0frsoPL4spF82yd4ID7kiUde/HXcld4Hnb3y503RiW
-	 NoNPwAqV839C7O2i12LPmTR62TjtsWO4SyTHYujLF+Ua+Tq+3s8B4TugAvc8ZM6/pF
-	 xi//MGLhtDbB4B/38khlOlQffrBOjt75vtqCX4w/FmEPUap+MAgbU0MfoSm7jAfuKA
-	 pbjEaFTqOzejhjyZ+15Rdysm1NBKzeAKjatCYht5p/3s71fQf3YXYH+5oICkmh9Pzj
-	 +6kXI3YZtSOdg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wmqwv-0000000809m-3Oc7;
-	Thu, 23 Jul 2026 10:46:45 +0000
-Date: Thu, 23 Jul 2026 11:46:40 +0100
-Message-ID: <8633xadlv3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: linux-kernel@vger.kernel.org,
+	Thu, 23 Jul 2026 10:52:50 +0000
+Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id F0CBA1FFD0;
+	Thu, 23 Jul 2026 12:52:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1784803966;
+	bh=yAtmVwwG7NwqUnf243ukuW2WaRPFl9N+D4QXJl5egn4=; h=From:To:Subject;
+	b=vHpLqG4iqYhOPcNkGv+pHi9qy33Hh+xtYwpfVbAUhEYOEhNwEBS4MrmWu68WAQ+UW
+	 UW3Kkx7Jf5TCa1l92dP/MYKxN8NECpEGR+N5crSxb6EupVV16GnvvXJh8kMWfKbFEd
+	 HYZBSDpn2zWPRz1ppui0BDNrmy7o3Mhz3vNTao5k4BEy1igBrgfIcjiTnDWIochXD4
+	 +lhGqM2rTtCZVJbEXUL+9fVZ0Uta5eUKk3timDQsB4swLjTLYrc7XyugrlB2/XNe3Z
+	 E/ElaINQe37XogXfnYUMYZp2dViUrifdDasZKLj5fJKfp662CA8yE4SAO5o1IdG5p2
+	 9GIPXAHf1975g==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	John <therealgraysky@proton.me>,
-	Daniel Drake <dan@reactivated.net>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712 broken EL2 virtual timer
-In-Reply-To: <e5a32fcc-ca3c-4b54-a790-d2eef2c636e5@nvidia.com>
-References: <20260710080958.491620-1-maz@kernel.org>
-	<325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
-	<878q72rcz6.wl-maz@kernel.org>
-	<325be874-bab9-464f-84ee-99e160259923@nvidia.com>
-	<865x26do37.wl-maz@kernel.org>
-	<e5a32fcc-ca3c-4b54-a790-d2eef2c636e5@nvidia.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jonathanh@nvidia.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, therealgraysky@proton.me, dan@reactivated.net, m.szyprowski@samsung.com, florian.fainelli@broadcom.com, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com, linux-tegra@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/3] ARM: dts: imx7d-colibri-emmc: Add Toradex Displays 7" Parallel
+Date: Thu, 23 Jul 2026 12:52:16 +0200
+Message-ID: <20260723105225.194366-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_035249_822731_24EDF94F 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 11:22:54 +0100,
-Jon Hunter <jonathanh@nvidia.com> wrote:
-> 
-> 
-> On 23/07/2026 10:58, Marc Zyngier wrote:
-> 
-> ...
-> 
-> >>>> I have posted something similar for Tegra [0], but because this is not
-> >>>> expected to work, I wanted to avoid the warnings here. We test for
-> >>> 
-> >>> "not expected to work"? In which parallel universe is that a thing?
-> >> 
-> >> FWIU, at least for Tegra194, we have a CPU and GIC pairing where the
-> >> CPU supports this but the GIC does not.
-> > 
-> > Oh please, you know better than this.
-> >
-> > It isn't the GIC that defines the number of supported PPIs, it is the
-> > *integrator*. I.e. you. The GIC (GIC400 in this example) has full
-> > support for 16 PPIs per CPU.
-> 
-> Hmmm, I am looking at this spec [0] and it says ...
-> 
-> "The GIC-400 implements the interrupt types:
->   16 Software Generated Interrupts (SGIs).
->   6 external Private Peripheral Interrupts (PPIs) for each processor.
->   1 internal PPI for each processor."
-> 
-> The table in [1] shows interrupts for non-sec, sec, virt and
-> hypervisor timers, but I don't see a hyp-virt.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-This documentation was never updated past 2012, which predates ARMv8.1
-(go complain to ARM). But the IP does support it:
+This series adds device tree overlays to support the Toradex 7" DPI displays to
+the Toradex Colibri iMX7 SoM (eMMC variant).
 
-[    0.000000] Machine model: Khadas VIM3L
-[...]
-[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
-[    0.000000] Root IRQ handler: gic_handle_irq
-[    0.000000] GIC: Using split EOI/Deactivate mode
-[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
-[    0.000000] arch_timer: cp15 timer running at 24.00MHz (hyp-virt).
-[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
-[    0.000000] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+Francesco Dolcini (3):
+  ARM: dts: imx7d-colibri-emmc: Add Toradex Capacitive Touch Display 7"
+    Parallel
+  ARM: dts: imx7d-colibri-emmc: Add Toradex Capacitive Touch Display 7"
+    Parallel with Touch Adapter
+  ARM: dts: imx7d-colibri-emmc: Add Toradex Resistive Touch Display 7"
+    Parallel
 
-GIC400, A55 cores. Produced by one of the worse SoC vendor on this
-side of the galaxy.
-
-And the signal you are looking for is the one labelled as "Legacy FIQ
-signal" (PPI12, aka INTID 28). The labels are purely indicative of
-what you *could* connect to it, not a requirement.
-
-Anyway, this is beside the point. Even if the IP didn't support it,
-you shouldn't end-up with a design that explicitly contradict the
-architecture, because that's the contract SW relies on.
-
-	M.
+ arch/arm/boot/dts/nxp/imx/Makefile            | 22 +++++++
+ ...ap-touch-7inch-parallel-touch-adapter.dtso | 58 +++++++++++++++++++
+ ...i-emmc-panel-cap-touch-7inch-parallel.dtso | 43 ++++++++++++++
+ ...i-emmc-panel-res-touch-7inch-parallel.dtso | 32 ++++++++++
+ 4 files changed, 155 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-panel-cap-touch-7inch-parallel-touch-adapter.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-panel-cap-touch-7inch-parallel.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-panel-res-touch-7inch-parallel.dtso
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.3
+
 
