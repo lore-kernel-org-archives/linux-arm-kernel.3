@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3284C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2613CC531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n+PO7sYjoqkoCNw3sBQCCaj+6WMmpLchwWbeVlk0qeM=; b=hwKBxku8BEFaXZSYdF1d7N502d
-	4pMkSP8K+CuEh95gu+gD3WZMsS6Yad/0MbkKUcDEvZGxRYSg6Bl6akzvheLwipf4OsSkWP+8eLwIM
-	a5nSoGwink9CQzxOFdY0lX9QlLxuInH1h4VaEcyUB6mHx6ryvHrrYa1tBN7bJOE9i2wLZ2PPIb2Bx
-	NKTD8ZxLnGfbifi4f9SBr4ZuIdkUVcBGVeRnrj5Sz0I78PZev7l+V1HRldzXEHZYwHRQ3PEF2+7ld
-	Uy69Dx/IZcZz3igVgORaWfHOP0JjCovOt+Ahva47lxBF/IjzEQ19fSmN3Rd+Nt3PGDl/XDJnrZDZX
-	OsvW3ZIQ==;
+	bh=jF6qnH1MPBcvf0mZbM+mDy/rYdlkBECVBGQCKmvr+68=; b=NRUyo+w67aKOU58IyMbAov9sQe
+	nqCggc8U38ijJDMnitQVXdL8oGASQ+uytYMalrHA1exWybzAVGed4yB3hLmQ8smp+DQ9J6lg4Xemj
+	BmIJTibVEoMa5d73HPg0nxj0piVMI/2nx22iBz+IQo0z86clBkBbGGNG/1XADaG4ShzLGz3g7m6Pu
+	I4ft7R6Yw7JM81bI6NGhnEgI4fGrCo1X9G090ugtEaZJlLbdOxD3NdO8Ls6+S/v6zQLRwJuJnei5l
+	r7lMKE2VjqlF57cVUamtqW8Z6JgbhLmySc3FgYosiF4onVjqlQOGrdw5bXyQDdu/wx+70EeYFM2lk
+	2A8atKxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpt2-0000000DuCK-24hq;
-	Thu, 23 Jul 2026 09:38:40 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1wmrDw-0000000E6iJ-2pjI;
+	Thu, 23 Jul 2026 11:04:20 +0000
+Received: from mail.lysator.liu.se ([2001:6b0:17:f0a0::3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpsp-0000000DttW-0rQw
+	id 1wmrDu-0000000E6en-3ihK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:38:34 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 1EA9D1FB8B;
-	Thu, 23 Jul 2026 11:38:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1784799504;
-	bh=n+PO7sYjoqkoCNw3sBQCCaj+6WMmpLchwWbeVlk0qeM=; h=From:To:Subject;
-	b=O4Am82IeMk1I8SyPwwCl0Z1iLy4C1fCxtV4MjISW7+wHk5F1/6B2R8DieCFvWLVqS
-	 +mOUY2QwWlLkDOfyrMZpeZ3nXvpnESytQjmkoN74wASvXFgCvIQYBkOxlNuMAdBZq+
-	 35ERA9JnXvzvOZrpbY2hwrQ90bRfb9AaqcoZ89iHT04xiR0KhoZXyeJdEejZjWcTll
-	 lo+D25km4dYqhfDz1PXNKXC5Ya+osjV4xYewG0xVlaalOKf6Ij28/7r3TNtgwX+vKT
-	 Pv/eQfcOqzt/WdImSMKA1GbDiqUgVCtBN/vLtnicm0epnybwyYkgU6Ttp1p0BjSaiI
-	 BTm47u8IHpYxw==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 3/4] ARM: dts: imx6ull-colibri: Set LCDIF bus-width
-Date: Thu, 23 Jul 2026 11:38:10 +0200
-Message-ID: <20260723093813.180089-4-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260723093813.180089-1-francesco@dolcini.it>
-References: <20260723093813.180089-1-francesco@dolcini.it>
+	Thu, 23 Jul 2026 11:04:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1784804657;
+	bh=WRCGx4B3wEDWfA3vSGt39yZv/ffunOWaZFhyROsM1N4=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=Thp2dk/hOtJd9WI+wxWwLNomeJZpO+1+yiiAYC+J6noLGGFMXmRJSn7gpU/pBDfL5
+	 /eMO1Y/C9KeCHibvUWsDwmSAJmyCB2G2ToGShRnunCkZMF3oYenilupMIjbbeK8cy5
+	 kc+jumJJB5YGr5c/mz5f/+j7sGZrQGVhcoV5b/qqkOCNUVn1cEabNi2+8qjDvdkKcr
+	 Ac+WSfTP00mYcM6OAGBrQ7Q5na1JsGCB4QOwfyIkaGUTK2rXFa01l3hmBWHnOn7neN
+	 P1JtaRdl2DQ1x/HQKgLLRPltw+vgNze9cVLJfepIVChafYfONwioULsiC/nFzMbWD/
+	 CEDue0T30tv+Q==
+Received: from mail.lysator.liu.se (localhost [127.0.0.1])
+	by mail.lysator.liu.se (Postfix) with ESMTP id E517F1BA22
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:04:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1784804656;
+	bh=WRCGx4B3wEDWfA3vSGt39yZv/ffunOWaZFhyROsM1N4=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=dyL0npyGfGh3gF5tB2eRf3dFOXDEsxBZj1e9te5iBTvb3CfpWyg42FIHCroWTmIn/
+	 O7W5ibbwFDlI5B2EPfzYR/QdxxYNhHWzzMQUexMTCWOuBh6UMQXo6BOmHwkrGdBJkc
+	 Aq2k6TGIWzOtDQ6KsfafedQScaeUxg+OgwBsSjyG+fNjkQGvSYmzMkmnJP9nJQmDNZ
+	 03U+YggXuJk4T9im/KodG6nhXf17HH0ZuS75Aw0+y9DT90r1MYHRNt4XYMIFzKiX8z
+	 j0pWj5lgzewstceDISuRxGW6AeSyYJu/Hsjl++atuc7YnVwJjNGGd4k94xYzVMGxJc
+	 +pvmPUVxBBQdQ==
+Received: by mail.lysator.liu.se (Postfix, from userid 1004)
+	id CA9B01BA20; Thu, 23 Jul 2026 13:04:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1784804652;
+	bh=WRCGx4B3wEDWfA3vSGt39yZv/ffunOWaZFhyROsM1N4=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=G8X5z9QW2owobkvfTuJrQHk883LhjpgXPwjwbcc6g1U27kBZFvsWo8SpqHfKwHL6Y
+	 1mjKvJHiXYcQ6neoWv/FaCG92t8+gjiPLSrkmKptYkhgPsdHiid47DJd6xzLsEzBKz
+	 nZP7oIg46Vf1HVjdVKIxbWF1x+oLYDaK6mB8Hd3jKaZh48hbP+SS/9xPlcl4ykGNT0
+	 IWOn6GO6kmKtZgttJjhmbwLm8jyCriSnePY6ke9NgtnPZ+uaX1S1C4C1569XV0CoDq
+	 vOUcmgZuXZs00VOlezcPZK2+WIzi5CKOMZ9yO2uIie7z9x50yyvORb1gQ2wLpH7H2D
+	 japzelfFSvogQ==
+Received: from [192.168.2.172] (81-225-28-11-no2391.tbcn.telia.com [81.225.28.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by mail.lysator.liu.se (Postfix) with ESMTPSA id 3A4D01BA95;
+	Thu, 23 Jul 2026 13:04:12 +0200 (CEST)
+Message-ID: <d76f9802-5da8-4058-a6b6-4a782c1f2e3c@lysator.liu.se>
+Date: Thu, 23 Jul 2026 13:04:11 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Peter Rosin <peda@lysator.liu.se>
+Subject: Re: [PATCH v12 2/7] i2c: mux: add idle_state property to i2c_mux_core
+To: Marcus Folkesson <marcus.folkesson@gmail.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Michael Hennerich <michael.hennerich@analog.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260719-i2c-mux-v12-0-a5010d623a57@gmail.com>
+ <20260719-i2c-mux-v12-2-a5010d623a57@gmail.com>
+Content-Language: en-US, sv-SE
+In-Reply-To: <20260719-i2c-mux-v12-2-a5010d623a57@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_023827_408829_8B3EA01D 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_040419_099562_60002CB7 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +106,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+Hi!
 
-The lcd DPI interface on colibri imx6ull uses a 18-bit width bus, set
-the bus-width property accordingly.
+On 2026-07-19 16:59, Marcus Folkesson wrote:
+> Muxes treat their channels differently when idle.
+> Let the mux core have this information to make it available for
+> internal use.
+> 
+> Possible idle states are:
+>   - I2C_MUX_IDLE_AS_IS: Leave channels as is when idle
+>   - I2C_MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
+>   - I2C_MUX_IDLE_UNKNOWN: Unknown idle state
+>   - <n>: Enable channel n (starting from 0) when idle"
+> 
+> Default value is set to I2C_MUX_IDLE_UNKNOWN.
+> 
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> ---
+>   drivers/i2c/i2c-mux.c   |  1 +
+>   include/linux/i2c-mux.h | 30 ++++++++++++++++++++++++++++++
+>   2 files changed, 31 insertions(+)
+> 
+> diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
+> index 681a201c239b..b126ce7338c2 100644
+> --- a/drivers/i2c/i2c-mux.c
+> +++ b/drivers/i2c/i2c-mux.c
+> @@ -247,6 +247,7 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
+>   	muxc->select = select;
+>   	muxc->deselect = deselect;
+>   	muxc->max_adapters = max_adapters;
+> +	muxc->idle_state = I2C_MUX_IDLE_UNKNOWN;
+>   
+>   	return muxc;
+>   }
+> diff --git a/include/linux/i2c-mux.h b/include/linux/i2c-mux.h
+> index 1784ac7afb11..a348f81e7a90 100644
+> --- a/include/linux/i2c-mux.h
+> +++ b/include/linux/i2c-mux.h
+> @@ -15,6 +15,10 @@
+>   
+>   #include <linux/bitops.h>
+>   
+> +#define I2C_MUX_IDLE_AS_IS      (-1)
+> +#define I2C_MUX_IDLE_DISCONNECT (-2)
+> +#define I2C_MUX_IDLE_UNKNOWN	(-3)
+> +
+>   struct i2c_mux_core {
+>   	struct i2c_adapter *parent;
+>   	struct device *dev;
+> @@ -22,6 +26,18 @@ struct i2c_mux_core {
+>   	unsigned int arbitrator:1;
+>   	unsigned int gate:1;
+>   
+> +	/*
+> +	 * The mux state used by the driver when idle.
+> +	 * Possible idle states are:
+> +	 *  - I2C_MUX_IDLE_AS_IS: Leave channels as is when idle
+> +	 *  - I2C_MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
+> +	 *  - I2C_MUX_IDLE_UNKNOWN: Unknown idle state
+> +	 *  - <n>: Enable channel n (starting from 0) when idle"
+> +	 *
+> +	 * Default value is set to I2C_MUX_IDLE_UNKNOWN.
+> +	 */
+> +	int idle_state;
+> +
+>   	void *priv;
+>   
+>   	int (*select)(struct i2c_mux_core *, u32 chan_id);
+> @@ -38,6 +54,20 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
+>   				   int (*select)(struct i2c_mux_core *, u32),
+>   				   int (*deselect)(struct i2c_mux_core *, u32));
+>   
+> +/*
+> + * Mux drivers may only change idle_state, and may only do so
+> + * between allocation and registration of the mux controller.
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
-v2: use the common bus-width property instead of the legacy interface-pix-fmt
----
- arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+This is simply not true. It is a limitation imposed by your series.
+The pca954x driver has a hook to change the idle state at runtime
+(the change takes effect the next time the mux is deselected).
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-index ec3c1e7301f4..1eb1cf2d7395 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi
-@@ -229,6 +229,7 @@ &lcdif {
- 
- 	port {
- 		lcdif_out: endpoint {
-+			bus-width = <18>;
- 			remote-endpoint = <&lcd_panel_in>;
- 		};
- 	};
--- 
-2.47.3
+Cheers,
+Peter
+
+> + */
+> +static inline void i2c_mux_set_idle_state(struct i2c_mux_core *muxc, int state)
+> +{
+> +	muxc->idle_state = state;
+> +}
+> +
+> +static inline int i2c_mux_idle_state(struct i2c_mux_core *muxc)
+> +{
+> +	return muxc->idle_state;
+> +}
+> +
+>   /* flags for i2c_mux_alloc */
+>   #define I2C_MUX_LOCKED     BIT(0)
+>   #define I2C_MUX_ARBITRATOR BIT(1)
+> 
 
 
