@@ -4,153 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18653C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA35BC531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7Mzpy5zdtXssn+L9P2YYF6sI1BaKmigGtB9zFmVXYM=; b=thNxsQh5Yl+yK/4E2nxnqkk06v
-	KvnMB3kfc2pk9RkwlXsiAOn9JDZfE5Cg8uNy3i40J2yWIgIkMttnYqRPgr6a6MBDpSgQNhcMBvWK+
-	59GlDVSmCEPMh5zJLF5g56qi7aMeLMqpzw9YPYCkVxVRqIkKSCpd9HwVEYecD4uLrsC4o13L7okq0
-	iFEqeKbKLItXS4caI9FY6FVe5lcfcju/6NCKSIVRqWyCcU22SveNoBIeCbEYPdNUFlyKVvJS+nkqG
-	AQyIRk9d0rxjK3n3MzqyhBNtC+vuysx8NB68D70xmPZ558AgqlsxuBafg50s1AVXWWmEF/PQCfpUy
-	lrhK8NMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yCJiB8KGwCsD2ULSE59XdawvVi+Mh/kuhiyyGTkcU48=; b=CB8OoiSuYULBeazcaSCyz7XU3J
+	1Jnt9BeaXzAVPOWlJA2MwVi+n9uhTC8xod3+v9Dveshy9iVtdh7b/hHwmj/QexqfidWflwt7F1oFk
+	XG9hfSxp3/BuZwWL67Sv0hCHERvhztvmC+0aQ988uaru/9P92rJBpw4Q5Z8gU9GTnLHIJldj0ufA8
+	oSIlzgk5Saq7yU/uzqd31dQn37XRXn8Fj5+XT+HnQqx/bblMDnEa+39DrAZJoc02+5RHCPjJgEglN
+	L524MH2+GKYMAAXGbWOYZli6PTyVwpliuioiOLYAFKGPHQ1qMOMFpxMUdiPrgQmlmjOXi0gp1NKwT
+	VpLpudxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpUX-0000000DopY-3fZg;
-	Thu, 23 Jul 2026 09:13:21 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpUL-0000000DoiC-19wF
+	id 1wmpuf-0000000Duxu-0O1J;
+	Thu, 23 Jul 2026 09:40:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmpuS-0000000Durx-2bu4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:13:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g0CZida88k5eKbkjABWq06/vhVT4o8L7lr8aU66OF7suOhCCPX8+ixEz8tPLjrfmWO2+GJbh7AWwA0U3bDzUyHAuQrq2njrKR5lHxVzcwK0QJcjFtLdN8kxfWkFMBVhRegM6dGh4dMvNpis0cyA0+MwWXBjGBbvSZTGe7iHhJZE9QwKVD6n2kGCCxbwC+TlMplsacKPO6YKlEseT2JbapdyntMxq9+o5V7siFGeCroJuBVYMpscEtMmHzo3bZrmc4LDwgLWNSPyJu8ehshtX1bSkcBmaU4MNHKsgdw2ML/AxJ6ushXYzm0ScN1c74UHDfU5NWsUMn/nmykznOJScBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b7Mzpy5zdtXssn+L9P2YYF6sI1BaKmigGtB9zFmVXYM=;
- b=AIAPfso8uGw9plqwQ0wCaCG89JyVmKtqRAHye0hJFyQYDRUEi6b6j9HNIjfUaFdDqODjeTygsQjWvh7Mfn9FG0GnLqDnqw3Iwdhex38abcJfyKxMrSYrf6Q2d+yS7psDOV5FajBa60uqbZQVzWzmdBMJ5zstWvbBnXUfsSKks3BWSmurCXzyL+mEoj5KctybsIWu4M4ruo/Es8thQcaooJsfgKrhhYw30bm372XF/oNfiKjSgVkbvrNpHUb7bNWnlSxvLB6YdBcOz7r1gDIJal1gOaOaG8l8PVlG6MO1DMJmEy+WGgk9XwXKiFO2tbCFtiZJlaPuOuxsodAAxacZEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b7Mzpy5zdtXssn+L9P2YYF6sI1BaKmigGtB9zFmVXYM=;
- b=un8nvMUB0mnMtd6IBJC1IInenYjWwN80tWdm1IzrF0zTqo0oNwcUN9U0k6kFd5piQgC0GiXoOwpG8v/7BLZS05y3aJ83aciY+DH67NB9yK5iutSpzaG0iOIHYQfA85tLgJ9+xPh8k0zD+sVslzXJk21nwfGqA43uw3i+IFzDtZOx0ls8pxiOjtZ0Y3QsHivvHQGBlNqsoGu1xT28BoKOcnSvkHIhlHLbKn8A00a8HAITR7nf5I+OXl6ziabmeEGP2e67+40kX5Q5iVfS6fM0scpRmdewe5pWQdEi10E1riytmzSElHZcWWNmodDd+nz+5xH8fH5I4a9uuMGPktChEw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
- by DB8PR04MB6780.eurprd04.prod.outlook.com (2603:10a6:10:f9::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 09:13:04 +0000
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 09:13:04 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Thu, 23 Jul 2026 17:16:37 +0800
-Subject: [PATCH v3 1/3] media: nxp: imx8-isi: Implement per-stream
- reference counting for multiplexed streams
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-isi-v3-1-594919eae847@oss.nxp.com>
-References: <20260723-isi-v3-0-594919eae847@oss.nxp.com>
-In-Reply-To: <20260723-isi-v3-0-594919eae847@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Christian Hemp <c.hemp@phytec.de>, 
- Stefan Riedmueller <s.riedmueller@phytec.de>, 
- Jacopo Mondi <jacopo@jmondi.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Bryan O'Donoghue <bod@kernel.org>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784798197; l=7278;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=8zzJ60bO7QSwxOd3LElRmIwlR+JR4OzfKRPv2FmK04g=;
- b=P8cmNJsg2mXOkhHqIpxuRb0xE/YKRNDbdsGpGqsAVPZRKiMkmlGuSrr8EU9kkO6QOPJBmyX5d
- 0+J3vwa2zzfAhhY75n8hrTo6tB0hoV994qVUsYwJFpust8yJdQC4wa8
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SI3PR02CA0006.apcprd02.prod.outlook.com
- (2603:1096:4:295::13) To GV1PR04MB11513.eurprd04.prod.outlook.com
- (2603:10a6:150:284::9)
+	Thu, 23 Jul 2026 09:40:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCA971477;
+	Thu, 23 Jul 2026 02:40:03 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8E413F66F;
+	Thu, 23 Jul 2026 02:40:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784799607; bh=/ntqz3irzbSNsxvf86ffTUTAdqYEM1c8Ckii8y6Jz50=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aCeWG+wFh7IS51bVhj++zYReK1bgiP/Vnd/tqlskVOvURa6S5mcCo6Zi5+taTwD5k
+	 i4lKRQO094KXycMd1ThnGHR9hZ7TDkYMbNhAT5i4vQQFkGa8yGfH61DiogMJbw+qqC
+	 b6an4+MDdjKPzKsPtdDuZlegB3G51/e2L2oAGEvM=
+Message-ID: <f47afa3e-eb7a-461b-af0d-17ba3e507b3d@arm.com>
+Date: Thu, 23 Jul 2026 10:40:04 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|DB8PR04MB6780:EE_
-X-MS-Office365-Filtering-Correlation-Id: 96231fcc-3d71-46c5-de24-08dee89a9a32
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|19092799006|921020|6133799003|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: VBi3NsVYVj3BDiurVAuMhTkYVVm88bd3Fe8ZDKACI4TfmdsTwtJBgyLEdl3SvZ0yWio/hXt8ruhKvwTjHAAOAqpPbh0iKJkSUTXwRBeZtUcvBsdbUlOFeETtXHyA3Ap3OBRXMgn6QBu6WBQ6nA6XxXd1UqIHzPVZoBfxr8BHnvVzu/uFBpSCUMo1czForn4Gbr5ghxgK09aei0tLEGz5sMIWkfmUwHnZuxo2yshEu3XLkpisB4C+ugSg2Yei7nsV0cZkwJPOnGriRUtG+lXVXTH0Ltjs/CuPoCJfHWIez0fZeD+qoYVGhHZs5rv4iAl4Ia+5Batkizq2MmJgpJ6GGcfpNluvUVX2XhUGPTIaMZKfFtXdCecMa+lv+XMhzjsAlgEuzTfv9OQc3s4Io65eNTG4v9kZHpXzEDsS9+yYFld9jJhEEGcPEvq0ZBy3c1HjrWi8BPVwm/LPGmtMhSIOaK8wBR+U1TZGtpiSxKJqcWdYFOq1PH2WNT8Ocuw76r4o6JE52PwInAHJ+HCg22RpHFaa+wYU0hZejEaYKB76WXjmJiCbNVJEdPaqOmveDK1JS+aJbDzcaQ/2sQEKG+1yDivoGAIFQBV/SI3mYAnx4eghhFvIJvUtWHGGR/KBmqYws93T6lt31xyBNQzn5eYOr+anGE/ddEeSw9/t4ND7TQz2NEHr5Arrbk2ICMh/zs+amWORY2ntryybRJXs0CWwsw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(19092799006)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NFlXZ25KMTNmdTdCVzQ5WmVBcjIraUJCcGRLalNwTnBFNXZaSDI1VWNkUkJs?=
- =?utf-8?B?bXJrVHRudmNxdEF4S3I5eTgzM1JLb25yN01ibTNMQ1lLWGUyc3RCTVhzMXVH?=
- =?utf-8?B?WWc3TnBTYkJpNTNzNlVTOWcwSFpadVh4VlBubFJBYm1YeGlFeHVZMmdMSHM3?=
- =?utf-8?B?TjQ2Y1Jybmo2RkZlYmNPNE5LR0lNT1lrNmV6M0VDdU1nTUY0TVc3N0p0RDdi?=
- =?utf-8?B?WEQ3bHoxN0NydTBSZDJTNjF1L0t1YzlQME91THVqaEUySXpwUHNzTmMyMHJ0?=
- =?utf-8?B?QlVtTW9haHJJY1pPRHo0L2huM3RDZ1ZnWDFSUVFaZk9YMUdPeTY4VkNGMU9w?=
- =?utf-8?B?ZkNSVm9hSDAzNEdYdE5MNTdLN1hxMXhTYks2NHo0QjU0cC90dSt6ZDZZYkIz?=
- =?utf-8?B?dGRpSXovN1FmemNtN1l5aWh6T2lXTXV4Vk9hVGV1T2IzRlVvY3RySVZiUm5X?=
- =?utf-8?B?dnc1aWd6TkZXazhLMUhXMDY2NEFONFZMdVBvdEJxTlE4alJiNnZoTzRJRFFn?=
- =?utf-8?B?VWdrb0llNUMwdC9qTWJGOGNPZExnUzRudUJac3lTRWR6YjlFcTRpdHovc2VJ?=
- =?utf-8?B?cjY2dFFNSWMxanJTSVQwNE12cllwVERXNEtpSHpjK0lJaHdOQjQ1OWtGbzhp?=
- =?utf-8?B?cm40Mk9iRWRxajcrNGh1czN1NVdLMzNIUnJRSE4wQk5kdVJlZmRiMEpsa3BU?=
- =?utf-8?B?MDFkcFYyWEFnanVCLzQvUGI1aHJ5djl0cklrMXF2YjZwUEIxVnl6aU40cWpQ?=
- =?utf-8?B?NkRxcGZRcFFGczN4UGtidWZjeG9JRy9ESHFzNlhWTjNCOEg5V09FdDRyNldC?=
- =?utf-8?B?Ly9uOGtBOXRneitVdDhMOUgrQnhSdGhPaXpJMnFnUjRCKzVHOWNvbkFYNEpK?=
- =?utf-8?B?Q1RRTS82VGdxQW5EM2toVERPMjU0ZkFCL3F2YmRsc0lzVU1WZFdNb2JHakhy?=
- =?utf-8?B?aEMrbGQxREJ0US9PVGZ1U1VDZ0p2dHVxVllQa0E2R2gxZU5KbG5rMWppdE5o?=
- =?utf-8?B?bDI5NitCdkNYdWpBT016UndrdFJvQ2c2MFRXall3RXBVaVk2bkFpK0NCYzl4?=
- =?utf-8?B?VFExSlIrWlk5aS8vUHJQWmlNaUxPZ3hsRkdnTlAxOTFpREpmQ0xkZkFuKzht?=
- =?utf-8?B?OEZneDJXUkxiTWF5UUFMMmFXQ1E4TXdPSWNQTFAwSS9hSnhpZW9hZFhBWjUw?=
- =?utf-8?B?b1luQjRzYlAzSXNaSlhhL0NUK0tIQzAyT0R0WW1pZk5JcS9PNWxmWE5iL2ts?=
- =?utf-8?B?L3RjMll3NzkwRUlzUjIwVlhrQXV3SjRiZmxKSGFRdGVoSTRrQUoxVitNMTRt?=
- =?utf-8?B?MDUwZHU1blVaNU96TjBoaUVCOHhVcmdsYlQwd3JIVU5LWVAxQ216cFFhNUxp?=
- =?utf-8?B?SlVsS2hKNEkyRVZBblJIUlpBbjhpNnlSNWx5citQeUZTK0NLY2liSG1ZcmFh?=
- =?utf-8?B?S0tVWHJyQTU4QlNKVG0vMU1wSyt4R3NUMWFqL0pYNEFyQWlueXFqTGtjL0dM?=
- =?utf-8?B?cUZLYUU2NTg5MTJ4OWpETVNaTEh0MXRKL1B4T3JWd0N6T29LWGs3elJpM2xS?=
- =?utf-8?B?U1dvKzVGTTZFUVIvNE8xV2tSZW9MSzBwNFJJdXI4SVlaUlYzaXpla0FJZWQz?=
- =?utf-8?B?WkUrYXk0MU4vczZCSFhUZVFUN2FpL3B0d0lNWm9jRU02UFNuck9GZVVGb2pM?=
- =?utf-8?B?VU5KYzhGc0hlTDBleXpmMFcyY0gwT2dTVnlGU0dPNGJ6WnY5aXNVa0pkSVNK?=
- =?utf-8?B?S3BPcjZ4dmtTRnhTanc3M2xtWDlueURUZDFvd1JaTGdrUjV6ckNVN2pWMmwz?=
- =?utf-8?B?bytPclVuaTYwRUtSWnZpZ1Y5YXFJS0swWXplcXBvNDg4R3diYmVVUVlkN0dP?=
- =?utf-8?B?ZHJjaUZ6b0tMTy9KdUswc0dobEhkU3I3NmlSVklkQ3NoUERidWpvWm5ick80?=
- =?utf-8?B?ZStPVEVtWWlsUXdGelBUcnF2eWhzZFJyZFI0aEltbGxPaVg1MHFmdGkwaWUv?=
- =?utf-8?B?ZC9Xbm92OHo5RzdvTTQrSHhnVm0rbjVrMGZ2a0VaRFpnelFEbnRFNUc2Ym0w?=
- =?utf-8?B?ZzNheEhQaExkRmRCcUdWK2dQUldBeHM5NXVGTzZ1YnlVcGw5V21yZVJEWkVT?=
- =?utf-8?B?cjZGM3VXdDh0NnVnVDRnOWd2UnNPai80ZG9sbXZpVnRIdjlmUFo5TU5ZbGV0?=
- =?utf-8?B?OWp6WUt2UWFqY1V5ZUFEYVQ5a0Q0YklCK3dxVWNoYTY3VlIrZ2hicjdFWjJX?=
- =?utf-8?B?RnhDcFduckNPQ2hCZU5yRUVQOE1HYjNVckNBT2NSNlQxc2FTeGI0VkppRlAv?=
- =?utf-8?B?YU53ODZjZGlWQWZ5Mmc4WHBYUCtQSkhWQk9HZi8yZjhuNGUyNExWdWp5Ykc4?=
- =?utf-8?Q?TrT3UnOUjAKINSJ45asql6xo8iMbT1LbbG2Sa?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 96231fcc-3d71-46c5-de24-08dee89a9a32
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:13:04.5490
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zyCuTa7EfVh+HGTBrE2qbYoO+ChTng+45dramYHaU8vYImZGRCaRfVLl9NqrzypGIv7OKyWH5x65l4VnccsPA5UjilwGWPfmM5PNxYmXbM+2cYcFjbg8/P5TOMzJvbjZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6780
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 15/36] arm64: replace local_daif helpers
+To: Jinjie Ruan <ruanjinjie@huawei.com>, "Liao, Chang"
+ <liaochang1@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, catalin.marinas@arm.com,
+ will@kernel.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-16-vladimir.murzin@arm.com>
+ <51864d9c-5af0-43f4-937c-244d39c4a83e@huawei.com>
+ <f112bf98-d97f-41e4-91b9-86c9fb517bdc@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <f112bf98-d97f-41e4-91b9-86c9fb517bdc@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_021309_473538_0EEB098F 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20260723_024008_764192_ADAF35BE 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,208 +74,550 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ISI crossbar needs to properly enable multiple streams from different
-virtual channels on the same input pad. Currently only the first stream
-gets enabled in hardware, subsequent streams are silently ignored.
+On 7/22/26 09:41, Jinjie Ruan wrote:
+> 
+> On 7/15/2026 5:26 PM, Liao, Chang wrote:
+>> 在 2026/7/9 20:13, Vladimir Murzin 写道:
+>>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>
+>>> Replace existing `local_daif_...` usage with the new `local_all_irqs...`
+>>> helpers, adding the necessary save-state struct where required.
+>>>
+>>> Slightly rework `apei_claim_sea()`'s handling of interrupt masking to
+>>> fit with the new APIs.  Currently, it saves the DAIF flags to restore
+>>> later and the `local_irq` ones to check if interrupts are disabled.
+>>> It then masks AIF to signal the SEA (forcing DAIF masking), and will
+>>> unmask to IF (re-enabling PMR masking if pseudo-NMIs are in use) if it
+>>> interrupted a task with interrupts unmaksed, restoring with the DAIF
+>>> flags from the beginning afterwards.
+>>>
+>>> As we want to preserve a "mask/unmask" process, change the logic from
+>>> "mask AIF/unmask A/unmask IF" to "mask IF/mask A/unmask A/unmask IF" :
+>>> first mask with `local_irq_save()`, mask/unmask further around the
+>>> SEA signaling, and restore at the end with `local_irq_restore()`.
+>>> Now that both APIs properly work with DAIF and PMR, this works
+>>> as expected and also removes the need for a "save flags without masking"
+>>> function for the new helpers, as this was the only user.
+>>>
+>>> Remove the use of GIC_PRIO_PSR_I_SET in `kvm/hyp/nvhe/switch.c`,
+>>> as we now check both PMR and DAIF everywhere and we don't need to signal
+>>> interrupts being masked in DAIF in the PMR anymore.
+>>>
+>>> As we removed the `daifflags.h` include in preparation for its removal,
+>>> move `local_interrupt_priority_init()` to `asm/interrupts/masking.h`.
+>>>
+>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>>> ---
+>>>  arch/arm64/include/asm/daifflags.h          | 14 --------------
+>>>  arch/arm64/include/asm/interrupts/masking.h | 14 ++++++++++++++
+>>>  arch/arm64/kernel/acpi.c                    | 15 +++++++--------
+>>>  arch/arm64/kernel/hibernate.c               | 16 ++++++++--------
+>>>  arch/arm64/kernel/irq.c                     |  2 +-
+>>>  arch/arm64/kernel/machine_kexec.c           |  4 ++--
+>>>  arch/arm64/kernel/setup.c                   |  4 ++--
+>>>  arch/arm64/kernel/smp.c                     | 14 +++++++-------
+>>>  arch/arm64/kernel/suspend.c                 | 14 +++++++-------
+>>>  arch/arm64/kvm/hyp/nvhe/switch.c            |  2 +-
+>>>  arch/arm64/kvm/hyp/vgic-v3-sr.c             |  7 ++++---
+>>>  arch/arm64/kvm/hyp/vhe/switch.c             | 12 +++++++-----
+>>>  arch/arm64/mm/mmu.c                         |  7 ++++---
+>>>  13 files changed, 64 insertions(+), 61 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+>>> index 6b14ec4d4dbe..8f097a2d9099 100644
+>>> --- a/arch/arm64/include/asm/daifflags.h
+>>> +++ b/arch/arm64/include/asm/daifflags.h
+>>> @@ -120,18 +120,4 @@ static __always_inline void local_daif_restore(unsigned long flags)
+>>>  		trace_hardirqs_off();
+>>>  }
+>>>  
+>>> -/*
+>>> - * During early boot, we unmask PSR.DA before the GIC has been set up.
+>>> - * If we use IRQ priority masking, the PMR and PSR will be out of sync
+>>> - * after the GIC is enabled : sync them up.
+>>> - */
+>>> -static inline void local_interrupt_priority_init(void)
+>>> -{
+>>> -	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>>> -	lockdep_assert_irqs_disabled();
+>>> -
+>>> -	gic_write_pmr(GIC_PRIO_IRQOFF);
+>>> -	write_sysreg(DAIF_PROCCTX, daif);
+>>> -}
+>>> -
+>>>  #endif
+>>> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+>>> index 66ee03f7ab68..19d32618b2b9 100644
+>>> --- a/arch/arm64/include/asm/interrupts/masking.h
+>>> +++ b/arch/arm64/include/asm/interrupts/masking.h
+>>> @@ -98,4 +98,18 @@ static inline void local_all_irqs_final_mask(void)
+>>>  	trace_hardirqs_off();
+>>>  }
+>>>  #endif /* CONFIG_DEBUG_IRQFLAGS */
+>>> +
+>>> +/*
+>>> + * During early boot, we unmask PSR.DA before the GIC has been set up.
+>>> + * If we use IRQ priority masking, the PMR and PSR will be out of sync
+>>> + * after the GIC is enabled : sync them up.
+>>> + */
+>>> +static inline void local_interrupt_priority_init(void)
+>>> +{
+>>> +	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>>> +	lockdep_assert_irqs_disabled();
+>>> +
+>>> +	arm64_update_exc_context(NOIRQ_CONTEXT, true);
+>>> +}
+>>> +
+>>>  #endif /* __ASM_INTERRUPTS_MASKING_H */
+>>> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+>>> index 5891f92c2035..8ec784f96693 100644
+>>> --- a/arch/arm64/kernel/acpi.c
+>>> +++ b/arch/arm64/kernel/acpi.c
+>>> @@ -33,7 +33,7 @@
+>>>  #include <acpi/processor.h>
+>>>  #include <asm/cputype.h>
+>>>  #include <asm/cpu_ops.h>
+>>> -#include <asm/daifflags.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/smp_plat.h>
+>>>  
+>>>  int acpi_noirq = 1;		/* skip ACPI IRQ initialization */
+>>> @@ -391,15 +391,14 @@ int apei_claim_sea(struct pt_regs *regs)
+>>>  	int err = -ENOENT;
+>>>  	bool return_to_irqs_enabled;
+>>>  	unsigned long current_flags;
+>>> +	arm64_exc_hwstates_t all_irqs_state;
+>>>  
+>>>  	if (!IS_ENABLED(CONFIG_ACPI_APEI_GHES))
+>>>  		return err;
+>>>  
+>>> -	current_flags = local_daif_save_flags();
+>>> -
+>>> -	/* current_flags isn't useful here as daif doesn't tell us about pNMI */
+>>> -	return_to_irqs_enabled = !irqs_disabled_flags(arch_local_save_flags());
+>>> +	local_irq_save(current_flags);
+>>>  
+>>> +	return_to_irqs_enabled = !irqs_disabled_flags(current_flags);
+>>>  	if (regs)
+>>>  		return_to_irqs_enabled = !regs_irqs_disabled(regs);
+>>>  
+>>> @@ -407,10 +406,11 @@ int apei_claim_sea(struct pt_regs *regs)
+>>>  	 * SEA can interrupt SError, mask it and describe this as an NMI so
+>>>  	 * that APEI defers the handling.
+>>>  	 */
+>>> -	local_daif_restore(DAIF_ERRCTX);
+>>> +	all_irqs_state = local_all_irqs_save_mask(ERROR_CONTEXT);
+>>>  	nmi_enter();
+>>>  	err = ghes_notify_sea();
+>>>  	nmi_exit();
+>>> +	local_all_irqs_restore(all_irqs_state);
+>>>  
+>>>  	/*
+>>>  	 * APEI NMI-like notifications are deferred to irq_work. Unless
+>>> @@ -418,7 +418,6 @@ int apei_claim_sea(struct pt_regs *regs)
+>>>  	 */
+>>>  	if (!err) {
+>>>  		if (return_to_irqs_enabled) {
+>>> -			local_daif_restore(DAIF_PROCCTX_NOIRQ);
+>>>  			__irq_enter();
+>>>  			irq_work_run();
+>>>  			__irq_exit();
+>>> @@ -428,7 +427,7 @@ int apei_claim_sea(struct pt_regs *regs)
+>>>  		}
+>>>  	}
+>>>  
+>>> -	local_daif_restore(current_flags);
+>>> +	local_irq_restore(current_flags);
+>>>  
+>>>  	return err;
+>>>  }
+>>> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+>>> index d0d9bd91e639..4dd40593f736 100644
+>>> --- a/arch/arm64/kernel/hibernate.c
+>>> +++ b/arch/arm64/kernel/hibernate.c
+>>> @@ -20,7 +20,7 @@
+>>>  #include <asm/barrier.h>
+>>>  #include <asm/cacheflush.h>
+>>>  #include <asm/cputype.h>
+>>> -#include <asm/daifflags.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/irqflags.h>
+>>>  #include <asm/kexec.h>
+>>>  #include <asm/memory.h>
+>>> @@ -332,16 +332,16 @@ static void swsusp_mte_restore_tags(void)
+>>>  
+>>>  int swsusp_arch_suspend(void)
+>>>  {
+>>> -	int ret = 0;
+>>> -	unsigned long flags;
+>>>  	struct sleep_stack_data state;
+>>> +	arm64_exc_hwstates_t flags;
+>>> +	int ret = 0;
+>>>  
+>>>  	if (cpus_are_stuck_in_kernel()) {
+>>>  		pr_err("Can't hibernate: no mechanism to offline secondary CPUs.\n");
+>>>  		return -EBUSY;
+>>>  	}
+>>>  
+>>> -	flags = local_daif_save();
+>>> +	flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
+>>>  
+>>>  	if (__cpu_suspend_enter(&state)) {
+>>>  		/* make the crash dump kernel image visible/saveable */
+>>> @@ -391,7 +391,7 @@ int swsusp_arch_suspend(void)
+>>>  		spectre_v4_enable_mitigation(NULL);
+>>>  	}
+>>>  
+>>> -	local_daif_restore(flags);
+>>> +	local_all_irqs_restore(flags);
+>>>  
+>>>  	return ret;
+>>>  }
+>>> @@ -405,11 +405,11 @@ int swsusp_arch_suspend(void)
+>>>  int __nocfi swsusp_arch_resume(void)
+>>>  {
+>>>  	int rc;
+>>> -	unsigned long flags;
+>>>  	void *zero_page;
+>>>  	size_t exit_size;
+>>>  	pgd_t *tmp_pg_dir;
+>>>  	phys_addr_t el2_vectors;
+>>> +	arm64_exc_hwstates_t flags;
+>>>  	void __noreturn (*hibernate_exit)(phys_addr_t, phys_addr_t, void *,
+>>>  					  void *, phys_addr_t, phys_addr_t);
+>>>  	struct trans_pgd_info trans_info = {
+>>> @@ -476,11 +476,11 @@ int __nocfi swsusp_arch_resume(void)
+>>>  	 *   swsusp_arch_resume(), and expects to be re-entered in the
+>>>  	 *   same state : with all DAIF exceptions masked.
+>>>  	 */
+>>> -	flags = local_daif_save();
+>>> +	flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
+>>>  	hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
+>>>  		       resume_hdr.reenter_kernel, restore_pblist,
+>>>  		       resume_hdr.__hyp_stub_vectors, virt_to_phys(zero_page));
+>>> -	local_daif_restore(flags);
+>>> +	local_all_irqs_restore(flags);
+>>>  
+>>>  	return 0;
+>>>  }
+>>> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+>>> index c73faa30268d..36da80169aae 100644
+>>> --- a/arch/arm64/kernel/irq.c
+>>> +++ b/arch/arm64/kernel/irq.c
+>>> @@ -21,7 +21,7 @@
+>>>  #include <linux/seq_file.h>
+>>>  #include <linux/smp.h>
+>>>  #include <linux/vmalloc.h>
+>>> -#include <asm/daifflags.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/exception.h>
+>>>  #include <asm/numa.h>
+>>>  #include <asm/softirq_stack.h>
+>>> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+>>> index c5693a32e49b..0ff45f918488 100644
+>>> --- a/arch/arm64/kernel/machine_kexec.c
+>>> +++ b/arch/arm64/kernel/machine_kexec.c
+>>> @@ -17,7 +17,7 @@
+>>>  
+>>>  #include <asm/cacheflush.h>
+>>>  #include <asm/cpu_ops.h>
+>>> -#include <asm/daifflags.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/memory.h>
+>>>  #include <asm/mmu.h>
+>>>  #include <asm/mmu_context.h>
+>>> @@ -173,7 +173,7 @@ void machine_kexec(struct kimage *kimage)
+>>>  
+>>>  	pr_info("Bye!\n");
+>>>  
+>>> -	local_daif_mask();
+>>> +	local_all_irqs_final_mask();
+>>>  
+>>>  	/*
+>>>  	 * Both restart and kernel_reloc will shutdown the MMU, disable data
+>>> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+>>> index 23c05dc7a8f2..14f283f7ac3a 100644
+>>> --- a/arch/arm64/kernel/setup.c
+>>> +++ b/arch/arm64/kernel/setup.c
+>>> @@ -37,7 +37,7 @@
+>>>  #include <asm/fixmap.h>
+>>>  #include <asm/cpu.h>
+>>>  #include <asm/cputype.h>
+>>> -#include <asm/daifflags.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/elf.h>
+>>>  #include <asm/cpufeature.h>
+>>>  #include <asm/cpu_ops.h>
+>>> @@ -311,7 +311,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+>>>  	 * IRQ and FIQ will be unmasked after the root irqchip has been
+>>>  	 * detected and initialized.
+>>>  	 */
+>>> -	local_daif_restore(DAIF_PROCCTX_NOIRQ);
+>>> +	local_all_irqs_cpu_init_mask(NOIRQ_CONTEXT);
+>>>  
+>>>  	/*
+>>>  	 * TTBR0 is only used for the identity mapping at this stage. Make it
+>>> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>>> index b91cf163aac7..257d50529d14 100644
+>>> --- a/arch/arm64/kernel/smp.c
+>>> +++ b/arch/arm64/kernel/smp.c
+>>> @@ -42,7 +42,7 @@
+>>>  #include <asm/cpu.h>
+>>>  #include <asm/cputype.h>
+>>>  #include <asm/cpu_ops.h>
+>>> -#include <asm/daifflags.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/kvm_mmu.h>
+>>>  #include <asm/mmu_context.h>
+>>>  #include <asm/numa.h>
+>>> @@ -263,7 +263,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+>>>  	 * as the root irqchip has already been detected and initialized we can
+>>>  	 * unmask IRQ and FIQ at the same time.
+>>>  	 */
+>>> -	local_daif_restore(DAIF_PROCCTX);
+>>> +	local_all_irqs_cpu_init_mask(PROCESS_CONTEXT);
+>>>  
+>>>  	/*
+>>>  	 * OK, it's off to the idle thread for us
+>>> @@ -370,7 +370,7 @@ void __noreturn cpu_die(void)
+>>>  
+>>>  	idle_task_exit();
+>>>  
+>>> -	local_daif_mask();
+>>> +	local_all_irqs_final_mask();
+>>>  
+>>>  	/* Tell cpuhp_bp_sync_dead() that this CPU is now safe to dispose of */
+>>>  	cpuhp_ap_report_dead();
+>>> @@ -870,7 +870,7 @@ static void __noreturn local_cpu_stop(unsigned int cpu)
+>>>  {
+>>>  	set_cpu_online(cpu, false);
+>>>  
+>>> -	local_daif_mask();
+>>> +	local_all_irqs_final_mask();
+>>>  	sdei_mask_local_cpu();
+>>>  	cpu_park_loop();
+>>>  }
+>>> @@ -889,14 +889,14 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
+>>>  {
+>>>  #ifdef CONFIG_KEXEC_CORE
+>>>  	/*
+>>> -	 * Use local_daif_mask() instead of local_irq_disable() to make sure
+>>> -	 * that pseudo-NMIs are disabled. The "crash stop" code starts with
+>>> +	 * Use local_all_irqs_final_mask() instead of local_irq_disable() to make
+>>> +	 * sure that pseudo-NMIs are disabled. The "crash stop" code starts with
+>>>  	 * an IRQ and falls back to NMI (which might be pseudo). If the IRQ
+>>>  	 * finally goes through right as we're timing out then the NMI could
+>>>  	 * interrupt us. It's better to prevent the NMI and let the IRQ
+>>>  	 * finish since the pt_regs will be better.
+>>>  	 */
+>>> -	local_daif_mask();
+>>> +	local_all_irqs_final_mask();
+>>>  
+>>>  	crash_save_cpu(regs, cpu);
+>>>  
+>>> diff --git a/arch/arm64/kernel/suspend.c b/arch/arm64/kernel/suspend.c
+>>> index c41724a40b75..d8c62d7e8922 100644
+>>> --- a/arch/arm64/kernel/suspend.c
+>>> +++ b/arch/arm64/kernel/suspend.c
+>>> @@ -9,7 +9,7 @@
+>>>  #include <asm/cacheflush.h>
+>>>  #include <asm/cpufeature.h>
+>>>  #include <asm/cpuidle.h>
+>>> -#include <asm/daifflags.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/debug-monitors.h>
+>>>  #include <asm/exec.h>
+>>>  #include <asm/fpsimd.h>
+>>> @@ -69,7 +69,7 @@ void notrace __cpu_suspend_exit(void)
+>>>  	/*
+>>>  	 * Restore HW breakpoint registers to sane values
+>>>  	 * before debug exceptions are possibly reenabled
+>>> -	 * by cpu_suspend()s local_daif_restore() call.
+>>> +	 * by cpu_suspend()s local_all_irqs_save_mask() call.
+>>>  	 */
+>>>  	if (hw_breakpoint_restore)
+>>>  		hw_breakpoint_restore(cpu);
+>>> @@ -97,7 +97,7 @@ void notrace __cpu_suspend_exit(void)
+>>>  int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+>>>  {
+>>>  	int ret = 0;
+>>> -	unsigned long flags;
+>>> +	arm64_exc_hwstates_t flags;
+>>>  	struct sleep_stack_data state;
+>>>  
+>>>  	/*
+>>> @@ -119,12 +119,12 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+>>>  	 *
+>>>  	 * Strictly speaking the trace_hardirqs_off() here is superfluous,
+>>>  	 * hardirqs should be firmly off by now. This really ought to use
+>>> -	 * something like raw_local_daif_save().
+>>> +	 * something like raw_local_all_irqs_save_mask().
+>>>  	 *
+>>>  	 * This also unmasks interrupts in PMR in order to reliably
+>>>  	 * resume if we're using pseudo-NMIs.
+>>>  	 */
+>>> -	flags = local_daif_save();
+>>> +	flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
+>>>  
+>>>  	/*
+>>>  	 * Function graph tracer state gets inconsistent when the kernel
+>>> @@ -158,11 +158,11 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+>>>  	unpause_graph_tracing();
+>>>  
+>>>  	/*
+>>> -	 * Restore pstate flags. OS lock and mdscr have been already
+>>> +	 * Restore interrupt masks. OS lock and mdscr have been already
+>>>  	 * restored, so from this point onwards, debugging is fully
+>>>  	 * reenabled if it was enabled when core started shutdown.
+>>>  	 */
+>>> -	local_daif_restore(flags);
+>>> +	local_all_irqs_restore(flags);
+>>>  
+>>>  	return ret;
+>>>  }
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+>>> index 7318e3e6a5f3..50566b455c80 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+>>> @@ -270,7 +270,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+>>>  	 * Naturally, we want to avoid this.
+>>>  	 */
+>>>  	if (system_uses_irq_prio_masking()) {
+>>> -		gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
+>>> +		gic_write_pmr(GIC_PRIO_IRQON);
+>>>  		pmr_sync();
+>>>  	}
+>>>  
+>>> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+>>> index c4d2f1feea8b..402d51430599 100644
+>>> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
+>>> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+>>> @@ -10,6 +10,7 @@
+>>>  #include <linux/irqchip/arm-gic-v3.h>
+>>>  #include <linux/kvm_host.h>
+>>>  
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/kvm_emulate.h>
+>>>  #include <asm/kvm_hyp.h>
+>>>  #include <asm/kvm_mmu.h>
+>>> @@ -446,7 +447,7 @@ void __vgic_v3_init_lrs(void)
+>>>  u64 __vgic_v3_get_gic_config(void)
+>>>  {
+>>>  	u64 val, sre;
+>>> -	unsigned long flags = 0;
+>>> +	arm64_exc_hwstates_t flags;
+>>>  
+>>>  	/*
+>>>  	 * In compat mode, we cannot access ICC_SRE_EL1 at any EL
+>>> @@ -476,7 +477,7 @@ u64 __vgic_v3_get_gic_config(void)
+>>>  	 * of the exception entry to EL2.
+>>>  	 */
+>>>  	if (has_vhe()) {
+>>> -		flags = local_daif_save();
+>>> +		flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
+>>>  	} else {
+>>>  		sysreg_clear_set_hcr(0, HCR_AMO | HCR_FMO | HCR_IMO);
+>>>  		isb();
+>>> @@ -491,7 +492,7 @@ u64 __vgic_v3_get_gic_config(void)
+>>>  	isb();
+>>>  
+>>>  	if (has_vhe()) {
+>>> -		local_daif_restore(flags);
+>>> +		local_all_irqs_restore(flags);
+>>>  	} else {
+>>>  		sysreg_clear_set_hcr(HCR_AMO | HCR_FMO | HCR_IMO, 0);
+>>>  		isb();
+>>> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+>>> index bbe9cebd3d9d..e7475d796f0a 100644
+>>> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+>>> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+>>> @@ -17,6 +17,7 @@
+>>>  
+>>>  #include <asm/barrier.h>
+>>>  #include <asm/cpufeature.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/kprobes.h>
+>>>  #include <asm/kvm_asm.h>
+>>>  #include <asm/kvm_emulate.h>
+>>> @@ -630,8 +631,9 @@ NOKPROBE_SYMBOL(__kvm_vcpu_run_vhe);
+>>>  int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+>>>  {
+>>>  	int ret;
+>>> +	arm64_exc_hwstates_t irqs_state;
+>>>  
+>>> -	local_daif_mask();
+>>> +	irqs_state = local_all_irqs_save_mask(CRITICAL_CONTEXT);
+>>>  
+>>>  	/*
+>>>  	 * Having IRQs masked via PMR when entering the guest means the GIC
+>>> @@ -639,18 +641,18 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+>>>  	 * only way to get out will be via guest exceptions.
+>>>  	 * Naturally, we want to avoid this.
+>>>  	 *
+>>> -	 * local_daif_mask() already sets GIC_PRIO_PSR_I_SET, we just need a
+>>> -	 * dsb to ensure the redistributor is forwards EL2 IRQs to the CPU.
+>>> +	 * local_all_irqs_save_mask() already sets GIC_PRIO_IRQON, we just need a
+>>> +	 * dsb to ensure the redistributor forwards EL2 IRQs to the CPU.
+>>>  	 */
+>>>  	pmr_sync();
+>> Since the new helper local_all_irqs_save_mask() already takes care of modifying ICC_PMR
+>> and internally invokes pmr_sync() right after(from arm64_update_exc_hwstate()), keeping
+>> this explicit pmr_sync() here is a bit redundant.
+> It is indeed repeated here.
+> 
 
-The driver uses a single enable_count per input to track the input state.
-When enable_count is non-zero, the code assumes the input is already active
-and skips calling v4l2_subdev_enable_streams() for additional streams:
+Agreed. I'll update it in the next iteration.
 
-  Call 1: enable_streams(stream 0)
-    -> enable_count == 0, enable gasket and stream 0 in hardware
-    -> enable_count = 1
+Thanks
+Vladimir
 
-  Call 2: enable_streams(stream 1)
-    -> enable_count == 1, skip hardware enable
-    -> enable_count = 2
-    -> stream 1 never gets enabled
-
-Similarly on disable, when enable_count reaches zero, ALL streams are
-disabled regardless of which streams are actually still active.
-
-Implement per-stream state tracking by storing the input index and stream
-mask in the mxc_isi_pipe structure. On enable, record which input and
-stream the pipe is receiving. On disable, clear the pipe's record and
-check if any other pipe is still using the same input stream before
-actually disabling it.
-
-Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
----
-Changes in v3:
-- Change from "Fix" to "Implement" as multi-stream support is for newer
-  SoCs not present when the driver was merged (Laurent)
-- Remove Fixes and Cc: stable tags (Laurent)
-- Store input/input_stream in mxc_isi_pipe instead of using per-stream
-  counters array, avoiding arbitrary 64-entry limit (Laurent)
-- Use UINT_MAX to mark pipe as inactive to distinguish from valid pad 0
-
-Changes in v2:
-- Use fixed-size array for enabled_count instead of dynamic allocation
-- Use BIT_ULL() macro for u64 bitmask operations
-- Use MXC_ISI_MAX_STREAMS (64) as loop boundary instead of num_sources
-- Remove mxc_isi_stream_counters_alloc/free functions
----
- .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  5 +-
- .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 66 +++++++++++++++-------
- .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    |  1 +
- 3 files changed, 52 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-index 9bb4d430d15e..c07abdd6a1f0 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-@@ -186,7 +186,7 @@ struct mxc_isi_dma_buffer {
- };
- 
- struct mxc_isi_input {
--	unsigned int			enable_count;
-+	u64				enabled_streams;
- };
- 
- struct mxc_isi_crossbar {
-@@ -259,6 +259,9 @@ struct mxc_isi_pipe {
- 	u8				acquired_res;
- 	u8				chained_res;
- 	bool				chained;
-+
-+	unsigned int			input;
-+	u64				input_stream;
- };
- 
- struct mxc_isi_m2m {
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-index 9f0231ca47a3..6bd61bfb15d6 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-@@ -335,8 +335,10 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
- 					   u32 pad, u64 streams_mask)
- {
- 	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
-+	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
- 	struct v4l2_subdev *remote_sd;
- 	struct mxc_isi_input *input;
-+	u64 streams_to_enable;
- 	u64 sink_streams;
- 	u32 sink_pad;
- 	u32 remote_pad;
-@@ -350,30 +352,41 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
- 
- 	input = &xbar->inputs[sink_pad];
- 
--	/*
--	 * TODO: Track per-stream enable counts to support multiplexed
--	 * streams.
--	 */
--	if (!input->enable_count) {
-+	/* Enable the gasket when the first stream is enabled for this input. */
-+	if (!input->enabled_streams) {
- 		ret = mxc_isi_crossbar_gasket_enable(xbar, state, remote_sd,
- 						     remote_pad, sink_pad);
- 		if (ret)
- 			return ret;
-+	}
-+
-+	/* Only enable streams that are not already enabled. */
-+	streams_to_enable = sink_streams & ~input->enabled_streams;
- 
-+	if (streams_to_enable) {
- 		ret = v4l2_subdev_enable_streams(remote_sd, remote_pad,
--						 sink_streams);
-+						 streams_to_enable);
- 		if (ret) {
- 			dev_err(xbar->isi->dev,
- 				"failed to enable streams 0x%llx on '%s':%u: %d\n",
--				sink_streams, remote_sd->name, remote_pad, ret);
--			mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
--			return ret;
-+				streams_to_enable, remote_sd->name, remote_pad, ret);
-+			goto err_gasket_disable;
- 		}
-+
-+		input->enabled_streams |= streams_to_enable;
- 	}
- 
--	input->enable_count++;
-+	/* Record the input and stream for this pipe. */
-+	pipe->input = sink_pad;
-+	pipe->input_stream = sink_streams;
- 
- 	return 0;
-+
-+err_gasket_disable:
-+	if (!input->enabled_streams)
-+		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
-+
-+	return ret;
- }
- 
- static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
-@@ -381,6 +394,7 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
- 					    u32 pad, u64 streams_mask)
- {
- 	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
-+	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
- 	struct v4l2_subdev *remote_sd;
- 	struct mxc_isi_input *input;
- 	u64 sink_streams;
-@@ -396,19 +410,33 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
- 
- 	input = &xbar->inputs[sink_pad];
- 
--	input->enable_count--;
-+	/* Clear the input and stream for this pipe. */
-+	pipe->input = UINT_MAX;
-+	pipe->input_stream = 0;
- 
--	if (!input->enable_count) {
--		ret = v4l2_subdev_disable_streams(remote_sd, remote_pad,
--						  sink_streams);
--		if (ret)
--			dev_err(xbar->isi->dev,
--				"failed to disable streams 0x%llx on '%s':%u: %d\n",
--				sink_streams, remote_sd->name, remote_pad, ret);
-+	/*
-+	 * Check if any other pipe receives the same input stream. If so we
-+	 * can't disable it yet, so return immediately.
-+	 */
-+	for (unsigned int i = 0; i < xbar->isi->pdata->num_channels; ++i) {
-+		struct mxc_isi_pipe *pipe = &xbar->isi->pipes[i];
- 
--		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
-+		if (pipe->input == sink_pad &&
-+		    pipe->input_stream == sink_streams)
-+			return 0;
- 	}
- 
-+	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad, sink_streams);
-+	if (ret)
-+		dev_err(xbar->isi->dev,
-+			"failed to disable streams 0x%llx on '%s':%u: %d\n",
-+			sink_streams, remote_sd->name, remote_pad, ret);
-+
-+	input->enabled_streams &= ~sink_streams;
-+
-+	if (!input->enabled_streams)
-+		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
-+
- 	return ret;
- }
- 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-index 16085f23bc0b..c0ec59856374 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-@@ -816,6 +816,7 @@ int mxc_isi_pipe_init(struct mxc_isi_dev *isi, unsigned int id)
- 	pipe->acquired_res = 0;
- 	pipe->chained_res = 0;
- 	pipe->chained = false;
-+	pipe->input = UINT_MAX;
- 
- 	sd = &pipe->sd;
- 	v4l2_subdev_init(sd, &mxc_isi_pipe_subdev_ops);
-
--- 
-2.34.1
+>>>  
+>>>  	ret = __kvm_vcpu_run_vhe(vcpu);
+>>>  
+>>>  	/*
+>>> -	 * local_daif_restore() takes care to properly restore PSTATE.DAIF
+>>> +	 * local_all_irqs_restore() takes care to properly restore PSTATE.DAIF
+>>>  	 * and the GIC PMR if the host is using IRQ priorities.
+>>>  	 */
+>>> -	local_daif_restore(DAIF_PROCCTX_NOIRQ);
+>>> +	local_all_irqs_restore(irqs_state);
+>>>  
+>>>  	return ret;
+>>>  }
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index f2be501468ce..f2c74911f5d9 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -32,6 +32,7 @@
+>>>  
+>>>  #include <asm/barrier.h>
+>>>  #include <asm/cputype.h>
+>>> +#include <asm/interrupts/masking.h>
+>>>  #include <asm/fixmap.h>
+>>>  #include <asm/kasan.h>
+>>>  #include <asm/kernel-pgtable.h>
+>>> @@ -2307,7 +2308,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+>>>  	typedef void (ttbr_replace_func)(phys_addr_t);
+>>>  	extern ttbr_replace_func idmap_cpu_replace_ttbr1;
+>>>  	ttbr_replace_func *replace_phys;
+>>> -	unsigned long daif;
+>>> +	arm64_exc_hwstates_t all_irqs;
+>>>  
+>>>  	/* phys_to_ttbr() zeros lower 2 bits of ttbr with 52-bit PA */
+>>>  	phys_addr_t ttbr1 = phys_to_ttbr(virt_to_phys(pgdp));
+>>> @@ -2323,9 +2324,9 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+>>>  	 * We really don't want to take *any* exceptions while TTBR1 is
+>>>  	 * in the process of being replaced so mask everything.
+>>>  	 */
+>>> -	daif = local_daif_save();
+>>> +	all_irqs = local_all_irqs_save_mask(CRITICAL_CONTEXT);
+>>>  	replace_phys(ttbr1);
+>>> -	local_daif_restore(daif);
+>>> +	local_all_irqs_restore(all_irqs);
+>>>  
+>>>  	cpu_uninstall_idmap();
+>>>  }
+>>
 
 
