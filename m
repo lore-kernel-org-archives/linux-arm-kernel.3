@@ -4,161 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEDBC4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 04:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBF3C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 04:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fz+QR0/sOdWcbZ+WS9ggauDKFCQ9imB4dhuVqgzis54=; b=ucUFfwv2fa4jk2LVJHZb+p87Fr
-	SQFW+WPjYsB++wN848mW/glTGNe1W1e4bpfxe0cyId5WiK8RBnrrEWSdVlGTUgKZqy50TVHGYbdBd
-	BSs540pq0tDIMEZsw6nrUhYWx2lnRh8o+PrvK2Nqd3w8GdGkSdwSheigkB69+cMaDXLwMKYC7x4BO
-	Gztl8ILQiV88q4v8lMw4S7tv3Rkah6HTw+AyA+9gD+pxCUTZAnH++xeOekI/6wnMx745wGR/J/YHt
-	3F6gGWadVfy3OtS4RsegH3sSYrh5kvGCtGujTMfArdhMie3sOR595zCWmS72aOd81JM5mREQvf/S1
-	dAeennLA==;
+	bh=wW/CKYwNeSuhKW06GZTjMezL5yo1gpQGxj+dlS5GDO4=; b=wQb0+DMnOYIApDWgxIJysG3do6
+	3zYz9hEI+dJNO/RZggQezZQ5WbBEyIYdyhwIcxYcN+YLUhy6Ul6WULpeBxftID8B/EQ9lIxaC6DnC
+	OORgQoS8nHToZTFLKtnpgm1j0qdXO7FfNMF/ffIHsYj+AlPq3tMPxJzuyTdniyn2CKPOm5nH4jD3n
+	OHcy3URda0POMYfg7wOsZeGYTkImlrlZXS31Q8YMN0tadw/yqhzcn8HEmqTLfOYRhZSFlK1OiA4XO
+	tvb6TF/P2ak8YZ7UmbUxutuBeKuvulWfHtYQ2p3hpaGv2Iwv4jc2qbLkdkuwKRhO/oSwJv4lbCmQw
+	8p1K1svA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmlIs-0000000DQHR-2vYE;
-	Thu, 23 Jul 2026 04:45:02 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wmlJF-0000000DQTb-0JaS;
+	Thu, 23 Jul 2026 04:45:25 +0000
+Received: from mail-4325.protonmail.ch ([185.70.43.25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmlIm-0000000DQCz-1VQC
+	id 1wmlJA-0000000DQPs-3WNF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 04:44:57 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N0Wslk2264321
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 04:44:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Fz+QR0/sOdWcbZ+WS9ggauDKFCQ9imB4dhuVqgzis54=; b=oij7wTDXUUhaYHfb
-	H15IJq/tYsAsbavn0di6KckzpFR7V0Yoj5n2cpLnSK+z0HiVvGyeaPaszTh1NpKr
-	S4fgg3E4wJWXIYmKc6B/mfKxgf7UIB8oHokcAV3MM+c6NL+dsaQ4/bvbaBbg8tdq
-	OyehpYawNr6TTLSNoLudExEp+0/xWh1EoeWfm5tc6gRZwbfGI3pexh75mi8GYbpu
-	5VrlUv23RVbJma1eIACrdQFalqW9Q8OZV0FY4nJcrh+nike27mN+yd3Gi72Mo4kW
-	iNGHrzdhZTBFpJ2JZMYt1W/PvMIuhdEeI2uSDpL8aRVFc2x7vmdAvbIwBVwMJe0S
-	hCiryw==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fjtn2vhkm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 04:44:54 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-84a251c2e3eso74049b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 21:44:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784781894; x=1785386694; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Fz+QR0/sOdWcbZ+WS9ggauDKFCQ9imB4dhuVqgzis54=;
-        b=gzlQuMjTozLS4FNkjDO4yznuRSIX9tSb+iADvxWr6pGc/S7xMtv1GxWkCdR3ydJELD
-         mQMgD7fpcex3d0iC/2uu0MTDNdrkU06NYSvGaYQ//nSaI4+bgOqcORWz+RITRI03DAVy
-         4IEP1ZuLkvArbUv0a+iDfIz0YzzrcwyJfgWHDevNZ/LcaN4wmO9o0Zai8HOQ6X6pTs8U
-         Eg6WYimvbSYVONXbGd35PP/zCQsNloTJm70HL9c6L0H3fZ3ObW3Q2XSp6rYL0A1T4hek
-         VDe2lqhhN5vcgZGjlpXPLbT6rnLVlerA3xs+VlTazWtKr/PhMikbCruxFV6NumD6UT55
-         vVWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784781894; x=1785386694;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Fz+QR0/sOdWcbZ+WS9ggauDKFCQ9imB4dhuVqgzis54=;
-        b=n7d5mIOKdOqz6g8w8fhwB10mzhNE8JVNvQX4zW63eajLhiI5M3a0PNnk4GMieP394Y
-         GrsBeXypw9kQ8E4FgA4YaSmTQPIgm2QZMlZLcuApcXUfrhJ7ZmdsztJl/KfILwtxpc4W
-         7Iew1QR1vSf6/MGwFUWKVyMEMmG+DwWQqmQrru7hBxaHJ2YkYCUb7rPaSdIBANktalYi
-         uUB9Cp1R+o/rs97b8FOjI2MdFSnGYmikkUTUyCV4tAmx3CuVcWki3ExAl6vKPmHrEuke
-         HRXQPX4faXPO0M0zjuv4GKLytbz0tvomGOkh9yrx14q80mLrNo/XnZ/HOWUQ5neVYmXn
-         TTEA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr2rZ82H+XRWqKz2KlfgkapvkxG4L7et3zghkG1NoCXMCOBt605uu5oKW7Nupt37QJEiUnup/b4km2d8/foGJVU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3ystmqKxyoI0Y2pkyYiQUUW63AXTBb+SSWSV3Udlntn2WlBsV
-	n07emS+9s2ZY/Jg+c0TrOx9tUrmBleP3xk/ASuWgb2S8hdwuauQlLgu6SbDX/zXzQOhPJnUBBWF
-	JGjrKeumqy8tsbUiyY2XwG0kRRcIZapoLtuYaIvqUAayZ7Cu7NYOEVEgRBf0Ws5jDnryAzVg7ga
-	ZN4A==
-X-Gm-Gg: AR+sD12caBa+eAr1J0fH4+XWVvq6vHhFRqzgYXj0UxUd1EapII26VWP6rB3cVvvC9dI
-	xcHF0QScHAd/l7eLDtiUnuthYvWS9c2Ms5Zr/27913YOqhEC+x/VV3KKSsU6Wue7uGpnqMkxbvV
-	fPDdl+FvaIzaYV7xG9vwGwqM9Z7gduJRMzIjEBcKDOW49vnI3mWZBxR38Ep2N8HoqPs+MXh9aZv
-	0owvDOQpi78iWMqmINo6avW6Ak/nLQUdAD+cRSinQQE/VgYWctoQIhgKGlbQZVYY4pIKHW0bhSV
-	glrkA+ms2XMseo04vX7b1oWjyn3RW+Sq9F2LTA7xKpnLypUojLIcRFUiq6lTHavUR7ar9EzdfU+
-	hAnsWkzxhpX+HVy9X+WjrHMliiioLarc=
-X-Received: by 2002:a05:6a00:368b:b0:84a:29af:a0eb with SMTP id d2e1a72fcca58-84e2e83fac3mr1234973b3a.9.1784781893778;
-        Wed, 22 Jul 2026 21:44:53 -0700 (PDT)
-X-Received: by 2002:a05:6a00:368b:b0:84a:29af:a0eb with SMTP id d2e1a72fcca58-84e2e83fac3mr1234932b3a.9.1784781893301;
-        Wed, 22 Jul 2026 21:44:53 -0700 (PDT)
-Received: from hu-nihalkum-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e175aad1asm2327922b3a.44.2026.07.22.21.44.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 21:44:53 -0700 (PDT)
-From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-Date: Thu, 23 Jul 2026 10:14:00 +0530
-Subject: [PATCH v6 6/6] arm64: dts: qcom: shikra-iqs-evk-imx577-camera: Add
- DT overlay
+	Thu, 23 Jul 2026 04:45:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1784781914; x=1785041114;
+	bh=wW/CKYwNeSuhKW06GZTjMezL5yo1gpQGxj+dlS5GDO4=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=TJmJcQFzfig88fQdwdXhrD2pWD5RTQe/PystMHu0gbgv5QqStm81WNo43i606ISod
+	 RkCdxWY/DPLkbTE19tNcmEjMxP8qLUt+rpef/TwR3XGXrvXE0MkNrPRrHQoJpMYj1D
+	 hzeZKpVRfEiu6cOceVBbnWUH93pSKLqr7Vsdd917vWKvxwejxosFKVxZ+XjMuff9ZV
+	 5IRe1or+xlP8e3a30gCs/1bT3Np22wUxwNF8frKWeXC38Trvxp+3jZxnHHuEwaKTN1
+	 TuPFy4i0XJgUZ2OEshG8OIThQLjaYt1tR+9mJFMHJaRexoUNFbdbwOypWgMtUOw9pq
+	 F1K69BGbpEjJQ==
+Date: Thu, 23 Jul 2026 04:45:09 +0000
+To: Nick Desaulniers <ndesaulniers@google.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Akari Tsuyukusa <akkun11.open@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Russell King <linux@armlinux.org.uk>, Nathan Chancellor <nathan@kernel.org>, Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, Yingjoe Chen <yingjoe.chen@mediatek.com>, "moderated list:ARM SUB-ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, "open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, "moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, "open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>, stable@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>, Ard Biesheuvel <ardb@google.com>
+Subject: Re: [PATCH] arm: mediatek: fix secondary CPU boot on Thumb-2 kernels with Clang
+Message-ID: <zo4Pc8hOijXVSfn0yb52lWWjOU22jy29zRsEh6SBnxdXnpeGNep29fgUzygelrmDDRCioUAggBOSG1qy_38Ex_Lmb08n7eGCyucd3j_VIbU=@protonmail.com>
+In-Reply-To: <CAKwvOdnbPKoTy72EvfpKtT9Ne-r+O0j99KFX8OvjGk8ZxsuEGw@mail.gmail.com>
+References: <20260722172443.534251-1-akkun11.open@gmail.com> <CAKwvOdnbPKoTy72EvfpKtT9Ne-r+O0j99KFX8OvjGk8ZxsuEGw@mail.gmail.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: c09dfc0e9422886d7f682f6a654403b5b201dbbd
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-shikra-camss-review-v6-6-7c46f9bbb4db@oss.qualcomm.com>
-References: <20260723-shikra-camss-review-v6-0-7c46f9bbb4db@oss.qualcomm.com>
-In-Reply-To: <20260723-shikra-camss-review-v6-0-7c46f9bbb4db@oss.qualcomm.com>
-To: Bryan O'Donoghue <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Andi Shyti <andi.shyti@kernel.org>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>,
-        Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
-        Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784781838; l=3663;
- i=nihal.gupta@oss.qualcomm.com; s=20260608; h=from:subject:message-id;
- bh=XGRj83YxrNm4RwCD2q5W+GyFydoPwPwU9M4GUQfaQfM=;
- b=fMswVXZVWu+X8e0RzElVI1YmxLwGjzwPScT/+lzI1TWUHkZ7tABYZXBOnMt6rQDFkHJ7vO6is
- xp/6UUy0PpECajuY3mU/y8NQikKVnk+UPp9yz4uy6SA3htMpZXRkFAa
-X-Developer-Key: i=nihal.gupta@oss.qualcomm.com; a=ed25519;
- pk=DIbyFMNwqU/iMvU/0pCQp2wmRVgtHFBT3PcSu+A+Ncw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDA0NSBTYWx0ZWRfXw5hdkr6uQOj7
- 36PrPwvn65ou3x3IXwvfBcDS5VrtvEZ7PvBbkSFqS5BECYcvgNhIPaJ/406mFofNpuQjCIVzPyj
- kB8W2yfrUxJ+K2+yeovA4H5Q12x/ktE54Ub0adhRd/zO5Zo1EpnnefVum/YUoISY/TPH66pzBin
- veaH+35leDypd3vkqHSi1o/unobmjm8o1jnJ7ymXejY7RxJLnjCbIv8UENPrNCAWpGlIh2QUvj1
- pArUut5a4a3D6S30gJHyZ3BZIsXO9NjJRH+ACNxZ0PgQbABFIJB9XsD7irSiXctICZoh3BLq7k9
- ibLdDttiovfuyzV3HpB28CSnlaUAlRkbJdkKereWJytMdALQ4fKUcb2HIEiNtKGyqeICw87Nl7t
- UC2iAcaY2UyfnS7l5/J7tOs920PIDLgWe5DVIz61W64Gju7gaK8DQeillvsZdz/piXBXRwF3nxL
- T7/yULjafRvZBrgFsMw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDA0NSBTYWx0ZWRfX1y8EjoZ1jVl7
- AKMmoAvMlO7D2QzeIZJQx17fh+2PZzHuQCU8ZhmMytmCquc0wDYs7kfbAxIsVOk7TZJBdxirYJA
- woFfsCzwB0hSl5XUfph9qdao2CoOBSY=
-X-Proofpoint-GUID: Z9bFy1XbIaObwTwV0C-fQ9bFSgMdlbwM
-X-Proofpoint-ORIG-GUID: Z9bFy1XbIaObwTwV0C-fQ9bFSgMdlbwM
-X-Authority-Analysis: v=2.4 cv=T+28ifKQ c=1 sm=1 tr=0 ts=6a619c46 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=OGCdAuOInqFJiNoUztwA:9 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-23_01,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 impostorscore=0 malwarescore=0 spamscore=0
- clxscore=1015 bulkscore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230045
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_214456_538646_AA70B601 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260722_214521_056679_DA1F3801 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,123 +69,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Shikra IQS is an industrial-grade variant using PM8150 PMIC, requiring
-different CSIPHY and sensor supply rails compared to the retail boards
-(CQM and CQS) which use PM4125.
+Hi Nick,
 
-Add a dedicated overlay for optional IMX577 integration via CSIPHY1.
+On Thursday, July 23rd, 2026 at 12:03 AM, Nick Desaulniers <ndesaulniers@go=
+ogle.com> wrote:
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/Makefile                  |  2 +
- .../dts/qcom/shikra-iqs-evk-imx577-camera.dtso     | 79 ++++++++++++++++++++++
- 2 files changed, 81 insertions(+)
+> On Wed, Jul 22, 2026 at 10:25=E2=80=AFAM Akari Tsuyukusa <akkun11.open@gm=
+ail.com> wrote:
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index c75e0ae736a96b047c04305bb109cacf06d06f07..a1e1daee6a84471f2e793618afe21528576a8cea 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -341,9 +341,11 @@ dtb-$(CONFIG_ARCH_QCOM)	+= shikra-iqs-evk.dtb
- 
- shikra-cqm-evk-imx577-camera-dtbs	:= shikra-cqm-evk.dtb shikra-cqm-cqs-evk-imx577-camera.dtbo
- shikra-cqs-evk-imx577-camera-dtbs	:= shikra-cqs-evk.dtb shikra-cqm-cqs-evk-imx577-camera.dtbo
-+shikra-iqs-evk-imx577-camera-dtbs	:= shikra-iqs-evk.dtb shikra-iqs-evk-imx577-camera.dtbo
- 
- dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqm-evk-imx577-camera.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqs-evk-imx577-camera.dtb
-+dtb-$(CONFIG_ARCH_QCOM)	+= shikra-iqs-evk-imx577-camera.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm4250-oneplus-billie2.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm4450-qrd.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm6115-fxtec-pro1x.dtb
-diff --git a/arch/arm64/boot/dts/qcom/shikra-iqs-evk-imx577-camera.dtso b/arch/arm64/boot/dts/qcom/shikra-iqs-evk-imx577-camera.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..d8c968a918c67cdebc0e7c6fc14ef820c97ecb75
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/shikra-iqs-evk-imx577-camera.dtso
-@@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/qcom,shikra-gcc.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&camss {
-+	vdd-csiphy-1p2-supply = <&pm8150_l11>;
-+	vdd-csiphy-1p8-supply = <&pm8150_l12>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			csiphy1_ep: endpoint {
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep1>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci {
-+	status = "okay";
-+};
-+
-+&cci_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 33 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&cam_mclk1_default &cam1_reset_default>;
-+		pinctrl-names = "default";
-+
-+		clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
-+		assigned-clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		/*
-+		 * avdd and dvdd are supplied by on-board regulators on the
-+		 * IMX577 module from the connector's 3.3 V rail; they are
-+		 * not SoC-controlled. dovdd (1.8 V) powers the carrier board
-+		 * level-shifter that translates CCI I2C and reset lines
-+		 * between the SoC and the connector.
-+		 */
-+		dovdd-supply = <&pm8150_l15>;
-+
-+		port {
-+			imx577_ep1: endpoint {
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <1 2 3 4>;
-+				remote-endpoint = <&csiphy1_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	cam1_reset_default: cam1-reset-default-state {
-+		pins = "gpio33";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-disable;
-+	};
-+};
+...
 
--- 
-2.34.1
+> There's definitely some difference between clang and GAS here.
+> https://github.com/llvm/llvm-project/issues/211376
+>
+> I wonder if perhaps a better machine-agnostic assembler-agnostic
+> assembler-version-agnostic patch would be something like:
+>
+> ```
+> diff --git a/arch/arm/kernel/head.S b/arch/arm/kernel/head.S
+> index f22c50d4bd41..687ee7063a73 100644
+> --- a/arch/arm/kernel/head.S
+> +++ b/arch/arm/kernel/head.S
+> @@ -383,6 +383,7 @@ ENDPROC(__create_page_tables)
+>  ENTRY(secondary_startup_arm)
+>   THUMB(        badr    r9, 1f          )       @ Kernel is entered in AR=
+M.
+>   THUMB(        bx      r9              )       @ If this is a Thumb-2 ke=
+rnel,
+> +ENDPROC(secondary_startup_arm)
+>   THUMB(        .thumb                  )       @ switch to Thumb now.
+>   THUMB(1:                      )
+>  ENTRY(secondary_startup)
+> @@ -429,7 +430,6 @@ ARM_BE8(eor r4, r4, r5)                     @
+> without using a temp reg.
+>                                                 @ (return control reg)
+>         ret     r12
+>  ENDPROC(secondary_startup)
+> -ENDPROC(secondary_startup_arm)
+>
+>  ENTRY(__secondary_switched)
+>  #if defined(CONFIG_VMAP_STACK) && !defined(CONFIG_ARM_LPAE)
+>
+> ```
 
+I'd like to join conversation because Thumb2 kernel with LLVM seems to
+be quite buggy.
+
+I can confirm the proposed fix works for clang, if you're going to send
+this patch, feel free to add
+
+Tested-by: Roman Vivchar <rva333@protonmail.com> # mt6572
+
+Leftover from IOMMU debugging shows there's another bug with ftrace.
+This probably needs separate thread though...
+
+[    0.193285] Starting tracer 'function_graph'
+[    0.210474] ------------[ cut here ]------------
+[    0.211120] WARNING: kernel/trace/fgraph.c:761 at ftrace_return_to_handl=
+er+0x1c5/0x228, CPU#0: swapper/0/1
+[    0.212437] Bad frame pointer: expected c6229ee0, received c132b33b
+[    0.212437]   from func iommu_init return to c13011cd
+[    0.213962] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G     U       =
+       7.2.0-rc4-next-20260721-00134-g49e0d56c7cde-dirty #939 VOLUNTARY
+[    0.213980] Tainted: [U]=3DUSER
+[    0.213984] Hardware name: Mediatek Cortex-A7 (Device Tree)
+[    0.213991] Call trace:
+[    0.214000]  unwind_backtrace from show_stack+0x19/0x1a
+[    0.214024]  show_stack from dump_stack_lvl+0x37/0x40
+[    0.214044]  dump_stack_lvl from __warn+0xbb/0x1f0
+[    0.214061]  __warn from warn_slowpath_fmt+0xd1/0x11e
+[    0.214078]  warn_slowpath_fmt from ftrace_return_to_handler+0x1c5/0x228
+[    0.214099]  ftrace_return_to_handler from return_to_handler+0x17/0x24
+[    0.214121] ---[ end trace 0000000000000000 ]---
+[    0.222449] ------------[ cut here ]------------
+[    0.223075] WARNING: kernel/trace/fgraph.c:826 at ftrace_return_to_handl=
+er+0x1e5/0x228, CPU#0: swapper/0/1
+[    0.224385] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G     U  W    =
+       7.2.0-rc4-next-20260721-00134-g49e0d56c7cde-dirty #939 VOLUNTARY
+[    0.224401] Tainted: [U]=3DUSER, [W]=3DWARN
+[    0.224405] Hardware name: Mediatek Cortex-A7 (Device Tree)
+[    0.224411] Call trace:
+[    0.224417]  unwind_backtrace from show_stack+0x19/0x1a
+[    0.224435]  show_stack from dump_stack_lvl+0x37/0x40
+[    0.224452]  dump_stack_lvl from __warn+0xbb/0x1f0
+[    0.224469]  __warn from warn_slowpath_fmt+0x83/0x11e
+[    0.224485]  warn_slowpath_fmt from ftrace_return_to_handler+0x1e5/0x228
+[    0.224505]  ftrace_return_to_handler from return_to_handler+0x17/0x24
+[    0.224526] ---[ end trace 0000000000000000 ]---
+[    0.232957] 8<--- cut here ---
+[    0.233378] Unable to handle kernel NULL pointer dereference at virtual =
+address 00000000 when read
+[    0.234580] [00000000] *pgd=3D00000000
+[    0.235082] Internal error: Oops: 5 [#1] SMP THUMB2
+[    0.235748] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G     U  W    =
+       7.2.0-rc4-next-20260721-00134-g49e0d56c7cde-dirty #939 VOLUNTARY
+[    0.237485] Tainted: [U]=3DUSER, [W]=3DWARN
+[    0.238006] Hardware name: Mediatek Cortex-A7 (Device Tree)
+[    0.238756] PC is at vsnprintf+0x32/0x34e
+[    0.239309] LR is at vscnprintf+0x11/0x18
+[    0.239859] pc : [<c0bedbe6>]    lr : [<c0beec7f>]    psr: 800000b3
+[    0.240703] sp : c6229e48  ip : 00000000  fp : 00000000
+[    0.241409] r10: c6229ed4  r9 : 00000000  r8 : c30ecc24
+[    0.242116] r7 : c6229eb8  r6 : c30ed024  r5 : c6250000  r4 : 00000400
+[    0.242995] r3 : c6229ed4  r2 : 00000000  r1 : 00000400  r0 : c30ecc24
+[    0.243875] Flags: Nzcv  IRQs off  FIQs on  Mode SVC_32  ISA Thumb  Segm=
+ent none
+[    0.244874] Control: 50c5387d  Table: 8000406a  DAC: 00000051
+[    0.245649] Register r0 information: non-slab/vmalloc memory
+[    0.246422] Register r1 information: non-paged memory
+[    0.247111] Register r2 information: NULL pointer
+[    0.247753] Register r3 information: non-slab/vmalloc memory
+[    0.248522] Register r4 information: non-paged memory
+[    0.249210] Register r5 information: slab task_struct start c6250000 poi=
+nter offset 0 size 2432
+[    0.250412] Register r6 information: non-slab/vmalloc memory
+[    0.251181] Register r7 information: non-slab/vmalloc memory
+[    0.251949] Register r8 information: non-slab/vmalloc memory
+[    0.252717] Register r9 information: NULL pointer
+[    0.253360] Register r10 information: non-slab/vmalloc memory
+[    0.254140] Register r11 information: NULL pointer
+[    0.254794] Register r12 information: NULL pointer
+[    0.255447] Process swapper/0 (pid: 1, stack limit =3D 0x(ptrval))
+[    0.256259] Stack: (0xc6229e48 to 0xc622a000)
+[    0.256857] 9e40:                   c132b340 c13011cd 00000400 00000008 =
+c938c2cc 00000000
+[    0.257961] 9e60: 00000000 00000000 429c4c89 00000400 c6250000 c30ecc24 =
+c6229eb8 c2f0c8a4
+[    0.259065] 9e80: 00000000 c6229ed4 c2f0c8a0 c0beec7f 00000000 c0101f63 =
+00000000 c6250000
+[    0.260168] 9ea0: 00000000 c132b33b 00000000 00000000 c1390844 c61d6800 =
+c6229ecc c0101e45
+[    0.261271] 9ec0: c6229ed4 c6229ee8 c61d6800 c6229f48 c0101e23 c3128eec =
+00000000 00000000
+[    0.262374] 9ee0: 00000000 00000000 00000000 00000000 00000000 00000000 =
+00000000 00000000
+[    0.263476] 9f00: 00000000 00000000 00000000 00000000 00000000 00000000 =
+00000000 00000000
+[    0.264579] 9f20: 00000000 00000000 429c4c89 00000000 00000000 00000000 =
+00000000 c139088c
+[    0.265683] 9f40: c1390844 c61d6800 c6229f70 c1301953 00000001 00000001 =
+00000000 c13019e1
+[    0.266786] 9f60: 00000000 c61d6800 00000001 c11e8fd0 c6229f88 c13018a1 =
+00000000 c618cc00
+[    0.267890] 9f80: c0bf5ee9 00000000 c6229f98 c1301725 00000000 00000000 =
+c6229fa8 c0bf5f07
+[    0.268993] 9fa0: 00000000 00000000 00000000 c0100151 00000000 00000000 =
+00000000 00000000
+[    0.270096] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 =
+00000000 00000000
+[    0.271198] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000 =
+00000000 00000000
+[    0.272296] Call trace:
+[    0.272306]  vsnprintf from vscnprintf+0x11/0x18
+[    0.273284]  vscnprintf from vpanic+0x11f/0x442
+[    0.273911]  vpanic from vpanic+0x1/0x442
+[    0.274472] Code: f04f 36ff 43c1 9102 (f89b) 1000
+[    0.275129] ---[ end trace 0000000000000000 ]---
+[    0.275755] note: swapper/0[1] exited with irqs disabled
+[    0.276557] Kernel panic - not syncing: Attempted to kill init! exitcode=
+=3D0x0000000b
+[    0.277644] ---[ end Kernel panic - not syncing: Attempted to kill init!=
+ exitcode=3D0x0000000b ]---
+
+Command line: ftrace=3Dfunction_graph ftrace_filter=3D*iommu* trace_buf_siz=
+e=3D40M trace_options=3Dfuncgraph-retval
+
+Config:
+$ grep -E "trac|thumb" .config -i
+CONFIG_CONTEXT_TRACKING=3Dy
+CONFIG_CONTEXT_TRACKING_IDLE=3Dy
+CONFIG_TASKS_TRACE_RCU=3Dy
+CONFIG_TRACEPOINTS=3Dy
+CONFIG_STACKTRACE_SUPPORT=3Dy
+CONFIG_CPU_THUMB_CAPABLE=3Dy
+CONFIG_ARM_THUMB=3Dy
+CONFIG_ARM_THUMBEE=3Dy
+CONFIG_THUMB2_KERNEL=3Dy
+CONFIG_CMDLINE=3D"..."
+CONFIG_TRACE_IRQFLAGS_SUPPORT=3Dy
+CONFIG_HAVE_ARCH_TRACEHOOK=3Dy
+CONFIG_HAVE_CONTEXT_TRACKING_USER=3Dy
+# CONFIG_IDLE_PAGE_TRACKING is not set
+# CONFIG_DMA_FENCE_TRACE is not set
+CONFIG_MOUSE_PS2_TRACKPOINT=3Dy
+CONFIG_TRACE_GPU_MEM=3Dy
+# HW tracing support
+# end of HW tracing support
+CONFIG_PSTORE_FTRACE=3Dy
+# CONFIG_PROC_MEM_FORCE_PTRACE is not set
+CONFIG_XZ_DEC_ARMTHUMB=3Dy
+# CONFIG_STACKTRACE_BUILD_ID is not set
+# CONFIG_NET_DEV_REFCNT_TRACKER is not set
+# CONFIG_NET_NS_REFCNT_TRACKER is not set
+CONFIG_STACKTRACE=3Dy
+CONFIG_RCU_TRACE=3Dy
+CONFIG_NOP_TRACER=3Dy
+CONFIG_HAVE_FUNCTION_TRACER=3Dy
+CONFIG_HAVE_FUNCTION_GRAPH_TRACER=3Dy
+CONFIG_HAVE_DYNAMIC_FTRACE=3Dy
+CONFIG_HAVE_DYNAMIC_FTRACE_WITH_REGS=3Dy
+CONFIG_HAVE_EXTRA_IPI_TRACEPOINTS=3Dy
+CONFIG_HAVE_SYSCALL_TRACEPOINTS=3Dy
+CONFIG_TRACE_CLOCK=3Dy
+CONFIG_EVENT_TRACING=3Dy
+CONFIG_CONTEXT_SWITCH_TRACER=3Dy
+CONFIG_TRACING=3Dy
+CONFIG_GENERIC_TRACER=3Dy
+CONFIG_TRACING_SUPPORT=3Dy
+CONFIG_FTRACE=3Dy
+CONFIG_TRACEFS_AUTOMOUNT_DEPRECATED=3Dy
+CONFIG_BOOTTIME_TRACING=3Dy
+CONFIG_FUNCTION_TRACER=3Dy
+CONFIG_FUNCTION_GRAPH_TRACER=3Dy
+CONFIG_DYNAMIC_FTRACE=3Dy
+CONFIG_DYNAMIC_FTRACE_WITH_REGS=3Dy
+CONFIG_FUNCTION_SELF_TRACING=3Dy
+# CONFIG_STACK_TRACER is not set
+# CONFIG_IRQSOFF_TRACER is not set
+# CONFIG_SCHED_TRACER is not set
+# CONFIG_HWLAT_TRACER is not set
+# CONFIG_OSNOISE_TRACER is not set
+# CONFIG_TIMERLAT_TRACER is not set
+# CONFIG_FTRACE_SYSCALLS is not set
+# CONFIG_TRACER_SNAPSHOT is not set
+# CONFIG_BLK_DEV_IO_TRACE is not set
+# CONFIG_KPROBE_EVENTS_ON_NOTRACE is not set
+CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT=3Dy
+# CONFIG_TRACE_EVENT_INJECT is not set
+# CONFIG_TRACEPOINT_BENCHMARK is not set
+# CONFIG_TRACE_EVAL_MAP_FILE is not set
+CONFIG_FTRACE_RECORD_RECURSION=3Dy
+CONFIG_FTRACE_RECORD_RECURSION_SIZE=3D128
+# CONFIG_FTRACE_STARTUP_TEST is not set
+# CONFIG_FTRACE_SORT_STARTUP_TEST is not set
+# CONFIG_TRACE_REMOTE_TEST is not set
+# CONFIG_BACKTRACE_VERBOSE is not set
+# CONFIG_BACKTRACE_SELF_TEST is not set
+# CONFIG_TEST_REF_TRACKER is not set
+
+Clang:
+ClangBuiltLinux clang version 22.1.5 (https://github.com/llvm/llvm-project.=
+git 5ea218a153f4d2f815b8244eab3e4b4ba5e00e6c)
+
+Best regards,
+Roman
 
