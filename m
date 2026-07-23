@@ -4,132 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9331DC531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1098C531D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Su8mcUR9YFhnTPYPiJSIa/mrW/RVdPNcEzgnPNm8aCU=; b=filkPfIPzmoMRU/xjxbWkgKjfM
-	PzIKYjkLRNKXaXyCGS9vApiB2/TRKQaFGvwexiU/egGdZdqMWdEAbkm8rzGaUCzGv3Q19BXR5yguJ
-	MV8ATxNQJCmcJo/y7T8Wo5U8aF3HmdfueEIpDozpbmq9iQ5Rl+V7RtC+lTVbMf9Jg5XLCUh28Bknp
-	Ysz0DGwAYkFUmswwKgcavE2ADU4di3uhbibbq2wAYY3FCfLjoQd5JmxIzo/0/6/8RCsrKLIkzGbRC
-	D/mdI9/d/UqheCdvVDYkX31j0CS1DGDHWSzgn3IF/o/ojh/bFZ7NKWHTvFWtx8u06agRiHnPMbEcl
-	5ne80qDA==;
+	bh=rHtkaJhyp7hvNXFM/a/du/ejeo788OAfuxw7sqTwA3Q=; b=Fayd7lPomVv095HiEAxParmNde
+	ZTgr5H6BU1F4YfwRhoGUGwUw6lB59Q4fZvF/LKJVekuOZtr/bPp+0UbKHk94qyplrqZepnHVLmckZ
+	qh2I89yjBVptBF9IYBH211HpePprGg7bIIQhhRvMV/QQMVG1gp7Aq/OtYHuBwnF0DHsIE3nW1b/8I
+	ymA2Zo2KhN/k6kErg0KZe/WblGj2+pts9AahsyOXfRr+/8L38MDB9rZDneTIb2iJtlbHHhMdSUIrs
+	+SUg4a1Y04ivegy8vG7z/ra3Y3R5vSSwfjZCcnQteoD2WYYnVEyl8YmiUsrqHGDcGA/2bM73Cmp+n
+	SeKIDwKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmuvF-0000000EYKk-3rLk;
-	Thu, 23 Jul 2026 15:01:17 +0000
-Received: from mail-northeuropeazon11011045.outbound.protection.outlook.com ([52.101.65.45] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wmv9Q-0000000EZch-0owW;
+	Thu, 23 Jul 2026 15:15:56 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmuvD-0000000EYK4-1ev7;
-	Thu, 23 Jul 2026 15:01:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tnq3a2JCPS63oW+hvR5LA0/bvgXBEAYDcsVKkAq0z+CjLR81HG32xKMv8VhGiY1zGnpRiGzQWEKi8aUK8oJ++zkdj7C37GIwpLY3f96gAauFW8YtzIr0lFG2qGp4Yrx3PlGLN6IJa01QYDzkeNzg/BfK9hnkCmClCp8CslL+E0geSSP0a9CgHiwmDOgAvpq67Qrp3edm8b9CmokTZyj88F8QgGFUh+JX2RhkM04WpjhsLnCS1Sb/DbXNF8CpWxPamW2x/+sdAMKce/8/zoneVpYZjYKhmpSWfN2VOwbYtYqgww4NShaup1uFPdby2gMEja60y3rsnj7yQRnvAeWBrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Su8mcUR9YFhnTPYPiJSIa/mrW/RVdPNcEzgnPNm8aCU=;
- b=iujKGYxDCLz529LUzzFjxrFBrkATXYhgTgBHPgIqMHqotJOE5PYo52GHnfxZgPV9wDGT2zAki1Azp2bJ9O3vNG+IWtI9Hx6/02EBvXiwm7/eZIgq4VQ0tYoobWNvH2hhckF/VbNct02ULv0ENW03pBqIyRdw0Znyve5/TXglhv0Y+BM4/+shs80gmRubSNPNgKKobmu1obXATxccEM8uke4FmSJJIUc1Dnn9MaID9CGQJGB31DmUXrCdmEeEFo7CJZAiveAQwVH0SxOVKVrxKpA/hfljfAe452VwOe6jHut5SGKAuHXOref5aGhix/lUzBiCUclzrohdDQgrsvpZhw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Su8mcUR9YFhnTPYPiJSIa/mrW/RVdPNcEzgnPNm8aCU=;
- b=TIzgtQKs0LkLsIRLcdYfAjkTjK3AH7Y/TrkJGKTiwJpYbIk52lJ35hIOarU7FHc9N9TW03iK+Z2oA98WSsiMoZzrCPwMRezSewc40iwON569XjnDTk8qPSS4CQ8TnqBRupOdgXWD16HtU14WhzXd1/v1BkgDSvk1pHT84yILJO90ytCFO8fmixyWNiek3sX4/GhXXBvkdZSkB0E4Ox5pnO4+qZxFCMlcAYKXd6NKkGcTVt2pxKM56XRHDGl4FKLveNX2iEnMHvCvUMHkrEggiARVz64sEgYUw5y1FWk6gSuIkgVIsY1umF4727WB7BVpEvNOEUlusScimMBF2LQICQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
- by AM0PR04MB7011.eurprd04.prod.outlook.com (2603:10a6:208:193::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 15:01:10 +0000
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023%5]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
- 15:01:09 +0000
-Date: Thu, 23 Jul 2026 18:01:05 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tanjeff Moos <tanjeff.moos@westermo.com>,
-	Michael Walle <mwalle@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v4 phy-next 0/9] RCW override for 10G Lynx dynamic
- protocol reconfiguration
-Message-ID: <20260723150105.da2cqgtb7t5vw2d3@skbuf>
-References: <20260721231603.67865-1-vladimir.oltean@nxp.com>
+	id 1wmv9N-0000000EZbn-2uiW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 15:15:54 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-69a19eb2e6dso10591a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:15:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784819752; x=1785424552; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rHtkaJhyp7hvNXFM/a/du/ejeo788OAfuxw7sqTwA3Q=;
+        b=tTSaBrJJHy38/Znh96Zb7hTDga8LNC17/f9mEMbyHaqv/VoqqJYmBa1RZU8geLt1ue
+         B/Epx3sZLM36MlQbOGICBV0cZqhM9VadwFbw8OWUhRXqhBeHaG2VcR0dyAaD0Gx9JvrZ
+         vKs9yIRVSXb9vKsTbQ7nRmJ+edSYxJAJCt4h+6dxWX2QVfb/rDzMoInVZIJHAdjbkuTE
+         wXdg1HY6KWTVLhYtIgkZUGqBPGVe3nmZMwDed5lLMDDO/6aWMGYyMdewSBcmulqwWgUN
+         lm1kHT6qnrP0uzqWyumuKncNsJKAsl7HgmBTeOzQidAt3yApo0Kp1qFpqwIAnMQhcQ90
+         8Ofw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784819752; x=1785424552;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rHtkaJhyp7hvNXFM/a/du/ejeo788OAfuxw7sqTwA3Q=;
+        b=oq9uTUgXHuG5vPy+6tCER4k3cF7ctFP6tRdtTEB1LVoGDXABzK6k7evRhtLgiLreCO
+         CeG/Pueu5AiUOiT+Sn5JG75URUOScSMJnW09uYvC7b7oZ7pGrTeSEWRxfWH/EIsnTU1R
+         tLklAUol49wTbq6UKmjqt8PjNzogSJ7kgV6BwYWawjBSKuOOqlfKO7Qd7PYE/l0k5ogD
+         KopTw2ReuROdKPZLx+RSEoFatrbponhfrHpfHIbmODjQ5loxJbIbLEvzdGesunP32j0z
+         DKFUqHojcYcHgOL5fZ35M3k3Ym6ETQWS/bTxKUYEFtxHT5qZlVjSDOcCCp4iRM9O503z
+         C0cQ==
+X-Gm-Message-State: AOJu0YyyMwGtES0bdVtcg1FW4KWuetdijotalFmNmLOdRNXpoHgsI7Qn
+	BGqgY28Gm9Kyxq36uQCbimBOWMBmKcD6PHyelS2qXXMV2pwFsL1I8Kn38/DkubzDIw==
+X-Gm-Gg: AR+sD12izS48Zs+fCqCHu1COBF6UnnJbR0E6wdMv4ZM2w+wGCoqvMhkBlC8jKCwE6md
+	EyoMrxReu0/tNDq8poO48Up9TFzPgiLrCmdtqq0Vei/OVej2j5fouxtdBIqBc0I0XicYczEfzDm
+	nxzeXHTLgAvplget0kh4EhrW6OWWvUIwCUE0fq0W93+2JrKnj6Y1Z2wIkPRnGax9Rm6WkoV0djk
+	cdWJIYMy7ws2WoRO0aWFh/YDS5NGEQsfhggVoppXOUsxHxXRfoJ4fdwPpL5UMNjYnxeJynOcUvP
+	9zQ71rZT18RV6GKr4OvINZbRY7Pbi/jc1iycMU7y1H/UplvzkMBZHDvjs+EwS0qVi8hyO2NTQWG
+	xcnjdOmYFmqcehBP+fdcPnC6sPxBTnEZp1jx+51hkKbi80jZy4DqwUUute9eSD9SRcRf8oASrFV
+	AWXmCxsjBZVi9rK1SHwJjp7srpOkQxarmlEhVVfA==
+X-Received: by 2002:a05:6402:a6c9:20b0:697:5678:bc77 with SMTP id 4fb4d7f45d1cf-69f6cd0cdb9mr48696a12.9.1784819751162;
+        Thu, 23 Jul 2026 08:15:51 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69f34b9b064sm2548716a12.11.2026.07.23.08.15.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 08:15:48 -0700 (PDT)
+Date: Thu, 23 Jul 2026 15:15:42 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, keirf@google.com
+Subject: Re: [PATCH v7 14/24] iommu/arm-smmu-v3-kvm: Shadow the command queue
+Message-ID: <amIwHukKBxPrq3WT@google.com>
+References: <20260715115906.2664882-1-smostafa@google.com>
+ <20260715115906.2664882-15-smostafa@google.com>
+ <amIrTPWg3eEhu2m7@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260721231603.67865-1-vladimir.oltean@nxp.com>
-X-ClientProxiedBy: WA1P291CA0020.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:19::24) To AM0PR04MB6900.eurprd04.prod.outlook.com
- (2603:10a6:208:17d::10)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|AM0PR04MB7011:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9c90f67-e9f9-4ac1-6150-08dee8cb3a64
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|10070799003|23010399003|11063799006|10067099003|56012099006|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: TUoR9Sjer26d2HB3+x+Dv4zOk0dZPP8MguT+nPSM1Faoz/4s+W98iKfE0Tnb9ho9FW9bN2einzEciZOElIREMTDQuyzJdP/vJ0J5N4w91Ryh1UmuH5rOpDK31G1h6bAY3+X8vRLDj3/6T+4jpqjtWGM7qV6bqup7NawMoBWsqyCcBrv6qSM5XvUnatkD2GhJ5MKuZ1zj/080PT4ha08BOn+JhzQED0r7pXZnmNKdQOA8n20LIwrNZCUoDla6AkHh5nqF3iZyDpIuYQ+dTkPAdhFw+uVfEfxJDI8Z7qm+/5NFm4tNNVwwr2jmt4Xz1YC6+isRydbpVTDEGq6UTFqa34EDLvyN9nqAmjT1Z2obYTS8P1wqsnWAr5DVWAstFo4+4CMXa1Ihax6QjB5tyIg+aS0SwtvD0VbyFnK9Q2iYJBVkVzAlNhov+y3yGiQQp4d+pOushvpPkOH0ClCfYHKIe1BPcboYnfTMkGamsi8ZWxFddl8XUeEb24k+nZkPB0F8OOUgG6NNO0+eHFJiqYSxkUQPiqaC4jW/GlQSbXcRdJKXP/t5WZYh5xsmlihAU6OtL4XE6dbTz7dZqocuD+f2a+2MHoW1c5z5AWv1+Ft93TCyKkxnufTXMz2yPVd9s0TgEB7wCKf78qi8SFcx6sydMuIg481pAMke/bAAe0uG/1Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(10070799003)(23010399003)(11063799006)(10067099003)(56012099006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5zgYoT2K+4IswEkzDcL60ppXNn4eKvLQ5oGrVwLopS28cEclym83w8KMGtxE?=
- =?us-ascii?Q?bqW6zt7aBoKrjthCS/T6zCfp6+henwe8dcTiilb6mOzdXt+G5go6oKG++WRS?=
- =?us-ascii?Q?awxwstOmbdJQqqrS7UVYrhCGEw79SN+DAlNWXvFaK1EMGFCrMY8VsBgTE+Nk?=
- =?us-ascii?Q?uwo1jcT4CoEi2kfrx9Uz9WM3FG87UEJVdF4OY995gXaTZgxJ5A3GUViXyJ5H?=
- =?us-ascii?Q?jgypp4oVFpzG/5YtD3rvMUlHhwTv8Gn6uelJrtBNdaC2eKvKnhX9B305ps0N?=
- =?us-ascii?Q?1Rz30BD3tuFs7nQn8RSG/KVJbdA643JU36dIIp/1v4mDKdAuRm+7k9XpgHKZ?=
- =?us-ascii?Q?90rJoeAUhMGuxgn3oNPQ7NV4+TKF7XItHQsO4ew0QVf1pa5POJLx7sauDpiQ?=
- =?us-ascii?Q?cMQOV3mUR+Yw3egSxxlElp4rcHRRj6S0KJQ022Llpggu7U/lpmrnFeyfQ+or?=
- =?us-ascii?Q?obw0x+DwCxVNq4xM0jDzh3Ppi2Fx0MJ6qQRbaHtIDxgeJu9Lgxo7KwO21/YC?=
- =?us-ascii?Q?beB3jpMfn+HlOZ8BmStcXlerj+jf3MpAQgVeJyAOT+UpFTHnqbZOgf5ZiK+7?=
- =?us-ascii?Q?fDPFzTAnnAmNs5XkR+jNXl0Mq19sERcVPzwpLlTHF984QGlLzx9vlIcxqayu?=
- =?us-ascii?Q?yNmt+lfwILrJI2AiuMpVUkKBiuZ5urbE+19gIAQY615JE6U/GtlkqSdJYbyx?=
- =?us-ascii?Q?pBb3du8XhiHGbs+9nyodqMMiax9tBhfw7WGieaksMhd5ifd8tvEgt0QHNnb5?=
- =?us-ascii?Q?JroYcwsA5p9DhAqhvy047k5KUCXvY3nKi/r14cvfHbNOAycwcKBjwhIiBpH5?=
- =?us-ascii?Q?QUoVyKLHJwmGwtjvhfsAmYucDSMYLIs37cLLr2aQdO3phw6iZAJe+hXa38qR?=
- =?us-ascii?Q?+DOc3mvrcMskjxNGWYDf8VscYxaNvNmWeXl23Mg7JhFGli2Gf8QiVsYMqaS9?=
- =?us-ascii?Q?MOksu8GB/qG8d92J5bnf0Q41LMAXCIkx/ZO9o972aIFD3VqmrMaP30bylUer?=
- =?us-ascii?Q?l/NLbse/gN01U0qSjmtICOqoZzuHfZAqnmue5C+T/+Cv+Rxreg9W9mY+72EP?=
- =?us-ascii?Q?ZgPfDZPg2Ii+R+eQDWhq9zvSsQEVILUhoDeVMHN1ghD2gW02DhECmmSGKoOi?=
- =?us-ascii?Q?50+/zpjrkVYbmZZ53u3jp9PJj96NPxwxPcYpw108P+NPRE+URi9UiJALtTTY?=
- =?us-ascii?Q?x2ldvJT6QKnN5EBWwdP6CuDKE9ARiZ4esmUQDBXLj5Mn3PiEc1vFk63/ZlAb?=
- =?us-ascii?Q?DurgvzAUaC/J+09DWe2nUH8w//LffPw+jlvTglj27uU8aMNRlxsBiBk/gMuk?=
- =?us-ascii?Q?QK8QIa0DSQh7XGp6Qt5wSzBG3cySVsZQbyHPz3yFWGrLMauDCJ3oQuWabjRW?=
- =?us-ascii?Q?nk4t1IgyR/93PfQIzm7xq+P8sDBV7bwldmKq/ko0aad/kU1u7Oh6278GHSnx?=
- =?us-ascii?Q?KCAsHoqV+TfKTrazNOU0wmLm0IoOJyg9iN1KYcAinwQXFQzbOM8Q/0diNG0A?=
- =?us-ascii?Q?3UkJAGvibtTGmsvFJZqgsfpq5b07j5XOFjF9B7bsEfCP0Zl5lwdQvW5OF1pU?=
- =?us-ascii?Q?X0Xb2SkEKExoM9/VJ1bSNogKgA+ldI+Xxh6jL9toe1vfT/hv7bPSmpsCv4qf?=
- =?us-ascii?Q?DdJtqaq48n0WbgtLsqYTE2d/MldKfEugsy46mHY/9UPvM+fdsrvjNi6bsz90?=
- =?us-ascii?Q?i64bXvQfQoqdpne969lsTCtnbqEZkRP0hQonHOR2ND2p9WSVeBHDLxtQx6xg?=
- =?us-ascii?Q?5Y4+SIyGOPffBZlqwPl2LlmrppxjnGtcxwrHb3X2Cf4tHxTk1ZrgtjZKKMoh?=
-X-MS-Exchange-AntiSpam-MessageData-1: GYl9YVPciE/VPXuv0qA1uQz4zlqKgCFOpTQ=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9c90f67-e9f9-4ac1-6150-08dee8cb3a64
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 15:01:09.1176
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7if4pV/YghCoEv97r3NyphLfngKVS1mNg/E14U1M/mrSwf1oxtjgrD/j3gtp9ET4sWrTlzKEIjDV1Jwcn78MMQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7011
+In-Reply-To: <amIrTPWg3eEhu2m7@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_080115_458414_5E90C2F0 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260723_081553_777525_F32CC139 
+X-CRM114-Status: GOOD (  33.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,30 +105,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 02:15:54AM +0300, Vladimir Oltean wrote:
-> Ioana Ciornei (4):
->   soc: fsl: guts: use a macro to encode the DCFG CCSR space
->   soc: fsl: guts: add a global structure to hold state
->   soc: fsl: guts: add a central fsl_guts_read() function
->   soc: fsl: guts: make it easier to determine on which SoC we are
->     running
+Hi Seb,
+
+On Thu, Jul 23, 2026 at 02:55:08PM +0000, Sebastian Ene wrote:
+> On Wed, Jul 15, 2026 at 11:58:55AM +0000, Mostafa Saleh wrote:
+> > +	 * size as the host.
+> > +	 * Only populate base_dma and llq.max_n_shift, the hypervisor will init
+> > +	 * the rest.
+> > +	 */
+> > +	cmdq_base = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO, SMMU_KVM_CMDQ_ORDER);
+> > +	if (!cmdq_base)
+> > +		return -ENOMEM;
 > 
-> Vladimir Oltean (5):
->   soc: fsl: guts: perform fsl_guts_init() error teardown in reverse
->     order of setup
->   soc: fsl: guts: make fsl_soc_data available after fsl_guts_init()
->   dt-bindings: fsl: layerscape-dcfg: define DCFG_DCSR region
->   soc: fsl: guts: implement the RCW override procedure
->   phy: lynx-10g: use RCW override procedure for dynamic protocol change
+> Hi Mostafa,
+> 
+> Isn't this over-allocating when PAGE_SIZE > 4kB ? 
 
-Even though I intended these changes for linux-phy (they are also
-build-tested there), I'm fine either with these changes taken through
-Vinod's tree with Christophe's ACK for patches 1-8, or through
-Christophe's tree with Vinod's ACK for patch 9, really.
+Yes, that means the queue have different size depending on PAGE_SIZE,
+In the kernel driver CMDQ_MAX_SZ_SHIFT is defined in terms of page
+size also, but I think in the hypervisor it doesn't really matter,
+I can change this to a fixed size and use alloc_pages_exact().
 
-I see on Patchwork there's a minor issue in the commit message of patch 3/9:
-https://patchwork.kernel.org/project/linux-phy/patch/20260721231603.67865-4-vladimir.oltean@nxp.com/
-"WARNING: 'struture' may be misspelled - perhaps 'structure'?"
+> 
+> > +
+> > +	smmu->cmdq.base_dma = virt_to_phys(cmdq_base);
+> > +	smmu->cmdq.llq.max_n_shift = SMMU_KVM_CMDQ_ORDER + PAGE_SHIFT - CMDQ_ENT_SZ_SHIFT;
+> > +
+> >  	if (of_dma_is_coherent(dev->of_node))
+> >  		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
+> >  
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+> > index af06c832fc6f..9f76f4e82341 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+> > @@ -11,7 +11,6 @@
+> >  #include <nvhe/trap_handler.h>
+> >  
+> >  #include "arm_smmu_v3.h"
+> > -#include "../arm-smmu-v3.h"
+> >  
+> >  size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
+> >  struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
+> > @@ -21,10 +20,68 @@ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
+> >  	     (smmu) != &kvm_hyp_arm_smmu_v3_smmus[kvm_hyp_arm_smmu_v3_count]; \
+> >  	     (smmu)++)
+> >  
+> > +#define cmdq_size(cmdq)	((1 << ((cmdq)->llq.max_n_shift)) * CMDQ_ENT_DWORDS * 8)
+> > +
+> > +static bool is_cmdq_enabled(struct hyp_arm_smmu_v3_device *smmu)
+> > +{
+> > +	return FIELD_GET(CR0_CMDQEN, smmu->cr0);
+> > +}
+> > +
+> > +/*
+> > + * CMDQ, STE host copies are accessed by the hypervisor, we share them to
+> > + * - Prevent the host from passing protected VM memory.
+> > + * - Having them mapped in the hyp page table.
+> > + */
+> > +static int smmu_share_pages(phys_addr_t addr, size_t size)
+> > +{
+> > +	size_t nr_pages = PAGE_ALIGN(size + (addr & ~PAGE_MASK)) >> PAGE_SHIFT;
+> > +	phys_addr_t base = addr & PAGE_MASK;
+> > +	int i, ret;
+> > +
+> > +	for (i = 0 ; i < nr_pages ; ++i) {
+> > +		if (__pkvm_host_share_hyp((base + i * PAGE_SIZE) >> PAGE_SHIFT)) {
+> > +			while (i--)
+> > +				__pkvm_host_unshare_hyp((base + i * PAGE_SIZE) >> PAGE_SHIFT);
+> > +			return -EPERM;
+> > +		}
+> > +	}
+> > +
+> > +	ret = hyp_pin_shared_mem(hyp_phys_to_virt(base),
+> > +				 hyp_phys_to_virt(base + nr_pages * PAGE_SIZE));
+> > +	if (ret) {
+> > +		for (i = 0 ; i < nr_pages ; ++i)
+> > +			__pkvm_host_unshare_hyp((base + i * PAGE_SIZE) >> PAGE_SHIFT);
+> > +	}
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +static int smmu_unshare_pages(phys_addr_t addr, size_t size)
+> > +{
+> > +	size_t nr_pages = PAGE_ALIGN(size + (addr & ~PAGE_MASK)) >> PAGE_SHIFT;
+> > +	phys_addr_t base = addr & PAGE_MASK;
+> > +	int i, ret;
+> > +
+> > +	hyp_unpin_shared_mem(hyp_phys_to_virt(base),
+> > +			     hyp_phys_to_virt(base + nr_pages * PAGE_SIZE));
+> > +
+> > +	for (i = 0 ; i < nr_pages ; ++i) {
+> > +		ret = __pkvm_host_unshare_hyp((base + i * PAGE_SIZE) >> PAGE_SHIFT);
+> > +		if (ret)
+> > +			return ret;
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  /* Put the device in a state that can be probed by the host driver. */
+> >  static void smmu_deinit_device(struct hyp_arm_smmu_v3_device *smmu)
+> >  {
+> >  	WARN_ON(__pkvm_hyp_donate_host_mmio(smmu->mmio_addr, smmu->mmio_size));
+> > +
+> > +	if (smmu->cmdq.base)
+> > +		WARN_ON(__pkvm_hyp_donate_host(smmu->cmdq.base_dma >> PAGE_SHIFT,
+> > +					       cmdq_size(&smmu->cmdq) >> PAGE_SHIFT));
+> >  	smmu->base = NULL;
+> >  }
+> >  
+> > @@ -75,6 +132,31 @@ static int smmu_probe(struct hyp_arm_smmu_v3_device *smmu)
+> >  	return 0;
+> >  }
+> >  
+> > +/*
+> > + * The kernel part of the driver will allocate the shadow cmdq,
+> > + * and zero it. This function only donates it.
+> > + */
+> > +static int smmu_init_cmdq(struct hyp_arm_smmu_v3_device *smmu)
+> > +{
+> > +	size_t cmdq_nr_pages = cmdq_size(&smmu->cmdq) >> PAGE_SHIFT;
+> > +	int ret;
+> > +
+> > +	ret = __pkvm_host_donate_hyp(smmu->cmdq.base_dma >> PAGE_SHIFT, cmdq_nr_pages);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	smmu->cmdq.base = hyp_phys_to_virt(smmu->cmdq.base_dma);
+> > +	smmu->cmdq.prod_reg = smmu->base + ARM_SMMU_CMDQ_PROD;
+> > +	smmu->cmdq.cons_reg = smmu->base + ARM_SMMU_CMDQ_CONS;
+> > +	smmu->cmdq.q_base = smmu->cmdq.base_dma |
+> > +			    FIELD_PREP(Q_BASE_LOG2SIZE, smmu->cmdq.llq.max_n_shift);
+> > +	smmu->cmdq.ent_dwords = CMDQ_ENT_DWORDS;
+> > +	writel_relaxed(0, smmu->cmdq.prod_reg);
+> > +	writel_relaxed(0, smmu->cmdq.cons_reg);
+> > +	writeq_relaxed(smmu->cmdq.q_base, smmu->base + ARM_SMMU_CMDQ_BASE);
+> 
+> do we need a dsb here ?
 
-Could this be fixed up while applying, if there is no other feedback?
+I do not think so, why would it be needed? No data written at this
+point. When commands are written, writel() is used to advance the
+queue pointer which includes a barrier to enusre that the commands
+are observed.
+
+Thanks,
+Mostafa
+
+
+> 
+> 
+> Thanks,
+> Sebastian
 
