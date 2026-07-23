@@ -4,65 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6388EC531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 950ADC531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEefO5HnPSQ3Kak6C4/A3JjED/ouocrTu89BGKOl+pk=; b=H/oUD3xyFFXjQqCHmTyNxkYmWy
-	xeoKCz4+gb+sU5c2IthcAnZPfRk/qyMv8Nyd5BNiWOlzXIjakSB9WDGhs0XnQXpoL+Xkcoa976526
-	kXB9Bq8nvVI5YmhhMQoK6hl0esjX3hn0oVnXv4Kmcg9WItX0zhNReJ3y1gtG/3pUxJz8y4k8TEtPx
-	zV/V2h+anSJo6yiXE43lE9YHLw8GxIAcdHcRfqAjBFMBCXjjxiNDpE1PtQz+Sz8DILQjQa/a725h/
-	yjnnvs5kNhaWSDCK+XwXYRKJbYrIsHvh0r4qZVz9Oh97vzcUSfo9Z/ubbERLNAaNqQcd2ON3Eu1IC
-	1OoeIS2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L/eQ6xVtZwAc2g+MA5ARGSiX1QKgpSyLscWz0B+I2Ks=; b=WNzmWkZPhjpl4BLqCBtbjLibO5
+	q/rXwAk0H6vWL18KAjt/8VKbpAZht8MngOCKiCpWfo6dSaft9zHa3o8nW0S3rpDF4gTs09+OWswV1
+	uErtf93T8DP32VrQ7R7rj1XvfrU6H0urkD7TbUIIxJ3lDW3NMEh+yMU1ZmihUYg+0FAZCnhXM5MJn
+	WtjMj04vN0vLW7Ygh0L41lDwNyGGMUuUsAPqmTTfJRoEF7lneJqdFdBvHhQvYLSPRDkrh011V0hjP
+	QwuuB2WraLGdONRsyptgG54+YTSKx/FNoTX/ydO8fPyoA1lQLhLpLbr9yB51uk5P0cEurZrkQrGV4
+	QvpxRtSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmr2x-0000000E4Vl-47EY;
-	Thu, 23 Jul 2026 10:52:59 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1wmpTl-0000000DoZg-0M4l;
+	Thu, 23 Jul 2026 09:12:33 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmr2q-0000000E4Sr-24rv
+	id 1wmpTi-0000000DoYk-42Pv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 10:52:54 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id F040C22817;
-	Thu, 23 Jul 2026 12:52:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1784803970;
-	bh=hEefO5HnPSQ3Kak6C4/A3JjED/ouocrTu89BGKOl+pk=; h=From:To:Subject;
-	b=L9jBVNTcWj2FiQVSypBm3sJr9IxGvG+FpFFVB38gzwyZ+PGkAgEjAy+INBU/sMNf0
-	 n0qBp0TMzkl9HaNt7AYJxmWqVLm3SV5Lxi8kNMTS2relbBCxetX2hlHHXaVTyOSUt5
-	 k8oia7axuP/ZEeg6rcHI2Msg939G2681hw7vvvl9SB532DQFNU2JYewQaEyGdRkdjj
-	 xMwVtSVP2eadmiTWAxH4uDwp7ZSsK24bCDPVZ6+1H2UhJYN1umaEHK70NUUyD7Srmf
-	 STzwDx3K7vdRHaNpmb2MzM7dP6UQVLXJATJH7TTiMijV3UdLii2uN3aqfmsVrAS6KZ
-	 56RhxI7UEZ8jw==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/3] ARM: dts: imx7d-colibri-emmc: Add Toradex Capacitive Touch Display 7" Parallel with Touch Adapter
-Date: Thu, 23 Jul 2026 12:52:18 +0200
-Message-ID: <20260723105225.194366-3-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260723105225.194366-1-francesco@dolcini.it>
-References: <20260723105225.194366-1-francesco@dolcini.it>
+	Thu, 23 Jul 2026 09:12:32 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-495509b08ebso30595e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:12:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784797948; x=1785402748; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=L/eQ6xVtZwAc2g+MA5ARGSiX1QKgpSyLscWz0B+I2Ks=;
+        b=BaJhsRdtHOqO8Yldfm3khSJxTj9WeRV59aGv20FcMH0GpW+4MzNdVMfEWToZzLplAd
+         ZoDagvsw4uZfEDN2Og+dVr2AHp4LrgWrR3KlgwEz0Jg6rdvtXgxGd2zjgT4a+LPHlhUG
+         nmijjhfbiMrfWRumaMTKPdpTN+yKVxZZOCDrzdUirwr4ioLj28aOFx0vlENaRj0cBDOb
+         17pk1luOirzVhoTA2c4cSTdYOjOlBfSu+ECGPijPPRYsF4uX9bKpcKruOCTddJ0W0MIB
+         lTUDa/zW+r79qepxu4U0AreOJcybKN7ylWoKMPOu+gY7yGcqz3YN6DjzbWBnmyB/5+TP
+         7MPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784797948; x=1785402748;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=L/eQ6xVtZwAc2g+MA5ARGSiX1QKgpSyLscWz0B+I2Ks=;
+        b=Jvq+kjgB4GDHSG6CYh/8fR6Ou5h3jNhG5Dj/4wsM4tBaebX4L8yOEfhR3nyvgUvKRE
+         Nme2X8Wx/+BwxZw12iyFQnxreE9ucya1Qz8PVUibDY/g2wDCFtEUYP6wY7Ax59dzC5o3
+         qmmBrGUuCNnr7Iwv+2hPvymn8mLp/lj/ZDZnpH0JE5wnr4NOrsvq9A8ZkwafBkRNAMhI
+         iBaspzrDSrC01WKjHDBiflpZq3HdSkmDaExLojEszkRmqJb9zoMk4ka9Qxs6S42u2EvK
+         ZSj+0qx+OfRzj4JPhUfTDr8dg1UgD/B9B1SJhOWFF7hbL6x7FyBLDt/IA5Yysic5LBX3
+         bHKg==
+X-Forwarded-Encrypted: i=1; AHgh+RqWR4LQQPoeQX7PVupjsInljSg0AdCFt20dFvtoH7Vk9gVYY8E85mmv2bGIQXkk4Tv7zH4YLFYIp4smmx2RwtfJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7vxs+F9+LnPLhPVYrTiSAzFPTsrFu2EU7fhq3DEpExGMWjVBD
+	TGGf2UFzOBpi82kFB7k7qDRJMlHL/QrLcBzBK89t7RWBKtrt1B264pPhT7eTS2EMYQ==
+X-Gm-Gg: AR+sD10aPxprT9eL2b8iSsNGkaGNFvZAk6Y/oX9jS0+MtWbOrt8q6Gj3OFbV4Lq9o8P
+	OKkH3cI2R20eqMTUYLKteX+H4XPiyrAwyuG9hKkWHYvM+XL02BDoCDxYbAJF0/GruEpHU01soGO
+	p4EKXOlxX5HbFjHX4qLHNPB2dfC2UMSYjNeV/45k6KyTC1i46TDKRSX9A9dH7mEViAo5b7IZcHS
+	Zx76tSY4RWdkARpsaM0rKqBKsDMy+ZqHPaTCIuGG1bEo5iYOk02NI6kk6u3gV1H0pBkcPb1gRHT
+	nOrI1VnLfUvwbrfF4A5sbStZpwuF0Ie/7rkM1soZQf8pOI0wvJbc9SbkimrnCIfoHriOD+I96pM
+	eaJ2/OWN/O3e1+WvkuH4Fp3ZaBegCkPVecktsOpKcFSvTzPxWN0zGa9/VID5W08buTJe9UbAzyR
+	PrNPXxOZ2P6rMtNuP6hhi8Y2+W/u+FUfryPrG9Xw==
+X-Received: by 2002:a7b:cc96:0:b0:493:aca0:32e2 with SMTP id 5b1f17b1804b1-49573865b4dmr866465e9.4.1784797947324;
+        Thu, 23 Jul 2026 02:12:27 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85b9a5d9sm13122369f8f.5.2026.07.23.02.12.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 02:12:25 -0700 (PDT)
+Date: Thu, 23 Jul 2026 09:12:20 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com,
+	sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v2] KVM: arm64: Optimize protected mode and FWB
+Message-ID: <amHa9P8FwqTqVgs4@google.com>
+References: <20260721085646.1660673-1-smostafa@google.com>
+ <86y0f4ejr4.wl-maz@kernel.org>
+ <al9HqhO6sp3FFbtQ@google.com>
+ <CA+EHjTwp6gQDjL5uE+aAJ04yRnPgvABgBaBWe44hyVSMXGQP9w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTwp6gQDjL5uE+aAJ04yRnPgvABgBaBWe44hyVSMXGQP9w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_035252_863330_186D73B3 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20260723_021231_023529_C29244C2 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,120 +106,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Wed, Jul 22, 2026 at 12:51:35PM +0100, Fuad Tabba wrote:
+> On Tue, 21 Jul 2026 at 11:19, Mostafa Saleh <smostafa@google.com> wrote:
+> >
+> > On Tue, Jul 21, 2026 at 11:10:07AM +0100, Marc Zyngier wrote:
+> > > On Tue, 21 Jul 2026 09:56:45 +0100,
+> > > Mostafa Saleh <smostafa@google.com> wrote:
+> > > >
+> > > > KVM opportunistically enables FWB if supported by the system for guest
+> > > > VMs, which allows it to elude cache maintenance for data as they are
+> > > > forced to be cacheable from stage-2.
+> > > > In that case, __clean_dcache_guest_page() will immediately return.
+> > > > However in protected mode, before calling __clean_dcache_guest_page()
+> > > > it loops over the range and fix_map/unmap it, issuing TLB
+> > > > invalidations, dsb() and isb() unnecessarily.
+> > > >
+> > > > This can be optimized by returning early if FWB is supported,
+> > > > kvm_pgtable_stage2_map() already issues dsb() and tlb invalidation
+> > > > functions issue dsb() for the unmap path.
+> > > >
+> > > > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > > > Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> > > > ---
+> > > >  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 7 +++++++
+> > > >  1 file changed, 7 insertions(+)
+> > > >
+> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > > index 4e329e39a695..049a09be2bbf 100644
+> > > > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > > @@ -261,6 +261,13 @@ static void __apply_guest_page(void *va, size_t size,
+> > > >
+> > > >  static void clean_dcache_guest_page(void *va, size_t size)
+> > > >  {
+> > > > +   /*
+> > > > +    * Guest stage-2 uses FWB if available, making it safe to elide CMOs.
+> > > > +    * In contrast, the host stage-2 never has FWB enabled.
+> > >
+> > > Beeeeeeep!!! Since a373930ec9406 ("KVM: arm64: Switch pKVM host S2
+> > > over to KVM_PGTABLE_S2_AS_S1"), FWB is enabled everywhere when
+> > > available.
+> > >
+> > > Not sure that changes anything, but the comment is factually wrong.
+> >
+> > Ah, I see it uses KVM_PGTABLE_S2_AS_S1 in that case, that should not
+> > change the patch, I will need to update the comment.
+> 
+> Sorry, this confusing is partially my fault. The original comment in v1
+> 
+> >  /* See __clean_dcache_guest_page() */
+> 
+> wasn't very clear to me, since I wasn't sure what I was looking for in
+> __clean_dcache_guest_page(). Talking to Mostafa in person, he's
+> referring to the comment _inside_ __clean_dcache_guest_page. I think
+> the best fix is to rephase as
+> 
+> +  /* See comment in __clean_dcache_guest_page() */
+> 
+> This would save duplication and having to repeat the comment.
+> 
 
-Add a device tree overlay for the Capacitive Touch Display 7" Parallel
-on the Colibri iMX7 parallel RGB LCD interface.
+Makes sense, also thinking about this, I think we should do the
+same for invalidate_icache_guest_page() and ARM64_HAS_CACHE_DIC.
 
-The panel is a LogicTechno LT161010-2NHC 7" WVGA TFT Transmissive LCD
-and the touch input is provided by an Atmel MaxTouch capacitive touch
-controller.
+I can include that in the same patch.
 
-The touch controller is connected to the Toradex Capacitive Touch
-Adapter, the connection to the various carrier boards is documented in
-the datasheet [1].
-
-The overlay is also combined with the Eval carrier board device tree to
-provide a ready-to-use DTB.
-
-Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-7inch-parallel/
-Link: https://developer.toradex.com/hardware/accessories/add-ons/capacitive-touch-adapter/
-Link: https://docs.toradex.com/104615-capacitive-touch-adapter-datasheet.pdf [1]
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm/boot/dts/nxp/imx/Makefile            |  5 ++
- ...ap-touch-7inch-parallel-touch-adapter.dtso | 58 +++++++++++++++++++
- 2 files changed, 63 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-panel-cap-touch-7inch-parallel-touch-adapter.dtso
-
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 4d2730000202..3c16843c3071 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -428,6 +428,10 @@ imx7d-colibri-emmc-iris-v2-panel-cap-touch-7inch-parallel-dtbs := \
- 	imx7d-colibri-emmc-iris-v2.dtb \
- 	imx7d-colibri-emmc-panel-cap-touch-7inch-parallel.dtbo
- 
-+imx7d-colibri-emmc-eval-v3-panel-cap-touch-7inch-parallel-touch-adapter-dtbs := \
-+	imx7d-colibri-emmc-eval-v3.dtb \
-+	imx7d-colibri-emmc-panel-cap-touch-7inch-parallel-touch-adapter.dtbo
-+
- dtb-$(CONFIG_SOC_IMX7D) += \
- 	imx7d-cl-som-imx7.dtb \
- 	imx7d-colibri-aster.dtb \
-@@ -437,6 +441,7 @@ dtb-$(CONFIG_SOC_IMX7D) += \
- 	imx7d-colibri-emmc-iris-v2.dtb \
- 	imx7d-colibri-emmc-iris-v2-panel-cap-touch-7inch-parallel.dtb \
- 	imx7d-colibri-emmc-eval-v3.dtb \
-+	imx7d-colibri-emmc-eval-v3-panel-cap-touch-7inch-parallel-touch-adapter.dtb \
- 	imx7d-colibri-emmc-panel-cap-touch-7inch-parallel.dtbo \
- 	imx7d-colibri-eval-v3.dtb \
- 	imx7d-colibri-iris.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-panel-cap-touch-7inch-parallel-touch-adapter.dtso b/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-panel-cap-touch-7inch-parallel-touch-adapter.dtso
-new file mode 100644
-index 000000000000..890461f92442
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-panel-cap-touch-7inch-parallel-touch-adapter.dtso
-@@ -0,0 +1,58 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex Capacitive Touch Display 7" Parallel connected through the 40-way
-+ * Unified Interface Display connector and Toradex Capacitive Touch Adapter.
-+ *
-+ * Toradex Capacitive Touch Adapter connection with the various carrier boards
-+ * is documented in the datasheet [1].
-+ *
-+ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-7inch-parallel/
-+ * https://www.toradex.com/accessories/capacitive-touch-display-7-inch-parallel
-+ * https://docs.toradex.com/104497-7-inch-parallel-capacitive-touch-display-800x480-datasheet.pdf
-+ * https://developer.toradex.com/hardware/accessories/add-ons/capacitive-touch-adapter/
-+ * https://www.toradex.com/accessories/capacitive-touch-adapter
-+ * https://docs.toradex.com/104615-capacitive-touch-adapter-datasheet.pdf [1]
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+&atmel_mxt_ts {
-+	pinctrl-0 = <&pinctrl_atmel_adapter>;
-+	/* SODIMM 28 / TOUCH_INT# */
-+	interrupt-parent = <&gpio1>;
-+	interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
-+	/* SODIMM 30 / TOUCH_RST# */
-+	reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
-+
-+	status = "okay";
-+};
-+
-+&backlight {
-+	status = "okay";
-+};
-+
-+&lcdif {
-+	status = "okay";
-+};
-+
-+&panel_dpi {
-+	compatible = "logictechno,lt161010-2nhc";
-+
-+	status = "okay";
-+};
-+
-+/* Conflict with SODIMM 28 / TOUCH_INT# */
-+&pwm2 {
-+	status = "disabled";
-+};
-+
-+/* Conflict with SODIMM 30 / TOUCH_RST# */
-+&pwm3 {
-+	status = "disabled";
-+};
--- 
-2.47.3
+Thanks,
+Mostafa
 
 
