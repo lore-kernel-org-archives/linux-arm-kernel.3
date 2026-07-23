@@ -4,130 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D715C531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8ABBC531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLByRISiCV8ywc0RJJs/lT+jmy3YhgX1JvMRV4VfOfM=; b=DTaX8fHdwwQjgYd3RNAllLWT2N
-	VGgUiB7QJQPADtMlNI/2OQyf4tzweJFVshyyWdkBIsBAFCM0xsJnHglkRM0w06I9cIycqpQhNWeEy
-	YPvWuQFv2UJXKh4TNZa88gTkU3hlTS4/I0K2yUPu/vs5W/0Ds45/w2asHuKbl6l+pnQR1lOpu6F39
-	9ijJh5lGc6FqRbScv9LOYXfSKFiMmv5z2RO5yRLspHTqnFBk3mCKA9Fhnvrg4eTCjhRW3GunA4a8N
-	URFrvtHvhnNkunKo29j+cfx6afijdjgkp8v2CL8jOd0kaedne8MFt2v1hUNMNIsGP2lWmNX2OIin8
-	Ps+i8wWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jGfvVz5phYfszb4vs/wrQwKbo5YfQ9htQgjlD4h0uzo=; b=s9HlDSrNvqgH3uT+tXrG1mZtzS
+	FJSBcA7S6embEgtLQ/dYR2IbPMU3oAVdNW0ckKctUVUWsf8ehlrjERgmegIcw1ysyTV89VZv5rDES
+	+F9RfiVJhEd7VQgpKS7nDeumhcbJ0SoPAEaZgwjcsmMptJUEAtjLCiGz5gnotcmP5Xk3yBRKuTj6k
+	kgIL8nKvGzOwsICXtA87Jmeu4KGPXukTt+XvVFkVubuZqGAuYGLuB4utlKTk9D5302aTRXfmIj2b+
+	j/stw+s5oknY06utrCup1O0pjUmECZwYVzF1wN6ufr6Ixnm2vaOw0uhV0EUFw7RMP+pGk6xlQY6df
+	/NNENf0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvVJ-0000000EcXL-0C6e;
-	Thu, 23 Jul 2026 15:38:33 +0000
-Received: from mail-northeuropeazon11012043.outbound.protection.outlook.com ([52.101.66.43] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wmvAp-0000000EZz0-2Woa;
+	Thu, 23 Jul 2026 15:17:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvVF-0000000EcWO-0Vz3
+	id 1wmvAl-0000000EZwV-1yxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 15:38:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=My+SMz54d8IdbUgW290Tn3gpqC0aMJFshjbdkyhU/9g05pLcWK3NLWYoCfzhL2yZeJbu4wGavSETrxyFeZp9NIYxMdn+19FDukcg/0YCf8rBXLv5hoZ0Eou5SSkwUjyg0One8VdaDrKeL01+lxQVNWvrflGK6fl5Soi/+zXuCH8Ueqg7QlIIajKNyL9TzHRM+S6ZG1D64VWcN7Kp0tiBfqnqyvNHj3avGIfLU8afn92CiqGjMB8G6ZXGMVTcBj7QWaVc6XttRiQtbRUlO2v1xkN0PIcZockYveHdZ3Ob560eo7tdIYo23faPRz6qVg8QFPkl/ubwy8jyR4/6DTbEpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZLByRISiCV8ywc0RJJs/lT+jmy3YhgX1JvMRV4VfOfM=;
- b=KoxlI9bNrBL3CmPz3xQY4J1A6Z8zVNWQAxJTRH8bEGfDNyNUWh0TY+0AW7CS4zzFCvafUsAbCtecRHqDAK7BTaVAy1xEclgz6NkD7vp6G42DuGu1ELK0cQzZgqFc1vv4fL3LpgssWa46JXzNENO7sA6NaJy+IzSNleukg1we9nVc2J5nsqE18yq3Kh4l+NLff3YYh/72w3iBvTI3kp3NhgkWEBldmZ3SwSyvz2LCYqZIAYKwbpr+XA4WN0cqwHRP3aVTIaclXwSJHkZMC5Bi1OShXjKnurwSAvVuuYEc6JCxCcPGxKc9Huh6sW4E0utkVdI/pTgCglVMtefibHgEfw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZLByRISiCV8ywc0RJJs/lT+jmy3YhgX1JvMRV4VfOfM=;
- b=Fkq2H0IICroOaQPvq1Mt6gKTdvOK9vAyhnJ4AA5dtS+i4/eprjPpRcoMYjGotZebf11v0bfWqzo/jwI+3PQzPwuC7o3ElR+3hoVpV+A784HpJRHQab4lbbeM78rRoQJeqj14w8/7hBE/XVDh/SDD/mCs8ua7/SEnxbVe+4jKrQU6sV9PGQBTHcf4VyiExsfU1pKjFuD1ul+7S2FyWWQAIHNG5GNeD66Ck1trY7PijX02d6Rk3M/39VuU0teM0ieZfulkRnMPbsQ7TI+QaDbqZprIfEEhJxWp3cJ8ZQlyJ+5lqvRC/p2SVn6EftHba2mYdFMLU5Ff/IgWmispIPgqIw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB8743.eurprd04.prod.outlook.com (2603:10a6:10:2e1::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
- 2026 15:38:24 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
- 15:38:24 +0000
-Date: Thu, 23 Jul 2026 10:38:11 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
-	Biwen Li <biwen.li@nxp.com>
-Subject: Re: [PATCH v2 0/4] arm64: dts: freescale: Add remoteproc support for
- i.MX EVKs
-Message-ID: <amI1YzCNtoXScYwg@SMW015318>
-References: <20260723-imx-rproc-dts-v2-0-a5f5cf2eb55a@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260723-imx-rproc-dts-v2-0-a5f5cf2eb55a@nxp.com>
-X-ClientProxiedBy: PH7P221CA0008.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:32a::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 23 Jul 2026 15:17:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E110B60A85;
+	Thu, 23 Jul 2026 15:17:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 448C61F000E9;
+	Thu, 23 Jul 2026 15:17:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784819838;
+	bh=jGfvVz5phYfszb4vs/wrQwKbo5YfQ9htQgjlD4h0uzo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=OEW0t8w/ZdlXeERCjc75StArDzDUqbCfBmj/Evab41GuYCBr4ySbLeSLVRFCMGDv+
+	 l/ctMnIh60mbWkTdAktAFmL9qN05WJa8i0aOq5ilbl+d8NsWSz3RRjVbBSouVtRrVM
+	 iIkARpos/gy9E6Y6xap1sb5R8kGxxStmgv2YxQD92ZPMdQzDm71GyCKg7SOaoHWpSk
+	 msBqA3iq8JznuaUxh2t5IkX+7Si6Kyh0nWI4L6NqqzbExl7eiMUQCzwJtzlqMH+b9D
+	 MSEzlmyzhr+pkSk+W/MEA/VPlHCL+klN7I9sn8F3dEM8FlMuu2UxEFYJRfR5FBnSQn
+	 jDYMIua2YFiTA==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Thu, 23 Jul 2026 16:16:32 +0100
+Subject: [PATCH mm-hotfixes v6 2/5] x86/mm/pat: acquire init_mm write lock
+ on collapse to avoid UAF
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8743:EE_
-X-MS-Office365-Filtering-Correlation-Id: d00aa0ab-974b-4876-f474-08dee8d06e71
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|19092799006|376014|7416014|366016|56012099006|10067099003|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: gtDvXbf6YX7hOjrSFKwBbXOK0IToTXZydpKGM7GxGAdhHCDTquGcQsidXRWfgSGXZxlPuGnwWDt5NHqXI7Rerpnzy2o5t3AmFjM4ojLh+X55rq2itA4iEDTgv8LW8LHZ7m0Mli8HJ3u3Au3g8wxLexy80br6SGHETRlyd/3lZ5BL/qWHvYfwHa+T0VuGhbBTjy7ib1ZW8UvtlfIJ0bbu70ozd2cXXykigmcid9ntGakyfjAj1xgAObqvo2RR2HgUHKTYw9XezvDhCIk8kI03pp/Lh4GTytCJtfOvUjeDOIqxN8tFfXqu4I1N5QfpesFYA63jYbzW2LaFvtb7KspfKjAZ8MJRKHFgR1PFQjmFSFVg9X6NFy45lHsLXTgxxBkAFmHjEVGQQ30KiWpMXx7jqZt5MfLmaFBtN9A9qet4yPZQUKQjO5/kDMxKbMLGPNbXj/GKdmTAdSF9OIjttT4K8mP9MOXowXME58/81l4dFWEJEKec5Q5PhNdxJxoM2gtWksL69AiQPxRU+APYYdVwfIRTaJyT5CHi52JPx4P/RSPcWIe/kykKM83ac2LasIaROxyLB5winH965HZoEw0kR1EC68xjgTjCHdrUBb0cFHmH86mDQgc1CcFsRUsqW2KN
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(19092799006)(376014)(7416014)(366016)(56012099006)(10067099003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ECpMhxVbymVwUaMt6dzEGlS8KYpd+NtquN4xbku+HVaAllmG0GWamm6inUb2?=
- =?us-ascii?Q?rRtgOBjgyacfJHnlxco5HNAANy/izLG5jHeG3WQ5D8aKxtTQluXR+8ZcdI7V?=
- =?us-ascii?Q?XdE9LUmBc8KBf1AWKt/pA+NzJzvy1G3eSKIj7Ioqc1J2wrN/S1IOn32D1kUi?=
- =?us-ascii?Q?hK197bbVRFfe0q4NoTYs2g87M/qlIT5Ku72kMH6leMI3lYu+Sn5KwD4pyEXq?=
- =?us-ascii?Q?Qr0qNDS8aHa0l9oR/Z/oOU/2AMFcTQe2wOZwNHhbrGYMaGEBRMRDkL7f4dMk?=
- =?us-ascii?Q?/2HddeWNs6TdiDQR/FeEEnprqiSDFXSqzYK1YPV/yS1WR4xhAtuiUWtH0Ho1?=
- =?us-ascii?Q?4e8dT1ADncNB32XApddVOaSK9q54qe661WWmnaZhf1OuoVzFQXIcWMrXwZNp?=
- =?us-ascii?Q?NMzqO35lfaXdu66NTbDDupTez6QWwmbzila50baqu/jf0dREplBfvJDyc2rd?=
- =?us-ascii?Q?mdURob5/adOhHXPxWKgclAnjfSZtJB81VfL7+truvSfvvSSGJwC3804UFWEI?=
- =?us-ascii?Q?ydRaBiNYTUZfgMEEIQ4xiUlYTiZWaXMVnmWzAEicNzeVQqXmWKW0vg0Pcism?=
- =?us-ascii?Q?O/no9MF+NO0XkOKMPC+NjVaD2gzu2BY30amM/ybpA6/hb3AF9trTjPtbAqtI?=
- =?us-ascii?Q?ntmDKCGD8GzHky65bVCf1mHoHEDGi81zFFGfPnz1TiUW3Jdg0lReAlF51tNa?=
- =?us-ascii?Q?qzcvhZ9gCm4/OA2o2fehVjtWMrOgiFO4obaubgypPzvqCScrAyo4nBnpZriv?=
- =?us-ascii?Q?O1opfAR+NmFqTdxPBF3D3EtZaLs1IR3zEO2vgWeipH9PvdPRmYlGmfU9Fxsb?=
- =?us-ascii?Q?6gyLnUP45YX3MMMU8RNAxou6JJPV7p3XjFmhEhuW4KTnAaE7yLyKq5GSdQhr?=
- =?us-ascii?Q?69biyYVBtxyOuprgZe4qB8uhsCdSjwJesGZokWvUKDq0g90MAlwJZypGpJst?=
- =?us-ascii?Q?2ekIg6nbIan4A1XhdMsva9OSmSBqm6pJbAHJtxfx6ad7Ry7WBve/RXVFd0z8?=
- =?us-ascii?Q?Kb997HXyxDX4SdiEznzi7qBhWqerM+lXZ7Af05moI4BUyCpPLskJWISaDOzR?=
- =?us-ascii?Q?zWOgU8sTcMpbpNQ4fOGgvtSLLaQjgadHXVDwHt5psYE+noMjZF63Np+oSGr8?=
- =?us-ascii?Q?wVeaoroVDHtKtK/pgLzFKL4Qjeu+NO0L+4xarvmu64zcFy1V4I8/NSQ9jo2a?=
- =?us-ascii?Q?dV36nas9GHX+ihc2o9f+9tlAXyC/qrjVBSBguqNPSebxovPvQwO0FnBFDYZf?=
- =?us-ascii?Q?91EJ46m/CtEl0w1PVYx/RU7skAWc1Rjx31ikCdbFm6JxAWbHAzL7PRfFt2QB?=
- =?us-ascii?Q?gXjKzFkKvvfafbTKrA7jvWa2RHZqssVYO3agPeXEP06H/MlsYvNcNFYklcHf?=
- =?us-ascii?Q?PdaD0HQTePGKDmmx0eAzjNbG+0AnI/aqHF0f/BAv4hzKXHfYg1s6mZQgQ2sy?=
- =?us-ascii?Q?4++oRnprVuJ/09XIwX0ryEy+3QcY1cbq8L8+Hc36UaQeC49QN31spB1Hj4cU?=
- =?us-ascii?Q?Gj19fqyKmlOGpx9b4vGQ9xYJHvKY8rzlIBF8VcmNSppRgqGoQYb+kV0Nimon?=
- =?us-ascii?Q?EVSyGu/JGF2r8ax+ZwYt0wIZRxGQ0LoskANnwMRGht4a3tonymN96zLDmm+2?=
- =?us-ascii?Q?JT9OziqTj/vkyoN15YOxW/YC0mSYWuckESWTfm0BskneSdaRZ16dDCAzHwys?=
- =?us-ascii?Q?LU2iD4wPGotVpb96+Kc4HsQfpYX95QfBTN6YaFX2uKa7TrfQsza6s46Eykf/?=
- =?us-ascii?Q?of52tYu14G0xbDuOsjXYmuClddMJd1nEJ6Obe8wddEr/Q94H3pLi?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d00aa0ab-974b-4876-f474-08dee8d06e71
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 15:38:24.3497
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QylpFxEt99G2X18DPZ5RYh1KB0UVhD4Lpyc3D1yDcHToflAHXPgAyeuQ61lRhCm4nRU7XwfW8+RJ/bAEfqNJTu0GIccTQnW71WNR8PvMZ0oFIt2YAan65JTxZRXLHCLp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8743
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_083829_167676_CCDBBBE8 
-X-CRM114-Status: GOOD (  15.45  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-series-vmap-race-fix-v6-2-8cc77dcc0018@kernel.org>
+References: <20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org>
+In-Reply-To: <20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>, ljs@kernel.org, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, "Denis V. Lunev" <den@virtuozzo.com>, 
+ "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4047; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=3isjtK28wb1BiLlMBIpy71VvY1jYYrdz7YUUYuIwCk8=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKSDGJ/vL0Rc3P9G8usFe9mixwynvfEO80n4NQqqbCXw
+ cfUbMpaO0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCRG7sY/ufu5Fgs37pTbkL8
+ 3TldD9vP771waZK/w1Pec69qPkXfyX3LyLB0xzdr+6U3D30QfFtaOetH0DOr+mDn5iN5szhtf4p
+ uecAAAA==
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,51 +93,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 09:00:02PM +0800, Peng Fan (OSS) wrote:
-> This series adds remoteproc node and reserved memory regions for the
-> i.MX95, i.MX952 and i.MX943 EVK boards.
->
-> - Patch 1 adds CM7 support for imx95-19x19-evk
-> - Patch 2 adds CM7 support for imx952-evk
-> - Patch 3 adds CM7-0, CM7-1 and CM33S support for imx943-evk
-> - Patch 4, update resource table address for i.MX8ULP-EVK
->
-> Each patch defines the remoteproc device node with mailbox channels
-> and the associated reserved memory regions (firmware memory, virtio
-> vring buffers, resource tables and shared DMA pools).
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
-> Changes in v2:
-> - Change to vdev0buffer in patch 1 for i.MX95
+x86 implements page attribute modification using its Change Page
+Attributes (CPA) mechanism.
 
-Others also need change
+This tracks properties of ranges such as cache mode through x86 page
+attributes, and as part of that logic manipulates kernel page tables.
 
-Frank
+Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
+fragmentation") ranges of kernel page table entries can be collapsed into
+huge page table entries as part of this logic.
 
-> - Link to v1: https://patch.msgid.link/20260715-imx-rproc-dts-v1-0-d02b583c507b@nxp.com
->
-> ---
-> Biwen Li (1):
->       arm64: dts: imx8ulp-evk: Update rpmsg resource table address
->
-> Peng Fan (3):
->       arm64: dts: imx95-19x19-evk: Add CM7 node and related memory nodes
->       arm64: dts: imx952-evk: Add CM7 node and related memory nodes
->       arm64: dts: imx943-evk: Add CM7 and CM33S nodes
->
->  arch/arm64/boot/dts/freescale/imx8ulp-evk.dts     |   4 +-
->  arch/arm64/boot/dts/freescale/imx943-evk.dts      | 135 ++++++++++++++++++++++
->  arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts |  46 ++++++++
->  arch/arm64/boot/dts/freescale/imx952-evk.dts      |  50 ++++++++
->  4 files changed, 233 insertions(+), 2 deletions(-)
-> ---
-> base-commit: cc2b5f627e8ccbae1188ef2d8be3e451d7f933a5
-> change-id: 20260715-imx-rproc-dts-6c78f82652f9
->
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
->
->
+As part of this collapse, it frees the page tables which the collapsed
+entries previously pointed to, and it does so without any relevant locks
+being held to preclude concurrent kernel page table walkers.
+
+The only way this code can be reached is if CPA_COLLAPSE is specified, and
+this is only set in set_memory_rox() via:
+
+set_memory_rox()
+-> change_page_attr_set_clr()
+-> cpa_flush()
+-> cpa_collapse_large_pages()
+
+Notable users of this are execmem and bpf when manipulating executable
+mappings.
+
+However, this is problematic for ptdump as it walks ranges it does not own
+and thus runs the risk of a use-after-free on page tables freed underneath
+it.
+
+In addition, concurrent CPA collapse operations are possible which can also
+cause races.
+
+Resolve the issue by acquiring the mmap write lock on init_mm across the
+whole operation.
+
+It is safe to acquire a sleeping lock as all the callers invoke
+set_memory_rox() from process context and in any case,
+change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
+mutex, disallowing atomic context here.
+
+Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+Cc: stable@vger.kernel.org
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Dave Hansen <dave.hansen@linux.intel.com>
+Reviewed-by: Will Deacon <will@kernel.org>
+Reviewed-by: David Carlier <devnexen@gmail.com>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ arch/x86/mm/pat/set_memory.c | 15 ++++++++++++++-
+ include/linux/mmap_lock.h    |  2 ++
+ 2 files changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+index d023a40a1e03..d1e63f7d267f 100644
+--- a/arch/x86/mm/pat/set_memory.c
++++ b/arch/x86/mm/pat/set_memory.c
+@@ -22,6 +22,7 @@
+ #include <linux/cc_platform.h>
+ #include <linux/set_memory.h>
+ #include <linux/memregion.h>
++#include <linux/cleanup.h>
+ 
+ #include <asm/e820/api.h>
+ #include <asm/processor.h>
+@@ -410,7 +411,7 @@ static void __cpa_flush_tlb(void *data)
+ 
+ static int collapse_large_pages(unsigned long addr, struct list_head *pgtables);
+ 
+-static void cpa_collapse_large_pages(struct cpa_data *cpa)
++static void __cpa_collapse_large_pages(struct cpa_data *cpa)
+ {
+ 	unsigned long start, addr, end;
+ 	struct ptdesc *ptdesc, *tmp;
+@@ -442,6 +443,18 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
+ 	}
+ }
+ 
++static void cpa_collapse_large_pages(struct cpa_data *cpa)
++{
++	/*
++	 * Take the mmap write lock on init_mm to:
++	 * - Avoid a use-after-free if raced by ptdump (which takes its own
++	 *   write lock on init_mm).
++	 * - Serialise concurrent CPA walkers.
++	 */
++	scoped_guard(mmap_write_lock, &init_mm)
++		__cpa_collapse_large_pages(cpa);
++}
++
+ static void cpa_flush(struct cpa_data *cpa, int cache)
+ {
+ 	unsigned int i;
+diff --git a/include/linux/mmap_lock.h b/include/linux/mmap_lock.h
+index 6b5c2390cc30..047f5f5e2c34 100644
+--- a/include/linux/mmap_lock.h
++++ b/include/linux/mmap_lock.h
+@@ -621,6 +621,8 @@ static inline void mmap_read_unlock(struct mm_struct *mm)
+ 
+ DEFINE_GUARD(mmap_read_lock, struct mm_struct *,
+ 	     mmap_read_lock(_T), mmap_read_unlock(_T))
++DEFINE_GUARD(mmap_write_lock, struct mm_struct *,
++	     mmap_write_lock(_T), mmap_write_unlock(_T))
+ DEFINE_GUARD_COND(mmap_read_lock, _try, mmap_read_trylock(_T))
+ 
+ static inline void mmap_read_unlock_non_owner(struct mm_struct *mm)
+
+-- 
+2.55.0
+
 
