@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB063C531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842E5C531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IYpHP3NN7o6cY+8WOSgLS6195biQhMZQGaK4qqozNH4=; b=TS17yiMVqfkKv018y/fvWTzavi
-	MPYJQJ0XTiNw/AoXKG1Cm5SpJS4y3Qo0oYh6tWM1tFDiugHMSmFrQDui9vJg0G15JGN9PQJHXkNlb
-	i31cFWXQqQ1LHk/kFEljgKhbhV41Evx5YeBFK9krp2i9oy4V3j2oawHXpOL+/geFPxtbBt7KPtZOP
-	qrWlnYnijuksWNsOGwSnsVks+YpjPYM55C8aphmLD6HEJ2fiq/C7h3/LPa57Ba8M2vvHajuWpkOqi
-	QUfiJAx5YzQ+xjXtasSePypb3V4CcFBv0jk54MqEOf+r63bthaXwvJNAmnjc/iLTg9rEGwRvoHmZi
-	L8JS6Cew==;
+	bh=WSN0r+iT6SfaE/qckT8h1gzZOTA2ZajGVSqgCAGFe7M=; b=jsJ86gyy515s5EKXX4TQwwGddf
+	2nFQ6v7AKdbfhlQHMNAMxDpF7XfUGHV+NZ0by2E0O0zBFxs/WX7oQpKwSYV3pgI5WGuOobQSRlGGl
+	AOqnjOaaaeKEmTYEghMcEjLc7IHhOxj5uqLvcHuwZy3Bri0lmQQAwsxU29rChFOtvgGNIjmPjEyiy
+	yv7w1rQrv7DeBUbjj1JlHmteKFtOvLLwEr6RR/WuWijl9KE9BYGJtTFN7XdeL+6cjizchSi7qYJD6
+	IUIrIXV78bYng0JZbe71E5H4ObvxkKXg7m19EGgxG+qvNVPTxfDGHIoCbFn+QykBsnPuabCIZnVqX
+	Z5B1UI/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmv59-0000000EZ8G-2Ff0;
-	Thu, 23 Jul 2026 15:11:31 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wmuGN-0000000ETh1-2dK1;
+	Thu, 23 Jul 2026 14:19:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmv57-0000000EZ7r-0k8g
+	id 1wmuGM-0000000ETgb-0K9t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 15:11:30 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4955de8797cso5076135e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:11:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784819487; x=1785424287; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IYpHP3NN7o6cY+8WOSgLS6195biQhMZQGaK4qqozNH4=;
-        b=YRlrM1TPMfwB2gkk3Iuk5qNdirubJQOOZTOF+TQnUfM6eOge1ad1GjB2rTXNwNqSRa
-         9H/NxZG0R5YmnuIelPMMtlqlDgZIR4iTAurw4DwaKsbHDO8ftCl2vApGz0Rn6jkxspWK
-         co16V/oJmaGuA1IXyVka9oVunwj3+uG/ipqOzGYihbexvD6BHJC6OpPGvJFS3nBva9Q0
-         RoqXh5qWHb1c0aYozOBPXBNSqqq8ay4/A6hBXK3CTaQOTR+dwYOX8Y9MVQgAIRlKhFVY
-         TKU/ohhqGWww5U9mYO+k+5QrIMCI+OQQLFtSiboOM674lS8aLlIQ+wIZhIEe0250L+gg
-         o58w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784819487; x=1785424287;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IYpHP3NN7o6cY+8WOSgLS6195biQhMZQGaK4qqozNH4=;
-        b=eE0itiPWXYBlCZP6VErteuuBiWr2s9FImbBXWcsdxlIWDZUjENv0+kpNTQAyO+wLBP
-         0j0l9WC0Ql67lubb1FQrcRUAhCDSwrXdoaGTzTCvANPkfiuKVywX7Pp19tR2+n0VLeQp
-         Q8BfcJYQ8I6+ZXaXVtYQqPbfyVegZenm8IRpW831/HtU6hBjGMWtGwSjusAz/4Hs1sRA
-         7falgdB12bcR15A+99fWNRhLm9msZCgMXEGCqj09OVl3cjbNCEqldrUlbt2/blTmRQ2J
-         a4zOhc1wyaL6BQnP9tdwM6Py0S6flofoccL6Hfz8Vwjfy8yiXwqtZuP/byujNQJH7UtH
-         UYHg==
-X-Forwarded-Encrypted: i=1; AHgh+RozwUOT69PnN1R890mPfYxpjiYkPgHXoLdMiMcHgBiD8tsHoUdMHfLughFaoPgCexCG8YSnD8fNkvFqehnysSt/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5EySRyljFqgpdg5rTIB6Q9q+B8rMMRQVOMXLDoGVrLZN/D7Hx
-	gbQ3CYp5yf8WqqRe/yvGX3k2vQGjSOL+NTE3uKqryQf/exJlRyxnD4y/mYWxbMmYMA==
-X-Gm-Gg: AR+sD126brjBvr3lhAl7rstx+U5SvFRx5QRLH+ge09X1hy2p68YiXzll3IZsQnHUjcQ
-	3Z7iE5xEc7uC+zM6Ye3Sske5ANmBG8ETHgqOGIZY6xvpVqYuLJ98jdJ0oSG+y8eEqHrcyOSOa5M
-	PzkyqY+N5ITIhD2raEDaqOaiMyohsFyrE/YiXYAQSgQZJVhVs0HU3P7QKGhZheQBiZhgGsLk+Cx
-	5UEaZRtDz4/U4lgh5HDalvB9a7z6Qz5AjlIoASLhvKuv+B4EdQ2CSSwzXY0E638sjoLMtbbHXa9
-	lgT0337WA2T0NZ42XN895O3WzIXfCizTKlbbT7USxOm+2/mvYoJ9cqUoiP1PDX2L1S5B3rZBu72
-	5be+1V4hLAK+9QFb/AhHanJe6Laeeuro0yC8zxHJI3kpZTA5/cFGN+BLYQvoe56zpMAXVHTIcA/
-	u5iROS1VGlGRCKMnRR+h0/fxcMCkZeI9gGEnLUlDpGt8WMTA==
-X-Received: by 2002:a05:600c:3b02:b0:495:4a34:16e3 with SMTP id 5b1f17b1804b1-49573c8d556mr34382785e9.1.1784819486164;
-        Thu, 23 Jul 2026 08:11:26 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c67339sm17181563f8f.31.2026.07.23.08.11.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 08:11:25 -0700 (PDT)
-Date: Thu, 23 Jul 2026 16:11:20 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	qperret@google.com
-Subject: Re: [PATCH v3 04/17] KVM: arm64: Add a heap allocator for the pKVM
- hyp
-Message-ID: <amIvGH7UmZRUPmJT@google.com>
-References: <20260720171513.1415357-1-vdonnefort@google.com>
- <20260720171513.1415357-5-vdonnefort@google.com>
- <CA+EHjTwZftoD=D2G_1S271CPTdYhCcRwQGHYzwVS4OMLzAx-HA@mail.gmail.com>
+	Thu, 23 Jul 2026 14:19:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F9D9600AD;
+	Thu, 23 Jul 2026 14:19:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5040D1F000E9;
+	Thu, 23 Jul 2026 14:18:54 +0000 (UTC)
+Date: Thu, 23 Jul 2026 15:18:24 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
+	"intel-xe@lists.freedesktop.org" <intel-xe@lists.freedesktop.org>
+Subject: Re: [REGRESSION]: [PATCH mm-hotfixes v5 3/5] x86/mm/pat: acquire
+ init_mm read lock on attribute change to avoid UAF
+Message-ID: <amIEC1qDW3kfeuHd@lucifer>
+References: <20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org>
+ <20260717-series-vmap-race-fix-v5-3-606a0ac6d3e5@kernel.org>
+ <80993b70-352f-4069-84c7-39a04c061e98@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTwZftoD=D2G_1S271CPTdYhCcRwQGHYzwVS4OMLzAx-HA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_081129_249579_44664C39 
-X-CRM114-Status: GOOD (  14.76  )
+In-Reply-To: <80993b70-352f-4069-84c7-39a04c061e98@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,35 +74,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 02:19:00PM +0100, Fuad Tabba wrote:
-> Hi Vincent,
-> 
-> On Mon, 20 Jul 2026 at 18:15, Vincent Donnefort <vdonnefort@google.com> wrote:
-> 
-> > +static unsigned long hyp_allocator_reclaimable(struct hyp_allocator *allocator)
-> > +{
-> > +       unsigned long reclaimable = 0;
-> > +       struct chunk_hdr *chunk;
-> > +
-> > +       guard(hyp_spinlock)(&allocator->lock);
-> > +
-> > +       chunk = allocator->head;
-> > +       while (chunk) {
-> > +               reclaimable += hyp_allocator_chunk_reclaimable(allocator, chunk, NULL, NULL);
-> > +               chunk = chunk_get_next(chunk);
-> > +       }
-> 
-> Sashiko raised this, again, confusingly in a different patch.
-> hyp_allocator_reclaimable() counts only the per-chunk reclaimable
-> pages, but hyp_allocator_reclaim() drains allocator->mc first, so the
-> memcache pages are reclaimable yet not counted here. When mc holds the
-> only free pages and there are no reclaimable chunks, this returns 0,
-> pkvm_shrinker_count() reports SHRINK_EMPTY, and scan() is never called
-> to free them. Should you add allocator->mc.nr_pages to the total?
+On Thu, Jul 23, 2026 at 12:00:42PM +0530, Borah, Chaitanya Kumar wrote:
+> Hello Lorenzo,
+>
+> On 7/17/2026 11:00 PM, Lorenzo Stoakes (ARM) wrote:
+> > A previous commit protected us against races between ptdump and CPA
+> > collapse, however one still exists between attribute changes and collapse
+> > as reported by Denis V. Lunev (linked).
+> >
+> > When an attribute change arises, a lockless page table walker obtains a PTE
+> > entry, which is later written to via set_pte_atomic():
+> >
+> > ...
+> > -> change_page_attr_set_clr()
+> > -> __change_page_attr_set_clr()
+> > -> __change_page_attr()
+> > 	-> _lookup_address_cpa()
+> > 	-> lookup_address_in_pgd_attr()
+> > 	-> [ lockless page table walker ]
+> > -> set_pte_atomic()
+> >
+> > There is nothing preventing a concurrent CPA collapse which can free the
+> > PTE that was retrieved here, resulting in a use-after-free.
+> >
+> > With the mmap write lock taken on init_mm over CPA collapse, we can now
+> > resolve this race by acquiring an mmap read lock on init_mm over
+> > __change_page_attr_set_clr().
+> >
+> > This locks across the whole operation over which the walk and the PTE entry
+> > write occurs, solving the race.
+> >
+> > It is safe to do this here, as no spinlocks are held upon entry to
+> > __change_page_attr_set_clr().
+> >
+> > The CPA_COLLAPSE flag is only set by set_memory_rox(), which exclusively
+> > operates upon vmalloc ranges, and on x86 only within the module mapping
+> > space.
+> >
+> > This is important, because some callers directly invoke
+> > __change_page_attr_set_clr(), bypassing this lock. However, none of these
+> > operate within the module mapping space.
+> >
+> > * cpa_process_alias() - a recursive helper called by
+> >    __change_page_attr_set_clr().
+> > * __set_memory_enc_pgtable() - operates on the direct mapping and (via
+> >    __vmbus_establish_gpadl()) the vmalloc mapping space.
+> > * __set_pages_[n]p() - called by set_direct_map_[invalid, default,
+> >    valid]_noflush(), __kernel_map_pages() - operates on the direct map.
+> > * kernel_[un]map_pages_in_pgd() - operates on EFI ranges.
+> >
+> > This work is based upon Denis V. Lunev's excellent analysis of the bug with
+> > gratitude.
+> >
+>
+> This seems to be causing regression in our linux-next CI [1] on some of the
+> older machines (fi-elk-e7500, fi-ilk-650, fi-pnv-d510)
 
-Yes of course, this should be added. We actually have it in the Android version.
+Thanks for the report!
 
-> 
-> Cheers,
-> /fuad
+A small note - it'd be useful for you to clearly point
+out the revision of next to make our life a bit easier :)
+
+I can see from below in the stack and the URI it's next-20260720. There was a
+broken merge in linux-next for a while but it's fixed by 20260720 so that's not
+it.
+
+>
+> <4> [196.236867] ======================================================
+> <4> [196.236878] WARNING: possible circular locking dependency detected
+> <4> [196.236890] 7.2.0-rc4-next-20260720-next-20260720-g3fe08b9796f3+ #1
+> Tainted: G S   U       L
+> <4> [196.236906] ------------------------------------------------------
+> <4> [196.236916] core_hotunplug/5687 is trying to acquire lock:
+> <4> [196.236927] ffffffff839048b8 ((init_mm).mmap_lock){++++}-{4:4}, at:
+> change_page_attr_set_clr+0x10a/0x220
+
+This is the result of my change indeed.
+
+> <4> [196.236958]
+> but task is already holding lock:
+> <4> [196.236969] ffff88810c852238 (&vm->mutex){+.+.}-{4:4}, at:
+
+So this is a lock dependency issue as this is obviously an entirely
+different lock.
+
+> i915_ggtt_driver_release+0xab/0x260 [i915]
+> <4> [196.237572]
+> which lock already depends on the new lock.
+> <4> [196.237585]
+> the existing dependency chain (in reverse order) is:
+> <4> [196.237597]
+> -> #2 (&vm->mutex){+.+.}-{4:4}:
+> <4> [196.237617]        i915_gem_shrinker_taints_mutex+0x35/0x70 [i915]
+> <4> [196.238267]        i915_address_space_init+0x226/0x2a0 [i915]
+> <4> [196.238961]        i915_ggtt_init_hw+0x2c/0x140 [i915]
+> <4> [196.239638]        i915_driver_hw_probe+0x208/0x380 [i915]
+> <4> [196.240260]        i915_driver_probe+0x113/0x5b0 [i915]
+> <4> [196.240883]        i915_pci_probe+0xe0/0x1d0 [i915]
+
+(another small note - running scripts/decode_stacktrace.sh would be hugely
+useful as these offsets aren't so useful unless I have the exact kernel
+binary you have with debug symbols :)
+
+>
+> Detailed log can be seen found in [2]
+>
+> We confirmed that reverting the patch solves the issue.
+>
+> Could you please check why the patch causes this regression and provide
+> a fix if necessary?
+>
+> Regards
+> Chaitanya
+>
+> [1] https://intel-gfx-ci.01.org/tree/linux-next/combined-alt.html?
+> [2] https://intel-gfx-ci.01.org/tree/linux-next/next-20260720/fi-ilk-650/igt@core_hotunplug@unbind-rebind.html
+
+<snip>
+
+So looking into it we have deadlock potential here:
+
+1. fs_reclaim -> &vm->mutex
+
+< device init >
+-> i915_address_space_init()
+-> ...
+-> i915_gem_shrinker_taints_mutex()
+(mark the dependency in lockdep)
+
+This is presumably because the shrinker needs to lock this mutex.
+
+2. init_mm -> fs_reclaim
+
+This was introduced by my patch and there we have:
+
+< caller needs to set memory, e.g. BPF >
+-> set_memory_rox()
+-> change_page_attr_set_clr()
+-> [acquire init_mm lock] <-- my change
+-> __change_page_attr_set_clr()
+-> __change_page_attr()
+-> split_large_page()
+-> pte_alloc_one_kernel()
+[ allocation ]
+< trigger direct reclaim >
+
+Thus init_mm -> fs_reclaim becasue in split_large_page() there's:
+
+	if (!debug_pagealloc_enabled())
+		spin_unlock(&cpa_lock);
+	pte = pte_alloc_one_kernel(&init_mm); <-- allocate
+	if (!debug_pagealloc_enabled())
+		spin_lock(&cpa_lock);
+	if (!pte)
+		return -ENOMEM;
+
+Note the CPA lock dance, will come back to that as that's how to solve this
+issue...
+
+3. &vm->mutex -> init_mm
+
+< device remove >
+-> i915_ggtt_driver_release()
+-> ggtt_cleanup_hw()
+-> [acquire &vm->mutex lock]
+-> ggtt->vm.cleanup == gmch_ggtt_remove()
+-> intel_gmch_remove()
+-> intel_gtt_teardown_scratch_page()
+-> set_pages_wb()
+-> set_memory_wb()
+-> _set_memory_wb()
+-> change_page_attr_clear()
+-> change_page_attr_set_clr()
+-> [acquire init_mm lock] <-- my change
+
+This &vm->mutex -> init_mm
+
+And so there is a circular dependency:
+
+ 	&vm->mutex ---> init_mm
+	      ^            |
+               \           v
+                \--- fs_reclaim
+
+(lockdep should totally do diagrams like this :)
+
+In reality to hit this you'd need something to be doing direct reclaim on
+allocating a split page table during a CPA operation with a simultaneous
+contended init_mm lock.
+
+But this issue is broader than that really - we can't be holding init_mm
+over an allocation.
+
+split_large_page() calls __split_large_page() after dropping the CPA lock,
+which opens with a revalidation:
+
+	spin_lock(&pgd_lock);
+	/*
+	 * Check for races, another CPU might have split this page
+	 * up for us already:
+	 */
+	tmp = _lookup_address_cpa(cpa, address, &level, &nx, &rw);
+	if (tmp != kpte) {
+		spin_unlock(&pgd_lock);
+		return 1;
+	}
+
+There's also revalidation in __change_page_attr() on every split:
+
+	err = split_large_page(cpa, kpte, address);
+	if (!err)
+		goto repeat;
+
+(Where goto repeat entails a complete rewalk)
+
+So dropping the init_mm lock here should not result in any problems with
+being raced by a collapse and was something already accounted for.
+
+So the broad strokes of the fix is to eliminate the init_mm -> fs_reclaim
+dependency and thus break the dependency loop.
+
+I'll send a respin with this addressed.
+
+Cheers, Lorenzo
 
