@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AEFC44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E52DC531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=npvx1Rov5V/ign/oNITAn9lusftU9TKPldrXYwuOVG4=; b=wjPUwt+9TUmKrWhG3v0U+boYV1
-	hmfIkEzCHCm4V2f5R2PvFmVKbK7PMOFd3LJoNpeK0jSnDTwCrlOQ43RD8U7uwGLLaUFmJEscc94j3
-	VDLXy5787pkLgKqljkdiE06fpnO7JAMpUxnx9nKs7CKfiXLIGgROWst24BPDfP9b1lOrPWdQv/CYm
-	CzkxbkZ6JaV12EOHUVCdHFQo7jvRElux4i7iyzOq3cLz8uoS5/1KatMtAH7zYtTCiR6DJY2jLA7Iv
-	ug274zttYkyFqKIATRWrovVugABguUq3JrbzeogruMhu5zZE3VVslOWpWucYOfafgJ0ja4uARIsQo
-	UPPLjBgQ==;
+	bh=6jRO/10N/zvQgQ5YhIHQJf/DZBZyqM7tDf/bFYg+EZU=; b=tEi85IHtI9gXfV39kl9BKIJdm+
+	MaYsvE+yhCzJT/ogJjlWkGMVfKDW7nRxgUZWBrusZBqgwO6auDXfkugZtSzl/vIlbST6NGXfOtoMF
+	e0VqZdOWEm6DxEmUeIAldLP4/mSDDQ00CiRIW6Rchn3F77+/ZYCHyL/wHsvYQfUhCIKltToZKo2H0
+	0xDY5EapQBd/PdmBMvjrvV2J7Y55ZG0M0CeIap84GfmbyMeD/WeFBqW119fHdchoPW2MhI1bY7ukw
+	PTxJPWXgS8cf6myqm/kX1O8QtG/R5+nfFyUwRXqpkI6irTSFn3PZ+beZFFB1wqCEErk1U+S1ChxWa
+	Si5f7KVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmnpL-0000000DdYm-2TdH;
-	Thu, 23 Jul 2026 07:26:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmnpG-0000000DdXx-2XOm
+	id 1wmnrc-0000000Ddsg-2V01;
+	Thu, 23 Jul 2026 07:29:04 +0000
+Received: from mail.fris.de ([116.203.77.234])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmnrZ-0000000Ddqy-0UZF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 07:26:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F75C1BA8;
-	Thu, 23 Jul 2026 00:26:32 -0700 (PDT)
-Received: from [10.163.164.40] (unknown [10.163.164.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AC7D3F66F;
-	Thu, 23 Jul 2026 00:26:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784791596; bh=fQuZig5GU+0ps47Kg12JnM/El3X9xLJIqbg58kBalr0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bJPVYry9PIJ3A/ep4TkHZ19XXXBNH7h7R90L2lOV7qdvqmNZOu0QKcplp+57BfaMW
-	 /89CQz+bPUvnOhQlzHmX4imQRWqyTYxkB0EHPMBIulUkfkO749VvgHk/ZmVWNL7u7Y
-	 NyTTeFlBquEj44xjWAE3gQ3BamZfYXjPT+iE++yQ=
-Message-ID: <2fe1b74f-70b1-4b24-b416-02db6d41a6d2@arm.com>
-Date: Thu, 23 Jul 2026 12:56:30 +0530
+	Thu, 23 Jul 2026 07:29:03 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1784791737;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6jRO/10N/zvQgQ5YhIHQJf/DZBZyqM7tDf/bFYg+EZU=;
+	b=ZPxvfK7qZCxP4NrsCCoFXhFRbfwafjiGoiAd/GHB3WsEXh9WQEIndemApyWPBsxKkRWBvB
+	55FpGfmDFGQM18kRRpXY+hNM+Kq5Eh9FoFZRK62CqaIgcP7SdtMW9TnN/W2XJV5BEkam/8
+	4aXQcFNZhccijeX1SteLHaoOVo20Uaj5rHwl5hoPmhB9iG5IAUvG3oRrG0RFpHUJRkWLMf
+	HzTxcsXvA351CXHzsjvP7798/MByy9fuMBBYD5mNzxtIYJmaa+/yYeSQNi2EDnfmoYs1Y2
+	2U7leuUy7J8B66oLwZMqH4+37LxlN/9v59YK7eMOKH5MJGHjuFZPeLWNhCweKg==
+Date: Thu, 23 Jul 2026 09:27:26 +0200
+Subject: [PATCH v3 04/11] nvmem: imx-ocotp-ele: Add keepout table for
+ i.MX93
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] arm64: cpufeature: Extend bbml2_noabort support
- list
-To: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Gavin Shan <gshan@redhat.com>
-References: <20260723044034.2983651-1-linu.cherian@arm.com>
- <20260723044034.2983651-4-linu.cherian@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260723044034.2983651-4-linu.cherian@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-4-e26930345b4c@kontron.de>
+References: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+In-Reply-To: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Pankaj Gupta <pankaj.gupta@nxp.com>, 
+ "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1912;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=uWHeQFtm8hXfW7ZA55vuDeShYnRX7s0r6QBPlDcypKQ=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISvx0FYmgxpXr/RVU84/ld9ma3fdTXH6/jatMwtu7+JcP
+ 0GTw/dXRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwEQSNBkZLjaubgt9/m9Ck4Pn
+ lZ3XgtdqshyYGsNy9ZXVFJN7h8Pe/GVkuPF722cLPRfP95N3p79Me8qVXVenXsF2wqk0lM3a93M
+ FFwA=
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_002639_515629_FFD53351 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260723_002901_721274_97C481FE 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,79 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
+Add an overall keepout table to describe which fuse registers are
+invalid and not accessible. No functional changes intended.
 
-On 23/07/26 10:10 AM, Linu Cherian wrote:
-> Add below cpus to the midr list, which supports
-> BBML2_NOABORT.
-> 
-> Cortex A520(AE)
-> Cortex A715
-> Cortex A720(AE)
-> Cortex A725
-> Neoverse N3
-> C1-Nano
-> C1-Pro
-> C1-Ultra
-> C1-Premium
-> 
-> C1-Ultra and C1-Premium both suffer from erratum 3683289,
-> where Break-Before-Make must be followed to avoid a livelock.
-> For both CPUs, the erratum is fixed from r1p1.
-> Hence we do not enable BBML2_NOABORT for CPU revisions <= r1p0.
-> 
-> The relevant SDENs are:
-> * C1-Ultra: https://developer.arm.com/documentation/111077/9-00/
-> * C1-Premium: https://developer.arm.com/documentation/111078/9-00/
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-> ---
->  Documentation/arch/arm64/silicon-errata.rst |  4 ++++
->  arch/arm64/kernel/cpufeature.c              | 10 ++++++++++
->  2 files changed, 14 insertions(+)
-> 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 014aa1c215a1..57c778446936 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -242,10 +242,14 @@ stable kernels.
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | Neoverse-V3AE   | #4193784        | ARM64_ERRATUM_4118414       |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| ARM            | C1-Premium      | #3683289        | N/A                         |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | C1-Premium      | #4193780        | ARM64_ERRATUM_4118414       |
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | C1-Pro          | #4193714        | ARM64_ERRATUM_4193714       |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| ARM            | C1-Ultra        | #3683289        | N/A                         |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | C1-Ultra        | #4193780        | ARM64_ERRATUM_4118414       |
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | MMU-500         | #562869,        | ARM_SMMU_MMU_500_CPRE_ERRATA|
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 9a22df0c5120..98d2cfc2dc90 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2152,6 +2152,16 @@ bool cpu_supports_bbml2_noabort(void)
->  		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
->  		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
->  		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
-> +		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
-> +		MIDR_ALL_VERSIONS(MIDR_C1_NANO),
-> +		MIDR_ALL_VERSIONS(MIDR_C1_PRO),
-> +		/* Erratum 3683289 fixed in r1p1 */
-> +		MIDR_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf, 0xf),
-> +		MIDR_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf, 0xf),
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+ drivers/nvmem/imx-ocotp-ele.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-This in line with what Mark had suggested earlier.
->  		{}
->  	};
->  
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index a0d2985c6d03..dadec19ca252 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -34,6 +34,8 @@ struct ocotp_devtype_data {
+ 	u32 num_entry;
+ 	u32 flag;
+ 	nvmem_reg_read_t reg_read;
++	const struct nvmem_keepout *keepout;
++	unsigned int nkeepout;
+ 	struct ocotp_map_entry entry[];
+ };
+ 
+@@ -163,6 +165,12 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 	priv->config.read_only = true;
+ 	priv->config.add_legacy_fixed_of_cells = true;
+ 	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
++
++	if (priv->data->nkeepout) {
++		priv->config.keepout = priv->data->keepout;
++		priv->config.nkeepout = priv->data->nkeepout;
++	}
++
+ 	mutex_init(&priv->lock);
+ 
+ 	nvmem = devm_nvmem_register(dev, &priv->config);
+@@ -172,6 +180,14 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++static const struct nvmem_keepout imx93_ocotp_keepout[] = {
++	{.start = 208, .end = 252},
++	{.start = 256, .end = 512},
++	{.start = 576, .end = 728},
++	{.start = 732, .end = 752},
++	{.start = 756, .end = 1248},
++};
++
+ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.reg_read = imx_ocotp_reg_read,
+@@ -185,6 +201,8 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 		{ 188, 1, FUSE_ELE },
+ 		{ 312, 200, FUSE_FSB }
+ 	},
++	.keepout = imx93_ocotp_keepout,
++	.nkeepout = ARRAY_SIZE(imx93_ocotp_keepout),
+ };
+ 
+ static const struct ocotp_devtype_data imx94_ocotp_data = {
+
+-- 
+2.55.0
+
 
