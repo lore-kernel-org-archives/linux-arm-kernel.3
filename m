@@ -4,67 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 422C7C4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 02:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A4FAC4453D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 02:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ywYub6wAD+jWjHOKqOLf/FFBRh9k7vGnHg3v0LBqTPs=; b=Ps3Yi9Je+qKpum
-	h1RVIzbB8IDMJ4N/v+g4A1o0mp2OdiJWC3+BmxnwMMN0GT4BtW3FlYWtZGe3n4Jk+r3FbTb+BwCio
-	evPzsMC0WfITP/NL85WZTp1a4lWYifvp16hr+Tu2dQJtthjqe9OirrvP62YHSxH2AviIk1VggjD87
-	igSUwDZZO309wzIDBrj3AKRjQnhL2Fhw/ouZWonfBrx3GkO3NgkUQTudEsKI2VNlm1R/trronIkKA
-	oSRpO+1QPUREx3MP6OQz4NaxEffSoAieM7+lFkcWLgSxa5qIhKXliYwJMQn4lHUA45ybE55xHLCd/
-	7pZx13X5akqWhv8lOXWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=odU49gaNKfhLbaLF4HQb/V23rFFj/D0ldwSbgKQBPmI=; b=s3/J9NcRN5kQFFbJd0aWpzYom7
+	qKTUpgH24eWTbD5e9rf9sYUFxl855oxFWwEWIDzC7QsrTcjBh6QqjR0RBU2w5xviMvtqPqA1O986M
+	j7nZopTNEqqixCQRleVwFp00GoyFdE9PinGxriJJRv7s4whj9EGVSBg7stfz8CsznrBLjoR08QpdY
+	3gJMfTUsNfU334zbUKotWnGkN+U28HN7DJ95MKzpwxJb9nhDVQPWFsPJaQMqMbb4mDkCgRssSvNT4
+	jE5Blq5tKsmsfftBmwV+4xwn8XT1By/cSa/dt9kb6ZeVJ3LIQ2+krlMdtYlofmVKkQNeKZlOpf0Wl
+	9qF/MHfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmieJ-0000000DB4e-14JV;
-	Thu, 23 Jul 2026 01:54:59 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wmj1y-0000000DD6x-1vpQ;
+	Thu, 23 Jul 2026 02:19:26 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmieD-0000000DB45-1hvc
+	id 1wmj1w-0000000DD6d-0oui
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 01:54:58 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ywYub6wAD+jWjHOKqOLf/FFBRh9k7vGnHg3v0LBqTPs=;
-	b=Hp2fr+eL8d+7nGr2HKuNoE+794wuVsTucWVzdE40kbsCKHajUrBfqnINVC44taxA3OM1+ccnH
-	0CNp+pxpyQZhw9sbuJeW4heLU1u9qQ8Vx4+VvWGD0Grb0n15LCa7e0Y0QbIb4AOjvHHPdy8J3KK
-	HAyZ7GPZQBBpASoLXjmfgbY=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h5DTS50dqz1T4MQ;
-	Thu, 23 Jul 2026 09:45:16 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 436894057F;
-	Thu, 23 Jul 2026 09:54:38 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 23 Jul 2026 09:54:36 +0800
-Message-ID: <5a200b28-d970-462b-ab49-ccb6bbe6c94c@huawei.com>
-Date: Thu, 23 Jul 2026 09:54:36 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 15/15] arm64: vdso: Expose sigreturn address on vdso
- to the kernel
-To: Mark Rutland <mark.rutland@arm.com>, Linus Walleij <linusw@kernel.org>
-References: <20260721081858.1169276-1-ruanjinjie@huawei.com>
- <20260721081858.1169276-16-ruanjinjie@huawei.com>
- <CAD++jL=Ou_HF5VchexnjUf9qwzrz0xgY+NhA5gZhOwiwdxUi-g@mail.gmail.com>
- <amEJkyKFvVOkiGao@J2N7QTR9R3>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <amEJkyKFvVOkiGao@J2N7QTR9R3>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 23 Jul 2026 02:19:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gb06Cntv4QQfPztepqWG/vQKydKWfPhLpAde02Y4wArKR0wLdPZ1Tgqj7ml6IvlIV1zi42vei0mrELAvViYHIBfWTIOETVd2TxQa+pvb++szvZ63PQzjCxBDEb/djoo0X49Z2jR7S2Jksy1eZIB+Gv7hH2ROkohONQBTrDPLt9ouzCdFdo+A8UDcai9tNcQzG15YrzXpZ3Aia4BkySW1j2yKQuobtmwGWePm/vjeHisxJu2JJJYo6o852zxkpcKALkuJAhVrNyyRbyS5FgRkTHVaFUZuOBHWU2LZv77bEtM2bt7azzYaG9LrEkD63FS9qH6cMygTE97L4NenHl9LqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=odU49gaNKfhLbaLF4HQb/V23rFFj/D0ldwSbgKQBPmI=;
+ b=xY5SmWqFikV1FZNvD/Pp9Eu9TDHwX/ecXrIOjuhhIKYBc15ornWAR/VOH5GbPcibXIa4RVGyYShyyfqHIF7qkeAa5b/JDf4P77m8+hR+nQaxCBlOMHfmQFwTR9frdr/eNVLOdmNNPH3MoxZrimCw3rWZXS9NWG8kkpQ989zc2uvpOnRZ39beZymmquFYLGLMG/gBbsQ/OJs+P7IL8ev8N9zQ67QdAQ2lV5SrglQUC1ZBD/9BfFUeREgZWkPucjz52OJl670k/mToRxavAEbWTrpW6EW1s0n72EOOjrUPNfbGXCzBBwoHViR8i5lxIsPAeDqu4bJtblXGDjZozyBNLQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=odU49gaNKfhLbaLF4HQb/V23rFFj/D0ldwSbgKQBPmI=;
+ b=FXLNyT+Ajenw8EBN1li2J3AY6Zo0XGCOcc/5gUM7j9SwFmBJkhdR7c1wsiMKf+oKpLeHiI204D2yMzcDjiuV3TE0F/UBRLWEs/2JyrZIf9Q95ExZlq2k9NJHtu2hHHjaA+iuCtmHzL+WE1giGOTTlWBdYFOdV71kQT2Yw1kcxVV0odUYcilK5XHbqcmBzr01oAynanbJY+0cQKbu1Yy25BAGZHmaTkclzPXn7PHDAOQaZWx+JzXKAGjb9SfsnPv8V+w+Q0fQx7+9pA4HJKyeV4TSONxTh0CbZQC12ID5XiMFIgBWiPHsQFpH8DrNjYjRG6X8Ms3KPiValFO4x+M2yQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17)
+ by DU0PR04MB9252.eurprd04.prod.outlook.com (2603:10a6:10:353::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 02:19:16 +0000
+Received: from PAXPR04MB9351.eurprd04.prod.outlook.com
+ ([fe80::1058:a430:52c1:5aa]) by PAXPR04MB9351.eurprd04.prod.outlook.com
+ ([fe80::1058:a430:52c1:5aa%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
+ 02:19:16 +0000
+From: shengjiu.wang@oss.nxp.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	shawnguo@kernel.org,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	shengjiu.wang@gmail.com,
+	Xiubo.Lee@gmail.com,
+	nicoleotsuka@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linuxppc-dev@lists.ozlabs.org
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>
+Subject: [PATCH v2 0/5] ASoC: fsl_asrc/fsl_easrc: expose per-pair/context DAIs and fix DMA race
+Date: Thu, 23 Jul 2026 10:23:08 +0800
+Message-Id: <20260723022313.1905051-1-shengjiu.wang@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain
+X-ClientProxiedBy: OS7PR01CA0244.jpnprd01.prod.outlook.com
+ (2603:1096:604:24b::15) To PAXPR04MB9351.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b6::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9351:EE_|DU0PR04MB9252:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0157649-d239-4afe-a6e6-08dee860cb44
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|19092799006|1800799024|366016|921020|6133799003|56012099006|11063799006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: JcGI7zcUzYT0U3jwIu2yvzK/A2QwuCW0OitYmr894Im6wCA3Ykf6Zu60dNuESwQ7jhNeIwS6wf1jODVyL8C4+V9N9Zt1ZvJz0FK8bfNneyxB9yLx5ZuQh5ynLQ/J7mfOOD6mU1DWO5+vuN4HGA/JBIhx7x1PnvTYmsGYijAr0auP9ooENxgM2K71OEdpLlQE9nONNp7M1F0sphNBqhFTI8RA8bffouemx+82s63fi5O+Vu/bWkkMQKRviZwnRjDL3aRpIgr09+NQizJtq8tTSsodZLeowHocQ3FfXUKS76xRmESkdYppszcMXofRlqhUf0sbregwA+SnG24VmA1HxIGLd0tHDPh22iW8apmvQe9L/0rUN1teZB77Hha7yEdIAxH2psCrEs5j5Rz9m1dK9QDB2uxgFASTM06Y+Hl8DtCe3mx1R6CsIQADuqECESzl3Go9UWNO6e+aVguSt9q8eacYGdI/DSe2Mvy5Hc1QycLQZ1sU5kR4AJc46eTTs2XbOI4Ehxmkd2qazO6mqKw6Lpm9I3wlnpa1NTijA0ZcN58vzlrG82Z3q4kXXJvSx619p35FCkGVu9uki88RlaBncSIRk7JmoFWGGhRVb0e4rGe7meGhoB7YnS7pkdAJd4hBNodQBuHKFXeuBo2Thm1eCsiNDF5mfNn+LVCuTLbag07h9lyuc6Xgt+6fOfii+4g8uYM3XdQkrEE/Q0gqGW6AGA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9351.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(19092799006)(1800799024)(366016)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?I+xzSicIAd8EwNFvKgIWW7gosN1Ae4SVdH26dHgj7lSdIQDaIaU6g3W9CF6D?=
+ =?us-ascii?Q?QO3yDcRgEpxQANFm2IEYPGyzDaSeJvj71JTnTOzeFBQtXZgS5ulsF9ogthCO?=
+ =?us-ascii?Q?GRDitO+5ZlKIbwLDrrzbSGHw68dcJtkOpq95/rr0gvfhGkQakCMTHElucWX8?=
+ =?us-ascii?Q?XbGQBbYnFxXEHgj+1FxTydOKJnkvhEsGJKaspWSqs+ekw1wGTxdvue1C/3a/?=
+ =?us-ascii?Q?beHrZUiwo7QKFFTBBA/JT+1jMV6G5fgZL6zKvu6JHLIHNnKhdZfgZJe54aZI?=
+ =?us-ascii?Q?vbbJtMADkfWnJw89tRAteYQqqQPpEcwREv2MgC2RGpvbCVAGE1xfMar1bA5x?=
+ =?us-ascii?Q?m1Jpj/O0Z+Z+coZLFiwrlBsSjYH+y6XWhdDlCvm+M3v/YzfDIGXAsuis4W2T?=
+ =?us-ascii?Q?/UF59eQPe0/+QoMnftZYujkZMsZtN3PoIOT04UWp/u5+KvSnpiXFEwhu+e19?=
+ =?us-ascii?Q?+50NjcaMg/DY2sBFhDhxpC0djUsjzkxk0klY7DaQlXj2UTyANyypi0iBIQXL?=
+ =?us-ascii?Q?naJedKx4r2wA3Ti+Uzk4nmpWWeK1aHeKl8wsZ235+hFjokIX2+sxSGe8fpSr?=
+ =?us-ascii?Q?kZ7kVyYlSvLj6YWEi/biB2CEK8ZsPZTxZJz2AhTRVY74uMR0Y5f9dHyIlnSc?=
+ =?us-ascii?Q?ns8xwfzZLv+ov61/Z5DwTYsYIIH8Suh4mdfAiAhaFb1SFqUBMbKIqtRD8TLp?=
+ =?us-ascii?Q?cQJx+fYSqkhBxFfbsQy3uPjZjxnWJxOGKSVWmOz+fblBSsMTFSLMYU1gnhjJ?=
+ =?us-ascii?Q?NeRfp8NiMWaxdI1GyOx6CXGpK3NX0p8+1bj1xvKJzSmx0ZE4W8cczIjdv4Uj?=
+ =?us-ascii?Q?Y/VfYoyn61yVKan+Q/WZwvp/tFXH3mDjC91e7KpJskPmXL5GUOYxmHDPtaZH?=
+ =?us-ascii?Q?F7+NnM+sc/L06dQe3AQrQBR3tMUKeFQ5+cR4sgj3fzMeP+YB57W2K6aTgE7F?=
+ =?us-ascii?Q?HVM9erGBKLWa0d+56gTFR6AkVEMNeiz2aBVSUYFG0CaJ+QnLYim18lzffNLl?=
+ =?us-ascii?Q?k5GgDRskDBEVGVIaiV5CUklUVNemRRWfXSVcWDvfBmPQJlKtxoYi9itWG+f3?=
+ =?us-ascii?Q?3g6vYucHjCbxuGlR4Z9rzTFYGcNVsWIgRvAOByDmiAUumC9dTVFPFrIdCmyo?=
+ =?us-ascii?Q?8kaQxWrbo9jOGUiKQ2Ogn1908L0MJRP8XgsXwfeUPyl+UEcnokQsCL4uLXZB?=
+ =?us-ascii?Q?oOxwDsC15SmMz946203Hn9bkuOiDm1Jjx1sthuOejeKniUS2ldGukZGLqR87?=
+ =?us-ascii?Q?tizhvfRVBkRmSFSsPz4PqopLieIIx8zABXmnQNuloy1knGvW/8q2HXBSnMzC?=
+ =?us-ascii?Q?1Nmii8su5xUddp93zuKw/dr/Wua3P3ej/1VToeA/qkfDYvKf44W8c/JgSZoJ?=
+ =?us-ascii?Q?vOOjNoL24oataeknAHSTxcZQ36Thl/wiuO3jLm3tBPZBr5fHqba99DcDbhu4?=
+ =?us-ascii?Q?oXZT+bkfO9GcDYsv0X2Ug5TNZze22NNzDPRuZZ/uqRCSBSAZ63+HTYE3ofMf?=
+ =?us-ascii?Q?wFseK2opUuA56VidbTvOO7rIK0CHN8tgjrR4JnAEBSAXt2EGZtsedbVknil5?=
+ =?us-ascii?Q?D/PKzSIUFXHjEqIHnJJnUBPTpXjeA/sabZyK2aM9HRyephl0WZKeXuiFQGVT?=
+ =?us-ascii?Q?EgZFBsLC9kOE3ekFBKmLAhEJ8O2jWf9lv0bsmMEFuzailVi5+0yTGoR6EzfZ?=
+ =?us-ascii?Q?AeKKWDm8JyHlgI+nU5tzHwPx+JgqgL5Brt4O9kdRyWXPXSGRX/yU/lDIY1Ug?=
+ =?us-ascii?Q?ykwMI3O1Fc9mqmR+cdtOf9HMQt6NnrzVd75lXxiBuG7y1AVGpwv6?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0157649-d239-4afe-a6e6-08dee860cb44
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9351.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 02:19:16.0410
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GwIu6Xnn2ByHqsLOwopq90P9cEyigh1iPu4ws15Fabsr3YVKf4SZNiCv770D9j2RKpvMjqn7Sr6vhrrDKy0aljdXyZFsVO8jJEyEXoh5iuX+/zjV5YX6TgzBXF6Dj3+0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9252
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_185454_092316_637456CD 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20260722_191924_240735_C201A985 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,67 +150,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: thuth@redhat.com, wad@chromium.org, anshuman.khandual@arm.com, kees@kernel.org, catalin.marinas@arm.com, yeoreum.yun@arm.com, kevin.brodsky@arm.com, linux-kernel@vger.kernel.org, oleg@redhat.com, luto@amacapital.net, pengcan@kylinos.cn, peterz@infradead.org, broonie@kernel.org, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, ryan.roberts@arm.com, will@kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
 
+This series extends the i.MX ASRC and EASRC drivers to expose one DAI
+per hardware conversion pair/context, allowing multiple independent
+conversion paths to be active simultaneously.
 
-在 2026/7/23 2:18, Mark Rutland 写道:
-> On Tue, Jul 21, 2026 at 10:55:03AM +0200, Linus Walleij wrote:
->> On Tue, Jul 21, 2026 at 10:19 AM Jinjie Ruan <ruanjinjie@huawei.com> wrote:
->>
->>> Syscall User Dispatch (SUD) must not intercept the signal trampoline
->>> code, otherwise returning from a signal with a locked selector may
->>> cause infinite recursion into the signal handler.
->>>
->>> Provide an arm64 implementation of arch_syscall_is_vdso_sigreturn()
->>> to exclude these sigreturn syscalls from dispatch.
->>>
->>> For native 64-bit tasks, check whether the current PC matches the 'svc #0'
->>> instruction inside the vDSO sigreturn trampoline (defined in
->>> arch/arm64/kernel/vdso/sigreturn.S as below).
->>>
->>>         SYM_CODE_START(__kernel_rt_sigreturn)
->>>                 mov     x8, #__NR_rt_sigreturn
->>>                 svc     #0
->>>         SYM_CODE_END(__kernel_rt_sigreturn)
->>>
->>> For COMPAT tasks, verify that the instruction falls within the dedicated
->>> 'sigpage' range, since compat signal handlers use this architecture-
->>> specific page (not the vDSO) for their return trampoline. This prevents
->>> SUD from incorrectly dispatching syscalls issued during signal return.
->>>
->>> Suggested-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
->>> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
->>> Suggested-by: kemal <kmal@cock.li>
->>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->>
->> I'm a bit scared about SUD.
->>
->> Certainly we can merge patches 1-14 first and iron out
->> any trouble related to that and split this off so a separate
->> series to be applied lated?
-> 
-> I had already asked Jinie to drop SUD back in v14, and he had agreed:
-> 
->   https://lore.kernel.org/lkml/akegeU59jSK9t7FX@J2N7QTR9R3/
->   https://lore.kernel.org/lkml/3ac6d4be-7c57-44c2-80a0-408e2c6f8136@huawei.com/
-> 
-> Jinjie, please drop this for now, as we had _already_ agreed.
+Patches 1-2 update the DT bindings to add a ports container so each
+conversion path can be wired independently in the audio graph.  The old
+single port property is kept but marked deprecated.
 
-Ah, sorry about that.I will drop this SUD patch in the next revision.
+Patch 3 moves dma_params into struct fsl_asrc_pair so each pair owns its
+own copy, and registers it with the cpu DAI using per-direction setters in
+fsl_asrc_dma_startup().  This removes the per-DAI probe callbacks from
+fsl_asrc.c and fsl_easrc.c, which are no longer needed.
 
-> 
-> I will look over the rest of the series soon.
+Patches 4-5 expose the individual DAIs: fsl_asrc registers three DAIs
+(asrc-0/1/2) and fsl_easrc registers four (easrc-0/1/2/3).  The first
+DAI in each driver retains the original generic stream names for
+backward compatibility with existing machine drivers.
 
-Thank you! I look forward to your review and feedback on the rest of the
-patches.
+Changes since v1:
+- Patch 3 is new: moves dma_params into struct fsl_asrc_pair (one per pair)
+- Per-direction snd_soc_dai_dma_data_set_playback/capture used instead
+  of snd_soc_dai_init_dma_data to avoid clearing the other direction
+- dma_params_tx/rx removed from struct fsl_asrc; single dma_params per
+  pair suffices because each pair is unidirectional
+- per-DAI probe callbacks removed (startup now sets dma_data)
+- Cover letter and commit messages updated to reflect the above
+- DAI names changed: paira/pairb/pairc -> asrc-0/asrc-1/asrc-2,
+  ctxa/ctxb/ctxc/ctxd -> easrc-0/easrc-1/easrc-2/easrc-3; use index-based
+  naming consistent with port@N in the DT binding
+- Stream names changed: ASRCB/ASRCC/ASRCD -> ASRC1/ASRC2/ASRC3; align with the
+  index-based DAI names above
+- Binding port descriptions updated: pair A/B/C -> conversion path 0/1/2;
+  hardware-agnostic wording to match port@N numbering
 
-Thanks,
-Jinjie
-> 
-> Mark.
-> 
+Shengjiu Wang (5):
+  ASoC: dt-bindings: fsl,imx-asrc: update port binding to support
+    multiple paths
+  ASoC: dt-bindings: fsl,easrc: add ports binding for multiple
+    conversion paths
+  ASoC: fsl_asrc/fsl_easrc: move DMA params into pair/context struct
+  ASoC: fsl_asrc: expose individual DAIs per conversion path
+  ASoC: fsl_easrc: expose individual DAIs per conversion path
+
+ .../devicetree/bindings/sound/fsl,easrc.yaml  |  68 ++++++++++
+ .../bindings/sound/fsl,imx-asrc.yaml          |  70 ++++++++++
+ sound/soc/fsl/fsl_asrc.c                      | 100 +++++++++-----
+ sound/soc/fsl/fsl_asrc_common.h               |   7 +-
+ sound/soc/fsl/fsl_asrc_dma.c                  |  14 ++
+ sound/soc/fsl/fsl_easrc.c                     | 123 +++++++++++++-----
+ 6 files changed, 316 insertions(+), 66 deletions(-)
+
+-- 
+2.34.1
 
 
