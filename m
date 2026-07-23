@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BC5C531C9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA1BC531F9
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 16:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Date:Cc:To:From:References:In-Reply-To:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t4eNw8uPgSc67jugJfjVKYX77Un15l7wH+f3uXq7L+o=; b=LJdasqIEXL9zHvPNlFsEE8kVge
-	T1p9MF4gaSo5mQ1LWFhZRVEDz8Fgm5GE0Zhe2ohqd6A3AIqdDKLSKAXOIO0aCN0kJuGLmR0XqXR80
-	+UFCkdXhER6pEyplKA1qj9Mzk4OT44n6zN0s6C4AJ86xhQU1dePKyCNGiYHJapTfACBbRxfzMRkDY
-	VwTDPKzsT/piVDESvmdcdbomRBl5tbSzPXndLlEjSeeCMBghgb9YWCg3ZCk4sCUbN3sPA/68KLxJx
-	/9smsNOFHOERbVHlOluiby+WP2i5WshDBDcIlzslvLcdbrUlpaeBAzOWPNuBOXCdkBWurof4Nx1Gx
-	QN/SD45g==;
+	bh=YTsZb1GzyBP0jCz1dGeupkgqOl3OqzM7naobyzqXX6k=; b=L4mLU19pIHmBLA4tYiitg3lcf/
+	AVTqLEIlWm3an5HwiFgUQ03SsyhSvLlzdqD6Y21VC/sEqAvg1gSTZZXmUU5gcTpOskmoqFMmNiPoO
+	Zp87EzDE9t4BnaUhlBDdShZEOFBXJSOHEn+5103hPtVdq/Jg/dL5osLo+36YY87+PaZ9eGjP2+2Yb
+	M/cZ7jKS4MRLGwlkvb+GkgetWOpwoxn7TSoq3fBXuKLwMuHYmvm8VOsk7hvcwoKSmXOludmTtUKxh
+	Es8kGWQUnUbwr6cds66lON1uRexIq2NXHWd09O/8/w9vSVQkpGK1T2B2eeGKCt4N3ue8GKXdETcUh
+	4HyojEow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo1Qg-00000001LE4-305K;
+	id 1wo1Qg-00000001LDZ-10Aa;
 	Sun, 26 Jul 2026 16:10:18 +0000
-Received: from mail-westus3azolkn190100002.outbound.protection.outlook.com ([2a01:111:f403:d116::2] helo=PH7PR06CU001.outbound.protection.outlook.com)
+Received: from mail-eastus2azolkn19010007.outbound.protection.outlook.com ([52.103.12.7] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo1QW-00000001L8p-1y3H
+	id 1wo1QF-00000001Kwr-3v9X
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 16:10:09 +0000
+	Sun, 26 Jul 2026 16:09:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=emEZ5gYS+aIHzBavJJ41GUgyyiI/ctb+ekPAppbIz5lUD7G5B84OQj4qKY61wSQHvQfSrvZhLK0RABw+GtipT18qT/Re7HyINd4Wtsj6EiROkk7lYadqqNaevs64BYJ6Fy4QkhHi4ZxwoK9qegoAgLMthDrhUKRsjwM4WZH3XQGPI7yCWmjyZ4x72EM8zkTWKm9C1coTlmYvpu/Dga5gUvD/XKrt2d1tXcEROcPSCJ+zur3dSq2bcqdOJWUzRh7A8pJ4PXezJPWbw7vlHwcTnonaaZd6LpMv4z29xQDY9LEBn9yS7qxVno6/k3t0JU9lj+usB/K98u6duO1ItJbFkA==
+ b=XKIj61WIiX+6tU44dBjgPRnnA7DxVy1nT+N2Flj++OgPzs2Lnbgkwwmd3at9OCgTzJt8fym79UZb5l/baWwLGZaBUqCN3QGZ3aQnM+ZVBIHzR5Y9fr0gqCEBT0koTtIYFhxlHFoxo0vwPhQUJqvquVOB+cBizR0SDgqppVgFmD93aFXjbQE0kcO66QBwGM/+g1RGgfUBw3DDs1CPAMcB2vqrQst5kaDsCWFzysiuJ/+NhgCAxWTa9OzJnmXpnw/qrZaUlq4bM4OOTfXBjezSa8Le9A/TizjPlWF5uS59pnLleakE5IYGFVM3eb+mTTixbsXSFxFbOBJCEMxI7iGClA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t4eNw8uPgSc67jugJfjVKYX77Un15l7wH+f3uXq7L+o=;
- b=ZJb1rPTdhY4eC0+EoMFX6lGZotyntGtFl6A7X87yjA3UkSg+Y2FK23mYBfThv1PuUnsT21ijtayBCsyGOTQMamkHxrUfnfFre9hSpVy1Wi1aOigRSXCdKDw8Yr50PoQ2izqbf50yKPaJjzg8tRBVc4Ps5O9j68KvG4BES/B8NNZ0rwQNb2U3MUDvvtmdwcfq57CijMd/IxGCq3JYHStAAF+hS23U5iXF25oormnDNA7xTxLoEE/ZuSPpmdHQTecu6gai1upHt4iwZh82TZu/LhHOJC+P8Fw21CC9rknuFEfjsmjp/OUboa15eMZMGz9y3EAX9f8IRYBtM/qBgkmphA==
+ bh=YTsZb1GzyBP0jCz1dGeupkgqOl3OqzM7naobyzqXX6k=;
+ b=FXfLaun/MjvfH1tbQD87H2tWYGGkeWxAkzmaqNOI543drR5fgJaxfQ/VHYWag9p2I742ATMJxRlRJ+XnMAxIboE/UPhGxE/98ikS8ttIDjqD33MO8bGMroIbDvZE5DWjhKj1glaEJAgt3yrfb8u9ZA0ABD1neoxaw/91IWUY7ax4dcamCHzg9t4TR+SjU7OXtszZehAWfwS9WI+9PlIobfbzM9TBkcSDbVf+l3y+cmL7I1bmGNgDLl7/zNVkWkqSrZgV/zRBrqQ2F9+k86y+bC0o+tsl9U7cZHiGZj3t0Xk0fq+/4GgYFY1+r19i44a6AerAlBcX0tz7iV0PKh3pPA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t4eNw8uPgSc67jugJfjVKYX77Un15l7wH+f3uXq7L+o=;
- b=c/Dq3kvnRrKOk3LifM7CWTJ1EGSr15ZG3XIFkCb+pdg6JcjxZKOrg5fmJ/D+6W3h1eiZLBnTPjEkjfhQkGAbqeF5eOAcU8DYf1omfXAkbKw68t9KhEdQm9A3c71k0GrmPV7kIIMjqYBeM8GW1VzNM3cI2FLXtnDwpm3u/giXF7vWyQ53oVrRYtcMMHPIoMIjkfvhO1N71il8V2XhZciG1uWAVcpL/Y9MycOYiKUHmoewYLgc6EJFYUNNnLREs/kkFQd8cQ9qRqf8LYUMOte8Glb8eUeOzhX0Bma/vVOPE15iVtCAiq9il9N+mWrQ0WuArebP8bQklH7KR4+BU+hScg==
+ bh=YTsZb1GzyBP0jCz1dGeupkgqOl3OqzM7naobyzqXX6k=;
+ b=Uu2bS/cVu4LEU1f7gJzFxIK9iXuz54BGnmqWorJP1VRLLF9iH6oaF4dQYzE14MmtzUOw3JQxhNB8/opI/Nb8nKtxZhUVxYRkr5PMjSHRfRaOYQwY5mpwA0sKNDCp+Zvp4ZOTHMXhyq1oU/U75O4o1kpRxb3xfFCbrzbNuaEyiIis+hG28UhQX4Rf82i9N+GqMTAolFZaRcY27wcV42S8MJKbQPkt3DaXiRuu88UBb34cxCx/x35d7QZ8FrTGGK7I+38NK7Lkzy49q0aNu0rHGPNdC/LmFNoP0ggulqLlOSH+8KvcwIxo1PmGJydx2hS+WG9/6W8lv+Jj1ppayJ/pTQ==
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
  by SN7PR19MB4765.namprd19.prod.outlook.com (2603:10b6:806:100::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Sun, 26 Jul
- 2026 16:09:52 +0000
+ 2026 16:09:48 +0000
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374]) by MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374%5]) with mapi id 15.21.0245.012; Sun, 26 Jul 2026
- 16:09:52 +0000
-Message-ID: <MN0PR19MB609139CC747F89EB89FFBB00ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
+ 16:09:48 +0000
+Message-ID: <MN0PR19MB6091A851B810B5876AEB5123ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
 In-Reply-To: <cover.1785080950.git.liucj1228@outlook.com>
 References: <cover.1785080950.git.liucj1228@outlook.com>
 From: Liu Changjie <liucj1228@outlook.com>
@@ -58,77 +58,77 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Thu, 23 Jul 2026 23:49:34 +0800
-Subject: [PATCH 8/9] ARM: dts: stm32: add Ruiside ART-Pi2 board
+Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Thu, 23 Jul 2026 23:49:25 +0800
+Subject: [PATCH 7/9] ARM: dts: stm32: add STM32H7R7 SoC
 Content-Type: text/plain
 X-ClientProxiedBy: TPYP295CA0008.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:9::9)
  To MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
-X-Microsoft-Original-Message-ID: <cda5c9be51dadefd8081e073238cb88d9b5769f0.1785080950.git.liucj1228@outlook.com>
+X-Microsoft-Original-Message-ID: <90bcaeab8febbbe784b0deca61d979761a241c6a.1785080950.git.liucj1228@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MN0PR19MB6091:EE_|SN7PR19MB4765:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1069cbb2-360a-4f74-04dd-08deeb305379
-X-Microsoft-Antispam: BCL:0;ARA:14566002|16051099003|51005399006|24021099003|15080799012|23021999003|5072599009|25010399006|41001999006|37011999003|19110799012|8060799015|3412199025|440099028|26104999009|40105399003;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qu7zB/5e5GKLhHOs543I+wJqApjTS1dUcckpU0jT22fAGIwCmErCDbDulC2V?=
- =?us-ascii?Q?mpvvjo/lR5GVYoMLHoaGtn5ROTFJ7m3lGWWou8NIwLhpL473aNK+vnEnkUJ7?=
- =?us-ascii?Q?GTmMgtBLocqNW/tcVF5LsVfuj3bCf6FMSLkBS+k2hTPfU2vbBz2GHsCjfjkw?=
- =?us-ascii?Q?UK4HGC76d6WI2AcZAgmSVmf0f4JU6VUHOftMwhZ8/McGLaIzniId9/GYLylL?=
- =?us-ascii?Q?CcobGlzPQ1ZizD64ihCVlBVR0LvtNqHZmGiuxCYloK+lgLfcMnm0tPqNC7uw?=
- =?us-ascii?Q?tUcc4+RExK96GBTDyR2wjQ2Ur4nNELHxzjDzfCb2TgZs9oldXBPsSuESz0vb?=
- =?us-ascii?Q?y2Qnbk9O6gX9ST3QBc3uhaJ07hMmOu8uie+3gHjA7TUeETqEvepZABFBCbuE?=
- =?us-ascii?Q?IMSSEbUWSC/QoaesuLWcyj/ck18kbqFhliuKnO60KQfP6MuELK+GmpO9uvOe?=
- =?us-ascii?Q?E4AAE0aFMoboDnyl42walw6fHb5YaCgydlgUYXJc4S8VaWuT1pVYHBsj+a+z?=
- =?us-ascii?Q?JWEG+XGlROYJu1bG6lIe4JFVpRj8By25+88gEEYMqSzKDdPf5txmjyFLscPn?=
- =?us-ascii?Q?7mbDeIDs61Gk1rMSy1M9t4GEZlpH2ic3bWcgpv5n2eJ0aJeYwxjav+4SgQob?=
- =?us-ascii?Q?jvpADEgnjVL3nd/zyrzevTG9vk8nT7qVfYcy4OkQauO5ceMgl6BeXIM7R9I0?=
- =?us-ascii?Q?OEqRfjrPcvhRR0+jkWKG1ldixijnwEOP4XTfp61yUKyr6haXTiR/d2BrnS2w?=
- =?us-ascii?Q?uaBK3Omf9XK+0exVzyGblTIzWOtaIOszxhizufoBhTXudL8+dPvCZpvaPz7m?=
- =?us-ascii?Q?tzn/Do+AUevrHAyVQNE8TN9uWGTm8C4XSrPxFzmhPqjDQl4KwuDwIQUGzU9Y?=
- =?us-ascii?Q?Sg1yWYCynKUVQXUqv3vNrMmUOG1Bjntmbd6oc8TryekNGr+u17w1CDcRDzEF?=
- =?us-ascii?Q?q/WekBsRPXcz6FmBulnHxfKkQvtfDU9Z0OtPHKzXKByzoCFIGHy2J4cZVwPn?=
- =?us-ascii?Q?WivuQ3l0vXU8ZvEnTcHlu/MfWw=3D=3D?=
+X-MS-Office365-Filtering-Correlation-Id: 8c890f52-7678-46bf-7fca-08deeb30511f
+X-Microsoft-Antispam: BCL:0;ARA:14566002|16051099003|51005399006|24021099003|15080799012|23021999003|5072599009|25010399006|41001999006|37011999003|19110799012|8060799015|12121999013|3412199025|440099028|26104999009|40105399003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kukeSlPDh8leVjbtA7BNAXCYP+9qjFukE6Nalxe/Cq6/wAWY4SDhi9Uxa9BS?=
+ =?us-ascii?Q?jXXt/JI6BH8vndEJdNfYkeTYpdvIs08ZFtGMKwenA/TfzaVlgB1+Y0DjxHo+?=
+ =?us-ascii?Q?PU4tB0OND8AU2YepvhbD5Ld8YeuxQpTxvvWFJ+6TtZ+t3E8cQYTJqjOL0DUy?=
+ =?us-ascii?Q?eHlbwYMiJst4/WfTIJkvNBZMJ8AtJAGccuMDBB80BolU2NfsayB1onYmVIga?=
+ =?us-ascii?Q?DCbxG8JhDWVIp1YKyLWQFPZ0yCFlExJLqrXRwxUWuGSRdb+P7fPPMlqCZbkf?=
+ =?us-ascii?Q?3KClkltnE3r1VwDni9+bK3X4IR1wPudqiWrOCfeca7lzwdq3SCFq26tFHMYk?=
+ =?us-ascii?Q?rOuqY0HjBzQYD2qBgWeJnv8d1Xsj4LT8KeweVyJZs5qr8gHC9axCRwp+hxsd?=
+ =?us-ascii?Q?jJDO/Xk4Q1a1f8nORl7LsTTBcc9YUzjF0MFj/HoN2070H5/d2afzyvlO87VA?=
+ =?us-ascii?Q?2fxVQYTvrUJpKbmj2p87CdqoxfjAfJvFq+DcCMex2v6PzrZ+clz3q3Zb6jX9?=
+ =?us-ascii?Q?BPBEAmeQUPM5vnhqq+2LWJIWGwCT4msH0Atkyu7PVdB4fhTTj1fLf1Nk6wUX?=
+ =?us-ascii?Q?v7nEJtzRzvwOXufJNxJLS+FpKxB1IyPanf00AmdAwwBFpgUiDtNQ25YucAqm?=
+ =?us-ascii?Q?eXvLZAC2sY4au6KK5qbroYOG1FdCRK62uC87DFJUyDZnuhYjciAs33wRUNL0?=
+ =?us-ascii?Q?Y36iJcsC7FPkAKYcUVW5smla/SNhGDgk5RAJycMyPEWZxLA9WS6D7BLM9TkU?=
+ =?us-ascii?Q?8kPVN+sk8ncPEDEZPh5WfQPkhXFhAAZZlybpl4sxyTbLlO1vNUN8INSO27qC?=
+ =?us-ascii?Q?pkq1Xl0sU/ExssDfVxBnQYszLdVFbfxP3s52IrVkDmQX+VZfxuqF2/gbIOeI?=
+ =?us-ascii?Q?d/hYwhhg/fwP4sipPkUJGGIWukvwhBuAzuiV1G6FqC3rEoRX4dT45FCFTi6A?=
+ =?us-ascii?Q?V9jL5Lfirh85PbPbjEd5rn5WkALqXJft6GSpLZjSOkIGjIQAjitQNjFJlvJ/?=
+ =?us-ascii?Q?lb6KDviGz239gaHVWYmZthPl9wuq5P10JPV79RTcjra+9yHctOoi3wE8FNzF?=
+ =?us-ascii?Q?+0BBNsgo?=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RT6F/clwLMjHpxyXEVmWA6cvvhxXT253bgYPwaeHQfnNVyH9eAhNCEMnJdNw?=
- =?us-ascii?Q?AbbzHXeTmOfDop6dgTVL1sTDqXA09wpuguUXwesSMrKMNMIYKY7tV+1V7RUj?=
- =?us-ascii?Q?sLT0Mwa1QWIELLefdjQitk/lkLqATqItmlwMEuZ1mVMT4jJ0aqPTmtaot0JP?=
- =?us-ascii?Q?Gsqc5Jo2lG6zDZteHOO+jSgs2bun5AKJgPijY8PDDl4ZyUfjgyyEYrv/+l9Y?=
- =?us-ascii?Q?NBOF4EeHe8sQdu767AY5seGX1DdaXoG4on276D45O+8AVdlkYV/BmQRw7Hsp?=
- =?us-ascii?Q?geUNA+KS1q5aBYrwMYRQHjPTLJaqujHzMmDgAJMiHwoSyGVQ4T6sxyz6PvHi?=
- =?us-ascii?Q?UnEFgq3FEj3fUVxklawNuC8nYFQm/LXdkF0iXHVpJS3rWfhO2Mtv7yRzjHrO?=
- =?us-ascii?Q?SehsXmKgtnGYr5X522RO1FWcAbbYjiA/ciR8JGsKO+iIWOcMsbirfvPmCn4F?=
- =?us-ascii?Q?qowTtYYCMSn3n7Ke0PQbAeDdeNO3dxjGI4H4EJz8zAt2M0ZICkPjsuuQ0omb?=
- =?us-ascii?Q?Gg+nbL+xDSCYSNn26WRzdvHDq5gnhzE1DVoZaulvWShKV8l4bqGlvGLtLaaK?=
- =?us-ascii?Q?+aEF6YFc67Fnv/FQmV1Y6ehKuUHwenMsC+CK8lgyC4JsRRnn0sMmXkp24Oeg?=
- =?us-ascii?Q?1ZoiAJKD2EWE9JLt+F2VM1b2HrrRNIRPM4qeTQdSjkHLt9kNhn4umtR7/rFo?=
- =?us-ascii?Q?OEnFkOxtG/pVifnTxDE3PU6nzMbFAQlnEYt2aLkBhziq9JR5m8VKdR2qeZrR?=
- =?us-ascii?Q?RyuKHhJLqZIyAMEs3LKmOS2qidr/eh/LfJwXddAMVolGbkPIp06nF+4Bn9Z8?=
- =?us-ascii?Q?r3neuy/wb/hjJDodoZYFnaWjEWu8pWISePi9NR/2rqbLh7dxtdPvmJ1HZgqc?=
- =?us-ascii?Q?FOAWNY55sFu9DTyiUyNcKbxzF4put6MmwABMP9kB41F4RWEh+DjCOs2WXWvV?=
- =?us-ascii?Q?1zYhJHpQVM/R+5XTiavxmCi9pV8/5+LEalvezbn1BWal8pH15lTn+pXN7+B1?=
- =?us-ascii?Q?kqxTBI7CobmJC/aKjEEehXMP1CgNS1TroBE4a4dcXywayiK3UYh6TFdHFvLA?=
- =?us-ascii?Q?FJyXRoZDQOCpaT7Ck2l8bMJuoSsHiKPMZPsnxXhVZU6500MUAf308oyys4Gb?=
- =?us-ascii?Q?cjwhULNfUxQfrku+miT4/F83r7SaQ1ubEgMBVdsBvuTgDfD4UTy8P5JLffuN?=
- =?us-ascii?Q?2u6yIJdEPOzGREfZcgJVosgsxdo55Nc1nsvVb1ZjygH2cx1eJNnT+iVMTplM?=
- =?us-ascii?Q?fbINAnaLizQaeXb3lq4SO/Ve8kqwMAM+mYimf8sRXnGmjmkzh7TphNeJPQdo?=
- =?us-ascii?Q?dzvK06bk6WXIfyQj6V6AX8InVIVv+h5SDvnjy6VAijx7HTIN5LOdjgtawMZe?=
- =?us-ascii?Q?i8MO86mC3HqqDHdSIPeov6vH1K/+sA783r/8ErpZWKv2f/2mUg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MzjJGQZoShi7gZDMk7Hv+112fP9a64H7z9z2Um4c5DD5V8eD27+53slEnoNb?=
+ =?us-ascii?Q?C4rXzuO9zPPA/IbqIxjFB22uN+u/TeNgMZUz9JSye6f8NZjohMRGxA7SM4XG?=
+ =?us-ascii?Q?E/NFpWEdCUFJMW679GTsmUPyk9h99PdT0Ll27sk/sgpkWDN9t1i+/7Eqnmj7?=
+ =?us-ascii?Q?+ym29vn9ZsP3xmr1hsQ896MAFd5UaYbc3wqpesJLoOFrv+fWK/oTRdW31nFP?=
+ =?us-ascii?Q?E8X7zFR3kouXsMtLbaVhYoAnTff0Q+627zfyTgsLYKjA16XD2HhGSJrqQ0Ca?=
+ =?us-ascii?Q?GIMrP4bGwzY43IdOfP/CdswoR2odeRB/aIV0s0l1Hu7tQG3Ni1AR4tdIgyn6?=
+ =?us-ascii?Q?HfQ7PlPG1UNfdsqSb5Qp+BKOlaD3jdabNy5idM3618mAhp7aBreEhYTFpKoo?=
+ =?us-ascii?Q?DnBPPf3UkomFLWmud4Fr6DFraGRZFln1155XH+V3m/ZAA/DbdVeqYEFr1SFw?=
+ =?us-ascii?Q?HQQq0+RAXZeVjp8eCbKhlI0ZXM3wXWuY1XhoqqFeHKgZN5X8iTgFSQh+55hg?=
+ =?us-ascii?Q?wQRGBasrlMdxWDMtyUCJcxK5u5BM+J3vI0xQpYUCgJiyHA/RcxiMrmHYXFDV?=
+ =?us-ascii?Q?NLxeHcQAQumhgDvGscfi3n7Tz3RBTm7yHWqE5Ly2WQCje86N/++xqKjL1Xm+?=
+ =?us-ascii?Q?b9CYuVSBWl3Niu1/W+Vn4MD3eG14VANf5aHS9+3skhKTQJNyUa871arygciK?=
+ =?us-ascii?Q?G5RI6DpfjIUqCVl0L4eC9PVoW24/9+CVMj2SZamjxFewnoSOzLTG44QN9zrm?=
+ =?us-ascii?Q?Yur+XXKa4szx5SHl3bKd+RP6JkvEQ+pwuwiUSsQnH+8fwrtQeF77hZmBswMz?=
+ =?us-ascii?Q?jKkNsQGryfsQQhBqcxFB6kp8Y4nFHIafKi3Q+YHr9RRCZc0X9IiaUGN/v12W?=
+ =?us-ascii?Q?9tLMsI42Jx+3Yn33zJtvbsO3NcIsZJFfHl/YBdQ0Es3+WyRefZl3Vkh+ueDs?=
+ =?us-ascii?Q?uVfZjwsPVyqGsmMFg8uyZUVlgoJ2+MokWdeNVhDU6bZ9zIOlSdZLMRaeajgz?=
+ =?us-ascii?Q?p/ONLSFx0qdu1W+x6VcrPs5cY0oFYKDMdky291QTY3lsMYzmpzXyeEj2Fij+?=
+ =?us-ascii?Q?hdJYnNU1BOfRKFZoG3Kab9pEHSIE1HwT3KRIdn1CLQq8arw0E3qYLMw5bZWn?=
+ =?us-ascii?Q?2bm2BtctP2bUmTBId/IJ8k9vdhVqHnctW8CgFWPUYnn4bsO0SWvu07yE/Zb5?=
+ =?us-ascii?Q?pNVOiobCZp/rLkZFfWCggnMl7nQR3sZn0eIMN9GDpAQtDYff3UP0M2NaOv0P?=
+ =?us-ascii?Q?xovVuoIY5b3xh7Fjfr73N2vhZoyMJChVmC3e7xUw2Nw0U0G2znaT+T/x33Bh?=
+ =?us-ascii?Q?KW3LStjDbbmO9VH4o7ao8+HoEeoFlceYo1sTAR9/ePyw4ArjbxqD9x0giFQG?=
+ =?us-ascii?Q?qijZHG9ahRx6hkbTDBNi630Na1aAkYozNESzg+DP2liKYAUuyQ=3D=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1069cbb2-360a-4f74-04dd-08deeb305379
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8c890f52-7678-46bf-7fca-08deeb30511f
 X-MS-Exchange-CrossTenant-AuthSource: MN0PR19MB6091.namprd19.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 16:09:52.7045
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 16:09:48.7345
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR19MB4765
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_091008_518075_229F51A2 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260726_090951_986793_1E4435D4 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,206 +143,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the STM32H7R7-based ART-Pi2 with 32 MiB of external HyperRAM,
-UART4 console pin configuration, user LEDs on PO1 and PO5, and the
-user button on PC13. Enable the four-bit microSD slot and reserve a
-coherent DMA pool for noMMU DMA allocations.
+Describe the Cortex-M7 CPU, clocks, TIM5 clockevent, UART4, SDMMC1,
+EXTI, system configuration controller and GPIO banks available on
+STM32H7R7 devices. Expose the RCC reset controller for peripheral
+consumers.
 
 Signed-off-by: Liu Changjie <liucj1228@outlook.com>
 ---
- arch/arm/boot/dts/st/Makefile                |   1 +
- arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts | 100 +++++++++++++++++++
- arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi  |  63 ++++++++++++
- 3 files changed, 164 insertions(+)
- create mode 100644 arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts
- create mode 100644 arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi
+ arch/arm/boot/dts/st/stm32h7r7.dtsi | 255 ++++++++++++++++++++++++++++
+ 1 file changed, 255 insertions(+)
+ create mode 100644 arch/arm/boot/dts/st/stm32h7r7.dtsi
 
-diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
-index 10c5d75f6..ae27a4ef9 100644
---- a/arch/arm/boot/dts/st/Makefile
-+++ b/arch/arm/boot/dts/st/Makefile
-@@ -113,6 +113,7 @@ dtb-$(CONFIG_ARCH_STM32) += \
- 	stm32h743i-disco.dtb \
- 	stm32h747i-disco.dtb \
- 	stm32h750i-art-pi.dtb \
-+	stm32h7r7l8-art-pi2.dtb \
- 	stm32mp133c-prihmb.dtb \
- 	stm32mp135f-dhcor-dhsbc.dtb \
- 	stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtb \
-diff --git a/arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts b/arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts
+diff --git a/arch/arm/boot/dts/st/stm32h7r7.dtsi b/arch/arm/boot/dts/st/stm32h7r7.dtsi
 new file mode 100644
-index 000000000..ead141817
+index 000000000..ad25dddbe
 --- /dev/null
-+++ b/arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts
-@@ -0,0 +1,100 @@
++++ b/arch/arm/boot/dts/st/stm32h7r7.dtsi
+@@ -0,0 +1,255 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +
-+/dts-v1/;
-+
-+#include "stm32h7r7.dtsi"
-+#include "stm32h7rs-pinctrl.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
++#include "../armv7-m.dtsi"
++#include <dt-bindings/clock/stm32h7rs-clks.h>
++#include <dt-bindings/mfd/stm32h7rs-rcc.h>
 +
 +/ {
-+	model = "RT-Thread ART-Pi2 STM32H7R7 board";
-+	compatible = "ruiside,art-pi2", "st,stm32h7r7";
++	#address-cells = <1>;
++	#size-cells = <1>;
 +
-+	chosen {
-+		bootargs = "earlycon console=ttySTM0,115200";
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@90000000 {
-+		device_type = "memory";
-+		reg = <0x90000000 0x02000000>;
-+	};
-+
-+	reserved-memory {
++	cpus {
 +		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
++		#size-cells = <0>;
 +
-+		dma_pool: dma-pool {
-+			compatible = "shared-dma-pool";
-+			no-map;
-+			size = <0x00200000>;
-+			linux,dma-default;
++		cpu@0 {
++			compatible = "arm,cortex-m7";
++			device_type = "cpu";
++			reg = <0>;
++			clocks = <&rcc STM32H7RS_SYS_CK>;
 +		};
 +	};
 +
-+	aliases {
-+		mmc0 = &sdmmc1;
-+		serial0 = &uart4;
-+	};
-+
-+	v3v3: regulator-v3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "v3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led_red: led-red {
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_INDICATOR;
-+			gpios = <&gpioo 1 GPIO_ACTIVE_HIGH>;
++	clocks {
++		clk_hse: clock-hse {
++			compatible = "fixed-clock";
++			#clock-cells = <0>;
++			clock-frequency = <0>;
 +		};
 +
-+		led_blue: led-blue {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpioo 5 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "heartbeat";
++		clk_lse: clock-lse {
++			compatible = "fixed-clock";
++			#clock-cells = <0>;
++			clock-frequency = <32768>;
 +		};
 +	};
 +
-+	gpio-keys {
-+		compatible = "gpio-keys";
++	soc {
++		timer5: timer@40000c00 {
++			compatible = "st,stm32-timer";
++			reg = <0x40000c00 0x400>;
++			interrupts = <54>;
++			clocks = <&rcc STM32H7RS_TIM5_CK>;
++		};
 +
-+		button-user {
-+			label = "User";
-+			linux,code = <KEY_WAKEUP>;
-+			gpios = <&gpioc 13 GPIO_ACTIVE_LOW>;
++		uart4: serial@40004c00 {
++			compatible = "st,stm32h7-uart";
++			reg = <0x40004c00 0x400>;
++			interrupts = <85>;
++			clocks = <&rcc STM32H7RS_UART4_CK>;
++			status = "disabled";
++		};
++
++		sdmmc1: mmc@52007000 {
++			compatible = "st,stm32-sdmmc2", "arm,pl18x",
++				     "arm,primecell";
++			arm,primecell-periphid = <0x00253180>;
++			reg = <0x52007000 0x1000>;
++			interrupts = <108>;
++			clocks = <&rcc STM32H7RS_SDMMC1_CK>;
++			clock-names = "apb_pclk";
++			resets = <&rcc STM32H7RS_AHB5_RESET(SDMMC1)>;
++			cap-sd-highspeed;
++			cap-mmc-highspeed;
++			max-frequency = <120000000>;
++			status = "disabled";
++		};
++
++		exti: interrupt-controller@58000000 {
++			compatible = "st,stm32h7-exti";
++			reg = <0x58000000 0x400>;
++			interrupts = <16>, <17>, <18>, <19>,
++				     <20>, <21>, <22>, <23>,
++				     <24>, <25>, <26>, <27>,
++				     <28>, <29>, <30>, <31>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++		};
++
++		syscfg: syscon@58000400 {
++			compatible = "st,stm32-syscfg", "syscon";
++			reg = <0x58000400 0x400>;
++		};
++
++		pinctrl: pinctrl@58020000 {
++			compatible = "st,stm32h7rs-pinctrl";
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0x58020000 0x4000>;
++			interrupt-parent = <&exti>;
++			st,syscfg = <&syscfg 0x130>;
++
++			gpioa: gpio@58020000 {
++				reg = <0x0 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOA_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 0 16>;
++				st,bank-name = "GPIOA";
++			};
++
++			gpiob: gpio@58020400 {
++				reg = <0x400 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOB_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 16 16>;
++				st,bank-name = "GPIOB";
++			};
++
++			gpioc: gpio@58020800 {
++				reg = <0x800 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOC_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 32 16>;
++				st,bank-name = "GPIOC";
++			};
++
++			gpiod: gpio@58020c00 {
++				reg = <0xc00 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOD_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 48 16>;
++				st,bank-name = "GPIOD";
++			};
++
++			gpioe: gpio@58021000 {
++				reg = <0x1000 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOE_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 64 16>;
++				st,bank-name = "GPIOE";
++			};
++
++			gpiof: gpio@58021400 {
++				reg = <0x1400 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOF_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 80 16>;
++				st,bank-name = "GPIOF";
++			};
++
++			gpiog: gpio@58021800 {
++				reg = <0x1800 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOG_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 96 16>;
++				st,bank-name = "GPIOG";
++			};
++
++			gpioh: gpio@58021c00 {
++				reg = <0x1c00 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOH_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 112 16>;
++				st,bank-name = "GPIOH";
++			};
++
++			gpiom: gpio@58023000 {
++				reg = <0x3000 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOM_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 192 16>;
++				st,bank-name = "GPIOM";
++			};
++
++			gpion: gpio@58023400 {
++				reg = <0x3400 0x400>;
++				clocks = <&rcc STM32H7RS_GPION_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 208 16>;
++				st,bank-name = "GPION";
++			};
++
++			gpioo: gpio@58023800 {
++				reg = <0x3800 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOO_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 224 16>;
++				st,bank-name = "GPIOO";
++			};
++
++			gpiop: gpio@58023c00 {
++				reg = <0x3c00 0x400>;
++				clocks = <&rcc STM32H7RS_GPIOP_CK>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ngpios = <16>;
++				gpio-ranges = <&pinctrl 0 240 16>;
++				st,bank-name = "GPIOP";
++			};
++		};
++
++		rcc: reset-clock-controller@58024400 {
++			compatible = "st,stm32h7rs-rcc", "st,stm32-rcc";
++			reg = <0x58024400 0x400>;
++			clocks = <&clk_hse>, <&clk_lse>;
++			clock-names = "hse", "lse";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
 +		};
 +	};
 +};
 +
-+&uart4 {
-+	pinctrl-0 = <&uart4_pins_a>;
-+	pinctrl-names = "default";
++&nvic {
++	arm,num-irq-priority-bits = <4>;
++};
++
++&systick {
++	clock-frequency = <250000000>;
 +	status = "okay";
-+};
-+
-+&sdmmc1 {
-+	pinctrl-names = "default", "opendrain", "sleep";
-+	pinctrl-0 = <&sdmmc1_b4_pins_a>;
-+	pinctrl-1 = <&sdmmc1_b4_od_pins_a>;
-+	pinctrl-2 = <&sdmmc1_b4_sleep_pins_a>;
-+	broken-cd;
-+	st,neg-edge;
-+	bus-width = <4>;
-+	vmmc-supply = <&v3v3>;
-+	max-frequency = <50000000>;
-+	status = "okay";
-+};
-+
-+&clk_hse {
-+	clock-frequency = <24000000>;
-+};
-diff --git a/arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi b/arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi
-new file mode 100644
-index 000000000..08f09f562
---- /dev/null
-+++ b/arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi
-@@ -0,0 +1,63 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Copyright (C) 2026 Liu Changjie <liucj1228@outlook.com>
-+ */
-+
-+#include <dt-bindings/pinctrl/stm32-pinfunc.h>
-+
-+&pinctrl {
-+	sdmmc1_b4_pins_a: sdmmc1-b4-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('C', 8, AF11)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, AF11)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, AF12)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, AF11)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('C', 12, AF11)>, /* SDMMC1_CK */
-+				 <STM32_PINMUX('D', 2, AF11)>; /* SDMMC1_CMD */
-+			slew-rate = <3>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+	};
-+
-+	sdmmc1_b4_od_pins_a: sdmmc1-b4-od-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('C', 8, AF11)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, AF11)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, AF12)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, AF11)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('C', 12, AF11)>; /* SDMMC1_CK */
-+			slew-rate = <3>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+
-+		pins2 {
-+			pinmux = <STM32_PINMUX('D', 2, AF11)>; /* SDMMC1_CMD */
-+			slew-rate = <3>;
-+			drive-open-drain;
-+			bias-disable;
-+		};
-+	};
-+
-+	sdmmc1_b4_sleep_pins_a: sdmmc1-b4-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('C', 8, ANALOG)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, ANALOG)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, ANALOG)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, ANALOG)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('C', 12, ANALOG)>, /* SDMMC1_CK */
-+				 <STM32_PINMUX('D', 2, ANALOG)>; /* SDMMC1_CMD */
-+		};
-+	};
-+
-+	uart4_pins_a: uart4-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('D', 0, AF8)>, /* UART4_RX */
-+				 <STM32_PINMUX('D', 1, AF8)>; /* UART4_TX */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+	};
 +};
 -- 
 2.55.0
