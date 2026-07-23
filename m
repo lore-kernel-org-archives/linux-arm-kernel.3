@@ -4,70 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5D8C531CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB27C531CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wYZWHrgIS5xk/fntMf2sHXhfwMiQdS21kVQB6Mgymuk=; b=4EJHFId84GmsgwppXnKeu6LTij
-	ffcQS2IMkpE5x1SU3r43GsrJTuNK0gBLvfZ8kQPHROoxUmbwP62tEvEG6gqEdC39h1Ktfbc6W49nZ
-	mjVp5gBZ51gOtw5SMnukTInCSxI05CMOvA8usNb80wdez3qku6QOU9ZVov59uh3/feMBzPMkiCNpG
-	SKV+U1d6Ecip7jC2Y2X5D4vUWcMLRdd1c37rsyodiNoecvFdHSmxRcZMei0UUnZAGEJPdC/GURQM7
-	cNEiaXInBsPudrKLW+p3L4dO4yKqvimoVzg6t/UCol4c/OZCTc8NGRnP20XPsiy4IthRSDQ7Gd4ve
-	gs37wI2Q==;
+	bh=Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=; b=IGhY7D9XIfePNf0qY+2FIItcRA
+	UewA9E/e04+8BZMK/C5Y7hobUqsHgKv8aM9SdHaDnWbhR+7Z3cPirulLT+bzYVF/DEabTk0HECPN7
+	5e6yiGTEn1Usy5HgpuIyuibP9D1Q6M2D0VYIAvT/7nq6xA+YbpQSay/cV2+UozhFiQuQWIPekRqSF
+	vadpEPgfuo4oTVTzZ4qmHUmo+cP3QofxyvRfDzWIVm/iE35OBxgLJpOBzxRYc/h/khGeyx4C8jLfx
+	I8iycs4o9IKFHqIWSjC14Q45TNDYUtpQBhT4wHQsprFLtJHqXGlzN+a1PvAbEaJhM1DUNdVdq6elQ
+	X8lpNuvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtUH-0000000ENRa-2HAH;
-	Thu, 23 Jul 2026 13:29:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtUD-0000000ENQx-3PTm
+	id 1wmtUe-0000000ENXy-3nWz;
+	Thu, 23 Jul 2026 13:29:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmtUc-0000000ENXC-2pVQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 13:29:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 864211477;
-	Thu, 23 Jul 2026 06:29:10 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5CC13F66F;
-	Thu, 23 Jul 2026 06:29:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784813354; bh=DQG1i2GW6H8AWgAM7kLEoOBoOYPwYUL4X/QW+VEwna0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eOw+eSlZVAp8Pyq+0Gb4H9EcKuCXSRO2hYrwGd96TmfJurhKDGMCroIQ4RfW/Yfac
-	 wMgdr61YNX6wf8VCQ7HWIExgCqG75bMKhrDd1+rVMWWcSiEWeu/TQPz9gwuET/DhO/
-	 LoeoFlvIZgIPE0fhnpaxfnam6XRMPBhDGRm6HvcQ=
-Message-ID: <e8e76253-f245-45e4-b2ff-d790edffea03@arm.com>
-Date: Thu, 23 Jul 2026 15:29:13 +0200
+	Thu, 23 Jul 2026 13:29:43 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66NCvPRF1030609
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:29:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=; b=TLORcWXgUP60TL3f
+	WjlUQW50sdYRsNy+UD4mB/aBEoRL6ll2R8hW6kNmSyZwNdFrL/s0xKJtZrog6+Es
+	7rSSt4hsm9FlC3/cPD0WsEzX7ptjqvrtaVunjpvKrm8XMQGp2eL8L3gS+S+OgfNr
+	dqbs/gAW1ik9Yf7gheRoDL2tDYUARDQTAyp1gB/e5Ss/axWmfnQgazFypRNTVVEe
+	CzUz87hti4hALxG5ejPyzrg8+4ar2BbRTC9gm2ohV9NtUWEjQn9tCNXnSOME5S4Y
+	2zQ4ZaVFPchHKQrvVhkHclBkG9LhUFsM4FUXWzk+ho93aXtfigX90JveBZN47h8P
+	/2CVRA==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fk28xv9t8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:29:42 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ccb6823efcso6828945ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 06:29:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784813381; x=1785418181; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=;
+        b=ioI8M/WCOl/qcwyvBMgCrwF0HK4pCAhoEdaI8dfv0TTmwujYP46tCSpmMeGbOKMeIQ
+         ztAsNvJEIjZCxMGQLcUfLTsnzMZ09zSyo007ybNZdKNdSrJh1LtMcQCOIsj75mgU/C/a
+         KXy/1VK/iFmkiOAhQorBGqGWYVBmXikcVU2vDB0EfPG877fuJHQp1S6YedomUX+ZXYxP
+         1HbjL7p9ozM6fmXH2obTKcX2cWaON931CSxSaUtybpM1R3iOpDiYL1pZQ4B/QIQrjSCz
+         HOfM2aeXBFUm3DFTI8mdEXcm3svblZXohH7sYwqLE3V/IU8H8qC4j3gczyYYm5gxnCHt
+         9Nhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784813381; x=1785418181;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=;
+        b=AwNyzcQrOjP687ovL6cKc1dl/RqXyaRFKlR5vpK2ZE9wY11Yfdxv3MbGVrsj8cfH3+
+         6K+ex5BHmBYg1sLieQYj1Q2sUKIopNeOMwMwICm0kVELDN+ZmsxJW0s+a1g8HJ5NjJvk
+         QBONDvpfiCB2eH3wV+2W1LPizEJWGoCtDWhrHGDV5cHTVYI1RL/O98kGr60VwFEbaSXT
+         XBXAoserQSuxs2nKqw3IUsCOSfAH2ul15476aQss/SO815Nk1FdFZJ/7f/wcVTThaDdX
+         AgIrNrHEwFpU/FGQeH5oJ2J9XwyYK83+qaAo4CuVneJaabx6XrZff6X4d2qg0aJMDPhn
+         x3cA==
+X-Forwarded-Encrypted: i=1; AHgh+RqV7laNfkEbHMVf2xu2GTH0utNArQ0l48ggqArme2tx2khQzAa3qZCSkOuZZWrq0Uelnp4zEbn4WXwZwUf0bBSy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9JzARGkBywIcF0jx+p8gCHgtG68a0HBDoKYUSvTCqyWAvcBYB
+	tG5bF5PwFUxrvCW1UzQNgZbK4eRzjYr+W9oI/ek0jU3xQRu42nbndqYrffTpHYbu0bAlH7QoLWe
+	zumbuElX9X4RJ9qfDB4bBaFTHQ5HzzffWM2DQ2RLU17iz/Cq9sHV057BTMWENu//bMs2E9fxBcS
+	zOLA==
+X-Gm-Gg: AR+sD11v/Tins0rsKA+z82he9QyIZxCBPgxED6O3fHjYGqe00EQsazxiaUd1hpVNQWH
+	DTyu3NuwERmllKFLgtf5eOHBUvisDZ1R6ls5xUnqgsocLC6yJ9nH/HmY59lkj306BmUESyBEj09
+	qqg8GhAdKxbCMpwkyROWBXIuB4MbHApvi72QuWr/ikZQ9dUxGKP/qIhGBYvJpSuCLR2nlmdCWUO
+	E1eNQGTDSATjlrw1QqCuqB7CTLVl+53HogJNR66DXV49KEG94p1xzlwF0+gYdVEfGeK2uFGd7Sx
+	1z4iRz4fYF4sPhr2k6NDuw4MGVFRl4+OVC0eDJzj7cFkXA9Bk+wqxNXN8GOsAt8dvGDWVGRjcGv
+	4rUSjK0PVQzR2311Bn35yl6vczcQfE6x1sus=
+X-Received: by 2002:a17:903:ac6:b0:2cf:9f62:1dcd with SMTP id d9443c01a7336-2cfa6d83500mr42657785ad.32.1784813381379;
+        Thu, 23 Jul 2026 06:29:41 -0700 (PDT)
+X-Received: by 2002:a17:903:ac6:b0:2cf:9f62:1dcd with SMTP id d9443c01a7336-2cfa6d83500mr42657275ad.32.1784813380882;
+        Thu, 23 Jul 2026 06:29:40 -0700 (PDT)
+Received: from [10.219.57.229] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8efa39ffsm34340295ad.14.2026.07.23.06.29.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jul 2026 06:29:40 -0700 (PDT)
+Message-ID: <9457aa92-2f58-4c0c-bd33-916da493846d@oss.qualcomm.com>
+Date: Thu, 23 Jul 2026 18:59:29 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/16] arm_mpam: prepare mon_sel locking for MPAM-Fb
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260710144520.917375-1-andre.przywara@arm.com>
- <20260710144520.917375-14-andre.przywara@arm.com>
- <42eff7e7-695c-4e2a-aae2-8abd1b92f615@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <42eff7e7-695c-4e2a-aae2-8abd1b92f615@arm.com>
+Subject: Re: [PATCH v23 04/13] firmware: psci: Introduce command-based resets
+To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+Cc: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Sudeep Holla
+ <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>
+References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
+ <20260714-arm-psci-system_reset2-vendor-reboots-v23-4-e7453c548c21@oss.qualcomm.com>
+ <282fd166-2074-48cd-84ce-c887711e51c5@quicinc.com>
+Content-Language: en-US
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <282fd166-2074-48cd-84ce-c887711e51c5@quicinc.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: fCUXkwWFy9TBXZl4jVQmfAMcJTWt0FYH
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDEzMiBTYWx0ZWRfX+cKdmAuAhKWV
+ UzRcV0K9Orrw5erMjl5l7R3Cu/BYiMWO2TtU8sM5o0LuQw+z/++YvP6NWoSYF2z0EAZtDTSdoZh
+ XFGheH4VbC2wxGkLg+PDuTr59wLMgtg=
+X-Proofpoint-GUID: fCUXkwWFy9TBXZl4jVQmfAMcJTWt0FYH
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDEzMiBTYWx0ZWRfXwu/2XzfA2Dgp
+ WNti1p7Fbj/EB/QVhbgCn3061Ry/jEFC0DQQo/id0CkIbrBALhYJF8DKiUR+mG1vc929LN1Jbzp
+ djLdtsnZ9RAeW/jgkw4Bqfl7UJ3Qi8XvRmFAHW75k1OefUaNs6+UGFIrQM91yyOTh6Io3NbgFgk
+ o/ykMze3oQyCk90L/JjOxghAofG4eidZJCafXctQkiUpnVv8OcdAiYvfcuNSJBg4mjC64MfGP/k
+ Dz3VsnxdE9A0KmHUskLtkug1NN5CLB7ET1h39JH9hhGSXB1eUJKW7Ks6SZ8yX3lIDkmuhZV+7ho
+ FAI6wEKPltxzGXKdLt2gk2mAqdg/h1mocgEh7nPLShyrwA1XCiA0v0omTyTItp+oRqv6qG9nc/r
+ Corx5CX4oBGcKp28lbPkJGs3lFhgBxbVOFC/HN87z1DjBA1CJ+4zwHzTruYg82GsP+OKGNnz7Jl
+ p6wXq6uYeDo4NErdK0Q==
+X-Authority-Analysis: v=2.4 cv=WNxPmHsR c=1 sm=1 tr=0 ts=6a621746 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=EUspDBNiAAAA:8 a=QCscv-Hw-U4uApuusycA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-23_04,2026-07-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 bulkscore=0 priorityscore=1501 malwarescore=0 phishscore=0
+ impostorscore=0 suspectscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_062918_035227_B272B5F2 
-X-CRM114-Status: GOOD (  26.60  )
+X-CRM114-CacheID: sfid-20260723_062942_729146_FEC9874B 
+X-CRM114-Status: GOOD (  33.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +180,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
 
-On 7/15/26 17:16, Ben Horgan wrote:
-> Hi Andre,
-> 
-> On 7/10/26 15:45, Andre Przywara wrote:
->> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
->> interrupt, and when taking an IPI to access these registers on platforms
->> where MSC are not accesible from every CPU. This makes an irqsave
->> spinlock the obvious lock to protect these registers. On systems with SCMI
->> mailboxes it must be able to sleep, meaning a mutex must be used. The
->> SCMI platforms can't support an overflow interrupt.
->> Clearly these two can't exist for one MSC at the same time.
-> 
-> Is an MPAM-Fb platform using overflow interrupts definitely not possible? I would have thought that
-> as long as things were fast enough that threaded interrupts could be used. I do agree that it would
-> make things harder and the increased latency may make it unworkable.
 
-I guess they are possible, but we don't support them at the moment, 
-right? And as you said a while ago, we'll cross that bridge when we come 
-to it. I am sure we will find a nifty solution then, but don't need to 
-sweat it now. I will reword that to make it clear.
-
+On 22-07-2026 14:54, Pavan Kondeti wrote:
+> On Tue, Jul 14, 2026 at 10:46:32PM +0530, Shivendra Pratap wrote:
+>> PSCI currently supports only two resets - SYSTEM_RESET and SYSTEM_RESET2
+>> ARCH WARM reset. The reset patch is selected based on the Linux
+>> reboot_mode variable. The PSCI specification now includes SYSTEM_RESET2
+>> for vendor-specific resets but there's no mechanism to issue these
+>> through psci_sys_reset().
 >>
->> Change the mon_sel locking wrapper function to only use a spinlock when
->> the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
->> mutex, but only if we are in a sleepable context. If that's not the
->> case, we return an error. This should not happen, as MPAM-Fb by design
->> does not require an MSC access to happen from a specific CPU, so there
->> is no need for any IPIs or preemption disabling to satisfy CPU
->> constraints.
-> 
-> It'd be good to mention that on the rare occasion that all cpus are no_hz_full and resctrl does the
-> monitor read via IPI that we already bail out early.
-
-OK, if you say so ;-)
-
-Cheers,
-Andre
-
-> And since overflow interrupts are not supported at the moment
->> anyway, we also wouldn't meet the other case.
+>> Add a command-based reset mechanism that allows external drivers to set
+>> the PSCI reset command by passing a reset_type and a cookie.
 >>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> Add support for the following reset commands:
+>>    - SYSTEM_RESET2 vendor-specific resets.
+>>    - SYSTEM_RESET2 ARCH WARM reset and SYSTEM_RESET (reset_type = 0 and
+>>      cookie maps to psci_standard_resets).
+>> Unsupported commands fall back to the regular PSCI reset path.
+>>
+>> Default to the existing reboot_mode-based reset flow unless a reset
+>> command is configured. If a kernel panic occurs after a reset command is
+>> set but before the final PSCI reset is issued, ignore the reset command
+>> and follow the normal reboot_mode-based reset path.
+>>
+>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 >> ---
->>   drivers/resctrl/mpam_internal.h | 28 +++++++++++++++++++++++-----
->>   1 file changed, 23 insertions(+), 5 deletions(-)
+>>   drivers/firmware/psci/psci.c | 106 ++++++++++++++++++++++++++++++++++++++++++-
+>>   include/linux/psci.h         |  36 +++++++++++++++
+>>   2 files changed, 140 insertions(+), 2 deletions(-)
 >>
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index 04d1a59f02af..7b6e0df904f8 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -126,6 +126,7 @@ struct mpam_msc {
->>   	 */
->>   	raw_spinlock_t		_mon_sel_lock;
->>   	unsigned long		_mon_sel_flags;
->> +	struct mutex		mon_sel_mutex;
+>> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+>> index e73bae6cb23a..881819d09911 100644
+>> --- a/drivers/firmware/psci/psci.c
+>> +++ b/drivers/firmware/psci/psci.c
+>> @@ -12,7 +12,9 @@
+>>   #include <linux/debugfs.h>
+>>   #include <linux/errno.h>
+>>   #include <linux/linkage.h>
+>> +#include <linux/mutex.h>
+>>   #include <linux/of.h>
+>> +#include <linux/panic.h>
+>>   #include <linux/pm.h>
+>>   #include <linux/printk.h>
+>>   #include <linux/psci.h>
+>> @@ -51,6 +53,14 @@ static int resident_cpu = -1;
+>>   struct psci_operations psci_ops;
+>>   static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
 >>   
->>   	void __iomem		*mapped_hwpage;
->>   	size_t			mapped_hwpage_sz;
->> @@ -139,27 +140,44 @@ struct mpam_msc {
->>   /* Returning false here means accesses to mon_sel must fail and report an error. */
->>   static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
->>   {
->> -	/* Locking will require updating to support a firmware backed interface */
->> -	if (WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO))
->> +	if (msc->iface == MPAM_IFACE_MMIO) {
->> +		raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
+>> +struct psci_system_reset_cmd {
+>> +	u32 reset_type;
+>> +	u64 cookie;
+>> +};
 >> +
->> +		return true;
+>> +static struct psci_system_reset_cmd reset_cmd;
+>> +static DEFINE_MUTEX(reset_cmd_mutex);
+>> +
+>>   bool psci_tos_resident_on(int cpu)
+>>   {
+>>   	return cpu == resident_cpu;
+>> @@ -80,6 +90,62 @@ static u32 psci_cpu_suspend_feature;
+>>   static bool psci_system_reset2_supported;
+>>   static bool psci_system_off2_hibernate_supported;
+>>   
+>> +static u32 psci_get_sys_reset_fn(void)
+>> +{
+>> +	switch (reset_cmd.cookie) {
+>> +	case PSCI_SYSTEM_RESET2_ARCH_WARM_RESET:
+>> +		if (psci_system_reset2_supported)
+>> +			return PSCI_FN_NATIVE(1_1, SYSTEM_RESET2);
+>> +		return 0;
+>> +	case PSCI_SYSTEM_RESET_COLD_RESET:
+>> +		return PSCI_0_2_FN_SYSTEM_RESET;
+>> +	default:
+>> +		return 0;
 >> +	}
+>> +}
 >> +
->> +	if (!preemptible())
->>   		return false;
->>   
->> -	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
->> +	mutex_lock(&msc->mon_sel_mutex);
->> +
->>   	return true;
->>   }
->>   
->>   static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
->>   {
->> -	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
->> +	if (msc->iface == MPAM_IFACE_MMIO) {
->> +		raw_spin_unlock_irqrestore(&msc->_mon_sel_lock,
->> +					   msc->_mon_sel_flags);
->> +
->> +		return;
->> +	}
->> +
->> +	mutex_unlock(&msc->mon_sel_mutex);
->>   }
->>   
->>   static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
->>   {
->> -	lockdep_assert_held_once(&msc->_mon_sel_lock);
->> +	if (msc->iface == MPAM_IFACE_MMIO)
->> +		lockdep_assert_held_once(&msc->_mon_sel_lock);
->> +	else
->> +		lockdep_assert_held_once(&msc->mon_sel_mutex);
->>   }
->>   
->>   static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
->>   {
->>   	raw_spin_lock_init(&msc->_mon_sel_lock);
->> +	mutex_init(&msc->mon_sel_mutex);
->>   }
->>   
->>   /* Bits for mpam features bitmaps */
+>> +/** psci_set_reset_cmd() - Configure PSCI reset command
+>> + * @reset_type: SYSTEM_RESET2 vendor-specific reset_type as defined by
+>> + *		firmware, or 0 for standard resets
+>> + * @cookie: SYSTEM_RESET2 vendor-specific cookie as defined by firmware or one
+>> + *		of enum psci_standard_resets when @reset_type is set to 0
+>> + *
+>> + * Supported commands:
+>> + * - PSCI SYSTEM_RESET2 vendor-specific reset:
+>> + *   - @reset_type and @cookie must follow platform-specific SYSTEM_RESET2
+>> + *     vendor-specific resets.
+>> + * - Standard reset selector:
+>> + *   - @reset_type must be 0.
+>> + *   - @cookie must be one of enum psci_standard_resets.
+>> + *
+>> + * This is an in-kernel helper intended for built-in reboot flow callers.
+>> + * reset command can be set only one time per boot cycle.
 > 
+> This comment may need re-phrasing. Please check.
 
+sure. thanks.
+
+> 
+>> + *
+>> + * Return: 0 on success, -EINVAL if both inputs are zero, -EBUSY if reset
+>> + * command is already set.
+>> + */
+>> +int psci_set_reset_cmd(u32 reset_type, u64 cookie)
+>> +{
+>> +	if (!reset_type && !cookie)
+>> +		return -EINVAL;
+>> +
+>> +	scoped_guard(mutex, &reset_cmd_mutex) {
+>> +		if (reset_cmd.reset_type || reset_cmd.cookie)
+>> +			return -EBUSY;
+>> +
+>> +		reset_cmd.reset_type = reset_type;
+>> +		reset_cmd.cookie = cookie;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +bool psci_has_system_reset2_support(void)
+>> +{
+>> +	return psci_system_reset2_supported;
+>> +}
+>> +EXPORT_SYMBOL_GPL(psci_has_system_reset2_support);
+>> +
+> 
+> Do we want to add namespace based restriction on who gets to import
+> EXPORTs added in this patch?
+
+you mean like
+EXPORT_SYMBOL_NS_GPL(psci_has_system_reset2_support, PSCI);?
+
+> 
+>>   static inline bool psci_has_ext_power_state(void)
+>>   {
+>>   	return psci_cpu_suspend_feature &
+>> @@ -306,8 +372,24 @@ static int get_set_conduit_method(const struct device_node *np)
+>>   	return 0;
+>>   }
+>>   
+>> -static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+>> -			  void *data)
+>> +static void psci_handle_reset_cmd(void)
+>> +{
+>> +	u32 psci_sys_reset_fn;
+>> +
+>> +	if ((reset_cmd.reset_type & PSCI_1_1_RESET_TYPE_VENDOR_START) &&
+> 
+> What is `_START` significance in PSCI_1_1_RESET_TYPE_VENDOR_START macro?
+
+Its the 31st bit that decides if its valid vendor reset.
+
+> 
+>> +	    psci_system_reset2_supported) {
+>> +		/* PSCI SYSTEM_RESET2 Vendor-specific reset */
+>> +		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
+>> +			       reset_cmd.reset_type, reset_cmd.cookie, 0);
+>> +	} else {
+>> +		/* Retrieve the psci reset function from reset_cmd */
+>> +		psci_sys_reset_fn = psci_get_sys_reset_fn();
+>> +		if (!reset_cmd.reset_type && psci_sys_reset_fn)
+>> +			invoke_psci_fn(psci_sys_reset_fn, 0, 0, 0);
+>> +	}
+>> +}
+>> +
+>> +static void psci_handle_reboot_mode(void)
+>>   {
+>>   	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+>>   	    psci_system_reset2_supported) {
+>> @@ -320,6 +402,26 @@ static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+>>   	} else {
+>>   		invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
+>>   	}
+>> +}
+>> +
+>> +static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+>> +			  void *data)
+>> +{
+>> +	/* The function psci_handle_reboot_mode follows reboot_mode based
+>> +	 * reset flow and psci_handle_reset_cmd uses reset_cmd based reset flow.
+>> +	 *
+>> +	 * The reset_cmd is configured at the reboot_notifier phase. If a kernel
+>> +	 * panic occurs between the reboot_notifier and this final reset, skip the
+>> +	 * command-based reset and let reboot_mode drive the reset flow.
+>> +	 *
+>> +	 * The function psci_handle_reset_cmd invokes non-returning PSCI SYSTEM_RESET
+>> +	 * calls to reset the device. If it returns, either the reset failed, or the
+>> +	 * command was unsupported. Fallback to reboot_mode based reset flow.
+>> +	 */
+>> +	if ((reset_cmd.reset_type || reset_cmd.cookie) && !panic_in_progress())
+>> +		psci_handle_reset_cmd();
+>> +
+>> +	psci_handle_reboot_mode();
+>>   
+>>   	return NOTIFY_DONE;
+>>   }
+>> diff --git a/include/linux/psci.h b/include/linux/psci.h
+>> index 4ca0060a3fc4..39fe0edec651 100644
+>> --- a/include/linux/psci.h
+>> +++ b/include/linux/psci.h
+>> @@ -8,6 +8,7 @@
+>>   #define __LINUX_PSCI_H
+>>   
+>>   #include <linux/arm-smccc.h>
+>> +#include <linux/errno.h>
+>>   #include <linux/init.h>
+>>   #include <linux/types.h>
+>>   
+>> @@ -21,6 +22,16 @@ bool psci_power_state_is_valid(u32 state);
+>>   int psci_set_osi_mode(bool enable);
+>>   bool psci_has_osi_support(void);
+>>   
+>> +/**
+>> + * enum psci_standard_resets - Standard reset selectors for PSCI reset
+>> + * @PSCI_SYSTEM_RESET_COLD_RESET: Standard SYSTEM_RESET command.
+>> + * @PSCI_SYSTEM_RESET2_ARCH_WARM_RESET: SYSTEM_RESET2 architectural warm reset.
+>> + */
+>> +enum psci_standard_resets {
+>> +	PSCI_SYSTEM_RESET_COLD_RESET = 1,
+>> +	PSCI_SYSTEM_RESET2_ARCH_WARM_RESET,
+>> +};
+>> +
+>>   struct psci_operations {
+>>   	u32 (*get_version)(void);
+>>   	int (*cpu_suspend)(u32 state, unsigned long entry_point);
+>> @@ -45,8 +56,33 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void);
+>>   
+>>   #if defined(CONFIG_ARM_PSCI_FW)
+>>   int __init psci_dt_init(void);
+>> +/**
+>> + * psci_set_reset_cmd() - Configure PSCI reset command
+>> + * @reset_type: SYSTEM_RESET2 vendor-specific reset_type as defined by
+>> + *		firmware, or 0 for standard resets
+>> + * @cookie: SYSTEM_RESET2 vendor-specific cookie as defined by firmware or one
+>> + *		of enum psci_standard_resets when @reset_type is set to 0
+>> + *
+>> + * Supported commands:
+>> + * - PSCI SYSTEM_RESET2 vendor-specific reset:
+>> + *   - @reset_type and @cookie must follow platform-specific SYSTEM_RESET2
+>> + *     vendor-reset encoding.
+>> + * - Standard reset selector:
+>> + *   - @reset_type must be 0.
+>> + *   - @cookie must be one of enum psci_standard_resets.
+>> + *
+>> + * This is an in-kernel helper intended for built-in reboot flow callers.
+>> + * reset command can be set only one time per boot cycle.
+>> + *
+>> + * Return: 0 on success, -EINVAL if both inputs are zero, -EBUSY if reset
+>> + * command is already set.
+>> + */
+>> +int psci_set_reset_cmd(u32 reset_type, u64 cookie);
+> 
+> The very same comment is present in the implementation of this function.
+> Please fix it.
+
+sure.
+
+thanks,
+Shivendra
 
