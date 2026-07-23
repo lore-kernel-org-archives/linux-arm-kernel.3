@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B036C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA48C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZ4UC4VbZCHqoMOFQEdA0u1m0edMr6jn5b+MAr7qLDk=; b=M7CO6L96tyzW7wzFtA63OtQAgI
-	7VVpSefFh8yGCejjo7/F/oMo1nI8IcTP/60DKUJe75p6CfN7dU7/l6qPgPDaiowIRv3EsUZ1EZya3
-	sVdF9ay6UJxgp5GoT4zbW9rw6hmfV4jpqUkbYZxbQX49ULadd26nMKNCxKnROesgvMJmXZtuPmCvF
-	X4PxpSRuSF1v5tRdFyfWdU9dPCRYaxKlOE0honkbKUX8Y7ECXtVQkC7jusdKfGnrp6Qc0QOL89Hbi
-	b4ssOintot5WXV3KKY6GZzl1OiDuiCmhpp0h4+ceqCbc4X0b2UBZemTW2802zocmzZJZlcIsFHQaV
-	+u4z4jdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K7lA+u/oxodyHJlCoKL4TQghcRLJnH86jNWrERwY04g=; b=B23B2a7qN2QbHVILV0DYup4QjQ
+	RnMS3E0yjFoLQBJuA7H2pVFpLf8B5ZQSPoUIZEP1ljXe///jGWml1kU5hF+7tGSUQkIwolStD3uAA
+	1xN6a2N45shaAmQD+TTOD7999IpJ0yaMiel0veOSMQF3rvyJ81yMstKDAstvVQ+teUpyR4h41Kz3X
+	kcGUale/3/zQK/kA/nwlsfGe162Q3/+/rIlQ/sQb0cJgOA0Ibnk05QFyLilTIXhPc76v/HyoQDATo
+	3rSmRx5M3f+KSWycP9TicPqPqK4Cfkynh1jtNYUtwyyC8TPNBam6kRtIhPdj0irtAYB9z4hWQjyVd
+	R8XesB3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn0UX-0000000F5Mf-1VPV;
-	Thu, 23 Jul 2026 20:58:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wn0Vu-0000000F5U1-2kaC;
+	Thu, 23 Jul 2026 20:59:30 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn0UV-0000000F5MX-1yoB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 20:58:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E626C429F7;
-	Thu, 23 Jul 2026 20:58:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80F4E1F000E9;
-	Thu, 23 Jul 2026 20:58:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784840282;
-	bh=tZ4UC4VbZCHqoMOFQEdA0u1m0edMr6jn5b+MAr7qLDk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WjKsqFiyWyVNVr1u8oQ1Oc3mPQcMgabY7n1PBmGT8va7RchFKB2VQAZDidON0Nlwt
-	 jl87ijZbKh+aQuTj0p+HzFkTbT8ZkzZ6aT/F+674z1Nwem7L7xWd7/jvUUxSzLBELI
-	 TtgYn5hNmyfIcQ1zrrBvBeKVp5VN15gRypXmZy9jrkdfa0RxByTwfDt1MbxvD5dkve
-	 nuL9+cGqwdkHlF0YxXvnltMMMgwm2mmXWeIihkUgTcPhXZumttiP1GnM6Gwbw4DBgs
-	 UEBmTaVl/3/qE5fYA04HjeLSvW9PaImHimnPIWDch6vxZyYHF0G+YnWqtYceZF/KAw
-	 xuTek7uVUKe0A==
-Date: Thu, 23 Jul 2026 13:58:01 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Demi Marie Obenour <demiobenour@gmail.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] drivers/crypto: Mark QCE as BROKEN
-Message-ID: <20260723205801.GD110634@quark>
-References: <20260712-qce-broken-v2-1-b2dfff47f7f5@gmail.com>
- <alnlaCXmoLRAlr96@gondor.apana.org.au>
- <20260721082501.6128-1-bartosz.golaszewski@oss.qualcomm.com>
- <c826b73d-6307-4237-a065-b7a8487350ce@gmail.com>
- <CAMRc=Me55rUmjjR+ZzdWd2ss9JJMZzJch0zKd4GqONBjCzFMYQ@mail.gmail.com>
- <20260722162040.GC2794619@google.com>
- <CAMRc=McTUmyCNvW6qECR4rnVQNLAWLnOr8+fdcZEyDfKESifHw@mail.gmail.com>
- <20260723141701.GA1900@sol>
+	id 1wn0Vs-0000000F5TZ-1HKw;
+	Thu, 23 Jul 2026 20:59:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784840350; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XHif2z3TyuE5eycS/9ovhpdeftUuvS6AkHk7IgpY5oUA6rhmHLRayF9fqgqAZMKYrbGdnPsx0/iHPl5xdKuufA/rHDuaZ6czUKLtaqFlsCaTlhkg/h+hLmJUMzurjW1gzSiBHuqWTCP5xSL99PAt5CBvJXLd4kGj6vJSAzrwcd8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784840350; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=K7lA+u/oxodyHJlCoKL4TQghcRLJnH86jNWrERwY04g=; 
+	b=Ooy0733DzYK2a2KdfEEyI5HxXZb1kZsHY8VSm2lDfEfvq7FZfMN5H7+Gl/62T7aS+DXcNkaHeJ70woPD6qPP4IPw6BRpMoBmCs1OgtmEclVsPi+3rowaZ4z2CwB3xdWL6RvAoJbgmEc5voTlAfnah31KwsLSKWYNZuUisUWkRJg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784840350;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=K7lA+u/oxodyHJlCoKL4TQghcRLJnH86jNWrERwY04g=;
+	b=cTPuqUgOR8p7EZ8gQ0VPzQxLr+Hn38SKMcF+PqyywbCJ4mo7pJesyhul+cucfNHE
+	hH20o+4Uykfo6bDrTduOWQriq8xzaTS6r9AiIqApBAQukfT4oTg6rgTXPzeTMw3YDq7
+	aNC+dkurpflZKNaE12UYE3pRzcmIIvBXVwsjfwyI=
+Received: by mx.zohomail.com with SMTPS id 1784840347474174.7560622262041;
+	Thu, 23 Jul 2026 13:59:07 -0700 (PDT)
+Message-ID: <b0db52f6-cb3c-432e-ac08-d864971a8624@collabora.com>
+Date: Thu, 23 Jul 2026 23:59:02 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260723141701.GA1900@sol>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] media: synopsys: hdmirx: add HDMI audio capture
+ support
+To: Igor Paunovic <royalnet026@gmail.com>, sashiko-reviews@lists.linux.dev,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ linux-kernel@vger.kernel.org
+Cc: robh@kernel.org, media-ci@linuxtv.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org
+References: <20260721064115.64809-1-royalnet026@gmail.com>
+ <20260721064115.64809-3-royalnet026@gmail.com>
+ <20260721070036.51C371F000E9@smtp.kernel.org>
+ <CAEWPSH7FZw7XDhHD6x+mWcQR2VnLs5yF5LUGMisQoCsv43-z8w@mail.gmail.com>
+Content-Language: en-US
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <CAEWPSH7FZw7XDhHD6x+mWcQR2VnLs5yF5LUGMisQoCsv43-z8w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_135928_402698_4EBFB19C 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +89,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 07:17:19AM -0700, Eric Biggers wrote:
-> On Thu, Jul 23, 2026 at 02:44:27AM -0700, Bartosz Golaszewski wrote:
-> > On Wed, 22 Jul 2026 18:20:40 +0200, Eric Biggers <ebiggers@kernel.org> said:
-> > > On Wed, Jul 22, 2026 at 01:33:51AM -0700, Bartosz Golaszewski wrote:
-> > >> > Also, what can the current driver do that cannot be done better using
-> > >> > software crypto?  I understand that you have future plans to add more
-> > >> > features to the driver, but those are not relevant to this discussion.
-> > >> >
-> > >>
-> > >> We can offload crypto operations to the QCE saving CPU cycles but more
-> > >> importantly, the QCE provides HW based isolation which some vendors care
-> > >> about.
-> > >
-> > > Do you have any concrete proof of anyone using this with a specific
-> > > Linux kernel feature and actually getting a benefit from it?
-> > >
-> > 
-> > I'm not required to produce a proof of Qualcomm's clients using it. That's
-> > never been a requirement to keep a driver in mainline. I'm saying that Qualcomm
-> > wants to keep it and I've stepped up to fix and maintain it, which is what I'm
-> > doing.
-> > 
-> > But yes, I know about companies that do use this driver as is for whatever
-> > reasons. I'm not sure I can mention them so I won't.
-> 
-> I know that it's enabled in the defconfig and Qualcomm's BSP, so some
-> people have the module loaded on their systems.  That doesn't count as
-> use, let alone it being useful.
-> 
-> I'm not asking for a client name or any confidential information.  This
-> is a technical discussion, and I'm asking for proof that this driver can
-> actually provide a benefit for any specific Linux kernel feature over
-> the widely used and well-vetted alternatives (ICE and ARMv8 CE).
-> 
-> "We want this upstream for reasons that we refuse to disclose" is never
-> a reason for adding (or keeping) code in Linux.  There has to be a
-> technical justification.
-> 
-> Meanwhile, the strong technical arguments in favor of removal or marking
-> it BROKEN that have been presented remain unaddressed.
+On 7/21/26 10:51, Igor Paunovic wrote:
+> This one looks structurally plausible, but as the report itself
+> notes it predates this series: it concerns the video_device lifetime
+> on the V4L2 side and is independent of the audio support added here
+> (the audio teardown path was exercised on unbind with an active
+> stream during v3 review, see the v3 thread). Addressing it would be
+> a separate fix for the existing driver -- happy to leave that call
+> to Dmitry.
 
-FYI, I took some time to take a closer look at this driver, and I found
-a bunch more bugs:
+No need to worry about it for this series. It is a niche bug if it's valid.
 
-- https://lore.kernel.org/linux-crypto/20260723183438.GB93534@quark/
-- https://lore.kernel.org/linux-crypto/20260723192514.GA110634@quark/
-- https://lore.kernel.org/linux-crypto/20260723202704.GB110634@quark/
-- https://lore.kernel.org/linux-crypto/20260723205342.GC110634@quark/
-
-Overall, I think this demotion is extraordinarily well justified.
-
-The pending fixes for some bugs don't change the big picture.  In fact,
-the introduction of BAM locking seems likely to exacerbate the
-performance issues.
-
-It would not be responsible to defer to the hardware vendor here.  The
-community has a responsibility to uphold high technical standards,
-especially for cryptography.
-
-- Eric
+-- 
+Best regards,
+Dmitry
 
