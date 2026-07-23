@@ -4,132 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AF7C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 10:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40163C5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 10:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Message-ID:Cc:To:Subject:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t4eNw8uPgSc67jugJfjVKYX77Un15l7wH+f3uXq7L+o=; b=nka+J2Zp990mGDkt2uMl1YOfjA
-	nNSoJ/TQB5BWJVsaIOdMcTgd/U27nya+CjQHC+YvHaNPa/SCXI3qjrWIKwa/qjjuRv7u//I0E0LaS
-	QaoPWHpb6ipYL2pk/0NMCvEZQ3XJg27zpXaFTlGx/6eorwJaf2TurE2kvYVibCYSOMxiZjCIRJfZm
-	rzCR51a4ost7hKiLLGVfVCn7dRcbpctfbhizHaIoGE30fwCKSM/TL23wk0LB1qEAO0RKfvmOJAtBG
-	VUqgTjcdlERXxZxeH8TafLA6Q6tb44QAtkkQNBsjNNmAMSFkz9VakTxOdddQgWA/eMQuazNSJQH3W
-	6v3xzQQg==;
+	bh=Lya98KnhTYJZLX8cK8hn3h/5hoYcwtlh9k/PAnWhMGg=; b=BLkubpRd8Josw7luWDTN2t9jth
+	rLc7ypP2I0KWuuh9fP3S7nowBfFYeQETFih8Mud9MvGj8VS4cLizbEh+ZS22D6fIh+K+1VSpWxgw1
+	CITKUagMN8erGglwiOtoDGiajR9zuEJ8Ns4fLruf0c6vgKXZk+ibZd+71oDpSCNszrA7t5P2GIlDm
+	eSuPFviBCU1OPwd9KSxs1ihDgiDB8YsCrFVXL87T2bU6nyT2PLHW+0yRA7ovIyr+kSo7hxylJDujW
+	kExmbuAS+Fe6q/dU5TdZQ+UV7e9YmBAWPC22pp2qs/BZ8F5c0LuOU0JWgpQlZaqT67p28w1maZT8N
+	WzNww1tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt0U4-0000000ABoq-3e4V;
-	Sun, 09 Aug 2026 10:10:24 +0000
-Received: from mail-eastus2azolkn19011039.outbound.protection.outlook.com ([52.103.12.39] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wt0UL-0000000AByZ-077p;
+	Sun, 09 Aug 2026 10:10:41 +0000
+Received: from mail-westusazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d001::1] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt0U2-0000000ABmj-1Jr5
+	id 1wt0UF-0000000ABvK-1K46
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 10:10:23 +0000
+	Sun, 09 Aug 2026 10:10:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Eg26obJLYTkO2JRZv3Wri4oi5rDMo5V7WtJ2PUTKjLcrF8qHfRyyHh4d0aXdLpztaw1Hfyem648q3f+y/WIb90pGLNxuOQ6563h/HUzaDBaSy79J4JL2qqaGvwc6/P55BigVpZbLFpaAWor28pItqFnofFgSIA4uxOLme59OD9540nhwlMYfmxTp8VaBLxWm0F+vKIdnDrnqjiCj9dvBR3RzfPR1rba7mTv6lHfkDNr6gs99TELRhGkblLlDQAZnl2q/CivDt3kkroiph3jRRjiizS8buLc/DrJv7D1IojAI5gRY0waf4prGrbcVfdGuWDe2/cP1tn1mrOInMtPx1w==
+ b=G8zxZCWKj02rtSuGH/QUmvDBKIxtaFT6mhCyxA1VA/tc39ffgAT0IfeWqj0MIYPfrDnrRhEvT4MniJXIkH0LOu5EnHKe/OltEtz964BCq6UDAY5vxdhaqA5TW18lYEu0o0cb82bNbAbcZ0S/CJVtm12ybjLE68OjaKYXREU2tYRVhNPX3Dn8cazmxnnhUK6dC8PjbOBwVgG0xHE3rlw3f/qBwjdwFh5PaADFCbjaHlfLbr9XZB6IKPo4bzlYtm8zQFzxnHScHabBSNUsnRLlHk8k/2+ooVzvAcmBc25/6xm08oyDeyS4wLn+PVravB8NNvxk2Lojvh3G1pFlNkSFtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t4eNw8uPgSc67jugJfjVKYX77Un15l7wH+f3uXq7L+o=;
- b=lmWsXAWLm+But70bHWwQVYp0CWeseqR261u55tA5ZOu7NMcvoPBrA8JW21/K4cfBNwNkSG8wyPTv2T4GcX57q8iNfQUx9ZJstrNZvE8PH5ukvFDCBZFNB7utsAiwmCKHgV5Es/lWtXQhk6a4MY2uVfi57JRm3/JOz7tg4gehKJ8IBuK6HCGvYKhWieALRSEzLHHB+AbKBmlzNQReWDeefB3cgsBt4cZZQ/LbJ6UW00LwicQ1GXakwijtxh38FzNqC8nexYjR4hNvM9cScF14WaVUVrsGg6AQ1prFhbbFlZm6TiqANVL0ATlUyedmcLuQDKC7GXuKR7M3pp/9md2+LA==
+ bh=Lya98KnhTYJZLX8cK8hn3h/5hoYcwtlh9k/PAnWhMGg=;
+ b=TeSo1NZyKgf3D5FmZuHc4GNNZHk5L54FWIHU/kL5eP+x8nUyuwuzH3SKiRmDrjm7WcV0bnOQSgoN0e6As7El/nRUa6+C6+UuavYv2fK+3FTdo1P7YfRm2GOSw+hzyRynP8CGA/JJKlRT72WfxALDrqq2abwNFw4NkpcZC2zQQQMtXEUQbkJLjVgXFQ1hh8ThpWyYHncaBz0PDXSQnnG92JklFFpGNkjGZkd4+/PA6chZjyF3EB2cbaVATntugFX3UmnekA42+h0BLEpR0/NIYpgMhBEQhibUjSXcT54tPi2biMhHP8dEaDLy03Xk9IBjNbpjZ8MbJo9ybJi6FZnIuw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t4eNw8uPgSc67jugJfjVKYX77Un15l7wH+f3uXq7L+o=;
- b=jMzrFBAuoohIByoPwRCY7Y8EKTsdJ1fUNy2/Qn36jTymGYKQY0K6Pts/RFUIBlG8iXLcw2m3GGJJZ84j/l8i7uIS/Z1U2p8/iKkKZXnikWZ8bkHol0AVSQZMjxtBf1TvPv+kNXVQUD9JapZYWZAkY95BQLzcevAjd1BZR/hk9QYNJPALXyVFQguNWRDF8Ni+wk2Rd/mEYl1cqtvJ4iYDErQZdJ/KYVuhWLpeEResKFWjV107Vu45PjOnbIKcRlIlCluRv6ooUtbVDkWmDIBUlc1xvao3vXDF64lFY5OStY/S+A5M96NC/I4HEjfaVLsPwgaH954BwKIVtRf2dy9GCw==
+ bh=Lya98KnhTYJZLX8cK8hn3h/5hoYcwtlh9k/PAnWhMGg=;
+ b=cO5x+MEi57SdDirz0fhSgLm/crHOVwElSEgGK6V+a+6DdnD0N27AabcAeA4DuZRvat/L2HvSkXuAUUh/QUAsCtWFUcvqjad82PB1+zLcei7osZkEvUU4vafPDzfnrYNMCD6FKWwGcuXulXKgFHEroMb6tb03r9//taZfnKJQrttULdhbHZpQo7QNrQrNpfvs7yUgydG44cBuYFRmGKbkZh2gzzWWD6HdvZ+neJsWhxmLU5cD/6/DzMyTLKN640xzMRRNJpagc8KAX6Qr3q3FjXILXcYR3MLA0yw23+NHn/45jSo78qz8m6Q0MFvDGerFe6GpkGhd6rPcK5d5IF4U/w==
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
  by CY8PR19MB7667.namprd19.prod.outlook.com (2603:10b6:930:77::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Sun, 9 Aug
- 2026 10:10:20 +0000
+ 2026 10:10:30 +0000
 Received: from MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374]) by MN0PR19MB6091.namprd19.prod.outlook.com
  ([fe80::af9a:4cc3:facf:9374%5]) with mapi id 15.21.0292.024; Sun, 9 Aug 2026
- 10:10:20 +0000
+ 10:10:30 +0000
 From: Liu Changjie <liucj1228@outlook.com>
-Date: Thu, 23 Jul 2026 23:49:34 +0800
-Subject: [PATCH v2 8/9] ARM: dts: stm32: add Ruiside ART-Pi2 board
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
+Date: Thu, 23 Jul 2026 23:49:41 +0800
+Subject: [PATCH v2 9/9] ARM: stm32: document STM32H7R7 support
+To: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
-Message-ID: <PH7PR19MB6088189B91180CD218008160ACDF2@PH7PR19MB6088.namprd19.prod.outlook.com>
+Message-ID: <PH7PR19MB608875DBBBF9B73D5F4520FAACDF2@PH7PR19MB6088.namprd19.prod.outlook.com>
 In-Reply-To: <MN0PR19MB6091DB524E7A07E16D108F52ACDF2@MN0PR19MB6091.namprd19.prod.outlook.com>
 References: <MN0PR19MB6091DB524E7A07E16D108F52ACDF2@MN0PR19MB6091.namprd19.prod.outlook.com>
 Content-Type: text/plain
-X-ClientProxiedBy: TPYP295CA0007.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:9::12) To PH7PR19MB6088.namprd19.prod.outlook.com
+X-ClientProxiedBy: TPYP295CA0001.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:9::18) To PH7PR19MB6088.namprd19.prod.outlook.com
  (2603:10b6:510:1df::20)
-X-Microsoft-Original-Message-ID: <178627024483.53236.6803183953987341366@outlook.com>
+X-Microsoft-Original-Message-ID: <178627025545.53236.6333830713158780927@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MN0PR19MB6091:EE_|CY8PR19MB7667:EE_
-X-MS-Office365-Filtering-Correlation-Id: 21a79af3-23e6-4cf6-3d43-08def5fe699e
-X-Microsoft-Antispam: BCL:0;ARA:14566002|25010399006|5072599009|15080799012|23021999003|16051099003|8060799015|19110799012|24021099003|41001999006|51005399006|440099028|3412199025|26104999009|40105399003|2607281247196008;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?maIKPXynd+4eEoLTwP2teyk/ajAnEmY0TymCITOTjRkyuTe28gnye6MN8vBD?=
- =?us-ascii?Q?e+fF3nj+Kpjj1Pkk/gtj5VuNvgRLXfrpZJSPmS1FAC45Q6VgnxDCZc52+8tc?=
- =?us-ascii?Q?cFViarscSwf2+282OpTm0V7FAGHehm8pBqMrHceFVEghrYq06znK9hAJd6Ge?=
- =?us-ascii?Q?EHZPxYTZl9yyVl0sOqoeJhef1pFwQGRdYIMe/EIL+H3c3n/aND1QCV1q5FdQ?=
- =?us-ascii?Q?l4KAXS1/vv4a3I6cy84AGVO8syoohxncbmce/sP9TsPfq06lNsn3Epkve0bd?=
- =?us-ascii?Q?eTVbYY6sKqbfDb6KLNCxjnIC1nA2raUG/CST4h++zn6mmjm63FI9SBfUgrT2?=
- =?us-ascii?Q?AEhxzwDxbNmw9SNTXFeXt8pHUNufbEnavztWEEZCCGkEnW+2sYkGEEskTigP?=
- =?us-ascii?Q?kqr8wG4xcKwJ6lcYWILF5Do2p+nxMeXZfBQCgLN88fjbnkANWwHXUfl7PN06?=
- =?us-ascii?Q?/bD5uafkCspnI22Xarsa7i+48CeL0HO4gxdtk3T/9ORmmEINglF2M+T0NS2V?=
- =?us-ascii?Q?Gln/bTgBTW8pD6no9NSH4R4bJ5IOplgB7bfOoDans8aq076qoDoXZTzqCYpW?=
- =?us-ascii?Q?/daBlWlp8aBid+kj/4m6/efKYSPB2bEGCejmpSe3NXqn87VyjXMQh823ttDc?=
- =?us-ascii?Q?tzQfOc82eqojvGyuWK/QYvS3Cn7jk0HytdYUYxs481CNMySBY+I/Kiz+yNYk?=
- =?us-ascii?Q?3ozRaEp/ISj40xRFNed0Bn0xLs9Z18L748A5QPV83b7X7vpOWojgaKSl79iH?=
- =?us-ascii?Q?h3/ET6tXCHTT4miUYlHzBQKgQleyYl/QEYd43LcFLCA0MTaIpm9nbP7N2ZGl?=
- =?us-ascii?Q?PT3eyzwZv6TmVt8qtKchj4sqszZ34Sk4Ob+wTfAruMYx+zaXjnifdyA/HNl9?=
- =?us-ascii?Q?rswCPKJxXgejF8ES3GqhtJbpWSsI2iwUKglpZoqoPZiXM11OXfAUP4XJPAxk?=
- =?us-ascii?Q?Pu8Z3PAHBqF+x+m9DXTHAjMV32fGWgRkJQZWhRlRHsiUvGlx74bTwLd1iNY4?=
- =?us-ascii?Q?OvyU?=
+X-MS-Office365-Filtering-Correlation-Id: 21496760-4d4f-43ac-84ed-08def5fe6fd6
+X-Microsoft-Antispam: BCL:0;ARA:14566002|25010399006|704163111799003|5072599009|2604032031799003|15080799012|23021999003|16051099003|8060799015|19110799012|24021099003|51005399006|440099028|3412199025|26104999009|10035399007|40105399003|2607281247196008;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SFnINznVI8UipYSs5rLqvmZMkzEEB6uFyPsFh/k9GbwfRyoS9guWXJK3ZzqC?=
+ =?us-ascii?Q?doqMsWlFZ1EjRGtI0XRZw1wRqfAf8AiN39/pV0Yu+mw1ciio/5ZTQdeMy+Yl?=
+ =?us-ascii?Q?OpYcGLJaOy9GKUmxoR7EzZdKUzlIP+HEE6+dYaAKm0rS5sf0rHjCwUM1B1Zx?=
+ =?us-ascii?Q?w/UJZAhVz9iyLuT18JjWbkMuJOc5qL7BtlG3nCF/xtxAdzKqNzA4f8iI4UYp?=
+ =?us-ascii?Q?7JOQFOrLFQA5bSM7Zq7X+vLJXPKoMVGnRziS4BAM0K1gOG3eqnr+dHdRitN2?=
+ =?us-ascii?Q?oE4kRZhk8Cm7rs0mWufiYPmrkJzRSylqFQuzLa7E3L8O6PVBfEduueaN1XRj?=
+ =?us-ascii?Q?LCKRnWyRCAPW4Up313zIr/AtV+f6r8jlCVmFBEdMbGehLa33BO7ASpnnnnrG?=
+ =?us-ascii?Q?Cl5L/pyMdyfGcQNKL4tIAKZez/MKMiYWtimxpvecysS0oLhIjhCLVUJgTiyp?=
+ =?us-ascii?Q?BF5zoOBaWdFE2qw3IhleTHIEuRLEKUwYfu0nKu1Qt6nk/KgxxRr/PX/uwsXI?=
+ =?us-ascii?Q?8lMpPxSkIkL/Eiuf8u8PABxuuXW9OY+9vMOees8pdXfMje7/kbNqY5FkC8e4?=
+ =?us-ascii?Q?5UeuV5MlVLJQLY3XwaHv3UdaJSL7VbdbXhcLm7r7T3C7OzZFgL61tpE7Fmkj?=
+ =?us-ascii?Q?+/qBvdJTO/FusmFGUD2ZWKyIpnHymOuCcbRlV0nX8xnjdD+4epRRAc9G+7iG?=
+ =?us-ascii?Q?eHJnL3DEobPvpBZjRM6d0IURCTRs7hwbs6+Uz8xJ6YWhT7T+VKSE9rMD5NxC?=
+ =?us-ascii?Q?Ys4hsMw8qFN5dmpoMul3nr8CfBeXFYMJz7iKxAmoajhAEDurV36wPZumz54P?=
+ =?us-ascii?Q?xguH/+wsl/3ONgzMwtHe+aCQe7fiiiDsDkIl1u//f00kT60yMMmC/4V1oskM?=
+ =?us-ascii?Q?iVy7SiwQ4eo0i3v+4tBYTgu8gqcuypnxnjX76qsrileNj+cmkujQVWLFFT8B?=
+ =?us-ascii?Q?aQEaz4V9apaYqI1kwDJ6sAKGP6/CjR6AMljpjuUJ1Ib9z5s21FirqiZrfbox?=
+ =?us-ascii?Q?ADzujImqY3MDT0DUmPpEUnIe9YACWK2nxj9MKQlPuVevofyDV2W3m6vE36Pr?=
+ =?us-ascii?Q?ML55wXsoetYEQiYKYZEhaJ57SYh6rQ=3D=3D?=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZgDQAbz8Cx0lEPhzTQpUIQ14EMRrVXCqgPQG8TVdoXnI1fnDuCWFFiZbCfM7?=
- =?us-ascii?Q?Ij1+5NIQqLa7reO43cwUGULFqGt+lVHhuqDA17Y4hBqw0xMKm28NUOm8ZX3A?=
- =?us-ascii?Q?9oaoo6rCspfaoTf5i395YLHYOk3lcNgGs9d5IrMJo5E4KWK7LCPJUIE47JBa?=
- =?us-ascii?Q?l5Qx+AR1Js3sBDAqPGt2UjiSEzCdu/nofYeqjBINRDuZbOvuFSLXdnook4r4?=
- =?us-ascii?Q?injAvY8kWW/YhC6dcqiWMfwtveoC4yi/8ZCjGxSoz2r4jrzfDnJiAMe713fC?=
- =?us-ascii?Q?d/fe594SHhMn6Ri4TYAtFvL/rfqegTGoo7RBiwN/nYPj/+/dw469DHZrC+Is?=
- =?us-ascii?Q?4pO+LMdRL75ldurWB9lbG5EUjpc4d30BhtsVa2VKF4CpP7BA82BuW0guFgnP?=
- =?us-ascii?Q?mahw5KvY4VEOSZE6bXcAMtWA8pj2lfzBF4VKJTgebH8SKzneJLY8oIviD/nU?=
- =?us-ascii?Q?iuUwClmo7bpmQmVk5djcsDGFzUeXJiW4sVH3nEbo9EkYHWTEAIjK7cwTs4IR?=
- =?us-ascii?Q?qxe7BqjEkoRBVTUAZrazsDjdq67QyWqKO6U5L2ZQZoSD9NckoN7lqmRIOoKr?=
- =?us-ascii?Q?7PgabVEYcgA2Tm2FQ6ChrbBECs6g7+Cujdrp6w4iZGpn4aUxMUoIIXex43Ti?=
- =?us-ascii?Q?xxlHFl+FDrI1K6XPPhZAEf3Xzcj8FwbhsDAT01VsCSMvWSUxaIek0f2D8KjV?=
- =?us-ascii?Q?La+n4UkULoW8jznszTfn8K/qyvywifZDqgZjDY0Xvxc7XD6l6+aqhQCaS8kd?=
- =?us-ascii?Q?J+WwaahaaimJN6eLIcIym5S6EHBslM/dwACVjHueO+P4Ijuop54X/Bfxufbv?=
- =?us-ascii?Q?yuHxEgewvgb+Ils6kUMetBGB7DA1AC/tpv1fzCno4pmYpn+THV9CKiDnK0cM?=
- =?us-ascii?Q?StdnZct1h91+bdNMbHXZ/htU3ODLlCcg3EpYX4ZixlU1tT+HN0CDjPWUUgSC?=
- =?us-ascii?Q?XxphSMAcv8b0/M3vcwTdyEBTsDAhEnimVCpNfVQJZwvMhRmzoKu9gusQ1bU1?=
- =?us-ascii?Q?yDE6txIwnpDXxXdc7OUfTRrGe1W9vO8GcMIdF4K0sidrUkyE1RQjt0KrCPnV?=
- =?us-ascii?Q?HS3GVSFoN6veDngbXkd6fO+ZjeoH2TnrEYjPjDrvKNQLLmbSVzAHv4DQ7SIx?=
- =?us-ascii?Q?h0NrNfNvNVUJOiUH9I6/A2wq+9ycR4fR8gq4P5k6QG0IZHSc1OkaTTQs1o1U?=
- =?us-ascii?Q?JtWU9IgAMebSS6+Hlpu2vrts7WR8aWyA2gj54AUFbZ1ihAclXoBibAhvYOYP?=
- =?us-ascii?Q?I8EZb+E9M8QhSjG4y2i7tz4ySHWYdpJj/yFYBpiRyeRMRIxa/OmWez64T2nG?=
- =?us-ascii?Q?ilLGT2xBgw5wBEQN8gp7B2im5k8FVzXh7lqEFLEbfgwakWZnIkR/7X4WpOWW?=
- =?us-ascii?Q?FzgOaVlObDC8jedZmRqRiuLtnSsfvpR9W4tX6VHnHK79QkTaGg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xj3kAZswTHAZleiMEoZib+Z3U0HSQkLrLjgoZ1ItCzfjJlTwTDOWpt1ho/YD?=
+ =?us-ascii?Q?zXC4Fvza7kjDsRf+HCKcvbKpykEIArFHUi48hMdIeAt3G4uvOvkMcYa9TDNh?=
+ =?us-ascii?Q?uEgOp8qi9ynzdQ0G4XRzwnVnRq2HOkgXDlwNVEMKcne02I68uQA0rf7QwWcN?=
+ =?us-ascii?Q?fU6Uqc31WmelNJDQbrsjSVjCFSeIay7PZYTihFjJg4U7hBEBYjv1nYZh9pEy?=
+ =?us-ascii?Q?wmQlKOm5ZSJjcixew7oQs7KZpmmZTn+k292JOrPKC+5XkHnoJIjdRXpO+xlt?=
+ =?us-ascii?Q?g0rkgWbbgm2xzsFS7qX9DQxW78UmtRisotCorogLDTuwPmONijnSHsUIiqfd?=
+ =?us-ascii?Q?ifvMiZhAE6SG8MhWdKauUY86RMGjuwEFks5scBKMv2DElwza1dMGZ7GHJyLa?=
+ =?us-ascii?Q?5w9XDV7sbEc+EDXUez8AwyqLf7J6vRVKtDGDFJBdx0Ww+KjL9n+mTMAB8Rqo?=
+ =?us-ascii?Q?WvW9Yvy2OrKr1o3Gu5QNOUpb13rEQWgb2yCgXKnTmoCgBA5NA4UfyoEPX5oo?=
+ =?us-ascii?Q?BoSSqvAPWynL9KO6ycyMOCydUf6vHuLpLcBHsYyZHXMVOGW173vcU/o7GIBR?=
+ =?us-ascii?Q?K8xJPrV/nKSzNMuYqpWv2ero2l4oa9umJdyHvl5DHjmRWwndXxM+24Zz1Nwp?=
+ =?us-ascii?Q?p+VzDc1GjMTycwhZEymxKdPHNnFpO8jnM8YKDp9oKqqWLeAJ2fbiKhKHRiI4?=
+ =?us-ascii?Q?jTlP7+/Ow3+clOoUww0/OMDZoPchiq2HqNSQ+2H5Ff50ZqNckH76aAx76qLf?=
+ =?us-ascii?Q?JVVbk70jP9soEi/CflFGk8qq+IwurNuNpP/DzV5s6molBw3/tmAGQVyrFRqs?=
+ =?us-ascii?Q?tp6QZVAzU63PN/kf97yqRtiZdSa1vjf/c3YxFGU0KD9iSZ8Gj12gEXTK7rqS?=
+ =?us-ascii?Q?Jw46o7swZ8YrrVwrhvXoGA/cDyIsDM1yqoFB9FxApQgLtVTuKNLaDqG1L2JK?=
+ =?us-ascii?Q?8IeF8s25nXZF4NvMzg0vsSRVHW6PmfxGF8OJfL9b07PngOqzDMCd5GBvwgI2?=
+ =?us-ascii?Q?K9K9RU4J35qlHpqyQ1k+UADGsCxgi3cux3oroTZXL8smXsKnKJTn9mpA71re?=
+ =?us-ascii?Q?rHHt7ljSrvFznLpztVjgsNRLMbM0PSS0OJ4SlAwTj51i5PInAjTOLkkq2t9n?=
+ =?us-ascii?Q?+fvRxwVfqY8CNH+OAmGUaxRLdPASX2Qs5mh+hjrylc+j69UbXD4YtkOZ2jKV?=
+ =?us-ascii?Q?oVt8ERo5JteDU7J15rSTURuWYec+pJcLUGV+HTUI+CR9Q4AocBC4B6q+0BUE?=
+ =?us-ascii?Q?79UeqaPTg/KyvaNkLD7hMoyBi2Cj7z80e84JVM7F9fA5YTiFTqOMI+PmleuV?=
+ =?us-ascii?Q?4bcrF4v2lzmMCkxBQ2QJs2G/uYXPm0aYvUZmEpyjOXD64tfWDAlUlfkLjx53?=
+ =?us-ascii?Q?Dekl2C9TKeUhGoxrXsJ/P5ha+S538d19QlOvW90QhOl8irwyzg=3D=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 21a79af3-23e6-4cf6-3d43-08def5fe699e
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21496760-4d4f-43ac-84ed-08def5fe6fd6
 X-MS-Exchange-CrossTenant-AuthSource: PH7PR19MB6088.namprd19.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Aug 2026 10:10:20.0096
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Aug 2026 10:10:30.3548
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR19MB7667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_031022_384294_C167ACBB 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260809_031035_357579_1598CA4F 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,207 +144,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the STM32H7R7-based ART-Pi2 with 32 MiB of external HyperRAM,
-UART4 console pin configuration, user LEDs on PO1 and PO5, and the
-user button on PC13. Enable the four-bit microSD slot and reserve a
-coherent DMA pool for noMMU DMA allocations.
+Describe the STM32H7R7 features and note the ART-Pi2 as the currently
+supported development board.
 
 Signed-off-by: Liu Changjie <liucj1228@outlook.com>
 ---
- arch/arm/boot/dts/st/Makefile                |   1 +
- arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts | 100 +++++++++++++++++++
- arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi  |  63 ++++++++++++
- 3 files changed, 164 insertions(+)
- create mode 100644 arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts
- create mode 100644 arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi
+Changes in v2:
+- Add F: entries for the new clk driver, bindings, dt-bindings headers
+  and documentation to the STM32 section of MAINTAINERS.
 
-diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
-index 10c5d75f6..ae27a4ef9 100644
---- a/arch/arm/boot/dts/st/Makefile
-+++ b/arch/arm/boot/dts/st/Makefile
-@@ -113,6 +113,7 @@ dtb-$(CONFIG_ARCH_STM32) += \
- 	stm32h743i-disco.dtb \
- 	stm32h747i-disco.dtb \
- 	stm32h750i-art-pi.dtb \
-+	stm32h7r7l8-art-pi2.dtb \
- 	stm32mp133c-prihmb.dtb \
- 	stm32mp135f-dhcor-dhsbc.dtb \
- 	stm32mp13xx-dhcor-dhsbc-overlay-rb-tft32-v2.dtb \
-diff --git a/arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts b/arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts
+ Documentation/arch/arm/index.rst              |  1 +
+ .../arch/arm/stm32/stm32h7r7-overview.rst     | 28 +++++++++++++++++++
+ MAINTAINERS                                   |  6 ++++
+ 3 files changed, 35 insertions(+)
+ create mode 100644 Documentation/arch/arm/stm32/stm32h7r7-overview.rst
+
+diff --git a/Documentation/arch/arm/index.rst b/Documentation/arch/arm/index.rst
+index b15621093..1e33535e5 100644
+--- a/Documentation/arch/arm/index.rst
++++ b/Documentation/arch/arm/index.rst
+@@ -55,6 +55,7 @@ SoC-specific documents
+    stm32/overview
+    stm32/stm32h743-overview
+    stm32/stm32h750-overview
++   stm32/stm32h7r7-overview
+    stm32/stm32f769-overview
+    stm32/stm32f429-overview
+    stm32/stm32mp13-overview
+diff --git a/Documentation/arch/arm/stm32/stm32h7r7-overview.rst b/Documentation/arch/arm/stm32/stm32h7r7-overview.rst
 new file mode 100644
-index 000000000..ead141817
+index 000000000..7856b4319
 --- /dev/null
-+++ b/arch/arm/boot/dts/st/stm32h7r7l8-art-pi2.dts
-@@ -0,0 +1,100 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++++ b/Documentation/arch/arm/stm32/stm32h7r7-overview.rst
+@@ -0,0 +1,28 @@
++==================
++STM32H7R7 Overview
++==================
 +
-+/dts-v1/;
++Introduction
++------------
 +
-+#include "stm32h7r7.dtsi"
-+#include "stm32h7rs-pinctrl.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
++The STM32H7R7 is a Cortex-M7 microcontroller running at up to 600 MHz. It
++features:
 +
-+/ {
-+	model = "RT-Thread ART-Pi2 STM32H7R7 board";
-+	compatible = "ruiside,art-pi2", "st,stm32h7r7";
++- 64 Kbytes of user boot flash and 620 Kbytes of internal SRAM
++- 32 Kbytes of instruction cache and 32 Kbytes of data cache
++- Two serial xSPI interfaces and an FMC parallel memory interface
++- SD/MMC, Ethernet, USB and FD-CAN controllers
++- I2C, SPI, I3C and serial interfaces
++- NeoChrom graphics accelerator, JPEG codec and LCD-TFT controller
 +
-+	chosen {
-+		bootargs = "earlycon console=ttySTM0,115200";
-+		stdout-path = "serial0:115200n8";
-+	};
++The RT-Thread ART-Pi2 development board is supported.
 +
-+	memory@90000000 {
-+		device_type = "memory";
-+		reg = <0x90000000 0x02000000>;
-+	};
++Resources
++---------
 +
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
++Datasheet and reference manual are publicly available on the STMicroelectronics
++website (STM32H7R7_).
 +
-+		dma_pool: dma-pool {
-+			compatible = "shared-dma-pool";
-+			no-map;
-+			size = <0x00200000>;
-+			linux,dma-default;
-+		};
-+	};
++.. _STM32H7R7: https://www.st.com/en/microcontrollers-microprocessors/stm32h7r7-7s7.html
 +
-+	aliases {
-+		mmc0 = &sdmmc1;
-+		serial0 = &uart4;
-+	};
-+
-+	v3v3: regulator-v3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "v3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led_red: led-red {
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_INDICATOR;
-+			gpios = <&gpioo 1 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led_blue: led-blue {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpioo 5 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-user {
-+			label = "User";
-+			linux,code = <KEY_WAKEUP>;
-+			gpios = <&gpioc 13 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+};
-+
-+&uart4 {
-+	pinctrl-0 = <&uart4_pins_a>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&sdmmc1 {
-+	pinctrl-names = "default", "opendrain", "sleep";
-+	pinctrl-0 = <&sdmmc1_b4_pins_a>;
-+	pinctrl-1 = <&sdmmc1_b4_od_pins_a>;
-+	pinctrl-2 = <&sdmmc1_b4_sleep_pins_a>;
-+	broken-cd;
-+	st,neg-edge;
-+	bus-width = <4>;
-+	vmmc-supply = <&v3v3>;
-+	max-frequency = <50000000>;
-+	status = "okay";
-+};
-+
-+&clk_hse {
-+	clock-frequency = <24000000>;
-+};
-diff --git a/arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi b/arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi
-new file mode 100644
-index 000000000..08f09f562
---- /dev/null
-+++ b/arch/arm/boot/dts/st/stm32h7rs-pinctrl.dtsi
-@@ -0,0 +1,63 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Copyright (C) 2026 Liu Changjie <liucj1228@outlook.com>
-+ */
-+
-+#include <dt-bindings/pinctrl/stm32-pinfunc.h>
-+
-+&pinctrl {
-+	sdmmc1_b4_pins_a: sdmmc1-b4-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('C', 8, AF11)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, AF11)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, AF12)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, AF11)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('C', 12, AF11)>, /* SDMMC1_CK */
-+				 <STM32_PINMUX('D', 2, AF11)>; /* SDMMC1_CMD */
-+			slew-rate = <3>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+	};
-+
-+	sdmmc1_b4_od_pins_a: sdmmc1-b4-od-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('C', 8, AF11)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, AF11)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, AF12)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, AF11)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('C', 12, AF11)>; /* SDMMC1_CK */
-+			slew-rate = <3>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+
-+		pins2 {
-+			pinmux = <STM32_PINMUX('D', 2, AF11)>; /* SDMMC1_CMD */
-+			slew-rate = <3>;
-+			drive-open-drain;
-+			bias-disable;
-+		};
-+	};
-+
-+	sdmmc1_b4_sleep_pins_a: sdmmc1-b4-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('C', 8, ANALOG)>, /* SDMMC1_D0 */
-+				 <STM32_PINMUX('C', 9, ANALOG)>, /* SDMMC1_D1 */
-+				 <STM32_PINMUX('C', 10, ANALOG)>, /* SDMMC1_D2 */
-+				 <STM32_PINMUX('C', 11, ANALOG)>, /* SDMMC1_D3 */
-+				 <STM32_PINMUX('C', 12, ANALOG)>, /* SDMMC1_CK */
-+				 <STM32_PINMUX('D', 2, ANALOG)>; /* SDMMC1_CMD */
-+		};
-+	};
-+
-+	uart4_pins_a: uart4-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('D', 0, AF8)>, /* UART4_RX */
-+				 <STM32_PINMUX('D', 1, AF8)>; /* UART4_TX */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <0>;
-+		};
-+	};
-+};
++:Authors: Liu Changjie <liucj1228@outlook.com>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 1ab873685..bd86eab10 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3667,10 +3667,16 @@ L:	linux-stm32@st-md-mailman.stormreply.com (moderated for non-subscribers)
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/atorgue/stm32.git stm32-next
++F:	Documentation/arch/arm/stm32/stm32h7r7-overview.rst
++F:	Documentation/devicetree/bindings/arm/stm32/
++F:	Documentation/devicetree/bindings/clock/st,stm32-rcc.yaml
+ F:	arch/arm/boot/dts/st/stm32*
+ F:	arch/arm/mach-stm32/
+ F:	arch/arm64/boot/dts/st/
++F:	drivers/clk/clk-stm32h7rs.c
+ F:	drivers/clocksource/armv7m_systick.c
++F:	include/dt-bindings/clock/stm32h7rs-clks.h
++F:	include/dt-bindings/mfd/stm32h7rs-rcc.h
+ N:	stm32
+ N:	stm
+ 
 -- 
 2.55.0
 
