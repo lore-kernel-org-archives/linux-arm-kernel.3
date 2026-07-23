@@ -4,59 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19A4C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A798FC531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zoDshx/L8A4gybf85qsK4YcI8tLFfw4i87t17r27dH0=; b=lY3mLFMwHI0q+w
-	eFg28iehIWq0sx7sC5zB6v9tjXAmcg2FAaAfArf7uIlOgfwbDwcLP2GuH0didZmLIEFUjN31XqRyB
-	nbvfn0ow8f1uoLNNs5C7yhVndrQvd++XPV2P+a7xDViXhp1WdFP4giePYhXBzK5JwqgwFIjldNxmB
-	2CD+aF0N5KJ42/hTzpQOW3odETydjeaLpG6RAYX4/GZmoddZyWA5DivY+ftKwNmICehUuAq74Xc3z
-	0oxuVC7Jf17vvpqdDVGPoYlpERdjD5bFOQHmpceOQWnh9yo7l/Hl8nLVuXr9ehf2gLUdbXTaJ1Nra
-	/X4UQCLwVkUanYStCisw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nke0i/JTdEBAOMHCaZMWt/DlDNqZ5T/UfW4FQxOno1Y=; b=ddV8MQBKqFPQtyGz4NYPP0cOVK
+	DbvP7i5tYYOAuuXymLpckS5xe1GmAEv+OPQMNsx62Bfs75MJ7pKZ7n2+/LaSR7zf+m1q80zD0EB2x
+	feBHX8f99auQKpkJwmORZuE1AoJI3GnQFiy59KB2Z/xl+K+ukMGNVIRTGigNeE8zBVISdXUngNQFl
+	JU2RME7lMwhWnMa5uETt2nlxCyB/wAKG7JkpuKEdbDWxRPIGiSOB7JyT0vb58lLP16tH1PWPQd/CJ
+	ta6VtPswzIGlefLIMBO/ZPWPSScGB99Afy+JjZ29U48g3iXgDOuDGpHo6sJW4d3o9uiK/g8FT2VFV
+	gLyIZfWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqgK-0000000E2CK-17fK;
-	Thu, 23 Jul 2026 10:29:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqgH-0000000E2Bv-1BbN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 10:29:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F139C1477;
-	Thu, 23 Jul 2026 03:29:27 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A35ED3F99C;
-	Thu, 23 Jul 2026 03:29:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784802572; bh=7IeqYTLekg9+0yMqtFibP9kZ3n398kcqplKkZW3lK2U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=s3RSBXBqIkDyRptuCF23MDSPtE2wVsCC+mnIUqkkcxDvN0mzk8/yQ/UljddpQ1hqC
-	 OJKo39UVHXGgefn6t1kR77NV+c1QnCl/2Qr/yZqvj/141ihKoBIhRWOJgsqBfyr6MG
-	 IMH78SR717gcp6kaPklt/7wfEZVFausLUUkxwUn8=
-Message-ID: <dc3ec3b0-a066-475d-af57-342b20f000aa@arm.com>
-Date: Thu, 23 Jul 2026 11:29:28 +0100
+	id 1wmqkx-0000000E2SA-0RhM;
+	Thu, 23 Jul 2026 10:34:23 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmqkt-0000000E2RF-3oM8;
+	Thu, 23 Jul 2026 10:34:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1784802779;
+	bh=Nke0i/JTdEBAOMHCaZMWt/DlDNqZ5T/UfW4FQxOno1Y=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=OKK/gmz5qO781aV4d4CF+XxMd7pYOzGAHxL1e5IwORhvX082bpWefEGzO5LefhAmp
+	 Uq+tkQoQo1Z8qmYWGGVoQyPN03eN0kUsR4c+0Gm5sIR5q30W31DcRJv6msgZOAlr2h
+	 2ZV2JxUjJLHsAPcBBMUMh9Tx9W3RRdmU2JUg7lKs=
+X-QQ-mid: zesmtpsz2t1784802770t35b5fb83
+X-QQ-Originating-IP: b5Uv8wOMovQ+QXu/2dOXjuxoCPnrNY23T+SUkFndhfU=
+Received: from [172.16.12.90] ( [61.154.14.86])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 23 Jul 2026 18:32:48 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4791706803425340570
+Message-ID: <5676B227B50EB88B+ff62bc9e-5175-481a-93f8-c1de7f68eba2@airkyi.com>
+Date: Thu, 23 Jul 2026 18:32:47 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 31/36] arm64: nmi: Add handling of superpriority
- interrupts as NMIs
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-32-vladimir.murzin@arm.com>
- <39ce4d9f-e2bd-426d-894f-886784173be1@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <39ce4d9f-e2bd-426d-894f-886784173be1@huawei.com>
+Subject: Re: [PATCH v2 1/2] clk: rockchip: pll: Fix the fractional part
+ denominator on RK3588/RK3576
+To: Alexey Charkov <alchark@flipper.net>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Finley Xiao <finley.xiao@rock-chips.com>,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>,
+ Wyon Bi <bivvy.bi@rock-chips.com>
+Cc: Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>,
+ Quentin Schulz <quentin.schulz@cherry.de>, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260723-rk3588-fracpll-v2-0-3adfb9dda235@flipper.net>
+ <20260723-rk3588-fracpll-v2-1-3adfb9dda235@flipper.net>
+Content-Language: en-US
+From: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <20260723-rk3588-fracpll-v2-1-3adfb9dda235@flipper.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NUTz4BkILuKLWQdF8Ih4DDdpmPCE9YOxMXVLUnt4kb1B9ehuURJChAx9
+	0jgZ3imd0jaQGP8g1r2KblgUYlT0LmKg6Gp0Iy7x4kB7xfWraZL+JBSATIK9gR+x6mzc1Km
+	AVap/VJcjCf9hQyA3qez/Xh8/w2y1pNQCStX2vJI0uJIxY1sIfnZ2LtnqSL9VyM5K50/S0j
+	NXtlsFleUxNA4oVH3XwQIZtcdV8u/ysjtWc8zEZDg9xiz2ezDty9tb7Gd5ul0VvdcHALmeg
+	+0o4+e0A2KwloEp2QLDiN60xra9ueQI/wODMH9+yizJp1E85gGov0z0xt2cPItvePpjyQwo
+	roECCDdBnEEjgcPCqrVnIDASGKk3QbQh/nHeNumfY50P45f2uftyQa5ezzmX+NwU7hYHy7W
+	ZlBbgGWd/xNlxLgtqo0hErn89/hayfBhhyz/yHl41mpo7tBFqHu+yoz5rIYE4RpKlMI0ayY
+	BmTbr83Y4dV8y+B7ZPpwcRfQdD25Z84ehvE34pLGES9MO1NFobnJz7PnqyZKZJHTGxaegyQ
+	rpqJN1u58oDbrTg0HywNP4whtCcDOAuzpAi9KIz5taT7pJbbxqGcMcwP+0smEDm9yDYsvt5
+	pFkYMEfFJbkusx3wmaczcoadEPIAdpDEZQ+qp/nkqOoKopNzVbTyFt16I6P6x/1N0bIHvxv
+	d7ZSSuM9wVQQly/1hN7JJVi7Lc/08okU77iFOuDUqRwV65Kszx3hjdUFgk9jvrBz5xAkmVD
+	PyLeDbl6x+XpPMy7o3xD59GAlX5HY9fwZxJyCyH4FqEe1ucuZTCf2kq/C3vdMlRW9h3e1xF
+	tHFZ5TR3kTwDNXbq8uiShDiF7fFaP6Sn1NwtUkEJ/uePvGto/ev0sY0JicqdOFLGUy93BCa
+	f0FU9rjkAXZYzKPlankb7I2YK/0HFc99lznQjBfp5t5C064U7cT9hcq5q0dXPgTRJ4iAbPb
+	CtAd97TyEzV7BuKgk9D+/xjl48vYb73g7uG/jYLAkcyzkq1V8/Bc31jFK
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_032933_419908_39AE5989 
-X-CRM114-Status: GOOD (  31.58  )
+X-CRM114-CacheID: sfid-20260723_033420_343278_A8BAB529 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,270 +101,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/21/26 09:33, Jinjie Ruan wrote:
+Hello Alexey,
+
+On 7/23/2026 6:21 PM, Alexey Charkov wrote:
+> According to the TRM, the fractional PLL coefficient should be divided by
+> 65536 rather than 65535 to obtain the output rate.
 > 
-> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
->> From: Mark Brown <broonie@kernel.org>
->>
->> Our goal with superpriority interrupts is to use them as NMIs, taking
->> advantage of the much smaller regions where they are masked to allow
->> prompt handling of the most time-critical interrupts.
->>
->> When an interrupt is configured with superpriority, we enter EL1 as we
->> do for any other interrupt. The presence of a superpriority interrupt
->> is indicated by a status bit in ISR_EL1. We check this bit before
->> unmasking interrupts in elX_interrupt(), and if a superpriority
->> interrupt is pending, we handle it as an NMI. Otherwise, normal
->> interrupts are handled as usual.
->>
->> Since superpriority interrupts are always handled as NMIs, the
->> interrupt controller can rely on in_nmi() to distinguish them from
->> ordinary interrupts.
->>
->> Enable IPIs to use superpriority interrupts as NMIs, matching the
->> existing pseudo-NMI behaviour.
->> Signed-off-by: Mark Brown <broonie@kernel.org>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/include/asm/entry-common.h |  7 ++++
->>  arch/arm64/kernel/entry-common.c      | 59 ++++++++++++++++++---------
->>  arch/arm64/kernel/smp.c               |  2 +-
->>  3 files changed, 48 insertions(+), 20 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
->> index 73d82a8d8e95..0681ba91ac3b 100644
->> --- a/arch/arm64/include/asm/entry-common.h
->> +++ b/arch/arm64/include/asm/entry-common.h
->> @@ -37,6 +37,13 @@ static inline bool arch_irqentry_exit_need_resched(void)
->>  	if (system_uses_irq_prio_masking() && read_sysreg(daif))
->>  		return false;
->>  
->> +	/*
->> +	 * If AllInt is set then we must have handled an NMI, so skip
->> +	 * preemption
->> +	 */
->> +	if (system_uses_nmi() && read_sysreg_s(SYS_ALLINT))
->> +		return false;
->> +
->>  	/*
->>  	 * Preempting a task from an IRQ means we leave copies of PSTATE
->>  	 * on the stack. cpufeature's enable calls may modify PSTATE, but
->> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
->> index a13653b228b7..de71d5a3a6a1 100644
->> --- a/arch/arm64/kernel/entry-common.c
->> +++ b/arch/arm64/kernel/entry-common.c
->> @@ -525,8 +525,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->>  	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->> -static __always_inline void __el1_pnmi(struct pt_regs *regs,
->> -				       void (*handler)(struct pt_regs *))
->> +static __always_inline void __el1_nmi(struct pt_regs *regs,
->> +				      void (*handler)(struct pt_regs *))
->>  {
->>  	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->> @@ -545,7 +545,10 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->>  
->> -	arm64_unmask_exc_context(NONMI_CONTEXT);
->> +	if (system_uses_nmi())
->> +		arm64_unmask_exc_context(NOIRQ_CONTEXT);
->> +	else
->> +		arm64_unmask_exc_context(NONMI_CONTEXT);
-> if (gic_supports_pseudo_nmis())
-> 	arm64_unmask_exc_context(NONMI_CONTEXT);
-> else
-> 	arm64_unmask_exc_context(NOIRQ_CONTEXT);
+> Fix the denominator and add a comment with the TRM provided clock formulae
+> for future reference.
 > 
->>  
->>  	irq_enter_rcu();
->>  	do_interrupt_handler(regs, handler);
->> @@ -565,8 +568,11 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->>  static void noinstr el1_interrupt(struct pt_regs *regs,
->>  				  void (*handler)(struct pt_regs *))
->>  {
->> -	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
->> -		__el1_pnmi(regs, handler);
->> +	/* Is there a NMI to handle? */
->> +	if (regs_irqs_disabled(regs))
->> +		__el1_nmi(regs, handler);
->> +	else if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS)))
->> +		__el1_nmi(regs, handler);
-> I think it would be more readable to add a helper below.
+> See RK3576 TRM Part 1 V1.2 section 2.13.1.4 Setting Guide on P, M, S and K
+> or equivalently RK3588 TRM part 1 V1.0 section 2.17.1.4 Setting Guide on P,
+> M, S and K.
 > 
-> static inline bool is_nmi(regs)
-> {
-> 	if (regs_irqs_disabled(regs))
-> 		return true;
+> Fractional PLL rates don't seem to be used by any current mainline
+> consumers, so this is purely a correctness fix. It will also be important
+> to properly support DisplayPort output going forward, as the video output
+> controller derives its pixel clock from system PLLs with no dedicated PHY
+> PLL option for DP unlike HDMI, and some display modes are only achievable
+> with fractional PLL rates.
 > 
-> 	if (system_uses_nmi())
-> 		return read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS);
+> Fixes: 8f6594494b1c ("clk: rockchip: add pll type for RK3588")
+> Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> ---
+>  drivers/clk/rockchip/clk-pll.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 > 
-> 	return false;
-> }
+> diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
+> index 6b853800cb6b..bf8acf7cee0d 100644
+> --- a/drivers/clk/rockchip/clk-pll.c
+> +++ b/drivers/clk/rockchip/clk-pll.c
+> @@ -900,6 +900,13 @@ static void rockchip_rk3588_pll_get_params(struct rockchip_clk_pll *pll,
+>  	rate->k = ((pllcon >> RK3588_PLLCON2_K_SHIFT) & RK3588_PLLCON2_K_MASK);
+>  }
+>  
+> +/*
+> + * 2250 MHz <= Fvco <= 4500 MHz
+> + * For Fvco > 3 GHz: period jitter +-1% frac PLL, +-0.75% int PLL
+> + * For Fvco < 3 GHz: period jitter +-2% frac PLL, +-1.50% int PLL
+> + * Fvco = ((m + k / 65536) * Fin) / p
+> + * Fout = ((m + k / 65536) * Fin) / (p * 2^s)
+> + */
+>  static unsigned long rockchip_rk3588_pll_recalc_rate(struct clk_hw *hw, unsigned long prate)
+>  {
+>  	struct rockchip_clk_pll *pll = to_rockchip_clk_pll(hw);
+> @@ -915,7 +922,7 @@ static unsigned long rockchip_rk3588_pll_recalc_rate(struct clk_hw *hw, unsigned
+>  		/* fractional mode */
+>  		u64 frac_rate64 = prate * cur.k;
+>  
+> -		postdiv = cur.p * 65535;
+> +		postdiv = cur.p * 65536;
+
+
+How about using 65536ULL? Will the multiplication here overflow?
+
+>  		do_div(frac_rate64, postdiv);
+>  		rate64 += frac_rate64;
+>  	}
 > 
 
-Makes sense, yet I would keep regs_irqs_disabled() limited to EL1,
-since it is very tempting to reuse the helper for EL0 interrupts,
-where the regs_irqs_disabled() check is redundant.
+-- 
+Best, 
+Chaoyi
 
->>  static void noinstr el1_interrupt(struct pt_regs *regs,
->>  				  void (*handler)(struct pt_regs *))
->>  {
->> -	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
->> -		__el1_pnmi(regs, handler);
->> +	/* Is there a NMI to handle? */
->> +	if (is_nmi(regs))
->> +		__el1_nmi(regs, handler);
->>  	else
->>  		__el1_irq(regs, handler);
->>  
->> @@ -906,24 +912,39 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
->>  static void noinstr el0_interrupt(struct pt_regs *regs,
->>  				  void (*handler)(struct pt_regs *))
->>  {
->> -	arm64_enter_from_user_mode(regs);
->> -
->> -	arm64_unmask_exc_context(NONMI_CONTEXT);
->> -
->>  	if (regs->pc & BIT(55))
->>  		arm64_apply_bp_hardening();
->>  
->> -	irq_enter_rcu();
->> -	do_interrupt_handler(regs, handler);
->> -	irq_exit_rcu();
->> +	/* Is there a NMI to handle? */
->> +	if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS))) {
->> +		irqentry_state_t state;
->> +		arm64_exc_hwstate_t hwstate;
->> +
->> +		state = irqentry_nmi_enter(regs);
->> +		hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
->> +		do_interrupt_handler(regs, handler);
->> +		arm64_mask_exc_context(hwstate);
->> +		irqentry_nmi_exit(regs, state);
->> +	} else {
->> +		arm64_enter_from_user_mode(regs);
->> +
->> +		if (system_uses_nmi())
->> +			arm64_unmask_exc_context(NOIRQ_CONTEXT);
->> +		else
->> +			arm64_unmask_exc_context(NONMI_CONTEXT);
-> if (gic_supports_pseudo_nmis())
-> 	arm64_unmask_exc_context(NONMI_CONTEXT);
-> else
-> 	arm64_unmask_exc_context(NOIRQ_CONTEXT);
-> 
->> +
->> +		irq_enter_rcu();
->> +		do_interrupt_handler(regs, handler);
->> +		irq_exit_rcu();
->> +		/*
->> +		 * For the same reason as in el1_irq() we effectivly
->> +		 * have NOIRQ_CONTEXT on return from handler - keep
->> +		 * track of it
->> +		 */
->> +		arm64_debug_exc_context(NOIRQ_CONTEXT);
->> +		arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
-> Here we assert that we are in NOIRQ_CONTEXT, and then we switch to
-> NOIRQ_CONTEXT again. Is this redundant?
-> 
-
-Well, it is redundant prior to the whole rework, but after the rework
-it becomes a no-op because both the previous and next exception states
-are the same, so no real work is done. :)
-
->> +	}
-> Can you split them into two sub-functions, such as el0_nmi and el0_irq
-> as shown below, so that it looks clearer?
-> 
-
-Works for me, I'll update in the next iteration.
-
-> static inline void el0_nmi(struct pt_regs *regs, void (*handler)(struct
-> pt_regs *))
-> {
-> 	arm64_exc_hwstate_t hwstate;
-> 	irqentry_state_t state;
-> 	
-> 	state = irqentry_nmi_enter(regs);
-> 	hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
-> 	do_interrupt_handler(regs, handler);
-> 	arm64_mask_exc_context(hwstate);
-> 	irqentry_nmi_exit(regs, state);
-> }
-> 
-> static inline void el0_irq(struct pt_regs *regs, void (*handler)(struct
-> pt_regs *))
-> {
-> 	arm64_enter_from_user_mode(regs);
-> 
-> 	if (gic_supports_pseudo_nmis())
-> 		arm64_unmask_exc_context(NONMI_CONTEXT);
-> 	else
-> 		arm64_unmask_exc_context(NOIRQ_CONTEXT);
-> 
-> 	irq_enter_rcu();
-> 	do_interrupt_handler(regs, handler);
-> 	irq_exit_rcu();
-> 	/*
-> 	 * For the same reason as in el1_irq() we effectivly
->     	 * have NOIRQ_CONTEXT on return from handler - keep
->          * track of it
->       	 */
-> 	arm64_debug_exc_context(NOIRQ_CONTEXT);			
-> 	arm64_exit_to_user_mode(regs, 	
-> arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
-> }
-> 
-> static void noinstr el0_interrupt(struct pt_regs *regs,
->  				  void (*handler)(struct pt_regs *))
-> {
-> 	if (is_nmi(regs))
-> 		el0_nmi(regs);
-> 	else
-> 		el0_irq(regs);
-> }
-> 
-> otherwise, LGTM
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
-> 
-
-Cheers
-Vladimir
-
->>  
->> -	/*
->> -	 * For the same reason as in el1_irq() we effectivly
->> -	 * have NOIRQ_CONTEXT on return from handler - keep
->> -	 * track of it
->> -	 */
->> -	arm64_debug_exc_context(NOIRQ_CONTEXT);
->> -	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
->>  	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
->> index 257d50529d14..80e35a8e5c8f 100644
->> --- a/arch/arm64/kernel/smp.c
->> +++ b/arch/arm64/kernel/smp.c
->> @@ -1035,7 +1035,7 @@ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
->>  
->>  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
->>  {
->> -	if (!system_uses_irq_prio_masking())
->> +	if (!system_uses_nmi() && !system_uses_irq_prio_masking())
->>  		return false;
->>  
->>  	switch (ipi) {
-> 
 
 
