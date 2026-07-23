@@ -4,72 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C646C531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81EDC531CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yym2XBHop2qIp/fUs3Kxcp1HDaHRHWfQSCOf4IBeT3g=; b=ChKtksfZaQTlUXAYMdMRDuZTyg
-	3KZg9CkkBAdA+8JqRgrXmXS+3o2ilGDAZDZaDBNEFTydqfkX6z5ESvY1BsYY4Exzx4ZcUDl38AE3S
-	FRlIuaLqDqT0PQscysxmnOXUpMLuVCDKsoMZHc4uUIGOckZQV2tPs6Cd+njTvOAK/fiqANd88CcuB
-	O7tajHh4ESxvpHNVdf44mRkoGWHMTnP0gfdTDFXi0zl+ICcrQoZbMvFPFC8QPMlg5Jv4XvUqhdpN8
-	kGs84VpAnddPUw/y+9pVP3wUQPkvwNiCGFFdyjrbySi/mhoKZtZlAIucyFQLBLjdwC4eW/Lmt15uH
-	NwrP5lxg==;
+	bh=GjKwg502tyZxWCtZ7RYBVZ1wpUQ9BQEXF5pbpjIjcNs=; b=oBZKuixQI5RfTy2IJeT4KUWIQ7
+	2VNV4jQAsk39CznWnjm3MlZZ786IwQuDdlcD2U2d17cli27BpNjOq/AuR6dlLVw15edZUYAAWCT6P
+	IEaxaY1IhWGaC150mEhipc0qf2+YQ8fbNtvJ7FICMsIMws/XYIjMkvkJ6KSWcbPzPJsGWIxMIUSYx
+	T6V+tdB55RcyimUpcD2Gbi9HpYzJgH+MpvqCYBFCfDolTL+5VeC7Hb+dwO7vDHi0nkQ8jXyIVWzUd
+	aJ+9i2z+w8yWXiIA5bbE1p/wEMrbADvcUveQmyZt61GRLRZw2l/J8ah5Ir9xUGeySaZbh1yxrDF44
+	ZOjT12DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsZQ-0000000EEuz-2mBz;
-	Thu, 23 Jul 2026 12:30:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsZN-0000000EEuO-3tjm
+	id 1wmsZy-0000000EEzR-3Lr7;
+	Thu, 23 Jul 2026 12:31:10 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmsZw-0000000EEym-102f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 12:30:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B9E01477;
-	Thu, 23 Jul 2026 05:30:28 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9D983F59E;
-	Thu, 23 Jul 2026 05:30:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784809832; bh=D9b7QZwBuuV0OrDRC/6goX+R19G+8jmXb8K0TVh5EMs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JgVcMkeTJJ4P4FfZC2DKTIG2CK3JiugQN8UJUQ3GhN1/bKw8b0wDBvTCg4Y3Vrjsk
-	 z52idKXbarz8sd0UvNX6oWtOSwNsblHV0O56U5g95iiRceM67pCkvKW+SMDgzcBhcn
-	 +2gIRwAChHRW1BRbfLWA17HpoSK1Hzo4okc6lrfA=
-Date: Thu, 23 Jul 2026 13:30:23 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when
- loading SME state
-Message-ID: <amIJX3j6VHto1YWs@J2N7QTR9R3.cambridge.arm.com>
-References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
- <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
- <ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
- <15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
- <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
+	Thu, 23 Jul 2026 12:31:09 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-51c15a5b265so238861cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 05:31:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784809867; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TL0aL/44G3dPaAOri0yqaFz6WyzxqWU9LfNyr3jCbMtQlyhplcMeUEJQaofWKMkWz0
+         y7Fet+kD8mODWG5cq5fbzl8UUIjjN1Xmd/kpPRdxuZxH4dnwPBYkU2Ox9+TI3zkCTm7j
+         IeOtMTMHALBXOAnXGN47XQje1GWVo1hhIJ/Y3fsVEMoOyCDRRmiSWNSqOdsB4RL+b3ul
+         G2ToxbM/ceNO5Y8jbMKFzyg53yHjLBJ1LQPMbt0feFGJ1l1KV70IeLEB8/WqNghMu4zC
+         Usk23O+f0WL0CDWMRShll0ty4GU9wQq5pcKQBo/dTQDk6l/ZFELFPPeENCyDtM7dCHwa
+         dJpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=GjKwg502tyZxWCtZ7RYBVZ1wpUQ9BQEXF5pbpjIjcNs=;
+        fh=8qQg/F6hTnxb41RhUi15zmCDlNLDuJYAvmTKxo1SJBU=;
+        b=bFza2hY8GfHlISc74naALi8RzWYz0LU/nrf22f+GGWLJD1zYCy9UbTM6givC8NoDu6
+         z2QkaRKTUpaObxMfVdXCFYHad/OtcJjH+vSLU7tSu05TKbjJD3E4HVtOASLagZAqNFjN
+         UAfVlSyCowUasRM9o3OJMwOMmglk/xHET5pnMbjTV9PAPUH2E5dYNdeHjk9We39kl+ET
+         +jpfo7ALrsNuyudZCYkVqOtp/Hy8D14oPDksGLT6DbXSKoppedZS0Y5hQFOjPfa4cSp3
+         oH9S+KGV8dOFuTpmGAzuc1TNS1j4BFQBgfnBQwiNpxoYTrdfoOovuEDOKhqihwHQyLWk
+         LSFQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784809867; x=1785414667; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GjKwg502tyZxWCtZ7RYBVZ1wpUQ9BQEXF5pbpjIjcNs=;
+        b=EVQHHO1amI3CAjvp+YWb5iZWTYeqyigjGVDLwIHWL8lzdSWJHzt9FC3zmTmd1eRAmT
+         +xMkZdxbvGNhkpm22Akxm16dnO4E6/EYmQuH0ATPSrtE2dF7s4C357RkV09n7gj5q18S
+         9qkmrU+F3H9Zv+8h14pwQnEGSs0R7kQgxH3gMKooKUnSrweM1SW8ixZosAlpc19UuKTE
+         BfmImELrAVFg5r0/9NNh9gra0J61dnJ6KyYp5GPXPm4v/mh9cghcrTRxmTtnr/9IpWIn
+         i4j9LqWI/TpiYb11TFQRzPB8iuZJJi+xEhJoXFtKPMxkfhv+IUMO4WGHe8V4yUgYdo8l
+         BflQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784809867; x=1785414667;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=GjKwg502tyZxWCtZ7RYBVZ1wpUQ9BQEXF5pbpjIjcNs=;
+        b=Iyz53aB8LA9hAQWM7lHF4d/1CmnYqmsgX5Des+5yPEZl590jR/RuthflLyvgQ69VLN
+         koo1vggYLCt0vAmgN0RrjBXzZAgAW+Odw95hmac0aMpQWYmiOqhpTfvoYNG8BXra/2Zg
+         VJf9G3Xg+FQ6Wt7HR7tcRnaSPs4mWVTnVm5alCjTnV48erCgDD28sQqdSRB5/RXkD1x7
+         cKpvHUckD6dxMojjtOX2n5OGPdgRX2Vsy8KkETOiLMN8v05nSuiUE1dQ/ZXzYV8wv+y1
+         kcqI0DYl8uzpI7/ZuOJ4nS3x7zKpWdMZmBqv9Y10JTVHvuOUF9+IxBRtCdee5FG2R1Ql
+         vjTA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro50ot/bMi9JMHG+3p9slOzakHPr0PwV6c9iiJ5Qo2kTnmItFH+T0HFdVNVHsX9ER7SuXp6Lu75s9U+l7JdyFOT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+JNBEoVrbow7mEcvYxqJGC66dRoJMGkFpxiaNNHb65bIljBPt
+	+ucXZveCndgSjTwqLKG7UtCciuWcROHaju/MNCsxEdSGDzMkQdTQQRRFqHmjcfDg0vSC5RRnPi9
+	wMPk+s47sJqX3nRPwZjdY4Mo6ordDYm4lVJzVH9zi
+X-Gm-Gg: AR+sD13q5jOD4NWfFx2HlqpgZtDvyvwmhDeLo9cECG60nDpwe4gbxTCpgTk1UoHQCYw
+	W+xF6tJzgol859bwq37Mujws05fA4oGRiKj+LGO/7Nx8W5FWjo7D+2KdxeZqXdVE4AdJXsVOrMm
+	DhNHyLWv+c5his7lcn8TuWDoDMVGI8DcxgMH4mks2pC1Kzs0OWXrUhWvJPC/AxHPftK8XaggfWu
+	lzLbDywFZiAZpCGEj/Lp0fmXdQtjvgWTkir6Rbrgv4qGxI+HnxSWmJ/MswoTQ==
+X-Received: by 2002:a05:622a:aa43:20b0:51c:7a90:a797 with SMTP id
+ d75a77b69052e-5283d85b7b0mr7596281cf.23.1784809866173; Thu, 23 Jul 2026
+ 05:31:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
+References: <20260720171513.1415357-1-vdonnefort@google.com> <20260720171513.1415357-4-vdonnefort@google.com>
+In-Reply-To: <20260720171513.1415357-4-vdonnefort@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 23 Jul 2026 13:30:28 +0100
+X-Gm-Features: AUfX_mzbQdbtQwzjAF4zylFKz0WUrBhvIzo9qg77xEfFDecvyAhNZcw6XIXOZ00
+Message-ID: <CA+EHjTy0ghocNgufEbieYuKn03f7_kCHH85YcmQ+xviO9GtaLg@mail.gmail.com>
+Subject: Re: [PATCH v3 03/17] KVM: arm64: Add pkvm_map_private_va_range
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_053034_026627_7936D4FD 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20260723_053108_292460_C4914152 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +117,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 18, 2026 at 01:35:21AM +0100, Mark Brown wrote:
-> On Thu, Jul 16, 2026 at 04:28:02PM +0100, Mark Brown wrote:
-> > On Thu, Jul 16, 2026 at 11:52:36AM +0100, Mark Rutland wrote:
-> 
-> > > >  		if (test_thread_flag(TIF_SME)) {
-> > > > -			unsigned long vq = sve_vq_from_vl(sme_vl);
-> > > > -			sysreg_clear_set_s(SYS_SMCR_EL1, SMCR_ELx_LEN, vq - 1);
-> > > > +			sysreg_cond_update_s(SYS_SMCR_EL1, task_smcr(current));
-> > > > +			isb();
-> > > >  		}
-> 
-> > > What's the ISB for? That mysteriously appeared in v11 without
-> > > explanation. It wasn't in the original code, prior versions of the
-> > > series, or my suggested rework with the task_smcr() helper.
-> 
-> > > I don't believe it's necessary to add an ISB here.
-> 
-> > I can't remember or figure it out, I'll delete.
-> 
-> Actually I remembered: while SCMR_EL1.LEN is self synchronising the
-> "without the need for explict synchronization" wording is not present
-> for SMCR_EL1.{FA64,EZT0} and this is no longer explicitly just an update
-> of LEN.  It's possible I'm being overly paranoid here, I'll leave the
-> isb() and add a comment for the next version.
+On Mon, 20 Jul 2026 at 18:15, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> In preparation for the pKVM heap allocator, introduce
+> pkvm_map_private_va_range() to map a physical range into the pKVM
+> private range.
+>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Ok.
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Given we've already forgotten that once so far, that definitely needs a
-comment.
+Cheers,
+/fuad
 
-Mark.
+>
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> index 00cadd13ee5d..ea97ea49820e 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> @@ -31,6 +31,7 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+>                                   unsigned long *haddr);
+>  int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
+>  int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
+> +int pkvm_map_private_va_range(void *haddr, phys_addr_t phys, size_t size);
+>  phys_addr_t pkvm_private_va_range_pa(void *va);
+>
+>  #endif /* __KVM_HYP_MM_H */
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+> index 5cd2f1fe51e4..20e4445dd57b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+> @@ -25,6 +25,7 @@ struct memblock_region hyp_memory[HYP_MEMBLOCK_REGIONS];
+>  unsigned int hyp_memblock_nr;
+>
+>  static u64 __io_map_base;
+> +static u64 __hyp_private_va_start;
+>
+>  struct hyp_fixmap_slot {
+>         u64 addr;
+> @@ -90,6 +91,31 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
+>         return ret;
+>  }
+>
+> +/**
+> + * pkvm_map_private_va_range() - Map a physical range into the private VA range
+> + * @haddr:     The virtual address in the private range.
+> + * @phys:      The physical address to map.
+> + * @size:      The size of the range to map.
+> + *
+> + * The hypervisor VA @haddr must have been first allocated with pkvm_alloc_private_va_range()
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int pkvm_map_private_va_range(void *haddr, phys_addr_t phys, size_t size)
+> +{
+> +       unsigned long addr = (unsigned long)haddr;
+> +
+> +       if (!PAGE_ALIGNED(addr | phys | size))
+> +               return -EINVAL;
+> +
+> +       guard(hyp_spinlock)(&pkvm_pgd_lock);
+> +
+> +       if (addr < __hyp_private_va_start || addr + size > __io_map_base)
+> +               return -EINVAL;
+> +
+> +       return kvm_pgtable_hyp_map(&pkvm_pgtable, addr, size, phys, PAGE_HYP);
+> +}
+> +
+>  phys_addr_t pkvm_private_va_range_pa(void *va)
+>  {
+>         kvm_pte_t pte = 0;
+> @@ -450,6 +476,7 @@ int hyp_create_idmap(u32 hyp_va_bits)
+>          */
+>         __io_map_base = start & BIT(hyp_va_bits - 2);
+>         __io_map_base ^= BIT(hyp_va_bits - 2);
+> +       __hyp_private_va_start = __io_map_base;
+>         __hyp_vmemmap = __io_map_base | BIT(hyp_va_bits - 3);
+>
+>         return __pkvm_create_mappings(start, end - start, start, PAGE_HYP_EXEC);
+> --
+> 2.55.0.229.g6434b31f56-goog
+>
 
