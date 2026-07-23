@@ -4,159 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98CECC531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D19C531CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lz7QXf+iBwT8QlIH9Oun8AGxaHA1wq8IUAehzHZTWo0=; b=re5kyZ6SwxmsuFZlirLM/4x47F
-	l84QTbe/bAEZzABaNGbw3NlhYZPdwgQh6n44AtnjpUj10THZd0IBunDmQ3MMEU8+DhSPSGL+vxLGE
-	qxe5PH62AS5xHa+UkA4PzeckKj7A49D0CmzOs+a9FsR58UP9KQ7oHiFlwzpkFPQJT2AENBWMJzrfl
-	aGKv7mL5FvYG4h+onTwhwJMvEc0Glrf+Slq3QqAJ/XBwx4ypaV+N1YkYXUvw3jr1apy/iE+WxktkK
-	Vp0GGPNs7Gw3D4lCXleyXuI38yRriQnUO84iIEEClvCSPWrrK0J7fGApLMchmbVtnTyA+eC/1bdtX
-	dn26nMsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VON2fRioEr+TslOcAVnLaO0rV/n3EKwnwZPm48p6l/E=; b=5BxQP4OpMoB82gg1I3/okxxBXF
+	QuaYBup1V0NQl0I24ggSkqmxJUXbzWfEV24GyfXSv5W2MvHeuEiyexRrosoqNQt+HLTcaWFoVTvKV
+	XuolC39G+GoRV2q27DOhDvOK2pYqO7nwu+SjSpP9IL+TiOlSYcW4pa7pjKWHV5cSmxwD/WSPvADOd
+	ZHIz9Fg1KAVAKCkjK5nGMab0D7qg+nCsUAelC+LJXVkFhLbpJ8EFLGc3SIXjuth8hevcVeggFl4mM
+	4uZGoZgXCMgdDc9B4rF5deRv0ly9Y5n/L5H9KXpCoF7YkGM/oVDD5lVh0WXocVjWlbsvThWXdk/mh
+	tlrVBjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpbt-0000000Dprf-2iYZ;
-	Thu, 23 Jul 2026 09:20:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmpf5-0000000Dq2y-48hM;
+	Thu, 23 Jul 2026 09:24:16 +0000
+Received: from mail-westcentralusazon11010004.outbound.protection.outlook.com ([40.93.198.4] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpbr-0000000DprI-1IXb
+	id 1wmpf3-0000000Dq2W-0WMj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:20:56 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N8qiBr3387988
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 09:20:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lz7QXf+iBwT8QlIH9Oun8AGxaHA1wq8IUAehzHZTWo0=; b=RDocfRy2yCHEjccW
-	RZsU+gVIqtmV1JA9knlL2qUoDyjx1MFmf4ZpdDgtcCPjCkD41+MaINpGGNqlssH2
-	+RmCqQkCtNsfKC32m93P87q3wDV+LDgGF+Z0o4QaWHMltGFdL21fLRpZDlzauFXC
-	ITws8oIBPGRDOjpHlJXTDMGYhCkRRLnR7REkcGMvmQ5r3mayMxGo9gP2+fL8cgmV
-	Z1dSeukTeYYt02iGWv623uus3oOA3IZwhBqSbmORWl0Fu2ucPZ/owlrRo6jRBkjz
-	Kv/Qggw2S/sze037UCDDCVLHPys0Bk3UshoaJP5hWMv2/77YZzunLT9ZY95mpTCD
-	vFMC6g==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fk275kby5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 09:20:53 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ce7dff6253so2907795ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:20:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784798453; x=1785403253; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lz7QXf+iBwT8QlIH9Oun8AGxaHA1wq8IUAehzHZTWo0=;
-        b=df5zD3RjU8Y57DP3YRXKmYupF08ieNyImPlxLFZeBjVE6TKuzQEdK/286jUYtXD4mc
-         PNMLAMLiA81Lw+3ruJPFSmxZxOa6bJdX0U1TfLZ/Y8HXP0M3PlaKbTVstVMmn2riDNG2
-         caIs0ynIVhQAeF9SUL2RWAfsMmb0fudpG+f80Ni+akOd3PKWYYOZmpUfeZIT+OqNQchz
-         cf4TAhkd095+t8kPOEvmwPeyKvDwTbTfl9w96xWU4JRRxUPbJgbODAGmRvOTg0EtcoJJ
-         XK8ujMgMegDrYnDASOZcQTh0KOkpDI4WSChiE5+2gs8W51Kswu4Od76VVs2pVunNhZNP
-         IXLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784798453; x=1785403253;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lz7QXf+iBwT8QlIH9Oun8AGxaHA1wq8IUAehzHZTWo0=;
-        b=UXEi2htFkuB1DJq2LR9qOhi+v9VvawmpSHQCe1VRgp/uBpUSYYiDcV5EZHPggBxAIx
-         WH6zpHpiSLEfWxIaSG6TlnbBwM8/iuvQUvTsMbUnNMwFnoeVzZ9P+ursqm6ISykEoEdU
-         nUuIM5ceEW9oeDesOdmb/N9BMXzaelEuoNPuq0+CzyTm1ML1g8wX8A2jl1zIMGXwHeKg
-         ys8e5k8uTxTMr1CtlXbrdg24kMtYxkln7nVhBtMHSKsOEHChozElccURSAP5oRT4Gl3d
-         RzpKQ4ACPILSIwGJv9tJqoy9PeiuzBOhRV1JugNVWDuWM7JvTgQ2aoyCDZfsJRvHONio
-         NZ/A==
-X-Forwarded-Encrypted: i=1; AHgh+RrAfhtIYUVJ24+MwitTNDCCl6m4ZL0uGvYwBIYnrUajl3FV+4aDw+uz3l8n7Tab5vbAlq79jWdKmQH2dAheq41I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrQbkLMnAbClEvmfzh2B+QQpE+Cu8u1CjUWtkc9lSB5vtfeWp6
-	xTwjJLxwDq7cilP5IG/tashmpg9SKuZVH2APoFwI6Kt9qdChKF+j5hX4FTVle8w3pfeTl1b7VBJ
-	XbdMX5wt+4gOkIUonAvvGhsqx2OMdscC7h36PLqv3k3iUOMPj5HTERibCDUybJIXNbL+4aDxPpR
-	MylQ==
-X-Gm-Gg: AR+sD10yNIbcmHLzVpbP9P8dtr4ZkpREoeiZDFi+8yHH18VLmucg6dA7Wm7LbFuddJa
-	xCPmhCiBJTDO+X5ioRo/NlXhL7lGT5dEY7J5o3WM4qJM76N8ygv2f9hdry+S8aPXHz9C69maoHW
-	PbSNoV/UvjZfPifk+aP0hEq9r5JbDxn/1E5yeMoXwqCJds2rHII6bz/MwaueAnTQ456Aey8+Imf
-	dlSgFf/AypDcRYDz6wh0aGbCrLSDTUo871ukKq7dHRW4e7qWFIM3Wf5+5JzqejYQzWs9llNxBY0
-	p4tqL8do0uAW6CAK1IfXB+9FVgC9HjuDzDoQxTOpI0vP3iXXhVSATwwhWU3bEBJnsjsos0euKST
-	eQdbF1mwfxwQL92iWeMT/WpokEP9Qsh9LJr4=
-X-Received: by 2002:a17:903:1c1:b0:2cf:18e5:1d18 with SMTP id d9443c01a7336-2cfa958568amr21289805ad.29.1784798453095;
-        Thu, 23 Jul 2026 02:20:53 -0700 (PDT)
-X-Received: by 2002:a17:903:1c1:b0:2cf:18e5:1d18 with SMTP id d9443c01a7336-2cfa958568amr21289495ad.29.1784798452670;
-        Thu, 23 Jul 2026 02:20:52 -0700 (PDT)
-Received: from [10.217.219.142] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8f011570sm29930365ad.35.2026.07.23.02.20.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jul 2026 02:20:52 -0700 (PDT)
-Message-ID: <eb99f98a-db4b-40a6-9c5b-9f9eb6986d28@oss.qualcomm.com>
-Date: Thu, 23 Jul 2026 14:50:43 +0530
-MIME-Version: 1.0
+	Thu, 23 Jul 2026 09:24:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WfjqFiibcIYIft0bVF1J4AvbKqudIjlF6eqYV37rt61Cw0Wnz4W3skVcRhSHyPjziHEMbRC60tvdm9bVvnp1PYRdERH2+M/mYdAVd21n6/ZZ1MTVA/JUq9Y5uQxY0rH9eCJ67IZOiQSTNfm5PfVhoMJnsVgH5LtGH+tE5XhwtYeEJSKngu3fd6fTuhSzCd8sJ1EQbYfG/0Hfitk8muP526ay17doLgamtgjy6DCxvuSm/rg1h6f2k8iO5b7RkrbC49+DJQhAITNu30vCEvARgPH4Ez7yIm1lpK61D1X2nIenfNYbr2ehU+zpuZaxkviDyFeFu8oejBPPe+KSJoIMwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VON2fRioEr+TslOcAVnLaO0rV/n3EKwnwZPm48p6l/E=;
+ b=ZnsHJsg+blPOzvThL58QZrX25j9UXFShqFQdYFiKnFOP60tDbkO/Mz4Grs0/FeLAjUTIZRINLCZ5uKidY6daf8FunWnBkWE9CcWfKsJ2xQ+z4M1CwVRMzRQXVAortfSjbA+WzZzefKQu/hCd/QNahRDXl+IMca/TZHktXPdyey0zjSrIhIJEs+QILcNvxvIuTgLaiv/TbcL4NDS5BN8DsBjX6paLJjCJz4j7Z9Ls2wsRML+OVMBAClHz/Dg4TMcTqJcPbaHnJYTtaQJoT2CXwS4qze3EF9CuyogBDC/laIIjKsib9AZd8FhOfITPFUJTvBaGVGK8MxkiwAnV2MDBCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VON2fRioEr+TslOcAVnLaO0rV/n3EKwnwZPm48p6l/E=;
+ b=TYxK0ewAK0ylx7ye4otP7YifyCRIgA17skOvA8mVfTo2QHjH4NXIaxBs/8V1yJCKdDiKtlgCTitbmIIdqac/KjTjOMRBgn4WHk/AvndRTyKXCO0dbZQdX8Mv/Bqu3qG6+nuYqDjlpvkOJGpr6FEJ9mJaXFFAA7ofAFljpAX797Ku6b2Eo282YwATpWTeqx3dI9qLhcJvnpxMNTciHirEh4io+Zr4+Z8QYoM4oYuV84euyQJI6PWtDEb7Y2JqDF4t+PmKEPsLnfhrU0X1krjb4uP+KHJ7YwDZSWtVdoJGST8ojmB/8TS2jNALh9Sy5GQmJF8Fa9cyUHzRTzsFrptNFg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
+ by DS5PPFC9877909A.namprd12.prod.outlook.com (2603:10b6:f:fc00::661) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 09:24:06 +0000
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 09:24:06 +0000
+Message-ID: <325be874-bab9-464f-84ee-99e160259923@nvidia.com>
+Date: Thu, 23 Jul 2026 10:24:00 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v23 12/14] crypto: qce - Map crypto memory for DMA
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-        Thara Gopinath <thara.gopinath@gmail.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>,
-        Udit Tiwari <quic_utiwari@quicinc.com>,
-        Md Sadre Alam <mdalam@qti.qualcomm.com>,
-        Dmitry Baryshkov
- <lumag@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Stephan Gerhold <stephan.gerhold@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-        Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-        Andy Gross <agross@codeaurora.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>
-References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
- <20260721-qcom-qce-cmd-descr-v23-12-1be02deffda9@oss.qualcomm.com>
- <773715fd-823f-4564-ba42-c60bc8284b45@oss.qualcomm.com>
- <CAMRc=MdLMQgJsxAMXLBkZNWUiz9fYh0j=C5ErbFoDLV=VfPUzg@mail.gmail.com>
+Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712
+ broken EL2 virtual timer
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ John <therealgraysky@proton.me>, Daniel Drake <dan@reactivated.net>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20260710080958.491620-1-maz@kernel.org>
+ <325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
+ <878q72rcz6.wl-maz@kernel.org>
 Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <CAMRc=MdLMQgJsxAMXLBkZNWUiz9fYh0j=C5ErbFoDLV=VfPUzg@mail.gmail.com>
+From: Jon Hunter <jonathanh@nvidia.com>
+In-Reply-To: <878q72rcz6.wl-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=Q53iJY2a c=1 sm=1 tr=0 ts=6a61dcf5 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=JVr4EG2OP6aRYF85f9oA:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDA5MiBTYWx0ZWRfX8mPFN9DK4jHO
- d9OWGC7csJUpPZciGQCfUGP+NIy03Azy/DN/pnGwYpDm2c+iQpWHQQj+IwOnHia5DKQmRNa9rqQ
- 7RNA/ymkKsMeVkn7Inup+aP+aNZHJhQ=
-X-Proofpoint-GUID: rGdYZ3O3tO95EvKSJtlhxTkR7SDu7seX
-X-Proofpoint-ORIG-GUID: rGdYZ3O3tO95EvKSJtlhxTkR7SDu7seX
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDA5MiBTYWx0ZWRfX/BBMh4MPJ/JG
- JCJxjHPQCRbFc9Ew1LRlHymsOlE0IIkWyvVgg4bFAfmSVjBpULIkMDuTPtVG5x8CZFTyj63Td5P
- I/dL86dYGonMhLYww7O+nxoPPQatUoKMv8CKzfO3+kFWmr4YYaQK6uIhOOovMxonSfSeDvFUdJO
- GaOFfAfpsyRD/zHrsUL2AOo013wGup+4w5qEj4o5c4/ddTDMu3+eI0g4ILQwtGy0LYoCij3tQcy
- vIUA3WpRgJOIe1qIWnuMf/UfuuwgkUlL5RG8PUMeyeJSoVmzGJmpiuvGX5eOnYuF2BNh0nVY8a0
- BoTRqrk9KoPRYrnx4GD1Hjti3+NzbF+/Bleayy/MtoAb5X3eVFvHGoHlfAJNMa3yWS0tnvqEENB
- Q87ppu1qJDox//UZ+Uvnadqv2dOhyKgJ7koo4Q3eFyniRxutToOXd/jEK08oY8tcGUUSemt+spe
- DZUUyXNJ54CPKibB9Yg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-23_03,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 priorityscore=1501 adultscore=0 bulkscore=0
- clxscore=1015 lowpriorityscore=0 phishscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230092
+X-ClientProxiedBy: FR0P281CA0101.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a9::19) To SJ1PR12MB6051.namprd12.prod.outlook.com
+ (2603:10b6:a03:48a::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|DS5PPFC9877909A:EE_
+X-MS-Office365-Filtering-Correlation-Id: b96dd018-5c9d-4ad7-7292-08dee89c2484
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|7416014|10067099003|5023799004|56012099006|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: /8JZsrD8lSHWXfeaI5kcIMqqwuYwo53UUaR/eFkG5NZnsLkR6GXs9MPP2CgbtYyo0XiuwAX+qLhfYhi9FF2AuDK4jJrdsituiyabhByvtjok8ZNSIKWjRZPnxrE61HH13pQ7a7TYAMHOHM+3dp+crzqCAw3rfaA3w3Y+exSrC0xIxQ5LIYIroc2/RpEyUqHJ/ddySfEJ1EiccCfF5Tt4DF4+5KjEWgrD/D2D9FYhaLvvWNiYpSLJKra1O/3xLtgzpRP3fUY0rWX8XDngHF/IlwLaoLWsOljidD8oeb1t8tWT/EVfHNBgxpMnpeg5SJqhCNUHsIuCRAOCe4FdHHv5u57sXQz/18movK7PGW6CsZ57+YxeDbotgoncVgwYAVSDyLd+Yc9j3ClctIW50K1o4ZY+TkxNoGCREv+syyf0Dk5fF5Idg9SLTKRLRfdo93pwdRVHYdY25ANqUyOXYE1lwxJvjeAtuCI5p1+cXCkGF+4UgcKyb5n2qi6FO9ZRf4/t6Ifino4jQHKI0LjZoW5EUEGzMV4V2/96tlOI0SbmLOyURZ6XNcAfvpG9S2EpFAEOek6bBQQYPikXHBfSxDq2bzOc2ZYwyRabNLo5NOOm5Xp1sBE23CjnjzNPXewnqfjjZgzmU6S4181QtcsSUO0lb3mdH7Y+aIRNojzLpHUBPLQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(7416014)(10067099003)(5023799004)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?citZaW5PWFAxVm9SbjZkeS9EWnlFTTNxTHg5Yk8rTml0QmdRVjc2bDZEU3BL?=
+ =?utf-8?B?amxudk1yeWQ3SDZrK3FTajJBbGhLMWVwL05UQ1JIWmpRZDg5S1VKemVMSUl6?=
+ =?utf-8?B?NkJtSGd4V2RQRkZxc25RVFdmQmNyaFYyQjdFa1ROdVVTTG9QQVpqamdLNUZH?=
+ =?utf-8?B?aHlzQjR1TWVmMWdrbzhRV1Urdlh3bWF4OXlHRDVyZGdKcHJvQk40T3ZDOXVw?=
+ =?utf-8?B?Rmg5ZVcwVHdOZkhiM0J4eHdYbmRielc4OXRGUTltM2JYc3dST0NTS3EvTFNQ?=
+ =?utf-8?B?QVpBcGJYT3R3WmErS0dwSEZwRWJPVkFhTDZDYTl0OHJVaTJVR0k3QmpxSkpp?=
+ =?utf-8?B?bVBLNCs4VCs4enJxNFMvaDVzKzRwbjl1eUxTcmNyVFprMVR6NEFwaWVtalg3?=
+ =?utf-8?B?R0tLSG9RUXQyaDkyRnVoQi9LckVDTUZjeUNUaWNtUWd6VzdQSmdLVm9xYWdZ?=
+ =?utf-8?B?Q1B2U1NkMGMvUjV6RFdvZVRybnlkUXZUeUZhYVYraWRXcTRta2Iwc0FjUHQz?=
+ =?utf-8?B?SkNoc1BBTVNWWUhwZ1pnUjBvZkZHRkdBOW9qZ3RKVnVWcGR3K21TU3ZFM0tB?=
+ =?utf-8?B?bWxVRGVnODhjMGNnKzJWN0tmRmtMUDUxTzFib24xaEhLVjRSVXljUkVFdWlr?=
+ =?utf-8?B?d0svVm5tS1lJa28wS0s0bEp3SVFDaUNrZVZra3NxMnlxS08yN2lPL2tmQTVq?=
+ =?utf-8?B?R1EwMlZXcGl3RXE5aGFGV3NTL01kTThpL2NhT1V2cEZLV3NRd2ZPeURiOG9V?=
+ =?utf-8?B?VzY2RXVoTEF1T1piRjlmcXNQVFVvdUNMcVNYblVvcEo5ZHcySlpUODJFRjdu?=
+ =?utf-8?B?S2xLUjYzM0cwd1FkemxIVmNsMFNvcy9adnJ6aTNPZTBIVmVEbzRCcW9hMUtQ?=
+ =?utf-8?B?UHNCN2g4Nmh5K3JrVFg3Q1JUUitWUndyTjloampXbE9VWENuR3hUckdGdlVp?=
+ =?utf-8?B?dUpYT09GbURKMGtVbmlOaU9sSmZLMDc2L0dneGs0Y3QrT3FPSC9JL1JGdWpC?=
+ =?utf-8?B?MGNNTEM0MkRyOGtRNElYdFR2Y2NDanJia0pDa1dOUC9wOTJnNjhuakFWeGdv?=
+ =?utf-8?B?VGZEaW5oWCtuWGdkaFA3S0dRV3c0Qk11QktYcmp0cHlSZllFZThqVEQ4QitT?=
+ =?utf-8?B?TVl6V2M1YzEzZHk3SkNOV2l5M1NsY2VJUjBnQ1Y0TFkvT3dINEdRaEk3QjNF?=
+ =?utf-8?B?SzNwcU9Wa0VTMHh4a2k3MHM0RWhkWm9waWNsS3J6NVB4cEEreEl2OFNPY0ds?=
+ =?utf-8?B?dHlIU09meW1IMjYvVE5QR0RDVDVqVzU2NHBDa2RSaEcvazRQQ2svOVNSRS9U?=
+ =?utf-8?B?WjE0amN3RVd4eDYwM2xyemVDN1pCaTV1alFDLzlPSkpENTYxSEl5MW9JWS9D?=
+ =?utf-8?B?QzF5dXRrTUxGeC9NV3R4OFNqWWVYZWV2c1R0ZWFoMFFZUFhWV1BIZlp1SmRX?=
+ =?utf-8?B?L0pKMDFBZlcyTVpiMkwxZEFYRWd3VkF4Vzk3Um44Wld4cWpVdEJRK3lYUjFX?=
+ =?utf-8?B?Yy9md3F0RzNtWHJneW5SRUNsZHJHdUd4ZWRmY3Z5YXEydDlYQzFSTklqZlVU?=
+ =?utf-8?B?MEFYR3dDL1VUMUk1Vm5GOFZRVVFuMmxoVmJyZ1BuUG1CcEpqMzA4U2ZNWGlm?=
+ =?utf-8?B?SEVRUSs1TzRvWjFLcjhmN0xZdHoxeFMxRDlPRDdubG1iWUYvRlQyNHdtWXNH?=
+ =?utf-8?B?b2pwL05OV2U4Q0ZGWU1aRTRhSUExTVJKU1RtNHNiREVNd3IxZWhkVGpqNXJP?=
+ =?utf-8?B?dFdMalVqVWNmR0hjLyt2Q3Z6QVdvQ25PNlFzd2RUODIzMUNPZldVcEJWRUhq?=
+ =?utf-8?B?Q2ZKTFZPeHQ2TlVhejhMek5RU2lWd0kzSVpJZXI5SHd4K3I1TGdCbGhMaU9N?=
+ =?utf-8?B?MDNka1B6MndBelhXejExaUNKSlRIQ3lEZTJUWlJlYk9LSXRDNHNzN3FtOGRB?=
+ =?utf-8?B?VFFBaER6QjQ5QWdwUGFwNjNFdnFVZm91em1GVnBHOStyTHZnQVB6cGNKc0lY?=
+ =?utf-8?B?OVF2djBvbmgxNEYwL3VXSEJNZVV0aXh4elVOcEt6V2hoQ2FjK0thY25aTzAy?=
+ =?utf-8?B?d3dtTlhKYmRkREJJQVc3ejZVZW4wa2p2R2wySGdMM2FSMG0zVWFLYjNqQThG?=
+ =?utf-8?B?dEhiMlUwa1VSSTZvQmUwYkZlV2YxOHN1c0l6eWFVV0ZNNE5JVDJCYXUvSkc4?=
+ =?utf-8?B?c1EyRGJoOHdMcGY3TlYrTjdUUmttakdrRUExdlY2QVBOS2JZWkJqM05SUTln?=
+ =?utf-8?B?N0k2TDB1a1FUUERjalhGc0tjREhSaEp4K1NHOXZnQkxJMzFzbTRpUzdZVXEw?=
+ =?utf-8?B?OHdzZzdabjRYN2tXM29zM3kvYzlRVzk2SDNyaHpxdHpxa1Q2T3NIdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b96dd018-5c9d-4ad7-7292-08dee89c2484
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:24:06.0288
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0KXWjP41J/fc8BcNm2rCw2HrmCqfVVzE2zp2Nqxjk/SNfBSKRQO3cJwpHNRmTFu7Ln1gf8ki6jRkHj5xCRFKkw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFC9877909A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_022055_365501_E6346EFB 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260723_022413_198476_5B5AC1C2 
+X-CRM114-Status: GOOD (  28.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,68 +155,114 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 7/22/2026 2:47 PM, Bartosz Golaszewski wrote:
-> On Tue, 21 Jul 2026 20:20:05 +0200, Mukesh Savaliya
-> <mukesh.savaliya@oss.qualcomm.com> said:
+On 22/07/2026 21:22, Marc Zyngier wrote:
+> On Wed, 22 Jul 2026 15:14:39 +0100,
+> Jon Hunter <jonathanh@nvidia.com> wrote:
 >>
 >>
->> On 7/21/2026 7:03 PM, Bartosz Golaszewski wrote:
->>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->>
->> [...]
->>
->>>    static int qce_crypto_probe(struct platform_device *pdev)
->>>    {
->>>    	struct device *dev = &pdev->dev;
->>>    	struct qce_device *qce;
->>> +	struct resource *res;
->>>    	int ret;
+>> On 10/07/2026 09:09, Marc Zyngier wrote:
+>>> It appears that the bcm2712 SoC found in the relatively popular
+>>> RPi5 has a broken EL2 virtual timer.
 >>>
->>>    	qce = devm_kzalloc(dev, sizeof(*qce), GFP_KERNEL);
->>> @@ -204,7 +213,7 @@ static int qce_crypto_probe(struct platform_device *pdev)
->>>    	qce->dev = dev;
->>>    	platform_set_drvdata(pdev, qce);
+>>> We do not know the reason why the timer isn't working (the timer
+>>> is ticking, but the interrupt never fires), and the SoC vendor
+>>> doesn't communicate on the reason why this isn't working, leaving
+>>> users and maintainers in the dark.
 >>>
->>> -	qce->base = devm_platform_ioremap_resource(pdev, 0);
->>> +	qce->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->>>    	if (IS_ERR(qce->base))
->> Would you like to add any debug/error log ?
->>>    		return PTR_ERR(qce->base);
+>>> Paper over the issue by detecting the broken HW, falling back to
+>>> the physical timer instead, and let the user know about it.
+>>> Also taint the kernel as the machine is definitely not compliant
+>>> with the spec, and we don't know what else is wrong with it.
 >>>
->>> @@ -254,6 +263,18 @@ static int qce_crypto_probe(struct platform_device *pdev)
->>>    	qce->async_req_enqueue = qce_async_request_enqueue;
->>>    	qce->async_req_done = qce_async_request_done;
+>>> Reported-by: John <therealgraysky@proton.me>
+>>> Reported-by: Daniel Drake <dan@reactivated.net>
+>>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>>> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+>>> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+>>> Cc: Thomas Gleixner <tglx@linutronix.de>
+>>> Cc: Mark Rutland <mark.rutland@arm.com>
+>>> ---
+>>>    drivers/clocksource/arm_arch_timer.c | 24 +++++++++++++++++++++++-
+>>>    1 file changed, 23 insertions(+), 1 deletion(-)
 >>>
->>> +	qce->dma_size = resource_size(res);
->>> +	qce->base_dma = dma_map_resource(dev, res->start, qce->dma_size,
->>> +					 DMA_BIDIRECTIONAL, 0);
->>> +	qce->base_phys = res->start;
->>> +	ret = dma_mapping_error(dev, qce->base_dma);
->>> +	if (ret)
->> Would you like to add any debug/error log ?
-> 
-> No, I don't think this is needed and at v23 this really is useless bikeshedding
-> and doesn't add anything to the discussion and only delays getting
-> this upstream.
-> 
-Okay, got it. Thanks !
-
-> Bartosz
-> 
->>> +		return ret;
->>> +
->>> +	ret = devm_add_action_or_reset(qce->dev, qce_crypto_unmap_dma, qce);
->>> +	if (ret)
->> same here
->>> +		return ret;
->>> +
->>>    	return devm_qce_register_algs(qce);
+>>> diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+>>> index 4adf756423de9..7b4a98df6962b 100644
+>>> --- a/drivers/clocksource/arm_arch_timer.c
+>>> +++ b/drivers/clocksource/arm_arch_timer.c
+>>> @@ -1090,6 +1090,27 @@ static int __init arch_timer_common_init(void)
+>>>    	return arch_timer_arch_init();
 >>>    }
->>>
+>>>    +static bool __init has_broken_el2_vtimer(void)
+>>> +{
+>>> +	/*
+>>> +	 * SoCs described here have been found to be broken, though no
+>>> +	 * explanation has been volunteered by the vendor. Let the user know
+>>> +	 * we're papering over the vendor's lack of communication.
+>>> +	 */
+>>> +	static const char * const broken_el2_vtimer[] __initconst = {
+>>> +		"brcm,bcm2712",
+>>> +		NULL
+>>> +	};
+>>> +
+>>> +	if (of_machine_compatible_match(broken_el2_vtimer)) {
+>>> +		add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
+>>> +		pr_warn_once(HW_ERR "Known broken EL2 virtual timer, ignoring it\n");
 >>
->> [...]
+>> After this change you will now get two warnings; the above and the
+>> below. Is this what you want?
+> 
+> Absolutely.
+> 
+>>
+>>> +		return true;
+>>> +	}
+>>> +
+>>> +	return false;
+>>> +}
+>>> +
+>>>    /**
+>>>     * arch_timer_select_ppi() - Select suitable PPI for the current system.
+>>>     *
+>>> @@ -1115,7 +1136,8 @@ static int __init arch_timer_common_init(void)
+>>>    static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
+>>>    {
+>>>    	if (is_kernel_in_hyp_mode()) {
+>>> -		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
+>>> +		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI] &&
+>>> +		    !has_broken_el2_vtimer())
+>>>    			return ARCH_TIMER_HYP_VIRT_PPI;
+>>>      		pr_warn_once(FW_BUG "VHE-capable CPU without EL2
+>>> virtual timer interrupt\n");
 >>
 >>
+>> I have posted something similar for Tegra [0], but because this is not
+>> expected to work, I wanted to avoid the warnings here. We test for
+> 
+> "not expected to work"? In which parallel universe is that a thing?
+
+FWIU, at least for Tegra194, we have a CPU and GIC pairing where the CPU 
+supports this but the GIC does not.
+
+>> kernel warnings and ideally we would not warn if is known not to
+>> work. We could always display an info level print if it is needed.
+> 
+> No. These warnings are required because the HW is broken, and violates
+> the basics of the architecture, which the kernel relies on. That's
+> important information that needs to be captured, and that's why the
+> kernel also gets tainted.
+> 
+> This applies to any implementation that hasn't been bothered to follow
+> the spec. Don't worry, you're in good company.
+
+Well Tegra194 does not appear to have, but Tegra234 does (but we have a 
+firmware issue which should be easy to fix but the current released 
+firmware as this issue). I have also checked Tegra264 and that should be 
+following the spec too.
+
+Jon
+
+-- 
+nvpublic
 
 
