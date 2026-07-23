@@ -4,82 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231E9C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D96C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 19:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9FpdytHdhxDISqer6403yWjEFqnIJW3e2H1iU7+f5M0=; b=Pjkl7EaZ3f9/+mcQI4auCbky8a
-	LIum2FmpRdfHrG9Vse4SecsyOKEpNJ9JacLGMC1u6sPy54eSIiP3iUe1bnY7FFX7E1SS+TGFOZ4gF
-	J1f5XYYYJyAkdBIHRv2vP/6u8YmcIU8zQ61sDS89zJwuItxgTN/L6nUukMFZ/jvME4p76V8YXoz3R
-	FKd++PQ4oavEvP+dB1LnioeslKRbprtqGYkeGzTumL/EukNZ+O2YKAbijWqc/zh9dMS48eJZAq545
-	LOFfd6c6J4bscCBEASgKkuqkNB5eTGnflhLND5ArAPogUzJSupANfLYFPyJsMVmafOHe2qYcPoWbM
-	aMAzERzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GpX6WFZm3FNiMppMludq48vW9vWnC993UkcuRmrMtUU=; b=X21/DxGMPCb2PLEjggmZkHsjiH
+	qfD58LyCm2/SjSfhLYm1BsnuEcuV5fEQ5VhD6kfkywaZpHtHwIRxxoVzIOk8YyZGiaT6cs5NzHTdN
+	TmnWW8vN+A8OkdheROPpv04tTPcjVDyDqive/T9aYGBJm43XKG6W/n3aD2XwgdKosMJUW3obRfmnE
+	OKTHJ7LJ4GrQ1XU2uKhc1RKMzwtrKYO1b9ii1cjVjGwNPzq81zBstBdbTP+zJFe2KSXGAjTIjroaT
+	sZ/SNJrQc1ZIViNRcXHGgGVEdxqDDDlTrL3Lux4RCKXZcdnYOAVfE/c7upAR3s0vRfKz+bxOA7ZnI
+	3MPbWAbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmy3Q-0000000Esf0-3uwH;
-	Thu, 23 Jul 2026 18:21:56 +0000
-Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
+	id 1wmysJ-0000000EwDd-0nDX;
+	Thu, 23 Jul 2026 19:14:31 +0000
+Received: from mail-northeuropeazon11011044.outbound.protection.outlook.com ([52.101.65.44] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmy3K-0000000Esd1-3Myj
+	id 1wmysH-0000000EwDD-12OR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 18:21:52 +0000
-Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-49559af7b97so6981825e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 11:21:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784830908; x=1785435708; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9FpdytHdhxDISqer6403yWjEFqnIJW3e2H1iU7+f5M0=;
-        b=WuW2KgH6FtLNrguOZjPce/ohPS0XvLF5kiqbmgibkifVa26lHREz+rZb4KtuOzXncu
-         BTcHcx6ti7yf0OlM4dY4UfV0t5U79co/JmIUUWNBsSFUvYNOV/rob9PIrgVNEUNwCOMi
-         CVRx5+USg6YAv7e1ObO+eO7hE474OqEyTl6t9JFdHQhXNfnE28DquY+cRhvZ9PjP33yP
-         gmBUZDu8APy8sIEnWw1w8B8Jyx8cEBtVsCRU1X4PiXLCAm0H0zWp6O0GVa9WL/aszxZC
-         Ru62shXXhQCG5xpGUVPmUJAzbXJRXEauaqMEqpwwQU3RlaZxVPbjoDIBHCrfNFCE2S1R
-         IQKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784830908; x=1785435708;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9FpdytHdhxDISqer6403yWjEFqnIJW3e2H1iU7+f5M0=;
-        b=eUgh4OX9YSQCXeWbFzyNPv+v6ta7uXCHAZXkuahlyXVqf7W8mQ/c/cjXpuxdfXBqJu
-         UbqHlHKuxKHDT2WGwhl0r1qQqlhRyZws7IFuP5xrN4JEZ8x8VMVNdVf0f94I4R/bTAAh
-         D+qhN3exYCcioqToILF6J1gU59ztZcUjEBRcmDJyqUqtOf/SmfLnE4ASK9mH2UIvM7oR
-         uEFfhQuiZbuczHrbsUaP7Rqsake04H3Oyt9DK6oHkvoYPbSWnq/M8++4Elb1JHR1worO
-         XCoRmiKtQb92plnOEVagmk0/AIt/Hike37lG7+h+hp8KLebFVH7GqfgV1YiD2rYVP4X8
-         D7Eg==
-X-Forwarded-Encrypted: i=1; AHgh+RruJb2aGbaVe2KOTYrLNea4w4z4QHYt++IvsCEgsEL3I7IBJHBwH1baceOHRpN6uHMrxfl8Muv94077HNge/jNX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwEsieGJR5pgCRWawRuQFLM/+1wohHSy3yhE65WwzgMWZ1d2cP
-	8+z5GVLdEuzgsD82Ak/2yOj2XKDdsQPA//IrAZ45AVs6XdmzBhIma3M397iPAIhH0WDsVLbMwT7
-	x7FwyKKmoKadguw==
-X-Received: from wmbgw6.prod.google.com ([2002:a05:600c:8506:b0:495:4855:c65d])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:21c3:b0:493:f6e6:ce2a with SMTP id 5b1f17b1804b1-49573cbe93emr35666835e9.2.1784830908237;
- Thu, 23 Jul 2026 11:21:48 -0700 (PDT)
-Date: Thu, 23 Jul 2026 18:21:39 +0000
-In-Reply-To: <20260723182140.4025575-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260723182140.4025575-1-smostafa@google.com>
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260723182140.4025575-2-smostafa@google.com>
-Subject: [RFC PATCH v2 1/2] KVM: arm64: Add stage2_clean_old_pte()
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, sebastianene@google.com, keirf@google.com, 
-	linu.cherian@arm.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 23 Jul 2026 19:14:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KXEN9so4d1u7zk5w6kFaR3aSTMPyAigtX0zV+mAN8Ajgibe1RjARubKkJfZeR4W0BTwCtZqlWOLASbEJvwLLcc0F5gKQn26DI3iZrdiJtFevrD99GNoPELI+u2iaUySehIXu9jurIrgGExLMsU4iL9zzzKQXDqZTyMUcO3dQi1M5IFWJw/JRG1QpEW4IiRfdWLxAUMzXVYbdVXLwyo15me/2lbXljM26qHcKv6DeaCEDE2z6pWsOWx/A9oHA3TQme7+3uQIr2zUL84kuIDFoosVFbd7/3dcNx54HTtR3z+vcK/ynnKKUqH46SDQkHtiwXoeoJXne0wBdS/OUTl2auw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GpX6WFZm3FNiMppMludq48vW9vWnC993UkcuRmrMtUU=;
+ b=FbHYBT/CQtPuBcrNypE6/YFKTN8zU7xiq7cxwdW/C+xZbK11O54YxD1HNzwoc/mFnWA6dlEGhLmEgtCJiWNg8rj1GF44u4uEnvN2WJKozZStWOYIcHl1vFM5oXt83N7+k+J+ZELdZxabv2Xdl1fQq6I8nEMIxsCx/guJ9b4IgHSizlrrojLrP0ccvrNmuGRKNZghGjyMYPq8HmESx4a21MB9JYgh6S+o3LBuscsucHWa03NoLnzyb0/V8U3a6CoYZCsfO8REUF0mMs8eK2R9PastU1motgfbGGK+GMyUsWRTgJxSnBl0cD5Kdvzr2TzywfNVpN1D0iyLqHAEeCx6Tw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GpX6WFZm3FNiMppMludq48vW9vWnC993UkcuRmrMtUU=;
+ b=w/wwe4qJlZNUkyjrccNOEDBZEAwD3uQJW4W3QNQ3YGekmVWapxEApsAUqHcNXTfUQM82ZHYshGlCacfUHo/ujG46YeLROQAvTkMZ3vF7CtXPQEUoxuqDSMjY+yQwgx19yiQwN7/ZsIGm2hkadI6oOCFA13D+NSAnSyKyEBtHJ7la9iWTu7ga6r6Xj8+xDuwHDriv0alinFG13sMEEG8crV0o3vk8XjIe1luuW0ySDgaa7yrW/zJ44fAP85YTjoOag0VIercotM14bGOVGBnq4w211guyWO9/mhlv96WPefVge/BdgUJfP6tHoB5E2enewMrxG0sM+Eif9TswNzW1VQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM0PR04MB6818.eurprd04.prod.outlook.com (2603:10a6:208:186::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
+ 2026 19:14:24 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 19:14:23 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH v3 0/4] ARM: dts: imx: fix ldb related CHECK_DTBS warnings
+Date: Thu, 23 Jul 2026 15:14:14 -0400
+Message-Id: <20260723-arm_dts_ldb-v3-0-96c784b2b84f@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAZoYmoC/22NywrCMBBFf6VkbSSJTdO68j9ESh5TG7EPkhoqp
+ f9uUheKuBk4cM+ZBXlwFjw6ZgtyEKy3Qx/hsMuQbmV/BWxNZMQIK4ggJZauq83k67tRuNIy1zw
+ vjQGDojE6aOy81c6XN/uHuoGeUiItWuunwT23d4Gm3f9yoJjgvOFcVKqMR5z6edzroUOpG9iXS
+ X9MFs2GF0XFBZWSqY+5rusLwSRTF/AAAAA=
+X-Change-ID: 20260708-arm_dts_ldb-9ca4c548dded
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+ Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784834058; l=1208;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=stRZCS5sg9vqCEFKVzKvWSVMX0W0JyjAVs7hUTwLFXI=;
+ b=GD3EAtPywHskr0aEr12wWioCdXgmpUWmuT1xz+27Htn5c9nh+jhm+U3S871swEpXE13OpUChx
+ vSaR0aY9ZM5A87EqyKfLdhebI4rzN9XvUNu0ojrTXBunMAYnX51GS+9
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SN7PR04CA0087.namprd04.prod.outlook.com
+ (2603:10b6:806:121::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB6818:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d90bb35-2d2e-4e55-6253-08dee8ee9b15
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|56012099006|10067099003|11063799006|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: 0VU8vQX+TYGDz8auR40b8zV7e0IsStZhUfIrIzbHaGASvSvK6LyEAwe4NIHyN9glbvGCEVflFALHBpoTa25GDTYHpTr07VMCSsYMOwGwK5yx1RlnjNGyVGBJnmRrMMiinCgq1ONwuZS/aThsmtm+yjszxoawoeOT5PCfRbTN6wtOG8Yqyn6jbCez1HNznKhG9/v4/XDGGWP321bdGA1Ruu/6L/MIWy7WfsIMIXEDdNl/4eV5t24LyDyrb+DuQ9k3XPLonUugLRKxradqLka20j7oWMUXGufQsRkDztSJWsn2T/lNobYYCsrdAq5sJY0CKqptgG0xrql5t4TiC86eIM2fKP0UuBWREnDrF8dNRoFIg2MOwnnYWvTGiFrda4Eo5zTM50QOT72LRRCyj+hyXWNoKQ5rPum7SVELLPtT9fuXvqVN3ZAJnVJwwg7za261n2A2gzhAET6C7pBqMgUCn2s9mZw2vE4Ezi88g/nWGI+4//HRK4L5NuXLNnVjc/mLb1H9dRY6GpzaqoCu6CQUsUTXootCoeflCYzBvFT4bJDkbaPw4yvohKXfC2dsjVZA8PwLM+98IECWzSfUaAHfc8KgjE2C6Mltu9P4Cz114QAJXZYeCbjVGIireRowY4l7XTq9FdxOQR3cf9z7PI6TjcY1OEy4zF3kVxRKIR7uYSA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(56012099006)(10067099003)(11063799006)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ckNldGcyZ2x4QUliYkd1Zm9veVVZR0JURmlaYklOR21zK0lwakd4b21ld0o0?=
+ =?utf-8?B?MmthVUN1c3ZJdzcvcGlXYlVzTjJUbTlLcnpuWVl5SlNoR1Z3OTYydEpHWEdr?=
+ =?utf-8?B?Tk1mM2pSSE53ODh5MC9ZOEFudDkzazJjN1FWRUl4YU0rWVhHZWVSWkE5TFZO?=
+ =?utf-8?B?SnZiOEtENHJ2ZDhLMDRjemZZQ0JydEdSdVV2OWt4TFU3aG53QVdTNHNKMS90?=
+ =?utf-8?B?ODZ0R3N4R0cwSkNiSjM0NFJuTzBkQkxTQzJsTWx5dXR3QkNHdFVhWGEyUkUv?=
+ =?utf-8?B?KzJ2L0hhclYrMkVPY0ZYNWQzSDFOMVdURFhDYXp1ZE5NQnZaRHFIMkRIcllw?=
+ =?utf-8?B?L0laaDRaaWdMeUFuU3I3VmllWTZwaFQxckNNQzgwaWRPQ1JZUEw4MjFhQjV2?=
+ =?utf-8?B?Q1VYZCtST0RkVE1DQUF5S2ovZ0tqTGRUNmdvTTVLR05PK2FiaVBBb3Y0SGRu?=
+ =?utf-8?B?R1FOU21hUHVyQ1lZRG9OV0xjeUl3L2dpTWtYVGpxVWNtR3RySlJZd1pzMDlm?=
+ =?utf-8?B?STE3OFdoUWZkZG1JZ1FNTmZHQ0V3L3JyY2hpQmNaWmVkQVpZMmNET0hidGxH?=
+ =?utf-8?B?UkJNQlFuMjJ3dE5XWjJCRzMxUjYzRytnR3VHSFBNazZHSkdPQVNnSG1GSWwy?=
+ =?utf-8?B?THE2NjVCM09aTU5KaVkxVnl4SmcrSEJ4MHBZU25GYlhkS2NudXBxbXZtbDRD?=
+ =?utf-8?B?aXNadUp6a2hsQ1dYemdhQ05lVFNVUXY5aEVpa0lScUxmR2Y4emZTa3FBVk5U?=
+ =?utf-8?B?VWxicUx3eXo4Y1NyODd4MVluRmxnKzBhS3R2Q3V0bEtZb1l1SmFkS05POGFl?=
+ =?utf-8?B?aHVibWRFT29Jd2pXd0lNdmxxS2F5MW4vcHd2R2Y0UmdTR1owVDhrVXZ2dURq?=
+ =?utf-8?B?Q1JNV2gybDI5NDJCR2NlS0o3Yk45azFyUnpwYjFKUElqeE9KbmVqaUpicnFt?=
+ =?utf-8?B?aWkrRi9hNnBqbEpkbWs3ZzFQa3JCeXAwTWhmWmh1c3NQQ1NETEZya1ZaNzY3?=
+ =?utf-8?B?NG1MbTRSckxBVEZSa3VDSEFaVkdKNkE0RkJtdFh6TERqdHZCZk1EOHpJTHA3?=
+ =?utf-8?B?T0lCaThSOUJtZzZlV1dWSHVaSmlwOHVIcHFialR2RjNFTmg0UDNnM1IwRjh4?=
+ =?utf-8?B?TjlXM3FmZ3dUcWl1d3BGOU9OdGVJRW1zeTRTWXJDaUx4djlxS3VTTDJvdGhN?=
+ =?utf-8?B?UmlHZVIzMzROQzlLYXZaQTJhZ0xRVkk0TDE3L3BWUlVVdTRvL2paRTUxd2J6?=
+ =?utf-8?B?K0doRGlnQW81WDdIK1lrVHFEK25ITzRvVGg3T0FYUTBsS2VCVXZWRjhHYlNP?=
+ =?utf-8?B?aGtYOCtJQnZZbVZCQzV0akJpc09SOGFxak5VUlViS21zMFJPVXdJVGFPdzhN?=
+ =?utf-8?B?ZG1rS1JrNVA5TUdFd0JWMnB6aFZXdm9DSFpONGhwODMrb2VpQ09iYjhyMXhE?=
+ =?utf-8?B?UzQrdUp6c21OMDI5dHlOWU9EM1UzYTlUbEpiOHlXV2prMFNyMVdzZVM5RGIz?=
+ =?utf-8?B?anlMUVNIQVpTcUwyRTExbzdDdVc1Y09lQUU0NUw0NkpFQkRLaGxIME04RHBp?=
+ =?utf-8?B?ZjJhSlh0WlFNS0hTdjNmcnFFRHRtVGE5UWFjWkhycTVBeHRCc0I0aWE0djE3?=
+ =?utf-8?B?SzVRbUY0UDFaU3U3a255UWcrSkJtdTdyK003bTdUY243c01vZHlBMUN0Tjhw?=
+ =?utf-8?B?MFpiL080NElIbTJYZytpZmFjdEpPWXBSWjQvNmFxYjZIR3M1RkdxS2tZOFY0?=
+ =?utf-8?B?MGt3RTNUUmd6L3JoSTRoZ0JrblkrdTdQRXd4NmNBTjNpUXNYOXVjekljZjRT?=
+ =?utf-8?B?R3FySFVtckFXU3VuNGNlWUh5UmV6dlh3R3g2YVR2QUZrMm50eVY4SGxCTFBp?=
+ =?utf-8?B?OVZtTHJ6UTNUQ3dsK3NMd3g2ZXJmQmtrY3dBbFBSd2prenhWdDhHNTNyaTlL?=
+ =?utf-8?B?R2dvVGJNa2E2dGNGQ0RpeENHS1IvQlNlZGVXSk5IZlRVcUNBaWFVa2R2bG84?=
+ =?utf-8?B?Wm95ZlRxWHl1d0tCVG9KUUttWVIwWDdoM3NyL2JINXg0R2ZWaWw4TE5ueStN?=
+ =?utf-8?B?M3JIVWdkeHY3ZUF6NGtQNWsrZ1JVOVZubTVmelRQVXFmWG1qRGtKWUxKZE5k?=
+ =?utf-8?B?bFQ1dHFOcXFWb0hLdTNJYjNTRk93RE5kMis0RlVHeEV4R1A3aDJMQ3gxU2RZ?=
+ =?utf-8?B?Kys4d0JJd2VVY1puS3hjcktpdHFkUkEwS0xBL3Y5aUVGb2tVS0toYllzNjJM?=
+ =?utf-8?B?aElDQkJLUGV5WUtxSXZSYnBWdUZhb3gzcFdEOUl5OFVZQlBOQXJMVjZnSnJ5?=
+ =?utf-8?B?RFRDMUhmdC9abW9MNjZXclZlb0ZUcUszMUF1a3hyenAxYnUrNlBzTFhCcCs1?=
+ =?utf-8?Q?D71fQmfTaH+Re3bWE6zggxkJ8qk5WgP6JF6qZ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d90bb35-2d2e-4e55-6253-08dee8ee9b15
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 19:14:23.7623
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mZnhODHRrXb2p8aLfDoCHdLVWeA89HlcgoWy0UZHDfhUpqEbZMI6wHnkT84cR1rRHWM7BnlmTGXvcJq368ojPRVO/p5dONDwq/LA/XJfDweqys1qibHmm4BO++PMmSYX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6818
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_112150_869488_301E248E 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20260723_121429_304297_F4694EA4 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,124 +165,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At the moment, the pgtable code rely on BBM in SW which looks like:
-Break: stage2_try_break_pte()
-	1) Break PTE and lock it
-	2) TLBI
-	3) Put the ref on the old PTE
+Fix ldb related CHECK_DTBS warnings
 
-Make: stage2_make_pte()
-	1) Get a ref on the new PTE
-	2) Install the new PTE
-
-With BBML3, the sequence will look as
-	1) Get ref on the new PTE
-	2) Install new PTE
-	3) TLBI
-	4) Put the ref on the old PTE
-
-Which requires moving step #2 #3 from the break function to the make
-function, although it is possible to do that for SW BBM also, that
-means the stage2_try_break_pte() did not fully break the PTE as it
-is referenced in TLBs, although that works it seems fragile.
-
-Instead, move this logic to a new function stage2_clean_old_pte()
-so that can be called from BBML3.
-
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm64/kvm/hyp/pgtable.c | 67 ++++++++++++++++++++----------------
- 1 file changed, 37 insertions(+), 30 deletions(-)
+Changes in v3:
+- add ranges
+- collect rob's acked-by tags
+- Link to v2: https://patch.msgid.link/20260718-arm_dts_ldb-v2-0-f5669571aa2b@nxp.com
 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b74dd5ce1efd..d670da8882a5 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -810,39 +810,10 @@ static bool stage2_try_set_pte(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_
- 	return cmpxchg(ctx->ptep, ctx->old, new) == ctx->old;
- }
- 
--/**
-- * stage2_try_break_pte() - Invalidates a pte according to the
-- *			    'break-before-make' requirements of the
-- *			    architecture.
-- *
-- * @ctx: context of the visited pte.
-- * @mmu: stage-2 mmu
-- *
-- * Returns: true if the pte was successfully broken.
-- *
-- * If the removed pte was valid, performs the necessary serialization and TLB
-- * invalidation for the old value. For counted ptes, drops the reference count
-- * on the containing table page.
-- */
--static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
-+static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
- 				 struct kvm_s2_mmu *mmu)
- {
- 	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
--	kvm_pte_t locked_pte;
--
--	if (stage2_pte_is_locked(ctx->old)) {
--		/*
--		 * Should never occur if this walker has exclusive access to the
--		 * page tables.
--		 */
--		WARN_ON(!kvm_pgtable_walk_shared(ctx));
--		return false;
--	}
--
--	locked_pte = FIELD_PREP(KVM_INVALID_PTE_TYPE_MASK,
--				KVM_INVALID_PTE_TYPE_LOCKED);
--	if (!stage2_try_set_pte(ctx, locked_pte))
--		return false;
- 
- 	if (!kvm_pgtable_walk_skip_bbm_tlbi(ctx)) {
- 		/*
-@@ -862,6 +833,42 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
- 
- 	if (stage2_pte_is_counted(ctx->old))
- 		mm_ops->put_page(ctx->ptep);
-+}
-+
-+/**
-+ * stage2_try_break_pte() - Invalidates a pte according to the
-+ *			    'break-before-make' requirements of the
-+ *			    architecture.
-+ *
-+ * @ctx: context of the visited pte.
-+ * @mmu: stage-2 mmu
-+ *
-+ * Returns: true if the pte was successfully broken.
-+ *
-+ * If the removed pte was valid, performs the necessary serialization and TLB
-+ * invalidation for the old value. For counted ptes, drops the reference count
-+ * on the containing table page.
-+ */
-+static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
-+				 struct kvm_s2_mmu *mmu)
-+{
-+	kvm_pte_t locked_pte;
-+
-+	if (stage2_pte_is_locked(ctx->old)) {
-+		/*
-+		 * Should never occur if this walker has exclusive access to the
-+		 * page tables.
-+		 */
-+		WARN_ON(!kvm_pgtable_walk_shared(ctx));
-+		return false;
-+	}
-+
-+	locked_pte = FIELD_PREP(KVM_INVALID_PTE_TYPE_MASK,
-+				KVM_INVALID_PTE_TYPE_LOCKED);
-+	if (!stage2_try_set_pte(ctx, locked_pte))
-+		return false;
-+
-+	stage2_clean_old_pte(ctx, mmu);
- 
- 	return true;
- }
--- 
-2.55.0.229.g6434b31f56-goog
+Changes in v2:
+- Remove status = disabled at binding example
+- collect rob's reviewed-by tags.
+- Link to v1: https://patch.msgid.link/20260708-arm_dts_ldb-v1-0-4f5579b85797@nxp.com
+
+---
+Frank Li (4):
+      dt-bindings: display: bridge: ldb: allow a single reg for fsl,imx6sx-ldb
+      dt-bindings: soc: imx-iomuxc-gpr: allow bridge@18 as child node
+      dt-bindings: display: lcdif: Allow display0 child node for i.MX6UL
+      ARM: dts: imx6ul-tx6ul: rename disp0 to display0
+
+ .../bindings/display/bridge/fsl,ldb.yaml           | 23 ++++----
+ .../devicetree/bindings/display/fsl,lcdif.yaml     |  1 +
+ .../bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml       | 62 ++++++++++++++++++++++
+ arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi        |  2 +-
+ 4 files changed, 78 insertions(+), 10 deletions(-)
+---
+base-commit: 6c94b38b83a04c43ea49004275f0391404051093
+change-id: 20260708-arm_dts_ldb-9ca4c548dded
+
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
 
 
