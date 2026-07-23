@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4383C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05623C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eSvH81kWBhywTBl7olyMhEUCt2uv+QQ8S7xF5dfOa3c=; b=pv+ZQt/bKNKGo5
-	DKwQDYduQC0O6cKD8Uc/HPQlsyQHWWXE0sDv927DhqrWAHAiORtwIY8ZDvsbsPQ5GEGhXCrKL5XPR
-	FxX4b2mmnuEtufyEWfM9G5/UUuRq8s/U0vZoNpIwIrlLHc/pdEWQ0+++evAHo2+j844ryggOYWUXD
-	x+7bCLBC0sLgA/8lhFvDePGzmDh77CzgK39xm3hGDIWdtZTPuxSsXaIso1PxUZSeyFyE5mLa0MAxZ
-	U0fNRW4wAXiPzBVvob/1qCYhXWVpn9bsGE1V1XmTVaCYTHkcTasDkNonsPYrDqR7UGCqMlSykrrjU
-	eeiIrolPadx8M4y+6KIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LAyaGdkEEx9IxHcICcUsQOKXnfpOxJsWDrhq2xVhUBQ=; b=zGJ+TArkWyd0lWerUEGuPR8/+O
+	KE+Twt5zy/TpFv3bfpeNQrsG8wTcqFjpnaojtO6VlTufoxGbvOGKQEBuw/HoE9eTXZOlML3V9VBbi
+	ODgCR4AntjpfOZpNqZQKUZCAgx/8a3K8jflMuv8H6u0nyuB9Bkr2FNmYO/pMsTgkwFwrNjdciF8vg
+	9n/p12k2sFyvNIAMiTKY5w007kvduDLvByHxKzsXySoV03x6hnsQPZOhaHlUBZse41eIi4214ZhYz
+	Isb8RR/lrRWfQtDsal6vkKAyaLODc4pwVOi/trxf5UMFbEEWMwkwSw5wC77A6QYz9kNrDJMlOAZKE
+	BEoa035w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqBR-0000000Dxdi-189Z;
-	Thu, 23 Jul 2026 09:57:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqBP-0000000Dxct-0Enr
+	id 1wmqCO-0000000Dxrg-2Zgd;
+	Thu, 23 Jul 2026 09:58:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmqCN-0000000DxrN-1fTo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:57:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BAA391595;
-	Thu, 23 Jul 2026 02:57:33 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A95343F66F;
-	Thu, 23 Jul 2026 02:57:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784800657; bh=zAwgiOaG95AkQcLsWPDdQMK0O3G33wktNg4T+8Zt1ec=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MzwatQvNsy2GcjPT2GnCWb7ze87PjPhuPY3kX4ilIs7utgUHl9u/gnnAWjkIIeZ8c
-	 oVhlfkNcqC3RWIjEbOHnekKUrhejMobyra3+OlUx1V+tTHos4bs9YNQBcTjv3gJvsZ
-	 ZeSVSZHT2PW8B94PsrmecrBGHi1UilVWj7o5GYEQ=
-Message-ID: <f8ef76be-67f4-48bb-aa97-96ea78ff7bc5@arm.com>
-Date: Thu, 23 Jul 2026 10:57:34 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 16/36] arm64: cpuidle: use new helpers to bypass
- interrupt priority masking
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-17-vladimir.murzin@arm.com>
- <a8e3e9da-feca-4876-84f7-ddbb1e3d34c8@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <a8e3e9da-feca-4876-84f7-ddbb1e3d34c8@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_025739_183743_309C8162 
-X-CRM114-Status: GOOD (  24.72  )
+	Thu, 23 Jul 2026 09:58:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 118134164F;
+	Thu, 23 Jul 2026 09:58:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09DB91F00A3A;
+	Thu, 23 Jul 2026 09:58:39 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wmqCL-00000007ytG-06Nc;
+	Thu, 23 Jul 2026 09:58:37 +0000
+Date: Thu, 23 Jul 2026 10:58:36 +0100
+Message-ID: <865x26do37.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	John <therealgraysky@proton.me>,
+	Daniel Drake <dan@reactivated.net>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712 broken EL2 virtual timer
+In-Reply-To: <325be874-bab9-464f-84ee-99e160259923@nvidia.com>
+References: <20260710080958.491620-1-maz@kernel.org>
+	<325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
+	<878q72rcz6.wl-maz@kernel.org>
+	<325be874-bab9-464f-84ee-99e160259923@nvidia.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jonathanh@nvidia.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, therealgraysky@proton.me, dan@reactivated.net, m.szyprowski@samsung.com, florian.fainelli@broadcom.com, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com, linux-tegra@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,155 +78,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/22/26 09:38, Jinjie Ruan wrote:
+On Thu, 23 Jul 2026 10:24:00 +0100,
+Jon Hunter <jonathanh@nvidia.com> wrote:
 > 
-> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
->> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>
->> When the CPU goes into WFI and pseudo-NMIs are in use, we need to make
->> sure that interrupts are not masked by the PMR otherwise they would not
->> reach the CPU and wake it up.
->>
->> Now that we have a proper API that handles both DAIF and PMR, extend it
->> to provide helpers allowing to temporarily switch to masking interrupts
->> via DAIF only when interrupt priorities are in use.
->> This could allow other parts of the code to make use of it and makes it
->> easier to check for proper use.
->>
->> Replace the custom cpuidle helper with those new helpers.
->>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/include/asm/cpuidle.h            | 14 ++---
->>  arch/arm64/include/asm/interrupts/masking.h | 58 +++++++++++++++++++++
->>  2 files changed, 62 insertions(+), 10 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/cpuidle.h b/arch/arm64/include/asm/cpuidle.h
->> index 2047713e097d..0c7ccdaf1832 100644
->> --- a/arch/arm64/include/asm/cpuidle.h
->> +++ b/arch/arm64/include/asm/cpuidle.h
->> @@ -5,22 +5,17 @@
->>  #include <asm/proc-fns.h>
->>  
->>  #ifdef CONFIG_ARM64_PSEUDO_NMI
->> -#include <asm/arch_gicv3.h>
->> +#include <asm/interrupts/masking.h>
->>  
->>  struct arm_cpuidle_irq_context {
->> -	unsigned long pmr;
->> -	unsigned long daif_bits;
->> +	arm64_exc_hwstates_t arm64_context;
->>  };
->>  
->>  #define arm_cpuidle_save_irq_context(__c)				\
->>  	do {								\
->>  		struct arm_cpuidle_irq_context *c = __c;		\
->>  		if (system_uses_irq_prio_masking()) {			\
->> -			c->daif_bits = read_sysreg(daif);		\
->> -			write_sysreg(c->daif_bits | PSR_I_BIT | PSR_F_BIT, \
->> -				     daif);				\
->> -			c->pmr = gic_read_pmr();			\
->> -			gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET); \
->> +			c->arm64_context = local_all_irqs_force_daif_save(); \
->>  		}							\
->>  	} while (0)
->>  
->> @@ -28,8 +23,7 @@ struct arm_cpuidle_irq_context {
->>  	do {								\
->>  		struct arm_cpuidle_irq_context *c = __c;		\
->>  		if (system_uses_irq_prio_masking()) {			\
->> -			gic_write_pmr(c->pmr);				\
->> -			write_sysreg(c->daif_bits, daif);		\
->> +			local_all_irqs_force_daif_restore(c->arm64_context); \
->>  		}							\
->>  	} while (0)
->>  #else
->> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
->> index 19d32618b2b9..9dc37a571094 100644
->> --- a/arch/arm64/include/asm/interrupts/masking.h
->> +++ b/arch/arm64/include/asm/interrupts/masking.h
->> @@ -99,6 +99,64 @@ static inline void local_all_irqs_final_mask(void)
->>  }
->>  #endif /* CONFIG_DEBUG_IRQFLAGS */
->>  
->> +/*
->> + * In some cases, WFI or guest entry for example, we always want interrupts
->> + * to reach the CPU even if masked. Masking via the PMR prevents them from
->> + * reaching the CPU and waking it up.
->> + * Force IRQ masking using DAIF by raising the priority mask
->> + * and setting the IF flags.
->> + *
->> + * Should only be called when IRQs are already masked.
->> + */
->> +static inline arm64_exc_hwstates_t local_all_irqs_force_daif_save(void)
->> +{
->> +	arm64_exc_hwstates_t states = {};
->> +	/*
->> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
->> +	 * while keeping interrupts masked.
->> +	 */
->> +	WARN_ON_ONCE(!irqs_disabled());
->> +
->> +	if (system_uses_irq_prio_masking()) {
->> +	        states.saved.daif = read_sysreg(daif);
->> +	        states.saved.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
->> +		/*
->> +		 * We might have IF set or unset. In case IF already set orring with IF
->> +		 * won't change anything, combined with PMR set to IRQON we might become
->> +		 * one of contexts: CRITICAL, ERROR or NONMI. In case IF is unset (which
->> +		 * also implies that DA is unset) orring with IF and combining with PMR
->> +		 * set to IRQON would effectively gives us NONMI context.
->> +		 */
->> +		states.expected.daif = states.saved.daif | DAIF_PROCCTX_NOIRQ;
->> +		states.expected.pmr = GIC_PRIO_IRQON;
->> +
->> +		arm64_update_exc_hwstate(states.expected, true);
->> +	}
->> +
->> +	return states;
->> +}
->> +
->> +/*
->> + * Return to masking with the PMR, restoring previously saved DAIF and PMR.
->> + *
->> + * IRQs or interrupt priority masking should not have been re-enabled in between
->> + * the save and restore.
->> + */
->> +static inline
->> +void local_all_irqs_force_daif_restore(arm64_exc_hwstates_t states)
->> +{
->> +	/*
->> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
->> +	 * while keeping interrupts masked.
->> +	 */
->> +	WARN_ON_ONCE(!irqs_disabled());
->> +
->> +	if (system_uses_irq_prio_masking()) {
->> +		arm64_debug_exc_hwstate(states.expected);
->> +		arm64_update_exc_hwstate(states.saved, true);
->> +	}
->> +}
-> The newly introduced two helper functions seem to have been used only
-> once in the end, and they do not update ALLINT. So, is it necessary to
-> introduce these two helpers?
+> >>
+> >> I have posted something similar for Tegra [0], but because this is not
+> >> expected to work, I wanted to avoid the warnings here. We test for
+> > 
+> > "not expected to work"? In which parallel universe is that a thing?
 > 
+> FWIU, at least for Tegra194, we have a CPU and GIC pairing where the
+> CPU supports this but the GIC does not.
 
-I reckon the general approach is to consolidate hardware exception
-state manipulation in a few places and leave it elsewhere only when
-strictly necessary.
+Oh please, you know better than this.
 
-Cheers
-Vladimir
+It isn't the GIC that defines the number of supported PPIs, it is the
+*integrator*. I.e. you. The GIC (GIC400 in this example) has full
+support for 16 PPIs per CPU.
 
->> +
->>  /*
->>   * During early boot, we unmask PSR.DA before the GIC has been set up.
->>   * If we use IRQ priority masking, the PMR and PSR will be out of sync
+I have a collection of VHE-capable machines with GIC400 that correctly
+implement the EL2 virtual timer PPI (if even Amlogic and AllWinner can
+get this right, really *anybody* can). My conclusion is that someone
+couldn't be bothered to drag a wire from one end to the other.
+
+In any case, the result is the same: a non-working timer, and a
+machine that is out of specification.
+
 > 
+> >> kernel warnings and ideally we would not warn if is known not to
+> >> work. We could always display an info level print if it is needed.
+> > 
+> > No. These warnings are required because the HW is broken, and violates
+> > the basics of the architecture, which the kernel relies on. That's
+> > important information that needs to be captured, and that's why the
+> > kernel also gets tainted.
+> > 
+> > This applies to any implementation that hasn't been bothered to follow
+> > the spec. Don't worry, you're in good company.
+> 
+> Well Tegra194 does not appear to have, but Tegra234 does (but we have
+> a firmware issue which should be easy to fix but the current released
+> firmware as this issue). I have also checked Tegra264 and that should
+> be following the spec too.
 
+Then provide a way to unambiguously identify the updated firmware, and
+the warning will magically disappear once people update their firmware
+to a non-broken version.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
