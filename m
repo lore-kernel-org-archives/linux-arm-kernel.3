@@ -4,168 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB27C531CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05D9C531CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=; b=IGhY7D9XIfePNf0qY+2FIItcRA
-	UewA9E/e04+8BZMK/C5Y7hobUqsHgKv8aM9SdHaDnWbhR+7Z3cPirulLT+bzYVF/DEabTk0HECPN7
-	5e6yiGTEn1Usy5HgpuIyuibP9D1Q6M2D0VYIAvT/7nq6xA+YbpQSay/cV2+UozhFiQuQWIPekRqSF
-	vadpEPgfuo4oTVTzZ4qmHUmo+cP3QofxyvRfDzWIVm/iE35OBxgLJpOBzxRYc/h/khGeyx4C8jLfx
-	I8iycs4o9IKFHqIWSjC14Q45TNDYUtpQBhT4wHQsprFLtJHqXGlzN+a1PvAbEaJhM1DUNdVdq6elQ
-	X8lpNuvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z/kJlK/0HbJJa3dFydxn76TJ6TQIdovrdHPnCMwOCgM=; b=Qrt2aS9FHyZmQVI5S/SgtbnJLw
+	jdIOfHDIr7GIYMrVzXkPNyIu3kzs0Ym6egKI74gBwt1Zjo9W6ddOOs3nNWLhAt9FJzqM91mEE3C+i
+	51tvDOnelDDe3SteMxZBhG3DHs5U4XwduHMRrjrvGg7ZM/6sTqWK/q1cdRnpm4EwQ25GkdYB56Jg3
+	srTZFjJqLbTbp0wUe1TU4/9dhduqXZccglMZ9QW2WtnHv2I17TmLEygHqpqNuuVNcNWYirw1J6gF5
+	m6yMUr7BfknvHEmsxfDrmBGVuV4TbToZ1LRnlFgKMKwrDupelux6zDSLk8bKyC4VpFWQG9ksNhj/F
+	Hf1pM1+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtUe-0000000ENXy-3nWz;
-	Thu, 23 Jul 2026 13:29:44 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmsiA-0000000EFlx-1Fa7;
+	Thu, 23 Jul 2026 12:39:38 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtUc-0000000ENXC-2pVQ
+	id 1wmsi6-0000000EFjL-2PH2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 13:29:43 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66NCvPRF1030609
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:29:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=; b=TLORcWXgUP60TL3f
-	WjlUQW50sdYRsNy+UD4mB/aBEoRL6ll2R8hW6kNmSyZwNdFrL/s0xKJtZrog6+Es
-	7rSSt4hsm9FlC3/cPD0WsEzX7ptjqvrtaVunjpvKrm8XMQGp2eL8L3gS+S+OgfNr
-	dqbs/gAW1ik9Yf7gheRoDL2tDYUARDQTAyp1gB/e5Ss/axWmfnQgazFypRNTVVEe
-	CzUz87hti4hALxG5ejPyzrg8+4ar2BbRTC9gm2ohV9NtUWEjQn9tCNXnSOME5S4Y
-	2zQ4ZaVFPchHKQrvVhkHclBkG9LhUFsM4FUXWzk+ho93aXtfigX90JveBZN47h8P
-	/2CVRA==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fk28xv9t8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:29:42 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ccb6823efcso6828945ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 06:29:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784813381; x=1785418181; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=;
-        b=ioI8M/WCOl/qcwyvBMgCrwF0HK4pCAhoEdaI8dfv0TTmwujYP46tCSpmMeGbOKMeIQ
-         ztAsNvJEIjZCxMGQLcUfLTsnzMZ09zSyo007ybNZdKNdSrJh1LtMcQCOIsj75mgU/C/a
-         KXy/1VK/iFmkiOAhQorBGqGWYVBmXikcVU2vDB0EfPG877fuJHQp1S6YedomUX+ZXYxP
-         1HbjL7p9ozM6fmXH2obTKcX2cWaON931CSxSaUtybpM1R3iOpDiYL1pZQ4B/QIQrjSCz
-         HOfM2aeXBFUm3DFTI8mdEXcm3svblZXohH7sYwqLE3V/IU8H8qC4j3gczyYYm5gxnCHt
-         9Nhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784813381; x=1785418181;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Go5kvd+RGN7WvDgQGkVUFMxaD+SYGgtgtDjG4EetZhY=;
-        b=AwNyzcQrOjP687ovL6cKc1dl/RqXyaRFKlR5vpK2ZE9wY11Yfdxv3MbGVrsj8cfH3+
-         6K+ex5BHmBYg1sLieQYj1Q2sUKIopNeOMwMwICm0kVELDN+ZmsxJW0s+a1g8HJ5NjJvk
-         QBONDvpfiCB2eH3wV+2W1LPizEJWGoCtDWhrHGDV5cHTVYI1RL/O98kGr60VwFEbaSXT
-         XBXAoserQSuxs2nKqw3IUsCOSfAH2ul15476aQss/SO815Nk1FdFZJ/7f/wcVTThaDdX
-         AgIrNrHEwFpU/FGQeH5oJ2J9XwyYK83+qaAo4CuVneJaabx6XrZff6X4d2qg0aJMDPhn
-         x3cA==
-X-Forwarded-Encrypted: i=1; AHgh+RqV7laNfkEbHMVf2xu2GTH0utNArQ0l48ggqArme2tx2khQzAa3qZCSkOuZZWrq0Uelnp4zEbn4WXwZwUf0bBSy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9JzARGkBywIcF0jx+p8gCHgtG68a0HBDoKYUSvTCqyWAvcBYB
-	tG5bF5PwFUxrvCW1UzQNgZbK4eRzjYr+W9oI/ek0jU3xQRu42nbndqYrffTpHYbu0bAlH7QoLWe
-	zumbuElX9X4RJ9qfDB4bBaFTHQ5HzzffWM2DQ2RLU17iz/Cq9sHV057BTMWENu//bMs2E9fxBcS
-	zOLA==
-X-Gm-Gg: AR+sD11v/Tins0rsKA+z82he9QyIZxCBPgxED6O3fHjYGqe00EQsazxiaUd1hpVNQWH
-	DTyu3NuwERmllKFLgtf5eOHBUvisDZ1R6ls5xUnqgsocLC6yJ9nH/HmY59lkj306BmUESyBEj09
-	qqg8GhAdKxbCMpwkyROWBXIuB4MbHApvi72QuWr/ikZQ9dUxGKP/qIhGBYvJpSuCLR2nlmdCWUO
-	E1eNQGTDSATjlrw1QqCuqB7CTLVl+53HogJNR66DXV49KEG94p1xzlwF0+gYdVEfGeK2uFGd7Sx
-	1z4iRz4fYF4sPhr2k6NDuw4MGVFRl4+OVC0eDJzj7cFkXA9Bk+wqxNXN8GOsAt8dvGDWVGRjcGv
-	4rUSjK0PVQzR2311Bn35yl6vczcQfE6x1sus=
-X-Received: by 2002:a17:903:ac6:b0:2cf:9f62:1dcd with SMTP id d9443c01a7336-2cfa6d83500mr42657785ad.32.1784813381379;
-        Thu, 23 Jul 2026 06:29:41 -0700 (PDT)
-X-Received: by 2002:a17:903:ac6:b0:2cf:9f62:1dcd with SMTP id d9443c01a7336-2cfa6d83500mr42657275ad.32.1784813380882;
-        Thu, 23 Jul 2026 06:29:40 -0700 (PDT)
-Received: from [10.219.57.229] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8efa39ffsm34340295ad.14.2026.07.23.06.29.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jul 2026 06:29:40 -0700 (PDT)
-Message-ID: <9457aa92-2f58-4c0c-bd33-916da493846d@oss.qualcomm.com>
-Date: Thu, 23 Jul 2026 18:59:29 +0530
+	Thu, 23 Jul 2026 12:39:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WgOX5kgzVI4uUj8qyiTOA2JEn1hn2TV2Juqr36QoFlg6tdxWA3/YyYcpqCsh6x5vCdsAs25s8riOq1UpoZpGglLrarGetGssdhPdlVq/NFsR4YNk2suYpXeob/g+p1nwI636IrUQ7Kr3fXwhzl2BMu243j1C+U6ek0gZW9/QbShEBhuP04+1bSrDOzsQixtNnqna5xRRbiWQ2EbiGiVEInvLx/3jePwy5Gfy2vGHIAoZVTwYBsKKQBCCUcYLkaiOG/6ToSIKGibhn4Jeopfe3Yg+CYoqsPLgCL/dnIPII5DptTFWddkEXbil+J1nVhc36Hh1PNBPmI/F+BZ5mOMGhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z/kJlK/0HbJJa3dFydxn76TJ6TQIdovrdHPnCMwOCgM=;
+ b=VqXzk1oYIWFAPOOJ89raoz03ZctdI9kOnTdpbDdDougaow53Fchu8fHsylzB0/tVdhIaDLSyT2dmOmnPEbuGhI3LkG5Er3epIUno9ZbqHS0Ra52ckeWXr4G0uGh76lTfxwTj9O6vhAPx4lCpKBZgcmT2KJtVZYb75VQ/Snr28uqa6CkrfeRgY5uvAiTnKKvWJyW76HxMbWZYw+vG3MoXb+XGzgQ1I8y1ZuiAQruh6B/7WWdZiR8kh8t4tvRABvPUwXJag5vAWhsA9x+m9yA1zKvfOILJ1ADGKSOXkZrcz7LgK4G6QY1Nej4SC7o6LhBD1lkzIdu2UkLjlnQ5sisBkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z/kJlK/0HbJJa3dFydxn76TJ6TQIdovrdHPnCMwOCgM=;
+ b=nKfPN1iohwNeWVVaLzdcZd5zDeZChOBF9M/Eom3XvTKwZxdzz1Vpzg+HuBGEsj5pk5YPiWC3sGu6ZWz25RDsyKntu3qwPDtXR6q6b0ybLbvfIo7kbSjWfc6JXZFOK3bcX7+TBtB2FqaxMG9QjiluCl+Hw1lNxJPzZ9GPm7kjeJE=
+Received: from BY1P220CA0009.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::7)
+ by DM6PR12MB4451.namprd12.prod.outlook.com (2603:10b6:5:2ab::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
+ 2026 12:39:25 +0000
+Received: from MWH0EPF000C6185.namprd02.prod.outlook.com
+ (2603:10b6:a03:59d:cafe::93) by BY1P220CA0009.outlook.office365.com
+ (2603:10b6:a03:59d::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Thu,
+ 23 Jul 2026 12:39:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ MWH0EPF000C6185.mail.protection.outlook.com (10.167.249.117) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 12:39:24 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 23 Jul
+ 2026 07:39:20 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Thu, 23 Jul 2026 07:39:13 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>, Russell King <linux@armlinux.org.uk>
+CC: Shyam Pandey <radhey.shyam.pandey@xilinx.com>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<harini.katakam@amd.com>
+Subject: [PATCH net-next 4/7] net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+Date: Thu, 23 Jul 2026 18:08:35 +0530
+Message-ID: <20260723123838.125145-5-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260723123838.125145-1-suraj.gupta2@amd.com>
+References: <20260723123838.125145-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v23 04/13] firmware: psci: Introduce command-based resets
-To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-Cc: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger
- <matthias.bgg@gmail.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla
- <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>
-References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
- <20260714-arm-psci-system_reset2-vendor-reboots-v23-4-e7453c548c21@oss.qualcomm.com>
- <282fd166-2074-48cd-84ce-c887711e51c5@quicinc.com>
-Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <282fd166-2074-48cd-84ce-c887711e51c5@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: fCUXkwWFy9TBXZl4jVQmfAMcJTWt0FYH
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDEzMiBTYWx0ZWRfX+cKdmAuAhKWV
- UzRcV0K9Orrw5erMjl5l7R3Cu/BYiMWO2TtU8sM5o0LuQw+z/++YvP6NWoSYF2z0EAZtDTSdoZh
- XFGheH4VbC2wxGkLg+PDuTr59wLMgtg=
-X-Proofpoint-GUID: fCUXkwWFy9TBXZl4jVQmfAMcJTWt0FYH
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDEzMiBTYWx0ZWRfXwu/2XzfA2Dgp
- WNti1p7Fbj/EB/QVhbgCn3061Ry/jEFC0DQQo/id0CkIbrBALhYJF8DKiUR+mG1vc929LN1Jbzp
- djLdtsnZ9RAeW/jgkw4Bqfl7UJ3Qi8XvRmFAHW75k1OefUaNs6+UGFIrQM91yyOTh6Io3NbgFgk
- o/ykMze3oQyCk90L/JjOxghAofG4eidZJCafXctQkiUpnVv8OcdAiYvfcuNSJBg4mjC64MfGP/k
- Dz3VsnxdE9A0KmHUskLtkug1NN5CLB7ET1h39JH9hhGSXB1eUJKW7Ks6SZ8yX3lIDkmuhZV+7ho
- FAI6wEKPltxzGXKdLt2gk2mAqdg/h1mocgEh7nPLShyrwA1XCiA0v0omTyTItp+oRqv6qG9nc/r
- Corx5CX4oBGcKp28lbPkJGs3lFhgBxbVOFC/HN87z1DjBA1CJ+4zwHzTruYg82GsP+OKGNnz7Jl
- p6wXq6uYeDo4NErdK0Q==
-X-Authority-Analysis: v=2.4 cv=WNxPmHsR c=1 sm=1 tr=0 ts=6a621746 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=QCscv-Hw-U4uApuusycA:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-23_04,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 bulkscore=0 priorityscore=1501 malwarescore=0 phishscore=0
- impostorscore=0 suspectscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230132
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6185:EE_|DM6PR12MB4451:EE_
+X-MS-Office365-Filtering-Correlation-Id: f53deb87-6a8e-4695-1dc8-08dee8b76d51
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|82310400026|36860700016|376014|7416014|56012099006|13003099007|10067099003|921020|22082099003|18002099003|6133799003|11063799006;
+X-Microsoft-Antispam-Message-Info: 7wgwQOCv/swbyKx7PU09MYgxaKlJqnhZqVOta67R8W4PP2oYdMg7u6ZngqAjkFXr4MCpqPAmlFpst90BVsssuxpaTQS5gwJXUWDiYJIuhuTqgIl7kw8tzL73/hZs2HQvF9WZ15KWwxdfK6J/fHQDy2UFSkaF41oXNQdBTyCVB2gxzHHF5nL//NkioVMj5wzEE/KzUtaClAjpb3Hs9wejEcSACdW7dZ1CPlPgcV1EUO5FxmJLP58amj7/q119IiAdIVrn2x0aZjesdG+JJJUT/QnsdmrdlplhEau6itzTO/sREroHeoN4kn5/uPoOXZOtWEtnDEAr+mwjauN2pELbyACmJlrj5kjPXUgyVCIVSyqdXFz51CKg1S2sc2MSmqjYyNpQMrBLNsnpSUsrQjxvXZZg6LtqQG6uYH+ztbYjeX0whdn7YoWs93KavTufjVapi5zmfadeuOlqY2ha3SpbItTqoji5CVvPqfFJb5d5e+pt3lOe2yadb/RLD2xUP/MXZgYtjBhEMEhDRCrUGdRa2zbOSMLUlW0UBUp0BUPzu5RE+TkvUM+tpxSx9M3zLpmJwfzgbHIYe6ZI1Q9qJlbYJYvJ0TYv9KlMX+X2zn2iELIFpyE4tykd5khCN/RwPFfeQCOoULgbGTxSTlBLfrZ75dWEW4J4Gi3zxFD0+lOVL3gPlKs3RFpoqz2WB9jGjHnGr/r6CZfyZkqVUQi4gjaW/nqVLieOnzcKXRv6yh2b8CUCEqLkEdslQkIsDTY1Z3lf
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(82310400026)(36860700016)(376014)(7416014)(56012099006)(13003099007)(10067099003)(921020)(22082099003)(18002099003)(6133799003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yHOZsJFDsTZgF+dJLjVLHFIhx3jMhw9o6mx7NZ66GaXd0NxzlLvw8zp8o54JoMyq5+00Bo55W7G4iMeKQB+5TrKmKhVkumGdqY8bdNzEqCLJ5CNVDSMI0LaRkFBsSZelm+lEHRvXstmpLwueGEARvl4qcMaHiZy4CReFQHLjf2MFt2IWW9ymVbrpAEAeNVSl360PKOGyPxtVuu3Q+DscuIcjqod3lmKTPjr+lKL0BddLF83Ze0WyVScXfDtmGUDCtIyvDAT54LLH14lqaV2e90T+a+MqZ0pPtErA5apvjNbf4imA89quLFtCpPqCkWiFTJlIQ6pzjnzIzeBdUdNV3Md1OfQuNR/VA8SPRsN2MjPTQ1OmqmoAlv0wYLDwkr9/2WdatHoZSOjT9nVnAkwKiKIjF40YUstkANdXt+94nXG6FV736zoDwE6cod7cQcbM
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 12:39:24.2766
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f53deb87-6a8e-4695-1dc8-08dee8b76d51
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6185.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4451
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_062942_729146_FEC9874B 
-X-CRM114-Status: GOOD (  33.95  )
+X-CRM114-CacheID: sfid-20260723_053934_691344_E31FC250 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,263 +132,571 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The AXI Ethernet driver currently supports only the AXI 1G Ethernet IP.
+Add support for the Xilinx XXV Ethernet IP[1], which implements a 10G/25G
+Ethernet MAC with PCS/PMA driving a high-speed serial transceiver, as
+specified by the 25G Ethernet Consortium.
 
+Add the XXV-specific logic in new xilinx_axienet_xxv.c/.h files and
+describe the MAC through an axienet_10g25g_config that provides the
+capability flags and callbacks (GT reset, link-ready polling, options
+programming, phylink caps, PCS ops, register dump and probe-time init).
+No MAC-specific conditionals are added to the shared paths.
 
-On 22-07-2026 14:54, Pavan Kondeti wrote:
-> On Tue, Jul 14, 2026 at 10:46:32PM +0530, Shivendra Pratap wrote:
->> PSCI currently supports only two resets - SYSTEM_RESET and SYSTEM_RESET2
->> ARCH WARM reset. The reset patch is selected based on the Linux
->> reboot_mode variable. The PSCI specification now includes SYSTEM_RESET2
->> for vendor-specific resets but there's no mechanism to issue these
->> through psci_sys_reset().
->>
->> Add a command-based reset mechanism that allows external drivers to set
->> the PSCI reset command by passing a reset_type and a cookie.
->>
->> Add support for the following reset commands:
->>    - SYSTEM_RESET2 vendor-specific resets.
->>    - SYSTEM_RESET2 ARCH WARM reset and SYSTEM_RESET (reset_type = 0 and
->>      cookie maps to psci_standard_resets).
->> Unsupported commands fall back to the regular PSCI reset path.
->>
->> Default to the existing reboot_mode-based reset flow unless a reset
->> command is configured. If a kernel panic occurs after a reset command is
->> set but before the final PSCI reset is issued, ignore the reset command
->> and follow the normal reboot_mode-based reset path.
->>
->> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->> ---
->>   drivers/firmware/psci/psci.c | 106 ++++++++++++++++++++++++++++++++++++++++++-
->>   include/linux/psci.h         |  36 +++++++++++++++
->>   2 files changed, 140 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
->> index e73bae6cb23a..881819d09911 100644
->> --- a/drivers/firmware/psci/psci.c
->> +++ b/drivers/firmware/psci/psci.c
->> @@ -12,7 +12,9 @@
->>   #include <linux/debugfs.h>
->>   #include <linux/errno.h>
->>   #include <linux/linkage.h>
->> +#include <linux/mutex.h>
->>   #include <linux/of.h>
->> +#include <linux/panic.h>
->>   #include <linux/pm.h>
->>   #include <linux/printk.h>
->>   #include <linux/psci.h>
->> @@ -51,6 +53,14 @@ static int resident_cpu = -1;
->>   struct psci_operations psci_ops;
->>   static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
->>   
->> +struct psci_system_reset_cmd {
->> +	u32 reset_type;
->> +	u64 cookie;
->> +};
->> +
->> +static struct psci_system_reset_cmd reset_cmd;
->> +static DEFINE_MUTEX(reset_cmd_mutex);
->> +
->>   bool psci_tos_resident_on(int cpu)
->>   {
->>   	return cpu == resident_cpu;
->> @@ -80,6 +90,62 @@ static u32 psci_cpu_suspend_feature;
->>   static bool psci_system_reset2_supported;
->>   static bool psci_system_off2_hibernate_supported;
->>   
->> +static u32 psci_get_sys_reset_fn(void)
->> +{
->> +	switch (reset_cmd.cookie) {
->> +	case PSCI_SYSTEM_RESET2_ARCH_WARM_RESET:
->> +		if (psci_system_reset2_supported)
->> +			return PSCI_FN_NATIVE(1_1, SYSTEM_RESET2);
->> +		return 0;
->> +	case PSCI_SYSTEM_RESET_COLD_RESET:
->> +		return PSCI_0_2_FN_SYSTEM_RESET;
->> +	default:
->> +		return 0;
->> +	}
->> +}
->> +
->> +/** psci_set_reset_cmd() - Configure PSCI reset command
->> + * @reset_type: SYSTEM_RESET2 vendor-specific reset_type as defined by
->> + *		firmware, or 0 for standard resets
->> + * @cookie: SYSTEM_RESET2 vendor-specific cookie as defined by firmware or one
->> + *		of enum psci_standard_resets when @reset_type is set to 0
->> + *
->> + * Supported commands:
->> + * - PSCI SYSTEM_RESET2 vendor-specific reset:
->> + *   - @reset_type and @cookie must follow platform-specific SYSTEM_RESET2
->> + *     vendor-specific resets.
->> + * - Standard reset selector:
->> + *   - @reset_type must be 0.
->> + *   - @cookie must be one of enum psci_standard_resets.
->> + *
->> + * This is an in-kernel helper intended for built-in reboot flow callers.
->> + * reset command can be set only one time per boot cycle.
-> 
-> This comment may need re-phrasing. Please check.
+Also propagate the axienet_device_reset() failure in axienet_open(),
+which was previously overwritten by phylink_of_phy_connect() before being
+checked. This matters for XXV, whose mac_init() can fail on a GT
+reset-done timeout.
 
-sure. thanks.
+[1]: https://docs.amd.com/r/en-US/pg210-25g-ethernet
 
-> 
->> + *
->> + * Return: 0 on success, -EINVAL if both inputs are zero, -EBUSY if reset
->> + * command is already set.
->> + */
->> +int psci_set_reset_cmd(u32 reset_type, u64 cookie)
->> +{
->> +	if (!reset_type && !cookie)
->> +		return -EINVAL;
->> +
->> +	scoped_guard(mutex, &reset_cmd_mutex) {
->> +		if (reset_cmd.reset_type || reset_cmd.cookie)
->> +			return -EBUSY;
->> +
->> +		reset_cmd.reset_type = reset_type;
->> +		reset_cmd.cookie = cookie;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +bool psci_has_system_reset2_support(void)
->> +{
->> +	return psci_system_reset2_supported;
->> +}
->> +EXPORT_SYMBOL_GPL(psci_has_system_reset2_support);
->> +
-> 
-> Do we want to add namespace based restriction on who gets to import
-> EXPORTs added in this patch?
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+---
+ drivers/net/ethernet/xilinx/Makefile          |   3 +-
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |   9 +
+ .../net/ethernet/xilinx/xilinx_axienet_main.c |  17 +-
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.c  | 328 ++++++++++++++++++
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.h  |  86 +++++
+ 5 files changed, 436 insertions(+), 7 deletions(-)
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
 
-you mean like
-EXPORT_SYMBOL_NS_GPL(psci_has_system_reset2_support, PSCI);?
+diff --git a/drivers/net/ethernet/xilinx/Makefile b/drivers/net/ethernet/xilinx/Makefile
+index 7d7dc1771423..db90e691fec5 100644
+--- a/drivers/net/ethernet/xilinx/Makefile
++++ b/drivers/net/ethernet/xilinx/Makefile
+@@ -6,5 +6,6 @@
+ ll_temac-objs := ll_temac_main.o ll_temac_mdio.o
+ obj-$(CONFIG_XILINX_LL_TEMAC) += ll_temac.o
+ obj-$(CONFIG_XILINX_EMACLITE) += xilinx_emaclite.o
+-xilinx_emac-objs := xilinx_axienet_main.o xilinx_axienet_mdio.o
++xilinx_emac-objs := xilinx_axienet_main.o xilinx_axienet_mdio.o \
++		    xilinx_axienet_xxv.o
+ obj-$(CONFIG_XILINX_AXI_EMAC) += xilinx_emac.o
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+index 40f03c9eb382..295a1b835165 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+@@ -17,6 +17,8 @@
+ #include <linux/phylink.h>
+ #include <linux/skbuff.h>
+ 
++#include "xilinx_axienet_xxv.h"
++
+ /* Packet size info */
+ #define XAE_HDR_SIZE			14 /* Size of Ethernet header */
+ #define XAE_TRL_SIZE			 4 /* Size of Ethernet trailer (FCS) */
+@@ -545,6 +547,7 @@ struct skbuf_dma_descriptor {
+  * @tx_ring_tail: TX skb ring buffer tail index.
+  * @rx_ring_head: RX skb ring buffer head index.
+  * @rx_ring_tail: RX skb ring buffer tail index.
++ * @xxv_ip_version: XXV IP version.
+  * @axienet_config: MAC-type specific configuration and operations.
+  */
+ struct axienet_local {
+@@ -627,6 +630,7 @@ struct axienet_local {
+ 	int tx_ring_tail;
+ 	int rx_ring_head;
+ 	int rx_ring_tail;
++	u32 xxv_ip_version;
+ 	const struct axienet_config *axienet_config;
+ };
+ 
+@@ -680,6 +684,11 @@ struct axienet_config {
+ 	void (*stats_update)(struct axienet_local *lp);
+ };
+ 
++static inline struct axienet_local *pcs_to_axienet_local(struct phylink_pcs *pcs)
++{
++	return container_of(pcs, struct axienet_local, pcs);
++}
++
+ /**
+  * struct axienet_option - Used to set axi ethernet hardware options
+  * @opt:	Option to be set.
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 5c59423bd778..5bffa5b9d0b4 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1705,6 +1705,10 @@ static int axienet_open(struct net_device *ndev)
+ 	axienet_lock_mii(lp);
+ 	ret = axienet_device_reset(ndev);
+ 	axienet_unlock_mii(lp);
++	if (ret) {
++		dev_err(lp->dev, "axienet_device_reset() failed: %d\n", ret);
++		return ret;
++	}
+ 
+ 	ret = phylink_of_phy_connect(lp->phylink, lp->dev->of_node, 0);
+ 	if (ret) {
+@@ -2604,11 +2608,6 @@ static const struct ethtool_ops axienet_ethtool_dmaengine_ops = {
+ 	.get_rmon_stats = axienet_ethtool_get_rmon_stats,
+ };
+ 
+-static struct axienet_local *pcs_to_axienet_local(struct phylink_pcs *pcs)
+-{
+-	return container_of(pcs, struct axienet_local, pcs);
+-}
+-
+ static void axienet_pcs_get_state(struct phylink_pcs *pcs,
+ 				  unsigned int neg_mode,
+ 				  struct phylink_link_state *state)
+@@ -2668,7 +2667,9 @@ static struct phylink_pcs *axienet_mac_select_pcs(struct phylink_config *config,
+ 	struct axienet_local *lp = netdev_priv(ndev);
+ 
+ 	if (interface == PHY_INTERFACE_MODE_1000BASEX ||
+-	    interface ==  PHY_INTERFACE_MODE_SGMII)
++	    interface == PHY_INTERFACE_MODE_SGMII ||
++	    interface == PHY_INTERFACE_MODE_10GBASER ||
++	    interface == PHY_INTERFACE_MODE_25GBASER)
+ 		return &lp->pcs;
+ 
+ 	return NULL;
+@@ -2814,6 +2815,9 @@ static void axienet_dma_err_handler(struct work_struct *work)
+ 
+ 	axienet_dma_start(lp);
+ 
++	/* This error handler runs only for the legacy embedded-DMA (1G) path,
++	 * whose mac_init() cannot fail, so its return value is not checked.
++	 */
+ 	lp->axienet_config->mac_init(ndev);
+ 
+ 	/* Sync default options with HW but leave receiver and
+@@ -2917,6 +2921,7 @@ static const struct of_device_id axienet_of_match[] = {
+ 	{ .compatible = "xlnx,axi-ethernet-1.00.a", .data = &axienet_1g_config },
+ 	{ .compatible = "xlnx,axi-ethernet-1.01.a", .data = &axienet_1g_config },
+ 	{ .compatible = "xlnx,axi-ethernet-2.01.a", .data = &axienet_1g_config },
++	{ .compatible = "xlnx,xxv-ethernet-1.0", .data = &axienet_10g25g_config },
+ 	{},
+ };
+ 
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+new file mode 100644
+index 000000000000..da3f6566a0c4
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+@@ -0,0 +1,328 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * XXV (10G/25G) support
++ *
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/iopoll.h>
++#include <linux/netdevice.h>
++#include <linux/phylink.h>
++
++#include "xilinx_axienet.h"
++#include "xilinx_axienet_xxv.h"
++
++/* readl_poll_timeout() sleep interval (us) and 1 ms total timeout for GT
++ * reset-done and PCS block-lock polls. Values from ZynqMP/Versal bring-up;
++ * PG210 does not specify these bounds.
++ */
++#define XXV_LINK_POLL_INTERVAL_US	10
++
++/* Number of XXV (10G/25G) MAC registers exposed via ethtool -d.
++ * Covers configuration and status registers per Xilinx PG210.
++ */
++static const u32 axienet_xxv_reg_dump_offsets[XXV_REGS_N] = {
++	XXV_GT_RESET_OFFSET,
++	XXV_RESET_OFFSET,
++	XXV_MODE_OFFSET,
++	XXV_TC_OFFSET,
++	XXV_RCW1_OFFSET,
++	XXV_JUM_OFFSET,
++	XXV_VL_LENGTH_OFFSET,
++	XXV_TICKREG_OFFSET,
++	XXV_CONFIG_REVISION,
++	XXV_CONFIG_1588_OFFSET,
++	XXV_CONFIG_TX_FLOW_CTRL1_OFFSET,
++	XXV_CONFIG_RX_FLOW_CTRL1_OFFSET,
++	XXV_CONFIG_RX_FLOW_CTRL2_OFFSET,
++	XXV_CONFIG_RSFEC_OFFSET,
++	XXV_CONFIG_FEC_OFFSET,
++	XXV_AN_CTL1_OFFSET,
++	XXV_AN_CTL2_OFFSET,
++	XXV_AN_ABILITY_OFFSET,
++	XXV_LT_CTL1_OFFSET,
++	XXV_SWITCH_CORE_SPEED_OFFSET,
++	XXV_CONFIG_1588_32BIT_OFFSET,
++	XXV_TX_CONFIG_1588_OFFSET,
++	XXV_RX_CONFIG_1588_OFFSET,
++	XXV_GTWIZ_CTRL_OFFSET,
++	XXV_STATRX_STATUS0_OFFSET,
++	XXV_RX_STATUS_REG1,
++	XXV_STATRX_STATUS2_OFFSET,
++	XXV_STATRX_BLKLCK_OFFSET,
++	XXV_STAT_RX_RSFEC_STATUS_OFFSET,
++	XXV_STAT_RX_FEC_STATUS_OFFSET,
++	XXV_STAT_TX_RSFEC_STATUS_OFFSET,
++	XXV_STAT_TX_FLOW_CTRL1_OFFSET,
++	XXV_STAT_RX_FLOW_CTRL1_OFFSET,
++	XXV_STAT_AN_STS_OFFSET,
++	XXV_STAT_AN_LP_STATUS_OFFSET,
++	XXV_STAT_AN_LINK_CTL_OFFSET,
++	XXV_STAT_LT_STATUS1_OFFSET,
++	XXV_STAT_LT_STATUS2_OFFSET,
++	XXV_STAT_LT_STATUS3_OFFSET,
++	XXV_STAT_LT_STATUS4_OFFSET,
++	XXV_STAT_LT_COEFF0_OFFSET,
++	XXV_STAT_RX_VALID_CTRL_CODE_OFFSET,
++	XXV_STAT_CORE_SPEED_OFFSET,
++	XXV_STAT_TSN_OFFSET,
++	XXV_STAT_GTWIZ_OFFSET,
++	XXV_STAT_AN_LINK_CTL2_OFFSET,
++};
++
++/* Option table for setting up XXV Ethernet hardware options */
++static struct axienet_option xxvenet_options[] = {
++	{ /* Turn on FCS stripping on receive packets */
++		.opt = XAE_OPTION_FCS_STRIP,
++		.reg = XXV_RCW1_OFFSET,
++		.m_or = XXV_RCW1_FCS_MASK,
++	}, { /* Turn on FCS insertion on transmit packets */
++		.opt = XAE_OPTION_FCS_INSERT,
++		.reg = XXV_TC_OFFSET,
++		.m_or = XXV_TC_FCS_MASK,
++	}, { /* Enable transmitter */
++		.opt = XAE_OPTION_TXEN,
++		.reg = XXV_TC_OFFSET,
++		.m_or = XXV_TC_TX_MASK,
++	}, { /* Enable receiver */
++		.opt = XAE_OPTION_RXEN,
++		.reg = XXV_RCW1_OFFSET,
++		.m_or = XXV_RCW1_RX_MASK,
++	},
++	{}
++};
++
++static bool axienet_xxv_ip_has_gtwiz_status(u32 ip_version)
++{
++	u8 minor = FIELD_GET(XXV_MIN_MASK, ip_version);
++	u8 maj = ip_version & XXV_MAJ_MASK;
++
++	if (maj == XXV_IP_VER_GTWIZ_MAJ_MIN)
++		return minor >= XXV_IP_VER_GTWIZ_MIN_MIN;
++	return maj > XXV_IP_VER_GTWIZ_MAJ_MIN;
++}
++
++/**
++ * axienet_xxv_setoptions - Set XXV MAC options from the option table
++ * @ndev: Pointer to the net_device structure
++ * @options: Option flags to apply
++ */
++static void axienet_xxv_setoptions(struct net_device *ndev, u32 options)
++{
++	struct axienet_local *lp = netdev_priv(ndev);
++	struct axienet_option *tp = xxvenet_options;
++	u32 reg;
++
++	while (tp->opt) {
++		reg = axienet_ior(lp, tp->reg) & ~tp->m_or;
++		if (options & tp->opt)
++			reg |= tp->m_or;
++		axienet_iow(lp, tp->reg, reg);
++		tp++;
++	}
++
++	lp->options |= options;
++}
++
++/**
++ * axienet_xxv_probe_init - Initialize XXV-specific state at probe time
++ * @lp: Pointer to the axienet_local structure
++ */
++static void axienet_xxv_probe_init(struct axienet_local *lp)
++{
++	lp->xxv_ip_version = axienet_ior(lp, XXV_CONFIG_REVISION);
++}
++
++/**
++ * axienet_xxv_gt_reset - Pulse the XXV GT reset line
++ * @lp: Pointer to the axienet_local structure
++ */
++static void axienet_xxv_gt_reset(struct axienet_local *lp)
++{
++	u32 val;
++
++	/* Reset GT */
++	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
++	val |= XXV_GT_RESET_MASK;
++	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
++	/* Allow 1 ms for the GT reset to settle (see timeout note above) */
++	mdelay(1);
++	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
++	val &= ~XXV_GT_RESET_MASK;
++	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
++}
++
++/**
++ * axienet_xxv_poll_link_ready - Wait for XXV GT and PCS block lock
++ * @ndev: Pointer to the net_device structure
++ *
++ * Poll GT wizard reset-done on IP v3.2+, then RX PCS block lock. Block-lock
++ * failure is logged but not propagated: it depends on a live link partner and
++ * reference clock, so an unplugged cable must not fail device bring-up.
++ *
++ * Return: 0 on success, or a negative error if GT reset-done times out.
++ */
++static int axienet_xxv_poll_link_ready(struct net_device *ndev)
++{
++	struct axienet_local *lp = netdev_priv(ndev);
++	u32 val;
++	int ret;
++
++	/* Confirm XXV Ethernet is up: on IP v3.2+, wait for GT
++	 * reset-done before further register access, then poll until
++	 * RX PCS block lock is asserted.
++	 */
++	if (axienet_xxv_ip_has_gtwiz_status(lp->xxv_ip_version)) {
++		ret = readl_poll_timeout(lp->regs + XXV_STAT_GTWIZ_OFFSET,
++					 val, (val & XXV_GTWIZ_RESET_DONE),
++					 XXV_LINK_POLL_INTERVAL_US,
++					 DELAY_OF_ONE_MILLISEC);
++		if (ret) {
++			netdev_err(ndev, "XXV MAC GT reset not complete! Cross-check the MAC ref clock configuration\n");
++			return ret;
++		}
++	}
++
++	ret = readl_poll_timeout(lp->regs + XXV_STATRX_BLKLCK_OFFSET,
++				 val, (val & XXV_RX_BLKLCK_MASK),
++				 XXV_LINK_POLL_INTERVAL_US,
++				 DELAY_OF_ONE_MILLISEC);
++	if (ret)
++		netdev_err(ndev, "XXV MAC block lock not complete! Cross-check the MAC ref clock configuration\n");
++
++	return 0;
++}
++
++/**
++ * axienet_xxv_mac_init - XXV MAC-specific bring-up after the DMA reset
++ * @ndev: Pointer to the net_device structure
++ *
++ * Return: 0 on success or a negative error number otherwise.
++ */
++static int axienet_xxv_mac_init(struct net_device *ndev)
++{
++	struct axienet_local *lp = netdev_priv(ndev);
++	int ret;
++
++	ret = axienet_xxv_poll_link_ready(ndev);
++	if (ret)
++		return ret;
++
++	lp->options |= XAE_OPTION_FCS_STRIP;
++	lp->options |= XAE_OPTION_FCS_INSERT;
++
++	return 0;
++}
++
++static void axienet_xxv_phylink_set_capabilities(struct axienet_local *lp,
++						 struct phylink_config *cfg)
++{
++	u32 core_speed;
++	bool rtsw;
++
++	core_speed = axienet_ior(lp, XXV_STAT_CORE_SPEED_OFFSET);
++	/* Bit[1:0]: 00=25G, 01=10G, 10=runtime-switchable 25G,
++	 * 11=runtime-switchable 10G. A runtime-switchable core can operate at
++	 * either speed, so advertise both; a fixed core advertises only its
++	 * configured speed.
++	 */
++	rtsw = core_speed & XXV_STAT_CORE_SPEED_RTSW_MASK;
++
++	if (rtsw || (core_speed & XXV_STAT_CORE_SPEED_10G_MASK)) {
++		cfg->mac_capabilities |= MAC_10000FD;
++		__set_bit(PHY_INTERFACE_MODE_10GBASER,
++			  cfg->supported_interfaces);
++	}
++
++	if (rtsw || !(core_speed & XXV_STAT_CORE_SPEED_10G_MASK)) {
++		cfg->mac_capabilities |= MAC_25000FD;
++		__set_bit(PHY_INTERFACE_MODE_25GBASER,
++			  cfg->supported_interfaces);
++	}
++}
++
++static void axienet_xxv_pcs_get_state(struct phylink_pcs *pcs,
++				      unsigned int neg_mode,
++				      struct phylink_link_state *state)
++{
++	struct axienet_local *lp = pcs_to_axienet_local(pcs);
++
++	state->duplex = DUPLEX_FULL;
++	state->an_complete = !!(axienet_ior(lp, XXV_STAT_AN_STS_OFFSET) &
++				XXV_AN_COMPLETE_MASK);
++	state->link = axienet_ior(lp, XXV_RX_STATUS_REG1) &
++		      XXV_RX_STATUS_MASK;
++
++	if (axienet_ior(lp, XXV_STAT_CORE_SPEED_OFFSET) &
++	    XXV_STAT_CORE_SPEED_10G_MASK)
++		state->speed = SPEED_10000;
++	else
++		state->speed = SPEED_25000;
++}
++
++static int axienet_xxv_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
++				  phy_interface_t interface,
++				  const unsigned long *advertising,
++				  bool permit_pause_to_mac)
++{
++	return 0;
++}
++
++static const struct phylink_pcs_ops axienet_xxv_pcs_ops = {
++	.pcs_get_state = axienet_xxv_pcs_get_state,
++	.pcs_config = axienet_xxv_pcs_config,
++};
++
++/**
++ * axienet_xxv_get_regs - Dump XXV MAC registers for ethtool
++ * @lp: Pointer to the axienet_local structure
++ * @data: Buffer for register values (zeroed and sized by the caller)
++ */
++static void axienet_xxv_get_regs(struct axienet_local *lp, u32 *data)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(axienet_xxv_reg_dump_offsets); i++)
++		data[i] = axienet_ior(lp, axienet_xxv_reg_dump_offsets[i]);
++}
++
++static int axienet_10g25g_clk_init(struct axienet_local *lp)
++{
++	struct device *dev = lp->dev;
++	int ret;
++
++	/* The register, RX and GT DRP clocks are mandatory for MAC+PCS
++	 * operation, so fetch them as required.
++	 */
++	lp->axi_clk = devm_clk_get_enabled(dev, "s_axi_aclk");
++	if (IS_ERR(lp->axi_clk))
++		return dev_err_probe(dev, PTR_ERR(lp->axi_clk),
++				     "could not get AXI clock\n");
++
++	lp->misc_clks[0].id = "rx_core_clk";
++	lp->misc_clks[1].id = "dclk";
++
++	ret = devm_clk_bulk_get_enable(dev, 2, lp->misc_clks);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "could not get/enable XXV clocks\n");
++
++	return 0;
++}
++
++const struct axienet_config axienet_10g25g_config = {
++	.sw_padding = true,
++	.internal_pcs = true,
++	.regs_n = XXV_REGS_N,
++	.clk_init = axienet_10g25g_clk_init,
++	.setoptions = axienet_xxv_setoptions,
++	.probe_init = axienet_xxv_probe_init,
++	.gt_reset = axienet_xxv_gt_reset,
++	.mac_init = axienet_xxv_mac_init,
++	.get_regs = axienet_xxv_get_regs,
++	.phylink_set_caps = axienet_xxv_phylink_set_capabilities,
++	.pcs_ops = &axienet_xxv_pcs_ops,
++};
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
+new file mode 100644
+index 000000000000..15a323ee05b2
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
+@@ -0,0 +1,86 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * XXV (10G/25G) support
++ *
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
++ */
++
++#ifndef XILINX_AXIENET_XXV_H
++#define XILINX_AXIENET_XXV_H
++
++#include <linux/bits.h>
++
++struct axienet_local;
++struct axienet_config;
++
++#define XXV_REGS_N		46
++
++/* XXV MAC Register Definitions */
++#define XXV_GT_RESET_OFFSET		0x00000000
++#define XXV_RESET_OFFSET		0x00000004
++#define XXV_MODE_OFFSET			0x00000008
++#define XXV_TC_OFFSET			0x0000000C
++#define XXV_RCW1_OFFSET			0x00000014
++#define XXV_JUM_OFFSET			0x00000018
++#define XXV_VL_LENGTH_OFFSET		0x0000001C
++#define XXV_TICKREG_OFFSET		0x00000020
++#define XXV_CONFIG_REVISION		0x00000024
++#define XXV_CONFIG_1588_OFFSET		0x00000038
++#define XXV_CONFIG_TX_FLOW_CTRL1_OFFSET	0x00000040
++#define XXV_CONFIG_RX_FLOW_CTRL1_OFFSET	0x00000094
++#define XXV_CONFIG_RX_FLOW_CTRL2_OFFSET	0x00000098
++#define XXV_CONFIG_RSFEC_OFFSET		0x000000D0
++#define XXV_CONFIG_FEC_OFFSET		0x000000D4
++#define XXV_AN_CTL1_OFFSET		0x000000E0
++#define XXV_AN_CTL2_OFFSET		0x000000E4
++#define XXV_AN_ABILITY_OFFSET		0x000000F8
++#define XXV_LT_CTL1_OFFSET		0x00000100
++#define XXV_SWITCH_CORE_SPEED_OFFSET	0x00000138
++#define XXV_CONFIG_1588_32BIT_OFFSET	0x0000013C
++#define XXV_TX_CONFIG_1588_OFFSET	0x00000140
++#define XXV_RX_CONFIG_1588_OFFSET	0x00000144
++#define XXV_GTWIZ_CTRL_OFFSET		0x00000154
++#define XXV_STATRX_STATUS0_OFFSET	0x00000400
++#define XXV_RX_STATUS_REG1		0x00000404
++#define XXV_STATRX_STATUS2_OFFSET	0x00000408
++#define XXV_STATRX_BLKLCK_OFFSET	0x0000040C
++#define XXV_STAT_RX_RSFEC_STATUS_OFFSET	0x0000043C
++#define XXV_STAT_RX_FEC_STATUS_OFFSET	0x00000448
++#define XXV_STAT_TX_RSFEC_STATUS_OFFSET	0x0000044C
++#define XXV_STAT_TX_FLOW_CTRL1_OFFSET	0x00000450
++#define XXV_STAT_RX_FLOW_CTRL1_OFFSET	0x00000454
++#define XXV_STAT_AN_STS_OFFSET		0x00000458
++#define XXV_STAT_AN_LP_STATUS_OFFSET	0x0000045C
++#define XXV_STAT_AN_LINK_CTL_OFFSET	0x00000460
++#define XXV_STAT_LT_STATUS1_OFFSET	0x00000464
++#define XXV_STAT_LT_STATUS2_OFFSET	0x00000468
++#define XXV_STAT_LT_STATUS3_OFFSET	0x0000046C
++#define XXV_STAT_LT_STATUS4_OFFSET	0x00000470
++#define XXV_STAT_LT_COEFF0_OFFSET	0x00000474
++#define XXV_STAT_RX_VALID_CTRL_CODE_OFFSET	0x00000494
++#define XXV_STAT_CORE_SPEED_OFFSET	0x00000498
++#define XXV_STAT_TSN_OFFSET		0x0000049C
++#define XXV_STAT_GTWIZ_OFFSET		0x000004A0
++#define XXV_STAT_AN_LINK_CTL2_OFFSET	0x000009F0
++
++/* XXV MAC Register Mask Definitions */
++#define XXV_GT_RESET_MASK		BIT(0)
++#define XXV_TC_TX_MASK			BIT(0)
++#define XXV_RCW1_RX_MASK		BIT(0)
++#define XXV_RCW1_FCS_MASK		BIT(1)
++#define XXV_TC_FCS_MASK			BIT(1)
++#define XXV_RX_BLKLCK_MASK		BIT(0)
++#define XXV_GTWIZ_RESET_DONE		(BIT(0) | BIT(1))
++#define XXV_MAJ_MASK			GENMASK(7, 0)
++#define XXV_MIN_MASK			GENMASK(15, 8)
++/* IP v3.2+ exposes GT wizard status before other register access (PG210). */
++#define XXV_IP_VER_GTWIZ_MAJ_MIN	3
++#define XXV_IP_VER_GTWIZ_MIN_MIN	2
++#define XXV_AN_COMPLETE_MASK		BIT(2)
++#define XXV_STAT_CORE_SPEED_RTSW_MASK	BIT(1)
++#define XXV_STAT_CORE_SPEED_10G_MASK	BIT(0)
++#define XXV_RX_STATUS_MASK		BIT(0)
++
++extern const struct axienet_config axienet_10g25g_config;
++
++#endif /* XILINX_AXIENET_XXV_H */
+-- 
+2.25.1
 
-> 
->>   static inline bool psci_has_ext_power_state(void)
->>   {
->>   	return psci_cpu_suspend_feature &
->> @@ -306,8 +372,24 @@ static int get_set_conduit_method(const struct device_node *np)
->>   	return 0;
->>   }
->>   
->> -static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->> -			  void *data)
->> +static void psci_handle_reset_cmd(void)
->> +{
->> +	u32 psci_sys_reset_fn;
->> +
->> +	if ((reset_cmd.reset_type & PSCI_1_1_RESET_TYPE_VENDOR_START) &&
-> 
-> What is `_START` significance in PSCI_1_1_RESET_TYPE_VENDOR_START macro?
-
-Its the 31st bit that decides if its valid vendor reset.
-
-> 
->> +	    psci_system_reset2_supported) {
->> +		/* PSCI SYSTEM_RESET2 Vendor-specific reset */
->> +		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
->> +			       reset_cmd.reset_type, reset_cmd.cookie, 0);
->> +	} else {
->> +		/* Retrieve the psci reset function from reset_cmd */
->> +		psci_sys_reset_fn = psci_get_sys_reset_fn();
->> +		if (!reset_cmd.reset_type && psci_sys_reset_fn)
->> +			invoke_psci_fn(psci_sys_reset_fn, 0, 0, 0);
->> +	}
->> +}
->> +
->> +static void psci_handle_reboot_mode(void)
->>   {
->>   	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->>   	    psci_system_reset2_supported) {
->> @@ -320,6 +402,26 @@ static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->>   	} else {
->>   		invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
->>   	}
->> +}
->> +
->> +static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->> +			  void *data)
->> +{
->> +	/* The function psci_handle_reboot_mode follows reboot_mode based
->> +	 * reset flow and psci_handle_reset_cmd uses reset_cmd based reset flow.
->> +	 *
->> +	 * The reset_cmd is configured at the reboot_notifier phase. If a kernel
->> +	 * panic occurs between the reboot_notifier and this final reset, skip the
->> +	 * command-based reset and let reboot_mode drive the reset flow.
->> +	 *
->> +	 * The function psci_handle_reset_cmd invokes non-returning PSCI SYSTEM_RESET
->> +	 * calls to reset the device. If it returns, either the reset failed, or the
->> +	 * command was unsupported. Fallback to reboot_mode based reset flow.
->> +	 */
->> +	if ((reset_cmd.reset_type || reset_cmd.cookie) && !panic_in_progress())
->> +		psci_handle_reset_cmd();
->> +
->> +	psci_handle_reboot_mode();
->>   
->>   	return NOTIFY_DONE;
->>   }
->> diff --git a/include/linux/psci.h b/include/linux/psci.h
->> index 4ca0060a3fc4..39fe0edec651 100644
->> --- a/include/linux/psci.h
->> +++ b/include/linux/psci.h
->> @@ -8,6 +8,7 @@
->>   #define __LINUX_PSCI_H
->>   
->>   #include <linux/arm-smccc.h>
->> +#include <linux/errno.h>
->>   #include <linux/init.h>
->>   #include <linux/types.h>
->>   
->> @@ -21,6 +22,16 @@ bool psci_power_state_is_valid(u32 state);
->>   int psci_set_osi_mode(bool enable);
->>   bool psci_has_osi_support(void);
->>   
->> +/**
->> + * enum psci_standard_resets - Standard reset selectors for PSCI reset
->> + * @PSCI_SYSTEM_RESET_COLD_RESET: Standard SYSTEM_RESET command.
->> + * @PSCI_SYSTEM_RESET2_ARCH_WARM_RESET: SYSTEM_RESET2 architectural warm reset.
->> + */
->> +enum psci_standard_resets {
->> +	PSCI_SYSTEM_RESET_COLD_RESET = 1,
->> +	PSCI_SYSTEM_RESET2_ARCH_WARM_RESET,
->> +};
->> +
->>   struct psci_operations {
->>   	u32 (*get_version)(void);
->>   	int (*cpu_suspend)(u32 state, unsigned long entry_point);
->> @@ -45,8 +56,33 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void);
->>   
->>   #if defined(CONFIG_ARM_PSCI_FW)
->>   int __init psci_dt_init(void);
->> +/**
->> + * psci_set_reset_cmd() - Configure PSCI reset command
->> + * @reset_type: SYSTEM_RESET2 vendor-specific reset_type as defined by
->> + *		firmware, or 0 for standard resets
->> + * @cookie: SYSTEM_RESET2 vendor-specific cookie as defined by firmware or one
->> + *		of enum psci_standard_resets when @reset_type is set to 0
->> + *
->> + * Supported commands:
->> + * - PSCI SYSTEM_RESET2 vendor-specific reset:
->> + *   - @reset_type and @cookie must follow platform-specific SYSTEM_RESET2
->> + *     vendor-reset encoding.
->> + * - Standard reset selector:
->> + *   - @reset_type must be 0.
->> + *   - @cookie must be one of enum psci_standard_resets.
->> + *
->> + * This is an in-kernel helper intended for built-in reboot flow callers.
->> + * reset command can be set only one time per boot cycle.
->> + *
->> + * Return: 0 on success, -EINVAL if both inputs are zero, -EBUSY if reset
->> + * command is already set.
->> + */
->> +int psci_set_reset_cmd(u32 reset_type, u64 cookie);
-> 
-> The very same comment is present in the implementation of this function.
-> Please fix it.
-
-sure.
-
-thanks,
-Shivendra
 
