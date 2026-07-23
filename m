@@ -4,154 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5EEC531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B59C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7aF1/ZWz3Hq66anD9pqpoMeSBzfhmRxhu1+4/n8m1KE=; b=fkCFnIxKYArMrUVlpopR/HVDCl
-	BfG85jf+UeZdsiSX83TCH8n6Vw7ksBQMTX3G302YEc2NcoykqhD9KA/RFpwc4VF97JeM/EdZuxW/E
-	5E9xTOrS9gEUgTj9yPDy49Pfv6OOIGa4/2zpFhZq2y06k9HcE+vbcTADn1foHjS2GBmrIN9D1mbCm
-	XL2tt/L4tlXvwJ8syillopOBIpi/vSpJ8o5no0cCy3Vtv6K8+zyabWnFn+ztHh23Qka8wJa8rHZKp
-	tS41pZqkbU08SnJvhhkw5oWbpZMvjx2VC37UH6C7KbaLCnGEb8meesNDcNUhk3OO/VipAYjoUDbMN
-	yi2UUX7A==;
+	bh=0fXT6bgGgaK9AKCq3ImfbU0yU7WjLK0dX9VTXz/R7mw=; b=yjPM8In8R+kSAhd3FVYLRSl0Jt
+	a54eQEQ0UyIxTnDgCx8DDw348e9FeudmvkXjpO29L0rzfkaVrDM9iaeqs1NHewnvxZcoHUoV78Klv
+	ulI08WtveKPu86h6xP13becZNaKP+9XuMrkuiaKuk3XAUa1Ywrgwv/27rT9Oj0uaG528CZEWP/e+5
+	0r2aCE4PHGisHcr12zO1SYErxTpLeeDSnBWWRVfPVRLPPdYE3+RdPrGvCvktk6lZdDKxY6kyAWxoh
+	+m42gBQ5z5alNvPYx6Bqyg+MV7/ltC+05Cm0Po0LLBJb9nVDJGh3MvrTF/v9bZ4etYEcJ/boy65w7
+	2wfFbi0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpUe-0000000Dotr-1i2Z;
-	Thu, 23 Jul 2026 09:13:28 +0000
-Received: from mail-francecentralazon11013009.outbound.protection.outlook.com ([40.107.162.9] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wmpX1-0000000DpNK-3cdW;
+	Thu, 23 Jul 2026 09:15:55 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpUX-0000000DonB-2YU0
+	id 1wmpWy-0000000DpM6-2hHN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:13:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TR06cpuq1K2npEz4ahFMCVBXaPdol09NtV89YkXI/91bKu05Rf3dsoTmMaghmUbUOJn5qSXR75ZzaWCH+Mgeu8NnRB4DW2BoJuSbz7OUVDR10kvx45ej+jgNFtAJ85YTGctt6WWCrWpkj27wrlLdFKDo0iQtry09jf1sKM5+s4YT66BXbncCqypg7+xwhgd6de6Q5BCf8XFFflPexTZo0C7pTmYYMYPG+k9RuyU1ZNFJLlBdsTbQSwxY2/tH3vkhKadh2RTA+wFOJ4RUFSwufUiyodUgQw90m2ikyU1m+M2EKjLTCF90B+c9xAmObZdbq5+726QEFBdgXUq1sJCR1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7aF1/ZWz3Hq66anD9pqpoMeSBzfhmRxhu1+4/n8m1KE=;
- b=MgJqVZVQoOuKO4CT6KmS+ziPV0KeILqkLbEyISM9G8GUdDdbjoBuuy7sdFrHMnfDBuwlE2VgpNhIzk39D2CWprWTYJNO7aws09wGu7NLnut7UvLUtZUECIp/862KGjsiC4Sk8za5uNNfDxqK1BjBygCQG5sKmFm0ychr7WOSsC2y872DfATjl+KyJfu2HWs8E3wRMx3XB02KiCZqZVfX5dtyIVaCwW+qFikmcIYMdccL3zkRuqCc4tXiuY29bZ57N5/EwQ4XAdzzAefbbuGG9GkiqK2Q6SmU6u4wlTNcVT9V1J3WTIgcZbQai3KeFh+z9IRGN2Ymk0wgn1liJxc/Vw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7aF1/ZWz3Hq66anD9pqpoMeSBzfhmRxhu1+4/n8m1KE=;
- b=ty95s2ge/cgT88LVdt6omirM7Ns/LwtnkhqGSJpumFB3TknLx1g1yI0O0BlG1vQNMCVMf8Po12rEb/W1ZLh+MSx/bf3BJ7J19IsGHlvL316pPJWwxigWyxFy1pPNs4s5qbmoQmmTGgcnlWPyQdAZmzLSEMs2sCwjw+XmJa0OZ7G5nOOMhussbe2zgbHXV2v206x577mIU8GpXOl3VIjIh3ezy4dGnljM3FQuQ8+xTxsDSdUuu4D2UqZWkD5jDClS1HKfzGayDWMvCfGdmZ60qlOkyJq5uh8VrlyaR+NZEJ4njc7NVwaX300jlfERB8B2qRs4GjImeRAgIXJq5BQfJg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
- by DB8PR04MB6780.eurprd04.prod.outlook.com (2603:10a6:10:f9::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 09:13:18 +0000
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 09:13:18 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Thu, 23 Jul 2026 17:16:39 +0800
-Subject: [PATCH v3 3/3] media: nxp: imx8-isi: Add additional 32-bit RGB
- format support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-isi-v3-3-594919eae847@oss.nxp.com>
-References: <20260723-isi-v3-0-594919eae847@oss.nxp.com>
-In-Reply-To: <20260723-isi-v3-0-594919eae847@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Christian Hemp <c.hemp@phytec.de>, 
- Stefan Riedmueller <s.riedmueller@phytec.de>, 
- Jacopo Mondi <jacopo@jmondi.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Bryan O'Donoghue <bod@kernel.org>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Guoniu Zhou <guoniu.zhou@oss.nxp.com>, 
- Robert Chiras <robert.chiras@nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784798197; l=3093;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=7vCwoD8zRU/F2Yx0YQTwIE4S7+I6QlRgpgis7oo0VUs=;
- b=yJ+Mdx/i8zI3w1ZmvmlFbyia4cGJr3948zpq1yZkLfyDYn+OITU+oYJxSzhWPUrBoitDrcr+y
- WAD1gISXwuKDEKplvjmY+PQ54xmDqMuC3ykVBK9R1VeDVczCMsbRA5m
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SG2PR04CA0203.apcprd04.prod.outlook.com
- (2603:1096:4:187::22) To GV1PR04MB11513.eurprd04.prod.outlook.com
- (2603:10a6:150:284::9)
+	Thu, 23 Jul 2026 09:15:54 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-84862b0d5aeso408172b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:15:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784798152; x=1785402952; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0fXT6bgGgaK9AKCq3ImfbU0yU7WjLK0dX9VTXz/R7mw=;
+        b=Cy/npQTaRfpvvBm2KGqEnT1HofnJAtTvyz1364nKCvrNc7PdABzlus4ZcuS9b8MnwW
+         Z4J9XKN06PGRklt1IhnteEFCgUdVB2qzY/OJQGhbJYGOu2/sBQEyxLhbA6WwSY85M/p/
+         jqEjJoDMvXI0XjlydVbhUsqNc6rCetKvUi2XR3CnQBboux0tgJW0El1S3dco7vfTniA2
+         GZHBOMHrBrv5tY9MAufPFsar7N5jB7pRBWIgr80kl0I8bY78uns/KVYAOEkeqQPjzFkF
+         ti1YuUg2G5FcCgGzghmPfVMXL/KNxQ6CoeFKKJmedCs/dwRQg1XtBdVK7EuVSMfSM5Fi
+         AyIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784798152; x=1785402952;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0fXT6bgGgaK9AKCq3ImfbU0yU7WjLK0dX9VTXz/R7mw=;
+        b=eXu6EOvxp36XqZjgedAT8xv3vGIXvMDHc5uWJYQc65bsjVf2SOCw6M9CikrgMIPFBO
+         sbjXrXqLGyPevMXdurTBP3xQeaeZKi+5DDzF4R+/xo1kXXuMjHe76mn6D3QNPwE5rDGu
+         lkzgWdm0WHt/y/9/4Yu77nP7pXciab0k1J0DfdRVG8/X78heIUDwayJe8geLvO8G0iGS
+         669m5S6/dt4EpVgkuU7qGQLVcnqCWaXNyvrxB3RwLAWiS+ZfN5FNKE2REYImmN5bE9hm
+         2pM5gLR/qPlxtyG3/wEqv57AcwrhAnkYtMkdcreQQvSsszba8BLcbbyBx5fdbMGv4tEe
+         FqnQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp1BGDmf6BddQfISNhTL4nVQU17N38ceoSZqEaJL/6yhiYxuMtqMAKmnJjPw8G3KfmDMrWACPCxLLoIvFMLQ64B@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw17wbkHW/hDSiZu2QvRMlMjm7ruiM6otmtDlqf15jsqyTmBux0
+	CZ1JB5LYY3DcGhAR5QfJ3+9JfrWvx909YvQ8NvHU6uZxOiUb21585wlX
+X-Gm-Gg: AR+sD13/cQXefY+9hpHzuB13NvkZ9AxbXOzLHhWpGsn0SRl2kuBIVGmMR6OzqOJabMN
+	T/EOJuQnEGed/n2Zm4x3N+3LW2bnUCWcPCDB0QVMWVtZYkxGWR5U+HzEf/u1P3hoK+9nmAS1GH9
+	yl1Ee0V/hXTkpxRnH7ZaoUXIZ46QvwuWuoKMLhCm+C2+HnU0GpX1T636QBJATsEUqhJSDUiEc9u
+	aYUT84v3xkIuHiInk76aIa3gDCZdStjVykfqUAsQMT3m+hRUJP9H3NOHhnMdoonoG/mJyVMQgfm
+	aKi39jvMfYxYMNqjJKlUPPvZ/Kw/l1vAV1O+EyWgfv1RNMCX9f5noZPMbwLmTo7Kmi8tC3OL5Se
+	UDK1lzphJayzTWZyowPXMOV8+oLiH6cZ/jEVWeXU4ra08dDJg17fJJL3PPNkCfHN8aMwQr5Sa80
+	jq9OQctmdjY6zzV8zledsFIb8sLr/EIw6i1YA0COBhOpAJ
+X-Received: by 2002:a05:6a00:3c94:b0:845:4126:222b with SMTP id d2e1a72fcca58-84e2b8bf81fmr2868281b3a.28.1784798151685;
+        Thu, 23 Jul 2026 02:15:51 -0700 (PDT)
+Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e17600a72sm2738538b3a.58.2026.07.23.02.15.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 02:15:51 -0700 (PDT)
+Date: Thu, 23 Jul 2026 18:15:47 +0900
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Russell King <linux@armlinux.org.uk>, 
+	Nathan Chancellor <nathan@kernel.org>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Yingjoe Chen <yingjoe.chen@mediatek.com>, 
+	"moderated list:ARM SUB-ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, 
+	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>, stable@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>, 
+	Ard Biesheuvel <ardb@google.com>
+Subject: Re: [PATCH] arm: mediatek: fix secondary CPU boot on Thumb-2 kernels
+ with Clang
+Message-ID: <amHYO1c-5vzqSekt@buffalo-ssd>
+References: <20260722172443.534251-1-akkun11.open@gmail.com>
+ <CAKwvOdnbPKoTy72EvfpKtT9Ne-r+O0j99KFX8OvjGk8ZxsuEGw@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|DB8PR04MB6780:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9736cea-fadc-4f92-069a-08dee89aa278
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|19092799006|921020|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: vd3iSp8LmNfvZ2mdKK3njtOjgmtYy7NJKuzNwUoS7IzTXogXHldgh/6oLu7TEWs0UOevpqvmQO8f/1zLVI+/DmtKvKh0hHQfiNjYKCZKrl927ZOpca4c7llH2NWmp8Gxxdk0r9d3mayidHzjgDkAY+Z20RYqi1yCcLebBZW3lyR7PmC8QfXUTEkcr9uCA+FuiLTpK+nP54S+Hv9zudnXlmR0it6hCG/8PzThw1zRSgqL+ThfEUtj2VC0p/e7KCzUhDhoEqtr4ygKlAFO61r5yR43eC48qgbPt5tALgrnL8geQXt0yYWQUv4J2VlRxPpQDbeD1EIli7ytFd2Q6hkso5VimlPki/OwyMW6vKv+Nw5NbFjonw0JeYBUHMOeFKpGvdyTkDQYhCYv9flk5a2jMl1wlxy7bDWY4fodMNc67VxqAjIqRQ9dOanY7SJobBlANsWmjhR38viWJ46d1ihMGPZyawhoFqAEDDGokX8Bp4m5ugIMFs48MFV3leXTo64e+QFkcgjtuTnIOQtRjc9mntDlFCuC3CYZUNcGJo7t17LQRKQ9lj3Xe/lcZtxoo23ERj1VzZVk7TTyVQDQb78Nc4ln+PB+eoucIrrG5GE8Mzg4+0UsuU6DDNJJrMXOM8iuuwC2U5VPb/p+g0BCkc6EOKTTpc4HPZSKb6N0N/ZcDRKFK15AOkgaELTlNkLkBXUiv5Cu2ZU1a+/euHiGdL7b6w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(19092799006)(921020)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Yk1XTWE3TlJMMEVBZk5YN3MzMmx5dVV2MWNHVlIxTWt0S3VYY005RUFoQzZW?=
- =?utf-8?B?a2hlSW9KSG04RTZJTGs3aURnREJKYzZrQzhvaTBsVm5XUWUzeGlHR1Zma3RT?=
- =?utf-8?B?d29CMENXMTRDY0NON0lUWTdqM1I5cXNBSTU1SVZNbTNjRzc0SWtHTks1WkpD?=
- =?utf-8?B?TVoybG8zT0VQbkthVGJ6bjBZRnl3VHNLSUNoRnV0eVRLeDZxVXRRZUdiUlNI?=
- =?utf-8?B?NTQ1M01vdHNwWWg0eTNxQVY3cThsMjM2NkUrRzdOQWczL0xsL0lyVlFsdjUw?=
- =?utf-8?B?OU8rNnBlWVg1aUhuS0RveVpPWFVyUlNNb3dtaEU0M1lpUzVMQ1BPMkNrOVdC?=
- =?utf-8?B?SnBSdEErSnZhQ2pERnlWejZCSGV6SXovcHJCd3YrMUxxR2pSL2g3Qm5PeHln?=
- =?utf-8?B?MWpaNW1Ga1Y2SW1TcUVmRWVZeWtFenEzZEg3UkdBR1BtYStKV21kUC91V0l6?=
- =?utf-8?B?SzJFayt2TGNodVpkQVM4V2pKSm1Ocy8wTVJHU3c2ZG1yQXZuSDlXZ1NZVXNM?=
- =?utf-8?B?czNVc3RDR0xXQzN3bXVQaFEvVyt0dWVFVmJtZTgraCtnUzg5Tlo3WU4xUXM5?=
- =?utf-8?B?T0NNaVpoVFJaam41c2t6aU9FakM5Wk10TTNwVUkxOHFJaU52L2M5VGFpanB5?=
- =?utf-8?B?SXlxbDY2eFROMlBFNkNSV1pjMWNXczhLeWtXRjNGYVcxdHdKS00vOVZiMVFh?=
- =?utf-8?B?K0xwWGtXTjRHNi9WSzJodnJTU0s0TEJPTVNSMjNpbmY1U1NoUmVidlVCOGpW?=
- =?utf-8?B?Z0hnZjhRaUUxRzZaTzFzYVRyeHZqY1hPcGJPMEJSbHRnRVA2Q1B0dGhVaWo1?=
- =?utf-8?B?clVWSjdEdEVLNmhLT2IwUXlKYUl0Um1JSjF1WklhYWJvK2NqM09RaXJxN3JC?=
- =?utf-8?B?QzFnK2FSRVUyTG1TZHZWd3pzbDI4bjVjZHkvMWFEYXVjQTNlZkN5SlRHZ21E?=
- =?utf-8?B?MUhXSUNMZHpnWnkrSnNzd3NRY285ZlFxUy9Sd0ozTkljelR0SERUU0g0TUVZ?=
- =?utf-8?B?SlpVblM0UlZObytLNXJRRnFCQVBRSVVsMkoweGY2WTZQcUxHRU5UKzVIVVU1?=
- =?utf-8?B?OTlJeVJnMXRQWUZSaFpjdjhvaytpd29jc0dnWThXUEg5YStpUHNjMXRBMGNZ?=
- =?utf-8?B?VmpuejVzTit4a2NjSlZLWFh0Smxvc0VMTExXT1RIR082cnRzWE8yMTdxdTFN?=
- =?utf-8?B?SVlkTEhwRGVTbFJlREhNQm1vQXJIOVAxbUNZbHpkNkFNTVNTTDhUcXRlbVdu?=
- =?utf-8?B?b2xaT0ErMHovaGUyZitxVExwOWRkVFR0a0g0ampvcndLbFJoRG13OEVyVkNC?=
- =?utf-8?B?ek5nYTh1SHJ1NXdUVlFQY1JldHRmVDlSN3pxalMwZzQvUmJISFVScGxJdkRM?=
- =?utf-8?B?d2VJbndBbjdobkZWSG9NcjNOYy9MU1RFVTRCc1lOMi9rckxtdnU4cW9CcWpJ?=
- =?utf-8?B?d3o1bUxpZXlJZERXMCtYeDJyS1ArOVVOTGtLbENnZmo4MDRPRE9iWFdQanYx?=
- =?utf-8?B?MnQwL2twSWVNcnJkNHFhOHd6ckpYbk5qS3BmWDk4c3kvd1VZZEowbmNYOTJn?=
- =?utf-8?B?QTlZNUppZ1dZNjZzN0U3Z0lNVWFGbC93RXpzcUZHQTFsZ2VEeGVkdkdTVDlY?=
- =?utf-8?B?QVQrdk1tQmE1T3AyMkgyYWtRWUlWRnowRlcvOHJuT3B6SHNhd3Q5djJLU3RS?=
- =?utf-8?B?U1Y3S0szSVZsWlRGT0VTWDhXSVBBYzVhUHVsYzVlK0tDcGlNM1BVNFJyVHlC?=
- =?utf-8?B?SFRlVGROckRVUHB1NHhTZ25ra05uRzVaZk1ieDg0UlpXL0oyMDBjYVhjMHZr?=
- =?utf-8?B?d1FGVk54MHdIUE5kN3FIYzFjS3hVVGVVcXdGTFFqcnZRaHE1R1RHd0h0eDlE?=
- =?utf-8?B?UXd5YzU5KzN6cWVnWTJXNUJpR2R2TGlaRWJFNGVOWGQrQTA3UEdvME5aaVI5?=
- =?utf-8?B?SEtHVy9DcDVtZ05zckJJcE84U2gwNVhFUWFCaTNXdkZIbHpGT1dsVklwVXJH?=
- =?utf-8?B?QVRTM2VPK2JNZ212aENBbWNtdFdXSTFXb1BsZjA1UHhMak1Wb3VmdmpDWEdm?=
- =?utf-8?B?eGY0WWpkSlNoRHdtOUdabjNmaG9aUHdHT0lXWjlFaWZORkVGQ0srcDB5QmRH?=
- =?utf-8?B?cjF6Sm5wT0R4eFhERDFrbzJmcmJCakJqajhNZjJNVHdRTzFTeGZYQ3pUbklo?=
- =?utf-8?B?ZkZKVHNscmpPK1UzVEdxTy8yeFFGUCsySWtCaTFXTkFpT2ltRnBSS3B0ZGI4?=
- =?utf-8?B?OG85ZGx6Zm5UcTQvUjhmcUZpTXdVTWJxcXMyUFRicW1WbldkY2VycXVHb1E5?=
- =?utf-8?B?cVBSYTgwSUxQdlJyNERuOURKQmw5ZDhQbzNuTTNPbVBib0p2MVIzUkhKQkQ1?=
- =?utf-8?Q?DYg5AeKh900ZRYY8ua6ErXXAzxrmlUTvj+l4F?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9736cea-fadc-4f92-069a-08dee89aa278
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:13:18.5848
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SBfkGvbnCrRMQkTWrP0VTSVYefifusZV4cIuD1d+40n0E8u6gnK8DwNNp/fmB06u5aHukNRT/NX143+rQq6yyZW8IzXpPcxIs11AZoFoSbt0Xx5i6wXQO16E1lOQKKS+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6780
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAKwvOdnbPKoTy72EvfpKtT9Ne-r+O0j99KFX8OvjGk8ZxsuEGw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_021321_666971_9A0B0A84 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260723_021552_677711_D9BB9265 
+X-CRM114-Status: GOOD (  25.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,93 +109,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for additional 32-bit RGB pixel formats (BGRA32, RGBA32,
-BGRX32, RGBX32, ARGB2101010).
+Hi Nick,
 
-Formats with alpha channel (BGRA32, RGBA32) only support capture as
-ISI ignores alpha bits when reading from memory.
+On Wed, Jul 22, 2026 at 02:03:31PM -0700, Nick Desaulniers wrote:
+> On Wed, Jul 22, 2026 at 10:25 AM Akari Tsuyukusa <akkun11.open@gmail.com> wrote:
+> >
+> > When building with CONFIG_THUMB2_KERNEL=y and Clang, secondary CPUs
+> 
+> Specifically, was LLVM=1 or CC=clang or something else used?
 
-Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Tested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
----
-Changes in v3:
-- Drop M2M_OUT for ABGR32/BGRA32/RGBA32 as ISI ignores alpha bits (Laurent)
-- Remove Android requirements from commit message as alpha formats
-  cannot be used as M2M input (Laurent)
-- Add Tested-by tag from Laurent Pinchart
+I used ARCH=arm LLVM=1
+config is here:
+https://github.com/TeamYogaBlade2/linux/blob/d7633f01ec25209fc6cdde012128b19ac336ab18/arch/arm/configs/lenovo-blade_defconfig
 
-Changes in v2:
-- Add Reviewed-by tag from Frank Li
----
- .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 51 ++++++++++++++++++++++
- 1 file changed, 51 insertions(+)
+> > secondary_startup_arm is ARM-mode code (.arm) and, on a Thumb-2 kernel,
+> > expects to be entered in ARM mode in order to switch to Thumb via the
+> > standard sequence at that label. Starting in Thumb mode causes the CPU
+> > to execute ARM instructions as Thumb, resulting in an immediate crash.
+> >
+> > Clear bit 0 of the entry address so the CPU always starts in ARM mode.
+> 
+> Thanks for the patch. Any idea why this isn't an issue for
+> GCC+GAS+BFD? Perhaps there's a difference in the LLVM tools that we
+> need to address?
+> 
+> There's definitely some difference between clang and GAS here.
+> https://github.com/llvm/llvm-project/issues/211376
+> 
+> I wonder if perhaps a better machine-agnostic assembler-agnostic
+> assembler-version-agnostic patch would be something like:
+> 
+> ```
+> diff --git a/arch/arm/kernel/head.S b/arch/arm/kernel/head.S
+> index f22c50d4bd41..687ee7063a73 100644
+> --- a/arch/arm/kernel/head.S
+> +++ b/arch/arm/kernel/head.S
+> @@ -383,6 +383,7 @@ ENDPROC(__create_page_tables)
+>  ENTRY(secondary_startup_arm)
+>   THUMB(        badr    r9, 1f          )       @ Kernel is entered in ARM.
+>   THUMB(        bx      r9              )       @ If this is a Thumb-2 kernel,
+> +ENDPROC(secondary_startup_arm)
+>   THUMB(        .thumb                  )       @ switch to Thumb now.
+>   THUMB(1:                      )
+>  ENTRY(secondary_startup)
+> @@ -429,7 +430,6 @@ ARM_BE8(eor r4, r4, r5)                     @
+> without using a temp reg.
+>                                                 @ (return control reg)
+>         ret     r12
+>  ENDPROC(secondary_startup)
+> -ENDPROC(secondary_startup_arm)
+> 
+>  ENTRY(__secondary_switched)
+>  #if defined(CONFIG_VMAP_STACK) && !defined(CONFIG_ARM_LPAE)
+> 
+> ```
+> 
+> Can you perhaps help test/verify that Akari?
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-index a6e044056762..f45c2aae59ce 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-@@ -166,6 +166,57 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
- 		.color_planes	= 1,
- 		.depth		= { 32 },
- 		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_BGRA32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBA8888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_RGBA32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_ABGR8888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_BGRX32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_RGBX8,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBX888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_RGBX32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XBGR888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_ARGB2101010,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_A2RGB10,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_A2RGB10,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
- 	},
- 	/*
- 	 * RAW formats
+I tested your suggested patch and confirmed that it fixes the issue.
 
--- 
-2.34.1
+Device: Lenovo YOGA Tablet 10 (Wi-Fi) (MT8125)
+Toolchain: Clang/LLVM 22.1.8-2 (cachyos-v3)
 
+Tested-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+
+Can you send your fix as PATCH?
+I think your approach is better than mine.
+
+Best Regards,
+Akari
 
