@@ -4,114 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5D6C531CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D1FC531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X576UWvhah+076nL20oR1HfA0CMQ64GrY/hawzbdJ8w=; b=Me9b1ykciPehUYQH/il/GAXYS0
-	dFyk08feUgr+rU+u6S4wPhrpgUAZvc3jC/ehJ49s4mbCb0Pz3h/UoyYNN2ttev5fuD3+0AqrhZnv4
-	Ems0E9XTEjjHK6krl+Qj4MgoaWauFso3etAKm12XX3+HZupYY58Y7bSMMNWeH0KNxTUEs0pdY2DW7
-	PXuwjX5L+75MLwXSo3kYl3d9dJ0Sjdt8nYo4ha5z+rMO6UeXDy9SnTjjNl1PH/m6VozoCtdLPq6xK
-	EWln2ewsV4dlw5UQ9fbFH3hjRyG0DCafDH+i8DV2WPUab/GusqHfBr0AnNQKAUxLU0idIob0KaOKr
-	QIH94+Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WoIFf8HoL9YR7fi53WqXEjeNDLvpI1tSCji/JSGFdGk=; b=HuMovWqNXeYV3fFzJq/e6H5bg+
+	BbzemXH60/iZDSfgb4hWWXbeddlr2MYjzSLADTGoOssaQb2Ibp+z396byhfsKz5DmIfpkWZx31pvx
+	qaSSbG6xVY+YXrbwpIlyrh1fGMZumrsCMqaEIQ3MY4IOJ6/zbSwRzzvuVKeJuN8u+sJ86rYiYWraZ
+	l4/Y2JI4Olw4qGo0sRKf07nEQCX+EnTJbLbi+Vh4uEHFcNqRb6dEyj5FaX4EugSlIT+my+WRVLYkk
+	AQv+baIn2Z/DXc3WRdnvKKIwGd4fHmFW9hC45p/S4vCo0aYgk9rZzNEWzgnWBYQ0ZHObwuKJF9AJQ
+	kIynk8tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqHm-0000000DyXL-49XZ;
-	Thu, 23 Jul 2026 10:04:14 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqHj-0000000DyW4-24tZ
+	id 1wmqXa-0000000E0XU-2IIe;
+	Thu, 23 Jul 2026 10:20:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmqXX-0000000E0Ww-3yxk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 10:04:14 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-49548aebcd8so3511325e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 03:04:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1784801049; x=1785405849; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=X576UWvhah+076nL20oR1HfA0CMQ64GrY/hawzbdJ8w=;
-        b=BJtblJDcyBWeXD8U3zw+aSjicc1OFRVVMZ7dTytNZVjGwV3rnX51m3n0LLwlI96GK+
-         hnD6z9isV9Y1WqljHk+eMWxno9f5O6y0FzGRUChpw5OHLCj0C91DrfufREC9xeMO6Mn7
-         PVCO6Euw+lUjiaBg5/fbwKtrnIIvbTp3uxSfUd2qJdnuuogZtQDEeFGuD5C5BU9zfPEk
-         LnKPrGJFMTt7DMYOqdxFhv6cZ4xL44K3BrxjO6DPfdqbBeFlBG6YFSH7795/KqscKw3W
-         yg2EMnZjkGjg9+0B7E/fKqzXKzma+mKEUXutRqSGxiM896Up5fy3hSQ+aLHRj85gCBv5
-         od0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784801049; x=1785405849;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=X576UWvhah+076nL20oR1HfA0CMQ64GrY/hawzbdJ8w=;
-        b=R0jACamtMe7vtkoWXVsgf6/7tiGZRliDMk9GmkMC3ZVwgBjh6pEWy/XqS9n3MsEUSO
-         X03uU8yivUs/2r1XaTegf+E7cxc8Vks7V11iMQoChKQKHK4nMX0PjGCINJo1tVDy6K6q
-         3n4AYoedqsvVFwXT6NiWuEotOj7Yt1ou0wOI3RjP+7rPwfzH5toNPmgZtZIjXH2JkJAj
-         SrZrPP/ojEw9qAHj1JlfAY1iX3pK7giMpjfzvsviYPFeQKaun3/cWun6JatU1r/Oe8Jk
-         CV67Z015y9PFHiT3FxtECv7naVzWbJTT43SECLr6E9sJq/yHCI4ScoF6ABHqbnU34Xfh
-         kEuw==
-X-Forwarded-Encrypted: i=1; AHgh+RrQZxVn25EnUlm4huqLHv/r89Z7GGdE/Bkf2OzmaGDw/UQbFyYsDV47wii3l0jfb67OWTE2gky7eRKBxNXIHsP9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9R9QDeer1Gg2K51vDkxtUJdySTJ1dHAfk5I16h3tj2+im8S3V
-	9RL3vzcNTCweyMuabEYiMKlreUNYy+1qaWo0Wfb8lBmo9EONT2BRqqiQYJF65IIlbh4=
-X-Gm-Gg: AR+sD13G20GeG9usYZwG3wh/O9iyLnfg49GGfU2y5sWEbON6lhrq844hmRwWMzJsETy
-	tKzGBIHJAlmTPluSqDS1m9XbJGNjnEKuoEBtiTrkZTGVB35F9Bbs5LBPb9lJqIoQlzuKyOT1igI
-	CtNrZwmggm+pg3b0UBiINw1c7Lf23gJOgCZGwbNBwp0BuGwQd5Jc8nJuBIVZbLCis/DW3OHtStu
-	7D35T+y62ngG3j2Tu9EsvIvIyZ/ekDwHre2RFxkVOqGZA7nCp2r0ef6RpPRThN630aDL2/aNkUe
-	WfFuRfPHtploPyuIbfwvqZgrbgbVT7CPpaL568nhKUEO+mOu6UrZ35iX1nwfRq62Q+w0CyXFnka
-	3lK2He4grgrxTrRKWa4rIRsMa08CcM3Lrp/vf5zkg7ISYc29YxZ+3v1BYLW5G5yxQNzPtOM3fcE
-	guhOC1A4i9ULkrtCElRo8w5JGf
-X-Received: by 2002:a05:600c:46ca:b0:493:e97c:216e with SMTP id 5b1f17b1804b1-49573d26d00mr23083765e9.39.1784801049098;
-        Thu, 23 Jul 2026 03:04:09 -0700 (PDT)
-Received: from linaro.org ([2a02:2454:ff24:7210:d666:8fbf:10dc:76d2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-495653c9d99sm212564285e9.12.2026.07.23.03.04.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 03:04:08 -0700 (PDT)
-Date: Thu, 23 Jul 2026 12:04:04 +0200
-From: Stephan Gerhold <stephan.gerhold@linaro.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Udit Tiwari <quic_utiwari@quicinc.com>,
-	Md Sadre Alam <mdalam@qti.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	sashiko-reviews@lists.linux.dev,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM
- locking
-Message-ID: <amHnFL7IC80Id2V7@linaro.org>
-References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
- <20260721-qcom-qce-cmd-descr-v23-6-1be02deffda9@oss.qualcomm.com>
- <20260721134853.2B2401F000E9@smtp.kernel.org>
- <amCGXUUd4VmuQRGD@linaro.org>
- <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com>
- <amC7_M-HjVZ3sQuT@linaro.org>
- <CAMRc=MdnSyPmbK0skMx686=wSe52nnuWgCNJ0uSoKs_=HyAq-Q@mail.gmail.com>
- <amDRxPkdvbA-iVer@linaro.org>
- <CAMRc=Me523xQbfJvML9taJ-fR128SJurJS4eX9N9E9WtHF5W5Q@mail.gmail.com>
- <amDuqoRBg5qGafi2@linaro.org>
+	Thu, 23 Jul 2026 10:20:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CC361477;
+	Thu, 23 Jul 2026 03:20:24 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0419B3F86F;
+	Thu, 23 Jul 2026 03:20:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784802028; bh=DEwZHcaCuIqEH85LWq1xXjbGMYiVUhbTerLFXP69HkQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KEDQDiaEKPA/TdWauC8U9sHV45XGgwSTYi9Ko6GB+pKc5mcgbBhBa45j3CkH9ouOK
+	 WLB4mSl+c98YzV4FJ2+2In7xkEVwZYUxGQlL/+6A17rIB284TpDJ/2P0/LKqrLYZ5P
+	 tXjil7qNGxzQQFWbwxaXIDq/XQ7WGrkOGbtUR3BY=
+Message-ID: <e2db0e66-1d88-4501-a3cd-b805193fe5a9@arm.com>
+Date: Thu, 23 Jul 2026 11:20:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amDuqoRBg5qGafi2@linaro.org>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v3 07/16] arm_mpam: __ris_msmon_read(): get rid of nrdy
+ special handling
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260710144520.917375-1-andre.przywara@arm.com>
+ <20260710144520.917375-8-andre.przywara@arm.com>
+ <b5f54fad-b7a0-4949-b78a-fe684eeb4d75@arm.com>
+ <c2c995a2-6834-4210-a9ee-60f8983be135@arm.com>
+ <778a9fc1-cc11-4d7f-b5a5-78a1740520a1@arm.com>
+ <e23ce4fe-6d6d-45e2-ab8e-5ec3a52af0e0@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <e23ce4fe-6d6d-45e2-ab8e-5ec3a52af0e0@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_030411_613426_1DB55097 
-X-CRM114-Status: GOOD (  53.25  )
+X-CRM114-CacheID: sfid-20260723_032032_082574_B32C2CE6 
+X-CRM114-Status: GOOD (  35.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,253 +86,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 06:24:10PM +0200, Stephan Gerhold wrote:
-> On Wed, Jul 22, 2026 at 08:37:19AM -0700, Bartosz Golaszewski wrote:
-> > On Wed, 22 Jul 2026 16:20:52 +0200, Stephan Gerhold
-> > <stephan.gerhold@linaro.org> said:
-> > > On Wed, Jul 22, 2026 at 07:11:10AM -0700, Bartosz Golaszewski wrote:
-> > >> On Wed, 22 Jul 2026 14:47:56 +0200, Stephan Gerhold
-> > >> <stephan.gerhold@linaro.org> said:
-> > >> > On Wed, Jul 22, 2026 at 02:34:52AM -0700, Bartosz Golaszewski wrote:
-> > >> >> On Wed, 22 Jul 2026 10:59:09 +0200, Stephan Gerhold
-> > >> >> <stephan.gerhold@linaro.org> said:
-> > >> >> > On Tue, Jul 21, 2026 at 01:48:52PM +0000, sashiko-bot@kernel.org wrote:
-> > >> >> >> Thank you for your contribution! Sashiko AI review found 5 potential issue(s) to consider:
-> > >> >> >> - [High] State leak causing hardware misconfiguration on channel reuse due to uncleared `lock_scratchpad_addr` and hardcoded direction.
-> > >> >> >> - [High] Channel state corruption when `bam_slave_config` fails validation.
-> > >> >> >> - [High] Infinite BH workqueue loop and unratelimited log flood on memory allocation failure.
-> > >> >> >> - [High] DMA API violation: `lock_ce` buffer shares a cacheline with frequently CPU-modified struct members.
-> > >> >> >> - [Low] Unused assignment of `hdesc` in IRQ handler.
-> > >> >> >> --
-> > >> >> >>
-> > >> >> >> --- Patch [6]: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking ---
-> > >> >> >> commit 8b44c5e4935cbb61832adb3262df00b3b606a283
-> > >> >> >> Author: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> > >> >> >>
-> > >> >> >> dmaengine: qcom: bam_dma: add support for BAM locking
-> > >> >> >>
-> > >> >> >> This commit adds support for BAM pipe locking by prepending and appending
-> > >> >> >> dummy command descriptors with LOCK/UNLOCK bits when starting DMA on a TX
-> > >> >> >> channel. It uses a peripheral-local scratchpad address communicated via slave
-> > >> >> >> config for the dummy writes.
-> > >> >> >>
-> > >> >> >> > diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> > >> >> >> > index f3e713a5259c2..411c60c4433e2 100644
-> > >> >> >> > --- a/drivers/dma/qcom/bam_dma.c
-> > >> >> >> > +++ b/drivers/dma/qcom/bam_dma.c
-> > >> >> [...]
-> > >> >> >> [ ... ]
-> > >> >> >> > @@ -1064,6 +1197,7 @@ static void bam_start_dma(struct bam_chan *bchan)
-> > >> >> >> >
-> > >> >> >> >  	lockdep_assert_held(&bchan->vc.lock);
-> > >> >> >> >
-> > >> >> >> > +	vd = vchan_next_desc(&bchan->vc);
-> > >> >> >> >  	if (!vd)
-> > >> >> >> >  		return;
-> > >> >> >> >
-> > >> >> >> > @@ -1072,6 +1206,24 @@ static void bam_start_dma(struct bam_chan *bchan)
-> > >> >> >> >  		return;
-> > >> >> >> >
-> > >> >> >> >  	while (vd && !IS_BUSY(bchan)) {
-> > >> >> >> > +		/*
-> > >> >> >> > +		 * Open a LOCK/UNLOCK bracket around each fresh sequence.
-> > >> >> >> > +		 * Sentinels inserted by bam_setup_pipe_lock() are skipped: they
-> > >> >> >> > +		 * already have bam_locked set and must not trigger a second pair.
-> > >> >> >> > +		 */
-> > >> >> >> > +		if (!bchan->bam_locked) {
-> > >> >> >> > +			ret = bam_setup_pipe_lock(bchan);
-> > >> >> >> > +			if (ret) {
-> > >> >> >> > +				dev_err_ratelimited(bdev->dev,
-> > >> >> >> > +					"failed to setup the pipe lock, deferring transfer: %d\n",
-> > >> >> >> > +					ret);
-> > >> >> >> > +				queue_work(system_bh_highpri_wq, &bdev->work);
-> > >> >> >> > +				break;
-> > >> >> >> > +			}
-> > >> >> >>
-> > >> >> >> [Severity: High]
-> > >> >> >> Does requeuing to a high-priority BH workqueue upon ENOMEM cause CPU
-> > >> >> >> starvation? Because system_bh_highpri_wq executes in softirq context,
-> > >> >> >> requeuing immediately without sleeping prevents the memory reclaim needed
-> > >> >> >> to resolve the GFP_NOWAIT failure, leading to an infinite spin loop.
-> > >> >> >>
-> > >> >> >
-> > >> >> > It looks like my suggestion to queue_work() again in the error path of
-> > >> >> > bam_start_dma() wasn't great if we end up causing an infinite spin loop.
-> > >> >> > We do need to retry somehow or report an error though, I don't think
-> > >> >> > aborting and leaving the desccriptors completely unhandled is an option
-> > >> >> > either... :(
-> > >> >> >
-> > >> >> > One option would be to try to avoid the allocation and write the lock
-> > >> >> > descriptors directly into the FIFO, but this will probably get really
-> > >> >> > messy as well, since you would need to carefully modify the FIFO
-> > >> >> > management in several functions ...
-> > >> >> >
-> [...]
-> 
-> FWIW, I couldn't stop myself trying to finish my "write lock descriptors
-> directly into FIFO" idea, once I started I was curious how it would turn
-> out. I think it's actually quite elegant, the loop in bam_start_dma() is
-> wrapped with LOCK and UNLOCK, later process_channel_irqs() looks at the
-> FIFO again and just skips over these descriptors. lock_ce is allocated
-> once at channel creation time, no other allocations are needed. (Could
-> probably move lock_ce allocation to slave_config() so it's allocated
-> only when locking is configured for a channel).
-> 
-> See diff below. It doesn't crash badly in a quick test, but didn't check
-> in detail if the locking is actually working correctly. :')
-> 
-> I'm okay with whatever is "free of known races" and works with the use
-> cases we have, so use/adapt whatever you like best.
-> 
-> If you want to use this, feel free to add
-> Co-developed-by: Stephan Gerhold <stephan.gerhold@linaro.org>
-> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
-> 
-> Good luck! :D
-> 
-> Thanks,
-> Stephan
-> 
-> ---
->  drivers/dma/qcom/bam_dma.c       | 94 ++++++++++++++++++++++++++++++--
->  include/linux/dma/qcom_bam_dma.h | 15 +++++
->  2 files changed, 104 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> index f3e713a5259c..864531dca2a6 100644
-> --- a/drivers/dma/qcom/bam_dma.c
-> +++ b/drivers/dma/qcom/bam_dma.c
-> [...]
-> @@ -607,6 +620,17 @@ static int bam_alloc_chan(struct dma_chan *chan)
->  		return -ENOMEM;
->  	}
->  
-> +	if (bdev->dev_data->pipe_lock_supported) {
-> +		bchan->lock_ce = dma_alloc_wc(bdev->dev, sizeof(*bchan->lock_ce),
-> +					      &bchan->lock_ce_phys, GFP_KERNEL);
-> +		if (!bchan->lock_ce) {
-> +			dev_err(bdev->dev, "Failed to allocate lock CE\n");
-> +			dma_free_wc(bdev->dev, BAM_DESC_FIFO_SIZE, bchan->fifo_virt, bchan->fifo_phys);
-> +			bchan->fifo_virt = NULL;
-> +			return -ENOMEM;
-> +		}
-> +	}
+Hi Andre,
 
-Nitpicking on my own diff: This is kind of meh, since this will
-typically allocate a full page just for the 16 bytes lock command
-element for all channels on BAMs that support locking (which is most BAM
-instances nowadays). Barely anything will use locking though (likely
-just QCE and NAND, if available). With 32+ channels in the BAM on some
-SoCs with 16K page size or more that's a lot of wasted space.
+On 7/23/26 10:45, Andre Przywara wrote:
+> Hi Ben,
+> 
+> On 7/20/26 18:09, Ben Horgan wrote:
+>> Hi Andre,
+>>
+>> On 7/20/26 16:58, Andre Przywara wrote:
+>>> Hi Ben,
+>>>
+>>> thanks for having a look!
+>>>
+>>> On 7/15/26 15:39, Ben Horgan wrote:
+>>>> Hi Andre,
+>>>>
+>>>> On 7/10/26 15:45, Andre Przywara wrote:
+>>>>> Although so far MSC accesses couldn't fail, there is one special
+>>>>> condition that would create an error: when the MBWU counter wouldn't be
+>>>>> able to read a stable value, we were setting bit 63 to mark this value
+>>>>> as unstable, and return this as an error later.
+>>>>> Now since the functions can return a proper error value, we can get rid of
+>>>>> this kludge and use the return value directly.
+>>>>>
+>>>>> Remove the "nrdy" error flag variable, and assign -EBUSY to "ret" to handle
+>>>>> this case.
+>>>>
+>>>> I don't think we want this patch. The h/w can still return (as much as it ever could) and so we
+>>>> still need to handle it even if we are no longer augmenting its meaning in software to also
+>>>> indicate
+>>>> an unstable 64 bit value.
+>>>
+>>> Mmh, not sure I understand your concern: to me it looks like nrdy is some kind of error flag, that
+>>> we used in absence of a proper error return value. Now we have "int ret;", so can use that directly?
+>>> But to me it looks like nothing really changes, or did I miss something?
+>>>
+>>> I have no really strong opinion of this patch, it was more an pportunity to consolidate the crude
+>>> error handling in this function. I am happy to drop it, if you like, maybe we can revisit this
+>>> later.
+>>
+>> What I was trying to say is that mpam_msc_read_mbwu_l() could previously return a value with bit 63,
+>> MSMON__L_NRDY set in two cases, one set by s/w and one set by h/w. Either when it reads that
+>> directly from the hardware or when it is set in the function to indicate an unstable value. The h/w
+>> case is the same for 31 bit counters too except in that case the h/w sets bit 31, MSMON_NRDY. Using
+>> 'ret' to directly return -EBUSY for the s/w case where a stable value is not reached for 44 or 63
+>> bit counters doesn't mean that the h/w case won't happen.
+> 
+> I am not sure I see the problem, the idea of this patch was to use the opportunity of having now a
+> proper return value, and to not hide that "nrdy" is actually an error flag. If I read the code
+> correctly, then at the moment we flag the error early (using nrdy), but then continue with
+> (potentially bogus?) "now" calculations, only to discard them towards the end of the function, to
+> return an error when nrdy was set. So my idea was to just handle the error case early and return.
+> Or do you mean I was just missing one case where NRDY was set?
 
-Probably best to go back to what you had in your patch and use
-dma_map_single() / dma_sync_single_for_device(), see below (on top of
-what I sent already).
+I think the problem comes in patch 4 actually. Where you remove the checking for L_NRDY, which can
+still be read from h/w. Both long and 31 bit counters would need to be considered for this kind of
+cleanup.
+
+> 
+> In any case, to not jeopardise the whole series over this rather opportunistic patch, I will just
+> drop any changes to nrdy handling. This makes the remaining patches easier to understand, I guess,
+> since they are now more or less schematic "if (err) return err;" changes.
+> 
+> I think we can clean this up later if needed, in a follow up patch.
+
+Sure.
 
 Thanks,
-Stephan
 
----
- drivers/dma/qcom/bam_dma.c | 53 +++++++++++++++++++++++---------------
- 1 file changed, 32 insertions(+), 21 deletions(-)
+Ben
 
-diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-index 864531dca2a6..93ce99125879 100644
---- a/drivers/dma/qcom/bam_dma.c
-+++ b/drivers/dma/qcom/bam_dma.c
-@@ -433,7 +433,7 @@ struct bam_chan {
- 	struct list_head node;
- 
- 	/* BAM locking infrastructure */
--	struct bam_cmd_element *lock_ce;
-+	struct bam_cmd_element lock_ce;
- 	dma_addr_t lock_ce_phys;
- 	bool locking_enabled;
- 	bool bam_locked;
-@@ -620,17 +620,6 @@ static int bam_alloc_chan(struct dma_chan *chan)
- 		return -ENOMEM;
- 	}
- 
--	if (bdev->dev_data->pipe_lock_supported) {
--		bchan->lock_ce = dma_alloc_wc(bdev->dev, sizeof(*bchan->lock_ce),
--					      &bchan->lock_ce_phys, GFP_KERNEL);
--		if (!bchan->lock_ce) {
--			dev_err(bdev->dev, "Failed to allocate lock CE\n");
--			dma_free_wc(bdev->dev, BAM_DESC_FIFO_SIZE, bchan->fifo_virt, bchan->fifo_phys);
--			bchan->fifo_virt = NULL;
--			return -ENOMEM;
--		}
--	}
--
- 	if (bdev->active_channels++ == 0 && bdev->powered_remotely)
- 		bam_reset(bdev);
- 
-@@ -665,13 +654,15 @@ static void bam_free_chan(struct dma_chan *chan)
- 	scoped_guard(spinlock_irqsave, &bchan->vc.lock)
- 		bam_reset_channel(bchan);
- 
-+	if (bchan->lock_ce_phys) {
-+		dma_unmap_single(bdev->dev, bchan->lock_ce_phys,
-+				 sizeof(bchan->lock_ce), DMA_TO_DEVICE);
-+		bchan->lock_ce_phys = 0;
-+	}
-+
- 	dma_free_wc(bdev->dev, BAM_DESC_FIFO_SIZE, bchan->fifo_virt,
- 		    bchan->fifo_phys);
- 	bchan->fifo_virt = NULL;
--	if (bchan->lock_ce) {
--		dma_free_wc(bdev->dev, sizeof(*bchan->lock_ce), bchan->lock_ce, bchan->lock_ce_phys);
--		bchan->lock_ce = NULL;
--	}
- 
- 	/* mask irq for pipe/channel */
- 	val = readl_relaxed(bam_addr(bdev, 0, BAM_IRQ_SRCS_MSK_EE));
-@@ -693,6 +684,24 @@ static void bam_free_chan(struct dma_chan *chan)
- 	pm_runtime_put_autosuspend(bdev->dev);
- }
- 
-+static bool bam_map_lock_ce(struct bam_chan *bchan)
-+{
-+	if (bchan->lock_ce_phys) {
-+		dma_sync_single_for_device(bchan->bdev->dev, bchan->lock_ce_phys,
-+					   sizeof(bchan->lock_ce), DMA_TO_DEVICE);
-+		return true;
-+	}
-+
-+	bchan->lock_ce_phys = dma_map_single(bchan->bdev->dev, &bchan->lock_ce,
-+					     sizeof(bchan->lock_ce), DMA_TO_DEVICE);
-+	if (dma_mapping_error(bchan->bdev->dev, bchan->lock_ce_phys)) {
-+		bchan->lock_ce_phys = 0;
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
- /**
-  * bam_slave_config - set slave configuration for channel
-  * @chan: dma channel
-@@ -717,11 +726,13 @@ static int bam_slave_config(struct dma_chan *chan,
- 		if (cfg->direction != DMA_MEM_TO_DEV)
- 			return -EINVAL;
- 
--		if (bchan->lock_ce) {
--			bam_prep_ce_le32(bchan->lock_ce, peripheral_cfg->lock_scratchpad_addr,
--					 BAM_WRITE_COMMAND, 0);
--			bchan->locking_enabled = true;
--		}
-+		bam_prep_ce_le32(&bchan->lock_ce, peripheral_cfg->lock_scratchpad_addr,
-+				 BAM_WRITE_COMMAND, 0);
-+
-+		if (!bam_map_lock_ce(bchan))
-+			return -ENOMEM;
-+
-+		bchan->locking_enabled = true;
- 	} else {
- 		/* Don't touch lock_ce here, it might still be used by issued descriptors */
- 		bchan->locking_enabled = false;
--- 
-2.54.0
-
+> 
+> Thanks,
+> Andre
+> 
+>>>>>
+>>>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>>>> ---
+>>>>>    drivers/resctrl/mpam_devices.c | 38 +++++++++++++++-------------------
+>>>>>    1 file changed, 17 insertions(+), 21 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>>>>> index 84a8715464be..530ac0fe97b5 100644
+>>>>> --- a/drivers/resctrl/mpam_devices.c
+>>>>> +++ b/drivers/resctrl/mpam_devices.c
+>>>>> @@ -1306,7 +1306,6 @@ static void __ris_msmon_read(void *arg)
+>>>>>        u64 now;
+>>>>>        int ret;
+>>>>>        u32 now32;
+>>>>> -    bool nrdy = false;
+>>>>>        bool config_mismatch;
+>>>>>        bool overflow = false;
+>>>>>        struct mon_read *m = arg;
+>>>>> @@ -1371,14 +1370,18 @@ static void __ris_msmon_read(void *arg)
+>>>>>        switch (m->type) {
+>>>>>        case mpam_feat_msmon_csu:
+>>>>>            ret = mpam_read_monsel_reg(msc, CSU, &now32);
+>>>>> +        if (!ret) {
+>>>>> +            if ((now32 & MSMON___NRDY))
+>>>>> +                ret = -EBUSY;
+>>>>> +
+>>>>> +            if (mpam_has_quirk(IGNORE_CSU_NRDY, msc) &&
+>>>>> +                m->waited_timeout)
+>>>>> +                ret = 0;
+>>>>> +        }
+>>>>>            if (ret)
+>>>>>                goto out_unlock;
+>>>>> -        nrdy = now32 & MSMON___NRDY;
+>>>>> -        now = FIELD_GET(MSMON___VALUE, now32);
+>>>>> -
+>>>>> -        if (mpam_has_quirk(IGNORE_CSU_NRDY, msc) && m->waited_timeout)
+>>>>> -            nrdy = false;
+>>>>>    +        now = FIELD_GET(MSMON___VALUE, now32);
+>>>>>            break;
+>>>>>        case mpam_feat_msmon_mbwu_31counter:
+>>>>>        case mpam_feat_msmon_mbwu_44counter:
+>>>>> @@ -1394,9 +1397,11 @@ static void __ris_msmon_read(void *arg)
+>>>>>                    now = FIELD_GET(MSMON___L_VALUE, now);
+>>>>>            } else {
+>>>>>                ret = mpam_read_monsel_reg(msc, MBWU, &now32);
+>>>>> +            if (!ret && (now32 & MSMON___NRDY))
+>>>>> +                ret = -EBUSY;
+>>>>>                if (ret)
+>>>>>                    goto out_unlock;
+>>>>> -            nrdy = now32 & MSMON___NRDY;
+>>>>> +
+>>>>>                now = FIELD_GET(MSMON___VALUE, now32);
+>>>>>            }
+>>>>>    @@ -1404,9 +1409,6 @@ static void __ris_msmon_read(void *arg)
+>>>>>                m->type != mpam_feat_msmon_mbwu_63counter)
+>>>>>                now *= 64;
+>>>>>    -        if (nrdy)
+>>>>> -            break;
+>>>>> -
+>>>>>            mbwu_state = &ris->mbwu_state[ctx->mon];
+>>>>>              if (overflow)
+>>>>> @@ -1419,22 +1421,16 @@ static void __ris_msmon_read(void *arg)
+>>>>>            now += mbwu_state->correction;
+>>>>>            break;
+>>>>>        default:
+>>>>> -        m->err = -EINVAL;
+>>>>> +        ret = -EINVAL;
+>>>>>        }
+>>>>> -    mpam_mon_sel_unlock(msc);
+>>>>> -
+>>>>> -    if (nrdy)
+>>>>> -        m->err = -EBUSY;
+>>>>> -
+>>>>> -    if (!m->err)
+>>>>> -        *m->val += now;
+>>>>> -
+>>>>> -    return;
+>>>>>      out_unlock:
+>>>>>        mpam_mon_sel_unlock(msc);
+>>>>>    -    m->err = ret;
+>>>>> +    if (ret)
+>>>>> +        m->err = ret;
+>>>>> +    else
+>>>>> +        *m->val += now;
+>>>>>    }
+>>>>>      static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+>>>>
+>>>
+>>
+> 
 
 
