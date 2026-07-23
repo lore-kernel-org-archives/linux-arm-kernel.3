@@ -4,108 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E039C531CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA16EC531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aB8Q4OnQxgGR3hOnEbILSOeq7HiqZdVqhRD7b5FSwLU=; b=iHrxggIEhyxTFgr+0HgjzF8+N3
-	1UGSiFtdxBWILAwR/KlRWjg/7VjwADiQUJlLhveJIPtPcr5qJxA5cIM3HUhcp6HBx9gY0bTDQ/cKI
-	Igt8leWd5B/Zdi1JXrnb4ipWpS/P/4GJ/vRUG01g/Tl+oM2NWEn3c7F2QVCzhhsU1za749/LqgyZR
-	+D2skGfucpj13L5hLeBx0iCVJbpDOgXxuJ96P1iDgx673sHbDh33fLcKc7Lx2wYgngyhr3QIND5ij
-	ZLIz/CF+ZX4UcRIxDb/rQtKGPCWdiiSXHatCCQ9RBceqnF76BjlJqcFfu3GQynLDy4BeDlA0k80oz
-	d0lUq90w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hRabTMxoGI/NulaQWwgW9tUvqqmggiTiKwMHyfWSJeQ=; b=fr1oB8R4tSCuAZ+PqVvUVR7Urk
+	wh14cOQiN91WQyXFwoKQNu1hmDs16MjKzFBhu9s9qNE8XGpIg3k9O+2Kt9PLCv/39cyrlj3hhV4vH
+	SWiREw941cowyNFclsgzoPF6gpKPy158ZeGjnFRfKpVJkznlvgbq5rUzYDnkxnHkH3PM7iqF4bx2o
+	ftH2f3mUCpi7rou3oRP4xoTQJF+KBgN9+HuxkBiewlwuG/KfXRMXAG08RsD5obWc+GMotUoU+qXK1
+	lK07zgelXwoTtunTqalHiSkovRtinaiz13x8JvN2YobvSxTMIzEz9bIjP5kNvoe8jtzSmQAFCR78i
+	lsvd+0pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsUL-0000000EEPG-2sK4;
-	Thu, 23 Jul 2026 12:25:21 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsUJ-0000000EEOa-24OJ
+	id 1wmsUc-0000000EETn-0BDZ;
+	Thu, 23 Jul 2026 12:25:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmsUJ-0000000EEOb-3Aor
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 12:25:20 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-698a9f11776so930625a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 05:25:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784809517; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XhAvIoIbBpHkdo+rINhMtVIjBBhHM+BizRIpfDxRz7mbQPqy57XmON0gXwLgIOFEGf
-         fDnaOvVoNFgDyFz62luffa1sUskQHa31dviAIhcxRG37n4cZNTCE8igbqej6Esyd1iPF
-         SGDsHvTWPyuHbqO0CIdg7atDhlqvJfYBpehBwoVvK4X3n0CDFh6ppLOyIP7c3zXWGWIa
-         vEA8oy0kfqyqgOEjLinQ/MXNyYhe8+Ckv6NQ8Vwt4fPEG607SzU6ZxzTCxGaT8KzM/r3
-         JOUOZQTMkfi0CUt19vUa8tFMhpnpMO8lgX/V3UyzUMtcH3dLvQxKyuQXY/FFwznboE6j
-         ieBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=aB8Q4OnQxgGR3hOnEbILSOeq7HiqZdVqhRD7b5FSwLU=;
-        fh=jp2wdYHTCSC8lyG26x18GjTJq1xsafE2VFh8dyvUG/0=;
-        b=STQpHFkNELPpJMuGO+zZhRpw3qWebDcjj4to3ncafOXe7QIHWszlGDMadaaFwJWV0y
-         qbDvjzhWFjiwiqCBBAQAUEyzIFQzALcmq8KVQhf2kjleUvhtd8CO8g3Nda/jbVHEyYBA
-         RdNlekh9yRclQollOPq32aCUrgBiaBFnsecxIi2KNHENC57wEHYLdVqHOkDTAEgb7/bh
-         Li62QDermk/cP7bRnnxW1nUmt68GDF2RWRZSzUqwqGjICnIbfG6fAQIWhofiMFaJY96E
-         tepQ8nlcvOC7hicl0cmlNuEAMl8tjDIhKdI2ibQCPJhRFThxnAiIXeuOYt8U6VVuvJlb
-         AX8w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1784809517; x=1785414317; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aB8Q4OnQxgGR3hOnEbILSOeq7HiqZdVqhRD7b5FSwLU=;
-        b=yuyindnN8JJUALs4+dEKl6t1Xwr6jjEYWvVKaN96uNvvXqVJ0tAFdOV215YKztytk2
-         Q9KfAvLLqHFffX2RG2upDgEbeYZKaO0zD19rOXJO31MiYXn9ksqV450lQyfIibUyH8qZ
-         aUntoT/151phj8huBu1StqNthQtTuzADixT9tcjfKDiYw60juhfdH/2M7Mu028LbsCLe
-         cFmDerbC7FZueBVG5mcD5ZruTN6fSbXjiQ3Ee7gu/e5LIXm5XlsqFHQkx704gdgcCIso
-         jR1a2tQHYYskprYedzpU0IYRKjZFi6mVWFEhCzCXzO0Lro4oVwTB6/0fanq7z4STouUA
-         Mv3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784809517; x=1785414317;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=aB8Q4OnQxgGR3hOnEbILSOeq7HiqZdVqhRD7b5FSwLU=;
-        b=Z2fQOX0WLWD1EJmbr+zE7jD4tey0dfB3Wlq1QvNvCRqxGCxi+xM3LwxHc/JX4E3FOA
-         KIuAh/XtUTrKy8CjRJzi4yegrWAGfIhPi2KA7GOCBRTY8IrC9GAp96FlMHLkf/P/FBBB
-         Fa7MDMgTLQcPszt3t0LSxuIETs1ZQPDcGx8JOiVoM+5NzEFa9XTbiSiujmz2MIRb51d8
-         c3fDAdh7Rco6yHauU2jkHLEP/375wXQQuaKmZNLaOdklWOa/1lVlBMKrN7dW7rov2ruv
-         LFPHGF3NXoswrsXFBtvwkmh2SBX7e+H/F7MURzfktDqQ/ZCkhUzqQ1rdYY3JB6pw9I7A
-         Lw3Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpZA87o7wQ9a013aGkRI38VUSMwvugqqRFJls/cAX1XPhV2PuYZYoCX9Lf+2DnKYXAgnNBpI2eMl+SE5spL2m4g@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxnxDOpl6bdhNmfw07WAdgiqaBE4DQ/SPpj8o28pzUC7AUfA40
-	/yTX3JfzBYu6sy1bVX7bJrYcFOneeVat3HX8FRpGL3q0RVLfLOdolc0kp+4+ohlZiT5rHBt7s+w
-	zf8MiJN4e9ohCcBoFv0KTtl86SaTzMXXAVBqYgRlJRA==
-X-Gm-Gg: AR+sD10geoMk0QGI/OiD9oHxh7fPTzwv6TehE+5HRiSs1XXP82lwwwU/LbSHHaOs3gG
-	23nJr25wZSZh60vfr/bN20mN9Mg8ntSxAdNa7wVQXWfW+8MjdtcxLg9+eUVT75QAOGVX4AH3r6W
-	KtqY+cgTC0BxqY5/VcuXtByt4BuPAI5PhV7W6rDRmyMpQb15F32qzd8v0doTVAXRjnCwoIRO/Hq
-	g3mgHBT1GCH3DjfdLycrtBVx8wpIcs9igh9bPs6JlP9GBOXrYhFP2evZXGgHBRt0Yra0pOV6HtP
-	T39xZ5rtTLQC+shojcyi
-X-Received: by 2002:a05:6402:a0db:b0:695:f580:a66f with SMTP id
- 4fb4d7f45d1cf-69f6d9e12b5mr996909a12.21.1784809517384; Thu, 23 Jul 2026
- 05:25:17 -0700 (PDT)
+	Thu, 23 Jul 2026 12:25:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 096341477;
+	Thu, 23 Jul 2026 05:25:14 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4BA73F59E;
+	Thu, 23 Jul 2026 05:25:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784809518; bh=Wlm9G4Sqolr8eBoOP7M4WzfUuSuodq5h0+5ZZ7TCBZc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sLF4nPO/7Ldoisn8CG9nRmPK/HZZ4AQaWCdZfeWrLGpAXx6QzZETU6+NnK/qAbXVS
+	 Ql3TqbOCQEpev3ScAdEkU7pa+ziwugGSr1M7WJHGYvT5DgN9UEnh4DCeeCDVmgmUlf
+	 I5EMRYCsi00I7+LRKfC78ACwy+DSpKZeRKaZdcI8=
+Message-ID: <5054f53f-fb98-4698-91e5-4ed11fe08d6b@arm.com>
+Date: Thu, 23 Jul 2026 13:25:14 +0100
 MIME-Version: 1.0
-References: <20260709-exynos850-ap2apm-mailbox-v4-0-caf2fe9a237d@linaro.org> <20260709-exynos850-ap2apm-mailbox-v4-2-caf2fe9a237d@linaro.org>
-In-Reply-To: <20260709-exynos850-ap2apm-mailbox-v4-2-caf2fe9a237d@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 23 Jul 2026 13:25:04 +0100
-X-Gm-Features: AUfX_mxKHXmvgZNOprzFkOSU6fVlzJ5mLmuhFNF7QD8eikBR_HNCKQLBJH8wlno
-Message-ID: <CADrjBPqHcXgAC+AdMAKZRa6S6ZOaYKnwhj-K+wXdouuV7oVmkw@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] mailbox: exynos: Add support for Exynos850 mailbox
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/36] arm64: Add support for FEAT_NMI
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <7df0ce45-c09c-4be5-bfa5-71b98c46a0e9@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <7df0ce45-c09c-4be5-bfa5-71b98c46a0e9@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_052519_580181_1170601A 
-X-CRM114-Status: GOOD (  28.28  )
+X-CRM114-CacheID: sfid-20260723_052520_029595_3ACFBFF5 
+X-CRM114-Status: GOOD (  35.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,166 +71,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 9 Jul 2026 at 15:45, Alexey Klimov <alexey.klimov@linaro.org> wrote:
->
-> Exynos850-based platforms support ACPM and has similar workflow
-> of communicating with ACPM via mailbox, however mailbox controller
-> registers are located at different offsets and writes/reads could be
-> different. To distinguish between such different behaviours,
-> the registers offsets for Exynos850 and the platform-specific data
-> structs are introduced and configuration is described in such structs
-> for gs101 and exynos850 based SoCs. Probe routine now selects the
-> corresponding platform-specific data via device_get_match_data().
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
+On 7/23/26 04:53, Jinjie Ruan wrote:
+> 
+> 在 2026/7/9 20:12, Vladimir Murzin 写道:
+>> FEAT_NMI provides an architected mechanism for supporting non-maskable
+>> interrupts (NMIs) and less-masked interrupts (LMIs).
+>>
+>> Since we already support pseudo-NMIs via priority masking, introducing
+>> another flavour of NMI on top of the existing infrastructure could
+>> easily become messy, making the code harder to follow and reason
+>> about.
+>>
+>> To avoid that, this series first makes room for the new NMI "tenant"
+>> by restructuring the existing exception masking logic.
+>>
+>> The main idea is to separate the logical view of exception state from
+>> its hardware representation. To achieve this, we introduce logical
+>> exception contexts that can be mapped onto the corresponding hardware
+>> state. This naturally consolidates the hardware-specific handling into
+>> a small number of places, while allowing the rest of the code to
+>> operate purely in terms of logical exception contexts.
+>>
+>> Since this restructuring is non-trivial and carries a risk of subtle
+>> behavioural changes, the series adds extensive debug checks to verify
+>> that the hardware state always matches the expected logical state.
+>>
+>> With this restructuring in place, wiring FEAT_NMI into the new
+>> framework becomes much more manageable.
+>>
+>> This work would not have been possible without the contributions of
+>> Ada Couprie Diaz, Mark Brown, and Lorenzo Pieralisi - please credit
+>> them for everything that works well. Any remaining bugs or issues are
+>> entirely my own.
+>>
+>> I'd especially appreciate feedback on the overall approach. Please
+>> don't hesitate to bikeshed the naming or other details - improving
+>> clarity is one of the main goals of this series. Of course, technical
+>> review is more than welcome as well.
+>>
+>> The series would also benefit from extensive testing on real hardware
+>> (without NMI, with pseudo-NMI, and with FEAT_NMI), as most of the
+>> testing so far has been done on QEMU and FVP.
+>>
+>> P.S.
+>> I'm aware that Jinjie Ruan has a similar series on the mailing
+>> list. I'm very open to collaborating and aligning our efforts if that
+>> makes sense.
+>>
+>> Thanks
+>> Vladimir
+>>
+>> Ada Couprie Diaz (19):
+>>   arm64: debug: don't mask DAIF for mdscr_write()
+>>   arm64: hibernate: mask DAIF before restoring hibernated kernel
+>>   arm64: suspend: rely on daif helpers to handle PMR
+>>   arm64: irq: introduce a helper for GIC priority initialization
+>>   arm64: entry: mask DAIF before returning from C EL1 handlers
+>>   irqchip/gic-v3: make the unmasking of pseudo-NMIs explicit when
+>>     handling IRQs
+>>   arm64: irqflags: introduce arm64-specific irqflags type
+>>   arm64: irqflags: save and use both DAIF and PMR
+>>   arm64: interrupts: introduce interrupt masking helpers for entry code
+>>   arm64: entry: replace DAIF helpers with entry helpers
+>>   arm64: interrupts: introduce generic interrupt masking helpers
+>>   arm64: replace local_daif helpers
+>>   arm64: cpuidle: use new helpers to bypass interrupt priority masking
+>>   arm64: remove daifflags.h
+>>   arm64: gicv3: remove GIC_PRIO_PSR_I_SET
+>>   arm64: ptrace: Add PSR_ALLINT_BIT
+>>   arm64: cpufeature: Detect PE support for FEAT_NMI
+>>   arm64: nmi: Manage masking for superpriority interrupts
+>>   arm64: irq: Report FEAT_NMI masking local IRQs
+>>
+>> Lorenzo Pieralisi (1):
+>>   irqchip/gic-v3: Implement FEAT_GICv3_NMI support
+>>
+>> Mark Brown (5):
+>>   arm64: booting: Document boot requirements for FEAT_NMI
+>>   arm64: sysreg: Add definitions for immediate versions of MSR ALLINT
+>>   arm64: idreg: Add an override for FEAT_NMI
+>>   arm64: nmi: Add handling of superpriority interrupts as NMIs
+>>   arm64: nmi: Add Kconfig for NMI
+>>
+>> Vladimir Murzin (11):
+>>   arm64: ptrace: Remove INIT_PSTATE_EL2
+>>   arm64: suspend: Initialize PMR on resume
+>>   arm64: process: Use helper to check exception state
+>>   arm64: cpufeature: Remove system_has_prio_mask_debugging()
+>>   arm64: irqflags: Switch to CONFIG_DEBUG_IRQFLAGS
+>>   arm64: Kconfig: Remove CONFIG_ARM64_DEBUG_PRIORITY_MASKING
+>>   efi/runtime-wrappers: Permit architectures to override IRQ flags
+>>     checks
+>>   arm64/efi: Implement override for IRQ flags checks
+>>   arm64: suspend: Always initialise PSTATE.ALLINT
+>>   arm64/efi: Add ALLINT to IRQ flags checks
+>>   arm64: kprobes: Disable NMIs
+> 
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Hi Jinjie,
 
->  drivers/mailbox/exynos-mailbox.c | 72 ++++++++++++++++++++++++++++++++++++----
->  1 file changed, 66 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-mailbox.c
-> index fa02f18948cf..ff75c1c7633c 100644
-> --- a/drivers/mailbox/exynos-mailbox.c
-> +++ b/drivers/mailbox/exynos-mailbox.c
-> @@ -24,14 +24,60 @@
->
->  #define EXYNOS_MBOX_CHAN_COUNT         HWEIGHT32(EXYNOS_MBOX_INTGR1_MASK)
->
-> +#define EXYNOS850_MBOX_INTGR0          0x8     /* Interrupt Generation Register 0      */
-> +#define EXYNOS850_MBOX_INTMR1          0x24    /* Interrupt Mask Register 1            */
-> +
-> +#define EXYNOS850_MBOX_INTMR1_MASK     GENMASK(15, 0)
-> +#define EXYNOS850_MBOX_INTGR0_MASK     GENMASK(31, 16)
-> +
-> +#define EXYNOS850_MBOX_CHAN_COUNT      HWEIGHT32(EXYNOS850_MBOX_INTGR0_MASK)
-> +
-> +/**
-> + * struct exynos_mbox_driver_data - platform-specific mailbox configuration.
-> + * @intgr:             offset to the IRQ generation register, doorbell
-> + *                     to APM co-processor.
-> + * @intgr_shift:       shift to apply to the value written to IRQ generation
-> + *                     register.
-> + * @intmr:             offset to the IRQ mask register.
-> + * @intmr_mask:                value to write to the mask register to mask out all
-> + *                     interrupts.
-> + * @num_chans:         number of channels the mailbox can support (hardware
-> + *                     capability).
-> + */
-> +struct exynos_mbox_driver_data {
-> +       u32 intgr;
-> +       u32 intgr_shift;
-> +       u32 intmr;
-> +       u32 intmr_mask;
-> +       int num_chans;
-> +};
-> +
->  /**
->   * struct exynos_mbox - driver's private data.
->   * @regs:      mailbox registers base address.
->   * @mbox:      pointer to the mailbox controller.
-> + * @data:      pointer to driver platform-specific data.
->   */
->  struct exynos_mbox {
->         void __iomem *regs;
->         struct mbox_controller *mbox;
-> +       const struct exynos_mbox_driver_data *data;
-> +};
-> +
-> +static const struct exynos_mbox_driver_data exynos850_mbox_data = {
-> +       .intgr = EXYNOS850_MBOX_INTGR0,
-> +       .intgr_shift = 16,
-> +       .intmr = EXYNOS850_MBOX_INTMR1,
-> +       .intmr_mask = EXYNOS850_MBOX_INTMR1_MASK,
-> +       .num_chans = EXYNOS850_MBOX_CHAN_COUNT,
-> +};
-> +
-> +static const struct exynos_mbox_driver_data exynos_gs101_mbox_data = {
-> +       .intgr = EXYNOS_MBOX_INTGR1,
-> +       .intgr_shift = 0,
-> +       .intmr = EXYNOS_MBOX_INTMR0,
-> +       .intmr_mask = EXYNOS_MBOX_INTMR0_MASK,
-> +       .num_chans = EXYNOS_MBOX_CHAN_COUNT,
->  };
->
->  static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
-> @@ -50,7 +96,9 @@ static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
->                 return -EINVAL;
+> Hi Vladimir,
+> 
+> In the past two years, while debugging the FEAT_NMI code externally, we
+> encountered an issue related to the hardware NMI interrupt cancellation.
+> 
+> I'm sharing this below to exchange ideas with you. I've reanalyzed your
+> code, and it seems that this issue has been resolved.
+> 
+
+Thanks for sharing!
+
+> The sequence of issues I understand is as follows:
+> 
+> CPU (IRQs disabled)          GICv3               Normal IRQ          NMI
+> ===============              =====               ==========         ====
+>     |                           |                     |                |
+>     |                           | <--- pending -------+                |
+>     |                           |  (IRQ latched)      |                |
+>     |                           |                     |                |
+>     |                           | <--- NMI arrives --------------------+
+>     |                           |  (ISR_EL1.NMI = 1)  |                |
+>     |                           |                     |                |
+>     | <--- IRQ exception -------+                     |                |
+>     |  (enter el1_interrupt())  |                     |                |
+>     |                           |                     |                |
+>     |                           | <--- NMI withdraw -------------------+
+>     |                           |  (ISR_EL1.NMI = 0)  |                |
+>     |                           |                     |                |
+>     | (regs_irqs_disabled()is true)  |                |                |
+>     |   call __el1_nmi()
+>     |                           |                     |                |
+>     | call gic_handle_irq()     |                     |                |
+>     |  -> gic_read_nmiar()      |                     |                |
+>     |     -> read special 1023  |                     |                |
+>     |        -> safe return     |                     |                |
+> 
+> 
+> Our fix, based on Mark's original version of the code, is as follows:
+> 
+>  static void __gic_handle_irq_from_irqson(struct pt_regs *regs)
+> {
+>         bool is_nmi;
+>         u32 irqnr;
+> 
+>         /*
+>          * We should enter here with interrupts disabled, otherwise we
+> may met
+>          * a race here with FEAT_NMI/FEAT_GICv3_NMI:
+>          *
+>          * [interrupt disabled]
+>          *                   <- normal interrupt pending, for example
+> timer interrupt
+>          *                   <- NMI occurs, ISR_EL1.nmi = 1
+>          * do_el1_interrupt()
+>          *                   <- NMI withdraw, ISR_EL1.nmi = 0
+>          *   ISR_EL1.nmi = 0, not an NMI interrupt
+>          *   gic_handle_irq()
+>          *     __gic_handle_irq_from_irqson()
+>          *       irqnr = gic_read_iar() <- Oops, ack and handle an
+> normal interrupt
+>          *                                 in interrupt disabled context!
+>          *
+>          * So if we met this case here, just return from the interrupt
+> context.
+>          * Since the interrupt is still pending, we can handle it once the
+>          * interrupt re-enabled and it'll not be missing.
+>          */
+>         if (!interrupts_enabled(regs))
+>                 return;
+> 
+
+Right. This check now exists higher up the call stack, in
+el1_interrupt(). Keeping it here has the unpleasant side effect
+of breaking the contract that this function returns in
+NOIRQ_CONTEXT.
+
+It seems that preventing execution from reaching this point in
+the first place solves all the issues.
+
+Cheers
+Vladimir
+
+
+>         irqnr = gic_read_iar();
+> 
+>         is_nmi = gic_rpr_is_nmi_prio();
+> 
+>         if (is_nmi) {
+>                 nmi_enter();
+>                 __gic_handle_nmi(irqnr, regs);
+>                 nmi_exit();
 >         }
->
-> -       writel(BIT(msg->chan_id), exynos_mbox->regs + EXYNOS_MBOX_INTGR1);
-> +       /* Ring the doorbell */
-> +       writel(BIT(msg->chan_id) << exynos_mbox->data->intgr_shift,
-> +              exynos_mbox->regs + exynos_mbox->data->intgr);
->
->         return 0;
->  }
-> @@ -80,19 +128,31 @@ static struct mbox_chan *exynos_mbox_of_xlate(struct mbox_controller *mbox,
->  }
->
->  static const struct of_device_id exynos_mbox_match[] = {
-> -       { .compatible = "google,gs101-mbox" },
-> +       {
-> +               .compatible = "google,gs101-mbox",
-> +               .data = &exynos_gs101_mbox_data
-> +       },
-> +       {
-> +               .compatible = "samsung,exynos850-mbox",
-> +               .data = &exynos850_mbox_data
-> +       },
->         {},
->  };
->  MODULE_DEVICE_TABLE(of, exynos_mbox_match);
->
->  static int exynos_mbox_probe(struct platform_device *pdev)
->  {
-> +       const struct exynos_mbox_driver_data *data;
->         struct device *dev = &pdev->dev;
->         struct exynos_mbox *exynos_mbox;
->         struct mbox_controller *mbox;
->         struct mbox_chan *chans;
->         struct clk *pclk;
->
-> +       data = device_get_match_data(&pdev->dev);
-> +       if (!data)
-> +               return -ENODEV;
-> +
->         exynos_mbox = devm_kzalloc(dev, sizeof(*exynos_mbox), GFP_KERNEL);
->         if (!exynos_mbox)
->                 return -ENOMEM;
-> @@ -101,8 +161,7 @@ static int exynos_mbox_probe(struct platform_device *pdev)
->         if (!mbox)
->                 return -ENOMEM;
->
-> -       chans = devm_kcalloc(dev, EXYNOS_MBOX_CHAN_COUNT, sizeof(*chans),
-> -                            GFP_KERNEL);
-> +       chans = devm_kcalloc(dev, data->num_chans, sizeof(*chans), GFP_KERNEL);
->         if (!chans)
->                 return -ENOMEM;
->
-> @@ -115,7 +174,8 @@ static int exynos_mbox_probe(struct platform_device *pdev)
->                 return dev_err_probe(dev, PTR_ERR(pclk),
->                                      "Failed to enable clock.\n");
->
-> -       mbox->num_chans = EXYNOS_MBOX_CHAN_COUNT;
-> +       exynos_mbox->data = data;
-> +       mbox->num_chans = data->num_chans;
->         mbox->chans = chans;
->         mbox->dev = dev;
->         mbox->ops = &exynos_mbox_chan_ops;
-> @@ -126,7 +186,7 @@ static int exynos_mbox_probe(struct platform_device *pdev)
->         platform_set_drvdata(pdev, exynos_mbox);
->
->         /* Mask out all interrupts. We support just polling channels for now. */
-> -       writel(EXYNOS_MBOX_INTMR0_MASK, exynos_mbox->regs + EXYNOS_MBOX_INTMR0);
-> +       writel(data->intmr_mask, exynos_mbox->regs + data->intmr);
->
->         return devm_mbox_controller_register(dev, mbox);
->  }
->
-> --
-> 2.51.0
->
+> 
+>         if (gic_prio_masking_enabled()) {
+>                 gic_pmr_mask_irqs();
+>                 gic_arch_enable_irqs();
+>         }
+> 
+>  ......
+> 
+> }
+> 
+> 
+> Best regards,
+> Jinjie
+> 
+>>  Documentation/arch/arm64/booting.rst          |   6 +
+>>  arch/arm/include/asm/arch_gicv3.h             |   6 +-
+>>  arch/arm64/Kconfig                            |  29 +-
+>>  arch/arm64/include/asm/arch_gicv3.h           |   7 +-
+>>  arch/arm64/include/asm/assembler.h            |  24 +-
+>>  arch/arm64/include/asm/cpucaps.h              |   2 +
+>>  arch/arm64/include/asm/cpufeature.h           |  14 +-
+>>  arch/arm64/include/asm/cpuidle.h              |  14 +-
+>>  arch/arm64/include/asm/daifflags.h            | 144 --------
+>>  arch/arm64/include/asm/efi.h                  |  42 ++-
+>>  arch/arm64/include/asm/entry-common.h         |  10 +-
+>>  .../include/asm/interrupts/common_flags.h     | 248 ++++++++++++++
+>>  arch/arm64/include/asm/interrupts/entry.h     | 116 +++++++
+>>  arch/arm64/include/asm/interrupts/masking.h   | 176 ++++++++++
+>>  arch/arm64/include/asm/irqflags.h             | 148 ++++-----
+>>  arch/arm64/include/asm/kvm_host.h             |   1 -
+>>  arch/arm64/include/asm/mmu_context.h          |   1 -
+>>  arch/arm64/include/asm/ptrace.h               |  17 +-
+>>  arch/arm64/include/asm/sysreg.h               |   2 +
+>>  arch/arm64/include/uapi/asm/ptrace.h          |   1 +
+>>  arch/arm64/kernel/acpi.c                      |  15 +-
+>>  arch/arm64/kernel/cpufeature.c                |  68 +++-
+>>  arch/arm64/kernel/debug-monitors.c            |   4 -
+>>  arch/arm64/kernel/entry-common.c              | 311 ++++++++++++------
+>>  arch/arm64/kernel/entry.S                     |  18 +-
+>>  arch/arm64/kernel/hibernate.c                 |  23 +-
+>>  arch/arm64/kernel/irq.c                       |   9 +-
+>>  arch/arm64/kernel/machine_kexec.c             |   4 +-
+>>  arch/arm64/kernel/pi/idreg-override.c         |   1 +
+>>  arch/arm64/kernel/probes/kprobes.c            |  24 +-
+>>  arch/arm64/kernel/process.c                   |  24 +-
+>>  arch/arm64/kernel/setup.c                     |   4 +-
+>>  arch/arm64/kernel/signal.c                    |   1 -
+>>  arch/arm64/kernel/smp.c                       |  18 +-
+>>  arch/arm64/kernel/suspend.c                   |  26 +-
+>>  arch/arm64/kernel/traps.c                     |   1 -
+>>  arch/arm64/kvm/hyp/nvhe/switch.c              |   2 +-
+>>  arch/arm64/kvm/hyp/vgic-v3-sr.c               |   7 +-
+>>  arch/arm64/kvm/hyp/vhe/switch.c               |  12 +-
+>>  arch/arm64/mm/fault.c                         |   1 -
+>>  arch/arm64/mm/mmu.c                           |   7 +-
+>>  arch/arm64/mm/proc.S                          |   7 +
+>>  arch/arm64/tools/cpucaps                      |   2 +
+>>  drivers/firmware/efi/runtime-wrappers.c       |  32 +-
+>>  drivers/irqchip/irq-gic-v3.c                  | 127 +++++--
+>>  include/linux/irqchip/arm-gic-v3-prio.h       |   8 -
+>>  include/linux/irqchip/arm-gic-v3.h            |   4 +
+>>  47 files changed, 1247 insertions(+), 521 deletions(-)
+>>  delete mode 100644 arch/arm64/include/asm/daifflags.h
+>>  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
+>>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+>>  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
+>>
+
 
