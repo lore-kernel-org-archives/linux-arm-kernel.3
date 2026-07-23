@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABFA1C531CC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC47FC531D1
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 22:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgKEv+iWtigxYIrjww4id6ypiK/vbF6C2//mIeAa780=; b=qWwqavap0xDsd5OUtCPPXlyrdb
-	gzUiY/tTPGeO8ec8Px+uYO1AVBfv85Jz+8nI0+MPU+/dy4j2IduD6hJbMMlj1pMqOW1TNeuroTEmY
-	ijlPiuTav/N9lbeEvyxN5G7wtsxpBr7Keo4aa7t3F9yjLBcDjKXf/WHmLJ6oaGH8C2xT77CLK8Znv
-	txQmV3ff9ud6oXssF0knYbksFacK5oPA9ZaFkmxivMkmYw8EPJFnvFupCfR2Ol1k4zZ+XxP809fIx
-	q5eSq8gysdL8Kq6ITTbaSbRE7m+SA0YiRmcjWUaj0PxBlz/O+EcyfnKoQT2UW5c/cfNtZfLbnIiQa
-	Tg5gpZnw==;
+	bh=ZX8xz1F0CV/HUl5hbuFy8vziQ6QmOmHfsEcuWBJXkj8=; b=3aUH2cpTLJ4DH8ezC95PXWm9+f
+	wzxhznOG+ZlEO1la4bdNDJE3d5h+PRbK93vuxP/d6eOHOxXCIohrqgFV4yAjjRB5HfuSGuiC/JZ6M
+	/aOEU/twRl/uxH6dbZWOnecKifdD7gRWtW6DgeHpt3x/w8mVOUbbCAGyIxmuvnMoQIEi1JomBwib1
+	godkMaN2thv2QQbrj/41yV0qdVw5cAj+4+QX/ey/iHIrD9mFGiEXDbZRDymBeeIxdXxKyJgaNdtmb
+	vRHCXazy+w7ubYEzSVQ5oNtZHOaBwbT06tMxTbABHdTsGQ62ioPjyHv6X3/LJCfJkBk+LOaA6Dli6
+	CBQa15dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn1jg-0000000FAeo-44cR;
-	Thu, 23 Jul 2026 22:17:48 +0000
+	id 1wn1je-0000000FAYK-1QAh;
+	Thu, 23 Jul 2026 22:17:46 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn1jO-0000000FAEN-3nxl;
+	id 1wn1jN-0000000FACq-2Joh;
 	Thu, 23 Jul 2026 22:17:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1784845042;
-	bh=y/lO7F8aMpUMG5oPz9h/2IJLrrfqoLfzB6/FlPP331s=;
+	bh=hcdsBF0i36H1vzEIUAoDhRmTZkK3f6r23/Cn46dhBxI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Tz5OSW+RvTbt91ofVnUc7GzzJs4ItwGSLoEzvQLhjfJwabVw7hSXikFkBdGA0fZqF
-	 VVE8PHCYbNFvgIiyIoBNJuoPMawRqLK+QjZELsRNNRlmZaI8HO9WKjvlKOs/SPzVkY
-	 8d1f1hksDujI40VkhBokj4VXILvWeG7W3+KyG0gUpz2+F+hBSAH1xSQI5Bw6MbGcmN
-	 LPdgf5jG1XYROGpMpgaQcZRZqXaQ7zPFNN9VhRv/+3u42wlIdAM9dGkWtF14AaZBw0
-	 2Ud3fsZ+KAm3UDUm6ybUBLFWx5diB063a0nQOR7nxTOacEYOdbZIpOmRnzj17DzKS+
-	 LV0kTPNsqxXUQ==
+	b=F8kQ2sszP9ffpJxbnPQyboXJm6BhEqUukYwn7+zK1T/BO+H2Q8v2tbKFY8Toe1VWI
+	 d/fWk8OkGOHwtmflhw/7vVDqJDT2QkrMv4F13gwHMxwnbDxJ/WF6/oW/slByTpXo5P
+	 d1cCgw/TUu3oE3lcRSPTr5LuC0YvS+Tf3lIPsFx3ZasIkC/t1OlkLojaNpDJZoQyZB
+	 x8ANw6V3YvNldFADfR66lUcjbxHzyKzqrL0GacLgoB0qj6nKoHJoXzNbjx3fomU20x
+	 xbTv6v3ep4gm8uJoRFQaZukiI4WpAfs6N94vvBx+DcSGcZrQ3loFSYOrAYyMUZdgEw
+	 fXR74MjfropkA==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A27C217E3869;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BC24717E399D;
 	Fri, 24 Jul 2026 00:17:22 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 127E9480031; Fri, 24 Jul 2026 00:17:22 +0200 (CEST)
+	id 1AA59480047; Fri, 24 Jul 2026 00:17:22 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 24 Jul 2026 00:17:13 +0200
-Subject: [PATCH v5 05/15] drm/bridge: synopsys: dw-dp: Support
- MEDIA_BUS_FMT_FIXED
+Date: Fri, 24 Jul 2026 00:17:18 +0200
+Subject: [PATCH v5 10/15] drm/bridge: synopsys: dw-dp: Add Runtime PM
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-synopsys-dw-dp-improvements-v5-5-9445c2e87441@collabora.com>
+Message-Id: <20260724-synopsys-dw-dp-improvements-v5-10-9445c2e87441@collabora.com>
 References: <20260724-synopsys-dw-dp-improvements-v5-0-9445c2e87441@collabora.com>
 In-Reply-To: <20260724-synopsys-dw-dp-improvements-v5-0-9445c2e87441@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -77,26 +77,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4165;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5440;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=y/lO7F8aMpUMG5oPz9h/2IJLrrfqoLfzB6/FlPP331s=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpikvGLxLkuJRqy51PyM+Mv9gb6K/JdKUr0K
- SgJEgzDDhdzf4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqYpLxAAoJENju1/PI
- O/qaiaUQAJLFF8KzbBeBtkGYOeR7ki8bvHjMrMnFnk2Ll/t31XPZMni0oec3W5y5araUm1+Fukn
- KgLkiOKbJ0b3W9zoTm9/C8qOIV3AZpBsxpuyFD8F68PUoMKQ7hsfpk/Mc1Zxo73EI9DYDcBuepV
- ChWtwDsr8LzY77Y1MV1/HeDdyJyS2gTs9z+azgpszAAj9kJVLVsnKmtnoh3ga1wUZbrrJ9rp/30
- z3RmsWYapM04mTSTq7Gk9xXpnIGcYRYlr/32Mo7o3Y6EBubGJlMTPkrS1nfqmmw3GfY4ZXF0/ca
- VvVjA/VPXpze6EVSeFSw8iYDFG7WralzYNHWMKu6a5mh6+V6gdKJ8apvebfWuUA72vnjHNfAoZJ
- HUux7eoG8YAp5EoGobt07fBi3/vgnoU+1TiTflUY2gCXj+yul38NrnsGfx8W9rAIlLpbGQXWdIt
- 4FBm3fvAVVGmpRl9dAIHtXdIgcDbDCOCIzMpkzj0eLD/E5z/8LgnysqfZjuC3G8z7GQaYgfvxew
- WiQ7py71+9E5egqWKexWO3xPB5kWaL4/mInIeK0AmP5GnW6pRgt4cgh16OOqf/ieKbL1rKGRPhm
- oAt1D49GHL4kBDcgoNHU+16nuf1pXH1+C/zj9UrYYJH/MdzX4hUPyjunugu0+JKFLscB+LZBeSN
- cjDVSD6iwt6ja1+it4MRATg==
+ bh=hcdsBF0i36H1vzEIUAoDhRmTZkK3f6r23/Cn46dhBxI=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpikvHO88jUfcvf5FWk2GuXt6aUZuWTK1Fgb
+ dea2Bvfj9VkhokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqYpLxAAoJENju1/PI
+ O/qaSxUP/AsT3SSoeBasg34KtlE+8B4kXgSXT+xwuPZYfdnuias3cyLutVRuw0k10DujEtFYqxn
+ pw7iLKsXaQsUpOZ1U+31V1lzWRunRJX9ggozwy/zEOI1YHy8/ddrrlpvCaE+/C/cdnMr/C7kG0R
+ KWARk1psjuFftCv1mnuX+g13g1EKAyIybsRczV6qyCYeYDxsmgX8BNyUCcG6cgLR7ZtWhQccSXT
+ ZriEwjfqnuJfWHU8vFlNlOFLlEMvIKIocv5CysfHB20EBcVvdzgavsB2FYOLyXiSkSB+3CBYUc2
+ 1i1pQXHr6AEPowxJpzg7/XUzNcRcW0O1M+pHzXfbdtt0sLvtsDfwM128CJf/9Ey5UCI0PZGCAcL
+ Xl0p9otK/05YB+63lPt7Rc3dxe7jeLqF+PIZ1q3QsqkaI9Drv9EA4d6N5FIEH9LrxL+P1ohju2y
+ w0V7WaQuoPoGrUgJYjafZlDUmzkR9OB4tTsYuBsUjmsG6vOUIiNYRnSEHs9ZFCS87cIvXDmwQJg
+ +8s6gj6yxRR+v4FO2Xq1e8eTQzB2+LK0LDhw5ofPO7yjmHhiLbnUfaWabqQrELf75WTOxkkYZbv
+ rdYWzhWtzqv1ny/w2XPZEAc4m6o2hyql8fE6+w/PwbeqKF5VhUfsivLiSP+ZngEWkMsuJDE+usG
+ 7p5bfInidiLqbI5idG5062A==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_151731_157549_CE7EB6F5 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20260723_151729_832264_D742DF44 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,109 +111,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for MEDIA_BUS_FMT_FIXED, which is e.g. requested for USB-C
-DP chains as the last bridge in the chain (aux-hpd-bridge) does not
-implement atomic_get_output_bus_fmts(), which results in the generic
-drm_atomic_bridge_chain_select_bus_fmts() code using MEDIA_BUS_FMT_FIXED
-instead.
-
-For decent support of this, two areas are changed:
-
-1. In atomic_check, resolving MEDIA_BUS_FMT_FIXED by selecting the
-   highest-quality format that fits the DP link (first entry from
-   the bandwidth-filtered output format list).
-
-2. Implementing a custom .atomic_get_input_bus_fmts hook that, on
-   MEDIA_BUS_FMT_FIXED, advertises all bandwidth-validated formats
-   from dw_dp_bridge_atomic_get_output_bus_fmts(). This lets the
-   upstream encoder negotiate the best mutually supported format.
+Add runtime PM stubs to the Synopsys DesignWare DisplayPort bridge
+driver. Support is not enabled automatically and must be hooked up
+in the vendor specific glue code.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 49 +++++++++++++++++++++++++++++++--
- 1 file changed, 47 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 71 ++++++++++++++++++++++++++++++++-
+ include/drm/bridge/dw_dp.h              |  3 ++
+ 2 files changed, 72 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 3dec7777fb28..812c67fdfb6b 100644
+index 9975df8ea37e..bcf7ad84f217 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1576,6 +1576,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 				     struct drm_connector_state *conn_state)
- {
- 	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
-+	unsigned int out_bus_format = bridge_state->output_bus_cfg.format;
- 	struct dw_dp *dp = bridge_to_dp(bridge);
- 	struct dw_dp_bridge_state *state;
- 	const struct dw_dp_output_format *fmt;
-@@ -1586,7 +1587,25 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	state = to_dw_dp_bridge_state(bridge_state);
- 	mode = &state->mode;
+@@ -328,6 +328,7 @@ struct dw_dp {
+ 	struct dw_dp_link link;
+ 	struct dw_dp_plat_data plat_data;
+ 	u8 pixel_mode;
++	bool usbc_mode;
  
--	fmt = dw_dp_get_output_format(bridge_state->output_bus_cfg.format);
-+	if (out_bus_format == MEDIA_BUS_FMT_FIXED) {
-+		unsigned int num_fmts = 0;
-+		u32 *fmts;
-+
-+		fmts = dw_dp_bridge_atomic_get_output_bus_fmts(bridge,
-+							       bridge_state,
-+							       crtc_state,
-+							       conn_state,
-+							       &num_fmts);
-+		if (!num_fmts) {
-+			kfree(fmts);
-+			return -EINVAL;
-+		}
-+
-+		out_bus_format = fmts[0];
-+		kfree(fmts);
-+	}
-+
-+	fmt = dw_dp_get_output_format(out_bus_format);
- 	if (!fmt)
- 		return -EINVAL;
+ 	struct drm_bridge *next_bridge;
  
-@@ -1800,6 +1819,32 @@ static const struct drm_edid *dw_dp_bridge_edid_read(struct drm_bridge *bridge,
- 	return edid;
+@@ -1467,6 +1468,11 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+ 	if (WARN_ON(msg->size > 16))
+ 		return -E2BIG;
+ 
++	PM_RUNTIME_ACQUIRE_IF_ENABLED_AUTOSUSPEND(dp->dev, pm);
++	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
++	if (ret)
++		return ret;
++
+ 	switch (msg->request & ~DP_AUX_I2C_MOT) {
+ 	case DP_AUX_NATIVE_WRITE:
+ 	case DP_AUX_I2C_WRITE:
+@@ -1720,6 +1726,8 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	struct drm_connector_state *conn_state;
+ 	int ret;
+ 
++	pm_runtime_get_sync(dp->dev);
++
+ 	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+ 	if (!connector) {
+ 		dev_err(dp->dev, "failed to get connector\n");
+@@ -1774,6 +1782,7 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
+ 	dw_dp_link_disable(dp);
+ 	bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
+ 	dw_dp_reset(dp);
++	pm_runtime_put_autosuspend(dp->dev);
  }
  
-+static u32 *
-+dw_dp_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+				       struct drm_bridge_state *bridge_state,
-+				       struct drm_crtc_state *crtc_state,
-+				       struct drm_connector_state *conn_state,
-+				       u32 output_fmt,
-+				       unsigned int *num_input_fmts)
-+{
-+	/*
-+	 * MEDIA_BUS_FMT_FIXED means the downstream bridge does not constrain
-+	 * the bus format. In that case, advertise all formats supported by the
-+	 * DP link so the upstream encoder can negotiate the best match.
-+	 */
-+	if (output_fmt == MEDIA_BUS_FMT_FIXED)
-+		return dw_dp_bridge_atomic_get_output_bus_fmts(bridge,
-+							       bridge_state,
-+							       crtc_state,
-+							       conn_state,
-+							       num_input_fmts);
-+
-+	return drm_atomic_helper_bridge_propagate_bus_fmt(bridge, bridge_state,
-+							 crtc_state, conn_state,
-+							 output_fmt,
-+							 num_input_fmts);
-+}
-+
- static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_bridge *bridge)
+ static bool dw_dp_hpd_detect_link(struct dw_dp *dp, struct drm_connector *connector)
+@@ -1794,6 +1803,10 @@ static enum drm_connector_status dw_dp_bridge_detect(struct drm_bridge *bridge,
  {
- 	struct dw_dp_bridge_state *state;
-@@ -1817,7 +1862,7 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
- 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
--	.atomic_get_input_bus_fmts = drm_atomic_helper_bridge_propagate_bus_fmt,
-+	.atomic_get_input_bus_fmts = dw_dp_bridge_atomic_get_input_bus_fmts,
- 	.atomic_get_output_bus_fmts = dw_dp_bridge_atomic_get_output_bus_fmts,
- 	.atomic_check = dw_dp_bridge_atomic_check,
- 	.mode_valid = dw_dp_bridge_mode_valid,
+ 	struct dw_dp *dp = bridge_to_dp(bridge);
+ 
++	PM_RUNTIME_ACQUIRE_IF_ENABLED_AUTOSUSPEND(dp->dev, pm);
++	if (PM_RUNTIME_ACQUIRE_ERR(&pm))
++		return connector_status_disconnected;
++
+ 	if (!dw_dp_hpd_detect(dp))
+ 		return connector_status_disconnected;
+ 
+@@ -1973,10 +1986,17 @@ static irqreturn_t dw_dp_irq(int irq, void *data)
+ {
+ 	struct dw_dp *dp = data;
+ 	u32 value;
++	int ret;
++
++	ret = pm_runtime_get_if_active(dp->dev);
++	if (ret <= 0)
++		return IRQ_NONE;
+ 
+ 	regmap_read(dp->regmap, DW_DP_GENERAL_INTERRUPT, &value);
+-	if (!value)
++	if (!value) {
++		pm_runtime_put_autosuspend(dp->dev);
+ 		return IRQ_NONE;
++	}
+ 
+ 	if (value & HPD_EVENT)
+ 		dw_dp_handle_hpd_event(dp);
+@@ -1986,6 +2006,7 @@ static irqreturn_t dw_dp_irq(int irq, void *data)
+ 		complete(&dp->complete);
+ 	}
+ 
++	pm_runtime_put_autosuspend(dp->dev);
+ 	return IRQ_HANDLED;
+ }
+ 
+@@ -2073,10 +2094,15 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
+ 	}
+ 
+ 	if (dw_dp_is_routed_to_usb_c(encoder)) {
++		dp->usbc_mode = true;
+ 		dev_dbg(dev, "USB-C mode\n");
+ 
+ 		if (dp->plat_data.hpd_sw_sel)
+ 			dp->plat_data.hpd_sw_sel(dp->plat_data.data, 1);
++	} else {
++		dp->usbc_mode = false;
++		/* Keep runtime PM enabled to have working native HPD IRQ */
++		pm_runtime_get_sync(dp->dev);
+ 	}
+ 
+ 	dw_dp_init_hw(dp);
+@@ -2084,13 +2110,17 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
+ 	ret = phy_init(dp->phy);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "phy init failed\n");
+-		goto put_next_bridge;
++		goto put_runtime_pm;
+ 	}
+ 
+ 	enable_irq(dp->irq);
+ 
+ 	return 0;
+ 
++put_runtime_pm:
++	if (!dp->usbc_mode)
++		pm_runtime_put_sync(dp->dev);
++
+ put_next_bridge:
+ 	drm_bridge_put(dp->next_bridge);
+ 
+@@ -2106,6 +2136,8 @@ EXPORT_SYMBOL_GPL(dw_dp_bind);
+ 
+ void dw_dp_unbind(struct dw_dp *dp)
+ {
++	if (!dp->usbc_mode)
++		pm_runtime_put_sync(dp->dev);
+ 	disable_irq(dp->irq);
+ 	cancel_work_sync(&dp->hpd_work);
+ 	phy_exit(dp->phy);
+@@ -2208,6 +2240,41 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_probe);
+ 
++int dw_dp_runtime_suspend(struct dw_dp *dp)
++{
++	clk_disable_unprepare(dp->aux_clk);
++	clk_disable_unprepare(dp->apb_clk);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(dw_dp_runtime_suspend);
++
++int dw_dp_runtime_resume(struct dw_dp *dp)
++{
++	int ret;
++
++	ret = clk_prepare_enable(dp->apb_clk);
++	if (ret)
++		return ret;
++
++	ret = clk_prepare_enable(dp->aux_clk);
++	if (ret) {
++		clk_disable_unprepare(dp->apb_clk);
++		return ret;
++	}
++
++	dw_dp_init_hw(dp);
++
++	/*
++	 * HPD_HOT_PLUG bit is asserted only after the sink holds HPD
++	 * high for at least 100ms.
++	 */
++	msleep(110);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(dw_dp_runtime_resume);
++
+ MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
+ MODULE_DESCRIPTION("DW DP Core Library");
+ MODULE_LICENSE("GPL");
+diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
+index 79b2cdf0df99..f20d2c2c40ca 100644
+--- a/include/drm/bridge/dw_dp.h
++++ b/include/drm/bridge/dw_dp.h
+@@ -29,4 +29,7 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder);
+ void dw_dp_unbind(struct dw_dp *dp);
+ 
+ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_data *plat_data);
++
++int dw_dp_runtime_suspend(struct dw_dp *dp);
++int dw_dp_runtime_resume(struct dw_dp *dp);
+ #endif /* __DW_DP__ */
 
 -- 
 2.53.0
