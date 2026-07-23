@@ -4,54 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0267C531CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704F3C531CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=duiX4GQAAvmX5L/FcIQzGfBvyrqwOSAAZLOGfQW5+ks=; b=fr3UF0RDEklA6FRURfJn17gz3w
-	PRmtxP5lUpAUkAoiFOH4jjgBUTBN6frWjDEScohkV2IJwP5okdq1TpJxPNoNc3LpnpFVY9f0ZLknV
-	931aO1C2+K3bOGCjbRy0n+fqFJIH5EHG+9nXmnFLRozfeIg4F31fZuTW85bawRbq3hWerdDwcmFAs
-	prmcpto6CL0eqsJyQf4c2EXtLkAwCN2x+S6XdezwRpkFQn7eadi3Q5DaatFRuXiUAfW0MwxhO2amV
-	RlfHishYPOT3femo6isDbcpnpA5uKipuYZ//XiY3DJa6N+cold85ehf8r3LiA1jNKLCL6lGAHpmOa
-	D3gvtZ3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pgqeVxJh/mSJw25lLchrQn9WEHwrqioLah+Q4155O9E=; b=vW4Hohpx/uetbSMV2OCQ1Qdedd
+	s5/3WYFzk45ObrjKIjFbEWktKgI62XN5BziXjLk3TR4W6gMhH7OJVWmnjS+X3DwrHJl3h3d7LvaXA
+	8aaU5bfYrIACeDH7T2OP4GenYhuoGOStalTCfeAuVjDucj5hrpoO8t1vUuw1282HMfFscnKTtJAO0
+	cgKnPJ90BMbfFgRwL3PmiO2qCzOAHqPZzQyE/oyWtS5c/kQMfUNkyiWMnmnlc2YUPP784+8djqsoo
+	S76DvyCz3dmGvnPTXfR1MyluafK2dUCYP466Oc8XPp0ENbHPwH8KvS7Fjr0k1ixHv75HTjrsdUu4E
+	GdyXwoug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmteG-0000000EOiE-08JK;
-	Thu, 23 Jul 2026 13:39:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmtFI-0000000ELgd-0aj1;
+	Thu, 23 Jul 2026 13:13:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmteE-0000000EOi1-1VGt;
-	Thu, 23 Jul 2026 13:39:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 24A89600AD;
-	Thu, 23 Jul 2026 13:39:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37ACB1F000E9;
-	Thu, 23 Jul 2026 13:39:36 +0000 (UTC)
-Date: Thu, 23 Jul 2026 06:39:35 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: <zhaoping.shu@mediatek.com>
-Cc: <davem@davemloft.net>, <edumazet@google.com>, <pabeni@redhat.com>,
- <horms@kernel.org>, <ncardwell@google.com>, <kuniyu@google.com>,
- <matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
- <willemb@google.com>, <alice@isovalent.com>, <sd@queasysnail.net>,
- <eilaimemedsnaimel@gmail.com>, <imv4bel@gmail.com>, <hw.he@mediatek.com>,
- <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-mediatek@lists.infradead.org>, <haijun.liu@mediatek.com>,
- <xiayu.zhang@mediatek.com>, <lambert.wang@mediatek.com>,
- <Iven.Yang@mediatek.com>
-Subject: Re: [PATCH net v2] net: gro: avoid nesting TCP GSO skbs in
- skb_gro_receive_list()
-Message-ID: <20260723063935.75bf55e3@kernel.org>
-In-Reply-To: <20260723091601.72103-1-zhaoping.shu@mediatek.com>
-References: <20260723091601.72103-1-zhaoping.shu@mediatek.com>
+	id 1wmtEv-0000000ELQj-1jsV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Jul 2026 13:13:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pgqeVxJh/mSJw25lLchrQn9WEHwrqioLah+Q4155O9E=; b=ALCPxBMNOXOxQLa1ua+lLc5AN5
+	xgLUX6dm+BV6xtziPsuJBJhDzZ7QpO7qBqvXrUYSGyehhBNKl355pAQv+d/ufkSg94fHQELmcb0Sq
+	JYRmILjOQqCYymgH0y7jthpLAhDOGnHqfpG8ANyJGDhXwSGRU1SeMMeUm4rtrUpq4ouJefxXfNHXA
+	ddqbyMULnyiG7soVHG8VfqByyAiBj47PRLzMdtNN00MNH8Mr8PhxEE5qa+X7VgF61lSDSyz+nj2ME
+	TjOgusELCQO0UeqgrYROZWKlmzmfPV0uW9jxNxctHm4nCIrRulIe2jHX3uqPNSjnc3iZlvRlQ6ibQ
+	MBzPNRmg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wmtEr-00000001lup-0V0o
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 13:13:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EFC831477;
+	Thu, 23 Jul 2026 06:13:18 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 568393F66F;
+	Thu, 23 Jul 2026 06:13:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784812403; bh=0wkZkf4pXuxLn73/yKmLsBoe6rRD+bdZ/Ogoj8u8dik=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hjcqWrxz1u0H53889bf3GeUziPSbMQjFUGmknyICYzxOd2SYHH8Dv8RuwiTID2RK6
+	 /WQ5YnKCms953/uqJT813jIaySHzm6IdDkJK0mt6g18xJriknzIE5EhgCJQUcNITAW
+	 2TdOVQ9P8er8FtLi4s958nEOTlUHkwrSZrOhftcg=
+Date: Thu, 23 Jul 2026 14:13:20 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <willdeacon@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] arm64: cpucaps: Remove stale comment about keeping
+ capabilities sorted
+Message-ID: <amITcJVfOT1k68VV@J2N7QTR9R3.cambridge.arm.com>
+References: <20260723130233.3123-1-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260723130233.3123-1-will@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_141325_598508_C977D346 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,31 +86,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 17:16:01 +0800 zhaoping.shu@mediatek.com wrote:
-> From: HW He <hw.he@mediatek.com>
+On Thu, Jul 23, 2026 at 02:02:32PM +0100, Will Deacon wrote:
+> From: Will Deacon <willdeacon@google.com>
 > 
-> On devices that support both NETIF_F_GRO_HW and NETIF_F_GRO_FRAGLIST,
+> There is no functional requirement to keep the entries in arm64's
+> tools/cpucaps file sorted alphabetically and, in fact, they have fallen
+> out of order over time. Given that only the arm64 tree touches this file,
+> just remove the stale comment and accept that we're collectively not
+> very good at the alphabet.
 
-"devices that support FRAGLIST"? Isn't it a software feature?
+It might be worth mentioning:
 
-> the hardware or driver may deliver packets that have already been
+(1) The intent of sorting was to make it easier to avoid and/or resolve
+    merge conflicts, which hasn't been a big problem in practice.
 
-If you have a driver in mind please name it.
+(2) In the few cases where we do depend on the order of specific
+   cpucaps, we've added build-time asserts, e.g. in
+   can_use_gic_priorities(), which has:
 
-> aggregated into a TCP GSO skb with frags[]. GRO may then
-> aggregate the skb again in skb_gro_receive_list().
+     /*   
+      * ARM64_HAS_GICV3_CPUIF has a lower index, and is a boot CPU
+      * feature, so will be detected earlier.
+      */
+     BUILD_BUG_ON(ARM64_HAS_GIC_PRIO_MASKING <= ARM64_HAS_GICV3_CPUIF);
+
+   ... and we can still do that.
+
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Reported-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
+
+Regardless of whether you add the above to the commit message:
+
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+
+Mark.
+
+> ---
 > 
-> This can create a nested GSO skb, which is not handled correctly by the
-> later GSO segmentation paths. When the skb is segmented by
-> skb_segment_list(), it not be fully restored to the original packets.
+> Follow-up from the discussion at:
 > 
-> Avoid this by setting NAPI_GRO_CB(skb)->flush for GSO skbs before
-> aggregation.
-
-I don't think we can do this. For GRO_HW devices re-aggregating
-in SW is quite helpful, HW often runs out of contexts or times
-out too soon, generating skbs with 16kB..32kB of data, the SW
-can help bring it up to full TSO.
-
-Also - you're missing a Fixes tag.
+> https://lore.kernel.org/r/20260519092243.7278-1-will@kernel.org
+> 
+>  arch/arm64/tools/cpucaps | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 9b85a84f6fd4..3fcac789b0a4 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  #
+> -# Internal CPU capabilities constants, keep this list sorted
+> +# Internal CPU capabilities constants
+>  
+>  ALWAYS_BOOT
+>  ALWAYS_SYSTEM
+> -- 
+> 2.55.0.229.g6434b31f56-goog
+> 
 
