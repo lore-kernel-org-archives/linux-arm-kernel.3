@@ -4,189 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B128C531CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19A4C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPF1lJZTdwvRCLoT2JhD3+B6JxK6myHyXBoLI88skv8=; b=m4uzE7DHXnQw4b8D/XNk2WFUNB
-	8lt5I/XT1ZdGstEb/x3dfadg4PkWoBKV2SuX/MRk7IiGF7MF8ZEUaFg+nFGhMazmDyWyX2RsXA0JE
-	NQbYfhr8B6IN9Sf3qsNPAf5Uo7/rbQToDPPj+wLiYHMUBBtjz7fMSjuisNYta7NhvgUIo4o8q9SfJ
-	zOwe8iL3XtwWc+RIPGnrg5ZpjAQSbd9KQTDCDJ7+gzVDyNxDZypGke5VnTUHueyMLhEFFmQ/DNOHd
-	vktQxZfdYiPW5eBo8MFG/wGnrYOCXRnnh3bm8bQvMTXv7zgWhyxZ+3Ag4719tUQmgb+Q4be3qjazs
-	g8CVb5lg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zoDshx/L8A4gybf85qsK4YcI8tLFfw4i87t17r27dH0=; b=lY3mLFMwHI0q+w
+	eFg28iehIWq0sx7sC5zB6v9tjXAmcg2FAaAfArf7uIlOgfwbDwcLP2GuH0didZmLIEFUjN31XqRyB
+	nbvfn0ow8f1uoLNNs5C7yhVndrQvd++XPV2P+a7xDViXhp1WdFP4giePYhXBzK5JwqgwFIjldNxmB
+	2CD+aF0N5KJ42/hTzpQOW3odETydjeaLpG6RAYX4/GZmoddZyWA5DivY+ftKwNmICehUuAq74Xc3z
+	0oxuVC7Jf17vvpqdDVGPoYlpERdjD5bFOQHmpceOQWnh9yo7l/Hl8nLVuXr9ehf2gLUdbXTaJ1Nra
+	/X4UQCLwVkUanYStCisw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqfP-0000000E1zG-0TOm;
-	Thu, 23 Jul 2026 10:28:39 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqfM-0000000E1yp-2NI3
+	id 1wmqgK-0000000E2CK-17fK;
+	Thu, 23 Jul 2026 10:29:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmqgH-0000000E2Bv-1BbN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 10:28:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784802516; x=1816338516;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=tH8LqjAjuErMgxxvqAYBdPcTJXC8AV+2SUKc0qK74u0=;
-  b=KgZ//t+pHCcaUjv2H1ErtZ7czbxrr7Ky3VMKyPMiu1/2Fs2cfR07M1WJ
-   gnv8XZ/EGPD6YtTq7ayNNk93KmjfG2+agUUKVKTtmqwwYnCn/YApSV+o4
-   qSLAFJlPNzShBhM2Wotwxojf8Ws2GTTF3mgdBquvCg5k2MPOI1VQSHch4
-   nTTH8fZJs9El/ke2ia7Ycq+/vm7DAwqrLQytKOiYFnYt73H9o9mZ62ore
-   2YHw3qGBnBWtTxQhWZUsgBIHGVNw9pyCNFS7wCBy9kzNyXb2yoJtR0Xk4
-   dadk6A8gcW2poHztZGIioXfeS1Vl9ELROzfz0neR/kj0bmB4mTkmpfxP3
-   Q==;
-X-CSE-ConnectionGUID: QyTD3030Q4KB9vOYmH1V/w==
-X-CSE-MsgGUID: vZGPPtMvROy2VuMOTRzehg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="89349709"
-X-IronPort-AV: E=Sophos;i="6.25,180,1779174000"; 
-   d="scan'208";a="89349709"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2026 03:28:35 -0700
-X-CSE-ConnectionGUID: SJcT1EB3QWebRsVVJOTnIw==
-X-CSE-MsgGUID: /tJif6KGTJmztsv6vkhIJQ==
-X-ExtLoop1: 1
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2026 03:28:34 -0700
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Thu, 23 Jul 2026 03:28:34 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43 via Frontend Transport; Thu, 23 Jul 2026 03:28:34 -0700
-Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.40) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Thu, 23 Jul 2026 03:28:33 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=asFrmZbYI+XhrJX8JMqSqv0ebQB7lkHcwuKCVcKVU9V557EJmDMwB0+gNdOwhBoYl0tSkjGoYhVhry/jeuoX5GzuVqa85itAdmkmSeBtN3Na7UiXV7YYAvR0jS82tiPIkCjohIBzxNy30J3+lf/qg2vmzdx2JE9NztWp6LJfbY+3R9lxqeys3l6CIwcGmOmh99zxNrVXE/LspLuasXhH2aXEkaahhf54lRrz0SHmvIrGtN3S7gAAG7ALHkiuY9ByWu6vb6KgBJLBtYsR492+Y8anYRTc+2D9BFcDvrHMTjhSJFLrbNhwwPXwf8TcJYL478HMzQBwJRxEuSszzin30w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iPF1lJZTdwvRCLoT2JhD3+B6JxK6myHyXBoLI88skv8=;
- b=f1RbFtnTAJoXpW9cfoMiMl/UA6xrt5EiNmgiHy50f1Dc0qQFm3LN542efik9+d1Cp7Rsaw74ysZNAg2hKZWDOSt+EyOKKw2TTSWzduYxqnkluEP5hPi6ahmm7ewd2GqNrmlBmU84GTtYsLvfxF4SDxdNIlqHsRRikXhzDCaLveDnzSqTHhbosHdTkpDwQJSZNcu2PixVQ+XVfxj1ZjYw9cbreTvIjwasZNGMLT5p+mKYBOqvzlULuX5JJyoSeDSy/4JKQ7pEezFE67FLa2IMjgnPBXRezmYOjCTtOZ6VzZreZf6bcE9ZvdL+EYHeKW7j/I4W59jZGA67C0GC/Fo+YQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SA1PR11MB6967.namprd11.prod.outlook.com (2603:10b6:806:2bb::15)
- by IA1PR11MB7891.namprd11.prod.outlook.com (2603:10b6:208:3fa::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 10:28:30 +0000
-Received: from SA1PR11MB6967.namprd11.prod.outlook.com
- ([fe80::36a9:3aca:a63e:c8f4]) by SA1PR11MB6967.namprd11.prod.outlook.com
- ([fe80::36a9:3aca:a63e:c8f4%3]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 10:28:30 +0000
-Message-ID: <37e68669-7587-4781-8ffb-0cbfa8a13d12@intel.com>
-Date: Thu, 23 Jul 2026 12:28:22 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] ASOC: Unify code style for platform_device_id
- arrays
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
-	<u.kleine-koenig@baylibre.com>
-CC: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Lars-Peter Clausen <lars@metafoo.de>, =?UTF-8?Q?Nuno_S=C3=A1?=
-	<nuno.sa@analog.com>, Srinivas Kandagatla <srini@kernel.org>, Shengjiu Wang
-	<shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam
-	<festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, Frank Li
-	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Peter Ujfalusi
-	<peter.ujfalusi@linux.intel.com>, Bard Liao
-	<yung-chuan.liao@linux.intel.com>, Kai Vehmanen
-	<kai.vehmanen@linux.intel.com>, Pierre-Louis Bossart
-	<pierre-louis.bossart@linux.dev>, Sylwester Nawrocki
-	<s.nawrocki@samsung.com>, Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	=?UTF-8?Q?Amadeusz_S=C5=82awi=C5=84ski?=
-	<amadeuszx.slawinski@linux.intel.com>, <linux-sound@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-References: <cover.1784528081.git.u.kleine-koenig@baylibre.com>
- <093867d47c079d2aaab06bccaae734c54c342a7d.1784528081.git.u.kleine-koenig@baylibre.com>
- <0f625961-8e2d-4ed9-ab5a-fd95bcb4c87a@intel.com> <amGhHDDlwMdool_q@monoceros>
-Content-Language: en-US
-From: Cezary Rojewski <cezary.rojewski@intel.com>
-In-Reply-To: <amGhHDDlwMdool_q@monoceros>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM9P193CA0003.EURP193.PROD.OUTLOOK.COM
- (2603:10a6:20b:21e::8) To SA1PR11MB6967.namprd11.prod.outlook.com
- (2603:10b6:806:2bb::15)
+	Thu, 23 Jul 2026 10:29:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F139C1477;
+	Thu, 23 Jul 2026 03:29:27 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A35ED3F99C;
+	Thu, 23 Jul 2026 03:29:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784802572; bh=7IeqYTLekg9+0yMqtFibP9kZ3n398kcqplKkZW3lK2U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=s3RSBXBqIkDyRptuCF23MDSPtE2wVsCC+mnIUqkkcxDvN0mzk8/yQ/UljddpQ1hqC
+	 OJKo39UVHXGgefn6t1kR77NV+c1QnCl/2Qr/yZqvj/141ihKoBIhRWOJgsqBfyr6MG
+	 IMH78SR717gcp6kaPklt/7wfEZVFausLUUkxwUn8=
+Message-ID: <dc3ec3b0-a066-475d-af57-342b20f000aa@arm.com>
+Date: Thu, 23 Jul 2026 11:29:28 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR11MB6967:EE_|IA1PR11MB7891:EE_
-X-MS-Office365-Filtering-Correlation-Id: cc0034ea-9fb5-461d-5298-08dee8a52389
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|5023799004|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: /yr1Nen9UbMBJfEFeAOPt2SyxW1CUq42ueyeYSxdLWL4wKh1AZRAfhf7NEFwin6jbHP4NXwPEmvR+6k6OfRQ8XvdRJuO+XQqdcgd1TRRx7t4r8DU/FA2JnCD4g3S1C1f3OShwq2GwqCI3lOe2e1MgaO57UqUb2Ds8GUa1Bv8q/kuDEujM2ARsdpISVLdl5xWDfTqiMJ1FzOOJuz+IE2vWXDaBNUBQsTPlMA1/0+z+sksYznOFiQlq6h5g6aNCIbECqH8F9asJGdcYftoxVAFZAeafh2giUDcQL26hzvs6fbaHVbaWDOaWTrqtUGePu+9bjqYKrYtpy7GOnuemP25VdSyoVdbY7GaLlkzk1IABr/k/JcRbtRp9CpqHwsBThrIEW9JfvzEetZ6STDjWNLzOsENu8Tn4bzw7Wb5ad9ZrIN81lDmkI3X5RiZy4vBLjWCejVr40uAzZmrMmqvpTifsoP6Tz7mq/hCmgAXOXAf/g9zdlz/WW7GtYwuT21vDpEFmk86/T/B7STwX4P+hFNVxukD9jzPm2Sh+f/0ggDsh9eBFQGoTvrlNUdpAwjgchOxRdqbBAEzXExbEW3XzECjRn6pOJCjl+Sl8/P00nCEwCVJL2bnq0UgtqrrHlUdASMb7rT4SBBX8rXW0HrAExkYD1bfMXZS0K6Zejfmv/IsLVE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR11MB6967.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(5023799004)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bWFxOGpMd2t6Szh0cDl6ejkzMTBrRkdXdlYxWEl4aTAwZHJJSkY3UDQzZllj?=
- =?utf-8?B?T3Y2ZXc2TzFoVm93RXAvSjYxSzNpWFJhMUpjUWtucjFjanZhcUNOZUl1Z0NQ?=
- =?utf-8?B?Qm1ISWswR3FWUTNXL3pnY1FhaWhUd0lZTjdyN1hEbEhUYVRiNkpBR0tUWVhC?=
- =?utf-8?B?SGUzNzNTZTJKZ1J2YUM4N2plY2JscDBaKzBtQXVDdXhFQmswdW9TVFc0emll?=
- =?utf-8?B?WVVabXdJNjRlTmJlMWJycS9TNjJZTW9xT0dqbXNMS3ZoTlpGdjFxU2dqSmZO?=
- =?utf-8?B?VG5sKzFQa1dtVzcrNUloS3FMWVh3M3FxbnpjS2dCNGExeGFYeHR2d0lQVXgx?=
- =?utf-8?B?S3NzUWJsUEdndmFKaG82UXcvVmMwZEpqTWphVzZNRnArNnVhL1BRVWRIMU01?=
- =?utf-8?B?T0N6dHRnMWp6TEYvVGxIejFJOVZianhOTk9SOHcvZnVFbFZKS1JRbjFqMEto?=
- =?utf-8?B?ZGFuSzArWG1rbDB2WkUwOEgrWDNPZDJYc2lqWEFDcWZqV1pyUkt4eG4zNnF6?=
- =?utf-8?B?THRCbklMZ3IrK21ndWxsc3hQNGxPLzYzWmgxbDRNYjNYZzhpOVhSRnkzVUYr?=
- =?utf-8?B?WU8rc3pVa1U4RDNMcDFxUkFaNHQzOEV6aEc2eXNPTzBtb1ZMak94Y3M4OHF3?=
- =?utf-8?B?TGdyU1YrZFVaanprUHZJQ25qM1lCVFozZ3NFbmRUL3JMeFVEaytaMHJja0Qx?=
- =?utf-8?B?UmkyRVcyV0FsaWkyc0x0eGV2VGdGR2FEVjVmSGYwaG5YWjQ5cWRERjhLRDFU?=
- =?utf-8?B?NzJWOXc1NFNSdnczZXAzT200R28wZm5KUTVTSHFNaXVqcjduNFljcTZSaS96?=
- =?utf-8?B?MUloWlV0eGZLTVplZHpkYitqTXlJNEJ4Wk55QU4rQ0hYWFJSdDJkbk03MWVz?=
- =?utf-8?B?SklqZmRjek1KZy9LM250YW9iZ3dLcU9kK3ZjRHNQRkdlRm0wa3dENHRXdTEr?=
- =?utf-8?B?Q2VMSnduQURCZ2hGTGlQL3VPUjIrdXVvc3ZMNXVodUhFclpGUUNBajF2cE1E?=
- =?utf-8?B?Vmdzbk01d0ZxL21qL20rY0lsaGNjZkhKeDh1Z2lPeDB6Z05sOEZ3UnBHUXo4?=
- =?utf-8?B?WUpxWVdCZW4zV2hUTGNFdnJ5UzBCdm5ndVNjaHZ4MnBEZFRYQ3BRTjVhQ2xG?=
- =?utf-8?B?RmFxeVRqbUNaU1F2cThLY3lPdEVVRHZpSjNVZlZ5UkdMYzNnMThBdHl3azRN?=
- =?utf-8?B?em8xVTBSMFlDTS9tYUtROWdCdzVJNm9EZEVTR0RvMDZubjkzTm5YZ3ZsZXIx?=
- =?utf-8?B?Z3JJRXoxcVVGVzZiaURibUJ2WjJMSitDRk4yUzYycG10Z2N5VDRGQnh2RE9K?=
- =?utf-8?B?Q1RlMEZqcm01Wlk4UlNVUFNkVFM1WjlEeDIvTEx4ekZKTndLQ3VPcVFJUm91?=
- =?utf-8?B?UDNHcDJjWkRobHJzNGkrTEVVdnhIY2ZtYXlCSHdCb2ozcXNQL1MrcDRJa0o0?=
- =?utf-8?B?OVNudkx0THVtMForMm5XcUptV0NrWVYxYUZqc01hdUMzQ2VUK3J4RUZidXlN?=
- =?utf-8?B?S2RFYVNzdHZpemtYWXl0ck1McVBBMUVhejhuU2FQc1dnUkZJUW9VQ2pVbVVC?=
- =?utf-8?B?QnZMSzlXQWhLOU0rSVlzRGsxRk0zRWRhRUlDbzIvSUVmRWlMeHRpVTg5UWMz?=
- =?utf-8?B?ZGlaWXZqcnNkK2Y3eGhrRFNWc2N6b1Q1Y1VINHJ3bk5odmJ3d2I4UXZlKzE1?=
- =?utf-8?B?RlVWMjl3M3dqdi92VDFSc0RHN1hxV1NIT0Y0YXVLWlRvTk9kNDJNRFNzQ25X?=
- =?utf-8?B?anF0bDMvZUFCVG1mUUUzajIyeHU5bFdTdkhVRnQ4dW4yMGprM0RZb0t3OWlQ?=
- =?utf-8?B?OGx0azhsRXZDbDk5VEpwR01NNUx5UURKZEZPaHpHRzB4ZTlLdUdzWVJKZjZh?=
- =?utf-8?B?cnRabkw4Q3BPWUZoZGxNK21TamxzMFpxZDBQNTZjakJYY2I2WGtxcVNQdHpK?=
- =?utf-8?B?SHI4a2wra3dwQXNmdjlhZVIwMlRVdVUwWkxEQUVqaWE2eHR6MExxZ3lsbjkv?=
- =?utf-8?B?VGkyemczd2VDTmtjelhVcjRNN3JlY1hqTGdqS2hPd0NIZXo0cVdQN1pXeHVD?=
- =?utf-8?B?UmI5azhWTnM5dmVmTHF1Y0ZpSGFPbVYvZHlFMnMwL0U3S0wrcTQvckJiajFi?=
- =?utf-8?B?NU9sU3k4R21yd1R4YVhPMFlHd3Mydi9udlJnaUpuVmJPKzdiSm1WRXIrK0xS?=
- =?utf-8?B?cCs1aWkySVhNdkdRR01BVEUxUHg3cC9UR3lYWnMya29VNjh4OGcxelpxS21X?=
- =?utf-8?B?ZGRnam5xN0g0QkJTODVtWnBqbVdYYmxaRU9HeENDVGZmR2V0TkNQVmVaSFNL?=
- =?utf-8?B?OG0reWJZZTNhcmdqU2tlY3lEdXRPLzY3REtCcFFKdWRxRktVdDBCKzJQTEZR?=
- =?utf-8?Q?HJj5hWapApuC+bi0=3D?=
-X-Exchange-RoutingPolicyChecked: gWbV9+diSEx7b7NZq+hnG3hFTT+svm1iA8IkvzxKC9E1jjDCDzwTKGtUbiOhWOuUkhvZ/COY9urwWP4/NvHrwlKaIQCde+N+PRv5YFkh6TXQZDRmodIWBpdwK3/9HLBeHGRBVbw9PWHdPZbHTwGrWnmThEKp6lG2Y79SSonDqiYW/p+xNnKrK3ZZ4a117LHa1ufv+tfAjef0YU/l9vY03+rZCxMhVxETUNWvwUpt7fW7Cd7b0VS+2eOHUml8Q4WFnjjJ8BPjFZd786t8OUq2Wjc0GuqeQLjmJJ1YBcuZRF5Vurps5KHL8BLPCdTAgfpmDRzGT8DEW4qyDUmhLFdESQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc0034ea-9fb5-461d-5298-08dee8a52389
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR11MB6967.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 10:28:29.9242
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AUHjwnThIidYst1ycJC7VlguCZEYBKAn6FTEhbLGBBrEpLX/I2Hg3/q0L9Gb9izVBD51bpcp8cOwTb/b3gnEEkEY1vsqB8rsvZfwJEq2oeA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB7891
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 31/36] arm64: nmi: Add handling of superpriority
+ interrupts as NMIs
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-32-vladimir.murzin@arm.com>
+ <39ce4d9f-e2bd-426d-894f-886784173be1@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <39ce4d9f-e2bd-426d-894f-886784173be1@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_032836_662467_0E92A458 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260723_032933_419908_39AE5989 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,58 +68,270 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/23/2026 7:30 AM, Uwe Kleine-König (The Capable Hub) wrote:
-> Hello Cezary,
+On 7/21/26 09:33, Jinjie Ruan wrote:
 > 
-> On Wed, Jul 22, 2026 at 07:55:26PM +0200, Cezary Rojewski wrote:
->> On 7/20/2026 8:23 AM, Uwe Kleine-König (The Capable Hub) wrote:
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> From: Mark Brown <broonie@kernel.org>
 >>
->>>    sound/soc/au1x/db1200.c                |  2 +-
->>>    sound/soc/codecs/adau7118-hw.c         |  2 +-
->>>    sound/soc/codecs/bt-sco.c              | 10 +++-------
->>>    sound/soc/codecs/wcd934x.c             |  6 ++----
->>>    sound/soc/fsl/imx-pcm-rpmsg.c          |  6 +++---
->>>    sound/soc/intel/avs/boards/da7219.c    |  6 ++----
->>>    sound/soc/intel/avs/boards/dmic.c      |  6 ++----
->>>    sound/soc/intel/avs/boards/es8336.c    |  6 ++----
->>>    sound/soc/intel/avs/boards/hdaudio.c   |  6 ++----
->>>    sound/soc/intel/avs/boards/i2s_test.c  |  6 ++----
->>>    sound/soc/intel/avs/boards/max98357a.c |  6 ++----
->>>    sound/soc/intel/avs/boards/max98373.c  |  6 ++----
->>>    sound/soc/intel/avs/boards/max98927.c  |  6 ++----
->>>    sound/soc/intel/avs/boards/nau8825.c   |  6 ++----
->>>    sound/soc/intel/avs/boards/pcm3168a.c  |  6 ++----
->>>    sound/soc/intel/avs/boards/probe.c     |  2 +-
->>>    sound/soc/intel/avs/boards/rt274.c     |  2 +-
->>>    sound/soc/intel/avs/boards/rt286.c     |  2 +-
->>>    sound/soc/intel/avs/boards/rt298.c     |  2 +-
->>>    sound/soc/intel/avs/boards/rt5514.c    |  2 +-
->>>    sound/soc/intel/avs/boards/rt5640.c    |  2 +-
->>>    sound/soc/intel/avs/boards/rt5663.c    |  2 +-
->>>    sound/soc/intel/avs/boards/rt5682.c    |  2 +-
->>>    sound/soc/intel/avs/boards/ssm4567.c   |  2 +-
->>>    sound/soc/samsung/i2s.c                |  2 +-
+>> Our goal with superpriority interrupts is to use them as NMIs, taking
+>> advantage of the much smaller regions where they are masked to allow
+>> prompt handling of the most time-critical interrupts.
 >>
->> This change is outstanding when compared to patches 1-4 which follow the
->> per-driver approach.  I'd expect one driver per scope e.g.: Intel's avs
->> split away from the rest.
+>> When an interrupt is configured with superpriority, we enter EL1 as we
+>> do for any other interrupt. The presence of a superpriority interrupt
+>> is indicated by a status bit in ISR_EL1. We check this bit before
+>> unmasking interrupts in elX_interrupt(), and if a superpriority
+>> interrupt is pending, we handle it as an NMI. Otherwise, normal
+>> interrupts are handled as usual.
+>>
+>> Since superpriority interrupts are always handled as NMIs, the
+>> interrupt controller can rely on in_nmi() to distinguish them from
+>> ordinary interrupts.
+>>
+>> Enable IPIs to use superpriority interrupts as NMIs, matching the
+>> existing pseudo-NMI behaviour.
+>> Signed-off-by: Mark Brown <broonie@kernel.org>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/entry-common.h |  7 ++++
+>>  arch/arm64/kernel/entry-common.c      | 59 ++++++++++++++++++---------
+>>  arch/arm64/kernel/smp.c               |  2 +-
+>>  3 files changed, 48 insertions(+), 20 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
+>> index 73d82a8d8e95..0681ba91ac3b 100644
+>> --- a/arch/arm64/include/asm/entry-common.h
+>> +++ b/arch/arm64/include/asm/entry-common.h
+>> @@ -37,6 +37,13 @@ static inline bool arch_irqentry_exit_need_resched(void)
+>>  	if (system_uses_irq_prio_masking() && read_sysreg(daif))
+>>  		return false;
+>>  
+>> +	/*
+>> +	 * If AllInt is set then we must have handled an NMI, so skip
+>> +	 * preemption
+>> +	 */
+>> +	if (system_uses_nmi() && read_sysreg_s(SYS_ALLINT))
+>> +		return false;
+>> +
+>>  	/*
+>>  	 * Preempting a task from an IRQ means we leave copies of PSTATE
+>>  	 * on the stack. cpufeature's enable calls may modify PSTATE, but
+>> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+>> index a13653b228b7..de71d5a3a6a1 100644
+>> --- a/arch/arm64/kernel/entry-common.c
+>> +++ b/arch/arm64/kernel/entry-common.c
+>> @@ -525,8 +525,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+>>  	arm64_debug_exc_context(CRITICAL_CONTEXT);
+>>  }
+>>  
+>> -static __always_inline void __el1_pnmi(struct pt_regs *regs,
+>> -				       void (*handler)(struct pt_regs *))
+>> +static __always_inline void __el1_nmi(struct pt_regs *regs,
+>> +				      void (*handler)(struct pt_regs *))
+>>  {
+>>  	arm64_exc_hwstate_t hwstate;
+>>  	irqentry_state_t state;
+>> @@ -545,7 +545,10 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
+>>  
+>>  	state = arm64_enter_from_kernel_mode(regs);
+>>  
+>> -	arm64_unmask_exc_context(NONMI_CONTEXT);
+>> +	if (system_uses_nmi())
+>> +		arm64_unmask_exc_context(NOIRQ_CONTEXT);
+>> +	else
+>> +		arm64_unmask_exc_context(NONMI_CONTEXT);
+> if (gic_supports_pseudo_nmis())
+> 	arm64_unmask_exc_context(NONMI_CONTEXT);
+> else
+> 	arm64_unmask_exc_context(NOIRQ_CONTEXT);
 > 
-> Well, patches 1 and 2 primarily follow the one patch per type of change
-> approach that happen to only affect one driver each. In the v1 thread I
-> was asked to split out split out the amd/acp bits which resulted in
-> patches 3 and 4. (And just now I notice you also replied and asked to
-> split out intel/avs, too, which I missed. Sorry!)
+>>  
+>>  	irq_enter_rcu();
+>>  	do_interrupt_handler(regs, handler);
+>> @@ -565,8 +568,11 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
+>>  static void noinstr el1_interrupt(struct pt_regs *regs,
+>>  				  void (*handler)(struct pt_regs *))
+>>  {
+>> -	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
+>> -		__el1_pnmi(regs, handler);
+>> +	/* Is there a NMI to handle? */
+>> +	if (regs_irqs_disabled(regs))
+>> +		__el1_nmi(regs, handler);
+>> +	else if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS)))
+>> +		__el1_nmi(regs, handler);
+> I think it would be more readable to add a helper below.
 > 
-> Conceptually I think one commit per driver is the right approach[1] but
-> most maintainers/reviewers seem to favour one commit adapting one thing
-> for all drivers in a subsystem. And in my experience no matter how you
-> make it, you get a reply to change.
+> static inline bool is_nmi(regs)
+> {
+> 	if (regs_irqs_disabled(regs))
+> 		return true;
+> 
+> 	if (system_uses_nmi())
+> 		return read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS);
+> 
+> 	return false;
+> }
+> 
 
-Couldn't agree more with the last one.  Happens to us all :)
+Makes sense, yet I would keep regs_irqs_disabled() limited to EL1,
+since it is very tempting to reuse the helper for EL0 interrupts,
+where the regs_irqs_disabled() check is redundant.
 
-> Will split out intel/avs for v3 and maybe hit the sweet spot then.
-Thank you.
+>>  static void noinstr el1_interrupt(struct pt_regs *regs,
+>>  				  void (*handler)(struct pt_regs *))
+>>  {
+>> -	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
+>> -		__el1_pnmi(regs, handler);
+>> +	/* Is there a NMI to handle? */
+>> +	if (is_nmi(regs))
+>> +		__el1_nmi(regs, handler);
+>>  	else
+>>  		__el1_irq(regs, handler);
+>>  
+>> @@ -906,24 +912,39 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
+>>  static void noinstr el0_interrupt(struct pt_regs *regs,
+>>  				  void (*handler)(struct pt_regs *))
+>>  {
+>> -	arm64_enter_from_user_mode(regs);
+>> -
+>> -	arm64_unmask_exc_context(NONMI_CONTEXT);
+>> -
+>>  	if (regs->pc & BIT(55))
+>>  		arm64_apply_bp_hardening();
+>>  
+>> -	irq_enter_rcu();
+>> -	do_interrupt_handler(regs, handler);
+>> -	irq_exit_rcu();
+>> +	/* Is there a NMI to handle? */
+>> +	if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS))) {
+>> +		irqentry_state_t state;
+>> +		arm64_exc_hwstate_t hwstate;
+>> +
+>> +		state = irqentry_nmi_enter(regs);
+>> +		hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
+>> +		do_interrupt_handler(regs, handler);
+>> +		arm64_mask_exc_context(hwstate);
+>> +		irqentry_nmi_exit(regs, state);
+>> +	} else {
+>> +		arm64_enter_from_user_mode(regs);
+>> +
+>> +		if (system_uses_nmi())
+>> +			arm64_unmask_exc_context(NOIRQ_CONTEXT);
+>> +		else
+>> +			arm64_unmask_exc_context(NONMI_CONTEXT);
+> if (gic_supports_pseudo_nmis())
+> 	arm64_unmask_exc_context(NONMI_CONTEXT);
+> else
+> 	arm64_unmask_exc_context(NOIRQ_CONTEXT);
+> 
+>> +
+>> +		irq_enter_rcu();
+>> +		do_interrupt_handler(regs, handler);
+>> +		irq_exit_rcu();
+>> +		/*
+>> +		 * For the same reason as in el1_irq() we effectivly
+>> +		 * have NOIRQ_CONTEXT on return from handler - keep
+>> +		 * track of it
+>> +		 */
+>> +		arm64_debug_exc_context(NOIRQ_CONTEXT);
+>> +		arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
+> Here we assert that we are in NOIRQ_CONTEXT, and then we switch to
+> NOIRQ_CONTEXT again. Is this redundant?
+> 
+
+Well, it is redundant prior to the whole rework, but after the rework
+it becomes a no-op because both the previous and next exception states
+are the same, so no real work is done. :)
+
+>> +	}
+> Can you split them into two sub-functions, such as el0_nmi and el0_irq
+> as shown below, so that it looks clearer?
+> 
+
+Works for me, I'll update in the next iteration.
+
+> static inline void el0_nmi(struct pt_regs *regs, void (*handler)(struct
+> pt_regs *))
+> {
+> 	arm64_exc_hwstate_t hwstate;
+> 	irqentry_state_t state;
+> 	
+> 	state = irqentry_nmi_enter(regs);
+> 	hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
+> 	do_interrupt_handler(regs, handler);
+> 	arm64_mask_exc_context(hwstate);
+> 	irqentry_nmi_exit(regs, state);
+> }
+> 
+> static inline void el0_irq(struct pt_regs *regs, void (*handler)(struct
+> pt_regs *))
+> {
+> 	arm64_enter_from_user_mode(regs);
+> 
+> 	if (gic_supports_pseudo_nmis())
+> 		arm64_unmask_exc_context(NONMI_CONTEXT);
+> 	else
+> 		arm64_unmask_exc_context(NOIRQ_CONTEXT);
+> 
+> 	irq_enter_rcu();
+> 	do_interrupt_handler(regs, handler);
+> 	irq_exit_rcu();
+> 	/*
+> 	 * For the same reason as in el1_irq() we effectivly
+>     	 * have NOIRQ_CONTEXT on return from handler - keep
+>          * track of it
+>       	 */
+> 	arm64_debug_exc_context(NOIRQ_CONTEXT);			
+> 	arm64_exit_to_user_mode(regs, 	
+> arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
+> }
+> 
+> static void noinstr el0_interrupt(struct pt_regs *regs,
+>  				  void (*handler)(struct pt_regs *))
+> {
+> 	if (is_nmi(regs))
+> 		el0_nmi(regs);
+> 	else
+> 		el0_irq(regs);
+> }
+> 
+> otherwise, LGTM
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> 
+
+Cheers
+Vladimir
+
+>>  
+>> -	/*
+>> -	 * For the same reason as in el1_irq() we effectivly
+>> -	 * have NOIRQ_CONTEXT on return from handler - keep
+>> -	 * track of it
+>> -	 */
+>> -	arm64_debug_exc_context(NOIRQ_CONTEXT);
+>> -	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
+>>  	arm64_debug_exc_context(CRITICAL_CONTEXT);
+>>  }
+>>  
+>> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>> index 257d50529d14..80e35a8e5c8f 100644
+>> --- a/arch/arm64/kernel/smp.c
+>> +++ b/arch/arm64/kernel/smp.c
+>> @@ -1035,7 +1035,7 @@ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+>>  
+>>  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
+>>  {
+>> -	if (!system_uses_irq_prio_masking())
+>> +	if (!system_uses_nmi() && !system_uses_irq_prio_masking())
+>>  		return false;
+>>  
+>>  	switch (ipi) {
+> 
+
 
