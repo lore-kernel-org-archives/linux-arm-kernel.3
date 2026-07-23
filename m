@@ -4,132 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6582BC44532
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 00:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9246DC44532
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 00:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mx3sj4OEXzWvByuX0+hJLjXZ1jc9I/pCn0J0KekMIfE=; b=NGOlWe+Vw+sjI65w6KtgqirLVQ
-	UFPrUNf1v2g3psRp+HZIXEEycvT0/0kxYhTcIlqmwGZEg/2M9qqeD+oJ3c1bfexrYIj+MakxQ+DsD
-	TDwti1ROaUQYxP//Vy5GJfESAGgPnEswE9/4+IMFsYRKtfnaN3etkBx/rWjuMRIfBrOl77wZvsPET
-	2Wcrqwx0V+MEIJhtgk0x9JFE4djBZ7zdR5LuWTqlEhr6mnhM/36k6JULZwOF8QSGgFwdXfhyDchLX
-	cz5ugeuQwpvjFPXOoq+RRIY/RT6/WRHOhoD0jFuxuEl3Yre+9/BscoSz+RItpY27Fy2dFhCof501a
-	mtUoW6fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OJHKUYMFKaoMIxRVzHh5k7kdywBvMNCAGk+h8PoY7yc=; b=TOQCHhq6AR4L4NLqT1Xo6X+CJW
+	+b/BI5ZU+ix2XgGrwx527HMuTTupwm9nC3WtRhaLH+sVaKhp3YgrgkTazIgPMlNPoQQCoQnevCMQ5
+	UVKc61h7VFL6cbc3zIJGezvFMJMWMTIPOB7dsk2/cD5swylx38KshXtvPRMx7bBtWy6LRKLyCk8uV
+	1g8cpuvvR8nyYdlJDy4+osyyE2q7GmrWSoR9/j9SpbYyaBOq3Q6jGvGEK0KTxmn5+TxrohM2DfyPe
+	UaYSRRt+RPSwRbTKEkYOpHhvfAuZDCNObB0W/95hDJvSgMkbcRA43ka8IErKJd7nL7PCfGXt/lqbP
+	E3PCzYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmhNH-0000000D0AG-1rQo;
-	Thu, 23 Jul 2026 00:33:19 +0000
-Received: from mail-northeuropeazon11012011.outbound.protection.outlook.com ([52.101.66.11] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wmhaX-0000000D0WM-2N6z;
+	Thu, 23 Jul 2026 00:47:01 +0000
+Received: from flow-b6-smtp.messagingengine.com ([202.12.124.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmhNE-0000000D09q-2dSi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 00:33:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mNXRkU3DCKNgZ092BrpHcYwgTZ382mv1pNVfoRO2KEh7UevL1wuGvWhmEo1ux2PUyp8mlJKtMRf1HhlK2cLXFlFTklHmjszRVFfbYpO/5z1Mdtv/lrhWBiNY4w6H6jCM0dfkld9Mo4AurUwh3bmiaU+IXoQm6/OOylmx5rbAIkxCZRutaZZRzYkzTSrrLZf4miwbjdpkZsRVLOwmc2v1L5WXPb5HKXFzuV+3qE/NN2YTQ4caFgv7AfQyI6u/sp4iPsz41KsCBVSVH2DAWK1DYRPJoXI3AzegjBDcqo3njfWuYJ2bcb4QE4ey0KHxqhrIgRZ7REavPWg8eR3Oj+3FXg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mx3sj4OEXzWvByuX0+hJLjXZ1jc9I/pCn0J0KekMIfE=;
- b=BK6LG7WZCRymxmEIbyzOcmrVdcWdLNvHUY2oDkl9nqK4v899qaLrAleQjjD6VEnUiojnEMzu93yi287H4qb5TaXZNW4+mzWZcMe7Mr/p2clAq552fGOx+wSRFhwMbFzG/edUYyeIrgUrRrI88XalgZ3GnRvpkce8rnWlr/vU8xhOdgjoRx/3FKPgz1fQ2UAIdKEBXPJX0Ou/dqikGKJCVCHdMkN7f0Zwpmrfxs0SMoX6xkJloJcPdQOmp6tWPuReS3eHsVuEja1O1LStHbOKOije+srnwTr+iOAUXi8gh8GoI0xZ6ii1gJYZRCqkdIIZ+fy6Djdpgeo6GbIVDLBe9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mx3sj4OEXzWvByuX0+hJLjXZ1jc9I/pCn0J0KekMIfE=;
- b=GodQmjT0e5y5pR7oL6YkMO5FiaoLKAW32xgHXDfykSnE+lNnSMaK2kpCl2wFbdJ+HOK1c3L3WyTjSlGgs7MX3ZdHOim2a49NSyJRZWCOv+dKnwGsOA1pG88K6+sIjQV+aO/ShBHIp6SVxFsdpDDfpWYTrreaU83W3ID/fAzZP5NqW7jUZIrime70uMIcFz0I0lpK/R7oIDFk4LtJGPErTFprIUWl1DgVr6gb2Ghss3k5yu0GUjiRYry5TzqIK3AXO3Ri8eCJfLQQCyzJEXWEsiHh4fhBfZ2q9t8hBl1/QE1lNkIhJyjdpuN2B693mIrawCYC/yAh3QQORiPGncvE5Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI1PR04MB9836.eurprd04.prod.outlook.com (2603:10a6:800:1d9::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Thu, 23 Jul
- 2026 00:33:11 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 00:33:11 +0000
-Date: Wed, 22 Jul 2026 19:32:58 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: han.xu@oss.nxp.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
-	Han Xu <han.xu@nxp.com>
-Subject: Re: [PATCH v3 2/3] spi: nxp-xspi: Improve AHB read performance with
- DMA
-Message-ID: <amFhOs8aXWZxIrIn@SMW015318>
-References: <20260722-xspi_dma_upstream-v3-0-6b7ff50cae8e@nxp.com>
- <20260722-xspi_dma_upstream-v3-2-6b7ff50cae8e@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260722-xspi_dma_upstream-v3-2-6b7ff50cae8e@nxp.com>
-X-ClientProxiedBy: SN7PR04CA0169.namprd04.prod.outlook.com
- (2603:10b6:806:125::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wmhaU-0000000D0Vp-0xpW;
+	Thu, 23 Jul 2026 00:46:59 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.stl.internal (Postfix) with ESMTP id B17A2130030A;
+	Wed, 22 Jul 2026 20:46:55 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Wed, 22 Jul 2026 20:46:56 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1784767615; x=
+	1784771215; bh=OJHKUYMFKaoMIxRVzHh5k7kdywBvMNCAGk+h8PoY7yc=; b=l
+	qS8ZdsvHfjDg2wvyG+Ep/sVaJebLS7C5PlXP+Q2i0DKw1qJxmgkJ8UuPSlnMir3g
+	hhUGiLVEgw+AsQHDDi9U28Gf0W5tqySHP3AqfBB0Bn1dSOr0aCn30SLRA+eUqGyM
+	8dP3Afb7v/v93wfQ0SkJXUKQtRbMGaAJ101MZu9pwMq5nLlaA3pinTgShBYPiYzz
+	RU7Ws/bnGklaBPmrQHs8/lr5TXLmJudGbD4Um1mHjLtbeIobXgDEqOgmmtfoj+lp
+	ujCUaZWuJS06D4ht2ZuAm5h938Z22pUpC92vBE1WAEe1kPBak28qH9oF4Giomul4
+	RLkhDZvuo+qp/kThAQhzQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm2; t=1784767615; x=1784771215; bh=O
+	JHKUYMFKaoMIxRVzHh5k7kdywBvMNCAGk+h8PoY7yc=; b=E+QVGlWgS2Vm5PeOE
+	wcpyw+ILTgsCfRB8LdWIEq2yFlMBhiC+B0LwVDRqxhrAbPmDuaODB5eHNx7yVx85
+	O0cDAXDxf9U7G/MpUb6NMjqOCFAKiINRI3LVmeqUf2qRjTadKsfryRTKQQE5AcPZ
+	lTUVI6ZFph7LGLY+C4qRDN44LTHBRKy0cAEZ6nl8T1CocL1BcwaHpM6WrjTqdRi4
+	PTm7286LwQgRtrfNjr+NBOyz+qNghUUf4tqqgMAxChV0pAbRyVU337YbAIPIQfpB
+	bI5L95PuH1ymptQ24vYrpfPFP9fneUCv7IwYvJQ7IA8BDva5VzYoS9EXkx0qVTjH
+	pKPjw==
+X-ME-Sender: <xms:f2RhavNAZu00QFN0kLfWDtBOwMLBnbNn7cyezesFnBglAxpNFNf6kQ>
+    <xme:f2RhapYdT6i9aWuR_LOUOz7QZPHj5ZrYEIFhdiDKNh0T0cJ3yXhAVUnh4exkWMkSp
+    nmuZQ7oxyZb4aigP7iNXXG-FObr7Vq4fBxJPQrCHeJe1rvRvJ3r_gg>
+X-ME-Received: <xmr:f2RhavVht6xTFW_3UB3sDP1NcG7ZWF3IUvuCVcvgxL-L0NIydy-eRnm0SirmmzkBAfbo2XDaEklIk5gscvmFKck4NfAYVzN0Hdq9Z0rlYbGc>
+X-ME-Proxy-Cause: dmFkZTEokqfq+D3jpgPBuTiBa0dJJRdul8tMci1cvXMe3NbvnPtDgyeMlSfDNY2VQZCYm2
+    LXht2BNYdL8iUtCGHSZhcwG7q/Kwl3zIUaoC3BGOdInsGrs3nFYGV0l20ZTGRKX33xkdxH
+    NrkbmddZ2CiaNePh2o3WZ/+U94U7XFDTfdNEN9WbkyGOyRxMeS4dRBw6ne/XhrYOCTO3Jl
+    ClCrSi9gz0eIQPQAjjkl3Sb4QSzuiMuP32yq/tuzWd8kGBQfEHsoAml+J1LR2BOOYVtNmX
+    Rs6na04Rv82XA/POUiW/BzcYn+UppGRk2cBhE7PHgbgeUCkSX0KVVP3s4tZcULINdIF0tY
+    +eQ/XxpkNyngyjE20TnzMlQSgfnmZAsk4QO4SUKbHdtLgwmnDzvZMr89cLT+YAQlPLD8kS
+    HQVwsOjoN6yIJS5W304CtQIY7BaKdW4qVsOlS4nAt5IX7bCfaAn7WAXpCd6ffY4G9D65v3
+    nwnIDTNwlUMBM6CuBv4cKSpF2ZQZafXm/Nx2oGwLZnZKlULKUf7/XJ2NjHpaL9F2Jo66Ih
+    QdREgIHQ6LOsNQLAZgFnecJztYOxUo7sX1tIRFtjMJpPsu1YU5mr7/dWYU4HyRF1xfU0Jo
+    sNImIILq/J0mefNqxkxyFzL5JQ4O2a9ibKnqCiOKT330qChgE6JzmSPn5kmg
+X-ME-Proxy: <xmx:f2RhaoBGnUNe0OzkAL9F4YZcdVP-gTXibNIx88zoEyfctr8ues4L-g>
+    <xmx:f2RharJ0MXZglop8uPFkV2YEPJF0suvzDuDi6YoOM_1kWdke7YS2cA>
+    <xmx:f2RhamtrkAiEubMyvmFs98MHBE-H_gQacrbRlRpkGmNSHuWCmNRVqQ>
+    <xmx:f2RhajXpTlEUBhTfzZXCDc0fO5IKWCqRXGeOqRy2ZSj3j5ZRCpJTKw>
+    <xmx:f2RhatQrWXI1KlMxZrJ5bfuWMOaSqZuupZls3oGhvNT5ZuGxRb7rj-w4>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 22 Jul 2026 20:46:49 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: nicolas.dufresne@collabora.com,
+	detlev.casanova@collabora.com
+Cc: mchehab@kernel.org,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ezequiel@vanguardiasur.com.ar,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [RFC PATCH 0/3] media: rockchip: VEPU510 H.264 encoder for RK3576
+Date: Thu, 23 Jul 2026 12:46:42 +1200
+Message-ID: <20260723004642.2075233-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <082e1141c38205222a91abf13b1a97d9a00e117a.camel@collabora.com>
+References: <20260722073417.2064667-1-gahing@gahingwoo.com> <082e1141c38205222a91abf13b1a97d9a00e117a.camel@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB9836:EE_
-X-MS-Office365-Filtering-Correlation-Id: 523ce8b3-c729-4613-3367-08dee851f95a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|366016|1800799024|376014|4143699003|11063799006|6133799003|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: qrSGpM4KjKHhjkbwgLzsQfCPSiWmgQ3oVnDVTzz5lWmkJnvxXYTjgkXaVx1nOhUVVTzYdFTbUGt537K07vEFLowX7olG1B6V0OmxhXbek17x4JB92axnFIFNFXSi36niwPXkuOB255KTaiIREcr9wGKahPHHJkwmzs+U68jkJi5StMpasc7NgwhK5cyocYHKX1B5OSGi9g1UMGcqDx22HJRRo2Gshq8uHtARgkSNHtADjVcHAKRSOyIcHxJbuMKTvXMYWECnGwHSFPCTggtTTJaPjYUmaK77yJ7SCvs0FQBM8LvTLmLZE3/SzvDxxm8EdYfCMetCZfsxJvpHYE1px+L06t+vMKZE3kg4qVGle0Rln3n7oegt3ZOK2Vi47j7W/M1UUeeuG5g7oKVP2Oc9k6LpI9aZQ6Y6lt8NUTSx5HAZAUx7ikH/SXW/wCyY+N5INaqVv0nnX+hQwD+jXHBsqbVSEggy34c02aPfc5yfo+UjNBrNjOtkHZCvALBrmWZEH0zhxVYZp3LxAyEelvrhTpLoDFUyUPnB9P2w2/wv21foIXFufmnObJyPhWk1NXpB/jVnxF+UHzTKkpSzHxxSnlma7591AD0SDwNGw1u3uVssnqbS9elWetx+ao2sU4SrjZHZP6HQ5TwvNnJkcd8msQfMIbfODb15+X++zh8Y2Os=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(366016)(1800799024)(376014)(4143699003)(11063799006)(6133799003)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kOhyoI/5Uz5SKMEZYnraXUIaLVvFFUvHizKwL5igz3ANKaC4XUdHVGISJs5f?=
- =?us-ascii?Q?BL0ULL51qz5OZT99V7vrpmE1V3ooybEesQHj7dNE7q/pveTrEgSAbWvQJio6?=
- =?us-ascii?Q?gCH30BupIPfxTmu8Ct26KECT2dvaKRkBiRKSf0lFWls7d2Q+SOee4tUi04zK?=
- =?us-ascii?Q?jYscl8UGhUbPl2uwJ9ektHOsw0eaD0ZNoqEeEDC7Oke7G9Q+CXxWTDW0JUTS?=
- =?us-ascii?Q?6E7g7HFUCoIokvRoe6I7dWPLkkS/BNJQd2ScMC2l2dTiSTLYKFS6s6Y6Uefp?=
- =?us-ascii?Q?oauaGZySCLL830x2vyrpQdmNbQNNEOLmoq5wRgtMYn0uc7ECXRHAp4woAY3I?=
- =?us-ascii?Q?E94knIpBPiDWeWpbmn8GnIn4GUKRLeY6Tg0TEvYsxspO+Zg02AmS47QyJjJg?=
- =?us-ascii?Q?syiJXpMqHEiBIYq7NBj0A9Epiz/hAGFHogyAvETnTbUpsOrcjWTmx58MmjPJ?=
- =?us-ascii?Q?XCqPHtDquoSFkHfPNnztaBgywuTJy3NNp/LUwCp5PeooVtdyTnlf8ShEDje8?=
- =?us-ascii?Q?P/8ECRRxvYv5C39wK5ocVCpMEVyeSf8RNK8wY8V4+IOulidySz1QN1SCVZNI?=
- =?us-ascii?Q?Dp5cSglQcCkWbRLml2QGjQ10W0HUjsCnMKRp6Ja1WtdvuZPqXO4U8ONKncEd?=
- =?us-ascii?Q?727i8OoinUgL7T5/lvGUIBb/lNtHIz0aeZDS8evMNNe+u3H2HjoA5q22h94d?=
- =?us-ascii?Q?DMb+QYpFkcSOc854rL24/5fB1EUWwnbDQQBwnR8HtZJ80neO2A93hGZonuNu?=
- =?us-ascii?Q?Fei0QvOQCn8ngRnOGS5p475jknha53AOS0LKtjRAEoEv9pq192gvJ7ZLQCSP?=
- =?us-ascii?Q?j0M6wJHAZeBLJoQd2epl+smp9hshKL0K4IUJFmwTLP6V6W5OBEKqb+UUuqA2?=
- =?us-ascii?Q?pDehF2ebBlrN0i06pQ8jijVtfcUHBoaTSA5W4SA8q2rqXbfjWWZpunAiGExq?=
- =?us-ascii?Q?fIteO4X+x8xDtRn1UY3eERPiJfWg1Ex3qhNeGo04nXlz/eW8wItvJWRQZqre?=
- =?us-ascii?Q?XrLvLujLWTJjJlRa42rzb2E4qigTq5KZg0kboQ9AjdSvBf6KkEPigKsPpoc7?=
- =?us-ascii?Q?1G6rlb8yJHvpVOaL/0mPH86FGMd7fBJCQsRuCHYFm+QYIKQKrHX76HowYk/g?=
- =?us-ascii?Q?iaCyI8Hneq3dQy/zCrJ6MfssEdDUnmkzXeeG3JuxgtYoX7ApT7/sKCDEgqU3?=
- =?us-ascii?Q?C7aGS4dFJhHi6a3o2onH9vzAPqrsqpkEf9rihWkXtpxcjo7u+XxR6MHi+VUg?=
- =?us-ascii?Q?tp5rnrBaXO7MxN89epLrD1fmllitEexn82uuI48a5F7PAnl35jhjU05k/n4O?=
- =?us-ascii?Q?RwpjanTBmh0mI+D3QJv2fFitOa7cnOUPB7QfuRQKxoF2p1GQWCppyRgDENMR?=
- =?us-ascii?Q?oRQVg2BB0r78s4lbEPtu/wrUlzn5r2NkqdDNsR6MVF/lZXfm+ULqOXQ5/Owj?=
- =?us-ascii?Q?4uCqv6s/wiiaJIeGqYNlZ96Ki0s+NA+letbr40wNwysOR1ZVx1kdgDjgPu7a?=
- =?us-ascii?Q?0YlBTDCQnVG0jRwe4Rioq0mXu7BeT99K3qLiXYxS09Yx1TQoACpVGmQ67znp?=
- =?us-ascii?Q?SNtz6kdtNrtttvQRmSPwatgl2XL1JZlghTY1UJ+xKsEN2OZ6DnuVMDY2O4fu?=
- =?us-ascii?Q?tVsMZBrTg1XrVTL98a+YvtFdBOiGlsPSuznRQrnEIo5Irf3osevsULBIx56z?=
- =?us-ascii?Q?reT50n3/qj/AzFWhnB1jU+QPcxvvrQzCQ6qq2B6e8Ee9n5KMy6ItwhQR0VBG?=
- =?us-ascii?Q?BGRi+NgHZdgeduUnOpN9S5QIGuCtZ2bygAOwVczhDmQlKDfgoHDQ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 523ce8b3-c729-4613-3367-08dee851f95a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 00:33:10.9698
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Cuoked8hwtinPmLEsvEKE2yEECzGIhspP2tXYTd87JD0T/41g5+shNZR8Y8njAAM5G8t06RVziGB4J10Ht4bOgm5PWKvCV3tbpqc9OPkMGD06w1KSk5H4UASYOSqZUhZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9836
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_173316_819439_5B0FFD69 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20260722_174658_455161_9FBE9D25 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,245 +117,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 05:00:43PM -0500, han.xu@oss.nxp.com wrote:
-> From: Han Xu <han.xu@nxp.com>
->
-> Use eDMA for XSPI AHB read to improve the performance.
->
-> Read with CPU
-> root@imx943evk:~# dd if=/dev/mtd0 of=/dev/null bs=32M count=1
-> 1+0 records in
-> 1+0 records out
-> 33554432 bytes (34 MB, 32 MiB) copied, 0.479719 s, 69.9 MB/s
->
-> Read with DMA
-> root@imx943evk:~# dd if=/dev/mtd0 of=/dev/null bs=32M count=1
-> 1+0 records in
-> 1+0 records out
-> 33554432 bytes (34 MB, 32 MiB) copied, 0.115788 s, 290 MB/s
->
-> Signed-off-by: Han Xu <han.xu@nxp.com>
-> ---
+On Tue, 22 Jul 2026 20:29:53 +0200, Nicolas Dufresne wrote:
+> This is really nice to see interest in enabling encoder for this chips
+> set. I'm adding Detlev in CC here, as he's actively working on RK3588
+> encoder, which is quite a similar chip.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Thanks, and thanks for looping Detlev in.
 
->  drivers/spi/spi-nxp-xspi.c | 143 ++++++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 140 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/spi/spi-nxp-xspi.c b/drivers/spi/spi-nxp-xspi.c
-> index 037eac24e6fd2..70cbc3ef658b6 100644
-> --- a/drivers/spi/spi-nxp-xspi.c
-> +++ b/drivers/spi/spi-nxp-xspi.c
-> @@ -35,6 +35,8 @@
->  #include <linux/clk.h>
->  #include <linux/completion.h>
->  #include <linux/delay.h>
-> +#include <linux/dmaengine.h>
-> +#include <linux/dma-mapping.h>
->  #include <linux/err.h>
->  #include <linux/errno.h>
->  #include <linux/interrupt.h>
-> @@ -303,6 +305,12 @@
->  	(opr)) << (((idx) % 2) * OPRND_SHIFT))
->
->  #define NXP_XSPI_MIN_IOMAP	SZ_4M
-> +/*
-> + * It takes 0.5s to access the entire area with DMA,
-> + * leaving a 10x safety margin
-> + */
-> +#define NXP_XSPI_DMA_TOUT_MS	5000
-> +#define NXP_XSPI_DMA_TOUT	msecs_to_jiffies(NXP_XSPI_DMA_TOUT_MS)
->  #define NXP_XSPI_MAX_CHIPSELECT		2
->  #define POLL_TOUT_US		5000
->
-> @@ -336,6 +344,9 @@ struct nxp_xspi {
->  	/* mutex lock for each operation */
->  	struct mutex lock;
->  	int selected;
-> +	int dma_copy_align;
-> +	struct dma_chan *dma_rx;
-> +	struct completion dma_rx_c;
->  #define XSPI_DTR_PROTO		BIT(0)
->  	int flags;
->  	/* Save the previous operation clock rate */
-> @@ -796,6 +807,95 @@ static int nxp_xspi_ahb_read(struct nxp_xspi *xspi, const struct spi_mem_op *op)
->  	return 0;
->  }
->
-> +static int nxp_xspi_dma_init(struct device *dev, struct nxp_xspi *xspi)
-> +{
-> +	struct dma_chan *rx;
-> +
-> +	rx = dma_request_chan(dev, "rx");
-> +	if (IS_ERR(rx)) {
-> +		int ret = PTR_ERR(rx);
-> +
-> +		if (ret == -EPROBE_DEFER)
-> +			return ret;
-> +		dev_dbg(dev, "NO DMA RX channel, falling back to CPU read\n");
-> +		xspi->dma_copy_align = 1;
-> +		return 0;
-> +	}
-> +
-> +	xspi->dma_rx = rx;
-> +	init_completion(&xspi->dma_rx_c);
-> +	xspi->dma_copy_align = 1 << rx->device->copy_align;
-> +
-> +	return 0;
-> +}
-> +
-> +static void nxp_xspi_dma_rx_callback(void *data)
-> +{
-> +	struct nxp_xspi *xspi = data;
-> +
-> +	complete(&xspi->dma_rx_c);
-> +}
-> +
-> +static int nxp_xspi_ahb_dma_read(struct nxp_xspi *xspi,
-> +				 const struct spi_mem_op *op)
-> +{
-> +	struct dma_async_tx_descriptor *desc;
-> +	struct dma_chan *chan = xspi->dma_rx;
-> +	unsigned long timeout;
-> +	dma_addr_t src_addr, dst_addr;
-> +	int ret = 0;
-> +
-> +	dst_addr = dma_map_single(chan->device->dev,
-> +				  op->data.buf.in, op->data.nbytes,
-> +				  DMA_FROM_DEVICE);
-> +	if (dma_mapping_error(chan->device->dev, dst_addr)) {
-> +		dev_err(xspi->dev, "failed to map DMA dst buffer\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	src_addr = dma_map_resource(chan->device->dev,
-> +				    (phys_addr_t)xspi->memmap_phy + op->addr.val,
-> +				    op->data.nbytes,
-> +				    DMA_TO_DEVICE, 0);
-> +	if (dma_mapping_error(chan->device->dev, src_addr)) {
-> +		dev_err(xspi->dev, "failed to map DMA src resource\n");
-> +		ret = -ENOMEM;
-> +		goto err_unmap_dst;
-> +	}
-> +
-> +	desc = dmaengine_prep_dma_memcpy(chan, dst_addr, src_addr,
-> +					 op->data.nbytes,
-> +					 DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-> +	if (!desc) {
-> +		dev_err(xspi->dev, "failed to prepare AHB RX DMA descriptor\n");
-> +		ret = -EIO;
-> +		goto err_unmap_src;
-> +	}
-> +
-> +	desc->callback = nxp_xspi_dma_rx_callback;
-> +	desc->callback_param = xspi;
-> +	reinit_completion(&xspi->dma_rx_c);
-> +	dmaengine_submit(desc);
-> +	dma_async_issue_pending(chan);
-> +
-> +	timeout = wait_for_completion_timeout(&xspi->dma_rx_c, NXP_XSPI_DMA_TOUT);
-> +	if (!timeout) {
-> +		dev_err(xspi->dev, "AHB RX DMA timeout\n");
-> +		dmaengine_terminate_sync(chan);
-> +		ret = -ETIMEDOUT;
-> +	}
-> +
-> +err_unmap_src:
-> +	dma_unmap_resource(chan->device->dev, src_addr,
-> +		op->data.nbytes, DMA_TO_DEVICE, 0);
-> +
-> +err_unmap_dst:
-> +	dma_unmap_single(chan->device->dev, dst_addr,
-> +			 op->data.nbytes, DMA_FROM_DEVICE);
-> +
-> +	return ret;
-> +}
-> +
->  static int nxp_xspi_fill_txfifo(struct nxp_xspi *xspi,
->  				 const struct spi_mem_op *op)
->  {
-> @@ -1016,10 +1116,21 @@ static int nxp_xspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
->  	 *     all use IP write.
->  	 */
->  	if ((op->data.dir == SPI_MEM_DATA_IN) && !needs_ip_only(xspi)
-> -		&& ((op->addr.val + op->data.nbytes) <= xspi->memmap_phy_size))
-> -		err = nxp_xspi_ahb_read(xspi, op);
-> -	else
-> +		&& ((op->addr.val + op->data.nbytes) <= xspi->memmap_phy_size)) {
-> +		/* use DMA for transfers no less than ahb_buf_size, when DMA is available */
-> +		if (xspi->dma_rx && op->data.nbytes >= xspi->devtype_data->ahb_buf_size) {
-> +			err = nxp_xspi_ahb_dma_read(xspi, op);
-> +			if (err) {
-> +				dev_warn_ratelimited(xspi->dev,
-> +					"DMA read failed (%d), falling back to CPU read\n", err);
-> +				err = nxp_xspi_ahb_read(xspi, op);
-> +			}
-> +		} else {
-> +			err = nxp_xspi_ahb_read(xspi, op);
-> +		}
-> +	} else {
->  		err = nxp_xspi_do_op(xspi, op);
-> +	}
->
->  	nxp_xspi_sw_reset(xspi);
->
-> @@ -1029,6 +1140,7 @@ static int nxp_xspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
->  static int nxp_xspi_adjust_op_size(struct spi_mem *mem, struct spi_mem_op *op)
->  {
->  	struct nxp_xspi *xspi = spi_controller_get_devdata(mem->spi->controller);
-> +	int alignment = xspi->dma_copy_align;
->
->  	if (op->data.dir == SPI_MEM_DATA_OUT) {
->  		if (op->data.nbytes > xspi->devtype_data->txfifo)
-> @@ -1042,6 +1154,22 @@ static int nxp_xspi_adjust_op_size(struct spi_mem *mem, struct spi_mem_op *op)
->  		if (!needs_ip_only(xspi) && (op->addr.val < xspi->memmap_phy_size)
->  			&& ((op->addr.val + op->data.nbytes) > xspi->memmap_phy_size))
->  			op->data.nbytes = xspi->memmap_phy_size - op->addr.val;
-> +
-> +		/*
-> +		 * For AHB DMA read, align the transfer to the DMA alignment
-> +		 * boundaries. If the start address is unaligned, shorten this
-> +		 * transfer so the next one starts on an aligned boundary.
-> +		 * Otherwise, if the length is unaligned, round it down.
-> +		 */
-> +		if (xspi->dma_rx && !needs_ip_only(xspi) &&
-> +		    (op->data.nbytes >= xspi->devtype_data->ahb_buf_size)) {
-> +			if (op->addr.val & (alignment - 1))
-> +				op->data.nbytes =
-> +					ALIGN(op->addr.val, alignment) - op->addr.val;
-> +			else if (op->data.nbytes & (alignment - 1))
-> +				op->data.nbytes =
-> +					ALIGN_DOWN(op->data.nbytes, alignment);
-> +		}
->  	}
->
->  	return 0;
-> @@ -1203,6 +1331,10 @@ static void nxp_xspi_cleanup(void *data)
->
->  	if (xspi->ahb_addr)
->  		iounmap(xspi->ahb_addr);
-> +	if (xspi->dma_rx) {
-> +		dmaengine_terminate_sync(xspi->dma_rx);
-> +		dma_release_channel(xspi->dma_rx);
-> +	}
->  }
->
->  static int nxp_xspi_probe(struct platform_device *pdev)
-> @@ -1283,6 +1415,11 @@ static int nxp_xspi_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->
-> +	/* DMA is optional, failure(other than -EPROBE_DEFER) falls back to CPU */
-> +	ret = nxp_xspi_dma_init(dev, xspi);
-> +	if (ret == -EPROBE_DEFER)
-> +		return ret;
-> +
->  	ctlr->bus_num = -1;
->  	ctlr->num_chipselect = NXP_XSPI_MAX_CHIPSELECT;
->  	ctlr->mem_ops = &nxp_xspi_mem_ops;
->
-> --
-> 2.34.1
->
->
+> So Detlev driver, which finally got P-Frames support few days ago
+> (he'll explain why this didn't work initially for him) [...]
+
+This is the most useful sentence in the thread for me. RK3576's VEPU510
+and RK3588's VEPU580 are the same VEPU5xx family -- same vendor HAL flow,
+identical reconstruction/reference-read (recn_refr) path -- and that
+reference read is exactly where every P-frame stalls for me: the first
+inter frame of a session hangs the encoder watchdog fetching the previous
+frame's reconstruction, even though the reconstruction is valid and my
+register writes match the vendor byte for byte. So whatever Detlev hit is
+very likely the same bug.
+
+Detlev -- whatever you can share about why P-frames didn't work at first
+would help me enormously.
+
+> While this isn't invalid [...] the community agreed direction was to
+> introduce V4L2 Stateless Encoder specification [...]
+> [...] we decided to look into making drivers similar to how we do GPU
+> drivers today. This is possible today thanks to the Vulkan Video
+> standard.
+
+I'm not attached to the stateful interface -- I used it to get something
+running on real silicon, not out of conviction. Before I commit to
+reworking, I'd like to be sure I understand what "converge" means here,
+because I see two fairly different directions in the thread: Paul's V4L2
+stateless H.264 encoder (kernel-side reflist/rbsp/RC core), and the
+Vulkan-Video split you describe for Detlev (thin kernel module + Mesa
+userspace). Those differ a lot in kind and in effort. Which is the
+intended target for the Rockchip encoders, or is that still open? Is
+there a branch, early code or spec draft I should read beyond Paul's
+series?
+
+Either way the RK3576 hardware enablement and the reference-read fix are
+shared with RK3588, so I'd much rather contribute the VEPU510 side to a
+common base than maintain a parallel one -- I'd just like to know which
+base that is before rebuilding on it.
+
+Thanks,
+Jiaxing
 
