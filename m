@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F5CC531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C646C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=29kO6oYeUoSm7e8Y1kHOj1bvp81JeeAODvGvsL9nYnI=; b=yOG7+SzJOpnr/qRbR4T3/eyFh6
-	T3OqPl9XcBn39DNSQQoEqxzpU/3f6EVs1q9hIZ/ZuPjG46cZAbHS5svLVY/0hQFjh99qZuxEXzqHA
-	1EQGva80DMT+oRZJMRZDefag8tfJ6iJU1KVB/y3rCXudUyt9mGIwNMlaDJNGVKb+PGg2SOtSSKLQo
-	Tc8SPnLCHiHdW3N0kSs7mtdakB6sJZOVqWN0gOIuVe+Pi7FAGCSHKZAap+Piy2MtaAeLAFSvptyNz
-	XFDdw8Jo5faVPIIettoM8y8L2C44PBaqEKwIFcfc+Nclu6EMvFPMdLCcfiJq9WEn3MdtixoFw5cQU
-	ua55x4MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yym2XBHop2qIp/fUs3Kxcp1HDaHRHWfQSCOf4IBeT3g=; b=ChKtksfZaQTlUXAYMdMRDuZTyg
+	3KZg9CkkBAdA+8JqRgrXmXS+3o2ilGDAZDZaDBNEFTydqfkX6z5ESvY1BsYY4Exzx4ZcUDl38AE3S
+	FRlIuaLqDqT0PQscysxmnOXUpMLuVCDKsoMZHc4uUIGOckZQV2tPs6Cd+njTvOAK/fiqANd88CcuB
+	O7tajHh4ESxvpHNVdf44mRkoGWHMTnP0gfdTDFXi0zl+ICcrQoZbMvFPFC8QPMlg5Jv4XvUqhdpN8
+	kGs84VpAnddPUw/y+9pVP3wUQPkvwNiCGFFdyjrbySi/mhoKZtZlAIucyFQLBLjdwC4eW/Lmt15uH
+	NwrP5lxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsWG-0000000EEjq-0ynW;
-	Thu, 23 Jul 2026 12:27:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsWF-0000000EEjk-09jm
+	id 1wmsZQ-0000000EEuz-2mBz;
+	Thu, 23 Jul 2026 12:30:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmsZN-0000000EEuO-3tjm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 12:27:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 15D89600AD;
-	Thu, 23 Jul 2026 12:27:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CC91F000E9;
-	Thu, 23 Jul 2026 12:27:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784809637;
-	bh=29kO6oYeUoSm7e8Y1kHOj1bvp81JeeAODvGvsL9nYnI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=brsyr1zjY38ayyaTX+WpF25csJg9sfdOpeQURKLG989VI0SqjFglM3g34526GJH3q
-	 12XYkoyEwpYE8aK7SUFzuACj/6YWpoVoC3Hz9BcaEn7PKBdTThv/w3azsVNFdRFNwu
-	 LLRPa8ScYjvb5MvBn6vkB9wHB+6gkbmtJ51OZ8HWVLvZ+oxVILxfQGxnjqnTkk/FGW
-	 TvbQlpBE7A6ndn6xb+XVnax4OScuE3lvUvhZZsCgKNpl7U0ns+uRTZKFrC4le2hzKb
-	 uZ2TgfH1ke6aV0mK/DuPlTbdBsIFtIeU76lz1F3DZHDKwb8AfUslrTA3KGSfRtfyWy
-	 1c7zsPVJ8DXcQ==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org, pavel@kernel.org, william.zhang@broadcom.com, 
- anand.gore@broadcom.com, kursad.oney@broadcom.com, 
- florian.fainelli@broadcom.com, rafal@milecki.pl, linux@weissschuh.net, 
- krzysztof.kozlowski@oss.qualcomm.com, tzungbi@kernel.org, 
- Ninad Naik <ninadnaik07@gmail.com>
-Cc: bcm-kernel-feedback-list@broadcom.com, linux-leds@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- skhan@linuxfoundation.org, me@brighamcampbell.com
-In-Reply-To: <20260713200732.2470666-1-ninadnaik07@gmail.com>
-References: <20260713200732.2470666-1-ninadnaik07@gmail.com>
-Subject: Re: (subset) [PATCH] leds: bcm63138: Use %pe to print pinctrl
- error instead of %ld
-Message-Id: <178480963434.3405982.16645336608309304296.b4-ty@b4>
-Date: Thu, 23 Jul 2026 13:27:14 +0100
+	Thu, 23 Jul 2026 12:30:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B9E01477;
+	Thu, 23 Jul 2026 05:30:28 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9D983F59E;
+	Thu, 23 Jul 2026 05:30:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784809832; bh=D9b7QZwBuuV0OrDRC/6goX+R19G+8jmXb8K0TVh5EMs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JgVcMkeTJJ4P4FfZC2DKTIG2CK3JiugQN8UJUQ3GhN1/bKw8b0wDBvTCg4Y3Vrjsk
+	 z52idKXbarz8sd0UvNX6oWtOSwNsblHV0O56U5g95iiRceM67pCkvKW+SMDgzcBhcn
+	 +2gIRwAChHRW1BRbfLWA17HpoSK1Hzo4okc6lrfA=
+Date: Thu, 23 Jul 2026 13:30:23 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when
+ loading SME state
+Message-ID: <amIJX3j6VHto1YWs@J2N7QTR9R3.cambridge.arm.com>
+References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
+ <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
+ <ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
+ <15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
+ <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_053034_026627_7936D4FD 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 01:37:32 +0530, Ninad Naik wrote:
-> Pass the pinctrl error pointer directly to %pe to print the
-> symbolic error name.
-> Detected by Coccinelle. Tested by compiling.
+On Sat, Jul 18, 2026 at 01:35:21AM +0100, Mark Brown wrote:
+> On Thu, Jul 16, 2026 at 04:28:02PM +0100, Mark Brown wrote:
+> > On Thu, Jul 16, 2026 at 11:52:36AM +0100, Mark Rutland wrote:
+> 
+> > > >  		if (test_thread_flag(TIF_SME)) {
+> > > > -			unsigned long vq = sve_vq_from_vl(sme_vl);
+> > > > -			sysreg_clear_set_s(SYS_SMCR_EL1, SMCR_ELx_LEN, vq - 1);
+> > > > +			sysreg_cond_update_s(SYS_SMCR_EL1, task_smcr(current));
+> > > > +			isb();
+> > > >  		}
+> 
+> > > What's the ISB for? That mysteriously appeared in v11 without
+> > > explanation. It wasn't in the original code, prior versions of the
+> > > series, or my suggested rework with the task_smcr() helper.
+> 
+> > > I don't believe it's necessary to add an ISB here.
+> 
+> > I can't remember or figure it out, I'll delete.
+> 
+> Actually I remembered: while SCMR_EL1.LEN is self synchronising the
+> "without the need for explict synchronization" wording is not present
+> for SMCR_EL1.{FA64,EZT0} and this is no longer explicitly just an update
+> of LEN.  It's possible I'm being overly paranoid here, I'll leave the
+> isb() and add a comment for the next version.
 
-Applied, thanks!
+Ok.
 
-[1/1] leds: bcm63138: Use %pe to print pinctrl error instead of %ld
-      commit: b6e08e0ad4cfafab2c2070456e7eeba17608a35d
+Given we've already forgotten that once so far, that definitely needs a
+comment.
 
---
-Lee Jones [李琼斯]
-
+Mark.
 
