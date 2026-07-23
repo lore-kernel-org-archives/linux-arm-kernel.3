@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3323AC4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 03:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D048AC531CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 03:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JARXetLc/a96zi6Yl4P5M0eAeZVZl88nzgXPm9VvTi0=; b=zFTqd57EDeewyInKHaFD0WDZOW
-	doXMZ7/r22xC4agDMibJUkgpxdxg4rx0dM/zS+ESQLNacMiU510q4PrskazwxyvarUIHbc7AdSB0S
-	6GUnVfUYh95QV3PzgkiYKhp9htZok5jcwnVhf2cn7JKMkT6Jx8EnaZy07WaTnnJowo+bL1VG1RcOw
-	v4BhmgQCOcpF0w/z21hOwUP5RjjS0c0YBbI9cZt8PyCZvwk/kv+W7HXm4pgMX6RdMjmXHL7DUh8iA
-	UCpmAfwfpe5ibf1MO20dIVaRWLfBoxVRJbD4g2NOpraescUr2V7+1ToQpWXkBW082gLrr357iHnHR
-	eJydIeNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ct6A69eIy8M8/F/aRHvQbC7tJPRJSKR5xYVgwqSRpk4=; b=y1lmMM0Jbi0CFxuz9KvSOx+RfR
+	cPG49hHnXer8WvOfCecrPsA80rvIbPj3sAUyyR/UU+QIlOXtY2hvHiX9Y/BwEP8PS0TxwFzgpfBVt
+	VwmR9h72CEbr0ki2/+mz2zyBdZCXJ3/CrZ/Xbdleik4I+yUfEBiiFY73Pw4QrJ16atO5X0L1X4whr
+	F1gNUt9jpE06nZnttzojrmCclcQYCIQ8xkHSn41IvD7UwRL4dz5A7g1IMRqVcmI+RMtTh2F3Ijmfa
+	Zz8vGubud6d7V2UvqPtgtT38ZWZCRvqi7tDciS064BvMQEopmOWGBMx/bA6JZRE65V9fce68hqypH
+	C8V9zMnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiLj-0000000D3mK-4BLo;
-	Thu, 23 Jul 2026 01:35:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wmkQN-0000000DL7w-0iFA;
+	Thu, 23 Jul 2026 03:48:43 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiLB-0000000D2tz-3Qek;
-	Thu, 23 Jul 2026 01:35:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784770511;
-	bh=4oGfD9xRL7tcwtCWgFYxH78Gki6Yb77QKHGnTEVVcXs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=az469ucfGISetOTFWW22sTV4Zr0KE/Ql02TdhIy4bRTZG/iuum+shwrsBYeOQvU6u
-	 sB2TdyHXpPGHds0bRmQhqTpzJHD2LSmV+HXLJT9wa+PuuxLA1VkNbDqc+AJ2TgrZau
-	 pOuyxar1/gTJU2M3wt5bxiyP2v6HlQxLXhFS91KP4P6WaICg0pnVh9Swo6Vk36+SgT
-	 mRnDp2mp3Yns+KnYCh9FUghAOz7ZKfm6OmNe3Aqdp54MFx0WH7ox9DV/Hd1Uc982lP
-	 O2unCN1JVh/o+U0tnLn9sD7e9yYOPpl6h8AGsYit30z7ieZM79o7ZVF0iBYKwK6ZO0
-	 VjJVCSQ75+/uQ==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D14FA17E1274;
-	Thu, 23 Jul 2026 03:35:11 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 23 Jul 2026 04:35:03 +0300
-Subject: [PATCH v9 14/61] drm/display: bridge_connector: Wire up HDMI 2.0
- scrambler callbacks
+	id 1wmkQK-0000000DL62-0xv8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 03:48:41 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 23 Jul
+ 2026 11:48:34 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 23 Jul 2026 11:48:34 +0800
+From: Jammy Huang <jammy_huang@aspeedtech.com>
+Date: Thu, 23 Jul 2026 11:48:34 +0800
+Subject: [PATCH v2] ARM: dts: aspeed: g6: Add missing uart nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-dw-hdmi-qp-scramb-v9-14-4fb12ea22ac9@collabora.com>
-References: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
-In-Reply-To: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
- Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, 
- Phong LE <ple@baylibre.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- Maud Spierings <maud_spierings@hotmail.com>
-X-Mailer: b4 0.15.2
+Message-ID: <20260723-upstream_g6_dts_uart-v2-1-4951ae6b4ac4@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIABGPYWoC/4WNQQ6CMBBFr0JmbQ0MStGV9zCElDJCF9BmphAN4
+ e5WLuDyveS/v4EQOxK4ZxswrU6cnxPgKQM7mnkg5frEgDlWeYlaLUEik5naoWr7KO1iOCpdm6u
+ lssNal5Cmgenl3kf22SQenUTPn+NlLX72T3AtVKGwIo3dRXf2ph9GAlEfyY5n6ydo9n3/AnZeV
+ L69AAAA
+X-Change-ID: 20260327-upstream_g6_dts_uart-78a5ce3b2873
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Jammy Huang
+	<jammy_huang@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784778514; l=2543;
+ i=jammy_huang@aspeedtech.com; s=20251124; h=from:subject:message-id;
+ bh=q9hDcLVgLxrUGo37KNtSJnNiFCPmBGY9FhkK/ChAGFM=;
+ b=NT1RKytf/ZW/AuqE/8pQQxHdslunNiGhDK3q1vJvWwxdFiVn7tP/ID/jZhF6pk309F+Gtd7jp
+ CWEaT9YAsAQD8TYQlJXvr2xeKwyolAR5ZjxrpR8Ci1nCXt5wqFVvelj
+X-Developer-Key: i=jammy_huang@aspeedtech.com; a=ed25519;
+ pk=E5YwijeJZZcuDR6srvwNlXrNHvLxwipUg3Mb/xxUF9o=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_183514_230469_A3216EA4 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20260722_204840_271910_6C3DD69B 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,94 +78,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Connect the bridge connector's .scrambler_{enable|disable} callbacks to
-the underlying bridge's .hdmi_scrambler_{enable|disable} funcs when
-HDMI 2.0 conformance is advertised.
+Add nodes for uart10/11/12/13.
 
-This completes the bridge connector plumbing so that the SCDC
-scrambling helpers can control source-side scrambling through the
-bridge chain.
-
-Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 40 +++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+Changes in v2:
+- rebase on bmc/linux.git aspeed/arm/dt, no functional changes
+- Link to v1: https://lore.kernel.org/r/20260327-upstream_g6_dts_uart-v1-1-26e72b47bc97@aspeedtech.com
+---
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 56 +++++++++++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 0d44a270b636..ed3b5b73a88a 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -574,6 +574,32 @@ static int drm_bridge_connector_write_spd_infoframe(struct drm_connector *connec
- 	return bridge->funcs->hdmi_write_spd_infoframe(bridge, buffer, len);
- }
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index edf4b74f5ab..fb21e353005 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -844,6 +844,62 @@ uart9: serial@1e790300 {
+ 				status = "disabled";
+ 			};
  
-+static int drm_bridge_connector_scrambler_enable(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
++			uart10: serial@1e790400 {
++				compatible = "ns16550a";
++				reg = <0x1e790400 0x20>;
++				reg-shift = <2>;
++				reg-io-width = <4>;
++				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&syscon ASPEED_CLK_GATE_UART10CLK>;
++				no-loopback-test;
++				pinctrl-names = "default";
++				pinctrl-0 = <&pinctrl_uart10_default>;
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
++				status = "disabled";
++			};
 +
-+	return bridge->funcs->hdmi_scrambler_enable(bridge);
-+}
++			uart11: serial@1e790500 {
++				compatible = "ns16550a";
++				reg = <0x1e790500 0x20>;
++				reg-shift = <2>;
++				reg-io-width = <4>;
++				interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&syscon ASPEED_CLK_GATE_UART11CLK>;
++				no-loopback-test;
++				pinctrl-names = "default";
++				pinctrl-0 = <&pinctrl_uart11_default>;
 +
-+static int drm_bridge_connector_scrambler_disable(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
++				status = "disabled";
++			};
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
++			uart12: serial@1e790600 {
++				compatible = "ns16550a";
++				reg = <0x1e790600 0x20>;
++				reg-shift = <2>;
++				reg-io-width = <4>;
++				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&syscon ASPEED_CLK_GATE_UART12CLK>;
++				no-loopback-test;
++				pinctrl-names = "default";
++				pinctrl-0 = <&pinctrl_uart12g1_default>;
 +
-+	return bridge->funcs->hdmi_scrambler_disable(bridge);
-+}
++				status = "disabled";
++			};
 +
- static const struct drm_edid *
- drm_bridge_connector_read_edid(struct drm_connector *connector)
- {
-@@ -601,7 +627,7 @@ static const struct drm_connector_hdmi_funcs drm_bridge_connector_hdmi_funcs = {
- 		.clear_infoframe = drm_bridge_connector_clear_hdmi_infoframe,
- 		.write_infoframe = drm_bridge_connector_write_hdmi_infoframe,
- 	},
--	/* audio, hdr_drm and spd are set dynamically during init */
-+	/* scrambler, audio, hdr_drm and spd are set dynamically during init */
- };
- 
- static const struct drm_connector_infoframe_funcs drm_bridge_connector_hdmi_audio_infoframe = {
-@@ -905,6 +931,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 			     !bridge->funcs->hdmi_clear_spd_infoframe))
- 				return ERR_PTR(-EINVAL);
- 
-+			if (bridge->supported_hdmi_ver >= HDMI_VERSION_2_0 &&
-+			    (!bridge->funcs->hdmi_scrambler_enable ||
-+			     !bridge->funcs->hdmi_scrambler_disable))
-+				return ERR_PTR(-EINVAL);
++			uart13: serial@1e790700 {
++				compatible = "ns16550a";
++				reg = <0x1e790700 0x20>;
++				reg-shift = <2>;
++				reg-io-width = <4>;
++				interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&syscon ASPEED_CLK_GATE_UART13CLK>;
++				no-loopback-test;
++				pinctrl-names = "default";
++				pinctrl-0 = <&pinctrl_uart13g1_default>;
 +
- 			bridge_connector->bridge_hdmi = drm_bridge_get(bridge);
- 		}
- 
-@@ -1024,6 +1055,13 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 			bridge_connector->hdmi_funcs.spd =
- 				drm_bridge_connector_hdmi_spd_infoframe;
- 
-+		if (bridge_connector->bridge_hdmi->supported_hdmi_ver >= HDMI_VERSION_2_0) {
-+			bridge_connector->hdmi_funcs.scrambler_enable =
-+				drm_bridge_connector_scrambler_enable;
-+			bridge_connector->hdmi_funcs.scrambler_disable =
-+				drm_bridge_connector_scrambler_disable;
-+		}
++				status = "disabled";
++			};
 +
- 		ret = drmm_connector_hdmi_init(drm, connector,
- 					       &drm_bridge_connector_funcs,
- 					       &bridge_connector->hdmi_funcs,
+ 			bus@1e78a000 {
+ 				compatible = "simple-bus";
+ 				#address-cells = <1>;
 
+---
+base-commit: 749c34389679f8d56cb200a69b62f9a64670034f
+change-id: 20260327-upstream_g6_dts_uart-78a5ce3b2873
+
+Best regards,
 -- 
-2.55.0
+Jammy Huang <jammy_huang@aspeedtech.com>
 
 
