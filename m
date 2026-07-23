@@ -4,88 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6ADC531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84733C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2EBRvjl4THMhyqlpfuX6DTQgfmPpqpfKHZum4qGV80=; b=Pr0Uexx/BqeBbDQzNOp2yebWdg
-	CXl27sKa+SwiRIKu9OmVgn07/IQRFFT9aiX3/rZG8MSqAXxLqyfDnPabJTVi9ke9SbtSrLOD8fKgB
-	+F9HoptLGixE4PztGpXHXYTNRMPF9nVZwi3ftvnWUTtjg0lvImJuHbRp5YRKnqVl6Tu33QSiceJAi
-	bjmmD09Iu3qE9X0ZheGSnkgA8sBd9jndnv06AXdSDJ/ZuuwkLwOWBnfKId8yTSwT6rPU4OtCtcOrB
-	CADwfx4QAVHkDEYOEya2m3SaKEM9PR276gc3k6s0Fs6YbGwKdNa2WS7ktqM+pJ5EObRgy9VSiybkF
-	sRXoWVnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hg5tW1Rb6Nt7cG6Ff89MFT0HTZsA91xkclD1Vy8H15c=; b=Rme6SnhMdXf3kqfE72RytGVaBr
+	qRiXoS7JG9Eborl5n/SQ8Xk6jUW/KhJD2fmLIXtYXa4gR8su6lnlad2Q+7mo+f9HrsF1dnWdlQAPM
+	N6HIhQHIHydT/ZvmVAmr/5qBhXgkBWvf9Oce0InLQcErNnGxiEIO4hVCTUuZf1ReloR/YbBSrBymt
+	fLJnHTg6/5LdWQdAc6EBhd8dAS41h+Y8h2NuP2REA6AF2dlTj/bhafaWNG5gcS3UB+/H8y4qPzIuG
+	sh6Wi4ZdOFvJGYDaY/FuAiq96EWRef+ANQCVUdHj48wBcnq7IqHNBs6UQcBqRGfyI/yEGNRx+5MlQ
+	wRHznQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmp2N-0000000Dlwl-26GL;
-	Thu, 23 Jul 2026 08:44:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmnrp-0000000Ddzl-312k;
+	Thu, 23 Jul 2026 07:29:17 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmp2M-0000000Dlwd-2yhZ
+	id 1wmnrd-0000000DdsO-22oa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 08:44:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48B6043B57
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:44:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D4631F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:44:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784796254;
-	bh=j2EBRvjl4THMhyqlpfuX6DTQgfmPpqpfKHZum4qGV80=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=AF2H0Ivxkn/L+1ybDUv7MML9W8QcujyElf5e09Llo5YxQnfu0FoCb4rraYIwSyDc0
-	 6hAu+dnmkpUdotPlZZOSTDSqKzcBNXcC2XIO2yIgM7AY5CxgHlIHocSq6g8HG++9pB
-	 CPIFVh5yWFVkD2B7kmcEEHexB66hXrb/YY5UH8GbvdUpbJ808i/E4J4eth7FhmyRCC
-	 y0pJA6iayLWo1+s/q9goJvyQIqNIvLbGgFBvoMnH+em4qvTH4STv32eYposTC0W3Xx
-	 keUGtzAPyjXYiGAUYkS09WK4pj6KL4UCjiETehDL5poDC2+GfrmbZIltkjxcCtBmjM
-	 y++nxkZeL+W5w==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-39c74c469e8so2552201fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 01:44:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoZ5ZJCSv4fcx1uZefYxAOb+lJEBIDItGavzXdZms5lU40Z6Yl9DfBQsxFSmfONHQImKrndEa3zMxSUhUsu5IIC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHhJxDEas3H8aesfM1RGhb19foTyBcWXslMpmpLw3G4g961Ddy
-	o8pCSzpIPaHzTjzXN/w2oH/M1qmb6FgOdpil6i8/ofqf0GaYk0cRlze6ITUWyoCuzV9KLvlzx4t
-	J2c4LdOCcl3nRYN/FL0NsnS6dnW9qcR4e9bPI1qZWHQ==
-X-Received: by 2002:a2e:b8d5:0:b0:39c:8124:93b3 with SMTP id
- 38308e7fff4ca-39f07bcfce0mr4681721fa.9.1784796246084; Thu, 23 Jul 2026
- 01:44:06 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 23 Jul 2026 01:44:04 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 23 Jul 2026 01:44:04 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <amDuqoRBg5qGafi2@linaro.org>
+	Thu, 23 Jul 2026 07:29:07 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1784791739;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hg5tW1Rb6Nt7cG6Ff89MFT0HTZsA91xkclD1Vy8H15c=;
+	b=FGecPVHpATjEZnX7XDaq5cdnxFlQeDRSmp7e1SvrSmotHikb1MR0Iynup1vuIb5vB725r3
+	s+iaAfHyaxYmjiGWtz750pdV16K30gttjYJ19g2K9dmckno34sxOqfyWUKBoEwFHvle7YH
+	aKpf5/2N+u1d6YVi48u14oIJPfOOTJ2pPuTKK1+zI1tgYR3BwarChXzvGbTRZlxQzusXNI
+	ATs6ANElGu40r+s77xkjU/RpccSvX64WN9IykUeTXN8sRkJ9wfaNnoQZnwiLUYy4Yjslgp
+	Bhr5uiT4E+G+NtBBuFlreLYRtXOk5DloGTY3ynMRVO+vqv3wl5gAN5BKiqjIbA==
+Date: Thu, 23 Jul 2026 09:27:30 +0200
+Subject: [PATCH v3 08/11] nvmem: imx-ocotp-ele: Remove the FUSE_ELE type
 MIME-Version: 1.0
-References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
- <20260721-qcom-qce-cmd-descr-v23-6-1be02deffda9@oss.qualcomm.com>
- <20260721134853.2B2401F000E9@smtp.kernel.org> <amCGXUUd4VmuQRGD@linaro.org>
- <CAMRc=MfBNB0pvv1kPPcswE4Y2m7PXBO49bwJg=v0+aY=JmJKWw@mail.gmail.com>
- <amC7_M-HjVZ3sQuT@linaro.org> <CAMRc=MdnSyPmbK0skMx686=wSe52nnuWgCNJ0uSoKs_=HyAq-Q@mail.gmail.com>
- <amDRxPkdvbA-iVer@linaro.org> <CAMRc=Me523xQbfJvML9taJ-fR128SJurJS4eX9N9E9WtHF5W5Q@mail.gmail.com>
- <amDuqoRBg5qGafi2@linaro.org>
-Date: Thu, 23 Jul 2026 01:44:04 -0700
-X-Gmail-Original-Message-ID: <CAMRc=McJBVkCT+rFToY-Sn+nrLy-Sb8otz1NYWkQj1J-4-RK-A@mail.gmail.com>
-X-Gm-Features: AUfX_mwJQKKrlt_uOHiEXNJho9ROwjpR_PSftHZZM5GhDPu9qwbx9QpVEO72mS0
-Message-ID: <CAMRc=McJBVkCT+rFToY-Sn+nrLy-Sb8otz1NYWkQj1J-4-RK-A@mail.gmail.com>
-Subject: Re: [PATCH v23 06/14] dmaengine: qcom: bam_dma: add support for BAM locking
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	sashiko-reviews@lists.linux.dev, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-8-e26930345b4c@kontron.de>
+References: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+In-Reply-To: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Pankaj Gupta <pankaj.gupta@nxp.com>, 
+ "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2820;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=CqKbLWJEprAuY0A/3w0FIvWFGg+83f0jb6ih5HsLxAE=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISvx0DYb97SzdWYnl5fJ/HhX/oq9YyaP1L5/Z+MLfCSfX
+ 47iknXtKGVhEONikBVTZJHit3htaxbrI3+sOgpmDisTyBAGLk4BmMhnO4b/hQ800vmm1jrG/nj3
+ +gDHJvHTPJ+TkvPzH9xr1E6f/vFpAMNfiTsrXpe6aKXvWBiuyXCpeqVIdcSStVZ+Zp+qJD7Ef2n
+ hAAA=
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_002905_680055_1FEB031A 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +85,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 18:24:10 +0200, Stephan Gerhold
-<stephan.gerhold@linaro.org> said:
->
-> FWIW, I couldn't stop myself trying to finish my "write lock descriptors
-> directly into FIFO" idea, once I started I was curious how it would turn
-> out. I think it's actually quite elegant, the loop in bam_start_dma() is
-> wrapped with LOCK and UNLOCK, later process_channel_irqs() looks at the
-> FIFO again and just skips over these descriptors. lock_ce is allocated
-> once at channel creation time, no other allocations are needed. (Could
-> probably move lock_ce allocation to slave_config() so it's allocated
-> only when locking is configured for a channel).
->
-> See diff below. It doesn't crash badly in a quick test, but didn't check
-> in detail if the locking is actually working correctly. :')
->
-> I'm okay with whatever is "free of known races" and works with the use
-> cases we have, so use/adapt whatever you like best.
->
-> If you want to use this, feel free to add
-> Co-developed-by: Stephan Gerhold <stephan.gerhold@linaro.org>
-> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
->
-> Good luck! :D
->
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-Oh, neat! Thanks, I may use some of that. And that makes you have a stake in
-this series now. :)
+There is no use in tracking the fuses that are only accessible via
+ELE API and the current lists are incomplete. If the ELE API is
+available it will be used as primary access method anyway, otherwise
+the fuses not listed as accessible through the FSB can be considered
+invalid.
 
-Bartosz
+No functional changes intended.
+
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+ drivers/nvmem/imx-ocotp-ele.c | 19 +++++--------------
+ 1 file changed, 5 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index 6ac7d588c4bd..f07565c0a02d 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -19,8 +19,7 @@
+ 
+ enum fuse_type {
+ 	FUSE_FSB = BIT(0),
+-	FUSE_ELE = BIT(1),
+-	FUSE_ECC = BIT(2),
++	FUSE_ECC = BIT(1),
+ 	FUSE_INVALID = -1
+ };
+ 
+@@ -215,7 +214,7 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
+ 		}
+ 
+ 		type = imx_ocotp_fuse_type(context, i);
+-		if (type == FUSE_INVALID || type == FUSE_ELE) {
++		if (type == FUSE_INVALID) {
+ 			*buf++ = 0;
+ 			continue;
+ 		}
+@@ -365,13 +364,9 @@ static const struct nvmem_keepout imx93_ocotp_keepout[] = {
+ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.size = 2048,
+-	.num_entry = 6,
++	.num_entry = 2,
+ 	.entry = {
+ 		{ 0, 52, FUSE_FSB },
+-		{ 63, 1, FUSE_ELE},
+-		{ 128, 16, FUSE_ELE },
+-		{ 182, 1, FUSE_ELE },
+-		{ 188, 1, FUSE_ELE },
+ 		{ 312, 200, FUSE_FSB }
+ 	},
+ 	.keepout = imx93_ocotp_keepout,
+@@ -381,7 +376,7 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ static const struct ocotp_devtype_data imx94_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.size = 3296, /* 103 Banks */
+-	.num_entry = 10,
++	.num_entry = 9,
+ 	.entry = {
+ 		{ 0, 1, FUSE_FSB | FUSE_ECC },
+ 		{ 7, 1, FUSE_FSB | FUSE_ECC },
+@@ -389,7 +384,6 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
+ 		{ 12, 24, FUSE_FSB },
+ 		{ 36, 2, FUSE_FSB  | FUSE_ECC },
+ 		{ 38, 14, FUSE_FSB },
+-		{ 59, 1, FUSE_ELE },
+ 		{ 525, 2, FUSE_FSB | FUSE_ECC },
+ 		{ 528, 7, FUSE_FSB },
+ 		{ 536, 280, FUSE_FSB },
+@@ -399,7 +393,7 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
+ static const struct ocotp_devtype_data imx95_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.size = 2048,
+-	.num_entry = 12,
++	.num_entry = 9,
+ 	.entry = {
+ 		{ 0, 1, FUSE_FSB | FUSE_ECC },
+ 		{ 7, 1, FUSE_FSB | FUSE_ECC },
+@@ -407,9 +401,6 @@ static const struct ocotp_devtype_data imx95_ocotp_data = {
+ 		{ 12, 24, FUSE_FSB },
+ 		{ 36, 2, FUSE_FSB  | FUSE_ECC },
+ 		{ 38, 14, FUSE_FSB },
+-		{ 63, 1, FUSE_ELE },
+-		{ 128, 16, FUSE_ELE },
+-		{ 188, 1, FUSE_ELE },
+ 		{ 317, 2, FUSE_FSB | FUSE_ECC },
+ 		{ 320, 7, FUSE_FSB },
+ 		{ 328, 184, FUSE_FSB }
+
+-- 
+2.55.0
+
 
