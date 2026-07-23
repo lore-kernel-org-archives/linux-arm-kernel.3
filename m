@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED04C531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32011C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybpk2brmQuhbE1+K0KF8vmtEg0Dq6Ei7nHBIr433PSg=; b=bvylaqR8eLnmcsV8XL8dI7SXml
-	fGiDimEfu+p+FPJWNh5hHLfynPAOkEpZo1+VRvPgrpaCdOzZQOSqfB0d8JsMS6mHzKywzy1pkKBZb
-	SdtvgevfPGIzfoNuuL2SQpswgqYZiT08DiD5NarsXg4HINl5/16DBYwsc8zwWLgweITOb8arYNxcL
-	j3pfcQNCrHi9nwl/IAIXJ7uNhO5YlFWsQeNcoKtVqPzj0hZeZ0RJjJLEUzDYKrfVR8YTsj5vQztwl
-	4k0KEo7yID6SC6hwUookJsGUDuKqBe3TuyzJFyR66DaN6Sf16ewjFPzayT2zFFCzXcIPMKY8brDPh
-	5XyOCjlg==;
+	bh=rLcUjx5TLo8FLuRo5+LrCHl3qmcYVmp8at9UsvIT57U=; b=kykBKgg9asj6g1JxQCULb2wiat
+	yrBQYIlV4MT0uLj9YzwO+JN5QbJbs0b2zUS3J/uueQV2jJO06uEMcUtr0lN14gVllodggtdNtJpYc
+	b9Ym3m7anRLxCNscYxWZA8k7vymJTd1JFgGRhuj1lYnjdWOtvQxI9bWpCEtxHgtaP56MPLoQ/zJmn
+	nqbMrLEOjf5+WWq3BHCR+//va16XHkMQJdzYoufF85rTDAaPghJTLR86NVGJFYOahoutM6gUceESx
+	zEth33ic1l1QOWcm+eP4hEB6gojJ5s8YbwNtCTBIRHLgfbG5dnLUdVd96Md6hq8sjFqFBd9L+XZOJ
+	5l3mGzyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqcY-0000000E1Ng-1ElU;
-	Thu, 23 Jul 2026 10:25:42 +0000
+	id 1wmqce-0000000E1Pz-1rwf;
+	Thu, 23 Jul 2026 10:25:48 +0000
 Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqcT-0000000E1Lw-3zhA
+	id 1wmqca-0000000E1OY-2Jm9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 10:25:39 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N8t4JD1974520;
-	Thu, 23 Jul 2026 05:25:33 -0500
+	Thu, 23 Jul 2026 10:25:45 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N9JkoK2008565;
+	Thu, 23 Jul 2026 05:25:40 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=ybpk2brmQuhbE1+K0KF8vmtEg0Dq6Ei7nHBIr433P
-	Sg=; b=kJls7oz+XjWY6N/VFWf0T70gOqiU7Ovw9Ijud39hKqm4s2ZvN09zba7P7
-	1Uhm2q00BD+1jgV/Hu0Q9iBHZt4lZVGlkiOJN5RQVSeeqb/k8bykmJNtFC3z7lWT
-	9WfxfHA3VZyr+EDjWPkRuzXu1mPbviwqc9tXHV3uCxBh16cAUOYLwkuEbTdpSguz
-	XyPEZncxf3OMCk+UBQaHCwl5VhDEHNABXW5WAqxJh+QtTxA4RYU5f63eMw+3MFvb
-	prP09DLr8SRxe58T0Wsb5sFyMnWfiItrufohdmvYSTs+0SMyazpi4WRhqvmapcHF
-	ZZ55yQSSz6Im7drbb2zxKC6cp1a4w==
-Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11011010.outbound.protection.outlook.com [40.93.194.10])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fjwjbxp09-1
+	proofpoint-05-2026; bh=rLcUjx5TLo8FLuRo5+LrCHl3qmcYVmp8at9UsvIT5
+	7U=; b=QzA83DR59dd2F/cIK81rdgx1CR+Y1gcDbApnOTjCs+fSkDPmInc/DqzyA
+	D/ai4CKgAG93RFH6Sc2/HmlTvaplb2/+RtVU5MmgqdqmunK09PF4mbDM5dN/F/iF
+	FcljxrQ60Zv0JphmNZMLE9XjFWBhNHZarmcJ5pcZOtXTkhy56vONSStKhK9ysQVg
+	hAGyHLO8235L3HTHwVbdT6dXnSrAz7RbAbmG+Gi/bYCMuVfw582I09NMOV0XH8tr
+	Qtmg2SVFNkFCvqPUOXa7oYmi4xonx4Xv/jzSKxaovIdAQyXqfLvMq8QlxbW2w638
+	pHqgbh9jtJCWDGV9yF6o/oPVMgc2Q==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012044.outbound.protection.outlook.com [52.101.43.44])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fkg7ug80r-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 23 Jul 2026 05:25:32 -0500 (CDT)
+	Thu, 23 Jul 2026 05:25:40 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z0L4lmo5m5xFrzyGNAYIlfT6eAgBWMLeKogFFB28tXihU02V43PWbpcY3HqFQ/jN+NnhVG3z/mHhuT2Mjemmk0P7Ii9nLQJYeYOAHAhUbQSyPPWhLJZ0oAZE9/BExVAcs0QYJIDwXtaI7hO7fewVQLSa7VF534kuN6+sj/ZF/qjaowTZCIVvMjta9/cJ0IlUl4oJjfQXhE4k1r8t+FhgAKjV2cD+5fK7VrUPRqaQIIlVEgL97NsOX6+ZLgmIY7D1rF7WDUgD8GwGZo8t4U8HaL4hPnotIf63nweLxO66F3w9hPWtAigBRJn0a3JaUKmh4rukkrb0fgBq+74uBRZG/Q==
+ b=MatTvLBfhY5cryD99xPPET6OZfQEHeVHEG13hZc8t5gDvAURu7DX5Gp9WGynUIb4D1bcWuQDeZjO0LREEZHKpq89YaAWqwxRu8jyfRmQUmUHJFPn5gjTeoUE6BTGOsBE6pQavjlqjjIltBQ1MA8/At20wh6es/fKqev/I/2ZrFq0SX94REKbOBa4hiB3rdA2Z2NHu1lcN/+dNSxXUHPzjBQOw5DY3ugUg74WdjuknI7EziqTjy9U49Zfn7unh4AM1u1xyOVlWKwqlQMR6qcBgFCe4hgpEZil3j7ywXD/hEWHu8gyTC+UzWAJiNGkm6cNEgGS6sLMUS9kL3V1DKGsFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ybpk2brmQuhbE1+K0KF8vmtEg0Dq6Ei7nHBIr433PSg=;
- b=I6FSS3BAk37PJ2UDI1losnlrivTvZG8ij7MExUjjLVN2AomJO2gu8I79R+M3VDfqNc3McW9JDxueC49lk0FOxnCBJvmFsM/RDYG5AxH51L+LiekOPStve30ySuxW9gM4kcLTHwQUkWn4vGACyb6mD0JfBB7EVkI1DUKBChEBIhYGva8ILlWuxj2/5yTUK53oS5TEx79nqal0zP2LK+kWXsZW/c0YEgVI6Bw9cc5Krv1UOHm8YxmbzTif+L2EgQopJgGs0USgM83JBx+niIkO8WzaJoGKZab6WxN51yZEBdjmkWvQQZPPF0h51ERJ1O/noO22liUs6q4E+X6Ya6ecrQ==
+ bh=rLcUjx5TLo8FLuRo5+LrCHl3qmcYVmp8at9UsvIT57U=;
+ b=HTRgiBo6XPTPIEBRQoFEg2F/vlhkoVGr48787ZmEaVa+ms3iyvR4IIZrzI90okAmLxrkuC9OW6QR78JCCQPL74v0tlkq5j2xYh2rHcWSO0jJVPzQUyTBZQi+7aS7y0vX2jIhr8dbYgLDllw1ikC/oqtugIF/rSK4DYhgSeIM0ej1p26vlMPt7bUm1ICOvJzUmL1ingxhZFzTogeKWhhXMRQwnLW5dKGyYZbJ1j7JQIkl1zj01H85OYi/AlxLgPewVEUWuFefDoCNHZSNHe96iLcp9NBzkKirJn/cNxq666BJkYEgjlJPoSI2Jh7B5IP1dXzMAfdRQ6VVMvbNL75b8A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ybpk2brmQuhbE1+K0KF8vmtEg0Dq6Ei7nHBIr433PSg=;
- b=wIWBf5QXpeV1HQCKogJc+bVimFWWB9ov/UNqDzhH3P80NuYbq9WVddZAxJHkk6N/OgJWHk1BKVUT082nOKvz7d/MVhO21xLR3sgZSXyuKT/KGefBmrxYG+Nl8CV6mm1AKrqIeh8W6w6XiyR46BlkmC7OwFbgxfExuVentPa+dUE=
-Received: from PH8PR05CA0017.namprd05.prod.outlook.com (2603:10b6:510:2cc::29)
- by LV3PR10MB8106.namprd10.prod.outlook.com (2603:10b6:408:27f::11) with
+ bh=rLcUjx5TLo8FLuRo5+LrCHl3qmcYVmp8at9UsvIT57U=;
+ b=Np/W/WmOnJI1KTLQMuWiF094EnY3h1eIjbFB7YNgYp8XtzAbuq/IzeK8Wv7t3O3q+0wKcAoOJWAlbS7JuI/pDWrQ3zTvrl5CmD+HWFOyGMQBFtvN9EcEuFpRIl1rUa9DGU7ot8RWT1aCX0T0b1g9RDbOxSjTNYpANGx7dmLWIgs=
+Received: from CY5PR15CA0093.namprd15.prod.outlook.com (2603:10b6:930:7::21)
+ by CH3PR10MB7929.namprd10.prod.outlook.com (2603:10b6:610:1ca::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 10:25:30 +0000
-Received: from SA2PEPF00001506.namprd04.prod.outlook.com
- (2603:10b6:510:2cc:cafe::83) by PH8PR05CA0017.outlook.office365.com
- (2603:10b6:510:2cc::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5 via Frontend Transport; Thu, 23
- Jul 2026 10:25:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ 2026 10:25:35 +0000
+Received: from CY4PEPF0000EE36.namprd05.prod.outlook.com
+ (2603:10b6:930:7:cafe::47) by CY5PR15CA0093.outlook.office365.com
+ (2603:10b6:930:7::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Thu,
+ 23 Jul 2026 10:25:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SA2PEPF00001506.mail.protection.outlook.com (10.167.242.38) with Microsoft
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CY4PEPF0000EE36.mail.protection.outlook.com (10.167.242.42) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 10:25:29 +0000
-Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 10:25:33 +0000
+Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 23 Jul
- 2026 05:25:29 -0500
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 05:25:33 -0500
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 23 Jul
- 2026 05:25:28 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 05:25:32 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 23 Jul 2026 05:25:28 -0500
+ Transport; Thu, 23 Jul 2026 05:25:32 -0500
 Received: from a0512632.dhcp.ti.com (a0512632.dhcp.ti.com [10.24.52.205])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66NAPKNg1518375;
-	Thu, 23 Jul 2026 05:25:25 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66NAPKNh1518375;
+	Thu, 23 Jul 2026 05:25:29 -0500
 From: Swamil Jain <s-jain1@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -101,9 +101,9 @@ To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
 CC: <devarsht@ti.com>, <praneeth@ti.com>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <s-jain1@ti.com>
-Subject: [PATCH v3 1/2] arm64: dts: ti: k3-am62l-main: Add DSS & DSI related nodes
-Date: Thu, 23 Jul 2026 15:55:18 +0530
-Message-ID: <20260723102519.3581762-2-s-jain1@ti.com>
+Subject: [PATCH v3 2/2] arm64: dts: ti: k3-am62l3-evm: Add HDMI support
+Date: Thu, 23 Jul 2026 15:55:19 +0530
+Message-ID: <20260723102519.3581762-3-s-jain1@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260723102519.3581762-1-s-jain1@ti.com>
 References: <20260723102519.3581762-1-s-jain1@ti.com>
@@ -113,55 +113,55 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001506:EE_|LV3PR10MB8106:EE_
-X-MS-Office365-Filtering-Correlation-Id: dcb307f5-d3fd-48fd-b95f-08dee8a4b839
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE36:EE_|CH3PR10MB7929:EE_
+X-MS-Office365-Filtering-Correlation-Id: 024819e7-9d16-42b2-22ff-08dee8a4ba8d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|13003099007|18002099003|22082099003|56012099006|10067099003|3023799007;
-X-Microsoft-Antispam-Message-Info: zd/NGyGAwwEKth15Vaw56QjXfDcMfcL2tZU6kMmhy9lV9zCUXaEWDKVQycF1EB9O4B1kKnYoX/2Zicd2vt1vqbG4lcP5/vUbP5fTmZutvcmSkTJHM+kNiwIk5ZL579Ey58fF3c8i2DsniowDytAAMHSF6YTzfRVTKimDOvJu65WsgqMpqd0XtSZ99gthRYSVGx4WuM5oD6Ix83Bg7mglpWldpZ2jjDWkZTxZXQLSuXTGd2ogWTh9gC6WeWQMrlO3+bw2QGE8+E+qdKO7x54tM5WJb+n8W2i9jJ57LT/LfjMJm9dOwoTjQs5chKQEHm4Zg3lyqPmEMOprUxWFpflc5YKYrFKxpbiqcXxJoWXbm44es9irk8CecePSEyKZC4zTaZiJ5WvyYu+HhRg3GDPtjbVHcDwn0HWXsf9//nlTG4yROAsbeJOAbRUquznnvIyANWjEhZy74pDYj7tYePWUhzn8uQFlcrMQSnpJPgsVfpXuD9Dh4p5L7KostfmrsoWr6EuEofb9+cVjhhYS2Gy8DC1uB5R94RZck67f44Lf4Oc6MVA4HV8ECEWrmrIUtr/xBV+iRAHLMpB3+bq8AiUCqswbR16oAV5bUDky81piFobT599pqWDse2XrJsXIM1JrHrNIpHUG2/quHIY6QHhb4pQjnx/93JuXAFZq9H7k/qNlSZN/SaWaZlpbioIy4ToKj6Gs+QYehiKkvE6I5vFevw==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(13003099007)(18002099003)(22082099003)(56012099006)(10067099003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|1800799024|82310400026|56012099006|10067099003|6133799003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: LRbBbCoEOfnpn21zMgBfTDE0Y2AvLq6d1n36oKdoUZn0nArQbFuvk5w2eR2ei0Vg8YKQJxvpl309ErXkVCJbA2CMoeh7810C1wXgSyL0zLKDhjwF7GMVeP/WKBYUcGwMm9rsN7O0kIjR6mtK49uFdH9LYWfEjoYq2qlOePmsIyaUQJZy/h9/RsnZ/ek8/FRRLuumXXvQWYtZP0l7tbl/riAx/QZw1wqTvD7lp/r++M2ZfbocorUgRtyxslhbCCk0hzr6oy4JmYQdCWtxh8AYwLgnt26O6XyoCndODL+qWSMru1M0/5CBYzYXt7CUcLVBc0x4HoGVeWo6T0V+EoiZ7k/7UBJsihQEW0Fd35wRROYJSsrxogTiqgW7rReHJ5ZLL8qK1sY7rehmpp+NZjWwTwJnDea14OXFB0o97jyBOTc8XepTsXUf4ca4Sgpl3beoJIsPjU95Lpgg9UrZ1k/plZpY45wcNRVu32xcOgtUyQQ67mxtqRdvcf2nr71W+q2f67dOG5RWnECXtSOwnBYVvALmZc/pOztKto1xvntD0hyj6dq0+KM0IN60YfrVqNuh2rBBMWyOi63YDc14LFoUmpRreYK1q6M14KqsfUobofM2xe91H+BxNYDETTqRdYYnFgAUke976MYGu1teJG6hNntHYOSiUvXPcAsLKwp4zYIRyfeValOH6VVelSrnjOvdHrhO2MaCFZ7HLNii2RcP2g==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(1800799024)(82310400026)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fq92ETZBnkFswL7ufzCG8ktlpTBExV8JYKkPCTd38QhxAwmPCRmOPUTXP05oGH/5qTAI2i73zTJy1nFjOqYD7gFsXEvo5pTl8o/4ktHMYUphcjb6/+rP6WalukL9ukrOqYNfe79NLpkHuknySil7Z0lWHY74J0m0+AIJbCrZbvlX+S2wy36o0OP9Zv3NFMOIl8w6iPs9Y3FAgjmSt7tjNbLG/RND23e7wxwNucMuckAqTSpgCggJcVXFl45dFpG6yrWHQavA5ElH8pt71wliEEB7/y5dhkZcWQ2mFyEEv5ESx1pyDViiTF68RWKyfMTZCZdk+MQ1R9jeYE4s81NvMqFKgBHsn0E7R0vW4w5Uk/tvyBcCld69MjhdLPn99WpSEyLwEdDe5bS2TCz2m08ixug8mZnyX0HUUOw5V2/k9Wvc09YHrAufWY2PpGZcootN
-X-Exchange-RoutingPolicyChecked: YVau2rSX3dwZwA3K7Mfkhe9VBTs7F+7NyLGEikS0MyWyVtlOPnNT2ZsodQuumUpCllmh+GY3YYbsVKfPFpwSintvZS3wTXrmeFWnSe822PSrg728SRm0YGQ+qrvUZrhMwHGJtpTwZxRnhzOT0PmnaD2vzitKHcWXVxa66mKgEVWkg26W+x1p9z1NS8oQqreGD/3q8CmJlf5yeGscHjaGML/+gBfy7ID9yv0862/gu+E5Qmzi3W/FSk2EJY/Kz1zkwRPZpyGRPzbO5s0Yp/6yOu3/SgvDR0/pXBbOuA7OqTs3ZLCRx+Y5D8YEPx/kRvOP9YCDxhfeMUr1BsHVITY9qA==
+X-MS-Exchange-AntiSpam-MessageData-0: VgV8V91of3H3EgSV3GyCzwzQ3zoxgi0oemChbm1XDubCfMc5bz6mRh2s3gsXPaWOlJt0vtdtjYQTioMd5q7zujRODNE3tk+8qM2DIITB8CLXC03x0Xq2t8aVivQoPopb/sIKYLoDutNvsR8VBKA8BNDVu0CMHNy2kMANMVhNcw4oyYmLuG9xTneYFS5/t8DkhD6cdnKm1hhqBDRgKathzUT77fcmV1ljuBDJOpCtsAepqlgxe+GYJ71M9EL4e3PfMuBoVBOFvmW4c0EWefK1UVQ/EzbQ/dUI1V5BHpK5uKrowQfNIFktILTcl0zgLPuv58PJPcloLiwiXWLdYzyigeWzb3KVDLHq6w6rYLlboNtZjYT9+EVAyjHdEBqGmP5u+AVmzTLPY7vxEt/EBvwOFPLWzI+KfjqrfrPKLdgSDLOvPHxANMJAf7DOrF3M1sv7
+X-Exchange-RoutingPolicyChecked: HON6ZFSFnYoszjftZbzifi/PXUIModfHRC5c6QyZ4iJrMxdq0joG5arg4Pn/7IXhgQUJgLUni03sOFC7OgZpKaE2uTkxZLn4LwOPBwnEf8Z6GtpLKCPlVdufpo4rtLa8rvVCVuzN9u03WvwahgwDnhpjeTO2iG7LUqfqdqUldd4QoK0TfPOaNISXa4SJXxrGM51QaCImy2hH2qQYC2WEQDzn2XIlstMhLMA3tqo8D4omI/f39PsUdPtienCAnYh+zRja+wexT66YZ+taZh+HfJ65LECiOzHkgWZO3mP6FHBNd/NML36w2Vt52234I7K3abGHsWP+P3/wdbniRMiN4w==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 10:25:29.5476
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 10:25:33.4353
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dcb307f5-d3fd-48fd-b95f-08dee8a4b839
+X-MS-Exchange-CrossTenant-Network-Message-Id: 024819e7-9d16-42b2-22ff-08dee8a4ba8d
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001506.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE36.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB8106
-X-Proofpoint-ORIG-GUID: cn8wm_MDcTbW0Dxm95We46S2tGJ05ULT
-X-Authority-Analysis: v=2.4 cv=LPRWhpW9 c=1 sm=1 tr=0 ts=6a61ec1c cx=c_pps
- a=PJn3dW4q50A9PoMJtOr6Ng==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=FLfJYUKuRQtBdiMmcTAA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDEwMiBTYWx0ZWRfX5ldKAYnIRyfd
- rmTYqk6F1t87y8RpEWMSZCmWjTaoXT/OzB+BTu6OWGy48j6VsjqrZnnTcVKVnxQ1ImDHE3hL0zE
- RNiIo3TsGOxTrnCui/3SIDsGCMGzECfuDnO4Uo1QT/DRc2NcYRJMfXfyckJZFOomhoBSOSE5Plo
- gD8BtEdeVP7NB+R7efxsqwKBKaIA/iDtFQODqDqL6X6pjPdb5wcQNez7kytMQw8xgTKTrWFu/x1
- FK53jUnAyIEuOYDDDqwft+0XHAYmNwtDzLQfX6LIUdIOfUPk0l7kV7Bb4l/5MOThgKdq9xTfT9G
- i3vdhpHc5vmFKP52DwPHq/o6m7qP7hez0zeOSn9xHLntppuh1hPfycZR7X/KW+IU6GArlbPQB5r
- bHXaS2DG++5Msh2dbxmWo8hcfJ9/N6jLG/ULUu0pcI7vX7jntbw5h96M3TvSY4HVdJI/OgkXemZ
- L2x601cimwY2E6OaRaw==
-X-Proofpoint-GUID: cn8wm_MDcTbW0Dxm95We46S2tGJ05ULT
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDEwMiBTYWx0ZWRfX748HqhoG0Ntv
- JlYZl4OBDr84wormByWHfx2402I0OIuDxn6bvkFk4v3NftgUfLYJ3Z3g67bXTZItDdRWG0Z5SVd
- BTBq7zQFLHF2iEz0FHd/RMNgvdPA1k4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7929
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDEwMiBTYWx0ZWRfXyALj1gJbnsf5
+ +4mv/hWJxJscH12DImrQArlv1FBuBRLD0BZnqqc6K9261+BL2ICnCax1VgO/Qb7GL2+zQWjK4hL
+ eTyDLEp9f7c4Qr1vIVGuGTSgE+DuhoTDwdA9ek7jsvHWosowCfK/vceIElC2UuCvPOWfyzgdWZP
+ jvXhE1gRbPC439hQocw/PK035zKyDkLp4cK9wQqNSBHUfpj0Uiy+LNkN4n5Gg1F2ttG12UCXdpn
+ Wro4bqWFauMVqYo89Uydm0izopwNVj5F/lG3QP54V0IozvL0ptaH9h1jisUHxnA2JvE7BNu4F4P
+ HYqXEwqu1c2VRzTaUyYPHGpswmHRbYqnF47kxkBCd0hynUR8ZLtwsyLeJaLDAkpeBuP54IQylxj
+ VJmlw66QWXFToWkLzNZlY6LjZEFXVxQBz9Zle8DrgfR+wt+XdrJXJXPVHmv5LRJjN4oiQu70OFJ
+ rX8JjxLo9crpuMnV5iQ==
+X-Proofpoint-ORIG-GUID: s73gxrcgaAiaocZ4UqcQ4GhqVK8tXcw5
+X-Authority-Analysis: v=2.4 cv=c/ibhx9l c=1 sm=1 tr=0 ts=6a61ec24 cx=c_pps
+ a=JJOFz727VvkGy7wKLfv01w==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=V5UXEbMT0ywA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
+ a=sozttTNsAAAA:8 a=t5kY5Wq1TILCC35NKeUA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDEwMiBTYWx0ZWRfXyY8qA8BBV2Er
+ o4KzrfPp6rqzNacYVd1oJVqWuqL1vj4kXZHEsr7uKKwT4DnhAZeBBtn5Y9p4f1kEBVxQ2/KODTm
+ wzq3ts2xQHCAhbnkwiCOTpysPX4Oggo=
+X-Proofpoint-GUID: s73gxrcgaAiaocZ4UqcQ4GhqVK8tXcw5
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-23_03,2026-07-22_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 lowpriorityscore=0 phishscore=0 priorityscore=1501
- impostorscore=0 adultscore=0 suspectscore=0 spamscore=0 malwarescore=0
+ adultscore=0 priorityscore=1501 bulkscore=0 malwarescore=0 impostorscore=0
+ clxscore=1015 lowpriorityscore=0 suspectscore=0 phishscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_032538_118387_11F12A3F 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260723_032544_719512_60863DF7 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,86 +178,142 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Devarsh Thakkar <devarsht@ti.com>
 
-Add DSS, DSI and DPHY nodes to add base display support on AM62L[1].
-AM62L shares a single video port for DPI and DSI output.
-
-[1]: https://www.ti.com/product/AM62L
+Add the SII9022 HDMI bridge and HDMI connector nodes, along with the
+DPI pinmux configuration connecting VOUT0 to the bridge. Enable the DSS
+and hook up its DPI output port to the SII9022 bridge input, and the
+bridge output to the HDMI connector.
 
 Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
 Signed-off-by: Swamil Jain <s-jain1@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62l-main.dtsi | 60 +++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62l3-evm.dts | 95 ++++++++++++++++++++++++
+ 1 file changed, 95 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
-index 80615ca1e01a..a3199a2455c3 100644
---- a/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
-@@ -544,6 +544,66 @@ elm0: ecc@25010000 {
- 		status = "disabled";
+diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
+index 84a0cfaaf196..2982a05f6082 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
+@@ -44,6 +44,18 @@ usr: button-usr {
+ 		};
  	};
  
-+	dphy_tx0: phy@301c0000 {
-+		compatible = "ti,j721e-dphy";
-+		reg = <0x00 0x301c0000 0x00 0x1000>;
-+		clocks = <&scmi_clk 348>, <&scmi_clk 343>;
-+		clock-names = "psm", "pll_ref";
-+		#phy-cells = <0>;
-+		power-domains = <&scmi_pds 86>;
-+		assigned-clocks = <&scmi_clk 343>;
-+		assigned-clock-parents = <&scmi_clk 341>;
-+		assigned-clock-rates = <25000000>;
-+		status = "disabled";
-+	};
++	hdmi0: connector-hdmi {
++		compatible = "hdmi-connector";
++		label = "hdmi";
++		type = "a";
 +
-+	dss: dss@30200000 {
-+		compatible = "ti,am62l-dss";
-+		reg = <0x00 0x30200000 0x00 0x1000>, /* common */
-+		      <0x00 0x30202000 0x00 0x1000>, /* vidl1 */
-+		      <0x00 0x30207000 0x00 0x1000>, /* ovr1 */
-+		      <0x00 0x3020a000 0x00 0x1000>, /* vp1 */
-+		      <0x00 0x30201000 0x00 0x1000>; /* common1 */
-+		reg-names = "common", "vidl1", "ovr1", "vp1", "common1";
-+		power-domains = <&scmi_pds 39>;
-+		clocks = <&scmi_clk 162>,
-+			 <&scmi_clk 161>;
-+		clock-names = "fck", "vp1";
-+		interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
-+		status = "disabled";
-+
-+		dss_ports: ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
++		port {
++			hdmi_connector_in: endpoint {
++				remote-endpoint = <&sii9022_out>;
++			};
 +		};
 +	};
 +
-+	dsi0: dsi@30500000 {
-+		compatible = "ti,j721e-dsi";
-+		reg = <0x00 0x30500000 0x00 0x100000>,
-+		      <0x00 0x30270000 0x00 0x100>;
-+		clocks = <&scmi_clk 155>, <&scmi_clk 158>;
-+		clock-names = "dsi_p_clk", "dsi_sys_clk";
-+		power-domains = <&scmi_pds 38>;
-+		interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
-+		phys = <&dphy_tx0>;
-+		phy-names = "dphy";
-+		status = "disabled";
+ 	leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+@@ -192,6 +204,38 @@ exp2: gpio@23 {
+ 		bootph-all;
+ 	};
+ 
++	sii9022: bridge-hdmi@3b {
++		compatible = "sil,sii9022";
++		reg = <0x3b>;
++		interrupt-parent = <&exp1>;
++		interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
++		#sound-dai-cells = <0>;
++		sil,i2s-data-lanes = < 0 >;
++		pinctrl-names = "default";
++		pinctrl-0 = <&dpi_pins_default>;
++		bootph-all;
 +
-+		dsi0_ports: ports {
++		ports {
 +			#address-cells = <1>;
 +			#size-cells = <0>;
 +
 +			port@0 {
 +				reg = <0>;
++
++				sii9022_in: endpoint {
++					remote-endpoint = <&dpi_out>;
++				};
 +			};
 +
 +			port@1 {
 +				reg = <1>;
++
++				sii9022_out: endpoint {
++					remote-endpoint = <&hdmi_connector_in>;
++				};
 +			};
 +		};
 +	};
+ };
+ 
+ &i2c2 {
+@@ -221,6 +265,41 @@ usb_con_hs: endpoint {
+ };
+ 
+ &pmx0 {
++	dpi_pins_default: dpi-default-pins {
++		pinctrl-single,pins = <
++			AM62LX_IOPAD(0x00e4, PIN_OUTPUT, 1) /* (L20) GPMC0_CSn0.VOUT0_VSYNC */
++			AM62LX_IOPAD(0x00dc, PIN_OUTPUT, 1) /* (N21) GPMC0_WPn.VOUT0_HSYNC */
++			AM62LX_IOPAD(0x00e8, PIN_OUTPUT, 1) /* (L19) GPMC0_CSn1.VOUT0_PCLK */
++			AM62LX_IOPAD(0x00e0, PIN_OUTPUT, 1) /* (M21) GPMC0_DIR.VOUT0_DE */
++			AM62LX_IOPAD(0x0078, PIN_OUTPUT, 1) /* (L22) GPMC0_AD0.VOUT0_DATA0 */
++			AM62LX_IOPAD(0x007c, PIN_OUTPUT, 1) /* (L23) GPMC0_AD1.VOUT0_DATA1 */
++			AM62LX_IOPAD(0x0080, PIN_OUTPUT, 1) /* (K22) GPMC0_AD2.VOUT0_DATA2 */
++			AM62LX_IOPAD(0x0084, PIN_OUTPUT, 1) /* (J23) GPMC0_AD3.VOUT0_DATA3 */
++			AM62LX_IOPAD(0x0088, PIN_OUTPUT, 1) /* (K23) GPMC0_AD4.VOUT0_DATA4 */
++			AM62LX_IOPAD(0x008c, PIN_OUTPUT, 1) /* (H22) GPMC0_AD5.VOUT0_DATA5 */
++			AM62LX_IOPAD(0x0090, PIN_OUTPUT, 1) /* (H23) GPMC0_AD6.VOUT0_DATA6 */
++			AM62LX_IOPAD(0x0094, PIN_OUTPUT, 1) /* (J22) GPMC0_AD7.VOUT0_DATA7 */
++			AM62LX_IOPAD(0x0098, PIN_OUTPUT, 1) /* (H19) GPMC0_AD8.VOUT0_DATA8 */
++			AM62LX_IOPAD(0x009c, PIN_OUTPUT, 1) /* (H20) GPMC0_AD9.VOUT0_DATA9 */
++			AM62LX_IOPAD(0x00a0, PIN_OUTPUT, 1) /* (H21) GPMC0_AD10.VOUT0_DATA10 */
++			AM62LX_IOPAD(0x00a4, PIN_OUTPUT, 1) /* (H18) GPMC0_AD11.VOUT0_DATA11 */
++			AM62LX_IOPAD(0x00a8, PIN_OUTPUT, 1) /* (G23) GPMC0_AD12.VOUT0_DATA12 */
++			AM62LX_IOPAD(0x00ac, PIN_OUTPUT, 1) /* (G22) GPMC0_AD13.VOUT0_DATA13 */
++			AM62LX_IOPAD(0x00b0, PIN_OUTPUT, 1) /* (F22) GPMC0_AD14.VOUT0_DATA14 */
++			AM62LX_IOPAD(0x00b4, PIN_OUTPUT, 1) /* (F23) GPMC0_AD15.VOUT0_DATA15 */
++			AM62LX_IOPAD(0x00b8, PIN_OUTPUT, 1) /* (L21) GPMC0_CLK.VOUT0_DATA16 */
++			AM62LX_IOPAD(0x00c0, PIN_OUTPUT, 1) /* (N19) GPMC0_ADVn_ALE.VOUT0_DATA17 */
++			AM62LX_IOPAD(0x00c4, PIN_OUTPUT, 1) /* (N20) GPMC0_OEn_REn.VOUT0_DATA18 */
++			AM62LX_IOPAD(0x00c8, PIN_OUTPUT, 1) /* (M19) GPMC0_WEn.VOUT0_DATA19 */
++			AM62LX_IOPAD(0x00cc, PIN_OUTPUT, 1) /* (P23) GPMC0_BE0n_CLE.VOUT0_DATA20 */
++			AM62LX_IOPAD(0x00d0, PIN_OUTPUT, 1) /* (P22) GPMC0_BE1n.VOUT0_DATA21 */
++			AM62LX_IOPAD(0x00d4, PIN_OUTPUT, 1) /* (N23) GPMC0_WAIT0.VOUT0_DATA22 */
++			AM62LX_IOPAD(0x00d8, PIN_OUTPUT, 1) /* (N22) GPMC0_WAIT1.VOUT0_DATA23 */
++			AM62LX_IOPAD(0x00ec, PIN_OUTPUT, 5) /* (M23) GPMC0_CSn2.VOUT0_EXTPCLKIN */
++		>;
++		bootph-all;
++	};
 +
- 	gpmc0: memory-controller@3b000000 {
- 		compatible = "ti,am64-gpmc";
- 		power-domains = <&scmi_pds 37>;
+ 	gpio0_ioexp_intr_pins_default: gpio0-ioexp-intr-default-pins {
+ 		pinctrl-single,pins = <
+ 			AM62LX_IOPAD(0x01b0, PIN_INPUT, 7) /* (B12) SPI0_D1.GPIO0_91 */
+@@ -321,6 +400,22 @@ AM62LX_IOPAD(0x0004, PIN_OUTPUT, 0) /* (AA23) WKUP_UART0_TXD */
+ 	};
+ };
+ 
++&dss {
++	status = "okay";
++	bootph-all;
++};
++
++&dss_ports {
++	/* VP1: DPI Output */
++	port@0 {
++		reg = <0>;
++
++		dpi_out: endpoint {
++			remote-endpoint = <&sii9022_in>;
++		};
++	};
++};
++
+ &sdhci0 {
+ 	/* eMMC */
+ 	pinctrl-names = "default";
 
