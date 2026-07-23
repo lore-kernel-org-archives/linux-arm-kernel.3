@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50C3C531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F8DC531CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CiRRBGhgo+/JNW8LKBdu7urL+eWjfJ9C8Tc+eH+pijs=; b=YCaLOfLqpqifWi8bkjVlKAhPxC
-	5rG2gbGki3eYoya/tTXCVlLuAWUefXkQqw9Q4sX3jY/4rhXvQGfmNfPI8ApnCjPtOa+YLlklNk79x
-	NwstUjByTitNT6t78Rcq1cOPa8OYy5NdGHENublMnfoGOju3G9kCg1AgPVmShoLdAs+v7HPEDCMZb
-	RHx0H/64oGAiHF7hf8Efna5CMX9mqFZOcK7968+i4lXuIWTn0eg++M0EaEpQBv4G0hDnrMGbH9REU
-	ZC+4T/ap1gIDoXf7zTYVqNFeVzHcrbxylTxq0q4DFrlKKq6D+3PEM3Gm9WnA/PaElKsnQ0T5M3Iqn
-	ZdJqo38A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cF6Kerioyn7MXtxYd1Ov/DR+CcXp3mUtdJwYQP0QVv4=; b=g7RXcRgxDcyorSkWDWnt2eOQCE
+	17FO9QW1F+YFIqwfnchAaQZ2cMJ2/HoffdaV0z0Q4FLo5IwLfR1y7ETVMSn0pxGMapkZtR4wOUtz5
+	LjBnwX8VBsMnHCJ9ERVEOF+UQ+zbME5Gz0ElxzZ7azE7/r7SBwlNWH4KfjlNcYvhXqCprobsrxj0Z
+	Jr9FgEhAGpur/Vv6i4nTUCuEo1QXtGmT/1/R+8h/HMFshJJO3+qqLE0Se3i0f3X2RZzlKcZsJw6rM
+	2zXra78RHs7WsYihaMOKo7GQDF5LH4HzK1wrxEOojMkFnPjw12AuvHABcakE8nkcmnJN25y4sT7Pa
+	X3c9lj6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsKD-0000000EDJi-0VAj;
-	Thu, 23 Jul 2026 12:14:53 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsKA-0000000EDIw-24di
+	id 1wmsb9-0000000EFA4-3G0X;
+	Thu, 23 Jul 2026 12:32:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmsb7-0000000EF9g-3FOi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 12:14:52 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51c01c79467so242151cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 05:14:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784808889; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QVINgh10arqE0PtwT61MToRoZZFN80rtIw8mBTYMMvZgvcdKzG2e9E1ZT6T0HKoXLC
-         rWyH5563t0deP358BDxDYb7UnXPtheVVDvGfqRq0fWT+3j/gPXDnfBZJ/RR0mRp167Ht
-         6nC3zHNtYq/DQFTHDnz6k+wAz6aXi30J5yyzcZB8IamkoMzrPYmePShwG0W21y2uiVvh
-         npLvf9UGoHzhoDD9AfwS2Nd0yFxrgM2yMOG7Fob0NpOVzIR66RUNsN+7/F3a42bJ4o+J
-         Mv1a4mnOCSROyVpJvs51nHa3bCWsHvFcwoMxdTcaNnXPyCQg3Nb6qLBmbedz2zU/rLxr
-         O7NQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=CiRRBGhgo+/JNW8LKBdu7urL+eWjfJ9C8Tc+eH+pijs=;
-        fh=7fJ00OUtXpr6ZcciLmQJefD7tnV/OlhGJtfrsd6fgdI=;
-        b=bkNeDqhjlcrvrAyMi4e8aPIAkfp1DaRVJ+d2kjzc48FIZU5F4Ve1k5aAcWxsobQhIz
-         2Gf6gH4b7sOr9MEgGdJ6Cjj0xMgE6+11p+U32H4nTRQqVxIIyCJOpDUfsFdAObMwtOF2
-         SpgOk7FW1xaiRHHr6Srvsf5S7kklcQERq7gJ9avT6QajsZWOqMUVi5vadDKOS6sSzpLf
-         ftTP4jzkiqk5v3A7xfVtRZpNw8qiiqPWCmM39OwO980aGePxSqUlsfrJ4Cr6MoLiSeOj
-         DcfbeaM8Q/iy0Cc93hNv1BR9/wa9dJYkgwEdzv1UBIoNSuZ+oBSi60TjJ0K8zf0ewEnD
-         H3Jw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784808889; x=1785413689; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CiRRBGhgo+/JNW8LKBdu7urL+eWjfJ9C8Tc+eH+pijs=;
-        b=DQwJBwkfGEUo6B78a0yE4VBbigzeHeD2KNauMbiCV33a76lGmdc55TcSnys/fiJj0G
-         aEtvoqxqUiq0opOSHuTD5xYvvOkaPZ8h6W7azEHmvpVDZBj3T5reW/sFQHK50/V3Bn/s
-         qPwwo24cHN7TmYt76PtHt7n/fwq933Pe+KrygmSGHRm1fZORsMnnz5P1nzd6Lkpg00Jv
-         w6ut40PfeVhJ4xgA0h8YwM2hX59A9QglpLHLObkZy4LXX5EHtB77x8FxYnA7utHmgi/h
-         EZw0dhHnw+fErrwE3nFoZjQmD+yGibkLQItq6S51ZJS8Z3ogsw6VIdtoK6NRp1xvFvxc
-         Dspg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784808889; x=1785413689;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CiRRBGhgo+/JNW8LKBdu7urL+eWjfJ9C8Tc+eH+pijs=;
-        b=G873ReBrDIM5tCDo0Td3ff7c5P8gX3CYhnAlAfy0cijQTTH3PfZMojGDJnNaUmdBIl
-         kHYdE2qZ2tCQjGZz/ESM1WtjVRxy3w6yWoNt5qZ5eUJR0a6fJLhBssyk9jcopCnsM/xc
-         IHTGQex2kMDpefmy9RLUqGq970NLxeaSlvHZ4+v1OxcBr6nXcyCgGaS5h2TvpGj2Ohh3
-         GJa6SmRwNUZo+fdcfCVAmFykPFAt2U2I5VAnRin2XUtHyNIrBtTaMhUZVSnh0bTwA4bF
-         PhFYcaYk+OBaZnfXS4hgSi2Xsau4Xk+5yDfulnu0atWNOeTZJ+24ODvGNbNHgl6qVWnA
-         GLsA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5SjXeTPdyt5qCqIBGV/1dl+Bt8Les8j5ryb8J1FCX3bXHpfeUu3fYIKvooGtFyhPClkJSx/incIswC4bMt18i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSBmjoqY6EqmNnD/uVo2A55die0N1RVPV76O+efFgZxupGoeL5
-	HQSQnX5y/lgKnqN8244V8GhJzhCnY9FTaozigWsUjBUQSV0Zqk/tULuf5FbiLRdvXDEKKsw6sEZ
-	WHsp5n7s8j8nU2f0WYSeG5aJdXk59Yz++PLNMg/1u
-X-Gm-Gg: AR+sD13QM892UWEXfI1jV1b96qCYLHSBqtJ7VwZm2U65GHx6Wh6Gmzc9Bn/+Isj7+US
-	a00jx3wteF/J2iYihcwKZU8KkBTSPQ6iaxn4a6MMJxUwdEqyYRal5D212nnTUq7qfT5mA1GaUcd
-	3hsG7n7VlHzNeKESY0lhMXWGMsVk2/7qlEvQ/KjOFNaqc/JIBSSs22aG7u8/8+7w7/8vPA7e0hC
-	LN4VLsRVgReHeJuiUGtARnyncZWS66iuYZ9AYZGvlQI4UBLmgzWom9SWKbWmoyftdFvTA9Z
-X-Received: by 2002:a05:622a:aa4d:20b0:517:38aa:c2b3 with SMTP id
- d75a77b69052e-5283bb02792mr9318891cf.14.1784808888595; Thu, 23 Jul 2026
- 05:14:48 -0700 (PDT)
+	Thu, 23 Jul 2026 12:32:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 752451477;
+	Thu, 23 Jul 2026 05:32:16 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA5063F59E;
+	Thu, 23 Jul 2026 05:32:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784809940; bh=pGFCcgmtP66RoZMszPwjCpkcv+BiFgQPgqBlPICwB1s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G9WCeu+Pacpjw6aajzuQpslJvP5yu5tu+wShgkZR07J19Y0Ovr69JYVRvye8sGgu+
+	 VuvNkLyqcWt7ozAQefvkdPOv/C8vWL0X/NSsXj0yKBUNi9LGJX7ia/rzukvo9Zz4Hv
+	 +4TeJKvlyYzWH387wjuKHj5EQAEj14atc147Evvs=
+Message-ID: <5417593d-9ef2-4ef0-8f18-6b92d1494751@arm.com>
+Date: Thu, 23 Jul 2026 14:32:19 +0200
 MIME-Version: 1.0
-References: <20260720171513.1415357-1-vdonnefort@google.com> <20260720171513.1415357-14-vdonnefort@google.com>
-In-Reply-To: <20260720171513.1415357-14-vdonnefort@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 23 Jul 2026 13:14:10 +0100
-X-Gm-Features: AUfX_mw7x-tTweQMnMrY_kzHt22RrLf9Q-xFkE3Gv6ElRLMYqmF515Q8iWNUSK4
-Message-ID: <CA+EHjTw7t6KHuQwktNN5_dJgZCxeWejcoQMz3pe6wUuS=R+QtQ@mail.gmail.com>
-Subject: Re: [PATCH v3 13/17] KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 14/16] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+To: Niyas Sait <niyas.sait@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260710144520.917375-1-andre.przywara@arm.com>
+ <20260710144520.917375-15-andre.przywara@arm.com>
+ <c687f89e-d36e-4d8f-8b8d-695f2a8249ef@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <c687f89e-d36e-4d8f-8b8d-695f2a8249ef@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_051451_263522_8F026C46 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260723_053221_890928_CF90A207 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,33 +83,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+Hi Niyas,
 
-On Mon, 20 Jul 2026 at 18:15, Vincent Donnefort <vdonnefort@google.com> wrote:
-...
+On 7/14/26 14:27, Niyas Sait wrote:
+> On 10/07/2026 15:45, Andre Przywara wrote:
+> 
+>> +#define MPAM_VERSION_MSG_SIZE    (PCC_TYPE3_MSG_PAYLOAD_OFS)
+>> +#define MPAM_READ_MSG_SIZE    (PCC_TYPE3_MSG_PAYLOAD_OFS + 3 * 
+>> sizeof(u32))
+>> +#define MPAM_WRITE_MSG_SIZE    (PCC_TYPE3_MSG_PAYLOAD_OFS + 4 * 
+>> sizeof(u32))
+> 
+> I think these lengths are wrong for ACPI extended PCC shared memory.
+> 
+> Length should be command + payload, and should not include the payload 
+> offset within the PCC shared memory region.
+> 
+> I think this should be something like
+> 
+> #define MPAM_VERSION_MSG_SIZE  sizeof(u32)
+> #define MPAM_READ_MSG_SIZE     (sizeof(u32) + 3 * sizeof(u32))
+> #define MPAM_WRITE_MSG_SIZE    (sizeof(u32) + 4 * sizeof(u32))
 
-> +static void errno_to_smccc(int ret, struct kvm_cpu_context *host_ctxt)
-> +{
-> +       struct pkvm_hyp_req req = { .type = PKVM_HYP_NO_REQ };
-> +
-> +       switch (ret) {
-> +       case -ENOMEM:
-> +               req.type = PKVM_HYP_REQ_HYP_ALLOC;
-> +               req.mem.nr_pages = hyp_alloc_topup_needed();
-> +               break;
-> +       }
+Yes, that's right, that's just the MPAM-Fb visible part of the protocol 
+message, not the potentially preceding SCMI header.
+Adjusted it like that.
 
-Sashiko raised this in a different patch. This turns any -ENOMEM into
-a top-up request, but hyp_allocator_map() also returns -ENOMEM from
-the pkvm_map_private_va_range() failure path without setting
-topup_needed, so nr_pages can be 0. The host then handles a 0-page
-top-up and the while (!__ret) loop in pkvm_call_hyp_req() just
-re-issues the same failing hypercall.
+> 
+>> +
+>> +static int mpam_fb_build_version_message(unsigned int token,
+>> +                     void __iomem *msg_buf)
+>> +{
+>> +    struct acpi_pcct_ext_pcc_shared_memory *pcc_shmem = msg_buf;
+>> +
+>> +    writel_relaxed(0, &pcc_shmem->flags);
+> 
+> Here the flags are always 0.
+> 
+> If the PCCT advertises interrupt based completion, I think we need to 
+> set PCC_CMD_COMPLETION_NOTIFY here. Otherwise the platform can process 
+> the request without generating an interrupt back to the AP, and the PCC 
+> driver will time out waiting for completion.
 
-This might not be reachable today, but could you make it so that
-errno_to_smccc() raises the request only when nr_pages is non-zero,
-and let -ENOMEM propagate otherwise?
+So yeah, Ben commented on the previous version that we don't know if the 
+platform requires an IRQ or not, so we better leave that 0.
+But on platforms that do require one, we probably must set that flag. 
+TBH it's a bit odd to have it, since it muddles transport and protocol, 
+I'd say. In the kernel it shows because the client doesn't  have easy 
+access to the PCCT options, that's hidden away by the mailbox abstraction.
+I will bring the flag back, under the assumption that an agent not 
+supporting interrupts would ignore it.
+One other way I can think of is to peek into the mbox_chan mailbox 
+controller structure and look at the txdone_method member, to check 
+whether it says polling or not. But that sounds like cheating and 
+violating the abstraction. If anyone has a better idea, I am all ears.
 
-Cheers,
-/fuad
+>> +
+>> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 
+>> msc_id,
+>> +                u16 reg, u32 *result, int mpam_fb_command)
+>> +{
+>> +    unsigned int token = atomic_inc_return(&mpam_fb_token);
+> 
+> MPAM-Fb token is a 10-bit field in the message header, so this needs to 
+> be masked before using it. Otherwise once the token exceeds 1023, the 
+> platform returns the wrapped 10-bit token but Linux compares it against 
+> the original value and will probably time out.
+
+Ouch, that's a good one, thanks for spotting this! I confirmed it by 
+initialising the token value to 1000, and indeed it stops with an error 
+after 24 transactions. Fixed now.
+
+Many thanks,
+Andre
+
+> 
+> May be something like:
+> 
+> unsigned int token = atomic_inc_return(&mpam_fb_token) & 
+> FIELD_MAX(MPAM_MSC_TOKEN_MASK);
+> 
+> 
+> Thanks,
+> Niyas
+
 
