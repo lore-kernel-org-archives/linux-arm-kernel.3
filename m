@@ -4,133 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C835AC4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 04:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5445C44524
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 04:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkd3yxuI7Ji+7sHH6dANqOiguDQqyDXpKnLaGP9dPPI=; b=zjFk366KLB1XP+Bo814EhUmiin
-	kW+Tigs/z0W0UpOEQFPDoQ2MGH6ifQrNd1tn6gQsDlPCAv4bJPsCXj1C7E+rUDw+K+K1XC9zK7Nrx
-	sNWIHfeGpcR6PYjnWjURfM2zNp6UbHa5LTGLkA4ma/39gt6RWXtV827/s0pXmP0VrIgqzTuSUyY/E
-	rGcwy71h5qWwoCMryBz6W6upQdkA6JePi+BRzmC+CcHDmkSzllPpzH1DOxthnpwn07Z4XEaAAMoDL
-	KI/+MygLVrTzxKdEEEHGZnCW4WPa2VU1m0T5ZikkYt0aDcJocPgjwYYNLGVlds+5UbPWgjNPHz63e
-	bjSbwfYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fTOSR5nWK/3+b9eKcahbH+r08eutGIXXOX0UT8IUdAw=; b=lMEnjhrldOFPNJG9po3/NFoVbH
+	w9cj5uwaANootbaCvLKfWvI8SGWjTsCjYvHMCHx/NXbmJK48gV/Q+t2UtHp8TU0arINK/zOBlN6Zm
+	pGRciLUYo0ghXlDVkXYTQPzWZ77VuSrRTihvXviz/DbWYl9Z7XovB8nzA8H0vULFvBfxKvX/yBxk2
+	zWO+OlDJfhE1RXgRJyMbcrT1HsElcP5mWsi0qzUb4hMa5RpZDp0a67R/cfyj+qCwgKwjNRSD/xXE/
+	yGZ4clym0+xHTNOl0vozPFqZflowthPgZrrzYc7ICEa/XJ7XDlk4pwRElynGjLk3Mu8ffARFcYdD+
+	pv10U0pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wml8n-0000000DP0O-2S5c;
-	Thu, 23 Jul 2026 04:34:37 +0000
-Received: from mail-westeuropeazon11010035.outbound.protection.outlook.com ([52.101.69.35] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wml8k-0000000DOzg-3Vjf
+	id 1wmlFx-0000000DPGS-1YsC;
+	Thu, 23 Jul 2026 04:42:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmlFu-0000000DPFx-243l
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 04:34:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IlcAMTrxiI6vBbIu9HSbtlTLOaVdVUvnx/YMT6VNkp5IoQXv/SkOT9XhmW3a9a2aIQdWxaGedoGo2MDrXAgr2305Na7y8CCZ+TF3jjfWR33qAIJES4APeaZM+/gjwfcFlnzAUemqU1gD6HC6FFv51lP00vBUt7Ykvs/wDhu6/xL5auitETwGTjWSf6OotDSURwyUwO4oDmYoBXTJZ7RTR2hw1oj8A281Sx9dLk8XVAu8feLze2ZQR5aJzTMSnkI5W9r9pzjE81LL39eYrOdey1lXZxdZJIewaNYhYqJvc/YKdOXbicTTWloGBfNqFWtbl1KhJMew6FQzmFcDkpbD8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qkd3yxuI7Ji+7sHH6dANqOiguDQqyDXpKnLaGP9dPPI=;
- b=Fpua/GFNf9YyghgfHfxl/oYMIZAp17RyJJdeo4MMCsHMWvLwmXW6ZerQzQQJD1IXLmwRmlS5CRW/xcdyTdB4GimmRcrXQJv19Pj/+iFCLGibhg7ac2E5JaMCNR6QzpoWIwKLeP5gO9jHLDHnTYhJASTIRtFF26N4TdIJ9O1+njqG+BQ+oSa/85fHLJwggfHWmS9AfgSZs9Lx5T93HxsntRoGfnn1yrbngm+wHpF8bZVBl692n5y8Lndifu/lfR0urTVSSpxcQS84DtUaP6fsJLH70pSOOZtQE+ERcnB2WFmZoGcmLU7nQgo+LAYt14lvs+i33CUIYolym3hY2g6UlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qkd3yxuI7Ji+7sHH6dANqOiguDQqyDXpKnLaGP9dPPI=;
- b=Pnv404UpaRsKFtCMF+q7/pY3djY78TItLhZ4pHEb7jPVCAsaQ7Oo5LW5nT32M7lFH0oxBjZv0dLVXksVqdxBBEx52jb3bQ6Gd6w34VEbeY0pjLZKaL1FHRq/VBVbkj54KFlAKfwT33B5tzizVhTTmBifdwxWcKOotuJzM0a5C+7sqY4+qpOMJDTVK0lH3M50jcfpdfXGzQX1K4aKWeaf0C5IhtQBtQboUNUm956QB7m7A00bO+kbm5+/5IwlSFV2aO6KhTdQrhHnKIkrLz4HFEAiy5SrC7Ve+5pJdwPcsesN1P+rfd9K9vlG4NP1gSbzIV+ipwN9PnujUhiMuY01Cw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA2PR04MB10374.eurprd04.prod.outlook.com (2603:10a6:102:41e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 04:34:28 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
- 04:34:28 +0000
-Date: Wed, 22 Jul 2026 23:34:13 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: shengjiu.wang@oss.nxp.com
-Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	shawnguo@kernel.org, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com,
-	nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
-	linuxppc-dev@lists.ozlabs.org,
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Subject: Re: [PATCH v2 2/5] ASoC: dt-bindings: fsl,easrc: add ports binding
- for multiple conversion paths
-Message-ID: <amGZxZPs1gvPcMeF@SMW015318>
-References: <20260723022313.1905051-1-shengjiu.wang@oss.nxp.com>
- <20260723022313.1905051-3-shengjiu.wang@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260723022313.1905051-3-shengjiu.wang@oss.nxp.com>
-X-ClientProxiedBy: PH7P222CA0011.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:33a::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 23 Jul 2026 04:42:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7450F1595;
+	Wed, 22 Jul 2026 21:41:52 -0700 (PDT)
+Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C47483F86F;
+	Wed, 22 Jul 2026 21:41:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784781716; bh=wtMGDCZcLEGEh1yX4/vwpKbFUb8yUlIMMwg6fQRKGKY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MPbj8IMQdkTHie1IuSp8NHn1Dka27XP+6CW514bDxNCVDnM+NAjilNdmscajx0PHG
+	 HIS4CpPZVU3wtBKjdPa/pt57UJSGMnPNO0YLhltTXuki8DcOQKUI9slTMZcDWumeuY
+	 uv0ab3qzp8aXFXVCElaZLEZr/YzIwQcHI6uFOsEM=
+From: Linu Cherian <linu.cherian@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linu Cherian <linu.cherian@arm.com>
+Subject: [PATCH v4 0/6] Add BBML3 cpu feature 
+Date: Thu, 23 Jul 2026 10:10:27 +0530
+Message-ID: <20260723044034.2983651-1-linu.cherian@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10374:EE_
-X-MS-Office365-Filtering-Correlation-Id: 99dffb3e-288e-4d98-81c2-08dee873ae5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|19092799006|1800799024|366016|56012099006|11063799006|4143699003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: voGXeRGPRGIyprTfRaWEiWAt+lHqgfw74oH7H0hGYykoynlx2RwIKQN3dczkE390gI+SNljzqMO9NtFRFMIZEVl42RFZitEKyVTyfH7VN8GRX30/MaCh4dtJxwqdhtwhGfbJ1z7n/HXR7NicSygYw39cHoGDM2x1DA18NZn8XULTR5UWk7t0xulqh7wIBpw+EUgSk0Uo8gZG+tUHl+WWAt5ysRdrk80sXadCLsyH/3WBQp6C677jhu1XzieKmCKnvjp3XgAjQu80L/58Hilj6wiVrQGAy9lZQqDAl2G2tRlfTzjjBvzLrMC/NO6pqvV26gJ3r4eDItHBBBybUyM6/em1W/yLIShU2oWDH91NsLROSuXY65oai5F/FbPOgJT7/8duGjtp2S4ACbGkfJVK7jotRtkbqTrafstkcAp802geQBBy+HIJik9x2e/3tS245K3+j6XWp5wAqNeJ46FHlBpanyMj0wVW05RniQTo6xMpLgt4yuzltLgRLnZeH4vRh/Gb9SkPDBftjnc4q5DqwBlJgpufcfdsR1kd//jbVNq5KK5iHO4yUTiyif8sHFsFPBAU68w/Get9HOQrgtRdG6UmNthddFnxOU7eFxZQDub4/Og5Pt0H9yAix96ileB09Iiq2ggxbqAmfFOYnX6vn9SNrnELI8IRsdnxbvqKTUo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(19092799006)(1800799024)(366016)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iqP8A6EjygAO7nDzZ29LDYlupFaxQylBgbqU9d+KbwW8LhT2QF/NNJEJ7KEc?=
- =?us-ascii?Q?/9HIjfvcxwGxEynzvz+TlRDTIB4f0ay909OU1gC1t96y7ZfnkwbdFjIMGteQ?=
- =?us-ascii?Q?sBv6Mfl7f2Cw8+lyGygWT5IqrcZivkHMYT2b/4cf0Ua+2jfKVDu1m6p4VN1c?=
- =?us-ascii?Q?C94IsFYxtUNhmV1xLTrAO1Aygd5udEi9iCJ39iW8/sRe4nJkR7u7Eh9N9Kx+?=
- =?us-ascii?Q?gJgQaU1qP5ouNVIo08rsmvlTeu9o8NVz+gZ5CNtpAVazW7jW4tTc+F90Q2lx?=
- =?us-ascii?Q?4kIZiYiFh8Ec9VDbFaHvz5lPJT5OhdDP23AhxUvh6AcpOwzQapTmLNFPJRSa?=
- =?us-ascii?Q?uUUOxwv8RfmalXrskdgJJajszNsZdOhy8TcH9jBkFtiMZYFkKFUid11iJdRQ?=
- =?us-ascii?Q?fhaZqrzZRfJtc6PomqM+74Qki5nR5183IrvJS+dvvi+YpnCrNXvZULdc7c2D?=
- =?us-ascii?Q?fVXQnMc085ocMksQz/JwJRxrmUexRXN6UEnexLzn5NvzzoHrlWqdRTIZWHbJ?=
- =?us-ascii?Q?GthMtQxAP4FFds89UOmYoPvs+e6afsihE9T1Fu0Yh9OYjCkC5oHi3QrPo2yq?=
- =?us-ascii?Q?WSkmArirogFmK+Ul/STuX4yMYZXd5BAiOdhIUDcIhRTRHwCp8x6iTXzw3Eqo?=
- =?us-ascii?Q?O6DdONUf1rE5rL0/vA3UhMU6XBNMKqSmjTW9/DIU62IhqJZHYg5LQRz/PNzb?=
- =?us-ascii?Q?VRdFB3O4twAaq0eCwxBux8GVuZ0hLIcltwSkyI80GIHwmKtxqwq73TtOSgMH?=
- =?us-ascii?Q?1r6h+53cNnX6Esdi4lPPrFDv1XU1OdluWJjuYDp05R6+4cZAscVNlgX5QzCk?=
- =?us-ascii?Q?fw85xVkisZX9n03QdQaQPgWPoQKRAhe5LA04RqyhFFfMwb8USb1MWpL33D26?=
- =?us-ascii?Q?fn0gBSsOFBQNS3yFbhOXDlcYP2feR6GnXQ2Uwgmkftx7faWQK38TVM0bUAgP?=
- =?us-ascii?Q?/Xw0M4r8TaJxqlK2hM9vH8h4ikVJmD3ZRbshKkkWEgGduLDiwOLs8QdH55cp?=
- =?us-ascii?Q?HQtDiWNQA8peCbivp560AQEO3mcmFQ3pzWPCjLVZAt+DFwr8NSq/XhvlZ2cR?=
- =?us-ascii?Q?leTxKg0mZrvWWUYH0+X1OGV9PSZPFTzhrODbXHoCpls3cu0SYPVfdBHWHCOp?=
- =?us-ascii?Q?PuxyBPfsDwAh6HGqoTmM/9yULPwJnwLpqhaUkAmkbvTRkaVPpsYcE93H4sML?=
- =?us-ascii?Q?uwd0QvdetPnge5o/pPqjnTURB8zNTOvYNm6TXE14QFfK1KDIVN7B5ZJA5DGb?=
- =?us-ascii?Q?j5BY2ybdQ/EIV5hRaSbXBa0G/t/eHtvtxN54Kuw158GzMFbL2LwvAWdfIctB?=
- =?us-ascii?Q?RmQ5gMfwNy5/zoFcKesVFfNB3Vvugf+oz8Iw53vo5vif26sOFlOWe6Bk/ANC?=
- =?us-ascii?Q?3O6Q0CGiFRtxhTgGkvp6e4wHaoq9oKXo9OXttsPul/mRiV9n6d0bT3MTkTX/?=
- =?us-ascii?Q?p6LRNj8N6RcDxAsevrykx25N2fj2+9lQeDhS3m+qLXomZxIQR6Pe20241jQm?=
- =?us-ascii?Q?MsZRmKU6V90K9WACGasFtRzEUbUmcC1Fh2Xz/+BUza8X4yTYeUC4qIjlMID1?=
- =?us-ascii?Q?1oriwURowvaoGubwl8XOEclyDkTL/S6hNoT/cZ1JK/2z+mJbDHKFrVvxXZjV?=
- =?us-ascii?Q?ohqAw4OMYU3vlkWFJOKWy9trCUZCfBe/jE/yU5/DOohhmhKdeO+9hOs6CnOZ?=
- =?us-ascii?Q?N8vwUPJLF2yI/2tVwhs3ES7Ukf514DMiuw6qVYUDi5pmZ8axi0rBo7c/gD3b?=
- =?us-ascii?Q?YAJgdl2T0Ab8kbKRrFP/zeXC85aElIfwJXRlkuFzcTKHvgVcrL8m?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99dffb3e-288e-4d98-81c2-08dee873ae5a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 04:34:28.0732
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3fLsy009BxTY8JWNgALSI8ymZnMEx1uR+flN25t/mOafloQ8r7gkn2VMBY2nMgRzd76wdw1l5hJk8mSFBEpZn6c2hduWrP+iaQuNvUzSebTzlfJrukXPMqdfpqzhWW0c
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10374
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_213434_908008_62F28206 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20260722_214158_670715_42B131CC 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,121 +73,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 10:23:10AM +0800, shengjiu.wang@oss.nxp.com wrote:
-> From: Shengjiu Wang <shengjiu.wang@nxp.com>
->
-> The i.MX EASRC hardware supports up to four conversion contexts
-> (A, B, C, D). Add a ports container property to the binding to allow
-> each independent conversion path to be represented as an individual
-> audio-graph port:
->
->   port@0 -- conversion path 0
->   port@1 -- conversion path 1
->   port@2 -- conversion path 2
->   port@3 -- conversion path 3
->
-> Each sub-port references audio-graph-port.yaml and follows the standard
-> audio-graph binding conventions. Contexts are allocated dynamically at
-> stream open time; each active stream direction (playback or capture) on
-> a port consumes one hardware context.
->
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  .../devicetree/bindings/sound/fsl,easrc.yaml  | 68 +++++++++++++++++++
->  1 file changed, 68 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/sound/fsl,easrc.yaml b/Documentation/devicetree/bindings/sound/fsl,easrc.yaml
-> index d5727f8bfb0b..e6d7cae5983d 100644
-> --- a/Documentation/devicetree/bindings/sound/fsl,easrc.yaml
-> +++ b/Documentation/devicetree/bindings/sound/fsl,easrc.yaml
-> @@ -55,6 +55,14 @@ properties:
->        - const: imx/easrc/easrc-imx8mn.bin
->      description: The coefficient table for the filters
->
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +    patternProperties:
-> +      "^port@[0-3]$":
-> +        $ref: audio-graph-port.yaml#
-> +        unevaluatedProperties: false
-> +        description: port for an independent conversion path
-> +
->    fsl,asrc-rate:
->      $ref: /schemas/types.yaml#/definitions/uint32
->      minimum: 8000
-> @@ -107,3 +115,63 @@ examples:
->          fsl,asrc-rate = <8000>;
->          fsl,asrc-format = <2>;
->      };
-> +
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/imx8mn-clock.h>
-> +
-> +    easrc1: easrc@300c0000 {
+- Patches 1, 2 and 3 adds more cpus to the bbml2_noabort 
+  support list. bbml2_noabort would eventually gets renamed
+  to bbml3 in a subsequent patch as they are functionally
+  equivalent. 
+- Patches 4, 5 & 6 introduces BBML3 cpu feature
 
-Needn't label in example.
+Changelog from v3:
+* In order to cover future C1-Ultra and C1-Premium cpus starting
+from r1p1, replaced MIDR_REV_RANGE with MIDR_RANGE in patch 3
 
-> +        compatible = "fsl,imx8mn-easrc";
-> +        reg = <0x300c0000 0x10000>;
-> +        interrupts = <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&clk IMX8MN_CLK_ASRC_ROOT>;
-> +        clock-names = "mem";
-> +        dmas = <&sdma2 16 23 0> , <&sdma2 17 23 0>,
-> +               <&sdma2 18 23 0> , <&sdma2 19 23 0>,
-> +               <&sdma2 20 23 0> , <&sdma2 21 23 0>,
-> +               <&sdma2 22 23 0> , <&sdma2 23 23 0>;
-> +        dma-names = "ctx0_rx", "ctx0_tx",
-> +                    "ctx1_rx", "ctx1_tx",
-> +                    "ctx2_rx", "ctx2_tx",
-> +                    "ctx3_rx", "ctx3_tx";
-> +        firmware-name = "imx/easrc/easrc-imx8mn.bin";
-> +        fsl,asrc-rate = <8000>;
-> +        fsl,asrc-format = <2>;
-> +
-> +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            port@0 {
-> +                reg = <0>;
-> +                playback-only;
-> +                easrc1_endpoint0: endpoint {
+* Few minor fixes in comments
 
-Needn't label.
+* Collected Reviewed-bys.
 
-Frank
-> +                    remote-endpoint = <&fe00_ep>;
-> +                };
-> +            };
-> +
-> +            port@1 {
-> +                reg = <1>;
-> +                playback-only;
-> +                easrc1_endpoint1: endpoint {
-> +                    remote-endpoint = <&fe01_ep>;
-> +                };
-> +            };
-> +
-> +            port@2 {
-> +                reg = <2>;
-> +                capture-only;
-> +                easrc1_endpoint2: endpoint {
-> +                    remote-endpoint = <&fe02_ep>;
-> +                };
-> +            };
-> +
-> +            port@3 {
-> +                reg = <3>;
-> +                capture-only;
-> +                easrc1_endpoint3: endpoint {
-> +                    remote-endpoint = <&fe03_ep>;
-> +                };
-> +            };
-> +        };
-> +    };
-> --
-> 2.34.1
->
->
+Changelog from v2:
+* Added errata id to Documentation/arch/arm64/silicon-errata.rst
+  in patch 3. Added comments in code related to errata as well.
+
+* Fixed register name typo in commit message in patch 4.
+
+* Renamed patch title in patch 5. 
+
+* Commit message reworded in patch 6.
+
+* No functional changes in this version.
+
+Changelog from v1:
+* Patches associated with adding cpus to BBML2_NOABORT,
+  support list, were kept at bottom in v1 is now moved
+  up in this version, for ease of backporting.
+
+* Adding BBM_3 definition in sysreg moved into a separate patch
+
+* MMFR2_ID check for BBM_3 has been changed from == BBM_3 to
+  >= BBM_3, so that BBML3 cpu feature gets enabled for BBM_4 as well.
+
+* For feature detection, MMFR2_ID check comes first followed by 
+  midr check for code readability
+
+* Errata details for C1-Ultra and C1-Premium added to commit message
+
+
+
+
+
+Linu Cherian (6):
+  arm64: cputype: Add Cortex-A520AE definitions
+  arm64: cputype: Add C1-Nano definitions
+  arm64: cpufeature: Extend bbml2_noabort support list
+  arm64: sysreg: Add BBM_3
+  arm64: cpufeature: Rename BBML2_NOABORT as BBML3
+  arm64: cpufeature: Detect BBML3 based on ID_AA64MMFR2_EL1.BBM
+
+ Documentation/arch/arm64/silicon-errata.rst |  4 ++
+ arch/arm64/include/asm/cpufeature.h         |  6 +--
+ arch/arm64/include/asm/cputype.h            |  4 ++
+ arch/arm64/kernel/cpufeature.c              | 55 ++++++++++-----------
+ arch/arm64/mm/contpte.c                     | 21 +++-----
+ arch/arm64/mm/mmu.c                         | 54 ++++++++++----------
+ arch/arm64/mm/proc.S                        |  4 +-
+ arch/arm64/tools/cpucaps                    |  2 +-
+ arch/arm64/tools/sysreg                     |  1 +
+ 9 files changed, 77 insertions(+), 74 deletions(-)
+
+-- 
+2.43.0
+
 
