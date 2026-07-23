@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACCCC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 22:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D818AC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 22:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zfr1FxKnwbpctfjbuiNE4yeSOO96FeDYnCjvLxn2mhs=; b=T2ldwbRdXEt4F90gAtYBGz01E0
-	FTlw7Ks2nrfkaPsYUBfhEbkPDuXSiRlhyqIsJkJizYILFi13pOY3SpDNomFbLpZO+XQlSwnH79Ax8
-	68yhhwPRiQMgcggzIIdyL++iHmaB92eTip1h9TCxXxHI03OlMAVsLRtx7uRY7DfzrbPPEc+fkDDoR
-	gTCI6pqvm2vB7n4LYSz0GmBgIPoS/E5mLPB+FhQYM9V++rv5WwMSkOul30hThMz0Xg9Yt+8H/K3i3
-	5474bR7cPFw2GlbHeYWyyH6ut9BsjJAqTjqTC5bG1DjqXQpCQvS6mxX661ckpzPyzm9iYDiGKNuAo
-	3zA2eiRw==;
+	bh=Bon1Nju5bHH5h+TKI6hTtwU3OXh0HgCxIWxUvi5q8O4=; b=T69BdliP8bDYJ+A+uREYMAGkL2
+	tIZeOKVFvyLxwySOl66JTXY61nPesUdxB6jEBv5ykYhEuUWXb9kuaJItpE7QNASNAGiDg2MPnZ/YI
+	p3JpwX1J8Z603pNtXQzCX7mL/UEhs4d7wRxwvebi7WsE5MP972uoytg0pQvXdcd4gXyNEU5zTcVwV
+	DkTuPQQMqUZah5M/knW4MUdZg3okIoOY2nWmSZyfpQuSDW0Sz3SUShdfrjdBzSV2uIkFJnmsEy/4a
+	vhxFf/uWXNc6CVuZU53SevoZhmCeiiTk9oM/+80IpsNv+M95quzur/FgRYjODhTTNY46pcz6NRAoV
+	Uwu+N1Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn1jh-0000000FAiL-34aR;
-	Thu, 23 Jul 2026 22:17:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wn1Dj-0000000F8RP-1IMh;
+	Thu, 23 Jul 2026 21:44:47 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn1jP-0000000FAGE-3WkF;
-	Thu, 23 Jul 2026 22:17:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784845043;
-	bh=5Emg1P7aYnNrqvJHMMWV75eJl4VXwFOwz5WWzAJ6RkE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BjLed+NDJXf0Od7gN0zdmz6BapBZZYkTxWx7ILW94N8rQjV7TZ0FMHU/+xSJNw/GU
-	 zqrLz2K2h0KAAsec0n4woW3OQT9Am5Lq/v/H2VsnDzY2W16wvX6S+ikBbjosgQTZo6
-	 pxHAhU/Smei+047pEEmFOg91BgTb8PLCeLR87jmR9K5mzqUhgjsTHA0nEtzXyTS1v8
-	 yPEcGGhlrLnqJUHU7pmSA/TggJYjkuc3F2TbEp/EIoCdjYa/iIPfr1NJH8mg6WES/5
-	 0TCpVfI18jhBp4rTNyPNRiNNhzaLapcwCHudM2N28WFyU5IZjnqWJUixPjHO+kOh1R
-	 WJMFTSE2PEaBw==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F2C6517E3C47;
-	Fri, 24 Jul 2026 00:17:22 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 229B8480055; Fri, 24 Jul 2026 00:17:22 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 24 Jul 2026 00:17:23 +0200
-Subject: [PATCH v5 15/15] drm/bridge: synopsys: dw-dp: Add audio support
+	id 1wn1Dg-0000000F8R4-1oal
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 21:44:46 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4953de5be0aso7724075e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 14:44:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784843081; x=1785447881; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Bon1Nju5bHH5h+TKI6hTtwU3OXh0HgCxIWxUvi5q8O4=;
+        b=CloMq6pcjwZc2qysMyUqqb960plGK289OfCwHfOtgzGrQ4+e+00hmZv3pcEPxG70v4
+         NJigTzsuW+WQ1I3rKg7FMSCyf21QWnwtimAGAzvqly6hxiTkJfTQE4AKzfUfC6k4VHDf
+         m5HdSVQJUAFJlsZ6CdnsBHACmumhMSLC4CiQVkx3HAdMIBvO6spto7mCbjpO1zeaJ26r
+         CgJ1d4yb8NcJAMKxvoZ1Lk1FEGM40mmSkM58+7r7zYU2ahKr8byXUmHOeyJ1DNOoeGaa
+         NK5LolzSHmcqmsWM8JPtjZ/g9ty94KkRjxnpbeVE3xSb6Fh9JJM2DT2BoYuDqstlWugP
+         ovdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784843081; x=1785447881;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Bon1Nju5bHH5h+TKI6hTtwU3OXh0HgCxIWxUvi5q8O4=;
+        b=BSAutRhEBnsd+OJtvze+NLllyQvMbQ55av87BABZZfgT3YcJmUAbRjTZH/ZURhgHiC
+         RCIN9qLK2sVTT/EcDeNPXVIABKSUiPXNLvdba3ei0NlDv0jaMrovlrJWUphyxagO3ypP
+         5fJKwWHSqAAv3oUNzsUAi4oZqvhTZ3csBgP1i9b3LhKOrdy2eYeJ9hYnxXEpLIFL6xHH
+         hneJ+al7v08WO4+zuG5Ct25p6UgHYH5m60pe2r4JwSeDU3qFkFUzNdPDSMcZo2i02fYL
+         CzLXw0q3jfPdAnUTvZh5nN2cTMVPKXt6NVaghB0BMmR3xEZYcLAVDEC/YXeNqtX74yee
+         YQEQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpa73z7yJml3jlyQilf84p2bqNsrYfVFpdpuI9xKAYX4WC9A8uyf2M5jPCCjjW+OMZebA9jVHxJmmKI5eQ4VVqQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrMxUz9hvYn4uG94W8ik1KOMimwU2hxTI5vClTHZhr5ANKrJm0
+	j+RBm3g07g3b82hO1Kyza8Zo01kUhIabSUYM6nosVzqNIHEa9oCn+vV9
+X-Gm-Gg: AR+sD12DtHjpm+ILtWr9LEMYMI6AuNQtxez7m8N4x4YQ112iiTGyup2q1f5lRHzbyjB
+	uDFGZHMICneR9c+ZWF1CkVzELiobu4jEyxDHMikNiA34WWdy9q5QAB4M/907BhqUKyHIs8ODtkg
+	WfuZ3lG0+IYh6VM2ZEFqhuepLQSyEfAVWmybhJTG9gdUTQPeM6V1lmBQFaoZjpzyZqWbL1uoOEO
+	09uh2e4Ct9f7ttRopC1uS8jV5ItoJ/xzO9g53MWZKbFSJIXqjShyWBZwIBtu65p5XBj5AbOnZwP
+	BexjKV/e13hBYApF6PAQDZZnhKf8fBB/UFJiw51Ri6wxPwE2WnRQ/ba6GjFtnJhG1J84ZyRUnGv
+	eFdJtcx7+UwMl86CCP5EhKEohwSLDJAx02nlV3mAIgjDjzoAYFmvfUmbFPrT6iE41vuUZ/kFFzp
+	yliaeDWhqmSUmE1YOxIf84GNOyOmt53HI6bP/yW94lh67xIbbhK4hUtY4V1fe/iY5qD3FguQiG5
+	w4Lm5i329P2F5WqDlhqQGBjRGMqDXbn7WL4JXIb1HUyj08U7mVXmjrN9+PI8DSTMfuzi2ptsXp0
+	h10mOS+k6Gi/xwshWSxdykIjoWGH+ATQ3kxubgNocguy52WKRbnyPXTBIoxQ1aN2NPoQVm7Qj5k
+	zX1xANfvRmo77geCuDcZjkA==
+X-Received: by 2002:a05:600c:5942:b0:495:6397:14b1 with SMTP id 5b1f17b1804b1-49573cf0ec2mr37512475e9.34.1784843081421;
+        Thu, 23 Jul 2026 14:44:41 -0700 (PDT)
+Received: from systembl0wer (ip-86-49-244-181.bb.vodafone.cz. [86.49.244.181])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957af6ad58sm24633755e9.4.2026.07.23.14.44.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 14:44:41 -0700 (PDT)
+Date: Thu, 23 Jul 2026 23:44:39 +0200
+From: Joshua Crofts <joshua.crofts1@gmail.com>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter
+ Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH 2/3] iio: proximity: add driver for Sharp GP2AP070S
+ proximity sensor
+Message-ID: <20260723234439.06411731@systembl0wer>
+In-Reply-To: <20260723-gp2ap070s-v1-2-b8ca3a4c10dd@disroot.org>
+References: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
+	<20260723-gp2ap070s-v1-2-b8ca3a4c10dd@disroot.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-synopsys-dw-dp-improvements-v5-15-9445c2e87441@collabora.com>
-References: <20260724-synopsys-dw-dp-improvements-v5-0-9445c2e87441@collabora.com>
-In-Reply-To: <20260724-synopsys-dw-dp-improvements-v5-0-9445c2e87441@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10614;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=5Emg1P7aYnNrqvJHMMWV75eJl4VXwFOwz5WWzAJ6RkE=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpikvGzNHFpT0lXO2Ybms2cKUkxzzgmssQmB
- uPXXIg2riFvGokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqYpLxAAoJENju1/PI
- O/qaNNIP/2a3gy7XaaiaTc94q0exBbVAl7FaUsLPzzr0S86ZdtNLHPyXnELtiFtAN/ZQcFt6L2Y
- VZQtkS6Em+zkrpjyF2ZvS4XOJCdAKmk6Vvl3BbLnPe4kBRsnwcuTIJJOGC3dtIBB1/vuxdFTQ8c
- Z+vkyiOrLz2xFZtvxj0+JihiZmbELkNIGU7iKFcCyMA8+AEo3A4wPuM5vCbYtBrzKCZTAoAMlnR
- bNRnqPQcwelupU0GkzD00PMnUgU8reqqVFd9jtU3EfuplN/nLBiPoWMO1CV++MkaBfUuVUloAqP
- oTluOlpt1C+iJq4yJ+jf2nh1FH82lkluWVQPVmI3Mx73lDyktg5wnUT7aoXFBnKwPbmAoApG3NG
- KKJ9pyNB8k+OE4QbnCeSblwp5rX9co//tQWAvF+/UFGG25Mh9708i2RDW5zH77/Es46Txq/xKZU
- GWs0h7Mm/p/OeCeK/spX7Grbzi1M1QV+dsdlRlDBtWIrjRuh+9QTI+G6JIlc5pQ0mMGHIpeIFzT
- ECIGGLjB1tHF4zL68egDsKfJk8p+gmSf8VYjijU7zQfJjKoOOVr7q/AlDgzKnnoXyoHJ/H+fwbA
- sOJ8dexswwWt3Lmb3lO7ZT6lkOHgy8iAfSOLGihc45fK0mcvAYi55MhaSS+4Tjd5W+gaItguU58
- iqLsTFE2D+UcvZHVh2b0tew==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_151732_206528_8C8CC999 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20260723_144444_533660_64A23A08 
+X-CRM114-Status: GOOD (  31.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,352 +111,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement audio support for the Synopsys DesignWare DisplayPort
-controller.
+On Thu, 23 Jul 2026 22:58:34 +0530
+Kaustabh Chakraborty <kauschluss@disroot.org> wrote:
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 255 +++++++++++++++++++++++++++++++-
- 1 file changed, 253 insertions(+), 2 deletions(-)
+> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
+> Corporation. This sensor is used in mobile devices, including, but not
+> limited to - the Samsung Galaxy J6.
+> 
+> The driver has been adopted from Samsung's downstream kernel
+> implementation [1]. Due to the lack of public documentation about the
+> schematics of this device. The downstream driver acts as the secondary
+> source of information. Driver clarity has also been improved with the
+> help of the GP2AP* drivers in iio/light.
+> 
+> Link: https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c [1]
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 2bd37e5c36da..a9e04cee002e 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -23,17 +23,21 @@
- #include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
- #include <drm/display/drm_dp_helper.h>
-+#include <drm/display/drm_hdmi_audio_helper.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_of.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
- 
-+#include <sound/hdmi-codec.h>
-+
- #define DW_DP_VERSION_NUMBER			0x0000
- #define DW_DP_VERSION_TYPE			0x0004
- #define DW_DP_ID				0x0008
- 
- #define DW_DP_CONFIG_REG1			0x0100
-+#define AUDIO_SELECT				GENMASK(2, 1)
- #define DW_DP_CONFIG_REG2			0x0104
- #define DW_DP_CONFIG_REG3			0x0108
- 
-@@ -110,6 +114,10 @@
- #define HBR_MODE_ENABLE				BIT(10)
- #define AUDIO_DATA_WIDTH			GENMASK(9, 5)
- #define AUDIO_DATA_IN_EN			GENMASK(4, 1)
-+#define AUDIO_DATA_IN_EN_CHANNEL12		BIT(0)
-+#define AUDIO_DATA_IN_EN_CHANNEL34		BIT(1)
-+#define AUDIO_DATA_IN_EN_CHANNEL56		BIT(2)
-+#define AUDIO_DATA_IN_EN_CHANNEL78		BIT(3)
- #define AUDIO_INF_SELECT			BIT(0)
- 
- #define DW_DP_SDP_VERTICAL_CTRL			0x0500
-@@ -253,6 +261,8 @@
- 
- #define SDP_REG_BANK_SIZE			16
- 
-+#define DW_DP_SDP_VERSION			0x12
-+
- struct dw_dp_link_caps {
- 	bool enhanced_framing;
- 	bool tps3_supported;
-@@ -305,6 +315,19 @@ struct dw_dp_hotplug {
- 	bool long_hpd;
- };
- 
-+enum dw_dp_audio_interface_support {
-+	DW_DP_AUDIO_I2S_ONLY = 0,
-+	DW_DP_AUDIO_SPDIF_ONLY = 1,
-+	DW_DP_AUDIO_I2S_AND_SPDIF = 2,
-+	DW_DP_AUDIO_NONE = 3,
-+};
-+
-+enum dw_dp_audio_interface {
-+	DW_DP_AUDIO_I2S = 0,
-+	DW_DP_AUDIO_SPDIF = 1,
-+	DW_DP_AUDIO_UNUSED,
-+};
-+
- struct dw_dp {
- 	struct drm_bridge bridge;
- 	struct device *dev;
-@@ -320,6 +343,9 @@ struct dw_dp {
- 	int irq;
- 	struct work_struct hpd_work;
- 	struct dw_dp_hotplug hotplug;
-+	enum dw_dp_audio_interface audio_interface;
-+	int audio_channels;
-+	int audio_sdp_nr;
- 	/* Serialize hpd status access */
- 	struct mutex irq_lock;
- 	/* Serialize sdp_reg_bank access */
-@@ -1073,7 +1099,19 @@ static int dw_dp_send_sdp(struct dw_dp *dp, struct dw_dp_sdp *sdp)
- 		regmap_set_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
- 				EN_HORIZONTAL_SDP << nr);
- 
--	return 0;
-+	return nr;
-+}
-+
-+static void dw_dp_clear_sdp(struct dw_dp *dp, int nr)
-+{
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			  EN_VERTICAL_SDP << nr);
-+
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			  EN_HORIZONTAL_SDP << nr);
-+
-+	scoped_guard(mutex, &dp->sdp_lock)
-+		clear_bit(nr, dp->sdp_reg_bank);
- }
- 
- static int dw_dp_send_vsc_sdp(struct dw_dp *dp)
-@@ -1890,6 +1928,205 @@ static void dw_dp_bridge_oob_notify(struct drm_bridge *bridge,
- 		dev_err_once(dp->dev, "Missing platform handler for OOB HPD handling\n");
- }
- 
-+static int dw_dp_audio_infoframe_send(struct dw_dp *dp)
-+{
-+	struct hdmi_audio_infoframe frame;
-+	struct dw_dp_sdp sdp;
-+	int ret;
-+
-+	ret = hdmi_audio_infoframe_init(&frame);
-+	if (ret < 0)
-+		return ret;
-+
-+	frame.coding_type = HDMI_AUDIO_CODING_TYPE_STREAM;
-+	frame.sample_frequency = HDMI_AUDIO_SAMPLE_FREQUENCY_STREAM;
-+	frame.sample_size = HDMI_AUDIO_SAMPLE_SIZE_STREAM;
-+	frame.channels = dp->audio_channels;
-+
-+	ret = hdmi_audio_infoframe_pack_for_dp(&frame, &sdp.base, DW_DP_SDP_VERSION);
-+	if (ret < 0)
-+		return ret;
-+
-+	sdp.flags = DW_DP_SDP_VERTICAL_INTERVAL;
-+
-+	return dw_dp_send_sdp(dp, &sdp);
-+}
-+
-+static int dw_dp_audio_startup(struct drm_bridge *bridge,
-+			       struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio startup\n");
-+
-+	return pm_runtime_resume_and_get(dp->dev);
-+}
-+
-+static void dw_dp_audio_unprepare(struct drm_bridge *bridge,
-+				  struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	/* Disable all audio streams */
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_DATA_IN_EN,
-+			   FIELD_PREP(AUDIO_DATA_IN_EN, 0));
-+
-+	if (dp->audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (dp->audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+
-+	dw_dp_clear_sdp(dp, dp->audio_sdp_nr);
-+}
-+
-+static int dw_dp_audio_prepare(struct drm_bridge *bridge,
-+			       struct drm_connector *connector,
-+			       struct hdmi_codec_daifmt *daifmt,
-+			       struct hdmi_codec_params *params)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+	u8 audio_data_in_en, supported_audio_interfaces;
-+	enum dw_dp_audio_interface audio_interface;
-+	u32 cfg1;
-+	int ret;
-+
-+	/*
-+	 * prepare might be called multiple times, so release the clocks
-+	 * from previous calls to keep the calls in balance.
-+	 */
-+	if (dp->audio_interface != DW_DP_AUDIO_UNUSED)
-+		dw_dp_audio_unprepare(bridge, connector);
-+
-+	/* The hardware is limited to 1,2 or 8 channels */
-+	dp->audio_channels = params->cea.channels;
-+	switch (params->cea.channels) {
-+	case 1:
-+	case 2:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12;
-+		break;
-+	case 8:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12 |
-+				   AUDIO_DATA_IN_EN_CHANNEL34 |
-+				   AUDIO_DATA_IN_EN_CHANNEL56 |
-+				   AUDIO_DATA_IN_EN_CHANNEL78;
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid audio channels %d\n", dp->audio_channels);
-+		return -EINVAL;
-+	}
-+
-+	if (params->sample_width < 16 || params->sample_width >> 24) {
-+		dev_err(dp->dev, "invalid data sample width %d\n", params->sample_width);
-+		return -EINVAL;
-+	}
-+
-+	switch (daifmt->fmt) {
-+	case HDMI_SPDIF:
-+		audio_interface = DW_DP_AUDIO_SPDIF;
-+		break;
-+	case HDMI_I2S:
-+		/*
-+		 * It is recommended to use SPDIF instead of I2S, since I2S mode requires
-+		 * manually inserting PCUV control bits from userspace and this is done
-+		 * automatically in hardware for SPDIF mode.
-+		 */
-+		audio_interface = DW_DP_AUDIO_I2S;
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid DAI format %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	regmap_read(dp->regmap, DW_DP_CONFIG_REG1, &cfg1);
-+	supported_audio_interfaces = FIELD_GET(AUDIO_SELECT, cfg1);
-+
-+	if (supported_audio_interfaces != DW_DP_AUDIO_I2S_AND_SPDIF &&
-+	    supported_audio_interfaces != audio_interface) {
-+		dev_err(dp->dev, "unsupported DAI %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	ret = clk_prepare_enable(dp->spdif_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(dp->i2s_clk);
-+	if (ret) {
-+		clk_disable_unprepare(dp->spdif_clk);
-+		return ret;
-+	}
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1,
-+			   AUDIO_DATA_IN_EN | NUM_CHANNELS | AUDIO_DATA_WIDTH |
-+			   AUDIO_INF_SELECT | HBR_MODE_ENABLE,
-+			   FIELD_PREP(AUDIO_DATA_IN_EN, audio_data_in_en) |
-+			   FIELD_PREP(NUM_CHANNELS, dp->audio_channels - 1) |
-+			   FIELD_PREP(AUDIO_DATA_WIDTH, params->sample_width) |
-+			   FIELD_PREP(AUDIO_INF_SELECT, audio_interface) |
-+			   FIELD_PREP(HBR_MODE_ENABLE, 0));
-+
-+	/* Wait for inf switch */
-+	usleep_range(20, 40);
-+
-+	if (audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_interface = audio_interface;
-+
-+	/*
-+	 * Send audio stream during vertical and horizontal blanking periods.
-+	 * Send out audio timestamp SDP once per video frame during the vertical
-+	 * blanking period
-+	 */
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1) |
-+			   FIELD_PREP(EN_AUDIO_TIMESTAMP_SDP, 1));
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1));
-+
-+	ret = dw_dp_audio_infoframe_send(dp);
-+	if (ret < 0)
-+		dev_err(dp->dev, "failed to send audio infoframe\n");
-+
-+	dp->audio_sdp_nr = ret;
-+
-+	dev_dbg(dp->dev, "audio prepare with %d channels using DAI=%d\n",
-+		dp->audio_channels, dp->audio_interface);
-+
-+	return 0;
-+}
-+
-+static void dw_dp_audio_shutdown(struct drm_bridge *bridge,
-+				 struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio shutdown\n");
-+
-+	dw_dp_audio_unprepare(bridge, connector);
-+	pm_runtime_put_autosuspend(dp->dev);
-+}
-+
-+static int dw_dp_audio_mute_stream(struct drm_bridge *bridge,
-+				   struct drm_connector *connector,
-+				   bool enable, int direction)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio %smute\n", enable ? "" : "un");
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_MUTE,
-+			   FIELD_PREP(AUDIO_MUTE, enable));
-+
-+	return 0;
-+}
-+
- static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-@@ -1903,6 +2140,11 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.detect = dw_dp_bridge_detect,
- 	.edid_read = dw_dp_bridge_edid_read,
- 	.oob_notify = dw_dp_bridge_oob_notify,
-+
-+	.dp_audio_startup = dw_dp_audio_startup,
-+	.dp_audio_prepare = dw_dp_audio_prepare,
-+	.dp_audio_shutdown = dw_dp_audio_shutdown,
-+	.dp_audio_mute_stream = dw_dp_audio_mute_stream,
- };
- 
- static int dw_dp_link_retrain(struct dw_dp *dp)
-@@ -2061,10 +2303,19 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
- 
- 	bridge = &dp->bridge;
- 	bridge->of_node = dev->of_node;
--	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
-+	bridge->ops = DRM_BRIDGE_OP_DP_AUDIO |
-+		      DRM_BRIDGE_OP_DETECT |
-+		      DRM_BRIDGE_OP_EDID |
-+		      DRM_BRIDGE_OP_HPD;
- 	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
- 	bridge->ycbcr_420_allowed = true;
- 
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+	bridge->hdmi_audio_dev = dev;
-+	bridge->hdmi_audio_max_i2s_playback_channels = 8;
-+	bridge->hdmi_audio_dai_port = 1;
-+	bridge->hdmi_audio_spdif_playback = true;
-+
- 	drm_bridge_add(bridge);
- 
- 	dp->aux.dev = dev;
+Some comments inline. Additionally, please check out Sashiko's
+findings: https://sashiko.dev/#/patchset/20260723-gp2ap070s-v1-0-b8ca3a4c10dd%40disroot.org.
+
+>  drivers/iio/proximity/Kconfig     |  11 +
+>  drivers/iio/proximity/Makefile    |   1 +
+>  drivers/iio/proximity/gp2ap070s.c | 502 ++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 514 insertions(+)
+> 
+> diff --git a/drivers/iio/proximity/Kconfig b/drivers/iio/proximity/Kconfig
+> index bb77fad2a1b3..3f30ebfc21bc 100644
+> --- a/drivers/iio/proximity/Kconfig
+> +++ b/drivers/iio/proximity/Kconfig
+> @@ -41,6 +41,17 @@ config D3323AA
+>  	  To compile this driver as a module, choose M here: the module will be
+>  	  called d3323aa.
+>  
+> +config GP2AP070S
+> +	tristate "Sharp GP2AP070S proximity sensor"
+> +	select REGMAP_I2C
+> +	depends on I2C
+
+A very small nit (and probably a personal opinion), but "depends on" should
+go before "select"
+
+> +	help
+> +	  Say Y here to build a driver for the Sharp GP2AP070S proximity
+> +	  sensor.
+> +
+> +	  To compile this driver as a module, choose M here: the module will be
+> +	  called gp2ap070s.
+> +
+>  config HX9023S
+>  	tristate "TYHX HX9023S SAR sensor"
+>  	select IIO_BUFFER
+> diff --git a/drivers/iio/proximity/Makefile b/drivers/iio/proximity/Makefile
+> index 4352833dd8a4..627ffb04acb2 100644
+> --- a/drivers/iio/proximity/Makefile
+> +++ b/drivers/iio/proximity/Makefile
+> @@ -7,6 +7,7 @@
+>  obj-$(CONFIG_AS3935)		+= as3935.o
+>  obj-$(CONFIG_CROS_EC_MKBP_PROXIMITY) += cros_ec_mkbp_proximity.o
+>  obj-$(CONFIG_D3323AA)		+= d3323aa.o
+> +obj-$(CONFIG_GP2AP070S)		+= gp2ap070s.o
+>  obj-$(CONFIG_HX9023S)		+= hx9023s.o
+>  obj-$(CONFIG_IRSD200)		+= irsd200.o
+>  obj-$(CONFIG_ISL29501)		+= isl29501.o
+> diff --git a/drivers/iio/proximity/gp2ap070s.c b/drivers/iio/proximity/gp2ap070s.c
+> new file mode 100644
+> index 000000000000..9625f53d956e
+> --- /dev/null
+> +++ b/drivers/iio/proximity/gp2ap070s.c
+> @@ -0,0 +1,502 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * IIO driver for Sharp GP2AP070S proximity sensor.
+> + *
+> + * Copyright (C) 2026 Kaustabh Chakraborty <kauschluss@disroot.org>
+> + */
+> +
+> +#include <linux/i2c.h>
+> +#include <linux/iio/events.h>
+> +#include <linux/iio/iio.h>
+> +#include <linux/iio/types.h>
+
+Please add iio/* includes after the generic linux/* headers. Ensure
+that there is a blank line between the two groups.
+
+Additionally, you're also missing <asm/byteorder.h>, array_size.h, err.h,
+types.h and delay.h.
+
+> +#include <linux/interrupt.h>
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+
+Don't include this, this is included in i2c.h (see Uwe Kleine-Konig's
+work).
+
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
+> +
+> +#define GP2AP070S_REG_COM1		0x80
+> +#define GP2AP070S_REG_COM2		0x81
+> +#define GP2AP070S_REG_COM3		0x82
+> +#define GP2AP070S_REG_COM4		0x83
+> +#define GP2AP070S_REG_PS1		0x85
+> +#define GP2AP070S_REG_PS2		0x86
+> +#define GP2AP070S_REG_PS3		0x87
+> +#define GP2AP070S_REG_PS_THD_LO_LE16	0x88
+> +#define GP2AP070S_REG_PS_THD_HI_LE16	0x8a
+> +#define GP2AP070S_REG_OS_D0_LE16	0x8c
+> +#define GP2AP070S_REG_D0_LE16		0x90
+> +
+> +/* GP2AP070S_REG_COM1 */
+> +#define GP2AP070S_VAL_COM1_WKUP		BIT(7)
+> +#define GP2AP070S_VAL_COM1_EN		BIT(5)
+> +
+> +/* GP2AP070S_REG_COM3 */
+> +#define GP2AP070S_VAL_COM3_INT_PULSE	BIT(1)
+> +
+> +/* GP2AP070S_REG_COM4 */
+> +#define GP2AP070S_VAL_COM1_BLINK	GENMASK(2, 0)	/* LED Blink Interval */
+
+You don't need a comment like this if you name your macro reasonably
+(which you did IMO).
+> +
+> +#define GP2AP070S_VAL_COM1_BLINK_0ms	0
+> +#define GP2AP070S_VAL_COM1_BLINK_2ms	1
+> +#define GP2AP070S_VAL_COM1_BLINK_8ms	2
+> +#define GP2AP070S_VAL_COM1_BLINK_33ms	3
+> +#define GP2AP070S_VAL_COM1_BLINK_66ms	4
+> +#define GP2AP070S_VAL_COM1_BLINK_131ms	5
+> +#define GP2AP070S_VAL_COM1_BLINK_262ms	6
+> +#define GP2AP070S_VAL_COM1_BLINK_524ms	7
+> +
+> +/* GP2AP070S_REG_PS1 */
+> +#define GP2AP070S_VAL_PS1_RESOL		GENMASK(5, 4)	/* Resolution */
+> +
+> +#define GP2AP070S_VAL_PS1_RESOL_14ms	0
+> +#define GP2AP070S_VAL_PS1_RESOL_12ms	1
+> +#define GP2AP070S_VAL_PS1_RESOL_10ms	2
+> +#define GP2AP070S_VAL_PS1_RESOL_8ms	3
+> +
+> +/* GP2AP070S_REG_PS2 */
+> +#define GP2AP070S_VAL_PS2_IOUT		GENMASK(6, 4)	/* Current Output */
+> +#define GP2AP070S_VAL_PS2_SUM32		BIT(2)
+> +
+> +#define GP2AP070S_VAL_PS2_IOUT_0mA	0
+> +#define GP2AP070S_VAL_PS2_IOUT_24mA	1
+> +#define GP2AP070S_VAL_PS2_IOUT_89mA	2
+> +#define GP2AP070S_VAL_PS2_IOUT_130mA	3
+> +#define GP2AP070S_VAL_PS2_IOUT_190mA	4
+> +
+> +/* GP2AP070S_REG_PS3 */
+> +#define GP2AP070S_VAL_PS3_PRST		GENMASK(6, 4)	/* Repeating Measurements */
+> +
+> +struct gp2ap070s_drvdata {
+> +	struct device *dev;
+> +	struct regmap *regmap;
+> +	struct regulator_bulk_data *regulators;
+> +	u32 near_level;
+
+In the _write_event_value function, 
+> +};
+> +
+> +static const struct regmap_config gp2ap070s_regmap_config = {
+> +	.reg_bits = 8,
+> +	.val_bits = 8,
+> +};
+> +
+> +static const char *const gp2ap070s_regulator_names[] = {
+> +	"vdd",
+> +	"vled",
+> +};
+> +
+> +static ssize_t gp2ap070s_iio_read_near_level(struct iio_dev *indio_dev,
+> +					     uintptr_t priv,
+> +					     const struct iio_chan_spec *chan,
+> +					     char *buf)
+> +{
+> +	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
+> +
+> +	return sprintf(buf, "%u\n", drvdata->near_level);
+
+Use sysfs_emit() instead.
+> +}
+> +
+> +static const struct iio_chan_spec_ext_info gp2ap070s_iio_chan_spec_ext_info[] = {
+> +	{
+> +		.name = "nearlevel",
+> +		.shared = IIO_SEPARATE,
+> +		.read = gp2ap070s_iio_read_near_level,
+> +	},
+> +	{ /* sentinel */ }
+
+Remove the comment.
+
+> +};
+> +
+
+...
+
+> +static int gp2ap070s_probe(struct i2c_client *client)
+> +{
+> +	struct device *dev = &client->dev;
+> +	struct iio_dev *indio_dev;
+> +	struct gp2ap070s_drvdata *drvdata;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*drvdata));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	drvdata = iio_priv(indio_dev);
+> +	i2c_set_clientdata(client, drvdata);
+> +
+> +	drvdata->dev = dev;
+> +	drvdata->regmap = devm_regmap_init_i2c(client, &gp2ap070s_regmap_config);
+> +	if (IS_ERR(drvdata->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(drvdata->regmap), "Failed to create regmap\n");
+> +
+> +	ret = devm_regulator_bulk_get_enable(dev,
+> +					     ARRAY_SIZE(gp2ap070s_regulator_names),
+> +					     gp2ap070s_regulator_names);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to get and enable regulators");
+> +
+> +	usleep_range(10000, 11000);
+> +
+> +	indio_dev->name = "gp2ap070s";
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->channels = gp2ap070s_iio_chan_spec;
+> +	indio_dev->num_channels = ARRAY_SIZE(gp2ap070s_iio_chan_spec);
+> +	indio_dev->info = &gp2ap070s_iio_info;
+> +
+> +	device_property_read_u32(&client->dev, "proximity-near-level",
+> +				 &drvdata->near_level);
+> +
+> +	ret = gp2ap070s_probe_hw_register(drvdata);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_request_threaded_irq(dev, client->irq, NULL,
+> +					gp2ap070s_irq_handler, IRQF_ONESHOT,
+> +					"gp2ap070s-irq", indio_dev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to request IRQ");
+
+Just return ret instead, dev_err_probe() is called automatically on failure.
+> +
+> +	return devm_iio_device_register(&client->dev, indio_dev);
+> +}
+> +
+> +static const struct of_device_id gp2ap070s_of_device_id[] = {
+> +	{ .compatible = "sharp,gp2ap070s" },
+> +	{ /* sentinel */ }
+
+Remove the comment.
+
+> +};
+> +MODULE_DEVICE_TABLE(of, gp2ap070s_of_device_id);
+> +
+> +static const struct i2c_device_id gp2ap070s_i2c_device_id[] = {
+> +	{ .name = "gp2ap070s" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(i2c, gp2ap070s_i2c_device_id);
+> +
+> +static struct i2c_driver gp2ap070s_i2c_driver = {
+> +	.driver = {
+> +		.name = "gp2ap070s",
+> +		.of_match_table = gp2ap070s_of_device_id,
+> +	},
+> +	.probe = gp2ap070s_probe,
+> +	.id_table = gp2ap070s_i2c_device_id,
+> +};
+> +module_i2c_driver(gp2ap070s_i2c_driver);
+> +
+> +MODULE_AUTHOR("Kaustabh Chakraborty <kauschluss@disroot.org>");
+> +MODULE_DESCRIPTION("Sharp GP2AP070S Proximity Sensor");
+> +MODULE_LICENSE("GPL");
+> 
 
 -- 
-2.53.0
-
+Kind regards,
+Joshua Crofts
 
