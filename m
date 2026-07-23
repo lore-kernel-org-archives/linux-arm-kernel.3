@@ -4,110 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E05C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E110C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hqod2VNHfaWttBLFYus7WoFDgVmIAo17T6FCGOIDLUI=; b=bdoVLp9zj0Ed8J6glKfAN1cavJ
-	RR2Blsyzx1TihuZfUy5X7yp2/fdhAj314sBW4y5ejfT7R/Wtmra/Ffd69i/WOvLMEBVUhOSFjInUC
-	sqseLBQm9The3F3PrjtBWUuBoN2UD63smj3gzIe44rZoog+3kc5STHY53vMGcE2uPKobaPNCJqXaP
-	2XFjQqwa2Yp0gz9FW6g6qD9ygMabsOofiyQv/Ye09l28b/qO5CYrv842vp1BDZcl+uD59HN5/iD2n
-	NIZeEOW5RmKIUUDjK38Z3VPR8T9H+4s2qaoPVq8r2zw/+WaUSmG5QfA1o5eMTF7YnL6OBijIRIhf/
-	xl3RQXvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Pr9th7Q/0UArs0i/KXSaVLwzvEgsB6lvyrr/8f4KOw=; b=Hg7KU2NS9W7TU0kDIIh7s3rNDL
+	1UFKyJc7Y66ZyGP/lwYHURudM5iGw3pFbOGiRJZJuI4TUrBtUW/Q80uLejXNfY1TTXKWG93CGOCOv
+	J15ovpc9huxB9RH27Ugl0WdFtMMO25QiQDerJ65hmITRRhKtJZJ/c3bQmvSNc8P+mtumUTJPUA+hw
+	4p0kqbhOQ7UiaqNPxVYLMP+65P9347DAhdcjtEDrDUgTi6OdrY4mPo2qOX6nDx2rEwjqiW5J2Tsn2
+	+Ooj0W3zBlIQVJ0lWi1BiS7TJu5AFjQqPesae9X0x8cT1iHgFcg7wmU5b1J6eAZ1WAhNaWpBECNBn
+	0kqSDC0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpPj-0000000Dnyq-2xqa;
-	Thu, 23 Jul 2026 09:08:23 +0000
-Received: from mail-japaneastazon11022073.outbound.protection.outlook.com ([52.101.126.73] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wmpUA-0000000Dodn-163s;
+	Thu, 23 Jul 2026 09:12:58 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpPf-0000000DnxL-48xa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:08:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E/xVpBWKfAioikWbFS0GNO9xxuYFg8JaL0lQGvhMuS39hn92mI0uuXvRoSzaK99PUENczynif3GQ7CecHC+XYudu8ObTuix23+qeAble/gyBCQt7A162PT6BfUcA3KNJpS4b2S1JEUbx9nx2ID0gSU648aOn4jsdWBk9QKf9rDw088LA+kkZtQa8N4rlm0ttn1VxO/XCWKXXA/TIsQc4H9MRUjXlChjVZ6++xAXdQul+hVcLxMbbv+14NABF4nU4z4lOYCNDDJHzIDQvNJ7hGmmk9BdDxIYGphZaAPcaNzuVYZ6t6iIp9vABKcDWDjS2vKBlrOUo1tBvOL8B7L3Jiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hqod2VNHfaWttBLFYus7WoFDgVmIAo17T6FCGOIDLUI=;
- b=p1DeotkPtCEYIQ49DHNfRiVCHvVncSbbmrvOdE4Q2gPNWZDt8o8oKHQhpUl9CAab2R2b1OMpc7LSfOqUCkL5vKz2/S/nf7x82oLhjp56f13b2jun5dStV5Vq02YJqT6JeHVFqzWZAFtuGaE8MtA6NdTmHv87dU9PcGvb5ywEt8eqiZ9AwoNzqNp0cD1D39bzgS+sjKIe6yMbjvXRlUQWDblOPMi9HWyS23BXH004JTyKLh5rfqWEbxzVMl/h0jvwONdFADx6z+DtdDiE6NjRz0bENVrjlSIOUAZCx3VKMatxz45Qz3/bRyFZEJ82eabPFkWNfc8QCf+vb/dHmZXZKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SY5P300CA0053.AUSP300.PROD.OUTLOOK.COM (2603:10c6:10:1fe::18)
- by TYZPR06MB6166.apcprd06.prod.outlook.com (2603:1096:400:340::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 09:08:13 +0000
-Received: from OSA0EPF000000C6.apcprd02.prod.outlook.com
- (2603:10c6:10:1fe:cafe::ae) by SY5P300CA0053.outlook.office365.com
- (2603:10c6:10:1fe::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Thu,
- 23 Jul 2026 09:08:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C6.mail.protection.outlook.com (10.167.240.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 09:08:11 +0000
-Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 7EE2440920E2;
-	Thu, 23 Jul 2026 17:08:10 +0800 (CST)
-From: joakim.zhang@cixtech.com
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	bmasney@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de
-Cc: cix-kernel-upstream@cixtech.com,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Joakim Zhang <joakim.zhang@cixtech.com>
-Subject: [PATCH v11 3/4] reset: cix: add sky1 audss auxiliary reset driver
-Date: Thu, 23 Jul 2026 17:08:07 +0800
-Message-ID: <20260723090808.1727598-4-joakim.zhang@cixtech.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260723090808.1727598-1-joakim.zhang@cixtech.com>
-References: <20260723090808.1727598-1-joakim.zhang@cixtech.com>
+	id 1wmpU7-0000000Docw-1Ds3;
+	Thu, 23 Jul 2026 09:12:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784797972;
+	bh=NEmV2fqvR/cLJUCeISN7mSdpl+4odir3BIdW8hvoBrI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=h3U2hpK6Vq/y18j2Z7pwLk5QmUsUccohgcjBkxw/kU/h0qX1QPgLGv4oZSIQqFZ1D
+	 Y//0Qz4e3IkZYS/7JZLaitvt8JBEpCPVK0icmtYBCGjr4x8SrsN9BCmefDN4p8vRC4
+	 Mkr+mafYgJv9P/+vc1qLayZ56jFRW7P+KYiA4eozVIVj7B6R8UzOiOOqnMhbQIYAOv
+	 WNQNPt/DQE/CA6dXVk3uFtC67UhwsOixY9QhfNdKLxLsHfiwyqqQeRztlfqU7IpbZi
+	 LF6US/IlmDwrfR0Hfy8S3kwoRwH2yFmHyvNb7RBm3/XsBc03DO+SWacrCeoZrxNT8Y
+	 LiWeMlPEJRLVg==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6E5CE17E0018;
+	Thu, 23 Jul 2026 11:12:51 +0200 (CEST)
+Message-ID: <297c6368-5ca3-456b-8e6c-bc8cd5cf48cb@collabora.com>
+Date: Thu, 23 Jul 2026 12:12:50 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C6:EE_|TYZPR06MB6166:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 06d5e32b-281e-4ff0-cf9e-08dee899ebfd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|23010399003|1800799024|82310400026|5023799004|56012099006|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: PErn9Xp/RuEXdp5Vd4/EzikAKOfZ7+8fFv1k+oNa/i04fLJIXazD7az/IrRAto8NnnySp1cmO4t/ohCSsuxu5SqHcEFlDNsOidFnd7h37gyRoCWcYe/dz2VjFbziquBftNvXjMXkh7mPtF9+KNqW34efaePXtdVkQ5F7iI7T2tyX01afrM+8hhqpFLg7TeNcwwKYPsD/BaHHCS4h807axscAk0lTwynaRWaYo57yqSasIqgwclNHL1qTtOo0sXEpUgbZqniFRR6qXnNQT2QTGh9KDRrQuUvggwLH/QVONLAcxNyJAUd65iaFDiYUUy/M0SZ1TGs6yhs2l7Mffro/DscLI6uqdkq0KNIQf8wsBW8Tumr84HvRByakTGig7Pn3SEdV5x8lO01Wzt0OilAkQPZa/RkdIy0c0QrKgwS5LjdSWVLw4VYvU/UevhX9YFguEqpMFoo72ELOGrBxsRbJQgrUq6Pu/vRPxocso2XOWiXD/M+KI/zFDRQwIsxZFCZFw/A+ii9AqNupq/3LVmoXb5E70yFKLNyScfAc1yx8I8QWoAIeRDTbuhhbE224LFepkw+Iah0DxcpFmW1EaRRNVJ9wF4F/l8pI7WJMTlYsAe04/e9r9um/lZ8lsZ85ZNFh6Gi+v4Q9BYtwif6CiS1oU+JH9Ux6L0FKlENbXO0jcRPT0edpp0lDN/vxHf1vB6CgwtLXldJiT22dxIu/oVbJHQ==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(23010399003)(1800799024)(82310400026)(5023799004)(56012099006)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tq60/iCv2GW2hwLbGqgSv1hwIpbAPb8culvTZ5ZXfefFxoguuVcmgioSlYGin4HEWnZmhzcEz5CkIpXxshSF/Iu9BSdSGh/86ONIJhrQ+JyoFylI4sV7HfqDxLX2YPcCKGS8Cvggh5DD0t+teqVKmiIKMIZNU79XdtxfttqLrW3npaI07xWrqsqydo43P3owRQywj9NwcX0YbIaSIMlVD8BFnlL5drEqgrlGJeQAXMr10WvH4+5XhyvKip8z5GWlXm3vL+Bh+cObOxDXyavVZMTSG3T17d0Wj1xhCQs5EQ/sP/mxH8tPyDbn7InloSV2/Le77SmwSlNi3oEwTfaYZP41vJp4TMu5igl1DC+0IEe1LLbSOtwjbNDKC3iOXjbb2fiIsXEYW3V6ocbuUBuvD7Ie4NPV7kMglbweDrD7yfsleOEfbgZZDa8a0mhOYJ1W
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:08:11.7626
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06d5e32b-281e-4ff0-cf9e-08dee899ebfd
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C6.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6166
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 46/61] drm/rockchip: rk3066_hdmi: Advertise HDMI 1.4
+ capabilities
+To: Diederik de Haas <diederik@cknow-tech.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Algea Cao <algea.cao@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
+References: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
+ <20260723-dw-hdmi-qp-scramb-v9-46-4fb12ea22ac9@collabora.com>
+ <DK5TUJBKSK19.ZXEOSCVMTN6T@cknow-tech.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <DK5TUJBKSK19.ZXEOSCVMTN6T@cknow-tech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_020820_032340_558B9B0A 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260723_021255_503130_16F00ADA 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,193 +94,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joakim Zhang <joakim.zhang@cixtech.com>
+Hi Diederik,
 
-Add an auxiliary reset controller driver for the AUDSS CRU. Sixteen
-software reset lines for audio subsystem peripherals are controlled
-through one register in the CRU register map.
+On 7/23/26 12:02 PM, Diederik de Haas wrote:
+> Hi Cristian,
+> 
+> On Thu Jul 23, 2026 at 3:35 AM CEST, Cristian Ciocaltea wrote:
+>> Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
+>> supported HDMI version.  This is not yet enforced, but will become
+>> mandatory once the migration to the new caps-based HDMI connector
+>> initialization API is completed.
+>>
+>> The RK3066 HDMI TX supports HDMI 1.4a, as described in commit
+>> f84d3d37b7fb ("drm: rockchip: introduce rk3066 hdmi").  However, the
+>> driver does not currently enforce a maximum TMDS character rate, it only
+>> filters non-CEA modes and excludes VIC 1 (640x480) via the .mode_valid
+>> callback.
+>>
+>> Advertise HDMI 1.4 support for now so that modes exceeding the 340 MHz
+>> TMDS limit are rejected by the core.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/gpu/drm/rockchip/rk3066_hdmi.c | 2 ++
+>>  1 file changed, 2 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+>> index f28d6a883e09..c080abe676c4 100644
+>> --- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+>> +++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+>> @@ -14,6 +14,7 @@
+>>  #include <drm/drm_probe_helper.h>
+>>  
+>>  #include <linux/clk.h>
+>> +#include <linux/hdmi.h>
+>>  #include <linux/mfd/syscon.h>
+>>  #include <linux/platform_device.h>
+>>  #include <linux/regmap.h>
+>> @@ -712,6 +713,7 @@ rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
+>>  	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+>>  	hdmi->bridge.vendor = "Rockchip";
+>>  	hdmi->bridge.product = "RK3066 HDMI";
+>> +	hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_3;
+> 
+> Is this correct or should this be HDMI_VERSION_1_4 ?
+> In the other 'Advertise HDMI N.M capabilities' patches, there is a (direct)
+> match between the version mention in the commit summary and the
+> supported_hdmi_ver property, but not here.
 
-The driver is created by the AUDSS clock platform driver and registers
-the reset controller on the CRU device node.
+This is indeed a mismatch between the commit description and the actual code
+changes.  It has no functional impact, as HDMI 1.3 and HDMI 1.4 are equivalent
+in terms of the maximum supported TMDS character rate, which is what we
+currently infer.
 
-Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
----
- drivers/reset/Kconfig            |  13 ++++
- drivers/reset/Makefile           |   1 +
- drivers/reset/reset-sky1-audss.c | 127 +++++++++++++++++++++++++++++++
- 3 files changed, 141 insertions(+)
- create mode 100644 drivers/reset/reset-sky1-audss.c
+I'll set it to HDMI_VERSION_1_4 in the next revision.
 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index d009eb0849a3..b19e719f2abe 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -300,6 +300,19 @@ config RESET_SKY1
- 	help
- 	  This enables the reset controller for Cix Sky1.
- 
-+config RESET_SKY1_AUDSS
-+	tristate "Cix Sky1 Audio Subsystem reset controller"
-+	depends on ARCH_CIX || COMPILE_TEST
-+	select AUXILIARY_BUS
-+	default CLK_SKY1_AUDSS
-+	help
-+	  Support for block-level software reset lines in the Cix Sky1
-+	  Audio Subsystem (AUDSS) Clock and Reset Unit. Sixteen reset
-+	  outputs for audio peripherals are controlled through the CRU
-+	  register map. The driver binds as an auxiliary device from
-+	  the AUDSS clock driver. Say M or Y here if you want to build
-+	  this driver.
-+
- config RESET_SOCFPGA
- 	bool "SoCFPGA Reset Driver" if COMPILE_TEST && (!ARM || !ARCH_INTEL_SOCFPGA)
- 	default ARM && ARCH_INTEL_SOCFPGA
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 3e52569bd276..e81407ea3e29 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -39,6 +39,7 @@ obj-$(CONFIG_RESET_RZV2H_USB2PHY) += reset-rzv2h-usb2phy.o
- obj-$(CONFIG_RESET_SCMI) += reset-scmi.o
- obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
- obj-$(CONFIG_RESET_SKY1) += reset-sky1.o
-+obj-$(CONFIG_RESET_SKY1_AUDSS) += reset-sky1-audss.o
- obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
- obj-$(CONFIG_RESET_SUNPLUS) += reset-sunplus.o
- obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
-diff --git a/drivers/reset/reset-sky1-audss.c b/drivers/reset/reset-sky1-audss.c
-new file mode 100644
-index 000000000000..d9735db681c7
---- /dev/null
-+++ b/drivers/reset/reset-sky1-audss.c
-@@ -0,0 +1,127 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Cix Sky1 Audio Subsystem reset controller driver
-+ *
-+ * Copyright 2026 Cix Technology Group Co., Ltd.
-+ */
-+
-+#include <dt-bindings/reset/cix,sky1-audss-cru.h>
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
-+#include <linux/module.h>
-+#include <linux/regmap.h>
-+#include <linux/reset-controller.h>
-+
-+#define SKY1_RESET_SLEEP_US			50
-+
-+#define AUDSS_SW_RST			0x78
-+
-+struct sky1_audss_reset_map {
-+	unsigned int offset;
-+	unsigned int mask;
-+};
-+
-+struct sky1_audss_reset {
-+	struct reset_controller_dev rcdev;
-+	struct regmap *regmap;
-+	const struct sky1_audss_reset_map *map;
-+};
-+
-+static const struct sky1_audss_reset_map sky1_audss_reset_map[] = {
-+	[AUDSS_I2S0_SW_RST]   = { AUDSS_SW_RST, BIT(0) },
-+	[AUDSS_I2S1_SW_RST]   = { AUDSS_SW_RST, BIT(1) },
-+	[AUDSS_I2S2_SW_RST]   = { AUDSS_SW_RST, BIT(2) },
-+	[AUDSS_I2S3_SW_RST]   = { AUDSS_SW_RST, BIT(3) },
-+	[AUDSS_I2S4_SW_RST]   = { AUDSS_SW_RST, BIT(4) },
-+	[AUDSS_I2S5_SW_RST]   = { AUDSS_SW_RST, BIT(5) },
-+	[AUDSS_I2S6_SW_RST]   = { AUDSS_SW_RST, BIT(6) },
-+	[AUDSS_I2S7_SW_RST]   = { AUDSS_SW_RST, BIT(7) },
-+	[AUDSS_I2S8_SW_RST]   = { AUDSS_SW_RST, BIT(8) },
-+	[AUDSS_I2S9_SW_RST]   = { AUDSS_SW_RST, BIT(9) },
-+	[AUDSS_WDT_SW_RST]    = { AUDSS_SW_RST, BIT(10) },
-+	[AUDSS_TIMER_SW_RST]  = { AUDSS_SW_RST, BIT(11) },
-+	[AUDSS_MB0_SW_RST]    = { AUDSS_SW_RST, BIT(12) },
-+	[AUDSS_MB1_SW_RST]    = { AUDSS_SW_RST, BIT(13) },
-+	[AUDSS_HDA_SW_RST]    = { AUDSS_SW_RST, BIT(14) },
-+	[AUDSS_DMAC_SW_RST]   = { AUDSS_SW_RST, BIT(15) },
-+};
-+
-+static struct sky1_audss_reset *to_sky1_audss_reset(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct sky1_audss_reset, rcdev);
-+}
-+
-+static int sky1_audss_reset_set(struct reset_controller_dev *rcdev,
-+				unsigned long id, bool assert)
-+{
-+	struct sky1_audss_reset *priv = to_sky1_audss_reset(rcdev);
-+	const struct sky1_audss_reset_map *signal = &priv->map[id];
-+	int ret;
-+
-+	ret = regmap_assign_bits(priv->regmap, signal->offset,
-+				 signal->mask, !assert);
-+	if (ret)
-+		return ret;
-+
-+	fsleep(SKY1_RESET_SLEEP_US);
-+	return 0;
-+}
-+
-+static int sky1_audss_reset_assert(struct reset_controller_dev *rcdev,
-+				   unsigned long id)
-+{
-+	return sky1_audss_reset_set(rcdev, id, true);
-+}
-+
-+static int sky1_audss_reset_deassert(struct reset_controller_dev *rcdev,
-+				     unsigned long id)
-+{
-+	return sky1_audss_reset_set(rcdev, id, false);
-+}
-+
-+static const struct reset_control_ops sky1_audss_reset_ops = {
-+	.assert   = sky1_audss_reset_assert,
-+	.deassert = sky1_audss_reset_deassert,
-+};
-+
-+static int sky1_audss_reset_probe(struct auxiliary_device *adev,
-+				  const struct auxiliary_device_id *id)
-+{
-+	struct sky1_audss_reset *priv;
-+	struct device *dev = &adev->dev;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->regmap = dev_get_regmap(dev->parent, NULL);
-+	if (!priv->regmap)
-+		return dev_err_probe(dev, -ENODEV, "failed to get parent regmap\n");
-+
-+	priv->map = sky1_audss_reset_map;
-+	priv->rcdev.owner = THIS_MODULE;
-+	priv->rcdev.nr_resets = ARRAY_SIZE(sky1_audss_reset_map);
-+	priv->rcdev.ops = &sky1_audss_reset_ops;
-+	priv->rcdev.of_node = dev->of_node;
-+	priv->rcdev.dev = dev;
-+
-+	return devm_reset_controller_register(dev, &priv->rcdev);
-+}
-+
-+static const struct auxiliary_device_id sky1_audss_reset_ids[] = {
-+	{ .name = "clk_sky1_audss.reset" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, sky1_audss_reset_ids);
-+
-+static struct auxiliary_driver sky1_audss_reset_driver = {
-+	.probe = sky1_audss_reset_probe,
-+	.id_table = sky1_audss_reset_ids,
-+};
-+module_auxiliary_driver(sky1_audss_reset_driver);
-+
-+MODULE_AUTHOR("Joakim Zhang <joakim.zhang@cixtech.com>");
-+MODULE_DESCRIPTION("Cix Sky1 Audio Subsystem reset driver");
-+MODULE_LICENSE("GPL");
--- 
-2.50.1
-
+Thanks,
+Cristian
 
