@@ -4,90 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F378C44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C699C44524
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7+cCcM6CiilxYn20d+2/sNJaaaPBtgLi+l7OMsmE4UA=; b=l+o19IyRSKMiGmcxuCbUQNi5Fx
-	jN8YzMNBhz8jQjQ2WTkjKAOhcHxu0ep1viexB166a8Sg0Jr9/1/A/Xw9jwejVNQOJxmbb8bhYXlMj
-	nXWzaE5knlJYGAvxX5iIkP3CgH/RdisaWU6GWOlnMoNLjRGAurG2ohW5Fl5OzLdDKfXpTFwj2vKJz
-	FEOOflo8akIMjraEL81a5cVk7hKrJWMYWdsEojkqgtwi4YoXP6hHAiBC+qkaeF2JQpl/bwxcXE4+M
-	cYbtrkM/ledT5lFIKZnd/db4ZfsVNOug3gjwahtZGxrhc2DcX5pthnfFIGl4vs0Zwxzr5pClc6gZS
-	aiucunxA==;
+	bh=fskRTNmKCHuMx7B3elKsJMyK2dJDvII2EXTM/GUSwAI=; b=VteRSvHKBDhkqSCjlRfjlA5cX+
+	KRtBQJvme5ssVCcSA4xBt4BDFEv+pbGdQr8FyHwunkkIZQEzEqr2QqUJTynGlX3MhDqMziajvr2vq
+	HU2YoJt9BJZ6sn8eAe70yTiWv59Gjx42mXM6wwQQQ/F5ynYvvhhUoRh3q0RDRvA3GNDGxyppakXfH
+	zM3Kwx19Lu19BpCopcMUDNcJ99oV4XA8ncTtuyGN10c2kbGY8nq2/vTEouMA2YtDBG2Vfn3GVhcSG
+	OqedtRu+t8i3xQSGEmdEDw6u4n3hoUOocDvx/wfqxaoypa0y2TSs+zR68vhiFnnUUPlKkdf29CZyu
+	UITlMlbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmlbL-0000000DRdq-1zl3;
-	Thu, 23 Jul 2026 05:04:07 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wmldL-0000000DRnX-3GYp;
+	Thu, 23 Jul 2026 05:06:11 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmlbJ-0000000DRdL-2z2K
+	id 1wmldJ-0000000DRnA-0xnu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 05:04:06 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2cea3004256so2966235ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 22:04:05 -0700 (PDT)
+	Thu, 23 Jul 2026 05:06:10 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ceb096e675so2808495ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 22:06:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784783045; x=1785387845; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784783168; x=1785387968; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7+cCcM6CiilxYn20d+2/sNJaaaPBtgLi+l7OMsmE4UA=;
-        b=c883sjB2n7e35/z3WsJJrwZaBb36zNkLwNeHx1DSPd5ZwTFF+xh79SytmwWA+EkWGv
-         dssTVWfYdFkzQ1Czr5W1qfwJhkpnCWDQCNTFz4CBJXOxPbIw6UiL94EZT9n+w4rh8Nsw
-         Qgpa0EDa1SL8hi1bPf4ArZ5eZxkjFHyKCJJI1q+Jb3LyFzu7dsHlpeX8dfEHuFY8x+dX
-         dg8ou8njRRpchul+TIAG2FKSy/Byp5zRNGrhJXFnmCbcZv3lFrg7Vi5/WshE0KbyB875
-         TRppqzU3dm+PULKZsZma6/KztM/cqdG4sfoxlFMPwYrrT0tGieeySJnk67iOmGlC+hvT
-         1eng==
+        bh=fskRTNmKCHuMx7B3elKsJMyK2dJDvII2EXTM/GUSwAI=;
+        b=Wd1YH5bWXJ9cV6uIiHaDojAj5FKwzIDYgtEiRmp1PMU4s8LVBg8mfQV/I9OclpHjId
+         cScplcA4Q5+MF4hxL9PW9l0nI8FGk5cxQM+jRJqmXWBF/RJ4jnzplYVPmSOa/NkwZuTv
+         u59bOjo0n11Uzf7pos/Y1t0veseQJ3Q2XXrQ4VrWIy3gvW+SRxL9gefI+kCrEhuunkgI
+         IshQ84AjqUkl1k6vECKN5P6ee6PrfiVYZDZOisrsqtmnAPl9Q2KU0BsW/zFNVDECfVB3
+         zQzIYV7VUZjmlIDK69WiggpTd4BG1bEYcQ98TADu3Jx5/CavyPNJ++Dhw6OJlKznQ4T+
+         s1BA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784783045; x=1785387845;
+        d=1e100.net; s=20251104; t=1784783168; x=1785387968;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7+cCcM6CiilxYn20d+2/sNJaaaPBtgLi+l7OMsmE4UA=;
-        b=g+Rd0pH1nYKUC108fSy5u3ZaCgbKrbCBPaw/WUZdCt96xAYmAwEW195T6XNP0CusUr
-         4Jsr8cg5f8njGzC3OvSAcOoIdUqExjHn5GwuV7iQsDjWVP9cSAoL3bQxTCQF52wNz2aV
-         m9bwpiO9I2ya0sqwAxO81eT2hLi+c0PafB9OOxO/7955+jM0g4TGlpXU7AXexiAB0PII
-         YD+MElUig7I4mz8v3Swx4Q7KMc2sDyHQgfPEoeHvdoyOjyr5pVZ7XbYy6oQQmbQQZXHg
-         4YUteJgx1JuNqiSalBvr0+UwZmoE9bovtlCjdJwBMKC5H/hIZRbOZ1/WqDUoW0waYGls
-         xKqg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro1Vs09uJfusfMae/cqH7HyAiG9zi/sV+auEwg/6rBSkuKp3a9Qw/EMYiulZfuaI5Y5ABLC3nWYLAYDCn2jFq2c@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWznG/phhBPk5DRPTzndYt2ApJgJgPPCBxS4kbUYrkYUwXIpCQ
-	Eazvg9GwOtQkf3ldQY3ickUpTvamo7e8ctbM1rwYaHk5KAEL6tlIoFNS
-X-Gm-Gg: AR+sD13GFsKzwXOJdTVOMxNWLz/usPqeEOnPhfV5oupGS80t3/BEV/X4wIzPK40pQdr
-	eZ74ubwyKjCQJHfYY9b/BCkC/I2UfGVZWGPayUkCxT2mkNDbI2XEJOpfr6sj/IBvX0TdCLCJ42z
-	b+YGZVfOABV6m9+SUqYMfL81xfCwhpCTny1H74y5X1lZlZtZb6u6+fpFsAnAmX67/jHYas74J/1
-	i0cFmotpSief7eJTdh6p0o3oJe4Cl3ZyyCHokQL6ftMgmgyEv6zwJ61SgRNrHC1X7I3cKu7xySK
-	5NOmPuUWg1lWA16V6PW81641INlsM1HByCB6D//u5utp3cH25eg2WGjVEH1WJsLMh6TYAVQdJ1N
-	0t55gnpYHLN2WUw+bEZQhHQ53pGT7gtoxtJKLTLzSsx9wHvc6CfHkxkuX03dlzpP19nz76fE3As
-	N/gGYauSswnSSmaUKvZ2w5Jy74fGb7j0ujact0kL4Te8AnJoBs/RwxvrTDuH6+6TYvPyjP9jNXU
-	d1DL93G+vZh5mTS8KKoTUGupEtG79+A04xy8pqVr3UPPdZSRXeQ+PQ=
-X-Received: by 2002:a17:902:ea06:b0:2cc:85a7:36ee with SMTP id d9443c01a7336-2cfa6c71839mr19269585ad.32.1784783044719;
-        Wed, 22 Jul 2026 22:04:04 -0700 (PDT)
+        bh=fskRTNmKCHuMx7B3elKsJMyK2dJDvII2EXTM/GUSwAI=;
+        b=BwxgrsM6CLx29csSzPZN4AHjAuws4Raesh7iMqThVxMBPn3BNpyUW44cp44gnLsGfZ
+         34lNQ0X7RfDJmJXoOYmmo/gr1FY6D30Bxa/DLH8ty9ke4cHYsi/bXbdZfAj59ZgIyMzi
+         ZP0s1pCRf4rQs71lTJmB/eDlBZRpPb0ijXMWEFbMy6MNmDf2FXYaSaprpI7vdjgb0VrL
+         E2IOO6NFgMdIhVUN7zuRAPHAskd4hg1g6O+MkykZ+wmtGfIGXocvzh+9bC2QwPBFZTlu
+         K7UwzU5KR1c8epMYe2U3kyMInZaD6P/DJZQ/7a4bAyDRO/HqCYx0fefEKaFNulxVMJBz
+         GBDQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrQFp1NkyZ1odeYXSFtkpUhupVRb73kC8PrPFHgmgwuubc4Ah94fel7kEFSoBWrwAQJL+ChSmkriEEgQY9cNJH+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDh60yqyk38pu9ZoMsndPmIrgmH18DFjzyR9dDXqRtG2Ao+OET
+	cqebCxxPOR1fjC0REpiBNeN2/Lr43XxRTlslQAUAomGzB8+tlanLEmAoazzHTw==
+X-Gm-Gg: AR+sD117nhxWgAEHrU+TMX19K1LagHi+igQmD19Jj5m6HuorEuPLB6iM9zHeJi65ftk
+	g4YZ8dMCkwkjBYyJGGdIxblnTmmVNaBp+XlPFmb9Iae7+SkoSEOoDr/wDUldBF1szWy5tFAqArZ
+	tZQM2R42cfZN1t36KyoCZSV/JHQuYBS7SxPeOm4zHHu0zw4mf/pHWfi41qux9jdxQMyRFeJ0ouH
+	9UTzJGzr6vUMlWoSz67ci07itwh8KZXqiOrN6JdhNEMm8mocKn0wo3F6yyOWFMie8Nj5pbVgloA
+	grdgCjCbV3QBweAFeq1C4mJbpcmIO5RGZuOusMBoTMWX9/saQZ/iKcxWA1Y/qZc3Hpr/ey5/HzN
+	+kqMnS7tl7obc8hSBLx4b0956XOHMfsEXIBL6M8N6tPntYeRB2UUPIlZPT9wjypCSmafOzI1B3x
+	bhROxBIT8CsB/HogwtlpC26LHRvTsXW2AQm6gHU5CwmPxny+pYZTIyN+Xxl2bIMd3Vw6gexOgKT
+	8TtCSCiZNUJ5/ce2mk0yqSINFK4r0n/fKS0m4X3sCIV8oRfSPErjMg=
+X-Received: by 2002:a17:902:fc43:b0:2c9:97a7:3276 with SMTP id d9443c01a7336-2cfa6c87f9fmr20526865ad.39.1784783168285;
+        Wed, 22 Jul 2026 22:06:08 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8f3b46absm25394675ad.80.2026.07.22.22.04.03
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8f3b46absm25427275ad.80.2026.07.22.22.06.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 22:04:04 -0700 (PDT)
+        Wed, 22 Jul 2026 22:06:07 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: dmaengine@vger.kernel.org
 Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
 	Vinod Koul <vkoul@kernel.org>,
 	Frank Li <Frank.Li@kernel.org>,
-	Dan Williams <djbw@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:MICROCHIP AT91 DMA DRIVERS),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] dmaengine: at_hdmac: fix memory leak in atc_prep_slave_sg
-Date: Wed, 22 Jul 2026 22:04:02 -0700
-Message-ID: <20260723050402.272606-1-rosenp@gmail.com>
+Subject: [PATCH] dmaengine: at_hdmac: ioremap and get irq early
+Date: Wed, 22 Jul 2026 22:06:06 -0700
+Message-ID: <20260723050606.283453-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_220405_755256_EA486A9E 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_220609_273010_038EEAFF 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default case in the direction switch returns NULL without freeing
-the descriptor allocated earlier via kzalloc_flex(). Add the missing
-kfree(desc) before returning.
+The functions can return -EPROBE_DEFER. Call them before anything else
+to avoid doing extra work.
 
-Fixes: 808347f6a317 ("dmaengine: at_hdmac: add DMA slave transfers")
-Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/dma/at_hdmac.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/dma/at_hdmac.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-index f9c336630fa2..c06f70dbc4c5 100644
+index e5b30a57c477..2f6f5877fc3c 100644
 --- a/drivers/dma/at_hdmac.c
 +++ b/drivers/dma/at_hdmac.c
-@@ -1381,6 +1381,7 @@ atc_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
- 		}
- 		break;
- 	default:
-+		kfree(desc);
- 		return NULL;
- 	}
+@@ -1943,11 +1943,20 @@ static void at_dma_off(struct at_dma *atdma)
+ static int __init at_dma_probe(struct platform_device *pdev)
+ {
+ 	struct at_dma		*atdma;
++	void __iomem		*regs;
+ 	int			irq;
+ 	int			err;
+ 	int			i;
+ 	const struct at_dma_platform_data *plat_dat;
  
++	regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(regs))
++		return PTR_ERR(regs);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
+ 	/* setup platform data for each SoC */
+ 	dma_cap_set(DMA_MEMCPY, at91sam9rl_config.cap_mask);
+ 	dma_cap_set(DMA_INTERLEAVE, at91sam9g45_config.cap_mask);
+@@ -1968,13 +1977,7 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ 	if (!atdma)
+ 		return -ENOMEM;
+ 
+-	atdma->regs = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(atdma->regs))
+-		return PTR_ERR(atdma->regs);
+-
+-	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0)
+-		return irq;
++	atdma->regs = regs;
+ 
+ 	/* discover transaction capabilities */
+ 	atdma->dma_device.cap_mask = plat_dat->cap_mask;
 -- 
 2.55.0
 
