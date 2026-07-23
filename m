@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9B8C531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F1DC531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lwm8Cp4WQEzxNOdP+jk9C2wUjdU3ZLhgWNzCbs+xPI=; b=x8SCYHxs66Z2pBCyL519VPokmi
-	/ZzjjRgEDrOph6UEbL8Jx4wPa3ebAKpQenQxuJTE8IE6rXQhf3VS7XZ33+0TqGkUIohBUZGXUYu+Z
-	5Ve6n8pAYuv/yQYEGwXnwurtf8bHrMyp9lSTQAaMT+G2/gAIuIWFo1feUg9r5qYpTcuzgNH45PeZi
-	v8kg/FiKWfkyIVX5S/u3DxGTeiS6gXn49QTus1n/q7FQdgjsIPBS+VVcdCd+s1VmE5UbUBqfy4dCp
-	DVnhRxgJJrulLlPpVEWHYSwJRHBZOORz9tbAFsrhmkAPmyj7cHP8pWDAgzfEXJ21bFXeG3iew7KRB
-	1y3iHUTA==;
+	bh=05+Kdq9Oq21hRGOSFQRSrG08c9PK4ORmMHrgLntDmYU=; b=cZOX7668o8Q2lpkE7fELVB78O3
+	na8t81Qy5Nt91SHzW9wuVfWGme0jRO96PZX1GI64ARZFexlKyVYWVqlLhPhtvCkoWUwXttZ/NdCoz
+	ForbsaYzprbAXRPUykMOd4x3rt5x6/TP2hOoqDEYzJ5SsR5uGAlqHoyduliXA3GK4yVEx0vtjqj9b
+	ZhtcGYgO8W0bb2q14+Cb+u5p2uXB/zcFtBYKrcCHbGrYTRiYs7yxTZCtNXq5FQxB5X1i0UEC4+UNs
+	HOn0hsh0GAMwIBPdxI8tm9jzF4120BuzBsgC4DHYT1txvuIKfrstiT1cbIf84rCn+F8NI3tUIA69W
+	tgOBq0Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvlg-0000000EeUS-0T1q;
-	Thu, 23 Jul 2026 15:55:28 +0000
+	id 1wmvm6-0000000EenH-3fWa;
+	Thu, 23 Jul 2026 15:55:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvlV-0000000EePk-05T3
+	id 1wmvlg-0000000EeU7-0frI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 15:55:18 +0000
+	Thu, 23 Jul 2026 15:55:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3EE211595;
-	Thu, 23 Jul 2026 08:55:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E4601595;
+	Thu, 23 Jul 2026 08:55:22 -0700 (PDT)
 Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0E083F66F;
-	Thu, 23 Jul 2026 08:55:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48A943F66F;
+	Thu, 23 Jul 2026 08:55:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784822115; bh=ouZ5S5YFYUS/PHknbH6+A2f7Dw6YkpC1gKY7l/k2aeU=;
+	t=1784822126; bh=lAx1ozqhso3gfmQsmzAoH/C16G8oKBBQpLc7oozcmIc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=l+WWQbjMVLtrIz4XBt509x1swhraB4t+WBl9Dwn7jowA7x4zBGu/r1XSkHZzH7+AC
-	 mlZgIFjzpisGCIMNKnOEK4rCz2LIf10iHZvIPXDllCdID4ZpbEH7gIny4b6qiLXZAC
-	 iqljenLsYEoCY1YbHuIXEnOB6BDDYfvZNVCKmcn8=
+	b=nE9nfic60xWZAsy6n0WnFLAUSunvfVwFYry+SSTRIUoedqF3ccOg+djaTb6hCx0EC
+	 VAJSyv8Vn+RZzYg1uF2M89AmCY70lTMbzTXw5Guds0lZefLINJ8HyrgYM4e9MMw2Q0
+	 1eVr+c9t7S4+Cb3HZc2LXry0jugPGUoW4igaeFRU=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -61,17 +61,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 04/10] arm_mpam: propagate MSC access errors for msmon helpers
-Date: Thu, 23 Jul 2026 17:54:48 +0200
-Message-ID: <20260723155454.1760823-5-andre.przywara@arm.com>
+Subject: [PATCH v4 07/10] arm_mpam: prepare mon_sel locking for MPAM-Fb
+Date: Thu, 23 Jul 2026 17:54:51 +0200
+Message-ID: <20260723155454.1760823-8-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260723155454.1760823-1-andre.przywara@arm.com>
 References: <20260723155454.1760823-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_085517_158672_75B3DAEF 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260723_085528_314719_78F9C650 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,143 +86,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the helper functions for msmon accesses to return an error, and
-propagate read and write errors from the lower level up.
+The MSC MON_SEL register needs to be accessed from hardirq for the overflow
+interrupt, and when taking an IPI to access these registers on platforms
+where MSCs are not accesible from every CPU. This makes an irqsave
+spinlock the obvious lock to protect these registers. On systems with
+MPAM-Fb mailbox MSC access it must be able to sleep, meaning a mutex must
+be used. So MPAM-Fb platforms cannot support an overflow interrupt easily.
+Clearly these two methods can't exist for one MSC at the same time.
+
+Change the mon_sel locking wrapper function to only use a spinlock when
+the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
+mutex, but only if we are in a sleepable context. If that's not the
+case, we return an error. This should not happen, as MPAM-Fb by design
+does not require an MSC access to happen from a specific CPU, so there
+is no need for any IPIs or preemption disabling to satisfy CPU
+constraints. And since overflow interrupts are not supported at the moment
+anyway, we also wouldn't meet the other case.
+Bailing out early is already happening in rare occasions today.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/resctrl/mpam_devices.c | 72 ++++++++++++++++++++++------------
- 1 file changed, 47 insertions(+), 25 deletions(-)
+ drivers/resctrl/mpam_devices.c  |  5 ++++-
+ drivers/resctrl/mpam_internal.h | 32 ++++++++++++++++++++++++++------
+ 2 files changed, 30 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index fce29fa9ef78..9ee4eb4db03f 100644
+index 6329443c451f..e2cb884eacf4 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1165,15 +1165,20 @@ static int mpam_msc_read_mbwu_l(struct mpam_msc *msc, u64 *res)
- 	return 0;
- }
+@@ -2225,7 +2225,10 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+ 	if (err)
+ 		return ERR_PTR(err);
  
--static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
-+static int mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
- {
-+	int ret;
+-	mpam_mon_sel_lock_init(msc);
++	err = mpam_mon_sel_lock_init(dev, msc);
++	if (err)
++		return ERR_PTR(err);
 +
- 	mpam_mon_sel_lock_held(msc);
- 
- 	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
- 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
- 
--	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
--	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
-+	ret = __mpam_write_reg(msc, MSMON_MBWU_L, 0);
-+	if (ret)
-+		return ret;
-+
-+	return __mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
- }
- 
- static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-@@ -1216,24 +1221,28 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
- 	}
- }
- 
--static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
--				    u32 *flt_val)
-+static int read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-+				   u32 *flt_val)
- {
- 	struct mpam_msc *msc = m->ris->vmsc->msc;
-+	int ret;
- 
- 	switch (m->type) {
- 	case mpam_feat_msmon_csu:
--		mpam_read_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
--		mpam_read_monsel_reg(msc, CFG_CSU_FLT, flt_val);
--		break;
-+		ret = mpam_read_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-+		if (ret)
-+			return ret;
-+		return mpam_read_monsel_reg(msc, CFG_CSU_FLT, flt_val);
- 	case mpam_feat_msmon_mbwu_31counter:
- 	case mpam_feat_msmon_mbwu_44counter:
- 	case mpam_feat_msmon_mbwu_63counter:
--		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
--		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
--		break;
-+		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-+		if (ret)
-+			return ret;
-+		return mpam_read_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
- 	default:
- 		pr_warn("Unexpected monitor type %d\n", m->type);
-+		return -EINVAL;
- 	}
- }
- 
-@@ -1246,10 +1255,11 @@ static inline void clean_msmon_ctl_val(u32 *cur_ctl)
- 		*cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
- }
- 
--static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
--				     u32 flt_val)
-+static int write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-+				    u32 flt_val)
- {
- 	struct mpam_msc *msc = m->ris->vmsc->msc;
-+	int ret;
- 
- 	/*
- 	 * Write the ctl_val with the enable bit cleared, reset the counter,
-@@ -1257,25 +1267,37 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 	msc->id = pdev->id;
+ 	msc->pdev = pdev;
+ 	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 0c3f6a040b20..b3a6ed9ed175 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -126,6 +126,7 @@ struct mpam_msc {
  	 */
- 	switch (m->type) {
- 	case mpam_feat_msmon_csu:
--		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
--		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
--		mpam_write_monsel_reg(msc, CSU, 0);
--		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
--		break;
-+		ret = mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-+		if (ret)
-+			return ret;
-+		ret = mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-+		if (ret)
-+			return ret;
-+		ret = mpam_write_monsel_reg(msc, CSU, 0);
-+		if (ret)
-+			return ret;
-+		return mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
- 	case mpam_feat_msmon_mbwu_31counter:
- 	case mpam_feat_msmon_mbwu_44counter:
- 	case mpam_feat_msmon_mbwu_63counter:
--		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-+		ret = mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-+		if (ret)
-+			return ret;
-+		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-+		if (ret)
-+			return ret;
-+		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL,
-+					    ctl_val | MSMON_CFG_x_CTL_EN);
-+		if (ret)
-+			return ret;
- 		/* Counting monitors require NRDY to be reset by software */
- 		if (m->type == mpam_feat_msmon_mbwu_31counter)
--			mpam_write_monsel_reg(msc, MBWU, 0);
--		else
--			mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
--		break;
-+			return mpam_write_monsel_reg(msc, MBWU, 0);
+ 	raw_spinlock_t		_mon_sel_lock;
+ 	unsigned long		_mon_sel_flags;
++	struct mutex		mon_sel_mutex;
+ 
+ 	void __iomem		*mapped_hwpage;
+ 	size_t			mapped_hwpage_sz;
+@@ -139,27 +140,46 @@ struct mpam_msc {
+ /* Returning false here means accesses to mon_sel must fail and report an error. */
+ static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
+ {
+-	/* Locking will require updating to support a firmware backed interface */
+-	if (WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO))
++	if (msc->iface == MPAM_IFACE_MMIO) {
++		raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
 +
-+		return mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
- 	default:
- 		pr_warn("Unexpected monitor type %d\n", m->type);
-+		return -EINVAL;
- 	}
++		return true;
++	}
++
++	if (!preemptible())
+ 		return false;
+ 
+-	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
++	mutex_lock(&msc->mon_sel_mutex);
++
+ 	return true;
  }
  
+ static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
+ {
+-	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
++	if (msc->iface == MPAM_IFACE_MMIO) {
++		raw_spin_unlock_irqrestore(&msc->_mon_sel_lock,
++					   msc->_mon_sel_flags);
++
++		return;
++	}
++
++	mutex_unlock(&msc->mon_sel_mutex);
+ }
+ 
+ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
+ {
+-	lockdep_assert_held_once(&msc->_mon_sel_lock);
++	if (msc->iface == MPAM_IFACE_MMIO)
++		lockdep_assert_held_once(&msc->_mon_sel_lock);
++	else
++		lockdep_assert_held_once(&msc->mon_sel_mutex);
+ }
+ 
+-static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
++static inline int mpam_mon_sel_lock_init(struct device *dev,
++					 struct mpam_msc *msc)
+ {
+ 	raw_spin_lock_init(&msc->_mon_sel_lock);
++
++	return devm_mutex_init(dev, &msc->mon_sel_mutex);
+ }
+ 
+ DEFINE_GUARD(mon_sel,
 -- 
 2.43.0
 
