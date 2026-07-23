@@ -4,153 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00B1C44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA45C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=; b=O9L99q02Fw2ZygxEadcDArqSCZ
-	ONOry4ILHCJ4G9L8LVtVGO6dkBzZe1YmPXDvs4/qsOw/EX4RT0rpBBPlq4WkTTvJckOA5duvqLLN7
-	jSFAREBnN++NXsHv69KK6mWBglkdl9TJzN6TZzenZdVXXlXvCiFbTOEZkPGck1c/ZKBMkeFF9G0aA
-	JWqdKn/2r/KbmalEDQezrlrpPAX6UHxq7tkKtUK3iKTO9z8BZ6czcftI16nk1rWQEk3gFHxePKU2p
-	rslwo9arDSsmu4WQfuq220kXKqZdXbJNw1QmiWhix5quNFCSMmUj50VG1cKv45EsmgqRgk0Jr0dGM
-	Jvth4/ig==;
+	bh=91rdVwNiLBWx9A2v0nJpGTlKC7e08pKWDHF8nFaF1Q4=; b=n5BOsoIVFbdPn5i/dapWq1HQva
+	ONK2EJWk8krMyYyApY79muKAj+D7zfxEpQKieRSvSQy3Bi2BpT3YuF8SfcGsUMTsgLq49HYHPOX/r
+	H1GooJwLqWyJJIBpbuLgiE148zV7Nx/3np/XUK5w97aXMOl47QZVc5DjIPxNF4J/9OguGmBkZytlf
+	HXI/B9n19kN3qrCqVZpHcgV4a5gTwsxTy3panRsExSNcBViDJf3G/+hogNfcdZWghvNJCoF8aeEj3
+	7oudju+XScww0HeGbId5Yf7UWDE1yO3OOtsNcT+ATpQaGGHcH2eWIGiJuuSl0wj7bKIlW/9FOs8GF
+	X+nNv99w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmobz-0000000DiI9-3UUA;
-	Thu, 23 Jul 2026 08:16:59 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmnrq-0000000De1U-1LDP;
+	Thu, 23 Jul 2026 07:29:18 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmobw-0000000DiHD-2oo4
+	id 1wmnre-0000000DdtT-100S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 08:16:59 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N7Bb7W3553954
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:16:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=; b=ntSapto5HtuOo1tx
-	+4Wyu1GfIka9eD9b3tS9e0LIb25cjH3/7S91iitGNy7DLR4Fx9d9AJZDs8hNXIOg
-	EtfpPBI2RM1JebCar91HEqL/a9Ur8/t1iGqxLHTOyepqlyg1uRvvSndniBdV7KCV
-	/jweb56WfARKrsHjqD5JVMJFiGsjKSoKVWpDBorAP31jEZnlovTzqChQwhfV4mIP
-	d3PFRt5Ey2bmrNp4TxjcJ5ijkN4a8BlUiVxhLnK3UDXpqqAqhxBV96NVHJzN+tFN
-	hZYO5XF43oGcsTKApztW7F/sfHa1btPj6rqW3/DlLKITozTEt8jVERledLw17x5F
-	3yU4Eg==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fk7b51spc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:16:56 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-ca124bf0189so182041a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 01:16:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784794615; x=1785399415; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=;
-        b=WzjY9CS3elqAWWnF7UL4gwDwqHlLG3LD25bUwRJDOMisxiJ2bs+m6D142Za7HSDM+b
-         c601lwyScEqJ46+V97aNFzNFP6d6z3Q+QjZ1pM1oW/sRdpwtnF3qhcrvSyjyLjG4E1Un
-         nAcMR5i7Fip6VZ3NINwhSCJMrQhYVvfg4pWbPZ1edi+sAHrxeyiFreISTmfAHgSRmF7n
-         cu9N3V9gB6lAKXh9Too5EIYmYI42qDRMOxeoXLFgkAGDBqbm3qIMa/+pOfRfMMbiunqX
-         NTvLG6Nk5HZD37D4QGNyAiLSh9b+cL6SatKKx3479SSekIsDiSS4g9Xd2mQtFtntJMdI
-         /bYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784794615; x=1785399415;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=;
-        b=GcU78U28vQSZY119xGrORrNPmmBwCrRwAodp46ltySwDQEh0vfE97t1ZndF0pN46XV
-         BK00wbpxO1ZcRgJNg1ilIS1Mz61lu++xLHKZSkeBvWs3pYuDfkNVD5kG3rVdVZ7iMPOA
-         Bcq5PChtnXJucwvPzU6DTmrLdv0h0uNevBP4wr7NURclA40nUIQtPCL4UbWM+ceFntzo
-         km4Y0SXIGxuBPZyqG+R5GRdkqxz+wHohddsljxaCIBg3e6rfohIc6ycqc42Thv8ICD6c
-         yUmRKP9/3EIJIQhqQdYH7LeQYMYNQ+FOQl9Rn8cLP/DRoWTA3G9VO39vGMIXqIlgqfFW
-         alRw==
-X-Forwarded-Encrypted: i=1; AHgh+Rp4nLwL3CFrX/OqSXsBvDPseGNkatV2FN6wkK2BE1TkJv4xYbbKvWaC490bQ7dr9bwBCayVXqkDEzcdpMc7MJ5E@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTu0FVOsmSv8ohGW1q+sW+SlSHSNC0BuQgqJc4lc7qFaZtqqI0
-	/vDkDLaGpvI7MxXalZ7B0Xa2Oxqdm+L7P3a2JPTJTDqtTbxNR/Ig/KlLHTca2Ir7PvrQE0Qqycv
-	ynhhrHyx80MOLx7DuBcEp6BkrV6HGN7iPSJLnZZRCgulR+zzYpH6Q47E55t/9Trj6xHRATNFP+T
-	mv+w==
-X-Gm-Gg: AR+sD11ytQb8eO7Wr1oYe8CfdVXRgsXM4CYvTlgm1q7ls3DBf+FS7lEv2H1JTJusUXe
-	MsH8o/Q4IXeGZsYAs0/p7bHpyoaCJLGAH1YPz6H8L8G41wZUDmQyZU48zOlWIfz+L5i5ZHBgKkL
-	1w2e+6XMcohUpmphXWt35pMCEaKcRI5g3Y5RAZfw87R4XXRs0RrUsxO/3Hjvls37l82VU6lkXyT
-	TaILkYzygDVYHpiqWSkHVL8YaxJekLvy8apWHjYlp0uHOpebJV+fTR479Lp7AHWJ72n7eOzpvmd
-	oPI97VgmCW88cz57ZnDD+NJznt0//0gCNnqEuq2f8w9zdYP8efNd4zp47h/uv7Q0EyimpFLNRlc
-	t/Fk7eBOsEYhu/fJvLE4sCUpKldqIQn+NgPeVnb3dlQ1qrRMtKe67RJSZu5I1q8UKJw==
-X-Received: by 2002:a05:6a21:1392:b0:3c3:46ec:1c4 with SMTP id adf61e73a8af0-3c44ca1d9cemr1882214637.22.1784794615513;
-        Thu, 23 Jul 2026 01:16:55 -0700 (PDT)
-X-Received: by 2002:a05:6a21:1392:b0:3c3:46ec:1c4 with SMTP id adf61e73a8af0-3c44ca1d9cemr1882171637.22.1784794615041;
-        Thu, 23 Jul 2026 01:16:55 -0700 (PDT)
-Received: from [10.133.33.177] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbb8f0f58dfsm2314697a12.13.2026.07.23.01.16.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jul 2026 01:16:54 -0700 (PDT)
-Message-ID: <214c704d-4979-4dc6-ac91-db672e792c22@oss.qualcomm.com>
-Date: Thu, 23 Jul 2026 16:16:47 +0800
+	Thu, 23 Jul 2026 07:29:08 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1784791740;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=91rdVwNiLBWx9A2v0nJpGTlKC7e08pKWDHF8nFaF1Q4=;
+	b=sXjLQ581ufDE/17SSK/0pMXGvCWSzKWq7f+5Mm+GUxG/FhCzZ7uMsEmN8BDaKOBVkK5Os+
+	g2DtIPqsCM6JZH73rCYWfTQCAB7Zeg+9Vu24tSZPrN1YJH0q2FPTNxAqhV024CL+Roy5gG
+	/m98c2K2GfjnnDxf4TeQ5/FCnmIVKXQNNFUebbmR13IAkSPyQ+bqc1Hiq0Tjl4kxbq6sMt
+	LRjk2snqN7rk4+QLpjfF5Ip+98eGjRd3CsSzjKtFdNbpn5Tb0JkvK2m3MrRs+kU0YmUjxD
+	XtN3bvLrJSE87PpEyEO+DRuPr+mllcwji37JUw1BUasDu+WmhzX2j0JUDbbOPw==
+Date: Thu, 23 Jul 2026 09:27:33 +0200
+Subject: [PATCH v3 11/11] arm64: dts: Enable EdgeLock Secure Enclave on all
+ i.MX91/i.MX93 boards
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20260723-add-coresight-nodes-for-shikra-v1-0-992615f9ea15@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260723-add-coresight-nodes-for-shikra-v1-0-992615f9ea15@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDA4MiBTYWx0ZWRfXwewl9M/PkDXN
- SdHXUuiNUMVV3dOm0UkvdqGhNTCqkm2v40STbvBmeXXnNG7ZemXSUv60pSJO/LktvOJmHPS0Krh
- FaP6acX+fz5VbuxaFyONaRJUnlkFBczq7v0YljbppD6BNF12aWUx3yYOj0T7vM11hd8c81I63za
- S69tg5lzgpKBNCbK5A8PSpN6THWp826X108TbYW2KCXxEGrCFUk4UpICyZ1PqUGEtJoFKtamspZ
- K3tG9sXZLsKmG3WlS0DQ1XffgyAjNkbVosnHdUkib4noy00PJCMWJadtVIEiOC+hy7AzowM9JaW
- gDnIXJ7HSWMHQh2nUCjmPPdBPlsu3xjuzko5A2vyTESTFcOtx51Mh2+dtDWS0XXA0cU2TWQkyeS
- neg4RG+/xfp6FA35vB3gYcMAaVE6xqwCLA5ZxOT+2PT1MU4ACYojqEtgzWDjl9b9fdrEk0HaI79
- 7/FH9kbr+Zuu9q6gfoQ==
-X-Proofpoint-GUID: GY33jE-rE-WZgWi3qOtHsxfJiccc1UfP
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDA4MiBTYWx0ZWRfXx9MDT9ZtdzgN
- ePF6l0Xk817ymqF5MSicY6lZ4BnDRt3N2yAE3YaQTB7vgfqOM0ec55kq5NiK1SmGSlwe1Pjvht8
- dLI2XWXzoYVyPLxpGV4L7jvawveyqRQ=
-X-Authority-Analysis: v=2.4 cv=btx8wkai c=1 sm=1 tr=0 ts=6a61cdf8 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8
- a=_O3DOGVWAAAA:8 a=JfrnYn6hAAAA:8 a=nMW6oa_Obw0FX87ioUUA:9 a=QEXdDO2ut3YA:10
- a=x9snwWr2DeNwDh03kgHS:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=cvBusfyB2V15izCimMoJ:22
- a=2TKV-7w1aU1AVAwN0oqT:22 a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-ORIG-GUID: GY33jE-rE-WZgWi3qOtHsxfJiccc1UfP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-23_02,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 adultscore=0 lowpriorityscore=0 impostorscore=0
- phishscore=0 priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230082
+Message-Id: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-11-e26930345b4c@kontron.de>
+References: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+In-Reply-To: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Pankaj Gupta <pankaj.gupta@nxp.com>, 
+ "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10266;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=F7Nhp0IrABRm7B3/5FbrjrOUdSosMPbNZOjWENPZQU0=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISvx0DatH27WN7t04jhjnl95HBJ3ur9xz/7VO7an3PfY2
+ W/tF8jbUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMBHN+YwMC5jfln06cuYwdxJ/
+ hcpp/jpFKfcDqn+Pfz7KI+V8/MpxWUaGTuPkPxeOTEo96a60ha3u3Hv7+CUryx7dkmWwypDezJP
+ JCgA=
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_011656_741350_530178EE 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20260723_002906_596812_1A82FDF5 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,81 +86,290 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
+Include the common dtsi to enable the firmware node for all boards
+based on the i.MX91 or i.MX93 SoC.
 
-On 7/23/2026 9:46 AM, Jie Gan wrote:
-> This series adds the CoreSight debug and trace subsystem for the
-> Qualcomm Shikra SoC.
-> 
-> The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
-> Trace Control Unit). The CTCU on Shikra shares the same configuration as
-> the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
-> "qcom,sa8775p-ctcu" compatible.
-> 
-> The second patch adds the DT nodes describing the CoreSight topology on
-> Shikra, including the funnels, replicators, TMC sinks (ETR/ETF), STM,
-> per-core ETMs, CTIs, and the TPDM/TPDA trace collection blocks, along
-> with the CTCU and the dummy source/sink endpoints that model external
-> trace sources and the EUD sink.
+For the TQ-Systems i.MX91 TQMa91xxCA / TQMa91xxLA SOM that already has
+a node for the reserved memory, keep the current settings.
 
-I just found the version number is wrong for the series, it should be V4.
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+ arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts         |  1 +
+ arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts      |  1 +
+ arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts        |  1 +
+ arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts           |  1 +
+ arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi      |  1 +
+ arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi         | 15 ++++++++-------
+ arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi         |  1 +
+ arch/arm64/boot/dts/freescale/imx91-var-som.dtsi          |  1 +
+ arch/arm64/boot/dts/freescale/imx91_93_common.dtsi        |  9 +++++++++
+ arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi |  1 +
+ arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts        |  1 +
+ arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts         |  1 +
+ arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts           |  1 +
+ arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi    |  1 +
+ arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi      |  1 +
+ arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi         |  1 +
+ arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi         |  1 +
+ arch/arm64/boot/dts/freescale/imx93-var-som.dtsi          |  1 +
+ 18 files changed, 33 insertions(+), 7 deletions(-)
 
-I have checked my b4 branch, confirmed the version number has been 
-cleared by mistake. Will take care of it in the future.
+diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+index 5716febb5a50..7813a3cf215b 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-11x11-evk", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
+index 62dc1dedfb0e..b5a042a58b57 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-11x11-frdm-s", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
+index c25561574d3f..20c7e4989367 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-11x11-frdm", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
+index ea8cf14e0bc6..430c0402138b 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-9x9-qsb", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
+index 8b8cb3daecbb..509d869a216b 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/regulator/nxp,pca9450-regulator.h>
+ 
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "PHYTEC phyCORE-i.MX91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
+index c99d7bc16848..ad66fea4099a 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
+@@ -7,6 +7,7 @@
+  */
+ 
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "TQ-Systems i.MX91 TQMa91xxCA / TQMa91xxLA SOM";
+@@ -31,13 +32,6 @@ linux,cma {
+ 			size = <0 0x10000000>;
+ 			linux,cma-default;
+ 		};
+-
+-		/* EdgeLock secure enclave  */
+-		ele_reserved: ele-reserved@a4120000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0 0xa4120000 0 0x100000>;
+-			no-map;
+-		};
+ 	};
+ 
+ 	/* SD2 RST# via PMIC SW_EN */
+@@ -58,6 +52,13 @@ &adc1 {
+ 	vref-supply = <&buck5>;
+ };
+ 
++&ele_memory {
++	/delete-property/alloc-ranges;
++	/delete-property/size;
++	reg = <0 0xa4120000 0 0x100000>;
++	no-map;
++};
++
+ &flexspi1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_flexspi1>;
+diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
+index a9e44efad13f..2e1830c33012 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
+@@ -13,6 +13,7 @@
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "Variscite DART-MX91 Module";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
+index b30a0d8a81ba..87db0abb8257 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
+@@ -11,6 +11,7 @@
+ /dts-v1/;
+ 
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "Variscite VAR-SOM-MX91 module";
+diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+index a1a7e6a0571b..60798b216438 100644
+--- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+@@ -46,6 +46,15 @@ A55_0: cpu@0 {
+ 		};
+ 	};
+ 
++	firmware {
++		hsm0: secure-enclave {
++			compatible = "fsl,imx93-se-ele-hsm";
++			mbox-names = "tx", "rx";
++			mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
++			status = "disabled";
++		};
++	};
++
+ 	osc_32k: clock-osc-32k {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
+index f48e7947cf64..65db986fc7ba 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include <dt-bindings/usb/pd.h>
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	aliases {
+diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+index bd14ba28690c..0bd19988ce9f 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+@@ -3,6 +3,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx93-11x11-frdm", "fsl,imx93";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts b/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
+index ec78c03f4788..0e5c7d1ed4ee 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "NXP i.MX93 14X14 EVK board";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+index 01c11c517986..694f114aef36 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "NXP i.MX93 9x9 Quick Start Board";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+index c79b1df339db..c9aa764cc3b8 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+@@ -5,6 +5,7 @@
+ 
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "Kontron OSM-S i.MX93";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 325e465d0056..076716cc2095 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -12,6 +12,7 @@
+ #include <dt-bindings/regulator/nxp,pca9450-regulator.h>
+ 
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "PHYTEC phyCORE-i.MX93";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
+index ce34a296495c..159be0d5dfde 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
+@@ -6,6 +6,7 @@
+  */
+ 
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "TQ-Systems i.MX93 TQMa93xxLA/TQMa93xxCA SOM";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
+index 69495bb7fc9f..122a8a091c80 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "Variscite DART-MX93 Module";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+index 24063bf8183d..50aec264f87c 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+@@ -7,6 +7,7 @@
+ /dts-v1/;
+ 
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "Variscite VAR-SOM-MX93 module";
 
-Thanks,
-Jie
-
-> 
-> ---
-> Changes in V4:
-> - fix the wrong subject for the dt-binding patch
-> - Link to v3: https://lore.kernel.org/all/20260722-add-coresight-nodes-for-shikra-v3-0-1400a3454e9f@oss.qualcomm.com/
-> 
-> Changes in v3:
-> - add correct subsystem prefix in dt-binding subject.
-> - Link to v2: https://lore.kernel.org/r/20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com
-> 
-> Changes in v2:
-> - remove MMIO for the ETM devices.
-> - Link to v1: https://lore.kernel.org/r/20260714-add-coresight-nodes-for-shikra-v1-0-b1cf85962455@oss.qualcomm.com
-> 
-> To: Suzuki K Poulose <suzuki.poulose@arm.com>
-> To: Mike Leach <mike.leach@arm.com>
-> To: James Clark <james.clark@linaro.org>
-> To: Leo Yan <leo.yan@arm.com>
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-> To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-> To: Mao Jinlong <jinlong.mao@oss.qualcomm.com>
-> To: Bjorn Andersson <andersson@kernel.org>
-> To: Konrad Dybcio <konradybcio@kernel.org>
-> To: Paul Walmsley <pjw@kernel.org>
-> To: Palmer Dabbelt <palmer@dabbelt.com>
-> To: Albert Ou <aou@eecs.berkeley.edu>
-> To: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: coresight@lists.linaro.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-arm-msm@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> 
-> ---
-> Jie Gan (2):
->        dt-bindings: arm: qcom,coresight-ctcu: Add Shikra
->        arm64: dts: qcom: shikra: Add coresight nodes
-> 
->   .../bindings/arm/qcom,coresight-ctcu.yaml          |    1 +
->   arch/arm64/boot/dts/qcom/shikra.dtsi               | 1295 ++++++++++++++++++++
->   2 files changed, 1296 insertions(+)
-> ---
-> base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
-> change-id: 20260722-add-coresight-nodes-for-shikra-5fb8a4b503d1
-> 
-> Best regards,
+-- 
+2.55.0
 
 
