@@ -4,89 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A649FC531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F330C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9eFptTX/PMVEvciVeEhONSLkS9aIwGTXcS3cNjnrq0g=; b=rW4g6/Jo0i96ByBaYT8Z6fYPCx
-	yjRPzDJ/F3CMwsWFmXc4DGGIxU4bhNGGIasD8AYNgJwYEnaE66glmL8xgu2g0X1b2defk1dIhEZ1m
-	ajNC3BjOyAGTcED1WNlS57DdAEGJ++EAJy94RXsxbw6pgJ3/gYgyu1e7lZTT5PowHs7QFWatXMaZX
-	o0iHx0sGvhhgRA9MIeQ2DZ/KK8cVBxqLp8P3WnZo7vUcH/eJjvtJiXDgQQTIiELrsfx+smrpMTG3P
-	fThjXHA8PHGMiTNpSVdk0XvamAmhaKME5yGxGVvaDgJZ4RQ/DsQPaiIBjygmZR4coahgNHLyCk9ca
-	W8f9ts/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VabuyjMdW/OYetURnHhfMAPevEDNCPNf66QdnXGjvRE=; b=OoepARGrxuEuhR
+	b7mQREvzXottXHx+ko3q4tvDIg4g20gMEaZssIcl2vszjzGofgDmwWgozdK3LsT9HwA46UWIQiGpn
+	EX+IVLVmT64FJHT6nXtnTZJoFsbFnF0MO/rVMapb44/r5+WLfHuHPq8Hz7DiXlzQahnQzGUbSOXYd
+	oNaMgsJeWWYvTK60Vfiw6nj7wEak20THEQwrg6TD7OMGFlUZpq8JB6IeQZAkCOUXptgWGYbxbMpkO
+	liBB6OTVoqqLMvnxxLNxiT0soHFs8dsIibDcfz5IN2kqep/5osH9QppN/8+NyPe+7OF/l89DckHw+
+	2Q3NE344/wp9DvoHPqJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpt1-0000000DuAn-3PRt;
-	Thu, 23 Jul 2026 09:38:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wmpuU-0000000Dusv-2Rw8;
+	Thu, 23 Jul 2026 09:40:10 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpsu-0000000Du1T-3apC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Jul 2026 09:38:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=9eFptTX/PMVEvciVeEhONSLkS9aIwGTXcS3cNjnrq0g=; b=LH62Z/n0RIsmWvyrouht+bdnyd
-	wn9qwj19VmswLOeHwyQ26IUTFUjsZYz/xhiBm/sv/9kDZaFPR0RVGnpQHYM7ycrRhThhQ/4uLgjz/
-	RkaEDci4+81BbE8wIoLynUz2zjMS0a30esdcxUPNj2FY2aLhQLgfjCDwT8a6Kw55zTrBK7HbGrhLO
-	lzwuzRE3+9bEpn2Lxt+cJIlw85mJS6kyNDTA2QdeHfaQ0UBBYTI+KIw5jgJYrI1vV+WZDgptjedrB
-	CTlnZIyoLLxniCApBFtNuSSk9xSzDF8Kxb/GlWhZQ2N5oA1wTHcpvANWcPEwiZ2LPL1CFVER3zBTw
-	rM9w0FAA==;
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wmpsq-00000001c3l-1xhP
+	id 1wmpuQ-0000000Duqg-1gcA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:38:30 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 001181FB7B;
-	Thu, 23 Jul 2026 11:38:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1784799503;
-	bh=9eFptTX/PMVEvciVeEhONSLkS9aIwGTXcS3cNjnrq0g=; h=From:To:Subject;
-	b=ATFiBh03lA5JHFY+G2PNx8LfiPAOhMOfngqWlVYl2HxDu1IGQzzHQLhhjcdDQ39cF
-	 ovR9Cy6BjmgcP2etiky9ZU/qU41hTF5iysMGTgljoZULQVn4oxwY2uv7yCqsGN/ipL
-	 +wpSE+pnEYJcvnuzMO7+WXXlLWJkR56mOZChrC9bG7rT0TYp9c/D6RWdZcYQ+ZpW7O
-	 ix8s3QLky/IDZVk/v5BbuEVEzEs/WTiOlH9pVxCum8wBlWbvEFcENkH0AB+DS/hNmk
-	 03HP5dxdTag76NqvCg/3S3N3ObA37toY5Agqg9ckRQb/nRn3xSw8Mb1uIFpoi65/EP
-	 /Gsr1C4JB/Nig==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 2/4] drm: mxsfb: Add optional DPI output bus-width configuration
-Date: Thu, 23 Jul 2026 11:38:09 +0200
-Message-ID: <20260723093813.180089-3-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260723093813.180089-1-francesco@dolcini.it>
-References: <20260723093813.180089-1-francesco@dolcini.it>
+	Thu, 23 Jul 2026 09:40:08 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47de008b020so237615f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:40:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1784799604; x=1785404404; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=VabuyjMdW/OYetURnHhfMAPevEDNCPNf66QdnXGjvRE=;
+        b=jq03C8xO4qYK6Wad3XV3mLy+0BSpzf5ASkydOxFk4Z3eXCSiLLxrME9zGpT0aEp51q
+         5OikcLaIjMhRpVNzhsbhKzHxRCnG9XnqT4TEiG9bGfigMCUA0N41/YQWTgLvJmwHuKe5
+         hHdcjmINQSUWYiqYkHl05EGuIYkMuJip5igHgD1KNNlbO9TsR+BC/twERTYgL3Z+nntk
+         5G9vW1OaFfwdGvbwvS/pMhXgrOOI+Vc63N1Q6sUzonRDWIHPz/DGHkc4KOZvfYyK+gho
+         nmf4SYkXchGYIipBwMCUA2JCnUnRqZTAPk2lNMb6Xfeeo5BaQ/ezjzXc0uV3qPPfbdif
+         8NRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784799604; x=1785404404;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VabuyjMdW/OYetURnHhfMAPevEDNCPNf66QdnXGjvRE=;
+        b=eaMVjn7n8j+fEggfi14Gmy/i6R+dXpAd9drhGJAsSvt1W1auPa0xquok7QvhJQiZDE
+         arOoxDmDwfnVZpENXm/LOSpv7s3w+XTwrQiCueGYP9hD6peXCh4cRY5DyIlzFb4lqZRu
+         qFKtbDPhlAo9qjG3EFKFFVwuYv+/vi0cnmYWqD1sjpT/3tHpObW6Hd5gzhHA5fJIJWZ4
+         TWP8euNmreUno3cdngDE4f10c5jF0uDDPAMIjCQLFfM+HQAGunmadvUDkUzHAhO7WpPg
+         X2+rr+K3pM0ImzWu6S70MTgnEVeO8QdwU0Rjc3+7E7AjXf/OJe83zGIToe0vau8iIMCL
+         7veA==
+X-Forwarded-Encrypted: i=1; AHgh+RreMxhQ8n0jamIdDEmeJw0ykGL37fnLX8n2Ux47NFE4Q5cfDZTG/Vp5JAZxpm6qoTToLRNh2Kni6FlCi/u03drx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU1SnEWYv8GOj+pYIx2pqwNKtfsqIBQMPMZbyjy4LEWonULBd/
+	pthWq1hQx6gGZM9Rphqkj5tQ0UfBALkEgt+qrVHrSgxD2JFqGDobexXf0/IueUO4a4E=
+X-Gm-Gg: AR+sD11F1UsOHVnR2w2sUqfw7SU6qwC+azzp9PW+rpTwoExqEz33QecXnfbawqOfhkh
+	DW44mTnD3tCNqvX7wbrT3YYWNR/bxc1iEOkmjuUP1ZVDuPH4jA5/2YJmDt/kQXriZYS2ly9JX0U
+	ojx0gzFRe/0v8/7O+HTIj0F3v44r72adhiLEjNBBFw1fWxRnvETVUNdqcd3Yhl4ccrq6ip4ed6m
+	ZldfEdr4PC2vo5I7Axar0VHiSpTLlShftSwWKem7YLazx2GbKsIrhqWS29QROYhtu67JNfcWGS1
+	boBywWwwiPFXVO4W4bhd5Zeph2XAQ6sZ/gI1hC1eAbr2YQwUZcVvmmUKyeoDv6493zyqX80DKWu
+	AIdzRvpYJjp5OuW7Ex1Q1i+/yuB/0p4hNVL6FKej8R6J3rdcDa7+Fd0qKCkXrXOUbUrMKjoLuZa
+	OL
+X-Received: by 2002:a5d:5885:0:b0:475:f0c2:75b2 with SMTP id ffacd0b85a97d-47f9029dcf1mr2238623f8f.29.1784799603785;
+        Thu, 23 Jul 2026 02:40:03 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:3274:dbb5:2710:802b])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f85a2573csm13114936f8f.0.2026.07.23.02.40.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 02:40:02 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Subject: [PATCH v7 0/4] clk: sun6i-rtc: Add support for Allwinner A733 SoC
+Date: Thu, 23 Jul 2026 11:39:50 +0200
+Message-Id: <20260723-a733-rtc-v7-0-8fd68aab94ae@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGbhYWoC/23Oz2oDIRDH8VcJnmvRGZ0xPfU9Sg/+20Zos8EN0
+ hD23evmEil7/ImfL3MXS64lL+LtcBc1t7KU+dwHvxxEPPnzV5Yl9S1AgdUAJD0jynqNMlpNnCZ
+ tMmXRv19qnsrvI/Xx2fepLNe53h7lBtvrFiFFcHxGGkglOTBoDezM5N6Dv32XUPNrnH/E1mn4t
+ KxgsNhtDmCdQjYp0441ox2Ob6bbCVExuBQw4Y61g9U8WNstOjYxAvkw8Y6lwcJ4M3VLqGP04GI
+ 8+n92Xdc/UdA6iZMBAAA=
+X-Change-ID: 20251226-a733-rtc-c5167df14e6e
+To: Junhui Liu <junhui.liu@pigmoral.tech>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>
+Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3065; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=UwKYr+Iv5dMT6tWpdeFOQMRQvOl5qP3zdBgmD8sSnM8=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYeFqim8dihHV4JlgFGkOuF4DXC+e1/OfG8SJ6
+ h6ae6F1xnKJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamHhagAKCRDm/A8cN/La
+ hVrcD/9KTm8iu7kzukjjHIcuYjzHlD5oNQm0eiKqiSyv56YgpS17Q51om3A+QwhEA+EylMs3fqx
+ 0LwyNjwjEY0HxcXjK2bLuIE8LH1Sng3QCWH46izGMfa53Lb8Qgk4zyQWpURoRDnVJHpKQBcVHCd
+ ZwuOvyTf27LTuQ/fLOKacIKoyjfXdZwXIz39iQO0IhccvD8JX/rPpd6zlQJyQu8Uwdv6fgz36hd
+ 5sNbfeFSAWPxQuBb6HkVup45RQbx/U3ZbDlFMOSQzPtTf8fo19EY+BiWT+XxnKYOMTzfsTiS5tf
+ 5ZbkILJKCphRx3Qi3uKZfKoBc/STq/DVc8TWLaF8Ysw48N2NaPaG1LyabMvprL0/z1sKwEYqkzI
+ pbI/7Ujy02Mr26uWUZUDvOndyr5FoM6/ijeRcJlqa21wNeyTozfvvVMciwT6RQtTGenq8wnb8cl
+ Iv3J2WNp0YOUNXHo5VB4AdE3NUmGFj5YdwM7O1acQ4i542ZHX3qP+uhxQ4uYZax8oU6Rfefnpyf
+ smmIjST47TLAQMsjDkAfXnbW0fRpLt0KDyGJxHeQcwaMxCiI844R0ZQauPfu1/AhSM9C7r//GGX
+ /rtCGNdzjo+oAZ03Yl4shKRlxbWEIvY/l+HkZAfJTrauu+wsip+kDtfz6Sk3doOZDy+7L1R7DGR
+ oRFkUMgxfDmJIQw==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_103828_729556_9F4BB083 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20260723_024006_737529_CE11A57F 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,124 +128,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+Add support for the Allwinner A733 RTC and its internal Clock Control
+Unit (CCU). Reuse the rtc-sun6i rtc driver while introducing a new
+SoC-specific RTC CCU driver to handle the hardware's evolved clock
+structure.
 
-LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
-format reported by the downstream panel or bridge describes the display
-input, but it does not describe how the LCDIF data pins are physically
-wired on the board.
+The A733 implementation supports hardware detection of three external
+crystal frequencies (19.2MHz, 24MHz and 26MHz), which is represented in
+the driver via read-only divider operations. Implement logic to derive a
+normalized 32kHz reference from these DCXO sources using fixed
+pre-dividers. Additionally, provide several new DCXO gate clocks for
+peripherals, including SerDes, HDMI, and UFS.
 
-These can differ. For example, a 16-bit LCDIF bus can be connected to a
-24-bit display by wiring the available color bits to the corresponding
-display inputs. In that case, using the display's 24-bit format to
-configure LCDIF selects the wrong data-bus mode and changes the assignment
-of color bits on the LCD_DATA pins.
+This was tested on a Raxda Cubie A7A.
 
-Read the optional bus-width endpoint property from the LCDIF output port
-and use it to select the media bus format used to configure LCDIF. This
-allows the LCDIF bus mode to describe the physical interface
-independently of the downstream display format.
+Changes in v7:
+- Droped left over unneeded change to ccu_mux_helper_unapply_prediv()
+- Link to v6: https://patch.msgid.link/20260722-a733-rtc-v6-0-631cca28cc9a@baylibre.com
 
-When the optional property is absent, continue using the format reported
-by the downstream display device, preserving the existing behavior.
+Changes in v6:
+- Add .set_parent callback to the divider RO ops
+- Link to v5: https://patch.msgid.link/20260717-a733-rtc-v5-0-3874cc26abf7@baylibre.com
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+Changes in v5:
+- Droped already applied changes
+- Fix determine rate mux helper calculation
+- Changed clock split commit description
+- Added a macro for the clock number without gates
+- Link to v4: https://patch.msgid.link/20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com
+
+Changes in v4:
+- Remove unneeded export of mux prediv helpers
+- Link to v3: https://patch.msgid.link/20260702-a733-rtc-v3-0-eb2580374de6@baylibre.com
+
+Changes in v3:
+- Disallow clock-output-names DT property for h616/r329 chips
+- Fix ccu probe helper to properly unregister clocks on error
+- Implement .determine_rate for ccu divider RO ops
+- Drop unused DCXO_CTRL_REG_EN define
+- Link to v2: https://patch.msgid.link/20260629-a733-rtc-v2-0-7b72112784f8@baylibre.com
+
+Changes in v2:
+* Changed DT bindings as suggested. Those have changed significantly
+  since v1 so I did not pick up Rob's review trailer
+* Support added in the existing RTC CCU driver rather than a separate driver
+* Added DT parsing clean up of the existing driver
+* Xtal detection exposed by RO divider rather than a MUX.
+* Dropped conversion to aux device for now. This is not strictly related
+  the a733 support and will submitted again later on.
+* Link to v1: https://lore.kernel.org/r/20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech
+
 ---
-v2: use the common bus-width property instead of the legacy interface-pix-fmt
----
- drivers/gpu/drm/mxsfb/mxsfb_drv.c | 24 ++++++++++++++++++++++++
- drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
- drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 ++++++++++++
- 3 files changed, 38 insertions(+)
+Jerome Brunet (4):
+      clk: sunxi-ng: mux: fix determine helper rate propagation
+      clk: sunxi-ng: div: add read-only operation support
+      clk: sunxi-ng: sun6i-rtc: split main oscillator div and gate
+      clk: sunxi-ng: sun6i-rtc: add a733 support
 
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index 9b8fbda85d28..0545718a4b65 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -12,7 +12,10 @@
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/io.h>
-+#include <linux/media-bus-format.h>
- #include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/pm_runtime.h>
-@@ -209,7 +212,10 @@ static int mxsfb_load(struct drm_device *drm,
- 		      const struct mxsfb_devdata *devdata)
- {
- 	struct platform_device *pdev = to_platform_device(drm->dev);
-+	struct device_node *np = pdev->dev.of_node;
- 	struct mxsfb_drm_private *mxsfb;
-+	struct device_node *ep;
-+	u32 bus_width = 0;
- 	int ret;
- 
- 	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
-@@ -236,6 +242,24 @@ static int mxsfb_load(struct drm_device *drm,
- 	if (IS_ERR(mxsfb->clk_disp_axi))
- 		mxsfb->clk_disp_axi = NULL;
- 
-+	ep = of_graph_get_next_endpoint(np, NULL);
-+	if (ep) {
-+		of_property_read_u32(ep, "bus-width", &bus_width);
-+		of_node_put(ep);
-+	}
-+
-+	switch (bus_width) {
-+	case 16:
-+		mxsfb->bus_format = MEDIA_BUS_FMT_RGB565_1X16;
-+		break;
-+	case 18:
-+		mxsfb->bus_format = MEDIA_BUS_FMT_RGB666_1X18;
-+		break;
-+	case 24:
-+		mxsfb->bus_format = MEDIA_BUS_FMT_RGB888_1X24;
-+		break;
-+	}
-+
- 	ret = dma_set_mask_and_coherent(drm->dev, DMA_BIT_MASK(32));
- 	if (ret)
- 		return ret;
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-index d160d921b25f..bdc47ce5be79 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-@@ -46,6 +46,8 @@ struct mxsfb_drm_private {
- 	struct drm_connector		*connector;
- 	struct drm_bridge		*bridge;
- 
-+	u32				bus_format;
-+
- 	bool				crc_active;
- };
- 
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-index d8ebebc5314b..1d78c486d147 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-@@ -386,6 +386,18 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc *crtc,
- 	if (!bus_format)
- 		bus_format = MEDIA_BUS_FMT_RGB888_1X24;
- 
-+	/*
-+	 * Prefer the bus format derived from the OF graph endpoint "bus-width"
-+	 * property when available. Otherwise, use the bus format reported by
-+	 * the downstream bridge or panel.
-+	 *
-+	 * This supports mismatched display and interface bus widths, such as
-+	 * a 24-bit panel connected through an 18-bit interface or an 18-bit
-+	 * panel connected through a 24-bit interface.
-+	 */
-+	if (mxsfb->bus_format)
-+		bus_format = mxsfb->bus_format;
-+
- 	mxsfb_crtc_mode_set_nofb(mxsfb, bridge_state, bus_format);
- 
- 	/* Write cur_buf as well to avoid an initial corrupt frame */
--- 
-2.47.3
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 89 ++++++++++++++++++++++++++++++++----
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.h |  3 +-
+ drivers/clk/sunxi-ng/ccu_div.c       | 31 ++++++++++++-
+ drivers/clk/sunxi-ng/ccu_div.h       |  1 +
+ drivers/clk/sunxi-ng/ccu_mux.c       | 57 ++++++++++++-----------
+ 5 files changed, 141 insertions(+), 40 deletions(-)
+---
+base-commit: c52b5090bf1e3b88745f8a81f264f34100ecde42
+change-id: 20251226-a733-rtc-c5167df14e6e
+
+Best regards,
+--  
+Jerome
 
 
