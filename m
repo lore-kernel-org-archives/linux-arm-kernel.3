@@ -4,66 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5539BC44524
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00B1C44524
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 08:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PKBbYlt3EN97r5LlW1yjw1Ct3m+qXd+vSTLqclgmzVI=; b=UB2baEBPqtZV2IV2dcQHYv+H/y
-	BRzt47jgw4obqBPbtD6o5v3h1sNGEEarAUJmRAD0KQ3nli6FECTWS/TsGvBmGb73bpO+MDFF8YozN
-	vZTq4HezFBpAb0DFMs0ZtV2DpzmwI1sIBjIVrfRqW2i9hvCIQNNpJwuuozupjIZmweKOg69CEjpZg
-	TiVAL1VQ8XYcXRo7wfyuz7Qm1ev6X5Jj/V08Merj83D6VPAHqAn3gUXYYswjVZeMLrtxTXV9keecJ
-	zAztxujVIsnuUQOD+w9iSFyf3lIWXOqpMnYE6bjT2KI06HUoCUtJPYw4hAVvqCNboYh95CQ2psPZW
-	jm4RQU6g==;
+	bh=aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=; b=O9L99q02Fw2ZygxEadcDArqSCZ
+	ONOry4ILHCJ4G9L8LVtVGO6dkBzZe1YmPXDvs4/qsOw/EX4RT0rpBBPlq4WkTTvJckOA5duvqLLN7
+	jSFAREBnN++NXsHv69KK6mWBglkdl9TJzN6TZzenZdVXXlXvCiFbTOEZkPGck1c/ZKBMkeFF9G0aA
+	JWqdKn/2r/KbmalEDQezrlrpPAX6UHxq7tkKtUK3iKTO9z8BZ6czcftI16nk1rWQEk3gFHxePKU2p
+	rslwo9arDSsmu4WQfuq220kXKqZdXbJNw1QmiWhix5quNFCSMmUj50VG1cKv45EsmgqRgk0Jr0dGM
+	Jvth4/ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmoW0-0000000DhVq-2BgZ;
-	Thu, 23 Jul 2026 08:10:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmoVw-0000000DhV0-0sMA;
-	Thu, 23 Jul 2026 08:10:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD4851477;
-	Thu, 23 Jul 2026 01:10:38 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E3A113F86F;
-	Thu, 23 Jul 2026 01:10:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784794242; bh=VwswH8JhWrZQe5Rh/s4NWY+0YHgxDEZK0fxwcE3tmC4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZsKSCke41l+piIezCdsjVMCTycpwyBxBfv7cVpgUUcClGAM9ujUfUEk2EpanfRxZJ
-	 acXhRw1TtHmQygGi/rOp++vlaGKB/odW5HbrUODJQ29zMZJuEBsamNuoJFYZmPvDIo
-	 2Cs26OmAVBZMccc0uflFY2F7f+U0rPR2u2lp9iGQ=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: David.Hildenbrand@arm.com,
-	david@kernel.rog
-Cc: yeoruem.yun@arm.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org
-Subject: [INTERNAL REVIEW] [RFC PATCH v3 01/20] mm: change behavior of pXdp_get()/pXd_page() in compile-time folded pgtable
-Date: Thu, 23 Jul 2026 09:10:16 +0100
-Message-ID: <20260723081036.1461495-2-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260723081036.1461495-1-yeoreum.yun@arm.com>
-References: <20260723081036.1461495-1-yeoreum.yun@arm.com>
+	id 1wmobz-0000000DiI9-3UUA;
+	Thu, 23 Jul 2026 08:16:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmobw-0000000DiHD-2oo4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 08:16:59 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N7Bb7W3553954
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:16:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=; b=ntSapto5HtuOo1tx
+	+4Wyu1GfIka9eD9b3tS9e0LIb25cjH3/7S91iitGNy7DLR4Fx9d9AJZDs8hNXIOg
+	EtfpPBI2RM1JebCar91HEqL/a9Ur8/t1iGqxLHTOyepqlyg1uRvvSndniBdV7KCV
+	/jweb56WfARKrsHjqD5JVMJFiGsjKSoKVWpDBorAP31jEZnlovTzqChQwhfV4mIP
+	d3PFRt5Ey2bmrNp4TxjcJ5ijkN4a8BlUiVxhLnK3UDXpqqAqhxBV96NVHJzN+tFN
+	hZYO5XF43oGcsTKApztW7F/sfHa1btPj6rqW3/DlLKITozTEt8jVERledLw17x5F
+	3yU4Eg==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fk7b51spc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:16:56 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-ca124bf0189so182041a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 01:16:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784794615; x=1785399415; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=;
+        b=WzjY9CS3elqAWWnF7UL4gwDwqHlLG3LD25bUwRJDOMisxiJ2bs+m6D142Za7HSDM+b
+         c601lwyScEqJ46+V97aNFzNFP6d6z3Q+QjZ1pM1oW/sRdpwtnF3qhcrvSyjyLjG4E1Un
+         nAcMR5i7Fip6VZ3NINwhSCJMrQhYVvfg4pWbPZ1edi+sAHrxeyiFreISTmfAHgSRmF7n
+         cu9N3V9gB6lAKXh9Too5EIYmYI42qDRMOxeoXLFgkAGDBqbm3qIMa/+pOfRfMMbiunqX
+         NTvLG6Nk5HZD37D4QGNyAiLSh9b+cL6SatKKx3479SSekIsDiSS4g9Xd2mQtFtntJMdI
+         /bYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784794615; x=1785399415;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aHvkfX2WgxM6m3Qd7M06X06q6uad+Fjvt8D1GSnRUQE=;
+        b=GcU78U28vQSZY119xGrORrNPmmBwCrRwAodp46ltySwDQEh0vfE97t1ZndF0pN46XV
+         BK00wbpxO1ZcRgJNg1ilIS1Mz61lu++xLHKZSkeBvWs3pYuDfkNVD5kG3rVdVZ7iMPOA
+         Bcq5PChtnXJucwvPzU6DTmrLdv0h0uNevBP4wr7NURclA40nUIQtPCL4UbWM+ceFntzo
+         km4Y0SXIGxuBPZyqG+R5GRdkqxz+wHohddsljxaCIBg3e6rfohIc6ycqc42Thv8ICD6c
+         yUmRKP9/3EIJIQhqQdYH7LeQYMYNQ+FOQl9Rn8cLP/DRoWTA3G9VO39vGMIXqIlgqfFW
+         alRw==
+X-Forwarded-Encrypted: i=1; AHgh+Rp4nLwL3CFrX/OqSXsBvDPseGNkatV2FN6wkK2BE1TkJv4xYbbKvWaC490bQ7dr9bwBCayVXqkDEzcdpMc7MJ5E@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTu0FVOsmSv8ohGW1q+sW+SlSHSNC0BuQgqJc4lc7qFaZtqqI0
+	/vDkDLaGpvI7MxXalZ7B0Xa2Oxqdm+L7P3a2JPTJTDqtTbxNR/Ig/KlLHTca2Ir7PvrQE0Qqycv
+	ynhhrHyx80MOLx7DuBcEp6BkrV6HGN7iPSJLnZZRCgulR+zzYpH6Q47E55t/9Trj6xHRATNFP+T
+	mv+w==
+X-Gm-Gg: AR+sD11ytQb8eO7Wr1oYe8CfdVXRgsXM4CYvTlgm1q7ls3DBf+FS7lEv2H1JTJusUXe
+	MsH8o/Q4IXeGZsYAs0/p7bHpyoaCJLGAH1YPz6H8L8G41wZUDmQyZU48zOlWIfz+L5i5ZHBgKkL
+	1w2e+6XMcohUpmphXWt35pMCEaKcRI5g3Y5RAZfw87R4XXRs0RrUsxO/3Hjvls37l82VU6lkXyT
+	TaILkYzygDVYHpiqWSkHVL8YaxJekLvy8apWHjYlp0uHOpebJV+fTR479Lp7AHWJ72n7eOzpvmd
+	oPI97VgmCW88cz57ZnDD+NJznt0//0gCNnqEuq2f8w9zdYP8efNd4zp47h/uv7Q0EyimpFLNRlc
+	t/Fk7eBOsEYhu/fJvLE4sCUpKldqIQn+NgPeVnb3dlQ1qrRMtKe67RJSZu5I1q8UKJw==
+X-Received: by 2002:a05:6a21:1392:b0:3c3:46ec:1c4 with SMTP id adf61e73a8af0-3c44ca1d9cemr1882214637.22.1784794615513;
+        Thu, 23 Jul 2026 01:16:55 -0700 (PDT)
+X-Received: by 2002:a05:6a21:1392:b0:3c3:46ec:1c4 with SMTP id adf61e73a8af0-3c44ca1d9cemr1882171637.22.1784794615041;
+        Thu, 23 Jul 2026 01:16:55 -0700 (PDT)
+Received: from [10.133.33.177] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbb8f0f58dfsm2314697a12.13.2026.07.23.01.16.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jul 2026 01:16:54 -0700 (PDT)
+Message-ID: <214c704d-4979-4dc6-ac91-db672e792c22@oss.qualcomm.com>
+Date: Thu, 23 Jul 2026 16:16:47 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Alexandre Ghiti <alex@ghiti.fr>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20260723-add-coresight-nodes-for-shikra-v1-0-992615f9ea15@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260723-add-coresight-nodes-for-shikra-v1-0-992615f9ea15@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDA4MiBTYWx0ZWRfXwewl9M/PkDXN
+ SdHXUuiNUMVV3dOm0UkvdqGhNTCqkm2v40STbvBmeXXnNG7ZemXSUv60pSJO/LktvOJmHPS0Krh
+ FaP6acX+fz5VbuxaFyONaRJUnlkFBczq7v0YljbppD6BNF12aWUx3yYOj0T7vM11hd8c81I63za
+ S69tg5lzgpKBNCbK5A8PSpN6THWp826X108TbYW2KCXxEGrCFUk4UpICyZ1PqUGEtJoFKtamspZ
+ K3tG9sXZLsKmG3WlS0DQ1XffgyAjNkbVosnHdUkib4noy00PJCMWJadtVIEiOC+hy7AzowM9JaW
+ gDnIXJ7HSWMHQh2nUCjmPPdBPlsu3xjuzko5A2vyTESTFcOtx51Mh2+dtDWS0XXA0cU2TWQkyeS
+ neg4RG+/xfp6FA35vB3gYcMAaVE6xqwCLA5ZxOT+2PT1MU4ACYojqEtgzWDjl9b9fdrEk0HaI79
+ 7/FH9kbr+Zuu9q6gfoQ==
+X-Proofpoint-GUID: GY33jE-rE-WZgWi3qOtHsxfJiccc1UfP
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDA4MiBTYWx0ZWRfXx9MDT9ZtdzgN
+ ePF6l0Xk817ymqF5MSicY6lZ4BnDRt3N2yAE3YaQTB7vgfqOM0ec55kq5NiK1SmGSlwe1Pjvht8
+ dLI2XWXzoYVyPLxpGV4L7jvawveyqRQ=
+X-Authority-Analysis: v=2.4 cv=btx8wkai c=1 sm=1 tr=0 ts=6a61cdf8 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8
+ a=_O3DOGVWAAAA:8 a=JfrnYn6hAAAA:8 a=nMW6oa_Obw0FX87ioUUA:9 a=QEXdDO2ut3YA:10
+ a=x9snwWr2DeNwDh03kgHS:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=cvBusfyB2V15izCimMoJ:22
+ a=2TKV-7w1aU1AVAwN0oqT:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: GY33jE-rE-WZgWi3qOtHsxfJiccc1UfP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-23_02,2026-07-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 adultscore=0 lowpriorityscore=0 impostorscore=0
+ phishscore=0 priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230082
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_011044_422756_F0B1B368 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20260723_011656_741350_530178EE 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,213 +165,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using ptep_get() and its counterparts in common code is suboptimal on
-kernel configurations with generic compile-time folded page tables.
-By default, ptep_get() and its friends expands to READ_ONCE(),
-forcing the compiler to emit a load even when the value is not used afterwards.
 
-This issue was recently reported by Christophe Leroy [1] for ppc32
-preventing futher code conversion to ptep_get()/pmdp_get()/... helper
-and the same behavior can also be observed on arm64 when built with
-2- or 3-level page tables
 
-e.g) perf_get_page_size() in arm64 with CONFIG_PGTABLE_LEVEL=3:
+On 7/23/2026 9:46 AM, Jie Gan wrote:
+> This series adds the CoreSight debug and trace subsystem for the
+> Qualcomm Shikra SoC.
+> 
+> The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
+> Trace Control Unit). The CTCU on Shikra shares the same configuration as
+> the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
+> "qcom,sa8775p-ctcu" compatible.
+> 
+> The second patch adds the DT nodes describing the CoreSight topology on
+> Shikra, including the funnels, replicators, TMC sinks (ETR/ETF), STM,
+> per-core ETMs, CTIs, and the TPDM/TPDA trace collection blocks, along
+> with the CTCU and the dummy source/sink endpoints that model external
+> trace sources and the EUD sink.
 
-00000000000052a0 <perf_get_page_size>:
-    ...
-    52dc: d53b4234     	mrs	x20, DAIF
-    52e0: d50343df     	msr	DAIFSet, #0x3
-    ...
-    52fc: d35e9a69     	ubfx	x9, x19, #30, #9        /* pud_offset_lockless() */
-    5300: f9403508     	ldr	x8, [x8, #0x68]
-    5304: f869790a     	ldr	x10, [x8, x9, lsl #3]   /* pudp_get() */
-    5308: f90007ea     	str	x10, [sp, #0x8]
-    530c: f8697908     	ldr	x8, [x8, x9, lsl #3]    /* pudp_get() */
-    ...
-    5360: 90000009     	adrp	x9, 0x5000 <perf_prepare_sample+0x548>
-    5364: 92746908     	and	x8, x8, #0x7ffffff000
-    5368: d3557675     	ubfx	x21, x19, #21, #9       /* pmd_offset_lockless() */
-    ...
-    5394: f8757ac8     	ldr	x8, [x22, x21, lsl #3]  /* pmdp_get() */
+I just found the version number is wrong for the series, it should be V4.
 
-Though PGTABLE_LEVEL=3, since the pudp_get() still remain with
-READ_ONCE(), there's redundant load for the pud which is folded.
+I have checked my b4 branch, confirmed the version number has been 
+cleared by mistake. Will take care of it in the future.
 
-To prevent generating suboptimal code, make pXdp_get() return a dummy
-entry for compile-time folded page tables and prohibit calls to
-pXd_page() in pgtable-nopXd.h.
+Thanks,
+Jie
 
-Also make the helpers in pgtable-nopXd.h, such as pXd_offset_lockless(),
-validate dummy entries at compile time to catch the wrong usage.
-
-As the pXdp_get() can return *dummy* entry, some of code using
-the stack value where saves the pXdp_get() could be a problematic:
-
-  1. Passing address of stack value where saves the pXdp_get() result
-     to pXd_offset() for example:
-
-       pud_t *pudp, pud;
-       pmd_t *pmdp;
-
-       pud = pudp_get(pudp, address);
-       pmdp = pmd_offset(&pud, pud, address);
-
-     (e.g. host_pfn_mapping_level() in loongarch).
-
-  2. Using the pXdp_get() result to use as argument of pXd_val() and
-     to check prot without checking pgtable is folded.
-     for example, x86's effective_prot().
-
-  3. Using set_pXd() with pXdp_get() will set problematic dummy entry
-     in folded page table like:
-
-       set_pXd(pxdp, pXdp_get(pxdp_k));
-
-  4. Using pgd_page_vaddr() to get the first-level pgtable.
-     passing dummy pxdp_get() for pgd_page_vaddr() will return wrong
-     address. Therefore, make pgd_page_vaddr() and pXd_pgtable() to
-     trigger the error for improper usage with folded dummy entry in the
-     generic compile-time folded pgtable.
-
-Thanksfully, above cases are rare since (1) most of usage using
-pXd_offset() with result of upper pXd_offset(), (2) it's extreamely
-rare to use pXd_val() for non-leaf entry in the kernel,
-(3) is to handle the vmalloc_fault or set the first level of page table
-and (4) to setup early page table and etc.
-
-Therefore, convert this kind of problematic rare pattern properly.
-
-Furthermore, passing the ptep_get() (or its counterparts) as argument
-directly to pte_present() and related helpers can generate suboptimal code,
-in arm64 as the current macro implementation may evaluate its argument
-more than once like:
-
-  !pte_val(READ_ONCE(*pte) || pte_present_invalid(READ_ONCE(*pte))
-
-resulting in redundant loads.
-
-A typical example is pud_free_pmd_page(), where the expansion of
-pmd_present() generates:
-    ...
-    /* pmd_present() (x20 = pmdp) */
-    1b88: f9400288     ldr	x8, [x20]        // read pmdp.
-    1b8c: f9000fa8     str	x8, [x29, #0x18]
-    1b90: 3707fec8     tbnz	w8, #0x0, 0x1b68 <pud_free_pmd_page+0xd0>
-    1b94: f9400288     ldr	x8, [x20]        // redundant read of pmdp.
-    1b98: 8a170109     and	x9, x8, x23
-    1b9c: f9000fa8     str	x8, [x29, #0x18]
-    1ba0: f120013f     cmp	x9, #0x800
-    1ba4: 54fffe20     b.eq	0x1b68 <pud_free_pmd_page+0xd0>
-    1ba8: 17fffff4     b	0x1b78 <pud_free_pmd_page+0xe0>
-    ...
-
-To address this in arm64, convert pte_present() macro and its friends
-to static inline function.
-
-This patch is based on mm-unstable.
-
-Future work
-===========
- - print_bad_page_map() and show_pte() still prints dummy values
-   instead of printing the same content for all generic compile-time
-   folded page tables. We might want to skip printing dummy values later.
-
- - We currently catch abuse of dummy values on the stack at compile-time by
-   relying on constant propagation by the compiler. Usama's work [3] on using
-   distinct types for sw vs. hw PTEs could help here as well."
-
-Patch History
-=============
-from v2 to v3:
-  - repasre commit message
-  - move ptdump_pgtable_first_level() into pgalloc.h
-  - skip the huge pud operation when CONFIG_X86_DIRECT_GBPAGES is
-    disabled
-  - https://lore.kernel.org/all/20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com/
-
-from v1 to v2:
-  - Restore slient fallback to next pXd in set_pXd() and pXd_pgtable()
-    and add check whether they're called with dummy entry.
-  - Add some comment for returning first entry of pgd in arm with
-    2 pgtable-level
-  - https://lore.kernel.org/all/20260713135614.1618183-1-yeoreum.yun@arm.com/
-
-To: Russell King <linux@armlinux.org.uk>
-To: Huacai Chen <chenhuacai@kernel.org>
-To: WANG Xuerui <kernel@xen0n.name>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-To: Andrew Morton <akpm@linux-foundation.org>
-To: Kairui Song <kasong@tencent.com>
-To: Qi Zheng <qi.zheng@linux.dev>
-To: Shakeel Butt <shakeel.butt@linux.dev>
-To: Barry Song <baohua@kernel.org>
-To: Axel Rasmussen <axelrasmussen@google.com>
-To: Yuanchu Xie <yuanchu@google.com>
-To: Wei Xu <weixugc@google.com>
-To: Johannes Weiner <hannes@cmpxchg.org>
-To: David Hildenbrand <david@kernel.org>
-To: Michal Hocko <mhocko@kernel.org>
-To: Lorenzo Stoakes <ljs@kernel.org>
-To: Tianrui Zhao <zhaotianrui@loongson.cn>
-To: Bibo Mao <maobibo@loongson.cn>
-To: Anup Patel <anup@brainfault.org>
-To: Atish Patra <atish.patra@linux.dev>
-To: Paul Walmsley <pjw@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Alexandre Ghiti <alex@ghiti.fr>
-To: Dave Hansen <dave.hansen@linux.intel.com>
-To: Andy Lutomirski <luto@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@kernel.org>
-To: Ingo Molnar <mingo@redhat.com>
-To: Borislav Petkov <bp@alien8.de>
-To: x86@kernel.org
-To: H. Peter Anvin <hpa@zytor.com>
-To: Liam R. Howlett <liam@infradead.org>
-To: Vlastimil Babka <vbabka@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-To: Suren Baghdasaryan <surenb@google.com>
-To: Michal Hocko <mhocko@suse.com>
-To: Jonas Bonn <jonas@southpole.se>
-To: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-To: Stafford Horne <shorne@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: loongarch@lists.linux.dev
-Cc: linux-mips@vger.kernel.org
-Cc: linux-arch@vger.kernel.org
-Cc: linux-mm@kvack.org
-Cc: kvm@vger.kernel.org
-Cc: kvm-riscv@lists.infradead.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-openrisc@vger.kernel.org
-Link: [1] https://lore.kernel.org/all/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org/
-Link: [2] https://lore.kernel.org/all/20251113014656.2605447-1-samuel.holland@sifive.com/
-Link: [3] https://lore.kernel.org/r/74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com
-
---- b4-submit-tracking ---
-# This section is used internally by b4 prep for tracking purposes.
-{
-  "series": {
-    "revision": 3,
-    "change-id": "20260722-dummy_ptxp3-3741d78cc70f",
-    "prefixes": [
-      "RFC"
-    ],
-    "history": {
-      "v2": [
-        "20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com"
-      ]
-    }
-  }
-}
-
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
+> ---
+> Changes in V4:
+> - fix the wrong subject for the dt-binding patch
+> - Link to v3: https://lore.kernel.org/all/20260722-add-coresight-nodes-for-shikra-v3-0-1400a3454e9f@oss.qualcomm.com/
+> 
+> Changes in v3:
+> - add correct subsystem prefix in dt-binding subject.
+> - Link to v2: https://lore.kernel.org/r/20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com
+> 
+> Changes in v2:
+> - remove MMIO for the ETM devices.
+> - Link to v1: https://lore.kernel.org/r/20260714-add-coresight-nodes-for-shikra-v1-0-b1cf85962455@oss.qualcomm.com
+> 
+> To: Suzuki K Poulose <suzuki.poulose@arm.com>
+> To: Mike Leach <mike.leach@arm.com>
+> To: James Clark <james.clark@linaro.org>
+> To: Leo Yan <leo.yan@arm.com>
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+> To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> To: Mao Jinlong <jinlong.mao@oss.qualcomm.com>
+> To: Bjorn Andersson <andersson@kernel.org>
+> To: Konrad Dybcio <konradybcio@kernel.org>
+> To: Paul Walmsley <pjw@kernel.org>
+> To: Palmer Dabbelt <palmer@dabbelt.com>
+> To: Albert Ou <aou@eecs.berkeley.edu>
+> To: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: coresight@lists.linaro.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-arm-msm@vger.kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> 
+> ---
+> Jie Gan (2):
+>        dt-bindings: arm: qcom,coresight-ctcu: Add Shikra
+>        arm64: dts: qcom: shikra: Add coresight nodes
+> 
+>   .../bindings/arm/qcom,coresight-ctcu.yaml          |    1 +
+>   arch/arm64/boot/dts/qcom/shikra.dtsi               | 1295 ++++++++++++++++++++
+>   2 files changed, 1296 insertions(+)
+> ---
+> base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
+> change-id: 20260722-add-coresight-nodes-for-shikra-5fb8a4b503d1
+> 
+> Best regards,
 
 
