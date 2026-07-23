@@ -4,136 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4145C531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E50C531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uNrEi7X2FtACU/OyXj3bE/A2mD+SbPQQYZEhKSNBQo0=; b=d6FmGkagWegwHiaOMqM6N+PJMc
-	jSjYNGKhzdpZOVSkVwDKqAbT/fNn3StGqoxXxsSdT3XY1jRSj9tIjZD+AaHpP8hV1mv/LTnnLvGTS
-	BwQb5awkrhDAYqaLXb0jeGYIOKdRsQ4B6pOFdThxV2BsfEpPTqqu8Ey2xeAqfpheETWibVLVuGauE
-	f/O/j0SYY763rCsGNiTruNVE9+bAaMZFGjgLPnPXPfbeXzqLr4y4pc7l8IQlKcUYsdfMFBhcrlXcV
-	ceEVdM66MfGdq6kHTZPZAIVD9fHJzse/FoTrmR8EAMZ2/hHidBcHGsQQ1rwYjxfoXTK82q2rzIHaz
-	iTsTzi2w==;
+	bh=l8ecDcUAHro2xqgEEzO1jOFitqzlrIVuC8O2K+3CQlY=; b=1KSlbsq+lflj3bn8Mr/lq+ogbj
+	jU90r9fWl9j8xiQzgFq0HHe63/ThCHGWyq/ph0JDEwyAIY6SJ342IWNaSBOH4KViTsHNAncpAkJhw
+	0ECbS9FDbV4HvPUCwRvZeUaD3qh1pGxmRGIGUymZ1igr2Ka02MgcgKeOXnoys4+GTn+sVQr+pIeYl
+	U+iowZ/+jqNzGv8oY4bKtk8S0heJtH8vdrk8+ZXfuB7Qj48UHoPmX+0BEZxhUYe8oiOLYNRloQKJB
+	m8Ph0djv1TvbvdWu4/JPHOXej8fGVJYPxeV51oU8iVGEDnfofrHTtR8gMeCszPQaTe5gEMcSM4h87
+	tD8kZEyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwFU-0000000EiOn-0Wr0;
-	Thu, 23 Jul 2026 16:26:16 +0000
-Received: from mail-southcentralusazon11011042.outbound.protection.outlook.com ([40.93.194.42] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wmveS-0000000EdKk-0dEv;
+	Thu, 23 Jul 2026 15:48:00 +0000
+Received: from mail-westeuropeazon11013062.outbound.protection.outlook.com ([52.101.72.62] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwFQ-0000000EiOF-3d1Y
+	id 1wmveP-0000000EdKM-2BKC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 16:26:14 +0000
+	Thu, 23 Jul 2026 15:47:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HpOm1lnxFy9biC4pbcgN0jkxqIl6Dccqr/FDQK2YrMA8bmmx75iUKdvSdTujwCUG5wfyq8Po8UNLQMKnDgHGEcHDzS5ajGF8/ndF7PeLdt3zlCxoPz13jrush0dUeQSFfB41iNqi4RakMJgfMwZh233zEys+ApMQWjViDACaXRH1X3bBOZ6jvmeI6Omu1tJEljW/LB4Nh+4d5bbIZhWAyDzsqLC/UpGyJg5MzL9JgUFgfdH9bPrU/zuU3C4CtBv5nSr98/54utw1gRS5Awtku3dMl2mY6lYW6/hdTmJQF24TCbKr32+mEqbzk95/YLfPFOz8XsBvqzZwnSvsu7nisg==
+ b=ozvDhHT9MGHlQqhYqgGFaBfB0uYvDNorvLqNvvSfo/l1I9ajhahFpdUwPwwhCBLCUgrIvf8M/Rz/0Uua0GpGIX1liYhqnEyVOyH2IaQ+U0Jor9UW4hYswot5IIFN/yc/EoVe/QpG9ktLx+NlS6qyymPuILTdt0eBU3PRiAdL1aJUZvGznVShGbrhh/NyTBkgu7x8S65H9S7rL9KOFKbE2poXC/idk807q88wJ2lS+4ZM2ZeGjnbShjgRu2HNhM5lcXdxxuahUV8saXdsqU/cCaHu1teWwH2Zw+M1N/bsKecc9S9N5ggOIM9E2a4cJ7YXn9T6EeIXGC539qHMel5y8Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uNrEi7X2FtACU/OyXj3bE/A2mD+SbPQQYZEhKSNBQo0=;
- b=we5bG6Aalr7AolhK6N6AibYpR63lDF9+STi8n0YQecLMHxK3xH4XDeBVoY8YlQw52+P5+ZKiXBwV3n9lTqKibffA4utrUaRMOGJYtB6wDjyTiGDwfV1nyh16kFS8i9Ls64Wq21GVSBUcxJ4sfB+x2Text34kZE9mKH3MRBvbh4h+swUcWY+6UlbWppxYxK18Y1fImN0TRte7AeZZCa70RyacumI2Mbok6b/cp22a/DlFvZKCJRYrOqKfiR25AKYahGpwW40seq7DBTmo34smY8bDWf2mUQvs5GlS6yQc405E5V/1TYvYCEwM3bFmxdSatu6swd2hCNRTz59V/ISOcQ==
+ bh=l8ecDcUAHro2xqgEEzO1jOFitqzlrIVuC8O2K+3CQlY=;
+ b=w8CWtRmyTgIbq+o21g5kYg29jm7yQz5HNZhBsz8h0IQ603cdD2SOH+d1Q6MdzG7loLmbxhYZ+srWDjFsk9LK5u9wS5dnIM/ELP9k3rf6KzU9gIcofEaxEA4CE1+DSAXS0IBGLH/vItTNnavRETNCZxtPV0tKpGM8raL3PX9vhfvYF2+UTRZHif8pxVfeoiAKMQrRqzuRxABbqJl3OzO0YSkWCiq/tPxEw+quzWZrN80yUH1z98TEx2Ev27rpED7r6CDcBQJLMbg/wr68/JOogrbkFd1HTw7AQmR0bmoxEcb0BirPKIV8UV2yaWwIYDhX5Q0/F5PwOAdOjoP6q7qSSw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uNrEi7X2FtACU/OyXj3bE/A2mD+SbPQQYZEhKSNBQo0=;
- b=QY4rSvtmUZLxuny6aAYEPo0rn6n2ODO7NuQtv0CwGkdUawp7pnYhrv5cr3GMLhD0jUeFW904c3jtpkYuBaM6J9uvkEs7e0xz3Jie3omauM5I1lwhEdiDxqsnPVqqD253dOvAsDNl9pACZr1pMq88kzrdeH17UhLJTt13ucXrJ1E=
+ bh=l8ecDcUAHro2xqgEEzO1jOFitqzlrIVuC8O2K+3CQlY=;
+ b=NwQocpuJ2zieka9zSwQ/NBqJ9x2FnOSKcNXtKVEaWZPPzyxv74zOsuN4ly5G6pabpYuXI8OlhLdb9zcWwhDXi2wUC2MZ8PcJozTGKmJR1vNoF2nlMyDohE6IVQxwNGwuS2VqzLyz+iEaGDQHI+WOTfFbdOOgu6U4MXDmIDPV0l0IFEXGAXYY+TnhEDJwROnoA/fLTa/Pv1nssSXEJZ1Llo4zzpPcQxvndzi7ReEWShDvtrKoCvRkEtx40Q5uZX7cZVIb/ojPcNXsvpZdVXJFfzoIC5EaskDT2JSe5UerYC33cMvHqSv5FgOu9bHglnIzwCgwKDKUDEhzyJ1UMcn8lg==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by DM4PR12MB6040.namprd12.prod.outlook.com (2603:10b6:8:af::14) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB10456.eurprd04.prod.outlook.com (2603:10a6:150:1cb::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 16:25:59 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 16:25:59 +0000
-Message-ID: <e17a0d43-ac6b-4a2c-bc95-cb31e7befe9d@amd.com>
-Date: Thu, 23 Jul 2026 21:55:47 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] firmware: xilinx: Release all peripheral devices from
- firmware
-To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, michal.simek@amd.com,
- git@amd.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260723124841.2567827-1-jay.buddhabhatti@amd.com>
- <20260723124841.2567827-3-jay.buddhabhatti@amd.com>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260723124841.2567827-3-jay.buddhabhatti@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4P287CA0071.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:267::17) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+ 2026 15:47:52 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 15:47:50 +0000
+Date: Thu, 23 Jul 2026 10:47:36 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/4] drm: mxsfb: Add optional DPI output bus-width
+ configuration
+Message-ID: <amI3mPBVXe0zj_tC@SMW015318>
+References: <20260723093813.180089-1-francesco@dolcini.it>
+ <20260723093813.180089-3-francesco@dolcini.it>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260723093813.180089-3-francesco@dolcini.it>
+X-ClientProxiedBy: PH8P220CA0043.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d9::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|DM4PR12MB6040:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24985bbe-35e5-44ec-1bcb-08dee8d7145d
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10456:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4a44849c-25b3-4750-2aa6-08dee8d1c008
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|10067099003|11063799006|4143699003|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: XHhTAURMuMKSQ36okhTFQdfMNMyT7g++rPyBBFyXDZJN9mE0ruKCbosPE7Ym8+I/ixCLVEyow8GHHSWzdq/ZAR4JWscWTAa0olhNE0R66uzV0SyrhBICSVBpYLbMhEt0LY/4atboyOghDHmlU6vZJ//EVt/gkovVOmCAgQ+4RUbMpMWmfoH0EdzzpXjc1Oeh0iJ89g+iwFq5YXhdbHbYZ53tkyhtfnjUT+BhhF24RNdrp0r2Usp+JrFaoI9fMUy5R1nQLCc0hA3OXtdomWsWXqNFPVGxNwtuB2ffvrQqZD/ZSusMWGN4fI0UE77ScY2tPsinsYT0zMAsooxtIGE9ikIAjXPYUhG0qkXAruj6HsBrdW1L7hWmza/ymlCLEQwDJurXQ14TR1XQ8MOdcnoJYH+kY/E4kKH8Rntay8dvGApFhtujEfsfvhBzth0JlVVYMZs4q1DLY7CvfefF4v7UB58I0n4c/32qr4k3iATCdC4q4pu/D9aHJGw+Ol6CQUSSFO+mTqCku47DC0EnqHlxcoEYQbY2kwGbKxq0MkCqy9FqCkk+L5Hx92i41HoklnjY82KJFLXlUvLRntRex1Gsr897yrAYSPg5hDV3tAgzHxve8mMolek0NNrm1/2Tyv6I4dfvG3BlJTcNI0tyL/7EeuWGauO1zTf7ptjiDh6Bx8I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(10067099003)(11063799006)(4143699003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|366016|23010399003|7416014|3023799007|10067099003|4143699003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ihJc9vDWckRKuFzJvic2suEeWXHEvTz3Mz3gsv9o7Kro4TR1UAB5tB9pmSfNJXogz/epIak9C8VVVQvmxhCBBMZ4TDjJHUn5a9Bi5q1I1U0VPQwraf0gSDh5L38DiADCjhqq9oU70jLwkxJkoMZu61+be+w4ZTo8HFcLxVgfLetGdiyGIxVa7GhXgrKhbi3TI5taPfzwdvptMVlwNt0AbNRD0RSJzYpC2gqW7bje/ApOld8G52NdE/N64nQjK1Y1SWxXilqRWy2dzpRIXJl/W99NJnPXONOftO1UwG6PUtqOf6Fc92olpMNE5K/BgdhwxxaQQd4u+6n+H/KLnnCrXB7A4d5VHLMj+q7a8vJeTXGRvcurkOZjTohtWXeoWCfjwkz83mrSpkoUkoaViT01K8Z4RKdNjmBOAV0rs9WbtkhVnM5PhoR2NjGg4Yc4FTnw09G1NpUY1inqNSgf94bSu5JVPxOPN2aDVYGKAY+zvh0cnpsMujIZ9a0focarArMnMGNPsKBp+HwOqV6yupWO2+1hd9KNpqiI/Vp9gGNmlH5IqHLCVisEX6gNQM7hC/vPk8pQxOqS/ZsavS0rsXMVpNWNiCM6i4szkH86VhHm3tHBsn6UCM5eKOvttQLaqyViRb2u9qguTzE/NX+jO54JZOPY/pNL1dgBdAP3MPdCYA0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(366016)(23010399003)(7416014)(3023799007)(10067099003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TllUdzVyOHNhdFNTVStBRVhZWFF1WmtOck5jNkVHcXJOZ0kxTTFQUjJVZEx1?=
- =?utf-8?B?UlhRNCtoOEtrQTl5YkZsQ3U4SVZaaWNUS3dkb3k2dnJmNWs4aUgxRjd0bUU3?=
- =?utf-8?B?ZWZBR2s2LzBBS0Fzb29OMjMxVW9TQ2V0SDQ4aVhZSnB3bTZtQjBpSlk0ZEVP?=
- =?utf-8?B?dkZZd3dXZzRjMitLMFhjL3JjbitQNFFaeW5zUkJOUFRTSFU4dnduZ1NHbXRj?=
- =?utf-8?B?eUVFbUpHbGlJbXVSRytnaENacGJyb1k3WWcyUmlDbllwQ1Iwa1hNN0RmbFhR?=
- =?utf-8?B?aHZ0ZUhCajlwenY0VWEvNk9ML1BVTjBFQ2ZJYWRxTTRXT0pBWVhIQVdIWkZi?=
- =?utf-8?B?WU81N0RVOFVLZnpJZ3BqMnJsWEd5ZXAzRzlTb0d4S25icnNJTWxkNzQyTklF?=
- =?utf-8?B?N2N1clUvbVBzUDRsZWQ1WHczdDh4MC9IRkJYbTlmcGJtSnNvNWRaZnE1blF0?=
- =?utf-8?B?d3F5MnhpQVRTNmNuNi9lQm5CTjIwYjk2dHpMcktJMzRMRm9mQjBkN2gyV0lR?=
- =?utf-8?B?eFJpd25rK1pvd2hOQktXZ0JCamFyeFloeEZhYzJ1VXFqWUFxNVAyWHpTMDc4?=
- =?utf-8?B?ck9CTmp0QlA1RjlpNHR1L1lpSjZhcCtCVGpZTlVQODdNeURDS3ZEYlB1R2hG?=
- =?utf-8?B?M3I0Z24vUWpnTnRLT2JxN0p6Uy81WDFBZFd3VHhkbDl0aWVlZEI2TjZvMUJs?=
- =?utf-8?B?blcyMnJkelgrU01rblRrWmE2S3BtQ2pLUVh3aUpkekZHSm54THVJZExNY0N6?=
- =?utf-8?B?cTBIV0VmR2xUbHdOSU93ODNya1N3TVRYYTMxbkhHbE56bGVLV2FhZDVla2py?=
- =?utf-8?B?WStIeUdRTHBGczErcndIOHZVWkVDVnYrY0FQdjc1WWpxajEreG11eXZrZlNB?=
- =?utf-8?B?TnFKQjN4YzV4U3hvS2o4K3I3OUZOQkE3SXBsakVGd01yNHhUa1hDZnNoM01l?=
- =?utf-8?B?akdXRUJ1VFF0Q3NIbEhaQkFJTkpXN0ZYVnZJVGpob1pMQU5qQU4rRVBtckEv?=
- =?utf-8?B?NURNUk1EV2REdXVTZnhRalJsTzZ6Vy8ya1JMMUhsZWN2Vi9KMmNhZTl3MmNH?=
- =?utf-8?B?eExVSVNkUGQ3UDlNZStJMVZVbi9Wck41dERtN3p1WHdmTXdRdHY4aVhGNkln?=
- =?utf-8?B?bDBLRXlpZlp5TnpLWUV0OWRRT2RodFZ2L1ZTa2UwaVh4WnowaVlKOEdKWFRL?=
- =?utf-8?B?Q2NpMlNyV0paRG1EWnVGeUFPODlZNGhlTGhjUlJSTS9mb3ZscllsSEVsOXVG?=
- =?utf-8?B?NWt3Yk1mNFVoTHJMZS9sSHowOXJRWWZZVVJIcU1Qb1hqWkcrNWlVcXptV25U?=
- =?utf-8?B?VzY3TjZldm9EQW9hTmx1clN6KzM5UGhzdDdRZUR1UndhSzMxdEpMYytYNVpr?=
- =?utf-8?B?aVg1TEx4WU9XYkVoTEd3OUFBVElmODROMnROVHcrMkZHQWpML1dTUzk3ajdt?=
- =?utf-8?B?MFRXcTNVc1J4ZXpQRHkwRjBWK0tQbzNvdDRRREpOSDZlSjdNRytLVVBSblU0?=
- =?utf-8?B?bHYwcVBpaUtlS0dWNTdUTXQ3M2xnZmpXVGpQMytENlZPK2VMWEtRMzYvWGt0?=
- =?utf-8?B?M0ZyYSthYnhFU3BEU1F6eWtUd3dTYkpteXN1QzBHSE5NbDJkNE5LNjhzTWdD?=
- =?utf-8?B?cTZYM2hqdGpJL0JEaUhGcEZnTnc1a0tvRzM2Mm14elRabEluNzFOOWdYM1RB?=
- =?utf-8?B?bDBiNjhXM0RCMXZWc2hCaER4K3VzcUpOcG9hRzBpa0Z0WWtmVyt3U0RMejM2?=
- =?utf-8?B?YW1WTzZQM1N6eDlKcUhXeXI3aXhidGlsa28wUjJQVG42S3pkWDc1a0VkcWZz?=
- =?utf-8?B?TzMxbTFkTlI4Zm96WGRQYXZlYWZCdHYxTzZnZmFTQ0FWZmd4U1RwTUI4anF1?=
- =?utf-8?B?bFVjZlIzQUNaWHRvdXdmMzdtZS9mY3RqV2kwY2g2bmVZNXAxU3hETXNSQ1Vw?=
- =?utf-8?B?OTM3cTVSU3hzSlpTSkYzTHhLbHA5UDZyQWt1MkJFV3NBUllUMnV5eVdzZXRl?=
- =?utf-8?B?aENxc1BzUGJQampGZlFFU1kvUFhiQVphSndlT1RDSW1LUkdRK1IwVDJ6dXVI?=
- =?utf-8?B?MDlKZXRGM0xycVdsbU1pRTdRM0ZaMnlQZjFYbThvWEJFcWthY0ZVLzN6a2Ir?=
- =?utf-8?B?MXFXd3NEVjI1Ui95ZXVqalZiZ1MwWENHOFdiWU1RYmRrUnhIaU4yN2JXVjU2?=
- =?utf-8?B?a1d1UU5RV0VqVHhrMG9ESHlmVDllWm02TzRFTTB3Wnl0RGE4OEtqL1Y5YjRZ?=
- =?utf-8?B?SFZuZGNreUlTM2Y5VkdmUVc4ekxJTU42WnRheVh5MzIyaHRDWGNleGNBRDZL?=
- =?utf-8?B?TDlzN04zRW85eUw5M1Fuc2ZYTjAvWWdyN3MwVVVVMWRrRnlQSUw5dz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24985bbe-35e5-44ec-1bcb-08dee8d7145d
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?isGzWbSvU6pc8VDhKicMf9yMgcSx2NJHhZ+p9iJv6ag0Y1aw/iCl48D5sKzp?=
+ =?us-ascii?Q?dw4qJbb8jf0Qzzp2vSfN8YTXAsvWV/NvJYLPXWNwna8kZceemd6pnYHiQ33q?=
+ =?us-ascii?Q?+fFOlsEOsxSdf45QrYpd74A+dlSThJk0cNza7tPqHskU190mThDkA9MFuWT7?=
+ =?us-ascii?Q?dV20JKXuhqgp6LYjA+RgLbr/H8mBi+xXYrlJ8ku7LRb7uzRzDTv4V5orJYxi?=
+ =?us-ascii?Q?TMpDD5mGSgYtxLlHmQ9IgdZvhtDe7lqAAQXRV2XdpFcm2piGUtUYGg9aGhL5?=
+ =?us-ascii?Q?u3pKyLg7ytfvGL4UFg4WXw3hSkzB3Zd7IqqB8GaW/hM+kjZ+ui0vQIQ9WFAp?=
+ =?us-ascii?Q?7yfS/FXef3EBnhXpJjRrdg4m19V7VSsK1uC6VZRHviL2BTzDPNSF6j1YzAnW?=
+ =?us-ascii?Q?kT6F3E0oXz6ERs8IkH6rbmE8ERLwQ/1/C6WUEQ6WhgeYMmxmo19XBLUr8RZ/?=
+ =?us-ascii?Q?6kAmFF3cx7CyYkNO9kvuee6Zn8R85fa0TjlQ6a+FS+Ybk1xyjUGWpfBl4ri2?=
+ =?us-ascii?Q?aYgY8ej/Z3QwNIYFzv9zk7+R0xJZ2LLii8RSx/LWNpv/FAHS2T+LgOsF+vul?=
+ =?us-ascii?Q?mshbwdnWdgvBxrFSzthk3a886Rlkuglat4lgKnIJJkpTGcAfhTTc6dlv3loe?=
+ =?us-ascii?Q?LC5Kzz+3AzlMKAIIGVAHopvjVQ+Q86kp5h1pTG4EKnyYuL+fdNQwUdtZY354?=
+ =?us-ascii?Q?46uuyUn0+ZkAK9rLGHkbjsSH/vMcoC1d6Ja3JnUC9e0e8PkXSYS0raAMYPV5?=
+ =?us-ascii?Q?IEkHmh0q2ude7Snh/zK8I/mrKRcnlsCz1C9X/iGfJ07uA7so2fLPr4SxFYP5?=
+ =?us-ascii?Q?NdAm62no6C2FxfwzC/49+ripHWGlQ4uVC+u2FGld8qq2BGXNvoyjZ0keZnkX?=
+ =?us-ascii?Q?jtq/IyY6RBmtN7BoSKGq47xv6wjlEQhgbecH7LkB8bMALmzrjRlLjDwvixDD?=
+ =?us-ascii?Q?HUEaXqYA9hITfy+mG+zMxrQSoV0dt4+kBKbqGR8ZVPAYZnuh0qlEh/52JQIt?=
+ =?us-ascii?Q?4UxeejsCjozv2xUutKvG589V9ilYhDQj7HORMjLGce9TWIOSakzyV5MNUo35?=
+ =?us-ascii?Q?yjiMSjMBOAqXCCmITFZVkHXf6TWDsTiFnW673Zmrpso+apzuPFvJUbTXX33j?=
+ =?us-ascii?Q?RXLvouYXrtzIcwL0X7Yq3FGmn9LGsSpk6jSCJMXFuMRuaaBGvBbvqRX7KqEY?=
+ =?us-ascii?Q?e2dLKOpLC0Rww4GfJfVvoez8oZJgs/gEj/hGAaJ7+H7Ljs3eFZsBgddXHDIz?=
+ =?us-ascii?Q?MOFqrtLq9SvBHbpBx6hU37Eaq2EU+5z6JQBId6m6BFtGWT6Dn28lj9z+FA/Q?=
+ =?us-ascii?Q?8ZgzwgRnOxeGNZ+WG1q3CvW1nKjc5fGldGGB4sn/rTbMOArnTA0UUisnU2x1?=
+ =?us-ascii?Q?WdKtegvAjAiLps62PgVFXwe9TYKOZhawIr3aW2byYUttur80AtKtyokPVkoI?=
+ =?us-ascii?Q?AGmrAx2bnbrmYu+RAYHMtNkC29d+9cE6CKjaZwA0LaE7iMSDclxrb1i/POnl?=
+ =?us-ascii?Q?8sRddV9VGww//+GQylyjUy8TTyC6hXe5b2oPaXWVaP8uK0aqq+h4xR27UQk+?=
+ =?us-ascii?Q?hZLY846Asgu1NYWlIiu8QZf6LXvH/Q9GmsQPbOYnq8hR8vHk3SzkDzBW6Zk5?=
+ =?us-ascii?Q?C42+i7WBi3m7t7H11TS9Sb3YYNKz/WCFgQ4noI6TbPlMHCFab2NDdOKdcGcs?=
+ =?us-ascii?Q?iqIFhYuoqAlQKdBXXmOxbxIrm/zm0H0sYjGe0zTN9MvjGQNqjGjAZ6K5iu6H?=
+ =?us-ascii?Q?vcM1O2pdCglKumVxr6t4Ch90GhPeiVt42knTXm+uOwd5ZtqiReVF?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a44849c-25b3-4750-2aa6-08dee8d1c008
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 16:25:59.1585
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 15:47:50.4370
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d5yilM5AswbPT/vXvpoykocZqOXu7i3BSyaOIgrlX5YqYHzONfJek6IyuTPPc+Om
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6040
+X-MS-Exchange-CrossTenant-UserPrincipalName: uwvMCeD7vNzELMUU9xoNGY5EdGEadv+nGftmn232wE8uPtNompbbWonUxuC9sA3gXRMktznkL+cxvRONQeS/Tjeiee1WENqlgo3o/dhLSDPDFwBg23ARLrHqCtSsIoRe
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10456
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_092612_924172_0BBFFAC8 
-X-CRM114-Status: GOOD (  26.42  )
+X-CRM114-CacheID: sfid-20260723_084757_592380_DD114C17 
+X-CRM114-Status: GOOD (  28.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,85 +152,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/23/2026 6:18 PM, Jay Buddhabhatti wrote:
-> During a kexec restart, only the kernel is reloaded while devices
-> allocated in firmware persist, causing state mismatches between the
-> kernel and firmware.
-> 
-> Introduce PM_DEV_ALL_PERIPH node ID (0x18224FFFU) to release all
-> peripheral devices during kexec. On graceful restarts, this happens in
-> zynqmp_firmware_shutdown(). On crash kernel restarts, it happens in
-> zynqmp_firmware_probe() of the reloaded kernel.
-> 
-> Releasing all peripherals depends on firmware support for the
-> PM_DEV_ALL_PERIPH node ID. On firmware that does not implement it (the
-> feature check reports a version below PM_API_VERSION_3) the release is
-> skipped and a warning such as "Bulk device release is not supported by
-> firmware" is logged, e.g. on Versal NET firmware that predates this API.
-> 
-> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
+On Thu, Jul 23, 2026 at 11:38:09AM +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+>
+> LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
+> format reported by the downstream panel or bridge describes the display
+> input, but it does not describe how the LCDIF data pins are physically
+> wired on the board.
+>
+> These can differ. For example, a 16-bit LCDIF bus can be connected to a
+> 24-bit display by wiring the available color bits to the corresponding
+> display inputs. In that case, using the display's 24-bit format to
+> configure LCDIF selects the wrong data-bus mode and changes the assignment
+> of color bits on the LCD_DATA pins.
+>
+> Read the optional bus-width endpoint property from the LCDIF output port
+> and use it to select the media bus format used to configure LCDIF. This
+> allows the LCDIF bus mode to describe the physical interface
+> independently of the downstream display format.
+>
+> When the optional property is absent, continue using the format reported
+> by the downstream display device, preserving the existing behavior.
+>
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 > ---
->   drivers/firmware/xilinx/zynqmp.c     | 15 ++++++++++++++-
->   include/linux/firmware/xlnx-zynqmp.h |  4 ++++
->   2 files changed, 18 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-> index 95ffd8f33ce9..64d2109eefd2 100644
-> --- a/drivers/firmware/xilinx/zynqmp.c
-> +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -2070,7 +2070,7 @@ ATTRIBUTE_GROUPS(zynqmp_firmware);
->    * zynqmp_clear_pm_state() - Clear subsystem state
->    * @dev: Device pointer used for logging
->    *
-> - * Clears PM specific data in TF-A.
-> + * Clears PM specific data in TF-A and firmware.
->    *
->    * Return: Returns status, either success or error
->    */
-> @@ -2097,6 +2097,19 @@ static int zynqmp_clear_pm_state(struct device *dev)
->   			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported in TF-A: %d\n", ret);
->   			ret = 0;
->   		}
-> +
-> +		/* Check if the firmware supports the PM_DEV_ALL_PERIPH node ID */
-> +		ret = do_feature_check_call(PM_RELEASE_NODE);
-> +		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_3)) {
-> +			/* Attempt to release all peripheral devices via firmware */
-> +			ret = zynqmp_pm_release_node(PM_DEV_ALL_PERIPH);
-> +			if (ret)
-> +				dev_err(dev, "Failed to release all peripheral devices: %d\n", ret);
-> +		} else {
-> +			dev_warn(dev,
-> +				 "Bulk device release is not supported by firmware: %d\n", ret);
-> +			ret = 0;
-> +		}
->   	}
->   
->   	return ret;
-> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-> index baaa88b0b197..ac39e5492961 100644
-> --- a/include/linux/firmware/xlnx-zynqmp.h
-> +++ b/include/linux/firmware/xlnx-zynqmp.h
-> @@ -50,6 +50,7 @@
->   /* PM API versions */
->   #define PM_API_VERSION_1	1
->   #define PM_API_VERSION_2	2
-> +#define PM_API_VERSION_3	3
->   
->   #define PM_PINCTRL_PARAM_SET_VERSION	2
->   
-> @@ -145,6 +146,9 @@
->   #define XPM_EVENT_ERROR_MASK_NOC_NCR		BIT(13)
->   #define XPM_EVENT_ERROR_MASK_NOC_CR		BIT(12)
->   
-> +/* Node ID for all peripheral devices */
-> +#define PM_DEV_ALL_PERIPH	0x18224FFFU
-> +
->   enum pm_module_id {
->   	PM_MODULE_ID = 0x0,
->   	XPM_MODULE_ID = 0x2,
+> v2: use the common bus-width property instead of the legacy interface-pix-fmt
+> ---
+>  drivers/gpu/drm/mxsfb/mxsfb_drv.c | 24 ++++++++++++++++++++++++
+>  drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
+>  drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 ++++++++++++
+>  3 files changed, 38 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> index 9b8fbda85d28..0545718a4b65 100644
+> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> @@ -12,7 +12,10 @@
+>  #include <linux/clk.h>
+>  #include <linux/dma-mapping.h>
+>  #include <linux/io.h>
+> +#include <linux/media-bus-format.h>
+>  #include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_graph.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/property.h>
+>  #include <linux/pm_runtime.h>
+> @@ -209,7 +212,10 @@ static int mxsfb_load(struct drm_device *drm,
+>  		      const struct mxsfb_devdata *devdata)
+>  {
+>  	struct platform_device *pdev = to_platform_device(drm->dev);
+> +	struct device_node *np = pdev->dev.of_node;
+>  	struct mxsfb_drm_private *mxsfb;
+> +	struct device_node *ep;
+> +	u32 bus_width = 0;
+>  	int ret;
+>
+>  	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
+> @@ -236,6 +242,24 @@ static int mxsfb_load(struct drm_device *drm,
+>  	if (IS_ERR(mxsfb->clk_disp_axi))
+>  		mxsfb->clk_disp_axi = NULL;
+>
+> +	ep = of_graph_get_next_endpoint(np, NULL);
 
+use auto cleanup
+
+	struct device_node *ep __free(device_node) = of_graph_get_next_endpoint(np, NULL);
+
+Frank
+
+> +	if (ep) {
+> +		of_property_read_u32(ep, "bus-width", &bus_width);
+> +		of_node_put(ep);
+> +	}
+> +
+> +	switch (bus_width) {
+> +	case 16:
+> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB565_1X16;
+> +		break;
+> +	case 18:
+> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB666_1X18;
+> +		break;
+> +	case 24:
+> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB888_1X24;
+> +		break;
+> +	}
+> +
+>  	ret = dma_set_mask_and_coherent(drm->dev, DMA_BIT_MASK(32));
+>  	if (ret)
+>  		return ret;
+> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
+> index d160d921b25f..bdc47ce5be79 100644
+> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
+> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
+> @@ -46,6 +46,8 @@ struct mxsfb_drm_private {
+>  	struct drm_connector		*connector;
+>  	struct drm_bridge		*bridge;
+>
+> +	u32				bus_format;
+> +
+>  	bool				crc_active;
+>  };
+>
+> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
+> index d8ebebc5314b..1d78c486d147 100644
+> --- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
+> +++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
+> @@ -386,6 +386,18 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc *crtc,
+>  	if (!bus_format)
+>  		bus_format = MEDIA_BUS_FMT_RGB888_1X24;
+>
+> +	/*
+> +	 * Prefer the bus format derived from the OF graph endpoint "bus-width"
+> +	 * property when available. Otherwise, use the bus format reported by
+> +	 * the downstream bridge or panel.
+> +	 *
+> +	 * This supports mismatched display and interface bus widths, such as
+> +	 * a 24-bit panel connected through an 18-bit interface or an 18-bit
+> +	 * panel connected through a 24-bit interface.
+> +	 */
+> +	if (mxsfb->bus_format)
+> +		bus_format = mxsfb->bus_format;
+> +
+>  	mxsfb_crtc_mode_set_nofb(mxsfb, bridge_state, bus_format);
+>
+>  	/* Write cur_buf as well to avoid an initial corrupt frame */
+> --
+> 2.47.3
+>
+>
 
