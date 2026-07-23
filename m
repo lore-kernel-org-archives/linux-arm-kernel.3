@@ -4,142 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D19C531CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67147C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VON2fRioEr+TslOcAVnLaO0rV/n3EKwnwZPm48p6l/E=; b=5BxQP4OpMoB82gg1I3/okxxBXF
-	QuaYBup1V0NQl0I24ggSkqmxJUXbzWfEV24GyfXSv5W2MvHeuEiyexRrosoqNQt+HLTcaWFoVTvKV
-	XuolC39G+GoRV2q27DOhDvOK2pYqO7nwu+SjSpP9IL+TiOlSYcW4pa7pjKWHV5cSmxwD/WSPvADOd
-	ZHIz9Fg1KAVAKCkjK5nGMab0D7qg+nCsUAelC+LJXVkFhLbpJ8EFLGc3SIXjuth8hevcVeggFl4mM
-	4uZGoZgXCMgdDc9B4rF5deRv0ly9Y5n/L5H9KXpCoF7YkGM/oVDD5lVh0WXocVjWlbsvThWXdk/mh
-	tlrVBjeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=El1cYR2s5vLyERM1M2bpXWogjTgg04bt9JQLc9gJZSk=; b=nhWm39c0N2QUmN0aFlPy35wYmi
+	UkXaIJe0tNCPwc2FT5NQI6+/ySgt0txUjr9mFMPoH1wPLdWxH+bCO2CK+1jjWSu0DTKGgH0DI3sBx
+	ws6CoRwdvBnlH6BjJKgWxn61RBJ3BWY7rliZmfRJVkYFgmLnkIwlhl6SRdACAssIuISaQtQlv0ecH
+	TSCb1+WDxk2nniI6bAz98JFlBQsQrjyVIoftz1TiiifoCPo4k37oGFWfJUaO+ivHg4SFPeMHOh+qQ
+	RHIxXaFEMwELv7c9B0WuaGPK/7R6omV+w853AICUZDF/lUqX+kygwaUiCoTfkqj++25oHlX4WLhkc
+	h7LccXqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpf5-0000000Dq2y-48hM;
-	Thu, 23 Jul 2026 09:24:16 +0000
-Received: from mail-westcentralusazon11010004.outbound.protection.outlook.com ([40.93.198.4] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wmpPr-0000000Do1I-0cpH;
+	Thu, 23 Jul 2026 09:08:31 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpf3-0000000Dq2W-0WMj
+	id 1wmpPg-0000000DnxT-2Y5D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:24:14 +0000
+	Thu, 23 Jul 2026 09:08:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WfjqFiibcIYIft0bVF1J4AvbKqudIjlF6eqYV37rt61Cw0Wnz4W3skVcRhSHyPjziHEMbRC60tvdm9bVvnp1PYRdERH2+M/mYdAVd21n6/ZZ1MTVA/JUq9Y5uQxY0rH9eCJ67IZOiQSTNfm5PfVhoMJnsVgH5LtGH+tE5XhwtYeEJSKngu3fd6fTuhSzCd8sJ1EQbYfG/0Hfitk8muP526ay17doLgamtgjy6DCxvuSm/rg1h6f2k8iO5b7RkrbC49+DJQhAITNu30vCEvARgPH4Ez7yIm1lpK61D1X2nIenfNYbr2ehU+zpuZaxkviDyFeFu8oejBPPe+KSJoIMwA==
+ b=jDzLEUVvjrFkEP9VOkGEjlEBNf491e+ZPj3vtwc7autnLVJRh3rx1Ooc+egPzWHXu8d26gtfzcMWYbDQ5AqBdfsyqv5It20vIbtSTks/7zbxvBXqy99CmsRfYUMbHGA6htetccGbsO0MfWlQ1Ljeal6McxBmcxKnB1BWQTZvxYsI51+H4fI6REfwc/NwQwjocpHz5x+SRYFQPcoUl60+Rc77AwaRFG2jfS3rF53AsxldG6FNqOyqvGgoyYf8YwmQqPf92W38W0ebS1rJcokcD6+jHhH2Qadu+eJ6vLvLfvBE/fBOB3iOqGbQ94ip0KWEPTwopuVFfILAJ0OigUjSWQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VON2fRioEr+TslOcAVnLaO0rV/n3EKwnwZPm48p6l/E=;
- b=ZnsHJsg+blPOzvThL58QZrX25j9UXFShqFQdYFiKnFOP60tDbkO/Mz4Grs0/FeLAjUTIZRINLCZ5uKidY6daf8FunWnBkWE9CcWfKsJ2xQ+z4M1CwVRMzRQXVAortfSjbA+WzZzefKQu/hCd/QNahRDXl+IMca/TZHktXPdyey0zjSrIhIJEs+QILcNvxvIuTgLaiv/TbcL4NDS5BN8DsBjX6paLJjCJz4j7Z9Ls2wsRML+OVMBAClHz/Dg4TMcTqJcPbaHnJYTtaQJoT2CXwS4qze3EF9CuyogBDC/laIIjKsib9AZd8FhOfITPFUJTvBaGVGK8MxkiwAnV2MDBCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VON2fRioEr+TslOcAVnLaO0rV/n3EKwnwZPm48p6l/E=;
- b=TYxK0ewAK0ylx7ye4otP7YifyCRIgA17skOvA8mVfTo2QHjH4NXIaxBs/8V1yJCKdDiKtlgCTitbmIIdqac/KjTjOMRBgn4WHk/AvndRTyKXCO0dbZQdX8Mv/Bqu3qG6+nuYqDjlpvkOJGpr6FEJ9mJaXFFAA7ofAFljpAX797Ku6b2Eo282YwATpWTeqx3dI9qLhcJvnpxMNTciHirEh4io+Zr4+Z8QYoM4oYuV84euyQJI6PWtDEb7Y2JqDF4t+PmKEPsLnfhrU0X1krjb4uP+KHJ7YwDZSWtVdoJGST8ojmB/8TS2jNALh9Sy5GQmJF8Fa9cyUHzRTzsFrptNFg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
- by DS5PPFC9877909A.namprd12.prod.outlook.com (2603:10b6:f:fc00::661) with
+ bh=El1cYR2s5vLyERM1M2bpXWogjTgg04bt9JQLc9gJZSk=;
+ b=UIsOjmHTpH5SEf9hd+mMUAxvS/of0OgxvhVfIrJcuyBiVJ8gBrMVhbz3+v7XYPp0jmHh0uLAKLICKpDHy0Bd+IGTQWufqDs5ii39zRmpVZsCoAh6BCgVnYDZl3N2pT0fWCZWpzAKKOiwiVrhCuwaq4xSOEaEkCBxs6yR2hCWyNOO0hD2k3lcYY+QDTNRP/yPDnyFxuQYknMgCceOfeWlRz57siueCGbUZ0lPcHPndNCxhy/7+ycZLMfCPWI3UzyjvQsdYFIaex7+wHfjIogu8hZnqK9zPYgYxTaHAqzyjkdubx2u4H5OCMjnS9teClZ033qGuWSx5F/YDkky+iK4VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PUVP216CA0009.KORP216.PROD.OUTLOOK.COM (2603:1096:301:16f::11)
+ by TYZPR06MB6914.apcprd06.prod.outlook.com (2603:1096:405:41::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 09:24:06 +0000
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
- 09:24:06 +0000
-Message-ID: <325be874-bab9-464f-84ee-99e160259923@nvidia.com>
-Date: Thu, 23 Jul 2026 10:24:00 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712
- broken EL2 virtual timer
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- John <therealgraysky@proton.me>, Daniel Drake <dan@reactivated.net>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20260710080958.491620-1-maz@kernel.org>
- <325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
- <878q72rcz6.wl-maz@kernel.org>
-Content-Language: en-US
-From: Jon Hunter <jonathanh@nvidia.com>
-In-Reply-To: <878q72rcz6.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR0P281CA0101.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a9::19) To SJ1PR12MB6051.namprd12.prod.outlook.com
- (2603:10b6:a03:48a::18)
+ 2026 09:08:11 +0000
+Received: from TY2PEPF0000AB87.apcprd03.prod.outlook.com
+ (2603:1096:301:16f:cafe::14) by PUVP216CA0009.outlook.office365.com
+ (2603:1096:301:16f::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Thu,
+ 23 Jul 2026 09:08:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB87.mail.protection.outlook.com (10.167.253.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 09:08:10 +0000
+Received: from cix (unknown [172.18.64.61])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 94AC5427CEE3;
+	Thu, 23 Jul 2026 17:08:09 +0800 (CST)
+From: joakim.zhang@cixtech.com
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	bmasney@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de
+Cc: cix-kernel-upstream@cixtech.com,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joakim Zhang <joakim.zhang@cixtech.com>
+Subject: [PATCH v11 0/4] Add Cix Sky1 AUDSS clock and reset support
+Date: Thu, 23 Jul 2026 17:08:04 +0800
+Message-ID: <20260723090808.1727598-1-joakim.zhang@cixtech.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|DS5PPFC9877909A:EE_
-X-MS-Office365-Filtering-Correlation-Id: b96dd018-5c9d-4ad7-7292-08dee89c2484
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB87:EE_|TYZPR06MB6914:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: d6c4949e-61e4-40cf-b1a4-08dee899eb79
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|7416014|10067099003|5023799004|56012099006|11063799006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: /8JZsrD8lSHWXfeaI5kcIMqqwuYwo53UUaR/eFkG5NZnsLkR6GXs9MPP2CgbtYyo0XiuwAX+qLhfYhi9FF2AuDK4jJrdsituiyabhByvtjok8ZNSIKWjRZPnxrE61HH13pQ7a7TYAMHOHM+3dp+crzqCAw3rfaA3w3Y+exSrC0xIxQ5LIYIroc2/RpEyUqHJ/ddySfEJ1EiccCfF5Tt4DF4+5KjEWgrD/D2D9FYhaLvvWNiYpSLJKra1O/3xLtgzpRP3fUY0rWX8XDngHF/IlwLaoLWsOljidD8oeb1t8tWT/EVfHNBgxpMnpeg5SJqhCNUHsIuCRAOCe4FdHHv5u57sXQz/18movK7PGW6CsZ57+YxeDbotgoncVgwYAVSDyLd+Yc9j3ClctIW50K1o4ZY+TkxNoGCREv+syyf0Dk5fF5Idg9SLTKRLRfdo93pwdRVHYdY25ANqUyOXYE1lwxJvjeAtuCI5p1+cXCkGF+4UgcKyb5n2qi6FO9ZRf4/t6Ifino4jQHKI0LjZoW5EUEGzMV4V2/96tlOI0SbmLOyURZ6XNcAfvpG9S2EpFAEOek6bBQQYPikXHBfSxDq2bzOc2ZYwyRabNLo5NOOm5Xp1sBE23CjnjzNPXewnqfjjZgzmU6S4181QtcsSUO0lb3mdH7Y+aIRNojzLpHUBPLQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(7416014)(10067099003)(5023799004)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|376014|7416014|36860700016|56012099006|10067099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: MRMu2czeUKq064xkhUyZbhDmN6gB8lJQSlK0T3uIxF8YfYYU6W6YSNldPCpGiISlV1c3+B8nIVbR19B4m994/si3uD7sdIv6LnSlzsY/xLNXLVfEhYBesoCFnE1dt6RfMxjptxcRf1RXLCnFj9dpJ2h0W2z1Ep5K2CXMqdoRta6ktLsAcO+doLc+dGiJmh90Laz11CBPwaqyZ0/eM0K7WBHleNma42Pa2UF1V4UY/Z25RcKmpzLJ37ZVTo/1zOAN3A44LKBPBzVriCNohTi/cYmtM+Icujws75J/MpglSXqjE8RHOFrVN7CNnNruRqEFjdtXVixiYottVEo8SGMzGkf8eSGinL8P529rUty3+LzDaeyR6uZQQF52IufAmW3tz6vjyZDuyDOUpvOZVNA/eZu7m/M8WWVVAhFF7T5fahVvJ/oNnQIrim3DcHQwfAGcfWjaRd+1B3O+NJrBOQImjNI5Uk6pajVJndtNieFT31Zs8CQx87yK76v1JAFyqDSmdFLCM2/tLpChjImbSOcLNtDr2JW+dQBUiTwebWa8jNa7LlteWulrDBmiMDWNbw5M7R0597hiWnkxLyeatin1dwuaJHRBCrn1FtZzWUI8jgGELNqnNg8CMO/dLjDjNzsTuMqZVS5vkT6HosDbMpKju3gF8Pl4xnKimmTnGP3QiO+1m7pebESJ6Dzlkn5+WZ/T3XUHwObJ5MgsH5GiS5+NhA==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(376014)(7416014)(36860700016)(56012099006)(10067099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?citZaW5PWFAxVm9SbjZkeS9EWnlFTTNxTHg5Yk8rTml0QmdRVjc2bDZEU3BL?=
- =?utf-8?B?amxudk1yeWQ3SDZrK3FTajJBbGhLMWVwL05UQ1JIWmpRZDg5S1VKemVMSUl6?=
- =?utf-8?B?NkJtSGd4V2RQRkZxc25RVFdmQmNyaFYyQjdFa1ROdVVTTG9QQVpqamdLNUZH?=
- =?utf-8?B?aHlzQjR1TWVmMWdrbzhRV1Urdlh3bWF4OXlHRDVyZGdKcHJvQk40T3ZDOXVw?=
- =?utf-8?B?Rmg5ZVcwVHdOZkhiM0J4eHdYbmRielc4OXRGUTltM2JYc3dST0NTS3EvTFNQ?=
- =?utf-8?B?QVpBcGJYT3R3WmErS0dwSEZwRWJPVkFhTDZDYTl0OHJVaTJVR0k3QmpxSkpp?=
- =?utf-8?B?bVBLNCs4VCs4enJxNFMvaDVzKzRwbjl1eUxTcmNyVFprMVR6NEFwaWVtalg3?=
- =?utf-8?B?R0tLSG9RUXQyaDkyRnVoQi9LckVDTUZjeUNUaWNtUWd6VzdQSmdLVm9xYWdZ?=
- =?utf-8?B?Q1B2U1NkMGMvUjV6RFdvZVRybnlkUXZUeUZhYVYraWRXcTRta2Iwc0FjUHQz?=
- =?utf-8?B?SkNoc1BBTVNWWUhwZ1pnUjBvZkZHRkdBOW9qZ3RKVnVWcGR3K21TU3ZFM0tB?=
- =?utf-8?B?bWxVRGVnODhjMGNnKzJWN0tmRmtMUDUxTzFib24xaEhLVjRSVXljUkVFdWlr?=
- =?utf-8?B?d0svVm5tS1lJa28wS0s0bEp3SVFDaUNrZVZra3NxMnlxS08yN2lPL2tmQTVq?=
- =?utf-8?B?R1EwMlZXcGl3RXE5aGFGV3NTL01kTThpL2NhT1V2cEZLV3NRd2ZPeURiOG9V?=
- =?utf-8?B?VzY2RXVoTEF1T1piRjlmcXNQVFVvdUNMcVNYblVvcEo5ZHcySlpUODJFRjdu?=
- =?utf-8?B?S2xLUjYzM0cwd1FkemxIVmNsMFNvcy9adnJ6aTNPZTBIVmVEbzRCcW9hMUtQ?=
- =?utf-8?B?UHNCN2g4Nmh5K3JrVFg3Q1JUUitWUndyTjloampXbE9VWENuR3hUckdGdlVp?=
- =?utf-8?B?dUpYT09GbURKMGtVbmlOaU9sSmZLMDc2L0dneGs0Y3QrT3FPSC9JL1JGdWpC?=
- =?utf-8?B?MGNNTEM0MkRyOGtRNElYdFR2Y2NDanJia0pDa1dOUC9wOTJnNjhuakFWeGdv?=
- =?utf-8?B?VGZEaW5oWCtuWGdkaFA3S0dRV3c0Qk11QktYcmp0cHlSZllFZThqVEQ4QitT?=
- =?utf-8?B?TVl6V2M1YzEzZHk3SkNOV2l5M1NsY2VJUjBnQ1Y0TFkvT3dINEdRaEk3QjNF?=
- =?utf-8?B?SzNwcU9Wa0VTMHh4a2k3MHM0RWhkWm9waWNsS3J6NVB4cEEreEl2OFNPY0ds?=
- =?utf-8?B?dHlIU09meW1IMjYvVE5QR0RDVDVqVzU2NHBDa2RSaEcvazRQQ2svOVNSRS9U?=
- =?utf-8?B?WjE0amN3RVd4eDYwM2xyemVDN1pCaTV1alFDLzlPSkpENTYxSEl5MW9JWS9D?=
- =?utf-8?B?QzF5dXRrTUxGeC9NV3R4OFNqWWVYZWV2c1R0ZWFoMFFZUFhWV1BIZlp1SmRX?=
- =?utf-8?B?L0pKMDFBZlcyTVpiMkwxZEFYRWd3VkF4Vzk3Um44Wld4cWpVdEJRK3lYUjFX?=
- =?utf-8?B?Yy9md3F0RzNtWHJneW5SRUNsZHJHdUd4ZWRmY3Z5YXEydDlYQzFSTklqZlVU?=
- =?utf-8?B?MEFYR3dDL1VUMUk1Vm5GOFZRVVFuMmxoVmJyZ1BuUG1CcEpqMzA4U2ZNWGlm?=
- =?utf-8?B?SEVRUSs1TzRvWjFLcjhmN0xZdHoxeFMxRDlPRDdubG1iWUYvRlQyNHdtWXNH?=
- =?utf-8?B?b2pwL05OV2U4Q0ZGWU1aRTRhSUExTVJKU1RtNHNiREVNd3IxZWhkVGpqNXJP?=
- =?utf-8?B?dFdMalVqVWNmR0hjLyt2Q3Z6QVdvQ25PNlFzd2RUODIzMUNPZldVcEJWRUhq?=
- =?utf-8?B?Q2ZKTFZPeHQ2TlVhejhMek5RU2lWd0kzSVpJZXI5SHd4K3I1TGdCbGhMaU9N?=
- =?utf-8?B?MDNka1B6MndBelhXejExaUNKSlRIQ3lEZTJUWlJlYk9LSXRDNHNzN3FtOGRB?=
- =?utf-8?B?VFFBaER6QjQ5QWdwUGFwNjNFdnFVZm91em1GVnBHOStyTHZnQVB6cGNKc0lY?=
- =?utf-8?B?OVF2djBvbmgxNEYwL3VXSEJNZVV0aXh4elVOcEt6V2hoQ2FjK0thY25aTzAy?=
- =?utf-8?B?d3dtTlhKYmRkREJJQVc3ejZVZW4wa2p2R2wySGdMM2FSMG0zVWFLYjNqQThG?=
- =?utf-8?B?dEhiMlUwa1VSSTZvQmUwYkZlV2YxOHN1c0l6eWFVV0ZNNE5JVDJCYXUvSkc4?=
- =?utf-8?B?c1EyRGJoOHdMcGY3TlYrTjdUUmttakdrRUExdlY2QVBOS2JZWkJqM05SUTln?=
- =?utf-8?B?N0k2TDB1a1FUUERjalhGc0tjREhSaEp4K1NHOXZnQkxJMzFzbTRpUzdZVXEw?=
- =?utf-8?B?OHdzZzdabjRYN2tXM29zM3kvYzlRVzk2SDNyaHpxdHpxa1Q2T3NIdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b96dd018-5c9d-4ad7-7292-08dee89c2484
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:24:06.0288
+X-MS-Exchange-AntiSpam-MessageData-0: kF6UODOZV9u0DsTW6DdwPNMrxjCGdF7GaixUAvEv7kjNLGEpAYantb+3MWTtak/5/9YqT+b97moODapA5EXKC9njIHlWhi5goCliOCzYnfqcySvz0E12tzMxCXzGDGgpOdT96hvIQ7Es7GUDk/6bXidWHVPI3YhISplFnlVObs36a/rSlYB98H2Jf9tZth/nsYJiWMso5J+y7yWD27LAkgg1rHeoX0CthmHy8VYXjfwbPJ4jrdfdr1Dk9Goo2USN/cMzXPdOHgoxsUcBqJidM2xYvF7kDiTQbReAFkZr25tm8aFyqWpKXKqxlusqsxY4bkvnAi8Y1hJMoOyLat9P0qB0vQq1Ht/M5KNppm7iDwbmpxkbGqrUNwX1YyrZAc0e7AezagwyedwwIwgoaH7aDJp1nes7RAIlA4Q8EtTopNO3mKyXdQphguYN8q8E7yp5
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:08:10.9427
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0KXWjP41J/fc8BcNm2rCw2HrmCqfVVzE2zp2Nqxjk/SNfBSKRQO3cJwpHNRmTFu7Ln1gf8ki6jRkHj5xCRFKkw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFC9877909A
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6c4949e-61e4-40cf-b1a4-08dee899eb79
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB87.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6914
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_022413_198476_5B5AC1C2 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20260723_020820_652285_BA251E82 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,115 +120,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-On 22/07/2026 21:22, Marc Zyngier wrote:
-> On Wed, 22 Jul 2026 15:14:39 +0100,
-> Jon Hunter <jonathanh@nvidia.com> wrote:
->>
->>
->> On 10/07/2026 09:09, Marc Zyngier wrote:
->>> It appears that the bcm2712 SoC found in the relatively popular
->>> RPi5 has a broken EL2 virtual timer.
->>>
->>> We do not know the reason why the timer isn't working (the timer
->>> is ticking, but the interrupt never fires), and the SoC vendor
->>> doesn't communicate on the reason why this isn't working, leaving
->>> users and maintainers in the dark.
->>>
->>> Paper over the issue by detecting the broken HW, falling back to
->>> the physical timer instead, and let the user know about it.
->>> Also taint the kernel as the machine is definitely not compliant
->>> with the spec, and we don't know what else is wrong with it.
->>>
->>> Reported-by: John <therealgraysky@proton.me>
->>> Reported-by: Daniel Drake <dan@reactivated.net>
->>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
->>> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
->>> Cc: Thomas Gleixner <tglx@linutronix.de>
->>> Cc: Mark Rutland <mark.rutland@arm.com>
->>> ---
->>>    drivers/clocksource/arm_arch_timer.c | 24 +++++++++++++++++++++++-
->>>    1 file changed, 23 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
->>> index 4adf756423de9..7b4a98df6962b 100644
->>> --- a/drivers/clocksource/arm_arch_timer.c
->>> +++ b/drivers/clocksource/arm_arch_timer.c
->>> @@ -1090,6 +1090,27 @@ static int __init arch_timer_common_init(void)
->>>    	return arch_timer_arch_init();
->>>    }
->>>    +static bool __init has_broken_el2_vtimer(void)
->>> +{
->>> +	/*
->>> +	 * SoCs described here have been found to be broken, though no
->>> +	 * explanation has been volunteered by the vendor. Let the user know
->>> +	 * we're papering over the vendor's lack of communication.
->>> +	 */
->>> +	static const char * const broken_el2_vtimer[] __initconst = {
->>> +		"brcm,bcm2712",
->>> +		NULL
->>> +	};
->>> +
->>> +	if (of_machine_compatible_match(broken_el2_vtimer)) {
->>> +		add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
->>> +		pr_warn_once(HW_ERR "Known broken EL2 virtual timer, ignoring it\n");
->>
->> After this change you will now get two warnings; the above and the
->> below. Is this what you want?
-> 
-> Absolutely.
-> 
->>
->>> +		return true;
->>> +	}
->>> +
->>> +	return false;
->>> +}
->>> +
->>>    /**
->>>     * arch_timer_select_ppi() - Select suitable PPI for the current system.
->>>     *
->>> @@ -1115,7 +1136,8 @@ static int __init arch_timer_common_init(void)
->>>    static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
->>>    {
->>>    	if (is_kernel_in_hyp_mode()) {
->>> -		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
->>> +		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI] &&
->>> +		    !has_broken_el2_vtimer())
->>>    			return ARCH_TIMER_HYP_VIRT_PPI;
->>>      		pr_warn_once(FW_BUG "VHE-capable CPU without EL2
->>> virtual timer interrupt\n");
->>
->>
->> I have posted something similar for Tegra [0], but because this is not
->> expected to work, I wanted to avoid the warnings here. We test for
-> 
-> "not expected to work"? In which parallel universe is that a thing?
+The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related blocks such as
+HDA, I2S, DSP, DMA, mailboxes, watchdog and timer behind one Clock and
+Reset Unit (CRU). The CRU is a single MMIO register block that provides
+clock muxing, gating and block-level software reset lines for those
+peripherals.
 
-FWIU, at least for Tegra194, we have a CPU and GIC pairing where the CPU 
-supports this but the GIC does not.
+Clock and reset support are submitted in one series because they belong
+to the same hardware block and share one devicetree node
+(cix,sky1-audss-cru). The binding, clock indices and reset indices are
+defined together; the clock driver maps the CRU and instantiates the
+reset controller as an auxiliary driver on that node. Splitting clk and
+reset across separate series would leave neither side self-contained: the
+DTS node needs both providers, and the reset driver has no standalone
+probe path without the clock driver.
 
->> kernel warnings and ideally we would not warn if is known not to
->> work. We could always display an info level print if it is needed.
-> 
-> No. These warnings are required because the HW is broken, and violates
-> the basics of the architecture, which the kernel relies on. That's
-> important information that needs to be captured, and that's why the
-> kernel also gets tainted.
-> 
-> This applies to any implementation that hasn't been bothered to follow
-> the spec. Don't worry, you're in good company.
+---
+ChangeLogs:
+v10->v11:
+  * clk driver:
+    * Kconfig: spell out menu title as "Cixtech Audio Subsystem Clock Driver"
+    * rpm cleanup: only call pm_runtime_force_suspend() (it already
+      disables runtime PM)
+  * reset driver:
+    * drop unused linux/of.h
+    * use fsleep() with a single SKY1_RESET_SLEEP_US define
+    * use regmap_assign_bits() for active-low SW reset bits
+    * move the post-write delay into sky1_audss_reset_set()
 
-Well Tegra194 does not appear to have, but Tegra234 does (but we have a 
-firmware issue which should be easy to fix but the current released 
-firmware as this issue). I have also checked Tegra264 and that should be 
-following the spec too.
+v9->v10:
+  * clk driver:
+    * drop unused linux/of_device.h
+    * enable parent clocks before NOC deassert; assert NOC before
+      disabling clocks on suspend (and reverse on resume)
+    * enable runtime PM only after parent clocks are on; collapse
+      probe error paths into a single fail_pm label
+    * move runtime PM teardown to devm_add_action_or_reset() and drop
+      remove(), so the OF provider is unbound before force_suspend
 
-Jon
+v8->v9:
+  * Reverse Christmas tree order
+  * use devm_clk_hw_register_composite_pdata()
+  * assert reset if clks enabled failed
+  * add pm_ptr
+
+v7->v8:
+  * reset Kconfig: drop select REGMAP_MMIO
+
+v6->v7:
+  * reset driver:
+    * propagate regmap errors in assert/deassert ops
+    * drop .reset and .status ops (no consumer uses them)
+    * remove regmap fallback path; use parent regmap only
+    * use dev->of_node for rcdev.of_node
+    * drop of_reset_n_cells and dev_set_drvdata()
+  * dt-binding:
+    * Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+v5->v6:
+  * rename dt-bindings headers to cix,sky1-audss-cru.h to match compatible
+  * drop status = "okay" from audss_cru node in sky1.dtsi
+
+v4->v5:
+  * refactor the driver, using platform_driver for clk and auxiliary_driver
+    for reset.
+
+v3->v4:
+  * move both power domain and resets into parset node (audss_cru)
+  * remove "simple-mfd", and change to populate the child node
+  * cix,sky1-audss.h -> cix,sky1-audss-clock.h
+
+v2->v3:
+  * clk part:
+    * devm_reset_control_get()->devm_reset_control_get_exclusive()
+    * assert noc reset from suspend
+    * clock parents changes from 6 to 4, and rename the clock names,
+      explain more about this: confirm with our designer, In fact,
+      there are 6 clock sources going into the audio subsystem. audio_clk1
+      and audio_clk3 are redundant in design and are not actually needed
+      in practice, so they are not shown here.
+    * refine clocks and clock-names property
+    * add detailed description of clocks
+    * drop parent node from clk binding
+    * drop define AUDSS_MAX_CLKS
+  * reset part:
+    * rename reset signal macro, remove _N
+    * drop SKY1_AUDSS_SW_RESET_NUM
+    * switching to compatible-style of defining subnodes in parent schema
+
+v1->v2:
+  * remove audss_rst device node since it doesn't has resource, and
+    move to reset-sky1.c driver.
+  * remove hda related which would be sent after this patch set accepted
+  * soc componnet is okay by default from dtsi
+  * fix for audss clk driver:
+    * remove "comment "Clock options for Cixtech audss:""
+    * add select MFD_SYSCON
+    * move lock and clk_data into struct sky1_audss_clks_priv
+    * const char *name -> const char * const * name
+    * remove CLK_GET_RATE_NOCACHE
+    * divicer -> divider
+    * Reverse Christmas tree order
+    * return reg ? 1 : 0; -> return !!reg;
+    * return ERR_CAST(hw); -> return hw;
+    * of_device_get_match_data(dev) -> device_get_match_data()
+    * add lock from runtime_suspend/resume
+  * loop to more mailing lists
+
+Joakim Zhang (4):
+  dt-bindings: soc: cix: add sky1 audss cru controller
+  clk: cix: add sky1 audss clock controller
+  reset: cix: add sky1 audss auxiliary reset driver
+  arm64: dts: cix: sky1: add audss cru
+
+ .../bindings/soc/cix/cix,sky1-audss-cru.yaml  |   92 ++
+ arch/arm64/boot/dts/cix/sky1.dtsi             |   18 +
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/cix/Kconfig                       |   16 +
+ drivers/clk/cix/Makefile                      |    3 +
+ drivers/clk/cix/clk-sky1-audss.c              | 1206 +++++++++++++++++
+ drivers/reset/Kconfig                         |   13 +
+ drivers/reset/Makefile                        |    1 +
+ drivers/reset/reset-sky1-audss.c              |  127 ++
+ .../dt-bindings/clock/cix,sky1-audss-cru.h    |   60 +
+ .../dt-bindings/reset/cix,sky1-audss-cru.h    |   25 +
+ 12 files changed, 1563 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-audss-cru.yaml
+ create mode 100644 drivers/clk/cix/Kconfig
+ create mode 100644 drivers/clk/cix/Makefile
+ create mode 100644 drivers/clk/cix/clk-sky1-audss.c
+ create mode 100644 drivers/reset/reset-sky1-audss.c
+ create mode 100644 include/dt-bindings/clock/cix,sky1-audss-cru.h
+ create mode 100644 include/dt-bindings/reset/cix,sky1-audss-cru.h
 
 -- 
-nvpublic
-
+2.50.1
 
