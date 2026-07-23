@@ -4,72 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B5CC531F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D715C531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U01kuOATGHA1fUMiHEUhqkKZsOtYtgmMdQbRp82P+Hk=; b=AIgvFM7SnzbW8oWCkVAxdgCFjk
-	YOKxiTv011miF3cDWfawt0M9oL/UUW/e9iW+Oi01cp5izriyLsHz4JLYTsdQVvXWyGd7PCWNhuuvL
-	PQmpP/uJLwriK9pApJE7M0V9D2CW5TyTmeLbBYGWjagwiefLurKJ47aGvZVZTWLffZ6/1M00BlmcQ
-	6QP+Tb2pjGTpzzBYS5WD45SJE34wwglpoAbuf6q1Y/sT337/XMk/SmtJNUddj51W/vXSSBq0Tab1I
-	+GqhO2bYuHUMZEr2TmJRcxoUa7FgjsXrcX6nHgCxgA1e1iXYGfefi+tnnbd/+Z6MVD2W1KVBZrp83
-	6Ybmsq3w==;
+	bh=ZLByRISiCV8ywc0RJJs/lT+jmy3YhgX1JvMRV4VfOfM=; b=DTaX8fHdwwQjgYd3RNAllLWT2N
+	VGgUiB7QJQPADtMlNI/2OQyf4tzweJFVshyyWdkBIsBAFCM0xsJnHglkRM0w06I9cIycqpQhNWeEy
+	YPvWuQFv2UJXKh4TNZa88gTkU3hlTS4/I0K2yUPu/vs5W/0Ds45/w2asHuKbl6l+pnQR1lOpu6F39
+	9ijJh5lGc6FqRbScv9LOYXfSKFiMmv5z2RO5yRLspHTqnFBk3mCKA9Fhnvrg4eTCjhRW3GunA4a8N
+	URFrvtHvhnNkunKo29j+cfx6afijdjgkp8v2CL8jOd0kaedne8MFt2v1hUNMNIsGP2lWmNX2OIin8
+	Ps+i8wWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvfi-0000000EdWE-30BX;
-	Thu, 23 Jul 2026 15:49:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmvVJ-0000000EcXL-0C6e;
+	Thu, 23 Jul 2026 15:38:33 +0000
+Received: from mail-northeuropeazon11012043.outbound.protection.outlook.com ([52.101.66.43] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvfh-0000000EdVt-0gQc;
-	Thu, 23 Jul 2026 15:49:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 94C6560A62;
-	Thu, 23 Jul 2026 15:49:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE281F000E9;
-	Thu, 23 Jul 2026 15:49:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784821756;
-	bh=U01kuOATGHA1fUMiHEUhqkKZsOtYtgmMdQbRp82P+Hk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PHCmPjDn1fSziPa+BM08GsiE+UPsJZ+fv77G5TEjtX+n6njvYj954SkQE4kKDhyD0
-	 ARpcyfZBX47nlpJnStKP0X1dtnLyWywBBJGj70iLej4kgNq2vFiYkQ9S7GpIAxFLFy
-	 tIbmrHq/FBnLK3zhL1iJ+NqabGwQCB4aq8klAXD01ICeeiK2g08aPTovK3PfhXQzYe
-	 AJjqS3Mji+tLWvi2plC928sXlaJCD6D8OhCoYb/DKe/jhIW8jFLCfEcE+6l7YQWU8J
-	 rZRD+y4Q7wxUcYQnBMYhnBWfL/bHl2JaKdzUoscYO4pCBDwvHJ1Wl1TIDaERFlc3+c
-	 T4oX6zLKQLnLg==
-Date: Thu, 23 Jul 2026 16:48:47 +0100
-From: Lee Jones <lee@kernel.org>
-To: linux-kernel-dev@aliel.fr
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Beniamino Galvani <b.galvani@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v8 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
-Message-ID: <20260723154847.GP3363113@google.com>
-References: <20260702-add-mcu-fan-khadas-vim4-v8-0-244feee91a36@aliel.fr>
- <20260702-add-mcu-fan-khadas-vim4-v8-4-244feee91a36@aliel.fr>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	id 1wmvVF-0000000EcWO-0Vz3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 15:38:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=My+SMz54d8IdbUgW290Tn3gpqC0aMJFshjbdkyhU/9g05pLcWK3NLWYoCfzhL2yZeJbu4wGavSETrxyFeZp9NIYxMdn+19FDukcg/0YCf8rBXLv5hoZ0Eou5SSkwUjyg0One8VdaDrKeL01+lxQVNWvrflGK6fl5Soi/+zXuCH8Ueqg7QlIIajKNyL9TzHRM+S6ZG1D64VWcN7Kp0tiBfqnqyvNHj3avGIfLU8afn92CiqGjMB8G6ZXGMVTcBj7QWaVc6XttRiQtbRUlO2v1xkN0PIcZockYveHdZ3Ob560eo7tdIYo23faPRz6qVg8QFPkl/ubwy8jyR4/6DTbEpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZLByRISiCV8ywc0RJJs/lT+jmy3YhgX1JvMRV4VfOfM=;
+ b=KoxlI9bNrBL3CmPz3xQY4J1A6Z8zVNWQAxJTRH8bEGfDNyNUWh0TY+0AW7CS4zzFCvafUsAbCtecRHqDAK7BTaVAy1xEclgz6NkD7vp6G42DuGu1ELK0cQzZgqFc1vv4fL3LpgssWa46JXzNENO7sA6NaJy+IzSNleukg1we9nVc2J5nsqE18yq3Kh4l+NLff3YYh/72w3iBvTI3kp3NhgkWEBldmZ3SwSyvz2LCYqZIAYKwbpr+XA4WN0cqwHRP3aVTIaclXwSJHkZMC5Bi1OShXjKnurwSAvVuuYEc6JCxCcPGxKc9Huh6sW4E0utkVdI/pTgCglVMtefibHgEfw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZLByRISiCV8ywc0RJJs/lT+jmy3YhgX1JvMRV4VfOfM=;
+ b=Fkq2H0IICroOaQPvq1Mt6gKTdvOK9vAyhnJ4AA5dtS+i4/eprjPpRcoMYjGotZebf11v0bfWqzo/jwI+3PQzPwuC7o3ElR+3hoVpV+A784HpJRHQab4lbbeM78rRoQJeqj14w8/7hBE/XVDh/SDD/mCs8ua7/SEnxbVe+4jKrQU6sV9PGQBTHcf4VyiExsfU1pKjFuD1ul+7S2FyWWQAIHNG5GNeD66Ck1trY7PijX02d6Rk3M/39VuU0teM0ieZfulkRnMPbsQ7TI+QaDbqZprIfEEhJxWp3cJ8ZQlyJ+5lqvRC/p2SVn6EftHba2mYdFMLU5Ff/IgWmispIPgqIw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU2PR04MB8743.eurprd04.prod.outlook.com (2603:10a6:10:2e1::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
+ 2026 15:38:24 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 15:38:24 +0000
+Date: Thu, 23 Jul 2026 10:38:11 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
+	Biwen Li <biwen.li@nxp.com>
+Subject: Re: [PATCH v2 0/4] arm64: dts: freescale: Add remoteproc support for
+ i.MX EVKs
+Message-ID: <amI1YzCNtoXScYwg@SMW015318>
+References: <20260723-imx-rproc-dts-v2-0-a5f5cf2eb55a@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260702-add-mcu-fan-khadas-vim4-v8-4-244feee91a36@aliel.fr>
+In-Reply-To: <20260723-imx-rproc-dts-v2-0-a5f5cf2eb55a@nxp.com>
+X-ClientProxiedBy: PH7P221CA0008.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8743:EE_
+X-MS-Office365-Filtering-Correlation-Id: d00aa0ab-974b-4876-f474-08dee8d06e71
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|19092799006|376014|7416014|366016|56012099006|10067099003|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: gtDvXbf6YX7hOjrSFKwBbXOK0IToTXZydpKGM7GxGAdhHCDTquGcQsidXRWfgSGXZxlPuGnwWDt5NHqXI7Rerpnzy2o5t3AmFjM4ojLh+X55rq2itA4iEDTgv8LW8LHZ7m0Mli8HJ3u3Au3g8wxLexy80br6SGHETRlyd/3lZ5BL/qWHvYfwHa+T0VuGhbBTjy7ib1ZW8UvtlfIJ0bbu70ozd2cXXykigmcid9ntGakyfjAj1xgAObqvo2RR2HgUHKTYw9XezvDhCIk8kI03pp/Lh4GTytCJtfOvUjeDOIqxN8tFfXqu4I1N5QfpesFYA63jYbzW2LaFvtb7KspfKjAZ8MJRKHFgR1PFQjmFSFVg9X6NFy45lHsLXTgxxBkAFmHjEVGQQ30KiWpMXx7jqZt5MfLmaFBtN9A9qet4yPZQUKQjO5/kDMxKbMLGPNbXj/GKdmTAdSF9OIjttT4K8mP9MOXowXME58/81l4dFWEJEKec5Q5PhNdxJxoM2gtWksL69AiQPxRU+APYYdVwfIRTaJyT5CHi52JPx4P/RSPcWIe/kykKM83ac2LasIaROxyLB5winH965HZoEw0kR1EC68xjgTjCHdrUBb0cFHmH86mDQgc1CcFsRUsqW2KN
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(19092799006)(376014)(7416014)(366016)(56012099006)(10067099003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ECpMhxVbymVwUaMt6dzEGlS8KYpd+NtquN4xbku+HVaAllmG0GWamm6inUb2?=
+ =?us-ascii?Q?rRtgOBjgyacfJHnlxco5HNAANy/izLG5jHeG3WQ5D8aKxtTQluXR+8ZcdI7V?=
+ =?us-ascii?Q?XdE9LUmBc8KBf1AWKt/pA+NzJzvy1G3eSKIj7Ioqc1J2wrN/S1IOn32D1kUi?=
+ =?us-ascii?Q?hK197bbVRFfe0q4NoTYs2g87M/qlIT5Ku72kMH6leMI3lYu+Sn5KwD4pyEXq?=
+ =?us-ascii?Q?Qr0qNDS8aHa0l9oR/Z/oOU/2AMFcTQe2wOZwNHhbrGYMaGEBRMRDkL7f4dMk?=
+ =?us-ascii?Q?/2HddeWNs6TdiDQR/FeEEnprqiSDFXSqzYK1YPV/yS1WR4xhAtuiUWtH0Ho1?=
+ =?us-ascii?Q?4e8dT1ADncNB32XApddVOaSK9q54qe661WWmnaZhf1OuoVzFQXIcWMrXwZNp?=
+ =?us-ascii?Q?NMzqO35lfaXdu66NTbDDupTez6QWwmbzila50baqu/jf0dREplBfvJDyc2rd?=
+ =?us-ascii?Q?mdURob5/adOhHXPxWKgclAnjfSZtJB81VfL7+truvSfvvSSGJwC3804UFWEI?=
+ =?us-ascii?Q?ydRaBiNYTUZfgMEEIQ4xiUlYTiZWaXMVnmWzAEicNzeVQqXmWKW0vg0Pcism?=
+ =?us-ascii?Q?O/no9MF+NO0XkOKMPC+NjVaD2gzu2BY30amM/ybpA6/hb3AF9trTjPtbAqtI?=
+ =?us-ascii?Q?ntmDKCGD8GzHky65bVCf1mHoHEDGi81zFFGfPnz1TiUW3Jdg0lReAlF51tNa?=
+ =?us-ascii?Q?qzcvhZ9gCm4/OA2o2fehVjtWMrOgiFO4obaubgypPzvqCScrAyo4nBnpZriv?=
+ =?us-ascii?Q?O1opfAR+NmFqTdxPBF3D3EtZaLs1IR3zEO2vgWeipH9PvdPRmYlGmfU9Fxsb?=
+ =?us-ascii?Q?6gyLnUP45YX3MMMU8RNAxou6JJPV7p3XjFmhEhuW4KTnAaE7yLyKq5GSdQhr?=
+ =?us-ascii?Q?69biyYVBtxyOuprgZe4qB8uhsCdSjwJesGZokWvUKDq0g90MAlwJZypGpJst?=
+ =?us-ascii?Q?2ekIg6nbIan4A1XhdMsva9OSmSBqm6pJbAHJtxfx6ad7Ry7WBve/RXVFd0z8?=
+ =?us-ascii?Q?Kb997HXyxDX4SdiEznzi7qBhWqerM+lXZ7Af05moI4BUyCpPLskJWISaDOzR?=
+ =?us-ascii?Q?zWOgU8sTcMpbpNQ4fOGgvtSLLaQjgadHXVDwHt5psYE+noMjZF63Np+oSGr8?=
+ =?us-ascii?Q?wVeaoroVDHtKtK/pgLzFKL4Qjeu+NO0L+4xarvmu64zcFy1V4I8/NSQ9jo2a?=
+ =?us-ascii?Q?dV36nas9GHX+ihc2o9f+9tlAXyC/qrjVBSBguqNPSebxovPvQwO0FnBFDYZf?=
+ =?us-ascii?Q?91EJ46m/CtEl0w1PVYx/RU7skAWc1Rjx31ikCdbFm6JxAWbHAzL7PRfFt2QB?=
+ =?us-ascii?Q?gXjKzFkKvvfafbTKrA7jvWa2RHZqssVYO3agPeXEP06H/MlsYvNcNFYklcHf?=
+ =?us-ascii?Q?PdaD0HQTePGKDmmx0eAzjNbG+0AnI/aqHF0f/BAv4hzKXHfYg1s6mZQgQ2sy?=
+ =?us-ascii?Q?4++oRnprVuJ/09XIwX0ryEy+3QcY1cbq8L8+Hc36UaQeC49QN31spB1Hj4cU?=
+ =?us-ascii?Q?Gj19fqyKmlOGpx9b4vGQ9xYJHvKY8rzlIBF8VcmNSppRgqGoQYb+kV0Nimon?=
+ =?us-ascii?Q?EVSyGu/JGF2r8ax+ZwYt0wIZRxGQ0LoskANnwMRGht4a3tonymN96zLDmm+2?=
+ =?us-ascii?Q?JT9OziqTj/vkyoN15YOxW/YC0mSYWuckESWTfm0BskneSdaRZ16dDCAzHwys?=
+ =?us-ascii?Q?LU2iD4wPGotVpb96+Kc4HsQfpYX95QfBTN6YaFX2uKa7TrfQsza6s46Eykf/?=
+ =?us-ascii?Q?of52tYu14G0xbDuOsjXYmuClddMJd1nEJ6Obe8wddEr/Q94H3pLi?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d00aa0ab-974b-4876-f474-08dee8d06e71
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 15:38:24.3497
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QylpFxEt99G2X18DPZ5RYh1KB0UVhD4Lpyc3D1yDcHToflAHXPgAyeuQ61lRhCm4nRU7XwfW8+RJ/bAEfqNJTu0GIccTQnW71WNR8PvMZ0oFIt2YAan65JTxZRXLHCLp
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8743
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_083829_167676_CCDBBBE8 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,221 +142,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-/* Sashiko Automation: Reviewed (0 Findings) */
-
-On Thu, 02 Jul 2026, Ronald Claveau via B4 Relay wrote:
-
-> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> 
-> Refactor probe() to use per-variant values
-> instead of hardcoded globals.
-> 
-> Add dedicated regmap configuration for the VIM4 MCU,
-> with its own volatile/writeable registers.
-> 
-> Add the fan control register
-> (0–100 levels vs 0–3 for previous supported boards).
-> 
-> Add a new compatible string "khadas,vim4-mcu".
-> 
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On Thu, Jul 23, 2026 at 09:00:02PM +0800, Peng Fan (OSS) wrote:
+> This series adds remoteproc node and reserved memory regions for the
+> i.MX95, i.MX952 and i.MX943 EVK boards.
+>
+> - Patch 1 adds CM7 support for imx95-19x19-evk
+> - Patch 2 adds CM7 support for imx952-evk
+> - Patch 3 adds CM7-0, CM7-1 and CM33S support for imx943-evk
+> - Patch 4, update resource table address for i.MX8ULP-EVK
+>
+> Each patch defines the remoteproc device node with mailbox channels
+> and the associated reserved memory regions (firmware memory, virtio
+> vring buffers, resource tables and shared DMA pools).
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
-> 
->  drivers/mfd/khadas-mcu.c | 118 ++++++++++++++++++++++++++++++++++++++++-------
->  1 file changed, 102 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-> index ba981a7886921..d2ca7deda45c6 100644
-> --- a/drivers/mfd/khadas-mcu.c
-> +++ b/drivers/mfd/khadas-mcu.c
-> @@ -13,6 +13,9 @@
->  #include <linux/module.h>
->  #include <linux/regmap.h>
->  
-> #define KHADAS_MCU_FAN_LEVEL_MAX 3
-> #define KHADAS_MCU_VIM4_FAN_LEVEL_MAX 0x64
-> +
->  static bool khadas_mcu_reg_volatile(struct device *dev, unsigned int reg)
->  {
->  	if (reg >= KHADAS_MCU_USER_DATA_0_REG &&
-> @@ -75,47 +78,129 @@ static const struct regmap_config khadas_mcu_regmap_config = {
->  	.cache_type	= REGCACHE_MAPLE,
->  };
->  
-> -static struct mfd_cell khadas_mcu_fan_cells[] = {
-> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
-> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
-> +	.max_level	= KHADAS_MCU_FAN_LEVEL_MAX,
-> +};
-> +
-> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
->  	/* VIM1/2 Rev13+ and VIM3 only */
-> -	{ .name = "khadas-mcu-fan-ctrl", },
-> +	{
-> +		.name = "khadas-mcu-fan-ctrl",
-> +		.platform_data = &khadas_mcu_fan_pdata,
-> +		.pdata_size = sizeof(khadas_mcu_fan_pdata),
-> +	},
->  };
+> Changes in v2:
+> - Change to vdev0buffer in patch 1 for i.MX95
 
-If you're tweaking, feel free to get more upstream creds by laying down
-a prelim patch changing these to MFD_CELL_*().
+Others also need change
 
-> -static struct mfd_cell khadas_mcu_cells[] = {
-> +static const struct mfd_cell khadas_mcu_cells[] = {
->  	{ .name = "khadas-mcu-user-mem", },
->  };
->  
-> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
-> +{
-> +	switch (reg) {
-> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
-> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
-> +	case KHADAS_MCU_WOL_INIT_START_REG:
-> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
-> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
-> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
-> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
-> +		return true;
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
-> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
-> +{
-> +	switch (reg) {
-> +	case KHADAS_MCU_VERSION_0_REG:
-> +	case KHADAS_MCU_VERSION_1_REG:
-> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
-> +		return false;
-> +	default:
-> +		return true;
-> +	}
-> +}
-> +
-> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
-> +	.reg_bits	= 8,
-> +	.reg_stride	= 1,
-> +	.val_bits	= 8,
-> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
-> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
-> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
-> +	.cache_type	= REGCACHE_MAPLE,
-> +};
-> +
-> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
-> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
-> +	.max_level	= KHADAS_MCU_VIM4_FAN_LEVEL_MAX,
-> +};
-> +
-> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
-> +	{
-> +		.name		= "khadas-mcu-fan-ctrl",
-> +		.platform_data	= &khadas_vim4_fan_pdata,
-> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
-> +	},
-> +};
-> +
->  static int khadas_mcu_probe(struct i2c_client *client)
->  {
-> +	const struct mfd_cell *cells, *fan_cells;
-> +	const struct regmap_config *regmap_cfg;
->  	struct device *dev = &client->dev;
-> +	int ncells, nfan_cells, ret;
->  	struct khadas_mcu *ddata;
-> -	int ret;
->  
->  	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
->  	if (!ddata)
->  		return -ENOMEM;
->  
-> +	switch ((uintptr_t)i2c_get_match_data(client)) {
+Frank
 
-Let's pull this out of the switch():
-
-	const void *match;
-
-	match = i2c_get_match_data(client);
-	if (!match)
-		return -ENODEV;
-
-This would separate the declaration from the potentially failing
-function call and prevent implicitly matching 'KHADAS_MCU_GENERIC' (if
-its value is 0) should the lookup fail.
-
-> +	case KHADAS_MCU_GENERIC:
-> +		regmap_cfg	= &khadas_mcu_regmap_config;
-> +		cells		= khadas_mcu_cells;
-> +		ncells		= ARRAY_SIZE(khadas_mcu_cells);
-> +		fan_cells	= khadas_mcu_fan_cells;
-> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells);
-> +		break;
-> +	case KHADAS_MCU_VIM4:
-> +		regmap_cfg	= &khadas_mcu_vim4_regmap_config;
-> +		cells		= NULL;
-> +		ncells		= 0;
-> +		fan_cells	= khadas_mcu_vim4_cells;
-> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells);
-> +		break;
-> +	default:
-> +		return -ENODEV;
-> +	}
-> +
->  	i2c_set_clientdata(client, ddata);
->  
->  	ddata->dev = dev;
->  
-> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
-> +	ddata->regmap = devm_regmap_init_i2c(client, regmap_cfg);
->  	if (IS_ERR(ddata->regmap)) {
->  		ret = PTR_ERR(ddata->regmap);
-> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
-> -		return ret;
-> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
->  	}
->  
-> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> -				   khadas_mcu_cells,
-> -				   ARRAY_SIZE(khadas_mcu_cells),
-> -				   NULL, 0, NULL);
-> -	if (ret)
-> -		return ret;
-> +	if (cells && ncells) {
-> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> +					   cells,
-> +					   ncells,
-> +					   NULL, 0, NULL);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
->  	if (of_property_present(dev->of_node, "#cooling-cells"))
->  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> -					    khadas_mcu_fan_cells,
-> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
-> +					    fan_cells,
-> +					    nfan_cells,
->  					    NULL, 0, NULL);
->  
->  	return 0;
-> @@ -123,7 +208,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
->  
->  #ifdef CONFIG_OF
->  static const struct of_device_id khadas_mcu_of_match[] = {
-> -	{ .compatible = "khadas,mcu", },
-> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
-> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
-> 
-> -- 
-> 2.49.0
-> 
-> 
-
--- 
-Lee Jones
+> - Link to v1: https://patch.msgid.link/20260715-imx-rproc-dts-v1-0-d02b583c507b@nxp.com
+>
+> ---
+> Biwen Li (1):
+>       arm64: dts: imx8ulp-evk: Update rpmsg resource table address
+>
+> Peng Fan (3):
+>       arm64: dts: imx95-19x19-evk: Add CM7 node and related memory nodes
+>       arm64: dts: imx952-evk: Add CM7 node and related memory nodes
+>       arm64: dts: imx943-evk: Add CM7 and CM33S nodes
+>
+>  arch/arm64/boot/dts/freescale/imx8ulp-evk.dts     |   4 +-
+>  arch/arm64/boot/dts/freescale/imx943-evk.dts      | 135 ++++++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts |  46 ++++++++
+>  arch/arm64/boot/dts/freescale/imx952-evk.dts      |  50 ++++++++
+>  4 files changed, 233 insertions(+), 2 deletions(-)
+> ---
+> base-commit: cc2b5f627e8ccbae1188ef2d8be3e451d7f933a5
+> change-id: 20260715-imx-rproc-dts-6c78f82652f9
+>
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+>
+>
 
