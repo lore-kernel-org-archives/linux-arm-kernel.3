@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 944F7C4453E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C92AC531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 05:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KGWaV3dBS1OYfyiBm+OHVmrMntuT7QMC6qkZgu/DlKE=; b=0K7GmyhvGuUGLUTAt+Je2VFrcM
-	UQtsI0Y3B4earsjUdqc6sA2xlZA8vOBCcZsHbQ9svFf8H5tEw7/ogQGZXoj6q39wjTdDBeqSpFrsm
-	B/2MvmgfZb9/mk4vwQ3ZX9kDfwaVHneoipCzjcbJuoEtFKxqZVZfJAW8ZgWgt7P+s8iXp2PLfFIIa
-	PFh3bIDHcsw4KqVnt3xy6nxNBsVhusTFIeOrDOhWMY/mVLklPBgK11CI4ygRcjWBHNwR/jLGpFdGF
-	a8OptiZKiaLU47wOVzox+d6VGVek/RCsj9zPZw2YJm6iPUhEE3H3Qd4PEwJ8BHubeqnXl/Pgo6VSv
-	2evmMhBA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VFjmYyF5VPe289BlZka42WgXUPRX6vAouN/83LGa2YM=; b=wmMCh5sMFq8Zb3U8QL6A+XcF0e
+	EjrX7BG1LXoYIE3T6jw3uEBZioBgpMav4f0aXmoPrhY9sIsDdTNumwzeAwmQoSCWOHzo1qV89/PRf
+	fTV81ghPNV6Y0ilqdu2sJG9vh+l3v27kpy+8pYEfglXIFpoGX3OusJLgvKmuiMlTY2VSO8EJyxAKD
+	RAuKsAJNevjvLxYZgVEyJb17XQHoH1xhQszGWI1W5/NL/3Q9M2ciGEkUm15ydqEDRcR1VfDAutrZF
+	5Yv+Y1BOs8fMXVVXvT4W5GVmIg8dDqERQSAbiJ94E430PqHh8AD6tytE2g+xnxfdgLJ2YiR/1y8wK
+	0v1I8CTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmRS-0000000DVlf-1bFO;
-	Thu, 23 Jul 2026 05:57:58 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1wmmRa-0000000DVnL-0pcP;
+	Thu, 23 Jul 2026 05:58:06 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmRP-0000000DVko-4AyG
+	id 1wmmRX-0000000DVmW-1o9R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 05:57:57 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784786262;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=KGWaV3dBS1OYfyiBm+OHVmrMntuT7QMC6qkZgu/DlKE=;
-	b=Ijq8RnNvwAKCSaJzfobED/7AlZAT1eEUQCDBDgr6TYebg5Llioy5bWqfOz5GuZV94yihdQ
-	0vGURIWVn64ini6ikFARXy162dFFrqks37HUhP1j0wX9df8kQ46mjRT8vp0E5WUx1cHDMb
-	FV42d1m6i8ivOOuLWOVew+hAsiOu+Rw=
-From: Chenguang Zhao <chenguang.zhao@linux.dev>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: netdev@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	chenguang.zhao@linux.dev,
-	Chenguang Zhao <zhaochenguang@kylinos.cn>
-Subject: [PATCH net v2] net: ethernet: mtk_eth_soc: pass eth to mtk_handle_irq_rx in poll_controller
-Date: Thu, 23 Jul 2026 13:57:35 +0800
-Message-Id: <20260723055735.885112-1-chenguang.zhao@linux.dev>
+	Thu, 23 Jul 2026 05:58:04 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 38C6F11AAAF;
+	Thu, 23 Jul 2026 07:57:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1784786280;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=VFjmYyF5VPe289BlZka42WgXUPRX6vAouN/83LGa2YM=;
+	b=hh68P83tVlCq+MrKUy8gJALRL7rhCyDkN1Pi00vwD2s2jdwSYHIP4Ve3cfVprbVHBiqxet
+	8UgeJeTtmTYSfG5ovBt9o7mZz6YnkVe5OMuYlD+RMSfcphEJxAGXCBybdiUUTKlSk5BDPv
+	IqePL5a4HrB9rNFRNhX1qhFVeD2UY4VTf3UtUce55koGDX1OANBSfjC6c5OVbfSHQA2bEA
+	o+lmLwYQhS+jYBQCU0bYck+UOPDGT+3ixUj676dz8g3GaIpbjRda1OV/zYJHahn4lcbWqI
+	DiredCqBq3i9rLsZWRB/d2pfqWETwWIN3JFqoO4uUcrIwsWk+BAyashW0vedlg==
+Message-ID: <e1bb20f0-0cfa-b932-6817-dabbc28fe11d@nabladev.com>
+Date: Thu, 23 Jul 2026 07:57:23 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.0
+Subject: Re: [PATCH v2] driver: fpga: xilinx-selectmap: add csi and rdwr
+ support
+Content-Language: en-US
+To: Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org
+Cc: linux-fpga@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Moritz Fischer <mdf@kernel.org>, Tom Rix <trix@redhat.com>,
+ Xu Yilun <yilun.xu@intel.com>
+References: <20260721114258.3324794-1-hs@nabladev.com>
+ <2758c5dc-91fa-44a0-986e-1258afc3dbd5@amd.com>
+ <855f458a-60d7-931f-9ef9-5dba2b2d916d@nabladev.com>
+ <98e8e7d4-38d9-4587-bf11-0e862f87928c@amd.com>
+From: Heiko Schocher <hs@nabladev.com>
+In-Reply-To: <98e8e7d4-38d9-4587-bf11-0e862f87928c@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_225756_169046_5C499401 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_225803_695423_955B61FD 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +77,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chenguang Zhao <zhaochenguang@kylinos.cn>
+Hello Michal,
 
-mtk_handle_irq_rx expects a struct mtk_eth * (matching the request_irq
-cookie), but mtk_poll_controller incorrectly passed the net_device *.
-Calling ndo_poll_controller with CONFIG_NET_POLL_CONTROLLER enabled
-would then crash.
+On 23.07.26 07:44, Michal Simek wrote:
+> 
+> 
+> On 7/22/26 16:45, Heiko Schocher wrote:
+>> Hello Michal,
+>>
+>> On 22.07.26 08:55, Michal Simek wrote:
+>>>
+>>>
+>>> On 7/21/26 13:42, Heiko Schocher wrote:
+>>>> Add csi_b and rdwr pin support for the xilinx,selectmap driver.
+>>>>
+>>>> In current driver the pins are configured from DTS and set to
+>>>> GPIOD_OUT_HIGH. This works in case you have one FPGA.
+>>>>
+>>>> Extend this to really implement csi_b and rdwr pin function in
+>>>> driver, so it works with more than one FPGA.
+>>>>
+>>>> Tested on AM625 based board with 2 FPGAs connected to GPMC.
+>>>>
+>>>> Signed-off-by: Heiko Schocher <hs@nabladev.com>
+>>>> ---
+>>>>
+>>>> Changes in v2:
+>>>> - add comments from Michal
+>>>>    - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
+>>>>      as validate_desc() checks this in gpiod_set_value() call.
+>>>>    - initialize the gpio variables csi_b/rdwr_b immediately with
+>>>>      the return value from devm_gpiod_get_optional(), so we can
+>>>>      drop local gpio variable at all
+>>>>
+>>>>   drivers/fpga/xilinx-selectmap.c | 23 ++++++++++++++++-------
+>>>>   1 file changed, 16 insertions(+), 7 deletions(-)
+>>>>
+>>>> diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
+>>>> index d0cbb5fdfe3a..d5175f9430e4 100644
+>>>> --- a/drivers/fpga/xilinx-selectmap.c
+>>>> +++ b/drivers/fpga/xilinx-selectmap.c
+>>>> @@ -19,6 +19,8 @@
+>>>>   struct xilinx_selectmap_conf {
+>>>>       struct xilinx_fpga_core core;
+>>>>       void __iomem *base;
+>>>> +    struct gpio_desc *csi_b;
+>>>> +    struct gpio_desc *rdwr_b;
+>>>>   };
+>>>>   #define to_xilinx_selectmap_conf(obj) \
+>>>> @@ -30,16 +32,21 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
+>>>>       struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
+>>>>       size_t i;
+>>>> +    gpiod_set_value(conf->csi_b, GPIOD_OUT_HIGH);
+>>>> +    gpiod_set_value(conf->rdwr_b, GPIOD_OUT_HIGH);
+>>>
+>>> I think GPIOD_OUT_HIGH/LOW is wrong in this context.
+>>> If you do "git grep gpiod_set_value" you will see that values are 0/1
+>> I will change it!
+>>
+>> Hmm.. while thinking about it... CSI_B and RDWR_B signals
+>> are defined as active low...
+> 
+> I have never worked with this driver but values here should be 0 or 1. And if that means active 
+> low/high is said via DT.
+> 
+> GPIOD_OUT_LOW below should mean that you are starting in deassert state (if it is low/high is coming 
+> from DT). And before write you assert that line and deassert after it.
 
-Fixes: 8186f6e382d8 ("net-next: mediatek: fix compile error inside mtk_poll_controller()")
-Signed-off-by: Chenguang Zhao <zhaochenguang@kylinos.cn>
----
-v2:
- - Add SOB and Fixes tag.
+Fine for me, I rework it, thanks!
 
-v1:
- https://lore.kernel.org/all/20260717022339.301914-1-chenguang.zhao@linux.dev/
+bye,
+Heiko
+> 
+> Thanks,
+> Michal
+> 
+> 
 
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 5d291e50a47b..351444fb4871 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3467,7 +3467,7 @@ static void mtk_poll_controller(struct net_device *dev)
- 
- 	mtk_tx_irq_disable(eth, MTK_TX_DONE_INT);
- 	mtk_rx_irq_disable(eth, eth->soc->rx.irq_done_mask);
--	mtk_handle_irq_rx(eth->irq[MTK_FE_IRQ_RX], dev);
-+	mtk_handle_irq_rx(eth->irq[MTK_FE_IRQ_RX], eth);
- 	mtk_tx_irq_enable(eth, MTK_TX_DONE_INT);
- 	mtk_rx_irq_enable(eth, eth->soc->rx.irq_done_mask);
- }
 -- 
-2.25.1
-
+Nabla Software Engineering
+HRB 40522 Augsburg
+Phone: +49 821 45592596
+E-Mail: office@nabladev.com
+Geschäftsführer : Stefano Babic
 
