@@ -4,73 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 374C7C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5805DC531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=07uegK3I4MlPqYMvRtRYTb9gbGlLPScNbHHawzZqfdw=; b=uTy6Q7gD76dGpw
-	vsouOq+Mzc6pyRp5G571TmPamrWambopxC1jUzNc3Oz5nzhnGEdxKe1MAriQGDzITD3/8qFcRJC0C
-	x3rEY9eWarzktj5S6e4dDPdxK8Ak0/QMwX9GeyYtu5Wv5X2r6Cslc4W39YAaj+Dv44J8XSKylLhtI
-	DNo95ijNVcIzqtdH2gX8tbbzWlgQW1rpRd0JK4MPQ67VWnPSjW8UzWgHyl+Vfw/IthglMYl/j8bzA
-	c1X36aBI5xLR7SPyfnVFdT8ITpFpchtZjr2x54iyyZXEbJUSHB0vM3TUfR69jYqP93lp9eVI7jWkK
-	VIfqFE4XtUcEhwCVGhQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yvncTsiSCJaQQ05PweFrZSA/vO+m7LTeLm6FlU/GJqQ=; b=yZRH97IU7rJwDfXPZr8O8PGODR
+	2yhzqEFIlcSt4T6POAmAgQii9gB3c62TDr2eMdVxcZiCcAgV/gDAsYD5go7Iu/h2a7SSpn2UFhkvC
+	TtFd0xTNl1TQ+5JoMJk0ifFN0mfaQyhzdGrBhD629InG/FLhrJx1WAUtdzQV04derIVoGGUeoYFga
+	3uP72tbw+c9+WTL8Di217c3KZrYIVTUIgr65DHIilWCC2+odzSuyeqwcIiODriTuuNNbA7spNGLsv
+	+BQ2PvcEU3JzEqoEq+qfRlNGuiRv+wFdHHTzTpCv95svYALAbxGzR4mpcYcmex+9GMuQ4KbwdrUCd
+	1hGLPO9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmxRF-0000000EqOj-1TbI;
-	Thu, 23 Jul 2026 17:42:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmwDI-0000000Ei4W-2P4X;
+	Thu, 23 Jul 2026 16:24:00 +0000
+Received: from mail-southcentralusazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d10c::1] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmxRE-0000000EqOW-1ltT
+	id 1wmwDG-0000000Ei3j-1ZSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 17:42:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA70C42E1A
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 17:42:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EF041F00A3A
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 17:42:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784828547;
-	bh=07uegK3I4MlPqYMvRtRYTb9gbGlLPScNbHHawzZqfdw=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=Ip4J6RF16Uye1Tw8+z96bCAEAeThKJ7KqSePeGmcropPHJcQR+EFKC136aLXj+i30
-	 Wev9FzBXyDD3QulpM1UdYB0lIEW4N7Xj7rP7vUeVEypUQ79ptgNcvHhwIMwEk1c/WH
-	 eiUYGwe+xCLY9otxhumjOGTAySXYnYhWR+4pO0FKyIzd8fuFK7Fx5wvFTNBpK40KA5
-	 hMUCefALjsagYU9C7/jjfspKiQqJcTiQL4vuVnpcUS9gCCUTlSfUbIBgGH1e4SFtT5
-	 OFmlhsWXf/rbEylypLAHwgDuqeS3rM/yTL7yKnpmRIu2a+WvbEVcWVrGoPlXigLy31
-	 qnegr+JxrCTHQ==
-Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-497e6956acfso486560b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 10:42:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqC9G1X6Pz0T3Rkqd061XcS2MH73dBM5D/mLbcRHNMPvHpE/LPUpUPYJ4l8O6l9HnH2oAn9GcvYLVhgqff3XUBc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcLDGXVOzDnXTsRNTFxINh7R4cq7EGspogZE0PH5RTzq6x8EjC
-	Zz/t7+MNbtBkfabMzOe7podxVpKOash/OP2yN94gQDy3WNsRa++F4HXlMKASBCAmLpF3z66RNii
-	l4wvZZF2E9BoseGQAXFlsL069a1Tq86M=
-X-Received: by 2002:a05:6808:3190:b0:495:ca1b:7865 with SMTP id
- 5614622812f47-4ab3842194fmr1564489b6e.11.1784828539225; Thu, 23 Jul 2026
- 10:42:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260722233604.3001063-1-utilityemal77@gmail.com> <20260722233604.3001063-5-utilityemal77@gmail.com>
-In-Reply-To: <20260722233604.3001063-5-utilityemal77@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Fri, 24 Jul 2026 01:42:03 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65zjkXyyrK5U62QsWEWSgG+9zuEKAi-Ekxd5OehBVXTWg@mail.gmail.com>
-X-Gm-Features: AUfX_my2HTBZkhl39VV1Ephb61n1qX3oao7Ket2MbKBRA-ze570sxZ63vDegmvs
-Message-ID: <CAGb2v65zjkXyyrK5U62QsWEWSgG+9zuEKAi-Ekxd5OehBVXTWg@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] arm64: dts: allwinner: a523: enable IR on the
- Avaota A1
-To: Justin Suess <utilityemal77@gmail.com>
-Cc: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, Sashiko <sashiko-bot@kernel.org>, 
-	Andre Przywara <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 23 Jul 2026 16:23:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rPBs0xE/Y3SFte2UeCShhswR4mZ8pj24cIKVv3kqcFIbR0y2AMs45oglL1INODLfOie/FCL53X00ImPtaD0QkkFaJOsUOcYJxytJFGDgmW/TCqxOcb6EsZ9y/1WOU3Ds3j/ZhDUuBOvoPv+Tf+sXp+F7RGzFOloZ3/bNIVhFynNH5uqycbOS11nyXKn43ov+bR8ueg7vVQKeP0EyQArq8oPKeOTurfmDFX3N+nPCzDwGUeEop7iOn5jjwPFlc1lxaQq3C+oGLpbO+zaSm1eNbYf26h02MuhT8tars9IyxyVO4aywaQ2tvydTCgyN/im4OL2znZVkcG1M8sJBY4J5GA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yvncTsiSCJaQQ05PweFrZSA/vO+m7LTeLm6FlU/GJqQ=;
+ b=GWy5c6KuscaaK/sLIWuYX12B/zefjzDfRoc1RKuH6bfnU3bJr2j7Z8BsPC4p8gF6skvN6jqnUF+PTxfhALQ//Bua9h4/FMNpiipPKUjK2BTCfIhDVE9/UImwJylpyMaP5syT/QKryd6kWYCnw/SrQaoD0/YE69REuWy9VJ2xQ/jl7VcECKtHRbJiCzmJec1v3BTOm2b5Uf4zpMIxni6x9dXnq4MKj3JvDaTF7MzWdks3EksGG/ExDcvHh6jUyTDj1jfiCAVg7yWc+W0KO/IOvmDIfx5+YlRI8xm59GRtOO/WpciaNhlwI37hR7hKwa76e1rb3J8K6QcilGS2Uzdt6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yvncTsiSCJaQQ05PweFrZSA/vO+m7LTeLm6FlU/GJqQ=;
+ b=n/Srp5jc9MzN8ZX+coONX4ya3nO3hFnxZLalipcohaWSmSpuAf2aWUynNIl+TzxsoiAq7wmM10XqLL7IY3nwQIvhS/qAG7cwFb1nPkKi5fGCJmEyrPZpIzZmSbgzUW1FknLWgILi8yjR0fXtEBL3iUbAuiQXvI6021pj9zb0NSp/EK1tUSpDSBdkQPtk9m60DQUt4IDM/i5XFDksEqxqf+gVCHF50dLQCYxL9d54OaRfvUWDStGjnI2gNpZ5L+TVy5A1/GYWfG2JLjWufH2zK3P2nZks+9Y3IkfANJpKOXUVRgxl9uDYdaRcXMer4CFNg90nYKitDCHSeDc/1T2Wuw==
+Received: from BN7PR02MB4148.namprd02.prod.outlook.com (2603:10b6:406:f6::17)
+ by BY5PR02MB6610.namprd02.prod.outlook.com (2603:10b6:a03:200::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
+ 2026 16:23:52 +0000
+Received: from BN7PR02MB4148.namprd02.prod.outlook.com
+ ([fe80::6007:d1a1:bcf9:58ef]) by BN7PR02MB4148.namprd02.prod.outlook.com
+ ([fe80::6007:d1a1:bcf9:58ef%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
+ 16:23:52 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Kameron Carr <kameroncarr@linux.microsoft.com>, Michael Kelley
+	<mhklinux@outlook.com>, "kys@microsoft.com" <kys@microsoft.com>,
+	"haiyangz@microsoft.com" <haiyangz@microsoft.com>, "wei.liu@kernel.org"
+	<wei.liu@kernel.org>, "decui@microsoft.com" <decui@microsoft.com>,
+	"longli@microsoft.com" <longli@microsoft.com>
+CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org"
+	<will@kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "sudeep.holla@kernel.org"
+	<sudeep.holla@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
+	"thuth@redhat.com" <thuth@redhat.com>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>
+Subject: RE: [PATCH v2 4/6] Drivers: hv: Mark shared memory as decrypted for
+ CCA Realms
+Thread-Topic: [PATCH v2 4/6] Drivers: hv: Mark shared memory as decrypted for
+ CCA Realms
+Thread-Index: AQHdBMj4p7vUSbVMmE+fvPgM94V6W7ZPn6qAgAEPDwCAAEG8oIAnh7CAgAL9kPA=
+Date: Thu, 23 Jul 2026 16:23:51 +0000
+Message-ID: <BN7PR02MB41489FBBCE1D761420F4E139D4C02@BN7PR02MB4148.namprd02.prod.outlook.com>
+References: <20260625173500.1995481-1-kameroncarr@linux.microsoft.com>
+ <20260625173500.1995481-5-kameroncarr@linux.microsoft.com>
+ <SN6PR02MB4157D5F94B5C5F35020FF047D4EC2@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <000801dd055c$2e375050$8aa5f0f0$@linux.microsoft.com>
+ <SN6PR02MB41571AB004406F331E167203D4EB2@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <000c01dd1940$e3e267d0$aba73770$@linux.microsoft.com>
+In-Reply-To: <000c01dd1940$e3e267d0$aba73770$@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN7PR02MB4148:EE_|BY5PR02MB6610:EE_
+x-ms-office365-filtering-correlation-id: 27308c6f-7e01-48b7-55dc-08dee8d6c8a3
+x-microsoft-antispam: BCL:0;ARA:14566002|31061999003|15080799012|24021099003|8062599012|13091999003|8060799015|55001999006|19110799012|51005399006|25010399006|37011999003|40105399003|102099032|3412199025|440099028|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?awAFc4xloHClHL/roCt09mJgQRGYX83eEOSvxmUb0aHTe23ROzQ73S7uW2T+?=
+ =?us-ascii?Q?IYXu212naXgIZR1EM63XB9HtK9eXlVKWWskfnMyyommfp1ghgGZioFdxXWHB?=
+ =?us-ascii?Q?zELpQUhNpB8BbctLwLZ51iWrS7uU010TFU8WCgUuum1jZFMVPsIm2js40drr?=
+ =?us-ascii?Q?vaMakEkh6u5kx/kz35M2Y9mz9eR+fQYUhmc+8tYlesyP7wolKNIhjA6mJZWS?=
+ =?us-ascii?Q?fA84vlILM/IPlLBUtldOwW/9Pk20fYYRLTizTqC69iy+L5u16Zzp085QQTAN?=
+ =?us-ascii?Q?L8i1gU2HJt6BZshZf2i6Ul3c++547vCOzNGY9jm3o1P8y5WODjPMWVQ+JZU0?=
+ =?us-ascii?Q?r9F8vwxf1C1uXnA/UBqvdh1wITBhpt5vwrbAi68+naE2ulJhxrnisgqOW+7c?=
+ =?us-ascii?Q?xtPV3t5APNJLPRht40uxIPnTQk0utmJZM75BICVoqe8aAOIylqrggQTqkyhJ?=
+ =?us-ascii?Q?blkVIZ+ODcMu6AhJxTxvK6kqk/QyfmMrEHpg+DH4vl+2Ubaz7ikl2FW0u1zs?=
+ =?us-ascii?Q?bczE4wTb4GVosxCOQx14yQrkgmAkTA5C8SobaS49LXGDIUXzJqSTCZ1fg1oQ?=
+ =?us-ascii?Q?YKGhjsJZlclj69VLMZcZzCRR5lU3cwaCc6HOcNZ1ASrdYuaQ+e2v3aVSITMb?=
+ =?us-ascii?Q?OOdheKgTrw2KMA5juAnf3o8PcYaR0dO7uydRwmx2xrM7LrWT2vz4kRPX8+6U?=
+ =?us-ascii?Q?FsYq4zj7CJVhHxauLQJk3GbGJ5p7o2RsLkmvjROBgj3AFgribmmJhzJjIW08?=
+ =?us-ascii?Q?DfMENSxYbk5SYCutm6L8zT4bzKZXIV+uF5nHX16yExG7koZRJc+osNF7Uz70?=
+ =?us-ascii?Q?2f4kQzueaXnKr2YA2eJ49WJ2GRAL+XX+9XkaD/Ux9yKOsntGjX2p2/GMbr7U?=
+ =?us-ascii?Q?k9bvWg0W83LlPd3L5UPRUgZf7jfRNtZ7X5YAAdxgQ+JwrF0tQS6PnpzlTEFO?=
+ =?us-ascii?Q?yvnAWUzSt0fynyjPeG+zqZXY7NRuSo8OVABPo6k/JYFTzrpIu+J/Bnxt1OZb?=
+ =?us-ascii?Q?uzQNxqjthr8du/Bty2KV66DaaG8mAZ0jiA1HY5X16KzD1FI2Vv3FGTkXufKn?=
+ =?us-ascii?Q?m8U+Fesy?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?s833I02w8dIE7Gz7VuVUpV5iB8DRpDAO3dSdjdlY1kJSPUUHOQ9yDuAlB6HM?=
+ =?us-ascii?Q?8E8K56oav8/C7OPumkyFb3t29f8vQgndgKLpYBJgLvKsS2HdBMVVOfQ3DcHU?=
+ =?us-ascii?Q?047UiL5XreaHnmvUWvzzIVOdbYdK7BTh1uG/ltK0Z0pvocsSJIy+496iNJsy?=
+ =?us-ascii?Q?4FIhjG9NTORkn0LyPp1WOygSNfqx5QbyoaE72IeUq4l9LZfb/FcqCVG/aFex?=
+ =?us-ascii?Q?N1xiLo1a66py1UjNEkde1aQUV1DlotinVfANqchw6xsBAm7k3hNUOEKq6am2?=
+ =?us-ascii?Q?Sm7TFs/4IMyf50yWYo57blQzUdNIyFEMgYoO5C7g2NcLt+FiQ1vZRAPRtW4K?=
+ =?us-ascii?Q?DBmIRtGbrXQwDi/4pE5oe+On+CzChyuHo0/h2QXTD1LYaU7oEFTflIZysBiL?=
+ =?us-ascii?Q?Z1WBsLsF62N/D2/gEBkPjooGslJgtr67T2IkRYUyB+ISGRUsJwlYzLn+qCjE?=
+ =?us-ascii?Q?fkjHcFupBYPY5aUIvDUir5Nl52iH+3Pkz9zsJDxIRF3DGtxtgWOjZfuw+lvn?=
+ =?us-ascii?Q?f6XU8kC/6pPRfKbq4nY3wWdhzH7iGg6NgdCbNfpJk2cbSpamdVD3383R+hoN?=
+ =?us-ascii?Q?B5AFV1EGOkmVgjvFAGzxEOvldD0J4Q5NOzYcXhXjsQlH3M1AvAwDrYU798zw?=
+ =?us-ascii?Q?maof3n5WGyZlR5d9m3kf9mj/A3Ypr6Fc5GYupoaILgwFb+lyA7HHUypTo82n?=
+ =?us-ascii?Q?uaxx6oIFkCMmpsgp4FMJcI64S00g5X/fTNLiE7IzyKzGm0RnjzWhnwrQX/cU?=
+ =?us-ascii?Q?uilJ5xPR1WXHr+RKmZgn1XYh2urFb5vAq7O+MHa1hUqHwqVQV/5SSzaDOXtz?=
+ =?us-ascii?Q?8nqTYA5hO83HcJri2U5vaqWr46hwPJKjb5j3VSbCxhhSjpf0LbsNgdx3jRZG?=
+ =?us-ascii?Q?RFQ/qlPzbUeAW/zveLixcfV+saJUlrh8J4GvCJqOkSSbA93hA4YqmihmUf84?=
+ =?us-ascii?Q?g55tmC+kJvvRv/jPRdqohyGDM/cBP8YONXXHh15Uqgc787abzxN3ekH8zlkr?=
+ =?us-ascii?Q?4b9wmBWiSXT9ICAKX4h8Zxn2lJCT9wdwLE0NKoNin99KCHit6Y+EX28AQreh?=
+ =?us-ascii?Q?z6jPp3m/gaZYNmOj3wqQQosQ5Vs3SLPHZSxCuYpdZgQDwoY2lvjm1bJOWNT9?=
+ =?us-ascii?Q?TgM1VdA7lMmiwVFXIdAM1qHuwuWKwR01hrDVpusKBIT8+g3Z2lH+HpNlACet?=
+ =?us-ascii?Q?tbnLU07T18SzfsCxKwApiN5OHast3I3KRMBJphURRMFB7njMj9igHiExsexR?=
+ =?us-ascii?Q?gvjwHftCJZhqzbiy19We5K3mrFiqQa7jxpaEAlkHQxsnbQ9Q8s1XIRK0c/0t?=
+ =?us-ascii?Q?ZFrt8OPW/fDYUvI7rQzs3SkgM9IInl3+RFjkWaVO4zMCAuWtJDZxvlEthDro?=
+ =?us-ascii?Q?+PC8cZk=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN7PR02MB4148.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27308c6f-7e01-48b7-55dc-08dee8d6c8a3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jul 2026 16:23:51.9754
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR02MB6610
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_092358_442860_4CE6313A 
+X-CRM114-Status: GOOD (  43.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +159,105 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 7:36=E2=80=AFAM Justin Suess <utilityemal77@gmail.c=
-om> wrote:
->
-> From: Andre Przywara <andre.przywara@arm.com>
->
-> The Avaota A1 board has an IR receiver chip on the PCB (next to the
-> Ethernet jacks), wired to the PI8 pin on the SoC.
->
-> Add the pin description to the PIO DT node, and enable the CIR receiver
-> in the main power domain.
->
-> Tested on the board with evtest and some random TV remote control.
->
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Tuesday, July 21=
+, 2026 11:44 AM
+>=20
+> On Friday, June 26, 2026 8:04 AM, Michael Kelley wrote:
+> > From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Friday, June=
+ 26, 2026 4:09 AM
+> > >
+> > > On Thursday, June 25, 2026 11:59 AM, Michael Kelley wrote:
+> > > > From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Thursday=
+,
+> > > > June 25, 2026 10:35 AM
+> > > > > We need to round up the memory allocated for the input/output pag=
+es to
+> > > > > the nearest PAGE_SIZE, since set_memory_decrypted() requires the =
+size to
+> > > > > be a multiple of PAGE_SIZE. This only has an effect on ARM VMs th=
+at are
+> > > > > using PAGE_SIZE larger than 4K.
+> > > >
+> > > > I think this change resulted from a Sashiko comment. My understandi=
+ng is
+> > > > that the ARM CCA architecture only supports CCA guests with 4 KiB p=
+age
+> > > > size. Is that still the case, or has that restriction been lifted i=
+n a later version
+> > > > of the architecture? I'm in favor of handling the larger page sizes=
+, if only for
+> > > > future proofing. But I wondered whether your intent is to always su=
+pport
+> > > > > 4 KiB page sizes even if CCA doesn't support them now. Another wa=
+y to
+> > > > put it: In reviewing code, should I flag issues related to page siz=
+es 4 KiB?
+> > >
+> > > I think you might be right. I'm looking at RMM spec 2.0 beta 2, and t=
+he RMI
+> > > can have granule size 4KB, 16KB, 64KB, but the RSI is restricted to g=
+ranule size
+> > > 4KB.
+> > >
+> > > I'm open to suggestion on best way to move forward.
+> >
+> > The best approach probably depends on whether the 4 KiB restriction is
+> > likely to be lifted in a future version of the CCA architecture, and I =
+don't have
+> > any insight into that.
+> >
+> > If it is likely to be lifted, then doing the initial implementation to =
+support
+> > larger page sizes probably makes sense (which is what you've done here)=
+.
+> > It's less work than going back and adding later. But the commit message
+> > and/or code comments should indicate that the larger page size support
+> > is future-proofing work, so that someone doesn't get the wrong idea tha=
+t
+> > it should work with larger page sizes now.
+> >
+> > The alternate approach is to not do any larger page size support now,
+> > and to explicitly state that the code is assuming the current restricti=
+on
+> > of 4 KiB page size only.
+> >
+> > Whichever approach is chosen should be used consistently so there's
+> > not a mishmash.
+>=20
+> I talked with some people from ARM. My current understanding is that the
+> 4KB granule size for the RSI does not mean the guest is restricted to 4KB
+> page size. The granule size is just the alignment requirement and larger
+> page sizes will always be 4KB aligned.
+>=20
+> I tested 64KB page size on CCA Realm and it booted successfully.
+>=20
+> I will be treating large page sizes as a valid scenario. Please flag any
+> issues you spot related to page size > 4KB.
+>=20
 
-You need to add your own Signed-off-by, since you are resending other
-people's work.
+OK, this is good information! So evidently the situation is just like
+with normal ARM64 VMs on Hyper-V today. The Hyper-V host must
+operate with a 4 KiB page size, but the guest can use a larger page
+size as long as it communicates with the host in 4 KiB chunks (which
+ARM64 guests on Hyper-V already do). As you point out, a guest
+page size of >=3D 4 KiB implicitly meets host 4 KiB size/alignment
+requirement.
 
-ChenYu
+But any changing of the private/shared state of memory assigned
+to the guest is necessarily done in units of, and aligned to, the guest
+page size. When running with 16 or 64 KiB page size, Hyper-V specific
+code in the guest must be careful that it is not unwittingly
+decrypting a larger chunk of memory than it intends. Doing so
+would probably still work, but would create a security hole by
+exposing guest data to the host that should be kept private to
+the guest. I've done a quick look through all the places where
+Hyper-V code calls set_memory_decrypted(), and the only case
+I see where the size might not match the guest page size is in
+hv_common_cpu_init(), and you are fixing that case in this
+patch. So all appears to be good.
 
-
-> ---
->  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi          | 7 +++++++
->  arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 6 ++++++
->  2 files changed, 13 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
-boot/dts/allwinner/sun55i-a523.dtsi
-> index c2de662140ce..219fd76a4710 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -155,6 +155,13 @@ i2s2_pi_pins: i2s2-pi-pins {
->                                 bias-disable;
->                         };
->
-> +                       /omit-if-no-ref/
-> +                       ir_rx_pin: ir-rx-pin {
-> +                               pins =3D "PI8";
-> +                               allwinner,pinmux =3D <3>;
-> +                               function =3D "cir_rx";
-> +                       };
-> +
-
-This hunk should be in the .dtsi patch. And there are two pin mux
-possibilities for ir-rx. Please name it accordingly, like "ir-rx-pi-pin".
-
-ChenYu
-
->                         /omit-if-no-ref/
->                         ledc_ph_pin: ledc-ph-pin {
->                                 pins =3D "PH19";
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/ar=
-ch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> index 474354fbfcec..994f1e4f0ce7 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> @@ -100,6 +100,12 @@ &gpu {
->         status =3D "okay";
->  };
->
-> +&ir {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&ir_rx_pin>;
-> +       status =3D "okay";
-> +};
-> +
->  &ledc {
->         pinctrl-names =3D "default";
->         pinctrl-0 =3D <&ledc_ph_pin>;
-> --
-> 2.54.0
->
+Michael
 
