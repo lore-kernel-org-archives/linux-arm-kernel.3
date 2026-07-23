@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C750C4453E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 06:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F3EC531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 06:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aUz1mWBpB/XSD0ZgFsInGJUX8h9hfweN14oEZfYpX44=; b=f0Y6vA2w+pJ8kcHHyhjx7wNJoa
-	PAY7bCQqHyJSJPhBOsTBfR9I9H0bnem7VM0svCMbQRbTRipP+LzO23f5NprD+rzeo5WcNfMN1Giwk
-	DHK/SmJSvSUBmZ46gybqKrljmZko3hRQ7yPiESGOe3ECxDdnWgxFZQALD6qMHj/WpaIxbAWDZFOQy
-	vzEUuewcdqFDXBPr+DqsebnR3Hx+ZywfRhhMXdoNZWTj//BpDXkp3T4gFxSuylV70fV64FQScltZf
-	pATzUSL1TEO8rw9F4FzGmWkudQ4wzzrtCJxh0lQYpyvdjXUxJyRZA8Qa7NHvEQwyJEweGWpLLiUje
-	KID/wSYQ==;
+	bh=yzDl4rio1x0zKV1oZWrhXk8ePWLshifrG/jhvgwjQz8=; b=uVy9VBrtSp0GmXEfnUz3HOhn0c
+	lQTYjT0Al1LxfXjNu8FKygWHfmLMY46UFLd9dP+8hOzzfCtcbv8Y85E/cFquFLbfb6q6g+SjH8ob/
+	8wtPrj0bmjbOyrPrtdz1YUuyixIFWzbmraCSrIReH9/f4C+x+E9XC/TO29LOOXXbZTSrkObI7rAoS
+	dhUSvgSWlSqKXt8dCY8GihjVnbsetsvBqHNL2uHV2Qt9+8VBipQ7wd/WsUm7djkh1YZyJDK86beNp
+	GkKO1gPLLLTaSdcVloOtwjwC7esyALPnHzKkLey8spGEuS05hApJxIYWS0/ml/kBeOu8qKgo6twlt
+	2NyENPdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmbg-0000000DWON-3KVC;
+	id 1wmmbg-0000000DWNi-2Jtg;
 	Thu, 23 Jul 2026 06:08:32 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmbe-0000000DWN6-03yr
+	id 1wmmbZ-0000000DWLl-3Cdr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 06:08:31 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cea3004256so3505975ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 23:08:29 -0700 (PDT)
+	Thu, 23 Jul 2026 06:08:27 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2caed617615so3101805ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 23:08:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784786909; x=1785391709; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784786905; x=1785391705; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aUz1mWBpB/XSD0ZgFsInGJUX8h9hfweN14oEZfYpX44=;
-        b=KcElhoA485WyN7r7oSP2UWaAbPtcXru4/XeNIuI4VI6CIl+SEpfH+lLVSP89EO9uOW
-         Bs3eEGZf6fD6JxdccEKnS4Q+HEOatc5NiPxfh1vnNsn0QLsK6GmiKTMTE1NZp0HHSWEU
-         8R6PQqiNMqIlEHv0A4pb23sf+1hSSXPwz6y+fjOIO5lkcdSwVXTYfQkYpMafdBH8IWuo
-         9NL/pHzJLOcJ51dJAc01SyJw+or7bmRTjcXMixpjEWK7C25p4VsjxvDiQe2Vsl/gyKJm
-         xlQ5n1ng72ihPAfYx3kCx17wWOsMHARBWEMyfD9NX2irmn1EA0J3ZLn4pPMt1FN8r0Mr
-         KJiw==
+        bh=yzDl4rio1x0zKV1oZWrhXk8ePWLshifrG/jhvgwjQz8=;
+        b=olTPlF/kQkLOLtkZ1zJCR1BYgSzXc/ry8xS16EVWONSj4fB6wyety7JRmy+BvAUeNe
+         HLsOeKouEENvOweUsOvO4S3k+eR0pPso+SNm1ShBQTMKJwU4OdFcEqAE1ncaAjHKmaKO
+         KAGbpvyBjGU+5ad0zFhDwq8zd59F1DG+BwJbnG2k/2ofRUKexS6aLCPZ8dX4vPF9utRW
+         7APVI1BRCjeH7gkZTZn73LVsXPNf1/40wm9LITiyJu1zoFuuySECvpvX1ZVdzatyQ6Mq
+         k0LOME/6WWTIXJ6lqyWg6TGAmaj/pMndngI0an+St1n842nHlAMeK8xokKZYGy90zKRv
+         79kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784786909; x=1785391709;
+        d=1e100.net; s=20251104; t=1784786905; x=1785391705;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aUz1mWBpB/XSD0ZgFsInGJUX8h9hfweN14oEZfYpX44=;
-        b=ZrpdAKSr91NVPVdEA7F6cHVCi/Kr+Z+Fe8HPd/18sCVtxVEEcBka0Ax/KlY2tBImdM
-         DpCdATmLc1Pv6afpovPBj7V0ohlBs0H9uaosItlGFaCSCuycVpNy7TJZRvAD2ecmgYA2
-         YTaFPRICPBTX/qQ/J1EEcF18syiTqrkDdD1fjqjf/2sAZAf+N8HNP94k09BZEu8oGv4q
-         ANr3U/xSGTriC1ZsPBnQQRtWBXFPzznSo/vDv9UX+2zL8IgGogItIUKoJt6WImo9U7A9
-         XaHdRRY259m9lozBjxTPmYPIZgI68eYCMWhp/z6t0PRbmPZxrM5aedE24R4jf32noG5r
-         rtyw==
-X-Forwarded-Encrypted: i=1; AHgh+RpqeP/6znoT0q+neaPgklG8/2nKHrd+WBo6LJttKKF1ofM2YUEMiflQ1OaEHDkh1GkLy23iJMbZGFIpIBD8xinQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiXQmMa8j7ZSiqEGxk6ZXQEIE7vt1ScRuEVr2c/qrD60FPODrV
-	5u8DWaxfA0jtFeVs7ltXVRj7Aa9b+ks56Xde0jD0q80MSksYPNGBdkxU
-X-Gm-Gg: AR+sD10Ai2puSWfU8RwBeUlWUaEvvzUVnDUhR059ik737HzEiTJjWDqOTK6GjY9Y1I8
-	uFOsoROMBN3aK3dCOgWqekolsdfeR5hY5bqfegE6pL82Um1uxCkJ5deec4XCsleC14IZbD6prIP
-	5CqRW8GXUV+w1xFKz3xanOyAmm3tnuumKiLBgP6gKfgKFuvzhs30p2PdrSzGa15bnaqZMGN2UTk
-	OYWVW0uLhDu0uzEMhubn1ykBv5/O1mlbwjbJzB8FUxOdwQaTdmlOmf1fLK8miHRHQN41U7qv8ID
-	9GLWzkUvqhkWbjzv1SwHeww1aM46/PcFepNZbHucDko7W9XbqChCs1XHEp/ICNXBHnMnuSckuMG
-	vTQSjltKH3JY5+whJr5jZBoJ7078X5+NHAUHRF1RG/37s3M5QjPwrn4k0/AhlVNaxhT+FqZdMEs
-	vpGJZd2mJvoUxe2VFdCfsXpf/Te2q7QAkQbem0JNGBWYMBuG3SDXQ9lHs9zGWP
-X-Received: by 2002:a17:903:2444:b0:2ca:1eef:5096 with SMTP id d9443c01a7336-2cfa6c7206emr21250435ad.36.1784786909424;
-        Wed, 22 Jul 2026 23:08:29 -0700 (PDT)
+        bh=yzDl4rio1x0zKV1oZWrhXk8ePWLshifrG/jhvgwjQz8=;
+        b=U27/qMrVXjSsZx2rzpqeDQY2X9e7VaEkwWSG49i3jPYogiHiV6v7oBaXSoM6IujP4q
+         6AJucTkRvyIA8yQ+uZ3LxBPGZCeZrXlcBolp8/L+xHaqz2Wc5nNZY0RfLe7xMyaEz6PG
+         rjy8oCFYcOmaJi5MdnsNmDQJDYBli9twrSelRzwajUbslolLLAb9vlakNtzr2aWJSfe5
+         lDmLeAO+Fz74Lzga4asRMCUXa23OQ4RjB6QnMunqsGQ6zletr+ix6tTQIH1tSqLHyQgt
+         vQagzRUVg+8XCHDEhD+m/Iwa3dMMPrA9VxTrPsN0D1xs6PL81uhkaOE45OSaY+e0+Axw
+         Tulg==
+X-Forwarded-Encrypted: i=1; AHgh+RqbkTlSyc+K6uQayDb1yVGcTzIjWJbXUav1HAjGXvDj9tZQKGffB7o+gk7NQeFwyTRPNhvHfogJHZ+r1DOgL7mb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6g/Gb+If7tYIPCeXEuDzMgMooXIUvK/1C9+/ifY7AP8gBSQyY
+	j8VjzPehvE1nxLLmdY2lSyUZTASgRj0ORQrAI/Kms1IFKP/jjMZyVvae
+X-Gm-Gg: AR+sD10OCuRXMNNXAie6OoMw0aar7QdLk946ty9GABtXb6ETsuUWruCmepe9Wzfwd5t
+	c6Eaqin0UYhNNg8DnrvOQSSTQiXQxf/O5pKqLDU6ZMT6ZnY5HklITfTcD3WMFsmkC7esHXNjn8b
+	nsxrBfySg7EWQ6/Y9Ct39ne2eIANW4vAxfdkpuqcKtXFtTybejWYDR1l59E1cLN3zBde1fdrj+M
+	eCDxIHy4Gv2zICXMzjH18W133Y5MvETcUo6VXN42dVRkOxFBzQMoZyoIN3m98HPY0DRiHuICdwm
+	S1iRw8ALu0Pv20quE3y1Z9o7AgXskBXKAw5JhpnlJiDKTL5W3I7L/nvGQAHhPIpp3/fddZ9+Ion
+	j86PNHDdvKqczBRQOFg/ECU6Hp8ZcFn4llHfzwZkdOFfX5w/NRhtDUlLWjY9FLdrE5FY5Ylnx8G
+	C690g0YrvbIkUKuHo4RW1iaRBwqYg8uWTvSdD5MBaS32LIygh1D/lBsWni+Bj2
+X-Received: by 2002:a17:902:f68b:b0:2cf:32bc:971e with SMTP id d9443c01a7336-2cfa6c66618mr20561685ad.29.1784786904767;
+        Wed, 22 Jul 2026 23:08:24 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8f390dd2sm26071285ad.79.2026.07.22.23.08.27
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8f390dd2sm26071285ad.79.2026.07.22.23.08.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 23:08:29 -0700 (PDT)
+        Wed, 22 Jul 2026 23:08:24 -0700 (PDT)
 From: Zi-Yu Chen <zychennvt@gmail.com>
 To: Wim Van Sebroeck <wim@linux-watchdog.org>,
 	Guenter Roeck <linux@roeck-us.net>,
@@ -82,17 +82,17 @@ Cc: Jacky Huang <ychuang3@nuvoton.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Zi-Yu Chen <zychennvt@gmail.com>
-Subject: [PATCH 3/3] arm64: dts: nuvoton: Add WDT node for MA35D1 SoC
-Date: Thu, 23 Jul 2026 14:07:54 +0800
-Message-Id: <20260723060755.1596858-4-zychennvt@gmail.com>
+Subject: [PATCH 1/3] dt-bindings: watchdog: Add MA35D1 Watchdog binding
+Date: Thu, 23 Jul 2026 14:07:52 +0800
+Message-Id: <20260723060755.1596858-2-zychennvt@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260723060755.1596858-1-zychennvt@gmail.com>
 References: <20260723060755.1596858-1-zychennvt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_230830_195657_74E8A1B4 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260722_230825_823253_0006CF26 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +107,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Watchdog Timer (WDT) device node to ma35d1.dtsi.
+Add device tree binding documentation for the watchdog timer (WDT)
+controller found on Nuvoton MA35D1 SoC.
 
 Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
 ---
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../bindings/watchdog/nuvoton,ma35d1-wdt.yaml | 55 +++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/watchdog/nuvoton,ma35d1-wdt.yaml
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index 7228ad4735b5..14fd17cfdc5a 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -82,6 +82,13 @@ soc {
- 		#size-cells = <2>;
- 		ranges;
- 
-+		wdt1: watchdog@40440000 {
-+			compatible = "nuvoton,ma35d1-wdt";
-+			reg = <0x0 0x40440000 0x0 0x100>;
-+			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk WDT1_GATE>;
-+		};
+diff --git a/Documentation/devicetree/bindings/watchdog/nuvoton,ma35d1-wdt.yaml b/Documentation/devicetree/bindings/watchdog/nuvoton,ma35d1-wdt.yaml
+new file mode 100644
+index 000000000000..aced7d77a7d3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/watchdog/nuvoton,ma35d1-wdt.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/watchdog/nuvoton,ma35d1-wdt.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 		sys: system-management@40460000 {
- 			compatible = "nuvoton,ma35d1-reset", "syscon";
- 			reg = <0x0 0x40460000 0x0 0x200>;
++title: Nuvoton MA35D1 Watchdog Timer
++
++maintainers:
++  - Zi-Yu Chen <zychennvt@gmail.com>
++
++allOf:
++  - $ref: watchdog.yaml#
++
++properties:
++  compatible:
++    enum:
++      - nuvoton,ma35d1-wdt
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  wakeup-source: true
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++        wdt1: watchdog@40440000 {
++          compatible = "nuvoton,ma35d1-wdt";
++          reg = <0x0 0x40440000 0x0 0x100>;
++          interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
++          clocks = <&clk WDT1_GATE>;
++        };
++    };
++...
 -- 
 2.34.1
 
