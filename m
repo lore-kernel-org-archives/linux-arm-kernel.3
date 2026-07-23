@@ -4,66 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE1EC531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ADC7C531F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 16:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gl83NMyq+s3gbl2Tp74bU9xdnH6nJ4JMTF1QkNTBKrk=; b=UGCXnBtDPPtjAGJdk5hJN2fnDf
-	bAe2R1r3vjTE1tr0sgF/31AUd69O8mQHH4T9SmDfz2xgJVT03C/2y5C6LTwRYprO+CZrxaubmwFaZ
-	WeTrmIdAFQ+6IMWvV29dEzhDWcrYK0rAA90ADvWJqTDqT5vRXafO/Z/wW9URh8DZ4mFICwQ12KBqE
-	trUiOREFMTcBHUnsgevmps9bfc7hZxN9jBilEURXWT9MVZ9jeF02WVbfBszNnvxjT6RVomDgz7dQT
-	mx5WGrYD6HJIDOwMbkvDOj7jEKXt4p/Y6aCNJaCqJ0xYC8/sN+AwK+HwM+vuCE2QO/AUCe80Mwb9m
-	Vjzs3i8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CZ7DrWSeI6duZxzkpJi6xcP41u69UUs7TUTlnDPTSiw=; b=Eh+Q9rj6JXnXvqBrQ6+xvICpH1
+	eh1JxjMW1XVGrcsph/Sj0VsqWrTvCel+YsSsDvq60SBGrUUDJRNMx5OdmnYzXv86R5oj0mJ6M27DZ
+	Xb7wQYXp+z2JzweFmgXMW1P6VVIuZ2hWe7Yp8ANDmuVqBUlDJrdfX3HR3Lkl0rnl3e7R7MdpYAWlK
+	wc6ABA63pDzX7OAclQXvt+qy7yVGu7ZXq804ZYYyBIgeHPWgPdp0BcPSx4mChNxfQwXRhnFe3pG4h
+	qAxCKfIdLdUOJlz4GJu2H8z8nlZ79FB3f8VGIP4vKiFz87F1g16esONtlLPQ6ZXuLSPJ71GN1gtII
+	Y0qDzhYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwJp-0000000EjCs-1X6N;
-	Thu, 23 Jul 2026 16:30:45 +0000
-Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
+	id 1wmvN3-0000000Ebke-2wz4;
+	Thu, 23 Jul 2026 15:30:01 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwJm-0000000EjC6-3mjy
+	id 1wmvMx-0000000EbiB-0iIN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 16:30:44 +0000
-X-Forwarded-Encrypted: i=1; AHgh+Ro9j70MRyuqgCR7lwbXkUfamulL87bNYxhE0+RpwyrJlhsHh9qoRgrtIM2zA2UMhFckXeoOykq5Hd339y9emirx@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784824239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Gl83NMyq+s3gbl2Tp74bU9xdnH6nJ4JMTF1QkNTBKrk=;
-	b=djgjXJQ19tLbP4tC/GvUwtACVqR2ndse5CBrDohxA8NB8sCjDgwTJmLzSkQanChE8/ZoHv
-	0Zdj1oCti7wXdoNGq4yDofSRKyKGMXLp4n9D1RUgJ5Wz5ca1Eqx7qUqUjTuu3MjTenXEY7
-	HkyOjfrT3bMSoRM/U1A9g1AgLuZd1Gk=
-X-Gm-Message-State: AOJu0YxzNlDuzBLO4+553kvghYC9OJO2etl13nQzPBdxlmQm0iBZKq2W
-	00xFpNa3122lNmWhalWtqMLNo6Sub4spKM188cvXrTGy6CtVn2UfH0+ZVugeq3M6NfyITi4K7d5
-	XSMi/cmm3f9ok6BLvdi25VC+TJ1AXIWRt/J4mG8pN
-X-Received: by 2002:a05:622a:134c:b0:516:3f51:81cb with SMTP id
- d75a77b69052e-5283d81a915mr9160761cf.13.1784824207475; Thu, 23 Jul 2026
- 09:30:07 -0700 (PDT)
+	Thu, 23 Jul 2026 15:29:57 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so6143875e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 08:29:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1784820593; x=1785425393; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CZ7DrWSeI6duZxzkpJi6xcP41u69UUs7TUTlnDPTSiw=;
+        b=VwrzP7EMliZvQda+3hQek/fvkMArVdCM7YiA0OUUEEDkJhmHzJYF7vrDYcBekAmuKe
+         ovElJoUDMRXbjZ2xANOsLLrTZXW2AkTguYbEAVOXeLb2hsAMCF2180fqh8kOLK1icOFH
+         ENc5lcczc6P5GmZma5VrETt1kTi2/mP4A8siCLTlXkv2lWy8UrP1HRXwKGpCceF+YGWe
+         dPqwl2yIKWoyjTR42BvmcDAk4t8uN99OmKqDnVIALJ2kwVocik2rXTyd1wIBfMx9pDV8
+         JawYvkgTy+ng5oVYkJRq5HaEGBSLrAc+hCe53fN12uoPsgxOpC39d6UzZFj28xJ1xFXt
+         /tww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784820593; x=1785425393;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CZ7DrWSeI6duZxzkpJi6xcP41u69UUs7TUTlnDPTSiw=;
+        b=DsnJ54+B155iAVeSM/f7bTMPEMp6Tz4fjoyRvQc1jIRwtOUT0Y07qnrwO2xwQlJgHf
+         gs0A81/z3HKRh8scXe6TpFg+WAViUP3gr8PasxEbQ93tlOrkf9Xua6MUIVfrHscPCXM7
+         M7pO00UwfJ27Vpsi81jDHkC5OqplK7TiS1eSyT85UvTUNgwjPVUuA3kPlKTH3CMcPjmm
+         l3VEN+kBIS4rDvFgAqGCfb6v1zG1/KZ01ufXl8HE82ugD6b04yGF7xAX7CKpD6xfCnIt
+         HUaYGZRLm1LYSOtWCcF66zrWFIiMxmVk0zAgZ4VvpB4RPi2fRkocgGiSPtnG0Sgn6ATK
+         ItEw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq+DILXplcuy/PlhJqzAFBfP+xYchqjZByOV/rjmTOGmmKdkTwJ3kBdGigWEw4nq64cKBQ+Z/wP5vUwrU1xPy09@lists.infradead.org
+X-Gm-Message-State: AOJu0YwblOzi8UUPNCuC3lTJkd/XEKPeAU9A0nVKxceIOhnFi8pewFhD
+	o9Qv9FfIfbJP9JzawPibayu1/CoP1q73vcsiwSx9T5x7jfBJNEabiVCpN4LyoV7oc7c=
+X-Gm-Gg: AR+sD11rqIBAYBgZ/JclrbPPd2xlmPCUkEZ0GPUy9tqAgwOriccobPyM1iqhcHWeova
+	3gz6QBTdz23P9euNCxvP1ajiM+Gw+06a3CPCtQRgHA3kGa/jCYHwuKYQRDcSEiUAJD/Nuk3zqd4
+	MXgUDKJyeOUImW8GZp2JLJ0kUGsKAQHHXt3tizXSphS1ibrbeOBwFQqEyGRiEonamcJLLzLIDSr
+	+chAshY+q9MQnoIoC5zDp5+uRmthFC0m+DvWKWTw3mJGrnnwMj0VQg/UB9zLLb6UaZjvbW+ZHWe
+	kfPImgN1iKNJFGCG5OhEIqcJe+c5IXHMaAldt+OMrK3nSkvqcxFXJ3N0Sn8GvKoHUbTjCE6qbG+
+	pdaB/c4NcDXWuT+jkiBNL/zpj9/8d/JsuE++/5voupuLZtTRQBuoi0JgbzIXxHJDOceqpt58JrP
+	Jan/r56Gya5zI1u9wp+LRAjy+Ho723eE//41Ejgz1ffr3HRpJ0bukqHHPXOYvRvj1hhw==
+X-Received: by 2002:a7b:c446:0:b0:493:a966:d5b5 with SMTP id 5b1f17b1804b1-49573cc18bcmr28824395e9.2.1784820593118;
+        Thu, 23 Jul 2026 08:29:53 -0700 (PDT)
+Received: from [127.0.1.1] ([2.122.8.179])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49574653f83sm36952525e9.0.2026.07.23.08.29.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 08:29:52 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Date: Thu, 23 Jul 2026 16:29:46 +0100
+Subject: [PATCH v2 1/2] dt-bindings: sram: Document
+ samsung,exynos850-acpm-sram
 MIME-Version: 1.0
-References: <20260723162002.3848054-1-smostafa@google.com>
-In-Reply-To: <20260723162002.3848054-1-smostafa@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 23 Jul 2026 17:29:30 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx0fU8uL0pop=faUv7PW9=8dS1CHbn0DdMQdHcCwxOefw@mail.gmail.com>
-X-Gm-Features: AUfX_mxA_nKRECz2-8RwfmQfgOzLkEwARqpAv0FN4JNQqX6QCq1Eo0mlzwuphto
-Message-ID: <CA+EHjTx0fU8uL0pop=faUv7PW9=8dS1CHbn0DdMQdHcCwxOefw@mail.gmail.com>
-Subject: Re: [PATCH v3] KVM: arm64: Optimize protected mode with FWB and DIC
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oupton@kernel.org, 
-	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-exynos850_sram-v2-1-c94968e52f42@linaro.org>
+References: <20260723-exynos850_sram-v2-0-c94968e52f42@linaro.org>
+In-Reply-To: <20260723-exynos850_sram-v2-0-c94968e52f42@linaro.org>
+To: Sam Protsenko <semen.protsenko@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_093043_091716_5A674BCB 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20260723_082956_281090_2AB818A9 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +106,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 at 17:20, Mostafa Saleh <smostafa@google.com> wrote:
->
-> KVM opportunistically enables FWB if supported by the system for guest
-> VMs, which allows it to elude cache maintenance for data as they are
-> forced to be cacheable from stage-2.
-> In that case, __clean_dcache_guest_page() will immediately return.
-> However in protected mode, before calling __clean_dcache_guest_page()
-> it loops over the range and fix_map/unmap it, issuing TLB
-> invalidations, dsb() and isb() unnecessarily.
->
-> This can be optimized by returning early if FWB is supported,
-> kvm_pgtable_stage2_map() already issues dsb() and tlb invalidation
-> functions issue dsb() for the unmap path.
->
-> Similarly for DIC, we can omit the call in
-> invalidate_icache_guest_page()
->
-> No isb() needed as ERET is context synchronization event.
->
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Document "samsung,exynos850-acpm-sram" which represents an SRAM region used
+for ACPM communication on Samsung-based SoCs.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+The SRAM is consumed as a whole, is not split up using child nodes and
+properties related to this are not required.
 
-Cheers,
-/fuad
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+ Documentation/devicetree/bindings/sram/sram.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/sram/sram.yaml b/Documentation/devicetree/bindings/sram/sram.yaml
+index b83fc6831947..b9c4d4f3199b 100644
+--- a/Documentation/devicetree/bindings/sram/sram.yaml
++++ b/Documentation/devicetree/bindings/sram/sram.yaml
+@@ -43,6 +43,7 @@ properties:
+         - qcom,rpm-msg-ram
+         - qcom,shikra-imem
+         - rockchip,rk3288-pmu-sram
++        - samsung,exynos850-acpm-sram
+ 
+   reg:
+     maxItems: 1
+@@ -159,6 +160,7 @@ if:
+           enum:
+             - qcom,rpm-msg-ram
+             - rockchip,rk3288-pmu-sram
++            - samsung,exynos850-acpm-sram
+ then:
+   required:
+     - "#address-cells"
 
-> ---
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 4e329e39a695..39aa8911f62c 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -261,11 +261,18 @@ static void __apply_guest_page(void *va, size_t size,
->
->  static void clean_dcache_guest_page(void *va, size_t size)
->  {
-> +       /* See comment in __clean_dcache_guest_page() */
-> +       if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
-> +               return;
-> +
->         __apply_guest_page(va, size, __clean_dcache_guest_page);
->  }
->
->  static void invalidate_icache_guest_page(void *va, size_t size)
->  {
-> +       if (alternative_has_cap_unlikely(ARM64_HAS_CACHE_DIC))
-> +               return;
-> +
->         __apply_guest_page(va, size, __invalidate_icache_guest_page);
->  }
->
-> --
-> 2.55.0.229.g6434b31f56-goog
->
+-- 
+2.51.0
+
 
