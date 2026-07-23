@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63821C531CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F08BC531CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPNIcIi1LOzsQXqWK+o75R02GnMwM8fKyeQ91BeHjVU=; b=3PaSOlaNaZ5Pi05e1HH1RZx6W1
-	U/l3A9+ZKb1Bn9abHF4KqgO1iH9xfFmSajxI/gFdv5PM7L7hKEm30TtlqHGDzqlCJy+NFi/sMRRiH
-	RmJgDCR2ge484UkxZVmPGuidBaWXwU1z8hGfa+15uFnJj6+fa90qx1ilzdph+a6/zlfNyiv/0Wt+Q
-	Nqa7OLYJ0+idgnV+5OjiN6XP377mLpCD+S010Sh1iSINDbOhzK2whrI79KZe0D2Cuf747HRjhBjD1
-	J7LuSez0N2lx7w91hLXPGgMlElRCxBGJY1fA0/5kOGexMpvfx1B67RXFVGid8tOKg5x4x2A2t5Ybk
-	1571TMRg==;
+	bh=L1A7SLzIpbSpqM14bWF0t1CZA/db+dQzBITowvt1p1c=; b=jNuUCfVC6cM/XpONN5gZZlJNnY
+	4OD4apB+BUm2aw4v9cU2s2pSPKiIy4I2+UZNxUfJ1/5UdyqZmCqSaR67/5TwDsLIcAtG/kBpYeFCP
+	Bg6YlFAGzxKYDucMDRXv9Mrnpd3JVtYTtbMNtaOC88BkjvcOFV0gKl9p9vxIH1InuzYrQrs4b5hBX
+	JAo1CIyPUML4jCoKnji6PmGYDQmhgIk5dQ5LySXjqueynOxDgd0FtoyTGSXYOVmwWLGSKZSWszELZ
+	ovMKNeNGZF3+1TK0vDIL31PaxnzAVObUq/IrBMiwOHArhs6cZRVjh94K8rJ0zEwXgClM7fQR23XQZ
+	qpLeWSHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmrur-0000000EBaG-3QpZ;
-	Thu, 23 Jul 2026 11:48:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmrw0-0000000EBjE-0YvK;
+	Thu, 23 Jul 2026 11:49:52 +0000
+Received: from mail-m2443.xmail.ntesmail.com ([45.195.24.43])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmruq-0000000EBa5-2orJ;
-	Thu, 23 Jul 2026 11:48:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9C27600AD;
-	Thu, 23 Jul 2026 11:48:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36FEC1F000E9;
-	Thu, 23 Jul 2026 11:48:36 +0000 (UTC)
-From: Lee Jones <lee@kernel.org>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Lee Jones <lee@kernel.org>, Roman Vivchar <rva333@protonmail.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>
-In-Reply-To: <20260709-mt6323-adc-v5-3-d11b8332a735@protonmail.com>
-References: <20260709-mt6323-adc-v5-3-d11b8332a735@protonmail.com>
-Subject: Re: (subset) [PATCH v5 3/4] mfd: mt6397-core: add mt6323 AUXADC
- support
-Message-Id: <178480731596.3380420.12025738982623132782.b4-ty@b4>
-Date: Thu, 23 Jul 2026 12:48:35 +0100
+	id 1wmrvu-0000000EBi2-3TZX;
+	Thu, 23 Jul 2026 11:49:49 +0000
+Received: from [172.16.12.77] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 475247b2e;
+	Thu, 23 Jul 2026 19:49:32 +0800 (GMT+08:00)
+Message-ID: <676d0baa-98c9-417d-91b0-0a9cc07d464c@rock-chips.com>
+Date: Thu, 23 Jul 2026 19:49:31 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/8] phy: rockchip: samsung-hdptx: Prevent
+ divide-by-zero when computing clk rate
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
+ Dmitry Baryshkov <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
+ <20260612-hdptx-clk-fixes-v4-2-ce5e1d456cda@collabora.com>
+Content-Language: en-US
+From: Andy Yan <andy.yan@rock-chips.com>
+In-Reply-To: <20260612-hdptx-clk-fixes-v4-2-ce5e1d456cda@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9f8ecf362e09d8kunm45c8aff254ee
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQklCSlZCQ0wYGhlNQ0
+	0aHU9WFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tIVUpLSEpKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=X7Xqdg4Z42g/5lfR4vXGT5Dsyta9ef9az6uvuMhqlSEQbK3gTo1+h3I4zkrT+oqH6A46NcXhx6IGPAMp0R3oum5vMv0bsX9+Jxsbg8Qx5quN6KWZoihEf98kRiqvNb3dxk4GeKR91yzYKLZa/4XQBp0U1Kx9KWDpGMfOhyOCMHE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=L1A7SLzIpbSpqM14bWF0t1CZA/db+dQzBITowvt1p1c=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_044948_188202_D8ADB225 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,17 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jul 2026 13:52:49 +0300, Roman Vivchar wrote:
-> The mt6323 PMIC includes an AUXADC. Register the AUXADC in the mt6323
-> devices array to allow the corresponding driver to probe using compatible
-> string.
+Hello,
 
-Applied, thanks!
 
-[3/4] mfd: mt6397-core: add mt6323 AUXADC support
-      commit: 0e03ecbb17b1249471560227f210c3f98acaee08
+On 6/12/26 07:45, Cristian Ciocaltea wrote:
+> Calculating 'sdm' fraction in rk_hdptx_phy_clk_calc_rate_from_pll_cfg()
+> could trigger a divide-by-zero, as it uses div_u64() with a denominator
+> read directly from hardware: the values ropll_hw.sdm_deno,
+> ropll_hw.sdc_deno, ropll_hw.sdc_n, and ropll_hw.sdc_num are populated
+> from PLL registers which, in theory, could be left by the bootloader
+> uninitialized/misconfigured.
+> 
+> Provide the necessary sanitization to avoid trusting the hardware state.
+> 
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://sashiko.dev/#/patchset/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com?part=1
+> Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
---
-Lee Jones [李琼斯]
+    Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
+
+> ---
+>   drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 11 ++++++++---
+>   1 file changed, 8 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+> index 710603afff86..8c044381b83a 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+> @@ -2270,10 +2270,15 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+>   
+>   	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
+>   	if (ropll_hw.sdm_en) {
+> +		val = 16U * ropll_hw.sdm_deno *
+> +		      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num);
+> +		if (!val) {
+> +			dev_dbg(hdptx->dev, "%s invalid ROPLL hw state\n", __func__);
+> +			return 0;
+> +		}
+> +
+>   		sdm = div_u64(PLL_REF_CLK * ropll_hw.sdc_deno *
+> -			      ropll_hw.pms_mdiv * ropll_hw.sdm_num,
+> -			      16 * ropll_hw.sdm_deno *
+> -			      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num));
+> +			      ropll_hw.pms_mdiv * ropll_hw.sdm_num, val);
+>   
+>   		if (ropll_hw.sdm_num_sign)
+>   			fout = fout - sdm;
+> 
 
 
