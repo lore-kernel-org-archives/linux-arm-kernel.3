@@ -4,118 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C3BDC531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736FEC44524
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 07:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYVKE5mmJtjTn82FVjCAbZIeCYNYBOqPUJMSpmeG3ps=; b=QdnROnfG1eKSFzF49ez8AERx5A
-	livVOQFJ0JudkGn9Cu1dpr/mrzym57ODmKnJ/3rzVl7C7F9Gqb0WANezOCtiBJvJ+i2t4BfE8ZB2d
-	Qd6lVQJtWhdAEwxiL6Fv6ZCTTNn9pzwxqC6yMLpGIIvl/Ml71DtpcRkpSMnJUZdnasHxI163Vel8Q
-	k39U9l+haL4p/E4gh8atqjlhBYcc2DnXPJmuX9WDKTOKN2M+kRjEhzO/+DBSYUYe2KBKhovAR2pJT
-	hm1/XLsIdRpi74Gq2hAL+bhDZK3aOm8GorqMQlRNebTjaQPUgN5FgUec10i3fFWs/SAf616UbxwLY
-	NEWxuiyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VK2dEEAtsn5jm4PiuInkYdtk4CdTZkxc+t8/mCBMM+0=; b=AhAT6Kyn6RFr92
+	Xs/6wA9UGPwK4nl6wIvHfhGxzw3FYQSEfsWxRY4k7BXB8sV+I7bU6jztpqcRhKlGlBx8dAORXhxfs
+	aUo4igsGgCfvjdupHcZQ/ik6v494F7EuH973XTIXjtoDmvzlZL8Rz/qV4oedpGw3pgtHGznQB/ov4
+	dk5iG68wwRGo92PgESExC7YHwo/U1iXpv5lDJzM3Qw4mwCFBaPwRVr7m0YcIEFrijCgXqgBRE9g7i
+	WinoGnWvcH88jbOWwQY8V0tnHmTgtlzOWWK2lq7LOgb01eOLd5ipCTEYuuSK7advPGmT1hQqCLrpa
+	VOoHY0Q/V/E7gzhdQeCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmnu1-0000000Dete-26h8;
-	Thu, 23 Jul 2026 07:31:34 +0000
-Received: from mail-eastusazon11011034.outbound.protection.outlook.com ([52.101.52.34] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wmnro-0000000DdyF-4AYd;
+	Thu, 23 Jul 2026 07:29:16 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmntx-0000000DetJ-1qtR
+	id 1wmnrZ-0000000Ddqt-0W2V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 07:31:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wozJle++uxB+kMApqZfEa5wQTcw7N1B7DwlUIvIahFLrq3BnQD8Bcwi4uIRyNqGdGsx5KqIzFyTcO9h7vlh4wmhOk15HmlCyDmjZvPpq1P/0RfTjdKnRmY1gYogy1sBniY9Nh+WrXVcUrwAB6reKA1MH81BjButV+xH1K6C9SkA58sUZjjAN21Ia0VBEcw2n4DAj7fdZ46jHNRZTzTfNXukkBzJ4DbXcqDJAEezBNGzF3Lz0PxFhmTYo1W9fY8JZG7fJkmZktytzA/Uu4RbXWi2VnXQjhraPrs+uXhGan2M70XMGV4vy8u7BKk8vBqqpDPNFP1zGyYL7HKojp51mWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MYVKE5mmJtjTn82FVjCAbZIeCYNYBOqPUJMSpmeG3ps=;
- b=CLQyd0laxttIa980ZUbWep8xKSTq7Q0pSeHqfPJ62Bmc2hx1CDkJUWHHxDXUVVJ2tnFvhW7RADORvqXQkN3Wgr0hQkHVj5YBt+oxpG46TBiZjvIdOEiYriesjjb6rMDbNEvIN4zc05OF1TY35jR4C3ToCLCnjf1DrDSFgkLppXidMKAMKUDrRVQ9u5s4WCwKwyvrZdJlIS5UU/npEEF/9YMyC361PhH/p2wD8qr774lQs9ZjGtk8oi2P5d+VQZOvi3/5+idIB6SotxP+ANWRMVpzCfNdzMs1wZ82CxZcyPaQY6J5GtXu5zAUT9rBxoxe4UcvyI37/E+WDA9kGPV19Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=codeconstruct.com.au
- smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
- header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MYVKE5mmJtjTn82FVjCAbZIeCYNYBOqPUJMSpmeG3ps=;
- b=slec681PwAQ3piONRgV61w22T5Z0GlIvnZPIfbXdZaez2qz9YSh97noROK8ulYpC/njjmkLBzM0lVxwI2UhN6v2aeYSqG/MoySx8Jhc/ceFHES0U7Ev45uprtvztakDwNp7/Amcs6wt1ayCQR9gVpnNVrRMxESTfmle7XGrbgSV5QCC3TbOAJnEccq7HNQ/D9DoRY/nCQiphmeyVNknEQSnQHy6SK/EqD5AWjKBo5jhwQp3AhmfkbsJjTX3m0hIAUzcuPIXdf2yFyqKOLE6FfiOmygQ9C7kwBhpERZuv8KcQzfAGaTyYPZb9Y8YWn5C+cXo5Vz+cxVvN9/p1I0xJpw==
-Received: from DM6PR02CA0126.namprd02.prod.outlook.com (2603:10b6:5:1b4::28)
- by PH7PR12MB7308.namprd12.prod.outlook.com (2603:10b6:510:20c::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 07:31:19 +0000
-Received: from CH3PEPF00000018.namprd21.prod.outlook.com
- (2603:10b6:5:1b4:cafe::8b) by DM6PR02CA0126.outlook.office365.com
- (2603:10b6:5:1b4::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Thu,
- 23 Jul 2026 07:31:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH3PEPF00000018.mail.protection.outlook.com (10.167.244.123) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.0 via Frontend Transport; Thu, 23 Jul 2026 07:31:18 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Jul
- 2026 00:31:02 -0700
-Received: from nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Jul
- 2026 00:31:00 -0700
-From: Jacky Huang <jackyhuang@nvidia.com>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@oss.qualcomm.com>
-CC: Jacky Huang <jackyhuang@nvidia.com>, Joel Stanley <joel@jms.id.au>, "Rob
- Herring" <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew Lunn
-	<andrew@lunn.ch>, <devicetree@vger.kernel.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>
-Subject: Re: [PATCH v3 2/2] ARM: dts: aspeed: Add NVIDIA VR-NVL BMC
-Date: Thu, 23 Jul 2026 16:29:55 +0900
-Message-ID: <20260723073032.1666282-1-jackyhuang@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <3b6aa85161702da4322cc361e500a90c832af6a7.camel@codeconstruct.com.au>
-References: <20260710054849.3178747-1-jackyhuang@nvidia.com> <20260710054849.3178747-3-jackyhuang@nvidia.com> <b707f061cbdfe52f8d72ccd33ec177113e20a5e5.camel@codeconstruct.com.au> <3523fefc-8ba8-4512-b088-7a94a2df73f8@oss.qualcomm.com> <3b6aa85161702da4322cc361e500a90c832af6a7.camel@codeconstruct.com.au>
+	Thu, 23 Jul 2026 07:29:04 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1784791735;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=VK2dEEAtsn5jm4PiuInkYdtk4CdTZkxc+t8/mCBMM+0=;
+	b=rvwPgg0D9mNjuvxhayGzpNxIiH4wvZe6XbXGHfkQhnF2085HaSnVzMbYyc75aXVlt7ra0C
+	fE7mnF1EKm+PBFowDEw+aVUw+271or3cMtSGr+O/O25wL4V7m2ImmV/oC506Of1/owVtQO
+	orwI3OJ1i6P6st5HQ3dWjKcM4i+W9yJIPuyjmHQxXUr3qwjxNC8U3x4RRZn/CjkcOe9Yzm
+	f8+RQC05Phwjwl8ajy/XTsucoD1TFv9j6gh4ZxNNjncXp1PsHhcIoh6OEQ3bs930pk3VkT
+	AmGAb6O9ApDrGwvUuU6tRTF4i9RgLgATc0udADoKhBivLxQmhGLKN5DykQJv6Q==
+Subject: [PATCH v3 00/11] Support ELE API in i.MX OCOTP NVMEM driver
+Date: Thu, 23 Jul 2026 09:27:22 +0200
+Message-Id: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.230.37]
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000018:EE_|PH7PR12MB7308:EE_
-X-MS-Office365-Filtering-Correlation-Id: b48fcbfc-e735-4993-3226-08dee88c631a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|1800799024|7416014|376014|36860700016|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 8cIsfS6CTP7x6Do6tFgWn2ZyznvzelN3y+Kn0r/bQ39LC+pcsnJntlLPEUGW8wRE/dol8HCX2jXmey0zvy0NEzwNzG+F+3oPK+rz2WrwdSX7AxDBo1LnfYBv+js07VH59UDGnCtSw4t2imiXRaWZFUwHkaenb40z2aJsOfFve2VfjkG1rbOA7IkkFc3kcHOR7hT93/yBfyR2c65q5XrZDeIFK75afr94xwc5cI7mbAg/nMknhk64afkh2AzqEuvQMCWrjWnjQMeKrkLMpFzpTZtnGewTUeRj55F8RS0xuJSS1VqCHRb0an9M/GYqQTY4+Y3l/iphrPNOMZAiKVNP/B+IeJI1CfglVs4VirN/BMnRzqNqK41A0u+3esp4Aly7vUS/eZbQDrXuK42Gw4sMuNFvP698TMT8crMSa+XizqLDd0Krc1fZ+MAgXpVsNM2udTJnOWYGgYHIOQ+1hYcgotozTGwLcMplCEVK5qbhFMesjC11JZYoXee/yRg9kKQGeMmV+pdJJdc4AUDpAj3ItGerIShd0S7izJkE8Ph+mxGFdRLhMkhhu1jyqx7jRZKlLodDp3GBbz9jIvv5SomuZ/NaJKvVZNtC4Cf9vNex/ZAoYtxKhSW+yYawkGG5RjKAajRV+LXBHaF8DN1bj7+K9DjfP6UC3UHmTuHpl0CvzNUdwuhHROAaWPcQRYFgU8BZpq7HNTZEF1NWFmp85wjxDw==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(7416014)(376014)(36860700016)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Z8rxm3BZdAMw5MnG9djBN1yq3CFH8Q2nNrrDsHcipvGTtEf9J95mI6lqyBiXTEF6xlCkPtVJCnBMKUDzrE8HIjRzW2ku1/q273zmIT1hHpbfI2+BPAyene7qbqcJms5tn5pvNPXdD1Q2PPV8CXsJVQb+qA9uJZqKD71Nm2f1SsmGJYKIjgwpRelFDZ2KP3CCnU53lSqbdFZds0WTRzy/9XsbAHGLUXSbL4Hx+31abLFM7K/B7Bbnu+Ltpq6E2qAeaJfvudP0wFsr+k87UbqULIVpliB4gMBNMk7Bfy7wD3v0p6JcuzyCZf5Puk4vJuyGry0ZDCWZDikXedHSzxpyy7GK+MFp6HyBi5GHEXnYKmM0erjK2iJFARRA1gTfiGUs18hiAWXJfhnE6mc75UkABGl/he77lgSpxMF2RYi7ragjFA2l22USkESM91PyD4Wj
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 07:31:18.7273
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b48fcbfc-e735-4993-3226-08dee88c631a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000018.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7308
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WQzW6DMBCEXwX53I38AyZwyntUPWB7SdwWm9rGo
+ ory7jVwiHprj7O7+mZn7iRisBhJX91JwGyj9a4I8VIRfRvcFcGaogmnXFLJJCxzTAGHyborOFw
+ THBvagZ1W8NqnGfATYWgYN2bspKKCFNoccLTr7vT6dui4qHfUacNvFzcbkw/f+yuZbXf/d80MK
+ GjVjkJ2Zy1QXj68S8G7k0Gy2Wb+BLdM/B3MC1iduZSmEw2r1S/w4wgU8GspDaYj5bPAvirUmja
+ 03amxzEYYakqbhnbCaNln3m0VqKHstJ8mm/oqtycOQdcF//gBzjV1D6gBAAA=
+X-Change-ID: 20260616-upstreaming-next-20260609-imx-ocotp-ele-a512ddf96b03
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Pankaj Gupta <pankaj.gupta@nxp.com>, 
+ "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5478;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=7hdQj4bMhlRP6A7yET8sBVVYL0Q09ir16zBxsAVoKXw=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISvx0FZTz9DJCyZx/Tl1afGGWtc1ExQu+3zrbz7sI/a9i
+ UViqrNaRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwERm32dkaI05H+97r7rBwGVx
+ taKG+dnFf993fNttOzHRpes4j+xcR0aG3cH7rjDeCDjXxtbVtCOTf44x54IlkZsr5l/c3+i71vM
+ YIwA=
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_003129_504077_323E4563 
-X-CRM114-Status: UNSURE (   5.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_002901_751879_F46C9880 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,11 +88,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew and Krzysztof,
+This patchset depends on "firmware: imx: driver for NXP
+secure-enclave" [1].
 
-Appreciate the guidance and clarification! I will address the warnings
-and prepare the next version.
+The imx-ocotp-ele.c driver currently uses the limited FSB (fuseblock)
+to access the fuse registers. In order to gain full read/write access
+to all fuses, we need to use the Edgelock Secure Enclave firmware.
 
-Thanks,
-Jacky
+This patchset does:
+
+* Add bindings to reference ELE device in OCOTP driver (patch 1)
+* Export ELE API functions (patch 3)
+* Let the OCOTP driver use the ELE API (patch 7)
+* Extend the devicetree of i.MX91/i.MX93 boards for using the ELE API
+  (patch 10/11)
+
+The rest of the patches contain cleanups that were implemented along
+the way.
+
+This was tested using the 'crucible' tool and by directly reading
+from the nvmem device on i.MX93.
+
+This still lacks support for the i.MX94 and i.MX95 as I don't have
+the hardware for testing on these platforms. As the documentations is
+incomplete it is hard to get the keepout table right without testing
+on the actual hardware. If someone else can provide the data and
+testing, I can add it in a future version. If not this can be done
+later.
+
+---
+Changes in v3:
+- Fix bindings to correctly ignore the secure-enclave property for SoCs other than i.MX93 (thanks Krzysztof)
+- Rebase on latest ELE driver patchset (v29) [1]
+- Enable ELE in all board devicetrees (suggested by Francesco)
+- Put the reserved memory somewhere in the first 256MB of DDR
+- Link to v2: https://patch.msgid.link/20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de
+
+Changes in v2:
+- Adjust bindings to allow secure-enclave only for i.MX93 and improve commit message (suggested by Krzysztof)
+- Export generic ELE API functions to be used by drivers (suggested by Frank and Peng)
+- Move the fuse read/write functions to the NVMEM driver (suggested by Frank and Peng)
+- Add patch to use __free(kfree) in imx_ocotp_reg_read() to fix memory leak (reported by Sashiko)
+- Use device link to prevent SE device from being unbound while referenced (reported by Sashiko)
+- Link to v1: https://patch.msgid.link/20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de
+
+[1] https://patchwork.kernel.org/project/linux-arm-kernel/cover/20260721-imx-se-if-v29-0-04a362f4fcca@nxp.com/
+
+---
+Frieder Schrempf (11):
+      dt-bindings: nvmem: imx-ocotp: Add support for secure-enclave
+      firmware: imx: ele: Fix indentation in ele_base_msg.h
+      firmware: imx: ele: Export API functions
+      nvmem: imx-ocotp-ele: Add keepout table for i.MX93
+      nvmem: imx-ocotp-ele: Remove device-specific reg_read()
+      nvmem: imx-ocotp-ele: Use __free(kfree) in imx_ocotp_reg_read()
+      nvmem: imx-ocotp-ele: Support the ELE API
+      nvmem: imx-ocotp-ele: Remove the FUSE_ELE type
+      nvmem: imx-ocotp-ele: Rename FSB access map
+      arm64: dts: Add common include for i.MX93 ELE firmware
+      arm64: dts: Enable EdgeLock Secure Enclave on all i.MX91/i.MX93 boards
+
+ .../devicetree/bindings/nvmem/imx-ocotp.yaml       |  14 ++
+ arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts  |   1 +
+ .../boot/dts/freescale/imx91-11x11-frdm-s.dts      |   1 +
+ arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts |   1 +
+ arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts    |   1 +
+ .../boot/dts/freescale/imx91-phycore-som.dtsi      |   1 +
+ arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi  |  15 +-
+ arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi  |   1 +
+ arch/arm64/boot/dts/freescale/imx91-var-som.dtsi   |   1 +
+ arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |   9 +
+ .../boot/dts/freescale/imx93-11x11-evk-common.dtsi |   1 +
+ arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts |   1 +
+ arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts  |   1 +
+ arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts    |   1 +
+ arch/arm64/boot/dts/freescale/imx93-firmware.dtsi  |  28 +++
+ .../boot/dts/freescale/imx93-kontron-osm-s.dtsi    |   1 +
+ .../boot/dts/freescale/imx93-phycore-som.dtsi      |   1 +
+ arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi  |   1 +
+ arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi  |   1 +
+ arch/arm64/boot/dts/freescale/imx93-var-som.dtsi   |   1 +
+ drivers/firmware/imx/ele_base_msg.c                |  42 ++--
+ drivers/firmware/imx/ele_base_msg.h                |  16 +-
+ drivers/firmware/imx/ele_common.c                  |  35 ++-
+ drivers/firmware/imx/ele_common.h                  |  14 --
+ drivers/firmware/imx/se_ctrl.c                     |   6 +-
+ drivers/firmware/imx/se_ctrl.h                     |  14 +-
+ drivers/nvmem/imx-ocotp-ele.c                      | 244 ++++++++++++++++++---
+ include/linux/firmware/imx/se_api.h                |  78 +++++++
+ 28 files changed, 432 insertions(+), 99 deletions(-)
+---
+base-commit: 6946cd5d0aa4dd10a414ddcb7a10844fdb0ad345
+change-id: 20260616-upstreaming-next-20260609-imx-ocotp-ele-a512ddf96b03
+prerequisite-change-id: 20240507-imx-se-if-a40055093dc6:v29
+prerequisite-patch-id: 0996915f031a1d899202c5fba75a969d6ce2a53d
+prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
+prerequisite-patch-id: a01f5127b7f2de9db2e90d6995ad1638454388e9
+prerequisite-patch-id: 587c80a477788420072172cde87eab19216f7139
+prerequisite-patch-id: 1537cc12f7000c7474f8e95d67c8ff3715c51c32
+prerequisite-patch-id: d6a8cd2161ea713eebeff46d12f6ae1255c24561
+prerequisite-patch-id: 1d8b2e78db2815eaace41a13d571171fb58e4221
+
+Best regards,
+--  
+Frieder Schrempf <frieder.schrempf@kontron.de>
+
 
