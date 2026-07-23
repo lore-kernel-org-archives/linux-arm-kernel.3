@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA7FC531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B67C531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vWeYOcC5jOa3LaTaGQh392YJ/C5kCPyX4Kfef/Fwgh4=; b=hohRF0J3oQ25kFJo3bIntifCDK
-	qAmlYVEdfWS8taKoVgouP03Fa61rnXG5SUVEBsx+6VCpIpDHBOhNnhRV2hdlUcoqOr4jzB16wELhu
-	C2FlSxkPFcJovY1PkXA0rdjIwbkQdgQIWcJKQcpOfG1bSi/vF1X5yEqfyR0noLMcY/afKKM35beyW
-	1tNhXy5DokFPTeeYdsAsdEZ367WLF7VYrye5phJ9BePwR1064rWgfBqVxxSHvcPsfIfDTQhJM+fMV
-	btYKA/93kY0B137NGoMERiN0cSpa8lyIaBP9gneCKABQDdB4EVZDrdIv2pa4XBZFbpSFVj8S55KRU
-	Gx3UchAA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JJLBjhTwK9Uo53TmNSc/cJ9oL3cSqYdaSEVBlK9j7mw=; b=y27NaGgq23ETHuD9hnzkcr/E/Q
+	E/fF18keITtrikX8DpBFnbYymqI5GrSBa680e5xgmx51cO0a95D9kJpo2dN1NV0Eo514bOgDOPT1J
+	bPgynbGw7kGG7FxUshxvrDj6igupbINQGlKwad+uw1Ln/lKGh9AHGDts1Kf37Q0mFYAz+34xFUDuX
+	NQhe4w7p7W487f1RtIGLVv1Ni38SUYbY3xeFlSeHB6VAkMZ3XRUHyBIMB0GMbEoPYKeWnfOxYSiUU
+	mqny4UVNrsZ2kjP2T7MUffI1YUIzipfXKZPjW5+XP+AIJuILEBs5bhVkGmnN9e9PTCU309U4jLMsu
+	eNnPLlwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpqu-0000000Drhy-18DE;
-	Thu, 23 Jul 2026 09:36:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpqq-0000000Drh2-3fyz
+	id 1wmpsv-0000000Du2p-2QoJ;
+	Thu, 23 Jul 2026 09:38:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmpsu-0000000Du0i-0CCV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Jul 2026 09:38:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=JJLBjhTwK9Uo53TmNSc/cJ9oL3cSqYdaSEVBlK9j7mw=; b=jZAhCXIV3qjAHESZbb+jS1xCh0
+	Hg93ZfR6RI8nF3QOW+WE7FIq8FhphBDxrc4P+6lkb+lcWGxOyyzcO7rzO5R6fE/vsMTNrdK8MEjsX
+	a6isKDqTdprFKKanA0qxOUd3a7S2P5kMKnpUYy4EgPCPAaXD0pA+eVtGe0800U0KKSrk0z/S07faS
+	es3kIha/e9QvsLWYzGZQLMMLdOf6deiiRb0aJWjz+T60WeqdLLI1no4cRMZdd0H1aBmc9Jsz/kpVl
+	AyKHRD28rjm1HPtgXE1pA67D+zs8xPOJWu6QmlnswXRHg2oKASxC5BteZSzRAuDk6AfMz+Yf4ZL21
+	yVEov/CQ==;
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wmpsq-00000001c34-14G7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:36:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F09251477;
-	Thu, 23 Jul 2026 02:36:19 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E05333F66F;
-	Thu, 23 Jul 2026 02:36:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784799384; bh=6LYLf2oxp2u3VwKlev2QEEs9lsFS0QDGOk9hlr9Vxrc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X8eTrm+TifNqx9OYut7ZlBImbNwheMtEkjbmf7ThW/F6Y0PZlSIXBO6jqPm1tTO1A
-	 wwoc4LitNeTLYp+e5lP7BfqrBa1Uuj6zx7VyTnT7/j30z6LiIXAb0ouMju2i5A0QUu
-	 IbK7KKi98F/ULLPEY+Mm4TkItatXpzwyRXyzcK0M=
-Message-ID: <1dd99bf0-c4b0-44ce-86ad-4ad1d0de75a7@arm.com>
-Date: Thu, 23 Jul 2026 10:36:21 +0100
+	Thu, 23 Jul 2026 09:38:30 +0000
+Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 583621FB1B;
+	Thu, 23 Jul 2026 11:38:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1784799502;
+	bh=JJLBjhTwK9Uo53TmNSc/cJ9oL3cSqYdaSEVBlK9j7mw=; h=From:To:Subject;
+	b=KmZioJc9sYaepD7gYtFjjcIDXj72DQt0fCOxDqITgrd6g54GW5QKCMnSvFzi84PDi
+	 1R47KYfSgyI46cU3MvkLhIR+b3Inj9CYnkCPaJ9ep6d1YnoHHkILF8kYy0s435I2gT
+	 ClzG4DWgzGY6gY1GAgcw6JSG0aWWZ0zi/fOjCnxbo5+9NmoPFQeRSZsTXHSMLv8kCI
+	 +2B80fYvR2pfu+CnFN0/VaFjEPhynDnK7HLoE7HaGBsiRn96wpafF/OU/4zHZiq4Re
+	 21TFqmkVaHDyDwqTBdz4v0+esdjq7GsbMVxk5UVLxQxO/D1qZCRkMcOE1Ce4LID/1V
+	 u5yPp/5ZHaRug==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Marek Vasut <marex@denx.de>,
+	Stefan Agner <stefan@agner.ch>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/4] drm: mxsfb: Support LCDIF interface bus width
+Date: Thu, 23 Jul 2026 11:38:07 +0200
+Message-ID: <20260723093813.180089-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 14/36] arm64: interrupts: introduce generic interrupt
- masking helpers
-To: Jinjie Ruan <ruanjinjie@huawei.com>, "Liao, Chang"
- <liaochang1@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, catalin.marinas@arm.com,
- will@kernel.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-15-vladimir.murzin@arm.com>
- <03dbefa5-6828-4b62-8f43-45b631c49289@huawei.com>
- <31e2fdb7-063e-44a3-b667-766213839992@arm.com>
- <e0f77ad6-fce6-435f-9dd3-e10378cb29b9@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <e0f77ad6-fce6-435f-9dd3-e10378cb29b9@huawei.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_023625_076957_E7E080DD 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20260723_103828_491367_E4E46582 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,201 +100,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/22/26 10:05, Jinjie Ruan wrote:
-> 
-> On 7/16/2026 5:37 PM, Vladimir Murzin wrote:
->> On 7/15/26 10:30, Liao, Chang wrote:
->>> 在 2026/7/9 20:13, Vladimir Murzin 写道:
->>>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>>
->>>> As for the entry code, we want to replace `local_daif_...` helpers
->>>> so that they can properly handle both DAIF and PMR, as well controlling
->>>> their use more strongly.
->>>>
->>>> Introduce new `local_all_irqs_...` helpers to replace them, which should
->>>> only be called in save/restore pairs.
->>>>
->>>> Save the requested interrupt state as well, so we can check for
->>>> inconsistent interrupt masking in between save and restore.
->>>>
->>>> There are two exceptions where it does not make sense to force
->>>> save/restore pairs for modifying the interrupt masks:
->>>>  - when initializing a CPU or
->>>>  - preparing to turn it off.
->>>>
->>>> As we otherwise want to force save/restore pairs, those cases are
->>>> handled with specific helpers, making clear that they should not be
->>>> used outside of those cases, enforced with `CONFIG_DEBUG_IRQFLAGS`
->>>> enabled.
->>>>
->>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->>>> ---
->>>>  arch/arm64/include/asm/interrupts/masking.h | 101 ++++++++++++++++++++
->>>>  1 file changed, 101 insertions(+)
->>>>  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
->>>>
->>>> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
->>>> new file mode 100644
->>>> index 000000000000..66ee03f7ab68
->>>> --- /dev/null
->>>> +++ b/arch/arm64/include/asm/interrupts/masking.h
->>>> @@ -0,0 +1,101 @@
->>>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>>> +/*
->>>> + * Copyright (C) 2025 Arm Ltd.
->>>> + */
->>>> +#ifndef __ASM_INTERRUPTS_MASKING_H
->>>> +#define __ASM_INTERRUPTS_MASKING_H
->>>> +
->>>> +#include <asm/arch_gicv3.h>
->>>> +#include <asm/bug.h>
->>>> +#include <asm/cpufeature.h>
->>>> +#include <asm/interrupts/common_flags.h>
->>>> +#include <asm/ptrace.h>
->>>> +
->>>> +typedef struct arm64_exc_hwstates {
->>>> +	arm64_exc_hwstate_t saved;
->>>> +	arm64_exc_hwstate_t expected;
->>>> +} arm64_exc_hwstates_t;
->>>> +
->>>> +#ifdef CONFIG_DEBUG_IRQFLAGS
->>>> +/* Make sure the CPU init/tear down masking functions are only used once. */
->>>> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_init_done);
->>>> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_final_done);
->>>> +#endif
->>>> +
->>>> +static inline
->>>> +arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
->>>> +{
->>>> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
->>>> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
->>>> +
->>>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->>>> +		bool pnmi = system_uses_irq_prio_masking();
->>>> +
->>>> +		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
->>>> +			     actual.daif == DAIF_MASK);
->>>> +
->>>> +		WARN_ON_ONCE(new < ERROR_CONTEXT &&
->>>> +			     actual.daif == DAIF_ERRCTX);
->>>> +
->>>> +		WARN_ON_ONCE(new < NONMI_CONTEXT &&
->>>> +			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
->>>> +
->>>> +		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
->>>> +			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
->>>> +			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
->>>> +	}
->>>> +
->>>> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
->>> Is it necessary to compare pmr field unconditionally here, does this function's
->>> usage imply a strict dependency on pseudo NMI？If this function moves forward to
->>> support FEAT_NMI, checking PMR seems unneccesary.
-> I also think that this function seems to forcibly require the
-> implementation of pseudo NMI and FEAT_NMI.
-> 
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-I already revisited that, and I'll propose a reworked interface that
-should (I hope) make it less confusing (see my reply to Chang a few
-lines below for the idea).
+The width of the physical LCDIF output bus can differ from the input bus
+format advertised by the downstream panel or bridge.
 
-> Can the arm64_update_exc_hwstate() and similar functions pass the target
-> exception mask and current exception mask, and the function internally
-> performs the check of "update_pmr" or "update_allint"?
-> 
+Such a distinction is required when the LCDIF bus width does not match the
+width of the downstream display interface. For example, an 18-bit or
+16-bit LCDIF bus can drive a 24-bit display by wiring the available color
+bits to the appropriate display inputs. Configuring LCDIF solely from the
+display's 24-bit format in this case selects the wrong LCD_DATABUS_WIDTH
+mode, changing the color-bit assignment on the LCD_DATA pins and resulting
+in incorrect colors.
 
-That would require us to always have the current exception mask
-available. There are cases (such as exception entry, or here when we
-save the state) where we have it almost for free. However, we may also
-encounter cases where we either do not have it or cannot trust it, in
-which case we would need an extra hardware state read just to satisfy
-the interface.
+Use the common OF graph endpoint bus-width property to describe the width
+of the physical LCDIF output bus. Make the mxsfb driver derive the
+corresponding media bus format from this property and use it in preference
+to the format reported by the downstream display. When the property is
+absent, the existing behavior is preserved.
 
-Obviously this is not set in stone, and we may revisit it later. For
-now, though, I'd prefer to keep the interface layered on top of the
-basic hardware state operations.
+Set the endpoint bus width for the Colibri iMX6ULL and Colibri iMX7 boards,
+which route an 18-bit LCD interface.
 
-Cheers
-Vladimir
+v2: use the common bus-width property instead of the legacy interface-pix-fmt
+v1: https://lore.kernel.org/all/20260717121847.488148-1-francesco@dolcini.it/
 
->> Yes, it is not necessary, but it is cheap. :) However, I think I need
->> to revisit this approach. More on that below...
->>
->>>> +
->>>> +	if (!arch_irqs_disabled_flags(actual.flags))
->>>> +		trace_hardirqs_off();
->>>> +
->>>> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
->>>> +}
->>>> +
->>>> +static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
->>>> +{
->>>> +	arm64_debug_exc_hwstate(states.expected);
->>>> +
->>>> +	if (!arch_irqs_disabled_flags(states.saved.flags))
->>>> +		trace_hardirqs_on();
->>>> +
->>>> +	arm64_update_exc_hwstate(states.saved, true);
->>> I'm curious why it forces update_pmr to true for this specific path?
->>>
->> We force an update because we cannot fully trust that the HW state
->> matches the expected state. The expected state exists for debug
->> purposes only.
->>
->> In the local_all_irqs_save_mask() case above, we have just read the HW
->> state, so we can use that information to avoid some unnecessary HW
->> updates.
->>
->> I think it would be better to provide two versions of
->> arm64_update_exc_hwstate(): a strong version and a relaxed version,
->> with the strong version being the default. That would let us limit the
->> relaxed version to places where we know it is safe to skip redundant
->> HW updates.
->>
->>
->>>> +}
->>>> +
->>>> +#ifdef CONFIG_DEBUG_IRQFLAGS
->>>> +static inline
->>>> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
->>>> +{
->>>> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
->>>> +	if (context == PROCESS_CONTEXT)
->>>> +		trace_hardirqs_on();
->>>> +	arm64_update_exc_context(context, true);
->>>> +	__this_cpu_write(irqs_masks_cpu_init_done, true);
->>>> +	__this_cpu_write(irqs_masks_cpu_final_done, false);
->>>> +}
->>>> +
->>>> +static inline void local_all_irqs_final_mask(void)
->>>> +{
->>>> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
->>>> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
->>>> +	trace_hardirqs_off();
->>>> +	__this_cpu_write(irqs_masks_cpu_final_done, true);
->>>> +	__this_cpu_write(irqs_masks_cpu_init_done, false);
->>>> +}
->>>> +#else /* CONFIG_DEBUG_IRQFLAGS */
->>>> +static inline
->>>> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
->>>> +{
->>>> +	if (context == PROCESS_CONTEXT)
->>>> +		trace_hardirqs_on();
->>>> +	arm64_update_exc_context(context, true);
->>>> +}
->>>> +
->>>> +static inline void local_all_irqs_final_mask(void)
->>>> +{
->>>> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
->>>> +	trace_hardirqs_off();
->>>> +}
->>>> +#endif /* CONFIG_DEBUG_IRQFLAGS */
->>>> +#endif /* __ASM_INTERRUPTS_MASKING_H */
->>> -- BR Liao, Chang
->>>
->> Cheers
->> Vladimir
->>
+Francesco Dolcini (4):
+  dt-bindings: lcdif: Add endpoint bus-width property
+  drm: mxsfb: Add optional DPI output bus-width configuration
+  ARM: dts: imx6ull-colibri: Set LCDIF bus-width
+  ARM: dts: imx7-colibri: Set LCDIF bus-width
+
+ .../bindings/display/fsl,lcdif.yaml           |  9 +++++++
+ .../arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi |  1 +
+ arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi   |  1 +
+ drivers/gpu/drm/mxsfb/mxsfb_drv.c             | 24 +++++++++++++++++++
+ drivers/gpu/drm/mxsfb/mxsfb_drv.h             |  2 ++
+ drivers/gpu/drm/mxsfb/mxsfb_kms.c             | 12 ++++++++++
+ 6 files changed, 49 insertions(+)
+
+-- 
+2.47.3
 
 
