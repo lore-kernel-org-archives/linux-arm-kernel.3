@@ -4,141 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155DEC531CB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D291DC531CF
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U5wdYWawjgeCZOI9JYi5rHfqLOSdVZ28risoVJQhfHI=; b=xTqGUYbDUfjuO4KWwYq0zaNPGB
-	WTgjJKPSqNtyGiOLERtVTLWQtMpNC4MEXd9Qsza9QLXrKU5y+XR7h8C4AoAzC8GwUFfeMs6xnOF1G
-	5vmD6rardg8RowsJXxsIqK49VzfRDfWeWOYE7ElSGATbYaVIm8Wdj8N9ZW9iagiA7Dvpol+KiuvGd
-	pccmyVDQVOgRlx8FRL3Ma458VR/XBPDxvvE4uEbrGF6Yf9VZSsZvMEpomaE5XFG/L7vlaw1Hgucsi
-	OQWMIV7d6pu/j1BBTaCkMhK9RnVAA9LXUxC+ENk6Elcp3vUVleYfrXQshNQ9iZwETjEgdQhZkcIIn
-	pSqqF0fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aFcWQZtsOaTJqZL9+XHfh6CZtEhn6WtQTeGOpbwxm6M=; b=rbD2ZRfYLwCaAJAVH2gWyQvj60
+	gZIb7AfsC1U+omXRzXqeXrAneD/ldZZh1C5XiU7Q2yBnp/fEfVDa65Gy3jmw762Ioyvb/rcRQ03qV
+	Pgy9Nc+WgVD+zyof8Q/gK8dWM1IyB1qUdB20RnR+wnScGLiefKvp4OVphNsSLwYxcYrKoAg5vBLbP
+	bifrKWZziy5NsytcinM02RfDaLNjvD/BhZNNG2tRRWD05b1s8O3OTN/aNETng5wX+QpDz4upSHiQp
+	zXIPBMzQsbE91iLbKm6FepI5rMxhIZPvUiDYNiQrk6sGIWo/HA5dU2HroPVpcfBVk/lQxxeLPPGrU
+	ERy4dfJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmt3G-0000000EJSS-25qz;
-	Thu, 23 Jul 2026 13:01:26 +0000
-Received: from mail-francecentralazon11023122.outbound.protection.outlook.com ([40.107.162.122] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmt39-0000000EJQk-2pxN
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wmt3A-0000000EJR5-17rS;
 	Thu, 23 Jul 2026 13:01:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YDU5pJL3CyfFEQboxgfySezV5n197PU9pyh+5OnOsiEZi3Svoa0TEwy4iQONiinDPK8BaS8IxQavC+hL2fXEPM52U1z/CnQYHIsS1pgHP6l9OTG4Z1KULjrSmT0sS2tKXkLdKKhCe+N3ZU42TwTk0Uy6DMTYvR1Tl916DZa8p5OBkM5GTyvUvyeSv6sumjPUKnyn+bn0hNe4ES8BgUr9DM3443wWbsZf6aV4tQ4YqglM7b57Ft9BJH+itgsB2v1V637i3eEheVUJn3ES/Ok1oeoRF6mXioAlty7w8sxKAWoTYBK9OZ4peDNZnThhr6tey7p4oh/zHR5lHKdf745qqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U5wdYWawjgeCZOI9JYi5rHfqLOSdVZ28risoVJQhfHI=;
- b=MrOyteD9VertBctweGIluF2mvVSOHg1C/EeKjRzI90/5wMG3nDX4bo3XLiTdqCTD6h/c780vBVsWvgol7fvcTpxVv5JK7ygG0tHq1INdGZYAFa7G57CsE+NfWys7JuuaUxILQNrnp31sJsIRLnYhyfRLL+ajIcAulbgqoY1kXg4tp8FLgkGgqJC2lYrmtrKWGKGPP1tzZSXWnng4+SsOanKmuuqwh/Q1EACtUJYjWN0r8cAXW3czHttMSTk46JeZ9S4jyB3Jm5rDr1W+b6Nn9U4TqBjFj4XvoVrkdE2n6S1kC0C864HPfJFt63LYkA9ZpTMSAyc51CNDGs/imjs5IA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U5wdYWawjgeCZOI9JYi5rHfqLOSdVZ28risoVJQhfHI=;
- b=uksot+r0VUnMWyttWcvU3QhcnwIDrnRuVsb5h8Dti8BSl2CIhm/kJBZ06gnSv2TS67djwsBho2eDKMT+i4Uv03rR8chNZSonxaCEeONMT1TmXsKUclZUn2Pd3txvsN3M1cG4ATZB+ww6j3aTEmrikj0WSlYx+a07ir8BVKHtDPzEtTYmcoXWLdCQwPOSP1L04hdsglmOfDYpzdc0uUrerWk9OvkxS3X2Jt3vT+akC7GVELwcaM/X38DzR1wqMtrtU6puaKlzaifnZG1++taOW1FgRND2G/qmagsZsIjl4RE/3OIeMh/wiMpExmqaKV75+4TpymgdKMuh8KhpMvf8kQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by PA2PR10MB8941.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:421::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 13:01:14 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 13:01:14 +0000
-Message-ID: <03e70a16-3be4-4780-8404-17b6f011af5c@kontron.de>
-Date: Thu, 23 Jul 2026 15:01:13 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] pmdomain: imx8mp-blk-ctrl: keep gpc power domain
- on if blk-ctrl pd is on during system pm
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-To: Xu Yang <xu.yang_2@nxp.com>, ulf.hansson@linaro.org, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- peng.fan@nxp.com, jun.li@nxp.com, rafael.j.wysocki@intel.com,
- a.fatoum@pengutronix.de, ping.bai@nxp.com, shawnguo@kernel.org,
- l.stach@pengutronix.de
-Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260204111142.2147646-1-xu.yang_2@nxp.com>
- <fd6268c7-18e2-40bf-9d78-5f3a45ba319d@kontron.de>
-Content-Language: en-US, de-DE
-In-Reply-To: <fd6268c7-18e2-40bf-9d78-5f3a45ba319d@kontron.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0233.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e9::15) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmt36-0000000EJQT-43cW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Jul 2026 13:01:18 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so4798065e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 06:01:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1784811675; x=1785416475; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=aFcWQZtsOaTJqZL9+XHfh6CZtEhn6WtQTeGOpbwxm6M=;
+        b=LmQgffgiTyzhLBAXG0f6UN3AiHKc+Y2jDejAm7zaakPYJoatCWiStqFHL6Er9UjfPw
+         +9ezmjnD/QvprVo1g14IiLxQjfXbfmsjbaGWbA4NBiQhHdqnnM2ugD1UM+7v0F9yCvYw
+         rLg0sahBMSIDy4Xjudc2nDT8ZfOUPklPZHfAoaaeRNy6bbXBLmoWYrOLbKSCH3fNg3bk
+         ZmYJuBTFkryZyxFvvJIvB9X0ZBwm+AZZU0BkuOawOz4IPDdJWcRmu6bOYyjoIxRktpax
+         kzkE7NM0Yg5d8EuzCuOqyAnX0YdFgCBzD43kijGNxjlqoPTfvOynk4q5AnOULOupvxdb
+         N4/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784811675; x=1785416475;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=aFcWQZtsOaTJqZL9+XHfh6CZtEhn6WtQTeGOpbwxm6M=;
+        b=YSrJujf2rH/S/RnmS7y3/OKin2w4wwXBL+J9cmhGk12R/VflqOu6NfKfGn22/e+WQv
+         vxHcl0Na4UkqtcT/iayP3+lTND90EMKe01MLclXF8RX82KzwO0PMy7wWMo7Lf8oNRjtw
+         pipeilQIg6seOqR0DiC0CbfL40CdoPviYB62Xk7ATso7g2hg8Q9WGii1UrjFRk/iPB2o
+         YvsMGwl2HMcaGWI0d6nXdADyGn1Q/iVb1ZTeFw+1Vr9YmWJmPlPnXZlrS5tqYgmEKuDl
+         ZV7qb43s2PlrPScvf98Z+5Yvnca0Brd7pyHm1jjM9VMpgRWfcMBSOdHA/F1M2hEaa9pu
+         tBkw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr7iIxWi4W/KRdGX3pPLi2Lx8/Vv+MidLR7arDLpDcrNSjlVVgf4G+nyaLlpLY8/v1/khMPZ8lr+MAmiG5B1vSl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmuSUxfl65YxYCk5uOfpj1zhHjLtAG/Tmr0qMaZ8laQT0T0HWW
+	CfzMuSZE5w81Go6Vag4uZLhTmRNlqean52/+HHp4gwYYMZI/8fybqJdI3WAzMu02Ul4=
+X-Gm-Gg: AR+sD11vQQS4Z3mmFEYLq+QAYHqTDjpVtg0mBiEbPN94NfcTVcTAD+uYSvV+7BNJ6h5
+	0euS85hUx/QP4LoW2z9miovkfcnsPixmV/GDmneJEmhWdHBUh3YTch1GP3BMYYSHOoITW/ECIoR
+	KXHaWEZ9fjRbcNTcWkX0dkSB2ajFL/oQGHei3qxt0siJAdQN9TU7oArSAvjhN4Z9L9FMipTX9kT
+	9DL9XfXEkx3bB04FWCOf0h8jNxCSn8j0aVKwf/E0IAu0WsHNiJ7vrf6YMQgUqXBIUgO5/6Fw/5w
+	Yeuc6Tfg4zbcZd0I4nrWwtx4ucXdPTeSqgNOlwb8EEZ/LEEnNJDQiVXC+lkByPvjQFNE2GNg+7u
+	s5iKcgFP7uqeoSpaefsRJpGcdbf2LcE8mdqKDN1ree/4Pu8VOj676R/9XY6V2AZbmCNssp7ck3m
+	mBtMKbRhdp3Q==
+X-Received: by 2002:a05:600c:1f92:b0:495:4c62:9d43 with SMTP id 5b1f17b1804b1-49573d1ff7bmr32337035e9.34.1784811674652;
+        Thu, 23 Jul 2026 06:01:14 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:a867:44d7:3dfb:853])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f85b9a659sm15986987f8f.6.2026.07.23.06.01.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 06:01:13 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Date: Thu, 23 Jul 2026 15:00:51 +0200
+Subject: [PATCH v2] clk: fix self-consuming provider module pinning
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|PA2PR10MB8941:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70fd1c1c-603b-47a5-983f-08dee8ba79fb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|1800799024|366016|921020|6133799003|56012099006|10067099003|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: B5f1KAjAZ2aOdpYrftsuXrb6jr4ZKvZ9Q9CrYYiioiCo9QWszS7gsnIxDlCiXx7jAN97DsGrOphMDzA+yBssunIDncIrv9F6GN7ZdnVM+avb01BcygCjX55YhDnv1ODS7ESpaTz1HPkeVEMMJ1FXdSjX6eVNIu0DBkl+4en07Md9wHdJy93IZL6Y+RKl3wgkIWEUVbMsf+35z/X03tpkCjct9OuGEofcDSG5wWPxGOp0BhblMaUGELcx6ohaW04zNn9T0dQMOlqgio57AVlFQOnlhxscS7LNxkFUVaCrJD3LHRtwk1IOQCcPTh96XoCgLPRdyDJZcLAjgsLBK3o634EH164fmD8EFpCiuZXEIO/bJBNLF5hEEKh+EWNG0+JnOEyTk86iOtrzDVqu8wLViiKimZg89haYiiD24/AfXP5j7hZJmvQEozEirjnrTcwlXz4nblstwmM3NYCFQBg1N8pcJWrdau3WNk990sWkgVpX2xLReo8+Pic9fV5bxoSRWrnBfIRrYPsqTqZ4QD1CNHlLtTMgK7OrP29wVFbIoQ5A0ntAdL6uZuFVI/YnnO9yBF6yLC4MJYhmgu/t9hkG8BnrtREAevdpVjuJhupQdX2VTl3gvb+elfwL4MgUHT+Pbrzt3qvO5EGFnOP3YsUktOoboiqQaHusNSZOE2H69iEFkiz9rRPsJ6//+wmt72jSY6lJHW6TnRGT6rNmkOOXbg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(1800799024)(366016)(921020)(6133799003)(56012099006)(10067099003)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NWdGZW1iNFliVnlURG5UR0xPMk0xMURhNFhMUklFVXZRb0hLdGQxVFcwbXAv?=
- =?utf-8?B?VE9KMHNsNGhGWXR1V3BnMTcxcmZGb2xoaXEwQUYrTGNnOGxEOGRtN0trVW5y?=
- =?utf-8?B?RjVYS3g4UkJIRENiUnFTOE8zOE9sTjVHMmRDYnJlSU53MVFYK2IzeGluWjVQ?=
- =?utf-8?B?c2c5cURJbmthbVJIdEJBMllOQlROVEtDYk9EVkpyVXRtVFBBZ3hKUUZNNWxY?=
- =?utf-8?B?VkZDckxGWHlDTnNHT0x1Nnh1YXpOMmtadWc2a21EMkVJM1J2Vnpra1ZTVlJy?=
- =?utf-8?B?YTMvY2FCT2dQY1d6WGR5d0RLVWhISVArYS9VZ1kzQ25WeEkxZHNmS1gzbkJo?=
- =?utf-8?B?d2plV2FabXY2QXBYd2FteU1PQStlK1VCQmhIY0xaUUh0dHI1d2I0YXZiMnk0?=
- =?utf-8?B?OGJlOGtrWHVkdDFtZkFBVmhqTU15dE5xZEh4RWZRRURpMlVJbkZqek50K1lE?=
- =?utf-8?B?d0V6SG1kckVjOEkyeDhJK01jeFZzV2ZKa3JiWTMramtKREhydFY2bFRxdmFq?=
- =?utf-8?B?bWJjVGg4Ym5sK3FmK2ZTOVo2NVA0bXNsQ0pDbEtIcmF4WDhHMXRqRVAyV3Mz?=
- =?utf-8?B?dERnRk5WOUpSSmRKWlFXSFhteDFRZmhVdi9kSzhLU0p2VlI3UGhHbkpzZEp5?=
- =?utf-8?B?RnBiQVRRYy9OM3k1cU1EelV2d3lXZGYwMzRCNjlTU0hGV0FzUC9TWTRpTzgz?=
- =?utf-8?B?VXY2YW54bWw3RFVVYVh2U1U3SFRjb2o0alg3TUhUMVNPN1JtS0VNaGpweklp?=
- =?utf-8?B?SDRzeUd6TzRyZFV0MjFtZldVaUJEU3JwSkpBZ2JkTDB2aUlQZjNuWmkyc1VV?=
- =?utf-8?B?clNZNTBzdUY1d28wNEdLY0FCUkZVL2daWW1jMmwvL3IwVXJscERBekNTWWow?=
- =?utf-8?B?RkVPTVFScmNTVUhLZGM1WlhSK2FKSWdvcUM4R2ExYTFZb25aQ1pPcWVwYTFq?=
- =?utf-8?B?dllPenhTcW9ockJMSHRrM2NlYVA5amZBVDVRTENhUlVza3RSMVkxZTZUNVNn?=
- =?utf-8?B?UWFlaDI4SmduNWZFd1dXeXk4bFpub1FFL3lneml1S0U3ZHVaT0RweG9XUnhS?=
- =?utf-8?B?Q05naHZ1czVKOTRWbG96T3BxMnlKNENSd0k4a2JRd2VNWTZXOSszRDgycTVE?=
- =?utf-8?B?ejJOaTJoRFZiVkR2UDZxcmhDZm8yTXVyUVVGR0hEZkxycGRJQ0txVldvZzVl?=
- =?utf-8?B?TFk0VXAzelpZTlVJamlhYmg3TFdIL0RmYjQ4L0I0UmhDWVExVE1vaG9hZXVo?=
- =?utf-8?B?Nk0vb2JTenVjbDRNZGZXWm1WSlRUSi9rSUY4UW53VDhMRWFyTHBhcTNtdHhV?=
- =?utf-8?B?K3FtTkFyT3pTMmhkYUxmeUE4WE84Q1ZER0g0VDAxeFZubUNDZGVtN1N1dlQz?=
- =?utf-8?B?MW91dER4Ry84bnFna0tJRi8rc2NrVWdRbE9tNFA4YWphN2ptbzF6c0pXVFU2?=
- =?utf-8?B?NVBvRFFyN3hHZ1llaVdFQnEwZ0tkeHZxU3JlVjRsTmR0dUM2SmRuUnBoUnY5?=
- =?utf-8?B?N043WWhENjI0dFF6SjZVbGQzVkFXMXRNb3N1UGVzUEdGY3U1VTUrNmgybWMw?=
- =?utf-8?B?Q05jc1QzQk5pWU1UNVNQRHhpeFY4OUpRRjJ1SXorY05kTjIzMnF6MFg0c3J0?=
- =?utf-8?B?MXQySmVDWmM4enZPN0dFWXRmdmdCQzJGNk9KS3pLM3FVWXM4eEhBWVpQRWQr?=
- =?utf-8?B?eUM0SlZZaU9qeDAzQW1tRldsMElGZC9ocFpQdEJHWTJrMjkweTNzcnZzL0cx?=
- =?utf-8?B?enh0YmpiZDkycjAxTHVQYXk2RFNXdCtoOHJvUkxGT1puWHU4WXd1QXR3SkZz?=
- =?utf-8?B?bGo2bUVaR2MxbmZCZk5LT01DQ1NWWGVtQWZXaHo2RTc3VVNFVktSQWlPR3BF?=
- =?utf-8?B?MnBjbVZ6Ykw5R1c5cFB5cXp5aTNwdkF1UGpNZ0s2UkpQdVY1aUdGWFVLZ2wv?=
- =?utf-8?B?TVgzZGxQWWpyNGJzRlg2NmNyVnFILzBMUUZqcVlOeS9SbitObExPUVBjdlJw?=
- =?utf-8?B?VGptcldzWVZYUHlqcW5GVklUVDUrTlNWOUd2ZUZyTzZFVlR0WDloUUwyQW9D?=
- =?utf-8?B?cXhrUFZFN1k4UjdTWnpJK090M01IVFM5RmZ4OHlac1J5RUpqUzBYRHZ6dW5k?=
- =?utf-8?B?Y1BiQkdROVB1dWVrb2FlYjhGUDhqRGlCdlpHNTlzVjh3bERDWk5iaitFZEM1?=
- =?utf-8?B?WHprV2tSK1h4c1lxSGhCUm03cE9WUWtIWTByR2RURGtTc2p5S1ZlN2c0bWgx?=
- =?utf-8?B?WTdpVWpqaWdINVZJbTRuenU2T2lxV0tkWTJibkV2bjRjZCs2bXJWbWZrZWhK?=
- =?utf-8?B?K3h4ZTZ1VnNoOExzbjU1NmxDazRuVFl0TXE3S0JWM0xwMTNOY0svbnV6QVNw?=
- =?utf-8?Q?g0jhm/lgZF5CHmIM=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70fd1c1c-603b-47a5-983f-08dee8ba79fb
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 13:01:14.2336
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JBiSdcoLUmg+H5VyUuz7kLjke3BX7e8hzxKQtJuUmq10Zkqsa5MkZpT/wdWFMi3+a0S1ukuh46Y6j07jPQlf8CfNhKya2ZFN8Plr1evt9dQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR10MB8941
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-clk-provider-pinning-v2-1-8dad72eb79f0@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAIIQYmoC/4WNTQ6CMBBGr0Jm7RhatIgr72FY0HaE8aclLTYSw
+ t0FPIDLl7zvfRNECkwRztkEgRJH9m4BucvAdI1rCdkuDDKXKi+lQPN8YB98YksBe3aOXYtCFuV
+ BaHk62gaWaR/oxp8te61/HN/6TmZYW6vRcRx8GLffJFbvz0USKFAVVktSqqyq4qKb8ck60N74F
+ 9TzPH8Bm0Vt+s0AAAA=
+X-Change-ID: 20260721-clk-provider-pinning-123741b285da
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10503; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=P+/0zBot8x4qOXLvqJkRvDY+WbDDpPfVT5UHeF1F98M=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYhCTN1vuvieu1YUFKiKxB3srPsPOVCRFeinuA
+ tKCgu+tHNKJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamIQkwAKCRDm/A8cN/La
+ hf4ID/4oRsuwZVy2w9Zov8P+ZbIwZekDOj7XGrh2cQGjyrAcq4bOya66B1cwPXnZ1t+xgcVa6ik
+ K8JfreAvCCLNiT6RXDknd3ZZp+qTUktyx8Sx8B7jxlehZAppkOF0GlhD4vE4x7HIkTUESODWcvg
+ dtjrxaxziCtxEw3xhq/U3aaQn4xhM07oAqQbpFFmvl5IBbD0x2DRc9t2nN+X9m5WlwZ64wxdGmw
+ Yj8J1uv4U9EnceAi6saAB8XxAvwQZrbjlAPS8G6zBv+i2T9rWgsMr/9leJMyhcPfXVqszVKZASn
+ VnvUMU1ZAdEAn8CH2I1nDg9cP05P56zUVZYYk4b68cp8QkhCN7cU1eCJztHEDyniK2EQhE4Gmae
+ tzS2az0LnZ/qWfQgGM7bQq8DyKy/zwQdK5HscOhqu24YYzXtx4P1Ju4rPX6lmS4a4hXxL71mxO5
+ G8ThVHCLu9uqk/9aGLXQdHLIKVoKk5OlZoIEKvzovJLMNIjb03yatRQbEmm1xhHFCWpHk19ZPCm
+ G3teUmTNu5b6eaUTrd6ZrylMGTY63e49mXbgoGz6+0cw1+m0Th59mY7MC8++zce83O1q19JiUos
+ 5UPJgdVLuoouYk5MRDqwfFJ1AD+xP2W5e/L1Hl3xyncXUrrXZxguVCCZ1c4sfOF22NevGIzG7tj
+ rcY57VQibaki9tg==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_060119_723402_B8171DAF 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20260723_060117_081982_0CEF57C6 
+X-CRM114-Status: GOOD (  33.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,112 +120,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23.07.26 14:49, Frieder Schrempf wrote:
-> Hi,
-> 
-> On 04.02.26 12:11, Xu Yang wrote:
->> Current design will power off all dependent GPC power domains in
->> imx8mp_blk_ctrl_suspend(), even though the user device has enabled
->> wakeup capability. The result is that wakeup function never works
->> for such device.
->>
->> An example will be USB wakeup on i.MX8MP. PHY device '382f0040.usb-phy'
->> is attached to power domain 'hsioblk-usb-phy2' which is spawned by hsio
->> block control. A virtual power domain device 'genpd:3:32f10000.blk-ctrl'
->> is created to build connection with 'hsioblk-usb-phy2' and it depends on
->> GPC power domain 'usb-otg2'. If device '382f0040.usb-phy' enable wakeup,
->> only power domain 'hsioblk-usb-phy2' keeps on during system suspend,
->> power domain 'usb-otg2' is off all the time. So the wakeup event can't
->> happen.
->>
->> In order to further establish a connection between the power domains
->> related to GPC and block control during system pm, register a notifier
->> to power_dev, so that GPC power domain will know that block control power
->> domain is on and will not power off itself.
->>
->> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
->> Fixes: 556f5cf9568a ("soc: imx: add i.MX8MP HSIO blk-ctrl")
->> Cc: stable@kernel.org
->> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> This patch got backported to v6.1.y and for me it breaks the boot on
-> i.MX8MP with the log below (tested with 6.1.175).
-> 
-> Reverting the two patches of this series fixes the issue. What is the
-> correct way to fix this for the 6.1 stable branch? Should the patches be
-> reverted?
-> 
+clk_hw_get_clk() lets a provider get a struct clk for one of its own
+struct clk_hw.
 
-Ah, this is probably related to the fact, that I also carry backported
-HDMI support in our 6.1 tree. This likely triggers the exception and I'm
-probably the only one seeing this as this is specific to our tree.
+When a struct clk is created, the module usage count of the provider
+is unconditionally increased. For a self-consuming provider, this means
+it pins itself and the module can never be unloaded.
 
-> Thanks
-> Frieder
-> 
-> [    1.164011] imx8mp-blk-ctrl 32fc0000.blk-ctrl: error -ENODEV: failed
-> to add power notifier
-> [    1.171108] Unable to handle kernel NULL pointer dereference at
-> virtual address 0000000000000210
-> [    1.179932] Mem abort info:
-> [    1.182731]   ESR = 0x0000000096000004
-> [    1.186492]   EC = 0x25: DABT (current EL), IL = 32 bits
-> [    1.191833]   SET = 0, FnV = 0
-> [    1.194891]   EA = 0, S1PTW = 0
-> [    1.198041]   FSC = 0x04: level 0 translation fault
-> [    1.202960] Data abort info:
-> [    1.205836]   ISV = 0, ISS = 0x00000004
-> [    1.209676]   CM = 0, WnR = 0
-> [    1.212662] [0000000000000210] user address but active_mm is swapper
-> [    1.219044] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-> [    1.225340] Modules linked in:
-> [    1.228403] CPU: 2 PID: 1 Comm: swapper/0 Not tainted
-> 6.1.175-ktn-ked-0.0.0 #1
-> [    1.235663] Hardware name: Kontron BL i.MX8MP OSM-S (DT)
-> [    1.241001] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS
-> BTYPE=--)
-> [    1.247999] pc : dev_pm_domain_detach+0x0/0x40
-> [    1.252461] lr : imx8mp_blk_ctrl_probe+0x494/0x580
-> [    1.257276] sp : ffff80000997ba00
-> [    1.260601] x29: ffff80000997bb70 x28: ffff0000c0aaa9a0 x27:
-> 00000000ffffffed
-> [    1.267774] x26: ffff800008e37c78 x25: ffff800008e37ab8 x24:
-> ffff800008e37af0
-> [    1.274949] x23: 0000000000000007 x22: ffff0000c0945010 x21:
-> 0000000000000038
-> [    1.282124] x20: 0000000000000188 x19: ffff0000c0fa6580 x18:
-> ffffffffffffffff
-> [    1.289299] x17: 20646461206f7420 x16: 64656c696166203a x15:
-> 5645444f4e452d20
-> [    1.296474] x14: 726f727265203a6c x13: 7265696669746f6e x12:
-> ffff80000962c280
-> [    1.303649] x11: 00000000000000dd x10: ffff80000962c280 x9 :
-> 00000000ffffdfff
-> [    1.310824] x8 : ffff8000096dc280 x7 : 000000000002ffe8 x6 :
-> 0000000000000000
-> [    1.318001] x5 : 80000000ffffe000 x4 : 0000000000000000 x3 :
-> 0000000000000000
-> [    1.325174] x2 : 0000000000000000 x1 : 0000000000000001 x0 :
-> 0000000000000000
-> [    1.332351] Call trace:
-> [    1.334801]  dev_pm_domain_detach+0x0/0x40
-> [    1.338913]  platform_probe+0x68/0xe0
-> [    1.342586]  really_probe+0xc0/0x3e0
-> [    1.346174]  __driver_probe_device+0x84/0x190
-> [    1.350549]  driver_probe_device+0x3c/0x110
-> [    1.354751]  __driver_attach+0xf4/0x200
-> [    1.358599]  bus_for_each_dev+0x74/0xe0
-> [    1.362451]  driver_attach+0x24/0x30
-> [    1.366038]  bus_add_driver+0x17c/0x240
-> [    1.369886]  driver_register+0x78/0x130
-> [    1.373736]  __platform_driver_register+0x24/0x30
-> [    1.378463]  imx8mp_blk_ctrl_driver_init+0x1c/0x28
-> [    1.383274]  do_one_initcall+0x48/0x2b0
-> [    1.387126]  kernel_init_freeable+0x22c/0x29c
-> [    1.391499]  kernel_init+0x24/0x134
-> [    1.395001]  ret_from_fork+0x10/0x20
-> [    1.398592] Code: d65f03c0 d65f03c0 00000000 00000000 (f9410802)
-> [    1.404715] ---[ end trace 0000000000000000 ]---
-> 
-> 
+Increasing the module usage count should only be done when the consumer
+lives in a different module from the provider. Use THIS_MODULE to
+capture caller's module and increase the module usage count accordingly.
+
+It is OK for consumer-only APIs such as clk_get() or of_clk_get() to
+pass a NULL owner. As a result, any provider module will get pinned,
+same as before.
+
+Fixes: 30d6f8c15d2c ("clk: add api to get clk consumer from clk_hw")
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+This issue has been present for a while. Virtually all users of
+clk_hw_get_clk() are affected. The majority are compiled as builtins
+according to the defconfigs. It is not problem in this case but it is
+if the configuration is changed to module.
+
+The following modules are using clk_hw_get_clk() and are compiled as
+module with some shipped defconfigs:
+* drivers/gpu/drm/msm/disp/mdp4/mdp4_lvds_pll.c
+* drivers/phy/cadence/phy-cadence-sierra.c
+* drivers/pwm/pwm-meson.c
+* sound/soc/codecs/lpass-va-macro.c
+
+Currently those module cannot be unloaded once they have been loaded.
+
+"""
+rmmod: ERROR: Module blabla-module is in use
+"""
+
+With this applied, we can get back to removing the direct usage
+of the struct clk in struct clk_hw and eventually remove this
+struct member entirely.
+---
+Changes in v2:
+- Update comment in __clk_register()
+- Add missing documention for the new parameter of clk_hw_create_clk()
+- No functional change
+- Link to v1: https://patch.msgid.link/20260721-clk-provider-pinning-v1-1-63db2e667993@baylibre.com
+---
+ drivers/clk/clk.c            | 46 +++++++++++++++++++++++++-------------------
+ drivers/clk/clk.h            |  5 +++--
+ drivers/clk/clkdev.c         |  4 ++--
+ include/linux/clk-provider.h | 22 ++++++++++++++++++---
+ 4 files changed, 50 insertions(+), 27 deletions(-)
+
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index 048adfa86a5d..9f138988efbf 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -115,6 +115,7 @@ struct clk {
+ 	unsigned long max_rate;
+ 	unsigned int exclusive_count;
+ 	struct hlist_node clks_node;
++	bool pinning;
+ };
+ 
+ /***           runtime pm          ***/
+@@ -4141,13 +4142,15 @@ static void free_clk(struct clk *clk)
+  * @hw: clk_hw associated with the clk being consumed
+  * @dev_id: string describing device name
+  * @con_id: connection ID string on device
++ * @owner: reference to the module creating the clock
+  *
+  * This is the main function used to create a clk pointer for use by clk
+  * consumers. It connects a consumer to the clk_core and clk_hw structures
+  * used by the framework and clk provider respectively.
+  */
+ struct clk *clk_hw_create_clk(struct device *dev, struct clk_hw *hw,
+-			      const char *dev_id, const char *con_id)
++			      const char *dev_id, const char *con_id,
++			      struct module *owner)
+ {
+ 	struct clk *clk;
+ 	struct clk_core *core;
+@@ -4162,7 +4165,13 @@ struct clk *clk_hw_create_clk(struct device *dev, struct clk_hw *hw,
+ 		return clk;
+ 	clk->dev = dev;
+ 
+-	if (!try_module_get(core->owner)) {
++	/*
++	 * Pin the provider module only when the consumer lives in a different
++	 * module. A provider getting a clk from its own clk_hw would otherwise
++	 * pin itself and could never be unloaded.
++	 */
++	clk->pinning = owner != core->owner;
++	if (clk->pinning && !try_module_get(core->owner)) {
+ 		free_clk(clk);
+ 		return ERR_PTR(-ENOENT);
+ 	}
+@@ -4173,24 +4182,19 @@ struct clk *clk_hw_create_clk(struct device *dev, struct clk_hw *hw,
+ 	return clk;
+ }
+ 
+-/**
+- * clk_hw_get_clk - get clk consumer given an clk_hw
+- * @hw: clk_hw associated with the clk being consumed
+- * @con_id: connection ID string on device
+- *
+- * Returns: new clk consumer
+- * This is the function to be used by providers which need
+- * to get a consumer clk and act on the clock element
+- * Calls to this function must be balanced with calls clk_put()
++/*
++ * Internal helper backing the clk_hw_get_clk() macro, which passes the caller's
++ * module via THIS_MODULE.
+  */
+-struct clk *clk_hw_get_clk(struct clk_hw *hw, const char *con_id)
++struct clk *__clk_hw_get_clk(struct clk_hw *hw, const char *con_id,
++			     struct module *owner)
+ {
+ 	struct device *dev = hw->core->dev;
+ 	const char *name = dev ? dev_name(dev) : NULL;
+ 
+-	return clk_hw_create_clk(dev, hw, name, con_id);
++	return clk_hw_create_clk(dev, hw, name, con_id, owner);
+ }
+-EXPORT_SYMBOL(clk_hw_get_clk);
++EXPORT_SYMBOL(__clk_hw_get_clk);
+ 
+ static int clk_cpy_name(const char **dst_p, const char *src, bool must_exist)
+ {
+@@ -4354,8 +4358,9 @@ __clk_register(struct device *dev, struct device_node *np, struct clk_hw *hw)
+ 	INIT_HLIST_HEAD(&core->clks);
+ 
+ 	/*
+-	 * Don't call clk_hw_create_clk() here because that would pin the
+-	 * provider module to itself and prevent it from ever being removed.
++	 * Don't call clk_hw_create_clk() here because it would systematically
++	 * add a consumer to the hw clock and all clocks would appear to have
++	 * consumer in the clock summary.
+ 	 */
+ 	hw->clk = alloc_clk(core, NULL, NULL);
+ 	if (IS_ERR(hw->clk)) {
+@@ -4712,7 +4717,7 @@ struct clk *devm_clk_hw_get_clk(struct device *dev, struct clk_hw *hw,
+ 	if (!clkp)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	clk = clk_hw_get_clk(hw, con_id);
++	clk = __clk_hw_get_clk(hw, con_id, dev->driver->owner);
+ 	if (!IS_ERR(clk)) {
+ 		*clkp = clk;
+ 		devres_add(dev, clkp);
+@@ -4759,7 +4764,8 @@ void __clk_put(struct clk *clk)
+ 
+ 	owner = clk->core->owner;
+ 	kref_put(&clk->core->ref, __clk_release);
+-	module_put(owner);
++	if (clk->pinning)
++		module_put(owner);
+ 	free_clk(clk);
+ }
+ 
+@@ -5280,7 +5286,7 @@ struct clk *of_clk_get_from_provider(struct of_phandle_args *clkspec)
+ {
+ 	struct clk_hw *hw = of_clk_get_hw_from_clkspec(clkspec);
+ 
+-	return clk_hw_create_clk(NULL, hw, NULL, __func__);
++	return clk_hw_create_clk(NULL, hw, NULL, __func__, NULL);
+ }
+ EXPORT_SYMBOL_GPL(of_clk_get_from_provider);
+ 
+@@ -5307,7 +5313,7 @@ static struct clk *__of_clk_get(struct device_node *np,
+ {
+ 	struct clk_hw *hw = of_clk_get_hw(np, index, con_id);
+ 
+-	return clk_hw_create_clk(NULL, hw, dev_id, con_id);
++	return clk_hw_create_clk(NULL, hw, dev_id, con_id, NULL);
+ }
+ 
+ struct clk *of_clk_get(struct device_node *np, int index)
+diff --git a/drivers/clk/clk.h b/drivers/clk/clk.h
+index 2d801900cad5..5009380863a9 100644
+--- a/drivers/clk/clk.h
++++ b/drivers/clk/clk.h
+@@ -23,13 +23,14 @@ struct clk_hw *clk_find_hw(const char *dev_id, const char *con_id);
+ 
+ #ifdef CONFIG_COMMON_CLK
+ struct clk *clk_hw_create_clk(struct device *dev, struct clk_hw *hw,
+-			      const char *dev_id, const char *con_id);
++			      const char *dev_id, const char *con_id,
++			      struct module *owner);
+ void __clk_put(struct clk *clk);
+ #else
+ /* All these casts to avoid ifdefs in clkdev... */
+ static inline struct clk *
+ clk_hw_create_clk(struct device *dev, struct clk_hw *hw, const char *dev_id,
+-		  const char *con_id)
++		  const char *con_id, struct module *owner)
+ {
+ 	return (struct clk *)hw;
+ }
+diff --git a/drivers/clk/clkdev.c b/drivers/clk/clkdev.c
+index abaa0f9e0083..919fc680ae4d 100644
+--- a/drivers/clk/clkdev.c
++++ b/drivers/clk/clkdev.c
+@@ -88,7 +88,7 @@ static struct clk *__clk_get_sys(struct device *dev, const char *dev_id,
+ {
+ 	struct clk_hw *hw = clk_find_hw(dev_id, con_id);
+ 
+-	return clk_hw_create_clk(dev, hw, dev_id, con_id);
++	return clk_hw_create_clk(dev, hw, dev_id, con_id, NULL);
+ }
+ 
+ struct clk *clk_get_sys(const char *dev_id, const char *con_id)
+@@ -105,7 +105,7 @@ struct clk *clk_get(struct device *dev, const char *con_id)
+ 	if (dev && dev->of_node) {
+ 		hw = of_clk_get_hw(dev->of_node, 0, con_id);
+ 		if (!IS_ERR(hw) || PTR_ERR(hw) == -EPROBE_DEFER)
+-			return clk_hw_create_clk(dev, hw, dev_id, con_id);
++			return clk_hw_create_clk(dev, hw, dev_id, con_id, NULL);
+ 	}
+ 
+ 	return __clk_get_sys(dev, dev_id, con_id);
+diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+index b01a38fef8cf..40e3eacb569b 100644
+--- a/include/linux/clk-provider.h
++++ b/include/linux/clk-provider.h
+@@ -37,6 +37,7 @@ struct clk;
+ struct clk_hw;
+ struct clk_core;
+ struct dentry;
++struct module;
+ 
+ /**
+  * struct clk_rate_request - Structure encoding the clk constraints that
+@@ -310,8 +311,9 @@ struct clk_init_data {
+  * @core: pointer to the struct clk_core instance that points back to this
+  * struct clk_hw instance
+  *
+- * @clk: pointer to the per-user struct clk instance that can be used to call
+- * into the clk API
++ * @clk: pointer to the per-user struct clk instance. This will be removed at
++ * some point in the future, Please consider the field obsolete and do not use
++ * it. Use clk_hw_get_clk() to get a per-user struct clk from a struct clk_hw.
+  *
+  * @init: pointer to struct clk_init_data that contains the init data shared
+  * with the common clock framework. This pointer will be set to NULL once
+@@ -1401,10 +1403,24 @@ static inline struct clk_hw *__clk_get_hw(struct clk *clk)
+ }
+ #endif
+ 
+-struct clk *clk_hw_get_clk(struct clk_hw *hw, const char *con_id);
++struct clk *__clk_hw_get_clk(struct clk_hw *hw, const char *con_id,
++			     struct module *owner);
+ struct clk *devm_clk_hw_get_clk(struct device *dev, struct clk_hw *hw,
+ 				const char *con_id);
+ 
++/**
++ * clk_hw_get_clk - get clk consumer given a clk_hw
++ * @hw: clk_hw associated with the clk being consumed
++ * @con_id: connection ID string on device
++ *
++ * Return: new clk consumer
++ * This is the function to be used by providers which need
++ * to get a consumer clk and act on the clock element
++ * Calls to this function must be balanced with calls to clk_put()
++ */
++#define clk_hw_get_clk(hw, con_id) \
++	__clk_hw_get_clk((hw), (con_id), THIS_MODULE)
++
+ unsigned int clk_hw_get_num_parents(const struct clk_hw *hw);
+ struct clk_hw *clk_hw_get_parent(const struct clk_hw *hw);
+ struct clk_hw *clk_hw_get_parent_by_index(const struct clk_hw *hw,
+
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260721-clk-provider-pinning-123741b285da
+
+Best regards,
+--  
+Jerome
 
 
