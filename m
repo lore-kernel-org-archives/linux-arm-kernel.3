@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A295CC531D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A2AC531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 15:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6tB+p5fpJihvWmKYtOqn6XBXbSKHjdM1g/8Wc7lnKAc=; b=Bwtek6A0iWkFpPA3uzDwcXJHfx
-	77v1AnKL+nKYUWRWRzqc5xB2jzuyI0g6QlECcKJKkr/qvEo8Hw5+5XkRsbNqpXk1ooZnp0NZnkZMv
-	Ui++TKsAu1O9nAwWTvb7Na2Dz/5JEowqT9haWr9JYxqOf6yZ9uLGik7GObkm8u1IchYWE1+TcunYM
-	FFB/SfypM91izzWpewG6d3titlhWRMLTDuIHI9yIbCQwhyQ331ltZ/gAndjjVcvHpi4REhCQiZe+x
-	CqGbNFvRXoVCbVWjbCJW/qlxA6c8FvV10YzOkomMwTvkLnidhSLSjnh8XMnEZsVIrOdWoK+b6Dxgy
-	1qHj6J0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HkMW3gOeguIjQ0Mg8RSAnOS0Vj8MfegL+l44BmbKsDw=; b=BJLGzoyZS6Sg37FBW2HCqZ6yrp
+	Fy5Ilc+7XmjPDP6dXpDP/4WdaBSXJPQtx9D/KnGqoEjfjPiunZxwqyNmD45UKoyDKp2NCS90tEqka
+	iNmAMcOQVpH/BqgDrb6M4841M6c6ZO44FP1uD/oNdYUf7WN2giRaklOxa7Q0kQ4zftp2eFaLuqMgO
+	DgOL7Vi3cexIarWwdQgGPiQ6Cs75UkFldNoew9tpFPxlvVeFnZoTG/aZSOgxWMzLKpxhSakxvNtlq
+	15INpHyb7WxZDclxelFqO2xkziA2jW2NRjwFWs2dAruFHWNUOkBaTUlEtYAZio4A2L1cp8oEmwXx1
+	Pc+Wh95Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvBA-0000000EaAR-0ahI;
-	Thu, 23 Jul 2026 15:17:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmvDA-0000000Eabe-2FR9;
+	Thu, 23 Jul 2026 15:19:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmvB5-0000000Ea8C-2Zsj
+	id 1wmvD9-0000000EabT-1nIQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 15:17:39 +0000
+	Thu, 23 Jul 2026 15:19:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2B004439BF;
-	Thu, 23 Jul 2026 15:17:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFF771F00A3D;
-	Thu, 23 Jul 2026 15:17:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C78B660A82;
+	Thu, 23 Jul 2026 15:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EAAC1F00A3A;
+	Thu, 23 Jul 2026 15:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784819859;
-	bh=6tB+p5fpJihvWmKYtOqn6XBXbSKHjdM1g/8Wc7lnKAc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KRq8PkcAI15VvLDhvamyrojQCEWXOJom5dmcVSRO3GGI0ZVtmBWxnlnE4AfAvyW5R
-	 xSyNV65KtAqJ+AvR5Wuxbd8pExLFLRPPQeUuAcx6AV3s33G+KLwTWzaSddN0y/DdoF
-	 MWRWqVKt3EnHVokgFuwjSt8Aw/UEvPGcBZm2/gKqTMgr6P949HYeNEnGcMXF2TpnUh
-	 dY0jpQKJ62SmMj9IWNm7sEVu9ncYGmQm4sUlXSCzAkl+ZvG4gEsu7AZ96Rvg42W4Y3
-	 NG691MHau9f3QMzSeaejz1V6rUC3jsXt1wPdRFfZqeZp/CaXPrITTT7J6iFG2I+0qG
-	 KMvqqHSJXD1wg==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Thu, 23 Jul 2026 16:16:35 +0100
-Subject: [PATCH mm-hotfixes v6 5/5] arm64: remove redundant concurrent
- ptdump UAF mitigation
+	s=k20260515; t=1784819986;
+	bh=HkMW3gOeguIjQ0Mg8RSAnOS0Vj8MfegL+l44BmbKsDw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mP0UTrQjww0Y7GkqMUFN2duxyoop8uI2z+FFWH9FPFDNF+BEsFk5YYCj5AzShnx6j
+	 MMqiGjTBmGLXjigYWAmv0aorGDGw6ZK/+v5dtUbHgTExfI1vQ/x9dRdEETIzws0+Ap
+	 6QUge50z2aE6K/SCcL90RdL5y27ZwTTPPnj7MtXhE/kuOYjGQ2Ains1Xz1yHnQ4Ikf
+	 S+4gGuaJGmLgpJBMP8An8Go8asULYiSs7RC4GYyWj5o/6RVquGUOuER2sXTEneUzGZ
+	 qFUk8yoWHMnsZW9lRdX9bPvR8yzNCvkh8PLSa/T7JtP7+WTlIefX1njgDXTN9A/nPb
+	 8T31Ai3Y6NZ9w==
+Date: Thu, 23 Jul 2026 16:19:41 +0100
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <willdeacon@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] arm64: cpucaps: Remove stale comment about keeping
+ capabilities sorted
+Message-ID: <amIxDV2tbDlc1bgg@willie-the-truck>
+References: <20260723130233.3123-1-will@kernel.org>
+ <amITcJVfOT1k68VV@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-series-vmap-race-fix-v6-5-8cc77dcc0018@kernel.org>
-References: <20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org>
-In-Reply-To: <20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
-Cc: David Carlier <devnexen@gmail.com>, ljs@kernel.org, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, "Denis V. Lunev" <den@virtuozzo.com>, 
- "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7063; i=ljs@kernel.org;
- h=from:subject:message-id; bh=kE9XtB6iyw7BSFNAuuPgI01clqwgzMyGQ2yqQHsLjJM=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKSDGJX1utw8GwSKzbiF8gXVHh1sqQieU/oivnb0i5vD
- 2qse5zeUcrCIMbFICumyPL8i/j+IJGweZ0X/N1g5rAygQxh4OIUgIkcYGH4n6NXKbo/bEO/hMzX
- CQcZJhQf9Fpxozz4pO7M2XPF9wnliTP8ldJbzXqqN+T1UY/L+/2PmS3rVPbftWy1jrJfkvNqgak
- /WAE=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amITcJVfOT1k68VV@J2N7QTR9R3.cambridge.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,212 +72,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This partially reverts commit fa93b45fd397 ("arm64: Enable vmalloc-huge
-with ptdump"), retaining vmalloc-huge support but eliminating the now
-redundant mitigation against a race between huge vmap page table freeing
-and ptdump, as this issue has now been fixed at core.
+On Thu, Jul 23, 2026 at 02:13:20PM +0100, Mark Rutland wrote:
+> On Thu, Jul 23, 2026 at 02:02:32PM +0100, Will Deacon wrote:
+> > From: Will Deacon <willdeacon@google.com>
+> > 
+> > There is no functional requirement to keep the entries in arm64's
+> > tools/cpucaps file sorted alphabetically and, in fact, they have fallen
+> > out of order over time. Given that only the arm64 tree touches this file,
+> > just remove the stale comment and accept that we're collectively not
+> > very good at the alphabet.
+> 
+> It might be worth mentioning:
+> 
+> (1) The intent of sorting was to make it easier to avoid and/or resolve
+>     merge conflicts, which hasn't been a big problem in practice.
 
-We also simultaneously remove the arm64 if-deffery when acquiring the mmap
-read lock upon vmap huge page table promotion as it is no longer required.
+I was trying to get at that when I mentioned that "only the arm64 tree
+touches this file", but I'll add some extra wording.
 
-Note that this patch relies on the preceding vmalloc patch, and should not
-be backported alone.
+> 
+> (2) In the few cases where we do depend on the order of specific
+>    cpucaps, we've added build-time asserts, e.g. in
+>    can_use_gic_priorities(), which has:
+> 
+>      /*   
+>       * ARM64_HAS_GICV3_CPUIF has a lower index, and is a boot CPU
+>       * feature, so will be detected earlier.
+>       */
+>      BUILD_BUG_ON(ARM64_HAS_GIC_PRIO_MASKING <= ARM64_HAS_GICV3_CPUIF);
+> 
+>    ... and we can still do that.
 
-Fixes: fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump")
-Cc: stable@vger.kernel.org
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- arch/arm64/include/asm/ptdump.h |  2 --
- arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
- arch/arm64/mm/ptdump.c          | 11 ++---------
- mm/vmalloc.c                    | 15 +++-----------
- 4 files changed, 9 insertions(+), 62 deletions(-)
+I'll mention this too.
 
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index 5b374a6ab34a..50a195eda8ed 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -7,8 +7,6 @@
- 
- #include <linux/ptdump.h>
- 
--DECLARE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
--
- #ifdef CONFIG_PTDUMP
- 
- #include <linux/mm_types.h>
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index a25d8beacc83..bd52fca6e872 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -49,8 +49,6 @@
- #define NO_CONT_MAPPINGS	BIT(1)
- #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
- 
--DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
--
- u64 kimage_voffset __ro_after_init;
- EXPORT_SYMBOL(kimage_voffset);
- 
-@@ -1864,8 +1862,7 @@ int pmd_clear_huge(pmd_t *pmdp)
- 	return 1;
- }
- 
--static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
--			       bool acquire_mmap_lock)
-+int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
- {
- 	pte_t *table;
- 	pmd_t pmd;
-@@ -1877,25 +1874,13 @@ static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
- 		return 1;
- 	}
- 
--	/* See comment in pud_free_pmd_page for static key logic */
- 	table = pte_offset_kernel(pmdp, addr);
- 	pmd_clear(pmdp);
- 	__flush_tlb_kernel_pgtable(addr);
--	if (static_branch_unlikely(&arm64_ptdump_lock_key) && acquire_mmap_lock) {
--		mmap_read_lock(&init_mm);
--		mmap_read_unlock(&init_mm);
--	}
--
- 	pte_free_kernel(NULL, table);
- 	return 1;
- }
- 
--int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
--{
--	/* If ptdump is walking the pagetables, acquire init_mm.mmap_lock */
--	return __pmd_free_pte_page(pmdp, addr, /* acquire_mmap_lock = */ true);
--}
--
- int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- {
- 	pmd_t *table;
-@@ -1911,36 +1896,16 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- 	}
- 
- 	table = pmd_offset(pudp, addr);
--
--	/*
--	 * Our objective is to prevent ptdump from reading a PMD table which has
--	 * been freed. In this race, if pud_free_pmd_page observes the key on
--	 * (which got flipped by ptdump) then the mmap lock sequence here will,
--	 * as a result of the mmap write lock/unlock sequence in ptdump, give
--	 * us the correct synchronization. If not, this means that ptdump has
--	 * yet not started walking the pagetables - the sequence of barriers
--	 * issued by __flush_tlb_kernel_pgtable() guarantees that ptdump will
--	 * observe an empty PUD.
--	 */
--	pud_clear(pudp);
--	__flush_tlb_kernel_pgtable(addr);
--	if (static_branch_unlikely(&arm64_ptdump_lock_key)) {
--		mmap_read_lock(&init_mm);
--		mmap_read_unlock(&init_mm);
--	}
--
- 	pmdp = table;
- 	next = addr;
- 	end = addr + PUD_SIZE;
- 	do {
- 		if (pmd_present(pmdp_get(pmdp)))
--			/*
--			 * PMD has been isolated, so ptdump won't see it. No
--			 * need to acquire init_mm.mmap_lock.
--			 */
--			__pmd_free_pte_page(pmdp, next, /* acquire_mmap_lock = */ false);
-+			pmd_free_pte_page(pmdp, next);
- 	} while (pmdp++, next += PMD_SIZE, next != end);
- 
-+	pud_clear(pudp);
-+	__flush_tlb_kernel_pgtable(addr);
- 	pmd_free(NULL, table);
- 	return 1;
- }
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index 1c20144700d7..5a76c59b5ada 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -283,13 +283,6 @@ void note_page_flush(struct ptdump_state *pt_st)
- 	note_page(pt_st, 0, -1, pte_val(pte_zero));
- }
- 
--static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
--{
--	static_branch_inc(&arm64_ptdump_lock_key);
--	ptdump_walk_pgd(st, mm, NULL);
--	static_branch_dec(&arm64_ptdump_lock_key);
--}
--
- void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- {
- 	unsigned long end = ~0UL;
-@@ -318,7 +311,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- 		}
- 	};
- 
--	arm64_ptdump_walk_pgd(&st.ptdump, info->mm);
-+	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
- }
- 
- static void __init ptdump_initialize(void)
-@@ -360,7 +353,7 @@ bool ptdump_check_wx(void)
- 		}
- 	};
- 
--	arm64_ptdump_walk_pgd(&st.ptdump, &init_mm);
-+	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
- 
- 	if (st.wx_pages || st.uxn_pages) {
- 		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index d5c4d2bb770b..f4fa227a8d7f 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -169,10 +169,7 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
- 	 * Concurrent read lock holders are safe: each exclusively owns
- 	 * the range it operates on and cannot reach this page table.
- 	 */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!pmd_free_pte_page(pmd, addr))
- 			return 0;
- 		return pmd_set_huge(pmd, phys_addr, prot);
-@@ -229,10 +226,7 @@ static int vmap_try_huge_pud(pud_t *pud, unsigned long addr, unsigned long end,
- 		return pud_set_huge(pud, phys_addr, prot);
- 
- 	/* See comment in vmap_try_huge_pmd(). */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!pud_free_pmd_page(pud, addr))
- 			return 0;
- 		return pud_set_huge(pud, phys_addr, prot);
-@@ -289,10 +283,7 @@ static int vmap_try_huge_p4d(p4d_t *p4d, unsigned long addr, unsigned long end,
- 		return p4d_set_huge(p4d, phys_addr, prot);
- 
- 	/* See comment in vmap_try_huge_pmd(). */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!p4d_free_pud_page(p4d, addr))
- 			return 0;
- 		return p4d_set_huge(p4d, phys_addr, prot);
+> 
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Reported-by: Marc Zyngier <maz@kernel.org>
+> > Signed-off-by: Will Deacon <will@kernel.org>
+> 
+> Regardless of whether you add the above to the commit message:
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
 
--- 
-2.55.0
+Thanks. I'll post a v2 with the author fixed up as well... either my
+hard drive or my TPM died this week, so it's been great fun setting up
+a new machine whilst in the middle of merging stuff.
 
+Will
 
