@@ -4,146 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554E4C531F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C399C531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 17:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kYSaYklFyPgE9vnP1NrmjFdFdsuzm6LCQCBa79aJwkQ=; b=IY97il1xe83ZU/GD8bvHOzyMLt
-	nOz1A9127sLCFuOvqRnhvYAXkUfre7v468NF/zLhdvOvVUxqArp/FJWz57QVYSSEdtNDIuhJPBsav
-	umnosAmF2qQrbwooc6gqWKjFvlsLn8qboMIxX/XJH/u4G0gTKMQZQUmdLGV80qdgsiPgf1q8BMvQu
-	M5bl7YJtXPx3oQRShVey4VnR7rU6IbuRWVHLiVZKW/1oLXUCeop9eH+txAAVa7d3iAn1Oq50nrdO9
-	GKk4XJjcE55LGgM+/gM9kNWl8SrenVobBXfcUBPNcCw7MmMPTwWv6l0WU/nQMcljSo1P1eeT5gAqJ
-	OphvxQtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ulYiF5q27l0HtYTWxPl+5HbnGbtV3QzEBY0v8bm+NY=; b=ZUlqoicQ0imW7feBFb+9K7Hak+
+	DR5lwiCpBXSHy7FDseOQTMt+81oxjD6c9iGocO5GjoSa7FeVs2ERrPjoLFiOQXsVPzKrHqxCVmN3m
+	9vwTylltNgvl2NEFgfwWhtVMkKMDctTQjQBdXz05uQCGqTkx6GGdWt+Dsf6gANysGitIlZaY7VWP3
+	jmh5adPwpvHdD7F1f00TwXwkdLuUj91Rc3s0rt/kBv0RQXoOucOfndEF4OXIlNKU3xoLG2R9TryqS
+	XSEn48E9LNZ01WcTHgO0nBHMI5Y0iYOyNs3mq7elOozPWfWa2cKOQXh4Z3Og9OGcH2MLwRe0s1cAF
+	N8P4W6ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwFb-0000000EiQv-1430;
-	Thu, 23 Jul 2026 16:26:23 +0000
-Received: from mail-westus2azolkn190120000.outbound.protection.outlook.com ([2a01:111:f403:d002::] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wmwws-0000000Emmg-41sI;
+	Thu, 23 Jul 2026 17:11:06 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwFW-0000000EiPQ-2cHH
+	id 1wmwvw-0000000Em7D-17rE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 16:26:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=inFKMHTV3/jLRAsUmCGjKXOT4WWSS+5u7YjeAj7RSvxKJCzw+5rrAiz0MtNH1ylWg+HgAKys5vkZCYWilWrjyqtMuCkkUiqgCTeLxWYBxRd4I8Uf/bwYUZWsrd+mjmV7HiHt25PAFObr8ZtMkfJPs3+1F/8Qd4xPdle2JF/zlhnVpbXVX5H0sl9OHsNAEXDjd7PWKOnsqqjDtmlCqUVZ2cbP4kmcY2eRrdFGKMYxln5WwIujGwLxi8+ifrmGSbawBB/czQ4ROSBMO6X/qQoGx8lOx+HmgmVdPvScmYxmuUV032HmbXkxAGnyHKmV2SkWkQXxFBWcDi7S92v3nFXR1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kYSaYklFyPgE9vnP1NrmjFdFdsuzm6LCQCBa79aJwkQ=;
- b=b3k+ldsNlsECYytaN0ZrBIUkQ0qSd+KMrv/2Qk083UwBurlJLDYu9TJ/LTfy/4o5laEGOwsmKW+K+A5C8ojwwWm1UfIa5Gf/pLoEK+MIc5aQkpQ6tcV8F1fKEnDkvtM6WUADmYc5nRGDtsGDnZlf57Zw3MFqtx6jii28Mb8+OkNg2lDUlZeNomK05f5rInpltg5hG8tWnX+rDfI+XV9U8sAfFvpN/bHRHGj/pb4QJ5rlIRdjb3dy2ydrOh3oED16K2LOaXYugaB5a3WjIPwFzW44/Ej3XyCb22IpRR1mUKx3+i+HiV9PAcbb+huftCeCJzzrR8PDu4QuFpgSY39D7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kYSaYklFyPgE9vnP1NrmjFdFdsuzm6LCQCBa79aJwkQ=;
- b=QA3RRplGo/0egKl5+8ngJurpjvwFfViSlny1SxTJW2Mcbv7UzNa76+sELA3qNi12RnLpjRl8DIrRW5Fb/i5RYnvv9tUpYY0d1IVeGZl5QocE9/bZjOeyv6dZxcda/b0ArLMqAC/9uVB5fEweIEuXWyeXY5XMRuR5iiYgOOHqp0VKHLeMC+mUtoXyrKKY0Zy8ZMxpJWKW+N8sYmIz2eKdGPVyNZKDNF1Ap3tF32e6a62S30ExXtJZd0pBcOG5hD/qgK/qgnhBA7vv0KJEPQ8LuLW/Jqa4zNIP49sMFZ1pF1HNv+6r/J3cd9fdNtov8b5eWBPaQ6FOtqTN0emWjWPxiQ==
-Received: from BN7PR02MB4148.namprd02.prod.outlook.com (2603:10b6:406:f6::17)
- by BY5PR02MB6610.namprd02.prod.outlook.com (2603:10b6:a03:200::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Thu, 23 Jul
- 2026 16:26:06 +0000
-Received: from BN7PR02MB4148.namprd02.prod.outlook.com
- ([fe80::6007:d1a1:bcf9:58ef]) by BN7PR02MB4148.namprd02.prod.outlook.com
- ([fe80::6007:d1a1:bcf9:58ef%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 16:26:05 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Kameron Carr <kameroncarr@linux.microsoft.com>, "kys@microsoft.com"
-	<kys@microsoft.com>, "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
-	"wei.liu@kernel.org" <wei.liu@kernel.org>, "decui@microsoft.com"
-	<decui@microsoft.com>, "longli@microsoft.com" <longli@microsoft.com>, Michael
- Kelley <mhklinux@outlook.com>
-CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org"
-	<will@kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "sudeep.holla@kernel.org"
-	<sudeep.holla@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
-	"thuth@redhat.com" <thuth@redhat.com>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>
-Subject: RE: [PATCH v3 0/6] arm64: hyperv: Add Realm support for Hyper-V
-Thread-Topic: [PATCH v3 0/6] arm64: hyperv: Add Realm support for Hyper-V
-Thread-Index: AQHdGU0xmKmEvFHjEUuYfHXV92zT5rZ7TU9A
-Date: Thu, 23 Jul 2026 16:26:05 +0000
-Message-ID: <BN7PR02MB41487CA88742DC70ABAABF33D4C02@BN7PR02MB4148.namprd02.prod.outlook.com>
-References: <20260721201148.1441143-1-kameroncarr@linux.microsoft.com>
-In-Reply-To: <20260721201148.1441143-1-kameroncarr@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN7PR02MB4148:EE_|BY5PR02MB6610:EE_
-x-ms-office365-filtering-correlation-id: f2fead66-ab83-443c-1d06-08dee8d71867
-x-microsoft-antispam: BCL:0;ARA:14566002|31061999003|15080799012|24021099003|8062599012|13091999003|8060799015|55001999006|41001999006|19110799012|51005399006|25010399006|12121999013|37011999003|10035399007|40105399003|1602099012|12091999003|102099032|4302099013|3412199025|440099028|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?InmGPGLmJUNdMuhjhQJRxpw8G9tZYG6DJ+/8yGXdI2QN5n3F+VhbvwiMgDOp?=
- =?us-ascii?Q?E5i9xp+XTWUZxyomKKAq1lq7T3qs7+iv9D8HbvDVNLx9qSYUQeC8Xk1JJQ72?=
- =?us-ascii?Q?iYDLPL8aQCHvkgzvmsXAW//7l30NmA9nVn904d7q00QKFhit5f+YXpzempsX?=
- =?us-ascii?Q?wJYPPVRIGl/x8yhGKww9/YRfY5EatC7WSc7sZGcbEki2p6kB/cPS0TisQT8+?=
- =?us-ascii?Q?fUfC/J4g0HCTTOj8FenR8nitju6qftJQrHReZCPKwgczexcLU+b8tPj5Naxn?=
- =?us-ascii?Q?hkF/DXLMjjCelZo6qCDpcLRNH6vPB8UgQli09Nsz+WGqLfuJF0R4uw/SxaCn?=
- =?us-ascii?Q?C5OKLTqETIQDsCdrt46h2TJYquXQ5+FKIaRFPSZpTiQy6UqSrE+u3yQFuHT2?=
- =?us-ascii?Q?cy5Uvk5y7srS4UAV9M2Df32jh1+qCHytA3r66XtHrgNDg5xRz/XvV1gTL1A/?=
- =?us-ascii?Q?YOEDpqeiTuUFdaz4vT/4okSDRpHtfVYCaRVTNm793gzKwU9FAeYUvBwbP3+I?=
- =?us-ascii?Q?TAtxJSiMG87U8YBgrqLzOHUx8qwsNHhwY4lDvkvPzN5n/jY3JoAd8lVcU9LR?=
- =?us-ascii?Q?gNLH4VFMhgjEFHWmVPKGQHFzonYn9i6Gxqw4spZh3sgLQIMt+qGomKlB/PND?=
- =?us-ascii?Q?CazCVc7YaCH9EAchJGXsHQ4tQNyurrt2Ll4pPBqVtYGvHeqUIaOZR1USPFlj?=
- =?us-ascii?Q?xNAhQJ7hwzx4pserIJf6P//ON+mL1yBSVrqS6OFisuBaeldGs8Ww64sxt9Et?=
- =?us-ascii?Q?K8kHC8pFmJ6AruLPeVsS3lEmzSZ6WTpRYwZfCR42USgxT7iqTCMBptMwjEb1?=
- =?us-ascii?Q?UMZw03nWntoBt2OJtEVqJGvtZH5Jt/f7f5Hv9UqNmKKIMPPvCu6WGi5LnFZU?=
- =?us-ascii?Q?zAmNHwC7HmdGuHgI/4JjohXqMDnKsTQKgLZP94tE12trUG/Fe77smxKKE5gb?=
- =?us-ascii?Q?0DGXP+tv0IUS8LxMuPDYSAzoCrBmsmZnFBYyLspdFqF2DmKA2Eepry2hd1b9?=
- =?us-ascii?Q?+XHNYCZJA71ro/0w7VZF7mInNrkdSZnBtFthW3Bma09L0wvfDW+jA6FZLtsT?=
- =?us-ascii?Q?4dlaD9kv10od8ZH2Tj+Pk0m/mPom65RRpEz3PQhIh3iHerhZxTXzMJw6TFv3?=
- =?us-ascii?Q?vZPIQEGhKsyC1DaQcZ97SH/OeR/AnGfGuh90mZskSBWOoj4LWwAVbis6siTl?=
- =?us-ascii?Q?JWvCTQ/u/+57kyakuF8K6GofduHV6glJyxGaxBzHM1rPTkCJ0aS5IXx3j5B6?=
- =?us-ascii?Q?al2wIddO04ZZUT4E9NAw?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?71eTwNkict7bVqWMWafiuMWXPGixgcb6ZaaE4GMHay0fFS4Zu4wmaHJVgQ6n?=
- =?us-ascii?Q?MitQxyDaYyQ5zANAwtE5NEFEmQBplRpDEooT0Lk7xMlaD9TryrdwTHhWMdii?=
- =?us-ascii?Q?4/woX4jExD9m2uirdecdkNTL0WGP8eWaaICYJ7lWJpaN2XEEL89uWgiiNyee?=
- =?us-ascii?Q?xM4ZGlfAsBA0CZEzu06Okbc3y5DKeCKbEidSd1tS+HzNRXtXTxwl7oScqJJh?=
- =?us-ascii?Q?zgNiniL/diNPRZqRtnAs0Kf62dwjpxWRiK/xqy6QQftvgx79oVeb6oYt4JGr?=
- =?us-ascii?Q?7XHwBCZosyYa0d7J5Umva/EMU6Z3SncBbZk9+hXdozyx5EuV7zELNbwXzZ59?=
- =?us-ascii?Q?PjeolfNvSaIavQI1RXy+LWbJOFmZ4OVmUY4+XD6F06cRsK/UFa+ym4ANQ9G6?=
- =?us-ascii?Q?5RFxRbV00fs+u0dBlt8B2hXttDPp3N+6T5G0DdjnXw3G54VhHTIqNqP+8Sug?=
- =?us-ascii?Q?gZybgkpKeqAFyw0VRm49soPruU3SblPoY4nqxmLhnOjzYGCvqWyu/Z6EGU0S?=
- =?us-ascii?Q?d3HyzO6QVVkux0bFqeU+wYcqRnITYYChau2cBxYM9UndGKOaNhwR75fXOmvr?=
- =?us-ascii?Q?xrl9DrTbLJRs9sKiOAy4fCWqtjSVdGm1VvOIEojujilnf7TFz2dOTsdhFsRH?=
- =?us-ascii?Q?HAbNXJsS4MPYcR5LLj6joXgVwKFWz6R9z/nitZaYAYambmiRaz77E+1DKHSf?=
- =?us-ascii?Q?GqFl6i8hEGnklsgXWSTUOZrN/8bfLpqteQTCpskF0w2meH6Cfe/vCZk8wf+L?=
- =?us-ascii?Q?Xa/0KmN3sxPwDBCVQRmiQl+UhF2GQyOxbCCx21odveOGzLoOsZBWQtQI1pE/?=
- =?us-ascii?Q?8nSrddB6p+SZHm+TnjUf0k18RpPpbuifAHsAPjIJHCwKewDSXApL1RcwofdS?=
- =?us-ascii?Q?BdWzlDBiALSobYSfTbVQXYmb6gTh5NJPeKAz0cwL19yoql3bNa1tWdoxBR3y?=
- =?us-ascii?Q?Y3ceTvMpblUF6E7axaSAjGVpQ3LIVASGE/CDwPLL8LCpqHPUxbCktS4qSZkz?=
- =?us-ascii?Q?5tLeC39gHhDY1iEd99miTtFSKdgvCMWgvTpuJgAt4/XuMTgIsJcHIdE1Mm+r?=
- =?us-ascii?Q?SGFQsANpClpUMY9WIic1y2BxVSeST6SEd5Eh0nUia3kjDfzF0dEpRSVI3wmr?=
- =?us-ascii?Q?sdwhAjxS5xf0Sz2xv/2AYeS/kUMvTyRVsaMzWALpGZa02sovdD1GbZX/Y8+V?=
- =?us-ascii?Q?u+DzukZTV73wfXu8KPT5CfhZV4cfNodjEBIuuxYTY09HuPi8zrr24OcNDwZQ?=
- =?us-ascii?Q?N8nz32Oetj+tB5+RjrIgX4G+TMoE8OQOWJ4VnVEc0lga1mMMFSx8EB5ExPqA?=
- =?us-ascii?Q?WHroMN5XQpxzMTegCc4Cm4ADNqKXG9xvjbz/BP2KKbQ023ozto6BKXB/5nFo?=
- =?us-ascii?Q?VVg1oRE=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 23 Jul 2026 17:10:11 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66NF5KrX1325727
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 17:10:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/ulYiF5q27l0HtYTWxPl+5HbnGbtV3QzEBY0v8bm+NY=; b=K39y9gztZxLnA4zR
+	7bJEVeCZ7GuWpK52y6cVKBXuBkrrvZF5d0Khpzl+E4RytfNggMM+BsIpYAUEa19g
+	ElslQqwPQwTi8afKUQQCUZHsL8XItdk5u47ApJvfAcxFoXZ40Mp4V+XX/7jCE2J8
+	8VJEimp0H5XFzrEdYRivdxXs6jwB7/N+MXNDWJg2iGdJlofcmA7s8cH/MaSDjGEc
+	ECbK9nRLJRQYorJdI7/SAbz0pFdn8tM0it9y+cK6F0tC2WYIp5CMQXTLl1AEB9wA
+	PpUtFojNZm+i3u6vw/RxQsJZBy2jcyczwOLnsc6F31dV7TrS3ZIDefhwZR8hP4mb
+	fReINQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fkn9a0myw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 17:10:07 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-51c1e6f602cso15103851cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 10:10:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784826607; x=1785431407; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/ulYiF5q27l0HtYTWxPl+5HbnGbtV3QzEBY0v8bm+NY=;
+        b=Gc3TrGxmJF/F0qbvj8jFi9Di3r1bV8bt51Ln6l4ydowfVyo49iFBPG0+Il6zXUZeeM
+         71V3xGUgWUI/1cgbYlcsut8MF1uMo1q7Kla62gZybStXzy2dcRz4JklsRFSSTcsUge0z
+         iWk1miuyXL6UoSp8M5jyPmI0cLch7A/NrE7MBnyjrETG+lFYRS+9VSJWmctIUdW56BCX
+         4uoKHBgE0hGTWGAAE5UOYxi5MfehyCNqMrUSHvd04ncJ7PpkjJIzJepa0EIZ6hZLfHXP
+         Rj6hNdFLTnoaEqJq7GrQZ+TLxwHAtgNnxZNdJ1EWjaosGXQoQyhyXgWZs43DwuS9Kdlz
+         qVeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784826607; x=1785431407;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/ulYiF5q27l0HtYTWxPl+5HbnGbtV3QzEBY0v8bm+NY=;
+        b=jMH77GxW/FBHi6d221PSR/baplYou8RVmdKq1hKrdoamepNY5RYx5g+ps/NB7CAqyx
+         aQvx/JqKwkMlpma64VT1Pzbp9VpaFmuicSWWUaIDzmhTrxTMp47m6Yg3TVYatfVaGi9w
+         Czi0clxTqxXDTGDMUKx60edGsgB4/rzBLxHqyht1nXBuNpZ0OIwC47eDJBOJpgrfTqxT
+         aDqH1JnWJXx7JR78mRdqr5YmTpKwvBh3QqCSUb3VDd1gDDdku8kZyYJbpti4ewERF0ID
+         kPBzVIhQ5qfHMkdn4r00eUPClUzZPUX4NV5P0iHBEb4nS9qnhvszLzsBuqBeH/prpNFh
+         rDqQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoRMGc/UrzturzNwvc4pXwlYeu4015GeZKt9XHws1QqtLVdGj0rD0y6PB3O3NhAVgXOXq5dOEUuKGBtpjJRXDTC@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywwbhaim+tPAurEK2JPAMQ0p64aYqHfpmeJgOBQp8VWa9muOJs7
+	3q1uX6n9ybRbKhGTEDJ9NZdNzWA5kutCw4pRvNdkbdxfYlRrEJXAVME5bw1xQ6AMKTy1p9n5jnp
+	ZXFy1GsrmaxqfQ/tLor8DJPcBhO+Bcv1qSbkUkibcc6GZXw7+WAjJPS7/Xf+GSHfRqu2NZ3ykjH
+	8+6A==
+X-Gm-Gg: AR+sD12lr7EB8kamJngiI70RCrVD6wr5one0Wcijpu6cAHKfKRucEHK+gGkSFO7ceT0
+	GsYXsyf+Cz4BtlZjUKOkUwVJg9QAkGuM8g4vfdyHxWNPcbIi7v2tmvpYNgjKUWysm0cO3dzWnzS
+	8i02qwYPgefJmsrjvyyCxvS/Rr4IrKnNlNJS5A51Q2s3VGUI79ATJAnNRK9w0XnqAi2sAcRwwaa
+	icmLoOM6mYpVBf4C8jS+a+5t79LcF52iMFd8mPS7lvCouS5cH+/lz/Sjx/ywydW5n7dHvrUkOqR
+	MGrrGXlGiGnQG6CDsVY9PiS3AZ7mKxXWboFk53FGNOFCyh6p7Hj+qzanXx2Hm2gvmisj/EeAvc7
+	GE2hcUBn5jw4/xYLiJ4dXF1h+yUtT
+X-Received: by 2002:a05:622a:c08:b0:51b:f40b:2fac with SMTP id d75a77b69052e-5283df4fea9mr36098221cf.50.1784826606794;
+        Thu, 23 Jul 2026 10:10:06 -0700 (PDT)
+X-Received: by 2002:a05:622a:c08:b0:51b:f40b:2fac with SMTP id d75a77b69052e-5283df4fea9mr36097591cf.50.1784826606341;
+        Thu, 23 Jul 2026 10:10:06 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:cd9c:212:1357:7832])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85b9a64dsm18472999f8f.1.2026.07.23.10.10.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 10:10:05 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Date: Thu, 23 Jul 2026 19:09:18 +0200
+Subject: [PATCH v24 12/14] crypto: qce - Map crypto memory for DMA
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN7PR02MB4148.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2fead66-ab83-443c-1d06-08dee8d71867
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jul 2026 16:26:05.7729
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR02MB6610
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-qcom-qce-cmd-descr-v24-12-4f87bb4d9938@oss.qualcomm.com>
+References: <20260723-qcom-qce-cmd-descr-v24-0-4f87bb4d9938@oss.qualcomm.com>
+In-Reply-To: <20260723-qcom-qce-cmd-descr-v24-0-4f87bb4d9938@oss.qualcomm.com>
+To: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>,
+        Udit Tiwari <quic_utiwari@quicinc.com>,
+        Md Sadre Alam <mdalam@qti.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Stephan Gerhold <stephan.gerhold@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+        Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+        Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
+        Andy Gross <agross@codeaurora.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+Cc: dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        brgl@kernel.org, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3111;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=zV1OR5DiqlcnDzl6TeLEQ0wLAWkLclKWK2ow4Gd4Hb0=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqYkrJWYMHq7kgUQ1IfzagISl+V3RwfRRpCm6Yd
+ khK5qcSBeeJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCamJKyQAKCRAFnS7L/zaE
+ w9xgD/92jcrwEhths1pM1e26qDuDJsTs8VIHecHJGIKG2MtyXCynY5PlgFVfMaFI2Stj/0kd8eY
+ G8J1L6CENOXg4sqkzkyCadGZcMbOFk5LrvNWyRjM3pWC7bS/fnMgspSQtm53psPCCWMZeIG35XP
+ zcyjmf/5sYnVBKahalPJ8iZ5pjAr+UZuVSJEzUhOCQ8meMFW/nXUmJ3eiJuLUPAAIXtyZxv7ihw
+ eyboRKSiJ9jYNRqhln14yyjX1OCzcWswLTyPdpk+nrOI35GXijzwyLAiYpIJVZ4VUAy5Q3RKP+Z
+ M01nXfEcldcYqOn5xa2gz+KvkyR8FpMGN6ii9o936kNeN04gsRR4NNzbqK6oZt5AyAQOsSm88e2
+ fJ19D2Ohu39cVbAWLJT3m8C340yYc4mMHGPXVeLWOlA+QdroTy8xgjxX7P2Rouz49JRb2RP39Je
+ JnPbJMlty2L7uTD+y/LcloDitkR5VoKHsOhUhBZz4nXuJ6nDj+y/NGSTHsB+Sk5xsx4dm4gcC6d
+ NVf6XenrRTQzz3SZUDgW/JVDMIdkYsMXFeHqMwBZx4ZPK0goy6K3zVnNoqw0NzCL6xGmMlBEvJs
+ 3vxdKjiflG/X1ofeGO9yQ8BLW0wtLeJjSjIlAkhzB+MtMcYi23Vb6Qu3vzWI+Z1/jvECmh+x3rJ
+ 5Zkj+xQYXoASXdg==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDE2NyBTYWx0ZWRfX7cJMksan2azn
+ /rG8PObaOyNF+BBUFE1BDU/BVjTNlYeeMDvLhmmsM4uP+9+AKnGA+wXkSYQov5CAFLQ+Rx5sCF3
+ L7KnKeJl9sUGy1FLEMIQWvpz3VTz/rXNxfPfTU9PvaiuAlFS1v2kGR8iL8yU1MQNB86+QLGqDKn
+ wuTjzbbMPxuMUd4ptfujXHdrPIgiZVSH2hEizJV6M8Gzi8ptiPmfLDQhTCX2WWPM+6l1hqTFyF1
+ bAFhk3thBFKuofvKPZgu3xEYhyu/HgduGW9/Vu5hN+kaRJ2vSP+WgKCAdRUyjr8bqqIQ1PFIjzK
+ jNJRN9QbGIA7yRkiymgGAwplW1FBn6VppMW8ngSxWvnMo8IP26fspMB8iaAA4ECqoID0bfB67F/
+ j4yZGFnz0Dq24PyvcSBcCtWTMIFJ+RBE0umd+HiDcMMB5Z4hMvIPB2IoP5YObnhEaktZk2KQrrx
+ 628L9GGj/Kiw3k7k9uQ==
+X-Proofpoint-ORIG-GUID: M7DIA7_ORDrIunhdjOZ3dbQTnbOyWzFd
+X-Proofpoint-GUID: M7DIA7_ORDrIunhdjOZ3dbQTnbOyWzFd
+X-Authority-Analysis: v=2.4 cv=WOdPmHsR c=1 sm=1 tr=0 ts=6a624aef cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=KKAkSRfTAAAA:8
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=9tNk7rGwWxUH_P3zroIA:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDE2NyBTYWx0ZWRfX3LkiRxCgxfah
+ g4w4SFk/5s2+rlFTuGgcQVwT9KzGva6G3VhL3C597VI3zo7eqJY42ppEQCySWaaYMqFlWk2cbUj
+ hxFGgrB5hzxHchrTKuqsQPCjh9yojZM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-23_04,2026-07-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0 adultscore=0
+ clxscore=1015 impostorscore=0 bulkscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_092618_723232_F16BAC3E 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20260723_101009_047432_E8384651 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,75 +182,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Tuesday, July 21=
-, 2026 1:12 PM
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
->=20
-> Realms (CoCo VMs on ARM) require host calls to be routed through the RMM
-> (Realm Management Monitor) via the RSI (Realm Service Interface). This
-> series implements most of the necessary changes to support Realms on
-> Hyper-V.
->=20
-> One required change is not included in this series. The two buffers
-> allocated via vzalloc() in netvsc_init_buf() cannot be decrypted in
-> vmbus_establish_gpadl(). Currently only linearly mapped memory can be
-> decrypted.
->=20
-> This patch series was tested by booting a Realm on Cobalt 200 running
-> Windows. I tested 4KB and 64KB page size. I replaced vzalloc() in
-> netvsc_init_buf() with alloc_pages_node() -> set_memory_decrypted() ->
-> vmap() in my testing as a workaround for the issue mentioned above [1].
->=20
-> Changes since v1 [2]:
->   Patch 1: Add explicit padding to the RSI host call structure
->   Patch 3: Change from a per-cpu pointer lazily allocated to an array
->              of host call structs indexed by cpu id
->   Patch 4: Align input_page + output_page allocation to PAGE_SIZE since
->              that is the smallest unit of memory that can be decrypted
->            ~Remove KASAN tags before passing address to
->              set_memory_decrypted() since __is_lm_address() does pointer
->              arithmetic.~
->   Patch 5: Add a helper function to reduce repetition
->            Check for NULL before indexing into host call array
->=20
-> Changes since v2 [3]:
->   Patch 3: Remove hv_hostcall_free() and inline the logic for simplicity
->            Reorder edits to keep #include line at the end of the file
->   Patch 4: Remove kasan_reset_tag()
->=20
-> [1] https://lore.kernel.org/all/20260721195633.1438361-1-kameroncarr@linu=
-x.microsoft.com/
-> [2] https://lore.kernel.org/all/20260609181030.2378391-1-kameroncarr@linu=
-x.microsoft.com/
-> [3] https://lore.kernel.org/all/20260625173500.1995481-1-kameroncarr@linu=
-x.microsoft.com/
->=20
-> Kameron Carr (6):
->   arm64: rsi: Add RSI host call structure and helper function
->   firmware: smccc: Detect hypervisor via RSI host call in CCA Realms
->   arm64: hyperv: Add per-CPU RSI host call infrastructure for CCA Realms
->   Drivers: hv: Mark shared memory as decrypted for CCA Realms
->   arm64: hyperv: Route hypercalls through RSI host call in CCA Realms
->   arm64: hyperv: Implement hv_is_isolation_supported() for CCA Realms
->=20
->  arch/arm64/hyperv/hv_core.c       | 155 +++++++++++++++++++++++-------
->  arch/arm64/hyperv/mshyperv.c      |  38 +++++++-
->  arch/arm64/include/asm/mshyperv.h |   4 +
->  arch/arm64/include/asm/rsi_cmds.h |  22 +++++
->  arch/arm64/include/asm/rsi_smc.h  |   7 ++
->  drivers/firmware/smccc/smccc.c    |  41 +++++++-
->  drivers/hv/hv_common.c            |  17 +++-
->  include/asm-generic/mshyperv.h    |   1 +
->  8 files changed, 244 insertions(+), 41 deletions(-)
->=20
->=20
-> base-commit: a4ffc59238be84dd1c26bf1c001543e832674fc6
-> --
-> 2.45.4
->=20
+As the first step in converting the driver to using DMA for register
+I/O, let's map the crypto memory range.
 
-For all patches in the series,
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+ drivers/crypto/qce/core.c | 23 ++++++++++++++++++++++-
+ drivers/crypto/qce/core.h |  6 ++++++
+ 2 files changed, 28 insertions(+), 1 deletion(-)
 
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+diff --git a/drivers/crypto/qce/core.c b/drivers/crypto/qce/core.c
+index aa4a0b17749081f1ad653424bc265ee81e348e15..4031b4516d6519fc5024bbbcc439500a7b3314b2 100644
+--- a/drivers/crypto/qce/core.c
++++ b/drivers/crypto/qce/core.c
+@@ -191,10 +191,19 @@ static void qce_cancel_work(void *data)
+ 	cancel_work_sync(work);
+ }
+ 
++static void qce_crypto_unmap_dma(void *data)
++{
++	struct qce_device *qce = data;
++
++	dma_unmap_resource(qce->dev, qce->base_dma, qce->dma_size,
++			   DMA_BIDIRECTIONAL, 0);
++}
++
+ static int qce_crypto_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct qce_device *qce;
++	struct resource *res;
+ 	int ret;
+ 
+ 	qce = devm_kzalloc(dev, sizeof(*qce), GFP_KERNEL);
+@@ -204,7 +213,7 @@ static int qce_crypto_probe(struct platform_device *pdev)
+ 	qce->dev = dev;
+ 	platform_set_drvdata(pdev, qce);
+ 
+-	qce->base = devm_platform_ioremap_resource(pdev, 0);
++	qce->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+ 	if (IS_ERR(qce->base))
+ 		return PTR_ERR(qce->base);
+ 
+@@ -254,6 +263,18 @@ static int qce_crypto_probe(struct platform_device *pdev)
+ 	qce->async_req_enqueue = qce_async_request_enqueue;
+ 	qce->async_req_done = qce_async_request_done;
+ 
++	qce->dma_size = resource_size(res);
++	qce->base_dma = dma_map_resource(dev, res->start, qce->dma_size,
++					 DMA_BIDIRECTIONAL, 0);
++	qce->base_phys = res->start;
++	ret = dma_mapping_error(dev, qce->base_dma);
++	if (ret)
++		return ret;
++
++	ret = devm_add_action_or_reset(qce->dev, qce_crypto_unmap_dma, qce);
++	if (ret)
++		return ret;
++
+ 	return devm_qce_register_algs(qce);
+ }
+ 
+diff --git a/drivers/crypto/qce/core.h b/drivers/crypto/qce/core.h
+index f092ce2d3b04a936a37805c20ac5ba78d8fdd2df..a80e12eac6c87e5321cce16c56a4bf5003474ef0 100644
+--- a/drivers/crypto/qce/core.h
++++ b/drivers/crypto/qce/core.h
+@@ -27,6 +27,9 @@
+  * @dma: pointer to dma data
+  * @burst_size: the crypto burst size
+  * @pipe_pair_id: which pipe pair id the device using
++ * @base_dma: base DMA address
++ * @base_phys: base physical address
++ * @dma_size: size of memory mapped for DMA
+  * @async_req_enqueue: invoked by every algorithm to enqueue a request
+  * @async_req_done: invoked by every algorithm to finish its request
+  */
+@@ -43,6 +46,9 @@ struct qce_device {
+ 	struct qce_dma_data dma;
+ 	int burst_size;
+ 	unsigned int pipe_pair_id;
++	dma_addr_t base_dma;
++	phys_addr_t base_phys;
++	size_t dma_size;
+ 	int (*async_req_enqueue)(struct qce_device *qce,
+ 				 struct crypto_async_request *req);
+ 	void (*async_req_done)(struct qce_device *qce, int ret);
+
+-- 
+2.47.3
 
 
