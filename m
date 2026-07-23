@@ -4,113 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D10C531CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:40:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43405C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANuM1EedXU7mO5+fHrN+6vU75uZRwSQMOxEu7bukQuY=; b=G+VB66COCD4VPMSr/VcKi6RZ8k
-	Bbz4jN8KhtSjxzVYmM/nEhGYCs0oP+RroMswDneRXAXeCWv49x+RYT6TjbqpEnsXmoC38OKVG46yt
-	fTG54Uc7Mp0s/L5vlokI6gW8LfBTSF6lMlnB6Co5Y2c/lGphdKiRADG1uEkKkyCQf9GPMBxgVf399
-	Psf7HiALTlLsSOzd9BohKu32wIgfYRq/0XN0j+GXpt7kt45h7dE/8r0mzqUaiyytdB4qIxZHDmlYC
-	wNKJ+mFwOu3KuMdypYSgkMvYnHGZZnJrjQPBay6vFu/dYF6/UQ5gCRzz3rc2/E5LGXLQy/i+/zGRW
-	GLfGlR3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MTMIY17c3QIM7/9kXzK1jkelQ2Qbvb6NHhFguPtumNA=; b=Y1z4IrLg6P6wse6sbiAil/lThN
+	XpNxbi3Ol40RwR7vd5cNNmmg8+6/ybjyPaLqD+U61g8MJw+i3oUtqjTerNB6wyv5YwdiGV147ow9W
+	aLai33XXbo8wg0CvxHqJ2Lj/WyDc2vMZ+PtGNYy/cEdQ8bdzgk7qcEVX4d0/QpYM0BZx3q6v98znD
+	DqdYKpIPRYk50zWfMtpUP7t92BL/eCzE8+lMppgyzZAtJIb0A+eB6uhKHFzTTTfuRL53c7gqVyEH0
+	HB0NRloSHEuQfiIT+ib5NKHSdvxuegpIZagEjEHNlDJhj7KcTshUbHqdE98vkC1W+dA/6R36ZJW8f
+	Jc2G65Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpuf-0000000DuyC-0q6e;
-	Thu, 23 Jul 2026 09:40:21 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wmpw8-0000000DvXV-3tmV;
+	Thu, 23 Jul 2026 09:41:52 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpuU-0000000DusK-0YDr
+	id 1wmpw4-0000000DvW2-2FjG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:40:11 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47f633e6058so352376f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:40:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784799608; x=1785404408; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ANuM1EedXU7mO5+fHrN+6vU75uZRwSQMOxEu7bukQuY=;
-        b=ELFwkHUjZ6ZcA3lkdSXKAaCLkyfgjs+HM6KHGqnY5UpVSmMqFD9RuA2nTRuE0MyhOV
-         1+aS1947DDmYy9Ys2ZNG6fClDkei2ygkGVHm5Vtx12mJLovjadrHa7T3X2rteAtVMXyr
-         molB/v+Gr2sQh1CzI4MQrurFfokbGFiGyZeOd3yJX7KCJM/+y2BVyez3taXaDeHCJ6qE
-         /NIO7RCOKxUY+bA1kR0GZRO/LOUl5De9kryCV5Ucoua+KIWIlAOJjnKSShuoX2gT7pka
-         JxlB5pw8d1ir2fA6H4/Z9CMxz8wxFRU8LGZb3+fcp2mA1Pb7ZFrZKDOf0b8TmCoKqbWI
-         FnmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784799608; x=1785404408;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ANuM1EedXU7mO5+fHrN+6vU75uZRwSQMOxEu7bukQuY=;
-        b=E3+JMPRDFkNM2Gp+eB9lIHY+vW9kPxT3P0DdqWegCvzbvIJHJdjDyeIRWTmHCFXu0d
-         +Q/O7kaJULszKu9wAmM7M5fPnHtZ8yBCoF9GFtn6S4DJa5h+eE99RGxiw6z9g90BCVve
-         4u/0zcltvTh/lLNX1aCranHsmOLwdCwBsfHmHhE6WeUQDWq9A9192o4o5hBbB6qs+zJl
-         7mHnPllzlQJRvK+E4GH8Q0xdVqMXuDssDeYE15feFsz6GWjpbJPAUJ0Cm3uwHOur5J7F
-         sGwX5KN93y5kLaFU9ay14iUdxPZrjaRefpS+d2+eGX7H6TRji/pSNudp5i+FL0Uc7OyX
-         zRqg==
-X-Forwarded-Encrypted: i=1; AHgh+Rpv4hQqIQmQcGZ/sjqD99/lgsJab3P2cD/W2vtRVuWlXh9nwOFTfyIezD7Dx5A0/Tdq61EEx0mo+1PwJi6R/I55@lists.infradead.org
-X-Gm-Message-State: AOJu0Yynxy4CGIpKAE9q93Q78u9GWrwAq4+gefsk9kV2GY1Iqi8r/YuS
-	j2ncha2hXAIuj68tKC8gi/Un1xEvoufekuuP4gmuLuhZFYvrPXzmVXNKzwSO+Xt/THg=
-X-Gm-Gg: AR+sD12HF8B3JvYlKpJ6Hium7EfrFViNppxnBgwQ534H9Xr9Y6nvHqrPd5Dm2OutDdf
-	HPX+LkCT6bhtGPzOMBr4PGGh16nTCABektEajG3PB6/369kFC6IF3Fg0lZK6MHPptPKBSYwEF7P
-	+edSgCD8LnAdViLG3IvqVWbZuBzXt9p7hQLz4so08/a8dx4BE/etPq3k7inW8/8t8VYxfB4UJWe
-	Qa3iYhM1h8e6KPZvtVXijbUb1TSTm4YcMcv85FYFySwjRHvS9rVvuYzboOERceHJDI+XeYBmL0L
-	8ty9qd0obeLp+kBblBG8zTuq2bvV63uDQijFFbRRoD9B4JpzFJQZWd76p0hECQ1CqNZ7Q20NNsY
-	+iyKBShIw5jZnjzPTLTraNxamkfwDRaMGuo79T+JANqVLhnmSsP9wpwQf/BLYXe/sDsyZxmdZXX
-	x6
-X-Received: by 2002:a05:6000:1883:b0:474:5a38:f650 with SMTP id ffacd0b85a97d-47f8d710ffemr2834486f8f.3.1784799608255;
-        Thu, 23 Jul 2026 02:40:08 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:3274:dbb5:2710:802b])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f85b9a6d7sm15256235f8f.2.2026.07.23.02.40.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 02:40:07 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Thu, 23 Jul 2026 11:39:52 +0200
-Subject: [PATCH v7 2/4] clk: sunxi-ng: div: add read-only operation support
+	Thu, 23 Jul 2026 09:41:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EE906201FBB;
+	Thu, 23 Jul 2026 11:41:44 +0200 (CEST)
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wmpw0-000sSL-2r;
+	Thu, 23 Jul 2026 11:41:44 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wmpw0-0000000Edj9-3Cl9;
+	Thu, 23 Jul 2026 11:41:44 +0200
+Date: Thu, 23 Jul 2026 11:41:44 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: festevam@gmail.com, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v13] drm/bridge: imx: Add i.MX93 parallel display format
+ configuration support
+Message-ID: <mtlwa5e3fafhw4gx4jll6z6veqmzedeeeahwo4ddepzed6oc5z@rjeywlqzr4lp>
+References: <20260723-v6-18-topic-imx93-parallel-display-v13-1-ccf3f9bbc0fc@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-a733-rtc-v7-2-8fd68aab94ae@baylibre.com>
-References: <20260723-a733-rtc-v7-0-8fd68aab94ae@baylibre.com>
-In-Reply-To: <20260723-a733-rtc-v7-0-8fd68aab94ae@baylibre.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2289; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=BJX69CI3rhPgFIC+UOKYakZAgmiE1nvMLkgOXW1N7vs=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYeFuAonlP7DkbS7g2+GVMpDyLmLNQ/yrcz3K4
- GDc7mIRf2aJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamHhbgAKCRDm/A8cN/La
- hXuMD/4yhmqW9LF67++G2u3n2Ore+4UjWpvySCijqdBgw7p7SquucWZp1DLDI2TxsuNXpFv4Vu0
- ZJ6wnSE7VhjkXU8frv89pskHWhdH/uQzwHyFfrUH+uS2J6S95Iha5zJ++bum+V3v4wZ6uzar1rh
- /2EhCsUEVeoG+74PZ5izkjZ4Im3XihSvPXs4zOGX8GGAEiMNRPY6pE5eOXlOG5XPfDqKZswX+GI
- wGZNcGXAzU9CY2B2/wTgy1bfmtZo9F09IeQ4YrZ+a6mTQl3Gb7qVk/JKr39p/Jyvd/tlMiZxkaJ
- 2qQZLF+SSPslhfmDmoxW8DGHtln+LI94LvPzjsO2HotayRJgELlH5DBiyE3vV/ZOFPUhHMx9PpA
- MsSr+nobCw9ddH2GmjXRDtQopTN8d80N8jROx5c2p3Jivgz8Hcg6AGZ9bl59BhKnImTIhtPsYGH
- ngyF3AyOUkZlSbu9cHSaS/9+HKDCiOlhH5GOpn/T8lhyQZns6+Ukw8CDbpUPK1JPYMrxNV4/6/M
- 6EWg730zZZ0S0jAvdeofo3VTd7PTXG2za6B+PVgJ3H5eOcX5OtZqIMFLlef8EEiIyFpB7LsyXUB
- 8+c1NEs6MA0n+m97jU9jrmh1yzs/9QvvoBFaaAbowrv2R+zAnTD+8FUHOvFz68EDYA/A44M4wrI
- t+Eb0dJFejElW5w==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260723-v6-18-topic-imx93-parallel-display-v13-1-ccf3f9bbc0fc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_024010_207679_7479E1F7 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260723_024148_890485_B7B825C9 
+X-CRM114-Status: GOOD (  43.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,75 +79,408 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for sunxi-ng read-only dividers. This will be
-useful to the a733 oscillator detection logic.
+On 26-07-23, Liu Ying wrote:
+> NXP i.MX93 mediamix blk-ctrl contains one DISPLAY_MUX register which
+> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> field. Add a DRM bridge driver to support the display format configuration.
+> 
+> [m.felsch@pengutronix.de: port to v7.0-rc1]
+> [m.felsch@pengutronix.de: add review feedback (Alexander)]
+> [m.felsch@pengutronix.de: fix to short Kconfig description (checkpath)]
+> [m.felsch@pengutronix.de: use "GPL" instead of "GPL v2" (checkpatch)]
+> [m.felsch@pengutronix.de: add bus-width support]
+> [ Liu Ying: Port to drm-misc/drm-misc-next(v7.2-rc2 based) ]
+> [ Liu Ying: Add nxp,imx91-pdfc compatible string ]
+> [ Liu Ying: Call drm_bridge_get() for next_bridge ]
+> [ Liu Ying: Reject unsupported output bus fmt in .atomic_get_input_bus_fmts() ]
+> 
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+> Hi,
+> 
+> I'm taking Marco Felsch's v11 work over and trying to add the imx93-pdfc.c
+> driver.
+> 
+> DT binding patch and DT patch in v11 have already landed, so only need
+> to send the driver patch out for review.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/clk/sunxi-ng/ccu_div.c | 31 +++++++++++++++++++++++++++++--
- drivers/clk/sunxi-ng/ccu_div.h |  1 +
- 2 files changed, 30 insertions(+), 2 deletions(-)
+Thanks for taking care of this :) This was too long on my todo-list.
 
-diff --git a/drivers/clk/sunxi-ng/ccu_div.c b/drivers/clk/sunxi-ng/ccu_div.c
-index 62d680ccb524..c385e0160f13 100644
---- a/drivers/clk/sunxi-ng/ccu_div.c
-+++ b/drivers/clk/sunxi-ng/ccu_div.c
-@@ -20,8 +20,22 @@ static int ccu_div_determine_rate_helper(struct ccu_mux_internal *mux,
- 	if (cd->common.features & CCU_FEATURE_FIXED_POSTDIV)
- 		req->rate *= cd->fixed_post_div;
- 
--	ret = divider_determine_rate(&cd->common.hw, req, cd->div.table,
--				     cd->div.width, cd->div.flags);
-+	if (cd->div.flags & CLK_DIVIDER_READ_ONLY) {
-+		unsigned long val;
-+		u32 reg;
-+
-+		reg = readl(cd->common.base + cd->common.reg);
-+		val = reg >> cd->div.shift;
-+		val &= (1 << cd->div.width) - 1;
-+
-+		ret = divider_ro_determine_rate(&cd->common.hw, req, cd->div.table,
-+						cd->div.width, cd->div.flags, val);
-+
-+	} else {
-+		ret = divider_determine_rate(&cd->common.hw, req, cd->div.table,
-+					     cd->div.width, cd->div.flags);
-+	}
-+
- 	if (ret)
- 		return ret;
- 
-@@ -143,3 +157,16 @@ const struct clk_ops ccu_div_ops = {
- 	.set_rate	= ccu_div_set_rate,
- };
- EXPORT_SYMBOL_NS_GPL(ccu_div_ops, "SUNXI_CCU");
-+
-+const struct clk_ops ccu_rodiv_ops = {
-+	.disable	= ccu_div_disable,
-+	.enable		= ccu_div_enable,
-+	.is_enabled	= ccu_div_is_enabled,
-+
-+	.get_parent	= ccu_div_get_parent,
-+	.set_parent	= ccu_div_set_parent,
-+
-+	.determine_rate	= ccu_div_determine_rate,
-+	.recalc_rate	= ccu_div_recalc_rate,
-+};
-+EXPORT_SYMBOL_NS_GPL(ccu_rodiv_ops, "SUNXI_CCU");
-diff --git a/drivers/clk/sunxi-ng/ccu_div.h b/drivers/clk/sunxi-ng/ccu_div.h
-index be00b3277e97..a30a92780a05 100644
---- a/drivers/clk/sunxi-ng/ccu_div.h
-+++ b/drivers/clk/sunxi-ng/ccu_div.h
-@@ -300,5 +300,6 @@ static inline struct ccu_div *hw_to_ccu_div(struct clk_hw *hw)
- }
- 
- extern const struct clk_ops ccu_div_ops;
-+extern const struct clk_ops ccu_rodiv_ops;
- 
- #endif /* _CCU_DIV_H_ */
+Regards,
+  Marco
+
+> ---
+> Changes in v13:
+> - Reject unsupported output bus fmt in .atomic_get_input_bus_fmts()  (Sashiko bot)
+> - Tweak commit message about change log
+> - Link to v12: https://patch.msgid.link/20260722-v6-18-topic-imx93-parallel-display-v12-1-a59dbb4dbc13@nxp.com
+> 
+> Changes in v12:
+> - Link to v11: https://lore.kernel.org/r/20260303-v6-18-topic-imx93-parallel-display-v11-0-1b03733c8461@pengutronix.de
+> - Rebase onto latest drm-misc/drm-misc-next
+> - Drop DT binding patch and DT patch because they have landed
+> - Add nxp,imx91-pdfc compatible string
+> - Call drm_bridge_get() for next_bridge
+> - Cc Marco
+> 
+> Changes in v11:
+> - Link to v10: https://lore.kernel.org/r/20260302-v6-18-topic-imx93-parallel-display-v10-0-634fe2778c7a@pengutronix.de
+> - Fix double space (Liu)
+> - Drop 'const' (Liu)
+> - Drop GFP_KERNEL from kmalloc_obj() (Liu)
+> - Add r-b (Luca)
+> 
+> Changes in v10:
+> - Link to v9: https://lore.kernel.org/r/20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de
+> - Add MEDIA_BUS_FMT_FIXED (Liu)
+> - Drop next_bridge from driver struct and use bridge.next_bridge (Liu)
+> - Drop linux/of_address.h include (Liu)
+> - imx93-pdfc: drop bridge.driver_private usage++ (Liu)
+> - Make use of kmalloc_obj() (Liu)
+> 
+> Changes in v9:
+> - Link to v8: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de
+> - dt-bindings: drop unncessary changes (Frank)
+> - imx93-pdfc: drop bridge.driver_private usage (Luca)
+> - Kconfig: Adapt Kconfig symbol and prompt (Luca)
+> 
+> Changes in v8:
+> - Link to v7: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de
+> - dt-bindings: add nxp,imx91-pdfc compatible (Liu)
+> - dt-bindings: use video-interfaces.yaml# (Liu)
+> - dt-bindings: s/data lanes/data lines/ (Liu)
+> - dt-bindings: drop 'reg' poperty
+> - dt-bindings: drop #address-cells, #size-cells
+> - imx93-pdfc: drop drm/drm_print.h include (Liu)
+> - imx93-pdfc: s/exist/exists/ (Liu)
+> - imx93-pdfc: drop MEDIA_BUS_FMT_FIXED from imx93_pdfc_bus_output_fmts
+> - imx93-pdfc: imx93_pdfc_bus_output_fmt_supported: make fmt const
+> - imx93-pdfc: Rework input-fmt selection to always fallback to a sane
+>               default.
+> - imx93-pdfc: imx93_pdfc_bridge_atomic_check: make use of
+> 	      imx93_pdfc_bus_output_fmt_supported()
+> - imx93-pdfc: drop 'reg' dt-property usage
+> - imx93-pdfc: imx93_pdfc_bridge_probe: pass -1 for endpoint reg value (Liu)
+> 
+> Changes in v7:
+> - Link to v6: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-parallel-display-v6-0-7b056e1e5b1e@pengutronix.de
+> - Add missing bits.h and bitfield.h headers (lkp)
+> 
+> Changes in v6:
+> - Link to v5: https://lore.kernel.org/all/20250304082434.834031-1-victor.liu@nxp.com/
+> - Add bus-width support
+> - rebase onto v6.18-rc1
+> - add review feedback (Alexander)
+> - driver license "GPL v2" -> "GPL" (checkpatch)
+> - make use of reg of-property
+> - fix to short Kconfig description (checkpath)
+> - add OF integration
+> 
+> To: Liu Ying <victor.liu@nxp.com>
+> To: Andrzej Hajda <andrzej.hajda@intel.com>
+> To: Neil Armstrong <neil.armstrong@linaro.org>
+> To: Robert Foss <rfoss@kernel.org>
+> To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> To: Jonas Karlman <jonas@kwiboo.se>
+> To: Jernej Skrabec <jernej.skrabec@gmail.com>
+> To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> To: Maxime Ripard <mripard@kernel.org>
+> To: Thomas Zimmermann <tzimmermann@suse.de>
+> To: David Airlie <airlied@gmail.com>
+> To: Simona Vetter <simona@ffwll.ch>
+> To: Frank Li <Frank.Li@nxp.com>
+> To: Sascha Hauer <s.hauer@pengutronix.de>
+> To: Pengutronix Kernel Team <kernel@pengutronix.de>
+> To: Fabio Estevam <festevam@gmail.com>
+> Cc: linux-kernel@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  drivers/gpu/drm/bridge/imx/Kconfig      |  11 ++
+>  drivers/gpu/drm/bridge/imx/Makefile     |   1 +
+>  drivers/gpu/drm/bridge/imx/imx93-pdfc.c | 222 ++++++++++++++++++++++++++++++++
+>  3 files changed, 234 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
+> index 005a745e5c47..49fcecfee38e 100644
+> --- a/drivers/gpu/drm/bridge/imx/Kconfig
+> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
+> @@ -107,4 +107,15 @@ config DRM_IMX93_MIPI_DSI
+>  	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
+>  	  processor.
+>  
+> +config DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER
+> +	tristate "NXP i.MX91/i.MX93 parallel display format converter"
+> +	depends on OF
+> +	select DRM_KMS_HELPER
+> +	help
+> +	  On i.MX93 and i.MX91 SoCs the parallel display format output is
+> +	  controlled via the MEDIAMIX BLK-CTRL DISPLAY_MUX.
+> +
+> +	  Say 'Y' or 'M' if you use the parallel display output path on a
+> +	  i.MX93 or i.MX91 SoC.
+> +
+>  endif # ARCH_MXC || COMPILE_TEST
+> diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge/imx/Makefile
+> index 94ac8c40ebe9..99f28cd013ae 100644
+> --- a/drivers/gpu/drm/bridge/imx/Makefile
+> +++ b/drivers/gpu/drm/bridge/imx/Makefile
+> @@ -10,3 +10,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_COMBINER) += imx8qxp-pixel-combiner.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) += imx8qxp-pixel-link.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) += imx8qxp-pxl2dpi.o
+>  obj-$(CONFIG_DRM_IMX93_MIPI_DSI) += imx93-mipi-dsi.o
+> +obj-$(CONFIG_DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER) += imx93-pdfc.o
+> diff --git a/drivers/gpu/drm/bridge/imx/imx93-pdfc.c b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
+> new file mode 100644
+> index 000000000000..2d6ca95ed554
+> --- /dev/null
+> +++ b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
+> @@ -0,0 +1,222 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +
+> +/*
+> + * Copyright 2022-2025 NXP
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/media-bus-format.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_graph.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <drm/drm_atomic_state_helper.h>
+> +#include <drm/drm_bridge.h>
+> +
+> +#define IMX93_DISPLAY_MUX_REG		0x60
+> +#define PARALLEL_DISP_FORMAT		GENMASK(10, 8)
+> +#define FORMAT_RGB888_TO_RGB888		FIELD_PREP(PARALLEL_DISP_FORMAT, 0)
+> +#define FORMAT_RGB888_TO_RGB666		FIELD_PREP(PARALLEL_DISP_FORMAT, 1)
+> +#define FORMAT_RGB565_TO_RGB565		FIELD_PREP(PARALLEL_DISP_FORMAT, 2)
+> +
+> +struct imx93_pdfc {
+> +	struct drm_bridge bridge;
+> +	struct device *dev;
+> +	struct regmap *regmap;
+> +	u32 phy_bus_width;
+> +};
+> +
+> +static struct imx93_pdfc *bridge_to_imx93_pdfc(struct drm_bridge *bridge)
+> +{
+> +	return container_of(bridge, struct imx93_pdfc, bridge);
+> +}
+> +
+> +static int
+> +imx93_pdfc_bridge_attach(struct drm_bridge *bridge, struct drm_encoder *encoder,
+> +			 enum drm_bridge_attach_flags flags)
+> +{
+> +	return drm_bridge_attach(bridge->encoder, bridge->next_bridge, bridge, flags);
+> +}
+> +
+> +static void imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
+> +					    struct drm_atomic_commit *state)
+> +{
+> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> +	const struct drm_bridge_state *bridge_state;
+> +	unsigned int mask = PARALLEL_DISP_FORMAT;
+> +	unsigned int val;
+> +
+> +	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
+> +
+> +	switch (bridge_state->output_bus_cfg.format) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +	case MEDIA_BUS_FMT_FIXED:
+> +		val = FORMAT_RGB888_TO_RGB888;
+> +		if (pdfc->phy_bus_width == 18) {
+> +			/*
+> +			 * Can be valid if physical bus limitation exists,
+> +			 * therefore use dev_dbg().
+> +			 */
+> +			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
+> +			val = FORMAT_RGB888_TO_RGB666;
+> +		}
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> +		val = FORMAT_RGB888_TO_RGB666;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		val = FORMAT_RGB565_TO_RGB565;
+> +		break;
+> +	}
+> +
+> +	regmap_update_bits(pdfc->regmap, IMX93_DISPLAY_MUX_REG, mask, val);
+> +}
+> +
+> +/* TODO: Add YUV formats */
+> +static const u32 imx93_pdfc_bus_output_fmts[] = {
+> +	MEDIA_BUS_FMT_FIXED,
+> +	MEDIA_BUS_FMT_RGB888_1X24,
+> +	MEDIA_BUS_FMT_RGB666_1X18,
+> +	MEDIA_BUS_FMT_RGB565_1X16,
+> +};
+> +
+> +static bool imx93_pdfc_bus_output_fmt_supported(u32 fmt)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(imx93_pdfc_bus_output_fmts); i++) {
+> +		if (imx93_pdfc_bus_output_fmts[i] == fmt)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+> +static u32 *
+> +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+> +					    struct drm_bridge_state *bridge_state,
+> +					    struct drm_crtc_state *crtc_state,
+> +					    struct drm_connector_state *conn_state,
+> +					    u32 output_fmt,
+> +					    unsigned int *num_input_fmts)
+> +{
+> +	u32 *input_fmts;
+> +
+> +	*num_input_fmts = 0;
+> +
+> +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt))
+> +		return NULL;
+> +
+> +	input_fmts = kmalloc_obj(*input_fmts);
+> +	if (!input_fmts)
+> +		return NULL;
+> +
+> +	*num_input_fmts = 1;
+> +
+> +	switch (output_fmt) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		input_fmts[0] = output_fmt;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> +	case MEDIA_BUS_FMT_FIXED:
+> +		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
+> +		break;
+> +	}
+> +
+> +	return input_fmts;
+> +}
+> +
+> +static int imx93_pdfc_bridge_atomic_check(struct drm_bridge *bridge,
+> +					  struct drm_bridge_state *bridge_state,
+> +					  struct drm_crtc_state *crtc_state,
+> +					  struct drm_connector_state *conn_state)
+> +{
+> +	struct imx93_pdfc *pdfc = bridge_to_imx93_pdfc(bridge);
+> +	u32 format = bridge_state->output_bus_cfg.format;
+> +
+> +	if (imx93_pdfc_bus_output_fmt_supported(format))
+> +		return 0;
+> +
+> +	dev_warn(pdfc->dev, "Unsupported output bus format: 0x%x\n", format);
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static const struct drm_bridge_funcs funcs = {
+> +	.attach			= imx93_pdfc_bridge_attach,
+> +	.atomic_enable		= imx93_pdfc_bridge_atomic_enable,
+> +	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
+> +	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
+> +	.atomic_get_input_bus_fmts	= imx93_pdfc_bridge_atomic_get_input_bus_fmts,
+> +	.atomic_check		= imx93_pdfc_bridge_atomic_check,
+> +	.atomic_create_state	= drm_atomic_helper_bridge_create_state,
+> +};
+> +
+> +static int imx93_pdfc_bridge_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct drm_bridge *next_bridge;
+> +	struct imx93_pdfc *pdfc;
+> +	struct device_node *ep;
+> +	int err;
+> +
+> +	pdfc = devm_drm_bridge_alloc(dev, struct imx93_pdfc, bridge, &funcs);
+> +	if (IS_ERR(pdfc))
+> +		return PTR_ERR(pdfc);
+> +
+> +	pdfc->regmap = syscon_node_to_regmap(dev->of_node->parent);
+> +	if (IS_ERR(pdfc->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(pdfc->regmap),
+> +				     "failed to get regmap\n");
+> +
+> +	/* No limits per default */
+> +	pdfc->phy_bus_width = 24;
+> +
+> +	/* Get output ep (port1/endpoint) */
+> +	ep = of_graph_get_endpoint_by_regs(dev->of_node, 1, -1);
+> +	if (ep) {
+> +		err = of_property_read_u32(ep, "bus-width", &pdfc->phy_bus_width);
+> +		of_node_put(ep);
+> +
+> +		/* bus-width is optional but it must have valid data if present */
+> +		if (err && err != -EINVAL)
+> +			return dev_err_probe(dev, err,
+> +					     "failed to query bus-width\n");
+> +	}
+> +
+> +	next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
+> +	if (IS_ERR(next_bridge))
+> +		return dev_err_probe(dev, PTR_ERR(next_bridge),
+> +				     "failed to get next bridge\n");
+> +	pdfc->dev = dev;
+> +	pdfc->bridge.of_node = dev->of_node;
+> +	pdfc->bridge.type = DRM_MODE_CONNECTOR_DPI;
+> +	pdfc->bridge.next_bridge = drm_bridge_get(next_bridge);
+> +
+> +	return devm_drm_bridge_add(dev, &pdfc->bridge);
+> +}
+> +
+> +static const struct of_device_id imx93_pdfc_dt_ids[] = {
+> +	{ .compatible = "nxp,imx91-pdfc", },
+> +	{ .compatible = "nxp,imx93-pdfc", },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, imx93_pdfc_dt_ids);
+> +
+> +static struct platform_driver imx93_pdfc_bridge_driver = {
+> +	.probe	= imx93_pdfc_bridge_probe,
+> +	.driver	= {
+> +		.of_match_table = imx93_pdfc_dt_ids,
+> +		.name = "imx93_pdfc",
+> +	},
+> +};
+> +module_platform_driver(imx93_pdfc_bridge_driver);
+> +
+> +MODULE_DESCRIPTION("NXP i.MX93 parallel display format configuration driver");
+> +MODULE_AUTHOR("Liu Ying <victor.liu@nxp.com>");
+> +MODULE_LICENSE("GPL");
+> 
+> ---
+> base-commit: 9499d3bc41a2c4e6a1badfb55f943b9d0c34f034
+> change-id: 20251201-v6-18-topic-imx93-parallel-display-95f9234bf6cc
+> 
+> Best regards,
+> --  
+> Regards,
+> Liu Ying
+> 
+> 
 
 -- 
-2.47.3
+#gernperDu 
+#CallMeByMyFirstName
 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
