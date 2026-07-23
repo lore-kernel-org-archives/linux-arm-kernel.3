@@ -4,95 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A38C531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18653C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 11:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wdwFVAnarm94CRlFVdAITXHXoMEZm39JJ6RFIFm/OS0=; b=ngcprlMwS5c+254mbbdACfqM5/
-	+HeSlNVHlMIRSZUXPJacKVbCzrS2eZvJkgm/9d7ax2aLl0h3ZFmfOZBTKpr4BkcigG+neismFlNM7
-	FMCy8AOnrpS+MLFSCFp3v/NBm3QpaTXMkd5fVKBFSZ7tB1GnWKT8PELM40pFoFyune7580ObRRvVl
-	JgUJnZi6UkERxoNLGNGJqzz2B6W/cQVMXf19SV6ma7O2eP5b/4scz80AlBUIfOPinAY/YO56+dFX4
-	0rWtT95YR2p7uvyYH+XNn/yNRrV2+x944FAmfnOhggrXMy67ai9WFhOnZMasLqa7GFQMb3EMTmq/u
-	mNskiKJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b7Mzpy5zdtXssn+L9P2YYF6sI1BaKmigGtB9zFmVXYM=; b=thNxsQh5Yl+yK/4E2nxnqkk06v
+	KvnMB3kfc2pk9RkwlXsiAOn9JDZfE5Cg8uNy3i40J2yWIgIkMttnYqRPgr6a6MBDpSgQNhcMBvWK+
+	59GlDVSmCEPMh5zJLF5g56qi7aMeLMqpzw9YPYCkVxVRqIkKSCpd9HwVEYecD4uLrsC4o13L7okq0
+	iFEqeKbKLItXS4caI9FY6FVe5lcfcju/6NCKSIVRqWyCcU22SveNoBIeCbEYPdNUFlyKVvJS+nkqG
+	AQyIRk9d0rxjK3n3MzqyhBNtC+vuysx8NB68D70xmPZ558AgqlsxuBafg50s1AVXWWmEF/PQCfpUy
+	lrhK8NMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmrGC-0000000E7Tj-3IzS;
-	Thu, 23 Jul 2026 11:06:40 +0000
-Received: from mail.lysator.liu.se ([2001:6b0:17:f0a0::3])
+	id 1wmpUX-0000000DopY-3fZg;
+	Thu, 23 Jul 2026 09:13:21 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmrGA-0000000E7Ss-3AJA
+	id 1wmpUL-0000000DoiC-19wF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 11:06:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784804796;
-	bh=iB+itzYWCHNZZ3o5cei/xxMrlYhVWL5HBHuf2Di68qk=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=oQyX64B3GRAFB7TjGdy4cgF9vohVHxcYNukFs+Nv0zWF8pp2ZA8BW1/UOy4/K8tC9
-	 dvhf1XhAr/QTjz/TIVYv4QXUYDcEdKGdt6j4R3525BLg0neVmJw91pMwx+3ae419UQ
-	 eR+/JXIRQgBh1RIfHkhMo4NBjoQGBcnvfiENyk5k8K6ZT2Kcn+VmhQCs1bVVf29U5+
-	 cz3Y40u5Kl3n6FtNoaOBujy5gHKjJshHJ4JWJYPQFUqeM+AFgHiXjCAkMqZcLlh0Xt
-	 ljPvMYypZIZtGx6s3jMFfICo4pBPSj2d6ZWqpB6fBlS6qhaSWBt+CI3okHkWGLlDbj
-	 BPjQ0MY6G/MIg==
-Received: from mail.lysator.liu.se (localhost [127.0.0.1])
-	by mail.lysator.liu.se (Postfix) with ESMTP id C21CA1BA46
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:06:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784804796;
-	bh=iB+itzYWCHNZZ3o5cei/xxMrlYhVWL5HBHuf2Di68qk=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=oQyX64B3GRAFB7TjGdy4cgF9vohVHxcYNukFs+Nv0zWF8pp2ZA8BW1/UOy4/K8tC9
-	 dvhf1XhAr/QTjz/TIVYv4QXUYDcEdKGdt6j4R3525BLg0neVmJw91pMwx+3ae419UQ
-	 eR+/JXIRQgBh1RIfHkhMo4NBjoQGBcnvfiENyk5k8K6ZT2Kcn+VmhQCs1bVVf29U5+
-	 cz3Y40u5Kl3n6FtNoaOBujy5gHKjJshHJ4JWJYPQFUqeM+AFgHiXjCAkMqZcLlh0Xt
-	 ljPvMYypZIZtGx6s3jMFfICo4pBPSj2d6ZWqpB6fBlS6qhaSWBt+CI3okHkWGLlDbj
-	 BPjQ0MY6G/MIg==
-Received: by mail.lysator.liu.se (Postfix, from userid 1004)
-	id A38221BAC2; Thu, 23 Jul 2026 13:06:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784804792;
-	bh=iB+itzYWCHNZZ3o5cei/xxMrlYhVWL5HBHuf2Di68qk=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=tL+WPGkBoq1qI5lFkvqLgDrdcBwy+Lr4ZmQpnsOSuzB1Q91fNGVAId+qZBFT9tNK2
-	 CSMcgSmC1CtMrkOqFHTLNRLk3iAQmRDEf7aJ3u0ThRlPj+tN+B6voddpasZ1E8tq+q
-	 0x5yEnpMzYr0rvbVeK5udzn3yuIjr98Tq2aOOuEEB441uhfTay5BT99jqve2MDsG8x
-	 KTxBOXdTuseUteyqB1YYAmoMUso12+ZYk0v19NfTXEDLGf10s4uLtUgAe1Yx3Qmmtz
-	 cM4zIkOm3f5Eeolu4zQgxv86Hq5UUQijKTxAXFmqMKV58NGmdJcVAiw5UqVadBLo3A
-	 MAOIvC1tdijUA==
-Received: from [192.168.2.172] (81-225-28-11-no2391.tbcn.telia.com [81.225.28.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by mail.lysator.liu.se (Postfix) with ESMTPSA id A31751BA45;
-	Thu, 23 Jul 2026 13:06:32 +0200 (CEST)
-Message-ID: <e0b9cafb-1aae-4ea9-ae9c-ccbcdcf08ff1@lysator.liu.se>
-Date: Thu, 23 Jul 2026 13:06:32 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Peter Rosin <peda@lysator.liu.se>
-Subject: Re: [PATCH v12 7/7] docs: i2c: i2c-topology: add section about bus
- speed
-To: Marcus Folkesson <marcus.folkesson@gmail.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Michael Hennerich <michael.hennerich@analog.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@intel.com>,
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260719-i2c-mux-v12-0-a5010d623a57@gmail.com>
- <20260719-i2c-mux-v12-7-a5010d623a57@gmail.com>
-Content-Language: en-US, sv-SE
-In-Reply-To: <20260719-i2c-mux-v12-7-a5010d623a57@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+	Thu, 23 Jul 2026 09:13:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g0CZida88k5eKbkjABWq06/vhVT4o8L7lr8aU66OF7suOhCCPX8+ixEz8tPLjrfmWO2+GJbh7AWwA0U3bDzUyHAuQrq2njrKR5lHxVzcwK0QJcjFtLdN8kxfWkFMBVhRegM6dGh4dMvNpis0cyA0+MwWXBjGBbvSZTGe7iHhJZE9QwKVD6n2kGCCxbwC+TlMplsacKPO6YKlEseT2JbapdyntMxq9+o5V7siFGeCroJuBVYMpscEtMmHzo3bZrmc4LDwgLWNSPyJu8ehshtX1bSkcBmaU4MNHKsgdw2ML/AxJ6ushXYzm0ScN1c74UHDfU5NWsUMn/nmykznOJScBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b7Mzpy5zdtXssn+L9P2YYF6sI1BaKmigGtB9zFmVXYM=;
+ b=AIAPfso8uGw9plqwQ0wCaCG89JyVmKtqRAHye0hJFyQYDRUEi6b6j9HNIjfUaFdDqODjeTygsQjWvh7Mfn9FG0GnLqDnqw3Iwdhex38abcJfyKxMrSYrf6Q2d+yS7psDOV5FajBa60uqbZQVzWzmdBMJ5zstWvbBnXUfsSKks3BWSmurCXzyL+mEoj5KctybsIWu4M4ruo/Es8thQcaooJsfgKrhhYw30bm372XF/oNfiKjSgVkbvrNpHUb7bNWnlSxvLB6YdBcOz7r1gDIJal1gOaOaG8l8PVlG6MO1DMJmEy+WGgk9XwXKiFO2tbCFtiZJlaPuOuxsodAAxacZEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b7Mzpy5zdtXssn+L9P2YYF6sI1BaKmigGtB9zFmVXYM=;
+ b=un8nvMUB0mnMtd6IBJC1IInenYjWwN80tWdm1IzrF0zTqo0oNwcUN9U0k6kFd5piQgC0GiXoOwpG8v/7BLZS05y3aJ83aciY+DH67NB9yK5iutSpzaG0iOIHYQfA85tLgJ9+xPh8k0zD+sVslzXJk21nwfGqA43uw3i+IFzDtZOx0ls8pxiOjtZ0Y3QsHivvHQGBlNqsoGu1xT28BoKOcnSvkHIhlHLbKn8A00a8HAITR7nf5I+OXl6ziabmeEGP2e67+40kX5Q5iVfS6fM0scpRmdewe5pWQdEi10E1riytmzSElHZcWWNmodDd+nz+5xH8fH5I4a9uuMGPktChEw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
+ by DB8PR04MB6780.eurprd04.prod.outlook.com (2603:10a6:10:f9::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 09:13:04 +0000
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
+ 09:13:04 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Date: Thu, 23 Jul 2026 17:16:37 +0800
+Subject: [PATCH v3 1/3] media: nxp: imx8-isi: Implement per-stream
+ reference counting for multiplexed streams
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: ClamAV using ClamSMTP
+Message-Id: <20260723-isi-v3-1-594919eae847@oss.nxp.com>
+References: <20260723-isi-v3-0-594919eae847@oss.nxp.com>
+In-Reply-To: <20260723-isi-v3-0-594919eae847@oss.nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Christian Hemp <c.hemp@phytec.de>, 
+ Stefan Riedmueller <s.riedmueller@phytec.de>, 
+ Jacopo Mondi <jacopo@jmondi.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Bryan O'Donoghue <bod@kernel.org>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
+ linux-media@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784798197; l=7278;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=8zzJ60bO7QSwxOd3LElRmIwlR+JR4OzfKRPv2FmK04g=;
+ b=P8cmNJsg2mXOkhHqIpxuRb0xE/YKRNDbdsGpGqsAVPZRKiMkmlGuSrr8EU9kkO6QOPJBmyX5d
+ 0+J3vwa2zzfAhhY75n8hrTo6tB0hoV994qVUsYwJFpust8yJdQC4wa8
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI3PR02CA0006.apcprd02.prod.outlook.com
+ (2603:1096:4:295::13) To GV1PR04MB11513.eurprd04.prod.outlook.com
+ (2603:10a6:150:284::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|DB8PR04MB6780:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96231fcc-3d71-46c5-de24-08dee89a9a32
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|19092799006|921020|6133799003|56012099006|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: VBi3NsVYVj3BDiurVAuMhTkYVVm88bd3Fe8ZDKACI4TfmdsTwtJBgyLEdl3SvZ0yWio/hXt8ruhKvwTjHAAOAqpPbh0iKJkSUTXwRBeZtUcvBsdbUlOFeETtXHyA3Ap3OBRXMgn6QBu6WBQ6nA6XxXd1UqIHzPVZoBfxr8BHnvVzu/uFBpSCUMo1czForn4Gbr5ghxgK09aei0tLEGz5sMIWkfmUwHnZuxo2yshEu3XLkpisB4C+ugSg2Yei7nsV0cZkwJPOnGriRUtG+lXVXTH0Ltjs/CuPoCJfHWIez0fZeD+qoYVGhHZs5rv4iAl4Ia+5Batkizq2MmJgpJ6GGcfpNluvUVX2XhUGPTIaMZKfFtXdCecMa+lv+XMhzjsAlgEuzTfv9OQc3s4Io65eNTG4v9kZHpXzEDsS9+yYFld9jJhEEGcPEvq0ZBy3c1HjrWi8BPVwm/LPGmtMhSIOaK8wBR+U1TZGtpiSxKJqcWdYFOq1PH2WNT8Ocuw76r4o6JE52PwInAHJ+HCg22RpHFaa+wYU0hZejEaYKB76WXjmJiCbNVJEdPaqOmveDK1JS+aJbDzcaQ/2sQEKG+1yDivoGAIFQBV/SI3mYAnx4eghhFvIJvUtWHGGR/KBmqYws93T6lt31xyBNQzn5eYOr+anGE/ddEeSw9/t4ND7TQz2NEHr5Arrbk2ICMh/zs+amWORY2ntryybRJXs0CWwsw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(19092799006)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NFlXZ25KMTNmdTdCVzQ5WmVBcjIraUJCcGRLalNwTnBFNXZaSDI1VWNkUkJs?=
+ =?utf-8?B?bXJrVHRudmNxdEF4S3I5eTgzM1JLb25yN01ibTNMQ1lLWGUyc3RCTVhzMXVH?=
+ =?utf-8?B?WWc3TnBTYkJpNTNzNlVTOWcwSFpadVh4VlBubFJBYm1YeGlFeHVZMmdMSHM3?=
+ =?utf-8?B?TjQ2Y1Jybmo2RkZlYmNPNE5LR0lNT1lrNmV6M0VDdU1nTUY0TVc3N0p0RDdi?=
+ =?utf-8?B?WEQ3bHoxN0NydTBSZDJTNjF1L0t1YzlQME91THVqaEUySXpwUHNzTmMyMHJ0?=
+ =?utf-8?B?QlVtTW9haHJJY1pPRHo0L2huM3RDZ1ZnWDFSUVFaZk9YMUdPeTY4VkNGMU9w?=
+ =?utf-8?B?ZkNSVm9hSDAzNEdYdE5MNTdLN1hxMXhTYks2NHo0QjU0cC90dSt6ZDZZYkIz?=
+ =?utf-8?B?dGRpSXovN1FmemNtN1l5aWh6T2lXTXV4Vk9hVGV1T2IzRlVvY3RySVZiUm5X?=
+ =?utf-8?B?dnc1aWd6TkZXazhLMUhXMDY2NEFONFZMdVBvdEJxTlE4alJiNnZoTzRJRFFn?=
+ =?utf-8?B?VWdrb0llNUMwdC9qTWJGOGNPZExnUzRudUJac3lTRWR6YjlFcTRpdHovc2VJ?=
+ =?utf-8?B?cjY2dFFNSWMxanJTSVQwNE12cllwVERXNEtpSHpjK0lJaHdOQjQ1OWtGbzhp?=
+ =?utf-8?B?cm40Mk9iRWRxajcrNGh1czN1NVdLMzNIUnJRSE4wQk5kdVJlZmRiMEpsa3BU?=
+ =?utf-8?B?MDFkcFYyWEFnanVCLzQvUGI1aHJ5djl0cklrMXF2YjZwUEIxVnl6aU40cWpQ?=
+ =?utf-8?B?NkRxcGZRcFFGczN4UGtidWZjeG9JRy9ESHFzNlhWTjNCOEg5V09FdDRyNldC?=
+ =?utf-8?B?Ly9uOGtBOXRneitVdDhMOUgrQnhSdGhPaXpJMnFnUjRCKzVHOWNvbkFYNEpK?=
+ =?utf-8?B?Q1RRTS82VGdxQW5EM2toVERPMjU0ZkFCL3F2YmRsc0lzVU1WZFdNb2JHakhy?=
+ =?utf-8?B?aEMrbGQxREJ0US9PVGZ1U1VDZ0p2dHVxVllQa0E2R2gxZU5KbG5rMWppdE5o?=
+ =?utf-8?B?bDI5NitCdkNYdWpBT016UndrdFJvQ2c2MFRXall3RXBVaVk2bkFpK0NCYzl4?=
+ =?utf-8?B?VFExSlIrWlk5aS8vUHJQWmlNaUxPZ3hsRkdnTlAxOTFpREpmQ0xkZkFuKzht?=
+ =?utf-8?B?OEZneDJXUkxiTWF5UUFMMmFXQ1E4TXdPSWNQTFAwSS9hSnhpZW9hZFhBWjUw?=
+ =?utf-8?B?b1luQjRzYlAzSXNaSlhhL0NUK0tIQzAyT0R0WW1pZk5JcS9PNWxmWE5iL2ts?=
+ =?utf-8?B?L3RjMll3NzkwRUlzUjIwVlhrQXV3SjRiZmxKSGFRdGVoSTRrQUoxVitNMTRt?=
+ =?utf-8?B?MDUwZHU1blVaNU96TjBoaUVCOHhVcmdsYlQwd3JIVU5LWVAxQ216cFFhNUxp?=
+ =?utf-8?B?SlVsS2hKNEkyRVZBblJIUlpBbjhpNnlSNWx5citQeUZTK0NLY2liSG1ZcmFh?=
+ =?utf-8?B?S0tVWHJyQTU4QlNKVG0vMU1wSyt4R3NUMWFqL0pYNEFyQWlueXFqTGtjL0dM?=
+ =?utf-8?B?cUZLYUU2NTg5MTJ4OWpETVNaTEh0MXRKL1B4T3JWd0N6T29LWGs3elJpM2xS?=
+ =?utf-8?B?U1dvKzVGTTZFUVIvNE8xV2tSZW9MSzBwNFJJdXI4SVlaUlYzaXpla0FJZWQz?=
+ =?utf-8?B?WkUrYXk0MU4vczZCSFhUZVFUN2FpL3B0d0lNWm9jRU02UFNuck9GZVVGb2pM?=
+ =?utf-8?B?VU5KYzhGc0hlTDBleXpmMFcyY0gwT2dTVnlGU0dPNGJ6WnY5aXNVa0pkSVNK?=
+ =?utf-8?B?S3BPcjZ4dmtTRnhTanc3M2xtWDlueURUZDFvd1JaTGdrUjV6ckNVN2pWMmwz?=
+ =?utf-8?B?bytPclVuaTYwRUtSWnZpZ1Y5YXFJS0swWXplcXBvNDg4R3diYmVVUVlkN0dP?=
+ =?utf-8?B?ZHJjaUZ6b0tMTy9KdUswc0dobEhkU3I3NmlSVklkQ3NoUERidWpvWm5ick80?=
+ =?utf-8?B?ZStPVEVtWWlsUXdGelBUcnF2eWhzZFJyZFI0aEltbGxPaVg1MHFmdGkwaWUv?=
+ =?utf-8?B?ZC9Xbm92OHo5RzdvTTQrSHhnVm0rbjVrMGZ2a0VaRFpnelFEbnRFNUc2Ym0w?=
+ =?utf-8?B?ZzNheEhQaExkRmRCcUdWK2dQUldBeHM5NXVGTzZ1YnlVcGw5V21yZVJEWkVT?=
+ =?utf-8?B?cjZGM3VXdDh0NnVnVDRnOWd2UnNPai80ZG9sbXZpVnRIdjlmUFo5TU5ZbGV0?=
+ =?utf-8?B?OWp6WUt2UWFqY1V5ZUFEYVQ5a0Q0YklCK3dxVWNoYTY3VlIrZ2hicjdFWjJX?=
+ =?utf-8?B?RnhDcFduckNPQ2hCZU5yRUVQOE1HYjNVckNBT2NSNlQxc2FTeGI0VkppRlAv?=
+ =?utf-8?B?YU53ODZjZGlWQWZ5Mmc4WHBYUCtQSkhWQk9HZi8yZjhuNGUyNExWdWp5Ykc4?=
+ =?utf-8?Q?TrT3UnOUjAKINSJ45asql6xo8iMbT1LbbG2Sa?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96231fcc-3d71-46c5-de24-08dee89a9a32
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 09:13:04.5490
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zyCuTa7EfVh+HGTBrE2qbYoO+ChTng+45dramYHaU8vYImZGRCaRfVLl9NqrzypGIv7OKyWH5x65l4VnccsPA5UjilwGWPfmM5PNxYmXbM+2cYcFjbg8/P5TOMzJvbjZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6780
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_040638_959158_B1BC9258 
-X-CRM114-Status: GOOD (  32.66  )
+X-CRM114-CacheID: sfid-20260723_021309_473538_0EEB098F 
+X-CRM114-Status: GOOD (  23.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,249 +165,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+The ISI crossbar needs to properly enable multiple streams from different
+virtual channels on the same input pad. Currently only the first stream
+gets enabled in hardware, subsequent streams are silently ignored.
 
-On 2026-07-19 16:59, Marcus Folkesson wrote:
-> Describe what needs to be consideraed and taken into account
+The driver uses a single enable_count per input to track the input state.
+When enable_count is non-zero, the code assumes the input is already active
+and skips calling v4l2_subdev_enable_streams() for additional streams:
 
-considered
+  Call 1: enable_streams(stream 0)
+    -> enable_count == 0, enable gasket and stream 0 in hardware
+    -> enable_count = 1
 
-> when using different bus speeds for different mux channels.
-> 
-> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
-> ---
->   Documentation/i2c/i2c-topology.rst | 178 +++++++++++++++++++++++++++++++++++++
->   1 file changed, 178 insertions(+)
-> 
-> diff --git a/Documentation/i2c/i2c-topology.rst b/Documentation/i2c/i2c-topology.rst
-> index 48fce0f7491b..1ee0de6dbcb4 100644
-> --- a/Documentation/i2c/i2c-topology.rst
-> +++ b/Documentation/i2c/i2c-topology.rst
-> @@ -367,6 +367,184 @@ When D1 or D2 are accessed, accesses to D3 and D4 are locked out while
->   accesses to D5 may interleave. When D3 or D4 are accessed, accesses to
->   all other devices are locked out.
->   
-> +Bus Speed and I2C Multiplexers
-> +================================
+  Call 2: enable_streams(stream 1)
+    -> enable_count == 1, skip hardware enable
+    -> enable_count = 2
+    -> stream 1 never gets enabled
 
-Too many equal signs.
+Similarly on disable, when enable_count reaches zero, ALL streams are
+disabled regardless of which streams are actually still active.
 
-> +
-> +I2C bus multiplexers allow multiple downstream channels to be exposed
-> +as separate I2C adapters which also could set their own bus speed.
-> +
-> +The multiplexer itself cannot change the bus speed as it uses the upstream
-> +clock and data lines to communicate with the downstream devices. The speed
-> +is therefore changed in the root adapter resulting in that the whole bus is
-> +affected.
-> +
-> +This increases the complexity of the topology and some considerations must
-> +be taken into account.
-> +
-> +Bus speed
-> +----------
+Implement per-stream state tracking by storing the input index and stream
+mask in the mxc_isi_pipe structure. On enable, record which input and
+stream the pipe is receiving. On disable, clear the pipe's record and
+check if any other pipe is still using the same input stream before
+actually disabling it.
 
-Too many dashes.
+Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+---
+Changes in v3:
+- Change from "Fix" to "Implement" as multi-stream support is for newer
+  SoCs not present when the driver was merged (Laurent)
+- Remove Fixes and Cc: stable tags (Laurent)
+- Store input/input_stream in mxc_isi_pipe instead of using per-stream
+  counters array, avoiding arbitrary 64-entry limit (Laurent)
+- Use UINT_MAX to mark pipe as inactive to distinguish from valid pad 0
 
-> +
-> +Downstream channels of an I2C multiplexer can only operate at the same or
-> +lower bus speed as the upstream bus. This is because the upstream bus may
-> +have devices that cannot operate at higher speeds and those will be affected
-> +by the speed change.
-> +
-> +The example below illustrates the problem.
-> +The root adapter is operating at 100kHz. D2 can only operate with 100kHz,
-> +but D1 can operate at 400kHz. When D1 is selected, the bus speed of the
-> +root adapter would have to be set to 400kHz, a speed that D2 may not support.
+Changes in v2:
+- Use fixed-size array for enabled_count instead of dynamic allocation
+- Use BIT_ULL() macro for u64 bitmask operations
+- Use MXC_ISI_MAX_STREAMS (64) as loop boundary instead of num_sources
+- Remove mxc_isi_stream_counters_alloc/free functions
+---
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  5 +-
+ .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 66 +++++++++++++++-------
+ .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    |  1 +
+ 3 files changed, 52 insertions(+), 20 deletions(-)
 
-would have been set
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+index 9bb4d430d15e..c07abdd6a1f0 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+@@ -186,7 +186,7 @@ struct mxc_isi_dma_buffer {
+ };
+ 
+ struct mxc_isi_input {
+-	unsigned int			enable_count;
++	u64				enabled_streams;
+ };
+ 
+ struct mxc_isi_crossbar {
+@@ -259,6 +259,9 @@ struct mxc_isi_pipe {
+ 	u8				acquired_res;
+ 	u8				chained_res;
+ 	bool				chained;
++
++	unsigned int			input;
++	u64				input_stream;
+ };
+ 
+ struct mxc_isi_m2m {
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+index 9f0231ca47a3..6bd61bfb15d6 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+@@ -335,8 +335,10 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
+ 					   u32 pad, u64 streams_mask)
+ {
+ 	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
++	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
+ 	struct v4l2_subdev *remote_sd;
+ 	struct mxc_isi_input *input;
++	u64 streams_to_enable;
+ 	u64 sink_streams;
+ 	u32 sink_pad;
+ 	u32 remote_pad;
+@@ -350,30 +352,41 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
+ 
+ 	input = &xbar->inputs[sink_pad];
+ 
+-	/*
+-	 * TODO: Track per-stream enable counts to support multiplexed
+-	 * streams.
+-	 */
+-	if (!input->enable_count) {
++	/* Enable the gasket when the first stream is enabled for this input. */
++	if (!input->enabled_streams) {
+ 		ret = mxc_isi_crossbar_gasket_enable(xbar, state, remote_sd,
+ 						     remote_pad, sink_pad);
+ 		if (ret)
+ 			return ret;
++	}
++
++	/* Only enable streams that are not already enabled. */
++	streams_to_enable = sink_streams & ~input->enabled_streams;
+ 
++	if (streams_to_enable) {
+ 		ret = v4l2_subdev_enable_streams(remote_sd, remote_pad,
+-						 sink_streams);
++						 streams_to_enable);
+ 		if (ret) {
+ 			dev_err(xbar->isi->dev,
+ 				"failed to enable streams 0x%llx on '%s':%u: %d\n",
+-				sink_streams, remote_sd->name, remote_pad, ret);
+-			mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+-			return ret;
++				streams_to_enable, remote_sd->name, remote_pad, ret);
++			goto err_gasket_disable;
+ 		}
++
++		input->enabled_streams |= streams_to_enable;
+ 	}
+ 
+-	input->enable_count++;
++	/* Record the input and stream for this pipe. */
++	pipe->input = sink_pad;
++	pipe->input_stream = sink_streams;
+ 
+ 	return 0;
++
++err_gasket_disable:
++	if (!input->enabled_streams)
++		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
++
++	return ret;
+ }
+ 
+ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+@@ -381,6 +394,7 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+ 					    u32 pad, u64 streams_mask)
+ {
+ 	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
++	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
+ 	struct v4l2_subdev *remote_sd;
+ 	struct mxc_isi_input *input;
+ 	u64 sink_streams;
+@@ -396,19 +410,33 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+ 
+ 	input = &xbar->inputs[sink_pad];
+ 
+-	input->enable_count--;
++	/* Clear the input and stream for this pipe. */
++	pipe->input = UINT_MAX;
++	pipe->input_stream = 0;
+ 
+-	if (!input->enable_count) {
+-		ret = v4l2_subdev_disable_streams(remote_sd, remote_pad,
+-						  sink_streams);
+-		if (ret)
+-			dev_err(xbar->isi->dev,
+-				"failed to disable streams 0x%llx on '%s':%u: %d\n",
+-				sink_streams, remote_sd->name, remote_pad, ret);
++	/*
++	 * Check if any other pipe receives the same input stream. If so we
++	 * can't disable it yet, so return immediately.
++	 */
++	for (unsigned int i = 0; i < xbar->isi->pdata->num_channels; ++i) {
++		struct mxc_isi_pipe *pipe = &xbar->isi->pipes[i];
+ 
+-		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
++		if (pipe->input == sink_pad &&
++		    pipe->input_stream == sink_streams)
++			return 0;
+ 	}
+ 
++	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad, sink_streams);
++	if (ret)
++		dev_err(xbar->isi->dev,
++			"failed to disable streams 0x%llx on '%s':%u: %d\n",
++			sink_streams, remote_sd->name, remote_pad, ret);
++
++	input->enabled_streams &= ~sink_streams;
++
++	if (!input->enabled_streams)
++		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
++
+ 	return ret;
+ }
+ 
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+index 16085f23bc0b..c0ec59856374 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+@@ -816,6 +816,7 @@ int mxc_isi_pipe_init(struct mxc_isi_dev *isi, unsigned int id)
+ 	pipe->acquired_res = 0;
+ 	pipe->chained_res = 0;
+ 	pipe->chained = false;
++	pipe->input = UINT_MAX;
+ 
+ 	sd = &pipe->sd;
+ 	v4l2_subdev_init(sd, &mxc_isi_pipe_subdev_ops);
 
-> +
-> +This topology is therefore not allowed: ::
-> +
-> +                          .----------. 400kHz .--------.
-> +        .--------. 100kHz |   mux-   |--------| dev D1 |
-> +        |  root  |--+-----|  locked  |        '--------'
-> +        '--------'  |     |  mux M1  |
-> +                    |     '----------'
-> +                    |  .--------.
-> +                    '--| dev D2 |
-> +                       '--------'
-> +
-> +
-> +This topology is allowed: ::
-> +
-> +                          .----------. 100kHz .--------.
-> +        .--------. 400kHz |   mux-   |--------| dev D2 |
-> +        |  root  |--+-----|  locked  |        '--------'
-> +        '--------'        |  mux M1  |--. 400kHz .--------.
-> +                          '----------'  '--------| dev D1 |
-> +                                                 '--------'
-> +
-> +Preferred topology
-> +-------------------
-
-Too many dashes.
-
-> +
-> +The preferred topology when using different bus speeds is to have the multiplexer
-
-There are many over-long lines in this patch.
-
-> +connected directly to the root adapter without any devices as siblings.
-> +By this arrangement, the bus speed can be changed without affecting any other devices
-> +and many of the caveats are avoided.
-> +
-> +Other multiplexers in parallel are still okay as those are locked out during transfers.
-> +
-> +This is the preferred topology: ::
-> +
-> +                          .----------. 100kHz .--------.
-> +        .--------. 400kHz |   mux-   |--------| dev D2 |
-> +        |  root  |--+-----|  locked  |        '--------'
-> +        '--------'        |  mux M1  |--. 400kHz .--------.
-> +                          '----------'  '--------| dev D1 |
-> +                                                 '--------'
-> +
-> +Locking
-> +--------
-
-Too many dashes.
-
-> +
-> +If the multiplexer is mux-locked, transfers to D3 may interleave between the
-> +select-transfer-deselect to D1 or D2.
-> +This results in a situation where the bus speed to D3 may be lower than it
-> +is supposed to be. This is usually not a problem.
-> +
-> +This topology is allowed but some transfers to D3 may be at 100kHz: ::
-> +
-> +                          .----------. 100kHz .--------.
-> +        .--------. 400kHz |   mux-   |--------| dev D1 |
-> +        |  root  |--+-----|  locked  |        '--------'
-> +        '--------'  |     |  mux M1  |--. 400kHz .--------.
-> +                    |     '----------'  '--------| dev D2 |
-> +                    |  .--------.                '--------'
-> +                    '--| dev D3 |
-> +                       '--------'
-> +
-> +Multiple muxes in series
-> +--------------------------
-
-Too many dashes.
-
-> +
-> +When multiple muxes are used in series the same rules apply.
-> +
-> +Transfers to D3 may interleave between select-transfer-deselect to D1, which
-> +results in that the bus speed to D2 or D3 will be at 100KHz.
-> +
-> +Transfers to D2 may interleave between select-transfer-deselect to D1, which
-> +results in that the bus speed to D1 may be at 400kHz as the transfer to D2
-> +will set the bus speed to before the transfer to D1 starts.
-
-There is a missing word or something? I suggest this:
-
-Transfers to D2 may interleave between select-transfer-deselect to D1,
-which may result in a bus speed to D1 at 400kHz as the transfer to D2 may
-clobber the bus speed before the transfer to D1 starts.
-
-> +
-> +This is probably a bad topology ::
-> +
-> +                     .----------. 400kHz .----------. 100kHz .--------.
-> +    .--------.400kHz |   mux-   |--------|   mux-   |--------| dev D1 |
-> +    |  root  |--+----|  locked  | 400kHz |  locked  |        '--------'
-> +    '--------'  |    |  mux M1  |--.     |  mux M2  |
-> +                |    '----------'  |     '----------'
-> +                |  .--------.      |  .--------.
-> +                '--| dev D3 |      '--| dev D2 |
-> +                   '--------'         '--------'
-> +
-> +Multiple muxes in parallel
-> +----------------------------
-
-Too many dashes.
-
-> +
-> +When multiple muxes are used in parallel all access to other muxes are locked out
-> +so this is not a problem.
-> +
-> +If the muxes are mux-locked, access to D3 may still interleave though.
-> +
-> +In the example below, D3 may not interleave between select-transfer-deselect for D1
-> +or D2 as both muxes are parent-locked: ::
-> +
-> +
-> +                   .----------. 100kHz   .--------.
-> +                   |  parent- |----------| dev D1 |
-> +                .--|  locked  |          '--------'
-> +                |  |  mux M1  |
-> +                |  '----------'
-> +                |      .----------. 400KHz  .--------.
-> +    .--------. 400kHz  |  parent- |---------| dev D2 |
-> +    |  root  |--+------|  locked  |         '--------'
-> +    '--------'  |      |  mux M2  |
-> +                |      '----------'
-> +                |  .--------.
-> +                '--| dev D3 |
-> +                   '--------'
-> +
-> +Idle state
-> +-----------
-
-Too many dashes.
-
-> +
-> +Muxes have an idle state, which is the state the channels are put into when no channel
-> +is active. The state is typically one of the following:
-> +
-> +- All channels are disconnected
-> +- The last selected channel is left as-is
-> +- A predefined channel is selected
-> +
-> +Muxes that support an idle state where all channels are disconnected are preferred when using
-> +different bus speeds. Otherwise high bus speeds may "leak" through to devices that
-> +may not support that higher speed.
-> +
-> +Consider the following example: ::
-> +
-> +                          .----------. 100kHz .--------.
-> +        .--------. 400kHz |   mux-   |--------| dev D1 |
-> +        |  root  |--+-----|  locked  |        '--------'
-> +        '--------'  |     |  mux M1  |--. 400kHz .--------.
-> +                    |     '----------'  '--------| dev D2 |
-> +                    |  .--------.                '--------'
-> +                    '--| dev D3 |
-> +                       '--------'
-> +
-> +If the idle state of M1 is:
-> +
-> +- All channels disconnected: No problem, D1 and D2 are not affected by communication
-> +  to D3.
-> +- Last selected channel: Problem if D1 was the last selected channel. High speed
-> +  communication to D3 will be "leaked" to D1.
-> +- Predefined channel: Problem if the predefined channel is D1. Set predefined channel
-> +  to D2 as D2 may handle 400kHz.
-> +
-> +Supported controllers
-> +-----------------------
-
-Too many dashes.
-
-Cheers,
-Peter
-
-> +
-> +Not all I2C controllers support setting the bus speed dynamically.
-> +At the time of writing, the following controllers have support:
-> +
-> +============================   =============================================
-> +i2c-davinci                    Supports dynamic bus speed
-> +============================   =============================================
->   
->   Mux type of existing device drivers
->   ===================================
-> 
+-- 
+2.34.1
 
 
