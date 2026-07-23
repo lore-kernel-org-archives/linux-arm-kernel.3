@@ -4,155 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5FFC44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 01:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51BA3C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 02:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEXpysVN2Cq1RmgHhBcEAoYNQnMTgQ3salknRUMhBIE=; b=4v41P/tuUL/Stjw1rXRUiesc/u
-	3m49JPFsURsyvANb3GXziR0zgvckWjx+DilxkadLAuDUpAubyo+R/A58Hdo0eAKqpqqb4gjQLiDOr
-	J9Xxj1YT1ZW6ufOFcVKTagTnYZb1qoZwqSphXYz81dR87kHtR7/CPy8vmOYHbxbGxP2hcHJrqLcOt
-	UIS4DFs0T6q8wZZhCvlh5tsf2vJ8NSz+e12nXxD7KMflrLBCcUAy0P73mg+NUqoLHsQA1bCUS1eVm
-	7ffEWvhV6CC0z8QXT31f9w0lc5OeYmXU4eXcYm6olg0xVscFkua0aiD2aGO+zz1VgRGLzNOyTSDfF
-	7ZFBBo7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fvry66dAVAORaPK/Dr3YiRSBdUlE6KETP5cb2QHuPnI=; b=al/BRvg9iym71MEc/rgjF2I/nF
+	uQ/ky3x2m6sKNuQy/E0Kvg/I7wUFC8jncaSBrcSsgvh7m74nAbSbXZNikGRxOx3YBxo6IHpkUhn2A
+	98J3GbDZltxiSF0Q672Eh5pAJYs1+Zc8V/1wwa9ZCSrj1WHj/aie4HOhSW8KhQdfZ1FJZhIVRgPmy
+	pt7qyCRzKgIyNSQTtBJatrlMwIiQ8uhO55s7D0JWPa49ey5MP/inL1F9d/rktx1au8gy5ttp19goY
+	0KXMVEEjOdovtAy6JMNt0JOY4Hk/jvkox+26lnP5iNOwHy7Gr1YvNu73RFoR2D1UPZvSURByUYH06
+	Pfpffb8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiWz-0000000DAHQ-3gvG;
-	Thu, 23 Jul 2026 01:47:25 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmiov-0000000DBdG-3kQB;
+	Thu, 23 Jul 2026 02:05:57 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiWl-0000000DA8r-0Kkj
+	id 1wmiot-0000000DBch-32yi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 01:47:12 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N0XTkB2658863
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 01:47:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XEXpysVN2Cq1RmgHhBcEAoYNQnMTgQ3salknRUMhBIE=; b=MlmkC3/LNxypJsY3
-	eOhk465/rpgP7QKN/FPX0J/nXY6s64+X7OvIobG8S03V9vaUO2EJ7VYx/t4fN0jD
-	a3aYjxTQFzCFH/anFOyejIb5xsx4SwLQ694tYeBKptiHNbhz7gNtt9bWFjOxi8U2
-	2w5KDHBBXjF05fe3A4MB45RnHJ9zZtDhjtjO2plW8yojplOUrslIUMASqFU74qDp
-	OLsDDvhzA6irRPiWmRV79WC2Y06fm0YwgSi8EmIiBt82g4kSYs3jEkTywBqc52/v
-	A+WgNIQpIx6lDTTkdnz62sZpxf51GyS1sOUxCPxR7PUVDGYi+ZE1Ez+KDnyHyEQI
-	qAPUqA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fk7b50bvm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 01:47:10 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2cea6a46766so3086495ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Jul 2026 18:47:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784771230; x=1785376030; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XEXpysVN2Cq1RmgHhBcEAoYNQnMTgQ3salknRUMhBIE=;
-        b=eClXhRRXBIRUJ2VbA6fQmZ0+UBKzeABec88aAUQFeZECMlE+qNB4xPRjljzpSfee4d
-         ZTniUpv+y/vHWTIiIiCEDKbUDqku4he27nbstYK6kUaOG54CfRl9I43fDlizOt5cdyyC
-         9nBOnebIcp782j3vKa0jjIUxpxOuTvRtfhiqD41Hv85zws6TnPh4VHglm29Ahk+n373r
-         kQlBWLtms2KCk/4eSSXyxddXFf3mpyY7bpryt0qmCt+fg5mAY+i+jJnbWQlBzctI3TDZ
-         dpED5D5cLnKLbndeJ77j1fkje2hFwwVOBOBhqFIHHkxRArDbSLMPfdMioGyKi9SZYk9H
-         MPPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784771230; x=1785376030;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XEXpysVN2Cq1RmgHhBcEAoYNQnMTgQ3salknRUMhBIE=;
-        b=YvjYt4PLwdZ4+zfX+P1425ESUWgSfjASnG/uAWUV+jMRmtKUAoT6qqe/4ewzqOvqjd
-         +eHlsgim0S0gBDEhNgqNp4UMUNx/u5NLAUXay3d14c9OqwfnLvfZmE9yE7unApv8bVPs
-         NZj4iTHXHAenDVbJp6NltpS7a8ugUVPeu+b5MVIMjafv8hFHMqUSXUbHMVk/Mq0osFdl
-         SsKxwO910CjhWXj4pU1t8RHV0maLSt2js5wHlvSDvJY64ah6+e9e5MScVo/wi6jtPRWP
-         T21bc7kRrfJPGhhMomKuOraXoW6/2GzGwAktQUGqQNY+I/9DKPoH+u0h2xmm6j7hvR+t
-         GqmA==
-X-Forwarded-Encrypted: i=1; AHgh+RrszUwfcWR7QpDFcTpoKD2azd08scMozyWV4sZZJ01VCCrXVi9aFUTabkK3iK8+olvPRlxaiVrpcqBHyf9NrQJa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0xS0spK5BxPHcOxqpySOlLCd7Pwt3sDfDsfPkG4dNDROwgzvG
-	zEWRsk5CpDYOEbPV/GRFqEapqrk4AxT6NLrIxEMG8Mk0SyKcZdxkOpCds+Y5FCY+0J1XPtBF8iF
-	G4t5q92um8P9l+qYtintYrmFTfpvzq5SYjPbZ8Tm9U2INvg7+IgMhQJuH7vk5rRGY0kiOEQJUQs
-	p5Fw==
-X-Gm-Gg: AR+sD12cy7W5MnPkZpUvI6aTHI2FZuUzuxlqh5vG6b7IEu5LyCGJuWSV9hpyyt9mOjd
-	+0ms1jURVRAaOusRxOUjb4XteC82D295Pe3A3IRrsn/+nWomUj8ptHrND0FHXIarDQ6zlfIHjTx
-	8gi7ZF5vmbvhUtzHAB56kd1sAUxT3PStCXHY8w2PfpPrJEc0YuALYC9xSGqRG3/QERmtgAVnCFL
-	YSpMASVxKfOHMXW8fCR56zyDC67PNQlslS49lO5vh5OQ+a6wKFsYenBOBUoaSZEaQMeERmQCVaF
-	UEJEvFN6i9U9DNU26uCfMBsoaojXu9mwWCMfu2m5IlN7uAq3ryLydsczF+ooeRwpH/LRee2b62W
-	p8WNqDI1E2bTk9PB8CW8KvR7DJhysdz8Zn3fhyg1qCLPdfWM9JU/Q/AXadhbmgD4=
-X-Received: by 2002:a17:902:f685:b0:2ca:73aa:b48f with SMTP id d9443c01a7336-2cfa71ab275mr14600135ad.35.1784771229359;
-        Wed, 22 Jul 2026 18:47:09 -0700 (PDT)
-X-Received: by 2002:a17:902:f685:b0:2ca:73aa:b48f with SMTP id d9443c01a7336-2cfa71ab275mr14599855ad.35.1784771228798;
-        Wed, 22 Jul 2026 18:47:08 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8efa39e9sm23389995ad.10.2026.07.22.18.47.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 18:47:08 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Thu, 23 Jul 2026 09:46:31 +0800
-Subject: [PATCH 2/2] arm64: dts: qcom: shikra: Add coresight nodes
+	Thu, 23 Jul 2026 02:05:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f5KTE5hIbLQ2O2o9hSbKihwN/kWoA3UlaTGX2ydvzEMCOL7/oHCoStHvfHJbXKVc9JYPWQL6Vc7nA45+8ci9bPXETq6i6eq7GeGFRKpzXpI2QbNIsOxalmFBmmL6LIm/A1bO7PXM7IRIA5LUyBxcXNLlv/bI0UwAq4mJcIUOvnE9t28IMoLbwVzgYAHp19DkDDvdOsdpnYuq3gQPvY4DkQQkebak4TXrYD1EKwAeIm6l+hpQlaMcwFOrd2x/jkYKqF3AatLeRpzoCh8qrn0s69eLJAdpGSMRZkB9/pDYhVcIN7EbBiLD8p1xitY0OI31U/GRdWcpirbXBsqT/tsQKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Fvry66dAVAORaPK/Dr3YiRSBdUlE6KETP5cb2QHuPnI=;
+ b=dpcJT6kf1bq1KeAR0pcZymTMSEjo9W0Xb7ZWx+hF0ftBXMWNYx1cvVELvdxAiKlP3oxM2op7mZtsY8PDsmgjSBB4Zt1ghN2KVovriDhTcPiLe9WFbxB4MkpHr+Tq64biw9/+VMFf8g52IN7+32QOX6UkRCMOBFa0ittk+ikkXjWupDc+yAJFYum9BBHJfruBH74sjShecSz4HlDM5uLSCZ1Bb7iHrFp4j60KALzyUyjRlibfnc1mdhLkcVCw0usdsy4LagqCekCUP3ys4TS31HYieQ8dUDMbz/AOhofMIw7O+PGH7zcoo/ma2S0/EdAS8a0oOpfsgPQ5zxQQvIPnLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Fvry66dAVAORaPK/Dr3YiRSBdUlE6KETP5cb2QHuPnI=;
+ b=K4N6JoMTdv4Ev3M58YdRq067s/PhXHdyEwi3feNnkuDyuGCodCv0unODDU4Ke0yXlZtKtgFY7+BTTzsDLotxitnEkmbZElUpak7tedfPA+Dh3U76EY2supRvfm2ViLaLwcrFsDBHtzBW8NC/oJOOa4H7XOR3419dmwvl1xzkELVnQCRraDcVacw9DQYSA0D44EZh0P662yVStOZr0QSpoiey43x1t0wI9mXaLYdNREyAWPnszrh0Z6L09AswlnJgd0zMuBdRiy9oGg+JHmBcA4o4yu106natCT/ZzJhW6anJHoQdiOvxJC6BwEVKFI8wb7BSIsCKpEWESAA14F/T0A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9)
+ by DU4PR04MB11053.eurprd04.prod.outlook.com (2603:10a6:10:589::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 02:05:50 +0000
+Received: from DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5]) by DB8PR04MB6858.eurprd04.prod.outlook.com
+ ([fe80::bc6f:5fd7:462:d0b5%4]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
+ 02:05:47 +0000
+From: Zhipeng.wang_1@oss.nxp.com
+To: robh@kernel.org,
+	saravanak@kernel.org,
+	ulfh@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	peng.fan@nxp.com,
+	aisheng.dong@nxp.com,
+	jindong.yue@nxp.com,
+	xuegang.liu@nxp.com,
+	devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v5 0/3] pmdomain: imx: build the SCU power domain driver as a module
+Date: Thu, 23 Jul 2026 11:05:21 +0900
+Message-Id: <20260723020524.1886806-1-Zhipeng.wang_1@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA5P287CA0223.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b4::10) To DB8PR04MB6858.eurprd04.prod.outlook.com
+ (2603:10a6:10:113::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-add-coresight-nodes-for-shikra-v1-2-992615f9ea15@oss.qualcomm.com>
-References: <20260723-add-coresight-nodes-for-shikra-v1-0-992615f9ea15@oss.qualcomm.com>
-In-Reply-To: <20260723-add-coresight-nodes-for-shikra-v1-0-992615f9ea15@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
-        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        Jie Gan <jie.gan@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784771207; l=27710;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=cnjRfXOGCiLdO/PiqrdR1gHMAwcIDL3Y5bbe8uCeOcs=;
- b=2i5/rx6Bg3d1oMOydJCALBc6G74On17HchlnZpjdX0DcCjVdT5N1tnDLv98PfQe7pmG1KvQsx
- s+26IIi97jEBSHKPLxWhHUAlP1rRibW1KGPwya2aM46EX18HYb0POjY
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDAxNSBTYWx0ZWRfXxFw5X+Pdzi8f
- 4LW1exilFvozSsxQQxEvWzkYmtabL8FXbUVZ2aAAn8ctHYwg3pWp9qdvjxhd86Uy5RKNxKzuUBt
- GZHQho9NawcRvKqtn454J5gdOrySNyj1HTR57LaG3lMrUk6EbJdujlQvGq6XXPcVnFO9a7vQnMy
- wlvV1muvA2LkwStcZ9DGbOR7E4HEgmElbxHQwymiDtYX+6g+JTURETpnu/QpitgSd24ngHBnEdT
- fTLF3KQqCU67B9MwsOvg2ansW6EoDrBWVRkPA72NC1PGC3MYI5Le8q8F8mGBal04eZAdLSr20t+
- bxpBIoLw9YWKgon7T3ucw8y4B0sl5opkv6DO3dJwa/aC5BdHIdjyw76AUsDgkQGMW7sf+K3ckXW
- 9ytlGHK1FpN7TzYmQWxpb8bL7PEpcbl1nSkS7dy5Gffbi6NiTNwAk6xW57xvlJV5syRZqaLy3MH
- LwF/5hLftqZJRYN5h/A==
-X-Proofpoint-GUID: HSoPOAK6pgCjMlATufnvFuD3YJVZ9Veb
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDAxNSBTYWx0ZWRfXz0bSi1/aKvRY
- ijNIpUKov/tb71tbujDvfCissDAnirlAoE+oRcffsy0bQ4GmVILghC72MDdaMXHF4rv3fuZAA0E
- zrtG9c/9nWw+e9Y4ATPjYLNODxXxxWE=
-X-Authority-Analysis: v=2.4 cv=btx8wkai c=1 sm=1 tr=0 ts=6a61729e cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=cwPG6XMBaqf5cbKo9vYA:9 a=6PrL1bzTSInMHGBt:21
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-ORIG-GUID: HSoPOAK6pgCjMlATufnvFuD3YJVZ9Veb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-23_01,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 adultscore=0 lowpriorityscore=0 impostorscore=0
- phishscore=0 priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230015
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8PR04MB6858:EE_|DU4PR04MB11053:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1302d8fc-a960-4df4-1945-08dee85ee36a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|7416014|376014|10067099003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: g2D85arAm4BM3blDhI9Szb+77ox2dg0uYLH6vGVn4/kwxmac1AGfqyS/g3p0d0pW3/C4dA357xfeUf6PMkPrIdSJXxxvXqnWV4o7ar/14Fu+LY8a5KHb3jgN+Uz4WeSid6wfHhOBrI3gA0YhxSE6WGyGV0vvJmXne/6Azrgr15zd27OBAZnQPEg1vp4hK5u2QlY3eGB6ietdF21ZRAeKYoB/Q5yEuRwV/gyGUvBaenFAsl/8OP7XimI0+9nFgOQs7mW7uKCm6ojf8x+vNqwl8WtMWxBswnPUlagEIxcvsvnEsardVj3iEPGImYI4Lxx560URm4nbdzUoDvxPorT+TqnqnUgQEnsFHZcL0OiDYbtHoG2EyzmakcvdRms85/5fuBt3bUn/DGgG4HMWYpXJeoxteyY6C92dXUO47Sxz1mJ9x5tKy4+8G0gbONlqO020icvM7WVCi3Rld5TJfIWirNgZLSvRbyHsjO35Qs7O9wdQFETYgcJvVzxTSIQsMq4DSFVpxTgsCtVgLZNQgDr2PMxzEz8jjE5CAtVPIRB3d6woSkX7kS1J+vNz37LurqvFIeAZAMq5egASwmPk1lf1U65RLBoBxTZH9PrFk6WfZ44WVeoVqdAVWnTqAouE7CBUSu0v0C6dIqWfOfXmd04Rt6KlqqXGOghm+p2m1gqcW4s=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(7416014)(376014)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UdVvZxJVdrYfR1Tg2GNfRpgOsMnBj95wqtxi+3xJT32W+YlXxDx6nSo4FmR8?=
+ =?us-ascii?Q?YGRz1durRI22yrCn05kISg8gcd2LE68cn2JZnRrTSpqqn/It5sMfJYGy1c3v?=
+ =?us-ascii?Q?aLQ+URszsJk00FsS7FErpwvCqvYFxY5L/r3UPs+Q+rczNre6iOVc0EQXvAbO?=
+ =?us-ascii?Q?jBXjDkALxdZ4Lfbn6gibRopxzuZDW+WigQpVtFhvjourJmt9O2bLslqaZu4G?=
+ =?us-ascii?Q?bEuc20PaER5KnqBlRF/qAXB851iUzotBTtnejJ1Gs48Fz16wcWU4yCYArspi?=
+ =?us-ascii?Q?zmpQp21ndJTbk2uWDrtdStwKZbn55ed8kAqnPj26xBhtVlRRE+SJB8SswYlN?=
+ =?us-ascii?Q?Evq21nlzvo4ZVNeeG8dfnF3AB3rW1AKPtSA4c50CKP3GxklGEz3d4wLJWMLF?=
+ =?us-ascii?Q?MR0vNSsmsd7TJ2ZbyJikkTR+kK4yD6phagQV60WrJzfyinqb5gZZ1IQzx6u7?=
+ =?us-ascii?Q?zBJd3NwmsrItvMpfDNrJny8E+7mc76LsAtQG0sx7POd1nF/GLAGl+d8GELBx?=
+ =?us-ascii?Q?YK2SmDgraHwGc5hbi7rQd3FHFWQ+5onIeBjwss+NR4+2m5C7FAFfTwHgBrk5?=
+ =?us-ascii?Q?o9kZsU80nEpFcTlLyW1MimWTERyD3pjjXrqXUfThh7wV8tyyb7S1xgAUsRzB?=
+ =?us-ascii?Q?hHp7kITWmJREJLIiRC0ATbsaWo7WMQQJTrJK1LvZ2v/NNkwmDS2YL7ZZwwi8?=
+ =?us-ascii?Q?Yr/CTPU8rov8En0A4nHwXa3xs6DauXv7IMshzNVqoFQt0YoLUc+y/HSLIC9Y?=
+ =?us-ascii?Q?Cen3QyNvphnUHwRoY7w/dSyRYWDPKmTMkHzdl+rK2Dg9UWMQaBYVNsQhQgGT?=
+ =?us-ascii?Q?mF4PElzg6k1cXCHpnRWqBFrB+IStAEqYOgDotF3M4rvkFNDG1oi/ilPIBOYy?=
+ =?us-ascii?Q?fePC22t0XOyZNE+6CuDu/7uCYQVX/Ign6tu6VTNxSVrVBt3XvWc9MluSZlvg?=
+ =?us-ascii?Q?sZKp35+cHaCH/PsRGWXroQylAOpaQOJex745gpBEqFqqngr0C3vMUvd9FihU?=
+ =?us-ascii?Q?sCH7ISRjq4JFovdf8bCS35hEtWQbt2E7SZ2FObnni97Edasfcp+VCVUoHWJF?=
+ =?us-ascii?Q?q2tOFpDdkiQ6ZFEW61RRF265ENuscJTt7kHA1WskC17wYum9aZK5w1O1xFu7?=
+ =?us-ascii?Q?gRw/y8cwXpQ+tYgVdbOu8EyJpfMbgo4qJOgBuwvD+VVw22cdGkfbSk11vjR/?=
+ =?us-ascii?Q?byrqPKDd0rRMAf9psidALKFSfsQb+wOw79JxfJhDcbuosBLVOWzCgyXLKwsQ?=
+ =?us-ascii?Q?krlyjSkLxZpwJTeXzHV0o+B59sduLhLYkipsmXf8tku5LPBKFQkstOpsOfQr?=
+ =?us-ascii?Q?eL7PyZ9VsU8DjElhuMYJTnV87NTcJ7eluiFeAtRjZRZvFmsFzI/DAhHxGzv8?=
+ =?us-ascii?Q?cBExmTRQBkEXTrejKHXaqpOjgb/F0dM0UYNbmfSUU6JQK556FwtUd5Gnhb8C?=
+ =?us-ascii?Q?sqM5nm1lOe7F7y5d53NL+deWJJi2DBUUatbAZGObGH1hlmHwHFO7w6I1IL6B?=
+ =?us-ascii?Q?6imEr3X6MN1re1bET6GPJ1u5UQjiNucvqWxgU2lCVDupXNwMkdzLMjv35qrD?=
+ =?us-ascii?Q?GOTPbnU4R/S8hWgk3YPwYdndV8zr25fXeg3nAWdzOHf0MRLXGmwOh/vOmmwF?=
+ =?us-ascii?Q?WIASuQ4Nljkdc/GrbRltNc4EN/rzCxz02FWMZi5/utiPw+vurfKGleE230Db?=
+ =?us-ascii?Q?6ixWNnoGCtgWlgdPiPFxHu38XTKrFuVTkxyqu7Cf623MrfO2+8PXrQUG4HmX?=
+ =?us-ascii?Q?xIMkRHxtUCIc1C4YmMUB7lAtRtuseUCusC7A2sck+VH4+Pu/FKcAtqj1f+m+?=
+X-MS-Exchange-AntiSpam-MessageData-1: uJ+L4ed5JRxoTQ==
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1302d8fc-a960-4df4-1945-08dee85ee36a
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6858.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 02:05:46.9669
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: i5PrXsgSQwffIyOMPcbilO0pCYZEO31sGEmXuY3yDE16MaYRIOB8Hgz5/avCLjsSxqupL9w7dNSPZqobeO+A5p7M+eQefGGBnTslp2pP8ehcgAZ/RSrlDbj25FMBuDnH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11053
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_184711_255710_89220AC1 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260722_190555_778796_A44C3AC6 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,1343 +149,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT nodes for the CoreSight debug and trace subsystem on Qualcomm
-Shikra SoC.
+From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/shikra.dtsi | 1295 ++++++++++++++++++++++++++++++++++
- 1 file changed, 1295 insertions(+)
+This series makes the i.MX SCU power domain driver buildable as a
+loadable module, which is required for Android devices using the
+Generic Kernel Image (GKI) where SoC-specific drivers must be modules.
 
-diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
-index 4e5bc9e17c8e..eb0f3c36068f 100644
---- a/arch/arm64/boot/dts/qcom/shikra.dtsi
-+++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
-@@ -113,6 +113,88 @@ l3: l3-cache {
- 		};
- 	};
- 
-+	dummy-eud {
-+		compatible = "arm,coresight-dummy-sink";
-+
-+		label = "eud";
-+
-+		in-ports {
-+			port {
-+				eud_in: endpoint {
-+					remote-endpoint = <&replicator_eud_out1>;
-+				};
-+			};
-+		};
-+	};
-+
-+	etm0 {
-+		compatible = "arm,coresight-etm4x-sysreg";
-+
-+		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+		clock-names = "apb_pclk";
-+		cpu = <&cpu0>;
-+		qcom,skip-power-up;
-+
-+		out-ports {
-+			port {
-+				etm0_out: endpoint {
-+					remote-endpoint = <&funnel_cpuss0_in0>;
-+				};
-+			};
-+		};
-+	};
-+
-+	etm1 {
-+		compatible = "arm,coresight-etm4x-sysreg";
-+
-+		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+		clock-names = "apb_pclk";
-+		cpu = <&cpu1>;
-+		qcom,skip-power-up;
-+
-+		out-ports {
-+			port {
-+				etm1_out: endpoint {
-+					remote-endpoint = <&funnel_cpuss0_in1>;
-+				};
-+			};
-+		};
-+	};
-+
-+	etm2 {
-+		compatible = "arm,coresight-etm4x-sysreg";
-+
-+		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+		clock-names = "apb_pclk";
-+		cpu = <&cpu2>;
-+		qcom,skip-power-up;
-+
-+		out-ports {
-+			port {
-+				etm2_out: endpoint {
-+					remote-endpoint = <&funnel_cpuss0_in2>;
-+				};
-+			};
-+		};
-+	};
-+
-+	etm3 {
-+		compatible = "arm,coresight-etm4x-sysreg";
-+
-+		clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+		clock-names = "apb_pclk";
-+		cpu = <&cpu3>;
-+		qcom,skip-power-up;
-+
-+		out-ports {
-+			port {
-+				etm3_out: endpoint {
-+					remote-endpoint = <&funnel_cpuss0_in3>;
-+				};
-+			};
-+		};
-+	};
-+
- 	firmware {
- 		scm {
- 			compatible = "qcom,scm-shikra", "qcom,scm";
-@@ -131,6 +213,21 @@ memory@80000000 {
- 		reg = <0x0 0x80000000 0x0 0x0>;
- 	};
- 
-+	modem-etm0 {
-+		compatible = "arm,coresight-dummy-source";
-+
-+		label = "modem_etm0";
-+		arm,static-trace-id = <36>;
-+
-+		out-ports {
-+			port {
-+				modem_etm0_out: endpoint {
-+					remote-endpoint = <&funnel_in1_in4>;
-+				};
-+			};
-+		};
-+	};
-+
- 	pmu-a55 {
- 		compatible = "arm,cortex-a55-pmu";
- 		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_HIGH &ppi_cluster0>;
-@@ -640,6 +737,1189 @@ &clk_virt SLAVE_QUP_CORE_0 RPM_ALWAYS_TAG>,
- 			};
- 		};
- 
-+		ctcu@8001000 {
-+			compatible = "qcom,shikra-ctcu", "qcom,sa8775p-ctcu";
-+			reg = <0x0 0x08001000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb";
-+
-+			in-ports {
-+				port {
-+					ctcu_in0: endpoint {
-+						remote-endpoint = <&etr0_out>;
-+					};
-+				};
-+			};
-+		};
-+
-+		stm@8002000 {
-+			compatible = "arm,coresight-stm", "arm,primecell";
-+			reg = <0x0 0x08002000 0x0 0x1000>,
-+			      <0x0 0x0e280000 0x0 0x180000>;
-+			reg-names = "stm-base",
-+				    "stm-stimulus-base";
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			out-ports {
-+				port {
-+					stm_out: endpoint {
-+						remote-endpoint = <&funnel_in0_in7>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@8003000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08003000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_dcc";
-+			qcom,cmb-element-bits = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_dcc_out: endpoint {
-+						remote-endpoint = <&tpda_qdss_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpda@8004000 {
-+			compatible = "qcom,coresight-tpda", "arm,primecell";
-+			reg = <0x0 0x08004000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					tpda_qdss_in0: endpoint {
-+						remote-endpoint = <&tpdm_dcc_out>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					tpda_qdss_in1: endpoint {
-+						remote-endpoint = <&tpdm_spdm_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					tpda_qdss_out: endpoint {
-+						remote-endpoint = <&funnel_in0_in6>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@800f000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x0800f000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_spdm";
-+			qcom,cmb-element-bits = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_spdm_out: endpoint {
-+						remote-endpoint = <&tpda_qdss_in1>;
-+					};
-+				};
-+			};
-+		};
-+
-+		funnel@8041000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x08041000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@5 {
-+					reg = <5>;
-+
-+					funnel_in0_in5: endpoint {
-+						remote-endpoint = <&snoc_out>;
-+					};
-+				};
-+
-+				port@6 {
-+					reg = <6>;
-+
-+					funnel_in0_in6: endpoint {
-+						remote-endpoint = <&tpda_qdss_out>;
-+					};
-+				};
-+
-+				port@7 {
-+					reg = <7>;
-+
-+					funnel_in0_in7: endpoint {
-+						remote-endpoint = <&stm_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_in0_out: endpoint {
-+						remote-endpoint = <&funnel_merg_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		funnel@8042000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x08042000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					funnel_in1_in1: endpoint {
-+						remote-endpoint = <&tpda_aodbg_out>;
-+					};
-+				};
-+
-+				port@4 {
-+					reg = <4>;
-+
-+					funnel_in1_in4: endpoint {
-+						remote-endpoint = <&modem_etm0_out>;
-+					};
-+				};
-+
-+				port@6 {
-+					reg = <6>;
-+
-+					funnel_in1_in6: endpoint {
-+						remote-endpoint = <&funnel_cpuss1_out>;
-+					};
-+				};
-+
-+				port@7 {
-+					reg = <7>;
-+
-+					funnel_in1_in7: endpoint {
-+						remote-endpoint = <&funnel_center_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_in1_out: endpoint {
-+						remote-endpoint = <&funnel_merg_in1>;
-+					};
-+				};
-+			};
-+		};
-+
-+		funnel@8045000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x08045000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					funnel_merg_in0: endpoint {
-+						remote-endpoint = <&funnel_in0_out>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					funnel_merg_in1: endpoint {
-+						remote-endpoint = <&funnel_in1_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_merg_out: endpoint {
-+						remote-endpoint = <&tmc_etf_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		replicator@8046000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x08046000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					replicator_qdss_in: endpoint {
-+						remote-endpoint = <&tmc_etf_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					replicator_qdss_out0: endpoint {
-+						remote-endpoint = <&etr0_in>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					replicator_qdss_out1: endpoint {
-+						remote-endpoint = <&replicator_eud_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc@8047000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x08047000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					tmc_etf_in: endpoint {
-+						remote-endpoint = <&funnel_merg_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					tmc_etf_out: endpoint {
-+						remote-endpoint = <&replicator_qdss_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc@8048000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x08048000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			iommus = <&apps_smmu 0x0160 0x0>;
-+			arm,scatter-gather;
-+
-+			in-ports {
-+				port {
-+					etr0_in: endpoint {
-+						remote-endpoint = <&replicator_qdss_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					etr0_out: endpoint {
-+						remote-endpoint = <&ctcu_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		replicator@804a000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x0804a000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					replicator_eud_in: endpoint {
-+						remote-endpoint = <&replicator_qdss_out1>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					replicator_eud_out1: endpoint {
-+						remote-endpoint = <&eud_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@8800000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08800000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_cdsp";
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <4>;
-+
-+			out-ports {
-+				port {
-+					tpdm_cdsp_out: endpoint {
-+						remote-endpoint = <&funnel_cdsp_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		funnel@8801000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x08801000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					funnel_cdsp_in0: endpoint {
-+						remote-endpoint = <&tpdm_cdsp_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_cdsp_out0: endpoint {
-+						remote-endpoint = <&tpda_center_in3>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@8807000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08807000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_turing_q6";
-+		};
-+
-+		cti@8833000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08833000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_mss_q6";
-+		};
-+
-+		tpdm@8840000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08840000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_vsense";
-+			qcom,cmb-element-bits = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_vsense_out: endpoint {
-+						remote-endpoint = <&tpda_center_in6>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@8844000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08844000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_dlct_1";
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_dlct_1_out: endpoint {
-+						remote-endpoint = <&tpda_center_in13>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpda@8845000 {
-+			compatible = "qcom,coresight-tpda", "arm,primecell";
-+			reg = <0x0 0x08845000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					tpda_center_in0: endpoint {
-+						remote-endpoint = <&funnel_mcu_out>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+
-+					tpda_center_in2: endpoint {
-+						remote-endpoint = <&tpdm_dlct_out>;
-+					};
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+
-+					tpda_center_in3: endpoint {
-+						remote-endpoint = <&funnel_cdsp_out0>;
-+					};
-+				};
-+
-+				port@4 {
-+					reg = <4>;
-+
-+					tpda_center_in4: endpoint {
-+						remote-endpoint = <&funnel_ddr_out0>;
-+					};
-+				};
-+
-+				port@6 {
-+					reg = <6>;
-+
-+					tpda_center_in6: endpoint {
-+						remote-endpoint = <&tpdm_vsense_out>;
-+					};
-+				};
-+
-+				port@7 {
-+					reg = <7>;
-+
-+					tpda_center_in7: endpoint {
-+						remote-endpoint = <&tpdm_prng_out>;
-+					};
-+				};
-+
-+				port@8 {
-+					reg = <8>;
-+
-+					tpda_center_in8: endpoint {
-+						remote-endpoint = <&tpdm_west_out>;
-+					};
-+				};
-+
-+				port@9 {
-+					reg = <9>;
-+
-+					tpda_center_in9: endpoint {
-+						remote-endpoint = <&tpdm_qm_out>;
-+					};
-+				};
-+
-+				port@a {
-+					reg = <0xa>;
-+
-+					tpda_center_in10: endpoint {
-+						remote-endpoint = <&tpdm_pimem_out>;
-+					};
-+				};
-+
-+				port@d {
-+					reg = <0xd>;
-+
-+					tpda_center_in13: endpoint {
-+						remote-endpoint = <&tpdm_dlct_1_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					tpda_center_out: endpoint {
-+						remote-endpoint = <&funnel_center_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		funnel@8846000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x08846000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					funnel_center_in0: endpoint {
-+						remote-endpoint = <&tpda_center_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_center_out: endpoint {
-+						remote-endpoint = <&funnel_in1_in7>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@884c000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x0884c000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_prng";
-+			qcom,cmb-element-bits = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_prng_out: endpoint {
-+						remote-endpoint = <&tpda_center_in7>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@8850000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08850000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_pimem";
-+			qcom,cmb-element-bits = <64>;
-+			qcom,dsb-element-bits = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_pimem_out: endpoint {
-+						remote-endpoint = <&tpda_center_in10>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@8980000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08980000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_mcu";
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <16>;
-+
-+			out-ports {
-+				port {
-+					tpdm_mcu_out: endpoint {
-+						remote-endpoint = <&funnel_mcu_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		funnel@8982000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x08982000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					funnel_mcu_in0: endpoint {
-+						remote-endpoint = <&tpdm_mcu_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_mcu_out: endpoint {
-+						remote-endpoint = <&tpda_center_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@89d0000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x089d0000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_qm";
-+			qcom,dsb-element-bits = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_qm_out: endpoint {
-+						remote-endpoint = <&tpda_center_in9>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@8a01000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08a01000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_mapss";
-+			qcom,cmb-element-bits = <32>;
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <16>;
-+
-+			out-ports {
-+				port {
-+					tpdm_mapss_out: endpoint {
-+						remote-endpoint = <&tpda_aodbg_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@8a02000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08a02000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_mapss";
-+		};
-+
-+		tpda@8a04000 {
-+			compatible = "qcom,coresight-tpda", "arm,primecell";
-+			reg = <0x0 0x08a04000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					tpda_aodbg_in: endpoint {
-+						remote-endpoint = <&tpdm_mapss_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					tpda_aodbg_out: endpoint {
-+						remote-endpoint = <&funnel_in1_in1>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@8a58000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08a58000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_west";
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <16>;
-+
-+			out-ports {
-+				port {
-+					tpdm_west_out: endpoint {
-+						remote-endpoint = <&tpda_center_in8>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@8b30000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b30000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_cortex_m3";
-+		};
-+
-+		tpdm@8b58000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08b58000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_dlct";
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <16>;
-+
-+			out-ports {
-+				port {
-+					tpdm_dlct_out: endpoint {
-+						remote-endpoint = <&tpda_center_in2>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@8b59000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b59000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_dlct_0";
-+		};
-+
-+		cti@8b5a000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b5a000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_dlct_1";
-+		};
-+
-+		cti@8b5b000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b5b000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_dlct_2";
-+		};
-+
-+		cti@8b5c000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b5c000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_dlct_3";
-+		};
-+
-+		tpdm@8b60000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x08b60000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_ddr";
-+			qcom,cmb-element-bits = <32>;
-+			qcom,cmb-msrs-num = <1>;
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_ddr_out: endpoint {
-+						remote-endpoint = <&funnel_ddr_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@8b62000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b62000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_ddr_dl_0";
-+		};
-+
-+		funnel@8b65000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x08b65000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					funnel_ddr_in0: endpoint {
-+						remote-endpoint = <&tpdm_ddr_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_ddr_out0: endpoint {
-+						remote-endpoint = <&tpda_center_in4>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@8b70000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b70000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_ddr_dl_0_1";
-+		};
-+
-+		cti@8b71000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x08b71000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_ddr_dl_1_1";
-+		};
-+
-+		cti@9020000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x09020000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_pe0";
-+		};
-+
-+		cti@90e0000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x090e0000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_cluster";
-+		};
-+
-+		cti@9120000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x09120000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_pe1";
-+		};
-+
-+		cti@9220000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x09220000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_pe2";
-+		};
-+
-+		cti@9320000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x09320000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_pe3";
-+		};
-+
-+		funnel@9800000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x09800000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					funnel_cpuss0_in0: endpoint {
-+						remote-endpoint = <&etm0_out>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					funnel_cpuss0_in1: endpoint {
-+						remote-endpoint = <&etm1_out>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+
-+					funnel_cpuss0_in2: endpoint {
-+						remote-endpoint = <&etm2_out>;
-+					};
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+
-+					funnel_cpuss0_in3: endpoint {
-+						remote-endpoint = <&etm3_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_cpuss0_out: endpoint {
-+						remote-endpoint = <&funnel_cpuss1_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		funnel@9810000 {
-+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+			reg = <0x0 0x09810000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					funnel_cpuss1_in0: endpoint {
-+						remote-endpoint = <&funnel_cpuss0_out>;
-+					};
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+
-+					funnel_cpuss1_in3: endpoint {
-+						remote-endpoint = <&tpda_apss_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					funnel_cpuss1_out: endpoint {
-+						remote-endpoint = <&funnel_in1_in6>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@982b000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x0982b000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_riscv";
-+		};
-+
-+		tpdm@9860000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x09860000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_actpm";
-+			qcom,cmb-element-bits = <64>;
-+			qcom,cmb-msrs-num = <1>;
-+
-+			out-ports {
-+				port {
-+					tpdm_actpm_out: endpoint {
-+						remote-endpoint = <&tpda_apss_in2>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@9861000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x09861000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_hwe";
-+			qcom,dsb-element-bits = <32>;
-+			qcom,dsb-msrs-num = <32>;
-+
-+			out-ports {
-+				port {
-+					tpdm_hwe_out: endpoint {
-+						remote-endpoint = <&tpda_apss_in3>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpda@9863000 {
-+			compatible = "qcom,coresight-tpda", "arm,primecell";
-+			reg = <0x0 0x09863000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					tpda_apss_in0: endpoint {
-+						remote-endpoint = <&tpdm_llm_silver_out>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+
-+					tpda_apss_in2: endpoint {
-+						remote-endpoint = <&tpdm_actpm_out>;
-+					};
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+
-+					tpda_apss_in3: endpoint {
-+						remote-endpoint = <&tpdm_hwe_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					tpda_apss_out: endpoint {
-+						remote-endpoint = <&funnel_cpuss1_in3>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tpdm@98a0000 {
-+			compatible = "qcom,coresight-tpdm", "arm,primecell";
-+			reg = <0x0 0x098a0000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+
-+			label = "tpdm_llm_silver";
-+			qcom,cmb-element-bits = <32>;
-+			qcom,cmb-msrs-num = <12>;
-+
-+			out-ports {
-+				port {
-+					tpdm_llm_silver_out: endpoint {
-+						remote-endpoint = <&tpda_apss_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		cti@98e0000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x098e0000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_0";
-+		};
-+
-+		cti@98f0000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x098f0000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_1";
-+		};
-+
-+		cti@9900000 {
-+			compatible = "arm,coresight-cti", "arm,primecell";
-+			reg = <0x0 0x09900000 0x0 0x1000>;
-+
-+			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
-+			clock-names = "apb_pclk";
-+			label = "cti_apss_2";
-+		};
-+
- 		sram@c11e000 {
- 			compatible = "qcom,shikra-imem", "mmio-sram";
- 			reg = <0x0 0x0c11e000 0x0 0x1000>;
-@@ -831,6 +2111,21 @@ frame@f42d000 {
- 		};
- 	};
- 
-+	snoc {
-+		compatible = "arm,coresight-dummy-source";
-+
-+		label = "snoc";
-+		arm,static-trace-id = <18>;
-+
-+		out-ports {
-+			port {
-+				snoc_out: endpoint {
-+					remote-endpoint = <&funnel_in0_in5>;
-+				};
-+			};
-+		};
-+	};
-+
- 	timer {
- 		compatible = "arm,armv8-timer";
- 
+Patch 1 exports of_stdout (which the driver references to find the
+console's power domain) from the OF core with EXPORT_SYMBOL_GPL().
+
+Patch 2 converts CONFIG_IMX_SCU_PD from bool to tristate and adds
+MODULE_DEVICE_TABLE() for autoloading. subsys_initcall() is used so
+that when built-in the provider probes before its consumers (e.g. the
+SCU clock driver at device_initcall level). No module_exit() is
+provided since the provider cannot be safely removed at runtime.
+
+Patch 3 adds MODULE_SOFTDEP("pre: scu_pd") to the i.MX8QXP clock
+driver so that modprobe loads the power domain module first when both
+are built as modules.
+
+Because of the cross-subsystem dependency (patches touch drivers/of,
+drivers/pmdomain, and drivers/clk), I would suggest taking the whole
+series through one tree.
+
+Changes in v5:
+- Fix MODULE_SOFTDEP module name from imx_scu_pd to scu_pd. (Sashiko
+  bot)
+- Add Acked-by from Rob Herring for patch 1.
+
+Changes in v4:
+- Add patch 3: MODULE_SOFTDEP in clk-imx8qxp to guarantee module load
+  order when both drivers are modules. (Sashiko bot)
+
+Changes in v3:
+- Use subsys_initcall() instead of module_init() to fix probe ordering
+  between the power domain provider and the SCU clock consumer when
+  both are built-in. (Sashiko bot)
+
+Changes in v2:
+- Drop module_platform_driver() which provides module_exit() and could
+  lead to use-after-free on module unload. Use module_init() only, so
+  the module cannot be unloaded. (Sashiko bot)
+
+Zhipeng Wang (3):
+  of: export of_stdout symbol
+  pmdomain: imx: scu-pd: allow building as a module
+  clk: imx: imx8qxp: add soft dependency on SCU power domain driver
+
+ drivers/clk/imx/clk-imx8qxp.c | 1 +
+ drivers/of/base.c             | 1 +
+ drivers/pmdomain/imx/Kconfig  | 2 +-
+ drivers/pmdomain/imx/scu-pd.c | 8 +++++++-
+ 4 files changed, 10 insertions(+), 2 deletions(-)
 
 -- 
 2.34.1
-
 
