@@ -4,125 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC12BC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 02:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D80C4453D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 02:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L5nTYn5DydJnT1vSxB4ZFr8dxNjhvum8jXttXPqXX/M=; b=AOowzLDf8N5Wx9BywrRhAdR5bK
-	diuA2l8zxRR1obuJySHm2aAxRuz6k+MvWQIvhg5wl0wE3XLwm/3aE37ZDqZNViQ++W9/pu94jFvIF
-	M9qFIuKB51ys6ZqBxru6JjLgP8rBRdEa8Cce8gThFVwBhLaFPCoeYCwgbKi5w7jHRU0sY4qIGp8LB
-	fJPE4WR86D2RVTyKfT1wiPYT4js1bM87GMgDTGspvaQtnO4IZjW0zwyVmq0In1E4S8lwgarUaPHor
-	pvx1/LX+j/cPorCQbnx5WFoJXbeAQCQEv9sEMILYUMLd23lwknuJHConMpb/aAXs56dm+SSV/t9ca
-	dPwYtYrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yuGwipoYOBur1+Yi6fhSnda/qeR92ZcTkhHKhGqfw5o=; b=Aqa7Ub2nUIBq/oylZY1x+pzCoi
+	JjzT2tFcP4KbUvtmOORL9tlt5YXcVeVYBlu22WbwXUENGzQsh8ZEXTVsBVcr8E1vFTYRpNRVR1SIE
+	jtl3cxEucgBr6OfXTyjlMVvXNlUb5YoSClW8+OOvOo+uUKLApAkd6SXgsHPhUBqL0kr0y5WlsDts2
+	x75QvmjMai0JrtuXEGR0MbE2NiU8Bap6kXahsChd5RzgxKvjxMcWS6Ju33qT2BeJ5KUVZGvbliSPf
+	e2EBIS1qnpYuEXSpd5scE0KILryf8n+iOzZO6A4Yqy+4DP3G2IZE6SYY6oNBuQ6i7WExa+fgSwFcn
+	ZQcc7mdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmjTg-0000000DGAW-4211;
-	Thu, 23 Jul 2026 02:48:04 +0000
-Received: from mail-japaneastazon11012057.outbound.protection.outlook.com ([52.101.126.57] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wmjV1-0000000DGJz-0dZT;
+	Thu, 23 Jul 2026 02:49:27 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmjTe-0000000DGA9-3nq9
+	id 1wmjUx-0000000DGJC-36QB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 02:48:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IpuiKAPh++xHWy8PitYQQEcNmukj47UMP0Gg4Ru5NV7Vh077J1HjE/DMtZNuS8OhSO9Oc68BV9wZkJ6ViuQ84HGw5OO0ZZCmVja8qsjgI1ioIu4iTdXthkjk2afhz40LJ0SMcfhc70OhljLLZOCgKPHAXLg+rzqdk8qbB8yZfhOC0LfbGGo/DX86uRhpa84/dAbrGRsgRnwuTEofG5toZ71UcUfnkyOwpcT0ZweDaJzdnymqGF8SF7W3aQ2lIu7lFBh9TkpcLEp8F7IB4QSPyKS8mtKwa5QSKB7iv1NDiUN9Jp6j7JNUDPib+FYuk8t89GvEk/0EfrI5N4QmvAUehA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L5nTYn5DydJnT1vSxB4ZFr8dxNjhvum8jXttXPqXX/M=;
- b=tlJjJ5cDng65UYnI4jgxr8sd2DtneJIM9SHhvdHPHraX5t0034Rv2qmNFDzPbElPgiXWzIatAwmMpI5N/nBxFOu9s/UR7RNCO46KbEB9XGno5jEiqZYphseqC5vrytXSbtofDkuwuO+UBO65fEVWk5dH3wez+eq6CEznJc7Nyv+nvz0Km8tZo7fij0FTH7ftX2UGzBNDGEHyBZQw0pmS8X9+LjiNBUfnGOUbdK6IPk8pYWJs3mfWdFeoLCULKg4Wpu2n+Xq01RCXaweX1jDM74o3vKnTQ9b3Xh7cTr8mdgeuwLvXpkGoLAWse8DBpJyzfEEiI1Sq4jVn3xw3gxjCyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L5nTYn5DydJnT1vSxB4ZFr8dxNjhvum8jXttXPqXX/M=;
- b=MQPi810yF231seKUBip6154TBnxgWr+soPxGPFXM7l/ikmLZz1bfXdyR4lC+luigbEvQlBtJwykXJULxyZwmDdbP+MeWuJhPn0mEDR0K6q0/fgVtWQYMD1g/A8gCGE2SdscHD6yCs5Pl3TwSjPJAtrEvs4LDMvjJkhrEp5SD/IIntsdodlVMmh3vvIRASpIDnU2/ZkRdUfFuD+pODTHaLX2B0IGVMKXS4aZYCqjooTIPdNbYqbF97x762xzxmsI2Z7t0ZyZ2D3h+qLHXxYq+TAFcySbu8XK08l0VJu8cY7NEZrDfjebKf9HfIvstlWWxlXEaNEb/wzcMFesos6B6cQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by SI2PR06MB5339.apcprd06.prod.outlook.com (2603:1096:4:1eb::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 02:47:58 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 02:47:58 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: Roy Pledge <Roy.Pledge@nxp.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	linux-kernel@vger.kernel.org (open list:DPAA2 DATAPATH I/O (DPIO) DRIVER),
-	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC DRIVERS),
-	linux-arm-kernel@lists.infradead.org (moderated list:FREESCALE SOC DRIVERS)
-Cc: Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH] soc: fsl: dpio: Remove redundant dev_err()
-Date: Thu, 23 Jul 2026 10:47:48 +0800
-Message-Id: <20260723024748.30105-1-panchuang@vivo.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TYCP301CA0026.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:381::10) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
+	Thu, 23 Jul 2026 02:49:25 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=yuGwipoYOBur1+Yi6fhSnda/qeR92ZcTkhHKhGqfw5o=;
+	b=P4gdf86jK9grHowwl0tJGg3QRwzO2F+y2EoRUSVFvkr3HWV/5kOTDSgOh4maYzYO+yzderc13
+	b+OC8J7Fk8IWeNqrKi9wNgXdEL5cKbR0e/aIwfnvuIR3v1RtmKTebrfOIc3EX5z0DJfJGvgVXvC
+	xGS7yR0UuO96X8xN9X2JkQg=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h5FhP1RjpzmV7C;
+	Thu, 23 Jul 2026 10:39:49 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7F63B4055B;
+	Thu, 23 Jul 2026 10:49:12 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 23 Jul 2026 10:49:11 +0800
+Message-ID: <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
+Date: Thu, 23 Jul 2026 10:49:10 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SI2PR06MB5339:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ded8d3c-6406-4f50-54a1-08dee864ce2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|23010399003|1800799024|18002099003|10067099003|56012099006|11063799006|38350700014|6133799003;
-X-Microsoft-Antispam-Message-Info: HRfW6PzBiAhNCrlYeQvGQApF6u9VUkQ1QgejyBaihKD3XprvLrxUinYqrfLP+Te1s9Zwms3wqnd6yYrn88C4FCL+XzrqjSQp5YXvTqQyaPLd25qG35H7EKcBavlpVZcTALYYf/YopCl6nuKB+zmUr6ceplXE3zpT1muDor3If2WVzpHJBXqGrTux1G2eeSXkt3dSI+8OORgFZ5X+h3Lj9X1shFnt7LXjiB/JdazSeGCDjZfJf16QHFJQN9XzHWGVo+vk7QRYcYsvcfMHdPzCDhPoFp7ek4rgMe4AbXCcHLXlDunrlBW00FL6XNan5bLc1pq+jgtuI8tG/WT+uFgUdOoT8f4arm74I795I9ptuDG4u8m/iPU2QxhuUVkpglsCqRgU5dSBamvSrls5Jc42Y9ybREfl8fX3+qxGKj0dKTpPBXvESEoZ8wGjkPYUonkICgQgAsAbN49qbjXs+zzoFkTKhDN4w2BT/sibf258YfhOxnoMz+UZtKrFjPcljlXOM1IZEsXdFi4kwpyiaxi3HR/BSv70sDFjpNZn6l9r5vY/LHD5iZHjpystI+IzbvBpwZAV6QaFI30F4+rfIAqsY+ltZtGrbCPzN+sBAkZ9ndgpBvfBIfDTMNQa5Zs2gAF2WtJtI5usxCoZ0cIRwnNDuN4+xwwqhXxrlrPXFIoFGOGrzUvrRMGdkZa5rJ8x+ICferUbpOHSJV284oCExCXaAF5wMj6bW3CO51RlsVWdmqQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(23010399003)(1800799024)(18002099003)(10067099003)(56012099006)(11063799006)(38350700014)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lXBHAWkp80E95u5QAA/daC634b4cAMPeScA07E2JagGfsu22d3fc8y5T6w8J?=
- =?us-ascii?Q?WouvRUoqvLsaAZ8P3cYUgLp7iLm2nxElFKNtsUpzzIVSXw+PLgxCVWNLT1Yy?=
- =?us-ascii?Q?JpoaQJWJVwuLMbDA1tdUDbfvdKUG0ZRCN1XHWfbCV/MlwMHdc24CK5up9tWc?=
- =?us-ascii?Q?qV5VDeHBOg1ONaVgdZFr6mjhi0dXNp48LQQWbP//7DUH7B4NHckYVFvpwdxW?=
- =?us-ascii?Q?wgnHyhLmtkU+YymN7PUmLcDXza+fA+UZpz8YQVf6xPuhpWWYHWkE9RUolN0X?=
- =?us-ascii?Q?XmY/T41O4Cf6u1OfYg9p4gU2oHMq8h0ySiY2hZn0Nbfigob3y2QPbSIFw8OK?=
- =?us-ascii?Q?SQ1+i4uc5WIjHi50uQl2dPBq21A10bZxEpTFGw9Q3ReNQL65vdKI212NBGb7?=
- =?us-ascii?Q?b+K/8x3FTpAEbYtr2hUynVR8mE7zraPzZdvy8oIhpFwT7lgiXMazYQ8wtzSI?=
- =?us-ascii?Q?yeKzzr72nxkuhfgb07Ql3TAKfCd0ULuuBXrBFjkZM+cOjYLgTX4T6lxvfxNO?=
- =?us-ascii?Q?zOZSQUtK/h6ZSDn+SztPSLKCV60VrsxKHvgYV+GSOYgFoxPvT7ajGbpy1yX7?=
- =?us-ascii?Q?QCIv8lCi/goOY9MrKZXDOD8KN53PHyQijR6FAYb2ZmICOsGQIV9cQ6QiN88J?=
- =?us-ascii?Q?ZgZZqDDfWgX2UkAH0ZlUVSy54j/K6BmroFzrx0yGIRTgONhMt0MKJC4Dlkqk?=
- =?us-ascii?Q?9pER9qhL9nxEI061R6aeHQgv//n9AkHOvx0NdyXlrHqbaPz6V95uzWEL96Rv?=
- =?us-ascii?Q?1KBaKgY2CCWIMAuPHYlQ7gx8mhQO3hASLzM8sR0E/K6m8qTPv3NEs2SrDY4u?=
- =?us-ascii?Q?nW5GM4LJbKsYe3ftAH45WEYLqY25kfsQaKAxwivwibISn10RX7PuXcP/P+P4?=
- =?us-ascii?Q?5j8HtoSBcXC6mgxxDm/N5pRIB8KVmv1dsqnNByrzqkARcizKzbs5xQ1Sz2Gg?=
- =?us-ascii?Q?swk/Fy+FvphCktmbDfSbZgxMgA9b8PglbfsA8GR/c3dUAF/u2o7KpeH4fr8s?=
- =?us-ascii?Q?JN0pCk1DG1E1+CoPQlMs20BIBMp3uBYy5kiCEgfY6jg80UIzuE+1mzgPhNTO?=
- =?us-ascii?Q?/d4jtyrSHfDGBre2pUZknGu/UZkUewghgirfrB9ikiRhG7GRmV44ITRmOjP+?=
- =?us-ascii?Q?r6vOkE0cv51Z7CMVL7xaEvHAdltr9GKju6bnzVg9pDlUdHyK9SSKubvcKsol?=
- =?us-ascii?Q?iQml5ai/Vb0yL8tCkg64U1DN4iKv4nW8SIrd2SEp2eB2oD+ikLZWNeAYz2Yg?=
- =?us-ascii?Q?u+s2fiMmccjxz8BgJzjwy7X1zv5lKnWTlq8moImuHlxgMrpUsHq6pfolbjk5?=
- =?us-ascii?Q?EpbRSJdotAqDBaC6fKmCvo/GL6TNQjhbR6/AmDFamMAv1MGGCvAvkOzI+YOZ?=
- =?us-ascii?Q?ygY5TC47HSmkocj+G001sA440ZHT9Uy1Fb92WLrOVBQGBWtxMD2fqaFX4WgZ?=
- =?us-ascii?Q?q7sOu0D5t4hVk6W0h/bPxiBT9TdYiCgUsa4g8dRFGzDu+X3EMPO0JWeF44+4?=
- =?us-ascii?Q?BAfteRK+UdvIqcIKQB1R677PkXRmtTCF6dg2jnxrB+ChYYNE4S0SvY6OmPcs?=
- =?us-ascii?Q?DQd/DTGOEd3ACXbnIgI/qJh+TC7T/wHv8TZ3TfENQqVdIglF2cBp5UkaKlMq?=
- =?us-ascii?Q?58EERe2xfL6NqEWGCwNkCYZKYQD1JGS7dKk4kD6lbRIgUs7//TkKF4YZh5DP?=
- =?us-ascii?Q?yZw1/PDa/UbB40s2S5x5Ownr/FIcLQ3ub8kYvUTOdPZC4Z8aYArs4Thx1bZk?=
- =?us-ascii?Q?Q/Ew2tHivQ=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ded8d3c-6406-4f50-54a1-08dee864ce2c
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 02:47:58.8114
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Pkl/iFAI/X+g9/HlOrUi2RzdMg3dmEpr6ZYeWUIMHMpT32BJKiiVAdesV9RKOogIqdeOzPlIpj4cPy668TUXLg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB5339
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
+ reaching head.S
+To: Naman Jain <namjain@linux.microsoft.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>, Fuad Tabba
+	<fuad.tabba@linux.dev>, Thomas Gleixner <tglx@kernel.org>, Pengjie Zhang
+	<zhangpengjie2@huawei.com>, mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Saurabh Sengar <ssengar@linux.microsoft.com>
+References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260722113044.1835365-1-namjain@linux.microsoft.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_194802_949194_AA48E007 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_194924_102266_D8944AE0 
+X-CRM114-Status: GOOD (  32.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,35 +82,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-devm_request_*_irq()"), devm_request_irq() automatically logs
-detailed error messages on failure. Remove the now-redundant
-driver-specific dev_err() calls.
 
-Signed-off-by: Pan Chuang <panchuang@vivo.com>
----
- drivers/soc/fsl/dpio/dpio-driver.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/drivers/soc/fsl/dpio/dpio-driver.c b/drivers/soc/fsl/dpio/dpio-driver.c
-index 9e3fddd8f5a9..d5198ffc4455 100644
---- a/drivers/soc/fsl/dpio/dpio-driver.c
-+++ b/drivers/soc/fsl/dpio/dpio-driver.c
-@@ -102,12 +102,8 @@ static int register_dpio_irq_handlers(struct fsl_mc_device *dpio_dev, int cpu)
- 				 0,
- 				 dev_name(&dpio_dev->dev),
- 				 &dpio_dev->dev);
--	if (error < 0) {
--		dev_err(&dpio_dev->dev,
--			"devm_request_irq() failed: %d\n",
--			error);
-+	if (error < 0)
- 		return error;
--	}
- 
- 	/* set the affinity hint */
- 	if (irq_set_affinity_hint(irq->virq, cpumask_of(cpu)))
--- 
-2.34.1
+在 2026/7/22 19:30, Naman Jain 写道:
+> When a secondary CPU fails to come online, __cpu_up() falls back to
+> __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
+> distinguish a CPU that never executed head.S (firmware/hypervisor never
+> dispatched it, so it never ran a single instruction) from one that
+> entered head.S, started executing, and then got stuck somewhere in kernel
+> bring-up. Add a change to let us tell those two cases apart, which
+> narrows down where to look when a CPU goes missing during boot.
+
+I previously encountered this issue when debugging the parallel startup
+of ARM64 secondary cores. It is difficult for the kernel to determine
+whether the secondary core is hung in the firmware or whether it has not
+executed a single instruction. So I think this motive is reasonable.
+
+> 
+> Write a sentinel (CPU_BOOT_ASM_ENTERED, 0x10) as the first thing in
+> secondary_entry so the two cases can be told apart:
+> 
+>   0x0  - CPU never ran head.S
+>   0x10 - CPU entered head.S but did not come online
+> 
+> __cpu_up() resets the word before releasing each secondary, so a stale
+> value is not misattributed. Nothing clears the marker on the success
+> path. Reason being, the CPU instead sets CPU_BOOT_SUCCESS in
+> secondary_data.status, which __cpu_up() checks first, so
+> __early_cpu_boot_status is only read on failure. A stall before
+> CPU_BOOT_SUCCESS - including in secondary_start_kernel() - is therefore
+> reported as 0x10. The sentinel sits in the low byte and sets no
+> CPU_STUCK_REASON_* bits, so existing status decoding is unchanged.
+> 
+> Limitations: best-effort only. The status variable is global with no CPU
+> identity, and spin-table secondaries boot via secondary_holding_pen and
+> never write it, so 0x0 is a strong hint rather than a guarantee.
+> 
+> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>  arch/arm64/include/asm/smp.h | 10 ++++++++++
+>  arch/arm64/kernel/head.S     | 24 +++++++++++++++++++++++-
+>  arch/arm64/kernel/smp.c      | 21 +++++++++++++++++++++
+>  3 files changed, 54 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
+> index 10ea4f5430690..ca330cd1b0615 100644
+> --- a/arch/arm64/include/asm/smp.h
+> +++ b/arch/arm64/include/asm/smp.h
+> @@ -20,6 +20,16 @@
+>  /* Fatal system error detected by secondary CPU, crash the system */
+>  #define CPU_PANIC_KERNEL		(3)
+>  
+> +/*
+> + * Best-effort marker written early in secondary_entry (PSCI/hotplug
+> + * path) so __cpu_up() can tell whether a stuck CPU ever ran head.S.
+> + * Not authoritative: spin-table secondaries use secondary_holding_pen
+> + * and never write it, and the word has no CPU identity. Value must sit
+> + * in the low byte, stay out of {0,1,2,3}, and set no CPU_STUCK_REASON_*
+> + * bits.
+> + */
+> +#define CPU_BOOT_ASM_ENTERED		(0x10)
+> +
+>  #define CPU_STUCK_REASON_52_BIT_VA	(UL(1) << CPU_STUCK_REASON_SHIFT)
+>  #define CPU_STUCK_REASON_NO_GRAN	(UL(2) << CPU_STUCK_REASON_SHIFT)
+>  
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index 87a822e5c4ca8..8ac3c49b4daf7 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -353,6 +353,22 @@ SYM_FUNC_END(secondary_holding_pen)
+>  	 * be used where CPUs are brought online dynamically by the kernel.
+>  	 */
+>  SYM_FUNC_START(secondary_entry)
+> +	/*
+> +	 * Record that this CPU reached head.S, before init_kernel_el()
+> +	 * sets SCTLR_ELx.EE. A single-byte store to the reader's low
+> +	 * byte (__cpu_up() zeroed the word) is endian-agnostic, so a
+> +	 * big-endian kernel still reads 0x10. Flush it like
+> +	 * update_early_cpu_boot_status.
+> +	 */
+> +	adr_l	x2, __early_cpu_boot_status
+> +	mov	w1, #CPU_BOOT_ASM_ENTERED
+> +#ifdef CONFIG_CPU_BIG_ENDIAN
+> +	strb	w1, [x2, #7]	// low byte at top address
+> +#else
+> +	strb	w1, [x2]
+> +#endif
+> +	dmb	sy
+> +	dc	ivac, x2
+>  	mov	x0, xzr
+>  	bl	init_kernel_el			// w0=cpu_boot_mode
+>  	b	secondary_startup
+> @@ -386,7 +402,6 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
+>  	mov	x0, x20
+>  	bl	finalise_el2
+>  
+> -	str_l	xzr, __early_cpu_boot_status, x3
+>  	adr_l	x5, vectors
+>  	msr	vbar_el1, x5
+>  	isb
+> @@ -395,6 +410,13 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
+>  	ldr	x2, [x0, #CPU_BOOT_TASK]
+>  	cbz	x2, __secondary_too_slow
+>  
+> +	/*
+> +	 * Don't clear the marker here; nothing on the secondary clears
+> +	 * it. Once the CPU sets CPU_BOOT_SUCCESS in
+> +	 * secondary_data.status, __cpu_up() stops reading
+> +	 * __early_cpu_boot_status (and resets it before the next
+> +	 * release), so a stall before that still reports 0x10.
+> +	 */
+>  	init_cpu_task x2, x1, x3
+>  
+>  #ifdef CONFIG_ARM64_PTR_AUTH
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index cdcdd160e5b69..662205ae5a7a6 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -120,6 +120,17 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
+>  	secondary_data.task = idle;
+>  	update_cpu_boot_status(CPU_MMU_OFF);
+>  
+> +	/*
+> +	 * Reset the marker before releasing this secondary: head.S
+> +	 * never clears it, so without this a CPU that never reaches
+> +	 * head.S would inherit a stale 0x10 from a previous CPU. Flush
+> +	 * it so the MMU-off secondary sees the reset.
+> +	 */
+> +	WRITE_ONCE(__early_cpu_boot_status, 0);
+> +	dcache_clean_inval_poc((unsigned long)&__early_cpu_boot_status,
+> +			       (unsigned long)&__early_cpu_boot_status +
+> +			       sizeof(__early_cpu_boot_status));
+> +
+>  	/* Now bring the CPU into our world */
+>  	ret = boot_secondary(cpu, idle);
+>  	if (ret) {
+> @@ -145,10 +156,20 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
+>  
+>  	switch (status & CPU_BOOT_STATUS_MASK) {
+>  	default:
+> +		/*
+> +		 * 0x0 usually means the CPU never ran head.S, but
+> +		 * treat it as a hint: spin-table secondaries never
+> +		 * write the marker and the word has no CPU identity.
+> +		 */
+>  		pr_err("CPU%u: failed in unknown state : 0x%lx\n",
+>  		       cpu, status);
+>  		cpus_stuck_in_kernel++;
+>  		break;
+> +	case CPU_BOOT_ASM_ENTERED:
+> +		pr_err("CPU%u: entered head.S but not online : 0x%lx\n",
+> +		       cpu, status);
+> +		cpus_stuck_in_kernel++;
+> +		break;
+>  	case CPU_KILL_ME:
+>  		if (!op_cpu_kill(cpu)) {
+>  			pr_crit("CPU%u: died during early boot\n", cpu);
+> 
+> base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
 
 
