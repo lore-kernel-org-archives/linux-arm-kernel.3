@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E64AC531CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186E5C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 09:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aNn9to8BGMc2D1UguBTJNMsLB1vfj4Mi248eeCFZJW8=; b=O95hUuuTc93121zgg4DwGe0hjU
-	JhG5W9LcxwE86i1Yub9R7seZbx07oRaY/c9o4JkHE8OEHBAi49/IDRrXDWeGXnjvcczf8TUgFJ2OW
-	qlQYI3FU76OywwXie50qyCI2VAW2qyOQLXLj81SVTjMpezWXIcwIXQOkOdPo5oNaP6KrAjZ2ZX9t8
-	5HJJ4iLEfcjfjLNGn2usekVrNAkfUBGc1+68ldU6Z4WLV/TGZ5flRYbGFN+9JQ12P5Cfgklg+rL3r
-	8wKYIUpGD1LIi+WWSeDw8396LuAsfNr50f750sCL00+m1M2KtMeX/WOT87tgGFPuY00wrAVe+QGdJ
-	01OiVkZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=upJm9Q93FoQ32YOmgLd56LAW++MWJuCBKbNFi1vKSIY=; b=NC/kJJ3+XWkZTmtTzceEH4wD9/
+	TT11sVlMw9rj+62Mdok5fGbqMxZY9WdJJAzZuPw4GEWAspkTIJQw/r8Avd0SeEX6dcUodji3R0iMA
+	kDAOllbgLrm4L1sZz5zEyQtSEWo9GqXy7oylTFPvJYgaW+1vwG5WbwtboTOWhK4MJRUqp4AuduA4a
+	jvJqu79LAp5BnKsmSC0a5aa/dITw+EOvjaPyS9uUKrf6xznQjy8ymD8WcFuPtYrV4Sar3QGn5I6rQ
+	Tkl/5nkXyzMVY6QdVMg0cRAvBts9wErxULZxJkebpYdkz/cqaMhc9Wj4zR4u+TvxgXhrEN6twtcG5
+	vXXK/aNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpt1-0000000DuB8-4BFv;
-	Thu, 23 Jul 2026 09:38:40 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1wmpyo-0000000Dw4X-1MYS;
+	Thu, 23 Jul 2026 09:44:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmpso-0000000Dtq1-3nym
+	id 1wmpym-0000000Dw4A-1aPw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 09:38:34 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 2E0BB1FB78;
-	Thu, 23 Jul 2026 11:38:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1784799502;
-	bh=aNn9to8BGMc2D1UguBTJNMsLB1vfj4Mi248eeCFZJW8=; h=From:To:Subject;
-	b=heYnw1LpWwMjrkh1Rrxe3ZifWjH56zUGbOMkMOPkpRRsRBkAdba3zbWQhfAzCljmV
-	 Flzyz0xwfNlbbRxZPVGpSMAX+U7MfF7s2LJxcjieJ9pWYJZg8Npp7I+FuRsMjpOWv/
-	 R6Lau7GKPLmGlANiV1V29pbotqAvjfmlTLfSpK/OMBjwsBnn2n7SlcZ1oxz9bqqiJO
-	 801+ASwSPdXjw2GBp9ZDEe1rYxqFXM2m+86yqIuRM+f8+HvegCtyRwYf7dCTBcnpcN
-	 em2/hKrPib4GDQyQEcPzMA1k1cuYgLxgVAMZ9GAHfuVzeAr7UAAiGh9UPL8ZqogG5T
-	 iSCv81GQnCuLg==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 1/4] dt-bindings: lcdif: Add endpoint bus-width property
-Date: Thu, 23 Jul 2026 11:38:08 +0200
-Message-ID: <20260723093813.180089-2-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260723093813.180089-1-francesco@dolcini.it>
-References: <20260723093813.180089-1-francesco@dolcini.it>
+	Thu, 23 Jul 2026 09:44:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AA70C41071
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 09:44:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8E31F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 09:44:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784799875;
+	bh=upJm9Q93FoQ32YOmgLd56LAW++MWJuCBKbNFi1vKSIY=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=VpoekalQ6c9YpvCl4kSQWCci27Dq0tQUcrkkiS1Nsrlvjm5XUwJGy9TZ2tt0q0y/j
+	 8c/u2v6c20p2nCnS9w94kooxxbLfyQGb29M7FGnCOscDcXGtvAOs2waqyKS8PQy+Hr
+	 QIoui/fAUNQt9qIsl9rhltosjhT9uGgMBRFg7z1dz0BpPj2zT4xdCIGAdcwedzK4JC
+	 OzKKuNFIQKn/hQzsmzoHaRr+LE7dQwjQwZC2JLPzKC0s/ogqjxTH8Zp6RcNSw5AJlI
+	 LM6VDTfgXvS4wq5HCQhSll2Mk2rNc2jPhngkeowm+wDPQN7u3Pc8Vp6IlvNS+62YCA
+	 qfSLzyPX79tAw==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5b2a22c52c1so507069e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:44:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqHhGQqZ55ndj4YpPZjmJnKoo+viqcemeloWbHQuvOwHUyuNHiTVews8zgXIIm46N5glohj4c+ziMCGU0/70l9T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/eKTthDxmNW71qmPL13WjPF5tqFqf+qO6wx6pWXVwz67qne3l
+	FzcA4+rjHn/GTFclJhCCsaNFIvZN8bH50ahN2IFwSe1bL4glHju8wLHduz9HFTheR3M5iecOiXr
+	q2XuUEobzsclTbyivQ8jj7R1nUOlu9XZEP9FrfyC/KA==
+X-Received: by 2002:a05:6512:340a:b0:5b0:23c3:4f55 with SMTP id
+ 2adb3069b0e04-5b2b2f72e6dmr483668e87.53.1784799869499; Thu, 23 Jul 2026
+ 02:44:29 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 23 Jul 2026 02:44:27 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 23 Jul 2026 02:44:27 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260722162040.GC2794619@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_023827_125494_8DB81A47 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+References: <20260712-qce-broken-v2-1-b2dfff47f7f5@gmail.com>
+ <alnlaCXmoLRAlr96@gondor.apana.org.au> <20260721082501.6128-1-bartosz.golaszewski@oss.qualcomm.com>
+ <c826b73d-6307-4237-a065-b7a8487350ce@gmail.com> <CAMRc=Me55rUmjjR+ZzdWd2ss9JJMZzJch0zKd4GqONBjCzFMYQ@mail.gmail.com>
+ <20260722162040.GC2794619@google.com>
+Date: Thu, 23 Jul 2026 02:44:27 -0700
+X-Gmail-Original-Message-ID: <CAMRc=McTUmyCNvW6qECR4rnVQNLAWLnOr8+fdcZEyDfKESifHw@mail.gmail.com>
+X-Gm-Features: AUfX_mxedXof9O40mfMVKV-BEEyZQWgJJjJYjRe7y_syomCjENHofNVGIye_ej4
+Message-ID: <CAMRc=McTUmyCNvW6qECR4rnVQNLAWLnOr8+fdcZEyDfKESifHw@mail.gmail.com>
+Subject: Re: [PATCH v2] drivers/crypto: Mark QCE as BROKEN
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Demi Marie Obenour <demiobenour@gmail.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Russell King <linux@armlinux.org.uk>, 
+	"David S. Miller" <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, stable@vger.kernel.org, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +90,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Wed, 22 Jul 2026 18:20:40 +0200, Eric Biggers <ebiggers@kernel.org> said:
+> On Wed, Jul 22, 2026 at 01:33:51AM -0700, Bartosz Golaszewski wrote:
+>> > Also, what can the current driver do that cannot be done better using
+>> > software crypto?  I understand that you have future plans to add more
+>> > features to the driver, but those are not relevant to this discussion.
+>> >
+>>
+>> We can offload crypto operations to the QCE saving CPU cycles but more
+>> importantly, the QCE provides HW based isolation which some vendors care
+>> about.
+>
+> Do you have any concrete proof of anyone using this with a specific
+> Linux kernel feature and actually getting a benefit from it?
+>
 
-The DPI output of the LCD interface can be configured with a bus width
-of 16, 18, or 24 bits. Introduce a bus-width property to the output
-endpoint, specifying the number of parallel RGB bits connected.
+I'm not required to produce a proof of Qualcomm's clients using it. That's
+never been a requirement to keep a driver in mainline. I'm saying that Qualcomm
+wants to keep it and I've stepped up to fix and maintain it, which is what I'm
+doing.
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
-v2: use the common bus-width property instead of the legacy interface-pix-fmt
----
- Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 9 +++++++++
- 1 file changed, 9 insertions(+)
+But yes, I know about companies that do use this driver as is for whatever
+reasons. I'm not sure I can mention them so I won't.
 
-diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-index 2dd0411ec651..6931f0ae3829 100644
---- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-+++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-@@ -71,6 +71,15 @@ properties:
-     $ref: /schemas/graph.yaml#/properties/port
-     description: The LCDIF output port
- 
-+    properties:
-+      endpoint:
-+        $ref: /schemas/graph.yaml#/$defs/endpoint-base
-+        unevaluatedProperties: false
-+
-+        properties:
-+          bus-width:
-+            enum: [ 16, 18, 24 ]
-+
-   display:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description: phandle to display panel
--- 
-2.47.3
+> Just for some additional context, I've been on the Android team for many
+> years and have worked with lots of companies shipping Android devices
+> with Qualcomm SoCs.  I also upstreamed the support for the
+> Qualcomm Inline Crypto Engine (ICE)
+> (https://lore.kernel.org/all/20200710072013.177481-6-ebiggers@kernel.org/
+> https://lore.kernel.org/linux-mmc/20210126001456.382989-9-ebiggers@kernel.org/),
+> which is what people actually use and isn't the same as QCE.
+>
 
+Yes, I know about your work. Thank you for doing all of that.
+
+Best Regards,
+Bartosz
 
