@@ -4,166 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7C9C531CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6CDC531CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 13:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAJ92+dVKkhStldqu20Psdf6IGjmApe60MPX/QGCFWI=; b=MFnw+m32AgluoJ/VwbLJYVPmL6
-	apxcahanZU/3g2UzIbskZB9Yxh0ZHdpKOvTsqzy1Sjal4w3SA3J5jBhMQVgHD0+LkwgLdqfdWBjjK
-	+zUpyRBVma1KjIw3RR3QFL4brI4UFiykfB37RstRi3q1akNtnv/SuWmMvbHnE9oeFWtGoYqCxduYF
-	rD5BL8dn/Lm1JzKg69YBZ8FrG6bECAa8KbCCOv7gwAn+sF96Q7xGqzE8aiwZjYEji1eqewM59j4Z/
-	nGFNdi7Fhfh+blE2N/6v3nnIC8MCc6NflONBCN14oob2xu23kmaZ4GDxk2TIBMX5HArObIIKzG7pO
-	hAhW/WdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6/BYQEtQsjb6+WL1CElUeN1pQH5WgEP9ovBKrauqsJU=; b=eQoAr4WwTObyH6hZB1r2nVDMOj
+	+QBI3UfBe0fpDM1hFZFugSlepaE9ABJdj5aYF8Noh5LdFnLpY6aYvTsn45x472a8+oh7bcg0RGs/3
+	0OIy9fHIuJbl2ol8vL8Yf602kIVzQr3JyRtbNPVtkQ6zbp8mCcFX8wsZkk/1MP/oBqsbzxpi4A74s
+	GDYpK0pmxyARYKAiXATERs5SpkFfhJsxNCvPsEzmBDXS3TL9Gu0nNSfx2o6FOVgEkvBYf/yWnmzQx
+	WYP7G8NKqx6tSJybfBH59rzc8of4r4J9Xohqhm1KmhTUZLP/voA5cxlpefqSU+n8C7wA/l/AAxtCD
+	46UNVdow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtYL-0000000EOE4-1Yf9;
-	Thu, 23 Jul 2026 13:33:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wmsi0-0000000EFgt-0aBn;
+	Thu, 23 Jul 2026 12:39:28 +0000
+Received: from mail-southcentralusazon11012010.outbound.protection.outlook.com ([40.93.195.10] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmtYI-0000000EODS-3bUs
+	id 1wmshv-0000000EFeU-3KDU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 13:33:32 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66NCw4RS3605752
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:33:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AAJ92+dVKkhStldqu20Psdf6IGjmApe60MPX/QGCFWI=; b=d5itg1F0Kk0mU1DI
-	fimuZV/3TiUVVzE8yLSvIflcj1ApAf2/HjRwb7DE9KCmAND+kTWLsTmaE1tMl4Q2
-	NZbjavDKoY3MQaNgufXBodHRUpggkEEVDXCTtYAoGY1+4MC+hSGfkiuFEf/438I5
-	+J471LtDsPK/R+svfiWFa13EYwD3nFw+/P1iyCuIpBFgSptn9UBlyGeOFZFbMrK3
-	BXikjjCnAB0eQDgE7eB8b6iAw/6DCAIlpavYu0qrj3AqwwvWk5xBdPnxIWlHXYDj
-	qeFuxIKnk2wFpmY3bocGO7H0uFlVwSiQYr+voyuhZnPeJHTmLDXYSM14Z5hfn04i
-	k6Jong==
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fkeuq9cq6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:33:30 +0000 (GMT)
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-7ebeeb51976so515542a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 06:33:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784813609; x=1785418409; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AAJ92+dVKkhStldqu20Psdf6IGjmApe60MPX/QGCFWI=;
-        b=PflUcJk34hSG/gHaJhhBkgozNBEtpdu+O/+SLeIv3IHEaor8BHJ7wzUWpITWYucZXo
-         iRBEu/yjBUjxS5KmtFWWnBTSxSVfkUaXVw2bNF0nOiMgrR6tjlgQJS/GpU5c7d0m1You
-         OfZ//qs73A+vFBniJVb5GbUEn1osNgdKxkyEpw05nT3WlzbTGWCDxkD7fCvT59a81WhS
-         ehX+YzBOqk9Ij0yuVhzUQmC2TNvaT8YcwtWRXwRuOQ4gP7L206Ogc6tK+qWkP9A/6E2z
-         EpU02qkMQzBO8WtOQ4OwSMMmUS+Oh6PQYUNi10HX0y84mLWyH5cs7dxiDk6AkFcy+rqp
-         H96Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784813609; x=1785418409;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AAJ92+dVKkhStldqu20Psdf6IGjmApe60MPX/QGCFWI=;
-        b=lK9x+K+2sNqFvooqKJI8KhT7+upM7RndeHj9wTSBPdTQn+bXUng09agGx1Kfc2j0el
-         q19230Dyj1jZJtGQFD3MORtefAe5TYCGHOcJmLkzZijznmaRbsgDGGOpVyUE80vFItxv
-         xODPy8t4iMlk2C8lrVO8qlwOVewG5j4TpiBfhQa3j5YwQNI7qaSDqMM8b/AaRFLFwB4e
-         lBcbYs5VgOm7utIV4ueLuAKNWLpCrbNsjws8J6r9Kca6LuGBNxcuS6OPS1eE1WhCWvAD
-         RIyUsWDiaBCLaf4emC2FarttDYV0NiJ6vo6jqOnDB/IauQVUBhY/VZm320ROOaLIhPl/
-         Tc7Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rrj63jpLJ1mTdnH2L7lnmgMSrfQh59y4isO+l1Harqz07ONJc1ZDguGaOC1tgl/Gg8a7nUw43a34XMfYaDnBXWo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXoduKErjfPQfqqa/d12NEWEu/l/kdcDe1qrw0OaKrnNHUDnui
-	ikURv9BkrEM9w7xWEMULaYzx8x+KwSWruQOyojT8ZUEfxvI+8zS0r4ukU1x9CPQYAyPAB4lysB/
-	eB59GpuhoTXjuGYe3v4+LFc6s8MzEtAgutmU0duK1v0fsITHWE093ecFr5N3kQf+oi+qGC1o6yf
-	bRBg==
-X-Gm-Gg: AR+sD12rvwNo/CvH0Z84Ky3j+t0FNR2gOV8DZbOtFLk64Rko144N9y4rX0yj1/DCWbP
-	Shi/p2zwVkuWEXqiTzhKmvv6aVvQZKoZO19ofSnRhznH7SXz+q/9qKutWuG+OtC8t2fRcZNLNoY
-	h460FWhZZoublb3PC9/S+ePV3UYsVRu5rZzFx3pQAweiDNrXH8ZHoEnsVRPu7CfN+bffpc4ACFV
-	lmAbkUQr0iNI0os5pmhDSMXghGP4o7raslg63OfovVog1wIcYch7Dkvxgv3HgKJNYoka3CqquLY
-	57JzjJvR+94S0QrtAvOi5NUAiQjWNbnACGURqgps86tuNm899nInaftD2r4p5mN8/gxA3r/tchx
-	7XGhBeew9gfKSrqbrUOwHo+U9eYBJRPBScrA=
-X-Received: by 2002:a9d:7d8c:0:b0:7e9:dd46:b9f8 with SMTP id 46e09a7af769-7ee471926ebmr889169a34.15.1784813606309;
-        Thu, 23 Jul 2026 06:33:26 -0700 (PDT)
-X-Received: by 2002:a9d:7d8c:0:b0:7e9:dd46:b9f8 with SMTP id 46e09a7af769-7ee471926ebmr889159a34.15.1784813605732;
-        Thu, 23 Jul 2026 06:33:25 -0700 (PDT)
-Received: from [10.219.57.229] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ee2a0b3803sm3569083a34.21.2026.07.23.06.33.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Jul 2026 06:33:25 -0700 (PDT)
-Message-ID: <0ee2667f-db43-4e5a-9b4d-2c2404d4ae5b@oss.qualcomm.com>
-Date: Thu, 23 Jul 2026 19:03:12 +0530
+	Thu, 23 Jul 2026 12:39:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TYeIIAQLL+T7BES6dWcqa3gqtOcacdV9cYiLzV85WYxIGlm4MQqHljb0j5woBD8QHeJF46Spyt8717eJJBNq8uuGfKpLw3WIWxmyfQb1JcSYT/nkkuVXF0yD+M+BPllEUNcPylkMuy9lK/fKQhnjdIlruNcT+DZo19qL/WsKyElDPIj3Stkxr5xyf/iDaLdtiNHS3pj7OwAxFEMSce1prANCdep0HzzK0V2Ai4DRd+fhGo66j9RoWvXfWCfpyMoFcOeA/JQvmXk+v5PsBRphGb0R9+CILpiCRWuCcjDVWLWuDRSN2pYY0g3LdahG7KzYLuBbU9nKHTlKgbKyYrK0aA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6/BYQEtQsjb6+WL1CElUeN1pQH5WgEP9ovBKrauqsJU=;
+ b=Hhoz0R90O+Q31g3cNTs7F4JrqolMSxlUdKvTUH6THsH60pGts9cU3/zJw706JTIeXdBPx33fVDEbciS0mdYCAvU3BcszPjlzFyz3ujFXamvX5Qs0lts8P9T21ecvQlI+UbDSWcYFFs27UKCyoe5Cn9Rd4fAf2cKynoylQYUKbgrMyFKnguWfiZtPPEILxlhmNtNttBn5p30pkXE/hiMGfFnMqt49yc5blMuoVlKuIU0Xb3zy71HTAT4EPQe2PU4pq0+rP5YQJ4og2b/Repk/FFYEBsYFf1IffyWEF6aWwiND3QuyJWn9dS32rl43XUkakyJXNwMOduZjJJAsqMa8Rg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6/BYQEtQsjb6+WL1CElUeN1pQH5WgEP9ovBKrauqsJU=;
+ b=4iTyfjiHzzfO+es9w/rGc/6Wl+FBDvsFpck0SA+S0qELIp+BQddFNkbH6731O4EhDE07v5CWlArJL9SrKxdCZM4jhc9bFtVv9P11t8L8JSG/XFi3AFvPRz6uH99ydC9hzZJNNN9TtYvsYbJBcbPaFm7jJ85HJBb/HAmR0SFmJg8=
+Received: from MW4PR03CA0334.namprd03.prod.outlook.com (2603:10b6:303:dc::9)
+ by MN0PR12MB6103.namprd12.prod.outlook.com (2603:10b6:208:3c9::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 12:39:16 +0000
+Received: from MWH0EPF000C6189.namprd02.prod.outlook.com
+ (2603:10b6:303:dc:cafe::5b) by MW4PR03CA0334.outlook.office365.com
+ (2603:10b6:303:dc::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Thu,
+ 23 Jul 2026 12:39:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ MWH0EPF000C6189.mail.protection.outlook.com (10.167.249.121) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 12:39:15 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 23 Jul
+ 2026 07:39:13 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Thu, 23 Jul 2026 07:39:06 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>, Russell King <linux@armlinux.org.uk>
+CC: Shyam Pandey <radhey.shyam.pandey@xilinx.com>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<harini.katakam@amd.com>
+Subject: [PATCH net-next 3/7] dt-bindings: net: xlnx,axi-ethernet: Add 10G/25G (XXV) ethernet
+Date: Thu, 23 Jul 2026 18:08:34 +0530
+Message-ID: <20260723123838.125145-4-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260723123838.125145-1-suraj.gupta2@amd.com>
+References: <20260723123838.125145-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v23 06/13] dt-bindings: arm: Document reboot mode magic
-To: Rob Herring <robh@kernel.org>
-Cc: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger
- <matthias.bgg@gmail.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla
- <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>
-References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
- <20260714-arm-psci-system_reset2-vendor-reboots-v23-6-e7453c548c21@oss.qualcomm.com>
- <20260722171108.GA1097879-robh@kernel.org>
-Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <20260722171108.GA1097879-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDEzMyBTYWx0ZWRfXwX+IR32MgZe1
- MbMKbktbYwNx80u5NtU074V2R30jkONNBDTFm2N/uoyJZCU6d44v/dG5gUq+hLOwPIx9puHYzqR
- X1SJxMW7cUQDAlTaQ9Dvj/fI/f2W8Tc=
-X-Proofpoint-ORIG-GUID: D_9B4sHpB5rp8V1l-E5SefLQmPzSYLOp
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDEzMyBTYWx0ZWRfX9cR3ab7/NnE2
- kji6moPeZX3bscmiaZi2rEpejvlhHRGRKnF+RYslc9MUsE9C8aE2n/agaRA44mgQpvKfwrpdPYD
- adjeVMSJd+h5cDAgA8fZXD13c0S35vjE0Bvbgj886UgL3MWnI/Mvi259h6R3Oq4wxgG4eJAoDU8
- Mrpag8nM73g/PMXPARgp5JQAPqHsrhKHpMjN0mNfSj9hyhtvJoByhzg+Y+hrtYGX8p5M+5BBa4S
- bqwk1hevNK0k9RLrAdp+V7lj8588LXGB4QA8anN9HUF7rJMWcPSPfQ3Ftpg3/cHmwPDuzFrKlKB
- XhIsqp7fQ3SNbvL0qRcM/hjiaeEaGAEke8OJHiS0tC87E9mmVhOS34vAgaDfcwUfNEV+xxd5sFb
- 0WiZUDZhnaaCneHIFUpTv0QJvtdffRCpEYEz4Oz7PYMcV+UXZGOtyBsu1GeVPMktyxoCi6NbQ4x
- fGRiSqqmdkLq3IMur8A==
-X-Authority-Analysis: v=2.4 cv=cPDQdFeN c=1 sm=1 tr=0 ts=6a62182a cx=c_pps
- a=7uPEO8VhqeOX8vTJ3z8K6Q==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=PV7ZYYKFBiq-RxTmBQMA:9 a=QEXdDO2ut3YA:10
- a=EXS-LbY8YePsIyqnH6vw:22
-X-Proofpoint-GUID: D_9B4sHpB5rp8V1l-E5SefLQmPzSYLOp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-23_04,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 lowpriorityscore=0 adultscore=0 phishscore=0
- clxscore=1015 suspectscore=0 priorityscore=1501 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607230133
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6189:EE_|MN0PR12MB6103:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea58e0a2-2aac-49e2-56c4-08dee8b7685d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|82310400026|36860700016|1800799024|13003099007|921020|6133799003|56012099006|11063799006|10067099003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: QWL2S5Zb6R8YrmiVh216aRIA8JxB0OMEg+KbAeQs1okkK1z84H1Gj0aNWIcF8dxVS2pHdEP3r9b88jkGfwNX91cT27Z2kXY7tV3U6SZgrhbMnQ60S6U8DhMhyKmj+hRj3GZfx066/FEYZxIQ0PoPkt2ARdFbanH9R1mMo0WeNRktHEarbpQtH+Uvvrd0FtrtG2KOaPcrpmqscPYGQ2VX4fRQhbepXy18N36B79Ap4gs44nQxUABGyL3O58+DdIlMZiURhEqyRV6TEDVk/z7gM1zdNss69j7zcrfUNVFSZ4oCDr6f7S4Rv/9oOYJWDfcELjkSa9ConX+zgtXWgBraBCur1xWDvA4IOGVSIxrOG0ME9Q9UFIIilPU/lbfu7KKlUtBmYXZO673Ut1yIJxEr2EpFFu3Y8LLK2Qb562IfMyC1LOMGsG6B2rjE7Z3lXejN0NVT8Og6TciunAkAxvo9rt8AV42oVI5A2yUeVOr+aBN+SJA0OCbqaeoDzxYa29o27HLHXRnvs688pjE37iDsOK0Ym4tqWDqim9NLfeHM/poIRjptRbeNjCS43+8wiM+O+KULwlGDpR9k27ro0pz2KsTx8jy27rwLBWlJrxwPUOHrTtIJcC/GZrMhqP5ZvpZBUSFMAsL9ThwjGlPO/jQUKGQ2u+9UO05eDqfmhW7Yg5zhkTxahPFSqCcjooWkagq007Fw8BkNQLx0QZIIRt+fmQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(82310400026)(36860700016)(1800799024)(13003099007)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ewlO11Ur6+/uXKfBxAi0AA7qerwybI6UjWpXw/lA08aomjVf46ZjiCJt5IXpD9yh6H3SvbIBIdpaqsIcTxr8tLl/W0BeiVp15lPRsPRYuL8zZPv2bC4ojabIwgj40qoLp/N/wnYsFDmj4Cdgr4kOdiiy8351fqDaUmVxWXl1GmbpymXTJ6iyOKghlr8s4fEqvP2xossySds40GtBvyKQOxOOlYQtMhQLZet9dAaw/Cxs5zlYbBqtleYnK9be86V9bgZ024iXtsHVgKuv6gKvN0l8GZarGantNmpDGgRW21K/kyvEzsJsXxH7/NO99Xf1jjuGYXKkEhG5b9fPKFegSq3yVERcrw4d83KR5CnxLyYg/CzCDONr1ZrP216Ex/aZd86dXHsCJuHAVvbXSmZN+NOMGNyl02Ayvu9ur1zR7LCNCszJ5nQMr3kthmkoIYG1
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 12:39:15.9687
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea58e0a2-2aac-49e2-56c4-08dee8b7685d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6189.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_063330_912402_41366524 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20260723_053923_880137_63591744 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,103 +132,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The XXV Ethernet IP integrates a 10G/25G Ethernet MAC with an in-core
+PCS/PMA driving a high-speed serial transceiver. Extend the existing
+xlnx,axi-ethernet binding to describe it.
 
+Add the "xlnx,xxv-ethernet-1.0" compatible and make the resource
+requirements conditional based on the XXV compatible string:
 
-On 22-07-2026 22:41, Rob Herring wrote:
-> On Tue, Jul 14, 2026 at 10:46:34PM +0530, Shivendra Pratap wrote:
->> Add bindings to describe vendor-specific reboot modes. Values here
->> correspond to valid parameters to vendor-specific reset types in PSCI
->> SYSTEM_RESET2 call.
->>
->> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->> ---
->>   Documentation/devicetree/bindings/arm/psci.yaml | 54 +++++++++++++++++++++++++
->>   1 file changed, 54 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
->> index 6e2e0c551841..11b90e8affb3 100644
->> --- a/Documentation/devicetree/bindings/arm/psci.yaml
->> +++ b/Documentation/devicetree/bindings/arm/psci.yaml
->> @@ -98,6 +98,37 @@ properties:
->>         [1] Kernel documentation - ARM idle states bindings
->>           Documentation/devicetree/bindings/cpu/idle-states.yaml
->>   
->> +  reboot-mode:
->> +    type: object
->> +    $ref: /schemas/power/reset/reboot-mode.yaml#
->> +    additionalProperties: false
->> +    properties:
->> +      # "mode-normal" is just SYSTEM_RESET
->> +      mode-normal: false
->> +    patternProperties:
->> +      "^mode-.*$":
-> 
-> Since your example violates naming rules:
-> 
-> "^mode-[a-z0-9]+$"
-> 
->> +        minItems: 1
->> +        maxItems: 3
->> +        items:
->> +          - description: arg1 (vendor-specific SYSTEM_RESET2 reset_type)
->> +            minimum: 0x80000000
->> +          - description: arg2 (cookie_lo in 2-cell form, cookie_hi in 3-cell form)
->> +          - description: arg3 (cookie_lo in 3-cell form)
->> +        description: |
->> +          Describes a PSCI SYSTEM_RESET2 vendor-specific reset type. The string
->> +          after "mode-" maps a reboot mode to a vendor-specific reset.
->> +          A vendor-specific reset takes two arguments, a 32-bit reset_type and a
->> +          64-bit cookie. The arguments are encoded as up to three 32-bit cells.
->> +          Each mode property is encoded as mode-xxx = <arg1[, arg2[, arg3]]>,
->> +          where:
->> +          - arg1 is reset_type and must be >= 0x80000000.
->> +          - In 2-cell form, arg2 is lower 32 bits of cookie.
->> +          - In 3-cell form, arg2 is high 32 bits of cookie
->> +            and arg3 is low 32 bits of cookie.
->> +
->> +          All values should be provided as per the PSCI SYSTEM_RESET2
->> +          specification.
->> +
->>   patternProperties:
->>     "^power-domain-":
->>       $ref: /schemas/power/power-domain.yaml#
->> @@ -137,6 +168,15 @@ allOf:
->>         required:
->>           - cpu_off
->>           - cpu_on
->> +  - if:
->> +      not:
->> +        properties:
->> +          compatible:
->> +            contains:
->> +              const: arm,psci-1.0
->> +    then:
->> +      properties:
->> +        reboot-mode: false
->>   
->>   additionalProperties: false
->>   
->> @@ -260,4 +300,18 @@ examples:
->>           domain-idle-states = <&cluster_ret>, <&cluster_pwrdn>;
->>         };
->>       };
->> +
->> +  - |+
->> +
->> +    // Case 5: SYSTEM_RESET2 vendor resets
->> +    psci {
->> +      compatible = "arm,psci-1.0";
->> +      method = "smc";
->> +
->> +      reboot-mode {
->> +        mode-edl = <0x80000000 0x00000001>;
->> +        mode-bootloader = <0x80010001 0x00000002>;
->> +        mode-needscookie_64 = <0x80000000 0x00000001 0x00000002>;
-> 
-> Don't use '_' in property names. This is a W=2 warning.
+  - "dmas", "dma-names", and "phy-mode" are required.
+  - Interrupt properties are not required as it does not have a dedicated
+    Ethernet core interrupt.
+  - "phy-handle" is not required as it has internal PCS and PMA.
+  - Add the 10gbase-r and 25gbase-r phy-mode values used by XXV.
+Annotate the existing compatibles, generalise the title to cover both
+variants, and add an example node for XXV.
 
-sure thanks. Will fix this.
+Define properties at top level per binding style and use if/then to
+constrain requirements and phy-mode per compatible. Forbid 1G-only and
+unused ethernet-controller properties on XXV nodes.
 
-thanks,
-Shivendra
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+---
+ .../bindings/net/xlnx,axi-ethernet.yaml       | 144 ++++++++++++++----
+ 1 file changed, 117 insertions(+), 27 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
+index fb02e579463c..23b1a27c04e5 100644
+--- a/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
++++ b/Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
+@@ -4,36 +4,46 @@
+ $id: http://devicetree.org/schemas/net/xlnx,axi-ethernet.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: AXI 1G/2.5G Ethernet Subsystem
++title: Xilinx AXI Ethernet Subsystem
+ 
+ description: |
+-  Also called  AXI 1G/2.5G Ethernet Subsystem, the xilinx axi ethernet IP core
+-  provides connectivity to an external ethernet PHY supporting different
+-  interfaces: MII, GMII, RGMII, SGMII, 1000BaseX. It also includes two
+-  segments of memory for buffering TX and RX, as well as the capability of
+-  offloading TX/RX checksum calculation off the processor.
++  This binding describes Xilinx AXI Ethernet subsystem IPs, including the
++  AXI 1G/2.5G Ethernet Subsystem and the 10G/25G (XXV) Ethernet Subsystem.
++
++  The AXI 1G/2.5G Ethernet Subsystem provides connectivity to an external
++  ethernet PHY supporting different interfaces: MII, GMII, RGMII, SGMII,
++  1000BaseX. It also includes two segments of memory for buffering TX and RX,
++  as well as the capability of offloading TX/RX checksum calculation off the
++  processor.
+ 
+   Management configuration is done through the AXI interface, while payload is
+   sent and received through means of an AXI DMA controller. This driver
+   includes the DMA driver code, so this driver is incompatible with AXI DMA
+   driver.
+ 
++  The XXV Ethernet Subsystem integrates a 10G/25G Ethernet MAC and PCS/PMA
++  connected to a high-speed serial transceiver. It supports the 10GBASE-R and
++  25GBASE-R line rates, with 25G operation following the 25G Ethernet
++  Consortium specification. Its payload is moved by an external AXI DMA
++  controller rather than a DMA engine integrated into the MAC.
++
+ maintainers:
+   - Radhey Shyam Pandey <radhey.shyam.pandey@xilinx.com>
+ 
+ properties:
+   compatible:
+     enum:
+-      - xlnx,axi-ethernet-1.00.a
+-      - xlnx,axi-ethernet-1.01.a
+-      - xlnx,axi-ethernet-2.01.a
++      - xlnx,axi-ethernet-1.00.a # AXI 1G/2.5G Ethernet Subsystem
++      - xlnx,axi-ethernet-1.01.a # AXI 1G/2.5G Ethernet Subsystem
++      - xlnx,axi-ethernet-2.01.a # AXI 1G/2.5G Ethernet Subsystem
++      - xlnx,xxv-ethernet-1.0 # 10G/25G Ethernet Subsystem
+ 
+   reg:
+     description:
+-      Address and length of the IO space, as well as the address
+-      and length of the AXI DMA controller IO space, unless
+-      axistream-connected is specified, in which case the reg
+-      attribute of the node referenced by it is used.
++      Address and length of the IO space. For AXI 1G/2.5G using the legacy
++      embedded DMA, this also covers the AXI DMA controller IO space, unless
++      axistream-connected is specified, in which case the reg attribute of
++      the node referenced by it is used.
+     minItems: 1
+     maxItems: 2
+ 
+@@ -62,6 +72,8 @@ properties:
+       - rgmii
+       - sgmii
+       - 1000base-x
++      - 10gbase-r
++      - 25gbase-r
+ 
+   xlnx,phy-type:
+     description:
+@@ -93,19 +105,12 @@ properties:
+       selected on core reset (i.e. by the basex_or_sgmii core input line).
+ 
+   clocks:
+-    items:
+-      - description: Clock for AXI register slave interface.
+-      - description: AXI4-Stream clock for TXD RXD TXC and RXS interfaces.
+-      - description: Ethernet reference clock, used by signal delay primitives
+-                     and transceivers.
+-      - description: MGT reference clock (used by optional internal PCS/PMA PHY)
++    minItems: 3
++    maxItems: 4
+ 
+   clock-names:
+-    items:
+-      - const: s_axi_lite_clk
+-      - const: axis_clk
+-      - const: ref_clk
+-      - const: mgt_clk
++    minItems: 3
++    maxItems: 4
+ 
+   axistream-connected:
+     $ref: /schemas/types.yaml#/definitions/phandle
+@@ -139,15 +144,88 @@ properties:
+ 
+ required:
+   - compatible
+-  - interrupts
+   - reg
+   - xlnx,rxmem
+-  - phy-handle
+ 
+ allOf:
+   - $ref: /schemas/net/ethernet-controller.yaml#
+ 
+-additionalProperties: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - xlnx,axi-ethernet-1.00.a
++              - xlnx,axi-ethernet-1.01.a
++              - xlnx,axi-ethernet-2.01.a
++    then:
++      required:
++        - interrupts
++        - phy-handle
++      properties:
++        phy-mode:
++          enum:
++            - mii
++            - gmii
++            - rgmii
++            - sgmii
++            - 1000base-x
++        clocks:
++          items:
++            - description: Clock for AXI register slave interface.
++            - description: AXI4-Stream clock for TXD RXD TXC and RXS
++                           interfaces.
++            - description: Ethernet reference clock, used by signal delay
++                           primitives and transceivers.
++            - description: MGT reference clock (used by optional internal
++                           PCS/PMA PHY)
++        clock-names:
++          items:
++            - const: s_axi_lite_clk
++            - const: axis_clk
++            - const: ref_clk
++            - const: mgt_clk
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: xlnx,xxv-ethernet-1.0
++    then:
++      required:
++        - dmas
++        - dma-names
++        - phy-mode
++        - clocks
++        - clock-names
++      properties:
++        phy-mode:
++          enum:
++            - 10gbase-r
++            - 25gbase-r
++        interrupts: false
++        phy-handle: false
++        pcs-handle: false
++        axistream-connected: false
++        xlnx,phy-type: false
++        xlnx,txcsum: false
++        xlnx,rxcsum: false
++        xlnx,switch-x-sgmii: false
++        mdio: false
++        clocks:
++          maxItems: 3
++          items:
++            - description: RX AXI4-Stream clock (rx_core_clk).
++            - description: GT DRP clock (dclk).
++            - description: AXI4-Lite register clock (s_axi_aclk).
++        clock-names:
++          maxItems: 3
++          items:
++            - const: rx_core_clk
++            - const: dclk
++            - const: s_axi_aclk
++
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -198,3 +276,15 @@ examples:
+             };
+         };
+     };
++
++  - |
++    ethernet@80000000 {
++        compatible = "xlnx,xxv-ethernet-1.0";
++        reg = <0x80000000 0x10000>;
++        clock-names = "rx_core_clk", "dclk", "s_axi_aclk";
++        clocks = <&rx_clk>, <&drp_clk>, <&axi_clk>;
++        dma-names = "tx_chan0", "rx_chan0";
++        dmas = <&axi_dma 0>, <&axi_dma 1>;
++        phy-mode = "25gbase-r";
++        xlnx,rxmem = <0x8000>;
++    };
+-- 
+2.25.1
+
 
