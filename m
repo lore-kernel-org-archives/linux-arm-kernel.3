@@ -4,107 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB10C531CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8382C531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 10:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFqonK3BjYNpZGqcCAw+wY74K13WEhgmD2D1si4hUes=; b=BA2C3uui5nAJ6NCWSP9g1HBCxh
-	YIu+GnH7iTLEcmip9/stet+lOOcSu7NF67Kxlxc5ZEHMgKxspCy4EA4H5YoZPB4ZhO8Ro9bVY3DQz
-	0HED8cRCSHG1x1LP51wX6tgedDa4DnTjjN6x1M0Ghx3UYjQHZ3GxfLAGiNY2tpJK1OLC1my6VAGtR
-	Uho2hLiGQIS5BUNEylUr4eMC18FWzq8ef2Q9WTvsjvQ4Aq90xfsDFuyChlnKR/KEaDCq1QcJ/rzV0
-	XUyXsbu9dCXaUGq4kj88QmgOv+cqYvUvtIOtUtcY5B34a6lU5IWRGr8vKGnwKfaXYrYlbLqwbFCJ2
-	NNWgCvaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PxXnPizgi02Cqm+MLO1aE7Xxfp82Zw49XIdFWvJplA8=; b=ynOb6U8MzqCCXI+A9MgZgzo5HI
+	X56kxIyMmAVvS9iNUlgNFn8loCJry/k6pVeHSQhM/9hzpeQCcc70CYQopOuwvl1clFJEGjg01/s8Z
+	Nh0IbgMZ1JOG2ISwIahp23bLHJyQCJCjgiI+UCby6oetVXm0Rlu2K6J8f7uPWcNJmEAMhsVr9+IS8
+	Y5Cwim4/Kjd4Wmn2bYMaOQj/Fve4Ss/I4at3g4GY3iQ+MlNwp2qn3X58Cso0iyjm3yPvC2G4bFHQp
+	YAvdI2HEAQJlhFu6n62iLrVLxN57sF+O2f5v/DD6GyNknhDvJvLJ78BvL364Xx99SatTTYAxrWSWU
+	8GIE+bdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqZN-0000000E0jO-1ill;
-	Thu, 23 Jul 2026 10:22:25 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wmqaB-0000000E14y-3Rlv;
+	Thu, 23 Jul 2026 10:23:15 +0000
+Received: from mail-centralusazon11010019.outbound.protection.outlook.com ([52.101.61.19] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmqZK-0000000E0gk-011Q
+	id 1wmqa7-0000000E13y-3ILw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 10:22:23 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-69c5f6f7a40so944626a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 03:22:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1784802140; x=1785406940; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pFqonK3BjYNpZGqcCAw+wY74K13WEhgmD2D1si4hUes=;
-        b=0lovOwQMsIQ+R2QZpeYez6SkIHp0Jl+ZDKvFJVqFLt6nePg2O+BGoj2+VbbVk/sV3L
-         0YrRhG/qYb+x7mZRvLkhM/jRRbFyLBJBurvY2vJ7XbeHYclsDhYq/rlt4q+/TXTVvLD9
-         7Y373dXoEvUDbJ0nihfhn5ZFw6IZPMMsMHnRFryK26W5vaaru/hRpZpse4ldfr8KXaoN
-         WoKL7C7mwV8HlGK9fMkI6SuKV4zTlf/tSBBK1Z+DQllTtuoFP2Jrx5Ldic39REPhQ2XM
-         g7hqD4AfI7VRTcXrd314nZXFYK0AtkB4jYcPrKiBtwUvA9KVRgcnaTT30Z5N6gxFe60W
-         k1WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784802140; x=1785406940;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pFqonK3BjYNpZGqcCAw+wY74K13WEhgmD2D1si4hUes=;
-        b=TE2rT+pQ5dB3ZZ7xBiFFfECA0S28wkZT3VVkSy44/D4R4vEhqOlraeaX9ugvB469xF
-         GspG1UbprhMW2eU2+zZuje1pSDIv5XD+yk8obz26+ZWw7nemyuvrGCCPlOSfsqfmX06u
-         KpwOVudqMcudCqRrTnu7+eAo1aa1M9K2v1kVJ9NORIy6/AqlEq8pTFCASnO5InRXLiJ6
-         YX+FMdEoqFjsiIKZ5hqydopcsZdxodsltL7C4XpPrwfkIQnwQTTOCvURXLSEyNavZWTl
-         g8x8EAIGMPARkv2PRVgjiWgZZoCKEZA7wJegyNxYJ753gXWwnA9wt5dOUaBC0YQ9CeJT
-         WDGw==
-X-Forwarded-Encrypted: i=1; AHgh+Rp9sZqGvm7kOiBZ9zD5O6Wl1wnNuq/kA9zOTsqNvWM1LzW+C3UepUd2KxKNvNq6wpwHYxIAv5g3AQhBFytGbZH+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYAfHl1fdZhTcT5ragHu0dcxqOuxgcfmEfM6Z6s584echBUSvi
-	D7iMYf2Xn+gp+ptX0Pc1bkdyLgcepRlEJ/uhhXbukSapJsaOjL0Pdq+sMWGKwLgGOkY=
-X-Gm-Gg: AR+sD13lPwGrUxEG2YEWT9jQ+80qF5YRrZoIYXmlIzfNVFfR3R63e7Q2esF0KVu/2pA
-	hW658cyyX7b950O3az/wFWuOlo+JhCApg8QtPGhRcPi0mPWMW29fy2GFqqdt3FFi1tOK8p4YsNt
-	iuqIREVGJe3Rmg2jUc2r9HDskKITA7UQjTzoUpujng6JzkXVVC2tJnTHQKluBAHuDBFq9PAOdQ/
-	QjzjnTnBG/pdvfz8eB9vprQUPqOCLsuAFsRbEiUiNrmNUH8qBGwQ5Ze5p8Hw8nWlhfX3U2lAwhE
-	s0XkxfWH1Ht7omhsLFMmLzDisK10ADn+FX/yu8sZD7VXtPEPhbJJ87K82fpiv0jDcSelTeypJ3Y
-	hYH6jM2Y0HejUgurCnkTuGATFLCnbOMTwTVX9cpzNYEXZtXtQlzxt2+1klgDz863cXMgw+Ifp00
-	4G7/tJaxXCAbwa8/qUtNxlEQ==
-X-Received: by 2002:a05:6402:a51b:10b0:698:b6c8:70db with SMTP id 4fb4d7f45d1cf-69f6bc1afafmr613329a12.8.1784802140246;
-        Thu, 23 Jul 2026 03:22:20 -0700 (PDT)
-Received: from alchark-surface.localdomain ([193.32.126.214])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69f35020dcfsm1944928a12.20.2026.07.23.03.22.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 03:22:19 -0700 (PDT)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Thu, 23 Jul 2026 14:21:59 +0400
-Subject: [PATCH v2 2/2] clk: rockchip: Fractional PLL coefficient on
- RK3588/RK3576 is two's complement
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Thu, 23 Jul 2026 10:23:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J+1zrcjcuAPdwaCXv0eyrHFteqIscP+4IfTIPs+t1wfa9VhSsVhyJtsf83p+uXbiCbD9v1jozFIUysBHI9LrijaqE0hb5IJPL2JUI0ZpDPm7djPhBMmtOM3GBJ7MNz9ukX/nk9jDmlFAOXs0kgTeY4yt3xDVQ81y3K1sMlGP0psEfK/E1vXiRe3Lhck6tCFhBXdQ3ZQ+SX1nT5k5GXTfDENMsL2JPIGF5kr91T1fy/L5ZaF5qM50ZgoYjxFSFC5wzbtoTJF9V1f64SXfSfXeL6E+NswuzLNvj7QFO6PnP1KN51SqyjYL7U9XjAxMYRRP1q1AUO+9y/cg7GPH4yaH1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PxXnPizgi02Cqm+MLO1aE7Xxfp82Zw49XIdFWvJplA8=;
+ b=KE7gqgBZB9CctNWa4IoF1tflF5jz5oGdy7dggXIKktsE+wV3AlA/G0PAf4zNnXwlK3vP60FFt0fIF5yvnMHi2THWeir20qZNqlMzipY/+FoXqqDE1O9AJA4VxpO5bT2A2X3xUO5rXQqJ7pB62cnCzsTa6aafsHEu8WVajlkU5bIXc58Fmz5Bh7ZCCLkHORk9umvEf6y/AiyModCZl/2e18mUVgWUHJy4+XQClTkhovPSe2pc/MGZkdulGuZ1GpHwdUXpwB6Dkji4oPFElYcxknrL4j4avsowfkNQnvfUd7Wg3Inn2FS82Lpcvau8lWXzLTkbC/qUmZ3AChzYo4A1jw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PxXnPizgi02Cqm+MLO1aE7Xxfp82Zw49XIdFWvJplA8=;
+ b=c+qwFSusErCFzfotJxC5r1xv4yflTPTHlhT2e8CmsudnhUd/Nux9tr5tD2QnnOhNznFrfTfHW+mQhWR/bGomfOBhtZQBdhM0od/H786f9Hf4Q6BR25Zr8FFc16NMqNzE/3FyXr0PpQvgGasXcyFiz1WrCjTN5eHPU7g5gw+axIeK8BwQ6SYuyW0AGTz7dQBVX7x4UB6jFmE4HnSnbkJ0gQMeU2PT90uOnoj2WAp+pN6kGrlziEpJU8tRZv1bzduZS4fiAg4RkhScfdCyTadn7GQlra0bvSmstUSyqNhuQLRV5fkvnkaD0JBCMsMQo0M8GoNxvt0TKIhZrCyxF85w5g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
+ by DS5PPFA3734E4BA.namprd12.prod.outlook.com (2603:10b6:f:fc00::65c) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 10:23:04 +0000
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 10:23:01 +0000
+Message-ID: <e5a32fcc-ca3c-4b54-a790-d2eef2c636e5@nvidia.com>
+Date: Thu, 23 Jul 2026 11:22:54 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712
+ broken EL2 virtual timer
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ John <therealgraysky@proton.me>, Daniel Drake <dan@reactivated.net>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20260710080958.491620-1-maz@kernel.org>
+ <325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
+ <878q72rcz6.wl-maz@kernel.org>
+ <325be874-bab9-464f-84ee-99e160259923@nvidia.com>
+ <865x26do37.wl-maz@kernel.org>
+From: Jon Hunter <jonathanh@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <865x26do37.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260723-rk3588-fracpll-v2-2-3adfb9dda235@flipper.net>
-References: <20260723-rk3588-fracpll-v2-0-3adfb9dda235@flipper.net>
-In-Reply-To: <20260723-rk3588-fracpll-v2-0-3adfb9dda235@flipper.net>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Finley Xiao <finley.xiao@rock-chips.com>, 
- Elaine Zhang <zhangqing@rock-chips.com>, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>, 
- Wyon Bi <bivvy.bi@rock-chips.com>
-Cc: Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>, 
- Quentin Schulz <quentin.schulz@cherry.de>, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Alexey Charkov <alchark@flipper.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6189; i=alchark@flipper.net;
- h=from:subject:message-id; bh=SA2Nr/sgMInMeZ9zzbOPl13XCwabwddmdhZt2984r/4=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQlvvaS+rNBss8nqypqdZf5nzcZrzfM2Df9earNnaVOb
- y0upN3W7pjIwiDGxWAppsgy99sS26lGfLN2eXh8hZnDygQyRFqkgQEIWBj4chPzSo10jPRMtQ31
- DI10jHWMGLg4BWCq5fYwMnyttxAWdlv1xaR/y6qj7dkdXkcnT/IR4Wd57O4rdPd17EJGhodW739
- OU3prdSAv+qfIs1CmXTLSIeHHM1xKHpsHluWrsgMA
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+X-ClientProxiedBy: FR4P281CA0278.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e6::15) To SJ1PR12MB6051.namprd12.prod.outlook.com
+ (2603:10b6:a03:48a::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|DS5PPFA3734E4BA:EE_
+X-MS-Office365-Filtering-Correlation-Id: 177bc8a2-0049-4df8-70b4-08dee8a45f4d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|11063799006|5023799004|4143699003|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: YNusQZB9pQp0P4IR05xxnrVmMQVJONobliNBt4XLLnv1jlKS9pTdJCQiDmFkiAFAho3oHevmmT965/trTaZXWj3UGrknolMOeWCBpu/RDXWbCbUM7VblwGf6+E/hnXQJnbBvPCQY2dm6eUgk/S5w27Cl0B05Zbz1o8Ik3cQ9eNQ+N5eIdgkirRLOG/KMDBL+F6o/RVxXgH/HpXQiNaxpWBuJQcM31EXhYh6sg5KwTnaAUZMsssfwPW+NEzUrjmgz1B/ry7Y5n2hiq2ghB4s1Sd0Ri3jrbDMsI0ZnlhMaEqgbnEol4e65y9TrNxjfrhKkUMFFpnuzWrKg4Je+5QwrPTe2eSA/loK9Zb/aShVCdkieU9r3LzukAi/PN6OvhYeDkwD5i3txlLz+2I7DIgo/VjSvCj3qg7A/X6N33m6GTUb2RxRVM0W4gCOwb3e/uopKYdb1TB4i2W3DrdTFhvv58iTfl2dW22EVjECrtxyHoWEy5ffyWN0geMKlFRat8gU/uO3KOq6eIeD7Z7IBUKyywjEI60YbEXFvCr33H9zHgyrzLSfgA+7K+xhn7z5H77vf+V3GQsc6eVQhMM6z7X7fu4SwJ0QYPGXJAnrzKymHE7JtoH9aKxodJN0kr7f0ljT2VQ4GdNnLUtncQFK//ZfLKDVyYVq6RtGysmLqRwmWjXk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(11063799006)(5023799004)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T0d5Qk51VW9xeW1pd1FQZ0pieTZ6NkNwamtoNXluSUlBdWhrMDVzNkk5bjI3?=
+ =?utf-8?B?c1k5blJqOFNhWEJMTkZPWjU1MlZ1VU11cDV3SzR3NEhJQW9hMjlHMG1kUjI2?=
+ =?utf-8?B?cVZqdUR3MU9aZVRnbHNZckFwQmJjSnIxNUg2bzlRTlBlRnVuVDFrNVdqc1dj?=
+ =?utf-8?B?cWJTT2RrM3BSTkdCV3B4ZXZoUEN5NElPZGZxWUY3OXYxQ0QxaEM0ZlpnMG9G?=
+ =?utf-8?B?ZEpZUEJSdU9IS1FNdlRHUjdYSHBYNzVIaWkvaDBXUm5vUjZHZGtja2laVWlB?=
+ =?utf-8?B?QUZ3VURmSVdlNW12ckxhWTIvTEpLUklJU0RkZHhwQTQ3VG11YVY4WnZkWE1j?=
+ =?utf-8?B?aXJybHk4STZUNWVVVy84NjI2WFZvNXBNdDBUaVFpY29pNmFvZ1UxaVpZOGho?=
+ =?utf-8?B?bjU4ZXFMZXkxSDlKM2ZpVEpBcXN6SmwwbGdZMlIyUGVVWW84YXNWcy9aSm1i?=
+ =?utf-8?B?ekxqRUhsbXZabFoyUVlVMHdXYmZ0ZUVOelJhaG5TR1BoZi8zN1JLWVJLZTg2?=
+ =?utf-8?B?cWpHSGsxOWk5NjQvZ3IraXJVcEhzclRuazNKNTNBUytlQTFZTmcwOEdkeE9U?=
+ =?utf-8?B?TlBVOFRuMS9MUXJ4LzdVMlh2dVIva1lRS3FIWlQ1SW9DWEFuczYvSWZSYUFO?=
+ =?utf-8?B?OHUrOE1JT1k4OWlNR0VkT0diM1ZVWVRabi9XdmxJc0lkZnlNNCtvc2xydnRL?=
+ =?utf-8?B?N056SmlJOEs2eTdpNE1kSnU2cWZTcVJSMnpRSVZsbGxxMG43dGZMUUIzOUxJ?=
+ =?utf-8?B?L2NrbWdlMldrcTFyb211Zjc0eXdoUUwxV3poK0Raa21NZ0pmNEpqNHJicW04?=
+ =?utf-8?B?eEZHTTN0ZVFVbW9Ed3UwNGdINi9hTFdSUFMrS0hqZ29qMjRvZzYraS9VYk1z?=
+ =?utf-8?B?T1hCakpzNEFjOWxETUg3NnBXbUJTaFVjeTdMMmpNL0FkR3BXamFubjJXcGRp?=
+ =?utf-8?B?U1JVRFJucXNRK3loUmJGRDJ6ZmNiZmg2SDh1RlV0U2luSDh2WHhhVUFkZ0V3?=
+ =?utf-8?B?OEFXekRaQm1MQUxBVi82bHZEWGxLRkVNWEwvMEhBMGZ0SDJlVzJadldZK1p3?=
+ =?utf-8?B?MG5WRmkzeEdTdVY2RlhrNnl2VVJnaThuTzdNbGFBcHNuNVZ0dGdSK2I4TE9t?=
+ =?utf-8?B?RmFYTUw1NmlyMkVUQ0JGd1pYbkZzaW9sZEJ2dTl5c2RDL0RTVk10SVFwUVI3?=
+ =?utf-8?B?SXIwV0hIUHhsMGlLb2RqY0Z3WFFHdWowUm5wWEVGUUxkWDQ3Uk1GSXQxNWkr?=
+ =?utf-8?B?T0d1WTBEbURXVVFkeGo0VENBbWhyTW1ZOG1XWTBIOXRaTlM2eUpIbDVzSy9B?=
+ =?utf-8?B?RUFHN01XY0xyMlVKc1NXZE9hZWJwZ1R6L3pJNjBwMUw5SXo3VkgzclV4ZlBt?=
+ =?utf-8?B?QVJsSnNSbGt1TFFsRXVpT1NPR2NseEFibVhWcFRqaTA2WXRLMXREdlFjamRW?=
+ =?utf-8?B?elhVYnlaa3AvSnJaK295NnBZRnVwd1JhNmp4bE42aVNmMnFxTkFBdmlyRFN5?=
+ =?utf-8?B?WldhK3RmcElQeklWZFZMK2oya0VHQk5mVWpkTG9TNDdCT3ZKRHhHMHRKZk9j?=
+ =?utf-8?B?WHFDWmJ5M0NieGNpZWNyaDNnL1JMcG5tRStsWVdkeUdTQlpQZ1c2U2xMR3o3?=
+ =?utf-8?B?c2tIalM1T003UkV0aEhjRlpLTjNjL3ZERW5DdTJkY2Q4Z1RCam9yblNaNUNT?=
+ =?utf-8?B?NWlGZHI5R0VWMWxJWTBLT21BT1BOQ01jZ21yU2N1N1ZUdkxHeVhLeGJaUkR6?=
+ =?utf-8?B?aU5hQ0Q5NnFobXB1bEVJYUpINGlrcWExaFpiNjJmU0tHM21pYlRTVE1QSlFK?=
+ =?utf-8?B?RzAzNWE0ZGR5OC9HVjNiQ1FFT3lOUEFyM2Vsanpmd2lYYm5mWW9LcmRiU1JE?=
+ =?utf-8?B?Ti9FWnV4aVg0eVNMQlJNRmdBQmQ0TmszdWxURU85b2I1cUdGK0tnZVdpV1Bw?=
+ =?utf-8?B?L3Exb2JOTTFVaU1lLy92YWhIZ25JbFoxclVuR1VQMVhkUzBBTlF2OUlrcEI2?=
+ =?utf-8?B?MjVlQjBXV0JSN0tRcWtMRlJtc3pkb28wTFJ4QWxEUW80M2V5T29JSWJTdFB1?=
+ =?utf-8?B?aTFCRlpyQ2hzbW10OEJXR2RNRjY1SWRhWUI2VlJuNTRpblhVQ2l4UzUvSkI0?=
+ =?utf-8?B?MzRFMStNYmxUL3lVZUNEcHJhN2hBRUJ5cUdkb2d4Ynh5U29pTzNmTHlVYk1w?=
+ =?utf-8?B?UlZ3K2Q3SEs5NUpUVU9BOWd1YUQ3ZmZ5VDNmS3pRRGJFdUxhbkVid2wrWjVM?=
+ =?utf-8?B?OEFGSm5CbVRPQ3ptVnNvZFFPTFdqN1o0QlJ3M1lSTlVJU1NTdklhQmFuQ09V?=
+ =?utf-8?B?TklvMFEwNUp5TmpJRXQwcGFmTU1SdHBBMkUzS3RuTkhtbTRNeDh1Zz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 177bc8a2-0049-4df8-70b4-08dee8a45f4d
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 10:23:00.8974
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: d2nlU9XaWhGDUeI5J9Qqka6vfNe++Q6ZzRzeIGU4JerZlUxbshxo49Lq2eI52pOgI+TQNpRhhRqm+O6LFeGXnA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFA3734E4BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_032222_098216_A9D1F2EF 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260723_032311_871176_7AEC7D11 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,147 +156,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the PLL rates table was first committed for RK3588 (and later reused
-for RK3576), the fractional PLL coefficient was defined as an unsigned
-value, while the TRM clearly states that it is a two's complement 16-bit
-value.
 
-Treating the fractional PLL coefficient as unsigned in rate recalculation
-results in a kernel-visible rate which deviates from what the hardware
-actually generates by Fin / (p * 2^s), or 2 MHz for the two affected table
-entries.
+On 23/07/2026 10:58, Marc Zyngier wrote:
 
-Rockchip's downstream kernel later revised the fractional PLL code [1] to
-account for the two's complement nature of the coefficient, but that
-change wasn't upstreamed.
+...
 
-Change the PLL table definition to use two's complement for the
-fractional coefficient and update its users accordingly.
+>>>> I have posted something similar for Tegra [0], but because this is not
+>>>> expected to work, I wanted to avoid the warnings here. We test for
+>>>
+>>> "not expected to work"? In which parallel universe is that a thing?
+>>
+>> FWIU, at least for Tegra194, we have a CPU and GIC pairing where the
+>> CPU supports this but the GIC does not.
+> 
+> Oh please, you know better than this.
+ >
+> It isn't the GIC that defines the number of supported PPIs, it is the
+> *integrator*. I.e. you. The GIC (GIC400 in this example) has full
+> support for 16 PPIs per CPU.
 
-Note that a negative fractional coefficient is meant to be subtracted from
-the next larger integer multiplier, so the m values in the table are
-also adjusted accordingly for the two negative-k entries.
+Hmmm, I am looking at this spec [0] and it says ...
 
-Rockchip's downstream commit introducing the two's complement logic for k
-also does unrelated tweaks to the PLL parameters which are not explained
-by the switch to the two's complement, so they are not replicated here.
-If any of the parameters prove to need further tweaks (e.g. for precision
-or jitter) that would better be done in targeted follow-up commits.
+"The GIC-400 implements the interrupt types:
+   16 Software Generated Interrupts (SGIs).
+   6 external Private Peripheral Interrupts (PPIs) for each processor.
+   1 internal PPI for each processor."
 
-Fractional PLL rates don't seem to be used by any current mainline
-consumers, so this is purely a correctness fix. It will also be important
-to properly support DisplayPort output going forward, as the video output
-controller derives its pixel clock from system PLLs with no dedicated PHY
-PLL option for DP unlike HDMI, and some display modes are only achievable
-using fractional PLL rates.
+The table in [1] shows interrupts for non-sec, sec, virt and hypervisor 
+timers, but I don't see a hyp-virt.
 
-Link: https://github.com/flipperdevices/rockchip-linux/commit/7a72bc05dcc3a51e85ae531749e6270bf9b9212d [1]
-Fixes: f1c506d152ff ("clk: rockchip: add clock controller for the RK3588")
-Fixes: cc40f5baa91b ("clk: rockchip: Add clock controller for the RK3576")
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
----
- drivers/clk/rockchip/clk-pll.c    | 7 ++++---
- drivers/clk/rockchip/clk-rk3576.c | 4 ++--
- drivers/clk/rockchip/clk-rk3588.c | 4 ++--
- drivers/clk/rockchip/clk.h        | 8 ++++----
- 4 files changed, 12 insertions(+), 11 deletions(-)
+> I have a collection of VHE-capable machines with GIC400 that correctly
+> implement the EL2 virtual timer PPI (if even Amlogic and AllWinner can
+> get this right, really *anybody* can). My conclusion is that someone
+> couldn't be bothered to drag a wire from one end to the other.
 
-diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
-index bf8acf7cee0d..706ca4b344d3 100644
---- a/drivers/clk/rockchip/clk-pll.c
-+++ b/drivers/clk/rockchip/clk-pll.c
-@@ -13,6 +13,7 @@
- #include <linux/delay.h>
- #include <linux/clk-provider.h>
- #include <linux/iopoll.h>
-+#include <linux/math64.h>
- #include <linux/regmap.h>
- #include <linux/clk.h>
- #include "clk.h"
-@@ -906,6 +907,7 @@ static void rockchip_rk3588_pll_get_params(struct rockchip_clk_pll *pll,
-  * For Fvco < 3 GHz: period jitter +-2% frac PLL, +-1.50% int PLL
-  * Fvco = ((m + k / 65536) * Fin) / p
-  * Fout = ((m + k / 65536) * Fin) / (p * 2^s)
-+ * -32768 <= k <= 32767 (only available in frac PLLs, not int PLLs)
-  */
- static unsigned long rockchip_rk3588_pll_recalc_rate(struct clk_hw *hw, unsigned long prate)
- {
-@@ -920,11 +922,10 @@ static unsigned long rockchip_rk3588_pll_recalc_rate(struct clk_hw *hw, unsigned
- 
- 	if (cur.k) {
- 		/* fractional mode */
--		u64 frac_rate64 = prate * cur.k;
-+		s64 frac_rate64 = (s64)prate * cur.k;
- 
- 		postdiv = cur.p * 65536;
--		do_div(frac_rate64, postdiv);
--		rate64 += frac_rate64;
-+		rate64 += div_s64(frac_rate64, postdiv);
- 	}
- 	rate64 = rate64 >> cur.s;
- 
-diff --git a/drivers/clk/rockchip/clk-rk3576.c b/drivers/clk/rockchip/clk-rk3576.c
-index 2557358e0b9d..63f229e73a45 100644
---- a/drivers/clk/rockchip/clk-rk3576.c
-+++ b/drivers/clk/rockchip/clk-rk3576.c
-@@ -79,13 +79,13 @@ static struct rockchip_pll_rate_table rk3576_pll_rates[] = {
- 	RK3588_PLL_RATE(1008000000, 2, 336, 2, 0),
- 	RK3588_PLL_RATE(1000000000, 3, 500, 2, 0),
- 	RK3588_PLL_RATE(983040000, 4, 655, 2, 23592),
--	RK3588_PLL_RATE(955520000, 3, 477, 2, 49806),
-+	RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
- 	RK3588_PLL_RATE(903168000, 6, 903, 2, 11009),
- 	RK3588_PLL_RATE(900000000, 2, 300, 2, 0),
- 	RK3588_PLL_RATE(816000000, 2, 272, 2, 0),
- 	RK3588_PLL_RATE(786432000, 2, 262, 2, 9437),
- 	RK3588_PLL_RATE(786000000, 1, 131, 2, 0),
--	RK3588_PLL_RATE(785560000, 3, 392, 2, 51117),
-+	RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
- 	RK3588_PLL_RATE(722534400, 8, 963, 2, 24850),
- 	RK3588_PLL_RATE(600000000, 2, 200, 2, 0),
- 	RK3588_PLL_RATE(594000000, 2, 198, 2, 0),
-diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
-index 75d42fea2a11..24baa0ef9bf3 100644
---- a/drivers/clk/rockchip/clk-rk3588.c
-+++ b/drivers/clk/rockchip/clk-rk3588.c
-@@ -79,14 +79,14 @@ static struct rockchip_pll_rate_table rk3588_pll_rates[] = {
- 	RK3588_PLL_RATE(1008000000, 2, 336, 2, 0),
- 	RK3588_PLL_RATE(1000000000, 3, 500, 2, 0),
- 	RK3588_PLL_RATE(983040000, 4, 655, 2, 23592),
--	RK3588_PLL_RATE(955520000, 3, 477, 2, 49806),
-+	RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
- 	RK3588_PLL_RATE(903168000, 6, 903, 2, 11009),
- 	RK3588_PLL_RATE(900000000, 2, 300, 2, 0),
- 	RK3588_PLL_RATE(850000000, 3, 425, 2, 0),
- 	RK3588_PLL_RATE(816000000, 2, 272, 2, 0),
- 	RK3588_PLL_RATE(786432000, 2, 262, 2, 9437),
- 	RK3588_PLL_RATE(786000000, 1, 131, 2, 0),
--	RK3588_PLL_RATE(785560000, 3, 392, 2, 51117),
-+	RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
- 	RK3588_PLL_RATE(722534400, 8, 963, 2, 24850),
- 	RK3588_PLL_RATE(600000000, 2, 200, 2, 0),
- 	RK3588_PLL_RATE(594000000, 2, 198, 2, 0),
-diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
-index 9e3503e2ffc2..72b36bba3152 100644
---- a/drivers/clk/rockchip/clk.h
-+++ b/drivers/clk/rockchip/clk.h
-@@ -635,10 +635,10 @@ struct rockchip_pll_rate_table {
- 		};
- 		struct {
- 			/* for RK3588 */
--			unsigned int m;
--			unsigned int p;
--			unsigned int s;
--			unsigned int k;
-+			unsigned int m;	/* main divider, 10 bit unsigned */
-+			unsigned int p;	/* pre-divider, 6 bit unsigned */
-+			unsigned int s;	/* scaler, 3 bit unsigned */
-+			s16 k;		/* fractional part, 16 bit two's complement */
- 		};
- 	};
- };
+OK, so most likely I am still missing something here.
+
+[0] 
+https://developer.arm.com/documentation/ddi0471/b/introduction/about-the-gic-400?lang=en
+[1] 
+https://developer.arm.com/documentation/ddi0471/b/functional-description/interrupt-inputs-to-the-gic-400/ppis?lang=en
 
 -- 
-2.54.0
+nvpublic
 
 
