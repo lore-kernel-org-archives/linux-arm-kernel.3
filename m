@@ -4,99 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5ECEC531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 21:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE23BC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 21:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVBWHG8ESuMad3qr42QTUda7Z4q11ujZE8cB+I2e/yU=; b=AewxX9k044GFnaeidwUdOCdeKW
-	mUUveRCFEOQpbOOm+3hZRngGJ+edFH5wBMmOrbHQ5wMFsV8YLme11fssDGrnUUJyuHg19jOD+glN8
-	i76HsAngQKdUI9+etEjWSBwMYwFf41XcIRZRObqFQmjAkPyG4dUl0oOU+wt8Rh3oJdh8qDWixLAnA
-	etBLfzCIgQGANkTuNdoYwfeTsKD+BBML+PLvm8Qr9cLmbIvMuJ3CjFYnGpWMWHFfZI7ay16EGw8w5
-	1VC4z3OBX9DGjc8uUtfEGmIpfrs08J3Md2cU/hRX48BwtgG+K6ylV+eIqJ3XWNjzx1HoyUj9q2nBK
-	3A+MiH6w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JVPLvZOYHVZcrRGfAsoGIh0GIVpV0XX6qb/79D6UHqg=; b=NKda8/tMl+JS7C1CKn5wPrFLQj
+	5QsFlZKYSYU0fNxMVHuLSyOcAU0PGdAXmyIbF5VhMMYr1JPhwlvhekbtw5Kqk9d3bW07kpitOadg+
+	kbZYzEblxb67Q0jtp3qZLhw0MTIrE0XRXSBHFhkT47KDgLmvCm7Y9qfG7KXJCvqogdGOl/7ORnwFf
+	q54usdyR05uy8RLFS3YIAKZPAaIq6yYLmY8607mQ0wmbnhK/jaaj1nnVY0EKbYGLbaX3KLCXUuvZo
+	8NIhu6bvKtiynMIdOFmD8hmTDtDd0fthOwN0441gIdlfVOSUgNnHeC8f4bQ5Fj1LiSEvp7Lst5zmG
+	2+r3/q2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn1Go-0000000F8am-2rHN;
-	Thu, 23 Jul 2026 21:47:58 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wn1HL-0000000F8eA-3TDg;
+	Thu, 23 Jul 2026 21:48:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn1Gl-0000000F8a2-1cA7
+	id 1wn1HK-0000000F8ds-2msN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 21:47:56 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49553515a8bso11729375e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 14:47:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784843273; x=1785448073; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MVBWHG8ESuMad3qr42QTUda7Z4q11ujZE8cB+I2e/yU=;
-        b=cczeuaxLIvX2jHwYd7yF4TB/rER9kjOQfHOnNZ4WzNIERITJ6P3DBisxzrD4OIWCOn
-         NFd+3MuikcSDxzMT7fbyzJ0EWGZnAwkTSLzxxP7J4vxaSoMqTAyJYC4zF44KMnSZl1rE
-         N4UscSf4y+qTUPBgZnb15qBUHoMQgu8uWDdIKG1gJV+Wd+fpAmXNz0enfNwkjwXzHaQt
-         E8tMYlXKvNcKR61GQRBRG7FR/lBVucedRhxP2yZ2O+pSIxOYAiSfVi/haMsNEu2U65vI
-         GFYyZIQv+h7KVIx1QjXC3NwawcYHyh2u/e/Zos0Fk3O6cSAjhP9ytNHmBBptVOOPQmbb
-         AABA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784843273; x=1785448073;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MVBWHG8ESuMad3qr42QTUda7Z4q11ujZE8cB+I2e/yU=;
-        b=aERPc8JRxHH/yU8K+ORy8+NigyWfCcHUGu03eeVu8LME8MPq8uhnKWmPqanf8tEeoh
-         oKCBEQFAVinRC7Pq3CrQhPTdIFem+f6Z3CCMjbN6Lrcwkd89oielqEz7mbTYf+Ru85U6
-         s8+ayLaIEk8DnatQHVZO6glwWff5EjMeaNr/sfbtf41RmDBgRKzi61qfKytUVOMmvV5R
-         1lKHpR0V5rdU4n74RHBApay5gnVYAgFWPzNQnf8cK50w9rtD7VIEen3+mJwUiDMxEV2p
-         VNzBWauUaH4KqEnZOh9xtk+oROhwiSKWBEVssYqN/UARD/8zmZsGchT/JXXs9qXroCaD
-         Owzw==
-X-Forwarded-Encrypted: i=1; AHgh+RoqpihsJ0vM9F3zj65KzHeIhXluSCeckSrhUQfLGkYlFf0S0mGNAVBG0TIuCCc26SE9oJjd9OCqYNviQRlvkt9m@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzci2sWLl3W2zUYFNk3TUV+CkjXwlkkqenpJX4IAl1TxYPRp+ev
-	3DKZdvAq1cvjEBBQIvpxvzPxrnZOJ6E5muM6qh3BuoWPCXBApqanpgHH
-X-Gm-Gg: AR+sD10mPo6osb2BjKaiwnufMq88auTh/AFAogJ+7RS4iDckEu4MthvJIasqnKPe6DJ
-	tXJrxP0gxbQyIhnNLe3njCK8hBzrmFCUkcTgC5MpZHVNtSF53scbenU+Vfu1SPMwnCV9FhyXYvb
-	JaSAPjcJrjCrSeP4vhRYznOrCSyU8mfwlYfd8fEn3xTe2OZGjMEKehMOkHyUYvou8jb4Ka4O1p7
-	MY4CQOG8etEmhGt/J3imYlqZuO1Y7hhu9CN0A3UIx0WXuFGSnBYI1CXWiPJq6gI5V+vahcNfgSv
-	+Rur4636hQZXRV+gAI90V65fz8FaAgJWGRtYSAHLaoRrTXeYmdMPwNPTICkeKms3kUTMzOxbsvY
-	WbunIaeE8FwOPrzkK+bwHumvXZqsIqZ3lduxXj1YqLPTBxFpZu/DMfkcOR8u4CO7g0e9w2Cms0d
-	PT4mJi6LcU+Qx5l/8A9AJBP7r7E/ID6ljtQFPK9Yug9kq0ZvRMvcLHmQM7WnPpUqFItGeBRJcH3
-	+TMkCYJ5lpghR7mKjlx294mm47+JC/7goDDWTkJXC6nndvDTS0FqLUCDTPbMvTHs4ccFCE8bdil
-	0IegI6UoVhrSdWyFLSlC5NtH29xrf0KflLs0kBtmojGeRa8rUF91kTyzKtC0BRsg33TNJVZYgy8
-	uzn4OFvKB2/Y=
-X-Received: by 2002:a7b:cd14:0:b0:493:bb0:3b43 with SMTP id 5b1f17b1804b1-49573cbfb7fmr37428135e9.2.1784843273372;
-        Thu, 23 Jul 2026 14:47:53 -0700 (PDT)
-Received: from systembl0wer (ip-86-49-244-181.bb.vodafone.cz. [86.49.244.181])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957bd9bbc4sm13559335e9.3.2026.07.23.14.47.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 14:47:53 -0700 (PDT)
-Date: Thu, 23 Jul 2026 23:47:51 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter
- Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: iio: proximity: add Sharp GP2AP070S
- proximity sensor
-Message-ID: <20260723234751.5ff138bd@systembl0wer>
-In-Reply-To: <20260723-gp2ap070s-v1-1-b8ca3a4c10dd@disroot.org>
-References: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
-	<20260723-gp2ap070s-v1-1-b8ca3a4c10dd@disroot.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Thu, 23 Jul 2026 21:48:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D88BD600AD;
+	Thu, 23 Jul 2026 21:48:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A3D61F000E9;
+	Thu, 23 Jul 2026 21:48:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784843309;
+	bh=JVPLvZOYHVZcrRGfAsoGIh0GIVpV0XX6qb/79D6UHqg=;
+	h=From:To:Cc:Subject:Date;
+	b=LWEnadoFJbVjQ2Q7i3foCr3AKGtIOzR+0x9MZwMDq/V3VPAhmiHuUCsbOYw6j3reT
+	 aZ19GkXYemnxQaBzDiqgNtBZDCiXnz2CwbGxmxiG5EQNBCZYeUbLiUZfymwLF9D9mW
+	 lSMa9fH027NT5Te5kORSE2uLIux2AXWsPAFz6nAG946FutjMwwiQs+yT3Sw0xvyEqQ
+	 Qe/b1dpEMhD0mPICiPe2WSIG7tC4XOiKY4uChXdhQDI70WTyqFq4yhisUn1lUTpJux
+	 kErhqF4PAbIX1KzPKTHBfbQOGArKI92XufBqge0e7c/jvfhm3HRP09EV+OKMbAv92q
+	 Cqjbz47OEvMdA==
+From: Vladimir Zapolskiy <vz@kernel.org>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] ARM: lpc32xx: remove a few manually populated OF devices
+Date: Fri, 24 Jul 2026 00:48:09 +0300
+Message-ID: <20260723214809.294654-1-vz@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_144755_449949_CB5DE254 
-X-CRM114-Status: GOOD (  14.10  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,41 +67,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 22:58:33 +0530
-Kaustabh Chakraborty <kauschluss@disroot.org> wrote:
+For a good while the common for all NXP LPC32xx platforms lpc32xx.dtsi
+file contains proper descriptions of DMA, SLC and MLC NAND controllers,
+this allows to remove populated device tree nodes from platform code.
 
-> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
-> Corporation. Unlike the other GP2AP* schemas, this is strictly a
-> proximity sensor and NOT an ambient light sensor.
-> 
-> For power supplies, it expects two voltage supplies, one for core and
-> other for driving the infrared LED which is used to measure proximity
-> distance.
-> 
-> This chip has been used in production mobile devices such as the Samsung
-> Galaxy J6.
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
+At the end of the last year it was announced that this change to happen,
+unlikely there are still users with such old dtbs to be affected by this
+change, but if there are such users, they should update board dtb file,
+if DMA or NAND controller decriptions are not found in them.
 
-...
+Signed-off-by: Vladimir Zapolskiy <vz@kernel.org>
+---
+ arch/arm/mach-lpc32xx/phy3250.c | 60 ---------------------------------
+ 1 file changed, 60 deletions(-)
 
-> +  vdd-supply:
-> +    description: Voltage supply for the internal circuitry
-> +
-> +  vled-supply:
-> +    description: Voltage supply for the IR LED
-> +
-> +  proximity-near-level: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-
-vdd-supply and vled-supply are definitely required.
-
+diff --git a/arch/arm/mach-lpc32xx/phy3250.c b/arch/arm/mach-lpc32xx/phy3250.c
+index ddc6333ca55d..fffce1fb8717 100644
+--- a/arch/arm/mach-lpc32xx/phy3250.c
++++ b/arch/arm/mach-lpc32xx/phy3250.c
+@@ -8,74 +8,14 @@
+  * Copyright (C) 2010 NXP Semiconductors
+  */
+ 
+-#include <linux/amba/pl08x.h>
+-#include <linux/mtd/lpc32xx_mlc.h>
+-#include <linux/mtd/lpc32xx_slc.h>
+-#include <linux/of_platform.h>
+-
+ #include <asm/mach/arch.h>
+ #include "common.h"
+ 
+-static struct pl08x_channel_data pl08x_slave_channels[] = {
+-	{
+-		.bus_id = "nand-slc",
+-		.min_signal = 1, /* SLC NAND Flash */
+-		.max_signal = 1,
+-		.periph_buses = PL08X_AHB1,
+-	},
+-	{
+-		.bus_id = "nand-mlc",
+-		.min_signal = 12, /* MLC NAND Flash */
+-		.max_signal = 12,
+-		.periph_buses = PL08X_AHB1,
+-	},
+-};
+-
+-static int pl08x_get_signal(const struct pl08x_channel_data *cd)
+-{
+-	return cd->min_signal;
+-}
+-
+-static void pl08x_put_signal(const struct pl08x_channel_data *cd, int ch)
+-{
+-}
+-
+-static struct pl08x_platform_data pl08x_pd = {
+-	/* Some reasonable memcpy defaults */
+-	.memcpy_burst_size = PL08X_BURST_SZ_256,
+-	.memcpy_bus_width = PL08X_BUS_WIDTH_32_BITS,
+-	.slave_channels = &pl08x_slave_channels[0],
+-	.num_slave_channels = ARRAY_SIZE(pl08x_slave_channels),
+-	.get_xfer_signal = pl08x_get_signal,
+-	.put_xfer_signal = pl08x_put_signal,
+-	.lli_buses = PL08X_AHB1,
+-	.mem_buses = PL08X_AHB1,
+-};
+-
+-static struct lpc32xx_slc_platform_data lpc32xx_slc_data = {
+-	.dma_filter = pl08x_filter_id,
+-};
+-
+-static struct lpc32xx_mlc_platform_data lpc32xx_mlc_data = {
+-	.dma_filter = pl08x_filter_id,
+-};
+-
+-static const struct of_dev_auxdata lpc32xx_auxdata_lookup[] __initconst = {
+-	OF_DEV_AUXDATA("arm,pl080", 0x31000000, "pl08xdmac", &pl08x_pd),
+-	OF_DEV_AUXDATA("nxp,lpc3220-slc", 0x20020000, "20020000.flash",
+-		       &lpc32xx_slc_data),
+-	OF_DEV_AUXDATA("nxp,lpc3220-mlc", 0x200a8000, "200a8000.flash",
+-		       &lpc32xx_mlc_data),
+-	{ }
+-};
+-
+ static void __init lpc3250_machine_init(void)
+ {
+ 	lpc32xx_check_uid();
+ 	lpc32xx_pm_init();
+ 	lpc32xx_serial_init();
+-
+-	of_platform_default_populate(NULL, lpc32xx_auxdata_lookup, NULL);
+ }
+ 
+ static const char *const lpc32xx_dt_compat[] __initconst = {
 -- 
-Kind regards,
-Joshua Crofts
+2.51.0
+
 
