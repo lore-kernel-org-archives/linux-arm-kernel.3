@@ -4,71 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F8DC531CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126FDC531D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 12:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cF6Kerioyn7MXtxYd1Ov/DR+CcXp3mUtdJwYQP0QVv4=; b=g7RXcRgxDcyorSkWDWnt2eOQCE
-	17FO9QW1F+YFIqwfnchAaQZ2cMJ2/HoffdaV0z0Q4FLo5IwLfR1y7ETVMSn0pxGMapkZtR4wOUtz5
-	LjBnwX8VBsMnHCJ9ERVEOF+UQ+zbME5Gz0ElxzZ7azE7/r7SBwlNWH4KfjlNcYvhXqCprobsrxj0Z
-	Jr9FgEhAGpur/Vv6i4nTUCuEo1QXtGmT/1/R+8h/HMFshJJO3+qqLE0Se3i0f3X2RZzlKcZsJw6rM
-	2zXra78RHs7WsYihaMOKo7GQDF5LH4HzK1wrxEOojMkFnPjw12AuvHABcakE8nkcmnJN25y4sT7Pa
-	X3c9lj6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7gOoykdbdRrwLrHuBLW6t2Zckyk2+8rm2rIEbLTVsf8=; b=OKYbkmunvVF1y9M/VqCcL38qyX
+	rzPmF8hJf8Z3lFlC7Q+ByFc7wfo5uuXHaDuPTJkP39E7TkHgyuxTLDjsZ+tQkSn1LseF1u4F/vQDk
+	YzfkuMhxULVLOPHKwMYRTdSvfE7uvvq/3vinLeIH8GTw9utcy6Cy5yXdCXQsxL5riIm7P+EUHEmke
+	JoL8w+y0WsEtiwz80NoakxKBCadtLGxOSPXGDYzk9sdKJf/Hld6mof2TNTNvbvha6F/yyg+p8zzfc
+	21/pbbVEBZm7FIgCX9ztoZkzrW9ohj1x96vPQHwmPIKpswJBubmBGHZvReOwZGXwG6FDpBkuxKNAi
+	QDE+FjzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsb9-0000000EFA4-3G0X;
-	Thu, 23 Jul 2026 12:32:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmsb7-0000000EF9g-3FOi
+	id 1wmshd-0000000EFZA-2XeB;
+	Thu, 23 Jul 2026 12:39:05 +0000
+Received: from mail-southcentralusazon11013053.outbound.protection.outlook.com ([40.93.196.53] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmsha-0000000EFYg-2Haj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 12:32:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 752451477;
-	Thu, 23 Jul 2026 05:32:16 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA5063F59E;
-	Thu, 23 Jul 2026 05:32:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784809940; bh=pGFCcgmtP66RoZMszPwjCpkcv+BiFgQPgqBlPICwB1s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G9WCeu+Pacpjw6aajzuQpslJvP5yu5tu+wShgkZR07J19Y0Ovr69JYVRvye8sGgu+
-	 VuvNkLyqcWt7ozAQefvkdPOv/C8vWL0X/NSsXj0yKBUNi9LGJX7ia/rzukvo9Zz4Hv
-	 +4TeJKvlyYzWH387wjuKHj5EQAEj14atc147Evvs=
-Message-ID: <5417593d-9ef2-4ef0-8f18-6b92d1494751@arm.com>
-Date: Thu, 23 Jul 2026 14:32:19 +0200
+	Thu, 23 Jul 2026 12:39:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TW3cDziGMOfhY88LATsXN7uIXX9XILUI/lbLdLvbVXB+ddDCiWPLG0ap8zRqr4Zq1bVg5R0PKGpZHHX95s2Yd2ZM+Ghw6eW09E75lrjkgoGwBUUaZDBl+yVJ3xpZg/XsHGM/iMm4fa631dtOQ2w7z1rL4QCZ0s7Fv139mQa69jwHlU93hJMVuZu2HD0/Z9vnF7JqqdSKXqkZUesR8W+ILqJeaQBMlxfW5ehA+mQhTn8Bbb56+oqm16a/SCCH0l/7dN1tyRF19J36tKBhFA8Sf2nY+NHDzd1+jruMJupYMXxGxVT9N5IjPeFSz+RSMdlatSoGsiM4n51ag/m1kB46sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7gOoykdbdRrwLrHuBLW6t2Zckyk2+8rm2rIEbLTVsf8=;
+ b=WL6gBG6K8b5D6OT6A+QpWN7+9mp8sz1WUxJkcP4bfsiFjmLHVxFdNFNgWrKjkrbOF8ftnKtqY7MVBJ5EqJJ8Tbj8WGpgB4xawRH7LVSXPgGwYTTg8y7YfQRz705Nf9hSusqZTJ0FuN6IrJNoyrJlmyorC7yabUQ1VNhc9LZPL34JklWKmEKBD0PsUvqt5EfmFmSzM4PqJ+meOfJeKsGJsETMuBsFQtS+zULKa0ZT+pTBLblKsDoMoe2gLSmFYKZo0RWmR4IPn725LDhgBB7IGfG4lAYH3KuIvp9OUEn+TOzLvLkukMSVX1aMsQC27sECYl1ZtEKEO5kp+XBPFgq6aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7gOoykdbdRrwLrHuBLW6t2Zckyk2+8rm2rIEbLTVsf8=;
+ b=qdA9Edtu7k4MjgN4YN23fuEZ31+o9jQFnMqezm6YeHnXDRndxpw+LkgTO+T8Arpyq/gyH6rcb0Ieg6Eo179nwAgpJ2KePlNajZWG18Ia8EzgwakTVG/NVJAjo7iESpu80LJsrBgZmyeGLdpFEimzzDfiNLLR/J1JkMo9SqvH81I=
+Received: from PH8P220CA0062.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:2d9::33)
+ by DS0PR12MB7875.namprd12.prod.outlook.com (2603:10b6:8:14d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 12:38:55 +0000
+Received: from CY4PEPF0000EE3A.namprd03.prod.outlook.com
+ (2603:10b6:510:2d9:cafe::5) by PH8P220CA0062.outlook.office365.com
+ (2603:10b6:510:2d9::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Thu,
+ 23 Jul 2026 12:38:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CY4PEPF0000EE3A.mail.protection.outlook.com (10.167.242.12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Thu, 23 Jul 2026 12:38:53 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 23 Jul
+ 2026 07:38:51 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 23 Jul
+ 2026 07:38:51 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Thu, 23 Jul 2026 07:38:44 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>, Russell King <linux@armlinux.org.uk>
+CC: Shyam Pandey <radhey.shyam.pandey@xilinx.com>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<harini.katakam@amd.com>
+Subject: [PATCH net-next 0/7] net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+Date: Thu, 23 Jul 2026 18:08:31 +0530
+Message-ID: <20260723123838.125145-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/16] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Niyas Sait <niyas.sait@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260710144520.917375-1-andre.przywara@arm.com>
- <20260710144520.917375-15-andre.przywara@arm.com>
- <c687f89e-d36e-4d8f-8b8d-695f2a8249ef@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <c687f89e-d36e-4d8f-8b8d-695f2a8249ef@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3A:EE_|DS0PR12MB7875:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b5de098-1f36-4f2b-0d64-08dee8b75b33
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|23010399003|82310400026|56012099006|11063799006|10067099003|18002099003|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: p1b1+nqU7pvoAMUdfwXKqpO9QZ3M2DA8aNU8dUP0+7fiAQ89WHfbY0YtrINOnjkj4yw7TpxSNRPrnc2/F7OH9KIf5795jxRYoF48PIh04Fr4NutazEIVtcBvKe4ccfKson5kpN2ffJj6O+UnP2tIpoR368vGrgt6S3pnH+eeVGMJBDWG5/HxB0bGPilXWnVHdoNUao13Mj50+dvcrxkXkfW+tnkkxjWqc50peFCkX24iJWwpei0WNjxr4N4q/8duDpDcnkfoxP3dVGxVceIqqSF0vz8jrw1biXAFvNA4k7Z1SpWz3eWGk1BrwW8rG0uSDMKD26BtJrX7vMGVSfANnIw+m5xh/rPO9QVLv7k2lnNyVODlgDOFIuK+NJ9CqlVx2dNE3Mbx/DtarVkLb6aUbn5Z0SdvV6aNd5vG54cm3Xao3alzu1iPmZwuaEwESC7ClsQXuS+Y+VUF+JHWrz12JynF9Y+t7VB4iEVHT392c/iBYZ8lQ+nLJhSzIoYuAOUjkhz01Ozi0fPM5oJkDfLG6RVJGNSNzSDICjWMY3QIpaRqNvpcQ2lcxU8a1wvxGbM6+YqR6Bm3P1OcVR6FM75L1PmzRYDVb11aKEC8BvtIE6I/+DEdxEcjz65oMqGTqS0iTiZiXnFfkRL5DVwUxU3BLOMJI1sJMqXKmbeLGD6z59daloETpRu7ZMYx994n2KzDmO6221TeTWfj1ZdRf8YqmZJkfqKt55HjPck4Y7k1/46IkaaM7/Heqgv2RDFyf8Ox
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(23010399003)(82310400026)(56012099006)(11063799006)(10067099003)(18002099003)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LIGnfmrFFCgWUC84e8nZAqyl8WOOtlX/iOgW9zt+SFlLavu6nEo9esGls3vXOJ1eL4XJ8xToEwlVY4WozBrh4hzUQdvCrKgWmjF5LbaR/KucCycf15lnYS18ZrCAWdUE8juhavU8u7RBAomdldhDAvgN79Cd3uHmuMzrPkzQjAEj1ol2yFN4xJIacN5Y/2F2iakbYmDBb1WEeT5Ob5LWK+GLXN1faLYutzdk5PWLLExuOm3rZDUwuXF53zibDB41CfirGHG+kWMO2uG9EWLk7JlXmWxfD4NUhDtP91ex+rabVypIIPXrFfBVrYxV8DAzIQV9soZtB/7Ev2KMdRL737kJcBFoeQxr3Nbu0Mo+8YRMJPgtU9J0sPVxZ01bXgR7DQVtdL3O/pEu28Xre8IXXClQjrvHmJrPnS3Ay5GbW6wRUd06SjPjrAO351LvrOEV
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 12:38:53.9273
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b5de098-1f36-4f2b-0d64-08dee8b75b33
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3A.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7875
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_053221_890928_CF90A207 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20260723_053902_639165_C1D69F36 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,88 +134,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niyas,
+This patch series extends the AXI Ethernet driver to support the
+XXV Ethernet subsystem
 
-On 7/14/26 14:27, Niyas Sait wrote:
-> On 10/07/2026 15:45, Andre Przywara wrote:
-> 
->> +#define MPAM_VERSION_MSG_SIZE    (PCC_TYPE3_MSG_PAYLOAD_OFS)
->> +#define MPAM_READ_MSG_SIZE    (PCC_TYPE3_MSG_PAYLOAD_OFS + 3 * 
->> sizeof(u32))
->> +#define MPAM_WRITE_MSG_SIZE    (PCC_TYPE3_MSG_PAYLOAD_OFS + 4 * 
->> sizeof(u32))
-> 
-> I think these lengths are wrong for ACPI extended PCC shared memory.
-> 
-> Length should be command + payload, and should not include the payload 
-> offset within the PCC shared memory region.
-> 
-> I think this should be something like
-> 
-> #define MPAM_VERSION_MSG_SIZE  sizeof(u32)
-> #define MPAM_READ_MSG_SIZE     (sizeof(u32) + 3 * sizeof(u32))
-> #define MPAM_WRITE_MSG_SIZE    (sizeof(u32) + 4 * sizeof(u32))
+- Add a devm_clk_bulk_get_enable() helper for consumers that need a set
+  of mandatory clocks enabled with device-managed cleanup.
 
-Yes, that's right, that's just the MPAM-Fb visible part of the protocol 
-message, not the potentially preceding SCMI header.
-Adjusted it like that.
+- Refactor through struct axienet_config so per-MAC behaviour is
+  expressed as capability flags and callbacks instead of runtime
+  MAC-type checks in the shared code.
 
-> 
->> +
->> +static int mpam_fb_build_version_message(unsigned int token,
->> +                     void __iomem *msg_buf)
->> +{
->> +    struct acpi_pcct_ext_pcc_shared_memory *pcc_shmem = msg_buf;
->> +
->> +    writel_relaxed(0, &pcc_shmem->flags);
-> 
-> Here the flags are always 0.
-> 
-> If the PCCT advertises interrupt based completion, I think we need to 
-> set PCC_CMD_COMPLETION_NOTIFY here. Otherwise the platform can process 
-> the request without generating an interrupt back to the AP, and the PCC 
-> driver will time out waiting for completion.
+- Document the XXV IP in Devicetree.
 
-So yeah, Ben commented on the previous version that we don't know if the 
-platform requires an IRQ or not, so we better leave that 0.
-But on platforms that do require one, we probably must set that flag. 
-TBH it's a bit odd to have it, since it muddles transport and protocol, 
-I'd say. In the kernel it shows because the client doesn't  have easy 
-access to the PCCT options, that's hidden away by the mailbox abstraction.
-I will bring the flag back, under the assumption that an agent not 
-supporting interrupts would ignore it.
-One other way I can think of is to peek into the mbox_chan mailbox 
-controller structure and look at the txdone_method member, to check 
-whether it says polling or not. But that sounds like cheating and 
-violating the abstraction. If anyone has a better idea, I am all ears.
+- Add support for the XXV Ethernet subsystem.
 
->> +
->> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 
->> msc_id,
->> +                u16 reg, u32 *result, int mpam_fb_command)
->> +{
->> +    unsigned int token = atomic_inc_return(&mpam_fb_token);
-> 
-> MPAM-Fb token is a 10-bit field in the message header, so this needs to 
-> be masked before using it. Otherwise once the token exceeds 1023, the 
-> platform returns the wrapped 10-bit token but Linux compares it against 
-> the original value and will probably time out.
+- Add a preparatory RMON cleanup, a statistics-ops refactor of
+  struct axienet_config, and ethtool / ndo_get_stats64 counter reporting
+  for XXV.
 
-Ouch, that's a good one, thanks for spotting this! I confirmed it by 
-initialising the token value to 1000, and indeed it stops with an error 
-after 24 transactions. Fixed now.
+Notes:
+- This series depends on [1], which is sent as part of another series.
+  That change is required for this series to compile and is not included
+  here to avoid duplication.
+- Due to phylink limitations, we aren't able to advertise both 10G and
+  25G base-r interfaces and switch between them using ethtool.
+  We are open to suggestions on how to handle this.
 
-Many thanks,
-Andre
+[1]: https://lore.kernel.org/all/20260717090824.2364230-1-srinivas.neeli@amd.com/
 
-> 
-> May be something like:
-> 
-> unsigned int token = atomic_inc_return(&mpam_fb_token) & 
-> FIELD_MAX(MPAM_MSC_TOKEN_MASK);
-> 
-> 
-> Thanks,
-> Niyas
+Suraj Gupta (7):
+  clk: Add devm_clk_bulk_get_enable()
+  net: xilinx: axienet: Introduce axienet_config for MAC-specific ops
+  dt-bindings: net: xlnx,axi-ethernet: Add 10G/25G (XXV) ethernet
+  net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+  net: xilinx: axienet: Make axienet_rmon_ranges non-static for reuse
+  net: xilinx: axienet: Dispatch statistics through axienet_config ops
+  net: xilinx: axienet: Add statistics support for XXV ethernet
+
+ .../bindings/net/xlnx,axi-ethernet.yaml       | 144 ++++-
+ .../driver-api/driver-model/devres.rst        |   1 +
+ drivers/clk/clk-devres.c                      |   7 +
+ drivers/net/ethernet/xilinx/Makefile          |   3 +-
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |  90 +++
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 603 ++++++++++++------
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.c  | 594 +++++++++++++++++
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.h  | 141 ++++
+ include/linux/clk.h                           |  23 +
+ 9 files changed, 1397 insertions(+), 209 deletions(-)
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
+
+
+base-commit: 67ce33d8d0d166bc9e445d6e42a75b131ed23a7b
+-- 
+2.25.1
 
 
