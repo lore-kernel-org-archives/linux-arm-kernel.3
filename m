@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD63C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 01:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60CAC4453F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 01:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ffb8HuUn7oxunFjlvB6SA3X4fMM99E5+jBR0sfFb7F0=; b=ECWbEBrG3v2KASpalTByRuEPUn
-	UDp+eS8MiEnS2Vza/ZKalz7IUnqDFg0ZFoRn9SB/UNUYh7AXuX47cw7CsDpOPWg5obntIzuHGRYZg
-	kRC5GW+QIVIDQxApa+1B+QLT7cAEZ27N8Djx1lGCs2VvxJFt3wiKnkQoQJBsYqUWsWYnlq8EWj+p6
-	4I2ePre4m+kkKvAfAWPBa7yyPp92JJM33vrpk4ibbL51gFHrNia/Pq3bmPBvP7uDAQUuo8FobHgJP
-	28owKuGCQPRPUoi0kV9Eb7F0kZCzaunNKjW91PvySvNDZTShbfhqVLVazhBo8mV3CURl5BII9GySh
-	FhiTjP+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5C4KBGp34p6ghtc8dC8WcjbQKC4pVCTe1x6qZCa5kh8=; b=zwyPz9df3XzqkGjO7ivZ4/0DqN
+	3GOnvLAtt4XB70ytz4y3WeXL/zqYP7IshVHzfTv3KOY/sGZDzlsTBOynPJGp5z4fvGZ/LjSvzTuue
+	SeaZdwf7M4dx9GnG1t1fihK19vjZZeK+lPB6QPkpgyzG1Gt9C4vdfIQhgzzFA6VzOuMRmvMZJcGO/
+	FcVCEl3wx4X2yyl2JhfEuvWwHmba1wnVzuTbRm0uu1WozCHbRtKu78i0lxbrbmbB/UfYhRzz2dg8u
+	MwRC2K5XpVF1R9UyAesZNm5D+IozPoxZyoUsQJKGWQJkTNTyb1fFee8WF2gLJ1NS9GtK/qYi7BR/2
+	NQnwMDgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiIg-0000000D2iI-248D;
-	Thu, 23 Jul 2026 01:32:38 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1wmiL5-0000000D2pW-3LsH;
+	Thu, 23 Jul 2026 01:35:07 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmiId-0000000D2hW-3dub
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 01:32:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1784770350; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=Ffb8HuUn7oxunFjlvB6SA3X4fMM99E5+jBR0sfFb7F0=;
-	b=okLIvtG4mug7pL/6YCBLegVzQIJGKFlrsl7tLYJS0u8JtEOkE/QXeYYkQOpxCchxA/4gU0I0WAhRqYpeVg68On9ulMzNYseZ6+/CR8Jlxg9iXCd0TUQWBe21FvVosQaond0JghEnf0CdpgpfX06u0vHjDDdJu6x8AkAQOgZsTxo=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R861e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0X7eTJH5_1784770346;
-Received: from 30.246.177.242(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X7eTJH5_1784770346 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 23 Jul 2026 09:32:27 +0800
-Message-ID: <31bebd39-8534-417c-866d-6d6e3468473c@linux.alibaba.com>
-Date: Thu, 23 Jul 2026 09:32:26 +0800
+	id 1wmiL3-0000000D2oS-1BkF;
+	Thu, 23 Jul 2026 01:35:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784770502;
+	bh=D/Mo27GDMqgDFGKu/PHByp3WOMc3rGEVU+1xPyeAtoA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=o876QeRCxbHDF9CSaJHExc43JFcJYJ28pcHKGlcoCIX+XeaAXj7MWg7TDHVq8/0o9
+	 Uoi3pMHxnJ2gp+FVqSK/BQPtPP0TtmpvcicVqs2N7nahwxd47w91b/HzQ2lVF3X6Qf
+	 koOKswcV+0eQYFYUftQ8Blmp9LCLeFE5uRN4Df6lSjgNq7kWase/dvppRYBnyg6uTM
+	 7l0Bls0tthTQmp/etsq13xn8aJPCQnsFXZcuhfr1dseJipd0JNO8Bnc2hkJOzMANv6
+	 h7+0JDQc78REYnNGIS4Ub+lAUupqLaRQdQptXKJqq3pFmzLS/ksopwWSXCfnmooSZF
+	 zxiSqROySkLZw==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B992B17E062C;
+	Thu, 23 Jul 2026 03:35:02 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 23 Jul 2026 04:34:50 +0300
+Subject: [PATCH v9 01/61] video/hdmi: Introduce HDMI version enum
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] perf: Remove redundant dev_err()/dev_err_probe()
-To: Pan Chuang <panchuang@vivo.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Frank Li <Frank.li@nxp.com>,
- Xu Yang <xu.yang_2@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
- Khuong Dinh <khuong@os.amperecomputing.com>,
- "moderated list:ARM PMU PROFILING AND DEBUGGING"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM PMU PROFILING AND DEBUGGING"
- <linux-perf-users@vger.kernel.org>, open list
- <linux-kernel@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
-References: <20260717103123.34887-1-panchuang@vivo.com>
- <20260717103123.34887-2-panchuang@vivo.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20260717103123.34887-2-panchuang@vivo.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260723-dw-hdmi-qp-scramb-v9-1-4fb12ea22ac9@collabora.com>
+References: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
+In-Reply-To: <20260723-dw-hdmi-qp-scramb-v9-0-4fb12ea22ac9@collabora.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+ Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, 
+ Phong LE <ple@baylibre.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_183236_578581_AD049EDF 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260722_183505_485115_81E60D6F 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +92,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add an enum to represent HDMI specification versions.  This will be used
+by upcoming changes to associate HDMI connectors and bridges with a
+maximum supported version and to simplify handling of version-dependent
+features.
 
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ include/linux/hdmi.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-On 7/17/26 6:31 PM, Pan Chuang wrote:
-> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()"), devm_request_irq() automatically logs
-> detailed error messages on failure. Remove the now-redundant
-> driver-specific dev_err() and dev_err_probe() calls.
-> 
-> Signed-off-by: Pan Chuang <panchuang@vivo.com>
-> ---
->   drivers/perf/alibaba_uncore_drw_pmu.c | 5 +----
->   drivers/perf/fsl_imx8_ddr_perf.c      | 4 +---
->   drivers/perf/fsl_imx9_ddr_perf.c      | 4 +---
->   drivers/perf/fujitsu_uncore_pmu.c     | 2 +-
->   drivers/perf/qcom_l2_pmu.c            | 5 +----
->   drivers/perf/qcom_l3_pmu.c            | 5 +----
->   drivers/perf/starfive_starlink_pmu.c  | 2 +-
->   drivers/perf/xgene_pmu.c              | 4 +---
->   8 files changed, 8 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/perf/alibaba_uncore_drw_pmu.c b/drivers/perf/alibaba_uncore_drw_pmu.c
-> index 74786a5dd6a2..fc934bccf4a6 100644
-> --- a/drivers/perf/alibaba_uncore_drw_pmu.c
-> +++ b/drivers/perf/alibaba_uncore_drw_pmu.c
-> @@ -449,11 +449,8 @@ static struct ali_drw_pmu_irq *__ali_drw_pmu_init_irq(struct platform_device
->   	 */
->   	ret = devm_request_irq(&pdev->dev, irq_num, ali_drw_pmu_isr,
->   			       IRQF_SHARED, dev_name(&pdev->dev), irq);
-> -	if (ret < 0) {
-> -		dev_err(&pdev->dev,
-> -			"Fail to request IRQ:%d ret:%d\n", irq_num, ret);
-> +	if (ret < 0)
->   		goto out_free;
-> -	}
->   
->   	ret = irq_set_affinity_hint(irq_num, cpumask_of(irq->cpu));
->   	if (ret)
-For Alibaba PMU part,
+diff --git a/include/linux/hdmi.h b/include/linux/hdmi.h
+index 8dab78e1f61b..b80a5ee63bb2 100644
+--- a/include/linux/hdmi.h
++++ b/include/linux/hdmi.h
+@@ -27,6 +27,18 @@
+ #include <linux/types.h>
+ #include <linux/device.h>
+ 
++enum hdmi_version {
++	HDMI_VERSION_UNKNOWN,
++	HDMI_VERSION_1_0,
++	HDMI_VERSION_1_1,
++	HDMI_VERSION_1_2,
++	HDMI_VERSION_1_3,
++	HDMI_VERSION_1_4,
++	HDMI_VERSION_2_0,
++	HDMI_VERSION_2_1,
++	HDMI_VERSION_2_2,
++};
++
+ enum hdmi_packet_type {
+ 	HDMI_PACKET_TYPE_NULL = 0x00,
+ 	HDMI_PACKET_TYPE_AUDIO_CLOCK_REGEN = 0x01,
 
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+-- 
+2.55.0
 
-Thanks,
-Shuai
 
