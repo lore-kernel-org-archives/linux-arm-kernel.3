@@ -4,58 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C0AC531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 18:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D19F8C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 18:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sbh5oIqumP3TZ7I91UCicSqtwO14EdOWWi0koNVordQ=; b=AEl+gROfnwofke/DSfHpD1PpAB
-	hMTTuAnn/lVvRtRFiR18iOtO3KRQNLrdf9De2uxSxqaZk9ILMTSj5SW/60ytUrpcG4ZVSkZ7hOvH2
-	L8tddnYzj/TtGgr7DM76NL65Q1FpsA17K5FnCYIgLPVNZ3aaNywsrSqqgwykRTXXlmsbZqddZKKds
-	4f3klMaKtbAzrCkhZtvBdmE0uJHvV/svT6R+8iLFmteXNzhb8sbnpoeFfHLimIR0yyCptWimcVr0h
-	bxraor4xc9mMHGvlMidrf29aQKW1ZZzFB0Bat3AZRI8nQLBslig0Q904qLmdpl1D1D/t91k2zBd94
-	ynMb+l9A==;
+	bh=SL/I02jEEJLEbfO48Z0ZnKZB06PzoYlOP/F8sZ/0J4c=; b=Q6BDpgZVfK/97L6uU4sxXbt/Cn
+	HQidAmOoNvLoVUl2+qnAceGuyX8N3YmfsHa2wxoFjh0sRW+028Kdagd0SmN+cLxCylIWltT9NpU9V
+	64zuEXL4xOHnEEKAxN5x6uDnakqcA99J9VUg5djacUYfSjpMrvzA8Ew6lmtWIuThnr2s3VkHUYx63
+	AfjPRDXmx9XLYIPqbaCjTEuLp6mfQFGzXMg5c/NnhoWJv00fKv/z20ubI0KI1Qto8tkSk609T9OMR
+	NFYIb7J1IJydSgu9O6kmb/DZriWhLKXIuxSLz89ivnoethBMIBEYEAM6Psc6/LPh/lrAWt8K2XcVD
+	CNlhv/uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmyHu-0000000EtoS-35GV;
-	Thu, 23 Jul 2026 18:36:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmyHr-0000000Etnr-0xkv
+	id 1wmyK9-0000000Etwl-0Bfj;
+	Thu, 23 Jul 2026 18:39:13 +0000
+Received: from mail-westeuropeazon11011050.outbound.protection.outlook.com ([52.101.70.50] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmyK4-0000000EtwQ-1mXV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 18:36:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E291F1477;
-	Thu, 23 Jul 2026 11:36:44 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 73B903F59E;
-	Thu, 23 Jul 2026 11:36:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784831809; bh=mt4YKmyqwblZu9Yi/XK+TWV4gvlyCaMDaWwZh9mOHSU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BZWTwap8LUuuI9s1Cu7RkzZ8/8pwlagag+aLHpq8IeilVnafnyQGjgfQqvZcN/AIl
-	 3aoTV+zepbO/VOAkxw8e7KdjPm6ulDYQSjxxndvEvzalJm1KJQYL5POL3lov2UJS76
-	 tTUmBvHLSFLfyPOnCka080375ebci15FP2IVAmk8=
-Date: Thu, 23 Jul 2026 19:36:46 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH v2] arm64: futex: Consolidate 'old == new' check in
- __lsui_cmpxchg32()
-Message-ID: <amJfPgqDirZz2w2E@e129823.arm.com>
-References: <20260723130304.3161-1-will@kernel.org>
-MIME-Version: 1.0
+	Thu, 23 Jul 2026 18:39:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K6P8Zl1frNZZI3PacLy/zucqsxyftBe6t8alxFeVkqmSN3E5rwBzgbIdtIRoqNRkN8hjr8yUlPj6lyJL0kY2v/gXWRhO3VtPAqWvtP1z9MBaZ+N5UC+/udTVqY+mwdfjfO5f3Tm+4AxNOS26YrHppMeMupwXTQ3nt3xZWh436uSHFxO6JZsLnaLeLaGKWOaKN7E5AjNXt+DL4z5NA9wba7OZYNnsIbRiNgeEgy0uBY7/mrvD94Lbox9pe6lIQRYlUOrydy3ea4qU84tYjSF0pYPKvHzL9tt0AZ2NNrWreOo433VrgtpplDFaBbje5qlpXXkAOdbm4aY7BPG/pya7Cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SL/I02jEEJLEbfO48Z0ZnKZB06PzoYlOP/F8sZ/0J4c=;
+ b=bBuqB2mdsGwNFZ8aies9kBxEdUI4utKzLPiJ/LEjUBa14BiGEQFEs0AgXpLMwlPEKwDLibPRwGPbtotSidFgl5lNsuQ86j8+QuHt84BcKOp2WeQqFKoFE/OsURnpESOd2ceVMRqR+mDOIjs4rND+wo1lm+hgL7NrzKBTTvOBS6mAWJ4/kV7Yey5pGc9biWJgZznIkhuIODAcyVrGbl7iKVcxOKnsEdHRUCZUcNOW8E1Y2aiqZ07m6I3+wE0U6Tu4cNSLoadGXr2pzVwWwlnlYH8NpRccgfnStH2odGfBs/Rotud2WpH8FZYVHd6YLYMmqWaAbJ5cknn8pa5S8pxinA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SL/I02jEEJLEbfO48Z0ZnKZB06PzoYlOP/F8sZ/0J4c=;
+ b=IFpzneoQ9JBN5+IrCNxLONn3i29NPbPRjB4/oK/jeb7oMS0iW9h0ltKQI9hpSSUcE+Bf3TseXb3T8PIILLXVdFXe/0blOZTZRNcsC4vCceazKYgeKvJbc49rS7nJ0UlwxvZwIIJIJ/8Kyv2KbcwTpdG6oTnwXc6CV2A3uoH+kELDthELddnS/obL/h24dK9nFiGVZbjB9mbI+ph3abSUjxzcJDw+oCJgzX+Y/QhUhUSr6a4Y8zX3zqRY/T0iT/fNTXIivbadjESUvZvNKnnNJ+ADrBCGRvM59DWEUN9Wut/rWFl/gjgpZaIDy4SOGHPDz2oHk25zaUD2UKrLI9el+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB10510.eurprd04.prod.outlook.com (2603:10a6:800:233::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
+ 2026 18:39:02 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Thu, 23 Jul 2026
+ 18:39:02 +0000
+Date: Thu, 23 Jul 2026 13:38:51 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Frieder Schrempf <frieder@fris.de>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
+	Frieder Schrempf <frieder.schrempf@kontron.de>
+Subject: Re: [PATCH v3 05/11] nvmem: imx-ocotp-ele: Remove device-specific
+ reg_read()
+Message-ID: <amJfuz2eJugcQ1f7@SMW015318>
+References: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de>
+ <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-5-e26930345b4c@kontron.de>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260723130304.3161-1-will@kernel.org>
+In-Reply-To: <20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-5-e26930345b4c@kontron.de>
+X-ClientProxiedBy: SA1P222CA0152.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c3::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10510:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c9e6da9-99f7-4b51-8f10-08dee8e9aaa2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|366016|1800799024|23010399003|56012099006|11063799006|10067099003|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: bc1YKUkFRedeWAO5VC0ZklYhpjnj/BNa8ai8v/QLrhfCQWaTGFiioJ+afjtMCvk7ZcNOnux0QbG3u0/E2dyXQ9AHNigxMoRwLwm5XJy/WNJ86ob97LIkJYwKuIpCvz35NNd4sMmXwine4YosqEL1lLV30a/xj13oDXayehDNdLNMi1r2B2CFBkjK4oaXbaG+yYl013vYkqM6kVqLk0fmoUx1gQsJdkcw0hpudrxzKbne5oZIekXOE5QjqJYwLBBrKgxoQkAQQZd3B6Hb0b9+Wxl//uDXch5ezrXF61dBgzXfcYwgBToQSyrGdVgFJjL0cIz4EQM6XcLRUJC764KUqWD0H5/I1RwYVLK3RUPC3BKnF4AjwemtW74jInAqIX2qyHm8AYXwNgHUkFKFGEkuM3rFg7ddDXNQmyfGwvFH05rMShiEhxB8pN5QxzMOtDK6k6q1xnXbE3Zt4Npf5gERG7MMg8N89Mb7odjTmb79RDPL5FLIWIHUlK0v78wbINyJXIp8lAxnwamsYw4OlCghab7lKJQAAh8MtJPt3L7eHtyzmGULlpdOyWrkX34yu5abmHcckBUsh8AGATG/jjulzAktjeRyQFTvxACrNn5oPISNWu7PjyPpXLNRzjhxXDm+HyvYNv0o+Hbq4VEagPeBYKAHDsD2/42brkW6hvBfpCI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(1800799024)(23010399003)(56012099006)(11063799006)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s85ilHzlWuqrB0oSgL4g7Gei/m5YcPvHN6PIX0bjeFeGOwowsDVYzxPgaDQJ?=
+ =?us-ascii?Q?V8sARXPdXg5q5Z96RrHA35yITcuW6tVH8iX9T5UmQEigWAGvl1soVLfcTXet?=
+ =?us-ascii?Q?yQoyNi1IG+UQysSbkX41svQ1EjaevhCeFDs7bEJXLJ/VD54biki4Wtdx7ect?=
+ =?us-ascii?Q?uGDXdsHHWPZtOQDViAPpiq3lfhyp46e7j1Mir5PHbXHzl68MPAWAXqrRaIfx?=
+ =?us-ascii?Q?6TdMN4X/H5SZ44Elm9Iwh0kawazaYWx/fttBw4+s3bUyS2e6pC4tZq8Ntxxq?=
+ =?us-ascii?Q?IzDDe5oQE0v3BD4hRtlwVPWPH0bEB3kHeiJKPdcoGS7bT3ptvTZaLDr7xQ2f?=
+ =?us-ascii?Q?WSHVhkijlm89iSzmTjm866i2M/207a4CdNBczsfxkvPdCv8NP4Wo8FKXtp04?=
+ =?us-ascii?Q?cqvJBq2UG9/dGZUkVB/GG51bYXHcpsUw4E4DNpF8dPEVRbmt9bC0AzrhkgSD?=
+ =?us-ascii?Q?a8Je+F5oNFT7Adi45HFg4xWoJNQdIwgH53VeyLjUbK2fq1cw1k9AJfWaKCou?=
+ =?us-ascii?Q?uEqPF03twJADcyZHgdIFsLx20hqv2WwYpkaAHVhhUdr/e2RUP5wwBAsLuHf8?=
+ =?us-ascii?Q?Hw5aZETRVzyOz+gPAgg3GSnL5nN+JCO6rsDeUleXYaoMgHl2IeeZrmw6D9i+?=
+ =?us-ascii?Q?ihsykHXTOGUMWVaJMntGcYSSo9rtP+xG1SQwF5UauMwDCTllVzxNHdaKjgf/?=
+ =?us-ascii?Q?GK+sDi6PBy07FtRst32jW0W6XlWIG+I4Pue7Rd73ExphgIPjsqZJ2P3Bgo+i?=
+ =?us-ascii?Q?GD+y461NYN9tCDmV8swYnAQxer3SupD841sedGZ7JrvDj1dHtBsChYfmGsBa?=
+ =?us-ascii?Q?cTp85ptYm4Bk08FZK0Aua7nTqMbY76t1WoMVQUrSDZTP2V1uKRG0xDoL4Y2X?=
+ =?us-ascii?Q?YfMT+2rqJVCEvq8lYCz2yE9962EgtlP6yY84t6ZIRXxStDl6IwwdwX4GLnOo?=
+ =?us-ascii?Q?KYnstbCSbPHwe3hdt+DId7JCfe3ZAKlV0uNqTnN2aB4CogwZeST62Vr7d264?=
+ =?us-ascii?Q?u//7thtxPEt+jmE8fnqL51Qdl5bb0ycW8EnAI1T0jxr9n52ayeDSsFxWyziU?=
+ =?us-ascii?Q?NAi2OmnrOPfHAAN59WVd6qRu9nOtZUHCnS6rNh5+7CAW7+03BbKJpGYbslk+?=
+ =?us-ascii?Q?0j8YQ6B6LOAadU4S2GQYD2tIZSgU5LGjVD6sR2FX4sLyIAu5s+sQzWUfkKmo?=
+ =?us-ascii?Q?bVVvlYSzil0vyKhzfAmrHmhk+Rl3pXdzn/qBKshA6F4GRT/Nexe1mzPgKi+3?=
+ =?us-ascii?Q?A4HoVX02f7Zd5bBC6jDxlaEqQga4JcCniIsbUvyLxOnKqRbPiR7/qOHFXB0o?=
+ =?us-ascii?Q?z9FB9IV4svw8bsmTF5DYNPWfeKaJgJRpQVGlil84Y3wig5atvaguLAowtoEp?=
+ =?us-ascii?Q?K4g/Mj8HRAmGMayRZHbN2V5jvxixKc/KhYfnvR60Ux9/1/U1DJMMtpBrIdTo?=
+ =?us-ascii?Q?BVEQQJjjA7lNvCPEnOIk6rOk4NCmGXt0sj32j8q7Z+nC5THXKN31ZiBsNnhs?=
+ =?us-ascii?Q?RMddeVePBHdWth+1hw3YidzybNjrY0rvx7pRxNO3SUGmIJ1wE7bMdGXDMhPf?=
+ =?us-ascii?Q?D9l3YaKxHjICAf706WxYjfrqloz+YwahXeKrOpb9nmHN/0L3hpWuhmau8+81?=
+ =?us-ascii?Q?Q7rQvJtXM0asUCbUFhRVVRT3X2ZWNDj9a50qQeFqRP3qX+Sd7hXYbY6rRipw?=
+ =?us-ascii?Q?7her0Sb6yDsL2T7K387QMWQdkIArbRnrr0tSI8dqGTjVbcRcZi7hAVWmnMo1?=
+ =?us-ascii?Q?gqYo5e1FAAC1W7mb6BPan+HQxGX+68IShrPdfHrp1HVbMexCh6oW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c9e6da9-99f7-4b51-8f10-08dee8e9aaa2
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 18:39:02.4549
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: otXJQwtrj1O1eu3NA4ipq01uR9ONwuawTcJS4nUnPhjQqsPv3T6ZnTgrkUK85c9pTyrpM9xauGvGDzUGHItT6a3QBVj06hxec16k9JxHigHTuWfzFWdd3KjqiO1Gn/2P
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_113651_462300_74A0DC2B 
-X-CRM114-Status: GOOD (  25.40  )
+X-CRM114-CacheID: sfid-20260723_113908_472648_8A6EA075 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,153 +146,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The LSUI futex implementation relies on a cmpxchg() loop to implement
-> FUTEX_OP_XOR, as the architecture doesn't provide unprivileged *EOR
-> atomics. Since the unprivileged 'CAST' instructions used to implement
-> the cmpxchg() can only operate on 64-bit memory locations, the
-> __lsui_cmpxchg32() helper function performs a song and dance to marshall
-> the 32-bit futex value into the correct part of a 64-bit register and
-> fill the remaining bytes with the neighbouring data.
-> 
-> A consequence of this structure is that the 'CAST' failure/success
-> condition ends up being split into two separate 32-bit checks across
-> __lsui_cmpxchg32() and its caller. This is a little fiddly to read and
-> introduces some additional local variables which can be avoided if the
-> check is done in one place.
-> 
-> Tweak __lsui_cmpxchg32() so that it performs the full 64-bit check on
-> the value returned from the 'CAST' instruction and returns success to
-> its caller only in the case that the cmpxchg() operation has succeeded.
-> With that in place, simplify the outer loop in __lsui_futex_atomic_eor()
-> to pass 'oldval' by reference and return unless the cmpxchg() operation
-> returns -EAGAIN. __lsui_futex_cmpxchg() then swallows the -EAGAIN if the
-> futex word has changed.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
+On Thu, Jul 23, 2026 at 09:27:27AM +0200, Frieder Schrempf wrote:
+> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>
+> We only have a single implementation of the read hook. There is no
+> need to store it in the device data.
+
+Remove .reg_read() callback in the device data because all is the same
+implementation.
+
+Frank
+
+>
+> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 > ---
-> 
-> v1: https://lore.kernel.org/r/20260519090823.7216-1-will@kernel.org
-> 
->  arch/arm64/include/asm/futex.h | 61 ++++++++++++----------------------
->  1 file changed, 22 insertions(+), 39 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> index d1d2ff9d323a..79c6d86c38a9 100644
-> --- a/arch/arm64/include/asm/futex.h
-> +++ b/arch/arm64/include/asm/futex.h
-> @@ -151,42 +151,31 @@ __lsui_cmpxchg64(u64 __user *uaddr, u64 *oldval, u64 newval)
->  }
->  
->  static __always_inline int
-> -__lsui_cmpxchg32(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> +__lsui_cmpxchg32(u32 __user *uaddr, u32 *oldval, u32 newval)
->  {
->  	u64 __user *uaddr64;
->  	bool futex_pos, other_pos;
-> -	u32 other, orig_other;
->  	union {
->  		u32 futex[2];
->  		u64 raw;
-> -	} oval64, orig64, nval64;
-> +	} orig64, oval64, nval64;
->  
->  	uaddr64 = (u64 __user *)PTR_ALIGN_DOWN(uaddr, sizeof(u64));
->  	futex_pos = !IS_ALIGNED((unsigned long)uaddr, sizeof(u64));
->  	other_pos = !futex_pos;
->  
-> -	oval64.futex[futex_pos] = oldval;
-> -	if (get_user(oval64.futex[other_pos], (u32 __user *)uaddr64 + other_pos))
-> +	orig64.futex[futex_pos] = *oldval;
-> +	if (get_user(orig64.futex[other_pos], (u32 __user *)uaddr64 + other_pos))
->  		return -EFAULT;
->  
-> -	orig64.raw = oval64.raw;
-> -
-> +	nval64 = oval64 = orig64;
->  	nval64.futex[futex_pos] = newval;
-> -	nval64.futex[other_pos] = oval64.futex[other_pos];
->  
->  	if (__lsui_cmpxchg64(uaddr64, &oval64.raw, nval64.raw))
->  		return -EFAULT;
->  
-> -	oldval = oval64.futex[futex_pos];
-> -	other = oval64.futex[other_pos];
-> -	orig_other = orig64.futex[other_pos];
-> -
-> -	if (other != orig_other)
-> -		return -EAGAIN;
-> -
-> -	*oval = oldval;
-> -
-> -	return 0;
-> +	*oldval = oval64.futex[futex_pos];
-> +	return oval64.raw == orig64.raw ? 0 : -EAGAIN;
->  }
->  
->  static __always_inline int
-> @@ -202,7 +191,7 @@ __lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
->  static __always_inline int
->  __lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
->  {
-> -	u32 oldval, newval, val;
-> +	u32 oldval, newval;
->  	int ret, i;
->  
->  	if (get_user(oldval, uaddr))
-> @@ -214,33 +203,27 @@ __lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
->  	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
->  		newval = oldval ^ oparg;
->  
-> -		ret = __lsui_cmpxchg32(uaddr, oldval, newval, &val);
-> -		switch (ret) {
-> -		case -EFAULT:
-> -			return ret;
-> -		case -EAGAIN:
-> -			continue;
-> -		}
-> -
-> -		if (val == oldval) {
-> -			*oval = val;
-> -			return 0;
-> -		}
-> -
-> -		oldval = val;
-> +		ret = __lsui_cmpxchg32(uaddr, &oldval, newval);
-> +		if (ret != -EAGAIN)
-> +			break;
->  	}
->  
-> -	return -EAGAIN;
-> +	*oval = oldval;
-> +	return ret;
->  }
->  
->  static __always_inline int
->  __lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
->  {
-> -	/*
-> -	 * Callers of futex_atomic_cmpxchg_inatomic() already retry on
-> -	 * -EAGAIN, no need for another loop of max retries.
-> -	 */
-> -	return __lsui_cmpxchg32(uaddr, oldval, newval, oval);
-> +	u32 curval = oldval;
-> +	int ret;
-> +
-> +	ret = __lsui_cmpxchg32(uaddr, &curval, newval);
-> +	if (ret == -EAGAIN && curval != oldval)
-> +		ret = 0;
-> +
-> +	*oval = curval;
-> +	return ret;
->  }
->  #endif	/* CONFIG_ARM64_LSUI */
->  
-
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-
--- 
-Sincerely,
-Yeoreum Yun
+>  drivers/nvmem/imx-ocotp-ele.c | 6 +-----
+>  1 file changed, 1 insertion(+), 5 deletions(-)
+>
+> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+> index dadec19ca252..9d3f94e35508 100644
+> --- a/drivers/nvmem/imx-ocotp-ele.c
+> +++ b/drivers/nvmem/imx-ocotp-ele.c
+> @@ -33,7 +33,6 @@ struct ocotp_devtype_data {
+>  	u32 size;
+>  	u32 num_entry;
+>  	u32 flag;
+> -	nvmem_reg_read_t reg_read;
+>  	const struct nvmem_keepout *keepout;
+>  	unsigned int nkeepout;
+>  	struct ocotp_map_entry entry[];
+> @@ -158,7 +157,7 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+>  	priv->config.id = NVMEM_DEVID_AUTO;
+>  	priv->config.owner = THIS_MODULE;
+>  	priv->config.size = priv->data->size;
+> -	priv->config.reg_read = priv->data->reg_read;
+> +	priv->config.reg_read = imx_ocotp_reg_read;
+>  	priv->config.word_size = 1;
+>  	priv->config.stride = 1;
+>  	priv->config.priv = priv;
+> @@ -190,7 +189,6 @@ static const struct nvmem_keepout imx93_ocotp_keepout[] = {
+>
+>  static const struct ocotp_devtype_data imx93_ocotp_data = {
+>  	.reg_off = 0x8000,
+> -	.reg_read = imx_ocotp_reg_read,
+>  	.size = 2048,
+>  	.num_entry = 6,
+>  	.entry = {
+> @@ -207,7 +205,6 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+>
+>  static const struct ocotp_devtype_data imx94_ocotp_data = {
+>  	.reg_off = 0x8000,
+> -	.reg_read = imx_ocotp_reg_read,
+>  	.size = 3296, /* 103 Banks */
+>  	.num_entry = 10,
+>  	.entry = {
+> @@ -226,7 +223,6 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
+>
+>  static const struct ocotp_devtype_data imx95_ocotp_data = {
+>  	.reg_off = 0x8000,
+> -	.reg_read = imx_ocotp_reg_read,
+>  	.size = 2048,
+>  	.num_entry = 12,
+>  	.entry = {
+>
+> --
+> 2.55.0
+>
+>
 
