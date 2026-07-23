@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41597C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D313C531F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 20:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAzh6OwkGuIfCY27rZc+4yNvhijgFF8ObLrHWvLSurM=; b=42FeD7q5GdbakeMx6jzqjrzwcS
-	bkUbNEeTofxaSBiENXYR9XUtTZrnYCsNQb6Q5KboelocEtNV4WvHPoRMF3GuoExZfcRafFPk4l6nG
-	uUqj4XISDr05ZE+ZU1NsfCoaOK3lOWQXW5bJDOAKJc7LsGkfMroW63wNM/ZdftqpFrSgLveD1AvmM
-	guW4RuieycgajhDxcnzw1W3/lCkH7sLsif+AK7PhU+Z0wi4eeemnvICTKn59HhBnK82X5cXO8V2W+
-	jEAk1N49t9iRAQqbkP92R25uOeuFYl+EVc9XknIxqSSw/la4q+u4JjONn2YLl2WHOI1jyjnd+VEg6
-	vE+InJew==;
+	bh=eM65QZLrWtYxIQiPT84qffHAidOGo3FICK3E0OXeoJo=; b=xFKYwsoMqbmr+CX9g+oIRz2VGb
+	f9P9ZOsDLiu6YSzWsxdUrKkINo5fHwxJVWh0Mms3FjKdRv1rm0aTY0y7SAT/1h7L1zGW0CVSmo8ho
+	V61JfWOemGuBzT8t4M3KaQhdG90ao7lcRhTsEp8HSj5K5/abrG5XePfXSAMdRYcQa4Naz6mwXqD3r
+	A26wIY+VBj2BKbupwhMhDRDG28OOoXj4jU4e5/pEFUqIbOWxsuUQKGfBBbKN0im0S6xqrQR/U/v+f
+	Y70l49Lhg1FKjlupEaMyGZcZzYT1YNzlD3lgMYgzEDrpc16qkzIF8HSkjyXArDdNNn75S5dP7ath4
+	4uNBl4Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzxU-0000000F1wX-2Bq3;
-	Thu, 23 Jul 2026 20:23:56 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wn0NH-0000000F4j3-1GPt;
+	Thu, 23 Jul 2026 20:50:35 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmzxN-0000000F1uI-1IJe
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 20:23:50 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-47c2b362ee2so937926f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 13:23:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1784838227; x=1785443027; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TAzh6OwkGuIfCY27rZc+4yNvhijgFF8ObLrHWvLSurM=;
-        b=MDhcPXmKiEPRQ8CEWI3Y0iAeUNpo8B57ZCh/q+Mqx6qiuJF/1yPOwCEuXxZmdfmqAc
-         T3WSR0gKjwKhocX0xHAJ3jR53rq+TAfJwwNwANL8J2t+y+7M/TE45eR5Jlt+PhXbAR8Y
-         PZl2tHA1y1SOyAMJ1gM2xGycpQW3/6DwaYHuo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784838227; x=1785443027;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TAzh6OwkGuIfCY27rZc+4yNvhijgFF8ObLrHWvLSurM=;
-        b=CjaX5qf5mDLSiigQKaKEjlBXXRcQwu9kURVlkRBC1jSDGZRSuLpeKYO9BLbldjsUTQ
-         /XSguREg0SW2b1OhTVhEWcRLR+fg9MbBSgOCRA55kzcwjtTQqPP2gd7KrKEMull4bdeF
-         MnUJOjzaXavApmzNgxytJz2Zuf0gvhlyta7Wzz0508RwNCsvmCg7MlbdV37WDyGiT/N1
-         pQZZVQn0LVBMIHbS248Fu0S7ccZapU5zUUsF1TLE8W7oIqE7zjKaLwmHS8Ku6qUyWoMN
-         Z8pU5bZ4x+XfWB4wvy9luY8DyoX/6Wem/YK9wV/MYDlMYM5Ed1SxSUkNHIB/2Ym33707
-         Qrqg==
-X-Forwarded-Encrypted: i=1; AHgh+RpIDOrtDkWEkEx95NExPZpkSs3skV29W+gfjxpu3tgZ4NRXrQjXFoPJFj1u7aSvyocKss2qb3gIF4PaCc59iisU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNP+UFM0x0E6EmvxDFFrJsjKe7SIdzHAgtvmFjegbaHaiV/VHL
-	r6RT7iKTZxmDAk18zn8GY695W7aJFy+nuNDKyVFJIgNbTs+cFbumM6OJqB7lBM4Q7e4=
-X-Gm-Gg: AR+sD10leS3HWos2oy9A31E1eUtRcRjdYkV2Ni90vM93Of57s2KKpLk1/dBWaQjriwn
-	kM8K82um9Rwckvg3eerTTB8J6gebZb7iBcH8J6fggPvtO0S3L6gaE5Fg3XzQjC+ax4ivBtkmTaY
-	PwDJfidCkgrkl1F309DJijejTXShM+BuE0o7X6csKYrzzh/89H4Z0vqs2DIhbTRTYFOfgMXkPLg
-	dEk2Z1gEWMMawvn7pdavWI5Vn3fxhu+WlUIIr0cdm70sCKEi1mls+ULybZ3S9PSQEH8QSQ3/YLv
-	dJnUnqhEqFeEYhCQqmu2D2t8WGDX6yJ/kzIx0GYMwzZmg2hC65iSriKXL/bRB3Lq3UUZCApbqIK
-	6beTdDlYFuZ4Ur9DHBBjAqbB3M+gfWwZGJE7DpYgvGXO5f+eOX/+JE7v126P2tOSxcaqJxSpbJS
-	VE61CPirJBafFwUe330APxf/cfqZxVVOZ6DMCFZwheEgtxabkQKzplY73j+07opEXUeeIEVAlWe
-	KXmH0GqNLXudp919TEW+nwRKB+WK47C/eLXd/gIGWmlC11Tf+lBHdtGbZXsuf7lr3HFMgoChH8X
-X-Received: by 2002:a05:6000:178f:b0:47d:ef38:260 with SMTP id ffacd0b85a97d-47f8d72d3a4mr5490133f8f.27.1784838227551;
-        Thu, 23 Jul 2026 13:23:47 -0700 (PDT)
-Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com (host-79-17-119-233.retail.telecomitalia.it. [79.17.119.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c631fdsm17516051f8f.28.2026.07.23.13.23.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 13:23:47 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 3/3] ARM: dts: stm32: add missed arm,num-irq-priority-bits for stm32h743
-Date: Thu, 23 Jul 2026 22:23:35 +0200
-Message-ID: <20260723202339.974529-3-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260723202339.974529-1-dario.binacchi@amarulasolutions.com>
-References: <20260723202339.974529-1-dario.binacchi@amarulasolutions.com>
+	id 1wn0NE-0000000F4iW-48we;
+	Thu, 23 Jul 2026 20:50:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784839818; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XMG/wr4GN4vLYna9aU05B4HrXbD6HwxQ9DsJPRslUljs/9cAloicWqRSsLUMHs5c6vu5P37fi7oEWupHs6ZoJnLQIKXy7MDeFtqrjWXEB8cqe4qvOmQiA+ZyOGDl7loEJTTdk9avMJst6z9ijGF6SQTkURsLLHbqblq0DQ0Ybmc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784839818; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eM65QZLrWtYxIQiPT84qffHAidOGo3FICK3E0OXeoJo=; 
+	b=OxU8crpuLIfTfXyNuVpPUMYgrK7x44YMeGPATsa5zLa8UGZujZSraMhXYXduemhlPBIa1b1ucf7jYUJ9dAASLJ2TqyBzHXmP6LD8EE73nTNRwed6pxP4NVVKNRExjgD6ProZT3trOzqIFBufjJzIcoI+Di2f81GPrvxXpVP4WP8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784839818;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=eM65QZLrWtYxIQiPT84qffHAidOGo3FICK3E0OXeoJo=;
+	b=ZiTB9pM5t2Ueeg9IP/5bxQYmUT0C61Z3Ef+pSNXhTVr2ByZFg9PZKStLTyml4zYD
+	5sS5sJq34hQ/BxWyisIwE779c1SPJ5WGLl3yjZDGEznrufd5umBTUwspcgxJ7L+5TJc
+	kpXufWJPajCzKkj3z4k1y3JNtv4YHQOPxxxn75jc=
+Received: by mx.zohomail.com with SMTPS id 1784839814772605.7006110620167;
+	Thu, 23 Jul 2026 13:50:14 -0700 (PDT)
+Message-ID: <58b7f1fd-997c-48af-9a7c-a0a5738a5d42@collabora.com>
+Date: Thu, 23 Jul 2026 23:50:09 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] media: synopsys: hdmirx: add HDMI audio capture
+ support
+To: Igor Paunovic <royalnet026@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260721064115.64809-1-royalnet026@gmail.com>
+ <20260721064115.64809-3-royalnet026@gmail.com>
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260721064115.64809-3-royalnet026@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_132349_358814_F89EA013 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20260723_135033_147403_78FAFE35 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +85,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missed arm,num-irq-priority-bits to fix below CHECK_DTBS warning:
+On 7/21/26 09:41, Igor Paunovic wrote:
+> The Synopsys DesignWare HDMI RX controller extracts the audio stream
+> embedded in the incoming HDMI signal and feeds it to an on-SoC I2S
+> controller. Expose it as an ALSA capture device by registering the
+> generic hdmi-codec as a child of the controller, so that a
+> simple-audio-card in the device tree can bind the HDMI RX audio DAI.
+> 
+> The sample rate is recovered from the ACR N/CTS values together with the
+> measured TMDS character rate. A periodic worker keeps the local audio
+> reference clock locked to the source by nudging it in small ppm steps to
+> hold the audio FIFO fill level near its target, which avoids FIFO
+> under/overflow and the resulting dropped samples.
+> 
+> Across system suspend the worker is stopped before the controller
+> clocks are gated. Resume fully resets the controller, wiping the audio
+> configuration, so when a capture stream is active it re-programs the
+> audio path from the last known sample rate and re-arms the worker,
+> whose rate change and FIFO error paths resynchronize once the source
+> delivers audio again.
+> 
+> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+> ---
+> Changes in v4:
+> - use swab32() for the ACR word reversal: readl() already abstracts
+>   bus endianness, so the reversal must be unconditional (be32_to_cpu
+>   is a no-op on big-endian)
+> - support system suspend: stop the worker in suspend before the
+>   clocks are gated; resume fully resets the controller, so re-program
+>   the audio path and re-arm the worker while a capture stream is
+>   active, through a hdmirx_audio_setup() helper shared with
+>   hw_params() (Dmitry Osipenko; validated with an active capture
+>   stream across suspend/resume)
+> 
+> Changes in v3:
+> - restore the v1 audio teardown in remove(): audio_shutdown() already
+>   stops the worker when the stream closes, so the extra flag clear
+>   and trailing cancel added in v2 were redundant (Dmitry Osipenko)
+> - rename the ACR read locals and add a comment documenting the
+>   register byte packing
+> - drop the get_dai_id stub so OF-graph cards resolve the DAI index
+>   from the reg property
+> 
+> Changes in v2:
+> - register the S/PDIF DAI so the indexes match the binding and reject
+>   it with -EOPNOTSUPP until wired up (Sebastian Reichel)
+> - use platform_device_register_data() and drop the fixed 32-bit DMA
+>   mask (Dmitry Osipenko)
+> - don't leave an ERR_PTR in audio_pdev on registration failure
+> - fix teardown ordering in remove()
+> - stop the worker before reprogramming shared state in hw_params()
+> - look up the "audio" clock by name instead of indexing clks[1]
+> - keep the worker on system_unbound_wq when re-arming
+>  .../platform/synopsys/hdmirx/snps_hdmirx.c    | 306 ++++++++++++++++++
+>  .../platform/synopsys/hdmirx/snps_hdmirx.h    |   8 +
+>  2 files changed, 314 insertions(+)
 
-arch/arm/boot/dts/st/stm32h747i-disco.dtb: interrupt-controller@e000e100 (arm,armv7m-nvic): 'arm,num-irq-priority-bits' is a required property
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/arm,nvic.yaml
+Note: Current variant of audio support requires userspace to manually
+select appropriate audio freq on capture. This needs to be improved
+later on for regular userspace apps by dynamically registering audio
+CODEC on HDMI cable plug event and reading out actual audio freq on the
+wire, restricting the CODEC's rate, which might require extension of the
+hdmi_codec_ops.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
----
-
- arch/arm/boot/dts/st/stm32h743.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm/boot/dts/st/stm32h743.dtsi b/arch/arm/boot/dts/st/stm32h743.dtsi
-index 2f19cfbc57ad..845d13c61da8 100644
---- a/arch/arm/boot/dts/st/stm32h743.dtsi
-+++ b/arch/arm/boot/dts/st/stm32h743.dtsi
-@@ -732,6 +732,10 @@ gpiok: gpio@58022800 {
- 	};
- };
- 
-+&nvic {
-+	arm,num-irq-priority-bits = <4>;
-+};
-+
- &systick {
- 	clock-frequency = <250000000>;
- 	status = "okay";
----
-base-commit: d326f83e819c53aa05c40d64f5805d6237b6aa1b
-branch: stm32-nvic-irq-priority-bits
+Reviewed-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Tested-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 
 -- 
-2.43.0
-
+Best regards,
+Dmitry
 
