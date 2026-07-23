@@ -4,124 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144CFC531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 02:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054AEC4453D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Jul 2026 02:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gWp76fGCLRMdX+Ql14Q1KqYDj3g8xmuSGtKT3/KgRi8=; b=Kac8x2eTDROCjVFdaP33/OJ9rz
-	uHgf8xfjvV/T0DxqWjGNxe7VTZuDnwmq87vhUDhU4ZmmmWKYPAQLA52WaOEBn6lQ/4mqlJuVTslt+
-	/vGB4H2oJSj/vZoq4ATFpKNSRgR0hmMt4lXa5JLOaocbVe5Yi0/bnRuFCo7Le8YvGbGK1BucIsWKR
-	v5+JoMSjyMdJw5HswOWJ137yor55dVdEQMwMdeMEcDbqIiTc9dcdY2z1qYbPBrzXUmpAO1HFnGy7+
-	LgbMmomZBfyyeRgEWi3LwcD4PUHfJyUNjMAGCtuplKAka6V2lYxlkDvOFFHNt0EJuviR8E+TbBEa5
-	E7FD4wDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eSTmTNiaxElIBfe815dAztL+lUB5WOjc51zhZCZfVn0=; b=ekfltvsQRJwxrqU3Zc0mPn0hVv
+	P28uTUsHWS6ba7ydq+atbv9tL2Fs+94D80kK0HHKnk1r/pT76sCmO1gxZGwatkb06TrlbWAmOso8z
+	dFCsfYDlsWiljEbSi6oqQksfx1Fz0ekZ/HRfmuPHRi/xQmnWf2fXHBaxgQBxXqmiIYLMlxIeNU+gm
+	vHJQOj2XI3V2T62SNwULE/I2XFysGN/xyOI/lwO0w5Jo/OFjCQj5FCw2n4RCMMxqzqB1SUQI9jdAi
+	XgaN/jW2RgVLabc+RLRAp+dMFyHMR95ZgmL3dRy0HROPD1ZNlhltI6WV3EIOJOEEaJRMIGTG9Aymo
+	a8LYTL3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmjRw-0000000DFtg-1XIB;
-	Thu, 23 Jul 2026 02:46:18 +0000
-Received: from mail-japaneastazon11012056.outbound.protection.outlook.com ([52.101.126.56] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wmjT9-0000000DG6t-3Ns6;
+	Thu, 23 Jul 2026 02:47:31 +0000
+Received: from esa9.hc1455-7.c3s2.iphmx.com ([139.138.36.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmjRt-0000000DFsz-3cti
+	id 1wmjT7-0000000DG6K-0QLH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Jul 2026 02:46:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qriVlgemutt44MOQyfPcv7CLa1vN1zpxIBGFgGlJr3GQ2I5zzICSOskM0spN/ontJMi1E9ADk0xBe6+G86rEizs8HJKNmFxgm20Yb5MuBFXOe16A3YghcpWrLJi23rCMwydsrjwCD7NenzEeapVVUxRQjo996iLJl97qtUvKbHk828Dhw8CR9/LRXK/apzeKN9eqcifZj0VD/k6/FdaTGgRuB7jygZsibgFQTkEzEVdFULq5fPRQ+Pc1DUMTgDcda25eR5eY24mzTWVDP4ZNxNVIvJu/ikSVgzerFgYuuVgf18dE8ZU3Qj9C3jB/Vfqiy/3oglgJjOrdLRQftcedlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gWp76fGCLRMdX+Ql14Q1KqYDj3g8xmuSGtKT3/KgRi8=;
- b=Rj98fUqn+Y9mRDWtcE76d9+oab+TGTnGJTaAlkO7XgBv8TOi4xGRA5TRKvUZ75gwI6PrBD+oFrA6Ua3WO9l0/OKdhhqMnc89uQ0xmityUjR5ANN6qNP5TgrY599rhfgza/dwCx8DrYJr33PckYVSgeP7L1wTCwP8DPwQ4Mi/LRBloHM/YyS0/Gmq/M0xnzGXncgxQDnHInOfU9SROdLfN7NZZitfRP4FiAhkYAg7pyphj10fwI+RE3i+XV8FLCqu2tQTHSWGcfdDXXL4K96m33wy8E4MbkYlQSpa0DhQlL/FMojubfw2TrfYc9dsTs+SxY138WvZsJTiwxEkvPHJ5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gWp76fGCLRMdX+Ql14Q1KqYDj3g8xmuSGtKT3/KgRi8=;
- b=U5Y+umd7dBOo6zOW4Q9n0g5pRXcG7B4gHRGxgYheEn3t8EP0pJVXghCA7Bsf8MWkm3NVpKyQRKQUQ+XkNXhq8SgPdClZj3B8Id+Qh/K245w1ad2dwJAA/UTsNmvb5OkEyp/qz0cm6u5df5WozciQKZ/JoxN3p7U5rKI6//nbk2TEv0anKGq6hNKlP7x9WRLwo0NfeXP/WEPKUqPHXAPfuTqxD0mDfkdfcSbOHb1kNbfd1mUo2F5EpxUdziDxfTDoGkmu3L9se7r2FBghlCME9Cw0utEmT2OC7o2HgBRuUGDPayUwmQbGY2VBW8gsoiKjLBC59yvRdKeglj2MQR94pA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by SI2PR06MB5339.apcprd06.prod.outlook.com (2603:1096:4:1eb::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Thu, 23 Jul
- 2026 02:46:05 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0245.009; Thu, 23 Jul 2026
- 02:46:05 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Imre Kaloz <kaloz@openwrt.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/INTEL IXP4XX ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH] soc: ixp4xx: Remove redundant dev_err()
-Date: Thu, 23 Jul 2026 10:45:53 +0800
-Message-Id: <20260723024554.25456-1-panchuang@vivo.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TYCP286CA0270.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:455::16) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
+	Thu, 23 Jul 2026 02:47:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1784774849; x=1816310849;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xO4Xsg6WMoznKKLCX2VF4Rxpd9VvTwSKgFTxYveIfGI=;
+  b=nWSa7iSgydekyJi226AiAp12dm7Gwf+CY9GsZSMXe3SgOYY9URhyMyL3
+   66tU+5c+IQDHgjBPzN7nrtqFDwglFJ2wRHste2fmRUduYYPRofYoz/OfV
+   s7v+3wR8d+Ii5b0vEjwNEzlUElwOF3oubtQQrOcZmClTRNUwtH6reJKin
+   lg0/y0dJT2uGloi6HmFas/7mGpzXpJNAfYQLkdfz4tVhSurnzOui7oqpi
+   q7XCD1D2DJ9OUk3t3j8nBZvBpyfUVJZZ1bu+VgEQcHtM2COhytL+foQws
+   PGEi7SPu+kMMuXo/KsqK0SZXd7dT3IN6sANQ91gkbM7grt0xQKR4BcwSP
+   w==;
+X-CSE-ConnectionGUID: 4Ay81lBsR/iSoBQDT4+/Rg==
+X-CSE-MsgGUID: BPm2hd48QP68TrxRyjpCCA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="235730252"
+X-IronPort-AV: E=Sophos;i="6.25,179,1779116400"; 
+   d="scan'208";a="235730252"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2026 11:47:25 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id B3B30100037D
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:47:25 +0000 (UTC)
+Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 5F3DE1C000D7
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Jul 2026 02:47:25 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom3.fujitsu.com (Postfix) with ESMTPS id CECEC10001D0;
+	Thu, 23 Jul 2026 02:47:19 +0000 (UTC)
+Date: Thu, 23 Jul 2026 11:47:16 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 8/9] KVM: arm64: selftests: Add infrastructure for
+ using stage-2 in guest
+Message-ID: <amGAtKiTirVSHUky@sm-arm-grace07>
+References: <20260516183003.799058-1-weilin.chang@arm.com>
+ <20260516183003.799058-9-weilin.chang@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SI2PR06MB5339:EE_
-X-MS-Office365-Filtering-Correlation-Id: c412852c-6516-447d-f737-08dee8648a5d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|23010399003|1800799024|18002099003|10067099003|56012099006|11063799006|38350700014|6133799003;
-X-Microsoft-Antispam-Message-Info: FkXMJRHxnfaNZl+VbxUs46/Zt/9Py7pMsLMiCOpWrmAOWGUtMpQveKYnX/zNRhqA3IhJkGmmerk88oYnPoy7QEWPhAhyPRyMI63YwnXVyBgMa60PvyURUsPPJWqSJjqZPMSmi/jCmRGuS6F/yiEuVfy0tJBPcmN91zNQyeOG1wI6upzRhaYZHqAd0oONyNadv6NKHoJXYqKWg7e5MYz9bynlJo11DoJcFxQLz4TN/UIgg7jyQ6UlgJ23MxVJIhYIih2UYGWGCzhiGxa3MrMxM8WCnSxdt1/rOYDMuwEdC/V9swT5PEWbLR9m0UZI+ZGuqpGYs8QHuRc8gzoCgdPN+laXDuwwLkrwAb0KSBHqFsY5yMRiApwklT7rq2QtE07a3tkZbXY0FVpJhWXeFCpRahxhm6btorzqTKsas4skbOF5758cCJbUfOcGwG8GaO8HQjsiCnC6rifeCujG0fAiJjpMk5k27mco/t+4SF8QONOJiPQQQDn3YCR3PPg9slM7+tL9k10du+Q6JCof/qWHV6FYKSrN+OiF25J9d1eESCiyjdirMVJZ7qa0nREldPjEl7F74A5wm5bphGwoEEADH5cxv8vf6sEhlyvLl4Y7cGkUrrc6AGxje2RlXMsVs6A4votuW7kMPcceHxWg0ZirFlDWxtOfVfY6ThLuue7OMHHlFQzRLvFBJ+xzRwu/vEpqK9nDaKbg4X6tvaHjL9nOIafvz8zEJriuXEyAUIzfYm8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(23010399003)(1800799024)(18002099003)(10067099003)(56012099006)(11063799006)(38350700014)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zrImuz/ud7cJP4XGWmU3c2SlE927mI2MP9jrNBMSCxLKRQq/RYbuCXzxKkqW?=
- =?us-ascii?Q?SxNRRTlP5mp2wxf8G8LWaW+J5wHe+Zhg3GlRcawup2T2hG3fOj/5IZ0/xZ3j?=
- =?us-ascii?Q?O57K1bRRT2vEe2yG0YJRxGkfBIgeWxhlOQZMJuKlGsCwbQrdQix7t9iC7gmU?=
- =?us-ascii?Q?JBr/AbG+RMIhUf5OAolkyar9e3IcPckOCDj4aQ/BkLRX5LYWUNPa85AmQ/yk?=
- =?us-ascii?Q?EoEC7TQgNQN8dGzedksWgdM5rqfOqkWJvNTcooWFC/Ylp4AOTXiHnlguUj/G?=
- =?us-ascii?Q?WyANnmAlJXt9O5yJ2pm9o5Mx+VdpVSZsY1IbVMqBhcM6ADVCpl/bcrlDZHBX?=
- =?us-ascii?Q?SU8S/U8R2TrELv1tzrDIxIfjEADcVWa1vQCcvr8tn4Xy9NYVmrXr5AGQHXeZ?=
- =?us-ascii?Q?oAhO6nvyQ6Y82Q1Crq3/nSGKoDMPKzS4B01YTZGQ6rtel3mbckCvh4X0WMOd?=
- =?us-ascii?Q?tKmScAjgKgcP5AV5F7K2f+S+L/gkm0lbU/tC1snr/aeE6oYYCGzuaXzQH+dw?=
- =?us-ascii?Q?09WqexQs1qLdJKZGkYidvKMQ0hKNs6TQg2gOozlKg3+xZAlvXChSxsKHpyNz?=
- =?us-ascii?Q?fw0HJNqXEo0yJG7IH2dE83YPqEk1l6X55R9cAUAF+IqAhtw268hPH5b+9S6m?=
- =?us-ascii?Q?kzzeB5eS8wXPZn8mFNQjmPJDfc5EeNcpzNrIu/DQM4Lw2fJvtDR5O5vLdoC8?=
- =?us-ascii?Q?MaMLJMIAgu2onDEXO6ljDEKTv3SyVaguQkpxP5pXG0BDlectgtzJEaaCEffy?=
- =?us-ascii?Q?4dW+7d1RYa7lzII5ingqBtOEVfaqOA9NcwvhegRSbsgyElLovtO8f3JhhK8b?=
- =?us-ascii?Q?/75mn4E8vlh2YUEOpdmsMSYl5aM+5MqEEzwUWRTLuviavPkGtAkwS5kguc6o?=
- =?us-ascii?Q?xN3he4p2g+v/4vGJC8xC7sCYj5rJ2WCofj3eviIhQESp9YtlzskhHGL5TzTM?=
- =?us-ascii?Q?4lbhQ0a6I2FoKlrBDM1kPRrdGDIkXAm0tLwCDXM1bvf4ddk7y3UaZrqxZgNQ?=
- =?us-ascii?Q?IMJKR0YwzaPgFgsJij+HHrcpJXrJr01+xwNWUQWmjsBVkpdco1ehWWhLU18n?=
- =?us-ascii?Q?k4fBD1sHmGm07Gqa9cJUw5Doga6OULorydf19iII2FhpshwVKBP2oGlmDaHt?=
- =?us-ascii?Q?f5eQ5+jiIVsUE3vjEWxDCINz1kjeYpxbooc8DVW/FsaEm/gaYKO45LLeTpi0?=
- =?us-ascii?Q?jQOqGIvGFbY9Z0h9Vl45D2/05fN1v7HbrOSlZaiT3PA5L42Js9UooCZVVOgF?=
- =?us-ascii?Q?Oh3mwMVRKUbYe9Cz3Mr1NS5XnkkLV2zcWzFI/M1l7xAaRQfYWZRhh3mnuS60?=
- =?us-ascii?Q?MG16Rjdvbb4QXUuDCHx9flOrVBlBC4ihmFA/w4TaKgSuKVHXUsGpp8sOngwh?=
- =?us-ascii?Q?vKKbD5jeBtD3mr5WBdAwwQibw9Mgq2xKti+Tw7qbWASA1ge5Ljn+Jfpf/hNL?=
- =?us-ascii?Q?sPTBQepiI9jcoIhhaLddO4wADkByteeZaHz2YT3KDnRCRDtiaggyCz9lbXHb?=
- =?us-ascii?Q?GcS4/kMhDDKrzw9nueasQGVFuu4V5YbpjQL6KahyCNhuQXXGup5scCtRrybR?=
- =?us-ascii?Q?TNiRMkqUl1B+9NMNMc1P5HMTtNxhgvdD+Ih+mkNt2LVIffqvKAKdV1RgEgb1?=
- =?us-ascii?Q?DUnrldR8/cTygsH8Xge+ENwhXD9dQhoCwTxdlMGa1L8AGGPTXB32HizaWD9s?=
- =?us-ascii?Q?i5e5iuqfMRqkKmz7Xhr9duO0yN5HFJuo2DRgZuPqhZOctAThW4NHZnSPUzEX?=
- =?us-ascii?Q?NahTG0VZtw=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c412852c-6516-447d-f737-08dee8648a5d
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2026 02:46:05.0897
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GY7AhfaU8vtcydWWrTo4BN0occH2dbtpYduMC3R/er1PlwHv/y6C78hTQfi25wSop9DsxXuKPFkIvnSctjqSFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB5339
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260516183003.799058-9-weilin.chang@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_194613_901484_9A6797A4 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_194729_707417_4630FC57 
+X-CRM114-Status: GOOD (  31.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,43 +104,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-devm_request_*_irq()"), devm_request_irq() automatically logs
-detailed error messages on failure. Remove the now-redundant
-driver-specific dev_err() calls.
+On Sat, May 16, 2026 at 07:30:02PM +0100, Wei-Lin Chang wrote:
+> Add a stage-2 page table generator, the s2_mmu structure, and vEL2
+> stage-2 preparation code for a guest hypervisor to turn on stage-2
+> translation for its nested guest.
+> 
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  .../selftests/kvm/arm64/hello_nested.c        |   2 +-
+>  .../selftests/kvm/arm64/shadow_stage2.c       |   2 +-
+>  .../selftests/kvm/include/arm64/nested.h      |  15 +-
+>  .../testing/selftests/kvm/lib/arm64/nested.c  | 145 +++++++++++++++++-
+>  4 files changed, 160 insertions(+), 4 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
+> index 9ed5285f5f2d..b57e41c73214 100644
+> --- a/tools/testing/selftests/kvm/arm64/hello_nested.c
+> +++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
+> @@ -62,7 +62,7 @@ static void guest_code(void)
+>  	l2_stack_top = ucall_translate_to_gpa(&l2_stack[L2STACKSZ]);
+>  
+>  	init_vcpu(&vcpu, l2_pc, l2_stack_top);
+> -	prepare_hyp();
+> +	prepare_hyp_no_s2();
+>  
+>  	ret = run_l2(&vcpu, &hyp_data);
+>  	GUEST_ASSERT_EQ(ret, ARM_EXCEPTION_TRAP);
+> diff --git a/tools/testing/selftests/kvm/arm64/shadow_stage2.c b/tools/testing/selftests/kvm/arm64/shadow_stage2.c
+> index c5332b8b5683..2b274b810dcf 100644
+> --- a/tools/testing/selftests/kvm/arm64/shadow_stage2.c
+> +++ b/tools/testing/selftests/kvm/arm64/shadow_stage2.c
+> @@ -72,7 +72,7 @@ static void guest_code(void)
+>  	l2_pc = ucall_translate_to_gpa(l2_guest_code);
+>  
+>  	init_vcpu(&vcpu, l2_pc, l2_stack_top);
+> -	prepare_hyp();
+> +	prepare_hyp_no_s2();
+>  
+>  	while (true) {
+>  		GUEST_PRINTF("L2 enter\n");
+> diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+> index fc59fabff12d..1bcbb31b8d67 100644
+> --- a/tools/testing/selftests/kvm/include/arm64/nested.h
+> +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+> @@ -38,6 +38,14 @@ struct vcpu {
+>  	struct cpu_context context;
+>  };
+>  
+> +struct s2_mmu {
+> +	gpa_t pgd;
+> +	unsigned int vmid;
+> +	unsigned int page_size_shift;
+> +	u64 vtcr;
+> +	u64 ipa_bits;
+> +};
+> +
+>  /*
+>   * KVM has host_data and hyp_context, combine them because we're only doing
+>   * hyp context.
+> @@ -56,8 +64,13 @@ struct page_pool {
+>  size_t get_page_size(void);
+>  gpa_t alloc_page(struct page_pool *pp);
+>  bool has_tgran_2(u64 mmfr0, size_t size);
+> -void prepare_hyp(void);
+> +void prepare_hyp_no_s2(void);
+> +void prepare_hyp(struct s2_mmu *mmu);
+>  void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top);
+> +void create_s2_mapping(struct s2_mmu *mmu, u64 ipa, u64 pa, size_t size,
+> +		       struct page_pool *pp);
+> +void init_s2_mmu(struct s2_mmu *mmu, unsigned int vmid, gpa_t pgd,
+> +		 size_t page_size, u64 ipa_bits);
+>  int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data);
+>  
+>  u64 do_hvc(u64 action, u64 arg1, u64 arg2);
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> index cda41f355263..9848d607ef64 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/nested.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> @@ -71,13 +71,22 @@ gpa_t alloc_page(struct page_pool *pp)
+>  	}
+>  }
+>  
+> -void prepare_hyp(void)
+> +void prepare_hyp_no_s2(void)
+>  {
+>  	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW, hcr_el2);
+>  	write_sysreg(hyp_vectors, vbar_el2);
+>  	isb();
+>  }
+>  
+> +void prepare_hyp(struct s2_mmu *mmu)
+> +{
+> +	write_sysreg(mmu->vtcr, vtcr_el2);
+> +	write_sysreg(mmu->pgd | ((u64)mmu->vmid << 48), vttbr_el2);
+> +	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW | HCR_EL2_VM, hcr_el2);
+> +	write_sysreg(hyp_vectors, vbar_el2);
+> +	isb();
+> +}
+> +
+>  void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top)
+>  {
+>  	memset(vcpu, 0, sizeof(*vcpu));
+> @@ -86,6 +95,140 @@ void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top)
+>  	vcpu->context.sys_regs[SP_EL1] = l2_stack_top;
+>  }
+>  
+> +static int stage2_levels(unsigned int page_size_shift, u64 ipa_bits)
+> +{
+> +	/* taken from ARM64_HW_PGTABLE_LEVELS(ipa) in KVM */
+> +	return (ipa_bits - 4) / (page_size_shift - 3);
+> +}
+> +
+> +static u64 get_index(struct s2_mmu *mmu, u64 ipa, int level)
+> +{
+> +	int width = mmu->page_size_shift - 3;
+> +	int shift_amount = mmu->page_size_shift + (3 - level) * width;
+> +
+> +	return (ipa >> shift_amount) & GENMASK_ULL(width - 1, 0);
+> +}
+> +
+> +static u64 pte_gpa_to_gva(u64 gpa)
+> +{
+> +	/*
+> +	 * This depends on how the memory used for s2pt is mapped in GVA,
+> +	 * currently it is assumed they are idmapped.
+> +	 */
+> +	return gpa;
+> +}
+> +
+> +static u64 pte_to_pt_base(u64 pte)
+> +{
+> +	return pte & GENMASK_ULL(47, 12);
+> +}
+> +
+> +#define S2_PTE_AF		(1ULL << 10)
+> +#define S2_PTE_SH_INNER		(3ULL << 8)
+> +#define S2_PTE_S2AP_RW		(3ULL << 6)
+> +#define S2_PTE_ATTR_NORMAL_WB	(0xfULL << 2)
+> +#define S2_PTE_TYPE_TABLE	(1ULL << 1)
+> +#define S2_PTE_TYPE_PAGE	(1ULL << 1)
+> +#define S2_PTE_VALID		1ULL
+> +
+> +/* No block mappings for now. */
+> +static void create_one_s2_mapping(struct s2_mmu *mmu, u64 ipa, u64 pa,
+> +				  struct page_pool *pp)
+> +{
+> +	int levels = stage2_levels(mmu->page_size_shift, mmu->ipa_bits);
+> +	u64 index, pte, pte_new, table_attr, page_attr;
+> +	gpa_t pte_addr, pt_base = mmu->pgd;
+> +
+> +	table_attr = S2_PTE_TYPE_TABLE | S2_PTE_VALID;
+> +	page_attr = S2_PTE_AF | S2_PTE_SH_INNER | S2_PTE_S2AP_RW |
+> +		    S2_PTE_ATTR_NORMAL_WB | S2_PTE_TYPE_PAGE | S2_PTE_VALID;
+> +
+> +	for (int level = 4 - levels; level <= 3; level++) {
+> +		index = get_index(mmu, ipa, level);
+> +		pte_addr = pt_base + index * 8;
+> +		pte = *((u64 *)pte_gpa_to_gva(pte_addr));
+> +
+> +		if (level == 3) {
+> +			/* Last level, install leaf entry. */
+> +			pte_new = pa & ~GENMASK_ULL(mmu->page_size_shift - 1, 0);
+> +			pte_new |= page_attr;
+> +			*((u64 *)pte_gpa_to_gva(pte_addr)) = pte_new;
+> +		} else if (!(pte & S2_PTE_VALID)) {
+> +			/* Empty next level table, allocate and install. */
+> +			pte_new = alloc_page(pp);
+> +			pte_new |= table_attr;
+> +			*((u64 *)pte_gpa_to_gva(pte_addr)) = pte_new;
+> +			pt_base = pte_to_pt_base(pte_new);
+> +		} else {
+> +			/* Next level table found, descend into it. */
+> +			pt_base = pte_to_pt_base(pte);
+> +		}
+> +	}
+> +}
+> +
+> +void create_s2_mapping(struct s2_mmu *mmu, u64 ipa, u64 pa, size_t size,
+> +		       struct page_pool *pp)
+> +{
+> +	u64 ipa_end;
+> +	u64 mask = pp->page_size - 1;
+> +
+> +	ipa_end = (ipa + size + mask) & ~mask;
+> +	ipa &= ~mask;
+> +	pa &= ~mask;
+> +
+> +	while (ipa < ipa_end) {
+> +		create_one_s2_mapping(mmu, ipa, pa, pp);
+> +		pa += pp->page_size;
+> +		ipa += pp->page_size;
+> +	}
+> +	dsb(ishst);
+> +}
+> +
+> +void init_s2_mmu(struct s2_mmu *mmu, unsigned int vmid, gpa_t pgd,
+> +		 size_t page_size, u64 ipa_bits)
+> +{
+> +	u64 ps, tg0, sl0_base, mmfr0 = read_sysreg(id_aa64mmfr0_el1);
+> +	int levels;
+> +
+> +	mmu->vmid = vmid;
+> +	mmu->pgd = pgd;
+> +	mmu->ipa_bits = ipa_bits;
+> +	mmu->vtcr = 0;
+> +
+> +	switch (page_size) {
+> +	case SZ_4K:
+> +		tg0 = VTCR_EL2_TG0_4K;
+> +		mmu->page_size_shift = 12;
+> +		sl0_base = 2;
+> +		break;
+> +	case SZ_16K:
+> +		tg0 = VTCR_EL2_TG0_16K;
+> +		mmu->page_size_shift = 14;
+> +		sl0_base = 3;
+> +		break;
+> +	case SZ_64K:
+> +	default:
+> +		tg0 = VTCR_EL2_TG0_64K;
+> +		mmu->page_size_shift = 16;
+> +		sl0_base = 3;
+> +		break;
+> +	}
+> +
+> +	levels = stage2_levels(mmu->page_size_shift, mmu->ipa_bits);
+> +	mmu->vtcr |= FIELD_PREP(VTCR_EL2_SL0, (sl0_base - (4 - levels)));
+> +
+> +	ps = SYS_FIELD_GET(ID_AA64MMFR0_EL1, PARANGE, mmfr0);
+> +	/* cap ps to 48-bit */
+> +	ps = ps > 0b0101 ? 0b0101 : ps;
+> +	mmu->vtcr |= VTCR_EL2_RES1 | SYS_FIELD_PREP(VTCR_EL2, PS, ps)           |
+> +				    SYS_FIELD_PREP(VTCR_EL2, TG0, tg0)         |
+> +				    SYS_FIELD_PREP_ENUM(VTCR_EL2, SH0, INNER)  |
+> +				    SYS_FIELD_PREP_ENUM(VTCR_EL2, ORGN0, WBWA) |
+> +				    SYS_FIELD_PREP_ENUM(VTCR_EL2, IRGN0, WBWA);
+> +
+> +	mmu->vtcr |= FIELD_PREP(VTCR_EL2_T0SZ, 64 - ipa_bits);
+> +}
 
-Signed-off-by: Pan Chuang <panchuang@vivo.com>
----
- drivers/soc/ixp4xx/ixp4xx-qmgr.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+I understand that the selftest intentionally passes 40 as ipa_bits to init_s2_mmu().
+However, with a 16KB granule and DS=0, a 48-bit IPA requires two
+concatenated level 1 root tables, which this implementation does not
+appear to support.
 
-diff --git a/drivers/soc/ixp4xx/ixp4xx-qmgr.c b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-index 475e229039e3..6e1fca630b80 100644
---- a/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-+++ b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-@@ -421,19 +421,13 @@ static int ixp4xx_qmgr_probe(struct platform_device *pdev)
- 
- 	err = devm_request_irq(dev, irq1, handler1, 0, "IXP4xx Queue Manager",
- 			       NULL);
--	if (err) {
--		dev_err(dev, "failed to request IRQ%i (%i)\n",
--			irq1, err);
-+	if (err)
- 		return err;
--	}
- 
- 	err = devm_request_irq(dev, irq2, handler2, 0, "IXP4xx Queue Manager",
- 			       NULL);
--	if (err) {
--		dev_err(dev, "failed to request IRQ%i (%i)\n",
--			irq2, err);
-+	if (err)
- 		return err;
--	}
- 
- 	used_sram_bitmap[0] = 0xF; /* 4 first pages reserved for config */
- 	spin_lock_init(&qmgr_lock);
--- 
-2.34.1
+Thanks,
+Itaru.
 
+> +
+>  void __sysreg_save_el1_state(struct cpu_context *ctxt)
+>  {
+>  	ctxt->sys_regs[SP_EL1] = read_sysreg(sp_el1);
+> -- 
+> 2.43.0
+> 
 
