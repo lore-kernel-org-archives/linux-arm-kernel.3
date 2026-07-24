@@ -4,148 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FED8C4453D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 04:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250D4C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 04:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bKx8j17VfXteH3cvoFAZazFKVUiyNadP4JgkdAICPV4=; b=JhiQLHSOLqC0dHl2hOSeLNECrA
-	SQ+Ry5Nep++fcNmjCBofsePjEKJTNgt6TIF90HgiPUbF6FmVKtvu0vIyfFlKzOB6QTPanijxYqIg3
-	RkN+Ydt+2iHaUd3XP8GUDZRUsL6SWlQzW91VUxuzuaPgCISxltSA74W+3RiCZ37Rmzfm63ezRy9PJ
-	I/VX29nR1HzFxU7j6181uUE5PdxTMfwFNh7yimvCykz7Z8Pq2vwNupCGND3Uy2LTVd+cS1/+pXv2U
-	OMRMJ/zcg6pam6vXzx3Mivh9dgwzXXM278zA9KGbJfUsUfukCujJDFbZWGmn7kV2w1oVgj20YNHrs
-	u0hmF6QQ==;
+	bh=nwL2L4/DF2ksXefGABAxcQngTbRfoQ/xpLh9rKAhdIU=; b=qlG+Bz5bPtjJGdCE7KZFXlKiCS
+	QdDlMr7m3QJcqMGTZiXUeyE0ZeoSI5Cq57ij45l1p+O6aGdcvxH9+W7K3sYMDQSfwUekZ0lyl0CGy
+	pN6JQugGkgfph3Xa8fxQb10rQ+3LZSI5mIXjentJhIs8mhimspsx6AS/dv/DnUclMXQ+t/u1s3lVP
+	W6KfzCBWiZsMMyeEJSLcF/7DSBvJRwbJQzlMIf5AUj3LHMWlGaAQzG4+L3bE74BR9ZHMB9C5WDOPS
+	P13o66rEn89S9KrrP0cE4yjCVpJO0sNLhKS/uknMTdpfUw9rUekJ78LUi360V0amcjX9OJCqaenTO
+	8lj02V5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn7H2-0000000FSJk-41fv;
-	Fri, 24 Jul 2026 04:12:36 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wn7Rm-0000000FSvB-3kPQ;
+	Fri, 24 Jul 2026 04:23:42 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn7H0-0000000FSJM-0nWu
+	id 1wn7Rk-0000000FSun-0V8J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 04:12:35 +0000
+	Fri, 24 Jul 2026 04:23:41 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TrnRrtBUHbr/0AifhOZ0AcA2OxJ2fjkS3bSub9EqKtxu2L6QjSkUyzplQ9Lf3PFDQhlNCV9JyO3w9FLnxxac+iUW4f0kBndFKYaZ1Zi1YaQTBYss33fDyk9sUBWnN2+lQyn3WZ9P4Ewo1noUvs1KcCfs+bKJj9smN6dtiX+gTXTEiwNrY47OUAqkB5Do41vtFvPFvJhYfUdyzkEx8WolbJai8ifoIIVOWPyOyieLhONjHjOjqoDDmwTt7hwDqk9E0Al3hB0TJ3iLW9+E/0u5X11WUTS+lTy38mmxIHDOmSP2tLv7lLQ36PPpMib4osnru6Va6+P4jDgspXgTj5mIVg==
+ b=wJTQi8yI7zOZzw0BJj657c1a5vk3lWrhUkSWlG66ykwOxy/ayp7ATG0PnVBzP0iYM8hSHkCrrz8HLLVy4ecIdQabX0taZbaMCpOrUqbGM/RBawkFxT7ckOP4n/L+HhzOi7lKYSHm7RuaUDFGXtk0riOD/+oide19FtYpkstxMvrhX7yE7fvf3siVme0bBafzHZLrkPbL6Q7EcvceNVPcAH/XE0fo/oTs7F2ol/338LuBL7BlwCeQ91LCzTcd7g4jEJjRKzgKrD0AxisOBT/v51JHWj+Z54leZxv2mDnbxkegWp0sTbdydk28jzT5Xu59maRCFiMPKHvBQiCC5lJnvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bKx8j17VfXteH3cvoFAZazFKVUiyNadP4JgkdAICPV4=;
- b=G1cPYLsx/3hN8WjlwGx0Uh7UVYVXKeLUIekWBx5I4GezgiyIPsgCeWvXRLW9luliUsMRsij4PCF/wB86eLJKl57lAeQgYdIlYYUEIKkjivIPFI0pf/8loKwrxScZJr49cHpf9GQ3RMwEUbWywX+sSHu2UpPj8bJJbCr+w73qPAjMWfG9m3UGwGYAjecOiWc36jn1TYDqx1zQ5+YT1SzfwDvnBwKf1dJC/wX6F5HAqdi25aiCII5hCX0bNHjNCYdsvfbUWRtbARInAmV6zoNwHQxK5GOWcFHcENq0Ks5bNuKNAV+upO06nen6m9B+LEQNz/rE0szLLzdA248Ps3nrPA==
+ bh=nwL2L4/DF2ksXefGABAxcQngTbRfoQ/xpLh9rKAhdIU=;
+ b=VLFjUEQ6Oc9QclYSzjHCxN0FsJXcb9JsGXsxu6I+tLTIgJ0/i2iJH75ai0GHSC4199s3vYwlrEJjvYAuDxsBA6ZCchbAceLqheTNJfliM1zjNmA3NmuG20wykvb3m2lhIvRgOofGDCHm7RYGKIdZnvyaMJd/U1F1SjIuF3xHNOVAwOezaD2pGmdH4jvm3kenQaFAIdtbInHYYlYdgqdpoXqWcXtoDMm4RvlSmDTlYhIKqfTIcWM0UAWKjhod3zjbU5FBHk+iQg/ynBs2IYgczG/3rQle7HvFBmsC33+PtnQNqhrQfFFubX4wQ4DA+SGDhhR4qEO603dtteQ8l+wkfw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bKx8j17VfXteH3cvoFAZazFKVUiyNadP4JgkdAICPV4=;
- b=DM1k3Qc7UTjLEmRB0Vlh4OvJqArunUIUjG3vhjrDq99Z1UIpVsz9X+b48JuCmLkokBjR2Luqc+WVGz8Hp7JVKEOcjF8L9PaORSS1CVSVvO4wu13fxdxzA9+xBbxK+xBTs1ctJJVKZHjki55vpZGJzOuO39YciFJ+7mAY9Q6icg+ZBcCTkdMEf+HFVjF0kltb0Q4odShtPfEqVdTeT/6xNI7X70GIs0VuOOJYOO+Ka6uO3w4fQl0TMa4SVGp/ypaB7NwSfYAlxNqYeoLU9SUXmzIVPbUWknBOfGZcVp5UR5somiEvAANQNqAthDj1eYSnGsa4AnLVmGc81cSRrSxOyQ==
+ bh=nwL2L4/DF2ksXefGABAxcQngTbRfoQ/xpLh9rKAhdIU=;
+ b=Dt9ZTZU5/J+KsVkLDmLzG2tIeJrYoi+0BsviVoidGW2j1GrOpt7WU6h69aMsrzFRLVXcoPjXLBNczhdiVlK5L3LnmrLLpCfUgZsu1eAP6Ky772UUPKMSBkK9pZBAigpeyIvxGvXibG/X8Ikq1qRl+Cj9vgBSvxGnHb+hfPO8g95QoWXN8KwpBbDFvK3zit1Iycm14FhD7PmeTxttq7zvQyFcBAoMv/nv4z+t5t50ki7HrFkVeo8ZSV2dNXSsHkGD4IGBLzwWUGa+pkMFwIuZqQVGGZDnhPJEpPtuzxrZt1W78l49TEBgu3L5lz/u+TVBEld3E/8tbNA88z1iWWqpig==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
- by AM9PR04MB9002.eurprd04.prod.outlook.com (2603:10a6:20b:409::6) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
+ by CH1PPF2D39B31FF.namprd12.prod.outlook.com (2603:10b6:61f:fc00::60a) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 04:12:29 +0000
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
- 04:12:29 +0000
-Date: Fri, 24 Jul 2026 12:13:54 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Robert Chiras <robert.chiras@nxp.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v2 3/7] drm/panel: simple: Add waiken WKS101WX001-WCT
- support
-Message-ID: <amLmgrfQVrYo3knq@raspi>
-References: <alnCL7ylMyvGD-ui@raspi>
- <amAJL9TIcDAK7kbh@SMW015318>
- <amA8iVS4c0exg6pT@raspi>
- <amA_lUpWkbOFal1y@raspi>
- <amFAXwoM4j2sIENj@SMW015318>
- <amF60o7yUcqAE24N@raspi>
- <amKJZ4CZJbeBw6L6@SMW015318>
- <amLNge6hp25xHDYc@raspi>
- <amLZAu2RQXORogoG@SMW015318>
- <amLibmRsBY8lgj2K@raspi>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amLibmRsBY8lgj2K@raspi>
-X-ClientProxiedBy: MA5PR01CA0161.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1cf::16) To AS1PR04MB9287.eurprd04.prod.outlook.com
- (2603:10a6:20b:4dd::8)
+ 2026 04:23:30 +0000
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
+ 04:23:30 +0000
+Message-ID: <da01c304-2349-436d-a38d-6b925b6fc86d@nvidia.com>
+Date: Fri, 24 Jul 2026 09:53:21 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/3] iommu/arm-smmu-v3: Introduce CFGI/TLBI-repeat
+ workaround infrastructure
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, robin.murphy@arm.com, joro@8bytes.org,
+ jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, linux-tegra@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>
+References: <20260722102033.1122277-1-amhetre@nvidia.com>
+ <20260722102033.1122277-3-amhetre@nvidia.com> <amETqr7ZBtgt2DKu@nvidia.com>
+Content-Language: en-US
+From: Ashish Mhetre <amhetre@nvidia.com>
+In-Reply-To: <amETqr7ZBtgt2DKu@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR05CA0158.namprd05.prod.outlook.com
+ (2603:10b6:a03:339::13) To BN5PR12MB9511.namprd12.prod.outlook.com
+ (2603:10b6:408:2a9::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|AM9PR04MB9002:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d43ee81-f1cb-4dca-c9fc-08dee939c6a3
+X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|CH1PPF2D39B31FF:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd366172-7273-41c5-d439-08dee93b50a4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|23010399003|7416014|376014|56012099006|10067099003|11063799006|4143699003|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Fid8l4iW0eyCZxYbW6hlh3pPAEvzaEYyLn69hoDxbsT81dT+GVtqgZLJjsxA1rkLcqKycAxZyphHohvuM0QSKuE7Ua9IywXEWqGQGwf3X7+1TwxUr9INRlZXEkDby7T9UGbejqsQYCmRAqfruTZQ1FxLUn+eEg+XsYKwhRYeAeeQ2xjacyA/RLtk7Z+ztuWu8MAUF9s7MSw+bScJZyLCBrzqLKJ0ivCIl4CgFhz1S9fZzba3CYITGRl68DAJrqhmOPk4BUuPlZhI2r8fyudiAdfyTg0wMXhxdkQweyczFb64MJTUyF6ASWiDNoU7feUZz1G1pN5MBpRztGAmIB5gQiDl6xFJiBMFR8KfpKqcIYebTtcYXETg+nE6qyfA5VHYvO1RcMNzzqyqvKrDmd+XKBlzwsJLRJs6mK54/egPhJ4+ZkYGkqvGA9mMfDzs8tfZsWY8i4sMIOyT+AziQpswTuh2FZBPII69GaFNiHs0cgaxwSCRhiebJwEr62GHJgNXiuJjRBckOFdUsFx3uI/+BX//g582uUjmzIxEBqli9VvkmChOR4qwj8LQhfvTcW/87FCraH2z9IOG8tprRDHGjppRmCU0O8Cw3UBl6h4vE9ZmeULGnW4p3KaiqODyr4E6btryCVKpTOZKNKRtjIo566Daj/tNBDauE84jwwgNeyY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(23010399003)(7416014)(376014)(56012099006)(10067099003)(11063799006)(4143699003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|22082099003|18002099003|10067099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: 4eAyIl2/0MBMph0bfew7l1PKTL1LluAwMX7PW0DXA3huBuKNJO0/gdsTM56CsN9idjKP+/0BY4xph+DJMTTReKM7YBgXcGIEdoWLe5+4mzFRutl6ywuklb8w01FwwBWvalNILC6DgogENePXHyBb05WIlTyMHii5On0agq1IO95CaA0N+TQnCUsFCwE0hRWnIm1sPIaUMvVglZp1BZ7fzh0vhiQSzRX4aSt+3SbM83L6JeoI3nlCYaBeCmDl0FVro7jbUh4ihAO6gV1ypT1/mNWDDRqymiXHAdwsZs09nBhKUxGQ5xEPCtme9ERKWSSzIFQyCWoqIxWoE9FMwaE59zy75Rs6B19IsvSdQ3nWU8++yoXwutBdOHLMeDALCGcUe6HctEynp4JWWraW4uSo0UibvvRT3H2uUJjA8FoKrx85J/Wimmc8a6928HkAcChAwWQYvtVOjSdpnFY/JvqVHBuHAezzHAMzoZ8vqWHGPkDgCxbJUraJHIV6zPdVDUVNzb/6WTIsNqS+4qQaJ5IdRYHYVzxKsmvcWhTsXbBwZRANJAhpxR1/lGrqbGMWPVG7fAgLAidfKJ4dq6q4LDAMVHrVDitE8icLfpOtsCMAXvbqatL/70MxT9GTWPF95QJQGVoZjQrfOphxe7nM/xt9PglJ18s2paHy1fJOkzdNRlU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(22082099003)(18002099003)(10067099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mK4h0/bJISodVHhyegrbWNp6qY3hhy9IUd3bBk0yzBXHPyZFlDZeogSY4YTw?=
- =?us-ascii?Q?HD6kzd3Fpgw6YjfKoYuHCw44Xw/4bOdHhJTRmU/C1hdRtvH3sUklSfhy/7UP?=
- =?us-ascii?Q?2UjG/Z57cMdQvixyovI4al9J4vA3wFRkeNnCjEY9viFeFsj1khmSNIg3FBzX?=
- =?us-ascii?Q?KqOz8EEj1Dq2xU6gtkAJBt2G2h1ppOSde+IVNFP1TuUcBLgJ+6oFqhMWvcQ7?=
- =?us-ascii?Q?yNt5ddK6WvICILbT9cyi11RS7wBOoZ17UumK4GsIh7jv9OrBlmF3IT0mD9ri?=
- =?us-ascii?Q?HWemh3gN7imznCwc5gW3x9geQRn7roRjQHbeLqn3McqJQAYjvqn15skSIeiL?=
- =?us-ascii?Q?86rZVwrhsdsGBDnrEv93/B+f9CWt2vPlH1QNSBKY6xGMiHWC43p6Laq6BeRY?=
- =?us-ascii?Q?0EOKyW+SSZEFkGr+jbe0sgZsnZ32AIGCvOLF6v7iXTGKE/fcl6R8HYDEOLpg?=
- =?us-ascii?Q?b/0vaYkJNj84dGFj9PSvBwryD2LgOdQJCapc6UAMS0xPbX+Mwp1mUOAruqSd?=
- =?us-ascii?Q?SNFS+ObmQ5XZgstcy//3rPfB3JUwSe+vVRHjk9XkoWljgp6VYuknyWm9iEc5?=
- =?us-ascii?Q?AEU0T2VrpSUPrFT+1yv+7clDhzpwgigQo4pjmHhQVJK+pMo7bgn2i+g2KsXC?=
- =?us-ascii?Q?fR7GeIRgkUbkQXQojmupAbth4BY8XhK9F3Uc4IOvSkIg5sprQ0DIIy4rVXXy?=
- =?us-ascii?Q?J2rFUKbExiFXxeL9kLzoBTU8dTh8zFq4sbxk4ihgG+hZGTbpsMJdgvw5Jemj?=
- =?us-ascii?Q?fLnTASpCIK085/UPUVAb5kM0TOoRcaXHmBqUYm+//IevoJqsLz685Wn2rW4A?=
- =?us-ascii?Q?1kBnp6MTy4LRDonyyn6s2BX6+lxFOgpoFTK72QkHH2tHcZGNLbfpq0fWEAdP?=
- =?us-ascii?Q?0zdxytOj3e0x8u6gnt/DBtK1eMQfnXAM18R0zKrIEfm0CWxWhOZ1XFHwSh8Q?=
- =?us-ascii?Q?1wj7Unphe4nvAs818pxUv4Ju1zoISmYP/fixq/Ha3eQEatBHAp68mkwH75t9?=
- =?us-ascii?Q?cNmUL6Bu/Bd/lJAHmN+QzaMGmeXcSbBSoh9eRS9KDWZ9cnUfGA1TCxYtSdQi?=
- =?us-ascii?Q?UAhhnHdk95182Nf7r718WmE4Awjt8iUBnIh3sayOZ/wK1jiCbT+bodCPPGFj?=
- =?us-ascii?Q?FE/JrtldOKAX26U5eYBTT5ycpyLCmP06UJa2OAcopB4NXQ3N29/HXvO++3g6?=
- =?us-ascii?Q?ExJr8YND5bhYjkD0s6ZnMifimJc2uV0TmcvAI+nk9nut3eZkdx1GXIMM2GPk?=
- =?us-ascii?Q?lJC3eKR5nNzGky+Kwctd2uvRKLhTE7OGnK1Jz3+Ha498uTkw/83neKmvr100?=
- =?us-ascii?Q?XkogvvevPJ7u5BAd/FS9AogNf/XCOOJEaA0l3/7nemI0K9dxX++q2LTUmEwU?=
- =?us-ascii?Q?g5idF1rVgxSzqKPpdfnjEJMieMrtuSD/02dyDCQx2auRyng3VkiZJuegjRzO?=
- =?us-ascii?Q?jcM41SzLoTPcJGN5TOeYuWabkDAGQxqouuhk3mXNYSq5ew5D9cAe6fN4Ag3M?=
- =?us-ascii?Q?PvXOXt3Ur5I8zr+pyifJKFElGU/7d2/RVlRkkRMRDQUV6Poq9ywTe3Nop3Ss?=
- =?us-ascii?Q?DdwYkYWpKm8ICoKtET6FgFjGtIzOEXO0/ke9kGrsA4mEyT+94lwvDeNiuk5a?=
- =?us-ascii?Q?km01E6xTwEx/vk7KqZyD96LaBTNwHLz399vqIb8JPWPESYJAMZzh0qy79h7n?=
- =?us-ascii?Q?O6bp4Y7vJNwwcxhx4sL/oF2W+a/dYHAMVMD+doket8hB9ipBhr4IiIyFh5xj?=
- =?us-ascii?Q?h7CtCY1YAg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d43ee81-f1cb-4dca-c9fc-08dee939c6a3
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RE9SN2F3RGkyMFA0bzFMU2NxeXlWQS9vbHJpZjE1Zmh0QTIrRWs5bGVaZDRX?=
+ =?utf-8?B?QWhSWTBNd0hZNnBaU1BkU1QrdUY1eDREYThFWWhqdXIvQXk4Z0FsYnhPcDZW?=
+ =?utf-8?B?Z1lsWERJaWJRMmxkRGZIWkxRb0RwU2hTWUdqalNqRG5yMXBOQUxYZ1pJaXVM?=
+ =?utf-8?B?V0ROdm4xWFhjT2tHY0VBU3kzcGFtS0o3VUhVSm9Ddk9vR0Jrb1JHdU56Z0w2?=
+ =?utf-8?B?U2V5UWVMWE1jdDBOU0VSb3dVRE9ybFJrbHFVditpMDhjNlYzOUExakltOUEy?=
+ =?utf-8?B?a3habnMzZ3VXRlZQdm05VXBISmtQbDFIR2tDTzgrRVh4ZVBjVEFORkJwcUh2?=
+ =?utf-8?B?Ymc2U3RrVitnenJ6VXoycU1jKzR2OVpZT09oRzJPdzE2NkFxZmJNSnM5RFlW?=
+ =?utf-8?B?dU01U0NBbFVBanZFNDNOTk5KNERyWEdXTmtaRUZWOVlCVjhBNGg5VCt3dEFo?=
+ =?utf-8?B?VDl0Q3BNZ1I3cER3bzQrWWJkaW9ZZzBkVGVSV3EwMUZTZEo4L1gwR1JCREhq?=
+ =?utf-8?B?cmhrQU9HVjJhcStSRExuSXFKNERIZVRlM0ZJRHIwOUg1aHFHU3I2eGhiSkZS?=
+ =?utf-8?B?RnFRWTREQnQ3T1VNV0oyNHp3aGg3SjdRak5Xanhqbjg1SldUMjdiak1OU3R4?=
+ =?utf-8?B?QnNneUxoVklVTFZiekVYdmxlL0dRZkxNSjZWRmN5SnhiRVViYnhQNjRYbjlK?=
+ =?utf-8?B?ZC9qa0R6U3JLT3U5QmUxeVk5dkJmMDQzSEE0NDYyNHdFYVhmVHRYVVhiQ0NF?=
+ =?utf-8?B?Qm4xdzFXVUJJV2FtMk9EaUx6UVdqV0luZEFlSWJNSy9RZzZnK1FON2JvZWZM?=
+ =?utf-8?B?YmRtYzN6M1JhTVhHZktYK0EzR1ZsRjhmK2NFZTJ1enM3ZVRNem5mdnBTclc4?=
+ =?utf-8?B?REFRRVMzSEw4M0ZkREROTmF5ZlA4K3BsRkh4UHFuUVRPWVVtN1hIMjI5RHJJ?=
+ =?utf-8?B?UGpON3JiRDlnTWI0RFl6U3Uvd3J3dFNlV2tSR3pySHBRWW0rNHlRQmQ0LzR2?=
+ =?utf-8?B?UTVDTTI3S2RNWWpUcTg1M1BpQ3FIcTNQYWM2WWMxSGRXY2p4bjQ1WnJ2bU1w?=
+ =?utf-8?B?eVhTdklUK1YwUU80RWM3UGVWZ1hWanZzUGQxMW5qWUFWdUx1ejFwM1RPU1c3?=
+ =?utf-8?B?ZHIwODFLUklzcDllQVNsRklIbk43NElVNGdVY0hlSDA0YjU2Q1JNY0ZuZGFC?=
+ =?utf-8?B?aU5QaFoxSVQrbWNXbVZkRllnS0hic0RzeFYrRjZOMXdYZWpIbEVhYWF4M0FZ?=
+ =?utf-8?B?L2Q2M1hYN0V0RzNEOEY0UXlScy9nbVNqcGtWS2hvM3V2VU1mbld5dWoxbFVD?=
+ =?utf-8?B?cGs3RnRScHZVVXZGaWZNNXJXdFQwUktDbEw2dGhXcDZJczJmb2QrUFlTVXlR?=
+ =?utf-8?B?MkgvSHFQUkM5ZDlwMGNlK0ltS2tDWWdIRVI4Z0N5b2krVVo5N1ZvT05lSTlw?=
+ =?utf-8?B?eTFyc04yQy9FQUlmRWxKb2xBUmpkUHpndEg2ZTMxenJJSnlxWlhyU1RnWWJV?=
+ =?utf-8?B?dGFQSUd6dHhIRTBSeTdWNzBqUjlGMjVPT0FOK3Y5M3prMEt2SEU4M1p1QmZq?=
+ =?utf-8?B?WFBNRlowZU9EUWRUeHlOL29ZRVk5U2NRNzhTalRXOHcvZlpvdGc3K1JNKzc4?=
+ =?utf-8?B?N0Y3K1FGUXRab1ZkR2RySzgzb01URnd3YlgvV3A2bUVvT0I4b25vaysyN2dV?=
+ =?utf-8?B?K1F0RHhEY090QkVvbjV2MUxEeEVGNWl0dHpLOGZDMVJvRDNCa2hEN3ZGdm9s?=
+ =?utf-8?B?S0xkS2hWTDhJNXNUbElrNlpBT1EzTWxWdDg2eE1YUGowWlZtcU9mSDd1ZFYv?=
+ =?utf-8?B?L2h4bWhHeDZZR1lEOEZyRnhwc3FXYXVtbEVmQmYxa05DbDB2MTEvZ3ZtTUht?=
+ =?utf-8?B?dno3THBUYVNSOU1xcHlyZzRaVG9PNzhVck5BRWJ6S0JGL0NlZDhnVzBuZDZp?=
+ =?utf-8?B?QklqbXNDaUZLT0FqRnAzWGdyZlcwZVh2NEhUaUM4QmVOenZtQ0JHM2EzR0lL?=
+ =?utf-8?B?TWFVVm5mRXF0REZHYUU2M3h0MHpWb2NqNUluajNVdkVBWDFDNkNDZ2RjMFJL?=
+ =?utf-8?B?OHlkbVV0QUYyMnVFTVJMM0lzVUJaRC9tL3Y2ZVZicCtUdTFZVHlzb1JSSUgz?=
+ =?utf-8?B?ZHYvazlFYjh4VU5BZDJabTVaeUh5Y1kzVm4vdEErVk5wTkhQcHdsdTIzdVNw?=
+ =?utf-8?B?dFZHZkJ5SDZKZk8wWWlGOUZTd3lVaDZydUh2ZGhvdEhTZUU2MzE0NnVVT2xK?=
+ =?utf-8?B?aGMvMFZUUUs4TlhaSldtdFQ4U0Nsd2E0SGFFK1hyekZLdzdRY0JaanNFOUNz?=
+ =?utf-8?B?dmorcEN6UVhsK2dCQ0IrRGJ5SWZpQmlGbUc4Q1JKczQrVjZ5a3pWdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd366172-7273-41c5-d439-08dee93b50a4
+X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 04:12:29.0628
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 04:23:30.0129
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: scLdCXkuq9asa9N8fZtzk6LPESt+3uyR7EkX5ePWJQNSinQd7J+86fUwSR2BeDc0Kb2JojhMayuYHEW9zhJu8g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB9002
+X-MS-Exchange-CrossTenant-UserPrincipalName: M/eXG4SO4N1O+FDi+JPqStkgd+A/+dyCNFphwysIJKZ5rtGimf2cpkYUIK5qY779p2zcgkCo0yLnWhGfowzOmQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF2D39B31FF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_211234_389424_8D4F8F2D 
-X-CRM114-Status: GOOD (  52.78  )
+X-CRM114-CacheID: sfid-20260723_212340_175233_8B060A94 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,183 +153,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 11:56:30AM +0800, Liu Ying wrote:
-> On Thu, Jul 23, 2026 at 10:16:18PM -0500, Frank Li wrote:
-> > On Fri, Jul 24, 2026 at 10:27:13AM +0800, Liu Ying wrote:
-> > > On Thu, Jul 23, 2026 at 04:36:39PM -0500, Frank Li wrote:
-> > > > On Thu, Jul 23, 2026 at 10:22:10AM +0800, Liu Ying wrote:
-> > > > > On Wed, Jul 22, 2026 at 05:12:47PM -0500, Frank Li wrote:
-> > > > > > On Wed, Jul 22, 2026 at 11:57:09AM +0800, Liu Ying wrote:
-> > > > > > > On Wed, Jul 22, 2026 at 11:44:09AM +0800, Liu Ying wrote:
-> > > > > > > > On Tue, Jul 21, 2026 at 07:05:03PM -0500, Frank Li wrote:
-> > > > > > > > > On Fri, Jul 17, 2026 at 01:48:31PM +0800, Liu Ying wrote:
-> > > > > > > > > > On Wed, Jul 15, 2026 at 02:34:48PM -0400, Frank.Li@oss.nxp.com wrote:
-> > > > > > > > > > > From: Frank Li <Frank.Li@nxp.com>
-> > > > > > > > > > >
-> > > > > > > > > > > Add support for WKS101WX001-WCT panel, which is an industrial-grade
-> > > > > > > > > > > 10.1-inch IPS TFT LCD capacitive touch screen display module.
-> > > > > > > > > > >
-> > > > > > > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > > > > > > > ---
-> > > > > > > > > > > change in v2
-> > > > > > > > > > > - update height to 135 from 136 (sashiko)
-> > > > > > > > > > > ---
-> > > > > > > > > > >  drivers/gpu/drm/panel/panel-simple.c | 31 +++++++++++++++++++++++++++++++
-> > > > > > > > > > >  1 file changed, 31 insertions(+)
-> > > > > > > >
-> > > > > > > > [...]
-> > > > > > > >
-> > > > > > > > > > > +	.connector_type = DRM_MODE_CONNECTOR_DPI,
-> > > > > > > > > >
-> > > > > > > > > > Seems that the panel also supports LVDS input according to the specification,
-> > > > > > > > > > since it mentions 'RGB or LVDS Interface'?
-> > > > > > > > >
-> > > > > > > > > Need hardware rework to use LVDS. Need remove banch of resistors. Should it
-> > > > > > > > > be treat as difference panel by different compatible string? hardware
-> > > > > > > > > actually changed.
-> > > > > > > >
-> > > > > > > > Not sure how to handle that.
-> > > > > > >
-> > > > > > > Wait, you probably may drop this patch, just document the compatible
-> > > > > > > string in panel-simple.yaml and panel-lvds.yaml and use add a fallback
-> > > >
-> > > > panel-simple.yaml don't allow fallback to panel-dpi. Need seperated yaml
-> > > > for it.
-> > >
-> > > Really?  How does it disallow that?
-> > >
-> > > I can see newhaven,nhd-4.3-480272ef-atxl and osddisplays,osd070t1718-19ts
-> > > are documented in panel-simple.yaml and used with the "panel-dpi" fallback
-> > > compatible string.
-> > >
-> > > Documentation/devicetree/bindings/display/panel/panel-simple.yaml:244:      - newhaven,nhd-4.3-480272ef-atxl
-> > > arch/arm/boot/dts/ti/omap/am437x-sk-evm.dts:127:                compatible = "newhaven,nhd-4.3-480272ef-atxl", "panel-dpi";
-> > >
-> > > Documentation/devicetree/bindings/display/panel/panel-simple.yaml:268:      - osddisplays,osd070t1718-19ts
-> > > arch/arm/boot/dts/ti/omap/am437x-gp-evm.dts:89:         compatible = "osddisplays,osd070t1718-19ts", "panel-dpi";
-> > > arch/arm/boot/dts/ti/omap/am43x-epos-evm.dts:45:                compatible = "osddisplays,osd070t1718-19ts", "panel-dpi";
-> > > arch/arm/boot/dts/ti/omap/am57xx-evm.dtso:62:           compatible = "osddisplays,osd070t1718-19ts", "panel-dpi";
-> > 
-> > It can't pass DTB_CHECK. it may add at earily time. panel-simple.yaml
-> > have not fallback compatible string. I tried it. DTB_CHECK will complain
-> > too long compatible string if add "panel-dpi".
-> 
-> Yeah, I missed testing panel-simple.yaml with DTB_CHECK.
-> 
-> So, just don't document the panel compatible string in panel-simple.yaml
-> and only document it in panel-lvds.yaml(not today, but until someone really
-> uses it).  Then, I'd assume that the "fallback compatible" solution still
-> works.
 
-I need to correct here that if we follow the "fallback compatible" solution,
-then we need to document the panel compatible string in panel-lvds.yaml today
-otherwise there would be the below error:
 
-failed to match any schema with compatible: ['waiken,101wx001', 'panel-dpi']
+On 7/23/2026 12:32 AM, Nicolin Chen wrote:
+> On Wed, Jul 22, 2026 at 10:20:32AM +0000, Ashish Mhetre wrote:
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> index c909c9a88538..9508bf50d14c 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> @@ -1207,10 +1207,15 @@ void arm_smmu_attach_commit(struct arm_smmu_attach_state *state);
+>>   int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+>>   				struct arm_smmu_cmdq *cmdq,
+>>   				struct arm_smmu_cmd *cmds, int n,
+>>   				bool sync);
+>> +bool arm_smmu_erratum_cmd_needs_repeating(struct arm_smmu_cmd *cmd);
+>   
+> Is this needed?
+>
+> Nicolin
 
-> 
-> > 
-> > >
-> > > >
-> > > > > > > compatible string "panel-dpi" or "panel-lvds" in device tree plus a
-> > > > > > > panel-timing node.
-> > > >
-> > > > previous dt-binding discuss, don't allow failback to two compatible string
-> > > > sorry, I can't remember exactly thread.
-> > > >
-> > > > like
-> > > > items:
-> > > >   - const: ws101w001-wct
-> > > >   - enum:
-> > > >        - panel-dpi
-> > > >        - panel-lvds
-> > >
-> > > I meant just to document the panel in panel-simple.yaml and panel-lvds.yaml.
-> > > No need to add a dedicated DT binding file with such a compatible property
-> > > for this panel.
-> > 
-> > panel-lvds.yaml allow fallback to panel-lvds, but panel-simple.yaml not.
-> > all binding which allow fallback to panel-dpi, there are seperate yaml file
-> > for it.
-> > 
-> > of course TI or old platform, especially arm32 platform wrongly use it
-> > regardless DTB check warning. But for new platform, we can't do that as it.
-> > 
-> > Frank
-> > >
-> > > >
-> > > > > >
-> > > > > > Look like recently prefer add panel-timing informaiton into c code instead
-> > > > > > of put it into dts file. But I am not sure about it. Just check recent's
-> > > > > > log history.
-> > > > >
-> > > > > If display timing is specified in panel-simple.c, then you have to specify
-> > > > > the connector_type there too, right?  The problem here is that you don't
-> > > > > know the connector_type, as it could be either LVDS or DPI, and I'd assume
-> > > > > that we don't want two compatible strings - one for LVDS and the other for
-> > > > > DPI.
-> > > >
-> > > > If supported both type, generally need customer property and new panel
-> > > > driver to switch between dpi / lvds
-> > > >
-> > > > or use
-> > > > 	ports {
-> > > >
-> > > > 		port@0: //connect dpi
-> > > > 		port@1: //connect lvds
-> > > > 	};
-> > >
-> > > I'd say a new panel driver for this panel is a bit overkill.
-> > >
-> > > >
-> > > >
-> > > > I think we can defer this lvds work until it is actually used because
-> > > > - need a big hardware rework to support lvds, most likely it will not be
-> > >
-> > > Per panel spec, just remove a few resistors, which doesn't sound like a
-> > > big rework to me.  But, perhaps, this doesn't impact SW solution a lot though.
-> > >
-> > > > appeared at real productions. If it mass production, vendor most likely use
-> > > > difference module number for it.
-> > > > - it may be end of life if there are not much users.
-> > >
-> > > I'd prefer a mature solution which handles both DPI and LVDS interfaces
-> > > correctly in the first place.
-> > >
-> > > Anyway, just my two cents here.  "DRM PANEL DRIVERS" maintainers or DRM
-> > > subsystem maintainers may override me.
-> > >
-> > > >
-> > > > Frank
-> > > >
-> > > > > Although display timing in panel-simple.c avoids duplicated panel-timing
-> > > > > nodes across various potential DT files, I think you have the "good" reason
-> > > > > here to use the panel-timing node + fallback compatible string with one single
-> > > > > panel specific compatible string.
-> > > > >
-> > > > > >
-> > > > > > Add Neil Armstrong for comments.
-> > > > > >
-> > > > > > Frank
-> > > > > >
-> > > > > > >
-> > > > > > > --
-> > > > > > > Regards,
-> > > > > > > Liu Ying
-> > > > >
-> > > > > --
-> > > > > Regards,
-> > > > > Liu Ying
-> > >
-> > > --
-> > > Regards,
-> > > Liu Ying
-> 
-> -- 
-> Regards,
-> Liu Ying
+It isn’t, thanks for pointing out. After dropping arm_vsmmu_can_batch_cmd(),
+that helper is only used inside arm-smmu-v3.c, so it should become 
+static there
+and be removed from the header.
 
--- 
-Regards,
-Liu Ying
+Thanks,
+Ashish Mhetre
 
