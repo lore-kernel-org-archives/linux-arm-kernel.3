@@ -4,83 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95589C53216
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C72C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQ+KH6/Owg7d0XhCktRva+QCZoo/0HA00/3GV4nmC8s=; b=wOBRswJYugcBP55G6fbj+18oyg
-	g574OfAL+lTHXTczslbbMJJuIjS0xfoKzVksJpy+2R17xpxNzAgNGMjC4RKC2Mk6OCJekYF1gTKyg
-	GAXgXeSNI3WOG2tWjYwJjn0cPt2FvHHwtNBf0dRC7mlzE/jwFWg+DJ/bP+kVIYYlWb49jdL9oUImP
-	eq4XyX3rUiWplwQQjXilWF2pNobO+25GxDmqH0fq84IwImC8JATt4ZPc077mX+9fhWbyuT14cdhLs
-	oh/iv+9KrJu/kkCaT/AH7hszUGphgWVu3ZKy+d+Uit452zG1N30FpMrtxmrTbpf/i/0/RFkg5LLWS
-	/8XYzoJw==;
+	bh=eyjd07jYzGxe/maBmMGla61m8wolJ8EX5OqIbYOyKDY=; b=uRbObvt/XTCHNGbaC5rc2durz7
+	vjF7OFSxpaWW8jkqnGUiHg/jcnrYBGN4YBMzq2Mikn0X29ds8ohObEFVou5hUiqruGOtxxxjn46SE
+	sGJ8pNkVJHov4ZN7ATh6volchVSC7DFtB0R91R6Xrq5UhilJf8gg9kkbSx5scWhnZ3Rzgm6RI8904
+	IDDwWJriHoQ85wCPSFaP10mVb89q9/OK1k8I/e9ovug3ndoJdTY2pRxVxDzealappL5bSGA9GLb/d
+	BwgeysTLH5we8q2Ke7Oe+PSFu6x6JqIBNfiufme8NQexRNuPJDCCuoiAoIwjkF8MUd+P9xXQ4erEH
+	vihCWBfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDuY-0000000GGxH-3lDX;
-	Fri, 24 Jul 2026 11:17:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wnDck-0000000GDMc-2uhy;
+	Fri, 24 Jul 2026 10:59:26 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDuX-0000000GGwL-1skY
+	id 1wnDch-0000000GDLM-3FyL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 11:17:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EB5160A84
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 11:17:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FA701F04283
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 11:09:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784891397;
-	bh=GQ+KH6/Owg7d0XhCktRva+QCZoo/0HA00/3GV4nmC8s=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=OK4VjEOEjWaFl6QyeCRrAWRB/E2uSmQXs0d/YZuPmaPkAHEQjL4a71DGIy9siCthN
-	 iJ3KRck3bnKt3HKVj3Rc+dVQ4eFqEPeL2OC54YQyG97pUX82RqvdSEq1HtecPH89MV
-	 OuvofpKBDiAv5jG5vrSiwkydGRe3dCtuC4Hx4RJlyqaImj7GA48Kg1BX86/JLQJ9Rg
-	 dY+YPXTahfqcenyJQL09jeiVfkGtJLThWpkQzSsPW1QpBt3luLaTZPnVYWd59AP5ag
-	 9Qh/4+5bso5yqWdT8wYI1cEdcBgUVct87o5i1vvXrXP7CnA4Jd1hvuggoqXHSFScB0
-	 x6UV91RdUmm3Q==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b0117dda13so315906e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 04:09:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrP4hpWwk9porStuYZUdgZvbHAp09UmktbShCey16qJKCCAvv6cd8Pnpv74mlBE7w7/PXauFcB7RlHbAett78H9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHQrJ7Z+8RMWsmR9+w4klrqKYuC9hwnnH5nzpGUsaQ/+AOG/WA
-	AV1A9zHHVE4hGzZRpByuss2fEenUdB9OLm6S8qK5N5HSm9oroRwn/56K122PaWY8v1eOoKiVAfR
-	S4n6a7BEFlAhGLYQxGgwg1MMsX8pj7I47UqEJ4qkU2g==
-X-Received: by 2002:a05:6512:128a:b0:5b0:e14:777c with SMTP id
- 2adb3069b0e04-5b2b2f667a1mr1625122e87.22.1784891391963; Fri, 24 Jul 2026
- 04:09:51 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 24 Jul 2026 04:09:50 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 24 Jul 2026 04:09:50 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260724084328.3943997-4-wenst@chromium.org>
+	Fri, 24 Jul 2026 10:59:25 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=ZXyGWDlhmhTfD3hWMMmpTORW+y+7tstB8ruj9xt8h4lfpc2P6Vg4SOAZbdk3f5gQ/0rPUvTjkq0jClkEHd5xFwMHke4LuDurWptLJCqu5eTOxCx6P62aLzo3EH2bwH8nldjNfzwhK650dZeDUmohwDT5hkyyLV3y3rZ8IMq8w38ZVrzlZSg2CW5TaOlvV2uVBqST8I4Bg0c1m4xhfPf+HpYZ1iYVx5YAyTriKknBaZdsKpu6ToHxQ4sh1OgAWRCfhkduL0fREWMEzTeUv2LlwJWFDQX0hHKhtdgxt9u5JSQj1AOauvgsWpEDjOvRkZK4RdSm74TZOFZLW1zTWIgwLQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eyjd07jYzGxe/maBmMGla61m8wolJ8EX5OqIbYOyKDY=;
+ b=HWe2ckKSZdszGDaqJ2GpCkn6r9JRkwcTLSYoUStCD4DXtaDHUVniASE2mXEsF8F/m91oRie2lADvdqQ4SiP0ndU5TbPFfdihjfWDVBIxcztnyIi0B7Gd4R8+Q5FFkvALwhtOHQg2T247754EvyqNs2ll19Q5xVFY7QJGYXkEoZZ7GXCs+Ow/1ZYP75ruPEk6J6Asb9Fv9uZObXt+NQvhK0PL3P5dEvkSGeCmLEwbb7706/CNQXrmdtEUZIp6+PtMon01LYyk8Rg7t53SdMNi24ysQIAqWMdmjVj1b759U4RtSshiAuzVA7VVoi3WntmLlyTgiYEtI6wVQvkCzyCx6Q==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eyjd07jYzGxe/maBmMGla61m8wolJ8EX5OqIbYOyKDY=;
+ b=WsCK+Zsvp9uqltEk1f5rMriKRoA7fdYqbIfe0V2QAkHnf8Tma+U5+jgJMdKbrbIk9qhY1ZdK7PjFvanpP9eG0TRkzBu+iwlNn+yxaUeRUGu+IDFljYCteYFncUx5KNfjLkeq+oTLccR4tkLB6nEjHNJX/cpzg6ZWLzrhb320UGo=
+Received: from AM8P191CA0008.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:21a::13)
+ by PAWPR08MB9493.eurprd08.prod.outlook.com (2603:10a6:102:2e9::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 10:59:18 +0000
+Received: from AM3PEPF0000A78E.eurprd04.prod.outlook.com
+ (2603:10a6:20b:21a:cafe::4c) by AM8P191CA0008.outlook.office365.com
+ (2603:10a6:20b:21a::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
+ 24 Jul 2026 10:59:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF0000A78E.mail.protection.outlook.com (10.167.16.117) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
+ via Frontend Transport; Fri, 24 Jul 2026 10:59:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AHAaLF6nqZUsO05EgoNhgEMRAAh9wXnf2IUK+YmkcZBGdFBiog5+xSSwTcJ05jFHE752BGOfiMXGaaGy/C5cD2Z04HUqSApLmL4xNGaUXe8X8bF6s3NsEJB+FiVAVYgBZo+nOozqMVgpCPDSwrWbczVjS/Nsk+fyWdNfb1XKzKQ4F2BwMbZT3G/RFysE71pgwZEnkUOheTF+mIYTseTFtnphBqwEGHFdInJsB7K+U+k5PWn1L1h1OaJFizcMUy4xXpfh+8TEtHke10NNEMOfT2CbwhhbVzE4PvDfROwB3d5lM/JF03Fs4Fy/+k2QxOGeso5mvHFRZdyGgWult8k3Tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eyjd07jYzGxe/maBmMGla61m8wolJ8EX5OqIbYOyKDY=;
+ b=XUJLygDs9SgyQYAf34iIjasNcDLgwDjkCnxPGJaVDIQ5ddi/dSSgGsTjEiCHDpcowMv+fTQ0mZKEzOPBKiqJOpLjyJIMhR34kOofo4ebZ6yj3mbfwVv2l1KT5vA9L9Sw1wZNtwdJSWZJM1WNfVMtP7zT+xM7hdMQzR02ef/wWx8IyntjcFonzSZprBDyCPUY3l1dufTamYJIIjs563dT0k4HPkNEWbJnHA8Y7mTTGiSDvhv7Jtrf+u4ML09MK2ivFnQ8Gd/aOb/v4FcE7QCaH4Uy8zosvwI/fG4bEYuEX3lyuychzzQHXLNEGjaKLUNscyH26Ud9LCFmltmDKyZMUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eyjd07jYzGxe/maBmMGla61m8wolJ8EX5OqIbYOyKDY=;
+ b=WsCK+Zsvp9uqltEk1f5rMriKRoA7fdYqbIfe0V2QAkHnf8Tma+U5+jgJMdKbrbIk9qhY1ZdK7PjFvanpP9eG0TRkzBu+iwlNn+yxaUeRUGu+IDFljYCteYFncUx5KNfjLkeq+oTLccR4tkLB6nEjHNJX/cpzg6ZWLzrhb320UGo=
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
+ by GV2PR08MB11279.eurprd08.prod.outlook.com (2603:10a6:150:2f0::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 10:58:12 +0000
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0245.009; Fri, 24 Jul 2026
+ 10:58:12 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: [PATCH v4 38/48] Documentation: KVM: Add docs for
+ KVM_DEV_ARM_VGIC_GRP_IST
+Thread-Topic: [PATCH v4 38/48] Documentation: KVM: Add docs for
+ KVM_DEV_ARM_VGIC_GRP_IST
+Thread-Index: AQHdG1tSr9NcrFmlv0WxIv2o24r6vw==
+Date: Fri, 24 Jul 2026 10:58:12 +0000
+Message-ID: <20260724104819.1296803-39-sascha.bischoff@arm.com>
+References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260724104819.1296803-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|GV2PR08MB11279:EE_|AM3PEPF0000A78E:EE_|PAWPR08MB9493:EE_
+X-MS-Office365-Filtering-Correlation-Id: 466c231b-056a-4e53-6fe5-08dee9729a1b
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|22082099003|18002099003|56012099006|11063799006|38070700021|6133799003|10067099003;
+X-Microsoft-Antispam-Message-Info-Original: f7A9966tkRMGkHQH1wtpq/EqhDDdwa81P/YOqyYALJSjhN5fsNz8ud29ku8GnqDkqFmYAEER0ulA09TBiPWEJuROdCYg/GlGDXx47ueMAJan5SZLMulG0aXI/+f6wyr/itHPCVRqma1Uzc6GTfygrvWKgJuYmuBGbcG388YvmE7DK+HbGCpeJDe5hRCCctdCaCuqudqzkSvEaKGUtIZUt+JaxArFrNdqbXTUbA5YucmtTiSeL81HtOCS9RLeH88B0ST330l3tYm1Cf3ZlPuSi9ikZtEOEZFAIxVOut+bsMJxzIqUHR2kTPbcXTJODBHFNGXy7lgi8/KCP+ZfzUYBdExcu7zxaZZI/w4BQO1r46VmPKXjBwBQiovq3DBwcJNXDwexVQG84PnPm010QKAgWv3fQPcXDPyjEk79ie1XAmt6JQdIe78OtUjWHX98jpYVGUNPv3NssOKwKjKyGQQLhGTH1347GL4Bkl9nCAInlHsWHJ21rPQs90t2QQtK/7cS6RFQlOJ/ZyLZoIVWJOqakqjywddyivUTcmLYRILee9J3VG9BabEGO9JbBguGc+q4qO0h4N2mg4jSb5579PM5BJVwM3zizGo3SCeCR/GSSb3QyeFUeM7/5grPLLVgxb+z2UNN3qmzohLvMjt6DQzUj30vMbtu3hkWK9SElJy7fq1ympMeDFFM8c3dwYuh2h4VTD3KkLmCepyOKSdg3CuiIZu0rv00LwJG9PF7fftdbwk=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(38070700021)(6133799003)(10067099003);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-References: <20260724084328.3943997-1-wenst@chromium.org> <20260724084328.3943997-4-wenst@chromium.org>
-Date: Fri, 24 Jul 2026 04:09:50 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MfV7SeG-jJ8YdS=aRabCUvP0PV5=8QL=AdCCsnzyKq1QA@mail.gmail.com>
-X-Gm-Features: AUfX_mwiB4kLYEiWsY_exPz74ryChUmU7NeF3R9wpx0QdX4G4TNw4501T3DhVLY
-Message-ID: <CAMRc=MfV7SeG-jJ8YdS=aRabCUvP0PV5=8QL=AdCCsnzyKq1QA@mail.gmail.com>
-Subject: Re: [PATCH v7 03/16] power: sequencing: Add pwrseq_get_state()
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
-	Alan Stern <stern@rowland.harvard.edu>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
+X-Exchange-RoutingPolicyChecked: OoPAHA2qzIetO2xSxybHxXVVMgMBkFRi70Yfvf/sIZWLKbAdzanMGpGnqzrxwcaCph4Ngf5/SnGLqtmnR+BtiMSoPE4p3OAQIQknGQaiExuu1l2w3aT18I3zHYwaZAz7EcQmYwijO8kuYaHhroVGKp/LVZJUokpcRzYSBc2uDdf34ED0DcDdjhQOiOgpnt/QpsJ20krRYD6yaZNWDdlzvdDaIlxctPg6TU8NwD8oqIEzmDqM+yHS3E9fI3zNtYxf8Cy8tLc9kzx3RVdzZzzcrgE7bLAvNI9QXimbJlrqBXI2uy+QSrt0GQR5G5U1GZZp9iZAripIvDKjXMfswFRdcQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11279
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A78E.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: c7bbefec-3283-43d4-c543-08dee97274cf
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|35042699022|376014|23010399003|14060799003|11063799006|56012099006|10067099003|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: hu6w5XkJ458SADbDT4F5eDy3KGt5aoAfqFjQ7ltRRp9GuXiVcpXXNXFEOuLt7u4Wa6z5XWR6ZDvWF8u5ZtO8JQRHFCk73QvzB+7Q0DGRRY90t76jU/UoB/o4eC2/aMnp0wSD47xNbv2d2OrBssh1YTiAVTr8QFRlmfkHBtBMYdVtOojj2QLrWmuKyJTwPmB19gxJPE83Ygk2mcfDN/fXufllF0dt6tAEXa6rVjmOGyRtEjyrvlBxaMelNvbkcgJNng8Nbv1RCoOfADmVg68Kit7VBlpl4XAQh6MALEkgCeh1tBOuc8fcFbf8lYhk1NmD7inykhAMi1Fhm8xfzKayz53xADjEXpbFxco5QBaUT/fwvEs5J+QyfA9eSqnktoLmpjOD5ftJe+HSUaC4y9IrjAtsI+kJ1bOcK1OCHQJNzAgTN/fPvby8L1fnLW5fIpENoN8fqnsYwty6a/IQW/jpCdVgkJXXljBX1Q80vItjhVeV0/DHMGAzKvY4/T9Oqmm7hKGmf/vt33XA9NP4dWiiWVQvj6U+hyMhFyHf1HXGiI9oiGScYG1zXgmAn8E8G2GVn1kjUszhmRH3WVAToCkxo1dlT4dmCaPL1PN1/4pJbfy8FHhW0FtLrc1VIW+aj/N4oC4ixAzIVwskq7TvfWGsDRyzbS2nx8SaCQnW+VjXim8GZpDMy5vqkU8JVEHVaAz0f4y9xACfje2C4wt+PPZ40g==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(35042699022)(376014)(23010399003)(14060799003)(11063799006)(56012099006)(10067099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: K7Yzp5EGWEF8fBt+ElLLlSgoJWh1M1OvOSas7Wm1UnKLMR1ggJ99W3BgP4AjL5/3vZgqYOVkluUGK8LCA9XMhUFXG+EAaf7xZ0KMdP6IQXcOrYAWllpVwJt1LOZoRBMQJt4grK8h1JoSQtLnZLb9OR5E0Qo7NYRr6jLCnyr4ZV24QvYapmvgKHSBj1QMD3gQ3v1MLAAxxyDU5QlarRIu+DRXENebzFMCntW7tktUAbvB2tBU18Cn37NiSFeWKnhc2a6GlD9y3+GkO+UUDDoW3VbFWpMJbMQR/H7uvskXtCNHlBSz+hc1nB71NIxqzgfwi9KJFo5ojFhKZ/NvGTNAH5UxbINao/ZX3ax45lHpk49EueQQAk7aeJA5mbVkdG/iOMHMhsHE24UtnMzj3XstzPsZdHB7G0LTuM2qjwWBWiNBl/EvOfv+/+V7TJwZkh1d
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:59:15.3331
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 466c231b-056a-4e53-6fe5-08dee9729a1b
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A78E.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9493
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_035923_976595_EFC85F0E 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +164,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 10:43:12 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
-> The power sequencing consumer API already does power on state tracking
-> internally. Expose the state to consumers through pwrseq_get_state()
-> so that they don't have to reimplement it locally.
->
-> Instead of just on/off and error codes, the function can also return
-> "unknown" state. This is in anticipation for "uncontrollable" power
-> sequencers (such as GPIOs left unconnected).
->
-> Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
+Document the IST save/restore userspace interface for the VGICv5
+device, KVM_DEV_ARM_VGIC_GRP_IST.
 
-I'd have dropped my Ack with a change that significant but it looks good now
-so:
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ .../virt/kvm/devices/arm-vgic-v5.rst          | 68 +++++++++++++++++++
+ 1 file changed, 68 insertions(+)
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+diff --git a/Documentation/virt/kvm/devices/arm-vgic-v5.rst b/Documentation=
+/virt/kvm/devices/arm-vgic-v5.rst
+index c411d2195c6a0..318d9033ddb4f 100644
+--- a/Documentation/virt/kvm/devices/arm-vgic-v5.rst
++++ b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
+@@ -187,3 +187,71 @@ KVM_DEV_ARM_VGIC_GRP_IRS_REGS
+              value is not compatible with the configured VGICv5 IRS state
+     -EBUSY   VGIC is not initialized, or one or more VCPUs are running
+     =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
++
++  KVM_DEV_ARM_VGIC_GRP_IST
++    Attributes:
++      This interface is used to either save the state of the IRS's Interru=
+pt
++      State Tables (ISTs), or to restore them. A get operation saves IST s=
+tate,
++      and a set operation restores IST state. kvm_device_attr.attr is rese=
+rved
++      and must be zero.
++
++      The VGIC must be initialized before using this interface. Restore mu=
+st be
++      performed before the VM has run. For restore, userspace must have al=
+ready
++      restored the IRS state needed to describe any guest LPI IST.
++
++      Saving first asks the IRS to save and quiesce the VM so that interru=
+pt
++      state has been written back to the ISTs. KVM checks that the VM rema=
+ins
++      quiesced while copying out the SPI and LPI IST state.
++
++      kvm_device_attr.addr points to a struct kvm_vgic_v5_ist::
++
++        struct kvm_vgic_v5_ist {
++                __u64   spi_ist_addr;
++                __u64   spi_ist_size;
++                __u64   lpi_ist_addr;
++                __u64   lpi_ist_size;
++        };
++
++      The SPI and LPI IST buffers contain one little-endian 32-bit IST ent=
+ry per
++      interrupt, in interrupt number order. Only the architected 32-bit IS=
+TE
++      state is exposed to userspace; host IST layout and metadata are priv=
+ate to
++      KVM.
++
++      The SPI IST buffer is required and its size must be:
++
++        nr_spis * sizeof(__u32)
++
++      where nr_spis is the value returned by KVM_DEV_ARM_VGIC_GRP_NR_IRQS =
+for
++      the VGICv5 device. For VGICv5 this value is the number of SPIs, not =
+the
++      total number of interrupts.
++
++      The LPI IST buffer is required if the guest's IRS_IST_CFGR and
++      IRS_IST_BASER state describes a valid LPI IST, and its size must be:
++
++        BIT(lpi_id_bits) * sizeof(__u32)
++
++      where lpi_id_bits is the LPI ID width configured in IRS_IST_CFGR. If=
+ no
++      LPI IST is configured, lpi_ist_addr and lpi_ist_size must both be ze=
+ro.
++
++    Errors:
++
++      =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
++      -EBUSY       One or more VCPUs are running, the VGIC is not initiali=
+zed,
++                   restore was requested after the VM has run, an LPI IST
++                   already exists, or the save operation completed but the=
+ VM
++                   did not remain quiesced
++      -EINVAL      attr->addr is NULL, the userspace IST descriptor is mis=
+sing
++                   a required buffer, supplies a non-zero LPI buffer when =
+no
++                   LPI IST is configured, has a buffer size that does not =
+match
++                   the configured VGICv5 IST state, or an internal VM tabl=
+e
++                   operation rejected the VM state
++      -ENOENT      A userspace SPI IST buffer was supplied, but there is n=
+o SPI
++                   IST to serialise/unserialise
++      -EFAULT      Invalid user pointer for attr->addr, spi_ist_addr, or
++                   lpi_ist_addr
++      -ENXIO       Required per-VM VGICv5/IST backing state is missing or
++                   inconsistent
++      -ENOMEM      Restoring IST state failed while allocating the host LP=
+I IST
++                   or tracking pending interrupts
++      -ETIMEDOUT   An IRS save/VM operation timed out
++      =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+--=20
+2.34.1
 
