@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946A8C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 08:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC96EC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 08:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Viv4laXGsPAQoliMSE2ofB8brslnCyeCGRVHQ1c5ZY=; b=wcm4ZjiVOrKYKYEdp29PTxcx7J
-	nfB31oRp65Spnyla5+efcv9pxIJgvDTHfEVL9dxGXNTrxbEFrc3MbYEIqV11XJI0avzY8NgDdyY85
-	JQPo+jtqTIXF5aUtNgxkapwuIvaQx3mlc9U/waczfrflr4d3IGQOe8x9GqB7hoBe8fg/+mCvFIs4K
-	ipN5GBum/e4WguQ3EpQL6JKuXTmt4Po3XdWnCJppIF6GXUKvXgWiz7MP0n2fbx52WKQP7SDM4FkDT
-	RpIpXNZ42JrKmosT78TxdrGpShQetSyPcxm0ByNBkfLJPLQmDcblCFEV/XNQCxZrLQknGee+COe31
-	aHldvuIQ==;
+	bh=lg/EcGAZSO+Qz1w6Fca62WR0QTsDRF+HEAtmCs/sfmg=; b=bABuoeDLr8Pz/ZJVzmE2RvZADD
+	9b200KBxZP8usYjabaxFejfjMdhK43jnWmG7/rnziW+oY2Dyy+d8yP0w/r4HuId8lgd5d7BCuuyWR
+	tHlJm993mEO+5Vgqf8LqszhsSQiWlFr9xeJQ64bbF3DHfP70EnR3PakhE/fNeSJtY9GIoBiUNAa99
+	9F8dJz+f41P5SwNfPB0NqUrlYvnMsM2Ke5rPChpLUcnfm17/bCmNgSrPysybQd8dlNG540Zh0YUaX
+	z/Tl2Z0m4PmGaQTlUm3HUYucs+cC5YQuhm/R/2+Mw/c4O+++a4KL86yLytHrtSrQTorpLRtsB/1Pw
+	CygWIQaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBUN-0000000FqAn-1Pv6;
-	Fri, 24 Jul 2026 08:42:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wnBUy-0000000FqIh-1wo7;
+	Fri, 24 Jul 2026 08:43:16 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBUI-0000000Fq9d-3ETy
+	id 1wnBUv-0000000FqI7-2IIJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 08:42:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E057600AA;
-	Fri, 24 Jul 2026 08:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50BB11F000E9;
-	Fri, 24 Jul 2026 08:42:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784882553;
-	bh=1Viv4laXGsPAQoliMSE2ofB8brslnCyeCGRVHQ1c5ZY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CSJqlN/lL9qh7fxX1PunNsNfpsBiwIkQyd4cr9nuIYrbqRVMM5LHUgQfB+Cav03lk
-	 gfkcv5S7ZSyagwUGEWO8rLVXEvzXjHTW+X4e72LMZouVd58S34GrShgcjeEHnYrcEx
-	 6sGElKzXdIE5NY/FwrDQF9WzNbTENPh7xOA6AXH4=
-Date: Fri, 24 Jul 2026 10:41:09 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-crypto@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH] crypto: qce - Remove driver
-Message-ID: <2026072412-decrease-sandbag-70a1@gregkh>
-References: <20260724050645.223799-1-ebiggers@kernel.org>
- <2026072410-drained-acts-3502@gregkh>
- <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
+	Fri, 24 Jul 2026 08:43:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1784882591; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=lg/EcGAZSO+Qz1w6Fca62WR0QTsDRF+HEAtmCs/sfmg=;
+	b=ZOU7NpM9q6eLzcX3mhbJpndZaa2QvjIaIarItdNcj/T/2LY/VUi2wzl7UBvuHeWCKV8RMPAKedXZWs8miHXq1CRz9hbSePDVJYBhpzbrVQXz0YS1/hzt5wJwRIsMUib8blEW2kQxsDU+fRIBknX0Q9pKF2V+XpI0GAYL2TPtat4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7icg7Y_1784882590;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7icg7Y_1784882590 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 24 Jul 2026 16:43:10 +0800
+Date: Fri, 24 Jul 2026 16:43:10 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH v3 27/28] KVM: arm64: Expose FEAT_NV3 to guests
+Message-ID: <kw7jdrvszacuvzvgdwqooxqgzgvf2wjhf6heddnuydjr6vthlz@qqt63cqorpiq>
+References: <20260722074234.3330999-1-maz@kernel.org>
+ <20260722074234.3330999-28-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
+In-Reply-To: <20260722074234.3330999-28-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_014313_767316_61861EB9 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +69,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 12:36:24AM -0700, Bartosz Golaszewski wrote:
-> I'm against removing this driver but I have a kernel driver policy question
-> before I start arguing the case: If I say that I do use this driver and that
-> I volunteer to maintain it and had already started sending out fixes, can
-> Eric still force its removal? Because in this case I can name a whole lot of
-> drivers that I deem useless that we still keep around.
+On Wed, Jul 22, 2026 at 08:42:33AM +0800, Marc Zyngier wrote:
+> Further enable FEAT_NV3 by making it visible to NV guests.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/nested.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index f646894fec9a9..70d605e60cfb3 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1728,7 +1728,7 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+>  		 * You get EITHER
+>  		 *
+>  		 * - FEAT_VHE without FEAT_E2H0
+> -		 * - FEAT_NV limited to FEAT_NV2(p1)
+> +		 * - FEAT_NV limited to FEAT_NV2(p1)/NV3
+>  		 * - HCR_EL2.NV1 being RES0
+>  		 *
+>  		 * OR
+> @@ -1741,7 +1741,9 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+>  			val = 0;
+>  		} else {
+>  			val &= ID_AA64MMFR4_EL1_NV_frac;
+> -			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
+> +			if (cpus_have_final_cap(ARM64_HAS_NV3))
+> +				val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR4_EL1, NV_frac, NV3);
+> +			else if (cpus_have_final_cap(ARM64_HAS_NV2P1))
 
-But you aren't using it if it is marked as BROKEN.  If that's not the
-case, and it is not broken, well why is it marked that way?
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 
-> The alg priority of this driver has been decreased below that of ARM CE and
-> since CRYPTO_ALG_KERN_DRIVER_ONLY it can no longer be used accidentally by
-> user-space either.
-
-If it can't be used, then again, who is using it?  We can't have ONLY
-out of tree users for code that is in the kernel.  We HAVE to have
-in-kernel users for it to stick around.
-
-> Even if in practice the driver is used for testing purposes - does this warrant
-> its removal?
-
-testing purposes of what exactly if there is no in-kernel code that
-calls this thing?
-
-thanks,
-
-greg k-h
+>  				val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR4_EL1, NV_frac, NV2P1);
+>  			else
+>  				val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
+> --
+> 2.47.3
 
