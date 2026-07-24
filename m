@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1FD0C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336CFC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anoKW8qvKaE42kWsvt3mIJI+NxZdvkAtfEA51BXm644=; b=HO/th9pscmDyFyjDZv2NUP5Zf4
-	iFojIPec1THJMOx5rnDin4egz2+XzqWaET6VgkHPb/mjyH0766rpR8xOQbaNnvnWJxQeE4UbCzGyd
-	kfrFAPuqAvG05tqmIMukqwrDzlrN0sVKgvbonFXaanChC7FTh40zewdN98miEtoGyzqIiOVSvfw+p
-	cfzWRwcTVPggluKWyoH8Jmw56F83bw5avdLC5aFJuos2dvvWzhx3M8Dj8AVJvEmGhIA/lszpwfvYh
-	Gd+9qldF+Wr1cvoEwZ/rJTj3Z2jOBcoMEQz6MELqCa3TjNJa34IoPpAlEiD9YlnrX0m59Hbr7RAEt
-	QDyB6/8A==;
+	bh=HQnvaHgupyGQPniAuZ9m3sJLh0U25N0HAPnxpHfI//A=; b=K5/h71SmFh0G9C2SrgfLIs7FHQ
+	BulG0En/Al/Vx3gtfwfPja4iPnjOUvPmhgvtV6dHAsHpeGQ8QzOmN0P5LWeEeovYVvfUqhegTsgIU
+	ssBt7PhncjXmhGA44cBLDMV23PlVDHwTnuNlqLXXWDtTJGyjM8oYaXdaMLMSFpzUV7i2X4x5vZGAa
+	SDTvwT4YsNdim/SkZ0DVea5GrDrmxOzpMNbsEbmZZyuio4L9s+X1YGvtAZFWihq2+0xQ6IN8GYAfB
+	9tObVxsS66LSj11rv32iiqxLfF9Du6svsvlQCgc9de9XtCEk1bVODPJ7wWWMkmp0HVeVKUXqxyFOD
+	ZWyL6hgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBpr-0000000Fugm-12E8;
-	Fri, 24 Jul 2026 09:04:51 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wnBpy-0000000FuoF-1wNi;
+	Fri, 24 Jul 2026 09:04:58 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBpT-0000000FuHk-1SVp
+	id 1wnBpR-0000000FuDh-2fgb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 09:04:29 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47f7027ca11so143608f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 02:04:26 -0700 (PDT)
+	Fri, 24 Jul 2026 09:04:26 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so1542145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 02:04:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784883866; x=1785488666; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1784883864; x=1785488664; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=anoKW8qvKaE42kWsvt3mIJI+NxZdvkAtfEA51BXm644=;
-        b=GJ7C78xWHg+62ODsJeTFhkjE0ZrF+CI+VHSA4qG2Lv3pDpT61kv1Flon26G15hB1gb
-         g7nplfBnLSLLW6e3WQpZMml2F4EPSHrDMlnuohuA4Zw//pscC+HAanqz0w8N0W7WPZwU
-         OJKnfN3tfiE3K34/iaPFaMNCw03B7WuIFOtwMBasVSf22Qeo1uPwCgobNimEdtgvKq4L
-         yFDcCAYHMWmYX8hZ1FGoLW6EJZN2l2aktMlced0LBi7CkS/8/xnAvkOeS55HUEg+KZM4
-         pHrwai7mfz+4e4Ul2UiVs9pc31RtOTTEUtVYfpDrxzSSwqF+1KDhSIls5nOE/n2k6D2G
-         wLDw==
+        bh=HQnvaHgupyGQPniAuZ9m3sJLh0U25N0HAPnxpHfI//A=;
+        b=DMoGRZEmk527PIfpMbhPzZNwhPdnc01N7n+5k5GWZDPnXf3rhe48XfD7Q/G6qXTIRN
+         Tn/ztf9/IsEhkyATGZfnoQfGrW6AAE+WJQyNraftTJukc5wb6+RwjyRKeMbffSMLn2Na
+         FEvvmnkt1Sb7DBPGQhdCiKKjCtSq0Rj3AB3iDTfqM8x8GS3SMJMf44qq/DTx+MUXgquR
+         83UwAGW1VuSKFKEOvzx0P+UepQq7hUY4+aggm2MIiCyS8YrogzQ0pi//4lXIbFj4n0ro
+         knIaDKKf3GMGr5Vbi/sP5mEs2RmHGCORBI+/WWNVYS2glOS6x6TUxjNPNm9C0CtSaaOX
+         b/rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784883866; x=1785488666;
+        d=1e100.net; s=20251104; t=1784883864; x=1785488664;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=anoKW8qvKaE42kWsvt3mIJI+NxZdvkAtfEA51BXm644=;
-        b=AhusTArUpgLlPvpG0/fBkRTmIfh4aW10KBHTwA27nDbaQ8lYJtwQN7d/KXySKI1499
-         OYNgJValCYHu8W3wuzKCkwqcluRYuxIQGWE+PyCIOpkaNfeSMlAbACrILOcaTy4m/fKO
-         C58r29KT9HKN6isdF62cT+Cm+iJgK5OqtRXowLAh2gWorMouoSf8H8qxBPvcWQO/us4Z
-         fh1TcVzIno6LJOYaXzPHyzLKY0DbdG/LYE/jz/dvAgRms0dChXA/si4fCBxIdAYufWKo
-         B3Kt52lpTbxYM9M7gvOLFxaLLkBVv+5du9+CugEV89HS8AJjKyPU3QhKRLyLELA0H6E9
-         SDEQ==
-X-Gm-Message-State: AOJu0YwSlL4B+QncX30U8cYVrdJZyDG6ira3An1vKlFbuNV1oz0rLDPC
-	++vLz9cyDhpKyDnYfOFGii1y9mA+y3kXBHZEad+d4pGSguLBxanwuG30KRaTtfoBLpA=
-X-Gm-Gg: AR+sD12WNEJLdgGDrh/HwJbgFNtCK+/4OD67WoteefwsIhmJMftHGInzjHCmGqIKaT6
-	0D6RcUmEtrOtSKVAhzaPO/jpbIp9j9ByHqOc2vsRBwixtptuIhzakXb51wacWM2N3pLPvBzfdP7
-	anZNfdcAFfqokBphsGX3IGkVZFGwKq9heoyYCRSnD9nZnHk8CLA9y+ty4dZu8bE/J2KKWjAB760
-	sO3wtSmrhZru/hzGcMmk9UuVYdQtX9V9S831gqUk7SuK0mTqPfJhqDNqFoeF/v0JfdjuLzJKIvF
-	37qe4smX1MLTjl8HCPZLx8zcLuZBdbMl43g6Uk2tKU51d8aohGZPomhEdQZkeSxMcxDNX43Ftz0
-	kVgW90NqcHdFE0VG1oYoQYKBisNbd/HvjSgAZ2qYx0ROBfxXeql8d7m01/0eybew7w5nm4B7Pex
-	y3
-X-Received: by 2002:a05:600c:1990:b0:48f:d5b8:5b07 with SMTP id 5b1f17b1804b1-49573cd8927mr70665895e9.20.1784883865686;
-        Fri, 24 Jul 2026 02:04:25 -0700 (PDT)
+        bh=HQnvaHgupyGQPniAuZ9m3sJLh0U25N0HAPnxpHfI//A=;
+        b=PgqZDuP/SlfbsudFqaOkgrLnc92hPQ/icId9lsIk/V7ZjIMaO3Cqetp+Yswgn6+NWr
+         BmPZmJTDk5SWRtkNbogO9rGMD+ecZ4FUFqhv/gxG8iLRR+csrU5tUrPwadscPoJ/Vf3W
+         NhEj1DzHiJZorf6ZSyJuvfK89pwc0PkLUZiS+2qOI8RdcwuhtgCHe2cGPtH6flZHz+rd
+         23BA3q45Q/0CbsQZDxKUCtfcemT2MLxJSVYAe4TCmqfbLLLKvijt+m4BZrTaJii133Bq
+         Ral1B7N34j1BbGjGrFRojajD0xD/g8D5zF3FUdRT0Wivs4Z8M/Cb6AZmu+yx+LcAh0La
+         DMqg==
+X-Gm-Message-State: AOJu0YxbdlzSmUlH4pRAcpKyDDTUMEKpqGS3yh9AIJd4YIiif45UuFun
+	/c9iyzOKOez1Ux+j0jN11Rq3MWyzUJ8THR69BOTmEBzkeFQ/iTaR5SRJzebr3tr/hCQ=
+X-Gm-Gg: AR+sD138YZ1fBSVIB/7leXBKou484aStlaOZqDb9VqZh+n2xsQWIIkvzdZnHp0mJfOs
+	S8gB0bOa3LWAAT66Q82EZCRdQk+hwMhNktEsGxo3tEg2yPguRPe3I5mIWqHy2UsBGH/umlyB8ik
+	CdmU5cdtGIDhOyI733rzrEQJaB13AfwzTuJGGOLxEI8mTPNBfhqMu9qgt2ltM7qPCQSBBJTf8S6
+	TWKNmLhGcPEtAm3CSkPpOouXmffAlv0eIjG9xTK20t7at1Wch3vWJ4+GG3RVy4WC0Irv4Hj2AYT
+	XJtwjO/6lJ2KH9E0S/R9oBibkc+HSa4xkca4ow1VMWIWPzQWSga4SrIbclS7xA8H+Ssv1S3TRTK
+	sVFvx0wo2dRAuyBURkvGGLNTAHYXp4mQWxLONyDk3zjYhBMrAIIkcwpz7E5vDQ3KVLH/d19DdON
+	nKSOAh/2AU7Ic=
+X-Received: by 2002:a05:600c:1f92:b0:495:4c62:9d43 with SMTP id 5b1f17b1804b1-49573d1ff7bmr72020495e9.34.1784883863694;
+        Fri, 24 Jul 2026 02:04:23 -0700 (PDT)
 Received: from localhost ([2a01:e0a:3c5:5fb1:e584:93af:f3aa:2c19])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4957afb4da8sm50979535e9.12.2026.07.24.02.04.25
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4957af6b049sm62081735e9.6.2026.07.24.02.04.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 02:04:25 -0700 (PDT)
+        Fri, 24 Jul 2026 02:04:23 -0700 (PDT)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Fri, 24 Jul 2026 11:03:58 +0200
-Subject: [PATCH v2 7/7] clk: ti: clean-up simple provider misuse of the
+Date: Fri, 24 Jul 2026 11:03:57 +0200
+Subject: [PATCH v2 6/7] clk: tegra: clean-up simple provider misuse of the
  consumer API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-clk-provider-simple-clean-v2-7-56f306156d25@baylibre.com>
+Message-Id: <20260724-clk-provider-simple-clean-v2-6-56f306156d25@baylibre.com>
 References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
 In-Reply-To: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
 To: Andrew Lunn <andrew@lunn.ch>, 
@@ -95,25 +95,25 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
  linux-tegra@vger.kernel.org, linux-omap@vger.kernel.org, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=911; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=qi2V6YqGjc3ox5XSg9D+PgsVQmlPliMSkFPKWxRHUHE=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYyqD8X6HJICJaogPLmVW5ml1R75cJutw+gfiJ
- tB0/SaVRoeJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamMqgwAKCRDm/A8cN/La
- hZKDD/48CqDz/QRWxvqQiZfXQXrQZ+Wgc2Ef1vVKm04mZiagVtEgtLY8z82Jakzu+XTZ/upstvz
- xSnqrHDzMM2PT/UOqYhUTHR276luuahMFc+5GHs8qgLWSI4K6l1qQpFASzrkFMJ99geCBuSUUkw
- BcC1TcEoLVUZQxMiXPcKB9ZpJkpXEl6c0Iwpdblk7tIihwTXYWc4GLLUzWezJRfgtOuVwc9rVFJ
- 8DomqHnipH4Gy56+1W+dWpiNzNXBjL73LXBFhsmlE8aNInLh7EjAGT9bAl8WES5M2ygH2BVuTyH
- BTfCvbPSIB+Janl3MVM/dTv6F/omRpFnOLIBrQtCTdHYGjTkRMJipWghoIvNYAY1fHORlsuyltp
- Ag04g+L7BFDYrlqh90BKDEWELW/DVl1FlzaMR6MAzFyiJ7Ubm2vaUgk4mYL+JnLMB93sH0TVJ7G
- ircePpHwwcUwnjE3cefSvi4pCtmxVrbb3cqGlmjG7fmg5Up2aRTnHHdbzXvpwYFSlYnhHNXfweJ
- 0+ya2NqXjGjy8tEODN4dubBw7zAnxm0i+5ovlTpEJaiHLqYet0Inqc63sWoAstKpXL2pHo/9ZUS
- h9pjOdE/2Paxlah/zqAGJZBfh0+/EtVSCbHz/ikGAMSEEjMMkd7RbIiWpBjguLYslB7AnsJ5WiB
- BEqFaw6yMp0mO9Q==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1061; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=avXrZ+5B5tjwtUKvf/CVoHvEaPEqaWPpS7ZwUFxswLY=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYyqC3CQlE9ZZIVg5FO31DSHE8VYccHPXetZHC
+ CBbG7T1HaCJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamMqggAKCRDm/A8cN/La
+ hdLjEACXqz7q4lL8DurbW6pS/HNGz1tLg+/2ZSOd2a7o3s1z2YOBOJHX5vpJFLW/nIYJQw5So1e
+ bjWoWmm6BY5JCwtK8uqJ2bemWRXcpKLvIlUZY0FVmgQESFPtFI6OdwKwVPkWbdp0eS6LCSh/q6G
+ JuMStoA3PBKgBu53Ve6ciKUHdiiBoMmgvHq0BSCaqIGndaJkgfdg4XuoiI/jJm6AzgtMB/1nUqs
+ jbtnez8Ei4l7beEGIPt0nkoY3Nkfb+0yB+/jwtJ6N0qPr6whsRWIHOAdwMqA8Iq1+REmschxKZG
+ rXPy0b12PE93ipjZMtunqFaT6XGz/iBiZRfZ1C5sGRIKSwh58YEZyIJDtz4lXRKejKn9ziciY/R
+ JzXZTezQ7P2U3Wzw8rE957D+tus8PvY0lrAY8jzO6MQ6Xm9T7WbR6OP7GtkdQMOKn0NLEShvhbe
+ oVzeAVhbWJXuikQDeKeq6wN+DATSFxT/BCw9z1g0PPQ4DuJoYiOXw0DbuoIL/1ar9IvnWpzAWzv
+ +YYi227ullORrzbQ225A5CHiau0GS0MokdcCulaJSeznIQwGVMkbJy6v0tlxRii8q2Qtb9CCoQI
+ rqGyS2+E25eCLne9dNnKOrjnKPB1NUFEawcRFsnJ1o1K+N0G+eiJ5YPh5DcnSVvF1h1Kl0VzA/E
+ k1+4dgdZ/1iNGHQ==
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_020427_403498_15EDF5A9 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260724_020425_699646_9274C039 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,22 +137,22 @@ consumer interface and corresponding clk_hw interface exist.
 Reviewed-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/clk/ti/clockdomain.c | 2 +-
+ drivers/clk/tegra/clk-tegra210.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/clk/ti/clockdomain.c b/drivers/clk/ti/clockdomain.c
-index c897ad7e681e..aedbe78bf1e4 100644
---- a/drivers/clk/ti/clockdomain.c
-+++ b/drivers/clk/ti/clockdomain.c
-@@ -104,7 +104,7 @@ int omap2_init_clk_clkdm(struct clk_hw *hw)
- 	if (!clk->clkdm_name)
- 		return 0;
+diff --git a/drivers/clk/tegra/clk-tegra210.c b/drivers/clk/tegra/clk-tegra210.c
+index 0c86cff719e3..df1d7b471745 100644
+--- a/drivers/clk/tegra/clk-tegra210.c
++++ b/drivers/clk/tegra/clk-tegra210.c
+@@ -1460,7 +1460,7 @@ static int tegra210_pllx_dyn_ramp(struct tegra_clk_pll *pllx,
+ 	udelay(1);
  
--	clk_name = __clk_get_name(hw->clk);
-+	clk_name = clk_hw_get_name(hw);
+ 	pr_debug("%s: dynamic ramp to m = %u n = %u p = %u, Fout = %lu kHz\n",
+-		 __clk_get_name(pllx->hw.clk), cfg->m, cfg->n, cfg->p,
++		 clk_hw_get_name(&pllx->hw), cfg->m, cfg->n, cfg->p,
+ 		 cfg->input_rate / cfg->m * cfg->n /
+ 		 pllx->params->pdiv_tohw[cfg->p].pdiv / 1000);
  
- 	clkdm = ti_clk_ll_ops->clkdm_lookup(clk->clkdm_name);
- 	if (clkdm) {
 
 -- 
 2.47.3
