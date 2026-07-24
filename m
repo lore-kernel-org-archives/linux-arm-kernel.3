@@ -4,110 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D319CC531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523B8C531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0pMyIKtaYztxDrH/xg88SmryBUsGU8Bdo9poK4THcbA=; b=fKePewgB4sr8sD3Yiwt0gKdoTn
-	5lKKnagRjvKXQrYZZlH6Q47BBGJl8GaSGjPGLtdP0ufpXRMaojE7jEC1nMdEAVC45oGw0B5nkMtHA
-	zpfQ4Xka11CQ5hTOKrurZ4QxfImzfjCyZ3zEjNszk/8vmA5zHUuURgu4HHXQwH1ZVLlnQ1HIkfUTM
-	5Kv00c6KkYY8Z+LLZq0kmJY1PYuoIc76ZzZqiOSbfs33VFkDRy37d68F3JcXCZlKo3btZBXY7hiJy
-	iyLd351xugcbev0OX1uuFDVHB5YVOB5VdUaTg2iZ1z7vLXHg2aunK8JizOs/D2IXK/NTPHLT43GY+
-	ujtfWuww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yojKAUGM+GkGi33c8OqxOy94cxlFxIcwe6j2MVwu7ss=; b=2vDRkbAVX3HLaT0vQ0IHsyLd+Y
+	jKswbkNWm221NIYTntI+gfOjvKXGPFZdx2WEwo7PyD34uY2kTWN4kE1dTsKIQ79SvHxemBlxfjDg4
+	Mvpf9wilpTPmS5I2BzrOMAJbeCVfHkTJcWZtZMrQWKiG/HFMAsT5ujSTPYSSRabJO4kAFV4YP9vZO
+	y03GCYEcOraBQKXCy6cy4KiOTqXuzC3E1TsYB2+ALrxp5s68NfQTFLp3QzspIeW8aiIWGfqiw5HTZ
+	z6SENUpyHitAZ562kCLa8fvXVzx6fBEt6QS5In+c01FDvq5aKcz0TSA7bR0B2g882zEmTBVrEkFFU
+	0yzPaHiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD1Z-0000000G4L1-2Ypf;
-	Fri, 24 Jul 2026 10:21:01 +0000
-Received: from mail-westus2azon11010008.outbound.protection.outlook.com ([52.101.46.8] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wnD27-0000000G4iW-0PYw;
+	Fri, 24 Jul 2026 10:21:35 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD1H-0000000G48g-3BM0
+	id 1wnD1s-0000000G4Yk-1ltt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:20:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FgexLmqzOQv6VNF+RMYEFYQj3YA2YrGbOi6KSy61+xqAhgfo3+uzmp+V1ApMl9VD3uJ5RV1vNhYxPn+SS0GCo6f+U3JInw4ukCue801rbQwjTzYnwhPERLpDltL5ahnxOnuD4WP/MF4a0L/wDNHfBpjLnbNUzOyCIDVUFRZCooio04IiwK9QadEkPxtTbhB0XEV8jLWlhXiFX9ZheJ44vWZR2jPnNo8WCw7rN9pwZfjsMVNxp8usK5nAqcd6ZqgvM5ZpP2RYmL6JUAsOuZEWHuokH+5dVdR5Tv1c+XG0WtNnmW5vJaPhvdW+gxfZH/BSSxdV9nccNg3bWmpKKakHFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0pMyIKtaYztxDrH/xg88SmryBUsGU8Bdo9poK4THcbA=;
- b=F2VZgt+7tCRtwIJTdMuDWQyWSXQJeCAUnVzac/tsdlUQWUcTVrQseGQtLNqnxnRO8w1HO9eo37Xb3aXeuciZIWcIze4SBKOhezUaiTOyc/OFEeQlxykpcRSSykWTfg4E6k9KtQTd1ctumcL1tCvv+zvv2LIFn18qbV1OzXi90kLz98Ivk3qyEfS4QHwJUY9PAlcN4njBEiocuvYA0L05W8MaVegPygLZrohAPVB9ZumUZKRpiR7kHSJKGTrHn3gKkSnwV9+lKzj9Y8zi+pZuCIckMnO1qumiUYTZUhfw6vWVVZTi2TIA6e9AGKoUKPvB9Z8Sjt3HdeqE15x7x4I+jQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0pMyIKtaYztxDrH/xg88SmryBUsGU8Bdo9poK4THcbA=;
- b=oGZIai8eAm1xhdyYEIR+pjeonoxhf/+z1yK0BLMnahbTr3l6PK3NcoBPXQNimQ8xfBnml+qCzHnLeqRehs1D+qUvS4ZrntdDWNh4aU1wJP5o/0huMn7gXwPuejXXsSkyONbKCQqwLJLrr7jbU/Rq7gFODej0k7TTDDHwhrKsA1c=
-Received: from SJ2P220CA0004.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:5da::11)
- by SA3PR12MB7976.namprd12.prod.outlook.com (2603:10b6:806:312::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:20:33 +0000
-Received: from SJ1PEPF00001CE1.namprd05.prod.outlook.com
- (2603:10b6:a03:5da:cafe::1c) by SJ2P220CA0004.outlook.office365.com
- (2603:10b6:a03:5da::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 10:20:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF00001CE1.mail.protection.outlook.com (10.167.242.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 10:20:32 +0000
-Received: from xsjarunbala50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 24 Jul
- 2026 05:20:32 -0500
-From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-To: <michal.simek@amd.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<ptsm@linux.microsoft.com>, <radhey.shyam.pandey@amd.com>, Jay Buddhabhatti
-	<jay.buddhabhatti@amd.com>
-Subject: [PATCH v3 1/3] firmware: xilinx: Add support to clear TF-A PM state
-Date: Fri, 24 Jul 2026 03:19:46 -0700
-Message-ID: <20260724101948.2895263-2-jay.buddhabhatti@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260724101948.2895263-1-jay.buddhabhatti@amd.com>
-References: <20260724095301.2890001-1-jay.buddhabhatti@amd.com>
- <20260724101948.2895263-1-jay.buddhabhatti@amd.com>
+	Fri, 24 Jul 2026 10:21:23 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66OADruI2742608
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 10:21:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	yojKAUGM+GkGi33c8OqxOy94cxlFxIcwe6j2MVwu7ss=; b=ZRzELO4zyihGjziS
+	72Nlcb3z3s0+7l5QxHhHql8T64UTRRfr1tJSs5oO4pvzdqFpnt0Q0lSz1yZCJ1Rk
+	zPoFELxhAyJHMfDzMoWWYVGS19pSgrr1AucfANF9QRSXjew499/Kjhdy/8+WRkXS
+	VyJmFHZe+EE72oXZMUjURfNlPTnMjJ9wev1IGseM0595zRpY4m/6a40E3neQGXiX
+	C/qCPH4AQGM6lcR3PpoRLJwHYa0/V/7rE1ChdCFBWCj7UNWP57rV10MMBTxlyKlN
+	ELS441cdSCt5nL6YxPCa7G+Isc0y9CTYr0wcf4P0qmng5npxp/IjnLE8UooRoeuu
+	kgqN2A==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fm0p51acv-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 10:21:18 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-84e048a801dso359852b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 03:21:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784888477; x=1785493277; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yojKAUGM+GkGi33c8OqxOy94cxlFxIcwe6j2MVwu7ss=;
+        b=dTu43S5TtIarx37dV3oNLGo+kqtBdW6w9X1g5GBVhtYxrEtltzfOXRpMhKUbaZv9W8
+         3Fx1oi8v1SChpJyPn6D1HmD/6IQmfUs8+IbLFN+a6PypIzQGj91iMXwXc/GvPtQxlSyR
+         3r59rgjCNCMG8O/YBYqyuHAt7o8Wsee5YNlo1KWuJxuMdvbcft5ikuiQC9lKLMSJJuiT
+         IJe8whwFTp6UwJcc/vqB/FwaOfj2z3d58CigsuPWr+gIuT5gdPIiEzPOB2KkJyVYoOAr
+         6owzVq1FVCMHgXIn0axy2pPvYAn6zAy9Y2yffKL5fAIqXm3C87u/GNcH8GtzkhOD77Ya
+         e06A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784888477; x=1785493277;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yojKAUGM+GkGi33c8OqxOy94cxlFxIcwe6j2MVwu7ss=;
+        b=oJTqbp5bf4j4lb5/CxiDUKPEAipDBTHon5utFh8p5nj7BomEeBM7lccJzDe75YiSVt
+         SsU1g16hp/NVqP0K2c4VPjm8t34EwHKYn0RafzvVr8MIm3tKoRMDZ+pCxx0jrO2+Bth6
+         eaidz/9otw8W2gIh63XPccv3xuNhHikUWsGdwHfboPyBsE5XuClk4FYV5Qz1gjc8Q9pI
+         izics6U1dSbhKO9DJ7aD0NJ0KF9py8QPF6Al23+ZZ408uDw/MgYkmx9U3suVTChmgp0y
+         ew+42WNfDzfpElO9aVEnCIXtklmgmGzaE9VIdEqUL2dHgi2xgpnniP/6PBRulxFW2rD4
+         YNww==
+X-Forwarded-Encrypted: i=1; AHgh+RrTLSvXNZqgo/HUjPTQ5/5L72Qykt/Cv0KcMNEHxpcbDF5etbgi1BwqK4sBrsAjZsN/vBqL0VVLnO4Gmdrf10NW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRBUl+m2jxkkRqi4oEVpxWBK9QjxQ2A5gtPrxLtgNa6C/SAHV5
+	xvb/cgMdt09at5VFssKgamSz7aJabe+RsKut8LPwUct1ODLJ7y+ijyIGzOcROqv7w7ty9mOApa4
+	9XS4OGVzUKmpIgObDQ/MCBlPiS45vf5O13Dwg7u44463eAqvJ6PC+ZN927lDTb71ZxSynXgWCzM
+	gisg==
+X-Gm-Gg: AR+sD13gCiadoxbuZNaX6B65ODmVMssGbkZ5QyY2jL5hA4hivKY10AgaT8H6fNNSffS
+	dA08a9SN8QfPH/7o1VAu7ZyJAfHe/2a9Xgs72dU83wpVCI2uy4f9+ZoU3K+9vICwNIKgiB5w0P8
+	wCnGAx6WrRKtxvdU8N8cnQyxkUu43esw19B3fcRRBAeBTuS+/WLm2QI8/L0dSFeBxMov9oAPPXI
+	eJxIfkcLcYccyD2BjlyOuGPWidzDt/jD2nczGkPyJGR3109XtzYIAtnPzvWNeq3ogWYsPRVFtmm
+	OeedUB73XOZ8uP7NibT19JCniP/zLgew4d3ngVmZy7vrdSQhVAaMNAnF+M5DIcWkIRbEnfpRCnW
+	4XKYUXZNpPklN1sWH9y7IcKhlcaUn3Oo=
+X-Received: by 2002:a05:6a00:12da:b0:848:2f7a:2e58 with SMTP id d2e1a72fcca58-84e2bba3617mr7265037b3a.71.1784888477625;
+        Fri, 24 Jul 2026 03:21:17 -0700 (PDT)
+X-Received: by 2002:a05:6a00:12da:b0:848:2f7a:2e58 with SMTP id d2e1a72fcca58-84e2bba3617mr7265010b3a.71.1784888477145;
+        Fri, 24 Jul 2026 03:21:17 -0700 (PDT)
+Received: from [10.218.5.182] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e175ce455sm4451448b3a.48.2026.07.24.03.21.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 24 Jul 2026 03:21:16 -0700 (PDT)
+Message-ID: <950e7499-fc8b-44fd-999b-d3197bc92308@oss.qualcomm.com>
+Date: Fri, 24 Jul 2026 15:51:07 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE1:EE_|SA3PR12MB7976:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1185be3-0566-49ae-1baf-08dee96d31cb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|36860700016|376014|6133799003|5023799004|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: sjMKTm6vFOva4zEY48xrZ9dXDORZXrIZO76ZhZtNIFv0mHgM+sYnH0RKcLa1zsFYEAoLXb6Y5FzR79tkTnNIQ1lQ+mHfLISw+u2Jj70YkL2/G9GRLtKlqf03vSiZDx0db0Xqkmm4U0ICQ+Bw68lZz/glT8HFyoEchhMT438bjQrB8Y6+/fXCHGHACbGJ1Ol7YqLN/tZVPHtbnkei2YTCYoHxrqzJHkTH90PhHQTsdnuHsfzvEuGmv+7DLzt8/QnMHbQzkK/Zatgv3iGoeR7gBj/qi8VSCZucwMET3RRPTnAyC0UCHEA4rWFVpjVDbvkRWFwiOCsEIXTyx3lM36FJFF5KA6CRdrZEzDH8qdF+faSn/yqyieUlY0noppS1dgoztBjv/c8gAj9uwn9ywzUutXOVZKekFrH8D9/daw75T4x0UioY4mT+W2/EBQ+j4dorhXAiqS/IpBoW3QIz/9Oinb0/SvBiVPlRR9grWmJK2kbxUEKj42YbZFqUeE2ToeUN+n4wr1HWTy2zl8qq19TozXEUENUuAmOf94xOCyAcfcv2MWAgiOnmeymDoS30lDMZNz9RmPZ+wj3FgWKwLvL+sJEm6EzdcVqRjofETBVDEZkFJAulbS8PnWolppD4fmOyeA6xDLNtZHtmMYuPfWdY+MKQ9Tq+A3Q9/3tldsDWiWCS7DcO1sGJ99uJmDjepKyYKBafiKtNqNGX40aTmoMj0Q==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(36860700016)(376014)(6133799003)(5023799004)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: oy4VBcvE/BFXguNhHhMATNkCexF76QCa2gyInuvuFq2XkM6irJGfUV2wNP9KsxsNCdzyvv6cG9iMyl/Mqmw8FJIQsDUytwF+pAhFypRrgrbbempiNwUkVL7RxGoULilCnl10XfDIMSJx1g2uwa6h/FoTU2Ni6o65SvRbb9L9jJbVjXH/XXQoa/1a/AUgE8Jb+99Cuh+D0/F+0MfxkflmhzkWHFFe/P0yt/WIFzTeKPxzlYYGxn4dpJzzfFxsKzJsQ62jodxjE2QHzJ+H8dN4Ivs7Y+56e99oRZecrUqzFZ6QzYj8PtM5UQQd0bewfH+qE+ixMy9rg4gRV2TDrOOQ9n8mCZ5bzc5Lx9tBXPje8S1cimpoZdAIrR1XBvbACk63ZsVFxnx1y1u0mi7DaEpoi4siJ07J9ChbH/eEFIhRTRjWk2cMjHgfX7bPYW/pUJJ/
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:20:32.8205
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1185be3-0566-49ae-1baf-08dee96d31cb
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE1.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7976
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 03/10] arm64: dts: qcom: milos: Add power-domains for
+ camcc and videocc
+To: Taniya Das <taniya.das@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Luca Weiss <luca.weiss@fairphone.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20260717-b4-eliza_mm_cc_v6-v8-0-5cca1bef2e48@oss.qualcomm.com>
+ <20260717-b4-eliza_mm_cc_v6-v8-3-5cca1bef2e48@oss.qualcomm.com>
+Content-Language: en-US
+From: Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>
+In-Reply-To: <20260717-b4-eliza_mm_cc_v6-v8-3-5cca1bef2e48@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=Pq6jqQM3 c=1 sm=1 tr=0 ts=6a633c9e cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=vyOKmKYE018VkNFVGwIA:9 a=QEXdDO2ut3YA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-GUID: oQryzrYWVgCAPoz2MpAKSOs6U0rDz4bq
+X-Proofpoint-ORIG-GUID: oQryzrYWVgCAPoz2MpAKSOs6U0rDz4bq
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDA5MyBTYWx0ZWRfX6DUjqTCyAogU
+ +buqBSfFMPtB+DFAXmcLZEv3c6rSxrynuEFaFNyU4HGOA3Ow4NcFliK+BNBfJ1MWT7nU7w9qDe+
+ tABz2PIOLbCFGb4kgDcFXrYXFoVbFh8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDA5MyBTYWx0ZWRfX/EkP2cNHBSQH
+ aN35nF2TUT0usN5avqKCL2czEwcmobCXk7Ky3RJvGkh6ir4E4e+mXx9Kc+gUDkYPy4OPt37oFta
+ yuMrObj5KMSwKtXSTOcq/OIuxB5ul7e0+Qt5cOIatqIiA/EK+NpQ7d4gARYmEChCi9qZecs2/tg
+ 1r1Yo9TD2cyubc3K6IdwLjmQvif+sCCTiIigOluMShcZheToGyaGiFf7pQIvwWo+PCTJFcZb8GN
+ qPQdI5ZBcAL0suhtc6nuLE3/FOcsHot3CqOJmQ+IZNPrS8Bikl19J7jUSSqZruFhFUXJoUm3fA+
+ IALonTTS0djB1R/i6HG1fb2WQKqmSAttIDMaEjS9BGumwvCYNNAOR2C0smh2zRwBq8Ek2523rWH
+ Nt1q7IjK1PzZx9TayvG3Fi+QRlHTeoS9NJFxY9shV+PFg7fNwY/SryIIJFobs4N9nVtoH3cp0hD
+ CRuCoDH3IyQ5/oZGW9g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-24_02,2026-07-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 spamscore=0 lowpriorityscore=0 adultscore=0
+ bulkscore=0 clxscore=1011 impostorscore=0 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607240093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_032043_809890_B98569CA 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20260724_032120_586824_BF1F7673 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,147 +169,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, during a kexec restart, only the kernel is reloaded, while the
-TF-A specific data remain unchanged. This leads to a mismatch between the
-kernel state and the TF-A firmware state like SGI number and shutdown
-scope variable.
 
-For example, the kernel registers an SGI number with TF-A so that TF-A can
-notify the kernel of events via that SGI. TF-A stores this SGI number in
-its internal state. After a kexec, the newly loaded kernel re-registers
-and may request a different SGI number, but the stale value programmed in
-TF-A remains, so event notifications are delivered on the old SGI and are
-missed by the new kernel. The shutdown scope variable has a similar stale
-state problem.
 
-To resolve this, the TF_A_CLEAR_PM_STATE PM API is introduced to clear
-TF-A-specific state during kexec. On a graceful reboot, this API is
-triggered by zynqmp_firmware_shutdown(), while in a crash kernel scenario,
-it is invoked by zynqmp_firmware_probe() in the reloaded kernel.
+On 7/17/2026 1:01 PM, Taniya Das wrote:
+> The Milos camera and video clock controllers operate on the CX and MX
+> power rails, and require these power domains along with their
+> associated performance state votes to be specified for accessing the
+> clock controller and its GDSC. Add the 'power-domains' and
+> 'required-opps' properties to the camcc and videocc nodes.
+> 
+> Fixes: d9d59d105f98 ("arm64: dts: qcom: Add initial Milos dtsi")
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/milos.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
 
-Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
----
- drivers/firmware/xilinx/zynqmp.c     | 48 +++++++++++++++++++++++++++-
- include/linux/firmware/xlnx-zynqmp.h |  3 +-
- 2 files changed, 49 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index af838b2dc327..95ffd8f33ce9 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -3,7 +3,7 @@
-  * Xilinx Zynq MPSoC Firmware layer
-  *
-  *  Copyright (C) 2014-2022 Xilinx, Inc.
-- *  Copyright (C) 2022 - 2025 Advanced Micro Devices, Inc.
-+ *  Copyright (C) 2022 - 2026 Advanced Micro Devices, Inc.
-  *
-  *  Michal Simek <michal.simek@amd.com>
-  *  Davorin Mista <davorin.mista@aggios.com>
-@@ -13,6 +13,7 @@
- 
- #include <linux/arm-smccc.h>
- #include <linux/compiler.h>
-+#include <linux/crash_dump.h>
- #include <linux/device.h>
- #include <linux/init.h>
- #include <linux/mfd/core.h>
-@@ -2065,6 +2066,42 @@ static struct attribute *zynqmp_firmware_attrs[] = {
- 
- ATTRIBUTE_GROUPS(zynqmp_firmware);
- 
-+/**
-+ * zynqmp_clear_pm_state() - Clear subsystem state
-+ * @dev: Device pointer used for logging
-+ *
-+ * Clears PM specific data in TF-A.
-+ *
-+ * Return: Returns status, either success or error
-+ */
-+static int zynqmp_clear_pm_state(struct device *dev)
-+{
-+	u32 pm_family_code;
-+	int ret;
-+
-+	/* Get the Family code of platform */
-+	ret = zynqmp_pm_get_family_info(&pm_family_code);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (pm_family_code != PM_ZYNQMP_FAMILY_CODE) {
-+		/* Check if the TF-A supports the TF_A_CLEAR_PM_STATE */
-+		ret = do_feature_check_call(TF_A_CLEAR_PM_STATE);
-+		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_1)) {
-+			/* Clear PM specific data in TF-A */
-+			ret = zynqmp_pm_invoke_fn(TF_A_CLEAR_PM_STATE, NULL, 0);
-+			if (ret)
-+				dev_err(dev,
-+					"Failed to clear TF-A specific subsystem state: %d\n", ret);
-+		} else {
-+			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported in TF-A: %d\n", ret);
-+			ret = 0;
-+		}
-+	}
-+
-+	return ret;
-+}
-+
- static int zynqmp_firmware_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -2118,6 +2155,9 @@ static int zynqmp_firmware_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		return ret;
- 
-+	if (is_kdump_kernel())
-+		zynqmp_clear_pm_state(dev);
-+
- 	/* Check trustzone version number */
- 	ret = zynqmp_pm_get_trustzone_version(&pm_tz_version);
- 	if (ret)
-@@ -2151,6 +2191,11 @@ static int zynqmp_firmware_probe(struct platform_device *pdev)
- 	return of_platform_populate(dev->of_node, NULL, NULL, dev);
- }
- 
-+static void zynqmp_firmware_shutdown(struct platform_device *pdev)
-+{
-+	zynqmp_clear_pm_state(&pdev->dev);
-+}
-+
- static void zynqmp_firmware_remove(struct platform_device *pdev)
- {
- 	struct pm_api_feature_data *feature_data;
-@@ -2210,5 +2255,6 @@ static struct platform_driver zynqmp_firmware_driver = {
- 	},
- 	.probe = zynqmp_firmware_probe,
- 	.remove = zynqmp_firmware_remove,
-+	.shutdown = zynqmp_firmware_shutdown,
- };
- module_platform_driver(zynqmp_firmware_driver);
-diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index 7e27b0f7bf7e..baaa88b0b197 100644
---- a/include/linux/firmware/xlnx-zynqmp.h
-+++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -3,7 +3,7 @@
-  * Xilinx Zynq MPSoC Firmware layer
-  *
-  *  Copyright (C) 2014-2021 Xilinx
-- *  Copyright (C) 2022 - 2025 Advanced Micro Devices, Inc.
-+ *  Copyright (C) 2022 - 2026 Advanced Micro Devices, Inc.
-  *
-  *  Michal Simek <michal.simek@amd.com>
-  *  Davorin Mista <davorin.mista@aggios.com>
-@@ -66,6 +66,7 @@
- #define FIRMWARE_VERSION_MASK		0xFFFFU
- 
- /* ATF only commands */
-+#define TF_A_CLEAR_PM_STATE		0xa05
- #define TF_A_PM_REGISTER_SGI		0xa04
- #define PM_GET_TRUSTZONE_VERSION	0xa03
- #define PM_SET_SUSPEND_MODE		0xa02
--- 
-2.34.1
-
+Reviewed-by: Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>
 
