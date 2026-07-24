@@ -4,130 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D082C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CCAC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OpQp9Gol3M81LlrGz7jp+zVWNJ3mdWJ257XENRvvWM0=; b=voSaY+d7UXe8jaQ+7VjLhIe8W5
-	X9uKmqvGHU2qwBuuY/PaoWrIu5TRdlZ0ABgG5C2CuXup7A/E0j0yDNmjqQJT20rcWinaFO3mg9VXJ
-	sDANwhqlDh9sZkG8sXoIQpR8Nn3dxEorRkSyvvxyTan12mnUMR8Rg+7dk/ztX0+VdggYHpGXAm3fG
-	r1602yBeggtNsbjWW+NYdsjIt+t1YvQ715p8XTd7vJ51w+KlxewyJD+HfEmuCJa2+JWsILPB2vWYr
-	I5z5B3LY3gvT5HQKlR43iWJgBB+VuFsNVu5jMrKRQY86os4nQ38tjYGdWSzqxdtNq6fjjZ/M+hqWp
-	CZPc0kQQ==;
+	bh=aDp6QAQVBbqcbjhun7HZkm4ce/Tk1AAMzwD4Ki2+UTk=; b=bDGCNDPm+KHLxJ+yKifVrjqwP6
+	V/nQ7VZP5ztBNrxKvytmdhkohcl82FMDy2unoMXmkmQv0/biMOzYkFpvSWOPyznL0cB53GYhxBQmx
+	wCQCcRbYAV3xCWmJw/u67qBx9sl5BZcaZqZcZCbg6HCkdSvBRuE3g3kzKHnW2ewJaXICU50yUT3KL
+	b7JsRQinuDB+lIFpxdjPnymzLOSQbYQOs0R05T7cWCAQEzyvD3giz8pL5NFbBpzlLYUHZbeDLxVWN
+	vhqZdXAmgGktfsRzBQS34AUDYl0AE5Aj6Vz+DfHo8fwRiPpvqlp58YGuqXJF7yNxBhS3ZSJofsSnb
+	j05cPt6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9BZ-0000000FZoO-1AsR;
-	Fri, 24 Jul 2026 06:15:05 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wn9By-0000000Fa4U-2g66;
+	Fri, 24 Jul 2026 06:15:30 +0000
+Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9BK-0000000FZbH-2Kug
+	id 1wn9Bu-0000000Fa26-3It2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:14:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G7buxAfzmHL31P03sDeoagG+KEA+QcJr1vebNwpgVmq6FL2aKGrjagsN5uQx5u206L6glW0xIv7gqS2vpU1/cUowZmIVSDSihy7asW3RDDur5hXrErOsu5fmmYO/WXvnzHcYQndToKSwhZw983jjuaT72dlceyrPG77F57MVc35teA3qCB9STJivEzBT397+ZkQ0/HSWsaikDMuDfyGXyG4dEFdOMFO+msJPq1nSVSDqpwbYTlODgyqwOfnh71bVCgB1uAwuyH8wTpv9jKnqJ6kPZuiIgc53aVxf0xPr2nZIoVE33IJuYQ61+1fr2EkRKYr16bwlFMfXbQDEdIhomw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OpQp9Gol3M81LlrGz7jp+zVWNJ3mdWJ257XENRvvWM0=;
- b=Ku4hyfuQKhJKTFRKk/3v8mC9ABXQnnhGlE6pqYCu32n1ZFbCmgT4gN6My9YPmqrMObaet9wXKLlAQ1wnv7qsblc5CyWbQZv6OJ4+k8m006hfcRcqym/FqwcKHJBcTLh3tBrQXJKpcdj3q/NfmVrf/3oZO1QGvZP+Y8GlvkYr+hDlGn3KrGaXunkA7ASV+sxmoNe5PrBBvNRa0xWps7/2BR2MI0JWIdPGQwrALn7cU19EArP/FiUwo8L7TFqKkmRynjnTadQymLWMUjfzS0/y45nMxrDcFfGpOCeqofEWo6W5ZzHQ38ib3EmV6RUMotOunJ+1Q0ouNseR8sJPv5bbRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
- dkim=pass header.d=cixtech.com; arc=none
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com (2603:1096:101:df::13)
- by SEZPR06MB5831.apcprd06.prod.outlook.com (2603:1096:101:c9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 06:14:29 +0000
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364]) by SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364%5]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
- 06:14:29 +0000
-From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
-To: Brian Masney <bmasney@redhat.com>
-CC: "mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
-	<sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, cix-kernel-upstream
-	<cix-kernel-upstream@cixtech.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v11 2/4] clk: cix: add sky1 audss clock controller
-Thread-Topic: [PATCH v11 2/4] clk: cix: add sky1 audss clock controller
-Thread-Index: AQHdGoLMF0PonWj+y0ySnEIbcwYxK7Z7T5gAgADc8gA=
-Date: Fri, 24 Jul 2026 06:14:29 +0000
-Message-ID: <SEYPR06MB6226EA6519C74A0FF0AB677482CF2@SEYPR06MB6226.apcprd06.prod.outlook.com>
-References: <20260723090808.1727598-1-joakim.zhang@cixtech.com>
- <20260723090808.1727598-3-joakim.zhang@cixtech.com>
- <amJEjofx348vF4Vd@redhat.com>
-In-Reply-To: <amJEjofx348vF4Vd@redhat.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cixtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB6226:EE_|SEZPR06MB5831:EE_
-x-ms-office365-filtering-correlation-id: e1229059-6038-4e5d-b425-08dee94ad1fb
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|6133799003|18002099003|22082099003|38070700021|56012099006|4143699003|10067099003;
-x-microsoft-antispam-message-info: vIKJeY1Tmn8kXr9jLTWbwwPyTAQ8diaeWC6pTN2EVpvhd5mhY6FiApuToGR+qH43Dbn8IY51ZBdly59fB9tm3II1WFWVpVhdvt5aOyS+Mk+sv+trrXUHQKRWjs/+V1MD+YvGTWomup4etKk78DB3t53M+mIrhDFgthZrxnSXpW9MBBzu3CYPV1QmopliZS2RcBXUP6cTOLSV2o2cGubMISvdcZDkC/YsqtwgW9peVtaBwR36cqL7M7xoK23ycgJ88ds4jXzc6Z74xhSuLEaMlX1/HeMJ7Lc6xbZMpBzR7dv9O+XqtbpEBexQXLAgu6J8Nri15BVj7ekicdcjIwHn0oif8lsTYFgtEVwd5/CrqrsJLBdJiwMcx8aDYbg+czRdiDevuZCo9PFd27E+jSLzOSm4zqLazQ9Pxj2Wecb0m/9pAPZsvOVkzIr4IjYZjNUFfREmwqUY+nTy5zyO27SIE4CCLtw6hznXAzAivtC9hFKVHtx3vpCFAm9htWsPU/gOD5N/eGZEl+OOU3Qg4UT2c8yTEh1VZ4upLu3zl61m1c6LXURc9ORZZswuRwm1jE4qU9q6KnXf0WTKzP2CguWYdF0IwT4ZAMAedHHA7sphvOGSwCxj7vY0rR5Wi8zhDGi/TfY4aFOYJ5yN3Ss1yD8UuhNCZh/r5/NgqZojw45iKPYMuDg9djrepKSRuJEAlCZw7Q8qV8rz7dW6o1nxxFHyolExzuVGf32p4OcI44vcH0Q=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB6226.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(6133799003)(18002099003)(22082099003)(38070700021)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?dFYe9Ptz+OAtPtncU3Fc5r9C68O3gq0+FH+qf8VoZBhNxhX5i+RX4IluA8vE?=
- =?us-ascii?Q?oS6SVCL+iQj0SE15FBfaOiX6GqnsJaEZBrgPKd0wZD1dAc/Z1P9Fxcx3SkzN?=
- =?us-ascii?Q?bai+NPCUEZW1Oco9FxC/Tp1NLXuvR58pu83rgPDmCe1KPZnpb3ZhAhqnOXTn?=
- =?us-ascii?Q?0t14t0DLy9N05XmMSI+kEHO6xAj3HZo8YaIpnBuKWpkq+4tV1Ri5AA2lxwqJ?=
- =?us-ascii?Q?BEQh9lSozYYiZ4KmXPn9M40HftHyEubiTOTvmEXTVh2Wx5bQayClFyN6S1P6?=
- =?us-ascii?Q?Can3TQ8QQNV8uXkGMEo3eeCVjV0OvXt0wQNdx2fwZPnm50V0b6PdjQiSvHeG?=
- =?us-ascii?Q?IhoMRbc91VNTXseIFkIq3nvDVrY5uepSWYGEbmYZr4w7weFlb0nhGucxWhs8?=
- =?us-ascii?Q?f9A4jMQpDm+CeVlwyPkHQqayw2j0qlgH3gsLpBKmyAZV7CD/M5JWTmO/Ksqz?=
- =?us-ascii?Q?Hvx/zWjpSPpbzskVTMAH9bSw0/7NcJGcuc+4nfskBm5ifFnwoSBuMC6SQ2g4?=
- =?us-ascii?Q?fpGBOBVKvLLvuubVEGsn8FmMwKOt0zTMIX3TDeLB/35235gLEohoncvLNsvo?=
- =?us-ascii?Q?oYMipVV7XBvR2MoubP5xEB+vU0uN/8OM5xLCLIc8jGcDRLdCqX7duMze5MGb?=
- =?us-ascii?Q?pfD5HYG0rcSzxw3PJCAcPD/WgYYBZIhFQ3Sl8RVxIRmhZAI2hmYhKoT2YejV?=
- =?us-ascii?Q?6bbbbPej7YvAiJ4Gpyr9LXSfpNNvCLCfPFTF/L7UkE5zhUQrAydnZYE/B3An?=
- =?us-ascii?Q?GxkoX4Q3amtyMgVwYgZLQxSWMM+vuSiX2bXOA/h5pCIKxt9rY7DU6zTFQJHk?=
- =?us-ascii?Q?RMl0uSgNIMJ+VrIwWljv4hOIjLcDu2yMGmLg4hjBZ2vRYc2M70Vy7V7QeCx2?=
- =?us-ascii?Q?qVZQ6REvSTsw5Ehb/81eAVi16bKh6IziANjTJYBkVU2Knj6PBzhJxX+R8yYV?=
- =?us-ascii?Q?LyS2F8Vzz/tX80MshuPTi2yHfHNx2SIX4ZwnKC4X6l/mIIeh1CpqCZD9eJyF?=
- =?us-ascii?Q?tOi/iT1R9NS+qF49vGUuu2Di8sOaUmKtTMyom3AlPOoTOBYWR4b/wMGI0o86?=
- =?us-ascii?Q?dBWnARPm41ektJyIqTGcNvpQtklWqTF4ZL1E5DT12VMiDnGfqJ7bTbZKsZOb?=
- =?us-ascii?Q?EXdPSC38dO4maMHhtFDwMCl36zINeWCZR5/v7XzQlc1PwQjKmBUN085bq/Wb?=
- =?us-ascii?Q?FSwEdvjEDX7VDpB6POq+k1iKrSHmSbNOJS4R4YLiXCnX0i93H8VnkdBK8xRw?=
- =?us-ascii?Q?TZxpO2MREDaUKhPYJxCmFylak1xbDgvgKnRS1HEFOng6uqTQhUpYaP/y9vdh?=
- =?us-ascii?Q?JBtAB8JhVmm72rJGoBMHlZjjexpi2BNEEE0sR/YbqMHd+fWl53rIO9QbXKev?=
- =?us-ascii?Q?GtyFhG8y7C42//3GiQxsluY0nVY6tMlzlAC4A9OI03lG8j0aHjblfXN/+GsM?=
- =?us-ascii?Q?cvQ0s9Biblro+/aVaR28b0WjCm62Opkx1/b+2FCzOb+iG+U9vdNZK/rnNEq8?=
- =?us-ascii?Q?aJuiLmSPQDLCgTeeulK2LugntIP/utfYHr7FO4K7y6DRAasw7cBDeu4hCrXp?=
- =?us-ascii?Q?kD6C/ppfsMvbfENt0EQfvNY6j75BRBVATBemp3EAxo4c8r+y2ow+AwtoRAhP?=
- =?us-ascii?Q?v0iaNvLbKAnmkMOigWfns/svkbO03QVAIL1QP6pekYQYvaXP4eCXIgh45C9Y?=
- =?us-ascii?Q?aXP9ZhZ7IGqqJvdwjrN8uEXxEVQXYrhdLH/xISXwFb4tEYl9UTph7lM2pC36?=
- =?us-ascii?Q?uI0tZBykNw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Jul 2026 06:15:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1784873724; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=aDp6QAQVBbqcbjhun7HZkm4ce/Tk1AAMzwD4Ki2+UTk=;
+	b=TP6eVXLfTbCk0rwhg8UUyz1cLMd0ZtB1i0x1iJCyvgU2NbXcF6LqZ0lNxMDRG1xyURSv1uEcSiR+QW8CibCmnYleFITvc+h9rKpuiG2FhmaBSlaR2f2Y29DzipQI5CRWiGj0g858DB7EPA+uj1x4aATTN4CqdEF+YYdtv3Yo904=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R601e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7iEB63_1784873724;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7iEB63_1784873724 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 24 Jul 2026 14:15:24 +0800
+Date: Fri, 24 Jul 2026 14:15:23 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH v3 19/28] KVM: arm64: Make HCR_EL2 a non-VNCR register
+Message-ID: <eq54itdtb62ubzkapzrqxbnv7nkwfzhxehkuvy4nm5st5525kx@2rxzly5g3mjs>
+References: <20260722074234.3330999-1-maz@kernel.org>
+ <20260722074234.3330999-20-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB6226.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1229059-6038-4e5d-b425-08dee94ad1fb
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jul 2026 06:14:29.2694
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lL0zzDEPNbTiioUHSsQ8DrfBOCR8t9bW4KW5KZXpjd3Q9U5rlQfr9OhiktjynQqnh+2jKf9wUN1ToOnJK54z1gGYM4D+UVH0hfuUI6J5V+E=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5831
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260722074234.3330999-20-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_231450_609841_4B73E6E9 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20260723_231527_099638_ACA7B23C 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,106 +69,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 22, 2026 at 08:42:25AM +0800, Marc Zyngier wrote:
+> FEAT_NV3 makes a fundamental change to the architecture, by moving
+> guest-initiated HCR_EL2 accesses to the NVHCR_EL2 register. As the
+> names suggests, this is HCR_EL2 for a NV guest.
+>
+> But where do NVHCR_EL2 accesses from a guest go? The are redirected
+> to the VNCR page, right where HCR_EL2 is stored in the NV2 case.
+> Does it hurt? Good. There's more coming.
+>
+> The challenge here is to make KVM work seamlessly, without rewriting
+> everything. Which implies that things such as __vcpu_sys_reg(HCR_EL2)
+> must work, no matter the underlying NV implementation.
+>
+> A simple way to deal with it is to move HCR_EL2's canonical storage
+> outside of VNCR for the vast majority of the KVM code, and only have
+> a copy at entry/exit times. Given that we don't really support NV3
+> yet, this is pretty simple.
+>
+> In the process, advertise NVHCR_EL2 as the register that now holds
+> offset 0x78 in the VNCR page.
+>
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_host.h     | 3 ++-
+>  arch/arm64/include/asm/vncr_mapping.h | 2 +-
+>  arch/arm64/kvm/hyp/vhe/switch.c       | 9 +++++++++
+>  3 files changed, 12 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bae2c4f92ef5c..2648c8a717ba0 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -543,6 +543,7 @@ enum vcpu_sysreg {
+>  	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
+>  	CNTHCTL_EL2,	/* Counter-timer Hypervisor Control register */
+>  	ZCR_EL2,	/* SVE Control Register (EL2) */
+> +	HCR_EL2,	/* Hypervisor Control Register */
+>
+>  	/* Any VNCR-capable reg goes after this point */
+>  	MARKER(__VNCR_START__),
+> @@ -571,7 +572,7 @@ enum vcpu_sysreg {
+>  	VNCR(TFSR_EL1),	/* Tag Fault Status Register (EL1) */
+>  	VNCR(VPIDR_EL2),/* Virtualization Processor ID Register */
+>  	VNCR(VMPIDR_EL2),/* Virtualization Multiprocessor ID Register */
+> -	VNCR(HCR_EL2),	/* Hypervisor Configuration Register */
+> +	VNCR(NVHCR_EL2),/* NV Hypervisor Configuration Register */
+>  	VNCR(HSTR_EL2),	/* Hypervisor System Trap Register */
+>  	VNCR(VTTBR_EL2),/* Virtualization Translation Table Base Register */
+>  	VNCR(VTCR_EL2),	/* Virtualization Translation Control Register */
+> diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
+> index 14366d35ce82f..9e8a49fa8b638 100644
+> --- a/arch/arm64/include/asm/vncr_mapping.h
+> +++ b/arch/arm64/include/asm/vncr_mapping.h
+> @@ -11,7 +11,7 @@
+>  #define VNCR_VTCR_EL2           0x040
+>  #define VNCR_VMPIDR_EL2         0x050
+>  #define VNCR_CNTVOFF_EL2        0x060
+> -#define VNCR_HCR_EL2            0x078
+> +#define VNCR_NVHCR_EL2          0x078
+>  #define VNCR_HSTR_EL2           0x080
+>  #define VNCR_VPIDR_EL2          0x088
+>  #define VNCR_TPIDR_EL2          0x090
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index 53af19212895d..e5a51dc3cbe5e 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -70,6 +70,9 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+>  		if (!vcpu_el2_e2h_is_set(vcpu))
+>  			hcr |= HCR_NV1;
+>
+> +		/* Publish the guest's view of HCR_EL2 to the HW */
+> +		__vcpu_assign_sys_reg(vcpu, NVHCR_EL2, __vcpu_sys_reg(vcpu, HCR_EL2));
+> +
+>  		/*
+>  		 * Nothing in HCR_EL2 should impact running in hypervisor
+>  		 * context, apart from bits we have defined as RESx (E2H,
+> @@ -549,6 +552,7 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
+>  	 */
+>  	if (unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
+>  		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
+> +		u64 hcr;
+>
+>  		switch (mode) {
+>  		case PSR_MODE_EL1t:
+> @@ -561,6 +565,11 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
+>
+>  		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
+>  		*vcpu_cpsr(vcpu) |= mode;
+> +
+> +		/* Publish the latest HCR_EL2 to the emulation */
+> +		hcr = __vcpu_sys_reg(vcpu, NVHCR_EL2);
+> +
+> +		__vcpu_assign_sys_reg(vcpu, HCR_EL2, hcr);
 
-Hi Brian,
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 
-> -----Original Message-----
-> From: Brian Masney <bmasney@redhat.com>
-> Sent: Friday, July 24, 2026 12:43 AM
-> To: Joakim Zhang <joakim.zhang@cixtech.com>
-> Cc: mturquette@baylibre.com; sboyd@kernel.org; robh@kernel.org;
-> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de; cix-kern=
-el-
-> upstream <cix-kernel-upstream@cixtech.com>; linux-clk@vger.kernel.org;
-> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org
-> Subject: Re: [PATCH v11 2/4] clk: cix: add sky1 audss clock controller
->=20
-> EXTERNAL EMAIL
->=20
-> Hi Joakim,
->=20
-> There's one question from Sashiko that I don't see where you answered tha=
-t seems
-> to be legit.
->=20
-> On Thu, Jul 23, 2026 at 05:08:06PM +0800, joakim.zhang@cixtech.com wrote:
-> > From: Joakim Zhang <joakim.zhang@cixtech.com>
-> >
-> > Add a platform driver for the Cix Sky1 AUDSS CRU. The driver maps the
-> > CRU registers and registers mux, divider and gate clocks for DSP,
-> > SRAM, HDA, DMAC, I2S, mailbox, watchdog and timer blocks.
-> >
-> > Four SoC-level audio reference clocks are enabled as inputs to the
-> > internal clock tree. The driver releases the AUDSS NOC reset, enables
-> > runtime PM and instantiates the auxiliary reset device.
-> >
-> > Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
->=20
-> [snip]
->=20
-> > +static int __maybe_unused sky1_audss_clk_runtime_resume(struct device
-> > +*dev) {
-> > +     struct sky1_audss_clks_priv *priv =3D dev_get_drvdata(dev);
-> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
-> >devtype_data;
-> > +     unsigned long flags;
-> > +     int i, ret;
-> > +
-> > +     ret =3D sky1_audss_clks_enable(priv);
->=20
-> From Sashiko:
->=20
->     [Severity: High]
->     Could this result in a deadlock? When a consumer calls clk_prepare on=
- an
->     audss clock, CCF acquires the global prepare_lock mutex and may call
->     pm_runtime_resume_and_get. This triggers sky1_audss_clk_runtime_resum=
-e,
->     which calls sky1_audss_clks_enable. Since sky1_audss_clks_enable exec=
-utes
->     clk_prepare_enable, it will attempt to acquire the non-recursive prep=
-are_lock
->     again.
-
-prepare_lock is re-entrant for the same task (see clk_prepare_lock(): if pr=
-epare_owner =3D=3D current it just bumps prepare_refcnt). So calling clk_pr=
-epare_enable() on the parent SCMI clocks from runtime_resume(), while alrea=
-dy in clk_prepare() for an AUDSS clock, does not deadlock. This matches how=
- CCF recursively prepares parents under the same lock.
-
-That safety assumes resume of the AUDSS CRU is driven from CCF while the sa=
-me task already owns prepare_lock. If another device device-links to the AU=
-DSS CRU (or otherwise runtime resumes it outside clk_prepare), a concurrent=
- clk_prepare() can deadlock:
-  Thread A: holds prepare_lock, waits in pm_runtime for our resume
-  Thread B: in our runtime_resume, clk_prepare_enable() waits for prepare_l=
-ock
-
-We do not have such a device-link usage today. Would you prefer we add a sh=
-ort comment near sky1_audss_clk_runtime_resume() / sky1_audss_clks_enable()=
- documenting that consumers should use these clocks via CCF and should not =
-PM-resume this device through a device link (or other non-CCF path) that ca=
-n race with clk_prepare? Happy to add that in the next version if useful.
-
-> I found drivers/clk/samsung/clk-exynos-audss.c that is similar to your dr=
-iver and it
-> calls clk_prepare_enable() in probe.
-
-Exynos AUDSS is only partially similar. It clk_prepare_enable()s EPLL in pr=
-obe and keeps it enabled for the lifetime of the driver; its runtime PM cal=
-lbacks only save/restore AUDSS registers and never disable that parent.
-
-We cannot follow that pattern. Our parent clocks come from SCMI and also ga=
-te the audio subsystem power domain. If we clk_prepare_enable() them in pro=
-be and leave them enabled, their enable counts stay non-zero, so after syst=
-em suspend (and on runtime idle) those SCMI clocks cannot be disabled and t=
-he audio SS power domain stays on.
-
-That is why we enable the parent SCMI clocks in runtime_resume() and disabl=
-e them in runtime_suspend(), instead of keeping a permanent prepare/enable =
-from probe like Exynos.
-
-Thanks,
-Joakim
+>  	}
+>
+>  	/* Apply extreme paranoia! */
+> --
+> 2.47.3
 
