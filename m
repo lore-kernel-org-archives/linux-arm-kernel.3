@@ -4,139 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D1AC4453D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 04:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB44C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 04:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iX4cfEy5VSKd83LDJGV9ZDk/v96kIL2Mlo2mBS265E=; b=gg877eND4TY07gNyqGvuzo/dHz
-	1PvUnjKGwJ1dt5W7Im0jNlzc5oYo9S9UZTYn5A71VXtH5u36wPHGr/uVRvY5rVnLn0tqTM92QRwvh
-	yy8xX/Ic0gRTM524pvMhavQ1ufFfzVxvkL3uoiUZLubsJkCll4QJaLMJiX6KFDXaSKMO59QHFT69+
-	KV8RK6GL7jxLp5JQ8Bi1nNwALaTrwXfCmArf2I9ZWBkufpuRbPjiozJVryKjv4hrgsnf4SHHhUuZD
-	F3+OgK7uZYDI878ds+qgy/Mq1K1HChmadUOvYUOMwAR6smPeArWBnZ+v2yYKFsrHzXSH98rF9DLLS
-	p3rKOnCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X/GJvTUB0Fc/V+y5K6V4KuOXG7ykfjR54qQ9NpMgq5k=; b=xHeVq2cmhu/GqyqvEt5NWEVxDj
+	Hr9KOs0OsWCjPJO58iGp4y2/jIqD+mIPpigfXXzDYgW4FDj3lFGOx+vTWq0GEM+eXM4gDwoPoehQx
+	nO6R9KWmUSdfnNxK8g/Cih9ZfQPu6ch280j9oGRnOlC01MLe78a7tpuCBxhZ66Q/7y45Im5xeg6Yp
+	BDDPjD1goUa1pj4VQD3dPXRGGen/VS29E5qKiroKT2sRFA3ysnWKR/qB5KCCDiFPlOYE9Y3II+1/1
+	uWpFIxuBSJ+gIRQv87GoCPMAtqNfCR23VJG02WUBRwC7qiUnPA5cycH0jzCZEb9an4SuTBPtzmc1p
+	M0RpUvvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn7Sx-0000000FT24-0g6h;
-	Fri, 24 Jul 2026 04:24:55 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn7Sv-0000000FT1d-2G45
+	id 1wn7nZ-0000000FTXi-3zo7;
+	Fri, 24 Jul 2026 04:46:13 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wn7nX-0000000FTXI-3Wsk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 04:24:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ackJSV0uNFS8LXQA2V2MiscXOTYygixYjXRNNblgYeTH2Fjrhk9nIUm2ib6xSfzBpCbMT4cGzz6lOJXigp+Qh8lJyPKLaeSjwZSLd+JcmP9iyP3T53eq5inuuGT4KHTL6rvgTPQYJq2urdtCFEnTSAuTUBZtogXaatyNiU7Sxh1Hv8WBlZqXxZ092oS6ZpfLaPy2o5hg50lU7+UakIZPoRpF6VRXsRDcL7PEsW75HWYc6I1N5R2KSMW7aStGe8ZHerQvvZxcLv1hWIWQEgZb/LTpTIuTNHnv2Zc1t/zWO4uk9zAwv/L5CrZD0asbadXk1p0w2Kj+GYCtJKlHevHSHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1iX4cfEy5VSKd83LDJGV9ZDk/v96kIL2Mlo2mBS265E=;
- b=BxUk3r6LhGudFqMNUTrcnRhQ2k7VILGCreKA3TDXlDEwbx2tdOXlef/+ta1RqrKaE5+3VTWaiYcyIQLEStl3S6PubB3N9PbarQMEGwgho9x+dXYnCzngs6FUI2oBBR1tBlm11fGe/zQ8/ssXPyDMG6wCS5m5h6PFJN+ECNqJCYVi4S4riZai1FQ5RY9GI/iIIB67tfPMpmMrU5wCYCBNmfqwubieU1vfcQFYRqXq94/jgRnhhYyu3uKxXKQCRT2ayLSiW18Dj9fsAZWK2JxK4FdCQZU0w0I/lEb9opC9Myt7i1hnOO+e46X75YHBDsat0Rkl3M29u3MPkPzLsvx8FQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1iX4cfEy5VSKd83LDJGV9ZDk/v96kIL2Mlo2mBS265E=;
- b=TB87qlXYXYWZYWeGY69UqNGJVHEk9O3iC+RDU2DeUXlDWDliKoAJM31pCzPoE3nZqVFVipS5lzntwZ83f4zJpkcqRkMOgH/FfFlBLXx2pL7+g7EioCEroNE63YGz4/uuU9T3zgMvvRqxgW7QBeCa8pSQLC0n8X7v/F8GhCX8PydnnU5NDOMAwpump5i7avWQICeu76RGPalaKfKZ0mMNxWFpIpeXQj2vrJhQA8yVjNWt5tcOF6OeLRvlaa6F9Qt0xr/WpzYr5+DyGB5asBPwKxlQ5XutFl1l2HsJ6odCc3fT7pmMw9m8TPpayMtb4bXnpV245KVAr22Q07ZIFkM5Jg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
- by CH1PPF2D39B31FF.namprd12.prod.outlook.com (2603:10b6:61f:fc00::60a) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 04:24:45 +0000
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
- 04:24:45 +0000
-Message-ID: <49816faf-2bb3-4aba-86f4-d46798a110c0@nvidia.com>
-Date: Fri, 24 Jul 2026 09:54:37 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 3/3] iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat
- workaround on Tegra264
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, robin.murphy@arm.com, joro@8bytes.org,
- jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev, linux-tegra@vger.kernel.org
-References: <20260722102033.1122277-1-amhetre@nvidia.com>
- <20260722102033.1122277-4-amhetre@nvidia.com> <amEXBlsOiDyAvZ0w@nvidia.com>
-Content-Language: en-US
-From: Ashish Mhetre <amhetre@nvidia.com>
-In-Reply-To: <amEXBlsOiDyAvZ0w@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0168.namprd05.prod.outlook.com
- (2603:10b6:a03:339::23) To BN5PR12MB9511.namprd12.prod.outlook.com
- (2603:10b6:408:2a9::14)
+	Fri, 24 Jul 2026 04:46:12 +0000
+Received: from [192.168.0.105] (unknown [4.194.122.170])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 9998920B7167;
+	Thu, 23 Jul 2026 21:45:52 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9998920B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1784868356;
+	bh=X/GJvTUB0Fc/V+y5K6V4KuOXG7ykfjR54qQ9NpMgq5k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=swgSdo9KScjxK2OqSJz8QOxqkfGxp4gXfakbWLqh8l3CT7QKquoToCBKsmB0bvG9m
+	 0FKB4YCtb1VHT1C38M/FPHAIe0j+PbLP0xfoqdrF8gvhisMP8gAZNuZZN/90BTqDGG
+	 zzV/TK3wmTWMVsTRTjI/f7YVxKsEzAwWsgWpIy+I=
+Message-ID: <d52431ea-3166-459c-8f3d-988fdef63c32@linux.microsoft.com>
+Date: Fri, 24 Jul 2026 10:16:03 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|CH1PPF2D39B31FF:EE_
-X-MS-Office365-Filtering-Correlation-Id: db6fc649-98b3-4cf4-0dad-08dee93b7d75
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|22082099003|18002099003|3023799007|10067099003|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: ybbspy1KcX2bClJ7TTJ8sPChEJ2JC8zjgRs6ndYwUlilGax8FQxI6TZJmf2Z5yRBE7fYCmzHnk7V/rHdqrpyqJQyCK7aJg4THzExZ9vB1JcIj26DhaTVFzRO9xjjimCQHMJ8yUp9UTRPWlvcqC62eGVZCXeengTClJbjS/QjiM1xwh3JIr3wtngKuQC6QfKoxiFdxAdJW02rr1Dhjzx7lIdz/3+2808hhvzk2DL09eRofk0vnpzrLj9MD0nTSTFRRPhCQLUwClck/D2DXL3FsEHbRoeyxiq93JnDtOduVqOkMLwX9JIx6QF56F2qVG7et4fERBE8JrWxqdRX9auAAgZv4s7jNUEC0U3ve+iwybQFtoRnCsVWoIzAATBh22SkBJw290Ss6hRO26VMOQFnCxsu4WWpphGL3On4aDHdD5mhid6jo/hMxUGXVx2Mu6MBSh70vM1+opeyRe81sw7p62yKo+aJQLjtKumFQPJgBozROolMSjKp2aG9rL6OIruEKtmwNpyHK84ZvvuYyIwg02tQ5RGQzhVkw6VAWDgE90EiVJFUPEBCGVhc8Caf3OM9Xjlt7Ay3+5syAvigKLw1PB5B+7Ozb+ghRuCwRMbs6D3RWOT5Ck3Zw38gje/wTVHQKBkxb3N6+T2+jNle6sHVqg/1qozMSK4FPYcBgrFl7Hk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(22082099003)(18002099003)(3023799007)(10067099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjNBYmxCM0FaY0kxTlAvbkVDNGNSK1llQ3c1SENlV0V3U2c2NnZiUDhJNXZi?=
- =?utf-8?B?RThHWVVjVTZXZjVBS0hkMGowQjdId0dOcFg5Nkp3bHNYaXV6L1UyVHY0T2JG?=
- =?utf-8?B?bDY4ZFd3S2FpZUZ3aHVQVVRSdUNTRlhWSWZnOUdLK3dxS1UxYSs2bFZiUkg3?=
- =?utf-8?B?Q2V5M1RXVUJ5WHhJTWJsV0Zxb2V2L3pWWDFUaEFsNUROUWREL0VrS21QU2xG?=
- =?utf-8?B?T0wwSVM5TlFINGZaazNtRktFZng0MVhPT1ExVEZqRDlNM1JJcC81TTAvYWhE?=
- =?utf-8?B?R2NGSjhjUldlTjZJbk0xalFrY1NQamtWQzdzbHowZXo4bVo3WkZBVGJQdHVs?=
- =?utf-8?B?dUZqVjNpYXJQSmNaSi96SlVaampuUGd6VWhFLzh3KzVyaGJzdTgrdlRNUTVx?=
- =?utf-8?B?c3FtcDQ0Qkwwa1d6R0M5TzArWXRiazVqdVMyUEtCVDREZHBpc1pRNVBiai9o?=
- =?utf-8?B?anhvYWdBblQ4QWR3c3hLNTNHa0QrTHdieTBGODNGcEVnT3R0STc0QzVLQWpm?=
- =?utf-8?B?UUp6ZTVuOGxWS1MybEVKU2N2cWRMamNPL2phN3gvV1dtK0NQY1dYTFFRRTll?=
- =?utf-8?B?RnFaSTdVdDdidzZISHVhYzlIbDBDdmc5SUYzcDdoS1hhQmNYSzZEbG1yMzhy?=
- =?utf-8?B?RW0yZDdnUjEyRlorbGFSb2NNbTY3M2xDNGFSRTZGY01RUVFUblhSenYxUXV3?=
- =?utf-8?B?aE1tTTFnbEV3UndBS2VtcFlKK2NMUTdxZDFMRmEyeTBrb0pnTHBRZUtERUd1?=
- =?utf-8?B?VjFqS1dGbkk5WWR4aDNKK0lHMmpJL0JZZExuMHFEVzVhWVA5S1RoVHJlSGlW?=
- =?utf-8?B?blZ4ZzNzWmhrbDlLTDA5Qkp3dnpTZVp0Ull0TGorRWU1UHJtK29YNTdmdkww?=
- =?utf-8?B?WW4yNEU5dmZhZUl2RW5BNHV5N3NXbFdzSGx3eWxkM0E1dTNHeUx5WXpxdUg4?=
- =?utf-8?B?dGZUdWcvZk1kc29iSGlqemVvdFpBbDhTTEVNQ1Bwd2g2TVV3UXpoN1gzRDIx?=
- =?utf-8?B?Y3Y0RUVWUXpYNzdOMDk4Y2pTRkNGTEhyQkMvNlJ2emxuR2tIMWp5TmlOMlB2?=
- =?utf-8?B?RXNCMnNxaXZhSGJ5QUVtbTkzNWZBQUpNbENKTFZiVGRhci9GV2xwZ0Q2Zi9a?=
- =?utf-8?B?UzJWbFFXMGlUK0owb2tpL3ZEVkNaOGxsVUVDRXNZWGhOdnBSakExLy9sZGRI?=
- =?utf-8?B?SW9LNGRRUXJQRUhwV21QSklVdmJzTzBhMEtNN3J1WVYza3VGYVZZUldwMyts?=
- =?utf-8?B?U2dBV1dMdWxFb0J1bkZOWWxMYzRUN3JKeWRMQlBVb2FrbGlOQUFXNEYwc3k5?=
- =?utf-8?B?RWs0d3BSNTQ1aXI3d2pDNmhCcm82VHpCVS9HcHJwTWpEdnVoUFdEaHRPaU0v?=
- =?utf-8?B?QUpLQkt4RGVlM09uamFNZEN2ZUNsRW9lRm94STloRjJlOUZtK0diRjg5SERz?=
- =?utf-8?B?eHRiUjRHTFBRWitCZm4vRVkwcTVUcGRUVTd0ZXV6aUxBbERoSHFpcFRTcytJ?=
- =?utf-8?B?K3Jubk1RU21XWEs5c05aaVhpNEVYSWNtSzRzK3c5V24vK0dkN3VySWVKNVM4?=
- =?utf-8?B?aVZqTnR1S21xeGFVYWJyMzVrTkVsYTJiNmZPcHRxNzd0aE5KSElWc2ZTSXQr?=
- =?utf-8?B?SkY1VWdDbW10U0NhNXFGRkpVWXlEbndPeWJoUHV1SGM4b0Y3eUtINTN1ZnlQ?=
- =?utf-8?B?UTk0RTJYUlIzN3pOQjl4YVAzYnVqL3J5MTJlSTZhaEtVVjZQZEVwWnVERlQx?=
- =?utf-8?B?WVFiamhoRGZ3SVhNK2ZKZC9xbHZjQytaNVpYYzNjQnFIRFIxY0N1bDFiR1lr?=
- =?utf-8?B?eVRNbzhCNHdtNDBML0piN0ZRUVZ3TWxGUDJubWh2aWNUb05mTGRVVkFZc0Iy?=
- =?utf-8?B?Z0NUUUZVdWtXRE9IZGdEWHZmbGtkckVtTzFxaDlmOXJlMmc0c2RqSjAyLzRK?=
- =?utf-8?B?WUNUQ09GdGZNVjB6a2dialcyeEh1YkRZVDgyS2tWWlg2bWZxa2YvbjRtUUhT?=
- =?utf-8?B?Y3kyV0trTkRzNVdtRzlXWVYvbnJUM2JRWEVLUlI1bDNNMVFhOElwYWZSd3Zq?=
- =?utf-8?B?RzA1OGNUbmRzZkxBWVJaN1Q2U09zb0xvc3liTHdBRTdhTXpsRjNRS09hVkVo?=
- =?utf-8?B?U0ZUSGpDRHlZMEJNUnFIb0plWStTVHBmeEFyQ2hUNk1yU05YeHBIR3FnNG9W?=
- =?utf-8?B?bGRRczhoUzFWMnlkbWwwNFRIK1Vxb1E0cnV6NU4zNVBIc21NYi94b095T2dq?=
- =?utf-8?B?N3NTWXoyZFlGMnJhc0ZlTkJ3TkNuUzJvd2Yvby9sZE0rbWY1eis1YnRHTWEx?=
- =?utf-8?B?aTZsY1IyRkhveDhRT0hKQmxDSEtPYXhDMjMvVHZMaWp4Y2ljSHB3UT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: db6fc649-98b3-4cf4-0dad-08dee93b7d75
-X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 04:24:45.1691
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yfOCccPETB4cwVKKDkLfL7oLemyxlLDsq7OnrStqWls/0MW3aSfkfYnZ8DMo6S+6hq6ebZiXSHrRPPtFiICniA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF2D39B31FF
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
+ reaching head.S
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Jinjie Ruan <ruanjinjie@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>,
+ Fuad Tabba <fuad.tabba@linux.dev>, Thomas Gleixner <tglx@kernel.org>,
+ Pengjie Zhang <zhangpengjie2@huawei.com>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ Saurabh Sengar <ssengar@linux.microsoft.com>
+References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
+ <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
+ <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_212453_604007_E8A04B3B 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20260723_214611_939590_63227AAC 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,42 +80,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 7/23/2026 12:46 AM, Nicolin Chen wrote:
-> On Wed, Jul 22, 2026 at 10:20:33AM +0000, Ashish Mhetre wrote:
->> The host repeats only the invalidations it issues itself. On a nesting
->> setup the guest submits its own invalidations, either directly through
->> VCMDQ or via the iommufd user-invalidation path, so the guest is the one
->> that has to apply the workaround there. Report the erratum to user space
->> through the new IOMMU_HW_INFO_ARM_SMMUV3_ERRATA_REPEAT_TLBI_CFGI hw_info
->> flag so a VMM can confirm the guest runs a matching "nvidia,tegra264-smmu"
->> (or otherwise double the commands itself). The host therefore does not
->> repeat the guest's user-issued invalidations, which would otherwise be
->> doubled a second time.
-> I think this "enable" patch is doing a bit too much.
->
-> All the iommufd-related changes can be added separately
->
-> I would do a cleanup:
->   - arm-smmu-v3: Factor force_sync
->   - arm-smmu-v3: Add arm_smmu_erratum_repeat_tlbi_cfgi_key and WAR
->   - arm-smmu-v3-iommufd: Add IOMMU_HW_INFO_ARM_SMMUV3_ERRATA_REPEAT_TLBI_CFGI
->   - arm-smmu-v3: Set arm_smmu_erratum_repeat_tlbi_cfgi_key
->    
+On 7/23/2026 11:26 AM, Anshuman Khandual wrote:
+> 
+> 
+> On 23/07/26 8:19 AM, Jinjie Ruan wrote:
+>>
+>> 在 2026/7/22 19:30, Naman Jain 写道:
+>>> When a secondary CPU fails to come online, __cpu_up() falls back to
+>>> __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
+>>> distinguish a CPU that never executed head.S (firmware/hypervisor never
+>>> dispatched it, so it never ran a single instruction) from one that
+>>> entered head.S, started executing, and then got stuck somewhere in kernel
+>>> bring-up. Add a change to let us tell those two cases apart, which
+>>> narrows down where to look when a CPU goes missing during boot.
+>> I previously encountered this issue when debugging the parallel startup
+>> of ARM64 secondary cores. It is difficult for the kernel to determine
+>> whether the secondary core is hung in the firmware or whether it has not
+>> executed a single instruction. So I think this motive is reasonable.
+> 
+> Why should kernel determine the difference here ? Would not the firmware
+> know if it has started any secondary CPU for the kernel which must have
+> come inside head.S ? If the cpu gets hung inside firmware while starting
+> up then the debug responsibilities belong there instead.
+> 
+> Still wondering what's the rationale for this change.
 
-Okay, I will add one more patch to series for iommu-fd related changes 
-in v9.
+Hello Anshuman,
+This sounds fair to me. Let me elaborate the problem, beyond the scope 
+of this patch. In production, we occasionally see these crashes where 
+one of the CPU fails to bring up online, with 0x0 status code. 
+Hypervisor may be missing the telemetry, but the problem is that we 
+don't know if the secondary CPU ever started executing the instructions 
+or is stuck somewhere between the start of head.S and marking itself 
+online at the end of secondary_start_kernel().
+There are couple of places, where we get those other status codes, but 
+not everywhere. If the issue is not easily reproducible, experiments on 
+local setups do not yield anything. That's where I am attempting to add 
+some more information in kernel to debug these issues.
 
->> +/**
->> + * enum iommu_hw_info_arm_smmuv3_flags - Flags for ARM SMMUv3 hw_info
->> + * @IOMMU_HW_INFO_ARM_SMMUV3_ERRATA_REPEAT_TLBI_CFGI: If set, user space must
->> + *	issue TLBI/CFGI+SYNC commands twice due to a hardware erratum T264-SMMU-3.
->> + *	See the description at arm_smmu_erratum_repeat_tlbi_cfgi_key.
-> You can follow the kdoc style as enum iommufd_option.
->
-> Nicolin
-
-Ack, I will fix it in v9.
-
-Thanks,
-Ashish Mhetre
+Regards,
+Naman
 
