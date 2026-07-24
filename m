@@ -4,150 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F23AC53200
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745B8C531C9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SWuvF/cIW35TliKCeQtLhP5k68r/+d4MQq+r6RzxJ7g=; b=Siyn6Uo4Vb4g5nmo66n6P2Jreg
-	xghkvmj/aOsZlxBDop7zrObYXP1sfjmIwn1lCnQGjWh2P4FOCr2egmMnKYIq3Bt2lb4Rcx46N3o+o
-	abnDSHYo1wjStfDyg0x5+9royc+lezmFEL5iUhBypQytd5V6gLYB99lQ3K1yTkOVLCTTTGyukVKvR
-	cIfuVhnbe4PedYNuZLvff+8dnbgllK9LNgW+pVti82s2EekPy59JgmrgdEyk6YDKeb4UeykkTJIQu
-	WJTYv0BeOnLSoJGtY1ZxZxnAFVNS+t+1n3gbV3FaJXyiI+LcW8x2UX+V2KCL3cuX2mPsvqQcTlNG9
-	Vm2am8Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=swyQuDarVDN5VJVqjAFVM+bZ5jRGsu+zccVbSS0Cmqc=; b=VkGE7XmCwgim51mUvTX/+0PwcH
+	o7h6UCneg7M4LSrUtQp7PXhi8iPueLFMTyvZRDs8Yg6E37LWIm+pDxHPFO9m+Ma9VWtOLryBXRv8H
+	/Xl/JtSh8p1qOaP/D96xyiSPfITWD0fFQFAmB9b6upFQ/QrcRflIKx3w3JjYjGsvyJCeSRaTLWqRS
+	8RGe6u9LJDTiZgIexkMXUq7eEqQz6ehCz4h1iaXZChhqK4AZAW2ZHxbqrBnPRzqZfhpPaqGL4uk+b
+	Pmyv3+P9cRtp1gqBsHqdCr30oWUcEauoPc80TEC2mIWDMIrCakTHHBtWPFUab6fODtCrzGgQD1NDy
+	QftuAtfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDe1-0000000GDll-3Yoq;
-	Fri, 24 Jul 2026 11:00:45 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wnEvi-0000000GMPm-3wkU;
+	Fri, 24 Jul 2026 12:23:06 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDdz-0000000GDkj-1tY8
+	id 1wnEvf-0000000GMOj-29Lc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 11:00:44 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=lhpEV/mnlykkQRNajAE4ga5bIAoUXDTVpfBytahCokHIIIAgpHzkqdmzlwts4nE9Mu5fIUq41em1ZN+aB7koFhQBCi13Wwr3RTrJMemRPQoEov7IAKjvXxrfD52UDCyGd/bZTvMQ0mL6yRPPyM+qKc171YVIHBnIGJGQGvg4I1/XxsvbowzYps6tmMwQUqOp7FH0wqY+HiiRpTDL4oiG32BE0dJnxUFP6urSDgVaN7KNn0RECvY3istW0RKbIZx7ZsbEjLpc9VlJzxECSVQ0pK11NrZjSAPH5EF8h/jIPy5aMbYSCdHhDDZggXq+SDM2xblKjMjRqvHYH7tM8mCBWA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SWuvF/cIW35TliKCeQtLhP5k68r/+d4MQq+r6RzxJ7g=;
- b=YkOB1jMhD8oUIozVX/cPwyPEIgOj2b8jtf3UeBzktUv7lguWX/KTE1tzncGMGEN/lOBpIVtZe1nm6B2cXDPmtlmBkRJNm8HkwpGk+UbXebr5rgo3pLu/omEgtcjT5cNV/hHV148sf70sWrIjgKuHdyyvzXnJt2BskgwIh0KKG0BF3AnmvGGy4fGTisAaP/UnDXAg2JpRUA3ku2JhTFtbcrSIk90hDAN+790oZXeIKkFVuz5JbW5hMB6kIBtHaZOatINPy35Ehfft1WVylB0OksFOuBpbrf7J9DzdPm6/u7j4S+EF9nh8WP6sMENm90Ym92RfmlRV56wO7768iKNV3A==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SWuvF/cIW35TliKCeQtLhP5k68r/+d4MQq+r6RzxJ7g=;
- b=eYi7UXnM/tKp2IQD7uAiuuUABwwuTaTF5VX/FqnQ0ArRja9xv8A00XzanbmnBnBdXShyH9cRtovhg7658yEkrI/O0zl8MU31tV9cQyKK/vlvRQuyf7hm+HBhDF2gVHTYrjl5p1fg0hxDilre5QU781GlZ9xEGNTcZZwcllHmcXM=
-Received: from DU6P191CA0039.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53f::13)
- by GVXPR08MB11373.eurprd08.prod.outlook.com (2603:10a6:150:2e5::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Fri, 24 Jul
- 2026 11:00:35 +0000
-Received: from DB1PEPF000509F9.eurprd02.prod.outlook.com
- (2603:10a6:10:53f:cafe::87) by DU6P191CA0039.outlook.office365.com
- (2603:10a6:10:53f::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 11:00:35 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509F9.mail.protection.outlook.com (10.167.242.155) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
- via Frontend Transport; Fri, 24 Jul 2026 11:00:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A1TGp7jnoK5lC4hggLNy7M5oBa7k7uIHCP7XgGR3x5zTBF07HrQ7bAYJE3lXsyT+OPtfMUwgIIk2nQfft8nQT5JFpIF6f9w1YD7MNkECGOS7En5ZcyJ41cEte1hJkzl5QyTtdF3UQoVvZtHp6w7Zuh91EgCnA7YJmmjRYynY2w7uLUtMzepVx27Z82hYnRLB6pL219WUzwlw4RvWfaBDcF70xvhnnrijhiSjB4kxJ20xTACe7Q5Bbi8j38U6DJuBF5Lr7W6LvJiaMD3hC3qJ8u3u82lBsONRGrA3A7Ognv9zd8utH+hsaS+0ttV4OtMRettWLbG2S4MJ8iIL/USfIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SWuvF/cIW35TliKCeQtLhP5k68r/+d4MQq+r6RzxJ7g=;
- b=ivP2AdiGBvYUAS8pDKxfuf1MDoqULH1DXxOhlwkacbRZX/U6NebyVrOIjPRZE4eHmjo25d9r0Wm/mxO7cS59M7EePsaAoe58Um4bQG6X/A1emyaqYA+qjk/WY9o3OSr21aaqMJF4m+fa98ICIwIQ8r5jedS1oGcY7R6UVPjaDCmRh80oCVPvkRTHGffPYi/DSPBAhw5EDStgwAVNx55RiEq1x8+4n3DZBBPrOZGgGQ0LCuQaYEpWe7aPtnZSSEOKJvwG9o5vmQq2jkkztsc5BmqDwLXJcYWB71Q5HdteA2PIYDqMEwF03Huspsg596uFkOtp11L84vNctHv83oPxYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SWuvF/cIW35TliKCeQtLhP5k68r/+d4MQq+r6RzxJ7g=;
- b=eYi7UXnM/tKp2IQD7uAiuuUABwwuTaTF5VX/FqnQ0ArRja9xv8A00XzanbmnBnBdXShyH9cRtovhg7658yEkrI/O0zl8MU31tV9cQyKK/vlvRQuyf7hm+HBhDF2gVHTYrjl5p1fg0hxDilre5QU781GlZ9xEGNTcZZwcllHmcXM=
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
- by GV2PR08MB11279.eurprd08.prod.outlook.com (2603:10a6:150:2f0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:59:30 +0000
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0245.009; Fri, 24 Jul 2026
- 10:59:30 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
-	<fuad.tabba@linux.dev>
-Subject: [PATCH v4 43/48] KVM: selftests: Add VGICv5 IST attribute tests
-Thread-Topic: [PATCH v4 43/48] KVM: selftests: Add VGICv5 IST attribute tests
-Thread-Index: AQHdG1uAbvb/V4v/xk+bcqQdrVLy3w==
-Date: Fri, 24 Jul 2026 10:59:30 +0000
-Message-ID: <20260724104819.1296803-44-sascha.bischoff@arm.com>
-References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|GV2PR08MB11279:EE_|DB1PEPF000509F9:EE_|GVXPR08MB11373:EE_
-X-MS-Office365-Filtering-Correlation-Id: 707871ae-b1f6-4ac7-2107-08dee972c98f
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|22082099003|18002099003|56012099006|11063799006|38070700021|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info-Original: SyZB2pBYCVvUvNYRzdzjtrzwOufESjcWAWFxIslbh0YHPfq7yJw1/161ujUksuyGGQR68UkjreoMxd3YmNR/25634ThvGgXp0cRzZOu6Wrmd8Ep1pl3IprVKJ5MIw2dgOiLDl6mYD/UqhmlhhhqEg1uDu2jHmSNdD8ddDbpVVWpLCisaVP9CN/rlLj0kVHltBfZ7pLdgMvy1noGFxBqQbJzLNZ2iOmh7Vb6Tt+2ceRNcKeFbBsHiePe1QMGGgE1oM1DNVXpKzUfcKHdtwzjDiOYV5EgOJS2b7PnzE/DRhWKxTpP1Ub0H/WHkjLqjwxKN7ckkly7/NUw33c+1dxQPL2ihQs/lkOe8HWm18nA9aeXF/Bxe//bC41UMULR4SITx1cee+iGMR8b+I8b+H/C3XobX7RL1FA79D7ZBiGEWLGTc5B/cct6OFCFu95N4ww+FlGkS0bkCAIiidlI56iE24dBPuWw+VogcvOGB2NAqdLJBRxMnKLHhHsGqJZnrWA1h9NFU531OR6dT6YGczvUH8saQemmDE1D8XkueBt33dO6Xa08BXa36D7umoBpCdfR0SMIXm5Ge0kwA6bz+ApZHpnOih2AMJhBKlQysortAOez2gkAn88XH9W3UXNYxPpJYtZRKXvOYrX7h9Re5hyOtA1eskzmrV43lrBc1jsSLuYw29LhXvQqFzsxU37D7gwysRu577gH8Y7z2rj91npDJ/w5ArpCKVs1AFUBotBa89Wo=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(38070700021)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Jul 2026 12:23:05 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66OADWl92720591
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 12:23:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	swyQuDarVDN5VJVqjAFVM+bZ5jRGsu+zccVbSS0Cmqc=; b=XOA7KUZy5pk6PVqE
+	Nc4Ta5bdbp8FPw6UN6UBTUZItLw0RamLPAjQLYfYFfU9f4lXXakwv4L3C6ubnPOE
+	Gz5PjVhI9ZSKdTodG0gQkr0fDrFr/UK5ZBn8MXpnOy6s6PRAIyL8KyAxQoxlhNjC
+	65a6mUyMdFY2D/Gn7SB8VIkqPnvGrHPSa/fOrND6nJ/1OZSPfaIMhflF7kMKN0vU
+	dPfPcFOnlYFndTitzlIk70aHKkSOF90ZQOiq0UckkepiYDHd+pskcC+vHhDdNrt2
+	iCdJR8NASVXn3e63hqKiGF1WTyrfKhFja8u5FDEKyNzcV9FOFwuwvu942F6C4Zgy
+	SlLV6g==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fm5yagfyh-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 12:23:02 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-52845bd815bso849791cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 05:23:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784895782; x=1785500582; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=swyQuDarVDN5VJVqjAFVM+bZ5jRGsu+zccVbSS0Cmqc=;
+        b=DtuuRQ8Zshql7xxt/1Okyt88esQgMHJ1ptXH41RWNWEq0FHl0ULREQCwX9IcYZuEt0
+         0lMLVFZNf3qeav/cOJCBtaqlcvcfOEhH3wx49N8EykVORZk7usge2y51y1Q8RsTofqOc
+         /4nH3Yy2Giey//AH3IgMajBP4MBQVhxPuVRV9Wl0xXGRPzEVmc/lURNYLbW61kw4N4DG
+         KThGC1IYcLy5YNkV6FrwrTY84GfFyRoQaDpwhsuY1gYjbmupCO2DhS3XwvPY5H+p9gvp
+         FgjF9VsDxJipaOBQoVrFx9K9n8cHE+PyBX9JeQFJPcOQrxWkxaf5FtQblYUaXS9hXcXr
+         aS7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784895782; x=1785500582;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=swyQuDarVDN5VJVqjAFVM+bZ5jRGsu+zccVbSS0Cmqc=;
+        b=pV1I8xVbihO5tskxm7YieVi/ftTqzBbFBtEFMITcLC5El2toaKOzLzdm1WLotyfXWp
+         oQH76EE5PNGcof0k08NxJ7pmAKaZnnXGEAvLMGI39olDve3cgsJQhB6CDuanTwde/WLN
+         O+USQ7uqpZ5v5bZms0K996hGEiGsS5wSsUE4BYmi59pziAAtcy0CRl3klQX05KKAYTG4
+         M0cubBzEa4wO8Z5ON5fvC/pHYpxjbTjVfQ5+6PABQ3KxB3oB0DuL/b3dWcFXuB+euhsR
+         w0p58RmT/c09kCJaakiKruAUZX0ZvnywCfQK3S1/3XhtcOiuM94tULhIpcKBEAtlIDt2
+         j33A==
+X-Gm-Message-State: AOJu0YwlHFWaPbNvPTG9ZAJ6i1CRdHvyYMrXfIdsQx3HHatxFD6YXcDU
+	kZd+ZCip39caW24znqhIuzakJm6wIM2S5Viu6JPHCod0HrxvCBB+pqaD1ZWfAMh6FHLl2WHu7en
+	N6XFpsWHzhYIUVzdzXoTe1yHrjCmMoHjkb2c+MglMhd/Iu3wHjLXI5LSyTOgK6CfxBjR4IgHlQx
+	O6JQ==
+X-Gm-Gg: AR+sD10FMkCH2EZTZHzJ6OwibAJDbLlzTgtDFh+vCqHALUKU7GYL02fhb9EmyNwev0q
+	aEjFERuNRQbVx6ZnnXiIzBs85RxPaD9asjeWYgU/jU3pXD+y5U02IwrcG0sk8eHyCxkhUDZLjnu
+	ey1yjpqWmzMWBC78dYuWS2MZxGil+LsXIwjbedprWWoJtYfGyxy/K1uQ4vtp1OhNIY+/fJSl+0t
+	KFZsQSPQTKeT3c8fxMA78kiWvpIOlbAmaP2riDyT4UOvaarCmjIBHVt8/JR/jyqBFA2p4TJoO1A
+	gJX1gPRWyXvnT1smGdqYrXW/Jzz1DJlrXzIdOLTCHKm9hbkeRAoDpeEH8sMHfR9nJ3O8NO5X5OH
+	9AWGE7G377BADKppUFjR42JVa
+X-Received: by 2002:a05:622a:6208:b0:51c:11b4:6b24 with SMTP id d75a77b69052e-528496c5744mr31380951cf.3.1784895782007;
+        Fri, 24 Jul 2026 05:23:02 -0700 (PDT)
+X-Received: by 2002:a05:622a:6208:b0:51c:11b4:6b24 with SMTP id d75a77b69052e-528496c5744mr31380561cf.3.1784895781535;
+        Fri, 24 Jul 2026 05:23:01 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1c32ebad78sm339747966b.46.2026.07.24.05.22.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 24 Jul 2026 05:23:00 -0700 (PDT)
+Message-ID: <720eb684-ae89-4003-b167-e427b4d31add@oss.qualcomm.com>
+Date: Fri, 24 Jul 2026 14:22:57 +0200
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: T7M01DNsEcRVhPq9463xw8dDNXCP7djWhlWN6vGeMl7ERzIHaDPjoJ75i7htN5q9l6oGsYX2uxXCGPPI6Zop6JgJMb+3NY2NRwKWPl7hgy/5Udk5KtUzNaPEDgl/kze7asrZofCzVkFGhFJIWUmC2pSJyNQvFVeaBSZzoPezq1S7dmDlaB5qKQqYyB2f/s04ZZkKrl+MuyrNPY0/95GDm+GBoIogZa8QXRcLdgt2oh7LuC+iF99iuNRwm6PMl+fA4DY9BLMBKmjl5kDXEcercNee8MviV4bfIzAhBHpsyygNfaUU+IJNkbrfjCrvUraV2vIbK7JaRg1YhWGkk5TiMA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11279
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F9.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 153f4a95-cbb5-4a75-0915-08dee972a2e5
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|376014|23010399003|14060799003|36860700016|82310400026|1800799024|6133799003|56012099006|10067099003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: gsBiw5CC0tlWJvMjMIqjf6O41us7YxHLevZtHewZQbVXmgBPK95QHkoBZ/n7ApXSsr7mDj0BDTl/o8O5QkvyEkt38rp3zW9krlrFDLa9zK+jyoBmv4IWHFy2vg8UnzLl8h46UPi9Q08skOkuKD8QYz0KkULS56/SdPxTMbQvQXhEDt/NW7h0EYYoCk7RBOKclmrDrsanKjZ8DghwFYUyMBQkLyI9PH72Y81FLyp3YXq9iOWYImUHjgkqBqRMPMZRICuFmO74CLo6n0OfcO53FnmS1E9a7rlL8Xc0vQfx/Nf8PcQ9db7DBOL/XcuvBU+3QgUjzxOp0vqllcFLB2twlR8SF4pBvvwSGmtM85aBrh14+CvdpdVumbvOxqhkVg9Wc0Dm/Z4G82y2s6Trc6rrPjz+1qAAIjPXrbC9OFIbiLYHf1NKA2ul4+NPk1xzOlT7KEscw2f2N6omavprXBLw89imiyIPBgywlPoLmSlFP+6MaweFW3CKtHAb1WlXRv2R4I3junVXYviIYVbA5gVbzdyLg2i3SF1pjeQiPufWVTi0R70wbRgam/j/9uPoOVFXcmovu7cNaiuSL17HRBQDsoT0jkor2LA///Q3UDxicDe18RGRf9eravLGGgs1m4riescoTCviVKnZoqc37xrwjkLCtrXGm0z/eXDc/wt5SkHT+nkEbc6VBKLoukmhgjcFASZ0aKoo45tKAddFe2UDgw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(376014)(23010399003)(14060799003)(36860700016)(82310400026)(1800799024)(6133799003)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: uWYN3PtQ1fIOa5/fgvT4RB3QIgm+vk957/VM6BNSdajRFgVIEgC4bJWq0mbWwlCND3WyZta31nc/noM4mvscalWUhjcJVGde2q+9PPvQvPwpWqW7DqeXwlFugS2ilM0nKkAJ35tbdvYyf7MLw03QPeN4JejAyTFauYT8b1DKAV6K0RC3h1CNYqD9/c3PMYjVAI5NwdZT0F5Gucod6qH+beCq/ZT+Hlmewa97n35i8n2OehawZGqOVTMaGVSB/eaNsK5NFzV8RpyqsP9pbMb7VEVtH9HKxUG0a13H49rSkddMJijF4JF68pv3QD+6unvXphu0rnrbmEd/V33xuOZ0KZIf9glVphcVRuToza1iv0fpRT1oPuMS3h8qg/+S+Pc9vzV52GSm4b7uKGaE3AaEYZPH1IDQMwRENT2ZTMY7IhOHN+LRROURQ2vK5M5LRCmi
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 11:00:34.8798
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 707871ae-b1f6-4ac7-2107-08dee972c98f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F9.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB11373
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] clk: qcom: clean-up simple provider misuse of the
+ consumer API
+To: Jerome Brunet <jbrunet@baylibre.com>, Andrew Lunn <andrew@lunn.ch>,
+        Gregory Clement <gregory.clement@bootlin.com>,
+        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Heiko Stuebner <heiko@sntech.de>,
+        Prashant Gaikwad <pgaikwad@nvidia.com>,
+        Thierry Reding <thierry.reding@kernel.org>,
+        Jonathan Hunter <jonathanh@nvidia.com>,
+        Tero Kristo <kristo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+        linux-tegra@vger.kernel.org, linux-omap@vger.kernel.org
+References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
+ <20260724-clk-provider-simple-clean-v2-2-56f306156d25@baylibre.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260724-clk-provider-simple-clean-v2-2-56f306156d25@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDExMiBTYWx0ZWRfX7PSuQ+NBcxvF
+ l2Ch25SPoPaPFg4dc59OWBa6SWMYiPVIVtWNJWEb96I504TwCmU7aUDSWa0OxuSdI+wBbuJTTyf
+ o9at4PVqmeyFlz4Q4N4HUssI2woaJD8=
+X-Authority-Analysis: v=2.4 cv=Rtz16imK c=1 sm=1 tr=0 ts=6a635926 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=20KFwNOVAAAA:8 a=IpJZQVW2AAAA:8 a=EUspDBNiAAAA:8 a=4bE8Fl-H3dgRu3KWX3sA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=IawgGOuG5U0WyFbmm1f5:22
+X-Proofpoint-GUID: WQXAY0sAvjwhEv_AKTw-ICjMbM7YPzMA
+X-Proofpoint-ORIG-GUID: WQXAY0sAvjwhEv_AKTw-ICjMbM7YPzMA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDExMiBTYWx0ZWRfX9XkfZux2BMET
+ IfilNaR0ttpSLR0DOtxVus2BhBi4hL5JnCAErEQAZTezFLZAIi4XMd8kIHc9B8qqxnQVj5kZwRV
+ vKld7jDo3knPn8VcHG20RFmADvVdhYfHxXJFYyvf2MMQY19tnFun008UN1mAheYEE/8urTyXYQm
+ 1eWbFIbuRJvNpmpbkxyK9BH1kKRjckyGJ7J1XNKFbJBMZYTrnkpEYtI/6oDfGiDLTVO/hFTgKv1
+ 8PMWWx1pqa7E4NA3TtKsrDLjOD/EPuyQdeVchaMblut9C6ndWFdRK/jRqeaYZ550QsPfkj4L/fq
+ VKxedVt/fcWtISBfYR86WgDyWtriSRV7z+pteyF8UpcMhkYpjRWNNZfPg/ieqRsJPrB6M5aK519
+ mm/wORLkidOQHU4aaeQo/kmsWkbgNBbzqT7nNTLwNF5t2QguHk1xGH9dNgz9kQYDKjiK3U7qUu7
+ ImD/4v4BNWa/vnWdYdw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-24_02,2026-07-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 priorityscore=1501 suspectscore=0
+ lowpriorityscore=0 bulkscore=0 spamscore=0 malwarescore=0 clxscore=1015
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607240112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_040043_500910_C3BF70E9 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260724_052303_669746_8F6DC185 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,182 +165,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add API coverage for the VGICv5 IST attribute group. This does not test
-that IST save/restore preserves interrupt state; it only checks the
-attribute plumbing and the cases KVM must reject before the end-to-end
-restore path can rely on the interface.
+On 7/24/26 11:03 AM, Jerome Brunet wrote:
+> Clock provider should not be using the consumer interface.
+> In other words, a provider should not be dealing with struct clk.
+> 
+> This change targets occurrences for which the provider uses the
+> consumer interface and corresponding clk_hw interface exist.
+> 
+> Reviewed-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
 
-Verify that KVM reports the IST attribute group, rejects unknown
-attributes, rejects save/restore before initialization, rejects bad
-userspace pointers, and rejects IST restore after the VM has run.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Also cover the userspace IST descriptor validation: a VM with SPIs must
-provide a SPI IST buffer of the expected size, and LPI storage must not
-be supplied when no LPI IST is configured.
-
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- tools/testing/selftests/kvm/arm64/vgic_v5.c | 122 ++++++++++++++++++++
- 1 file changed, 122 insertions(+)
-
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/se=
-lftests/kvm/arm64/vgic_v5.c
-index ca03d1cb6a2af..f756dcab26278 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-@@ -29,6 +29,17 @@ struct vm_gic {
- #define GUEST_CMD_IS_AWAKE	12
- #define GUEST_CMD_IS_READY	13
-=20
-+static struct kvm_vgic_v5_ist vgic_v5_ist_attr(void *spi_ist, size_t spi_s=
-ize,
-+					       void *lpi_ist, size_t lpi_size)
-+{
-+	return (struct kvm_vgic_v5_ist) {
-+		.spi_ist_addr =3D (uintptr_t)spi_ist,
-+		.spi_ist_size =3D spi_size,
-+		.lpi_ist_addr =3D (uintptr_t)lpi_ist,
-+		.lpi_ist_size =3D lpi_size,
-+	};
-+}
-+
- static void guest_irq_handler(struct ex_regs *regs)
- {
- 	bool valid;
-@@ -530,6 +541,114 @@ static void test_vgic_v5_irs_regs_attrs(void)
- 	vm_gic_destroy(&v);
- }
-=20
-+static void test_vgic_v5_ist_attrs(void)
-+{
-+	struct kvm_vgic_v5_ist ist_attr;
-+	struct kvm_vcpu *vcpu;
-+	struct vm_gic v;
-+	u32 spi_ist[VGIC_V5_DEFAULT_NR_SPIS];
-+	u64 attr;
-+	int ret;
-+
-+	v.gic_dev_type =3D KVM_DEV_TYPE_ARM_VGIC_V5;
-+	v.vm =3D __vm_create(VM_SHAPE_DEFAULT, NR_VCPUS, 0);
-+	v.gic_fd =3D kvm_create_device(v.vm, v.gic_dev_type);
-+	vcpu =3D vm_vcpu_add(v.vm, 0, NULL);
-+	TEST_ASSERT(vcpu, "Failed to create vCPU");
-+
-+	/* Check existing group/attribute */
-+	kvm_has_device_attr(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST, 0);
-+
-+	/* Check non-existing attribute */
-+	ret =3D __kvm_has_device_attr(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST, 1);
-+	TEST_ASSERT(ret && errno =3D=3D ENXIO, "GICv5 IST accepted bad attr");
-+
-+	ist_attr =3D vgic_v5_ist_attr(spi_ist, sizeof(spi_ist), NULL, 0);
-+	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    1, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D ENXIO, "GICv5 IST get accepted bad attr")=
-;
-+
-+	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    1, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D ENXIO, "GICv5 IST set accepted bad attr")=
-;
-+
-+	attr =3D GICV5_IRS_CONFIG_BASE_GPA;
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_ADDR,
-+			    KVM_VGIC_V5_ADDR_TYPE_IRS, &attr);
-+
-+	/* IST save/restore is not accessible before the VGIC is initialized. */
-+	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D EBUSY, "GICv5 IST get before init");
-+
-+	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D EBUSY, "GICv5 IST set before init");
-+
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
-+
-+	/* A VM with SPIs must provide a userspace IST descriptor. */
-+	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, NULL);
-+	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 IST get accepted NULL desc=
-riptor");
-+
-+	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, NULL);
-+	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 IST set accepted NULL desc=
-riptor");
-+
-+	/* Check bad userspace IST descriptors. */
-+	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, (void *)1);
-+	TEST_ASSERT(ret && errno =3D=3D EFAULT, "GICv5 IST get with bad descripto=
-r");
-+
-+	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, (void *)1);
-+	TEST_ASSERT(ret && errno =3D=3D EFAULT, "GICv5 IST set with bad descripto=
-r");
-+
-+	/* Check missing and incorrectly sized SPI IST buffers. */
-+	ist_attr =3D vgic_v5_ist_attr(NULL, 0, NULL, 0);
-+	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 IST get accepted missing S=
-PI buffer");
-+
-+	ist_attr =3D vgic_v5_ist_attr(spi_ist, sizeof(spi_ist) - sizeof(__u32),
-+					 NULL, 0);
-+	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 IST set accepted bad SPI s=
-ize");
-+
-+	/* LPI storage must be absent when no LPI IST is configured. */
-+	ist_attr =3D vgic_v5_ist_attr(spi_ist, sizeof(spi_ist), spi_ist,
-+					 sizeof(__u32));
-+	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 IST get accepted unexpecte=
-d LPI buffer");
-+
-+	vm_gic_destroy(&v);
-+
-+	/* IST restore is rejected after the VM has run. */
-+	v.vm =3D __vm_create(VM_SHAPE_DEFAULT, NR_VCPUS, 0);
-+	v.gic_fd =3D kvm_create_device(v.vm, v.gic_dev_type);
-+	vcpu =3D vm_vcpu_add(v.vm, 0, guest_code);
-+
-+	attr =3D GICV5_IRS_CONFIG_BASE_GPA;
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_ADDR,
-+			    KVM_VGIC_V5_ADDR_TYPE_IRS, &attr);
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
-+
-+	ret =3D run_vcpu(vcpu);
-+	TEST_ASSERT(!ret, "Failed to run GICv5 VM before IST restore test");
-+
-+	ist_attr =3D vgic_v5_ist_attr(spi_ist, sizeof(spi_ist), NULL, 0);
-+	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_IST,
-+				    0, &ist_attr);
-+	TEST_ASSERT(ret && errno =3D=3D EBUSY, "GICv5 IST restore after run");
-+
-+	vm_gic_destroy(&v);
-+}
-+
- static void test_vgic_v5_ppis(u32 gic_dev_type)
- {
- 	struct kvm_vcpu *vcpus[NR_VCPUS];
-@@ -652,6 +771,9 @@ void run_tests(u32 gic_dev_type)
- 	pr_info("Test VGICv5 IRS_REGS attrs\n");
- 	test_vgic_v5_irs_regs_attrs();
-=20
-+	pr_info("Test VGICv5 IST attrs\n");
-+	test_vgic_v5_ist_attrs();
-+
-=20
- 	pr_info("Test VGICv5 PPIs\n");
- 	test_vgic_v5_ppis(gic_dev_type);
---=20
-2.34.1
+Konrad
 
