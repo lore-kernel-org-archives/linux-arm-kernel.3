@@ -4,79 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032D1C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 19:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C838C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 20:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIrEUXeMwkKPn3AMJe5EPVmRwSj/wiphCk2WS28J/Pk=; b=L3NkY2oifth9nTJ+RBvQtuUdAx
-	799qd1vhShI5flf4Bznttqn2Iyvlvb6dQINKQM/94/d/dvWqG6iyMXEghzEiiXP7pY503M9gq/0aB
-	4fzHAa94jA+UcVHJby/fKeH130VT6TG1E4krcjtoR54GezELOIjFqoNtJQGPG2XrqUL9RtzM21pql
-	DyRCcpDazFkGd+d0s1aiCFG2dUT1Y6+q3OEi65pZ00rtujaSxaQfjvTs0JUX0Vy086fndO3zYBwKr
-	sN/TwWghhgKiGfUR/EWn1v1nF65JtuA/4kya9Rh69JcMPktU75ttWpbJvHkZoyiwdVfQ6qxB2SbL+
-	mM64fiIw==;
+	bh=tJBnkaGbWnzefc1dU1kN3l0dQRTCx+fMPtCZVEbtQms=; b=bKqY1J8fK3UitTVSZ7wwhnZBhE
+	T6YlkiX9BDezFgtwEG2I7izm+/Hlr3EdITsVr31hrntW6RdGflHLI7EYo8zD+M1IZRx4BM3XR3OL3
+	Uv4t0NdNCA4X/ONVaX/IqYXdf6ebo7i5GHUA0PQfxCiYj6YM1HOKNpVh8Chf21FfwsuKS/rWYexWW
+	p/EAQAwFiuI31Nysf32rbJY7FRJLQmUF5LVJcR4hjPBwqMv+L1cAaQbpIEKR/PY2g0ADI/Wy4nU5/
+	2YZHJ4r8n9GdGCG0V0Ari0qE8c6bqe4mdkNStIQSAILg+spSki1BRl17xD4sVTD81VulSyH3AHd0I
+	ZgHhhT5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnLwX-0000000HC1H-3Ttm;
-	Fri, 24 Jul 2026 19:52:25 +0000
-Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
+	id 1wnMY2-0000000HDpP-2HwA;
+	Fri, 24 Jul 2026 20:31:10 +0000
+Received: from mail-swedencentralazon11013039.outbound.protection.outlook.com ([52.101.83.39] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnLwV-0000000HC0q-0xnI
+	id 1wnMXz-0000000HDp2-0BUe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 19:52:24 +0000
-Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-cb4bd11ddf8so809749a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 12:52:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784922741; x=1785527541; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UIrEUXeMwkKPn3AMJe5EPVmRwSj/wiphCk2WS28J/Pk=;
-        b=cKe3TGlOg2FkJf7rbmoghna3hmVowUJzOh3g9Hig8wtDCVZfJPBP9x0EZT88KeF2O1
-         Chj/Kl9anRcMK0KgQd7cEJu7pGGLXexPpmYCkRn5U2xy4I+xMOpPo2UBTDGNJjr3WtxU
-         M/CA4Le87kmS9gu8QIzmIZE+SPdpAuFj4MBLCXLe28+nVoZHHI2UWMYcpHxPn591svEy
-         5snJdjgJFXS4qz87jqfNc8ljfsVrRIy2FiI3rKgRCc2A7yCHafdXXHDNFQjLTqXTbbpE
-         5TcKf6uOg+W1rJLw3bL/Lk4dESrvIKYmwnAefW/LHFFesVBcpVkq4ZwoZVdiqbApj0R+
-         AQ4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784922741; x=1785527541;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UIrEUXeMwkKPn3AMJe5EPVmRwSj/wiphCk2WS28J/Pk=;
-        b=LofcgjywhothSGMOWttVX3mLVHkLcy4OollG7xWf4Cnl8QvF6wj9VTnlBnc5kt3ZJ/
-         NUvMLb/zzEHGuu4Ds9mMYFGeyEK/fpIVsuTs6jAgE2uNKxSXMLw2IuVFvCRSe0FN2wus
-         ieq+WeP29nwOiLNvDp41sRm3HrzZqDa+jH5/D9sFAl8sxYmxuphz/ZsGwJDKjB1luhTP
-         tViidnzRdqUpEllCPzt5DMDuRvDH1wPR10evzzyjF/DAsPGxPh03d5qlpeSXlw2SgpgF
-         nho61siiU02u9IHCYrIwCcikYqgw4+HMlFOzxY5fYOD2P1tnMDQ5/w2bMVl22tStSVtW
-         7vXQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoyXeSSwXkPDqpHu/3ZFxgY+cB/svHFBOeqOIBUmuvL3HVgf/Cl5DBvhJidtzPtfdCltd3ocdD6K0nSRrzqJYh4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcrwTPIiKBss4AobfNbQfd6wzDDYyQ4e+vINIPxruNlrVJdzcT
-	dpNz1veDA63w+zPI1GkNUef1riVyLrixLwC3yR+PCx6VwjSqRSqF1zTcvEhZCd0YJ0PkpATRLLL
-	zHPzJJQ==
-X-Received: from pgvf24.prod.google.com ([2002:a65:6298:0:b0:cbb:9724:6775])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:e0a2:b0:3bf:e2dc:bc85
- with SMTP id adf61e73a8af0-3c44b1ca809mr9783772637.40.1784922740833; Fri, 24
- Jul 2026 12:52:20 -0700 (PDT)
-Date: Fri, 24 Jul 2026 12:52:20 -0700
-In-Reply-To: <20260714160411.302386-1-alexandru.elisei@arm.com>
-Mime-Version: 1.0
-References: <20260714160411.302386-1-alexandru.elisei@arm.com>
-Message-ID: <amPCdAswlk24Xilf@google.com>
-Subject: Re: [PATCH v2] KVM: Ignore MMU notifiers for guest_memfd-only memslots
-From: Sean Christopherson <seanjc@google.com>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: pbonzini@redhat.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, oupton@kernel.org, suzuki.poulose@arm.com, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	david.hildenbrand@arm.com, mark.rutland@arm.com, ackerleytng@google.com
-Content-Type: text/plain; charset="us-ascii"
+	Fri, 24 Jul 2026 20:31:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ouMJMBJubD9SFyxvbLoabeTerjmr8kyHpuaBkvHZ2uONhVVlnie2w0aAlsmyqsUl1dyGloOlU35cWMvaD255xo9QkAgFP2Qto3O0dPfHz59Uc0xz0NrEVx01B5vvMt5cYvUWeqovxzm1tCrVyGd3ekLSeUw3iHi/o9W78c0+t+JOUsQJ5IfJ+z+8hImY/WpxpgJina4VIbxR4KrltYAH+VVVdglBBLbLDF2spn5Ftc/tbjh73XEQuG0tY1JHpxK9gYduLj9uV0+IcTBjodAWmXjyR6QJ8goABhMEumasQBs+aFgcQk1OlmMxZmTH9lcagQnLaui6xa9GJ8iXpOAQ/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tJBnkaGbWnzefc1dU1kN3l0dQRTCx+fMPtCZVEbtQms=;
+ b=t0sJk7nV4sA3ESoxHA5XKaiHeCQILmNyNtg5nH3RtsJEdxl3D74fqK7fXgihBE3/pR1FteRAU2Lg0dYy2Vme0ZcTsM7qkv8EJp+2TXoyxiRXMWAHcHYAZD2+wtSU1iqSVdadZLRcOWmr/ts6/c3MxEXN0eZWti7V9FlSReOZoSim9oy7BB2UqNsmrmBTmU4p8QChKrPiKj/UCOk/e/SLLK6D+rgua+Z11h8TpPDOW9/imxKNt8lhM7R9/cN8rhwSHjY5YG5PpNJ968xjMcCHtcRag0X5qLzK7CHmqqILCR5+CafPiKVR8Nc3FjXwP0a4j+SddRqb/7bgINsAYfX7Ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tJBnkaGbWnzefc1dU1kN3l0dQRTCx+fMPtCZVEbtQms=;
+ b=j/H4tdPWKUYOlPHnijUqaKuHJ4h6XxMytD4G2yPhHu+6oKQ4OT7pAW93b8dL1G03CQZ5nfarK/imCPR1T6CEcFPwd+D223W8K8nDSLu9YcJkSgB9qm/i+0c/DD38hhajDD031vVjVljtDLFo0ou1Rvv/3ljrz1cIqFnd4mfUUSWlWylt8+wSzEQl+T7gsDcwsn8TR+8Fo4inEhyi1ihkR3JXxg36fciylukb4Tn8bqQOQX+BMmDlIMPwzaXQ7Vvx5rlTx93fY5Q8ypj7sFsQJjvE6IW6rNZPxAdQpprKDV7YFjcIy7eHFWG+2SiXoPwuLFYyeLPzIvC3HikP2yGpsQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA6PR04MB11830.eurprd04.prod.outlook.com (2603:10a6:102:521::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Fri, 24 Jul
+ 2026 20:30:59 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
+ 20:30:58 +0000
+From: Frank.Li@oss.nxp.com
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH] firmware: imx: scu: manage mailbox channels and global handle
+Date: Fri, 24 Jul 2026 16:30:51 -0400
+Message-ID: <178492504719.3813459.8752688568464104241.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260616005902.11634-1-pengpeng@iscas.ac.cn>
+References: <20260616005902.11634-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SA0PR11CA0117.namprd11.prod.outlook.com
+ (2603:10b6:806:d1::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA6PR04MB11830:EE_
+X-MS-Office365-Filtering-Correlation-Id: 265e4be2-a193-4f7e-315c-08dee9c2784d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|19092799006|366016|56012099006|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: pr8cUWxmDjBOUlqcfkK4BlIkfF94DZA/EhmY9M/NbTMDkLUekgsG6xMfBF5sogyUE5QDjMMVNDj2wRRol+tuHNlf48BcQrIcnPUyTYTCtJnW2s6YvI6UMkLbC3IR1eoE6Z+npvDOOvk6CQjsAiBiaYijBvRGppd73MT2uHBxNucd53c+699k0afHevyv3Gm03ZH17hSFCAx1WcZaWMLbtgqY8DkCGNYKXRT8Wm47XSZ1TxzGXhpOGimqra3ox6zH48IiLGhVLY53PmjJCPQfBkTSAHwJTDkvcrfowkaKqkvyISQu5AScoxexysZ7zukTduSsVONL20SUU+aVqt54lwO+h+xUIabYrycw8fWIkaXhSxEn/iaO7+Hcz1hHsgR2fdwMrdQo8QbnQ8n5NKbUyr+rsuoTD4+Hc3nskPSSQ089Gm7iAz+Wz0yzv50P7QrwmDzbfIyUF6fH/CiszjiHMTQc6StSgW/xb+qfFty1z2wx5yrv8fZhGrVy8F4uZ3jcOLaWEHHX6Qab/6iXvctsSoIvg50qn7QdtJN2w85LEfWUmh4/lGn1lWm8Q4ZsjPf5EyG0U6Rp+jq1m6E0iDjUvZi5D3gNgpR9w8D8sybeUIMiqIvgcBLeoYqgZ7ckxkrd4ewuFUDww4EbpfR3k72BU5lpSozvZutkTQwU7GVQY+Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(19092799006)(366016)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UTQzU3o3NzQ3T0pPblErbVV6dzdOU1lnT1lpMWQ5R1pqc1h4TWRYWnNITnh4?=
+ =?utf-8?B?Ym5NcERqdUFERUFlVXJQeVNPRFp0V3dIQmlTdjA2R2ZYb3pBb0YwdWtOY0pS?=
+ =?utf-8?B?bWVXeGE5WkF4aGI1MWV0QlNhMXhTQ3VxNWQwTFdaQ3BZYWFIckc3cUowcWVo?=
+ =?utf-8?B?K0VUM3NiTTBONWpRb0lqVEMzRnFQNzV5Q3dJTlRha3gwZEp4ajRYUTdTRXFr?=
+ =?utf-8?B?Uk9uWDhzNis0eVdOYXI0ZUVjN0U1QnVDSDdPdXB3bWlGT2R1TVRDNHhUUklr?=
+ =?utf-8?B?UTYrZDhZelJHbHNsU0lMTVNnUTR0ZHpQL3FucGYzUzgvelVibG10NUgrSzBZ?=
+ =?utf-8?B?eitVSGllVjhGUmlrMkdTcWgwdkJxQnJqKzJWQno2UGlhelRSY3Uyd3ExVERL?=
+ =?utf-8?B?RC9VS3VBazZodW9HeW1vYVJrZmJNbnRDR3F6N0NuRlpla2dTOG14RkI2WW5T?=
+ =?utf-8?B?QWIydUdsNmFjdHUzcUtVNjQyczk5UTg3NDA2QXdrWTZkTjJNVHBPRE9rbEtm?=
+ =?utf-8?B?SzVnVzhUcmQvcDdiZXVMNG5ra043Q1FXNWNKUkIrb3Jnd3l3NXNrVzhzVDBR?=
+ =?utf-8?B?TmY5WU1PQnozL25OU0g2bmhkcFM2Y0VPRlJMNlVlQ2syWCt1MTFEQjNsa1pO?=
+ =?utf-8?B?R1FjcUZuRWVOMjMyM1M1eDJFaW1tK3dLbVowNituMkl3bksvWVhpbit6RmxP?=
+ =?utf-8?B?S3M1OFh4d0dKaE91eXB3N1pJVnhPMDF6NElMWVR1TDhDbHJlbVo0eitlTGU5?=
+ =?utf-8?B?OUFPL2xzOTNSYlVuejM4UitPODQ4YlE1cWV6WkpGSTF2Q0lyZmJUSm9pM1A0?=
+ =?utf-8?B?dXBBRVc1Ri9RL3B4ajgrSzNJOWY5NHVEMGhCVUhNOUtOYVNMbE4wdDNjOHd6?=
+ =?utf-8?B?RHdWSWZjNFlUTktZREJkdEpMajRmSTUwdThySWpmNU5MbFJrd2pyK2lZWGxw?=
+ =?utf-8?B?WjhYVzJQbER6bkh3bHUzai9JVU9yYjNoNXhOQk1RY28rb2JKcWRTZTFyS1c2?=
+ =?utf-8?B?b3hnc1hqZk9NZGxXNmNFcEJ3S0YzM0MwRFFtbmlUdGhIZzQxUUw0VE9uaWMy?=
+ =?utf-8?B?REFFUlZrOC9EZXBoQ3RzWWc4dWdYZ2tLVHYremZGSjcrT09MOHM4KzZiVHA2?=
+ =?utf-8?B?di9Ncko3YnRJYWEwcENIVERkTmRzS1N2SFAzeHYwVGF1VWxJdE9EQ25zSmYw?=
+ =?utf-8?B?OWVZanBKZFpYWTVmeGpRWXhNZFUxVVRoczFwdExPcnhlMFA4MWkyQjJFVkQv?=
+ =?utf-8?B?UFRuL0JDelN0bU4yT2RyditsOGR0MjNoMm5RR1dlMnlvSWFWTm9ZaURxSGx4?=
+ =?utf-8?B?djE0UVNBbFNvSSttTVI4c212eTNxVHpyU1Fqc3htdm40bnJDTTBhb3V0eGFv?=
+ =?utf-8?B?c0YwSUhDTWRrNVlFZlVaL0tRaFl3cVpIMXIraVFnWEJVd3VhdnVGVElJZ0w2?=
+ =?utf-8?B?VE1tTkV4KzdXV3VMNTdDM05yK3pLZkdNTWk2U0JSc21hZXNrbnd3d2V1Ukk3?=
+ =?utf-8?B?UVp4QVppVG1YU3NkS0hxUUJHcVdsaGZHczRRMkhydUZLN1JmU1k4bmhhVHNE?=
+ =?utf-8?B?eS95T1AyRSt0c3VGRmdlZDE2SDFLZVVOUHh0QjVOK3RCSERiUFp1cHdNWkRT?=
+ =?utf-8?B?MjhPQzIxVFdDNnZmQlh3ei9oZmV5ZFRmRnVaMkZxTVFRTEZLRktqSXh0NkpH?=
+ =?utf-8?B?UVRyamh4MThvOG1nWFlBTEsxd3pzdm0yNVgvN0E4OTBFQjF6ejNwVllsTWJm?=
+ =?utf-8?B?RTV2cXBtQXc0ZThsUjUzMS9pc2tEYmw5YzljVjIra1NFUGwyS1JBTW9mZ09W?=
+ =?utf-8?B?bEZKbjdpOHF1eXZqM0NUNmpaS2QxVHJ5bzNRUVExaE1Qc1YwU3kyanI2NENx?=
+ =?utf-8?B?enNZZXdETUVGa3VwRTFveUhwTlZud29zVHR1RHlUT1EyUEVTMEZMOWY0TFUw?=
+ =?utf-8?B?SEIwT2Y3QWx0VnA4N3ErMGEwYk8weS9NRDVYRFlpaGJsVTZaVk4rZ3BXVDRT?=
+ =?utf-8?B?VC81RkIwNnN5T056bXYyU1NZTFV3bTgxZ3BsN2I4cjB0Zk5pOVppalhjRmVG?=
+ =?utf-8?B?NW1hVnJmT0l4OTNwa04rZDl1eVRCbktkcm5nM0xSanJjeDB6Skwxb0xHZnNK?=
+ =?utf-8?B?SkJnOG85Z2NBNnJhTEthRVhMM1lmUjZUbWpick4rYVM1eDdVTDcyeHBmakhG?=
+ =?utf-8?B?T05zbytCaUo2WXRkYmxkbEFIZUkvNjVLSGlVVWE0K09pZHhHc3hDMm5oU2RS?=
+ =?utf-8?B?aHpXUEVoRy9CSHJ3SEg1SEhJYWJjenRLUk85WjhyaHRKSGRzZW1YN0ppMlZa?=
+ =?utf-8?B?UFZPTmtlM3BtUTdTN2swaGMvcU5oNjhsUk01dmFMb1dhajJNTGVaQzBkSHZr?=
+ =?utf-8?Q?cWMBfhIh5Fvd7ej9CF+oXu9FXlDmklEz5+/hA?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 265e4be2-a193-4f7e-315c-08dee9c2784d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 20:30:58.6087
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zdp+qkEzgvEI396tG8HBjMm4d68ghmtpfPSLbL9koGsom2kaoW7qpFS43EWSyKk0PeJrgw1a+FXsfxIag4eg9gVsG2MhBrFkEOEYk8q+7tvdBw5n6Hisg6q59pm1NDuL
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11830
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_125223_270854_E13673B3 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260724_133107_097658_35BB1904 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +152,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026, Alexandru Elisei wrote:
-> +	 * TODO: Skip gmem-only memslots on mmu_notifier events entirely, once
-> +	 * gfn_to_pfn_cache is also wired up to directly pull from guest_memfd.
+From: Frank Li <Frank.Li@nxp.com>
 
-So it turns out we need to solve a very related problem[*], thanks to commit
-b9220d32799a ("KVM: x86/xen: allow shared_info to be mapped by fixed HVA"),
-which as it says, allows populating gfn_to_pfn_cache directly with an HVA, i.e.
-without a memslot.
 
-My not-yet-tested solution for that mess is to give gfn_to_pfn_cache its own
-invalidation sequence, at which point there shouldn't be a need to process
-gmem-only memslots just for gfn_to_pfn_cache, because it will already be equipped
-to handle memslot-less invalidation.
+On Tue, 16 Jun 2026 08:59:01 +0800, Pengpeng Hou wrote:
+> imx_scu_probe() requests mailbox channels with the non-managed
+> mbox_request_channel_byname() helper and then publishes sc_ipc through
+> the global imx_sc_ipc_handle.  Later probe failures, including child
+> population failure, can leave the channels and global handle live after
+> the probe has failed.
+> 
+> Register devres actions to free each mailbox channel and clear the global
+> handle.  Also depopulate partially created child devices when
+> devm_of_platform_populate() reports an error.
+> 
+> [...]
 
-Given how simple this change *should* be, I'm going to put this patch on the
-backburner for now, and then assuming my proposed change actually works, I'll
-grab your original change (or more likely, re-post it as the last patch in the
-series weans gfn_to_pfn_cache off mmu_invalidate_seq).
+Applied, thanks!
 
-It'll probably take me a few weeks to circle back to this, as I finally crawled
-out from underneath a pile of urgent and am just now getting back into review
-mode, but this is fairly high on my todo list, so with luck we might still squeeze
-this into 7.3.
+[1/1] firmware: imx: scu: manage mailbox channels and global handle
+      commit: 55c748d596f841a18cf659ce0999f64029a5c88c
 
-[*] https://lore.kernel.org/all/aj2hi-NcqUUCaoQF@google.com
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
