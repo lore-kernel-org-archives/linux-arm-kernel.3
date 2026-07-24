@@ -4,117 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE981C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 17:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C86C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 17:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UoINnPYsF+FQnikn9lxVCj9hZ1VakoybLuuTST3zWdg=; b=wuLBFD/OqsraJNn3mEkqySpCl8
-	Bj7MQB2x4y0DdFL0Afslf6qfIibZQ6p2nn2W4XzBdu8HePonbiA/abPMwPfKyx93kdJS8oBQ3e4sL
-	duG75+jWGq+SxlwicsOgXKzhAkoIGmoxPSqXDQQAZcAw3wwg5ccMG8X+MXm2v0vL0wBYkqGx2pRig
-	Nnz94H8eYqayXQT9GEJlfc4uYD0IAg+PuX6+w7xlSZexEFS8Pp0MbQ4Ix9wkJ6jCGpumHB9mE4xrR
-	gPbGrFZzvKljPWPRCIjjKmwUDNM/7gfsy4ePiu/kWtNNyvworl5qfC3SdOKBGjLKKiYXYqX2suxhV
-	Dnei7cuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6cdT8t9h3yt/zKVd24lkQCq2fH9Gx8Vx54Fl912gDe4=; b=0Plo8WZYD3vGimRZh2Dc5x8zkD
+	UAd6FjEFm5RuGTYQmIqhf6YTysIeB6Zn31U8nTzO9EONa81gS0Mzq32o+zKu9Kxb2CZqRHCpbS8zg
+	q0OK+CXvM9GhM1C3LAqB0JJicXW409pOo9xou4maPDHZ9/jtY1XFFkEd33vqHKz6YT60TDPAIAFz0
+	m6ur7Na/CFb0ahIZzLdYPj4m0EEpBnJxDxQPK6rdUF9KAFGaVJItbT8OL2j5QrOuqxOJVL1r+hfx+
+	h3eh0k65LfzuCYSEC3rV+GX5CUMLU7THmVJX4bjFc5kRG84819ZFJWn8+MxRWxMdJwKs4RadjLXx/
+	l5gBxJjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIXe-0000000GnSn-02mf;
-	Fri, 24 Jul 2026 16:14:30 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wnJME-0000000Gucf-09bs;
+	Fri, 24 Jul 2026 17:06:46 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIXU-0000000GnNv-1tD1
+	id 1wnJMB-0000000Guc3-2fez
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 16:14:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=El2omv9vShE2IeUcal8QWVmcXViUylG4WLGqI6ZUXbYHowfe8kjPeB5LN2bLJg6IIRxqonFOlzvRA8O97R82eeHDFgQr76yM4N1OVsJmsYDCcwoubaDYEMK+RhmSTE42BfOYNU877VkGgBWQdLvWV2qaDpUIzCRiXGkg3hB93zx6+RBPpxgS/UJUg0pJGNUaSi3FBSi/NGGyKzBArhSLYqzu2iNl/T9RHL7z/xve9bai1ZYC6Foivwc9npESafWHjAbYSkwEixUO92kqjaOSB6EMi8pnpknDEXPRXD1mlYuj+aHuOY20c5gUoh64pb7fhDvvnrScGAQsfNxTMRMXkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UoINnPYsF+FQnikn9lxVCj9hZ1VakoybLuuTST3zWdg=;
- b=h6p9Bo+haehA/WdL5DXyUppeU/6FijPkeIgNeyErr+dKHg7HwU8t+X1/iv5h91LF5z6fA3ivodxsYBUL4Vjm1i7Eu4W5+CC28I7QnmMt3W0RR5sCmXnGvNNGbHo2Lx2tpCmW5gu5tdgEt3G6s+J7tOhzZ9oLUEKqEqWQn3hh00ODiuHrGMGW1/C0qnTV8j7HpGdA6dCVwGkrT0gQb7PmMAMwfgvCPruUmUpiqW7a8kyhnArW31OV24cPFIm1HxIzq+bvdGer0jJu6W/BGjBJVLq21QS3RhhZz5K6uw54RB029qsNu24MTREffiGVSYqemVvVF+XbH+RDkEM0cT2DKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UoINnPYsF+FQnikn9lxVCj9hZ1VakoybLuuTST3zWdg=;
- b=PDgTiGKaR9ImpFGd2IRPtgqvjU2RT+QjVJeTtotYgudsunMV90RXsyx3gRMGtnG8Wfv0/r/UxiQtbJKDxn8TtwHYYc249nC/fmAlPFzt6n5ELvZOL0S0v22/fFEZfE9jxubxnKXXQPufPQqS5RsKoDYGLEANNe8rOej3VKBzh3nELPyf/mEdkkBmQ20WWooa4Ot28hAoHfvVGHDZfKksxHOIN0Qxp9W39mATpzWj4E4Pj2C64dzhznbKLCx76E5ZeZEvGX4q1ALWl3QHrI+vR7Z0iAt5+8//t7ezEsZBYyqgIUR4ecvxJBtfTgQ4qmlUig2skb7j8wn7gRXhYyzf5Q==
-Received: from DUZPR01CA0348.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b8::7) by AS5PR10MB8217.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:67d::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 16:14:13 +0000
-Received: from DB1PEPF000509F0.eurprd03.prod.outlook.com
- (2603:10a6:10:4b8:cafe::35) by DUZPR01CA0348.outlook.office365.com
- (2603:10a6:10:4b8::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 16:14:13 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509F0.mail.protection.outlook.com (10.167.242.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Fri, 24 Jul 2026 16:14:13 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
- 2026 18:19:27 +0200
-Received: from localhost (10.252.22.128) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
- 2026 18:14:12 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Fri, 24 Jul 2026 18:13:43 +0200
-Subject: [PATCH v3 02/13] media: stm32: dcmipp: make dcmipp_state & cmsr2
- read common
+	Fri, 24 Jul 2026 17:06:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784912804; x=1816448804;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=et0UWU7GWJFC1gjDPbpE9qllm2y/YzAgaFxgHja6Us0=;
+  b=GLdfE0kBiHcA9igp3Vt1oPMOc2pfzqyJs1lQLY3u1W/pS5s5ujn2YwP6
+   +HXqSqhDHQ4+TgdH5Aba6SQjYY/9Emg7qbR9reZQGReGU49hQlbCJoqwN
+   w3BnW+eEbYau9ZVJUOMScBYcVMrtg7lb2wmkwVW4D40MM7kcus4Se8ldE
+   DPChv4uWEc7kB9v/XvxHy625pl4u5B42DxFBWCfV6WN+5aZM+JwWOb1DQ
+   vHsA+OMfvipbogVjL3j8s5INbgaD1MkWCKTKAx9xAw3+boWqmlxOl9QCf
+   m2XbDwcdcYorQAjPQWhX0wI8vtyIjBKSed5N6nYyxpsLabDkHHqPYEMdz
+   Q==;
+X-CSE-ConnectionGUID: e8VKwboaRqq7AEimh5e8nQ==
+X-CSE-MsgGUID: LPSpfQOtQ5u8eQzXEE3BVQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="85699574"
+X-IronPort-AV: E=Sophos;i="6.25,182,1779174000"; 
+   d="scan'208";a="85699574"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2026 10:06:42 -0700
+X-CSE-ConnectionGUID: 0Olbifv3SQGISQFQH44YYw==
+X-CSE-MsgGUID: mR8xJkYlS+WK7oBFT9Sivg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,182,1779174000"; 
+   d="scan'208";a="254835244"
+Received: from igk-lkp-server01.igk.intel.com (HELO 3cba2a188a06) ([10.211.93.152])
+  by fmviesa010.fm.intel.com with ESMTP; 24 Jul 2026 10:06:35 -0700
+Received: from kbuild by 3cba2a188a06 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wnJM1-000000000z4-0zCh;
+	Fri, 24 Jul 2026 17:06:33 +0000
+Date: Fri, 24 Jul 2026 19:06:07 +0200
+From: kernel test robot <lkp@intel.com>
+To: Pedro Falcato <pfalcato@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	Pedro Falcato <pfalcato@suse.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+	Lance Yang <lance.yang@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Muhammad Usama Anjum <usama.anjum@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/5] mm: constify the pte_offset_map_ro_nolock() return
+ value
+Message-ID: <202607241905.9UNne8Y8-lkp@intel.com>
+References: <20260724102017.141532-6-pfalcato@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260724-stm32-dcmipp-pixel-pipes-support-v3-2-f77fe7e723d9@foss.st.com>
-References: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
-In-Reply-To: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
-To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Alain Volmat
-	<alain.volmat@foss.st.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.15.2
-X-Originating-IP: [10.252.22.128]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F0:EE_|AS5PR10MB8217:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f3c5172-fa9f-488d-2376-08dee99e9a49
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|23010399003|376014|11063799006|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: j0VtWRf3TLGBMe17/FPVy+cwtHXh4CaeEx2M6Hju2LuuM/f5alRRC9DNS8s3+7X7iy69ycH48IDlmPLZuEyO6ngsp5RAXBZG8SlSReUXjdjW6voEMv1s+QusdjNPRL+KkascFhzA//j17jE3tdeQDJTffSAk96KgPHj3Xt2xV888t20OHTNuJwx4Gj0sMslOM/bwO25tg6n5kbxPRCbvtCgODb7dMvjuOsDqyWOQfXwlaCY1Ypl8DgHGdorBgJJIU2x+EQWLBtR4gl8JkiEFZQp4JbZcxWWRUvYUOsucogQEQrYC0LvqLUBGHJQkOjiHtMNNTUSkmZmtMV6CvQmffaeHC7eOoeYjfBnv4BZz37L6y/onKGQhiY5TMl7hJjOThmuHV1Bk5SbMjbngaJEq6a1Lj8F3vPBv1z/4AfRsxWnW+WYuebIudqcQ3p5CCAAg0GtLHAkr1EdlQQf+T1jxVDAM/lyce9lkaGnkHVHPS5Rl6JYbaAcnrlCeowLuB0ta+nSsmDgOhKSFlaTAovMP+BeG2jDeNOO6sDtjLhzsJuNDsQPNLLAo1M/8xnxrFgVHGgsS2LJ/A8lQ1BcKCN86NHJftZ97HxV5VlbGnAMR8upAQzIqq+sqrwOgL/tSrgyM9Xy0lAeUGDt0fZGXNPPLJjSBsDcyXbE/xySElstB7eaAyHnvrjg7ywTdgs2OWORakrpnYhwae9XfEiGQ/TM+mw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(23010399003)(376014)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: oBblcnHvTX/JY54jm8OBtRigYOD46N4p0PNP2CFzEkPuelulTRCqzHaskaGMDymHM8t17KjLjQ0XYdwcdavuaSv8ZZQN2EhwLH9z4oMpsEgxuMA8R/SBLd/OeJKQLDG/7CrQsMK+wuiinOZPrlWKBHEP3A0EgXuyveXx2Ys+393kff9MioufeMexHQ/bEaspzXstvWwGIMWsJNlKFEFpUYrGy7y2OMw/Jik7UR+NW43PPK/gBlgUq6JCOVHQn+/phQxEcXxnw5hR57U3cspdgljfByQbfWjTFJ2llHhZYKKPcKwZPLmixbrqTi2eBjN+FaP317RysieDvYhuwhqBgiAKFyIat7RnLyddRi1ieWvZyhrlHXKohyIaZVL8LL4GSyZclWC0CEL4qqecayxBcfpVtVMz7eFoUp3WrBbvI57+VkQh98IawPRwOoLbUSPU
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 16:14:13.4576
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f3c5172-fa9f-488d-2376-08dee99e9a49
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F0.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR10MB8217
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260724102017.141532-6-pfalcato@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_091420_501461_D6E2C7DD 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260724_100643_705730_485FDEC2 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,98 +113,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation of the introduction of the pixel pipes capture devices,
-move struct dcmipp_state into common header and perform
-interrupt status register CMSR2 into the core interrupt handler and
-share the value with each subdevs.
+Hi Pedro,
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 11 ++++-------
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h  |  7 +++++++
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c    |  7 +++++++
- 3 files changed, 18 insertions(+), 7 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index 483af0f39f0d9..0e789bbd1198b 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -110,12 +110,6 @@ struct dcmipp_buf {
- 	struct list_head	list;
- };
- 
--enum dcmipp_state {
--	DCMIPP_STOPPED = 0,
--	DCMIPP_WAIT_FOR_BUFFER,
--	DCMIPP_RUNNING,
--};
--
- struct dcmipp_bytecap_device {
- 	struct dcmipp_ent_device ved;
- 	struct video_device vdev;
-@@ -799,9 +793,12 @@ static irqreturn_t dcmipp_bytecap_irq_callback(int irq, void *arg)
- {
- 	struct dcmipp_bytecap_device *vcap =
- 			container_of(arg, struct dcmipp_bytecap_device, ved);
-+	struct dcmipp_ent_device *ved = arg;
- 
- 	/* Store interrupt status register */
--	vcap->cmsr2 = reg_read(vcap, DCMIPP_CMSR2) & DCMIPP_CMIER_P0ALL;
-+	vcap->cmsr2 = ved->cmsr2 & DCMIPP_CMIER_P0ALL;
-+	if (!vcap->cmsr2)
-+		return IRQ_HANDLED;
- 	vcap->count.it++;
- 
- 	/* Clear interrupt */
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-index e5c0eda8b18af..3c3996472e03e 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-@@ -119,6 +119,13 @@ struct dcmipp_ent_device {
- 	irq_handler_t handler;
- 	irqreturn_t handler_ret;
- 	irq_handler_t thread_fn;
-+	u32 cmsr2;
-+};
-+
-+enum dcmipp_state {
-+	DCMIPP_STOPPED = 0,
-+	DCMIPP_WAIT_FOR_BUFFER,
-+	DCMIPP_RUNNING,
- };
- 
- /**
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-index dd784cfcaac82..b06a4931ae951 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-@@ -33,6 +33,8 @@
- 	.flags = link_flags,					\
- }
- 
-+#define DCMIPP_CMSR2	0x3f8
-+
- static inline struct dcmipp_device *
- notifier_to_dcmipp(struct v4l2_async_notifier *n)
- {
-@@ -251,10 +253,15 @@ static irqreturn_t dcmipp_irq_callback(int irq, void *arg)
- 	struct dcmipp_ent_device *ved;
- 	irqreturn_t ret = IRQ_HANDLED;
- 	unsigned int i;
-+	u32 cmsr2;
-+
-+	/* Centralized read of CMSR2 */
-+	cmsr2 = reg_read(dcmipp, DCMIPP_CMSR2);
- 
- 	/* Call irq handler of each entities of pipeline */
- 	for (i = 0; i < dcmipp->pipe_cfg->num_ents; i++) {
- 		ved = dcmipp->entity[i];
-+		ved->cmsr2 = cmsr2;
- 		if (ved->handler)
- 			ved->handler_ret = ved->handler(irq, ved);
- 		else if (ved->thread_fn)
+[auto build test WARNING on akpm-mm/mm-everything]
 
--- 
-2.34.1
+url:    https://github.com/intel-lab-lkp/linux/commits/Pedro-Falcato/mm-constify-generic-pte_get/20260724-184321
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+patch link:    https://lore.kernel.org/r/20260724102017.141532-6-pfalcato%40suse.de
+patch subject: [PATCH 5/5] mm: constify the pte_offset_map_ro_nolock() return value
+config: s390-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260724/202607241905.9UNne8Y8-lkp@intel.com/config)
+compiler: s390x-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260724/202607241905.9UNne8Y8-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202607241905.9UNne8Y8-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from arch/s390/kernel/asm-offsets.c:12:
+   ./include/linux/pgtable.h: In function 'ptep_get_lockless':
+>> ./include/linux/pgtable.h:782:25: warning: passing argument 1 of 'ptep_get' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     782 |         return ptep_get(ptep);
+         |                         ^~~~
+   In file included from ./include/linux/pgtable.h:6:
+   ./arch/s390/include/asm/pgtable.h:989:37: note: expected 'pte_t *' {aka 'long unsigned int *'} but argument is of type 'const pte_t *' {aka 'const long unsigned int *'}
+     989 | static inline pte_t ptep_get(pte_t *ptep)
+         |                              ~~~~~~~^~~~
+--
+   In file included from ./include/linux/mm.h:31,
+                    from ./arch/s390/include/asm/pgalloc.h:18,
+                    from ./arch/s390/include/asm/mmu_context.h:11,
+                    from ./arch/s390/include/asm/elf.h:173,
+                    from ./include/linux/elf.h:6,
+                    from ./include/linux/module.h:20,
+                    from net/8021q/vlan.c:20:
+   ./include/linux/pgtable.h: In function 'ptep_get_lockless':
+>> ./include/linux/pgtable.h:782:25: warning: passing argument 1 of 'ptep_get' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     782 |         return ptep_get(ptep);
+         |                         ^~~~
+   In file included from ./include/linux/pgtable.h:6:
+   ./arch/s390/include/asm/pgtable.h:989:37: note: expected 'pte_t *' {aka 'long unsigned int *'} but argument is of type 'const pte_t *' {aka 'const long unsigned int *'}
+     989 | static inline pte_t ptep_get(pte_t *ptep)
+         |                              ~~~~~~~^~~~
+   net/8021q/vlan.c: In function 'register_vlan_device':
+   net/8021q/vlan.c:249:46: warning: '%i' directive output may be truncated writing between 1 and 4 bytes into a region of size between 0 and 15 [-Wformat-truncation=]
+     249 |                 snprintf(name, IFNAMSIZ, "%s.%i", real_dev->name, vlan_id);
+         |                                              ^~
+   net/8021q/vlan.c:249:42: note: directive argument in the range [0, 4094]
+     249 |                 snprintf(name, IFNAMSIZ, "%s.%i", real_dev->name, vlan_id);
+         |                                          ^~~~~~~
+   net/8021q/vlan.c:249:17: note: 'snprintf' output between 3 and 21 bytes into a destination of size 16
+     249 |                 snprintf(name, IFNAMSIZ, "%s.%i", real_dev->name, vlan_id);
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   net/8021q/vlan.c:237:46: warning: '%.4i' directive output may be truncated writing 4 bytes into a region of size between 0 and 15 [-Wformat-truncation=]
+     237 |                 snprintf(name, IFNAMSIZ, "%s.%.4i", real_dev->name, vlan_id);
+         |                                              ^~~~
+   net/8021q/vlan.c:237:42: note: directive argument in the range [0, 4094]
+     237 |                 snprintf(name, IFNAMSIZ, "%s.%.4i", real_dev->name, vlan_id);
+         |                                          ^~~~~~~~~
+   net/8021q/vlan.c:237:17: note: 'snprintf' output between 6 and 21 bytes into a destination of size 16
+     237 |                 snprintf(name, IFNAMSIZ, "%s.%.4i", real_dev->name, vlan_id);
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+   In file included from ./include/linux/mm.h:31,
+                    from ./arch/s390/include/asm/pgalloc.h:18,
+                    from ./arch/s390/include/asm/mmu_context.h:11,
+                    from ./arch/s390/include/asm/elf.h:173,
+                    from ./include/linux/elf.h:6,
+                    from ./include/linux/module.h:20,
+                    from net/netfilter/ipvs/ip_vs_core.c:24:
+   ./include/linux/pgtable.h: In function 'ptep_get_lockless':
+>> ./include/linux/pgtable.h:782:25: warning: passing argument 1 of 'ptep_get' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     782 |         return ptep_get(ptep);
+         |                         ^~~~
+   In file included from ./include/linux/pgtable.h:6:
+   ./arch/s390/include/asm/pgtable.h:989:37: note: expected 'pte_t *' {aka 'long unsigned int *'} but argument is of type 'const pte_t *' {aka 'const long unsigned int *'}
+     989 | static inline pte_t ptep_get(pte_t *ptep)
+         |                              ~~~~~~~^~~~
+   net/netfilter/ipvs/ip_vs_core.c: In function 'ip_vs_in_icmp':
+   net/netfilter/ipvs/ip_vs_core.c:1768:15: warning: variable 'outer_proto' set but not used [-Wunused-but-set-variable]
+    1768 |         char *outer_proto = "IPIP";
+         |               ^~~~~~~~~~~
+
+
+vim +782 ./include/linux/pgtable.h
+
+024d232ae4fcd7 Peter Zijlstra 2020-11-26  775  
+2a4a06da8a4b93 Peter Zijlstra 2020-11-13  776  /*
+2a4a06da8a4b93 Peter Zijlstra 2020-11-13  777   * We require that the PTE can be read atomically.
+2a4a06da8a4b93 Peter Zijlstra 2020-11-13  778   */
+024d232ae4fcd7 Peter Zijlstra 2020-11-26  779  #ifndef ptep_get_lockless
+3cfe4c8a2f30c7 Pedro Falcato  2026-07-24  780  static inline pte_t ptep_get_lockless(const pte_t *ptep)
+2a4a06da8a4b93 Peter Zijlstra 2020-11-13  781  {
+2a4a06da8a4b93 Peter Zijlstra 2020-11-13 @782  	return ptep_get(ptep);
+2a4a06da8a4b93 Peter Zijlstra 2020-11-13  783  }
+024d232ae4fcd7 Peter Zijlstra 2020-11-26  784  #endif
+024d232ae4fcd7 Peter Zijlstra 2020-11-26  785  
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
