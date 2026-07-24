@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93EB1C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D95C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pSUcECaT1FXRl1tOQMCsQPhZDrTWY4R3QGMSSL4r6OM=; b=UpQVWYqWztzyB7PPpAI4KNp5ym
-	6X6J4IXoqE9ESKOdVX1/bgFOdOuixXITrrxrMMOCF6/Bd9PJUu9/ShjqMPDKZq2byXwo//CBRGTGc
-	kRs0wZLX3poKedmxwsb6zOQwQPaatyb8UxAA75Ww4k/FJuuvAuGbUh1hfi8/aBVUGw8An7z0NlQOW
-	nNfn6Vt9NFKa8FC1am1TyIf2cznXCZAP+pjdXrFsA91LK5nubnNIFlLansKLrpWeG67U2eYHRaOMv
-	egjERxU09RYKaSN2DRoQoIReShDwf15kmdlSbYM3kotzsgxsjeARwLg6krfyt7/l7/PduxS1Z//OP
-	xQppuUTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Exa1hT4lyAMl6ElDEjoYoBI3w7ORVJ8MGtlHgXfsTh8=; b=z1asjztgjDUPPU45l2BGyt7KUi
+	mehBBYu8uOoaPnd6FJzNKecMoKVWX0MX/xuUBFZlD/z47esPBwdjiVpTeLdY1JIBPMdAiZae5L/x9
+	SDj4hz4ReWix/LbEVVlEeqw3NtfCMlq2u0/0GxoGKoNLeG1kQwikzd64eVlU/paYla2XzrOUSXb8u
+	rnQhtphrfD9GuYtgMpPTkw3ml97b360QK9ID7B13utbkcrM2Gsrheu0AGW9eZGChimZ94bGFCXoEx
+	yw7a0MYX86vc3fU9cJbehxfyQywu+kzdf+6bihyz16v0EywAqJVtWdE3Qlryrl+SsPXiT3RXif3cL
+	f7yoWYdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9Eg-0000000FaWF-1v6H;
-	Fri, 24 Jul 2026 06:18:18 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9Ee-0000000FaVI-08TZ
+	id 1wn9GM-0000000FaiC-3YD1;
+	Fri, 24 Jul 2026 06:20:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wn9GL-0000000Fahh-09HL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:18:17 +0000
-Received: from [10.94.177.11] (unknown [4.194.122.170])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 54EC820B7167;
-	Thu, 23 Jul 2026 23:18:00 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 54EC820B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1784873881;
-	bh=pSUcECaT1FXRl1tOQMCsQPhZDrTWY4R3QGMSSL4r6OM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iuCwkr7Np4jQomXIo0k52C8vXtVhu+N7R9U9GgMeVwVgjpZoUa+/RGB2CA/xWtvna
-	 flbaaQssMzmLeRpsCzhVDFFlES4BBA5FzPTuSjJUaW5F3lEEywhjBVdDo8dpex8FHF
-	 mVuEgpDulQ4+i5mAi6lmYBGq/fVW/cOCi0nlChfg=
-Message-ID: <51e25452-a982-444e-b6f2-13e30c85984d@linux.microsoft.com>
-Date: Fri, 24 Jul 2026 11:48:12 +0530
+	Fri, 24 Jul 2026 06:20:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1263E600AA;
+	Fri, 24 Jul 2026 06:20:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F1F01F000E9;
+	Fri, 24 Jul 2026 06:19:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784873999;
+	bh=Exa1hT4lyAMl6ElDEjoYoBI3w7ORVJ8MGtlHgXfsTh8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=g0gN0J2lXQv02MW8OwaaXQwLi/uFxKjKnuqyfDUWq29a5aaHrCSiJbOpgjTMVHf1d
+	 smacrWic7PP2sT6cxGTCX9Cno4b7k3asKQDRhV6C+00+KEDP4OA27iUXrJipsgl4VP
+	 UZDOy7qR0DfdFRDsHy4mY0bYDcUQ4l+wV1+Jn5Fv0Afdca/Jkv/gHdZPvDaOGUcoEI
+	 HAvyCBESBvDwX2l4VNlb6E7ZI3OsjgUPIl4/oDh3n3hxFjVu2F1WWjaAM0UJ38mH8M
+	 sgYcZ6lOdPVdrOMa0QRM6ypM5HDd5kLI52FVIQONTtbrUsKElBKZ4pPGhm13rMIfoE
+	 03wK//TrHEBBw==
+Date: Fri, 24 Jul 2026 08:19:55 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Justin Suess <utilityemal77@gmail.com>
+Cc: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Sashiko <sashiko-bot@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v3 1/4] media: dt-bindings: allwinner,sun4i-a10-ir: add
+ A523 compatible
+Message-ID: <20260724-outrageous-leopard-of-diversity-fe365c@quoll>
+References: <20260722233604.3001063-1-utilityemal77@gmail.com>
+ <20260722233604.3001063-2-utilityemal77@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] firmware: xilinx: Clear firmware notifiers across
- kexec transitions
-To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, michal.simek@amd.com,
- git@amd.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260723124841.2567827-1-jay.buddhabhatti@amd.com>
- <20260723124841.2567827-4-jay.buddhabhatti@amd.com>
-Content-Language: en-US
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <20260723124841.2567827-4-jay.buddhabhatti@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_231816_105065_15A28660 
-X-CRM114-Status: GOOD (  22.45  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260722233604.3001063-2-utilityemal77@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,73 +75,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 23-07-2026 18:18, Jay Buddhabhatti wrote:
-> During a kexec restart, only the kernel is reloaded but notifier callbacks
-> in firmware persist, causing state mismatches between kernel and firmware.
+On Wed, Jul 22, 2026 at 07:36:01PM -0400, Justin Suess wrote:
+> The A523 (sun55i) contains a newer revision of the sunxi CIR receiver.
+> The reset defaults match the fixed behaviour of the older IP, so the
+> device works fine when driven as an A31 CIR receiver.
 > 
-> To address this, introduce PM_ALL_NOTIFIERS node ID to unregister all
-> notifier callbacks during kexec. On a graceful kexec restart, this occurs
-> in zynqmp_firmware_shutdown(). On a crash kernel restart, it happens in
-> zynqmp_firmware_probe() in the reloaded kernel.
+> Add the A523 compatible, with allwinner,sun6i-a31-ir as the fallback.
 > 
-> Unregistering all notifiers depends on firmware support for the
-> PM_ALL_NOTIFIERS node ID. On firmware that does not implement it (the
-> feature check reports a version below PM_API_VERSION_3) the step is
-> skipped and a warning such as "Firmware doesn't support unregister all
-> notifiers at once" is logged, e.g. on Versal NET firmware that predates
-> this API.
+> While at it, merge the standalone compatible entries into a single
+> enum.
 > 
-> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Justin Suess <utilityemal77@gmail.com>
 > ---
->   drivers/firmware/xilinx/zynqmp.c     | 14 ++++++++++++++
->   include/linux/firmware/xlnx-zynqmp.h |  3 +++
->   2 files changed, 17 insertions(+)
-> 
-> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-> index 64d2109eefd2..fc7212f554ee 100644
-> --- a/drivers/firmware/xilinx/zynqmp.c
-> +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -2110,6 +2110,20 @@ static int zynqmp_clear_pm_state(struct device *dev)
->   				 "Bulk device release is not supported by firmware: %d\n", ret);
->   			ret = 0;
->   		}
-> +
-> +		/* Check if the firmware supports the PM_ALL_NOTIFIERS node ID */
-> +		ret = do_feature_check_call(PM_REGISTER_NOTIFIER);
-> +		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_3)) {
-> +			/* Attempt to unregister all notifier callbacks via firmware */
-> +			ret = zynqmp_pm_register_notifier(PM_ALL_NOTIFIERS, 0, 0, 0);
-> +			if (ret)
-> +				dev_err(dev, "Failed to unregister all notifiers: %d\n", ret);
-> +		} else {
-> +			dev_warn(dev,
-> +				 "Firmware doesn't support unregister all notifiers at once: %d\n",
-> +				 ret);
-> +			ret = 0;
-> +		}
->   	}
->   
->   	return ret;
-> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-> index ac39e5492961..69a2f74269f3 100644
-> --- a/include/linux/firmware/xlnx-zynqmp.h
-> +++ b/include/linux/firmware/xlnx-zynqmp.h
-> @@ -149,6 +149,9 @@
->   /* Node ID for all peripheral devices */
->   #define PM_DEV_ALL_PERIPH	0x18224FFFU
->   
-> +/* Node ID for all notifier callbacks */
-> +#define PM_ALL_NOTIFIERS	0xFFFFFFFFU
-> +
->   enum pm_module_id {
->   	PM_MODULE_ID = 0x0,
->   	XPM_MODULE_ID = 0x2,
+
+Your changelog must mention that you dropped tag and explain WHY.
 
 
-Looks good to me.
 
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions of patchset, under or above your Signed-off-by tag, unless
+patch changed significantly (e.g. new properties added to the DT
+bindings). Tag is "received", when provided in a message replied to you
+on the mailing list. Tools like b4 can help here. However, there's no
+need to repost patches *only* to add the tags. The upstream maintainer
+will do that for tags received on the version they apply.
+
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state in the patch changelog
+or cover letter why and what changed.
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
 
