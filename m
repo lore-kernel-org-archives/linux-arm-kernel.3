@@ -4,122 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D7FC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F05C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yaBklIEnXSs0wqdbLYG6OP3wkbhIDgt/D4Zh+qG2Hw8=; b=oCxKjp0+aEFmzA2mZ7KDYCInfy
-	IMIxDypm7o0AThnHg9a7qCfOGr2ATEvQtssOnbu1kjZ6hjNxrEhpjIrZqzO9RTpN6C26uIX7tgHr+
-	FDp4ZwD1ITkoWCe5UyuSLLwOVAbSK4PMy5vm4pDaH9mFUIApahDnlejD3Jo+uIq4hUfLqIoXJkHdz
-	Wz1gLTxW8tHt9E9dV5fQfnLf2ua0qu7j5bfhbo5Pdy0OdLwdqCCAQX1hSfaksGZgH+LyambIbkbOz
-	kBcK2Xy1ZWb+4MZ1l4c/bn8P/o2CsCwNVg+ODH4Cn/7g2DBYEFrOJa+7I4YQMOAdBJCsJttQtpoC3
-	CLVHdSWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LpDCBpvfhneSCSswTCQaVQxoOX+Q/l4HOtvcxJgOB8g=; b=pHM8rpXZvU7JYv
+	SczT7ExwPFsVy2v+9d6LUiPiiGMQtp1IH/SuDky87Yf/arMyGIbtqC26smtSqwyGLk8F+35tCJUH1
+	YkH0lXs3WkdkY8/qLMVzzckcJ9oM8tMrb3o31q41moXLHbrMy9i6JD16mVOj36HT5jhRYDrb6BZ4K
+	vosiOrHAj35Xm9CRNnmEJbP1vY/RWMdRHAam3vFJh6Oz3Fkx/t+Tsj9kXLRdbbla6EMMDo2YIDVs4
+	quTy0hj6pts4p+gZQYHwudsGRgPLq5wLTq7XlBCJilr0JNxlBsRGWmJYez/n5Z9GgoXfpKV+h9oK8
+	m+VeuJnqPHqBB4xdbzhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKH1-0000000H2BD-36xU;
-	Fri, 24 Jul 2026 18:05:27 +0000
-Received: from mail-eastusazon11011019.outbound.protection.outlook.com ([52.101.52.19] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wnKS9-0000000H2ty-2geq;
+	Fri, 24 Jul 2026 18:16:57 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKGv-0000000H2AY-2eGT
+	id 1wnKS7-0000000H2t3-0Bj5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 18:05:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IId4KfUZ678j8JbTspyuVUegRWVbo0arLgrWoXtu/C9qXYgdgZnLRYkRh7zyabmoPq38v7oM6uGMioCOvWsf0qaee/kryMStVESK6n2E/q1esS4ZHzyxCo6u9ZpXh3tV3dWlE+W5n/ZMjmIv3NpGvTl8dETD1SXFVg9wAOMS0X2XUE1qV752q1ZMQUS1z+23yc1y68QXTWxb2ebbzB3/JXKwInz8bCwlE8OSLPA9L4xTS8y3YZqpG6z0NEvQniszRwaQkNGIkykCIjZ383QWyJsRnF0tHDUFJ7oXlyJFgV3QJa3/nJgj7ewvNFw1CeqIER93tZ+GbPrFiNnyvhHm4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yaBklIEnXSs0wqdbLYG6OP3wkbhIDgt/D4Zh+qG2Hw8=;
- b=HMWAx985omt7yJ0l3HSSRnlsXKqdPDPcKTs1c87r9T0J8D1+uEs4wWC8ZN/Z9Pd16DozuzWQ+/LEHUqclwHWkxB4KZTLLshmKQPJkTJ6AFQt8wYgQ06rTxEvrMgBekn5T70SUWf0yfE2uRHN8yTZ/Ye3DNOAt0nEJd2CT/bmoWOOYVfkISW0R98ksSZi1EiW5Fy2mr4p0Q4dzSeMF/ndqjFjRSN4aPi601Rsb6F7RAoq+p8JcFkEr14iEES4s5MDX0bE3pQpm1+QiSN1qZfEBzdhGUn9y3tanJBq9zIo9BV6mCNI1ornsRWDo0RSuEiVz+MHINZlA2XR3+J9ImK0xQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=linaro.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yaBklIEnXSs0wqdbLYG6OP3wkbhIDgt/D4Zh+qG2Hw8=;
- b=qF/9jx2MyJ/796pgWYJyp6ETfpf6rAYMO5KC0rrq97sbfd9bYwbHKrfsiWjTqG1Mfwn5zRNBblm5eZOhXFknRCLkYqx1yA4TNKAytmwCUKRIyq50V+JWbHHP0tF62eC/lxGDIFxG+Ba1yaueKw+777akcGVQacop0tp3rgSMVyJbKgIFIfEgQTF7onXUoNuibXMwP0fH1TDjhka2ljJ9hk9kZL/SHxeYHw6ju3q+DGoEvh4gCuWYR1nmB1XqO1PGP0ALlLErgU9XhzKcoXHL5Sv1s2+pwH/Y/i5B7hxK7O8vXqhdKBjHhXbn8P4P1WWm98zVRpwXuqtkUlkixA9ydA==
-Received: from MW4PR04CA0185.namprd04.prod.outlook.com (2603:10b6:303:86::10)
- by IA1PR12MB8286.namprd12.prod.outlook.com (2603:10b6:208:3f8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 18:05:12 +0000
-Received: from SJ5PEPF0000020A.namprd05.prod.outlook.com
- (2603:10b6:303:86:cafe::5c) by MW4PR04CA0185.outlook.office365.com
- (2603:10b6:303:86::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.12 via Frontend Transport; Fri,
- 24 Jul 2026 18:05:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ5PEPF0000020A.mail.protection.outlook.com (10.167.244.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 18:05:12 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 24 Jul
- 2026 11:05:00 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 24 Jul 2026 11:04:59 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 24 Jul 2026 11:04:58 -0700
-Date: Fri, 24 Jul 2026 11:04:56 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Peter Griffin <peter.griffin@linaro.org>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Pranjal
- Shrivastava" <praan@google.com>, Daniel Mentz <danielmentz@google.com>,
-	Mostafa Saleh <smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <kernel-team@android.com>,
-	<tudor.ambarus@linaro.org>, <andre.draszik@linaro.org>,
-	<willmcvicker@google.com>, <jyescas@google.com>
-Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Override for Inst/Data attribute
-Message-ID: <amOpSPmc36+YXgCQ@nvidia.com>
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
+	Fri, 24 Jul 2026 18:16:56 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.stl.internal (Postfix) with ESMTP id B52AE1D0043A;
+	Fri, 24 Jul 2026 14:16:51 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Fri, 24 Jul 2026 14:16:52 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm1; t=1784917011; x=1785003411; bh=Lp
+	DCBpvfhneSCSswTCQaVQxoOX+Q/l4HOtvcxJgOB8g=; b=FYpp6GiFc4daplH6Tb
+	XJfRF6eqF1Z01HWphy0Wr0iuG6rHC7D5EOrNeg5NF8/D77teTBs9gMi2vObDYzEN
+	cj4YgZ5qjdzZ3ek89tSXTExpsBG9mf6sPxqX3wp6kjEyH7IFfm670+pKjb23GKwc
+	nbQyGCtFyYdSnbjiqX0lNts9CBydkWOvEvxfd8D4M+cJUtXiQpYVhBvJplt6wsia
+	OdDVgLg33IhGFHAwreu3ynHvAY3CopWoVeIjpSi/cR1TgGyWgefwus1Jj1+IYLgU
+	jlnsncLMBCkh6N6vuxty8+hVZd5bn7ze6dMxCQ8m40OFSzz3auDDuNEbWN40S1i9
+	izig==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1784917011; x=1785003411; bh=LpDCBpvfhneSCSswTCQaVQxoOX+Q
+	/l4HOtvcxJgOB8g=; b=fHFDP29i1CwzDu7+4cCvitXpffJ+ZwqVV60TC3RpP0oM
+	gDFRKOh6JD1ikhPe+CL5Wo7eRRuwY+/3c3M/ZF0yBOg/DZhmajJi/zvtXfq8+pJP
+	7zwZmXWGEQWNWBjCkHE2zq9YvqN2sZdYljcn+SDNCKI4x04kXMVGa9f2EyUcoX5T
+	ycG0BLDkKdRIfszHtwWf2wIt9i5ijBXBdmUjcvR05kxe2XPgrjXix9O1Ck0Uv5E9
+	zIJz4/zZNDWAbXNAMcnk4WSOVKU0XTgYT0L5askgFyMbvXOPjUKL2umTNkA9xoYd
+	hQm107Y0/z+T3xnSviM9dbpfvrpQHEIFSoBMaQgtbQ==
+X-ME-Sender: <xms:Eqxjajzo1ksWavaqH0xE6QTSQK3DiSZQTNNDS0XiL24gblV5TTOPqw>
+    <xme:Eqxjal-iHKGQeyTwhs0enYOMKJXarmZY-DlCFdRUV4tm83zxCOzL8bfvJKtY5EZlo
+    45s-zesC08dowoLGYv8Wc4cYROje_A3jBnVdZR5Crx0dabnDMGJxA>
+X-ME-Received: <xmr:Eqxjaj8vZnEr41TOtuabmZgZb5V3IQi2dIjm4uIx07gSni4UB_h0G-Ugjsvf45L273t5MSMgVFfP5K-0RCiYeRid-JzFdC-lFNo>
+X-ME-Proxy-Cause: dmFkZTGOkEEYiiW47r16VtQ2hKxYPKEAKhVlkC+FNvthZXhDDRcjNhjmp7XUrQmbU4VDl4
+    SSWSwRkMnVd0/3/682/Xy2X0FWIbmzubvAQwuYU3V89nrA4htJn0wNeJT+hIox8L4FgwXO
+    Vb/KaV5uzL0sdP3//T4L8FNTC6xaVGW+0WW7HesiuhmQzrSDnI2J1T6RdCgE/snx1oqjv9
+    ojNt1O7p22yXMxsntisuty1ssF5cbLMAfr/AlbsVnNqqGihdWQydWVANilIBrXlA2PhDR4
+    EZalXB4jPaYNfx5h3+SX45ahQNjqOF71r3FjtiL+9Mq1Ygs4Fkd35c0PXdrwIKCuhS+Eiw
+    uV75v7D/Ig4ViQt8W5B9xv/RskU1s7dmo2Fu1E8iInGJqPze5m0g3JHkDkCjzZ8clT2rBo
+    KSbETkOg9IjODxnRSHfXTDMd6I+GrVXXW0XqmKcfa9mrD7uFvJPx4PcuHcpDSdAcmabIIK
+    3aFnUoJBanOMFdN0v9qar6beklNkBNyyfGzE1pg6Yzm7n5xPWin+pwBonHfy/6JATYFK9y
+    cDomTIEpI4SQBOZ16/RqkL+jpeUN/y7Yy64a+TL+9ck1SwkQHb+k1avu1ojuyvyQ3v+6BU
+    IFHcZHyrVvYwEdV26gN+eHxUYT7T70BIu70h9+qetNgxO4l27ILjMdA1DfNQ
+X-ME-Proxy: <xmx:EqxjaodTMeT2VMWMRgEBJQY9tPTGm5JEchGMLiMqnbFuV2JowAO80w>
+    <xmx:Eqxjavv5HtcegWzGC8oPsiBtf_Tg38w-JPuH9-HlSn2inMYsW9W9hg>
+    <xmx:Eqxjah2JRuxE_c_EbiZ6NgZulKHLhGpqqC-QetEut91dmgqDsLgGEA>
+    <xmx:EqxjasAuqyHpXM_V_-wg6jYa1B3aNflp7x-WHRDU-aG8fz5fCNGmtw>
+    <xmx:E6xjakVVry3yATmbB4TUvxr3gsSfsxOIzp6inTerW_BOZ5cG14dtvLfE>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 24 Jul 2026 14:16:50 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Subject: [PATCH v3 0/9] Initial Apple M3 Pro, Max and Ultra device trees
+Date: Fri, 24 Jul 2026 20:16:40 +0200
+Message-Id: <20260724-apple-t603x-initial-devices-v3-0-bbeba0420603@jannau.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF0000020A:EE_|IA1PR12MB8286:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40cdaa8a-de48-4a48-c726-08dee9ae1b5b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|23010399003|7416014|11063799006|56012099006|10067099003|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: V75vysgnBPwo9VAs6GmkJ11O9uyThw7B8+d9gL6poEip1Y+aNHhByccK0lVgrpnSP2ywFc2qvjye5Yfp7HKcP7/h/2NETZ0b4Jfh8tMt4GuaUUeEgYzB6adn0ppOixUW1DyF1WSRHldQXcSjZjhIV9sXLyXiuFAeCay0AoFOOEOOBwLDfLkUOmJydwX5Y74fym71uTr780pWiWNdni+JhjrsLadk9syT4XHIURyX0oPc7d8MymqhnRlQK5tfFYPySY8rRudHqBnu7Yi19rrDSZ24HL4zzOAK+geudcBabAHXr13ly3ySxIie6V5OTBwzmpNi45Ko9MGxPo0f6OvnxDR5EGvtcJ2JbAQdipgBSqdcMn/qzui3JHk6/eoabDyB8tbJmaMDTyuhg6Ob7qA2U7te6+TtgmrYlHJB3ErRsXEyDhAzy1cHgL+yEmK0iZbgwEW6Jmxt0mIuyH3KMmQYa+/PLcV25LgdFypCZ152y3xdBG3+745ZPVEBHDMqgvviQbpHvftYoJa4fSFzUa/GlgvRJhIOTHS9wG/GMGPp8+25vtrYwVScrkiYTNcyXPp1gf2nuOe7WpFelBq2C3cpfg72tgBpa6uVNDlINP+F+O03EgPEoXXH4l1IOUeSQF2NHoDXmGOzOxfA4znl3TG0Ja0FK3ffkDk+ppQVZ9VKjE5fGeqa2Jdff0jkNeGK5Qi60XSym+NVRidg17ZNkkRm3w==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(23010399003)(7416014)(11063799006)(56012099006)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Msapzi+1hEuc0mFGNp5mybScohmIQJkOn6sRPmKeBPAv7eSboQM5bGoYiEWr4dqcgExVmwz+/kkMmE9zJS2rxFZALhWPuYLadqQJdoeGa9/Dw9F2uyR+2qZNVEckAhGlkXe+aSY7BXwHeJVtQBnaYiRecn+CK9oeWg0qCKobeTY6ZAXAVXYcPv6Yynesd5BQPlm0Hv1q48Dw5hYr72eW4D4os6WdI0YlMFHDb8eJeKS8P7iYruKNqgJFhWRK6G0XAUF6w8byir0fWevgpNX15wqueKwoeao5cYBy1731a/rKpuvplE5Det9KIXqagjqwYQqVM5ujD3sdDZo4WuuWZYFlHAzykYYKZIkKPVwsSaZggvjXZ0k5pVzKsXBSIuCWO//0rBvq4ZxNyvF3WxwNy2TezR9UCnPuFcAaD0+YishuvkVfmairhI7St+ddwheh
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 18:05:12.5424
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40cdaa8a-de48-4a48-c726-08dee9ae1b5b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF0000020A.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8286
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32OQQ7CIBBFr9KwFgODVOvKexgXFEYd09AGKNGY3
+ l1aY6Ibly/58948WcRAGNm+erKAmSL1voBaVcxejb8gJ1eYgYBabIXmZhg65KkW6s7JUyLTcVc
+ OLUYOiNaAaxxow4phCHim+2I/nt4cx/aGNs3KeXGlmPrwWPJZzrtPqflbypILrnWrhN4pJUEdb
+ sZ7M649JjanMnzJ5P+3MxSZO9e6hc1Ob6X4kU3T9ALSTekuJgEAAA==
+X-Change-ID: 20260705-apple-t603x-initial-devices-2eeca2d9d25a
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6035; i=j@jannau.net;
+ h=from:subject:message-id; bh=OQ7Q9pVZSxs7MTqxhl4F2QNfjfU5ODNpgazXAT5XJYw=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqzkNbzLdy98VbfdKufEqSCpw4UvHwvdifjY/fhH/bqt/
+ Jer/Sed7ZjIwiDGxWAppsiSpP2yg2F1jWJM7YMwmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+ 0EjHWMeIgYtTAKb6TBAjQ99a8XsOPxTOStj4BEc4v7ovK954MUj6l9fcN+t0jkzfwM/wP2etjci
+ JHyapW7UfFXIKfl87eXeJ5aLq/VNuzV/Kd7C8gxcA
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_110521_682994_68FED888 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260724_111655_411531_5A4C7097 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,65 +126,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 01:39:43PM +0100, Peter Griffin wrote:
-> @@ -1206,7 +1207,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
->  			cpu_to_le64(STRTAB_STE_1_S1DSS | STRTAB_STE_1_S1CIR |
->  				    STRTAB_STE_1_S1COR | STRTAB_STE_1_S1CSH |
->  				    STRTAB_STE_1_S1STALLD | STRTAB_STE_1_STRW |
-> -				    STRTAB_STE_1_EATS | STRTAB_STE_1_MEV);
-> +				    STRTAB_STE_1_EATS | STRTAB_STE_1_MEV |
-> +				    STRTAB_STE_1_INSTCFG);
->  		used_bits[2] |= cpu_to_le64(STRTAB_STE_2_S2VMID);
->  
->  		/*
-> @@ -1222,7 +1224,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
->  	if (cfg & BIT(1)) {
->  		used_bits[1] |=
->  			cpu_to_le64(STRTAB_STE_1_S2FWB | STRTAB_STE_1_EATS |
-> -				    STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV);
-> +				    STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV |
-> +				    STRTAB_STE_1_INSTCFG);
->  		used_bits[2] |=
->  			cpu_to_le64(STRTAB_STE_2_S2VMID | STRTAB_STE_2_VTCR |
->  				    STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2ENDI |
+This series adds device trees for Apple silicon devices with M3 Pro, Max
+and Ultra SoCs. The M3 generation has fewer devices than their M1 and M2
+predecessors. The only non-laptop device is the M3 Ultra Mac Studio. The
+Laptops are the known 14 and 16-inch Macbook Pros now with M3 Pro and
+M3 Max SoCs. The M3 Max variant with fewer CPU and GPU cores has
+additionally only a 384-bit wide memory bus instead of 512-bit of the
+full M3 Max. It has a separate identifier (T6034) and so there are six
+laptop device trees.
+Another difference to M1 and M2 Pro/Max/Ultra is that the M3 Pro is
+distinct SoC design and not a smaller M3 Max. For this reason both M3
+Max variants and the M3 Ultra will use "apple,t6030" as compatible
+prefix. In the M1 and M2 generations Pro, Max and Ultra SoCs shared
+"apple,t6000" / "apple,t6020" as common prefix. There is currently no
+known difference but M3 Pro and M3 Max are not as closely related as
+previously.
 
-This adds for "stage-1" and "stage-2", while missing "bypass"?
+This series adds the same level of hardware as the base M3 (T8122) has
+in v7.2-rc1. This includes CPU cores, interrupt controller, power
+states, watchdog, serial, pin controller, i2c and the boot framebuffer.
+This is intended as base so that support for additional hardware can be
+added to all M3 based devices at the same time.
 
-> @@ -1835,7 +1838,11 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
->  			 STRTAB_STE_1_S1STALLD :
->  			 0) |
->  		FIELD_PREP(STRTAB_STE_1_EATS,
-> -			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0));
-> +			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0)) |
-> +		FIELD_PREP(STRTAB_STE_1_INSTCFG,
-> +			   smmu->options & ARM_SMMU_OPT_OVR_INSTCFG_DATA ?
-> +				   STRTAB_STE_1_INSTCFG_DATA :
-> +				   STRTAB_STE_1_INSTCFG_INCOMING);
+Merge strategy:
+Since the dt-binding add new compatible strings without driver changes
+it would be preferred if the whole [1] series would be merged through
+apple-soc/arm-soc. This will help ensuring a warning free
+`make dtbs_check` for followup series with additional M3* hardware
+support I hope to send for this cycle.
 
-Sashiko pointed out that this prematurely closes the cpu_to_le64()
-macro.
+This series will conflict with the M4 series [3] sent A couple of days
+ago. I would prefer if this could be merged first (in order of SoC
+release).
 
-> @@ -1887,7 +1894,11 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
->  
->  	target->data[1] = cpu_to_le64(
->  		FIELD_PREP(STRTAB_STE_1_EATS,
-> -			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0));
-> +			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0) |
-> +		FIELD_PREP(STRTAB_STE_1_INSTCFG,
-> +			   smmu->options & ARM_SMMU_OPT_OVR_INSTCFG_DATA ?
-> +				   STRTAB_STE_1_INSTCFG_DATA :
-> +				   STRTAB_STE_1_INSTCFG_INCOMING));
+[1]: I see that the M4 watchdog change was already picked up by Guenter
+     in [2]
 
-You might need to set in arm_smmu_make_bypass_ste() too.
+Link: https://lore.kernel.org/asahi/a03c19ee-cf74-4f26-826d-f2bfb816fb3f@roeck-us.net/ [2]
+Link: https://lore.kernel.org/asahi/20260705-apple-m4-initial-devicetrees-v1-0-e5655ee56523@cyberchaos.dev/ [3]
 
-> @@ -5087,6 +5098,13 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
->  	if (smmu->sid_bits <= STRTAB_SPLIT)
->  		smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
->  
-> +	if (reg & IDR1_ATTR_PERMS_OVR) {
-> +		smmu->features |= ARM_SMMU_FEAT_PERMS_OVR;
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+Changes in v3:
+- dropped the already picked watchdog dt-bindings change
+- fix node ordering in t6030.dtsi and t6031-die0.dtsi
+- disable power-states for absent memory channels in t6034.dtsi
+- drop stray spaces before closing brace of "cpus" node for t6030, t6031 and t6032
+- imported Uwe's Acked-by: for the pwm dt-bindings change and Sven's Rb:
+  for the devicetree additions
+- Link to v2: https://patch.msgid.link/20260715-apple-t603x-initial-devices-v2-0-df65b2485710@jannau.net
 
-Where does this new feature bit get used?
+Changes in v2:
+- fix serial0 unit address in t6030.dtsi, drop erroneously added 0
+- Fix device node reference in pinctrl_{nub,aop} gpio-ranges in t6030.dtsi
+- fix i2c6 unit address in t6031-die0.dtsi
+- fix cpu_p25 reg value in t6032.dtsi
+- drop unnecessary aic interrupt-controller from t6032.dtsi
+- drop "label" from keyboard pwm led node
+- fix copy-n-pasted pinctrl in compatible strings in the apple,s5l-fpwm
+  dt-binding commit message
+- fix yamllint errors in apple.yaml and fix warnings in newly added
+  lines
+- fix typo in i2c commit message
+- whitespace fixes in t6032.dtsi
+- add missing Signed-off-by: for pmgr and pmgr-powerstates dt-bindings
+  patches
+- drop already picked-up "[PATCH 07/11] dt-bindings: pinctrl: apple,pinctrl: ..."
+- add Conor's Accked-by: tags
+- Link to v1: https://patch.msgid.link/20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net
 
-Nicolin
+---
+Janne Grunau (9):
+      dt-bindings: arm: apple: Add M3 Pro/Max/Ultra devices (T603x)
+      dt-bindings: interrupt-controller: apple,aic2: Invert #interrupt-cells condition
+      dt-bindings: interrupt-controller: apple,aic2: Add apple,t6031-aic3 compatible
+      dt-bindings: arm: apple: apple,pmgr: Add t6030 and t6031 compatibles
+      dt-bindings: power: apple,pmgr-pwrstate: Add t6030 and t6031 compatibles
+      dt-bindings: i2c: apple,i2c: Add t6030 and t6031 compatibles
+      dt-bindings: pwm: apple,s5l-fpwm: Add t6030 and t6031 compatibles
+      arm64: dts: apple: Initial T603[124] (M3 Max and Ultra) device trees
+      arm64: dts: apple: Initial T6030 (M3 Pro) device trees
+
+ Documentation/devicetree/bindings/arm/apple.yaml   |   37 +
+ .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |    2 +
+ .../devicetree/bindings/i2c/apple,i2c.yaml         |    2 +
+ .../bindings/interrupt-controller/apple,aic2.yaml  |   10 +-
+ .../bindings/power/apple,pmgr-pwrstate.yaml        |    2 +
+ .../devicetree/bindings/pwm/apple,s5l-fpwm.yaml    |    2 +
+ arch/arm64/boot/dts/apple/Makefile                 |    7 +
+ arch/arm64/boot/dts/apple/t6030-j514s.dts          |   22 +
+ arch/arm64/boot/dts/apple/t6030-j516s.dts          |   22 +
+ arch/arm64/boot/dts/apple/t6030-pmgr.dtsi          | 1437 ++++++++++++
+ arch/arm64/boot/dts/apple/t6030.dtsi               |  524 +++++
+ arch/arm64/boot/dts/apple/t6031-base.dtsi          |  297 +++
+ arch/arm64/boot/dts/apple/t6031-die0.dtsi          |  197 ++
+ arch/arm64/boot/dts/apple/t6031-dieX.dtsi          |  107 +
+ arch/arm64/boot/dts/apple/t6031-gpio-pins.dtsi     |   53 +
+ arch/arm64/boot/dts/apple/t6031-j514c.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6031-j516c.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6031-pmgr.dtsi          | 2400 ++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t6031.dtsi               |   48 +
+ arch/arm64/boot/dts/apple/t6032-j575d.dts          |   46 +
+ arch/arm64/boot/dts/apple/t6032.dtsi               |  416 ++++
+ arch/arm64/boot/dts/apple/t6034-j514m.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6034-j516m.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6034.dtsi               |   53 +
+ arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi     |   66 +
+ 25 files changed, 5818 insertions(+), 4 deletions(-)
+---
+base-commit: 9c8070a41716d59f1d4d6ad1428019dcb233fa20
+change-id: 20260705-apple-t603x-initial-devices-2eeca2d9d25a
+
+Best regards,
+--  
+Janne Grunau <j@jannau.net>
+
 
