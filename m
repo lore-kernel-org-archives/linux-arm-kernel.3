@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5787C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 14:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F667C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 14:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PWePWVjGKPbBiPs4TqoqPS+EqMrtu2WCw3LH6D7fZU8=; b=PO9f5gUcOTmABdlUOhQqahML8a
-	MaNhVyRV5gqNe6v184TmCpqHiLnJYB67KWDVEXz25LVQGfR0SDtyZyaItvddGAwR308f31gyVZsec
-	VgDP2zHK0yIrpamYCG0V5CtD72TLRXWMBC2gWVQORjkSndTgYghm2c+2h2dyXb+0Q8KmM406vcqda
-	QLbZQAZJTQSvCuhVr4wUGbhp889bWjfD+SnQB+nMLpsJrn00LfKet3vJnn66VDt3TAqCs/utEcCpy
-	NrxhhFbe1RyPgdtI3KU9+uDZMqgmuhq7Frkp5KrhcoHoVLIETIJCplfpX65yDkVlvchyHm5Xi09nJ
-	e0i4GSVA==;
+	bh=qBlwLqwzUEDK8LmlbdGa4KPnn2/wvRxA6qOCulxWpug=; b=KAAkFMIWggb9fCQGYrbosx7ClJ
+	9NJiLpshXGwAmFZtXeJc7sexAHBAwkHCq+qB5XquNmEdLYgq3CAuRZ0W6F+3pf322Zr6Vox8RyfMK
+	o1+7nSvhO3JiR/qkWLXsFaQD06HT/CReE1eTogXBHTKveGgfQRYwNtp1zR8Q98+z1f5jUGslV8KPN
+	9d3D0KTF0IR4Lr/cz6Wby81Qeh5TL/nPBjTfCyfOM9sNljH9uXmSkoc0h26h8OKWYVJFmvnD5Iq57
+	i0w1zz2X9SDuAGR84j+W3COFiCddWuNuk2lDM8BoumUd7deJ0mApoErfEjIjhtDUn/nPBwsk4X0ON
+	fu/I+vSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHAw-0000000GawA-1Bik;
-	Fri, 24 Jul 2026 14:46:58 +0000
+	id 1wnHB4-0000000Gb2A-2RHj;
+	Fri, 24 Jul 2026 14:47:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHAt-0000000Gatr-28UL
+	id 1wnHB1-0000000GazM-2WVd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 14:46:57 +0000
+	Fri, 24 Jul 2026 14:47:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E781F1477;
-	Fri, 24 Jul 2026 07:46:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4AFB81477;
+	Fri, 24 Jul 2026 07:46:57 -0700 (PDT)
 Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3659B3F66F;
-	Fri, 24 Jul 2026 07:46:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 855D13F66F;
+	Fri, 24 Jul 2026 07:46:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784904412; bh=NuESCRU5An7rfbwVrEPz6SRUS//AGdj1RuLSFxy//nI=;
+	t=1784904421; bh=MtMui1/C+LzbgsLio7B/p/5PShR97yA+5VPZG+67X4Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I+TTAE4tTU0nCelhPUdDOmVHXNji8E/KjUVCo3ezqMTgt4qx+5CO5FFj1fKV63yeD
-	 d6MGAYZ1GwQ7yUrZWLVscJerNZl20b5kAX/xtp1ajli3z8lZSgNr9ZuUWQ/iAxhyNQ
-	 Ft42y97ZqSHmLkr0HA199a0oWVNtKPu9WGPL6Yw0=
+	b=snCrgNaqilDZubCcKLG/HT1mAM4R483bagK/PO/mK7EiFPcmY3rKwCqZFQZqqt/e6
+	 cM8lHHGUEe9kRQQCm94mMOqDsDUhCDn5TiQonjiF29p1nL7DasEnHC9Y+rHGbjqlZm
+	 1CmbNf2HImHLAKX8IbbvwcTgUBEQvbL4Lo5o/pTw=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -67,17 +67,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v6 13/22] firmware: arm_scmi: Add Telemetry generation counter
-Date: Fri, 24 Jul 2026 15:44:21 +0100
-Message-ID: <20260724144430.1440170-14-cristian.marussi@arm.com>
+Subject: [PATCH v6 14/22] firmware: arm_scmi: Add common per-protocol debugfs support
+Date: Fri, 24 Jul 2026 15:44:22 +0100
+Message-ID: <20260724144430.1440170-15-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260724144430.1440170-1-cristian.marussi@arm.com>
 References: <20260724144430.1440170-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_074655_852051_BD89F767 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20260724_074703_966954_FAF9D948 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,203 +92,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a per-instance generation counter to track configuration changes and
-expose a telemetry operations to get a related waitqueue for monitoring.
+Allow interested SCMI protocols to register their own specific debugfs
+entries under a common per-instance and per-protocol subtree rooted
+at /sys/kernel/debug/scmi/<N>/protocols/<PROTO_ID>/
+
+Expose a helper to enable protocol initialization code to get access to
+such per-protocol/per-instance dentries in order to be able to install
+their own dedicated debugfs entries.
+
+Per-protocol debugfs support is configurable and default off.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
 v5 --> v6
- - add relese semantic to the atomic set of the generation counter
+ - bail out of dentry_get helper when SCMI debug susbsytem failed to init
+ - remove stale SCMI protocol operations
+ - add a preoper clean up of debugfs when protocol init fails
 ---
- drivers/firmware/arm_scmi/telemetry.c | 53 +++++++++++++++++++++++++++
- include/linux/scmi_protocol.h         |  5 +++
- 2 files changed, 58 insertions(+)
+ drivers/firmware/arm_scmi/Kconfig     | 14 +++++++++++++
+ drivers/firmware/arm_scmi/common.h    |  2 ++
+ drivers/firmware/arm_scmi/driver.c    | 30 +++++++++++++++++++++++++++
+ drivers/firmware/arm_scmi/protocols.h |  6 ++++++
+ include/linux/scmi_protocol.h         |  1 -
+ 5 files changed, 52 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-index c2945d001ae2..5f1c1abfbdc8 100644
---- a/drivers/firmware/arm_scmi/telemetry.c
-+++ b/drivers/firmware/arm_scmi/telemetry.c
-@@ -21,6 +21,7 @@
- #include <linux/sprintf.h>
- #include <linux/string.h>
- #include <linux/xarray.h>
-+#include <linux/wait.h>
+diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+index 783c24a20e29..f506c4d1d96a 100644
+--- a/drivers/firmware/arm_scmi/Kconfig
++++ b/drivers/firmware/arm_scmi/Kconfig
+@@ -69,6 +69,20 @@ config ARM_SCMI_DEBUG_COUNTERS
+ 	  such useful debug counters. This can be helpful for debugging and
+ 	  SCMI monitoring.
  
- #include "protocols.h"
- #include "notify.h"
-@@ -30,6 +31,7 @@
- /* Updated only after ALL the mandatory features for that version are merged */
- #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
- 
-+#define SCMI_TLM_GENERATION_ONE		(SCMI_TLM_GENERATION_INVALID + 1U)
- #define SCMI_TLM_TDCF_MAX_RETRIES	5
- 
- enum scmi_telemetry_protocol_cmd {
-@@ -505,6 +507,7 @@ struct telemetry_info {
- 	struct list_head free_des;
- 	struct list_head fcs_des;
- 	struct scmi_telemetry_info info;
-+	struct wait_queue_head gen_wq;
- 	struct notifier_block telemetry_nb;
- 	atomic_t rinfo_initializing;
- 	struct completion rinfo_initdone;
-@@ -654,6 +657,29 @@ scmi_telemetry_tde_cache_lookup(struct telemetry_de *tde,
- 	return 0;
- }
- 
-+static inline void __scmi_telemetry_generation_set(struct telemetry_info *ti,
-+						   unsigned int new)
-+{
-+	atomic_set_release(&ti->info.generation, new);
++config ARM_SCMI_DEBUG_PROTOCOLS
++	bool "Enable SCMI protocols debug"
++	select ARM_SCMI_NEED_DEBUGFS
++	depends on DEBUG_FS
++	default n
++	help
++	  Enables per-protocol specific debug features, where available.
++	  When provided, such per-protocol debugfs entries are grouped
++	  inside a common a subtree named by the protocol number and rooted
++	  under a per-instance 'protocols' directory.
 +
-+	wake_up_all(&ti->gen_wq);
-+}
++	  Such per-protocol entries subtree structure is freely defined
++	  within the related protocol code.
 +
-+static inline void scmi_telemetry_generation_update(struct telemetry_info *ti)
-+{
-+	unsigned int next;
-+
-+	/* Wrap around skipping invalid generation 0 */
-+	next = (atomic_read(&ti->info.generation) + 1) ?: SCMI_TLM_GENERATION_ONE;
-+
-+	__scmi_telemetry_generation_set(ti, next);
-+}
-+
-+static inline void scmi_telemetry_generation_reset(struct telemetry_info *ti)
-+{
-+	__scmi_telemetry_generation_set(ti, SCMI_TLM_GENERATION_ONE);
-+}
-+
- struct scmi_tlm_de_priv {
- 	struct telemetry_info *ti;
- 	void *next;
-@@ -2204,6 +2230,8 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
- 						       tstamp_enabled_state,
- 						       *tstamp);
- 
-+		/* A local change can have an impact anyway */
-+		scmi_telemetry_generation_update(ti);
- 		return 0;
- 	}
- 
-@@ -2265,6 +2293,9 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
- 
- 	ph->xops->xfer_put(ph, t);
- 
-+	if (!ret)
-+		scmi_telemetry_generation_update(ti);
-+
- 	return ret;
- }
- 
-@@ -2369,6 +2400,9 @@ static int scmi_telemetry_all_disable(const struct scmi_protocol_handle *ph,
- 
- 	ph->xops->xfer_put(ph, t);
- 
-+	if (!ret)
-+		scmi_telemetry_generation_update(ti);
-+
- 	return ret;
- }
- 
-@@ -2441,6 +2475,9 @@ scmi_telemetry_collection_configure(const struct scmi_protocol_handle *ph,
- 
- 	ph->xops->xfer_put(ph, t);
- 
-+	if (!ret)
-+		scmi_telemetry_generation_update(ti);
-+
- 	return ret;
- }
- 
-@@ -2893,6 +2930,10 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
- 		struct telemetry_info *ti = ph->get_priv(ph);
- 
- 		scmi_telemetry_local_resources_reset(ti);
-+
-+		/* Reset generation now that server has been reset */
-+		scmi_telemetry_generation_reset(ti);
-+
- 		/* Fetch again the states from platform. */
- 		ret = scmi_telemetry_initial_state_lookup(ti);
- 		if (ret)
-@@ -2905,6 +2946,14 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
- 	return ret;
- }
- 
-+static struct wait_queue_head *
-+scmi_telemetry_event_wq_get(const struct scmi_protocol_handle *ph)
-+{
-+	struct telemetry_info *ti = ph->get_priv(ph);
-+
-+	return &ti->gen_wq;
-+}
-+
- static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.info_get = scmi_telemetry_info_get,
- 	.de_lookup = scmi_telemetry_de_lookup,
-@@ -2917,6 +2966,7 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.des_bulk_read = scmi_telemetry_des_bulk_read,
- 	.des_sample_get = scmi_telemetry_des_sample_get,
- 	.reset = scmi_telemetry_reset,
-+	.event_wq_get = scmi_telemetry_event_wq_get,
- };
- 
- static bool
-@@ -3230,6 +3280,9 @@ static int scmi_telemetry_instance_init(struct telemetry_info *ti)
- 	if (ret)
- 		return ret;
- 
-+	/* Generation counter init */
-+	atomic_set(&ti->info.generation, SCMI_TLM_GENERATION_ONE);
-+	init_waitqueue_head(&ti->gen_wq);
- 	atomic_set(&ti->des_enabled[ENA_STATE], 0);
- 	atomic_set(&ti->des_enabled[ENA_TSTAMP], 0);
- 	/* Setup resources lazy initialization */
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 10d098f73d05..5b1d6eede287 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -13,6 +13,7 @@
- #include <linux/device.h>
- #include <linux/notifier.h>
- #include <linux/types.h>
-+#include <linux/wait.h>
- 
- #define SCMI_MAX_STR_SIZE		64
- #define SCMI_SHORT_NAME_MAX_SIZE	16
-@@ -889,6 +890,7 @@ enum scmi_telemetry_collection {
- 	SCMI_TLM_SINGLE_READ,
- };
- 
-+#define SCMI_TLM_GENERATION_INVALID	0U
- #define SCMI_TLM_GRP_INVALID		0xFFFFFFFF
- #define SCMI_TLM_DE_IMPL_MAX_DWORDS	4
- 
-@@ -983,6 +985,7 @@ struct scmi_telemetry_info {
- 	bool enabled;
- 	bool notif_enabled;
- 	enum scmi_telemetry_collection current_mode;
-+	atomic_t generation;
- };
- 
- struct scmi_telemetry_de_sample {
-@@ -1016,6 +1019,7 @@ struct scmi_telemetry_de_sample {
-  *		    This causes an immediate update platform-side of all the
-  *		    enabled DEs.
-  * @reset: reset configuration and telemetry data.
-+ * @event_wq_get: get a reference to the event waitqueue for this instance.
+ config ARM_SCMI_QUIRKS
+ 	bool "Enable SCMI Quirks framework"
+ 	depends on JUMP_LABEL || COMPILE_TEST
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index f8fbb1a46482..d34fa7fd5253 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -322,6 +322,7 @@ enum debug_counters {
+ /**
+  * struct scmi_debug_info  - Debug common info
+  * @top_dentry: A reference to the top debugfs dentry
++ * @protos: A reference to the top debugfs protocols subdirectory
+  * @name: Name of this SCMI instance
+  * @type: Type of this SCMI instance
+  * @is_atomic: Flag to state if the transport of this instance is atomic
+@@ -329,6 +330,7 @@ enum debug_counters {
   */
- struct scmi_telemetry_proto_ops {
- 	const struct scmi_telemetry_info __must_check *(*info_get)
-@@ -1043,6 +1047,7 @@ struct scmi_telemetry_proto_ops {
- 					   int grp_id, int *num_samples,
- 					   struct scmi_telemetry_de_sample *samples);
- 	int (*reset)(const struct scmi_protocol_handle *ph);
-+	struct wait_queue_head *(*event_wq_get)(const struct scmi_protocol_handle *ph);
+ struct scmi_debug_info {
+ 	struct dentry *top_dentry;
++	struct dentry *protos;
+ 	const char *name;
+ 	const char *type;
+ 	bool is_atomic;
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 4c200b6168a9..d209b3ca0174 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -18,6 +18,7 @@
+ 
+ #include <linux/bitmap.h>
+ #include <linux/cleanup.h>
++#include <linux/dcache.h>
+ #include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/export.h>
+@@ -101,6 +102,8 @@ struct scmi_xfers_info {
+  *			has completed.
+  * @ph: An embedded protocol handle that will be passed down to protocol
+  *	initialization code to identify this instance.
++ * @dbg: An optional reference to this protocol top debugfs directory; it will
++ *	 be automatically recursively removed on protocol de-initialization.
+  *
+  * Each protocol is initialized independently once for each SCMI platform in
+  * which is defined by DT and implemented by the SCMI server fw.
+@@ -115,6 +118,7 @@ struct scmi_protocol_instance {
+ 	unsigned int			version;
+ 	unsigned int			negotiated_version;
+ 	struct scmi_protocol_handle	ph;
++	struct dentry			*dbg;
+ };
+ 
+ #define ph_to_pi(h)	container_of(h, struct scmi_protocol_instance, ph)
+@@ -2095,6 +2099,25 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
+ 		SCMI_PROTO_FC_RING_DB(64);
+ }
+ 
++static struct dentry *
++scmi_debugfs_proto_dentry_get(const struct scmi_protocol_handle *ph)
++{
++	struct scmi_protocol_instance *pi = ph_to_pi(ph);
++	struct scmi_info *info = handle_to_scmi_info(pi->handle);
++
++	if (!IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS) || !info->dbg)
++		return ERR_PTR(-ENODEV);
++
++	if (!pi->dbg) {
++		char proto_dir[8];
++
++		snprintf(proto_dir, 8, "0x%02X", pi->proto->id);
++		pi->dbg = debugfs_create_dir(proto_dir, info->dbg->protos);
++	}
++
++	return pi->dbg;
++}
++
+ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.extended_name_get = scmi_common_extended_name_get,
+ 	.get_max_msg_size = scmi_common_get_max_msg_size,
+@@ -2105,6 +2128,7 @@ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.protocol_msg_check = scmi_protocol_msg_check,
+ 	.fastchannel_init = scmi_common_fastchannel_init,
+ 	.fastchannel_db_ring = scmi_common_fastchannel_db_ring,
++	.debugfs_proto_dentry_get = scmi_debugfs_proto_dentry_get,
  };
  
  /**
+@@ -2317,6 +2341,7 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ 	return pi;
+ 
+ clean:
++	debugfs_remove_recursive(pi->dbg);
+ 	/* Take care to put the protocol module's owner before releasing all */
+ 	scmi_protocol_put(proto);
+ 	devres_release_group(handle->dev, gid);
+@@ -2428,6 +2453,8 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 	if (refcount_dec_and_test(&pi->users)) {
+ 		void *gid = pi->gid;
+ 
++		debugfs_remove_recursive(pi->dbg);
++
+ 		if (pi->proto->events)
+ 			scmi_deregister_protocol_events(handle, protocol_id);
+ 
+@@ -3150,6 +3177,9 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+ 	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS))
+ 		scmi_debugfs_counters_setup(dbg, trans);
+ 
++	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS))
++		dbg->protos = debugfs_create_dir("protocols", top_dentry);
++
+ 	dbg->top_dentry = top_dentry;
+ 
+ 	if (devm_add_action_or_reset(info->dev,
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index 1f9925b8f495..04e196a9fbf4 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -11,6 +11,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/completion.h>
++#include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/errno.h>
+ #include <linux/kernel.h>
+@@ -284,6 +285,9 @@ struct scmi_fc_info {
+  *		      gathering FC descriptions from the SCMI platform server.
+  * @fastchannel_db_ring: A common helper to ring a FC doorbell.
+  * @get_max_msg_size: A common helper to get the maximum message size.
++ * @debugfs_proto_dentry_get: A common helper to get a per-protocol debugfs top
++ *			      directory to use as a root. It will be
++ *			      recursively removed on protocol de-initialization.
+  */
+ struct scmi_proto_helpers_ops {
+ 	int (*extended_name_get)(const struct scmi_protocol_handle *ph,
+@@ -307,6 +311,8 @@ struct scmi_proto_helpers_ops {
+ 				 u32 *rate_limit);
+ 	void (*fastchannel_db_ring)(struct scmi_fc_db_info *db);
+ 	int (*get_max_msg_size)(const struct scmi_protocol_handle *ph);
++	struct dentry *(*debugfs_proto_dentry_get)
++		(const struct scmi_protocol_handle *ph);
+ };
+ 
+ /**
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 5b1d6eede287..8ff5ee9d6ac0 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -1141,7 +1141,6 @@ struct scmi_handle {
+ 	void (*devm_protocol_put)(struct scmi_device *sdev, u8 proto);
+ 	bool (*is_transport_atomic)(const struct scmi_handle *handle,
+ 				    unsigned int *atomic_threshold);
+-
+ 	const struct scmi_notify_ops *notify_ops;
+ };
+ 
 -- 
 2.54.0
 
