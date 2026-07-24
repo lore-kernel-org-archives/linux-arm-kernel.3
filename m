@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CDEC531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B247C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:In-Reply-To:References:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fsRwQ/MRXKU69Cz45TMuvT7xD7rCK/lcxMRZ0uHACwM=; b=UM6kF7ny6iVtqip2JI7JjZ0rEI
-	3iWhM6yQQ33yxaQXKWJgFFKi0HDoWzO/f3BkfLlp1QfM+GKZ0Lnf8jLFKAk2ZXcnGlR2vJoPJsOpi
-	jyMh7rlywPW23IQOjo0h4M7MdPtrC/fTJXPBB11hw0WVL4txBJXC8oXzsYMK504ZMmLYhw8b8j2kJ
-	WP/8TNUQXFy/whv6opHtDz2Xc9nWXT7CmBlDiwI34Igva6u5jxZ0v5sJvrQZbNxIDH5zypPHmmm8f
-	1pNas3oLQO+m/5i07zsnd8rMPRZQJy3DTvH3OMOMF72g1FroCclPsja5XEPzfVvCyrTxJwWra/zso
-	AD1Bn++g==;
+	bh=k4jA95NvxlnIR1Hi2g9Z6FkmE9n79P+Ej5d6GEWovXQ=; b=yyZRKeO/i45NS/9p/dmZLhOAqt
+	d7q7a6UWJtO6uEnT2BoVMPUi/4tkO0CNnBtMVK90+vpi2zGWT0g5TB4BnqDVhJ0cnFhGwW6YfhGaq
+	RCuzW6Pn3Pv6/fnqPhVWsQruJvV4WE2rkF/FhJEhUtykt/LKFQ0zeM9NAWWtiJ+mEfwyhs+f+X22k
+	i9yXfBxSrh2xinZWVO4VAbK1J87l3PUy0IP2Svl6r3Rnt5cpR+BoQgDU3/2nuA1Wxy/EkotSUfFZ+
+	d8xIGkdQ0ETtQJceABFuYH4gaW8fsdy/9E1JTVl1MsSGFZhM7oQhoBoSGY0PPsmWsRhzgVFIezdvv
+	jJ0CNarw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnCzI-0000000G3e6-2uWT;
-	Fri, 24 Jul 2026 10:18:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wnD0k-0000000G3rh-42HT;
+	Fri, 24 Jul 2026 10:20:10 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnCzH-0000000G3dw-0PNW
+	id 1wnD0i-0000000G3qk-1qR7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:18:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D30640143;
-	Fri, 24 Jul 2026 10:18:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7381A1F000E9;
-	Fri, 24 Jul 2026 10:18:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784888318;
-	bh=fsRwQ/MRXKU69Cz45TMuvT7xD7rCK/lcxMRZ0uHACwM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eNeONbs9jDDO8unvLRenY4oHMgcT8mI+O7v/PPOsAMqDi1as36v3ligFWXjWwEWKH
-	 vNK0ja7HvbVS21kyI5aJBjj2v36Y+LYDRe7nSvEPWHce06WYY1nnww7zpxPaNEr1L6
-	 U7TrsL0XPQjRIR4qWb8ar0g08f32jYwvFZmd46Uwkg9Wkk9jUD8BOLnxmNYTtayl0g
-	 hcgCy0LQ1ZwId5iSeUJoClHXuebZaHum3wSOcbFlEajhFHxkApxXFe6IyeolKbNeaM
-	 aG3qDLDvX/VTeu4frVCkNwC+BCNO13pToBrDvw+dWgO9OKgeRgaXoowS8BQxWKCpba
-	 BXBmNI+0FZP2A==
-Date: Fri, 24 Jul 2026 11:18:32 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Srinivas Ramana <sramana@qti.qualcomm.com>,
-	Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
-Message-ID: <20260724-finicky-knowing-foxhound-df1e56@sudeepholla>
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-11-andre.przywara@arm.com>
+	Fri, 24 Jul 2026 10:20:09 +0000
+Date: Fri, 24 Jul 2026 10:13:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
+	s=key1; t=1784888396;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k4jA95NvxlnIR1Hi2g9Z6FkmE9n79P+Ej5d6GEWovXQ=;
+	b=cKwoBgnE+DhdTJU33w9R9euhKma7trvL516xwdFrdSR280gx3pYzmYPoL2PzO6zKg4lL2r
+	dXR5nwK2R6UctttWiJOJDOtg2Sm/nRqZo1Tt5c2TZB04ZfQJ/K90Z7XDJXjzFzrsHxK+3a
+	Z3TnFQWnO6jfg05+Gc4FrGCA8hgPGJzaYI2QSvfYRUZhKHnvUAqVMGggj7RhoTdFS9r/WS
+	VyzzYyLKEYOy8x78w4xTGLIiq6P2Pp+aaPkDjXuZmnwxw1J8AOJDZGnW4nxsBUoDN+ns5K
+	zI9qoPXU6n5j8jAKW20dD9+fsMcLSEuvTnFrnW7G3Lne3gCPK8cQUukJvHlCRw==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Ferass El Hafidi <funderscore@postmarketos.org>
+To: linux-amlogic@lists.infradead.org, zhentao.guo@amlogic.com, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, Zhentao Guo <zhentao.guo@amlogic.com>
+Subject: Re: [PATCH v6 0/6] Add Amlogic stateless H.264 video decoder for S4
+References: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
+In-Reply-To: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
+Message-ID: <tiocog.2cefvi325on5y@postmarketos.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260723155454.1760823-11-andre.przywara@arm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8; format=flowed
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_032008_622191_D42B0AA3 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +69,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 05:54:54PM +0200, Andre Przywara wrote:
-> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-> registers through a firmware interface. This requires a shared memory
-> region to hold the message, and a mailbox to trigger the access.
-> For ACPI this is wrapped as a PCC channel, described using existing
-> ACPI abstractions.
-> 
-> Add code to parse those PCC table descriptions associated with an MSC,
-> and store the parsed information in the MSC struct.
-> There can be multiple PCC channels, and each channel can serve multiple
-> MSCs, so we need to keep track of the channel usage, using a list and
-> a refcount.
-> This will be used by the MPAM-Fb access wrapper code.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/acpi/arm64/mpam.c      |   6 +-
->  drivers/resctrl/mpam_devices.c | 127 ++++++++++++++++++++++++++++++++-
->  2 files changed, 129 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> index 84963a20c3e7..ca9b8754ae5f 100644
-> --- a/drivers/acpi/arm64/mpam.c
-> +++ b/drivers/acpi/arm64/mpam.c
-> @@ -220,8 +220,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->  	struct platform_device *pdev __free(platform_device_put) =
->  		platform_device_alloc("mpam_msc", tbl_msc->identifier);
+Hi Zhentao,
 
-Looks like tbl_msc->identifier is getting stashed as pdev->id...
+On Fri, 24 Jul 2026 07:04, Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org> wrote:
+>Introduce initial driver support for Amlogic's new video acceleration
+>hardware architecture, designed for video stream decoding.
+>
+>Compared to the current Amlogic video decoder hardware architecture,
+>this new implementation eliminates the Esparser hardware component,
+>enabling direct vb2 buffer input. The driver is designed to support
+>the V4L2 M2M stateless decoder API. The initial phase includes support
+>for H.264 decoding on Amlogic S805X2 platform.
+>
+>The driver needs to work alongside with a signed firmware. The loading process of
+>the signed fw is as follow.
 
+Is the firmware still signed on devices that do not have secure boot
+enabled? (which means none of their boot chain is signed)
+Do the signing checks take place in BL32 or elsewhere?
 
->  	int next_res = 0, next_prop = 0, err;
-> -	/* pcc, nrdy, affinity and a sentinel */
-> -	struct property_entry props[4] = { 0 };
-> +	/* pcc, msc-id, nrdy, affinity and a sentinel */
-> +	struct property_entry props[5] = { 0 };
->  	/* mmio, 2xirq, no sentinel. */
->  	struct resource res[3] = { 0 };
->  	struct acpi_device *companion;
-> @@ -256,6 +256,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->  	} else if (iface == MPAM_IFACE_PCC) {
->  		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->  							tbl_msc->base_address);
-> +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
-> +							tbl_msc->identifier);
+>Stage1: Decypt and decompose the full firmware package when the driver is probed.
+>  +---------------------+                        +---------------------+
+>  |  Decoder Driver     |                        |  TEE Shared Memory  |
+>  |  (Kernel Space)     |                        |                     |
+>  |  +---------------+  |                        |  +---------------+  |
+>  |  | video_ucode   |  |                        |  | firmware      |  |
+>  |  |    .bin       |  |  Copy payload to SHM   |  |   payload     |  |
+>  |  | (from fs)     |  | ---------------------> |  | (Secure RAM)  |  |
+>  |  +---------------+  |                        |  +---------------+  |
+>  +---------------------+                        +----------+----------+
+>                                                            |
+>                                                            | PTA Invocation
+>                                                            v
+>                                       +-------------------------------+
+>                                       |             BL32              |
+>                                       |  +-------------------------+  |
+>                                       |  | Decrypt Firmware        |  |
+>                                       |  +-----------+-------------+  |
+>                                       |              |                |
+>                                       |              v                |
+>                                       |  +-------------------------+  |
+>                                       |  | Decompose the full      |  |
+>				       |  | firmware pacakge        |  |
+>                                       |  +-----------+-------------+  |
+>                                       |              |                |
+>                                       |              v                |
+>                                       |  +-------------------------+  |
+>                                       |  | Store decomposed .bin   |  |
+>                                       |  | in Secure Memory        |  |
+>                                       |  +-------------------------+  |
+>                                       +-------------------------------+
+>
 
-Why is this needed then as you can fetch it as pdev->id ?
+Is BL32 strictly needed to load that firmware? I know on at least older SoCs
+(sm1 and older) BL32 is not required for booting and amlogic-based SBCs are
+often used without BL32. So once this gets ported to older SoCs, would
+it have a hard-dependency on BL32? And if yes, can upstream Arm Trusted
+Firmware-A BL32 be used instead of the Amlogic blob?
 
--- 
-Regards,
-Sudeep
+Best regards,
+Ferass
 
