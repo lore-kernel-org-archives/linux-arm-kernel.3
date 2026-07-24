@@ -4,126 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8660C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 19:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08966C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 19:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q852HDl/X3D1aZNvrQ8tGTIffyFNb2ogAzE91eD8s9o=; b=y12iR1xHe+TPXxXoip5PhOAwBQ
-	1gm5yypo2vwRhj1jV4ulfrrcXS8llN9quCb+b4F8pYKp2DM/77RGcyIdSgTZFf3sldc+4iIUDVgs9
-	jJ++8p4YkaQSUgVQ1xUiPXdibm1xtah9xh9w3aNBddCklF0lo/CSM67ZRdflWU4EZjg180XC+dQeY
-	vecySMGzmjAUfTmPAXMF2lB4HMf9y4OqL+M3EOBlUYJSitgkZYzVqfZFfe+cJO2Ditvbf3LK527SB
-	veEtsMZ2TR2qLFMgUfccZDRkmd0Wbnp1iiVu33VLi9kcaNKI85nASEE/ibdKdvCa3l9lC+vSnO4Xb
-	jJ3xFepA==;
+	bh=vvsKfAGO1/G1RkKRO+bqMq0Jxexy/5+6v+o5lfiDScQ=; b=AsiSsrxRgy+YXoIpYft28OFYbN
+	cTCoyqqYPoAE3wW5QFZ6q7qujKnQSEN0YkVV9EOL0vu2AHuqgGVXHYYvil1LLDXN8lRZoTiwng4oK
+	eBcA6Fjel4BrKzmql6tGbMTGrCN+B0MtJLhDvw6DsRu5DVkWPuKu2SfLElNehS9oF2xe7ue4DgRxD
+	F+8sl2HFBaUiW3mxAuNEiF1cN7xDnvzH/ans5CSkAXQfME4nOQ5LRqr5tEliiMK2QDrk2jkid4CK4
+	5mGLsqiPwJqkgS2dfpmvRyRDxgOUp95KODiwk7ShzQ1ERSZZQCPrwKoE+rp/MfwIomxTaePHjKPWd
+	SkKg3+bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnLgI-0000000HAyB-2hKZ;
-	Fri, 24 Jul 2026 19:35:38 +0000
-Received: from mail-francecentralazon11013057.outbound.protection.outlook.com ([40.107.162.57] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wnLh3-0000000HB4J-3Rjh;
+	Fri, 24 Jul 2026 19:36:25 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnLgG-0000000HAxk-1qHb
+	id 1wnLh1-0000000HB3X-0Alh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 19:35:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BJdf8/flXOUkP3j1pNukHV2smZZwfpbfA7JAuVoc++jBf0OvBQBPVuLQc7VHSUkaCBECda4KiBB8w7Gv1Xng/Whq0hArst+xLESORTOIoeLbqQJ8ybE+GpTe4r92iu6UcKDa8yYoLrN0jm51aQlV01y0HSHdgzv4T+urHFwfpU+QUR1OKPZewDcLHkSghT6pWXQVEBxMKTEI4zYL8tU3nYqJe+4uzYPJmPlaz0wIADmicleHbzCGxPnwLf5eCmUwY5zRlBhMBkrcs3WO059IvBERm0LATbHL/iL3RKXC0ng/8hKvCuIbbrzkFx4UATiPnXSANFUqPq4lbOd9IBJaUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q852HDl/X3D1aZNvrQ8tGTIffyFNb2ogAzE91eD8s9o=;
- b=Mfl5r2DsVWyibHuIeGqq13xztAbMaQb1Kw1qJmNY7Xy7Hr9sxXBm9/6QMFH4i6GiHH7mUX8vazWYBli8jBOp5gtpkXIF8epnNtvfUZtjsotxbstIwdHgtuhgDT6pOUah1sz6zOyGHyjc/UAPFUZCL/pespO1cv8/zlwj5AgADlIEMZCerLwQ9xfaG6KPxoJpvh0SFE9ZP9PWmL+l2ATte4cZt8A0qcXEyDhI5osL4lb3SCBpmucsrZgWLua9HvmlcbzJqVFt+yi536Fhl7f4kcw6U8thfyyTTmVEbk3/GsJ0BN8k6g1f30/8RTb9roR3B4PjjyyoZTH1yHAQoE7+0w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q852HDl/X3D1aZNvrQ8tGTIffyFNb2ogAzE91eD8s9o=;
- b=brJtkGRougOGxc1HtvZktVDLAjYBUskolP1pUUD/GShXfA2JJwRo89A0+0Jk0uIqoAXiBd2rKUNnfQq2wRsgSstGU3ezkm/svomP6+hemMU8gcm1b39BTX8/i/ku8+WS/OIj0VtlVtm/fmQ8ZKrSYHNxVLGqf0dVWRlCffD/2YUKvHN4Wg/bCknNYGXir5KlIULi5dJ2euwMBaHxr5j6fqdr5jFMuw9uG9+j/lQWmbGqQfNnNgUmtxpgmJ7NEwUduiu1GebJVl7ejqgJ1s2vK9v1jOeBrc+h/Agv6xlMiBCLGDnqxH3Azt1ozm0pJuxJAwDH9F/VwFp3sdhvwKj+Eg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB11547.eurprd04.prod.outlook.com (2603:10a6:800:2ff::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Fri, 24 Jul
- 2026 19:35:31 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
- 19:35:31 +0000
-Date: Fri, 24 Jul 2026 15:35:23 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-Cc: broonie@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com,
-	linux-spi@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] spi: imx: replace dmaengine_terminate_all with
- dmaengine_terminate_sync
-Message-ID: <amO-e2ThPaB-nqC9@lizhi-Precision-Tower-5810>
-References: <20260519104659.2794476-1-carlos.song@oss.nxp.com>
+	Fri, 24 Jul 2026 19:36:24 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so10355e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 12:36:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784921781; x=1785526581; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vvsKfAGO1/G1RkKRO+bqMq0Jxexy/5+6v+o5lfiDScQ=;
+        b=VjPKw1o90iwAysx1WJ7nBpxnAeGrqNeH7A4m2BEBzGQMB5r1rSODvyLpYz/aRUU7s+
+         RSb1t3PENLTjdD0+YraBDj+OOQxJCNLgfSoDeO1YMMn1FesHJ5P0+e7jhudf0b/0NM7I
+         aevKYJ3Cx4fr3B4DKTwp3xJjokBufBvzdwIefnkPJdSdEomiHiGpqMF2gd5BlkO7m9Qp
+         shYkWDOT5WiAgXCzkTGibaTXROMcQ5crKZYzY6r+I22l8k6pLpvWd2Iktwowm4hZOBc/
+         /ocbOGguyNapK/cEAU0lUQ254DgUBpgcqbdB0QNY6V5RG7rPC4r/sKbAhn1YvJOv/IVF
+         k/kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784921781; x=1785526581;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vvsKfAGO1/G1RkKRO+bqMq0Jxexy/5+6v+o5lfiDScQ=;
+        b=KiNTSSOylOdtwN3qnxyx2Tw1QPhr5X5kvHPbQLT6pbGqzIJwMGCHCNVqCDvoNGn6R9
+         EBCCHvWHXTksnMtptSd7j0DcCr1lBQxwtMrvBftgt9KCqL6pf93KkcQJ2BP2lBSue9vw
+         SkT+m95y1zExRMHqsfMUl4GygNrS7CU5I+YUjFQbx8EXs8tNCuu0E7JjVNzArY3bTtGF
+         b8Ue9QVJFQ67DiEElq9v9KpggGPjgEClYX9MPUOmDzYu/X8JpML7Iac42Vv0M1N6kgJt
+         QndO3CjBxPkz0J/1eWbCc8uNcwIAg/TTS+0VQ1PwH3wutAEYWodKZLTzn3Oc0K/X1d8B
+         u0cw==
+X-Forwarded-Encrypted: i=1; AHgh+RpiaUhRry66q1aPpB++571i3eEkuFkE8+pVz12Q96Ml4kqlHLbk8c2m5UIFeaTTZdyvXqiF5aIqIdxsGeXqkBWj@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywn0C9XT/QUyuekoFb1wlDdtr0iTGFQy61+tQOfXk//Na/YYxrN
+	/BgbxIGN4/v3VJMGRpvpGK6HUD/We803mr3QlXo/O9pyBDf5YeEMf6JJ+PiYuJpo9A==
+X-Gm-Gg: AR+sD11kRzY2ioyF2u5tXsndpFxIlC6mCjLP8CHqz1Tbox06E2rly5HmLigcSvYykBY
+	+doCirSIZ63z1lCaKPVgqNmdu/lGhtt09e9N0otaid7E3gll1eUAjCsTxgC0cXdfcdpYHuXPN4H
+	dEXvjMesiNbcFmuERc/sGfclLQaZknd/1MFWhp5i83zMIno5tXobvu+GOf1zZm/4pN5Uax7esr4
+	v789UdNgCyOD0w7BhoyLkY+HoWKRaQ61lVdrM4s+MP2ENbcXmyugUfPkSNyOzWkkzKkE2kjyAae
+	t5eTQBMguLHl9BqnU7UTQNN9s2Tm/jHJXyudwNYWbCfVsx/YNniMakGrF74HL3L5GGKkyWpwMhc
+	VwxUaFTEBFpWCwJLttrcnHOG+oKCCjFb1LiQfH9c22QQdoPQK0dx5Q/B8GUbX2gN/GedeN2k5mq
+	VFlbU4cRERrLo4Jq8whh4WFBEGYo5go4nMW3yTMhEOGsovT8OC
+X-Received: by 2002:a7b:c311:0:b0:48a:623c:8859 with SMTP id 5b1f17b1804b1-496b4d58803mr116215e9.7.1784921780558;
+        Fri, 24 Jul 2026 12:36:20 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b480fafasm17596165e9.0.2026.07.24.12.36.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 12:36:19 -0700 (PDT)
+Date: Fri, 24 Jul 2026 19:36:16 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH 0/7] Use the generic iommu page table for SMMUv3
+Message-ID: <amO-sGlWsmtcPsDZ@google.com>
+References: <0-v1-807e2d1a5efb+e1-iommupt_armv8_jgg@nvidia.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260519104659.2794476-1-carlos.song@oss.nxp.com>
-X-ClientProxiedBy: SA0PR13CA0030.namprd13.prod.outlook.com
- (2603:10b6:806:130::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11547:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67b91c7b-3496-4fda-6487-08dee9bab918
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|19092799006|1800799024|11063799006|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 6qreBFJiSuJ4vUwWv6xJ1VQ0fi+OMzXMB9KPeo+mMI+x0g8JnSCsbuRvCHX6JMgkWlhNk0EJigheb68rinBgqajs1Nh+uIBtCKssQRP1SwbxmFLRCLeHtmQMbXh6vS9F6anjmXRIRtIT3RYwfKe0pyW7uiZ7N+Ve2k8BdiVj8sJzrkwkUUgChp6SwYNTeXonWTtnmbuBNxGCvPGReI7AkUBXgtDezRnic1zT+9HW2MWa+VtOCBVkee9SObFsYMlFAWlC2zpVwboG+t9bhBLC4emWPfAN5pqDHt9SXV0yNLUHaYDp2aUtT7ohHScsKSUOuisLmOhHi1VDoaWNy68AapplILsJaMTvrBXP6voaUjpuL8Kd5DsvCD9sSIQEvBCPTLK+tJSQ3wQ5HTWGHgt3fe1kozQqTWptCodYzWiu8Rwe+0qiEOk5IgSuw5cS1aMY6AzQ9bXfZ024oTL/xz5RSDqSBpEQcWN2S+wfZ9Jgw85d+VeMEbRO0P/zH11aS2aluNe4PKY6lVZzVzz+wGJRgyY6NQAHv71481+59Z12+qt8VstzPhpMYOqa98iPyx8OotJ6H83Z9vLDHZk/GfXnxikGKdxHlYquxXT9cwUkjuAaq+IQF2VnTijoy2t+iegsxnzHab7ufGmW2rA5nHOrU4zRKLDx1ECpbho49r/eo7s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(19092799006)(1800799024)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fNn5+QUa8vJeTGXuZBN4x0kx7lux4uaWyOhtbqEhKtVVkWa2OBhPmFxalycH?=
- =?us-ascii?Q?/m2F6kmNL60XOw9eRSCe9XILU41pzMunN3arZn428528JMhrOk3B7feWf0bq?=
- =?us-ascii?Q?S09Av0yUTlcECHjtA9PIZxtp6uonEy9J18TrEPtoZH+W7nV1udRJjJF70a1K?=
- =?us-ascii?Q?qvA41s0E3+q7XNmAv1cp4M6dT3KbCmMdosGSDeQeDSgWZV0yepPmLjBMRzUm?=
- =?us-ascii?Q?nxr3adIEfzFXJClNDr4WXRHGWGvE1b4mbtlouWKWw7EyDWgZVsm/0mxejKrC?=
- =?us-ascii?Q?1qBWyAXcTk1tCXAANZsVorGC8lRG49hnZwpn7nBXlswcqHoW57TSLrthmxH6?=
- =?us-ascii?Q?D7ysQubp5a6g1cpd/7P/SS8eYEyLFS+NA7ZpzyEcv/slxVlEnF1BligSYvy+?=
- =?us-ascii?Q?BU2+0sB9SKZExF38xr/h1m4wf7fovxR9od2O/HUW0OZUjN5r620zxK++N/Ma?=
- =?us-ascii?Q?zApGX8a5Ll3efrhAzpnruvyM1/T/qu2yoqt5C6wRBV3DjwmeytgxzTKY+X3x?=
- =?us-ascii?Q?enGXcqd+M9qcBB9g3fpYilCpLwZeb3j6LPOZd5jgcHhZJm1DKtNANqKJ1jyg?=
- =?us-ascii?Q?mSeyWdJJy/ebfZ+SRcFdD0SWt/EI0v24rmq3zt07i4mIXr2+UC2fMuWVeKUY?=
- =?us-ascii?Q?MyN8LEy8EStL3HUY3/HV8TZc8F6l64szh9Vq3XJ4M8XsCze09S/C/PjfF3aj?=
- =?us-ascii?Q?b/edPRLXSfur8UTORrHn6a+vrBd0mEN/udi+EenjjOBOntmiVzYTXHu8NtsB?=
- =?us-ascii?Q?6EsH2Q/gSKpodCZPgoJgtQrTg9oEWquCpECTgzcrwJ4m3dShCCZCptoS82Cl?=
- =?us-ascii?Q?NUtE/u1eJDAvDCLutaGMBNWUDS7+Zjc61W7qtQhrv15pictzHComiqBMNq6I?=
- =?us-ascii?Q?RBY3lzr1MobUuOCjJ8cTk+kNyknbw64GbCFSXX1LhFm3hZDfPqKMoz6cWdah?=
- =?us-ascii?Q?llXRGrsnwJJwky+2mW0+mpnmXeJa2Emmc78QSS6WVDekodTItX+Jgdde0N0W?=
- =?us-ascii?Q?G1J/TJwXvABBVkuZCtDc0yK+kAErh4wN/irw+6xIRwCnKl729ULz0auPw+WN?=
- =?us-ascii?Q?Wgzu2R2w9tCHelzWh7xn9oV3nLpCtnNy7Pre1zlAX66jJCRnmb8bZjutZko2?=
- =?us-ascii?Q?VbHw6zhN47bH+Kjedlo+fSQKtogK2Ol/znXQgZEaMDpNtPL7053NSFLSf5JZ?=
- =?us-ascii?Q?1ZQqXU9qiqksEuXNgEylKULZV0NWXSTPabK3XjvJG1fs+hdgok/mhtcrf30W?=
- =?us-ascii?Q?RbutVh+YlVSCHkpW/JM6cu+h9bhcZaomugIbBtsgmxpm4kSkClfmQsHJz86D?=
- =?us-ascii?Q?TELDoT87ucVnTwb832ZeLF7JnndNYhhvBV6cTpnQDipSh/ZnYx0w6GBR27sc?=
- =?us-ascii?Q?cZk3e2qZYmk9u/Ss2tsbwsu33Qd6UpcHv/RFQiMGtCLofrmmxbZXfGXtQGfu?=
- =?us-ascii?Q?LEwOVBw7SvGcAizC4YfIpfQr6MhdE5780lEarJPhiqHILVb/V6jTR8feBPkw?=
- =?us-ascii?Q?jsnqUcaP/uiIzN//S+f4N5JdXy2XrZIS/fgx14bAQOdIbgPLfg/rlUi0XWgy?=
- =?us-ascii?Q?Q/tQxl2/Y/7lFzvimgnNwI/H/4wo4CpmK0qJK6eyaAde+FJVyLLh39zQbsuK?=
- =?us-ascii?Q?bp+2TAVuCVR1koX1HtJ+F+fGQNKCyCtQW+Xal9HcELut2RObkGantTjUn+Nn?=
- =?us-ascii?Q?Q+gFvDQ+CAyIpOLo0t3GZpxgAHX34dlZrv7ddh/1t7AUz0ICAlS3jhMfLZSH?=
- =?us-ascii?Q?t0FH8fKEcf1iSNcr3slc5hF5A/2Rr1oPRklbCPRfnm5ST4pvH9j7?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67b91c7b-3496-4fda-6487-08dee9bab918
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 19:35:31.3826
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: o4bCVoQm77Ajlp6UaqTSbcx3v4i8saQ8xMJTj/lNbkYndw/IHkh0BGS6yV32/G12JlZVG4mIhBhCDBfBDtBBxxVLSdvGcy4GYzS0gp5VQbPp3uUTvegEojfGBUb1LqjF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11547
+In-Reply-To: <0-v1-807e2d1a5efb+e1-iommupt_armv8_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_123536_502521_5B480344 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20260724_123623_109978_087A4985 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,78 +105,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 06:46:59PM +0800, Carlos Song (OSS) wrote:
-> From: Carlos Song <carlos.song@nxp.com>
->
-> The terminate API dmaengine_terminate_all() has been deprecated, improve
-> driver with dmaengine_terminate_sync().
->
-> Fixes: ba9b28652c75 ("spi: imx: enable DMA mode for target operation")
-> Fixes: a450c8b77f92 ("spi: imx: handle DMA submission errors with dma_submit_error()")
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+On Mon, Jul 06, 2026 at 01:29:06PM -0300, Jason Gunthorpe wrote:
+> [ This is the last patch to move SMMUv3 over to the generic page
+>   table:
+> 1) Organize the SMMUv3 invalidation flow so iommupt can use it
+>   ..
+> 2) Use the generic iommu page table for SMMUv3
+> 
+> It depends on #1
+> 
+> The whole branch is here:
+>    https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
+> ]
+> 
+> Introduce the generic page table for what the ARM spec calls VMSAv8-64
+> (ie the long 64 bit PTE page table, io-pgtable-arm.c) and use it for
+> SMMUv3. ARM is by far the most complex page table of all the ones
+> implemented, it has the most runtime behavior variations and a lot of
+> features.
+> 
+> Like the othe architectures, the page table itself is supported by a kunit
+> compare test that runs operations through both io-pgtable-arm.c and the
+> new code then checks for identical PTEs. This is on the github link above
+> but I don't intend to merge it.
+> 
+> The existing kunit tests for iommupt will automatically cover the new
+> format as well.
+> 
+> This is the final series migrating the SMMUv3 driver over to use the new
+> functions and remove io-pgtable-arm.c usage. In principle the other iommu
+> drivers that use io-pgtable-arm could be converted someday as well.
+> 
+> Robin once mentioned there were errata about contiguous bits, I only found
+> 3673557 and it is mitigated in this design by always using RIL. I'm
+> assuming that RIL is always available in SMMUs that are effected by
+> 3673557? I have a patch add a FEAT if for contiguous bits if that is
+> required.
+> 
+> Jason Gunthorpe (7):
+>   iommupt: Remove the sanity check for pt_num_items_lg2() at the top
+>     level
+>   iommupt/kunit: Skip test configs without supported features
+>   iommupt: Add the 64 bit ARMv8 page table format
+>   iommu/arm-smmu-v3: Remove io-pgtable-arm from sva.c
+>   iommu/arm-smmu-v3: Move the DMA API comment to flush_iotlb_all
+>   iommu/arm-smmu-v3: Use the generic iommu page table
+>   iommu: Remove pgsize from iommu_iotlb_gather
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I went through the series, it seems the arm work plug in nicely with
+the iommupt stuff, I left some comments around, but I feel that
+patches 1,2 and 5 can be sent separately.
 
-> ---
->  drivers/spi/spi-imx.c | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-> index 480d1e8b281f..ae9912905c67 100644
-> --- a/drivers/spi/spi-imx.c
-> +++ b/drivers/spi/spi-imx.c
-> @@ -1774,8 +1774,8 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->  							transfer_timeout);
->  		if (!time_left) {
->  			dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
-> -			dmaengine_terminate_all(controller->dma_tx);
-> -			dmaengine_terminate_all(controller->dma_rx);
-> +			dmaengine_terminate_sync(controller->dma_tx);
-> +			dmaengine_terminate_sync(controller->dma_rx);
->  			return -ETIMEDOUT;
->  		}
->
-> @@ -1784,7 +1784,7 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->  		if (!time_left) {
->  			dev_err(&controller->dev, "I/O Error in DMA RX\n");
->  			spi_imx->devtype_data->reset(spi_imx);
-> -			dmaengine_terminate_all(controller->dma_rx);
-> +			dmaengine_terminate_sync(controller->dma_rx);
->  			return -ETIMEDOUT;
->  		}
->  	} else {
-> @@ -1793,15 +1793,15 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->  		if (wait_for_completion_interruptible(&spi_imx->dma_tx_completion) ||
->  		    READ_ONCE(spi_imx->target_aborted)) {
->  			dev_dbg(spi_imx->dev, "I/O Error in DMA TX interrupted\n");
-> -			dmaengine_terminate_all(controller->dma_tx);
-> -			dmaengine_terminate_all(controller->dma_rx);
-> +			dmaengine_terminate_sync(controller->dma_tx);
-> +			dmaengine_terminate_sync(controller->dma_rx);
->  			return -EINTR;
->  		}
->
->  		if (wait_for_completion_interruptible(&spi_imx->dma_rx_completion) ||
->  		    READ_ONCE(spi_imx->target_aborted)) {
->  			dev_dbg(spi_imx->dev, "I/O Error in DMA RX interrupted\n");
-> -			dmaengine_terminate_all(controller->dma_rx);
-> +			dmaengine_terminate_sync(controller->dma_rx);
->  			return -EINTR;
->  		}
->
-> @@ -1818,9 +1818,9 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->  	return 0;
->
->  dmaengine_terminate_tx:
-> -	dmaengine_terminate_all(controller->dma_tx);
-> +	dmaengine_terminate_sync(controller->dma_tx);
->  dmaengine_terminate_rx:
-> -	dmaengine_terminate_all(controller->dma_rx);
-> +	dmaengine_terminate_sync(controller->dma_rx);
->
->  	return -EINVAL;
->  }
-> --
+And patch 8 it too large to review, it would be better to split into
+3-6 patches, I was thinking: base support, dirty tracking, contig bit
+aarch32 and kunit.
+
+Thanks,
+Mostafa
+
+> 
+>  drivers/iommu/arm/Kconfig                     |    4 +-
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |   13 +-
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |   45 +-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  287 ++---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   18 +-
+>  drivers/iommu/generic_pt/.kunitconfig         |    1 +
+>  drivers/iommu/generic_pt/Kconfig              |   12 +
+>  drivers/iommu/generic_pt/fmt/Makefile         |    2 +
+>  drivers/iommu/generic_pt/fmt/armv8.h          | 1124 +++++++++++++++++
+>  drivers/iommu/generic_pt/fmt/defs_armv8.h     |   23 +
+>  drivers/iommu/generic_pt/fmt/iommu_armv8.c    |   13 +
+>  drivers/iommu/generic_pt/iommu_pt.h           |   14 -
+>  drivers/iommu/generic_pt/kunit_iommu.h        |   10 +
+>  include/linux/generic_pt/common.h             |   42 +
+>  include/linux/generic_pt/iommu.h              |   73 ++
+>  include/linux/iommu.h                         |   62 +-
+>  16 files changed, 1452 insertions(+), 291 deletions(-)
+>  create mode 100644 drivers/iommu/generic_pt/fmt/armv8.h
+>  create mode 100644 drivers/iommu/generic_pt/fmt/defs_armv8.h
+>  create mode 100644 drivers/iommu/generic_pt/fmt/iommu_armv8.c
+> 
+> 
+> base-commit: 8cd13c14dcc29762766ff9ca2f67e3bae7c7cb77
+> -- 
 > 2.43.0
->
+> 
 
