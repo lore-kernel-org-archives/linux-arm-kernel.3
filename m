@@ -4,93 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A284BC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 05:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44DBC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 05:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbVVVCRk+Dtwk65pPTBGuvITw6iT90+3kiG8kQuHQ10=; b=nlBt824hHVzxVPEw9/V7tyE97G
-	FkuUoiRv3uQI6sYjVmgCZUu24aDx7rk5/M9mjt9SNpDkJzJzbwwHnN5iEg5EnsLOsKeNfMCd4u+O3
-	6TV3annFNeOnKgYvk5rKL71LNkfCLOlVAtEA916OLcW3aSQHIRa0818ldjNY41mbB2WHFu1UQ4Cm5
-	y9k0vt8X9PLpvl2CU7zk4BgKUGF7ZYTuhStGvj35/z8bKkifxxGEiyKodvUU2O1b/sCYx63M1O0Ad
-	P4bjPEHJLPLpHussMfrdQRq9lVPtwDFCJclhZ9YIBxA+pNP0PJjuKOy+rkLVzFVmjrHzchg/WPSB7
-	eNrTS1Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F+En/bNUfvq5UDKWEKTIJOS62zs7KhEQjTs+bfpIaMw=; b=yzvbbjvJr1TyPu64nRopKEnmdN
+	wVKj0qbu92oz4zOn80XTw7gSmf73wb4DwFBdKQzt/+1MT2aaLNkqCp0EEJz1fO+J/ATZghuL5yYna
+	KtWPYrugPGaHiE0vbY/luaNxZoPcoUTmGcQewILWLK+/jLPA/aB4GyiYGInRMeYFKy7JQGJbOSDpr
+	1CrIGpbbTk+KDmMahuVaZ8xOHvdTwQInHhaIICffmfuVVR5ojP712HKLUWmHSw/w1aR3f9wssqxqf
+	06Tt1TYn3xm1hsCeCtygNszujeOmwYYJGM7u5D8M4WPiFsWc8TIb1SS9P4ZLZtBrAzpskcbho0DoA
+	Py3b14pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn8e3-0000000FWwX-1ZZ0;
-	Fri, 24 Jul 2026 05:40:27 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1wn8kh-0000000FXCm-0DBD;
+	Fri, 24 Jul 2026 05:47:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn8e0-0000000FWw2-0vjc
+	id 1wn8kf-0000000FXCc-0eVu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 05:40:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1784871624; x=1816407624;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=s0PBxUXRmEF5J+31RfirjYz57+TGUtgffYTiUqpDPnY=;
-  b=RAPkCZCenfu8yrpIpZl2EbAqMHWNlpk+VkzOReQRzpUPZ2L0cmqSD9O6
-   QwDP+xRDW6uDDSKGGwCHvCxqPzCia17fUAAX/djNEFGAJ0M1nvvfCK0E+
-   CG/tCkDrphOnHCkQw4eI/vmA8rAXAM3ZUmZVlivWJ2hJ1c2A2DFEu24EV
-   keX6Vht4lvH44k/YZckYIzcVV6a+A9vrOCfNbw1QdA2iItyADGAzw4YZ+
-   YskXe4YQ9SsQfETVlO14GseWpOZGVXBQCB9dtyreSqRGsAJXimm9w9P8m
-   bqjo2KNSZwqfzJ2xlSGeqlM2pYW3q5O3Lfi460xShWyKcDE50Axx/cOQ3
-   A==;
-X-CSE-ConnectionGUID: W/RV+rt9TQqdILgBRWee1w==
-X-CSE-MsgGUID: aM61d3pORpKL6LmyVujTzw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="234629829"
-X-IronPort-AV: E=Sophos;i="6.25,181,1779116400"; 
-   d="scan'208";a="234629829"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2026 14:40:21 +0900
-Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id BB8AB10000D6
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 05:40:21 +0000 (UTC)
-Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 70A1EC00FF9
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 05:40:21 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.138.162])
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with SMTP id 7132D1803888;
-	Fri, 24 Jul 2026 05:40:13 +0000 (UTC)
-Date: Fri, 24 Jul 2026 14:40:06 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 12/37] KVM: arm64: CCA: Support the VGIC in realms
-Message-ID: <amL5h3XHJN5iA13f@FCCLS0092175.localdomain>
-References: <20260715142841.80544-1-steven.price@arm.com>
- <20260715142841.80544-13-steven.price@arm.com>
- <amB-opawGgF6jNHB@FCCLS0092175.localdomain>
- <b71e81ee-372c-4963-a1f7-bd301aee89cb@arm.com>
- <amG3KHE4Tdd_Nvuz@FCCLS0092175.localdomain>
- <1cd3327c-1eab-4022-9ab1-625ca8641e81@arm.com>
+	Fri, 24 Jul 2026 05:47:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7837A4008B;
+	Fri, 24 Jul 2026 05:47:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDEB81F000E9;
+	Fri, 24 Jul 2026 05:47:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784872036;
+	bh=F+En/bNUfvq5UDKWEKTIJOS62zs7KhEQjTs+bfpIaMw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=LGeLqg6MBufxU8gjR/M2nLX1JSxS3eEQ1DKi6rnIr6bXLf1sGK5+FdFMZXh0y53xG
+	 9wd0/kiwYdMAIc6hsLxbqmBZti0fMDm3Q2pVlncowuYG5lH25wrcSvhQsMuioiqCFi
+	 e8bRrxqdnQPmmzSV2XPvXRr7l32LyYsWKSqgX7NnCeCiu3TwNMBlMKIUlCp+pRuG+b
+	 vT7oqtJr5kN9kqdgA22Dq6lakHV/qEL/ToVw4v83vIhLwvV//QpeXN76FvTx186IwO
+	 QVTZOPpxopuchY7OxgZ2lHqFTnnSt7ZapS1RdN5ZE5rR/7uSai5Js/9JvqNYg0e6VR
+	 3uf/i5D+4d3LA==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, Suyash Mahar <smahar@meta.com>
+In-Reply-To: <20260720-perf_cs_etm_fix_big_size-v1-1-97ded24636b1@arm.com>
+References: <20260720-perf_cs_etm_fix_big_size-v1-1-97ded24636b1@arm.com>
+Subject: Re: [PATCH] perf cs-etm: Avoid truncating AUX buffer sizes to int
+Message-Id: <178487203590.824432.12306420213217895178.b4-ty@kernel.org>
+Date: Thu, 23 Jul 2026 22:47:15 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <1cd3327c-1eab-4022-9ab1-625ca8641e81@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_224024_587733_F4947EC8 
-X-CRM114-Status: GOOD (  58.71  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c04d2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,277 +73,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/23 15:46, Steven Price wrote:
-> On 23/07/2026 07:56, Kohei Enju wrote:
-> > On 07/22 14:31, Steven Price wrote:
-> >> On 22/07/2026 09:27, Kohei Enju wrote:
-> >>> On 07/15 15:28, Steven Price wrote:
-> >>>> The RMM provides emulation of a VGIC to the realm guest. With RMM v2.0
-> >>>> the registers are passed in the system registers so this works similar
-> >>>> to a normal guest, but kvm_arch_vcpu_put() need reordering to early out,
-> >>>> and realm guests don't support GICv2 even if the host does.
-> >>>>
-> >>>> Signed-off-by: Steven Price <steven.price@arm.com>
-> >>>
-> >>> Hi Steven,
-> >>
-> >> Hi Kohei,
-> >>
-> >>> I've been testing this series and found that when the host CPU doesn't have
-> >>> ARM64_HAS_ICH_HCR_EL2_TDIR this series doesn't work as expected.
-> >>
-> >> Thanks for testing!
-> >>
-> >>> Since commit 2a28810cbb8b ("KVM: arm64: GICv3: Detect and work around the lack
-> >>> of ICV_DIR_EL1 trapping"), when the host CPU doesn't support this feature, KVM
-> >>> traps all GIC sysreg accesses in the common group. However, currently trap
-> >>> handlers for ICC_{PMR,RPR,CTLR}_EL1 registers are missing [0]. So when Realm
-> >>> guests try to access those registers, KVM traps them but just emits the warning
-> >>> shown in [1], and Realm guests fail to boot.
-> >>>
-> >>> As far as I can tell, the CCA requirements don't require the
-> >>> ARM64_HAS_ICH_HCR_EL2_TDIR feature. If that's the case, this seems to be a
-> >>> problem. Is there any workaround for this issue, or should we implement trap
-> >>> handlers for those registers?
-> >>
-> >> As Marc has already said in his reply, I'm really surprised you have a
-> >> CPU which implements CCA but doesn't have ARM64_HAS_ICH_HCR_EL2_TDIR.
-> >> Can you give some more details about the platform you are testing on?
-> > 
-> > Thank you for taking a look, Steve.
-> > 
-> > Unfortunately, due to the company's policy, I can't share any details
-> > about the platform I'm currently testing on. When the time is right,
-> > I'll be happy to do so.
-> > 
-> >>
-> >> Ultimately there are two options here - either don't support CCA (so
-> >> detect the lack of ARM64_HAS_ICH_HCR_EL2_TDIR and bail out early), or
-> >> plumb in the trap handlers - as commit 2a28810cbb8b points out this
-> >> isn't something we really want to support if we can avoid it.
-> > 
-> > Yes, the former makes perfect sense if there would be no systems that
-> > supports CCA without TDIR. However, if such systems do exist, I'd be
-> > interested in exploring the latter approach.
-> > 
-> >>
-> >> Hence I'm interested to know where this sits between "hacked up test
-> >> system" and "production hardware". E.g. if this is an emulator it might
-> >> be possible to just enable the CPU feature.
-> > 
-> > Again, I can't share that right now, but I'd like to share more when the
-> > time comes.
+On Mon, 20 Jul 2026 11:01:21 +0100, Leo Yan wrote:
+> cs_etm__get_trace() returns an int, but it used to return etmq->buf_len
+> on success. That value comes from auxtrace_buffer::size, which is a
+> size_t. For a large AUX trace block, returning the byte count through an
+> int can overflow and make a valid buffer look like a negative error.
 > 
-> Given Marc's response for now I'm not going to add support for this. 
-> "When the time comes" we can revisit whether it makes sense to have 
-> upstream support and what that might look like.
+> The callers do not need the actual byte count from cs_etm__get_trace().
+> The buffer length is already stored in the etmq->buf_len. The callers
+> only need to distinguish three states:
+> 
+> [...]
+Applied to perf-tools-next, thanks!
 
-I understand. Thank you for clarifying the current stance.
+Best regards,
+Namhyung
 
-> 
-> However, I did ask an AI tool to have a go at implementing this, and it 
-> came up with the (very lightly tested) patch below. That might at least 
-> give you something you can test. It doesn't meet Marc's request that it
-> reuses the existing implementation, and it took the AI a few goes at
-> getting something that "works" so I suspect it might have bugs - I
-> haven't reviewed the code myself.
 
-Thanks for the patch. That's very helpful, and I'll look into it.
-
-Thanks,
-Kohei
-
-> 
-> Thanks,
-> Steve
-> 
-> ----8<----
-> From 7aaaa5089c05f19bf00df2b651fa4bd7d738384c Mon Sep 17 00:00:00 2001
-> From: Steven Price <steven.price@arm.com>
-> Date: Thu, 23 Jul 2026 11:49:36 +0100
-> Subject: [PATCH] KVM: arm64: CCA: Handle GICv3 CPU interface traps for realms
-> 
-> On CPUs that lack ICH_HCR_EL2.TDIR, KVM works around the missing DIR
-> trap by setting ICH_HCR_EL2.TC and trapping the GICv3 common CPU
-> interface registers. Normal guests handle these traps in hyp via the
-> VGIC CPU interface emulation, but realm guests exit through the RMM and
-> reach KVM's host-side sysreg emulation instead.
-> 
-> That path only handles ICC_DIR_EL1 and treats the rest of the trapped
-> common group as undefined. A realm guest can therefore take an
-> unexpected UNDEF when accessing registers such as ICC_PMR_EL1 or
-> ICC_CTLR_EL1 on systems that require the TC workaround.
-> 
-> Handle the GICv3 common CPU interface registers directly from the realm
-> sysreg exit path. Reads are satisfied from the saved VGIC state and
-> writes update the VGIC shadow state. For PMR and CTLR writes, also
-> restore the VMCR/APR state to the live GIC CPU interface before
-> re-entering the REC, matching the effect a direct guest sysreg write
-> would have had.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
->  arch/arm64/kvm/rmi-exit.c | 119 ++++++++++++++++++++++++++++++++++++++
->  1 file changed, 119 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/rmi-exit.c b/arch/arm64/kvm/rmi-exit.c
-> index 78d9189fd5ca..0fad8e68d920 100644
-> --- a/arch/arm64/kvm/rmi-exit.c
-> +++ b/arch/arm64/kvm/rmi-exit.c
-> @@ -3,17 +3,25 @@
->   * Copyright (C) 2023-2026 ARM Ltd.
->   */
->  
-> +#include <linux/bitfield.h>
-> +#include <linux/irqchip/arm-gic-v3.h>
->  #include <linux/kvm_host.h>
->  #include <kvm/arm_hypercalls.h>
->  #include <kvm/arm_psci.h>
->  
->  #include <linux/arm-smccc-rmi.h>
->  #include <asm/kvm_emulate.h>
-> +#include <asm/kvm_hyp.h>
->  #include <asm/kvm_rmi.h>
->  #include <asm/kvm_mmu.h>
-> +#include <asm/sysreg.h>
-> +
-> +#include "vgic/vgic.h"
->  
->  typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
->  
-> +#define GICV3_IDLE_PRIORITY	0xff
-> +
->  static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
->  {
->  	vcpu_err(vcpu, "Unhandled exit reason from realm (ESR: %#llx)\n",
-> @@ -48,6 +56,114 @@ static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
->  	return -ENXIO;
->  }
->  
-> +static int rec_get_gicv3_bpr_min(void)
-> +{
-> +	return 8 - (FIELD_GET(ICH_VTR_EL2_PREbits,
-> +			      kvm_vgic_global_state.ich_vtr_el2) + 1);
-> +}
-> +
-> +static u8 rec_get_gicv3_active_priority(struct kvm_vcpu *vcpu)
-> +{
-> +	struct vgic_v3_cpu_if *cpuif = &vcpu->arch.vgic_cpu.vgic_v3;
-> +	u8 prio = 0;
-> +
-> +	for (int i = 0; i <= vgic_v3_max_apr_idx(vcpu); i++) {
-> +		u32 val = cpuif->vgic_ap0r[i] | cpuif->vgic_ap1r[i];
-> +
-> +		if (!val) {
-> +			prio += 32;
-> +			continue;
-> +		}
-> +
-> +		return (prio + __ffs(val)) << rec_get_gicv3_bpr_min();
-> +	}
-> +
-> +	return GICV3_IDLE_PRIORITY;
-> +}
-> +
-> +static void rec_restore_gicv3_vmcr_aprs(struct kvm_vcpu *vcpu)
-> +{
-> +	preempt_disable();
-> +	kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
-> +		     &vcpu->arch.vgic_cpu.vgic_v3);
-> +	preempt_enable();
-> +}
-> +
-> +/*
-> + * Realm exits are handled after the RMM has returned to the host, so use the
-> + * saved VGIC shadow state instead of the hyp-side live sysreg helpers.
-> + */
-> +static bool rec_exit_gicv3_sys_reg(struct kvm_vcpu *vcpu, bool is_write)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-> +	struct vgic_vmcr vmcr;
-> +	unsigned long esr = kvm_vcpu_get_esr(vcpu);
-> +	int rt = kvm_vcpu_sys_get_rt(vcpu);
-> +	u32 sysreg = esr_sys64_to_sysreg(esr);
-> +	u64 val;
-> +
-> +	if (!kvm_has_gicv3(vcpu->kvm))
-> +		return false;
-> +
-> +	vgic_get_vmcr(vcpu, &vmcr);
-> +
-> +	switch (sysreg) {
-> +	case SYS_ICC_DIR_EL1:
-> +		if (!is_write)
-> +			return false;
-> +
-> +		vgic_v3_deactivate(vcpu, rec->run->exit.gprs[rt]);
-> +		return true;
-> +	case SYS_ICC_PMR_EL1:
-> +		if (is_write) {
-> +			vmcr.pmr = FIELD_GET(ICC_PMR_EL1_MASK,
-> +					     rec->run->exit.gprs[rt]);
-> +			vgic_set_vmcr(vcpu, &vmcr);
-> +			rec_restore_gicv3_vmcr_aprs(vcpu);
-> +		} else {
-> +			rec->run->enter.gprs[rt] = FIELD_PREP(ICC_PMR_EL1_MASK,
-> +							      vmcr.pmr);
-> +		}
-> +
-> +		return true;
-> +	case SYS_ICC_CTLR_EL1:
-> +		if (is_write) {
-> +			val = rec->run->exit.gprs[rt];
-> +			vmcr.cbpr = FIELD_GET(ICC_CTLR_EL1_CBPR_MASK, val);
-> +			vmcr.eoim = FIELD_GET(ICC_CTLR_EL1_EOImode_MASK, val);
-> +			vgic_set_vmcr(vcpu, &vmcr);
-> +			rec_restore_gicv3_vmcr_aprs(vcpu);
-> +		} else {
-> +			val  = FIELD_PREP(ICC_CTLR_EL1_PRI_BITS_MASK,
-> +					  vgic_cpu->num_pri_bits - 1);
-> +			val |= FIELD_PREP(ICC_CTLR_EL1_ID_BITS_MASK,
-> +					  vgic_cpu->num_id_bits);
-> +			val |= FIELD_PREP(ICC_CTLR_EL1_SEIS_MASK,
-> +					  FIELD_GET(ICH_VTR_EL2_SEIS,
-> +						    kvm_vgic_global_state.ich_vtr_el2));
-> +			val |= FIELD_PREP(ICC_CTLR_EL1_A3V_MASK,
-> +					  FIELD_GET(ICH_VTR_EL2_A3V,
-> +						    kvm_vgic_global_state.ich_vtr_el2));
-> +			val |= FIELD_PREP(ICC_CTLR_EL1_CBPR_MASK,
-> +					  vmcr.cbpr);
-> +			val |= FIELD_PREP(ICC_CTLR_EL1_EOImode_MASK,
-> +					  vmcr.eoim);
-> +			rec->run->enter.gprs[rt] = val;
-> +		}
-> +
-> +		return true;
-> +	case SYS_ICC_RPR_EL1:
-> +		if (is_write)
-> +			return false;
-> +
-> +		rec->run->enter.gprs[rt] = rec_get_gicv3_active_priority(vcpu);
-> +		return true;
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
->  static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
->  {
->  	struct realm_rec *rec = &vcpu->arch.rec;
-> @@ -59,6 +175,9 @@ static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
->  	if (is_write)
->  		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[rt]);
->  
-> +	if (rec_exit_gicv3_sys_reg(vcpu, is_write))
-> +		return 1;
-> +
->  	ret = kvm_handle_sys_reg(vcpu);
->  	if (!is_write)
->  		rec->run->enter.gprs[rt] = vcpu_get_reg(vcpu, rt);
-> -- 
-> 2.43.0
-> 
-> 
-> 
 
