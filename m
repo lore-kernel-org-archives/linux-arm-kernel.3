@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DACC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32972C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACqGbKrUZt2WmQJeMKWsHcv5ZC8zxBztFnJ+SPScPJE=; b=BUTeBcc91lLQAcxg9geAlfE6qY
-	Sq5UjMQ11F+6wUD8M8L8A0As4B8vXWAfpwH9tIegbvDgrgDV9G7Nz5F5bXuhUxYYX18svBYPMaGSn
-	rnG7B02mbHqDiu/alFXOTm1UQhYYuDXTHYyYl5fouDzj/MNfeKhhqqX/25hRyrp2z6qpgAeUCV847
-	RsBvmIpu623dAZ/CzuQflqC/Rq6OrlhofFSN8bliIf/gzO5RlNoSB6z1+5uzPwSQpUATjFnmvLYLj
-	b5uiFFB6GAoLxjAWRCzC20eEjAONZDmVl2GapznXyDiPyYAEqwNEixWj747oW2k4ExTLXA2Men7Uv
-	G9eVT53A==;
+	bh=NsMAp3ZLjppVGTdimbekT5FrPQfYJ/4cTDvMajoOirc=; b=VB+vXJ/RYwjE7CRrYs3gJ+TGn4
+	TTZkR4uk7rVnn9WKVD//yn8D35UgcVAQqKOyOZ8QcInTtR46lSjUozCUW4dC4Tfw6ZKfjPZuAK6hZ
+	FikSj4sssYHCLEsQSf2ReMUuUNHNtvo3d7a1LLKHYARfrPe2X0HfVve/j2LePuKcMQ56dT/Hbg4UE
+	hVGnwSfI3OvSULlURT9tnM3RMjgjPtSYkOel5iY5P1FsMObvl+Ly9pr+R9MTfl8RzXr9nlHIskSQS
+	d2PqlURdt5puVzV0tz7Nth30yJME5MECvDrW2bv762WZ9pxP3O+M1kqwm/deid9g1ol5kUF6NElOU
+	l8Z0sXzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIYT-0000000Go5m-04hM;
+	id 1wnIYT-0000000Go7J-2gP8;
 	Fri, 24 Jul 2026 16:15:21 +0000
-Received: from mail-northeuropeazon11010059.outbound.protection.outlook.com ([52.101.84.59] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIXc-0000000GnS1-3QF9
+	id 1wnIXe-0000000GnSF-1mSy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 16:14:30 +0000
+	Fri, 24 Jul 2026 16:14:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HjjefI1g8+xJNxemfIS40BPrGKQLuDTa2YMSttZNv5wZF7FvK8Qlm/2CIehKRoGqCSZ91AeluogHGGqdi7Y1KyLeAmGzrvaqJLXM5xIt3smDvP3Kwkw0gBZEncR6+fVXTcNCjuG5I8afpn+NQ0l6wHmkBflX2o1yy+ueSMipwIdhUcNofYd3zTtUjQfs38o4fT8XQbujUhNvtwMHgxnQvjbjsQuopTXlTvhVZeWTWIOXt3eNJkk+9k3z5TQyhjfZ13xtpIo468zBQt0V1CKckURMuFD5nAYLCuuS0A8ki8+AJTR39bmG8q00jH7bUdgDF3zJdl30+qGJQ/fmfmieLQ==
+ b=L1uTCK8YU6RUU6cZVkYmeg8geb4HmO5R+6a89mwt50ljKCAHHUgFeWLkUdvXJ2pdnLVhCzsKqEKfrie/ZMo2ekLmPlKyWIG86pIDx1+j9ejmsnbO6BqIgGc0YPdL1qjNHU/riPmdNJKw5MQFLcthfrEYsBF0E/Q5zJCAwRlg4B2A9vIZtMd0p6PNnehwL4IkShYKyYGJozYopHGasUjOi0rp7/bGVmbZsjvJNoEn1Bs2qWx2q8kGDEusTwE3Gwi0/G2UXHb9ZLhO0oKVK0tFqD2JWfCgeUgRs4Yuz9kaVglMwfUVqBqYM/QLIikh72qdrgvAhcQm6qCBJ15gAW7ijA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ACqGbKrUZt2WmQJeMKWsHcv5ZC8zxBztFnJ+SPScPJE=;
- b=x6qT5SAmAy2+mqJ0znCUoapanJw2qR17RW+rwO3Bz8vrXcKbHD/edBL/lbA7HhPsCTQ+b2AcHd76BY39Xp4YtB/RV0FQdBwzZEw8I1YOL94gtKQCuF30THhgJblZDS93fvhSYjltdmyE15tVxzWbmku5hXnTon3fPT45kHK3FVsZThMEecy6zZ1sSfpsJC/+TieWxt1v5bB2eORsvbh6i2DticMqGwHZ+Mlytz5OTI6ChiNW32T2UcShbFOn+nBbTXJbT12AU/bVr7j/uJK0CPRI0D6p+EA2RORkMiefNYstkQzHl/WhIq6/lyg4DI0ubvegwy6pE5AWcGCWkAKtlQ==
+ bh=NsMAp3ZLjppVGTdimbekT5FrPQfYJ/4cTDvMajoOirc=;
+ b=sc0b9eWW2qAEqaP2MU4hHhfeCFdH/epsZoqW3cZGCsAk6TDuQdEbnFEWTBsPEs1asABZSnoZ4E77zTTgn0R24pOewi01ca7AAODx0tS3fVeLCGUTFVkLSO48MDTfcAVS38z57NgI67DvbUso480B2fHLQZV9R88Xgr1rv1uqdHZbivOTzduDBic6kdtnQQFdIHpqCcVLtmv3qdvmpR1wNDf4igJ67xziHT12IKWVqZGiJmARUW6Zzx4ikawzAZDKLdIf4iS4TnQdecIkbq9kqGmB6JPBoBnhg7zLdnn60c8SafPsczV0KmhRiXein3SKu963AqYUxeWYD/GnWoxTew==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ACqGbKrUZt2WmQJeMKWsHcv5ZC8zxBztFnJ+SPScPJE=;
- b=VVDOzLyej9T2af8kKl/OW3Qb0yLHKG3hk4oO5stPGDxc8lOdxekZ3Lza7if483jk09fpiF6ZmX3Knmna5j/b2RA5HyUxh/KNgwxumqFPpBAUifdNyDs/Lu2agKne7BnlOlENaYfGHYN2xM4R6zLOtxBBMaTTOa2DMHL8P2CAd1AaKEiyaYGgwPqV8z+ETI5KP08PIFrjX2NLDeoYbF0q39R67rH5wkc2aLB4Xt2jVywHx0sSRPvFd5AXrb9y0Qqq5F1is6zCHtckHiTbzmZgNgmvYIzdTqMbj2uGcsltMx/M07SsskCAwtbkQFRzLpyakT8teEtk0ue/9q3K5u7UZQ==
-Received: from DUZPR01CA0129.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bc::12) by VE1PR10MB3837.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:800:164::9) with Microsoft SMTP Server (version=TLS1_2,
+ bh=NsMAp3ZLjppVGTdimbekT5FrPQfYJ/4cTDvMajoOirc=;
+ b=o0BpskOOi4SDNX5YotlQtHz66jTcBkUx1DfKWSh3koSdIyTwKp4ig0BjhjzjpxWLIvwtQeDJyJNqCMDgawSryv9pvUSK2vgmmKOcneQQ6O6SZa8Ol5QF1j2Ik2cpokDCrDkkUSXq16TzqUxOy4xWOJ5h1jdy5HyJgsVmji4/Sv8myFckz4HrGdBTmKj73hhpJZy4bAZYsLiAmpSRy01EMxIDKaNwAQRV7DEB2Bw7JQGInmJ0ONOB2T+FHrJ7Dx/Q7wlzbkE+NCceWYH4R/vcfUpExv/gPxI1/wIqjvoXZSmiUMFOSouOLsEI7gl5H2nuMpLu1i6GMGsdleN9BNUQTw==
+Received: from DUZPR01CA0265.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b9::15) by PA4PR10MB5612.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:102:265::20) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 16:14:20 +0000
-Received: from DU6PEPF0000952A.eurprd02.prod.outlook.com
- (2603:10a6:10:4bc:cafe::16) by DUZPR01CA0129.outlook.office365.com
- (2603:10a6:10:4bc::12) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 16:14:24 +0000
+Received: from DB1PEPF000509EF.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b9:cafe::34) by DUZPR01CA0265.outlook.office365.com
+ (2603:10a6:10:4b9::15) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 16:14:20 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ 24 Jul 2026 16:14:23 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DU6PEPF0000952A.mail.protection.outlook.com (10.167.8.11) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 16:14:20 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB1PEPF000509EF.mail.protection.outlook.com (10.167.242.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Fri, 24 Jul 2026 16:14:23 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
- 2026 18:18:57 +0200
+ 2026 18:19:37 +0200
 Received: from localhost (10.252.22.128) by STKDAG1NODE2.st.com
  (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
- 2026 18:14:19 +0200
+ 2026 18:14:22 +0200
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Fri, 24 Jul 2026 18:13:50 +0200
-Subject: [PATCH v3 09/13] media: stm32: dcmipp: addition of a dcmipp-isp
- subdev
+Date: Fri, 24 Jul 2026 18:13:53 +0200
+Subject: [PATCH v3 12/13] media: stm32: dcmipp: rename bytecap into capture
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260724-stm32-dcmipp-pixel-pipes-support-v3-9-f77fe7e723d9@foss.st.com>
+Message-ID: <20260724-stm32-dcmipp-pixel-pipes-support-v3-12-f77fe7e723d9@foss.st.com>
 References: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
 In-Reply-To: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Alain Volmat
@@ -93,28 +92,28 @@ X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000952A:EE_|VE1PR10MB3837:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2fa93adb-c3de-4cee-c37b-08dee99e9e5d
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509EF:EE_|PA4PR10MB5612:EE_
+X-MS-Office365-Filtering-Correlation-Id: 716ce173-146f-446d-4007-08dee99ea05b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|376014|56012099006|10067099003|18002099003|22082099003|6133799003|11063799006|3023799007;
-X-Microsoft-Antispam-Message-Info: hbhFu2H1yFFYY0OV/y+JnRCp+ZH1OSONC87bsp2ek8A95/C98p++lnMSnbh9yYqWto30/0cRV6SfOa9FH7rCnfhWVAVHmTmv3Z1iaaLEOlubcIS9TcBsW+GUgAj/XPjUPaitfHN6dz2aRV+yobo9K9C6j1+Hy/ygloh+JcplZArC9M4J92EPp9Qic8FlcgYL+XjDzZSpoakb7kGFRmDnZ9jy7sjg24kOHQD6i/OAk9VZRVZJfrnoly8T6mCchFiEGkTOxptGiwew0P2GmDt4HQp4Gx+kKANh/p7Rcej6RTfFvg3Z1cOik4xsnRIkml09E+fX9ONy+FLm0WByhBIwWKfW27bdyqLJC5XRfzr0qN6ep/rw7YhsZFIFLgAPxXnpI466hq8KiPKqLPw8g95GTEwqgMLxNfZmI0JCtVq4kwvYOSb6ljM+roLsoP3K2/746Jn8bCjOBLfvApH7l64ncJ+90D1xwQNooQ1+ec/gMSXhYhXcEeXdp+KV9b4qXB7ReASSv37Z6XtrRKRfiFT7+kfIIx8DmUZTrgYPUR7Gs/zrEv+cw9ottG7OfnrLZ9FztWQD3KL2PC6V0ycvnLzfLQLBXgDsjX6oohiOkIez7UwKBRYoo8/r3Waun87GwfLkweVkuX0AzfuXjE5JhiQvDcff9KpdLvOYdF3iQQ/Wa+aOrz/2MzECk9P2/qAJe4o0Be8BbSlf1aHVRGWemR8a9g==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(376014)(56012099006)(10067099003)(18002099003)(22082099003)(6133799003)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|10067099003|56012099006|11063799006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: PQHMIHL+65iXjsXvZf+8Qbk8qHvFg7KYTIussAPX0Cfmo6089Z5avK4HAYLoxFQMwPlGGPtCm1Wx86m4kasBgf5HaDG2JG0vIois6kGDHKRe2TdsIr901JT6RNF4l4Ng8G9y+esf+a9hYIsD59vpnb/JgaHpWzcj1NiuoyJIw2Mq9uaUxSA1D0p9DglvuXl9JsIKzCVjYZc0Pfx8hAXWdavGwVoE4TZ9chIWLnpqOWL/jyxrCrfNTX+SUBeUOnPa5ySUUiXNG6w/IFiVzsF/efZF36dWjzr3b4iCrvE3ZeGKhYEQAD+VZHOiKUDKandONRXbcgUzCgZe+P87aiJ5CVtGXKSgBacVgFY30L+S8RIUKPh3EgWlcQYVfIs7oqNzz6dW92ylTPcqDKJIH555TWKoMVS7WEyEH5OlN5wiunJtOTOU6H74E41/EmmHKCTB4Lb2j0k8uatmv69wpx2mXr/6tmgnL2nBudTTW90W40g+JQifKhfuQNcBSKxKWL3+5M/e1d6wMrLDBUQqmX/8emAKsFEkGh0x6qq0bUysVReky057UB4k5nejA6K6CNw5R2b5eRWZVsytKR+zEzjOX784xel3rrwF3zZ1B4nGjdxTLcwfbd/+8ELUngNg2FYkMIF87BCsmYcMbsskVxbBzA87Bj7WYesaAC6bttH9sYR7FeDva8E48Jzqlpb0MdLB4BwGq6FMBm5uoktvB20+jA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(10067099003)(56012099006)(11063799006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: m//A/GTGjHxsYcOXd3dRdRdNYTGkviAKRdk/TKvfy2N0gx8L4KvJqO5iH3OOUEhJjoHZL8SNNUB8TPFdp528xk2OpU/TZxLPbGQa0LQGR53EJQvf4uxI3G91OLW3vUO9L/MAQn+WQ8nnYWG3hpVBtkEs2m0k57u+2sFg3rV8nGOMShhxyduw90tFigBj1xcMzLLCIy4bfotI6YnnxPbgHb4H8ORAdyoqSxVDrqftbjwhUKnc8by5sbyTXq6zzbMOKVlsNIWyi0K38Xt7WC/KvTxo7X6BqJ4NqWAmNHC6GG7Rw/GrhDffz7iM50f+7y7vEaDero0MJCna+BlARMgslnSgAbBZIuuRagrQM6cLPO7cQtBsvkWf2UiAT3vDrgPZ39LkrEK1QzGzo643X9CUqADdHq/I10lEaKe5JkK4BHHjOirFsxBzKi8YQXXSc7PV
+X-MS-Exchange-AntiSpam-MessageData-0: KAhF7MEVnyjwWOw2fbnwAgIQsqPq6JFeIyUhaMEw2+wiBtO9G48EDT3vnnfDiol5L0YsBX2h0NOcZyL+qChCSrxWenxLLnJWGuo5TzxowP9eg6aeY2AVJ9pqvz+FGdA8uHvOPEys94CE9xi8Abjh4A1HUy4GfmVIg8UmTPMNkF++ZerUnvQQArONumwgQFJx6sSS1QaL45F7iOh8dsP0HIWjgG/b0kWk6j4nb4DrHSvB2Af3x0KH6nJB7GQvQpcdF0ay/qDXZQhWWH26dK+liV/bZEpH+gP1Q/w78uPMrUggWItTdtMiysSQ21GZABfDwCdJnw86vA63l8geEEEo9Gz4Poy53U8os27caASpRqA+9fyXtAIRRf4BOl3iScVYeAW/U+cIbSu1d1HaY9F7dDKgMauQttCxMnNcN/Gs9jwqFXoe1Cvwypu0+NubXAWZ
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 16:14:20.3110
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 16:14:23.6483
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2fa93adb-c3de-4cee-c37b-08dee99e9e5d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 716ce173-146f-446d-4007-08dee99ea05b
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000952A.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EF.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR10MB3837
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR10MB5612
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_091429_017544_D21814C6 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20260724_091430_777540_29B02B87 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,544 +128,636 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ISP subdev is the first element after input of the main pipeline.
-Part (static configuration) of this block is done via this subdev while
-other configuration done on a per-frame basis will be done via a output
-metadata device attached to this subdev.
-This subdev handled the following features of the ISP block:
-  - statistic removal (top / bottom of the frame)
-  - decimation
-  - demosaicing
-  - control of frame export to the aux pipeline
+Since the bytecap video driver is now handling all
+capture (byte & pixel), rename the file and structs
+*into capture. This is done by:
+  - renaming of dcmipp-bytecap.c into dcmipp-capture.c
+  - replace of dcmipp_bytecap strings into dcmipp_capture
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
  .../media/platform/st/stm32/stm32-dcmipp/Makefile  |   2 +-
- .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |   3 +
- .../platform/st/stm32/stm32-dcmipp/dcmipp-isp.c    | 491 +++++++++++++++++++++
- 3 files changed, 495 insertions(+), 1 deletion(-)
+ .../{dcmipp-bytecap.c => dcmipp-capture.c}         | 188 ++++++++++-----------
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |   4 +-
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   |   8 +-
+ 4 files changed, 101 insertions(+), 101 deletions(-)
 
 diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-index 54231569ed6fe..a708534a51af4 100644
+index 7178934bb116b..e35d45a0aca23 100644
 --- a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
 +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
 @@ -1,5 +1,5 @@
  # SPDX-License-Identifier: GPL-2.0
- stm32-dcmipp-y := dcmipp-core.o dcmipp-common.o dcmipp-input.o dcmipp-byteproc.o dcmipp-bytecap.o
--stm32-dcmipp-y += dcmipp-pixelcommon.o
-+stm32-dcmipp-y += dcmipp-pixelcommon.o dcmipp-isp.o
+-stm32-dcmipp-y := dcmipp-core.o dcmipp-common.o dcmipp-input.o dcmipp-byteproc.o dcmipp-bytecap.o
++stm32-dcmipp-y := dcmipp-core.o dcmipp-common.o dcmipp-input.o dcmipp-byteproc.o dcmipp-capture.o
+ stm32-dcmipp-y += dcmipp-pixelcommon.o dcmipp-isp.o dcmipp-pixelproc.o
  
  obj-$(CONFIG_VIDEO_STM32_DCMIPP) += stm32-dcmipp.o
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-capture.c
+similarity index 85%
+rename from drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+rename to drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-capture.c
+index 4a8976da576af..fe7767f908b7c 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-capture.c
+@@ -94,7 +94,7 @@
+ 
+ #define DCMIPP_PxPPCR_SWAPRB		BIT(4)
+ 
+-struct dcmipp_bytecap_pix_map {
++struct dcmipp_capture_pix_map {
+ 	unsigned int code;
+ 	u32 pixelformat;
+ 	u32 plane_nb;
+@@ -108,7 +108,7 @@ struct dcmipp_bytecap_pix_map {
+ 		.pixelformat = V4L2_PIX_FMT_##fmt	\
+ 	}
+ 
+-static const struct dcmipp_bytecap_pix_map dcmipp_bytecap_dump_pix_map_list[] = {
++static const struct dcmipp_capture_pix_map dcmipp_capture_dump_pix_map_list[] = {
+ 	PIXMAP_MBUS_PFMT(RGB565_2X8_LE, RGB565),
+ 	PIXMAP_MBUS_PFMT(RGB565_1X16, RGB565),
+ 	PIXMAP_MBUS_PFMT(RGB888_1X24, RGB24),
+@@ -152,7 +152,7 @@ static const struct dcmipp_bytecap_pix_map dcmipp_bytecap_dump_pix_map_list[] =
+ 		.swap_uv = swap,			\
+ 	}
+ 
+-static const struct dcmipp_bytecap_pix_map dcmipp_bytecap_pixel_pix_map_list[] = {
++static const struct dcmipp_capture_pix_map dcmipp_capture_pixel_pix_map_list[] = {
+ 	/* Coplanar formats are supported on main & aux pipe */
+ 	PIXMAP_MBUS_PIXEL_PFMT(RGB888_1X24, RGB565, 1, DCMIPP_PxPPCR_FORMAT_RGB565, 0),
+ 	PIXMAP_MBUS_PIXEL_PFMT(YUV8_1X24, YUYV, 1, DCMIPP_PxPPCR_FORMAT_YUYV, 0),
+@@ -187,7 +187,7 @@ struct dcmipp_buf {
+ 	struct list_head	list;
+ };
+ 
+-struct dcmipp_bytecap_device {
++struct dcmipp_capture_device {
+ 	struct dcmipp_ent_device ved;
+ 	struct video_device vdev;
+ 	struct device *dev;
+@@ -219,7 +219,7 @@ struct dcmipp_bytecap_device {
+ 
+ 	int pipe_id;
+ 
+-	const struct dcmipp_bytecap_pix_map *pix_map;
++	const struct dcmipp_capture_pix_map *pix_map;
+ 	unsigned int pix_map_array_size;
+ 
+ 	u32 cmsr2;
+@@ -237,8 +237,8 @@ struct dcmipp_bytecap_device {
+ 	} count;
+ };
+ 
+-static const struct dcmipp_bytecap_pix_map *
+-dcmipp_bytecap_pix_map_by_pixelformat(struct dcmipp_bytecap_device *vcap,
++static const struct dcmipp_capture_pix_map *
++dcmipp_capture_pix_map_by_pixelformat(struct dcmipp_capture_device *vcap,
+ 				      u32 pixelformat)
+ {
+ 	for (unsigned int i = 0; i < vcap->pix_map_array_size; i++) {
+@@ -249,11 +249,11 @@ dcmipp_bytecap_pix_map_by_pixelformat(struct dcmipp_bytecap_device *vcap,
+ 	return NULL;
+ }
+ 
+-static bool dcmipp_bytecap_is_format_valid(struct dcmipp_bytecap_device *vcap,
++static bool dcmipp_capture_is_format_valid(struct dcmipp_capture_device *vcap,
+ 					   unsigned int pixelformat)
+ {
+-	const struct dcmipp_bytecap_pix_map *vpix =
+-		dcmipp_bytecap_pix_map_by_pixelformat(vcap, pixelformat);
++	const struct dcmipp_capture_pix_map *vpix =
++		dcmipp_capture_pix_map_by_pixelformat(vcap, pixelformat);
+ 
+ 	if (!vpix || (vpix->plane_nb > 1 && vcap->pipe_id != 1))
+ 		return false;
+@@ -341,7 +341,7 @@ static inline int frame_planes(dma_addr_t base_addr, dma_addr_t addrs[],
+ 	return 0;
+ }
+ 
+-static int dcmipp_bytecap_querycap(struct file *file, void *priv,
++static int dcmipp_capture_querycap(struct file *file, void *priv,
+ 				   struct v4l2_capability *cap)
+ {
+ 	strscpy(cap->driver, DCMIPP_PDEV_NAME, sizeof(cap->driver));
+@@ -350,25 +350,25 @@ static int dcmipp_bytecap_querycap(struct file *file, void *priv,
+ 	return 0;
+ }
+ 
+-static int dcmipp_bytecap_g_fmt_vid_cap(struct file *file, void *priv,
++static int dcmipp_capture_g_fmt_vid_cap(struct file *file, void *priv,
+ 					struct v4l2_format *f)
+ {
+-	struct dcmipp_bytecap_device *vcap = video_drvdata(file);
++	struct dcmipp_capture_device *vcap = video_drvdata(file);
+ 
+ 	f->fmt.pix = vcap->format;
+ 
+ 	return 0;
+ }
+ 
+-static int dcmipp_bytecap_try_fmt_vid_cap(struct file *file, void *priv,
++static int dcmipp_capture_try_fmt_vid_cap(struct file *file, void *priv,
+ 					  struct v4l2_format *f)
+ {
+-	struct dcmipp_bytecap_device *vcap = video_drvdata(file);
++	struct dcmipp_capture_device *vcap = video_drvdata(file);
+ 	struct v4l2_pix_format *format = &f->fmt.pix;
+ 	u32 in_w, in_h;
+ 
+ 	/* Don't accept a pixelformat that is not on the table */
+-	if (!dcmipp_bytecap_is_format_valid(vcap, format->pixelformat))
++	if (!dcmipp_capture_is_format_valid(vcap, format->pixelformat))
+ 		format->pixelformat = fmt_default.pixelformat;
+ 
+ 	/* Adjust width & height */
+@@ -403,17 +403,17 @@ static int dcmipp_bytecap_try_fmt_vid_cap(struct file *file, void *priv,
+ 	return 0;
+ }
+ 
+-static int dcmipp_bytecap_s_fmt_vid_cap(struct file *file, void *priv,
++static int dcmipp_capture_s_fmt_vid_cap(struct file *file, void *priv,
+ 					struct v4l2_format *f)
+ {
+-	struct dcmipp_bytecap_device *vcap = video_drvdata(file);
++	struct dcmipp_capture_device *vcap = video_drvdata(file);
+ 	int ret;
+ 
+ 	/* Do not change the format while stream is on */
+ 	if (vb2_is_busy(&vcap->queue))
+ 		return -EBUSY;
+ 
+-	ret = dcmipp_bytecap_try_fmt_vid_cap(file, priv, f);
++	ret = dcmipp_capture_try_fmt_vid_cap(file, priv, f);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -435,10 +435,10 @@ static int dcmipp_bytecap_s_fmt_vid_cap(struct file *file, void *priv,
+ 	return 0;
+ }
+ 
+-static int dcmipp_bytecap_enum_fmt_vid_cap(struct file *file, void *priv,
++static int dcmipp_capture_enum_fmt_vid_cap(struct file *file, void *priv,
+ 					   struct v4l2_fmtdesc *f)
+ {
+-	struct dcmipp_bytecap_device *vcap = video_drvdata(file);
++	struct dcmipp_capture_device *vcap = video_drvdata(file);
+ 	unsigned int index = f->index;
+ 	unsigned int i, prev_pixelformat = 0;
+ 
+@@ -476,17 +476,17 @@ static int dcmipp_bytecap_enum_fmt_vid_cap(struct file *file, void *priv,
+ 	return 0;
+ }
+ 
+-static int dcmipp_bytecap_enum_framesizes(struct file *file, void *fh,
++static int dcmipp_capture_enum_framesizes(struct file *file, void *fh,
+ 					  struct v4l2_frmsizeenum *fsize)
+ {
+-	struct dcmipp_bytecap_device *vcap = video_drvdata(file);
++	struct dcmipp_capture_device *vcap = video_drvdata(file);
+ 
+ 
+ 	if (fsize->index)
+ 		return -EINVAL;
+ 
+ 	/* Only accept code in the pix map table */
+-	if (!dcmipp_bytecap_is_format_valid(vcap, fsize->pixel_format))
++	if (!dcmipp_capture_is_format_valid(vcap, fsize->pixel_format))
+ 		return -EINVAL;
+ 
+ 	fsize->type = V4L2_FRMSIZE_TYPE_CONTINUOUS;
+@@ -500,7 +500,7 @@ static int dcmipp_bytecap_enum_framesizes(struct file *file, void *fh,
+ 	return 0;
+ }
+ 
+-static const struct v4l2_file_operations dcmipp_bytecap_fops = {
++static const struct v4l2_file_operations dcmipp_capture_fops = {
+ 	.owner		= THIS_MODULE,
+ 	.open		= v4l2_fh_open,
+ 	.release	= vb2_fop_release,
+@@ -510,14 +510,14 @@ static const struct v4l2_file_operations dcmipp_bytecap_fops = {
+ 	.mmap           = vb2_fop_mmap,
+ };
+ 
+-static const struct v4l2_ioctl_ops dcmipp_bytecap_ioctl_ops = {
+-	.vidioc_querycap = dcmipp_bytecap_querycap,
++static const struct v4l2_ioctl_ops dcmipp_capture_ioctl_ops = {
++	.vidioc_querycap = dcmipp_capture_querycap,
+ 
+-	.vidioc_g_fmt_vid_cap = dcmipp_bytecap_g_fmt_vid_cap,
+-	.vidioc_s_fmt_vid_cap = dcmipp_bytecap_s_fmt_vid_cap,
+-	.vidioc_try_fmt_vid_cap = dcmipp_bytecap_try_fmt_vid_cap,
+-	.vidioc_enum_fmt_vid_cap = dcmipp_bytecap_enum_fmt_vid_cap,
+-	.vidioc_enum_framesizes = dcmipp_bytecap_enum_framesizes,
++	.vidioc_g_fmt_vid_cap = dcmipp_capture_g_fmt_vid_cap,
++	.vidioc_s_fmt_vid_cap = dcmipp_capture_s_fmt_vid_cap,
++	.vidioc_try_fmt_vid_cap = dcmipp_capture_try_fmt_vid_cap,
++	.vidioc_enum_fmt_vid_cap = dcmipp_capture_enum_fmt_vid_cap,
++	.vidioc_enum_framesizes = dcmipp_capture_enum_framesizes,
+ 
+ 	.vidioc_reqbufs = vb2_ioctl_reqbufs,
+ 	.vidioc_create_bufs = vb2_ioctl_create_bufs,
+@@ -530,7 +530,7 @@ static const struct v4l2_ioctl_ops dcmipp_bytecap_ioctl_ops = {
+ 	.vidioc_streamoff = vb2_ioctl_streamoff,
+ };
+ 
+-static void dcmipp_start_capture(struct dcmipp_bytecap_device *vcap,
++static void dcmipp_start_capture(struct dcmipp_capture_device *vcap,
+ 				 struct dcmipp_buf *buf)
+ {
+ 	/* Set buffer address */
+@@ -557,7 +557,7 @@ static void dcmipp_start_capture(struct dcmipp_bytecap_device *vcap,
+ 	reg_set(vcap, DCMIPP_PxFCTCR(vcap->pipe_id), DCMIPP_PxFCTCR_CPTREQ);
+ }
+ 
+-static void dcmipp_bytecap_all_buffers_done(struct dcmipp_bytecap_device *vcap,
++static void dcmipp_capture_all_buffers_done(struct dcmipp_capture_device *vcap,
+ 					    enum vb2_buffer_state state)
+ {
+ 	struct dcmipp_buf *buf, *node;
+@@ -568,10 +568,10 @@ static void dcmipp_bytecap_all_buffers_done(struct dcmipp_bytecap_device *vcap,
+ 	}
+ }
+ 
+-static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
++static int dcmipp_capture_start_streaming(struct vb2_queue *vq,
+ 					  unsigned int count)
+ {
+-	struct dcmipp_bytecap_device *vcap = vb2_get_drv_priv(vq);
++	struct dcmipp_capture_device *vcap = vb2_get_drv_priv(vq);
+ 	struct media_entity *entity = &vcap->vdev.entity;
+ 	struct dcmipp_buf *buf;
+ 	struct media_pad *pad;
+@@ -582,7 +582,7 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 
+ 	/*
+ 	 * Get source subdev - since link is IMMUTABLE, pointer is cached
+-	 * within the dcmipp_bytecap_device structure
++	 * within the dcmipp_capture_device structure
+ 	 */
+ 	if (!vcap->s_subdev) {
+ 		pad = media_pad_remote_pad_first(&vcap->vdev.entity.pads[0]);
+@@ -616,8 +616,8 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 	spin_lock_irq(&vcap->irqlock);
+ 
+ 	if (vcap->pipe_id != 0) {
+-		const struct dcmipp_bytecap_pix_map *vpix =
+-			dcmipp_bytecap_pix_map_by_pixelformat(vcap, vcap->format.pixelformat);
++		const struct dcmipp_capture_pix_map *vpix =
++			dcmipp_capture_pix_map_by_pixelformat(vcap, vcap->format.pixelformat);
+ 		unsigned int ppcr = 0;
+ 
+ 		/*
+@@ -666,14 +666,14 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 	 * Return all buffers to vb2 in QUEUED state.
+ 	 * This will give ownership back to userspace
+ 	 */
+-	dcmipp_bytecap_all_buffers_done(vcap, VB2_BUF_STATE_QUEUED);
++	dcmipp_capture_all_buffers_done(vcap, VB2_BUF_STATE_QUEUED);
+ 	vcap->active = NULL;
+ 	spin_unlock_irq(&vcap->irqlock);
+ 
+ 	return ret;
+ }
+ 
+-static void dcmipp_dump_status(struct dcmipp_bytecap_device *vcap)
++static void dcmipp_dump_status(struct dcmipp_capture_device *vcap)
+ {
+ 	struct device *dev = vcap->dev;
+ 
+@@ -689,9 +689,9 @@ static void dcmipp_dump_status(struct dcmipp_bytecap_device *vcap)
+  * Stop the stream engine. Any remaining buffers in the stream queue are
+  * dequeued and passed on to the vb2 framework marked as STATE_ERROR.
+  */
+-static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
++static void dcmipp_capture_stop_streaming(struct vb2_queue *vq)
+ {
+-	struct dcmipp_bytecap_device *vcap = vb2_get_drv_priv(vq);
++	struct dcmipp_capture_device *vcap = vb2_get_drv_priv(vq);
+ 	int ret;
+ 	u32 status;
+ 
+@@ -729,7 +729,7 @@ static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
+ 	spin_lock_irq(&vcap->irqlock);
+ 
+ 	/* Return all queued buffers to vb2 in ERROR state */
+-	dcmipp_bytecap_all_buffers_done(vcap, VB2_BUF_STATE_ERROR);
++	dcmipp_capture_all_buffers_done(vcap, VB2_BUF_STATE_ERROR);
+ 	INIT_LIST_HEAD(&vcap->buffers);
+ 
+ 	vcap->active = NULL;
+@@ -749,9 +749,9 @@ static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
+ 			 vcap->count.underrun, vcap->count.buffers);
+ }
+ 
+-static int dcmipp_bytecap_buf_prepare(struct vb2_buffer *vb)
++static int dcmipp_capture_buf_prepare(struct vb2_buffer *vb)
+ {
+-	struct dcmipp_bytecap_device *vcap =  vb2_get_drv_priv(vb->vb2_queue);
++	struct dcmipp_capture_device *vcap =  vb2_get_drv_priv(vb->vb2_queue);
+ 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+ 	struct dcmipp_buf *buf = container_of(vbuf, struct dcmipp_buf, vb);
+ 	struct v4l2_pix_format *format = &vcap->format;
+@@ -803,9 +803,9 @@ static int dcmipp_bytecap_buf_prepare(struct vb2_buffer *vb)
+ 	return 0;
+ }
+ 
+-static void dcmipp_bytecap_buf_queue(struct vb2_buffer *vb2_buf)
++static void dcmipp_capture_buf_queue(struct vb2_buffer *vb2_buf)
+ {
+-	struct dcmipp_bytecap_device *vcap =
++	struct dcmipp_capture_device *vcap =
+ 		vb2_get_drv_priv(vb2_buf->vb2_queue);
+ 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb2_buf);
+ 	struct dcmipp_buf *buf = container_of(vbuf, struct dcmipp_buf, vb);
+@@ -829,13 +829,13 @@ static void dcmipp_bytecap_buf_queue(struct vb2_buffer *vb2_buf)
+ 	spin_unlock_irq(&vcap->irqlock);
+ }
+ 
+-static int dcmipp_bytecap_queue_setup(struct vb2_queue *vq,
++static int dcmipp_capture_queue_setup(struct vb2_queue *vq,
+ 				      unsigned int *nbuffers,
+ 				      unsigned int *nplanes,
+ 				      unsigned int sizes[],
+ 				      struct device *alloc_devs[])
+ {
+-	struct dcmipp_bytecap_device *vcap = vb2_get_drv_priv(vq);
++	struct dcmipp_capture_device *vcap = vb2_get_drv_priv(vq);
+ 	unsigned int size;
+ 
+ 	size = vcap->format.sizeimage;
+@@ -853,7 +853,7 @@ static int dcmipp_bytecap_queue_setup(struct vb2_queue *vq,
+ 	return 0;
+ }
+ 
+-static int dcmipp_bytecap_buf_init(struct vb2_buffer *vb)
++static int dcmipp_capture_buf_init(struct vb2_buffer *vb)
+ {
+ 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+ 	struct dcmipp_buf *buf = container_of(vbuf, struct dcmipp_buf, vb);
+@@ -863,19 +863,19 @@ static int dcmipp_bytecap_buf_init(struct vb2_buffer *vb)
+ 	return 0;
+ }
+ 
+-static const struct vb2_ops dcmipp_bytecap_qops = {
+-	.start_streaming	= dcmipp_bytecap_start_streaming,
+-	.stop_streaming		= dcmipp_bytecap_stop_streaming,
+-	.buf_init		= dcmipp_bytecap_buf_init,
+-	.buf_prepare		= dcmipp_bytecap_buf_prepare,
+-	.buf_queue		= dcmipp_bytecap_buf_queue,
+-	.queue_setup		= dcmipp_bytecap_queue_setup,
++static const struct vb2_ops dcmipp_capture_qops = {
++	.start_streaming	= dcmipp_capture_start_streaming,
++	.stop_streaming		= dcmipp_capture_stop_streaming,
++	.buf_init		= dcmipp_capture_buf_init,
++	.buf_prepare		= dcmipp_capture_buf_prepare,
++	.buf_queue		= dcmipp_capture_buf_queue,
++	.queue_setup		= dcmipp_capture_queue_setup,
+ };
+ 
+-static void dcmipp_bytecap_release(struct video_device *vdev)
++static void dcmipp_capture_release(struct video_device *vdev)
+ {
+-	struct dcmipp_bytecap_device *vcap =
+-		container_of(vdev, struct dcmipp_bytecap_device, vdev);
++	struct dcmipp_capture_device *vcap =
++		container_of(vdev, struct dcmipp_capture_device, vdev);
+ 
+ 	dcmipp_pads_cleanup(vcap->ved.pads);
+ 	mutex_destroy(&vcap->lock);
+@@ -883,16 +883,16 @@ static void dcmipp_bytecap_release(struct video_device *vdev)
+ 	kfree(vcap);
+ }
+ 
+-void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved)
++void dcmipp_capture_ent_release(struct dcmipp_ent_device *ved)
+ {
+-	struct dcmipp_bytecap_device *vcap =
+-		container_of(ved, struct dcmipp_bytecap_device, ved);
++	struct dcmipp_capture_device *vcap =
++		container_of(ved, struct dcmipp_capture_device, ved);
+ 
+ 	media_entity_cleanup(ved->ent);
+ 	vb2_video_unregister_device(&vcap->vdev);
+ }
+ 
+-static void dcmipp_buffer_done(struct dcmipp_bytecap_device *vcap,
++static void dcmipp_buffer_done(struct dcmipp_capture_device *vcap,
+ 			       struct dcmipp_buf *buf,
+ 			       size_t bytesused,
+ 			       int err)
+@@ -916,7 +916,7 @@ static void dcmipp_buffer_done(struct dcmipp_bytecap_device *vcap,
+ 
+ /* irqlock must be held */
+ static void
+-dcmipp_bytecap_set_next_frame_or_stop(struct dcmipp_bytecap_device *vcap)
++dcmipp_capture_set_next_frame_or_stop(struct dcmipp_capture_device *vcap)
+ {
+ 	if (!vcap->next && list_is_singular(&vcap->buffers)) {
+ 		/*
+@@ -954,7 +954,7 @@ dcmipp_bytecap_set_next_frame_or_stop(struct dcmipp_bytecap_device *vcap)
+ }
+ 
+ /* irqlock must be held */
+-static void dcmipp_bytecap_process_frame(struct dcmipp_bytecap_device *vcap,
++static void dcmipp_capture_process_frame(struct dcmipp_capture_device *vcap,
+ 					 size_t bytesused)
+ {
+ 	int err = 0;
+@@ -980,10 +980,10 @@ static void dcmipp_bytecap_process_frame(struct dcmipp_bytecap_device *vcap,
+ 	vcap->active = NULL;
+ }
+ 
+-static irqreturn_t dcmipp_bytecap_irq_thread(int irq, void *arg)
++static irqreturn_t dcmipp_capture_irq_thread(int irq, void *arg)
+ {
+-	struct dcmipp_bytecap_device *vcap =
+-			container_of(arg, struct dcmipp_bytecap_device, ved);
++	struct dcmipp_capture_device *vcap =
++			container_of(arg, struct dcmipp_capture_device, ved);
+ 	u32 cmsr2_pxframef;
+ 	u32 cmsr2_pxvsyncf;
+ 	u32 cmsr2_pxovrf;
+@@ -1013,7 +1013,7 @@ static irqreturn_t dcmipp_bytecap_irq_thread(int irq, void *arg)
+ 			bytesused = reg_read(vcap, DCMIPP_P0DCCNTR);
+ 		else
+ 			bytesused = vcap->format.sizeimage;
+-		dcmipp_bytecap_process_frame(vcap, bytesused);
++		dcmipp_capture_process_frame(vcap, bytesused);
+ 	}
+ 
+ 	if (vcap->cmsr2 & cmsr2_pxvsyncf) {
+@@ -1033,7 +1033,7 @@ static irqreturn_t dcmipp_bytecap_irq_thread(int irq, void *arg)
+ 		 * active (but not used) buffer and put it back into next.
+ 		 */
+ 		swap(vcap->active, vcap->next);
+-		dcmipp_bytecap_set_next_frame_or_stop(vcap);
++		dcmipp_capture_set_next_frame_or_stop(vcap);
+ 	}
+ 
+ out:
+@@ -1041,10 +1041,10 @@ static irqreturn_t dcmipp_bytecap_irq_thread(int irq, void *arg)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static irqreturn_t dcmipp_bytecap_irq_callback(int irq, void *arg)
++static irqreturn_t dcmipp_capture_irq_callback(int irq, void *arg)
+ {
+-	struct dcmipp_bytecap_device *vcap =
+-			container_of(arg, struct dcmipp_bytecap_device, ved);
++	struct dcmipp_capture_device *vcap =
++			container_of(arg, struct dcmipp_capture_device, ved);
+ 	struct dcmipp_ent_device *ved = arg;
+ 
+ 	/* Store interrupt status register */
+@@ -1059,12 +1059,12 @@ static irqreturn_t dcmipp_bytecap_irq_callback(int irq, void *arg)
+ 	return IRQ_WAKE_THREAD;
+ }
+ 
+-static int dcmipp_bytecap_link_validate(struct media_link *link)
++static int dcmipp_capture_link_validate(struct media_link *link)
+ {
+ 	struct media_entity *entity = link->sink->entity;
+ 	struct video_device *vd = media_entity_to_video_device(entity);
+-	struct dcmipp_bytecap_device *vcap = container_of(vd,
+-					struct dcmipp_bytecap_device, vdev);
++	struct dcmipp_capture_device *vcap = container_of(vd,
++					struct dcmipp_capture_device, vdev);
+ 	struct v4l2_subdev *source_sd =
+ 		media_entity_to_v4l2_subdev(link->source->entity);
+ 	struct v4l2_subdev_format source_fmt = {
+@@ -1113,8 +1113,8 @@ static int dcmipp_bytecap_link_validate(struct media_link *link)
+ 	return 0;
+ }
+ 
+-static const struct media_entity_operations dcmipp_bytecap_entity_ops = {
+-	.link_validate = dcmipp_bytecap_link_validate,
++static const struct media_entity_operations dcmipp_capture_entity_ops = {
++	.link_validate = dcmipp_capture_link_validate,
+ };
+ 
+ static int dcmipp_name_to_pipe_id(const char *name)
+@@ -1129,17 +1129,17 @@ static int dcmipp_name_to_pipe_id(const char *name)
+ 		return -EINVAL;
+ }
+ 
+-struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
++struct dcmipp_ent_device *dcmipp_capture_ent_init(const char *entity_name,
+ 						  struct dcmipp_device *dcmipp)
+ {
+-	struct dcmipp_bytecap_device *vcap;
++	struct dcmipp_capture_device *vcap;
+ 	struct device *dev = dcmipp->dev;
+ 	struct video_device *vdev;
+ 	struct vb2_queue *q;
+ 	const unsigned long pad_flag = MEDIA_PAD_FL_SINK;
+ 	int ret = 0;
+ 
+-	/* Allocate the dcmipp_bytecap_device struct */
++	/* Allocate the dcmipp_capture_device struct */
+ 	vcap = kzalloc_obj(*vcap);
+ 	if (!vcap)
+ 		return ERR_PTR(-ENOMEM);
+@@ -1154,11 +1154,11 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
+ 
+ 	/* Initialize supported format table format */
+ 	if (vcap->pipe_id == 0) {
+-		vcap->pix_map = dcmipp_bytecap_dump_pix_map_list;
+-		vcap->pix_map_array_size = ARRAY_SIZE(dcmipp_bytecap_dump_pix_map_list);
++		vcap->pix_map = dcmipp_capture_dump_pix_map_list;
++		vcap->pix_map_array_size = ARRAY_SIZE(dcmipp_capture_dump_pix_map_list);
+ 	} else {
+-		vcap->pix_map = dcmipp_bytecap_pixel_pix_map_list;
+-		vcap->pix_map_array_size = ARRAY_SIZE(dcmipp_bytecap_pixel_pix_map_list);
++		vcap->pix_map = dcmipp_capture_pixel_pix_map_list;
++		vcap->pix_map_array_size = ARRAY_SIZE(dcmipp_capture_pixel_pix_map_list);
+ 	}
+ 
+ 	/* Allocate the pads */
+@@ -1173,7 +1173,7 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
+ 	/* Initialize the media entity */
+ 	vcap->vdev.entity.name = entity_name;
+ 	vcap->vdev.entity.function = MEDIA_ENT_F_IO_V4L;
+-	vcap->vdev.entity.ops = &dcmipp_bytecap_entity_ops;
++	vcap->vdev.entity.ops = &dcmipp_capture_entity_ops;
+ 	ret = media_entity_pads_init(&vcap->vdev.entity, 1, vcap->ved.pads);
+ 	if (ret)
+ 		goto err_clean_pads;
+@@ -1188,7 +1188,7 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
+ 	q->lock = &vcap->lock;
+ 	q->drv_priv = vcap;
+ 	q->buf_struct_size = sizeof(struct dcmipp_buf);
+-	q->ops = &dcmipp_bytecap_qops;
++	q->ops = &dcmipp_capture_qops;
+ 	q->mem_ops = &vb2_dma_contig_memops;
+ 	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
+ 	q->min_queued_buffers = 1;
+@@ -1217,8 +1217,8 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
+ 
+ 	/* Fill the dcmipp_ent_device struct */
+ 	vcap->ved.ent = &vcap->vdev.entity;
+-	vcap->ved.handler = dcmipp_bytecap_irq_callback;
+-	vcap->ved.thread_fn = dcmipp_bytecap_irq_thread;
++	vcap->ved.handler = dcmipp_capture_irq_callback;
++	vcap->ved.thread_fn = dcmipp_capture_irq_thread;
+ 	vcap->dev = dev;
+ 	vcap->regs = dcmipp->regs;
+ 
+@@ -1226,9 +1226,9 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
+ 	vdev = &vcap->vdev;
+ 	vdev->device_caps = V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STREAMING |
+ 			    V4L2_CAP_IO_MC;
+-	vdev->release = dcmipp_bytecap_release;
+-	vdev->fops = &dcmipp_bytecap_fops;
+-	vdev->ioctl_ops = &dcmipp_bytecap_ioctl_ops;
++	vdev->release = dcmipp_capture_release;
++	vdev->fops = &dcmipp_capture_fops;
++	vdev->ioctl_ops = &dcmipp_capture_ioctl_ops;
+ 	vdev->lock = &vcap->lock;
+ 	vdev->queue = q;
+ 	vdev->v4l2_dev = &dcmipp->v4l2_dev;
 diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-index ee9f36268e646..e04fde86550a5 100644
+index 8f41473605aae..c0f7ed3acbfc2 100644
 --- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
 +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-@@ -282,5 +282,8 @@ void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved);
- struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
+@@ -279,9 +279,9 @@ struct dcmipp_ent_device *
+ dcmipp_byteproc_ent_init(const char *entity_name,
+ 			 struct dcmipp_device *dcmipp);
+ void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved);
+-struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
++struct dcmipp_ent_device *dcmipp_capture_ent_init(const char *entity_name,
  						  struct dcmipp_device *dcmipp);
- void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved);
-+struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp);
-+void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved);
+-void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved);
++void dcmipp_capture_ent_release(struct dcmipp_ent_device *ved);
+ struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
+ 					      struct dcmipp_device *dcmipp);
+ void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved);
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index 9aba16096d289..a52b3b0e3c375 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -50,8 +50,8 @@ static const struct dcmipp_ent_config stm32mp13_ent_config[] = {
+ 	},
+ 	{
+ 		.name = "dcmipp_dump_capture",
+-		.init = dcmipp_bytecap_ent_init,
+-		.release = dcmipp_bytecap_ent_release,
++		.init = dcmipp_capture_ent_init,
++		.release = dcmipp_capture_ent_release,
+ 	},
+ };
  
- #endif
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c
-new file mode 100644
-index 0000000000000..1586cc9c59a6b
---- /dev/null
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c
-@@ -0,0 +1,491 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for STM32 Digital Camera Memory Interface Pixel Processor
-+ *
-+ * Copyright (C) STMicroelectronics SA 2026
-+ * Authors: Hugues Fruchet <hugues.fruchet@foss.st.com>
-+ *          Alain Volmat <alain.volmat@foss.st.com>
-+ *          for STMicroelectronics.
-+ */
-+
-+#include <linux/v4l2-mediabus.h>
-+#include <media/v4l2-rect.h>
-+#include <media/v4l2-subdev.h>
-+
-+#include "dcmipp-common.h"
-+#include "dcmipp-pixelcommon.h"
-+
-+#define DCMIPP_P1FSCR	0x804
-+#define DCMIPP_P1FSCR_PIPEDIFF BIT(18)
-+
-+#define DCMIPP_P1SRCR	0x820
-+#define DCMIPP_P1SRCR_LASTLINE_SHIFT	0
-+#define DCMIPP_P1SRCR_FIRSTLINEDEL_SHIFT	12
-+#define DCMIPP_P1SRCR_CROPEN		BIT(15)
-+
-+#define DCMIPP_P1DECR	0x830
-+#define DCMIPP_P1DECR_ENABLE		BIT(0)
-+#define DCMIPP_P1DECR_HDEC_SHIFT	1
-+#define DCMIPP_P1DECR_VDEC_SHIFT	3
-+
-+#define DCMIPP_P1DMCR	0x870
-+#define DCMIPP_P1DMCR_ENABLE		BIT(0)
-+#define DCMIPP_P1DMCR_TYPE_SHIFT	1
-+#define DCMIPP_P1DMCR_TYPE_MASK		GENMASK(2, 1)
-+#define DCMIPP_P1DMCR_TYPE_RGGB		0x0
-+#define DCMIPP_P1DMCR_TYPE_GRBG		0x1
-+#define DCMIPP_P1DMCR_TYPE_GBRG		0x2
-+#define DCMIPP_P1DMCR_TYPE_BGGR		0x3
-+
-+#define ISP_MEDIA_BUS_SINK_FMT_DEFAULT MEDIA_BUS_FMT_RGB565_1X16
-+#define ISP_MEDIA_BUS_SRC_FMT_DEFAULT MEDIA_BUS_FMT_RGB888_1X24
-+
-+struct dcmipp_isp_device {
-+	struct dcmipp_ent_device ved;
-+	struct v4l2_subdev sd;
-+	struct device *dev;
-+
-+	void __iomem *regs;
-+};
-+
-+static const struct v4l2_mbus_framefmt fmt_default = {
-+	.width = DCMIPP_FMT_WIDTH_DEFAULT,
-+	.height = DCMIPP_FMT_HEIGHT_DEFAULT,
-+	.code = ISP_MEDIA_BUS_SINK_FMT_DEFAULT,
-+	.field = V4L2_FIELD_NONE,
-+	.colorspace = DCMIPP_COLORSPACE_DEFAULT,
-+	.ycbcr_enc = DCMIPP_YCBCR_ENC_DEFAULT,
-+	.quantization = DCMIPP_QUANTIZATION_DEFAULT,
-+	.xfer_func = DCMIPP_XFER_FUNC_DEFAULT,
-+};
-+
-+static inline unsigned int dcmipp_isp_set_compose(__u32 size, __u32 req)
-+{
-+	unsigned int i = 0;
-+
-+	if (req > size)
-+		return size;
-+
-+	/* Maximum decimation factor is 8 */
-+	while (size > req && i++ < 3)
-+		size /= 2;
-+
-+	return size;
-+}
-+
-+static void dcmipp_isp_adjust_fmt(struct v4l2_mbus_framefmt *fmt, u32 pad)
-+{
-+	/* Only accept code in the pix map table */
-+	if (!dcmipp_pixelpipe_pix_map_by_code(fmt->code, DCMIPP_ISP, pad))
-+		fmt->code = IS_SRC(pad) ? ISP_MEDIA_BUS_SRC_FMT_DEFAULT :
-+					  ISP_MEDIA_BUS_SINK_FMT_DEFAULT;
-+
-+	fmt->width = clamp_t(u32, fmt->width, DCMIPP_FRAME_MIN_WIDTH,
-+			     DCMIPP_FRAME_MAX_WIDTH) & ~1;
-+	fmt->height = clamp_t(u32, fmt->height, DCMIPP_FRAME_MIN_HEIGHT,
-+			      DCMIPP_FRAME_MAX_HEIGHT);
-+
-+	if (fmt->field == V4L2_FIELD_ANY || fmt->field == V4L2_FIELD_ALTERNATE)
-+		fmt->field = V4L2_FIELD_NONE;
-+
-+	dcmipp_colorimetry_clamp(fmt);
-+}
-+
-+static int dcmipp_isp_init_state(struct v4l2_subdev *sd,
-+				 struct v4l2_subdev_state *state)
-+{
-+	for (unsigned int i = 0; i < sd->entity.num_pads; i++) {
-+		struct v4l2_mbus_framefmt *mf;
-+
-+		mf = v4l2_subdev_state_get_format(state, i);
-+		*mf = fmt_default;
-+		mf->code = IS_SRC(i) ? ISP_MEDIA_BUS_SRC_FMT_DEFAULT :
-+				       ISP_MEDIA_BUS_SINK_FMT_DEFAULT;
-+
-+		if (IS_SINK(i)) {
-+			struct v4l2_rect r = {
-+				.top = 0,
-+				.left = 0,
-+				.width = DCMIPP_FMT_WIDTH_DEFAULT,
-+				.height = DCMIPP_FMT_HEIGHT_DEFAULT,
-+			};
-+
-+			*v4l2_subdev_state_get_crop(state, i) = r;
-+			*v4l2_subdev_state_get_compose(state, i) = r;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int dcmipp_isp_enum_mbus_code(struct v4l2_subdev *sd,
-+				     struct v4l2_subdev_state *state,
-+				     struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	return dcmipp_pixelpipe_enum_mbus_code(DCMIPP_ISP, code);
-+}
-+
-+static int dcmipp_isp_enum_frame_size(struct v4l2_subdev *sd,
-+				      struct v4l2_subdev_state *state,
-+				      struct v4l2_subdev_frame_size_enum *fse)
-+{
-+	return dcmipp_pixelpipe_enum_frame_size(DCMIPP_ISP, fse);
-+}
-+
-+static int dcmipp_isp_set_fmt(struct v4l2_subdev *sd,
-+			      struct v4l2_subdev_state *state,
-+			      struct v4l2_subdev_format *fmt)
-+{
-+	if (fmt->which == V4L2_SUBDEV_FORMAT_ACTIVE &&
-+	    v4l2_subdev_is_streaming(sd))
-+		return -EBUSY;
-+
-+	dcmipp_isp_adjust_fmt(&fmt->format, fmt->pad);
-+
-+	if (IS_SINK(fmt->pad)) {
-+		struct v4l2_mbus_framefmt *src_fmt =
-+			v4l2_subdev_state_get_format(state, 1);
-+		struct v4l2_rect r = {
-+			.top = 0,
-+			.left = 0,
-+			.width = fmt->format.width,
-+			.height = fmt->format.height,
-+		};
-+
-+		/* Adjust SINK pad crop/compose */
-+		*v4l2_subdev_state_get_crop(state, 0) = r;
-+		*v4l2_subdev_state_get_compose(state, 0) = r;
-+
-+		/* Forward format to SRC pads */
-+		*src_fmt = fmt->format;
-+		src_fmt->code = dcmipp_pixelpipe_src_format(fmt->format.code);
-+		*v4l2_subdev_state_get_format(state, 2) = *src_fmt;
-+	} else {
-+		struct v4l2_mbus_framefmt *sink_fmt =
-+			v4l2_subdev_state_get_format(state, 0);
-+		struct v4l2_rect *compose =
-+			v4l2_subdev_state_get_compose(state, 0);
-+
-+		fmt->format = *sink_fmt;
-+		fmt->format.code = dcmipp_pixelpipe_src_format(sink_fmt->code);
-+		if (compose->width && compose->height) {
-+			fmt->format.width = compose->width;
-+			fmt->format.height = compose->height;
-+		}
-+		/* Set to the 2nd SRC pad */
-+		*v4l2_subdev_state_get_format(state, fmt->pad == 1 ? 2 : 1) =
-+			fmt->format;
-+	}
-+
-+	/* Update the selected pad format */
-+	*v4l2_subdev_state_get_format(state, fmt->pad) = fmt->format;
-+
-+	return 0;
-+}
-+
-+static void dcmipp_isp_adjust_crop(struct v4l2_rect *r,
-+				   const struct v4l2_mbus_framefmt *fmt)
-+{
-+	struct v4l2_rect crop_min = {
-+		.width = fmt->width,
-+		.height = DCMIPP_FRAME_MIN_HEIGHT,
-+	};
-+
-+	/*
-+	 * Crop is related here to the statistics removal, that is
-+	 * firsts and/or lasts lines of the frame. Up to the first
-+	 * 7 lines can be skipped
-+	 */
-+#define DCMIPP_ISP_MAX_TOP_CROP	7
-+	v4l2_rect_set_min_size(r, &crop_min);
-+	if (r->top > DCMIPP_ISP_MAX_TOP_CROP)
-+		r->top = DCMIPP_ISP_MAX_TOP_CROP;
-+	if ((r->height + r->top) > fmt->height)
-+		r->height = fmt->height - r->top;
-+}
-+
-+static int dcmipp_isp_set_selection(struct v4l2_subdev *sd,
-+				    struct v4l2_subdev_state *state,
-+				    struct v4l2_subdev_selection *s)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_mbus_framefmt *sink_fmt, *src_fmt;
-+	struct v4l2_rect *crop, *compose;
-+	__u32 pad;
-+
-+	if (IS_SRC(s->pad))
-+		return -EINVAL;
-+
-+	if (s->which == V4L2_SUBDEV_FORMAT_ACTIVE &&
-+	    v4l2_subdev_is_streaming(sd))
-+		return -EBUSY;
-+
-+	crop = v4l2_subdev_state_get_crop(state, s->pad);
-+	compose = v4l2_subdev_state_get_compose(state, s->pad);
-+
-+	switch (s->target) {
-+	case V4L2_SEL_TGT_CROP:
-+		sink_fmt = v4l2_subdev_state_get_format(state, s->pad);
-+		dcmipp_isp_adjust_crop(&s->r, sink_fmt);
-+
-+		*crop = s->r;
-+		*compose = s->r;
-+
-+		dev_dbg(isp->dev, "s_selection: crop (%d,%d)/%ux%u\n",
-+			crop->left, crop->top, crop->width, crop->height);
-+		break;
-+	case V4L2_SEL_TGT_COMPOSE:
-+		s->r.top = 0;
-+		s->r.left = 0;
-+		if (s->r.width < DCMIPP_FRAME_MIN_WIDTH)
-+			s->r.width = DCMIPP_FRAME_MIN_WIDTH;
-+		s->r.width = dcmipp_isp_set_compose(crop->width, s->r.width);
-+		if (s->r.height < DCMIPP_FRAME_MIN_HEIGHT)
-+			s->r.height = DCMIPP_FRAME_MIN_HEIGHT;
-+		s->r.height = dcmipp_isp_set_compose(crop->height, s->r.height);
-+		*compose = s->r;
-+
-+		dev_dbg(isp->dev, "s_selection: compose (%d,%d)/%ux%u\n",
-+			compose->left, compose->top,
-+			compose->width, compose->height);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	/* Update the source pad size */
-+	for (pad = 1; pad < sd->entity.num_pads; pad++) {
-+		src_fmt = v4l2_subdev_state_get_format(state, pad);
-+		src_fmt->width = s->r.width;
-+		src_fmt->height = s->r.height;
-+	}
-+
-+	return 0;
-+}
-+
-+#define STM32_DCMIPP_IS_BAYER_VARIANT(code, variant)	\
-+	((code) == MEDIA_BUS_FMT_S##variant##8_1X8 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##10_1X10 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##12_1X12 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##14_1X14 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##16_1X16)
-+static void dcmipp_isp_config_demosaicing(struct dcmipp_isp_device *isp,
-+					  struct v4l2_subdev_state *state)
-+{
-+	__u32 code = v4l2_subdev_state_get_format(state, 0)->code;
-+	unsigned int val = 0;
-+
-+	/* Disable demosaicing */
-+	reg_clear(isp, DCMIPP_P1DMCR,
-+		  DCMIPP_P1DMCR_ENABLE | DCMIPP_P1DMCR_TYPE_MASK);
-+
-+	/* Only perform demosaicing if format is bayer */
-+	if (code < MEDIA_BUS_FMT_SBGGR8_1X8 || code >= MEDIA_BUS_FMT_JPEG_1X8)
-+		return;
-+
-+	dev_dbg(isp->dev, "Input is RawBayer, enable Demosaicing\n");
-+
-+	if (STM32_DCMIPP_IS_BAYER_VARIANT(code, BGGR))
-+		val = DCMIPP_P1DMCR_TYPE_BGGR << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, GBRG))
-+		val = DCMIPP_P1DMCR_TYPE_GBRG << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, GRBG))
-+		val = DCMIPP_P1DMCR_TYPE_GRBG << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, RGGB))
-+		val = DCMIPP_P1DMCR_TYPE_RGGB << DCMIPP_P1DMCR_TYPE_SHIFT;
-+
-+	val |= DCMIPP_P1DMCR_ENABLE;
-+
-+	reg_set(isp, DCMIPP_P1DMCR, val);
-+}
-+
-+static bool dcmipp_isp_is_aux_output_enabled(struct dcmipp_isp_device *isp)
-+{
-+	struct media_link *link;
-+
-+	for_each_media_entity_data_link(isp->ved.ent, link) {
-+		if (link->source != &isp->ved.pads[2])
-+			continue;
-+
-+		if (!(link->flags & MEDIA_LNK_FL_ENABLED))
-+			continue;
-+
-+		if (!strcmp(link->sink->entity->name, "dcmipp_aux_postproc"))
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+static void dcmipp_isp_config_decimation(struct dcmipp_isp_device *isp,
-+					 struct v4l2_subdev_state *state)
-+{
-+	struct v4l2_rect *crop = v4l2_subdev_state_get_crop(state, 0);
-+	struct v4l2_rect *compose = v4l2_subdev_state_get_compose(state, 0);
-+	u32 decr;
-+
-+	decr = (fls(crop->width / compose->width) - 1) << DCMIPP_P1DECR_HDEC_SHIFT |
-+	       (fls(crop->height / compose->height) - 1) << DCMIPP_P1DECR_VDEC_SHIFT;
-+	if (decr)
-+		decr |= DCMIPP_P1DECR_ENABLE;
-+
-+	reg_write(isp, DCMIPP_P1DECR, decr);
-+}
-+
-+static int dcmipp_isp_enable_streams(struct v4l2_subdev *sd,
-+				     struct v4l2_subdev_state *state,
-+				     u32 pad, u64 streams_mask)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_rect *crop = v4l2_subdev_state_get_crop(state, 0);
-+	struct v4l2_subdev *s_subdev;
-+	struct media_pad *s_pad;
-+	int ret;
-+
-+	/* Perform configuration only if no other pad is enabled */
-+	if (sd->enabled_pads)
-+		return 0;
-+
-+	/* Get source subdev */
-+	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
-+	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
-+		return -EINVAL;
-+	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
-+
-+	/* Check if link between ISP & Pipe2 postproc is enabled */
-+	if (dcmipp_isp_is_aux_output_enabled(isp))
-+		reg_clear(isp, DCMIPP_P1FSCR, DCMIPP_P1FSCR_PIPEDIFF);
-+	else
-+		reg_set(isp, DCMIPP_P1FSCR, DCMIPP_P1FSCR_PIPEDIFF);
-+
-+	/* Configure Statistic Removal */
-+	crop = v4l2_subdev_state_get_crop(state, 0);
-+	reg_write(isp, DCMIPP_P1SRCR,
-+		  ((crop->top << DCMIPP_P1SRCR_FIRSTLINEDEL_SHIFT) |
-+		   (crop->height << DCMIPP_P1SRCR_LASTLINE_SHIFT) |
-+		   DCMIPP_P1SRCR_CROPEN));
-+
-+	/* Configure Decimation */
-+	dcmipp_isp_config_decimation(isp, state);
-+
-+	/* Configure Demosaicing */
-+	dcmipp_isp_config_demosaicing(isp, state);
-+
-+	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
-+	if (ret < 0) {
-+		dev_err(isp->dev,
-+			"failed to start source subdev streaming (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int dcmipp_isp_disable_streams(struct v4l2_subdev *sd,
-+				      struct v4l2_subdev_state *state,
-+				      u32 pad, u64 streams_mask)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_subdev *s_subdev;
-+	struct media_pad *s_pad;
-+	int ret;
-+
-+	/* Don't do anything if there are still other pads enabled */
-+	if ((sd->enabled_pads & ~BIT(pad)))
-+		return 0;
-+
-+	/* Get source subdev */
-+	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
-+	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
-+		return -EINVAL;
-+	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
-+
-+	/* Disable all blocks */
-+	reg_write(isp, DCMIPP_P1SRCR, 0);
-+	reg_write(isp, DCMIPP_P1DECR, 0);
-+	reg_write(isp, DCMIPP_P1DMCR, 0);
-+
-+	ret = v4l2_subdev_disable_streams(s_subdev, s_pad->index, BIT_ULL(0));
-+	if (ret < 0) {
-+		dev_err(isp->dev,
-+			"failed to disable source subdev streaming (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct v4l2_subdev_pad_ops dcmipp_isp_pad_ops = {
-+	.enum_mbus_code		= dcmipp_isp_enum_mbus_code,
-+	.enum_frame_size	= dcmipp_isp_enum_frame_size,
-+	.get_fmt		= v4l2_subdev_get_fmt,
-+	.set_fmt		= dcmipp_isp_set_fmt,
-+	.get_selection		= dcmipp_pixelpipe_get_selection,
-+	.set_selection		= dcmipp_isp_set_selection,
-+	.enable_streams		= dcmipp_isp_enable_streams,
-+	.disable_streams	= dcmipp_isp_disable_streams,
-+};
-+
-+static const struct v4l2_subdev_video_ops dcmipp_isp_video_ops = {
-+	.s_stream = v4l2_subdev_s_stream_helper,
-+};
-+
-+static const struct v4l2_subdev_ops dcmipp_isp_ops = {
-+	.pad = &dcmipp_isp_pad_ops,
-+	.video = &dcmipp_isp_video_ops,
-+};
-+
-+static void dcmipp_isp_release(struct v4l2_subdev *sd)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+
-+	kfree(isp);
-+}
-+
-+static const struct v4l2_subdev_internal_ops dcmipp_isp_int_ops = {
-+	.init_state = dcmipp_isp_init_state,
-+	.release = dcmipp_isp_release,
-+};
-+
-+void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved)
-+{
-+	struct dcmipp_isp_device *isp =
-+			container_of(ved, struct dcmipp_isp_device, ved);
-+
-+	dcmipp_ent_sd_unregister(ved, &isp->sd);
-+}
-+
-+struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp)
-+{
-+	struct dcmipp_isp_device *isp;
-+	const unsigned long pads_flag[] = {
-+		MEDIA_PAD_FL_SINK, MEDIA_PAD_FL_SOURCE,
-+		MEDIA_PAD_FL_SOURCE,
-+	};
-+	int ret;
-+
-+	/* Allocate the isp struct */
-+	isp = kzalloc_obj(*isp);
-+	if (!isp)
-+		return ERR_PTR(-ENOMEM);
-+
-+	isp->regs = dcmipp->regs;
-+
-+	/* Initialize ved and sd */
-+	ret = dcmipp_ent_sd_register(&isp->ved, &isp->sd,
-+				     &dcmipp->v4l2_dev, entity_name,
-+				     MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER,
-+				     ARRAY_SIZE(pads_flag), pads_flag,
-+				     &dcmipp_isp_int_ops, &dcmipp_isp_ops,
-+				     NULL, NULL);
-+	if (ret) {
-+		kfree(isp);
-+		return ERR_PTR(ret);
-+	}
-+
-+	isp->ved.dcmipp = dcmipp;
-+	isp->dev = dcmipp->dev;
-+
-+	return &isp->ved;
-+}
+@@ -88,8 +88,8 @@ static const struct dcmipp_ent_config stm32mp25_ent_config[] = {
+ 	},
+ 	{
+ 		.name = "dcmipp_dump_capture",
+-		.init = dcmipp_bytecap_ent_init,
+-		.release = dcmipp_bytecap_ent_release,
++		.init = dcmipp_capture_ent_init,
++		.release = dcmipp_capture_ent_release,
+ 	},
+ };
+ 
 
 -- 
 2.34.1
