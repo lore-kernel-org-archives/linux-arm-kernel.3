@@ -4,175 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02A9C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFD4C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ljLEy7/NVspyL0hMV0pTQYvooqbN5FNKj8Cc8tlCHY=; b=1bWoT1cJA4Re+zfgqr4coQ4PL7
-	JwQzHNKURchZ/26hKxBNNAJdcc6TmLgfOVs+cze95LXi+z4+M3SVDNdYIVKNxrf1MiCErqKy5QM3P
-	2NWSvSqs8fFI4OKq1vAq8FRmVM2trPMhdZF7dst1j5gO22jeEaHsdJ3/aJ52wAiuE7bx+PfE8vqtQ
-	AqO3qzSZA56a+ctM8u2VSyESi/qPbLwgo8Lrnteb8RfcVAzi4RcnhnEVHHXvXGDiRQG/IDwwrEsPE
-	ncg/F9T/F7OuiPewpBE0q0MZnlpPvTnNmKmMnSXQHz3KXjggyrJdrcfoNSqvw1gu0zotFFJ1oubDg
-	mCeyTLog==;
+	bh=/Jh2uux1jBxLqToUKJECqMG2sK7Obcmqmg4feylgaU8=; b=UTh490Sb7tVBNAkkQkpAylTSII
+	Xgx5ELSRdEO77tsjxMZizTY7Sf52jmScDp9O9simpeIpaNWtbW00xccAuYNr/NVXx3UAjRMGAUC0b
+	FUiQGsaGWVcjfuAPseJ68v0Bi1WsNPTSOKaTVJaynzUTLv9y/GNJ6C4d4z1NOVCaBSXf4PS7zkOFp
+	6EIOfiCmpgWxSyjZx9LYFZt2YXVCVJrYOM0sGMlpoOAlbvVE7+csjGbEj3QKld6tvTy7aSfwYnhwX
+	5IGYXL4RamrjlSdgGyRFSpzsmn8k1Xkl3YdrkyNfdlCcAa9GP3x3fwiLeKNCVwky1RQBWgTGYmpaO
+	MwnbNYxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9N4-0000000FbJw-3TzX;
-	Fri, 24 Jul 2026 06:26:58 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9N1-0000000FbJG-30hd
+	id 1wn9RF-0000000Fbjn-1qEx;
+	Fri, 24 Jul 2026 06:31:17 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wn9RD-0000000FbjS-1SZl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:26:57 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66O4l51S2134598;
-	Fri, 24 Jul 2026 01:26:28 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=8ljLEy7/NVspyL0hMV0pTQYvooqbN5FNKj8Cc8tlC
-	HY=; b=j8ozTS0jiYEUuk+dBhosRMG0V0GgPeDCRvtXil047q/NiRof/6Aajrl56
-	sCLMXqEuMlSHHbuPlxxjzs6JoJvIMHXgCIkyHuxG91rgl8SW3ZbgjEPd55hHxkGE
-	rrPy5t7MFQ1mxUMIuVXchjowyttPz0u7tpaqsRJhrS/CTfsVjWPjNcZYH8edBSWI
-	DsmODoabjeV+5S/yuZ/KJ04L7a2iJY4eSEullX+HCK+tyB0QKIe7Wpft7/dOCfGL
-	iZCyKJdfn20Fc2cH14BbEPPIzwju2stNDB3VRj9i+ZSNMeQJuTXkmTSYz/oS2yha
-	GJOgofG6W9JD/ppF0J2drKjRS05ig==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012068.outbound.protection.outlook.com [40.107.209.68])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4fkhvuwqqe-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 24 Jul 2026 01:26:28 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q/pMZ5MCViS8qqJlHR8sUOUt9uf9EKIqw3v0GGxOwZ9LtUMJCCFp08G9R/wlck/OJc+bcXSQ04+OKtj4YG0mBQPDR+RUxto207iTMuNK/evXy87loYqh/0pDkxfQygARNDtGIuEnlJEkHJnH4WrJx5kDMLHWS0NUDlCkXgiGLSkRzbZH+bqR9v86q60/68onhrvLd1hhlMqIFJEOc46ncbGWNSlIvLtLCDqGWd57x9tIdF5b2NQ99VmwUjLaspJLgdDPPaOGLTQwflnfaPmtz5PYDsYNSjD8GjoEz0kwZz6QvU7SF2gOt9fVskiCzSbGKHU7XAYGDIDc/zYgvW4I3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8ljLEy7/NVspyL0hMV0pTQYvooqbN5FNKj8Cc8tlCHY=;
- b=nquRk1HP4enPQuzxWCQ5NM90fiWNj09BzWWyqwg4CnUi3uA31uOUKfwwMPPWYPhAbMt+N4QmAa7p0+nCRCxMi2twtAaSDCITforz4wZRxEsD4l+UDNDZyAxjy0q5nToQu3nzN1iYuar7otMYGHwR+WlZxTS2/xZbZOu2AndQ9UpmBh+kMK8EwCq8EzMLECL5rEV2IpS1VhffqGjfHQYZSnyLBeIe2PSxGdiEnpThruXCuQXHcq9OinYGT40gc2nn8owiV49y5s1xt4lyXLe4OsP2MOB6MWBOAYRSvf7IKcQy3AhHnXBq1x6zY6o8VGgUtbI4zePrP7ie1GCnvdyL8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8ljLEy7/NVspyL0hMV0pTQYvooqbN5FNKj8Cc8tlCHY=;
- b=H6RLLtMJ43KH4U31VRCiqAkU9iZkl960M1vw1SCa/QQqgLII9j1+qR8VKzuypQW6D8PkWUYp2yyBqm5V7BmAiHl+gyU+UwcEtCLi5Lc29tYDC7SSWwNIdZPDlTz6dwI434nsCU3ezaxQmQHSLtmbxLB7XEX3S1XzDmCg4rUPMtg=
-Received: from BL1P221CA0044.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:5b5::16)
- by CH3PR10MB7680.namprd10.prod.outlook.com (2603:10b6:610:179::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 06:26:25 +0000
-Received: from BL6PEPF0001AB4A.namprd04.prod.outlook.com
- (2603:10b6:208:5b5:cafe::83) by BL1P221CA0044.outlook.office365.com
- (2603:10b6:208:5b5::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 06:26:25 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BL6PEPF0001AB4A.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 06:26:24 +0000
-Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 24 Jul
- 2026 01:26:22 -0500
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 24 Jul
- 2026 01:26:21 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 24 Jul 2026 01:26:21 -0500
-Received: from [10.24.50.130] (uda0132425.dhcp.ti.com [10.24.50.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66O6QENL2665797;
-	Fri, 24 Jul 2026 01:26:15 -0500
-Message-ID: <dc5ca21d-cf42-45af-9069-5faf6a82745e@ti.com>
-Date: Fri, 24 Jul 2026 11:56:14 +0530
+	Fri, 24 Jul 2026 06:31:16 +0000
+Received: from [10.94.177.11] (unknown [4.194.122.136])
+	by linux.microsoft.com (Postfix) with ESMTPSA id AEFCB20B7167;
+	Thu, 23 Jul 2026 23:30:58 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AEFCB20B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1784874660;
+	bh=/Jh2uux1jBxLqToUKJECqMG2sK7Obcmqmg4feylgaU8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IGel+OV0IHKY85p6P92wZjIKwhcuWVJFzLod6i5oBZEO+Noaj8LnAgTyG3GUMnXkk
+	 qpJwNDUNJzkUAmBz/eAPshQRfgwUSMxwGVHbQSX1dsAtXl6hE0m7MNQXqqytsXU9yp
+	 B5zC3+oiM2iimvE6hAqslOZojIm5kP/ZRyZU9ERI=
+Message-ID: <d910521d-0446-4b78-b717-062c263eea9f@linux.microsoft.com>
+Date: Fri, 24 Jul 2026 12:01:10 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH 0/5] arm64: dts: ti: k3-am62-verdin: Add Toradex
- Capacitive Touch Display 10.1" LVDS
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-        <laurent.pinchart@ideasonboard.com>, <jesszhan0024@gmail.com>,
-        <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-        <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <nm@ti.com>, <kristo@kernel.org>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <thierry.reding@gmail.com>,
-        <sam@ravnborg.org>, Leonardo Costa
-	<leoreis.costa@gmail.com>
-CC: <leonardo.costa@toradex.com>, <dri-devel@lists.freedesktop.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20260623195741.495734-1-leoreis.costa@gmail.com>
- <178473052640.1949706.11360946998734187321.b4-ty@b4>
-From: Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH 4/4] firmware: xilinx: Use TF-A feature check for TF-A
+ specific APIs
+To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, michal.simek@amd.com,
+ git@amd.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260723124841.2567827-1-jay.buddhabhatti@amd.com>
+ <20260723124841.2567827-5-jay.buddhabhatti@amd.com>
 Content-Language: en-US
-In-Reply-To: <178473052640.1949706.11360946998734187321.b4-ty@b4>
-Content-Type: text/plain; charset="UTF-8"
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+In-Reply-To: <20260723124841.2567827-5-jay.buddhabhatti@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4A:EE_|CH3PR10MB7680:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d4044f6-9840-49a9-0a50-08dee94c7c2e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|376014|82310400026|1800799024|13003099007|921020|56012099006|10067099003|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 2MCt34RX6E8whKlMJRNKrcSJVuZj3EQwqdZCJcJM081ZSjFCG3oFNuRoIHLEfvejQchW6LTfze+K3/R/Go+LuGwZKtUpYfebKnRHApkVAO6idmy7eUhlwwsPJbnZvOQKBC/v76wgNbttuQqJnw3wRvLNdHImULoiuj7y0jRmtQK04FQKu1W/hFYM9bbz9YGFlfMOCEd8lDhXnmJuRlf8e93e4kkF1qJKHC873lxIDyGfzYBf80gip94foxUZAMpvvd5TLfqssgPB39eebCnd5H8DdMTcS1JcMwVgH3/iEGlZKJHNoeJ7uXUV/0HJs1QTTOwvAO7n9zq3FiI2kUYzt6f36lNdXitoCgctk23zPd/TQNbFx6el+T2sSEYfyj6b/Oam8lOFJi/kLyT5t0P1qRU7j4l1ty0yVybPW/8qxLs2ud50OoMkTMRtqDSVrBVgNpTLgebg33GIVP2i1M2XpG4YMskHQJUVRQ6JvEduqTmltPCZNs6vVJVW6R4QOTOzblHf/Xl9dVNWkXqydbYIF9kED/qkY6nEUcwOIH1NK8QJlrGxXsNf7oPk7ElIBHkrJITLWXJlKmx93L0QoEw8ZP6H2oTh6WlKMMIzb71zglYcjqcgkufJ5k8Cn06bbX5GelfQsveaDHfQHdW5EfyBZl9G1cu7PdMkEPztTmdo5Hd1P8sJcaf3bCFkkwWItHqV
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(376014)(82310400026)(1800799024)(13003099007)(921020)(56012099006)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6zlHNPgINDMchTWrg6YDCmz6Ne7BwbshPgv2wBU/q0paOQTEfJmVWWRyxpS49yUo9M8PQ9snjDafipRMT4T8u6UGsgykQ7Ea4+pq/XH9KusHg8EFMNAbNgE2q9jrS4RopnN6kbAONXcYCkLc9U1FjmkoClKdUgaCtLtf+m37OktYOAMfze87pezN1reuLkBKAD3MogS5Ke/WAS45LzZ1IFueXXBHxZraaTRSkavBDB+WS1IWL4umJkZ2T51N/rrCllbnEyADQAVV44cHnYhl3Y7drVpJM8Km9rf06yd/l768EoZeGH7iV3g3tt4ZYDL8D3LGzarC90bRs7fAi+gYEFeKaNfFV3WtZIKVO8F0/Zb4EbtfkDEYtJyepS4X+plpAmf3PfwI3t9zh3pN0mkCnmPMR+NS65rZNIZorXyBulbaYedSTeUM4qbVilTkGsro
-X-Exchange-RoutingPolicyChecked: JHckG2/kSC/Etq0WGkGUIm5R0uXsdRlHgg2BZ7IhbCe4Otj4vfgz+69xbZ9EjbhplAVUcsgtbpUa+8/YEfL/tGklOQIIHRC9mb66fcoPfTjYhPXIbhC0JT7ap/UaTYBw6fkzPQdE4HLHchBr+Cmsson88TppyPrMUKnZwwcn2DnHSfieG96Aahs6AfXeLE+ZOEOw9GDOVp+Ct55jMZR6te7TWpNwIbzlj7nbE8ThDZIrpAv1HGBQgdgm+1Dq2THxMo3mJpF3LuH9yg3vVCfm87Vbc4E3hStp1a9A0F1qxi4OX5A+iihulrxSQWKzSfHIrvniOzGCSKC41NW5M2zy4w==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 06:26:24.2234
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d4044f6-9840-49a9-0a50-08dee94c7c2e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7680
-X-Authority-Analysis: v=2.4 cv=I6VVgtgg c=1 sm=1 tr=0 ts=6a630594 cx=c_pps
- a=R5REeynT8B2cGAMauuPKTw==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=e5mUnYsNAAAA:8 a=sozttTNsAAAA:8 a=m8ToADvmAAAA:8
- a=36ToB7h48dUqzmaKGeEA:9 a=QEXdDO2ut3YA:10 a=Vxmtnl_E_bksehYqCbjh:22
- a=kCrBFHLFDAq2jDEeoMj9:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDA1NiBTYWx0ZWRfXw88zq0owYSQh
- GBoCE3h/up1CbDXFkRYS7g703zqlJD2fnaBsm5YWl1yhbp217n55ws8hFAdxLuSuyLhRdN/e34P
- GcIo4Mcw9dQ3b4sERPpgNh6S+jAjIeY=
-X-Proofpoint-GUID: 7rd6srIshBHaGga9D7gX4QEoqtgY7i3z
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDA1NiBTYWx0ZWRfX0KVhpjLxzvm/
- fKg0CwlLeYSMaBGAsEsuOTYIFZ4SW9okukBdC78/fP+IIntQTUJA7KLGHIM6+X2aG3jo2DGp2Bq
- b3jrlKEeDSzYxoFMnpVk7ixuQk9SNygxTvANBVXP0XPKLdE3jiPX99ek/PJANe9nSCNyHrwLGKi
- MzrVBLIYi2G0pz/9bX9USZG/QnCaeWEUlEFzjgH5fdvVB1Wsic7vMyf1eA7ZSg1FzbZalsIY9uX
- DVx/6Si9z+OnQ17xrfDPt9ARxlLMbd27lZk6baf1mFNVztipWo7vQLXg8nH5J7ytNpJqNmrbQKM
- ammrOFaOo95DHwV5ZkmF1umEBATLBi/b/TLcWImxYAPGGrGisPDfTRDm1mcnREbfsViuoL6S5qm
- EpfoUtehuNJtdLUyTal6EDyXxJ06mdxU7ddN031XMZSFPaLqQ/N88s0HBS2DgUZ6Km/sYmNkQeS
- rnFIk/lGP8whT86V1Fg==
-X-Proofpoint-ORIG-GUID: 7rd6srIshBHaGga9D7gX4QEoqtgY7i3z
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-24_01,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 malwarescore=0 impostorscore=0 suspectscore=0
- phishscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607240056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_232655_914169_AC842BE9 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260723_233115_419151_7C919F64 
+X-CRM114-Status: GOOD (  27.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,33 +71,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil
+Hi Jay,
 
-On 22/07/26 19:58, Neil Armstrong wrote:
-> Hi,
+On 23-07-2026 18:18, Jay Buddhabhatti wrote:
+> Currently, TF-A-specific APIs are validated using the firmware
+> PM_FEATURE_CHECK API, even though TF-A provides a dedicated mechanism via
+> PM_API_FEATURES API. Ideally it should use the TF-A feature check
+> (PM_API_FEATURES) for TF-A specific APIs. Update the feature check logic
+> for TF-A specific API calls to ensure it is validated using
+> PM_API_FEATURES. If this check fails, fall back to the legacy
+> PM_FEATURE_CHECK to support backward compatibility.
 > 
-> On Tue, 23 Jun 2026 16:57:36 -0300, Leonardo Costa wrote:
->> From: Leonardo Costa <leonardo.costa@toradex.com>
->>
->> This series adds device tree overlays for Toradex Capacitive
->> Touch Display 10.1" LVDS V2 on Verdin AM62.
->>
->> The display addition covers two interface types:
->>
->> [...]
+> When do_fw_call() fails, propagate the errno from zynqmp_pm_ret_code()
+> instead of always returning -EOPNOTSUPP. This applies to every module ID,
+> not only TF-A, because the rewrite sat in the common failure path.
+> Existing callers only test ret < 0 and are unchanged.
 > 
-> Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
+> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+> ---
+>   drivers/firmware/xilinx/zynqmp.c | 31 +++++++++++++++++--------------
+>   1 file changed, 17 insertions(+), 14 deletions(-)
 > 
-> [2/5] dt-bindings: display: panel-lvds: Add compatible for Opto Logic SCX1001511GGC49
->       https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/6ce748682f746a0c1ae311191fb820b08151ddb6
-> 
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index fc7212f554ee..0b6c20a1d8be 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -224,34 +224,37 @@ static int __do_feature_check_call(const u32 api_id, u32 *ret_payload)
+>   	module_id = FIELD_GET(MODULE_ID_MASK, api_id);
+>   
+>   	/*
+> -	 * Feature check of APIs belonging to PM, XSEM, and TF-A are handled by calling
+> +	 * Feature check of APIs belonging to PM and XSEM are handled by calling
+>   	 * PM_FEATURE_CHECK API. For other modules, call PM_API_FEATURES API.
+>   	 */
+> -	if (module_id == PM_MODULE_ID || module_id == XSEM_MODULE_ID || module_id == TF_A_MODULE_ID)
+> +	if (module_id == PM_MODULE_ID || module_id == XSEM_MODULE_ID)
+>   		feature_check_api_id = PM_FEATURE_CHECK;
+>   	else
+>   		feature_check_api_id = PM_API_FEATURES;
+>   
+> -	/*
+> -	 * Feature check of TF-A APIs is done in the TF-A layer and it expects for
+> -	 * MODULE_ID_MASK bits of SMC's arg[0] to be the same as PM_MODULE_ID.
+> -	 */
+> -	if (module_id == TF_A_MODULE_ID) {
+> -		module_id = PM_MODULE_ID;
+> +	if (module_id == TF_A_MODULE_ID)
+>   		smc_arg[1] = api_id;
+> -	} else {
+> +	else
+>   		smc_arg[1] = (api_id & API_ID_MASK);
+> -	}
+>   
+>   	smc_arg[0] = PM_SIP_SVC | FIELD_PREP(MODULE_ID_MASK, module_id) | feature_check_api_id;
+>   
+>   	ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
+> +
+> +	/*
+> +	 * For TF-A APIs, if the feature check with PM_API_FEATURES fails,
+> +	 * retry with the legacy PM_FEATURE_CHECK for backward compatibility.
+> +	 */
+> +	if (module_id == TF_A_MODULE_ID && ret) {
+> +		smc_arg[0] = PM_SIP_SVC | FIELD_PREP(MODULE_ID_MASK, PM_MODULE_ID) |
+> +			     PM_FEATURE_CHECK;
+> +		ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
+> +	}
 
-Could you also pick up 1/5 which adds the optologic vendor prefix needed
-by 2/5. Thanks!
+This looks like a general improvement unrelated to the other patches in 
+this series. I think this should go as a separate patch (not as a part 
+of this series).
 
--- 
-Regards
-Vignesh
-https://ti.com/opensource
+> +
+>   	if (ret)
+> -		ret = -EOPNOTSUPP;
+> -	else
+> -		ret = ret_payload[1];
+> +		return ret;
+>   
+> -	return ret;
+> +	return ret_payload[1];
+>   }
+>   
+>   static int do_feature_check_call(const u32 api_id)
 
+The return value change is separate improvement unrelated to the series 
+or to the PM_API_FEATURES API usage. I think this change can be carved 
+out to a separate patch.
+
+Except for the above nits, code looks good to me.
+
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+
+Regards,
+Prasanna Kumar
 
