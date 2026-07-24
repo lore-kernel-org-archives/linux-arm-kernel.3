@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709CBC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48773C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RfjwbfsQ14hba1yTFrgAkcK+sVOtX/bwEy3i4fFxYwE=; b=yZTa3fskoO+lhDRjk8ZNlLCk8Y
-	KV426VhnOJ55QiEqixS2nZmzLkDrG4k8x6N+vVtVjUhUDlueJkuf6gjawJs84jC1/ojYPlxmeHH7Y
-	xMjaDLv0/iOBX19DPOuEHOwJo+VS5EX6QEygXv+Gb2mgrBDIT06v79Wr5KLrht9zV5t+gktxd6Qhq
-	TXsBHz3JzZGmeQSsUBjeKHhnQC9AmltdmyTnEROb80mIixPl8g9tJ6+TNML30W+NdW8FibPTeD+dr
-	SDPHz32AcaCtTmG9osalLK5TtXU99f+AQmGctc9niB8cQS716+4MILTI4crHTHuur2JJNHJLdCHN9
-	caqxvo8Q==;
+	bh=1CRYtKAwXeZGM1gR9Z/9+X7fpSzKSvyzYdMLl3XlVdM=; b=tUOpdBatjAtxJVUww4gsLqmbtF
+	qMjfgrfRz0xDMU1TQXM+7oVxy1JRPtkVb6rNBP1/hHSNYMG5NgeZVLw0C4Qa12558CSEr4bJrSQp2
+	U7Q6fKeKjvm7uAyfThuKn8f5Y6V4xYY88WVFMzJbT9m13n30xsSJ15Rjf3FFx2KDPTyUV5xhP00IY
+	V0XeHTrvjtoz9nml8jfRIHmrNt/a5K+BRc1uSAWudmLD9XoP6CEf7f6m4JgB0y22Ms7wsCDv7PK1m
+	yoKVTFGKliFrcUaXK5MfxryYFCINO8Ya7n2131Q4kOlaWMF0yQS05HqJZuj1mDK/HbqSQlGCgG5Xp
+	efoNZwGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn99u-0000000FZ58-3cqm;
-	Fri, 24 Jul 2026 06:13:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wn9Ac-0000000FZIC-09Qt;
+	Fri, 24 Jul 2026 06:14:06 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn99t-0000000FZ51-2y7y
+	id 1wn9AZ-0000000FZGo-32sW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:13:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F3C543661;
-	Fri, 24 Jul 2026 06:13:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97FF31F000E9;
-	Fri, 24 Jul 2026 06:13:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784873601;
-	bh=RfjwbfsQ14hba1yTFrgAkcK+sVOtX/bwEy3i4fFxYwE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=A1KrhkvOe2L8dF3SlAmNpCVPP90aghPO8cUbh+1QhKH81maj0qMhltP7AVu/vODle
-	 ktmB/rqKNFV4USPGY9bdLCKphLTgrgyaobIsvASO5pHlA8YyarjxT31kNUX67bpSp/
-	 QfYQAmZY16FkXNXJa4B0ssq1x1c3wHyjd855pWID5WC+2R9qsmBqwLKPDaZLZ6upti
-	 C/05Eknl4lRQhS8lVTc5Tbly3z7uABietA3nrw3wTXRImVBXB+uy32OgN4LXiO5d5a
-	 7huYezwQpNxqgFt//oNM6Jy61l660XkC+ZGPnZlLq+wA6j20vXK8+VU9V3K5gLhvQn
-	 MWf5pEx0Ns8gw==
-Date: Fri, 24 Jul 2026 08:13:16 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexandru Chimac <alex@chimac.ro>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: clock: samsung: Add Exynos9610 CMU
- bindings
-Message-ID: <20260724-supportive-jasmine-bandicoot-ed2c8c@quoll>
-References: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
- <20260722-exynos9610-clocks-v3-1-c672a2a30889@chimac.ro>
+	Fri, 24 Jul 2026 06:14:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1784873641; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=1CRYtKAwXeZGM1gR9Z/9+X7fpSzKSvyzYdMLl3XlVdM=;
+	b=bTE4HN5PI30xJQC4R3FXWPpai/pxnKhv9Mq68EfBsgwKIxV5/WD8qWRlrjwvVik6iLqITVYmCtvUSPMPL7bjo8mGmGlCEyWFfvGvVYvJscxZqT4r/t0HoH8vMTvbFGdB9S9K0fhQP+0bvpc5RAHh8ZrkpOLoDquWAbbEvTJ1N3A=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7iDRbk_1784873640;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7iDRbk_1784873640 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 24 Jul 2026 14:14:00 +0800
+Date: Fri, 24 Jul 2026 14:13:59 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH v3 18/28] KVM: arm64: Add kvm_has_nv{2,3}() predicates
+Message-ID: <43cyajmghg4zw63hul4jx2clhtejlwmdi6srvqzgjajaopkwwi@ewdvwgvbitao>
+References: <20260722074234.3330999-1-maz@kernel.org>
+ <20260722074234.3330999-19-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260722-exynos9610-clocks-v3-1-c672a2a30889@chimac.ro>
+In-Reply-To: <20260722074234.3330999-19-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_231403_916297_6DFD0FFD 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,191 +69,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 11:44:02PM +0300, Alexandru Chimac wrote:
-> This clock management unit has a topmost block (CMU_TOP)
-> that generates top clocks for other blocks, alongside 20
-> other blocks, out of which 11 are currently implemented.
-
-This feels not properly wrapped.
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
-> 
-> Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+On Wed, Jul 22, 2026 at 08:42:24AM +0800, Marc Zyngier wrote:
+> Add a new set of predicates indicating whether VM is capable of
+> NV2, NV3, and is in a nested NV3 context.
+>
+> This is going to become useful as we start dealing with a mix of
+> behaviours (NV2, NV3, NV2 on NV3...).
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->  .../bindings/clock/samsung,exynos9610-cmu.yaml     | 335 ++++++++++
->  include/dt-bindings/clock/samsung,exynos9610-cmu.h | 722 +++++++++++++++++++++
->  2 files changed, 1057 insertions(+)
-
-...
-
-> +  compatible:
-> +    enum:
-> +      - samsung,exynos9610-cmu-top
-> +      - samsung,exynos9610-cmu-apm
-> +      - samsung,exynos9610-cmu-cam
-> +      - samsung,exynos9610-cmu-cmgp
-> +      - samsung,exynos9610-cmu-core
-> +      - samsung,exynos9610-cmu-cpucl0
-> +      - samsung,exynos9610-cmu-dispaud
-> +      - samsung,exynos9610-cmu-fsys
-> +      - samsung,exynos9610-cmu-g2d
-> +      - samsung,exynos9610-cmu-g3d
-> +      - samsung,exynos9610-cmu-peri
-> +      - samsung,exynos9610-cmu-usb
-
-List should be ordered alphabetically.
-
+>  arch/arm64/include/asm/kvm_emulate.h | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 9831166695186..c562d8171d5e1 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -266,6 +266,26 @@ static inline bool vserror_state_is_nested(struct kvm_vcpu *vcpu)
+>  	       (__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_TMEA);
+>  }
+>
+> +static inline bool kvm_has_nv2(struct kvm *kvm)
+> +{
+> +	return (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) &&
+> +		kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY));
+> +}
 > +
-> +  clocks:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - "#clock-cells"
-> +  - clocks
-> +  - clock-names
-> +  - reg
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: samsung,exynos9610-cmu-top
+> +static inline bool kvm_has_nv3(struct kvm *kvm)
+> +{
+> +	return (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) &&
+> +		cpus_have_final_cap(ARM64_HAS_NV3) &&
 
-And then the same order of "if:then:" cases.
+Minor: only check cpus_have_final_cap(ARM64_HAS_NV3) is enough ?
 
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+
+> +		kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV3));
+> +}
 > +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: External reference clock (26MHz)
+> +static inline bool is_nested_nv3_ctxt(struct kvm_vcpu *vcpu)
+> +{
+> +	return (has_vhe() && kvm_has_nv3(vcpu->kvm) && is_nested_ctxt(vcpu) &&
+> +		(__vcpu_sys_reg(vcpu, HCR_EL2) & HCR_EL2_NV) &&
+> +		(__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_NVTGE));
+> +}
 > +
-> +        clock-names:
-> +          items:
-> +            - const: oscclk
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: samsung,exynos9610-cmu-apm
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: External reference clock (26MHz)
-> +            - description: CMU_APM bus clock (from CMU_TOP)
-> +
-> +        clock-names:
-> +          items:
-> +            - const: oscclk
-> +            - const: dout_cmu_apm_bus
-
-...
-
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  # Clock controller node for CMU_FSYS
-
-Drop comment, compatible defines that this is CMU FSYS
-
-> +  - |
-> +    #include <dt-bindings/clock/samsung,exynos9610-cmu.h>
-> +
-> +    cmu_fsys: clock-controller@13400000 {
-
-Drop unused label.
-
-> +        compatible = "samsung,exynos9610-cmu-fsys";
-> +        reg = <0x13400000 0x8000>;
-> +        #clock-cells = <1>;
-> +
-> +        clocks = <&oscclk>,
-> +                 <&cmu_top CLK_DOUT_CMU_FSYS_BUS>,
-> +                 <&cmu_top CLK_DOUT_CMU_FSYS_MMC_CARD>,
-> +                 <&cmu_top CLK_DOUT_CMU_FSYS_MMC_EMBD>,
-> +                 <&cmu_top CLK_DOUT_CMU_FSYS_UFS_EMBD>;
-> +        clock-names = "oscclk",
-> +                      "dout_cmu_fsys_bus",
-> +                      "dout_cmu_fsys_mmc_card",
-> +                      "dout_cmu_fsys_mmc_embd",
-> +                      "dout_cmu_fsys_ufs_embd";
-> +    };
-> +...
-
-...
-
-> +/* CMU_CAM muxes */
-> +#define CLK_MOUT_PLL_CAM_BUS_USER			1
-> +
-> +/* CMU_CAM dividers */
-> +#define CLK_DIV_CLK_CAM_BUSP				2
-> +
-> +/* CMU_CAM gates */
-> +#define CLK_GAT_CLK_CAM_CMU_PCLK			3
-> +#define CLK_GAT_CLK_CAM_OSCCLK_CLK			4
-> +#define CLK_GOUT_CAM_BUSD				5
-> +#define CLK_GOUT_CAM_BTM_ACLK				6
-> +#define CLK_GOUT_CAM_BTM_PCLK				7
-> +#define CLK_GOUT_CAM_LHS_ATB_CAMISP_CLK			8
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_3AA			9
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS0		10
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS1		11
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS2		12
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS3		13
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_RDMA			14
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS0		15
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS1		16
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS2		17
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS3		18
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_PAFSTAT_CORE		19
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_PPMU_CAM		20
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_DMA			21
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_SMMU_CAM		22
-> +#define CLK_GOUT_CAM_IS6P10P0_ACLK_XIU_D_CAM		23
-> +#define CLK_GOUT_CAM_IS6P10P0_PCLK_PGEN_LITE_CAM0	24
-> +#define CLK_GOUT_CAM_IS6P10P0_PCLK_PGEN_LITE_CAM1	25
-> +#define CLK_GOUT_CAM_IS6P10P0_PCLK_PPMU_CAM		26
-> +#define CLK_GOUT_CAM_LHM_AXI_P_CLK			27
-> +#define CLK_GOUT_CAM_LHS_ACEL_D_CLK			28
-> +#define CLK_GOUT_CAM_BUSD_CLK				29
-> +#define CLK_GOUT_CAM_BUSP_CLK				30
-> +#define CLK_GOUT_CAM_SYSREG_PCLK			31
-> +
-> +/* CMU_CMGP muxes */
-> +#define CLK_MOUT_CLK_CMGP_ADC			0
-
-Use consistent indexing - either start from 0 or from 1. All other cases
-started from 1.
-
-> +#define CLK_MOUT_CLK_CMGP_I2C			1
-> +#define CLK_MOUT_CLK_CMGP_USI00			2
-> +#define CLK_MOUT_CLK_CMGP_USI01			3
-> +#define CLK_MOUT_CLK_CMGP_USI02			4
-> +#define CLK_MOUT_CLK_CMGP_USI03			5
-> +#define CLK_MOUT_CLK_CMGP_USI04			6
-
-Best regards,
-Krzysztof
-
+>  /*
+>   * The layout of SPSR for an AArch32 state is different when observed from an
+>   * AArch64 SPSR_ELx or an AArch32 SPSR_*. This function generates the AArch32
+> --
+> 2.47.3
 
