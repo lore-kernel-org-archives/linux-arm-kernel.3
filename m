@@ -4,132 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515F0C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77ADC531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vg4s7YQGEpbn6uVh1jE8hIHTM50DTd5oWkY0y49LalI=; b=JeSDdjCTfRowDlBAicVruY5giv
-	5umZsu8aBmzSxAvTi9jk8UnNCyu7RpJQVG6uNHgR5nEUa06NqbM4ELJkIG9YTvyDPJiRhiZ0+mh4q
-	JOhrxb2HqtTcrNxtWoazc/dCzfoGIx0bOWysuzuqVLPcCNOfbDFIDUlaqXPGnd4zBkii6gDYQzIvN
-	2TRQVVnyVCy15KljvWc9SciJAYgzzm+rYrgPzC3+lEbxv8iEUw5PDL944nvY76+D+K9kqedOSkZZJ
-	MH5+/6n/+UVQ1C0YHRPKurLo7XGVOaNjkV7hwLkVPiWINha7oQ3neHN4KA2yLZ/9PvYb7ljhI6aRq
-	0bsR+sRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eVI+fdeA8ql3siJUMSZcOL5IYoKX03K7PYPOGmPMilI=; b=CEqlLWgsjhK+MI
+	5cQoB2kz3uPlaeKzXAoXISnBxPbyc7dbLy6k/H6f2UkqZGUdGLf/ab9rc0FSYd2kA2viOSPuSy36s
+	+UG7bZXtRvfzE+lTFIKF/7GLTnPqWqrdR/BhDoqbPnJZHCL/i6ayuT1SRk2UqxaSwoUye4moCXabU
+	IGtD30VXNDfsLvzxZ1W0G7wNUXOrztuIEk59sdXiUIx4MWreZjUa9sFykTxfPlm9SmJVE1I2blHMJ
+	J7kt9rAjU3pKz/3kRnkiJZGPEXuV97jQFIo/aHJ5fiGVWGiazO9g3l5Ie3hZZrcjZA0xt+5dX4Ycf
+	FdsyGj7sm7cfpZ1RtVxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIW5-0000000Gn5q-2A79;
-	Fri, 24 Jul 2026 16:12:53 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wnIXW-0000000GnPV-3hx5;
+	Fri, 24 Jul 2026 16:14:22 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIW2-0000000Gn53-1d9d;
-	Fri, 24 Jul 2026 16:12:51 +0000
+	id 1wnIXU-0000000GnNu-10jO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jul 2026 16:14:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PmFRV+hUnoB1TKItjNlDaoeB8QFlP8Yvg5qg7DbGy3gqtq08EJVpB9hBE4q9zu66wO5TRahPZfEIUjFDZsbVJsegFqoZ6rC62JYv+Q00XxY+djaHS2K5vffC63vUw0A/OESW8ZvlHOn0GjQsIx8s3xH4Vf42ayQxXP3NfAmVtKpFVW5Cb1P5qA1jg2Qgrwt8iu4CNnvy/0GH0sgQJBq0Me2zbqokmCaw74XStjvmtIgs1O8cgJe0kXnywNlXcwjDLNTGMyEHvYR+YnkPQ8M7R0kewHVgznjKMzDn0NX994bW5WhvgPRL1xMkcm8D6C7hRCZC4YcXSxwY8aNIdDvhZQ==
+ b=bfH4nuYQyWmJ97wg2aGOlZ+AOfLOAVCX3sOtfb3UpVAltAZZkItz6j2Nobga6xaeRe6XglPDFt3cm0ZhJhNstjs9e4ysTYtAOecvc+xl9ropwuz3AigL+xnTqVpoOd9q8s1RpdhKuOwLMeTs0MQuHuFzbcsDHe5XGpFb5ItqzpqQo1yklETeLaS0+hnVEoAMgBBI9MLsx3qPcBHbzeJiPHOcowln6Ri+o0F80BxQCG4QuYnjtDJnyFrFn1i9e8BsKiI2nZU8R7A/CBOZlwGTnmKo7Rn4G8HOKLQeC+8UNUGt6iHqnNugdx1nu+Qo4ZSvGS5czA0Nv5IfXXBoJV6oSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vg4s7YQGEpbn6uVh1jE8hIHTM50DTd5oWkY0y49LalI=;
- b=SRFKTV9wjYCIyYmRamW7jZnlkcicon02kDtI8z4uPvzOyV06AEsKkOgYiDhbEmo9kJicB+hbM9HIt/bM2mfN7UxD78XfjdzNTd2Njn67UF1a/RB85WFHArRjU0g8fzTqwXl2Ns1sXzKOuFUJx9ZIx3kx1bKqBY3hXew8lx5OlMVDxS/DBAXp40sn604ucTVNCkdx6kfCuC6FweJuzMyxx/WIn3+Wf7uPdKuoNgccJTyn4i4YoOsML0lMVawBQa/IEOQtxXeRGB1RZSgJEKzh8LeZ4wDX1isyBUlBzkPz22k8z+cF7Y6v21wgm2Sh6rjlaTanSZsdQ83xq+t865RJGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=eVI+fdeA8ql3siJUMSZcOL5IYoKX03K7PYPOGmPMilI=;
+ b=Lu6ya/yBUz2TdEZbnkIEqx6fNZa/vcqi3qUnTRJj49qDZTpBgDlLEzeZoAcV6vHRq6sjn/s6fp6maVWwRv5XUehPT6MLJC88uKRKEinu5Mwt+2VwLkMUo4Kqzzs6CYHbVCersfnpnlJnhoSiADNz5ZJ4WW1E/ig6OF2fRdux9D8Hgjs6/yDNEOO2hy+PXcjO7vtsVTjfgJaT5fW1FRPUOyp2McY5zV//a4Py9pU0ZHqtV9pNPkXlYdSfh2bAQuEPYnX44PYOgKL7KQz9Mn5fsEn1nM+WXPphn8kqQ2MXCdfZM9jo761V83SCd2RFFT1gMp4GjXNjuDo0szdszVZsaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vg4s7YQGEpbn6uVh1jE8hIHTM50DTd5oWkY0y49LalI=;
- b=skMiQ6Rq9BWV9LR6oer0nUaubmUvs/mbtv63ZOIGD2yzWO7RzYZvBzx+KT8xQ0n/M/VcewN/WYlZwxAiJ8OqbMjPLmFx8uuKqTLr5qlZlOfwIL5EUf2pSV9xSNOXRF8T7DT4LfZFkGzASzA4vSFJtn9aNO9WNSf1GO376l86ikoihVlBfIZCQJ+knE4aHHf4+/OrRPWgfiFgdbiMhGcsHiqxVP8ITfF+gaGOTNxG097qIieU+OuosAl60Z9KbWUTcj7qeP474OojG25HvCnd4v2B9bMfjjpIMfV1E7u/0bx+2ZJzwkFKcxDJFjpVUu7LLl4s0rflSOaFo69B0WXGsg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB8PR04MB7132.eurprd04.prod.outlook.com (2603:10a6:10:12e::16) with
+ bh=eVI+fdeA8ql3siJUMSZcOL5IYoKX03K7PYPOGmPMilI=;
+ b=HI1q/O7mF1Kzm361WQyGv7C/emwp96wRU4PgqfZsDvOKY1k4ytWOgGMdW/xLbQ1d0T1xnoCX83Bpc5C/aKxHlXc1uXb2xRXJX77f6HIiBm8IuLYWDE1mqTq+Xd8NvievySn0QfBXk2P6QiA0PI+u0Q/So3lfMfpT5p7fr6Ga5O7O3G8FErnqclXZOrvyrXEViszy3OxobDi5q4rXDNo4fXlx2SOkYu7JkPdOgputX1NhLCaj4hJNV2vP0OlX5vFwA2OLODccfbAW9/KsrBhVqIqv4hy3hgj1ENO7khXNrKMSqgn0JDMNTRjo/wscTqn79oa+gPZ3BtA2L5xn5A7ZDQ==
+Received: from DU2PR04CA0041.eurprd04.prod.outlook.com (2603:10a6:10:234::16)
+ by AS4PR10MB6279.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:58e::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Fri, 24 Jul
- 2026 16:12:43 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
- 16:12:43 +0000
-Date: Fri, 24 Jul 2026 12:12:35 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org,
-	me@brighamcampbell.com, jkoolstra@xs4all.nl
-Subject: Re: [PATCH] media: hantro: release runtime resources when device_run
- fails
-Message-ID: <amOO86K_3wuTd_92@lizhi-Precision-Tower-5810>
-References: <20260724111548.2109-1-tharitt97@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260724111548.2109-1-tharitt97@gmail.com>
-X-ClientProxiedBy: SN7PR04CA0160.namprd04.prod.outlook.com
- (2603:10b6:806:125::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 16:14:11 +0000
+Received: from DB1PEPF000509EE.eurprd03.prod.outlook.com
+ (2603:10a6:10:234:cafe::31) by DU2PR04CA0041.outlook.office365.com
+ (2603:10a6:10:234::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
+ 24 Jul 2026 16:14:11 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB1PEPF000509EE.mail.protection.outlook.com (10.167.242.72) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Fri, 24 Jul 2026 16:14:11 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
+ 2026 18:19:25 +0200
+Received: from localhost (10.252.22.128) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
+ 2026 18:14:10 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+Subject: [PATCH v3 00/13] media: stm32: dcmipp: add support for MP2x pixel
+ pipes
+Date: Fri, 24 Jul 2026 18:13:41 +0200
+Message-ID: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADWPY2oC/42Oyw7CIBBFf8WwlgZo6cOV/2FcWDpYEluQoUTT9
+ N+lumhc6eYm92ZyzswEwRtActjNxEM0aOyYSr7fEdVfxitQ06VOBBOSC95QDEMuaKcG4xx15gG
+ 3lA6Q4uSc9YG2hWhEoVhbgCQJ4zzodLYqTudP93CfkilsY28wWP98vxH5uq7GkqX4bYycMlp3d
+ Se5lsB4cdQWMcOQKTuQFR/Fhiz/QoqEzFVVtlI3OZfVN3JZlhcWAn46OgEAAA==
+X-Change-ID: 20251219-stm32-dcmipp-pixel-pipes-support-b42924c0b4e5
+To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Alain Volmat
+	<alain.volmat@foss.st.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.15.2
+X-Originating-IP: [10.252.22.128]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB7132:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae0356fa-3881-43fb-f991-08dee99e645a
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509EE:EE_|AS4PR10MB6279:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09ef93df-b349-4619-a463-08dee99e9909
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|19092799006|1800799024|366016|11063799006|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: KZTAJjFCUckBohTk3T3OB5mG1pRnIqpdtVWm/HwirdDBGMPBn3TymcV0Qxjok85EswYsyIOm1N3sQASVZKY+mtqCImtBzBmWuGftZzUyvyE0SQ7NH2d31sa9qeogeLdUplCo3lpl0K+y6Pb5MdA66mc5pvhiU4DeLh3fEfPpZnV3KpuukkViLSKGgmwSpEBa2iIzW1Yf17BPcJ+TSvslfYNWz/ifCR1sETQe0sJeoZIsmluEUWaf94AT+hIRA9RMgw9Img3E3IxN8gW+aG13gygj40e92A2QJ0hKDtHJdPyq5WnYbnfZ+wtuzo4x12n7hMHjGS71Bdt+ciwfu1WwS4Zeb263wcssmMPB6YDyqIA6NLO45tHug3Dk8zLGdNscmcrMMePCr9NOwktn7NlhBh0NlbybRPZWyIElcESyndfVH+Dc5bWigu6vAuLG5J5JaCbvgyGTCxlfzzByNSAJhfXQPqexwL/TtiiHKWW8w8olkWIKmwf2nHUZC++/DXOnHMdW+OEiCpm0XzW5Re4j2/QdmXVZVmAx+VvAkorG/CPB7ZzNV9z8GJiFnqWQFsuQYSUgP9B8isPo5BbRiZ2g7yIMpq5uWZ8ByU59pk7qpykvcT+eQu/spHTYoCaTC4Rbp+jHdCtI3eY3fPvnMrHwWjm5yXLpao5MeugwD+Xee/4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(19092799006)(1800799024)(366016)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|30052699003|376014|36860700016|1800799024|82310400026|13003099007|6133799003|56012099006|11063799006|10067099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: Ats3PYHqYZqRRAToUNH3aa6Qy7dmAgzP8ogsSbWHS0WzGj0WT9Y6+HvELb89BnHs4O3ZvyPDjJjpvpRxBdOT9TPQBW9naL2hL3AcXjc3orHWPeuRvrejmIYvWBxHmq5Y5x3pWcJ283Z4R26C6Q+5kfdKwPLd7BL5ysgxwqzRJNy8kQwHlRlE7g+dsGkLNuf1zOAQFkILC6N2l5QzRX5w1kqpnzkonGzzCnaDfVJMufcBxELr/RO6uprA6p46DzOCC8iZxA4I12xl3xXFPRslIEl0D69TZZHmo4L5x0LsvUGzuFF02gwoOXCu0k8p8fPUGpMXAMfNQ8CI+ZDAhteuU9HmUFf7padmbPuhc5Y2oLskk2kIXbXybwo0XFug8FwmJl+aZg2YmseVL9wrMQ+sA5eZadqDucE1+kgHfn9VdWpSfhkFyZ7IVxXo2dXBx1A1WobAUuyOT3wCQO4Zw3ynGUZlWhSCE9EsMk7TNVbeBUxzdi/AmLrhkjxRSo81pe5sRJ4V9zPPPLcj8LfDfoCwfCKneEtxLttCmXhkwWFNWkq8RsKGHrdSiw3+9aWlRQRkcLl1wYOzCPf3fLTLjAjh5lnqpDwJDtgucMBAOWtK6Bv6FJ0MnnMvwR+epRLDnRMp+QL9Yhwrjweoa6cJUlVTTSWZ75taccj2N+b5cvDvc9GmwOcI9Fcip+g1nYAuEq+AD1FA8np4B26cIXnZXXQhRA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(30052699003)(376014)(36860700016)(1800799024)(82310400026)(13003099007)(6133799003)(56012099006)(11063799006)(10067099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wAlCJgTgaIKLFyRMWhQwk6acgBMSqY4RaDEw43ldU/0X/qSzwDl7wnYRo+MV?=
- =?us-ascii?Q?fYRJUnTCE0gXoTzgskP7h43mGxymiR6aS0ojIDFY764TATBlftd5RQ921nN+?=
- =?us-ascii?Q?Gjv+3p8K2/RQTPZr1Bsu1JyFPtk1X4Am3DqdGy+BhmxSwmP/H4q8DSmZIuUd?=
- =?us-ascii?Q?ZoHdPj1zd1FWuAh46nIoKIs9Ey175Ejz8poqAf6oy9ziNZFFDGM3a8PoTjjl?=
- =?us-ascii?Q?ad37rk05J7ExPEPb1IoBTybLdHW6fU2rb4KRf0w/C+hXlORsbBqEu3skUQZU?=
- =?us-ascii?Q?GpSoGTd/yitDsSMDFQf2zVJODbhQePZW5Ef2Bjd9sxAIBLJVkFQBgKDSNlhB?=
- =?us-ascii?Q?IGASHOEIGbK9G2IHnpDzDYXty7DkDrsISDCMW0FCmJOd1fP3vZv0w6IqIyHc?=
- =?us-ascii?Q?93AauE3py4LVlPbgKBG3lQnz+zbMtBKwhawI6ommWd5Yap/f8ChPF8RR+Lc7?=
- =?us-ascii?Q?ntPdJU8O6LL6XYMqLUR0bhE7caL5ina8e6ubazQWDqODJVrPmqybzTXRhhOl?=
- =?us-ascii?Q?ew3obAUUdznNsrBv7e55Ci9VXyVR63c6oUJbGcanWjHM8Ue4UuOw9qS25CSf?=
- =?us-ascii?Q?W5Oa1mpvF6u/raIJFb34K6OZBDONXDxIUPhw5lvBKB8Np/ByXA+VcYlzkTXx?=
- =?us-ascii?Q?+6xuuns3nzmllpALzqFkehmswBLOJES89b45TJdEIe0ZrGw6uDXvQfvQhryo?=
- =?us-ascii?Q?A934v3hG0TeZ2IRMvYMh1M72d5F5YrPlTgHW1A4skDVwNBlVgDcqfJdJ3euZ?=
- =?us-ascii?Q?VE5En4cNyhrDf3JaGl0Hhjin3ZrPkiJy+/z8Sp04pXB7wNhc8ZEXUWKiZAnE?=
- =?us-ascii?Q?md+dweUaOTdxSm/b6a9ErvwHdNgIOEloLbupSSosw6Xg2EsUF/K1FilAtbFs?=
- =?us-ascii?Q?vXuSBrCzAUqqk5iOL2ECv9yQ1hZmgvg3kZ8+5jffUFosb7vXudOaHNn1qJaa?=
- =?us-ascii?Q?upQevb9J7zs+HjzZqqK7gxHZCDtbWh1+zV3Zo9FuPL1PXAALAzFozG6rMQoX?=
- =?us-ascii?Q?Izt/3xwYAU85bIOJW4IVjnC5N+pvGx+bCYinOqzYB7XHass2d9Vrru9pHYEL?=
- =?us-ascii?Q?18wZyvwYaTq9ZakkWfaOO/kuqiGgNY0OpJpKNlXi/WtAxqf72Rp1pObEwJ9h?=
- =?us-ascii?Q?Waupj+ZAMmQPASK4dbZKc3SP6LbmH3MOGljbucRFBeXMhrtuGgK00d8ml6Z9?=
- =?us-ascii?Q?3RyBW5fePuvI/xf1BriEt9WyDDf7rLttXf45y5MdsxjIRZ2otSum/35P8Njk?=
- =?us-ascii?Q?dGwrVZzX0ooAEVgFFoSw/S7NO0hmGfQllSY5dtfF7AVGpU8PZaoFcUMFxOaI?=
- =?us-ascii?Q?4PrlEulBz+652mShMHfM59JGdCCFdVZlDOdquad1aiAlX4lwCER4eoYtOyh3?=
- =?us-ascii?Q?NcZ8RbDjTuWoqUzVD2wEuruB5So7LK4m9Q5xw9SXqIMbmWGIjuExx7evSz18?=
- =?us-ascii?Q?VQLHuO+OAp+0slJ1jT1o/88dIdnZp4Lzz1fQG+VMdY8rXHmLpZm2AeiB1mnc?=
- =?us-ascii?Q?zpIeZDxReyhdXBIMCDPQdA6txow7GwpvxlK/CAmg5eQGKgT5yO9oMQapeSMI?=
- =?us-ascii?Q?1+6k/Mo4Tq/zRpjqSxViKZlWuRBqFa89hqQ4j5UgfG/rETJo53eG541QF3lx?=
- =?us-ascii?Q?3s8dH9imh7CU2C7isCp/oOmeJb7gnbdpzdbwo2N7sYWL3KHd/WqRfhcbfXoX?=
- =?us-ascii?Q?gK8pW7HQoT+8FTss3CnnzfFUAEl7F4zBs8qjx3HMA6B12EK1YfDF40xUqPIP?=
- =?us-ascii?Q?0+u1AmAZKnmwRc2xAz0i6mh1jryejTIjbImyzqm/SXG3l7d2lFr0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae0356fa-3881-43fb-f991-08dee99e645a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 16:12:43.4465
+X-MS-Exchange-AntiSpam-MessageData-0: 2dJ0UR9Y1A/EXORnyamyB+ak1RPC0INq1MVaRfQzsvVIDWwjnJ3xWV/9vEZqM+nZ+v4zyOwhk6Eht4NznaF/HfxU9jMVTUzpF8nmdeNq/DPC7WABCrFSZN2QDkMICEoFqY4HZcHMsUegj+u3cLMxDMG5JBfjESLeTRC8KlwZ1KZVvykwB3QMNky4iDXfVY8kM4cOpD1Uz4XDrxlqbTZkI9rwL1vpri+SLY4ouVhoLQU6i1tQUyYcV11QOzjTF1uPCD2GGKfeVdsP6lRGuRQm+Ic27h0bTe70QfTHvXoSp/M6qiv3S3nnBXlQOhqOwCFcBjNel1uWe/mZ/cmhTxCQkSVmlmYl7P0uPMOh+PUeoEm02OmtFosgRqrVxnTfzu0qvE+Mry3+770mRxLIua31ym2yCDSlU+2i42lr57XuBAUuyiCsMqlw05V1g35Vr0a8
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 16:14:11.3592
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qtB6OERPWfmkKEmMXGGDxIHV5Xfc+ykIbkRgimBcWOAJVDxUwijLCIOYXkp46I20Fa6sUyDH4hS+ZFQttn9WFSla4Bi3SLAUWjYJ0S8LOpTirECcIqalSAqbHg0h1JWI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7132
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09ef93df-b349-4619-a463-08dee99e9909
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EE.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB6279
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_091250_459372_E9337E44 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20260724_091420_413109_29ACCA1B 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,81 +133,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 11:15:48AM +0000, Tharit Tangkijwanichakul wrote:
-> device_run() acquires a runtime PM reference and enables the VPU clocks
-> before invoking the codec-specific run callback.
->
-> If clk_bulk_enable() fails, the runtime PM reference is left held. If
-> the codec-specific run callback fails, both the enabled clocks and the
-> runtime PM reference are left held.
->
-> Add separate error paths to release the resources acquired by
-> device_run(). Disable the clocks when the codec run callback fails, and
-> drop the runtime PM reference when either clock enabling or the codec
-> run callback fails.
->
-> Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
-> Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
-> ---
-> Tested on a Rockchip RK3588 (Rock 5B) board with Fluster:
->   H.264 (JVT-AVC_V1):	     129/135, unchanged
->   MPEG-2 (MPEG2_VIDEO-MAIN): 23/43, unchanged
->   VP8 (VP8-TEST-VECTORS):    61/61, unchanged
->
->  drivers/media/platform/verisilicon/hantro_drv.c | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-> index 2e81877f640f..9daaf129211d 100644
-> --- a/drivers/media/platform/verisilicon/hantro_drv.c
-> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-> @@ -170,6 +170,7 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
->  static void device_run(void *priv)
->  {
->  	struct hantro_ctx *ctx = priv;
-> +	struct hantro_dev *vpu = ctx->dev;
->  	struct vb2_v4l2_buffer *src, *dst;
->  	int ret;
->
-> @@ -178,11 +179,11 @@ static void device_run(void *priv)
->
->  	ret = pm_runtime_resume_and_get(ctx->dev->dev);
->  	if (ret < 0)
-> -		goto err_cancel_job;
-> +		goto err_disable_clock;
->
->  	ret = clk_bulk_enable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
->  	if (ret)
-> -		goto err_cancel_job;
-> +		goto err_pm_put_autosuspend;
+This series add support for the main & aux pixel pipes
+available on the MP2x. In addition to the byte pipe
+already available, the DCMIPP is able to process two
+other streams in parallel, including ISP operations
+such as demosaicing, exposure etc, post-processing operations
+such as cropping, downscaling and various pixel formats
+output.
 
-Mix use runtime pm and clock is not good.
+This series introduces the whole DCMIPP pipelines including
+static configuration of the ISP part (such as demosaicing).
+Dynamic control of the ISP as well as statistic extraction
+part will be added on top of this serie via usage of 2 other
+video devices (input & output) for statistics extraction and
+dynamic ISP parameter injection.
 
-You can put clk_bulk_enable() into runtime pm resume call back
-and clk_bulk_disable() into runtime pm suspend call back.
+Changes in v3:
+- Rebased on top of kernel v7.2-rc4
+- Fixed most of Sashiko review points
+- Link to v2: https://lore.kernel.org/r/20260602-stm32-dcmipp-pixel-pipes-support-v2-0-3c76b5f93157@foss.st.com
 
-Frank
+Changes in v2:
+- Rebased on top of kernel v7.1-rc6
+- check-patch minor fixes
+- replaced kzalloc(.., sizeof(..),) with kzalloc_obj
+- Link to v1: https://lore.kernel.org/r/20260202-stm32-dcmipp-pixel-pipes-support-v1-0-8d8d51f5e014@foss.st.com
 
->
->  	v4l2_m2m_buf_copy_metadata(src, dst);
->
-> @@ -191,8 +192,12 @@ static void device_run(void *priv)
->
->  	return;
->
-> +err_disable_clock:
-> +	clk_bulk_disable(vpu->variant->num_clocks, ctx->dev->clocks);
-> +err_pm_put_autosuspend:
-> +	pm_runtime_put_autosuspend(vpu->dev);
->  err_cancel_job:
-> -	hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
-> +	hantro_job_finish_no_pm(vpu, ctx, VB2_BUF_STATE_ERROR);
->  }
->
->  static const struct v4l2_m2m_ops vpu_m2m_ops = {
->
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> --
-> 2.47.3
->
+---
+Alain Volmat (13):
+      media: stm32: dcmipp: share struct dcmipp_device among subdevs
+      media: stm32: dcmipp: make dcmipp_state & cmsr2 read common
+      media: stm32: dcmipp: bytecap: protect CMIER register access
+      media: stm32: dcmipp: move common structures in dcmipp-common.h
+      media: stm32: dcmipp: correct swap in YUYV data with parallel input
+      media: stm32: dcmipp: configure csi input of all pipes on stm32mp25
+      media: stm32: dcmipp: introduce a dcmipp global media_pipeline
+      media: stm32: dcmipp: add pixel pipes helper functions
+      media: stm32: dcmipp: addition of a dcmipp-isp subdev
+      media: stm32: dcmipp: pixelproc: addition of dcmipp-pixelproc subdev
+      media: stm32: dcmipp: add pixel-pipe support in bytecap
+      media: stm32: dcmipp: rename bytecap into capture
+      media: stm32: dcmipp: instantiate & link stm32mp25 subdevs
+
+ .../media/platform/st/stm32/stm32-dcmipp/Makefile  |   3 +-
+ .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        |  27 +-
+ .../{dcmipp-bytecap.c => dcmipp-capture.c}         | 600 +++++++++----
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |  98 ++-
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   | 124 ++-
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-input.c  | 124 ++-
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-isp.c    | 491 +++++++++++
+ .../st/stm32/stm32-dcmipp/dcmipp-pixelcommon.c     | 180 ++++
+ .../st/stm32/stm32-dcmipp/dcmipp-pixelcommon.h     |  41 +
+ .../st/stm32/stm32-dcmipp/dcmipp-pixelproc.c       | 941 +++++++++++++++++++++
+ 10 files changed, 2344 insertions(+), 285 deletions(-)
+---
+base-commit: 48a5a7ab8d6ab7090564339e039c421f315de912
+change-id: 20251219-stm32-dcmipp-pixel-pipes-support-b42924c0b4e5
+
+Best regards,
+--  
+Alain Volmat <alain.volmat@foss.st.com>
+
 
