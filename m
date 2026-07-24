@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A653C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 13:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA8DC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 13:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DETzi99iW5LSyN+yHRyHD/USkiX0xstftPX39RhkXRQ=; b=1V+8UeEU1WljZ+LuL6ACAb23iu
-	ufMwnUGn268dSRBDvXjKSXklmQM3RI/0UwVr8mH6CYZE5Os6qX+D3d2rpfTeN8VIFcocC6IMdATJL
-	YJKGiE8EAQhy/XTTYD/utUP6RMPcOyxZMivSzRXcx/hLoTDNlFcZZOjqpZiXzFcedI8wQfcwnI+z5
-	iCmwb3ycaBF4qS76BdzcRBMUp62D+ufIXKHiOcvJIJmPF2o+vhrLPluO08BtWDrcdpQ9GiqmPJrdk
-	deEG6/FeMk0CnSUON41iKLMfcSaJ/6PJ2u4VVGMpygiGr8mkn2dNi5Wy4tw+V71wy7kWXsOrfvNnu
-	tH31JyTA==;
+	bh=wb2SX77zyxaYXrQzUmclJ/k81+yHIaZBLWgIqd5QYek=; b=rQ1HUt7+ZAz+nd1fE39nY4gyIT
+	pptTWn9HaZbu4FqlAakvS9aFzN2XXg6vSPEpupxfUKNcsGn3o92UYsudy1WuIJ6zuL6wW+gFqoHFP
+	4ckWJWJOJcY7FeLEv0TmlbjwO4Dyv6JeZJP8pXTkB9D/+kajzxceUxotxV9w66anCVWnYsgZnoyIT
+	iw/Il+x4yg/w+qCGJnxMGC1V5Q+mM1s0gpC+z1aSv9TDfqop8Xe0sAa66eEym3HFRf7jvWsdtdaA/
+	ZaxHOoBizjvhjNazQivDE28laQSVTZXDajhQHvy1nOreONCB/aKNWwqIV47gS8zunhzLVw6+ACtqr
+	zOnYPV2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnG6t-0000000GUVe-3t93;
-	Fri, 24 Jul 2026 13:38:43 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wnG70-0000000GUab-1B9z;
+	Fri, 24 Jul 2026 13:38:50 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnG6P-0000000GUGU-1B6T;
-	Fri, 24 Jul 2026 13:38:16 +0000
+	id 1wnG6S-0000000GUIS-12Ak;
+	Fri, 24 Jul 2026 13:38:17 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784900288;
+	s=2020; t=1784900290;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=DETzi99iW5LSyN+yHRyHD/USkiX0xstftPX39RhkXRQ=;
-	b=LolrfjT1ZGrmlYO3lelRd/aVORyCKK8u8LHEs2BF0CPZxtrSs34o3ETbtxQXZLrJT3GHkW
-	6xdSI+iQY2zJIJf55MvFtJI/vLyADG+NdN1Zxq3U7wgNdfdjsYWInb035OxjI7r9Kn5VQC
-	YM5yk8cpElby5ltCNP4pHzr9k5eHi/TfCo0Fiy8n15+stdjouXdxHV7bNFnoUFa6VzCr4L
-	9/J+IGjlivsOOW3m6hbHOhsZLDvmZ7siI8goneELAAe8rDdMDeHXGf7VO+oPHlAX6uNGGN
-	rtC8sZaCqtQRRVor3mDNBb2WAKtyr1jWxzvjj47RVo0XRsBRwThfNtj/33IzzQ==
+	bh=wb2SX77zyxaYXrQzUmclJ/k81+yHIaZBLWgIqd5QYek=;
+	b=fJQA63AhXqN0Wt6TrowHVZuSsMNP0G4WVVoLUsYDckEfWkcsS+utv4/QPUaNH5Bg828tO2
+	ZTiTmBU2Z5XxJ/irTdAXpPPtpRqd7/nltgO5vmspMfkiLohJxq4mSeSa+Gh2msVxqp/i9O
+	cv7/xUuqPSE29eGuUNPF+01vv6DY500HCfGh2Okt3fMAhmeSzdpVZiL6rU6hKW5z4Os9XD
+	1InV/Grh5c8MB9aVWJfaPBqdruV8IbWeAxN2H/yvpPeOTTu0PjydJfuQ1M0R9w2HfCaqSh
+	PvifLZ3qpIXrQgiYmLPaM0AfsYJGvnvMKHUjwNcj9o8kQlwDDPqdcsmR/RfwFA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784900288;
+	s=2020e; t=1784900290;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=DETzi99iW5LSyN+yHRyHD/USkiX0xstftPX39RhkXRQ=;
-	b=1yJn5T7c38mgra6MmxYGQjPXTkR8qdUsJwkbLwdHP5fN0xvA+PYhuJsNfoen+JYeufSEoT
-	86Pa5cItesv5l5Bg==
-Date: Fri, 24 Jul 2026 15:36:19 +0200
-Subject: [PATCH v4 2/7] vDSO: Make clockmode constants available without
- CONFIG_GENERIC_GETTIMEOFDAY
+	bh=wb2SX77zyxaYXrQzUmclJ/k81+yHIaZBLWgIqd5QYek=;
+	b=86dQJzWWaZAgS+vRVMF0ZufUKVhSBsgdu+ylGsup4jHHNu757Z3axqD9G1bvaW38+rYPvv
+	C+R/sJ+vgrg3XOBg==
+Date: Fri, 24 Jul 2026 15:36:23 +0200
+Subject: [PATCH v4 6/7] clocksource/drivers/timer-riscv: Remove
+ CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260724-vdso-arch-clockmodes-v4-2-ddbe447be860@linutronix.de>
+Message-Id: <20260724-vdso-arch-clockmodes-v4-6-ddbe447be860@linutronix.de>
 References: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
 In-Reply-To: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
 To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
@@ -72,16 +72,17 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  loongarch@lists.linux.dev, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784900286; l=1748;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784900286; l=898;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=sXLjsimGUSXXUsc2qCiD2uC+XdCfB1PERWY6JkUJ0UM=;
- b=YQZ4SJ9LKPw2mQO9sn76zUzwQfDIDMnEmscVXz+TzF1vluXpBJaS9RGdqqF/NblxiYNxs8IRa
- PiJSseFUHzVCchlR4q/bDKZC51QjWoXOGODpdcX2t+5nx4A9atnsJMK
+ bh=6yZi1E2ORWX3erxZ2iLgMw+pOXO/qHsB3RdbekGUNbY=;
+ b=nmad2uoX7O2hqUY1EMlB36avIhjqVM82Dv1sCDRFVS/iKzjJOA2F5DmkLQrmhAf+pwqMcVWqO
+ BT3A90/wOmTB3fU2MFpx3uScqaGM9MwiSK27/z2LrHGJXh7kGVc5def
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_063813_494883_DCD97E2C 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20260724_063816_483875_00D26F0D 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,57 +97,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some code, for example clocksource drivers, may want to use the vDSO
-clockmode constants even when CONFIG_GENERIC_GETTIMEOFDAY=n.
-But the symbols are completely hidden in that case, making ugly
-ifdeffery necessary.
-
-Always provide the enum definitions.
-
-As not all architectures provide asm/vdso/clocksource.h,
-provide an empty stub in asm-generic for it.
+Now that there is a definition of VDSO_CLOCKMODE_ARCHTIMER
+even if no vDSO is built, the ugly ifdeffery can be removed.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- include/asm-generic/Kbuild             | 1 +
- include/asm-generic/vdso/clocksource.h | 0
- include/vdso/clocksource.h             | 4 +---
- 3 files changed, 2 insertions(+), 3 deletions(-)
+ drivers/clocksource/timer-riscv.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
-index 15df9dcb42a5..2bc00c67dc54 100644
---- a/include/asm-generic/Kbuild
-+++ b/include/asm-generic/Kbuild
-@@ -62,6 +62,7 @@ mandatory-y += topology.h
- mandatory-y += trace_clock.h
- mandatory-y += uaccess.h
- mandatory-y += unwind_user.h
-+mandatory-y += vdso/clocksource.h
- mandatory-y += vermagic.h
- mandatory-y += vga.h
- mandatory-y += video.h
-diff --git a/include/asm-generic/vdso/clocksource.h b/include/asm-generic/vdso/clocksource.h
-new file mode 100644
-index 000000000000..e69de29bb2d1
-diff --git a/include/vdso/clocksource.h b/include/vdso/clocksource.h
-index c682e7c60273..bce81c02a7c6 100644
---- a/include/vdso/clocksource.h
-+++ b/include/vdso/clocksource.h
-@@ -4,13 +4,11 @@
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index cfc4d83c42c0..b310e6721fac 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -98,11 +98,7 @@ static struct clocksource riscv_clocksource = {
+ 	.mask		= CLOCKSOURCE_MASK(64),
+ 	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
+ 	.read		= riscv_clocksource_rdtime,
+-#if IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY)
+ 	.vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER,
+-#else
+-	.vdso_clock_mode = VDSO_CLOCKMODE_NONE,
+-#endif
+ };
  
- #include <vdso/limits.h>
- 
--#ifdef CONFIG_GENERIC_GETTIMEOFDAY
- #include <asm/vdso/clocksource.h>
--#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
- 
- enum vdso_clock_mode {
- 	VDSO_CLOCKMODE_NONE,
--#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-+#ifdef VDSO_ARCH_CLOCKMODES
- 	VDSO_ARCH_CLOCKMODES,
- #endif
- 	VDSO_CLOCKMODE_MAX,
+ static int riscv_timer_starting_cpu(unsigned int cpu)
 
 -- 
 2.55.0
