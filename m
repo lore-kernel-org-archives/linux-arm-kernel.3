@@ -4,94 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966A3C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 19:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8660C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 19:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMYgbX2E5STWJ3B50MJvZqK+f3UjOUURTR7CU8KzNb4=; b=B8d7/0OZw+a/UDsWHzV5xiWyRu
-	LvmstgXGwfjoKCIZlEBKoBBu5z3+NRKex4VZWxJevzshlfq8YCZIrvvqUZ5NdhDRYlvL9UaZVtir/
-	FjglOO2xwzc8PKoAyCdOA6H0gNqHD1pIUi1gvNY1xxiSVfhEtOK0ALj2v2mc2DHPZ+/J7pYAmAOOD
-	ZN1+WDM+auLPPHv68Q9tg7tYGU13JhO8Irmv6akYB0i7gLQuK1IoexEFGYhsoMxO6GCad0RPa0vK6
-	G3RBxZH3BnM2pKWnYaIvRhyVW3opEoii/RbIo+T3rkapz9dMzRU/f2BQWM2O7a5wNAxdZClp35x/c
-	+9oh5AlQ==;
+	bh=Q852HDl/X3D1aZNvrQ8tGTIffyFNb2ogAzE91eD8s9o=; b=y12iR1xHe+TPXxXoip5PhOAwBQ
+	1gm5yypo2vwRhj1jV4ulfrrcXS8llN9quCb+b4F8pYKp2DM/77RGcyIdSgTZFf3sldc+4iIUDVgs9
+	jJ++8p4YkaQSUgVQ1xUiPXdibm1xtah9xh9w3aNBddCklF0lo/CSM67ZRdflWU4EZjg180XC+dQeY
+	vecySMGzmjAUfTmPAXMF2lB4HMf9y4OqL+M3EOBlUYJSitgkZYzVqfZFfe+cJO2Ditvbf3LK527SB
+	veEtsMZ2TR2qLFMgUfccZDRkmd0Wbnp1iiVu33VLi9kcaNKI85nASEE/ibdKdvCa3l9lC+vSnO4Xb
+	jJ3xFepA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnLbd-0000000HAVn-0W5u;
-	Fri, 24 Jul 2026 19:30:49 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wnLgI-0000000HAyB-2hKZ;
+	Fri, 24 Jul 2026 19:35:38 +0000
+Received: from mail-francecentralazon11013057.outbound.protection.outlook.com ([40.107.162.57] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnLba-0000000HAV7-42Bc
+	id 1wnLgG-0000000HAxk-1qHb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 19:30:48 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954d5d814fso11735e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 12:30:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784921445; x=1785526245; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qMYgbX2E5STWJ3B50MJvZqK+f3UjOUURTR7CU8KzNb4=;
-        b=fHKyLzDSQfClLnVuXHHPABLSiQ4xRs/50Wrp92zMHi1HLD11o6WKPkpym9tJigROPO
-         GtoVy4UYy8cTC0VQjaO8Kb+FrLp/gYdeZpWedR+9l+DKXr2Q5joGa+aJUpuO3IKFLC4C
-         IcrpcynuoZWui5U0e1v8nyg73fd144UdV72Y8IHt4ikSj0u5uN8D3nNles6v1oWPW+nU
-         ekGSvy5LWjMDvrgXgNTlWVkaTWFMDKxI6TGrj+GpWLjMZ5pmYEORyeGzYJJDzEBG/y5r
-         37jjxGdOVhVHpYeNfvlH7aQrZnJHty839qnwetEIxIv2W319EZBRVWTCGuKWf2lJZIT4
-         4qEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784921445; x=1785526245;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qMYgbX2E5STWJ3B50MJvZqK+f3UjOUURTR7CU8KzNb4=;
-        b=AhBMQcbiDtt21sHjMB2/emnFx403o2n/pIlnDqHpMenL2xZni6duAJedX+AKATymCy
-         48U346CuBGCKFSSIKbif3ODH36aTJ2WYX9ar0y0C/JeEj74EK5rcQLd2KDbdx0rE8KtG
-         n8zoLS+dJ0QWlHB/EkHcbbvGkgFNCZ+FB3SceAxyR9bpUmitqrPBYdhFhIRqIixcrcDe
-         /ESveeT4KAGMkqCGf5Xt2hXb4cvZj1Na02kmoWNbqrkgRWK0dOxENMfPtUuMSS7V931p
-         F6zzIMOYl/nXftIlcjENaHo2sNGMr0mnfxkVfSdZmGVV7FfvccaIB+VYLUBcEjGviOIq
-         bBZA==
-X-Forwarded-Encrypted: i=1; AHgh+RrwDgjIJFCZAtdZmQslgBCtMoyJttf/z3wy9iE3TC89dlZigVuMJAR8/pQGn8HIDUvyoOVJo+okPN90VyC/Cxiv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgEOpe6Mw2uYsgeDhiLPE2QLFRPdWEW/QCvvOv7bL7Hj0+Y7OS
-	BsD/OiuM/0QBv9IPsIgIVwRHplXqXNDWzXPgxSSmkZMHUpyqcbvuWJl8b8m/3bEiiA==
-X-Gm-Gg: AR+sD12XvDNX/bkBY3pNoaVnAxJ3HJC31qrec+H21TCnEttfjAIzNQeqUv6VgRu+Qsm
-	fPJDnUFbCjvzP/K9gQphvHME/Vi87gllE6owtKXFPFH3pov51gPQw8CfoYhyTl3krDnu9Md2ZQd
-	xIEtckC37lShFwnoW2sB3ul9vaHWFi0YQQNyN5HOI2ROXjwVCP7fErGo3hTV5ZcruQpv/FbpArG
-	xHLsvm6BsRRd1Sswjsm3vPwglT41DVEap9FrGCg3otmaV5cFjcfys91kIFXRoZPLG/pvxn0kZ7X
-	msMZeXRSTV+BoOm4KWC7N8T3+5t/syK+83Bx8Qa285qnsrBYewjU9OnOF7SImH2loeYoRPKG7HU
-	BZ88nKgIuT3DWk5zqb7ykSw/DkUD5hLrQWljDVeWOE/Qin810erPcrvEpAgoh9S+o5yEjomroyb
-	U/3P1wRltMAk4q7nSZTuS7YqEgvVAOmsJYTBfd0w==
-X-Received: by 2002:a05:600c:8709:b0:493:be38:fa5a with SMTP id 5b1f17b1804b1-496b4d388e8mr268615e9.10.1784921444576;
-        Fri, 24 Jul 2026 12:30:44 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85a2573csm25874209f8f.0.2026.07.24.12.30.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 12:30:43 -0700 (PDT)
-Date: Fri, 24 Jul 2026 19:30:39 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>
-Subject: Re: [PATCH 6/7] iommu/arm-smmu-v3: Use the generic iommu page table
-Message-ID: <amO9X2vBl3_jIttb@google.com>
-References: <0-v1-807e2d1a5efb+e1-iommupt_armv8_jgg@nvidia.com>
- <6-v1-807e2d1a5efb+e1-iommupt_armv8_jgg@nvidia.com>
-MIME-Version: 1.0
+	Fri, 24 Jul 2026 19:35:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BJdf8/flXOUkP3j1pNukHV2smZZwfpbfA7JAuVoc++jBf0OvBQBPVuLQc7VHSUkaCBECda4KiBB8w7Gv1Xng/Whq0hArst+xLESORTOIoeLbqQJ8ybE+GpTe4r92iu6UcKDa8yYoLrN0jm51aQlV01y0HSHdgzv4T+urHFwfpU+QUR1OKPZewDcLHkSghT6pWXQVEBxMKTEI4zYL8tU3nYqJe+4uzYPJmPlaz0wIADmicleHbzCGxPnwLf5eCmUwY5zRlBhMBkrcs3WO059IvBERm0LATbHL/iL3RKXC0ng/8hKvCuIbbrzkFx4UATiPnXSANFUqPq4lbOd9IBJaUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Q852HDl/X3D1aZNvrQ8tGTIffyFNb2ogAzE91eD8s9o=;
+ b=Mfl5r2DsVWyibHuIeGqq13xztAbMaQb1Kw1qJmNY7Xy7Hr9sxXBm9/6QMFH4i6GiHH7mUX8vazWYBli8jBOp5gtpkXIF8epnNtvfUZtjsotxbstIwdHgtuhgDT6pOUah1sz6zOyGHyjc/UAPFUZCL/pespO1cv8/zlwj5AgADlIEMZCerLwQ9xfaG6KPxoJpvh0SFE9ZP9PWmL+l2ATte4cZt8A0qcXEyDhI5osL4lb3SCBpmucsrZgWLua9HvmlcbzJqVFt+yi536Fhl7f4kcw6U8thfyyTTmVEbk3/GsJ0BN8k6g1f30/8RTb9roR3B4PjjyyoZTH1yHAQoE7+0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Q852HDl/X3D1aZNvrQ8tGTIffyFNb2ogAzE91eD8s9o=;
+ b=brJtkGRougOGxc1HtvZktVDLAjYBUskolP1pUUD/GShXfA2JJwRo89A0+0Jk0uIqoAXiBd2rKUNnfQq2wRsgSstGU3ezkm/svomP6+hemMU8gcm1b39BTX8/i/ku8+WS/OIj0VtlVtm/fmQ8ZKrSYHNxVLGqf0dVWRlCffD/2YUKvHN4Wg/bCknNYGXir5KlIULi5dJ2euwMBaHxr5j6fqdr5jFMuw9uG9+j/lQWmbGqQfNnNgUmtxpgmJ7NEwUduiu1GebJVl7ejqgJ1s2vK9v1jOeBrc+h/Agv6xlMiBCLGDnqxH3Azt1ozm0pJuxJAwDH9F/VwFp3sdhvwKj+Eg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB11547.eurprd04.prod.outlook.com (2603:10a6:800:2ff::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Fri, 24 Jul
+ 2026 19:35:31 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
+ 19:35:31 +0000
+Date: Fri, 24 Jul 2026 15:35:23 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: broonie@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] spi: imx: replace dmaengine_terminate_all with
+ dmaengine_terminate_sync
+Message-ID: <amO-e2ThPaB-nqC9@lizhi-Precision-Tower-5810>
+References: <20260519104659.2794476-1-carlos.song@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6-v1-807e2d1a5efb+e1-iommupt_armv8_jgg@nvidia.com>
+In-Reply-To: <20260519104659.2794476-1-carlos.song@oss.nxp.com>
+X-ClientProxiedBy: SA0PR13CA0030.namprd13.prod.outlook.com
+ (2603:10b6:806:130::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11547:EE_
+X-MS-Office365-Filtering-Correlation-Id: 67b91c7b-3496-4fda-6487-08dee9bab918
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|19092799006|1800799024|11063799006|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 6qreBFJiSuJ4vUwWv6xJ1VQ0fi+OMzXMB9KPeo+mMI+x0g8JnSCsbuRvCHX6JMgkWlhNk0EJigheb68rinBgqajs1Nh+uIBtCKssQRP1SwbxmFLRCLeHtmQMbXh6vS9F6anjmXRIRtIT3RYwfKe0pyW7uiZ7N+Ve2k8BdiVj8sJzrkwkUUgChp6SwYNTeXonWTtnmbuBNxGCvPGReI7AkUBXgtDezRnic1zT+9HW2MWa+VtOCBVkee9SObFsYMlFAWlC2zpVwboG+t9bhBLC4emWPfAN5pqDHt9SXV0yNLUHaYDp2aUtT7ohHScsKSUOuisLmOhHi1VDoaWNy68AapplILsJaMTvrBXP6voaUjpuL8Kd5DsvCD9sSIQEvBCPTLK+tJSQ3wQ5HTWGHgt3fe1kozQqTWptCodYzWiu8Rwe+0qiEOk5IgSuw5cS1aMY6AzQ9bXfZ024oTL/xz5RSDqSBpEQcWN2S+wfZ9Jgw85d+VeMEbRO0P/zH11aS2aluNe4PKY6lVZzVzz+wGJRgyY6NQAHv71481+59Z12+qt8VstzPhpMYOqa98iPyx8OotJ6H83Z9vLDHZk/GfXnxikGKdxHlYquxXT9cwUkjuAaq+IQF2VnTijoy2t+iegsxnzHab7ufGmW2rA5nHOrU4zRKLDx1ECpbho49r/eo7s=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(19092799006)(1800799024)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fNn5+QUa8vJeTGXuZBN4x0kx7lux4uaWyOhtbqEhKtVVkWa2OBhPmFxalycH?=
+ =?us-ascii?Q?/m2F6kmNL60XOw9eRSCe9XILU41pzMunN3arZn428528JMhrOk3B7feWf0bq?=
+ =?us-ascii?Q?S09Av0yUTlcECHjtA9PIZxtp6uonEy9J18TrEPtoZH+W7nV1udRJjJF70a1K?=
+ =?us-ascii?Q?qvA41s0E3+q7XNmAv1cp4M6dT3KbCmMdosGSDeQeDSgWZV0yepPmLjBMRzUm?=
+ =?us-ascii?Q?nxr3adIEfzFXJClNDr4WXRHGWGvE1b4mbtlouWKWw7EyDWgZVsm/0mxejKrC?=
+ =?us-ascii?Q?1qBWyAXcTk1tCXAANZsVorGC8lRG49hnZwpn7nBXlswcqHoW57TSLrthmxH6?=
+ =?us-ascii?Q?D7ysQubp5a6g1cpd/7P/SS8eYEyLFS+NA7ZpzyEcv/slxVlEnF1BligSYvy+?=
+ =?us-ascii?Q?BU2+0sB9SKZExF38xr/h1m4wf7fovxR9od2O/HUW0OZUjN5r620zxK++N/Ma?=
+ =?us-ascii?Q?zApGX8a5Ll3efrhAzpnruvyM1/T/qu2yoqt5C6wRBV3DjwmeytgxzTKY+X3x?=
+ =?us-ascii?Q?enGXcqd+M9qcBB9g3fpYilCpLwZeb3j6LPOZd5jgcHhZJm1DKtNANqKJ1jyg?=
+ =?us-ascii?Q?mSeyWdJJy/ebfZ+SRcFdD0SWt/EI0v24rmq3zt07i4mIXr2+UC2fMuWVeKUY?=
+ =?us-ascii?Q?MyN8LEy8EStL3HUY3/HV8TZc8F6l64szh9Vq3XJ4M8XsCze09S/C/PjfF3aj?=
+ =?us-ascii?Q?b/edPRLXSfur8UTORrHn6a+vrBd0mEN/udi+EenjjOBOntmiVzYTXHu8NtsB?=
+ =?us-ascii?Q?6EsH2Q/gSKpodCZPgoJgtQrTg9oEWquCpECTgzcrwJ4m3dShCCZCptoS82Cl?=
+ =?us-ascii?Q?NUtE/u1eJDAvDCLutaGMBNWUDS7+Zjc61W7qtQhrv15pictzHComiqBMNq6I?=
+ =?us-ascii?Q?RBY3lzr1MobUuOCjJ8cTk+kNyknbw64GbCFSXX1LhFm3hZDfPqKMoz6cWdah?=
+ =?us-ascii?Q?llXRGrsnwJJwky+2mW0+mpnmXeJa2Emmc78QSS6WVDekodTItX+Jgdde0N0W?=
+ =?us-ascii?Q?G1J/TJwXvABBVkuZCtDc0yK+kAErh4wN/irw+6xIRwCnKl729ULz0auPw+WN?=
+ =?us-ascii?Q?Wgzu2R2w9tCHelzWh7xn9oV3nLpCtnNy7Pre1zlAX66jJCRnmb8bZjutZko2?=
+ =?us-ascii?Q?VbHw6zhN47bH+Kjedlo+fSQKtogK2Ol/znXQgZEaMDpNtPL7053NSFLSf5JZ?=
+ =?us-ascii?Q?1ZQqXU9qiqksEuXNgEylKULZV0NWXSTPabK3XjvJG1fs+hdgok/mhtcrf30W?=
+ =?us-ascii?Q?RbutVh+YlVSCHkpW/JM6cu+h9bhcZaomugIbBtsgmxpm4kSkClfmQsHJz86D?=
+ =?us-ascii?Q?TELDoT87ucVnTwb832ZeLF7JnndNYhhvBV6cTpnQDipSh/ZnYx0w6GBR27sc?=
+ =?us-ascii?Q?cZk3e2qZYmk9u/Ss2tsbwsu33Qd6UpcHv/RFQiMGtCLofrmmxbZXfGXtQGfu?=
+ =?us-ascii?Q?LEwOVBw7SvGcAizC4YfIpfQr6MhdE5780lEarJPhiqHILVb/V6jTR8feBPkw?=
+ =?us-ascii?Q?jsnqUcaP/uiIzN//S+f4N5JdXy2XrZIS/fgx14bAQOdIbgPLfg/rlUi0XWgy?=
+ =?us-ascii?Q?Q/tQxl2/Y/7lFzvimgnNwI/H/4wo4CpmK0qJK6eyaAde+FJVyLLh39zQbsuK?=
+ =?us-ascii?Q?bp+2TAVuCVR1koX1HtJ+F+fGQNKCyCtQW+Xal9HcELut2RObkGantTjUn+Nn?=
+ =?us-ascii?Q?Q+gFvDQ+CAyIpOLo0t3GZpxgAHX34dlZrv7ddh/1t7AUz0ICAlS3jhMfLZSH?=
+ =?us-ascii?Q?t0FH8fKEcf1iSNcr3slc5hF5A/2Rr1oPRklbCPRfnm5ST4pvH9j7?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 67b91c7b-3496-4fda-6487-08dee9bab918
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 19:35:31.3826
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: o4bCVoQm77Ajlp6UaqTSbcx3v4i8saQ8xMJTj/lNbkYndw/IHkh0BGS6yV32/G12JlZVG4mIhBhCDBfBDtBBxxVLSdvGcy4GYzS0gp5VQbPp3uUTvegEojfGBUb1LqjF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11547
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_123047_020278_3FA88649 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20260724_123536_502521_5B480344 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,72 +138,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:29:12PM -0300, Jason Gunthorpe wrote:
-> Switch to use the iommupt provided page table. This is fairly
-> straightforward now since the page table construction and hwinfo are very
-> similar to io-pgtable-arm.
-> 
-> The struct pt_iommu_armv8_hw_info is a direct replacement for 'tcr' and I
-> have a kunit compare test validating that the fields have identical values
-> for identical configurations.
-> 
-> Quirks are replaced by features
->  IO_PGTABLE_QUIRK_ARM_HD -> PT_FEAT_ARMV8_DBM
->  IO_PGTABLE_QUIRK_ARM_S2FWB -> PT_FEAT_ARMV8_S2FWB
-> 
-> SMMU features are mapped to iommupt features:
->  ARM_SMMU_FEAT_COHERENCY -> PT_FEAT_DMA_INCOHERENT
->  ARM_SMMU_FEAT_VAX -> PT_FEAT_ARMV8_LVA
->  ARM_SMMU_FEAT_S2FWB -> PT_FEAT_ARMV8_S2FWB
-> 
-> Remove the iommu_flush_ops entirely, iommupt only uses gathers for
-> invalidation. Wire the tlbi directly to the gather.
-> 
-> Remove the trampoline for map/unmap/iova/read_and_clear_dirt. iommupt
-> directly provides the domain ops. Domain initialization is largely moved
-> into iommupt common code.
-> 
-> Change the kunit to fully create a page table to generate the tcr bits for
-> testing.
-> 
-> Compared to io-pgtable-arm iommupt has a number of key differences:
->  - CONT support, including always using RIL to avoid errata 3673557
->  - Unmap yields a single gather which generates a single tlbi operation
->     * free_list is always used to free after invalidate
->     * walk cache and leaf invalidation are combined for non-RIL cases
->       instead of being duplicated
->     * non-RIL cut over to all-invalidate covers walk invalidation now too,
->       umap -> single gather -> single all invalidate.
->     * RIL flushes the walk cache and leafs together with a good TTL hint.
->     * RIL always generates one command from any gather.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+On Tue, May 19, 2026 at 06:46:59PM +0800, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+>
+> The terminate API dmaengine_terminate_all() has been deprecated, improve
+> driver with dmaengine_terminate_sync().
+>
+> Fixes: ba9b28652c75 ("spi: imx: enable DMA mode for target operation")
+> Fixes: a450c8b77f92 ("spi: imx: handle DMA submission errors with dma_submit_error()")
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
->  drivers/iommu/arm/Kconfig                     |   4 +-
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  45 +--
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 256 ++++++------------
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  11 +-
->  4 files changed, 110 insertions(+), 206 deletions(-)
-> 
-
-[...]
-
-> -
->  static bool arm_smmu_dbm_capable(struct arm_smmu_device *smmu)
->  {
->  	u32 features = (ARM_SMMU_FEAT_HD | ARM_SMMU_FEAT_COHERENCY);
-> @@ -2831,7 +2785,6 @@ static bool arm_smmu_capable(struct device *dev, enum iommu_cap cap)
->  	case IOMMU_CAP_ENFORCE_CACHE_COHERENCY:
->  		return arm_smmu_master_canwbs(master);
->  	case IOMMU_CAP_NOEXEC:
-> -	case IOMMU_CAP_DEFERRED_FLUSH:
-
-Why this is removed? That would drop support for FQ domains.
-
-Thanks,
-Mostafa
-
->  		return true;
->  	case IOMMU_CAP_DIRTY_TRACKING:
->  		return arm_smmu_dbm_capable(master->smmu);
+>  drivers/spi/spi-imx.c | 16 ++++++++--------
+>  1 file changed, 8 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+> index 480d1e8b281f..ae9912905c67 100644
+> --- a/drivers/spi/spi-imx.c
+> +++ b/drivers/spi/spi-imx.c
+> @@ -1774,8 +1774,8 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
+>  							transfer_timeout);
+>  		if (!time_left) {
+>  			dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
+> -			dmaengine_terminate_all(controller->dma_tx);
+> -			dmaengine_terminate_all(controller->dma_rx);
+> +			dmaengine_terminate_sync(controller->dma_tx);
+> +			dmaengine_terminate_sync(controller->dma_rx);
+>  			return -ETIMEDOUT;
+>  		}
+>
+> @@ -1784,7 +1784,7 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
+>  		if (!time_left) {
+>  			dev_err(&controller->dev, "I/O Error in DMA RX\n");
+>  			spi_imx->devtype_data->reset(spi_imx);
+> -			dmaengine_terminate_all(controller->dma_rx);
+> +			dmaengine_terminate_sync(controller->dma_rx);
+>  			return -ETIMEDOUT;
+>  		}
+>  	} else {
+> @@ -1793,15 +1793,15 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
+>  		if (wait_for_completion_interruptible(&spi_imx->dma_tx_completion) ||
+>  		    READ_ONCE(spi_imx->target_aborted)) {
+>  			dev_dbg(spi_imx->dev, "I/O Error in DMA TX interrupted\n");
+> -			dmaengine_terminate_all(controller->dma_tx);
+> -			dmaengine_terminate_all(controller->dma_rx);
+> +			dmaengine_terminate_sync(controller->dma_tx);
+> +			dmaengine_terminate_sync(controller->dma_rx);
+>  			return -EINTR;
+>  		}
+>
+>  		if (wait_for_completion_interruptible(&spi_imx->dma_rx_completion) ||
+>  		    READ_ONCE(spi_imx->target_aborted)) {
+>  			dev_dbg(spi_imx->dev, "I/O Error in DMA RX interrupted\n");
+> -			dmaengine_terminate_all(controller->dma_rx);
+> +			dmaengine_terminate_sync(controller->dma_rx);
+>  			return -EINTR;
+>  		}
+>
+> @@ -1818,9 +1818,9 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
+>  	return 0;
+>
+>  dmaengine_terminate_tx:
+> -	dmaengine_terminate_all(controller->dma_tx);
+> +	dmaengine_terminate_sync(controller->dma_tx);
+>  dmaengine_terminate_rx:
+> -	dmaengine_terminate_all(controller->dma_rx);
+> +	dmaengine_terminate_sync(controller->dma_rx);
+>
+>  	return -EINVAL;
+>  }
+> --
+> 2.43.0
+>
 
