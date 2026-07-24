@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79489C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 02:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C886DC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 02:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YLx/DaXtFgy0ZBTEdcOf94G5Dcuh3pVwNU27nxu5Qlg=; b=ci06o7ItAJ202N/UeUp7RXXXt/
-	n+3bFpaqr+q49WKsAjbkDsfYVM9Bx2yPXAcOhamlrYzjgkw//qpwIR++N2XzO7H9AjQ5xryqf9M4o
-	TN0r2gInH46iE1gRa+KKQkbKfZjO9wAODz0othsImnSxjc+QJyJc0/EcwhyXD4RBnM0o5EVtjW6gR
-	qvPkFV0CdIQqqwATSjwvqEecLzPffSJjXvSsDoR2jRPT2pSx5EP876F3PpbQCB2umWujI2UEM4WU7
-	rTtnQezmVNMDBOnf9sTxNyQMaJQO6ZVp4kED+P3SyRPnaz/SoMID6OOZoHwwbT7vVwZ/orRwcVDB0
-	OkltmMlw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/IpJEiOUH4DJzbGd9fz4lOa2BHwwOv8RfGxwewsxz+Y=; b=nDA2LNGytZ7earsd5BlywFnOaw
+	VVLcAdyUukHli+TZxCXOTVNALrJgn89UK+ke00Sh2IWWfnN3OhYAOQt9WKEhOl7PUe92Zjf+uGTJw
+	gkJ5hg2DtWYJh/o4Vj9T3nCQYH8DZwjcqfJdti+c4UAuuB3z4HoJA04U2ZBDUc5jPPWNpVPNW40si
+	7IbTWbrTLt5Z3w5Rem25opcPMitQL75DvNkqgD+bK+OIaB1QR87BtRsI+OeLh9DYNzwOdj+tfw4+k
+	mF7e+mGMU7k7/XiHgBY8YBR7nvvtgsu2Dj+7qdydyebCGpMfLiGReP+Y5TvId7wM2vsxMx1TjUD/z
+	cWomMNCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn62A-0000000FPWr-0QvN;
+	id 1wn62A-0000000FPX9-0s3z;
 	Fri, 24 Jul 2026 02:53:10 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn61v-0000000FPSR-2vli
+	id 1wn620-0000000FPSd-0Sky
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 02:52:57 +0000
+	Fri, 24 Jul 2026 02:53:02 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=YLx/DaXtFgy0ZBTEdcOf94G5Dcuh3pVwNU27nxu5Qlg=;
-	b=dimSZeg3Nkfv9aUVGlw42h1TxxN5pHAJyzjG2iYRoeN89lmPlqBZdmh6FNvuDBfpXI4PE4uv0
-	JPUxNWlzckxtU9L9E/WfzOCVevMM3mr7HnOWDgAK/Sl/vARRrDhtY1taJ4/zaLKfvli2xMtBPol
-	ijulnY+uJwcbc7nSnwFiBTk=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4h5skF2fTvzpSwg;
-	Fri, 24 Jul 2026 10:43:33 +0800 (CST)
+	bh=/IpJEiOUH4DJzbGd9fz4lOa2BHwwOv8RfGxwewsxz+Y=;
+	b=pZs1iaDYB/E68hme+hXUYObVc63x3BO6j1ou3dEq7XuPojAU5+zK1Z35NosFp7Bb9bT8C2Tzl
+	xoOSjFXu1Z/EWCveNmRQbZh1ve3yq7C5ytn1yCg3GlW8XhgpOpsybLv2Yj3KVFu43mjaOMNZOkp
+	LHiC/a/UxK8ETRiowenQI7g=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h5sjz1kxdz1T4Hh;
+	Fri, 24 Jul 2026 10:43:19 +0800 (CST)
 Received: from whupemo500002.china.huawei.com (unknown [7.152.185.250])
-	by mail.maildlp.com (Postfix) with ESMTPS id 57AD940538;
-	Fri, 24 Jul 2026 10:52:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 36EC040561;
+	Fri, 24 Jul 2026 10:52:42 +0800 (CST)
 Received: from localhost.huawei.com (10.90.31.46) by
  whupemo500002.china.huawei.com (7.152.185.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 24 Jul 2026 10:52:40 +0800
+ 15.2.1544.11; Fri, 24 Jul 2026 10:52:41 +0800
 From: Yushan Wang <wangyushan12@huawei.com>
 To: <will@kernel.org>, <mark.rutland@arm.com>, <robin.murphy@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <u.kleine-koenig@baylibre.com>, <linuxarm@huawei.com>,
 	<liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>,
 	<wangzhou1@hisilicon.com>, <wangyushan12@huawei.com>, <wuyifan50@huawei.com>
-Subject: [PATCH v4 0/3] drivers/perf: hisi: Updates for HiSilicon uncore PMUs
-Date: Fri, 24 Jul 2026 10:52:35 +0800
-Message-ID: <20260724025238.3411328-1-wangyushan12@huawei.com>
+Subject: [PATCH 1/3] drivers/perf: hisi: Consolidate uncore PMU cpuhp states
+Date: Fri, 24 Jul 2026 10:52:36 +0800
+Message-ID: <20260724025238.3411328-2-wangyushan12@huawei.com>
 X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260724025238.3411328-1-wangyushan12@huawei.com>
+References: <20260724025238.3411328-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -61,9 +63,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  whupemo500002.china.huawei.com (7.152.185.250)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_195256_066999_22C94A58 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_195300_498040_E29D16E2 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +79,719 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset added support of ITS PMU, and new version of MN PMU.
+Every HiSilicon uncore PMU driver allocates its own static cpuhp state
+even though they all register identical online/offline callbacks. This
+wastes slots in the cpuhp state enum and needlessly fragments the
+hotplug state space.
 
-ITS PMU supports counting number and latency of interrupts by
-category, and statistics of micro-ops of ITS.
+Move the cpuhp state setup into the shared hisi_uncore_pmu framework:
+register a single dynamic state (CPUHP_AP_ONLINE_DYN) at framework
+module init and export it for all HiSilicon uncore PMU drivers to use.
+Drop the now-unused static CPUHP_AP_PERF_ARM_HISI_* entries from
+include/linux/cpuhotplug.h.
 
-The new version of MN PMU added cycles event, to be used for MN
-metric computing.
+The L3C PMU driver keeps a private dynamic state because it has its own
+hotplug callbacks for migrating multiple per-CPU interrupt affinities,
+but switches from its former static slot to CPUHP_AP_ONLINE_DYN for
+consistency.
 
-Changes:
-v4:
-- Moved unnecessary cpuhp states for each PMU drivers to hisi_uncore_pmu
-  framework as suggested by Robin.
-- Reserve the ITS INT_ID filter slot for the lifetime of the event so
-  concurrent or multiplexed events cannot clobber the global filter
-  configuration.
-Link to v3: https://lore.kernel.org/all/20260713125647.2958626-1-wangyushan12@huawei.com/
-Link to Sashiko review report: https://sashiko.dev/#/patchset/20260713125647.2958626-1-wangyushan12%40huawei.com
+No intended functional changes.
 
-v3:
-- Added check_filter callback to refuse new filtered events when there
-  are already filtered ones running as per Sashiko.
-Link to v2: https://lore.kernel.org/all/20260612093812.1249049-1-wangyushan12@huawei.com/
-Link to Sashiko review report: https://sashiko.dev/#/message/20260612093812.1249049-1-wangyushan12%40huawei.com
+Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+---
+ drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  | 34 +++---------------
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 34 +++---------------
+ drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 34 +++---------------
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  | 21 +++++------
+ drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 35 ++----------------
+ drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 35 ++----------------
+ drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 34 +++---------------
+ drivers/perf/hisilicon/hisi_uncore_pmu.c      | 25 +++++++++++++
+ drivers/perf/hisilicon/hisi_uncore_pmu.h      |  2 ++
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 34 +++---------------
+ drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   | 36 ++-----------------
+ include/linux/cpuhotplug.h                    |  6 ----
+ 12 files changed, 67 insertions(+), 263 deletions(-)
 
-v2:
-- Added int_en filter to tell if int_id is used, enabling filtering
-  interrupt with 0 int_id per Sashiko.
-- Changed event format width to align with register width per Sashiko.
-Link to v1: https://lore.kernel.org/all/20260423152959.1458563-1-wangyushan12@huawei.com/
-Link to Sashiko review report: https://sashiko.dev/#/patchset/20260423152959.1458563-1-wangyushan12%40huawei.com
-
-Yifan Wu (1):
-  drivers/perf: hisi: Add cycle event for HIP13 MN PMU
-
-Yushan Wang (2):
-  drivers/perf: hisi: Consolidate uncore PMU cpuhp states
-  drivers/perf: hisi: Add support for uncore ITS PMU
-
- Documentation/admin-guide/perf/hisi-pmu.rst   |  13 +
- drivers/perf/hisilicon/Makefile               |   2 +-
- drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  |  34 +-
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c |  34 +-
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |  34 +-
- drivers/perf/hisilicon/hisi_uncore_its_pmu.c  | 400 ++++++++++++++++++
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  |  21 +-
- drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   |  98 +++--
- drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  |  35 +-
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |  34 +-
- drivers/perf/hisilicon/hisi_uncore_pmu.c      |  25 ++
- drivers/perf/hisilicon/hisi_uncore_pmu.h      |   2 +
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c |  34 +-
- drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   |  36 +-
- include/linux/cpuhotplug.h                    |   6 -
- 15 files changed, 537 insertions(+), 271 deletions(-)
- create mode 100644 drivers/perf/hisilicon/hisi_uncore_its_pmu.c
-
+diff --git a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
+index b879b81adfdd..83967725c51c 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
+@@ -295,7 +295,7 @@ static int hisi_cpa_pmu_probe(struct platform_device *pdev)
+ 
+ 	/* Power Management should be disabled before using CPA PMU. */
+ 	hisi_cpa_pmu_disable_pm(cpa_pmu);
+-	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_ARM_HISI_CPA_ONLINE,
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state,
+ 				       &cpa_pmu->node);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Error %d registering hotplug\n", ret);
+@@ -307,7 +307,7 @@ static int hisi_cpa_pmu_probe(struct platform_device *pdev)
+ 	if (ret) {
+ 		dev_err(cpa_pmu->dev, "PMU register failed\n");
+ 		cpuhp_state_remove_instance_nocalls(
+-			CPUHP_AP_PERF_ARM_HISI_CPA_ONLINE, &cpa_pmu->node);
++			hisi_uncore_pmu_cpuhp_state, &cpa_pmu->node);
+ 		hisi_cpa_pmu_enable_pm(cpa_pmu);
+ 		return ret;
+ 	}
+@@ -321,7 +321,7 @@ static void hisi_cpa_pmu_remove(struct platform_device *pdev)
+ 	struct hisi_pmu *cpa_pmu = platform_get_drvdata(pdev);
+ 
+ 	perf_pmu_unregister(&cpa_pmu->pmu);
+-	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_CPA_ONLINE,
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state,
+ 					    &cpa_pmu->node);
+ 	hisi_cpa_pmu_enable_pm(cpa_pmu);
+ }
+@@ -336,33 +336,7 @@ static struct platform_driver hisi_cpa_pmu_driver = {
+ 	.remove = hisi_cpa_pmu_remove,
+ };
+ 
+-static int __init hisi_cpa_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_CPA_ONLINE,
+-				      "AP_PERF_ARM_HISI_CPA_ONLINE",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret) {
+-		pr_err("setup hotplug failed: %d\n", ret);
+-		return ret;
+-	}
+-
+-	ret = platform_driver_register(&hisi_cpa_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_CPA_ONLINE);
+-
+-	return ret;
+-}
+-module_init(hisi_cpa_pmu_module_init);
+-
+-static void __exit hisi_cpa_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_cpa_pmu_driver);
+-	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_CPA_ONLINE);
+-}
+-module_exit(hisi_cpa_pmu_module_exit);
++module_platform_driver(hisi_cpa_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon SoC CPA PMU driver");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
+index 21c494881ca0..e905160523ee 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
+@@ -401,7 +401,7 @@ static int hisi_ddrc_pmu_probe(struct platform_device *pdev)
+ 	if (!name)
+ 		return -ENOMEM;
+ 
+-	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE,
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state,
+ 				       &ddrc_pmu->node);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Error %d registering hotplug;\n", ret);
+@@ -414,7 +414,7 @@ static int hisi_ddrc_pmu_probe(struct platform_device *pdev)
+ 	if (ret) {
+ 		dev_err(ddrc_pmu->dev, "DDRC PMU register failed!\n");
+ 		cpuhp_state_remove_instance_nocalls(
+-			CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE, &ddrc_pmu->node);
++			hisi_uncore_pmu_cpuhp_state, &ddrc_pmu->node);
+ 	}
+ 
+ 	return ret;
+@@ -425,7 +425,7 @@ static void hisi_ddrc_pmu_remove(struct platform_device *pdev)
+ 	struct hisi_pmu *ddrc_pmu = platform_get_drvdata(pdev);
+ 
+ 	perf_pmu_unregister(&ddrc_pmu->pmu);
+-	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE,
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state,
+ 					    &ddrc_pmu->node);
+ }
+ 
+@@ -501,33 +501,7 @@ static struct platform_driver hisi_ddrc_pmu_driver = {
+ 	.remove = hisi_ddrc_pmu_remove,
+ };
+ 
+-static int __init hisi_ddrc_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE,
+-				      "AP_PERF_ARM_HISI_DDRC_ONLINE",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret) {
+-		pr_err("DDRC PMU: setup hotplug, ret = %d\n", ret);
+-		return ret;
+-	}
+-
+-	ret = platform_driver_register(&hisi_ddrc_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE);
+-
+-	return ret;
+-}
+-module_init(hisi_ddrc_pmu_module_init);
+-
+-static void __exit hisi_ddrc_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_ddrc_pmu_driver);
+-	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE);
+-}
+-module_exit(hisi_ddrc_pmu_module_exit);
++module_platform_driver(hisi_ddrc_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon SoC DDRC uncore PMU driver");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
+index 97cfaa586a87..93a250b7abb8 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
+@@ -490,7 +490,7 @@ static int hisi_hha_pmu_probe(struct platform_device *pdev)
+ 	if (!name)
+ 		return -ENOMEM;
+ 
+-	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_ARM_HISI_HHA_ONLINE,
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state,
+ 				       &hha_pmu->node);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Error %d registering hotplug\n", ret);
+@@ -503,7 +503,7 @@ static int hisi_hha_pmu_probe(struct platform_device *pdev)
+ 	if (ret) {
+ 		dev_err(hha_pmu->dev, "HHA PMU register failed!\n");
+ 		cpuhp_state_remove_instance_nocalls(
+-			CPUHP_AP_PERF_ARM_HISI_HHA_ONLINE, &hha_pmu->node);
++			hisi_uncore_pmu_cpuhp_state, &hha_pmu->node);
+ 	}
+ 
+ 	return ret;
+@@ -514,7 +514,7 @@ static void hisi_hha_pmu_remove(struct platform_device *pdev)
+ 	struct hisi_pmu *hha_pmu = platform_get_drvdata(pdev);
+ 
+ 	perf_pmu_unregister(&hha_pmu->pmu);
+-	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_HHA_ONLINE,
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state,
+ 					    &hha_pmu->node);
+ }
+ 
+@@ -528,33 +528,7 @@ static struct platform_driver hisi_hha_pmu_driver = {
+ 	.remove = hisi_hha_pmu_remove,
+ };
+ 
+-static int __init hisi_hha_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_HHA_ONLINE,
+-				      "AP_PERF_ARM_HISI_HHA_ONLINE",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret) {
+-		pr_err("HHA PMU: Error setup hotplug, ret = %d;\n", ret);
+-		return ret;
+-	}
+-
+-	ret = platform_driver_register(&hisi_hha_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_HHA_ONLINE);
+-
+-	return ret;
+-}
+-module_init(hisi_hha_pmu_module_init);
+-
+-static void __exit hisi_hha_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_hha_pmu_driver);
+-	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_HHA_ONLINE);
+-}
+-module_exit(hisi_hha_pmu_module_exit);
++module_platform_driver(hisi_hha_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon SoC HHA uncore PMU driver");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+index f963e4f9e552..0b78a0e094dd 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+@@ -93,6 +93,8 @@ struct hisi_l3c_pmu_ext {
+ 	bool support_ext;
+ };
+ 
++static enum cpuhp_state hisi_l3c_pmu_cpuhp_state;
++
+ static bool support_ext(struct hisi_l3c_pmu *pmu)
+ {
+ 	struct hisi_l3c_pmu_ext *l3c_pmu_ext = pmu->l3c_pmu.dev_info->private;
+@@ -845,8 +847,7 @@ static int hisi_l3c_pmu_probe(struct platform_device *pdev)
+ 	if (!name)
+ 		return -ENOMEM;
+ 
+-	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE,
+-				       &l3c_pmu->node);
++	ret = cpuhp_state_add_instance(hisi_l3c_pmu_cpuhp_state, &l3c_pmu->node);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Error %d registering hotplug\n", ret);
+ 		return ret;
+@@ -858,7 +859,7 @@ static int hisi_l3c_pmu_probe(struct platform_device *pdev)
+ 	if (ret) {
+ 		dev_err(l3c_pmu->dev, "L3C PMU register failed!\n");
+ 		cpuhp_state_remove_instance_nocalls(
+-			CPUHP_AP_PERF_ARM_HISI_L3_ONLINE, &l3c_pmu->node);
++			hisi_l3c_pmu_cpuhp_state, &l3c_pmu->node);
+ 	}
+ 
+ 	return ret;
+@@ -869,7 +870,7 @@ static void hisi_l3c_pmu_remove(struct platform_device *pdev)
+ 	struct hisi_pmu *l3c_pmu = platform_get_drvdata(pdev);
+ 
+ 	perf_pmu_unregister(&l3c_pmu->pmu);
+-	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE,
++	cpuhp_state_remove_instance_nocalls(hisi_l3c_pmu_cpuhp_state,
+ 					    &l3c_pmu->node);
+ }
+ 
+@@ -939,20 +940,20 @@ static int hisi_l3c_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+ 
+ static int __init hisi_l3c_pmu_module_init(void)
+ {
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE,
++	int ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
+ 				      "AP_PERF_ARM_HISI_L3_ONLINE",
+ 				      hisi_l3c_pmu_online_cpu,
+ 				      hisi_l3c_pmu_offline_cpu);
+-	if (ret) {
++	if (ret < 0) {
+ 		pr_err("L3C PMU: Error setup hotplug, ret = %d\n", ret);
+ 		return ret;
+ 	}
+ 
++	hisi_l3c_pmu_cpuhp_state = ret;
++
+ 	ret = platform_driver_register(&hisi_l3c_pmu_driver);
+ 	if (ret)
+-		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE);
++		cpuhp_remove_multi_state(hisi_l3c_pmu_cpuhp_state);
+ 
+ 	return ret;
+ }
+@@ -961,7 +962,7 @@ module_init(hisi_l3c_pmu_module_init);
+ static void __exit hisi_l3c_pmu_module_exit(void)
+ {
+ 	platform_driver_unregister(&hisi_l3c_pmu_driver);
+-	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE);
++	cpuhp_remove_multi_state(hisi_l3c_pmu_cpuhp_state);
+ }
+ module_exit(hisi_l3c_pmu_module_exit);
+ 
+diff --git a/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c b/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
+index 246cc0333099..ad898153ff49 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
+@@ -13,9 +13,6 @@
+ 
+ #include "hisi_uncore_pmu.h"
+ 
+-/* Dynamic CPU hotplug state used by MN PMU */
+-static enum cpuhp_state hisi_mn_pmu_online;
+-
+ /* MN register definition */
+ #define HISI_MN_DYNAMIC_CTRL_REG	0x400
+ #define   HISI_MN_DYNAMIC_CTRL_EN	BIT(0)
+@@ -291,7 +288,7 @@ static int hisi_mn_pmu_dev_init(struct platform_device *pdev,
+ 
+ static void hisi_mn_pmu_remove_cpuhp(void *hotplug_node)
+ {
+-	cpuhp_state_remove_instance_nocalls(hisi_mn_pmu_online, hotplug_node);
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state, hotplug_node);
+ }
+ 
+ static void hisi_mn_pmu_unregister(void *pmu)
+@@ -320,7 +317,7 @@ static int hisi_mn_pmu_probe(struct platform_device *pdev)
+ 	if (!name)
+ 		return -ENOMEM;
+ 
+-	ret = cpuhp_state_add_instance(hisi_mn_pmu_online, &mn_pmu->node);
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state, &mn_pmu->node);
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "Failed to register cpu hotplug\n");
+ 
+@@ -376,33 +373,7 @@ static struct platform_driver hisi_mn_pmu_driver = {
+ 	.probe = hisi_mn_pmu_probe,
+ };
+ 
+-static int __init hisi_mn_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "perf/hisi/mn:online",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret < 0) {
+-		pr_err("hisi_mn_pmu: Failed to setup MN PMU hotplug: %d\n", ret);
+-		return ret;
+-	}
+-	hisi_mn_pmu_online = ret;
+-
+-	ret = platform_driver_register(&hisi_mn_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(hisi_mn_pmu_online);
+-
+-	return ret;
+-}
+-module_init(hisi_mn_pmu_module_init);
+-
+-static void __exit hisi_mn_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_mn_pmu_driver);
+-	cpuhp_remove_multi_state(hisi_mn_pmu_online);
+-}
+-module_exit(hisi_mn_pmu_module_exit);
++module_platform_driver(hisi_mn_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon SoC MN uncore PMU driver");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
+index 616f4af57db7..abf44fa46d17 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
+@@ -41,9 +41,6 @@
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(ch, config1, 2, 0);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_en, config1, 3, 3);
+ 
+-/* Dynamic CPU hotplug state used by this PMU driver */
+-static enum cpuhp_state hisi_noc_pmu_cpuhp_state;
+-
+ struct hisi_noc_pmu_regs {
+ 	u32 version;
+ 	u32 pmu_ctrl;
+@@ -324,7 +321,7 @@ static int hisi_noc_pmu_dev_init(struct platform_device *pdev, struct hisi_pmu *
+ 
+ static void hisi_noc_pmu_remove_cpuhp_instance(void *hotplug_node)
+ {
+-	cpuhp_state_remove_instance_nocalls(hisi_noc_pmu_cpuhp_state, hotplug_node);
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state, hotplug_node);
+ }
+ 
+ static void hisi_noc_pmu_unregister_pmu(void *pmu)
+@@ -353,7 +350,7 @@ static int hisi_noc_pmu_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = cpuhp_state_add_instance(hisi_noc_pmu_cpuhp_state, &noc_pmu->node);
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state, &noc_pmu->node);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "Fail to register cpuhp instance\n");
+ 
+@@ -408,33 +405,7 @@ static struct platform_driver hisi_noc_pmu_driver = {
+ 	.probe = hisi_noc_pmu_probe,
+ };
+ 
+-static int __init hisi_noc_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "perf/hisi/noc:online",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret < 0) {
+-		pr_err("hisi_noc_pmu: Fail to setup cpuhp callbacks, ret = %d\n", ret);
+-		return ret;
+-	}
+-	hisi_noc_pmu_cpuhp_state = ret;
+-
+-	ret = platform_driver_register(&hisi_noc_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(hisi_noc_pmu_cpuhp_state);
+-
+-	return ret;
+-}
+-module_init(hisi_noc_pmu_module_init);
+-
+-static void __exit hisi_noc_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_noc_pmu_driver);
+-	cpuhp_remove_multi_state(hisi_noc_pmu_cpuhp_state);
+-}
+-module_exit(hisi_noc_pmu_module_exit);
++module_platform_driver(hisi_noc_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon SoC Uncore NoC PMU driver");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
+index 80108c63cb60..3d1e0af64260 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
+@@ -468,7 +468,7 @@ static int hisi_pa_pmu_probe(struct platform_device *pdev)
+ 	if (!name)
+ 		return -ENOMEM;
+ 
+-	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_ARM_HISI_PA_ONLINE,
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state,
+ 				       &pa_pmu->node);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Error %d registering hotplug\n", ret);
+@@ -479,7 +479,7 @@ static int hisi_pa_pmu_probe(struct platform_device *pdev)
+ 	ret = perf_pmu_register(&pa_pmu->pmu, name, -1);
+ 	if (ret) {
+ 		dev_err(pa_pmu->dev, "PMU register failed, ret = %d\n", ret);
+-		cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_PA_ONLINE,
++		cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state,
+ 						    &pa_pmu->node);
+ 		return ret;
+ 	}
+@@ -493,7 +493,7 @@ static void hisi_pa_pmu_remove(struct platform_device *pdev)
+ 	struct hisi_pmu *pa_pmu = platform_get_drvdata(pdev);
+ 
+ 	perf_pmu_unregister(&pa_pmu->pmu);
+-	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_PA_ONLINE,
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state,
+ 					    &pa_pmu->node);
+ }
+ 
+@@ -515,33 +515,7 @@ static struct platform_driver hisi_pa_pmu_driver = {
+ 	.remove = hisi_pa_pmu_remove,
+ };
+ 
+-static int __init hisi_pa_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_PA_ONLINE,
+-				      "AP_PERF_ARM_HISI_PA_ONLINE",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret) {
+-		pr_err("PA PMU: cpuhp state setup failed, ret = %d\n", ret);
+-		return ret;
+-	}
+-
+-	ret = platform_driver_register(&hisi_pa_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_PA_ONLINE);
+-
+-	return ret;
+-}
+-module_init(hisi_pa_pmu_module_init);
+-
+-static void __exit hisi_pa_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_pa_pmu_driver);
+-	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_PA_ONLINE);
+-}
+-module_exit(hisi_pa_pmu_module_exit);
++module_platform_driver(hisi_pa_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon Protocol Adapter uncore PMU driver");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+index de71dcf11653..276785a79ae9 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+@@ -23,6 +23,9 @@
+ 
+ #define HISI_MAX_PERIOD(nr) (GENMASK_ULL((nr) - 1, 0))
+ 
++enum cpuhp_state hisi_uncore_pmu_cpuhp_state;
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_cpuhp_state, "HISI_PMU");
++
+ /*
+  * PMU event attributes
+  */
+@@ -621,5 +624,27 @@ void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module)
+ }
+ EXPORT_SYMBOL_NS_GPL(hisi_pmu_init, "HISI_PMU");
+ 
++static int __init hisi_uncore_pmu_init(void)
++{
++	int ret;
++
++	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "perf/hisi/uncore:online",
++				      hisi_uncore_pmu_online_cpu,
++				      hisi_uncore_pmu_offline_cpu);
++	if (ret < 0)
++		return ret;
++
++	hisi_uncore_pmu_cpuhp_state = ret;
++
++	return 0;
++}
++module_init(hisi_uncore_pmu_init);
++
++static void __exit hisi_uncore_pmu_exit(void)
++{
++	cpuhp_remove_multi_state(hisi_uncore_pmu_cpuhp_state);
++}
++module_exit(hisi_uncore_pmu_exit);
++
+ MODULE_DESCRIPTION("HiSilicon SoC uncore Performance Monitor driver framework");
+ MODULE_LICENSE("GPL v2");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+index 3ffe6acda653..e5a4b3898865 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+@@ -171,4 +171,6 @@ int hisi_uncore_pmu_init_irq(struct hisi_pmu *hisi_pmu,
+ void hisi_uncore_pmu_init_topology(struct hisi_pmu *hisi_pmu, struct device *dev);
+ 
+ void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module);
++
++extern enum cpuhp_state hisi_uncore_pmu_cpuhp_state;
+ #endif /* __HISI_UNCORE_PMU_H__ */
+diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+index cd32d606df05..d01340ff2e5c 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+@@ -503,7 +503,7 @@ static int hisi_sllc_pmu_probe(struct platform_device *pdev)
+ 	if (!name)
+ 		return -ENOMEM;
+ 
+-	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_ARM_HISI_SLLC_ONLINE,
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state,
+ 				       &sllc_pmu->node);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Error %d registering hotplug\n", ret);
+@@ -515,7 +515,7 @@ static int hisi_sllc_pmu_probe(struct platform_device *pdev)
+ 	ret = perf_pmu_register(&sllc_pmu->pmu, name, -1);
+ 	if (ret) {
+ 		dev_err(sllc_pmu->dev, "PMU register failed, ret = %d\n", ret);
+-		cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_SLLC_ONLINE,
++		cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state,
+ 						    &sllc_pmu->node);
+ 		return ret;
+ 	}
+@@ -530,7 +530,7 @@ static void hisi_sllc_pmu_remove(struct platform_device *pdev)
+ 	struct hisi_pmu *sllc_pmu = platform_get_drvdata(pdev);
+ 
+ 	perf_pmu_unregister(&sllc_pmu->pmu);
+-	cpuhp_state_remove_instance_nocalls(CPUHP_AP_PERF_ARM_HISI_SLLC_ONLINE,
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state,
+ 					    &sllc_pmu->node);
+ }
+ 
+@@ -551,33 +551,7 @@ static struct platform_driver hisi_sllc_pmu_driver = {
+ 	.remove = hisi_sllc_pmu_remove,
+ };
+ 
+-static int __init hisi_sllc_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_SLLC_ONLINE,
+-				      "AP_PERF_ARM_HISI_SLLC_ONLINE",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret) {
+-		pr_err("SLLC PMU: cpuhp state setup failed, ret = %d\n", ret);
+-		return ret;
+-	}
+-
+-	ret = platform_driver_register(&hisi_sllc_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_SLLC_ONLINE);
+-
+-	return ret;
+-}
+-module_init(hisi_sllc_pmu_module_init);
+-
+-static void __exit hisi_sllc_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_sllc_pmu_driver);
+-	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_SLLC_ONLINE);
+-}
+-module_exit(hisi_sllc_pmu_module_exit);
++module_platform_driver(hisi_sllc_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon SLLC uncore PMU driver");
+diff --git a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
+index e8186b6e1687..b4d017a5d688 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
+@@ -13,9 +13,6 @@
+ 
+ #include "hisi_uncore_pmu.h"
+ 
+-/* Dynamic CPU hotplug state used by UC PMU */
+-static enum cpuhp_state hisi_uc_pmu_online;
+-
+ /* UC register definition */
+ #define HISI_UC_INT_MASK_REG		0x0800
+ #define HISI_UC_INT_STS_REG		0x0808
+@@ -488,7 +485,7 @@ static int hisi_uc_pmu_dev_probe(struct platform_device *pdev,
+ 
+ static void hisi_uc_pmu_remove_cpuhp_instance(void *hotplug_node)
+ {
+-	cpuhp_state_remove_instance_nocalls(hisi_uc_pmu_online, hotplug_node);
++	cpuhp_state_remove_instance_nocalls(hisi_uncore_pmu_cpuhp_state, hotplug_node);
+ }
+ 
+ static void hisi_uc_pmu_unregister_pmu(void *pmu)
+@@ -518,7 +515,7 @@ static int hisi_uc_pmu_probe(struct platform_device *pdev)
+ 	if (!name)
+ 		return -ENOMEM;
+ 
+-	ret = cpuhp_state_add_instance(hisi_uc_pmu_online, &uc_pmu->node);
++	ret = cpuhp_state_add_instance(hisi_uncore_pmu_cpuhp_state, &uc_pmu->node);
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "Error registering hotplug\n");
+ 
+@@ -559,34 +556,7 @@ static struct platform_driver hisi_uc_pmu_driver = {
+ 	.probe = hisi_uc_pmu_probe,
+ };
+ 
+-static int __init hisi_uc_pmu_module_init(void)
+-{
+-	int ret;
+-
+-	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
+-				      "perf/hisi/uc:online",
+-				      hisi_uncore_pmu_online_cpu,
+-				      hisi_uncore_pmu_offline_cpu);
+-	if (ret < 0) {
+-		pr_err("UC PMU: Error setup hotplug, ret = %d\n", ret);
+-		return ret;
+-	}
+-	hisi_uc_pmu_online = ret;
+-
+-	ret = platform_driver_register(&hisi_uc_pmu_driver);
+-	if (ret)
+-		cpuhp_remove_multi_state(hisi_uc_pmu_online);
+-
+-	return ret;
+-}
+-module_init(hisi_uc_pmu_module_init);
+-
+-static void __exit hisi_uc_pmu_module_exit(void)
+-{
+-	platform_driver_unregister(&hisi_uc_pmu_driver);
+-	cpuhp_remove_multi_state(hisi_uc_pmu_online);
+-}
+-module_exit(hisi_uc_pmu_module_exit);
++module_platform_driver(hisi_uc_pmu_driver);
+ 
+ MODULE_IMPORT_NS("HISI_PMU");
+ MODULE_DESCRIPTION("HiSilicon SoC UC uncore PMU driver");
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index 0fb3a2a62eb0..965d6ce02a29 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -210,12 +210,6 @@ enum cpuhp_state {
+ 	CPUHP_AP_PERF_S390_SF_ONLINE,
+ 	CPUHP_AP_PERF_ARM_CCI_ONLINE,
+ 	CPUHP_AP_PERF_ARM_CCN_ONLINE,
+-	CPUHP_AP_PERF_ARM_HISI_CPA_ONLINE,
+-	CPUHP_AP_PERF_ARM_HISI_DDRC_ONLINE,
+-	CPUHP_AP_PERF_ARM_HISI_HHA_ONLINE,
+-	CPUHP_AP_PERF_ARM_HISI_L3_ONLINE,
+-	CPUHP_AP_PERF_ARM_HISI_PA_ONLINE,
+-	CPUHP_AP_PERF_ARM_HISI_SLLC_ONLINE,
+ 	CPUHP_AP_PERF_ARM_HISI_PCIE_PMU_ONLINE,
+ 	CPUHP_AP_PERF_ARM_HNS3_PMU_ONLINE,
+ 	CPUHP_AP_PERF_ARM_L2X0_ONLINE,
 -- 
 2.33.0
+
 
