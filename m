@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43409C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D631DC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgozD0Rc2fWO01kt42DkQme7vONpq6/PGcDgZ00x91w=; b=fmlOId3MXoRQbJEZIhcZPz0ipc
-	HN6Z5yR8+TzQI0g3wQkTHkxkbFCw2fetP72IPdQ6XZSdcA8AYHj1s8obwsFvtGyQaCuGkSnDLHoE0
-	VZ1EOjhVSMo7LLmvgdvWWuIhlc1q22684uaOHdAkmQTF4mMXLAjfYBRaQuT/yMvZvZqsqO7H4toAk
-	H5DntjfwftXA7wFgUndU4zi7FuDYuBoazAhf1AZiRG0LHC4Nl2BDe0VfTYlZI97KzVQ/cxpTUMNl0
-	e0Tz7HkXW2YHEYudy0hNyxnxqv0YdaTUJjQ+yojoc9GAZXyYGNkvJwzy6UlkCG7B6uVK+NnswJvfI
-	N3MLNo3A==;
+	bh=mGPPJHzrnAomcUNucnHVbPgBtZVy7uagHIXI3mTUEGI=; b=cwzYIu2BB0Wm+bmce1FUpmcq1b
+	tK9ehDKxJklgAK89kG737CYm6vxkMXP3vtcVSJHBqtjvIBWkp/6P8IBC2KeYtRZcLyVo5CK9RLT1f
+	Z/6O6A9xFri0F8kbQD6hUBToMUAwr9kYQtQ4qG21L1SiRn5fH8QLhRGmDwYkmO/xlXFleDz5rH/Az
+	qTiEPJu5PGnYUPnuFvt+kNE5Vt51eb3qRJ6VFggGJX8O2KL/O2h+mIT1h0++2Frxgy8qBhU+v+maA
+	last9IEEondAqxSTJDZp9J/P3bAqhlRSR95SjeqrZ7Elv7tNcerLbF34XL0BTv7T1IFees2g5S2K5
+	8CTqtMQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnF0J-0000000GN6e-0mDh;
-	Fri, 24 Jul 2026 12:27:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wnDqA-0000000GGDg-3ypY;
+	Fri, 24 Jul 2026 11:13:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnF0H-0000000GN6V-38To
+	id 1wnDq9-0000000GGDA-3REi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 12:27:49 +0000
+	Fri, 24 Jul 2026 11:13:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 409DB4106F;
-	Fri, 24 Jul 2026 12:27:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2855B1F000E9;
-	Fri, 24 Jul 2026 12:27:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49C00600AD;
+	Fri, 24 Jul 2026 11:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA53C1F01833;
+	Fri, 24 Jul 2026 11:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784896069;
-	bh=WgozD0Rc2fWO01kt42DkQme7vONpq6/PGcDgZ00x91w=;
+	s=k20260515; t=1784891597;
+	bh=mGPPJHzrnAomcUNucnHVbPgBtZVy7uagHIXI3mTUEGI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PT4IhH1hRFHzTAIo4FI8RZuBKmj+osHKCecVoMaYKIKQTIZoIh4hMLNcemneDAPe1
-	 J6VO2XEY8IVEw9ZgJ4Lit85p0rZ5EbEvrradYosrRwh+n6AneRHRe/ZJtYLF5N77hC
-	 UBWon6+e0EGWFdiPIajFDEq+kQqRNSu8/ny9DdEXaMY63AlcLgdQDisZYNw04d2L/y
-	 DDFLxavPVzKC1DzFLsLZTYFk8tsAlJpcg3hZhmx1jqpNjB6nJ2zEWS9U7KhldeO+Cc
-	 pkYNyC/vvVV9Z9R+C4JawFkptPLYOoB6uP/uRy6C41Z2M2Rm2/62qpkcCtxUjGK4kO
-	 HAHFg2r8EPkrw==
-Date: Fri, 24 Jul 2026 13:27:42 +0100
+	b=csD0TrBVL5HpThSUes+OxIsvA5EcozPEOO5rKW+RUYd6yOYaZDjNFwJzhhXVWlBHV
+	 FQ3cKUV0WlOW+ff3tSjCZ7fGfn6D6kuSEAB5KUoFAfRuHFw/PcPOEdyAWIIc0h1Bun
+	 nQAryAF7wY69u4BiinA9qCCMC1eu21a8rj5cYbLwC7RV7bxJQQhPlIbuL7A06Z+oOV
+	 +Jw7B8dd1Tel1h5p2OVgO8DnQXT/5U3YYB4PfwYs12D516E6oNDCQSSN27ybWo+/p8
+	 SWGjmcjHwlMVWa2/wYJNDufsiAivIXmXZTr3/cmKQ3jn/mIJuN/OscNghmzwwyLVVi
+	 VfaZW2Hr6fcrg==
+Date: Fri, 24 Jul 2026 12:13:08 +0100
 From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
+To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+Cc: michal.simek@amd.com, linux-arm-kernel@lists.infradead.org,
 	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Srinivas Ramana <sramana@qti.qualcomm.com>,
-	Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 06/10] arm_mpam: propagate MSC access errors for state
- saving function
-Message-ID: <20260724-perfect-pygmy-chinchilla-447ce0@sudeepholla>
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-7-andre.przywara@arm.com>
- <20260724-important-curassow-of-support-ce4777@sudeepholla>
- <e182f2ac-6fd9-4a25-9409-9617012584ed@arm.com>
+	linux-kernel@vger.kernel.org, ptsm@linux.microsoft.com,
+	radhey.shyam.pandey@amd.com
+Subject: Re: [PATCH v3 1/3] firmware: xilinx: Add support to clear TF-A PM
+ state
+Message-ID: <20260724-stirring-bloodhound-of-sufficiency-5bedff@sudeepholla>
+References: <20260724095301.2890001-1-jay.buddhabhatti@amd.com>
+ <20260724101948.2895263-1-jay.buddhabhatti@amd.com>
+ <20260724101948.2895263-2-jay.buddhabhatti@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <e182f2ac-6fd9-4a25-9409-9617012584ed@arm.com>
+In-Reply-To: <20260724101948.2895263-2-jay.buddhabhatti@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,56 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 01:19:14PM +0200, Andre Przywara wrote:
-> Hi,
-> 
-> On 7/24/26 12:07, Sudeep Holla wrote:
-> > On Thu, Jul 23, 2026 at 05:54:50PM +0200, Andre Przywara wrote:
-> > > Allow the mpam_save_mbwu_state() function to return an error, and
-> > > propagate read and write errors from the lower level up.
-> > > 
-> > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > > ---
-> > >   drivers/resctrl/mpam_devices.c | 29 ++++++++++++++++++++++-------
-> > >   1 file changed, 22 insertions(+), 7 deletions(-)
-> > > 
-> > > diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> > > index bcff53477133..6329443c451f 100644
-> > > --- a/drivers/resctrl/mpam_devices.c
-> > > +++ b/drivers/resctrl/mpam_devices.c
-> > > @@ -1833,22 +1833,37 @@ static int mpam_save_mbwu_state(void *arg)
-> > >   		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
-> > >   			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> > > -		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> > > -		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-> > > -		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-> > > -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-> > > +		ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> > > +		if (ret)
-> > > +			return ret;
-> > > +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-> > > +		if (ret)
-> > > +			return ret;
-> > > +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-> > > +		if (ret)
-> > > +			return ret;
-> > 
-> > How does it work in general with PCC. Now that you can fail at any point,
-> > what happens to the write that occurs before a failed read like above one.
-> > Who will take care of erasing those new writes or it doesn't matter ?
-> > Just checking as I don't have much knowledge on MPAM intrinsics.
-> 
-> TBH I don't know, but I think we consider MPAM botched at this point, and
-> just stop the driver, similar to an error IRQ? But I am not sure this is
-> properly implemented at this point. The focus of these first six patches was
-> merely to lay the dirty groundwork for *being able* to handle errors, and do
-> this now rather than in the future.
+On Fri, Jul 24, 2026 at 03:19:46AM -0700, Jay Buddhabhatti wrote:
+> Currently, during a kexec restart, only the kernel is reloaded, while the
+> TF-A specific data remain unchanged. This leads to a mismatch between the
+> kernel state and the TF-A firmware state like SGI number and shutdown
+> scope variable.
 > 
 
-Well, I agree to some extent, but PCC adds that failure case before which
-it wasn't there. So, it is hard to claim that it was botched up before so
-let it be. I will let James/Ben to decide if it was already botched up or
-PCC addition makes it fragile in terms of error handling.
+Avoid using TF-A in general as it can be any other firmware as well.
+You can always generalise as PSCI or EL3 firmware.
+
+> For example, the kernel registers an SGI number with TF-A so that TF-A can
+> notify the kernel of events via that SGI. TF-A stores this SGI number in
+> its internal state. After a kexec, the newly loaded kernel re-registers
+> and may request a different SGI number, but the stale value programmed in
+> TF-A remains, so event notifications are delivered on the old SGI and are
+> missed by the new kernel. The shutdown scope variable has a similar stale
+> state problem.
+>
+
+Doesn't it reset it every time CPU_OFF or CPU_ON is called ?
+
+> To resolve this, the TF_A_CLEAR_PM_STATE PM API is introduced to clear
+> TF-A-specific state during kexec. On a graceful reboot, this API is
+> triggered by zynqmp_firmware_shutdown(), while in a crash kernel scenario,
+> it is invoked by zynqmp_firmware_probe() in the reloaded kernel.
+> 
+
+I don't see the need for such an API just for kexec needs. You must deal
+with it as part of CPU_ON as it should start with clean slate as SGIs are
+per CPU, no ?
 
 -- 
 Regards,
