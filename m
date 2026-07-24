@@ -4,93 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D931EC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 22:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A58C531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 22:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qDlbQ/k/gKhextbIPqwqCwZ5BabZN9oEFBEjCjmG3eE=; b=WiX3f0p1J55of8pkhIgKPKHC47
-	+l2uXA/vtSGrNfE5jAlY7SyYxCkoO3ua85phD8gzAxSxuY0BECFqjFgkE/UarkV+8KJ9XzRCvMszm
-	981Hds2DgOWwqQ8j0QWCBV6J7IouW5xt/xdLtKiqFJ3e5FYDmLcwvVQUK9ygxJ/CkwRZv1Zp1+Phb
-	JuBuUq6pju7k1TE0HHA98toj7fQWqXwNLghXgwbaDHkMh7PK9k8GLiEWVuqEc4JMlmHtvMHX8NP8x
-	xUMs/wilyB+sDR++YbEh5VBaWjer7yCK91kUihBL1PETwI86pGWBUUIHQ/4ZUT7UHZaEsJFUMi2L4
-	XIc2dTpQ==;
+	bh=+Js/I4/QcWnb0zbX3gJ/7hcd5ufvSHyxR3nJSzCYliA=; b=BnieEUCOkYhsro4LllGYNoCqB8
+	92/lY46pe0oKcVqBSYsx5WStVVRZn90C52wiEvXY0+3u1Afg6Citir5I2pO5e31f+KLez1RJsCjwQ
+	6uIq247Mh5JjDRq6L0ZWyF6iHD6E/CRM+3U3SOD2L6ZzIi3IuhkgYEaUrCV6b29y2QM1n/EYk3So8
+	MyI4XsnG1aqlMYy/i6IIBky/E91iGKLw+vRn5IUUrVpjaKajnLHie1TLzTz/HJ8CGwiJcdnS0puHn
+	4Wsm5hDtooiyZgVkh5F9gBecrA0eheqppo6c/GVIhrU21dRtznHJLzZJm1T2ZJwEtDWRkMjLG8qBe
+	z5cGyDlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOQu-0000000HJby-0JnA;
-	Fri, 24 Jul 2026 22:31:56 +0000
-Received: from shelob.surriel.com ([96.67.55.147])
+	id 1wnOeU-0000000HKC6-1X42;
+	Fri, 24 Jul 2026 22:45:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOQr-0000000HJbA-3n9w
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 22:31:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
-	; s=mail; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=qDlbQ/k/gKhextbIPqwqCwZ5BabZN9oEFBEjCjmG3eE=; b=RVCkNQ0hfcZsXJGNqnk2s4AJat
-	5GNYVKosxlBdUigBnazluK5OVF0UCUomWI4E0gm1sKSyQ2DpZ+Ve3tIRlSFSnuh2kflmXApNDjUUy
-	gxxxgxZDK+Zu5kiplzcnWTHxBVCkgfs3azyY4shlHCrtJXqFOOpJwEQwoT59m8dBOlzuDGVHaelLx
-	9vu7z4jFwPmPhdj9bAGq53MEVutyT93H6mHz4OREXM9GZBMKTOl1XR7MZjlGNdhiKzL/CVQTn0RWx
-	GCawa8mEsly9K9s3yOHmXaRVfdOenUeerOK0giEoty7aWhdLSK/ThtyzZ3pM42YvYQPfRKES+Rp9i
-	Oa/5MXxQ==;
-Received: from fangorn.home.surriel.com ([10.0.13.7])
-	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.97.1)
-	(envelope-from <riel@surriel.com>)
-	id 1wnOOs-0000000027h-1CWq;
-	Fri, 24 Jul 2026 18:29:50 -0400
-From: Rik van Riel <riel@surriel.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	kernel-team@meta.com,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Michal Hocko <mhocko@suse.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Peter Xu <peterx@redhat.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Usama Arif <usamaarif642@gmail.com>,
-	Rik van Riel <riel@surriel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Harry Yoo <harry@kernel.org>,
-	Jann Horn <jannh@google.com>,
-	Lance Yang <lance.yang@linux.dev>,
+	id 1wnOeS-0000000HKBl-3w2X;
+	Fri, 24 Jul 2026 22:45:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C502A600AD;
+	Fri, 24 Jul 2026 22:45:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7801F000E9;
+	Fri, 24 Jul 2026 22:45:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784933155;
+	bh=+Js/I4/QcWnb0zbX3gJ/7hcd5ufvSHyxR3nJSzCYliA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ezEc5WAtQmjF1QNZEepG+PeGNUSM1i0ETfgxrcmRp2dFbxVSIBg5Ug2rt2jfXSA/J
+	 /BJ8Q7Q8fJGb/Fy06yCqKiRQD6fukqeCaNl+KEz+xTWvMe74o/PDAZ1cOPXC2klD1l
+	 CdT2J1YMHvMXMZovWR/n65Im1ZcZLRVhAL52YiF55A8NElc5hGew7qh1bcT/QdhDYC
+	 8JConp1P0raofTTt2KatNTEbDBNoUctVg2yhjzeIDngIzInOwIGh7DAleTGovW1TFH
+	 VWi+Ae3CHAb/7wh4nSQnZkyyC4s2uq4Zv0pO0d6folIFc8CXTpntfDy+CznQO/i3SV
+	 k/19l+KNqw3Jg==
+From: Jakub Kicinski <kuba@kernel.org>
+To: bartosz.golaszewski@oss.qualcomm.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	andersson@kernel.org,
+	konradybcio@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	vkoul@kernel.org,
+	peppe.cavallaro@st.com,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	shawnguo@kernel.org,
+	festevam@gmail.com,
+	jan.petrous@oss.nxp.com,
+	s32@nxp.com,
+	mohd.anwar@oss.qualcomm.com,
+	romain.gantois@bootlin.com,
+	geert+renesas@glider.be,
+	magnus.damm@gmail.com,
+	mripard@kernel.org,
+	christophe.roullier@foss.st.com,
+	brgl@kernel.org,
+	radu@rendec.net,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	Usama Arif <usama.arif@linux.dev>
-Subject: [PATCH RFC v4 03/12] mm: rename get_user_page_vma_remote() to get_user_page_lookup_vma()
-Date: Fri, 24 Jul 2026 18:29:25 -0400
-Message-ID: <20260724222934.1463812-4-riel@surriel.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260724222934.1463812-1-riel@surriel.com>
-References: <20260724222934.1463812-1-riel@surriel.com>
+	dfustini@tenstorrent.com,
+	linux-sunxi@lists.linux.dev,
+	linux-amlogic@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	bartosz.golaszewski@linaro.org
+Subject: Re: [PATCH net-next v13 02/10] dt-bindings: phy: document the serdes PHY on sa8255p
+Date: Fri, 24 Jul 2026 15:45:48 -0700
+Message-ID: <20260724224548.1648931-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260713-qcom-sa8255p-emac-v13-2-119f8699ef8e@oss.qualcomm.com>
+References: <20260713-qcom-sa8255p-emac-v13-2-119f8699ef8e@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_153153_952839_7493DACA 
-X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +112,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-get_user_page_vma_remote() faults in the page at @addr in a remote mm and
-also looks up the VMA that covers it, handing both back to the caller.
-
-This cleans up the namespace for adding a get_user_page_vma() variant where
-the caller already has the vma.
-
-No functional change intended.
-
-Assisted-by: Claude:claude-opus-4.8
-Acked-by: Usama Arif <usama.arif@linux.dev>
-Signed-off-by: Rik van Riel <riel@surriel.com>
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 ---
- arch/arm64/kernel/mte.c   | 2 +-
- arch/x86/kernel/uprobes.c | 2 +-
- include/linux/mm.h        | 2 +-
- mm/memory.c               | 4 ++--
- mm/rmap.c                 | 2 +-
- 5 files changed, 6 insertions(+), 6 deletions(-)
+dt-bindings: phy: document the serdes PHY on sa8255p
 
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 1a9aad6ef22a..7a6ecc3d9294 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -459,7 +459,7 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
- 		struct vm_area_struct *vma;
- 		unsigned long tags, offset;
- 		void *maddr;
--		struct page *page = get_user_page_vma_remote(mm, addr,
-+		struct page *page = get_user_page_lookup_vma(mm, addr,
- 							     gup_flags, &vma);
- 		struct folio *folio;
- 
-diff --git a/arch/x86/kernel/uprobes.c b/arch/x86/kernel/uprobes.c
-index 3af979fb41d3..329efac0cfb3 100644
---- a/arch/x86/kernel/uprobes.c
-+++ b/arch/x86/kernel/uprobes.c
-@@ -1036,7 +1036,7 @@ static int copy_from_vaddr(struct mm_struct *mm, unsigned long vaddr, void *dst,
- 	struct vm_area_struct *vma;
- 	struct page *page;
- 
--	page = get_user_page_vma_remote(mm, vaddr, gup_flags, &vma);
-+	page = get_user_page_lookup_vma(mm, vaddr, gup_flags, &vma);
- 	if (IS_ERR(page))
- 		return PTR_ERR(page);
- 	uprobe_copy_from_page(page, vaddr, dst, len);
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 485df9c2dbdd..24ead14b4790 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3238,7 +3238,7 @@ long pin_user_pages_remote(struct mm_struct *mm,
- /*
-  * Retrieves a single page alongside its VMA. Does not support FOLL_NOWAIT.
-  */
--static inline struct page *get_user_page_vma_remote(struct mm_struct *mm,
-+static inline struct page *get_user_page_lookup_vma(struct mm_struct *mm,
- 						    unsigned long addr,
- 						    int gup_flags,
- 						    struct vm_area_struct **vmap)
-diff --git a/mm/memory.c b/mm/memory.c
-index ff338c2abe92..3b86eeaf084f 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -7039,7 +7039,7 @@ static int __access_remote_vm(struct mm_struct *mm, unsigned long addr,
- 		void *maddr;
- 		struct folio *folio;
- 		struct vm_area_struct *vma = NULL;
--		struct page *page = get_user_page_vma_remote(mm, addr,
-+		struct page *page = get_user_page_lookup_vma(mm, addr,
- 							     gup_flags, &vma);
- 
- 		if (IS_ERR(page)) {
-@@ -7167,7 +7167,7 @@ static int __copy_remote_vm_str(struct mm_struct *mm, unsigned long addr,
- 		struct page *page;
- 		struct vm_area_struct *vma = NULL;
- 
--		page = get_user_page_vma_remote(mm, addr, gup_flags, &vma);
-+		page = get_user_page_lookup_vma(mm, addr, gup_flags, &vma);
- 		if (IS_ERR(page)) {
- 			/*
- 			 * Treat as a total failure for now until we decide how
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 1c77d5dc06e9..b36f2e219b8f 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -2838,7 +2838,7 @@ struct page *make_device_exclusive(struct mm_struct *mm, unsigned long addr,
- 	 * (non-device-exclusive) PTE and issue a MMU_NOTIFY_EXCLUSIVE.
- 	 */
- retry:
--	page = get_user_page_vma_remote(mm, addr,
-+	page = get_user_page_lookup_vma(mm, addr,
- 					FOLL_GET | FOLL_WRITE | FOLL_SPLIT_PMD,
- 					&vma);
- 	if (IS_ERR(page))
+This patch adds a YAML binding describing the SGMII/SerDes PHY present on
+Qualcomm sa8255p platforms, where the same hardware as on sa8775p rev3 is
+managed by firmware over SCMI.
+
+> diff --git a/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml
+> new file mode 100644
+> index 000000000000..9e846e381555
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml
+> @@ -0,0 +1,50 @@
+
+[ ... ]
+
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  power-domain-names:
+> +    maxItems: 1
+
+[Low]
+This isn't a bug, but would it be worth tightening the power-domain-names
+schema to constrain the actual string value, along the lines of:
+
+  power-domain-names:
+    items:
+      - const: serdes
+
+As written, only the number of entries is constrained and any arbitrary
+string would pass validation, whereas the example uses "serdes":
+
+    power-domains = <&scmi7_dvfs 0>;
+    power-domain-names = "serdes";
+
+Would matching the example with a const also help keep naming consistent
+across DTs using this binding?
+
+[ ... ]
 -- 
-2.53.0-Meta
-
+pw-bot: cr
 
