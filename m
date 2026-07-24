@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D139C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 08:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA628C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 08:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uVePKTwmG/uGjReu3xLyTw+dzVY3ouI5ECuA8DRmP0c=; b=lMYFBEx3dzIwIl+06DKl9pR2gc
-	OQ3I8RhiNXDjG93/8NMOPf2wV3UTtt5mO+5aEseRZSjW+m8101nS4TkD3EC8bKvNIkYg5wwmqcNq4
-	ig0a5q76t+XNQGMu/D41V7tD856U7X420v7LurWNpTYFkolKy9cE2B0N84HeyYgrjDxyvhG544115
-	SKLeBEhk6/VKAQQrbV1JSWxDnfH6aCJ38R09iV+WCzEzDEfnvow5wduQTdrjGn+u2QMxhpkYwNWqW
-	AIetW9aRsJzbgwiSCj2IgL9IWoapw9h5E2woYXjrCNkFUmUVSE3WDkM93LnnTCYTNSBSuAGZve8w8
-	TJWLtdLg==;
+	bh=ZF0iQLfzAvBUCWBc6u2tYLj3HbiOY3Ow4lnc9zCLabE=; b=kl61FB9yf0c5hmY2iqQpzWQKrk
+	959AGCFAm/1Xc2ngrK2ktavkGk7hGYI6QdG76hgYhfsSINq3qfAmbKvMce1WrDq+Y0oLIWynoIgg6
+	eEpc0RavvuDc2/ivz2MfVEHzJIJQ0drMu9UmcHxTn1MmeB78liYoiuzD9zLUQyl3o9SNH+7esRJ94
+	o82oOUG1W4XZKmfTgvLV2D61Z+vxNBSj+Ugt7Iz2jomzbd81CnoNNlcbSJtKRYRhBWP9JBGPH0jkb
+	kGeyyMpoRoV5bfrH7JuHlGd4WiT2auW/U6xkjUChV63RQppE20lFGPHzp4SMaANtDhesQyTcIv6Dj
+	bKixlssA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBQb-0000000Fpbi-1bO7;
-	Fri, 24 Jul 2026 08:38:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wnBSX-0000000FpoF-2qTS;
+	Fri, 24 Jul 2026 08:40:45 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBQa-0000000Fpbc-2fYp
+	id 1wnBSU-0000000FpnU-46up
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 08:38:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8D5E600AA;
-	Fri, 24 Jul 2026 08:38:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FFE81F000E9;
-	Fri, 24 Jul 2026 08:38:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784882323;
-	bh=uVePKTwmG/uGjReu3xLyTw+dzVY3ouI5ECuA8DRmP0c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gY/+jLHsqKvcL4uPdwUutWf9iBATCxcgKiFSFolbYz3840vjoORZtVwzL6CaIjvvq
-	 PXPneYEEnT0LT+sDtIuAqtFgZtbcl/6OF3qa4W4uK0Pmkcb070e78ilgg2LVLLLyGT
-	 CksZ9exNK+kVnuV60ZfBHygyKD6hZ1FOfcjYjgs6Kh4cRm+mVYNkn9qSGC0vvg+n/P
-	 XRsxd6N3il3XTmYUL/44rKC8ZrEf18kjGoZ0/b1RRy/OgPM6bgWzPeUU1+fld7x/Gm
-	 FTiDP2iGmTdDBmbm0mVQGypZ8wzGMTrHa1T6IhMTHXCOlpZ7br7eYzd0QViCfCktjA
-	 0TGiDDITMC9Ew==
-Date: Fri, 24 Jul 2026 10:38:39 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Sam Protsenko <semen.protsenko@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: exynos850: Add acpm SRAM node
-Message-ID: <20260724-hissing-fascinating-terrier-6b754f@quoll>
-References: <20260723-exynos850_sram-v2-0-c94968e52f42@linaro.org>
- <20260723-exynos850_sram-v2-2-c94968e52f42@linaro.org>
+	Fri, 24 Jul 2026 08:40:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1784882440; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=ZF0iQLfzAvBUCWBc6u2tYLj3HbiOY3Ow4lnc9zCLabE=;
+	b=crJfkJCU1mk82tjdR/O3d5YqSVhzznXdN2ArVISZX9sOAxWmXkoRNjID1QIkE6n2eJV/pe6WNLbbs8lVwa2WxW4HcI6eRdnjA1t888th1k7i3WdbFjfKC0Jy3E2VqzkRGy2EcTXpe8ZmhDCNVZDzJwx+JCNDK42fbVDpah3WqMU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R871e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7ia0lT_1784882439;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7ia0lT_1784882439 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 24 Jul 2026 16:40:39 +0800
+Date: Fri, 24 Jul 2026 16:40:38 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH v3 24/28] KVM: arm64: Engage NV3 ERET trap elision
+Message-ID: <n2ora3retqaoki3u5ovoqwvh4iqzsziqmybzxid7mylcoua2fc@xlhyqzhwh4cl>
+References: <20260722074234.3330999-1-maz@kernel.org>
+ <20260722074234.3330999-25-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260723-exynos850_sram-v2-2-c94968e52f42@linaro.org>
+In-Reply-To: <20260722074234.3330999-25-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_014043_532801_E947DEC6 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +69,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 04:29:47PM +0100, Alexey Klimov wrote:
-> SRAM is used by the ACPM protocol to retrieve the ACPM channels
-> information and configuration data. Add the SRAM node.
-> 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+On Wed, Jul 22, 2026 at 08:42:30AM +0800, Marc Zyngier wrote:
+> When running on NV3 HW, always engage ERET trap elision when running
+> the L1 context, as there is no benefit in not doing so.
+>
+> An L1 can itself engage trap elision by setting its own view of
+> HCRX_EL2.NVTGE==1, which will subsequently be honored.
+>
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->  arch/arm64/boot/dts/exynos/exynos850.dtsi | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> index 3881f573ec08..9a8d92aae9a8 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> @@ -917,6 +917,11 @@ spi_2: spi@11d20000 {
->  			};
->  		};
->  	};
+>  arch/arm64/include/asm/kvm_emulate.h | 10 ++++++++++
+>  arch/arm64/kvm/hyp/vhe/switch.c      |  4 ++++
+>  2 files changed, 14 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index c562d8171d5e1..b32870a5e1236 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -706,6 +706,16 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>
+>  		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
+>  			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
 > +
-> +	apm_sram: sram@2039000 {
+> +		/*
+> +		 * NV3 is a host-specific extension, and we always use it
+> +		 * when present and that the guest uses NV. It may be be
+> +		 * hidden from the guest though.
+> +		 */
+> +		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
+> +		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
+> +			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
+> +		}
+>  	}
+>  }
+>  #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index cbda9e087db39..4ed745bdde418 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -345,6 +345,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  	u64 esr = kvm_vcpu_get_esr(vcpu);
+>  	u64 spsr, elr, mode;
+>
+> +	/* With NV3, the fast path is handled in HW */
+> +	if (cpus_have_final_cap(ARM64_HAS_NV3) && vcpu_el2_e2h_is_set(vcpu))
+> +		return false;
+> +
 
-Looks oddly placed, suggesting this is not part of SoC, but all MMIO
-nodes must be part of the SoC if this is SoC. Compatible says this is
-SoC.
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 
-Best regards,
-Krzysztof
-
+>  	/*
+>  	 * Going through the whole put/load motions is a waste of time
+>  	 * if this is a VHE guest hypervisor returning to its own
+> --
+> 2.47.3
 
