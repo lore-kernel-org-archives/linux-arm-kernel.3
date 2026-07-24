@@ -4,165 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E7AC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D612FC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ldUeE4iBKzmF8Tbb0OhdK0QI7tIiWjIm4qgipt7M/8=; b=jre+BJEHaez/np8pychRH8+eNU
-	pY8D2owY1SLMOvDxnyhPSV/tPKuDxTNwwO1nR3SpId0sXBbunishj5iz7pJ1zD9LIgBKCD1R2xTK/
-	sT1IN/Z9Q9UNygiNluAt20g0pKji9vOdGSLbkpKJqo40RwE6JrDPSC1EImpWCkLZZMeAzchpv0Ouo
-	ONdZEYvETraQhJQ6wug92CkTJ3rDzqr2jpuHAkkeGDQ5pha3QMNTM3qNatFSFMofhnUA57TB30Bqh
-	QjkIf64fAE+bxalhJ3uIPpsDKJv6DM/dYcE/Oh1+uQIVgqPOkgOhEDnRFX1XdTspzvSF+8/HKPtM6
-	rfeaPv1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FIB05gEb3OB76ageA+NQUeM+aXlE9uj7lE936GrplhM=; b=3aRwXxf7e4iNqclja+aXw13LOi
+	WRR+9vPJFwe/sLwASP5pEwRxCh9t9vbhdlYRj4m1JXfA5sa27NUaL2VzVjJ5cylOZRbF5exO4Qldk
+	ekgQTqKD1hF7CewyftR7ttF2c0AmfqOL/u8Tn1w0tMg72EHGYk1efPyAehC8cxR2d93vtvFe8P6n4
+	B1ufC2+VWLA1o0WUSMPy+ELti+7de9FtEhdT8p55UOGYAM7JfF1Sv90J+TvNAbD25VGNVvS6SxCxD
+	8E6dHsDxdty775bxjdPKmvv/S9h/ydhc9kxd5YLOLKxVzWSZl3AuhXCjIzqDjBFlUPvhUqsTSOh//
+	r9Bty8Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD2y-0000000G5My-4B6c;
-	Fri, 24 Jul 2026 10:22:29 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1wnDTF-0000000G9Hd-2ikE;
+	Fri, 24 Jul 2026 10:49:37 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD2v-0000000G5IJ-3gUk
+	id 1wnDTC-0000000G9H1-3dGj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:22:27 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66OAFjFM785785;
-	Fri, 24 Jul 2026 05:22:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=3ldUeE4iBKzmF8Tbb0OhdK0QI7tIiWjIm4qgipt7M
-	/8=; b=dRrnfQoGgwDk/IVhjRLrHCMrGSdPQ0RgSviXxNncQq8D29Ypqul4xKncn
-	3wGfGohBlJ1+2GUzRk8nxBRnuNCZhGD6fzM7EmaFQlNSi596vFUb3q/THs61Acp0
-	khHFWkBkYfzAs6yzbnVmgeH5pCiZTUCMPundU9IorF28+LgPXUdxsYdX81cB6Fgm
-	9b2IF3QcKoiBujfUgu+Fy7qoStVbs1py6ioW1ytbnRuVpV73RAgVqmAqDNKhyw4o
-	NK97vDslVI5VLtnj2jdD1m2PiVsCDPnN7FDs33aY3PKRosHCS82+I1K+NaZe5Pv7
-	2q+t19E61j2lNRPz8dzzyGXC+0s/w==
-Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010027.outbound.protection.outlook.com [52.101.46.27])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fm5p304m2-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 24 Jul 2026 05:22:21 -0500 (CDT)
+	Fri, 24 Jul 2026 10:49:36 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=jQh2taVFd4uZRGDnYHo7Qmf+J1NKvcmhrVARvPuuA5oaFnbSU9RgslbJ8eHi3ifozzal33HHr7Ym0gajji9H2e8o0+7t6Ltpodg61Kcf51OjHhPLPYZJS9Ga2+D+wffU282MvB9nUW7EF9f/sU92iB+5T6vM5X8Otd3dTs4i8RFvGavkn7EOE4PmsSzwFHRJ4IrKrhH6VvP/sIUY0VxtKnx6mSIL8Wn+E08+AB29JsUrLgl35jL9sKaKPv38xsYH6CgM3/DI09sGKnCi5XirOoUS6mNSbup4dW+slZuLlZftYL/aLXB2uHPcF7hVD5WCSU5B8L1T75mvjIgMrEhpEA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FIB05gEb3OB76ageA+NQUeM+aXlE9uj7lE936GrplhM=;
+ b=htjXUSsCEBRzO2ukzpf5+Q0vZPT3HW8jjZP7WbguN/DrU1+LUd+bC35PNVp1MET2SiZTjePKkYnJDrz5MkBbI/1frq9hz3YqHpJLa6s5MpWEhW1XfEYz6SLWS9gYdYzyHgNU08ynVXCZhBDm/zFR79jiMjJoEO60821a6JmpM6F/CJ6Pi4tQE8dZsJEBQLKzzNRsstsg8ITVGMVacI/PG9wX3hqlRRZ43yMkoREKFGtMjxC02g2UMAWWGj+ogYrz3ey9iW7tpW0y9FUI5uwG1syThDkllvmxcrw7gEDl/jOn0MsKfm9PHtbMy4+BCk9A9lqP3hRc8zQKGAUPU8mGoA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FIB05gEb3OB76ageA+NQUeM+aXlE9uj7lE936GrplhM=;
+ b=olC6SdHoEPqW3dh6ZBfEE1JHX8e4gXtgZo3utVlRLOGjqWAkqNt8CpO8Q1s/veNhU6yYicUaTpFajqA6QQDc0JmAfxEBa+mXPvszx3r7bw9ncrErfRjaEsaYbzVz9SvOCl7bdlCnzVIOhz9igMd+DONd2Pejhdl/oQlcnjCwdzk=
+Received: from DU7P190CA0001.EURP190.PROD.OUTLOOK.COM (2603:10a6:10:550::27)
+ by AMDPR08MB11411.eurprd08.prod.outlook.com (2603:10a6:20b:717::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 10:49:28 +0000
+Received: from DB3PEPF0000885D.eurprd02.prod.outlook.com
+ (2603:10a6:10:550:cafe::9f) by DU7P190CA0001.outlook.office365.com
+ (2603:10a6:10:550::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
+ 24 Jul 2026 10:49:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB3PEPF0000885D.mail.protection.outlook.com (10.167.242.8) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
+ via Frontend Transport; Fri, 24 Jul 2026 10:49:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m+Qysa0a3xt/SPTGw4WTjnNpM2OJTLaZfdK4eCRqR6T6ZMsBs1Ow7V3489OjPrmOdB0YltBN5KxkVa7vttSGE3S8yyHEHEDR+eAY87dD40ylusxYV7xH3bdrzFaBPc83VG1D2btO72Mq4E1J2v/U9SMRR7r4a/KXkQKuGIOPP4i5e3JkA6xzCkSSQu3K4elTGCpvZyoAgOs3BnMWfAZziy6pICmwWVfNXggxzx7cRpHu7mGIMNgXDW94FWHpMeuDXUTFB7fMJH8w2+U0aj+EJ++PABdSjFksdu0MhYEXOW5wyhoZPmJ2sQotACPzLfDs3HRyfraI+C5NIBiEfFYmfw==
+ b=o9kmEcIf7SEh+h/rPiq5hiYPNgdJTG7kGWUsmqjBY8+7KRfDmS5ZdknSDRHxp9hzk0YFXmiL6IptxqOxTKqn3eLslGRmEBagcAESIVAF6uHK3Lpd6G9CJWfvJ5BjZTVrgVU48RQ5yaBYNIfJVHQxSeY7JdxacbFe7WAPa8dt1EKC3eBKoZX38rqi7Q2sMokzJRF1dILlyC0oBUKuzh2MgcOyd0yJGyAeVorREkDVmNRVklOwCgu5lprTY/n0gkineEDrDhjgA7lxE8bBQjPxhDTHZhy8xvDYUcIsgVmCzR+q3arHFNQVG3PzzON//09OvkVdbpdi/6+y/x4Vld4Pww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3ldUeE4iBKzmF8Tbb0OhdK0QI7tIiWjIm4qgipt7M/8=;
- b=JE7wbY6yZN6Hyq/M3amSAIKzbdDIEgoYVgnYMTE4s9gq+grVut1j15KYy5czocTQUHIbjdJg64DBIIpBnfa8rCKfsxGqED6BBiTzNKBw3rgPPoxDiviYDKoFlCLavaeQwtv5Y+1qpWS8pf4KfYyHWF6NjdceDgYzffAKDP4wEJLf/GvCHik1Z+Ys294z84hCnsf3SLseoeeWIudLdPgrQkHzXDQ4P3Uu+AMS4w/S2DxrWEB/wbBWvaKZWcHoNPCRrcHQVy7zRnSDK4MT9s0S/XwepM+rPHKnROo56HyrZwgX52VjFOB0mjCv6NQKlSsYZzkjV+CM/OGa1PubI76S3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=FIB05gEb3OB76ageA+NQUeM+aXlE9uj7lE936GrplhM=;
+ b=FW9h6CyXu7bWgl1+55ustuqpGUVsaqmAJoa2K+/GoXVu8GPt5HE84tHxKxMl6Bb2CPYl60xEzzKqAlA2kI724QK1CbyNWEQAp4wpXwEuZx+aI0VSJ+bAPk6a4Fj/mxGGZGVj4D5DY1S5KQWbAvfw9/x5Qlr9no0SOQDHeitxQdjPXy9aQp4hSJa0VX/ABL41kq9ZDxfqBLTk4bbu0WfBrSRg7uGcJmmDRS6WKq9yciVmcNEgWv18jT03DWD0VM6y74zN/SakTZYZbvg7PkuQHteWkqTOLzhq86fbDO8RRejSqCKeEyoNEVmTXu8+LCuLzvVu5yLLIn12xYczEAm25Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3ldUeE4iBKzmF8Tbb0OhdK0QI7tIiWjIm4qgipt7M/8=;
- b=k8GAoK+Ule4c2LA+fjnxhGpo4EjcUDQX4Zf1hL/6Z+UmNtHEPLKq8uN6SYzW1FYNWxrWBMzI6w8xDZKEBpBGpQZeuff3y+S+pqTT1YGwdNvkAilHDuP8+GI/OPLQ/xbmRCDiyP9US+pysQl10Tk27WLq/FmL7t59/2VQ8Vsn4C4=
-Received: from CH0PR03CA0111.namprd03.prod.outlook.com (2603:10b6:610:cd::26)
- by LV0PR10MB997590.namprd10.prod.outlook.com (2603:10b6:408:344::10) with
+ bh=FIB05gEb3OB76ageA+NQUeM+aXlE9uj7lE936GrplhM=;
+ b=olC6SdHoEPqW3dh6ZBfEE1JHX8e4gXtgZo3utVlRLOGjqWAkqNt8CpO8Q1s/veNhU6yYicUaTpFajqA6QQDc0JmAfxEBa+mXPvszx3r7bw9ncrErfRjaEsaYbzVz9SvOCl7bdlCnzVIOhz9igMd+DONd2Pejhdl/oQlcnjCwdzk=
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
+ by PA4PR08MB6127.eurprd08.prod.outlook.com (2603:10a6:102:f3::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Fri, 24 Jul
- 2026 10:22:16 +0000
-Received: from CH2PEPF00000142.namprd02.prod.outlook.com
- (2603:10b6:610:cd:cafe::6d) by CH0PR03CA0111.outlook.office365.com
- (2603:10b6:610:cd::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.12 via Frontend Transport; Fri,
- 24 Jul 2026 10:22:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CH2PEPF00000142.mail.protection.outlook.com (10.167.244.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 10:22:16 +0000
-Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 24 Jul
- 2026 05:22:14 -0500
-Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 24 Jul
- 2026 05:22:13 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 24 Jul 2026 05:22:14 -0500
-Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [10.24.51.254])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66OALMFO3017088;
-	Fri, 24 Jul 2026 05:22:09 -0500
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
-        <ssantosh@kernel.org>, <dmaengine@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
-        <Frank.li@nxp.com>, <s-adivi@ti.com>
-CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v7 09/19] dmaengine: ti: k3-udma: move resource management functions to k3-udma-common.c
-Date: Fri, 24 Jul 2026 15:50:42 +0530
-Message-ID: <20260724102115.2854-10-s-adivi@ti.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260724102115.2854-1-s-adivi@ti.com>
-References: <20260724102115.2854-1-s-adivi@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000142:EE_|LV0PR10MB997590:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1e40bd1-9b2d-4f21-5e73-08dee96d6f78
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 10:48:25 +0000
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0245.009; Fri, 24 Jul 2026
+ 10:48:25 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: [PATCH v4 00/48] KVM: arm64: Add GICv5 IRS support
+Thread-Topic: [PATCH v4 00/48] KVM: arm64: Add GICv5 IRS support
+Thread-Index: AQHdG1n0TnBshfzPZ0WC4SFxbIju+g==
+Date: Fri, 24 Jul 2026 10:48:25 +0000
+Message-ID: <20260724104819.1296803-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|PA4PR08MB6127:EE_|DB3PEPF0000885D:EE_|AMDPR08MB11411:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa8ba62e-6dbd-44c0-7131-08dee9713c6e
+x-checkrecipientrouted: true
+nodisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|23010399003|36860700016|921020|6133799003|18002099003|22082099003|56012099006|3023799007|10067099003;
-X-Microsoft-Antispam-Message-Info: bG67+D6nkX56ACgbQPCo1b0sIAbfWy0TIdqW5ZYYpnPLx23hxm5dcMopu7AawtqPzmX7OjoKlKzlvHQNhzwDC/P0Gzw/ebus7G+hKu3Tnw5BVSktrkujdF/0KUPZ0eDLdih46rHlg9ZxNsoFOTJH2jwuRsZlfSEnv7XcA29Z3Vtzx5pYnA55BRjKw6r7uZ5ZM6CcEenLFGpChkQWbP0bJQT2ErDC0goPZ2HR8RcY6M51GUaqkqOn7s53Z+hfjZ/uGUj2ssvSVmhLLpvgj1E8eVornYHP1J5X2zLEba6Y7/M7CKkuHOYoSWoD4OcvioIDQoE6G24E2Et8OeffBJunysXYvbYUDtdcaNpiRgsLwIVZRiuLfbtxHjqfNQzDt+mQBPlllPow+9MzqsmEdW7y4eirQqPEDycK4iJhHYJFYaNoSL6ZqWFXYxEr1s7V/lBq11zc78Sj+7z5C2LN2beQQwZhXm6WWko68p0hiGBRpS0lOo96SIqD/0Eetr61817yAhnYhNMKUQfQX3Cv6Z2WZaM30O23F1Y+5IQoXfDFCA7pVeI9TToMHLb8ka0E8dWQEujuAiLgD8W3TPOjL4FWuj5fUOyzyTwKUGfc8CaTkhw5tetbFVjx4rU98d2gvH/Bl/dnujWW1ZSlUqqbWEpv4n1ruP9EQB/gs++PcbWQ/OpHyrDiMZcaRL+jxa/Xtaekq60FtbuSjQDn4i8xt8qbubOhSZixI8PdAy3qZ2Qtsj58xhozJ1jNCX79Fuy9r7SQ
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(23010399003)(36860700016)(921020)(6133799003)(18002099003)(22082099003)(56012099006)(3023799007)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|38070700021|6133799003|56012099006|11063799006|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info-Original: C/QmDFG5OmnPgKV0NwzKgK+lslJJ2fBhFLzPUtrmXGRIwdi3AD+bmLoh8jce4Kvma+u7qm+ouJpzDk9E99z4XrRZmYJMECmJXD9pMyQZbsrGZqQhv54FN0Dq4QnY0Kp9RMAHqhVxcbti02b7LucSnSTsxyLBgd9f+QWbTHzVPUwN5NzdAWF845/GFJol+uCQ4eFqxxbDG6SSxOXks2hdNTQj/s3zCNcYxsUI0WlB+UPIklaeX5OdEXgcyJ7uh3Z3HZqOR3nnE/gaLsRWt2ZXJ7Rj4U9USOkiSQscDYF1k46cXzzg8J2fR02R1aMWyrgPQodAio8UJjwuzd3ML7WUxR20HB3Nt29bPfvAWeAbfBDJnalLlpxV35gFoit564L70FCd817qK6ICem8XmrzGzTam75MuC+OpaA6kwyp5zYwBDXf7Fhyxz3htIJft4BwRRv2dTri+PQOJ0nszJaGtsC7j3XqfaniaLZJoMguRhTK/9CaoHuvt1X+VDbtEd2h6kCfXb/Hm0O4Lj2o/hSk2wCEesdY092PKKGIN8EkgDef/mUaWCzvHaAeUhpUsrwbvZuy++mp6/VjYvtoSApSMk5+Z+h3F/H4TJkZkIPvVKjmtXuNnPxr9jZf6AvQb3ycWKIxWmEQdGePWMDJ8uaAAvXzhye9awmy8lqpcAnPq7oA=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(38070700021)(6133799003)(56012099006)(11063799006)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: Hyl1SoyRk5BG7ROZUcRG2I59Jk+exijBmbm9SroXsgwMNzrDPKOZdLixZn1GjYVV9yB7AO8JrHChsdtFIXX6FujDloHe5oYmdr5ox4vRiTqqYBGX9SPbDbPEa9BWAsXtT7gbmkuw/Rx7BB7B9bYI0/fMg/ck/9KUpa0C2og2IQ7bQ+U2jjVMSiH9she2laufDwyHdPzlP/wuiRUccggGWfb9sollj1dJJ3r2efNfnhT+YjK7HgyvMMqc0+bbsNjR9SO5wd0L0i9XYJN874CsloNYEJNS+LECfmixH6QE61G37YY8y9q/hfAqDJ+jMo9z6BoUTiNzaXG6q0d6RXa1tQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB6127
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885D.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: d72d2c2a-e458-4b55-f4da-08dee9711693
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|23010399003|376014|14060799003|82310400026|35042699022|10067099003|56012099006|11063799006|6133799003|13003099007|18002099003;
+X-Microsoft-Antispam-Message-Info: FxhHNdW3oYGY5vSdel0Bad9D2eAawoS89kXE45OmuJulEPDMS8cG694ktQHrmxpmnb+nuhX7RqLKIpF1vz1Rres6MUsQqt5AlNlam87yTRqStbf4aJvnHGwsFa2dT67suzX+WL9zLFNmnsdZ8P8n/eKrMCathDDNW3fEut8Y0dpj7fFHrH4g5prAF0TvMBSv8LgwZfvT4aTMc276nJmJyU0Hq1UtlsKFd0UOLk6ENYKy7RA207qxrv0NyplIvp6LylAfHFjqWE5tYB3aOT/nQrli9RQHIe5/ZrqgNBspbBuvNkM1JQpRGx4LKAlZcNlOK8inZr+so5qv4TWYKsTrteU4pCcDGQv4sGMfK55qhHqSGqIF6m5WEQlrHWpAMdbOEaODh0MTiHpMs9M5NaVpzlc0RQGnBbLx3GGHfV1r85YyHCMHSUl0wcdCN+94QnEss+5v/+9z3wY7Iz4oJa8dhFQxOJpa4j0wlUSO1ib7dH/nEpZVkB9DN639bWom742zAaqfOaKqnB5S6lbPU/X3S6QKOuEvV7Lr53+OdG0vkniAcjZTBUtrk80O8rk0CnW3zwGcl2YMJy15Sr+m8B83GH72VFvQnaNzxvNK3OQLCud0Aw7YOdgbcpVSFE31ulkdjEeXW1ZqgZKbL5JlVyA7kg==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(376014)(14060799003)(82310400026)(35042699022)(10067099003)(56012099006)(11063799006)(6133799003)(13003099007)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: uWbEauqna+ubz6yIVpLqJRPbJTZWtJjHlYL1/NtagvrNWgl3dDT6XdusxxDJYeRkKwKA3vlH5LPO5xUQ08Y8B5kevS0OtdFq228r7WpI5+ONFDl5XHQF4rTFAtnQyz6lO3u8qTIlwSDdShDudmVfwY0TQDdycS88tjMaBv6Rg3Y0CRtzY+tmlStGVzhgbLKgIkwrHOWcnZLqxD/6I0PbQKrNWjZhSUyH6a4kE/jrqbd+6dPQHjBq7HYNhARZ9yYQTdqQxQe/vj4lBro20qp4hDRr3mbN+f791+SdfVEHCy94ZEzpP4JoVUBnqgjm3pfsiJ2TehR2cd8F0bqFOySod/lLgHbsi0h3mhv9o0g8y/k4fbV3p+pWs9Ht/QSKE/JMBj333E6Os1Fd5SCLXYUN1mj9Bmysf4vAU8H/ZlL1Fd77GKMhVY0L/ZUFBp/ceWl6
-X-Exchange-RoutingPolicyChecked: miEV9sHbfiGDXeLzpowPDdZVBY7IMubIzn2GFxDi1OnQqfmePq8ayuy6Udi4BunhJnlmZKQRcovqrgTKLBXVEoCALeM4duxSYwergeBwEreNLZ/5V0PWaSkZBLoK1sAuRNpX0bzWdrSXh1sPQtm5GnPELy7itVZwlRYmZpRTTjLAw43mDrBAhpMLKA1+EhSYtK80zmnKr5WvoBvVUCNZKMPzG27iO+af6+x7tgrEG5HJjDwN53DYFERHkGu5WrFckStr0JflxGY1O61XZdyzi4rO/uO9pti+bW1KceYHjjNiSSmdKWrP4I5YUnTtjqaZbp2ZZp46yGm3rsxfgcubeA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:22:16.3112
+X-MS-Exchange-AntiSpam-MessageData-0: tImc4YPfkvUoPYoWyz+LgtonUsVpFhDICMne0Whk0HXaNBrLhTTzDDog8/IL6uJjhaPH6VmduYQIdBV6QTPD8WVUb+Tpz0ElvDE0dR3XmmJKJiA5fHQlIBL7/6l+LWCzO/bOEokkxmDGbjyeiF8o9CG+YDVihLarILeUtfY0F9eaP24RQdorGdxbDRKJP8zimc4/kAkFMuV7FedxeakEutxY4Pjnq9fECxQBKxYTQM+CDWVr9d75rsr+ZaOthGyAvV+vztfpoiypvwfnrB5lJr/gTSPRvBJnX1DqwSZBJ+FdQ46/UwvTSyL7e1B8xyhTuYCjzYrvOYmr6VVVbDx84OUP9654ajztiE2MfkrKcaWcrJI4jPmN6BKj+k28lLNLL8ZfVSn5WnjPtnQ48ulhdb3/JhSzZtlu4sXBGytvMyBiGXBh3CQRV1ldodHNPBzS
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:49:28.6479
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1e40bd1-9b2d-4f21-5e73-08dee96d6f78
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000142.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa8ba62e-6dbd-44c0-7131-08dee9713c6e
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885D.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR10MB997590
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDA5NCBTYWx0ZWRfX5J+NXj0hE8JY
- hMV67ut/AIkIaFKJuQwf1dD9o+kKElCLKmCnTHr/QG1+UugEm+HHGuH7hmiJ5DWLszNStBJl7BV
- pFeXw5PfgjRocBgMbjMGMr/sV8+SsBCZeIdutOckEy1etlyIRSVUbXlfxyWIX81j/EEJtu74t5l
- lvdNHk7Kwl/90FCBRo1ezVm6fq9aITEoAH2kOM0wURMsubib7YXrx/nYD3wwixY8TKpDj4KTneC
- OSlVl3S5O9ZABXp7YTKpCih4yeX3fFv60VqY034+m8pLkgaLtbvGeqrCZDQYJRThs/rKSWS6WZb
- Yu1/aFgArOzzdHP3owt/wFJpvCtvWX9JoFuAAJku6CVxDM8V5SjUBAtyIIZ5RJeoBTy/WDr2j02
- uxLXkzI7Dg1k7eA6JpwdGrGHvtsvZyxI0eZnQwWLvO06DaF8O+diFiX5aVduyE28TEwSZNNWhdK
- i3VqX2igGHs6phx69SA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDA5NCBTYWx0ZWRfX5wEKhS7aDp/U
- qAjLJRtB+KxGlhnVPyaIEKehJ7zV3HDAHMDlieGLG+42cW03x9dhzmg/w477nMRm9Gd6KQJhtLG
- MMlYpoALwV3e/RyHs2hx/gVPV1AZgmA=
-X-Proofpoint-GUID: GbJ3KRobmzxnoyU-HsA9tVdpbknvGDQO
-X-Proofpoint-ORIG-GUID: GbJ3KRobmzxnoyU-HsA9tVdpbknvGDQO
-X-Authority-Analysis: v=2.4 cv=C8PZDwP+ c=1 sm=1 tr=0 ts=6a633cdd cx=c_pps
- a=g+XQapjYtrKCWQI10hurPg==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=AMbNDxq4J1R_ZtRBPm4A:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-24_02,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 priorityscore=1501 bulkscore=0 impostorscore=0
- clxscore=1015 lowpriorityscore=0 adultscore=0 malwarescore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607240094
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR08MB11411
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_032226_050623_C4675F6C 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20260724_034935_061255_8E4A46CF 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,970 +160,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move functions responsible for allocation and release of udma
-resources such as channels, rings and flows from k3-udma.c
-to the common k3-udma-common.c file.
+Hi all,
 
-The implementation of these functions is largely shared between K3 UDMA
-and K3 UDMA v2. This refactor improves code reuse and maintainability
-across multiple variants.
+This series builds on the initial vGICv5 support [1] and adds support
+for the GICv5 IRS, as described by the GICv5 (EAC0) specification [2].
+With this, a GICv5 guest is no longer restricted to PPIs, and can make
+use of SPIs and LPIs as well.
 
-No functional changes intended.
+With SPIs and LPIs available, this series makes it possible to boot a
+full Linux guest on the Arm FVP model [3], using the setup described in
+Lorenzo's GICv5 Linux software enablement guide [4]. In addition, GICv5
+IPIs are typically implemented as LPIs, so LPI support is what makes
+guests with more than one vCPU possible.
 
-Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
----
- drivers/dma/ti/k3-udma-common.c | 442 ++++++++++++++++++++++++++++++++
- drivers/dma/ti/k3-udma.c        | 423 ------------------------------
- drivers/dma/ti/k3-udma.h        |  21 ++
- 3 files changed, 463 insertions(+), 423 deletions(-)
+The corresponding kvmtool changes are available separately [5]. With
+these changes, `--irqchip=3Dgicv5` works now. The `--irqchip=3Dgicv5-its`
+configuration does not work with this series, as ITS/MSI support is not
+included here.
 
-diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
-index 01aea77c25715..472903e7d1a9f 100644
---- a/drivers/dma/ti/k3-udma-common.c
-+++ b/drivers/dma/ti/k3-udma-common.c
-@@ -1891,5 +1891,447 @@ enum dmaengine_alignment udma_get_copy_align(struct udma_dev *ud)
- }
- EXPORT_SYMBOL_GPL(udma_get_copy_align);
- 
-+/**
-+ * __udma_alloc_gp_rflow_range - alloc range of GP RX flows
-+ * @ud: UDMA device
-+ * @from: Start the search from this flow id number
-+ * @cnt: Number of consecutive flow ids to allocate
-+ *
-+ * Allocate range of RX flow ids for future use, those flows can be requested
-+ * only using explicit flow id number. if @from is set to -1 it will try to find
-+ * first free range. if @from is positive value it will force allocation only
-+ * of the specified range of flows.
-+ *
-+ * Returns -ENOMEM if can't find free range.
-+ * -EEXIST if requested range is busy.
-+ * -EINVAL if wrong input values passed.
-+ * Returns flow id on success.
-+ */
-+int __udma_alloc_gp_rflow_range(struct udma_dev *ud, int from, int cnt)
-+{
-+	int start, tmp_from;
-+	DECLARE_BITMAP(tmp, K3_UDMA_MAX_RFLOWS);
-+
-+	tmp_from = from;
-+	if (tmp_from < 0)
-+		tmp_from = ud->rchan_cnt;
-+	/* default flows can't be allocated and accessible only by id */
-+	if (tmp_from < ud->rchan_cnt)
-+		return -EINVAL;
-+
-+	if (tmp_from + cnt > ud->rflow_cnt)
-+		return -EINVAL;
-+
-+	bitmap_or(tmp, ud->rflow_gp_map, ud->rflow_gp_map_allocated,
-+		  ud->rflow_cnt);
-+
-+	start = bitmap_find_next_zero_area(tmp,
-+					   ud->rflow_cnt,
-+					   tmp_from, cnt, 0);
-+	if (start >= ud->rflow_cnt)
-+		return -ENOMEM;
-+
-+	if (from >= 0 && start != from)
-+		return -EEXIST;
-+
-+	bitmap_set(ud->rflow_gp_map_allocated, start, cnt);
-+	return start;
-+}
-+EXPORT_SYMBOL_GPL(__udma_alloc_gp_rflow_range);
-+
-+int __udma_free_gp_rflow_range(struct udma_dev *ud, int from, int cnt)
-+{
-+	if (from < ud->rchan_cnt)
-+		return -EINVAL;
-+	if (from + cnt > ud->rflow_cnt)
-+		return -EINVAL;
-+
-+	bitmap_clear(ud->rflow_gp_map_allocated, from, cnt);
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(__udma_free_gp_rflow_range);
-+
-+struct udma_rflow *__udma_get_rflow(struct udma_dev *ud, int id)
-+{
-+	/*
-+	 * Attempt to request rflow by ID can be made for any rflow
-+	 * if not in use with assumption that caller knows what's doing.
-+	 * TI-SCI FW will perform additional permission check ant way, it's
-+	 * safe
-+	 */
-+
-+	if (id < 0 || id >= ud->rflow_cnt)
-+		return ERR_PTR(-ENOENT);
-+
-+	if (test_bit(id, ud->rflow_in_use))
-+		return ERR_PTR(-ENOENT);
-+
-+	if (ud->rflow_gp_map) {
-+		/* GP rflow has to be allocated first */
-+		if (!test_bit(id, ud->rflow_gp_map) &&
-+		    !test_bit(id, ud->rflow_gp_map_allocated))
-+			return ERR_PTR(-EINVAL);
-+	}
-+
-+	dev_dbg(ud->dev, "get rflow%d\n", id);
-+	set_bit(id, ud->rflow_in_use);
-+	return &ud->rflows[id];
-+}
-+EXPORT_SYMBOL_GPL(__udma_get_rflow);
-+
-+void __udma_put_rflow(struct udma_dev *ud, struct udma_rflow *rflow)
-+{
-+	if (!test_bit(rflow->id, ud->rflow_in_use)) {
-+		dev_err(ud->dev, "attempt to put unused rflow%d\n", rflow->id);
-+		return;
-+	}
-+
-+	dev_dbg(ud->dev, "put rflow%d\n", rflow->id);
-+	clear_bit(rflow->id, ud->rflow_in_use);
-+}
-+EXPORT_SYMBOL_GPL(__udma_put_rflow);
-+
-+#define UDMA_RESERVE_RESOURCE(res)					\
-+struct udma_##res *__udma_reserve_##res(struct udma_dev *ud,	\
-+					       enum udma_tp_level tpl,	\
-+					       int id)			\
-+{									\
-+	if (id >= 0) {							\
-+		if (test_bit(id, ud->res##_map)) {			\
-+			dev_err(ud->dev, "res##%d is in use\n", id);	\
-+			return ERR_PTR(-ENOENT);			\
-+		}							\
-+	} else {							\
-+		int start;						\
-+									\
-+		if (tpl >= ud->res##_tpl.levels)			\
-+			tpl = ud->res##_tpl.levels - 1;			\
-+									\
-+		start = ud->res##_tpl.start_idx[tpl];			\
-+									\
-+		id = find_next_zero_bit(ud->res##_map, ud->res##_cnt,	\
-+					start);				\
-+		if (id == ud->res##_cnt) {				\
-+			return ERR_PTR(-ENOENT);			\
-+		}							\
-+	}								\
-+									\
-+	set_bit(id, ud->res##_map);					\
-+	return &ud->res##s[id];						\
-+}
-+
-+UDMA_RESERVE_RESOURCE(bchan);
-+EXPORT_SYMBOL_GPL(__udma_reserve_bchan);
-+UDMA_RESERVE_RESOURCE(tchan);
-+EXPORT_SYMBOL_GPL(__udma_reserve_tchan);
-+UDMA_RESERVE_RESOURCE(rchan);
-+EXPORT_SYMBOL_GPL(__udma_reserve_rchan);
-+
-+int udma_get_tchan(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+	int ret;
-+
-+	if (uc->tchan) {
-+		dev_dbg(ud->dev, "chan%d: already have tchan%d allocated\n",
-+			uc->id, uc->tchan->id);
-+		return 0;
-+	}
-+
-+	/*
-+	 * mapped_channel_id is -1 for UDMA, BCDMA and PKTDMA unmapped channels.
-+	 * For PKTDMA mapped channels it is configured to a channel which must
-+	 * be used to service the peripheral.
-+	 */
-+	uc->tchan = __udma_reserve_tchan(ud, uc->config.channel_tpl,
-+					 uc->config.mapped_channel_id);
-+	if (IS_ERR(uc->tchan)) {
-+		ret = PTR_ERR(uc->tchan);
-+		uc->tchan = NULL;
-+		return ret;
-+	}
-+
-+	if (ud->tflow_cnt) {
-+		int tflow_id;
-+
-+		/* Only PKTDMA have support for tx flows */
-+		if (uc->config.default_flow_id >= 0)
-+			tflow_id = uc->config.default_flow_id;
-+		else
-+			tflow_id = uc->tchan->id;
-+
-+		if (test_bit(tflow_id, ud->tflow_map)) {
-+			dev_err(ud->dev, "tflow%d is in use\n", tflow_id);
-+			clear_bit(uc->tchan->id, ud->tchan_map);
-+			uc->tchan = NULL;
-+			return -ENOENT;
-+		}
-+
-+		uc->tchan->tflow_id = tflow_id;
-+		set_bit(tflow_id, ud->tflow_map);
-+	} else {
-+		uc->tchan->tflow_id = -1;
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(udma_get_tchan);
-+
-+int udma_get_rchan(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+	int ret;
-+
-+	if (uc->rchan) {
-+		dev_dbg(ud->dev, "chan%d: already have rchan%d allocated\n",
-+			uc->id, uc->rchan->id);
-+		return 0;
-+	}
-+
-+	/*
-+	 * mapped_channel_id is -1 for UDMA, BCDMA and PKTDMA unmapped channels.
-+	 * For PKTDMA mapped channels it is configured to a channel which must
-+	 * be used to service the peripheral.
-+	 */
-+	uc->rchan = __udma_reserve_rchan(ud, uc->config.channel_tpl,
-+					 uc->config.mapped_channel_id);
-+	if (IS_ERR(uc->rchan)) {
-+		ret = PTR_ERR(uc->rchan);
-+		uc->rchan = NULL;
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(udma_get_rchan);
-+
-+int udma_get_chan_pair(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+	int chan_id, end;
-+
-+	if ((uc->tchan && uc->rchan) && uc->tchan->id == uc->rchan->id) {
-+		dev_info(ud->dev, "chan%d: already have %d pair allocated\n",
-+			 uc->id, uc->tchan->id);
-+		return 0;
-+	}
-+
-+	if (uc->tchan) {
-+		dev_err(ud->dev, "chan%d: already have tchan%d allocated\n",
-+			uc->id, uc->tchan->id);
-+		return -EBUSY;
-+	} else if (uc->rchan) {
-+		dev_err(ud->dev, "chan%d: already have rchan%d allocated\n",
-+			uc->id, uc->rchan->id);
-+		return -EBUSY;
-+	}
-+
-+	/* Can be optimized, but let's have it like this for now */
-+	end = min(ud->tchan_cnt, ud->rchan_cnt);
-+	/*
-+	 * Try to use the highest TPL channel pair for MEM_TO_MEM channels
-+	 * Note: in UDMAP the channel TPL is symmetric between tchan and rchan
-+	 */
-+	chan_id = ud->tchan_tpl.start_idx[ud->tchan_tpl.levels - 1];
-+	for (; chan_id < end; chan_id++) {
-+		if (!test_bit(chan_id, ud->tchan_map) &&
-+		    !test_bit(chan_id, ud->rchan_map))
-+			break;
-+	}
-+
-+	if (chan_id == end)
-+		return -ENOENT;
-+
-+	set_bit(chan_id, ud->tchan_map);
-+	set_bit(chan_id, ud->rchan_map);
-+	uc->tchan = &ud->tchans[chan_id];
-+	uc->rchan = &ud->rchans[chan_id];
-+
-+	/* UDMA does not use tx flows */
-+	uc->tchan->tflow_id = -1;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(udma_get_chan_pair);
-+
-+int udma_get_rflow(struct udma_chan *uc, int flow_id)
-+{
-+	struct udma_dev *ud = uc->ud;
-+	int ret;
-+
-+	if (!uc->rchan) {
-+		dev_err(ud->dev, "chan%d: does not have rchan??\n", uc->id);
-+		return -EINVAL;
-+	}
-+
-+	if (uc->rflow) {
-+		dev_dbg(ud->dev, "chan%d: already have rflow%d allocated\n",
-+			uc->id, uc->rflow->id);
-+		return 0;
-+	}
-+
-+	uc->rflow = __udma_get_rflow(ud, flow_id);
-+	if (IS_ERR(uc->rflow)) {
-+		ret = PTR_ERR(uc->rflow);
-+		uc->rflow = NULL;
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(udma_get_rflow);
-+
-+void udma_put_rchan(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+
-+	if (uc->rchan) {
-+		dev_dbg(ud->dev, "chan%d: put rchan%d\n", uc->id,
-+			uc->rchan->id);
-+		clear_bit(uc->rchan->id, ud->rchan_map);
-+		uc->rchan = NULL;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(udma_put_rchan);
-+
-+void udma_put_tchan(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+
-+	if (uc->tchan) {
-+		dev_dbg(ud->dev, "chan%d: put tchan%d\n", uc->id,
-+			uc->tchan->id);
-+		clear_bit(uc->tchan->id, ud->tchan_map);
-+
-+		if (uc->tchan->tflow_id >= 0)
-+			clear_bit(uc->tchan->tflow_id, ud->tflow_map);
-+
-+		uc->tchan = NULL;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(udma_put_tchan);
-+
-+void udma_put_rflow(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+
-+	if (uc->rflow) {
-+		dev_dbg(ud->dev, "chan%d: put rflow%d\n", uc->id,
-+			uc->rflow->id);
-+		__udma_put_rflow(ud, uc->rflow);
-+		uc->rflow = NULL;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(udma_put_rflow);
-+
-+void udma_free_tx_resources(struct udma_chan *uc)
-+{
-+	if (!uc->tchan)
-+		return;
-+
-+	k3_ringacc_ring_free(uc->tchan->t_ring);
-+	k3_ringacc_ring_free(uc->tchan->tc_ring);
-+	uc->tchan->t_ring = NULL;
-+	uc->tchan->tc_ring = NULL;
-+
-+	udma_put_tchan(uc);
-+}
-+EXPORT_SYMBOL_GPL(udma_free_tx_resources);
-+
-+void udma_free_rx_resources(struct udma_chan *uc)
-+{
-+	if (!uc->rchan)
-+		return;
-+
-+	if (uc->rflow) {
-+		struct udma_rflow *rflow = uc->rflow;
-+
-+		k3_ringacc_ring_free(rflow->fd_ring);
-+		k3_ringacc_ring_free(rflow->r_ring);
-+		rflow->fd_ring = NULL;
-+		rflow->r_ring = NULL;
-+
-+		udma_put_rflow(uc);
-+	}
-+
-+	udma_put_rchan(uc);
-+}
-+EXPORT_SYMBOL_GPL(udma_free_rx_resources);
-+
-+void udma_free_chan_resources(struct dma_chan *chan)
-+{
-+	struct udma_chan *uc = to_udma_chan(chan);
-+	struct udma_dev *ud = to_udma_dev(chan->device);
-+
-+	udma_terminate_all(chan);
-+	if (uc->terminated_desc) {
-+		ud->reset_chan(uc, false);
-+		udma_reset_rings(uc);
-+	}
-+
-+	cancel_delayed_work_sync(&uc->tx_drain.work);
-+
-+	if (uc->irq_num_ring > 0) {
-+		free_irq(uc->irq_num_ring, uc);
-+
-+		uc->irq_num_ring = 0;
-+	}
-+	if (uc->irq_num_udma > 0) {
-+		free_irq(uc->irq_num_udma, uc);
-+
-+		uc->irq_num_udma = 0;
-+	}
-+
-+	/* Release PSI-L pairing */
-+	if (uc->psil_paired && ud->psil_unpair) {
-+		ud->psil_unpair(ud, uc->config.src_thread,
-+				  uc->config.dst_thread);
-+		uc->psil_paired = false;
-+	}
-+
-+	vchan_free_chan_resources(&uc->vc);
-+	tasklet_kill(&uc->vc.task);
-+
-+	bcdma_free_bchan_resources(uc);
-+	udma_free_tx_resources(uc);
-+	udma_free_rx_resources(uc);
-+	udma_reset_uchan(uc);
-+
-+	if (uc->use_dma_pool) {
-+		dma_pool_destroy(uc->hdesc_pool);
-+		uc->use_dma_pool = false;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(udma_free_chan_resources);
-+
-+void bcdma_put_bchan(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+
-+	if (uc->bchan) {
-+		dev_dbg(ud->dev, "chan%d: put bchan%d\n", uc->id,
-+			uc->bchan->id);
-+		clear_bit(uc->bchan->id, ud->bchan_map);
-+		uc->bchan = NULL;
-+		uc->tchan = NULL;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(bcdma_put_bchan);
-+
-+void bcdma_free_bchan_resources(struct udma_chan *uc)
-+{
-+	if (!uc->bchan)
-+		return;
-+
-+	k3_ringacc_ring_free(uc->bchan->tc_ring);
-+	k3_ringacc_ring_free(uc->bchan->t_ring);
-+	uc->bchan->tc_ring = NULL;
-+	uc->bchan->t_ring = NULL;
-+	k3_configure_chan_coherency(&uc->vc.chan, 0);
-+
-+	bcdma_put_bchan(uc);
-+}
-+EXPORT_SYMBOL_GPL(bcdma_free_bchan_resources);
-+
- MODULE_DESCRIPTION("Texas Instruments K3 UDMA Common Library");
- MODULE_LICENSE("GPL v2");
-diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 89c887bc86a34..753acf1e13fa2 100644
---- a/drivers/dma/ti/k3-udma.c
-+++ b/drivers/dma/ti/k3-udma.c
-@@ -423,135 +423,6 @@ static irqreturn_t udma_udma_irq_handler(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
--/**
-- * __udma_alloc_gp_rflow_range - alloc range of GP RX flows
-- * @ud: UDMA device
-- * @from: Start the search from this flow id number
-- * @cnt: Number of consecutive flow ids to allocate
-- *
-- * Allocate range of RX flow ids for future use, those flows can be requested
-- * only using explicit flow id number. if @from is set to -1 it will try to find
-- * first free range. if @from is positive value it will force allocation only
-- * of the specified range of flows.
-- *
-- * Returns -ENOMEM if can't find free range.
-- * -EEXIST if requested range is busy.
-- * -EINVAL if wrong input values passed.
-- * Returns flow id on success.
-- */
--static int __udma_alloc_gp_rflow_range(struct udma_dev *ud, int from, int cnt)
--{
--	int start, tmp_from;
--	DECLARE_BITMAP(tmp, K3_UDMA_MAX_RFLOWS);
--
--	tmp_from = from;
--	if (tmp_from < 0)
--		tmp_from = ud->rchan_cnt;
--	/* default flows can't be allocated and accessible only by id */
--	if (tmp_from < ud->rchan_cnt)
--		return -EINVAL;
--
--	if (tmp_from + cnt > ud->rflow_cnt)
--		return -EINVAL;
--
--	bitmap_or(tmp, ud->rflow_gp_map, ud->rflow_gp_map_allocated,
--		  ud->rflow_cnt);
--
--	start = bitmap_find_next_zero_area(tmp,
--					   ud->rflow_cnt,
--					   tmp_from, cnt, 0);
--	if (start >= ud->rflow_cnt)
--		return -ENOMEM;
--
--	if (from >= 0 && start != from)
--		return -EEXIST;
--
--	bitmap_set(ud->rflow_gp_map_allocated, start, cnt);
--	return start;
--}
--
--static int __udma_free_gp_rflow_range(struct udma_dev *ud, int from, int cnt)
--{
--	if (from < ud->rchan_cnt)
--		return -EINVAL;
--	if (from + cnt > ud->rflow_cnt)
--		return -EINVAL;
--
--	bitmap_clear(ud->rflow_gp_map_allocated, from, cnt);
--	return 0;
--}
--
--static struct udma_rflow *__udma_get_rflow(struct udma_dev *ud, int id)
--{
--	/*
--	 * Attempt to request rflow by ID can be made for any rflow
--	 * if not in use with assumption that caller knows what's doing.
--	 * TI-SCI FW will perform additional permission check ant way, it's
--	 * safe
--	 */
--
--	if (id < 0 || id >= ud->rflow_cnt)
--		return ERR_PTR(-ENOENT);
--
--	if (test_bit(id, ud->rflow_in_use))
--		return ERR_PTR(-ENOENT);
--
--	if (ud->rflow_gp_map) {
--		/* GP rflow has to be allocated first */
--		if (!test_bit(id, ud->rflow_gp_map) &&
--		    !test_bit(id, ud->rflow_gp_map_allocated))
--			return ERR_PTR(-EINVAL);
--	}
--
--	dev_dbg(ud->dev, "get rflow%d\n", id);
--	set_bit(id, ud->rflow_in_use);
--	return &ud->rflows[id];
--}
--
--static void __udma_put_rflow(struct udma_dev *ud, struct udma_rflow *rflow)
--{
--	if (!test_bit(rflow->id, ud->rflow_in_use)) {
--		dev_err(ud->dev, "attempt to put unused rflow%d\n", rflow->id);
--		return;
--	}
--
--	dev_dbg(ud->dev, "put rflow%d\n", rflow->id);
--	clear_bit(rflow->id, ud->rflow_in_use);
--}
--
--#define UDMA_RESERVE_RESOURCE(res)					\
--static struct udma_##res *__udma_reserve_##res(struct udma_dev *ud,	\
--					       enum udma_tp_level tpl,	\
--					       int id)			\
--{									\
--	if (id >= 0) {							\
--		if (test_bit(id, ud->res##_map)) {			\
--			dev_err(ud->dev, "res##%d is in use\n", id);	\
--			return ERR_PTR(-ENOENT);			\
--		}							\
--	} else {							\
--		int start;						\
--									\
--		if (tpl >= ud->res##_tpl.levels)			\
--			tpl = ud->res##_tpl.levels - 1;			\
--									\
--		start = ud->res##_tpl.start_idx[tpl];			\
--									\
--		id = find_next_zero_bit(ud->res##_map, ud->res##_cnt,	\
--					start);				\
--		if (id == ud->res##_cnt) {				\
--			return ERR_PTR(-ENOENT);			\
--		}							\
--	}								\
--									\
--	set_bit(id, ud->res##_map);					\
--	return &ud->res##s[id];						\
--}
--
--UDMA_RESERVE_RESOURCE(bchan);
--UDMA_RESERVE_RESOURCE(tchan);
--UDMA_RESERVE_RESOURCE(rchan);
--
- static int bcdma_get_bchan(struct udma_chan *uc)
- {
- 	struct udma_dev *ud = uc->ud;
-@@ -585,223 +456,6 @@ static int bcdma_get_bchan(struct udma_chan *uc)
- 	return 0;
- }
- 
--static int udma_get_tchan(struct udma_chan *uc)
--{
--	struct udma_dev *ud = uc->ud;
--	int ret;
--
--	if (uc->tchan) {
--		dev_dbg(ud->dev, "chan%d: already have tchan%d allocated\n",
--			uc->id, uc->tchan->id);
--		return 0;
--	}
--
--	/*
--	 * mapped_channel_id is -1 for UDMA, BCDMA and PKTDMA unmapped channels.
--	 * For PKTDMA mapped channels it is configured to a channel which must
--	 * be used to service the peripheral.
--	 */
--	uc->tchan = __udma_reserve_tchan(ud, uc->config.channel_tpl,
--					 uc->config.mapped_channel_id);
--	if (IS_ERR(uc->tchan)) {
--		ret = PTR_ERR(uc->tchan);
--		uc->tchan = NULL;
--		return ret;
--	}
--
--	if (ud->tflow_cnt) {
--		int tflow_id;
--
--		/* Only PKTDMA have support for tx flows */
--		if (uc->config.default_flow_id >= 0)
--			tflow_id = uc->config.default_flow_id;
--		else
--			tflow_id = uc->tchan->id;
--
--		if (test_bit(tflow_id, ud->tflow_map)) {
--			dev_err(ud->dev, "tflow%d is in use\n", tflow_id);
--			clear_bit(uc->tchan->id, ud->tchan_map);
--			uc->tchan = NULL;
--			return -ENOENT;
--		}
--
--		uc->tchan->tflow_id = tflow_id;
--		set_bit(tflow_id, ud->tflow_map);
--	} else {
--		uc->tchan->tflow_id = -1;
--	}
--
--	return 0;
--}
--
--static int udma_get_rchan(struct udma_chan *uc)
--{
--	struct udma_dev *ud = uc->ud;
--	int ret;
--
--	if (uc->rchan) {
--		dev_dbg(ud->dev, "chan%d: already have rchan%d allocated\n",
--			uc->id, uc->rchan->id);
--		return 0;
--	}
--
--	/*
--	 * mapped_channel_id is -1 for UDMA, BCDMA and PKTDMA unmapped channels.
--	 * For PKTDMA mapped channels it is configured to a channel which must
--	 * be used to service the peripheral.
--	 */
--	uc->rchan = __udma_reserve_rchan(ud, uc->config.channel_tpl,
--					 uc->config.mapped_channel_id);
--	if (IS_ERR(uc->rchan)) {
--		ret = PTR_ERR(uc->rchan);
--		uc->rchan = NULL;
--		return ret;
--	}
--
--	return 0;
--}
--
--static int udma_get_chan_pair(struct udma_chan *uc)
--{
--	struct udma_dev *ud = uc->ud;
--	int chan_id, end;
--
--	if ((uc->tchan && uc->rchan) && uc->tchan->id == uc->rchan->id) {
--		dev_info(ud->dev, "chan%d: already have %d pair allocated\n",
--			 uc->id, uc->tchan->id);
--		return 0;
--	}
--
--	if (uc->tchan) {
--		dev_err(ud->dev, "chan%d: already have tchan%d allocated\n",
--			uc->id, uc->tchan->id);
--		return -EBUSY;
--	} else if (uc->rchan) {
--		dev_err(ud->dev, "chan%d: already have rchan%d allocated\n",
--			uc->id, uc->rchan->id);
--		return -EBUSY;
--	}
--
--	/* Can be optimized, but let's have it like this for now */
--	end = min(ud->tchan_cnt, ud->rchan_cnt);
--	/*
--	 * Try to use the highest TPL channel pair for MEM_TO_MEM channels
--	 * Note: in UDMAP the channel TPL is symmetric between tchan and rchan
--	 */
--	chan_id = ud->tchan_tpl.start_idx[ud->tchan_tpl.levels - 1];
--	for (; chan_id < end; chan_id++) {
--		if (!test_bit(chan_id, ud->tchan_map) &&
--		    !test_bit(chan_id, ud->rchan_map))
--			break;
--	}
--
--	if (chan_id == end)
--		return -ENOENT;
--
--	set_bit(chan_id, ud->tchan_map);
--	set_bit(chan_id, ud->rchan_map);
--	uc->tchan = &ud->tchans[chan_id];
--	uc->rchan = &ud->rchans[chan_id];
--
--	/* UDMA does not use tx flows */
--	uc->tchan->tflow_id = -1;
--
--	return 0;
--}
--
--static int udma_get_rflow(struct udma_chan *uc, int flow_id)
--{
--	struct udma_dev *ud = uc->ud;
--	int ret;
--
--	if (!uc->rchan) {
--		dev_err(ud->dev, "chan%d: does not have rchan??\n", uc->id);
--		return -EINVAL;
--	}
--
--	if (uc->rflow) {
--		dev_dbg(ud->dev, "chan%d: already have rflow%d allocated\n",
--			uc->id, uc->rflow->id);
--		return 0;
--	}
--
--	uc->rflow = __udma_get_rflow(ud, flow_id);
--	if (IS_ERR(uc->rflow)) {
--		ret = PTR_ERR(uc->rflow);
--		uc->rflow = NULL;
--		return ret;
--	}
--
--	return 0;
--}
--
--static void bcdma_put_bchan(struct udma_chan *uc)
--{
--	struct udma_dev *ud = uc->ud;
--
--	if (uc->bchan) {
--		dev_dbg(ud->dev, "chan%d: put bchan%d\n", uc->id,
--			uc->bchan->id);
--		clear_bit(uc->bchan->id, ud->bchan_map);
--		uc->bchan = NULL;
--		uc->tchan = NULL;
--	}
--}
--
--static void udma_put_rchan(struct udma_chan *uc)
--{
--	struct udma_dev *ud = uc->ud;
--
--	if (uc->rchan) {
--		dev_dbg(ud->dev, "chan%d: put rchan%d\n", uc->id,
--			uc->rchan->id);
--		clear_bit(uc->rchan->id, ud->rchan_map);
--		uc->rchan = NULL;
--	}
--}
--
--static void udma_put_tchan(struct udma_chan *uc)
--{
--	struct udma_dev *ud = uc->ud;
--
--	if (uc->tchan) {
--		dev_dbg(ud->dev, "chan%d: put tchan%d\n", uc->id,
--			uc->tchan->id);
--		clear_bit(uc->tchan->id, ud->tchan_map);
--
--		if (uc->tchan->tflow_id >= 0)
--			clear_bit(uc->tchan->tflow_id, ud->tflow_map);
--
--		uc->tchan = NULL;
--	}
--}
--
--static void udma_put_rflow(struct udma_chan *uc)
--{
--	struct udma_dev *ud = uc->ud;
--
--	if (uc->rflow) {
--		dev_dbg(ud->dev, "chan%d: put rflow%d\n", uc->id,
--			uc->rflow->id);
--		__udma_put_rflow(ud, uc->rflow);
--		uc->rflow = NULL;
--	}
--}
--
--static void bcdma_free_bchan_resources(struct udma_chan *uc)
--{
--	if (!uc->bchan)
--		return;
--
--	k3_ringacc_ring_free(uc->bchan->tc_ring);
--	k3_ringacc_ring_free(uc->bchan->t_ring);
--	uc->bchan->tc_ring = NULL;
--	uc->bchan->t_ring = NULL;
--	k3_configure_chan_coherency(&uc->vc.chan, 0);
--
--	bcdma_put_bchan(uc);
--}
--
- static int bcdma_alloc_bchan_resources(struct udma_chan *uc)
- {
- 	struct k3_ring_cfg ring_cfg;
-@@ -847,19 +501,6 @@ static int bcdma_alloc_bchan_resources(struct udma_chan *uc)
- 	return ret;
- }
- 
--static void udma_free_tx_resources(struct udma_chan *uc)
--{
--	if (!uc->tchan)
--		return;
--
--	k3_ringacc_ring_free(uc->tchan->t_ring);
--	k3_ringacc_ring_free(uc->tchan->tc_ring);
--	uc->tchan->t_ring = NULL;
--	uc->tchan->tc_ring = NULL;
--
--	udma_put_tchan(uc);
--}
--
- static int udma_alloc_tx_resources(struct udma_chan *uc)
- {
- 	struct k3_ring_cfg ring_cfg;
-@@ -917,25 +558,6 @@ static int udma_alloc_tx_resources(struct udma_chan *uc)
- 	return ret;
- }
- 
--static void udma_free_rx_resources(struct udma_chan *uc)
--{
--	if (!uc->rchan)
--		return;
--
--	if (uc->rflow) {
--		struct udma_rflow *rflow = uc->rflow;
--
--		k3_ringacc_ring_free(rflow->fd_ring);
--		k3_ringacc_ring_free(rflow->r_ring);
--		rflow->fd_ring = NULL;
--		rflow->r_ring = NULL;
--
--		udma_put_rflow(uc);
--	}
--
--	udma_put_rchan(uc);
--}
--
- static int udma_alloc_rx_resources(struct udma_chan *uc)
- {
- 	struct udma_dev *ud = uc->ud;
-@@ -2024,51 +1646,6 @@ static int udma_resume(struct dma_chan *chan)
- 	return 0;
- }
- 
--static void udma_free_chan_resources(struct dma_chan *chan)
--{
--	struct udma_chan *uc = to_udma_chan(chan);
--	struct udma_dev *ud = to_udma_dev(chan->device);
--
--	udma_terminate_all(chan);
--	if (uc->terminated_desc) {
--		ud->reset_chan(uc, false);
--		udma_reset_rings(uc);
--	}
--
--	cancel_delayed_work_sync(&uc->tx_drain.work);
--
--	if (uc->irq_num_ring > 0) {
--		free_irq(uc->irq_num_ring, uc);
--
--		uc->irq_num_ring = 0;
--	}
--	if (uc->irq_num_udma > 0) {
--		free_irq(uc->irq_num_udma, uc);
--
--		uc->irq_num_udma = 0;
--	}
--
--	/* Release PSI-L pairing */
--	if (uc->psil_paired) {
--		navss_psil_unpair(ud, uc->config.src_thread,
--				  uc->config.dst_thread);
--		uc->psil_paired = false;
--	}
--
--	vchan_free_chan_resources(&uc->vc);
--	tasklet_kill(&uc->vc.task);
--
--	bcdma_free_bchan_resources(uc);
--	udma_free_tx_resources(uc);
--	udma_free_rx_resources(uc);
--	udma_reset_uchan(uc);
--
--	if (uc->use_dma_pool) {
--		dma_pool_destroy(uc->hdesc_pool);
--		uc->use_dma_pool = false;
--	}
--}
--
- static struct platform_driver udma_driver;
- static struct platform_driver bcdma_driver;
- static struct platform_driver pktdma_driver;
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index 4878d13d84ed0..329df7eb156b2 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -658,6 +658,27 @@ void udma_dbg_summary_show(struct seq_file *s,
- 			   struct dma_device *dma_dev);
- #endif /* CONFIG_DEBUG_FS */
- 
-+int __udma_alloc_gp_rflow_range(struct udma_dev *ud, int from, int cnt);
-+int __udma_free_gp_rflow_range(struct udma_dev *ud, int from, int cnt);
-+struct udma_rflow *__udma_get_rflow(struct udma_dev *ud, int id);
-+void __udma_put_rflow(struct udma_dev *ud, struct udma_rflow *rflow);
-+int udma_get_tchan(struct udma_chan *uc);
-+int udma_get_rchan(struct udma_chan *uc);
-+int udma_get_chan_pair(struct udma_chan *uc);
-+int udma_get_rflow(struct udma_chan *uc, int flow_id);
-+void udma_put_rchan(struct udma_chan *uc);
-+void udma_put_tchan(struct udma_chan *uc);
-+void udma_put_rflow(struct udma_chan *uc);
-+void udma_free_tx_resources(struct udma_chan *uc);
-+void udma_free_rx_resources(struct udma_chan *uc);
-+void udma_free_chan_resources(struct dma_chan *chan);
-+void bcdma_put_bchan(struct udma_chan *uc);
-+void bcdma_free_bchan_resources(struct udma_chan *uc);
-+
-+struct udma_bchan *__udma_reserve_bchan(struct udma_dev *ud, enum udma_tp_level tpl, int id);
-+struct udma_tchan *__udma_reserve_tchan(struct udma_dev *ud, enum udma_tp_level tpl, int id);
-+struct udma_rchan *__udma_reserve_rchan(struct udma_dev *ud, enum udma_tp_level tpl, int id);
-+
- /* Direct access to UDMA low lever resources for the glue layer */
- int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
- int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
--- 
-2.54.0
+The IRS is created as part of the vgic-v5 device, and is not a separate
+KVM device. This is because implementing the CPU interface alone would
+limit a guest to a single vCPU and PPIs only. Hence, the IRS is bundled
+into the VGIC, much like the distributor for GICv3.
 
+The series adds the host-side plumbing needed for KVM to interact with
+the physical IRS, including VM and VPE table management, VPE residency,
+and VPE doorbells. It also adds an emulated IRS MMIO interface for the
+guest, together with the UAPI needed for userspace to configure the IRS
+address and to save/restore the IRS and IST state.
+
+The main pieces are:
+
+* Host IRS capability discovery and configuration frame plumbing.
+
+* Allocation and management of the GICv5 VM table, VPE table, VMTEs,
+  VPEs, and host-backed guest IST storage.
+
+* VPE residency and doorbell handling, allowing the IRS to select SPIs
+  and LPIs for resident VPEs and wake non-resident VPEs when required.
+
+* Emulation of the GICv5 IRS MMIO CONFIG_FRAME for guests.
+  Virtualisation, MPAM, MEC, and SWERR are not supported and are RAZ/WI.
+
+* SPI injection support using GIC VDPEND. Once injected, the GICv5
+  hardware manages the SPI lifecycle.
+
+* Save/restore support for GICv5 EL1 system registers, IRS MMIO state,
+  and guest ISTs. SPI and LPI IST state is transferred through
+  userspace-owned buffers using KVM_DEV_ARM_VGIC_GRP_IST.
+
+* Documentation for the new VGICv5 IRS userspace interfaces and the
+  required save/restore ordering.
+
+* Selftests for the UAPI components, the PPI, SPI, and LPI support, and
+  save/restore.
+
+This series keeps SPI, LPI, and save/restore support together
+intentionally. SPI and LPI support are needed to run realistic guests,
+while the save/restore interface is included at the same time so that the
+new userspace ABI is complete from the point it is exposed: userspace
+should not be able to create VGICv5 state that it cannot also migrate.
+
+The IST migration selftest restores state into a separate VM, re-saves
+the SPI and LPI IST images before the destination runs, and compares
+them byte-for-byte with the source images. It also validates restored IRS
+MMIO state through SPI/LPI delivery, priority, enable, and affinity
+behavior.
+
+LPIs are explicitly driven by the guest through the IRS/IST state. This
+series does not add direct LPI injection support, MSI support, or GICv5
+ITS emulation.
+
+These changes are based on v7.2-rc4. I've pushed the full set of changes
+to a branch at [6].
+
+Changes since v3 [7]:
+
+* Addressed the Sashiko AI reviews [8] for the core implementation, UAPI,
+  and documentation.
+
+* Dropped the software SPI AP list and in-flight SPI lifecycle tracking.
+  GICv5 SPI state is now left to the hardware after injection. This will be
+  revisited in the future.
+
+* Dropped GIC VDRCFG support, including its sysreg encoding and EL2
+  hypercall. GIC VDPEND remains as the mechanism used to inject SPI and LPI
+  pending state.
+
+* Reworked IST migration so that both SPI and LPI IST state is transferred
+  through userspace-owned buffers, exposed through
+  KVM_DEV_ARM_VGIC_GRP_IST and struct kvm_vgic_v5_ist.
+
+* Updated the IST save/restore implementation and documentation for the
+  buffer-based interface, including clarified restore ordering and
+  validation requirements.
+
+* Hardened IRS/VMTE teardown and IRS enable handling, including avoiding
+  VM-ID reuse after unsuccessful hardware teardown and reloading GICv5
+  state when the guest changes IRS enablement.
+
+* Expanded VGICv5 device-attribute documentation, including the GICv5
+  semantics and validation of the NR_IRQS attribute.
+
+* Added KVM selftests for IRS address, NR_IRQS, IRS registers, IST
+  attributes, userspace PPIs, CPU sysregs, SPI injection, LPI delivery,
+  and end-to-end IST save/restore.
+
+Thanks for taking the time to look at these changes!
+
+Thanks,
+Sascha
+
+[1] https://lore.kernel.org/all/20260319154937.3619520-1-sascha.bischoff@ar=
+m.com/
+[2] https://developer.arm.com/documentation/aes0070/latest
+[3] https://developer.arm.com/documentation/108086/latest
+[4] https://linaro.atlassian.net/wiki/x/CQAF-wY
+[5] https://lore.kernel.org/all/20260116182606.61856-1-sascha.bischoff@arm.=
+com/
+[6] https://gitlab.arm.com/linux-arm/linux-sb/-/tree/gicv5_kvm_irs_support_=
+v4
+[7] https://lore.kernel.org/all/20260703154811.3355680-1-sascha.bischoff@ar=
+m.com/
+[8] https://sashiko.dev/#/patchset/20260703154811.3355680-1-sascha.bischoff=
+@arm.com
+
+Sascha Bischoff (48):
+  irqchip/gic-v5: Allow KVM setup without a maintenance IRQ
+  irqchip/gic-v5: Provide OF IRS config frame attrs to KVM
+  irqchip/gic-v5: Set up gic_kvm_info on ACPI hosts
+  KVM: arm64: gic-v5: Define remaining IRS MMIO registers
+  arm64/sysreg: Add GICv5 GIC VDPEND encoding
+  arm64/sysreg: Update ICC_CR0_EL1 with LINK and LINK_IDLE fields
+  KVM: arm64: gic-v5: Extract host IRS caps from IRS config frame
+  KVM: arm64: gic-v5: Add VPE doorbell domain
+  KVM: arm64: gic-v5: Create and manage VM and VPE tables
+  KVM: arm64: gic-v5: Introduce guest IST alloc and management
+  KVM: arm64: gic-v5: Implement VMT/vIST IRS MMIO Ops
+  KVM: arm64: gic-v5: Keep GICv5 vCPU limit model-specific
+  KVM: arm64: gic-v5: Implement VPE IRS MMIO Ops
+  KVM: arm64: gic-v5: Set up VMTEs and VPE doorbells
+  KVM: arm64: gic-v5: Add resident/non-resident hyp calls
+  KVM: arm64: gic-v5: Request doorbells when VPEs enter WFI
+  KVM: arm64: gic-v5: Introduce struct vgic_v5_irs and IRS base address
+  KVM: arm64: gic-v5: Add IRS IODEV support to MMIO handlers
+  KVM: arm64: gic-v5: Add KVM_VGIC_V5_ADDR_TYPE_IRS to UAPI
+  KVM: arm64: gic-v5: Add GICv5 IRS IODEV and MMIO emulation
+  KVM: arm64: gic-v5: Initialise per-VM IRS state
+  KVM: arm64: gic-v5: Register the IRS IODEV
+  KVM: arm64: gic-v5: Set IRICHPPIDIS based on IRS enable state
+  KVM: arm64: selftests: Update vGICv5 selftest to set IRS address
+  KVM: arm64: gic-v5: Add GIC VDPEND hyp call
+  KVM: arm64: gic: Introduce set_pending_state() to irq_op
+  KVM: arm64: gic-v5: Support SPI injection
+  Documentation: KVM: Extend VGICv5 device attribute docs
+  KVM: arm64: gic-v5: Add GICv5 SPI injection to irqfd
+  KVM: arm64: gic-v5: Mask per-vcpu PPI state in
+    vgic_v5_finalize_ppi_state()
+  KVM: arm64: gic-v5: Add GICv5 EL1 sysreg userspace accessors
+  KVM: arm64: gic-v5: Handle userspace accesses to IRS MMIO region
+  KVM: arm64: gic-v5: Add CoreSight MMIO regs to IRS
+  KVM: arm64: gic-v5: Add VGICv5 IST save/restore UAPI
+  KVM: arm64: gic-v5: Implement save/restore mechanisms for ISTs
+  Documentation: KVM: Document KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS for
+    VGICv5
+  Documentation: KVM: Add KVM_DEV_ARM_VGIC_GRP_IRS_REGS to VGICv5 docs
+  Documentation: KVM: Add docs for KVM_DEV_ARM_VGIC_GRP_IST
+  Documentation: KVM: Add the VGICv5 IRS save/restore sequences
+  KVM: selftests: Add VGICv5 IRS address attribute tests
+  KVM: selftests: Add VGICv5 NR_IRQS attribute tests
+  KVM: selftests: Add VGICv5 IRS_REGS attribute tests
+  KVM: selftests: Add VGICv5 IST attribute tests
+  KVM: selftests: Add VGICv5 USERSPACE_PPIS tests
+  KVM: selftests: Add VGICv5 CPU sysreg attribute tests
+  KVM: selftests: Add VGICv5 SPI injection tests
+  KVM: selftests: Add VGICv5 LPI delivery tests
+  KVM: selftests: Add VGICv5 IST save/restore coverage
+
+ .../virt/kvm/devices/arm-vgic-v5.rst          |  264 ++-
+ arch/arm64/include/asm/kvm_asm.h              |    3 +
+ arch/arm64/include/asm/kvm_host.h             |    1 +
+ arch/arm64/include/asm/kvm_hyp.h              |    3 +
+ arch/arm64/include/asm/sysreg.h               |   13 +-
+ arch/arm64/include/uapi/asm/kvm.h             |    7 +
+ arch/arm64/kvm/Makefile                       |    3 +-
+ arch/arm64/kvm/arm.c                          |   10 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   26 +
+ arch/arm64/kvm/hyp/vgic-v5-sr.c               |   45 +
+ arch/arm64/kvm/sys_regs.c                     |    6 +-
+ arch/arm64/kvm/vgic-sys-reg-v5.c              |  519 +++++
+ arch/arm64/kvm/vgic/vgic-init.c               |  111 +-
+ arch/arm64/kvm/vgic/vgic-irqfd.c              |   11 +-
+ arch/arm64/kvm/vgic/vgic-irs-v5.c             | 1136 +++++++++++
+ arch/arm64/kvm/vgic/vgic-kvm-device.c         |  270 ++-
+ arch/arm64/kvm/vgic/vgic-mmio.c               |    6 +
+ arch/arm64/kvm/vgic/vgic-mmio.h               |    2 +
+ arch/arm64/kvm/vgic/vgic-v5-tables.c          | 1795 ++++++++++++++++
+ arch/arm64/kvm/vgic/vgic-v5-tables.h          |  116 ++
+ arch/arm64/kvm/vgic/vgic-v5.c                 | 1142 ++++++++++-
+ arch/arm64/kvm/vgic/vgic.c                    |   37 +-
+ arch/arm64/kvm/vgic/vgic.h                    |   21 +
+ arch/arm64/tools/sysreg                       |    4 +-
+ drivers/irqchip/irq-gic-v5-irs.c              |   19 +-
+ drivers/irqchip/irq-gic-v5.c                  |  117 +-
+ include/kvm/arm_vgic.h                        |  152 +-
+ include/linux/irqchip/arm-gic-v5.h            |  256 ++-
+ include/linux/irqchip/arm-vgic-info.h         |    5 +
+ include/uapi/linux/kvm.h                      |    7 +
+ tools/arch/arm64/include/uapi/asm/kvm.h       |    7 +
+ tools/testing/selftests/kvm/arm64/vgic_v5.c   | 1801 ++++++++++++++++-
+ .../selftests/kvm/include/arm64/gic_v5.h      |  105 +
+ 33 files changed, 7826 insertions(+), 194 deletions(-)
+ create mode 100644 arch/arm64/kvm/vgic-sys-reg-v5.c
+ create mode 100644 arch/arm64/kvm/vgic/vgic-irs-v5.c
+ create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.c
+ create mode 100644 arch/arm64/kvm/vgic/vgic-v5-tables.h
+
+--=20
+2.34.1=
 
