@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8781C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF38C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h29FIGiUjpEHTorSXfmfMa//yK70Tzyv2X9zmySyLSw=; b=GO0sAkeamfIQTVXKPQecimVDik
-	8dNyItY/Xt5pLUKtqUxeFB62Sk1VSue7O1R8k6I7BBWobUfXAKRj8lxiTC5Uu3qNtGITgPLUMaa7r
-	MtZG/fFTGnDQlHfgiYHdmVQL6vkXiGgeL2o4/ndxKeZVMgPPBZDG+mnC/YtKMJyW7WpcfCzpnUclm
-	2+/9yyWnYrHygCUVg+4FyZcgH8CuwvGNmZazzYifIeVPxRdF4zzEwrMzkNq9FnDOdluCYZ3tO4pwJ
-	s/0amxYnQjVA/clLWIE2J1ifEgmfPIoTzJSnLAsnyj5TT4HOyOtTQbh4c4W9Wi016piXtGfh8Jr5L
-	nBRjbrJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=txtxniZ+9ec8EBGpFntrCaDEilaRw0NUEsRkxlT+KQE=; b=WNzdFHRHr/M4g/pnR/hDXf2S9W
+	2bZpphEmYqZSBzV6kHixQHzF8y7SX0jvIRDU7cZeZxZ0MTtknDnqiFDjIKBffBxHwZO+kDVITIB20
+	0IaW7L8bjeK0m1G7eFg2DX+dgNFWiM17L9+lD8qCJWd5PPjQyuC/UEPd6OtOErLNqiplgzhjAtNQJ
+	ZN51vimIJhBS8ZDzLnLWPBb3A6F/5/XaNMXlAhCUEfTVyxJa10Np9LMRxvhA3tBk0oP7QhbkX1rqX
+	i8rKk39f2fh+xQRxt5laOrAJsoRi/iKl6YqD9xwkstIVeWLzsNlIHtwH5QOoJafygpBc5EIC1bmTe
+	uIjSz6ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKFa-0000000H0VH-1CCU;
-	Fri, 24 Jul 2026 18:03:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wnKtu-0000000H5OA-3B6J;
+	Fri, 24 Jul 2026 18:45:38 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKFG-0000000H0FU-3Iie
+	id 1wnKts-0000000H5M8-1IXx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 18:03:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8F3E60A8E;
-	Fri, 24 Jul 2026 18:03:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08D201F00A3E;
-	Fri, 24 Jul 2026 18:03:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784916217;
-	bh=h29FIGiUjpEHTorSXfmfMa//yK70Tzyv2X9zmySyLSw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q5VijKBRarcOk1zHZZvy7ZXcsyzsJhP591q0jZzPZgB46XSCxWBrj2sjnJzQCmm/7
-	 FqYa3iTAU6FRTyuqq2x3Vyk7PGb/C4jOm9QUz5X3w2FrTF7Z+LIRyuF2Nea6CivxoP
-	 l4zeg7oRnxQziJt6j8XBiB/zYOXmojzJm5E49M/X4D774aDPz2ky+5D52IiPtQbSvN
-	 TR+cq83ytDmAbkF7s+7mVbGlq6Jg/pFKd4Sy0Gxz4iGSWg4qUWXfGTM+Ob/kbemUHP
-	 OhoLy7UAo28ytPwkYYvCC1ZK0UInLoS05tjmADXqOLl3LjiTffSZsRWQiia9BGx24r
-	 sEvY9wwXwYlww==
-Date: Fri, 24 Jul 2026 19:03:31 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Srinivas Ramana <sramana@qti.qualcomm.com>,
-	Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Fri, 24 Jul 2026 18:45:37 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49571fea44eso4697885e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 11:45:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784918734; x=1785523534; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=txtxniZ+9ec8EBGpFntrCaDEilaRw0NUEsRkxlT+KQE=;
+        b=FipDjnn33qD/qtRQ3Z6L6MlmzeOy4GTg6+HJ5HTdt1EjkFjSnUSlm/Sc5QVSsGHFiK
+         xcq/dSEGlwOcsJgypS9E2W5Ym+4LobD4OFZkqTYpJfkEVY8O9+tN9UYT0E9ikjM40rJi
+         1R+TsiIIeMhwtDkxSAwzRl0bJ8AgE64HjlBrAUHWqXUtGNaV/bixHqvqZp95RYXITlbu
+         MQoDeAtUv+dIBUYrc9xhShsYNAH2ujIO+VZPuQD0y/vppxZ/MlZBsHt6J4qI/1EU1UGG
+         cZ7uwPWHqtC+juKUBW10YlDB+VJpF2GRRp1oLAbUCezKUA5fIJi0C0gLblEhVNXE8tfY
+         xm/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784918734; x=1785523534;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=txtxniZ+9ec8EBGpFntrCaDEilaRw0NUEsRkxlT+KQE=;
+        b=KbTJDMG/KMhzGUtDHj0dGtLX2DRzo2shr+YWt6o0vU/16cZfhOxxMkK6bVEhN6xSnS
+         MGQ7VbJXKhCM6BaV7Eqw2rIu/wes/C7cZUM30mXYHDBMkB0vo8i/PTgNpjaQPxqm0scp
+         f7Wdf6C/nDXTvahWHcvh/4ZtwAiIoS2HQ4vOMnYE0L9aV77H2r9zkWb27zzRK+JBtee6
+         RUzpfBVHIKrUNfShgBiTEqyIvOIXXRdqCtDcIZCPIJdVJBV3xUxfzp5H1K5bhym7uFJK
+         FjbZ2ewNWrCHP4aEXkg2BrMj/O53mBmtQTg8B6ZdvPJQfl6MV2ht/FcraQ/z+yswobV0
+         ICFA==
+X-Forwarded-Encrypted: i=1; AHgh+Rrx4iB0HWNWDXPea2twf5JOfu/gpZlNYSShMddkGGSuyDeTJ8Bv9eBNrFE0znJyP/If/SioJZcTUSUVdUWsFRzN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyG++81BGnHXS1S0hfu3IDXS5e7cTE5KTsIkOXAwzUXH8JixaRY
+	AxtL69XkDcLSgcg+aYUEHTRuj/nIKYAHIjb9W0bMjnrogQqfPJ6BU+hm
+X-Gm-Gg: AR+sD10bWX85BNDTB+FQr5KUrKYlpRDFfm78BT1LXUDWbSVgW5h+616jBV6WfPfnj+Q
+	fSM2GgqhzzwxmMhXHj8CNlN2bHS1lFq+CXZJjNPoDr2wv8CS0FS+Vzxl46+Lou3j5SbePxQIp66
+	GJxAuJtOncn7kDu9zM7lw0PbjZcgMapynjfup8GVhKrzg5CWyhfpz1/ADm3tTd/oMgsEwr7tp34
+	vMXS43t5fGq7fdCfKxghvhP8ZZ8+4CAH3kGr77PTU5Ml/9Qr52IfqurzawlCHXwFKlEOilMwywM
+	8UQ9X2cQPeWwwzdywEmkqedF2948MFIsuv1I2gMDd9p93p7412HN/Yk4NWkVqT3kZhLsnawIcf+
+	K6blY0AftMSjsKvqFEN8xXQV+xYTF7y68iKug9pqdMACIJZQxQse7FlRW+7LHmoz3/I0yDtc1O1
+	AKQhoouCynbXqVvXjOwKJufv0/SSpBbmK4QnAtMwC8NdrZf6z5SvOhyV6uw2fJ0S3v
+X-Received: by 2002:a05:600c:1d10:b0:495:5e3d:15e1 with SMTP id 5b1f17b1804b1-49573cd4133mr98180085e9.16.1784918733697;
+        Fri, 24 Jul 2026 11:45:33 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-87-3-249-180.retail.telecomitalia.it. [87.3.249.180])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-496b4858e85sm11278335e9.1.2026.07.24.11.45.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 11:45:33 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-Message-ID: <20260724-mule-of-sudden-gaiety-9e3933@sudeepholla>
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-9-andre.przywara@arm.com>
- <b9502a40-8075-48fc-8ff1-3ae17741ea73@arm.com>
+Subject: [PATCH v11 0/3] airoha: an7581: USB support
+Date: Fri, 24 Jul 2026 20:45:19 +0200
+Message-ID: <20260724184523.193661-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b9502a40-8075-48fc-8ff1-3ae17741ea73@arm.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_114536_366760_F5778F91 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,92 +103,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 06:08:52PM +0100, Ben Horgan wrote:
-> Hi Andre,
-> 
-> On 7/23/26 16:54, Andre Przywara wrote:
-> > The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
-> > alternative way of accessing the "Memory System Components" (MSC) in an
-> > MPAM enabled system.
-> > 
-> > Normally the MSCs are MMIO mapped, but in some implementations this
-> > might not be possible (MSC located outside of the local socket, MSC
-> > mapped secure-only) or desirable (direct MMIO access too slow or needs
-> > to be mediated through a control processor). MPAM-fb standardises a
-> > protocol to abstract MSC accesses, building on the SCMI protocol.
-> > 
-> > Add functions that do an MSC read or write access by redirecting the
-> > request through a firmware interface. For now this done via an ACPI
-> > PCC shared memory and mailbox combination.
-> > 
-> > Since the protocol used is only a small subset of the full SCMI spec,
-> > and the SCMI protocol has no full ACPI support anyway, open-code the
-> > (simple) SCMI message generation, for just the fields we need.
-> > 
-> > [1] https://developer.arm.com/documentation/den0144/latest
-> > 
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  drivers/resctrl/Makefile        |   2 +-
-> >  drivers/resctrl/mpam_devices.c  |  27 ++++-
-> >  drivers/resctrl/mpam_fb.c       | 197 ++++++++++++++++++++++++++++++++
-> >  drivers/resctrl/mpam_internal.h |  20 ++++
-> >  include/linux/arm_mpam.h        |   2 +-
-> >  5 files changed, 240 insertions(+), 8 deletions(-)
-> >  create mode 100644 drivers/resctrl/mpam_fb.c
-> > 
+This is a major rework of the old v2 series.
 
-[...]
+The SoC always support USB 2.0 but for USB 3.0 it needs additional
+configuration for the Serdes port. Such port can be either configured
+for USB usage or for PCIe lines or HSGMII and these are configured
+in the SCU space.
 
-> > +struct mpam_fb_read_payload {
-> > +	u32 msc_id;
-> > +	u32 flags;
-> > +	u32 reg_offset;
-> > +} __packed;
-> > +
-> > +struct mpam_fb_write_payload {
-> > +	u32 msc_id;
-> > +	u32 flags;
-> > +	u32 reg_offset;
-> > +	u32 value;
-> > +} __packed;
-> > +
-> > +#define PCC_CHAN_FLAGS_IRQ	BIT(0)
->
-> Isn't this the same as PCC_CMD_COMPLETION_NOTIFY in include/acpi/pcc.h?
->
+The previous implementation of a dedicated SSR driver was too
+complex and fragile for the simple task of configuring a register
+hence it was dropped and the handling is entirely in the PHY driver.
 
-Yes, where ever possible, one must use that. I have TODO to unify the
-loads of duplication we have amongst the users of PCC channels. That's
-the reason I ignored more duplications in this driver in absence of any
-alternatives.
+Everything was reducted to the dt-bindings to describe the Serdes line.
 
-> > +
-> > +static atomic_t mpam_fb_token = ATOMIC_INIT(0);
-> > +
-> > +static void mpam_fb_build_version_message(unsigned int token,
-> > +					  void __iomem *msg_buf)
-> > +{
-> > +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem = msg_buf;
->
-> What's the deal with .signature?
->
+Also the property for the PHY are renamed to a more suitable name and
+everything is now mandatory to simplify the implementation.
+(the PHY are always present and active on the SoC)
 
-No, it's written by the platform firmware when the channel is ready to be used
-by OSPM and OSPM just needs to verify. It will be soon part of the PCC core
-driver and it will shout if that's not the case.
+Also other unrelated patch are dropped from this series.
 
-> > +
-> > +	writel_relaxed(PCC_CHAN_FLAGS_IRQ, &pcc_shmem->flags);
->
-> Are you sure it's ok to unconditionally set this irq bit? I know we found out that we do need it set
-> sometimes. What does setting it actually based on what the platform does look like?
->
+Changes v11:
+- Remove clk patch and move to dedicated series
 
-You need to set it if you are not polling the PCC channels for completions.
+Changes v10:
+- Rebase on top of linux-next
+- Add review tag for DT patch
 
---
-Regards,
-Sudeep
+Changes v9:
+- Add spinlock init
+- Add ack tag
+- Add review tag
+- Add additional comments for phys on USB 3.0
+- Add extra logic to make phys optional for USB 3.0
+
+Changes v8:
+- Squash header to clk Documentation patch
+- Address comments from AI Bot
+  Link: https://lore.kernel.org/all/20260520150912.11614-1-ansuelsmth@gmail.com/
+
+Changes v7:
+- Rework to double PHY implementation
+  (suggested by Rob)
+  Now the clk driver expose a PHY for Serdes port
+  USB PHY driver selects it
+- Rebase on top of linux-next
+  Link: https://lore.kernel.org/all/20260519220813.28468-1-ansuelsmth@gmail.com/
+
+Changes v6:
+- Fix kernel test robot (sparse warning)
+  Link: https://lore.kernel.org/all/20260306190156.22297-1-ansuelsmth@gmail.com/
+
+Changes v5:
+- Add Ack and Review tag from Connor
+- Implement Ethernet support in the USB driver
+  (testing support for this Serdes on a special reference board)
+- Use an7581 prefix for USB PHY driver
+  Link: https://lore.kernel.org/all/20251107160251.2307088-1-ansuelsmth@gmail.com/
+
+Changes v4:
+- Rename PCIe and USB PHY to AN7581
+- Drop airoha,scu (handled directly in driver)
+- Drop dt-bindings for monitor clock in favor of raw values
+- Better describe the usage of airoha,usb3-serdes
+- Simplify values of dt-bindings SSR SERDES
+  Link: https://lore.kernel.org/all/20251107160251.2307088-1-ansuelsmth@gmail.com/
+
+Changes v3:
+- Drop clk changes
+- Drop SSR driver
+- Rename property in Documentation
+- Simplify PHY handling
+- Move SSR handling inside the PHY driver
+  Link: https://lore.kernel.org/all/20251029173713.7670-1-ansuelsmth@gmail.com/
+
+Changes v2:
+- Drop changes for simple-mfd
+- Rework PHY node structure to single node
+- Drop port-id property in favor of serdes-port and
+  usb2-monitor-clock-sel
+- Make the SSR driver probe from the clock driver
+
+Christian Marangi (3):
+  dt-bindings: phy: Add documentation for Airoha AN7581 USB PHY
+  phy: move and rename Airoha PCIe PHY driver to dedicated directory
+  phy: airoha: Add support for Airoha AN7581 USB PHY
+
+ .../bindings/phy/airoha,an7581-usb-phy.yaml   |  62 ++
+ MAINTAINERS                                   |  11 +-
+ drivers/phy/Kconfig                           |  11 +-
+ drivers/phy/Makefile                          |   4 +-
+ drivers/phy/airoha/Kconfig                    |  24 +
+ drivers/phy/airoha/Makefile                   |   4 +
+ .../phy-an7581-pcie-regs.h}                   |   2 +-
+ .../phy-an7581-pcie.c}                        |   6 +-
+ drivers/phy/airoha/phy-an7581-usb.c           | 559 ++++++++++++++++++
+ 9 files changed, 665 insertions(+), 18 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+ create mode 100644 drivers/phy/airoha/Kconfig
+ create mode 100644 drivers/phy/airoha/Makefile
+ rename drivers/phy/{phy-airoha-pcie-regs.h => airoha/phy-an7581-pcie-regs.h} (99%)
+ rename drivers/phy/{phy-airoha-pcie.c => airoha/phy-an7581-pcie.c} (99%)
+ create mode 100644 drivers/phy/airoha/phy-an7581-usb.c
+
+-- 
+2.53.0
 
 
