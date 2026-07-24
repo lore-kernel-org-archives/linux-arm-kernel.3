@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FFBC531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD1EC531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsPjah3R/OAaw8cOUaJ04Xr2P4jQNOyO99tvvYRHOoU=; b=YhVzyNk9xY4re9VVdNDuILX+oo
-	8OMl2MB4nKuT9PbnqqN7av9UdQQQUHCTpAUh17doViDvlNmxRwLkZKM+ADoF9dqYfZoEsKgk0mS0R
-	8mHc34FGXVVpY3q2204hx5Z5DPiUGuHRDpFHOekq6/dy2ViBISgasPEsQwFAstL2ehyurGbsovLKh
-	22NOc2jiZXy5SKgS64TpoA7FzG/YJlvBXn+w+HLpVMdexig3CGqwKEK78BrsCGLhmpAXOgjYOKOla
-	wRayWhqTi0GlOD9RGXDLWop2PhmZB0u4KS1fjXLa83E8bi/q/NEltBeXsIliImi8TV9hjF7ExJ1LG
-	v8asQ/Mg==;
+	bh=OEUqxWSR91j2/wLSmlhIIuFyw0Nq8gIfSkv4iX0SoMQ=; b=mUoyyB3gL9gtwvboIhKUMZ4Mum
+	0TRFzGRxJka6Ehokx5zl6giFSl8inLB/aZPH4d/S7wffmFSjuaJYlxBhjIinx72zEib99c2EfnIO+
+	pR9mS85BZZGeUPMqdkrS29WRfwcPXv46+7HfL3BzEVxhsqUZPop+0KnLFCtLdfWwVpGH25BCxdpUg
+	YAd+kukrhiSSOu9eEZ4fYj0EngExJoPHP1+vJUvVKAJTFg5cMpWF+oDWOqx4Av3LOdCBv3pCx+rSw
+	HoNsAK+Y6+DjCTtKK6E6+Qp9jzWQGHzRhjqvfz64oTTi2s3WCLpBT4y2ccMGM7b6GWx4auTtPGqzg
+	S6zMlwDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIyT-0000000Grqf-3lJ1;
-	Fri, 24 Jul 2026 16:42:13 +0000
+	id 1wnIzd-0000000GrxB-0FdY;
+	Fri, 24 Jul 2026 16:43:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIyS-0000000Grq6-0hZF
+	id 1wnIza-0000000Grwg-1zOz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 16:42:13 +0000
+	Fri, 24 Jul 2026 16:43:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE9E01476;
-	Fri, 24 Jul 2026 09:42:04 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 065EA3F66F;
-	Fri, 24 Jul 2026 09:42:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D11EE1476;
+	Fri, 24 Jul 2026 09:43:14 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D5D23F66F;
+	Fri, 24 Jul 2026 09:43:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784911328; bh=sbVTyw7sc+JNV3stUuyGzQwo3H+5w3zwl49ls9VQJOs=;
+	t=1784911398; bh=xg3oqIbjSE4M3l+OIN0CvX6y9JbVpfwuWJCKOcCKSwA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Vz5FLGOEw6ezkfl2Ma6R6QzDpsXFcFYJnWjh3tfRrqnC1b6OIisk/8HRsvnRepVpq
-	 ZuhOZqQqupnzk6Zx34V4zJ2Ff+GAkCXh611fWKPyAW925B1oHBRfg5lz6/6bTzoA6O
-	 EVK73rAmQae/YGytnE8y6C2bHoXK4mXIrf1Dh/Z4=
-Message-ID: <646496f6-88f2-47c1-a1b8-0ebaec7227f1@arm.com>
-Date: Fri, 24 Jul 2026 17:42:02 +0100
+	b=SKBjrr57keO2j25CeVl2oqwhT6NLRMtpd2QC2pSw9IeT52fuKNPaFDsFLqwOMlO/I
+	 IhcOKDvkEZyQfpMzfWMf0J1IBUoIHGJGk2jx6vpyrlfTJDtFB4K9j2LbFcielbi0hk
+	 94w/8+rz3DbRDxJ++11T76OcKfOlXAMoSPkwjmDs=
+Message-ID: <83336f0e-85ac-4711-9594-5edcb27eecdd@arm.com>
+Date: Fri, 24 Jul 2026 17:43:12 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Add HAFT support for SVA
-To: Jason Gunthorpe <jgg@ziepe.ca>, Will Deacon <will@kernel.org>
-Cc: nicolinc@nvidia.com, joro@8bytes.org, jpb@kernel.org,
- catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, stable@vger.kernel.org
-References: <878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com>
- <amDEmlcyC3Tfmkel@willie-the-truck>
- <acd85a2a-af1f-4ebf-8370-773338d4fd15@arm.com>
- <amFCQDrEowvL28O_@willie-the-truck> <amOD9GAz0j7wMMij@ziepe.ca>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <amOD9GAz0j7wMMij@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v4 06/10] arm_mpam: propagate MSC access errors for state
+ saving function
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+ Andre Przywara <andre.przywara@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260723155454.1760823-1-andre.przywara@arm.com>
+ <20260723155454.1760823-7-andre.przywara@arm.com>
+ <20260724-important-curassow-of-support-ce4777@sudeepholla>
+ <e182f2ac-6fd9-4a25-9409-9617012584ed@arm.com>
+ <20260724-perfect-pygmy-chinchilla-447ce0@sudeepholla>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260724-perfect-pygmy-chinchilla-447ce0@sudeepholla>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_094212_361789_7E427C5D 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260724_094322_771573_668CAD18 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +87,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2026 4:25 pm, Jason Gunthorpe wrote:
-> On Wed, Jul 22, 2026 at 11:20:48PM +0100, Will Deacon wrote:
-> 
->>> We might block traffic in the process of _explicitly blocking traffic_!?
->>> Whoop-de-do, surely?
+Hi Sudeep, Andre,
+
+On 7/24/26 13:27, Sudeep Holla wrote:
+> On Fri, Jul 24, 2026 at 01:19:14PM +0200, Andre Przywara wrote:
+>> Hi,
 >>
->> Hmm. I have very vague memories that there were some virtualisation (?)
->> cases where Jason and Nicolin cared about the type of event that would
->> be generated by concurrent DMA (e.g. bad CD vs translation fault) but
->> maybe I'm misremembering.
-> 
-> Yeah, it is actually important for that special SVA mm drop/release
-> case. We need to write a CD that blocks walking but always generates
-> translation fault.
-> 
-> I'm away from my computer right now, but if sashiko is saying that the
-> SVA flow that uses EPD generates a racy bad CD then that is a bug that
-> needs to be fixed. Possibly by ignoring HAFT in the used calculation
-> for the EPD cases.
+>> On 7/24/26 12:07, Sudeep Holla wrote:
+>>> On Thu, Jul 23, 2026 at 05:54:50PM +0200, Andre Przywara wrote:
+>>>> Allow the mpam_save_mbwu_state() function to return an error, and
+>>>> propagate read and write errors from the lower level up.
+>>>>
+>>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>>> ---
+>>>>   drivers/resctrl/mpam_devices.c | 29 ++++++++++++++++++++++-------
+>>>>   1 file changed, 22 insertions(+), 7 deletions(-)
+>>>>
+>>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>>>> index bcff53477133..6329443c451f 100644
+>>>> --- a/drivers/resctrl/mpam_devices.c
+>>>> +++ b/drivers/resctrl/mpam_devices.c
+>>>> @@ -1833,22 +1833,37 @@ static int mpam_save_mbwu_state(void *arg)
+>>>>   		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+>>>>   			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+>>>> -		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+>>>> -		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
+>>>> -		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
+>>>> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+>>>> +		ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+>>>> +		if (ret)
+>>>> +			return ret;
+>>>> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
+>>>> +		if (ret)
+>>>> +			return ret;
+>>>> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
+>>>> +		if (ret)
+>>>> +			return ret;
+>>>
+>>> How does it work in general with PCC. Now that you can fail at any point,
+>>> what happens to the write that occurs before a failed read like above one.
+>>> Who will take care of erasing those new writes or it doesn't matter ?
 
-Again, HAFT has nothing whatsoever to do with EPD0. Guess what happens 
-if we were to ignore it as nonsensically suggested? Oh look, C_BAD_CD 
-again, since a valid CD with HA=0 and HAFT=1 is architecturally illegal.
+At least in this particular case it doesn't matter. The MON_SEL just configures which instance of
+the monitor we are reading or writing from and we'll just write MON_SEL again next time we want to
+interact with a monitor.
 
-I also wouldn't consider this a "regression", as I'm not aware of any 
-SMMU actually implementing HAFT yet - this is more just about ensuring 
-architectural correctness is in place ready for the future. There should 
-be plenty of time to figure out if and how you could still do what you 
-want to do on future hardware, but if the SMMUv3 architecture itself 
-breaks your idea of how the SMMUv3 driver should work, then forgive me 
-for not having all that much sympathy, since my responsibility is 
-primarily to support the architecture and correct usage thereof.
+>>> Just checking as I don't have much knowledge on MPAM intrinsics.
+>>
+>> TBH I don't know, but I think we consider MPAM botched at this point, and
+>> just stop the driver, similar to an error IRQ? But I am not sure this is
+>> properly implemented at this point. The focus of these first six patches was
+>> merely to lay the dirty groundwork for *being able* to handle errors, and do
+>> this now rather than in the future.
+>>
+
+I've just been discussing the error handling with James and trying to work out what we can do
+without limiting our options going forward. Ideally, if there are transient errors we'd like to
+retry in the kernel if it's not taking "too long" and otherwise report the error back to user space.
+For catastrophic errors, such as when the scp doesn't reply at all or that no MPAM commands are
+going to work again we should disable MPAM. As resctrl does not anticipate errors willy nilly from
+arch code it ends up reporting the info/last_cmd_status as "ok" even in situations when the MSC
+accesses have failed. I notice this in at least rdtgroup_schemata_write(). Before we can report
+proper failure information from resctrl and update last_cmd_status based on the error status from
+the architecture code it doesn't make sense to report the errors to user space. We would likely want
+resctrl to understand -ETIMEDOUT as well. As such, this leaves us the option of just nuking MPAM on
+any error reported from the MPAM firmware interface. For now, we needn't do any retries and just
+error out on the first error. It should be possible to just schedule mpam_broken_work from mpam_fb.c
+on error.
+
+Sorry for prompting the writing of these error handling patches but they will likely come in useful
+in the future.
 
 Thanks,
-Robin.
+
+Ben
+
+> 
+> Well, I agree to some extent, but PCC adds that failure case before which
+> it wasn't there. So, it is hard to claim that it was botched up before so
+> let it be. I will let James/Ben to decide if it was already botched up or
+> PCC addition makes it fragile in terms of error handling.
+
+
+
 
