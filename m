@@ -4,140 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB06DC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D082C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nAt5+uHVajL7FbV1KFdL3Sz9tUvHh27cPuhw2UZ1Cz0=; b=YJhzCaDRqv+noHj6KcrFYYORkP
-	ZDvLtWaUcbdzMKWkursvNhN/1qfx7vhMfhwXsP4F56IOnk1x2w6gn1kvaNAvQUl51xFQesVIKNOnD
-	z5cVkhZkqJRW3K+ML+n2dsGs/0Mv6dKUuW3Iy1RnF7ufngsDGJ+MJy3D0UyhjHvoRaT8EUlOsKYR/
-	7397SS45cjEalNp2ZK5l2M9T/X3q1wY39EzLJNNFDzlg3vUqYZjbuUlwAcX/Mh2mzTYipQgXvdIeg
-	o82Rwqw4syd0OYPDAkqy1Owphj69xWQFZ5pzlD+dekvcrjNL9+C/pmArYCdau7Caj1NC/hTS4v80B
-	mP4C3mMg==;
+	bh=OpQp9Gol3M81LlrGz7jp+zVWNJ3mdWJ257XENRvvWM0=; b=voSaY+d7UXe8jaQ+7VjLhIe8W5
+	X9uKmqvGHU2qwBuuY/PaoWrIu5TRdlZ0ABgG5C2CuXup7A/E0j0yDNmjqQJT20rcWinaFO3mg9VXJ
+	sDANwhqlDh9sZkG8sXoIQpR8Nn3dxEorRkSyvvxyTan12mnUMR8Rg+7dk/ztX0+VdggYHpGXAm3fG
+	r1602yBeggtNsbjWW+NYdsjIt+t1YvQ715p8XTd7vJ51w+KlxewyJD+HfEmuCJa2+JWsILPB2vWYr
+	I5z5B3LY3gvT5HQKlR43iWJgBB+VuFsNVu5jMrKRQY86os4nQ38tjYGdWSzqxdtNq6fjjZ/M+hqWp
+	CZPc0kQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9BL-0000000FZdb-3cxi;
-	Fri, 24 Jul 2026 06:14:51 +0000
-Received: from mail-westeuropeazon11010011.outbound.protection.outlook.com ([52.101.69.11] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wn9BZ-0000000FZoO-1AsR;
+	Fri, 24 Jul 2026 06:15:05 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9B9-0000000FZSr-16iD
+	id 1wn9BK-0000000FZbH-2Kug
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:14:40 +0000
+	Fri, 24 Jul 2026 06:14:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YXqDhYYZ9LkjkM+6NIjcuOYBmtScADA4lK+wB1Ldu3clrEQp/YBEUq5ZShC6AeZ7pv2zkjtT2NiTdwvVLPvGpRelgBXp/Q1Br0B9kUOEbCtYpSnlidHKcA3HREvp7vVkYe+V6HDz7HlkabBCMF3noL9ft1WYsZ/HokPpc5B5hbwABgDvvp3hV19y5fXMyglJQLWEJZMB7zB/6HzZtICNX8/tbpUUfyHQ+97d2sm7YiZ02Yl30PucrUUxQFWA1usX22XzfRm7xezPIsXGtJ3FTncJBQPcJePY2PUyEt4jzYzqJ5UYIDudslG/amTOgW+TdR1migQqLQXYo+cCpZgInA==
+ b=G7buxAfzmHL31P03sDeoagG+KEA+QcJr1vebNwpgVmq6FL2aKGrjagsN5uQx5u206L6glW0xIv7gqS2vpU1/cUowZmIVSDSihy7asW3RDDur5hXrErOsu5fmmYO/WXvnzHcYQndToKSwhZw983jjuaT72dlceyrPG77F57MVc35teA3qCB9STJivEzBT397+ZkQ0/HSWsaikDMuDfyGXyG4dEFdOMFO+msJPq1nSVSDqpwbYTlODgyqwOfnh71bVCgB1uAwuyH8wTpv9jKnqJ6kPZuiIgc53aVxf0xPr2nZIoVE33IJuYQ61+1fr2EkRKYr16bwlFMfXbQDEdIhomw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nAt5+uHVajL7FbV1KFdL3Sz9tUvHh27cPuhw2UZ1Cz0=;
- b=EsgMJEexUSfnRBHH2i/gjuR8xZS8q6HJ4SorOS/QfPRsEkMdp3zyIAieIQA4CZfQsBX89ThJ44SmlZYMYLG2JWvGMaPreYhyr2jYE9IZWFzDLHGy4OSy3Be9ES1Fbhh0I3GcSe6kUQpV35Ba8kpqvFyZopSH6agNdG+lMCrsHskRk5DTCFkUUbbTWa3LxagKmiojYl/MOyMuu45lpBRDH0c6JCSwlw+CuY58Zj/gnhGzAXaQkKDXbpX7TCrzm/DSvYO+zdxyVkGW3tqQrCUYynOuPsevLQVxHWTM7uj/2ngwxz97QMYdIJQCpraDFFy1CucBbDzgSVfrIjywBhwGxg==
+ bh=OpQp9Gol3M81LlrGz7jp+zVWNJ3mdWJ257XENRvvWM0=;
+ b=Ku4hyfuQKhJKTFRKk/3v8mC9ABXQnnhGlE6pqYCu32n1ZFbCmgT4gN6My9YPmqrMObaet9wXKLlAQ1wnv7qsblc5CyWbQZv6OJ4+k8m006hfcRcqym/FqwcKHJBcTLh3tBrQXJKpcdj3q/NfmVrf/3oZO1QGvZP+Y8GlvkYr+hDlGn3KrGaXunkA7ASV+sxmoNe5PrBBvNRa0xWps7/2BR2MI0JWIdPGQwrALn7cU19EArP/FiUwo8L7TFqKkmRynjnTadQymLWMUjfzS0/y45nMxrDcFfGpOCeqofEWo6W5ZzHQ38ib3EmV6RUMotOunJ+1Q0ouNseR8sJPv5bbRA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nAt5+uHVajL7FbV1KFdL3Sz9tUvHh27cPuhw2UZ1Cz0=;
- b=CRdy+P7To7mhRsYm3nYDlyOZGm/Xcb+JptX3y+LtzCOL3p2fqsr8Tv9yUCvzB87T5w+X0c4mnUBDQcYWKiz6gSP+KEvBcSgA0hcfmRKZeEHs3+ETJt8gyn17Xoma+C7VI/BaEdIha1VPa7sSnLUwOLqAPaiQUMzxiLTkZN98U2cBslNux87vKBuEGMOo/4WY6PQlz4xu2BHFTP/mWthp3sAWD9Pe9+Jcx31hy8XQohMPw2nrk/Lkmf7vetp312qXV+GMnZKA8CJ8fuBrkY+8owXuZMx/Ukhlz3eZvWgqZa5J+5q0Dk7VWJHIWFGPpExOt6J+jV3/WYpghW73XQuOzg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by PA2PR04MB10258.eurprd04.prod.outlook.com (2603:10a6:102:404::13) with
+ smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
+ dkim=pass header.d=cixtech.com; arc=none
+Received: from SEYPR06MB6226.apcprd06.prod.outlook.com (2603:1096:101:df::13)
+ by SEZPR06MB5831.apcprd06.prod.outlook.com (2603:1096:101:c9::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Fri, 24 Jul
- 2026 06:14:36 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0223.017; Fri, 24 Jul 2026
- 06:14:36 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Fri, 24 Jul 2026 14:17:57 +0800
-Subject: [PATCH v3 3/4] arm64: dts: imx943-evk: Add CM7 and CM33S nodes
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-imx-rproc-dts-v3-3-175381bdd02d@nxp.com>
-References: <20260724-imx-rproc-dts-v3-0-175381bdd02d@nxp.com>
-In-Reply-To: <20260724-imx-rproc-dts-v3-0-175381bdd02d@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.16-dev-7bc12
-X-ClientProxiedBy: SI2P153CA0036.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:190::11) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 06:14:29 +0000
+Received: from SEYPR06MB6226.apcprd06.prod.outlook.com
+ ([fe80::56e8:777c:d80e:d364]) by SEYPR06MB6226.apcprd06.prod.outlook.com
+ ([fe80::56e8:777c:d80e:d364%5]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
+ 06:14:29 +0000
+From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
+To: Brian Masney <bmasney@redhat.com>
+CC: "mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
+	<sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, cix-kernel-upstream
+	<cix-kernel-upstream@cixtech.com>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v11 2/4] clk: cix: add sky1 audss clock controller
+Thread-Topic: [PATCH v11 2/4] clk: cix: add sky1 audss clock controller
+Thread-Index: AQHdGoLMF0PonWj+y0ySnEIbcwYxK7Z7T5gAgADc8gA=
+Date: Fri, 24 Jul 2026 06:14:29 +0000
+Message-ID: <SEYPR06MB6226EA6519C74A0FF0AB677482CF2@SEYPR06MB6226.apcprd06.prod.outlook.com>
+References: <20260723090808.1727598-1-joakim.zhang@cixtech.com>
+ <20260723090808.1727598-3-joakim.zhang@cixtech.com>
+ <amJEjofx348vF4Vd@redhat.com>
+In-Reply-To: <amJEjofx348vF4Vd@redhat.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cixtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB6226:EE_|SEZPR06MB5831:EE_
+x-ms-office365-filtering-correlation-id: e1229059-6038-4e5d-b425-08dee94ad1fb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|6133799003|18002099003|22082099003|38070700021|56012099006|4143699003|10067099003;
+x-microsoft-antispam-message-info: vIKJeY1Tmn8kXr9jLTWbwwPyTAQ8diaeWC6pTN2EVpvhd5mhY6FiApuToGR+qH43Dbn8IY51ZBdly59fB9tm3II1WFWVpVhdvt5aOyS+Mk+sv+trrXUHQKRWjs/+V1MD+YvGTWomup4etKk78DB3t53M+mIrhDFgthZrxnSXpW9MBBzu3CYPV1QmopliZS2RcBXUP6cTOLSV2o2cGubMISvdcZDkC/YsqtwgW9peVtaBwR36cqL7M7xoK23ycgJ88ds4jXzc6Z74xhSuLEaMlX1/HeMJ7Lc6xbZMpBzR7dv9O+XqtbpEBexQXLAgu6J8Nri15BVj7ekicdcjIwHn0oif8lsTYFgtEVwd5/CrqrsJLBdJiwMcx8aDYbg+czRdiDevuZCo9PFd27E+jSLzOSm4zqLazQ9Pxj2Wecb0m/9pAPZsvOVkzIr4IjYZjNUFfREmwqUY+nTy5zyO27SIE4CCLtw6hznXAzAivtC9hFKVHtx3vpCFAm9htWsPU/gOD5N/eGZEl+OOU3Qg4UT2c8yTEh1VZ4upLu3zl61m1c6LXURc9ORZZswuRwm1jE4qU9q6KnXf0WTKzP2CguWYdF0IwT4ZAMAedHHA7sphvOGSwCxj7vY0rR5Wi8zhDGi/TfY4aFOYJ5yN3Ss1yD8UuhNCZh/r5/NgqZojw45iKPYMuDg9djrepKSRuJEAlCZw7Q8qV8rz7dW6o1nxxFHyolExzuVGf32p4OcI44vcH0Q=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB6226.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(6133799003)(18002099003)(22082099003)(38070700021)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?dFYe9Ptz+OAtPtncU3Fc5r9C68O3gq0+FH+qf8VoZBhNxhX5i+RX4IluA8vE?=
+ =?us-ascii?Q?oS6SVCL+iQj0SE15FBfaOiX6GqnsJaEZBrgPKd0wZD1dAc/Z1P9Fxcx3SkzN?=
+ =?us-ascii?Q?bai+NPCUEZW1Oco9FxC/Tp1NLXuvR58pu83rgPDmCe1KPZnpb3ZhAhqnOXTn?=
+ =?us-ascii?Q?0t14t0DLy9N05XmMSI+kEHO6xAj3HZo8YaIpnBuKWpkq+4tV1Ri5AA2lxwqJ?=
+ =?us-ascii?Q?BEQh9lSozYYiZ4KmXPn9M40HftHyEubiTOTvmEXTVh2Wx5bQayClFyN6S1P6?=
+ =?us-ascii?Q?Can3TQ8QQNV8uXkGMEo3eeCVjV0OvXt0wQNdx2fwZPnm50V0b6PdjQiSvHeG?=
+ =?us-ascii?Q?IhoMRbc91VNTXseIFkIq3nvDVrY5uepSWYGEbmYZr4w7weFlb0nhGucxWhs8?=
+ =?us-ascii?Q?f9A4jMQpDm+CeVlwyPkHQqayw2j0qlgH3gsLpBKmyAZV7CD/M5JWTmO/Ksqz?=
+ =?us-ascii?Q?Hvx/zWjpSPpbzskVTMAH9bSw0/7NcJGcuc+4nfskBm5ifFnwoSBuMC6SQ2g4?=
+ =?us-ascii?Q?fpGBOBVKvLLvuubVEGsn8FmMwKOt0zTMIX3TDeLB/35235gLEohoncvLNsvo?=
+ =?us-ascii?Q?oYMipVV7XBvR2MoubP5xEB+vU0uN/8OM5xLCLIc8jGcDRLdCqX7duMze5MGb?=
+ =?us-ascii?Q?pfD5HYG0rcSzxw3PJCAcPD/WgYYBZIhFQ3Sl8RVxIRmhZAI2hmYhKoT2YejV?=
+ =?us-ascii?Q?6bbbbPej7YvAiJ4Gpyr9LXSfpNNvCLCfPFTF/L7UkE5zhUQrAydnZYE/B3An?=
+ =?us-ascii?Q?GxkoX4Q3amtyMgVwYgZLQxSWMM+vuSiX2bXOA/h5pCIKxt9rY7DU6zTFQJHk?=
+ =?us-ascii?Q?RMl0uSgNIMJ+VrIwWljv4hOIjLcDu2yMGmLg4hjBZ2vRYc2M70Vy7V7QeCx2?=
+ =?us-ascii?Q?qVZQ6REvSTsw5Ehb/81eAVi16bKh6IziANjTJYBkVU2Knj6PBzhJxX+R8yYV?=
+ =?us-ascii?Q?LyS2F8Vzz/tX80MshuPTi2yHfHNx2SIX4ZwnKC4X6l/mIIeh1CpqCZD9eJyF?=
+ =?us-ascii?Q?tOi/iT1R9NS+qF49vGUuu2Di8sOaUmKtTMyom3AlPOoTOBYWR4b/wMGI0o86?=
+ =?us-ascii?Q?dBWnARPm41ektJyIqTGcNvpQtklWqTF4ZL1E5DT12VMiDnGfqJ7bTbZKsZOb?=
+ =?us-ascii?Q?EXdPSC38dO4maMHhtFDwMCl36zINeWCZR5/v7XzQlc1PwQjKmBUN085bq/Wb?=
+ =?us-ascii?Q?FSwEdvjEDX7VDpB6POq+k1iKrSHmSbNOJS4R4YLiXCnX0i93H8VnkdBK8xRw?=
+ =?us-ascii?Q?TZxpO2MREDaUKhPYJxCmFylak1xbDgvgKnRS1HEFOng6uqTQhUpYaP/y9vdh?=
+ =?us-ascii?Q?JBtAB8JhVmm72rJGoBMHlZjjexpi2BNEEE0sR/YbqMHd+fWl53rIO9QbXKev?=
+ =?us-ascii?Q?GtyFhG8y7C42//3GiQxsluY0nVY6tMlzlAC4A9OI03lG8j0aHjblfXN/+GsM?=
+ =?us-ascii?Q?cvQ0s9Biblro+/aVaR28b0WjCm62Opkx1/b+2FCzOb+iG+U9vdNZK/rnNEq8?=
+ =?us-ascii?Q?aJuiLmSPQDLCgTeeulK2LugntIP/utfYHr7FO4K7y6DRAasw7cBDeu4hCrXp?=
+ =?us-ascii?Q?kD6C/ppfsMvbfENt0EQfvNY6j75BRBVATBemp3EAxo4c8r+y2ow+AwtoRAhP?=
+ =?us-ascii?Q?v0iaNvLbKAnmkMOigWfns/svkbO03QVAIL1QP6pekYQYvaXP4eCXIgh45C9Y?=
+ =?us-ascii?Q?aXP9ZhZ7IGqqJvdwjrN8uEXxEVQXYrhdLH/xISXwFb4tEYl9UTph7lM2pC36?=
+ =?us-ascii?Q?uI0tZBykNw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PA2PR04MB10258:EE_
-X-MS-Office365-Filtering-Correlation-Id: 89bc4882-049f-4b93-9606-08dee94ad608
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|19092799006|376014|7416014|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 1Xd3KTiIGKmarpfX0xbXW+Uq43Wk3NYdSO6swoeORJpVIKEEf1fzTUlKqNua+UehoLbr0gEKbjMqW12Kt8zYV48kkeikKMcqhczzkqe8HCifC68yOGFbdIlRW1APyGf1gazu080+yxg1HykBrV3bciHtic/H3HDfoj+2aJybJ9z+2anBZGL6Hvjd7zLEFMXou4jB55yEq/OguWzafSLfNYoChXwhDbnZcf8WH3V7H8t4Rcm5MpMffPKgDp6bopkIsmmnzQHSZ5D7i/4xfJEm32XGifavTrpBWxUPCpqL2tDfLDpgB90rHq+xaUAP9Cl3oPiYwx8k/3D/TCIhQlr0mdiZksF4pdvDSfNkSvYFZM0qLrRHe1k85zWjdyd+mKy9TjK7lCX00HZmnbFptf7wiMRFZLTsAzhCj0+tonVvztEPo6iCJFxYyki35s3v1at27JbxR6tkIW4+BK7BtiGmrzsfagRwFsrdBqFTUbs2DDTGuqOl8KCAjxnEaVQulBXD3CYkPevoD65er48rjMrwBo2IiquGg8f6r4WvoDwZOx3Tcr030PnaGzWU5J7NvMaiGO+YG0w0Tb8kM8XUa5uvlXzBssTLfrTsElu+Ce4T0I6CfrAVVxE2ksqN4IHi+FglBuEV8DHYNJK/b0ktLNuLDPw+/U7xYuewjLbkESRmP5U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(19092799006)(376014)(7416014)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QTBNMk05eG5aU243eE1mbTE3Z0dVK3R3d05RL3d0Tm02Z0k2MnVXcSszb3k3?=
- =?utf-8?B?K3M1a0pHcDV3NDU2K1VHZE03L2tFUkhmMWwvVmdqS0djR3oweUlxVDJXSzFU?=
- =?utf-8?B?N255N2xaWnRLRlZBUEVHWlBYNityVmtsc0Rjazlrc2JPRDFWcS9HOGs2V1hl?=
- =?utf-8?B?cUI1UHRGcTNCMzFMVGM5S1VvVzN2Zm1DZXVhWWlJQ2RoaStrU3lqQUJNRGd0?=
- =?utf-8?B?WDVZcjRUdnpEQ2dNUWxkS3RqZWU4NlVjSEtoVU11OUlkQUZ0dHAyQjJzVmk4?=
- =?utf-8?B?SjZXdEtrYkJjcWxOa081Smp4TVI5cEJHWDVHNlZob3MwdWN0K0lEcDZCLyty?=
- =?utf-8?B?cy9rODNFV25TWExHNnl1blhRT3N3cXAvcWdWS0xCT3NKNGJxQWJXM0d0a1o5?=
- =?utf-8?B?ZTFpQk9vV29PcGt2R256VVQ3Tk1CTGViQlFwZjZLdlBEcis1algvUGU3ZXMz?=
- =?utf-8?B?Vk5iV0QrMjd3QnFMaEY0NTBQMUQ1QTNkdC9LRHVuWHFJbmxZTjJ3SW5jSGdh?=
- =?utf-8?B?WlNrMjFsc3hHdXBQVXBsNXdPbW0xS2NpMm5aYStoT3crMEFsRHJwTWp0WFEr?=
- =?utf-8?B?RUdvSmF5bmpHUnpYbVhhVE9CNFlUT0pnUWkvWDl1Qm82ZGdhVS9KajRZajVk?=
- =?utf-8?B?SGJ2MHc5djB3WnkxdTlmbTNPangyRHZaME5OdGt1aURoMVpGQU9BVy91aXZ6?=
- =?utf-8?B?ekJmTFVPZ05yRmxueFNGWS9kMkIxTkZRVi9QdWNJd1JDVjJYcUIyYzNXWEdI?=
- =?utf-8?B?UFMrVzRabXBOd2VkZXR1ZXhYNmVhcXZTSzRaUXBjTGFGb3pjZXU1SG1ucFcr?=
- =?utf-8?B?dDZGL3FFL0l3VVVBa0g5ZkJFTXVtbnFiRXM0OFhOS1lNbjVLV1IvWHNRd2hB?=
- =?utf-8?B?NFhYK3hVd3prRWFSdzhnTEN5ZEZZaXR1N1JCOXA1YjhNT3B4Z3UxUmdDamNx?=
- =?utf-8?B?Sjg3dVFaczF0L0lrOFJmdVpRQVNKTlA5SnUxTzVUWm9wc1ZBNEdtaTIyeWYx?=
- =?utf-8?B?cEFobGE5L3NTdjVxdDNGdlM2akJxOHp5ejNrc1REbFczQVMxaTUyYnBWelhy?=
- =?utf-8?B?MnB1MGhwc21wd1R6dGxkQzdJaDlJR3ltcXh3LzJYQ2ZRSkRrN3VHSnVHZ3gy?=
- =?utf-8?B?TmhnelJWYXVSM3I0TmR5c1VtVEcxSlNueit5TVFyNVpnWHRxL2JWWmFibHhH?=
- =?utf-8?B?SEpNeUhTNlBFZlVIV0drYWRndGtFYWNzNlVFTkIyT2RMV1BpdVEwZEFycERQ?=
- =?utf-8?B?ZHlJMTlOZ3I4SUhLbllSeTluNHZBdTVkdmRINlFQcmJQc2VSUjZleTNwSDd3?=
- =?utf-8?B?K2JnR1pzaDZuUkNMWnZuNHlhakRaQXpldk9OcDJhWCt3M1IyZjVNa2FQNlVm?=
- =?utf-8?B?K2pNQkpOMmxJUk5KRjVLM215NldGS1pUY0tiRXB0RkxHYkNwVmF4dVFOaFEz?=
- =?utf-8?B?Z01DV1RqaG9XYnpCRWE3T3BIV1RwWlF6bEQ3aUIyY2IxWXprV3ZpVytiRUZH?=
- =?utf-8?B?YkFhZDVka0hvZXBPVEgyUENIcDRHVE56Z1ZkY3RHZDdDK3VFYXo5K3FnKzBx?=
- =?utf-8?B?VjVEeXc3VWJ4ajl1czNIQnY0Nmx1VVVTaTMrN01rL3hhZzM2M0FIMnk0a1ox?=
- =?utf-8?B?ZDl3YVdNbDROTXVWV2gwVzEyTW1KS3JRNFpJVDFWZCs0a1dRTFpmM3IxbnJI?=
- =?utf-8?B?WDloSmNNM1h5eGtUMy9BUEdWVFFxaFNyei9QcXFrWWpLbHR6WWtKMGRWQXJJ?=
- =?utf-8?B?anRnMWJaWko4UzZUN2Z0RWt4cW93VVNJQ2JCYXFXMFBVeVJlajFYcnhlbUZh?=
- =?utf-8?B?VmJuNW1kQjdhdTBUYVVSRGpzU1hYWVdzNERrdlNrbGNvZ3FDOWVSc2U2b1NE?=
- =?utf-8?B?eFdxOG0wVGdsNnNXell3dUFyOUNnTTF4SHJVQlRiQ1g4NHN1SjVKQlZRN3BM?=
- =?utf-8?B?VkFKcE01aVVhOFd4aVJEcm10aFdzZHpMQm9xNGZVNjE1QWREV3BVMEExL3lj?=
- =?utf-8?B?TFB1dWYzbTlEYU9xM3NpYjN2U09oYVZYWVpMbW1XZVBBdUpFWmxyOUx3dmNv?=
- =?utf-8?B?dExpa1ppdTZqMW5GQkpVRHdSWWk0Sk9hek85WmJuQnhTaDNrWlgxaXpjQ0RK?=
- =?utf-8?B?cTZTRVBYVkxUV0NFZWxYSzd6bVZ4UHZjZkk0UVNnQmlidlVBOC96M0tEUWV4?=
- =?utf-8?B?WVNDK0hkSTNUY0pxUWFkNDg0ejE5TWxBekpwY01NVHFtbHhuNVZVYVl6a2xS?=
- =?utf-8?B?NklXN1pzVzV6NW81OVJpVXhZMUpDeHYrelE4S0FoODlkbTdKNUZBbWp4QVNW?=
- =?utf-8?B?WkVuM3NBZ3o2amErTlR3b01YVGYxUXVkSFEwODVXU1pTVGpoRWszb2sySncr?=
- =?utf-8?Q?lfsmPRoOhR35wUOflljHeG6Nv6+YD+nJ6gnHT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89bc4882-049f-4b93-9606-08dee94ad608
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-OriginatorOrg: cixtech.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 06:14:36.3861
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB6226.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e1229059-6038-4e5d-b425-08dee94ad1fb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jul 2026 06:14:29.2694
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1GzBA97paNLtjH4uMmKeyT8M1igLG/1d06XgdGGIdEY+1Z/XzXpi77hENA1FBdDsCz8ZOqB4Can+dbDMIKI+aSN6KeVoSTLGcsLQLC2PPeV+MSY8T37BKxJbKFgAUAf8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10258
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lL0zzDEPNbTiioUHSsQ8DrfBOCR8t9bW4KW5KZXpjd3Q9U5rlQfr9OhiktjynQqnh+2jKf9wUN1ToOnJK54z1gGYM4D+UVH0hfuUI6J5V+E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5831
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_231439_352156_ECDAB197 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_231450_609841_4B73E6E9 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,181 +142,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
 
-Add remoteproc nodes for the two Cortex-M7 cores (CM7-0, CM7-1) and
-the Cortex-M33S core, along with their respective reserved memory
-regions for firmware, virtio device vrings, resource tables and
-shared DMA pools. Enable the MU11, MU13 and MU15 mailbox units used
-for inter-processor communication with each remote processor.
+Hi Brian,
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 135 +++++++++++++++++++++++++++
- 1 file changed, 135 insertions(+)
+> -----Original Message-----
+> From: Brian Masney <bmasney@redhat.com>
+> Sent: Friday, July 24, 2026 12:43 AM
+> To: Joakim Zhang <joakim.zhang@cixtech.com>
+> Cc: mturquette@baylibre.com; sboyd@kernel.org; robh@kernel.org;
+> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de; cix-kern=
+el-
+> upstream <cix-kernel-upstream@cixtech.com>; linux-clk@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org
+> Subject: Re: [PATCH v11 2/4] clk: cix: add sky1 audss clock controller
+>=20
+> EXTERNAL EMAIL
+>=20
+> Hi Joakim,
+>=20
+> There's one question from Sashiko that I don't see where you answered tha=
+t seems
+> to be legit.
+>=20
+> On Thu, Jul 23, 2026 at 05:08:06PM +0800, joakim.zhang@cixtech.com wrote:
+> > From: Joakim Zhang <joakim.zhang@cixtech.com>
+> >
+> > Add a platform driver for the Cix Sky1 AUDSS CRU. The driver maps the
+> > CRU registers and registers mux, divider and gate clocks for DSP,
+> > SRAM, HDA, DMAC, I2S, mailbox, watchdog and timer blocks.
+> >
+> > Four SoC-level audio reference clocks are enabled as inputs to the
+> > internal clock tree. The driver releases the AUDSS NOC reset, enables
+> > runtime PM and instantiates the auxiliary reset device.
+> >
+> > Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+>=20
+> [snip]
+>=20
+> > +static int __maybe_unused sky1_audss_clk_runtime_resume(struct device
+> > +*dev) {
+> > +     struct sky1_audss_clks_priv *priv =3D dev_get_drvdata(dev);
+> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
+> >devtype_data;
+> > +     unsigned long flags;
+> > +     int i, ret;
+> > +
+> > +     ret =3D sky1_audss_clks_enable(priv);
+>=20
+> From Sashiko:
+>=20
+>     [Severity: High]
+>     Could this result in a deadlock? When a consumer calls clk_prepare on=
+ an
+>     audss clock, CCF acquires the global prepare_lock mutex and may call
+>     pm_runtime_resume_and_get. This triggers sky1_audss_clk_runtime_resum=
+e,
+>     which calls sky1_audss_clks_enable. Since sky1_audss_clks_enable exec=
+utes
+>     clk_prepare_enable, it will attempt to acquire the non-recursive prep=
+are_lock
+>     again.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-index 674410e541cba..2a73af17cdf48 100644
---- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -133,6 +133,36 @@ reg_audio_pwr: regulator-wm8962-pwr {
- 		enable-active-high;
- 	};
- 
-+	remoteproc-cm70 {
-+		compatible = "fsl,imx94-cm70";
-+		mbox-names = "tx", "rx", "rxdb";
-+		mboxes = <&mu11 0 1
-+			  &mu11 1 1
-+			  &mu11 3 1>;
-+		memory-region = <&cm70_vdev0buffer>, <&cm70_vdev0vring0>, <&cm70_vdev0vring1>,
-+				<&cm70_vdev1vring0>, <&cm70_vdev1vring1>, <&cm70_rsc_table>;
-+	};
-+
-+	remoteproc-cm71 {
-+		compatible = "fsl,imx94-cm71";
-+		mbox-names = "tx", "rx", "rxdb";
-+		mboxes = <&mu13 0 1
-+			  &mu13 1 1
-+			  &mu13 3 1>;
-+		memory-region = <&cm71_vdev0buffer>, <&cm71_vdev0vring0>, <&cm71_vdev0vring1>,
-+				<&cm71_vdev1vring0>, <&cm71_vdev1vring1>, <&cm71_rsc_table>;
-+	};
-+
-+	remoteproc-cm33s {
-+		compatible = "fsl,imx94-cm33s";
-+		mbox-names = "tx", "rx", "rxdb";
-+		mboxes = <&mu15 0 1
-+			  &mu15 1 1
-+			  &mu15 3 1>;
-+		memory-region = <&cm33s_vdev0buffer>, <&cm33s_vdev0vring0>, <&cm33s_vdev0vring1>,
-+				<&cm33s_vdev1vring0>, <&cm33s_vdev1vring1>, <&cm33s_rsc_table>;
-+	};
-+
- 	reserved-memory {
- 		ranges;
- 		#address-cells = <2>;
-@@ -145,6 +175,99 @@ linux,cma {
- 			size = <0 0x10000000>;
- 			linux,cma-default;
- 		};
-+
-+		cm33s_vdev0vring0: vdev0vring0@20800000 {
-+			reg = <0 0x20800000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm33s_vdev0vring1: vdev0vring1@20808000 {
-+			reg = <0 0x20808000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm33s_vdev1vring0: vdev1vring0@20810000 {
-+			reg = <0 0x20810000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm33s_vdev1vring1: vdev1vring1@20818000 {
-+			reg = <0 0x20818000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm33s_rsc_table: rsc-table@208a0000 {
-+			reg = <0 0x208a0000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		cm33s_vdev0buffer: vdev0buffer@20820000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x20820000 0 0x80000>;
-+			no-map;
-+		};
-+
-+		cm70_vdev0vring0: vdev0vring0@82000000 {
-+			reg = <0 0x82000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm70_vdev0vring1: vdev0vring1@82008000 {
-+			reg = <0 0x82008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm70_vdev1vring0: vdev1vring0@82010000 {
-+			reg = <0 0x82010000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm70_vdev1vring1: vdev1vring1@82018000 {
-+			reg = <0 0x82018000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm70_rsc_table: rsc-table@82220000 {
-+			reg = <0 0x82220000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		cm70_vdev0buffer: vdev0buffer@82020000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x82020000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		cm71_vdev0vring0: vdev0vring0@84000000 {
-+			reg = <0 0x84000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm71_vdev0vring1: vdev0vring1@84008000 {
-+			reg = <0 0x84008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm71_vdev1vring0: vdev1vring0@84010000 {
-+			reg = <0 0x84010000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm71_vdev1vring1: vdev1vring1@84018000 {
-+			reg = <0 0x84018000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		cm71_rsc_table: rsc-table@84220000 {
-+			reg = <0 0x84220000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		cm71_vdev0buffer: vdev0buffer@84020000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x84020000 0 0x100000>;
-+			no-map;
-+		};
- 	};
- 
- 	sound-bt-sco {
-@@ -592,6 +715,18 @@ &micfil {
- 	status = "okay";
- };
- 
-+&mu11 {
-+	status = "okay";
-+};
-+
-+&mu13 {
-+	status = "okay";
-+};
-+
-+&mu15 {
-+	status = "okay";
-+};
-+
- &netc_blk_ctrl {
- 	assigned-clocks = <&scmi_clk IMX94_CLK_MAC4>,
- 			  <&scmi_clk IMX94_CLK_MAC5>;
+prepare_lock is re-entrant for the same task (see clk_prepare_lock(): if pr=
+epare_owner =3D=3D current it just bumps prepare_refcnt). So calling clk_pr=
+epare_enable() on the parent SCMI clocks from runtime_resume(), while alrea=
+dy in clk_prepare() for an AUDSS clock, does not deadlock. This matches how=
+ CCF recursively prepares parents under the same lock.
 
--- 
-2.34.1
+That safety assumes resume of the AUDSS CRU is driven from CCF while the sa=
+me task already owns prepare_lock. If another device device-links to the AU=
+DSS CRU (or otherwise runtime resumes it outside clk_prepare), a concurrent=
+ clk_prepare() can deadlock:
+  Thread A: holds prepare_lock, waits in pm_runtime for our resume
+  Thread B: in our runtime_resume, clk_prepare_enable() waits for prepare_l=
+ock
 
+We do not have such a device-link usage today. Would you prefer we add a sh=
+ort comment near sky1_audss_clk_runtime_resume() / sky1_audss_clks_enable()=
+ documenting that consumers should use these clocks via CCF and should not =
+PM-resume this device through a device link (or other non-CCF path) that ca=
+n race with clk_prepare? Happy to add that in the next version if useful.
+
+> I found drivers/clk/samsung/clk-exynos-audss.c that is similar to your dr=
+iver and it
+> calls clk_prepare_enable() in probe.
+
+Exynos AUDSS is only partially similar. It clk_prepare_enable()s EPLL in pr=
+obe and keeps it enabled for the lifetime of the driver; its runtime PM cal=
+lbacks only save/restore AUDSS registers and never disable that parent.
+
+We cannot follow that pattern. Our parent clocks come from SCMI and also ga=
+te the audio subsystem power domain. If we clk_prepare_enable() them in pro=
+be and leave them enabled, their enable counts stay non-zero, so after syst=
+em suspend (and on runtime idle) those SCMI clocks cannot be disabled and t=
+he audio SS power domain stays on.
+
+That is why we enable the parent SCMI clocks in runtime_resume() and disabl=
+e them in runtime_suspend(), instead of keeping a permanent prepare/enable =
+from probe like Exynos.
+
+Thanks,
+Joakim
 
