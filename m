@@ -4,99 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FA7C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 13:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3E6C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 13:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sFKNVa2uScHavigTP/Jv9UBdhKrx9CJ9eCeBI3gBJk4=; b=2o70Yu2tVWwZXPWRY2h9o5K6Qy
-	1DjansGaBg6R+3ml7GbM7XAc3bDmBLFwJNuMdOtkj5GjXP3Z9rF0/44OMs4hJTYgjg/YE3gDM+ow/
-	y3wyuKQ6pZQMoHSteZy4vlyjoJxTI7+VjUDRYxktTPJC/E+1UoPGekOjQ8TfEHVX0asViH8X94WqT
-	H3HDi3oStL+sF9te0m2bauId7TL6eWARi5NAPbKHAzzm2EC+XJX0sjD8xYmFMRstK4/25CPHGtq7d
-	aRlIF63HWy+esYALHrB97PFSfI9DtO5Irr0lZ+VG4nSi/6bAlFr4qCUNM8dnKz2n5i82+SV03zJ7V
-	mdvWThYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TPIBLMkyqCCRU9BiXFydTEUTOZadVywM+LAhxWqzrUk=; b=RFCyaFd9nqplVGmpvpcNANIgl9
+	bqhNn368AsdlyYuItWw802Aqnow0LUM9k8aPA/bIDXGzu9Ue8oYO7xRbxnsOUisQTcmirfszlBl7F
+	UkuKLVHQ1uGABKB251K8P/2MbA3UUQSLWjXbMLQaZEQQrcUFdY9cIlpJsocL5cHNJffHck2R8rG2K
+	1oxt9TKk3uCDARg9wSqsGZFgYWsGlhoIRfa/VjrhgytvzcpbcAW9PtkDEFaPaUaZjHGbJfO6U3ruo
+	kKJhCOZIHQGT7Z0kuC6y3eIWOTVafHOKKMfQAuXWv9sKR+pb/qPC/Y4T+6f4TvUXbtHieND/e9K5n
+	Wa2pTrIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnFhT-0000000GSRa-1JzX;
-	Fri, 24 Jul 2026 13:12:27 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wnFjf-0000000GSlk-36iG;
+	Fri, 24 Jul 2026 13:14:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnFhP-0000000GSPy-29Ki
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 13:12:26 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-84864086bfeso367265b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 06:12:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784898742; x=1785503542; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sFKNVa2uScHavigTP/Jv9UBdhKrx9CJ9eCeBI3gBJk4=;
-        b=pCkqOWiMpsu/2zBM+QOUfCGffMwpyKElojgDMJmef2pJZ8Jmotd1gcNdINx+7Z11j/
-         a9uuC+zgiHo4x1BWczRTr3o4y/ypBzceD785hRpYIUbxAOWTk7IKQgsCCPH5+iAHPw4Z
-         +SmM7zuu/2k4Dz7eUO/RiyOHCYwZ8a5tv5VX9J7cNx1GXZiTYkLpYcIzslNzKhEJgH75
-         fwDljfC2dvQclJw2l3ajw8HPTFElsQWfYTo/aed/18w3CaV8/PMVsVscRk72MEPrJmA8
-         wl9ygsCrCM6rVzDJ92PlCet7vI+BH9qsC/6CB0F/VBHHY8L4ToqTqiYXDANPRA+0UWom
-         n+SA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784898742; x=1785503542;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sFKNVa2uScHavigTP/Jv9UBdhKrx9CJ9eCeBI3gBJk4=;
-        b=hGI4eiMq5kthn9UpZnX3/PeeRT+WyXFGtfoYjlcWqtanUDZnazsKsMXHkM3EOHqaib
-         uqeku9mE0YXJQEUtQsrFkuphWuMGsNb8JAw+L1sOiOc/s0pZsLTjros+UidFlexK5JtW
-         79mXVDo/pn69y+s+yvLrdVQL3w/pE5WGqlPeeO1xN7vVCP9gcxDNZh3c9ToGupZKAOBg
-         qAr1KmDkRdQ8Uc9h81WTsvg+Ae+6EosqQCVUL3DGxmzDhP4ikZ9NYlZKBWbek8cX2BTZ
-         C57jGuqNycWmAxhSNnXFNp5e2i/k6vJMmY1FzbrxihRZQZhUPAja6vdm+7B8d62RIQGm
-         Rwtw==
-X-Forwarded-Encrypted: i=1; AHgh+RobfPcr/vcFv0p+vUgtjcXJ8mBPZ4ecdxyZ9PcWOMlMKhQ/lCiluVuVaQag1vu0fZzF8a83BtQmYpofSlU0OoRl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5/0K9Tnp8mSRC00FRudkFM6+1malDg55+2JtJ634wt4IYLLcy
-	B+AaSAMFZAXic2z5D+w3SRLemCm2JrNRizMOr/uWljnWDGo3vIaGsoV2
-X-Gm-Gg: AR+sD13E9bN2daO1mB781vcb2iv0QuD5qhwsdyt1coj9NT/ZQqQE7GzyRjWWjyoVix6
-	BnQT0BsVSMKA44z7ZBtf8BqpDGZJu/fQXkh5h/HfLu/xbauIP1N3xyefOLIi5zIZXCd3cQjFh94
-	3/vFSRsCKZceTqha0baGyoQ8tcRkCRGpRhoKxdhPhqoe4PA5ePqGGh7irnXGpJMOVjDuL4SfEPk
-	rixYcU459jA5XdUZWXVnI/i8EWVvEo0k+R27bcUAEeMefh45Ryu5fjWEejZcI5lgLfDaDoE9UBY
-	Wz6lndzwQy0ETcAR4VH4grcJ1m0dOScc1Mq5pe+blQfn2acNy1pqOF1MXQZfn7nG9GetrrboymV
-	J1vqwvsgL2iuonLDN3wW0YVls1mjLUp66JYGoJj/cbJ+9k6556ZO82IvEA9gNoY0r+2fuzygWF1
-	s97g+1Q/AtAlJ+r+bG8uuwp2M3c0ek+idOmCf6sNW+YnfIlHtwB4DzgcObGAae
-X-Received: by 2002:a05:6a00:139c:b0:848:4c3d:659f with SMTP id d2e1a72fcca58-84e2c29b83fmr8147681b3a.75.1784898742361;
-        Fri, 24 Jul 2026 06:12:22 -0700 (PDT)
-Received: from debian-rockchip-rock5b-rk3588.. ([184.22.139.118])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e175ce455sm4666968b3a.48.2026.07.24.06.12.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 06:12:21 -0700 (PDT)
-From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	id 1wnFje-0000000GSlS-1WS9;
+	Fri, 24 Jul 2026 13:14:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE807416A2;
+	Fri, 24 Jul 2026 13:14:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 243721F000E9;
+	Fri, 24 Jul 2026 13:14:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784898881;
+	bh=TPIBLMkyqCCRU9BiXFydTEUTOZadVywM+LAhxWqzrUk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=a8GTXkdaCG6aamySV2K94kqMSRvGlz2FGy5pds62TNBmEnmnkbM+GRZuA9Xh2YbGS
+	 ihOm7ba4ONO8ML9BXyNEYUn4RgQAFtVFBq5NK8CUTf9DhibNQGltyOXzT66cQoXyHn
+	 sUJ/9usKWAutf+EY9e/bhXm1s5i+D/Kb1xj9u8cz+8jBvAouG6AATEm18/E6SRWzp6
+	 zXw3A3VRLS0CI7dHhK9lmG2nWc90HUj5uSvE4/gWvi8A3fTs/f7fCYQR1kT4GpWFzp
+	 k1V6qJqtHE3KNWJdetgOsfYlScOvOo+pbA0aefj7fw02kX0hJPQ5JZu2odjkG5bZdo
+	 f/kn/1q+idv2g==
+Date: Fri, 24 Jul 2026 15:14:39 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel-mentees@lists.linux.dev,
-	skhan@linuxfoundation.org,
-	me@brighamcampbell.com,
-	jkoolstra@xs4all.nl,
-	Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Subject: [PATCH v2] media: hantro: release runtime resources when device_run fails
-Date: Fri, 24 Jul 2026 13:12:08 +0000
-Message-ID: <20260724131208.2315-1-tharitt97@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <CACak8wN-Y=oDbEVbou+RetS9X-Lca_MZHSY2NJFaGWR3LoVBKQ@mail.gmail.com>
-References: <CACak8wN-Y=oDbEVbou+RetS9X-Lca_MZHSY2NJFaGWR3LoVBKQ@mail.gmail.com>
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v10 0/3] airoha: add the capability to configure
+ GDM3/GDM4 as WAN/LAN on demand
+Message-ID: <amNlP37tMJYp-Hdp@lore-desk>
+References: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_061223_585687_D377A79C 
-X-CRM114-Status: GOOD (  15.40  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KEhLaGquhBZth/a3"
+Content-Disposition: inline
+In-Reply-To: <20260722-airoha-ethtool-priv_flags-v10-0-d2562c5dd942@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,79 +76,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-device_run() acquires a runtime PM reference and enables the VPU clocks
-before invoking the codec-specific run callback.
+--KEhLaGquhBZth/a3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-If clk_bulk_enable() fails, the runtime PM reference is left held. If
-the codec-specific run callback fails, both the enabled clocks and the
-runtime PM reference are left held.
+> Add the capability to configure GDM3/GDM4 as WAN/LAN on demand when QoS
+> offload is created or destroyed.
+> Make dev->qdma an RCU pointer so the TX path can safely dereference it
+> without holding RTNL.
+> Introduce airoha_qdma_start() and airoha_qdma_stop() helpers.
 
-Add separate error paths to release the resources acquired by
-device_run(). Disable the clocks when the codec run callback fails, and
-drop the runtime PM reference when either clock enabling or the codec
-run callback fails.
+please drop this series, I will post a new one to address sashiko's comment=
+s.
 
-Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
-Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
----
-Changes in v2:
-	- Fix the codec run failure path to disable the clocks before dropping
-	  the runtime PM reference.
-	- Use a local vpu variable in device_run().
+Regards,
+Lorenzo
 
-Tested on a Rockchip RK3588 (Rock 5B) board with Fluster:
-  H.264 (JVT-AVC_V1):	     129/135, unchanged
-  MPEG-2 (MPEG2_VIDEO-MAIN): 23/43, unchanged
-  VP8 (VP8-TEST-VECTORS):    61/61, unchanged
+>=20
+> ---
+> Changes in v10:
+> - Fix a theoretical race condition between tx completion NAPIs moving the
+>   net_device between different QDMA.
+> - Rebase on top of next-next main branch
+> - Link to v9: https://lore.kernel.org/r/20260721-airoha-ethtool-priv_flag=
+s-v9-0-9c15d8b71a56@kernel.org
+>=20
+> Changes in v9:
+> - Rebase on top of next-next main branch
+> - Link to v8: https://lore.kernel.org/r/20260703-airoha-ethtool-priv_flag=
+s-v8-0-015ba5ac89ee@kernel.org
+>=20
+> Changes in v8:
+> - Rebase on top of next-next to fix conflicts.
+> - Link to v7: https://lore.kernel.org/r/20260701-airoha-ethtool-priv_flag=
+s-v7-0-b4153bd44428@kernel.org
+>=20
+> Changes in v7:
+> - Fix ETS stats accounting in patch 2/3
+> - Reset ETS stats accounting in airoha_dev_set_qdma().
+> - Link to v6: https://lore.kernel.org/r/20260629-airoha-ethtool-priv_flag=
+s-v6-0-86bc600d31bc@kernel.org
+>=20
+> Changes in v6:
+> - Rebase on top of next-next
+> - Add patch 1/3: "rename airoha_priv_flags to airoha_dev_flags"
+> - Drop patch 2/3: "refactor QDMA start/stop into reusable helpers"
+> - Link to v5: https://lore.kernel.org/r/20260611-airoha-ethtool-priv_flag=
+s-v5-0-c11de08486d1@kernel.org
+>=20
+> Changes in v5:
+> - Add patch 1/3: use int instead of atomic_t for qdma users counter
+> - Protect dev->flags with flow_offload_mutex mutex.
+> - Introduce AIROHA_PRIV_F_QOS in order to handle better WAN/LAN
+>   switching.
+> - Link to v4: https://lore.kernel.org/r/20260610-airoha-ethtool-priv_flag=
+s-v4-0-60e89cf28fea@kernel.org
+>=20
+> Changes in v4:
+> - Move back QDMA TX/RX DMA enable to airoha_dev_open()/airoha_dev_stop().
+> - Configure GDM3/4 as WAN if GDM2 is not available in ndo_init()
+>   callback.
+> - Protect qdma pointer in airoha_gdm_dev struct using RCU.
+> - Rely on rtnl_dereference() to access qdma pointer in the control path.
+> - Add airoha_qdma_start() and airoha_qdma_stop() utility routines in
+>   patch 1/2
+> - Link to v3: https://lore.kernel.org/r/20260608-airoha-ethtool-priv_flag=
+s-v3-1-3e8e3dc3f715@kernel.org
+>=20
+> Changes in v3:
+> - Do not introduce ethtool private flags support to configure LAN/WAN
+>   for GDM3/4 and rely on tc qdisc offload for it instead.
+> - Set GDM3/4 ports as LAN by default.
+> - Move QDMA TX/RX DMA enable from airoha_dev_open() to airoha_probe()
+>   and the corresponding disable from airoha_dev_stop() to airoha_qdma_cle=
+anup().
+> - Link to v2: https://lore.kernel.org/r/20260607-airoha-ethtool-priv_flag=
+s-v2-1-742c7aa1e182@kernel.org
+>=20
+> Changes in v2:
+> - Rework airoha_dev_set_wan_flag routine
+> - Enable GDM_STRIP_CRC_MASK in airoha_disable_gdm2_loopback()
+> - Do not always reset REG_SRC_PORT_FC_MAP6 in
+>   airoha_disable_gdm2_loopback() but use the same condition used in
+>   airoha_enable_gdm2_loopback().
+> - Link to v1: https://lore.kernel.org/r/20260606-airoha-ethtool-priv_flag=
+s-v1-1-401b2c9fe9f1@kernel.org
+>=20
+> ---
+> Lorenzo Bianconi (3):
+>       net: airoha: rename airoha_priv_flags to airoha_dev_flags
+>       net: airoha: fix ETS QoS stats counter underflow and cross-channel =
+corruption
+>       net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS offl=
+oad
+>=20
+>  drivers/net/ethernet/airoha/airoha_eth.c  | 268 ++++++++++++++++++++++++=
+++----
+>  drivers/net/ethernet/airoha/airoha_eth.h  |  26 ++-
+>  drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
+>  drivers/net/ethernet/airoha/airoha_regs.h |   1 +
+>  4 files changed, 261 insertions(+), 43 deletions(-)
+> ---
+> base-commit: 88f380ef2304db4c68bc4bf14fc6c1604f6dd15c
+> change-id: 20260606-airoha-ethtool-priv_flags-b6aa70caa780
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
 
- drivers/media/platform/verisilicon/hantro_drv.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+--KEhLaGquhBZth/a3
+Content-Type: application/pgp-signature; name=signature.asc
 
-diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index 2e81877f640f..72250bb56872 100644
---- a/drivers/media/platform/verisilicon/hantro_drv.c
-+++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -170,29 +170,34 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
- static void device_run(void *priv)
- {
- 	struct hantro_ctx *ctx = priv;
-+	struct hantro_dev *vpu = ctx->dev;
- 	struct vb2_v4l2_buffer *src, *dst;
- 	int ret;
- 
- 	src = hantro_get_src_buf(ctx);
- 	dst = hantro_get_dst_buf(ctx);
- 
--	ret = pm_runtime_resume_and_get(ctx->dev->dev);
-+	ret = pm_runtime_resume_and_get(vpu->dev);
- 	if (ret < 0)
- 		goto err_cancel_job;
- 
--	ret = clk_bulk_enable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
-+	ret = clk_bulk_enable(vpu->variant->num_clocks, vpu->clocks);
- 	if (ret)
--		goto err_cancel_job;
-+		goto err_pm_put_autosuspend;
- 
- 	v4l2_m2m_buf_copy_metadata(src, dst);
- 
- 	if (ctx->codec_ops->run(ctx))
--		goto err_cancel_job;
-+		goto err_disable_clock;
- 
- 	return;
- 
-+err_disable_clock:
-+	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
-+err_pm_put_autosuspend:
-+	pm_runtime_put_autosuspend(vpu->dev);
- err_cancel_job:
--	hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
-+	hantro_job_finish_no_pm(vpu, ctx, VB2_BUF_STATE_ERROR);
- }
- 
- static const struct v4l2_m2m_ops vpu_m2m_ops = {
--- 
-2.47.3
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCamNlPwAKCRA6cBh0uS2t
+rEbXAP9TBPic+WUY6BAE3Sm9oho1WMIYlT3puIgnWd3RElBQ/gD+Jdf77Dl8gaTl
+VrsmBh/aVrCEQ668SmmVAkE08mphpwo=
+=+Bwn
+-----END PGP SIGNATURE-----
+
+--KEhLaGquhBZth/a3--
 
