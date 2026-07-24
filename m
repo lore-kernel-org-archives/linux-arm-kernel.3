@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C761C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B53C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jFVxvJnoyIXoAZ4g92V8v+aOP+cbZ7RYMbqoSOpk6FM=; b=W8vlVh1jk7J586j2cKZZljjIBC
-	dw80YbsFlILAAB8J92wzNUdlEgypizIpnGSjMXY1qoiccCs6vCvDJ2aLPqKSJfyPxb2fcRcRIeM9U
-	z+vxoZ5oGMR2hmWf+wZXDPyUBrOWvdvfSREGKg6EJLYTwCYKRorbUkMvoJ5iMl55ITnea2HKK3Rxt
-	NXJWFw9SxKmLKJO9Ts6qdtiPTVmiYsAbJb7XvNNJJXlSnsap5W4H+CQikLrKyQrNee/4lo2ObosKT
-	CqyORvymtgZs0LqDWHNmbLbiXcpEp5TXBpy/W2/6r7s/IBxKdR6UIs9+HImZFjUr8E1B2sfHqakmg
-	9PLOrnew==;
+	bh=QqQ0c1cxoYl2N2Q2vFVFFoPIeqLYjgaTaw2HcL81u74=; b=D/BoZ21Jm7nn8W91URdYpWWOGW
+	iY3W7PJHSM1H2F2PnaKHlo5ttnKEWCaV4lJ44UoJkpTQ5Pl6/hDf2D6wZCR8jcS6Fc33HSJ0xgXoD
+	yVERD/Vhh7ZLBW9ia5qqdKnDK1RvwfFoxfDGhAzdERzBPnLaTqE/zCEO3+uHBYmqurwtNLYOZ1ua1
+	35N5PPfsFRx7l+3+/cBF00fRemnQvhRALcbGkMh1e8k0awYZ90JoYBO8SEbT1wlh/tJ9HKZy6+cBJ
+	9iHRX9uuxRJ39nhHHVYtzL68n6+swZ8bL0FuqlVLPlkZbWmU273OiU/JntUXn1S8W8pcVHDCazQc/
+	HWajaKow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDui-0000000GH1t-05O5;
-	Fri, 24 Jul 2026 11:18:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDuY-0000000GGwk-1yWr
+	id 1wnEwB-0000000GMY4-0fsl;
+	Fri, 24 Jul 2026 12:23:35 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnEw8-0000000GMWv-0kkI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 11:17:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3797A1477;
-	Fri, 24 Jul 2026 04:17:44 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E52C3F59E;
-	Fri, 24 Jul 2026 04:17:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784891868; bh=nRhQGNdV3NsNtoyXHQTSsEbqe72lGzHbtCTadOTmg7A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QW5fiAKTizvxmC9c2ol0J4mipfSYnLhE5IIQ/t4rR++hGC7GNaLsYFgdbPJTG1a+Z
-	 jfEiCVsWkoroObSk+451XSen8vzeUQaJVFKrwJjiBGugxdl2E/4IPwqwuShEHsTHOa
-	 JVbHPGH1GYa462tMSVMwm7oKeXeJsIEHHztJf6X0=
-Message-ID: <9d5fd63a-5e9d-4e44-8f63-864764caf20d@arm.com>
-Date: Fri, 24 Jul 2026 13:17:41 +0200
+	Fri, 24 Jul 2026 12:23:33 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ce98cb8165so4280935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 05:23:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784895811; x=1785500611; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QqQ0c1cxoYl2N2Q2vFVFFoPIeqLYjgaTaw2HcL81u74=;
+        b=ekoyhE4w3oxlPRO0mD0yDm8b5VSbsV3l77Prt8+69fS9pDhodFGqwCsx+U+7yMWfj3
+         EmfqI4xN7ZMiqBKeZ5FecI9bkO5W1CO3dJ+jfcWt4rOj6Rg4UYLpk/OEvWYsGaxd+Xfg
+         lSqoLU5O5oVq6rDL6VB1mpddj0PcBQ76J45+RPRx+PQIdTx6PmsWvL+WWw7e+GpsiYkX
+         My8Qbo3KhYtKctuDIBJukh5lbxLFwJES0DCX2YALSaH6zn8WrdO5rQORj6epYDLRHcmC
+         k76942hfNemTN5twumkZv2+ltiZvZiik5i+sN9b6fcP57tTtmv8evBU4wvONUta+k6Lv
+         haCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784895811; x=1785500611;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QqQ0c1cxoYl2N2Q2vFVFFoPIeqLYjgaTaw2HcL81u74=;
+        b=QdLcHDmnImW5p1KJ427YcVXuvVoxOOHU+PWSd3CTXc+zapChUFupVw6E0/z+3G/fzU
+         Krp2wQEI6HUYw6vAsVyUqCT1LPFjhf7wzeU3bYVcoKzMLnZWrHWA/5nhzp8HOqB2fpk7
+         1Ur0PKIMeHCyv9P/1SF1FgHR40mNLv6haiM3G2rt1uJQvVP8MgKUM3TYKI5R9v4QIEY0
+         PSjRCIYm8yRGWj9vCoSrn3/UCGW8cgIsTs68I2hAZ4Jvj3scFd5gRQZwk/7xI2nRCkMy
+         ohvBE4tIpCcRwyZaJTs80DWUrHYG3Xp4pXpTLFt2PHYl0erl9tJEb9ZqZ0GIHyTFiv2h
+         BzLg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro2G+46RM6FW60HM7cwMGxA/IUEh7lr1tEIUkf5Ej6ZPLOVmPv3lU3ZAfRMRETf/vFxbPANbSNVdY6p824NZLs5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4zLrdcDAwZqQGdvJ9WzZZrZ9iLfa6iu2K9DS8lrqhBJqsFYWg
+	OhY2OLfCMk8+31HiQx68gJikrvNEj8CPiy9MMmuJolbHU76nJEOC5CN/
+X-Gm-Gg: AR+sD12sMeCA3nctubYlIWpVGyqzi+25fsvvhfWRcRB/RqygTkwNwwoSRSQHCRsiZ47
+	oVDDuHmN7R6iLZlwPzmsZYTmJhz7X4Td+POCqiQce2typVvXGeIwIUXR18KaA1K3A1bnEX0nOgI
+	eoZgdHEA2qejfw6mtVBTJJrs+0oUKdM/eUE4t1HduJ+ReHXQLBWQbVvCrGHG6koNlIYule+3xsV
+	/8AXieUNZo1rHx6ifvQUHI0NysCYRDCMjfMza8hYES1vSSoqkPj5q6Cmm5lNrVYjLqbmIBX7nNp
+	Fm3sfWHPNczuIZtC+6IQ0WHs00sFQs+A/xugVgngDBtpRmFjZiTJtp97vddX6wXKbREmmhXuf/x
+	/R+4GrtsG5Q/HaJ3AHJ8u/Vaf9tRYGRQFsqjW8k4kfDGMbTF+mUmVhMuZUiLY4aik5ZVkV5lgBb
+	35loDcEma13ZA=
+X-Received: by 2002:a17:903:228e:b0:2c9:994c:9a5 with SMTP id d9443c01a7336-2cfd72c810emr2927585ad.30.1784895811180;
+        Fri, 24 Jul 2026 05:23:31 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:9261:769c:50a5:6d0e])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3147e081985sm31448346eec.23.2026.07.24.05.23.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 05:23:30 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/exynos: vidi: use memdup_user() instead of kmalloc() and copy_from_user()
+Date: Fri, 24 Jul 2026 17:52:54 +0530
+Message-ID: <20260724122254.121935-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260705110221.153481-1-mdshahid03@gmail.com>
+References: <20260705110221.153481-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-9-andre.przywara@arm.com>
- <20260724-imposing-lurking-toucanet-cfe22c@sudeepholla>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260724-imposing-lurking-toucanet-cfe22c@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_041750_814340_97A01B03 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20260724_052332_219219_5057FBEA 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +108,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+Hi,
 
-many thanks for having a look!
+Gentle ping on this patch.
 
-On 7/24/26 11:55, Sudeep Holla wrote:
-> On Thu, Jul 23, 2026 at 05:54:52PM +0200, Andre Przywara wrote:
->> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
->> alternative way of accessing the "Memory System Components" (MSC) in an
->> MPAM enabled system.
->>
->> Normally the MSCs are MMIO mapped, but in some implementations this
->> might not be possible (MSC located outside of the local socket, MSC
->> mapped secure-only) or desirable (direct MMIO access too slow or needs
->> to be mediated through a control processor). MPAM-fb standardises a
->> protocol to abstract MSC accesses, building on the SCMI protocol.
->>
->> Add functions that do an MSC read or write access by redirecting the
->> request through a firmware interface. For now this done via an ACPI
->> PCC shared memory and mailbox combination.
->>
->> Since the protocol used is only a small subset of the full SCMI spec,
->> and the SCMI protocol has no full ACPI support anyway, open-code the
->> (simple) SCMI message generation, for just the fields we need.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/resctrl/Makefile        |   2 +-
->>   drivers/resctrl/mpam_devices.c  |  27 ++++-
->>   drivers/resctrl/mpam_fb.c       | 197 ++++++++++++++++++++++++++++++++
->>   drivers/resctrl/mpam_internal.h |  20 ++++
->>   include/linux/arm_mpam.h        |   2 +-
->>   5 files changed, 240 insertions(+), 8 deletions(-)
->>   create mode 100644 drivers/resctrl/mpam_fb.c
->>
->> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
->> index 4f6d0e81f9b8..097c036724e9 100644
->> --- a/drivers/resctrl/Makefile
->> +++ b/drivers/resctrl/Makefile
->> @@ -1,5 +1,5 @@
->>   obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
->> -mpam-y						+= mpam_devices.o
->> +mpam-y						+= mpam_devices.o mpam_fb.o
->>   mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
->>   
->>   ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index e2cb884eacf4..b8108ed4b32c 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -181,6 +181,9 @@ static int __mpam_read_reg(struct mpam_msc *msc, u16 reg, u32 *res)
->>   {
->>   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>
-> 
-> The above doesn't make any sense for PCC accesses, perhaps need to be pushed
-> down ?
+Could please take a look when time permits?
 
-Well, the idea was that the mask would always encompass all CPUs when 
-using MPAM-Fb, but to consider this an implementation detail of MPAM-Fb.
-We can of course move this out of the way for MPAM-Fb.
+Thanks!
 
-> 
->> +	if (msc->iface == MPAM_IFACE_PCC)
->> +		return mpam_fb_send_read_request(msc, reg, res);
->> +
->>   	*res = readl_relaxed(msc->mapped_hwpage + reg);
->>   
->>   	return 0;
->> @@ -197,9 +200,12 @@ static inline int _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg,
->>   
->>   static int __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
->>   {
->> -	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
->>   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>   
-> 
-
-And by the way: I think the hwpage_sz check should belong to the probe 
-function, not be done on every access. Or are there optional registers 
-that might not be part of the mapping on devices that don't support them?
-
-Cheers,
-Andre
-
-
+Mohammad Shahid
 
 
