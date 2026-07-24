@@ -4,70 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4358AC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16ADC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 17:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+HmNWhMxJHCsYut0EOjx8jbXqGZJzUfWIAUZn7a8C0=; b=cnzT8ygyvmZHvc3wN13grBlZ3R
-	iIbat/lVYzkb0LQnSDnVhaNHvNC4pJnsHTvPyiuzRT9JuXkI9jmFeqB1OtbgfqBkJHYGJfHUzsGCR
-	UCiDGHIDEL9WEzr4kuOKelSu6iKt/pe23XaAVmK4B5hwOA4FWd8+DxJY/PnFiYsA7VmwPeS49TFrs
-	hHXvW3NuRcrcO6fzeqCIgho2KnMB3MpVDS3il8/guJvOkp32/wYhB0aD8Gzff0fDMsj9jfi/qF3yL
-	ITMXVxGm0MSiyuqBxLCc44fqJ4JpQPHIh/94ODC2CitpVadKAY57J0mFKL/1SmSaHKqityqwFw8Um
-	p3KUOjqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X+JvtQWFeUfdhPiG5CAfpYlJXUbzdSRsyJMa/rk8u2c=; b=uq1xZ80g9Q/xKyhMh2Xyw0wC6z
+	Bg+9ZVN+HPrOMMYRERHIJ+blT7zwjfcCizCne6+bdpy/CXqPp4wAsBagAtrdC6iLwkYheNTZBgJa/
+	q43J2wUyD8WzjelDS8bj8L+EO5Ba7+YBPpu6tQIgi7/m1e4Rs5ELAjF4nHxNc/eY/6UX12ZZ5hoGr
+	8hVe1Ijzkm+vbTFpR/8Eoux4iGOssP0A7H4/3qHc/1V8hOr8avmqMdYtHOXzPc+U/OdCohJKLncmi
+	GQSbeoueVHEMqvfgM2LMw2UUsN3OtgtZ37RBrqmVwsCO2O/lJHLJnzdfmUtfbB4RExL5Ek2s3HHP7
+	oJ8B6dow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnJCh-0000000GtdC-3EhI;
-	Fri, 24 Jul 2026 16:56:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnJCe-0000000Gtbf-49IZ
+	id 1wnJHu-0000000GuHJ-1vwk;
+	Fri, 24 Jul 2026 17:02:18 +0000
+Received: from mail-westeuropeazon11010036.outbound.protection.outlook.com ([52.101.69.36] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnJHr-0000000GuGx-3efk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 16:56:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 668EE1476;
-	Fri, 24 Jul 2026 09:56:46 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E7FA3F66F;
-	Fri, 24 Jul 2026 09:56:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784912210; bh=Y/D+EBCOl4xfZY6uaoNm+O2KJzSkIgk4kAcSgLDA6bA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Qe8jE+gsv+/Q4qlBLzzvyPnYYhSl/TJg9JqOCElVDhe4g7WE+huzN3U3J4hr0VYmg
-	 qc2psGQKI2hRUq2hoNMZ4+L6jeVX49AV58u2uXKqHcrwHbOLhM5cccN4APKsjZIdaD
-	 CtDGvdJI7Ul/xl6OPsALfIUxwURYm82RmHPmD94w=
-Message-ID: <ba68cf32-7b67-43ae-b65e-07003a755700@arm.com>
-Date: Fri, 24 Jul 2026 17:56:44 +0100
+	Fri, 24 Jul 2026 17:02:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tkYcUzp3wwkk4IxIBaO611igGUjS/arjBKVXNF7XST20erZ7KdrUmFZXN8EUH+zTDOjpQexv0XCUSlEemY+P7CidTWpvrtP7qo9gABezwm9K965ryr6g5D+TOA23p2xkuhM9wWLQFWXwwIXeyCO15bCMhEzw6BOA8ImzjLj0z2bnoPc0ss+M/+9V3M0lBP8VHYv14gVa1hoPThhq0KzM9gsSAfcZTnDp1w/dy7R2vBs6XBkW22uE4LyEshVnHwfQZoHFsJtziWCzOrYTmj5J5SWzAccepxkDPslgJ96iIx2WqtkG/7QB6gh8OJABon3CqI4+YSViwdaDd5QR23wnVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=X+JvtQWFeUfdhPiG5CAfpYlJXUbzdSRsyJMa/rk8u2c=;
+ b=h9TIvV7qKPuhpsjOtoqlxTTlhGoOVg+nDLx2adfYMWECU2l5ODKTrq2ikrS/7gVooq/1ahgVaXw3lLmcD3IH89MIPQCAgFG6iqa3WpgaksAVcY6Lz3EF5GFVuf9fYlOXX0JOE0PLp/p16hNK5+ZEDAxA4TLyzVrdKH1oXCHFyvULUdmOzp2EpHc9m9ygZEzbA5rjhZLD/LcP0GF9foE/rud9Ou/YDLBH86UkObLZf9qIpZF9upnD/CuqWrS2X5tHKtEt23a41YhqDGA5RuOAxNkVfkwZ+ocgCWaZcGlqNg6+3u0I+6P/jcuU0aA+hsQ0rDlGe0cvf6o+wgSfmeOpZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=X+JvtQWFeUfdhPiG5CAfpYlJXUbzdSRsyJMa/rk8u2c=;
+ b=iztIZmg5/Yw1XjlM0LsIhbjzH/2HAvICTVYBYRShcdeJ+wNdrTXTTYfTbPwS3k29FnbsAwc1B5b8AvhYbXqmRmjWykzzigai20yCEqR4/5dIqJzUnh+CkSNncUQH1u0GnLyKDsE7imn9KutHQATEZaaKWXa+lfjFF/QNqrJ9yJGK7F/OpEHsB+lgb/EKBpF4cRuziDXigpGQtSHg7DPBIkLOYFwk46PldX3G76vJgDCqWnW5+Uv9/owv2Fuu8V8xdRHnkEdsuZxhExKqMlkaM8vDvJ6Ivm17kzy2ZpfnacJNtvnYSTuSD/p3gfdeuNYddn8RtnO9NVXQTIfCzz5z9g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by BESPR04MB12610.eurprd04.prod.outlook.com (2603:10a6:b10:ff::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 17:02:12 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
+ 17:02:11 +0000
+Date: Fri, 24 Jul 2026 12:01:59 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/4] drm: mxsfb: Add optional DPI output bus-width
+ configuration
+Message-ID: <amOah-mILi_y32rB@SMW015318>
+References: <20260723093813.180089-1-francesco@dolcini.it>
+ <20260723093813.180089-3-francesco@dolcini.it>
+ <amI3mPBVXe0zj_tC@SMW015318>
+ <20260723155332.GB4453@francesco-nb>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260723155332.GB4453@francesco-nb>
+X-ClientProxiedBy: PH7PR17CA0009.namprd17.prod.outlook.com
+ (2603:10b6:510:324::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v4 07/10] arm_mpam: prepare mon_sel locking for MPAM-Fb
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-8-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260723155454.1760823-8-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|BESPR04MB12610:EE_
+X-MS-Office365-Filtering-Correlation-Id: aeac41c0-4727-47b7-c926-08dee9a54dc0
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|19092799006|1800799024|23010399003|18002099003|22082099003|3023799007|4143699003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: 5PL100StD+mbGaRPZuSqeRW39CBVsFGP4cJQi9LJrPxDQTXCTAzqvgKMcwL72D3nJyXpXUvqk3D2vruy17y7qXqR58lm9YDs6QlHdj3k/AkyKBRB5fJAIHQ03neFV58lP1poAF9OFr4/ZXFBN/8pKEbkDYEErr94+27aZ5qtPeORxEymIixo0s1QYTAhEWJZ8fvggUOboFjFjOdhYxdjn6dPiWH7PA30Rxk66zzFHbkPOgkW8VaJEUqhsePEMRuoF9ewTmb29VwNNND0Tlv4pZKJ0YjBOz2W2VRoni+XuCjh+zcw+GgvppNTvQ2wxQdTZNdp/srRIUcc8JL16aqY5qmJ3wE1IqqTVQ138Iru+sdUuBeclrSQjm1rX63s/OBug5lHOuLjccgtF3vVb632hsIAiFA3hqAvIxUlzh2b24jXSNR0jRuF6iw/Pp0i4Dr/TWfFVmV1bFJUso/wI/bKjNrfl+BDpjrhaOkFl7P8u1IeXSGNT3GfYoZVUs8O/+Uo2dRCpsDrddy/ol5oVm16c8g4CTAkdwWi9ikbvTavwvRDKfa9XgXWTB7ULTqUA88pkmZ1uubYIfvQ+vrSKSbtd72ClkOyHOt9Ee0DLExlwMqdc/XLqI7Pzx/SqqLVb6K6BZi4527yI/txE4rxFg6VAyuiDRoLTfOjewLbbNCIvcs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(19092799006)(1800799024)(23010399003)(18002099003)(22082099003)(3023799007)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wC59Ex0z5901i8xoRmKqsvuPGPnNv1b/+HZMMNAxroATZLPUHuK/cNMmHm87?=
+ =?us-ascii?Q?wnBYVT/zL3WqabpFuAbvl9GvCM3d0wvC07DR/jTwYpnVCmtLYkjug5YUSMo/?=
+ =?us-ascii?Q?1hOzPVuf8A1IH0uJNnabytdJyUEI6/UfzdmfdEi8jbgLkhyxTWuoysq38tee?=
+ =?us-ascii?Q?9ag+wa0fZpu/8gZqTfWp6W+RSz2Q2ivLPv5Modu8ltoWKVW2GsLiEQIeqXMu?=
+ =?us-ascii?Q?7P0Hxu3ZuG4HoH2+LFcbwoDhtR/f+vDHN5DEY2xqEpuxXF2oFM6D6mvcLME8?=
+ =?us-ascii?Q?H/GFpqHyyg7C5qP3XV/+EvEWgaAHiH45Pd//28zKgi9ebkh+URbFbr2Z5eru?=
+ =?us-ascii?Q?BFVLeqSji4CLHFtjsalm6C7XzSV3RGFSXkis03K86U8nm4hzuLdB+NBZxz/L?=
+ =?us-ascii?Q?MKVhgKmZrXy2h2Zn8j0RaBrAng1FYupk9Rs6lhbSOjk4HWmZYKoCQcR8v76g?=
+ =?us-ascii?Q?0o4NiTBAW/d7IpO3x0K5iG9TFoc24qcedOZ2zeTqa2sPynjA8mDjz6DrifW0?=
+ =?us-ascii?Q?KoCJm98fT+21lDK392h0vMZS8MkRtn/I6IUC/jbLWhXATiK7C2kp0/RaKjhc?=
+ =?us-ascii?Q?ZJpW0ZnucVcSojLU/Ls1mcdQmUfkMIeIRBO+hC7cYwBx17AE0MRDp2L97opx?=
+ =?us-ascii?Q?YGx1IidyULmfQOc23A9yZF/olwEKlOEaIniz/fBs/aTZaS49xIUPlIWmO18q?=
+ =?us-ascii?Q?ivMFfaDzjbzc8auVtsRkzHQThhZ3oioBhMUb2xDrTKwI+4ccacYwLo0t5PZ2?=
+ =?us-ascii?Q?8M0AyJIRD5mhvrN0H5f2+D/DYd1EGnLnPIVg+jVdwCclYckC4jdsU1E6ba3S?=
+ =?us-ascii?Q?gnqvCbiki+i2b18H5d/r7lFSooN+xIG7iz6qRw9c7C0bwSAOWVvXCDKIkaE+?=
+ =?us-ascii?Q?X9fzBLqc27Gty2Bov8sK11Zro1iVgO+Jv/7yKSK7S/WSLrGyvPIIsV6Joosx?=
+ =?us-ascii?Q?ZCH8xCMCbJ6liJfKT5hKo7kN7Szs9l701hj/+kiAPxY14401WeLHv6HOA+dU?=
+ =?us-ascii?Q?kn6/4d4Hr8enn12IrrCNYI2DffBNLW9OUuFuuUrL5fK3xsIj3oRmGuQPEgG7?=
+ =?us-ascii?Q?sYQlzAZInOty7DON4JUccqQBfpNCaBab079+P9oyPuSusgOhSnzmntmXfLfh?=
+ =?us-ascii?Q?YWbHU2PtGy22kE6ooua6EnNaYXjADJ7/weEBCWtaqfl4tdb+DNeys9SWUVkx?=
+ =?us-ascii?Q?QYXyCRER1nNj/Q11PvI0Wi7zWMWBeaa1tJ5dllR1qclZ+w5i0TsEVsB7vcKF?=
+ =?us-ascii?Q?oq11GB0UD6MCL65I1CftZmZ/UOPq5jyhtoRKfGPkiSmavE215wD9uP6tuS8A?=
+ =?us-ascii?Q?wYG5ZXmHuvP2J4W69QY+UxsmHqIrUdQH/mZwf2+ClECW2znJ0bpRewCMm2s3?=
+ =?us-ascii?Q?LgHVte5X4ygs/OUffx7PvKlXdqAM2JdYniKlfVvprnFa8emOdMmNzHfyeODf?=
+ =?us-ascii?Q?QQGY8M1ZE8PeDVLfgD3HVLagfQj2AXgA7MlDweFcOMIaZB1Yyo8qe3Al/e+Y?=
+ =?us-ascii?Q?smDfB2Lir9TsuC8pcwaZF7mvj0GV+7TR9vpcq2nkcZ10tZkFxmup4O7z2WG2?=
+ =?us-ascii?Q?NeMY/QccF7z4l4AHywsLBHvRNjthy3VIuJ+oNd/FGZXdX2mFBlpQxExZ+4Rc?=
+ =?us-ascii?Q?Nm5RUhxcEqGNyqZ5nC7qdEibPJMwAc3X8Gl2zG30Xgg1lLksHL9Sl0bQ4Awt?=
+ =?us-ascii?Q?uYMgge1MsN4L7LP5QmVMpSH03Y9hHmA+5G0zJEKvAQMz/zrhKAPEMN5yKYLF?=
+ =?us-ascii?Q?EloK3uhgnZHxEuDKmxiZ11+bZyduR90p8GLMSHcaLGvgklfGoIhH?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aeac41c0-4727-47b7-c926-08dee9a54dc0
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 17:02:11.9050
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZvgNDF+DTtDeoVKACXWn0sujvc8oO3Xh63o1Kt6A1bidp1LiyoJNIMgkn+Uz6gT24+q5WNTIIJC6337Hf3AAi0QyZStVSYbcgupMJ7GH4AgYZ0wqoN320C3Tt5KMr9jS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR04MB12610
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_095653_507277_DEB69F6A 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20260724_100215_942569_6D626600 
+X-CRM114-Status: GOOD (  28.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,120 +154,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+On Thu, Jul 23, 2026 at 05:53:32PM +0200, Francesco Dolcini wrote:
+> On Thu, Jul 23, 2026 at 10:47:36AM -0500, Frank Li wrote:
+> > On Thu, Jul 23, 2026 at 11:38:09AM +0200, Francesco Dolcini wrote:
+> > > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > >
+> > > LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
+> > > format reported by the downstream panel or bridge describes the display
+> > > input, but it does not describe how the LCDIF data pins are physically
+> > > wired on the board.
+> > >
+> > > These can differ. For example, a 16-bit LCDIF bus can be connected to a
+> > > 24-bit display by wiring the available color bits to the corresponding
+> > > display inputs. In that case, using the display's 24-bit format to
+> > > configure LCDIF selects the wrong data-bus mode and changes the assignment
+> > > of color bits on the LCD_DATA pins.
+> > >
+> > > Read the optional bus-width endpoint property from the LCDIF output port
+> > > and use it to select the media bus format used to configure LCDIF. This
+> > > allows the LCDIF bus mode to describe the physical interface
+> > > independently of the downstream display format.
+> > >
+> > > When the optional property is absent, continue using the format reported
+> > > by the downstream display device, preserving the existing behavior.
+> > >
+> > > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > > ---
+> > > v2: use the common bus-width property instead of the legacy interface-pix-fmt
+> > > ---
+> > >  drivers/gpu/drm/mxsfb/mxsfb_drv.c | 24 ++++++++++++++++++++++++
+> > >  drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
+> > >  drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 ++++++++++++
+> > >  3 files changed, 38 insertions(+)
+> > >
+> > > diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > > index 9b8fbda85d28..0545718a4b65 100644
+> > > --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > > +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > > @@ -12,7 +12,10 @@
+> > >  #include <linux/clk.h>
+> > >  #include <linux/dma-mapping.h>
+> > >  #include <linux/io.h>
+> > > +#include <linux/media-bus-format.h>
+> > >  #include <linux/module.h>
+> > > +#include <linux/of.h>
+> > > +#include <linux/of_graph.h>
+> > >  #include <linux/platform_device.h>
+> > >  #include <linux/property.h>
+> > >  #include <linux/pm_runtime.h>
+> > > @@ -209,7 +212,10 @@ static int mxsfb_load(struct drm_device *drm,
+> > >  		      const struct mxsfb_devdata *devdata)
+> > >  {
+> > >  	struct platform_device *pdev = to_platform_device(drm->dev);
+> > > +	struct device_node *np = pdev->dev.of_node;
+> > >  	struct mxsfb_drm_private *mxsfb;
+> > > +	struct device_node *ep;
+> > > +	u32 bus_width = 0;
+> > >  	int ret;
+> > >
+> > >  	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
+> > > @@ -236,6 +242,24 @@ static int mxsfb_load(struct drm_device *drm,
+> > >  	if (IS_ERR(mxsfb->clk_disp_axi))
+> > >  		mxsfb->clk_disp_axi = NULL;
+> > >
+> > > +	ep = of_graph_get_next_endpoint(np, NULL);
+> >
+> > use auto cleanup
+> >
+> > 	struct device_node *ep __free(device_node) = of_graph_get_next_endpoint(np, NULL);
+>
+> Does it makes the code more read-able or better in this specific case? I
+> would say no, to me it is more compact and clear the way it is.
 
-On 7/23/26 16:54, Andre Przywara wrote:
-> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
-> interrupt, and when taking an IPI to access these registers on platforms
-> where MSCs are not accesible from every CPU. This makes an irqsave
-> spinlock the obvious lock to protect these registers. On systems with
-> MPAM-Fb mailbox MSC access it must be able to sleep, meaning a mutex must
-> be used. So MPAM-Fb platforms cannot support an overflow interrupt easily.
-> Clearly these two methods can't exist for one MSC at the same time.
-> 
-> Change the mon_sel locking wrapper function to only use a spinlock when
-> the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
-> mutex, but only if we are in a sleepable context. If that's not the
-> case, we return an error. This should not happen, as MPAM-Fb by design
-> does not require an MSC access to happen from a specific CPU, so there
-> is no need for any IPIs or preemption disabling to satisfy CPU
-> constraints. And since overflow interrupts are not supported at the moment
-> anyway, we also wouldn't meet the other case.
-> Bailing out early is already happening in rare occasions today.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/resctrl/mpam_devices.c  |  5 ++++-
->  drivers/resctrl/mpam_internal.h | 32 ++++++++++++++++++++++++++------
->  2 files changed, 30 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 6329443c451f..e2cb884eacf4 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2225,7 +2225,10 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  	if (err)
->  		return ERR_PTR(err);
->  
-> -	mpam_mon_sel_lock_init(msc);
-> +	err = mpam_mon_sel_lock_init(dev, msc);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +
->  	msc->id = pdev->id;
->  	msc->pdev = pdev;
->  	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 0c3f6a040b20..b3a6ed9ed175 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -126,6 +126,7 @@ struct mpam_msc {
->  	 */
->  	raw_spinlock_t		_mon_sel_lock;
->  	unsigned long		_mon_sel_flags;
-> +	struct mutex		mon_sel_mutex;
->  
->  	void __iomem		*mapped_hwpage;
->  	size_t			mapped_hwpage_sz;
-> @@ -139,27 +140,46 @@ struct mpam_msc {
->  /* Returning false here means accesses to mon_sel must fail and report an error. */
->  static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
->  {
-> -	/* Locking will require updating to support a firmware backed interface */
-> -	if (WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO))
-> +	if (msc->iface == MPAM_IFACE_MMIO) {
-> +		raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-> +
-> +		return true;
-> +	}
-> +
-> +	if (!preemptible())
->  		return false;
->  
-> -	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-> +	mutex_lock(&msc->mon_sel_mutex);
-> +
->  	return true;
->  }
->  
->  static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
->  {
-> -	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-> +	if (msc->iface == MPAM_IFACE_MMIO) {
-> +		raw_spin_unlock_irqrestore(&msc->_mon_sel_lock,
-> +					   msc->_mon_sel_flags);
-> +
-> +		return;
-> +	}
-> +
-> +	mutex_unlock(&msc->mon_sel_mutex);
->  }
->  
->  static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
->  {
-> -	lockdep_assert_held_once(&msc->_mon_sel_lock);
-> +	if (msc->iface == MPAM_IFACE_MMIO)
-> +		lockdep_assert_held_once(&msc->_mon_sel_lock);
-> +	else
-> +		lockdep_assert_held_once(&msc->mon_sel_mutex);
->  }
->  
-> -static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
-> +static inline int mpam_mon_sel_lock_init(struct device *dev,
-> +					 struct mpam_msc *msc)
->  {
->  	raw_spin_lock_init(&msc->_mon_sel_lock);
-> +
-> +	return devm_mutex_init(dev, &msc->mon_sel_mutex);
+Recently there are bunch of patch to fix miss of_put_node(). auto cleanup
+help avoid manual to manage it and let us to force key part.
 
-Any reason not to just init the lock that's being used?
+recently, perfer use fwnode_graph_get_next_endpoint() and other fwnode_xxx
+node function.
 
-Thanks,
+it is also okay to keep use of_xxx() to align existing code.
 
-Ben
+Frank
 
->  }
->  
->  DEFINE_GUARD(mon_sel,
-
+>
+>
 
