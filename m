@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B14C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 23:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D59BFC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 23:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vHVjXxHM8OPpRQcJ6J4a9vv/vh5T/8GIkntcPnBWkaQ=; b=mMsirN+ZLj0kYoRbqF1sVmaYh6
-	9QOJNjfWrMyNotP8o/mUj6o0Z0SBUudTI/qpFfzBu3IGtbz0ReocUEC6n45rc177DN+fbs06QZKxm
-	ta9lV6qfWQD8ja7KhGZreEijZ6BelZrTR027r13GmFmR68fLrBjzy+tTtsFMggH8sfR75sjcq1tqR
-	INNIQY2pxg6Ikxf4GAGJRx15n66+7HVHP+V5Pfv5y6c/hAyY4sPIKf2wUbh3PApFEC8ddNGi/q8g3
-	YtKr+jxGpRRLcdT8flO8A9avHJdwLTs9CDFuNQ3voCGr+RNovRYkHj246dal3yV4I6QVrSVU13tfg
-	ooZGYE7w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ak3a7+5iHL+DI779EzdC6NLfZP9M06vxpEidoqxCeoA=; b=z6xBUX+5SKvrdt8jliIXkJOYDQ
+	OMnxkQnU5iz3lsmo8OsRYITc6432eBO+MnZndczY9xYum7swNLawUPY8acOQA2CfZHNTfzRHb94Cx
+	MhPYOV/drpGQr64RgbKn6hl/D+LbtKOcOTVPKCOEkOhhVjGjKrvyTa7u3ff7HWKHg4IdmSJ7w31HG
+	zZyD6LfAoU3iraugb0cIFnNWf4Ng4mRsW8zo6k/nSGRzlIkdCsuBBdfzYkLv+evyFK61BeVuGCiWK
+	V1QAUkl3hNdBvzgPoQyIUXhFJWt6fakTpHTMZ0E0+YmpIEuCbNpEZultv3Hr7RZeOui2EY920NiN8
+	rVd2Tv0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnPB5-0000000HMLj-3Py2;
-	Fri, 24 Jul 2026 23:19:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wnPEV-0000000HMho-0k6k;
+	Fri, 24 Jul 2026 23:23:11 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnPB3-0000000HMLR-3tVy
+	id 1wnPEQ-0000000HMgu-0m9Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 23:19:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 465AB4009D;
-	Fri, 24 Jul 2026 23:19:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C49CC1F000E9;
-	Fri, 24 Jul 2026 23:19:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784935177;
-	bh=vHVjXxHM8OPpRQcJ6J4a9vv/vh5T/8GIkntcPnBWkaQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SY3h89lrKeVGWjf5hIUFpdHqr2iVyetefj6WGpdfXci1amdfSB6jzaI9UHEfXU0a5
-	 95zvQ8X92q0sIR1HLG06sK3pQ0VMMKewVXKYyQn8t9zd71G2r+40WrS9v9thW5Hrtr
-	 OJG50NYI/B7Uhtd4Ukuz0dSSYbtyAcs6f7qoGo+8OUHOboQlelpxS1F5uuX/W+qken
-	 CpPgTn2WYEMUu5VEPcRXNGi27Nryc+dpyZhF9wUFD3pfetfzFe0hFi51J+gTZJu8fR
-	 cIXalZCiEKVkCP1wEX65Bv/eQEnYUUHqdJW50KcWLgGFA1rf9HUTg227DKkR92Gv8T
-	 diUbbjDniRlOA==
-From: Jakub Kicinski <kuba@kernel.org>
-To: kusuma.vasana@amd.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	radhey.shyam.pandey@amd.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	michal.simek@amd.com,
-	Kusuma.Vasana@amd.com,
-	git@amd.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH net-next V2] net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
-Date: Fri, 24 Jul 2026 16:19:34 -0700
-Message-ID: <20260724231934.1679801-1-kuba@kernel.org>
+	Fri, 24 Jul 2026 23:23:09 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-84e3007a2b7so832990b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 16:23:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784935385; x=1785540185; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ak3a7+5iHL+DI779EzdC6NLfZP9M06vxpEidoqxCeoA=;
+        b=JuuDqxOWsJk0jZ4J+R2smbu21zZiuL6Z2KfagRUAL2BQI2OOuIVPb7aEJ4ABWReNl0
+         cKI1NpAduTljv7Ez6OXk6QJKts9lxPbj81SdQBAYrHICBUs2R2/eU+ZRcIBpCeOmwXOO
+         AdzfzzgfGhvOx5Rru8rPlCDQu5vWoe1cpF/ZW8OoCqGMiFl+XjHUBes/VpBaypdZVMg4
+         MPWhwLB3Xt8SS4C98TDle4w6z7KxHLPuabJGIHgGOyWgkHYYS11oR8A7Ootqr9BjT9hf
+         OxKHrdGcbK2Hx7dmLR2Kf5WQbVnEDvTld8zreniXEkFicUFgiBL3p/iz5QvQvkhK5Ur9
+         e7rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784935385; x=1785540185;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ak3a7+5iHL+DI779EzdC6NLfZP9M06vxpEidoqxCeoA=;
+        b=S/2Kyh7boI4l7Hquyto8MWbRUIWm3zYUjqxJDCejPmk98PRGIGwaSsijMMCKSF0eC+
+         10Js6YD69cFOcEk3+LLyFyCrkbk/IaiBORc+42bhCCemsgNOaq0BmCWtIWRkAqrAxWJy
+         zOY4RnHVG8OsRbCK3HD392PJasbkc2n6GtLirFyGBleCYzHXfuySxlQNe5EztIufPQ6d
+         lbh9kHIPL1NB5xMwv1FzIpQGgMeVmZLpwqqfA2GJKPRtpxUVd31kQjd0mUWGv6c4vBEt
+         Nh2NP14wW0yAJLauNOlRcCDoa1YfOudT79joRHBrrv1tctFBMU8WPCGe2JCykfg3MLzW
+         yyfg==
+X-Forwarded-Encrypted: i=1; AHgh+RqsGu6Pz8Fj9qwOFt2OhjWrlvOC5Tb+qG6dXk01dJM+3ThrHY2Mc1YIo11fpQ5a1gtNyNF6QECOe6eNVgu6uVcT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZfaGsbLEI/S9XWdcdqQfo1G1gh6LqZS1dcNvtsYyGRaOUTwfG
+	Rj/hqyWm+OHxA6V+Tjge0r15sS2UDqYEn6m2DCTrJiO9Gv/OXOPYvLI6HqcS9Q==
+X-Gm-Gg: AR+sD10a17st3XasUfmd/yfjvtwbSQ+I7DGEBsgCDVbgxilABNBuRQUhoRJ5tVe9CwS
+	U0KLb4AXRTgg+NZdl41zsMh7YzI8sWiBkEtCMBpPXJ3m0snIm6GWKn6q/+whEQxC339IlT06itm
+	WdtUD/8ajCA9X7fQqhv34rfq8KXcjggeqiKtpbLR2t8KmYDbDI/4DSSCODYVZtgVhrV/Q2y65Y8
+	+6oHAXZcsL9V2dz2sceikfBhZTi6LF/wayUPj166JbMEVI6WIlJDkLXuPnqnZESna2dYatUgYxz
+	QXJcNRy5/oQIuQBd9bmjDvCl4xPRTeZbWK6NgOpUZojWMfVnaaKQ61/r3+yiciVb/6dFkqyVwf8
+	qi0Uzmez42XK5OzHp58hrKEGnOVvgAb15b7DijCqRCnpqVxhqwvlNFjSVEb+2/e0k/azoyjv+UP
+	Jk6QrA6a5ri1/4R4CT+tc26B1Hw1oCgTXm9wGtruTrvn3L1JETGuwhtZHmTJKQzXzxHXTshLugA
+	4zFrE0VF547FcfQbV+8CcGVkfSzQ60lDfV10aQTEIuormahHh72QHU=
+X-Received: by 2002:a05:6a00:178e:b0:84a:2d5c:528c with SMTP id d2e1a72fcca58-84e5958d84fmr206478b3a.61.1784935385215;
+        Fri, 24 Jul 2026 16:23:05 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e5341d8f0sm510545b3a.44.2026.07.24.16.23.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 16:23:04 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dmaengine@vger.kernel.org
+Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:MICROCHIP AT91 DMA DRIVERS),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] dma: at_hdmac: add device_synchronize callback
+Date: Fri, 24 Jul 2026 16:23:01 -0700
+Message-ID: <20260724232301.50237-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260716124841.2761722-1-kusuma.vasana@amd.com>
-References: <20260716124841.2761722-1-kusuma.vasana@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_162308_392574_971542DF 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,101 +99,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+Implement the device_synchronize callback for the atmel
+DMA driver by adding atc_synchronize() which calls
+vchan_synchronize() on the associated virt channel.
+
+This ensures proper synchronization of pending descriptors
+when requested by the DMA framework.
+
+Assisted-by: OpenCode:Big-Pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
-net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
+ drivers/dma/at_hdmac.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-This patch clears the AXI DMA IOC/DELAY status bits at the end of the TX
-and RX NAPI poll handlers to avoid a redundant stale interrupt caused by
-IOC/DELAY bits latched into the status register while interrupts were
-masked in the control register during NAPI. The clear is performed
-unconditionally, before the napi_complete_done() / CR re-enable step.
-
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index fcf517069d16..29050c8d04e2 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -1018,6 +1018,13 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
->  			netif_wake_queue(ndev);
->  	}
->  
-> +	/* Clear stale IOC/DELAY bits that may have latched during the
-> +	 * poll window to prevent a stale interrupt when there is no
-> +	 * work pending.
-> +	 */
-> +	axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET,
-> +			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-> +
->  	if (packets < budget && napi_complete_done(napi, packets)) {
->  		/* Re-enable TX completion interrupts. This should
->  		 * cause an immediate interrupt if any TX packets are
-
-[High]
-Can this sequence race with a late completion arriving after the poll
-loop has exited but before the SR write?
-
-The AXI DMA engine writes cur_p->status and latches SR.IOC asynchronously
-from CPU execution. The poll loop's exit condition reads cur_p->status,
-and between that read and the unconditional SR IOC/DELAY clear that this
-hunk adds, the hardware can set COMPLETE_MASK on the next BD and latch
-SR.IOC for it. That legitimate notification would then be wiped by the
-new W1C write.
-
-Since napi_schedule() is only called from the ISR, and the ISR only fires
-when the IRQ line asserts, napi_complete_done() will succeed here even
-though a new completion has appeared. The subsequent CR re-enable would
-then observe SR.IOC=0, so the level-sensitive line does not re-assert,
-and the completed BD is stranded until the next unrelated completion or
-DELAY-timer expiry moves things forward.
-
-Before this patch, any SR bit latched during the poll window (whether
-stale or from a late completion) re-asserted the IRQ line after CR
-re-enable, which the changelog frames purely as an unnecessary stale
-interrupt:
-
-    After NAPI completion, re-enabling interrupts immediately
-    re-asserts the IRQ line due to these stale status register bits,
-    even when no new work is pending.
-
-Did that same behavior also serve as the recovery path for a completion
-that lands in the SR-clear/CR-reenable window? If so, would it be worth
-either re-checking cur_p->status after the SR clear and skipping
-napi_complete_done() when new work has appeared, or performing the CR
-re-enable before the SR clear so a late latch still asserts the line?
-
-NAPIF_STATE_MISSED does not appear to help here because it requires a
-napi_schedule() call, which only the ISR performs.
-
-For configurations where axienet_calc_cr() does arm the DELAY timer
-(coalesce count > 1), the stranded BD is recovered when DELAY expires:
-
-    /* Only set interrupt delay timer if not generating an interrupt on
-     * every packet
-     */
-
-Under DIM with low traffic the coalesce count can settle at 1, in which
-case DELAY is not armed and there is no bounded recovery for the last
-BD of a burst until another packet arrives. Is that concern valid, or is
-there another mechanism that ensures the last BD is drained?
-
-> @@ -1293,6 +1300,13 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
->  		cur_p = &lp->rx_bd_v[lp->rx_bd_ci];
->  	}
->  
-> +	/* Clear stale IOC/DELAY bits that may have latched during the
-> +	 * poll window to prevent a stale interrupt when there is no
-> +	 * work pending.
-> +	 */
-> +	axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET,
-> +			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-> +
-
-The same question applies to the RX path: a completion arriving after
-the while loop's cur_p->status check but before this SR write would have
-its SR.IOC latch cleared, and the subsequent CR re-enable would then not
-re-assert the line. Is there a reason the RX path is not exposed to the
-same race?
+diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+index bb501c0baa7e..d587f5809814 100644
+--- a/drivers/dma/at_hdmac.c
++++ b/drivers/dma/at_hdmac.c
+@@ -1617,6 +1617,13 @@ static int atc_resume(struct dma_chan *chan)
+ 	return 0;
+ }
+ 
++static void atc_synchronize(struct dma_chan *chan)
++{
++	struct at_dma_chan *atchan = to_at_dma_chan(chan);
++
++	vchan_synchronize(&atchan->vc);
++}
++
+ static int atc_terminate_all(struct dma_chan *chan)
+ {
+ 	struct at_dma_chan	*atchan = to_at_dma_chan(chan);
+@@ -2040,6 +2047,7 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ 	atdma->dma_device.device_free_chan_resources = atc_free_chan_resources;
+ 	atdma->dma_device.device_tx_status = atc_tx_status;
+ 	atdma->dma_device.device_issue_pending = atc_issue_pending;
++	atdma->dma_device.device_synchronize = atc_synchronize;
+ 	atdma->dma_device.dev = &pdev->dev;
+ 
+ 	/* set prep routines based on capability */
 -- 
-pw-bot: cr
+2.55.0
+
 
