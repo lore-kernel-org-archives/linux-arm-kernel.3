@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1187C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 22:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A7BC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 22:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGH1/2toPHVIOQa+jK5UNhDmHBD0aRC5mQRDqAj3tYU=; b=JOOoZnrjjVhTk4TIMMA7Z99yK9
-	JT/bOY7RITE3QwYehslgFy1a0uk2pRok4vjytPTX2jCL2XCfGzXF3B13lNz908v5KMODoobsk9ZqI
-	Eg7EQc+IuAbI9sEwzJEFTdV2FDSP0Im2uRqX57VToMC3UNxv82XyNObF2Q9Q/mEwjfYcenVSPd186
-	9yyC6xjPXk/dwFdj4fGqq8Ab7rSht6iLsjmaAXUPHLN4QaCueNGidt00ZOLHyfVgbnR/czZxv5/NG
-	1HYPaptEniL2xD2kSrfGME3w9u3Qwre2KEY1FQcTi0uKT7ulZbgI7dlNVdgzghAcYyepLWL0FCMAp
-	SJ5ThhNw==;
+	bh=TOPaKmNckDvcgQmmExHska8Z+3r6aiIwmxBNHoTxxaM=; b=nD5iTuIcZcdrNUgB5yx4CMPE7h
+	TYXNuwKoncXUKKLRDHN+iOxLLnUl9zlQvxFpf0YikMdTrKYW1Wj67k6jmIKZdJZ8Je7AqohJNtvni
+	hXyUENHz40gjDA0dFR9NtK93uImJC7SK5ONuoFs0g9teM1dPKV9LDhsCh1cdSfNd/U8DyPtd1iAeV
+	t4cZEUgkfBHGVoTq9Ooa7XrUSeLx58lfBgAefFfK8zCvUz9j4ZI+nyhpzpVgEl0krt7gv8pZygIBc
+	6jeQ1zFd3TjKY2wcR7L+OBqjCmLcOtfQDVpVdQfQB19ADZ5btc0YpVJPn9XZReaKwCXO7RnsNVuse
+	NJ1D5iIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnO9T-0000000HIGG-2ZKq;
-	Fri, 24 Jul 2026 22:13:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wnOAM-0000000HISY-3Bfx;
+	Fri, 24 Jul 2026 22:14:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnO9S-0000000HIFh-0yUU
+	id 1wnOAL-0000000HISH-1lZe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 22:13:54 +0000
+	Fri, 24 Jul 2026 22:14:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9AA3843A93
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 22:13:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FEB91F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 22:13:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EE98600AD
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 22:14:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5788E1F00AC4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 22:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784931232;
-	bh=aGH1/2toPHVIOQa+jK5UNhDmHBD0aRC5mQRDqAj3tYU=;
+	s=k20260515; t=1784931288;
+	bh=TOPaKmNckDvcgQmmExHska8Z+3r6aiIwmxBNHoTxxaM=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=FXgNPEcmyUE0kVHZ6djQa3bjOde7CyAnqB+vHKouxeko1ahVwngW3hfMx0OV/00uO
-	 HTYf+nqinj93C3ZO4JmCihblplGsmzaB+1X09ObmzLe/jQAnsj5fmB7N2CXsQ4IDIp
-	 oVBdD67TFc1L+Kzvxy80Kzz06UpCRGGeo55FJfDOPxX/fT91s1ciW6DdBjhpWxwtWB
-	 4QYkwupmYgdeA3zTakFLJIqWH5qK/LX4dd2FDrFNMQ7hiM5YoSPTuIDU2C2IGTnu08
-	 7rBLejOy04THX/qe59JSaPVVOIHTCzOsocUcOnIAUp3vOPi+f1p12IOeI9TOE9vcKh
-	 E7SDad10HXS3A==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b015532f7bso905943e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:13:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqCYhpBZqY7s/qfBa+TopsoNxgKT4+3oU9L/jHe9491HbKBjllcyb5/vYXB4M/FcX84SuJifoyVjNGGKCBt9VrY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmAQ7FCT/fxGwoKqEp1rY0OmvKzCrFsPJOwnoNasN5R5+E2Yw0
-	+txY+yjA8Swp0rsyWXilH9c9XphV6q4Iokb2EwM0e81i9mOWN2Y+ieRC6vi3rAPD0oLjCBNkokV
-	m9p0xwHlkSjm7IQJ0Go/DyrS7NDJpL3c=
-X-Received: by 2002:a05:6512:6699:10b0:5ae:bbd3:27e3 with SMTP id
- 2adb3069b0e04-5b2b2e52e52mr1247043e87.5.1784931231294; Fri, 24 Jul 2026
- 15:13:51 -0700 (PDT)
+	b=LtHfqT3sxiWYryab8npI1acPJKFsfGsVSzgUgoFGYGeiZDK5rIqhQYMh49wBjXSU+
+	 J28V3wNf3pHBVk0Wdvj2m9AYfeFf3IvHZj0qctHZMbgRO5AAmuDCo870Dvy1dlMdkv
+	 Z+NTiXip/JjIYyd1bNpkk3GW60keNeZcUPiNRr1znqzCZCQfdo/I4axuNfcDbtDa3v
+	 3eIl2OVHITS7qU6YKrkfNcJ1+ulkWfuQUcVETYEFn9YkebqvZkZLwCbHd4zEFXUN0w
+	 hxKxFVUdPWJMEd0HvtqNg5h+BeV/LXdEwjrWHu03oKI7mBaB15+8Jq5LY5AatJ+t0k
+	 eatiAyAMIVAkw==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5b0231a3e86so789717e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:14:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RphamPUstEs5nrps+HLJbTWvw1mtM8iHdr6XZh/mn59F9J1qNNwwgNT7MjlkvASKpG0/PLbFSN+uJ+0LZNvo5gT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjX2S6ymNmtvOaq1uaQJSVZydskU+LD7onwfBwkHbecVCYk/I0
+	Kbh1Qmq+tr1e6pAZV6IjMA9TrDse8jd9++/9pTPT5+K1oZWuwK34xW2Xv2gFc83IGUdXkMrS6H5
+	r2Uzr8bsGN4kB+Bah60YbVckuJI6Xsuo=
+X-Received: by 2002:a05:6512:3504:b0:5b2:8de5:ce9d with SMTP id
+ 2adb3069b0e04-5b2b2f74b53mr1739071e87.50.1784931287156; Fri, 24 Jul 2026
+ 15:14:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260717075918.1869879-1-hugo@ahdrone.com>
-In-Reply-To: <20260717075918.1869879-1-hugo@ahdrone.com>
+References: <20260717080045.191538-1-panchuang@vivo.com> <20260717080045.191538-8-panchuang@vivo.com>
+In-Reply-To: <20260717080045.191538-8-panchuang@vivo.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 25 Jul 2026 00:13:39 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=ASH7jx8YOL2Z5i4K8w4RQd4eWKEGtY1KRBwM-JDaw-g@mail.gmail.com>
-X-Gm-Features: AUfX_mxV3lAJSNoJIi5Cr9GxwAU_Lyd6F8eQg8jRexuVpOK8BgTgzF15KgMIbjM
-Message-ID: <CAD++jL=ASH7jx8YOL2Z5i4K8w4RQd4eWKEGtY1KRBwM-JDaw-g@mail.gmail.com>
-Subject: Re: [PATCH 0/3] pinctrl: rockchip: add support for RK3308B SoC
-To: hugo@ahdrone.com
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Dmitry Yashin <dmt.yashin@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Jonas Karlman <jonas@kwiboo.se>
+Date: Sat, 25 Jul 2026 00:14:32 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmVWUVAnb+UzUPCypHid_r68C0JFaSVdTSw1jftnpJ2Pw@mail.gmail.com>
+X-Gm-Features: AUfX_mwHY8wlQTjuQQHMEE-3RVHYLAEpXSek3Hma4TN9-jsazFca-kzi2Q8HfIs
+Message-ID: <CAD++jLmVWUVAnb+UzUPCypHid_r68C0JFaSVdTSw1jftnpJ2Pw@mail.gmail.com>
+Subject: Re: [PATCH 07/12] crypto: sl3516 - Remove redundant dev_err()
+To: Pan Chuang <panchuang@vivo.com>
+Cc: Hans Ulli Kroll <ulli.kroll@googlemail.com>, Corentin Labbe <clabbe@baylibre.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
+	"moderated list:ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:GEMINI CRYPTO DRIVER" <linux-crypto@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -81,25 +81,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 9:59=E2=80=AFAM Hugo VALTIER <hugo@ahdrone.com> wro=
-te:
+On Fri, Jul 17, 2026 at 10:02=E2=80=AFAM Pan Chuang <panchuang@vivo.com> wr=
+ote:
 
-> The RK3308B is a silicon revision of the RK3308 with a different iomux
-> register layout: several pins (GPIO2_A2, GPIO2_A3, GPIO2_C0, GPIO3_B2,
-> GPIO3_B3) gained 3-bit mux fields in new GRF registers that override
-> the original 2-bit fields. I believe the bootloader enables the new
-> registers via the sel_src_ctrl bits, after which the kernel's writes
-> to the old iomux registers are silently ignored. Whatever the exact
-> mechanism, on RK3308B boards (e.g. current Radxa ROCK Pi S revisions)
-> SPI1, I2C3 and other peripherals on the affected pins are
-> non-functional without this series.
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() automatically logs
+> detailed error messages on failure. Remove the now-redundant
+> driver-specific dev_err() calls.
 >
-> This is a continuation of Dmitry Yashin's series from 2024 [1], which
-> was never resubmitted after review and got dropped. Following the
+> Signed-off-by: Pan Chuang <panchuang@vivo.com>
 
-No reactions for a week so patches applied.
-
-Any remaining snags can likely be fixed with follow-up patches.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
 Linus Walleij
