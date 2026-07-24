@@ -4,151 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF11C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F39C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9r2XB0yL2EJZ4Fk5liZ2LwYOxf2WSUt97uiVD/o/yMg=; b=Gbgpzu+Q+6ANldxP3KWLWAXH09
-	8JX3PbkmI4a3KzUelBYZgueg+7rgGzk8XVFKy/SrQcicWAxYuvoXSFWhJ3R+QdgSn7cACER0W+Wzh
-	5G/k4oq/+Zr5+VKz/z5sf9vcPTWZPci3G9zikeWa950bzKBoMz8Q1CLUHez/bMU3Vxlll7E34wC7+
-	JtWR0knh4aMS4aRml97dulOBzWu7gynOOTbHvHnGBKXMRdQZJerCFCakDzI+bIBARjqSZNmTavJJb
-	6bzTskjc5IdUj6rdo4aOiYIEz1Ba3Hi3pnAStRZQeHeIBU7j1ciGFxMS0rG8dIKulMAWNk6jTFGWm
-	ZkRePeUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NBrUSC1O0WOQ9emuFEGS5d8tSVoT5Yvw626g9QceW3U=; b=13ymB5LRKzPAUl
+	oQ8HuIWbjlwov0kNKgr0bLNAJWRAsH/w5XKdeCGMIGh0CM9Wu9ifiZYZ2N0mEjtwpWoq03nGfdo+m
+	a73Qhl7U1QzdWe2AkPzY7o56e6rfW7zCboREPBsSIvH/QT0X/G1SM/DsTyLe9ETKf9ORPX24CZfEc
+	TKfQcHoc8eEn2Ga03/9CX4h9Wa0hwidCTVxe3EC5orgcf0nkoidGQNu5x/+hmpSEvGoerO9fhyfwp
+	UMqBfjNFK77TkoblaizxD3mphpQeqVMLSWMfR8fLS/Ai0qIhOq0+GjoLwqySZ15B67fC0hgbX9IyF
+	yys2tz6t+KxZbgyxvY4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDbT-0000000GD19-1bem;
-	Fri, 24 Jul 2026 10:58:07 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wnFCA-0000000GOcI-1USk;
+	Fri, 24 Jul 2026 12:40:06 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDbP-0000000GCzJ-1Gkb
+	id 1wnFC7-0000000GOai-0zfo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:58:05 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=UbSC2deSbDDhSawpSIM+SqQdAFQr0JHgzkchbfLHPUgIdn+dU+HlIGdmqMDhfAzAFl2V13vw1WGWDZhjuthOQuCTsu03bCiUsemBQwUqUzMtS1sZLuRLK8gy8Wc8fXwX8le2rZRjgL8pBiIsXbvZJ+YzDHbzxZyBVfb41f+nr27hbbPi6ilNwV0kKveln1aJlOqOS1RuAhDpbc/rg8afVh9TbSjB2+CWWFRr0qrYGFaImSIn+7g3xPqcjVzz7HrK5A2opdw75d0MoH3UMeZvdPmrXFi3u5syM68XCrmmTvf7VrUir11KQMVHx++oKpLkvJmUNH61aL7fLizbYMV4Cw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9r2XB0yL2EJZ4Fk5liZ2LwYOxf2WSUt97uiVD/o/yMg=;
- b=yB4LvfHx/efGXcwWHlJ7/AJ+3gZG+ybDKPITNMGcNzs8HCJEjidBMxNLkH+EsPmOIol9ZSBScxeNp1v2An14sNM89d6t3JXpGezBE70sh5QvBbKhpPJdsaVndPqa5Ix2sIJNrpcSW4xDgN0kv98Ru6cbvQDlpsmnkQCAcDvu4TTIyjcmyT2VSbO3RaJ3ND4mFBZGVREeE9r/wzkCIMAgrjtB4O9s/fyQ0d4ojwzjjduDHF5CfEKA/hRICqhieqyQhHNKLOLIRYP+YGjNhDeuEdt8gErHJqh6fB2U/mR6TAfZc3W3/OBje+1mSeMRQ/MsyZO5YCFpqF/hZg1e2sshSQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9r2XB0yL2EJZ4Fk5liZ2LwYOxf2WSUt97uiVD/o/yMg=;
- b=E9bU9n+GzFg+PHsw58GY1ndP/nL5R2ucmLjfEPYJVys4zrIdxqetNv4fzsLEF/OSznp8kuV0Xc+Am3QKoljrQrR1foLvTYz67xyzng0QdwhzBzxKiLIoof0CURi7u2uwK3mE5dwfZbN5gqaLmLhSb34lZZNLStbWXTL4xlefaXI=
-Received: from DUZPR01CA0239.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b5::28) by VI1PR08MB5309.eurprd08.prod.outlook.com
- (2603:10a6:803:133::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Fri, 24 Jul
- 2026 10:57:58 +0000
-Received: from DB1PEPF000509FC.eurprd03.prod.outlook.com
- (2603:10a6:10:4b5:cafe::ab) by DUZPR01CA0239.outlook.office365.com
- (2603:10a6:10:4b5::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 10:57:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509FC.mail.protection.outlook.com (10.167.242.38) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.5
- via Frontend Transport; Fri, 24 Jul 2026 10:57:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qdmod5fgvNxzVTnkxvPnXzrxNleMNgPbfKsgAUhQrplY1dm3rPtK6oZC+sybu15izFqDf93hveAjvqtb9BwDTVNtQuMZeki8YeBn6fvOq76npX7mS9W0aI+wdWquWVbVVxEq7TkOcrNn1dnyKjHhud/UIpPi/4uOdM7xI95RAOVetqhFlfMEf59nqGvQQO4xcXDpuzWWvt4PFnE7RB0glSvSiKdmynglwA13RsIvEAGjlAgwTLqC8YStKYENeByJgmY4K5u9+t+pW6XAWVx2h0VNkUNA9EWzLpYMksP77WcDGR5zqsvZ2gLc5e2qt6ZatpYuI7OaGRiF5Aqj4StVlw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9r2XB0yL2EJZ4Fk5liZ2LwYOxf2WSUt97uiVD/o/yMg=;
- b=zIpQdqHOgJ+DELDZ+jLfOTFlwUI/JseuV3UZc/HT95erRPGLTTVgVSaCOr6v9tKDGdN8Me0K7wnpx2882gjyrA1KsLNyx+Cr5Aq42Y33sbMR3aycIhqP1WjAXw4zaIjYwKQDGtnO2Z2Mb+4QP+6SV7eCuHPEpv3J74zm7hy7jiEFwcCcgVZSQkzFVa2rIon4ev26BE6/2pLbTaccBRwPgGXy7tTWS3xbMfZK4Bgy0DHwW7Baq22PalmZ1SvPWPrpLXH3Rpn/fazgV5bu3+IVb+AqCQxWFZnNm6jU8oiHBssPpDAiaKiaQlNmzZBMVfSytpXi16hI3kaWOMcgjzP1bA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9r2XB0yL2EJZ4Fk5liZ2LwYOxf2WSUt97uiVD/o/yMg=;
- b=E9bU9n+GzFg+PHsw58GY1ndP/nL5R2ucmLjfEPYJVys4zrIdxqetNv4fzsLEF/OSznp8kuV0Xc+Am3QKoljrQrR1foLvTYz67xyzng0QdwhzBzxKiLIoof0CURi7u2uwK3mE5dwfZbN5gqaLmLhSb34lZZNLStbWXTL4xlefaXI=
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
- by DB9PR08MB7769.eurprd08.prod.outlook.com (2603:10a6:10:395::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:56:55 +0000
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0245.009; Fri, 24 Jul 2026
- 10:56:55 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
-	<fuad.tabba@linux.dev>
-Subject: [PATCH v4 33/48] KVM: arm64: gic-v5: Add CoreSight MMIO regs to IRS
-Thread-Topic: [PATCH v4 33/48] KVM: arm64: gic-v5: Add CoreSight MMIO regs to
- IRS
-Thread-Index: AQHdG1sjpub0yfRv0Uuc/5oXAKAauA==
-Date: Fri, 24 Jul 2026 10:56:54 +0000
-Message-ID: <20260724104819.1296803-34-sascha.bischoff@arm.com>
-References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|DB9PR08MB7769:EE_|DB1PEPF000509FC:EE_|VI1PR08MB5309:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06b69a3b-d9c0-406b-2fd8-08dee9726c02
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|38070700021|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: WSRK9Ts1+36BmnFmtY622dblnrVm39ysJ8PcP6YuBI9/8OpXQabjeVZkjvcnRKgNop4B2nOdSAuYk6PSzK/oMlU4yc5OKgmXgQogiVd5ee16zU8mYu6KWUhhvshWUTEZt0wsmGU2m7sfeVk46LedyICAEXOCSL7iLDIvwP8diF+8YBAsWx41vfzzN9puQjXXYWTL27Kx/8FofMKbB3BHzBmn9G2JYmA1Qn/NzHcMHglAjmmfD3I1MnhyZqsSjPMDw3ADvsvqWrVqYnkkINyeLm6kUpH4jJdx9DfNLwOFqJmrSrGaTzDyQGD8lszNAydluRP75Cp87JlvIdqgXwJTnl/UcbQqgSm1VFuQauh8TfqI/zZe2N63oZ31hX2qo6ROeCkiwEn+Nzqgc7P4BjS+Z1TbcnhFEvux/WzAdSWIkSVw+917pIxZqxCLz8zf3bwAhqhE/JcPDmXP2LLrjZPOr1WESFQTDq9Em9m5/bKlb8WkoXyQR7gewGiUI2731uTw1Saw3zgcd6EdO/UWEuabdn/YucIyIHn+gnycjSyL6Yt2SUI5Tw+EYa3rzBUWDzDGiatRWXypjQqq4p3BeI+0//L/R59iZXwffSSnwJp9rwx7/sjPWTpg4nar9mUYr44o259oftpn0piNH7fR7uinfEsx8pSzLkMwaBGFnxV2/M6H+Q1FNEeF5B9HqyxgfHUSicwegsvuijCoWHwDw5U3lK2ihSMwNKVjgKHtasMCqyk=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(38070700021)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Jul 2026 12:40:04 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4953de5be0aso2969715e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 05:40:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1784896800; x=1785501600; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=NBrUSC1O0WOQ9emuFEGS5d8tSVoT5Yvw626g9QceW3U=;
+        b=pTw6FMItquIb3JRCxMU4YPwj1uo7gw9CFx3JNJ7XiVCcmDNXSMWydfdo2ykX/p5nrZ
+         MjmnH1cAITram34K9rPhYoPHz6bxr/df/GkiOpmny5dH15dz1KbxDXZ/pu2yxJk0HZjR
+         5H63WGPPJGTL9u27gLn2czlUb9Rjqm65ssG6x6VHqgjIRvsx7hwHDfe/Idr1vniyrfMH
+         AKMGBljnA3YCKz8qd7XGStB1OSzbYNMvlAfLy6J2ESkT/dwfO3JHglQ8x79usN6Mt1Y/
+         Stm6D1CS3KzoLfCUnNiOQ6FQ4QroigL+AT5jJMrxAloCSxQBb22nMxGh9Fo9vcNiijhU
+         ho0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784896800; x=1785501600;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=NBrUSC1O0WOQ9emuFEGS5d8tSVoT5Yvw626g9QceW3U=;
+        b=q5N43Z8QUKkJjfg5jCRZo5SSeRJljdZtz5S6nAvAejHn2o/7DZ+fydiGQWZUHcHyz5
+         PNqGF443vvF9gvVmK6b7wyHm6nCqh4kK5dJ5CbF7zqNYSwT/5AjKLnPsrzKCM12L0/Zh
+         h7X7JX8g/BxmMMpdY7XkzJNDDU6wXsEVipC1l1YDH0RrYxWnBaRRHeQ4pV6C8EpVOLdv
+         Jq1KtHR+LCE7McjlVyTLYwtqlFQdmy43PYl6PwYXo4m3G2Uw+yVloY8OFZWy4pkRHlhX
+         uVa6WS9jTbGy+9sRDuAs3fLX0vhsv/n3eIdc0Wa0eHZsjavuBeu1HGI4p9MmhIfiEaSS
+         GdHQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpN3aTOLLJYDEAjQ5+LwABqVTSwg7j0Q3UnG4StB0flHo1z4oOjehnZxw9cDEWUJ1c4HjcvIcSxzVUnl7GHDq0H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTY+kk5jxRKDS1cX7D884eoHEzqesyX5zjGW+C65BBwNNgKWar
+	zdY76hMRZJ8soxuyCYWO3JSRaTejAL20IzsrG8lDBQYnXONUWFa4bmlssUdaG5HDm6I=
+X-Gm-Gg: AR+sD13HK/Kx9BL0Zb0zsH9+LkWqRrx7k0WX2TJrkhnw3p35uoHQYgjo1xPT4NZiPf0
+	rMj7Ijn0J6KDWZW5goUYEAUnHA6e14JSbXEygba6PyiLjMYmJ2R3WwSGGxEPXcenKum7dCskRKV
+	MvoudThLCNibX7Xz6B1VhKE83JHdHSgKRokRX//r/d+p7FzyJXjSO2kU8ka5FF9AWyF+eqyk8Sv
+	PiryIkuUW4qwlHzXXTmhrUH93AlQUdNj+yVZu/Z97qiHGBozkiQjnUiVKrt+gSLXs56/SStrqKK
+	kN8uBWLnD2HCBB6yEcBrmSkL/tqb4wvYJQiL4FUt7VKeIbpMtcVV8vnMS7UBaKpIXybmXarPxyo
+	g8LhjmrwJ8ITt/VvGdemorYpo9j2FT3oclUY1aRFQIDuwlzg1zcQkSw6N6Xd0RO5o//ZrMoTWiY
+	Wyr6SlfEFwnNvNgBmu8I4biajCGTw3MuDKbqY=
+X-Received: by 2002:a05:600c:4f86:b0:495:6a24:a92d with SMTP id 5b1f17b1804b1-49573cd8af8mr83332165e9.22.1784896800602;
+        Fri, 24 Jul 2026 05:40:00 -0700 (PDT)
+Received: from gpeter-l.roam.corp.google.com ([2a00:23c7:314c:4601:a07c:a901:acc1:9287])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957af6b10esm71556795e9.5.2026.07.24.05.39.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 05:39:59 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
+ feature
+Date: Fri, 24 Jul 2026 13:39:41 +0100
+Message-Id: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: EAbJz66E660HZBxskhyCd9BIlNk9S8j5JP9OoAEqKfZ4UkLuIRsQi63f+LwrXKgiSKtHa5SxjVRzi48sBEjQu+KScwmcxLRzdYPMuPxhDR9UYjd7m4BryZs/88ClG8QgEAFOLK/wOBaZ98l7fGEcIfn/zZ2ovUkDGRb+2SLE294HcpALO8kfdm0tZK6ONTOjQs/XfC21DFYP5E8f2kCxneyL3m7z4rrwoWEL7WAVb0HNaj/60babeadC6ltXOzmFyf66DVYijVtodp8eVruymRntB/Y3Dz10QZjMJEWDuShYjCNBp2aaBBnJQ9GMqzZg1qyBOYXK8uIwLlTQwVqYDA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB7769
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509FC.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d45ea6c1-cab1-405b-255c-08dee972466d
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|23010399003|376014|35042699022|14060799003|18002099003|22082099003|56012099006|10067099003|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: 2R4FGTBpYTTLwA58WfwYXmY/ZCobH3W2oyk8SONqIiCwjhp2r75djeMpCchQTl6yqVOWyf4KhhrVFYWmjI8+BZ/7EV993OOA5hAeHah46foy6ix6hurh/AybXXzj0Kk8jO8fFMfs5xBwniFEgOIKlLc9qN3qWNGtVEFvupuGa24RW3QpfKJtZoHSJd3bNrEq4rQxeRnghYG/uMoo29qSSX5OPT0w1qY6AwlknENv+X65nWfyl8evyK8kPFn2VdDPy6rlVXMaT7C+UiDc4Df3CpphSgCiwTJ0whIj51xQ7SuP+1pSfky08wQVqMqTpaobyJRfV32RRv4ywfgfZRlWEUEGhNxWkt2oNu0gZk/Q/fOTghjh5f5ascIbJ/G42wMmVffLl+zYp7oiMoTqXttzloH4glg8odpAHZtIpQkcQ+I7RL7a2jYF8Np49rrQnrKjygDtW3uwmPlE2cnfzFaz+rWqueOnVXTmtX2TA5jDL+gcEigJiEW5l1UjNVDpAayB8/4tPiOAzuiIi2/eNi+vkxrurKMNT+HOCC/Z72ppuQE0S9LEaZ3/fM8LeRqSnfsgO7fcJghee1VAIygFpsb8KkaQ58rVJwHoQE7KNBId1j6fk7HsVhlzKTr9Mj26u/vFHwjQopm1fu9qq7Yg+PbUlpwIomF3iDdm1qHl2CftHv10vZEDgYyQ3uSYHuCiim1Mk8lh28TkG7eFJKsaNhFN4A==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(23010399003)(376014)(35042699022)(14060799003)(18002099003)(22082099003)(56012099006)(10067099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mq0t1UGwTacy0iJueaV9+sJCyq7QmsQNAhzX/Oy4B3EVrvTd4AyuSl8THvxVF8ep3l5jsGygsA9XewZOCuDPQD8hRwS91vPm+ZhAjaFVou3jkcg2ZngwBCwa888dQZPto3QnT7IVLdEu+S4xhdn/xeyDP77/x8UTa+YSI9brO8nuXoyCFqie3Kf61DOTBDu4Lx4G1ubDONXbBKXFkH/NJWK5Ow7L6/AvHcXJQDXjgbann/f4iEDhvV/mtyymNnynJL8otUYa/x4SlMpAA3+q/Djn0FYsKUSnF8ryUIsX5sZpmq/R2sUFIkU4BN579ksy+n18H2aqiCcR9ULTSe3J2AB59CRcSUkyHj5CeMHnCIKgoruoN4aCFaCZECSda9TGw/bWzm7KPgJz77aphIy7P1iH6Yq3fUdcJyIMVW/xzbLfYaVEEcW+fkV1tOt+TDJL
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:57:57.9839
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06b69a3b-d9c0-406b-2fd8-08dee9726c02
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FC.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB5309
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAA1dY2oC/x3MSwqFMAwAwKtI1i9Q6w+8iryF2lSzaJVEiyDe3
+ eJyNnODkjAp9MUNQomVt5hR/gqY1zEuhOyywRrbms7WOEpADeHEVCFHPWa/4JZIhB3h1LSN8W7
+ yVNWQi13I8/X1w/95Xm9No+BuAAAA
+X-Change-ID: 20260724-arm-smmu-v3-instcfg-override-b5650fdbfe34
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Pranjal Shrivastava <praan@google.com>, 
+ Daniel Mentz <danielmentz@google.com>, Mostafa Saleh <smostafa@google.com>, 
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel-team@android.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org, 
+ willmcvicker@google.com, jyescas@google.com, 
+ Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2030;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=+LKKqb5ZqdPr77qli5tmJ/6wZb62O/rS93RulG8b1G8=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBqY10b8hqtiFJgZNPKKmccvQiXiJ207C2BIrxZG
+ XX6WJTAaLqJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCamNdGwAKCRDO6LjWAjRy
+ uuE8D/wJJ4iuiOHoo3Ba+E2kIrjoJF0Fvyyi8zfBoy0a23Ep3SQHV2ozGw44bn3MM+AnFDe0kQo
+ K7n+PTewI3MkJc3c3ZQ0ERKIPmcEsiIsn2gX26ShPCn1rlmjJuEhpiBfXA7VU2++AVuTV07n6uc
+ rLH6Zos/1Zuv6p/lZyzOd316J87sgMuNP+AYzfX8TWnGn0OYhxrltSPRBOuXFy2C/EG6CAlFMpE
+ Myu8NAzTuIBjapLrJLT6JNILVZkAliNhmMZhXClskp7XqTcGxJrnu92RW0gq0zMndxQixO7AO3H
+ se508EAQJvHN8sc+cHzOyV3PMsnX+6OmzWPf1ZZq5YcMFaec/bGJvHaSMCVE3zLSn53o41UL3q9
+ McQs1kU7P0M3XH1COuT+ySU1KUbj96wW2bR4eDXmm9iJuk8nKGPP5EGeb9U8iAmz8zM3gv8z5MH
+ TbABDCW574tZXzCJo5deKVsFzeIp6ea5zstz7iFiSAy34/IV9+520H5EjRtZFKI+MMszucOqiG7
+ Zxr9bX8aw/T33kLylD6ih1LV0lW9Eabw7soCRVy9YF1Bn2r5GMIerZ/njASPT2lCLYv4193TXP8
+ EH0i9rOUrX26e3ETtY1PY/4i5wSk8kTUR4Qz4x+Ge8KlX6MbADzr5auS6HEKqUnf5uJG/ULAM9l
+ wtz0zmXjoy+6v8Q==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_035803_487256_745F0B64 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260724_054003_331627_F23FA1D8 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,116 +127,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the CoreSight identification registers in the emulated GICv5 IRS
-MMIO region. These registers are read-only from the guest's point of
-view, so return the architectural identification values and ignore
-writes.
+Hi folks,
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+These two patches add support for a new "arm,instdata-override" DT property
+that enables the override of the instruction/data attribute of incoming
+traffic to Data by setting the INSTCFG override bits.
+
+It is intended to be specified when the smmu can't guarantee that these
+attributes are provided correctly from the client device.
+
+One SoC that requires this for some IP instances is the Google Laguna SoC
+found in Pixel 10 phones. The initial device tree for the platform is
+proposed in
+https://lore.kernel.org/lkml/20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org/
+but other drivers like USB glue and phy are already merged upstream.
+
+Downstream code has used "arm,instdata-override" DT property name, which I
+have continued with in this series. Existing options upstream tend to use a
+vendor property e.g. hisilicon,broken-prefetch-cmd or
+cavium,cn9900-broken-page1-regspace. So an alternative name could be 
+google,lga-instdata-override or possibly google,lga-instcfg-data-override.
+
+So far I kept the original downstream name as the override feature is
+specified in the Arm SMMU architecture specification and could potentially
+be useful for other SoCs.
+
+Arm SMMU spec that documents these registers can be found here:
+https://developer.arm.com/documentation/ihi0070/ha/
+
+regards,
+
+Peter
+
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- arch/arm64/kvm/vgic/vgic-irs-v5.c | 78 +++++++++++++++++++++++++++++++
- 1 file changed, 78 insertions(+)
+Peter Griffin (2):
+      dt-bindings: iommu: add arm,instdata-override property documentation
+      iommu/arm-smmu-v3: Override for Inst/Data attribute
 
-diff --git a/arch/arm64/kvm/vgic/vgic-irs-v5.c b/arch/arm64/kvm/vgic/vgic-i=
-rs-v5.c
-index 57d504181feff..8eadb9a1f1ec2 100644
---- a/arch/arm64/kvm/vgic/vgic-irs-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-irs-v5.c
-@@ -464,6 +464,43 @@ static void vgic_v5_mmio_write_irs_ist(struct kvm_vcpu=
- *vcpu, gpa_t addr,
- 	}
- }
-=20
-+static unsigned long vgic_v5_coresight_read(struct kvm_vcpu *vcpu,
-+					    gpa_t addr, unsigned int len)
-+{
-+	const size_t offset =3D addr & (SZ_64K - 1);
-+
-+	switch (offset) {
-+	case GICV5_CORESIGHT_DEVARCH:
-+		return GICV5_CORESIGHT_DEVARCH_VAL;
-+	case GICV5_CORESIGHT_PIDR4:
-+		return GICV5_CORESIGHT_PIDR4_JEP106_CONT;
-+	case GICV5_CORESIGHT_PIDR5:
-+		return GICV5_CORESIGHT_PIDR5_RES0;
-+	case GICV5_CORESIGHT_PIDR6:
-+		return GICV5_CORESIGHT_PIDR6_RES0;
-+	case GICV5_CORESIGHT_PIDR7:
-+		return GICV5_CORESIGHT_PIDR7_RES0;
-+	case GICV5_CORESIGHT_PIDR0:
-+		return GICV5_CORESIGHT_PIDR0_PART_0;
-+	case GICV5_CORESIGHT_PIDR1:
-+		return GICV5_CORESIGHT_PIDR1_DES_0_PART_1;
-+	case GICV5_CORESIGHT_PIDR2:
-+		return GICV5_CORESIGHT_PIDR2_DES_1;
-+	case GICV5_CORESIGHT_PIDR3:
-+		return GICV5_CORESIGHT_PIDR3_REVAND_CMOD;
-+	case GICV5_CORESIGHT_CIDR0:
-+		return GICV5_CORESIGHT_CIDR0_VAL;
-+	case GICV5_CORESIGHT_CIDR1:
-+		return GICV5_CORESIGHT_CIDR1_VAL;
-+	case GICV5_CORESIGHT_CIDR2:
-+		return GICV5_CORESIGHT_CIDR2_VAL;
-+	case GICV5_CORESIGHT_CIDR3:
-+		return GICV5_CORESIGHT_CIDR3_VAL;
-+	default:
-+		return 0;
-+	}
-+}
-+
- static unsigned long vgic_v5_mmio_uaccess_read_irs_status(struct kvm_vcpu =
-*vcpu,
- 							  gpa_t addr,
- 							  unsigned int len)
-@@ -780,6 +817,47 @@ static const struct vgic_register_region vgic_v5_irs_r=
-egisters[] =3D {
- 	REGISTER_DESC_WITH_LENGTH(GICV5_IRS_SWERR_SYNDROMER1,
- 				  vgic_mmio_read_raz, vgic_mmio_write_wi, 8,
- 				  VGIC_ACCESS_64bit),
-+
-+	/* CoreSight identification registers */
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_DEVARCH,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR4,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR5,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR6,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR7,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR0,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR1,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR2,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR3,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR0,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR1,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR2,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
-+	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR3,
-+				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-+				  VGIC_ACCESS_32bit),
- };
-=20
- unsigned int vgic_v5_init_irs_iodev(struct vgic_io_device *dev)
---=20
-2.34.1
+ .../devicetree/bindings/iommu/arm,smmu-v3.yaml     |  9 ++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 26 ++++++++++++++++++----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h        |  7 ++++++
+ 3 files changed, 38 insertions(+), 4 deletions(-)
+---
+base-commit: b4515cf4156356e8f4fe6e0fdc17f59adab9772f
+change-id: 20260724-arm-smmu-v3-instcfg-override-b5650fdbfe34
+
+Best regards,
+-- 
+Peter Griffin <peter.griffin@linaro.org>
+
 
