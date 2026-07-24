@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE43C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A488C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdO7KCyyIro+bfenb1xkDQljGGt5dLLkhErcCFsE/Qg=; b=RY7PggYj7pF/itpHAxFKSLBiuQ
-	bXfMyX+4Ai+/s4qQSS3U1/hW6FRBLn3Gixg1BT+oUrw1P8KciJt8j2LRmTXvMM9YCyPQucn/N1c/h
-	AMXh7MoSyrBeY+vjkqRAkM6B3A+BRbzSM94/0SMFm/gv7rWo+pjOPHLWmNy0bVPXIX1mhicweaCuS
-	e846+KgeuwfY7/7e+97o8ET/cLFuPE+Lsed+JS+Rrt2adulzZMoP28S6kamvRO+6WQcoMAfZUw0Q3
-	WDWV4yOzXyt0dC33aWVIeidqK75uwUEiW0/FjOamAFEGKcJBXXeCbsKbousWL4FEIECP+HXBFEb3X
-	AxQJqDzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=APQBT/opS5KtbRSzVCj4nfbclI4p7/AKyOb7OqqvEzM=; b=0Q8PsTXqPsYIGz5QlENdgbFIwf
+	8JSnZH/fpOkIyxbPipaag9u3NdgTM/vFz8asd0/qJ7Wc0t3OcHwe1W7/21dtNe+Zn4+JmgUi99ZWH
+	Y4i4h7AvUwQXXdt8uqGKjCoBCVh2MBnQUFezluEbAlqpEkxfnUTLCQgf+zGsmv0yBqjev3ylEKwFH
+	GhxQSrhkfAtAUb9B6w13rol/A4u9MbNiS+KU5UQkjgZazjXCaylTTFcOo9KxXoJDHbMB4c8bsNZWq
+	6xRRanHQ1Ur74o0wW5y9EqGhg6u8mqRQS7GUukWfu/jJfsG+zjG4j9Z6w3G5u862YhLQPk5Fz+vX9
+	w/8JGxyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHRW-0000000GdYl-2Z0K;
-	Fri, 24 Jul 2026 15:04:06 +0000
-Received: from out-178.mta0.migadu.com ([91.218.175.178])
+	id 1wnHyn-0000000Gk2z-1OMX;
+	Fri, 24 Jul 2026 15:38:29 +0000
+Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHRT-0000000GdY4-30KY
+	id 1wnHyk-0000000Gk2O-12dW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 15:04:05 +0000
-Message-ID: <253f7ac0-205b-42f1-9fb5-d19eceb581b6@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784905439;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CdO7KCyyIro+bfenb1xkDQljGGt5dLLkhErcCFsE/Qg=;
-	b=n5/Rd4evPANGbx1Hmm1azC85wU0nheG46FNmmGZJPiYVUUuGaxBTO3RHHaSsxBQmXrEiYH
-	w9WBY2Cs+toTZTVSry5TJuqptsIkQ9usv7g3oI2qlLAi3yC1kjAzyk0KK+DRltA6b8/OHH
-	0wfJYfPBAYVBhVVxrB7ixiXxNmqIs70=
-Date: Fri, 24 Jul 2026 16:03:44 +0100
+	Fri, 24 Jul 2026 15:38:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1784907506; x=1816443506;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=STe3l81ZzYWmrYt3MRzUBujSbUlThRL6gf8a/dbofg4=;
+  b=IhwMsAliPWNkBv4am9J0SJXzwg1TEARSu2SEtgr2Sn8jRrXBNk5G4+4Z
+   oz7luQrotNTSC+aNcunjnAQOpdNW1gvOULHNoYDVOwOKbVrKQQvMA13ia
+   4heFPSseNPhj3NxLyGRD+U6ZOhyhflyVLjZVVrkLr4QxYIzeKeTYe/37o
+   UckIkYZulbqFqLKjUBjAXCzRr9ygwiJSqaAcHTKW7hWdPNtZXZ4HmwaPv
+   Or4K4TlYLZRsb9Z1y1IHgHY3nJhqAGeNexX1ZjdcfzUloC/M3unGVcpH4
+   yxSj4G/iixyC3vZcBXQfYNHGFo96Jrx9Z7xeNfvyS93Gs35gR3SRmbJkb
+   Q==;
+X-CSE-ConnectionGUID: mlWM9xDtT1Ghi+hsLYGrNw==
+X-CSE-MsgGUID: njEi6RhfReaxwA4hqKiubw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="234679068"
+X-IronPort-AV: E=Sophos;i="6.25,182,1779116400"; 
+   d="scan'208";a="234679068"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2026 00:38:24 +0900
+Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id E78B15528
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:38:23 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 9B448C04242
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:38:23 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.54.178])
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTP id CCF811400248;
+	Fri, 24 Jul 2026 15:38:17 +0000 (UTC)
+Date: Sat, 25 Jul 2026 00:38:10 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, cgroups@vger.kernel.org, linux-coco@lists.linux.dev, 
+	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Steven Price <steven.price@arm.com>
+Subject: Re: [RFC PATCH v1 2/2] cgroup/misc: Add support for Arm CCA MECIDs
+Message-ID: <amOCt4r72ge-Iw5h@FCCLS0092175.localdomain>
+References: <20260724094120.166536-1-enju.kohei@fujitsu.com>
+ <20260724094120.166536-3-enju.kohei@fujitsu.com>
+ <amNfGkkI5OIBqpmZ@localhost.localdomain>
 MIME-Version: 1.0
-Subject: Re: [PATCH 3/5] mm/parisc: constify ptep_get() argument
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Pedro Falcato <pfalcato@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Jan Kara <jack@suse.cz>,
- Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
- Lance Yang <lance.yang@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Muhammad Usama Anjum <usama.anjum@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-References: <20260724102017.141532-1-pfalcato@suse.de>
- <20260724102017.141532-4-pfalcato@suse.de>
- <0fd713a8-e4ab-4c07-b36e-79dd138b4a86@linux.dev>
- <amNzLXuwflIZFKtI@casper.infradead.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <amNzLXuwflIZFKtI@casper.infradead.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <amNfGkkI5OIBqpmZ@localhost.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_080403_978260_977BAE77 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260724_083826_809468_566CE3DB 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +99,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 24/07/2026 15:14, Matthew Wilcox wrote:
-> On Fri, Jul 24, 2026 at 02:36:59PM +0100, Usama Arif wrote:
->>
->>
->> On 24/07/2026 11:20, Pedro Falcato wrote:
->>> ptep_get() does not need write access to the PTE.
->>>
->>> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
->>> ---
->>>  arch/parisc/include/asm/pgtable.h | 2 +-
->>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->> hmm I think you might break build bisectibility if
->> you separate out the patches, you should squash patch 3 and 4,
->> with patch 1.
+On 07/24 14:52, Michal Koutný wrote:
+> Hello Kohei.
 > 
-> I don't see how this breaks bisectability.  Can you elaborate on what
-> you think would break?
+> On Fri, Jul 24, 2026 at 06:40:56PM +0900, Kohei Enju <enju.kohei@fujitsu.com> wrote:
+> > Arm CCA MECIDs are limited platform resources. Add a misc cgroup
+> > resource to allow the system administrator to account for and limit
+> > their use.
+> > 
+> > The cca_mec resource represents the number of Realm VMs using the
+> > private MEC policy. Each such Realm consumes one MECID. Charge the
+> > resource when the Realm is created, and uncharge it when the Realm is
+> > successfully destroyed.
+> > 
+> > Realms using the shared MEC policy don't consume this resource.
+> > 
+> > Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_rmi.h |  2 ++
+> >  arch/arm64/kvm/rmi.c             | 44 +++++++++++++++++++++++++++++++-
+> >  drivers/firmware/arm_rmm/rmi.c   |  4 +++
+> 
+> (mainly for this)
+> >  include/linux/misc_cgroup.h      |  4 +++
+> >  kernel/cgroup/misc.c             |  4 +++
+> >  5 files changed, 57 insertions(+), 1 deletion(-)
+> 
+> Conditional
+> Acked-by: Michal Koutný <mkoutny@suse.com>
+> (it makes sense along the other arches' miscresurces)
 
-Patch 1 does:
+Hi Michal,
+Thank you for taking a look.
 
--static inline pte_t ptep_get_lockless(pte_t *ptep)
-+static inline pte_t ptep_get_lockless(const pte_t *ptep)
- {
- 	return ptep_get(ptep);
- }
+> 
+> Why? I see this [1] (or followup) needs to be added first.
 
+Yes, [1] should be added first.
+As also stated in the coverletter, the following series is anothor
+dependency, because this RFC series is on top of those other series.
+https://lore.kernel.org/all/20260715142841.80544-1-steven.price@arm.com/
 
-ptep_get() takes a non-const arg till patch 3 for example for parsic.
-I don't think you can pass a const variable to non const function arg?
+The [1] series is a dependency of the one above, and I didn't mention it
+explicitly in the cover letter. My bad.
 
-So parsic won't compile in patch 1 and 2, powerprc wont compile
-for patches 1, 2 and 3..
+My intention was to get feedback on this RFC series about the
+architecture and the basic design until those dependent series are
+merged, after which I will send this series as non-RFC.
 
+Thanks,
+Kohei
 
+> 
+> Thanks,
+> Michal
+> 
+> [1] https://lore.kernel.org/r/20260715142739.80398-4-steven.price@arm.com/
 
 
 
