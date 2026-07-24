@@ -4,97 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76BEC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F638C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oca1257RcNleArjY25A/HuTOrlgfLsamKajTMfVExe0=; b=117q1yp3liEX5DQadUlFBbb+rD
-	49uSKQhayAKJo3O9gPFzDsmr5A9xWeApR3v+QJfWBDBeJfletSeJYOBuYXl0jgKq7jva+g/qllpAw
-	aDwrxAwCYqiZfGAP7JPKwEdpi74iyHigGfPYSPQAYgxZUHBjtUCGsYGcmN5Tp3DGwKP1vahyRPefl
-	g+sastljyG3DfVM874fC7kv8GtAzH1Udtmg7/tqo1STpr4SodtevzXvel+3riNXmc1AwEslVUhmbR
-	qTEczYgqw9WqB+M6uO2rdmy3LwOPTOoMGvY650FmhoQyn2njKuPDahvJDIMzRII2kvqu1MS3DZDY+
-	GjnT2U/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MxXJXZfOyfaJYZ2IhyrjqCrkFbhnKm7BAWAy4mDHjq0=; b=HZsJvBO/Qi3iiS6KZdTORJcs5h
+	CBEZN9emZ/WGK2J8mn7RuRForNZRqVR78eUurMgJEuSVDdb2ZcCcArwZdFE4gXrIlorsrHa0+W5FI
+	0cCerfeH3ODbfYXnAxvBhhzJkfDWLhTFx7jbEG/6cY1vJPQQ445kqiEu9hEihJFUYE/Omt31A+F5r
+	f6KrSAl85+ywBYlksKPkrh2rZ+O6QyszXkBdVkmna/2T1wsW2ZAO/F5NLrzRBBKGkv5eQwgqf2a+u
+	5uIAiW0839lK2ya3rougb8kPAAMl4CoRvWpq1etWr9rvxP7pm5yRQAZYpYS7y/dqT5VDF03+jOVEk
+	pzRSo4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIiJ-0000000Gq2Q-2U74;
-	Fri, 24 Jul 2026 16:25:31 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wnIj4-0000000GqGd-0TaJ;
+	Fri, 24 Jul 2026 16:26:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIhf-0000000GpYo-0UqM
+	id 1wnIj3-0000000GqGC-15j1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 16:24:52 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47de0093c42so544207f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 09:24:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784910289; x=1785515089; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Oca1257RcNleArjY25A/HuTOrlgfLsamKajTMfVExe0=;
-        b=iEvsNCP7JXDIFneRI5EsMUNzPBh506HWE9Kii+ulFi/ItJOiBe9nx4Ktz+kTH9JFIz
-         obrCLqdNUBv2wQ0i8eG2vuopoBX4CvwucOdWy/1ngTj3zfdEzeNNYT/jPkD6MyXVbEjk
-         rfFmq/ahlmNElbfUzRWHVu4xF51D/NV8VarwaCa9JT1gXuDZ1I81yIeAvRG+PFOurKzc
-         Om4mOpYOSQJlDPHl3j1iVVX0DjfJIXPaMrRm1VjBioV+5Kyy7PNyDg7TE0Mshoi0AXzE
-         AdWvDOuYaTKtFrqpxYeD+IBDkzokHxC0zhgOm+dztz36Xopb30uqxrZfVLtxfWM1noqw
-         5Tvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784910289; x=1785515089;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Oca1257RcNleArjY25A/HuTOrlgfLsamKajTMfVExe0=;
-        b=eMYyOTIlbFfBEF4IHErDp53h2z2krE0UWZ6wTecddvwzlgboWaZZyhddAOOedcq/n7
-         78CpPCE7PvxOgs8GMDNcppPWHF6xokt0TgO+j2C2KcvC1kKyjjqD0XCLw2V4Ik/WR9Q3
-         g+9uEhYl85AJFBXmUds10rXYNMd20WREfxUeI2nfDnNLIoo2zzlG6vg89bmgpR3Noz0Q
-         bg3pnJYSEHJ5KU+uQQpbsd+lfO6iXcsuJBLOS9ySf75+o/RKd/MLciJMyZcMP38mLYUd
-         vzCIDdOAhWWuN9IzJZ4r5zxFI8me3FRUWwAg3n6FF8xaSfv90sppg2ULSlPOS0MSg+rO
-         KitQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpCQuwFByugPdAu1HUR22LsParK9h2yS1u8xNwuVWE4iMNhabq9yt+DWXqCnMzYUI+6SWsx9uSarwgRb/Fy+v2p@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzij3+WIYLhuPtD2aYvYxCTdB4R5qMU+f6WJ3vzYlJ0RmbRTq75
-	0XHb84E5Uq8lCHfgCtIyR3Kdv21w8/I0va/xa2buUcGTvgeH+LIcpaHe
-X-Gm-Gg: AR+sD13bstz2gKqzWtzYQjyJECAZyQ2+WbVjQuZ5n6tlQhDB5tJkrze11Onj5AtTrjR
-	XJGmGPOMiVMtIohZ8cr65JZrKUzmKz2jv1FiPyKprpf4yaO+zknWRQ/ipzxUGEDKVryQvIPH8+B
-	/vFL9ka8LTD/uFpN/XjVbRihIBgH9wDX0C04VCo31XDWQSbguvZgw4goxiJA/Q7kIAsWT8JoKPW
-	Soiz6HoZ7vQruKimrahSYx7u59tQIQM51EzxwEFegCDQhbZ74mz9+o3VZgt0NSiPj/31O7uQYT5
-	7sUdHOaXBBGPugF0YbXt2rdSd1GEDgGW1nRRN9wr/5I2qApXhM1vL2HEkOQf4kgsC+5aWdY8HS0
-	cuyL/e/BjdimOE1voYqqnTHjvK9yjRhgFvhn/ECM2cteORtWIsz6ab1dMj376E3IdGEUEgox9CK
-	68hhw3Cd/K8CLhzYT96ERfa2tNl1NmudrkSqKT5FjHsm6MUsr72v/EtnOECYjw4uEjkd8ru7fiO
-	VoPyQ==
-X-Received: by 2002:a05:6000:1869:b0:47e:8e8a:43f5 with SMTP id ffacd0b85a97d-47f8d71c758mr10505852f8f.20.1784910288925;
-        Fri, 24 Jul 2026 09:24:48 -0700 (PDT)
-Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85b9a5d9sm24366255f8f.5.2026.07.24.09.24.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 09:24:48 -0700 (PDT)
-From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Fri, 24 Jul 2026 18:24:33 +0200
-Subject: [PATCH v2 7/7] arm64: dts: freescale: imx8mm-verdin: Add
- Cortex-M4F UART_4 overlay
+	Fri, 24 Jul 2026 16:26:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4A90560204;
+	Fri, 24 Jul 2026 16:26:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD8881F00A3D;
+	Fri, 24 Jul 2026 16:26:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784910376;
+	bh=MxXJXZfOyfaJYZ2IhyrjqCrkFbhnKm7BAWAy4mDHjq0=;
+	h=Date:From:To:Cc:Subject;
+	b=Ws3GXzHPh9QLc12pQvn8AzBmKp1ofP4yGlY8GL7eqOwLIbYHWTGHz5ZoGYQl9+Yif
+	 cXqPnHroMkxizpTsJoq5t15O0hDwvgS9PN+RuiDfgjM849khk33QOdf/5s6HS7ugNk
+	 JzKV4oj7uQgHnxML4LHI2dY0oJ55hMPzEz9/ltK+5isTanf2siZlJPbLXxSbCe65WO
+	 1zP5QWygRWoQ9gtfR+ZJJX/mSpLcNv/7e8ozYgNX2ridCa/bGhoyEUxUaoGyXSuXef
+	 D5cjqxbxPInX0M5vaHtKjK2nX++8M0YK7y4w+DTFvIhvvLcrWC8lFoEoki/vDkRFxf
+	 m9OPWG1zfLokw==
+Date: Fri, 24 Jul 2026 17:26:12 +0100
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc5
+Message-ID: <amOSJBcrwNy1SV8p@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-v1-verdin-imx8mm-dtbos-v2-7-9d7988bd76f6@toradex.com>
-References: <20260724-v1-verdin-imx8mm-dtbos-v2-0-9d7988bd76f6@toradex.com>
-In-Reply-To: <20260724-v1-verdin-imx8mm-dtbos-v2-0-9d7988bd76f6@toradex.com>
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-X-Mailer: b4 0.13.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_092451_182974_F8FF884A 
-X-CRM114-Status: GOOD (  12.34  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,71 +66,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Hi Linus,
 
-Verdin UART_4 can be assigned to Cortex-M4F firmware. Add an overlay
-that marks the UART as reserved so Linux does not claim the port.
+Please pull these arm64 fixes for -rc5.
 
-The overlay is also combined with the Verdin iMX8M Mini Development
-Board device tree to provide a ready-to-use DTB for the WiFi SoM
-variant.
+It's a bit all over the place, as I was hoping to fix a decade-old bug
+in our seccomp handling on syscall entry and ended up collecting other
+fixes in the meantime. You'll see the failed attempt (+revert) here but
+I didn't want to hold off on the others any longer. Hopefully we'll get
+that one squashed next week...
 
-Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
----
- arch/arm64/boot/dts/freescale/Makefile                     |  3 +++
- arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso | 14 ++++++++++++++
- 2 files changed, 17 insertions(+)
+The usual summary is in the tag.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index fe261d7bdab5..95ae85ab4adf 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -192,6 +192,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-zinnia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-10inch-dsi.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-uart4-mcu.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
-@@ -199,6 +200,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-nau8822-btl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-uart4-mcu.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-ivy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-mallow.dtb
-@@ -220,6 +222,7 @@ imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := imx8mm-verdin-
- imx8mm-verdin-wifi-dev-nau8822-btl-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dev-nau8822-btl.dtbo
- imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := imx8mm-verdin-wifi-dev.dtb \
- 	imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
-+imx8mm-verdin-wifi-dev-uart4-mcu-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-uart4-mcu.dtbo
- imx8mm-verdin-wifi-yavia-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-yavia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
- 
- imx8mm-tqma8mqml-mba8mx-lvds-g133han01-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso
-new file mode 100644
-index 000000000000..8dbecffe9e7b
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Verdin iMX8M Mini UART_4 for Cortex-M4F
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+/* Verdin UART_4 */
-+&uart4 {
-+	status = "reserved";
-+};
+Cheers,
 
--- 
-2.43.0
+Will
 
+--->8
+
+The following changes since commit a13c140cc289c0b7b3770bce5b3ad42ab35074aa:
+
+  Linux 7.2-rc3 (2026-07-12 14:16:39 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to f73a8edc2ccc6ec72c37d5c578e7592d2e1f9922:
+
+  arm64: make huge_ptep_get handled unaligned addresses (2026-07-22 11:44:47 +0000)
+
+----------------------------------------------------------------
+arm64 fixes for -rc5
+
+- Fix early_ioremap() of unaligned ACPI tables
+
+- Remove bogus information from data abort diagnostics
+
+- Fix kprobes recursion during single-step
+
+- Fix incorrect constant in ESR address size fault macro
+
+- Fix OOB page-table walk in memory hot-unplug notifier
+
+- Fix OOB access to the linear map when retrieving an unaligned huge pte
+
+- Fix MPAM register reset values
+
+- Fix MPAM NULL dereference on teardown
+
+----------------------------------------------------------------
+Ben Horgan (1):
+      arm_mpam: Fix software reset values of MPAMCFG_PRI
+
+Dev Jain (1):
+      arm64: make huge_ptep_get handled unaligned addresses
+
+Fenghua Yu (1):
+      arm_mpam: Fix MPAMCFG_MBW_PBM register setting
+
+Guangshuo Li (1):
+      arm_mpam: guard MBWU state before adding it to garbage
+
+Mark Brown (1):
+      arm64: mm: When logging data aborts only decode Xs when ISV=1
+
+Mostafa Saleh (1):
+      drivers/virt: pkvm: Fix end calculation in mmio_guard_ioremap_hook()
+
+Pu Hu (2):
+      arm64: kprobes: Only handle faults originating from XOL slot
+      arm64: kprobes: Allow reentering kprobes while single-stepping
+
+Richard Cheng (1):
+      arm64/mm: Check the requested PFN range during memory removal
+
+Steven Price (1):
+      arm64: Correct value returned by ESR_ELx_FSC_ADDRSZ_nL()
+
+Will Deacon (2):
+      arm64: syscall: Ensure saved x0 is kept in-sync with tracer updates
+      Revert "arm64: syscall: Ensure saved x0 is kept in-sync with tracer updates"
+
+Yu Peng (1):
+      arm64: fixmap: Allow 256K early_ioremap() at any offset
+
+ arch/arm64/include/asm/esr.h                  |  2 +-
+ arch/arm64/include/asm/fixmap.h               |  6 +++-
+ arch/arm64/include/asm/kprobes.h              |  6 ++++
+ arch/arm64/kernel/probes/kprobes.c            | 45 ++++++++++++++++++++++++++-
+ arch/arm64/mm/fault.c                         |  7 +++--
+ arch/arm64/mm/hugetlbpage.c                   |  2 +-
+ arch/arm64/mm/mmu.c                           |  2 +-
+ drivers/resctrl/mpam_devices.c                | 36 ++++++++++++---------
+ drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c |  2 +-
+ 9 files changed, 85 insertions(+), 23 deletions(-)
 
