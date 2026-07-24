@@ -4,98 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2120C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D7FC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGz+DziMCCNP+G53uFml+3t5jRPhEGonJh8K7lK1cLc=; b=Wxz9zdLi8XJmJFVOfZ5pTgdkuk
-	yIvV9V/WnUCHmCMlCMk58n/4+CkKp5VyTWhGVPkcyuj0s1F+9tLohQzIG5kmWMdYI1l9kGc2Ap4Ij
-	mqruo0n2pErOrLKaQXt2ur14L2dB1ugAUvvGCxLvVGJlBpb4SKId8Sf99FGIBUfhr96Efj4sGTWxn
-	nphic7PXoHZQXywR2bsteyLtVFLdlhQ/3O6RAHbg9ixs6c0HdX0FaB48TqR7CDRcMdDnKw5slVy8B
-	7vsiIC3FR3nFs3w5y2ewDcB8VvKdb2uBTOzRekKm1+g3zej5h1xsahmYoGOyK+MRVtdY029Lr3gUN
-	bice8obg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yaBklIEnXSs0wqdbLYG6OP3wkbhIDgt/D4Zh+qG2Hw8=; b=oCxKjp0+aEFmzA2mZ7KDYCInfy
+	IMIxDypm7o0AThnHg9a7qCfOGr2ATEvQtssOnbu1kjZ6hjNxrEhpjIrZqzO9RTpN6C26uIX7tgHr+
+	FDp4ZwD1ITkoWCe5UyuSLLwOVAbSK4PMy5vm4pDaH9mFUIApahDnlejD3Jo+uIq4hUfLqIoXJkHdz
+	Wz1gLTxW8tHt9E9dV5fQfnLf2ua0qu7j5bfhbo5Pdy0OdLwdqCCAQX1hSfaksGZgH+LyambIbkbOz
+	kBcK2Xy1ZWb+4MZ1l4c/bn8P/o2CsCwNVg+ODH4Cn/7g2DBYEFrOJa+7I4YQMOAdBJCsJttQtpoC3
+	CLVHdSWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKFi-0000000H0sC-2Y3z;
-	Fri, 24 Jul 2026 18:04:06 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wnKH1-0000000H2BD-36xU;
+	Fri, 24 Jul 2026 18:05:27 +0000
+Received: from mail-eastusazon11011019.outbound.protection.outlook.com ([52.101.52.19] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKFI-0000000H0HO-12fO;
-	Fri, 24 Jul 2026 18:03:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784916210;
-	bh=5CzJeiuI6wo/L5OxHOxynGVIdB4Nvan/pG5/QCPCpeY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kzc6rivKRcJOre09ylKjq2AIGCnjGXpRBHi4LF1oWk+6Xku/5qh0lX3Pbf7N4W2cP
-	 3AOMnyJk2dq2QLcqqZsdPCKZN3TxXt+Pa3Uxcq06yFb4D+8kFnDVWN3zHr6XU87SWD
-	 exsnBkoVHLbzobdA3go97j/eTIZbuREz4r4JF+Z8r8aXj+IFzsyzRjQPl5pZiv7Fyn
-	 JUyfkuxl7ohpx5szlpFOfcMJXNaV6NdEbXt+Gg8thHj5hkLENITleUt9MQh/JWA2v1
-	 jFMyZMURt4neosUwfuw/qm7zWDpUd1DD2UAkRcGMv8eEjnx/CbudchvZwTeBQ7MNwJ
-	 oG8szxnHBBMvQ==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D376F17E037A;
-	Fri, 24 Jul 2026 20:03:29 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id F3C02480061; Fri, 24 Jul 2026 20:03:28 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 24 Jul 2026 20:03:38 +0200
-Subject: [PATCH v6 16/16] drm/bridge: synopsys: dw-dp: Add audio support
+	id 1wnKGv-0000000H2AY-2eGT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jul 2026 18:05:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IId4KfUZ678j8JbTspyuVUegRWVbo0arLgrWoXtu/C9qXYgdgZnLRYkRh7zyabmoPq38v7oM6uGMioCOvWsf0qaee/kryMStVESK6n2E/q1esS4ZHzyxCo6u9ZpXh3tV3dWlE+W5n/ZMjmIv3NpGvTl8dETD1SXFVg9wAOMS0X2XUE1qV752q1ZMQUS1z+23yc1y68QXTWxb2ebbzB3/JXKwInz8bCwlE8OSLPA9L4xTS8y3YZqpG6z0NEvQniszRwaQkNGIkykCIjZ383QWyJsRnF0tHDUFJ7oXlyJFgV3QJa3/nJgj7ewvNFw1CeqIER93tZ+GbPrFiNnyvhHm4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yaBklIEnXSs0wqdbLYG6OP3wkbhIDgt/D4Zh+qG2Hw8=;
+ b=HMWAx985omt7yJ0l3HSSRnlsXKqdPDPcKTs1c87r9T0J8D1+uEs4wWC8ZN/Z9Pd16DozuzWQ+/LEHUqclwHWkxB4KZTLLshmKQPJkTJ6AFQt8wYgQ06rTxEvrMgBekn5T70SUWf0yfE2uRHN8yTZ/Ye3DNOAt0nEJd2CT/bmoWOOYVfkISW0R98ksSZi1EiW5Fy2mr4p0Q4dzSeMF/ndqjFjRSN4aPi601Rsb6F7RAoq+p8JcFkEr14iEES4s5MDX0bE3pQpm1+QiSN1qZfEBzdhGUn9y3tanJBq9zIo9BV6mCNI1ornsRWDo0RSuEiVz+MHINZlA2XR3+J9ImK0xQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=linaro.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yaBklIEnXSs0wqdbLYG6OP3wkbhIDgt/D4Zh+qG2Hw8=;
+ b=qF/9jx2MyJ/796pgWYJyp6ETfpf6rAYMO5KC0rrq97sbfd9bYwbHKrfsiWjTqG1Mfwn5zRNBblm5eZOhXFknRCLkYqx1yA4TNKAytmwCUKRIyq50V+JWbHHP0tF62eC/lxGDIFxG+Ba1yaueKw+777akcGVQacop0tp3rgSMVyJbKgIFIfEgQTF7onXUoNuibXMwP0fH1TDjhka2ljJ9hk9kZL/SHxeYHw6ju3q+DGoEvh4gCuWYR1nmB1XqO1PGP0ALlLErgU9XhzKcoXHL5Sv1s2+pwH/Y/i5B7hxK7O8vXqhdKBjHhXbn8P4P1WWm98zVRpwXuqtkUlkixA9ydA==
+Received: from MW4PR04CA0185.namprd04.prod.outlook.com (2603:10b6:303:86::10)
+ by IA1PR12MB8286.namprd12.prod.outlook.com (2603:10b6:208:3f8::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 18:05:12 +0000
+Received: from SJ5PEPF0000020A.namprd05.prod.outlook.com
+ (2603:10b6:303:86:cafe::5c) by MW4PR04CA0185.outlook.office365.com
+ (2603:10b6:303:86::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.12 via Frontend Transport; Fri,
+ 24 Jul 2026 18:05:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ5PEPF0000020A.mail.protection.outlook.com (10.167.244.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 18:05:12 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 24 Jul
+ 2026 11:05:00 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 24 Jul 2026 11:04:59 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 24 Jul 2026 11:04:58 -0700
+Date: Fri, 24 Jul 2026 11:04:56 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Peter Griffin <peter.griffin@linaro.org>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Pranjal
+ Shrivastava" <praan@google.com>, Daniel Mentz <danielmentz@google.com>,
+	Mostafa Saleh <smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <kernel-team@android.com>,
+	<tudor.ambarus@linaro.org>, <andre.draszik@linaro.org>,
+	<willmcvicker@google.com>, <jyescas@google.com>
+Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Override for Inst/Data attribute
+Message-ID: <amOpSPmc36+YXgCQ@nvidia.com>
+References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
+ <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-synopsys-dw-dp-improvements-v6-16-041d99a19c4e@collabora.com>
-References: <20260724-synopsys-dw-dp-improvements-v6-0-041d99a19c4e@collabora.com>
-In-Reply-To: <20260724-synopsys-dw-dp-improvements-v6-0-041d99a19c4e@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10909;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=5CzJeiuI6wo/L5OxHOxynGVIdB4Nvan/pG5/QCPCpeY=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpjqPD5VanXxrsiDazqxguJKDUeTqF7mC4eC
- QShh4/HG0QdgYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqY6jwAAoJENju1/PI
- O/qafbQP/jVLXAMR0FA4ht6+qHo+V0SkQjW/RH6Bl9qKnnnadc9+ynT4bg1o1Ld1yiaFQd7bSwF
- HF2Rku7YKVEp5BDEDb4hUmtDGspmSDoyD3ew9B74oDFdM/2BpDwOsGVIC52vyFPvne7KtIPv3re
- BoZWiH17+yA98lbYrgXI2/PGGKhSV6w+jto9OveDi7bt4CLeSDnz5dE9htfXpmBFZv6+0u5ziwN
- UavdqmWvufb92iHUJqQl66iKTkTgWycq/9Et7A6NZ53YJZuo1F9EoT2SU7nmeLBTnOW31hLZxDW
- 0IIKvHpw96pgSbNmbFOAn0wErztYqldyldPVOaNU9tgHl1hmzLtWZugq42IxiPg/1pc6pTdS3cp
- xpyq4QkPK/UPDefiwVY0JLFP+qh65MP3GRDwlGam0Y1+VQvwOuZU0ohfwFgbiMpMoIi2UUFbug0
- yqmd9P9E46LXYK9MK9eHDISPZiKSFoE9k9B0l1RmU84U9MBgXuiO/2IP8bUTibOVd4xJEc9c0UT
- G0cnVH9IboUTijjCUwgJS12co51aWdkeAsFK+dbUTTU5uRwHNC0sLIrb3ChC2V8gLbpiCIFFr/x
- /+iuLeO0q86sel9bAfqUMqIAg18vG09l2QhJRJtBbJkyj8tI+OLi90tK6cwZzNiaBp8A2B3ITGo
- +I7I/H3rRZkvSEuEC9d8mwA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF0000020A:EE_|IA1PR12MB8286:EE_
+X-MS-Office365-Filtering-Correlation-Id: 40cdaa8a-de48-4a48-c726-08dee9ae1b5b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|23010399003|7416014|11063799006|56012099006|10067099003|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: V75vysgnBPwo9VAs6GmkJ11O9uyThw7B8+d9gL6poEip1Y+aNHhByccK0lVgrpnSP2ywFc2qvjye5Yfp7HKcP7/h/2NETZ0b4Jfh8tMt4GuaUUeEgYzB6adn0ppOixUW1DyF1WSRHldQXcSjZjhIV9sXLyXiuFAeCay0AoFOOEOOBwLDfLkUOmJydwX5Y74fym71uTr780pWiWNdni+JhjrsLadk9syT4XHIURyX0oPc7d8MymqhnRlQK5tfFYPySY8rRudHqBnu7Yi19rrDSZ24HL4zzOAK+geudcBabAHXr13ly3ySxIie6V5OTBwzmpNi45Ko9MGxPo0f6OvnxDR5EGvtcJ2JbAQdipgBSqdcMn/qzui3JHk6/eoabDyB8tbJmaMDTyuhg6Ob7qA2U7te6+TtgmrYlHJB3ErRsXEyDhAzy1cHgL+yEmK0iZbgwEW6Jmxt0mIuyH3KMmQYa+/PLcV25LgdFypCZ152y3xdBG3+745ZPVEBHDMqgvviQbpHvftYoJa4fSFzUa/GlgvRJhIOTHS9wG/GMGPp8+25vtrYwVScrkiYTNcyXPp1gf2nuOe7WpFelBq2C3cpfg72tgBpa6uVNDlINP+F+O03EgPEoXXH4l1IOUeSQF2NHoDXmGOzOxfA4znl3TG0Ja0FK3ffkDk+ppQVZ9VKjE5fGeqa2Jdff0jkNeGK5Qi60XSym+NVRidg17ZNkkRm3w==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(23010399003)(7416014)(11063799006)(56012099006)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Msapzi+1hEuc0mFGNp5mybScohmIQJkOn6sRPmKeBPAv7eSboQM5bGoYiEWr4dqcgExVmwz+/kkMmE9zJS2rxFZALhWPuYLadqQJdoeGa9/Dw9F2uyR+2qZNVEckAhGlkXe+aSY7BXwHeJVtQBnaYiRecn+CK9oeWg0qCKobeTY6ZAXAVXYcPv6Yynesd5BQPlm0Hv1q48Dw5hYr72eW4D4os6WdI0YlMFHDb8eJeKS8P7iYruKNqgJFhWRK6G0XAUF6w8byir0fWevgpNX15wqueKwoeao5cYBy1731a/rKpuvplE5Det9KIXqagjqwYQqVM5ujD3sdDZo4WuuWZYFlHAzykYYKZIkKPVwsSaZggvjXZ0k5pVzKsXBSIuCWO//0rBvq4ZxNyvF3WxwNy2TezR9UCnPuFcAaD0+YishuvkVfmairhI7St+ddwheh
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 18:05:12.5424
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40cdaa8a-de48-4a48-c726-08dee9ae1b5b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF0000020A.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8286
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_110340_685101_337E3E32 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20260724_110521_682994_68FED888 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,360 +134,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement audio support for the Synopsys DesignWare DisplayPort
-controller.
+On Fri, Jul 24, 2026 at 01:39:43PM +0100, Peter Griffin wrote:
+> @@ -1206,7 +1207,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
+>  			cpu_to_le64(STRTAB_STE_1_S1DSS | STRTAB_STE_1_S1CIR |
+>  				    STRTAB_STE_1_S1COR | STRTAB_STE_1_S1CSH |
+>  				    STRTAB_STE_1_S1STALLD | STRTAB_STE_1_STRW |
+> -				    STRTAB_STE_1_EATS | STRTAB_STE_1_MEV);
+> +				    STRTAB_STE_1_EATS | STRTAB_STE_1_MEV |
+> +				    STRTAB_STE_1_INSTCFG);
+>  		used_bits[2] |= cpu_to_le64(STRTAB_STE_2_S2VMID);
+>  
+>  		/*
+> @@ -1222,7 +1224,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
+>  	if (cfg & BIT(1)) {
+>  		used_bits[1] |=
+>  			cpu_to_le64(STRTAB_STE_1_S2FWB | STRTAB_STE_1_EATS |
+> -				    STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV);
+> +				    STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV |
+> +				    STRTAB_STE_1_INSTCFG);
+>  		used_bits[2] |=
+>  			cpu_to_le64(STRTAB_STE_2_S2VMID | STRTAB_STE_2_VTCR |
+>  				    STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2ENDI |
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 263 +++++++++++++++++++++++++++++++-
- 1 file changed, 261 insertions(+), 2 deletions(-)
+This adds for "stage-1" and "stage-2", while missing "bypass"?
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 44a13b5d62d3..c7d6f63b5e9a 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -23,17 +23,21 @@
- #include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
- #include <drm/display/drm_dp_helper.h>
-+#include <drm/display/drm_hdmi_audio_helper.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_of.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
- 
-+#include <sound/hdmi-codec.h>
-+
- #define DW_DP_VERSION_NUMBER			0x0000
- #define DW_DP_VERSION_TYPE			0x0004
- #define DW_DP_ID				0x0008
- 
- #define DW_DP_CONFIG_REG1			0x0100
-+#define AUDIO_SELECT				GENMASK(2, 1)
- #define DW_DP_CONFIG_REG2			0x0104
- #define DW_DP_CONFIG_REG3			0x0108
- 
-@@ -110,6 +114,10 @@
- #define HBR_MODE_ENABLE				BIT(10)
- #define AUDIO_DATA_WIDTH			GENMASK(9, 5)
- #define AUDIO_DATA_IN_EN			GENMASK(4, 1)
-+#define AUDIO_DATA_IN_EN_CHANNEL12		BIT(0)
-+#define AUDIO_DATA_IN_EN_CHANNEL34		BIT(1)
-+#define AUDIO_DATA_IN_EN_CHANNEL56		BIT(2)
-+#define AUDIO_DATA_IN_EN_CHANNEL78		BIT(3)
- #define AUDIO_INF_SELECT			BIT(0)
- 
- #define DW_DP_SDP_VERTICAL_CTRL			0x0500
-@@ -253,6 +261,8 @@
- 
- #define SDP_REG_BANK_SIZE			16
- 
-+#define DW_DP_SDP_VERSION			0x12
-+
- struct dw_dp_link_caps {
- 	bool enhanced_framing;
- 	bool tps3_supported;
-@@ -305,6 +315,19 @@ struct dw_dp_hotplug {
- 	bool long_hpd;
- };
- 
-+enum dw_dp_audio_interface_support {
-+	DW_DP_AUDIO_I2S_ONLY = 0,
-+	DW_DP_AUDIO_SPDIF_ONLY = 1,
-+	DW_DP_AUDIO_I2S_AND_SPDIF = 2,
-+	DW_DP_AUDIO_NONE = 3,
-+};
-+
-+enum dw_dp_audio_interface {
-+	DW_DP_AUDIO_I2S = 0,
-+	DW_DP_AUDIO_SPDIF = 1,
-+	DW_DP_AUDIO_UNUSED,
-+};
-+
- struct dw_dp {
- 	struct drm_bridge bridge;
- 	struct device *dev;
-@@ -320,6 +343,9 @@ struct dw_dp {
- 	int irq;
- 	struct work_struct hpd_work;
- 	struct dw_dp_hotplug hotplug;
-+	enum dw_dp_audio_interface audio_interface;
-+	int audio_channels;
-+	int audio_sdp_nr;
- 	/* Serialize hpd status access */
- 	struct mutex irq_lock;
- 	/* Serialize sdp_reg_bank access */
-@@ -1073,7 +1099,19 @@ static int dw_dp_send_sdp(struct dw_dp *dp, struct dw_dp_sdp *sdp)
- 		regmap_set_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
- 				EN_HORIZONTAL_SDP << nr);
- 
--	return 0;
-+	return nr;
-+}
-+
-+static void dw_dp_clear_sdp(struct dw_dp *dp, int nr)
-+{
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			  EN_VERTICAL_SDP << nr);
-+
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			  EN_HORIZONTAL_SDP << nr);
-+
-+	scoped_guard(mutex, &dp->sdp_lock)
-+		clear_bit(nr, dp->sdp_reg_bank);
- }
- 
- static int dw_dp_send_vsc_sdp(struct dw_dp *dp)
-@@ -1886,6 +1924,212 @@ static void dw_dp_bridge_oob_notify(struct drm_bridge *bridge,
- 		dev_err_once(dp->dev, "Missing platform handler for OOB HPD handling\n");
- }
- 
-+static int dw_dp_audio_infoframe_send(struct dw_dp *dp)
-+{
-+	struct hdmi_audio_infoframe frame;
-+	struct dw_dp_sdp sdp;
-+	int ret;
-+
-+	ret = hdmi_audio_infoframe_init(&frame);
-+	if (ret < 0)
-+		return ret;
-+
-+	frame.coding_type = HDMI_AUDIO_CODING_TYPE_STREAM;
-+	frame.sample_frequency = HDMI_AUDIO_SAMPLE_FREQUENCY_STREAM;
-+	frame.sample_size = HDMI_AUDIO_SAMPLE_SIZE_STREAM;
-+	frame.channels = dp->audio_channels;
-+
-+	ret = hdmi_audio_infoframe_pack_for_dp(&frame, &sdp.base, DW_DP_SDP_VERSION);
-+	if (ret < 0)
-+		return ret;
-+
-+	sdp.flags = DW_DP_SDP_VERTICAL_INTERVAL;
-+
-+	return dw_dp_send_sdp(dp, &sdp);
-+}
-+
-+static int dw_dp_audio_startup(struct drm_bridge *bridge,
-+			       struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio startup\n");
-+
-+	return pm_runtime_resume_and_get(dp->dev);
-+}
-+
-+static void dw_dp_audio_unprepare(struct drm_bridge *bridge,
-+				  struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	if (dp->audio_sdp_nr >= 0) {
-+		dw_dp_clear_sdp(dp, dp->audio_sdp_nr);
-+		dp->audio_sdp_nr = -1;
-+	}
-+
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			  EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP);
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			  EN_AUDIO_STREAM_SDP);
-+
-+	regmap_clear_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_DATA_IN_EN);
-+
-+	if (dp->audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (dp->audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+}
-+
-+static int dw_dp_audio_prepare(struct drm_bridge *bridge,
-+			       struct drm_connector *connector,
-+			       struct hdmi_codec_daifmt *daifmt,
-+			       struct hdmi_codec_params *params)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+	u8 audio_data_in_en, supported_audio_interfaces;
-+	enum dw_dp_audio_interface audio_interface;
-+	u32 cfg1;
-+	int ret;
-+
-+	/*
-+	 * prepare might be called multiple times, so release the clocks
-+	 * from previous calls to keep the calls in balance.
-+	 */
-+	if (dp->audio_interface != DW_DP_AUDIO_UNUSED)
-+		dw_dp_audio_unprepare(bridge, connector);
-+
-+	/* The hardware is limited to 1,2 or 8 channels */
-+	dp->audio_channels = params->cea.channels;
-+	switch (params->cea.channels) {
-+	case 1:
-+	case 2:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12;
-+		break;
-+	case 8:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12 |
-+				   AUDIO_DATA_IN_EN_CHANNEL34 |
-+				   AUDIO_DATA_IN_EN_CHANNEL56 |
-+				   AUDIO_DATA_IN_EN_CHANNEL78;
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid audio channels %d\n", dp->audio_channels);
-+		return -EINVAL;
-+	}
-+
-+	if (params->sample_width < 16 || params->sample_width > 24) {
-+		dev_err(dp->dev, "invalid data sample width %d\n", params->sample_width);
-+		return -EINVAL;
-+	}
-+
-+	switch (daifmt->fmt) {
-+	case HDMI_SPDIF:
-+		audio_interface = DW_DP_AUDIO_SPDIF;
-+		break;
-+	case HDMI_I2S:
-+		/*
-+		 * It is recommended to use SPDIF instead of I2S, since I2S mode requires
-+		 * manually inserting PCUV control bits from userspace and this is done
-+		 * automatically in hardware for SPDIF mode.
-+		 */
-+		audio_interface = DW_DP_AUDIO_I2S;
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid DAI format %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	regmap_read(dp->regmap, DW_DP_CONFIG_REG1, &cfg1);
-+	supported_audio_interfaces = FIELD_GET(AUDIO_SELECT, cfg1);
-+
-+	if (supported_audio_interfaces != DW_DP_AUDIO_I2S_AND_SPDIF &&
-+	    supported_audio_interfaces != audio_interface) {
-+		dev_err(dp->dev, "unsupported DAI %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	ret = clk_prepare_enable(dp->spdif_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(dp->i2s_clk);
-+	if (ret) {
-+		clk_disable_unprepare(dp->spdif_clk);
-+		return ret;
-+	}
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1,
-+			   AUDIO_DATA_IN_EN | NUM_CHANNELS | AUDIO_DATA_WIDTH |
-+			   AUDIO_INF_SELECT | HBR_MODE_ENABLE,
-+			   FIELD_PREP(AUDIO_DATA_IN_EN, audio_data_in_en) |
-+			   FIELD_PREP(NUM_CHANNELS, dp->audio_channels - 1) |
-+			   FIELD_PREP(AUDIO_DATA_WIDTH, params->sample_width) |
-+			   FIELD_PREP(AUDIO_INF_SELECT, audio_interface) |
-+			   FIELD_PREP(HBR_MODE_ENABLE, 0));
-+
-+	/* Wait for inf switch */
-+	usleep_range(20, 40);
-+
-+	if (audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_interface = audio_interface;
-+
-+	/*
-+	 * Send audio stream during vertical and horizontal blanking periods.
-+	 * Send out audio timestamp SDP once per video frame during the vertical
-+	 * blanking period
-+	 */
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1) |
-+			   FIELD_PREP(EN_AUDIO_TIMESTAMP_SDP, 1));
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1));
-+
-+	dp->audio_sdp_nr = dw_dp_audio_infoframe_send(dp);
-+	if (dp->audio_sdp_nr < 0) {
-+		dev_err(dp->dev, "failed to send audio infoframe\n");
-+		dw_dp_audio_unprepare(bridge, connector);
-+		return dp->audio_sdp_nr;
-+	}
-+
-+	dev_dbg(dp->dev, "audio prepare with %d channels using DAI=%d\n",
-+		dp->audio_channels, dp->audio_interface);
-+
-+	return 0;
-+}
-+
-+static void dw_dp_audio_shutdown(struct drm_bridge *bridge,
-+				 struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio shutdown\n");
-+
-+	dw_dp_audio_unprepare(bridge, connector);
-+	pm_runtime_put_autosuspend(dp->dev);
-+}
-+
-+static int dw_dp_audio_mute_stream(struct drm_bridge *bridge,
-+				   struct drm_connector *connector,
-+				   bool enable, int direction)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio %smute\n", enable ? "" : "un");
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_MUTE,
-+			   FIELD_PREP(AUDIO_MUTE, enable));
-+
-+	return 0;
-+}
-+
- static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-@@ -1899,6 +2143,11 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.detect = dw_dp_bridge_detect,
- 	.edid_read = dw_dp_bridge_edid_read,
- 	.oob_notify = dw_dp_bridge_oob_notify,
-+
-+	.dp_audio_startup = dw_dp_audio_startup,
-+	.dp_audio_prepare = dw_dp_audio_prepare,
-+	.dp_audio_shutdown = dw_dp_audio_shutdown,
-+	.dp_audio_mute_stream = dw_dp_audio_mute_stream,
- };
- 
- static int dw_dp_link_retrain(struct dw_dp *dp)
-@@ -2057,10 +2306,20 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
- 
- 	bridge = &dp->bridge;
- 	bridge->of_node = dev->of_node;
--	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
-+	bridge->ops = DRM_BRIDGE_OP_DP_AUDIO |
-+		      DRM_BRIDGE_OP_DETECT |
-+		      DRM_BRIDGE_OP_EDID |
-+		      DRM_BRIDGE_OP_HPD;
- 	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
- 	bridge->ycbcr_420_allowed = true;
- 
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+	dp->audio_sdp_nr = -1;
-+	bridge->hdmi_audio_dev = dev;
-+	bridge->hdmi_audio_max_i2s_playback_channels = 8;
-+	bridge->hdmi_audio_dai_port = 1;
-+	bridge->hdmi_audio_spdif_playback = true;
-+
- 	drm_bridge_add(bridge);
- 
- 	dp->aux.dev = dev;
+> @@ -1835,7 +1838,11 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
+>  			 STRTAB_STE_1_S1STALLD :
+>  			 0) |
+>  		FIELD_PREP(STRTAB_STE_1_EATS,
+> -			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0));
+> +			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0)) |
+> +		FIELD_PREP(STRTAB_STE_1_INSTCFG,
+> +			   smmu->options & ARM_SMMU_OPT_OVR_INSTCFG_DATA ?
+> +				   STRTAB_STE_1_INSTCFG_DATA :
+> +				   STRTAB_STE_1_INSTCFG_INCOMING);
 
--- 
-2.53.0
+Sashiko pointed out that this prematurely closes the cpu_to_le64()
+macro.
 
+> @@ -1887,7 +1894,11 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
+>  
+>  	target->data[1] = cpu_to_le64(
+>  		FIELD_PREP(STRTAB_STE_1_EATS,
+> -			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0));
+> +			   ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0) |
+> +		FIELD_PREP(STRTAB_STE_1_INSTCFG,
+> +			   smmu->options & ARM_SMMU_OPT_OVR_INSTCFG_DATA ?
+> +				   STRTAB_STE_1_INSTCFG_DATA :
+> +				   STRTAB_STE_1_INSTCFG_INCOMING));
+
+You might need to set in arm_smmu_make_bypass_ste() too.
+
+> @@ -5087,6 +5098,13 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+>  	if (smmu->sid_bits <= STRTAB_SPLIT)
+>  		smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
+>  
+> +	if (reg & IDR1_ATTR_PERMS_OVR) {
+> +		smmu->features |= ARM_SMMU_FEAT_PERMS_OVR;
+
+Where does this new feature bit get used?
+
+Nicolin
 
