@@ -4,171 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B54C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B46FC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KPCrpQ0VJGnkL8TeDiCE7B+2L9MbbS21BzEsGKWPP/I=; b=0N9eUDMzmboZhQtYxh8d5W8ejD
-	ttvqTXMUbEJXEtz7+SoDVeiVQWdPiTkA+M5yqomtsK+lHYshSYJJ1pFgsbDbAmlXYR2NswdMxS+s1
-	TNkaZl0RPIlPlW3YKmcfzxUmGBl2Y5HLyLKSkZ8Lfw7uWTuWX9U+fxrc/a+VhFqYu55Qa966fbgC+
-	iNwvnWcDYukSR7hjkZKMrH9JugS2wAZdsgtfeM3yBdfsybrkGClR1oIpPL72HdNsaz4NYuamia+b3
-	6D8cEaRMCQ4poAB390ZT/9+txMdtXQ9x+Wk+sqZFkAVd1SPU8K0D4ZM+kN1GIY+UjtvMMitY+vNCh
-	bjNbkKNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I3reP4ukBDHXGVjk3dQmqRcVxZpWewzDKCdysd3jRqY=; b=4tH7BIOEu4sa6Zz/vdJDfbE+M7
+	Whm9XvcAgwzsfydK0WDPnc47V6wCANh2vVV1Imw7sty9zIWaV5LliRfpG7irHKxBsLwYne2Xn7HHa
+	EIAPDjecvNGKRFLTUJFocRDnag2mEBX6dMNQvzUbTt8fQjPT0Wsya2/b7Ir2U/0zZ/goA5G+LCx5z
+	F38vvfgSzF3Svsn0m5igYXErauzd29OJitrnXgUjzgUJPANwuUJfEk8j+0knoBL6xgsri7f/TBGPi
+	TaL8VZnsgapz6nSdEH86wm+Qg7LUVC2sMzxKl+o2mkv6FrPbPZGhf47A/UUACNfdyRnhQh9T2j9Rq
+	erTSboWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHn4-0000000Ghfc-2qTo;
-	Fri, 24 Jul 2026 15:26:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wnHqI-0000000GiEy-0UW5;
+	Fri, 24 Jul 2026 15:29:42 +0000
+Received: from mail-westeuropeazon11010020.outbound.protection.outlook.com ([52.101.69.20] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHmT-0000000GhT4-1NAa
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 24 Jul 2026 15:25:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KPCrpQ0VJGnkL8TeDiCE7B+2L9MbbS21BzEsGKWPP/I=; b=i0KlH3H8cfibIfAc9zn0phUhfG
-	DTsur55nDnEZZoIbEdetXk4ghBlSsDiuXf0LSMkR4/JbMiu2UIbsCj/nLIqDYOxD7MMUXnnxgLrSV
-	sEvuw6THnBJDg4LyIRogP2NbieSGtFCuMUQNkg9AV9inX41hDgEknykWUW7XrQfcU1tCr4R7qslnn
-	xyr6BqNcoJIYss4g068870HJDVEHPq0+vFNEkHA7g0bHsXbsLsrNtR9QzaEoYttelg1o3rwPQsAI8
-	2r3uPqRh5KHs0AKPBYz5RxF8mYbwga80Qo7HHD7H16/KO0rY5gvehvSDlhK7NTgLo0GIT3r+S0MOG
-	P8z+xw+w==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wnHmP-00000002hoq-20Sw
+	id 1wnHqE-0000000GiEN-4632
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 15:25:44 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66ODbAZr2933471
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:25:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KPCrpQ0VJGnkL8TeDiCE7B+2L9MbbS21BzEsGKWPP/I=; b=MAa0q0GAaRVPzYQf
-	YGCgntqUuQsm3Txj5s0FjQeqY356BJS/s2mwbtwwlkNDO9UmVSeYArhsvi445ztB
-	3FpAFO5jz66XNmL2q1h1ldc+7pIEl/yGOuYCWsSqU33JfuQxmnG2P1lUWEY6aPoL
-	M1DXl7dkQ8rxsjIu2pzMZkhubPLUYVRIMzZdlvE23Ivkaj+szb+gQl0xxTT+SZL1
-	t7xTYFhisO7RfSY4pMV1DCnc5zf3h8URctquQbwTC4+EHaYt2T6FMLCtKocQk0HM
-	d5KvcoBKaTkR6FRYvfat7L9lM5WoVJ6sQpgW+AqUY6ZII1rjFaJGQxA+eyuJZflp
-	SK/plA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fm8cj8jra-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:25:36 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92e66f9e2baso78895785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 08:25:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784906736; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Qe/xio8fbMYwkv8eB78V9ZNMQ+XlLBKpFkkHKb7QxC+o5DkmTRAqCh7hPohhwCnWht
-         5Jrlp+2p+WqYLtG3l/RStFcKpiw+W71XHwaq8gv/0Snq+hQULSXkWfvtYGt6D3QWmEB6
-         LXU4mf3X0XD6BODk95SAtSP2h0nT02R1hOQSWF7ZY7DFhVmous2RVhvoaW/urugsM4XY
-         BlBraXTaZKEyYjapruc1bG6rk0rxOEOkPH1ysgrMiSNmv6fSpqdWjKnXhi2c+Yfjg52U
-         eQHSnVul6cbKuhgXKBxd2ez50S+mXptwJ4AtsZ9xATgqiFw2tgoMC/Wf9+5c4uCxDtMT
-         cBVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KPCrpQ0VJGnkL8TeDiCE7B+2L9MbbS21BzEsGKWPP/I=;
-        fh=Q9ieofumPRUzqERl7dN8FtmYJGHz80splHsgg+wXP5o=;
-        b=Wy2KzYK64oolu5+CFxu4wJh641bSzQACi4Xdn8Lr8Cws0nqsatz1ynEJciN19D+oYu
-         QIbjtg5+oSEHPwmr1v2XHxbLL/3x3GRjfD2gLlvP8cFnz0IDlLkl93JotuCS+LkT5q5S
-         OC2ybfh6Z9OL24RLXz1m9mNVUjTPFgDpzB6wEvSSE/ORPx7bwkTw/Cy4Ju4h2DOwAX4w
-         vqTosEy9QmWSsbJg0rWjtmJ7uiKYsBwadZu7kiyk+y0wmd9eItfHbrz6xcFKuSTNkiBn
-         cH+d5J6smrVVpnDUX2wrFKm3pQev5MCfPxs4aK+L6KME0JlUVUGkOgC5N1edvbtJRwVP
-         uxFg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784906736; x=1785511536; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KPCrpQ0VJGnkL8TeDiCE7B+2L9MbbS21BzEsGKWPP/I=;
-        b=EJcFEWyRcTNDo2tojeN9M4s5XlKdRsTZWUqMZU6s1/PjWIZRp8fJfs4wXkT+EOI642
-         YAq55HlM0BkLzm1Gwz5oCg1Xy5YdxIyclr5pnQ/5fQ8bW7ebiyf/NqYnrok1j80JwJNy
-         d8c798pXYSS/2dYS0uY4dVdvyoFFXt3eRqqrMi5jeLyX99/++rxFvScT2R5PygfvWti3
-         hPlaKzsuZnyqxVB4tWPU876OYACS7RlCF1Nb8CAPaIr5EiqGyTh8gpug73YQZzQjV5D3
-         v5JjlvmUpC7goXdzAMdw+IOYRc0jEXJv1QfrWWpAtIWj7C/k/BRMCN8VkDFcaUeIbiZn
-         HLfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784906736; x=1785511536;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KPCrpQ0VJGnkL8TeDiCE7B+2L9MbbS21BzEsGKWPP/I=;
-        b=pNVB3vBql8GODq+gRrqWt8SPN5Ttd+FfNbjSibFL4a3tLN2SAca0Q8DE2tQWGDeIz3
-         Te4XRH+RamGFdlJHUyKuz00D3PoZ6hQK67njFsfawF2rDX14yekt7mteMiyg95XqIzmt
-         GjRmwFOJIXzPChCreTiUp1cp/2t+Ctsz5XXJ8v01If9/ZSTxPGMUO0dKAbp3LKz3aUi/
-         3NrYGo+rrmGRNEqS1fimP8UH9gThEXL3YBu1jv/6bV/UgLkA4a3eCe+DznN/+SIl0LPM
-         NPF+8Dy5ahlPdcPz9JIAvf7nqtDqvGfKMfRis3UrQeteRzPIgmqasXPCWpU85Z3twp60
-         SgSg==
-X-Forwarded-Encrypted: i=1; AHgh+RqNQU3m3f56Pf5Uk1u9HWihShY1XVMB5zuJS87ECIe2zksAkNpZXyPnNYyK3Xbm6gYDPPmG64n4CBzn22yZ0C77@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHdb62MRNS3xLXD4hxeyvEXKLjWDKG6FaL8rhxSsjXHZDCOMWW
-	6MpcTjSoihcwTvRaDtZtbWAI9scevnG7TBoDkDqA378TUbjIK/aeQQ3uwTvwo1uYDSz3PSwCQD9
-	bXEvO95R5/Pnvat5wtq4YB5F47DABIVkahscrqnAi1KZC/4oBC/o8AU5+6YTXNp4rlw2tfNIotL
-	waQQ5Z/NkfaWZvUw4mpgU5d7pgSuntVtBef5eKDXx+17Onr0E/gPN8
-X-Gm-Gg: AR+sD10oZA8QM0IxCjol6XyRjbtk6MpvA1zrsKdLM4Dar+irmfqEuyQYI3SkgzJaCRu
-	Zw9YT4MSi25bWzWciOXC7Q4emJ86w80Ga51MG+yzjepiaeDNnJ/1NJ4mmSmcYel+/RbTKCPPmVv
-	VTNH4tlbVTDa6I09PwCXu3CUc5qruHTJ/P4oj6O7/7jreos9eCUlXccApt2Q==
-X-Received: by 2002:a05:620a:3909:b0:930:ea41:771e with SMTP id af79cd13be357-93103852b6fmr821823585a.31.1784906735828;
-        Fri, 24 Jul 2026 08:25:35 -0700 (PDT)
-X-Received: by 2002:a05:620a:3909:b0:930:ea41:771e with SMTP id
- af79cd13be357-93103852b6fmr821818185a.31.1784906735245; Fri, 24 Jul 2026
- 08:25:35 -0700 (PDT)
+	Fri, 24 Jul 2026 15:29:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b286MeOC/LkNJKN3o6Ec6IVh8vV4rKvSG9HlEpnUODgPkKWkE4bnwAA4l0wCHmgw+lmdURNZCDU/NDwwZwQC2Ryi798pEsvKMKgphPl9Do7ONjam5co9fUf7pypqGJ7+6TWRt8Jcheo4v+O+8k2ms4qsllv4MBrmE74CIdJjyXdrLfn5fRbnr3uiOpek4B8QOBooG/7g4wXnqE2C2Zqr7i6srzhpPpHos6nx8EXTO5SYOCaOYMcPa4RQaiazXsW5YnGfqK34SXWk9lB4cGDToUDANQzOLfAerDXhcxl8Ua/pGe+p+aVskzMZeya/Z7A0zfwIkz7PZsdvq4bp1s8q/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I3reP4ukBDHXGVjk3dQmqRcVxZpWewzDKCdysd3jRqY=;
+ b=RNNMpshPxmSA01rlG+YxYQwV4klZS7qLryfuiPQnFq0xv6MmsypJhpjwXah4sCsodgta21WJYAnKRkv7pzH/NvGEsXbDlXq3EcZ2h3MeHxe2XCDd2JXnS+6MBDAOHOs1fMO13B5rgyh7ajFGdEDkW1OEahl33MPKPovbzX2IyhZNHSq/MnlaSpeZJTbZZe+bzPYlHeVPlQ3Z4WWVcxiTj2i94mUbKC6fj9jKkoqVbNAWjSWNPkU5t9GNrnGMKsrfHC9Ab/yGPpKbzjxYGWQ7aKDjuT3xU0UcG/s1QqejhXL4nUN1QPej1dk/Hh6qImBdDqSuSRH8EQJKrxWdT6Jncw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I3reP4ukBDHXGVjk3dQmqRcVxZpWewzDKCdysd3jRqY=;
+ b=e4k+Faszmk/P8tl5JieLfzVX+ESdtQPv/XxRcXJfmQLq8t3Yzl9a5qvx/GCF2bNJL4aFiXjNiEEQF/S+T2LJGLvp+0mVpufn5MuqYTSg54ibSFSwbxdTk55gF5PPInK6r9HeTjPee3uj38L9hm4yl4gK3TxMwTXH89C0N01i/zF75b69/1QnXiF4biVznAA/TGWd/8QkbRG5hbS2SAw4QmHr4qIV3XSKBzJpvpnGPvLW4IKEsHcBuPQla9YcBRxhbidpoBTEvZECYKjMNfijcDM9lgUq2yxym+//1nHgeliR+9aR3t/3qB9u6LkHF3ijY0b3Ed9KrpaxGgLKr3GbfA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB8104.eurprd04.prod.outlook.com (2603:10a6:20b:3b1::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 15:29:32 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
+ 15:29:32 +0000
+Date: Fri, 24 Jul 2026 10:29:20 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] media: nxp: imx8-isi: Implement per-stream
+ reference counting for multiplexed streams
+Message-ID: <amOE0LR8QbcVx-rV@SMW015318>
+References: <20260724-isi-v4-0-27df7b5f6060@oss.nxp.com>
+ <20260724-isi-v4-1-27df7b5f6060@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260724-isi-v4-1-27df7b5f6060@oss.nxp.com>
+X-ClientProxiedBy: PH7PR17CA0027.namprd17.prod.outlook.com
+ (2603:10b6:510:323::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260708234614.499613-1-midgy971@gmail.com>
-In-Reply-To: <20260708234614.499613-1-midgy971@gmail.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Fri, 24 Jul 2026 17:25:23 +0200
-X-Gm-Features: AUfX_mwrYV4f6v5r_1WLYjP_DJ5j8CdxwNSs9NXFS9k9uGsEaGAAKztNtVNILsQ
-Message-ID: <CAPx+jO8vL4Ne14r+bR3De7riiNVRJK8Djm=b+jTsOscUynHwAA@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: rockchip: Add a regulator to the RK3568 NPU
- power domain
-To: MidG971 <midgy971@gmail.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Sebastian Reichel <sebastian.reichel@collabora.com>,
-        Shawn Lin <shawn.lin@rock-chips.com>,
-        Finley Xiao <finley.xiao@rock-chips.com>, linux-pm@vger.kernel.org,
-        linux-rockchip@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=GJE41ONK c=1 sm=1 tr=0 ts=6a6383f0 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=s8YR1HE3AAAA:8
- a=ghsCoqtGgTSC4U4bjT4A:9 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
- a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDEzOCBTYWx0ZWRfXzTOHQHVpyOlG
- rLKt5sCthAUBshm1l2RlsVYATD/je6kp6Ovl73KqIukceVJLe0Iy+gCG1OoKzMbIImK2c2Tyso2
- 3T/W3ANr0CjfI+8PhLVTMbIXkJknpUaPVC7hCySpQ9OjIj3nuzqsGZu1+v0QqenBaGLg55XhaCg
- sRpkIca6TRrVoPlt1Bl+gUKuROIb4cQj7g+icYif2RXoJY3EstBL8T+sEb1Jujk9pvAgJARcVdX
- oXlQ8LcLW9QSv8j40WB+fAKNPyDlaxrZrKKjhiJd40RN5b0jtMblclRl90VZ2nGpf7LZz8l1iF9
- CIYvOYfj2EKbh2BlJ54UGSUw20QhZQqH6V3WK4+XjbkXWAZX3o5E2uUGw1ZYB0s8QCHSs780GqT
- 120hMIXyuAvDVEBuuB758+IlQlhvHLUvgM6Zvw3ForzNHPM0GL639DeGZ3QhRGxkUNeWMwM3TAn
- TFgdVndSOsDSXnR5LAQ==
-X-Proofpoint-ORIG-GUID: gpGZ9IQ7expICMawu5yZGA0eyTxpBFQ7
-X-Proofpoint-GUID: gpGZ9IQ7expICMawu5yZGA0eyTxpBFQ7
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDEzOCBTYWx0ZWRfXz9OtuHujVDs3
- 59pTiSmfl+NREg90YeDRK9jzigA1zDsPoZR/UpoCRMyzas+CsLzpQ7v7qif4qe7DHrq7QygIRi5
- f+7lzqkid0RNf7G7BLFVM5VGPOXpR2o=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-24_03,2026-07-24_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
- priorityscore=1501 spamscore=0 impostorscore=0 phishscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607240138
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8104:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8fab0eea-216b-4a83-bf9b-08dee9985c02
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|19092799006|376014|7416014|6133799003|4143699003|56012099006|10067099003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ZM+qRjaFVFXWSV/bPnfWmt2nSPBP9Z5NqAhio5rKLnAJsS9bjOjRfDpXYJx0dJws8qIuqtVKnGVehmHozapoXAacyE5jWDVgaHxt3/2BShuTis+eE7QNzPzuNOvxt15z+Mmj5cja3EeM7UZdK7YCiUv4zmDoikXQuAnQdj+rMPmyQa2Aq8W1qFVM9n9CP42VOwO6euir1dxuBBHjw76dOPnSmuuZuMpPyUkd/kW16vOvm3PCnn1mOnumGyJUp8+q1+XA+EQSmuDY0hAtCPPqwRW1BHx74Z3azr4Uql42hYm1KgPp/j00w/aqHNIhawdaOPS4CoJeysU2zlat8hYCeWIXLGo7gFqU9tdOT1wSJ6PE9hla3AsB9/C7wX2vxNnDrmotIdyIpV2IbgSG6u59bnPU6WR56brGKNO6okJLknZzfCq3fOJJo5oDP4mnMjm5GyGBs/J6cqhI80a7vHWLJk1pzvVP2npFYz6lqE5C63wriqdY5vpjzVGRtgAgwB3CQGsXlCLd1OYnylsXReHz5d75qFIQ3H6MeH8bxb/fqtIfXunwOSlwYGqYq9a8ktd1mVM1/q61cOX7jDg6MkJXD6wcnrWorvzxHIQ53x66WQ9GDfh4OhC26y9DB5XVu4UzouZwCSIvb47SHC9RNE6KUVgflXcFC/GR2e3k297zONY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(19092799006)(376014)(7416014)(6133799003)(4143699003)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ns9e5I1lEQAof+jnRUN69cSrx0RUUFR+a10bE6YGAyjZU5iYbRzIt5gc2M2p?=
+ =?us-ascii?Q?xSC0iYBHwShx/NjRD4SNFMUr7jtdr1vjMKMdk68oQO06Txq53O44IqqcHID+?=
+ =?us-ascii?Q?ZTiVtLvTFdiERuSuhjQTaqAvWfznKG1BxVy/12Z1InlknYmr53aoYBikGDyr?=
+ =?us-ascii?Q?bzggFohV3W3WuIs1DnvaDagomXh9++gFYEx9C0FUfsCH0veexj/6xx3esnUh?=
+ =?us-ascii?Q?JSrZM2ugvl/cqnEwM0Mpu3nN6YFcrLRNIXgdwXPBC3oL/tBvDHvuBYprdT3Y?=
+ =?us-ascii?Q?k7QCNdTwzG3oh2L5/8SpAkbi/qdpmX8QwoAobNqaGw9Ko50U8au9+cEjy4fK?=
+ =?us-ascii?Q?lfF2eCXTuNXQ6+6fg973DLjWYX3+CXR18w4Rm1HRFb5izUEhq9sJDo3glWSM?=
+ =?us-ascii?Q?v2yWhwF2AgaNi6+G8+teSMOa5+ezJ8cBdQoUEIYB5cd+dJd4msgNydkKcale?=
+ =?us-ascii?Q?G06sZ1yuQcec91Z1Z2cma3D29e10LMWuji1I8OAcvWXVf42aDWbjmP+t9YxG?=
+ =?us-ascii?Q?+oW5JdBFAO49sAwoeD7CZhxpuIh1PYDsGIeJ0bkwzydzBwK8lh1chUyglAeO?=
+ =?us-ascii?Q?+ScRQy/9bpfeeZXvPl4clW8UNZl3ZI6a2VeL62e8pppHujAc49pZ3udZDMwg?=
+ =?us-ascii?Q?k9sB8AfNKmf1B1IzniNOSWYV7//cfQZRg00XcmbbDijMlJ+LAGnHG+3v17MN?=
+ =?us-ascii?Q?QYgKFsznHxfeGiELZpPv/9W07LoTdgXGidxMtsbBvFzdErnCP+dvNQLzNOu+?=
+ =?us-ascii?Q?6MJU6yai/RQi3QgY4bVza9iF+dNWrMpbltxv2yz/i/LcV2eqP3GMfBUZRfRw?=
+ =?us-ascii?Q?Vo20cRtQAtWSMP5anKfdnsGFJUdOzrmH/gbqkRFPe7aHVZL1A84tf9JjiIVw?=
+ =?us-ascii?Q?qrnO1t121LJ3X5EXlrgor1R6qi/4AOKxyaz7cU5Obfx7wWK5C+ES1ojKAaak?=
+ =?us-ascii?Q?QyIe7sgRJz528FSDfXza3x2KusUtlQ7GntQNaUAGlz2Lo2AzcrwGc3etu8Ba?=
+ =?us-ascii?Q?/Hk/+BBbxpkp0Y426kaA6i64iU3K4SF5VAPWdIYYsn8EJv6r/aXnRn5NztG1?=
+ =?us-ascii?Q?TqtOh/4PvwHoCZ7cPDsvyJKjFf+Y5QPuQmFS2djFLIMHmbLa22D2ih6FFqJa?=
+ =?us-ascii?Q?0cHkVBaoqfpW9vnQ5lTFpKiAPR/LVIUIwxzmFnwWSaioR21tozTyCIRGmgvo?=
+ =?us-ascii?Q?Utma997Ou6w0oQ4D/hpFYra8AfvLLtaljwKGDI0SlEXNRZkR2VB3mJuiAam8?=
+ =?us-ascii?Q?o3sILuHZDnXY5QOwFrLCFFE+KhxqnLiNF/TnJ8aDOIa3r5MMYH1Yz6yxuEXu?=
+ =?us-ascii?Q?v+sNzAPM+SeYzUmKzSEbUOJ2We+4chUQz7HZ/rX+O5MrLIYoGj2dhLruBiO/?=
+ =?us-ascii?Q?0klKZimJcPM7ZBNnKouoi1mvagl86ZXjUG7AtEt/e2vQsh9zIGIRK0LC6OCL?=
+ =?us-ascii?Q?LI1fI58AqCwbeCWRbUPCfQ846QUr7EWpgF4bTncj29aBe5C3Hg7tfqusjB8B?=
+ =?us-ascii?Q?RMKBS95kuamF6G2+gVzMbCOiyelw46vZIz6RMtR1xNT+SaFPvDQqZwZChwkA?=
+ =?us-ascii?Q?zJdZ0W9oUpAZ9jC2Ha7/t+cdfgtFwlHJT8eLjae+JvvRtF3WxllCk9c1No06?=
+ =?us-ascii?Q?cOhPMObpKNAX1MDvZ8mQ+zWSs9y4OAWhxsJFatl3ZIZPz4hb1GLEOQwAF4iV?=
+ =?us-ascii?Q?k2cwp81nv+FDJLIELmidBaVdJyr846yOUqwMJrkBltbpqeNjUoe53im12/QC?=
+ =?us-ascii?Q?DBIv1eUhaXOKrYwOFp2nt8/vsly/8l9PdYW6G2UhKJ0gMJZ+LhGs?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8fab0eea-216b-4a83-bf9b-08dee9985c02
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 15:29:32.4317
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M0EVcPf7CFm9WPvnAdSWkFomb82erUNQCpOxPgWPPUZubDy4H1hY7KeAvpYgFGkXm59wrxgUDxtHzs4TehPMB2xt1HK75F8RpT2SvtpFQ89sMBo3SrQ+igsUNLInpLRZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_162541_953061_E1093409 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20260724_082939_174584_D8A4B14D 
+X-CRM114-Status: GOOD (  33.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,131 +150,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 9, 2026 at 1:43=E2=80=AFAM MidG971 <midgy971@gmail.com> wrote:
+On Fri, Jul 24, 2026 at 03:52:56PM +0800, Guoniu Zhou wrote:
+> The ISI crossbar needs to properly enable multiple streams from different
+> virtual channels on the same input pad. Currently only the first stream
+> gets enabled in hardware, subsequent streams are silently ignored.
 >
-> From: Midgy BALON <midgy971@gmail.com>
+> The driver uses a single enable_count per input to track the input state.
+> When enable_count is non-zero, the code assumes the input is already active
+> and skips calling v4l2_subdev_enable_streams() for additional streams:
 >
-> The RK3568 NPU rail (vdd_npu) needs to be enabled before the domain is
-> powered on and disabled after it is powered off. Give DOMAIN_RK3568 a
-> regulator parameter (like DOMAIN_RK3588 already has) so the NPU domain
-> can set need_regulator, letting genpd manage the rail wired up as the
-> domain's domain-supply instead of marking it always-on in DT.
+>   Call 1: enable_streams(stream 0)
+>     -> enable_count == 0, enable gasket and stream 0 in hardware
+>     -> enable_count = 1
 >
-> Suggested-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Signed-off-by: Midgy BALON <midgy971@gmail.com>
-
-Applied for next, thanks!
-
-Kind regards
-Uffe
-
-
+>   Call 2: enable_streams(stream 1)
+>     -> enable_count == 1, skip hardware enable
+>     -> enable_count = 2
+>     -> stream 1 never gets enabled
+>
+> Similarly on disable, when enable_count reaches zero, ALL streams are
+> disabled regardless of which streams are actually still active.
+>
+> Implement per-stream state tracking by storing the input index and stream
+> mask in the mxc_isi_pipe structure. On enable, record which input and
+> stream the pipe is receiving. On disable, clear the pipe's record and
+> check if any other pipe is still using the same input stream before
+> actually disabling it.
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 > ---
-> This patch was part of the RFC NPU series [1]; Ulf Hansson and Heiko
-> St=C3=BCbner reviewed it there and confirmed it can be applied independen=
-tly of
-> the rest of the (still-RFC) rocket driver and DT patches, so it is repost=
-ed
-> standalone. The NPU domain's domain-supply DT wiring follows in a separat=
-e
-> patch, so this change alone is a no-op at runtime.
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> Changes in v4:
+> - Make enable/disable symmetric by checking stream_in_use
+> - Add mxc_isi_crossbar_stream_in_use() helper for both paths
 >
-> Changes since the RFC posting:
-> - Move DOMAIN_M_R below the other DOMAIN_M_* macros so they stay
->   alphabetically sorted (Heiko St=C3=BCbner).
+> Changes in v3:
+> - Change from "Fix" to "Implement" as multi-stream support is for newer
+>   SoCs not present when the driver was merged (Laurent)
+> - Remove Fixes and Cc: stable tags (Laurent)
+> - Store input/input_stream in mxc_isi_pipe instead of using per-stream
+>   counters array, avoiding arbitrary 64-entry limit (Laurent)
+> - Use UINT_MAX to mark pipe as inactive to distinguish from valid pad 0
 >
-> [1] https://lore.kernel.org/linux-rockchip/20260613070116.438906-1-midgy9=
-71@gmail.com/
+> Changes in v2:
+> - Use fixed-size array for enabled_count instead of dynamic allocation
+> - Use BIT_ULL() macro for u64 bitmask operations
+> - Use MXC_ISI_MAX_STREAMS (64) as loop boundary instead of num_sources
+> - Remove mxc_isi_stream_counters_alloc/free functions
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  5 +-
+>  .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 84 ++++++++++++++++------
+>  .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    |  1 +
+>  3 files changed, 67 insertions(+), 23 deletions(-)
 >
->  drivers/pmdomain/rockchip/pm-domains.c | 36 ++++++++++++++++++--------
->  1 file changed, 25 insertions(+), 11 deletions(-)
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 9bb4d430d15e..c07abdd6a1f0 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -186,7 +186,7 @@ struct mxc_isi_dma_buffer {
+>  };
 >
-> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/ro=
-ckchip/pm-domains.c
-> index 490bbb1d1d8e8..ba66ae7194289 100644
-> --- a/drivers/pmdomain/rockchip/pm-domains.c
-> +++ b/drivers/pmdomain/rockchip/pm-domains.c
-> @@ -204,6 +204,20 @@ struct rockchip_pmu {
->         .active_wakeup =3D wakeup,                        \
+>  struct mxc_isi_input {
+> -	unsigned int			enable_count;
+> +	u64				enabled_streams;
+>  };
+>
+>  struct mxc_isi_crossbar {
+> @@ -259,6 +259,9 @@ struct mxc_isi_pipe {
+>  	u8				acquired_res;
+>  	u8				chained_res;
+>  	bool				chained;
+> +
+> +	unsigned int			input;
+> +	u64				input_stream;
+>  };
+>
+>  struct mxc_isi_m2m {
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> index 9f0231ca47a3..f7a629b341cd 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> @@ -330,11 +330,26 @@ static int mxc_isi_crossbar_set_routing(struct v4l2_subdev *sd,
+>  	return __mxc_isi_crossbar_set_routing(sd, state, routing);
 >  }
 >
-> +#define DOMAIN_M_R(_name, pwr, status, req, idle, ack, wakeup, regulator=
-)      \
-> +{                                                      \
-> +       .name =3D _name,                          \
-> +       .pwr_w_mask =3D (pwr) << 16,                      \
-> +       .pwr_mask =3D (pwr),                              \
-> +       .status_mask =3D (status),                        \
-> +       .req_w_mask =3D (req) << 16,                      \
-> +       .req_mask =3D (req),                              \
-> +       .idle_mask =3D (idle),                            \
-> +       .ack_mask =3D (ack),                              \
-> +       .active_wakeup =3D wakeup,                        \
-> +       .need_regulator =3D regulator,                    \
+> +static bool mxc_isi_crossbar_stream_in_use(struct mxc_isi_crossbar *xbar,
+> +					   unsigned int sink_pad, u64 sink_streams)
+> +{
+> +	for (unsigned int i = 0; i < xbar->isi->pdata->num_channels; ++i) {
+> +		struct mxc_isi_pipe *pipe = &xbar->isi->pipes[i];
+> +
+> +		if (pipe->input == sink_pad &&
+> +		    pipe->input_stream == sink_streams)
+> +			return true;
+> +	}
+> +
+> +	return false;
 > +}
 > +
->  #define DOMAIN_RK3036(_name, req, ack, idle, wakeup)           \
->  {                                                      \
->         .name =3D _name,                          \
-> @@ -241,8 +255,8 @@ struct rockchip_pmu {
->  #define DOMAIN_RK3562(name, pwr, req, g_mask, mem, wakeup)             \
->         DOMAIN_M_G_SD(name, pwr, pwr, req, req, req, g_mask, mem, wakeup,=
- false)
+>  static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
+>  					   struct v4l2_subdev_state *state,
+>  					   u32 pad, u64 streams_mask)
+>  {
+>  	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
+> +	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
+>  	struct v4l2_subdev *remote_sd;
+>  	struct mxc_isi_input *input;
+>  	u64 sink_streams;
+> @@ -351,29 +366,44 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
+>  	input = &xbar->inputs[sink_pad];
 >
-> -#define DOMAIN_RK3568(name, pwr, req, wakeup)          \
-> -       DOMAIN_M(name, pwr, pwr, req, req, req, wakeup)
-> +#define DOMAIN_RK3568(name, pwr, req, wakeup, regulator)               \
-> +       DOMAIN_M_R(name, pwr, pwr, req, req, req, wakeup, regulator)
+>  	/*
+> -	 * TODO: Track per-stream enable counts to support multiplexed
+> -	 * streams.
+> +	 * Check if any other pipe already receives the same input stream.
+> +	 * If so, just record this pipe's usage and return.
+>  	 */
+> -	if (!input->enable_count) {
+> +	if (mxc_isi_crossbar_stream_in_use(xbar, sink_pad, sink_streams)) {
+> +		pipe->input = sink_pad;
+> +		pipe->input_stream = sink_streams;
+> +		return 0;
+> +	}
+> +
+> +	/* Enable the gasket when the first stream is enabled for this input. */
+> +	if (!input->enabled_streams) {
+>  		ret = mxc_isi_crossbar_gasket_enable(xbar, state, remote_sd,
+>  						     remote_pad, sink_pad);
+>  		if (ret)
+>  			return ret;
+> +	}
 >
->  #define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, r=
-eq, idle, g_mask, wakeup)      \
->         DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status=
-, r_offset, req, idle, idle, g_mask, wakeup)
-> @@ -1274,15 +1288,15 @@ static const struct rockchip_domain_info rk3562_p=
-m_domains[] =3D {
->  };
+> -		ret = v4l2_subdev_enable_streams(remote_sd, remote_pad,
+> -						 sink_streams);
+> -		if (ret) {
+> -			dev_err(xbar->isi->dev,
+> -				"failed to enable streams 0x%llx on '%s':%u: %d\n",
+> -				sink_streams, remote_sd->name, remote_pad, ret);
+> -			mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+> -			return ret;
+> -		}
+> +	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad, sink_streams);
+> +	if (ret) {
+> +		dev_err(xbar->isi->dev,
+> +			"failed to enable streams 0x%llx on '%s':%u: %d\n",
+> +			sink_streams, remote_sd->name, remote_pad, ret);
+> +		goto err_gasket_disable;
+>  	}
 >
->  static const struct rockchip_domain_info rk3568_pm_domains[] =3D {
-> -       [RK3568_PD_NPU]         =3D DOMAIN_RK3568("npu",  BIT(1), BIT(2),=
-  false),
-> -       [RK3568_PD_GPU]         =3D DOMAIN_RK3568("gpu",  BIT(0), BIT(1),=
-  false),
-> -       [RK3568_PD_VI]          =3D DOMAIN_RK3568("vi",   BIT(6), BIT(3),=
-  false),
-> -       [RK3568_PD_VO]          =3D DOMAIN_RK3568("vo",   BIT(7), BIT(4),=
-  false),
-> -       [RK3568_PD_RGA]         =3D DOMAIN_RK3568("rga",  BIT(5), BIT(5),=
-  false),
-> -       [RK3568_PD_VPU]         =3D DOMAIN_RK3568("vpu",  BIT(2), BIT(6),=
-  false),
-> -       [RK3568_PD_RKVDEC]      =3D DOMAIN_RK3568("vdec", BIT(4), BIT(8),=
-  false),
-> -       [RK3568_PD_RKVENC]      =3D DOMAIN_RK3568("venc", BIT(3), BIT(7),=
-  false),
-> -       [RK3568_PD_PIPE]        =3D DOMAIN_RK3568("pipe", BIT(8), BIT(11)=
-, false),
-> +       [RK3568_PD_NPU]         =3D DOMAIN_RK3568("npu",  BIT(1), BIT(2),=
-  false, true),
-> +       [RK3568_PD_GPU]         =3D DOMAIN_RK3568("gpu",  BIT(0), BIT(1),=
-  false, false),
-> +       [RK3568_PD_VI]          =3D DOMAIN_RK3568("vi",   BIT(6), BIT(3),=
-  false, false),
-> +       [RK3568_PD_VO]          =3D DOMAIN_RK3568("vo",   BIT(7), BIT(4),=
-  false, false),
-> +       [RK3568_PD_RGA]         =3D DOMAIN_RK3568("rga",  BIT(5), BIT(5),=
-  false, false),
-> +       [RK3568_PD_VPU]         =3D DOMAIN_RK3568("vpu",  BIT(2), BIT(6),=
-  false, false),
-> +       [RK3568_PD_RKVDEC]      =3D DOMAIN_RK3568("vdec", BIT(4), BIT(8),=
-  false, false),
-> +       [RK3568_PD_RKVENC]      =3D DOMAIN_RK3568("venc", BIT(3), BIT(7),=
-  false, false),
-> +       [RK3568_PD_PIPE]        =3D DOMAIN_RK3568("pipe", BIT(8), BIT(11)=
-, false, false),
->  };
+> -	input->enable_count++;
+> +	input->enabled_streams |= sink_streams;
+> +
+> +	/* Record the input and stream for this pipe. */
+> +	pipe->input = sink_pad;
+> +	pipe->input_stream = sink_streams;
 >
->  static const struct rockchip_domain_info rk3576_pm_domains[] =3D {
+>  	return 0;
+> +
+> +err_gasket_disable:
+> +	if (!input->enabled_streams)
+> +		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+> +
+> +	return ret;
+>  }
+>
+>  static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+> @@ -381,6 +411,7 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+>  					    u32 pad, u64 streams_mask)
+>  {
+>  	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
+> +	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
+>  	struct v4l2_subdev *remote_sd;
+>  	struct mxc_isi_input *input;
+>  	u64 sink_streams;
+> @@ -396,18 +427,27 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+>
+>  	input = &xbar->inputs[sink_pad];
+>
+> -	input->enable_count--;
+> +	/* Clear the input and stream for this pipe. */
+> +	pipe->input = UINT_MAX;
+> +	pipe->input_stream = 0;
+>
+> -	if (!input->enable_count) {
+> -		ret = v4l2_subdev_disable_streams(remote_sd, remote_pad,
+> -						  sink_streams);
+> -		if (ret)
+> -			dev_err(xbar->isi->dev,
+> -				"failed to disable streams 0x%llx on '%s':%u: %d\n",
+> -				sink_streams, remote_sd->name, remote_pad, ret);
+> +	/*
+> +	 * Check if any other pipe receives the same input stream. If so we
+> +	 * can't disable it yet, so return immediately.
+> +	 */
+> +	if (mxc_isi_crossbar_stream_in_use(xbar, sink_pad, sink_streams))
+> +		return 0;
+> +
+> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad, sink_streams);
+> +	if (ret)
+> +		dev_err(xbar->isi->dev,
+> +			"failed to disable streams 0x%llx on '%s':%u: %d\n",
+> +			sink_streams, remote_sd->name, remote_pad, ret);
+> +
+> +	input->enabled_streams &= ~sink_streams;
+>
+> +	if (!input->enabled_streams)
+>  		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+> -	}
+>
+>  	return ret;
+>  }
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> index 16085f23bc0b..c0ec59856374 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> @@ -816,6 +816,7 @@ int mxc_isi_pipe_init(struct mxc_isi_dev *isi, unsigned int id)
+>  	pipe->acquired_res = 0;
+>  	pipe->chained_res = 0;
+>  	pipe->chained = false;
+> +	pipe->input = UINT_MAX;
+>
+>  	sd = &pipe->sd;
+>  	v4l2_subdev_init(sd, &mxc_isi_pipe_subdev_ops);
+>
 > --
-> 2.39.5
+> 2.34.1
+>
 >
 
