@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1988CC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31808C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 18:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kPezvGQ/7+Jf7QtJsAPB2NrbA5fWTbxAOlTS5XmBzXw=; b=xRk96DH10hNsNMjspuQ7PsKoIH
-	bmpUBDhe7h6/OIevv+ATT9OhJBwCLffPkmSjH2HQ4wK/lwMZtZOq+umrR5v/vuM8vA0EwuzQ2TbpG
-	UXRTG+9y9K8pur2on7PhHks/m/fYIfA8bBnAdGQIV+l6CJUJu0/z7tZI3/siAn/hshrglUzZfQq30
-	8ONyvUvqLcGCAPvjifFw/lU4lGpEwm9uO5ZN5bc6Es1Z+J4NXUAJZ3UjaZjMum5ILbYkHWm56fc/d
-	2+JfD//plzG+8p8PINTreTZqbuIkcNPJqFuTNNj2z/5rlYn874pyaXmqkjUPHB4/dP6/AmtKLV6Re
-	4lPYMjSA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yb5dlfstV4kD799QiIAzkBoXbsgg+ToegsNQMwQhApE=; b=bkFh0ib6Ryp1P/
+	9PiDks/m1gS8drd6lRNJJt6wHk9Rxf1qux1BjOmQ+IhGnEeKwSbdmpm0oEsSl3Y9q7bI5RcF/bJ/q
+	2Z5AVYItSLxLTSk2C/5UgbkkZKJxTJfRSgwnaFaiXXbkJldBzNQZctwK8iroXoPomHa8orCmcqiBr
+	m+1KTLLLfmNQtXQ76bmGO35YiXtkSLm1f/VHZIFtkD7drJZgkFuAkHDLkjwA3mgGAiiTl+FkSK6mp
+	9VtscLS55XYoH7I90RTA6iJPogSLTkkNRO+JWuhSmqr956aKQwEMiHIaqhSPn4uoceb3Yhebph8K2
+	PqdCUQhy3+LjSOFXuoPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKFZ-0000000H0Ti-3lnz;
+	id 1wnKFZ-0000000H0T3-2sKm;
 	Fri, 24 Jul 2026 18:03:57 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKFE-0000000H0Dh-49Bv;
-	Fri, 24 Jul 2026 18:03:38 +0000
+	id 1wnKFC-0000000H0C5-0tMw;
+	Fri, 24 Jul 2026 18:03:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784916210;
-	bh=BTkiiTT3H7A8IiisrlGjYUH27Xlfl//27fsie/co2/I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oA9E8HOyFJ0u92XTuPBepCEqWSyroOa/sJN6H0v5AHnOqV513/KUMqRadmtXa2iOY
-	 /ag29TMF9DLuwS4JV19dST2v6QEf45a6cPyC4QpaN6qG9TQRQILCC2VOnMzLv1HUCl
-	 FDCOWkDGNRISvXvXJ+jPpZL6euXBxuCHT73o1RVonPWnNp1d8Vy0U8KyuSrfCEz4xA
-	 Z72YzGxl8GiizUf0r5bAWSR1YSh/ZYpe3OqUHNJhImr3q5jXM3AuLrFTcc2WD9xNpT
-	 c3ZedlVEVUXDYz+0Ig0OfOGjWqVwQYLULxsWXV0dQN1eeibKt0FSHza+1LysxOKMJU
-	 CT/h6mbLIQAmg==
+	s=mail; t=1784916209;
+	bh=EcejkUrarGntcrHCIx4p1/Nx0juW0RCAA7AXjrlSExg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=I+sPt2HQf55UYmIlatgldViFyEGDX+QNYX5J8DlvlTeXAt+yxfOsfC53ygbMA9bCW
+	 G7vF/RyTiQG7dSsDUzF6/0AjJTQTvqkLpNDkfSUAoJAhLb5cbF+0k2aETfxCW/V8x9
+	 RviqSKSGg4Ahtc/tsYysAFyw/b0vk77lvdTvJnPAMPLkIHsB3HM3FfF0Z+NBfB1WwZ
+	 KShRVptYZybV0UvDCj0MHP1PtP/UMTO9kq6G68V4A8UYFwnyBPhKTf68GewRk+H9CV
+	 V0fnVSGvN/XArfS/QueKh30A6YeVv6rknlOEIDUrFoabQOAqygfjL6da0e3TNWhKXO
+	 L2yq1Pg/VjgSQ==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A1C6817E02FC;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3367117E022A;
 	Fri, 24 Jul 2026 20:03:29 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id EDAAF48004C; Fri, 24 Jul 2026 20:03:28 +0200 (CEST)
+	id DAAC1480029; Fri, 24 Jul 2026 20:03:28 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 24 Jul 2026 20:03:34 +0200
-Subject: [PATCH v6 12/16] drm/rockchip: dw_dp: Add runtime PM support
+Subject: [PATCH v6 00/16] Synopsys DisplayPort Controller improvements for
+ Rockchip platforms
+Date: Fri, 24 Jul 2026 20:03:22 +0200
+Message-Id: <20260724-synopsys-dw-dp-improvements-v6-0-041d99a19c4e@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-synopsys-dw-dp-improvements-v6-12-041d99a19c4e@collabora.com>
-References: <20260724-synopsys-dw-dp-improvements-v6-0-041d99a19c4e@collabora.com>
-In-Reply-To: <20260724-synopsys-dw-dp-improvements-v6-0-041d99a19c4e@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XOwWrEIBCA4VdZPNeik1GTnvoepQdXx66wiUGXt
+ GHJu9cslJQS0uM/DN/MnRXKkQp7Od1ZpimWmIYa+unE3MUOH8Sjr81AgBYNKF7mIY1lLtx/cj/
+ y2I85TdTTcCvceAvUtT5I71kVxkwhfj30t/fal1huKc+PY5Ncpz+uPnQnyQVXQrbYSQ3QiVeXr
+ ld7Ttk+u9Sz1Z5g8+rqsQfV84ZM0GfrjAl7XrN5WsKx16ye05J0o0CJds/DzTPwz39YvSACWiR
+ PRsKep357eOyp6nWIygG1BlH+9ZZl+QaPAKWaCgIAAA==
+X-Change-ID: 20260325-synopsys-dw-dp-improvements-7da2e98df1dd
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -74,28 +79,29 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@collabora.com, 
  linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3624;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7947;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=BTkiiTT3H7A8IiisrlGjYUH27Xlfl//27fsie/co2/I=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpjqPCkvutij4clmUCVvOYu52BFVB7m3XR0w
- Q4rbxaOZnv6sIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqY6jwAAoJENju1/PI
- O/qa5+oQAJ1zlYrSGx5xMhAvoGR3Q4har84EgAc8N1fK7D91R7GYCVLP3eCiA9ZHPeD8dnhXdQz
- 4/uk4Z1y7QfInf7MOhMPXsR1F5PlMQkyNScVRhKIkMSG9/cUJf0uHZ8w8+KIXV8+R9lEfQxdHRe
- k6VIcTb3sILYIEgnWf9WcjyZNdt8KblmtDxEsz/LWXMlRjWNQOM2Ho1jfYb2YapcTdal2FUuHO2
- kozUTe7bv/ol+34tI2Vtvsu9a/Ud3rF5PMynpfrgyJRIAiB7/1O2BX1bImUy6kEsfxbtldQ75E9
- IPzvLMRnZAK37jPDHYYIXQc1Fe+aTaJE8tV5YAjWoSRDh4bD40WqJA1eqhxL73eeoROAKtvtUlW
- Ocoq7kOrUbLTqZF8FWBQ/EWdYnaIUHIfo4lHAkVx9kJGwQb7GGfnXJyTA4H9zVx2W2GP49v/kBd
- uS2Jf4kwOEvs5eQeWcd/sf70JM/e5yiptd8xP8WXGRR0uN0BHURO91Ur5jJvX68Us1OlW7Opg/0
- Glhcf5QE+Qm5Io0Cko4qxkFUVIU00/GUL64U6G7hwABTqtEDJ12R99nyD2xxJZz53S6W/GjLJYA
- ELDXFv950Dsh/SBghTk7WWCQi6eVJNU6BFccBdSJipdnkrb6qr5qlUPREA62C/3n19FQ2nWpZ30
- z2aCOfpKsqdXxqmRa8yAzpg==
+ bh=EcejkUrarGntcrHCIx4p1/Nx0juW0RCAA7AXjrlSExg=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpjqPB+ZeGd4TeKSIIyTHK89PEgr/PftANiy
+ lavRf8u8zlFYokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqY6jwAAoJENju1/PI
+ O/qavMMP/0quMX2x3YdBz2n9pB3Kzl3prBSwfFSehKfASaWuunhXZ4DJbFRTNpniSiNw0Xbuw0b
+ NfmE0b/5mDoll7gzK3vdkmSFhYpuGUj8/iGTpP977OpYc4Cabb7/do3p2/2D+PBVyOiWWhlnURX
+ euK3uYtjaQI1Rd+MUOdeyFN97wrDhHxBky9+IX+Vky5YPUoiHGzB/kpwZmEBeKsXq++szDWH962
+ NtAhb344mmkuJVSr/xxkpF41bqlc/kRVToBax6MwAmXkJmGz5m3r4n4u0UXCnXIrQ0CpK/ojKpl
+ 1Wf6H4gjvEXgFAwf04tBT/IN/Tmm563QGAyRh6FJKc9I1l7RWUZ0ZsIUMRLoJLTxaH58qT/ws3V
+ uXuEEj0jI3uT1Ayw4cMGm6KDvg382cPPemqpYJnSNl/VX8/yKeJMl4uSSyxC0c/nDMbRtCo5KT4
+ BSlxfajuoW0SABLyXt78/RJGRaH4TeWopUeqdHDuZ3+HvVneaiNpkXTQQqEjF+JKqphyPO5KGJs
+ 9/1DJGmUaCH7tnoRL1TIo0xrRxenhW8EuAUXB2zGTSZWGrah/lMrD9qo8ou5s8Jb5p2q5NLI0br
+ 9QzSJPaB31BFzX3RdYGBFSgfCFiUwF9UAVNp46XlzKnFujRFg1bTSHv0FSxEZ8Xd8BX987XR0xj
+ tgMAeUEUkydE0gbPbZ5A6yA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_110337_196910_71C6CF1F 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20260724_110334_417850_3E144256 
+X-CRM114-Status: GOOD (  24.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,126 +116,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for runtime PM to the Rockchip RK3576/3588 Synopsys
-DesignWare DisplayPort driver.
+This patch series updates the Synopsys Designware DisplayPort bridge
+together with the only existing user: The Rockchip RK3576/RK3588:
+
+ 1. Follow-up bridges (PHY, USB-C connector)
+    This is needed to get USB-C DP AltMode working; I've followed
+    the Qualcomm driver as reference
+
+ 2. Runtime PM
+    The initial driver has been upstreamed without RPM; add it to
+    avoid wasting power when nothing is plugged
+
+ 3. Audio
+    The initial driver has been upstreamed without audio support;
+    this adds all missing bits for audio with single stream transport
+
+To properly make use of the bridge code the following USBDP PHY series
+is also needed:
+
+https://lore.kernel.org/all/20260714-rockchip-usbdp-cleanup-v13-0-6cb3e769d4c5@collabora.com/
+
+This series can be applied without the USBDP side. In that case USB-C
+support won't work as the mainline USBDP side does not register as a
+DRM bridge. As upstream DT binding for USBDP does not yet support
+proper ports, no such board should be upstream.
+
+Boards using the DP controller for native DP connectors (or HDMI
+bridges), currently directly link to the connector/hdmi bridge. These
+are not affected by the USBDP changes and should keep working in any
+case. The difference is, that this series the DRM side is aware of the
+link. I don't have any of those boards, so this code path is untested.
+
+I added a dedicated bridge callback for out-of-band hotplug events,
+which is separate from the hotplug_notify. I have a feeling, that
+there might be a better solution, but haven't found it. Please comment.
+
+Changes in v6:
+- Link to v5: https://lore.kernel.org/r/20260724-synopsys-dw-dp-improvements-v5-0-9445c2e87441@collabora.com
+- Fix overlong commit message in mutex patch
+- Update MEDIA_BUS_FMT_FIXED patch, to use input format as output format
+  when output format is MEDIA_BUS_FMT_FIXED (Sashiko)
+- Drop patch moving dw_dp_bridge_atomic_get_output_bus_fmts (no longer
+  needed)
+- Reword the comment about platforms other than RK3576 and RK3588
+  shouldn't get the VO GRF from the USBDP to make it more obvious
+  that no such platform exist at the moment and thus the alternative
+  path will not be implemented at this point in time (Sashiko)
+- Update the runtime PM code to have much better error handling
+  as well as support for platforms not using runtime PM (Sashiko)
+- Update the runtime PM code to keep the device suspended when
+  probed, but unbound as a nice side effect
+- Fix error handling for dw_dp_audio_infoframe_send() in audio
+  patch (Sashiko)
+- Fix typo in sample width check in audio patch (Sashiko)
+- Improve cleanup of SDP in audio patch (Sashiko)
+
+Changes in v5:
+- Link to v4: https://lore.kernel.org/r/20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com
+- Add new patch to cancel pending HPD work on unbind (Sashiko)
+- Add new patch to add missing mutex cleanups on module removal (Sashiko)
+- Add new patch moving dw_dp_bridge_atomic_get_output_bus_fmts
+- Update MEDIA_BUS_FMT_FIXED patch to avoid fixed RGB888 format
+  and instead use whatever works for the negotiated bandwidth (Sashiko)
+- Add more error checking for runtime PM patches (Sashiko)
+- Ensure runtime PM is held in interrupt handler (Sashiko)
+- Fix usbc_mode logic inversion for runtime PM in unbind (Sashiko)
+- Move sleep for HPD_HOT_PLUG from hotplug handler to runtime
+  resume function; no need to sleep when runtime PM is kept
+  active and runtime PM resume is a slow operation anyways. (Sashiko)
+- Add new patch to protect sdp_reg_bank from concurrent access (Sashiko)
+- Add new patch to use regmap_set_bits in dw_dp_send_sdp()
+- Update DT binding patch to be all about the selected solution and
+  mention the ABI break
+- Clear SDP in the audio patch on unprepare (Sashiko)
+- Add a comment, that only 1,2 or 8 channels are supported (Sashiko)
+- Error out on unsupported sample_width (Sashiko)
+- Fix missing error check for clock enable (Sashiko)
+
+Changes in PATCHv4:
+ - Link to v3: https://lore.kernel.org/all/20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com/
+ - Drop "Simplify driver data setting" (effectively reverted later on)
+ - Add "Fix incorrect resource lifetimes in bind callback", which
+   affects all following patches quite a bit (Sashiko)
+ - Update "Add follow-up bridge support" to mention that fatal errors
+   are fine (Sashiko)
+ - Update "Add out-of-band HPD notify handler" to use
+   drm_for_each_bridge_in_chain() instead of
+   drm_for_each_bridge_in_chain_scoped() required after rebase to
+   latest drm-misc-next
+ - Add 100ms sleep in hpd detect functions after runtime resume in the
+   "Add Runtime PM support" patch (Andy Yan)
+ - Keep runtime PM enabled if DP is used without USB-C to avoid missing
+   HPD signals in "Add Runtime PM support" patch (Andy Yan)
+ - Update patch description of DT binding patch and drop RFC tag
+ - Use pm_runtime_resume_and_get() in the audio startup function, which
+   allows easy error handling (Sashiko)
+ - Avoid updating audio_interface in the audio prepare function when
+   an error related early exit happens (Sashiko)
+ - Add error handling for clock prepare calls in audio prepare function
+   (Sashiko)
+
+Changes in PATCHv3:
+- Link to v2: https://lore.kernel.org/r/20260501-synopsys-dw-dp-improvements-v2-0-d7e7f6bac77f@collabora.com
+- Collect Reviewed-by on "Simplify driver data setting" patch (Andy Yan)
+- Use of_drm_get_bridge_by_endpoint instead of devm_drm_of_get_bridge (Luca Ceresoli)
+- Use FIELD_PREP_WM16 instead of FIELD_PREP_WM16_CONST (Chaoyi Chen)
+- Rebase to latest drm-misc-next (Dropped Cristian's patches)
+
+Changes in PATCHv2:
+ * Link to v1: https://lore.kernel.org/r/20260326-synopsys-dw-dp-improvements-v1-0-501849162290@collabora.com
+ * rebased to latest drm-misc-next
+ * prepended the Patches from Cristian's cleanup series, as they also
+   needed a rebase and should be merged first
+   https://lore.kernel.org/dri-devel/20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com/
+ * fix issue with the audio stream (un)prepare handling in last patch
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 50 ++++++++++++++++++++++++++++++-
- 1 file changed, 49 insertions(+), 1 deletion(-)
+Sebastian Reichel (16):
+      drm/bridge: synopsys: dw-dp: Fix incorrect resource lifetimes in bind callback
+      drm/bridge: synopsys: dw-dp: Cancel pending HPD work on unbind
+      drm/bridge: synopsys: dw-dp: Add missing mutex cleanups on module removal
+      drm/bridge: synopsys: dw-dp: Add missing reinit_completion
+      drm/bridge: synopsys: dw-dp: Free output_fmts when none are valid
+      drm/bridge: synopsys: dw-dp: Support MEDIA_BUS_FMT_FIXED
+      drm/bridge: synopsys: dw-dp: Add follow-up bridge support
+      drm/bridge: Add out-of-band HPD notify handler
+      drm/bridge: synopsys: dw-dp: Support software triggered OOB HPD
+      drm/rockchip: dw_dp: Implement out-of-band HPD handling
+      drm/bridge: synopsys: dw-dp: Add Runtime PM support
+      drm/rockchip: dw_dp: Add runtime PM support
+      drm/bridge: synopsys: dw-dp: Protect sdp_reg_bank from concurrent access
+      drm/bridge: synopsys: dw-dp: Use regmap_set_bits in dw_dp_send_sdp
+      dt-bindings: display: rockchip: dw-dp: Fix sound DAI cells
+      drm/bridge: synopsys: dw-dp: Add audio support
 
-diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index ee0bd696064e..b8138e796c4d 100644
---- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -12,6 +12,7 @@
- #include <linux/mfd/syscon.h>
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/videodev2.h>
- 
-@@ -54,9 +55,15 @@ static void dw_dp_rockchip_hpd_sw_sel(void *data, bool force_hpd_from_sw)
- {
- 	struct rockchip_dw_dp *dp = data;
- 	u32 hpd_reg = dp->pdata->hpd_reg[dp->id];
-+	int ret;
- 
- 	dp->hpd_sel = force_hpd_from_sw;
- 
-+	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(dp->dev, pm);
-+	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
-+	if (ret)
-+		return;
-+
- 	regmap_write(dp->vo_grf, hpd_reg,
- 		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_SEL, dp->hpd_sel));
- }
-@@ -65,11 +72,17 @@ static void dw_dp_rockchip_hpd_sw_cfg(void *data, bool hpd)
- {
- 	struct rockchip_dw_dp *dp = data;
- 	u32 hpd_reg = dp->pdata->hpd_reg[dp->id];
-+	int ret;
- 
- 	dev_dbg(dp->dev, "Force HPD connected=%s\n", str_yes_no(hpd));
- 
- 	dp->hpd_cfg = hpd;
- 
-+	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(dp->dev, pm);
-+	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
-+	if (ret)
-+		return;
-+
- 	regmap_write(dp->vo_grf, hpd_reg,
- 		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG, dp->hpd_cfg));
- }
-@@ -200,7 +213,7 @@ static int dw_dp_rockchip_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct rockchip_dw_dp *dp;
- 	struct resource *res;
--	int id;
-+	int id, ret;
- 
- 	plat_data_const = device_get_match_data(dev);
- 	if (!plat_data_const)
-@@ -247,6 +260,12 @@ static int dw_dp_rockchip_probe(struct platform_device *pdev)
- 	if (IS_ERR(dp->base))
- 		return PTR_ERR(dp->base);
- 
-+	pm_runtime_use_autosuspend(dev);
-+	pm_runtime_set_autosuspend_delay(dev, 500);
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
- 	return component_add(&pdev->dev, &dw_dp_rockchip_component_ops);
- }
- 
-@@ -255,6 +274,34 @@ static void dw_dp_rockchip_remove(struct platform_device *pdev)
- 	component_del(&pdev->dev, &dw_dp_rockchip_component_ops);
- }
- 
-+static int dw_dp_rockchip_runtime_suspend(struct device *dev)
-+{
-+	struct rockchip_dw_dp *dp = dev_get_drvdata(dev);
-+
-+	return dw_dp_runtime_suspend(dp->base);
-+}
-+
-+static int dw_dp_rockchip_runtime_resume(struct device *dev)
-+{
-+	struct rockchip_dw_dp *dp = dev_get_drvdata(dev);
-+	u32 hpd_reg = dp->pdata->hpd_reg[dp->id];
-+	int ret;
-+
-+	ret = dw_dp_runtime_resume(dp->base);
-+	if (ret)
-+		return ret;
-+
-+	regmap_write(dp->vo_grf, hpd_reg,
-+		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_SEL, dp->hpd_sel) |
-+		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG, dp->hpd_cfg));
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops dw_dp_pm_ops = {
-+	RUNTIME_PM_OPS(dw_dp_rockchip_runtime_suspend, dw_dp_rockchip_runtime_resume, NULL)
-+};
-+
- static const struct rockchip_dw_dp_plat_data rk3588_dp_plat_data = {
- 	.num_ctrls = 2,
- 	.ctrl_ids = {0xfde50000, 0xfde60000},
-@@ -289,5 +336,6 @@ struct platform_driver dw_dp_driver = {
- 	.driver = {
- 		.name = "dw-dp",
- 		.of_match_table = dw_dp_of_match,
-+		.pm = pm_ptr(&dw_dp_pm_ops),
- 	},
- };
+ .../bindings/display/rockchip/rockchip,dw-dp.yaml  |   9 +-
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c            | 607 ++++++++++++++++++---
+ drivers/gpu/drm/display/drm_bridge_connector.c     |   6 +
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c          | 219 +++++++-
+ include/drm/bridge/dw_dp.h                         |  11 +-
+ include/drm/drm_bridge.h                           |  14 +
+ 6 files changed, 762 insertions(+), 104 deletions(-)
+---
+base-commit: c182a2ae13886463f7ae36e034449477306d182b
+change-id: 20260325-synopsys-dw-dp-improvements-7da2e98df1dd
 
+Best regards,
 -- 
-2.53.0
+Sebastian Reichel <sebastian.reichel@collabora.com>
 
 
