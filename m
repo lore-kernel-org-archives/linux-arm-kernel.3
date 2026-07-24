@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 861CDC531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAF6C53213
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F+hZB7ghV8Rxj0OljYmZuu5Y59IzZc0Ear6XA2q5p3E=; b=rGrZ9V3bY+vClU5fJUiPtutqUt
-	1sQ5+Yv94yirt6yKkewluwmNKIud0kKc2/479UBmyKgwtNX+l6WYsj7Fs82zp2nU5VkbnsN++QCzO
-	McftfWBCdMbicmLpasK7M/okYwpkesk691PjNnH2iNYdkwIww0t5l4gxAtsj64wNP+ATsNx2Jdayn
-	vEx2n9LnwfbFJBN7Cwgp65cdY2fHVINFJrLgXqwbePE4xEUwBFO90tqHGxW5/Yy9xntUGi3SFanKr
-	9cVVda8AQ1rmtQ7p12TEQgol8EpmpPkX+OPE5p/7tqw4mEtQBpwqOr1v9M+wRXbPXCgZ7XnbsOV2o
-	AI1j0oOA==;
+	bh=CRG1cSoNz5OrrL7e+Y3IqIMLL35Mv+s1/BZNp2lTdno=; b=Mt7ga6K3+u96qVLNHKoWb3Srk9
+	wpWMEGuHms/ZNj9KZILQylkE2QWG4r4YLKaF1H9ST1eESHXfPxdU/w8po+INPYGnASdUE3dcR1Iwe
+	mR066RDXa6oLlMmXLXAaIKFgFxLIH5ehMbLT3WktdM2EGUd1UG05AvMvQSnB0kAzc6fKc02/LI4OY
+	nr6UjB8+rSgDiRFknvju8asxxC0jS4tmRFQFOx1IYy27qKoRVCHgwdHYRwbwP1pFq/eJazftPgtM7
+	X0OpcGzsSxq5L74E0vgxoZzdnJiemDFAdLBOsvZlN4hS2j7bwbs8ZMSKOt0NfUU3Tjn4sGYG+0afC
+	uX3KdmIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD1Z-0000000G4LI-39Jh;
+	id 1wnD1Z-0000000G4Km-1x6R;
 	Fri, 24 Jul 2026 10:21:01 +0000
-Received: from mail-centralusazon11011036.outbound.protection.outlook.com ([52.101.62.36] helo=DM5PR21CU001.outbound.protection.outlook.com)
+Received: from mail-westus3azon11011004.outbound.protection.outlook.com ([40.107.208.4] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD1K-0000000G4AU-15Bo
+	id 1wnD1G-0000000G46f-0OIO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:20:47 +0000
+	Fri, 24 Jul 2026 10:20:43 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PLKZC+hdrUDO+gPQT2eczoWUa+QEWB0Zoe8Jett+J2t5tHR1UyinGRDUVqaYgx6VeA0afZx7/1/sv84Ugjh8r1rYTT+zD1J87A8ZGBRqe04YImukye2Dxk7atlorzR7ZfEDbL2xG+1UZAoVw755+beLTIe6y2gJwImG7Yj84SHAvczuy2ChaV2FtGrL7SOZo+y963YQ/7c+nBRSZz6WTc3DlZHE/pcczI7n2CUzCOY+MqJkc6BZS8pZUzng6IKOFh1yN0QDKVlqiIR+QAUybAIVtGBi8M4SOaao1Rs2ItmsWlWFpD0HubSRfAifS/HLGccJig43lvPMgXTkQmdjZew==
+ b=yf4X6jUAnxTdADgphwjrLDnl7pJeE5mcXvG4/BW80erkXRqtWnaIj9kO/rnffc+lW8D00hzuwEJ6umBjIEB04dLzLctuwAD55VKsQPc6pisAE0D95XORpV9MFFJf6n9bUTyrrhZLXFlZdeiRTnA3t2a1KmiDeSmM5niLaWPo4QSOYfT3gEWwtnXpTrtzJShILTHb2pYdi1zD3RL2/0WiPKBJ6xOtMAZ0jvDGOONiUrSPHMJO9Uey6FfVOmC0QjzFYAs2wr8D5WB59r+xyztsXstvEx+Uid3Oa/Zk2brIXrJRKDXq0g7ZYRAqwH0+x70xj3V0MGiK68+u4nSWar7VSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F+hZB7ghV8Rxj0OljYmZuu5Y59IzZc0Ear6XA2q5p3E=;
- b=kieHueEcHWZb8Hm39PU96VNLmubBm7pWsGtDfy6l33+IocGguQ6vy3KJgeUv3zSJ+oyRxwqCUWS2LnoVGhg8Ymp2Si7jIUQXNuTCTPhRD7Hzg15jUdSLT4tnLgj1ouwqquHU9i6ednKR6/OfKvjKXNg+ltfeaoTqmc5hqde+5lL0XyR5kkgOHRGd8Xw+M+JmziFQEZ/xIKh7LDbM7KMvt45WD6qL78+b0g8UxI0aI7hs8pEDsMfxBgrHeAXAhHL5a+fp5YLkH3NewR+9tkymJsDCkJKY4+9Znxg/3rGYFIXr7+wTKxVAmbS5Gdxz2P0vqaXliol4eB8eKs4kNj7BQQ==
+ bh=CRG1cSoNz5OrrL7e+Y3IqIMLL35Mv+s1/BZNp2lTdno=;
+ b=oCNqOH7TIkXVWibBpzZnVO5VsB8a89O4GGQaMaalJ6WS/e3obVvKE9K2x9W8Ktpuib3iy3HCayVuAl/OiQm6rlC7wA/tJP/W98CXnX/HHHXToXUEETRENQfeB4rjc4xmkD7VdwG+StnaJGlAdSPLC4M57LDGhjegN7P7GDzKUXQv4J26st10IG0ZnyeKMiOWs3CfybGGq8kwgLxgmANthMBXP2Wgtj8Lp1ffvmkEVYEKWfJdmSZF9n1e0UADlcNdCKbDI087HHJi/n4MIFWRafaA9jOz9TaXQouehbtG1TCVYs1a1AJSKMXl7/oo06LXGmgJ0OJPH7wHamIQlzue3w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F+hZB7ghV8Rxj0OljYmZuu5Y59IzZc0Ear6XA2q5p3E=;
- b=oGFKMZ3TvlQOy71uopB+n4QkE+uybdAKMSjuq6F/IIaUbRDx+3UR76A2WpG0lGNpaHKDUK1zO3jSHpS5EKdXsAycz4XhRUtsbl5mzZWp9tqIL0AfxUo3fu64focU4wJFzdADgkMOiR4xnoa4G+7UPX0blzJIz4LvHrdmDhc+7ZQ=
-Received: from SJ2P220CA0002.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:5da::10)
- by SA3PR12MB8024.namprd12.prod.outlook.com (2603:10b6:806:312::12) with
+ bh=CRG1cSoNz5OrrL7e+Y3IqIMLL35Mv+s1/BZNp2lTdno=;
+ b=1R1Yq3EHmHLKeqPRTkUOWSVal5OIkrsqYEgkl+anXS/i50HjfM39Hzor5CMFtGa3zYwqr+ukp191OyrHoCqIJRDfiA0MK5d7sgrL8/WFSA/1MLGr5hAzQ2hfqbiYvGeZbTTd/mcpSA/4VOOdN4k4gUy78PeGtLiydE4zr6ffAho=
+Received: from SJ2P220CA0006.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:5da::19)
+ by DM6PR12MB4185.namprd12.prod.outlook.com (2603:10b6:5:216::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Fri, 24 Jul
- 2026 10:20:39 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 10:20:36 +0000
 Received: from SJ1PEPF00001CE1.namprd05.prod.outlook.com
- (2603:10b6:a03:5da:cafe::1d) by SJ2P220CA0002.outlook.office365.com
- (2603:10b6:a03:5da::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.12 via Frontend Transport; Fri,
- 24 Jul 2026 10:20:38 +0000
+ (2603:10b6:a03:5da:cafe::3e) by SJ2P220CA0006.outlook.office365.com
+ (2603:10b6:a03:5da::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
+ 24 Jul 2026 10:20:36 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -61,19 +61,19 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb07.amd.com (165.204.84.17) by
  SJ1PEPF00001CE1.mail.protection.outlook.com (10.167.242.9) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 10:20:38 +0000
+ 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 10:20:36 +0000
 Received: from xsjarunbala50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 24 Jul
- 2026 05:20:37 -0500
+ 2026 05:20:35 -0500
 From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
 To: <michal.simek@amd.com>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<ptsm@linux.microsoft.com>, <radhey.shyam.pandey@amd.com>, Jay Buddhabhatti
 	<jay.buddhabhatti@amd.com>
-Subject: [PATCH v3 3/3] firmware: xilinx: Clear firmware notifiers across kexec transitions
-Date: Fri, 24 Jul 2026 03:19:48 -0700
-Message-ID: <20260724101948.2895263-4-jay.buddhabhatti@amd.com>
+Subject: [PATCH v3 2/3] firmware: xilinx: Release all peripheral devices from firmware
+Date: Fri, 24 Jul 2026 03:19:47 -0700
+Message-ID: <20260724101948.2895263-3-jay.buddhabhatti@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260724101948.2895263-1-jay.buddhabhatti@amd.com>
 References: <20260724095301.2890001-1-jay.buddhabhatti@amd.com>
@@ -86,28 +86,28 @@ X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
  (10.181.42.216)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE1:EE_|SA3PR12MB8024:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1f03dd30-8dd3-4e2b-4dad-08dee96d3567
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE1:EE_|DM6PR12MB4185:EE_
+X-MS-Office365-Filtering-Correlation-Id: 00726e81-30bd-4a07-03ba-08dee96d33ba
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|376014|4143699003|11063799006|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: SQg4ehtPYqxAe3KTy5qreB51GPkDQzUFhnbVYAfs+r3w7AuM2VDPzVDTuDUmZrYpRT1nu55yudVXC+PlGUMJX3bHsxidbea7MQo79vcEwIW/c5afUaJWSSzA3g71vlzwX+cDzht0acS7AffcyG4JCaHS5SDlevY2YurJsjhxQKTsvr0kGjv0TFBizAWfafu0i8kfLSfeu7mFlWZZgIg54giNdACkq98hJWDyKd/D8QjS0h3YEzJMGR/4D5PEBqufXcqDr8Ihg76/b9YNuBPM+hpmgVJwWGpqPi9mqZu43tOLLVC6hB2Oqb6SaaPIh54Gvbtrm1bmpcZE7rHXf0a+5G49sA5mWy89n8dBHAoaq2usnq/qOKwee8WlCV2dA2rkHwSLpCyWfM/qrKco9fjKfCO7sTsr/npjRqb5AXqIU7HwHnbTxoBqqgQupA6NxLAOGMxZ+V6i2qBTFQHJpY1qqmaXsTMdvTJuyGJ6s/p0PvVz+gedmkIDHLtR4ecl/hNejw2x2oDLnEApPDmzIRmXd6LUWLxnV8z+F13NCtjeu3Wi3iAKJmO4dZcUcdSDX5LMjAjCphcpc8IHxxkEXrKNHOD+c9SaSKomKyvVQQqd1zuh/twJUaBlrZ2nSkCzZlixigaQvNkX/YhC4br/VaW+rm3Utczf3JhxG8Yli+sfc9JZ3KGXqUJoWW/KO+WHkXCN80ffntiPnGYw77jvtJMdPg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(376014)(4143699003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|23010399003|36860700016|1800799024|22082099003|18002099003|11063799006|56012099006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: dR8YrUxMk09s1r8hFemAXCFfQ+ikcsJg9R4tKq77moZDTRE80rYSWLSt+Ndr1p62kCcQFQqNXS0sK59dw7GtzPhk1QRKco2v/cLBAmVYNKWRhzRaUzkQ1yuZ+HgMEqfDNR9git2dgojHPWZEaXsKb937oaWYI0OMWuiHKoh2hiQa+6Gir+YVfoPP+F5U9npEbWZgZvJPPj4O2SsulDNsmDBgBrozDrxubwmFXdAfIglVyr8HihAcCMOk/HYjyTHF7UsyDg/lPC1gO/Ni1/bLcu6vfpBYZtdNIV9elIZv+1fjcgqJfs8/CeLS0AhVMVVRL8UQk0OHIr3v2qtKr1ZiW9ha+YmmJw8/ZLh3nUjgkiZkX9AxXFB2Uru1CnB9eXgYKX1y3LjGC6iVMb/HsPusZWa6YvLQ5SBHooRsLgwqLPbz8Aw0Qx+vOAygOccgNzelSZFJPDS4YIJHHy8tgqJPIT93d3ulFjvizYIH9LuDa/vS7Ro1KFuWkrV6J4/BBLHL0kkwIxN/wtoHLi+NRQR/YRy4PU7DQdethcmJc17MrkCy2EqVy1RgxHpDPHZd1nZNdGLpZhWrI3mFfZhIgEbnAI9Bc5nJ0nHqbwLb9OR5i1jVySsy1jwHcEY9oAEGoCg2PZuhLBasaxyZzUNjOf0PCOH7AuyGyHbKL1fvWJm4Vf6dYww5roVlLY4mHpvcUV09dc6gW2LmZ9Ks0ps9vGnN1g==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(23010399003)(36860700016)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: VQh9UuSs5YA5HIMkKUjUbEgLY558wL6u3Q24dShWD70Gq8eX4hlxk+gzY9YfV0jSDCdGwfgCngkYoB2sFW3TxWf5bH347OfFjIFpATGQNiOUJ3ZoRO1s7qhOh0LckUrCdCl6OJLHf1VHHU2cXKHsbY2+fOyrgZ5CX+8VS7HHYi2KAzCJozmhzV4bxrg0FZCNzwO1gkmMozR7P7QxQTR3m0gdDT2nWoXJD4QxW0pKeqRFevp1QOasojj+sbNFIVyThAbj1S1f76uTAi+RuO5TnZ84wMPTurGTUIW+rZxyRB1UOkDKPrQbibc5uE7AVrpEu4u+OVgTMce5zmXhxgq1jf3qnXRsCCr29qou3r0FOHjHr/yMPMNssnCUb9xGH7eVE4YbHOuYH9NVTr6Ce2qgANnxqb5LG6VjWeP9/H6wt5u63PB+SavMSnOAEEy2i3AO
+X-MS-Exchange-AntiSpam-MessageData-0: rAWpuKJIDM+9uphXSkRVpF7HSFMuT0L/cGbiG5s3jA3T5M0bq8QKlljOsHUzs/QUFutHgj+CL9/CozVZCCeDIDTWTvTAN+C+SrT3vsQ8JDzbgaT0T0EEtAKVA99FYIN1zWiTVCjYl2C9ouMOFdofsinTPC6BOCN+owQN9EBr4Q36Z+4Z8sCuDP0E9hVZppjgZWiJw2RgcbFgSWd9Y9sEaqinK63tk6baNdCJUlsmI/0b2JbhOiJdjIxi/7dDQbLm7JW4nFqUAEJQx69/cmwCBntlXKYxIpc+Ei9qF3Iksk1dLMvv1+tHR/tZVMni58aRVhlcEu9cY48foLVPe7nUMkc5PqIzrV+OWKiS/gF/fAl1OPc1UHc0MR3oCKiso9nJ2VNjfuqBgVH94MQuaSYAOXzjaljb4LqQqcQiXkOc0lOxDSNoEK/SYPwCHNoPCGv8
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:20:38.8512
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:20:36.0640
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f03dd30-8dd3-4e2b-4dad-08dee96d3567
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00726e81-30bd-4a07-03ba-08dee96d33ba
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE1.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB8024
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4185
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_032046_301785_7B2BD8C2 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20260724_032042_144577_145125A8 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,64 +122,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During a kexec restart, only the kernel is reloaded but notifier callbacks
-in firmware persist, causing state mismatches between kernel and firmware.
+During a kexec restart, only the kernel is reloaded while devices
+allocated in firmware persist, causing state mismatches between the
+kernel and firmware.
 
-To address this, introduce PM_ALL_NOTIFIERS node ID to unregister all
-notifier callbacks during kexec. On a graceful kexec restart, this occurs
-in zynqmp_firmware_shutdown(). On a crash kernel restart, it happens in
-zynqmp_firmware_probe() in the reloaded kernel.
+Introduce PM_DEV_ALL_PERIPH node ID (0x18224FFFU) to release all
+peripheral devices during kexec. On graceful restarts, this happens in
+zynqmp_firmware_shutdown(). On crash kernel restarts, it happens in
+zynqmp_firmware_probe() of the reloaded kernel.
 
-Unregistering all notifiers depends on firmware support for the
-PM_ALL_NOTIFIERS node ID. On firmware that does not implement it (the
-feature check reports a version below PM_API_VERSION_3) the step is
-skipped and a warning such as "Firmware doesn't support unregister all
-notifiers at once" is logged, e.g. on Versal NET firmware that predates
-this API.
+Releasing all peripherals depends on firmware support for the
+PM_DEV_ALL_PERIPH node ID. On firmware that does not implement it (the
+feature check reports a version below PM_API_VERSION_3) the release is
+skipped and a warning such as "Bulk device release is not supported by
+firmware" is logged, e.g. on Versal NET firmware that predates this API.
 
 Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
 Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 ---
- drivers/firmware/xilinx/zynqmp.c     | 14 ++++++++++++++
- include/linux/firmware/xlnx-zynqmp.h |  3 +++
- 2 files changed, 17 insertions(+)
+ drivers/firmware/xilinx/zynqmp.c     | 15 ++++++++++++++-
+ include/linux/firmware/xlnx-zynqmp.h |  4 ++++
+ 2 files changed, 18 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index 64d2109eefd2..fc7212f554ee 100644
+index 95ffd8f33ce9..64d2109eefd2 100644
 --- a/drivers/firmware/xilinx/zynqmp.c
 +++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -2110,6 +2110,20 @@ static int zynqmp_clear_pm_state(struct device *dev)
- 				 "Bulk device release is not supported by firmware: %d\n", ret);
+@@ -2070,7 +2070,7 @@ ATTRIBUTE_GROUPS(zynqmp_firmware);
+  * zynqmp_clear_pm_state() - Clear subsystem state
+  * @dev: Device pointer used for logging
+  *
+- * Clears PM specific data in TF-A.
++ * Clears PM specific data in TF-A and firmware.
+  *
+  * Return: Returns status, either success or error
+  */
+@@ -2097,6 +2097,19 @@ static int zynqmp_clear_pm_state(struct device *dev)
+ 			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported in TF-A: %d\n", ret);
  			ret = 0;
  		}
 +
-+		/* Check if the firmware supports the PM_ALL_NOTIFIERS node ID */
-+		ret = do_feature_check_call(PM_REGISTER_NOTIFIER);
++		/* Check if the firmware supports the PM_DEV_ALL_PERIPH node ID */
++		ret = do_feature_check_call(PM_RELEASE_NODE);
 +		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_3)) {
-+			/* Attempt to unregister all notifier callbacks via firmware */
-+			ret = zynqmp_pm_register_notifier(PM_ALL_NOTIFIERS, 0, 0, 0);
++			/* Attempt to release all peripheral devices via firmware */
++			ret = zynqmp_pm_release_node(PM_DEV_ALL_PERIPH);
 +			if (ret)
-+				dev_err(dev, "Failed to unregister all notifiers: %d\n", ret);
++				dev_err(dev, "Failed to release all peripheral devices: %d\n", ret);
 +		} else {
 +			dev_warn(dev,
-+				 "Firmware doesn't support unregister all notifiers at once: %d\n",
-+				 ret);
++				 "Bulk device release is not supported by firmware: %d\n", ret);
 +			ret = 0;
 +		}
  	}
  
  	return ret;
 diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index ac39e5492961..69a2f74269f3 100644
+index baaa88b0b197..ac39e5492961 100644
 --- a/include/linux/firmware/xlnx-zynqmp.h
 +++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -149,6 +149,9 @@
- /* Node ID for all peripheral devices */
- #define PM_DEV_ALL_PERIPH	0x18224FFFU
+@@ -50,6 +50,7 @@
+ /* PM API versions */
+ #define PM_API_VERSION_1	1
+ #define PM_API_VERSION_2	2
++#define PM_API_VERSION_3	3
  
-+/* Node ID for all notifier callbacks */
-+#define PM_ALL_NOTIFIERS	0xFFFFFFFFU
+ #define PM_PINCTRL_PARAM_SET_VERSION	2
+ 
+@@ -145,6 +146,9 @@
+ #define XPM_EVENT_ERROR_MASK_NOC_NCR		BIT(13)
+ #define XPM_EVENT_ERROR_MASK_NOC_CR		BIT(12)
+ 
++/* Node ID for all peripheral devices */
++#define PM_DEV_ALL_PERIPH	0x18224FFFU
 +
  enum pm_module_id {
  	PM_MODULE_ID = 0x0,
