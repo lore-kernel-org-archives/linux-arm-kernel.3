@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 718FFC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 449F7C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zC7eAhDlNrYkTxhODTTpYL33+TbjyH7/GlX2hOaaZfE=; b=2M6i57AW82qeBmS5k5VjZ+agIw
-	HcfBGXsHBTV3blzc88MJHc56N5mIyvMMvzDtC09sf5gcGIXokBaJJH9kfOsEw2Zyo/nBBGVUcDT3q
-	xE5ThesdsSWBOydAHxh7LGDF/tdPmbQGJPZFfM9WkZQAq5AmVHQZAv5lf4tvLUoL8wXcbKVn2qgF8
-	U31Iqpe/GpSK8pN7KIXuMyPC/QLCDuLblX7RFli3aIbW+Y0h2dpU1DmIgPeTKlJVJkC+CW5ifDThT
-	17iM1M5o3w/JlTZQ1GNdoOoyv3BdZ3jifK6QO9R50Y0NYuPOm5+pUJQ5xXNbSlA7ksq1AeeD9yqbz
-	6rZ1zQKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+zdQgbqXxACDmr32xzFUqYuLmlqfobQFQNJHT7eLaFY=; b=LI1EVzXPtWqiJHV4g1wAnelK2T
+	ty+l2JnlhRROENaGtXa9KVzVlnEL1nUN3Do5+uISA8cChcHFrL7RXErVyo36tE2WSZq55MJUsNasU
+	2IKIcOHjqKchLsaYGvSruIn94wRpvrZ/cXtFHCYuvAT8kzQKal3vXDHKOArTSS8YnG44x/DImYawo
+	Td8rboDit1UYTE3R7pEW1rOTeLh8UEwiNyXpMixQIZGR7KzNAMs4shAFxLT14jVj6YFRIHqAr8rtv
+	L0bzUBO5NA2hfiQCDZG8iSvERfGPtxOju091kwE0HwDy1ZM+56qMJa6lfJejtMVSL4zB0jlbJx8aW
+	9e6kNtNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9DI-0000000FaJf-3h8M;
-	Fri, 24 Jul 2026 06:16:52 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9DG-0000000FaJI-3kBv
+	id 1wn9E7-0000000FaOV-04Fo;
+	Fri, 24 Jul 2026 06:17:43 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wn9E4-0000000FaO4-43XT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:16:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1784873809; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=zC7eAhDlNrYkTxhODTTpYL33+TbjyH7/GlX2hOaaZfE=;
-	b=DfvfZgxusdprwBLu1yQlmk6HDlqgWHUF5yYQaacG5jM8M50V6OFESshDwYDN2hP6siD8SpuZVIdl+37/WobmPPuPZ6EGBUWNAfFcp1xDqvpMzCV3lZPwSbrcr8A+xcnwOysGoAzLHbSAEFN/MZjzEfsInLvg8/I4qmYQdh4FATQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7iD4Pd_1784873806;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7iD4Pd_1784873806 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 24 Jul 2026 14:16:46 +0800
-Date: Fri, 24 Jul 2026 14:16:46 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH v3 20/28] KVM: arm64: Add sanitisation for NVHCR_EL2
-Message-ID: <vtyzpvpqv2fbzldllzcbsks3sd7ktkwwylatmeeibfmchqydyh@pxhok4n4mswr>
-References: <20260722074234.3330999-1-maz@kernel.org>
- <20260722074234.3330999-21-maz@kernel.org>
+	Fri, 24 Jul 2026 06:17:42 +0000
+Received: from [10.94.177.11] (unknown [4.194.122.136])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DA71220B7167;
+	Thu, 23 Jul 2026 23:17:23 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DA71220B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1784873845;
+	bh=+zdQgbqXxACDmr32xzFUqYuLmlqfobQFQNJHT7eLaFY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=siWZQREj97i+UVAMpjAIF1VgYLT4amSn7g7a7hOjo6IkdTHtPTPS6xuV+842TO+VI
+	 p6llVgZErniddfrE5jt+OCjoGG4tW/RCF3DQ669F26GKFaGHRJPMg2+lfd/ViH1XIn
+	 RxhSfuJB1MSST6jfkFElVQmPuHJnPrxNoM2wlTJo=
+Message-ID: <63f3e979-80c4-44c1-b17b-7f5f12882425@linux.microsoft.com>
+Date: Fri, 24 Jul 2026 11:47:36 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260722074234.3330999-21-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] firmware: xilinx: Add support to clear TF-A PM state
+To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, michal.simek@amd.com,
+ git@amd.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260723124841.2567827-1-jay.buddhabhatti@amd.com>
+ <20260723124841.2567827-2-jay.buddhabhatti@amd.com>
+Content-Language: en-US
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+In-Reply-To: <20260723124841.2567827-2-jay.buddhabhatti@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_231651_107168_592E68A0 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20260723_231741_043998_6EBCF6D8 
+X-CRM114-Status: GOOD (  31.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,79 +70,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 08:42:26AM +0800, Marc Zyngier wrote:
-> Just like any other VNCR-based register, NVHCR_EL2 requires some
-> level of sanitisation. Being specified as a live copy of HCR_EL2,
-> it adopts the exact same format, but depends on FEAT_NV3 instead.
->
-> A subtle aspect is that we only want to apply the sanitisation if
-> FEAT_NV3 is actually present, as the VNCR location is otherwise
-> used to back accesses to HCR_EL2.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+
+
+On 23-07-2026 18:18, Jay Buddhabhatti wrote:
+> Currently, during a kexec restart, only the kernel is reloaded, while the
+> TF-A specific data remain unchanged. This leads to a mismatch between the
+> kernel state and the TF-A firmware state like SGI number and shutdown
+> scope variable.
+> 
+> For example, the kernel registers an SGI number with TF-A so that TF-A can
+> notify the kernel of events via that SGI. TF-A stores this SGI number in
+> its internal state. After a kexec, the newly loaded kernel re-registers
+> and may request a different SGI number, but the stale value programmed in
+> TF-A remains, so event notifications are delivered on the old SGI and are
+> missed by the new kernel. The shutdown scope variable has a similar stale
+> state problem.
+> 
+> To resolve this, the TF_A_CLEAR_PM_STATE PM API is introduced to clear
+> TF-A-specific state during kexec. On a graceful reboot, this API is
+> triggered by zynqmp_firmware_shutdown(), while in a crash kernel scenario,
+> it is invoked by zynqmp_firmware_probe() in the reloaded kernel.
+> 
+> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
 > ---
->  arch/arm64/kvm/config.c | 15 +++++++++++++++
->  arch/arm64/kvm/nested.c |  4 ++++
->  2 files changed, 19 insertions(+)
->
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index 467f57eb8e6bb..1053676551aff 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -1019,6 +1019,9 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
->  static const DECLARE_FEAT_MAP(hcr_desc, HCR_EL2,
->  			      hcr_feat_map, FEAT_AA64EL2);
->
-> +static const DECLARE_FEAT_MAP(nvhcr_desc, NVHCR_EL2,
-> +			      hcr_feat_map, FEAT_NV3);
+>   drivers/firmware/xilinx/zynqmp.c     | 48 +++++++++++++++++++++++++++-
+>   include/linux/firmware/xlnx-zynqmp.h |  3 +-
+>   2 files changed, 49 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index af838b2dc327..95ffd8f33ce9 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -3,7 +3,7 @@
+>    * Xilinx Zynq MPSoC Firmware layer
+>    *
+>    *  Copyright (C) 2014-2022 Xilinx, Inc.
+> - *  Copyright (C) 2022 - 2025 Advanced Micro Devices, Inc.
+> + *  Copyright (C) 2022 - 2026 Advanced Micro Devices, Inc.
+>    *
+>    *  Michal Simek <michal.simek@amd.com>
+>    *  Davorin Mista <davorin.mista@aggios.com>
+> @@ -13,6 +13,7 @@
+>   
+>   #include <linux/arm-smccc.h>
+>   #include <linux/compiler.h>
+> +#include <linux/crash_dump.h>
+>   #include <linux/device.h>
+>   #include <linux/init.h>
+>   #include <linux/mfd/core.h>
+> @@ -2065,6 +2066,42 @@ static struct attribute *zynqmp_firmware_attrs[] = {
+>   
+>   ATTRIBUTE_GROUPS(zynqmp_firmware);
+>   
+> +/**
+> + * zynqmp_clear_pm_state() - Clear subsystem state
+> + * @dev: Device pointer used for logging
+> + *
+> + * Clears PM specific data in TF-A.
+> + *
+> + * Return: Returns status, either success or error
+> + */
+> +static int zynqmp_clear_pm_state(struct device *dev)
+> +{
+> +	u32 pm_family_code;
+> +	int ret;
 > +
->  static const struct reg_bits_to_feat_map sctlr2_feat_map[] = {
->  	NEEDS_FEAT(SCTLR2_EL1_NMEA	|
->  		   SCTLR2_EL1_EASE,
-> @@ -1393,6 +1396,7 @@ void __init check_feature_map(void)
->  	check_reg_desc(&hdfgwtr2_desc);
->  	check_reg_desc(&hcrx_desc);
->  	check_reg_desc(&hcr_desc);
-> +	check_reg_desc(&nvhcr_desc);
->  	check_reg_desc(&sctlr2_desc);
->  	check_reg_desc(&tcr2_el2_desc);
->  	check_reg_desc(&sctlr_el1_desc);
-> @@ -1592,6 +1596,17 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
->  	case HCR_EL2:
->  		resx = compute_reg_resx_bits(kvm, &hcr_desc, 0, 0);
->  		break;
-> +	case NVHCR_EL2:
-> +		/*
-> +		 * Only apply sanitisation if we do have FEAT_NV3.
-> +		 * Otherwise, the register aliases with HCR_EL2 in VNCR,
-> +		 * and we're better off relying on data transfers between
-> +		 * NVHCR_EL2 and HCR_EL2 to sanitise things.
-> +		 */
-> +		resx = (kvm_has_nv3(kvm) ?
-> +			compute_reg_resx_bits(kvm, &nvhcr_desc, 0, 0) :
-> +			(typeof(resx)){});
-> +		break;
-
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
-
->  	case SCTLR2_EL1:
->  	case SCTLR2_EL2:
->  		resx = compute_reg_resx_bits(kvm, &sctlr2_desc, 0, 0);
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 35a1c42ad3f84..f646894fec9a9 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1830,6 +1830,10 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
->  	resx = get_reg_fixed_bits(kvm, HCR_EL2);
->  	set_sysreg_masks(kvm, HCR_EL2, resx);
->
-> +	/* NVHCR_EL2 */
-> +	resx = get_reg_fixed_bits(kvm, NVHCR_EL2);
-> +	set_sysreg_masks(kvm, NVHCR_EL2, resx);
+> +	/* Get the Family code of platform */
+> +	ret = zynqmp_pm_get_family_info(&pm_family_code);
+> +	if (ret < 0)
+> +		return ret;
 > +
->  	/* HCRX_EL2 */
->  	resx = get_reg_fixed_bits(kvm, HCRX_EL2);
->  	set_sysreg_masks(kvm, HCRX_EL2, resx);
-> --
-> 2.47.3
+> +	if (pm_family_code != PM_ZYNQMP_FAMILY_CODE) {
+> +		/* Check if the TF-A supports the TF_A_CLEAR_PM_STATE */
+> +		ret = do_feature_check_call(TF_A_CLEAR_PM_STATE);
+> +		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_1)) {
+> +			/* Clear PM specific data in TF-A */
+> +			ret = zynqmp_pm_invoke_fn(TF_A_CLEAR_PM_STATE, NULL, 0);
+> +			if (ret)
+> +				dev_err(dev,
+> +					"Failed to clear TF-A specific subsystem state: %d\n", ret);
+> +		} else {
+> +			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported in TF-A: %d\n", ret);
+> +			ret = 0;
+> +		}
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+>   static int zynqmp_firmware_probe(struct platform_device *pdev)
+>   {
+>   	struct device *dev = &pdev->dev;
+> @@ -2118,6 +2155,9 @@ static int zynqmp_firmware_probe(struct platform_device *pdev)
+>   	if (ret < 0)
+>   		return ret;
+>   
+> +	if (is_kdump_kernel())
+> +		zynqmp_clear_pm_state(dev);
+> +
+>   	/* Check trustzone version number */
+>   	ret = zynqmp_pm_get_trustzone_version(&pm_tz_version);
+>   	if (ret)
+> @@ -2151,6 +2191,11 @@ static int zynqmp_firmware_probe(struct platform_device *pdev)
+>   	return of_platform_populate(dev->of_node, NULL, NULL, dev);
+>   }
+>   
+> +static void zynqmp_firmware_shutdown(struct platform_device *pdev)
+> +{
+> +	zynqmp_clear_pm_state(&pdev->dev);
+> +}
+> +
+>   static void zynqmp_firmware_remove(struct platform_device *pdev)
+>   {
+>   	struct pm_api_feature_data *feature_data;
+> @@ -2210,5 +2255,6 @@ static struct platform_driver zynqmp_firmware_driver = {
+>   	},
+>   	.probe = zynqmp_firmware_probe,
+>   	.remove = zynqmp_firmware_remove,
+> +	.shutdown = zynqmp_firmware_shutdown,
+>   };
+>   module_platform_driver(zynqmp_firmware_driver);
+> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+> index 7e27b0f7bf7e..baaa88b0b197 100644
+> --- a/include/linux/firmware/xlnx-zynqmp.h
+> +++ b/include/linux/firmware/xlnx-zynqmp.h
+> @@ -3,7 +3,7 @@
+>    * Xilinx Zynq MPSoC Firmware layer
+>    *
+>    *  Copyright (C) 2014-2021 Xilinx
+> - *  Copyright (C) 2022 - 2025 Advanced Micro Devices, Inc.
+> + *  Copyright (C) 2022 - 2026 Advanced Micro Devices, Inc.
+>    *
+>    *  Michal Simek <michal.simek@amd.com>
+>    *  Davorin Mista <davorin.mista@aggios.com>
+> @@ -66,6 +66,7 @@
+>   #define FIRMWARE_VERSION_MASK		0xFFFFU
+>   
+>   /* ATF only commands */
+> +#define TF_A_CLEAR_PM_STATE		0xa05
+>   #define TF_A_PM_REGISTER_SGI		0xa04
+>   #define PM_GET_TRUSTZONE_VERSION	0xa03
+>   #define PM_SET_SUSPEND_MODE		0xa02
+
+Looks good to me.
+
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+
 
