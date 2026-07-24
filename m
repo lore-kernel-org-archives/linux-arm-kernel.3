@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1681FC531C9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B004C53200
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,73 +12,88 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=151dHFu9ZrcZ2Ze7eRCmAzTAkfmW+Sjlen+Umdf0J4k=; b=EplT5ZEDcD3R8QDylRhZOLMY1U
-	OT5ID7OTN1xZ8P+3UtNzxJBIagJZOEcbAp7wSkF3fSt3mikTniRbIP7uO64nXinYsCQB6ItiUSzSy
-	i9iReITs1WSaQ4CNF6QEDwNSog4wkYLRMU1MjKK+saIdOroOFHfJNDunC+C5IEofHSZ3LcLndaKYX
-	YAUt0JqsVC28PXspwnX+pLrQ71NOZKrEBMCBVDaMO+EEFqsBaCBX7dvGs4OWG3FwoRtfCuwefwEgR
-	DEulfb28LFDHBSkZEBLE9TKIU3PPw6dY+JevGPh9pxHpxc8OkQ52KGHSd1Chrj/tzo9Ak+sKlc1cu
-	D80746RQ==;
+	bh=+yKhFj6Jv0bJZgLOm9hZtusw1gz74T4jOjET5lrA2bQ=; b=qnY39djn2wczZmOHcdrvoiK6Xd
+	Xp5qOMxl/6URYZptmZLKX+zXTtFIyGEPf+WFkdatoQ1o5lSFH/Y+iaBvss/GQfcos0OG3WuBbkt1D
+	CwQgUexDIcl2T52fHkiKqzaLwsmeEYZeRZksh5zuHhdZCOt6BXJwtE0UVK9YGpki7c7HJz8j4DnuD
+	l07Fvs8v2jacdtetVjKRKjDEV5xx+5dI5vMmjId/bvLRGOMO/aqFCSuFIvGgY0jNHKnWZMvyOIBTg
+	hvFP0NzdAMtTkwVRz+UCts8Gv9Zmsd01qz0mC5KZENEgjfQvRH0b8DlqhzxT0a3RzY/knTC7/LSbi
+	a1CcGUhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIXg-0000000GnX6-0QGa;
-	Fri, 24 Jul 2026 16:14:32 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wnIXf-0000000GnVU-0k2k;
+	Fri, 24 Jul 2026 16:14:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIXZ-0000000GnQ9-0X40
+	id 1wnIXY-0000000GnQS-3bZh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 24 Jul 2026 16:14:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=+yKhFj6Jv0bJZgLOm9hZtusw1gz74T4jOjET5lrA2bQ=; b=cUcTTrRA7vab5Pc9Wqgs41brp2
+	TApwUHEuoKLdCXwryD4ryLdJBKi9YYaLEhp/9YNDheNp9qmhdqzVtV0Yx+VSuXtmKs8RSZKJvm6Bq
+	mAq/QDOHNzTCeLN1ApdwUZVyi5OsqMYPX/cBaUN/+R0iLO4h8+7oNxVsePhoPYkQfXXVucUjw4M0h
+	8mYOTRJTiowkDSvkFjw8c3XqtSHPuWHVeqqR6J9tTuTfWhyNBmgIEtvf9bxP1gQJvW9DfbxNWvyqA
+	c8rXflnQ+k8HDBeXfx7Qui2gU+SaNyV12z4VuHfDKpQWQSmUZtG9umMwMjIBcC8+CDMLcj21cwldw
+	e3nW1rgw==;
+Received: from mail-francecentralazon11013030.outbound.protection.outlook.com ([40.107.162.30] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wnIXV-00000002kg6-2Bku
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 16:14:26 +0000
+	Fri, 24 Jul 2026 16:14:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h8xY+o6FisEtxfRiO5INTrTSsX2+p7MtMfnIilqNGQeKm0c4NHs7C2nSOE06sUZjIevxdP27e0J7FMdwacLqdDya5C8gVeKmM5TJI7UQPVeSOzT0ThGmdA+3+iW8F3xKcYM5JkeVMC4lybrxOc5C2iDCMBHl6Rx+SgGB7vlzRiep3l+pz9Zg8+YNZ1ZN7cMQ6cai8xHbROSNPIFJK/5InaHhBw/ioC0Gh530iWSna6YBCht0tZuRuPeC21QwuWDx1Ow2DRuamzjEoMr7BTa/8hmZvBiGwavL/Z4oORbmHk47oNCYqbF4sGzlJIFOmSd9E69rTgZMPy+AQY+s0OrGlA==
+ b=OgHsUidVpIsX+khAZWEE3f/tsWmHt39XjkMlUvUEbY3lPSdmZnxiFATQ/4aB/E6DKR1erJwwzd0mO6F7M1jjLE4BPyzFJUfvVIwXqUTYA2E6bmPx/q1sUxDPY4AzHNZBS09/GjF8UBKKG9EUeWl4JglB8tvthCCykZf7rebIz0GjwHGXsa2aV0RGuuMxdc6pfjl0we38lshg2uMYaUcLa3QccY5Dh0pn0OOlsFsr/fevlqYQd5MbykEElpVUwy00irL6jLYPfR6L+Hg9CZ29OREXBQyNB6hqn1txnsXImlU2Vcm2Svv8MPBQyxY9g3emTGsgYMvUcfk+sz4z0j1UCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=151dHFu9ZrcZ2Ze7eRCmAzTAkfmW+Sjlen+Umdf0J4k=;
- b=VnDX659DinXfYDvQL+Ol3LwBojexRXtUBcWT9FiC8S9/ndQj0V+WIPRlpwSa2xEXgL3PCqXVKuLCt2alEsic2o8feeWXNtAIrTEdvMAScAONnNGXV7OoVeQ8nfZUlLhUVxRgW2VwICIohsPv5daOy4/6QQSsm0ZunhTja+cf5U6E2lRdq07DAzT06TjoNhThOBk3BwVsgoLlXfeZ028mTyBCrX/b9u426omGJyhrtxPN1Cw9WJoZTynwHxyVrksU+u9vASzgqR27c8Odt4SC3QRrYFz6K18FHq4/Ut6exyRMiEWR1k2bgXp8m+ETym0bITLRfbRLok5XGBkHlIuUqQ==
+ bh=+yKhFj6Jv0bJZgLOm9hZtusw1gz74T4jOjET5lrA2bQ=;
+ b=pA39hh/75ZiU53kJTymlbzWhehSMTUvN9B0wVdv0er6xqdWt3jQMru1bfsOBOX7vA8z5pKLCtiTxkOxYf2kKuxSLrzAcutn7Nox3LiBjONG2YSMHgaT5TTn944PcTt1N46pK0weYMVyiAckecrvioe5noLajqx2pVy1R2q4CeVtfOwSujfk1W/A+PBK8jBSbbbh2jpU4MRM2SH48dtM436e1Kpj+JfgC9Uzzmd/Colx4FjSmYDKnZiacKRth1uMkYAYBCrVuSs2+s/u8Zrym35gYc5uPzBwcEA3P6gvqzdE3Gpe3i24M+5diyhwbVub2/3/cYKwZmsc2R7cLowUFmA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=151dHFu9ZrcZ2Ze7eRCmAzTAkfmW+Sjlen+Umdf0J4k=;
- b=lLazvowPp7PlcPEHTyxXfRdddVIhoIpnvn66jH9gDLjgIv35hLnvCpT8pd1LZNqcK6uSo2V+VIZ6/290ON0nhbrCVYVgR49vVO1EjOhXCgT03a9E2C3cjdJIjOhyyG4l0YRDDmVAqGVaES/oTBc4bt6xziGJ91+9pTgILsy56HFi/OckJzjgFcjc56JqMcXUqU/RVnnv84s7Wk3GNmeSm2C63q4f+lAEbBmdJFIbVZjxuo6kHgywUQh+3UbwhC28/zJL9eUw5qWZmBg/EIAk4FNoaQVDJM2pH+lN6YdBmligfbXbUi3FEe4xJEhvYlPl/fB/SXyi0LNQRAa74pJcgw==
-Received: from DB8P191CA0008.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::18)
- by DB8PR10MB3864.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:165::14) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=+yKhFj6Jv0bJZgLOm9hZtusw1gz74T4jOjET5lrA2bQ=;
+ b=NFvEsItsfX38SCgURiXXW8Um5BvfOpF6ZIIm8yqiE4/sCAQAuXt5rbMwXOjKFN9m99zKbvv5vp4BLs0FTHmT4eUrb/QaHK5OP5aOEcENvF3g257frlR+mV6Ssn3hdD5ofO+RIVMQ1aQENP4LtyGlk95tkGU97nLQ1cWjEUFkQn795pKI2iFrJ8HCFVMj29U47K1wyEE7POJ6dqNiURbsGCzCUklEDxWHk6v7SGIPD9YEuBVtsJtfLnJjfPt4v0j7Qm3DnIbBZOsawjfV4FeIKJGlhv8WpmfGHZxq0TJMnUwUlb0iGmBz0hGfkEt40PUV6v7sP9EIpwXjA/IZ5YaoUQ==
+Received: from DUZPR01CA0136.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bc::24) by AS8PR10MB7706.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:63f::13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 16:14:19 +0000
-Received: from DB1PEPF000509EA.eurprd03.prod.outlook.com
- (2603:10a6:10:130:cafe::42) by DB8P191CA0008.outlook.office365.com
- (2603:10a6:10:130::18) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 16:14:14 +0000
+Received: from DU6PEPF0000952A.eurprd02.prod.outlook.com
+ (2603:10a6:10:4bc:cafe::78) by DUZPR01CA0136.outlook.office365.com
+ (2603:10a6:10:4bc::24) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 16:14:19 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ 24 Jul 2026 16:14:12 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509EA.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 16:14:19 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU6PEPF0000952A.mail.protection.outlook.com (10.167.8.11) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 16:14:12 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
- 2026 18:19:33 +0200
+ 2026 18:18:49 +0200
 Received: from localhost (10.252.22.128) by STKDAG1NODE2.st.com
  (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 24 Jul
- 2026 18:14:18 +0200
+ 2026 18:14:11 +0200
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Fri, 24 Jul 2026 18:13:49 +0200
-Subject: [PATCH v3 08/13] media: stm32: dcmipp: add pixel pipes helper
- functions
+Date: Fri, 24 Jul 2026 18:13:42 +0200
+Subject: [PATCH v3 01/13] media: stm32: dcmipp: share struct dcmipp_device
+ among subdevs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260724-stm32-dcmipp-pixel-pipes-support-v3-8-f77fe7e723d9@foss.st.com>
+Message-ID: <20260724-stm32-dcmipp-pixel-pipes-support-v3-1-f77fe7e723d9@foss.st.com>
 References: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
 In-Reply-To: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>, Alain Volmat
@@ -93,28 +108,28 @@ X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509EA:EE_|DB8PR10MB3864:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c6614c7-ec24-48be-611b-08dee99e9ddb
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000952A:EE_|AS8PR10MB7706:EE_
+X-MS-Office365-Filtering-Correlation-Id: 47b1cb78-26f3-4806-2187-08dee99e999e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|36860700016|376014|6133799003|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: woLpMH5n9DRnzNErtqZEBNeBdh1m11RR1lwSEzWlA92EK4TS20Yvy0BYkGv3phINyMvCl0ZN46gtadaaKedYBFWc4szhS9GaFi1f43lvGfPLQEKk4c373BMzxaREsEVPSMzyqjPU3BSoDr8G7l9IntJi/Q41eMj78cqrd6vd3FvMnLW/osra/V1uic617jq41FhYN1qdSPqJ7nNLhKJr4CLEe8akBUAl7PeGMNx9+R+GWeujSfHcDOE49/WrF70eeAXG1OEzz7UaERWWjyo0Iw6pYQ2N1owhWHuDMWXzk4vJZmrLSDJpeCpxSzgjlFuoPu8tbd+FDVFSVLKAxslexOTMt2fJsYSng1BBgfHd7yM3KXKabIwr/Wt2VV0W+DSm7Wn4Ve7iLxGO722cgiqW59kA5BkeHjHGG/6dlFfnsSMVyMbNF001lHGP+Z6xrUhEBoQAKzC2w0zk09WsvLdNlM6pcaqvYhlpHnc96+XMUd+JFnwKYK7X8197TDTTjE6lU38yfeMc31n4xpVgGkKFWE+EyC+v+8hSX1ZIv65/3VxabWg4Wq+kdQNLh8w40v64MWcfEUXUxTHvb5sXMT2k8Rt95Xbt+MH48z0EpMacfWYofN9Twag5xY/qzHjVvsrj4wKGHKSGgdMrWBLbUVYEc+bLcfcXK2eaFIPWkUz/abt59CKnKW0BotUgiDurdTtvK0rMujU4/pwdZ9uFIDdBDA==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(36860700016)(376014)(6133799003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|376014|82310400026|10067099003|11063799006|6133799003|56012099006|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: 3t7n1ouUzf4+4/kM+15teWNV8CgYHBh1D3XVUtBsT+WdejlR9In9SkcKB04Qylv7D/JEZxUaZnHJvfaasX1aLF89C0NjPz3BvUC3b6yFRQZb5VPl4twnSQzW/C4JTYaQtWwegNPNgTGh36a7VEJd9bU4J/MWpHwRxBb8CleYCF9YCM0ipCv0H8MMnPw5DQQUj9oPZ44LGuNStchFR/iP1DPNEfDZsjocKPbqDyT/5lUgtSW77L0lIfVeD+srFyY8J1Abi+OiFSv3jDvPjnhQ2H4N78jSsgeKsPzGpQWZ+7cdk6XXYGAaJyvmQanPMgxVXnwMoeZQQojkUKxBCJ6ICxy5dKxA1vfwRqA50Y6kdVnExMK6bU53OaGrx79QxLedmf2PhfPNC+5tkQInStIBaLHp5XnfZGR3F5udc6GBvcIEqYZdWritCMvZod7yNkJDVj4UV2n6XhVYOKCv28btySYWQSbNsPcjSKGCmsZYbJ8bbKjbiGn9wG7JLy5D+28nL9Vq3D95BgNpYLVNaIeUM9yKqSwhQifsFp4mIKlRZUhZ5kpNz98yvqE71WPtW9dtZvwbutuc/uWSeL5/k3Dm/skyurzrnhlc2RYX7qsm4WuqMlAglxc35cjnB3l4F1lOlz8NyEDFeZPdMS+EaDmK9heoKCeqwsjL2u89kin9C/AQFlDjRAezfJf/jev268nmA41XfDcqKTfDVSadYMf1wA==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(376014)(82310400026)(10067099003)(11063799006)(6133799003)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: arrz2x6UOVCYJlOAT7Kt5oiQvDKktd7Vilu78vJfOF5NiJiK/0Pg0JRMc2W4/WLMUUqgQjSxwp2g+w96EB3QEGBrfwo5s5dXjC3VWtssV2+D+X25Ep2XpOohdCERKGlxMa7eSwnybYvOMFuYCQh6iApg8V8xRySDtnp0U0FVmoWMcVeZCpv8HEZtr3SeMH/rPiGbutS2nYAnMa8B1F3avuAk1przklemSrgJTr3fhqoU5rxw/QtR1ctj3GQyK7UY+5ePhHLLv4qMaWSnyHkyncjpEDstgcAc4b9U7YuOWFaE8aFkDzjXQqVaLfLN0mEeRpWnb1whFC0aYGztVHJe6YOuCCQsPMK83K8BLEUuNkL8j+05y1OLJbNXkWAC+IF8AeWIcXbA9aShozY00rPwUClmPALttC4huJHAeHbQKodRzcTdVdc6M0ldFBSZVrP8
+X-MS-Exchange-AntiSpam-MessageData-0: PXGK28RY6yYoI6R7adGPkaFxUMvxWzDAfuxm1Z4njchT8fL8vAa4z24z77OFBevDt/d1Y2cptMOGDZca9IKkJSJKrFvMAzgIRqvLto10oOTowPi6s/TvmG6bnF6O8K6i8U8xoq4GgEwNra0ZQM+fElDwCFRj78K6hHAyFL2UnTgy+SqSVHCb9/qCdURlWFYezSibnQ1s0YOambNibO1qT09AhYxoQt3IwwY5lf62DSM/FmIwWI4YWjaAx4SWZMCoJ3G6uhZ++TtfNmZitKHP65rZFbygJwYmvcMtnjKJUCQuLb+pEcLmBBZBC1kwtzZEXOchoNmeyavuuyBsH4156DdSFic2OPt/0c6BmU7ZsC1tiJitZMloxljHF7se3d0sl6nXqw/QonNdg40lL858vNRxdkYrX7x2xnqK/Pwh9T1BrfAfxdqNSkerovPM5oEK
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 16:14:19.4439
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 16:14:12.3437
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c6614c7-ec24-48be-611b-08dee99e9ddb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47b1cb78-26f3-4806-2187-08dee99e999e
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EA.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000952A.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3864
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB7706
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_091425_332843_66C28EA4 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20260724_171421_777435_F94A13D9 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,262 +144,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pixel pipes are made of an isp subdev (only main pipe) and a
-postproc subdev. This commit add a helper functions common to
-those 2 subdevs such as for handling format enumeration,
-set_selection handling, so that they do not have to be
-duplicated in the two subdeves.
+In preparation of need for sharing of data between subdevices,
+make the struct dcmipp_device structure part of dcmipp_common.h
+and share it with subdevs at init time. This allows for simplifying
+parameters of each subdev init function as well.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- .../media/platform/st/stm32/stm32-dcmipp/Makefile  |   1 +
- .../st/stm32/stm32-dcmipp/dcmipp-pixelcommon.c     | 180 +++++++++++++++++++++
- .../st/stm32/stm32-dcmipp/dcmipp-pixelcommon.h     |  41 +++++
- 3 files changed, 222 insertions(+)
+ .../st/stm32/stm32-dcmipp/dcmipp-bytecap.c         | 13 ++++---
+ .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        | 11 +++---
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h | 43 +++++++++++++++++-----
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   | 33 ++---------------
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-input.c  | 12 +++---
+ 5 files changed, 55 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-index 159105fb40b88..54231569ed6fe 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- stm32-dcmipp-y := dcmipp-core.o dcmipp-common.o dcmipp-input.o dcmipp-byteproc.o dcmipp-bytecap.o
-+stm32-dcmipp-y += dcmipp-pixelcommon.o
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+index f0e809458489f..483af0f39f0d9 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+@@ -857,12 +857,11 @@ static const struct media_entity_operations dcmipp_bytecap_entity_ops = {
+ 	.link_validate = dcmipp_bytecap_link_validate,
+ };
  
- obj-$(CONFIG_VIDEO_STM32_DCMIPP) += stm32-dcmipp.o
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelcommon.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelcommon.c
-new file mode 100644
-index 0000000000000..8b0699e870ef6
---- /dev/null
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelcommon.c
-@@ -0,0 +1,180 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for STM32 Digital Camera Memory Interface Pixel Processor
-+ *
-+ * Copyright (C) STMicroelectronics SA 2026
-+ * Authors: Hugues Fruchet <hugues.fruchet@foss.st.com>
-+ *          Alain Volmat <alain.volmat@foss.st.com>
-+ *          for STMicroelectronics.
-+ */
+-struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
+-						  const char *entity_name,
+-						  struct v4l2_device *v4l2_dev,
+-						  void __iomem *regs)
++struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
++						  struct dcmipp_device *dcmipp)
+ {
+ 	struct dcmipp_bytecap_device *vcap;
++	struct device *dev = dcmipp->dev;
+ 	struct video_device *vdev;
+ 	struct vb2_queue *q;
+ 	const unsigned long pad_flag = MEDIA_PAD_FL_SINK;
+@@ -880,6 +879,8 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
+ 		goto err_free_vcap;
+ 	}
+ 
++	vcap->ved.dcmipp = dcmipp;
 +
-+#include <linux/v4l2-mediabus.h>
-+#include <media/v4l2-rect.h>
-+#include <media/v4l2-subdev.h>
+ 	/* Initialize the media entity */
+ 	vcap->vdev.entity.name = entity_name;
+ 	vcap->vdev.entity.function = MEDIA_ENT_F_IO_V4L;
+@@ -930,7 +931,7 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
+ 	vcap->ved.handler = dcmipp_bytecap_irq_callback;
+ 	vcap->ved.thread_fn = dcmipp_bytecap_irq_thread;
+ 	vcap->dev = dev;
+-	vcap->regs = regs;
++	vcap->regs = dcmipp->regs;
+ 
+ 	/* Initialize the video_device struct */
+ 	vdev = &vcap->vdev;
+@@ -941,7 +942,7 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
+ 	vdev->ioctl_ops = &dcmipp_bytecap_ioctl_ops;
+ 	vdev->lock = &vcap->lock;
+ 	vdev->queue = q;
+-	vdev->v4l2_dev = v4l2_dev;
++	vdev->v4l2_dev = &dcmipp->v4l2_dev;
+ 	strscpy(vdev->name, entity_name, sizeof(vdev->name));
+ 	video_set_drvdata(vdev, &vcap->ved);
+ 
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index 0c7aeb0888f66..5fcd5123136f8 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -571,8 +571,8 @@ void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved)
+ }
+ 
+ struct dcmipp_ent_device *
+-dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
+-			 struct v4l2_device *v4l2_dev, void __iomem *regs)
++dcmipp_byteproc_ent_init(const char *entity_name,
++			 struct dcmipp_device *dcmipp)
+ {
+ 	struct dcmipp_byteproc_device *byteproc;
+ 	const unsigned long pads_flag[] = {
+@@ -585,11 +585,11 @@ dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
+ 	if (!byteproc)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	byteproc->regs = regs;
++	byteproc->regs = dcmipp->regs;
+ 
+ 	/* Initialize ved and sd */
+ 	ret = dcmipp_ent_sd_register(&byteproc->ved, &byteproc->sd,
+-				     v4l2_dev, entity_name,
++				     &dcmipp->v4l2_dev, entity_name,
+ 				     MEDIA_ENT_F_PROC_VIDEO_SCALER,
+ 				     ARRAY_SIZE(pads_flag), pads_flag,
+ 				     &dcmipp_byteproc_int_ops,
+@@ -600,7 +600,8 @@ dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
+ 		return ERR_PTR(ret);
+ 	}
+ 
+-	byteproc->dev = dev;
++	byteproc->ved.dcmipp = dcmipp;
++	byteproc->dev = dcmipp->dev;
+ 
+ 	return &byteproc->ved;
+ }
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+index fe5f97233f5e8..e5c0eda8b18af 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+@@ -58,10 +58,36 @@ do {									\
+ 		(fmt)->xfer_func = DCMIPP_XFER_FUNC_DEFAULT;		\
+ } while (0)
+ 
++struct dcmipp_device {
++	/* The platform device */
++	struct platform_device		pdev;
++	struct device			*dev;
 +
-+#include "dcmipp-common.h"
-+#include "dcmipp-pixelcommon.h"
++	/* Hardware resources */
++	void __iomem			*regs;
++	struct clk			*mclk;
++	struct clk			*kclk;
 +
-+#define DCMIPP_ENT(id, pad) (1 << (2 * (id) + (pad)))
-+#define DCMIPP_ISP_SINK			(DCMIPP_ENT(DCMIPP_ISP, 0))
-+#define DCMIPP_ISP_SRC			(DCMIPP_ENT(DCMIPP_ISP, 1))
-+#define DCMIPP_ISP_INOUT		(DCMIPP_ISP_SINK | DCMIPP_ISP_SRC)
-+#define DCMIPP_MAIN_POSTPROC_SINK	(DCMIPP_ENT(DCMIPP_MAIN, 0))
-+#define DCMIPP_MAIN_POSTPROC_SRC	(DCMIPP_ENT(DCMIPP_MAIN, 1))
-+#define DCMIPP_MAIN_POSTPROC_INOUT					\
-+	(DCMIPP_MAIN_POSTPROC_SINK | DCMIPP_MAIN_POSTPROC_SRC)
-+#define DCMIPP_AUX_POSTPROC_SINK	(DCMIPP_ENT(DCMIPP_AUX, 0))
-+#define DCMIPP_AUX_POSTPROC_SRC	(DCMIPP_ENT(DCMIPP_AUX, 1))
-+#define DCMIPP_AUX_POSTPROC_INOUT					\
-+	(DCMIPP_AUX_POSTPROC_SINK | DCMIPP_AUX_POSTPROC_SRC)
-+#define DCMIPP_ALL_POSTPROC_SINK					\
-+	(DCMIPP_MAIN_POSTPROC_SINK | DCMIPP_AUX_POSTPROC_SINK)
-+#define DCMIPP_ALL_POSTPROC_INOUT					\
-+	(DCMIPP_MAIN_POSTPROC_INOUT | DCMIPP_AUX_POSTPROC_INOUT)
++	/* The pipeline configuration */
++	const struct dcmipp_pipeline_config	*pipe_cfg;
 +
-+#define PIXMAP_MBUS(mbus, applicable_pipes)		\
-+	{						\
-+		.code = MEDIA_BUS_FMT_##mbus,		\
-+		.pipes = applicable_pipes,		\
-+	}
-+static const struct dcmipp_pixelpipe_pix_map
-+dcmipp_pixel_formats_list[] = {
-+	/* RGB formats */
-+	/* RGB565 / RGB888 */
-+	PIXMAP_MBUS(RGB565_2X8_LE, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(RGB565_1X16, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(RGB888_3X8, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(RGB888_1X24, DCMIPP_ALL_POSTPROC_INOUT | DCMIPP_ISP_INOUT),
-+	/* YUV formats */
-+	PIXMAP_MBUS(YUYV8_2X8, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(UYVY8_1X16, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(YUV8_1X24, DCMIPP_ALL_POSTPROC_INOUT | DCMIPP_ISP_SRC),
-+	/* GREY */
-+	PIXMAP_MBUS(Y8_1X8, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(Y10_1X10, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(Y12_1X12, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(Y14_1X14, DCMIPP_AUX_POSTPROC_SINK | DCMIPP_ISP_SINK),
-+	/* Raw Bayer */
-+	/* Raw 8 */
-+	PIXMAP_MBUS(SBGGR8_1X8, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGBRG8_1X8, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGRBG8_1X8, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SRGGB8_1X8, DCMIPP_ISP_SINK),
-+	/* Raw 10 */
-+	PIXMAP_MBUS(SBGGR10_1X10, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGBRG10_1X10, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGRBG10_1X10, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SRGGB10_1X10, DCMIPP_ISP_SINK),
-+	/* Raw 12 */
-+	PIXMAP_MBUS(SBGGR12_1X12, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGBRG12_1X12, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGRBG12_1X12, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SRGGB12_1X12, DCMIPP_ISP_SINK),
-+	/* Raw 14 */
-+	PIXMAP_MBUS(SBGGR14_1X14, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGBRG14_1X14, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SGRBG14_1X14, DCMIPP_ISP_SINK),
-+	PIXMAP_MBUS(SRGGB14_1X14, DCMIPP_ISP_SINK),
++	/* The Associated media_device parent */
++	struct media_device		mdev;
++
++	/* Internal v4l2 parent device*/
++	struct v4l2_device		v4l2_dev;
++
++	/* Entities */
++	struct dcmipp_ent_device	**entity;
++
++	struct v4l2_async_notifier	notifier;
 +};
 +
-+const struct dcmipp_pixelpipe_pix_map *
-+dcmipp_pixelpipe_pix_map_by_code(__u32 code, unsigned int id, unsigned int pad)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(dcmipp_pixel_formats_list); i++) {
-+		if (dcmipp_pixel_formats_list[i].code == code &&
-+		    dcmipp_pixel_formats_list[i].pipes & DCMIPP_ENT(id, pad))
-+			return &dcmipp_pixel_formats_list[i];
-+	}
-+
-+	return NULL;
-+}
-+
-+int dcmipp_pixelpipe_enum_mbus_code(unsigned int id,
-+				    struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	unsigned int index = code->index;
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(dcmipp_pixel_formats_list); i++) {
-+		if (!(dcmipp_pixel_formats_list[i].pipes &
-+		      DCMIPP_ENT(id, code->pad)))
-+			continue;
-+
-+		if (index == 0)
-+			break;
-+
-+		index--;
-+	}
-+
-+	if (i == ARRAY_SIZE(dcmipp_pixel_formats_list))
-+		return -EINVAL;
-+
-+	code->code = dcmipp_pixel_formats_list[i].code;
-+
-+	return 0;
-+}
-+
-+int dcmipp_pixelpipe_enum_frame_size(unsigned int id,
-+				     struct v4l2_subdev_frame_size_enum *fse)
-+{
-+	const struct dcmipp_pixelpipe_pix_map *vpix;
-+
-+	if (fse->index)
-+		return -EINVAL;
-+
-+	/* Only accept code in the pix map table */
-+	vpix = dcmipp_pixelpipe_pix_map_by_code(fse->code, id, fse->pad);
-+	if (!vpix)
-+		return -EINVAL;
-+
-+	fse->min_width = DCMIPP_FRAME_MIN_WIDTH;
-+	fse->max_width = DCMIPP_FRAME_MAX_WIDTH;
-+	fse->min_height = DCMIPP_FRAME_MIN_HEIGHT;
-+	fse->max_height = DCMIPP_FRAME_MAX_HEIGHT;
-+
-+	return 0;
-+}
-+
-+int dcmipp_pixelpipe_get_selection(struct v4l2_subdev *sd,
-+				   struct v4l2_subdev_state *state,
-+				   struct v4l2_subdev_selection *s)
-+{
-+	struct v4l2_mbus_framefmt *sink_fmt;
-+
-+	if (IS_SRC(s->pad))
-+		return -EINVAL;
-+
-+	switch (s->target) {
-+	case V4L2_SEL_TGT_CROP:
-+	case V4L2_SEL_TGT_COMPOSE_BOUNDS:
-+	case V4L2_SEL_TGT_COMPOSE_DEFAULT:
-+		s->r = *v4l2_subdev_state_get_crop(state, s->pad);
-+		break;
-+	case V4L2_SEL_TGT_CROP_BOUNDS:
-+	case V4L2_SEL_TGT_CROP_DEFAULT:
-+		sink_fmt = v4l2_subdev_state_get_format(state, s->pad);
-+		s->r.top = 0;
-+		s->r.left = 0;
-+		s->r.width = sink_fmt->width;
-+		s->r.height = sink_fmt->height;
-+		break;
-+	case V4L2_SEL_TGT_COMPOSE:
-+		s->r = *v4l2_subdev_state_get_compose(state, s->pad);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+__u32 dcmipp_pixelpipe_src_format(__u32 input_format)
-+{
-+	if (input_format >= MEDIA_BUS_FMT_Y8_1X8 &&
-+	    input_format < MEDIA_BUS_FMT_SBGGR8_1X8)
-+		return MEDIA_BUS_FMT_YUV8_1X24;
-+
-+	return MEDIA_BUS_FMT_RGB888_1X24;
-+}
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelcommon.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelcommon.h
-new file mode 100644
-index 0000000000000..db29e1fe939e3
---- /dev/null
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelcommon.h
-@@ -0,0 +1,41 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Driver for STM32 Digital Camera Memory Interface Pixel Processor
-+ *
-+ * Copyright (C) STMicroelectronics SA 2026
-+ * Authors: Hugues Fruchet <hugues.fruchet@foss.st.com>
-+ *          Alain Volmat <alain.volmat@foss.st.com>
-+ *          for STMicroelectronics.
-+ */
-+
-+#ifndef _DCMIPP_PIXELCOMMON_H
-+#define _DCMIPP_PIXELCOMMON_H
-+
-+#define IS_SINK(pad) (!(pad))
-+#define IS_SRC(pad)  ((pad))
-+
-+#define DCMIPP_ISP		0
-+#define DCMIPP_MAIN		1
-+#define DCMIPP_AUX		2
-+
-+struct dcmipp_pixelpipe_pix_map {
-+	__u32 code;
-+	__u32 pipes;
-+};
-+
-+const struct dcmipp_pixelpipe_pix_map *
-+dcmipp_pixelpipe_pix_map_by_code(__u32 code, unsigned int id, unsigned int pad);
-+
-+int dcmipp_pixelpipe_enum_mbus_code(unsigned int id,
-+				    struct v4l2_subdev_mbus_code_enum *code);
-+
-+int dcmipp_pixelpipe_enum_frame_size(unsigned int id,
-+				     struct v4l2_subdev_frame_size_enum *fse);
-+
-+int dcmipp_pixelpipe_get_selection(struct v4l2_subdev *sd,
-+				   struct v4l2_subdev_state *state,
-+				   struct v4l2_subdev_selection *s);
-+
-+__u32 dcmipp_pixelpipe_src_format(__u32 input_format);
-+
-+#endif
+ /**
+  * struct dcmipp_ent_device - core struct that represents a node in the topology
+  *
+  * @ent:		the pointer to struct media_entity for the node
++ * @dcmipp:		the pointer to the parent dcmipp_device
+  * @pads:		the list of pads of the node
+  * @bus:		struct v4l2_mbus_config_parallel describing input bus
+  * @bus_type:		type of input bus (parallel or BT656)
+@@ -84,6 +110,7 @@ do {									\
+  */
+ struct dcmipp_ent_device {
+ 	struct media_entity *ent;
++	struct dcmipp_device *dcmipp;
+ 	struct media_pad *pads;
+ 
+ 	/* Parallel input device */
+@@ -199,19 +226,15 @@ static inline void __reg_clear(struct device *dev, void __iomem *base, u32 reg,
+ }
+ 
+ /* DCMIPP subdev init / release entry points */
+-struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
+-					      const char *entity_name,
+-					      struct v4l2_device *v4l2_dev,
+-					      void __iomem *regs);
++struct dcmipp_ent_device *dcmipp_inp_ent_init(const char *entity_name,
++					      struct dcmipp_device *dcmipp);
+ void dcmipp_inp_ent_release(struct dcmipp_ent_device *ved);
+ struct dcmipp_ent_device *
+-dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
+-			 struct v4l2_device *v4l2_dev, void __iomem *regs);
++dcmipp_byteproc_ent_init(const char *entity_name,
++			 struct dcmipp_device *dcmipp);
+ void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved);
+-struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
+-						  const char *entity_name,
+-						  struct v4l2_device *v4l2_dev,
+-						  void __iomem *regs);
++struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
++						  struct dcmipp_device *dcmipp);
+ void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved);
+ 
+ #endif
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index 49398d0777646..dd784cfcaac82 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -33,31 +33,6 @@
+ 	.flags = link_flags,					\
+ }
+ 
+-struct dcmipp_device {
+-	/* The platform device */
+-	struct platform_device		pdev;
+-	struct device			*dev;
+-
+-	/* Hardware resources */
+-	void __iomem			*regs;
+-	struct clk			*mclk;
+-	struct clk			*kclk;
+-
+-	/* The pipeline configuration */
+-	const struct dcmipp_pipeline_config	*pipe_cfg;
+-
+-	/* The Associated media_device parent */
+-	struct media_device		mdev;
+-
+-	/* Internal v4l2 parent device*/
+-	struct v4l2_device		v4l2_dev;
+-
+-	/* Entities */
+-	struct dcmipp_ent_device	**entity;
+-
+-	struct v4l2_async_notifier	notifier;
+-};
+-
+ static inline struct dcmipp_device *
+ notifier_to_dcmipp(struct v4l2_async_notifier *n)
+ {
+@@ -68,8 +43,8 @@ notifier_to_dcmipp(struct v4l2_async_notifier *n)
+ struct dcmipp_ent_config {
+ 	const char *name;
+ 	struct dcmipp_ent_device *(*init)
+-		(struct device *dev, const char *entity_name,
+-		 struct v4l2_device *v4l2_dev, void __iomem *regs);
++		(const char *entity_name,
++		 struct dcmipp_device *dcmipp);
+ 	void (*release)(struct dcmipp_ent_device *ved);
+ };
+ 
+@@ -221,9 +196,7 @@ static int dcmipp_create_subdevs(struct dcmipp_device *dcmipp)
+ 
+ 		dev_dbg(dcmipp->dev, "add subdev %s\n", name);
+ 		dcmipp->entity[i] =
+-			dcmipp->pipe_cfg->ents[i].init(dcmipp->dev, name,
+-						       &dcmipp->v4l2_dev,
+-						       dcmipp->regs);
++			dcmipp->pipe_cfg->ents[i].init(name, dcmipp);
+ 		if (IS_ERR(dcmipp->entity[i])) {
+ 			dev_err(dcmipp->dev, "failed to init subdev %s\n",
+ 				name);
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
+index 7d3f5857cbfe8..564f37e2e1dd4 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
+@@ -515,15 +515,14 @@ void dcmipp_inp_ent_release(struct dcmipp_ent_device *ved)
+ 	dcmipp_ent_sd_unregister(ved, &inp->sd);
+ }
+ 
+-struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
+-					      const char *entity_name,
+-					      struct v4l2_device *v4l2_dev,
+-					      void __iomem *regs)
++struct dcmipp_ent_device *dcmipp_inp_ent_init(const char *entity_name,
++					      struct dcmipp_device *dcmipp)
+ {
+ 	struct dcmipp_inp_device *inp;
+ 	const unsigned long pads_flag[] = {
+ 		MEDIA_PAD_FL_SINK, MEDIA_PAD_FL_SOURCE,
+ 	};
++	struct device *dev = dcmipp->dev;
+ 	int ret;
+ 
+ 	/* Allocate the inp struct */
+@@ -531,10 +530,10 @@ struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
+ 	if (!inp)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	inp->regs = regs;
++	inp->regs = dcmipp->regs;
+ 
+ 	/* Initialize ved and sd */
+-	ret = dcmipp_ent_sd_register(&inp->ved, &inp->sd, v4l2_dev,
++	ret = dcmipp_ent_sd_register(&inp->ved, &inp->sd, &dcmipp->v4l2_dev,
+ 				     entity_name, MEDIA_ENT_F_VID_IF_BRIDGE,
+ 				     ARRAY_SIZE(pads_flag), pads_flag,
+ 				     &dcmipp_inp_int_ops, &dcmipp_inp_ops,
+@@ -543,6 +542,7 @@ struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
+ 		kfree(inp);
+ 		return ERR_PTR(ret);
+ 	}
++	inp->ved.dcmipp = dcmipp;
+ 
+ 	inp->dev = dev;
+ 
 
 -- 
 2.34.1
