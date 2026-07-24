@@ -4,116 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336CFC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB42DC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQnvaHgupyGQPniAuZ9m3sJLh0U25N0HAPnxpHfI//A=; b=K5/h71SmFh0G9C2SrgfLIs7FHQ
-	BulG0En/Al/Vx3gtfwfPja4iPnjOUvPmhgvtV6dHAsHpeGQ8QzOmN0P5LWeEeovYVvfUqhegTsgIU
-	ssBt7PhncjXmhGA44cBLDMV23PlVDHwTnuNlqLXXWDtTJGyjM8oYaXdaMLMSFpzUV7i2X4x5vZGAa
-	SDTvwT4YsNdim/SkZ0DVea5GrDrmxOzpMNbsEbmZZyuio4L9s+X1YGvtAZFWihq2+0xQ6IN8GYAfB
-	9tObVxsS66LSj11rv32iiqxLfF9Du6svsvlQCgc9de9XtCEk1bVODPJ7wWWMkmp0HVeVKUXqxyFOD
-	ZWyL6hgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3QK6gyQhkWOBgkpuC3mjUiU480nGefF4k15Ca4dUWf4=; b=PKCTAdqPGt4DtZaNOWaQkDFsUW
+	L57EAqy8Be3Duo1Ti3r9tk1ZeXTqPOFYFPsggvDFnMI7eTeIpueWsx4+9dcJzEl9ARIAukIrFQplw
+	KtUbcj9ppYqkG2Ue8mFwavFUS0MRk3c80npiCbusnqk/CtUHFcDdTOWXrFEJEkKi9Rdge26sVGizw
+	JpHE6J4DZFi/HoRxf+xbfq7djH0DInSatrGMaK/IjfxLbTj7mHUGABmiZRJvdtqsCodRdnX831YyF
+	dLq9opn98c/qzXFbgPG2uo69ARBjKNAq5qWVi/5fdLo4E6zTLpt9yDgxPqVDpdcGYpPmANNKyHHFQ
+	ITH3xqjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBpy-0000000FuoF-1wNi;
-	Fri, 24 Jul 2026 09:04:58 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wnByA-0000000Fw70-04eN;
+	Fri, 24 Jul 2026 09:13:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBpR-0000000FuDh-2fgb
+	id 1wnBy8-0000000Fw6n-33Re
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 09:04:26 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so1542145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 02:04:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784883864; x=1785488664; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HQnvaHgupyGQPniAuZ9m3sJLh0U25N0HAPnxpHfI//A=;
-        b=DMoGRZEmk527PIfpMbhPzZNwhPdnc01N7n+5k5GWZDPnXf3rhe48XfD7Q/G6qXTIRN
-         Tn/ztf9/IsEhkyATGZfnoQfGrW6AAE+WJQyNraftTJukc5wb6+RwjyRKeMbffSMLn2Na
-         FEvvmnkt1Sb7DBPGQhdCiKKjCtSq0Rj3AB3iDTfqM8x8GS3SMJMf44qq/DTx+MUXgquR
-         83UwAGW1VuSKFKEOvzx0P+UepQq7hUY4+aggm2MIiCyS8YrogzQ0pi//4lXIbFj4n0ro
-         knIaDKKf3GMGr5Vbi/sP5mEs2RmHGCORBI+/WWNVYS2glOS6x6TUxjNPNm9C0CtSaaOX
-         b/rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784883864; x=1785488664;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HQnvaHgupyGQPniAuZ9m3sJLh0U25N0HAPnxpHfI//A=;
-        b=PgqZDuP/SlfbsudFqaOkgrLnc92hPQ/icId9lsIk/V7ZjIMaO3Cqetp+Yswgn6+NWr
-         BmPZmJTDk5SWRtkNbogO9rGMD+ecZ4FUFqhv/gxG8iLRR+csrU5tUrPwadscPoJ/Vf3W
-         NhEj1DzHiJZorf6ZSyJuvfK89pwc0PkLUZiS+2qOI8RdcwuhtgCHe2cGPtH6flZHz+rd
-         23BA3q45Q/0CbsQZDxKUCtfcemT2MLxJSVYAe4TCmqfbLLLKvijt+m4BZrTaJii133Bq
-         Ral1B7N34j1BbGjGrFRojajD0xD/g8D5zF3FUdRT0Wivs4Z8M/Cb6AZmu+yx+LcAh0La
-         DMqg==
-X-Gm-Message-State: AOJu0YxbdlzSmUlH4pRAcpKyDDTUMEKpqGS3yh9AIJd4YIiif45UuFun
-	/c9iyzOKOez1Ux+j0jN11Rq3MWyzUJ8THR69BOTmEBzkeFQ/iTaR5SRJzebr3tr/hCQ=
-X-Gm-Gg: AR+sD138YZ1fBSVIB/7leXBKou484aStlaOZqDb9VqZh+n2xsQWIIkvzdZnHp0mJfOs
-	S8gB0bOa3LWAAT66Q82EZCRdQk+hwMhNktEsGxo3tEg2yPguRPe3I5mIWqHy2UsBGH/umlyB8ik
-	CdmU5cdtGIDhOyI733rzrEQJaB13AfwzTuJGGOLxEI8mTPNBfhqMu9qgt2ltM7qPCQSBBJTf8S6
-	TWKNmLhGcPEtAm3CSkPpOouXmffAlv0eIjG9xTK20t7at1Wch3vWJ4+GG3RVy4WC0Irv4Hj2AYT
-	XJtwjO/6lJ2KH9E0S/R9oBibkc+HSa4xkca4ow1VMWIWPzQWSga4SrIbclS7xA8H+Ssv1S3TRTK
-	sVFvx0wo2dRAuyBURkvGGLNTAHYXp4mQWxLONyDk3zjYhBMrAIIkcwpz7E5vDQ3KVLH/d19DdON
-	nKSOAh/2AU7Ic=
-X-Received: by 2002:a05:600c:1f92:b0:495:4c62:9d43 with SMTP id 5b1f17b1804b1-49573d1ff7bmr72020495e9.34.1784883863694;
-        Fri, 24 Jul 2026 02:04:23 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:e584:93af:f3aa:2c19])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4957af6b049sm62081735e9.6.2026.07.24.02.04.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 02:04:23 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Fri, 24 Jul 2026 11:03:57 +0200
-Subject: [PATCH v2 6/7] clk: tegra: clean-up simple provider misuse of the
- consumer API
+	Fri, 24 Jul 2026 09:13:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 911CE406C1;
+	Fri, 24 Jul 2026 09:13:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCEB31F000E9;
+	Fri, 24 Jul 2026 09:13:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784884403;
+	bh=3QK6gyQhkWOBgkpuC3mjUiU480nGefF4k15Ca4dUWf4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cYSga7aular65dSj2MUbwJJ4DycAlyRInzXxeQ/YqUwi6f9mVMI4jJEoyKpKAG8g4
+	 0cZRohe/QzecD4xIOQ1R1DiKtX340RgsKewYLH7FwuLKrq3boKRtx9chO2jsVYuU6E
+	 f97HftXxecuOmj2bAR76lSrNcwd2b+utD+jEGySfx2skBX25S0P3aDXYf1gCLbOySt
+	 bGEtHrhGhx9w39HvACO0OQi0UtrtiYC/jFgubYcydD19VSW2bU6Eqe/mVT6e13U2M3
+	 NZY90qtmu4+lqI8epsob3yD66vUt7ofGh3Vyr2Nj7idC7lKWglcln+yxP4gteNTY6c
+	 inSWay+JbEGNw==
+Date: Fri, 24 Jul 2026 10:13:17 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rajendra Nayak <rajendra.nayak@oss.qualcomm.com>,
+	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH RFC 01/10] firmware: arm_scmi: Add SCMI QCOM Generic
+ Extension Protocol documentation
+Message-ID: <20260724-crouching-starfish-of-apotheosis-d1cdf8@sudeepholla>
+References: <20260724-rfc_v8_scmi_memlat-v1-0-cb732bcff1f4@oss.qualcomm.com>
+ <20260724-rfc_v8_scmi_memlat-v1-1-cb732bcff1f4@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260724-clk-provider-simple-clean-v2-6-56f306156d25@baylibre.com>
-References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
-In-Reply-To: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
-To: Andrew Lunn <andrew@lunn.ch>, 
- Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Heiko Stuebner <heiko@sntech.de>, Prashant Gaikwad <pgaikwad@nvidia.com>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>, Tero Kristo <kristo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-tegra@vger.kernel.org, linux-omap@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1061; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=avXrZ+5B5tjwtUKvf/CVoHvEaPEqaWPpS7ZwUFxswLY=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYyqC3CQlE9ZZIVg5FO31DSHE8VYccHPXetZHC
- CBbG7T1HaCJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamMqggAKCRDm/A8cN/La
- hdLjEACXqz7q4lL8DurbW6pS/HNGz1tLg+/2ZSOd2a7o3s1z2YOBOJHX5vpJFLW/nIYJQw5So1e
- bjWoWmm6BY5JCwtK8uqJ2bemWRXcpKLvIlUZY0FVmgQESFPtFI6OdwKwVPkWbdp0eS6LCSh/q6G
- JuMStoA3PBKgBu53Ve6ciKUHdiiBoMmgvHq0BSCaqIGndaJkgfdg4XuoiI/jJm6AzgtMB/1nUqs
- jbtnez8Ei4l7beEGIPt0nkoY3Nkfb+0yB+/jwtJ6N0qPr6whsRWIHOAdwMqA8Iq1+REmschxKZG
- rXPy0b12PE93ipjZMtunqFaT6XGz/iBiZRfZ1C5sGRIKSwh58YEZyIJDtz4lXRKejKn9ziciY/R
- JzXZTezQ7P2U3Wzw8rE957D+tus8PvY0lrAY8jzO6MQ6Xm9T7WbR6OP7GtkdQMOKn0NLEShvhbe
- oVzeAVhbWJXuikQDeKeq6wN+DATSFxT/BCw9z1g0PPQ4DuJoYiOXw0DbuoIL/1ar9IvnWpzAWzv
- +YYi227ullORrzbQ225A5CHiau0GS0MokdcCulaJSeznIQwGVMkbJy6v0tlxRii8q2Qtb9CCoQI
- rqGyS2+E25eCLne9dNnKOrjnKPB1NUFEawcRFsnJ1o1K+N0G+eiJ5YPh5DcnSVvF1h1Kl0VzA/E
- k1+4dgdZ/1iNGHQ==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_020425_699646_9274C039 
-X-CRM114-Status: GOOD (  11.88  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260724-rfc_v8_scmi_memlat-v1-1-cb732bcff1f4@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,33 +88,399 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clock provider should not be using the consumer interface.
-In other words, a provider should not be dealing with struct clk.
+On Fri, Jul 24, 2026 at 12:48:06PM +0530, Pragnesh Papaniya wrote:
+> Add System Control Management Interface (SCMI) Qualcomm Generic Extension
+> Protocol documentation. It consists of a small set of generic SET/GET/
+> START/STOP commands, which is used to turn on/off and configure Qualcomm
+> SoC specific algorithms that run on the SCP.
+> 
+> It currently only supports MEMLAT (memory latency governor) algorithm.
+> The immutable pairing of the MEMLAT algorithm string with the supported
+> param_ids associated with it are documented here.
+> 
+> Co-developed-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+> Signed-off-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+> Signed-off-by: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
+> ---
+>  .../arm_scmi/vendors/qcom/qcom_generic.rst         | 954 +++++++++++++++++++++
+>  1 file changed, 954 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
+> new file mode 100644
+> index 000000000000..42e327d53841
+> --- /dev/null
+> +++ b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
+> @@ -0,0 +1,954 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +.. include:: <isonum.txt>
+> +
+> +==================================================================================
+> +System Control and Management Interface (SCMI) Qualcomm Generic Extension Protocol
+> +==================================================================================
+> +
+> +:Copyright: |copy| Qualcomm Technologies, Inc. and/or its subsidiaries.
+> +
+> +:Authors:
+> +   - Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+> +   - Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
+> +
+> +System Control and Management Interface Qualcomm Generic Extension Vendor Protocol
+> +==================================================================================
+> +
+> +System Control Management Interface (SCMI) Qualcomm Generic Extension Protocol
+> +consists of a small set of generic SET/GET/START/STOP commands, which is used to
+> +turn on/off and configure Qualcomm SoC specific algorithms that run on the SCP.
+> +Each algorithm is identified through an algorithm string and has an immutable list
+> +of param_ids. All supported algorithms (currently just MEMLAT) have their own
+> +dedicated section and are listed after the generic commands.
+> +
 
-This change targets occurrences for which the provider uses the
-consumer interface and corresponding clk_hw interface exist.
+This multiplexer 'N' random algorithn into one single custom SCMI protocol ID
+(0x80) seems to go against the general SCMI design principle and this seems
+like a deliberated attempt to circumvent the standard SCMI protocol template.
+Standard SCMI expects distinct features to occupy their own vendor protocol
+IDs and utilize standard protocol discovery.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/clk/tegra/clk-tegra210.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I have asked details of algorithm to be listed here atleast few times now
+and has been constantly ignored. So don't complain if I start ignoring these
+patches.
 
-diff --git a/drivers/clk/tegra/clk-tegra210.c b/drivers/clk/tegra/clk-tegra210.c
-index 0c86cff719e3..df1d7b471745 100644
---- a/drivers/clk/tegra/clk-tegra210.c
-+++ b/drivers/clk/tegra/clk-tegra210.c
-@@ -1460,7 +1460,7 @@ static int tegra210_pllx_dyn_ramp(struct tegra_clk_pll *pllx,
- 	udelay(1);
- 
- 	pr_debug("%s: dynamic ramp to m = %u n = %u p = %u, Fout = %lu kHz\n",
--		 __clk_get_name(pllx->hw.clk), cfg->m, cfg->n, cfg->p,
-+		 clk_hw_get_name(&pllx->hw), cfg->m, cfg->n, cfg->p,
- 		 cfg->input_rate / cfg->m * cfg->n /
- 		 pllx->params->pdiv_tohw[cfg->p].pdiv / 1000);
- 
+> +message_id: 0x1
+> +protocol_id: 0x80
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |See ARM SCMI Specification for status code definitions.    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 attributes |Bits[31:16] Reserved, must be set to 0.                    |
+> +|                  |Bits[15:8] Number of agents in the system. Must match the  |
+> +|                  |value reported by the standard BASE protocol's             |
+> +|                  |PROTOCOL_ATTRIBUTES response.                              |
+
+
+Please drop the above, duplication is always recipe for problems.
+
+> +|                  |Bits[7:0] Number of algorithmic strings supported by the   |
+> +|                  |system. Only "MEMLAT" is currently supported hence it      |
+> +|                  |returns 1.                                                 |
+> ++------------------+-----------------------------------------------------------+
+
+OK, so this is the only algorithm.
+
+> +
+> +PROTOCOL_MESSAGE_ATTRIBUTES
+> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x2
+> +protocol_id: 0x80
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |See ARM SCMI Specification for status code definitions.    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 attributes |For all message IDs the parameter has a value of 0.        |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +QCOM_SCMI_SET_PARAM
+> +~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x10
+> +protocol_id: 0x80
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Parameters                                                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 ext_id     |Reserved, must be zero.                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 param_id   |Serves as the token message id for the algorithm string    |
+> +|                  |and is used to set various parameters supported by it.     |
+
+
+This is too open and can soon become ambiguous. More description on what
+exactly this token message id is a must. This is not like normal kernel
+function to keep it this ambiguous, it is a firmware interface which is
+comparable to the user ABI.
+
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 buf[]      |Serves as the payload for the specified param_id and       |
+> +|                  |algorithm string pair. The payload size depends on the     |
+> +|                  |(algorithm string, param_id) pair; see the per-algorithm   |
+> +|                  |sections below.                                            |
+
+
+Ditto.
+
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: if the param_id and buf[] is parsed successfully  |
+> +|                  |by the chosen algorithm string.                            |
+> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+> +|                  |matches.                                                   |
+> +|                  |INVALID_PARAMETERS: if the param_id and the buf[] passed   |
+> +|                  |is rejected by the algorithm string.                       |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +QCOM_SCMI_GET_PARAM
+> +~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x11
+> +protocol_id: 0x80
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Parameters                                                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 ext_id     |Reserved, must be zero.                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+
+
+At this point I start to think what is the point of exchanging the whole 8
+byte string back and forth instead of simple ID.
+
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 param_id   |Serves as the token message id for the algorithm string.   |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 buf[]      |Serves as the payload and store of value for the specified |
+> +|                  |param_id and algorithm string pair. The payload size       |
+> +|                  |depends on the (algorithm string, param_id) pair; see the  |
+> +|                  |per-algorithm sections below. The response payload is      |
+> +|                  |returned in the same buffer, overwriting the request       |
+> +|                  |contents on success.                                       |
+
+
+Ditto as above(too ambiguous, gives no clue on what that is)
+
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: if the param_id and buf[] is parsed successfully  |
+> +|                  |by the chosen algorithm string and the result is copied    |
+> +|                  |into buf[].                                                |
+> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+> +|                  |matches.                                                   |
+> +|                  |INVALID_PARAMETERS: if the param_id and the buf[] passed   |
+> +|                  |is rejected by the algorithm string.                       |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 buf[]      |Holds the payload of the result of the query, returned in  |
+> +|                  |the same buffer used to send the request. Size depends on  |
+> +|                  |the (algorithm string, param_id) pair.                     |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +QCOM_SCMI_START_ACTIVITY
+> +~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x12
+> +protocol_id: 0x80
+> +
+> +The activity to be started is defined by the algorithm string; see the
+> +per-algorithm sections (e.g. MEMLAT_START_TIMER) for valid param_ids.
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Parameters                                                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 ext_id     |Reserved, must be zero.                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 param_id   |Serves as the token message id for the algorithm string    |
+> +|                  |and is generally used to start the activity performed by   |
+> +|                  |the algorithm string.                                      |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 buf[]      |Serves as the payload for the specified param_id and       |
+> +|                  |algorithm string pair. The payload size depends on the     |
+> +|                  |(algorithm string, param_id) pair; see the per-algorithm   |
+> +|                  |sections below.                                            |
+
+
+Ditto
+
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: if the activity performed by the algorithm string |
+> +|                  |starts successfully, or if it was already running.         |
+> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+> +|                  |matches.                                                   |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +QCOM_SCMI_STOP_ACTIVITY
+> +~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x13
+> +protocol_id: 0x80
+> +
+> +The activity to be stopped is defined by the algorithm string; see the
+> +per-algorithm sections (e.g. MEMLAT_STOP_TIMER) for valid param_ids.
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Parameters                                                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 ext_id     |Reserved, must be zero.                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 param_id   |Serves as the token message id for the algorithm string    |
+> +|                  |and is generally used to stop the activity performed by    |
+> +|                  |the algorithm string.                                      |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 buf[]      |Serves as the payload for the specified param_id and       |
+> +|                  |algorithm string pair. The payload size depends on the     |
+> +|                  |(algorithm string, param_id) pair; see the per-algorithm   |
+> +|                  |sections below.                                            |
+
+
+Ditto
+
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: if the activity performed by the algorithm string |
+> +|                  |stops successfully, or if it was not running.              |
+> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+> +|                  |matches.                                                   |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +MEMLAT: Memory Latency algorithm
+> +________________________________
+> +
+> +The MEMLAT algorithm (0x4d454d4c4154, ASCII "MEMLAT") scales the DDR, LLCC and
+> +DDR_QOS buses in response to memory-latency-bound workloads. It runs on the CPUCP:
+> +every sampling window it reads the per-CPU AMU counters, derives its statistics
+> +(instructions-per-miss, back-end stall, write-back ratio), maps that to a target
+> +level and votes for it directly on the DDR/LLCC/DDR_QOS interconnect. The kernel
+> +never issues a frequency request in that loop. The 6-byte value is treated as a
+> +64-bit algorithm string and split into two uint32 fields on the wire: algo_low
+> +carries its lower 32 bits and algo_high its upper 32 bits.
+> +
+> +With a distinct need to have the memory buses scaling done in SCP in response to
+> +memory-latency-bound workloads, none of the existing SCMI solutions could be used
+> +as-is. MPAM does not apply either: it is not enabled on all of the affected parts
+> +(e.g. Hamoa). The role split between SCP and client driver is described next.
+> +
+> +MEMLAT client driver pseudo-code:
+> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +.. code-block:: text
+> +
+> +  probe():
+> +    SET_COMMON_EV_MAP                          # AMU events (all groups)
+> +    for each memory group (DDR / LLCC / DDR_QOS):
+> +      SET_MEM_GROUP                            # bind group to interconnect
+> +      SET_GRP_EV_MAP                           # per-group AMU events
+> +      for each monitor in the group:
+> +        SET_MONITOR                            # topology, cpumask, name
+> +        IPM_CEIL / BE_STALL_FLOOR              # per-monitor tuneables
+> +        MON_FREQ_MAP                           # cpufreq -> memfreq map
+> +        SET_MIN_FREQ / SET_MAX_FREQ            # clamps
+> +    SAMPLE_MS                                  # sampling period
+> +    SET_EFFECTIVE_FREQ_METHOD                  # cpu-freq derivation method
+> +    START_TIMER                                # CPUCP now scales autonomously
+> +
+> +  devfreq poll (twice per CPUCP sample period):
+> +    GET_CUR_FREQ                               # read voted freq, per monitor
+> +
+> +  remove():
+> +    STOP_TIMER
+> +
+> +SCP pseudo-code:
+> +~~~~~~~~~~~~~~~~
+> +
+> +.. code-block:: text
+> +
+> +  every sample_ms:
+> +    for each CPU:
+> +      sample AMU counters (instructions, cycles, cache-misses, stalls)
+> +      derive per-CPU IPM, back-end-stall % and write-back ratio
+> +
+> +    for each configured memory group (DDR / LLCC / DDR_QOS):
+> +      for each monitor in the group:
+> +        best_freq = 0
+> +        for each CPU in the monitor's cpumask:
+> +          if CPU is memory-bound (IPM/stall/write-back vs. the
+> +             monitor's configured thresholds):
+> +            freq = CPU's cpufreq, optionally scaled toward the ceiling
+> +            best_freq = max(best_freq, freq)
+> +        monitor.target_freq = monitor's cpufreq->memfreq map(best_freq)
+> +
+> +      group_vote = max(target_freq of every monitor in the group)
+> +      if group_vote changed since the last sample:
+> +        vote group_vote onto the group's interconnect path
+> +
+> +  GET_CUR_FREQ returns a monitor's last target_freq
+> +  START_TIMER / STOP_TIMER: resume / suspend the loop above
+> +
+> +MEMLAT: Supported memory buses
+> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +The hw_type field carried in most payloads identifies the memory group:
+> +
+> ++----------+--------------------------------------------------------------+
+> +|hw_type   |Group                                                         |
+> ++----------+--------------------------------------------------------------+
+> +|0         |DDR                                                           |
+> ++----------+--------------------------------------------------------------+
+> +|1         |LLCC                                                          |
+> ++----------+--------------------------------------------------------------+
+> +|2         |DDR_QOS_COMPUTE                                               |
+> ++----------+--------------------------------------------------------------+
+> +|3         |DDR_QOS_MOBILE                                                |
+> ++----------+--------------------------------------------------------------+
+> +
+> +All multi-byte fields below are little-endian. mon_idx selects a monitor
+> +within the group (0-based, less than the firmware-supported maximum). All
+> +SET commands return the SCMI status word; on success it carries SUCCESS, on
+> +lookup failure INVALID_PARAMETERS, and on an unknown param_id NOT_SUPPORTED.
+> +
+> +Frequency units are not uniform across commands (kHz, MHz or a raw 0/1
+> +DDR_QOS level, depending on the param_id); each command documents its own
+> +units below.
+> +
+> +MEMLAT_SET_MEM_GROUP
+> +~~~~~~~~~~~~~~~~~~~~
+> +
+> +param_id: 0x10 (16)
+
+
+Ah so, these are param id for the above commands I mentioned as too
+ambiguous ? If so, at this point I think it is better to make custom
+vendor protocol ID 0x80 for MEMLAT and make all these part of it.
+I think my comment of multiplexing is a bad idea seem to be confirmed here.
+I will skip the rest as it makes no sense to review it any further.
 
 -- 
-2.47.3
-
+Regards,
+Sudeep
 
