@@ -4,109 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F3CC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DD2C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=; b=1WuNqWoNeErbDTB6+mgOeIaY7U
-	dccmo2nz1nxAd4J925PgCyjsfQer68nEjWdDeDR37klm+0dRAKx9vKbTsK2IhN9HB0ijW98Xa7C9/
-	e0h3YgIh32P/FZKH+YyE2FD+ntbVUqHdl7i5ENwMgWZyPxGX90FDcO9YTbKmSLjjxraUbdnm8V1U6
-	tqjZYSEqFpUCcjSAYhRa8BKNKDPXT0+7BYAqu8dfFmaSMdF2xoIZ4p8iBjGpmieP13xsoGmW5RBs3
-	xMi7ef0e4ehJXPg+oEDwjDQrfHEYSbtATBsxswPwxjVwgiGS5echNwGU5R0d0O6B4DSoTpB9b774g
-	oRTdxLYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ve7O+p/ZPPGD54e+pKd4xh48oyQEWxZkpy09ovqKA5I=; b=ptd6Mfkt522KjbJkXHukR28uia
+	Y8Y84dXWyYSuD8YfbINo8lPV6zO828XZbsx7veP1kIUowzraYVSwyJiE6wsjd1lh03r8CME7ulrbz
+	g5kvVGs03EMONQlfA/UZ1lou8a7lSKXB34LyCDOTxX7cfaMyW7ogqVy/oV1xde+amEiXqMCRqrPRH
+	ylUsAuWBAa+jFjNhGRKRHB/3nnLSoxQUVfo1B/pKDdSvv9KFqCETp5Bb9NAI5lVjEfnHiEPsk5CUm
+	gDeOhTW3Hb0U1Sz084UQo/F3rCSNNoec7zlNpGHw1Dwls/Sd+Kr1X55wwkUMRBCBBIB7Hv7PHYCHi
+	jKLdWuVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnFGC-0000000GPTn-412p;
-	Fri, 24 Jul 2026 12:44:16 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnFGA-0000000GPSp-07WH
+	id 1wnDu6-0000000GGoW-2pwV;
+	Fri, 24 Jul 2026 11:17:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnDu3-0000000GGn8-2QoL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 12:44:15 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-92e5c92c389so25333885a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 05:44:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784897053; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Aj/YMS5QBuOtx/X0IQjJ4bw7NnEfGD3xjvXSwntamAnOl993F6AKak0frLH64BXZza
-         nq3SsFJiVGPHNEFCEMFJOMw1iUZfMXJoi9CVoZYuNgxHFMxQx1c70E2tNoUypOMRsMm1
-         xXyWL5QkyhF2+FriP2l4D9CqVaXXajjyrKhKF4xA9kgVtg9FEUj66nVOtdCZBlOpndus
-         kUwdQy8XJcC12Hx2xwEQvchWhrkLhfzQUjWTUa9gpyUxH7GnNTgtilokm1j6hQtYFX4s
-         4Fx+L7JfkLfvaQjVwpXzp6gbhItZjPuk6ee9JcVvPdMXcmNj9Au16O/2/4OTzk3dMyaf
-         kgOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=;
-        fh=bgolxu4r8E4wOdQInTl5jlv575jbQ58okBU8W2dpVNs=;
-        b=YzPUlNKAhkSOAJYiO0tRzG6D6osUTk/dMCBT226ZevafiSFbpnQQboaIJIIi/l+7n5
-         XF0xfbgBZ2LFqQuN9POlKz2r6cC87SjUSGsRqmyHmeAFHJoCFUBFV6Cr0VqS6V8kKZBO
-         +gltLQ6d1i2TCUQxqW3g8OzWR5a2+bvVhwPMIaN+SxH2mjO431T4TSCPXZhcrBWUY+RW
-         LIW4Vqx8loEznWva1/qonI6LTaZdrehvK+Ysmt53K8h0x3LFmtQJxXH1gwhmgYz62SLR
-         5CvGAUm4Ldz0aG/xr4thoNli+o+6WAYdP03WembSRSVULXHXaBYhLZpl3rF47LoicSEe
-         eK0A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784897053; x=1785501853; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=;
-        b=HGbWw6wUKkd3jKAtaxxbD2G4N+Vx+LqgGwVLft/ZKsweTuM9/79157fXb5UOlBssvt
-         uPLo/2QRq3hg4/OpuW2G/BlikbvZvzTpl24W8nwvr9M+xpl9S3FLFUXIKKdmQuBXmy0X
-         HaJZA4X/UGcMABwEmAdiI3PBr21CZ8UZ2e7286Gu6slbZfpkfrx31kzxqydT13WYY5BA
-         7DUFRRp1oGuIE09yFy/JWNxNCHGjwx8FHEcpLgAJmZbOsy8H1DbpHwVb8FF1e7aSqtAS
-         CnJl8zqMS//466tXVON/hXCjyUoo+T60oHfP2DUsp+A5gGJuwdKYrssPUljE4Z9M8qP2
-         G+Sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784897053; x=1785501853;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=;
-        b=dmrTN4H1vg5/katCEO+lFdsaunvJdzubSAMcYRkdnGUhYpbZdw4+V5rckEMUvCzkKd
-         v6MyZu55zvbReCsE5+QW8LLUXqZKa3ljTpHZCPrnIaLGrFA8N+YQx8iRAihYoxAHMBiv
-         df4Om8vBv7PF3KTSMpWFFpdvQ9kd0rENPrEac5BUrZ0v9u99Y9gOBVW/liOHVc61OGRE
-         OR2jJDI+Unj5Eumj6SpbC9r4XH1brqT5UcNxc20Whrq3us77zlZ1keu5YEHIsgHQApYF
-         v9tqp+N73EgaKx4zapVypwJKn5Tbi3IYtAuKoZgLSE40bracfU3XTS1EuBn9nneh105R
-         kaYg==
-X-Forwarded-Encrypted: i=1; AHgh+RqqG+j3dhIgGTRqZhas9dVSB+xUu70XA6q6RISorpbYCASjcaCw+eAA9pKOvKJ7oTX18TQFik0J8rw1s0W31oBb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrtRAPlCLgcGZJwwLE5vY99jlH/M60WuLCQ63hKtqe7UD3GqtD
-	ESPqKB3lMg0a+B9vVQYqVM1RDFfUZuWvok9JlgxpUOD3qEIVIkeuYQWNeJRdRTiIwmZLTV2hjfd
-	bC7irk5qkiAEllhKoYzJs5CJIlmO/luk=
-X-Gm-Gg: AR+sD11mW3LbPhciNL+NLW9EYY9h4tjDKt67a97RvHYvZui3CatyzgJmWXmewvFKl2k
-	iiYYf7/nk9OSfl/yZlh2HVf4W5nfyhh3dD+l3yo/TMflz1zl+tEBXChj8YL22uOuodpthflIDky
-	LhVyVtrRmXIrERtEg/p4x2QjMynk852yNaTxUR3B0jPyZV+Xw0apV9D1ZwRbKz/Gx1UTmgZ7+kD
-	1PTUbEET4pe4tZnocC+B1MkEATR9KZA/cLHzNMuCHaU7MJOKUNtL8g9Yv0SNfASZct4eruy4zsv
-	7QUMqIqM9/nC0VO1d3gSXF9NBEW8C2JO6ptYJUZ0Mz+9wa9fb4T5
-X-Received: by 2002:a05:620a:6cca:b0:92e:cac7:96fc with SMTP id
- af79cd13be357-9310388efd2mr749905085a.24.1784897052712; Fri, 24 Jul 2026
- 05:44:12 -0700 (PDT)
+	Fri, 24 Jul 2026 11:17:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6036C1477;
+	Fri, 24 Jul 2026 04:17:12 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76A5C3F59E;
+	Fri, 24 Jul 2026 04:17:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784891836; bh=XOve+0XtVKVlM/u7vcMwBknwE9v0ZsOgXPcAxAz0/xU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EuG4sy5QmEhYuJHNParTw6VDWlgVw3P44Ml0OYKI7mNOPsSITLwTqFXcavCqnuDyJ
+	 0LP62H9PDG8Zm3J0vyUv5+Aqsq/ssw5spzw5ApgIS+yz3g3n//oUFjuHKsIyzXGGx0
+	 iyi4T1G2B9Bx6pz3NgSVvQgdeVx21eVns2WVtYHI=
+Message-ID: <1864c9a2-2e97-411e-9f12-862a8cfd4101@arm.com>
+Date: Fri, 24 Jul 2026 13:17:06 +0200
 MIME-Version: 1.0
-References: <20260724111548.2109-1-tharitt97@gmail.com> <193a0d2b4f7c33163cb6aee56ceee0bf5cb6c11c.camel@pengutronix.de>
-In-Reply-To: <193a0d2b4f7c33163cb6aee56ceee0bf5cb6c11c.camel@pengutronix.de>
-From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Date: Fri, 24 Jul 2026 19:44:00 +0700
-X-Gm-Features: AUfX_mxLzK4lEzDdIm63lfvgUd6SAd7_Ys3EmQdE2d3UhBcu1j4jPRBGqdfCOww
-Message-ID: <CACak8wN-Y=oDbEVbou+RetS9X-Lca_MZHSY2NJFaGWR3LoVBKQ@mail.gmail.com>
-Subject: Re: [PATCH] media: hantro: release runtime resources when device_run fails
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Hans Verkuil <hverkuil@kernel.org>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
-	me@brighamcampbell.com, jkoolstra@xs4all.nl
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 05/10] arm_mpam: propagate MSC access errors for
+ __ris_msmon_read()
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260723155454.1760823-1-andre.przywara@arm.com>
+ <20260723155454.1760823-6-andre.przywara@arm.com>
+ <20260724-horned-wolf-of-will-a49c1d@sudeepholla>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260724-horned-wolf-of-will-a49c1d@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_054414_078809_367B308F 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260724_041719_892761_FD4C7CB7 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,43 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> But right below this, you are still letting
->
->         if (ctx->codec_ops->run(ctx))
->                 goto err_cancel_job;
->
-> without disabling the clocks.
->
-> >
-> > @@ -191,8 +192,12 @@ static void device_run(void *priv)
-> >
-> >       return;
-> >
-> > +err_disable_clock:
-> > +     clk_bulk_disable(vpu->variant->num_clocks, ctx->dev->clocks);
->
-> You have added vpu = ctx->dev, why not use vpu->clocks as second
-> parameter?
->
-> > +err_pm_put_autosuspend:
-> > +     pm_runtime_put_autosuspend(vpu->dev);
-> >  err_cancel_job:
-> > -     hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
-> > +     hantro_job_finish_no_pm(vpu, ctx, VB2_BUF_STATE_ERROR);
->
-> Why are you changing ctx->dev to vpu here, but not in the other
-> function calls in device_run(), e.g. pm_runtime_resume_and_get() and
-> clk_bulk_enable() above?
->
-> regards
-> Philipp
+Hi,
 
-Hi Philipp,
+On 7/24/26 12:02, Sudeep Holla wrote:
+> On Thu, Jul 23, 2026 at 05:54:49PM +0200, Andre Przywara wrote:
+>> Allow the function for RIS accesses to return an error, and propagate
+>> read and write errors from the lower level up.
+>> This function is a bit special, since it can be called via an SMP
+>> helper, so the prototype must stay as void. So propagate any errors
+>> using the "err" field in the struct passed in as the sole argument to
+>> that function.
+>>
+> 
+> Not sure if this was already discussed by build bisection regresses between
+> 4/10 and 5/10 as you change function prototype there and caller here or
+> am I missing to read it correctly ?
 
-This is embarrassing. I did notice this, made a local change and
-forgot to re-run git add.
-I will fix this asap and send a v2.
+Does it? I build tested every patch multiple times yesterday, and just 
+repeated it, and it comes back cleanly.
 
-Best,
-Tharit
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 36 +++++++++++++++++++++++++---------
+>>   1 file changed, 27 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 9ee4eb4db03f..bcff53477133 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1328,6 +1328,10 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
+>>   	return overflow_val;
+>>   }
+>>   
+>> +/*
+>> + * This function might be called via smp_call_function_any(), so propagate
+>> + * errors inside the arg struct.
+>> + */
+>>   static void __ris_msmon_read(void *arg)
+>>   {
+>>   	u64 now;
+>> @@ -1351,7 +1355,9 @@ static void __ris_msmon_read(void *arg)
+>>   
+>>   	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
+>>   		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+>> -	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+>> +	m->err = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+>> +	if (m->err)
+>> +		return;
+>>   
+>>   	switch (m->type) {
+>>   	case mpam_feat_msmon_mbwu_31counter:
+>> @@ -1371,7 +1377,9 @@ static void __ris_msmon_read(void *arg)
+>>   	 * Read the existing configuration to avoid re-writing the same values.
+>>   	 * This saves waiting for 'nrdy' on subsequent reads.
+>>   	 */
+>> -	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
+>> +	m->err = read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
+>> +	if (m->err)
+>> +		return;
+>>
+> 
+> Atleast read_msmon_ctl_flt_vals() changed to return value in last patch.
+
+Ah, but this is not a problem that breaks the build, as we formerly just 
+ignored the (at this point bogus) error value, but now pass it up.
+But this is one occasion of "touching the same line twice", that was 
+criticised before. Not nice, but the alternative would be to have one 
+giant patch, which I figured to be unreadable.
+
+Cheers,
+Andre
+
 
