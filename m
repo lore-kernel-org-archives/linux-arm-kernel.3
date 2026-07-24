@@ -4,132 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4852BC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47D6C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HmNs6zlLLLzTGshwkLKmVl3NgvLBspeik4teEj7aPpQ=; b=JpcKWO1FQ8/pimIZcwhM9xpUOM
-	p7iITiTz0bcZgmR9d3S7tO9T1xyX55yYYgBOdxSFzQ6Akq8CKLQDZBVxnG3c9Epv/HhHZp33/b5ST
-	Cdlza209M990zo0443VCEIVFHqsB90tcn5/Jj1SZKxf/a3jUhSW5SQ+MlxVwFru7ZkKEjU033lRc1
-	WSoZS2TlSFoGz5H7g92zyl6LxPSf2q0PBwysD8BjS0lZkK20bbVjtu4UclVSUhFlL9bYreUe9pyKL
-	TodttJ++X3myNgX81TPUnZC9kLeyeWb410q38uNOJ5Byzx4F4JgV8sb2TvX7yVvdjMWE8IdOVWToc
-	b7zo71ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eFnDdKu3Hxl7FTSkySekyyZQVF8xWD+m4hHcrRsAWRQ=; b=ZrPo8odKNopjiA13poKc/MZk2e
+	6BvcwnXmHNPNGgGFX7YL99OEeqqrB0AMLQD6g7nPuGnm0ofYk1wf6qYZZx5ahoYemGjspJQN5qgG0
+	Oq0X4mKABkED3xfGebOXt+V8caxAI+c4naDmBp47FbRhlOYLqvdU28lzPjko2DIpiZfFCmdcwyl90
+	K7dRzApKmw3EEaBsA4fo6Y+QIsUtXZPYMHd95NrpX62aMYIKRnZ7wxqoszJ5XiDdaB48iprHzV9Du
+	mfT+FI05YnSS6vkGcyzcjOcrDYvjGkVJpYuU1bgcv/Y+nx1qk7qwdg9fHlSf5v1YdkdWwCBEVIKsB
+	3gQHO6Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnARJ-0000000Fi2U-3i8I;
-	Fri, 24 Jul 2026 07:35:25 +0000
-Received: from mail-westcentralusazon11010066.outbound.protection.outlook.com ([40.93.198.66] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wnASM-0000000Fi9y-2hKE;
+	Fri, 24 Jul 2026 07:36:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnARG-0000000Fi28-3C0v
+	id 1wnASK-0000000Fi9m-3soS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 07:35:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TlgMMIEXy+bukH6wWck/8Ygw5VzUnDRIt5hPr4vbHiqpTzuVheufFdR+JiMRcbZYE4eDAKMazzdVdXtLpayyodvpD8cJC6+aRV3H2Amv+fhrI6fKuOgLpQCnI+OCHzr2+sRrQUaow9iDUK5Xvu29lkHwQvEv1d3ZO1IAeScanpstTC8el1G4zmYE1PY9gHPgy+CtYWN1bMMzKy5fRe5rbUm7Dq7YMAsh1xwTEMzzuCpQEDeNDGpiPX6WUJNUxuidGdTTpfNebnImmCcRw//UT7jY/M2vMQIA5UdVy/O8AM1UmZbdEs1K0rJnidOm8OjjSDcDkIY68weXf1jq6mNcVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HmNs6zlLLLzTGshwkLKmVl3NgvLBspeik4teEj7aPpQ=;
- b=CrHFitWPFa33mHL8zKucndprshRVTFjhVUPqw1b7eyOXvKtSf0aqb6s/3AVkwwTziknw0D7m1wx6QDhirUA6uBHor9jju1R67BBsS2Gbfsz9lgvLo4pA//EDa4cNqVBVVEtZbh5GM4vLILjM2YneOE1Q/3Nzeb1pux1oonXnZJcpcaXvYbN3WEqtFPWYVuUzBpmWORe85YlWWloypX2VHkpXPdYTITZqLQXI3sw2HABh0wcvWTtsTrqjQ2ljb6XkrB2Fyfoc5IkbmLOVG3atRvoanL+6CyS0wid2M6W/vfC3r5pFXzKq9TobH7oF20g3MhpBtY2TeoWsODM+5NW/Cg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HmNs6zlLLLzTGshwkLKmVl3NgvLBspeik4teEj7aPpQ=;
- b=Z1kLCIQAOUPce/cY4K9ASQJMQJExCzHHvYU+T6D+QpSsc7wDYzOs6mZLhWb7mf4APHp4qnSchKJRNnisjdRiK/1JzniD0TSTxfIpYzkbB4HhT6LgKLF6hpuEvqi8HvENWEuDony2c/vAypWEYX9QgaFsoUHiWhl8Yt4iWo2Gp8Zo5/yXs8LWbPYJfzva8HBGcEBvJG8nGAeMshfBihRdTPuy7AKj2kg2J5RgQY7/CXLxciTeLERX0CjWAcgYEET4FguTLYStch/OmkP/luP7O6DQeXYmJEXqOM46JpKenXAoaKGk3BjH/svRQNr1DNB8qd/wxropUXBjsPN2y9osIg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by DS0PR12MB8217.namprd12.prod.outlook.com (2603:10b6:8:f1::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 07:35:17 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
- 07:35:16 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@nvidia.com>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-tegra@vger.kernel.org, "iommu@lists.linux.dev" <iommu@lists.linux.dev>
-Subject: Fixing TegraDRM on multi_v7_defconfig / Enabling DMA API with tegra-smmu
-Date: Fri, 24 Jul 2026 16:35:07 +0900
-Message-ID: <erKxvAxkSpOaODz6rOpDbQ@nvidia.com>
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP301CA0077.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:405:7b::19) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	Fri, 24 Jul 2026 07:36:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 05A0260A5A
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:36:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF47A1F00AC4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:36:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784878587;
+	bh=eFnDdKu3Hxl7FTSkySekyyZQVF8xWD+m4hHcrRsAWRQ=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=MLy06/I0fd8Uq55S3u0uGmXIyTABIzm9KivElpqsecq90DoPS/uGrgW/wgMMUKGa0
+	 NUI9lKLp2yOC3a61ntTBsbFGIiXyj+dOWY0vewNZr2FO3VMeWJ+lhpJ8WIGWOfmF53
+	 qN/Gkv29CIf3B5XvZYifZGSgfKNSSqNGF7JfrxLQbWBp4HYKyvHzV5Xofyza72pxrd
+	 iH39CspY+C/5EM74xFsFleT9Xmp3ToX79d03DbO1pxV2sIkxB3a/bvQhkaTA5kqo3R
+	 Hm1CmGQq8x4mio7bTIzIwMHpPlLx/V7zPio5tZBeGKd+IEJGwSPrkUIeVZX848FNY5
+	 i/RxPFrLD+xRA==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39da69c5ba3so983171fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 00:36:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpfrkuyW7HzFfj+hBS/Gwf8YmvdIVwltpHGJF2BTN9cKK1batVqq8sqGUVKiPwLVnL0dSinbb6mRqz7FVHokZGK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyKy9aSgMh7kkVaGo1GOz++zu/N/6v9+dala6RSvJ0OnJhCagh
+	uGAkGC6hIvQL+shXaQ2RLgT9MD+IAaBOnRnvVVTaIDaIgEyh7GXQmgxdTZ3UtC7bllDhhcPJ39A
+	ir+9tBWpguZDJsrD4cQVa5a4G02EcD0t5V3v8/w89Yw==
+X-Received: by 2002:a05:651c:b1f:b0:39b:4371:dbeb with SMTP id
+ 38308e7fff4ca-39f07f1978cmr14723081fa.36.1784878586411; Fri, 24 Jul 2026
+ 00:36:26 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 24 Jul 2026 00:36:24 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 24 Jul 2026 00:36:24 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <2026072410-drained-acts-3502@gregkh>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|DS0PR12MB8217:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1488706a-adcb-445f-dbec-08dee9561b2d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|23010399003|366016|376014|1800799024|56012099006|10067099003|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: Hu8+6CZDYIGkj3c1DSMsYtNXohkcndP/eBIAmC+u069pDGGJYmpqsU6xgZCTFE61NJ4ufWIVytqCYwytk2YTeQ31UsEwfg5gbX9OgBipQeSsoWydjjlhDgiAqdH6VisJ5Nnj45o/+kEVxlcmCen2tt9esWoQLE6igo6xXYoV3Ux2SQB8cHQzwDmHux4naK8CrxIBZgy0qG6Ap6fxdLeoZ4Re32kM8XZDaGaUgnEOeaw/bDXoaidDsitFVAeo+iavqGGxSo905G8ZCZ8zi2QQcd/WRLO0/+FqyBiXup8cRjVtWOvDrbFPlwRFlHEhKDnbqAgGUXXecWFRz3I7KjJvwezcNu0n9vrgWE03dZgHzTsuf0shEDKo08/0mqqDNic9s4Igyxaryjplb5Xu1bb0UZXuLKKrr5t9d6nrcTx3bEdiDOrgqYTQ5CLt9IATi7BKuUexQs5gH4qHkV/m1QVTglnVRyCIhJxEINHDSuM+XNrIxNeywPhpOXc4/3pTw5C56RLsKuJzKnvedj1JxLFDP2z648ybmxfyTgMCUArFFRrhJj/waxzwX/yysVfhkd0uXFmSSArqntVRgGMyAoq2xT2UgmsaLe8eIWWyDjrRDBCcvzLihomwRrUpYJRlJ0vKAnWjdN+EYjxoIQ9lAyG1SiHh98ieKuiTmhpd/1SBmXM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(366016)(376014)(1800799024)(56012099006)(10067099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S0dTT1RqdjErRnhmL2RwdW92MHM3b2JWOVhLUUJiWmZjOCsxSC9kemZnZkll?=
- =?utf-8?B?RE9kNnFSSzlMb29aS1hLY1NuWU0yWDNlUE82a1hnVmcxUEovSWlScms0empt?=
- =?utf-8?B?SFpIYjNuNVpPTXVjNGJYZC9wRmRIZ2pmYmxkYXhtMSt1SGVHUjZ3bzVGMVhC?=
- =?utf-8?B?YldYUlo3ak5JNVQ4bG9jbkI2WERZL2JRZkJzcTFvbmNlbFZhYktBMUVjVE1H?=
- =?utf-8?B?ZGJKdTgrZjUxK252QzgvTlNlaEdER2Y2Q25ER3pwZ291c3UvZUY0OVc0a0ZQ?=
- =?utf-8?B?dUJ3NmVNejJDZlN5dXJpREpTbUJLVThEQllxQzc1eEFpb0VxNklWWGNwT2Rp?=
- =?utf-8?B?RTVsRE5iSjRhZ1lPSEJXZG85Q1g2cVhFM3NQT29WRHl4UWNvYm1IVCt5bzhq?=
- =?utf-8?B?RXh0elRHeGtNSnJkSi94WnptT1daeHp4d3RBOEUxcVdZWEkzdVRNUFl5WmZO?=
- =?utf-8?B?SGFDODBtd0Mva2NIKzBpTmYwTGFGVVBYandCaytSMzRodU02cXh6emh1QXJz?=
- =?utf-8?B?YWR5ck9Qa1NUUHlzcWJZTkdtWDA0TWdVQ2tDYVQ4SitmZFNnZS85bGw4UFRG?=
- =?utf-8?B?MnNTdDF1dWVacitJdCswcmZtN2ZHaDBBRGRLc2pva29uVit2SkdjNFJ6K2s0?=
- =?utf-8?B?MjRHa0hrYUtudFNIUXdiZ2VObmZRbmp4VW91SGhLWTExdHNhNzZ3bzY0OEJB?=
- =?utf-8?B?bkRRc1BBTkI3NmtxWVhoL0wwVVpnMkIxR0szQ2dhTzNra2lxeTBPcDZSZElt?=
- =?utf-8?B?eVBYQ1FNRnoxTmw5SEV6ZUdWbmUyQXQxcHJoZ0JRMDZva1BKcFA1UWtvcGIx?=
- =?utf-8?B?em52SU13RmNoVW00OHZCRGFZUG1xblVXSG8xQitlazNtRGpRcUc0cFhYNHVK?=
- =?utf-8?B?S2pjNEtGZ2ZGaGp2QmJxSUVaNm4rU0xaNUNtNEVyVW4zRmo1WjVvR2w3UDRT?=
- =?utf-8?B?V2VkekFoTTMvUmFoVm93dVgvQnJ5RWl3WTMzblhqbm5iZzhvbmsyVjRCVldP?=
- =?utf-8?B?TW1pSEtBVDJsanl0VThtOTNncXE3WjBURlgzS2VIbGRoN2h0UTltc0Rya2Mr?=
- =?utf-8?B?UW9hTUd0MVkxQUE5SXJjOWxaeDgzSFJDQ3dnejNQMjBzNk5zRkVXb0FyVTMz?=
- =?utf-8?B?N1FEcWhXS1hjZEF0YzVRb3E1MDhnSmUzKzBSU0xMNFdzRDZiV0czUnZNcDdp?=
- =?utf-8?B?VGM3K1ZudEpROWdvV2grUGRPQlNNMnRUc0FoemI4c2ZxVEJGd3YrRlhiRWtS?=
- =?utf-8?B?TEw5MDRod29FcHoyeDJXeE1RVUM1UjNFNkFXQUJ5STlTT3dMS09vbEJTS1dG?=
- =?utf-8?B?VDk4Tkltd2hJbDJHWGpvN2JQU3VuYlNIVDNUYTVYWEo2eHppdUZEVnBpN0tn?=
- =?utf-8?B?Q2xPcS9LU0VJdE45ZUJnc3Z6bFZzaDArb0tlclBVT21IRVBQTmdkck9FWHpo?=
- =?utf-8?B?MWw3WXNSTjZKcnQwa29JQXM1K2pYVVpzTG84czhWbGpyb2tEMm5XcVdianIy?=
- =?utf-8?B?UVZkeUhVVm5NZzRNeXdDRERRNUZQcXdFM3IrSkdoYURyaWxzNDFDdlVucExO?=
- =?utf-8?B?dFZEZXVQVzhQbTNKeE0xQUhHT1pHeUVZakhOYkRLRFpLamMxcGdnM0pwL1Yy?=
- =?utf-8?B?MWJSMGQ3QjNvMVkyYXBKcXgweHpaUEpNUW5hTW1RZ3ZqbmErZEU1QUxsbDhW?=
- =?utf-8?B?ZDAyaTY4TTNSRTFvdkhTaHB0UVBsS1VJQXFTMzRFYTFOVEY3c3Q3TEtjMk9F?=
- =?utf-8?B?UHE5WllGb1lMK3NtVzlmb1JlSWlwcEx3dEtoTHBuMXg5djhxUVozYktHK3JQ?=
- =?utf-8?B?amN4RGRmcFYwVUFIUWluT1hWQVo1VkIreXpiNXZHR1AvZCtpekszMUtyYkF0?=
- =?utf-8?B?L1l0RnNmMUVJeEZlVHkwSDZ3cGtEVkU4VHhNZXlOazN3aE1KazNwckRZcUpI?=
- =?utf-8?B?T2NBL1RWVEJCZm1XZnpmcmdNSE51Q0dVSEdsUjBjdlJqdXhJQm9UTUl4c3NB?=
- =?utf-8?B?ckJoUzlBZDZ0Q3Z5c280eW1EczJheGtNTlN2L1NPTU01Y1BPVEVtUlpOTGR5?=
- =?utf-8?B?T3JLMFM5SjMxNzJycEJiN1RFZ2ZhS2lSVFJYMzkrWmh6UE1mMlFmUXplYWZq?=
- =?utf-8?B?azdVcytnU2dJS0xEWjBTOFQyRHVpK0Y0MmltYmtBYStrdUMxejNxMjg4bVRu?=
- =?utf-8?B?OXFJSGlIZW1pZmo2SzR2Y2JaeERRQ2tHR2NweTB0YjNsdXVabzR4aHlmVlVI?=
- =?utf-8?B?YWFpTDE1ajRCdkJ5T1ZwK0t4dlIwSUQ4dEs3dXI4MTdnMXlIK253Z1lGWHVE?=
- =?utf-8?B?N2p3VVAwZWxTaW1lMlo5SVZlQ3FGOGdITEVrY0lUUitXbTAxRVpDYjBBVzZJ?=
- =?utf-8?Q?P++snRqUunK1zPjV3lAB097LMiLb0q09mXJD4d/bPPSw5?=
-X-MS-Exchange-AntiSpam-MessageData-1: Z1BwZi/vVFBiRA==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1488706a-adcb-445f-dbec-08dee9561b2d
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 07:35:16.8894
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Fmwq+h7o17tMRxUexYyZRR35tsz5X3M9M/BFkkLUtN4R3Vel6agqwBkpsYT+6fgFqiZa3FCq4NzTImrULBViIQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8217
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_003522_837792_DAAF53B9 
-X-CRM114-Status: GOOD (  17.82  )
+References: <20260724050645.223799-1-ebiggers@kernel.org> <2026072410-drained-acts-3502@gregkh>
+Date: Fri, 24 Jul 2026 00:36:24 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
+X-Gm-Features: AUfX_my5XZyE7UqXKRq4QXkQ89HpYi6P6qHi08NgO2eVL5ur0W8C7gKD-xXnu0M
+Message-ID: <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
+Subject: Re: [PATCH] crypto: qce - Remove driver
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-crypto@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Demi Marie Obenour <demiobenour@gmail.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Eric Biggers <ebiggers@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,71 +85,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Greetings everyone.
+On Fri, 24 Jul 2026 07:28:53 +0200, Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> said:
+> On Thu, Jul 23, 2026 at 10:06:45PM -0700, Eric Biggers wrote:
+>> This obsolete driver was already marked as BROKEN.  However, keeping
+>> BROKEN code around in the tree is unnecessary and causes problems.  It's
+>> much better to just remove it entirely.  Let's do that.
+>>
+>> Crypto acceleration remains well-supported on Qualcomm SoCs via the
+>> Qualcomm Inline Crypto Engine and the ARMv8 Crypto Extensions, which are
+>> what Linux actually uses in practice.  The obsolete QCE driver is a
+>> dead-end approach.  It's extremely slow and just doesn't work well.
+>>
+>> While there's been discussion around using QCE for restricted media
+>> content protection, that functionality has very little to do with the
+>> current crypto API driver and belongs in a separate, clean proposal
+>> (likely under a different subsystem/directory).
+>>
+>> The extensive reasons for marking this driver as BROKEN were already
+>> documented in commit df373d39c6f0 ("crypto: qce - Mark QCE as BROKEN").
+>>
+>> Since then, it's also been found that under realistic workloads, the
+>> driver is not only ~48x slower than ARMv8 CE, but due to massive driver
+>> overhead it actually consumes significantly *more* CPU cycles than doing
+>> the hashing directly on the CPU -- with much of that time spent in
+>> non-preemptible hardirq and softirq contexts
+>> (https://lore.kernel.org/linux-crypto/20260724020608.GA51735@sol/).  The
+>> proposed BAM locking fixes would only further degrade performance.
+>>
+>> Additional bugs have been found as well
+>> (https://lore.kernel.org/linux-crypto/20260723205801.GD110634@quark/).
+>> Pending fixes for some bugs don't change the big picture.  Nor have
+>> security-related claims held up.  Of course, these issues are largely
+>> moot anyway when this driver's functionality isn't being used in
+>> practice, beyond the module loading due to it being in the kconfig.
+>>
+>> Note that this removal does *not* imply that various other drivers in
+>> drivers/crypto/ don't have similar issues.  They do.  Rather, the
+>> evidence is just exceptionally clear for this one, in part because
+>> hardware availability has enabled independent testing.
+>>
+>> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+>
+> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>
 
-I've been looking at enabling more CI for 32-bit Tegra platforms 
-recently, and I ran into a problem with TegraDRM not probing on 
-tegra30-cardhu, but only on multi_v7_defconfig.
+Greg,
 
-I traced the issue to the following sequence of events:
+I'm against removing this driver but I have a kernel driver policy question
+before I start arguing the case: If I say that I do use this driver and that
+I volunteer to maintain it and had already started sending out fixes, can
+Eric still force its removal? Because in this case I can name a whole lot of
+drivers that I deem useless that we still keep around.
 
-1. On multi_v7_defconfig, CONFIG_ARM_DMA_USE_IOMMU is enabled, while on 
-   tegra_defconfig it is not. This causes arm_setup_iommu_dma_ops to run 
-   on TegraDRM devices.
+The alg priority of this driver has been decreased below that of ARM CE and
+since CRYPTO_ALG_KERN_DRIVER_ONLY it can no longer be used accidentally by
+user-space either.
 
-2. Some of these devices will be placed in a single IOMMU group by the 
-   tegra-smmu driver. When arm_setup_iommu_dma_ops is called, depending 
-   on probe deferrals, the group may have only the currently probing 
-   device, or a previously deferred device and the new device.
+Even if in practice the driver is used for testing purposes - does this warrant
+its removal?
 
-   arm_setup_iommu_dma_ops calls iommu_attach_device. If the device is 
-   alone in its group, this succeeds. If not, this fails. If 
-   iommu_attach_device fails for every device in the group, everything 
-   is "fine" and TegraDRM goes to probe and work fine. Hence let's 
-   assume we have one device that succeeded the attach.
-
-3. iommu_device_use_default_domain gets called and succeeds on the first 
-   device in the group. On the second device in the group, it fails 
-   since group->owner_cnt was already 1. The custom ARM DMA IOMMU 
-   implementation uses a custom UNMANAGED domain so the domain != 
-   default_domain check evaluates to true.
-
-4. Devices fail to probe which leads TegraDRM overall not to probe.
-
-I've thought of the following options to fix this:
-
-1. Match behavior with tegra_defconfig: Figure out a way to not run 
-   arm_setup_iommu_dma_ops for this situation (ideally any multi-device 
-   group situation). However, I'd also like to enable DMA API with 
-   tegra-smmu to get rid of the manual IOMMU API code paths in TegraDRM, 
-   so this is not a particularly satisfying route.
-
-2. Improve the legacy path: Fix the ARM IOMMU DMA code to support 
-   groups, and add an exception in iommu_device_use_default_domain. But 
-   I presume we don't want such non-trivial modifications to that code 
-   at this point.
-
-3. Modernize: Support CONFIG_IOMMU_DMA on ARM -- since there is an issue 
-   with per-SoC quirks, I think this should be done one SoC at a time. 
-   So come up with a way to dynamically pick between the legacy and 
-   IOMMU_DMA paths. Perhaps if the SMMU driver explicitly requests the 
-   DMA domain type, use the modern path. Currently, CONFIG_IOMMU_DMA and 
-   CONFIG_ARM_DMA_USE_IOMMU are mutually exclusive so that has to be 
-   changed.
-
-FWIW, if we are to move to using DMA API with TegraDRM, one blocker 
-would have to be resolved: boot splashes scanning out while the DMA 
-domain is being set up. Since we cannot really use the iommu-addresses 
-reserved-region device tree bindings with these old devices, my thought 
-is to leave the display memory clients in bypass in tegra-smmu until the 
-display driver has quiesced the hardware and can then call into 
-tegra-smmu to enable translation.
-
-Please let me know what you think and whom I missed in the To/Cc fields.
-
-Thank you
-Mikko
-
-
-
+Thanks,
+Bartosz
 
