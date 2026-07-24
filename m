@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E678AC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CB8C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2NihTIkzvJJhL1oMJLkkInbq38KcecjKA4gcRVTiYro=; b=P6EWLC4+CaPP0bTKGM0pahyWmC
-	cJBj+FwOer+XSebNsv+Kgk6dnXMmokJ6yCQXStjQuJ8GJKJrEEVOaxBMycooIg831qD61TujflsRX
-	IEkLSUmuaBhpVft13VHpIA8/6+SkJbQDzAvOtVI0xruCkw2Hk21GHyNuJbz8XAKonk6dqspbfeJM7
-	6LNFfVRVSWoIw3YAV7rod/smCoN41E7dJbCAtLX8eBtwJ/qhUZefj7uZntVMcc1EcluZvq6QZoL6e
-	Y66yySoAMTac7oJyMe9Cup0EW8tinBzdQwouFfkGIRF9lTK6yGJ+2uROU0XqEYjbTIk3CROmZfobp
-	IY8TygzQ==;
+	bh=q22An07Dm/cfkOmUAJDd/V0Kbs9QV2rJTs/dXgsgrD4=; b=zupC09pKapJx3kR8x6fjaKUX07
+	IFecMEPZt4Wbonmq5aKKGJuA67kkHVigIECXqSnrFOnJoUo1osJikPugPXETKK0RKzMGZEi2wHvjV
+	A7DDlDloLVqPcR94bNvF3WvY7qEPAbz11/oYjZyXeg1JUZAUD0pAbVhNtb0Mr9gTGvX4ZVgAV4PuO
+	XUYwWRkkLc//H63mEd9lL8/uT803c8l/kvmziTg4SIferh4C977KZmSocpHO3giuYynEkNPhZ5hhK
+	aGxHE2i9hp3dGoid5BAsQuRhvGDUg3UFaM8j1fSJNqe8soJrUpLpOeGUulovosVABgKUTjZ39/QMF
+	Xie22YZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnEsE-0000000GM9D-1sWB;
-	Fri, 24 Jul 2026 12:19:30 +0000
+	id 1wnEv3-0000000GMKi-31h6;
+	Fri, 24 Jul 2026 12:22:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnEsD-0000000GM8z-0Ypf
+	id 1wnEv2-0000000GMKU-1jDH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 12:19:29 +0000
+	Fri, 24 Jul 2026 12:22:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E66C43EB2;
-	Fri, 24 Jul 2026 12:19:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 117CA1F00A3D;
-	Fri, 24 Jul 2026 12:19:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D94D41B3F;
+	Fri, 24 Jul 2026 12:22:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 414A61F000E9;
+	Fri, 24 Jul 2026 12:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784895568;
-	bh=2NihTIkzvJJhL1oMJLkkInbq38KcecjKA4gcRVTiYro=;
+	s=k20260515; t=1784895744;
+	bh=q22An07Dm/cfkOmUAJDd/V0Kbs9QV2rJTs/dXgsgrD4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HGR1+R3Utvf9qRUvr8MB/WEz/YIO7CFExPVMRcFsOjvGb/mhOz57ZZLW4G8DGzlKi
-	 jCwQSCoOos3aLTbrn+yAOjadJhCjxqFtgp9HIKSA/8w8HFoaR3wGdHKLDfDyBU6+2q
-	 UEm5YkrYt3eGQW/gl1td6o6mUmd9SCBwoHsaYarHVkiVTZJ3WLSkZsB9Z3yadfRBbl
-	 7qSDulW2JajROCYIXjXaYTr6pL6MsHku94UmabQD/1FUWADB4qdHY1Wre6CSZgvu9G
-	 Frr1z5nG+wsonT8jDV84KcUak3r2w5opxI9vxJBJ0TNwlVkO7Uxl26TSeVloHdvLcN
-	 VghuxtNsSqVxg==
-Date: Fri, 24 Jul 2026 13:19:22 +0100
+	b=eaElYRVRKvcE01aMdYlx2g6qcIVZYUTDefnaZvLwcm1WlHqVTr545YIBuhFncM3mX
+	 tNL4/beM1KYRFlNwc4aqsbD+ro+Dupvf+b9NtnYMXxy3efT0f0YTPW2nxKrNHD+XCs
+	 TavZDPX9PfIn26zWk0lgWrCGUXfMvy+zWDOJDwqaMcZrVOrnFKINybGLq3mh31w1bk
+	 h+CXBPo2BNUIptjSqfkPXfQG7gW0UBV+nntMMq1pRKdhCIEvLx05QL7MpeONt57nTc
+	 sTR51c9o3EoC9pKa1Hc44T0CSphnjBMMmqz4ZjQyjLadp3myiytTzYCzLZClCRjwDD
+	 STmhTnXKHSwLA==
+Date: Fri, 24 Jul 2026 13:22:18 +0100
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	"Rafael J . Wysocki" <rafael@kernel.org>,
 	Len Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>,
@@ -63,17 +63,17 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
 	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 05/10] arm_mpam: propagate MSC access errors for
- __ris_msmon_read()
-Message-ID: <20260724-daffy-red-gazelle-3f70be@sudeepholla>
+Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+Message-ID: <20260724-romantic-stoic-hippo-3f897b@sudeepholla>
 References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-6-andre.przywara@arm.com>
- <20260724-horned-wolf-of-will-a49c1d@sudeepholla>
- <1864c9a2-2e97-411e-9f12-862a8cfd4101@arm.com>
+ <20260723155454.1760823-9-andre.przywara@arm.com>
+ <20260724-imposing-lurking-toucanet-cfe22c@sudeepholla>
+ <9d5fd63a-5e9d-4e44-8f63-864764caf20d@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1864c9a2-2e97-411e-9f12-862a8cfd4101@arm.com>
+In-Reply-To: <9d5fd63a-5e9d-4e44-8f63-864764caf20d@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,77 +88,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 01:17:06PM +0200, Andre Przywara wrote:
-> Hi,
+On Fri, Jul 24, 2026 at 01:17:41PM +0200, Andre Przywara wrote:
+> Hi Sudeep,
 > 
-> On 7/24/26 12:02, Sudeep Holla wrote:
-> > On Thu, Jul 23, 2026 at 05:54:49PM +0200, Andre Przywara wrote:
-> > > Allow the function for RIS accesses to return an error, and propagate
-> > > read and write errors from the lower level up.
-> > > This function is a bit special, since it can be called via an SMP
-> > > helper, so the prototype must stay as void. So propagate any errors
-> > > using the "err" field in the struct passed in as the sole argument to
-> > > that function.
+> many thanks for having a look!
+> 
+> On 7/24/26 11:55, Sudeep Holla wrote:
+> > On Thu, Jul 23, 2026 at 05:54:52PM +0200, Andre Przywara wrote:
+> > > The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
+> > > alternative way of accessing the "Memory System Components" (MSC) in an
+> > > MPAM enabled system.
 > > > 
-> > 
-> > Not sure if this was already discussed by build bisection regresses between
-> > 4/10 and 5/10 as you change function prototype there and caller here or
-> > am I missing to read it correctly ?
-> 
-> Does it? I build tested every patch multiple times yesterday, and just
-> repeated it, and it comes back cleanly.
-> 
+> > > Normally the MSCs are MMIO mapped, but in some implementations this
+> > > might not be possible (MSC located outside of the local socket, MSC
+> > > mapped secure-only) or desirable (direct MMIO access too slow or needs
+> > > to be mediated through a control processor). MPAM-fb standardises a
+> > > protocol to abstract MSC accesses, building on the SCMI protocol.
+> > > 
+> > > Add functions that do an MSC read or write access by redirecting the
+> > > request through a firmware interface. For now this done via an ACPI
+> > > PCC shared memory and mailbox combination.
+> > > 
+> > > Since the protocol used is only a small subset of the full SCMI spec,
+> > > and the SCMI protocol has no full ACPI support anyway, open-code the
+> > > (simple) SCMI message generation, for just the fields we need.
+> > > 
+> > > [1] https://developer.arm.com/documentation/den0144/latest
+> > > 
 > > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 > > > ---
-> > >   drivers/resctrl/mpam_devices.c | 36 +++++++++++++++++++++++++---------
-> > >   1 file changed, 27 insertions(+), 9 deletions(-)
+> > >   drivers/resctrl/Makefile        |   2 +-
+> > >   drivers/resctrl/mpam_devices.c  |  27 ++++-
+> > >   drivers/resctrl/mpam_fb.c       | 197 ++++++++++++++++++++++++++++++++
+> > >   drivers/resctrl/mpam_internal.h |  20 ++++
+> > >   include/linux/arm_mpam.h        |   2 +-
+> > >   5 files changed, 240 insertions(+), 8 deletions(-)
+> > >   create mode 100644 drivers/resctrl/mpam_fb.c
 > > > 
+> > > diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+> > > index 4f6d0e81f9b8..097c036724e9 100644
+> > > --- a/drivers/resctrl/Makefile
+> > > +++ b/drivers/resctrl/Makefile
+> > > @@ -1,5 +1,5 @@
+> > >   obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
+> > > -mpam-y						+= mpam_devices.o
+> > > +mpam-y						+= mpam_devices.o mpam_fb.o
+> > >   mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
+> > >   ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
 > > > diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> > > index 9ee4eb4db03f..bcff53477133 100644
+> > > index e2cb884eacf4..b8108ed4b32c 100644
 > > > --- a/drivers/resctrl/mpam_devices.c
 > > > +++ b/drivers/resctrl/mpam_devices.c
-> > > @@ -1328,6 +1328,10 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
-> > >   	return overflow_val;
-> > >   }
-> > > +/*
-> > > + * This function might be called via smp_call_function_any(), so propagate
-> > > + * errors inside the arg struct.
-> > > + */
-> > >   static void __ris_msmon_read(void *arg)
+> > > @@ -181,6 +181,9 @@ static int __mpam_read_reg(struct mpam_msc *msc, u16 reg, u32 *res)
 > > >   {
-> > >   	u64 now;
-> > > @@ -1351,7 +1355,9 @@ static void __ris_msmon_read(void *arg)
-> > >   	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
-> > >   		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> > > -	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> > > +	m->err = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> > > +	if (m->err)
-> > > +		return;
-> > >   	switch (m->type) {
-> > >   	case mpam_feat_msmon_mbwu_31counter:
-> > > @@ -1371,7 +1377,9 @@ static void __ris_msmon_read(void *arg)
-> > >   	 * Read the existing configuration to avoid re-writing the same values.
-> > >   	 * This saves waiting for 'nrdy' on subsequent reads.
-> > >   	 */
-> > > -	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> > > +	m->err = read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> > > +	if (m->err)
-> > > +		return;
+> > >   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
 > > > 
 > > 
-> > Atleast read_msmon_ctl_flt_vals() changed to return value in last patch.
+> > The above doesn't make any sense for PCC accesses, perhaps need to be pushed
+> > down ?
 > 
-> Ah, but this is not a problem that breaks the build, as we formerly just
-> ignored the (at this point bogus) error value, but now pass it up.
-
-Rather than return I was thinking about added parameter to get the read value.
-
-> But this is one occasion of "touching the same line twice", that was
-> criticised before. Not nice, but the alternative would be to have one giant
-> patch, which I figured to be unreadable.
+> Well, the idea was that the mask would always encompass all CPUs when using
+> MPAM-Fb, but to consider this an implementation detail of MPAM-Fb.
+> We can of course move this out of the way for MPAM-Fb.
 > 
 
-Ah then good. May be I was overthinking.
+I prefer that.
+
+> > 
+> > > +	if (msc->iface == MPAM_IFACE_PCC)
+> > > +		return mpam_fb_send_read_request(msc, reg, res);
+> > > +
+> > >   	*res = readl_relaxed(msc->mapped_hwpage + reg);
+> > >   	return 0;
+> > > @@ -197,9 +200,12 @@ static inline int _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg,
+> > >   static int __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
+> > >   {
+> > > -	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
+> > >   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+> > 
+> 
+> And by the way: I think the hwpage_sz check should belong to the probe
+> function, not be done on every access. Or are there optional registers that
+> might not be part of the mapping on devices that don't support them?
+> 
+
+No, I was just referring the cpumask and not hwpage_sz check.
 
 -- 
 Regards,
