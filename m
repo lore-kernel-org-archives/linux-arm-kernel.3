@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954BEC531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34141C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q/Jg1vL6WCoKWmNIVSdaiN+VbT2b9Zn9L0z1UYJ+buU=; b=IwabmczBXXNeUb
-	M3+HIUKD007D8o7s4CKtgfzWVe9jIcP7SQZHNVi9yknwQEbpuVY2Pnbx5M44Ip4/arpbF0EVTI6nJ
-	9q18UPCpzk9XXhiPi4Wq+OA9qOFtuIaFt5RL/qTxeVaoHLnTCdLpbjWxxo79gdvr5OT/q2uu5V6JW
-	o/9IEaT7drRqJECzQxY+gGiUAa0fL/pyq4ZJ1gTwgTZxMlKjaU8wdMpkDEkRisPQqv/dJd2Euk3lL
-	bF+lEFSg1oNx+ikfxQd49TCCCrqlIOhaCCVBYbDhjiaOXNPdIdqwMKHJuapv0B6aaVOExInvg3wpr
-	UhXEDjmJGKh4HR4LEpDw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NTCgdt6IpHLKYtA76srcT7UD0TdTAQVzu4zf33H1PjU=; b=2h6LZJS0JVtuMVLZGkGzDsRmP8
+	HnLRY/nwaeahqdF5JolrwqCTKUWzhAvV8dIAGHXkf+Hra7xYigGPTJRA3SDG48uQCRzGMF+JMUg6D
+	7q/NF+SAdn7fpZMQ3bSxRU56QdxWFTZKA2ksuxjUvewkF/eHsv6Jt6lQ3nJpmWnABSapQOrQORTr0
+	13Mvibfklss8a1gJDoGjsnPEJyvJAdOJs1L7vwNZ9zRNc92Vgk+xLEDpUagjj22cegW1z9/o1I7mz
+	NZ0O8XlfKH9KczXnCXhfa7Y6VwdjemuSjnJKl95xr0ImMou0w1DmztmGp4NfFTk1e56tv48B6NOuU
+	ebAv9oQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBpH-0000000Fu8C-3yrG;
-	Fri, 24 Jul 2026 09:04:15 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wnBpQ-0000000FuDy-1pXh;
+	Fri, 24 Jul 2026 09:04:24 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBpE-0000000Fu76-2XZY
+	id 1wnBpJ-0000000Fu89-0m2Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 09:04:14 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-495590dde14so2527505e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 02:04:12 -0700 (PDT)
+	Fri, 24 Jul 2026 09:04:18 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so238442f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 02:04:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784883851; x=1785488651; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Q/Jg1vL6WCoKWmNIVSdaiN+VbT2b9Zn9L0z1UYJ+buU=;
-        b=Wp8ThzPWtgUr3cQ5kCE6Bss2rFV+AzjHpSIL0MBEAWn7lKSF2nC/r4Gg5ipme2X51c
-         NQjTFdo+GKTELocxxMAOzytEUjzwpydjYCAtNKZS4bB2T5ShQ4zFwSbJ2NJ5wEElMBQa
-         HVzh5ly31Yvd/vqDHObewygue5dGrYfjw31IdiB11KNbyh1NmGvav6iFArFOvN3Ud1RF
-         cktnncqN+o8uVr4pStl2AYRztasyR2MpRRHwnB/k6/bTG5axOjPGMAAasWojmz9KtZTY
-         /2cuAZO6LvKRyhw09BaqB5xL3Kj2qPpi18YDiUfmhW2A39Fx++Fx9TbAk+hZPXRz52D8
-         rnCw==
+        d=baylibre.com; s=google; t=1784883855; x=1785488655; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NTCgdt6IpHLKYtA76srcT7UD0TdTAQVzu4zf33H1PjU=;
+        b=DfK2TIEzJWFiYpslFRQhbta9Js0A1sJnjpyArlxNIFjGvLcdwYritri504MheXfrQt
+         PItWGYiQWOnzf4L/HpDc6BxqufWRTQZxkU2/ojIhEU5F4WINM7pT0T7b0I6Q7XPVBisK
+         k90zK2iXcOQTY0lmiU1xsX8xyCmUvBc9OBExTRAeBxwDeH93bE+9RTDHXuJeo554Z+OQ
+         WKIg2DPVq01pIJQCGtlHgyYl7Bhj6a0z1mhSVjG9udEvX/i5xVjqVSDf3q7lSDLFz8j4
+         MR5RVUXD+h5csuHcwcS6sX07SrVHCx+rm4vEuqB3UTs28pZRjdqoc9gr3xDVA/4/UeeG
+         s8DQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784883851; x=1785488651;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Q/Jg1vL6WCoKWmNIVSdaiN+VbT2b9Zn9L0z1UYJ+buU=;
-        b=LAf00abCOebvWcfIgt+7Lta+xbbXeckgHtz6qv/hsbwx2sFCJBnwL8bdPSNwFd4oNJ
-         0eucAjGDIbQHMDrzw2FLGYuMuj0bva2OLlB5E6kQjnqLCkJwd/JsrtRz6VSTreEcB5h/
-         uBNJfth4Z2c3TkIRAK2e1MCZmajXOFePblomqeJtL2Q2lB7dyoPBU+shQVB54FrTFctN
-         ySrWTKYfv5d495cMoJnPiS4NpNFtE0bDShFe+gN/1t2hJFsEN/stVCpeSVS2dN5WkE7I
-         tvEvfOor+/PpqYsCB9zU6mfxRjIFDlWbowAoSHO1/O2PNSAOyFq11E+wOowZq6v0o/ag
-         6ikQ==
-X-Gm-Message-State: AOJu0YxPk5WtGjqzzi/CtLZkNgqz1e3rn2IRA1iljlOdLLgfaLICHl5i
-	aC0bDGOdCPi5ZoPQmrX822PkKR4zhW2e4wCQ2NO0glMjObmw68z2UfFWDzvumUk04MY=
-X-Gm-Gg: AR+sD13Q9DLFIgTs8bX46EWZS8o9wA2yIkYRvHQhiCg1vhXwg82u++CEeEiCw8xgtCv
-	vktsPCaYs/FbP7ppvAo8t5Cshl2muVEBArJM4ft+BRFuvCuwHT7R9cuzgZNXRcXK9RS5QvnUsgu
-	NWCdADgmy+cwkHyaoubdFcJQS2k6K9KiwijNoMmO5aSRmPMOadBxQdEff1JKgdGX1clxyhG7p4T
-	vjWHkzLsKRb3wWE+e75ZGiSky8HKszDjIO3vRAa/N4Vu4j2zKoTWq6bm2uDL//HUhhB2OdatpEk
-	yLu1K5nkRapoP4iQ2A2fKe6FiVa7S3TuSVYpmro9UgrUjsexKrn9tKyRXby5jg8ThP2uxS5FlU7
-	10qcNu/lbkzlwiZEh257baWgu09zySB/TW2DIzvvaSWkhvtuhnqGjPtOPEs36T8uL7F/uFTGLjy
-	OeWhw4dg3HenU=
-X-Received: by 2002:a05:600c:6d04:b0:495:52dc:73a9 with SMTP id 5b1f17b1804b1-49573cc6d0emr50329905e9.11.1784883850753;
-        Fri, 24 Jul 2026 02:04:10 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1784883855; x=1785488655;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NTCgdt6IpHLKYtA76srcT7UD0TdTAQVzu4zf33H1PjU=;
+        b=DQVswvOqrAnJ3kOB473HZJqk1JsL+7Im0B6Wm4hfIaPJMm/ljyTyWIbeEXoXYDYDZF
+         ubHXK6oLR7tct8O4y+d0/D5vRigMOn1tpV771qtxnUaLJkmfeXK+2LVYts1ElrJnmemC
+         zXjcOMePWVAyA+tKGSmCUh+Hl9wye6N7rM0Kl+tIS7cM1icCzPuQaYkEp4ZMZgWqoNkz
+         HeuXxB04gXSAA0MM5x4M+DRrJSfRnNLe9Xju8XK9tKF4CeeL4Yptg6vW5oNEVZUJa7Hl
+         6qUxXQGHTueFvC+c/PkGNLJNe8jmXPj3w6V4Syrcmxex/Oiy81sA5VzpXOlBb12AZWPv
+         /Rwg==
+X-Gm-Message-State: AOJu0Yy2FZV0Ps+cE1Q47djpBv57125L1rYSJJwWivjcdZeTXlQ5+GGJ
+	DENM5RyplFp3fYrb41z2E45KdHQ52c6kMwR1siMCbPrK5C9cmmqsqiO8mUsEmlSCuaQ=
+X-Gm-Gg: AR+sD10A0YcLFn1AtHfg90wkq+6CNpRDY1uUMl9jNpjAux8rjw6x4vyB//jybQxxKuO
+	PKS471k1wLL6gwQv9cecXKEctdY0DxczkybqWEbLI84m2tt1nOviGf4yLLAt6n6/evt4EvpuLl6
+	LbP7Dopp2CLwVtMcsdM0AnWr2qCCTxeaQn2tWXBoLUUh1uQaIUWqLjE3RvWo/tBa7h1Sl9v1i6u
+	rX+sd9pFct7r3HwtqYQWtE96bngZuBc8ZtotEKv4JwJTjuXE/mhVn8WQjx8C+hFqlp+o87iHi2g
+	oi8jv8B5gUPmnJyiUl4f16hcRx/lJ8kv3oBPQEQAxrl90D/l+B1ZOiismnaOaOOcBHlEVFnndhP
+	fFy0G+sNRGEVCWk6kn26oUAfuUZmN0/76qQtAAzaavpXvemP3buuOpLW3GArDdA6K8YaMp+UISI
+	UOVzCHM31hDE8=
+X-Received: by 2002:a05:6000:2389:b0:47f:93b6:8d05 with SMTP id ffacd0b85a97d-47f93b68d60mr5219684f8f.0.1784883854883;
+        Fri, 24 Jul 2026 02:04:14 -0700 (PDT)
 Received: from localhost ([2a01:e0a:3c5:5fb1:e584:93af:f3aa:2c19])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4957af78a02sm52350385e9.7.2026.07.24.02.04.10
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f85c67339sm23918983f8f.31.2026.07.24.02.04.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 02:04:10 -0700 (PDT)
+        Fri, 24 Jul 2026 02:04:14 -0700 (PDT)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Subject: [PATCH v2 0/7] clk: clean-up simple provider misuse of the
+Date: Fri, 24 Jul 2026 11:03:53 +0200
+Subject: [PATCH v2 2/7] clk: qcom: clean-up simple provider misuse of the
  consumer API
-Date: Fri, 24 Jul 2026 11:03:51 +0200
-Message-Id: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHcqY2oC/42NQQ6CMBBFr0K6dkypWJCV9zAsyjDKKFDSYiMh3
- N2CF3D5fv7/bxGeHJMXZbIIR4E92yGCOiQCWzM8CLiJLJRUWubqBNi9YHQ2cEMOPPdjRzEjM4A
- pmjMiZoRKirgfHd35s3/fqh/7d/0knLbDrdGyn6ybd3lIt94/npBCChIvWhcqk5nOr7WZO64dH
- dH2olrX9Qs5b7Ao1wAAAA==
-X-Change-ID: 20260723-clk-provider-simple-clean-a8d5ccc4ec20
+Message-Id: <20260724-clk-provider-simple-clean-v2-2-56f306156d25@baylibre.com>
+References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
+In-Reply-To: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
 To: Andrew Lunn <andrew@lunn.ch>, 
  Gregory Clement <gregory.clement@bootlin.com>, 
  Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
@@ -97,25 +95,25 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
  linux-tegra@vger.kernel.org, linux-omap@vger.kernel.org, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2761; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=ngZbu7qrPPUnt3qz5v/OxI6wrSNHJGvbM+okq4uzzqA=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYyp6PPnWrA0DSJ4UJ6CstsYSqMPhVc8i6ZcbD
- Bp8my0uaVqJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamMqegAKCRDm/A8cN/La
- hYzUEACbbA9uvxujp8Cmfa3PzoTZ5cGEuPTX8RpG+NIB9lOpZWMoa1fR+25/AnbklP6EnRNPt+u
- mo8vWsoNfpYFAb8+oigyEE+UnaDdY2RNM2IpaXdUHdlmUXX36sAkdpuw9PlrKiuWdJALla4BjfA
- vpi9rQ+FceaCxa6CVs5+w+RXlougTYlBPouzG+njfSj1WEYb5/rpTwD2c48q0A0SjiOXbL/3T1s
- uDYBpb2rN7LYB2YvxshiaLkaEOpb+5QGIRDHwHyoHwrn8E1hIvyrIo1HDtT8C+fm1rbtfce0iEH
- 2q1UNJD27j9cnfxi+9ShMnnkhlIRhbpMG8V5eNDlp9zxpdzl/J31H1H0FUDK2kg9Pe/hZRt88y6
- xDgnulPPOR3YwraARkMAe0tmhYidPptJsBhVv59yAiZkZTgzX49HLrHFNazof0ZS250Sj5AtsT7
- yHIwPN8P+O7YLcwV5nqpad5lXpDi3YOJSqhJRlB36fglCpGY7+MMJap5EsulmSGu323+2LqsIXk
- b4vgUzy99hr4oRBEh/cmQjNPnN4/4l4TQZaFmeNm1ysWPv/eQ9PXyFexmj6AZwzC1ue6qALz4vA
- qsjEHdWeIoMJKf6sFWEIgUm42wjc0Q3Dr8dWMkUFSCdFPc09zJkJXNtt20TC8kc3Qg9Z/vEkbiH
- rEW8+SG6UGURodA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3253; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=tWtyJH+acydIB1bHXKtC61kdBeQ9YCay3I6fogeNCBU=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqYyp/w45qmtTosQnIAx1OStRzPQvEsipL2E/Lw
+ yCoEF/QmN2JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamMqfwAKCRDm/A8cN/La
+ hUwkEACyf9+F3KKPL0lbfHI4K+dGS21x1ICKK2JloqLuptXfFmL93tKHFaBxvE3RoGIW4MnvD/a
+ xjl/mhXdOBKFrrPN52n1H6Sy8BHbgV8b4iFfbZPTA/bH+VOHj1gaRcWw9BobjbZr505l3QYjFLB
+ dhOF5mk5Zb0zs0Y37gJ6s50bYPpgaghJh1nbJowznMuN7RBPXOg7keZM4c4E+QSTxVw124y/PY7
+ /a9LUuCd2p6+4nJWEIn+w22fNzwtmZIyfVlPZIe8ryf943A4eeIScf3NtHqaeptGBrD+i5yR8GI
+ wNSgGwUVp6/DTMAntJwPVRJMwz6Cp8tX2iLHclB0sKeQWc0cVWc43QWD8dALm1fDvAyXZ0zdvY9
+ i9beXiBoks+gDe8LHd3j+kuUvrrbL4xtl7dNRb8GRYkCw2RqZsd5vuOn6InV5PRftsPqKTcfNKY
+ 2fu/wtL0pLSimUUyLdjJmLaIaVOjQ6ne2OlWtUYRaB/TwkSrgsN9uUcwXfBOfBpS1DhYpOWH/C3
+ awHFTp2tmLQXR4lJrO2t9kzkb1VPfu1G3wRkZ3eICcTJ+dPhuLjwiATQYp6yj3RM4+ZALuaIBA0
+ 7IVsJwEto2YbLOKaI4xcK15Ne9C70RG35dvwyZdDvtNZApIEJNFfJQf9cPLXIKhtfqJED/5RkSo
+ zWdND+QOyfzSa+g==
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_020412_696795_64CF6D33 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20260724_020417_260120_86ABD991 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,66 +132,89 @@ Clock provider should not be using the consumer interface.
 In other words, a provider should not be dealing with struct clk.
 
 This change targets occurrences for which the provider uses the
-consumer interface and corresponding clk_hw interface exist:
-* __clk_get_name() -> clk_hw_get_name()
-* __clk_is_enabled() -> clk_hw_is_enabled()
-* clk_get_rate() -> clk_hw_get_rate()
+consumer interface and corresponding clk_hw interface exist.
 
----
-Changes in v2:
-- Change split by platform for the different maitainers to pick it up
-- Link to v1: https://patch.msgid.link/20260723-clk-provider-simple-clean-v1-1-0c9668240467@baylibre.com
-
-To: Andrew Lunn <andrew@lunn.ch>
-To: Gregory Clement <gregory.clement@bootlin.com>
-To: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>
-To: Brian Masney <bmasney@redhat.com>
-To: Bjorn Andersson <andersson@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Heiko Stuebner <heiko@sntech.de>
-To: Prashant Gaikwad <pgaikwad@nvidia.com>
-To: Thierry Reding <thierry.reding@kernel.org>
-To: Jonathan Hunter <jonathanh@nvidia.com>
-To: Tero Kristo <kristo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-clk@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-msm@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-tegra@vger.kernel.org
-Cc: linux-omap@vger.kernel.org
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-
 ---
-Jerome Brunet (7):
-      clk: mvebu: clean-up simple provider misuse of the consumer API
-      clk: qcom: clean-up simple provider misuse of the consumer API
-      clk: renesas: clean-up simple provider misuse of the consumer API
-      clk: rockchip: clean-up simple provider misuse of the consumer API
-      clk: st: clean-up simple provider misuse of the consumer API
-      clk: tegra: clean-up simple provider misuse of the consumer API
-      clk: ti: clean-up simple provider misuse of the consumer API
+ drivers/clk/qcom/clk-hfpll.c | 4 ++--
+ drivers/clk/qcom/clk-krait.c | 2 +-
+ drivers/clk/qcom/clk-rcg.c   | 4 ++--
+ drivers/clk/qcom/clk-rcg2.c  | 2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
 
- drivers/clk/mvebu/clk-cpu.c            |  2 +-
- drivers/clk/qcom/clk-hfpll.c           |  4 ++--
- drivers/clk/qcom/clk-krait.c           |  2 +-
- drivers/clk/qcom/clk-rcg.c             |  4 ++--
- drivers/clk/qcom/clk-rcg2.c            |  2 +-
- drivers/clk/renesas/r9a06g032-clocks.c |  2 +-
- drivers/clk/rockchip/clk-pll.c         | 24 ++++++++++++------------
- drivers/clk/st/clkgen-pll.c            | 20 ++++++++++----------
- drivers/clk/tegra/clk-tegra210.c       |  2 +-
- drivers/clk/ti/clockdomain.c           |  2 +-
- 10 files changed, 32 insertions(+), 32 deletions(-)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260723-clk-provider-simple-clean-a8d5ccc4ec20
+diff --git a/drivers/clk/qcom/clk-hfpll.c b/drivers/clk/qcom/clk-hfpll.c
+index 705352aff067..9e9118d24df7 100644
+--- a/drivers/clk/qcom/clk-hfpll.c
++++ b/drivers/clk/qcom/clk-hfpll.c
+@@ -166,7 +166,7 @@ static int clk_hfpll_set_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ 	spin_lock_irqsave(&h->lock, flags);
+ 
+-	enabled = __clk_is_enabled(hw->clk);
++	enabled = clk_hw_is_enabled(hw);
+ 	if (enabled)
+ 		__clk_hfpll_disable(h);
+ 
+@@ -220,7 +220,7 @@ static int clk_hfpll_init(struct clk_hw *hw)
+ 		regmap_read(regmap, hd->status_reg, &status);
+ 		if (!(status & BIT(hd->lock_bit))) {
+ 			WARN(1, "HFPLL %s is ON, but not locked!\n",
+-			     __clk_get_name(hw->clk));
++			     clk_hw_get_name(hw));
+ 			clk_hfpll_disable(hw);
+ 			__clk_hfpll_init_once(hw);
+ 		}
+diff --git a/drivers/clk/qcom/clk-krait.c b/drivers/clk/qcom/clk-krait.c
+index f5ce403e1e27..5e4408b7445d 100644
+--- a/drivers/clk/qcom/clk-krait.c
++++ b/drivers/clk/qcom/clk-krait.c
+@@ -68,7 +68,7 @@ static int krait_mux_set_parent(struct clk_hw *hw, u8 index)
+ 	sel = clk_mux_index_to_val(mux->parent_map, 0, index);
+ 	mux->en_mask = sel;
+ 	/* Don't touch mux if CPU is off as it won't work */
+-	if (__clk_is_enabled(hw->clk))
++	if (clk_hw_is_enabled(hw))
+ 		__krait_mux_set_sel(mux, sel);
+ 
+ 	mux->reparent = true;
+diff --git a/drivers/clk/qcom/clk-rcg.c b/drivers/clk/qcom/clk-rcg.c
+index 31f0650b48ba..1664101e8f78 100644
+--- a/drivers/clk/qcom/clk-rcg.c
++++ b/drivers/clk/qcom/clk-rcg.c
+@@ -208,7 +208,7 @@ static int configure_bank(struct clk_dyn_rcg *rcg, const struct freq_tbl *f)
+ 	bool banked_p = !!rcg->p[1].pre_div_width;
+ 	struct clk_hw *hw = &rcg->clkr.hw;
+ 
+-	enabled = __clk_is_enabled(hw->clk);
++	enabled = clk_hw_is_enabled(hw);
+ 
+ 	ret = regmap_read(rcg->clkr.regmap, rcg->bank_reg, &reg);
+ 	if (ret)
+@@ -771,7 +771,7 @@ static int clk_rcg_lcc_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	regmap_update_bits(rcg->clkr.regmap, rcg->ns_reg, gfm, 0);
+ 	ret = __clk_rcg_set_rate(rcg, f);
+ 	/* Switch back to M/N if it's clocking */
+-	if (__clk_is_enabled(hw->clk))
++	if (clk_hw_is_enabled(hw))
+ 		regmap_update_bits(rcg->clkr.regmap, rcg->ns_reg, gfm, gfm);
+ 
+ 	return ret;
+diff --git a/drivers/clk/qcom/clk-rcg2.c b/drivers/clk/qcom/clk-rcg2.c
+index 6064a0e17d51..d7914e59129f 100644
+--- a/drivers/clk/qcom/clk-rcg2.c
++++ b/drivers/clk/qcom/clk-rcg2.c
+@@ -489,7 +489,7 @@ static int clk_rcg2_determine_gp_rate(struct clk_hw *hw,
+ 	u64 parent_rate;
+ 
+ 	parent = clk_hw_get_parent(hw);
+-	parent_rate = clk_get_rate(parent->clk);
++	parent_rate = clk_hw_get_rate(parent);
+ 	if (!parent_rate)
+ 		return -EINVAL;
+ 
 
-Best regards,
---  
-Jerome
+-- 
+2.47.3
 
 
