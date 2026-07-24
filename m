@@ -4,152 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A98EC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69970C531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RPxhunrJcN62o+nquqqFf8qB5miIlaAx89C20JPzrJ0=; b=WHudHI8zX+SRj01rmmpn3b9jXD
-	oxHpf49r0469HLMeTdcNSUfvCFq7QT+4V5BFLf26eQSJh+Oi+SYfayy8iFUOhTSC1LbrOhvTT4Coi
-	8UdrWGb6Vo37EbpSmjwnZyY/6YNgM6HMS5oLbddDjD9kustCf+7ZC/sE0M+f/vsOmqTH0sc+d87U8
-	XnxJm5sUQTtqgy7HE48gNBra12u6W1FlSD7uldP9k8fjCfzvcs4sKGhgBsZtRs/SvQrHHishTDbVw
-	IzQZ8o3qGDXhduhbgN1NmGZgIhELIQekTgvUtaL1g6aYy9777ufSosIZEkv5k+No5Rxgef7ODVSk0
-	t4givUrQ==;
+	bh=9qGNYqgu45iCzPUDN1sRc/iOGDzLiyCE7X0FhGMvUzY=; b=lnecPdMlU4+WZHyWO/+7btkwzX
+	6xVJMwH+xjrnKgS91q+lVTgptG8hsdzWrVAFYqdnrGIJThLNw/t1zUmmO7D/IwyLevOdQvhl2Dtd8
+	16d2fxwDuOG8l40Q8a59mw2voCg57q8Iiswsuff+J0xEeGJk2sUe+nr3TPIIt5yveZ2U8JO/bXU1u
+	5QPpWUOeYLGtX0mPySbcG+y18IJcKZ0vehV3JfCCXiMbMXPXH/LDpfrakNrFajbQagvNwMfwl4ZWG
+	BBKxABg/t6+F7yVL5gc3t1TB4vkWH87RuNlKiynJHngsyuojZEyOhfASgWDpFvzReByHJ4pKiePW1
+	K4jaGldw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDXB-0000000GAtM-2Xtt;
-	Fri, 24 Jul 2026 10:53:41 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wnDXM-0000000GB07-3pEE;
+	Fri, 24 Jul 2026 10:53:52 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDX8-0000000GArR-3lHV
+	id 1wnDXK-0000000GAxX-0Q0d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:53:40 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=JoJmp/M4YpCGmg/wjxNDxDigr7OdUxOxhLgVBbFmsKhX1LM43vc2sEqYaDIlbh2q1OZ4on6EsQ46aXGIu/mshple+0RPX6IhbepltrLjCoExquIHFhLwe4xjPifNI+dtLKDaLpI90rtVG1YTWw9m/Op+g3Z+bmZYEcy5qB9fMRg6txkb0iRN0huLbvSZXAPVDi36ctC2Pwg7jmUzSE9PIIVHrqaiGlz/TwZeOzdrAIpOBlqP/oQQcWpqQZGgCIPXAQOQp/uvc3uOno2eLDz5GEOSymhJkTatXdRWUH9IZ6OCROBzcZuwmnFwfUxQXu7k/VBnO5niCryKmTfoG2EPcw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RPxhunrJcN62o+nquqqFf8qB5miIlaAx89C20JPzrJ0=;
- b=IsgdpFgI3lSE3shHaJjn0DPJIFgQfIh/Y3dL/YOp/CVkx1Ltghs8qz31/OIMH7I3MQ91lvKg1w8fmVI6YAKusXZNCRelgvzUbCrlXPs8Gf/JAdy7qE2ULt5ux7i5U5UORmq6ehtBPvlE3Q1VD5UydSbgB2J08wjE8j+D5iGCfHKcSZVI8u5DAintJjLtxBoW6MdEOodVZfXCYR/xgp6jJVEw/RKYv2mAGdpPLa8IFGPhHb4yfCIDfR5BwkYf6FS6h1Csg1bGiYukFzl/qa1pCW4T/HzR6NAExFxVuRrguNqbk/RQ8gcSJX99qBeIcwmusanbn9gtf1kKVhXRuBAWFg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RPxhunrJcN62o+nquqqFf8qB5miIlaAx89C20JPzrJ0=;
- b=dZZQ05jv3YrSUEG8Nt8g5QqF9T+FiITeJtLe53MzpVrqmUDNNrGnO0BDInbHPP1o8BfbWJP0vqwMAyNR/HV4sMUh70EHJ0mmliC10Op1tQ0ctA4vuy7NjHKts2Md/IUJ5z+wJ03NVtiA3y8lh7pK6+S5NN/OLXAyhvHo1auEA54=
-Received: from DUZP191CA0038.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::22)
- by AM8PR08MB5699.eurprd08.prod.outlook.com (2603:10a6:20b:1d8::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:53:34 +0000
-Received: from DB1PEPF000509F7.eurprd02.prod.outlook.com
- (2603:10a6:10:4f8:cafe::d) by DUZP191CA0038.outlook.office365.com
- (2603:10a6:10:4f8::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 10:53:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509F7.mail.protection.outlook.com (10.167.242.153) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
- via Frontend Transport; Fri, 24 Jul 2026 10:53:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oCTYYHLnckh7RznKKAMv6fyYdIM+ZJet+iMLoGLZ53G3URTBCPDY7b/Z50/DQXCy68UWGNRdt2ISaBXgD3bb7LP3VwvEIVXfSWJz8C+2vfnyM98FRIeFbCB4JceIfOj2bWqA90D5IuBsGhE8520M/KhFqogAW4K/IquPix49DCmeorhV2QfsD+jN5jio+sFGldQGUyd5qUqb7saCatnzftaOpxFsaB4INV5UkSg19pJjR4ByldFPz1SqXR9fVzVeV4bofwradBwU4u1sVD8spzckEqMNFZ6phsFplD0JnqMHKRCrUFU9ue32AltcEiFpDmZ+LlY72V37xt1B5VNK8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RPxhunrJcN62o+nquqqFf8qB5miIlaAx89C20JPzrJ0=;
- b=TMht4YFTx27AHyE02N5IAklIlCA1ZBpdThSnc1ASBWT/q1zLIWmgFI2kVlkZLFy1ACWOu6NsMGSCldzdD9dmqkWFTWFjKzRkszD9D4YYsfxARwGQqI1MXgIkdwUsxJ8h72FXxdnCAk613/41kYLLm6ygFpCkYQ5eb7EihukCvJlBLZWFjili+yRE7yo5vrlIBnH9qVK01DyKgJ2ilfu4ounF+e12hQEuANnDZiW4PrSqCKWFVURTufGqT6NfVi4nXskjRMKUN2N63pic4BfC7w+EiF1VFC9GmrNlnlwMGt3JrcPMWAXQAy2wix93FXnuSZdoMTaYnB25lA6Jhe1IBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RPxhunrJcN62o+nquqqFf8qB5miIlaAx89C20JPzrJ0=;
- b=dZZQ05jv3YrSUEG8Nt8g5QqF9T+FiITeJtLe53MzpVrqmUDNNrGnO0BDInbHPP1o8BfbWJP0vqwMAyNR/HV4sMUh70EHJ0mmliC10Op1tQ0ctA4vuy7NjHKts2Md/IUJ5z+wJ03NVtiA3y8lh7pK6+S5NN/OLXAyhvHo1auEA54=
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
- by DU5PR08MB10466.eurprd08.prod.outlook.com (2603:10a6:10:516::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:52:32 +0000
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0245.009; Fri, 24 Jul 2026
- 10:52:32 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
-	<fuad.tabba@linux.dev>
-Subject: [PATCH v4 16/48] KVM: arm64: gic-v5: Request doorbells when VPEs
- enter WFI
-Thread-Topic: [PATCH v4 16/48] KVM: arm64: gic-v5: Request doorbells when VPEs
- enter WFI
-Thread-Index: AQHdG1qHixGm7P28DEaB9oxXfibtSw==
-Date: Fri, 24 Jul 2026 10:52:31 +0000
-Message-ID: <20260724104819.1296803-17-sascha.bischoff@arm.com>
-References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|DU5PR08MB10466:EE_|DB1PEPF000509F7:EE_|AM8PR08MB5699:EE_
-X-MS-Office365-Filtering-Correlation-Id: de2e1b9d-6aaa-407e-0ba9-08dee971cf18
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|22082099003|18002099003|56012099006|11063799006|3023799007|38070700021|10067099003;
-X-Microsoft-Antispam-Message-Info-Original: ZBYq1XN2I28WlUFYKJen0eL0yKHrPHQluyTFfhpIdrm53O8U9ru7hRtKuG0mF6lQXnDR/Bgacg1EGLX7D1Vy+3rw8YbANYbRC5NTmQ30ailiLI28ZiMSNi22oW2DUkBmEHjN0syFWw8fUfY+5Jh9fRtY9AQgOmnospYaxSq9yTLW3Ki+elnUcNM/uWz9Q0nvrYjJ08BsAGbCcEYN5z/pZDL1KtQfT8h5ydG5veHHxwQdsajIiK7MI/4WMvs0kg1FRU4eosJ210SDkygBDfzSyq7Wqk12W9EAPc40bB8TGXoW//sRWlj/X8hUvYZyLA0m6vhBxk3jAdq3OH4AC1vhmeqleknI/QPl7ZANDG85DyaFBRBYinweGLDlNdZK49XaKMAJT+u30Na0oFbdcbgDiO1/usNyNG0l8OKzmEV6ZI+GROWh4Fo+QnH4oQKYgi20nmF9KmQLTsrnDOD9aMYkCWWugw6dSFlV2+EZu7XfFnZ3p8FsOc3D4ujZHGfdbrMq6FF9i4ZansxG/5kmlpFZOAfwQpzjJUqYEgTvd3I5pkVT9bzUR7ZKeSDzmOhdPuEAFDr0B38bOlyhfkeiDtvyq7TkJJnYzp8qjemGVZHfsIDk85VvjUWB6PW2WK9Svmpuh9Cd6ZzR0FMa48bOmyglrUSj4NLa3Mza6XfuMlMZYF9w7OrxstLXzwF5O+qWB9yFFUfBlTL5dZzj1aVh1f/dHqkC1zMvNS+BPTPSFk2Idrg=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(3023799007)(38070700021)(10067099003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Jul 2026 10:53:51 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-472326ca506so257157f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 03:53:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1784890428; x=1785495228; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9qGNYqgu45iCzPUDN1sRc/iOGDzLiyCE7X0FhGMvUzY=;
+        b=B7Wh0JvmHrB02Lbi3XTsfZ1RCICJTV9PRzSRZ9/yWG29VocaC9MwiXWl5gPRtSIVZC
+         ujUbGLFft5Ec5P4h+CQvGeJ/wjq2MZYaH/rqChhDr9nX6hz/C7IJmYl7q+IN3G94oOhb
+         SHueL0CTubAD0FGDTqrnK9IXbZoThii/O5G2iJG97K8fM32yU+GpvOTd/OM+65g2tD7q
+         vR/w5U1D/i+hMSlLMcSHpykaOArYCqlu0j83AXVSrihIl/aoazCzg6a7HlAoEl7/fz9k
+         CTH3vsMbcy1WSB+ZmBkBPuu1An4gKvGPaU8wv9IFwmmHfI899dkzKBCYA6vQJ/0JTwSv
+         m8Fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784890428; x=1785495228;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9qGNYqgu45iCzPUDN1sRc/iOGDzLiyCE7X0FhGMvUzY=;
+        b=VtOA8wrWZjqPC2c1ar1PcNVRNQt8BTDHaRm0gVnhhlFcU2siujLNNHWGEX20XVQb9Q
+         kdycDOfim4goj/xlc7gCCvh155C8kHvEiQu53h/tv92yMLa8Jq9m2VOVI/LLvuo2OP5w
+         4EP834PP+VZdjJkp2fV3KyAHEDQy1Bn+GHvbxxZXebqJxnQtBPvB1IYr2oZ3T4vFUskK
+         eq7U4wfGsOOMg3cu7+3vm4b8IgGW0DheLYFjyqncbYUM8GV1lv37dV1esy1S9UZjMAG8
+         Yra9kgUq0c8Utuk96maWDl6tmlTd+d3Ho3feDoivKPnf9LTufa5dwtlEvGSJGO3uqZWO
+         7EAg==
+X-Forwarded-Encrypted: i=1; AHgh+RquoXEOABUb0/tpmt4kBwkRjPm1mlQYn0aopthDKFhXZjoAUEMltUqZsDZlpqbPj2YJSVLEmOi/ILy53KOI+ZHn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6UklnR5ATOWeQdLm2k52+T4UrCihKaKBy7l4G5GC2lbnfxBoM
+	rluVNjzYDrQGzCVhsQmjC8UysJ4J6VJV2Y8mMTbj7ktqXGlrv33u5xBAFB16rjorLl4=
+X-Gm-Gg: AR+sD12Jb3OuPqhgiJQndXqyrci93FaM95uBd5/ZYEkxV2Qd7RC0di7JJ+RXGIoegNB
+	jEWcMoMCSuhd98tI8srfQqa6p2027XFNnAgvBl114WeQ16Q9NF5rpm27+WX43zYvQcKbAS1epxN
+	EeLq2j9XHYlzASuFJdj/buodCxa5C+PxRdBFRjodNz5lZamGD3r1U6Wqe//6mrIER9nFCzrRm5A
+	P5MSLAuyGQiiAYkEaP2cjuuY8Mx3mh2HGlJgXOZX0w/fmyg441iEUlOHW9OjgaYRw74RcnCxrQL
+	oQTNdXDPrqhFjikKUwYofwtE9wn1aNYH1KSniusrZj8lrny8fJ38P/5E16j2xW/Uas9Sdu89EJ5
+	iGj4ckHYfb0x/ZYHqaU6EhPiOUU2x2/k4FSeDEpTB8eTh1Gw/zjEalGAt+HVe5mKWEFHAHyIq5W
+	WR11fedrO2CTCQug==
+X-Received: by 2002:a05:6000:2489:b0:460:3233:beed with SMTP id ffacd0b85a97d-47f8d75ec77mr9286973f8f.41.1784890427609;
+        Fri, 24 Jul 2026 03:53:47 -0700 (PDT)
+Received: from linaro.org ([2a02:2454:ff24:7210:d8e1:da6c:62ef:6ff9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85bb5127sm22309568f8f.10.2026.07.24.03.53.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 03:53:47 -0700 (PDT)
+Date: Fri, 24 Jul 2026 12:53:36 +0200
+From: Stephan Gerhold <stephan.gerhold@linaro.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Udit Tiwari <quic_utiwari@quicinc.com>,
+	Md Sadre Alam <mdalam@qti.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>, dmaengine@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, brgl@kernel.org,
+	sashiko-reviews@lists.linux.dev
+Subject: Re: [PATCH v24 06/14] dmaengine: qcom: bam_dma: add support for BAM
+ locking
+Message-ID: <amNEMK4k54l655ku@linaro.org>
+References: <20260723-qcom-qce-cmd-descr-v24-0-4f87bb4d9938@oss.qualcomm.com>
+ <20260723-qcom-qce-cmd-descr-v24-6-4f87bb4d9938@oss.qualcomm.com>
+ <20260723172814.661591F000E9@smtp.kernel.org>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: CRVTyAgYy6Bjv3zTHA8C+c4+SseUHwvkG3fqXCr5Sy35NfONdG0fTK5bTEMSbl1QMOtwl9uRg5kHrKnF1NwTFfVNM8Tx4HprOfeHfVkaRAbnybWq3ouqaO6c7ubCGjePPVHE76JsygN0b1DAIRhAr36Ba0Yr5mV8Bm7DYL1TKYo7GDPDy65qZ1eUkxnCbajz6yHacnWgISslbxANi+dOhBuf17qMz7as86QeNDv6Mxrn/ZfF0NNFOULPTb0PyTSr82Fi+DcML763xiYaUmrAh/a1pd+xFzRr7ctQfDJ4uw/FB3U53OScJ28EmP4zEVkPy2ox7aUtJJMyLGbAubx3Rg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU5PR08MB10466
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F7.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 829ea63c-836d-408a-5bd2-08dee971a9ad
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|14060799003|82310400026|23010399003|376014|36860700016|56012099006|11063799006|10067099003|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: G5+T66epaaib1dYtXhbkp9AJOlZCnEJgpBEEb6k1jQyX14toPYu4N2ZWsOy2Eah9TjNnUtiu+VHraludSJjtSkQXXpRNjKVzy04zuD1ASE/i8x+w++VLU+XukJafdjzENaH0jRv2JaYf7InS4qx2XnQS8omvtBZjjZ2qHEvZXLquPWFptp1MgsBH5AvWDSpGQEXuOV89PFSk7l5ha3ahk22V1DBd0GOd6lpMg49+2hANKdGfxYgw3D4qjwb9Fb4llNH+DyllyJYF6cKtCO8vIbNuQ1rO9mSxf1biwjrXMLHt+IhZ4WvbkAS1guyOYmttyjhcOCTUqj/UHOFa6Wd+SXHCTS58TAaRw5IV3kCtB4dc3sf76q2npzP5KzkSeeMAG3cGFwr0bsugicIl1glOMkeB8xe33KLEwGonE7zc4/CpOSy13h89IrBmLXXsYodM4AoQKXL2vLXC6M+j32mFCKeR2MDjElPOyGyb35W/COEN2p/xl9CqHadiyA8/wh8cI2rJX5GE424xWSmmAyo7CbUSppZ219r+1NMK2NTl1qKt/Y/2dpg2533MV46/fvn6yudK744G7LvefURDJ9SP7qNY9AGA7LyOVnAOtM1648HFl8BqQ2nkyWhncC72rG3/ugzMENMBnslcBX83yDg1A+J86KO1353SlOtHUuV81p2KSqIhJWqYt0BsX3zCmhI3sdwrWLheNUNIIsOTAfrvgw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(14060799003)(82310400026)(23010399003)(376014)(36860700016)(56012099006)(11063799006)(10067099003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sFHlY55ndKI/vgYkutAnYzTj1rBWLWq2/4+kB/h+WSKiPY4/9pLp3hP7NtbYSrq2pWjXlw7gSXqVAEUrYkbrDTgK+zpmdr93ZeOnBvOljXI2yRtVrtM/eAHSzhzhqmQ/z85dmOTILSjQ5Q50Q2trinXi21oCu28VLTvTuOJLWPQG350gYJFqffFrocLR8P568FaOLIiPRdU9gQ5Y1LKgpOJJ7+3d1r86zz/+Ei10lYOI+MU0m92ujClkFpK9NjsWzBEYUJjkJEl1jdWpP2ry5Y3iyGKnX+qYlD749LTyryV5Jn6OPQ57KX5g7HPWUOkztSSMguZ0yIygTb0hXsOaac55o7YcC2SBOwbUZlEXNgoaFWJaVIx9zwjaevdhsgCABklj+j7lopUP1qaoXpliQIEDt50E9f+HRiyBcdefYrYQ6YX7wnI3jxG0cmil1iyW
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:53:34.7147
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: de2e1b9d-6aaa-407e-0ba9-08dee971cf18
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F7.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB5699
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260723172814.661591F000E9@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_035339_090598_7DCDFA61 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20260724_035350_222889_A9964B4F 
+X-CRM114-Status: GOOD (  46.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,132 +118,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a GICv5 VPE is made non-resident as part of the vcpu entering
-WFI, request a VPE doorbell so that KVM can be notified when a
-suitable SPI or LPI becomes pending for that VPE.
+On Thu, Jul 23, 2026 at 05:28:13PM +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 5 potential issue(s) to consider:
+> 
+> New issues:
+> - [High] Calling `queue_work()` inside `bam_start_dma()` when there is exactly 1 slot available creates an infinite busy-loop in softirq context (softlockup).
+> - [High] The transaction completion callback fires before the hardware pipe is actually unlocked, violating the mutual exclusion requirement.
+> - [High] The driver clears the software lock state prematurely, allowing concurrent configuration changes to corrupt in-flight hardware execution.
+> - [Medium] The 'reserved' field of the lock command element is left uninitialized before being synced to the device.
+> 
+> Pre-existing issues:
+> - [Critical] Mismatch between FIFO wrapping modulo and CIRC_SPACE size leads to silent descriptor overwrites and data corruption.
+> --
+> 
+> --- Patch [6]: [PATCH v24 06/14] dmaengine: qcom: bam_dma: add support for BAM locking ---
+> commit bf87fb2cf384d859e1e0efff5d0a48f0cb3ccea2
+> Author: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> 
+> dmaengine: qcom: bam_dma: add support for BAM locking
+> 
+> Add support for BAM pipe locking. To that end: when starting DMA on a TX
+> channel (DMA_MEM_TO_DEV) - prepend the existing queue of issued
+> descriptors with an additional "dummy" command descriptor with the LOCK
+> bit set. Once the transaction is done (no more issued descriptors),
+> issue one more dummy descriptor with the UNLOCK bit.
+> 
+> > diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> > --- a/drivers/dma/qcom/bam_dma.c
+> > +++ b/drivers/dma/qcom/bam_dma.c
+> 
+> [ ... ]
+> 
+> > @@ -676,10 +697,51 @@ static void bam_free_chan(struct dma_chan *chan)
+> >  static int bam_slave_config(struct dma_chan *chan,
+> >  			    struct dma_slave_config *cfg)
+> >  {
+> > +	struct bam_config *peripheral_cfg = cfg->peripheral_config;
+> >  	struct bam_chan *bchan = to_bam_chan(chan);
+> > +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
+> > +
+> > +	if (peripheral_cfg && cfg->peripheral_size != sizeof(*peripheral_cfg))
+> > +		return -EINVAL;
+> >  
+> >  	guard(spinlock_irqsave)(&bchan->vc.lock);
+> >  
+> > +	/*
+> > +	 * This is required to setup the pipe locking and must be done even
+> > +	 * before the first call to bam_start_dma().
+> > +	 */
+> > +	if (bdata->pipe_lock_supported && peripheral_cfg) {
+> > +		if (cfg->direction != DMA_MEM_TO_DEV)
+> > +			return -EINVAL;
+> > +
+> > +		if (bchan->bam_locked)
+> > +			return -EBUSY;
+> > +
+> > +		if (!bchan->lock_ce) {
+> > +			bchan->lock_ce = kmalloc_obj(*bchan->lock_ce, GFP_ATOMIC);
+> 
+> [Severity: Medium]
+> Will this leave the reserved field of the command element uninitialized?
+> 
+> Looking at how this is initialized in include/linux/dma/qcom_bam_dma.h:
+> 
+> static inline void
+> bam_prep_ce_le32(struct bam_cmd_element *bam_ce, u32 addr,
+>                  enum bam_command_type cmd, __le32 data)
+> {
+>         bam_ce->cmd_and_addr =
+>                 cpu_to_le32((addr & 0xffffff) | ((cmd & 0xff) << 24));
+>         bam_ce->data = data;
+>         bam_ce->mask = cpu_to_le32(0xffffffff);
+> }
+> 
+> The reserved field is not set here, and kmalloc_obj() does not zero the
+> memory. Could this map and sync uninitialized kernel heap memory to the DMA
+> hardware?
+> 
 
-Program the doorbell priority mask, DBPM, from the effective virtual
-priority mask before making the VPE non-resident. DBPM is the priority
-threshold used by the GICv5 hardware to decide whether a pending SPI
-or LPI is allowed to signal the VPE doorbell. This allows hardware to
-signal the doorbell only for interrupts that the vcpu can actually
-take, and avoids waking it for interrupts masked by the guest priority
-state. If no interrupt can be signalled to the vcpu, leave the
-doorbell request clear.
+kzalloc_obj()? This is your bug. :-)
 
-Make the doorbell interrupt affine to the current CPU before
-requesting it. This nudges the wakeup back towards the CPU that last
-ran the vcpu, where the relevant state is more likely to be cache-hot,
-while also spreading doorbell interrupts across host PEs as different
-vcpus enter WFI on different CPUs.
+> [ ... ]
+> 
+> > @@ -1064,22 +1145,34 @@ static void bam_start_dma(struct bam_chan *bchan)
+> >  
+> >  	lockdep_assert_held(&bchan->vc.lock);
+> >  
+> > -	if (!vd)
+> > +	vd = vchan_next_desc(&bchan->vc);
+> > +	if (IS_BUSY(bchan) || (!vd && !bchan->bam_locked))
+> >  		return;
+> >  
+> >  	ret = pm_runtime_get_sync(bdev->dev);
+> >  	if (ret < 0)
+> >  		return;
+> >  
+> > +	if (!bchan->initialized)
+> > +		bam_chan_init_hw(bchan, container_of(vd, struct bam_async_desc, vd)->dir);
+> > +
+> > +	if (bchan->locking_enabled && !bchan->bam_locked) {
+> > +		/* Defer locking until we also have space for a data descriptor */
+> > +		avail = CIRC_SPACE(bchan->tail, bchan->head, MAX_DESCRIPTORS + 1);
+> 
+> [Severity: Critical]
+> This is a pre-existing issue, but does CIRC_SPACE() calculate the correct
+> available space when bchan->tail wraps at 4095?
+> 
+> MAX_DESCRIPTORS is 4095. Down below in bam_start_dma(), the pointers wrap
+> via:
+> 
+>     bchan->tail += async_desc->xfer_len;
+>     bchan->tail %= MAX_DESCRIPTORS;
+> 
+> Since bchan->tail wraps to 0 after 4094, it never reaches 4095. However,
+> CIRC_SPACE() is called with MAX_DESCRIPTORS + 1 (4096). Because
+> CIRC_SPACE() assumes the pointers wrap at the provided power-of-2 size, when
+> the buffer is full (tail == head), won't it incorrectly evaluate the space as
+> 4095 and cause a massive buffer overrun?
+> 
 
-Clear stale db_fired state before making the VPE non-resident. Any
-previous doorbell notification has already been consumed by this
-point, and clearing it before the non-resident transition ensures that
-a newly fired doorbell is observed.
+Ooof, this seems correct to me but we can/should fix this separately
+probably...
 
-Finally, teach kvm_vgic_vcpu_pending_irq() to report pending work for
-a GICv5 vcpu when its VPE doorbell has fired, in addition to the
-existing pending-PPI check.
+> > +		if (avail < 2) {
+> > +			queue_work(system_bh_highpri_wq, &bdev->work);
+> > +			goto out;
+> > +		}
+> 
+> [Severity: High]
+> Can this early return cause an infinite busy-loop softlockup?
+> 
+> If exactly one slot is available (avail == 1), queue_work() is called and
+> we return. The worker executes bam_dma_work():
+> 
+>     if ((!list_empty(&bchan->vc.desc_issued) || bchan->bam_locked) &&
+>         !IS_BUSY(bchan))
+>         bam_start_dma(bchan);
+> 
+> Since IS_BUSY() only tests for avail == 0, the check passes and
+> bam_start_dma() is immediately called again. It sees avail < 2 again,
+> queues the work again, and returns. Could this loop indefinitely in softirq
+> context until a hardware interrupt eventually fires?
+> 
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- arch/arm64/kvm/hyp/vgic-v5-sr.c |  9 ++++++++
- arch/arm64/kvm/vgic/vgic-v5.c   | 40 +++++++++++++++++++++++++++++++++
- arch/arm64/kvm/vgic/vgic.c      |  6 ++++-
- 3 files changed, 54 insertions(+), 1 deletion(-)
+Yes, the queue_work() doesn't make sense here. We need to wait for the
+BAM to finish processing some descriptors. Once it has notified us about
+that, the IRQ handler will queue_work() it anyway, so you can just drop
+this.
 
-diff --git a/arch/arm64/kvm/hyp/vgic-v5-sr.c b/arch/arm64/kvm/hyp/vgic-v5-s=
-r.c
-index f064045a31aee..46992a6c2cacb 100644
---- a/arch/arm64/kvm/hyp/vgic-v5-sr.c
-+++ b/arch/arm64/kvm/hyp/vgic-v5-sr.c
-@@ -22,6 +22,15 @@ void __vgic_v5_make_resident(struct vgic_v5_cpu_if *cpu_=
-if)
-=20
- void __vgic_v5_make_non_resident(struct vgic_v5_cpu_if *cpu_if)
- {
-+	/*
-+	 * Clear the db_fired state to ensure that we're ready for the next
-+	 * doorbell when it is requested. If a doorbell firing caused us to
-+	 * enter the guest, then we've already consumed that state at this
-+	 * point, so this is safe to clear. Use WRITE_ONCE() to ensure we're not
-+	 * racing with the doorbell firing and setting the state true again.
-+	 */
-+	WRITE_ONCE(cpu_if->gicv5_vpe.db_fired, false);
-+
- 	/*
- 	 * Make as non-resident before actually making non-resident. Avoids race
- 	 * with doorbell arriving.
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index e3df8a5f9f657..8ef53cac32414 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -1102,6 +1102,46 @@ void vgic_v5_put(struct kvm_vcpu *vcpu)
- 	kvm_call_hyp(__vgic_v5_save_apr, cpu_if);
-=20
- 	cpu_if->vgic_contextr =3D 0;
-+	if (vcpu_get_flag(vcpu, IN_WFI)) {
-+		u32 priority_mask;
-+		int dbpm;
-+
-+		/*
-+		 * Find the virtual running priority and use this to calculate
-+		 * the doorbell priority mask. We combine the highest active
-+		 * priority and the CPU's priority mask. The guest can't handle
-+		 * interrupts with priorities less than or equal to the virtual
-+		 * running priority, so there's literally no point in waking the
-+		 * guest for these.
-+		 *
-+		 * The priority needs to be higher than the mask to signal, so
-+		 * pick the next higher priority (subtract 1).
-+		 */
-+		priority_mask =3D vgic_v5_get_effective_priority_mask(vcpu);
-+
-+		/*
-+		 * Request a doorbell *unless* the priority is 0, indicating
-+		 * that no interrupt can wake the CPU up.
-+		 */
-+		if (priority_mask) {
-+			int db_irq =3D vgic_v5_vpe_db(vcpu);
-+			struct irq_data *d =3D irq_get_irq_data(db_irq);
-+			const struct cpumask *aff =3D irq_data_get_effective_affinity_mask(d);
-+			int cpu =3D smp_processor_id();
-+
-+			dbpm =3D priority_mask - 1;
-+			cpu_if->vgic_contextr =3D FIELD_PREP(ICH_CONTEXTR_EL2_DB, 1) |
-+						FIELD_PREP(ICH_CONTEXTR_EL2_DBPM, dbpm);
-+
-+			/*
-+			 * Make the doorbell affine to this CPU, if it isn't
-+			 * already. Actively check the cpumask first as it is
-+			 * cheaper than changing the affinity every time.
-+			 */
-+			if (!cpumask_test_cpu(cpu, aff))
-+				WARN_ON(irq_set_affinity(db_irq, cpumask_of(cpu)));
-+		}
-+	}
-=20
- 	kvm_call_hyp(__vgic_v5_make_non_resident, cpu_if);
-=20
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index ccb7e3a90cd07..47315c3fe120e 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -1235,8 +1235,12 @@ int kvm_vgic_vcpu_pending_irq(struct kvm_vcpu *vcpu)
- 	unsigned long flags;
- 	struct vgic_vmcr vmcr;
-=20
--	if (vgic_is_v5(vcpu->kvm))
-+	if (vgic_is_v5(vcpu->kvm)) {
-+		if (READ_ONCE(vcpu->arch.vgic_cpu.vgic_v5.gicv5_vpe.db_fired))
-+			return true;
-+
- 		return vgic_v5_has_pending_ppi(vcpu);
-+	}
-=20
- 	if (!vcpu->kvm->arch.vgic.enabled)
- 		return false;
---=20
-2.34.1
+Technically, the avail < 2 check isn't even needed. We could start
+writing the LOCK descriptor and then wait for the BAM to make further
+room for the data descriptors. I just thought it's a bit weird to queue
+LOCK without also adding some data descriptors at the same time.
+
+> [ ... ]
+> 
+> > @@ -1135,11 +1228,24 @@ static void bam_start_dma(struct bam_chan *bchan)
+> >  		if (((avail <= async_desc->xfer_len) || !vd ||
+> >  		     dmaengine_desc_callback_valid(&cb)) &&
+> >  		    !(async_desc->flags & DESC_FLAG_EOT))
+> >  			desc[async_desc->xfer_len - 1].flags |=
+> >  				cpu_to_le16(DESC_FLAG_INT);
+> 
+> [Severity: High]
+> Does this cause the transaction completion callback to fire before the
+> hardware pipe is actually unlocked?
+> 
+> DESC_FLAG_INT is set on the data descriptor here, regardless of whether an
+> UNLOCK descriptor will immediately follow. When the data descriptor completes,
+> an interrupt is generated and process_channel_irqs() completes the cookie:
+> 
+>     if (!async_desc->num_desc)
+>         vchan_cookie_complete(&async_desc->vd);
+> 
+> Could this notify client drivers of transaction completion while the UNLOCK
+> descriptor is still pending in the hardware FIFO, allowing clients to modify
+> state or power down the device prematurely?
+> 
+
+Yes, but the client driver should be only concerned about the completion
+of its own data operations, the lock handling is transparent and
+internal to the BAM driver IMO. "Works as intended."
+
+> [ ... ]
+> 
+> > +	/*
+> > +	 * Close the bracket once there is no more client work queued. The
+> > +	 * UNLOCK is flagged for an interrupt so process_channel_irqs() is
+> > +	 * guaranteed to observe its completion and retire it from the FIFO
+> > +	 * promptly, instead of leaving bchan->head to lag until a later
+> > +	 * bracket's skip-loop catches up with it.
+> > +	 */
+> > +	if (bchan->bam_locked && !vd && !IS_BUSY(bchan)) {
+> > +		bam_fifo_write_lock(bchan, DESC_FLAG_UNLOCK | DESC_FLAG_INT);
+> > +		bchan->bam_locked = false;
+> > +	}
+> 
+> [Severity: High]
+> Is the software lock state cleared too early here?
+> 
+> We synchronously set bchan->bam_locked to false immediately after placing the
+> UNLOCK descriptor into the software FIFO, before the hardware has actually
+> completed the transaction. 
+> 
+> If a client then calls bam_slave_config(), the -EBUSY check for
+> bchan->bam_locked will pass, and the driver might overwrite bchan->lock_ce
+> or configuration registers while the hardware is still busy processing
+> in-flight descriptors. Does this violate the mutual exclusion requirement?
+
+It's true, but I think this can be ignored. That's why I didn't even
+have the -EBUSY check in my diff. bam_start_dma() already re-configures
+the channel in the middle of a transaction (if bchan->reconfigure is
+set), so that one will already make changes to in-progress descriptors
+anyway. It's a bit problematic though that we don't provide a way for
+clients to wait until the unlocking has been completed, so they don't
+have any chance to avoid affecting ongoing unlock operations from their
+side.
+
+Or you just disallow changing the lock_scratchpad_addr once it has been
+set. Whatever. I don't think anyone will ever use multiple different
+addresses there.
+
+Thanks,
+Stephan
 
