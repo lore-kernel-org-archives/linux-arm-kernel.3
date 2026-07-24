@@ -4,103 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E75C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F52AC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=N8/2ht4KwurhFRqE2FyapGnob+xJqGXY6XxRwIz2OnE=; b=ijzONUI0LEJ4tB
-	SpGE6WrGKlISdZC0wa26/c9AsdsPCZlhwobtk2al3udwPwG1IMslER+V3V0yEvpA7ksQ4atLY1N2h
-	cz3PfDlMkz7ROdcWKJ4KQBgw0X61I0ux441xs3uJN/ro4eR0ITijh/QbnYdFZ97l4M71I8/al8K79
-	VonUmwx0/Cw0dOkC/JewvImdgRl4RLIEhcFPZ9eRoGq4sEf7YwMZPMVAdTDOUG5i58wIi0aYCZKTB
-	OqAEBmaFVW+tK2BnFe3J938rWtJj9wovcHtsK1/OPjg+2sxJ9QFqz3JhjAILH4hnhZNtiYyfoltzm
-	YtvomnwtVPZHGUIslOtA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4ktNg6XJGZ2meMDmQflSETM8JP37ditLRaUIshpuxOE=; b=d3qy0gonSxnYxjA+8WHiibxNSd
+	XHnouasBGxL/VQy8lNsqr7Pn83SzeX4yoHPA99Uqtl4b5uOAo7ESeUbKC1HxoKkgSyjTrIZw2MRgS
+	9fokDP43wbHiK0AaY1Z/zCSn10MtGTHZtjqkAiQXJ4EtB3edJIKORKXQn5NlYfUMpEgtXq5bQOso7
+	pm1LFmje/44tjxP0SJdqoYx/ryvpfiioHLF1fGAe6h+8E79bqsURQgHkXx2CXruekG3MfS8NdzTd2
+	IM0Dsn62L/Mc0U53OVecBk8RK9Y0LKm0YE5GZMkTQ2226Ik6ZwymlEgKl3KmvafDVKGC5vXoNUalA
+	U1ILjyvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnABG-0000000Fg7r-38HL;
-	Fri, 24 Jul 2026 07:18:50 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wnABY-0000000FgEH-1P2K;
+	Fri, 24 Jul 2026 07:19:08 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnABE-0000000Fg7G-0J8o
+	id 1wnABV-0000000FgCg-3D6W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 07:18:49 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66O4lPDW1976998
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:18:46 GMT
+	Fri, 24 Jul 2026 07:19:07 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66O4lU251510144
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:19:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=N8/2ht4KwurhFRqE2FyapG
-	nob+xJqGXY6XxRwIz2OnE=; b=HOhjuEKe6FUP7wtulDfptSmPgmOBXUqmkKIFAF
-	tGYLodS4iioYEb5gg3voPuj3S5O500YteFxLSfzIS4VM7Y8DMveboPvaliekcLRr
-	MmuLt3+nekHszGTVAYIdYH2TOblRMR/rBVN8NZH2pEnt0GdIQUpB9ttlUP3Z/nDU
-	iFyDMANNvgo56Hr6LPhxlO9Cc5kYDJa43rni5wiYErg1FXs+RXgrZ22kOpub/sLu
-	KFv19G1HbGgMgj+pdOXDN824dATaWVOqmtjagZhEn86r3xzBQo1jZLWSm2qTIZp5
-	wZW2qkmLZ03zLqBvw+CH2T8f719rjJU++Y46Xlg+rWzp0gJg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fknbmkasa-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	4ktNg6XJGZ2meMDmQflSETM8JP37ditLRaUIshpuxOE=; b=d/PWweqIGWVCxUHC
+	HvPFM8bStcXRlxjXXn68ojRKyBh3wjFvECKFYVZfm9e6B8H8o3crX+hQEtrlpDCo
+	miPzlzM3PGbQuSMCWZXidodK4lfbqRlBWaKx8K9MKNKK8fkdjU2UW9olvhij+eIR
+	BQHUeHo2OO8gqkHVtR8O4sBD/3cR1Uq0lJp0uG/nF9/V7D8t79ODdtV2C/qM7czi
+	CGgVEzDhpylkNKBj4ta2p4nmjEN9v8FcsuvJqp1l1FCYHGaHPwvRpCBdX77PCXNd
+	IemkKsQ9Thhl6C2xc+IkMmWp2VxKdIH+lHgQwz+WieN26C7+JWD1bPalQKveHK+k
+	SWT/GA==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fkusrsga0-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:18:46 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2cccfa32670so2266705ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 00:18:46 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:19:05 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2cccfa32670so2271275ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 00:19:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784877525; x=1785482325; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=N8/2ht4KwurhFRqE2FyapGnob+xJqGXY6XxRwIz2OnE=;
-        b=DWVsaljH8w9jp9G2jqSytClv54PwcUNq2Q0yRbGhW2MOsVhno4ZRYlr4YlGKIefxZm
-         vjbFSdPd16dMd2O+YwvcVPkSckS+sifNnuNfqLUO6s1qO7IfS38UFosGpzLdfPAwE8q1
-         lQgeGgYDLQuaEOoohcGbWP1NRDb5DjpDNBolnv+g/brOMWb2hIjoXJshgttnV6cQYJNr
-         CYLuiFSzID4XNP8VNtNxPL/Wajz4LPj8jSrZHoMzjnxa/EZlvxHL/zpqyhIb/D1feTl5
-         55YytzHXmupJaktk/stgNeroPx36XfSPmDy3zPBBYHB46rEroeXQxxITfFHjl2h9cwk3
-         0bKA==
+        d=oss.qualcomm.com; s=google; t=1784877544; x=1785482344; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4ktNg6XJGZ2meMDmQflSETM8JP37ditLRaUIshpuxOE=;
+        b=G310gwQJChCwO37QTu4kW9lk7qJyodzn7Yp+rIT+2lT0KBJMl+WcPdMSrGEhaz1J6c
+         FYgkCYXmffs2CmeSQTjPI+ODSrRBGFEcnWFTIXpmWUMoP5jz3qTM6NNi29BxsykGTMfi
+         C0fF58Ty99gknE/a16rWrmJLIoCHiY8DCuDDDEt2ABfWQqVwF2mdxu9NQxQheCRmqRBc
+         IwkmbZND8ltwsA/JW5HATBkqg4j5O+gsWdn3ZAZZ33n6CotrhqQLN/aS+oKHo73bnkcO
+         LLm5VOOi47puLzkhteB7q5bMV9lMOCd8fYYmy4f8Qa+Z1ndTqgFCd9Rd45hernKuouH0
+         Ikpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784877525; x=1785482325;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=N8/2ht4KwurhFRqE2FyapGnob+xJqGXY6XxRwIz2OnE=;
-        b=I9konW4JtFru1Y0d9qXKZ/OQZFDSyVKp5F1y+UVlOLiV4dcueaIMqyOAo2GeWc2RaM
-         NpqAcjuH/EsZ8ecyi3jsAcwhf5v+pBtNE+/r5ZDW1xtwul+0Pj4KLWTirREBYHNlMDRo
-         MejY+FY6LdWYWEhSyk3aQ+PckcOfzv//UwOn4EcYtlAo+FBaqiTzFYfgA2ozvKRZ5J5c
-         sTZTGNL6ROjW5ZLgCQ8CXnWs9H7Lx5Qv/g52jdwjbMOaD7fjUz08mgu05TsPIi8fK185
-         tLUiP6GF9reEHft4eNEgMTRdgMOTbK5VmwFVynXBbiFSm2B4mnq4g35Xdk2uXgKT6sj8
-         91ow==
-X-Forwarded-Encrypted: i=1; AHgh+RqGbFXqd+YA0Ixxr49GeNbb6NioHs48GMk+IGKBUyBGYKOxPEZZ6g1xwuyhAFww5OZtzYmjaFgsDzprMASnZsDa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuPiTDdMwnXN8UZQGTs2VbXh5o2Q0SN24M0KRH568eBjlh0EHR
-	X7MdoJMPRNq4TfjISoRIeFF9fEgj7M9YVQ6OlFt02z6jSFOxUZHgP+9Vao8htO5qCcJwSvqY+u7
-	YF+U/SFKeG2ZlpxapV0iyuXUXE014zUehqnTTo9Tu8luExfMUzAx08UPA5xtwl46Y2M5RN4wHOg
-	YvlA==
-X-Gm-Gg: AR+sD12CcFxnrqMogvp6wvtkRslXkW8oKdSuJkSRnrl1ec2eMUo22h/pmRtomLpzSYH
-	c0D204YgDehhLWgEpgDA5MFQ4f21m8TYSbJxyOskxYEIj3v00bQXwreJZOnJxHU12UcIRghCSz9
-	YsEPnBjVCnbv+cjrYI2xxPy+8yOtizpds1FT2zIQ1xncFpILPpeG2puExY9uxQn308ALN56/LET
-	e5zTtmdzeUHV926k4x014zQPDy7uU6XQimvSeEJHhKm0U4+jmo/+/9FcOUfBtqR6YdsbFHPRv0Q
-	XIkfPc0wlW6sCAtW4dHutVM6ViH8BwVNZFF/dTue/sLuLz0GW4zLqKJsFQ1I7MsFcUY8J/N/i0m
-	iuOuYuKXEY+xDrZs0OYt4dawzzyGlPVF2zgb6ldQssLAUOjOOcyeFU/N2RThqObDHZe2+z1QYlN
-	ITNzUY5+gZ5GP+WiNtnoR7g46/QR8=
-X-Received: by 2002:a17:902:dac7:b0:2c7:ebfb:618f with SMTP id d9443c01a7336-2cfa6b73a76mr73504055ad.14.1784877523476;
-        Fri, 24 Jul 2026 00:18:43 -0700 (PDT)
-X-Received: by 2002:a17:902:dac7:b0:2c7:ebfb:618f with SMTP id d9443c01a7336-2cfa6b73a76mr73503045ad.14.1784877521701;
-        Fri, 24 Jul 2026 00:18:41 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1784877544; x=1785482344;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4ktNg6XJGZ2meMDmQflSETM8JP37ditLRaUIshpuxOE=;
+        b=Nt4u19vDqzrCPA4pjOXbRivJQPeDqKYWKGXti0nkAtLqe1r2I0lWnLn4cEq7dwsSGy
+         6UW/R4gbofrgviSZ2aAW9Nn2+7omqW7tRSmGYd3twJvj97PbQolPivYrONVLK+BTgM0J
+         2wZymUXcYj6I3x41pL/QIIQu5wFGTsKkBAW6K186cFoCXubVRjX/GlzwZ3roahdkwi12
+         JX88OzlUH5v12EtI4M4jzEU6ys5UH4I03a4NBvtBRmmvdURhMzz2puLewNUjmQOizfd/
+         NPbx3dHxpnIpUfVV3MvszCMBPNTEG7gphAchq/GY6Yz+7QNWd6c5ASV4+KdA6tM/s/+3
+         gbTw==
+X-Forwarded-Encrypted: i=1; AHgh+Rrf+EIcNyC43iaIFWbcdcNuX+Mi3shgOIrJByjxNV6jqTke1RWoC7xV+H8Tn0IqIDLbOKjZJyaBlAI+XOJXtn4I@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSwSrhKVtqXMav3fe+n0f5dLpToigqxROLr2RGCHxg+qoUuHZB
+	V/HMAt661kR7mpfFmltRamhVPwtUpsVgb2Ahr9Vt6eRR1SaxS1iSJ6IU0OFSUOaUvQAjwd6MfSg
+	gXWNK2HYf38VE0jjicO4NupkCldqQeoLzBA9qGPOW9LxHCIDwwcXT620pqKZ2lcYGbtWEw0OOIs
+	mVUQ==
+X-Gm-Gg: AR+sD11oPrREPEup3Eqm8rHDMbBh9+wGouIugkdK5gLdMAeGEdZ6IYyIwHL2TIc5ojC
+	eYMzDV7+oU+kMPh5q1FPyAUsbWICVuGPI8AoZodiEwojPZ0fFTvgEVc/enmZtclGJLJQfRYKZJs
+	fP3QQLRx12w2idpEEqEa1QdpKyWCO1UtGCz2GecEAbOi61XqggemzloDF1BYSRoX4qctDx7Kfwm
+	m+lMc9WqIVrQgnk1qUloTXqNOAYFKNzWd/zu4ekhXHCiGwapOpCiVSdVfqssljIIs1s7yWkvzdK
+	LGU8Cczvd+2RqoxylIEHYurn9KNrEJHuxJnMKwXrcXjZMj0uQmmDj61dLtQhc4u7QrU6U0alM2r
+	SP8OeanMCIp7y8PQGCu1JUYQ+SnfNm5bXUt0fc1U/Z6wbxQsCa3XOfQCiFQAHxSOIY/qfUwxkPG
+	zsxlbKaeKqi8XH3ZM02w5ucNxFlbE=
+X-Received: by 2002:a17:902:cece:b0:2c0:e5ee:f55e with SMTP id d9443c01a7336-2cfa6a4b3dbmr74815375ad.7.1784877544421;
+        Fri, 24 Jul 2026 00:19:04 -0700 (PDT)
+X-Received: by 2002:a17:902:cece:b0:2c0:e5ee:f55e with SMTP id d9443c01a7336-2cfa6a4b3dbmr74814865ad.7.1784877543679;
+        Fri, 24 Jul 2026 00:19:03 -0700 (PDT)
 Received: from hu-ppapaniy-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8efe3afbsm45993805ad.33.2026.07.24.00.18.34
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf8efe3afbsm45993805ad.33.2026.07.24.00.18.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 00:18:41 -0700 (PDT)
+        Fri, 24 Jul 2026 00:19:03 -0700 (PDT)
 From: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
-Subject: [PATCH RFC 00/10] firmware: arm_scmi: vendors: Qualcomm Generic
- Vendor Extensions
-Date: Fri, 24 Jul 2026 12:48:05 +0530
-Message-Id: <20260724-rfc_v8_scmi_memlat-v1-0-cb732bcff1f4@oss.qualcomm.com>
+Date: Fri, 24 Jul 2026 12:48:08 +0530
+Subject: [PATCH RFC 03/10] firmware: arm_scmi: vendors: Add QCOM SCMI
+ Generic Extensions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAK0RY2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDcyMT3aK05Pgyi/ji5NzM+NzU3JzEEt2kZFPzRHMTcyMzY3MloMaCotS
- 0zAqwodFKQW7OSrG1tQB93p2eaQAAAA==
-X-Change-ID: 20260724-rfc_v8_scmi_memlat-bc57a7472637
+Message-Id: <20260724-rfc_v8_scmi_memlat-v1-3-cb732bcff1f4@oss.qualcomm.com>
+References: <20260724-rfc_v8_scmi_memlat-v1-0-cb732bcff1f4@oss.qualcomm.com>
+In-Reply-To: <20260724-rfc_v8_scmi_memlat-v1-0-cb732bcff1f4@oss.qualcomm.com>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
         Cristian Marussi <cristian.marussi@arm.com>,
         Rob Herring <robh@kernel.org>,
@@ -122,46 +122,45 @@ Cc: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>,
         arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
         linux-tegra@vger.kernel.org, Amir Vajid <amir.vajid@oss.qualcomm.com>,
-        Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>,
-        Jia Yang <jia.yang@oss.qualcomm.com>
+        Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784877514; l=13628;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784877514; l=12506;
  i=pragnesh.papaniya@oss.qualcomm.com; s=20260120; h=from:subject:message-id;
- bh=APRbG6owW9j48Kw8dBxDUUQwX3WHBh/Z4oDfNbO9pLs=;
- b=+4almlPx4CwejTf33N/x40M7XDwo3AQ7YqClU1Cs5G2PsQB+ZE7ASjcezYtJl/bSDx5yE6Pu3
- Xiy9ge2M2yqCAP2a43twPjMH41d0DRC/HojcWhKgy4jl8tvhL8IibHG
+ bh=vBs1nrZfnrohzT4k2onMHNTX4TddQbE0+AmlJbHYHu0=;
+ b=LRr4gPrWhvzZt2NhfqsIf1G9MexjRNr+aJ+U6LRom7Y8/B5rsHRtw8EBz76LP/biLifMAsPX1
+ Ly/y0EflGLXC3JATLvxtAZGXD9CGDQPhHbpdnzVAMGCzX4Izvni0Krp
 X-Developer-Key: i=pragnesh.papaniya@oss.qualcomm.com; a=ed25519;
  pk=09P9nFmZLXJ9+4Jx10ZK5rIW0Fmk79A/DLErm6aVA0c=
-X-Authority-Analysis: v=2.4 cv=e742j6p/ c=1 sm=1 tr=0 ts=6a6311d6 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDA2NSBTYWx0ZWRfXycZRHvYTz3Zp
+ 5cE9BVcU4PN7xvBAq2bxOkI2ZP0CwMc7LeDl7rLpQHc4ltR3VKi6rKR7OViCGf5NaMtStt7SfZo
+ JP2uz2Vv43XH/yRQdZiVIFBiYwRk6ks=
+X-Proofpoint-ORIG-GUID: PvTrTaKCVrk6OintyZoce-qh5bOmLp_5
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDA2NSBTYWx0ZWRfXwBJ7fSc+UBA+
+ /PFSQF1UKaz7wsQfiiY9T5XGKtKA3GRujdFalFufUcQUYRGCmPGPj0KpDc2/1o3mTOxjn+GtQZi
+ 8/B1cNK4sj9Gkn/9IGpyrWgBjEGdmSCSb0HLrLF4peZ/NUVU6ixchKjy1o/lEzY9grS0vJSN0Ex
+ q2IcMi1ryIb9tiCHJvSMST4SiAzK58eRi8TnM9pUF9+y+2NzMRFJSjhI0WRO+E+tPjbPbIBtvqg
+ J6Y1X6wru/lMcXbBLnXPHPCoVnevcLYqs/eWzk3vtqyJ/v7HWdAJYSMgZyRw5g/DniS0I/dNFn5
+ +fy/daQobWExNdjzX726vRm0PwP+V9DCT7BWksvipKyRiUgmxuEFUrdqCYvqhp6hwKwtcGVv+3v
+ qJPfDTe++ftnGTynjPEgjaR46XWAC1D3vvz8F3GDwOsdarfyCdJa7ScE2rul2nboPySZ/PhBtvk
+ 6jk4DZc1tDJRRhZAhQA==
+X-Authority-Analysis: v=2.4 cv=PtejqQM3 c=1 sm=1 tr=0 ts=6a6311e9 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=N727Dw7Iak4MHyGCpZEA:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: V0uDC9DA2hsqK97dplFn_qQCDC9mSGv2
-X-Proofpoint-GUID: V0uDC9DA2hsqK97dplFn_qQCDC9mSGv2
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDA2NSBTYWx0ZWRfX5aV3ah9QADcb
- UcOqYGd3PrtLncDpfFFpg9rWaT1GBXFh2atsxXVoUA01z+EAAM432nP90mUWhAKnWN7k1m3f9Q0
- w3Iu1iF2GnEatmsw1sEynjO9U5rCxBw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDA2NSBTYWx0ZWRfX7KkL55GVOQ7U
- fZt8/TEHZCD+MFiSmJ9H7n9kO8pHDzKte5h/bmji/1IynjXrwDCsD+XdMJ0BzkuMpYhutBHsqVr
- 7N9+BczuU7jW9/hH2qTqpa1zF4E5CU9T985G4YqwM49QWbzU4Q7uVu9Hzi9+DdQXW0ZDfIkM0ZI
- oZ7tp4ZbuDCyejM5A5kg2w4aWS80qqM+Odd1ZQco8W61JjJAM6jYiKHyBn7gTOKGF8n+yPbl6E9
- MAOapJY/9qow9MjTz5CmsyLC8Ow9GgEw1OQ1rtstbiqgdUb2J1Adx9qaXJ9LlUaxrPsyKEJDriV
- tZQRbvchK6dxgX4IvJR5aAeT91JhBeYnnjQDUkiCBDmWstCv1H9R/LmmookMeS7Vneh/UyQOtX1
- pxP56MrCnEwMZlK9vC4KVSoOdzBEMHIM5De+cVlmy/zWBHTWH3aUlxQUS0NFCLeNS3PrHHA6d1c
- c/3Y2wLA+uDUf5E0Akw==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=3GEwtj1osWxiqG9AIrUA:9 a=QEXdDO2ut3YA:10
+ a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-GUID: PvTrTaKCVrk6OintyZoce-qh5bOmLp_5
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-24_01,2026-07-22_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 malwarescore=0 phishscore=0 adultscore=0
- impostorscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0 bulkscore=0
+ impostorscore=0 clxscore=1015 suspectscore=0 malwarescore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 spamscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607240065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_001848_248993_E76AF6BE 
-X-CRM114-Status: GOOD (  24.99  )
+X-CRM114-CacheID: sfid-20260724_001905_828758_36AFE9E2 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,255 +175,338 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-System Control Management Interface (SCMI) Qualcomm Generic Extension Protocol
-consists of a small set of generic SET/GET/START/STOP commands, which is
-used to turn on/off and configure Qualcomm SoC specific algorithms that run
-on the SCP. Each algorithm is identified through an algorithm string and has
-an immutable list of param_ids. All supported algorithms (currently just MEMLAT)
-have their own dedicated section and are listed after the generic commands.
+From: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
 
-This series introduces the devfreq SCMI client driver that uses the MEMLAT
-algorithm string hosted on the QCOM SCMI Generic Extension Protocol to detect
-memory latency workloads and control frequency/level of the various memory
-buses (DDR/LLCC/DDR_QOS). DDR/LLCC/DDR_QOS are modelled as devfreq devices
-using the remote devfreq governor. This provides basic insight into device
-operation via trans_stat and lets userspace further tweak the parameters of
-the remote governor.
+The System Control Management Interface (SCMI) Qualcomm Generic Extension
+Protocol consists of a small set of generic SET/GET/ START/STOP commands,
+which is used to turn on/off and configure Qualcomm SoC specific algorithms
+that run on the SCP.
 
-trans_stat data for DDR/LLCC/DDR_QOS is now available with this series:
-
-     From  :   To
-   315000000 479000000 545000000 725000000 840000000  959000000 1090000000 1211000000   time(ms)
-   315000000:         0         3         6         6         6         7         0        30    143956
-   479000000:         2         0         7         1         1         1         0         3       356
-   545000000:         7         6         0         5         5         0         0        10      1200
-   725000000:         3         0         5         0         6         1         0         6      2172
-   840000000:         8         2         3         2         0         4         0        12      1188
-   959000000:         3         0         1         2         2         0         0        13       272
-  1090000000:         0         0         0         0         0         0         0         0         0
-  1211000000:        35         4        11         5        11         8         0         0     21684
-Total transition : 253
-
-MEMLAT: Memory Latency algorithm
-
-The MEMLAT algorithm (0x4d454d4c4154, ASCII "MEMLAT") scales the DDR, LLCC and
-DDR_QOS buses in response to memory-latency-bound workloads. It runs on the CPUCP:
-every sampling window it reads the per-CPU AMU counters, derives its statistics
-(instructions-per-miss, back-end stall, write-back ratio), maps that to a target
-level and votes for it directly on the DDR/LLCC/DDR_QOS interconnect. The kernel
-never issues a frequency request in that loop. The 6-byte value is treated as a
-64-bit algorithm string and split into two uint32 fields on the wire: algo_low
-carries its lower 32 bits and algo_high its upper 32 bits.
-
-With a distinct need to have the memory buses scaling done in SCP in response to
-memory-latency-bound workloads, none of the existing SCMI solutions could be used
-as-is. MPAM does not apply either: it is not enabled on all of the affected parts
-(e.g. Hamoa). The role split between SCP and client driver is described next.
-
-MEMLAT client driver pseudo-code:
-
-  probe():
-    SET_COMMON_EV_MAP                          # AMU events (all groups)
-    for each memory group (DDR / LLCC / DDR_QOS):
-      SET_MEM_GROUP                            # bind group to interconnect
-      SET_GRP_EV_MAP                           # per-group AMU events
-      for each monitor in the group:
-        SET_MONITOR                            # topology, cpumask, name
-        IPM_CEIL / BE_STALL_FLOOR              # per-monitor tuneables
-        MON_FREQ_MAP                           # cpufreq -> memfreq map
-        SET_MIN_FREQ / SET_MAX_FREQ            # clamps
-    SAMPLE_MS                                  # sampling period
-    SET_EFFECTIVE_FREQ_METHOD                  # cpu-freq derivation method
-    START_TIMER                                # CPUCP now scales autonomously
-
-  devfreq poll (twice per CPUCP sample period):
-    GET_CUR_FREQ                               # read voted freq, per monitor
-
-  remove():
-    STOP_TIMER
-
-SCP pseudo-code:
-
-  every sample_ms:
-    for each CPU:
-      sample AMU counters (instructions, cycles, cache-misses, stalls)
-      derive per-CPU IPM, back-end-stall % and write-back ratio
-
-    for each configured memory group (DDR / LLCC / DDR_QOS):
-      for each monitor in the group:
-        best_freq = 0
-        for each CPU in the monitor's cpumask:
-          if CPU is memory-bound (IPM/stall/write-back vs. the
-             monitor's configured thresholds):
-            freq = CPU's cpufreq, optionally scaled toward the ceiling
-            best_freq = max(best_freq, freq)
-        monitor.target_freq = monitor's cpufreq->memfreq map(best_freq)
-
-      group_vote = max(target_freq of every monitor in the group)
-      if group_vote changed since the last sample:
-        vote group_vote onto the group's interconnect path
-
-  GET_CUR_FREQ returns a monitor's last target_freq
-  START_TIMER / STOP_TIMER: resume / suspend the loop above
-
-Thanks in advance for taking time to review the series.
-
-Changes in v8:
- - Add memlat support for Kaanapali.
- - Express the cpufreq/memfreq map in MHz on both sides, matching the
-   firmware wire format, dropping the kHz conversion and the DDR_QOS
-   special case [Bjorn].
- - Build the on-wire messages directly from the static configuration
-   instead of deep-copying it into heap mirror structs [Bjorn].
- - Anchor each memory bus's OPP table and devfreq device on a lightweight
-   faux_device instead of a platform_device [Bjorn]; register the devfreq
-   device non-devm with matching teardown on our own error paths, fixing a
-   device/devfreq leak and use-after-free on unwind [Sashiko].
- - Switch param_ids to #defines (fixed wire tokens) and keep hw_type as
-   the only enum; unit-suffix frequencies, add a memlat_set_param()
-   helper and rename message locals for clarity [Bjorn].
- - Bound the vendor-protocol GET response copy against the caller
-   buffer and skip the payload copy for zero-length transfers
-   [Sashiko]; add an algorithm-string allowlist so the firmware never
-   sees an unrecognised string [Sudeep].
- - Rewrite the driver Kconfig help and commit message around the
-   CPUCP/kernel role split, and expand the MEMLAT documentation with
-   the motivation for a vendor protocol and a call flow [Bjorn, Sudeep].
- - Fold scmi-qcom-memlat-cfg.h into the driver .c, laid out as
-   definitions / per-SoC configuration / logic and driver boilerplate;
-   add kernel-doc on the per-monitor tuneables (be_stall_floor, ipm_ceil,
-   etc.) and reword the devfreq polling-interval comment to explain why
-   half the CPUCP sample period is correct here [Bjorn].
- - Link to v7: https://lore.kernel.org/lkml/20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com/
-
-Changes in v7:
- - Minor bug fixes and documentation improvements based on review feedback.
- - Significantly expand the QCOM Generic Vendor Protocol documentation
-   with a dedicated MEMLAT section covering all param_ids, payloads and
-   return values [Sudeep, Cristian].
- - Move per-SoC event IDs and hardware type identifiers from the driver
-   into the platform configuration header.
- - Poll devfreq at twice the CPUCP sampling rate so every firmware voting
-   cycle is reliably observed [Lukasz].
- - Add a devicetree binding schema for the Qualcomm SCMI vendor
-   protocol@80 node.
- - Link to v6: https://lore.kernel.org/r/20260507062237.78051-1-sibi.sankar@oss.qualcomm.com
-
-Changes in v6:
- - Combining vendor protocol and the client and moving it
-   back into RFC mode.
- - Introduce target_freq attr flag and TRACK_REMOTE devfreq
-   governor flag.
- - Add basic remote devfreq governor to give users data like
-   transtat [Dmitry]
- - Drop the current design that relies on manual parsing of
-   device tree data and move those into SoC specific structs
- - Add Glymur/Mahua/Hamoa/Purwa support in the same series.
- - Link to v5: https://lore.kernel.org/lkml/20241115011515.1313447-1-quic_sibis@quicinc.com/
-
- Changes in v5:
- - Splitting the series into vendor protocol and memlat client.
- - Also the move the memlat client implementation back to RFC
-   due to multiple opens.
- - Use common xfer helper to avoid code duplication [Dmitry]
- - Update enum documentation without duplicate enum info [Dmitry]
- - Update the protol attributes doc with more information. [Cristian]
- - Link to v4: https://lore.kernel.org/lkml/20241007061023.1978380-1-quic_sibis@quicinc.com/
-
-Changes in v4:
- - Restructure the bindings to mimic IMX [Christian]
- - Add documentation for the qcom generic vendor protocol [Christian/Sudeep]
- - Pick up Rb tag and fixup/re-order elements of the vendor ops [Christian]
- - Follow naming convention and folder structure used by IMX
- - Add missing enum in the vendor protocol and fix documentation [Konrad]
- - Add missing enum in the scmi memlat driver and fix documentation [Konrad]
- - Add checks for max memory and monitor [Shivnandan]
- - Fix typo from START_TIMER -> STOP_TIMER [Shivnandan]
- - Make populate_physical_mask func to void [Shivnandan]
- - Remove unecessary zero set [Shivnandan]
- - Use __free(device node) in init_cpufreq-memfreqmap [Christian/Konrad]
- - Use sdev->dev.of_node directly [Christian]
- - use return dev_err_probe in multiple places [Christian]
- - Link to v3: https://lore.kernel.org/lkml/20240702191440.2161623-1-quic_sibis@quicinc.com/
-
-Changes in v3:
- - Drop container dvfs memlat container node. [Rob]
- - Move scmi-memlat.yaml to protocol level given that a lot of vendors might end up
- - using the same protocol number. [Rob]
- - Replace qcom,cpulist with the standard "cpus" property. [Rob]
- - Fix up compute-type/ipm-ceil required. [Rob]
- - Make driver changes to the accommodate bindings changes. [Rob]
- - Minor fixups in subjects/coverletter.
- - Minor style fixes in dts.
- - Link to v2: https://lore.kernel.org/lkml/20240612183031.219906-1-quic_sibis@quicinc.com/
-
-Changes in v2:
- - Add missing bindings for the protocol. [Konrad/Dmitry]
- - Use alternate bindings. [Dmitry/Konrad]
- - Rebase on top of Cristian's "SCMI multiple vendor protocol support" series. [Cristian]
- - Add more documentation wherever possible. [Sudeep]
- - Replace pr_err/info with it's dev equivalents.
- - Mixed tabs and initialization cleanups in the memlat driver. [Konrad]
- - Commit message update for the memlat driver. [Dmitry]
- - Cleanups/Fixes suggested for the client driver. [Dmitry/Konrad/Cristian]
- - Use opp-tables instead of memfreq-tbl. [Dmitry/Konrad]
- - Detect physical cpu to deal with variants with reduced cpu count.
- - Add support for DDR_QOS mem_type.
- - Link to v1: https://lore.kernel.org/lkml/20240117173458.2312669-1-quic_sibis@quicinc.com/
-
+Co-developed-by: Amir Vajid <amir.vajid@oss.qualcomm.com>
+Signed-off-by: Amir Vajid <amir.vajid@oss.qualcomm.com>
+Co-developed-by: Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>
+Signed-off-by: Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>
+Signed-off-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+Co-developed-by: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
 Signed-off-by: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
 ---
-Jia Yang (1):
-      arm64: dts: qcom: kaanapali: Enable LLCC/DDR/DDR_QOS DVFS
+ MAINTAINERS                                        |  10 ++
+ drivers/firmware/arm_scmi/Kconfig                  |   1 +
+ drivers/firmware/arm_scmi/Makefile                 |   1 +
+ drivers/firmware/arm_scmi/vendors/qcom/Kconfig     |  15 ++
+ drivers/firmware/arm_scmi/vendors/qcom/Makefile    |   2 +
+ .../arm_scmi/vendors/qcom/qcom-generic-ext.c       | 183 +++++++++++++++++++++
+ include/linux/scmi_qcom_protocol.h                 |  37 +++++
+ 7 files changed, 249 insertions(+)
 
-Pragnesh Papaniya (2):
-      firmware: arm_scmi: Add SCMI QCOM Generic Extension Protocol documentation
-      dt-bindings: firmware: arm,scmi: Add Qualcomm Generic Extension Protocol
+diff --git a/MAINTAINERS b/MAINTAINERS
+index cc3c01eecfa2..265eb99bdc7a 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -26487,6 +26487,16 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/firmware/nxp,*scmi.yaml
+ F:	drivers/firmware/arm_scmi/vendors/imx/
+ 
++SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) Qualcomm Generic Extension Protocol driver
++M:	Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
++M:	Sibi Sankar <sibi.sankar@oss.qualcomm.com>
++L:	arm-scmi@vger.kernel.org
++L:	linux-arm-msm@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/firmware/qcom,generic-scmi.yaml
++F:	drivers/firmware/arm_scmi/vendors/qcom/
++F:	include/linux/scmi_qcom_protocol.h
++
+ SYSTEM RESET/SHUTDOWN DRIVERS
+ M:	Sebastian Reichel <sre@kernel.org>
+ L:	linux-pm@vger.kernel.org
+diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+index 783c24a20e29..3918aa2e7140 100644
+--- a/drivers/firmware/arm_scmi/Kconfig
++++ b/drivers/firmware/arm_scmi/Kconfig
+@@ -84,6 +84,7 @@ config ARM_SCMI_QUIRKS
+ 
+ source "drivers/firmware/arm_scmi/transports/Kconfig"
+ source "drivers/firmware/arm_scmi/vendors/imx/Kconfig"
++source "drivers/firmware/arm_scmi/vendors/qcom/Kconfig"
+ 
+ endif #ARM_SCMI_PROTOCOL
+ 
+diff --git a/drivers/firmware/arm_scmi/Makefile b/drivers/firmware/arm_scmi/Makefile
+index 780cd62b2f78..5a0e003c2477 100644
+--- a/drivers/firmware/arm_scmi/Makefile
++++ b/drivers/firmware/arm_scmi/Makefile
+@@ -13,6 +13,7 @@ scmi-module-objs := $(scmi-driver-y) $(scmi-protocols-y) $(scmi-transport-y)
+ 
+ obj-$(CONFIG_ARM_SCMI_PROTOCOL) += transports/
+ obj-$(CONFIG_ARM_SCMI_PROTOCOL) += vendors/imx/
++obj-$(CONFIG_ARM_SCMI_PROTOCOL) += vendors/qcom/
+ 
+ obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-core.o
+ obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-module.o
+diff --git a/drivers/firmware/arm_scmi/vendors/qcom/Kconfig b/drivers/firmware/arm_scmi/vendors/qcom/Kconfig
+new file mode 100644
+index 000000000000..8aa0efd6a03d
+--- /dev/null
++++ b/drivers/firmware/arm_scmi/vendors/qcom/Kconfig
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0-only
++menu "ARM SCMI QCOM Vendor Protocols"
++
++config QCOM_SCMI_GENERIC_EXT
++	tristate "Qualcomm Technologies, Inc. SCMI Generic Vendor Protocol"
++	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
++	help
++	  The QCOM SCMI vendor protocol provides a generic way of exposing
++	  a number of Qualcomm SoC specific features (like memory bus scaling)
++	  through a mixture of pre-determined algorithm strings and param_id
++	  pairs hosted on the SCMI controller.
++
++	  This driver defines/documents the message IDs used for this
++	  communication and also exposes the operations used by the clients.
++endmenu
+diff --git a/drivers/firmware/arm_scmi/vendors/qcom/Makefile b/drivers/firmware/arm_scmi/vendors/qcom/Makefile
+new file mode 100644
+index 000000000000..6b98fabbebb8
+--- /dev/null
++++ b/drivers/firmware/arm_scmi/vendors/qcom/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_QCOM_SCMI_GENERIC_EXT) += qcom-generic-ext.o
+diff --git a/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c b/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
+new file mode 100644
+index 000000000000..7ca920c8da05
+--- /dev/null
++++ b/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
+@@ -0,0 +1,183 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#include <linux/module.h>
++#include <linux/scmi_qcom_protocol.h>
++#include <linux/string.h>
++#include <linux/stringify.h>
++#include <linux/types.h>
++
++#include "../../common.h"
++
++/*
++ * This protocol is intended as a generic way of exposing a number of Qualcomm
++ * SoC specific features through a mixture of pre-determined algorithm string
++ * and param_id pairs hosted on the SCMI controller.
++ *
++ * The QCOM SCMI Vendor Protocol has the protocol id as 0x80 and vendor id set
++ * to Qualcomm and the supported version is set to 0x10000. The PROTOCOL_VERSION
++ * command returns version 1.0.
++ */
++
++/**
++ * enum qcom_generic_ext_protocol_cmd - vendor specific commands supported by SCMI Qualcomm
++ *                                      generic vendor protocol.
++ *
++ * @QCOM_SCMI_SET_PARAM: is used to set the parameter of a specific algo_str hosted on
++ *			 QCOM SCMI Vendor Protocol. The tx len depends on the algo_str used.
++ * @QCOM_SCMI_GET_PARAM: is used to get parameter information of a specific algo_str
++ *			 hosted on QCOM SCMI Vendor Protocol. The tx and rx len depends
++ *			 on the algo_str used.
++ * @QCOM_SCMI_START_ACTIVITY: is used to start the activity performed by the algo_str.
++ * @QCOM_SCMI_STOP_ACTIVITY: is used to stop a pre-existing activity performed by the algo_str.
++ */
++enum qcom_generic_ext_protocol_cmd {
++	QCOM_SCMI_SET_PARAM = 0x10,
++	QCOM_SCMI_GET_PARAM = 0x11,
++	QCOM_SCMI_START_ACTIVITY = 0x12,
++	QCOM_SCMI_STOP_ACTIVITY = 0x13,
++};
++
++/**
++ * struct qcom_scmi_msg - represents the various parameters to be populated
++ *                        for using the QCOM SCMI Vendor Protocol
++ *
++ * @ext_id: reserved, must be zero
++ * @algo_low: lower 32 bits of the algo_str
++ * @algo_high: upper 32 bits of the algo_str
++ * @param_id: serves as token message id to the specific algo_str
++ * @buf: serves as the payload to the specified param_id and algo_str pair
++ */
++struct qcom_scmi_msg {
++	__le32 ext_id;
++	__le32 algo_low;
++	__le32 algo_high;
++	__le32 param_id;
++	__le32 buf[];
++};
++
++/*
++ * The firmware only implements a handful of algorithm strings. Keep an
++ * allowlist so a client cannot push an unsupported (or garbage) string to
++ * the firmware; extend it as new algorithms are added.
++ */
++static const u64 qcom_scmi_algo_str[] = {
++	0x4d454d4c4154ULL, /* "MEMLAT" */
++};
++
++static bool qcom_scmi_algo_str_valid(u64 algo_str)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(qcom_scmi_algo_str); i++)
++		if (algo_str == qcom_scmi_algo_str[i])
++			return true;
++
++	return false;
++}
++
++static int qcom_scmi_common_xfer(const struct scmi_protocol_handle *ph,
++				 enum qcom_generic_ext_protocol_cmd cmd_id, void *buf,
++				 size_t buf_len, u64 algo_str, u32 param_id, size_t rx_size)
++{
++	struct scmi_xfer *t;
++	struct qcom_scmi_msg *msg;
++	int ret;
++
++	if (!qcom_scmi_algo_str_valid(algo_str))
++		return -EINVAL;
++
++	/* Reject calls where rx_size exceeds buf_len. */
++	if (rx_size > buf_len)
++		return -EINVAL;
++
++	ret = ph->xops->xfer_get_init(ph, cmd_id, buf_len + sizeof(*msg), rx_size, &t);
++	if (ret)
++		return ret;
++
++	msg = t->tx.buf;
++	msg->ext_id = 0;
++	msg->algo_low = cpu_to_le32(lower_32_bits(algo_str));
++	msg->algo_high = cpu_to_le32(upper_32_bits(algo_str));
++	msg->param_id = cpu_to_le32(param_id);
++	if (buf_len)
++		memcpy(msg->buf, buf, buf_len);
++
++	ret = ph->xops->do_xfer(ph, t);
++	if (!ret && rx_size) {
++		/*
++		 * The response is returned into the caller's @buf, replacing
++		 * the tx payload. Bound the copy to the caller's buffer since
++		 * t->rx.len is reported by the firmware, and require at least
++		 * the expected rx_size so the caller never reads stale tx data.
++		 */
++		if (t->rx.len < rx_size || t->rx.len > buf_len)
++			ret = -EPROTO;
++		else
++			memcpy(buf, t->rx.buf, rx_size);
++	}
++	ph->xops->xfer_put(ph, t);
++
++	return ret;
++}
++
++static int qcom_scmi_set_param(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
++			       u64 algo_str, u32 param_id)
++{
++	return qcom_scmi_common_xfer(ph, QCOM_SCMI_SET_PARAM, buf, buf_len, algo_str,
++				     param_id, 0);
++}
++
++static int qcom_scmi_get_param(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
++			       u64 algo_str, u32 param_id, size_t rx_size)
++{
++	return qcom_scmi_common_xfer(ph, QCOM_SCMI_GET_PARAM, buf, buf_len, algo_str,
++				     param_id, rx_size);
++}
++
++static int qcom_scmi_start_activity(const struct scmi_protocol_handle *ph, void *buf,
++				    size_t buf_len, u64 algo_str, u32 param_id)
++{
++	return qcom_scmi_common_xfer(ph, QCOM_SCMI_START_ACTIVITY, buf, buf_len, algo_str,
++				     param_id, 0);
++}
++
++static int qcom_scmi_stop_activity(const struct scmi_protocol_handle *ph, void *buf,
++				   size_t buf_len, u64 algo_str, u32 param_id)
++{
++	return qcom_scmi_common_xfer(ph, QCOM_SCMI_STOP_ACTIVITY, buf, buf_len, algo_str,
++				     param_id, 0);
++}
++
++static const struct qcom_generic_ext_ops qcom_proto_ops = {
++	.set_param = qcom_scmi_set_param,
++	.get_param = qcom_scmi_get_param,
++	.start_activity = qcom_scmi_start_activity,
++	.stop_activity = qcom_scmi_stop_activity,
++};
++
++static int qcom_generic_ext_protocol_init(const struct scmi_protocol_handle *ph)
++{
++	dev_dbg(ph->dev, "QCOM Generic Vendor Version %d.%d\n",
++		PROTOCOL_REV_MAJOR(ph->version), PROTOCOL_REV_MINOR(ph->version));
++
++	return 0;
++}
++
++static const struct scmi_protocol qcom_generic_ext = {
++	.id = SCMI_PROTOCOL_QCOM_GENERIC,
++	.owner = THIS_MODULE,
++	.instance_init = &qcom_generic_ext_protocol_init,
++	.ops = &qcom_proto_ops,
++	.vendor_id = "Qualcomm",
++	.supported_version = 0x10000,
++};
++module_scmi_protocol(qcom_generic_ext);
++
++MODULE_ALIAS("scmi-protocol-" __stringify(SCMI_PROTOCOL_QCOM_GENERIC) "-Qualcomm");
++MODULE_AUTHOR("Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>");
++MODULE_AUTHOR("Sibi Sankar <sibi.sankar@oss.qualcomm.com>");
++MODULE_DESCRIPTION("QCOM SCMI Generic Vendor Protocol");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/scmi_qcom_protocol.h b/include/linux/scmi_qcom_protocol.h
+new file mode 100644
+index 000000000000..41632ee7bbc7
+--- /dev/null
++++ b/include/linux/scmi_qcom_protocol.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * SCMI Message Protocol driver QCOM extension header
++ *
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _LINUX_SCMI_QCOM_PROTOCOL_H
++#define _LINUX_SCMI_QCOM_PROTOCOL_H
++
++#include <linux/types.h>
++
++#define SCMI_PROTOCOL_QCOM_GENERIC    0x80
++
++struct scmi_protocol_handle;
++
++/**
++ * struct qcom_generic_ext_ops - represents the various operations provided
++ *				 by QCOM Generic Vendor Protocol
++ *
++ * @set_param: set parameter specified by param_id and algo_str pair.
++ * @get_param: retrieve parameter specified by param_id and algo_str pair.
++ * @start_activity: initiate a specific activity defined by algo_str.
++ * @stop_activity: halt previously initiated activity defined by algo_str.
++ */
++struct qcom_generic_ext_ops {
++	int (*set_param)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
++			 u64 algo_str, u32 param_id);
++	int (*get_param)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
++			 u64 algo_str, u32 param_id, size_t rx_size);
++	int (*start_activity)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
++			      u64 algo_str, u32 param_id);
++	int (*stop_activity)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
++			     u64 algo_str, u32 param_id);
++};
++
++#endif /* _LINUX_SCMI_QCOM_PROTOCOL_H */
 
-Sibi Sankar (7):
-      firmware: arm_scmi: vendors: Add QCOM SCMI Generic Extensions
-      PM / devfreq: Add new target_freq attribute flag for governors
-      PM / devfreq: Add new track_remote flag for governors
-      PM / devfreq: Add a governor for tracking remote device frequencies
-      PM / devfreq: Introduce the QCOM SCMI Memlat devfreq driver
-      arm64: dts: qcom: glymur: Enable LLCC/DDR/DDR_QOS DVFS
-      arm64: dts: qcom: hamoa: Enable LLCC/DDR/DDR_QOS DVFS
-
- Documentation/ABI/testing/sysfs-class-devfreq      |    8 +
- .../devicetree/bindings/firmware/arm,scmi.yaml     |    1 +
- .../bindings/firmware/qcom,generic-scmi.yaml       |   27 +
- MAINTAINERS                                        |   18 +
- arch/arm64/boot/dts/qcom/glymur.dtsi               |   41 +
- arch/arm64/boot/dts/qcom/hamoa.dtsi                |    4 +
- arch/arm64/boot/dts/qcom/kaanapali.dtsi            |   41 +
- drivers/devfreq/Kconfig                            |   23 +
- drivers/devfreq/Makefile                           |    2 +
- drivers/devfreq/devfreq.c                          |   27 +
- drivers/devfreq/governor_passive.c                 |    1 +
- drivers/devfreq/governor_performance.c             |    1 +
- drivers/devfreq/governor_powersave.c               |    1 +
- drivers/devfreq/governor_remote.c                  |   73 ++
- drivers/devfreq/governor_simpleondemand.c          |    1 +
- drivers/devfreq/governor_userspace.c               |    1 +
- drivers/devfreq/hisi_uncore_freq.c                 |    1 +
- drivers/devfreq/scmi-qcom-memlat-devfreq.c         | 1331 ++++++++++++++++++++
- drivers/devfreq/tegra30-devfreq.c                  |    3 +-
- drivers/firmware/arm_scmi/Kconfig                  |    1 +
- drivers/firmware/arm_scmi/Makefile                 |    1 +
- drivers/firmware/arm_scmi/vendors/qcom/Kconfig     |   15 +
- drivers/firmware/arm_scmi/vendors/qcom/Makefile    |    2 +
- .../arm_scmi/vendors/qcom/qcom-generic-ext.c       |  183 +++
- .../arm_scmi/vendors/qcom/qcom_generic.rst         |  954 ++++++++++++++
- include/linux/devfreq-governor.h                   |    8 +
- include/linux/devfreq.h                            |    1 +
- include/linux/scmi_qcom_protocol.h                 |   37 +
- 28 files changed, 2806 insertions(+), 1 deletion(-)
----
-base-commit: 9eebf259d5352b87080d67758f483583d9e763d7
-change-id: 20260724-rfc_v8_scmi_memlat-bc57a7472637
-
-Best regards,
 -- 
-Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
+2.34.1
 
 
