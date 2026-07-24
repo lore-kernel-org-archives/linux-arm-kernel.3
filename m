@@ -4,152 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F58C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA369C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKQNA5+F09B2cwXHtPfrVB/KluvmgKFbW86lVjEImLg=; b=B78F+RlRrguOQlNAX+K0+HWJ/2
-	8KSAfuuSTPj7qf1BvC9VnfOm+4cd1281U07MCCkompI5wkBJuTHe7pabdyQLEpuOS3toag8fq/j0Y
-	0E7pJUETDJwVK0XbYaoav68T7aDRjtKOO3sOMOKkcEnt0AAHQgdhZVnaINl8Pkpn+ORe7bPq73rzu
-	iDPyweoaFRkpEO+ZCtTA38hOsPPEEYTiXRbbehF/lxtvHbnOH7IWPDIKYPBKnZGWK+wGq+ot9rKQ+
-	XfHftVbs8fLeFoNino4l7c6L66Ck2Lf5UoQiV5KApjdR0dY+dPkmRYBPIeVjqPjmhyKVsMDG4AHTL
-	9i3DaOTg==;
+	bh=jwqlQxogPnZR3j3vZatDYSH4YbGvS2weAZ8abPdxsk8=; b=peoB25ThgijqOsskVweXV2MmoX
+	TVotecrTfGv5vS4eDMxypFahN/R1Yvpe288BtYahnBQS1WVPN4xJHwOSYE7GgO6EKOed/3+uK1rjh
+	G2LO98VLE4w+hfx1aPT52I5DGrZi8KJ19b7sOtd6INl9tAsouuaoBqTdS+FM+sz1g/sBmR/4v26Pg
+	Pa3KzeEvUuzUqx0KmQ8PztbamyE0KLTqdNenEYUJNThEWIJZSkDcMiIczOFJHXr8/CupR44RMYMij
+	kXFoZFmrojqSo66nbm8j8ga7v4giq9JacU46vJ3wOqRnrd7hIzZxPn4Cu3NSBURRCB4uDJOoV04ml
+	fv9oNTAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDcS-0000000GDHU-275K;
-	Fri, 24 Jul 2026 10:59:08 +0000
-Received: from mail-northeuropeazon11012025.outbound.protection.outlook.com ([52.101.66.25] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wnFTM-0000000GQyB-31Jq;
+	Fri, 24 Jul 2026 12:57:52 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnDcP-0000000GDGa-42S9
+	id 1wnFTK-0000000GQxV-2OIn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:59:07 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=hoZ7tzcTQ0Bog1yNFuTicaNBlmSxJFdpuOhWdQHvkzqoDCejM942RlmMdQ/Ec3Tc6iiSTHs/HFePuZg25PAJRMmNm2KBdejowA6s5jqJuffSEPix/bhJaRPKv97Ih0n1cKTSZWMmluRxI6QruCHvOfjQxrkiGmbckQATVTviuhJOej0ihLRbUUbVPOn03nEr2qIIhDwlXpn2u8wYpQ1YGiH3Pn3/LXPdfJxBAVz0oSrO/1UVbJ8Oi2r7Ci5TcfWYvGktitDUkDgidAC+75bYxglheFffwWqRVniKT2oBQJgX5Y9w7IrtqIzpTwqvBTWuiszMlRhM5U73V7blTIN6MA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DKQNA5+F09B2cwXHtPfrVB/KluvmgKFbW86lVjEImLg=;
- b=AhPDqkN/16TDdmi7GLCo+C9H3tz+KqoNruYjlXawRY+UpsEMuHAzlIddAJtbhGkBQLBqAt1Ik1W1/P7EeLVXjH1td8xkVN+XKoUZKg9VP9JdbuuMzB09gf8NF52UTyi8VD8RqMl/wmBUpiAB8wkE1CVT6Q2mYASomyzzsmN9qbOuNgTCDX2BrQRXQ5fpvXImJzJ4VCpjIOeTcI8Pya/HZIgcVq1fap7frNGdWzLlcBmqLsc4Js+SRx90A1MLQe6W0mlXSfwXPwbV5uQW7qu71pY/cYyrH7ZwBvIUpyGwoPcvdjRaPtwDuhiUntiCxO3J/eGcdtaRwQIeeoQjuit3ng==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DKQNA5+F09B2cwXHtPfrVB/KluvmgKFbW86lVjEImLg=;
- b=VC9xW33210KH3JlcaEUE+vz46CF39BudTo0kwRnv+2ZTtOx2cMez3McVnYNlb7Ta9X9lFcTTfnaEg5J5ugwyEOiq7DMxmAivyH3XMKdqvZyeIZLLw+hfUc9fVrPjuA9zZx4xNXBxlX+BFZEGbAvPHI+gxXKMFkCcMolT6r+9o1w=
-Received: from DUZPR01CA0017.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46b::8) by DBAPR08MB5845.eurprd08.prod.outlook.com
- (2603:10a6:10:1a5::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:59:00 +0000
-Received: from DU6PEPF0000B621.eurprd02.prod.outlook.com
- (2603:10a6:10:46b:cafe::79) by DUZPR01CA0017.outlook.office365.com
- (2603:10a6:10:46b::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
- 24 Jul 2026 10:59:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000B621.mail.protection.outlook.com (10.167.8.138) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
- via Frontend Transport; Fri, 24 Jul 2026 10:59:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l5ZJCZNThtMW0SWsqaNpoD2S1WQzqR7eMfVHHen3GJCU9av7SUFHVQ5U3Iz3xrW4kkk8BPpeU4qgreIVKmt1UEzQZMg9sjkvi965g3eGje31rKKyJ9Ezl56LWD6QrJ8+IPSVyCeWUzMTZuI7zAu6zRdAhJfYK0h+WecsvVmgx++k7ZieEUC1OJWR1oqiKhOcTLS+7FqXwDDK9X/WfS8MfC55l2kI4c2UJI96S+Kswn6WZBei8hX29MHqDJhMurJ7MvH0JLKqwVLR9RmAddiTTwMWEuVgbebS0Rdj77sqnnAHlFGp3s+cz+UMfHhwCBUlZVgWvKF0ENlfNxjIvmXWGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DKQNA5+F09B2cwXHtPfrVB/KluvmgKFbW86lVjEImLg=;
- b=F16tYLf1YLB3M2EEbKi6hW/dyd0fzviH0kP4MO5A87VyVZT0HypFN7I8KdM7QEcWjgQIaWepKtYObUuz1/F6EmvX9kJFnxsTXmVfaH4+FNZ034kigutXIz8P84cfNtpzouxVljjmsQhrs51Mb//hz2N1uWRvtTKJeP3DXVdSzuFuOhP5DfkX8XiuM080F+IQUUL4phHYI5DQfNfa8D2bHm3IyiO67hPNcqYXCmHm9bmjyiy7O4KPuZaB44qh6TYu5IfnI6ib+AhnWdGLYzJxZJXyEoWCLWSSiCqI1KjYP9yijc41MxaDuVM/b4n8BSwQFUUKRRjaxERSfinD2YY1uQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DKQNA5+F09B2cwXHtPfrVB/KluvmgKFbW86lVjEImLg=;
- b=VC9xW33210KH3JlcaEUE+vz46CF39BudTo0kwRnv+2ZTtOx2cMez3McVnYNlb7Ta9X9lFcTTfnaEg5J5ugwyEOiq7DMxmAivyH3XMKdqvZyeIZLLw+hfUc9fVrPjuA9zZx4xNXBxlX+BFZEGbAvPHI+gxXKMFkCcMolT6r+9o1w=
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
- by GV2PR08MB11279.eurprd08.prod.outlook.com (2603:10a6:150:2f0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:57:57 +0000
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0245.009; Fri, 24 Jul 2026
- 10:57:57 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
-	<fuad.tabba@linux.dev>
-Subject: [PATCH v4 37/48] Documentation: KVM: Add
- KVM_DEV_ARM_VGIC_GRP_IRS_REGS to VGICv5 docs
-Thread-Topic: [PATCH v4 37/48] Documentation: KVM: Add
- KVM_DEV_ARM_VGIC_GRP_IRS_REGS to VGICv5 docs
-Thread-Index: AQHdG1tJ9y7uvWmmjU2Dv2AqKuKqfg==
-Date: Fri, 24 Jul 2026 10:57:57 +0000
-Message-ID: <20260724104819.1296803-38-sascha.bischoff@arm.com>
-References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|GV2PR08MB11279:EE_|DU6PEPF0000B621:EE_|DBAPR08MB5845:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4f0aa82-65d0-4512-6e67-08dee972911f
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|22082099003|18002099003|56012099006|11063799006|38070700021|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info-Original: Yq2btxWbQh8jHUNNkBMJS1CkQIUcBbTnOH23VFSosIpJQo7IPTSgMuAFb7zdboqo2V3HA+xPBU5gwTxtsC3AniigmUx3YpvyMrAYeAtihjPs+x9YU/+4HavY/1YiIW4NHLe5h4d3yNiT37xTu5HpOA8ry28wJdsKcU9DP0uasP5qmbO+uyH7speemko9DDRDwMSWXmCYvvPaLxCwsZhSMhkYv044kwhYOVR65qLbadiq5WvzJ9dlEzzJkoQNNldy7alV+RZQf3rj+n/zFZvvm2QQ41F5aAVA5pjD+MSU1MT/EnTgxQp5dSQI/Rv42aCrP0OWROGzNo9pWXSu8lkSUNGbbrV4H7/F8YxDKSYJnSAGJbGRuvx/sc0P28BzaV3L5Hju9jUUtYRuCqWIRLyJgB225wFoFMajxfqDZtmt9GR7PXkeYsI6cqbkCzNPoTBU75xY23j3zfYrqijZBpy9Mmk6gxPZn40B4uTHBpNWj9Vt/8WTE+GJtpjmE3F/9GZkMC5MlRsoz3fu9qhA4rX/SS4Lc3HcGWldkMLZM2Z69YnMJLRF+CNoAnNYF8BeMRyO01JM5ZNfWYbPpNn45xtnAvlEv2H25+57zdfzGCy7BnggB320rnvtsMKtxg5ZsQyuW+8w7WEaIOQHe/x6rq88UWoZjgxg7kZusSLF38pZtt8y3ztwqpP/S87KEMT9peBfMZ/GCop4t8ATDBaP9L7zqg9dH/35n0Bu2J9p/7lm6MQ=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(38070700021)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Jul 2026 12:57:51 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 134753ECD;
+	Fri, 24 Jul 2026 12:57:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784897868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jwqlQxogPnZR3j3vZatDYSH4YbGvS2weAZ8abPdxsk8=;
+	b=tpg/AegWEEyQF9NL3NQe2dNMX5JujfVpqG5fC1Nc4EXxmT5E4LtC5ahHxaM7OXE8D40XUV
+	VwAZMPotr2+KQx5XFISeCjDTQYMCrKsvycbLLpqToRj5oRBo2zDFi8rrdj5ato0KWxXq3e
+	ItdiDPtlV2Mms3c2Gx90skTbZ0vvBXI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784897868;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jwqlQxogPnZR3j3vZatDYSH4YbGvS2weAZ8abPdxsk8=;
+	b=wYjmyrL6U3rCCRtwBOXDHGnCz5StpbG4eKz69wfh3VCRU/PAF30jeR51gKTW3uKue0JZgm
+	86ndZlfes+8ZpGAg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="tpg/AegW";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=wYjmyrL6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784897868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jwqlQxogPnZR3j3vZatDYSH4YbGvS2weAZ8abPdxsk8=;
+	b=tpg/AegWEEyQF9NL3NQe2dNMX5JujfVpqG5fC1Nc4EXxmT5E4LtC5ahHxaM7OXE8D40XUV
+	VwAZMPotr2+KQx5XFISeCjDTQYMCrKsvycbLLpqToRj5oRBo2zDFi8rrdj5ato0KWxXq3e
+	ItdiDPtlV2Mms3c2Gx90skTbZ0vvBXI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784897868;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jwqlQxogPnZR3j3vZatDYSH4YbGvS2weAZ8abPdxsk8=;
+	b=wYjmyrL6U3rCCRtwBOXDHGnCz5StpbG4eKz69wfh3VCRU/PAF30jeR51gKTW3uKue0JZgm
+	86ndZlfes+8ZpGAg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DE4F0779BA;
+	Fri, 24 Jul 2026 12:57:46 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id hn4FM0phY2ogBAAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Fri, 24 Jul 2026 12:57:46 +0000
+Date: Fri, 24 Jul 2026 13:57:45 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: Muhammad Usama Anjum <usama.anjum@arm.com>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Zi Yan <ziy@nvidia.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
+	linux-s390@vger.kernel.org
+Subject: Re: mm: opaque hardware page-table entry handles
+Message-ID: <amNgK4WYP9yZe7iM@pedro-suse.lan>
+References: <31d36023-d728-4eee-90f8-158c7066f565@kernel.org>
+ <e22407d8-4509-4a53-9ba4-491b9d5c5ef7@arm.com>
+ <4bfeb697-9c1f-4316-96bb-9bfd66f959df@kernel.org>
+ <6110202c-057b-4701-8c04-1a76ee7bb9ab@arm.com>
+ <20260721124057.2820903Adf-agordeev@linux.ibm.com>
+ <3c21586c-0ffe-4ebc-97f1-803e8acfc5c1@arm.com>
+ <716f73c1-41cc-48a5-b0e1-a47403a30da1@kernel.org>
+ <47b4e62e-b001-465c-9c3b-ea0636925387@arm.com>
+ <amMvuPZ0tglCoi1M@pedro-suse.lan>
+ <67ee9da4-cbf9-40d1-92c7-49710fb15f1d@arm.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: HiP+LmmlNU4E5b+y2kTbU6e8Xr0QOT6iZ681suFId0+tofJm9Ao8ulzA0ViJForUhSjONnqXjz4CxXPZN/lhE6CLRxxWxqsRxCxaS9/mYOWOJComaOkRDajcK4JbQ4905Zc8zTtIGQt6C+GUl4TDdGXHpLbZo7gSJm8pITNZsKqzXh+RUS80AdLdKUj+iyMtV843j9fVibDTSgRXGqG4UlIZ5w/dlJo0bNtVuPdRtqPTvJOo76Wr6D3IzHbJ5b939Y0Uy6Vb83zbi9uM4Qy820N34hdnqMqt3WrsKRokQPq17y4iH5wG92I/0rsFSZSEHd8NXgJw7t+E7bzgR1oUHg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11279
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B621.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e3bf71a1-31a5-4109-17eb-08dee9726b99
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|35042699022|14060799003|1800799024|82310400026|6133799003|56012099006|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: DX+i1WCTYIL4TZAj5XpUQRVa6aamPEYjVGkbPnvpEldm23O/cyqH1bMPLYfsnhL1M9HfLbu31EKjDdL9pgcg1ewMcl0I80M+dIxg6LsZgw9Y9K3PlaaabMWsKpzTO3jf86twq/34nMzLcU0KSwTjoTV1DlVwGCzvWARCXoobv2kqYLM13E97jyydvMno/bW0v9hLC36OpLA5RTuphLxFEncTLPg+2XuDu12yg+vL6fjUCpWwdWBF511xR65oTwJwDgjmBMfD2+xftIg6H8gUy/8gVokiqhA4x04jIO/T6AnoWyWWZsiC4cvLHUDUYmTg0HB3kcgM1PQZkMngwTmJ/LE2G35DALbPBxrkXOq1QCE9W18V5ZZDB2dhWHAXkgV7Cc77uVlCGSwdrnxuwr1Rp4rbMlqJl87dIJJ7tRzU5LMLF8tTt8RLUokjrWgVF9n36/wtScCN4ceG1tUwGsFBbiZ2Hb6S/B9Iwy4E7q/AJH9hySEYa00SJ5bEUdozdEs2nioI8SxVSQ145cToBzucrTvfA670hJgGOabMEPBdun8x0GE4pDe5wLV+NvQ+YC7iSamBDuxA96sMjGHJruAE4zaZXFDYdqmou0v0KlWmgZzPBd4MHIar/DiIDiDy54aIv6b6yoOFXavXZKaSnQ53npp6UIpWw26HTSWY4sHQ7BYcADUahCmXfn1KeQKjHFNuT8WudIzujimqf2eluVK/5Q==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(35042699022)(14060799003)(1800799024)(82310400026)(6133799003)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: V4oObB/2z5hXTvcslpHNSUbL/p3KT+OX8k78iwXX6OG/58RPABMyNobyICecweAW7+g/fZoFDUXwIcMKBGb8EkSsX11bOYl4ZOEfW/F3p0acKg4djk07kInkA0gu24WMcRYH7KqL+gbSz1D8/Ft0M6cCyPTyvpE7jzbldXdCrJVhIKX9t36zbHudmcNP9oBcf5eQUKIlwe6VdyS9vvm5xu7Gf/Vkkc4zQYjMI4+Zxxjudn/8l/9BX8oXrg+4ECzqeyMwMUi+eNfRd2xIl63HlQtA40fgKozzmJacvkiNkBbpTfw3r92nDhOklDlj+kl1lI83UczeNYp3XymCp0kn2RMoBBVmRTrhJaQxMSQ6cQt0yUV/0+ECopqH1v9fqrkmKye41SCNprr7v3tLrd6Zp2voKQrOCl/EwYuI2oHTYod9liMhx2cFHE2T0HNeLHdG
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:59:00.2425
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4f0aa82-65d0-4512-6e67-08dee972911f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B621.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR08MB5845
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <67ee9da4-cbf9-40d1-92c7-49710fb15f1d@arm.com>
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 134753ECD
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_035906_144889_488F905A 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260724_055750_767264_BF2F2280 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,78 +149,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the KVM_DEV_ARM_VGIC_GRP_IRS_REGS attribute group used to
-read and write the virtual IRS's MMIO register state. This provides a
-GICv5-specific interface for state that is conceptually similar to the
-VGICv3 ITS register interface, but uses IRS terminology instead of ITS.
+On Fri, Jul 24, 2026 at 11:34:52AM +0100, Muhammad Usama Anjum wrote:
+> On 24/07/2026 10:30 am, Pedro Falcato wrote:
+> > On Thu, Jul 23, 2026 at 06:01:49PM +0100, Muhammad Usama Anjum wrote:
+> >> On 23/07/2026 5:38 pm, David Hildenbrand (Arm) wrote:
+> >>>
+> >>>> So after the conversion, it doesn't makes sense to keep STRICT_MM_TYPECHECKS
+> >>>> around. Please correct me if I'm wrong.
+> >>>>
+> >>>> This brings another thing in my mind that in ideal world we would just
+> >>>> turn STRICT_MM_TYPECHECKS on for all arches all the time. But the problem
+> >>>> with it is that STRICT_MM_TYPECHECKS defines pte_t which will stay double
+> >>>> meaning still. So we want sort of STRICT_MM_TYPECHECKS with different name
+> >>>> and separate stack and hardware types.
+> >>>
+> >>> I think STRICT_MM_TYPECHECKS is also to avoid catching when passing a pte_t into
+> >>> a function that consumes a pmd_t, and vice versa.
+> >>>
+> >>> STRICT_MM_TYPECHECKS makes the compiler generate worse code today, which is why
+> >>> we don't enable it always.
+> >>>
+> >>>>
+> >>>>>
+> >>>>> We would like to keep it, and I guess some other architectures too.
+> >>>> David had summarized it well. We'll convert generic code to use hw_p*_t
+> >>>> types which would be typedef to p*_t for those architectures which don't
+> >>>> care about. But if an architecture wants to interpret these types
+> >>>> differently or want to make sure the type is enforced and not directly
+> >>>> dereferenced, they need to convert the arch code a well. But it can be
+> >>>> done slowly.
+> >>>
+> >>> I think what Alexander meant is: they want to keep STRICT_MM_TYPECHECKS (or
+> >>> something that achieves something similar :) ). So as long as that keeps on
+> >>> working, all good :)
+> >> Thank you for clarifying.
+> >>
+> >> It has been a month since I started this discussion. We don't have any
+> >> disagreement on it. Should I proceed to post first part patch series considering
+> >> most people must already have viewed these emails and are on-board with it?
+> > 
+> > Besides the vague disagreement I have (about whether this is worth it or
+> > not), I have an actual objection: I've been doing some constifying of pte_t*
+> > for various reasons lately, and something that just just came up is how
+> > hw_ptep will _not_ work with const, unless you do something like
+> > const_hw_ptep, in which case welcome to Win32 programming or something :|
+> > 
+> > (I'm assuming the idea still is typedef struct { pte_t *pte; } hw_ptep;)
+> We have moved on from this as it was very disruptive. Now we envision the
+> following:
+> 
+> typedef struct {pte_t __pte;} hw_pte_t;
+> 
+> With this, const wouldn't be a problem.
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- .../virt/kvm/devices/arm-vgic-v5.rst          | 38 +++++++++++++++++++
- 1 file changed, 38 insertions(+)
+Ok, great!
 
-diff --git a/Documentation/virt/kvm/devices/arm-vgic-v5.rst b/Documentation=
-/virt/kvm/devices/arm-vgic-v5.rst
-index 50d8030e2c804..c411d2195c6a0 100644
---- a/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-+++ b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-@@ -149,3 +149,41 @@ Groups:
-     -EBUSY   VCPU is running, or write attempted after a VCPU has run
-     -EINVAL  Invalid mpidr or register value supplied
-     =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-+
-+
-+KVM_DEV_ARM_VGIC_GRP_IRS_REGS
-+    Attributes:
-+      The attr field of kvm_device_attr encodes the offset of the IRS regi=
-ster,
-+      relative to the IRS CONFIG_FRAME base address. This is the address t=
-hat
-+      was provided via KVM_VGIC_V5_ADDR_TYPE_IRS when creating VGICv5 in t=
-he
-+      first place.
-+
-+      kvm_device_attr.addr points to a __u64 value whatever the width
-+      of the addressed register (32/64 bits). 64 bit registers can only
-+      be accessed with full length.
-+
-+      Writes to read-only registers are ignored by the kernel except for
-+      IRS_IDR0 - IRS_IDR2 and IRS_IDR5 - IRS_IDR7, which are sanity checke=
-d to
-+      ensure that they match a sane config.
-+
-+      IRS_IDR3 and IRS_IDR4 are RAZ/WI, as nested virtualization is not
-+      supported.
-+
-+      For registers without dedicated userspace accessors, getting or sett=
-ing a
-+      register uses the same emulated MMIO handlers as guest reads/writes.
-+      Dedicated userspace accessors may instead save or restore migration =
-state
-+      without triggering guest-visible side effects. For example, restorin=
-g
-+      IRS_IST_BASER only restores the emulated register state; any host LP=
-I IST
-+      allocation based on the restored IRS_IST_CFGR and IRS_IST_BASER stat=
-e
-+      happens when KVM_DEV_ARM_VGIC_GRP_IST is restored.
-+
-+  Errors:
-+
-+    =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-+    -ENXIO   Offset does not correspond to any supported register
-+    -EFAULT  Invalid user pointer for attr->addr
-+    -EINVAL  Offset is not 32-bit aligned for 32-bit MMIO registers, not
-+             64-bit aligned for 64-bit registers, or the supplied register
-+             value is not compatible with the configured VGICv5 IRS state
-+    -EBUSY   VGIC is not initialized, or one or more VCPUs are running
-+    =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
---=20
-2.34.1
+> 
+> > 
+> > Have you tried sparse instead?
+> We want to ensure safety during compile time. Without going into more detail,
+> more features would be build on top of this type conversion. 
+
+I understand corporate/business goals may be tying your hands together, but
+it's really difficult to think about your proposal critically if we don't have
+all the details.
+
+-- 
+Pedro
 
