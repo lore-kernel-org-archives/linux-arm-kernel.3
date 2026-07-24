@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2985CC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8BAC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mx6s45pl8ce3+CQXW9XOk7a9VTEgFWz5r4/41IBqtcM=; b=mypwUcm2mNw7pt/S9phVHR+dCa
-	kfcarAXv1EVXp/3TdaCX+nqU4SQFMXHYD2hUpzd4TQoMLqSMdgbnkybcFk5IbGDcw9r4aG5xckNeS
-	7GT+g2Ib8odBHUMxjwyUcEZqV8n065dfrQtxUEIT/tGTjjJZNeTLlg6pMQKtn+YpgUzA7npfb0gF5
-	MhkgKNHntuDVPPKuX68dAOi4RAD8PvjOPV6NOOx09v068fEpz+q8TNkl3vtUJ+Jn/YOgnYczchR0b
-	6A5OczhuuIXowiLb7ojZpOn73achhybz6Ii6yJhqnw6XDkdxna8TADPuwWdr/YYm4x2zwh3lq0L7h
-	TmM+CMiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FMJhv9z5CFBD/YkX/TwQca6TS4xilF3ejpMM7qovAEs=; b=xl/Iojmi584ltuoXkL+TK7P9zN
+	3zzPCnibJSPAvzIu2FL5FI1SYG598ovIqM43a5nHk5qZ1V9zQw9cWX1ssgfDAd/W3MFuywwc5/v/L
+	j5dP8PLbmfd6vEDtYc/XNL01kBN+akICdGbOTCsKwgXPU0vSt7piij4g2zypwFMSexZx18wEJ0dPO
+	LJmW1qbUJQ/BFqpVOJEBUGFLZ6LHPurhB8En15QKeU2slT/D4b4HFMr3g2I9+xnyHSDy4+81uv0+s
+	SWXPlTqS7aO09JW1Uxew8PlJ1aZ/dPkPYbyuK2x6gsHBM6Oj1IIh/Kes7hZse9fsjOEIHs5et0WuM
+	JCnbWbuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnAgG-0000000FjJG-0xxy;
-	Fri, 24 Jul 2026 07:50:52 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wnAjS-0000000FjVm-3f6E;
+	Fri, 24 Jul 2026 07:54:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnAgE-0000000FjIX-39Ui
+	id 1wnAjR-0000000FjVe-0Swm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 07:50:51 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4954d383e64so897065e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 00:50:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784879449; x=1785484249; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mx6s45pl8ce3+CQXW9XOk7a9VTEgFWz5r4/41IBqtcM=;
-        b=BRy32X07ODk7L96AzroRTraksUUUgZ62RKnYsQpcGdopZbZIYJl71ovLf/ww4GWI2g
-         SAultWdPQHzMwsOakfOwRtUL0AftgqgEerdz+HR+HUXFQP07jpIatbhPGnVkLRuGyBhO
-         qoYG+d1s33zcMMnjyv/Gm/3wdqRgNeNVaQbPr0V1gkbwrVkcokz/dJPqt4jdAZU2xatv
-         lp/Q5pRUc0c1TM3Ir++EuQ/T+y5J9No5+nCpIAdEd2sXr4sNnDexnh84LJ2vUtnkjHyw
-         A+AyHeDS9JdC7SoqS1XhrudXOmdks9mBTxkH42q0HxqeI1/9Bbdf0EjjAyGMagSjcI1X
-         UL8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784879449; x=1785484249;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mx6s45pl8ce3+CQXW9XOk7a9VTEgFWz5r4/41IBqtcM=;
-        b=Mtff2A4XkkvwqJMbRDE5Q/31eDEX5icZsMVDZzEONlIU5E7OUAngsrglxRFCeNx107
-         fUudERSduMxs2fHiDDlQondEZCUh2W2aEM6WqMYiiDZgBQ8cAWzEOu97CWrpr8SbD9XP
-         xupdYFSVa2pdHKOR+dtzX9g1+NvP+nfiWwLOwsk8jSGumkERSJ9dwf3HpqRlufy1O0iP
-         yRTW852i1/EsbpMGgThpLhMWR4oi0LQEZFb5p3WKQA2DsBbyF6OvlbaJwkWaL1mWWAjN
-         vhtAiVen7UqisNXqi8K8LNDk5PlxV+aZovuYQ943qBwcjArGnCKI20rLDtt2/Qr2ZX+e
-         6DsA==
-X-Gm-Message-State: AOJu0YzUJVflldPy/9U9FAGhA/UKuWR3+UWhQC15MyXabK4pz7p0OnjO
-	gTrnOBueFUMx6OyZ4rbe6eV9tW2fRsgTaIWJH1+3kNumzQ4DRd8TzWTr
-X-Gm-Gg: AR+sD13B+CaE+Ymub6fuKhrkI+xrXG/fh7gaJfQ4tPWPbUXLr8EeUQ31GXWV9hOPHKx
-	V0zqOX8bCjlI0g37VoKF6k1Z2ak8uN+9s5tX8zYs0DOEw7VetQR5rblZkdzeqiEK1YDca/h03A/
-	02B6q9f34B92Rjzv0WtOfU8k0UqPKOJHe9bb9MRScVD2v7kBrzQ7mGmajmBVW4Ixb+uVW9z3fAv
-	+0L2/BOkgB5XLzw07F8pnqrXh7nszISS083DlG1Us4rVK52edEXqi9Zn3pDm3sDOd2lmZOQiSUH
-	VQLNs37iKFqMWx5Wp914IhGUlTK2eSS4K34jLAGA8R6M180ZC+2rPtVUmynkUCKktwgXsF3qFsr
-	HYogeugOALSLf8srvwTYFfaOITuG9lUVwnSoVQR4rDj0mOc9ZVVCkHjG1rY0c5Gr5NhRE67CUmT
-	YWuiZzhYZcxv7l5m3Im1w8WZRYEh1kInl7xvkZTjT6HkZC2vl7etTWUD06m92FFYNtSwwbIAZcB
-	VKttZENnrU57t5YwhjTUgtX4F5vXXNScxvIOBb2hw==
-X-Received: by 2002:a05:600c:6a8a:b0:495:4491:b8c2 with SMTP id 5b1f17b1804b1-49573cbea1fmr51633015e9.3.1784879448261;
-        Fri, 24 Jul 2026 00:50:48 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-077-007-086-196.77.7.pool.telefonica.de. [77.7.86.196])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957f99fa7asm11730455e9.2.2026.07.24.00.50.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 00:50:47 -0700 (PDT)
-Date: Fri, 24 Jul 2026 09:50:16 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Russell King <linux@armlinux.org.uk>, Kevin Cernekee <cernekee@gmail.com>, 
-	Gregory Fong <gregory.0xf0@gmail.com>
-Subject: Re: [PATCH] ARM: set MAX_PHYSMEM_BITS to 32 for !LPAE
-Message-ID: <amMYUsd9vAZIzGz0@gmail.com>
-References: <20260724063048.12565-1-kmehltretter@gmail.com>
- <3c79d2dc-8fbd-40fc-8b2d-9d1b4f8ed34e@app.fastmail.com>
+	Fri, 24 Jul 2026 07:54:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2C9440662
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:54:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A71111F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:54:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784879648;
+	bh=FMJhv9z5CFBD/YkX/TwQca6TS4xilF3ejpMM7qovAEs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=YvQiAVp9MazxyBxwP5VXmgsg9KK3hR6onJa+SwWa2GSNoLZvwsICKzFmolsAFVdUw
+	 Nz4fDrAmcnGb8xgHG1wUi0ybgAz8ivoyM8j5TZPpZbZ+6tp+mYFJtWN5SFY+hWL8VH
+	 aZ3Zv1lJlQS1UvPKqdbb3LP2YRc0TtFTMkISQ+KsfDywFaHE01LA2km1mhCsy0VNKY
+	 wVZiceqgn7+p+4VAT9bdo2zuviTGvX/jvYsLNIlbEjRjDDIgPxD2R5i92WNEXSwqWz
+	 OPRq3NIYUJAatK1Ij7C3F0zmQQcTgQZ3+U7kjzvHwp1yz3F9KAUKlqKy0JLtRvdV7q
+	 GP8KnC4M74mhQ==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b2a4359d16so185841e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 00:54:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrurGS5MbKRDFCiDjxvttrdIOANMTZrUp/sLWeDjDSGA+h2Dj3jkPYOq0+mRmIupg4DpDNDPCHuAJDP0RhNjh95@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3Ea3LV/BIFDkUat/8Ld9n/r+xnL1HoBul/SUWJwAqq7kvejqA
+	AuGfUR+D+Av+LkoccnGX1ESYpWYwRGpJBZEn7PdrKqoFqvYwrv6cFEIi3Wt65VQQFUKvUkzT8ze
+	eyETAYQhWb+5YsNqbiDRgixEuVWBtIMc=
+X-Received: by 2002:a05:6512:688d:10b0:5ae:b952:6c with SMTP id
+ 2adb3069b0e04-5b2b2e52ce3mr973333e87.13.1784879647491; Fri, 24 Jul 2026
+ 00:54:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3c79d2dc-8fbd-40fc-8b2d-9d1b4f8ed34e@app.fastmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_005050_805197_24295771 
-X-CRM114-Status: GOOD (  15.24  )
+References: <20260704121851.63805-1-pengpeng@iscas.ac.cn>
+In-Reply-To: <20260704121851.63805-1-pengpeng@iscas.ac.cn>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 24 Jul 2026 09:53:55 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnpDOEDOL8G1sV5gm650xgh7zCAyBs-v-GNm+nUdUiRSQ@mail.gmail.com>
+X-Gm-Features: AUfX_myaOsUHmAi2ounLhxjoQxyNgxPF8s_2wQdYmsfAdnraAK0RHaizZHihegs
+Message-ID: <CAD++jLnpDOEDOL8G1sV5gm650xgh7zCAyBs-v-GNm+nUdUiRSQ@mail.gmail.com>
+Subject: Re: [PATCH] soc: ixp4xx: qmgr: add missing MODULE_DEVICE_TABLE()
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Imre Kaloz <kaloz@openwrt.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,25 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 09:23:45AM +0100, Arnd Bergmann wrote:
-> When we added the 36 bit limit, that was specifically to account
-> for CONFIG_IO_36 on XSC3 cores, see commit 23bdf86aa06e ("[ARM]
-> 3377/2: add support for intel xsc3 core") and the thread around
-> 
-> https://lore.kernel.org/all/CAK8P3a2MCdUbN0QSb+M3g5_6HjPsaQwtKxFjADMZWomdry4-Ww@mail.gmail.com/
-> 
-> It's probably safe to assume that none of this is used in
-> practice, as only PXA3xx has this CPU core now that IXP23xx and IOP
-> are gone, and PXA does not use the high addressing. Similarly, we
-> never had any platform attempt to use IO_36 on ARMv6 or ARMv7-A.
-> 
-> Can you update the patch to also remove CONFIG_IO_36 and explain
-> the dependency?
+On Sat, Jul 4, 2026 at 2:18=E2=80=AFPM Pengpeng Hou <pengpeng@iscas.ac.cn> =
+wrote:
 
-Hi Arnd,
+> The driver has an OF match table wired to .of_match_table, but does
+> not export the table with MODULE_DEVICE_TABLE().
+>
+> Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
+> information is generated for OF based module autoloading.
+>
+> This is a source-level fix.  It does not claim dynamic hardware
+> reproduction; the evidence is the driver-owned match table, its use by
+> the platform driver, and the missing module alias publication.
+>
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-Good catch, I wasn't aware of that history. I'll do that.
+Patch applied.
 
-Thanks,
-Karl
+Yours,
+Linus Walleij
 
