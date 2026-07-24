@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47D6C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:36:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57664C531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 07:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFnDdKu3Hxl7FTSkySekyyZQVF8xWD+m4hHcrRsAWRQ=; b=ZrPo8odKNopjiA13poKc/MZk2e
-	6BvcwnXmHNPNGgGFX7YL99OEeqqrB0AMLQD6g7nPuGnm0ofYk1wf6qYZZx5ahoYemGjspJQN5qgG0
-	Oq0X4mKABkED3xfGebOXt+V8caxAI+c4naDmBp47FbRhlOYLqvdU28lzPjko2DIpiZfFCmdcwyl90
-	K7dRzApKmw3EEaBsA4fo6Y+QIsUtXZPYMHd95NrpX62aMYIKRnZ7wxqoszJ5XiDdaB48iprHzV9Du
-	mfT+FI05YnSS6vkGcyzcjOcrDYvjGkVJpYuU1bgcv/Y+nx1qk7qwdg9fHlSf5v1YdkdWwCBEVIKsB
-	3gQHO6Bw==;
+	bh=usmnOREhVpp5UGqsgZqVu1SHhZoxM8bbKfW0aG7kuQ8=; b=2btdQSe7Uy5c1cngC1rb8RqL+g
+	WPrCE0zxMncnIG0oy1gAhN0s24iOJM5HXnuWdtSHPikGFotnqwsJ0oiBFX9utjC4PNHAvRSyxrle9
+	dcaeqBaXEd2E5B673H6qhcAerccrJ+XOrmlRn2yI1u48p8jtb51DWaJIqH3HX9Hua7IEV+pqT6aH4
+	+HqRDqPhaTWTD9Xbo+v4wHA8d9dyu/OyGHGQZILAAWmG7/1loHKyMVdyP+D03baoQV5082+tAzpbg
+	KDk8R1IO5g6ItQNb0j8wd6mRouGEhMswgUg3QUt6kLm3FGRT17iRI+DLad2JSdx0utLOA+1A0ks3h
+	hC7xQUtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnASM-0000000Fi9y-2hKE;
-	Fri, 24 Jul 2026 07:36:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wnAT7-0000000FiFh-3JuX;
+	Fri, 24 Jul 2026 07:37:17 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnASK-0000000Fi9m-3soS
+	id 1wnAT3-0000000FiEK-3P5I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 07:36:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05A0260A5A
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:36:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF47A1F00AC4
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 07:36:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784878587;
-	bh=eFnDdKu3Hxl7FTSkySekyyZQVF8xWD+m4hHcrRsAWRQ=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=MLy06/I0fd8Uq55S3u0uGmXIyTABIzm9KivElpqsecq90DoPS/uGrgW/wgMMUKGa0
-	 NUI9lKLp2yOC3a61ntTBsbFGIiXyj+dOWY0vewNZr2FO3VMeWJ+lhpJ8WIGWOfmF53
-	 qN/Gkv29CIf3B5XvZYifZGSgfKNSSqNGF7JfrxLQbWBp4HYKyvHzV5Xofyza72pxrd
-	 iH39CspY+C/5EM74xFsFleT9Xmp3ToX79d03DbO1pxV2sIkxB3a/bvQhkaTA5kqo3R
-	 Hm1CmGQq8x4mio7bTIzIwMHpPlLx/V7zPio5tZBeGKd+IEJGwSPrkUIeVZX848FNY5
-	 i/RxPFrLD+xRA==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39da69c5ba3so983171fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 00:36:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpfrkuyW7HzFfj+hBS/Gwf8YmvdIVwltpHGJF2BTN9cKK1batVqq8sqGUVKiPwLVnL0dSinbb6mRqz7FVHokZGK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyKy9aSgMh7kkVaGo1GOz++zu/N/6v9+dala6RSvJ0OnJhCagh
-	uGAkGC6hIvQL+shXaQ2RLgT9MD+IAaBOnRnvVVTaIDaIgEyh7GXQmgxdTZ3UtC7bllDhhcPJ39A
-	ir+9tBWpguZDJsrD4cQVa5a4G02EcD0t5V3v8/w89Yw==
-X-Received: by 2002:a05:651c:b1f:b0:39b:4371:dbeb with SMTP id
- 38308e7fff4ca-39f07f1978cmr14723081fa.36.1784878586411; Fri, 24 Jul 2026
- 00:36:26 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 24 Jul 2026 00:36:24 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 24 Jul 2026 00:36:24 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <2026072410-drained-acts-3502@gregkh>
+	Fri, 24 Jul 2026 07:37:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=usmnOREhVpp5UGqsgZqVu1SHhZoxM8bbKfW0aG7kuQ8=; b=DnG9dbqI3bQmjKK8AaX7nsQebi
+	A6x30SWeQ1BONjyGd0tlJkOWcOVP6pA6p0iCjVkp5Jxouu+CSLSap9vQey5Fzzfg2TtyMcsrZPNKT
+	2RqjiGgSHw2PqHcimSyYSv5IfnttBl1b0cLRAdBTmg2E+YVMoUGQkd9GIH3SZiErFPLRzicH3gC5R
+	RsIx8qRhQ1Q9YaLEgQdxmiiLWoxowfgv1ZMwjaG6jOUAO0t4/Kno0NfgmDp+cQsf36RBQXRINCk8E
+	868Z1tiS393ysUP6fAOPnO+QUPli2OabsTCECxkxAeXnf5LlOrUuTpd4Hsjw66RNfV6r1lisZSlkQ
+	NeLiuaYA==;
+Received: from sslproxy04.your-server.de ([78.46.152.42])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wnASt-000Nx6-2V;
+	Fri, 24 Jul 2026 09:37:03 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wnASs-000EuX-3C;
+	Fri, 24 Jul 2026 09:37:03 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: festevam@gmail.com, dri-devel@lists.freedesktop.org
+Cc: m.felsch@pengutronix.de, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Liu Ying <victor.liu@nxp.com>
+Subject: Re: [PATCH v13] drm/bridge: imx: Add i.MX93 parallel display format
+ configuration support
+Date: Fri, 24 Jul 2026 09:37:01 +0200
+Message-ID: <3722274.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260723-v6-18-topic-imx93-parallel-display-v13-1-ccf3f9bbc0fc@nxp.com>
+References: <20260723-v6-18-topic-imx93-parallel-display-v13-1-ccf3f9bbc0fc@nxp.com>
 MIME-Version: 1.0
-References: <20260724050645.223799-1-ebiggers@kernel.org> <2026072410-drained-acts-3502@gregkh>
-Date: Fri, 24 Jul 2026 00:36:24 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
-X-Gm-Features: AUfX_my5XZyE7UqXKRq4QXkQ89HpYi6P6qHi08NgO2eVL5ur0W8C7gKD-xXnu0M
-Message-ID: <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
-Subject: Re: [PATCH] crypto: qce - Remove driver
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-crypto@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Demi Marie Obenour <demiobenour@gmail.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Eric Biggers <ebiggers@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28069/Thu Jul 23 08:24:48 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_003714_264125_D77A9FCC 
+X-CRM114-Status: GOOD (  37.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,66 +93,426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 07:28:53 +0200, Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> said:
-> On Thu, Jul 23, 2026 at 10:06:45PM -0700, Eric Biggers wrote:
->> This obsolete driver was already marked as BROKEN.  However, keeping
->> BROKEN code around in the tree is unnecessary and causes problems.  It's
->> much better to just remove it entirely.  Let's do that.
->>
->> Crypto acceleration remains well-supported on Qualcomm SoCs via the
->> Qualcomm Inline Crypto Engine and the ARMv8 Crypto Extensions, which are
->> what Linux actually uses in practice.  The obsolete QCE driver is a
->> dead-end approach.  It's extremely slow and just doesn't work well.
->>
->> While there's been discussion around using QCE for restricted media
->> content protection, that functionality has very little to do with the
->> current crypto API driver and belongs in a separate, clean proposal
->> (likely under a different subsystem/directory).
->>
->> The extensive reasons for marking this driver as BROKEN were already
->> documented in commit df373d39c6f0 ("crypto: qce - Mark QCE as BROKEN").
->>
->> Since then, it's also been found that under realistic workloads, the
->> driver is not only ~48x slower than ARMv8 CE, but due to massive driver
->> overhead it actually consumes significantly *more* CPU cycles than doing
->> the hashing directly on the CPU -- with much of that time spent in
->> non-preemptible hardirq and softirq contexts
->> (https://lore.kernel.org/linux-crypto/20260724020608.GA51735@sol/).  The
->> proposed BAM locking fixes would only further degrade performance.
->>
->> Additional bugs have been found as well
->> (https://lore.kernel.org/linux-crypto/20260723205801.GD110634@quark/).
->> Pending fixes for some bugs don't change the big picture.  Nor have
->> security-related claims held up.  Of course, these issues are largely
->> moot anyway when this driver's functionality isn't being used in
->> practice, beyond the module loading due to it being in the kconfig.
->>
->> Note that this removal does *not* imply that various other drivers in
->> drivers/crypto/ don't have similar issues.  They do.  Rather, the
->> evidence is just exceptionally clear for this one, in part because
->> hardware availability has enabled independent testing.
->>
->> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
->
-> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->
+Am Donnerstag, 23. Juli 2026, 08:37:32 CEST schrieb Liu Ying:
+> NXP i.MX93 mediamix blk-ctrl contains one DISPLAY_MUX register which
+> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> field. Add a DRM bridge driver to support the display format configuratio=
+n.
+>=20
+> [m.felsch@pengutronix.de: port to v7.0-rc1]
+> [m.felsch@pengutronix.de: add review feedback (Alexander)]
+> [m.felsch@pengutronix.de: fix to short Kconfig description (checkpath)]
+> [m.felsch@pengutronix.de: use "GPL" instead of "GPL v2" (checkpatch)]
+> [m.felsch@pengutronix.de: add bus-width support]
+> [ Liu Ying: Port to drm-misc/drm-misc-next(v7.2-rc2 based) ]
+> [ Liu Ying: Add nxp,imx91-pdfc compatible string ]
+> [ Liu Ying: Call drm_bridge_get() for next_bridge ]
+> [ Liu Ying: Reject unsupported output bus fmt in .atomic_get_input_bus_fm=
+ts() ]
+>=20
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 
-Greg,
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-I'm against removing this driver but I have a kernel driver policy question
-before I start arguing the case: If I say that I do use this driver and that
-I volunteer to maintain it and had already started sending out fixes, can
-Eric still force its removal? Because in this case I can name a whole lot of
-drivers that I deem useless that we still keep around.
+> ---
+> Hi,
+>=20
+> I'm taking Marco Felsch's v11 work over and trying to add the imx93-pdfc.c
+> driver.
+>=20
+> DT binding patch and DT patch in v11 have already landed, so only need
+> to send the driver patch out for review.
+> ---
+> Changes in v13:
+> - Reject unsupported output bus fmt in .atomic_get_input_bus_fmts()  (Sas=
+hiko bot)
+> - Tweak commit message about change log
+> - Link to v12: https://patch.msgid.link/20260722-v6-18-topic-imx93-parall=
+el-display-v12-1-a59dbb4dbc13@nxp.com
+>=20
+> Changes in v12:
+> - Link to v11: https://lore.kernel.org/r/20260303-v6-18-topic-imx93-paral=
+lel-display-v11-0-1b03733c8461@pengutronix.de
+> - Rebase onto latest drm-misc/drm-misc-next
+> - Drop DT binding patch and DT patch because they have landed
+> - Add nxp,imx91-pdfc compatible string
+> - Call drm_bridge_get() for next_bridge
+> - Cc Marco
+>=20
+> Changes in v11:
+> - Link to v10: https://lore.kernel.org/r/20260302-v6-18-topic-imx93-paral=
+lel-display-v10-0-634fe2778c7a@pengutronix.de
+> - Fix double space (Liu)
+> - Drop 'const' (Liu)
+> - Drop GFP_KERNEL from kmalloc_obj() (Liu)
+> - Add r-b (Luca)
+>=20
+> Changes in v10:
+> - Link to v9: https://lore.kernel.org/r/20260115-v6-18-topic-imx93-parall=
+el-display-v9-0-2c5051e4b144@pengutronix.de
+> - Add MEDIA_BUS_FMT_FIXED (Liu)
+> - Drop next_bridge from driver struct and use bridge.next_bridge (Liu)
+> - Drop linux/of_address.h include (Liu)
+> - imx93-pdfc: drop bridge.driver_private usage++ (Liu)
+> - Make use of kmalloc_obj() (Liu)
+>=20
+> Changes in v9:
+> - Link to v8: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-parall=
+el-display-v8-0-4abccdc473a5@pengutronix.de
+> - dt-bindings: drop unncessary changes (Frank)
+> - imx93-pdfc: drop bridge.driver_private usage (Luca)
+> - Kconfig: Adapt Kconfig symbol and prompt (Luca)
+>=20
+> Changes in v8:
+> - Link to v7: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-parall=
+el-display-v7-0-2cce31d64608@pengutronix.de
+> - dt-bindings: add nxp,imx91-pdfc compatible (Liu)
+> - dt-bindings: use video-interfaces.yaml# (Liu)
+> - dt-bindings: s/data lanes/data lines/ (Liu)
+> - dt-bindings: drop 'reg' poperty
+> - dt-bindings: drop #address-cells, #size-cells
+> - imx93-pdfc: drop drm/drm_print.h include (Liu)
+> - imx93-pdfc: s/exist/exists/ (Liu)
+> - imx93-pdfc: drop MEDIA_BUS_FMT_FIXED from imx93_pdfc_bus_output_fmts
+> - imx93-pdfc: imx93_pdfc_bus_output_fmt_supported: make fmt const
+> - imx93-pdfc: Rework input-fmt selection to always fallback to a sane
+>               default.
+> - imx93-pdfc: imx93_pdfc_bridge_atomic_check: make use of
+> 	      imx93_pdfc_bus_output_fmt_supported()
+> - imx93-pdfc: drop 'reg' dt-property usage
+> - imx93-pdfc: imx93_pdfc_bridge_probe: pass -1 for endpoint reg value (Li=
+u)
+>=20
+> Changes in v7:
+> - Link to v6: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-parall=
+el-display-v6-0-7b056e1e5b1e@pengutronix.de
+> - Add missing bits.h and bitfield.h headers (lkp)
+>=20
+> Changes in v6:
+> - Link to v5: https://lore.kernel.org/all/20250304082434.834031-1-victor.=
+liu@nxp.com/
+> - Add bus-width support
+> - rebase onto v6.18-rc1
+> - add review feedback (Alexander)
+> - driver license "GPL v2" -> "GPL" (checkpatch)
+> - make use of reg of-property
+> - fix to short Kconfig description (checkpath)
+> - add OF integration
+>=20
+> To: Liu Ying <victor.liu@nxp.com>
+> To: Andrzej Hajda <andrzej.hajda@intel.com>
+> To: Neil Armstrong <neil.armstrong@linaro.org>
+> To: Robert Foss <rfoss@kernel.org>
+> To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> To: Jonas Karlman <jonas@kwiboo.se>
+> To: Jernej Skrabec <jernej.skrabec@gmail.com>
+> To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> To: Maxime Ripard <mripard@kernel.org>
+> To: Thomas Zimmermann <tzimmermann@suse.de>
+> To: David Airlie <airlied@gmail.com>
+> To: Simona Vetter <simona@ffwll.ch>
+> To: Frank Li <Frank.Li@nxp.com>
+> To: Sascha Hauer <s.hauer@pengutronix.de>
+> To: Pengutronix Kernel Team <kernel@pengutronix.de>
+> To: Fabio Estevam <festevam@gmail.com>
+> Cc: linux-kernel@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  drivers/gpu/drm/bridge/imx/Kconfig      |  11 ++
+>  drivers/gpu/drm/bridge/imx/Makefile     |   1 +
+>  drivers/gpu/drm/bridge/imx/imx93-pdfc.c | 222 ++++++++++++++++++++++++++=
+++++++
+>  3 files changed, 234 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/=
+imx/Kconfig
+> index 005a745e5c47..49fcecfee38e 100644
+> --- a/drivers/gpu/drm/bridge/imx/Kconfig
+> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
+> @@ -107,4 +107,15 @@ config DRM_IMX93_MIPI_DSI
+>  	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
+>  	  processor.
+> =20
+> +config DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER
+> +	tristate "NXP i.MX91/i.MX93 parallel display format converter"
+> +	depends on OF
+> +	select DRM_KMS_HELPER
+> +	help
+> +	  On i.MX93 and i.MX91 SoCs the parallel display format output is
+> +	  controlled via the MEDIAMIX BLK-CTRL DISPLAY_MUX.
+> +
+> +	  Say 'Y' or 'M' if you use the parallel display output path on a
+> +	  i.MX93 or i.MX91 SoC.
+> +
+>  endif # ARCH_MXC || COMPILE_TEST
+> diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge=
+/imx/Makefile
+> index 94ac8c40ebe9..99f28cd013ae 100644
+> --- a/drivers/gpu/drm/bridge/imx/Makefile
+> +++ b/drivers/gpu/drm/bridge/imx/Makefile
+> @@ -10,3 +10,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_COMBINER) +=3D imx8qxp-p=
+ixel-combiner.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) +=3D imx8qxp-pixel-link.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) +=3D imx8qxp-pxl2dpi.o
+>  obj-$(CONFIG_DRM_IMX93_MIPI_DSI) +=3D imx93-mipi-dsi.o
+> +obj-$(CONFIG_DRM_IMX93_PARALLEL_DISP_FMT_CONVERTER) +=3D imx93-pdfc.o
+> diff --git a/drivers/gpu/drm/bridge/imx/imx93-pdfc.c b/drivers/gpu/drm/br=
+idge/imx/imx93-pdfc.c
+> new file mode 100644
+> index 000000000000..2d6ca95ed554
+> --- /dev/null
+> +++ b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
+> @@ -0,0 +1,222 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +
+> +/*
+> + * Copyright 2022-2025 NXP
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/media-bus-format.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_graph.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <drm/drm_atomic_state_helper.h>
+> +#include <drm/drm_bridge.h>
+> +
+> +#define IMX93_DISPLAY_MUX_REG		0x60
+> +#define PARALLEL_DISP_FORMAT		GENMASK(10, 8)
+> +#define FORMAT_RGB888_TO_RGB888		FIELD_PREP(PARALLEL_DISP_FORMAT, 0)
+> +#define FORMAT_RGB888_TO_RGB666		FIELD_PREP(PARALLEL_DISP_FORMAT, 1)
+> +#define FORMAT_RGB565_TO_RGB565		FIELD_PREP(PARALLEL_DISP_FORMAT, 2)
+> +
+> +struct imx93_pdfc {
+> +	struct drm_bridge bridge;
+> +	struct device *dev;
+> +	struct regmap *regmap;
+> +	u32 phy_bus_width;
+> +};
+> +
+> +static struct imx93_pdfc *bridge_to_imx93_pdfc(struct drm_bridge *bridge)
+> +{
+> +	return container_of(bridge, struct imx93_pdfc, bridge);
+> +}
+> +
+> +static int
+> +imx93_pdfc_bridge_attach(struct drm_bridge *bridge, struct drm_encoder *=
+encoder,
+> +			 enum drm_bridge_attach_flags flags)
+> +{
+> +	return drm_bridge_attach(bridge->encoder, bridge->next_bridge, bridge, =
+flags);
+> +}
+> +
+> +static void imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
+> +					    struct drm_atomic_commit *state)
+> +{
+> +	struct imx93_pdfc *pdfc =3D bridge_to_imx93_pdfc(bridge);
+> +	const struct drm_bridge_state *bridge_state;
+> +	unsigned int mask =3D PARALLEL_DISP_FORMAT;
+> +	unsigned int val;
+> +
+> +	bridge_state =3D drm_atomic_get_new_bridge_state(state, bridge);
+> +
+> +	switch (bridge_state->output_bus_cfg.format) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +	case MEDIA_BUS_FMT_FIXED:
+> +		val =3D FORMAT_RGB888_TO_RGB888;
+> +		if (pdfc->phy_bus_width =3D=3D 18) {
+> +			/*
+> +			 * Can be valid if physical bus limitation exists,
+> +			 * therefore use dev_dbg().
+> +			 */
+> +			dev_dbg(pdfc->dev, "Truncate two LSBs from each color\n");
+> +			val =3D FORMAT_RGB888_TO_RGB666;
+> +		}
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> +		val =3D FORMAT_RGB888_TO_RGB666;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		val =3D FORMAT_RGB565_TO_RGB565;
+> +		break;
+> +	}
+> +
+> +	regmap_update_bits(pdfc->regmap, IMX93_DISPLAY_MUX_REG, mask, val);
+> +}
+> +
+> +/* TODO: Add YUV formats */
+> +static const u32 imx93_pdfc_bus_output_fmts[] =3D {
+> +	MEDIA_BUS_FMT_FIXED,
+> +	MEDIA_BUS_FMT_RGB888_1X24,
+> +	MEDIA_BUS_FMT_RGB666_1X18,
+> +	MEDIA_BUS_FMT_RGB565_1X16,
+> +};
+> +
+> +static bool imx93_pdfc_bus_output_fmt_supported(u32 fmt)
+> +{
+> +	int i;
+> +
+> +	for (i =3D 0; i < ARRAY_SIZE(imx93_pdfc_bus_output_fmts); i++) {
+> +		if (imx93_pdfc_bus_output_fmts[i] =3D=3D fmt)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+> +static u32 *
+> +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+> +					    struct drm_bridge_state *bridge_state,
+> +					    struct drm_crtc_state *crtc_state,
+> +					    struct drm_connector_state *conn_state,
+> +					    u32 output_fmt,
+> +					    unsigned int *num_input_fmts)
+> +{
+> +	u32 *input_fmts;
+> +
+> +	*num_input_fmts =3D 0;
+> +
+> +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt))
+> +		return NULL;
+> +
+> +	input_fmts =3D kmalloc_obj(*input_fmts);
+> +	if (!input_fmts)
+> +		return NULL;
+> +
+> +	*num_input_fmts =3D 1;
+> +
+> +	switch (output_fmt) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		input_fmts[0] =3D output_fmt;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> +	case MEDIA_BUS_FMT_FIXED:
+> +		input_fmts[0] =3D MEDIA_BUS_FMT_RGB888_1X24;
+> +		break;
+> +	}
+> +
+> +	return input_fmts;
+> +}
+> +
+> +static int imx93_pdfc_bridge_atomic_check(struct drm_bridge *bridge,
+> +					  struct drm_bridge_state *bridge_state,
+> +					  struct drm_crtc_state *crtc_state,
+> +					  struct drm_connector_state *conn_state)
+> +{
+> +	struct imx93_pdfc *pdfc =3D bridge_to_imx93_pdfc(bridge);
+> +	u32 format =3D bridge_state->output_bus_cfg.format;
+> +
+> +	if (imx93_pdfc_bus_output_fmt_supported(format))
+> +		return 0;
+> +
+> +	dev_warn(pdfc->dev, "Unsupported output bus format: 0x%x\n", format);
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static const struct drm_bridge_funcs funcs =3D {
+> +	.attach			=3D imx93_pdfc_bridge_attach,
+> +	.atomic_enable		=3D imx93_pdfc_bridge_atomic_enable,
+> +	.atomic_duplicate_state	=3D drm_atomic_helper_bridge_duplicate_state,
+> +	.atomic_destroy_state	=3D drm_atomic_helper_bridge_destroy_state,
+> +	.atomic_get_input_bus_fmts	=3D imx93_pdfc_bridge_atomic_get_input_bus_f=
+mts,
+> +	.atomic_check		=3D imx93_pdfc_bridge_atomic_check,
+> +	.atomic_create_state	=3D drm_atomic_helper_bridge_create_state,
+> +};
+> +
+> +static int imx93_pdfc_bridge_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct drm_bridge *next_bridge;
+> +	struct imx93_pdfc *pdfc;
+> +	struct device_node *ep;
+> +	int err;
+> +
+> +	pdfc =3D devm_drm_bridge_alloc(dev, struct imx93_pdfc, bridge, &funcs);
+> +	if (IS_ERR(pdfc))
+> +		return PTR_ERR(pdfc);
+> +
+> +	pdfc->regmap =3D syscon_node_to_regmap(dev->of_node->parent);
+> +	if (IS_ERR(pdfc->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(pdfc->regmap),
+> +				     "failed to get regmap\n");
+> +
+> +	/* No limits per default */
+> +	pdfc->phy_bus_width =3D 24;
+> +
+> +	/* Get output ep (port1/endpoint) */
+> +	ep =3D of_graph_get_endpoint_by_regs(dev->of_node, 1, -1);
+> +	if (ep) {
+> +		err =3D of_property_read_u32(ep, "bus-width", &pdfc->phy_bus_width);
+> +		of_node_put(ep);
+> +
+> +		/* bus-width is optional but it must have valid data if present */
+> +		if (err && err !=3D -EINVAL)
+> +			return dev_err_probe(dev, err,
+> +					     "failed to query bus-width\n");
+> +	}
+> +
+> +	next_bridge =3D devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
+> +	if (IS_ERR(next_bridge))
+> +		return dev_err_probe(dev, PTR_ERR(next_bridge),
+> +				     "failed to get next bridge\n");
+> +	pdfc->dev =3D dev;
+> +	pdfc->bridge.of_node =3D dev->of_node;
+> +	pdfc->bridge.type =3D DRM_MODE_CONNECTOR_DPI;
+> +	pdfc->bridge.next_bridge =3D drm_bridge_get(next_bridge);
+> +
+> +	return devm_drm_bridge_add(dev, &pdfc->bridge);
+> +}
+> +
+> +static const struct of_device_id imx93_pdfc_dt_ids[] =3D {
+> +	{ .compatible =3D "nxp,imx91-pdfc", },
+> +	{ .compatible =3D "nxp,imx93-pdfc", },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, imx93_pdfc_dt_ids);
+> +
+> +static struct platform_driver imx93_pdfc_bridge_driver =3D {
+> +	.probe	=3D imx93_pdfc_bridge_probe,
+> +	.driver	=3D {
+> +		.of_match_table =3D imx93_pdfc_dt_ids,
+> +		.name =3D "imx93_pdfc",
+> +	},
+> +};
+> +module_platform_driver(imx93_pdfc_bridge_driver);
+> +
+> +MODULE_DESCRIPTION("NXP i.MX93 parallel display format configuration dri=
+ver");
+> +MODULE_AUTHOR("Liu Ying <victor.liu@nxp.com>");
+> +MODULE_LICENSE("GPL");
+>=20
+> ---
+> base-commit: 9499d3bc41a2c4e6a1badfb55f943b9d0c34f034
+> change-id: 20251201-v6-18-topic-imx93-parallel-display-95f9234bf6cc
+>=20
+> Best regards,
+> -- =20
+> Regards,
+> Liu Ying
+>=20
+>=20
 
-The alg priority of this driver has been decreased below that of ARM CE and
-since CRYPTO_ALG_KERN_DRIVER_ONLY it can no longer be used accidentally by
-user-space either.
 
-Even if in practice the driver is used for testing purposes - does this warrant
-its removal?
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-Thanks,
-Bartosz
+
 
