@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB7B8C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E00C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tb5O8wjKcs1Pw/yvf0gMKaayemz7IuqUU9nVaaWlvg8=; b=DtlscumxZadmlz45yVams03tEq
-	rTBx3d8ngbPmpIW5Iyuwm5eCRxGg99rBiq0pSjPJcbKzaS7S1ypJ3ycSP3nUtRt2PyeWWeru7qn30
-	OMJUVdGYrvkDxAzPdLzhamxK7CNIXBFAxwS2Ur36rhXheuJs+6Uj7pj3BnZRAbtV8TdDKIEgUrilp
-	5wRc6EU0FTTPTWt9+MFDSeDpW7uu2BEWEeIUKS1sN9OV+AbYkNBxjlfrBYwnWFoxGuHzAAUBD6YhK
-	w30JsmAjauxYyxBnLqvC31DejIch+wXcwa1agQNxXrMowvLWecBhLIvxR0mNJrvQ6Bfz3O8zMaVJ6
-	C0DNWYww==;
+	bh=uuUNKxqY+LG3qQIlLd9qfr9KhKPVbYZ6sV4UqffU++M=; b=3pwsVNrD17cCRNdPHmrpJ4ZNGs
+	m9aCp/YVDqYBPezNs9qSvEkuorO8gZweb76SOuj+SScXo4M6/yde6LOI0GwNFWDAp5Arp4v4Ty3oX
+	La6Lv5BxtxU8+XPRRLNLvOOJRyuElQc5JYsrCrwRA69ZxBRf3+xvmJj1+fuhiB4YjZceqU9yIQHTP
+	cZQAROzVlDeuJ7RrYT1Ep9znAP4noynaIfKYsMr/oZMRVZK2rxitOV4icjdSLQ71E1lzY/9ePkr2z
+	ZYuLWnBfR7gpjkQX9pl0iPd1qOj64VTKxvfYyDCNwtKaCYbduReonlHgfu1x9N4TDeu7hIWvU23Wi
+	OD6A5Atw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHXU-0000000Geb8-1ksz;
-	Fri, 24 Jul 2026 15:10:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wnHYd-0000000Gek9-2VCW;
+	Fri, 24 Jul 2026 15:11:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHXS-0000000Gear-20SD
+	id 1wnHYa-0000000GejS-3aFo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 15:10:14 +0000
+	Fri, 24 Jul 2026 15:11:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 282A24323D;
-	Fri, 24 Jul 2026 15:10:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AADC81F000E9;
-	Fri, 24 Jul 2026 15:10:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D831600B0;
+	Fri, 24 Jul 2026 15:11:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 777591F000E9;
+	Fri, 24 Jul 2026 15:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784905814;
-	bh=tb5O8wjKcs1Pw/yvf0gMKaayemz7IuqUU9nVaaWlvg8=;
+	s=k20260515; t=1784905883;
+	bh=uuUNKxqY+LG3qQIlLd9qfr9KhKPVbYZ6sV4UqffU++M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=clXeYOxQXDLXpoAFDrENkwTGS7dui0fvsU/h7Ajf1ew3+S1zHO/VInmDubBEe3KWJ
-	 JX6jw8hkeIkNGGu6MY3CNkRCy3HysYs8Nb1uimnA1D4lSbUVRwffoZHRkJC3MpQAuL
-	 Z2MKlVbWshUBo2CLTVtcgzh9vLEcvQCh1dCSo2VQvftbC9Fv41taVeNEu9puIqTQQT
-	 fx5k1OoQV4j+3oVp7dQXtTWzQb0HpQWJfKB/UC0e9LAAJYVebm2TTU0e49BOMnI8WG
-	 BNvgUvp4of6vGbUSykKTAFl/EXryoPxo8uD4ojxLNdMP6+36VCT5lSZ1apZFEeCgdU
-	 Dvo0Dg6q+d4IA==
-Date: Fri, 24 Jul 2026 16:09:53 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Suren Baghdasaryan <surenb@google.com>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"Denis V. Lunev" <den@virtuozzo.com>, "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
-	stable@vger.kernel.org, syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-Subject: Re: [PATCH mm-hotfixes v6 0/5] mm: fix UAF caused by race between
- ptdump and vmap pgtable freeing
-Message-ID: <amOANEMRAsJsTBR3@lucifer>
-References: <20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org>
- <20260723162646.350cf3bf415a0855140d139b@linux-foundation.org>
- <20260723163233.54b38cfc682a25eb6edf7cc7@linux-foundation.org>
+	b=aKhfvHI6bLFKFB7z6X+qsS4QCJnBrahaBRx3Q/JMuLtPQG+QZ82AtxdGJOSLjb6+P
+	 hZuxyfmpixjWi7OE8NnL1tGUa6DudXfIQcogi+bjXFosj5udX2QSa+0E3fRZ5drm63
+	 4ZKF57Cqj4rJIIWBdADeDjPOO7h0uUKLR2z2T1lKkZPliw+GRU4JKdSrAH+sABAIsR
+	 xwT64UfzODvP53K1U8a6BooGb1uYn+C8+BbeqvQNhTon/oNb/P0TnwDR9kCqzrRZYz
+	 QOtPqW6bQ/OLf8qMXXg/CMtpC4kw7fGsk7m1uu4u8lzIBHS9nEmY91V1v1lFfYBdMW
+	 6zXqy4qAEz1ew==
+Date: Fri, 24 Jul 2026 08:09:32 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Demi Marie Obenour <demiobenour@gmail.com>,
+	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH] crypto: qce - Remove driver
+Message-ID: <20260724150932.GA6763@sol>
+References: <20260724050645.223799-1-ebiggers@kernel.org>
+ <2026072410-drained-acts-3502@gregkh>
+ <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
+ <2026072412-decrease-sandbag-70a1@gregkh>
+ <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
+ <20260724141414.GB1876@sol>
+ <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
+ <2026072455-subtly-prayer-0a8a@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260723163233.54b38cfc682a25eb6edf7cc7@linux-foundation.org>
+In-Reply-To: <2026072455-subtly-prayer-0a8a@gregkh>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 04:32:33PM -0700, Andrew Morton wrote:
-> On Thu, 23 Jul 2026 16:26:46 -0700 Andrew Morton <akpm@linux-foundation.org> wrote:
->
-> > @@ -1250,7 +1251,11 @@ static int split_large_page(struct cpa_d
-> >
-> >  	if (!debug_pagealloc_enabled())
-> >  		spin_unlock(&cpa_lock);
-> > +	if (cpa->init_mm_read_locked)
-> > +		mmap_read_unlock(&init_mm);
-> >  	ptdesc = pagetable_alloc(GFP_KERNEL, 0);
-> > +	if (cpa->init_mm_read_locked)
-> > +		mmap_read_lock(&init_mm);
-> >  	if (!debug_pagealloc_enabled())
-> >  		spin_lock(&cpa_lock);
-> >  	if (!ptdesc)
->
-> btw, this affects your later "x86/mm/pat: allocate split page tables as
-> kernel page tables".  Which I resolved thusly:
->
-> static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
-> 			    unsigned long address)
-> {
-> 	pte_t *pte;
->
-> 	if (!debug_pagealloc_enabled())
-> 		spin_unlock(&cpa_lock);
-> 	if (cpa->init_mm_read_locked)
-> 		mmap_read_unlock(&init_mm);
-> 	pte = pte_alloc_one_kernel(&init_mm);
-> 	if (cpa->init_mm_read_locked)
-> 		mmap_read_lock(&init_mm);
-> 	if (!debug_pagealloc_enabled())
-> 		spin_lock(&cpa_lock);
-> 	if (!pte)
-> 		return -ENOMEM;
->
-> 	if (__split_large_page(cpa, kpte, address, pte))
-> 		pte_free_kernel(&init_mm, pte);
->
-> 	return 0;
-> }
->
->
+On Fri, Jul 24, 2026 at 05:04:46PM +0200, Greg Kroah-Hartman wrote:
+> On Fri, Jul 24, 2026 at 02:47:48PM +0000, Bartosz Golaszewski wrote:
+> > On Fri, 24 Jul 2026 16:14:14 +0200, Eric Biggers <ebiggers@kernel.org> said:
+> > >
+> > > And with the defaults QCE is *never* used.
+> > >
+> > 
+> > It's almost EOD here and I'm going to disconnect for the weekend but I just
+> > wanted to say before I leave: this has never been a reason for an aggresive
+> > removal of any driver. We remove drivers when we stop supporting entire
+> > platforms, not mostly unused drivers on actively *supported* platforms where
+> > they can still be used for experimentation and testing. I'm fine with dropping
+> > this from arm64 defconfig but with fixes, the BROKEN tag should be removed
+> > and I definitely object to removing it from the tree. How many people still
+> > use greybus? Should we drop it from the kernel too? And I'm saying it as
+> > a project ARA alumni. :)
+> 
+> I agree, if someone is willing to maintain it, and there are actual
+> in-kernel uses of it (meaning not just a stand-alone library that can
+> never be called either by userspace or hardware), it should stay.
 
-Thanks that's correct!
+What would we be considering the in-kernel uses to be, then?  Just
+wiring it up to the framework is enough, regardless of actual use?
 
-Cheers, Lorenzo
+- Eric
 
