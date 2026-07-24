@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E00C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD09FC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uuUNKxqY+LG3qQIlLd9qfr9KhKPVbYZ6sV4UqffU++M=; b=3pwsVNrD17cCRNdPHmrpJ4ZNGs
-	m9aCp/YVDqYBPezNs9qSvEkuorO8gZweb76SOuj+SScXo4M6/yde6LOI0GwNFWDAp5Arp4v4Ty3oX
-	La6Lv5BxtxU8+XPRRLNLvOOJRyuElQc5JYsrCrwRA69ZxBRf3+xvmJj1+fuhiB4YjZceqU9yIQHTP
-	cZQAROzVlDeuJ7RrYT1Ep9znAP4noynaIfKYsMr/oZMRVZK2rxitOV4icjdSLQ71E1lzY/9ePkr2z
-	ZYuLWnBfR7gpjkQX9pl0iPd1qOj64VTKxvfYyDCNwtKaCYbduReonlHgfu1x9N4TDeu7hIWvU23Wi
-	OD6A5Atw==;
+	bh=8C+CpvO6YtCQoGKhsvn8PxW/d2mLnKpNMUX8TT1XIbk=; b=1o4hTTuboZyt3D1OL59S5MK6Ym
+	Hi42rT0gtObxutMeWHOwE5NC4Akt64gFHHL7a4i4qtAX0icYiqLkCQKHFChJqhltkCLDLLQx1tLos
+	pbKGbqk+etTPxK3vKD15WRXMU8NI8cWUz1e4eV72sXTFyUkKWcB9urjubEAbXXwIY955N43x5vbbe
+	YwdqoImxcM4brqvhAYvNyXW3CfqugeQRGfxeVkMyuUyAIR4q0b5W1jG+GHX1gtS+ybA6wTa1Q2MmN
+	0qHTKOalRClhBCrBTArQRQrTiDS84h9OsFFXRZ3nqF5LEdV6XNR5PiT6keJeX5+9pS+4nTUBf33kO
+	ZhQnbzsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHYd-0000000Gek9-2VCW;
-	Fri, 24 Jul 2026 15:11:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHYa-0000000GejS-3aFo
+	id 1wnHdS-0000000Ggbc-4BOP;
+	Fri, 24 Jul 2026 15:16:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnHdQ-0000000Ggb4-1UUs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 15:11:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2D831600B0;
-	Fri, 24 Jul 2026 15:11:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 777591F000E9;
-	Fri, 24 Jul 2026 15:11:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784905883;
-	bh=uuUNKxqY+LG3qQIlLd9qfr9KhKPVbYZ6sV4UqffU++M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aKhfvHI6bLFKFB7z6X+qsS4QCJnBrahaBRx3Q/JMuLtPQG+QZ82AtxdGJOSLjb6+P
-	 hZuxyfmpixjWi7OE8NnL1tGUa6DudXfIQcogi+bjXFosj5udX2QSa+0E3fRZ5drm63
-	 4ZKF57Cqj4rJIIWBdADeDjPOO7h0uUKLR2z2T1lKkZPliw+GRU4JKdSrAH+sABAIsR
-	 xwT64UfzODvP53K1U8a6BooGb1uYn+C8+BbeqvQNhTon/oNb/P0TnwDR9kCqzrRZYz
-	 QOtPqW6bQ/OLf8qMXXg/CMtpC4kw7fGsk7m1uu4u8lzIBHS9nEmY91V1v1lFfYBdMW
-	 6zXqy4qAEz1ew==
-Date: Fri, 24 Jul 2026 08:09:32 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH] crypto: qce - Remove driver
-Message-ID: <20260724150932.GA6763@sol>
-References: <20260724050645.223799-1-ebiggers@kernel.org>
- <2026072410-drained-acts-3502@gregkh>
- <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
- <2026072412-decrease-sandbag-70a1@gregkh>
- <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
- <20260724141414.GB1876@sol>
- <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
- <2026072455-subtly-prayer-0a8a@gregkh>
+	Fri, 24 Jul 2026 15:16:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FF661477;
+	Fri, 24 Jul 2026 08:16:17 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 575F73F59E;
+	Fri, 24 Jul 2026 08:16:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784906181; bh=rKKnjZ1tIKtzJ6HBpjgLc0Ck9asCrea4HP6d5oTMlaE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gf3AIoOdSgamjrSz8hHhDZKsUxu/dPE6rojytFhMlLNhMsaKk9o5MxNShE2E6XIxI
+	 tcbXXxM6RsEEIQxsdv0tHTlswHgO3YdYm3jnFrpON/Cb0/Iqgu7obS+gT/ysP/ay/7
+	 FlJmYEC+lZ9Cbn2OxpdtuBok6Nn9BerpTCPKwdzA=
+Date: Fri, 24 Jul 2026 16:16:11 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v13 02/32] arm64/fpsimd: Ensure all of ZCR_EL1 is
+ initialised from idle
+Message-ID: <amOBu-SfzZM7M5Oh@J2N7QTR9R3>
+References: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
+ <20260720-kvm-arm64-sme-v13-2-d9abd3ffa245@kernel.org>
+ <amIP42yILYNsNk0e@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2026072455-subtly-prayer-0a8a@gregkh>
+In-Reply-To: <amIP42yILYNsNk0e@J2N7QTR9R3.cambridge.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_081624_533886_FF541F92 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +82,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 05:04:46PM +0200, Greg Kroah-Hartman wrote:
-> On Fri, Jul 24, 2026 at 02:47:48PM +0000, Bartosz Golaszewski wrote:
-> > On Fri, 24 Jul 2026 16:14:14 +0200, Eric Biggers <ebiggers@kernel.org> said:
-> > >
-> > > And with the defaults QCE is *never* used.
-> > >
-> > 
-> > It's almost EOD here and I'm going to disconnect for the weekend but I just
-> > wanted to say before I leave: this has never been a reason for an aggresive
-> > removal of any driver. We remove drivers when we stop supporting entire
-> > platforms, not mostly unused drivers on actively *supported* platforms where
-> > they can still be used for experimentation and testing. I'm fine with dropping
-> > this from arm64 defconfig but with fixes, the BROKEN tag should be removed
-> > and I definitely object to removing it from the tree. How many people still
-> > use greybus? Should we drop it from the kernel too? And I'm saying it as
-> > a project ARA alumni. :)
+On Thu, Jul 23, 2026 at 01:58:11PM +0100, Mark Rutland wrote:
+> On Mon, Jul 20, 2026 at 12:07:29AM +0100, Mark Brown wrote:
+> > At present when exiting from idle we do not fully reinitialise ZCR_EL1,
+> > we update ZCR_EL1.LEN with a read/modify/write cycle when loading task
+> > state but never set any of the other bits to an explicit value.  Since
+> > currently they are all architecturally RES0 or RAZ/WI this is not a
+> > practical issue but it may become one if further fields are defined in
+> > the register so we should explicitly configure the whole register.
+> >
+> > Rename the existing sme_suspend_exit() (which handles this for SME) to
+> > fpsimd_suspend_exit() and add set ZCR_EL1 to 0 there, if needed LEN will
+> > be updated when loading task state.
+> >
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
 > 
-> I agree, if someone is willing to maintain it, and there are actual
-> in-kernel uses of it (meaning not just a stand-alone library that can
-> never be called either by userspace or hardware), it should stay.
+> While this happens to work today, this is a more general architecture
+> problem, and I think we should cc stable such that kernels will work
+> reliably on future hardware.
+> 
+> All stable kernels support SVE, so this needs to go as far back as
+> v5.10.y.
+> 
+> One minor comment below, but with that fixed up (and a CC stable):
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-What would we be considering the in-kernel uses to be, then?  Just
-wiring it up to the framework is enough, regardless of actual use?
+Sorry, having looked at some of the later patches I think this isn't
+quite right even with those changes, as we wouldn't have necessary
+context synchronization in all cases.
 
-- Eric
+I'll need to dig a bit more to come up with a more concrete solution.
+
+Mark.
+
+> > +void fpsimd_suspend_exit(void)
+> >  {
+> >  	u64 smcr = 0;
+> >  
+> > -	if (!system_supports_sme())
+> > -		return;
+> > +	if (system_supports_sve())
+> > +		write_sysreg_s(0, SYS_ZCR_EL1);
+> >  
+> > -	if (system_supports_fa64())
+> > -		smcr |= SMCR_ELx_FA64;
+> > -	if (system_supports_sme2())
+> > -		smcr |= SMCR_ELx_EZT0;
+> > +	if (system_supports_sme()) {
+> 
+> We should move the 'smcr' variable into this block. That way it's scoped
+> to where it matters.
+> 
+> > +		if (system_supports_fa64())
+> > +			smcr |= SMCR_ELx_FA64;
+> > +		if (system_supports_sme2())
+> > +			smcr |= SMCR_ELx_EZT0;
+> >  
+> > -	write_sysreg_s(smcr, SYS_SMCR_EL1);
+> > -	write_sysreg_s(0, SYS_SMPRI_EL1);
+> > +		write_sysreg_s(smcr, SYS_SMCR_EL1);
+> > +		write_sysreg_s(0, SYS_SMPRI_EL1);
+> > +	}
+> >  }
+> 
+> Mark.
+> 
 
