@@ -4,87 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A488C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535E7C531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=APQBT/opS5KtbRSzVCj4nfbclI4p7/AKyOb7OqqvEzM=; b=0Q8PsTXqPsYIGz5QlENdgbFIwf
-	8JSnZH/fpOkIyxbPipaag9u3NdgTM/vFz8asd0/qJ7Wc0t3OcHwe1W7/21dtNe+Zn4+JmgUi99ZWH
-	Y4i4h7AvUwQXXdt8uqGKjCoBCVh2MBnQUFezluEbAlqpEkxfnUTLCQgf+zGsmv0yBqjev3ylEKwFH
-	GhxQSrhkfAtAUb9B6w13rol/A4u9MbNiS+KU5UQkjgZazjXCaylTTFcOo9KxXoJDHbMB4c8bsNZWq
-	6xRRanHQ1Ur74o0wW5y9EqGhg6u8mqRQS7GUukWfu/jJfsG+zjG4j9Z6w3G5u862YhLQPk5Fz+vX9
-	w/8JGxyQ==;
+	bh=aeojhf12d21dNy1YDIvGzHQ7OrxGSlOIQTP6xSyyLHo=; b=rGu8TvMiHAT04E3dtAnztTJylv
+	uEHzXQ4Z/5+XDWfWdvzei4NZbHMkC7YTkIt9rsHQlLt284r2ozNi5qM9xd6g6xekSXGny4WmgOFdv
+	NBekKGrGpWQUpqtksDZGSyeYaWXZ/CJ9XmXKMx1d9ECha78LsoE2Ou1AYMM21bX3qzk5aSb/NGeYN
+	DvAVHTQbmzcvfboCUYJXWA0gMwIL+mzl41lY1WbCdspdtieDe4GaggnrUxea5sCe4FE5V9Y2h4lb0
+	M4kGPBkJPjnOufT+33DusTEibv4+ouJ6WQYdjlOpKr8G8rw2c1430O1u22cOZLJmxOLgKIj2RGa0j
+	CPxAxSuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHyn-0000000Gk2z-1OMX;
-	Fri, 24 Jul 2026 15:38:29 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1wnI4F-0000000GkZn-0Ihz;
+	Fri, 24 Jul 2026 15:44:07 +0000
+Received: from mail-northeuropeazon11010018.outbound.protection.outlook.com ([52.101.84.18] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnHyk-0000000Gk2O-12dW
+	id 1wnI4C-0000000GkZP-0rR8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 15:38:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1784907506; x=1816443506;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=STe3l81ZzYWmrYt3MRzUBujSbUlThRL6gf8a/dbofg4=;
-  b=IhwMsAliPWNkBv4am9J0SJXzwg1TEARSu2SEtgr2Sn8jRrXBNk5G4+4Z
-   oz7luQrotNTSC+aNcunjnAQOpdNW1gvOULHNoYDVOwOKbVrKQQvMA13ia
-   4heFPSseNPhj3NxLyGRD+U6ZOhyhflyVLjZVVrkLr4QxYIzeKeTYe/37o
-   UckIkYZulbqFqLKjUBjAXCzRr9ygwiJSqaAcHTKW7hWdPNtZXZ4HmwaPv
-   Or4K4TlYLZRsb9Z1y1IHgHY3nJhqAGeNexX1ZjdcfzUloC/M3unGVcpH4
-   yxSj4G/iixyC3vZcBXQfYNHGFo96Jrx9Z7xeNfvyS93Gs35gR3SRmbJkb
-   Q==;
-X-CSE-ConnectionGUID: mlWM9xDtT1Ghi+hsLYGrNw==
-X-CSE-MsgGUID: njEi6RhfReaxwA4hqKiubw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="234679068"
-X-IronPort-AV: E=Sophos;i="6.25,182,1779116400"; 
-   d="scan'208";a="234679068"
-Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2026 00:38:24 +0900
-Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id E78B15528
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:38:23 +0000 (UTC)
-Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 9B448C04242
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 15:38:23 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.54.178])
-	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTP id CCF811400248;
-	Fri, 24 Jul 2026 15:38:17 +0000 (UTC)
-Date: Sat, 25 Jul 2026 00:38:10 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, cgroups@vger.kernel.org, linux-coco@lists.linux.dev, 
-	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Tejun Heo <tj@kernel.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Steven Price <steven.price@arm.com>
-Subject: Re: [RFC PATCH v1 2/2] cgroup/misc: Add support for Arm CCA MECIDs
-Message-ID: <amOCt4r72ge-Iw5h@FCCLS0092175.localdomain>
-References: <20260724094120.166536-1-enju.kohei@fujitsu.com>
- <20260724094120.166536-3-enju.kohei@fujitsu.com>
- <amNfGkkI5OIBqpmZ@localhost.localdomain>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 24 Jul 2026 15:44:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EVnnWdfAyKntoKVd23NdBJ9Fe9pf5hycQ/S5HyLuacc7cWdM1+3qVs5zq6QE6WZ/h50YHc+IIj0Uih43gStyS4vgLXMcA8FYY5ijbCG8nfBFpaOcdrf0Uw+gTd2cQLagttaakAgWr7w8ehyBcAkHqmjYp/rX2JvMxXWEvrzfwNPDJh8MOU3rHSDfMFYNMyeW0uCYxV9vgrAxaneUeyW330m799GkCX9GPHoCLBIdkMGSkP4IWGYkESXPm7DDrROqNms/qi8Jd/8RBAuHkBEzRzUyThTSraSYzPhGDxRdy+cGIual9tz5xFHIBLib2cBAgvXLoNzNkR7LZFC7cwQzSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aeojhf12d21dNy1YDIvGzHQ7OrxGSlOIQTP6xSyyLHo=;
+ b=ObpZme8v8LrfIiV/eL3EeCO3AjCXs7Qup4EmKCmzS7yR+gw+RntYWXb19g9zbtYtU0F8OiCJakQyYe/KhMtN/59ykMAe4qbS9UYTzMfZTdhc7U1aMv5YR0Ml/s7A1PKwCN8QCycP2VZWnP0obP8nw5mxJ6R3URWArqc9mSQh6Da0TypGSNelej1HUVcKKkeGg3W8HqMymFl4WV73EmbsqHYHXpnWpMnhtWgnjipV8d1AKAwqR2kl04bWaLUrwSgZWjc28tRNTcztIve/IwlIA6M3dCPX3Zaa3GF6m+H1Tyf63RbGK2fNDUL5JL8aLnA7JTyk7Y7F955bJAzneQOvYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aeojhf12d21dNy1YDIvGzHQ7OrxGSlOIQTP6xSyyLHo=;
+ b=H+Yj167tdt5MEK7QRb2FKikbktr/iReR7hy7B3E8H+bLy2e8T9gtpQzHqqXvdFimYdnxhrsVaX6QzUkqZ8+kK8CeNr8D1GgowTJmbgL1e7G0vwwO7hNa/Tax/PKq7dl5lf/9ULl2ck0LBDe8xttq7rkBXRWBDXWaaocDPAbEUzVypyKRY/7oQvC+Lozh7EKn/5KPda463jvlpyN6QlSOtjY5ngqMukXnMOqbLqrB4bH8A2VNbjC8dB0o4Pa1f+NNVeaj5jdjeOXE//0OM9r/UQEtZgTBhXMg20ZjtN6Cmt+8K7fBYh0hNPtx6CS6pQrk0YCIBBjHSNPuEn/3DRndeA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DB9PR04MB9476.eurprd04.prod.outlook.com (2603:10a6:10:366::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 15:43:58 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.010; Fri, 24 Jul 2026
+ 15:43:58 +0000
+Date: Fri, 24 Jul 2026 10:43:41 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Lee Jones <lee@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Srinivas Kandagatla <srini@kernel.org>, brgl@kernel.org,
+	driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+	iommu@lists.linux.dev, netdev@vger.kernel.org,
+	linux-pm@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH 5/8] pmdomain: imx: use platform_device_set_fwnode()
+Message-ID: <amOILRFmlzcBaf4w@SMW015318>
+References: <20260720-pdev-set-fwnode-instead-of-of-node-v1-0-2dee93f42c54@oss.qualcomm.com>
+ <20260720-pdev-set-fwnode-instead-of-of-node-v1-5-2dee93f42c54@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <amNfGkkI5OIBqpmZ@localhost.localdomain>
+In-Reply-To: <20260720-pdev-set-fwnode-instead-of-of-node-v1-5-2dee93f42c54@oss.qualcomm.com>
+X-ClientProxiedBy: PH0PR07CA0090.namprd07.prod.outlook.com
+ (2603:10b6:510:f::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB9476:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8f0a82bf-b269-4f7b-ea3e-08dee99a6001
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|23010399003|1800799024|366016|22082099003|18002099003|11063799006|4143699003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: iVbQqVJP6oaB31hZxXqnp4kMtklhKHUXPhovTYDKuuVEa4yLQL7YP+LTKSVnnTJMiTvDdDQAmL5DeIsZrJ20/xSTYQd972Rfdw9822u3T1nDGQ3JKU0mxR7/2AzYTO3Vlsb12pfS457Z3WiJVt+jFCaUaVXPS7d7tyhRGqkQR7ipdQv94l3rtc87nyoPg7ezTqMR1nWGb3nNI6GhAbMUSPWZ4oIUyr2HXqhmKth477RTs9LEtgpyGrBU7SV69m7vp1B86mlo7qET5brzPsn0XGmgK6POMokNUlyoTzyuwivtC3tsoN8QkypZmH/L/SMXea1XUArJrFWS4DHGbrTz7Aa6nKTPFmWCGDyF30jhVYxg/4jjzm4J94cZ/eCoBOhmlrzWDy9cOs//n4/WQ7xNx68lWCRLWNKBjEumEzDChgLO/4QwgaLCNwI4LsXHprfdp5OoUbW/TJ7klleoabM5ZI+R2NehbtsV82QwP9z1cTvpUOyl52nXO3bTBY9jL+GtKPAvYHRrFfYQlr39DneomVkI8oWn46B4llYyfwdFU/YwWBLppqK2r9EJyBCbsNSpK+kHp1O384mO3bW9ZHtPwKSucnUofZ30FSBF6CjQwxDOmekW2PMeXKaBtFrunzJBwL4te+sBeIua3t6gHW/kwAFcXuQBBE4lK+SCWzvSgLg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(23010399003)(1800799024)(366016)(22082099003)(18002099003)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IEJyitdMY2gibfYCPqWeT0uI2+JQBbodwqW4HacPb8ifYktjZd8zo8oi0FjH?=
+ =?us-ascii?Q?VHIByAsqpNOCCoLx9uvODVf7E09fSFrHGmcIpcIWkc4ziGWhi6o6omk2QVPr?=
+ =?us-ascii?Q?ea9+YxIFqDos3911QPADr1qFyGRxSiG21oGxcGy54JDtakcVFqrO02gbgZvl?=
+ =?us-ascii?Q?eY659GLaw76wHAm8M167dHS0iK/YxxoRtEP5Oy4z7oRFgYdkCQqESvtJi83E?=
+ =?us-ascii?Q?nZnNMIHNTjS0369mnNE48HcV5AVdnwVncK3yRVJVq+GuI+4fX7lsE4Udkhro?=
+ =?us-ascii?Q?CqoV4Qw9j8hGDYwJ9Xy0Z+WFlkncaMLi/5dhdjjMDVJ18tjf+sn8suf47rJp?=
+ =?us-ascii?Q?Tjx0cu+qX7d3P05h/g7OJ0BtPr20yOkDJT46orNLAXrfIlApVz3uW0keQ7/X?=
+ =?us-ascii?Q?cwg5yQOVqd2zR8LeN5qdczvS7n5ni3zasdS64v9JBc5juFCceN8ZmwqSlu6y?=
+ =?us-ascii?Q?zR5f+9kgaVWvbjkJepiI7XLuGO4c3BZ/3fYqyTsbEgmb7/Vnbxy5bHkunwE6?=
+ =?us-ascii?Q?2M+In3Z5KVOR1zB1q45eESolyob7kPJZXOEGrtz9g2mF8t8/Nbg4WbuzY1qR?=
+ =?us-ascii?Q?nNhoEZes/eZbP1fGldr3y3XSZS0/5lqUKgCFKbFrfZffQ+TpTVN4xJ4KF1tB?=
+ =?us-ascii?Q?T94IqXgKm04xysibxYFmJAn5hA0fBm86oy13oSDiKvsqTsCbIfvDw4o6K2DL?=
+ =?us-ascii?Q?HFD6ArTB9XzLN4lloWcR4O3lBQKV5g2kTQdjiXBzjSgpGclTp5xWYC0/Xl1a?=
+ =?us-ascii?Q?Vq5COK8/VhSHJvCHtgOu5zAdaP8djJQhMZPF/pLsWNTmsG+/AB0q4GMG0OMK?=
+ =?us-ascii?Q?8CgW18adO/4/jfMcx1X+47pJFTEbqp9FqEvSJpjRas0JLsAJ4d3/2p4tCkjR?=
+ =?us-ascii?Q?vhXtTTTVzkFNdFiRvtYjVDQBu2Id6qikXSGQlsf/o84l/7w9hIaZGCLB8caD?=
+ =?us-ascii?Q?cHZdVkmwNpWrxayekv05Sa1yi9z8vBbfBlUXebkFsMth2Xf7kexTwRwqrqNS?=
+ =?us-ascii?Q?q7WMkrdMmSoad8L8gMH9m/fkLC1xX9JHABZOKsz20CHR0Zc1m+yfLxanYK1D?=
+ =?us-ascii?Q?gFXE43S43NV26jCSd2KOA8PPYMQwBdPaWKgNgMLcV2ZIB4ZLvhpm0UiB+bM4?=
+ =?us-ascii?Q?6x33HLvdZdEgM/zNepRpDKLgMXO2AtejSwhJSQCTOJ04oQYIJDoYywPCvg2r?=
+ =?us-ascii?Q?lnIchV1uDjKNkS3AWeIOkUN1mfGz3r9krgzcE2cImlrDwGfXuPf7lxKKTO6I?=
+ =?us-ascii?Q?99QL9ZLreC2PF4lp5HhGU7LlL1g8gkHHg5ZX4vJjAvBR8EFzxCpadefo3PYZ?=
+ =?us-ascii?Q?XhqF4yMdOcYn3Jtg0olD/LyfPRwlhNiNwbBipClTpkF6ib8gnWrnySYF7iSE?=
+ =?us-ascii?Q?Vw5lYxP0axcngr1mscmwCO1Q3kYZN+PLY9sEDVlZL53NFxJJGOKgP6CLtJuL?=
+ =?us-ascii?Q?T29xfQzP/oNQwQPEp4Qps2DE+zP51O4oA5Rl14SVnb0X2A2BEKYiaVjD29tE?=
+ =?us-ascii?Q?jLu/LTVzXB1KMuRzlzIAbzHIWt+T4RAiqJrrIcH0ygKBrKiysnUUBTwtmyim?=
+ =?us-ascii?Q?x0t2cUdawl1M4QOzVcmyA8zwrFGzUIpDo6yH/kM2NFq/RutUn4+6tVlyVcx2?=
+ =?us-ascii?Q?vcsyBiqF/x0nlhHqj+LWpgByqJng39I3ZQ45pKOhtCODfXjaJioPuFbt7dNR?=
+ =?us-ascii?Q?UdfxVgbEVpPOAvybIeFWvwI48HqzZXbv6MwOq9Z3eTz7qugQe5FgPZXdKG5T?=
+ =?us-ascii?Q?kj/JffN4o4iIxacjpHVyLk1CaLhWkNuXA7vNxn6gU+Nx3R77503d?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f0a82bf-b269-4f7b-ea3e-08dee99a6001
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 15:43:58.0181
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nusJO5leX/TBQXgmjmNrBx5Pi1N85mCyIrJYdnd0BcgJ/BqLRGy7AXWunP95vUSo5W/i0lD7N4z+Es3Aku35tkWHsWxBUHi2hboGHCS1Qg52aM4RJUksN4nrdQ4b3GRQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9476
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_083826_809468_566CE3DB 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20260724_084404_271587_ACEA666B 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,62 +164,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/24 14:52, Michal Koutný wrote:
-> Hello Kohei.
-> 
-> On Fri, Jul 24, 2026 at 06:40:56PM +0900, Kohei Enju <enju.kohei@fujitsu.com> wrote:
-> > Arm CCA MECIDs are limited platform resources. Add a misc cgroup
-> > resource to allow the system administrator to account for and limit
-> > their use.
-> > 
-> > The cca_mec resource represents the number of Realm VMs using the
-> > private MEC policy. Each such Realm consumes one MECID. Charge the
-> > resource when the Realm is created, and uncharge it when the Realm is
-> > successfully destroyed.
-> > 
-> > Realms using the shared MEC policy don't consume this resource.
-> > 
-> > Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_rmi.h |  2 ++
-> >  arch/arm64/kvm/rmi.c             | 44 +++++++++++++++++++++++++++++++-
-> >  drivers/firmware/arm_rmm/rmi.c   |  4 +++
-> 
-> (mainly for this)
-> >  include/linux/misc_cgroup.h      |  4 +++
-> >  kernel/cgroup/misc.c             |  4 +++
-> >  5 files changed, 57 insertions(+), 1 deletion(-)
-> 
-> Conditional
-> Acked-by: Michal Koutný <mkoutny@suse.com>
-> (it makes sense along the other arches' miscresurces)
+On Mon, Jul 20, 2026 at 11:24:52AM +0200, Bartosz Golaszewski wrote:
+> Prefer the higher-level platform_device_set_fwnode() over the
+> OF-specific platform_device_set_of_node() for dynamically allocated
+> platform devices.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
 
-Hi Michal,
-Thank you for taking a look.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> 
-> Why? I see this [1] (or followup) needs to be added first.
-
-Yes, [1] should be added first.
-As also stated in the coverletter, the following series is anothor
-dependency, because this RFC series is on top of those other series.
-https://lore.kernel.org/all/20260715142841.80544-1-steven.price@arm.com/
-
-The [1] series is a dependency of the one above, and I didn't mention it
-explicitly in the cover letter. My bad.
-
-My intention was to get feedback on this RFC series about the
-architecture and the basic design until those dependent series are
-merged, after which I will send this series as non-RFC.
-
-Thanks,
-Kohei
-
-> 
-> Thanks,
-> Michal
-> 
-> [1] https://lore.kernel.org/r/20260715142739.80398-4-steven.price@arm.com/
-
-
+>  drivers/pmdomain/imx/gpc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
+> index abca5f449a226fbae4213926e1395c413160c950..c147eaf048ba2b79a744ec87029420981581e48e 100644
+> --- a/drivers/pmdomain/imx/gpc.c
+> +++ b/drivers/pmdomain/imx/gpc.c
+> @@ -487,7 +487,7 @@ static int imx_gpc_probe(struct platform_device *pdev)
+>  			domain->ipg_rate_mhz = ipg_rate_mhz;
+>
+>  			pd_pdev->dev.parent = &pdev->dev;
+> -			platform_device_set_of_node(pd_pdev, np);
+> +			platform_device_set_fwnode(pd_pdev, of_fwnode_handle(np));
+>
+>  			ret = platform_device_add(pd_pdev);
+>  			if (ret) {
+>
+> --
+> 2.47.3
+>
+>
 
