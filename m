@@ -4,57 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B247C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B17C531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:In-Reply-To:References:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4jA95NvxlnIR1Hi2g9Z6FkmE9n79P+Ej5d6GEWovXQ=; b=yyZRKeO/i45NS/9p/dmZLhOAqt
-	d7q7a6UWJtO6uEnT2BoVMPUi/4tkO0CNnBtMVK90+vpi2zGWT0g5TB4BnqDVhJ0cnFhGwW6YfhGaq
-	RCuzW6Pn3Pv6/fnqPhVWsQruJvV4WE2rkF/FhJEhUtykt/LKFQ0zeM9NAWWtiJ+mEfwyhs+f+X22k
-	i9yXfBxSrh2xinZWVO4VAbK1J87l3PUy0IP2Svl6r3Rnt5cpR+BoQgDU3/2nuA1Wxy/EkotSUfFZ+
-	d8xIGkdQ0ETtQJceABFuYH4gaW8fsdy/9E1JTVl1MsSGFZhM7oQhoBoSGY0PPsmWsRhzgVFIezdvv
-	jJ0CNarw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SePwpieQyuy4I1jGDOGIB8gwV902Jt9JP/rZL79vbug=; b=4x1+wwQeHMTidjWp/H3j7FLBoj
+	5cjDJJ8S2rxuc4agMRAa7OaMJ6+sQ5+pEDgS1Av2P8IDnU/C/IdnoI0/5VgJNjj18J20r3XnBn1/4
+	qCTu3/km+DfjoAufjNyOz0FJKj2oj0rPV7AdEI/BeAUaBrkqVYxbAJDM6MV/hYinuidI4D07TwqwE
+	nhkrqIyIQAUDVGQkDFFpMI1zHZyYMq5gRmsMh8PMpzH1y5merKGMr35SCeJLk6tVXyUSy2qAt18ob
+	mvUVI0LFS3oLCobJqFT0JzCKfdFv+amIsvDXxPsNtR7dUb2npHFBxvAIxane4GiOn/bb5TAoBTD3G
+	SE1l7XFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD0k-0000000G3rh-42HT;
-	Fri, 24 Jul 2026 10:20:10 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1wnD12-0000000G3wP-0MAg;
+	Fri, 24 Jul 2026 10:20:28 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD0i-0000000G3qk-1qR7
+	id 1wnD0y-0000000G3ux-12hT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:20:09 +0000
-Date: Fri, 24 Jul 2026 10:13:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1784888396;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k4jA95NvxlnIR1Hi2g9Z6FkmE9n79P+Ej5d6GEWovXQ=;
-	b=cKwoBgnE+DhdTJU33w9R9euhKma7trvL516xwdFrdSR280gx3pYzmYPoL2PzO6zKg4lL2r
-	dXR5nwK2R6UctttWiJOJDOtg2Sm/nRqZo1Tt5c2TZB04ZfQJ/K90Z7XDJXjzFzrsHxK+3a
-	Z3TnFQWnO6jfg05+Gc4FrGCA8hgPGJzaYI2QSvfYRUZhKHnvUAqVMGggj7RhoTdFS9r/WS
-	VyzzYyLKEYOy8x78w4xTGLIiq6P2Pp+aaPkDjXuZmnwxw1J8AOJDZGnW4nxsBUoDN+ns5K
-	zI9qoPXU6n5j8jAKW20dD9+fsMcLSEuvTnFrnW7G3Lne3gCPK8cQUukJvHlCRw==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ferass El Hafidi <funderscore@postmarketos.org>
-To: linux-amlogic@lists.infradead.org, zhentao.guo@amlogic.com, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, Zhentao Guo <zhentao.guo@amlogic.com>
-Subject: Re: [PATCH v6 0/6] Add Amlogic stateless H.264 video decoder for S4
-References: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
-In-Reply-To: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
-Message-ID: <tiocog.2cefvi325on5y@postmarketos.org>
+	Fri, 24 Jul 2026 10:20:27 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 5047B3E84;
+	Fri, 24 Jul 2026 10:20:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784888422; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=SePwpieQyuy4I1jGDOGIB8gwV902Jt9JP/rZL79vbug=;
+	b=VDT9W77aoBJtno7DnLsVeBLRgtj2LXvFKwTE0PXCYEdHHfO91QqREBPGaLCIhTGHDFNntC
+	AiWg4dDHFY6+8unZqaryY3sp2ZEzsVaeyRKvQeyjkdTU3XMYZyz4UYgSLyTJ+7b3zMxUl0
+	mY2USsenCuGvMW3sy4pS2u2oFzaGYYc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784888422;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=SePwpieQyuy4I1jGDOGIB8gwV902Jt9JP/rZL79vbug=;
+	b=bn2TWpyRVadTfHe1fCfM1+C+Z0Xe/9VGdfB1U9tnLWA+i0QkT9sJ6DMME1JIwKJpQvjKX1
+	0vPiy8tbTwcCApAw==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=VDT9W77a;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=bn2TWpyR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784888422; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=SePwpieQyuy4I1jGDOGIB8gwV902Jt9JP/rZL79vbug=;
+	b=VDT9W77aoBJtno7DnLsVeBLRgtj2LXvFKwTE0PXCYEdHHfO91QqREBPGaLCIhTGHDFNntC
+	AiWg4dDHFY6+8unZqaryY3sp2ZEzsVaeyRKvQeyjkdTU3XMYZyz4UYgSLyTJ+7b3zMxUl0
+	mY2USsenCuGvMW3sy4pS2u2oFzaGYYc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784888422;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=SePwpieQyuy4I1jGDOGIB8gwV902Jt9JP/rZL79vbug=;
+	b=bn2TWpyRVadTfHe1fCfM1+C+Z0Xe/9VGdfB1U9tnLWA+i0QkT9sJ6DMME1JIwKJpQvjKX1
+	0vPiy8tbTwcCApAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0C0E0779BA;
+	Fri, 24 Jul 2026 10:20:19 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id AJmVOWM8Y2oSaQAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Fri, 24 Jul 2026 10:20:19 +0000
+From: Pedro Falcato <pfalcato@suse.de>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>
+Cc: Pedro Falcato <pfalcato@suse.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Jan Kara <jack@suse.cz>,
+	Zi Yan <ziy@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Nico Pache <npache@redhat.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Barry Song <baohua@kernel.org>,
+	Lance Yang <lance.yang@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Muhammad Usama Anjum <usama.anjum@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-mm@kvack.org,
+	linux-fsdevel@vger.kernel.org
+Subject: [PATCH 0/5] mm: add basic PTE const type-safety
+Date: Fri, 24 Jul 2026 11:20:12 +0100
+Message-ID: <20260724102017.141532-1-pfalcato@suse.de>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset=utf-8; format=flowed
-X-Migadu-Flow: FLOW_OUT
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 5047B3E84
+X-Spamd-Result: default: False [-1.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[33];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FREEMAIL_CC(0.00)[suse.de,arm.com,kernel.org,HansenPartnership.com,gmx.de,linux.ibm.com,ellerman.id.au,infradead.org,google.com,suse.com,suse.cz,nvidia.com,linux.alibaba.com,redhat.com,linux.dev,lists.infradead.org,vger.kernel.org,lists.ozlabs.org,kvack.org];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
+	DKIM_TRACE(0.00)[suse.de:+];
+	R_RATELIMIT(0.00)[to_ip_from(RL764437jfm1qe6abtk9nwyx8m)];
+	FREEMAIL_ENVRCPT(0.00)[gmx.de]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_032008_622191_D42B0AA3 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260724_032024_623921_17027E98 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,64 +163,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zhentao,
+Since forever, MM code has thrown pte_t * around with no concern for const
+safety, or typesafety of any kind. This is confusing. Attempt to address it
+by:
+1) Making sure pte_get*() helpers can cope with const pte_t * arguments
+2) Constifying the pte_offset_map_ro_nolock() return type, which by definition
+already pledges that users will not write to it.
 
-On Fri, 24 Jul 2026 07:04, Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org> wrote:
->Introduce initial driver support for Amlogic's new video acceleration
->hardware architecture, designed for video stream decoding.
->
->Compared to the current Amlogic video decoder hardware architecture,
->this new implementation eliminates the Esparser hardware component,
->enabling direct vb2 buffer input. The driver is designed to support
->the V4L2 M2M stateless decoder API. The initial phase includes support
->for H.264 decoding on Amlogic S805X2 platform.
->
->The driver needs to work alongside with a signed firmware. The loading process of
->the signed fw is as follow.
+These two simple steps were already able to uncover code smell from
+khugepaged + do_swap_page().
 
-Is the firmware still signed on devices that do not have secure boot
-enabled? (which means none of their boot chain is signed)
-Do the signing checks take place in BL32 or elsewhere?
+Separate steps could include introducing pte_offset_map_ro_lock() for more
+widespread usage of this.
 
->Stage1: Decypt and decompose the full firmware package when the driver is probed.
->  +---------------------+                        +---------------------+
->  |  Decoder Driver     |                        |  TEE Shared Memory  |
->  |  (Kernel Space)     |                        |                     |
->  |  +---------------+  |                        |  +---------------+  |
->  |  | video_ucode   |  |                        |  | firmware      |  |
->  |  |    .bin       |  |  Copy payload to SHM   |  |   payload     |  |
->  |  | (from fs)     |  | ---------------------> |  | (Secure RAM)  |  |
->  |  +---------------+  |                        |  +---------------+  |
->  +---------------------+                        +----------+----------+
->                                                            |
->                                                            | PTA Invocation
->                                                            v
->                                       +-------------------------------+
->                                       |             BL32              |
->                                       |  +-------------------------+  |
->                                       |  | Decrypt Firmware        |  |
->                                       |  +-----------+-------------+  |
->                                       |              |                |
->                                       |              v                |
->                                       |  +-------------------------+  |
->                                       |  | Decompose the full      |  |
->				       |  | firmware pacakge        |  |
->                                       |  +-----------+-------------+  |
->                                       |              |                |
->                                       |              v                |
->                                       |  +-------------------------+  |
->                                       |  | Store decomposed .bin   |  |
->                                       |  | in Secure Memory        |  |
->                                       |  +-------------------------+  |
->                                       +-------------------------------+
->
+Benefits of this include less confusion and better type-safety. It could also
+futurely aid in efforts such as [0] which may want semantic annotation of these
+accesses.
 
-Is BL32 strictly needed to load that firmware? I know on at least older SoCs
-(sm1 and older) BL32 is not required for booting and amlogic-based SBCs are
-often used without BL32. So once this gets ported to older SoCs, would
-it have a hard-dependency on BL32? And if yes, can upstream Arm Trusted
-Firmware-A BL32 be used instead of the Amlogic blob?
+Based on mm-unstable and compile-tested on a handful of architectures.
 
-Best regards,
-Ferass
+No functional changes intended.
+
+[CC list editorially trimmed for brevity reasons; apologies if you're not on it]
+
+Link: https://lore.kernel.org/linux-mm/20260526-kpkeys-v8-0-eaaacdacc67c@arm.com/#t [0]
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Lorenzo Stoakes <ljs@kernel.org>
+Cc: "Liam R. Howlett" <liam@infradead.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Zi Yan <ziy@nvidia.com>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: Nico Pache <npache@redhat.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Dev Jain <dev.jain@arm.com>
+Cc: Barry Song <baohua@kernel.org>
+Cc: Lance Yang <lance.yang@linux.dev>
+Cc: Usama Arif <usama.arif@linux.dev>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-mm@kvack.org
+Cc: linux-fsdevel@vger.kernel.org
+
+Pedro Falcato (5):
+  mm: constify generic pte_get*()
+  mm/arm64: constify pte_get*() and contpte get logic
+  mm/parisc: constify ptep_get() argument
+  mm/powerpc/8xx: constify ptep_get() argument
+  mm: constify the pte_offset_map_ro_nolock() return value
+
+ arch/arm64/include/asm/pgtable.h             | 10 +++++-----
+ arch/arm64/mm/contpte.c                      |  4 ++--
+ arch/parisc/include/asm/pgtable.h            |  2 +-
+ arch/powerpc/include/asm/nohash/32/pte-8xx.h |  2 +-
+ arch/powerpc/mm/pgtable.c                    |  2 +-
+ include/linux/mm.h                           |  4 ++--
+ include/linux/pgtable.h                      |  8 ++++----
+ mm/filemap.c                                 |  2 +-
+ mm/khugepaged.c                              |  2 +-
+ mm/pgtable-generic.c                         |  4 ++--
+ 10 files changed, 20 insertions(+), 20 deletions(-)
+
+-- 
+2.55.0
+
 
