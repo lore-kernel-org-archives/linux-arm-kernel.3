@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49709C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 21:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDEEFC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 21:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nuZr0SzwEmaEHP8VYIwWfef2g2YTiEiEHZ6M99Shj8M=; b=ZiHsy8KJcNW3mdGwMcNqtT8Rb/
-	Dc/4s+88A76eTMfppmr0f6AgHa8tyGEVm/RQbY6lYtfiqHxgWxziipAvUnKI33QSeUdi0ZoiM8LKt
-	CUY+nezRY1z4fQi8JEnmD9vHwh6We5QBc4JIvQAZ985POpPGDt0dyMy1lU7b2R+gnktbnKr50Le1z
-	kQjj08I4+dU0oChBFPv6EnlEG80soNmE7E5cUN9HT8UDOTn2MsoE8DGGrRXtJJ/DYyJXbWXFRv+VG
-	+P9iJNC/BD0w/QxS/ZjSL2UHmK3K8CI0KyQVLJRbprh+kqscJVIIbAzKDhko9QTkNOmCfAcd9DP9Z
-	6jRe9sCQ==;
+	bh=zw+In47VNqyZ6M3jtrWopK6tPDTD0rxTpVkixtQCLIg=; b=Jf/Z1jBFqVVJficm4M5kNgV4f2
+	dJj0Xmars3PFlxhJNDPh2RhFhbjxY6n2H4Cc2WSLd93U+ewsxIvGwo8JeEj1ubb++9H8lpvcpgUf9
+	vYVFkWISrolDnAeOVNg6uT08e1+fSjEPky1yQayvXQVDr21tMu5vfx/gYpxmfn7r/YsDT4CC4vwC0
+	KaEmSpbUO/LsP6Baj/1GNXQ0uv93eIZ4uZdBa66rIMB7BFJkoiJhbYjO87K07k2WUBDSywuv2aPSS
+	1SYczd+Lza1tyltWs+/kRT8vrO0i8CXLHyZe3yGc7A46zUtmLbkEgx6n35ve7UwlFygOQGAQn+wv9
+	zuCKvpYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnNa5-0000000HGQc-1XSx;
-	Fri, 24 Jul 2026 21:37:21 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wnNaC-0000000HGRv-1wrE;
+	Fri, 24 Jul 2026 21:37:28 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnNa2-0000000HGQ2-16QU
+	id 1wnNa6-0000000HGQu-3WFP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 21:37:19 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954a32cf1eso5135575e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 14:37:17 -0700 (PDT)
+	Fri, 24 Jul 2026 21:37:24 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49553515a8bso10308795e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 14:37:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784929036; x=1785533836; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784929041; x=1785533841; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nuZr0SzwEmaEHP8VYIwWfef2g2YTiEiEHZ6M99Shj8M=;
-        b=nmUQBDWQOm/gTnukbhkbPkAwoS+wExwedY0KUAuPSdYJx7RNanZg9R6kXCZvM+ZyFh
-         UzAJ+BmlNHWWp0Jeeb90QCh4csm1/kFUcmNQqYENOQAl+bro6XTz/irUW88Zl9B3OP3H
-         SZbgAtfWUX6LBMk+rtgC5zW7J360S5iHLfBqAfLAfqYMFVXV+ZJvx4qZW8v3tEEvUxcQ
-         5vHH0N/m4795dEotqNuU3IU52vvbgUckq0A7utWnjHqqyM5d0rQJaksZzbnE88SDVjAt
-         mh9cmMkoVWi1lEFa1O4RUfGXvUe9ZUkdA36J9v/xAhV27J4wtgQ7I/VE49E0pq2Jjz/s
-         rfrQ==
+        bh=zw+In47VNqyZ6M3jtrWopK6tPDTD0rxTpVkixtQCLIg=;
+        b=agaba+t2Kki8EMg3LbMSkU5Td9oA/Y3EchEp2tg3oJZUfiq6D68ZfKllqE8KNqn0JC
+         Rxc5KNoYjElmYt14dQjeMX4LQENVOYbKxyqXw4upaNIAwpn7kBHky3gLS2kBxrKPjREb
+         nK2ANfd5I0flWnPg8Nq5AY3iv+5rQjjsgdK1rtwqFN3MESP4aYqXoDp1VWGncfibIQKf
+         gTc3OwzQ0bh58zA6wQ7d7XxkqPzQNIhLJYfciq9Omd+CfuS/lnj4sYVac/LOTRrIm6bi
+         JfRz08yhxvVlcnJ8T3oUE7dEpkia+x43U25xgl57Y3WCug8txlye1wjD09aqendZ4E6t
+         Ibvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784929036; x=1785533836;
+        d=1e100.net; s=20251104; t=1784929041; x=1785533841;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nuZr0SzwEmaEHP8VYIwWfef2g2YTiEiEHZ6M99Shj8M=;
-        b=Pp7CQijt1ljXWresRrSaKtsRdE/ZKi/lYl1j10eHf2WktFONr8LReIte2u9Ldhs+n9
-         4jwSW6JdsGhNSCIvA05N1ctG1gDt4upDOpjRWzYSfaeYG+YLBy4c7kP5kj5j02V9Xiuc
-         AWKEhHOgkiU4uUGIc9AaV9Fy5vh45PiWaWBfteBgyZ/RHRgM8GKap4wIgQQo9A+ZJJ9V
-         EIG92AH5JE0oHLvClpli9+Oj1ZooSVvvARlqmXr0Qu57+lCHzwkU6qU5MSwuIp+UDrm9
-         Gb128YgizozjPlmnwLPcPcgtlDvCnpP8PWztKkJFW60ytv//4lBERGvz9q49yuNreYbS
-         jTUA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp4idCaUqGPD1JsBZaKopeueccvPe6vFKTp7iv4fvl4ZUY3X5oljxBTx+Ht+lr7NGg+Yzfj0hIB26J5mL3MD5xX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwASTIorI3pGGiJKVHkUujAvlmsjY4Frz1iJzzqfUHO222et8x4
-	3Ile0Ljs6xwXYqwFY9PS8BVJfuXbkMKVxVyjf4vjhtbKys3nBS8m17H6
-X-Gm-Gg: AR+sD12EpikCwxruDHm5effUmwTA9NN1cnqFVNmxi767C/IOSQzswW4p8X0HoYsuUUK
-	uXjKvRvwIXfc8dmh6phYMglRUtz4WUl9jRVStmR61llfa1e7g6HevVaNFiao40VzyfJYeO62Hwn
-	p4VMauH27f1JeOGyXSOasfIqG82yTfTClS25qIrY32SB1qFxOUK1U+FWEX2CHIEshyxCe9UI46q
-	9WE8hq69e0D+tkseUJk1rLy0G7t6xcSpzCynhDRvKJ6SsR5XflnLVVQIWfzcdCcVbnBhnKL6CzM
-	Nt2sKQM/pOuUyRHBH28Ny86eoIZnKKBKlLjDtv34cfQjPWbDFBiGGz+txAMUcmbE2fFUmGehONP
-	OHJJgM/EZOxhUSUL2rKGOkLUjF3dfAkdjcwuAkeOs0HmJ6gOlKvC4DlOco9N3h4LxDXf+Ef9LOa
-	g6MMGFL/3p82g94GsoB9naS/XFpQwcMTpCosFrWKB5KM77l/cIjLRgpctM6dyvmFT4bHlabiUyk
-	ee3drM5sIFfN1hD/c59qBqM4yvM8hRCAkB0DE/9qz6q9YwwlVhp4dKi9id8/+ns49flefxDZeBv
-	t5oabvueBE3qo66Y4TW7QTL7
-X-Received: by 2002:a05:600c:46cc:b0:495:5e86:4e11 with SMTP id 5b1f17b1804b1-496b57177d7mr363715e9.12.1784929036022;
-        Fri, 24 Jul 2026 14:37:16 -0700 (PDT)
+        bh=zw+In47VNqyZ6M3jtrWopK6tPDTD0rxTpVkixtQCLIg=;
+        b=tCZao+D9/tDjkcxDoy9lsM0i2IjRvyvqopLJKa2d9v5NCakXV3rewTBhiU3Ylwgyl3
+         LhxUlSGb7zy1CvOvLKSFmaPpA2RoSS48dki82KP8OaCk23qahaZfpUbZC5RGsq5Uq531
+         8nFrs6ddaOn/b4fKMgQw0Mz+XzUrO8Dag3vmDuA3oNuNA+6VVVJkAflPPj76HoXMH0lF
+         ehY8oHzbu8Hpd/HLqLpP1+GkNk1zEsMh8fLxls+XW1srPKwJ753w67xewnLNfSjT+hXZ
+         2tKJk35bSBJ3YORz9EPEF+KL13vRIh/VWusx/u9cK+veoVd3S3ujyuCnoS3/n6HVsJta
+         ILeQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrpuwc9l1MxbBp7kHI5m6EVPMrOYFc0Y9gDrgbZjT73wfoXP8ruOZJ1dFm+rk07t4qv9ve233zQLDIr5g/gKd+0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaeNMVqddVMGuE6vsfKl2APz/RbXyhJhrTh2WdRkb+kUyYMXLu
+	k7l3lyWfTA2Ln3vXOiTrJi2YkaO11PUyJ59Jagwc7AGA73zxYEYqkDfb
+X-Gm-Gg: AR+sD11rc37dWo6H6cWnFhu8XipHr8yyE1OMKsXFgMwl4HstOBVp8Yem1o1kj1gu3M1
+	Gnec+T61tSwbM0AqPMM21UyriyuFF8U4f2rmg5e2NGVTtMvmHWIPv7qIsgvf68Wje04SmVSzMEI
+	7UKkyOfc+Cobx4suG4eSeYiNgaeBRid94XDpFk6MexJEMSn2NkREnwKiURgIeW874wPgqSPedTU
+	Qf2ikLwDQBAhT56MEP1jp8k/XaeyeacPJjldNf9Fm1ijvL4uyMuL5GGY0o7GjHlNZ6AVEisKpwY
+	nd19DCYz2M92FeAiVPx5R1zZ6hFoG8gMVfHj8Z6dVXfXg6QwUaZq6KS9FhJRQYkvuXxs5UA85BE
+	5uta/wT+59QLSU79ek/XdRp/DQ9+1K6w3EEADtYiBPqOz1Z9/qa/a79StL8pw3gwP3ARA4CTdoL
+	7hK6Wo2Ish5l0VG7lHgjKATqrZbdwWe4InrSuryosgAcS2WGcHDRDpaIXQ5DtpMkStvxTeZRURK
+	l+8MwIvqN378Xn1INexeEp2DQV0e6R5QK6vu0XfYpp7STRNmckkvsRnTayAPPHCzWTXszFNML/a
+	8Z0QnenORG/m1g==
+X-Received: by 2002:a05:600c:4f94:b0:493:eb71:5cc6 with SMTP id 5b1f17b1804b1-496b5720ac4mr429335e9.27.1784929040710;
+        Fri, 24 Jul 2026 14:37:20 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-ae93-f301-cdd9-d5ea-080d-9131.310.pool.telefonica.de. [2a02:3100:ae93:f301:cdd9:d5ea:80d:9131])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b499cc49sm20754015e9.9.2026.07.24.14.37.14
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b499cc49sm20754015e9.9.2026.07.24.14.37.19
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 24 Jul 2026 14:37:15 -0700 (PDT)
+        Fri, 24 Jul 2026 14:37:20 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Russell King <linux@armlinux.org.uk>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -86,17 +86,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Clark Williams <clrkwllms@kernel.org>,
 	Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
-Subject: [PATCH v2 1/2] serial: amba-pl011: unprepare console clock on unregister
-Date: Fri, 24 Jul 2026 23:33:47 +0200
-Message-Id: <20260724213348.77418-2-kmehltretter@gmail.com>
+Subject: [PATCH v2 2/2] serial: amba-pl011: keep console clock enabled for atomic writes
+Date: Fri, 24 Jul 2026 23:33:48 +0200
+Message-Id: <20260724213348.77418-3-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20260724213348.77418-1-kmehltretter@gmail.com>
 References: <20260724213348.77418-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_143718_323887_D3202731 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260724_143722_919246_D8A4579F 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,56 +111,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pl011_console_setup() calls clk_prepare() on the UART clock, but the
-console provides no matching teardown, so the clock is never unprepared
-when the console is unregistered -- via the sysfs "console" attribute or
-a driver unbind. Each re-registration prepares the clock again, leaking
-one prepare reference per cycle.
+pl011_console_write_atomic() runs from nbcon atomic context, where
+sleeping is not allowed. It calls clk_enable(), which takes the common-clk
+enable_lock. Under PREEMPT_RT that is a sleeping lock:
+clk_enable_lock() first tries spin_trylock_irqsave(), but on contention
+falls back to spin_lock_irqsave(). Therefore, an atomic-context printk on
+an RT kernel with a clk-backed pl011 can trip:
 
-Even where preparing the clock has no hardware effect, the stale
-reference leaves the clock framework's prepare count unbalanced. For
-providers with prepare/unprepare operations or runtime-PM integration,
-it may also retain resources after the console is unregistered.
+  BUG: sleeping function called from invalid context at spinlock_rt.c:48
+    __might_resched from rt_spin_lock
+    rt_spin_lock from clk_enable_lock
+    clk_enable_lock from clk_enable
+    clk_enable from pl011_console_write_atomic
+    ... from vprintk_emit
 
-Add a console .exit() callback that clk_unprepare()s the clock,
-balancing the clk_prepare() in pl011_console_setup().
+This was found and reproduced on PREEMPT_RT. Arm32 and arm64 DT SoCs are
+affected; arm64 SBSA/ACPI has no clk, so clk_enable(NULL) short-circuits
+before the lock. In addition, write_atomic() may be invoked from NMI
+context and is documented to avoid locking. Removing clk_enable() from
+the callback also avoids a potentially unsafe NMI acquisition of the
+common-clock enable_lock.
 
-Fixes: 4b4851c65d92 ("clk: amba-pl011: convert to clk_prepare()/clk_unprepare()")
+An nbcon atomic-capable console must be printable from any context, so
+the clock cannot be gated between writes. Enable the clock while the
+console is available for output: use clk_prepare_enable() in
+pl011_console_setup(), release it via clk_disable_unprepare() in the
+console .exit() callback, and drop the per-write clk_enable()/clk_disable()
+pairs from write_atomic() and write_thread().
+
+When printk suspends consoles, drop the reference after
+uart_suspend_port() stops console access and restore it before
+uart_resume_port() -- but only if suspend actually marked the port
+suspended (a wake-capable tty stays running and must keep its clock), and
+keep it when console_suspend_enabled is false so no_console_suspend works.
+
+The active power cost of keeping the clock enabled is platform-dependent:
+none where the UART clock is a fixed always-on oscillator, real where it
+is a gateable clock branch, which then cannot be gated (nor possibly can
+its parent clocks) while the console is available for output. When serial
+core actually suspends the port, the reference is released so the clock
+provider can gate the clock tree.
+
+Fixes: 2eb2608618ce ("serial: amba-pl011: Implement nbcon console")
+Suggested-by: John Ogness <john.ogness@linutronix.de>
+Link: https://lore.kernel.org/all/8733xeaxix.fsf@jogness.linutronix.de/
 Assisted-by: Claude:claude-fable-5
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- drivers/tty/serial/amba-pl011.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/tty/serial/amba-pl011.c | 40 +++++++++++++++++++++++----------
+ 1 file changed, 28 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index 8ed91e1da22b..1aa43994a3cd 100644
+index 1aa43994a3cd..611d1f6a0590 100644
 --- a/drivers/tty/serial/amba-pl011.c
 +++ b/drivers/tty/serial/amba-pl011.c
-@@ -2552,6 +2552,15 @@ static int pl011_console_setup(struct console *co, char *options)
- 	return uart_set_options(&uap->port, co, baud, parity, bits, flow);
+@@ -2523,7 +2523,7 @@ static int pl011_console_setup(struct console *co, char *options)
+ 	/* Allow pins to be muxed in and configured */
+ 	pinctrl_pm_select_default_state(uap->port.dev);
+ 
+-	ret = clk_prepare(uap->clk);
++	ret = clk_prepare_enable(uap->clk);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -2556,7 +2556,7 @@ static int pl011_console_exit(struct console *co)
+ {
+ 	struct uart_amba_port *uap = amba_ports[co->index];
+ 
+-	clk_unprepare(uap->clk);
++	clk_disable_unprepare(uap->clk);
+ 
+ 	return 0;
+ }
+@@ -2630,8 +2630,6 @@ pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!nbcon_enter_unsafe(wctxt))
+ 		return;
+ 
+-	clk_enable(uap->clk);
+-
+ 	if (!uap->vendor->always_enabled) {
+ 		old_cr = pl011_read(uap, REG_CR);
+ 		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
+@@ -2648,8 +2646,6 @@ pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!uap->vendor->always_enabled)
+ 		pl011_write(old_cr, uap, REG_CR);
+ 
+-	clk_disable(uap->clk);
+-
+ 	nbcon_exit_unsafe(wctxt);
  }
  
-+static int pl011_console_exit(struct console *co)
-+{
-+	struct uart_amba_port *uap = amba_ports[co->index];
+@@ -2662,8 +2658,6 @@ pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!nbcon_enter_unsafe(wctxt))
+ 		return;
+ 
+-	clk_enable(uap->clk);
+-
+ 	if (!uap->vendor->always_enabled) {
+ 		old_cr = pl011_read(uap, REG_CR);
+ 		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
+@@ -2692,8 +2686,6 @@ pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!uap->vendor->always_enabled)
+ 		pl011_write(old_cr, uap, REG_CR);
+ 
+-	clk_disable(uap->clk);
+-
+ 	nbcon_exit_unsafe(wctxt);
+ }
+ 
+@@ -3080,21 +3072,45 @@ static void pl011_remove(struct amba_device *dev)
+ static int pl011_suspend(struct device *dev)
+ {
+ 	struct uart_amba_port *uap = dev_get_drvdata(dev);
++	int ret;
+ 
+ 	if (!uap)
+ 		return -EINVAL;
+ 
+-	return uart_suspend_port(&amba_reg, &uap->port);
++	ret = uart_suspend_port(&amba_reg, &uap->port);
++	if (ret)
++		return ret;
 +
-+	clk_unprepare(uap->clk);
++	if (console_suspend_enabled && uap->port.suspended &&
++	    uart_console_registered(&uap->port))
++		clk_disable_unprepare(uap->clk);
 +
 +	return 0;
-+}
+ }
+ 
+ static int pl011_resume(struct device *dev)
+ {
+ 	struct uart_amba_port *uap = dev_get_drvdata(dev);
++	bool resume_console;
++	int ret;
+ 
+ 	if (!uap)
+ 		return -EINVAL;
+ 
+-	return uart_resume_port(&amba_reg, &uap->port);
++	resume_console = console_suspend_enabled &&
++			 uap->port.suspended &&
++			 uart_console_registered(&uap->port);
++	if (resume_console) {
++		ret = clk_prepare_enable(uap->clk);
++		if (ret)
++			return ret;
++	}
 +
- /**
-  *	pl011_console_match - non-standard console matching
-  *	@co:	  registering console
-@@ -2705,6 +2714,7 @@ static struct console amba_console = {
- 	.name		= "ttyAMA",
- 	.device		= uart_console_device,
- 	.setup		= pl011_console_setup,
-+	.exit		= pl011_console_exit,
- 	.match		= pl011_console_match,
- 	.write_atomic	= pl011_console_write_atomic,
- 	.write_thread	= pl011_console_write_thread,
++	ret = uart_resume_port(&amba_reg, &uap->port);
++	if (ret && resume_console)
++		clk_disable_unprepare(uap->clk);
++
++	return ret;
+ }
+ #endif
+ 
 -- 
-2.53.0
+2.39.5 (Apple Git-154)
 
 
