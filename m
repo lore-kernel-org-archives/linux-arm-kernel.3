@@ -4,57 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA628C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 08:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A48C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 08:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZF0iQLfzAvBUCWBc6u2tYLj3HbiOY3Ow4lnc9zCLabE=; b=kl61FB9yf0c5hmY2iqQpzWQKrk
-	959AGCFAm/1Xc2ngrK2ktavkGk7hGYI6QdG76hgYhfsSINq3qfAmbKvMce1WrDq+Y0oLIWynoIgg6
-	eEpc0RavvuDc2/ivz2MfVEHzJIJQ0drMu9UmcHxTn1MmeB78liYoiuzD9zLUQyl3o9SNH+7esRJ94
-	o82oOUG1W4XZKmfTgvLV2D61Z+vxNBSj+Ugt7Iz2jomzbd81CnoNNlcbSJtKRYRhBWP9JBGPH0jkb
-	kGeyyMpoRoV5bfrH7JuHlGd4WiT2auW/U6xkjUChV63RQppE20lFGPHzp4SMaANtDhesQyTcIv6Dj
-	bKixlssA==;
+	bh=nfHLq2po8UI/y28qstFvUK43HAU86pkJ/YHd7F60yAk=; b=UnndP/Guy3/4JpbfkBLc6P0g6M
+	TwIwkaVnXrYKvNoBEXvw+pPkTXjxGuLdLSSAG6B0Fz+CvPQe9mTBcr+RKfdA1IT32uJSsUHwSJCWl
+	GenaGTOGJ/nglytCUOaxtaBcEaSPjM9iCjtogT47PPNRYDiJZhMSC9BCIzB/NwMgX9Sh+Vuae+bid
+	4qYheKwpADBDpYL0fvOrXIkKtxeNgoZRSQr1jAtI/OPISem2yg5x2QqP8roUeI8jrkBMi+7+rXrSp
+	XQwTthhWhgxsR9UVcVQwc1esdYG8UdR+0muDqZpAqNdCHsvkumxsQOMCTqIyXd+ZUr4li8EDcAkz5
+	lV3FEbDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBSX-0000000FpoF-2qTS;
-	Fri, 24 Jul 2026 08:40:45 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1wnBSq-0000000FprG-3GmU;
+	Fri, 24 Jul 2026 08:41:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnBSU-0000000FpnU-46up
+	id 1wnBSp-0000000Fpqz-2msr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 08:40:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1784882440; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=ZF0iQLfzAvBUCWBc6u2tYLj3HbiOY3Ow4lnc9zCLabE=;
-	b=crJfkJCU1mk82tjdR/O3d5YqSVhzznXdN2ArVISZX9sOAxWmXkoRNjID1QIkE6n2eJV/pe6WNLbbs8lVwa2WxW4HcI6eRdnjA1t888th1k7i3WdbFjfKC0Jy3E2VqzkRGy2EcTXpe8ZmhDCNVZDzJwx+JCNDK42fbVDpah3WqMU=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R871e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7ia0lT_1784882439;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7ia0lT_1784882439 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 24 Jul 2026 16:40:39 +0800
-Date: Fri, 24 Jul 2026 16:40:38 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH v3 24/28] KVM: arm64: Engage NV3 ERET trap elision
-Message-ID: <n2ora3retqaoki3u5ovoqwvh4iqzsziqmybzxid7mylcoua2fc@xlhyqzhwh4cl>
-References: <20260722074234.3330999-1-maz@kernel.org>
- <20260722074234.3330999-25-maz@kernel.org>
+	Fri, 24 Jul 2026 08:41:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 21FF9600AA;
+	Fri, 24 Jul 2026 08:41:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AE961F000E9;
+	Fri, 24 Jul 2026 08:40:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784882462;
+	bh=nfHLq2po8UI/y28qstFvUK43HAU86pkJ/YHd7F60yAk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ViZwD3+kuJ69SGRGL+83J9kVDA3tz0DMI2DievgGbJvH1/EUkk8zG4wTrsDk3avPB
+	 NMf9Y0eeb42glJQXjXoJkS9vOsaF0KFrWrfiQQspYJ2r0xfA+my7j+M32kGSvFl0+n
+	 t9gDvintI0Apxmzu4XuYkF2OnKtEWIVpCUJjOhB4e0FYubhDRctVJPxN/KknFDNzkX
+	 RlQz/jLO7YUBcqaltEbtncM5Ui66zI0MVu500Hty4NChP+KW53aBWCNcRNG8kA64PG
+	 9SR3I2rmAKTwGWlrDG7XNl6sTM8TPnAXovSVidTer0WtzMtKtz18GaLUkSzxBgizG9
+	 8b9M5QxQp9kTg==
+Date: Fri, 24 Jul 2026 09:40:56 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rajendra Nayak <rajendra.nayak@oss.qualcomm.com>,
+	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Amir Vajid <amir.vajid@oss.qualcomm.com>,
+	Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>,
+	Jia Yang <jia.yang@oss.qualcomm.com>
+Subject: Re: [PATCH RFC 00/10] firmware: arm_scmi: vendors: Qualcomm Generic
+ Vendor Extensions
+Message-ID: <20260724-space-magpie-of-promise-b71ead@sudeepholla>
+References: <20260724-rfc_v8_scmi_memlat-v1-0-cb732bcff1f4@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260722074234.3330999-25-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_014043_532801_E947DEC6 
-X-CRM114-Status: GOOD (  19.57  )
+In-Reply-To: <20260724-rfc_v8_scmi_memlat-v1-0-cb732bcff1f4@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,59 +90,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 08:42:30AM +0800, Marc Zyngier wrote:
-> When running on NV3 HW, always engage ERET trap elision when running
-> the L1 context, as there is no benefit in not doing so.
->
-> An L1 can itself engage trap elision by setting its own view of
-> HCRX_EL2.NVTGE==1, which will subsequently be honored.
->
-> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_emulate.h | 10 ++++++++++
->  arch/arm64/kvm/hyp/vhe/switch.c      |  4 ++++
->  2 files changed, 14 insertions(+)
->
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index c562d8171d5e1..b32870a5e1236 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -706,6 +706,16 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
->
->  		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
->  			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
-> +
-> +		/*
-> +		 * NV3 is a host-specific extension, and we always use it
-> +		 * when present and that the guest uses NV. It may be be
-> +		 * hidden from the guest though.
-> +		 */
-> +		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
-> +		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
-> +			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
-> +		}
->  	}
->  }
->  #endif /* __ARM64_KVM_EMULATE_H__ */
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index cbda9e087db39..4ed745bdde418 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -345,6 +345,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
->  	u64 esr = kvm_vcpu_get_esr(vcpu);
->  	u64 spsr, elr, mode;
->
-> +	/* With NV3, the fast path is handled in HW */
-> +	if (cpus_have_final_cap(ARM64_HAS_NV3) && vcpu_el2_e2h_is_set(vcpu))
-> +		return false;
-> +
+On Fri, Jul 24, 2026 at 12:48:05PM +0530, Pragnesh Papaniya wrote:
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+[...]
 
->  	/*
->  	 * Going through the whole put/load motions is a waste of time
->  	 * if this is a VHE guest hypervisor returning to its own
-> --
-> 2.47.3
+> 
+> Changes in v8:
+
+Yet the patches are labelled as if they are RFC and/or v1, so it gets really
+hard to track.
+
+-- 
+Regards,
+Sudeep
 
