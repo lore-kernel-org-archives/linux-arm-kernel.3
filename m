@@ -4,77 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EB9C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F3CC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 12:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15pY6w0jny73PRLczReeiniz/rgpD90LtPmuXEwAgDw=; b=d8EgQnNMOpRFgcSu877y2LJQfl
-	lfQBCgx2axbrcaD++PouZ2nzTY+3ts5HHomHC7Vkvb3A0msYSc6q7ayICngQb5w4d3UKrAP/5P+Pn
-	eT6Py5KtpGQHtoflM86bQSXlANU23wzWWGaM/2REjgpBKpC0+aH+LcKXSktm8AN4yG4sgT9VCKmuC
-	nArTIgCnCii4utT09ypyhIKTMsbwiCbNrSbBYipwvvUpLnZn1RqcaCFWtIS6B2hBTe8UGkRiU4816
-	yD/YBvKZEC1Yg5dodpMVxw8jsGV7PqQQRrZA8kEyyzV6r9tDCHxEzzNP5v9xu5QrmdMO3KoBe7tWW
-	Tv0qlu3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=; b=1WuNqWoNeErbDTB6+mgOeIaY7U
+	dccmo2nz1nxAd4J925PgCyjsfQer68nEjWdDeDR37klm+0dRAKx9vKbTsK2IhN9HB0ijW98Xa7C9/
+	e0h3YgIh32P/FZKH+YyE2FD+ntbVUqHdl7i5ENwMgWZyPxGX90FDcO9YTbKmSLjjxraUbdnm8V1U6
+	tqjZYSEqFpUCcjSAYhRa8BKNKDPXT0+7BYAqu8dfFmaSMdF2xoIZ4p8iBjGpmieP13xsoGmW5RBs3
+	xMi7ef0e4ehJXPg+oEDwjDQrfHEYSbtATBsxswPwxjVwgiGS5echNwGU5R0d0O6B4DSoTpB9b774g
+	oRTdxLYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnFCv-0000000GOua-4397;
-	Fri, 24 Jul 2026 12:40:53 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wnFGC-0000000GPTn-412p;
+	Fri, 24 Jul 2026 12:44:16 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnFCr-0000000GOsG-41dT
+	id 1wnFGA-0000000GPSp-07WH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 12:40:53 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0582C1A11EE;
-	Fri, 24 Jul 2026 12:40:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CAB6260395;
-	Fri, 24 Jul 2026 12:40:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3368311C11A92;
-	Fri, 24 Jul 2026 14:40:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784896844; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=15pY6w0jny73PRLczReeiniz/rgpD90LtPmuXEwAgDw=;
-	b=znTP3Sza/P3Kk5ysFfCKIcFynPHzrzFQ/+geqRU/jiwIEqLacu3tSrSCrvgxe18vrVRg7B
-	ho7LdVHJr85f1O9Ax9aK9h206GYUjg2Bk/ExZIxbDhPsmLEljFfhjGuUSmMSGHZnGab8fy
-	G8Y6crlqNGjoNwzTEp6jInEZxCgWBfo+UFQLRh+p2Ga+64DtgyPqUtBltHyzU4gFKFn9yg
-	0OucNv5cPhnDfLGZSNN++b4IrrLNV6dP/36kSu7YK6Ts7xwYh8iG57d9AmvP665Sv3ZcpX
-	RVEACmFzNQW0BoA66DzFrFZ8VnYHLPyf+TMegtpjxBuGoVRr8I3wzX6wlar30A==
-Message-ID: <5694e62a-c67b-458b-993d-43a09ca4459f@bootlin.com>
-Date: Fri, 24 Jul 2026 14:40:36 +0200
+	Fri, 24 Jul 2026 12:44:15 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-92e5c92c389so25333885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 05:44:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784897053; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Aj/YMS5QBuOtx/X0IQjJ4bw7NnEfGD3xjvXSwntamAnOl993F6AKak0frLH64BXZza
+         nq3SsFJiVGPHNEFCEMFJOMw1iUZfMXJoi9CVoZYuNgxHFMxQx1c70E2tNoUypOMRsMm1
+         xXyWL5QkyhF2+FriP2l4D9CqVaXXajjyrKhKF4xA9kgVtg9FEUj66nVOtdCZBlOpndus
+         kUwdQy8XJcC12Hx2xwEQvchWhrkLhfzQUjWTUa9gpyUxH7GnNTgtilokm1j6hQtYFX4s
+         4Fx+L7JfkLfvaQjVwpXzp6gbhItZjPuk6ee9JcVvPdMXcmNj9Au16O/2/4OTzk3dMyaf
+         kgOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=;
+        fh=bgolxu4r8E4wOdQInTl5jlv575jbQ58okBU8W2dpVNs=;
+        b=YzPUlNKAhkSOAJYiO0tRzG6D6osUTk/dMCBT226ZevafiSFbpnQQboaIJIIi/l+7n5
+         XF0xfbgBZ2LFqQuN9POlKz2r6cC87SjUSGsRqmyHmeAFHJoCFUBFV6Cr0VqS6V8kKZBO
+         +gltLQ6d1i2TCUQxqW3g8OzWR5a2+bvVhwPMIaN+SxH2mjO431T4TSCPXZhcrBWUY+RW
+         LIW4Vqx8loEznWva1/qonI6LTaZdrehvK+Ysmt53K8h0x3LFmtQJxXH1gwhmgYz62SLR
+         5CvGAUm4Ldz0aG/xr4thoNli+o+6WAYdP03WembSRSVULXHXaBYhLZpl3rF47LoicSEe
+         eK0A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784897053; x=1785501853; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=;
+        b=HGbWw6wUKkd3jKAtaxxbD2G4N+Vx+LqgGwVLft/ZKsweTuM9/79157fXb5UOlBssvt
+         uPLo/2QRq3hg4/OpuW2G/BlikbvZvzTpl24W8nwvr9M+xpl9S3FLFUXIKKdmQuBXmy0X
+         HaJZA4X/UGcMABwEmAdiI3PBr21CZ8UZ2e7286Gu6slbZfpkfrx31kzxqydT13WYY5BA
+         7DUFRRp1oGuIE09yFy/JWNxNCHGjwx8FHEcpLgAJmZbOsy8H1DbpHwVb8FF1e7aSqtAS
+         CnJl8zqMS//466tXVON/hXCjyUoo+T60oHfP2DUsp+A5gGJuwdKYrssPUljE4Z9M8qP2
+         G+Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784897053; x=1785501853;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=aC2psv7ALiBxeuXZI5bTG7C7BxKxDQncU75RPTVHyag=;
+        b=dmrTN4H1vg5/katCEO+lFdsaunvJdzubSAMcYRkdnGUhYpbZdw4+V5rckEMUvCzkKd
+         v6MyZu55zvbReCsE5+QW8LLUXqZKa3ljTpHZCPrnIaLGrFA8N+YQx8iRAihYoxAHMBiv
+         df4Om8vBv7PF3KTSMpWFFpdvQ9kd0rENPrEac5BUrZ0v9u99Y9gOBVW/liOHVc61OGRE
+         OR2jJDI+Unj5Eumj6SpbC9r4XH1brqT5UcNxc20Whrq3us77zlZ1keu5YEHIsgHQApYF
+         v9tqp+N73EgaKx4zapVypwJKn5Tbi3IYtAuKoZgLSE40bracfU3XTS1EuBn9nneh105R
+         kaYg==
+X-Forwarded-Encrypted: i=1; AHgh+RqqG+j3dhIgGTRqZhas9dVSB+xUu70XA6q6RISorpbYCASjcaCw+eAA9pKOvKJ7oTX18TQFik0J8rw1s0W31oBb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrtRAPlCLgcGZJwwLE5vY99jlH/M60WuLCQ63hKtqe7UD3GqtD
+	ESPqKB3lMg0a+B9vVQYqVM1RDFfUZuWvok9JlgxpUOD3qEIVIkeuYQWNeJRdRTiIwmZLTV2hjfd
+	bC7irk5qkiAEllhKoYzJs5CJIlmO/luk=
+X-Gm-Gg: AR+sD11mW3LbPhciNL+NLW9EYY9h4tjDKt67a97RvHYvZui3CatyzgJmWXmewvFKl2k
+	iiYYf7/nk9OSfl/yZlh2HVf4W5nfyhh3dD+l3yo/TMflz1zl+tEBXChj8YL22uOuodpthflIDky
+	LhVyVtrRmXIrERtEg/p4x2QjMynk852yNaTxUR3B0jPyZV+Xw0apV9D1ZwRbKz/Gx1UTmgZ7+kD
+	1PTUbEET4pe4tZnocC+B1MkEATR9KZA/cLHzNMuCHaU7MJOKUNtL8g9Yv0SNfASZct4eruy4zsv
+	7QUMqIqM9/nC0VO1d3gSXF9NBEW8C2JO6ptYJUZ0Mz+9wa9fb4T5
+X-Received: by 2002:a05:620a:6cca:b0:92e:cac7:96fc with SMTP id
+ af79cd13be357-9310388efd2mr749905085a.24.1784897052712; Fri, 24 Jul 2026
+ 05:44:12 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: Skip PHY attach if custom PCS is in use
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Zxyan Zhu <zxyan0222@gmail.com>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Hariprasad Kelam <hkelam@marvell.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260722131918.685761-1-zxyan0222@gmail.com>
- <b8f125be-e91f-4b44-8664-5746edb28f33@bootlin.com>
- <amDKD/9aPYXctiWI@oss.qualcomm.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <amDKD/9aPYXctiWI@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260724111548.2109-1-tharitt97@gmail.com> <193a0d2b4f7c33163cb6aee56ceee0bf5cb6c11c.camel@pengutronix.de>
+In-Reply-To: <193a0d2b4f7c33163cb6aee56ceee0bf5cb6c11c.camel@pengutronix.de>
+From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
+Date: Fri, 24 Jul 2026 19:44:00 +0700
+X-Gm-Features: AUfX_mxLzK4lEzDdIm63lfvgUd6SAd7_Ys3EmQdE2d3UhBcu1j4jPRBGqdfCOww
+Message-ID: <CACak8wN-Y=oDbEVbou+RetS9X-Lca_MZHSY2NJFaGWR3LoVBKQ@mail.gmail.com>
+Subject: Re: [PATCH] media: hantro: release runtime resources when device_run fails
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Hans Verkuil <hverkuil@kernel.org>, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
+	me@brighamcampbell.com, jkoolstra@xs4all.nl
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_054050_169878_44712B53 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20260724_054414_078809_367B308F 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,65 +121,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> But right below this, you are still letting
+>
+>         if (ctx->codec_ops->run(ctx))
+>                 goto err_cancel_job;
+>
+> without disabling the clocks.
+>
+> >
+> > @@ -191,8 +192,12 @@ static void device_run(void *priv)
+> >
+> >       return;
+> >
+> > +err_disable_clock:
+> > +     clk_bulk_disable(vpu->variant->num_clocks, ctx->dev->clocks);
+>
+> You have added vpu = ctx->dev, why not use vpu->clocks as second
+> parameter?
+>
+> > +err_pm_put_autosuspend:
+> > +     pm_runtime_put_autosuspend(vpu->dev);
+> >  err_cancel_job:
+> > -     hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
+> > +     hantro_job_finish_no_pm(vpu, ctx, VB2_BUF_STATE_ERROR);
+>
+> Why are you changing ctx->dev to vpu here, but not in the other
+> function calls in device_run(), e.g. pm_runtime_resume_and_get() and
+> clk_bulk_enable() above?
+>
+> regards
+> Philipp
 
-On 7/22/26 15:47, Mohd Ayaan Anwar wrote:
-> On Wed, Jul 22, 2026 at 03:40:08PM +0200, Maxime Chevallier wrote:
->> Hi,
->>
->> +Mohd
->>
->> On 7/22/26 15:19, Zxyan Zhu wrote:
->>> When a platform provides a custom PCS via the pcs_init callback
->>> (e.g., for USXGMII with in-band autoneg), the MAC's phylink_pcs
->>> is already configured. In this case, phylink validates against
->>> the PCS's supported interfaces and manages link state through
->>> the PCS, so no traditional PHY device is needed.
->>>
->>> Without this, stmmac_init_phy() falls through to the
->>> no-phy-node path and errors out with "no phy found" when
->>> the DT has no phy-handle for such interfaces.
->>>
->>> Skip the PHY attach when priv->hw->phylink_pcs is already set
->>> and no phy-handle is specified in the device tree, allowing
->>> platform PCS implementations to handle the link autonomously.
->>
->> Hmpf this bug again...
->>
->> There have been multiple attempts at solving this, cf this thread :
->>
->> https://lore.kernel.org/netdev/E1w66jW-0000000E3qS-23fW@rmk-PC.armlinux.org.uk/
->>
->> Now, there wasn't any conclusion on that, but I _think_ the proper
->> solution is to re-apply Russell's original patch (the one in the link above)
->> and to add this current patch on top of it.
->>
->> Russell states that this may (will ?) break qcom-ethqos, but OTOH
->> we're in need for a solution here, and with the pace of PCS-related
->> work that impacts stmmac, there's going to be a point where we may
->> need to think about compatibility.
->>
->> TBF I don't understand the qcom-ethqos issue, maybe Mohd can help
->> with testing here ?
->>
-> 
-> Sure, I can help test out qcom-ethqos and see if and where it breaks.
-> 
-> We could not arrive at a conclusion the last time because I ran out of
-> options to try and find a proper solution. So if it still breaks, I will
-> spend some time and brainstorm qcom-ethqos's interaction with the
-> integrated PCS, again.
+Hi Philipp,
 
-Thanks :) Good to know you're here to test !
+This is embarrassing. I did notice this, made a local change and
+forgot to re-run git add.
+I will fix this asap and send a v2.
 
-Zxyan Zhu, I think you can send a V2 Series with this current patch, as well as
-this patch from Russell :
-
-https://lore.kernel.org/netdev/E1w66jW-0000000E3qS-23fW@rmk-PC.armlinux.org.uk/
-
-The combination of the two work on dwmac-socfpga, and it would be great to test
-that on other stmmac variants
-
-Maxime
-
+Best,
+Tharit
 
