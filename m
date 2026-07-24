@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 449F7C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B728BC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zdQgbqXxACDmr32xzFUqYuLmlqfobQFQNJHT7eLaFY=; b=LI1EVzXPtWqiJHV4g1wAnelK2T
-	ty+l2JnlhRROENaGtXa9KVzVlnEL1nUN3Do5+uISA8cChcHFrL7RXErVyo36tE2WSZq55MJUsNasU
-	2IKIcOHjqKchLsaYGvSruIn94wRpvrZ/cXtFHCYuvAT8kzQKal3vXDHKOArTSS8YnG44x/DImYawo
-	Td8rboDit1UYTE3R7pEW1rOTeLh8UEwiNyXpMixQIZGR7KzNAMs4shAFxLT14jVj6YFRIHqAr8rtv
-	L0bzUBO5NA2hfiQCDZG8iSvERfGPtxOju091kwE0HwDy1ZM+56qMJa6lfJejtMVSL4zB0jlbJx8aW
-	9e6kNtNQ==;
+	bh=VRpv6T+siWNkBqHSEcPyaMCGolHAkyNsTUU37plUbXY=; b=MNFw+3esNa/RZucu8ZEPCDqVWU
+	Dj5FeXZrnFHLEde70CGmYCJ7OzhnZGmmeBcxRhF/VwB1jnRlZGiEf8/4t9a2rtYw3+exu3eG6QYhR
+	3B4nOtcfFS3SuI9IIFQ9pmAN3hhP3NDd6ZI2ebTJLd4wPU/oOqh/kJVUfOvISCMqW/0Fv+jS/B8Dg
+	ava1AktyhREDuUOtEwVHvH2ZyGGv/0bljSKT+hHelgcUi5nJLxdtFybRNnPwiUck/6Z3Cxq0safj8
+	NuXB0yti7GHzck0CDqPateKnsZV8V7IOXgQG40UedSNOM1GObZ28ufCJ+DgoRHs0xPBL25Tgjrz8v
+	xAvyXKiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9E7-0000000FaOV-04Fo;
-	Fri, 24 Jul 2026 06:17:43 +0000
+	id 1wn9ER-0000000FaRu-0cip;
+	Fri, 24 Jul 2026 06:18:03 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9E4-0000000FaO4-43XT
+	id 1wn9EP-0000000FaRS-2T91
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:17:42 +0000
-Received: from [10.94.177.11] (unknown [4.194.122.136])
-	by linux.microsoft.com (Postfix) with ESMTPSA id DA71220B7167;
-	Thu, 23 Jul 2026 23:17:23 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DA71220B7167
+	Fri, 24 Jul 2026 06:18:02 +0000
+Received: from [10.94.177.11] (unknown [4.194.122.162])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DA37620B7167;
+	Thu, 23 Jul 2026 23:17:44 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DA37620B7167
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1784873845;
-	bh=+zdQgbqXxACDmr32xzFUqYuLmlqfobQFQNJHT7eLaFY=;
+	s=default; t=1784873866;
+	bh=VRpv6T+siWNkBqHSEcPyaMCGolHAkyNsTUU37plUbXY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=siWZQREj97i+UVAMpjAIF1VgYLT4amSn7g7a7hOjo6IkdTHtPTPS6xuV+842TO+VI
-	 p6llVgZErniddfrE5jt+OCjoGG4tW/RCF3DQ669F26GKFaGHRJPMg2+lfd/ViH1XIn
-	 RxhSfuJB1MSST6jfkFElVQmPuHJnPrxNoM2wlTJo=
-Message-ID: <63f3e979-80c4-44c1-b17b-7f5f12882425@linux.microsoft.com>
-Date: Fri, 24 Jul 2026 11:47:36 +0530
+	b=gBhaVe/Sk1p4a1zqY0SbQg8TLSuQnOjOB5KIeLVAOVZHYPYvKbPLmsaF8C2l0u20p
+	 o46dth0yF+OnENkT91WMDrO/ynuDq5c4AOr4oUowOEdK50w3np62qsEOrGDdFooS75
+	 tO6oQ8NG1vpBijXTdXIEvPVxmkcZzEbjRLa3UVRs=
+Message-ID: <976333d5-01d5-433a-ad02-56d6b1249af3@linux.microsoft.com>
+Date: Fri, 24 Jul 2026 11:47:57 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] firmware: xilinx: Add support to clear TF-A PM state
+Subject: Re: [PATCH 2/4] firmware: xilinx: Release all peripheral devices from
+ firmware
 To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, michal.simek@amd.com,
  git@amd.com
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260723124841.2567827-1-jay.buddhabhatti@amd.com>
- <20260723124841.2567827-2-jay.buddhabhatti@amd.com>
+ <20260723124841.2567827-3-jay.buddhabhatti@amd.com>
 Content-Language: en-US
 From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <20260723124841.2567827-2-jay.buddhabhatti@amd.com>
+In-Reply-To: <20260723124841.2567827-3-jay.buddhabhatti@amd.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_231741_043998_6EBCF6D8 
-X-CRM114-Status: GOOD (  31.91  )
+X-CRM114-CacheID: sfid-20260723_231801_668109_99635DE9 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,147 +74,84 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 23-07-2026 18:18, Jay Buddhabhatti wrote:
-> Currently, during a kexec restart, only the kernel is reloaded, while the
-> TF-A specific data remain unchanged. This leads to a mismatch between the
-> kernel state and the TF-A firmware state like SGI number and shutdown
-> scope variable.
+> During a kexec restart, only the kernel is reloaded while devices
+> allocated in firmware persist, causing state mismatches between the
+> kernel and firmware.
 > 
-> For example, the kernel registers an SGI number with TF-A so that TF-A can
-> notify the kernel of events via that SGI. TF-A stores this SGI number in
-> its internal state. After a kexec, the newly loaded kernel re-registers
-> and may request a different SGI number, but the stale value programmed in
-> TF-A remains, so event notifications are delivered on the old SGI and are
-> missed by the new kernel. The shutdown scope variable has a similar stale
-> state problem.
+> Introduce PM_DEV_ALL_PERIPH node ID (0x18224FFFU) to release all
+> peripheral devices during kexec. On graceful restarts, this happens in
+> zynqmp_firmware_shutdown(). On crash kernel restarts, it happens in
+> zynqmp_firmware_probe() of the reloaded kernel.
 > 
-> To resolve this, the TF_A_CLEAR_PM_STATE PM API is introduced to clear
-> TF-A-specific state during kexec. On a graceful reboot, this API is
-> triggered by zynqmp_firmware_shutdown(), while in a crash kernel scenario,
-> it is invoked by zynqmp_firmware_probe() in the reloaded kernel.
+> Releasing all peripherals depends on firmware support for the
+> PM_DEV_ALL_PERIPH node ID. On firmware that does not implement it (the
+> feature check reports a version below PM_API_VERSION_3) the release is
+> skipped and a warning such as "Bulk device release is not supported by
+> firmware" is logged, e.g. on Versal NET firmware that predates this API.
 > 
 > Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
 > ---
->   drivers/firmware/xilinx/zynqmp.c     | 48 +++++++++++++++++++++++++++-
->   include/linux/firmware/xlnx-zynqmp.h |  3 +-
->   2 files changed, 49 insertions(+), 2 deletions(-)
+>   drivers/firmware/xilinx/zynqmp.c     | 15 ++++++++++++++-
+>   include/linux/firmware/xlnx-zynqmp.h |  4 ++++
+>   2 files changed, 18 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-> index af838b2dc327..95ffd8f33ce9 100644
+> index 95ffd8f33ce9..64d2109eefd2 100644
 > --- a/drivers/firmware/xilinx/zynqmp.c
 > +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -3,7 +3,7 @@
->    * Xilinx Zynq MPSoC Firmware layer
+> @@ -2070,7 +2070,7 @@ ATTRIBUTE_GROUPS(zynqmp_firmware);
+>    * zynqmp_clear_pm_state() - Clear subsystem state
+>    * @dev: Device pointer used for logging
 >    *
->    *  Copyright (C) 2014-2022 Xilinx, Inc.
-> - *  Copyright (C) 2022 - 2025 Advanced Micro Devices, Inc.
-> + *  Copyright (C) 2022 - 2026 Advanced Micro Devices, Inc.
+> - * Clears PM specific data in TF-A.
+> + * Clears PM specific data in TF-A and firmware.
 >    *
->    *  Michal Simek <michal.simek@amd.com>
->    *  Davorin Mista <davorin.mista@aggios.com>
-> @@ -13,6 +13,7 @@
->   
->   #include <linux/arm-smccc.h>
->   #include <linux/compiler.h>
-> +#include <linux/crash_dump.h>
->   #include <linux/device.h>
->   #include <linux/init.h>
->   #include <linux/mfd/core.h>
-> @@ -2065,6 +2066,42 @@ static struct attribute *zynqmp_firmware_attrs[] = {
->   
->   ATTRIBUTE_GROUPS(zynqmp_firmware);
->   
-> +/**
-> + * zynqmp_clear_pm_state() - Clear subsystem state
-> + * @dev: Device pointer used for logging
-> + *
-> + * Clears PM specific data in TF-A.
-> + *
-> + * Return: Returns status, either success or error
-> + */
-> +static int zynqmp_clear_pm_state(struct device *dev)
-> +{
-> +	u32 pm_family_code;
-> +	int ret;
+>    * Return: Returns status, either success or error
+>    */
+> @@ -2097,6 +2097,19 @@ static int zynqmp_clear_pm_state(struct device *dev)
+>   			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported in TF-A: %d\n", ret);
+>   			ret = 0;
+>   		}
 > +
-> +	/* Get the Family code of platform */
-> +	ret = zynqmp_pm_get_family_info(&pm_family_code);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	if (pm_family_code != PM_ZYNQMP_FAMILY_CODE) {
-> +		/* Check if the TF-A supports the TF_A_CLEAR_PM_STATE */
-> +		ret = do_feature_check_call(TF_A_CLEAR_PM_STATE);
-> +		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_1)) {
-> +			/* Clear PM specific data in TF-A */
-> +			ret = zynqmp_pm_invoke_fn(TF_A_CLEAR_PM_STATE, NULL, 0);
+> +		/* Check if the firmware supports the PM_DEV_ALL_PERIPH node ID */
+> +		ret = do_feature_check_call(PM_RELEASE_NODE);
+> +		if (ret >= 0 && ((ret & FIRMWARE_VERSION_MASK) >= PM_API_VERSION_3)) {
+> +			/* Attempt to release all peripheral devices via firmware */
+> +			ret = zynqmp_pm_release_node(PM_DEV_ALL_PERIPH);
 > +			if (ret)
-> +				dev_err(dev,
-> +					"Failed to clear TF-A specific subsystem state: %d\n", ret);
+> +				dev_err(dev, "Failed to release all peripheral devices: %d\n", ret);
 > +		} else {
-> +			dev_warn(dev, "TF_A_CLEAR_PM_STATE is not supported in TF-A: %d\n", ret);
+> +			dev_warn(dev,
+> +				 "Bulk device release is not supported by firmware: %d\n", ret);
 > +			ret = 0;
 > +		}
-> +	}
-> +
-> +	return ret;
-> +}
-> +
->   static int zynqmp_firmware_probe(struct platform_device *pdev)
->   {
->   	struct device *dev = &pdev->dev;
-> @@ -2118,6 +2155,9 @@ static int zynqmp_firmware_probe(struct platform_device *pdev)
->   	if (ret < 0)
->   		return ret;
+>   	}
 >   
-> +	if (is_kdump_kernel())
-> +		zynqmp_clear_pm_state(dev);
-> +
->   	/* Check trustzone version number */
->   	ret = zynqmp_pm_get_trustzone_version(&pm_tz_version);
->   	if (ret)
-> @@ -2151,6 +2191,11 @@ static int zynqmp_firmware_probe(struct platform_device *pdev)
->   	return of_platform_populate(dev->of_node, NULL, NULL, dev);
->   }
->   
-> +static void zynqmp_firmware_shutdown(struct platform_device *pdev)
-> +{
-> +	zynqmp_clear_pm_state(&pdev->dev);
-> +}
-> +
->   static void zynqmp_firmware_remove(struct platform_device *pdev)
->   {
->   	struct pm_api_feature_data *feature_data;
-> @@ -2210,5 +2255,6 @@ static struct platform_driver zynqmp_firmware_driver = {
->   	},
->   	.probe = zynqmp_firmware_probe,
->   	.remove = zynqmp_firmware_remove,
-> +	.shutdown = zynqmp_firmware_shutdown,
->   };
->   module_platform_driver(zynqmp_firmware_driver);
+>   	return ret;
 > diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-> index 7e27b0f7bf7e..baaa88b0b197 100644
+> index baaa88b0b197..ac39e5492961 100644
 > --- a/include/linux/firmware/xlnx-zynqmp.h
 > +++ b/include/linux/firmware/xlnx-zynqmp.h
-> @@ -3,7 +3,7 @@
->    * Xilinx Zynq MPSoC Firmware layer
->    *
->    *  Copyright (C) 2014-2021 Xilinx
-> - *  Copyright (C) 2022 - 2025 Advanced Micro Devices, Inc.
-> + *  Copyright (C) 2022 - 2026 Advanced Micro Devices, Inc.
->    *
->    *  Michal Simek <michal.simek@amd.com>
->    *  Davorin Mista <davorin.mista@aggios.com>
-> @@ -66,6 +66,7 @@
->   #define FIRMWARE_VERSION_MASK		0xFFFFU
+> @@ -50,6 +50,7 @@
+>   /* PM API versions */
+>   #define PM_API_VERSION_1	1
+>   #define PM_API_VERSION_2	2
+> +#define PM_API_VERSION_3	3
 >   
->   /* ATF only commands */
-> +#define TF_A_CLEAR_PM_STATE		0xa05
->   #define TF_A_PM_REGISTER_SGI		0xa04
->   #define PM_GET_TRUSTZONE_VERSION	0xa03
->   #define PM_SET_SUSPEND_MODE		0xa02
+>   #define PM_PINCTRL_PARAM_SET_VERSION	2
+>   
+> @@ -145,6 +146,9 @@
+>   #define XPM_EVENT_ERROR_MASK_NOC_NCR		BIT(13)
+>   #define XPM_EVENT_ERROR_MASK_NOC_CR		BIT(12)
+>   
+> +/* Node ID for all peripheral devices */
+> +#define PM_DEV_ALL_PERIPH	0x18224FFFU
+> +
+>   enum pm_module_id {
+>   	PM_MODULE_ID = 0x0,
+>   	XPM_MODULE_ID = 0x2,
 
 Looks good to me.
 
 Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-
 
