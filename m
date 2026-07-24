@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976FEC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC813C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7c7vhpEup6VOBqUns/9puAzJgpwqbpDNftz2EG8wb4E=; b=w+k7JJOz0oNCviqQT4gEcstWmO
-	wjiKg6UQkp0UK+7+Mm0fXYQaPZ9JFS5ne19bjClkbzfv3hb3YMCK/afiQ+vj5c1MDMaxh3uC2e3c7
-	/vdPieCX47SgppDlSN/P72jnjE8gU/0l/wtWfhtnVtQBDR4buuGY1Cketg21MUkHnne5+anePOIYn
-	CQx63QCGOV4YZUaFP97VDlnsboYQFB8+QPB29WunXZCDjNgizkTwDmUjGoGVkDLp+R02R7EhHjXVk
-	jYgLOI+qYzKpN6gfW4JaicGAzOaboh2J7CRcowcjtsywgE16fl5ZznKwKP1YsO01YsP8gC2o9nqgb
-	k7XAuFxw==;
+	bh=iBlwXcxuvE3VXmHGDkfRKpOL3ZfRFoGDZ73BkAIFNyM=; b=YG+YHUdggb8kpYSiMPcpH5cLR4
+	4TowUMKd52wQfHxbzN0F7ayE1E3cieYy96rlHtdfN+1floLIZMiWVQM4IaD7NdqWMitIUAmnKLkB2
+	SitnBSWQIQRXDLzHLCAaKKWAyKG4zV2MjQ3PvbC0UGaQKLYIkvN4Gmk6khXdXV7K37/xjT4F2hLh7
+	/qD6pM0lnhxhru/sUON5mEODNlUZ1xFJelwG137d5e8k5oILNTAoxL1PkIzU/wNM6uIRJ+ssQm1F0
+	MK39nowTnXV2ewX9Ibal+ObwyI/RfyDRL7riLzNiXEq9d8U9ZLqPl2q3h1enznjKMiSJ+F9dsf0ZD
+	W/oOT8KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnCTX-0000000Fzsj-02BG;
-	Fri, 24 Jul 2026 09:45:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wnCYc-0000000G0O5-3MBy;
+	Fri, 24 Jul 2026 09:51:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnCTV-0000000FzsM-2Vfo;
-	Fri, 24 Jul 2026 09:45:49 +0000
+	id 1wnCYb-0000000G0Np-0UVu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Jul 2026 09:51:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1E48600AA;
-	Fri, 24 Jul 2026 09:45:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DA911F000E9;
-	Fri, 24 Jul 2026 09:45:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 64CE740C2D;
+	Fri, 24 Jul 2026 09:51:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FEE81F000E9;
+	Fri, 24 Jul 2026 09:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784886348;
-	bh=7c7vhpEup6VOBqUns/9puAzJgpwqbpDNftz2EG8wb4E=;
+	s=k20260515; t=1784886664;
+	bh=iBlwXcxuvE3VXmHGDkfRKpOL3ZfRFoGDZ73BkAIFNyM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gmuDKJ7enNtUDQnzQgyDysKdjMH+51EhGpEr9b3ytIpOX17Xw30CpgWE49QGdlz32
-	 7L8Cqx4J6yGMDRZhmuVVjSm9mcURmnuw4RW4gttNiN8j/024TB9J/JKCSpL4jo2SY4
-	 GWakn7GXkvigsMzpkMysBY9JIgAjd+JQDV+a/brI6fgLo9OKBW8k1o/kBdwkzBRd4u
-	 8fOrVrXB9/CXAgqMccyk9PtI9DgnRC+oyxy4pAyagej6yJDuf04avvqL71bdfJEvx2
-	 +aib/ZDACXT5O6RPsmQgQH21DB3C9VzkmWDtysFxmWPWhqSJNbaYiQVgd/KbyVC3lZ
-	 Tohy/JYo6ej0Q==
-Date: Fri, 24 Jul 2026 11:45:44 +0200
+	b=Nyf1aZRa7P5aHkyKMWHO72usiNzebmsnu8Zky+6o0/2MIVeLT/pNlERsevb3WCjTj
+	 XkgZ9F6hYSQ6H0/Fu4WAPbhp2igVGKHU69r4vUPt8uqNSK2ORI4HD4lHItKi3fEhbq
+	 G3kewj3PDmyo9VSq7MQojdDh4A6dum9FryYLvGz1wtX6L3rpAvtT0/L4df3HTzs9Ty
+	 O6RnwQTWgMCUfCbukLu8RZKcsOQNAQw6RI2/UhAurj/n7gMe+MvHgfpeRCfZqlhS/g
+	 //Ym31SdRii5lLs9NtAxZivzDqOLHDwRctHuC1F9V0hduk30tq41FunNIE8YqcmbEc
+	 JZoWTU16NpelQ==
+Date: Fri, 24 Jul 2026 11:51:00 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jason Yang <jason98166@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
- support per-direction phys
-Message-ID: <20260724-incredible-colorful-trogon-9df033@quoll>
-References: <20260721-dcphy-rx-v1-v1-0-4fc83c0ccac9@gmail.com>
- <20260721-dcphy-rx-v1-v1-1-4fc83c0ccac9@gmail.com>
+To: John Ma <jma@phytec.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH 1/2] dt-bindings: arm: ti: Add bindings for PHYTEC AM62Px
+ based hardware
+Message-ID: <20260724-accelerated-sage-jaguar-e8a4be@quoll>
+References: <20260722214052.1962414-1-jma@phytec.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260721-dcphy-rx-v1-v1-1-4fc83c0ccac9@gmail.com>
+In-Reply-To: <20260722214052.1962414-1-jma@phytec.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,25 +70,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 06:35:19PM +0800, Jason Yang wrote:
->    clocks:
->      maxItems: 2
-> @@ -82,6 +92,6 @@ examples:
->                   <&cru SRST_S_MIPI_DCPHY0>;
->          reset-names = "m_phy", "apb", "grf", "s_phy";
->          rockchip,grf = <&mipidcphy0_grf>;
-> -        #phy-cells = <1>;
-> +        #phy-cells = <2>;
->        };
->      };
-> diff --git a/include/dt-bindings/phy/phy-rockchip-samsung-dcphy.h b/include/dt-bindings/phy/phy-rockchip-samsung-dcphy.h
-> new file mode 100644
-> index 000000000000..60f6630f58b3
-> --- /dev/null
-> +++ b/include/dt-bindings/phy/phy-rockchip-samsung-dcphy.h
+On Wed, Jul 22, 2026 at 02:40:51PM -0700, John Ma wrote:
+> Add device tree bindings for the AM62Px based phyCORE-AM62Px SoM and
+> phyBOARD-Lynx.
+> 
+> Signed-off-by: John Ma <jma@phytec.com>
+> ---
+>  Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 
-Filename must follow compatible or binding filename, so this is
-rockchip,rk3588-mipi-dcphy.h for example.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
