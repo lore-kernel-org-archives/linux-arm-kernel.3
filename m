@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BFEC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 23:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B14C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 23:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ESTD8fjQr67xhujYSv9nCY2fZpeH0iTV4/0hUbjiKHU=; b=xkFaTf+fX+UsqDRZgQNV1LhPDH
-	5cJhxjRYLmUn319upyt7ALdPvNS5grZzAu4hUtkZTFHuwkFUxisEE47C8tLvNU6MRizGjXxaXpAbl
-	B7BKZ1y7afGjEDKS3ZAokizekEg8G5VpGeb+pUwvsy4tf91n5xcd3sXDWQpfwdol+zDj23cHh/9yV
-	wlbyfl+bP25imMJaOZGuGn1Vqg+k79GfzH+Uvd6JuL1k7eqm9z8cn4nXnVywDgIdNHHJyA2TcwTns
-	h6J98f8Od1T9a03vE+uvUNneBRMOTnxa+NDl6OcyTLb/FzK/byRvRMbV0nLrkK7PpH1+a5RqJDDe2
-	S+3fDZnQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vHVjXxHM8OPpRQcJ6J4a9vv/vh5T/8GIkntcPnBWkaQ=; b=mMsirN+ZLj0kYoRbqF1sVmaYh6
+	9QOJNjfWrMyNotP8o/mUj6o0Z0SBUudTI/qpFfzBu3IGtbz0ReocUEC6n45rc177DN+fbs06QZKxm
+	ta9lV6qfWQD8ja7KhGZreEijZ6BelZrTR027r13GmFmR68fLrBjzy+tTtsFMggH8sfR75sjcq1tqR
+	INNIQY2pxg6Ikxf4GAGJRx15n66+7HVHP+V5Pfv5y6c/hAyY4sPIKf2wUbh3PApFEC8ddNGi/q8g3
+	YtKr+jxGpRRLcdT8flO8A9avHJdwLTs9CDFuNQ3voCGr+RNovRYkHj246dal3yV4I6QVrSVU13tfg
+	ooZGYE7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOsB-0000000HLXB-1NEr;
-	Fri, 24 Jul 2026 23:00:07 +0000
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
+	id 1wnPB5-0000000HMLj-3Py2;
+	Fri, 24 Jul 2026 23:19:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOs8-0000000HLWq-2GhB
+	id 1wnPB3-0000000HMLR-3tVy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 23:00:05 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-448b89f700fso749607fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 16:00:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784934003; x=1785538803; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ESTD8fjQr67xhujYSv9nCY2fZpeH0iTV4/0hUbjiKHU=;
-        b=DXapfLbYhQiNmHpTRDGltdeBCWd6flBfzRVcI1LoXvTiAVV1ZdZPgEeyk3jGBoDF42
-         Rxy2/3xGnQMnAlor99X7LUo/GgOTg6TuJq6FxSyM+Dy+9aPQD3OQKkQGA0C7YlRg3SVP
-         3FDDb3YeZS8dT5WQZaLwR/e9JkP7cCl+LM+j/0bkRSFdDUHH49jyflLCdSzuuSnkC074
-         +t04aV2z9s7wuDcTvA7Qa+l1F8TNvcSo/5ozuDxrMkFhcZPOA8aCCG2g2aLZ+7D2pjmm
-         tfLlhQYEQ28pqo7b6JgvzZGRQJz0+Z2imd1cHRnUuur2wFhASRDSIK8Zrx+Sfd2G7Eor
-         KvGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784934003; x=1785538803;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ESTD8fjQr67xhujYSv9nCY2fZpeH0iTV4/0hUbjiKHU=;
-        b=kjklTieCD1CXo+VXAAx+4xW8OO6Tj9oYbu7fhD6MhysKx2zGSbZ6VqUtINE4L8hAiL
-         DILDUHwzSKeih6g3s50fbEDo0nQUma0O21pVrR8ecj/AvPjVlcraUtlhEukL36iC18je
-         3z4skRDVR8Vctj/zQXVsGFQVcdpuvD1gMKYqXgIfzJRNyqidiukfrQK7vW+wH8JtXh/O
-         oIUAYSVNw+9tVLmv2O2x0hKRhu/MMSTCeiVdAxpfEso9D6CE4Xenv4YZIK3oFAb0IB7I
-         us6E3KXbQseH8AsmqKbP5wTot/aZJgsInY13nCCSk7lXgrSqaYWbN2Wc2roQ1GOi9opm
-         rULQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoiLWBTXk75ZCg8B7cklQH5cTzJT+1lfoxQCMoq+yW013O0tQiFw2BQ9g+aFgjrmu4X4Tj6wAJS95v7aR6xqEet@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAn/zu80zQO1/fGaO93ay9uEwqDdTOt8CYuHCFy1BLXReP+TcN
-	Xl4TfttmOLhi4l9iy8v173mGCnbn7iBY+7itzyzphMht9d2WcrUA68wh
-X-Gm-Gg: AR+sD10DNsCDz3bSb51zagkkzljsfPZq3KmU5tNgHLAYOX/cRUqmT68wqunT4yjZpql
-	FeTV/Ve63y9RdPDIg1T4GHSrNVOkv5+h1A267jucHAcHl6QgCkekg/zwIP2S6S/oQkUBlj0a2ve
-	ympkg5U+Voqtk8akdj4JCt6H55Mpo0/EW/Xuu+ulh1DTnzJ7wywYSPPE3J/hbIHMh3XzOquv3Zd
-	7LpBCDZoRJ4hcw5BIg7+od2lSSkj6yk/2VsEwrZgPFjVOu9JS1LyUmHGYAnF+snZJ3QFEOmBqCg
-	jWtYth2e/cAjgsW/HPc0T7zHB9no5EESN4DlEugDSXnmmQpQNBwG2OnjDpw2D64Z1Wa5leBOQfR
-	DRK1z3kc/w2Nyz2Wy+T1XxrfACKeZ6gvTRCcZ1CDJR5uHWn9Dn6G2r4K7aFtcQNBqorZXfh5hru
-	WOT7HtElj8krIeSbcpPY4W3XPU1XFXtN6cOz4GJWFZ7VFI4LMKMf+G6bTQCb/AdxqQRIdbuHrtR
-	iUXCjiIAZCIaD/sR8hIuNazbKe9EUx6+XDTCTzPlSGa2F9SFuxdSLLuYDVGwE2Tfg==
-X-Received: by 2002:a05:6871:7817:b0:448:558c:d833 with SMTP id 586e51a60fabf-457f280d0fdmr441239fac.34.1784934003379;
-        Fri, 24 Jul 2026 16:00:03 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-457a07c9427sm5974953fac.9.2026.07.24.16.00.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 16:00:02 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Rosen Penev <rosenp@gmail.com>,
-	Eugen Hristev <ehristev@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:MICROCHIP AT91 DMA DRIVERS),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2] dmaengine: at_hdmac: fix sparse '__iomem' cast warning in memset helpers
-Date: Fri, 24 Jul 2026 15:59:58 -0700
-Message-ID: <20260724225958.43925-1-rosenp@gmail.com>
+	Fri, 24 Jul 2026 23:19:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 465AB4009D;
+	Fri, 24 Jul 2026 23:19:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C49CC1F000E9;
+	Fri, 24 Jul 2026 23:19:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784935177;
+	bh=vHVjXxHM8OPpRQcJ6J4a9vv/vh5T/8GIkntcPnBWkaQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=SY3h89lrKeVGWjf5hIUFpdHqr2iVyetefj6WGpdfXci1amdfSB6jzaI9UHEfXU0a5
+	 95zvQ8X92q0sIR1HLG06sK3pQ0VMMKewVXKYyQn8t9zd71G2r+40WrS9v9thW5Hrtr
+	 OJG50NYI/B7Uhtd4Ukuz0dSSYbtyAcs6f7qoGo+8OUHOboQlelpxS1F5uuX/W+qken
+	 CpPgTn2WYEMUu5VEPcRXNGi27Nryc+dpyZhF9wUFD3pfetfzFe0hFi51J+gTZJu8fR
+	 cIXalZCiEKVkCP1wEX65Bv/eQEnYUUHqdJW50KcWLgGFA1rf9HUTg227DKkR92Gv8T
+	 diUbbjDniRlOA==
+From: Jakub Kicinski <kuba@kernel.org>
+To: kusuma.vasana@amd.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	radhey.shyam.pandey@amd.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	michal.simek@amd.com,
+	Kusuma.Vasana@amd.com,
+	git@amd.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH net-next V2] net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
+Date: Fri, 24 Jul 2026 16:19:34 -0700
+Message-ID: <20260724231934.1679801-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260716124841.2761722-1-kusuma.vasana@amd.com>
+References: <20260716124841.2761722-1-kusuma.vasana@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_160004_612265_C4909551 
-X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,85 +78,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both atc_prep_dma_memset() and atc_prep_dma_memset_sg() declare vaddr
-as 'void __iomem *' but assign the return of dma_pool_alloc(), which
-returns 'void *' (not iomem memory). This causes sparse to warn about
-a cast removing the __iomem address space at the dereference site.
-
-The struct field memset_vaddr is also typed as 'int *', which is
-neither the type returned by dma_pool_alloc() nor the type used for
-the actual writes.
-
-Fix by declaring vaddr as 'u32 *' in both functions and changing
-memset_vaddr in struct at_desc from 'int *' to 'u32 *'. This matches
-the actual usage and eliminates the need for the (u32 *) cast.
-
-Fixes: 5d8c5bea0da9 ("dmaengine: at_hdmac: add COMPILE_TEST support")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202607231110.8MqNRj0Q-lkp@intel.com/
-Assisted-by: opencode:big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 ---
- v2: remove extra cast
- drivers/dma/at_hdmac.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
 
-diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-index 7b6aa9bbc3c8..f24e64219fb5 100644
---- a/drivers/dma/at_hdmac.c
-+++ b/drivers/dma/at_hdmac.c
-@@ -244,7 +244,7 @@ struct at_desc {
- 	/* Memset temporary buffer */
- 	bool				memset_buffer;
- 	dma_addr_t			memset_paddr;
--	int				*memset_vaddr;
-+	u32				*memset_vaddr;
- 	struct atdma_sg			sg[] __counted_by(sglen);
- };
- 
-@@ -1097,7 +1097,7 @@ atc_prep_dma_memset(struct dma_chan *chan, dma_addr_t dest, int value,
- 	struct at_dma_chan	*atchan = to_at_dma_chan(chan);
- 	struct at_dma		*atdma = to_at_dma(chan->device);
- 	struct at_desc		*desc;
--	void __iomem		*vaddr;
-+	u32			*vaddr;
- 	dma_addr_t		paddr;
- 	char			fill_pattern;
- 	int			ret;
-@@ -1126,10 +1126,10 @@ atc_prep_dma_memset(struct dma_chan *chan, dma_addr_t dest, int value,
- 	/* Only the first byte of value is to be used according to dmaengine */
- 	fill_pattern = (char)value;
- 
--	*(u32*)vaddr = (fill_pattern << 24) |
--		       (fill_pattern << 16) |
--		       (fill_pattern << 8) |
--		       fill_pattern;
-+	*vaddr = (fill_pattern << 24) |
-+		 (fill_pattern << 16) |
-+		 (fill_pattern << 8) |
-+		  fill_pattern;
- 
- 	desc = kzalloc_flex(*desc, sg, 1, GFP_ATOMIC);
- 	if (!desc)
-@@ -1168,7 +1168,7 @@ atc_prep_dma_memset_sg(struct dma_chan *chan,
- 	struct at_dma		*atdma = to_at_dma(chan->device);
- 	struct at_desc		*desc;
- 	struct scatterlist	*sg;
--	void __iomem		*vaddr;
-+	u32			*vaddr;
- 	dma_addr_t		paddr;
- 	size_t			total_len = 0;
- 	int			i;
-@@ -1189,7 +1189,7 @@ atc_prep_dma_memset_sg(struct dma_chan *chan,
- 			__func__);
- 		return NULL;
- 	}
--	*(u32*)vaddr = value;
-+	*vaddr = value;
- 
- 	desc = kzalloc_flex(*desc, sg, sg_len, GFP_ATOMIC);
- 	if (!desc)
+This patch clears the AXI DMA IOC/DELAY status bits at the end of the TX
+and RX NAPI poll handlers to avoid a redundant stale interrupt caused by
+IOC/DELAY bits latched into the status register while interrupts were
+masked in the control register during NAPI. The clear is performed
+unconditionally, before the napi_complete_done() / CR re-enable step.
+
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index fcf517069d16..29050c8d04e2 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -1018,6 +1018,13 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
+>  			netif_wake_queue(ndev);
+>  	}
+>  
+> +	/* Clear stale IOC/DELAY bits that may have latched during the
+> +	 * poll window to prevent a stale interrupt when there is no
+> +	 * work pending.
+> +	 */
+> +	axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET,
+> +			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
+> +
+>  	if (packets < budget && napi_complete_done(napi, packets)) {
+>  		/* Re-enable TX completion interrupts. This should
+>  		 * cause an immediate interrupt if any TX packets are
+
+[High]
+Can this sequence race with a late completion arriving after the poll
+loop has exited but before the SR write?
+
+The AXI DMA engine writes cur_p->status and latches SR.IOC asynchronously
+from CPU execution. The poll loop's exit condition reads cur_p->status,
+and between that read and the unconditional SR IOC/DELAY clear that this
+hunk adds, the hardware can set COMPLETE_MASK on the next BD and latch
+SR.IOC for it. That legitimate notification would then be wiped by the
+new W1C write.
+
+Since napi_schedule() is only called from the ISR, and the ISR only fires
+when the IRQ line asserts, napi_complete_done() will succeed here even
+though a new completion has appeared. The subsequent CR re-enable would
+then observe SR.IOC=0, so the level-sensitive line does not re-assert,
+and the completed BD is stranded until the next unrelated completion or
+DELAY-timer expiry moves things forward.
+
+Before this patch, any SR bit latched during the poll window (whether
+stale or from a late completion) re-asserted the IRQ line after CR
+re-enable, which the changelog frames purely as an unnecessary stale
+interrupt:
+
+    After NAPI completion, re-enabling interrupts immediately
+    re-asserts the IRQ line due to these stale status register bits,
+    even when no new work is pending.
+
+Did that same behavior also serve as the recovery path for a completion
+that lands in the SR-clear/CR-reenable window? If so, would it be worth
+either re-checking cur_p->status after the SR clear and skipping
+napi_complete_done() when new work has appeared, or performing the CR
+re-enable before the SR clear so a late latch still asserts the line?
+
+NAPIF_STATE_MISSED does not appear to help here because it requires a
+napi_schedule() call, which only the ISR performs.
+
+For configurations where axienet_calc_cr() does arm the DELAY timer
+(coalesce count > 1), the stranded BD is recovered when DELAY expires:
+
+    /* Only set interrupt delay timer if not generating an interrupt on
+     * every packet
+     */
+
+Under DIM with low traffic the coalesce count can settle at 1, in which
+case DELAY is not armed and there is no bounded recovery for the last
+BD of a burst until another packet arrives. Is that concern valid, or is
+there another mechanism that ensures the last BD is drained?
+
+> @@ -1293,6 +1300,13 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
+>  		cur_p = &lp->rx_bd_v[lp->rx_bd_ci];
+>  	}
+>  
+> +	/* Clear stale IOC/DELAY bits that may have latched during the
+> +	 * poll window to prevent a stale interrupt when there is no
+> +	 * work pending.
+> +	 */
+> +	axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET,
+> +			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
+> +
+
+The same question applies to the RX path: a completion arriving after
+the while loop's cur_p->status check but before this SR write would have
+its SR.IOC latch cleared, and the subsequent CR re-enable would then not
+re-assert the line. Is there a reason the RX path is not exposed to the
+same race?
 -- 
-2.55.0
-
+pw-bot: cr
 
