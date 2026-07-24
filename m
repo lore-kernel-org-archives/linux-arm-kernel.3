@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9996C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75160C531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 09:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+YzYUD9jK4JAl97BY+CMv/AKu9VR+yeVSg4U/mAUNxU=; b=f8AukS0Of0ZGe2domv7PvDg4kG
-	6f81PvYWlqR4TIWE6YFfzpLIxHpE9i3vVipmI+wRSfQQ3ismZ6PJ5nwGT/s9uwOPbsDL8uCiPtw3c
-	Xhq7nIFBo32N50+pDCPPrq0Ws1TQMu5k8NXCwbmOGvQlaDf6OHe7SRuMb/BXmUXdv2Zkp2vmhRqhg
-	TIZ7NOEDX2JtDAQf3Gx5LYhMHKUqdF1+feRVIjeYEoM4rzRocP1rYdUS2cY+2yLER0O3XdCOrjpGH
-	dZzL8CiAcoujK1NkukemwfzxqKqouBQjUK6mgvqc4ATyNkx2nosqP89V8hysg2jvEpfw+SAMVdGql
-	++XOjejA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7grTe3Cf6KE96DdK/EinV2Ysnu4kw5FWVs0nC4OVtiI=; b=coOktvxgWuzDxm9pueoX+WW3rz
+	8+9Z1ZyaQFPI3vwC+WOngRvcyHA1MDI73d1ONiTVgyyIIBXwzS4ZzK85hiSOCf1gagpWlyG3qHR+Q
+	YQBwwzqwfa52bS0BvbKcYMdKJGcXy2HzSs4n+O1ldZOcKvwvj0e0ezyiEr4hEbsj1i2Gl92pcdaSK
+	R6jwXPXe1CGnHgEAULN4HUjhALCHGnSMh/cMpCVj9vHeCDY+AUS1trSkjZoUK/KU2aACC1aG2+inE
+	EQ2/6Sqe2RNUYOYoDuez3eLiU5NXpopxjT3aY5zMtgWbNiSeyTKfV9OKxc12O5l+8MkuTFTQ53dpR
+	JZ5+2eCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnCPX-0000000FzKt-46tq;
-	Fri, 24 Jul 2026 09:41:43 +0000
+	id 1wnCPg-0000000FzMd-0j9V;
+	Fri, 24 Jul 2026 09:41:52 +0000
 Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnCPU-0000000FzJj-0RNl
+	id 1wnCPZ-0000000FzJj-2p5w
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 09:41:42 +0000
+	Fri, 24 Jul 2026 09:41:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1784886100; x=1816422100;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=f5CcZqphHBrvD7a007cTCKmcn7WQevg0a7HgyWWOquQ=;
-  b=N4XRScr6HQK+Y68xqFSjAe24Os6exXjUjWEsJx75WzciKFp7JmuhLy18
-   FP4mPgfKHPa1AeV5D4F96CuUy9VWBV36hcodMH/SC/Uz89rCpAG/FRUfF
-   b1BSwRgLrTSFTgAYG3eXX1APwjpHHo+spVivNphs/Q4i16j/D6cUmI/SU
-   932cN3faAuvOPYZ+i00/FYVuU+D3W9WGudsTqWnetUJtMBBDvRMEwVZMu
-   B4wQ07iDXCVJMAXFaNg1Weo/yEVdMbKJBVw2yxzKhvr1Dmvctx6nXJ1de
-   zCHhv2w64P636OrpzXKzCT0XgCUVR+Nb8WXbCYBYuiQYRQirqn+BRbeIy
-   A==;
-X-CSE-ConnectionGUID: 37uLCs3qQ8yfngPwCCPHNg==
-X-CSE-MsgGUID: /tVfyzkbQuSmM+A4tKtFZA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="248489763"
+  t=1784886106; x=1816422106;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=p1rp+6y9WsV1qwRzPxc+AFIXKMN/BKdCcEqoP5V1DWo=;
+  b=ew8OtGMWd5aQGLnDsi3JJstrrpq3HBmM3fR6QalkbECc+bnsnkPtXUA+
+   jzKMof90C6sYT+sxfY9NqV4BOx+4CAYCUYZCE33JWCaNRD57okpmDwJel
+   YQpYzqAVSIHpUkgUEa4Tqf1PtAPlQ0oN5/iMSGt8s7hVhoWjsGXk/MWqv
+   UEUZCPQN56rQwcWzsusAF39cU5yc7O59txGhJH+Z3D/R8MRRiOk/wycy6
+   1yxdX8gsjfBTjMWmLbmqW6CKq9qd2FVL36YdX6mjDOJKgk4HKH7Yd6vIW
+   x0wo8kwx1Tp4TA6r+9EZrovPuMbOXhpFZmegQtO0hIPvp0epG15DUVQmS
+   g==;
+X-CSE-ConnectionGUID: j7pSY6G6Rzqp9XfbVCfFtA==
+X-CSE-MsgGUID: DUaqp7NYQDaSKqdVgnNeyQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="248489772"
 X-IronPort-AV: E=Sophos;i="6.25,182,1779116400"; 
-   d="scan'208";a="248489763"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2026 18:41:36 +0900
-Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+   d="scan'208";a="248489772"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2026 18:41:45 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 5AB631002802
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 09:41:36 +0000 (UTC)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 1297510000D4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 09:41:45 +0000 (UTC)
 Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 0FD0C82679A
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 09:41:36 +0000 (UTC)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id B90C81C00F98
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 09:41:44 +0000 (UTC)
 Received: from sm-arm-grace07.ssoft.mng.com (unknown [10.124.178.20])
-	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTP id 53FB7405A97;
-	Fri, 24 Jul 2026 09:41:30 +0000 (UTC)
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTP id ECB8A405AB7;
+	Fri, 24 Jul 2026 09:41:38 +0000 (UTC)
 From: Kohei Enju <enju.kohei@fujitsu.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
@@ -82,15 +82,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
 	Steven Price <steven.price@arm.com>,
 	Kohei Enju <enju.kohei@fujitsu.com>
-Subject: [RFC PATCH v1 0/2] KVM: arm64: CCA: Add MEC policy support for CCA Realms
-Date: Fri, 24 Jul 2026 18:40:54 +0900
-Message-ID: <20260724094120.166536-1-enju.kohei@fujitsu.com>
+Subject: [RFC PATCH v1 1/2] KVM: arm64: CCA: Add support for configuring the Realm MEC policy
+Date: Fri, 24 Jul 2026 18:40:55 +0900
+Message-ID: <20260724094120.166536-2-enju.kohei@fujitsu.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260724094120.166536-1-enju.kohei@fujitsu.com>
+References: <20260724094120.166536-1-enju.kohei@fujitsu.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_024140_845848_8FA83AEF 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260724_024146_109024_AAB43442 
+X-CRM114-Status: GOOD (  24.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +107,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds basic support for configuring the Memory Encryption
-Context (MEC) policy for Arm CCA Realms.
+Introduce the KVM_ARM_RMI_CONFIG ioctl to allow userspace to configure
+Realm VM parameters before the Realm is created.
 
-Patch 1 introduces a new Realm VM ioctl, KVM_ARM_RMI_CONFIG, and uses it
-to let userspace select the shared or private MEC policy before the
-Realm is created. The default remains the shared MEC policy.
+Currently, ARM_RMI_CFG_MEC_POLICY is the only supported configuration
+item. Its value can be ARM_RMI_MEC_POLICY_SHARED or
+ARM_RMI_MEC_POLICY_PRIVATE. Reject the private policy if the platform
+does not support private MECs.
 
-Patch 2 adds a misc cgroup resource for CCA MECIDs and charges one unit
-for each Realm using the private MEC policy.
+If userspace does not explicitly configure the MEC policy,
+ARM_RMI_MEC_POLICY_SHARED is used by default.
 
-Feedback on the proposed KVM ABI and on using misc cgroup for MECID
-accounting would be appreciated.
-
-This series is based on Steven Price's CCA host series [0] [1]. I am
-sending it as an RFC while the CCA host series is not yet upstreamed,
-and plan to update it as needed to track future revisions of the host
-series. Once the host series is merged, I plan to post a non-RFC
-version.
-
-[0] https://lore.kernel.org/all/20260715142841.80544-1-steven.price@arm.com/ 
-[1] https://gitlab.arm.com/linux-arm/linux-cca  cca-host/v15
-
-Kohei Enju (2):
-  KVM: arm64: CCA: Add support for configuring the Realm MEC policy
-  cgroup/misc: Add support for Arm CCA MECIDs
-
- Documentation/virt/kvm/api.rst   | 29 +++++++++++++
- arch/arm64/include/asm/kvm_rmi.h |  6 +++
- arch/arm64/kvm/arm.c             |  9 ++++
- arch/arm64/kvm/rmi.c             | 73 +++++++++++++++++++++++++++++++-
- drivers/firmware/arm_rmm/rmi.c   | 12 +++++-
+Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+---
+ Documentation/virt/kvm/api.rst   | 29 +++++++++++++++++++++++++++++
+ arch/arm64/include/asm/kvm_rmi.h |  4 ++++
+ arch/arm64/kvm/arm.c             |  9 +++++++++
+ arch/arm64/kvm/rmi.c             | 29 +++++++++++++++++++++++++++++
+ drivers/firmware/arm_rmm/rmi.c   |  8 ++++++--
  include/linux/arm-rmi-cmds.h     |  1 +
- include/linux/misc_cgroup.h      |  4 ++
- include/uapi/linux/kvm.h         | 17 ++++++++
- kernel/cgroup/misc.c             |  4 ++
- 9 files changed, 152 insertions(+), 3 deletions(-)
+ include/uapi/linux/kvm.h         | 17 +++++++++++++++++
+ 7 files changed, 95 insertions(+), 2 deletions(-)
 
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 85bec9b4f021..e1c660e5eb34 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6690,6 +6690,35 @@ populated data is hashed and added to the guest's Realm Initial Measurement
+ (RIM) stored by the RMM. This can then be retrieved by the guest (using the RSI
+ interface) to present to an attestation server.
+ 
++4.147 KVM_ARM_RMI_CONFIG
++------------------------
++
++:Capability: KVM_CAP_ARM_RMI
++:Architectures: arm64
++:Type: vm ioctl
++:Parameters: struct kvm_arm_rmi_config (in)
++:Returns: 0 on success, < 0 on error
++
++::
++
++  struct kvm_arm_rmi_config {
++       __u32 cfg;
++       union {
++               /* cfg == ARM_RMI_CFG_MEC_POLICY */
++               __u8 mec_policy;
++
++               /* Fix the size of the union */
++               __u8 reserved[256];
++       };
++  };
++
++Configures parameters of a Realm VM before the Realm is created.
++
++Currently, `ARM_RMI_CFG_MEC_POLICY` is the only supported configuration item.
++`mec_policy` must be either `ARM_RMI_MEC_POLICY_SHARED` or
++`ARM_RMI_MEC_POLICY_PRIVATE`. `ARM_RMI_MEC_POLICY_PRIVATE` is not supported if
++no private MEC is available on the platform.
++
+ .. _kvm_run:
+ 
+ 5. The kvm_run structure
+diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+index 420e99fca07e..721033b132e1 100644
+--- a/arch/arm64/include/asm/kvm_rmi.h
++++ b/arch/arm64/include/asm/kvm_rmi.h
+@@ -60,6 +60,7 @@ enum realm_state {
+  * @ia_bits: Number of valid Input Address bits in the IPA
+  * @stage2_unmapped: The Realm stage-2 mappings have been removed
+  * @rtts_destroyed: The non-root RTTs have been torn down
++ * @mec_policy: MEC policy for the Realm VM
+  */
+ struct realm {
+ 	void *rd;
+@@ -76,6 +77,7 @@ struct realm {
+ 	unsigned int ia_bits;
+ 	bool stage2_unmapped;
+ 	bool rtts_destroyed;
++	unsigned int mec_policy;
+ };
+ 
+ /**
+@@ -115,6 +117,8 @@ struct kvm_arm_rmi_populate;
+ 
+ int kvm_arm_rmi_populate(struct kvm *kvm,
+ 			 struct kvm_arm_rmi_populate *arg);
++struct kvm_arm_rmi_config;
++int kvm_arm_rmi_config(struct kvm *kvm, struct kvm_arm_rmi_config *arg);
+ void kvm_realm_unmap_range(struct kvm *kvm,
+ 			   unsigned long ipa,
+ 			   unsigned long size,
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 3862db30779f..17302ba2844c 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2169,6 +2169,15 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ 			return -EFAULT;
+ 		return ret;
+ 	}
++	case KVM_ARM_RMI_CONFIG: {
++		struct kvm_arm_rmi_config cfg;
++
++		if (!kvm_is_realm(kvm))
++			return -ENXIO;
++		if (copy_from_user(&cfg, argp, sizeof(cfg)))
++			return -EFAULT;
++		return kvm_arm_rmi_config(kvm, &cfg);
++	}
+ 	default:
+ 		return -EINVAL;
+ 	}
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+index 06cc85fb5092..629dea5e8c47 100644
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -572,6 +572,9 @@ static int realm_create_rd(struct kvm *kvm)
+ 	if (kvm_lpa2_is_enabled())
+ 		params->flags0 |= RMI_REALM_PARAM_FLAG_LPA2;
+ 
++	params->flags0 |= FIELD_PREP(RMI_REALM_PARAM_FLAG_MEC_POLICY,
++				     realm->mec_policy);
++
+ 	r = realm_init_sve_param(kvm, params);
+ 	if (r)
+ 		goto out_undelegate_tables;
+@@ -1155,6 +1158,30 @@ int kvm_arm_rmi_populate(struct kvm *kvm,
+ 	return ret;
+ }
+ 
++int kvm_arm_rmi_config(struct kvm *kvm, struct kvm_arm_rmi_config *cfg)
++{
++	guard(mutex)(&kvm->arch.config_lock);
++
++	if (kvm_realm_state(kvm) != REALM_STATE_NONE)
++		return -EBUSY;
++
++	switch (cfg->cfg) {
++	case ARM_RMI_CFG_MEC_POLICY:
++		if (cfg->mec_policy != ARM_RMI_MEC_POLICY_SHARED &&
++		    cfg->mec_policy != ARM_RMI_MEC_POLICY_PRIVATE)
++			return -EINVAL;
++
++		if (cfg->mec_policy == ARM_RMI_MEC_POLICY_PRIVATE &&
++		    rmi_mec_count() == 0)
++			return -EOPNOTSUPP;
++
++		kvm->arch.realm.mec_policy = cfg->mec_policy;
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
+ static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm *kvm = vcpu->kvm;
+@@ -1474,6 +1501,8 @@ int kvm_init_realm(struct kvm *kvm)
+ {
+ 	struct realm *realm = &kvm->arch.realm;
+ 
++	realm->mec_policy = ARM_RMI_MEC_POLICY_SHARED;
++
+ 	realm->params = (void *)get_zeroed_page(GFP_KERNEL_ACCOUNT);
+ 	realm->sro = kmalloc_obj(*realm->sro);
+ 	if (!realm->params || !realm->sro) {
+diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+index d0c083bdf251..e9632c35e7db 100644
+--- a/drivers/firmware/arm_rmm/rmi.c
++++ b/drivers/firmware/arm_rmm/rmi.c
+@@ -14,8 +14,7 @@
+ 
+ static bool arm64_rmi_is_available;
+ 
+-/* Currently only the first 2 registers are used by Linux */
+-#define RMI_FEAT_REG_COUNT	2
++#define RMI_FEAT_REG_COUNT	5
+ static __ro_after_init unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
+ 
+ unsigned long rmi_feat_reg(unsigned long id)
+@@ -27,6 +26,11 @@ unsigned long rmi_feat_reg(unsigned long id)
+ }
+ EXPORT_SYMBOL_GPL(rmi_feat_reg);
+ 
++u64 rmi_mec_count(void)
++{
++	return u64_get_bits(rmi_feat_reg(4), RMI_FEATURE_REGISTER_4_MEC_COUNT);
++}
++
+ int rmi_delegate_range(phys_addr_t phys,
+ 		       unsigned long size,
+ 		       phys_addr_t *out_phys)
+diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+index 138983ab4e3c..5236600421c6 100644
+--- a/include/linux/arm-rmi-cmds.h
++++ b/include/linux/arm-rmi-cmds.h
+@@ -28,6 +28,7 @@ struct rmi_sro_state {
+ };
+ 
+ unsigned long rmi_feat_reg(unsigned long id);
++u64 rmi_mec_count(void);
+ 
+ int rmi_delegate_range(phys_addr_t phys, unsigned long size,
+ 		       phys_addr_t *out_phys);
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index adee3936d6ae..46e62327957c 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -1704,4 +1704,21 @@ struct kvm_arm_rmi_populate {
+ 	__u32 reserved;
+ };
+ 
++#define KVM_ARM_RMI_CONFIG     _IOW(KVMIO, 0xd8, struct kvm_arm_rmi_config)
++
++#define ARM_RMI_CFG_MEC_POLICY		0
++#define ARM_RMI_MEC_POLICY_SHARED	0
++#define ARM_RMI_MEC_POLICY_PRIVATE	1
++
++struct kvm_arm_rmi_config {
++	__u32 cfg;
++	union {
++		/* cfg == ARM_RMI_CFG_MEC_POLICY */
++		__u8 mec_policy;
++
++		/* Reserve space for future configuration payloads. */
++		__u8 reserved[256];
++	};
++};
++
+ #endif /* __LINUX_KVM_H */
 -- 
 2.43.0
 
