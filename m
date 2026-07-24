@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CCAC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 718FFC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 06:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDp6QAQVBbqcbjhun7HZkm4ce/Tk1AAMzwD4Ki2+UTk=; b=bDGCNDPm+KHLxJ+yKifVrjqwP6
-	V/nQ7VZP5ztBNrxKvytmdhkohcl82FMDy2unoMXmkmQv0/biMOzYkFpvSWOPyznL0cB53GYhxBQmx
-	wCQCcRbYAV3xCWmJw/u67qBx9sl5BZcaZqZcZCbg6HCkdSvBRuE3g3kzKHnW2ewJaXICU50yUT3KL
-	b7JsRQinuDB+lIFpxdjPnymzLOSQbYQOs0R05T7cWCAQEzyvD3giz8pL5NFbBpzlLYUHZbeDLxVWN
-	vhqZdXAmgGktfsRzBQS34AUDYl0AE5Aj6Vz+DfHo8fwRiPpvqlp58YGuqXJF7yNxBhS3ZSJofsSnb
-	j05cPt6w==;
+	bh=zC7eAhDlNrYkTxhODTTpYL33+TbjyH7/GlX2hOaaZfE=; b=2M6i57AW82qeBmS5k5VjZ+agIw
+	HcfBGXsHBTV3blzc88MJHc56N5mIyvMMvzDtC09sf5gcGIXokBaJJH9kfOsEw2Zyo/nBBGVUcDT3q
+	xE5ThesdsSWBOydAHxh7LGDF/tdPmbQGJPZFfM9WkZQAq5AmVHQZAv5lf4tvLUoL8wXcbKVn2qgF8
+	U31Iqpe/GpSK8pN7KIXuMyPC/QLCDuLblX7RFli3aIbW+Y0h2dpU1DmIgPeTKlJVJkC+CW5ifDThT
+	17iM1M5o3w/JlTZQ1GNdoOoyv3BdZ3jifK6QO9R50Y0NYuPOm5+pUJQ5xXNbSlA7ksq1AeeD9yqbz
+	6rZ1zQKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9By-0000000Fa4U-2g66;
-	Fri, 24 Jul 2026 06:15:30 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1wn9DI-0000000FaJf-3h8M;
+	Fri, 24 Jul 2026 06:16:52 +0000
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn9Bu-0000000Fa26-3It2
+	id 1wn9DG-0000000FaJI-3kBv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 06:15:28 +0000
+	Fri, 24 Jul 2026 06:16:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1784873724; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=aDp6QAQVBbqcbjhun7HZkm4ce/Tk1AAMzwD4Ki2+UTk=;
-	b=TP6eVXLfTbCk0rwhg8UUyz1cLMd0ZtB1i0x1iJCyvgU2NbXcF6LqZ0lNxMDRG1xyURSv1uEcSiR+QW8CibCmnYleFITvc+h9rKpuiG2FhmaBSlaR2f2Y29DzipQI5CRWiGj0g858DB7EPA+uj1x4aATTN4CqdEF+YYdtv3Yo904=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R601e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7iEB63_1784873724;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7iEB63_1784873724 cluster:ay36)
+	t=1784873809; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=zC7eAhDlNrYkTxhODTTpYL33+TbjyH7/GlX2hOaaZfE=;
+	b=DfvfZgxusdprwBLu1yQlmk6HDlqgWHUF5yYQaacG5jM8M50V6OFESshDwYDN2hP6siD8SpuZVIdl+37/WobmPPuPZ6EGBUWNAfFcp1xDqvpMzCV3lZPwSbrcr8A+xcnwOysGoAzLHbSAEFN/MZjzEfsInLvg8/I4qmYQdh4FATQ=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0X7iD4Pd_1784873806;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X7iD4Pd_1784873806 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 24 Jul 2026 14:15:24 +0800
-Date: Fri, 24 Jul 2026 14:15:23 +0800
+          Fri, 24 Jul 2026 14:16:46 +0800
+Date: Fri, 24 Jul 2026 14:16:46 +0800
 From: Yao Yuan <yaoyuan@linux.alibaba.com>
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
@@ -44,17 +44,17 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
 	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH v3 19/28] KVM: arm64: Make HCR_EL2 a non-VNCR register
-Message-ID: <eq54itdtb62ubzkapzrqxbnv7nkwfzhxehkuvy4nm5st5525kx@2rxzly5g3mjs>
+Subject: Re: [PATCH v3 20/28] KVM: arm64: Add sanitisation for NVHCR_EL2
+Message-ID: <vtyzpvpqv2fbzldllzcbsks3sd7ktkwwylatmeeibfmchqydyh@pxhok4n4mswr>
 References: <20260722074234.3330999-1-maz@kernel.org>
- <20260722074234.3330999-20-maz@kernel.org>
+ <20260722074234.3330999-21-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260722074234.3330999-20-maz@kernel.org>
+In-Reply-To: <20260722074234.3330999-21-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_231527_099638_ACA7B23C 
-X-CRM114-Status: GOOD (  23.40  )
+X-CRM114-CacheID: sfid-20260723_231651_107168_592E68A0 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,106 +69,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 08:42:25AM +0800, Marc Zyngier wrote:
-> FEAT_NV3 makes a fundamental change to the architecture, by moving
-> guest-initiated HCR_EL2 accesses to the NVHCR_EL2 register. As the
-> names suggests, this is HCR_EL2 for a NV guest.
+On Wed, Jul 22, 2026 at 08:42:26AM +0800, Marc Zyngier wrote:
+> Just like any other VNCR-based register, NVHCR_EL2 requires some
+> level of sanitisation. Being specified as a live copy of HCR_EL2,
+> it adopts the exact same format, but depends on FEAT_NV3 instead.
 >
-> But where do NVHCR_EL2 accesses from a guest go? The are redirected
-> to the VNCR page, right where HCR_EL2 is stored in the NV2 case.
-> Does it hurt? Good. There's more coming.
+> A subtle aspect is that we only want to apply the sanitisation if
+> FEAT_NV3 is actually present, as the VNCR location is otherwise
+> used to back accesses to HCR_EL2.
 >
-> The challenge here is to make KVM work seamlessly, without rewriting
-> everything. Which implies that things such as __vcpu_sys_reg(HCR_EL2)
-> must work, no matter the underlying NV implementation.
->
-> A simple way to deal with it is to move HCR_EL2's canonical storage
-> outside of VNCR for the vast majority of the KVM code, and only have
-> a copy at entry/exit times. Given that we don't really support NV3
-> yet, this is pretty simple.
->
-> In the process, advertise NVHCR_EL2 as the register that now holds
-> offset 0x78 in the VNCR page.
->
-> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->  arch/arm64/include/asm/kvm_host.h     | 3 ++-
->  arch/arm64/include/asm/vncr_mapping.h | 2 +-
->  arch/arm64/kvm/hyp/vhe/switch.c       | 9 +++++++++
->  3 files changed, 12 insertions(+), 2 deletions(-)
+>  arch/arm64/kvm/config.c | 15 +++++++++++++++
+>  arch/arm64/kvm/nested.c |  4 ++++
+>  2 files changed, 19 insertions(+)
 >
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index bae2c4f92ef5c..2648c8a717ba0 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -543,6 +543,7 @@ enum vcpu_sysreg {
->  	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
->  	CNTHCTL_EL2,	/* Counter-timer Hypervisor Control register */
->  	ZCR_EL2,	/* SVE Control Register (EL2) */
-> +	HCR_EL2,	/* Hypervisor Control Register */
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index 467f57eb8e6bb..1053676551aff 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -1019,6 +1019,9 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
+>  static const DECLARE_FEAT_MAP(hcr_desc, HCR_EL2,
+>  			      hcr_feat_map, FEAT_AA64EL2);
 >
->  	/* Any VNCR-capable reg goes after this point */
->  	MARKER(__VNCR_START__),
-> @@ -571,7 +572,7 @@ enum vcpu_sysreg {
->  	VNCR(TFSR_EL1),	/* Tag Fault Status Register (EL1) */
->  	VNCR(VPIDR_EL2),/* Virtualization Processor ID Register */
->  	VNCR(VMPIDR_EL2),/* Virtualization Multiprocessor ID Register */
-> -	VNCR(HCR_EL2),	/* Hypervisor Configuration Register */
-> +	VNCR(NVHCR_EL2),/* NV Hypervisor Configuration Register */
->  	VNCR(HSTR_EL2),	/* Hypervisor System Trap Register */
->  	VNCR(VTTBR_EL2),/* Virtualization Translation Table Base Register */
->  	VNCR(VTCR_EL2),	/* Virtualization Translation Control Register */
-> diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
-> index 14366d35ce82f..9e8a49fa8b638 100644
-> --- a/arch/arm64/include/asm/vncr_mapping.h
-> +++ b/arch/arm64/include/asm/vncr_mapping.h
-> @@ -11,7 +11,7 @@
->  #define VNCR_VTCR_EL2           0x040
->  #define VNCR_VMPIDR_EL2         0x050
->  #define VNCR_CNTVOFF_EL2        0x060
-> -#define VNCR_HCR_EL2            0x078
-> +#define VNCR_NVHCR_EL2          0x078
->  #define VNCR_HSTR_EL2           0x080
->  #define VNCR_VPIDR_EL2          0x088
->  #define VNCR_TPIDR_EL2          0x090
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index 53af19212895d..e5a51dc3cbe5e 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -70,6 +70,9 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
->  		if (!vcpu_el2_e2h_is_set(vcpu))
->  			hcr |= HCR_NV1;
->
-> +		/* Publish the guest's view of HCR_EL2 to the HW */
-> +		__vcpu_assign_sys_reg(vcpu, NVHCR_EL2, __vcpu_sys_reg(vcpu, HCR_EL2));
+> +static const DECLARE_FEAT_MAP(nvhcr_desc, NVHCR_EL2,
+> +			      hcr_feat_map, FEAT_NV3);
 > +
->  		/*
->  		 * Nothing in HCR_EL2 should impact running in hypervisor
->  		 * context, apart from bits we have defined as RESx (E2H,
-> @@ -549,6 +552,7 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
->  	 */
->  	if (unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
->  		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
-> +		u64 hcr;
->
->  		switch (mode) {
->  		case PSR_MODE_EL1t:
-> @@ -561,6 +565,11 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
->
->  		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
->  		*vcpu_cpsr(vcpu) |= mode;
-> +
-> +		/* Publish the latest HCR_EL2 to the emulation */
-> +		hcr = __vcpu_sys_reg(vcpu, NVHCR_EL2);
-> +
-> +		__vcpu_assign_sys_reg(vcpu, HCR_EL2, hcr);
+>  static const struct reg_bits_to_feat_map sctlr2_feat_map[] = {
+>  	NEEDS_FEAT(SCTLR2_EL1_NMEA	|
+>  		   SCTLR2_EL1_EASE,
+> @@ -1393,6 +1396,7 @@ void __init check_feature_map(void)
+>  	check_reg_desc(&hdfgwtr2_desc);
+>  	check_reg_desc(&hcrx_desc);
+>  	check_reg_desc(&hcr_desc);
+> +	check_reg_desc(&nvhcr_desc);
+>  	check_reg_desc(&sctlr2_desc);
+>  	check_reg_desc(&tcr2_el2_desc);
+>  	check_reg_desc(&sctlr_el1_desc);
+> @@ -1592,6 +1596,17 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
+>  	case HCR_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hcr_desc, 0, 0);
+>  		break;
+> +	case NVHCR_EL2:
+> +		/*
+> +		 * Only apply sanitisation if we do have FEAT_NV3.
+> +		 * Otherwise, the register aliases with HCR_EL2 in VNCR,
+> +		 * and we're better off relying on data transfers between
+> +		 * NVHCR_EL2 and HCR_EL2 to sanitise things.
+> +		 */
+> +		resx = (kvm_has_nv3(kvm) ?
+> +			compute_reg_resx_bits(kvm, &nvhcr_desc, 0, 0) :
+> +			(typeof(resx)){});
+> +		break;
 
 Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 
->  	}
+>  	case SCTLR2_EL1:
+>  	case SCTLR2_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &sctlr2_desc, 0, 0);
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 35a1c42ad3f84..f646894fec9a9 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1830,6 +1830,10 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+>  	resx = get_reg_fixed_bits(kvm, HCR_EL2);
+>  	set_sysreg_masks(kvm, HCR_EL2, resx);
 >
->  	/* Apply extreme paranoia! */
+> +	/* NVHCR_EL2 */
+> +	resx = get_reg_fixed_bits(kvm, NVHCR_EL2);
+> +	set_sysreg_masks(kvm, NVHCR_EL2, resx);
+> +
+>  	/* HCRX_EL2 */
+>  	resx = get_reg_fixed_bits(kvm, HCRX_EL2);
+>  	set_sysreg_masks(kvm, HCRX_EL2, resx);
 > --
 > 2.47.3
 
