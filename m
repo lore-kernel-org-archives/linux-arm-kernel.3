@@ -4,165 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663CAC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 674DCC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 10:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhgGf5UXWUorDYGasOngYTxXTZweHzgikhGpIwuVLGE=; b=XJ0W5L9crCGkn3A6j9ZglQVkaw
-	Wy8cwffFjcqTNPDslGtDHrGlQAkTTuJjWiSY4xY1KCU23goRJREI8wbOseToEQXxqcoDrfoxE2wU6
-	mq1/biQP4H7fIHI4qBSnqcDCdJHjDbxooPO+rIoUKA6jMYLC3g2s/ig0qq/HJ93jfD2hSmQIfM1hI
-	GgaIGZ8QL/uN5U6fa3sYB1f5yUPMPg4AO4PJHcn5YoNRPK/SncylC49TG3VYEgG7/h1fQ24tdKebq
-	3vBbYrAqjPj1Facvo61wpfdm7P/3OHOAKpRQL+HOs3D/dbvpMjSH0JY5+j0zD8Sj6YZEN9qPEQus/
-	uU1Msydw==;
+	bh=Yi4FBZsN/Bn5LEPvWOMyBcJCvsgDi8/T4S4jkaVFgPA=; b=07UlKJvVj+/naezSREFWHVJGoT
+	Xp4dfMAjN3+0RXhpBfQjNWZSSc3ZmU11rygtqjq8t5kC1a2cvMjE3hWMQ5vVmP7Q+zcXKCg9PltME
+	wvDGU1epDRiw9YDtkddo1m09rDZ6h2k2lnay/KWOwf23kbACFfwAQ+d5t5bVGF/cXRbpMTT5aztvw
+	XCqGlMTGzMTtbdvfDvFzahsc8zgwF1Fn9BEIGmrNIvh7nFqGtkqaWNnofdoPphEip8NBFNUALeAij
+	txkkW5OJfYXT5PC/xD5NM0qHQe/oaU4qztvz0kZ60hNkjza3nK3IHy0k3Du9jkMMNNZFqPNtrgWCR
+	em5j7uvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD3x-0000000G6Jj-3zot;
-	Fri, 24 Jul 2026 10:23:29 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wnDWJ-0000000GAVp-3CSR;
+	Fri, 24 Jul 2026 10:52:47 +0000
+Received: from mail-northeuropeazon11010045.outbound.protection.outlook.com ([52.101.84.45] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnD3W-0000000G5vs-406K
+	id 1wnDWH-0000000GAUK-1PZ4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 10:23:23 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66OAFC4e2796788;
-	Fri, 24 Jul 2026 05:22:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=xhgGf5UXWUorDYGasOngYTxXTZweHzgikhGpIwuVL
-	GE=; b=Dt7qtINPA7O+uf0w4GRLYnivQ94AVEY/3tmMUkmB3ZWmRdEG73kiK04hO
-	dfneKZi5/IHQtB5d0Oo2jzT9r8iB9GFT9pZxa1eZ/lSXTdmN3tFKV/bceURIieC4
-	XqZZbLg3pAN+zwXVeJ/V4CmBeMLwg2j0oEqipj52fy2cA5t2RPAvsOkKlqtYiuxf
-	rqFmy6QjdGdjgzZhZRS3CFxYs2oxprzeKuJd2YGrzy+vmHVas50j17CoDJ6vlUTv
-	/mU1MGxEu96xJxGN2d+pkCWj1szvY7XqnPRj/wyBaBSCjIXidgfO3RwMsRWNxGlj
-	BpBE7QOISGoFNJ4sdb4eZehC48Q8g==
-Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012002.outbound.protection.outlook.com [52.101.43.2])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4fm3v38px4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 24 Jul 2026 05:22:58 -0500 (CDT)
+	Fri, 24 Jul 2026 10:52:46 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=KWCLiYpQLUA+4o7GXhsGBbORMjxF0XYHtoQj01PxqoXlPThytahe+niPTAxVOgGt4p+BDdc6CoxMAn3ivGjFmWDMXWU58Hagak2NxTc54WrFO9ZNFAdu/ZOpY9mEW+g85Bm3bt1aK2D7SKyWc5RcJ7s5uTK3l6PufYEYOAsmjdWYtoDDYJFu6o2hAXjXyYgE5/QL4WCshDABZ44LbKhNhY96+EZxzX7UQe4u3YoQqAQlZzvwodNJmt8As49ONSbCGgTO6jZsHbNUK++tK6By0IZrOZlHzWl/wRO2alK7+UoWGnkxfipoDwpJrKw1j08JvyuaYrgtqn05O5r00BJnUw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yi4FBZsN/Bn5LEPvWOMyBcJCvsgDi8/T4S4jkaVFgPA=;
+ b=xJ677KZlunt9GQ/n5MvpChPRP6xM16Cd5ZWottyPNa3k+I7l5uaU+/FyXFg9EC2gf21JYMB26um4r9N7I6HdTNZHTEsxO4Fuy2AUVenehLEO8FRvbjZTPapj1kCgxo1yWpHG83wNjTyb0aGN/c27FGMjelKnJUImoXp+9ipbesKHBMUFmTWFZPXSL3tb5YCNazdbqiran6YMAz2MrkzUWg620UIcnMHy4TjcaHoU/iX3+285BWlOv7ihpOYHtABvj6SRyYH71BTrxmlXeJj9ByrT+W0/L7M20sNBpIN3V9RL8F2IsPxAHVfh6/GCCdFGnMlvT2REsDbcd7q/V0l6gQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yi4FBZsN/Bn5LEPvWOMyBcJCvsgDi8/T4S4jkaVFgPA=;
+ b=bF6nh9F+t+1XkqxckDGmX4yzoFxKMNlbhgUQttTC3xU9d8Ap04f3tv3PYEmUwp4+5MubYQnuW2AsqQBiD0IKYVYZOed2lAKQpFJgBPAIuA8wRBl1/FOEfGR8ABSJ6fhnk23d2VsoFETDuBS9D4izUXibI65qDar+KEVa9MGWdmw=
+Received: from AS4P251CA0030.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:5d3::18)
+ by DBBPR08MB10409.eurprd08.prod.outlook.com (2603:10a6:10:52c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
+ 2026 10:52:34 +0000
+Received: from AM3PEPF00009B9D.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5d3:cafe::85) by AS4P251CA0030.outlook.office365.com
+ (2603:10a6:20b:5d3::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.11 via Frontend Transport; Fri,
+ 24 Jul 2026 10:52:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF00009B9D.mail.protection.outlook.com (10.167.16.22) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
+ via Frontend Transport; Fri, 24 Jul 2026 10:52:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xGRV62F6E0lhVPGVHH4K+Bo9JHopKIU5e7H6VCVxhseHlsdvqo+F6gNZnVZDrPuPu5iZ2V0AAmuiVqubLz6EfWftmYoDKM6adIBTptQ7AkIS8RtATZRxIGCvTpsZSbNU9nFIGMvQP2QDQ/8F0dpSX/qgj7Foj3B3ZlD5BuTxlHo4uCeHLiM9OqBpy1BcA3q2xwIOBDB8Ow4uSiwtMdE+mNVUy++gH++74ldj1Hi1lXr0whN/oe+ridw5HvOrGSFc1jNWJ6OHMq6q3g/fw3Jm1ZFVD7LI3KH19V3LYH07/g5lVElPLoOurpX1aXqtCgj7HF1dGFrGL/1SGhXcKT2YIQ==
+ b=m9GpqsDQu5tMnwKXxQ7HKCu6t+WuVUSwKmXcv7yLy06RywCy6+Ihq2RGCGL+MrA/B3epfVeh0Bs2NjBNkQIezi5kwA131MPJVL3zyBCOFC4RyIHS7CV5NVQ15GB0eJ5xZiMPWeqWuLepmQ6DbUveUC5dAKiLoAB6Gj1kFdQVlIvUJXjKMqHw2IFtwf6AS5H21lTPAVLp/AZYU3tt8ZI02amarU/BdnhJOCESW/PqlqAlfHQjREEtG4B02/Phn3WUJJr5lrIlURPZc1wmTjsxB5JcNs3LtgHdUTlVs/AC/tPUPJkFCAaQsHfKweJ3PB/GH0o9WyP1ZdzYgOgvW/rSNw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xhgGf5UXWUorDYGasOngYTxXTZweHzgikhGpIwuVLGE=;
- b=U2f7AivhEJjED/wNhqkjSYjBdUidxSIf65RrqUeXSn9AO9ClNMYvyXOeCu83L+Yrx9qvX9fsL6OrHSgpu9F/ncZw6x9Fb9H3mpL/zM+iAahP2ZlHpTzE2H+4lRqqWyHeZtuB2pDw574RgDykORzswfB8PpMsbMALPEsQDgK/oO43wXT9hpMIao0R2ezeOPwKJaVR67Ed2Lde8WEjoqv1KaE9gQ+s3XWUjkdQ+p/v25w2NjkJgteVqCFADfPP2apn6UBcjs5z4wdjw4jkAAfgwWQ3DD/N0nxeOB3gaJsdDN7aMF09XZcLwu8W06xv4dNAyZqylid0RPqiZ1o/KeWFJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=Yi4FBZsN/Bn5LEPvWOMyBcJCvsgDi8/T4S4jkaVFgPA=;
+ b=BNcZ01vl/vqqKkxBZqB97gYXCO7ORAtQO7WPCQ4OrFwub8YxBWmGDmG4eDKleGkM+AQdNOYmZunpSMeidRZky6Ns9AGK9Ie6I7sNpUpJwSJ8HWCTM4PeKKfrA8fXbKJkmnp6VY4cDeugTAe4wVZJaXJpIKFwBaiOhxvZwG3CwAMomVOB/FTdq0htfrDmH7tgliewmyg+bpi1qaXEojTM1gXrhXQUwPc4Hl0ukIJ7b9kZn7+Bby1lXgZdO7OzPB5UX5xaqQbHhe88PixQUcmoWxxktDaaPNX591dMGb+3yYBZa6hizdlqTRpVLwDo2wGtRnx9yfFRuQmA8/jhG/q9BQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xhgGf5UXWUorDYGasOngYTxXTZweHzgikhGpIwuVLGE=;
- b=PtyQaFAYVWgqyVhHeWCj+XD1OIeVxCNpwgSUKL1T7phAHS+5iIreA2jVKvjx8rSzWycV5IAj2T+cpqtjEH+qXBCkKRV5ySpcTdZmO7PSyBNjALz7YkPHDYRmoXGrzoWpLCw/Ym2cjkZxLoPS+z88QBm//ozL/pu0qf7c8BvErlo=
-Received: from MW4PR03CA0033.namprd03.prod.outlook.com (2603:10b6:303:8e::8)
- by IA0PR10MB6724.namprd10.prod.outlook.com (2603:10b6:208:43e::5) with
+ bh=Yi4FBZsN/Bn5LEPvWOMyBcJCvsgDi8/T4S4jkaVFgPA=;
+ b=bF6nh9F+t+1XkqxckDGmX4yzoFxKMNlbhgUQttTC3xU9d8Ap04f3tv3PYEmUwp4+5MubYQnuW2AsqQBiD0IKYVYZOed2lAKQpFJgBPAIuA8wRBl1/FOEfGR8ABSJ6fhnk23d2VsoFETDuBS9D4izUXibI65qDar+KEVa9MGWdmw=
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
+ by DU5PR08MB10466.eurprd08.prod.outlook.com (2603:10a6:10:516::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Fri, 24 Jul
- 2026 10:22:54 +0000
-Received: from MWH0EPF000C6191.namprd02.prod.outlook.com
- (2603:10b6:303:8e:cafe::8d) by MW4PR03CA0033.outlook.office365.com
- (2603:10b6:303:8e::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.12 via Frontend Transport; Fri,
- 24 Jul 2026 10:22:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- MWH0EPF000C6191.mail.protection.outlook.com (10.167.249.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Fri, 24 Jul 2026 10:22:52 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 24 Jul
- 2026 05:22:50 -0500
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 24 Jul
- 2026 05:22:50 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 24 Jul 2026 05:22:50 -0500
-Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [10.24.51.254])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66OALMFV3017088;
-	Fri, 24 Jul 2026 05:22:45 -0500
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
-        <ssantosh@kernel.org>, <dmaengine@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
-        <Frank.li@nxp.com>, <s-adivi@ti.com>
-CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v7 16/19] dmaengine: ti: k3-udma-v2: New driver for K3 BCDMA_V2
-Date: Fri, 24 Jul 2026 15:50:49 +0530
-Message-ID: <20260724102115.2854-17-s-adivi@ti.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260724102115.2854-1-s-adivi@ti.com>
-References: <20260724102115.2854-1-s-adivi@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6191:EE_|IA0PR10MB6724:EE_
-X-MS-Office365-Filtering-Correlation-Id: cfd6f3f9-43fa-4c4b-6bf9-08dee96d84f4
+ 2026 10:51:30 +0000
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0245.009; Fri, 24 Jul 2026
+ 10:51:30 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: [PATCH v4 12/48] KVM: arm64: gic-v5: Keep GICv5 vCPU limit
+ model-specific
+Thread-Topic: [PATCH v4 12/48] KVM: arm64: gic-v5: Keep GICv5 vCPU limit
+ model-specific
+Thread-Index: AQHdG1piyY96yLB6t02MQx+yByW6bA==
+Date: Fri, 24 Jul 2026 10:51:30 +0000
+Message-ID: <20260724104819.1296803-13-sascha.bischoff@arm.com>
+References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260724104819.1296803-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|DU5PR08MB10466:EE_|AM3PEPF00009B9D:EE_|DBBPR08MB10409:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6f89b7fd-1b9d-4930-1468-08dee971aaff
+x-checkrecipientrouted: true
+nodisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|23010399003|376014|7416014|82310400026|3023799007|10067099003|56012099006|6133799003|13003099007|921020|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 0c9tWkS/moAYjhB/M0sQ6lggk15l1RqvUM5fYTnsy2x9gett2VE/1dYjIOEnAhqc6ybtLBsm9loMpLo4/3Suacr26RN4iTZB1x3j9O4Hn1bnwgSMtCAOCscKIYWWHx1Z5pKThts9bmBxytI/AWhnB4DVGFZxxA0469T/htGUP2qx2BUMmFR5MnTaIu+u+3FYg4/FwzIBzeLeKaErs450S7o/dJshUs6hA/aA/sdvo/1X5bjrPdGjnNY0ehGPVNZnVGaEEP6Hyvv6q6opJnpnnj00txVqZq1JUMSiJtf5AdAvmYrpc7crYA1QeOS5yVb1BZNW5q7355Fhgl7yZ3hBlonmbdc3eQbeg2MeSaM2lqzkUi3s8lbr8f9yJ0ATKjRCW9qlL4I23UrbX+lIJickX8Y+UTYUK1IcoHO3gdrz0Ff1Dk492dx0H+iErb2Kcr/H6wxwKKji5DBa163BKFCaFLPkVXkfJLAu7vKzowkPnUZT77E+M8yqS1C2OjnHm5y0thqMGdC5OjbrsVbqgxwFvHUjOTLCEmnXBhA6qrkm5DvUORGZczA3uzMecJp2411GbcgV5eYHDRKdNTyQcWCxgNxKlzekgX62lZ9HAnCH8gPduGN1kE1OXSM2RJUrMlrjz71wxenJhBG7m7TCTIw0ObFe9WVjOB8OoZIaf7Z27Vsrh2piTkK9EarX4cQSEZAEdajSrM/hxjtJDIanTBFvUw==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(376014)(7416014)(82310400026)(3023799007)(10067099003)(56012099006)(6133799003)(13003099007)(921020)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|22082099003|18002099003|56012099006|11063799006|38070700021|6133799003|10067099003;
+X-Microsoft-Antispam-Message-Info-Original: jhCEsovRwHkF4Nd0VhjfVwL7pCrsbREu5pwOeagkBrp0+A0ezH7Kp5kdYN6ZpbM7saXPNtZvM8QlfudvvLNvNwL2G093eN5aUTq+KhfXxD0TZLOPr7baYglpzT0OfTukRjLkT/vUDzdmPxBm+mAynfsDSvyTfPGTZW9OJKL9EIRV3ZC2YDV/g0QmnSu+70yyDbhxCr3Tc6QrrWOWz5dKw3fLPjF5LiSmTENEyxFGKUuC/qM/6PLX5NRiTJqeJTMy25sy5wcLy6RBA+Ym5KJz9U+NCNzsQtXcr51AWfYuuEonEoGYHIL+qrt6JPHoOtTeFhRfbVB9n4wRoAncvHM2/yxMrS0rZFthTFMIh53BeMD9FTZg/20vdZNULpZh4Noz3AAvenSCW+WIAEhoJ/v+e0t499GiaFjhpf5BUDxjemXHx5CspvwOYhOo+wGUa8Ll95dEuTnFiZ7x5nqiI1WTdWV8WWZs9W8LLgchYAuvByDcxCwzDLlskPcc+vMW6fGg7AzAITbwbsUQj0Q9j71j7b6PiiKfAM/m//cL425LgeR0v2FEgstXWpw0YK/lal6VgjJbEKtiDNP1oTcj4+0GDBqqLQC27a/Uo9NiCYAmvtDKRz48UE8DepEiZn3PRLfPep0jOr0cr1kjl/zpXgdB7+Y3Omd+vl5AHAMFvfXpeo6VYuUsMI/bb+bJtJnmI3if0hnToe3MOrx8gXWpskX3H07WSdtraAqh7d6ih2LwFiA=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(38070700021)(6133799003)(10067099003);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: p4pSfj+W0J07fHzULZYAcV5jxV4uxopkXNnStv0lE8aipgDF1UFXhyKAbC2d1XQi44uueBfTNgnCEN/MUGB3IIvKxTAkhZE3m80xnR6uqyRglY0lVvEYsPPQAfJxOpfrIoY5Dk5+q281o4/qt+FfxyGWq4RJRsQpO07K7gcwYjVLfoK1wiPM+aE9JsU9wYcn06VsgFzVIhxQFa7GxZC4JNdFBXF0O2TXgJ/23UUXmW2yPqz7oNTxUdI9IMJH1gorVq0gF+CFOj1xns3aqCMJoJbk6QtB+RX7g+kn3072iEgH2c0EUa8VKIREn9l7s+8lpbUqnIzMTrAaMaMIwYkuew==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU5PR08MB10466
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009B9D.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: a4363706-1c8e-402f-cb99-08dee97184d1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|1800799024|14060799003|35042699022|82310400026|6133799003|56012099006|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 9hlQkIHb/OcWB3W+ZViPgKLCZJBm853kISCPhL6jmfJ49RMBsakzgOfym/lLteDcdwCBctZfWhgOmVlfRTWzc9yr/NIdBGzpsrSBKLcavc/7tAeomUVI3tFaAzh1jp+J0vLIeD/lxD5Sf7zMeSjzsvdR+sI467g0K/Jp7hpYYUWaSKahj7dtRCU54J9rcQ7/frqKAWJkRfITYgWjbXoR5CMansL22TIO3wB3ZcW3XYaAN38OrB+IuCzDmg9Q1ujkR5Yg9Twgxxu7zxTjKSeoLCTdM0qLIY67MSPCHZe7HjUqEvUF5azgtI1sVi3Coz34H2PWyEhgoobPZBYrOehfgeijTwZAF5mNgcoZ1DHDSN7wOC+QfvFoylyqmK5E0OpxXjrJjKIHYgXfsKwo90NtB0C6LasY+yfMS6/oQMjAyfrfTXGTxAOmdTSnq3UkUtpWPIaN9vHnStXQtJWxXHnAkNTsHyj6ZVQc0w3ylZBBYU7sMzYNvxT3n17MLfbaXqkwpGAGzkSwjEhfzbQNsg4zh6IVyqjTLk2GgSvMt2ZpTc3Z04gre0m95Ekv4eMG+1vvxldixRtQ7TgpzYXzAwXW+dIzrcn7H2q4T2oqab8QOfel+Pt6RQlFDjnGXI86AkajyT4b98XbSfCTTldVF17O01PQzT126uMSKJh6T3pSquvEwAftY9impTX+R1AqLFFc9tXd2gNc1Tkkf5gQjlDfiQ==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(1800799024)(14060799003)(35042699022)(82310400026)(6133799003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: k+pj84Ds5am/s5Gei+XWQYc4hz4gcF6BkGA4hgGiEFVt34s0VoabvR7dot5xLp6kDgX71S66s3nwaTFNYzmOF9qsJ2mEar5d0/t8eqti17S2gr77DUB8xg6qF90tzf0YH0yHPeASrizlavaHZQG5D1APP2w2xrVBe1r1qQnNWQvXP1bGZI4ARD+057Wav/d/WrfwRT975klGtegod8rjl+QIzMm+nWp6O/DFfZniJ5fbogVZduQroBJ/ypvONyOFHpIWQDB/Wg6nA4UDfCcVF7b7gOwmTUsa32Osc3nIkqgIp/XiZsmtdyhPToMDtMYtss0i38KU515psckLPrKq4EArc38AhzfSkKvRQGcwmWQywNehmOGEhijywgmRLOYBd4YzCvrPEBjauWzfkhdU2foOPKfonQ/2metN2cFJqBwu7g4pyLQ4Yfafr6+B97gz
-X-Exchange-RoutingPolicyChecked: CKp9vRIfpGFxdNKBtquWnqWchMy30hlIfPMSBEVdxFpHveBHhxw5s4nehqiCyhaAGuYNjq7Lxt7U+osE1f5P4IGg7aS/dR32+rXWYxYOg3QVk8embXOW3C1hrcb/rkMxir2SHDf8wA+2zsHjUQaPjvMbJR9OztQc4eHsN2IYbtFxgQApxPMihYgkS5PFx6JZZjkNCuki5V41Q1wgIGYMjHkkfEoRr0oyYEihIH3jkc7CYNdxH2dH7h1jN1SmDRRRVeyKGgDXvGZiI4Ox0YpRu6T7UWqDQk6kyFUESGog+DZkZncfA9vS6G4Mjv+tkF/3RM0dl+rInOAUXmXIhP9WtA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:22:52.3156
+X-MS-Exchange-AntiSpam-MessageData-0: +JPIEdkZYjjTo+cOMwexzq91CJLyRdDjbF/BXq4rlhovma3LaAK757bRwBg/hYGT8btKorELY2k8MU7deJ89X0BtCcV6teoCmwFJkwD4YKYN4LJlskThznxYXg0BGF+/MSdo7Mur25Al15vvrR68NESAVUrPKO1jh52V/z022DV5ymI7UolPW6faMlUhpjmCsLtsnzDbgo7GOfheT5iwOpZzh+iWUlqtLWu76QCYvDT0K6f35vk0T/PiSXN/p5lHcmQItY4XO58tCuDOqVYtvhqpi/LQLfreZ5KOQTsxkJ5qXNjg+EUPJGArtXX9ia7DYadPTbXlWsyx/KU3qkgfu4oIYwf+7XJzP/qUwFh0VL4IGX3eE46rNzuJL40INQKm+LXcHhKsaM0Ue8g01XJFnAHtKCz40jW1Rde1Tcz9uxPLdJ6IXeTB0M0oSCMxhE6s
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2026 10:52:34.1576
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cfd6f3f9-43fa-4c4b-6bf9-08dee96d84f4
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6191.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6f89b7fd-1b9d-4930-1468-08dee971aaff
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9D.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB6724
-X-Proofpoint-GUID: OlBChVd29gzTu7VmbyINrNyQ-9TphqSs
-X-Proofpoint-ORIG-GUID: OlBChVd29gzTu7VmbyINrNyQ-9TphqSs
-X-Authority-Analysis: v=2.4 cv=dLWWXuZb c=1 sm=1 tr=0 ts=6a633d02 cx=c_pps
- a=E0F994Awt23I4DNeuEdoUA==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
- a=sozttTNsAAAA:8 a=gedxhmekW7z0cqXWnrIA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI0MDA5NCBTYWx0ZWRfXzGBHtgkeZulJ
- o3iETfoL/LGmI32AmL8sEgQJ6uSFsXSX+0wg5ThOs0QS60jnYxfRHkntIFvwm02GvawSuX6oLZ4
- SxZlbU16Zsd3n+50z4H/iwCkRiZoiDH5tNpt2emt+zDwmgmpQ20N+mXQoqGoy6PSxFiPoN99Vm4
- d7dU5RuTGDteNW9nz5NHp4aq+663tA/xZTbnzUz9O5RgswEAOiuoKm8YXUekz/1iQKtUlaK0lTq
- re5tcgyeK1b7ouIZpeAMfhJUAMQUIs8Y6o612eFvKKN/dSfW9ES2Fel3bqcnD+cvgupB1+7uf8U
- VTHvx6U5AY9cNpY86vd0xvXogKznI2kwBi9NtnYFb/adIHNGUczzvKSyzHSBqX2BL2pBokAovRI
- BWixmsUQRq+84EmhNTweoDTgia8qITgVwzL0WrqcMF4v6e2ec7uGR2D8SBcj8CrhRfMlbtq5lWM
- dcQLWSbUeQeEFEU17oA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI0MDA5NCBTYWx0ZWRfX63SpjKBEuGWA
- wpbwWfsRXCMzWnwqVL+eMLI23ObAAUmDi9SmdaGKVtKriFPYrLD/8jC64YNDPQrtPZlW8/b1quQ
- iVfTUoI3syU2fTT9dMniA1EY9i2pneQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-24_02,2026-07-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0
- impostorscore=0 malwarescore=0 adultscore=0 spamscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607240094
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10409
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_032303_088236_55804312 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20260724_035245_542255_9E2FF764 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,1913 +164,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for BCDMA_V2.
+A GICv5 host with FEAT_GCIE_LEGACY can expose both a native vGICv5 or
+a vGICv3 device. These models do not necessarily have the same vCPU
+limit: the native GICv5 limit is probed from the IRS VPE capacity,
+while the GICv3 limit remains the fixed KVM vGICv3 limit.
 
-The BCDMA_V2 is different than the existing BCDMA supported by the
-k3-udma driver.
+Keep the IRS-derived limit separately for vGICv5 creation. The
+pre-VGIC KVM_CAP_MAX_VCPUS value continues to expose the largest limit
+among the still-selectable models, and kvm_vgic_create() clamps the VM
+to the limit of the VGIC model userspace actually selected.
 
-The changes in BCDMA_V2 are:
-- Autopair: There is no longer a need for PSIL pair and AUTOPAIR bit
-  needs to set in the RT_CTL register.
-- Static channel mapping: Each channel is mapped to a single peripheral.
-- Direct IRQs: There is no INT-A and interrupt lines from DMA are
-  directly connected to GIC.
-- Remote side configuration handled by DMA. So no need to write to PEER
-  registers to START / STOP / PAUSE / TEARDOWN.
-- Unified Channel Space: Tx and Rx channels share a single register
-  space. Each channel index is specifically fixed in hardware as either
-  Tx or Rx in an interleaved manner.
-
-Also, since a version member is introduced in the match_data, Add
-version v1 in match_data of SoCs using v1 DMA.
-
-Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
- drivers/dma/ti/Kconfig            |   14 +-
- drivers/dma/ti/Makefile           |    1 +
- drivers/dma/ti/k3-udma-common.c   |   93 ++-
- drivers/dma/ti/k3-udma-v2.c       | 1302 +++++++++++++++++++++++++++++
- drivers/dma/ti/k3-udma.c          |    9 +
- drivers/dma/ti/k3-udma.h          |  123 +--
- include/linux/soc/ti/k3-ringacc.h |    3 +
- 7 files changed, 1468 insertions(+), 77 deletions(-)
- create mode 100644 drivers/dma/ti/k3-udma-v2.c
+ arch/arm64/kvm/vgic/vgic-init.c | 14 +++++++++-----
+ arch/arm64/kvm/vgic/vgic-v5.c   | 19 +++++++++----------
+ include/kvm/arm_vgic.h          | 16 ++++++++++++----
+ 3 files changed, 30 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/dma/ti/Kconfig b/drivers/dma/ti/Kconfig
-index 712e456015459..40713bd1e8e9b 100644
---- a/drivers/dma/ti/Kconfig
-+++ b/drivers/dma/ti/Kconfig
-@@ -49,6 +49,18 @@ config TI_K3_UDMA
- 	  Enable support for the TI UDMA (Unified DMA) controller. This
- 	  DMA engine is used in AM65x and j721e.
- 
-+config TI_K3_UDMA_V2
-+	tristate "Texas Instruments K3 UDMA v2 support"
-+	depends on ARCH_K3
-+	select DMA_ENGINE
-+	select DMA_VIRTUAL_CHANNELS
-+	select TI_K3_UDMA_COMMON
-+	select TI_K3_RINGACC
-+	select TI_K3_PSIL
-+        help
-+	  Enable support for the TI UDMA (Unified DMA) v2 controller. This
-+	  DMA engine is used in AM62L.
-+
- config TI_K3_UDMA_COMMON
- 	tristate
- 	default n
-@@ -63,7 +75,7 @@ config TI_K3_UDMA_GLUE_LAYER
- 
- config TI_K3_PSIL
-        tristate
--       default TI_K3_UDMA
-+       default TI_K3_UDMA || TI_K3_UDMA_V2
- 
- config TI_DMA_CROSSBAR
- 	bool
-diff --git a/drivers/dma/ti/Makefile b/drivers/dma/ti/Makefile
-index 41bfba944dc6c..296aa3421e71b 100644
---- a/drivers/dma/ti/Makefile
-+++ b/drivers/dma/ti/Makefile
-@@ -3,6 +3,7 @@ obj-$(CONFIG_TI_CPPI41) += cppi41.o
- obj-$(CONFIG_TI_EDMA) += edma.o
- obj-$(CONFIG_DMA_OMAP) += omap-dma.o
- obj-$(CONFIG_TI_K3_UDMA) += k3-udma.o
-+obj-$(CONFIG_TI_K3_UDMA_V2) += k3-udma-v2.o
- obj-$(CONFIG_TI_K3_UDMA_COMMON) += k3-udma-common.o
- obj-$(CONFIG_TI_K3_UDMA_GLUE_LAYER) += k3-udma-glue.o
- k3-psil-lib-objs := k3-psil.o \
-diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
-index 7ae2c70eb5414..10a42fff128aa 100644
---- a/drivers/dma/ti/k3-udma-common.c
-+++ b/drivers/dma/ti/k3-udma-common.c
-@@ -171,8 +171,13 @@ bool udma_is_desc_really_done(struct udma_chan *uc, struct udma_desc *d)
- 	    uc->config.dir != DMA_MEM_TO_DEV || !(uc->config.tx_flags & DMA_PREP_INTERRUPT))
- 		return true;
- 
--	peer_bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_PEER_BCNT_REG);
--	bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-+	if (uc->ud->match_data->version == K3_UDMA_V1) {
-+		peer_bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_PEER_BCNT_REG);
-+		bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-+	} else {
-+		peer_bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_PERIPH_BCNT_REG);
-+		bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-ini=
+t.c
+index 079a57c2b18f6..94632fd90b728 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -129,13 +129,17 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 	}
+ 	ret =3D 0;
+=20
+-	if (type =3D=3D KVM_DEV_TYPE_ARM_VGIC_V2)
++	switch (type) {
++	case KVM_DEV_TYPE_ARM_VGIC_V2:
+ 		kvm->max_vcpus =3D VGIC_V2_MAX_CPUS;
+-	else if (type =3D=3D KVM_DEV_TYPE_ARM_VGIC_V3)
++		break;
++	case KVM_DEV_TYPE_ARM_VGIC_V3:
+ 		kvm->max_vcpus =3D VGIC_V3_MAX_CPUS;
+-	else if (type =3D=3D KVM_DEV_TYPE_ARM_VGIC_V5)
+-		kvm->max_vcpus =3D min(VGIC_V5_MAX_CPUS,
+-				     kvm_vgic_global_state.max_gic_vcpus);
++		break;
++	case KVM_DEV_TYPE_ARM_VGIC_V5:
++		kvm->max_vcpus =3D kvm_vgic_global_state.max_gicv5_vcpus;
++		break;
 +	}
- 
- 	/* Transfer is incomplete, store current residue and time stamp */
- 	if (peer_bcnt < bcnt) {
-@@ -319,6 +324,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
- 	size_t tr_size;
- 	int num_tr = 0;
- 	int tr_idx = 0;
-+	u32 extra_flags = 0;
- 	u64 asel;
- 
- 	/* estimate the number of TRs we will need */
-@@ -342,6 +348,11 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
- 	else
- 		asel = (u64)uc->config.asel << K3_ADDRESS_ASEL_SHIFT;
- 
-+	if (uc->ud->match_data->type == DMA_TYPE_BCDMA &&
-+	    uc->ud->match_data->version == K3_UDMA_V2 &&
-+	    dir == DMA_MEM_TO_DEV)
-+		extra_flags = CPPI5_TR_CSF_EOP;
-+
- 	tr_req = d->hwdesc[0].tr_req_base;
- 	for_each_sg(sgl, sgent, sglen, i) {
- 		dma_addr_t sg_addr = sg_dma_address(sgent);
-@@ -358,7 +369,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
- 
- 		cppi5_tr_init(&tr_req[tr_idx].flags, CPPI5_TR_TYPE1, false,
- 			      false, CPPI5_TR_EVENT_SIZE_COMPLETION, 0);
--		cppi5_tr_csf_set(&tr_req[tr_idx].flags, CPPI5_TR_CSF_SUPR_EVT);
-+		cppi5_tr_csf_set(&tr_req[tr_idx].flags, CPPI5_TR_CSF_SUPR_EVT | extra_flags);
- 
- 		sg_addr |= asel;
- 		tr_req[tr_idx].addr = sg_addr;
-@@ -372,7 +383,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
- 				      false, false,
- 				      CPPI5_TR_EVENT_SIZE_COMPLETION, 0);
- 			cppi5_tr_csf_set(&tr_req[tr_idx].flags,
--					 CPPI5_TR_CSF_SUPR_EVT);
-+					 CPPI5_TR_CSF_SUPR_EVT | extra_flags);
- 
- 			tr_req[tr_idx].addr = sg_addr + tr0_cnt1 * tr0_cnt0;
- 			tr_req[tr_idx].icnt0 = tr1_cnt0;
-@@ -593,7 +604,7 @@ int udma_configure_statictr(struct udma_chan *uc, struct udma_desc *d,
- 			    enum dma_slave_buswidth dev_width,
- 			    u16 elcnt)
- {
--	if (uc->config.ep_type != PSIL_EP_PDMA_XY)
-+	if (uc->config.ep_type != PSIL_EP_PDMA_XY && uc->config.ep_type != PSIL_EP_PDMA_XYMF)
- 		return 0;
- 
- 	/* Bus width translates to the element size (ES) */
-@@ -951,7 +962,8 @@ udma_prep_dma_cyclic_tr(struct udma_chan *uc, dma_addr_t buf_addr,
- 	 * As we are in cyclic mode, we do not know which period might be the
- 	 * last one, so set the flag for each period.
+=20
+ 	if (atomic_read(&kvm->online_vcpus) > kvm->max_vcpus) {
+ 		ret =3D -E2BIG;
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index c68ca4f63f3a2..21252bd11d96f 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -110,7 +110,8 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 	int ret;
+=20
+ 	kvm_vgic_global_state.type =3D VGIC_V5;
+-	kvm_vgic_global_state.max_gic_vcpus =3D VGIC_V5_MAX_CPUS;
++	kvm_vgic_global_state.max_gic_vcpus =3D 0;
++	kvm_vgic_global_state.max_gicv5_vcpus =3D 0;
+=20
+ 	kvm_vgic_global_state.vcpu_base =3D 0;
+ 	kvm_vgic_global_state.vctrl_base =3D NULL;
+@@ -135,8 +136,8 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 	 * Even if the HW supports more per-VM vCPUs, artificially cap as we
+ 	 * can't use them all.
  	 */
--	if (uc->config.ep_type == PSIL_EP_PDMA_XY &&
-+	if ((uc->config.ep_type == PSIL_EP_PDMA_XY ||
-+	    uc->config.ep_type == PSIL_EP_PDMA_XYMF) &&
- 	    uc->ud->match_data->type == DMA_TYPE_BCDMA) {
- 		period_csf = CPPI5_TR_CSF_EOP;
- 	}
-@@ -2052,6 +2064,8 @@ int udma_get_tchan(struct udma_chan *uc)
- 		uc->tchan = NULL;
- 		return ret;
- 	}
-+	if (ud->match_data->version == K3_UDMA_V2)
-+		uc->chan = uc->tchan;
- 
- 	if (ud->tflow_cnt) {
- 		int tflow_id;
-@@ -2102,6 +2116,8 @@ int udma_get_rchan(struct udma_chan *uc)
- 		uc->rchan = NULL;
- 		return ret;
- 	}
-+	if (ud->match_data->version == K3_UDMA_V2)
-+		uc->chan = uc->rchan;
- 
- 	return 0;
- }
-@@ -2377,18 +2393,22 @@ int bcdma_setup_resources(struct udma_dev *ud)
- 		ud->tchan_tpl.levels = 1;
- 	}
- 
--	ud->bchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->bchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
-+	ud->bchan_map = devm_bitmap_zalloc(dev, ud->bchan_cnt, GFP_KERNEL);
- 	ud->bchans = devm_kcalloc(dev, ud->bchan_cnt, sizeof(*ud->bchans),
- 				  GFP_KERNEL);
--	ud->tchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
-+	ud->tchan_map = devm_bitmap_zalloc(dev, ud->tchan_cnt, GFP_KERNEL);
- 	ud->tchans = devm_kcalloc(dev, ud->tchan_cnt, sizeof(*ud->tchans),
- 				  GFP_KERNEL);
--	ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
--					   sizeof(unsigned long), GFP_KERNEL);
--	ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
--				  GFP_KERNEL);
-+	if (ud->match_data->version == K3_UDMA_V1) {
-+		ud->rchan_map = devm_bitmap_zalloc(dev, ud->rchan_cnt, GFP_KERNEL);
-+		ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
-+					  GFP_KERNEL);
-+	} else {
-+		ud->rchan_map = ud->tchan_map;
-+		ud->rchans = ud->tchans;
-+		ud->chan_map = ud->tchan_map;
-+		ud->chans = ud->tchans;
-+	}
- 	/* BCDMA do not really have flows, but the driver expect it */
- 	ud->rflow_in_use = devm_kcalloc(dev, BITS_TO_LONGS(ud->rchan_cnt),
- 					sizeof(unsigned long),
-@@ -2484,11 +2504,18 @@ int setup_resources(struct udma_dev *ud)
- 	if (ret)
- 		return ret;
- 
--	ch_count  = ud->bchan_cnt + ud->tchan_cnt + ud->rchan_cnt;
--	if (ud->bchan_cnt)
--		ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
--	ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
--	ch_count -= bitmap_weight(ud->rchan_map, ud->rchan_cnt);
-+	if (ud->match_data->version == K3_UDMA_V1) {
-+		ch_count  = ud->bchan_cnt + ud->tchan_cnt + ud->rchan_cnt;
-+		if (ud->bchan_cnt)
-+			ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
-+		ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
-+		ch_count -= bitmap_weight(ud->rchan_map, ud->rchan_cnt);
-+	} else {
-+		ch_count = ud->bchan_cnt + ud->tchan_cnt;
-+		if (ud->bchan_cnt)
-+			ch_count -= bitmap_weight(ud->bchan_map, ud->bchan_cnt);
-+		ch_count -= bitmap_weight(ud->tchan_map, ud->tchan_cnt);
-+	}
- 	if (!ch_count)
+-	kvm_vgic_global_state.max_gic_vcpus =3D min(irs_caps.max_vpes,
+-						  VGIC_V5_MAX_CPUS);
++	kvm_vgic_global_state.max_gicv5_vcpus =3D min(irs_caps.max_vpes,
++						    VGIC_V5_MAX_CPUS);
+=20
+ 	/*
+ 	 * GICv5 requires a set of tables to be allocated in order to manage
+@@ -145,7 +146,7 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 	 * we want to run. For now, we match the maximum number offered by the
+ 	 * hardware, but this might not be a wise choice in the long term.
+ 	 */
+-	ret =3D vgic_v5_vmt_allocate(kvm_vgic_global_state.max_gic_vcpus);
++	ret =3D vgic_v5_vmt_allocate(kvm_vgic_global_state.max_gicv5_vcpus);
+ 	if (ret) {
+ 		kvm_err("Failed to allocate the GICv5 VM tables; no GICv5 support\n");
  		return -ENODEV;
- 
-@@ -2510,15 +2537,25 @@ int setup_resources(struct udma_dev *ud)
- 						       ud->rflow_cnt));
- 		break;
- 	case DMA_TYPE_BCDMA:
--		dev_info(dev,
--			 "Channels: %d (bchan: %u, tchan: %u, rchan: %u)\n",
--			 ch_count,
--			 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
--						       ud->bchan_cnt),
--			 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
--						       ud->tchan_cnt),
--			 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
--						       ud->rchan_cnt));
-+		if (ud->match_data->version == K3_UDMA_V1) {
-+			dev_info(dev,
-+				 "Channels: %d (bchan: %u, tchan: %u, rchan: %u)\n",
-+				 ch_count,
-+				 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
-+							       ud->bchan_cnt),
-+				 ud->tchan_cnt - bitmap_weight(ud->tchan_map,
-+							       ud->tchan_cnt),
-+				 ud->rchan_cnt - bitmap_weight(ud->rchan_map,
-+							       ud->rchan_cnt));
-+		} else {
-+			dev_info(dev,
-+				 "Channels: %d (bchan: %u, chan: %u)\n",
-+				 ch_count,
-+				 ud->bchan_cnt - bitmap_weight(ud->bchan_map,
-+							       ud->bchan_cnt),
-+				 ud->chan_cnt - bitmap_weight(ud->chan_map,
-+							      ud->chan_cnt));
-+		}
- 		break;
- 	case DMA_TYPE_PKTDMA:
- 		dev_info(dev,
-diff --git a/drivers/dma/ti/k3-udma-v2.c b/drivers/dma/ti/k3-udma-v2.c
-new file mode 100644
-index 0000000000000..e7989b0b34cac
---- /dev/null
-+++ b/drivers/dma/ti/k3-udma-v2.c
-@@ -0,0 +1,1302 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ *  Derived from K3 UDMA driver (k3-udma.c)
-+ *  Copyright (C) 2024-2025 Texas Instruments Incorporated - http://www.ti.com
-+ *  Author: Peter Ujfalusi <peter.ujfalusi@ti.com>
-+ *  Author: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/dmaengine.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/dmapool.h>
-+#include <linux/err.h>
-+#include <linux/init.h>
-+#include <linux/interrupt.h>
-+#include <linux/list.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/sys_soc.h>
-+#include <linux/of.h>
-+#include <linux/of_dma.h>
-+#include <linux/of_irq.h>
-+#include <linux/workqueue.h>
-+#include <linux/completion.h>
-+#include <linux/iopoll.h>
-+#include <linux/soc/ti/k3-ringacc.h>
-+
-+#include "../virt-dma.h"
-+#include "k3-udma.h"
-+#include "k3-psil-priv.h"
-+
-+static const char * const v2_mmr_names[] = {
-+	[V2_MMR_GCFG] = "gcfg",
-+	[V2_MMR_BCHANRT] = "bchanrt",
-+	[V2_MMR_CHANRT] = "chanrt",
-+};
-+
-+static int udma_v2_check_chan_autopair_completion(struct udma_chan *uc)
-+{
-+	u32 val;
-+
-+	val = udma_chanrt_read(uc, UDMA_CHAN_RT_CTL_REG);
-+	if (val & UDMA_CHAN_RT_CTL_PAIR_TIMEOUT)
-+		return -ETIMEDOUT;
-+	else if (val & UDMA_CHAN_RT_CTL_PAIR_COMPLETE)
-+		return 1;
-+
-+	/* timeout didn't occur and also pairing didn't happen yet. */
-+	return 0;
-+}
-+
-+static bool udma_v2_is_chan_paused(struct udma_chan *uc)
-+{
-+	u32 val, pause_mask;
-+
-+	if (uc->config.dir == DMA_MEM_TO_MEM) {
-+		val = udma_chanrt_read(uc, UDMA_CHAN_RT_CTL_REG);
-+		pause_mask = UDMA_CHAN_RT_CTL_PAUSE;
-+	} else {
-+		val = udma_chanrt_read(uc, UDMA_CHAN_RT_PDMA_STATE_REG);
-+		pause_mask = UDMA_CHAN_RT_PDMA_STATE_PAUSE;
-+	}
-+
-+	if (val & pause_mask)
-+		return true;
-+
-+	return false;
-+}
-+
-+static void udma_v2_decrement_byte_counters(struct udma_chan *uc, u32 val)
-+{
-+	udma_chanrt_write(uc, UDMA_CHAN_RT_BCNT_REG, val);
-+	udma_chanrt_write(uc, UDMA_CHAN_RT_SBCNT_REG, val);
-+	if (uc->config.ep_type != PSIL_EP_NATIVE)
-+		udma_chanrt_write(uc, UDMA_CHAN_RT_PERIPH_BCNT_REG, val);
-+}
-+
-+static void udma_v2_reset_counters(struct udma_chan *uc)
-+{
-+	u32 val;
-+
-+	val = udma_chanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-+	udma_chanrt_write(uc, UDMA_CHAN_RT_BCNT_REG, val);
-+
-+	val = udma_chanrt_read(uc, UDMA_CHAN_RT_SBCNT_REG);
-+	udma_chanrt_write(uc, UDMA_CHAN_RT_SBCNT_REG, val);
-+
-+	val = udma_chanrt_read(uc, UDMA_CHAN_RT_PCNT_REG);
-+	udma_chanrt_write(uc, UDMA_CHAN_RT_PCNT_REG, val);
-+
-+	if (!uc->bchan) {
-+		val = udma_chanrt_read(uc, UDMA_CHAN_RT_PERIPH_BCNT_REG);
-+		udma_chanrt_write(uc, UDMA_CHAN_RT_PERIPH_BCNT_REG, val);
-+	}
-+}
-+
-+static int udma_v2_reset_chan(struct udma_chan *uc, bool hard)
-+{
-+	udma_chanrt_write(uc, UDMA_CHAN_RT_CTL_REG, 0);
-+
-+	/* Reset all counters */
-+	udma_v2_reset_counters(uc);
-+
-+	/* Hard reset: re-initialize the channel to reset */
-+	if (hard) {
-+		struct udma_chan_config ucc_backup;
-+		int ret;
-+
-+		memcpy(&ucc_backup, &uc->config, sizeof(uc->config));
-+		uc->ud->ddev.device_free_chan_resources(&uc->vc.chan);
-+
-+		/* restore the channel configuration */
-+		memcpy(&uc->config, &ucc_backup, sizeof(uc->config));
-+		ret = uc->ud->ddev.device_alloc_chan_resources(&uc->vc.chan);
-+		if (ret)
-+			return ret;
-+
-+		/*
-+		 * Setting forced teardown after forced reset helps recovering
-+		 * the rchan.
-+		 */
-+		if (uc->config.dir == DMA_DEV_TO_MEM)
-+			udma_chanrt_update_bits(uc, UDMA_CHAN_RT_CTL_REG,
-+						UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_TDOWN |
-+						UDMA_CHAN_RT_CTL_FTDOWN,
-+						UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_TDOWN |
-+						UDMA_CHAN_RT_CTL_FTDOWN);
-+	}
-+	uc->state = UDMA_CHAN_IS_IDLE;
-+
-+	return 0;
-+}
-+
-+static int udma_v2_start(struct udma_chan *uc)
-+{
-+	struct virt_dma_desc *vd = vchan_next_desc(&uc->vc);
-+	struct udma_dev *ud = uc->ud;
-+	int status;
-+
-+	if (!vd) {
-+		uc->desc = NULL;
-+		return -ENOENT;
-+	}
-+
-+	list_del(&vd->node);
-+
-+	uc->desc = to_udma_desc(&vd->tx);
-+
-+	/* Channel is already running and does not need reconfiguration */
-+	if (udma_is_chan_running(uc) && !udma_chan_needs_reconfiguration(uc)) {
-+		udma_start_desc(uc);
-+		goto out;
-+	}
-+
-+	/* Make sure that we clear the teardown bit, if it is set */
-+	ud->reset_chan(uc, false);
-+
-+	/* Push descriptors before we start the channel */
-+	udma_start_desc(uc);
-+
-+	switch (uc->config.dir) {
-+	case DMA_DEV_TO_MEM:
-+		/* Config remote TR */
-+		if (uc->config.ep_type == PSIL_EP_PDMA_XY ||
-+		    uc->config.ep_type == PSIL_EP_PDMA_XYMF) {
-+			u32 val = PDMA_STATIC_TR_Y(uc->desc->static_tr.elcnt) |
-+				  PDMA_STATIC_TR_X(uc->desc->static_tr.elsize);
-+			const struct udma_match_data *match_data =
-+							uc->ud->match_data;
-+
-+			if (uc->config.enable_acc32)
-+				val |= PDMA_STATIC_TR_XY_ACC32;
-+			if (uc->config.enable_burst)
-+				val |= PDMA_STATIC_TR_XY_BURST;
-+
-+			udma_chanrt_write(uc,
-+					  UDMA_CHAN_RT_STATIC_TR_XY_REG,
-+					  val);
-+
-+			udma_chanrt_write(uc,
-+					  UDMA_CHAN_RT_STATIC_TR_Z_REG,
-+					  PDMA_STATIC_TR_Z(uc->desc->static_tr.bstcnt,
-+							   match_data->statictr_z_mask));
-+
-+			/* save the current staticTR configuration */
-+			memcpy(&uc->static_tr, &uc->desc->static_tr,
-+			       sizeof(uc->static_tr));
-+		}
-+
-+		if (uc->config.ep_type == PSIL_EP_PDMA_XYMF)
-+			udma_chanrt_write(uc, UDMA_CHAN_RT_FIFO_SEL_REG, uc->config.fifo_id);
-+
-+		udma_chanrt_write(uc, UDMA_CHAN_RT_CTL_REG,
-+				  UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_AUTOPAIR);
-+
-+		/* Poll for autopair completion */
-+		read_poll_timeout_atomic(udma_v2_check_chan_autopair_completion,
-+					 status, status != 0, 100, 500, false, uc);
-+
-+		if (status <= 0)
-+			return -ETIMEDOUT;
-+
-+		break;
-+	case DMA_MEM_TO_DEV:
-+		/* Config remote TR */
-+		if (uc->config.ep_type == PSIL_EP_PDMA_XY ||
-+		    uc->config.ep_type == PSIL_EP_PDMA_XYMF) {
-+			u32 val = PDMA_STATIC_TR_Y(uc->desc->static_tr.elcnt) |
-+				  PDMA_STATIC_TR_X(uc->desc->static_tr.elsize);
-+
-+			if (uc->config.enable_acc32)
-+				val |= PDMA_STATIC_TR_XY_ACC32;
-+			if (uc->config.enable_burst)
-+				val |= PDMA_STATIC_TR_XY_BURST;
-+
-+			udma_chanrt_write(uc,
-+					  UDMA_CHAN_RT_STATIC_TR_XY_REG,
-+					  val);
-+
-+			/* save the current staticTR configuration */
-+			memcpy(&uc->static_tr, &uc->desc->static_tr,
-+			       sizeof(uc->static_tr));
-+		}
-+
-+		if (uc->config.ep_type == PSIL_EP_PDMA_XYMF)
-+			udma_chanrt_write(uc, UDMA_CHAN_RT_FIFO_SEL_REG, uc->config.fifo_id);
-+
-+		udma_chanrt_write(uc, UDMA_CHAN_RT_CTL_REG,
-+				  UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_AUTOPAIR);
-+
-+		/* Poll for autopair completion */
-+		read_poll_timeout_atomic(udma_v2_check_chan_autopair_completion,
-+					 status, status != 0, 100, 500, false, uc);
-+
-+		if (status <= 0)
-+			return -ETIMEDOUT;
-+
-+		break;
-+	case DMA_MEM_TO_MEM:
-+		udma_bchanrt_write(uc, UDMA_CHAN_RT_CTL_REG,
-+				   UDMA_CHAN_RT_CTL_EN);
-+		udma_bchanrt_write(uc, UDMA_CHAN_RT_CTL_REG,
-+				   UDMA_CHAN_RT_CTL_EN);
-+
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	uc->state = UDMA_CHAN_IS_ACTIVE;
-+out:
-+
-+	return 0;
-+}
-+
-+static int udma_v2_stop(struct udma_chan *uc)
-+{
-+	uc->state = UDMA_CHAN_IS_TERMINATING;
-+	reinit_completion(&uc->teardown_completed);
-+
-+	if (uc->config.dir == DMA_DEV_TO_MEM) {
-+		if (!uc->cyclic && !uc->desc)
-+			udma_push_to_ring(uc, -1);
-+	}
-+
-+	udma_chanrt_write(uc, UDMA_CHAN_RT_PEER_REG(8), UDMA_CHAN_RT_PEER_REG8_FLUSH);
-+	udma_chanrt_update_bits(uc, UDMA_CHAN_RT_CTL_REG,
-+				UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_TDOWN,
-+				UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_TDOWN);
-+
-+	return 0;
-+}
-+
-+static irqreturn_t udma_v2_udma_irq_handler(int irq, void *data)
-+{
-+	struct udma_chan *uc = data;
-+	struct udma_dev *ud = uc->ud;
-+	struct udma_desc *d;
-+
-+	switch (uc->config.dir) {
-+	case DMA_DEV_TO_MEM:
-+		k3_ringacc_ring_clear_irq(uc->rflow->r_ring);
-+		break;
-+	case DMA_MEM_TO_DEV:
-+	case DMA_MEM_TO_MEM:
-+		k3_ringacc_ring_clear_irq(uc->tchan->tc_ring);
-+		break;
-+	default:
-+		return -ENOENT;
-+	}
-+
-+	spin_lock(&uc->vc.lock);
-+	d = uc->desc;
-+	if (d) {
-+		d->tr_idx = (d->tr_idx + 1) % d->sglen;
-+
-+		if (uc->cyclic) {
-+			vchan_cyclic_callback(&d->vd);
-+		} else {
-+			/* TODO: figure out the real amount of data */
-+			ud->decrement_byte_counters(uc, d->residue);
-+			ud->start(uc);
-+			vchan_cookie_complete(&d->vd);
-+		}
-+	}
-+
-+	spin_unlock(&uc->vc.lock);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static irqreturn_t udma_v2_ring_irq_handler(int irq, void *data)
-+{
-+	struct udma_chan *uc = data;
-+	struct udma_dev *ud = uc->ud;
-+	struct udma_desc *d;
-+	dma_addr_t paddr = 0;
-+	u32 intr_status, reg;
-+
-+	switch (uc->config.dir) {
-+	case DMA_DEV_TO_MEM:
-+		intr_status =  k3_ringacc_ring_get_irq_status(uc->rflow->r_ring);
-+		break;
-+	case DMA_MEM_TO_DEV:
-+	case DMA_MEM_TO_MEM:
-+		intr_status =  k3_ringacc_ring_get_irq_status(uc->tchan->tc_ring);
-+		break;
-+	default:
-+		return IRQ_NONE;
-+	}
-+
-+	if (!intr_status)
-+		return IRQ_NONE;	/* Not this channel's interrupt */
-+
-+	reg = udma_chanrt_read(uc, UDMA_CHAN_RT_CTL_REG);
-+
-+	if (intr_status & K3_RINGACC_RT_INT_STATUS_TR) {
-+		/* check teardown status */
-+		if ((reg & UDMA_CHAN_RT_CTL_TDOWN) && !(reg & UDMA_CHAN_RT_CTL_EN))
-+			complete_all(&uc->teardown_completed);
-+		return udma_v2_udma_irq_handler(irq, data);
-+	}
-+
-+	if (udma_pop_from_ring(uc, &paddr) || !paddr)
-+		return IRQ_NONE;
-+
-+	spin_lock(&uc->vc.lock);
-+
-+	/* Teardown completion message */
-+	if (cppi5_desc_is_tdcm(paddr)) {
-+		complete_all(&uc->teardown_completed);
-+
-+		if (uc->terminated_desc) {
-+			udma_desc_free(&uc->terminated_desc->vd);
-+			uc->terminated_desc = NULL;
-+		}
-+
-+		if (!uc->desc)
-+			ud->start(uc);
-+
-+		goto out;
-+	}
-+
-+	d = udma_udma_desc_from_paddr(uc, paddr);
-+
-+	if (d) {
-+		dma_addr_t desc_paddr = udma_curr_cppi5_desc_paddr(d,
-+								   d->desc_idx);
-+		if (desc_paddr != paddr) {
-+			dev_err(uc->ud->dev, "not matching descriptors!\n");
-+			goto out;
-+		}
-+
-+		if (d == uc->desc) {
-+			/* active descriptor */
-+			if (uc->cyclic) {
-+				udma_cyclic_packet_elapsed(uc);
-+				vchan_cyclic_callback(&d->vd);
-+			} else {
-+				if (udma_is_desc_really_done(uc, d)) {
-+					ud->decrement_byte_counters(uc, d->residue);
-+					ud->start(uc);
-+					vchan_cookie_complete(&d->vd);
-+				} else {
-+					schedule_delayed_work(&uc->tx_drain.work,
-+							      0);
-+				}
-+			}
-+		} else {
-+			/*
-+			 * terminated descriptor, mark the descriptor as
-+			 * completed to update the channel's cookie marker
-+			 */
-+			dma_cookie_complete(&d->vd.tx);
-+		}
-+	}
-+out:
-+	spin_unlock(&uc->vc.lock);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int bcdma_v2_get_bchan(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+	enum udma_tp_level tpl;
-+	int ret;
-+
-+	if (uc->bchan) {
-+		dev_dbg(ud->dev, "chan%d: already have bchan%d allocated\n",
-+			uc->id, uc->bchan->id);
-+		return 0;
-+	}
-+
+@@ -167,9 +168,6 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 		return -ENODEV;
+ 	}
+=20
+-	kvm_vgic_global_state.max_gic_vcpus =3D min(irs_caps.max_vpes,
+-						  VGIC_V5_MAX_CPUS);
+-
+ 	ret =3D kvm_register_vgic_device(KVM_DEV_TYPE_ARM_VGIC_V5);
+ 	if (ret) {
+ 		kvm_err("Cannot register GICv5 KVM device.\n");
+@@ -183,6 +181,8 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 	}
+=20
+ 	v5_registered =3D true;
++	kvm_vgic_global_state.max_gic_vcpus =3D
++		kvm_vgic_global_state.max_gicv5_vcpus;
+ 	kvm_info("GCIE system register CPU interface\n");
+=20
+ skip_v5:
+@@ -210,9 +210,8 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 		return v5_registered ? 0 : ret;
+ 	}
+=20
+-	/* We potentially limit the max VCPUs further than we need to here */
+-	kvm_vgic_global_state.max_gic_vcpus =3D min(VGIC_V3_MAX_CPUS,
+-						  kvm_vgic_global_state.max_gic_vcpus);
++	kvm_vgic_global_state.max_gic_vcpus =3D max(kvm_vgic_global_state.max_gic=
+_vcpus,
++						  VGIC_V3_MAX_CPUS);
+=20
+ 	static_branch_enable(&kvm_vgic_global_state.gicv3_cpuif);
+ 	kvm_info("GCIE legacy system register CPU interface\n");
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index ba32cd71fe0a7..6f736094a0e7e 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -157,9 +157,16 @@ struct vgic_global {
+ 	/* Maintenance IRQ number */
+ 	unsigned int		maint_irq;
+=20
+-	/* maximum number of VCPUs allowed (GICv2 limits us to 8) */
 +	/*
-+	 * Use normal channels for peripherals, and highest TPL channel for
-+	 * mem2mem
++	 * Maximum number of VCPUs exposed before userspace has selected a
++	 * VGIC model. Individual VGIC models can impose a lower limit
++	 * (GICv2 limits us to 8).
 +	 */
-+	if (uc->config.tr_trigger_type)
-+		tpl = 0;
-+	else
-+		tpl = ud->bchan_tpl.levels - 1;
-+
-+	uc->bchan = __udma_reserve_bchan(ud, tpl, uc->id);
-+	if (IS_ERR(uc->bchan)) {
-+		ret = PTR_ERR(uc->bchan);
-+		uc->bchan = NULL;
-+		return ret;
-+	}
-+	uc->chan = uc->bchan;
-+	uc->tchan = uc->bchan;
-+
-+	return 0;
-+}
-+
-+static int bcdma_v2_alloc_bchan_resources(struct udma_chan *uc)
-+{
-+	struct k3_ring_cfg ring_cfg;
-+	struct udma_dev *ud = uc->ud;
-+	int ret;
-+
-+	ret = bcdma_v2_get_bchan(uc);
-+	if (ret)
-+		return ret;
-+
-+	ret = k3_ringacc_request_rings_pair(ud->ringacc, ud->match_data->chan_cnt + uc->id, -1,
-+					    &uc->bchan->t_ring,
-+					    &uc->bchan->tc_ring);
-+	if (ret) {
-+		ret = -EBUSY;
-+		goto err_ring;
-+	}
-+
-+	memset(&ring_cfg, 0, sizeof(ring_cfg));
-+	ring_cfg.size = K3_UDMA_DEFAULT_RING_SIZE;
-+	ring_cfg.elm_size = K3_RINGACC_RING_ELSIZE_8;
-+	ring_cfg.mode = K3_RINGACC_RING_MODE_RING;
-+
-+	k3_configure_chan_coherency(&uc->vc.chan, ud->asel);
-+	ring_cfg.asel = ud->asel;
-+	ring_cfg.dma_dev = dmaengine_get_dma_device(&uc->vc.chan);
-+
-+	ret = k3_ringacc_ring_cfg(uc->bchan->t_ring, &ring_cfg);
-+	if (ret)
-+		goto err_ringcfg;
-+
-+	return 0;
-+
-+err_ringcfg:
-+	k3_ringacc_ring_free(uc->bchan->tc_ring);
-+	uc->bchan->tc_ring = NULL;
-+	k3_ringacc_ring_free(uc->bchan->t_ring);
-+	uc->bchan->t_ring = NULL;
-+	k3_configure_chan_coherency(&uc->vc.chan, 0);
-+err_ring:
-+	bcdma_put_bchan(uc);
-+
-+	return ret;
-+}
-+
-+static int udma_v2_alloc_tx_resources(struct udma_chan *uc)
-+{
-+	struct k3_ring_cfg ring_cfg;
-+	struct udma_dev *ud = uc->ud;
-+	struct udma_tchan *tchan;
-+	int ring_idx, ret;
-+
-+	ret = udma_get_tchan(uc);
-+	if (ret)
-+		return ret;
-+
-+	tchan = uc->tchan;
-+	if (tchan->tflow_id >= 0)
-+		ring_idx = tchan->tflow_id;
-+	else
-+		ring_idx = tchan->id;
-+
-+	ret = k3_ringacc_request_rings_pair(ud->ringacc, ring_idx, -1,
-+					    &tchan->t_ring,
-+					    &tchan->tc_ring);
-+	if (ret) {
-+		ret = -EBUSY;
-+		goto err_ring;
-+	}
-+
-+	memset(&ring_cfg, 0, sizeof(ring_cfg));
-+	ring_cfg.size = K3_UDMA_DEFAULT_RING_SIZE;
-+	ring_cfg.elm_size = K3_RINGACC_RING_ELSIZE_8;
-+	ring_cfg.mode = K3_RINGACC_RING_MODE_RING;
-+
-+	k3_configure_chan_coherency(&uc->vc.chan, uc->config.asel);
-+	ring_cfg.asel = uc->config.asel;
-+	ring_cfg.dma_dev = dmaengine_get_dma_device(&uc->vc.chan);
-+
-+	ret = k3_ringacc_ring_cfg(tchan->t_ring, &ring_cfg);
-+	ret |= k3_ringacc_ring_cfg(tchan->tc_ring, &ring_cfg);
-+
-+	if (ret)
-+		goto err_ringcfg;
-+
-+	return 0;
-+
-+err_ringcfg:
-+	k3_ringacc_ring_free(uc->tchan->tc_ring);
-+	uc->tchan->tc_ring = NULL;
-+	k3_ringacc_ring_free(uc->tchan->t_ring);
-+	uc->tchan->t_ring = NULL;
-+err_ring:
-+	udma_put_tchan(uc);
-+
-+	return ret;
-+}
-+
-+static int udma_v2_alloc_rx_resources(struct udma_chan *uc)
-+{
-+	struct udma_dev *ud = uc->ud;
-+	struct k3_ring_cfg ring_cfg;
-+	struct udma_rflow *rflow;
-+	int fd_ring_id;
-+	int ret;
-+
-+	ret = udma_get_rchan(uc);
-+	if (ret)
-+		return ret;
-+
-+	/* For MEM_TO_MEM we don't need rflow or rings */
-+	if (uc->config.dir == DMA_MEM_TO_MEM)
-+		return 0;
-+
-+	if (uc->config.default_flow_id >= 0)
-+		ret = udma_get_rflow(uc, uc->config.default_flow_id);
-+	else
-+		ret = udma_get_rflow(uc, uc->rchan->id);
-+
-+	if (ret) {
-+		ret = -EBUSY;
-+		goto err_rflow;
-+	}
-+
-+	rflow = uc->rflow;
-+	if (ud->tflow_cnt)
-+		fd_ring_id = ud->tflow_cnt + rflow->id;
-+	else
-+		fd_ring_id = uc->rchan->id;
-+	ret = k3_ringacc_request_rings_pair(ud->ringacc, fd_ring_id, -1,
-+					    &rflow->fd_ring, &rflow->r_ring);
-+	if (ret) {
-+		ret = -EBUSY;
-+		goto err_ring;
-+	}
-+
-+	memset(&ring_cfg, 0, sizeof(ring_cfg));
-+
-+	ring_cfg.elm_size = K3_RINGACC_RING_ELSIZE_8;
-+	ring_cfg.size = K3_UDMA_DEFAULT_RING_SIZE;
-+	ring_cfg.mode = K3_RINGACC_RING_MODE_RING;
-+
-+	k3_configure_chan_coherency(&uc->vc.chan, uc->config.asel);
-+	ring_cfg.asel = uc->config.asel;
-+	ring_cfg.dma_dev = dmaengine_get_dma_device(&uc->vc.chan);
-+
-+	ret = k3_ringacc_ring_cfg(rflow->fd_ring, &ring_cfg);
-+
-+	ring_cfg.size = K3_UDMA_DEFAULT_RING_SIZE;
-+	ret |= k3_ringacc_ring_cfg(rflow->r_ring, &ring_cfg);
-+
-+	if (ret)
-+		goto err_ringcfg;
-+
-+	return 0;
-+
-+err_ringcfg:
-+	k3_ringacc_ring_free(rflow->r_ring);
-+	rflow->r_ring = NULL;
-+	k3_ringacc_ring_free(rflow->fd_ring);
-+	rflow->fd_ring = NULL;
-+err_ring:
-+	udma_put_rflow(uc);
-+err_rflow:
-+	udma_put_rchan(uc);
-+
-+	return ret;
-+}
-+
-+static int bcdma_v2_alloc_chan_resources(struct dma_chan *chan)
-+{
-+	struct udma_chan *uc = to_udma_chan(chan);
-+	struct udma_dev *ud = to_udma_dev(chan->device);
-+	struct platform_device *pdev = to_platform_device(ud->dev);
-+	char irq_name[10];
-+	u32 irq_ring_idx;
-+	int ret;
-+
-+	/* Only TR mode is supported */
-+	uc->config.pkt_mode = false;
-+
-+	/*
-+	 * Make sure that the completion is in a known state:
-+	 * No teardown, the channel is idle
-+	 */
-+	reinit_completion(&uc->teardown_completed);
-+	complete_all(&uc->teardown_completed);
-+	uc->state = UDMA_CHAN_IS_IDLE;
-+
-+	switch (uc->config.dir) {
-+	case DMA_MEM_TO_MEM:
-+		/* Non synchronized - mem to mem type of transfer */
-+		dev_dbg(uc->ud->dev, "%s: chan%d as MEM-to-MEM\n", __func__,
-+			uc->id);
-+
-+		ret = bcdma_v2_alloc_bchan_resources(uc);
-+		if (ret)
-+			return ret;
-+
-+		irq_ring_idx = ud->match_data->chan_cnt + uc->id;
-+		break;
-+	case DMA_MEM_TO_DEV:
-+		/* Slave transfer synchronized - mem to dev (TX) transfer */
-+		dev_dbg(uc->ud->dev, "%s: chan%d as MEM-to-DEV\n", __func__,
-+			uc->id);
-+
-+		ret = udma_v2_alloc_tx_resources(uc);
-+		if (ret) {
-+			uc->config.remote_thread_id = -1;
-+			return ret;
-+		}
-+
-+		uc->config.src_thread = ud->psil_base + uc->tchan->id;
-+		uc->config.dst_thread = uc->config.remote_thread_id;
-+		uc->config.dst_thread |= K3_PSIL_DST_THREAD_ID_OFFSET;
-+
-+		irq_ring_idx = uc->tchan->id;
-+
-+		break;
-+	case DMA_DEV_TO_MEM:
-+		/* Slave transfer synchronized - dev to mem (RX) transfer */
-+		dev_dbg(uc->ud->dev, "%s: chan%d as DEV-to-MEM\n", __func__,
-+			uc->id);
-+
-+		ret = udma_v2_alloc_rx_resources(uc);
-+		if (ret) {
-+			uc->config.remote_thread_id = -1;
-+			return ret;
-+		}
-+
-+		uc->config.src_thread = uc->config.remote_thread_id;
-+		uc->config.dst_thread = (ud->psil_base + uc->rchan->id) |
-+					K3_PSIL_DST_THREAD_ID_OFFSET;
-+
-+		irq_ring_idx = uc->rchan->id;
-+
-+		break;
-+	default:
-+		/* Can not happen */
-+		dev_err(uc->ud->dev, "%s: chan%d invalid direction (%u)\n",
-+			__func__, uc->id, uc->config.dir);
-+		return -EINVAL;
-+	}
-+
-+	/* check if the channel configuration was successful */
-+	if (ret)
-+		goto err_res_free;
-+
-+	if (udma_is_chan_running(uc)) {
-+		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
-+		ud->reset_chan(uc, false);
-+		if (udma_is_chan_running(uc)) {
-+			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
-+			ret = -EBUSY;
-+			goto err_res_free;
-+		}
-+	}
-+
-+	uc->dma_dev = dmaengine_get_dma_device(chan);
-+	if (uc->config.dir == DMA_MEM_TO_MEM  && !uc->config.tr_trigger_type) {
-+		uc->config.hdesc_size =
-+			cppi5_trdesc_calc_size(sizeof(struct cppi5_tr_type15_t), 2);
-+
-+		uc->hdesc_pool = dma_pool_create(uc->name, ud->ddev.dev,
-+						 uc->config.hdesc_size,
-+						 ud->desc_align,
-+						 0);
-+		if (!uc->hdesc_pool) {
-+			dev_err(ud->ddev.dev,
-+				"Descriptor pool allocation failed\n");
-+			uc->use_dma_pool = false;
-+			ret = -ENOMEM;
-+			goto err_res_free;
-+		}
-+
-+		uc->use_dma_pool = true;
-+	} else if (uc->config.dir != DMA_MEM_TO_MEM) {
-+		uc->psil_paired = true;
-+	}
-+
-+	snprintf(irq_name, sizeof(irq_name), "chan%u", irq_ring_idx);
-+	uc->irq_num_ring = platform_get_irq_byname(pdev, irq_name);
-+	if (uc->irq_num_ring < 0) {
-+		ret = uc->irq_num_ring;
-+		goto err_res_free;
-+	}
-+
-+	ret = request_irq(uc->irq_num_ring, udma_v2_ring_irq_handler,
-+			  IRQF_SHARED | IRQF_TRIGGER_HIGH, uc->name, uc);
-+	if (ret) {
-+		dev_err(ud->dev, "chan%d: ring irq request failed\n", uc->id);
-+		goto err_irq_free;
-+	}
-+
-+	udma_reset_rings(uc);
-+
-+	INIT_DELAYED_WORK_ONSTACK(&uc->tx_drain.work,
-+				  udma_check_tx_completion);
-+	return 0;
-+
-+err_irq_free:
-+	uc->irq_num_ring = 0;
-+	uc->irq_num_udma = 0;
-+err_res_free:
-+	bcdma_free_bchan_resources(uc);
-+	udma_free_tx_resources(uc);
-+	udma_free_rx_resources(uc);
-+
-+	udma_reset_uchan(uc);
-+
-+	if (uc->use_dma_pool) {
-+		dma_pool_destroy(uc->hdesc_pool);
-+		uc->use_dma_pool = false;
-+	}
-+
-+	return ret;
-+}
-+
-+static enum dma_status udma_v2_tx_status(struct dma_chan *chan,
-+					 dma_cookie_t cookie,
-+					 struct dma_tx_state *txstate)
-+{
-+	struct udma_chan *uc = to_udma_chan(chan);
-+	enum dma_status ret;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&uc->vc.lock, flags);
-+
-+	ret = dma_cookie_status(chan, cookie, txstate);
-+
-+	if (!udma_is_chan_running(uc))
-+		ret = DMA_COMPLETE;
-+
-+	if (ret == DMA_IN_PROGRESS && udma_v2_is_chan_paused(uc))
-+		ret = DMA_PAUSED;
-+
-+	if (ret == DMA_COMPLETE || !txstate)
-+		goto out;
-+
-+	if (uc->desc && uc->desc->vd.tx.cookie == cookie) {
-+		u32 peer_bcnt = 0;
-+		u32 bcnt = 0;
-+		u32 residue = uc->desc->residue;
-+		u32 delay = 0;
-+
-+		if (uc->desc->dir == DMA_MEM_TO_DEV) {
-+			bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_SBCNT_REG);
-+
-+			if (uc->config.ep_type != PSIL_EP_NATIVE) {
-+				peer_bcnt = udma_chanrt_read(uc, 0x810);
-+
-+				if (bcnt > peer_bcnt)
-+					delay = bcnt - peer_bcnt;
-+			}
-+		} else if (uc->desc->dir == DMA_DEV_TO_MEM) {
-+			bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-+
-+			if (uc->config.ep_type != PSIL_EP_NATIVE) {
-+				peer_bcnt = udma_chanrt_read(uc, 0x810);
-+
-+				if (peer_bcnt > bcnt)
-+					delay = peer_bcnt - bcnt;
-+			}
-+		} else {
-+			bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
-+		}
-+
-+		if (bcnt && !(bcnt % uc->desc->residue))
-+			residue = 0;
-+		else
-+			residue -= bcnt % uc->desc->residue;
-+
-+		if (!residue && (uc->config.dir == DMA_DEV_TO_MEM || !delay)) {
-+			ret = DMA_COMPLETE;
-+			delay = 0;
-+		}
-+
-+		dma_set_residue(txstate, residue);
-+		dma_set_in_flight_bytes(txstate, delay);
-+
-+	} else {
-+		ret = DMA_COMPLETE;
-+	}
-+
-+out:
-+	spin_unlock_irqrestore(&uc->vc.lock, flags);
-+	return ret;
-+}
-+
-+static int udma_v2_pause(struct dma_chan *chan)
-+{
-+	struct udma_chan *uc = to_udma_chan(chan);
-+
-+	/* pause the channel */
-+	udma_chanrt_update_bits(uc, UDMA_CHAN_RT_CTL_REG,
-+				UDMA_CHAN_RT_CTL_PAUSE, UDMA_CHAN_RT_CTL_PAUSE);
-+
-+	return 0;
-+}
-+
-+static int udma_v2_resume(struct dma_chan *chan)
-+{
-+	struct udma_chan *uc = to_udma_chan(chan);
-+
-+	/* resume the channel */
-+	udma_chanrt_update_bits(uc, UDMA_CHAN_RT_CTL_REG,
-+				UDMA_CHAN_RT_CTL_PAUSE, 0);
-+
-+	return 0;
-+}
-+
-+static struct platform_driver bcdma_v2_driver;
-+
-+static bool udma_v2_dma_filter_fn(struct dma_chan *chan, void *param)
-+{
-+	struct udma_v2_filter_param *filter_param;
-+	struct psil_endpoint_config *ep_config;
-+	struct udma_chan_config *ucc;
-+	struct udma_chan *uc;
-+	struct udma_dev *ud;
-+
-+	if (chan->device->dev->driver != &bcdma_v2_driver.driver)
-+		return false;
-+
-+	uc = to_udma_chan(chan);
-+	ucc = &uc->config;
-+	ud = uc->ud;
-+	filter_param = param;
-+
-+	if (filter_param->asel > 15) {
-+		dev_err(ud->dev, "Invalid channel asel: %u\n",
-+			filter_param->asel);
-+		return false;
-+	}
-+
-+	ucc->asel = filter_param->asel;
-+	ucc->tr_trigger_type = filter_param->tr_trigger_type;
-+
-+	if (ucc->tr_trigger_type) {
-+		ucc->dir = DMA_MEM_TO_MEM;
-+		goto triggered_bchan;
-+	} else {
-+		u32 thread_id;
-+		bool dev_to_mem;
-+
-+		ep_config = psil_get_ep_config_by_id(filter_param->channel_id,
-+						      (ud->match_data->type == DMA_TYPE_PKTDMA),
-+						      &thread_id, &dev_to_mem);
-+		if (IS_ERR(ep_config)) {
-+			dev_err(ud->dev, "No config for channel %u\n",
-+				filter_param->channel_id);
-+			ucc->atype = 0;
-+			ucc->asel = 0;
-+			return false;
-+		}
-+		ucc->remote_thread_id = thread_id;
-+		ucc->dir = dev_to_mem ? DMA_DEV_TO_MEM : DMA_MEM_TO_DEV;
-+	}
-+	if (IS_ERR(ep_config)) {
-+		dev_err(ud->dev, "No configuration for psi-l thread 0x%04x\n",
-+			ucc->remote_thread_id);
-+		ucc->dir = DMA_MEM_TO_MEM;
-+		ucc->remote_thread_id = -1;
-+		ucc->atype = 0;
-+		ucc->asel = 0;
-+		return false;
-+	}
-+
-+	ucc->pkt_mode = ep_config->pkt_mode;
-+	ucc->channel_tpl = ep_config->channel_tpl;
-+	ucc->notdpkt = ep_config->notdpkt;
-+	ucc->ep_type = ep_config->ep_type;
-+	ucc->fifo_id = ep_config->fifo_id;
-+
-+	if (ud->match_data->version == K3_UDMA_V2 &&
-+	    ep_config->mapped_channel_id >= 0) {
-+		ucc->mapped_channel_id = ep_config->mapped_channel_id;
-+		ucc->default_flow_id = ep_config->default_flow_id;
-+	} else {
-+		ucc->mapped_channel_id = -1;
-+		ucc->default_flow_id = -1;
-+	}
-+
-+	ucc->needs_epib = ep_config->needs_epib;
-+	ucc->psd_size = ep_config->psd_size;
-+	ucc->metadata_size =
-+		(ucc->needs_epib ? CPPI5_INFO0_HDESC_EPIB_SIZE : 0) +
-+		ucc->psd_size;
-+
-+	if (ucc->ep_type != PSIL_EP_NATIVE) {
-+		const struct udma_match_data *match_data = ud->match_data;
-+
-+		if ((match_data->flags & UDMA_FLAG_PDMA_ACC32) && ep_config->pdma_acc32)
-+			ucc->enable_acc32 = true;
-+		else
-+			ucc->enable_acc32 = false;
-+
-+		if ((match_data->flags & UDMA_FLAG_PDMA_BURST) && ep_config->pdma_burst)
-+			ucc->enable_burst = true;
-+		else
-+			ucc->enable_burst = false;
-+	}
-+	if (ucc->pkt_mode)
-+		ucc->hdesc_size = ALIGN(sizeof(struct cppi5_host_desc_t) +
-+				 ucc->metadata_size, ud->desc_align);
-+
-+	dev_dbg(ud->dev, "chan%d: Remote thread: 0x%04x (%s)\n", uc->id,
-+		ucc->remote_thread_id, dmaengine_get_direction_text(ucc->dir));
-+
-+	return true;
-+
-+triggered_bchan:
-+	dev_dbg(ud->dev, "chan%d: triggered channel (type: %u)\n", uc->id,
-+		ucc->tr_trigger_type);
-+
-+	return true;
-+}
-+
-+static struct dma_chan *udma_v2_of_xlate(struct of_phandle_args *dma_spec,
-+					 struct of_dma *ofdma)
-+{
-+	struct udma_dev *ud = ofdma->of_dma_data;
-+	dma_cap_mask_t mask = ud->ddev.cap_mask;
-+	struct udma_v2_filter_param filter_param;
-+	struct dma_chan *chan;
-+
-+	if (ud->match_data->type == DMA_TYPE_BCDMA) {
-+		if (dma_spec->args_count != 4)
-+			return NULL;
-+
-+		filter_param.tr_trigger_type = dma_spec->args[0];
-+		filter_param.trigger_param = dma_spec->args[1];
-+		filter_param.channel_id = dma_spec->args[2];
-+		filter_param.asel = dma_spec->args[3];
-+	} else {
-+		if (dma_spec->args_count != 1 && dma_spec->args_count != 2)
-+			return NULL;
-+
-+		filter_param.channel_id = dma_spec->args[0];
-+		filter_param.tr_trigger_type = 0;
-+		if (dma_spec->args_count == 2)
-+			filter_param.asel = dma_spec->args[1];
-+		else
-+			filter_param.asel = 0;
-+	}
-+
-+	chan = __dma_request_channel(&mask, udma_v2_dma_filter_fn, &filter_param,
-+				     ofdma->of_node);
-+	if (!chan) {
-+		dev_err(ud->dev, "get channel fail in %s.\n", __func__);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	return chan;
-+}
-+
-+static struct udma_match_data bcdma_v2_am62l_data = {
-+	.type = DMA_TYPE_BCDMA,
-+	.version = K3_UDMA_V2,
-+	.psil_base = 0x2000, /* for tchan and rchan, not applicable to bchan */
-+	.enable_memcpy_support = true, /* Supported via bchan */
-+	.flags = UDMA_FLAGS_J7_CLASS,
-+	.statictr_z_mask = GENMASK(23, 0),
-+	.burst_size = {
-+		TI_SCI_RM_UDMAP_CHAN_BURST_SIZE_64_BYTES, /* Normal Channels */
-+		0, /* No H Channels */
-+		0, /* No UH Channels */
-+	},
-+	.bchan_cnt = 16,
-+	.chan_cnt = 128,
-+	.tchan_cnt = 128,
-+	.rchan_cnt = 128,
-+};
-+
-+static const struct of_device_id udma_of_match[] = {
-+	{
-+		.compatible = "ti,am62l-dmss-bcdma",
-+		.data = &bcdma_v2_am62l_data,
-+	},
-+	{ /* Sentinel */ },
-+};
-+
-+static const struct soc_device_attribute k3_soc_devices[] = {
-+	{ .family = "AM62LX", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, udma_of_match);
-+
-+static int udma_v2_get_mmrs(struct platform_device *pdev, struct udma_dev *ud)
-+{
-+	int i;
-+
-+	ud->mmrs[V2_MMR_GCFG] = devm_platform_ioremap_resource_byname(pdev,
-+								      v2_mmr_names[V2_MMR_GCFG]);
-+	if (IS_ERR(ud->mmrs[V2_MMR_GCFG]))
-+		return PTR_ERR(ud->mmrs[V2_MMR_GCFG]);
-+
-+	ud->bchan_cnt = ud->match_data->bchan_cnt;
-+	/* There are no tchan and rchan in BCDMA_V2.
-+	 * Duplicate chan as tchan and rchan to keep the common code
-+	 * in k3-udma-common.c functional for BCDMA_V2.
-+	 */
-+	ud->chan_cnt = ud->match_data->chan_cnt;
-+	ud->tchan_cnt = ud->match_data->chan_cnt;
-+	ud->rchan_cnt = ud->match_data->chan_cnt;
-+	ud->rflow_cnt = ud->chan_cnt;
-+
-+	for (i = 1; i < V2_MMR_LAST; i++) {
-+		if (i == V2_MMR_BCHANRT && ud->bchan_cnt == 0)
-+			continue;
-+		if (i == V2_MMR_CHANRT && ud->chan_cnt == 0)
-+			continue;
-+
-+		ud->mmrs[i] = devm_platform_ioremap_resource_byname(pdev, v2_mmr_names[i]);
-+		if (IS_ERR(ud->mmrs[i]))
-+			return PTR_ERR(ud->mmrs[i]);
-+	}
-+
-+	return 0;
-+}
-+
-+static int udma_v2_probe(struct platform_device *pdev)
-+{
-+	const struct soc_device_attribute *soc;
-+	struct device *dev = &pdev->dev;
-+	const struct of_device_id *match;
-+	struct udma_dev *ud;
-+	int ch_count, i, ret;
-+
-+	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(48));
-+	if (ret)
-+		dev_err(dev, "failed to set dma mask stuff\n");
-+
-+	ud = devm_kzalloc(dev, sizeof(*ud), GFP_KERNEL);
-+	if (!ud)
-+		return -ENOMEM;
-+
-+	match = of_match_node(udma_of_match, dev->of_node);
-+	if (!match) {
-+		dev_err(dev, "No compatible match found\n");
-+		return -ENODEV;
-+	}
-+	ud->match_data = match->data;
-+
-+	ud->soc_data = ud->match_data->soc_data;
-+	if (!ud->soc_data) {
-+		soc = soc_device_match(k3_soc_devices);
-+		if (!soc) {
-+			dev_err(dev, "No compatible SoC found\n");
-+			return -ENODEV;
-+		}
-+		ud->soc_data = soc->data;
-+	}
-+	// Setup function pointers
-+	ud->start = udma_v2_start;
-+	ud->stop = udma_v2_stop;
-+	ud->reset_chan = udma_v2_reset_chan;
-+	ud->decrement_byte_counters = udma_v2_decrement_byte_counters;
-+	ud->bcdma_setup_sci_resources = NULL;
-+
-+	ret = udma_v2_get_mmrs(pdev, ud);
-+	if (ret)
-+		return ret;
-+
-+	struct k3_ringacc_init_data ring_init_data = {0};
-+
-+	ring_init_data.num_rings = ud->bchan_cnt + ud->chan_cnt;
-+
-+	ud->ringacc = k3_ringacc_dmarings_init(pdev, &ring_init_data);
-+
-+	if (IS_ERR(ud->ringacc))
-+		return PTR_ERR(ud->ringacc);
-+
-+	dma_cap_set(DMA_SLAVE, ud->ddev.cap_mask);
-+
-+	dma_cap_set(DMA_CYCLIC, ud->ddev.cap_mask);
-+	ud->ddev.device_prep_dma_cyclic = udma_prep_dma_cyclic;
-+
-+	ud->ddev.device_config = udma_slave_config;
-+	ud->ddev.device_prep_slave_sg = udma_prep_slave_sg;
-+	ud->ddev.device_issue_pending = udma_issue_pending;
-+	ud->ddev.device_tx_status = udma_v2_tx_status;
-+	ud->ddev.device_pause = udma_v2_pause;
-+	ud->ddev.device_resume = udma_v2_resume;
-+	ud->ddev.device_terminate_all = udma_terminate_all;
-+	ud->ddev.device_synchronize = udma_synchronize;
-+#ifdef CONFIG_DEBUG_FS
-+	ud->ddev.dbg_summary_show = udma_dbg_summary_show;
-+#endif
-+
-+	ud->ddev.device_alloc_chan_resources =
-+		bcdma_v2_alloc_chan_resources;
-+
-+	ud->ddev.device_free_chan_resources = udma_free_chan_resources;
-+
-+	ud->ddev.src_addr_widths = TI_UDMAC_BUSWIDTHS;
-+	ud->ddev.dst_addr_widths = TI_UDMAC_BUSWIDTHS;
-+	ud->ddev.directions = BIT(DMA_DEV_TO_MEM) | BIT(DMA_MEM_TO_DEV);
-+	ud->ddev.residue_granularity = DMA_RESIDUE_GRANULARITY_BURST;
-+	ud->ddev.desc_metadata_modes = DESC_METADATA_CLIENT |
-+				       DESC_METADATA_ENGINE;
-+	if (ud->match_data->enable_memcpy_support &&
-+	    !(ud->match_data->type == DMA_TYPE_BCDMA && ud->bchan_cnt == 0)) {
-+		dma_cap_set(DMA_MEMCPY, ud->ddev.cap_mask);
-+		ud->ddev.device_prep_dma_memcpy = udma_prep_dma_memcpy;
-+		ud->ddev.directions |= BIT(DMA_MEM_TO_MEM);
-+	}
-+
-+	ud->ddev.dev = dev;
-+	ud->dev = dev;
-+	ud->psil_base = ud->match_data->psil_base;
-+
-+	INIT_LIST_HEAD(&ud->ddev.channels);
-+	INIT_LIST_HEAD(&ud->desc_to_purge);
-+
-+	ch_count = setup_resources(ud);
-+	if (ch_count <= 0)
-+		return ch_count;
-+
-+	spin_lock_init(&ud->lock);
-+	INIT_WORK(&ud->purge_work, udma_purge_desc_work);
-+
-+	ud->desc_align = 64;
-+	if (ud->desc_align < dma_get_cache_alignment())
-+		ud->desc_align = dma_get_cache_alignment();
-+
-+	ret = udma_setup_rx_flush(ud);
-+	if (ret)
-+		return ret;
-+
-+	for (i = 0; i < ud->bchan_cnt; i++) {
-+		struct udma_bchan *bchan = &ud->bchans[i];
-+
-+		bchan->id = i;
-+		bchan->reg_rt = ud->mmrs[V2_MMR_BCHANRT] + i * 0x1000;
-+	}
-+
-+	for (i = 0; i < ud->tchan_cnt; i++) {
-+		struct udma_tchan *tchan = &ud->tchans[i];
-+
-+		tchan->id = i;
-+		tchan->reg_rt = ud->mmrs[V2_MMR_CHANRT] + i * 0x1000;
-+	}
-+
-+	for (i = 0; i < ud->rchan_cnt; i++) {
-+		struct udma_rchan *rchan = &ud->rchans[i];
-+
-+		rchan->id = i;
-+		rchan->reg_rt = ud->mmrs[V2_MMR_CHANRT] + i * 0x1000;
-+	}
-+
-+	for (i = 0; i < ud->rflow_cnt; i++) {
-+		struct udma_rflow *rflow = &ud->rflows[i];
-+
-+		rflow->id = i;
-+		rflow->reg_rt = ud->rflow_rt + i * 0x2000;
-+	}
-+
-+	for (i = 0; i < ch_count; i++) {
-+		struct udma_chan *uc = &ud->channels[i];
-+
-+		uc->ud = ud;
-+		uc->vc.desc_free = udma_desc_free;
-+		uc->id = i;
-+		uc->bchan = NULL;
-+		uc->tchan = NULL;
-+		uc->rchan = NULL;
-+		uc->config.remote_thread_id = -1;
-+		uc->config.mapped_channel_id = -1;
-+		uc->config.default_flow_id = -1;
-+		uc->config.dir = DMA_MEM_TO_MEM;
-+		uc->name = devm_kasprintf(dev, GFP_KERNEL, "%s chan%d",
-+					  dev_name(dev), i);
-+
-+		vchan_init(&uc->vc, &ud->ddev);
-+		/* Use custom vchan completion handling */
-+		tasklet_setup(&uc->vc.task, udma_vchan_complete);
-+		init_completion(&uc->teardown_completed);
-+		INIT_DELAYED_WORK(&uc->tx_drain.work, udma_check_tx_completion);
-+	}
-+
-+	/* Configure the copy_align to the maximum burst size the device supports */
-+	ud->ddev.copy_align = udma_get_copy_align(ud);
-+
-+	ret = dma_async_device_register(&ud->ddev);
-+	if (ret) {
-+		dev_err(dev, "failed to register slave DMA engine: %d\n", ret);
-+		return ret;
-+	}
-+
-+	platform_set_drvdata(pdev, ud);
-+
-+	ret = of_dma_controller_register(dev->of_node, udma_v2_of_xlate, ud);
-+	if (ret) {
-+		dev_err(dev, "failed to register of_dma controller\n");
-+		dma_async_device_unregister(&ud->ddev);
-+	}
-+
-+	return ret;
-+}
-+
-+static int __maybe_unused udma_v2_pm_suspend(struct device *dev)
-+{
-+	struct udma_dev *ud = dev_get_drvdata(dev);
-+	struct dma_device *dma_dev = &ud->ddev;
-+	struct dma_chan *chan;
-+	struct udma_chan *uc;
-+
-+	list_for_each_entry(chan, &dma_dev->channels, device_node) {
-+		if (chan->client_count) {
-+			uc = to_udma_chan(chan);
-+			/* backup the channel configuration */
-+			memcpy(&uc->backup_config, &uc->config,
-+			       sizeof(struct udma_chan_config));
-+			dev_dbg(dev, "Suspending channel %s\n",
-+				dma_chan_name(chan));
-+			ud->ddev.device_free_chan_resources(chan);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused udma_v2_pm_resume(struct device *dev)
-+{
-+	struct udma_dev *ud = dev_get_drvdata(dev);
-+	struct dma_device *dma_dev = &ud->ddev;
-+	struct dma_chan *chan;
-+	struct udma_chan *uc;
-+	int ret;
-+
-+	list_for_each_entry(chan, &dma_dev->channels, device_node) {
-+		if (chan->client_count) {
-+			uc = to_udma_chan(chan);
-+			/* restore the channel configuration */
-+			memcpy(&uc->config, &uc->backup_config,
-+			       sizeof(struct udma_chan_config));
-+			dev_dbg(dev, "Resuming channel %s\n",
-+				dma_chan_name(chan));
-+			ret = ud->ddev.device_alloc_chan_resources(chan);
-+			if (ret)
-+				return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops udma_pm_ops = {
-+	SET_LATE_SYSTEM_SLEEP_PM_OPS(udma_v2_pm_suspend, udma_v2_pm_resume)
-+};
-+
-+static struct platform_driver bcdma_v2_driver = {
-+	.driver = {
-+		.name	= "ti-udma-v2",
-+		.of_match_table = udma_of_match,
-+		.suppress_bind_attrs = true,
-+		.pm = &udma_pm_ops,
-+	},
-+	.probe		= udma_v2_probe,
-+};
-+
-+module_platform_driver(bcdma_v2_driver);
-+MODULE_DESCRIPTION("Texas Instruments K3 UDMA v2 support");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 58cbb399bc3b2..bbf4163f407b5 100644
---- a/drivers/dma/ti/k3-udma.c
-+++ b/drivers/dma/ti/k3-udma.c
-@@ -1810,6 +1810,7 @@ static struct dma_chan *udma_of_xlate(struct of_phandle_args *dma_spec,
- 
- static struct udma_match_data am654_main_data = {
- 	.type = DMA_TYPE_UDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x1000,
- 	.enable_memcpy_support = true,
- 	.statictr_z_mask = GENMASK(11, 0),
-@@ -1822,6 +1823,7 @@ static struct udma_match_data am654_main_data = {
- 
- static struct udma_match_data am654_mcu_data = {
- 	.type = DMA_TYPE_UDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x6000,
- 	.enable_memcpy_support = false,
- 	.statictr_z_mask = GENMASK(11, 0),
-@@ -1834,6 +1836,7 @@ static struct udma_match_data am654_mcu_data = {
- 
- static struct udma_match_data j721e_main_data = {
- 	.type = DMA_TYPE_UDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x1000,
- 	.enable_memcpy_support = true,
- 	.flags = UDMA_FLAGS_J7_CLASS,
-@@ -1847,6 +1850,7 @@ static struct udma_match_data j721e_main_data = {
- 
- static struct udma_match_data j721e_mcu_data = {
- 	.type = DMA_TYPE_UDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x6000,
- 	.enable_memcpy_support = false, /* MEM_TO_MEM is slow via MCU UDMA */
- 	.flags = UDMA_FLAGS_J7_CLASS,
-@@ -1876,6 +1880,7 @@ static struct udma_soc_data j721s2_bcdma_csi_soc_data = {
- 
- static struct udma_match_data am62a_bcdma_csirx_data = {
- 	.type = DMA_TYPE_BCDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x3100,
- 	.enable_memcpy_support = false,
- 	.burst_size = {
-@@ -1888,6 +1893,7 @@ static struct udma_match_data am62a_bcdma_csirx_data = {
- 
- static struct udma_match_data am64_bcdma_data = {
- 	.type = DMA_TYPE_BCDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x2000, /* for tchan and rchan, not applicable to bchan */
- 	.enable_memcpy_support = true, /* Supported via bchan */
- 	.flags = UDMA_FLAGS_J7_CLASS,
-@@ -1901,6 +1907,7 @@ static struct udma_match_data am64_bcdma_data = {
- 
- static struct udma_match_data am64_pktdma_data = {
- 	.type = DMA_TYPE_PKTDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x1000,
- 	.enable_memcpy_support = false, /* PKTDMA does not support MEM_TO_MEM */
- 	.flags = UDMA_FLAGS_J7_CLASS,
-@@ -1914,6 +1921,7 @@ static struct udma_match_data am64_pktdma_data = {
- 
- static struct udma_match_data j721s2_bcdma_csi_data = {
- 	.type = DMA_TYPE_BCDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x2000,
- 	.enable_memcpy_support = false,
- 	.burst_size = {
-@@ -1926,6 +1934,7 @@ static struct udma_match_data j721s2_bcdma_csi_data = {
- 
- static struct udma_match_data j722s_bcdma_csi_data = {
- 	.type = DMA_TYPE_BCDMA,
-+	.version = K3_UDMA_V1,
- 	.psil_base = 0x3100,
- 	.enable_memcpy_support = false,
- 	.burst_size = {
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index 5e222ce366faf..680d776f7ae8c 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -32,6 +32,12 @@
- #define UDMA_CHAN_RT_SWTRIG_REG		0x8
- #define UDMA_CHAN_RT_STDATA_REG		0x80
- 
-+#define UDMA_CHAN_RT_STATIC_TR_XY_REG	0x800
-+#define UDMA_CHAN_RT_STATIC_TR_Z_REG	0x804
-+#define UDMA_CHAN_RT_PERIPH_BCNT_REG	0x810
-+#define UDMA_CHAN_RT_FIFO_SEL_REG	0x824
-+#define UDMA_CHAN_RT_PDMA_STATE_REG		0x80c
-+
- #define UDMA_CHAN_RT_PEER_REG(i)	(0x200 + ((i) * 0x4))
- #define UDMA_CHAN_RT_PEER_STATIC_TR_XY_REG	\
- 	UDMA_CHAN_RT_PEER_REG(0)	/* PSI-L: 0x400 */
-@@ -71,8 +77,16 @@
- #define UDMA_CHAN_RT_CTL_TDOWN		BIT(30)
- #define UDMA_CHAN_RT_CTL_PAUSE		BIT(29)
- #define UDMA_CHAN_RT_CTL_FTDOWN		BIT(28)
-+#define UDMA_CHAN_RT_CTL_AUTOPAIR      BIT(23)
-+#define UDMA_CHAN_RT_CTL_PAIR_TIMEOUT  BIT(17)
-+#define UDMA_CHAN_RT_CTL_PAIR_COMPLETE BIT(16)
- #define UDMA_CHAN_RT_CTL_ERROR		BIT(0)
- 
-+/* UDMA_CHAN_RT_PDMA_STATE_REG */
-+#define UDMA_CHAN_RT_PDMA_STATE_IN_EVT		BIT(31)
-+#define UDMA_CHAN_RT_PDMA_STATE_TDOWN		BIT(30)
-+#define UDMA_CHAN_RT_PDMA_STATE_PAUSE		BIT(29)
-+
- /* UDMA_CHAN_RT_PEER_RT_EN_REG */
- #define UDMA_PEER_RT_EN_ENABLE		BIT(31)
- #define UDMA_PEER_RT_EN_TEARDOWN	BIT(30)
-@@ -103,6 +117,9 @@
-  */
- #define PDMA_STATIC_TR_Z(x, mask)	((x) & (mask))
- 
-+/* UDMA_CHAN_RT_PEER_REG(8) */
-+#define UDMA_CHAN_RT_PEER_REG8_FLUSH	0x09000000
-+
- /* Address Space Select */
- #define K3_ADDRESS_ASEL_SHIFT		48
- 
-@@ -208,6 +225,11 @@ enum k3_dma_type {
- 	DMA_TYPE_PKTDMA,
- };
- 
-+enum k3_dma_version {
-+	K3_UDMA_V1 = 0,
-+	K3_UDMA_V2,
-+};
-+
- enum udma_mmr {
- 	MMR_GCFG = 0,
- 	MMR_BCHANRT,
-@@ -216,6 +238,13 @@ enum udma_mmr {
- 	MMR_LAST,
- };
- 
-+enum udma_v2_mmr {
-+	V2_MMR_GCFG = 0,
-+	V2_MMR_BCHANRT,
-+	V2_MMR_CHANRT,
-+	V2_MMR_LAST,
-+};
-+
- struct udma_filter_param {
- 	int remote_thread_id;
- 	u32 atype;
-@@ -223,6 +252,13 @@ struct udma_filter_param {
- 	u32 tr_trigger_type;
- };
- 
-+struct udma_v2_filter_param {
-+	u32 tr_trigger_type;
-+	u32 trigger_param;
-+	u32 channel_id;
-+	u32 asel;
-+};
-+
- struct udma_tchan {
- 	void __iomem *reg_rt;
- 
-@@ -234,17 +270,13 @@ struct udma_tchan {
- };
- 
- #define udma_bchan udma_tchan
-+#define udma_rchan udma_tchan
- 
- struct udma_rflow {
- 	int id;
- 	struct k3_ring *fd_ring; /* Free Descriptor ring */
- 	struct k3_ring *r_ring; /* Receive ring */
--};
--
--struct udma_rchan {
- 	void __iomem *reg_rt;
--
--	int id;
- };
- 
- struct udma_oes_offsets {
-@@ -266,12 +298,19 @@ struct udma_oes_offsets {
- 
- struct udma_match_data {
- 	enum k3_dma_type type;
-+	enum k3_dma_version version;
- 	u32 psil_base;
- 	bool enable_memcpy_support;
- 	u32 flags;
- 	u32 statictr_z_mask;
- 	u8 burst_size[3];
- 	struct udma_soc_data *soc_data;
-+	u32 bchan_cnt;
-+	u32 chan_cnt;
-+	u32 tchan_cnt;
-+	u32 rchan_cnt;
-+	u32 tflow_cnt;
-+	u32 rflow_cnt;
- };
- 
- struct udma_soc_data {
-@@ -306,6 +345,7 @@ struct udma_dev {
- 	struct dma_device ddev;
- 	struct device *dev;
- 	void __iomem *mmrs[MMR_LAST];
-+	void __iomem *rflow_rt;
- 	const struct udma_match_data *match_data;
- 	const struct udma_soc_data *soc_data;
- 
-@@ -326,12 +366,14 @@ struct udma_dev {
- 	struct udma_rx_flush rx_flush;
- 
- 	int bchan_cnt;
-+	int chan_cnt;
- 	int tchan_cnt;
- 	int echan_cnt;
- 	int rchan_cnt;
- 	int rflow_cnt;
- 	int tflow_cnt;
- 	unsigned long *bchan_map;
-+	unsigned long *chan_map;
- 	unsigned long *tchan_map;
- 	unsigned long *rchan_map;
- 	unsigned long *rflow_gp_map;
-@@ -340,6 +382,7 @@ struct udma_dev {
- 	unsigned long *tflow_map;
- 
- 	struct udma_bchan *bchans;
-+	struct udma_tchan *chans;
- 	struct udma_tchan *tchans;
- 	struct udma_rchan *rchans;
- 	struct udma_rflow *rflows;
-@@ -411,6 +454,7 @@ struct udma_chan_config {
- 	bool enable_acc32;
- 	bool enable_burst;
- 	enum udma_tp_level channel_tpl; /* Channel Throughput Level */
-+	u8 fifo_id; /* XYMF FIFO index */
- 
- 	u32 tr_trigger_type;
- 	unsigned long tx_flags;
-@@ -434,6 +478,7 @@ struct udma_chan {
- 	char *name;
- 
- 	struct udma_bchan *bchan;
-+	struct udma_tchan *chan;
- 	struct udma_tchan *tchan;
- 	struct udma_rchan *rchan;
- 	struct udma_rflow *rflow;
-@@ -503,51 +548,33 @@ static inline void udma_update_bits(void __iomem *base, int reg,
- 		writel(tmp, base + reg);
- }
- 
--/* TCHANRT */
--static inline u32 udma_tchanrt_read(struct udma_chan *uc, int reg)
--{
--	if (!uc->tchan)
--		return 0;
--	return udma_read(uc->tchan->reg_rt, reg);
--}
--
--static inline void udma_tchanrt_write(struct udma_chan *uc, int reg, u32 val)
--{
--	if (!uc->tchan)
--		return;
--	udma_write(uc->tchan->reg_rt, reg, val);
-+#define _UDMA_REG_ACCESS(channel)					\
-+static inline u32 udma_##channel##rt_read(struct udma_chan *uc, int reg) \
-+{ \
-+	if (!uc->channel) \
-+		return 0; \
-+	return udma_read(uc->channel->reg_rt, reg); \
-+} \
-+\
-+static inline void udma_##channel##rt_write(struct udma_chan *uc, int reg, u32 val) \
-+{ \
-+	if (!uc->channel) \
-+		return; \
-+	udma_write(uc->channel->reg_rt, reg, val); \
-+} \
-+\
-+static inline void udma_##channel##rt_update_bits(struct udma_chan *uc, int reg, \
-+						u32 mask, u32 val) \
-+{ \
-+	if (!uc->channel) \
-+		return; \
-+	udma_update_bits(uc->channel->reg_rt, reg, mask, val); \
- }
- 
--static inline void udma_tchanrt_update_bits(struct udma_chan *uc, int reg,
--					    u32 mask, u32 val)
--{
--	if (!uc->tchan)
--		return;
--	udma_update_bits(uc->tchan->reg_rt, reg, mask, val);
--}
--
--/* RCHANRT */
--static inline u32 udma_rchanrt_read(struct udma_chan *uc, int reg)
--{
--	if (!uc->rchan)
--		return 0;
--	return udma_read(uc->rchan->reg_rt, reg);
--}
--
--static inline void udma_rchanrt_write(struct udma_chan *uc, int reg, u32 val)
--{
--	if (!uc->rchan)
--		return;
--	udma_write(uc->rchan->reg_rt, reg, val);
--}
--
--static inline void udma_rchanrt_update_bits(struct udma_chan *uc, int reg,
--					    u32 mask, u32 val)
--{
--	if (!uc->rchan)
--		return;
--	udma_update_bits(uc->rchan->reg_rt, reg, mask, val);
--}
-+_UDMA_REG_ACCESS(chan);
-+_UDMA_REG_ACCESS(bchan);
-+_UDMA_REG_ACCESS(tchan);
-+_UDMA_REG_ACCESS(rchan);
- 
- static inline dma_addr_t udma_curr_cppi5_desc_paddr(struct udma_desc *d,
- 						    int idx)
-diff --git a/include/linux/soc/ti/k3-ringacc.h b/include/linux/soc/ti/k3-ringacc.h
-index 9f2d141c988bd..1ac01b97dd923 100644
---- a/include/linux/soc/ti/k3-ringacc.h
-+++ b/include/linux/soc/ti/k3-ringacc.h
-@@ -10,6 +10,9 @@
- 
- #include <linux/types.h>
- 
-+#define K3_RINGACC_RT_INT_STATUS_COMPLETE	BIT(0)
-+#define K3_RINGACC_RT_INT_STATUS_TR			BIT(2)
-+
- struct device_node;
- 
+ 	int			max_gic_vcpus;
+=20
++	/* Maximum number of VCPUs allowed for a GICv5 VM. */
++	int			max_gicv5_vcpus;
++
+ 	/* Only needed for the legacy KVM_CREATE_IRQCHIP */
+ 	bool			can_emulate_gicv2;
+=20
+@@ -635,10 +642,11 @@ void kvm_vgic_process_async_update(struct kvm_vcpu *v=
+cpu);
+ void vgic_v3_dispatch_sgi(struct kvm_vcpu *vcpu, u64 reg, bool allow_group=
+1);
+=20
  /**
--- 
-2.54.0
-
+- * kvm_vgic_get_max_vcpus - Get the maximum number of VCPUs allowed by HW
++ * kvm_vgic_get_max_vcpus - Get the pre-VGIC-selection VCPU limit
+  *
+- * The host's GIC naturally limits the maximum amount of VCPUs a guest
+- * can use.
++ * Userspace can query KVM_CAP_MAX_VCPUS before selecting a VGIC model, so
++ * expose the highest model-specific limit and let kvm_vgic_create() enfor=
+ce
++ * the selected model's actual limit.
+  */
+ static inline int kvm_vgic_get_max_vcpus(void)
+ {
+--=20
+2.34.1
 
