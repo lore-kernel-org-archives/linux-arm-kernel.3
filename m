@@ -4,114 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0046C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 15:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC859C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Jul 2026 16:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RK+0ydkVq3QkQA31vNi6A6UpE/xnLiLeTaBJXi8dr9A=; b=z2LbZfyRWBtLNFRphEyqO+Cb8n
-	43AHMVzKXBzI+MpLLoBoyrjJX1NBuSw3sO6xr/92KFLx/Ra+CBVsR50MOzohqTnQxhgjOZjyta/j9
-	EPYqGZOXUYRSG4nZoqwz0VTbIvcm2NTSuSoCX7+J7u4cqYjrT7oNvHJEDTrQNy3occyZYn+ahRvA/
-	Rk/fRFYJew+buuOodv3Jmlr3VTS7ulVwewec+Yfa0l8EMi2OwItbL67kpxpL+kX/M1JcXBCjeOOqP
-	Fp2tqUYZbfy54sMR9XG9IvRbD/0epLB1+wJ46LXFJxEm7xKOlscT30zaP2lJuxHhnUN35UQ/VLq+t
-	kHiUAZPQ==;
+	bh=Nhf9VFdcJj67d9mnRhCsj+1NVc5VUfS8waKbVdijXcw=; b=cLEKMR+qwYl/JxGB521iigS9z7
+	/OFEvAukbzoFADEMZ2ebmzCnYBaQWcHU+mU7z3agMGiiIaMgGFHXwQu8PAWTDpGBceDA8XFiPh1NP
+	aR0+vVYoG0lgQgDEpD/iEeKTGrXslT3Z4WvdggSxxfqKB1WqVJa8iQaeSsJ0osQa5BBl79SnYMsx2
+	ZlK8lSc3rALE93BR/a4YVVdOOP/vByh7bkU0uMbwr7gW8mBlkZZKGgRU29wU+xgAGyEo6EAANWIvH
+	fw+9oJCXofgV9cA84PAJ5HSxI+tkLU6+9lOl23B4ig7iET/2rXFqufBwA14Mx8js4fZCOyygKuVHJ
+	jStfzzPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIE1-0000000GlPA-2YGi;
-	Fri, 24 Jul 2026 15:54:13 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1wnIQb-0000000GmhZ-2wUW;
+	Fri, 24 Jul 2026 16:07:13 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIDy-0000000GlOj-3qCa
+	id 1wnIQY-0000000Gmge-2x7U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Jul 2026 15:54:12 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-51c10ed63c0so236961cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 08:54:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784908449; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pm5sMM/7aPJA0jw/4TG4IHkzUY39mC9Zcot+nQn/PEDhbK8fM7sPJVVxQblT2Nt7rQ
-         1PYWF7unbeGxLtzCLmvxEJZTrr8qjZduCdZCJ9WBCKzD8TGA8sbyeVxbxsX5divbxzuQ
-         8ORdAppqwvpUaWAbFNZYMN35tGCM/KXEcJH/zkFOns5Q3hv3RNY5NRRQtEJTvekYMWe7
-         mOcYcObL18FSCLt0EAWnqt4jtXGvBxmxrWBtpkUGlu4C+l/HX/xwg+qHKSRkYIy73ZDV
-         NZjAJwqpfbxBFKe9e0uQbM/q9eyP1e81NfO4tRnm7xQFlD56I143vL5FGWTOjcCy4noQ
-         wXlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RK+0ydkVq3QkQA31vNi6A6UpE/xnLiLeTaBJXi8dr9A=;
-        fh=5aSr9qP9T+J0HOU3TnYdbOkdejTklYEigz1jlTLh7V4=;
-        b=VzJwDeJ3mf0t23YroS3dWwz07fsTYcF2SSOIt4U1041YPGGP76819cEyGx2LaNRe2j
-         hiz2f+3iEuqOwCxjVPXfPleUj5VJM+dOxEzD7sRUM7JzgRLa+cDckIk6YUUWLg6pUgMF
-         MyBTc2SQ5PF/Omj7a/jGFj6PTSsiN/vNYKdk9L3MvnMyOIqj8Zr9NEFX1H8xuQwcW/dj
-         Kda7GfZqaZ2O5E1IvX88SLZEfmB0crXQ2/pzwoqdOjkHkGPGdqv+zlMfAa8YXAJ3nBNN
-         iWy1VdZfCmmPyvuvearyVcLTnppesBrLwwK/ieyYu8T7IfhsJ0eqXXCDpsa2XxdbfJZu
-         yx+g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 24 Jul 2026 16:07:12 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49545ba3d4eso3980475e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Jul 2026 09:07:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784908449; x=1785513249; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RK+0ydkVq3QkQA31vNi6A6UpE/xnLiLeTaBJXi8dr9A=;
-        b=VQJA0knhF9vTU0bFmUyDGs/3HxkdHVhPP9Lx4eGvlb06cI0TyR48zpLwUx2xRbzEh2
-         4tlcIMR48Cml+v7CW73yAFOXDsoBVauQ50XNBMftY9b08CAn4GGe49ydCJRWqqzn8bz6
-         pj4b6d2oQz8c94e7yEvi/Gdx10Vwe97D/VAPphyd8yqyXFOPfsuG1iFBlOTtlYF/tow2
-         28Qcs+VQ0WHHqFUG2saGCJ/aGQFps9mPxFPJfKK6SHV3QYMpnhZ/mLH7XSzfQEIS+aGv
-         mynUZteZubLy9rv8ieR+l+18BhCnisAeUOjoPb9weTOnq8QPnQCs/Jyb252uBwbTqLTu
-         ePUw==
+        d=baylibre.com; s=google; t=1784909228; x=1785514028; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Nhf9VFdcJj67d9mnRhCsj+1NVc5VUfS8waKbVdijXcw=;
+        b=aRhD3dU0WiZDqaR84pHhsHW4y7TmbD2dilCDdQd+6nPbC883SwqwHS5Yxvfog2Txbo
+         x/LSS/HmeWi9a88IK5foEX581MmYRcVH9/8x6dPG80SKEzDcvQAzESXvPREQ9/vvsKy0
+         1inMWvDRG7hghpy9p0tW1Y3lUidMwJVLFEXu7OQ8h0HrnmRO7i1xyol+bY0J35iaDk/s
+         cmf25riI9vep8wLrVRPW/6v4iQfzh4075Lbct+FIl0dgLKliEPTVfmfN1D6u/xlqsjX2
+         4TcuLFIz/1S5isz/lbhFiGx3j4SQ60xQb6a3rNfFaNi/GeGsFSEn/5IONFjngOZltdB3
+         wj0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784908449; x=1785513249;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1784909228; x=1785514028;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RK+0ydkVq3QkQA31vNi6A6UpE/xnLiLeTaBJXi8dr9A=;
-        b=JEOVHhuwZqt3TgXK6IDV9x2pSX5zIDZ21HvOWiTX1NVYmOkMJK0PfwfQnsJGc3175E
-         ez9rkSkYkrh96FYAG3gTgBFcj8jXHI7SsjoEz8jkjX1MRt5uc1dX9C9TgAjXKCrFg92G
-         ZP38JORnixZHLRvEhYbyjQzn/i815QBtfCpfCHQ5L3BwmpNfm5NzWnbE54goWAEUnQnT
-         L8Fw6xowAajt6W+Xth0qs2a6xlzlmUAZE/nUfxaewu+srBu5DXYZSxbuZD7T6xTi5Zw6
-         AqjXjUN+3BnyL2NR4IVvqJDvVXSr8OpJMTz788jfUmHoAxhtLJSZS8ON8ZSBMkA4U/mp
-         eWjQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp3UjKiro0oGndp/LHjFmjYUXDbVxMW6HR96NNbyQ+UbK1c6vA4JvIJ0XzWVksVzemjtY4y1NQhvYRcmGn5mU3A@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVt/fjTeSNOpF2XY2DfvyTOqJpv7lrJdz2UkPtuXz8L8HIL/wC
-	yQWxqWzidUIdJuVOtiyvN0LRcE5yMO15QR5VsXxEo3EvpviR90yfnLx7GebPOlM6vt7g7s2oq/6
-	Z9gyxSPDI7vpdWA37d7l8a1okq5IAqk1th0EDU7pm
-X-Gm-Gg: AR+sD10jj10ZZ6sJUfsQ7fWoK6WpaktMYF8MS2IM7h0elSskCOilJrdSMuGHa9UFd5s
-	+OgK34TeX8d56epEzq/yUEmzvlEf9c9h2qOJlTGGK+9w1q8YDnlFka16WwxShu3ZBTEAa9/bQfj
-	dF01BygHaj9nFPPeouztaVRbAro96j9ZKII8ME2IQvUYVe89Z3dQHUttFS3XJDXC/t44DYkHJKZ
-	KqG6jx5cVVdlZJvs7dY58vRnduyX5rnf9Fv4fy6kGNDWdYdJJnoflOgPGQ=
-X-Received: by 2002:ac8:7d47:0:b0:51b:ff0a:2048 with SMTP id
- d75a77b69052e-5285229262bmr9058571cf.3.1784908448716; Fri, 24 Jul 2026
- 08:54:08 -0700 (PDT)
+        bh=Nhf9VFdcJj67d9mnRhCsj+1NVc5VUfS8waKbVdijXcw=;
+        b=VJsLTymj/zFV5AiBrWnbEvYPgT19j0hJWSFzecWIyhIFmNOC1RI3ZMKaiS6xWGy8R2
+         mCAoI53p+Atnm1Sn903cXGzuuwbNxk15nMoHW11ViLpO4MiuoUDDQnAlAHCM9497E0bW
+         ZwdzwcYKfm9DFbAXACGfxpSya/2UB1m0DHimxLV0BunSylVY8fDTZtH8MisKl7ABTCQM
+         yE+/GQ3lrFXO6Q8YWIowmhszOgDq87aBAaUpc/29RO2OEA7iU4/UJxYH7pvAwHn4ZNBb
+         XBcbt2aVmOONXmOoqoSxozOl5nGVEOa71tulpsYooFqUcuSZnqFIer7q9mK/m/YaAKuz
+         Xtyg==
+X-Forwarded-Encrypted: i=1; AHgh+RoXHOejsao/NVcHr0SrAN1l4q+oMgB4xSqXEJbsICxHwlXo0sPIjAb9uIIHzgOPp42kj6ilxCjmFBy++RW1O3Cs@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNQ8VzPWJhlcEPhA7FpzzSeTTQZBdWiPkcUk7/RsExcdAgxrzm
+	l2chcD7vNh7StcL7eJTL+30RZl97t0OoOP5dzEApRnqhCu9pLzwbsIAXr/JUkPe2BmI=
+X-Gm-Gg: AR+sD10DRP9LjZ7ehUGzQ0IMmyeCI799PpC3F7QAk/yirVyyWGgvAnx5lRaKWTAHb07
+	U4O6j53b8pdyQywSYSj1d5pkIbKGnkASvYZukgjFK2MgK8nIgkx3JuXx9z+yHJz8a0YbFg6Ael4
+	itSJ24hE9gVQTBHesaGzSQqVFc/B54QDXUxxWtTooeFkFm9UXjx+rpHZdbardzqAmFkCU7pPehS
+	zTQMpfMGluPZX4RfyCauGxB8mWwAQ9p23tH9snF3vcOtLQ5JrJOQbc33iz6bVmn0wuXdgPSk2zW
+	3gVkG5h4+LR+PXwTr1mymaao2gc9Wzj6dc6RC2ZI6LZjojmsPoGBebjU2DHUYNNtyXZWmUZFibT
+	WOK+FuKaMq+MWPS9nUcYcLWAS0y7rDiiztON9PR+iFEACoFiMf6HzToZNG6JL/0uqOcTGt/CJ++
+	1H
+X-Received: by 2002:a05:600c:47c4:b0:493:e983:806e with SMTP id 5b1f17b1804b1-49573cb963dmr58020255e9.3.1784909228253;
+        Fri, 24 Jul 2026 09:07:08 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:cd72:3055:a9af:4365])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-496b487a3e5sm734285e9.14.2026.07.24.09.07.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 09:07:07 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Brian Masney <bmasney@redhat.com>, Jian Hu <jian.hu@amlogic.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20260701-a9_peripherals-v6-0-9630f39879e5@amlogic.com>
+References: <20260701-a9_peripherals-v6-0-9630f39879e5@amlogic.com>
+Subject: Re: [PATCH v6 0/2] clk: amlogic: Add A9 peripherals clock
+ controller
+Message-Id: <178490922597.2801722.3885834711328764674.b4-ty@b4>
+Date: Fri, 24 Jul 2026 18:07:05 +0200
 MIME-Version: 1.0
-References: <20260718111340.159896-1-linux@yoavmoshe.com> <CABCJKudqGL+BFFcz3qsuoJB6S_OAt-vs2yqePC_=oy+JzmPpVw@mail.gmail.com>
- <3046e60d-509f-471f-bd15-3ce78c87500b@yoavmoshe.com> <20260721180950.GA3684684@ax162>
- <180001f5-bddd-4e58-8442-f7ef3c979500@yoavmoshe.com> <CABCJKufhvTxmVm8y7xr4RWWKsoZk0h8UGBnem+F5fknnimaqPA@mail.gmail.com>
- <7f273a08-b29c-4e15-b340-898b251efe57@yoavmoshe.com> <CABCJKud+GsBVv+XMTsi_4QAaTHo7jXD2Hyvi9wqKd7x3i2xyAg@mail.gmail.com>
- <415ffa24-a30b-43b2-aa6a-a1cde3bd4ef0@yoavmoshe.com> <CABCJKud9B8vB-J8f0HLHw6EgEKVWzy+Q1PrNxpO_6yCGtEyi8A@mail.gmail.com>
- <12a46993-82a5-4109-87fa-61b8fcf764aa@yoavmoshe.com>
-In-Reply-To: <12a46993-82a5-4109-87fa-61b8fcf764aa@yoavmoshe.com>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Fri, 24 Jul 2026 08:53:31 -0700
-X-Gm-Features: AUfX_mwjkzQa0aKFOYVTkcojOnlyLhgENNWtHi2USSUpXbUHkHbBUjoNeksPsS8
-Message-ID: <CABCJKufoQ0fX797M01t7CkTgMEwNCELY1=ptZsxr=jWOR-KAyA@mail.gmail.com>
-Subject: Re: [PATCH v3] ARM: imx: Fix suspend/resume crash with Clang CFI
-To: "Yo'av Moshe" <linux@yoavmoshe.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Russell King <linux@armlinux.org.uk>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_085410_993495_B7789D8F 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260724_090710_750646_04B42D49 
+X-CRM114-Status: UNSURE (   5.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,21 +111,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 12:56=E2=80=AFPM Yo'av Moshe <linux@yoavmoshe.com> =
-wrote:
->
-> On 2026-07-23 9:21 PM, Sami Tolvanen wrote:
-> > What's the value for the __kcfi_typeid_imx6_suspend symbol in
-> > vmlinux.o? I would expect the hash value to look a bit more random.
-> Checking vmlinux.o with `llvm-readelf -s vmlinux.o` indeed shows:
->
->   a488ebfc  0 NOTYPE  WEAK  DEFAULT  ABS __kcfi_typeid_imx6_suspend
+Applied to clk-meson (clk-meson-next), thanks!
 
-OK, so the hashes should match. I can only assume that the hash prefix
-doesn't end up getting copied to OCRAM for some reason then, or
-perhaps the source of the copy operation doesn't have relocations
-applied? Either way, if this turns out to be infeasible, I think the
-__nocfi approach is reasonable in this case too.
+[1/2] dt-bindings: clock: Add Amlogic A9 peripherals clock controller
+      https://github.com/BayLibre/clk-meson/commit/33972977d632
+[2/2] clk: amlogic: Add A9 peripherals clock controller driver
+      https://github.com/BayLibre/clk-meson/commit/f905fc7b7a81
 
-Sami
+Best regards,
+--
+Jerome
+
 
