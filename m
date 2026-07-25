@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8ED8C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 09:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC8CC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 09:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhCPhNc9a/U5wLKgysHB0Kn2KnDD7w6pjrLvtRC4YoE=; b=ipbclA+76EXL883OAdNHKk6duM
-	1GmxqOG54B8MkbGhZq3QfEJ3djqwDWlrHO/nTWkX5aiXpUhx90G8aVrIMfP3q0SskG8vZWGNcXlZm
-	0tB5r5TzuWN6vT0KoDfoc5pdSCaDt4fpt65ovJXosmA+q/LdpPKbUXbFGvl2oX7ZOrkap5t53WRIL
-	jpdPuU0MwPPezFoxyulaBDElkvTeNWNgdDgOfkNwwFHol+B3WUNj40kzH40oy3a5vfnRCEGgq+DSn
-	nnACtDzwr0KpirbZ+zZrWwUc0zXM2Lt7URacBr58VI96q704B/IENHkfNCMJtFyxq3Lwy7WcIuR8j
-	/hwx2RDw==;
+	bh=B8029mWw6fjtVVvwRbx9nUYW/Vr2qA8XHwwBIbWh63c=; b=Z+tpSRCt1Ki8FaSQ3yhFJs63Cl
+	G3rWBUTciwj+Q1xNzXdVsvn7jR5qoU1BELHE0Gp8BSLCGpPVEcXyoN3hyMZY3fxYe/6r0IUOLOgbe
+	vUSGB33jhJTTki9OjrI+6SgS6CtHVPygwRv4lmvg0bhq5s/yFYBULO67NNWZG6MeznP1d/pPqa8OX
+	kyWQJSxsXRzuGmZSADO5RyD44LmwdfxS6YAvxk3jgcchKHhaVggHaSPhY55k/3gUyxUlhfqbElr88
+	bZ5jqi4RiOHJ2zjm4Z21I/fieYNOcnGlj+B16A8N8VrkpDKoPi+u6KF/vEbQ+PAmF3lmzclFCFljV
+	dzfWCz9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnYOy-00000000CH9-3dsO;
-	Sat, 25 Jul 2026 09:10:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wnYTO-00000000CZl-1PBK;
+	Sat, 25 Jul 2026 09:15:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnYOx-00000000CH3-2RLQ
+	id 1wnYTN-00000000CYM-19BF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 09:10:35 +0000
+	Sat, 25 Jul 2026 09:15:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A575C600AA
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 09:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BDC81F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 09:10:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C47B600DA
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 09:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE5221F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 09:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784970634;
-	bh=AhCPhNc9a/U5wLKgysHB0Kn2KnDD7w6pjrLvtRC4YoE=;
+	s=k20260515; t=1784970907;
+	bh=B8029mWw6fjtVVvwRbx9nUYW/Vr2qA8XHwwBIbWh63c=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=O448WL0T5x1Zh0OMQi9iRlZwPh0fZiFxzhjRWWu0EW57dDBI9RV4q27LHGrs5BL+6
-	 H4GKRULAAaYMpIJejW/rGtFEl5mo6XXITHZ+asMxRsT02OBBedoicBciWZaAJbo1HN
-	 UvT4cMd8aX8qGOU9zFZXTWVYqzbabCA6tugKr1n2op26vf7O3ZOkp1/X2l6dJqT0OH
-	 hI6Qod10W3XtE+UxUhd1RZfRtpaWw7TYSLmsSJw9CuHDKsd5EwItmbZ4mZEZwtX6NA
-	 08vyeguxIywjiFYLqL+6haWSRSguNLRuQ5yyCj9ftCFBGZ1ojqabazhd66+FXf7IGz
-	 uCq68P+VZILJg==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b01910b499so1022848e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 02:10:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rr1tL87XFruXjnBsfH6SuTURzSnz5VV+BB9QUyvTp6Fn5F+gy31+Hndm4PL833mnxuqt4ZusdYo1WLjsoRQRqRB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq9fUj16EnEDkHqbfYxIflqCBnFglNEmaT4PHVTIQcJHTfCtd0
-	oLYP1XB8+BWCZa6/beHOaeYnd/WOQEFr/pNASpaCJcqzt/rhdexrPYXYY97+s4wXxFUEH91f3mx
-	jb1q4GFe48eco1Rum986B7XkQnYWPrFk=
-X-Received: by 2002:a05:6512:3d07:b0:5ae:b6cf:c745 with SMTP id
- 2adb3069b0e04-5b2c1a3c746mr282806e87.17.1784970633111; Sat, 25 Jul 2026
- 02:10:33 -0700 (PDT)
+	b=a10aFBj4NUY0UoNVLMkunTyB8DT51IWLM7ThAR+tK+e85ob8my52Jt9ARVSozVWQ0
+	 /xiq+r9/G0/FbIhMo4x+jMmmZeZB+WkOKwUolQmdKuDvN+L3YEKI6z8oCAbRdzSt/n
+	 eSmDZFRyA92WAiCjg9KB6EO4MdDjRT+fXu6r4uAG7Qs0a1MNABPsnJX54l+pwwe9jI
+	 /f7aUVobLQA2CtAREuHAaZGUrkxcgZnjDQpXzHbgTNPUiroIp+qh04ukHQ7gw1wehk
+	 O1HfdH0uih+U0zd65qe6CXymWDBbb3D2vGMwdvFfbvp2knmTQgqyVamUZikUbHQYvz
+	 OEJqrngvMJYuw==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5aeb8c19017so1436436e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 02:15:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro/L7F5J/MceUSMoHjIgUCY828gKaPdEyeXwd1/cF2X48nKhjPEo9P6w+jQ/UZNoEJS3LowcTCi67NKz04BfZtq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYGB4/8Lishf+gNVU2pVUT7rbSOuFq71v7lDaFL3JGDTp/n34R
+	RgKH4/zAEtwTOemO6qchO/vMLLVQ/YJKj/FByIXnlrb7Hnrn1eZrIN9dBRP+1q5rE0Hv1hGlqTX
+	CGVUrPB3mTcv44CyCYnT7j8z0KT3JrTQ=
+X-Received: by 2002:a05:6512:6d4:b0:5b1:5d07:13bc with SMTP id
+ 2adb3069b0e04-5b2c1b59b35mr260489e87.61.1784970906334; Sat, 25 Jul 2026
+ 02:15:06 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260718032937.420561-1-pengcan@kylinos.cn>
-In-Reply-To: <20260718032937.420561-1-pengcan@kylinos.cn>
+References: <20260717105847.131359-1-panchuang@vivo.com>
+In-Reply-To: <20260717105847.131359-1-panchuang@vivo.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 25 Jul 2026 11:10:20 +0200
-X-Gmail-Original-Message-ID: <CAD++jLke1q2DX1EQTHysPKrvy8mtnFtbnLwfQ-wEvRE2MNsECA@mail.gmail.com>
-X-Gm-Features: AUfX_mwx6iFHSQ9ss2kJ9CSpvbTA4MTcHZwsUdEhUsOwa3V2e4PZJUoBdtU7nvw
-Message-ID: <CAD++jLke1q2DX1EQTHysPKrvy8mtnFtbnLwfQ-wEvRE2MNsECA@mail.gmail.com>
-Subject: Re: [PATCH] hwrng: stm32 - Fix runtime PM cleanup on registration failure
-To: Can Peng <pengcan@kylinos.cn>
-Cc: olivia@selenic.com, herbert@gondor.apana.org.au, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, danielt@kernel.org, 
-	linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
+Date: Sat, 25 Jul 2026 11:14:54 +0200
+X-Gmail-Original-Message-ID: <CAD++jLn=aRZsP84bcygGYON1Vgm3TOqxrkDFi=OD7v0-+_2gkA@mail.gmail.com>
+X-Gm-Features: AUfX_my8JwvTIIgKU3n3CvruIp2CFzDYYelhaPZUZpJEgrhPtXpEkhfkCApkmrs
+Message-ID: <CAD++jLn=aRZsP84bcygGYON1Vgm3TOqxrkDFi=OD7v0-+_2gkA@mail.gmail.com>
+Subject: Re: [PATCH 0/4] pinctrl: Remove redundant error messages on IRQ
+ request failure
+To: Pan Chuang <panchuang@vivo.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <andy@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	"moderated list:PIN CONTROLLER - AIROHA" <linux-mediatek@lists.infradead.org>, 
+	"open list:PIN CONTROL SUBSYSTEM" <linux-gpio@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	"moderated list:BROADCOM IPROC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,33 +87,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Can,
+On Fri, Jul 17, 2026 at 12:59=E2=80=AFPM Pan Chuang <panchuang@vivo.com> wr=
+ote:
 
-thanks for your patch!
+> Pan Chuang (4):
+>   pinctrl: airoha: Remove redundant dev_err()
+>   pinctrl: bcm: Remove redundant dev_err()
+>   pinctrl: intel: Remove redundant dev_err_probe()
+>   pinctrl: Remove redundant dev_err()/dev_err_probe()
 
-On Sat, Jul 18, 2026 at 5:30=E2=80=AFAM Can Peng <pengcan@kylinos.cn> wrote=
-:
-
-> stm32_rng_probe() enables autosuspend and runtime PM before registering t=
-he
-> hwrng. If devm_hwrng_register() fails, probe returns with runtime PM left
-> enabled and autosuspend still selected.
->
-> The remove callback also only disables runtime PM and does not undo
-> pm_runtime_use_autosuspend().
->
-> Use devm_pm_runtime_enable() so runtime PM is unwound automatically on
-> probe failure and driver detach. Since the managed cleanup also disables
-> runtime PM,drop the remove callback.
->
-> Fixes: c6a97c42e399 ("hwrng: stm32 - add support for STM32 HW RNG")
-> Cc: stable@vger.kernel.org
-
-Ah come on, it's not that serious.
-
-> Signed-off-by: Can Peng <pengcan@kylinos.cn>
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Patches 1, 2 and 4 applied to the pinctrl tree. Andy already picked
+up patch 3!
 
 Yours,
 Linus Walleij
