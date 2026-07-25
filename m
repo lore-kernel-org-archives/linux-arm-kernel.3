@@ -4,59 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC79C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 14:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CC7C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 14:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5px4gNwjwuGC992aRa8AH/plgwScYv8nTUs4/P3QupQ=; b=Uv5P2ENyxsLIBPHyDBHRGV7RGC
-	iku9oH/1W/faHFSgCmUcuD+c1wBXGiOKDA/Ku4Kjdr7PhyFOr3IOE5tBSESsEwEnCQnaETdH/4fYJ
-	Cr3fNl8W1vzkCrjsROTRYKrVfHitmyZ0KzBORMnaaCSEMNObFi47ahRFsfco4Bh3BvO0vxSUtQhKK
-	+9fNoou2z42wg91Wyq4oDJbeMcaKz2QlzdusD8+tuNXEF+DefKB6oQbI3l+19rzO2XpwfXickMwXi
-	QgC24DDw+ON3mbz6+hqbCIyO3Tm6fXH8BK2he4X+x+AOtI6BxUg3Bk8Tq3FQsSmbck7WGWFUnqLKV
-	+ua6VQOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0fqDuWQkXfeW0V2FbgyERPEcrFRGaAAzDWsuJN/GjKs=; b=NjmnFYcEU90Fbr/MVA53p8Tb9l
+	PFEj10iutS6ML+6GHBMmXeIzfYMsFR5Ph2B0BjiCG4YmQDi2n8WZPM3KrFqjLkLHg0yoJk9zG6t0L
+	HAAwK0n3kor1DJMR3OlRUVLD4vw8WnPqt4GxTDqCOy2wZSZ+eVLhiwHseJoQ8+WPnssID4ryI1cxk
+	Z8C5CveKQaIyKHAGAH37j9fotAfU9LE7NfOfchMQkJebexCge4fUOmGVupr1JzD0rFUBk2iKHidES
+	WuAKbl/whTkqRLTz36VB7ovHARrR1qOEwbhjiKiNngUuQU5gr13nua0IdpupqWl0taXIPK04XymE7
+	GYt9Lnbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wndLP-00000000RUh-1JND;
-	Sat, 25 Jul 2026 14:27:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wndMK-00000000RcP-1uep;
+	Sat, 25 Jul 2026 14:28:12 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wndLN-00000000RUE-337Q
+	id 1wndMH-00000000Rbk-2b8m
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 14:27:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D309A600AD;
-	Sat, 25 Jul 2026 14:27:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3059D1F000E9;
-	Sat, 25 Jul 2026 14:27:07 +0000 (UTC)
-Message-ID: <87697527-0aff-4647-ae11-0eb51db9b134@tuxon.dev>
-Date: Sat, 25 Jul 2026 17:27:05 +0300
+	Sat, 25 Jul 2026 14:28:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BSGp2Yz9E5oVT6RPcSgbIC+bbwnojUeREmB+4ZmIzHokvbccvDnrrwI7Y1WHqGlvz06SGvwfZpeHtcpUH4bgBcsyYFCDDL2/0Ty7itFSstVV36hFERz92O9Uzw6qmzrCuvvkfXUKjWazkU5fM5cu77i3Y2OXE/gjyJwldvUZ7LMdiD9nt97wYUefYbJpaLnnacH/0nPONSmORJRKrOeForOWliD00+cHP3H0KF8/qARUI+FlYbCqLRIKwz8D3yPsL/AfH9cFCEglYgbas9amazc5K9UeiBs4IezXE9FUrqGWptBFbe6iq1ugQtmpa4rG0RneKJM5Btr14q726vedZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0fqDuWQkXfeW0V2FbgyERPEcrFRGaAAzDWsuJN/GjKs=;
+ b=jykhGK2RoZO0iRX9TKZMvh4cFgt9lUZBXrA1fyFephO033BVw0+2iEQ1P0KI+/UfmfCU6l7GL/KXlLJ83YDpwSH1bWwsODdqlij8oY2kt4kheWv28liB7cKJw6QRhnBwnx83yILO24YAJvIE6ssNdNQn3qNUjFUzwA6gw/OCNGxSmSlgWJfQJGwHmM4Wj1YLsp3OfxO6drDE2Y0O1s3/EKx5pFZZOhsbt4pKZnnyA5WsIrOt3fgVAo8yRODUn77Y2mHEwhKxw41uCBen94GRdWmXCJAAjvTqITaYiF8VViE4VuyeKyPy1r4b71vbGjR2aqUT1bo03KbLUYzoLBR1Xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0fqDuWQkXfeW0V2FbgyERPEcrFRGaAAzDWsuJN/GjKs=;
+ b=mA/tMG8A/juzw1P4aVpcv+yT25rwvqTXXWMozCbyQPshWRmHbcy++RbivYcXH0z/YhwQ/aDg2yu2ZpQKk68H6JfcIkhUQpJMcKHiLMQGPSPxnIyXHqmEpLtZTDmT5CIBiTxjm/Q3fX4TWhbqlffwdrISKDMbKO3RKCGOAIBmjwFAtDXERF75AIlz89zAKJnob1JruCzMX9eJDjUg5vYLsqepApMq1JoFqqo6/6wdv+YbmZaAC0PeRVKNE2W9rH9yh6DrLcp9kKAa4S0gdtPR4yQZe0K6yzaAnj9aRRFIXaLLBd6ypFQ0Ae1YnsNwtTl8dkpOcb5eBNWYOBOPw7sT9w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH3PR12MB8073.namprd12.prod.outlook.com (2603:10b6:610:126::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Sat, 25 Jul
+ 2026 14:28:03 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0245.012; Sat, 25 Jul 2026
+ 14:28:02 +0000
+Date: Sat, 25 Jul 2026 11:27:59 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: will@kernel.org, catalin.marinas@arm.com, joro@8bytes.org,
+	jpb@kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] iommu/arm-smmu-v3: Add HAFT support for SVA
+Message-ID: <amTH7xHBY2ol4LHw@nvidia.com>
+References: <cover.1784814923.git.robin.murphy@arm.com>
+ <57ae366ec501a142bd20f2cc7d18b3eca8eeac25.1784814923.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <57ae366ec501a142bd20f2cc7d18b3eca8eeac25.1784814923.git.robin.murphy@arm.com>
+X-ClientProxiedBy: YQBP288CA0014.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:c01:6a::27) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: Re: [PATCH v3 06/13] nvmem: microchip-otpc: add tag-based packet
- lookup
-To: Varshini.Rajendran@microchip.com
-Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
- nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, Nicolas.Ferre@microchip.com,
- alexandre.belloni@bootlin.com, srini@kernel.org, marcelo.schmitt@analog.com,
- jorge.marques@analog.com, mazziesaccount@gmail.com,
- Jonathan.Santos@analog.com, jishnu.prakash@oss.qualcomm.com,
- antoniu.miclaus@analog.com, duje@dujemihanovic.xyz,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
- <20260630093603.38663-7-varshini.rajendran@microchip.com>
- <3998b196-6417-49b0-b8d3-a95a5b415916@tuxon.dev>
- <5e940d60-3137-49d5-8a62-25c746c58d7e@microchip.com>
-Content-Language: en-US
-In-Reply-To: <5e940d60-3137-49d5-8a62-25c746c58d7e@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH3PR12MB8073:EE_
+X-MS-Office365-Filtering-Correlation-Id: 361d0439-9944-475e-d3ba-08deea58ef25
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|22082099003|18002099003|4143699003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: 7SEicgZFUbO1O3ifTYJDHG7ayJ/flnN/6AAVnd1so2dtvJf8mbCC0cCaG/6AsK01lN54n8ltNf6Mh+iYz5neBNRHhu/hW/isaarbxIDMzRld0kDUf361vs8ct0yck42FnKwV9Ay8A3/zXEE8jpLTdrZd/mgxKfltFTW+KFE0HGvWz1PfgXV9149LgYjOTAcpdZUaP+NoO5kNgAVpV5teVKaOn7pL3EKlx/cM9PI5PsC5LNFpbV/cC7WggdCLyilqpmldNXOdpIUGmDnF/wcAJSPEbrBdVBNk+X/EJDpVcL1IqCarBuk1H/sAwvOASc8zC1vfOJLiIeNbu/L9dYLXeuU6v8DN9ZsBnuTC5jQwKXxLE2XuZkyvy7422CMB2MQJ8J4tcx7t/751FE5M0QzxYVsoWUX1zfuDtJDM/sEnVD6oRw5ie90nJ2s3FjVvRYun4PcjBPfLZF0vDTA8zLoEmhAg9a53oWSfz6ZY7EAG1NnYeBsVF7F/A54UWWPczRR51CRErqvZx8xjqj/HXxcY4ovZ/niXosmlbfbjIYQx8jW1fBJp+vCxcqHvx1F6rzT2DmrEFhc4+mE57z9/+iGLYULYBRKvVfrkJxVMA6N4MEExVpmTjSbj0Nsp0ENpvrkWjnjzgjFNU4c2vX2yuHoQGEloXNNW1WzrKaGmPuyYq+4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DMjESoZjU3mZM11aqPtuH+EzYBhEn4mQ+MxRF2Zej6/2ZwQTZWa3DzS068ID?=
+ =?us-ascii?Q?5lPTh3kQ7MItz4UTPRyaU57goiAhTNKDKBf/atH+J92qfLAzrAXakKaykak5?=
+ =?us-ascii?Q?HKWy+pgT+ekIb54pDBe/GFtmmCDlQ8ss33iapF20BkvoGTwVNkH6Yfwpezlp?=
+ =?us-ascii?Q?SVVoRdpOyC4Ud25cJSk3GWW7fye14z6iOtWl+0CzatLHvIbfqJH1AUGL4Sri?=
+ =?us-ascii?Q?qT0PhMUWbwGzexqWgrqazSL5wIhysS+eZO2quex3veaJEvUkTFZf9Afzt1D7?=
+ =?us-ascii?Q?n/BssZhCHgGkYD++KjH15EF8rehMymMDfreeQz6NkFBatO+0UWNvQbqkU6b6?=
+ =?us-ascii?Q?r/yOp/ZZYobBIzv1iYIo7jnZEZjyVB9ZxHMyI2aLHZFDIYwkVmKLZtg1Zsp1?=
+ =?us-ascii?Q?A0wrJWtmbX/phXYpUyH3EMlyWtnXxRa8r+tC+EP7/V1p9IeBq8RHbOOrKsQG?=
+ =?us-ascii?Q?/heKMmfiWA6baOJZwUdDYdSgj6C3FJUm9VchFiPbcku75eJ0ahnvTxsFJ1NV?=
+ =?us-ascii?Q?Gu3FJVbC5vvFiLCg0uXSeppcrEwXC1dl8Gv1ZncvQu4IwK5ECjXINqBUGzDB?=
+ =?us-ascii?Q?delmLb/ivn8Z55xVEjm9G9X5JXmvu6/l8hF4IF33ZNhI9b2+YY6pZ27Fqtbm?=
+ =?us-ascii?Q?oQgoIeOZvdil04+a1c7jk5WIhUxPqaQtn8nlaKH7jwhAqekWg0vGF56OyMtA?=
+ =?us-ascii?Q?6pfUprPmbpVN12EHkPFkUIBfZOJxR2YpdNIomTk7s6yEcYfLczJBtLn+9BA8?=
+ =?us-ascii?Q?dYS8jdufIW2GNVOAeJ6Y1+/fqnwQRLJ1UyBv0s7lHWV8iZZKegpYpYedrUPD?=
+ =?us-ascii?Q?k906FYfhjXOylVEJ4b2Vc/81RAomM5x+18Ik6d8wSqmQsbmKwgOZrkDgBBDU?=
+ =?us-ascii?Q?nRJhPIdyysEJHW7PrDoawfrzUQFcXmvUTxe+w6ZxqqH+pFM2oxeOwQeKMh1I?=
+ =?us-ascii?Q?tYw0NbsagsPZ8CkFUPA5xSDnu7aAuKXrFmQBRbNvPy/97Y1JaZEDvnjWeWCp?=
+ =?us-ascii?Q?rlDwKtZ7LulyCI52XVqN/tPMDEniWHFMa0EQoMs2JNP3CJd++2pHxTAU9cWz?=
+ =?us-ascii?Q?Bk8jSwPPK5ZIR5hw/iQz1/uXTZ19lYp06MggXOK6OX7q9jGg+5f4dty0CG6p?=
+ =?us-ascii?Q?c7wadqOir8lVsoBsunAEiaQzuk/GBhKJfCYN4fN6lU/JpHeTsygjVXEVdbao?=
+ =?us-ascii?Q?fz7VcT0myD5cY3tqalCXGML5uRrukdLKgA+8jnkHV2cM4X7kStPbTAkHg7k+?=
+ =?us-ascii?Q?yfH83zKQ1wR3s/sEoTOlzpcR4xzQgeJH7hFGaZarQmqZbuv5rrSEL1e+6N5b?=
+ =?us-ascii?Q?U38Yw7yOwkVeVk6lXK4Yml7vgnDpRwJGfkjBcFtHxRCCmx0HYDbx38cYaDZL?=
+ =?us-ascii?Q?WEJo7bqlUsInWOrJ0W2Mg3FeUYRhBCShHfTbZnjPXcNC0wbLV1OEIoF4s/Vw?=
+ =?us-ascii?Q?nWfVsmvC8NeC/vUIweNg6rxVhvn7ovKI9jZ1BigGTKS6SIsAsPFuCoNl0zg8?=
+ =?us-ascii?Q?yK85zZYyS6vnC0M+2+vmSsJXZlWFEk0JDTEVRUAvpYRI1QexB74OYS4u3We6?=
+ =?us-ascii?Q?ZWUHfb4t9xkmWaeI9R3Fk47XNO5bA07JB92PSW/zsyZNACe8Yvd8R5bb7T7W?=
+ =?us-ascii?Q?19h8/vGpoCdZ1QYTKT37uA7ZHaiwRD/MxSQhImdDjfSCCHWyaWdXhcU20pTG?=
+ =?us-ascii?Q?/OdTe/1GRAzO+KGIXg9/UgFDmGsSCmJKPw9ISHZfkpdtHm1i?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 361d0439-9944-475e-d3ba-08deea58ef25
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jul 2026 14:28:02.6427
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Yx+AMq7n7MqZ4B5fhecjqg8T1LQD0pNDOL3Jz0osaydp2h47Y+pMbddxGRj15Xt9
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8073
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260725_072809_664190_B77D7E1E 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,282 +136,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Varshini,
+On Thu, Jul 23, 2026 at 03:19:44PM +0100, Robin Murphy wrote:
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> @@ -102,6 +102,8 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
+>  			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
+>  		if (master->smmu->features & ARM_SMMU_FEAT_HD)
+>  			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
+> +		if (master->smmu->features & ARM_SMMU_FEAT_HAFT && system_supports_haft())
+> +			target->data[1] |= cpu_to_le64(CTXDESC_CD_1_HAFT);
+>  	} else {
+>  		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_EPD0);
 
-On 7/22/26 08:50, Varshini.Rajendran@microchip.com wrote:
-> Hi Claudiu,
-> 
-> Thanks for taking the time to review.
-> 
-> On 22/07/26 12:44 am, Claudiu Beznea wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know
->> the content is safe
->>
->> Hi, Varshini,
->>
->> On 6/30/26 12:35, Varshini Rajendran wrote:
->>> Add support for accessing OTP packets by their 4-byte ASCII tag while
->>> preserving backward compatibility with the existing ID-based lookup.
->>>
->>> The OTP memory layout can vary across devices and may change over time,
->>> making the packet ID approach unreliable when the memory map is not
->>> known in advance. The packet tag provides a reliable way to identify
->>> and access packets without prior knowledge of the OTP memory layout.
->>>
->>> Two offset encoding are now supported:
->>>     1. Legacy ID-based: offset = OTP_PKT(id) = id * 4
->>>        Used in DT as: reg = <OTP_PKT(1) 76>;
->>>     2. TAG-based: offset = 4-byte ASCII packet tag
->>>        Used in DT as: reg = <0x41435354 0x4c>; (tag "ACST")
->>>
->>
->> I think this:
->>
->>> The driver resolves offsets matching valid legacy selectors (multiples
->>> of 4 within the packet count) through ID lookup, falling back to tag
->>> lookup for other values. This ensures existing device trees continue
->>> to work while enabling new tag-based access.
->>
->> should fall in a different patch?
-> 
-> You mean moving the "invoking the new tag-based method with the legacy
-> method as a fallback" part alone? Only add the functions in this patch
-> and invoking them in the next one - Did I get it right?
+Based on the Sashiko remark and your note you should lift all the
+HA/HD/HAFT bits outside this if (mm) block.
 
-Ah, apologies for confusion, I referred to the wrong section. I wanted to refer 
-to this section:
+AFAICT it is fine for HA/HD/HAFT to be set with EPD0, the HW won't
+process any PTEs so they won't have any effect.
 
->>> The driver also validates OTP memory accessibility and emulation mode
->>> status. When the boot packet is not configured, emulation mode allows
->>> access to the other packets. When both are not available an
->>> informational message is logged.
+Since this avoids the BAD_CD inconsistency you pointed at and also avoids
+changing word 1 it should avoid the problematic V=0 transition.
 
-That is handled through this code:
-
-+
-+	tmp = readl_relaxed(otpc->base + MCHP_OTPC_MR);
-+	emul_enable = tmp & MCHP_OTPC_MR_EMUL;
-+	if (emul_enable)
-+		dev_info(otpc->dev, "Emulation mode enabled\n");
-+
-  	ret = mchp_otpc_init_packets_list(otpc, &size);
-  	if (ret)
-  		return ret;
-
-+	if (!size) {
-+		dev_warn(otpc->dev, "Cannot access OTP memory\n");
-+		if (!emul_enable)
-+			dev_info(otpc->dev, "Boot packet not programmed and emulation mode disabled\n");
-+	}
-+
-
-This I think should go in a different patch.
-
-> 
->>
->>>
->>> During probe, packet meta data including the tag is read and cached.
->>> The driver also validates OTP memory accessibility and emulation mode
->>> status. When the boot packet is not configured, emulation mode allows
->>> access to the other packets. When both are not available an
->>> informational message is logged.
->>>
->>> The stride of the nvmem memory is set to 1 in order to support tag based
->>> offsets, comment in the header file is updated accordingly.
->>>
->>> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
->>> ---
->>>    drivers/nvmem/microchip-otpc.c                | 143 ++++++++++++++++--
->>>    .../nvmem/microchip,sama7g5-otpc.h            |   4 +-
->>>    2 files changed, 136 insertions(+), 11 deletions(-)
->>>
->>> diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-
->>> otpc.c
->>> index df979e8549fd..bf8589048e17 100644
->>> --- a/drivers/nvmem/microchip-otpc.c
->>> +++ b/drivers/nvmem/microchip-otpc.c
->>> @@ -18,16 +18,20 @@
->>>    #define MCHP_OTPC_CR_READ           BIT(6)
->>>    #define MCHP_OTPC_MR                        (0x4)
->>>    #define MCHP_OTPC_MR_ADDR           GENMASK(31, 16)
->>> +#define MCHP_OTPC_MR_EMUL            BIT(7)
->>>    #define MCHP_OTPC_AR                        (0x8)
->>>    #define MCHP_OTPC_SR                        (0xc)
->>>    #define MCHP_OTPC_SR_READ           BIT(6)
->>>    #define MCHP_OTPC_HR                        (0x20)
->>>    #define MCHP_OTPC_HR_SIZE           GENMASK(15, 8)
->>> +#define MCHP_OTPC_HR_PACKET_TYPE     GENMASK(2, 0)
->>
->> Nit: in SAMA7D65 manual this is simply packet. Maybe rename it:
->> MCHP_OTPC_HR_PACKET to match the manual.
->>
->>>    #define MCHP_OTPC_DR                        (0x24)
->>>
->>>    #define MCHP_OTPC_NAME                      "mchp-otpc"
->>>    #define MCHP_OTPC_SIZE                      (11 * 1024)
->>>
->>> +#define PACKET_TYPE_REGULAR          1
->>
->> I would move this close to MCHP_OTPC_HR_PACKET_TYPE and name it
->> something like:
->> MCHP_OTPC_HR_PACKET_REGULAR to match the datasheet.
->>
->>> +
->>>    /**
->>>     * struct mchp_otpc - OTPC private data structure
->>>     * @base: base address
->>> @@ -47,11 +51,15 @@ struct mchp_otpc {
->>>     * @list: list head
->>>     * @id: packet ID
->>>     * @offset: packet offset (in words) in OTP memory
->>> + * @type: type of the packet
->>> + * @tag: 4-byte ASCII tag of the packet
->>>     */
->>>    struct mchp_otpc_packet {
->>>        struct list_head list;
->>>        u32 id;
->>>        u32 offset;
->>> +     u32 type;
->>
->> This can be dropped for now since it's used only in the initialization
->> path.
->>
->>> +     u32 tag;
->>>    };
->>>
->>>    static struct mchp_otpc_packet *mchp_otpc_id_to_packet(struct
->>> mchp_otpc *otpc,
->>> @@ -70,6 +78,56 @@ static struct mchp_otpc_packet
->>> *mchp_otpc_id_to_packet(struct mchp_otpc *otpc,
->>>        return NULL;
->>>    }
->>>
->>> +/**
->>> + * mchp_otpc_tag_to_packet() - find packet by tag
->>> + * @otpc: OTPC private data
->>> + * @tag: 4-byte ASCII tag to search for
->>> + *
->>> + * Return: pointer to packet if found, NULL otherwise
->>> + */
->>
->> I'm not sure we need this description since the function is simple
->> enough. I
->> would drop it.
->>
->>> +static struct mchp_otpc_packet *mchp_otpc_tag_to_packet(struct
->>> mchp_otpc *otpc,
->>> +                                                     u32 tag)
->>> +{
->>> +     struct mchp_otpc_packet *packet;
->>> +
->>> +     list_for_each_entry(packet, &otpc->packets, list) {
->>> +             if (packet->tag == tag)
->>> +                     return packet;
->>> +     }
->>> +
->>> +     return NULL;
->>> +}
->>> +
->>> +/**
->>> + * mchp_otpc_resolve_packet() - resolve offset to packet
->>> + * @otpc: OTPC private data
->>> + * @off: NVMEM offset (legacy ID-based or TAG-based)
->>> + *
->>> + * Legacy offsets (multiples of 4 within valid ID range) are resolved
->>> + * through ID lookup. Other offsets are treated as 4-byte ASCII tags.
->>> + *
->>> + * Return: pointer to packet if found, NULL otherwise
->>> + */
->>
->> Same here.
->>
->>> +static struct mchp_otpc_packet *mchp_otpc_resolve_packet(struct
->>> mchp_otpc *otpc,
->>> +                                                      u32 off)
->>> +{
->>> +     /*
->>> +      * Legacy id based packet access: offset = id * 4
->>> +      * Inside the driver we use continuous unsigned integer numbers
->>> +      * for packet id, thus divide off by 4 before passing it to
->>> +      * mchp_otpc_id_to_packet().
->>> +      */
->>> +     u32 id = off / 4;
->>> +
->>> +     if (!(off % 4) && id < otpc->npackets)
->>
->> The tag can be anything, no? Can't the tag satisfy this condition and the
->> execution to wrongly use mchp_otpc_id_to_packet() ?
-> 
-> The tag is a FourCC code. So the minimum value would be 0x20202020 which
-> way too big than the number of packets the OTP could hold. So this
-> condition pretty much never fails. If you want me to add this
-> "0x20202020" value as an additional check I can do that.
-
-Please mention FourCC in patch description.
-
-Also, I think one would manage to access a packet with a tag that is not in 
-FourCC format (tag >= 0x20202020). E.g. if the memory footprint is:
-
-  Header 0
------------
-  Payload 0:
-  tag0 = 0x20202020
------------
-  Header 1
------------
-  Payload 1:
-  tag1 = 0x00002020
-------------
-  Header 2
-------------
-  Payload 2:
-  tag2 = 0x00000004
------------
-  Header 3
------------
-  Payload 3:
-  tag3 = 0x00002020
------------
-  Header 4
------------
-  Payload 4:
-  tag3 = 0x00002020
-
-
-Since the initialization function mchp_otpc_read_packet_tag() don't validate the 
-FourCC format with the minimal FourCC value, it will create a list with 5 
-packets as follows:
-
-packet0:
-- id = 0
-- tag = 0x20202020
-
-packet1:
-- id = 0
-- tag = 0x00002020
-
-packet2:
-- id = 2
-- tag = 0x00000004
-
-packet3:
-- id = 3
-- tag = 0x00002020
-
-packet4:
-- id = 4
-- tag = 0x00002020
-
-Thus, reaching mchp_otpc_read() with off=0x00002020 will allow the user to get 
-packet1 using tag method (even though the user flashed multiple packets with the 
-same tag; I'm not sure if we should validate this).
-
-At the same time if off=0x00000004 (corresponding to packet2) the code will 
-return the payload of packet1 as it will resolve the packet using 
-mchp_otpc_id_to_packet().
-
-Please correct me if I'm wrong.
-
-Thank you,
-Claudiu
+Jason
 
