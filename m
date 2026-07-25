@@ -4,102 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E99C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 07:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B59C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 08:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JP/wbNLQSrW5qwWjE+qQUBSSCP+5d3b6gjSj9x/s0bc=; b=nYr1fZ81A3fu2ehCfGoHSNLpSP
-	+KvlSUoqBuRk9YzWsILsVs3DHc4KEI8Yuxtwf/cEGV+HKeoAshjj0jdVbPelpLB7lKnFo5uGXnbtT
-	UvyLn+Vp3sfEzVcwwD5ymLXiFJseqyj7/o0dcFnnqDw714BqMng+Z00MQeGeuy4vEQFy1TMOdNHq0
-	FSNu7TC3ZlHk4QYtsxCUGblF9tnAmhuRSsw3nNt8swJA8QVyxoUnxwHLsEsBi2w3WmFrf4zOJLA56
-	rAY4H6GLdEW5iRyxFLJtYdazRPWsdrFc6uqtArtAvI1HWbiNY44tBQFahEtyMZUbriOis7ej54tG0
-	rA4vYNZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=; b=UVc8+5roN60RTAlN5+9pmh7Ded
+	tDpmMRFeDV9HhaOpgv5YCuqkFw/dVRlBQeNFkhvSLr0eqrRekq2XulrTgs8vtcK2LUx8TdZ2vhoFI
+	vZ3G2Y6jHGZUJ7pJwf6wi5aRhtMbcbfAZZ79pVkPuPrACBjsZx57tWRw1E3dFvkvc7jwdm08nyJKT
+	/aGb5TGk65YaPb0kKCPP5mdeN6VTkk/vKUJBfWa+fe3NycWZ5Dqm5yOo5azLbLSf1qX3MPAk1fbbT
+	qv+2Xv3hWlzTKENTbwnJLQPDgZUzSRKvUyvsgodRgBB3DerX2V7ruRsTv4SsOvKx0WfsvIEPCrRXd
+	QLvJeydg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnWaJ-000000008yW-3oL4;
-	Sat, 25 Jul 2026 07:14:11 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wnXJW-00000000AHU-0IBQ;
+	Sat, 25 Jul 2026 08:00:54 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnWaH-000000008xd-2h1S
+	id 1wnXJT-00000000AGq-2YWx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 07:14:10 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-698bf053053so1619167a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 00:14:08 -0700 (PDT)
+	Sat, 25 Jul 2026 08:00:53 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-92ea24a2dbfso112056285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 01:00:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784966449; cv=none;
+        d=google.com; s=arc-20260327;
+        b=b+MitLIwZVFfn894eFqOYtFI1kr+cZnaY4NI78zd9ranbh8HLd1RUYFMeQRgu1kbFn
+         XRq9brQkxo7qm6x9LfMfMWHIhkIGQUKZNTs+rGO0UYCUldi6ZVHXu+7rzkM/EO9Jg3H8
+         jlzLVbfEu2PPdA2FFv+zhK4foeWVqNbF0ncZse7ib2zpzZ6+LkJUMPMS4UM0vj130Yc9
+         gf5P680kdlqSflYAuwLZhGs65OG/2LRN6WDcWqi/QGawD5EOTnr3EXWs0aBSyitR6q+m
+         h+7Zxt7RlmURR6WhfTgyjTra6ow9CMVsSl6aMeR6/BXuykwwocpenI2zvVBwxoU5taPB
+         0dgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=;
+        fh=Q8maQt43ix+kexQDZxXnqFpjjhFFvlnju5ulqgRm7oQ=;
+        b=c+vwBRQDam89yg9f9/pXIteZ2+D5hp8AX2Hyq7dOaYN7b2/3E3IyjVG13jloDKzuR+
+         tua9GNxLTt4Yx8N24ll1LkcvMuM+JQMdGITLxDYO32Zxa8fgH1v0z7fjmVQTGipStAEA
+         5Y9lFlVZMTICfVzBM75jII1GyOLgaARRLIS8k3dUzP7UHC6ua+3OaMS04bPAHe1slTAp
+         TNuX5p82ujfpc/cpl+Zh+THhseCn+Ztl8o5sc/ydxFJ89EVwHcMcTOL+x7uF3WsjKWZO
+         Zb6IFftKBn4as4B7HK+DtCO/rqJjobd7A7Wvl466mo5zIu0Z4A0+3e80v4uSMPM6dKn2
+         p2og==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784963647; x=1785568447; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:content-type:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JP/wbNLQSrW5qwWjE+qQUBSSCP+5d3b6gjSj9x/s0bc=;
-        b=qNuY4WaF0LOaaCbvkp386R7N7FHlxLfqeteRr852i4Bc9vmSDdimAeirjfCtCR4i8j
-         l5+oPfr8EzkxtgBUdzRP+aLszPw5ZjZ8MuTjxsmAnMXrESB54PvV0fad2JcCdcpPM2/5
-         hOwzs0yttxQOTnNWTi8tjfFJqTgeK/N0RooGjA4B8g5VNH2MdaxJZ/57e9PiIrooZRwT
-         ABtEDS47pdOhl5JBMeINJzda94Ji30iViRntu78AahXebqEHjizO0WkBtr3pFZbySssU
-         uT6lKPcaXBMvMYWFFKgwqOPtY3Bt0zGAUAsT2aGTQWPVLejDlcK0rDofYd6s2E9g1o5K
-         DXTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784963647; x=1785568447;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1784966449; x=1785571249; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=JP/wbNLQSrW5qwWjE+qQUBSSCP+5d3b6gjSj9x/s0bc=;
-        b=IM43zLlmqWX2uPa98qGWiZ5wVUkDJrkbBHagT0PVmuIWCrCAnmePwFztMshtHbuqc9
-         dJJnQWM4LNgCp7L/yo0M6HaIvHSn+Eo6o1ohe2hojxZVwkzRQCIlQnC8Z1n2sHKiXHZa
-         MZkMOk6876SywosHPENyK6JpAzCr5S8c9o5NwjtHNNbY3swoVUbug8UP+5c01ixc5Gos
-         ARK5JdS/wrHc9L40x8GxVVDanp8+0shwOrtJkCmgQU3uZ0XBi8LHghQljdsGxNXj3Hpn
-         SM2q4PYjQlY/OGoXxLyeNxHjH46zCf89A/qirCKmd/PWWayP9yB8xXW/KkhXJuLdtX2S
-         TkXw==
-X-Forwarded-Encrypted: i=1; AHgh+RqAQe8HlmHs7ia5uu7bgZ55MnWzJ+xrlXpHG3uCzMaSxwddysqcblKVzzAh/OGTANz89eLbj5PDB4cHTwfVrvWd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnGiR5oywF34IBF9FZWG5deunhNxvgDm7/9Dq7R7qFcfo9Jo9Z
-	MhAsOY5AVa+eI8792nwOdCCvFjLU+HCpar+QrxyWGPRrbEgfbdeD+3it
-X-Gm-Gg: AR+sD13wwM4lwIiF9PJpVaznHEQAX+x4ycEu7OXvHPxWdytBjAM4uSuGGDufFGw5G4E
-	rWzaawz/uzwG99iBgflN+2cuhok/t/Qzjh/FetADbeARrF5KsoLhwsqkAOTz3w5L7AjLq1ObJDK
-	N5iMCAKcfQjWYbEa+p0nBb4AsLz0bEEgW4KrLwE4EE+M17uXdcJLOsEivEkMCg6SSlhfV7katx6
-	SvxS7VZoDfKi6U03JiF5ZKlTkEzZq+/Xx6EKxU/WBWY9SRyhsI/UZsYHrh5NlzveT8buneR/Tfo
-	hg2Zu2sCE/Z3U+XZMeLQuf790N54TyPYLtawlOtExjqtC3nkAbjwX6frDDgQcb/y6su2iYbosKu
-	S5940yqUptITnXayFHvKB9GDLyb/3e9MUl8GI8QFkT4Sfgjj/MsFZcAci4Uyqho38wBmpvo/pia
-	j8JcDlfUHIEIohcRLTUM2eLFwUdP5WcPbEUax5wk1KaLr9xz2fChc3v20SjBfuVWts8ivQYC4=
-X-Received: by 2002:a05:6402:2692:b0:698:f7d:4e11 with SMTP id 4fb4d7f45d1cf-69fc0fed1bfmr434261a12.1.1784963647447;
-        Sat, 25 Jul 2026 00:14:07 -0700 (PDT)
-Received: from smtpclient.apple (89-66-237-154.dynamic.play.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69fb4e11519sm658390a12.0.2026.07.25.00.14.04
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 25 Jul 2026 00:14:05 -0700 (PDT)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH v6 1/6] firmware: meson: sm: Add video firmware loading
- SMC call
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-In-Reply-To: <20260724-b4-s4-vdec-upstream-v6-1-6072a7ee7428@amlogic.com>
-Date: Sat, 25 Jul 2026 09:13:53 +0200
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org,
- devicetree@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <49F34481-918C-42ED-92E9-DFC336526BAD@gmail.com>
-References: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
- <20260724-b4-s4-vdec-upstream-v6-1-6072a7ee7428@amlogic.com>
-To: zhentao.guo@amlogic.com
-X-Mailer: Apple Mail (2.3864.600.51.1.1)
+        bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=;
+        b=X+7+yY+qxrClaKL2w3R7lmE9XGCpRfge4Ut/wDDgzZxuYcaZwQEd1iT83E4HxLetk0
+         FlvKGDPhxZWRmHSyr0t7LZgzQ+zh4sBrfo3CXiTg0oJoqgZJGe1LD/ZfOh2qAab7zft4
+         rY24PRQqSJpCEgnyKMgfWypQnUh0AhErGhF3eL+Cd5jWl8dfEwP6QdAkfAMjTsPVjm6U
+         sCRS5DxtaYVfdUxBm4tyaQ34FXVB34T1LFtSVld2moMlf9QCtFhSEyVyV9zxy6jjLPBI
+         g9w3AOppW+dG6Fmw0r81EII2bqOc9MwxoMUdtMSVDpcsrlGiBMvTxug8HmN1RhBnjR9l
+         ITYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784966449; x=1785571249;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=;
+        b=Vb35Z7ySrfEGx3hF/utQ16IIPnKJE4DHIDAuL2PzBg6JHR8S8XCWlxSxlT8YonVPEo
+         wNK8JMqB2CYxiTcAFJiv3e+HpWsrVEiRshicTsNTvGl4pERUBmHCri/hbvgulAOPBWoF
+         rLnSGK2RTAX/lDPu4sOTJhisVNa7fkKZQwtjGdwlUfwLolYbE0e3Ngyhf3XDOqWCO5/Y
+         JbA1p5WrJjqgZ2gLdi77kGIL3fmTdS8Z51ch2SJEMiiRRklE0eVHv5egbJOQuCBtMume
+         OUDi+JrpMrsMoyxZgKVE9z3/uStYVS2XWEOsyFwaend/h+6lahc99lZrMdKTzD0bt7qY
+         eUhw==
+X-Forwarded-Encrypted: i=1; AHgh+RrByEZHGdYP/pUBEtst4cnxutB7YtfBYcZt1RWcE5qJJlWx+qhyBKNFmGs3vvkQo8zJ+elth6a3jImkkxg14KGa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaWLlmvbILudryaI5Jkbz944XS5L//jGCa/3s39qjjXI3wZoLO
+	HyHeka2sGLgrB3gSfISDqXzG3ER+NBmNf55oBKwU5ICZY4Kh9OiRV+srkRkFif3JpPvbddzP8TA
+	yWktqc4GvjxQHO7fMZdIVhAFZ6gCHmnQ=
+X-Gm-Gg: AR+sD135cnxA2RmWbLp3u5poxZNn8juzdOaWdcocXAkL7HxUiKUlaQgA88ATfJ6dR3G
+	OjfzQNe2pacIoxkEd5t49KkNfAgfxbIuHxOnkrVtaZATiZulbfttuV0+iiUbuAgzSK42sIsMpUK
+	d73iV/pm5h3aTdRdygEZccBC1CbOBlVkWj50+P5kNg0axSYU3s7vm0+qBkMDqSBmWOWYZ0TdX76
+	MFqbZSbPGn2qqiwCH9P8jJ6RXQDvW6+nw7W8Wkxt1xboBp0hbIBk0zNSSn71ldl7mAKneguf21G
+	fddQF56U4APYMmCDTOGU31Dpn32FBGqtjLCa82A50WJFq4tiLHyFhaNrQy2p6SU=
+X-Received: by 2002:a05:620a:2681:b0:930:dd19:11ba with SMTP id
+ af79cd13be357-932df6f0f30mr100360085a.92.1784966449572; Sat, 25 Jul 2026
+ 01:00:49 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260724111548.2109-1-tharitt97@gmail.com> <amOO86K_3wuTd_92@lizhi-Precision-Tower-5810>
+In-Reply-To: <amOO86K_3wuTd_92@lizhi-Precision-Tower-5810>
+From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
+Date: Sat, 25 Jul 2026 15:00:37 +0700
+X-Gm-Features: AUfX_mzCV0IN9fI_10kkKdi3HsilTau4VYjXeApWLMbv2AYQ88l9nYF0tHwG8Pk
+Message-ID: <CACak8wNJsmVKm3m+JwYPSxqfa26MVFRo3jE3YrppJPi5SBBAUg@mail.gmail.com>
+Subject: Re: [PATCH] media: hantro: release runtime resources when device_run fails
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Hans Verkuil <hverkuil@kernel.org>, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
+	me@brighamcampbell.com, jkoolstra@xs4all.nl
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_001409_737258_D0B42BA4 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20260725_010051_666202_AA277C76 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,51 +122,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> Mix use runtime pm and clock is not good.
+>
+> You can put clk_bulk_enable() into runtime pm resume call back
+> and clk_bulk_disable() into runtime pm suspend call back.
+>
+> Frank
 
+Hi Frank,
 
-> Wiadomo=C5=9B=C4=87 napisana przez Zhentao Guo via B4 Relay =
-<devnull+zhentao.guo.amlogic.com@kernel.org> w dniu 24 lip 2026, o godz. =
-09:04:
->=20
-> From: Zhentao Guo <zhentao.guo@amlogic.com>
->=20
-> Add SM_LOAD_VIDEO_FW at SMC ID 0xb200000f in the command
-> table to load video firmware.
->=20
-> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
-> ---
-> drivers/firmware/meson/meson_sm.c | 1 +
-> 1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/firmware/meson/meson_sm.c =
-b/drivers/firmware/meson/meson_sm.c
-> index ab9751a59b55..887caa5c625d 100644
-> --- a/drivers/firmware/meson/meson_sm.c
-> +++ b/drivers/firmware/meson/meson_sm.c
-> @@ -48,6 +48,7 @@ static const struct meson_sm_chip gxbb_chip =3D {
-> CMD(SM_THERMAL_CALIB_READ, 0x82000047),
-> CMD(SM_A1_PWRC_SET, 0x82000093),
-> CMD(SM_A1_PWRC_GET, 0x82000095),
-> + CMD(SM_LOAD_VIDEO_FW, 0xb200000f),
-> { /* sentinel */ },
-> },
-> };
->=20
-> --=20
-> 2.42.0
->=20
+Thanks for the suggestion. I will inspect the hantro pm_runtime call
+sites and let me implement your suggestion into v3.
 
-Zhentao,
-
-What is req. baseline for this patch?
-(or what extra patches are needed to test it on 7.1 mainline)
-
-Asking as applying on mainline 7.1.5 I=E2=80=99m getting:
-
-patching file drivers/firmware/meson/meson_sm.c
-Hunk #1 FAILED at 48.
-1 out of 1 hunk FAILED -- saving rejects to file =
-drivers/firmware/meson/meson_sm.c.rej =20
-
-
+Best,
+Tharit
 
