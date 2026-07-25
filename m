@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F716C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 02:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34828C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 02:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hQytFBvRnFRxjBd89fB4xnT00YX09Suyb7M/MxFBMxE=; b=vNYYp/HfsThhtc1IPhLVQnSlwZ
-	0lsyBd8aLsVFmWDmBGOvY+5BIhXQbWyVfhi2gEb5rMbO73pwKjcZ9NtZo93Fa8t896OZGM6/0wNB6
-	arHNZ58tiXi2aS7DQndSoZQhVjIA/LIq8Hg3Zf3rbZQVeGBrwyAPdAP0it2oV/8RWp2SCER7/z6RN
-	JAhyrali0LfBomUG3W3PdQ1FOG9u7PkU4MSo/D6PC5QkE7EWZ1eWCL0R6skD+bmcGZBQxo1ehvMVZ
-	u4f5BK2sKJwGZ+y+aw/mLflMonjmu7btWv9XtGWNhFPOJpQGJ5CyujbZFFTbkauZhJrjNS9KqgKk0
-	zZdsHeNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NMjfOWdNKMTb5juzgU60iJC1X5da/Wz+2m108kWbVaQ=; b=cp1kAsC7elXbMD+Wn+RWtoQD6v
+	KorluVnupBefH8rOfh0TXB6CnKk6yOBRQ6bHo6pz1vIDgNa27tea6e6/qB6/PK8kXkq8+rIlYzCIY
+	txupnJO29dP5+QE34MU0wyi0Y+A6WE7V/vCK+I+zck4e6kHmHf0cMFh68/iP05v3cJrFuyi92lLgX
+	RB31Lh/4w0P9hikvAiT5ea7j2BwmhCnDlr09IryVMebeSreAj6e5MFlNBTq3+4hOnAqfRaWvL5rOV
+	M8CrxH8Y10hjZ4b9qQeSFlWsRFv9AGmvvpoI/NnE2nFTh1to7HBpq+cVkoq4ssXs4K95FNCVmQckw
+	pgIWf/mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnSao-0000000HVHQ-2eAp;
-	Sat, 25 Jul 2026 02:58:26 +0000
+	id 1wnSaw-0000000HVL7-3lIh;
+	Sat, 25 Jul 2026 02:58:34 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnSae-0000000HVE8-0fJ3;
-	Sat, 25 Jul 2026 02:58:18 +0000
+	id 1wnSao-0000000HVGs-0UWE;
+	Sat, 25 Jul 2026 02:58:27 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1wnSaG-000000002xL-0n55;
-	Sat, 25 Jul 2026 02:57:52 +0000
-Date: Sat, 25 Jul 2026 03:57:48 +0100
+	id 1wnSah-000000002y4-2k8c;
+	Sat, 25 Jul 2026 02:58:19 +0000
+Date: Sat, 25 Jul 2026 03:58:16 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -54,15 +54,17 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Chen-Yu Tsai <wenst@chromium.org>
-Subject: [PATCH v6 00/13] drm/bridge: it6505: DP audio support + shared-DAI
- hw_params fix
-Message-ID: <cover.1784947240.git.daniel@makrotopia.org>
+Subject: [PATCH v6 02/13] drm/bridge: it6505: balance and disable runtime PM
+ on remove
+Message-ID: <9ea942316bc9a08474f6171866a432bd4eb93410.1784947240.git.daniel@makrotopia.org>
+References: <cover.1784947240.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <cover.1784947240.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_195817_488519_4B9975D2 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20260724_195826_163945_0ACAAAD4 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,105 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Revive HDMI/DP audio support for the it6505, originally posted by
-Jiaxin Yu [1], rebased onto current -next with the review feedback
-addressed: &client->dev is gone (the driver gained it6505->dev) and
-"#sound-dai-cells" has since been added by commit 325af1bef5b9
-("dt-bindings: display: bridge: it6505: Add #sound-dai-cells").
+Runtime PM is enabled in probe but never disabled on remove, so
+rebinding the driver warns "Unbalanced pm_runtime_enable!". The
+extcon work also holds a usage reference while a display is
+connected, which unbinding leaks; the count survives in struct
+device, so after a rebind the device never runtime-suspends again.
 
-Patches 1-11 fix pre-existing bugs found during review of earlier
-versions of this series; they carry Fixes: tags and are ordered first
-so stable trees can pick them.
+Drop the usage reference held for a connected display and disable
+runtime PM in remove().
 
-Patch 12 wires up the it6505 audio helpers via hdmi_codec_ops,
-unblocking the mt8186-mt6366 sound card which references it6505 as
-the I2S3 codec. Patch 13 makes hw_params succeed with no display
-attached, needed when the I2S bus is shared with another codec as on
-MT8186 "steelix" Chromebooks, where the speaker path must keep
-working regardless of the it6505 link state.
-
-Tested on a MT8186 (google,steelix) Chromebook: the sound card comes
-up, speakers, microphone and headset jack work. HDMI/DP audio output
-itself could not be tested for lack of a suitable adapter cable.
-
-[1] https://lore.kernel.org/all/20230730180803.22570-4-jiaxin.yu@mediatek.com/
+Fixes: 10517777d302 ("drm/bridge: it6505: Adapt runtime power management framework")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
-v6:
- * patch 1: track notifier registration in a flag instead of
-   clearing notifier_call, which a chain traversal racing the
-   unregistration could have called as NULL (extcon traverses its
-   raw notifier chain unlocked); flagged by Sashiko AI review of v5.
-   The in-flight-callback race also flagged there is an extcon core
-   limitation affecting all its consumers and cannot be closed from
-   a consumer driver.
- * patch 4: note that a failed regulator_disable() leaks the
-   reference either way
- * new patches 10 and 11: two more pre-existing fixes from v5
-   review, an uninitialised link-frequencies value and an error
-   code written back to the reset register
- * patches 2, 3, 5-9, 12 and 13: no changes
+v6: no changes.
 
-v5: https://lore.kernel.org/all/cover.1784717129.git.daniel@makrotopia.org/
- * patch 1: serialise notifier registration state with extcon_lock
- * patch 2: also drop the runtime PM usage ref held for a connected
-   display; retitled
- * new patches 3-7 and 9: more pre-existing fixes from v4 review
-   (AUX unregister symmetry, poweroff error path, IRQ status read
-   errors, two divisions by zero, of_node_put before use)
- * patch 10 (was 4): update plugged_cb/codec_dev under mode_lock
- * patches 8 and 11: no changes
+v5: also drop the usage ref held for a connected display; retitled
 
-v4: https://lore.kernel.org/all/cover.1784681487.git.daniel@makrotopia.org/
- * patch 1: quiesce extcon notifier and IRQ before cancelling work,
-   initialise extcon_wq in probe; retitled
- * new patch 2: disable runtime PM on remove
- * patch 3 (was 2): collected Chen-Yu Tsai's Reviewed-by
- * patch 4 (was 3): start out muted; mute state and cached
-   parameters updated under audio_lock; unregister codec after
-   quiesce
- * patch 5 (was 4): apply audio defaults at probe time
+v4: new patch
 
-v3: https://lore.kernel.org/all/cover.1784600387.git.daniel@makrotopia.org/
- * new patches 1 and 2, fixing a pre-existing use-after-free on
-   remove() and an out-of-bounds read with channel_count == 0
- * patch 3 (was 1): serialise audio enable/disable with audio_lock;
-   track mute state so the FIFO-error IRQ cannot undo a mute
- * patch 4 (was 2): no changes
+ drivers/gpu/drm/bridge/ite-it6505.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-v2: https://lore.kernel.org/all/cover.1784561622.git.daniel@makrotopia.org/
- * keep and unregister the hdmi-codec platform_device on remove
- * initialise delayed_audio before registering the codec device
- * cancel delayed_audio synchronously on shutdown and remove
- * disable audio immediately when muting
- * patch 2: drop the encoder check instead of returning 0 early
-
-v1: https://lore.kernel.org/all/cover.1784393979.git.daniel@makrotopia.org/
-
-Daniel Golle (12):
-  drm/bridge: it6505: quiesce event sources and work on remove()
-  drm/bridge: it6505: balance and disable runtime PM on remove
-  drm/bridge: it6505: unregister DP AUX adapter on bridge detach
-  drm/bridge: it6505: complete poweroff even if disabling regulators
-    fails
-  drm/bridge: it6505: bail out of the IRQ handler when status reads fail
-  drm/bridge: it6505: avoid division by zero in pixel clock calculation
-  drm/bridge: it6505: avoid division by zero in audio FS debug print
-  drm/bridge: it6505: guard against zero channel count in audio
-    infoframe
-  drm/bridge: it6505: hold endpoint OF node reference while parsing it
-  drm/bridge: it6505: reject a too short link-frequencies property
-  drm/bridge: it6505: don't write an error code back to the reset
-    register
-  drm/bridge: it6505: Don't reject audio hw_params without an encoder
-
-Jiaxin Yu (1):
-  drm/bridge: it6505: Add audio support
-
- drivers/gpu/drm/bridge/ite-it6505.c | 256 +++++++++++++++++++++-------
- 1 file changed, 197 insertions(+), 59 deletions(-)
-
-
-base-commit: 9eebf259d5352b87080d67758f483583d9e763d7
+diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
+index a7ba6a0befda..7c61b02cc7e6 100644
+--- a/drivers/gpu/drm/bridge/ite-it6505.c
++++ b/drivers/gpu/drm/bridge/ite-it6505.c
+@@ -3662,6 +3662,9 @@ static void it6505_i2c_remove(struct i2c_client *client)
+ 	cancel_work_sync(&it6505->hdcp_wait_ksv_list);
+ 	cancel_delayed_work_sync(&it6505->hdcp_work);
+ 	cancel_work_sync(&it6505->extcon_wq);
++	if (it6505->extcon_state)
++		pm_runtime_put_sync(&client->dev);
++	pm_runtime_disable(&client->dev);
+ 	it6505_poweroff(it6505);
+ 	it6505_remove_edid(it6505);
+ }
 -- 
 2.55.0
 
