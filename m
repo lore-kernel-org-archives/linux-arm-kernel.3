@@ -4,84 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89385C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 10:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6CD1C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 11:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WT1zS4IkkV1ijgz/+8b1+SlrW2TMfyxdIz/8ijsRm9o=; b=uVP0myYJmPjRU1SFuB1+ZnjZyi
-	2t5L82PnBNQU02ohDmVfgtRfwfHvMoc6dO6bi+xtPlzQ2es7WbKTT+rbLr6v/LWaBg4crLuqj9ojC
-	ty8LyGcFBytKSGtnsgQkwuTjxgnj+qQ2YUFPAj9gx0svrZhR/wHrn7ubuxzcBhkdapFPRdUHLA0ro
-	2eYSe00dnjei8g6UKxpo565JdVLiQ35l1arlJBOP7GNrX3JbW7Rs3dDOGiFritB8b8nXn8p3Dy1mx
-	gS77gbOflYL/BEvguVIQ/ohoLmzmRhPYG2885z+fgJHf4njhcFNLOC3htcQlNgvRt3iNORFfeSmeS
-	Yf1dvlgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v1XnvhuBoDG4y1lmMQbiSiZ7jqw05+luvbjxzkw9QGE=; b=ATdYYKS13J3M6Ys3A3Q1ycyttD
+	Wvo+4E8S6jK4dbDeXPVnSCS4X/lXncbcuA7teLaxA/6BFwnTShRQmqS9lrb0yjKuGymT96rhY+2j/
+	NOWzGz2lNvk0EkwhX9x36mG2sjsyGJosktC/goxghlFZTUbtE347FiK4dbQSxtC+BMYOPjHaz5lO0
+	Da3O8FP1QvkBuFLxjshOOSjqCrsvPOvAwlzLzjjlGxlyIZ48/DvVcVEtM2hWYUARgKRqfCSsIW2GQ
+	X40KX4QTUOI+v05NF1q/OEoN37WahHBtVbFN4Nj2xiUVnzC/wtJ2n18UNkgEI7Q8vQVBobSCficc9
+	FOMbwT7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wna2a-00000000GhR-2YUY;
-	Sat, 25 Jul 2026 10:55:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wnaPh-00000000HMd-1PnM;
+	Sat, 25 Jul 2026 11:19:29 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wna2Y-00000000GhL-290v
+	id 1wnaPd-00000000HLH-1NXW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 10:55:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96E1A600E1;
-	Sat, 25 Jul 2026 10:55:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5011F000E9;
-	Sat, 25 Jul 2026 10:55:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784976933;
-	bh=WT1zS4IkkV1ijgz/+8b1+SlrW2TMfyxdIz/8ijsRm9o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=KlaGZ0u89b/QfBpNORtzDvU5HO20q22lYAUfdROITHbWIIVEYFq41JJAg/dwm59ua
-	 0zq6n9bOHmyf96LTHgBgUE9EBo5BO4U/ANEZS3tiI5YO5mwKnaoF+UshdoJTbeVDO8
-	 /6+9v+rKz7Mc0jjUq6fwK0h0DZzAEQMFXBajsAzx5emPkEHPfLKQGMCK4S9eCVTm0X
-	 XotJ7/zYw+GNQ3U+lYzjVXR1VYNme0ZPi1W1q/eEW+EptzsNYFP2qmMFnYg727/loY
-	 /LHC9dhfRe1UYNLfNa6L/8v9ANjsg/onW+8G9LCfqIqiuMLnjq/M3NJGn0djhNQCvV
-	 CNBGuN3vyb8OQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wna2U-00000008ji7-3GYw;
-	Sat, 25 Jul 2026 10:55:30 +0000
-Date: Sat, 25 Jul 2026 11:56:54 +0100
-Message-ID: <87y0ezpcax.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"fuad.tabba@linux.dev"
-	<fuad.tabba@linux.dev>
-Subject: Re: [PATCH v4 08/48] KVM: arm64: gic-v5: Add VPE doorbell domain
-In-Reply-To: <20260724104819.1296803-9-sascha.bischoff@arm.com>
-References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-	<20260724104819.1296803-9-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, fuad.tabba@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sat, 25 Jul 2026 11:19:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1784978359; bh=nORByVcuztvWSuATQGRl/ZUN9+Z8frojPCDBSo1YEf0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BBmXOeQrrJSNckm6ef2MoIsNiyP0+iwbmFnUEGR142y7YL9Q91LU5lHhPJCkv5Oyf
+	 TOJkleY6jitLWgP/HqbtWuTZGwG7lfxiYb5TBPZykmwB2+sCPELV1/YcG/FEQ56lkF
+	 HlAqVvNeafJyZYwkRsvVSTY60+s3Tzp3xturx49A=
+From: =?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>
+To: linux-sunxi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org,
+	Ondrej Jirman <megi@xff.cz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Andrey Skvortsov <andrej.skvortzov@gmail.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support)
+Subject: [PATCH] arm64: dts: allwinner: sun50i-a64-pinephone: Fix mpu6050 mount matrix
+Date: Sat, 25 Jul 2026 13:19:07 +0200
+Message-ID: <20260725111909.2244868-1-megi@xff.cz>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260725_041925_821616_B8A5E68E 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,310 +69,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 11:50:28 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> VPE doorbells allow the GICv5 hardware to notify KVM when an SPI or LPI
-> can be signalled to a non-resident VPE. This provides the mechanism used
-> to wake blocked vcpus once the hardware determines that the interrupt is
-> eligible to be delivered.
-> 
-> Add support for a per-VM VPE doorbell irq domain. The domain is created
-> under the GICv5 LPI domain, with one doorbell allocated per VPE. Store
-> the allocated doorbell base in the VM's GICv5 state so that later
-> patches can request per-vcpu doorbell IRQs and use them for IRS
-> commands and wakeups.
-> 
-> Add the per-VPE doorbell state to the GICv5 CPU interface state. The
-> doorbell IRQ number is populated when the IRQs are requested, and the
-> db_fired state is used by later patches once doorbell delivery is wired
-> up.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-init.c    |  18 ++--
->  arch/arm64/kvm/vgic/vgic-v5.c      | 139 +++++++++++++++++++++++++++++
->  arch/arm64/kvm/vgic/vgic.h         |   1 +
->  include/kvm/arm_vgic.h             |   4 +
->  include/linux/irqchip/arm-gic-v5.h |   2 +
->  5 files changed, 158 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index 907057881b26a..625d352756fcf 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -492,16 +492,22 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
->  	dist->nr_spis = 0;
->  	dist->vgic_dist_base = VGIC_ADDR_UNDEF;
->  
-> -	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-> +	switch (dist->vgic_model) {
-> +	case KVM_DEV_TYPE_ARM_VGIC_V2:
-> +		dist->vgic_cpu_base = VGIC_ADDR_UNDEF;
-> +		break;
-> +	case KVM_DEV_TYPE_ARM_VGIC_V3:
->  		list_for_each_entry_safe(rdreg, next, &dist->rd_regions, list)
->  			vgic_v3_free_redist_region(kvm, rdreg);
->  		INIT_LIST_HEAD(&dist->rd_regions);
-> -	} else {
-> -		dist->vgic_cpu_base = VGIC_ADDR_UNDEF;
-> -	}
->  
-> -	if (vgic_supports_direct_irqs(kvm))
-> -		vgic_v4_teardown(kvm);
-> +		if (vgic_supports_direct_irqs(kvm))
-> +			vgic_v4_teardown(kvm);
-> +		break;
-> +	case KVM_DEV_TYPE_ARM_VGIC_V5:
-> +		vgic_v5_teardown(kvm);
-> +		break;
-> +	}
->  
->  	xa_destroy(&dist->lpi_xa);
->  }
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 3f7b132110114..ebd7c3ede975f 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -7,6 +7,7 @@
->  
->  #include <linux/bitops.h>
->  #include <linux/irqchip/arm-vgic-info.h>
-> +#include <linux/irqdomain.h>
->  
->  #include "vgic.h"
->  
-> @@ -152,6 +153,134 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  	return 0;
->  }
->  
-> +/*
-> + * This set of irq_chip functions is specific for doorbells.
-> + */
-> +static const struct irq_chip vgic_v5_db_irq_chip = {
-> +	.name = "GICv5-DB",
-> +	.irq_mask = irq_chip_mask_parent,
-> +	.irq_unmask = irq_chip_unmask_parent,
-> +	.irq_eoi = irq_chip_eoi_parent,
-> +	.irq_set_affinity = irq_chip_set_affinity_parent,
-> +	.irq_get_irqchip_state = irq_chip_get_parent_state,
-> +	.irq_set_irqchip_state = irq_chip_set_parent_state,
-> +	.flags = IRQCHIP_SET_TYPE_MASKED | IRQCHIP_SKIP_SET_WAKE |
-> +		 IRQCHIP_MASK_ON_SUSPEND,
-> +};
-> +
-> +static void vgic_v5_irq_db_domain_free(struct irq_domain *domain,
-> +				       unsigned int virq, unsigned int nr_irqs)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < nr_irqs; i++) {
-> +		struct irq_data *d = irq_domain_get_irq_data(domain, virq + i);
-> +
-> +		irq_set_handler(virq + i, NULL);
-> +		irq_domain_reset_irq_data(d);
-> +	}
-> +
-> +	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
-> +}
-> +
-> +static int vgic_v5_irq_db_domain_alloc(struct irq_domain *domain,
-> +				       unsigned int virq, unsigned int nr_irqs,
-> +				       void *arg)
-> +{
-> +	const struct irq_chip *chip = &vgic_v5_db_irq_chip;
-> +	struct vgic_v5_vm *vm = arg;
-> +	struct irq_data *irqd;
-> +	int ret;
-> +
-> +	if (!vm) {
-> +		kvm_err("invalid parameter for doorbell irq allocation\n");
-> +		return -EINVAL;
-> +	}
+From: Ondrej Jirman <megi@xff.cz>
 
-How can this happen?
+The current mount matrix for mpu6050 is wrong. The mount matrix is a
+simple transform from the sensor coordinate space to the device
+coordinate space described in DT, where, looking at the screen, X
+points to the right, Y to the top, and Z towards the user.
 
-> +
-> +	ret = irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, NULL);
-> +	if (ret)
-> +		return ret;
-> +
-> +	for (int i = 0; i < nr_irqs; i++) {
-> +		irq_domain_set_hwirq_and_chip(domain, virq + i, i, chip,
-> +					      domain->host_data);
-> +		irqd = irq_desc_get_irq_data(irq_to_desc(virq + i));
-> +		irqd_set_single_target(irqd);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct irq_domain_ops vgic_v5_irq_db_domain_ops = {
-> +	.alloc = vgic_v5_irq_db_domain_alloc,
-> +	.free = vgic_v5_irq_db_domain_free,
-> +};
-> +
-> +static int vgic_v5_create_per_vm_domain(struct kvm *kvm)
-> +{
-> +	struct vgic_v5_vm *vm = &kvm->arch.vgic.gicv5_vm;
-> +	int nr_vcpus = atomic_read(&kvm->online_vcpus);
-> +	int id = task_pid_nr(current);
-> +	int ret, db_virq = 0;
-> +
-> +	if (!gicv5_global_data.lpi_domain) {
-> +		kvm_err("LPI domain uninitialized, can't set up KVM Doorbells\n");
-> +		return -ENODEV;
-> +	}
+The mpu6050 is mounted like this (looking at the screen from the
+front; the sensor is on the near side of the PCB, so its Z axis
+points towards the user; o marks the pin 1 corner):
 
-Surely we should fail KVM's initialisation if we don't have the LPI
-domain, rather than checking this at the point of creating the
-doorbells. I can't imagine how we'd run on GICv5 without LPIs
-anyway...
+           +Xs
+            ^
+            |
+         +------+
+  +Ys <--|      |
+         | o    |
+         +------+
 
-> +
-> +	vm->fwnode = irq_domain_alloc_named_id_fwnode("GICv5-vpe-db", id);
-> +	if (!vm->fwnode)
-> +		return -ENOMEM;
-> +
-> +	/*
-> +	 * KVM per-VM VPE DB domain; child of LPI domain; only ever handles
-> +	 * doorbells. We know how many doorbells we have, and therefore we
-> +	 * create a linear domain.
+so this gives:
 
-The linear domain thing is an irqdomain implementation detail. We
-don't need to capture this here.
+  Xd = -Ys  [0, -1, 0]
+  Yd =  Xs  [1, 0, 0]
+  Zd =  Zs  [0, 0, 1]
 
-> +	 */
-> +	vm->domain = irq_domain_create_hierarchy(gicv5_global_data.lpi_domain,
-> +						 0, nr_vcpus, vm->fwnode,
-> +						 &vgic_v5_irq_db_domain_ops, vm);
-> +	if (!vm->domain) {
-> +		ret = -ENOMEM;
-> +		goto err;
-> +	}
-> +
-> +	db_virq = irq_domain_alloc_irqs(vm->domain, nr_vcpus, NUMA_NO_NODE, vm);
-> +	if (db_virq <= 0) {
-> +		ret = db_virq;
-> +		goto err;
-> +	}
-> +
-> +	kvm->arch.vgic.gicv5_vm.vpe_db_base = db_virq;
-> +
-> +	return 0;
-> +
-> +err:
-> +	if (db_virq > 0)
-> +		irq_domain_free_irqs(db_virq, nr_vcpus);
-> +	if (vm->domain)
-> +		irq_domain_remove(vm->domain);
-> +	if (vm->fwnode)
-> +		irq_domain_free_fwnode(vm->fwnode);
-> +
-> +	kvm->arch.vgic.gicv5_vm.vpe_db_base = 0;
-> +	vm->domain = NULL;
-> +	vm->fwnode = NULL;
-> +
-> +	return ret;
-> +}
-> +
-> +static void vgic_v5_teardown_per_vm_domain(struct vgic_v5_vm *vm)
-> +{
-> +	if (!vm->domain)
-> +		return;
-> +
-> +	irq_domain_remove(vm->domain);
-> +	irq_domain_free_fwnode(vm->fwnode);
-> +	vm->domain = NULL;
-> +	vm->fwnode = NULL;
-> +}
-> +
->  void vgic_v5_reset(struct kvm_vcpu *vcpu)
->  {
->  	/*
-> @@ -167,10 +296,16 @@ void vgic_v5_reset(struct kvm_vcpu *vcpu)
->  	vcpu->arch.vgic_cpu.num_pri_bits = 5;
->  }
->  
-> +void vgic_v5_teardown(struct kvm *kvm)
-> +{
-> +	vgic_v5_teardown_per_vm_domain(&kvm->arch.vgic.gicv5_vm);
-> +}
+Fixes: 2496b2aaacf1 ("arm64: dts: allwinner: pinephone: Add mount matrix to accelerometer")
+Signed-off-by: Ondrej Jirman <megi@xff.cz>
+---
+ arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Since this is a global symbol, I'd like to make sure this is never
-called concurrently with anything related. Could you please add
-
-	lockdep_assert_held(&kvm->arch.config_lock);
-
-here?
-
-> +
->  int vgic_v5_init(struct kvm *kvm)
->  {
->  	struct kvm_vcpu *vcpu;
->  	unsigned long idx;
-> +	int ret;
-
-and here?
-
->  
->  	if (vgic_initialized(kvm))
->  		return 0;
-> @@ -182,6 +317,10 @@ int vgic_v5_init(struct kvm *kvm)
->  		}
->  	}
->  
-> +	ret = vgic_v5_create_per_vm_domain(kvm);
-> +	if (ret)
-> +		return ret;
-> +
->  	/* We only allow userspace to drive the SW_PPI, if it is implemented. */
->  	bitmap_zero(kvm->arch.vgic.gicv5_vm.userspace_ppis,
->  		    VGIC_V5_NR_PRIVATE_IRQS);
-> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-> index f45f7e3ec4d6e..f2f5fdc3211d7 100644
-> --- a/arch/arm64/kvm/vgic/vgic.h
-> +++ b/arch/arm64/kvm/vgic/vgic.h
-> @@ -366,6 +366,7 @@ void vgic_debug_destroy(struct kvm *kvm);
->  int vgic_v5_probe(const struct gic_kvm_info *info);
->  void vgic_v5_reset(struct kvm_vcpu *vcpu);
->  int vgic_v5_init(struct kvm *kvm);
-> +void vgic_v5_teardown(struct kvm *kvm);
->  int vgic_v5_map_resources(struct kvm *kvm);
->  void vgic_v5_set_ppi_ops(struct kvm_vcpu *vcpu, u32 vintid);
->  bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu);
-> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-> index 8d65a18fefb80..bff2b7c896d55 100644
-> --- a/include/kvm/arm_vgic.h
-> +++ b/include/kvm/arm_vgic.h
-> @@ -392,6 +392,10 @@ struct vgic_v5_vm {
->  	 * convenient way to do that).
->  	 */
->  	DECLARE_BITMAP(vgic_ppi_hmr, VGIC_V5_NR_PRIVATE_IRQS);
-> +
-> +	struct fwnode_handle	*fwnode;
-> +	struct irq_domain	*domain;
-> +	int			vpe_db_base;
->  };
->  
->  struct vgic_dist {
-> diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-> index 83cfcd056b250..21c8a69f99bb6 100644
-> --- a/include/linux/irqchip/arm-gic-v5.h
-> +++ b/include/linux/irqchip/arm-gic-v5.h
-> @@ -613,6 +613,8 @@ void gicv5_irs_syncr(void);
->  
->  /* Embedded in kvm.arch */
->  struct gicv5_vpe {
-> +	int			db;
-> +	bool			db_fired;
->  	bool			resident;
->  };
-
-Thanks,
-
-	M.
-
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+index 4bc6c1ef2cde..f958bdbb0d33 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
+@@ -230,8 +230,8 @@ accelerometer@68 {
+ 		interrupts = <7 5 IRQ_TYPE_EDGE_RISING>; /* PH5 */
+ 		vdd-supply = <&reg_dldo1>;
+ 		vddio-supply = <&reg_dldo1>;
+-		mount-matrix = "0", "1", "0",
+-			       "-1", "0", "0",
++		mount-matrix = "0", "-1", "0",
++			       "1", "0", "0",
+ 			       "0", "0", "1";
+ 	};
+ };
 -- 
-Jazz isn't dead. It just smells funny.
+2.54.0
+
 
