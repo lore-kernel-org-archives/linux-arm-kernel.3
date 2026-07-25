@@ -4,110 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B59C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 08:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68A2C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 08:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=; b=UVc8+5roN60RTAlN5+9pmh7Ded
-	tDpmMRFeDV9HhaOpgv5YCuqkFw/dVRlBQeNFkhvSLr0eqrRekq2XulrTgs8vtcK2LUx8TdZ2vhoFI
-	vZ3G2Y6jHGZUJ7pJwf6wi5aRhtMbcbfAZZ79pVkPuPrACBjsZx57tWRw1E3dFvkvc7jwdm08nyJKT
-	/aGb5TGk65YaPb0kKCPP5mdeN6VTkk/vKUJBfWa+fe3NycWZ5Dqm5yOo5azLbLSf1qX3MPAk1fbbT
-	qv+2Xv3hWlzTKENTbwnJLQPDgZUzSRKvUyvsgodRgBB3DerX2V7ruRsTv4SsOvKx0WfsvIEPCrRXd
-	QLvJeydg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oZvKr7FLkhOhBgNOH72CVbm/jH3qBF7NMfB100gIgnA=; b=d//gNf723jv7apKfixeHOBJlLc
+	m0v8jQ8k7yKYBnoY1p3xkdYavbbkIKb6mZ53LgBT1sfHlS80cjo56cACT3ECvlCxWp8WkK/mB+PWi
+	S7BA3+6lsi+CBSq9sCtNXVZLNJ2FVl50S2yYoYK/g5rB5DW46o8aqgMcswZoM8Ff7SckOVElCVdcj
+	QCCXOwQ4whQeOZbiQM6CvedEVmw8O5/gz+7US5rpYVw4kPPS3Q0I013VSduspVuquVSLT2VuQQry3
+	EUYZONrRi0cLlOAM/nUs5+8P2QgaswBhq51k1NPXvebRTfZNlaZc8YuH8ZQ6dfjYSP8BzMOikSZiy
+	IfrjOaZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnXJW-00000000AHU-0IBQ;
-	Sat, 25 Jul 2026 08:00:54 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1wnY56-00000000BjT-0Y4u;
+	Sat, 25 Jul 2026 08:50:04 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnXJT-00000000AGq-2YWx
+	id 1wnY53-00000000Bie-0yqY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 08:00:53 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-92ea24a2dbfso112056285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 01:00:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784966449; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b+MitLIwZVFfn894eFqOYtFI1kr+cZnaY4NI78zd9ranbh8HLd1RUYFMeQRgu1kbFn
-         XRq9brQkxo7qm6x9LfMfMWHIhkIGQUKZNTs+rGO0UYCUldi6ZVHXu+7rzkM/EO9Jg3H8
-         jlzLVbfEu2PPdA2FFv+zhK4foeWVqNbF0ncZse7ib2zpzZ6+LkJUMPMS4UM0vj130Yc9
-         gf5P680kdlqSflYAuwLZhGs65OG/2LRN6WDcWqi/QGawD5EOTnr3EXWs0aBSyitR6q+m
-         h+7Zxt7RlmURR6WhfTgyjTra6ow9CMVsSl6aMeR6/BXuykwwocpenI2zvVBwxoU5taPB
-         0dgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=;
-        fh=Q8maQt43ix+kexQDZxXnqFpjjhFFvlnju5ulqgRm7oQ=;
-        b=c+vwBRQDam89yg9f9/pXIteZ2+D5hp8AX2Hyq7dOaYN7b2/3E3IyjVG13jloDKzuR+
-         tua9GNxLTt4Yx8N24ll1LkcvMuM+JQMdGITLxDYO32Zxa8fgH1v0z7fjmVQTGipStAEA
-         5Y9lFlVZMTICfVzBM75jII1GyOLgaARRLIS8k3dUzP7UHC6ua+3OaMS04bPAHe1slTAp
-         TNuX5p82ujfpc/cpl+Zh+THhseCn+Ztl8o5sc/ydxFJ89EVwHcMcTOL+x7uF3WsjKWZO
-         Zb6IFftKBn4as4B7HK+DtCO/rqJjobd7A7Wvl466mo5zIu0Z4A0+3e80v4uSMPM6dKn2
-         p2og==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784966449; x=1785571249; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=;
-        b=X+7+yY+qxrClaKL2w3R7lmE9XGCpRfge4Ut/wDDgzZxuYcaZwQEd1iT83E4HxLetk0
-         FlvKGDPhxZWRmHSyr0t7LZgzQ+zh4sBrfo3CXiTg0oJoqgZJGe1LD/ZfOh2qAab7zft4
-         rY24PRQqSJpCEgnyKMgfWypQnUh0AhErGhF3eL+Cd5jWl8dfEwP6QdAkfAMjTsPVjm6U
-         sCRS5DxtaYVfdUxBm4tyaQ34FXVB34T1LFtSVld2moMlf9QCtFhSEyVyV9zxy6jjLPBI
-         g9w3AOppW+dG6Fmw0r81EII2bqOc9MwxoMUdtMSVDpcsrlGiBMvTxug8HmN1RhBnjR9l
-         ITYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784966449; x=1785571249;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=13z8xjIigSLm4fcji9bQpCPHK39sYQC+iiIlSwrcSfw=;
-        b=Vb35Z7ySrfEGx3hF/utQ16IIPnKJE4DHIDAuL2PzBg6JHR8S8XCWlxSxlT8YonVPEo
-         wNK8JMqB2CYxiTcAFJiv3e+HpWsrVEiRshicTsNTvGl4pERUBmHCri/hbvgulAOPBWoF
-         rLnSGK2RTAX/lDPu4sOTJhisVNa7fkKZQwtjGdwlUfwLolYbE0e3Ngyhf3XDOqWCO5/Y
-         JbA1p5WrJjqgZ2gLdi77kGIL3fmTdS8Z51ch2SJEMiiRRklE0eVHv5egbJOQuCBtMume
-         OUDi+JrpMrsMoyxZgKVE9z3/uStYVS2XWEOsyFwaend/h+6lahc99lZrMdKTzD0bt7qY
-         eUhw==
-X-Forwarded-Encrypted: i=1; AHgh+RrByEZHGdYP/pUBEtst4cnxutB7YtfBYcZt1RWcE5qJJlWx+qhyBKNFmGs3vvkQo8zJ+elth6a3jImkkxg14KGa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaWLlmvbILudryaI5Jkbz944XS5L//jGCa/3s39qjjXI3wZoLO
-	HyHeka2sGLgrB3gSfISDqXzG3ER+NBmNf55oBKwU5ICZY4Kh9OiRV+srkRkFif3JpPvbddzP8TA
-	yWktqc4GvjxQHO7fMZdIVhAFZ6gCHmnQ=
-X-Gm-Gg: AR+sD135cnxA2RmWbLp3u5poxZNn8juzdOaWdcocXAkL7HxUiKUlaQgA88ATfJ6dR3G
-	OjfzQNe2pacIoxkEd5t49KkNfAgfxbIuHxOnkrVtaZATiZulbfttuV0+iiUbuAgzSK42sIsMpUK
-	d73iV/pm5h3aTdRdygEZccBC1CbOBlVkWj50+P5kNg0axSYU3s7vm0+qBkMDqSBmWOWYZ0TdX76
-	MFqbZSbPGn2qqiwCH9P8jJ6RXQDvW6+nw7W8Wkxt1xboBp0hbIBk0zNSSn71ldl7mAKneguf21G
-	fddQF56U4APYMmCDTOGU31Dpn32FBGqtjLCa82A50WJFq4tiLHyFhaNrQy2p6SU=
-X-Received: by 2002:a05:620a:2681:b0:930:dd19:11ba with SMTP id
- af79cd13be357-932df6f0f30mr100360085a.92.1784966449572; Sat, 25 Jul 2026
- 01:00:49 -0700 (PDT)
+	Sat, 25 Jul 2026 08:50:02 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 8B99E7A02C2;
+	Sat, 25 Jul 2026 04:49:57 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Sat, 25 Jul 2026 04:49:57 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1784969397;
+	 x=1785055797; bh=oZvKr7FLkhOhBgNOH72CVbm/jH3qBF7NMfB100gIgnA=; b=
+	GvsutnXHf0alKXU5SLmPM3Zp9Z7FixNQMkMNKPHk0x4EjPoOsS1G29+9e1fzO9h7
+	kYpTXbKeTqLeEJ57rpsvSnzRBS64Y9zjzKMU4WXLPxYgc2Bk5zBl1xzAGFqVP2wx
+	LDRGgPC4wX926l5Fxu2/sbkK9c+SUWANlKEQlNufIj42JTsqJy0YP2uNthRIpV62
+	PHLynbyIzmJySMIUpeN1AxzlZ4e2dihWzDh5pVxFfafRrSsIaKiL4KM6phblb8dB
+	H/EZDnNA4GjHKCVU/iLTaDXvhuycmJ9X2f1D2fJn+CiahbQaG5c2PUGF6H43z5mW
+	Kiv3BG3RR5f34TJRmB5Nzw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784969397; x=
+	1785055797; bh=oZvKr7FLkhOhBgNOH72CVbm/jH3qBF7NMfB100gIgnA=; b=k
+	vGmOwiowLxQ/esJdVN1Y7mmnedMNsKZLPdgRb1KO7awqy2Kv84DDCzBfhNlHKgkn
+	uCP0x1ne3HfK2/uWMQ2NbD6l6zy1qlSle+1jqQpxpOYdaSwTZAeeIC2sJ77JlqpC
+	9MFQOjuGKIA9aHxsndaJ0T43ZoYL4nXAaAIW3onZUJ2rSEk1VLKzvze3d6wlkh3u
+	3Gpb7eLiJzWMM1zk/jKHHKmmYEI34NGZi6avNhSmmlZ2S7pQ4OPlijaocKHYiVYx
+	7+v4vHY7poue76+1OkbPA0g6L1E4oM8pBOgTIYIUVeEeb1RuU19DTfD1D7XnG4H4
+	5TElJZilJIw3fXIxWmnLg==
+X-ME-Sender: <xms:tHhkahhuneILHaX3D27yQ2JNVIM3Bg30ml6x_EQxKquc2_SOXlNT1w>
+    <xme:tHhkag1EoBdSKiKKzQXk1snmJEZrJ1Qgopj7e28hc2lBk46FLPmCdR85F444MTtCA
+    SRVS_Jr6-nGt9zAl1WXhtBIV4qWOo27YiV0mZIHoRCjNQAhLFJ87YY>
+X-ME-Proxy-Cause: dmFkZTGATJJ1PHJvWCleipM647oxJa7LJTW39Tau0un9OLsIXjku8Zj7+T9xw+Qoh9GTEe
+    DVRBx1VJIubVJN4JYBzqAixtlb+HZ49aWJt2iehzsmgv7oysWMhE3FDW6lXu9Sle+1Elw2
+    FNXkf2uxQA2sfUrWk8/+Cugco4O6goRIK1q9ivHvVG2gduv49XY3PqU+3QmiysWM9e3BjN
+    6esaS3kQWIbIhVOOi91t8yI1RlQePW+J9UOWUHCbl1n1eZH1l+oOAUcS5/4Aiw/9MYuWd4
+    nfCPSJojf9R/0aVfiZR3QcTQ2E4iYdAtUILMgo44mGcJg4F849soa/1wntBiqUU7+DztBl
+    2WIw7xDSEpBloY16+7fQ0zpzXKW8P4eERMAwmuOPFTmck5HuioQVj18tuKZagKsz52urv9
+    Sv1o5eKx8a6TDIMjji4VE57QoDONKcS7yffUUgRwMqbv3EcQmezq49GukmeM0yXIg7pOmi
+    PodhEk4+Y8hXHIcMxEwe8SqQZgDBc2kDLBQYq9mKpNCZYouuMUPBg5pBaA3+7m6Z+D1wX/
+    tctbNwxbZUw/1zeg1a9ypS0eimnwV3moI1XWFeYwConJ/0j4aBu4OEusoRBucJ3xvHrsih
+    xoZCpdwo3Mbs/KcLhArILHtEUnkM/eZI9wmwXdFLl8v8igKS5rTqToccKLog
+X-ME-Proxy: <xmx:tHhkagtFkxK7Z6lxWV_Uq8pUjsEZIe2iVaJYWtQkM7Nm39TJAVUD6A>
+    <xmx:tHhkamah3GxMPE2b1hi0voaU6H06o9aK4AyPo8Fb41sK6G8ginfMow>
+    <xmx:tHhkanWkMyfrQn8yipVw650ifMUrWHK26ymqKYn5oFjGXrW8gAEIyg>
+    <xmx:tHhkajRlCyA0IgeOOt6qSgczLzqEz6mdyCJp2AA6J8JQE38cp02IyA>
+    <xmx:tXhkaqHvf6Skj5n4LX7BuSjAS5GwTPQuQiQ7RjaUSvOyPGwYUATMXQFg>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id C53AE182007E; Sat, 25 Jul 2026 04:49:56 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260724111548.2109-1-tharitt97@gmail.com> <amOO86K_3wuTd_92@lizhi-Precision-Tower-5810>
-In-Reply-To: <amOO86K_3wuTd_92@lizhi-Precision-Tower-5810>
-From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Date: Sat, 25 Jul 2026 15:00:37 +0700
-X-Gm-Features: AUfX_mzCV0IN9fI_10kkKdi3HsilTau4VYjXeApWLMbv2AYQ88l9nYF0tHwG8Pk
-Message-ID: <CACak8wNJsmVKm3m+JwYPSxqfa26MVFRo3jE3YrppJPi5SBBAUg@mail.gmail.com>
-Subject: Re: [PATCH] media: hantro: release runtime resources when device_run fails
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Hans Verkuil <hverkuil@kernel.org>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
-	me@brighamcampbell.com, jkoolstra@xs4all.nl
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: A4FDpBWSXDKo
+Date: Sat, 25 Jul 2026 10:48:36 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Kevin Cernekee" <cernekee@gmail.com>,
+ "Gregory Fong" <gregory.0xf0@gmail.com>
+Message-Id: <95c01af4-1702-4e3f-b2b6-ed6149b9c886@app.fastmail.com>
+In-Reply-To: <amPhVKnTgESQQp7w@gmail.com>
+References: <20260724174748.65958-1-kmehltretter@gmail.com>
+ <0d6dbd8f-c5c5-49d2-b36e-3cdd404eb55b@app.fastmail.com>
+ <amPhVKnTgESQQp7w@gmail.com>
+Subject: Re: [PATCH v2] ARM: set !LPAE MAX_PHYSMEM_BITS to 32 and remove IO_36
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_010051_666202_AA277C76 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260725_015001_349615_2D702260 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,18 +112,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Mix use runtime pm and clock is not good.
+On Sat, Jul 25, 2026, at 00:06, Karl Mehltretter wrote:
+> On Fri, Jul 24, 2026 at 08:31:35PM +0100, Arnd Bergmann wrote:
+>> 
+>> I'm not sure why you remove remap_area_supersections() but keep
+>> create_36bit_mapping(). I would just remove that as well.
 >
-> You can put clk_bulk_enable() into runtime pm resume call back
-> and clk_bulk_disable() into runtime pm suspend call back.
+> Sorry, my earlier explanation was confusing. create_36bit_mapping() is
+> not totally unreachable after this patch. The ARM EFI path can reach it
+> through:
 >
-> Frank
+>     efi_create_mapping()
+>       -> create_mapping_late()
+>       -> create_36bit_mapping()
+>
+> I verified this with a modified EDK2 build under QEMU that advertised an
+> aligned, write-back EFI runtime memory descriptor above 4 GiB. The
+> kernel successfully created the mapping and enabled EFI runtime
+> services.
+>
+> Admittedly, this is a synthetic configuration. Stock ARM32 EDK2
+> restricts allocations to below 4 GiB, and I believe the AArch32 UEFI
+> specification requires RAM in the UEFI memory map to be identity-mapped
+> during boot services. The test setup is therefore probably not a
+> conforming real-world firmware configuration.
 
-Hi Frank,
+Ok, I see. I can't think of any scenario where this would do
+us any good to have an EFI runtime mapping for high memory
+when it can't be accessed by the kernel later. Anyone running
+Linux on an arm32 system with more than 4GB of physical
+addressing is already using an LPAE kernel and won't be
+missing it.
 
-Thanks for the suggestion. I will inspect the hantro pm_runtime call
-sites and let me implement your suggestion into v3.
+Please just remove this as well.
 
-Best,
-Tharit
+     Arnd
 
