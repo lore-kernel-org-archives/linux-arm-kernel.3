@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29352C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 15:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9CFC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 15:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aurhGwZBtBlsxKOKCfqWZVexhQ9NLkHWaOYsLZ76OpY=; b=q219sFoNHLSR/CFImsrHGFUd6u
-	OuMhDJEFwVMaYLWxcQOBI+T8oYI0AXIGr9FWqJlONZWeG38i1cWx3lvQnrRZdKDlxuLVs2LIUQ0Pf
-	RlN5awES71ee1W3wJCDq6R8N9A9hb2xiI/SetXSbBVNpO5b/4DFYPaObLNy91TGq2PafAEYdqmHVl
-	PgMIXaTd/LTFDlFa18+aGa2HQoP3j1WLNZlL8f8N4IzJHAcdYTtHciHlRgJvVNjyjkLxWYaTr5+qp
-	mGogpYoyvE8TbsnF4w/0FcQzmOKwGYPueciXBUsTrgd02hY9EDWRbcvNk3sec9GYjZnwvtc2UPXJW
-	XbCPhegg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qsGh62njhoKlewROetP2PvNKUr3a3BT6K5c3XMORfWc=; b=Dz0beOkKCeyR33zhHOlOx7HXyr
+	obUqGRY1HD5rbbfzJ3QwVm0zYSJStlxoBtiT65NoMYom5Kgq0aylrzKNMb3ngooBuJF+d0JtjCHxJ
+	3EElNILQZ0l5XScP6kStG4oWm4wBq6FVBZRx+veyjjMFZPNPSHKvWyPREaHdOXV/q/W/5RZ9vNOXM
+	hKHa034in/uZMaevS4iA36sMk8xxRiabnXLSsS+PhcDuiq/PVmucFIpayl83SMGbrc+gVzSpXm7N8
+	vkFOiBE/+PSsCkEStiK3PJEltGOEoFgveINLQBe8rEj/jQkMBOqSbPP+HWBO5YisO/Anlt6Si31fy
+	OFbF1xow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnd8s-00000000QYE-2ZP6;
-	Sat, 25 Jul 2026 14:14:18 +0000
-Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	id 1wneFB-00000000U2J-0wFq;
+	Sat, 25 Jul 2026 15:24:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnd8p-00000000QWj-1ez5
+	id 1wneFA-00000000U2A-1eGF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 14:14:16 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1784988826;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aurhGwZBtBlsxKOKCfqWZVexhQ9NLkHWaOYsLZ76OpY=;
-	b=da3/HJr1HSGbmZyx2j9hWWmH/1NxbPWVXq53bqxfd0z44gcBfNWmUIIA6poL2n64I8AuhQ
-	uRHFtQfiyIIfxu8b/wyNuRkBxvQN3BM0BJfvHvei1IPRL4KeXvslOUP9ZiE66TA+Otldtv
-	hRIQf1bPl6eVm6eCP6JLYkI4iPPpCAG4g1JCSP9zKpHY0ubdI06qGvyfrPkGNyIR5aDcBu
-	nCjm1OdSU9fHObwgOmGP+BVHPMGnGxKbOyZygf/C3kQjZ1gSMQCRPRuew+tMnCp2EHx4cY
-	fTuUI51v5ibUUcc94fhxhBG8aXJlReALfZbHTprdNh640ubIcPrefCADtSLD0g==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 25 Jul 2026 16:13:20 +0200
-Message-Id: <DK7PPYNCUU5F.31BXH4215WDKI@cknow-tech.com>
-To: "Dawid Olesinski" <dawidro@gmail.com>, =?utf-8?q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>
-Cc: "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Herbert Xu"
- <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Corentin
- Labbe" <clabbe@baylibre.com>, <linux-crypto@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 3/4] arm64: dts: rockchip: Add crypto node to
- rk356x-base
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-References: <20260708175837.1718437-1-dawidro@gmail.com>
- <20260708175837.1718437-4-dawidro@gmail.com> <ak7jEYTAGgeDdi1W@venus>
- <4011768.FjKLVJYuhi@diego> <20260710153012.0a840512@enyo>
-In-Reply-To: <20260710153012.0a840512@enyo>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_071415_574825_86891135 
-X-CRM114-Status: GOOD (  24.98  )
+	Sat, 25 Jul 2026 15:24:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC2C64048E;
+	Sat, 25 Jul 2026 15:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF6BC1F000E9;
+	Sat, 25 Jul 2026 15:24:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784993091;
+	bh=qsGh62njhoKlewROetP2PvNKUr3a3BT6K5c3XMORfWc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OQufEFheAC7SqbrvLG1R2l/zb+kY0GUNTGO8s949cIv/7E8ADyC8Vnzmj/t1bdn6Y
+	 GKOI8WWejexTVkqWZ7RTJ0BmO223lS8IZulq/V3FxF0M/M4ueUO9Ln+2b3Qe3XsU2F
+	 COGEOTEDoHT30+or0iqq78vwXC7nSKILbXTz580sG/3tTlSrrzSl/MBoNQA0/GUk4Z
+	 LWpKiYMiEHXfMluV5W9ArtFhW4K30DwwhNhrnyylAHvZNtMQ4fM96H6qDFgveuEUDP
+	 ncjrWvDO4r1/Vudpz6Vx1u2yYzoX778fO2kV+ysbV4A0hjkimiZPprpw3mcm0/zo91
+	 3MoMVGH5G4DmQ==
+Date: Sat, 25 Jul 2026 17:24:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+Cc: peter.ujfalusi@gmail.com, vkoul@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org, 
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, vigneshr@ti.com, Frank.li@nxp.com, r-sharma3@ti.com, 
+	gehariprasath@ti.com
+Subject: Re: [PATCH v7 13/19] dt-bindings: dma: ti: Add K3 BCDMA V2
+Message-ID: <20260725-acoustic-orchid-tiger-a6be5f@quoll>
+References: <20260724102115.2854-1-s-adivi@ti.com>
+ <20260724102115.2854-14-s-adivi@ti.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260724102115.2854-14-s-adivi@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,88 +72,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jul 10, 2026 at 4:30 PM CEST, Dawid Olesinski wrote:
-> On Thu, 09 Jul 2026 09:07:23 +0200
-> Heiko St=C3=BCbner <heiko@sntech.de> wrote:
->
->> Am Donnerstag, 9. Juli 2026, 01:56:10 Mitteleurop=C3=A4ische Sommerzeit
->> schrieb Sebastian Reichel:
->> > Hi,
->> >=20
->> > On Wed, Jul 08, 2026 at 06:58:24PM +0100, Dawid Olesinski wrote: =20
->> > > Add the device tree node for the V2 cryptographic hardware
->> > > accelerator on RK356x SoCs (RK3566, RK3568).
->> > >=20
->> > > The IP block sits in the non-secure peripheral domain. Its three
->> > > clocks (core, aclk, hclk) and reset line are accessible directly
->> > > through the main non-secure CRU, so no firmware intermediary is
->> > > required.
->> > >=20
->> > > The node is disabled by default; board files that wish to use
->> > > hardware crypto offload must enable it. =20
->> >=20
->> > Why is it disabled by default? It doesn't seem to be board specific
->> > at all to me (the same question applies to the RK3588 DT). =20
->>=20
->> You're definitly right about that ... there are no board specific
->> resources needed, so Dawid please drop the status from both nodes.
->>=20
->
-> I'll drop the `status =3D "disabled";`=20
-> lines from both the RK356x and RK3588 device trees in v3.
+On Fri, Jul 24, 2026 at 03:50:46PM +0530, Sai Sree Kartheek Adivi wrote:
+> +  "#dma-cells":
+> +    const: 4
+> +    description: |
+> +      cell 1: Trigger type for the channel
+> +        0 - disable / no trigger
+> +        1 - internal channel event
+> +        2 - external signal
+> +        3 - timer manager event
+> +
+> +      cell 2: parameter for the trigger:
+> +        if cell 1 is 0 (disable / no trigger):
+> +          Unused, ignored
+> +        if cell 1 is 1 (internal channel event):
+> +          channel number whose TR event should trigger the current channel.
+> +        if cell 1 is 2 or 3 (external signal or timer manager event):
+> +          index of global interfaces that come into the DMA.
+> +
+> +          Please refer to the device documentation for global interface indexes.
+> +
+> +      cell 3: Channel ID for the peripheral
+> +        This is the mapped_channel_id assigned to the peripheral in the PSI-L
+> +        endpoint map. For XYMF peripherals (SPI, CRC32) each chip-select/FIFO
+> +        has a distinct channel ID; use the channel ID for the specific
+> +        direction and chip-select being requested. Use 0 for triggered
+> +        block-copy channels (cell 1 != 0).
+> +
+> +        Please refer to the device documentation for the channel map.
+> +
+> +      cell 4: ASEL value for the channel
+> +
+> +  interrupts:
+> +    minItems: 75
 
-That also means you can drop the label/phandle as there's no longer a need
-to reference it in board files.
+You can drop this
 
-Cheers,
-  Diederik
+> +    maxItems: 75
+> +    description:
+> +      Interrupts for DMA channels.
+> +
+> +  interrupt-names:
+> +    minItems: 75
 
-> Thanks for the review!
->
-> Dawid
->
->> > >=20
->> > > Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
->> > > ---
->> > >  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 12 ++++++++++++
->> > >  1 file changed, 12 insertions(+)
->> > >=20
->> > > diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
->> > > b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi index
->> > > a5832895bd39..9de7e7487ca1 100644 ---
->> > > a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi +++
->> > > b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi @@ -1112,6
->> > > +1112,18 @@ sdhci: mmc@fe310000 { status =3D "disabled";
->> > >  	};
->> > > =20
->> > > +	crypto: crypto@fe380000 {
->> > > +		compatible =3D "rockchip,rk3568-crypto";
->> > > +		reg =3D <0x0 0xfe380000 0x0 0x2000>;
->> > > +		interrupts =3D <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
->> > > +		clocks =3D <&cru CLK_CRYPTO_NS_CORE>, <&cru
->> > > ACLK_CRYPTO_NS>,
->> > > +			 <&cru HCLK_CRYPTO_NS>;
->> > > +		clock-names =3D "core", "aclk", "hclk";
->> > > +		resets =3D <&cru SRST_CRYPTO_NS_CORE>;
->> > > +		reset-names =3D "core";
->> > > +		status =3D "disabled";
->> > > +	};
->> > > +
->> > >  	/*
->> > >  	 * Testing showed that the HWRNG found in RK3566
->> > > produces unacceptably
->> > >  	 * low quality of random data, so the HWRNG isn't
->> > > enabled for all RK356x =20
->> >  =20
->>=20
->>=20
->>=20
->>=20
->
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+And this as well, implied by maxItems.
+
+With these:
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
 
