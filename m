@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73C7C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 15:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D5DC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 15:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DoGEFV9W8VcfITu4HQVE0hQUFylWMzhgH6YtxdV5TFY=; b=MdKZ1MuS/x0IW0alvSa/EKmJhA
-	2SP4poKHyXostExMIv3aJWsHkDOU1/Wai4ry7KIj5AY00JTOKR3rqc2GTrxEuvIEtLdSgkHqrX83l
-	JwDj1cfOw1TQL4kdHLZMVyRdKDHj2W7Bu0UbPG6/1UFkkUjAlAL5a0BxfRrFbqIvXrkt1LlZ8ha+t
-	bqSOw1u2jhqCKsXBR5/OHuWAdqMjSoqPrHjAswgs5QEROfV37yrzXS0atB8lcdKLKfrMdFmR8Wvvd
-	je5N5U2Yrc5J5e+OoyvPe6/ual3H0Fsek5PTqeoqITTWV8fmJxkbNGWCTLUYRFj1Jypd32O4d4Vi4
-	W0EhRZ/Q==;
+	bh=ij4llYX0IY1/Z2saSrJWqE8S/DUJX8rjYqL/9Jp3mvg=; b=z0xnfYc76LZ+vadctzhMfMJD97
+	FHVG9ffy+L3vyF/V6c/U1EjwtBSLyLQsLhyyxSyV2FEzk2O58nueyFypYue4O3a+yqLAhtRBaiCAx
+	3wnbkaRW5ajV8lrWlotlgAKHK5odVg1opT7ttydhObCSonjO9i9eOELg9OnXjiGeQ79VkvP5ewSqp
+	w4FlBxYk6qzWYc39GtcLiiMONNDvmdIclg82QiKxGQDHFgy+f9YdN9PsyiB8up/NHwxFWnXW3k2e6
+	3rGWKjQWW/P2VO3+ZpzVfio/ka4jO/iGy0kZ+d6VZ6PKA6W3ZwCCJNHeGeMV4OCXOuSaoEphApv1s
+	kv2g1Mqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wneI8-00000000U9k-2PSC;
-	Sat, 25 Jul 2026 15:27:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wneQr-00000000UT7-1czl;
+	Sat, 25 Jul 2026 15:36:57 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wneI7-00000000U9e-0UBS
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 15:27:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 282DE600DA;
-	Sat, 25 Jul 2026 15:27:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D23F61F000E9;
-	Sat, 25 Jul 2026 15:27:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784993273;
-	bh=DoGEFV9W8VcfITu4HQVE0hQUFylWMzhgH6YtxdV5TFY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=P+P0rPlq9J7moW6oZrKzpl0OkghAB/d/MPzcY7VwjuxKRY6QXyxEKv83oSiNcUiYI
-	 hObpIvzZO8OWOqxJjhQPoOHCrAcaLok3GzuDJMHrwow0pYGjeujc3uXg5aaW+xVJBd
-	 FkXXB94B7IIrxNUYH6BDeNW4xQ0GCwHo2vzV36wjP8V8XpP7dzNtZ8hIwtXvluTI1+
-	 LpJ634Ud0gFeSrYZk8LXVOHLs2aolJI0dGbM2AbRpa1Cnc7bSr2MpoA2nHEoT7MDh/
-	 KZoxpUxdfcg/vVInU9f3+yDtEeT/Eq39M5fgRmfFUox9rl6p52K/EA5jIdUaJW5tGY
-	 mMNqT8KRk34Kg==
-Date: Sat, 25 Jul 2026 17:27:50 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-Cc: peter.ujfalusi@gmail.com, vkoul@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org, 
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, vigneshr@ti.com, Frank.li@nxp.com, r-sharma3@ti.com, 
-	gehariprasath@ti.com
-Subject: Re: [PATCH v7 14/19] dt-bindings: dma: ti: Add K3 PKTDMA V2
-Message-ID: <20260725-massive-meteoric-guppy-70569b@quoll>
-References: <20260724102115.2854-1-s-adivi@ti.com>
- <20260724102115.2854-15-s-adivi@ti.com>
+	id 1wneQo-00000000USe-0Kiv;
+	Sat, 25 Jul 2026 15:36:55 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id 115E5C289F;
+	Sat, 25 Jul 2026 18:36:45 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 115E5C289F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1784993807;
+	bh=ij4llYX0IY1/Z2saSrJWqE8S/DUJX8rjYqL/9Jp3mvg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=LQS3GQzsZQSkrjDmR3TcA+zLlZ/AuyxldNA6e7SmFZT3kU8wgZB5SAiu9B2uzD14r
+	 JS23kgRJtOxN/69zHEEeI9Tfnl8FteYTwKaeX1mZvpZTolyI34CoHFf12SKCHh3U3t
+	 t8NJsSA75Q0wzEiteM4011NVXj1/Br4k4JZKZQivlbo2ukTqGyvvVR2BdHm02V9Rvn
+	 Mi5suL/jCa8nXfXM2ZEAZFWoyVrVWaEfD+cABLkjdyDmlTq+0xpwh0JThmQHtpmEug
+	 vUbYVo6py9ZujBkyjXq8zy6KUYI+S6/HkbP6WEzarQb//ZJ4UVcL4IhxuC9lAFPELm
+	 OQ6liC8cOicjg==
+Message-ID: <d5d3706f14b8d1c6dfc0854b2ab7d5499c48ceca.camel@rendec.net>
+Subject: Re: [PATCH] irqchip/mst-intc: reject ranges beyond saved state
+ capacity
+From: Radu Rendec <radu@rendec.net>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Mark-PK Tsai
+	 <mark-pk.tsai@mediatek.com>
+Cc: Daniel Palmer <daniel@thingy.jp>, Thomas Gleixner <tglx@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
+Date: Sat, 25 Jul 2026 11:36:44 -0400
+In-Reply-To: <20260722041443.10020-1-pengpeng@iscas.ac.cn>
+References: <20260722041443.10020-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260724102115.2854-15-s-adivi@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260725_083654_434437_3736CDD6 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,37 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 03:50:47PM +0530, Sai Sree Kartheek Adivi wrote:
-> +      cell 2: ASEL value for the channel
+On Wed, 2026-07-22 at 12:14 +0800, Pengpeng Hou wrote:
+> The inclusive Device Tree IRQ range determines nr_irqs. Suspend and
+> resume then use nr_irqs to walk the fixed saved_status array, which has
+> MST_INTC_MAX_IRQS entries. A descending range underflows the unsigned
+> subtraction, while a range wider than 64 entries exceeds that array.
+>=20
+> Reject both forms before deriving nr_irqs.
+>=20
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+> =C2=A0drivers/irqchip/irq-mst-intc.c | 4 ++++
+> =C2=A01 file changed, 4 insertions(+)
+>=20
+> diff --git a/drivers/irqchip/irq-mst-intc.c b/drivers/irqchip/irq-mst-int=
+c.c
+> index b5335f6fd6d6..1475335d668d 100644
+> --- a/drivers/irqchip/irq-mst-intc.c
+> +++ b/drivers/irqchip/irq-mst-intc.c
+> @@ -263,6 +263,10 @@ static int __init mst_intc_of_init(struct device_nod=
+e *dn,
+> =C2=A0	=C2=A0=C2=A0=C2=A0 of_property_read_u32_index(dn, "mstar,irqs-map-=
+range", 1, &irq_end))
+> =C2=A0		return -EINVAL;
+> =C2=A0
+> +	if (irq_end < irq_start ||
+> +	=C2=A0=C2=A0=C2=A0 irq_end - irq_start >=3D MST_INTC_MAX_IRQS)
+> +		return -EINVAL;
 > +
-> +  interrupts:
-> +    minItems: 78
+> =C2=A0	cd =3D kzalloc_obj(*cd);
+> =C2=A0	if (!cd)
+> =C2=A0		return -ENOMEM;
 
-Drop
-
-> +    maxItems: 78
-> +    description:
-> +      Interrupts for DMA channels.
-> +
-> +  interrupt-names:
-> +    minItems: 78
-
-Drop
-
-> +    maxItems: 78
-> +    items:
-> +      pattern: "^(t|r)flow([0-9]|1[0-3]|1[6-9]|2[0-9]|3[0-9]|4[0-7]|6[4-9]|7[0-9]|9[6-9]|10[0-9]|11[01])$"
-> +    description:
-> +      The name of the interrupt corresponding to the DMA flow.
-> +      TX flows use the "tflow" prefix, RX flows use the "rflow" prefix.a
-
-This could be tx-123, instead of tflow123 (and same for rx- instead of
-rflow), feels more readable, but not really important.
-
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
