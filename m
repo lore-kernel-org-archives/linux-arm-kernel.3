@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FF4C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 12:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFD3C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 12:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PhLi5spYWXcMVuF6GZd55l1tVJZbYbFAOR7DnpSDG7I=; b=JBzs22uJZ65NdIfvklAAg9oxEO
-	8NhrtEu42zblpGrccw6kbIUwx4sqI1M4+XsN+msZrir6CU/tduZfVO7C8kgFjZPojrXC8WIvCGV8N
-	KLx/fL3p+fp9OqRpVVSBj+aqTKW7kNKpEnfuJcRA3o5eKtzfOPfgQk0p+phM9w2FFidNPD/nPCzgx
-	DJ7f8vTGDB2gFJ3n3Bs+mRUmYrnh0B5eyjvyP1n0iqHUCCmmO+GcH6aZQdhtIz5mAAztDThmsAgTM
-	FYMIirLuAGrEs+JQz0uiQwylTsJ+dHsOKLVCdIzxmgMiAExhECvNFoo21WjUJ4cOuHhdw2kzeuaul
-	CUr/V+Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=72XdCKVyw4xjE7gab1vWLlMgcjTvynXFZcgYZrz+KTw=; b=DeJaJQLy15IzVHToRu0bPzVYDF
+	2EckTCb4YDNypVqVe7VQGWdrc0oEctk2qfbYMSwLcIdGaNC//fhMj5Br04gUCWwnqnT3Hh68cae7x
+	iQoZAS302e4+0o7p+mvBmwhcd7n+fN/aZiH/2de2nSEk4wA1vzeSIEJ+kR0dgFpf3+TVQhLMFWuhz
+	vvmJhdZcsEJ4AKfQHN45nteEqlGvUsiQSNaToKiAqmhqqavLn9YYXcj00xCDchv2sfHAg0rN52HHJ
+	hyNnmwbxpkxHi5aGzzg3bEnW1wcpKirnMyHve76KIMoYdUMZx4YSiMFSQcMsyhv5wmxLFkttSCI4k
+	1t+b5hQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnbSZ-00000000L3c-3FpI;
-	Sat, 25 Jul 2026 12:26:31 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1wnbSy-00000000LAM-3kCG;
+	Sat, 25 Jul 2026 12:26:56 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnbSK-00000000KzM-0J8d
+	id 1wnbSw-00000000L9a-2n51
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 12:26:19 +0000
-Received: by chaosmail.tech (Postfix) id B4BCB1C8829;
-	Sat, 25 Jul 2026 12:26:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1784982371;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PhLi5spYWXcMVuF6GZd55l1tVJZbYbFAOR7DnpSDG7I=;
-	b=cohOaONLOPQv57VllKM2f6217PubX14P/YSMA9dc/q0nvqhvWnWpiH3m6tM1EUqBf0yT0W
-	oIExO535bxfsxy+60221nguosR10CO1E0woaR4ifSSjzYE+F+HotxwfvIxpB3rd17plEbv
-	s4M86w6i39CLp80bgC+Ofau5ph/eODs=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sat, 25 Jul 2026 14:25:57 +0200
-Subject: [PATCH 2/2] dmaengine: apple-admac: Add M3 generation ADMACs
+	Sat, 25 Jul 2026 12:26:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1784982411; bh=lq0/9gAd9eRbQQjoIj0OoViKUp6XNp12/ZfKPhVpr/g=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BFeGzKbF1UbplnnnTo699cQJH3h2dyG2ENWDX4brn+HW5uZVLsbrwp0bLGwtCg14Q
+	 OwqeXG7AakE9T+DxzSqCci8nWqulZSiakEmwd87wWXyvtziu3Ola3JWqMvDnQCBFax
+	 27R2RmTr0qyczV5a0eG/uQWCThEdMoCjXXtLa+00=
+From: =?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>
+To: linux-sunxi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org,
+	Ondrej Jirman <megi@xff.cz>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support)
+Subject: [PATCH] clk: sunxi-ng: Change NKMP algorithm for finding factors
+Date: Sat, 25 Jul 2026 14:26:40 +0200
+Message-ID: <20260725122645.2270876-1-megi@xff.cz>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260725-t603x-admac-v1-2-6a4dec023f02@chaosmail.tech>
-References: <20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech>
-In-Reply-To: <20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>, 
- Frank Li <Frank.Li@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784982368; l=3308;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=ZMGropUP2WdpAYQkvJed9sV/RKshVltisNwaLVXH1rM=;
- b=pZcylqFAj6gEUftFZ8u+rR/Vd8+7Y/pgBw2PPy+lew+ETa95bTBF5y5qD6BHdgV+daKslq0Jq
- IlSf4uv6E5PC1iQ56JrDdVNyrPJBSYKQo6sw2WWKFkngLwJ6ppngcFE
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_052616_583957_9D32BF99 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20260725_052654_854099_BA11671E 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,114 +67,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The admacs present on t8122 and t603x SoCs need additional writes in
-order to operate correctly. The exact purpose of this register
-is unknown
+From: Ondrej Jirman <megi@xff.cz>
 
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+Current algorithm is very slow. It searches inefficiently in a brute
+force manner through all possibilities all the time.
+
+Eg. it does >1500 iterations on every rate change twice, because
+ccu_nkmp_find_best() function is called multiple times per rate
+change.
+
+New algorithm determines correct NKMP factors typically in 1 to 3
+iterations if precise factors can be determined for M = 1, P = 1,
+which is a typical case. If CPU clock frequency can't be derived
+precisely this drops to average 8 iterations needed to determine
+the factors.
+
+The results are identical to the original algorithm, except in cases
+where the original algorithm does not try to satisfy SoC PLL clock
+constraints, like N*K range 10..88 or P factor being limited to output
+frequency < 240 MHz.
+
+These restrictions are based on A64 SoC datasheet. Although they
+are sometimes not documented for other Allwinner SoC variants or are
+slightly different, this is still a significant improvement over
+not respecting any physical restrictions at all, as the previous
+algorithm did not. Hardcoding the values if fine, until someone
+finds some reason for not to.
+
+Motivation for this patch is that cpufreq schedutil scheduler thread
+manages to load one core to 70% all the time just doing these calculations
+while the core is running at just 24MHz during frequency changes.
+This helps improve the performance significantly.
+
+Signed-off-by: Ondrej Jirman <megi@xff.cz>
 ---
- drivers/dma/apple-admac.c | 32 ++++++++++++++++++++++++++++++--
- 1 file changed, 30 insertions(+), 2 deletions(-)
+Sorry, I don't know how to avoid overlong lines here, other than
+maybe not indenting 3 toplevel for blocks and keeping all of them
+at the same level.
 
-diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
-index 14a5ee14a481..7ee9a59081c1 100644
---- a/drivers/dma/apple-admac.c
-+++ b/drivers/dma/apple-admac.c
-@@ -39,10 +39,14 @@
+ drivers/clk/sunxi-ng/ccu_nkmp.c | 80 ++++++++++++++++++++++-----------
+ 1 file changed, 55 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/clk/sunxi-ng/ccu_nkmp.c b/drivers/clk/sunxi-ng/ccu_nkmp.c
+index 25efb5b37607..c39b19891431 100644
+--- a/drivers/clk/sunxi-ng/ccu_nkmp.c
++++ b/drivers/clk/sunxi-ng/ccu_nkmp.c
+@@ -32,40 +32,70 @@ static unsigned long ccu_nkmp_calc_rate(unsigned long parent,
+ static unsigned long ccu_nkmp_find_best(unsigned long parent, unsigned long rate,
+ 					struct _ccu_nkmp *nkmp)
+ {
++	unsigned long _k, _m, _p;
++	unsigned long max_p = rate >= 240000000 ? 1 : nkmp->max_p;
++	unsigned approx;
+ 	unsigned long best_rate = 0;
+-	unsigned long best_n = 0, best_k = 0, best_m = 0, best_p = 0;
+-	unsigned long _n, _k, _m, _p;
  
- #define FLAG_DESC_NOTIFY	BIT(16)
- 
-+#define T8122_UNK_28_VAL	0x200000
+-	for (_k = nkmp->min_k; _k <= nkmp->max_k; _k++) {
+-		for (_n = nkmp->min_n; _n <= nkmp->max_n; _n++) {
++	for (approx = 0; approx <= 1; approx++) {
++		for (_p = nkmp->min_p; _p <= max_p; _p <<= 1) {
+ 			for (_m = nkmp->min_m; _m <= nkmp->max_m; _m++) {
+-				for (_p = nkmp->min_p; _p <= nkmp->max_p; _p <<= 1) {
+-					unsigned long tmp_rate;
+-
+-					tmp_rate = ccu_nkmp_calc_rate(parent,
+-								      _n, _k,
+-								      _m, _p);
+-
+-					if (tmp_rate > rate)
+-						continue;
+-
+-					if ((rate - tmp_rate) < (rate - best_rate)) {
+-						best_rate = tmp_rate;
+-						best_n = _n;
+-						best_k = _k;
+-						best_m = _m;
+-						best_p = _p;
++				u64 nk = (u64)rate * _m * _p;
++				unsigned long nk_rem = do_div(nk, parent);
 +
- #define REG_TX_START		0x0000
- #define REG_TX_STOP		0x0004
- #define REG_RX_START		0x0008
- #define REG_RX_STOP		0x000c
-+#define REG_UNK_28		0x0028
-+#define REG_UNK_2C		0x002c
- #define REG_IMPRINT		0x0090
- #define REG_TX_SRAM_SIZE	0x0094
- #define REG_RX_SRAM_SIZE	0x0098
-@@ -127,6 +131,7 @@ struct admac_data {
- 	struct mutex cache_alloc_lock;
- 	struct admac_sram txcache, rxcache;
- 
-+	bool set_unk28;
- 	int irq;
- 	int irq_index;
- 	int nchannels;
-@@ -147,6 +152,10 @@ struct admac_tx {
- 	struct list_head node;
- };
- 
-+struct admac_hw {
-+	bool set_unk28;
-+};
++				if (nk_rem != 0 && !approx)
++					continue;
 +
- static int admac_alloc_sram_carveout(struct admac_data *ad,
- 				     enum dma_transfer_direction dir,
- 				     u32 *out)
-@@ -747,6 +756,11 @@ static int admac_device_config(struct dma_chan *chan,
- 	u32 bus_width = readl_relaxed(ad->base + REG_BUS_WIDTH(adchan->no)) &
- 		~(BUS_WIDTH_WORD_SIZE | BUS_WIDTH_FRAME_SIZE);
- 
-+	if (ad->set_unk28) {
-+		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_28);
-+		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_2C);
-+	}
++				if (nk < 10 || nk > 88)
++					continue;
 +
- 	switch (is_tx ? config->dst_addr_width : config->src_addr_width) {
- 	case DMA_SLAVE_BUSWIDTH_1_BYTE:
- 		wordsize = 1;
-@@ -805,6 +819,7 @@ static int admac_probe(struct platform_device *pdev)
- 	struct device_node *np = pdev->dev.of_node;
- 	struct admac_data *ad;
- 	struct dma_device *dma;
-+	const struct admac_hw *hw;
- 	int nchannels;
- 	int err, irq, i;
- 
-@@ -813,6 +828,9 @@ static int admac_probe(struct platform_device *pdev)
- 		dev_err(&pdev->dev, "missing or invalid dma-channels property\n");
- 		return -EINVAL;
++				for (_k = nkmp->min_k; _k <= nkmp->max_k; _k++) {
++					if (approx) {
++						u64 _n = (u64)rate * _m * _p;
++						unsigned long tmp_rate;
++
++						do_div(_n, parent * _k);
++
++						if (_n < nkmp->min_n || _n > nkmp->max_n)
++							continue;
++
++						tmp_rate = ccu_nkmp_calc_rate(parent,
++									      _n, _k,
++									      _m, _p);
++						if (tmp_rate > rate)
++							continue;
++
++						if ((rate - tmp_rate) < (rate - best_rate)) {
++							best_rate = tmp_rate;
++							nkmp->n = _n;
++							nkmp->k = _k;
++							nkmp->m = _m;
++							nkmp->p = _p;
++						}
++					} else {
++						u64 _n = nk;
++						unsigned long _n_rem = do_div(_n, _k);
++
++						if (_n < nkmp->min_n || _n > nkmp->max_n)
++							continue;
++
++						if (_n_rem == 0) {
++							nkmp->n = _n;
++							nkmp->k = _k;
++							nkmp->m = _m;
++							nkmp->p = _p;
++							return ccu_nkmp_calc_rate(parent,
++										  nkmp->n,
++										  nkmp->k,
++										  nkmp->m,
++										  nkmp->p);
++						}
+ 					}
+ 				}
+ 			}
+ 		}
  	}
-+	hw = of_device_get_match_data(&pdev->dev);
-+	if (!hw)
-+		return -EINVAL;
  
- 	ad = devm_kzalloc(&pdev->dev, struct_size(ad, channels, nchannels), GFP_KERNEL);
- 	if (!ad)
-@@ -821,6 +839,7 @@ static int admac_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, ad);
- 	ad->dev = &pdev->dev;
- 	ad->nchannels = nchannels;
-+	ad->set_unk28 = hw->set_unk28;
- 	mutex_init(&ad->cache_alloc_lock);
- 
- 	/*
-@@ -935,9 +954,18 @@ static void admac_remove(struct platform_device *pdev)
- 	reset_control_rearm(ad->rstc);
+-	nkmp->n = best_n;
+-	nkmp->k = best_k;
+-	nkmp->m = best_m;
+-	nkmp->p = best_p;
+-
+ 	return best_rate;
  }
  
-+static const struct admac_hw admac_t8013_hw = {
-+	.set_unk28 = false,
-+};
-+
-+static const struct admac_hw admac_t8122_hw = {
-+	.set_unk28 = true,
-+};
-+
- static const struct of_device_id admac_of_match[] = {
--	{ .compatible = "apple,t8103-admac", },
--	{ .compatible = "apple,admac", },
-+	{ .compatible = "apple,t8122-admac", .data = &admac_t8122_hw },
-+	{ .compatible = "apple,t8103-admac", .data = &admac_t8013_hw },
-+	{ .compatible = "apple,admac", .data = &admac_t8013_hw },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, admac_of_match);
-
 -- 
-2.55.0
+2.54.0
 
 
