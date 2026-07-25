@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863C5C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 15:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA73C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IiNtmWYJW446SPJyf+xgqsSdYCMWqkfS/q3fFk7oyFw=; b=rEPseZbFJjZWi5gJv2YoLfuUJ5
-	M+GlA9vLGyzKwy2+Al9L57wN/f+buQWhxnOsQJGXq6GjJCVyLq/jxmEpnHjP2FRgrh5eYhDI0bkxm
-	AGY0NMW0OyCjyb4TTOq+uNAC7kKhceAoyQmV56uw0B+HL9vrltQh77bg1BAEfcJEUKFtMkpl6wDuf
-	ubC3IrB3JJaWXPr9Vuj9qWtvyL+Ho/ekpNUW35qlcfffTJb4ZbepOXQ4M7p8VVZou3swYJ5n1JqDX
-	Qt0V4tJ3cfFZgr5pm697JgO9iqI1numEm6Z5hdNGZimhi+KIsx4MRSl9IJdQxMxW7kweoRcYuH1n+
-	LQciP7ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sM2F7cRsJhOB+wTzn5wZj1Mny995buVgtLgdbqbcLH4=; b=YTlu8fclci331Iu4IHnvMh3DjG
+	UXtVGaShQuEw8pfcb/eymGrdWmQj3gj97/msRuShVumCHykR6HYuEkXRzp0NmxTmM9nmAAvu9VsOG
+	1Up9CmOsAYA8SUFPGXISpR84k+t3DK77yyvIdYCmPPjEi1Khj0gw/IrFSDVG+EmBoFG00oCyRzbaJ
+	OUjR3YooY2J7QVOw+einmKOOg83+J0Y7tOs9JxUDMfkYKs0vq1a52/J8V9W4SWbw+ctdhF9EKByVG
+	D3u/1AtZZOtpr5P5d1j1KPk66bgn02uO7z9OO45zg0U3lW9ndb6Kx7IPBs+6F//fsTCH8eF6bJOUI
+	S3SNsOoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnele-00000000VGv-23rV;
-	Sat, 25 Jul 2026 15:58:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wnf7f-00000000WP8-30LC;
+	Sat, 25 Jul 2026 16:21:11 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wneld-00000000VGn-06h1
+	id 1wnf7c-00000000WNo-10mV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 15:58:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C09D600E1;
-	Sat, 25 Jul 2026 15:58:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73241F000E9;
-	Sat, 25 Jul 2026 15:58:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784995103;
-	bh=IiNtmWYJW446SPJyf+xgqsSdYCMWqkfS/q3fFk7oyFw=;
-	h=From:To:Cc:Subject:Date;
-	b=OmSbmk6fvNuqPT/guspJreLbD/0cpAzorEH7iUDBCviKEbObeD0vw0gAQ+fL9Tkyb
-	 DSBb4E/Xs6HZZX3UOebC67r9YkaHXf7iowzUmp93w/JDPbvY6mq6wCCpGJqCqesWJR
-	 k7kc38UZgOdXB4rXnWflqJ8zTezY0ykAxto3h7PX+0eCAxH5X4nlZ9/P0vXP7xLlHy
-	 W9sm9qMLA6i2FilA4F0SoJZea3jPDcWayg7U0o7CRJD0CINdBjljnvaDjIZAmYsrxF
-	 59dT3TFYe3VWXeNUAF5keCH7NWzLV72HEZvjaBBzR4pI++PWNg2UlwSyB3Uu8v4P+T
-	 NCP+AQyBYajKw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wnelZ-00000008n7A-3ghe;
-	Sat, 25 Jul 2026 15:58:21 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	radu@rendec.net,
-	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH] irqchip/gic: Simplify Maintenance Interrupt ACPI parsing
-Date: Sat, 25 Jul 2026 16:59:41 +0100
-Message-ID: <20260725155941.114322-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Sat, 25 Jul 2026 16:21:10 +0000
+Received: by chaosmail.tech (Postfix) id 4E4621C8829;
+	Sat, 25 Jul 2026 16:21:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1784996465;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sM2F7cRsJhOB+wTzn5wZj1Mny995buVgtLgdbqbcLH4=;
+	b=kIkjYOe7kX7WMilioriupdlp2P+396xYPhF2fIFgdu/5+FGhCaXl5ATSElU+8iYWWaLG00
+	62GScKF7zzQO+l0u/+FSIlqXvT2LaKAEASFWUu2621yHsWurnIo9oVgDxNKIYmlAb0tK+t
+	qNOQuCO93PFUgnYo0eRo+40Iwoj+fa4=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Sat, 25 Jul 2026 18:20:56 +0200
+Subject: [PATCH 1/3] dt-bindings: usb: tps6598x: Add sn201202x/ACE3
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@kernel.org, radu@rendec.net, sascha.bischoff@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260725-tipd-ace3-v1-1-73202d36138a@chaosmail.tech>
+References: <20260725-tipd-ace3-v1-0-73202d36138a@chaosmail.tech>
+In-Reply-To: <20260725-tipd-ace3-v1-0-73202d36138a@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784996463; l=3417;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=kUq+5IiVyFZIO6HVawlTT3vsFaAkD2ugMp4vmnMDr8Y=;
+ b=+NfRbJtvWEDq1MQmo/o4cVMJ4FUVddbCWlWgNnxz4llexNy6cec5lt20O0/kXaFowjVI7xAfy
+ 28RI0Jq5AykBVVK8KU0tCli4vFJvZMcMMkp4ceE0oGNdlX7xBajD6mn
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260725_092108_749210_72D428EC 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,114 +81,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ACPI spec describes the vgic Maintenance Interrupt with attributes
-indicating whether the signalling is Level or Edge. While this
-superficially looks like a sensible thing to do, it doesn't actually
-make much sense.
+A variant of tps6598x that is attached to a SPMI bus and is found on
+Apple devices starting from the M3 series
 
-By construction, this interrupt is Level, and cannot be anything
-else, as the hypervisor actively needs to interact with the vgic
-for the level to drop. This indicates a state, and not an event.
-
-Get rid of this nonsense, always register the corresponding GSI as
-Level, and let the user know that they run on quality FW should
-the interrupt be advertised as Edge.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/irqchip/irq-gic-v3.c | 10 +++-------
- drivers/irqchip/irq-gic.c    |  8 ++++----
- 2 files changed, 7 insertions(+), 11 deletions(-)
+ Documentation/devicetree/bindings/usb/apple,sn201202x.yaml | 78 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ MAINTAINERS                                                |  1 +
+ 2 files changed, 79 insertions(+)
 
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 99444a1b2ffa2..22ecd28a491a8 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -2279,7 +2279,6 @@ static struct
- 	bool single_redist;
- 	int enabled_rdists;
- 	u32 maint_irq;
--	int maint_irq_mode;
- 	phys_addr_t vcpu_base;
- } acpi_data __initdata;
- 
-@@ -2457,21 +2456,19 @@ static int __init gic_acpi_parse_virt_madt_gicc(union acpi_subtable_headers *hea
- {
- 	struct acpi_madt_generic_interrupt *gicc =
- 		(struct acpi_madt_generic_interrupt *)header;
--	int maint_irq_mode;
- 	static int first_madt = true;
- 
- 	if (!(gicc->flags &
- 	      (ACPI_MADT_ENABLED | ACPI_MADT_GICC_ONLINE_CAPABLE)))
- 		return 0;
- 
--	maint_irq_mode = (gicc->flags & ACPI_MADT_VGIC_IRQ_MODE) ?
--		ACPI_EDGE_SENSITIVE : ACPI_LEVEL_SENSITIVE;
-+	if (gicc->flags & ACPI_MADT_VGIC_IRQ_MODE)
-+		pr_warn_once(FW_BUG "MI wrongly advertised as Edge-triggered\n");
- 
- 	if (first_madt) {
- 		first_madt = false;
- 
- 		acpi_data.maint_irq = gicc->vgic_interrupt;
--		acpi_data.maint_irq_mode = maint_irq_mode;
- 		acpi_data.vcpu_base = gicc->gicv_base_address;
- 
- 		return 0;
-@@ -2481,7 +2478,6 @@ static int __init gic_acpi_parse_virt_madt_gicc(union acpi_subtable_headers *hea
- 	 * The maintenance interrupt and GICV should be the same for every CPU
- 	 */
- 	if ((acpi_data.maint_irq != gicc->vgic_interrupt) ||
--	    (acpi_data.maint_irq_mode != maint_irq_mode) ||
- 	    (acpi_data.vcpu_base != gicc->gicv_base_address))
- 		return -EINVAL;
- 
-@@ -2514,7 +2510,7 @@ static void __init gic_acpi_setup_kvm_info(void)
- 	gic_v3_kvm_info.type = GIC_V3;
- 
- 	irq = acpi_register_gsi(NULL, acpi_data.maint_irq,
--				acpi_data.maint_irq_mode,
-+				ACPI_LEVEL_SENSITIVE,
- 				ACPI_ACTIVE_HIGH);
- 	if (irq <= 0)
- 		return;
-diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-index ec70c84e9f91d..74bda5e246345 100644
---- a/drivers/irqchip/irq-gic.c
-+++ b/drivers/irqchip/irq-gic.c
-@@ -1527,7 +1527,6 @@ static struct
- {
- 	phys_addr_t cpu_phys_base;
- 	u32 maint_irq;
--	int maint_irq_mode;
- 	phys_addr_t vctrl_base;
- 	phys_addr_t vcpu_base;
- } acpi_data __initdata;
-@@ -1553,10 +1552,11 @@ gic_acpi_parse_madt_cpu(union acpi_subtable_headers *header,
- 	if (cpu_base_assigned && gic_cpu_base != acpi_data.cpu_phys_base)
- 		return -EINVAL;
- 
-+	if (processor->flags & ACPI_MADT_VGIC_IRQ_MODE)
-+		pr_warn_once(FW_BUG "MI wrongly advertised as Edge-triggered\n");
+diff --git a/Documentation/devicetree/bindings/usb/apple,sn201202x.yaml b/Documentation/devicetree/bindings/usb/apple,sn201202x.yaml
+new file mode 100644
+index 000000000000..84d230ccccc7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/apple,sn201202x.yaml
+@@ -0,0 +1,78 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/apple,sn201202x.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	acpi_data.cpu_phys_base = gic_cpu_base;
- 	acpi_data.maint_irq = processor->vgic_interrupt;
--	acpi_data.maint_irq_mode = (processor->flags & ACPI_MADT_VGIC_IRQ_MODE) ?
--				    ACPI_EDGE_SENSITIVE : ACPI_LEVEL_SENSITIVE;
- 	acpi_data.vctrl_base = processor->gich_base_address;
- 	acpi_data.vcpu_base = processor->gicv_base_address;
- 
-@@ -1616,7 +1616,7 @@ static void __init gic_acpi_setup_kvm_info(void)
- 	vcpu_res->end = vcpu_res->start + ACPI_GICV2_VCPU_MEM_SIZE - 1;
- 
- 	irq = acpi_register_gsi(NULL, acpi_data.maint_irq,
--				acpi_data.maint_irq_mode,
-+				ACPI_LEVEL_SENSITIVE,
- 				ACPI_ACTIVE_HIGH);
- 	if (irq <= 0)
- 		return;
++title: Texas Instruments sn201202x Type-C Power Delivery controller
++
++maintainers:
++  - Sasha Finkelstein <k@chaosmail.tech>
++
++description: |
++  Texas Instruments sn201202x Type-C Power Delivery controller
++
++  A variant of tps6598x controller also known as Apple ACE3
++  present on hardware with Apple SoCs starting from the M3.
++
++properties:
++  compatible:
++    enum:
++      - apple,sn201202x
++
++  reg:
++    minItems: 1
++
++  interrupts:
++    items:
++      - description: Primary irq used for tps6598x events
++      - description: Logical register selection completed
++      - description: Standby command completed
++      - description: Wakeup command completed
++
++  interrupt-names:
++    items:
++      - const: irq
++      - const: select
++      - const: sleep
++      - const: wake
++
++  connector:
++    $ref: /schemas/connector/usb-connector.yaml#
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/spmi/spmi.h>
++    spmi {
++        #address-cells = <2>;
++        #size-cells = <0>;
++        usb-pd@c {
++            compatible = "apple,sn201202x";
++            reg = <0xc SPMI_USID>;
++            interrupts = <11 IRQ_TYPE_EDGE_RISING>,
++                         <13 IRQ_TYPE_EDGE_RISING>,
++                         <17 IRQ_TYPE_EDGE_RISING>,
++                         <19 IRQ_TYPE_EDGE_RISING>;
++            interrupt-names = "irq", "select", "sleep", "wake";
++
++            connector {
++                compatible = "usb-c-connector";
++                label = "USB-C";
++
++                port {
++                    typec_ep: endpoint {
++                        remote-endpoint = <&otg_ep>;
++                    };
++                };
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ff08a65d942a..b2819ca62e0c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2610,6 +2610,7 @@ F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
+ F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+ F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+ F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
++F:	Documentation/devicetree/bindings/usb/apple,sn201202x.yaml
+ F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+ F:	Documentation/hwmon/macsmc-hwmon.rst
+ F:	arch/arm64/boot/dts/apple/
+
 -- 
-2.47.3
+2.55.0
 
 
