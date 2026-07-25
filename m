@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441DAC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0DA0C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4oi+M1DASh9sr/5/9NIilXPuOVkktsUCJvsmJfqY6HY=; b=tg1eKs/oT+3sn/7CS4E8Amjv6t
-	49BbiMw89Du5C1emP0COTH85TrN+NxT9OUHwHoLXMkkhdDF7nFRoJ0m/rwG17YlEeVS2LuTcalbMQ
-	2aHCUD+EGNR9YQPScstIvpPYlM+HDn8ErUsY1baKYtDv99wYa929/s8rVgGS+Ubfrex6dXpkF+XJZ
-	krenYUmtE2PtTQGpRL1udtnr8P25c2P5fidC7H20klFziB8zxfaJaWHfVvK250olxEUJTujanEQF/
-	ffJqS/NYDM1w/P2DZwrg+fulJPx8nQRy1sNG2cJMdlFVZlpJ82lMOa5bAPLtm8ZTSso5YE5FBe8oR
-	zLk/KNJQ==;
+	bh=HH3Qn8ZGhJMtOKJ137W0UtKqP8M0xUpzRjV/GWQV9Aw=; b=vQPAvXfl/ySInQm//TzVbXJT39
+	dJjQ/cPvHFYWOtcMSW+dqiMWbPUxREbYDhXMdHNqRmFaTNv/RDz+fZNjGCHuzSfjIt9cktou7iscB
+	sJVXhhxd7lEVnq0NwJ3N9ZvfHkzpeArUHE87GiEbcxmZs2CfQFyNJqzoFXm8wXHQmF+PXBWquAsqL
+	ypLYXskPEhzCYvHKQm+i8GIyFXIcXYy3QZO8UyZ6dZjxuhTFUlUmcS8jkV4dZ3q9vFBgsRbmJ4Xav
+	b8BzKCsNhj7RsGyWxGHEj5YrA6artW0gDpPDBT/hfVHpeTKanVqrage6IwRIPK+vSJ9S579n4wHn5
+	cYsi+JHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnfc6-00000000YFQ-2WG4;
-	Sat, 25 Jul 2026 16:52:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wnfeX-00000000YNB-0iJw;
+	Sat, 25 Jul 2026 16:55:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnfc5-00000000YFG-0iKb;
-	Sat, 25 Jul 2026 16:52:37 +0000
+	id 1wnfeV-00000000YN2-3fEw;
+	Sat, 25 Jul 2026 16:55:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1961A60A91;
-	Sat, 25 Jul 2026 16:52:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 863ED1F000E9;
-	Sat, 25 Jul 2026 16:52:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 71156434F4;
+	Sat, 25 Jul 2026 16:55:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA0251F000E9;
+	Sat, 25 Jul 2026 16:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784998354;
-	bh=4oi+M1DASh9sr/5/9NIilXPuOVkktsUCJvsmJfqY6HY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=QH+C+LHELslG0cAGc8E9FATQkLJ/oQNzf/glLSKkCiRCegd/ufmlOAMHlX1xVOngX
-	 yTV34xOOHaozmcLJ+/k5rB3OuYcqYRjMKUNTpamVSlaOQUDHqeC3qbpi6MUIE68+m/
-	 yLKhJESeGEV0P+bEyRSjFphzkco1yvAgbHgm3ySekEwovv+rz/fnm1EF12gc0TB2lB
-	 8DY5IOLd1URjjSQ7sgoY406B2DVeoFWE0Tw4zd0uowWpS6i22Hs0lURYmY0p6ty/75
-	 ciCOEcM7gBoWiI68P82mNlnLR8hjbw3RHAvJ49fbo1eKgptNlnrjatROXiJmmEPFvY
-	 Cz0DoqN6OkO5g==
-Message-ID: <49a2ee73-f9fa-483c-82fb-0e1471e7758e@kernel.org>
-Date: Sat, 25 Jul 2026 18:52:28 +0200
+	s=k20260515; t=1784998507;
+	bh=HH3Qn8ZGhJMtOKJ137W0UtKqP8M0xUpzRjV/GWQV9Aw=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=FayGh3MsRt1J2r2J1k+Nk0rM4ARk1lur8T+iF1zbu8BitpMAh3H4Dyf2prfcR0icY
+	 6R19QHskly9lTPkPcBR9+k81kAvivD9H2XCPaoM2BuH9YkLA0DiiPn17p7cCeg28tw
+	 AbgDmudf6GMm/4rC4riwfRKhvmGhQShVdgNZjlbHlW4KjhpThh+zBBP9nquQ37n2x0
+	 qLe355ItiXQPe7DaL8eVsN4in/6GTK4dlwwaJZbspKlaRN54x+WKI3Uwj6RA6B94UZ
+	 S8QjE8xR18taq2cW3km52tGbwE3ZSlhR3nLxXPPLgK4feJEkVV3ucKjZTtZOS6qdmq
+	 Z33F05y6M8i3A==
+Message-ID: <664d409b-9db4-4b1b-8b8a-bd985ef727c6@kernel.org>
+Date: Sat, 25 Jul 2026 18:55:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RESEND v3 2/2] dt-bindings: memory-controllers: mtk-smi:
  Add support for mt8189
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: congcong.yao@mediatek.com, Yong Wu <yong.wu@mediatek.com>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -55,7 +56,7 @@ Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
 References: <20260722-8189-smi-support-v3-0-ae00e13deeac@mediatek.com>
  <20260722-8189-smi-support-v3-2-ae00e13deeac@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <49a2ee73-f9fa-483c-82fb-0e1471e7758e@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260722-8189-smi-support-v3-2-ae00e13deeac@mediatek.com>
+In-Reply-To: <49a2ee73-f9fa-483c-82fb-0e1471e7758e@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,24 +118,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/07/2026 14:02, Congcong Yao via B4 Relay wrote:
-> From: Congcong Yao <congcong.yao@mediatek.com>
+On 25/07/2026 18:52, Krzysztof Kozlowski wrote:
+> On 22/07/2026 14:02, Congcong Yao via B4 Relay wrote:
+>> From: Congcong Yao <congcong.yao@mediatek.com>
+>>
+>> Add smi larb, common and sub-commom binding description for mt8189.
+>>
+>> About what smi-sub-common is, please check the below diagram,
+>> we add it in mediatek,smi-common.yaml file.
+>>
+>> Signed-off-by: Congcong Yao <congcong.yao@mediatek.com>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>  .../memory-controllers/mediatek,smi-common.yaml        | 18 ++++++++++++++++++
+>>  .../bindings/memory-controllers/mediatek,smi-larb.yaml |  3 +++
 > 
-> Add smi larb, common and sub-commom binding description for mt8189.
+> Still incorrect order of patches. Please read submitting patches
+> documents (both).
 > 
-> About what smi-sub-common is, please check the below diagram,
-> we add it in mediatek,smi-common.yaml file.
-> 
-> Signed-off-by: Congcong Yao <congcong.yao@mediatek.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../memory-controllers/mediatek,smi-common.yaml        | 18 ++++++++++++++++++
->  .../bindings/memory-controllers/mediatek,smi-larb.yaml |  3 +++
+> Fixed it up while applying.
 
-Still incorrect order of patches. Please read submitting patches
-documents (both).
+And dropped. You did not respond to review of v3.
 
-Fixed it up while applying.
+https://lore.kernel.org/all/20260701075246.C809E1F00AC4@smtp.kernel.org/
+
+I also do not understand how correct order of patches at v3 became
+incorrect at RESEND of v3.
+
+Really, pay attention on submitting process in Mediatek. I was
+complaining A LOT about quality of upstream submissions of Mediatek and
+have now - after 2-3 years of complains - close to zero patience for
+this company. Mediatek brought it on themselves by repeating same
+mistakes over and over.
 
 Best regards,
 Krzysztof
