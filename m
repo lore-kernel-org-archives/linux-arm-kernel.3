@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9098C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 21:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF506C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 21:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tWxVEjNz8W1QtsXPhyFLrXWEYYl+6GsNRRe6Xr3SuC0=; b=zIVjlyiVPdYBW3N56J/O8GlF6E
-	fk8qw2Y6iuzwaSLeb3WmYNK2aInLIR4jPdmqMdy3XCnxHZCaZbVEjft548SVi75bMw8AzgEAOPEjr
-	FN587Ch7vYSKpUGozCDyvBDOsXYhxX4RvkS1EeaprD3va6+yOnfZIden9hJ9PGQNxVUvUM1ax52vS
-	wXVity54pUFQzw87LFVpP/+wiGVzLmUuLm9A478NpjqgyTk502r2KemhF/UqHUQ0Gc3+V1XO/TGM0
-	tk5ZYeE4xA76yPDUSN0N7ezNs/2c2DLcKpW3CsgytAnzzeRSmo4FU8kAOCdO0MGgSbF/33Jvib6Ne
-	eRw6/P2A==;
+	bh=seeewYXoR94yHU0Jb4LssP0T9jXVvg/3bB6Rnh2Pz3s=; b=aIq9KA0cqrJ7TbufsoFOpSIBAS
+	+MzUBJmh33XBBs9QbhhQ33bghI6Gpv9CCggGiSsi41U52/SgWlxy5x7LIpaAnYVprZrv+YEmDBjHP
+	bgO4ZPgoHOP5lCHb2FZQU0dZziPGq9FCag5QZCZOlWBNj3gXTB95yV8xqkr8//e7KMlXRCE/M/hAl
+	TZXWJDJxf7nR3KpcrUmQGl1t+IDI1FZwXr4Cp/XPgKtu4HxS9JQTMzoA60pYe6k6vUInszct7wc5H
+	0ev9OpeR6dXMlU9orocYdCZERazfiOipJQFRBVAI1DFGYrrp9vFi9esUpETZyl6zHoRsnkaWN0vuO
+	BEp3rmNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnkN7-00000000jhB-45eG;
-	Sat, 25 Jul 2026 21:57:29 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wnkNu-00000000jmV-0V1f;
+	Sat, 25 Jul 2026 21:58:18 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnkN5-00000000jgk-0iGa
+	id 1wnkNr-00000000jlv-0IwO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 21:57:28 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-848479c9bd5so1106767b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 14:57:26 -0700 (PDT)
+	Sat, 25 Jul 2026 21:58:16 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-848d21bbaffso1617269b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 14:58:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785016646; x=1785621446; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785016694; x=1785621494; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tWxVEjNz8W1QtsXPhyFLrXWEYYl+6GsNRRe6Xr3SuC0=;
-        b=H5tpzmJvcucW9zCHdbrU5NUUvZiDPK7fQmDnfazdqP4iwCP/mMbxTGm6v0eZEVIDa0
-         vRYu8O1Gka91lL7IV0w/r1F3lNWQbAzMxx++jodhfVgfv7qtg3Vjz5mcmJZUIfq8CFw1
-         iCr/vPIiEf83EWivzCf6coKxbH4vDjWWoIsF1hRbIPUJKfIAgjMmQzLIzMzvNSEhmoh7
-         72XogN2cjeskfL8imsHVW2kcAQBFt4PvZUkwPD4eaxeGj/qc6MZnmOgWUaMpsTTNv8za
-         rQg2jjB3vK80xwz7RWA6VHCuYa2Wbcdj1mc6fFM9peZW4ud357xWys8p0bCFJREiCWcm
-         loeQ==
+        bh=seeewYXoR94yHU0Jb4LssP0T9jXVvg/3bB6Rnh2Pz3s=;
+        b=r7EbyAhREqb7NOhLjEXE94shza1bh58RB5p7jQ8MuGeHicSZcuRf0Fu7Z7G6kWrU7B
+         KEqXA1WUfdIMegLu7HiuhBEtQPD6KMtqgp/TYU7QRxsdGu2wXF3GjFqsCn8fqmTCNz8/
+         hqo6Iy5dDtI94uMketElwxhVmYBzZWJBs57ztfCr86ZJul+mT529lYd6aEVPYNFyrGIt
+         RLDv/TQuiaKqLnw6BFr2o6v0CRYEKpXGWnv6S9lsNr7AWAyM62o/faEsxnX9Juip9t/O
+         IRxuo58pYKya3LRWuZpgkGey0K0hgYVF+BqWN/wE3M11HErEwp7nrwThyAiTKtIuoPXW
+         IYDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785016646; x=1785621446;
+        d=1e100.net; s=20251104; t=1785016694; x=1785621494;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tWxVEjNz8W1QtsXPhyFLrXWEYYl+6GsNRRe6Xr3SuC0=;
-        b=cRz3sh0ZnW7O5afRGRm1VaL2w6KXOJP6hDywlWHFTJYi4SPYdbWSa24o0D+AoYygUh
-         h/xfp7AdhlLSZynuLQCvehfH40Flyq/6qC+CVgx+N63VA9lhqduJt/6aVaM4kNTLunMF
-         W4/SPBvHigjMwqYWZauVe/40eIFDYVbxS5CsS5Y9CWqXqH/iaQ0qEMDpZ1BtBPO8ccdP
-         M7ZKA1GibAsa/b3C6OLnHkwaXPpyht8kV/PagQ5UCHIKJbLWukI8/PG9a5OOK3apyfV9
-         bIBNbIJs6OJG6yKGD4nS2MZ7GMFVnuxDaQslaomeNgQ+w+wqz8kF3EZeum01ra7+PoL4
-         5JUA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro5B1Z1O7v7Q2PM+ykvuZfoXhOIF6KPklVVYP7sI5wbn/3fbW0OPqgjgxPvtJrjRmc7CeMJ10vrlLKO1qJ1q6/c@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5J73fPCvF3wttFyhd6MJEIDP/wsVPZf1DGB0Z38l7KnL3m2ab
-	yajFaM75zK2uwOLOwJ9LSaHwrAVy5Jfo/B/S6JBPvfPZk/rqi43pTklB
-X-Gm-Gg: AR+sD11gTqiuJI/sqOylAb3mMaEdebteqhAZPMuwIEnO9WUWGa9eiJCDoeOqBShV3cg
-	iN8c8RWgiaNVTU4DhY11ZCen2C60HD3zVMJr6YTEaVBao3hITqII8ZcX9hnxXK5NjBJwMKuEFhX
-	9zzoakjdC1gENKXGLNkR1X+reSKL07yFRxbfQKbJmNh+lmh+4XHLPlqu1LWeoadb78kYt1lcBDR
-	VX0l0Re2Fbg4c9ibMGcovC3d8KlGPzFtIPC6LtHlTSEgY9b1EDh8O7d7VrvSBhWvUT9zXW403IW
-	9RccZVcBwSo2xrwz/Uu4owXYHdEDvsIvkNnCphSjLQAJ5Xy+E3PaCTQiayVWwnVoJEphwLfZxCa
-	RU5+wA1jHcBMvuKrOH01PPHMlPHY+XAzeNEJuObLoQAUJ8p5AiBCbsarZHu/yzHbLVzXhuYi+0K
-	rAEVncPPr3YAgSgCSzu9S7pt9hHpD8ZAIerO74SbQxCUVDwszNkchEKzhCW1wUflb6d6Vv0+bYt
-	+DamRvhW01kbYeTAvqaFcVymW94U6xWfnWiA1902Ln3Ga9fH5G/ktk=
-X-Received: by 2002:a05:6a00:99a:b0:84e:223b:98c2 with SMTP id d2e1a72fcca58-84e595f20b5mr2442186b3a.77.1785016646058;
-        Sat, 25 Jul 2026 14:57:26 -0700 (PDT)
+        bh=seeewYXoR94yHU0Jb4LssP0T9jXVvg/3bB6Rnh2Pz3s=;
+        b=ZqXFmmvPmpCFeZJkR98WQbkWUz8W7J04M0ICzkWzXLitrVuccDVeA8B0DmshBQgxQl
+         nleGAmGImMh33KQM1vEEAGAn9wLh89/inHrITWEP1KmCxkWAjcOHb5PQlY4ly9ZJLODY
+         MuzkhzqwgKWNIRiSLcypHYgROvVcwSuofjFAaOGj5JJCpQrmSK8BjhsoOA37XvZHJC8L
+         oJoeetD8zGvqJPHfcXNayjNUa2mxKslfZmpyjsK2SA8hiatvz6/fB11TE6H3tNSyCY1N
+         VefXtRhzuoIvxP7xoXCJRRufjpxQnG3Lu1XWjR61Jt90xY+te6mxxURD8jShiYmCyoiA
+         yo4A==
+X-Forwarded-Encrypted: i=1; AHgh+Rr0sYBSjerAma+BETB22aWIysO56lie6sOZLfdITPhtcRf/NOwSL+9qRj5xaOd1tDXKE0xGaSMspEp45p7bgO6E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvfc9tKFDlN6EJfc/sqxta2hXreuOB4sUOv4u4BT3grbIEKyHb
+	L0nu5XBkJcgNqzhR33UrNBFZam3B52UQoLwm9rGyFXuaGGt6NOx2hRit
+X-Gm-Gg: AR+sD12u9Sw7cahG8JouPRynRHFOP08NwJliR868u2SsdE0+BVuEYUfpM+vN3hQuRvZ
+	va/iGFZBtTNcM27ePqQ+YK31BH9ZpGj0EkaZL9QVqXeZFgzkfRuKA8sqFmQIUERn35dil+cvxES
+	xxXTfZghAP1/WqKqtlad+nOPk5G00YIKRvOpwMsgVPriW5Qpxiu3qmpG3y3AoGcDyMTM4hNAtg5
+	ZUqk+qSf0pJk1tHpjSrWUtYx9z18n2thoGOybjNDW6jDB8bzvzmlWsFFnUnm0jk9bRpZdaZi1/s
+	ZIBvnJoeCOwHmsq4wsCGrxH37o4JPDmhwENRH08AI9JP8VUnHZMKIoPdaCu1ZRvn9tgVO+EZjvi
+	7cb0ycvYGUcYHG49yX+fEgyAFoafqGRRbS/bwO1nXHb1H42v3eib7qVYg0dP89TEkQr5PyyHYMn
+	MPoeaXhbpl2XxHzDW//k8dOaz0oKXJHGWLx1DSOU9UTz9zaoQTpRO1MURDDrXDunl5KVXAiJR44
+	Wsfj2TxJFOR7Wm+mOjvNgmy/uRjtHTkQu9MU8pAKyoRgYeC1XLSqmw=
+X-Received: by 2002:a05:6a00:8d0:b0:848:60a3:bdc2 with SMTP id d2e1a72fcca58-84e5956c456mr2427856b3a.60.1785016694068;
+        Sat, 25 Jul 2026 14:58:14 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e532acee2sm1322290b3a.27.2026.07.25.14.57.23
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e5327f3fbsm1375376b3a.19.2026.07.25.14.58.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Jul 2026 14:57:25 -0700 (PDT)
+        Sat, 25 Jul 2026 14:58:12 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -80,15 +80,16 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: BCM5301X: fix PCIe controller 2 second interrupt
-Date: Sat, 25 Jul 2026 14:57:22 -0700
-Message-ID: <20260725215722.9323-1-rosenp@gmail.com>
+Subject: [PATCH] ARM: dts: BCM5301X: EA6300: fix USB3
+Date: Sat, 25 Jul 2026 14:58:09 -0700
+Message-ID: <20260725215809.9464-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_145727_212067_FB9B0AE1 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260725_145815_120221_5EEF9007 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +104,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PCIe controller 2 has interrupts 0-4 mapping to GIC SPI 138-142. The
-mapping for interrupt 1 was incorrectly set to 138 due to a copy-paste
-error. Fix it to 139.
+USB3 needs to have a GPIO pulled HIGH in order to function. Add vcc-gpio
+to do so.
 
-Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm/boot/dts/broadcom/bcm-ns.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/boot/dts/broadcom/bcm4708-linksys-ea6300-v1.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
-index 392a25713669..bd52de0faa3e 100644
---- a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
-@@ -141,7 +141,7 @@ axi@18000000 {
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-linksys-ea6300-v1.dts b/arch/arm/boot/dts/broadcom/bcm4708-linksys-ea6300-v1.dts
+index 44cf867b223d..a772db0121fb 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-linksys-ea6300-v1.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4708-linksys-ea6300-v1.dts
+@@ -51,6 +51,10 @@ &usb3_phy {
+ 	status = "okay";
+ };
  
- 			/* PCIe Controller 2 */
- 			<0x00014000 0 &gic GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>,
--			<0x00014000 1 &gic GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>,
-+			<0x00014000 1 &gic GIC_SPI 139 IRQ_TYPE_LEVEL_HIGH>,
- 			<0x00014000 2 &gic GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>,
- 			<0x00014000 3 &gic GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>,
- 			<0x00014000 4 &gic GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>,
++&usb3 {
++	vcc-gpio = <&chipcommon 10 GPIO_ACTIVE_HIGH>;
++};
++
+ &srab {
+ 	status = "okay";
+ 
 -- 
 2.55.0
 
