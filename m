@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B27FC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 13:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706EDC5321C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 13:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNyhXkUmw0itH+0BymTsdz7Nkvxt9OLSlnHtolV7POs=; b=XZdI5JmoWQY5fGt2y8WTYEdhrw
-	JqGdd53gUA1xW0mX8KKLddhjzVTl5hGOkD821L+X7XPRfoB1CzSnKqqfw/bjhHpDQjg41DDyEH8Gz
-	LIultD8NBgTkaJsZti1FzoYwx/dcxBp1uk0/kcbeRRN5pUG2ZJVoqG5ZwRltkD0LH+V7PoGHKPlgm
-	PMnkiFmwzy69y/Wr5y8oJlDZhrlWtnafj1Ccd/C4wwXKALE8Q8jPRks+uYawAzZqigdCYScVTDpXt
-	AyjTyIN1eJeG8BUC7vp/Y5PlfWLhnnVL2oPpfJdiKEVGKbwpYVmMGPEzlhMNae9CLibYhi0pK5Jat
-	a3cPibqg==;
+	bh=icTggAy3gbl2+A7cAXhm51k/YneL2/ZKYWfIfpCPKGQ=; b=sGidSxYhlFQPbKSbixf+AKbYS1
+	Jza0jWpjdoDG0N/dqgls7iVEXUXRZinMtCeEXVixIQ9TApJQvXwSv5HdQk/8OkCYGrB9JKeW9wuxy
+	FN0Si1zW0IHGUEHa+zJ7x1Q2LtGV8S+XNB4BwMGKdkZban2Bm8tjRGXNVxAVkOjXGEdBnXc2R/3ga
+	hrRiAd1JqPFlnWA1/a8OnQqWKMaD6+pxbIs1lflk6OI1BA/XeMSHvdyAq40ysOpH5yF7F1NF9oQcz
+	1++ElnZAsBnb4oyU1bWLZO1PYQprqGxBWyAnZpxGW0Wgi2eDSoALsX9IP0ocR1EWIgcUth54xG1t7
+	1+Fyrp9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wncjm-00000000Opc-022x;
-	Sat, 25 Jul 2026 13:48:22 +0000
+	id 1wncjl-00000000Onm-1b53;
+	Sat, 25 Jul 2026 13:48:21 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wncjg-00000000Olc-40kp
+	id 1wncjc-00000000Ok3-3SQr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 13:48:18 +0000
-Received: by chaosmail.tech (Postfix) id EA9481C89DA;
-	Sat, 25 Jul 2026 13:48:13 +0000 (UTC)
+	Sat, 25 Jul 2026 13:48:15 +0000
+Received: by chaosmail.tech (Postfix) id 1CF7A1C8829;
+	Sat, 25 Jul 2026 13:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1784987294;
+	s=mail; t=1784987290;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KNyhXkUmw0itH+0BymTsdz7Nkvxt9OLSlnHtolV7POs=;
-	b=E7Rqa7EVQMPTP287VA20Qzd2/SWQ16U4vyiKrAhqZvAJDA6NwWgukhGCcbQ7kaCvDXYXkd
-	+tiu4tuJ7+TOJeaWyoINegyA+xWsfy00O+eSgrDFI7mIr8Bc6wVwxRgq5Q2Nn0cFiK54Iv
-	G0085dD+B1+EwzG2WHXGGzoVipQy2IM=
+	bh=icTggAy3gbl2+A7cAXhm51k/YneL2/ZKYWfIfpCPKGQ=;
+	b=VRaMVxXIQH/oUVE5NoFqio0JDnmFZzP6DMRU6B/11cHX9pjWe1MDgxcbar2aunGS/w6zJh
+	l7K7HrYDkw0x+Fq2iImJN0TRG+jeRA8HsWFuGQJu9TvWdeQIBYt3f68Rn9A84c1/kC1SYh
+	rmL8LigIno74Eo0v1XL5BOdozBbVklg=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sat, 25 Jul 2026 15:48:04 +0200
-Subject: [PATCH 7/7] spmi: apple: interrupt controller functionality
+Date: Sat, 25 Jul 2026 15:47:59 +0200
+Subject: [PATCH 2/7] spmi: apple: Validate FIFO state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260725-t603x-spmi-v1-7-e1a29fcd2d38@chaosmail.tech>
+Message-Id: <20260725-t603x-spmi-v1-2-e1a29fcd2d38@chaosmail.tech>
 References: <20260725-t603x-spmi-v1-0-e1a29fcd2d38@chaosmail.tech>
 In-Reply-To: <20260725-t603x-spmi-v1-0-e1a29fcd2d38@chaosmail.tech>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -55,16 +55,16 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784987288; l=6871;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784987288; l=1469;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=9qspmyWvz++p2+jhctT4jbqrDjFjvxRZSed7JlepAt4=;
- b=RVASvHzIYUNmCm4GZhnQBMNb7wvQz1n0wPG00VeLBSplS56aM3sGZOSOkGBSjmznH5vcu/kOy
- yyG0g6/YuWEAhRPn22H0uVpTjdQslm+u/InNvmDcW83FRBKVJ1UPC0Q
+ bh=s+zw2P+Wx9EvyJyi9jeYYrUjVBBFmgRieWNPRCaUoyU=;
+ b=ZEgDFOgRB3QxgfFZUeoIfQvhkipMQ7Tkku4/hoDMbRU9iYTHjQ9tuqd77r3ImJya7bJluEoGP
+ xpi4Ue2XjYFCAzXKyurcbm0YkWZECRaV4cXVlDOcAlS0HpQlWPpFJ9E
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_064817_164502_734D1393 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20260725_064813_334028_C1E5D865 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,227 +81,49 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alba Mendez <me@alba.sh>
 
-Add support for interrupts sent by slave devices.
+Check for data before reading the body of a reply, and check for
+end of data afterwards.
 
 Signed-off-by: Alba Mendez <me@alba.sh>
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/spmi/Kconfig                 |   1 +
- drivers/spmi/spmi-apple-controller.c | 149 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 149 insertions(+), 1 deletion(-)
+ drivers/spmi/spmi-apple-controller.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
-index a80cf4047b86..c9eff3d470a1 100644
---- a/drivers/spmi/Kconfig
-+++ b/drivers/spmi/Kconfig
-@@ -13,6 +13,7 @@ if SPMI
- 
- config SPMI_APPLE
- 	tristate "Apple SoC SPMI Controller platform driver"
-+	select IRQ_DOMAIN_HIERARCHY
- 	depends on ARCH_APPLE || COMPILE_TEST
- 	help
- 	  If you say yes to this option, support will be included for the
 diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index d627187b3ac0..13b48fd66aec 100644
+index 376cf682c43e..b4f442d0b4ad 100644
 --- a/drivers/spmi/spmi-apple-controller.c
 +++ b/drivers/spmi/spmi-apple-controller.c
-@@ -15,9 +15,12 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
-+#include <linux/spinlock.h>
- #include <linux/spmi.h>
+@@ -78,6 +78,10 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
  
- /* SPMI Controller Registers */
-@@ -47,6 +50,9 @@ struct apple_spmi {
- 	struct mutex fifo_lock;
- 	bool fifo_rx_irq;
- 	struct completion fifo_rx;
-+	struct irq_domain *irqd;
-+	raw_spinlock_t irq_mask_lock;
-+	u64 irq_mask_cache[SPMI_IRQ_USER_SIZE / sizeof(u64)];
- };
- 
- #define poll_reg(spmi, reg, val, cond) \
-@@ -228,11 +234,123 @@ static void apple_spmi_irq_unmask_raw(struct apple_spmi *spmi, u32 irq)
- 	writel(readl(reg) | BIT(irq % 32), reg);
- }
- 
-+static void apple_spmi_irq_ack(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+
-+	apple_spmi_irq_ack_raw(spmi, d->hwirq);
-+}
-+
-+static void apple_spmi_irq_mask(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-+	apple_spmi_irq_mask_raw(spmi, d->hwirq);
-+	spmi->irq_mask_cache[d->hwirq / 64] &= ~BIT(d->hwirq % 64);
-+	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-+}
-+
-+static void apple_spmi_irq_unmask(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-+	apple_spmi_irq_unmask_raw(spmi, d->hwirq);
-+	spmi->irq_mask_cache[d->hwirq / 64] |= BIT(d->hwirq % 64);
-+	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-+}
-+
-+static int apple_spmi_irq_set_type(struct irq_data *d, unsigned int type)
-+{
-+	/* all interrupts have MSI semantics */
-+	return type == IRQ_TYPE_EDGE_RISING ? 0 : -EINVAL;
-+}
-+
-+static struct irq_chip apple_spmi_irq_chip = {
-+	.name = "apple_spmi",
-+	.irq_mask = apple_spmi_irq_mask,
-+	.irq_unmask = apple_spmi_irq_unmask,
-+	.irq_ack = apple_spmi_irq_ack,
-+	.irq_set_type = apple_spmi_irq_set_type,
-+	.flags = IRQCHIP_ONESHOT_SAFE,
-+};
-+
-+static int apple_spmi_irq_domain_map(struct irq_domain *irqd,
-+					unsigned int irq, irq_hw_number_t hw)
-+{
-+	irq_domain_set_info(irqd, irq, hw, &apple_spmi_irq_chip, irqd->host_data,
-+				handle_edge_irq, NULL, NULL);
-+	return 0;
-+}
-+
-+static int apple_spmi_irq_domain_translate(struct irq_domain *irqd,
-+					struct irq_fwspec *fwspec,
-+					unsigned long *hwirq,
-+					unsigned int *type)
-+{
-+	u32 *args = fwspec->param;
-+
-+	if (fwspec->param_count != 2)
-+		return -EINVAL;
-+
-+	if (args[0] >= SPMI_IRQ_USER_SIZE * 8)
-+		return -EINVAL;
-+	*hwirq = args[0];
-+	*type = args[1] & IRQ_TYPE_SENSE_MASK;
-+	return 0;
-+}
-+
-+static int apple_spmi_irq_domain_alloc(struct irq_domain *irqd, unsigned int virq,
-+				unsigned int nr_irqs, void *arg)
-+{
-+	unsigned int type = IRQ_TYPE_NONE;
-+	struct irq_fwspec *fwspec = arg;
-+	irq_hw_number_t hwirq;
-+	int i, ret;
-+
-+	ret = apple_spmi_irq_domain_translate(irqd, fwspec, &hwirq, &type);
-+	if (ret)
-+		return ret;
-+
-+	if (hwirq + nr_irqs > SPMI_IRQ_USER_SIZE * 8)
-+		return -EINVAL;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		ret = apple_spmi_irq_domain_map(irqd, virq + i, hwirq + i);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void apple_spmi_irq_domain_free(struct irq_domain *irqd, unsigned int virq,
-+				unsigned int nr_irqs)
-+{
-+	int i;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		struct irq_data *d = irq_domain_get_irq_data(irqd, virq + i);
-+
-+		irq_set_handler(virq + i, NULL);
-+		irq_domain_reset_irq_data(d);
-+	}
-+}
-+
-+static const struct irq_domain_ops apple_spmi_irq_domain_ops = {
-+	.translate	= apple_spmi_irq_domain_translate,
-+	.alloc		= apple_spmi_irq_domain_alloc,
-+	.free		= apple_spmi_irq_domain_free,
-+};
-+
- static irqreturn_t apple_spmi_irq_handler(int irq, void *dev_id)
- {
- 	struct apple_spmi *spmi = dev_id;
- 	bool handled = false;
--	u32 val, offset, bit;
-+	u64 val, offset, bit;
- 
- 	val = readl(spmi->regs + SPMI_IRQ_ACK_BASE + SPMI_IRQ_USER_SIZE);
- 	if (val & BIT(SPMI_IRQ_FIFO_RX)) {
-@@ -241,6 +359,23 @@ static irqreturn_t apple_spmi_irq_handler(int irq, void *dev_id)
- 		handled = true;
- 	}
- 
-+	for (offset = 0; offset < SPMI_IRQ_USER_SIZE; offset += sizeof(val)) {
-+		val = readq(spmi->regs + SPMI_IRQ_ACK_BASE + offset);
-+		/**
-+		 * because of other masters in the bus, we're going to get a multitude of
-+		 * interrupts we're not interested in. irq_resolve_mapping isn't very
-+		 * optimized for the nonexistent path, so instead we mask with (a locally
-+		 * cached version of) the IRQ mask
-+		 */
-+		val &= spmi->irq_mask_cache[offset / sizeof(val)];
-+		while (val) {
-+			bit = __builtin_ctzll(val);
-+			generic_handle_domain_irq(spmi->irqd, offset * 8 + bit);
-+			handled = true;
-+			val &= ~BIT(bit);
+ 	/* Read SPMI data reply */
+ 	while (len_read < len) {
++		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
++			dev_err(&ctrl->dev, "FIFO lacks reply data, controller stuck?\n");
++			return -EIO;
 +		}
-+	}
-+
- 	return handled ? IRQ_HANDLED : IRQ_NONE;
- }
- 
-@@ -248,12 +383,24 @@ static int apple_spmi_init_irq(struct platform_device *pdev,
- 			  struct apple_spmi *spmi, int irq)
- {
- 	int ret;
-+	struct irq_domain_info info = {
-+		.fwnode		= pdev->dev.fwnode,
-+		.hwirq_max	= ~0U,
-+		.ops		= &apple_spmi_irq_domain_ops,
-+		.host_data	= spmi,
-+	};
-+
-+	raw_spin_lock_init(&spmi->irq_mask_lock);
- 
- 	for (size_t offset = 0; offset < SPMI_IRQ_USER_SIZE + 4; offset += 4) {
- 		writel(0, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
- 		writel(U32_MAX, spmi->regs + SPMI_IRQ_ACK_BASE + offset);
+ 		rsp = readl(spmi->regs + SPMI_RSP_REG);
+ 		i = 0;
+ 		while ((len_read < len) && (i < 4)) {
+@@ -86,6 +90,9 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 		}
  	}
  
-+	spmi->irqd = devm_irq_domain_instantiate(&pdev->dev, &info);
-+	if (IS_ERR(spmi->irqd))
-+		return PTR_ERR(spmi->irqd);
++	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
++		dev_warn(&ctrl->dev, "FIFO has extra data\n");
 +
- 	spmi->fifo_rx_irq = true;
- 	apple_spmi_irq_unmask_raw(spmi, SPMI_IRQ_USER_SIZE * 8 + SPMI_IRQ_FIFO_RX);
+ 	return 0;
+ }
+ 
+@@ -115,6 +122,9 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	/* Discard */
+ 	readl(spmi->regs + SPMI_RSP_REG);
+ 
++	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
++		dev_warn(&ctrl->dev, "FIFO has extra data\n");
++
+ 	return 0;
+ }
  
 
 -- 
