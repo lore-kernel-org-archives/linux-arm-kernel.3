@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACC0C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 17:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FFAC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 17:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xwer28G5pw4wsNF0yku4ROFLV/J4AXdW7aaxUo/gEhU=; b=pJdwnjRo3dT3GPurJfOktPmmiH
-	EbbpGNDLqWXoULDVP6hoaWh21gg1YA3Jeo4XMkrQO1jjY0HBWp4mWRvF53mxBDgeEjlysdvLQTWwg
-	RrRFXh+iuJmGUs96Jmmb9xN8Z75rB+8eL5MQM5RyzZOuRo9f43xP8XpU8k6iqZihbbqHwzC2q8r82
-	eCoZOi+XIQPLRwZRR1iwdgxVC1ayZCQlnNLrRgdT/HVVvq0PDua9tE93njpEcjMWPSAqfF7p/tqzk
-	Vb96IBy0OOoCJrOV16CBdHNZCPGasSfjkSsNTmwNG22WfI8acE8UTNpHdOQ4ruGR+rY+iilopzcjK
-	6T98CSNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TTz19mXfDclRKjgP+yiNE3jo2vFg5MdX/WOpftTFJw4=; b=IDOEKEexnveBua8DHORnf5FTkl
+	2wvKh72ZnF6LsqltmmtvK1rHsbAvrVpE75lmWm4/2Bpf1s2eC3H8HJntsOlZUwCvZkNwEtXuAWiel
+	whOH0GZXBXYXWLWfGTM6LKWYXSAfjgjLEabKPKU8pFFPSWB0D980I51VFLyepK61YfJkz72us3wS6
+	3ewuocxHRCVFdeTH4CICDpJ3aXMfWmU58PMIyCjbd5kELqt+PUIYhxxlyFZmJfqF9IN1mJF8JHUN0
+	sCeu3zkTcVZsWb2WTWvpjxCbjrWK8PfnbzsPd4seHmhrfzMh1oBDsvAUPs5FPNL+VDtHsyK7L70j5
+	Rnxlnw2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wng9u-00000000bWF-2BqD;
-	Sat, 25 Jul 2026 17:27:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wng9t-00000000bW9-1yoW
+	id 1wnfzj-00000000Zjf-3owu;
+	Sat, 25 Jul 2026 17:17:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnfzg-00000000ZjC-0uMu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 17:27:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 664A660A91;
-	Sat, 25 Jul 2026 17:27:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7D1E1F000E9;
-	Sat, 25 Jul 2026 17:27:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785000451;
-	bh=Xwer28G5pw4wsNF0yku4ROFLV/J4AXdW7aaxUo/gEhU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=k0Mr59JYb8ILX93+B86WiJm6zWa3u9aRWj5DEP6Q+wRxarh0b+aRW6r7zwy1Ecd6Q
-	 /qSwmrKTrkL9WlLIISdG6AIkFkT9kcZ53MnzZyBHQedM+OYUaDgKn+x7osmYelZpGX
-	 W9kyKBWV3AXxA7HSYogLcgBNm+fqGHzL2JPYwvER/bp7s7CZ8qIoJApCuFBW08qxjw
-	 91VfZirduIxYRwXWf65hAR1sdH5WHMvgT6GYHIy7IwKLn9SLz68pdRIDGx6q8PCdvO
-	 e427vn7Df3JoDj/EgVJBPIt8vY0NpyDetYwVnipHPtGhdxb8CLpHjpygSZNNMLCw2i
-	 B6PlnddOxtomg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wng9o-00000008oCk-3L6Y;
-	Sat, 25 Jul 2026 17:27:28 +0000
-Date: Sat, 25 Jul 2026 18:28:52 +0100
-Message-ID: <87v7a3ou5n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual
- <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Matt Fleming <matt@codeblueprint.co.uk>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Ene
- <sebastianene@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sashiko AI <sashiko-bot@kernel.org>
+	Sat, 25 Jul 2026 17:17:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8C131476;
+	Sat, 25 Jul 2026 10:16:51 -0700 (PDT)
+Received: from [10.163.131.227] (unknown [10.163.131.227])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48FBB3F9AB;
+	Sat, 25 Jul 2026 10:16:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784999816; bh=+omX/Tl/a3q8wWs0/af+Q2F7EKuxKZ0L0Z4YWQFCw5I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Rd95tlalpS7RDjQuSTC6ghjgE6h3pX1mN7C+5aPsmZ4bZifOdScIeoMZiD9sHma90
+	 keWMVLOOFKrEZc+uUI088msUtDYJF1x0Sjx6+elNJ03fT1HsPVyzUUoif0bUqhrF7D
+	 RVDiUTMJpkKHCE5zFohv/PFXn1SwYUK0ndD8yNik=
+Message-ID: <a2548783-ee41-49c0-bfe3-80b3816dc6b2@arm.com>
+Date: Sat, 25 Jul 2026 22:46:37 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 2/2] KVM: arm64: ptdump: Flush the last region
-In-Reply-To: <a2548783-ee41-49c0-bfe3-80b3816dc6b2@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Anshuman Khandual
+ <anshuman.khandual@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>,
+ Matt Fleming <matt@codeblueprint.co.uk>, Ard Biesheuvel <ardb@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Sebastian Ene
+ <sebastianene@google.com>, Vincent Donnefort <vdonnefort@google.com>,
+ Sashiko AI <sashiko-bot@kernel.org>
 References: <20260724185431.2990395-1-weilin.chang@arm.com>
-	<20260724185431.2990395-3-weilin.chang@arm.com>
-	<a2548783-ee41-49c0-bfe3-80b3816dc6b2@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dev.jain@arm.com, weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com, ryan.roberts@arm.com, david@kernel.org, matt@codeblueprint.co.uk, ardb@kernel.org, mark.rutland@arm.com, sebastianene@google.com, vdonnefort@google.com, sashiko-bot@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+ <20260724185431.2990395-3-weilin.chang@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260724185431.2990395-3-weilin.chang@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260725_101700_503093_2628FFCC 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,91 +83,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Jul 2026 18:16:37 +0100,
-Dev Jain <dev.jain@arm.com> wrote:
+
+
+On 25/07/26 12:24 am, Wei-Lin Chang wrote:
+> Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
+> This simply misses the output of the last region, because note_page()
+> only dumps output when it detects a change in level/prot, or when the
+> walk enters a next marker section. The last region in the guest IPA
+> space with the same level/prot is not dumped since there is no change
+> after it.
 > 
+> Call note_page_flush() to dump the final region. note_page_flush()
+> expects ptdump_state.range[] to be initialized to the range of the
+> address space, so also do that.
 > 
+> Also change the second marker's start address to ULONG_MAX so we never
+> cross it. This avoids dumping redundant marker names (which are NULL),
+> and advancing beyond the end of the marker array.
 > 
-> On 25/07/26 12:24 am, Wei-Lin Chang wrote:
-> > Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
-> > This simply misses the output of the last region, because note_page()
-> > only dumps output when it detects a change in level/prot, or when the
-> > walk enters a next marker section. The last region in the guest IPA
-> > space with the same level/prot is not dumped since there is no change
-> > after it.
-> > 
-> > Call note_page_flush() to dump the final region. note_page_flush()
-> > expects ptdump_state.range[] to be initialized to the range of the
-> > address space, so also do that.
-> > 
-> > Also change the second marker's start address to ULONG_MAX so we never
-> > cross it. This avoids dumping redundant marker names (which are NULL),
-> > and advancing beyond the end of the marker array.
-> > 
-> > Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
-> > Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-> > Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
-> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > ---
-> >  arch/arm64/kvm/ptdump.c | 16 ++++++++++++----
-> >  1 file changed, 12 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-> > index c9140e22abcf..222577163d2b 100644
-> > --- a/arch/arm64/kvm/ptdump.c
-> > +++ b/arch/arm64/kvm/ptdump.c
-> > @@ -130,7 +130,7 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm_s2_mmu
-> >  	}
-> >  
-> >  	st->ipa_marker[0].name		= "Guest IPA";
-> > -	st->ipa_marker[1].start_address = BIT(pgtable->ia_bits);
-> > +	st->ipa_marker[1].start_address = ULONG_MAX;
-> >  
-> >  	st->mmu				= mmu;
-> >  	return st;
-> > @@ -148,18 +148,26 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
-> >  		.flags	= KVM_PGTABLE_WALK_LEAF,
-> >  	};
-> >  
-> > +	guard(write_lock)(&kvm->mmu_lock);
-> >  	st->parser_state = (struct ptdump_pg_state) {
-> >  		.marker		= &st->ipa_marker[0],
-> >  		.level		= -1,
-> >  		.pg_level	= &st->level[0],
-> >  		.seq		= m,
-> > +		.ptdump		= {
-> > +			.range = (struct ptdump_range[]){
-> > +				{0, BIT(mmu->pgt->ia_bits)},
-> > +				{0, 0}
-> > +			}
+> Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
+> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/kvm/ptdump.c | 16 ++++++++++++----
+>  1 file changed, 12 insertions(+), 4 deletions(-)
 > 
-> I am having a real hard time reading that indentation :) you
-> could make it look like what we have currently in ptdump_walk().
+> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> index c9140e22abcf..222577163d2b 100644
+> --- a/arch/arm64/kvm/ptdump.c
+> +++ b/arch/arm64/kvm/ptdump.c
+> @@ -130,7 +130,7 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm_s2_mmu
+>  	}
+>  
+>  	st->ipa_marker[0].name		= "Guest IPA";
+> -	st->ipa_marker[1].start_address = BIT(pgtable->ia_bits);
+> +	st->ipa_marker[1].start_address = ULONG_MAX;
+>  
+>  	st->mmu				= mmu;
+>  	return st;
+> @@ -148,18 +148,26 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+>  		.flags	= KVM_PGTABLE_WALK_LEAF,
+>  	};
+>  
+> +	guard(write_lock)(&kvm->mmu_lock);
+>  	st->parser_state = (struct ptdump_pg_state) {
+>  		.marker		= &st->ipa_marker[0],
+>  		.level		= -1,
+>  		.pg_level	= &st->level[0],
+>  		.seq		= m,
+> +		.ptdump		= {
+> +			.range = (struct ptdump_range[]){
+> +				{0, BIT(mmu->pgt->ia_bits)},
+> +				{0, 0}
+> +			}
 
-This patch:
+I am having a real hard time reading that indentation :) you
+could make it look like what we have currently in ptdump_walk().
 
-		.ptdump		= {
-			.range = (struct ptdump_range[]){
-				{0, BIT(mmu->pgt->ia_bits)},
-				{0, 0}
-			}
-		}
+The code looks sensible to me. I have also tested by booting a
+Linux VM inside a Linux VM on a Mac, and I see the stage2 ptdump
+prints the last range upto the ia_bits correctly. So with the
+nit addressed above:
 
-ptdump_walk():
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+Tested-by: Dev Jain <dev.jain@arm.com>
 
-		.ptdump = {
-			[...]
-			.range = (struct ptdump_range[]){
-				{info->base_addr, end},
-				{0, 0}
-			}
-		}
 
-Zero difference in indentation. Consider using a better email client,
-or look at the applied patches.
 
-	M.
 
--- 
-Jazz isn't dead. It just smells funny.
+> +		}
+>  	};
+>  
+> -	write_lock(&kvm->mmu_lock);
+>  	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+> -	write_unlock(&kvm->mmu_lock);
+> +	if (ret)
+> +		return ret;
+> +	note_page_flush(&st->parser_state.ptdump);
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+
 
