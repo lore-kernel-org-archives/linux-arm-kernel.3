@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C328DC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 13:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82E6C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 13:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H86t3gf/zmT834UnYberSZX5pHmm8loG9uhscxnY3uM=; b=ZydISpePv5sdO0Ny4tMJ0l7n3P
-	tnpEHkLH6bBXbeCQCJ3h+YYZvsg20BFLfhWZgG5jetzDfoER4OHVKLc3dS0Z4bTicxC8/edxKybNj
-	6KShoP57BhwTOyQmrJ9+I3qGG1bOATjz0Kxb3shmu+GVnFxpwHjyddiVHt8LGHnmPklvTQhrciHWD
-	LFZT7g/Gl5QMPmzKDwjRBdDzzxx+HXXfPNl+MnOyJBjC865YZr1QxeeR7HwO4WbAudLoAE6u6Z8iL
-	7r+nEe0FZraeGJdR4Ql0hr61X8dYZpxhMVBgFIapxWnrPpmMn/uh9n9bARsd509NSHtqVfFES12HM
-	7ZYKD5Zw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=I/8nGZ3kme0kRjU0reoPml5u6qqgUq5INVuMdCZUNFE=; b=XVlqO/qiuS8ZKL
+	D9doVwqnvTj5eYmTaqAx1Z6GUk2O9EXf6JYKIYdR/j+M9dUZ6bWWDyey5kDPHqKIHDxc7kZQXn76x
+	Mm0SbvnN9t8jFIjgjabwLAVEA+mEQTgU+WCHoW+QxiILvHznPK3HJ/tfudDQp+5jz5P+t2T7AnXVU
+	rrWayYiziz7ll7x5mphkjZT9f6YBkX9qV0hP5KKAvfNP+TtJxPFt5SulvOANWJ4833m/NpIqr4tYC
+	MtPvqEZ+M0dVZlsx4IXqRd/es16UZ6KpwJk5F3W96jLnarAJtd0D/dvWFbx6XATuzeVeurRE/mj09
+	z1QXy+dV/uLREb3jY4mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wncjf-00000000OlX-0reA;
-	Sat, 25 Jul 2026 13:48:15 +0000
+	id 1wncjl-00000000OnU-1Ebm;
+	Sat, 25 Jul 2026 13:48:21 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wncjc-00000000Ok2-3SQd
+	id 1wncjc-00000000Ok1-3ST6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 13:48:14 +0000
-Received: by chaosmail.tech (Postfix) id 633891C8684;
-	Sat, 25 Jul 2026 13:48:09 +0000 (UTC)
+	Sat, 25 Jul 2026 13:48:15 +0000
+Received: by chaosmail.tech (Postfix) id 9E89A1C867B;
+	Sat, 25 Jul 2026 13:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1784987290;
+	s=mail; t=1784987289;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H86t3gf/zmT834UnYberSZX5pHmm8loG9uhscxnY3uM=;
-	b=vcG7XnN8GCLBHY7JTLMMcIAx6D7SdKRWHgtPYeWr5qzKYtZs6zUOwdg1q/nnbqMdciL3iv
-	iHRwZeqt+oEaZh59b88RS9UOVp9gQXfzMxbdQ1GEMTB+5e77tHmjCvm8OWRl7vCt2jXJGe
-	2ks96ERFQF+BDgnJqCd7ZxfGequU02s=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=I/8nGZ3kme0kRjU0reoPml5u6qqgUq5INVuMdCZUNFE=;
+	b=KQff2g4/5xB2tuH9oBhaH9B2LVNEBaJWelgAD5T7FLHKibSLXWHSsgaPzzZHLwHMlVPB4W
+	WnaNEcJSJ6eAou7oCFQRDvRx/h0gIZUnGVZ7NHGv+/q15yOoOf3ANz8C1SUEz/dTn4CAXW
+	dQE0T/71GptZRfOwmL3/rfoaSLyGjas=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sat, 25 Jul 2026 15:47:58 +0200
-Subject: [PATCH 1/7] dt-bindings: spmi: apple,spmi: Add t603x
+Subject: [PATCH 0/7] spmi: apple: Additional commands and interrupt
+ support.
+Date: Sat, 25 Jul 2026 15:47:57 +0200
+Message-Id: <20260725-t603x-spmi-v1-0-e1a29fcd2d38@chaosmail.tech>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260725-t603x-spmi-v1-1-e1a29fcd2d38@chaosmail.tech>
-References: <20260725-t603x-spmi-v1-0-e1a29fcd2d38@chaosmail.tech>
-In-Reply-To: <20260725-t603x-spmi-v1-0-e1a29fcd2d38@chaosmail.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ5AMBBA4avIrDUZRSWuIhYtg5H4SQeRiLsrl
+ t/ivQuEPJNAGV3g6WDhZQ5I4giawc49KW6DQaM2WOhcbQbTU8k6sSoyk6LrEocWIQSrp47Pb1b
+ Vv2V3IzXbe4D7fgCVwv6tbgAAAA==
+X-Change-ID: 20260725-t603x-spmi-74630bf1b0a0
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784987288; l=1183;
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784987288; l=1323;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=wqm7+TUC34pSmi/zpOaYMoWGiag20QOgkChGwgMHchI=;
- b=GYNQYwGqsfIDojVYIcLBsknBtdJECDpVEFwrgGgfI8vD4HIQS5gLW6KUw46QNkw0pr0xvHpnm
- 0FpT9FSgeykAElDNeEuXMvb0mRLnc6gdo8SBPOAcl3OsgVSAigt68GS
+ bh=JcVhJYDXJ29DM6q/DGhCD0k1FkRv5FLa1IeNLYu00uU=;
+ b=GmINXHiFj9rrwrh8pxjnL6ytD060L+MXm5s/38fjKXFIk14Vv3FqSUm3tp5H5N3onvPa8/nPc
+ Lwqk8dW+tIhCu0obO8IiD8b8nC7HIe8EuGKMEy2vktg2xCDnnvv5i+1
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_064813_334059_7E72732B 
-X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-CacheID: sfid-20260725_064813_334285_F049C911 
+X-CRM114-Status: UNSURE (   7.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,48 +82,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add t603x compatibles, interrupt support, and support for SPMI
-controllers that are not always-on
+The SPMI bus has grown additional responsibilities in the M3
+generation, making the current driver insufficient. Add M3 comatibles,
+support for slave-sent interrupts, FIFO interrupts, power management
+commands, parity validation, and fix locking.
+
+To simplify the merge strategy, the device tree entries will be sent
+in a future patch series.
 
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- Documentation/devicetree/bindings/spmi/apple,spmi.yaml | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Alba Mendez (6):
+      spmi: apple: Validate FIFO state
+      spmi: apple: check transaction status
+      spmi: apple: Implement remaining commands
+      spmi: apple: lock around FIFOs
+      spmi: apple: use IRQ for RX FIFO if possible
+      spmi: apple: interrupt controller functionality
 
-diff --git a/Documentation/devicetree/bindings/spmi/apple,spmi.yaml b/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
-index 3e5b14bc8c31..9fc511bb0cb8 100644
---- a/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
-+++ b/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
-@@ -20,6 +20,8 @@ properties:
-       - items:
-           - enum:
-               - apple,t6020-spmi
-+              - apple,t6030-spmi
-+              - apple,t6031-spmi
-               - apple,t8012-spmi
-               - apple,t8015-spmi
-           - const: apple,t8103-spmi
-@@ -34,6 +36,18 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  interrupts:
-+    maxItems: 1
-+    description: Optional, operates in polled mode if not present
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 2
-+
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
+Sasha Finkelstein (1):
+      dt-bindings: spmi: apple,spmi: Add t603x
 
--- 
-2.55.0
+ Documentation/devicetree/bindings/spmi/apple,spmi.yaml |  14 +++++
+ drivers/spmi/Kconfig                                   |   1 +
+ drivers/spmi/spmi-apple-controller.c                   | 367 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 3 files changed, 353 insertions(+), 29 deletions(-)
+---
+base-commit: 0ce37745d4bfbc493f718169c3974898ffec8ee7
+change-id: 20260725-t603x-spmi-74630bf1b0a0
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
 
 
