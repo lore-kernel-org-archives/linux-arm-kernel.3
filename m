@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C054C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 09:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10B1C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 09:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jDjufJPxmbAXxmGO9YdD7R16Uwh+1TVhvFBJHfcH/5I=; b=rtxdsOMeK+DV1f++Junz83uvQD
-	Li5VrdUBeMIezHC2LsQILQ0J3Bo019OxPSvEMmbub25WyW5wQFjkCFONCzdeiADao0xLNnaAUDvuK
-	JZgGcrm+Wzqg5dorNPEkIZORrm/MZQO1/hs/RA+jraQlgJ8abnR7wvcyDnwNsERk8ra89JgBcSYsD
-	B6g8XxGMrGwg9VTX3ZaX/3Wrgcpupa3lf7WLSoSqbBTaJqwitmaF83OpVM7kPcEd3iYRaCR0tKQlR
-	GrYccc1bD42A275qNmkFZzjd5kKRrE9+zJKXs/3c/gsf0gEajp8RnXFvq0paDcUNchXsSG747jxds
-	n4Wi/xKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vh/xpYGAMTsnukxrSu3ySPCgyA8weaVUNnmp0dXafII=; b=hmWwS2WxK4p47RaopfdCaHZudc
+	igsnsBXqGHGrjqiK+dYk4M0arN1o7oKMnV67Ch42bhLj+1sKu6JkkxU1HFwJ2XiqquCAVMALnLuZL
+	EBIZnN9HHz/e7/rM5Du8Lq+BlEWKYihT5h4+XuoWNjOFdFlBXwJjoFpY8QYeti/fP6nocEL5VFCV7
+	Qc/AagCE0Enmcp0bdNoU1Ks3bL+URpHJQwfIPx3+No/HhNDSCDSbwEmIQ5JHuFejUrW3I8WbA12Zc
+	sepUHkj/UtqKJW2YWIbNPqXeRGmsA5rgRBBKMTE7Jxq3ht3oo7/UlKTm9wpiqq/ISg4UkLN479xF0
+	8SAP7KVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnYUB-00000000Cj2-2RmE;
-	Sat, 25 Jul 2026 09:15:59 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wnYVf-00000000CuF-3ESt;
+	Sat, 25 Jul 2026 09:17:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnYU7-00000000Ci2-3ZJu
+	id 1wnYVe-00000000Ctx-0gQG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 09:15:58 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=jDjufJPxmbAXxmGO9YdD7R16Uwh+1TVhvFBJHfcH/5I=;
-	b=UolgZPFWnDiZcMQBfm+AEhOO32iGjXdUFOyLdTxsU7PcQaX8lbP3jexPZ6Di5TVD+lh1dixjY
-	u0zNkUd5GBVZu0XnDc2sCN4L1/zjfPvDbd1GjaopSJaK6/KLeRM78FN1UxaXVruc8kftK/fYmzO
-	6bl0tKhrHCMIflMNb/t/F4g=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4h6f9k0X5jzpSv5;
-	Sat, 25 Jul 2026 17:06:34 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5197A2011D;
-	Sat, 25 Jul 2026 17:15:44 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 25 Jul
- 2026 17:15:43 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <oleg@redhat.com>, <linux@armlinux.org.uk>, <wade_farnsworth@mentor.com>,
-	<will@kernel.org>, <stevenrwalter@gmail.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH] ARM: ptrace: keep ARM_ORIG_r0 consistent with ARM_r0 after ptrace writes
-Date: Sat, 25 Jul 2026 17:14:52 +0800
-Message-ID: <20260725091452.1875627-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_021556_526645_32728AE6 
-X-CRM114-Status: GOOD (  14.16  )
+	Sat, 25 Jul 2026 09:17:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 58478600AA;
+	Sat, 25 Jul 2026 09:17:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED811F000E9;
+	Sat, 25 Jul 2026 09:17:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784971049;
+	bh=Vh/xpYGAMTsnukxrSu3ySPCgyA8weaVUNnmp0dXafII=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=FSQXM20B15glEW5mgUczNxDy/cLnmv0WvPNdBerRlgp+6tzRYnekDKFQBCUJHWtUu
+	 hGDcna+qYqZWuh1cJg/xw405LEiO8S/Lwcl0vUf8vTOxwhnDaqGH1ldUXF6tpp5woo
+	 bKU8U9K3idYaU6uvZTIL/53T+UMLiDcDzgpWNIVfmjpqQphrYp+fYUJi37XSW/8XU/
+	 uX78ARfPAcYCZKIGjE8EsmECZMjQpmF0tE6p7jNT/NwEbWZMjBnNQOaJ0MND6lpMEI
+	 SF13dMJKBaGeJdUiesHO00LSKV3tJcJqR4tezqdUiBWf5gcfwOM+Kjibtoc0cIeNki
+	 X/8eOOON3TzAA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wnYVa-00000008icS-3GRL;
+	Sat, 25 Jul 2026 09:17:26 +0000
+Date: Sat, 25 Jul 2026 10:18:50 +0100
+Message-ID: <875x23qvet.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: Re: [PATCH v4 02/48] irqchip/gic-v5: Provide OF IRS config frame attrs to KVM
+In-Reply-To: <877bmjqvz1.wl-maz@kernel.org>
+References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
+	<20260724104819.1296803-3-sascha.bischoff@arm.com>
+	<877bmjqvz1.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, lpieralisi@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, Timothy.Hayes@arm.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,97 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When ptrace modifies r0 during a syscall-entry stop via PTRACE_SETREGS or
-PTRACE_POKEUSR, ARM_ORIG_r0 is not updated.  This causes seccomp filters
-and tracepoints to read stale arguments, which disagree with the actual
-value dispatched by the kernel.  This is particularly critical for the
-SECCOMP_RET_TRACE re-evaluation path.
+On Sat, 25 Jul 2026 10:06:42 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> On Fri, 24 Jul 2026 11:48:56 +0100,
+> Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> > 
+> > KVM needs to interact with the host IRS in order to, for example, make
+> > VMs or VPEs valid. There are two potential approaches here. Either the
+> > host irqchip driver can provide an interface, or KVM can interact
+> > directly with the host IRS. The latter of these two is chosen as the
+> > set of MMIO registers that KVM needs to interact with is orthogonal to
+> > the set used by the host irqchip driver (with the exception of some of
+> > the read-only IRS_IDRx registers).
+> > 
+> > Pass KVM a pointer to an IRS config frame - the config frame belonging
+> > to ANY IRS is fine as long as one IRS's config frame is used
+> > consistently - in struct gic_kvm_info. Additionally, include a flag
+> > telling KVM whether the IRS is coherent or non-coherent in order to
+> > make sure that KVM can do the correct cache state management, if
+> > required.
+> > 
+> > Only OF (Device Tree) is supported with this change. ACPI is not.
+> 
+> From what I can see, the ACPI support has completely ignored the KVM
+> setup. This would need to be addressed quickly.
+> 
+> Lorenzo, what's the status of ACPI support?
 
-Fix it by synchronizing ARM_ORIG_r0 after every arch-level ptrace register
-write.  The update safely skips syscall-exit stops (where r0 holds the
-return value) and NO_SYSCALL states to avoid corrupting non-syscall
-contexts. And use ARM_ORIG_r0 in audit_syscall_entry to fix data
-inconsistency with seccomp/tracepoints
+Bah, that was the followup patch. Ignore me.
 
-Cc: stable@vger.kernel.org
-Fixes: bf2c9f986692 ("ARM: 7373/1: add support for the generic syscall.h interface")
-Link: https://lore.kernel.org/all/al98jdcleu-6tMDL@willie-the-truck/
-Suggested-by: Will Deacon <will@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm/kernel/ptrace.c | 30 +++++++++++++++++++++++++++++-
- 1 file changed, 29 insertions(+), 1 deletion(-)
+	M.
 
-diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
-index 7951b2c06fec..99c2d594f81a 100644
---- a/arch/arm/kernel/ptrace.c
-+++ b/arch/arm/kernel/ptrace.c
-@@ -163,6 +163,25 @@ static inline long get_user_reg(struct task_struct *task, int offset)
- 	return task_pt_regs(task)->uregs[offset];
- }
- 
-+static void update_syscall_orig_r0_after_ptrace(struct task_struct *target)
-+{
-+	struct pt_regs *regs = task_pt_regs(target);
-+	struct kernel_siginfo *info = target->last_siginfo;
-+	struct thread_info *ti = task_thread_info(target);
-+
-+	if (!info)
-+		return;
-+
-+	if (ti->abi_syscall == -1)
-+		return;
-+
-+	if ((info->si_code & ~0x80) == SIGTRAP &&
-+	    target->ptrace_message == PTRACE_EVENTMSG_SYSCALL_EXIT)
-+		return;
-+
-+	regs->ARM_ORIG_r0 = regs->ARM_r0;
-+}
-+
- /*
-  * this routine will put a word on the processes privileged stack.
-  * the offset is how far from the base addr as stored in the THREAD.
-@@ -180,6 +199,8 @@ put_user_reg(struct task_struct *task, int offset, long data)
- 
- 	if (valid_user_regs(&newregs)) {
- 		regs->uregs[offset] = data;
-+		if (offset == 0)
-+			update_syscall_orig_r0_after_ptrace(task);
- 		ret = 0;
- 	}
- 
-@@ -566,6 +587,7 @@ static int gpr_set(struct task_struct *target,
- 		return -EINVAL;
- 
- 	*task_pt_regs(target) = newregs;
-+	update_syscall_orig_r0_after_ptrace(target);
- 	return 0;
- }
- 
-@@ -784,6 +806,12 @@ long arch_ptrace(struct task_struct *child, long request,
- 			if (data != -1)
- 				data &= __NR_SYSCALL_MASK;
- 			task_thread_info(child)->abi_syscall = data;
-+
-+			/*
-+			 * Re-sync orig_r0 in case the syscall number has
-+			 * been changed from -1.
-+			 */
-+			update_syscall_orig_r0_after_ptrace(child);
- 			ret = 0;
- 			break;
- 
-@@ -868,7 +896,7 @@ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
- 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
- 		trace_sys_enter(regs, scno);
- 
--	audit_syscall_entry(scno, regs->ARM_r0, regs->ARM_r1, regs->ARM_r2,
-+	audit_syscall_entry(scno, regs->ARM_ORIG_r0, regs->ARM_r1, regs->ARM_r2,
- 			    regs->ARM_r3);
- 
- 	return scno;
 -- 
-2.34.1
-
+Jazz isn't dead. It just smells funny.
 
