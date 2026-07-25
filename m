@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F86C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F568C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lVioDc8t8VTwV3NneZHNtQQnxuctcIP5dzkSFUUqwJA=; b=lGhq4pDat1hWZg6d9iqBD+1hS5
-	MqXSgO7lW1652N4npNJiDAvN4stuT53wBmXXkxoA2XLf8u7Xhbeyn4NhV0cYm5MXT5Z/Rp/3zAwnh
-	Vl50Ndhj1jF87o9CR9o6K0XRqLJxFrZEPR6LSRN9CZ86md9lPYkkM90BwWRRTwWAYqA5NZnpdWRyV
-	GEntM1gX9TelOBFba53MqJGIP5wvM6DP8fPu/GKBDPl/ZH2/Mhq7dsVFAp7J8s5OsKmviCLG82mOB
-	uTsqQkZXH0SQFxlJwnUzSoaZlXSLTdWwY3+7PogdT8UOb7uNKo9bHaEmghrFQpY9dUrZipT63Jd3m
-	1Jxi0udg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rW21ROPPGXt0ORTRaV2wwN5UZkCXyjKTZAO/UfgAEos=; b=Uj0jtuPVJhQ8DrXRxTBdaYI8th
+	s5FVW7yY0aCxM4FZJRLarjcIFJFFxn/eSrUsYsZYo2C8KMy+an5e/tJv/vgTdriWYSegM1Ko97sLv
+	XInjlqSXlBVja2+JDfUQV/wZRy0QFzHomqtglw6XhJhTncOWG2YNe+DwF3vZj5jC2i4FbTVBbbseA
+	VLT8l5Lk5uVJ7kHRD3FNySNLYrj+FRi4MXEIp2JZ+p3K00bSRx/TAyrnXXVnCMYyuq5wtKpbi8C+U
+	LyWAepeFp7wYHAo34pi+QAOtdYjVW110WoCjYoBr991bMpq6IBeUl5B7JtRaN2KF+pg5WqElH2SgQ
+	bORb5hzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnfLr-00000000Xrw-0zrz;
-	Sat, 25 Jul 2026 16:35:51 +0000
+	id 1wnfNz-00000000XyK-1v6R;
+	Sat, 25 Jul 2026 16:38:03 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnfLq-00000000Xrq-0GiN
+	id 1wnfNx-00000000XyC-34Ju
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 16:35:50 +0000
+	Sat, 25 Jul 2026 16:38:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7C9240D6B;
-	Sat, 25 Jul 2026 16:35:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 518571F000E9;
-	Sat, 25 Jul 2026 16:35:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 661DC40763;
+	Sat, 25 Jul 2026 16:38:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA9521F000E9;
+	Sat, 25 Jul 2026 16:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784997347;
-	bh=lVioDc8t8VTwV3NneZHNtQQnxuctcIP5dzkSFUUqwJA=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=ATGIMCrvMQUO0rjs2t/48Z2tAKAtbJQHVYutnE4UTOuV3rcVlN8l6d8xvZE1b9D6C
-	 1redsUr8TqPQXEvgE5Aa0fUk0DS/lJi2sBEPJ4zOQz54olfPR8Ofn5nqiJVD3D0ToD
-	 +0MyYamv3EfZmjkKZHtBZTAWkCSgH5tSzcNBeW7F1oPRekZUxCbuLKEeLsXunl5pl4
-	 85J6fh8fwNpYcGWSEOwt0NHk8FcdFnT+8yQUfy8HQbKfvKYUGK3V0dV4+Xo85w8KXC
-	 N26ouGjpmI81M+3XlInuwWcX0wD3ZrmzBIS2TVDh22JMxjTEktnDyEZLTFYetwKZzV
-	 GmM2rXvrsgmCQ==
-Message-ID: <d539bef3-ee1d-43b8-8b43-6704979703ec@kernel.org>
-Date: Sat, 25 Jul 2026 18:35:41 +0200
+	s=k20260515; t=1784997481;
+	bh=rW21ROPPGXt0ORTRaV2wwN5UZkCXyjKTZAO/UfgAEos=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Bb0slKKbkb3JRKIc5r8joi4vBKdWh3c3TikaDIIK7zWJLTb4zsSKyJarAkrnswqkH
+	 V+qTS50EtL1F5A9whGzdIhmCMP4PykNYO7yH55gMAZULZXAQNsPaz0HxOuVTzf2p3m
+	 DWAvI10IM8t/0IvfoBY1+cuIDNJYBN84DFY4iaRJZNvM/pvN8u/DCN773zASuudO9H
+	 PvBTfO4DVZ8Gs5TyKgGV+tMmW5MCLXNj92UKzqyyZIQF340ClWzDw9imO0ATJP2mt4
+	 SItPIiH/EmGyqiI4PJ5bxl3c+X8Lq0UEKZhRhxOzX8PZt4/tzrpHTUQHe3KLDp5ujj
+	 Vc1xOdjjm4CDA==
+Message-ID: <9a415731-0de0-4cb4-b6c1-fc78806f6414@kernel.org>
+Date: Sat, 25 Jul 2026 18:37:56 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] ARM: dts: marvell: kirkwood: Correct indentation
-To: Gregory CLEMENT <gregory.clement@bootlin.com>,
+Subject: Re: [PATCH] ARM: dts: broadcom: bcm7445: Correct indentation
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com,
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Andrew Lunn <andrew@lunn.ch>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260706180333.648401-4-krzysztof.kozlowski@oss.qualcomm.com>
- <20260706180333.648401-5-krzysztof.kozlowski@oss.qualcomm.com>
- <874ii27uqb.fsf@BLaptop.bootlin.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>
+References: <20260706101920.341586-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260721172801.3591970-1-florian.fainelli@broadcom.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <874ii27uqb.fsf@BLaptop.bootlin.com>
+In-Reply-To: <20260721172801.3591970-1-florian.fainelli@broadcom.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,23 +118,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/07/2026 17:52, Gregory CLEMENT wrote:
-> Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> writes:
+On 21/07/2026 19:28, Florian Fainelli wrote:
+> From: Florian Fainelli <f.fainelli@gmail.com>
 > 
+> On Mon,  6 Jul 2026 12:19:21 +0200, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 >> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
 >> No functional impact (same DTB).
 >>
 >> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 >>
+>> ---
 > 
-> Applied on mvebu/dt
-> 
-> Thanks,
-> 
-> Gregory
+> Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
 
-All this was applied two weeks ago but it is still not in linux-next.
-Maybe you missed to push the patches to the for-next branch?
+It is still not there. Last commit is v7.2-rc1.
+
+Your next branch:
+https://github.com/Broadcom/stblinux/commits/next
+has last commit from May 29. Something was not pushed?
 
 Best regards,
 Krzysztof
