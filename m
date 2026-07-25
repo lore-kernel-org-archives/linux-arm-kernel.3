@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D39C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 03:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA9AC531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 03:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eROfNNwJ7T6Va6JcBs31/DDnkVSmK3+mnQeWcOJffkY=; b=YjFx7rjeCNtZkI2ktNGnGaXUhB
-	N7Xe8N4SwFqCFf1qGW6ZN8lvajoxEFnVY8rNKOec6a2Ml3pmSWefGVEbEOGwskfE2ap37TtwQqCRp
-	5m6FZbx4EBDjHz3npFrKUuI/zM3XwhhFaM9mY8JMbrR5QDjX8XNV7qT8M/O7hRvB6H7sGXbVPQsD7
-	G1iP6ogm2tCInjIm993R0NFi6t0EVRr/pOxStA02KevCQdP3reekQA2hpv2qmRv9OE/GAkYJACt4m
-	YvlhaEp/XNLgXYA2L/xfT2yMAVnnepaRTi4R7yvpSfXqcJJiMtiioSvMBl+VNa8O2NpGMQIzpl9pu
-	jx7A5yuw==;
+	bh=2+XWY3Cn2mevvuIZkQemNzDwYmeAAiz+o3jKMPZyMlw=; b=m3ghuNfI4aTe7A1SP2DqSLMclS
+	XS7cMQ44eE51pQbrzuoZLH04buea04l/kUwFhygiPS32AdsRU4v1IxCQB+9iH57jml8AMV6PuuoiB
+	S6tjp4vmFcB8skhUOvDhqahlHxWT/4n602D+yqQLmne3UOF+QmfS8hY3Zvj2PIm1rP4zlzJv99jF+
+	isVIo5E2C3NqBPdlqUV4zQacKEcM9SvA0YdaenXlYnvQs667rD/Elp8C+dphr+NQHOjpnpcuVfOyw
+	eHR5h6Mn0EeIXdt9mcVzyQ0c0CShBqhPpjEFJi3HEfiwJwy5LfcMR5+H7HpkN75IhrKFvlmROjkDM
+	Nj1do0sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnScQ-0000000HW55-0jcq;
-	Sat, 25 Jul 2026 03:00:06 +0000
+	id 1wnSch-0000000HWCp-2HDq;
+	Sat, 25 Jul 2026 03:00:23 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnScN-0000000HW3z-1q2g;
-	Sat, 25 Jul 2026 03:00:04 +0000
+	id 1wnScc-0000000HWAt-2T7f;
+	Sat, 25 Jul 2026 03:00:22 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1wnScH-00000000341-0gpg;
-	Sat, 25 Jul 2026 02:59:57 +0000
-Date: Sat, 25 Jul 2026 03:59:53 +0100
+	id 1wnScS-0000000034X-1DyX;
+	Sat, 25 Jul 2026 03:00:08 +0000
+Date: Sat, 25 Jul 2026 04:00:05 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -54,17 +54,17 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Chen-Yu Tsai <wenst@chromium.org>
-Subject: [PATCH v6 08/13] drm/bridge: it6505: guard against zero channel
- count in audio infoframe
-Message-ID: <1348050dfe1904851fa69d89c79f6160765542c4.1784947240.git.daniel@makrotopia.org>
+Subject: [PATCH v6 09/13] drm/bridge: it6505: hold endpoint OF node reference
+ while parsing it
+Message-ID: <d5abbb920321da662a735c880378513ff825fe39.1784947240.git.daniel@makrotopia.org>
 References: <cover.1784947240.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1784947240.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_200003_486394_3BD06605 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20260724_200018_636904_AC265C86 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +79,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-it6505->audio.channel_count stays 0 until link training or a valid
-hw_params call has run, but it6505_enable_audio() can be reached
-before that from the audio-FIFO-error IRQ, making
-it6505_enable_audio_infoframe() index the 8-entry audio_info_ca[]
-table with -1. Bail out while the channel count is not yet known.
+it6505_parse_dt() drops the reference to each endpoint node right
+after looking it up and then keeps reading its properties, racing
+with the node being freed under CONFIG_OF_DYNAMIC. Put the node only
+once parsing is done.
 
-Also fix the debug print on the invalid-channel-count path, which
-logged the previously cached count instead of the rejected one.
-
-Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
+Fixes: 380d920b582d ("drm/bridge: add it6505 driver to read data-lanes and link-frequencies from dt")
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
 v6: no changes
 
-v5: no changes
+v5: new patch
 
-v4: no changes, collected Chen-Yu Tsai's Reviewed-by
-
-v3: new patch
-
- drivers/gpu/drm/bridge/ite-it6505.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/ite-it6505.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
-index 04711c8f4a04..f4ee5c81d3b8 100644
+index f4ee5c81d3b8..0da8b40dd88a 100644
 --- a/drivers/gpu/drm/bridge/ite-it6505.c
 +++ b/drivers/gpu/drm/bridge/ite-it6505.c
-@@ -1577,6 +1577,9 @@ static void it6505_enable_audio_infoframe(struct it6505 *it6505)
- 	struct device *dev = it6505->dev;
- 	u8 audio_info_ca[] = { 0x00, 0x00, 0x01, 0x03, 0x07, 0x0B, 0x0F, 0x1F };
- 
-+	if (!it6505->audio.channel_count)
-+		return;
-+
- 	DRM_DEV_DEBUG_DRIVER(dev, "infoframe channel_allocation:0x%02x",
- 			     audio_info_ca[it6505->audio.channel_count - 1]);
- 
-@@ -3009,7 +3012,7 @@ static int __maybe_unused it6505_audio_setup_hw_params(struct it6505 *it6505,
- 
- 	if (params->cea.channels <= 1 || params->cea.channels > 8) {
- 		DRM_DEV_DEBUG_DRIVER(dev, "channel number: %d not support",
--				     it6505->audio.channel_count);
-+				     params->cea.channels);
- 		return -EINVAL;
+@@ -3366,7 +3366,6 @@ static void it6505_parse_dt(struct it6505 *it6505)
  	}
  
+ 	ep = of_graph_get_endpoint_by_regs(np, 1, 0);
+-	of_node_put(ep);
+ 
+ 	if (ep) {
+ 		len = it6505_get_data_lanes_count(ep, 1, 4);
+@@ -3379,13 +3378,13 @@ static void it6505_parse_dt(struct it6505 *it6505)
+ 			*max_lane_count = MAX_LANE_COUNT;
+ 			dev_err(dev, "error data-lanes, use default");
+ 		}
++		of_node_put(ep);
+ 	} else {
+ 		*max_lane_count = MAX_LANE_COUNT;
+ 		dev_err(dev, "error endpoint, use default");
+ 	}
+ 
+ 	ep = of_graph_get_endpoint_by_regs(np, 0, 0);
+-	of_node_put(ep);
+ 
+ 	if (ep) {
+ 		len = of_property_read_variable_u64_array(ep,
+@@ -3405,6 +3404,7 @@ static void it6505_parse_dt(struct it6505 *it6505)
+ 			dev_err(dev, "error link frequencies, use default");
+ 			*max_dpi_pixel_clock = DPI_PIXEL_CLK_MAX;
+ 		}
++		of_node_put(ep);
+ 	} else {
+ 		dev_err(dev, "error endpoint, use default");
+ 		*max_dpi_pixel_clock = DPI_PIXEL_CLK_MAX;
 -- 
 2.55.0
 
