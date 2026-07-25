@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA332C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 17:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAFFC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 17:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QylY0Jj+M9aiGs5V5SL5IjP/iHtiFsye8Zowe/lAKfs=; b=FHkpgbktHtV6X2p5Ng9XuoszZ8
-	a7wqowrGd8ZMIRDnp99Udwf2R7Zg1sNVZhO6eMZhEjKNmOP4pRRW9IGQQbfkGwwMCeqElmYk5Xabo
-	mFBkB6XAP3oC0PFx5GyWL9llb+jU2McDssCTcQ0JBXD7xFH9UgulR08EkJgsOWP6v/fpwxsZlKvqd
-	y+zJo4vGhbMLFmMbfkuIfopZy2DV4s3bu63WiZdUeHNvfS4dPZC/2Nu2FqcUpGt1AusOT7CiAVZKJ
-	6FF3tqmVxB/x0/Ax6qNjXXZF7SzZbALdS6QAsQzWj1hnltIZ95sjSaYEudmaT/b1iWk5xI3+G+E/3
-	09JaDfig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MRbJi/1N24OFbuQVxv7b6LbUHMhpaoO6runK3Llbbuo=; b=K2Ogyjm/PTr7QqnfzLWj3UgIG5
+	Dmqba/su8CCR2YNj3tjTjqCWTDsYmOctuBiylEH7K/1uZ/Ehkv3KRVmCTR2ImRrscpCehWDatp2US
+	MGHJRHwaJNcdrstdpv7XY74tJIjTeC6PdggvTQPeoJEUAFF0Vf1OTj76ytduVZRnkDXIPMXYlsR2X
+	V9vuu+c3HL7P50mTewLCfDXDWI7kNFD9eMFTGZEdolBLGtIdGYHZyCbf1aZ3Lhw4tgIaBILyiD/vN
+	LsvPbEc63RJKbAoK+fHUj0skZhrn4bWkiXJt3A18YbJDuub3aOpr0bW2/6Sql1SSQUxpSKjjFyVKO
+	llYXYLCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wngKZ-00000000cCi-1yVH;
-	Sat, 25 Jul 2026 17:38:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wnge9-00000000d3r-2CFu;
+	Sat, 25 Jul 2026 17:58:49 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wngKY-00000000cCa-0h5j
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 17:38:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D17243C37;
-	Sat, 25 Jul 2026 17:38:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C003D1F000E9;
-	Sat, 25 Jul 2026 17:38:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785001112;
-	bh=QylY0Jj+M9aiGs5V5SL5IjP/iHtiFsye8Zowe/lAKfs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hbLGkWpNrMM4k73a7LkMKOLXC3oYWnMbIQUTX9a1AMPyP+ZB2YtDGSKAOO7LnRTqG
-	 vBTBVOyCfgkBM0MWbOb/NoVC5YN9xSGoda6NWf0PzmMOT1fw/XOO6vHcoZm2T9Hnp5
-	 55ibAzms1bMqsEcamK0sa477Sp/cRJs/DtF2sButDQG4u1jm7nFthZJfCS76oVES0q
-	 WsTkfomIff31rzlYsktIJhBXeK7omGcTHPA60jUlZ+1E5GFmI8FYxCp3658BnzoxL3
-	 TPxHPEdFzInIhLMkWjbdj7ZY/o7vUtkGVxUVFRul5xDUBZdBWJw09bqSEyMu0nLWef
-	 YF/1c7ceJP17Q==
-Date: Sat, 25 Jul 2026 19:38:23 +0200
-From: Helge Deller <deller@kernel.org>
-To: John David Anglin <dave.anglin@bell.net>,
-	Usama Arif <usama.arif@linux.dev>
-Cc: Helge Deller <deller@gmx.de>, Pedro Falcato <pfalcato@suse.de>,
-	Matthew Wilcox <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Jan Kara <jack@suse.cz>,
-	Zi Yan <ziy@nvidia.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
-	Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
-	Lance Yang <lance.yang@linux.dev>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Muhammad Usama Anjum <usama.anjum@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 3/5] mm/parisc: constify ptep_get() argument
-Message-ID: <amT0j_bBT3CCxPcg@p100>
-References: <20260724102017.141532-1-pfalcato@suse.de>
- <20260724102017.141532-4-pfalcato@suse.de>
- <0fd713a8-e4ab-4c07-b36e-79dd138b4a86@linux.dev>
- <amNzLXuwflIZFKtI@casper.infradead.org>
- <253f7ac0-205b-42f1-9fb5-d19eceb581b6@linux.dev>
- <amOEUZlp1BxYh6_t@pedro-suse>
- <fd239383-dcbe-4daf-b337-32facef07076@linux.dev>
- <3e9dece8-4e86-4ce5-bd74-b3ec305f3003@gmx.de>
- <4606e13f-6827-45d0-b3b8-6bc26358f7ae@bell.net>
+	id 1wnge6-00000000d3L-3jG7;
+	Sat, 25 Jul 2026 17:58:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1785002311; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=g7YI44btuhP5MiuhLz/EKXLdg/YtTeW8gVShiV1mTxxTJwifsf9emILB1ZGMUuh6GdtsE89iFvJTHCIS01ICcaJ7oXQozj4ntO/LNd1n72prj0sGB53Iq4hoc/ASuykEQ0hI2emKXdEei1yEVfwdRhlNbV5tOHQ+KGRz/8LrzSU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1785002311; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MRbJi/1N24OFbuQVxv7b6LbUHMhpaoO6runK3Llbbuo=; 
+	b=EnzwLV2gCMlit+OUkB2oI3lT3BmjSxyWs2/HpTfyxqkSkWJC1aFlJPX5AiIFsva/rNs2boJ1B5ozIGRYI2nbsAdRjA842oQrrjuCnwUgf0B06AI8mUL1+ixpkjWmFEMseoV5drqVauy5xC29SlbWhLzpnDPMEBkPg3+MBHXCKYM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785002311;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=MRbJi/1N24OFbuQVxv7b6LbUHMhpaoO6runK3Llbbuo=;
+	b=QoxLz1Cl4MVPsAUboaaFVWBpj0jAbdcFWzmd+I9/f3+IXgBtzt/jDHrwzhJHXdaD
+	mtzTwotmOVlbnFaA8AyryTfq57v2hE7nMXK9bitw2oTa/SE2WC662nQJXS5tWqsbJgn
+	oTWTDmC2PFQJ4Q+a9A8hfZmZpc3GLCOCqo4GFq94=
+Received: by mx.zohomail.com with SMTPS id 1785002308379763.0905164719212;
+	Sat, 25 Jul 2026 10:58:28 -0700 (PDT)
+Message-ID: <e1034df6-3801-424a-ba1e-a03d61b37222@collabora.com>
+Date: Sat, 25 Jul 2026 20:58:23 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4606e13f-6827-45d0-b3b8-6bc26358f7ae@bell.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] media: synopsys: hdmirx: add HDMI audio capture
+ support
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260718085728.6797-1-royalnet026@gmail.com>
+ <20260718085728.6797-3-royalnet026@gmail.com>
+ <25922edc-4ff1-4d28-9a64-2c28b2b690cb@collabora.com>
+ <CAEWPSH70FecQRuGtA=S8+_CnLY5sMyf1j57Uwzwv54zceS1HZg@mail.gmail.com>
+ <b8d63f61-b73e-412e-8119-ced1afdd4551@collabora.com>
+ <CAEWPSH5j3tYNb1JKRGwa00PVnYAgCKS+B-Qz07D8Z7TJea5cMw@mail.gmail.com>
+ <1ac66aab-8985-4441-8ce1-07e2ea5183bd@collabora.com>
+ <CAEWPSH4aB4KZsrLx2TESjPvUG0+A_Z_7uuO=5Rd-VidKU9U3eg@mail.gmail.com>
+Content-Language: en-US
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <CAEWPSH4aB4KZsrLx2TESjPvUG0+A_Z_7uuO=5Rd-VidKU9U3eg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260725_105846_989404_4A9D0A7F 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,142 +91,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-* John David Anglin <dave.anglin@bell.net>:
-> On 2026-07-25 12:27 p.m., Helge Deller wrote:
-> > On 7/24/26 17:48, Usama Arif wrote:
-> >>
-> >>
-> >> On 24/07/2026 16:32, Pedro Falcato wrote:
-> >>> On Fri, Jul 24, 2026 at 04:03:44PM +0100, Usama Arif wrote:
-> >>>>
-> >>>>
-> >>>> On 24/07/2026 15:14, Matthew Wilcox wrote:
-> >>>>> On Fri, Jul 24, 2026 at 02:36:59PM +0100, Usama Arif wrote:
-> >>>>>>
-> >>>>>>
-> >>>>>> On 24/07/2026 11:20, Pedro Falcato wrote:
-> >>>>>>> ptep_get() does not need write access to the PTE.
-> >>>>>>>
-> >>>>>>> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
-> >>>>>>> ---
-> >>>>>>>   arch/parisc/include/asm/pgtable.h | 2 +-
-> >>>>>>>   1 file changed, 1 insertion(+), 1 deletion(-)
-> >>>>>>>
-> >>>>>> hmm I think you might break build bisectibility if
-> >>>>>> you separate out the patches, you should squash patch 3 and 4,
-> >>>>>> with patch 1.
-> >>>>>
-> >>>>> I don't see how this breaks bisectability.  Can you elaborate on what
-> >>>>> you think would break?
-> >>>>
-> >>>> Patch 1 does:
-> >>>>
-> >>>> -static inline pte_t ptep_get_lockless(pte_t *ptep)
-> >>>> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
-> >>>>   {
-> >>>>       return ptep_get(ptep);
-> >>>>   }
-> >>>>
-> >>>>
-> >>>> ptep_get() takes a non-const arg till patch 3 for example for parsic.
-> >>>> I don't think you can pass a const variable to non const function arg?
-> >>>>
-> >>>> So parsic won't compile in patch 1 and 2, powerprc wont compile
-> >>>> for patches 1, 2 and 3..
-> >>>
-> >>> Aha, yes, nice catch! I'll have to rethink that. Maybe squashing the patches
-> >>> would be the cleanest way forward.
-> >>>
-> >>
-> >> Yes, squashing is the simplest way forward.
-> >>
-> >>> FWIW, the vast majority of architectures aren't doing funny things on
-> >>> ptep_get(). E.g PA-RISC, loongarch only define these so they can use it in
-> >>> their own asm/pgtable.h. I'd really like to delete these but I can't tell
-> >>> if they are *actually* required.
-> >>>
-> >>
-> >> Ah maybe there is something in git history on why it was needed?
-> >>
-> >> If not, hopefully someone from the arch lists could clarify..
-> > I tried to remove ptep_get() and ptep_test_and_clear_young() from
-> > arch/parisc/include/asm/pgtable.h, but this then triggers compile errors:
-> > 
-> >  CC      arch/parisc/kernel/asm-offsets.s
-> > In file included from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/mm.h:31,
-> >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pid_namespace.h:7,
-> >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/ptrace.h:10,
-> >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/arch/parisc/kernel/asm-offsets.c:21:
-> > /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h: In function ‘clear_young_dirty_ptes’:
-> > /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h:683:25: error: implicit declaration of function ‘ptep_test_and_clear_young’;
-> > did you mean ‘pmdp_test_and_clear_young’? [-Wimplicit-function-declaration]
-> >   683 |                         ptep_test_and_clear_young(vma, addr, ptep);
-> >       |                         ^~~~~~~~~~~~~~~~~~~~~~~~~
-> >       |                         pmdp_test_and_clear_young
-> > 
-> > So, I think the answer is, that the local copy of ptep_get() is used in the parisc implementation of
-> > ptep_test_and_clear_young() function.
-> > 
-> > Switching to the default include/linux/pgtable.h seems not easy doable....
+Hi,
+
+On 7/24/26 02:47, Igor Paunovic wrote:
+> Hi Dmitry,
 > 
-> Did you remove define for __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG in parisc version of pgtable.h?
+> Thank you -- and thank you for reviewing the whole series and testing
+> 2/4. It went through a lot of back-and-forth since the RFC, so having
+> it land with your Tested-by means a lot.
+> 
+> I'll prepare the follow-ups as separate patches once this series is in:
+> 
+> - The video_device lifetime issue on the V4L2 side (the devm-allocated
+>   struct with video_device_release_empty that the automated review
+>   flagged) -- as a standalone fix for the existing driver, since it's
+>   independent of the audio support.
+> - An atomicity fix for the GLOBAL_SWENABLE read-modify-write, now that
+>   the audio path adds a second writer to that register alongside the
+>   CEC code.
+> 
+> The repeated-suspend wedge I mentioned in the cover letter I'd rather
+> send only once I have a clean, reproducible trigger for it -- it's
+> still under investigation and I don't want to send a fix ahead of a
+> solid repro.
+> 
+> The dynamic codec registration you suggested (bind on the plug event,
+> read the actual wire sample rate and restrict the codec's rate) is the
+> direction I'd like to explore after these, once I've looked at what it
+> needs from hdmi_codec_ops.
 
-Indeed, I missed to remove that.
+Good plan
 
-Usama, if you want you can add the patch below to your patch set, thus
-simplifying your series?
+RE the sample rate restriction, hdmi_codec_ops has get_eld() that
+restricts rate based on HDMI ELD [1]. For RX we could tell the exact
+rate to CODEC without ELD or we could generate ELD in the driver, either
+way should require extension of CODEC driver with support of RX rate
+restriction. This way userspace will see that there is only one rate
+available for capture, so it won't be able to choose wrong rate and will
+resample audio itself as it needs.
 
-Helge
+HDMI plug event -> signal stable -> gate audio rate from ACR -> register
+CODEC device -> ops.get_eld() returns our ELD
 
-------
+[1]
+https://elixir.bootlin.com/linux/v7.1.3/source/sound/soc/codecs/hdmi-codec.c#L477
 
-From: Helge Deller <deller@gmx.de>
-Date: Sat, 25 Jul 2026 19:19:55 +0200
-Subject: [PATCH] parisc: Drop own implementations for ptep_get() and
- ptep_test_and_clear_young()
-
-Switch to the generic implementations, which are identical.
-
-Suggested-by: Usama Arif <usama.arif@linux.dev>
-Suggested-by: John David Anglin <dave.anglin@bell.net>
-Signed-off-by: Helge Deller <deller@gmx.de>
-
-diff --git a/arch/parisc/include/asm/pgtable.h b/arch/parisc/include/asm/pgtable.h
-index 467b8547ac8b..d92dee9fef3f 100644
---- a/arch/parisc/include/asm/pgtable.h
-+++ b/arch/parisc/include/asm/pgtable.h
-@@ -432,25 +432,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
- 	return pte;
- }
- 
--static inline pte_t ptep_get(pte_t *ptep)
--{
--	return READ_ONCE(*ptep);
--}
--#define ptep_get ptep_get
--
--static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
--		unsigned long addr, pte_t *ptep)
--{
--	pte_t pte;
--
--	pte = ptep_get(ptep);
--	if (!pte_young(pte)) {
--		return false;
--	}
--	set_pte_at(vma->vm_mm, addr, ptep, pte_mkold(pte));
--	return true;
--}
--
- bool ptep_clear_flush_young(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep);
- pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep);
- 
-@@ -491,7 +472,6 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr,
- #define HAVE_ARCH_UNMAPPED_AREA
- #define HAVE_ARCH_UNMAPPED_AREA_TOPDOWN
- 
--#define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
- #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
- #define __HAVE_ARCH_PTEP_CLEAR_FLUSH
- #define __HAVE_ARCH_PTEP_SET_WRPROTECT
+-- 
+Best regards,
+Dmitry
 
