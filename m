@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F8AC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 02:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2038C531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 02:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QAzdFsTkdaqNbxbLnBrQPK/wQUH/o5uxbbXwAcfxmDk=; b=l9VynhBda6sheeq/AGQGfDna3G
-	7iLMWrPTgm/i5cyKN8IAKQBkW7t95XkNtC3ebzFVdZweFaCDqHrNtudlI1VB6Yk3MmKAHlR3AlSOM
-	CCj4eZmN0UdY5vMMciPETrUjoCU6YRaXg7Y+q9dUsPeX57HpunIcbn3/OMw7aXuq8RZKCZQ5/3Zu4
-	F+qG8OgHGIaN0ANXay6F1WoJOMeY3kRTUE+huBU5Dkp8FNVkjtZJs8vunegv/iMhooQiuBLioL0sL
-	Y/2vEJW8+b90Wy6FYLdtF0bgHygBT3mqsfb6qn559A90nXEDq2r5qZaZ32o9yqo00RVo/7UKY8k9p
-	ILIDTnig==;
+	bh=Tnk6zKw1gbuztyRyTuoeI4dVdDyb0uWv16l+4szdK4o=; b=obV7DZQj52pcodl3wSsfEW/vg7
+	NoOKdDXnWYNq4a7vJVwWWgHXI7TkKdk6L01JSGe31RgKj7enXSJ/o1y2CMlC29pJAHJWs+mOGkiIO
+	/Us+GHAWsGuAKcS+fu63Y2Ee1IpcBpr/F0WK0G1yf9jGqKoY1hIb96TN4kmsOa03xmQaG5d1Lg6EP
+	5ABL/zVKHFJiLaVaNO2sjpebZcufFK1kC7qGF6XAsD7KBruHd/GOAOMl6XdYx5NuMbi26B2h6TOeq
+	McRnCU4q3+ghQ9Msc+wYIqcvblVYVR1BrJVyVS5vp5aImsoJrkgGlLb86ZSgaqVFpKwwVaJk9PWNa
+	g1ACysrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnRqI-0000000HTRo-3rLp;
-	Sat, 25 Jul 2026 02:10:22 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wnSag-0000000HVEp-1u2D;
+	Sat, 25 Jul 2026 02:58:18 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnRqE-0000000HTR5-1LMp
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 02:10:21 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=QAzdFsTkdaqNbxbLnBrQPK/wQUH/o5uxbbXwAcfxmDk=;
-	b=MHZhLRJdtvktXcz0io+Xng0s5ApaY9vVeAcRTB9e7OcucaL4fI0lcbLExGL7hX1c6aBEkxEBa
-	WLl6I4NWyCtE/kMqKREw9e84xX42uTxAvLGSfWVi1lQvJ34L9deYtyeKVnAFknjFZbU1CqpenrO
-	LWBO+LecsXWXApQlFsT7XOQ=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h6SkC1lKczmVWf;
-	Sat, 25 Jul 2026 10:00:35 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id BA5AC40586;
-	Sat, 25 Jul 2026 10:09:59 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Sat, 25 Jul 2026 10:09:58 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <linusw@kernel.org>, <linux@armlinux.org.uk>
-CC: <akpm@linux-foundation.org>, <david@kernel.org>, <liam@infradead.org>,
-	<liaohua4@huawei.com>, <lilinjie8@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <ljs@kernel.org>, <mhocko@suse.com>, <rppt@kernel.org>,
-	<sunnanyong@huawei.com>, <surenb@google.com>, <vbabka@kernel.org>,
-	<will@kernel.org>, <xieyuanbin1@huawei.com>, <xiqi2@huawei.com>
-Subject: Re: [PATCH v4] ARM: mm: acquire mmap write lock around show_pte() for user faults
-Date: Sat, 25 Jul 2026 10:09:26 +0800
-Message-ID: <20260725020926.11440-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <CAD++jLn_DDvWAudHC2Qtz9kaaonuC0YGTXn9nvPtZfGLbtUsOA@mail.gmail.com>
-References: <CAD++jLn_DDvWAudHC2Qtz9kaaonuC0YGTXn9nvPtZfGLbtUsOA@mail.gmail.com>
+	id 1wnSae-0000000HVE9-0IhD;
+	Sat, 25 Jul 2026 02:58:17 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wnSaT-000000002xV-2XOj;
+	Sat, 25 Jul 2026 02:58:05 +0000
+Date: Sat, 25 Jul 2026 03:58:02 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Allen Chen <allen.chen@ite.com.tw>,
+	Hermes Wu <hermes.wu@ite.com.tw>,
+	Pin-yen Lin <treapking@chromium.org>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Chen-Yu Tsai <wenst@chromium.org>
+Subject: [PATCH v6 01/13] drm/bridge: it6505: quiesce event sources and work
+ on remove()
+Message-ID: <248a9b6a19da93d75b59e9fcad0e03fe94ea67d8.1784947240.git.daniel@makrotopia.org>
+References: <cover.1784947240.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1784947240.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_191018_903292_4A9E5F54 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20260724_195816_118229_812D2AC0 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +79,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Jul 2026 00:05:58 +0200, Linus Walleij wrote:
-> On Thu, 16 Jul 2026 09:40:22 +0800, Xie Yuanbin <xieyuanbin1@huawei.com> wrote:
->> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
->> Fixes: 6d021b724481 ("ARM: dump pgd, pmd and pte states on unhandled data abort faults")
->> Depends-on: <20260629123349.134224-1-xieyuanbin1@huawei.com>
->> Depends-on: 59e4f3b45b96 ("ARM: ensure interrupts are enabled in __do_user_fault()")
->
-> This looks a bit odd. I don't get the first fix tag, drop it.
+struct it6505 is freed by devres right after remove() returns, but
+remove() cancels none of the driver's work items, so link_works,
+hdcp_wait_ksv_list, hdcp_work and extcon_wq can still run afterwards
+and dereference freed memory. Cancelling alone would not be enough:
+the threaded IRQ and the extcon notifier stay live until devres
+teardown and can requeue the works.
 
-The first fix tag can be open as:
-Link: https://github.com/torvalds/linux/commit/1da177e4c3f41524e886b7f1b8a0c1fc7321cac2
-Link: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=1da177e4c3f41524e886b7f1b8a0c1fc7321cac2
-It seems that a 12-character hash is no longer sufficient to index it. :)
+Unregister the extcon notifier and disable the IRQ first, then cancel
+all work. Make it6505_remove_notifier_module() idempotent, tracking
+the registration in a flag under extcon_lock, as both .detach() and
+remove() call it now. The notifier_call pointer is left intact:
+extcon traverses its raw notifier chain without holding a lock, so a
+traversal racing with the unregistration may still invoke the
+callback. Also initialise extcon_wq in probe: cancel_work_sync() on a
+never-initialised work item trips WARN_ON(!work->func).
 
-May I increase the number of hash characters or just drop it?
+Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+---
+v6: track registration in a flag instead of clearing notifier_call,
+    which an unlocked chain traversal racing the unregistration
+    could have called as NULL
 
-> I think drop both Depends-on as well.
+v5: serialise notifier registration state with extcon_lock
 
-These tags are for the maintainers of the stable/LTS branches. Since
-the bug is very old (we discovered it in linux-5.10), they are likely to
-be backported to the LTS versions. However, the depends-on commits may
-not be merged to the LTS versions.
+v4:
+ * quiesce event sources before cancelling work; retitled
+ * initialise extcon_wq in probe to avoid WARN_ON(!work->func)
 
-If the depends-on commits are not merged, this patch may trigger a
-might_sleep() warning when calling mmap_write_lock().
+v3: new patch
 
-Do I still need to drop them?
+ drivers/gpu/drm/bridge/ite-it6505.c | 27 +++++++++++++++++++++------
+ 1 file changed, 21 insertions(+), 6 deletions(-)
 
-> Put it in Russell's patch tracker after dropping the weird
-> tags.
-
-Just to confirm, I will be the one to submit this patch to this website:
-Link: https://www.armlinux.org.uk/developer/patches
-right?
-
-Thanks very much!
+diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
+index 8ecb43611dba..a7ba6a0befda 100644
+--- a/drivers/gpu/drm/bridge/ite-it6505.c
++++ b/drivers/gpu/drm/bridge/ite-it6505.c
+@@ -443,6 +443,7 @@ struct it6505 {
+ 	struct drm_display_mode source_output_mode;
+ 	struct drm_display_mode video_info;
+ 	struct notifier_block event_nb;
++	bool extcon_registered;
+ 	struct extcon_dev *extcon;
+ 	struct work_struct extcon_wq;
+ 	int extcon_state;
+@@ -2934,11 +2935,15 @@ static int it6505_use_notifier_module(struct it6505 *it6505)
+ 	int ret;
+ 	struct device *dev = it6505->dev;
+ 
++	mutex_lock(&it6505->extcon_lock);
+ 	it6505->event_nb.notifier_call = it6505_extcon_notifier;
+-	INIT_WORK(&it6505->extcon_wq, it6505_extcon_work);
+ 	ret = devm_extcon_register_notifier(it6505->dev,
+ 					    it6505->extcon, EXTCON_DISP_DP,
+ 					    &it6505->event_nb);
++	if (!ret)
++		it6505->extcon_registered = true;
++	mutex_unlock(&it6505->extcon_lock);
++
+ 	if (ret) {
+ 		dev_err(dev, "failed to register notifier for DP");
+ 		return ret;
+@@ -2951,13 +2956,16 @@ static int it6505_use_notifier_module(struct it6505 *it6505)
+ 
+ static void it6505_remove_notifier_module(struct it6505 *it6505)
+ {
+-	if (it6505->extcon) {
+-		devm_extcon_unregister_notifier(it6505->dev,
+-						it6505->extcon,	EXTCON_DISP_DP,
++	mutex_lock(&it6505->extcon_lock);
++	if (it6505->extcon && it6505->extcon_registered) {
++		devm_extcon_unregister_notifier(it6505->dev, it6505->extcon,
++						EXTCON_DISP_DP,
+ 						&it6505->event_nb);
+-
+-		flush_work(&it6505->extcon_wq);
++		it6505->extcon_registered = false;
+ 	}
++	mutex_unlock(&it6505->extcon_lock);
++
++	flush_work(&it6505->extcon_wq);
+ }
+ 
+ static void __maybe_unused it6505_delayed_audio(struct work_struct *work)
+@@ -3615,6 +3623,7 @@ static int it6505_i2c_probe(struct i2c_client *client)
+ 	INIT_WORK(&it6505->link_works, it6505_link_training_work);
+ 	INIT_WORK(&it6505->hdcp_wait_ksv_list, it6505_hdcp_wait_ksv_list);
+ 	INIT_DELAYED_WORK(&it6505->hdcp_work, it6505_hdcp_work);
++	INIT_WORK(&it6505->extcon_wq, it6505_extcon_work);
+ 	init_completion(&it6505->extcon_completion);
+ 	memset(it6505->dpcd, 0, sizeof(it6505->dpcd));
+ 	it6505->powered = false;
+@@ -3647,6 +3656,12 @@ static void it6505_i2c_remove(struct i2c_client *client)
+ 	drm_bridge_remove(&it6505->bridge);
+ 	drm_dp_aux_unregister(&it6505->aux);
+ 	it6505_debugfs_remove(it6505);
++	it6505_remove_notifier_module(it6505);
++	disable_irq(it6505->irq);
++	cancel_work_sync(&it6505->link_works);
++	cancel_work_sync(&it6505->hdcp_wait_ksv_list);
++	cancel_delayed_work_sync(&it6505->hdcp_work);
++	cancel_work_sync(&it6505->extcon_wq);
+ 	it6505_poweroff(it6505);
+ 	it6505_remove_edid(it6505);
+ }
+-- 
+2.55.0
 
