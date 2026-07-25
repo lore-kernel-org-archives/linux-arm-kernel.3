@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8662BC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282B7C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flq66MJCNjahhJTNoPOoMIAIXVpK7+cnVlGKybVnysE=; b=qo+ZzOhX2cbCvon65WyvLvgtT5
-	3UphBre3zmW5sNFtK6Y3zFDMepzAIKzlU/DcLm8kGvWSVAVkEowOqeUehIyNpmzjxnhmsLJvs4V6c
-	S0B7EsstudqN93X97khwGnUe27lY9zKFWcx9NjsB+r0sEqpNFtIIRAeBlwRZA5Xf4ohy8sZKLjAFD
-	hFCkiEQ2ueYzxUE85XL/TNnmWnoITMm4IuOC0ZeLA74QMTRS6j2d6hw4jrj5T9T4UZ7ghZBxnURrD
-	Vp8ZreOqLTNrG+blrH07VcEw9Vdm7hJ37iW/BHuTzio4RNzGkKs8vngNjR+CiohFzwxbxffNPWEaq
-	LH913OuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eXdq8pjz28evqcBzIPG2oZHIuqFHhx8mdctRki8jLvw=; b=NG2t4xDGrTkBOUdNwKROXKQpPw
+	mJuvHd8HASZRM88e9Q7mUdUrN1GUE2oD8nwpJfh0kSJgqFIkF75YaDz7J2lZ7tKnEHXN77bgQ1mV2
+	yKGl1uWUmcbd0eZcHGFi5zngNqD9KGYB3OiC70rXzqIaHSVuVr34JlxG1EuQDtN+l2Ufo2pFglWa3
+	mrge36w3AB+bN5erPunjBnyvumNHB1t5584gpmyVDS1OrX05S5hdx3ihbKQAuWVCBv2gQrWzgtgw4
+	XjAvmeNUcScE7PIxArrt2xLaK/sEFWu1/vteUddtJYaogmp9zaO+0dcmoOPoKoCYoB/WvdEWhCnff
+	aEbLV3yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnf7s-00000000WTH-3sxp;
-	Sat, 25 Jul 2026 16:21:24 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1wnfBX-00000000Wxb-20Rj;
+	Sat, 25 Jul 2026 16:25:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnf7c-00000000WNp-10Xq
+	id 1wnfBW-00000000WxQ-1hTk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 16:21:11 +0000
-Received: by chaosmail.tech (Postfix) id 1D5311C88A2;
-	Sat, 25 Jul 2026 16:21:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1784996465;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=flq66MJCNjahhJTNoPOoMIAIXVpK7+cnVlGKybVnysE=;
-	b=kRNSuy0KocbOilHGHAQuEbiCqeDsWolZri/Et/K0F3cDUajeFCZJi8Ke2gxTAsmObasZuP
-	RhdjFuh01E7H8WUXkOquO7elPIIm42J0vGgGqzIXdvMZ51JZHo8PGE6bR+i/tzTuEfottD
-	CCEQSkSyShRWUiiAxzND4lAgdY4UPrU=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sat, 25 Jul 2026 18:20:57 +0200
-Subject: [PATCH 2/3] usb: typec: tipd: Factor out i2c specifics
+	Sat, 25 Jul 2026 16:25:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A444660A6E;
+	Sat, 25 Jul 2026 16:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AE231F000E9;
+	Sat, 25 Jul 2026 16:25:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784996709;
+	bh=eXdq8pjz28evqcBzIPG2oZHIuqFHhx8mdctRki8jLvw=;
+	h=From:To:Cc:Subject:Date;
+	b=Nv1xG+eoDJ33ZiTxB2Q+MtkSfhTS0Utuw2iSHxEA0VvNABS6YdkDD2eooM2YUPaJx
+	 FSXRMzfi39rQV9PTjU8HkbsyRNKHcNYD5OZ1H1MS1rmscprx9pz2M/j9t2DVtLDNA5
+	 D7iUVFVd3BHZgey+uXnBIGQs2X1wi+V3Dx0HuD8MBZ/Ce5w0OFSfmPT2yt2URLtr87
+	 lPiAEJfzch2oxME/0vrApVM0ViiqA4059/66amDBdZpKud1IGkV/f3mOnBTN1n00dO
+	 1IdHOuiJGfhd/6ByS3UGyqD9GHfrbbffKg7oL+xk6Z059WWkkjVVKFr4TaUdIMgDqV
+	 mQRRkIl6+6Gyw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wnfBT-00000008nT1-1n4n;
+	Sat, 25 Jul 2026 16:25:07 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH] perf: arm_pmu_acpi: Get rid of the edge-triggered interrupt oddity
+Date: Sat, 25 Jul 2026 17:26:27 +0100
+Message-ID: <20260725162627.145301-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260725-tipd-ace3-v1-2-73202d36138a@chaosmail.tech>
-References: <20260725-tipd-ace3-v1-0-73202d36138a@chaosmail.tech>
-In-Reply-To: <20260725-tipd-ace3-v1-0-73202d36138a@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>, 
- Alyssa Milburn <amilburn@zall.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784996463; l=10907;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=rdMerT0n4sVYJJTyANPxYg/7K59i3kRA5QbNRqA1H44=;
- b=YuoJxPln+veOWJBlyjeYNXiHprhcI4xhLPVV7eeH/Z9cvJ0tZy1B3BFuDzqtzqmAtaK0CZFaI
- SaHGNQnWzuZC4Nu/SQ6Qt0XZa41YXJ6Aq2xrztR+obh3n11M1igAX6l
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_092108_752741_FD464B94 
-X-CRM114-Status: GOOD (  25.37  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, mark.rutland@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,361 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alyssa Milburn <amilburn@zall.org>
+The ACPI spec bizarrely indicates that the PMU interrupt can be
+edge-triggered, which contradicts the very basics of the PMU
+architecture (SW is required to clear the interrupt condition for
+the level to drop).
 
-Make the core driver more bus-agnostic to prepare for SPMI variants of
-the tipd chip
+Remove the code parsing this flag and always flag the interrupt
+as level triggered, no matter what firmware says.
 
-Signed-off-by: Alyssa Milburn <amilburn@zall.org>
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/usb/typec/tipd/Makefile           |   2 +-
- drivers/usb/typec/tipd/{core.c => core.h} | 109 ++++++++++++++++++++++++++++---------------------------------------------------------------------------------
- drivers/usb/typec/tipd/i2c.c              |  86 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 115 insertions(+), 82 deletions(-)
+ drivers/perf/arm_pmu_acpi.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/usb/typec/tipd/Makefile b/drivers/usb/typec/tipd/Makefile
-index aa439f80a889..ba38daee9e72 100644
---- a/drivers/usb/typec/tipd/Makefile
-+++ b/drivers/usb/typec/tipd/Makefile
-@@ -2,5 +2,5 @@
- CFLAGS_trace.o			:= -I$(src)
- 
- obj-$(CONFIG_TYPEC_TPS6598X)	+= tps6598x.o
--tps6598x-y			:= core.o
-+tps6598x-y			:= i2c.o
- tps6598x-$(CONFIG_TRACING)	+= trace.o
-diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.h
-similarity index 95%
-rename from drivers/usb/typec/tipd/core.c
-rename to drivers/usb/typec/tipd/core.h
-index d5ee0af9058b..1ba29e439e01 100644
---- a/drivers/usb/typec/tipd/core.c
-+++ b/drivers/usb/typec/tipd/core.h
-@@ -9,7 +9,6 @@
- #include <linux/i2c.h>
- #include <linux/acpi.h>
- #include <linux/gpio/consumer.h>
--#include <linux/module.h>
- #include <linux/of.h>
- #include <linux/power_supply.h>
- #include <linux/regmap.h>
-@@ -167,6 +166,7 @@ struct tps6598x {
- 	struct device *dev;
- 	struct regmap *regmap;
- 	struct mutex lock; /* device lock */
-+	int irq;
- 	u8 i2c_protocol:1;
- 
- 	struct gpio_desc *reset;
-@@ -231,6 +231,13 @@ static const char *tps6598x_psy_name_prefix = "tps6598x-source-psy-";
-  */
- #define TPS_MAX_LEN	64
- 
-+static struct tps6598x *tps6598x_from_device(struct device *dev)
-+{
-+	struct i2c_client *client = i2c_verify_client(dev);
-+	struct tps6598x *tps = i2c_get_clientdata(client);
-+	return tps;
-+}
-+
- static int
- tps6598x_block_read(struct tps6598x *tps, u8 reg, void *val, size_t len)
+diff --git a/drivers/perf/arm_pmu_acpi.c b/drivers/perf/arm_pmu_acpi.c
+index e80f76d95e68b..ca6bf8f86cfe9 100644
+--- a/drivers/perf/arm_pmu_acpi.c
++++ b/drivers/perf/arm_pmu_acpi.c
+@@ -22,7 +22,7 @@ static DEFINE_PER_CPU(int, pmu_irqs);
+ static int arm_pmu_acpi_register_irq(int cpu)
  {
-@@ -1738,27 +1745,13 @@ static void cd321x_remove(struct tps6598x *tps)
- 	cancel_delayed_work_sync(&cd321x->update_work);
- }
+ 	struct acpi_madt_generic_interrupt *gicc;
+-	int gsi, trigger;
++	int gsi;
  
--static int tps6598x_probe(struct i2c_client *client)
-+static int tps6598x_probe(struct tps6598x *tps)
- {
--	const struct tipd_data *data;
--	struct tps6598x *tps;
- 	struct fwnode_handle *fwnode;
- 	u32 status;
- 	u32 vid;
- 	int ret;
+ 	gicc = acpi_cpu_get_madt_gicc(cpu);
  
--	data = i2c_get_match_data(client);
--	if (!data)
--		return -EINVAL;
--
--	tps = devm_kzalloc(&client->dev, data->tps_struct_size, GFP_KERNEL);
--	if (!tps)
--		return -ENOMEM;
--
--	mutex_init(&tps->lock);
--	tps->dev = &client->dev;
--	tps->data = data;
--
- 	tps->reset = devm_gpiod_get_optional(tps->dev, "reset", GPIOD_OUT_LOW);
- 	if (IS_ERR(tps->reset))
- 		return dev_err_probe(tps->dev, PTR_ERR(tps->reset),
-@@ -1766,23 +1759,12 @@ static int tps6598x_probe(struct i2c_client *client)
- 	if (tps->reset)
- 		msleep(TPS_SETUP_MS);
+@@ -38,11 +38,6 @@ static int arm_pmu_acpi_register_irq(int cpu)
+ 	if (!gsi)
+ 		return 0;
  
--	tps->regmap = devm_regmap_init_i2c(client, &tps6598x_regmap_config);
--	if (IS_ERR(tps->regmap))
--		return PTR_ERR(tps->regmap);
+-	if (gicc->flags & ACPI_MADT_PERFORMANCE_IRQ_MODE)
+-		trigger = ACPI_EDGE_SENSITIVE;
+-	else
+-		trigger = ACPI_LEVEL_SENSITIVE;
 -
- 	if (!device_is_compatible(tps->dev, "ti,tps25750")) {
- 		ret = tps6598x_read32(tps, TPS_REG_VID, &vid);
- 		if (ret < 0 || !vid)
- 			return -ENODEV;
- 	}
- 
--	/*
--	 * Checking can the adapter handle SMBus protocol. If it can not, the
--	 * driver needs to take care of block reads separately.
--	 */
--	if (i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
--		tps->i2c_protocol = true;
--
- 	if (tps->data->switch_power_state) {
- 		ret = tps->data->switch_power_state(tps, TPS_SYSTEM_POWER_STATE_S0);
- 		if (ret)
-@@ -1816,7 +1798,7 @@ static int tps6598x_probe(struct i2c_client *client)
- 	 * with existing DT files, we work around this by deleting any
- 	 * fwnode_links to/from this fwnode.
+ 	/*
+ 	 * Helpfully, the MADT GICC doesn't have a polarity flag for the
+ 	 * "performance interrupt". Luckily, on compliant GICs the polarity is
+@@ -53,8 +48,12 @@ static int arm_pmu_acpi_register_irq(int cpu)
+ 	 * may not match the real polarity, but that should not matter.
+ 	 *
+ 	 * Other interrupt controllers are not supported with ACPI.
++	 *
++	 * The spec also indicates that the PMU interrupt can be edge
++	 * triggered, which doesn't make any sense (SW needs to clear the
++	 * interrupt condition for the level to drop). Ignore the silly flag.
  	 */
--	fwnode = device_get_named_child_node(&client->dev, "connector");
-+	fwnode = device_get_named_child_node(tps->dev, "connector");
- 	if (fwnode)
- 		fw_devlink_purge_absent_suppliers(fwnode);
- 
-@@ -1842,14 +1824,14 @@ static int tps6598x_probe(struct i2c_client *client)
- 			goto err_unregister_port;
- 		ret = tps->data->connect(tps, status);
- 		if (ret)
--			dev_err(&client->dev, "failed to register partner\n");
-+			dev_err(tps->dev, "failed to register partner\n");
- 	}
- 
--	if (client->irq) {
--		ret = devm_request_threaded_irq(&client->dev, client->irq, NULL,
-+	if (tps->irq) {
-+		ret = devm_request_threaded_irq(tps->dev, tps->irq, NULL,
- 						tps->data->irq_handler,
- 						IRQF_SHARED | IRQF_ONESHOT,
--						dev_name(&client->dev), tps);
-+						dev_name(tps->dev), tps);
- 	} else {
- 		dev_warn(tps->dev, "Unable to find the interrupt, switching to polling\n");
- 		INIT_DELAYED_WORK(&tps->wq_poll, tps6598x_poll_work);
-@@ -1860,13 +1842,12 @@ static int tps6598x_probe(struct i2c_client *client)
- 	if (ret)
- 		goto err_disconnect;
- 
--	i2c_set_clientdata(client, tps);
- 	fwnode_handle_put(fwnode);
- 
- 	tps->wakeup = device_property_read_bool(tps->dev, "wakeup-source");
--	if (tps->wakeup && client->irq) {
--		devm_device_init_wakeup(&client->dev);
--		enable_irq_wake(client->irq);
-+	if (tps->wakeup && tps->irq) {
-+		devm_device_init_wakeup(tps->dev);
-+		enable_irq_wake(tps->irq);
- 	}
- 
- 	return 0;
-@@ -1888,14 +1869,12 @@ static int tps6598x_probe(struct i2c_client *client)
- 	return ret;
+-	return acpi_register_gsi(NULL, gsi, trigger, ACPI_ACTIVE_HIGH);
++	return acpi_register_gsi(NULL, gsi, ACPI_LEVEL_SENSITIVE, ACPI_ACTIVE_HIGH);
  }
  
--static void tps6598x_remove(struct i2c_client *client)
-+static void tps6598x_remove(struct tps6598x *tps)
- {
--	struct tps6598x *tps = i2c_get_clientdata(client);
--
--	if (!client->irq)
-+	if (!tps->irq)
- 		cancel_delayed_work_sync(&tps->wq_poll);
- 	else
--		devm_free_irq(tps->dev, client->irq, tps);
-+		devm_free_irq(tps->dev, tps->irq, tps);
- 
- 	if (tps->data->remove)
- 		tps->data->remove(tps);
-@@ -1913,17 +1892,16 @@ static void tps6598x_remove(struct i2c_client *client)
- 
- static int __maybe_unused tps6598x_suspend(struct device *dev)
- {
--	struct i2c_client *client = to_i2c_client(dev);
--	struct tps6598x *tps = i2c_get_clientdata(client);
-+	struct tps6598x *tps = tps6598x_from_device(dev);
- 
- 	if (tps->wakeup) {
--		disable_irq(client->irq);
--		enable_irq_wake(client->irq);
-+		disable_irq(tps->irq);
-+		enable_irq_wake(tps->irq);
- 	} else if (tps->reset) {
- 		gpiod_set_value_cansleep(tps->reset, 1);
- 	}
- 
--	if (!client->irq)
-+	if (!tps->irq)
- 		cancel_delayed_work_sync(&tps->wq_poll);
- 
- 	return 0;
-@@ -1931,8 +1909,7 @@ static int __maybe_unused tps6598x_suspend(struct device *dev)
- 
- static int __maybe_unused tps6598x_resume(struct device *dev)
- {
--	struct i2c_client *client = to_i2c_client(dev);
--	struct tps6598x *tps = i2c_get_clientdata(client);
-+	struct tps6598x *tps = tps6598x_from_device(dev);
- 	int ret;
- 
- 	ret = tps6598x_check_mode(tps);
-@@ -1946,14 +1923,14 @@ static int __maybe_unused tps6598x_resume(struct device *dev)
- 	}
- 
- 	if (tps->wakeup) {
--		disable_irq_wake(client->irq);
--		enable_irq(client->irq);
-+		disable_irq_wake(tps->irq);
-+		enable_irq(tps->irq);
- 	} else if (tps->reset) {
- 		gpiod_set_value_cansleep(tps->reset, 0);
- 		msleep(TPS_SETUP_MS);
- 	}
- 
--	if (!client->irq)
-+	if (!tps->irq)
- 		queue_delayed_work(system_power_efficient_wq, &tps->wq_poll,
- 				   msecs_to_jiffies(POLL_INTERVAL));
- 
-@@ -2018,33 +1995,3 @@ static const struct tipd_data tps25750_data = {
- 	.reset = tps25750_reset,
- 	.connect = tps6598x_connect,
- };
--
--static const struct of_device_id tps6598x_of_match[] = {
--	{ .compatible = "ti,tps6598x", &tps6598x_data},
--	{ .compatible = "apple,cd321x", &cd321x_data},
--	{ .compatible = "ti,tps25750", &tps25750_data},
--	{}
--};
--MODULE_DEVICE_TABLE(of, tps6598x_of_match);
--
--static const struct i2c_device_id tps6598x_id[] = {
--	{ .name = "tps6598x", .driver_data = (kernel_ulong_t)&tps6598x_data },
--	{ }
--};
--MODULE_DEVICE_TABLE(i2c, tps6598x_id);
--
--static struct i2c_driver tps6598x_i2c_driver = {
--	.driver = {
--		.name = "tps6598x",
--		.pm = &tps6598x_pm_ops,
--		.of_match_table = tps6598x_of_match,
--	},
--	.probe = tps6598x_probe,
--	.remove = tps6598x_remove,
--	.id_table = tps6598x_id,
--};
--module_i2c_driver(tps6598x_i2c_driver);
--
--MODULE_AUTHOR("Heikki Krogerus <heikki.krogerus@linux.intel.com>");
--MODULE_LICENSE("GPL v2");
--MODULE_DESCRIPTION("TI TPS6598x USB Power Delivery Controller Driver");
-diff --git a/drivers/usb/typec/tipd/i2c.c b/drivers/usb/typec/tipd/i2c.c
-new file mode 100644
-index 000000000000..0233e19290ea
---- /dev/null
-+++ b/drivers/usb/typec/tipd/i2c.c
-@@ -0,0 +1,86 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for TI TPS6598x USB Power Delivery controller family
-+ *
-+ * Copyright (C) 2017, Intel Corporation
-+ * Author: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-+ */
-+
-+#include <linux/module.h>
-+
-+#include "core.h"
-+
-+static int tps6598x_probe_i2c(struct i2c_client *client)
-+{
-+	const struct tipd_data *data;
-+	struct tps6598x *tps;
-+	int ret;
-+
-+	data = i2c_get_match_data(client);
-+	if (!data)
-+		return -EINVAL;
-+
-+	tps = devm_kzalloc(&client->dev, data->tps_struct_size, GFP_KERNEL);
-+	if (!tps)
-+		return -ENOMEM;
-+
-+	mutex_init(&tps->lock);
-+	tps->dev = &client->dev;
-+	tps->data = data;
-+	tps->irq = client->irq;
-+
-+	tps->regmap = devm_regmap_init_i2c(client, &tps6598x_regmap_config);
-+	if (IS_ERR(tps->regmap))
-+		return PTR_ERR(tps->regmap);
-+
-+	/*
-+	 * Checking can the adapter handle SMBus protocol. If it can not, the
-+	 * driver needs to take care of block reads separately.
-+	 */
-+	if (i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
-+		tps->i2c_protocol = true;
-+
-+	ret = tps6598x_probe(tps);
-+
-+	if (ret == 0)
-+		i2c_set_clientdata(client, tps);
-+
-+	return ret;
-+}
-+
-+static void tps6598x_remove_i2c(struct i2c_client *client)
-+{
-+	struct tps6598x *tps = i2c_get_clientdata(client);
-+
-+	tps6598x_remove(tps);
-+}
-+
-+static const struct of_device_id tps6598x_of_match[] = {
-+	{ .compatible = "ti,tps6598x", &tps6598x_data},
-+	{ .compatible = "apple,cd321x", &cd321x_data},
-+	{ .compatible = "ti,tps25750", &tps25750_data},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, tps6598x_of_match);
-+
-+static const struct i2c_device_id tps6598x_id[] = {
-+	{ .name = "tps6598x", .driver_data = (kernel_ulong_t)&tps6598x_data },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(i2c, tps6598x_id);
-+
-+static struct i2c_driver tps6598x_i2c_driver = {
-+	.driver = {
-+		.name = "tps6598x",
-+		.pm = &tps6598x_pm_ops,
-+		.of_match_table = tps6598x_of_match,
-+	},
-+	.probe = tps6598x_probe_i2c,
-+	.remove = tps6598x_remove_i2c,
-+	.id_table = tps6598x_id,
-+};
-+module_i2c_driver(tps6598x_i2c_driver);
-+
-+MODULE_AUTHOR("Heikki Krogerus <heikki.krogerus@linux.intel.com>");
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("TI TPS6598x USB Power Delivery Controller Driver");
-
+ static void arm_pmu_acpi_unregister_irq(int cpu)
 -- 
-2.55.0
+2.47.3
 
 
