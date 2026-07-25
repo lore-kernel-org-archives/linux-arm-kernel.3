@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE12C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 12:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5042CC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 12:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tCHjQXxXMYrxr5yB3wpWbMUM9HzItrzwrkrPzz7GJqE=; b=1jXTUEbm5O1IOAdIYhKgZFMuLL
-	ctkpLgw4UeIqcDWikZmA3EUXUbTYeLbDaezNq3U93xaivYUHkVHF93YqJTXy/jKQWnJUrwGMekGkn
-	UwVJomU35e5Ki3J9qGEFHXHjyF32GrReDS98je7gJba1bkqM9lsfWKksUiQ6ZXUWxekn6LVOrDiiU
-	WOnbbEQiBh9umY9KiSR1NXQmqE7mnYIZ93Xbi4X7GlfP7zCtnaI1RwnfH7Lj/5dDVVovXmgONHlCV
-	PLNhVa5y5itqAWWtxBsjtdFZnug1EMzy0zBeMtTwstSlz3+HWQADu1Ab2NELwzPMbC/XTtWZzhSQ6
-	EB5JbCQw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gFJh3NjTJMaox2+ypOqsAApzXWebSJmYXYJ3y7rrITw=; b=prUqHBR8ejI9LC
+	nLFCuX/eQppy+1ixk0OUZ2fasmaJkSKRXTCmLzUF5Yxlbk2RoEO+tm45iq15/IUjSYAJq54gJ5Jy0
+	0dL3K/1o7uxxINGLkFc3eZtlpJ+rXO8RzkfnVyz3dG2BipPJfBPPcNnOXCZBNanILWuiQKG9QIlP9
+	ESZKOxjd2PoqmEKO7OSlDR7tqbjGT8BUkOdJktP9MWWrH5w3EfDKMcniIGMFnUoYWHNSgjvv+dd7k
+	sNtV8rddVytxPGxg+QG0orrM1VZYAhaRPMPBu1PbiEggydpQF0sx8TaUxaSRwriccKbh7eGdPpM6u
+	kS0ywWwmaDr3w5pIpWew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnbSN-00000000L0X-2XKG;
+	id 1wnbSN-00000000L0b-2sir;
 	Sat, 25 Jul 2026 12:26:19 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnbSK-00000000KzG-0Lgu
+	id 1wnbSK-00000000KzF-0KTk
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 25 Jul 2026 12:26:18 +0000
-Received: by chaosmail.tech (Postfix) id D9A9F1C8684;
-	Sat, 25 Jul 2026 12:26:09 +0000 (UTC)
+Received: by chaosmail.tech (Postfix) id 099351C867B;
+	Sat, 25 Jul 2026 12:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1784982370;
+	s=mail; t=1784982369;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tCHjQXxXMYrxr5yB3wpWbMUM9HzItrzwrkrPzz7GJqE=;
-	b=AGMbYnxcL79jyfTd6yynlpuz9rhjODKMiut97/4hQ5mEEufN/0yrjUx+ZzNm1U/m/Qu5F+
-	PT0mr5t9V7jYz2xdW8eZ5owAvsoNL0DuGrGBWBURbSDYX1zcz+DDG9N0pNjv20i9FBZ2t7
-	0wyXloGOtCZXF0PLlIlpL4vnP3RH11A=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=gFJh3NjTJMaox2+ypOqsAApzXWebSJmYXYJ3y7rrITw=;
+	b=VEefaWNYJY/QC6elDXmRWcvVzTm4TRhGFTWVouKhcCWOPH86wTCsaXt/aLQ6lbPBZeuuev
+	yWNUqCz8YVdt9fsxepscrT1hKru10b0YownvOyF8ifIJgLdtZ2tnV0obrHTixL1jTv3W7g
+	N04YSffuBKUNQ/quPKVqaeraKreJg1Q=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sat, 25 Jul 2026 14:25:56 +0200
-Subject: [PATCH 1/2] dt-bindings: dma: apple,admac: Add M3 generation
- ADMACs
+Subject: [PATCH 0/2] dmaengine: apple-admac: Add support for M3 generation
+Date: Sat, 25 Jul 2026 14:25:55 +0200
+Message-Id: <20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260725-t603x-admac-v1-1-6a4dec023f02@chaosmail.tech>
-References: <20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech>
-In-Reply-To: <20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMSQqAMAxA0atI1hZqncCriIs0Ro3gQKsiiHe36
+ vIt/r/AsxP2UEUXOD7EyzIHJHEENODcs5I2GIw2hS5NrrZCp6fCdkJSmFhdoiGyeQahWB13cn6
+ 3uvntdzsybe8C7vsBoyEfJW8AAAA=
+X-Change-ID: 20260725-t603x-admac-a1b07a2ccb54
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>, 
  Frank Li <Frank.Li@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -58,16 +58,16 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784982368; l=1593;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784982368; l=898;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=3Aqoo/zey1l7RhP95jMxXWVd4w3Vomi3P3qjge8iKtQ=;
- b=nOhlp9i+owoRRsOF4wPMKpbcFTGWfQReW0Tu7W3nYDbfMTzc7mk++piG+EZtZ8vUlsDFooqd6
- O9Ee+wM+7AsAuONA2sTLkNQu2w9fyOYtVbecUw0Y7XkQe1966/JuxWj
+ bh=7EeCEmZ4bq+PYKDjHXdTwNvCZhBJvKw3SGWs3Ys7fr0=;
+ b=kiTk1Ew7+hmnffjQ7TcQmgvpzug51KIryezg96SJgX0fZGsg8ltjcTanfqfXFYIhzKIyOWgT+
+ C7yMFlXqw5ODIBbzwg1EiMuiNR0b1dI3G8I/C2tmS+8fLY9YlujpIii
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_052616_582281_B19BCB2A 
-X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-CacheID: sfid-20260725_052616_582654_1DBEF190 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,51 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The admacs seen in M3-generation SoCs (t603x, t8122) need additional
-configuration writes and so are getting a new compatible chain.
+The ADMACs present in M3 series devices (t8122 and t603x SoCs) need
+additional register writes in order to function correctly. Add a new
+compatible chain for those, and change the driver to do the write.
+
+To simplify the merge strategy, the device tree entries will be sent
+in a future patch series.
 
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
+Sasha Finkelstein (2):
+      dt-bindings: dma: apple,admac: Add M3 generation ADMACs
+      dmaengine: apple-admac: Add M3 generation ADMACs
+
  Documentation/devicetree/bindings/dma/apple,admac.yaml | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ drivers/dma/apple-admac.c                              | 32 ++++++++++++++++++++++++++++++--
+ 2 files changed, 38 insertions(+), 4 deletions(-)
+---
+base-commit: 0ce37745d4bfbc493f718169c3974898ffec8ee7
+change-id: 20260725-t603x-admac-a1b07a2ccb54
 
-diff --git a/Documentation/devicetree/bindings/dma/apple,admac.yaml b/Documentation/devicetree/bindings/dma/apple,admac.yaml
-index 6a200cbd7d02..5b4fd8348f99 100644
---- a/Documentation/devicetree/bindings/dma/apple,admac.yaml
-+++ b/Documentation/devicetree/bindings/dma/apple,admac.yaml
-@@ -10,7 +10,7 @@ description: |
-   Apple's Audio DMA Controller (ADMAC) is used to fetch and store audio samples
-   on SoCs from the "Apple Silicon" family.
- 
--  The controller has been seen with up to 24 channels. Even-numbered channels
-+  The controller has been seen with up to 32 channels. Even-numbered channels
-   are TX-only, odd-numbered are RX-only. Individual channels are coupled to
-   fixed device endpoints.
- 
-@@ -33,6 +33,12 @@ properties:
-               - apple,t8103-admac
-               - apple,t8112-admac
-           - const: apple,admac
-+      - items:
-+          - enum:
-+              - apple,t6030-admac
-+              - apple,t6031-admac
-+          - const: apple,t8122-admac
-+      - const: apple,t8122-admac
- 
-   reg:
-     maxItems: 1
-@@ -43,7 +49,7 @@ properties:
-       Clients specify a single cell with channel number.
- 
-   dma-channels:
--    maximum: 24
-+    maximum: 32
- 
-   interrupts:
-     minItems: 4
-
--- 
-2.55.0
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
 
 
