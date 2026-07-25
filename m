@@ -4,54 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E15AC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 11:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421E0C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 11:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3003BYCZArT/0UP9QRyDsR1LnO7OFmFporFtwv650UM=; b=frijgpDZBmCJ9586KJguT44iTz
-	jPG586M9MbIlCmA9n93smekKfz8kiJcsZirfLmcfxxoe4krDvTW9quoMTRxDGzevNqstLm23IGZF6
-	bz/v2kByor7UKzoEF/7ieLb0SYMKB6dnkOjlQZNEmGiDU9SFHZOgUvyI703vZAPLgKhDyubG2YJTb
-	7aa7d+jh6Sb4jo0QBTlEIsq2hpJX3x0voWjqNfUJ6/PC536oY0lztdvgLITvlT0lV4kjZhA0MjFLE
-	t7tvgyzsKm0IPe+VgYpNjdl2fL9Jsc2vslQqQG12daQtBmtfUOAVWZG4LSHa9CeoVMyFODA/H1NaY
-	GbYHMhjQ==;
+	bh=dpRMpAZDV+Hl+0RPQ0jZmFawaVMCpMbj52f5fVWQd9w=; b=Axi7gQ4KwrBpDklnXFZ3/T4gYn
+	KuIP+YXMhXPXdoo6x5ao93Q6fxgf0c/fx3BZij7cPVChHMeWoXKYc4G0drrk/l9mdM8CFHoIHVT48
+	uMj00Fu0qCP7fhWMEONnoVbha5In/AxEQrprSplAQv65yJR2lQmJ8RxjTAgDpRRVl0B7Y9BTgdE59
+	XmQb6gCMOO5vIKBh5uUTwWYJp1cwmuiYIhsSRdXDyR45hd160Mqx2HLiCGl+JjX909tLiiegbnCNW
+	KI3Bm7lySGkO2yQ9Uh78kF5b87xuKj/buouhevEINJUH2DSDv1OG+8MTsFaZgMxy4aCcVoyfI0VHx
+	JKC+8l5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnadb-00000000I33-33Km;
-	Sat, 25 Jul 2026 11:33:51 +0000
-Received: from vps.xff.cz ([195.181.215.36])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnadZ-00000000I2h-0uT6
+	id 1wnagf-00000000IBt-0MHL;
+	Sat, 25 Jul 2026 11:37:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnagb-00000000IBH-2dPF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 11:33:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1784979227; bh=+cmBvCWySQzLhKfWmPtp9rjSjfEJGBKKXbEo16iheG8=;
+	Sat, 25 Jul 2026 11:37:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A42041476;
+	Sat, 25 Jul 2026 04:36:49 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 410D53F86F;
+	Sat, 25 Jul 2026 04:36:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784979413; bh=HT/W94VkBkTu1HicXcpPmo34HneyLW9c0AqcSxt6T9c=;
 	h=From:To:Cc:Subject:Date:From;
-	b=U2Y1AvV7YbCbbUt+dVubN2FyLQA95eRZFQ2bdWiY0KNB5ATJVio+r/M5w75IWAmSJ
-	 ISnLZ/6ld0vqzaKoEuGX5j8Qn+oFToq4mqsBKXrZzt8M3rM5i83C8NbWslZ/aZ0Elv
-	 ziO13yN44xDomfyUuLiPFzAb0iFNmjT2VgnoEuZ8=
-From: =?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>
-To: linux-sunxi@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org,
-	Ondrej Jirman <megi@xff.cz>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support)
-Subject: [PATCH] clocksource/drivers/sun4i: Wait for pending reload before CTRL write
-Date: Sat, 25 Jul 2026 13:33:38 +0200
-Message-ID: <20260725113341.2250687-1-megi@xff.cz>
+	b=ldGIB9wOwYXbBtKTyU5qkINs/+H7LNa3wcXWPZnN5LK+cYdkyCve1YBzSbQGBSTx5
+	 tWwPj+wjTyRORXlVCWHnaTVW2K2uNlNJ2MNM/O/wKe60kD6vpICXvXd8CEOBBZMISZ
+	 N9iatRzgy9bfmPWVQzdgSRGK+poUxncCX9j7HcU4=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	leo.yan@arm.com,
+	jie.gan@oss.qualcomm.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v9 00/13] fix several inconsistencies with sysfs configuration in etmX
+Date: Sat, 25 Jul 2026 12:36:32 +0100
+Message-ID: <20260725113645.57519-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_043349_412990_564C4399 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260725_043658_225084_FF2114B9 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,80 +73,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ondrej Jirman <megi@xff.cz>
+The current ETMx configuration via sysfs can lead to the following
+inconsistencies:
 
-The A13 manual says of TMR0_RELOAD: "After the bit is set, it can not be
-written again before it's cleared automatically."  Both time_stop() and
-time_start() read-modify-write the control register, so a reload still in
-flight gets rewritten and the write can be dropped, leaving the timer
-unarmed.  In oneshot mode this happens on every tick, and the tick
-eventually stops for good.
+  - If a configuration is modified via sysfs while a perf session is
+    active, the running configuration may differ between before
+    a sched-out and after a subsequent sched-in.
 
-Wait for the reload to clear first.  All control register updates go
-through sun4i_clkevt_time_stop().
+  - If a perf session and sysfs session tries to enable concurrently,
+    configuration from configfs could be corrupted (etm4).
 
-Without this my Allwinner A13 based Pocketbook Touch Lux 3 stops
-scheduling processes during boot or within a few seconds of executing
-userspace. Only sysrq+t over serial port works at this stage, which is
-how I discovered the root cause.
+  - There is chance to corrupt drvdata->config if perf session tries
+    to enabled among handling cscfg_csdev_disable_active_config()
+    in etm4_disable_sysfs() (etm4).
 
-Fixes: 7e14183469d8 ("clocksource: sun4i: Fix bug when switching from periodic to oneshot modes")
-Signed-off-by: Ondrej Jirman <megi@xff.cz>
----
-BTW, similar issue will likely be also in timer-sun5i.c but I don't have any
-device that would exercise it. And it's possible that this triggers more easily
-with CONFIG_HZ=1000 which I use.
+To resolve these inconsistencies, the configuration should be separated into:
 
- drivers/clocksource/timer-sun4i.c | 26 +++++++++++++++++++++++++-
- 1 file changed, 25 insertions(+), 1 deletion(-)
+  - active_config, which is applied configuration for the current session
+  - config, which stores the settings configured via sysfs.
 
-diff --git a/drivers/clocksource/timer-sun4i.c b/drivers/clocksource/timer-sun4i.c
-index 7bdcc60ad43c..2e7457f671c4 100644
---- a/drivers/clocksource/timer-sun4i.c
-+++ b/drivers/clocksource/timer-sun4i.c
-@@ -39,6 +39,9 @@
- 
- #define TIMER_SYNC_TICKS	3
- 
-+/* The reload bit clears a couple of source clock cycles after it is set. */
-+#define TIMER_RELOAD_MAX_POLL	100
-+
- /*
-  * When we disable a timer, we need to wait at least for 2 cycles of
-  * the timer source clock. We will use for that the clocksource timer
-@@ -53,9 +56,30 @@ static void sun4i_clkevt_sync(void __iomem *base)
- 		cpu_relax();
- }
- 
-+/*
-+ * The control register must not be written while a reload is still in
-+ * flight, or the write can be dropped.
-+ */
-+static int sun4i_clkevt_wait_reload(void __iomem *base, u8 timer)
-+{
-+	int i;
-+
-+	for (i = 0; i < TIMER_RELOAD_MAX_POLL; i++) {
-+		if (!(readl(base + TIMER_CTL_REG(timer)) & TIMER_CTL_RELOAD))
-+			return 0;
-+		cpu_relax();
-+	}
-+
-+	return -ETIME;
-+}
-+
- static void sun4i_clkevt_time_stop(void __iomem *base, u8 timer)
- {
--	u32 val = readl(base + TIMER_CTL_REG(timer));
-+	u32 val;
-+
-+	sun4i_clkevt_wait_reload(base, timer);
-+
-+	val = readl(base + TIMER_CTL_REG(timer));
- 	writel(val & ~TIMER_CTL_ENABLE, base + TIMER_CTL_REG(timer));
- 	sun4i_clkevt_sync(base);
- }
+and apply configuration from configfs after taking a mode.
+
+Also, This patch set includes some small fixes:
+  - missing trace id release in etm4x.
+  - underflow issue for nrseqstate.
+  - wrong check in etm4x_sspcicrn_present().
+  - missing call of cscfg_csdev_disable_active_config()
+
+This patch based on coresight tree's next
+
+Patch History
+=============
+from v8 to v9:
+  - add feat_csdev_lock guard interface.
+  - set feat_csdev->drv_spinlock as NULL for etmv4_drvdata.
+  - https://lore.kernel.org/all/20260629090007.1718746-1-yeoreum.yun@arm.com/
+
+from v7 to v8:
+  - accept @Leo Yan' suggestion to handle error.
+  - small minor fixes following @Suzuki' suggestion.
+  - https://lore.kernel.org/all/20260519154812.254884-1-yeoreum.yun@arm.com/
+
+from v6 to v7:
+  - rebase on coresight/next
+  - add ETM_MAX_SEQ_TRANSITIONS define
+  - remove redundant patch relavent cpu-hotplug as coresight-pm patch
+    merged.
+  - https://lore.kernel.org/all/20260422132203.977549-1-yeoreum.yun@arm.com/
+
+from v5 to v6:
+  - fix missing of calling cscfg_csdev_disable_active_config()
+  - add rb & fixes tags.
+  - add ss_status field in etm4x_drvdata to expose STATUS and PENDING bits.
+  - https://lore.kernel.org/all/20260415165528.3369607-1-yeoreum.yun@arm.com/
+
+from v4 to v5:
+  - add rb-tag.
+  - fix underflow issue for nrseqstate.
+  - fix wrong check in etm4_sspcicrn_present().
+  - remove redundant fields on etmv4_save_state.
+  - rename caps->ss_status to ss_cmp.
+  - fix wrong location of etm4_release_trace_id.
+  - https://lore.kernel.org/all/20260413142003.3549310-1-yeoreum.yun@arm.com/
+
+from v3 to v4:
+  - change etm_drvdata->spinlock type to raw_spin_lock_t
+  - remove redundant call etmX_enable_hw() with starting_cpu() callsback.
+  - fix missing trace id release.
+  - add missing docs.
+  - https://lore.kernel.org/all/20260412175506.412301-1-yeoreum.yun@arm.com/
+
+from v2 to v3:
+  - fix build error for etm3x.
+  - fix checkpatch warning.
+  - https://lore.kernel.org/all/20260410074310.2693385-1-yeoreum.yun@arm.com/
+
+from v1 to v2
+  - rebased to v7.0-rc7.
+  - introduce etmX_caps structure to save etmX's capabilities.
+  - remove ss_status from etmv4_config.
+  - modify active_config after taking a mode (perf/sysfs).
+  - https://lore.kernel.org/all/20260317181705.2456271-1-yeoreum.yun@arm.com/
+
+Yeoreum Yun (13):
+  coresight: etm4x: fix wrong check of etm4x_sspcicrn_present()
+  coresight: etm4x: fix underflow for usage of (nrseqstate - 1)
+  coresight: etm4x: fix leaked trace id
+  coresight: etm4x: fix inconsistencies with sysfs configuration
+  coresight: etm4x: missing cscfg_csdev_disable_active_config() in perf
+    enable
+  coresight: etm3x: fix inconsistencies with sysfs configuration
+  coresight: etm3x: change drvdata->spinlock type to raw_spin_lock_t
+  coresight: etm3x: remove redundant cpu online check on
+    etm_enable_sysfs()
+  coresight: etm4x: introduce struct etm4_caps
+  coresight: etm4x: exclude ss_status from drvdata->config
+  coresight: etm4x: remove s_ex_level from config
+  coresight: etm4x: remove redundant fields in etmv4_save_state
+  coresight: etm3x: introduce struct etm_caps
+
+ .../hwtracing/coresight/coresight-config.c    |  18 +-
+ .../hwtracing/coresight/coresight-config.h    |  26 +
+ drivers/hwtracing/coresight/coresight-etm.h   |  48 +-
+ .../coresight/coresight-etm3x-core.c          |  96 ++--
+ .../coresight/coresight-etm3x-sysfs.c         | 159 +++---
+ .../hwtracing/coresight/coresight-etm4x-cfg.c |  16 +-
+ .../coresight/coresight-etm4x-core.c          | 454 ++++++++++--------
+ .../coresight/coresight-etm4x-sysfs.c         | 204 ++++----
+ drivers/hwtracing/coresight/coresight-etm4x.h | 204 ++++----
+ 9 files changed, 682 insertions(+), 543 deletions(-)
+
+
+base-commit: 98495b5a4d77dd22e106f462b76e1093a55b29a7
 -- 
-2.54.0
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
