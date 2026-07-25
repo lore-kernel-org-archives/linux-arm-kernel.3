@@ -4,146 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE3FC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB90C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 17:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ID2Xd54wzV2+7KgvTJP1XPfUiNGyuBOf6ayXzxFxT4E=; b=m4fIx7iVRYpjFyslb8MLCzNMYn
-	tOO0MvTVTu6+KIWDCWOBF0F5PS7I4RCPL8O85doDBfArG6V337gKRH5btPGiQ3HUoMKuzOuLnbNsq
-	98KVYKRXIn4EEvxPw2qKrRSfYoSpUS08eFZHGsKQsIUMHkG1b3CBa2xJ0/xCLKEMkCWePkGtJ36DJ
-	DiH9OU5E9FfO7ZL4SdqgEjTQgoPnI2fVAnvshUojB2LDjoAxK1ztjl14HN7d529vvtALw5Lh9VqP0
-	LrFsNa5WbgRCLdyjEk8ATPaB9PKnUk7avQfGglyIYfJpCJo0MtMLtHDGe4lNfN32v9g1hyrN8VNw8
-	Jt6QZfWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wqzc1rdrD9/zZgtfkeN/lk6lY1WJu6IQP1Gt28locAY=; b=bQjO1O6RuInBFeTXOfrNISIABS
+	DnumffcFbdjn8iqr0WgKQ9L+HFD3DIGYl4ZlhDS3l6UWAMQG3coIdL611S6M6nRcyeI5MocU1pTIe
+	r2qOCJT1/iTU8yF/fXfNo3iwVHrhai9gcCc8Ue2H4IiRSXPa2/6Zl79OH0BQCendwOfLYO2npY7VN
+	xYj/EdhH8nYpDN28ebEz3R/nxs/AVPeYoo98jaWjyhxaXFvCeiFZtr6ZMVqkIS9IwmwSJTVGBFB/E
+	KRLT8mdlPsbEq05wLj46wHsYb1JnhlDWyKu88yLZUL+U+psa8xMQtFdOw4vMzl8FvLdIBJnphIe91
+	VILeOxBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnffw-00000000YdG-3Lpb;
-	Sat, 25 Jul 2026 16:56:36 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wnfl4-00000000ZAw-1itp;
+	Sat, 25 Jul 2026 17:01:54 +0000
+Received: from mta-mtl-008.bell.net ([209.71.208.31] helo=cmx-mtlrgo002.bell.net)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnffr-00000000YUc-0zNA;
-	Sat, 25 Jul 2026 16:56:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RZiGBtKrfjwJuomG0DUeaBkfj3VWRZOX3zwtio138m6BeSuNsVRSo1avLGEMrJGYqObkbIXTwnAJDGc6aAVj+/nTKe6GwRmp88VFxeJpTFyZ47yjM3ar4JaJbE+xiAOViZLn4gdzhSbgvEKNBWIkyciqVSJusk+vSpcLPhU1E9uOipSAQBx0L4gM+IjasPrriY03jGSc0BNeNJUD+sdti4f6fJMMZ4TiTpbiZQAxyJXsjvVXuDSa01DWkEvVR4JhCsqNl59vbSQCThZbA/J0ozv8lJdrYASpk1NKr9g8vK2KKMjdeliv5DKkEx/hQeHHK4/29vVf8N05PdoY+YVbUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ID2Xd54wzV2+7KgvTJP1XPfUiNGyuBOf6ayXzxFxT4E=;
- b=nxMVix/kl6kW+0sQCy1ExDGNgsL7cY6EcjLlwmQpq2gFW1BC/LEjGWaJDB8odMB0tQCcKZxrgY1XsdIqsfpHGXVURbYwru8fj6H3GcN6R+mqpy3z5+ytdUatDX+inZqQpJ5R4JSLqfeBVPimFllEsDqftYZzML+JAElSwCin0EZS9EogTHjIuXmF46KKZdiRsLARiMh7ZR8MkJGfPeYU6+n4pBwat1S7KuTjTyOLNWFqIF74sCnMFXC5LirfeF/gIKZiMzNsZLjhN1KtnSnSSXWY6cHJAaHVnTejRpBQBRPc0PebL9q1aAr0SZBzQJEyN+RAdZq6wSPFRWTNcgKN/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wolfvision.net; dmarc=pass action=none
- header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ID2Xd54wzV2+7KgvTJP1XPfUiNGyuBOf6ayXzxFxT4E=;
- b=D6iwbZ56Hj8DLugxCaSlab5+u4eq48Vv1xMe1ADKmZDIn3C62Jb5lnzr9vLl4DSZxTChOxJ8KhvDDlc5T0/nqhQu5pC8bDGjcF1B4hddWtYqyJCIgdns8mYVq7eyx0ha9jOJ3fj0E9k3FVksgUa26Kua9Et8l7ALYNkz9FQGeco=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wolfvision.net;
-Received: from GVXPR08MB11763.eurprd08.prod.outlook.com
- (2603:10a6:150:313::16) by GV1PR08MB10789.eurprd08.prod.outlook.com
- (2603:10a6:150:163::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Sat, 25 Jul
- 2026 16:56:18 +0000
-Received: from GVXPR08MB11763.eurprd08.prod.outlook.com
- ([fe80::8790:5e3:beb2:5bc6]) by GVXPR08MB11763.eurprd08.prod.outlook.com
- ([fe80::8790:5e3:beb2:5bc6%4]) with mapi id 15.21.0245.012; Sat, 25 Jul 2026
- 16:56:18 +0000
-From: Gerald Loacker <gerald.loacker@wolfvision.net>
-Date: Sat, 25 Jul 2026 18:56:05 +0200
-Subject: [PATCH v4 3/3] phy: rockchip: phy-rockchip-inno-csidphy: add clock
- lane phase tuning
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260725-feature-mipi-csi-dphy-4k60-v4-3-5b2c4626d31e@wolfvision.net>
-References: <20260725-feature-mipi-csi-dphy-4k60-v4-0-5b2c4626d31e@wolfvision.net>
-In-Reply-To: <20260725-feature-mipi-csi-dphy-4k60-v4-0-5b2c4626d31e@wolfvision.net>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Gerald Loacker <gerald.loacker@wolfvision.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784998575; l=3092;
- i=gerald.loacker@wolfvision.net; s=20230502; h=from:subject:message-id;
- bh=+s6AHh07LMn/WyMHVK6UmJcRvvKc1ILZngZSq5zMuxw=;
- b=ipE0EfL0dDYxrsAhd6i/Oe4PMZeoYgwaI6sPwfcwZ9spRNeUFFTyMLqnzJ4qoMoMYVrCqgEma
- DCHdths6S1jBHaUhdKTALEDQhGq4NZsYJb6dJUpOVzOIF1P50e3JIt0
-X-Developer-Key: i=gerald.loacker@wolfvision.net; a=ed25519;
- pk=UXhp+obGMUOjknszonesnb29P6a2Kk/K5eBuz62ggVE=
-X-ClientProxiedBy: VE1PR03CA0041.eurprd03.prod.outlook.com
- (2603:10a6:803:118::30) To GVXPR08MB11763.eurprd08.prod.outlook.com
- (2603:10a6:150:313::16)
+	id 1wnfl1-00000000ZAb-352K
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 25 Jul 2026 17:01:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bell.net; s=selector1; t=1784998911; 
+        bh=Wqzc1rdrD9/zZgtfkeN/lk6lY1WJu6IQP1Gt28locAY=;
+        h=Message-ID:Date:MIME-Version:Subject:To:References:From:In-Reply-To:Content-Type;
+        b=RsANVnaDD3Bcd8jF9a74Fgj80kdrxjsyNIYcGLGfB4fYW+gNeubX9Jtvno20+iPIZVta48vWxfzWkx7PbxspJ+w79EjJR60wIM9TYigKc4r7TUDN6aks0HVE3klPGdQ4/fOpJiXQCjS+y6lbmtDR5hncQqo33V+Bz/ZpFnt5Uuzcfwor7b3ndJuFQd5EUAmVmFf/DAopN8QFJViM+cWGArtmgCJOfAERel1zOL/HARVUsHMrWuvoCIbD5YfcroXrzD6VmQlyet58eeIQ5ehmQ97ftYqnkFVGSlHxcNTu1WGwXWwhU5MfXLOVBkJ9q8LHA/KUXtxUxXWbIpqZNw4Mfg==
+X-RG-SOPHOS: Clean
+X-RG-VADE-SC: 0
+X-RG-VADE: Clean
+X-Originating-IP: [70.26.67.32]
+X-RG-Env-Sender: dave.anglin@bell.net
+X-RG-Rigid: 69B7AEA70B5C1637
+X-RazorGate-Vade: dmFkZTFBL85r2oEp4gvfdK9Qq+Fk279rWqVJnzUbNG9fBvLFR/dedrP8wVgFqykZFUTtnttUvrht+OPOiRl/1oU1X3DnhmkwJ+4FUfJN4YMM1Uvc+FmDjW+MWZJ4A0FjpNpERM53NIjMWcPZhyZQFlG4htjVqZ7TJEV4FI7ta2yH4wzyax6s/4E4T4WCOk4oS7RVnzZ9H7irp28HQyCyZeltVxOz9AOr3uOwK79TyneqiRNx+3a7ieGIx7Rrh1xt7fPNGAbDlI7/re/7tVsLMnTzaM8sIoSYfJrV5YxItpSXdxwsobLjy7j764yoaItE9IWqOZ8nHnzugNBwWYuDikcsYd4ZIeOFwBtFev92vMT/vouaEKz+Ah1vjLT+QwgLhdKduIi9iaJDNNkjELFJJE/yNIszKpKlgjW1HQwxXcm3pFfMYsehZFbAmRqL5QVr4EPAW+cvXuonKobvy9fNczSRBD1tyEDCCz/SgvyoOPUZfFsRv1qGgvtqzStwN7Zbtrj68SxbRBYbLYJaroia6vW6b+bLrsEw/meOFF91HfqL8XVq9KdlPKuyvJg40LZ7ScGPqA+pM8+6XXzL1HD4rQYkQoM2CqPSkFuWO81zqkSvf6vLU4tetFZnIofxXAd0aTEd9y+bczB4IJxuzjc+nVt1JlVepAHkbCONpd6s8mfBgySdAQ
+X-RazorGate-Vade-Verdict: clean 0
+X-RazorGate-Vade-Classification: clean
+Received: from [192.168.2.49] (70.26.67.32) by cmx-mtlrgo002.bell.net (authenticated as dave.anglin@bell.net)
+        id 69B7AEA70B5C1637; Sat, 25 Jul 2026 13:00:55 -0400
+Message-ID: <4606e13f-6827-45d0-b3b8-6bc26358f7ae@bell.net>
+Date: Sat, 25 Jul 2026 13:00:55 -0400
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR08MB11763:EE_|GV1PR08MB10789:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34f4c847-5cc2-4221-7366-08deea6da5de
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|23010399003|38350700014|56012099006|11063799006|10067099003|3023799007|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: C1oIfIY2+e9cVnjTAXFA7SIvc9gQsV8cfcN9W3DJjHzT+irHkhdFdoGD7kUG+t/nS8PnERP7glsgGNHahGJJ2Z75Kh6aOgvwp87hN7Kc3DEFN3eC4bv/UDbdKRUD1ugDLfMvfBJwLyUtgth55MH25wJpo7kQlC0Z6ujKaOWN4screowUvJVA+coXpsKSP3s8sfNLu4gdeVlURmpBwwMGoeFEZg9H0qhaxaIFxVx4zuqxz84XlY+0k+405Uv5otn1q8bUNidyOT1zdpugv3/B4+nTHW7vH5CpfdJTwqXgl2cHpPVYM1jQIEilRraoyvSeXkowx0lKOJw/4khVTdpgV4A4EezHLWPQNvadPA36pSucAMtZ47fTr6oxvJNX7HWiEIv+E09lxcYHmstduVdkbaxW7+FU+1hP5GRvmGStUC2fdL6RL2bGjY3wS1zDRBVLJgItvMIp3LiLMOYwne9cp+RMBbc5cOuBdBL1ja8ThZsuKtNSgDW6+A/+9E0yDTawOdEnRngh6Dwh4n6f7+I8qdwgPgCEBbKXn70l/dX6uSOhqBX2hl/8M9ge58qIQnlTcM50Ly7qX05S5TKJIpuwjZ+juZsp/rrP7XHRFVKwn8rG0F8Lh3OXG6qpSUS+QlGrXzDquIdNWM/XRZnPIMVD2cPxxVTMjPWNf7nG66G6fZPyffaPko6sSLtneRRNyR+rpHAKlYA1emri0sKrJLH/h/GZqctR2R01rzVstUkNWG4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR08MB11763.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(23010399003)(38350700014)(56012099006)(11063799006)(10067099003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eG1xaHpoTlBlTkhTb09UUXZuUHdJRFpFSHhVVnBYTCs3NTdMS1RabzBYVkRK?=
- =?utf-8?B?elFpRVUwMmhqcUdGTXhOb010dkNJeGZhbmZLaTB4ank3L04yNnBic01pekt1?=
- =?utf-8?B?cE9WNW9wTjludXl1dWZpVDFKY0JDVDMxQ09BT3hNNCtJWit6dUlSU0JFdkdq?=
- =?utf-8?B?V2hkMVpieThFbUxUVDROTDVIaTNpQTFNZGgvVEpPSHBtUHJFWTJNMmRrTnlW?=
- =?utf-8?B?MnhERERTOGpYbHN6QWxFSG82Y2YrWkhwMFp4RlRZTFZkOERzcERXeGlBSjE5?=
- =?utf-8?B?bWduNk54Z1NEdFVZN0ZaUmxrTlEybUtmcFVpTjNnUkRBbXQrRWpCUFVHWERL?=
- =?utf-8?B?QkJJdFE2TlNCN3FnekRoekdFZVQ0Y0gya3I4OGlWR1hXd2NuanZpYi9JUDFv?=
- =?utf-8?B?dHRwTmhuRHJYRFFGTnhsVTFQam81N3JIcys5TDM1WHNLaG5heGxtNGErU0Vk?=
- =?utf-8?B?Z1BvTTJkQjl0cnN6ZGx1TVlqMS8wSC9oamRvdElHRDFoa2UrZlIrbk8rTXdT?=
- =?utf-8?B?dG9LR1FBTWUwYUM0RzNONUppMER0aGtId1Boem5tMkxKYjFzTlJJOFhPc3Aw?=
- =?utf-8?B?dmVQZkhRY3grUXZUMGFHOHI4UkNuNXB5d3NRUStiNm1tcEQxV2NnMElSbU1k?=
- =?utf-8?B?MHIvb0VJRlhUeTI4RThMc3lncDlzeklNSlhmNmE1em9lMEhkRGFaS294VXNG?=
- =?utf-8?B?R05BL2JnaklqTlpiaUR1OHdTL1Rhb1BNeFlIT213bmVCYW1yeEVmalNYaTBo?=
- =?utf-8?B?ZTdoU2dVZEkyVXFBbnVtc1lETjZVaUdSUEdUWWtTNlBQemFkWnNQR0NtNUxK?=
- =?utf-8?B?MjFNZUZxSmo0MVBqd3F3ZUFjM0pJQldkbVRqZDlONVA0OE8yQUordnlydUkx?=
- =?utf-8?B?djdqOU1qRUtYbTBMQ09sOWlrTkl1TFk4RlJSWHVsNmJuMlE3aTRZSzQ5R1ZD?=
- =?utf-8?B?NlNWeTRHMmZSeUZiOHBxcXY1V2JoTE9XaXVPSDhVNlBPWWU1Z2xCb0JyMjdo?=
- =?utf-8?B?RkZPMGtjZklQSzNUWmhUU0tGZUNyQ2VMQWVqS0Y4K2ZFSWxER0tiZUhRd2pY?=
- =?utf-8?B?VEg1MDRlOHduakpld2xXL0hwR2QzVk12U2dnSEhJVmlDeVFRN29xNXhkY0Fz?=
- =?utf-8?B?d29JbFJ1b0xWNmN3UmlLY3FxTTVTNldTWDRrTXRzamdEaGVIYndqVENxNVdY?=
- =?utf-8?B?cUpSb3NDeWlKOUZqdllsRTNMdHRLSEkyM1lRd3ZvTkpzakJGcmE0UkV3OTJh?=
- =?utf-8?B?ZzJ2OG9aV3hlSm0xZGVKa2FsV01yUHRkUGpuN1BhZC9JWnI0bjFzYnN5VEVk?=
- =?utf-8?B?MW1GU0JCT2JGc1VJbzNDSm9Wd3R6YjJZV1FTakJHbElVSnFsRkJLckExcFd4?=
- =?utf-8?B?b3gyaERTRHZxT2libE1oc2Y5SUlDUzFNVEk4ZjhUZmMxb20yY2I3ejRlUE9H?=
- =?utf-8?B?Q3ZTMmpCaEtFb0FMWmVuRG5ua3lXcXNVNjF0ODVCUW1LSk4wamRaeWRzaFht?=
- =?utf-8?B?TDJBMHk4T1owaFhJZ2JKQVppQ0RrUW9hcFV5MzBRbEJIN0JidG4yZWxFK2Rp?=
- =?utf-8?B?RTNxWUhDUjY0U2xyQUs0dGFMQ2c3b3dUQVFCU2ZwdDdrZytrc1Uxd1VpNHh0?=
- =?utf-8?B?MlRyZ0h0Y25VeWVpT2lueDZzbkRKR2QxaFFWQjc2STI3Q0ROM0RSMzJZaEdS?=
- =?utf-8?B?ekVnU2ZxR1daTDhXc0tyMkowSHJZK0Q2S291Q2JldTNPZXMwWHM5eHljN25F?=
- =?utf-8?B?b0RyczVuUkkrREpYZm1nek9GNVZ5ejRGb0FvY3lmbHdwN3pBQlpyQ2UwTllD?=
- =?utf-8?B?OHRYMWNWWERmQXNHeGlpK1A1dENqeDExbU1JakRnZ3JyTmd2ckZWKzNtUE1K?=
- =?utf-8?B?bGdiUHd3VjBXOXBReDVqWEw4b25ESTF5cDFrM2tSeHhJYXVFUGlidFB5Mmdo?=
- =?utf-8?B?M1ZFdTUwTk1sTEdCaDZub293a1RFbk9OczdQMVBhQ2lydFp2Mkx3VWJDMzJn?=
- =?utf-8?B?ZU5IbEhXTk1QazBPN0NwSDlkTjdSVnRGcWMzWDVuNkJQU0pTWUZGV25FRld0?=
- =?utf-8?B?cUZXYURDYW9zMVRENFZVZVJPS3phRkV3QzZLYXdMKy9xbjV2Y0NtaEVPYzdp?=
- =?utf-8?B?WjNLNkpVTHZwc0ViWGdNVm5kNzc2VUtQL1Y2bTE0UHB3Y0wrcGlhTWdlQTU5?=
- =?utf-8?B?b0hLQUh4V25iRHRSeE5TSjh2ZzRTN1NKempZZEtyKzN3TEhmYzA0RlBuMDRT?=
- =?utf-8?B?dmFMODJjUVZmVmtRMGhBajhYY29TeFNHQ1BuajJhRTZWVnNNNWczTnYrdkJB?=
- =?utf-8?B?U3liWWo5UmVUMkdTWGNDVDN6UndnQUpxb05FSVErWVJhd0JEaGlYRnNMNmdQ?=
- =?utf-8?Q?eIjAGLe1KW3z3n4U=3D?=
-X-OriginatorOrg: wolfvision.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34f4c847-5cc2-4221-7366-08deea6da5de
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR08MB11763.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jul 2026 16:56:18.8994
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qPDbpE7dnY1p1FxUTBY/KfMwxL5zH6qTRumNpCvGkwVq84zDTDQgb/UrdSayEUQUisl0+B8PvGQw2u01giAFij+zMskMP3M93nmKul8Qplc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB10789
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] mm/parisc: constify ptep_get() argument
+To: Helge Deller <deller@gmx.de>, Usama Arif <usama.arif@linux.dev>,
+ Pedro Falcato <pfalcato@suse.de>
+Cc: Matthew Wilcox <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jan Kara <jack@suse.cz>,
+ Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Muhammad Usama Anjum <usama.anjum@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+References: <20260724102017.141532-1-pfalcato@suse.de>
+ <20260724102017.141532-4-pfalcato@suse.de>
+ <0fd713a8-e4ab-4c07-b36e-79dd138b4a86@linux.dev>
+ <amNzLXuwflIZFKtI@casper.infradead.org>
+ <253f7ac0-205b-42f1-9fb5-d19eceb581b6@linux.dev>
+ <amOEUZlp1BxYh6_t@pedro-suse>
+ <fd239383-dcbe-4daf-b337-32facef07076@linux.dev>
+ <3e9dece8-4e86-4ce5-bd74-b3ec305f3003@gmx.de>
+Content-Language: en-US
+From: John David Anglin <dave.anglin@bell.net>
+Autocrypt: addr=dave.anglin@bell.net; keydata=
+ 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
+ T70V9SSrl2hiw38vRzsl
+In-Reply-To: <3e9dece8-4e86-4ce5-bd74-b3ec305f3003@gmx.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_095631_285570_393572B3 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260725_100152_060254_5F539CDC 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,89 +140,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At high data rates like 4K60 (2500 Mbps), such as when using an
-LT6911GXD bridge chip on an RK3588 board, fixed default timing parameters
-can cause signal integrity issues and clock-data recovery failures.
-The driver currently lacks a mechanism to adjust the clock lane sampling
-phase to compensate for board-specific trace variations.
+On 2026-07-25 12:27 p.m., Helge Deller wrote:
+> On 7/24/26 17:48, Usama Arif wrote:
+>>
+>>
+>> On 24/07/2026 16:32, Pedro Falcato wrote:
+>>> On Fri, Jul 24, 2026 at 04:03:44PM +0100, Usama Arif wrote:
+>>>>
+>>>>
+>>>> On 24/07/2026 15:14, Matthew Wilcox wrote:
+>>>>> On Fri, Jul 24, 2026 at 02:36:59PM +0100, Usama Arif wrote:
+>>>>>>
+>>>>>>
+>>>>>> On 24/07/2026 11:20, Pedro Falcato wrote:
+>>>>>>> ptep_get() does not need write access to the PTE.
+>>>>>>>
+>>>>>>> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+>>>>>>> ---
+>>>>>>>   arch/parisc/include/asm/pgtable.h | 2 +-
+>>>>>>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>>>>>>
+>>>>>> hmm I think you might break build bisectibility if
+>>>>>> you separate out the patches, you should squash patch 3 and 4,
+>>>>>> with patch 1.
+>>>>>
+>>>>> I don't see how this breaks bisectability.  Can you elaborate on what
+>>>>> you think would break?
+>>>>
+>>>> Patch 1 does:
+>>>>
+>>>> -static inline pte_t ptep_get_lockless(pte_t *ptep)
+>>>> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
+>>>>   {
+>>>>       return ptep_get(ptep);
+>>>>   }
+>>>>
+>>>>
+>>>> ptep_get() takes a non-const arg till patch 3 for example for parsic.
+>>>> I don't think you can pass a const variable to non const function arg?
+>>>>
+>>>> So parsic won't compile in patch 1 and 2, powerprc wont compile
+>>>> for patches 1, 2 and 3..
+>>>
+>>> Aha, yes, nice catch! I'll have to rethink that. Maybe squashing the patches
+>>> would be the cleanest way forward.
+>>>
+>>
+>> Yes, squashing is the simplest way forward.
+>>
+>>> FWIW, the vast majority of architectures aren't doing funny things on
+>>> ptep_get(). E.g PA-RISC, loongarch only define these so they can use it in
+>>> their own asm/pgtable.h. I'd really like to delete these but I can't tell
+>>> if they are *actually* required.
+>>>
+>>
+>> Ah maybe there is something in git history on why it was needed?
+>>
+>> If not, hopefully someone from the arch lists could clarify..
+> I tried to remove ptep_get() and ptep_test_and_clear_young() from
+> arch/parisc/include/asm/pgtable.h, but this then triggers compile errors:
+> 
+>  CC      arch/parisc/kernel/asm-offsets.s
+> In file included from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/mm.h:31,
+>                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pid_namespace.h:7,
+>                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/ptrace.h:10,
+>                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/arch/parisc/kernel/asm-offsets.c:21:
+> /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h: In function ‘clear_young_dirty_ptes’:
+> /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h:683:25: error: implicit declaration of function ‘ptep_test_and_clear_young’;
+> did you mean ‘pmdp_test_and_clear_young’? [-Wimplicit-function-declaration]
+>   683 |                         ptep_test_and_clear_young(vma, addr, ptep);
+>       |                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+>       |                         pmdp_test_and_clear_young
+> 
+> So, I think the answer is, that the local copy of ptep_get() is used in the parisc implementation of
+> ptep_test_and_clear_young() function.
+> 
+> Switching to the default include/linux/pgtable.h seems not easy doable....
 
-Resolve this by parsing and applying the optional 'rockchip,clk-lane-phase'
-device tree property. This enables board-specific tuning of the clock
-lane sampling phase in ~40 ps steps (range 0-7) to optimize link
-stability. If the property is absent, the driver falls back to the
-hardware default.
+Did you remove define for __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG in parisc version of pgtable.h?
 
-Signed-off-by: Gerald Loacker <gerald.loacker@wolfvision.net>
----
- drivers/phy/rockchip/phy-rockchip-inno-csidphy.c | 25 ++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-index 5281f8dea0ad3..d989f1649b0e4 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-@@ -69,6 +69,10 @@
- #define RK1808_CSIDPHY_CLK_CALIB_EN		0x168
- #define RK3568_CSIDPHY_CLK_CALIB_EN		0x168
- 
-+#define CSIDPHY_LANE_CLK_3_PHASE		0x38
-+#define CSIDPHY_CLK_PHASE_MASK			GENMASK(6, 4)
-+#define CSIDPHY_CLK_PHASE_DEFAULT		3
-+
- #define RESETS_MAX				2
- 
- /*
-@@ -151,6 +155,7 @@ struct rockchip_inno_csidphy {
- 	const struct dphy_drv_data *drv_data;
- 	struct phy_configure_opts_mipi_dphy config;
- 	u8 hsfreq;
-+	int clk_phase;
- };
- 
- static inline void write_grf_reg(struct rockchip_inno_csidphy *priv,
-@@ -304,6 +309,13 @@ static int rockchip_inno_csidphy_power_on(struct phy *phy)
- 		rockchip_inno_csidphy_ths_settle(priv, priv->hsfreq,
- 						 CSIDPHY_LANE_THS_SETTLE(i));
- 
-+	if (priv->clk_phase >= 0) {
-+		val = readl(priv->phy_base + CSIDPHY_LANE_CLK_3_PHASE);
-+		val &= ~CSIDPHY_CLK_PHASE_MASK;
-+		val |= FIELD_PREP(CSIDPHY_CLK_PHASE_MASK, priv->clk_phase);
-+		writel(val, priv->phy_base + CSIDPHY_LANE_CLK_3_PHASE);
-+	}
-+
- 	write_grf_reg(priv, GRF_DPHY_CSIPHY_CLKLANE_EN, 0x1);
- 	write_grf_reg(priv, GRF_DPHY_CSIPHY_DATALANE_EN,
- 		      GENMASK(priv->config.lanes - 1, 0));
-@@ -449,6 +461,7 @@ static int rockchip_inno_csidphy_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct phy_provider *phy_provider;
- 	struct phy *phy;
-+	u32 phase;
- 	int ret;
- 
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-@@ -464,6 +477,18 @@ static int rockchip_inno_csidphy_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	}
- 
-+	priv->clk_phase = -1;
-+	if (device_property_read_u32(dev, "rockchip,clk-lane-phase",
-+				     &phase) == 0) {
-+		if (phase > 7) {
-+			dev_warn(dev,
-+				 "invalid rockchip,clk-lane-phase %u, using default %u\n",
-+				 phase, CSIDPHY_CLK_PHASE_DEFAULT);
-+			phase = CSIDPHY_CLK_PHASE_DEFAULT;
-+		}
-+		priv->clk_phase = phase;
-+	}
-+
- 	priv->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
- 						    "rockchip,grf");
- 	if (IS_ERR(priv->grf)) {
-
+Dave
 -- 
-2.34.1
-
+John David Anglin  dave.anglin@bell.net
 
