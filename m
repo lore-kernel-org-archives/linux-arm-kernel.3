@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F568C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441DAC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 25 Jul 2026 16:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rW21ROPPGXt0ORTRaV2wwN5UZkCXyjKTZAO/UfgAEos=; b=Uj0jtuPVJhQ8DrXRxTBdaYI8th
-	s5FVW7yY0aCxM4FZJRLarjcIFJFFxn/eSrUsYsZYo2C8KMy+an5e/tJv/vgTdriWYSegM1Ko97sLv
-	XInjlqSXlBVja2+JDfUQV/wZRy0QFzHomqtglw6XhJhTncOWG2YNe+DwF3vZj5jC2i4FbTVBbbseA
-	VLT8l5Lk5uVJ7kHRD3FNySNLYrj+FRi4MXEIp2JZ+p3K00bSRx/TAyrnXXVnCMYyuq5wtKpbi8C+U
-	LyWAepeFp7wYHAo34pi+QAOtdYjVW110WoCjYoBr991bMpq6IBeUl5B7JtRaN2KF+pg5WqElH2SgQ
-	bORb5hzw==;
+	bh=4oi+M1DASh9sr/5/9NIilXPuOVkktsUCJvsmJfqY6HY=; b=tg1eKs/oT+3sn/7CS4E8Amjv6t
+	49BbiMw89Du5C1emP0COTH85TrN+NxT9OUHwHoLXMkkhdDF7nFRoJ0m/rwG17YlEeVS2LuTcalbMQ
+	2aHCUD+EGNR9YQPScstIvpPYlM+HDn8ErUsY1baKYtDv99wYa929/s8rVgGS+Ubfrex6dXpkF+XJZ
+	krenYUmtE2PtTQGpRL1udtnr8P25c2P5fidC7H20klFziB8zxfaJaWHfVvK250olxEUJTujanEQF/
+	ffJqS/NYDM1w/P2DZwrg+fulJPx8nQRy1sNG2cJMdlFVZlpJ82lMOa5bAPLtm8ZTSso5YE5FBe8oR
+	zLk/KNJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnfNz-00000000XyK-1v6R;
-	Sat, 25 Jul 2026 16:38:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wnfc6-00000000YFQ-2WG4;
+	Sat, 25 Jul 2026 16:52:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnfNx-00000000XyC-34Ju
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 25 Jul 2026 16:38:01 +0000
+	id 1wnfc5-00000000YFG-0iKb;
+	Sat, 25 Jul 2026 16:52:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 661DC40763;
-	Sat, 25 Jul 2026 16:38:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA9521F000E9;
-	Sat, 25 Jul 2026 16:37:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1961A60A91;
+	Sat, 25 Jul 2026 16:52:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 863ED1F000E9;
+	Sat, 25 Jul 2026 16:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784997481;
-	bh=rW21ROPPGXt0ORTRaV2wwN5UZkCXyjKTZAO/UfgAEos=;
+	s=k20260515; t=1784998354;
+	bh=4oi+M1DASh9sr/5/9NIilXPuOVkktsUCJvsmJfqY6HY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Bb0slKKbkb3JRKIc5r8joi4vBKdWh3c3TikaDIIK7zWJLTb4zsSKyJarAkrnswqkH
-	 V+qTS50EtL1F5A9whGzdIhmCMP4PykNYO7yH55gMAZULZXAQNsPaz0HxOuVTzf2p3m
-	 DWAvI10IM8t/0IvfoBY1+cuIDNJYBN84DFY4iaRJZNvM/pvN8u/DCN773zASuudO9H
-	 PvBTfO4DVZ8Gs5TyKgGV+tMmW5MCLXNj92UKzqyyZIQF340ClWzDw9imO0ATJP2mt4
-	 SItPIiH/EmGyqiI4PJ5bxl3c+X8Lq0UEKZhRhxOzX8PZt4/tzrpHTUQHe3KLDp5ujj
-	 Vc1xOdjjm4CDA==
-Message-ID: <9a415731-0de0-4cb4-b6c1-fc78806f6414@kernel.org>
-Date: Sat, 25 Jul 2026 18:37:56 +0200
+	b=QH+C+LHELslG0cAGc8E9FATQkLJ/oQNzf/glLSKkCiRCegd/ufmlOAMHlX1xVOngX
+	 yTV34xOOHaozmcLJ+/k5rB3OuYcqYRjMKUNTpamVSlaOQUDHqeC3qbpi6MUIE68+m/
+	 yLKhJESeGEV0P+bEyRSjFphzkco1yvAgbHgm3ySekEwovv+rz/fnm1EF12gc0TB2lB
+	 8DY5IOLd1URjjSQ7sgoY406B2DVeoFWE0Tw4zd0uowWpS6i22Hs0lURYmY0p6ty/75
+	 ciCOEcM7gBoWiI68P82mNlnLR8hjbw3RHAvJ49fbo1eKgptNlnrjatROXiJmmEPFvY
+	 Cz0DoqN6OkO5g==
+Message-ID: <49a2ee73-f9fa-483c-82fb-0e1471e7758e@kernel.org>
+Date: Sat, 25 Jul 2026 18:52:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: broadcom: bcm7445: Correct indentation
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>
-References: <20260706101920.341586-2-krzysztof.kozlowski@oss.qualcomm.com>
- <20260721172801.3591970-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH RESEND v3 2/2] dt-bindings: memory-controllers: mtk-smi:
+ Add support for mt8189
+To: congcong.yao@mediatek.com, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20260722-8189-smi-support-v3-0-ae00e13deeac@mediatek.com>
+ <20260722-8189-smi-support-v3-2-ae00e13deeac@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260721172801.3591970-1-florian.fainelli@broadcom.com>
+In-Reply-To: <20260722-8189-smi-support-v3-2-ae00e13deeac@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -118,24 +117,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/07/2026 19:28, Florian Fainelli wrote:
-> From: Florian Fainelli <f.fainelli@gmail.com>
+On 22/07/2026 14:02, Congcong Yao via B4 Relay wrote:
+> From: Congcong Yao <congcong.yao@mediatek.com>
 > 
-> On Mon,  6 Jul 2026 12:19:21 +0200, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
->> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
->> No functional impact (same DTB).
->>
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>
->> ---
+> Add smi larb, common and sub-commom binding description for mt8189.
 > 
-> Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
+> About what smi-sub-common is, please check the below diagram,
+> we add it in mediatek,smi-common.yaml file.
+> 
+> Signed-off-by: Congcong Yao <congcong.yao@mediatek.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../memory-controllers/mediatek,smi-common.yaml        | 18 ++++++++++++++++++
+>  .../bindings/memory-controllers/mediatek,smi-larb.yaml |  3 +++
 
-It is still not there. Last commit is v7.2-rc1.
+Still incorrect order of patches. Please read submitting patches
+documents (both).
 
-Your next branch:
-https://github.com/Broadcom/stblinux/commits/next
-has last commit from May 29. Something was not pushed?
+Fixed it up while applying.
 
 Best regards,
 Krzysztof
