@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5917C531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 15:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEDEC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 15:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUvx27V3Sd227BMsMv72LsCM9yrgIFRPyxFpstefJo0=; b=dfvt4P+e7F8spIkjqfy8oSNBbG
-	svUJi2dQxIgWZUF3AtTdGQgltxDYHoStFgajSKe38A272ReeC9LQnjgU7v0XqJM+SR0aUpeEsHp/E
-	ItkMziKZ9grci5WWkZHuwPgL6l7miX7IlqeA7yA2BphX//xtRjzbS4TC+UiZ47SSgopKyorscK+QX
-	LUoQ3jRD1pTg9I7LeXtD/YQw0T2bNR9Libc3pFRxRLntR4FvBP7Yn9Re0fW24jVJcBpkW3c/tgg3e
-	kg0zuwuyO3vHmMjb40X9ISqq/29txJmDmK/Fs6PvjfJ4l33WJV5roKSHmd6Q3YEmaldFhz6Si0665
-	8qnEMvRA==;
+	bh=zdDjMqnM3oFgUp2kRzfpfPyl+I1BcCySl7B8ZdZRJuM=; b=DnlGKrQWIEcF9/tJKEDv4lxLJ/
+	w9j/MlxM7tibdjp2bEv/0OcAsGKyTMmV85amRITE3TH0BL4845E474Nd7LwVFPo3Xg7EaOJ2etmN7
+	yu0F7T1ca+kE0FKiQ3Yjcn8RwjdyTkZUg0SXr5RBVagw5t9T53vOfxV+BOUznhmxsUH83YNsTUZuZ
+	w4ZslZJcQQGFKjZGqKnNUANtjzXCdUivPyFbJK5ptAV1fHwZjz9NMjTKSdZNnhSd2+irmOlihR9vF
+	XHHsY9I7uca/Ed3kzKhlO+MhODJ7FJL4xyslWchxqQh71bnEbeUrHg2R0kdwaaayfXzvN3+YUDivw
+	J0vLAgzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo0MA-00000001Gte-3Hyh;
+	id 1wo0MA-00000001Gso-22ZQ;
 	Sun, 26 Jul 2026 15:01:34 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo0Lu-00000001GpF-0e3J
+	id 1wo0Ln-00000001Gnk-2vG7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 15:01:18 +0000
+	Sun, 26 Jul 2026 15:01:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DBCD144E93;
-	Sun, 26 Jul 2026 15:01:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998361F000E9;
-	Sun, 26 Jul 2026 15:01:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3AFC6405DD;
+	Sun, 26 Jul 2026 15:01:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72BD21F000E9;
+	Sun, 26 Jul 2026 15:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785078077;
-	bh=AUvx27V3Sd227BMsMv72LsCM9yrgIFRPyxFpstefJo0=;
+	s=k20260515; t=1785078071;
+	bh=zdDjMqnM3oFgUp2kRzfpfPyl+I1BcCySl7B8ZdZRJuM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QGtS/EOro0RV2qjoiYi+jM4UaAe9kxDBFlnK29t6SsLqV3Hlf8YIwlF5VMoR6I/DT
-	 sDUbTqz9cA6wR8HSxZSJQ+zlFWh+ADD64aAbNRxom8iRfAjxe2aERimSKfzBsib9S5
-	 61Dhk1HmEiFsuqT3uhINI48JssW3j8L0lixs9ZwfZckneEA65wTTSALwM8K2TmImIs
-	 P1UIJ3JLCSXK1D3Pd3gvMHSmGx5Y/wOBtESQVqX3SYKcLcGsCKIqn8FbvSILvgTW6l
-	 UpHVP3RyKU2OkZSbn3ek0FNHxsXCz6yIYiW7s8rX9a9nZKeUWmJg14bHotznDRiIy5
-	 HVUYhhJfsg08A==
+	b=DzqNZ/kunhcNe59u1HCqZkNwtKwJw8CYq7CxYmoNJRPT0UMKup5Ps0grOgdhTUFpU
+	 B5h7G+VjN3q8GaFjaJgl/O8I/aoJMO3N29Ew5lh0AIm+SDbz5g4+bd9qDJiWs/YxRf
+	 asBsAsAR2aheA6rfzaRWQkKP/y8PX5wQufz1FFuLhhDMScfGmXVdIpDMDpTsO+MAUM
+	 akB20iqo96jbfW8covXVkQ2QKgKoGbZ9aBin0X+IoVaugFvx9+nYW2SQ/iQUGsDPCO
+	 ipUaZ9dSfmHhCUeFRQDKTGHNwtdIpHH+RFfFVy6hwIaKkYlG+RtF0Oa/qQpb+zdzCY
+	 YVsEcNiST8XOw==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH v2] arm64: futex: Consolidate 'old == new' check in __lsui_cmpxchg32()
-Date: Sun, 26 Jul 2026 16:00:54 +0100
-Message-ID: <178507589298.3403568.4086495319859266149.b4-ty@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Kohei Enju <enju.kohei@fujitsu.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Gavin Shan <gshan@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1] arm64: RSI: fix field-spanning write warning in attestation token init
+Date: Sun, 26 Jul 2026 16:00:52 +0100
+Message-ID: <178507576692.3402407.12293153444311559996.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260723130304.3161-1-will@kernel.org>
-References: <20260723130304.3161-1-will@kernel.org>
+In-Reply-To: <20260715122907.8061-1-enju.kohei@fujitsu.com>
+References: <20260715122907.8061-1-enju.kohei@fujitsu.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,21 +74,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 14:03:04 +0100, Will Deacon wrote:
-> The LSUI futex implementation relies on a cmpxchg() loop to implement
-> FUTEX_OP_XOR, as the architecture doesn't provide unprivileged *EOR
-> atomics. Since the unprivileged 'CAST' instructions used to implement
-> the cmpxchg() can only operate on 64-bit memory locations, the
-> __lsui_cmpxchg32() helper function performs a song and dance to marshall
-> the 32-bit futex value into the correct part of a 64-bit register and
-> fill the remaining bytes with the neighbouring data.
+On Wed, 15 Jul 2026 21:28:50 +0900, Kohei Enju wrote:
+> The challenge is passed in registers a1 through a8. However, copying to
+> &regs.a1 makes FORTIFY treat the destination as the single a1 field,
+> resulting in a field-spanning write warning. [1]
+> 
+> Overlay the SMCCC register structure with an RSI-specific argument
+> layout and copy the challenge into an explicit 64-byte array. This keeps
+> the existing a1-a8 argument encoding while giving the copy a correctly
+> sized destination object.
 > 
 > [...]
 
-Applied to arm64 (for-next/misc), thanks!
+Applied to arm64 (for-next/coco), thanks!
 
-[1/1] arm64: futex: Consolidate 'old == new' check in __lsui_cmpxchg32()
-      https://git.kernel.org/arm64/c/25ef34b541eb
+[1/1] arm64: RSI: fix field-spanning write warning in attestation token init
+      https://git.kernel.org/arm64/c/221049874b6a
 
 Cheers,
 -- 
