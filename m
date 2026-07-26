@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB71EC531F9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5917C531FA
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 15:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeeRZsoebfQ2LxiwKDM/TfxLahtf9YWY0xhqzs6a0rM=; b=QaClBcpQWRZGiNJGWE3Q1qzHiw
-	Tzk5Ekt6JiLxvVaq9xk8rBbOa3xXSl1dpcy4dw42GgKKRUlWel6r/rB/cd7tNeY9tWpxDsCfN0+jJ
-	svh+vQWWz7YA9l2neTtCUrSJxFB+MxdkIB7MVOVXaGyFsHQld2wcjlA/L/4O92zwvaZi+ioYQu1m7
-	oYtPFXVWTBGXb1yF8IESy9pBS1jC7PEmGiH+uj7Qinox0aRK6VmGe7zGDD/dEgCMfjeNYdF9cDrOM
-	9ss5u20BuLcUb1fAbDRCgLTS4DzKqagkQepqSV/oIjifBIu5UZJJu+Cn6kBoUjXfOXLR3to5DEQa4
-	rbj1UfkQ==;
+	bh=AUvx27V3Sd227BMsMv72LsCM9yrgIFRPyxFpstefJo0=; b=dfvt4P+e7F8spIkjqfy8oSNBbG
+	svUJi2dQxIgWZUF3AtTdGQgltxDYHoStFgajSKe38A272ReeC9LQnjgU7v0XqJM+SR0aUpeEsHp/E
+	ItkMziKZ9grci5WWkZHuwPgL6l7miX7IlqeA7yA2BphX//xtRjzbS4TC+UiZ47SSgopKyorscK+QX
+	LUoQ3jRD1pTg9I7LeXtD/YQw0T2bNR9Libc3pFRxRLntR4FvBP7Yn9Re0fW24jVJcBpkW3c/tgg3e
+	kg0zuwuyO3vHmMjb40X9ISqq/29txJmDmK/Fs6PvjfJ4l33WJV5roKSHmd6Q3YEmaldFhz6Si0665
+	8qnEMvRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo0MB-00000001GuO-0PuK;
-	Sun, 26 Jul 2026 15:01:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wo0MA-00000001Gte-3Hyh;
+	Sun, 26 Jul 2026 15:01:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo0M0-00000001Gq7-05Ga;
-	Sun, 26 Jul 2026 15:01:24 +0000
+	id 1wo0Lu-00000001GpF-0e3J
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 26 Jul 2026 15:01:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 771A26004E;
-	Sun, 26 Jul 2026 15:01:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B0351F00A3D;
-	Sun, 26 Jul 2026 15:01:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DBCD144E93;
+	Sun, 26 Jul 2026 15:01:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998361F000E9;
+	Sun, 26 Jul 2026 15:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785078083;
-	bh=JeeRZsoebfQ2LxiwKDM/TfxLahtf9YWY0xhqzs6a0rM=;
+	s=k20260515; t=1785078077;
+	bh=AUvx27V3Sd227BMsMv72LsCM9yrgIFRPyxFpstefJo0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=e+icZZzhRnqNEVXQx7tAkDFpNqQ0rCP6S0VMqLk5icQk3btu7VzjWcLrA6vH6+nYm
-	 wCBGguf+2O4Q8qPWnIOACJGK1Dq1yYAm9jBwknxSa30Gtuv/xYzJesiIWXeCTt+STt
-	 +saFrHPdqArTgCJqKzxb+5OLNgNH6hH7thr3egPI2xSCWDLTLQaYkTco23npmOav5F
-	 8PYI4eufV7qTdH+oHgJAP6vJrFqJ+5WvAm5lj1u8eq9QvkNgcYji5IOHWr8lfw5vwH
-	 9hJ6f2H4RHJHPMy5GFsN+kxHQOTJtargqFdvoU43zglewEj6yUhX59IGPPtqxTpXm8
-	 iYeSlV/PbPjFg==
+	b=QGtS/EOro0RV2qjoiYi+jM4UaAe9kxDBFlnK29t6SsLqV3Hlf8YIwlF5VMoR6I/DT
+	 sDUbTqz9cA6wR8HSxZSJQ+zlFWh+ADD64aAbNRxom8iRfAjxe2aERimSKfzBsib9S5
+	 61Dhk1HmEiFsuqT3uhINI48JssW3j8L0lixs9ZwfZckneEA65wTTSALwM8K2TmImIs
+	 P1UIJ3JLCSXK1D3Pd3gvMHSmGx5Y/wOBtESQVqX3SYKcLcGsCKIqn8FbvSILvgTW6l
+	 UpHVP3RyKU2OkZSbn3ek0FNHxsXCz6yIYiW7s8rX9a9nZKeUWmJg14bHotznDRiIy5
+	 HVUYhhJfsg08A==
 From: Will Deacon <will@kernel.org>
-To: Joerg Roedel <joro@8bytes.org>,
-	ZhaoJinming <zhaojinming@uniontech.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/rockchip: Fix silent probe success when all MMU resources fail
-Date: Sun, 26 Jul 2026 16:00:56 +0100
-Message-ID: <178506936105.2042687.4098031706954883028.b4-ty@kernel.org>
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH v2] arm64: futex: Consolidate 'old == new' check in __lsui_cmpxchg32()
+Date: Sun, 26 Jul 2026 16:00:54 +0100
+Message-ID: <178507589298.3403568.4086495319859266149.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260723132643.2853525-1-zhaojinming@uniontech.com>
-References: <20260723132643.2853525-1-zhaojinming@uniontech.com>
+In-Reply-To: <20260723130304.3161-1-will@kernel.org>
+References: <20260723130304.3161-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,20 +71,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 21:26:43 +0800, ZhaoJinming wrote:
-> When all MMU register mappings fail in rk_iommu_probe(), the error
-> path returns PTR_ERR(iommu->bases[0]). However, bases[0] can be NULL
-> if the first platform_get_resource() also returned NULL, causing
-> PTR_ERR(NULL) to evaluate to 0 and the probe to succeed silently.
-> 
-> Return -ENODEV directly instead.
+On Thu, 23 Jul 2026 14:03:04 +0100, Will Deacon wrote:
+> The LSUI futex implementation relies on a cmpxchg() loop to implement
+> FUTEX_OP_XOR, as the architecture doesn't provide unprivileged *EOR
+> atomics. Since the unprivileged 'CAST' instructions used to implement
+> the cmpxchg() can only operate on 64-bit memory locations, the
+> __lsui_cmpxchg32() helper function performs a song and dance to marshall
+> the 32-bit futex value into the correct part of a 64-bit register and
+> fill the remaining bytes with the neighbouring data.
 > 
 > [...]
 
-Applied to iommu (rockchip), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/1] iommu/rockchip: Fix silent probe success when all MMU resources fail
-      https://git.kernel.org/iommu/c/ea0a9d453f60
+[1/1] arm64: futex: Consolidate 'old == new' check in __lsui_cmpxchg32()
+      https://git.kernel.org/arm64/c/25ef34b541eb
 
 Cheers,
 -- 
