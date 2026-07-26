@@ -4,75 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5190C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 05:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B66DC531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 06:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AUcD5ksjUKN4lUkCAGne15+WHerBURaeoW1rDkQe+0E=; b=1Ktmm6NRdH0lfSjXoEhITw7EGM
-	Ab+ZIbgpcm82Njp+v725L6XS3Ws0bHDCPIcN9fuNDEyHPXAIdoWiMUK65HCYiT+UEx5T+3xZ3maLh
-	3TN2f9yghaaIt41fHmGS74SkWBFCZbxvC69wUINWTcVUSZJCD8N/kduFW5xvb0SjdOk/IplpADMZ+
-	ZiVXrPxfICmU3vOu2Mpl/Sv0U4R55QIKaa4uqWYFJKd/U1VKeUb7YE7TiLSlUjy6/Qfyj6sIA8Hi3
-	RVTr9aCaCLJEOnD9tldiANC5ZtlcgVJDGgOqdLram1yOBAD/VVpsnAZSH0Q9c/dhZJCNjCiADio/Y
-	40V/NEew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7UFhWQOa/vwyik9QrUHaltpmfCg9gV5b8FYD7Vbdi7U=; b=dawuZ7SAF6wIoV9yJtTqBI6KOL
+	QMWuqAvPJvpYD44nsDwSh6JUbSOgbAwPgH+vICw3lv627aen2PwbxJPpPUcDFW1s03Sov1adTObhS
+	vQ6H+FSq7Um/7OvX8PjnGF/qs/9MmBamoSay+W7Rdt0EFEeq35gNioPKlKbL+cfOl7seuoHHVflnX
+	03MtG+2Ux3M8cb6foLy3jM+C9tGsTvRdpyWm8ksbGyU3BPjl3Pp+EL8TJjy+z5hs3Q9cUkymxVXAb
+	r8FYSSGQRYSvgDJ1G2VBa1eOfcHxU84wmIZ3ItAkUPlDOLMnwhr8AihdPTPcxtVyo1mhAU4icsczQ
+	2HEOuuaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnrn6-00000000vzC-0OZ8;
-	Sun, 26 Jul 2026 05:52:48 +0000
-Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
+	id 1wns2s-00000000wXU-1yKu;
+	Sun, 26 Jul 2026 06:09:06 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnrn1-00000000vyW-0SLy
+	id 1wns2p-00000000wWd-3zxf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 05:52:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785045150; bh=AUcD5ksjUKN4lUkCAGne15+WHerBURaeoW1rDkQe+0E=;
-	h=From:To:Cc:Subject:Date;
-	b=BtRbLTdNZfPsmk/DeqiUfTgTkpqeHdzyoTVU933nGqrGX+3hTFrC3FW0RQovt9FmO
-	 sWrUKLPgMTduNzK1HtNXPTzLjSHyI1CWvW3Tb1EvkWR14VrJdlHSA4yoPoH3kto+A0
-	 F776FiJs5PJipD87LJ0++WZ3G22nCmPMfHd85DiI=
-Received: from ws006419.mbzu.ae ([5.195.0.150])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id D119CEA3; Sun, 26 Jul 2026 13:52:17 +0800
-X-QQ-mid: xmsmtpt1785045137t7lk3fqds
-Message-ID: <tencent_6E0FD0F7F7BD32B33EACC80AB25B97C26905@qq.com>
-X-QQ-XMAILINFO: MllZffuBkEb5vSxp2mtbmBjvV0CTeSn8BFhV6yybodv5U8x88r+qSOWsTPGDu3
-	 Gg2y/0d6uYEhugUhdBMLZLD5wSfnsgpxiA7cEBrhoTRRZ3GtaUf7k4d943j/CqWv3ibHxFfHOakt
-	 INdCMg/T0lvCZ22ScsQZDidgW3aNddN5fA5dh32huhGC5kVi/77WeiHUSlRLUsG2ephhhcwzQ1xR
-	 jNad3DkCWA2M4479gb4/e2Hi8tQ9HHKE9SjT/yE7YaEYm3Zhenqq5WjqRL2tF45l24c6H/vHdyRq
-	 rcfdPae6zYlo7jq5z4cdAdpxOoOJvO6Yqr3rlGnbd8CLD4xRwFxf3swcpJMSavoFJYYcLUZpmxgY
-	 WGdmt+EFFYUrspcVSavMFHT4ppxDo+0OW1Iq629TRsDZfUmjwZ2MLNsfJcwlE/Ei4ljXxDtIteJk
-	 CcgOBWMGP2b4nkI75CfQKGqIkT26wRCGeLfDEVphOOaiBjLLMjmU4sya3knM8d7vWhEEMH6kvUOp
-	 Lkyw9WshRN/dOYjyHVcJ7OxeSgg/wiNeci3B8FXJ2lscUfSuxG5E030U8iJxptoL8XDwQHhH7ulL
-	 681kAs3TXPos5yZ7pvVWJ/95nmvkHFwf/xZ7tzZnMGbQM3Gxv8hJw+RKWc4BwcBO9J6RioGw/7dH
-	 9AND1dKCxtS1UFhTuo8UIj6yoy4UlJ6Rc9k9aIckBH94bPmACrlUsDTqVRyjbF16MdcN4+8/3kxH
-	 jIUxO4A/1XktU8aVc7RL/6a+ait1RHbKWbUKGJovSdj3iulS8Fs8xOJo4iN+ODiGCGp9yjKi0UUV
-	 plVz6v2WzeyV1VkDEm4ZNTp+sSIW5YZnu0geu5N5jrkmzeyjmVWcD0gpVwxDIGH2j631XNcVKiqh
-	 gDBXL4X1Au7QmM4kV3WMYVEtpoMrWOcfCjCpAQLvfihbA5JME8z6RBPoY1fI5A2GhfG3NC4cnTSd
-	 EcBUaFUJW5WstlP/lajmV08qsa1Buu9bJx8ntyXVZtL0J6SHUCkSEhuT6C2wxn+T+OYIFyxD8G8a
-	 MsctCgxsLY4uWdqg0vFL4/GScGf182c+OJdvxpLjzb69SVpUNNYxijHJG4mZc=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-From: Jiawen Liu <1298662399@qq.com>
-To: Neal Liu <neal_liu@aspeedtech.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: linux-aspeed@lists.ozlabs.org,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiawen Liu <1298662399@qq.com>
-Subject: [PATCH] usb: gadget: aspeed_udc: fix probe error cleanup
-Date: Sun, 26 Jul 2026 09:52:15 +0400
-X-OQ-MSGID: <20260726055215.1389043-1-1298662399@qq.com>
-X-Mailer: git-send-email 2.34.1
+	Sun, 26 Jul 2026 06:09:05 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-848593533cbso1132059b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 25 Jul 2026 23:09:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785046142; x=1785650942; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7UFhWQOa/vwyik9QrUHaltpmfCg9gV5b8FYD7Vbdi7U=;
+        b=nnLpPo2TWSxE54lpBwrndzneVtNUZhvk7vOBczc8hrH+0bnlsGu1Z1Go9CdVEc0zo/
+         b8CYtUsnYvo/78LwWVyYsCpEkwtza4195lF77U9j7C3hiVw6gnR+Jwmk3UuYT9DR5EAT
+         eEjun23wSTT+uhJ3ySZ8h4idr06A+IOcVor8IoSCSAt35TyKPGcGLrU8tA7vaxFLoFxq
+         6hdUA2GvewMuPDUU0ZLptbB8B6cwT/pC9I2ccjjNp//P1ykFFA6XNcq2ZWVIuW6JklPc
+         jDBx3kQPRmWsgZw5CHHrSR0mnXDkUu4cKFoIRMK5Bqt4mCZ3OCfgghR1qg1gTz4MfH1V
+         wggA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785046142; x=1785650942;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7UFhWQOa/vwyik9QrUHaltpmfCg9gV5b8FYD7Vbdi7U=;
+        b=iaXCVvr+E0bA/Ny88eVeVXKO9sgsQAifivEZK0rYKN0z22v/LGLpwUld6+/nsPrD3n
+         cTssx/cXc8ha/USvBlu3aT07GvNPNRBrE9msJSaj9OEmWoov+sUMRszjq/bbW+2CUn6X
+         Zv3b+Y2dLBhMObcjmtnh+kk1M6LdTi3Tii+vtTKgRuZvu92Q1jKV1dV5rOPm1YSAKO/G
+         +mLL5NR+Af4LZ49Vbzgo6gt1LdPQjwYO4xwPhA5mi/2iKqKxGf/IXb70TIrIRZenaZJs
+         gDprTXm7awAek6dIvXeXlEEtL+f3EHX87RhmIRAmzemaYZikLj+bjOAOMox0YE4X3SwW
+         XNRw==
+X-Forwarded-Encrypted: i=1; AHgh+Ro+uwvm4nb2zOtaUhyDLpILTPr/rI+TjtB369yh/y1QnluDiidPkntErbWHrrnObLL0oXpbJ00ECew3aUZdtcKL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYyrZwwTr0/bHRTUhhIC+Ck9zdXvUAfy3Ly+/D/Z8fnQVlAl7g
+	q7plq4t4SQLCQUE+73A52fEQLLCbbR8hoUJw1a97ItcDApGTriSfG71x
+X-Gm-Gg: AR+sD11BCOEna3atFgiR/ZU7fM3A06WpUs5Tkhbj9uNPLeKcrA87Pfh1iFoIG/7FfWs
+	r1NJcWTZLWefeF/P57EOXO4yYI0ASFBubc3q7/nzxKvYWjLsS0tQz9/9IiiImKUwUWeyekxUuDu
+	XQOfbq0rIMmBXlIAVlQ20Ly1ChqTRBl1MCCOaj7/KkS91KHKjiqS4zLoPrI51PoQr8gB2gmNNHh
+	jecq45EJeZ1EHYiu20AwuB2PXtRkAzl23n2FHhpaBRQwi/TICQfpRuEdTJ/6dKZLLye1MjOB25n
+	0gnXGBNCrXxQiYOg/EX9rf8nQuXDVxsiE41quolOxlz9FWgE2qfKjqmpZ8o4L6+1U8L1sKt5HY0
+	DUrwKDNMOnSbQR8wEcHaUD2LDS1bmmjw6XiXNhGupDNLAW0mb2Qexg8v35LsQASGzopVEoQDDkL
+	eEnwNoBnTs264O0bZdsSW21L+RS7L9hiNxrQ==
+X-Received: by 2002:a05:6a00:390f:b0:847:8d54:f4f9 with SMTP id d2e1a72fcca58-84e595810c1mr3014064b3a.51.1785046142393;
+        Sat, 25 Jul 2026 23:09:02 -0700 (PDT)
+Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e533d1644sm1609938b3a.37.2026.07.25.23.08.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 25 Jul 2026 23:09:01 -0700 (PDT)
+Date: Sun, 26 Jul 2026 15:08:57 +0900
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Russell King <linux@armlinux.org.uk>, 
+	Nathan Chancellor <nathan@kernel.org>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Yingjoe Chen <yingjoe.chen@mediatek.com>, 
+	"moderated list:ARM SUB-ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, 
+	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>, stable@vger.kernel.org, Ard Biesheuvel <ardb@google.com>
+Subject: Re: [PATCH] arm: mediatek: fix secondary CPU boot on Thumb-2 kernels
+ with Clang
+Message-ID: <amWfjDyn0jrnIf63@buffalo-ssd>
+References: <20260722172443.534251-1-akkun11.open@gmail.com>
+ <CAKwvOdnbPKoTy72EvfpKtT9Ne-r+O0j99KFX8OvjGk8ZxsuEGw@mail.gmail.com>
+ <amHYO1c-5vzqSekt@buffalo-ssd>
+ <ef007a23-46bd-41d6-83ff-264831341093@app.fastmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ef007a23-46bd-41d6-83ff-264831341093@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_225243_810153_29F69CE3 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20260725_230904_002370_DE1455B2 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +110,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ast_udc_probe() jumps to one shared error label for failures after driver
-data is installed.  That label calls ast_udc_remove(), but remove assumes
-that the gadget has been registered successfully and that later probe
-resources are initialized.
+On Thu, Jul 23, 2026 at 11:53:14AM +0200, Arnd Bergmann wrote:
+> On Thu, Jul 23, 2026, at 11:15, Akari Tsuyukusa wrote:
+> > Can you send your fix as PATCH?
+> > I think your approach is better than mine.
+> 
+> I think we should wait for the llvm issue to be resolved first, to
+> document whether this is considered a bug in the kernel or the
+> assembler, and to see if any other kernel code may be affected
+> by the same thing.
+> 
+> Looking around other .S files, I see the same
+> pattern in stext(), cpu_resume_arm(), mcpm_entry_point(),
+> all of which start in arm mode but end in thumb.
 
-For example, failures before usb_add_gadget_udc() can call
-usb_del_gadget_udc() through ast_udc_remove() even though gadget->udc has
-not been set up by the UDC core.  Failures before or after DMA allocation
-also take the same remove-style path.
+It's a LLVM bug.
+The LLVM assembler source code explicitly mentions this limitation:
 
-Use staged probe error labels instead: free the endpoint DMA buffer only
-after it has been allocated, and disable the clock only after it has been
-enabled.  While doing this, also handle dma_alloc_coherent() failure
-explicitly.
+  ///
+  /// FIXME: there is a corner case where the state is changed in between the
+  /// label definition and the .type directive. This is not expected to occur
+  /// in practice, and handling it would require the backend to track IsThumb
+  /// for every label.
+  ///
 
-Signed-off-by: Jiawen Liu <1298662399@qq.com>
----
- drivers/usb/gadget/udc/aspeed_udc.c | 23 +++++++++++++++++------
- 1 file changed, 17 insertions(+), 6 deletions(-)
+https://github.com/llvm/llvm-project/pull/211641/changes
 
-diff --git a/drivers/usb/gadget/udc/aspeed_udc.c b/drivers/usb/gadget/udc/aspeed_udc.c
-index 75f9c831b21a..877a9f7539f7 100644
---- a/drivers/usb/gadget/udc/aspeed_udc.c
-+++ b/drivers/usb/gadget/udc/aspeed_udc.c
-@@ -1474,6 +1474,7 @@ static int ast_udc_probe(struct platform_device *pdev)
- 	enum usb_device_speed max_speed;
- 	struct device *dev = &pdev->dev;
- 	struct ast_udc_dev *udc;
-+	size_t ep0_buf_size;
- 	int rc;
- 
- 	udc = devm_kzalloc(&pdev->dev, sizeof(struct ast_udc_dev), GFP_KERNEL);
-@@ -1516,10 +1517,14 @@ static int ast_udc_probe(struct platform_device *pdev)
- 	/*
- 	 * Allocate DMA buffers for all EPs in one chunk
- 	 */
-+	ep0_buf_size = AST_UDC_EP_DMA_SIZE * AST_UDC_NUM_ENDPOINTS;
- 	udc->ep0_buf = dma_alloc_coherent(&pdev->dev,
--					  AST_UDC_EP_DMA_SIZE *
--					  AST_UDC_NUM_ENDPOINTS,
-+					  ep0_buf_size,
- 					  &udc->ep0_buf_dma, GFP_KERNEL);
-+	if (!udc->ep0_buf) {
-+		rc = -ENOMEM;
-+		goto err_disable_clk;
-+	}
- 
- 	udc->gadget.speed = USB_SPEED_UNKNOWN;
- 	udc->gadget.max_speed = USB_SPEED_HIGH;
-@@ -1550,20 +1555,20 @@ static int ast_udc_probe(struct platform_device *pdev)
- 	udc->irq = platform_get_irq(pdev, 0);
- 	if (udc->irq < 0) {
- 		rc = udc->irq;
--		goto err;
-+		goto err_free_ep0_buf;
- 	}
- 
- 	rc = devm_request_irq(&pdev->dev, udc->irq, ast_udc_isr, 0,
- 			      KBUILD_MODNAME, udc);
- 	if (rc) {
- 		dev_err(&pdev->dev, "Failed to request interrupt\n");
--		goto err;
-+		goto err_free_ep0_buf;
- 	}
- 
- 	rc = usb_add_gadget_udc(&pdev->dev, &udc->gadget);
- 	if (rc) {
- 		dev_err(&pdev->dev, "Failed to add gadget udc\n");
--		goto err;
-+		goto err_free_ep0_buf;
- 	}
- 
- 	dev_info(&pdev->dev, "Initialized udc in USB%s mode\n",
-@@ -1571,9 +1576,15 @@ static int ast_udc_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
-+err_free_ep0_buf:
-+	dma_free_coherent(&pdev->dev,
-+			  ep0_buf_size, udc->ep0_buf,
-+			  udc->ep0_buf_dma);
-+	udc->ep0_buf = NULL;
-+err_disable_clk:
-+	clk_disable_unprepare(udc->clk);
- err:
- 	dev_err(&pdev->dev, "Failed to udc probe, rc:0x%x\n", rc);
--	ast_udc_remove(pdev);
- 
- 	return rc;
- }
--- 
-2.34.1
+However, it will take some time for an LLVM release with this fix to
+become available. Since LLVM (>=15.0.0) is an officially supported
+toolchain, leaving the kernel with bug(s?) on supported LLVM versions
+isn't ideal.
+I think we should apply a workaround in the kernel for now.
 
+Best Regards,
+Akari
 
