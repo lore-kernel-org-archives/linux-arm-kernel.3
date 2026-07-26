@@ -4,90 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F36C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 13:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531B7C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 13:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9XQm3zMrIi2p8HEkEu/eHLyarT0qOvhRBMJCadXQ8rM=; b=dMdQGu0Iy1/unQsijkxG6qnNzA
-	GeorbrrVmfbJeD7qv+3xcYbsx31f09MLCVnupTHLWU947VKxk5YLI7+2PlGXgyFZdz1LNiS+OXj+9
-	Ckf5jf32VZFmfq9coI+2uyen2q96NCi2qdwABf3an8ObQzgo9mAtY0j/Ns6EzpB1b1IveJMt7mG+7
-	hli5MCaFItA9vXaZ7PDPsPKBMeIvbsEJ82i0C13UZWoBHZIytl6DJWYcUd6VVBNHbdKJkigt/JEQr
-	9GZzpTOAOCox7cuEG8vv70OEViAnjZ7C2HLpr9NC7SsmH9Z/dQHlY5970PzD2Z+q5lEv9yVcyYIvc
-	TGjboJaw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pedwj7ip/TTN4l9zpA2Hv+d7tqQJ7Bsv4qn8F/T2XqY=; b=QLnzrFJqdpX9sYbjEfTNl09oHB
+	Hkft2X0lDQa2osXBGW5EhRWtxcu2X/gtf74DjkRzlB47M8a767etqhpD5Ye6sE4nxh10T0FzHVeDX
+	yi5kAhWg+qNTi6h/Bs7MEyX7VcxfeA6vUqVXvuQf7zLjENtT3sE0HdFN3JHqBb455Tmub452UWOaF
+	TcdsqEcxTpNcpaaO0FsVYoXAEQ2GgpRBXqByV6vNNqkwY6phEAokUHQx0g0afI6kaXArg0dVIXOWg
+	QWbikPN3Eu8jPD1Z651AeAx64VcwqxDAtKGKKQ2TF9OhoFTmUb0r4eRkZWDFjWYDFhF/flUIupIgo
+	ZDxHtH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnyjp-00000001Bzy-2fFd;
-	Sun, 26 Jul 2026 13:17:53 +0000
-Received: from 82-65-109-163.subs.proxad.net ([82.65.109.163] helo=luna.linkmauve.fr)
+	id 1wnysG-00000001CdS-20L0;
+	Sun, 26 Jul 2026 13:26:36 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnyjj-00000001Bv2-1TIX;
-	Sun, 26 Jul 2026 13:17:48 +0000
-Received: by luna.linkmauve.fr (Postfix, from userid 1000)
-	id 8A8D6F40DE3; Sun, 26 Jul 2026 15:17:33 +0200 (CEST)
-From: Link Mauve <linkmauve@linkmauve.fr>
-To: Srinivas Kandagatla <srini@kernel.org>
-Cc: Link Mauve <linkmauve@linkmauve.fr>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
+	id 1wnysD-00000001Cd7-4ApG
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 26 Jul 2026 13:26:35 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2ce7d2adef4so23515635ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 06:26:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785072393; x=1785677193; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Pedwj7ip/TTN4l9zpA2Hv+d7tqQJ7Bsv4qn8F/T2XqY=;
+        b=GfHjXFnpRExc6AUkwgMmHVsOKOnNeDBizbCs3Nobp/beorXTAu2z/VmC83BNpHfIC6
+         ah+VL4aTl5gbcKbf2AwpWiI9IaeQNrzht0Vdr1ylO5KfkkWWfE6KnTvLutg2AEevNqR5
+         HKD/vWDDyEiv7Ch7LJy2aBdydMgDKNWl378Um0qwSdD3q6RhkvPtc7jKLw13Z0EFhDEo
+         eMJVJ9VAK+cQWCImGfjZjbIUQ3Vemn36k04wBk1LHJIy4VR7pAhkJKJRd6jg5daygbHR
+         gtCrlKsAe+AXYcnPXH8FZs60Gn/aOiKQalW9e8Rm7tFbicNaGxVWqoXVCGO646CkOpwC
+         3ENA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785072393; x=1785677193;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Pedwj7ip/TTN4l9zpA2Hv+d7tqQJ7Bsv4qn8F/T2XqY=;
+        b=BVvVc6DHUHr/Hf8/xbNXNqrKGenv7Nu2R+FKHBCf/7xX7x+AFVX0qHTA2vUihAglpz
+         POoxn3QWYFdkR70OD2iOLVk67AJMztlzU3D30amc9ljKE171uBZo3n5A8aIYWosndJpj
+         BzjFmpCyhcueIgM/XgfZGwFpwRYQC6ErtAW684SI28+fn8knNnO4vZ8iuUlzMetA+Cuo
+         v98z6x+OrOlQN1N/aqH8vccDw7SuEZw+4tdPPXQwvOi3l1HyGGVy0IjQ7LVJoP+MtxX+
+         6csEidOyScQ5O7wXe6FxrodZKfeY8djHhzkxANpq39EmrRBZ/Q+ZeGM5XONJlImre3JK
+         0sDQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrO3hmJy/uDEfcMZjdZh4cWoF7WoPQo3304m7AvWjIVKop1namJQysN+stzWEchRUtr3oy9waZV9aBgbUW0vxUu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyext/HqmuNK53EWsK4uIPOtOB/5f4FvT03XD631Ptf5jECXj0q
+	/wUHZKhmwNtR5pggWTuvfiO1Be7fv9FUH9NNFEA1CfEqnPbx4gwma3Kk
+X-Gm-Gg: AR+sD11xhxu6jtqOinDyGwxsIUEk00yr09oswT4/jska1/ZU0kJHTTMvENwrfWuf8qe
+	JVnOYybzDY2JbX9xY1henkv9x9ajsFZT8968O5pHYhnEyoxF7EKsCLOkFJXARojbQfp59w2cJ/U
+	JAlQEKric4JYndgpCYueOotAn4Lztci6TplO3yRL5rt5IVoMVGhr5oKnI+56CqpV3TqZeS58Ch0
+	RvdnA6BmHBPyM4mdeXq7RLtqB16LmUZt5fdrKXGvhyznB5EVK9WwNTQZ3SkG3KDm43cBUTIZsdq
+	097e/JRcy0MPzbPZAGSgmumOVtSoln0L13bDAjPbO5Hb/Qo1p8s1rxqAFG46/U/6KzAlVL7qy2v
+	z/08cl3DkpmMuA0mjeX+z//IZKexWje8OlmACp53z47U27T5IMwrhsFHepI99T12d4Gahn9h7UY
+	3i
+X-Received: by 2002:a17:903:b0d:b0:2ca:4f33:e86f with SMTP id d9443c01a7336-2cfde7ae37cmr48204445ad.12.1785072392719;
+        Sun, 26 Jul 2026 06:26:32 -0700 (PDT)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cfde7bbdc2sm20677655ad.42.2026.07.26.06.26.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Jul 2026 06:26:32 -0700 (PDT)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
-	Johan Hovold <johan@kernel.org>,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Hariprasad Kelam <hkelam@marvell.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
-	rust-for-linux@vger.kernel.org
-Subject: [PATCH v4 3/3] nvmem: make all reg_write callbacks take const void *
-Date: Sun, 26 Jul 2026 15:17:21 +0200
-Message-ID: <20260726131724.15299-4-linkmauve@linkmauve.fr>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260726131724.15299-1-linkmauve@linkmauve.fr>
-References: <20260726131724.15299-1-linkmauve@linkmauve.fr>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v2 0/2] net: stmmac: Fix PHY attach when custom PCS is in use
+Date: Sun, 26 Jul 2026 21:26:16 +0800
+Message-Id: <20260726132618.3580612-1-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_061747_750989_8B7F7CF2 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20260726_062634_041562_72E68A0F 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,475 +110,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous commit switched from a pointer to mutable data to a pointer
-to immutable data, so let’s fix all users of this API.
+This series fixes the issue where stmmac platforms using a custom PCS
+via the pcs_init callback fail to probe when no phy-handle is specified
+in the device tree.
 
-Signed-off-by: Link Mauve <linkmauve@linkmauve.fr>
----
- drivers/nvmem/apple-spmi-nvmem.c    |  4 ++--
- drivers/nvmem/bcm-ocotp.c           |  8 ++++----
- drivers/nvmem/imx-ocotp-scu.c       |  6 +++---
- drivers/nvmem/imx-ocotp.c           |  6 +++---
- drivers/nvmem/lan9662-otpc.c        |  6 +++---
- drivers/nvmem/lpc18xx_eeprom.c      |  6 +++---
- drivers/nvmem/max77759-nvmem.c      |  4 ++--
- drivers/nvmem/meson-efuse.c         |  4 ++--
- drivers/nvmem/qcom-spmi-sdam.c      |  6 +++---
- drivers/nvmem/qfprom.c              |  6 +++---
- drivers/nvmem/rave-sp-eeprom.c      |  6 +++---
- drivers/nvmem/snvs_lpgpr.c          |  4 ++--
- drivers/nvmem/sprd-efuse.c          |  6 +++---
- drivers/nvmem/stm32-bsec-optee-ta.c |  2 +-
- drivers/nvmem/stm32-bsec-optee-ta.h |  4 ++--
- drivers/nvmem/stm32-romem.c         | 10 +++++-----
- drivers/nvmem/zynqmp_nvmem.c        |  6 +++---
- 17 files changed, 47 insertions(+), 47 deletions(-)
+Patch 1 is Russell King's phylink patch that relaxes phylink_expects_phy()
+to allow PHYs to be attached in 802.3z inband mode.
 
-diff --git a/drivers/nvmem/apple-spmi-nvmem.c b/drivers/nvmem/apple-spmi-nvmem.c
-index 7acb0c07d6ab..63b2b11d78f9 100644
---- a/drivers/nvmem/apple-spmi-nvmem.c
-+++ b/drivers/nvmem/apple-spmi-nvmem.c
-@@ -26,7 +26,7 @@ static int apple_spmi_nvmem_read(void *priv, unsigned int offset, void *val,
- 	return regmap_bulk_read(map, offset, val, bytes);
- }
- 
--static int apple_spmi_nvmem_write(void *priv, unsigned int offset, void *val,
-+static int apple_spmi_nvmem_write(void *priv, unsigned int offset, const void *val,
- 				  size_t bytes)
- {
- 	struct regmap *map = priv;
-@@ -45,7 +45,7 @@ static int apple_spmi_nvmem_probe(struct spmi_device *sdev)
- 		.stride = 1,
- 		.size = 0xffff,
- 		.reg_read = apple_spmi_nvmem_read,
--		.reg_write = apple_spmi_nvmem_write,
-+		.reg_write_const = apple_spmi_nvmem_write,
- 	};
- 
- 	regmap = devm_regmap_init_spmi_ext(sdev, &apple_spmi_regmap_config);
-diff --git a/drivers/nvmem/bcm-ocotp.c b/drivers/nvmem/bcm-ocotp.c
-index 2490f44caa40..02adfd787de8 100644
---- a/drivers/nvmem/bcm-ocotp.c
-+++ b/drivers/nvmem/bcm-ocotp.c
-@@ -179,11 +179,11 @@ static int bcm_otpc_read(void *context, unsigned int offset, void *val,
- 	return 0;
- }
- 
--static int bcm_otpc_write(void *context, unsigned int offset, void *val,
--	size_t bytes)
-+static int bcm_otpc_write(void *context, unsigned int offset, const void *val,
-+			  size_t bytes)
- {
- 	struct otpc_priv *priv = context;
--	u32 *buf = val;
-+	const u32 *buf = val;
- 	u32 bytes_written;
- 	u32 address = offset / priv->config->word_size;
- 	int i, ret;
-@@ -223,7 +223,7 @@ static struct nvmem_config bcm_otpc_nvmem_config = {
- 	.word_size = 4,
- 	.stride = 4,
- 	.reg_read = bcm_otpc_read,
--	.reg_write = bcm_otpc_write,
-+	.reg_write_const = bcm_otpc_write,
- };
- 
- static const struct of_device_id bcm_otpc_dt_ids[] = {
-diff --git a/drivers/nvmem/imx-ocotp-scu.c b/drivers/nvmem/imx-ocotp-scu.c
-index 517d83e11af2..57008228100f 100644
---- a/drivers/nvmem/imx-ocotp-scu.c
-+++ b/drivers/nvmem/imx-ocotp-scu.c
-@@ -178,11 +178,11 @@ static int imx_scu_ocotp_read(void *context, unsigned int offset,
- }
- 
- static int imx_scu_ocotp_write(void *context, unsigned int offset,
--			       void *val, size_t bytes)
-+			       const void *val, size_t bytes)
- {
- 	struct ocotp_priv *priv = context;
- 	struct arm_smccc_res res;
--	u32 *buf = val;
-+	const u32 *buf = val;
- 	u32 tmp;
- 	u32 index;
- 	int ret;
-@@ -226,7 +226,7 @@ static struct nvmem_config imx_scu_ocotp_nvmem_config = {
- 	.stride = 1,
- 	.owner = THIS_MODULE,
- 	.reg_read = imx_scu_ocotp_read,
--	.reg_write = imx_scu_ocotp_write,
-+	.reg_write_const = imx_scu_ocotp_write,
- };
- 
- static const struct of_device_id imx_scu_ocotp_dt_ids[] = {
-diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-index 108d78d7f6cb..36d4a37aed93 100644
---- a/drivers/nvmem/imx-ocotp.c
-+++ b/drivers/nvmem/imx-ocotp.c
-@@ -310,11 +310,11 @@ static void imx_ocotp_set_imx7_timing(struct ocotp_priv *priv)
- 	writel(timing, priv->base + IMX_OCOTP_ADDR_TIMING);
- }
- 
--static int imx_ocotp_write(void *context, unsigned int offset, void *val,
-+static int imx_ocotp_write(void *context, unsigned int offset, const void *val,
- 			   size_t bytes)
- {
- 	struct ocotp_priv *priv = context;
--	u32 *buf = val;
-+	const u32 *buf = val;
- 	int ret;
- 
- 	u32 ctrl;
-@@ -483,7 +483,7 @@ static struct nvmem_config imx_ocotp_nvmem_config = {
- 	.word_size = 4,
- 	.stride = 1,
- 	.reg_read = imx_ocotp_read,
--	.reg_write = imx_ocotp_write,
-+	.reg_write_const = imx_ocotp_write,
- };
- 
- static const struct ocotp_params imx6q_params = {
-diff --git a/drivers/nvmem/lan9662-otpc.c b/drivers/nvmem/lan9662-otpc.c
-index 62d1d6381bf8..f586ae4cd126 100644
---- a/drivers/nvmem/lan9662-otpc.c
-+++ b/drivers/nvmem/lan9662-otpc.c
-@@ -139,10 +139,10 @@ static int lan9662_otp_read(void *context, unsigned int offset,
- }
- 
- static int lan9662_otp_write(void *context, unsigned int offset,
--			     void *_val, size_t bytes)
-+			     const void *_val, size_t bytes)
- {
- 	struct lan9662_otp *otp = context;
--	u8 *val = _val;
-+	const u8 *val = _val;
- 	u8 data, newdata;
- 	int i, rc = 0;
- 
-@@ -174,7 +174,7 @@ static struct nvmem_config otp_config = {
- 	.stride = 1,
- 	.word_size = 1,
- 	.reg_read = lan9662_otp_read,
--	.reg_write = lan9662_otp_write,
-+	.reg_write_const = lan9662_otp_write,
- };
- 
- static int lan9662_otp_probe(struct platform_device *pdev)
-diff --git a/drivers/nvmem/lpc18xx_eeprom.c b/drivers/nvmem/lpc18xx_eeprom.c
-index 504155e30bab..78a35ef095fb 100644
---- a/drivers/nvmem/lpc18xx_eeprom.c
-+++ b/drivers/nvmem/lpc18xx_eeprom.c
-@@ -87,7 +87,7 @@ static int lpc18xx_eeprom_busywait_until_prog(struct lpc18xx_eeprom_dev *eeprom)
- }
- 
- static int lpc18xx_eeprom_gather_write(void *context, unsigned int reg,
--				       void *val, size_t bytes)
-+				       const void *val, size_t bytes)
- {
- 	struct lpc18xx_eeprom_dev *eeprom = context;
- 	unsigned int offset = reg;
-@@ -109,7 +109,7 @@ static int lpc18xx_eeprom_gather_write(void *context, unsigned int reg,
- 	usleep_range(100, 200);
- 
- 	while (bytes) {
--		writel(*(u32 *)val, eeprom->mem_base + offset);
-+		writel(*(const u32 *)val, eeprom->mem_base + offset);
- 		ret = lpc18xx_eeprom_busywait_until_prog(eeprom);
- 		if (ret < 0)
- 			return ret;
-@@ -155,7 +155,7 @@ static struct nvmem_config lpc18xx_nvmem_config = {
- 	.stride = 4,
- 	.word_size = 4,
- 	.reg_read = lpc18xx_eeprom_read,
--	.reg_write = lpc18xx_eeprom_gather_write,
-+	.reg_write_const = lpc18xx_eeprom_gather_write,
- };
- 
- static int lpc18xx_eeprom_probe(struct platform_device *pdev)
-diff --git a/drivers/nvmem/max77759-nvmem.c b/drivers/nvmem/max77759-nvmem.c
-index 283000ec3a2c..86c025cfc2f6 100644
---- a/drivers/nvmem/max77759-nvmem.c
-+++ b/drivers/nvmem/max77759-nvmem.c
-@@ -59,7 +59,7 @@ static int max77759_nvmem_reg_read(void *priv, unsigned int offset,
- }
- 
- static int max77759_nvmem_reg_write(void *priv, unsigned int offset,
--				    void *val, size_t bytes)
-+				    const void *val, size_t bytes)
- {
- 	struct max77759_nvmem *nvmem = priv;
- 	DEFINE_FLEX(struct max77759_maxq_command, cmd, cmd, length,
-@@ -99,7 +99,7 @@ static int max77759_nvmem_probe(struct platform_device *pdev)
- 		.word_size = sizeof(u8),
- 		.stride = sizeof(u8),
- 		.reg_read = max77759_nvmem_reg_read,
--		.reg_write = max77759_nvmem_reg_write,
-+		.reg_write_const = max77759_nvmem_reg_write,
- 	};
- 	struct max77759_nvmem *nvmem;
- 
-diff --git a/drivers/nvmem/meson-efuse.c b/drivers/nvmem/meson-efuse.c
-index f71854f89950..5e056e707a96 100644
---- a/drivers/nvmem/meson-efuse.c
-+++ b/drivers/nvmem/meson-efuse.c
-@@ -27,7 +27,7 @@ static int meson_efuse_read(void *context, unsigned int offset,
- }
- 
- static int meson_efuse_write(void *context, unsigned int offset,
--			     void *val, size_t bytes)
-+			     const void *val, size_t bytes)
- {
- 	struct meson_sm_firmware *fw = context;
- 	int ret;
-@@ -83,7 +83,7 @@ static int meson_efuse_probe(struct platform_device *pdev)
- 	econfig->stride = 1;
- 	econfig->word_size = 1;
- 	econfig->reg_read = meson_efuse_read;
--	econfig->reg_write = meson_efuse_write;
-+	econfig->reg_write_const = meson_efuse_write;
- 	econfig->size = size;
- 	econfig->priv = fw;
- 
-diff --git a/drivers/nvmem/qcom-spmi-sdam.c b/drivers/nvmem/qcom-spmi-sdam.c
-index 4f1cca6eab71..10febaf9e427 100644
---- a/drivers/nvmem/qcom-spmi-sdam.c
-+++ b/drivers/nvmem/qcom-spmi-sdam.c
-@@ -81,8 +81,8 @@ static int sdam_read(void *priv, unsigned int offset, void *val,
- 	return rc;
- }
- 
--static int sdam_write(void *priv, unsigned int offset, void *val,
--				size_t bytes)
-+static int sdam_write(void *priv, unsigned int offset, const void *val,
-+		      size_t bytes)
- {
- 	struct sdam_chip *sdam = priv;
- 	struct device *dev = sdam->sdam_config.dev;
-@@ -147,7 +147,7 @@ static int sdam_probe(struct platform_device *pdev)
- 	sdam->sdam_config.size = sdam->size;
- 	sdam->sdam_config.word_size = 1;
- 	sdam->sdam_config.reg_read = sdam_read;
--	sdam->sdam_config.reg_write = sdam_write;
-+	sdam->sdam_config.reg_write_const = sdam_write;
- 	sdam->sdam_config.priv = sdam;
- 
- 	nvmem = devm_nvmem_register(&pdev->dev, &sdam->sdam_config);
-diff --git a/drivers/nvmem/qfprom.c b/drivers/nvmem/qfprom.c
-index 1de3435df116..16b7f647a3f6 100644
---- a/drivers/nvmem/qfprom.c
-+++ b/drivers/nvmem/qfprom.c
-@@ -252,13 +252,13 @@ static int qfprom_enable_fuse_blowing(const struct qfprom_priv *priv,
-  *
-  * Return: 0 or -err.
-  */
--static int qfprom_reg_write(void *context, unsigned int reg, void *_val,
-+static int qfprom_reg_write(void *context, unsigned int reg, const void *_val,
- 			    size_t bytes)
- {
- 	struct qfprom_priv *priv = context;
- 	struct qfprom_touched_values old;
- 	int words = bytes / 4;
--	u32 *value = _val;
-+	const u32 *value = _val;
- 	u32 blow_status;
- 	int ret;
- 	int i;
-@@ -443,7 +443,7 @@ static int qfprom_probe(struct platform_device *pdev)
- 
- 		/* Only enable writing if we have SoC data and a valid clock */
- 		if (priv->soc_data && priv->secclk)
--			econfig.reg_write = qfprom_reg_write;
-+			econfig.reg_write_const = qfprom_reg_write;
- 	}
- 
- 	pm_runtime_enable(dev);
-diff --git a/drivers/nvmem/rave-sp-eeprom.c b/drivers/nvmem/rave-sp-eeprom.c
-index 9ecf3873cbb7..c703d303eb6c 100644
---- a/drivers/nvmem/rave-sp-eeprom.c
-+++ b/drivers/nvmem/rave-sp-eeprom.c
-@@ -278,10 +278,10 @@ static int rave_sp_eeprom_reg_read(void *eeprom, unsigned int offset,
- }
- 
- static int rave_sp_eeprom_reg_write(void *eeprom, unsigned int offset,
--				    void *val, size_t bytes)
-+				    const void *val, size_t bytes)
- {
- 	return rave_sp_eeprom_access(eeprom, RAVE_SP_EEPROM_WRITE,
--				     offset, val, bytes);
-+				     offset, (void *)val, bytes);
- }
- 
- static int rave_sp_eeprom_probe(struct platform_device *pdev)
-@@ -331,7 +331,7 @@ static int rave_sp_eeprom_probe(struct platform_device *pdev)
- 	config.add_legacy_fixed_of_cells	= true;
- 	config.size		= size;
- 	config.reg_read		= rave_sp_eeprom_reg_read;
--	config.reg_write	= rave_sp_eeprom_reg_write;
-+	config.reg_write_const	= rave_sp_eeprom_reg_write;
- 	config.word_size	= 1;
- 	config.stride		= 1;
- 
-diff --git a/drivers/nvmem/snvs_lpgpr.c b/drivers/nvmem/snvs_lpgpr.c
-index 89c27112320f..3e76d33dff20 100644
---- a/drivers/nvmem/snvs_lpgpr.c
-+++ b/drivers/nvmem/snvs_lpgpr.c
-@@ -50,7 +50,7 @@ static const struct snvs_lpgpr_cfg snvs_lpgpr_cfg_imx7d = {
- 	.size		= 16,
- };
- 
--static int snvs_lpgpr_write(void *context, unsigned int offset, void *val,
-+static int snvs_lpgpr_write(void *context, unsigned int offset, const void *val,
- 			    size_t bytes)
- {
- 	struct snvs_lpgpr_priv *priv = context;
-@@ -127,7 +127,7 @@ static int snvs_lpgpr_probe(struct platform_device *pdev)
- 	cfg->size = dcfg->size;
- 	cfg->owner = THIS_MODULE;
- 	cfg->reg_read  = snvs_lpgpr_read;
--	cfg->reg_write = snvs_lpgpr_write;
-+	cfg->reg_write_const = snvs_lpgpr_write;
- 
- 	nvmem = devm_nvmem_register(dev, cfg);
- 
-diff --git a/drivers/nvmem/sprd-efuse.c b/drivers/nvmem/sprd-efuse.c
-index 1a7e4e5d8b86..f960fa8cb25c 100644
---- a/drivers/nvmem/sprd-efuse.c
-+++ b/drivers/nvmem/sprd-efuse.c
-@@ -192,7 +192,7 @@ static void sprd_efuse_set_prog_en(struct sprd_efuse *efuse, bool en)
- }
- 
- static int sprd_efuse_raw_prog(struct sprd_efuse *efuse, u32 blk, bool doub,
--			       bool lock, u32 *data)
-+			       bool lock, const u32 *data)
- {
- 	u32 status;
- 	int ret = 0;
-@@ -321,7 +321,7 @@ static int sprd_efuse_read(void *context, u32 offset, void *val, size_t bytes)
- 	return ret;
- }
- 
--static int sprd_efuse_write(void *context, u32 offset, void *val, size_t bytes)
-+static int sprd_efuse_write(void *context, u32 offset, const void *val, size_t bytes)
- {
- 	struct sprd_efuse *efuse = context;
- 	bool blk_double = efuse->data->blk_double;
-@@ -410,7 +410,7 @@ static int sprd_efuse_probe(struct platform_device *pdev)
- 	econfig.size = efuse->data->blk_nums * SPRD_EFUSE_BLOCK_WIDTH;
- 	econfig.add_legacy_fixed_of_cells = true;
- 	econfig.reg_read = sprd_efuse_read;
--	econfig.reg_write = sprd_efuse_write;
-+	econfig.reg_write_const = sprd_efuse_write;
- 	econfig.priv = efuse;
- 	econfig.dev = &pdev->dev;
- 	nvmem = devm_nvmem_register(&pdev->dev, &econfig);
-diff --git a/drivers/nvmem/stm32-bsec-optee-ta.c b/drivers/nvmem/stm32-bsec-optee-ta.c
-index f89ce791dd12..3184b976b1f9 100644
---- a/drivers/nvmem/stm32-bsec-optee-ta.c
-+++ b/drivers/nvmem/stm32-bsec-optee-ta.c
-@@ -203,7 +203,7 @@ int stm32_bsec_optee_ta_read(struct tee_context *ctx, unsigned int offset,
- 
- /* stm32_bsec_optee_ta_write() - nvmem write access using PTA client driver */
- int stm32_bsec_optee_ta_write(struct tee_context *ctx, unsigned int lower,
--			      unsigned int offset, void *buf, size_t bytes)
-+			      unsigned int offset, const void *buf, size_t bytes)
- {	struct tee_shm *shm;
- 	struct tee_ioctl_invoke_arg arg;
- 	struct tee_param param[2];
-diff --git a/drivers/nvmem/stm32-bsec-optee-ta.h b/drivers/nvmem/stm32-bsec-optee-ta.h
-index 3966a0535179..74658a54fe57 100644
---- a/drivers/nvmem/stm32-bsec-optee-ta.h
-+++ b/drivers/nvmem/stm32-bsec-optee-ta.h
-@@ -50,7 +50,7 @@ int stm32_bsec_optee_ta_read(struct tee_context *ctx, unsigned int offset,
-  *	On success, 0. On failure, -errno.
-  */
- int stm32_bsec_optee_ta_write(struct tee_context *ctx, unsigned int lower,
--			      unsigned int offset, void *buf, size_t bytes);
-+			      unsigned int offset, const void *buf, size_t bytes);
- 
- #else
- 
-@@ -72,7 +72,7 @@ static inline int stm32_bsec_optee_ta_read(struct tee_context *ctx,
- 
- static inline int stm32_bsec_optee_ta_write(struct tee_context *ctx,
- 					    unsigned int lower,
--					    unsigned int offset, void *buf,
-+					    unsigned int offset, const void *buf,
- 					    size_t bytes)
- {
- 	return -EOPNOTSUPP;
-diff --git a/drivers/nvmem/stm32-romem.c b/drivers/nvmem/stm32-romem.c
-index 82879b1c9eb9..622093b0755c 100644
---- a/drivers/nvmem/stm32-romem.c
-+++ b/drivers/nvmem/stm32-romem.c
-@@ -118,12 +118,12 @@ static int stm32_bsec_read(void *context, unsigned int offset, void *buf,
- 	return 0;
- }
- 
--static int stm32_bsec_write(void *context, unsigned int offset, void *buf,
-+static int stm32_bsec_write(void *context, unsigned int offset, const void *buf,
- 			    size_t bytes)
- {
- 	struct stm32_romem_priv *priv = context;
- 	struct device *dev = priv->cfg.dev;
--	u32 *buf32 = buf;
-+	const u32 *buf32 = buf;
- 	int ret, i;
- 
- 	/* Allow only writing complete 32-bits aligned words */
-@@ -153,7 +153,7 @@ static int stm32_bsec_pta_read(void *context, unsigned int offset, void *buf,
- 	return stm32_bsec_optee_ta_read(priv->ctx, offset, buf, bytes);
- }
- 
--static int stm32_bsec_pta_write(void *context, unsigned int offset, void *buf,
-+static int stm32_bsec_pta_write(void *context, unsigned int offset, const void *buf,
- 				size_t bytes)
- {
- 	struct stm32_romem_priv *priv = context;
-@@ -239,10 +239,10 @@ static int stm32_romem_probe(struct platform_device *pdev)
- 				return rc;
- 			}
- 			priv->cfg.reg_read = stm32_bsec_pta_read;
--			priv->cfg.reg_write = stm32_bsec_pta_write;
-+			priv->cfg.reg_write_const = stm32_bsec_pta_write;
- 		} else {
- 			priv->cfg.reg_read = stm32_bsec_read;
--			priv->cfg.reg_write = stm32_bsec_write;
-+			priv->cfg.reg_write_const = stm32_bsec_write;
- 		}
- 	}
- 
-diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
-index d297ff150dc0..54905a608157 100644
---- a/drivers/nvmem/zynqmp_nvmem.c
-+++ b/drivers/nvmem/zynqmp_nvmem.c
-@@ -183,7 +183,7 @@ static int zynqmp_nvmem_read(void *context, unsigned int offset, void *val, size
- }
- 
- static int zynqmp_nvmem_write(void *context,
--			      unsigned int offset, void *val, size_t bytes)
-+			      unsigned int offset, const void *val, size_t bytes)
- {
- 	int pufflag = 0;
- 
-@@ -194,7 +194,7 @@ static int zynqmp_nvmem_write(void *context,
- 		pufflag = 1;
- 
- 	return zynqmp_efuse_access(context, offset,
--				   val, bytes, EFUSE_WRITE, pufflag);
-+				   (void *)val, bytes, EFUSE_WRITE, pufflag);
- }
- 
- static const struct of_device_id zynqmp_nvmem_match[] = {
-@@ -216,7 +216,7 @@ static int zynqmp_nvmem_probe(struct platform_device *pdev)
- 	econfig.priv = dev;
- 	econfig.add_legacy_fixed_of_cells = true;
- 	econfig.reg_read = zynqmp_nvmem_read;
--	econfig.reg_write = zynqmp_nvmem_write;
-+	econfig.reg_write_const = zynqmp_nvmem_write;
- 
- 	return PTR_ERR_OR_ZERO(devm_nvmem_register(dev, &econfig));
- }
--- 
-2.55.0
+Patch 2 skips the PHY attach in stmmac when a custom PCS is already
+configured via priv->hw->phylink_pcs, avoiding the "no phy found" error
+for platforms that manage link state entirely through the PCS.
 
+v2:
+- Include Russell's phylink patch as prerequisite (Patch 1)
+- This is now a 2-patch series targeting net-next
+
+Russell King (Oracle) (1):
+  net: phylink: allow PHYs to be attached in 802.3z inband mode
+
+Zxyan Zhu (1):
+  net: stmmac: Skip PHY attach if custom PCS is in use
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
+ drivers/net/phy/phylink.c                         | 8 ++------
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+--
+2.34.1
 
