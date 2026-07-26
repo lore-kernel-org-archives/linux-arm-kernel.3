@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D269C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 08:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6945C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 08:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIMRI54XKOtaM/XNF7b4KXdkzeK8s3hpsYqHXjMEWo0=; b=pzQRVdwWVd6cXR51JasoE2ybc+
-	oaps19KWBwe7gvpvXK4iXbZPARZ5LihUboekVD/f6JcSefPDtVjt1JrMAvJiZcWYsT4ID0Mq3vkbB
-	IxOAan22Cf+dMj5fPT/TdQq9vT6gkvkNNwEgLisO6X5J1AVkjOpvQXLhCzRiMvztyYFdJoRvMZZYJ
-	zz+zhspHKbaq+ymuVwifQWtaKumFl0JxFqDju/NbHtyMCuDQO+F7ojSzpYrrw3GAStqz0QXr+RaFw
-	SA9dJOcNx80Toe28U4rj3MAkp+Ef+xWwMaHk55glWkqbgDRJRKv8HRmgt4F3yyWG0qRk7IdpbZmzd
-	U3MEWymA==;
+	bh=D3/Czl+COk9w01pROEOZpbCYgsdFmFL2CocMf8Tbq88=; b=QLPIFYMuM3Mr2vUL+aNEhtmAA7
+	fB16Gn63GR/PmWBVFu/AJpLhqPjHBQLTMN9zlGccmKwnE2No9+T+hkUZmVeanTdcmVkt+nx7Bl0mx
+	bUWK1gqs4h3NDDC3PkKOH+k2pF+F4lNM3RCfIi7gkWrdknU/xw+NFNG9Fy20lpTqk0wfbOmqkA/xH
+	2PAIUNA8h32X+8/2p3fWcP/J6OAa4tTc8975jNPLk/IoEhUtYVVoLeHfgmIAut/DOOmT1qVzRyTg4
+	nRvXDb4A6WZatWg2AHDYbBmqJp9AOKJ9aSjsjGOstfFSDr4DexS+01/UDT85yV1p5JW4/yEVamB7s
+	6c1asGgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wntxY-0000000101j-3M3x;
-	Sun, 26 Jul 2026 08:11:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wntxU-0000000101B-1OTN
+	id 1wnu1u-000000010Mb-15HI;
+	Sun, 26 Jul 2026 08:16:14 +0000
+Received: from mail-oo1-f50.google.com ([209.85.161.50])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnu1s-000000010M2-02kn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 08:11:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A18D32F;
-	Sun, 26 Jul 2026 01:11:33 -0700 (PDT)
-Received: from [10.164.11.0] (unknown [10.164.11.0])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FB023F86F;
-	Sun, 26 Jul 2026 01:11:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785053497; bh=k2iE/VzfxkzEtkmYVXfBqMUOpWMNDd0JKJoJtSnxKII=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=g8/j78x3Ph9N708CQRhC/0XCbf/W3eJbizgnvD3crznAXLZLWr0FLngPRNl2AefC9
-	 tXCinGEYXfB+KCqKh6QrOm2szos4Dzb+CN4K3MZz+PC6P4eZYYR+B/TR1FhONcU8sz
-	 ui8kIKIin7j5bEScuV1xyxY3O2bRSpZk0WGuEOQY=
-Message-ID: <0758a5e6-7f19-4e4f-b090-abdb49ba7aac@arm.com>
-Date: Sun, 26 Jul 2026 13:41:29 +0530
+	Sun, 26 Jul 2026 08:16:13 +0000
+Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-6aae019c09bso1034451eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 01:16:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785053770; x=1785658570;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=D3/Czl+COk9w01pROEOZpbCYgsdFmFL2CocMf8Tbq88=;
+        b=Rf3C0ENOhKMyLBSm3ffZoOf2QlABJerolSlFmEtID0FgShZD7Wr/7nSkv2MOeWLUFs
+         lJk/Eks8T18d7F4nzhuRkFlKCB9PyNkLX388uAEUo73rk11m3TnCv5xDfTWBO5RmRpMS
+         Pu4w0U4aYyi43xQv8mGRpjB3NAbL7Bg8s3jbZYRuGhw+67Dx/B0OODv60zPxiEr9+fLu
+         /Ax21Vuto6WWSOGsmI43FSr/HEpEpw+PNc2D2MVuGwS+0Ti2DMo+69A1X1l+BT3AjhvY
+         gcbLZ2R9q0llcOpfHO0YQpfvWyS/sTnxI2CqWgGsPTEFzACi6CSZ7Ekm/dUYsxD5ny+7
+         nyrA==
+X-Forwarded-Encrypted: i=1; AHgh+RpHZtiUUkZ1H31uwInxU2y/4PPbGMxHwwM4ySInmq9GanoVv3Bt0oCADbZVUHNBQf1zuLboB7nV7Jf9mVtCA8Ti@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5u6+gc/SJLWnKyU4WzNt3BdSrblVKjR9V06hupIOvPEGAyPru
+	T6HT8ZSIBQ0DQAKMLyyRxT0fJ25j0Z6mWQtAVXd1Jeg3spg2fM78l7xl9x3vfwLPFQ==
+X-Gm-Gg: AR+sD12j1HDvow5Pfv4ochw7JJAskmKUJydb8EUifje7Kcv5HNHvi7OT9QhEOq9qiRP
+	fI1yLNHaZnBtsaM9x6qs+88OWsyCqjQrf4XCXR0UG9ovWjz33LGIIC4sDOe/EAQLqYWRt8dnO7R
+	16XgFo0+pBOAZzOlzCHmGFGR9Etqnwfy/CLJqxLT/5ewDqBFPvuhzimUp3c8slajlB3K9TD4Prx
+	+AXJTs8nJgwgjkKHmTJ1TLiMF9BxnK6C0mJyCAk3pmRINvnYVVkozdEd0LM3Bo529zbaSk2umto
+	8ok0CJJow+d7KbZ6V9OyavCMQ+i/YpcuLj/ZNHjHFRr5QjmfuoM7SqwMHRYt9mIo3jOT7P/y+bK
+	SX3Jq5BUQh3XZGMX/BEUmt/t2THpmO4tQda1cQ0NTvVNsW8wqe7x2iU9RQv/uVNOPdBIxN70iyA
+	f+Zsf8yadayaoU3TO11ygSYC1vz9P7j2NGA5zzvOCYJdnDJVXfa48DJAWvhsl1ADGFco2K6inn
+X-Received: by 2002:a05:6820:4cc1:b0:6a3:e15e:f3bd with SMTP id 006d021491bc7-6aaffa23a3fmr3883340eaf.54.1785053770272;
+        Sun, 26 Jul 2026 01:16:10 -0700 (PDT)
+Received: from mail-oo1-f41.google.com (mail-oo1-f41.google.com. [209.85.161.41])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6aaf96f5dd0sm2972478eaf.13.2026.07.26.01.16.08
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 26 Jul 2026 01:16:09 -0700 (PDT)
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-6aaff45003fso471915eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 01:16:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rr80XkiL3kS5LbMDTAno/hqVNn9UaEfh93d1z5wpL4QH05J8l972hg9AiliW1ERWYIPd2fjvW8v9B/Vxrg//F2c@lists.infradead.org
+X-Received: by 2002:a05:6820:1a07:b0:6a3:94bc:bdcf with SMTP id
+ 006d021491bc7-6aaffa23c8dmr3588711eaf.57.1785053768456; Sun, 26 Jul 2026
+ 01:16:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] KVM: arm64: ptdump: Flush the last region
-To: Marc Zyngier <maz@kernel.org>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>,
- Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
- Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Anshuman Khandual
- <anshuman.khandual@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>,
- Matt Fleming <matt@codeblueprint.co.uk>, Ard Biesheuvel <ardb@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sebastian Ene
- <sebastianene@google.com>, Vincent Donnefort <vdonnefort@google.com>,
- Sashiko AI <sashiko-bot@kernel.org>
-References: <20260724185431.2990395-1-weilin.chang@arm.com>
- <20260724185431.2990395-3-weilin.chang@arm.com>
- <a2548783-ee41-49c0-bfe3-80b3816dc6b2@arm.com> <87v7a3ou5n.wl-maz@kernel.org>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <87v7a3ou5n.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-2-fourdollars@debian.org> <al51g77Zsdr3OyBS@ashevche-desk.local>
+In-Reply-To: <al51g77Zsdr3OyBS@ashevche-desk.local>
+From: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
+Date: Sun, 26 Jul 2026 16:15:57 +0800
+X-Gmail-Original-Message-ID: <CAAT15mNscX3-PChHGZ3iE+sHHted74Mo+dP=x_rfeAuu77w_Tw@mail.gmail.com>
+X-Gm-Features: AUfX_mwSSUq4mpHdPGRdERx0wviVImIOJ13XOXAQfqWnzyGYCfq9MB5T7xI5qTE
+Message-ID: <CAAT15mNscX3-PChHGZ3iE+sHHted74Mo+dP=x_rfeAuu77w_Tw@mail.gmail.com>
+Subject: Re: [PATCH v16 1/7] spi: pxa2xx: introduce clock enable and disable
+ helper functions
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Mark Brown <broonie@kernel.org>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_011140_931972_2B297E1E 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20260726_011612_089010_378C931D 
+X-CRM114-Status: GOOD (  27.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,127 +101,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andy,
 
+  Thanks for the detailed review comments.
 
-On 25/07/26 10:58 pm, Marc Zyngier wrote:
-> On Sat, 25 Jul 2026 18:16:37 +0100,
-> Dev Jain <dev.jain@arm.com> wrote:
->>
->>
->>
->> On 25/07/26 12:24 am, Wei-Lin Chang wrote:
->>> Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
->>> This simply misses the output of the last region, because note_page()
->>> only dumps output when it detects a change in level/prot, or when the
->>> walk enters a next marker section. The last region in the guest IPA
->>> space with the same level/prot is not dumped since there is no change
->>> after it.
->>>
->>> Call note_page_flush() to dump the final region. note_page_flush()
->>> expects ptdump_state.range[] to be initialized to the range of the
->>> address space, so also do that.
->>>
->>> Also change the second marker's start address to ULONG_MAX so we never
->>> cross it. This avoids dumping redundant marker names (which are NULL),
->>> and advancing beyond the end of the marker array.
->>>
->>> Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
->>> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
->>> Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
->>> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
->>> ---
->>>  arch/arm64/kvm/ptdump.c | 16 ++++++++++++----
->>>  1 file changed, 12 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
->>> index c9140e22abcf..222577163d2b 100644
->>> --- a/arch/arm64/kvm/ptdump.c
->>> +++ b/arch/arm64/kvm/ptdump.c
->>> @@ -130,7 +130,7 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm_s2_mmu
->>>  	}
->>>  
->>>  	st->ipa_marker[0].name		= "Guest IPA";
->>> -	st->ipa_marker[1].start_address = BIT(pgtable->ia_bits);
->>> +	st->ipa_marker[1].start_address = ULONG_MAX;
->>>  
->>>  	st->mmu				= mmu;
->>>  	return st;
->>> @@ -148,18 +148,26 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
->>>  		.flags	= KVM_PGTABLE_WALK_LEAF,
->>>  	};
->>>  
->>> +	guard(write_lock)(&kvm->mmu_lock);
->>>  	st->parser_state = (struct ptdump_pg_state) {
->>>  		.marker		= &st->ipa_marker[0],
->>>  		.level		= -1,
->>>  		.pg_level	= &st->level[0],
->>>  		.seq		= m,
->>> +		.ptdump		= {
->>> +			.range = (struct ptdump_range[]){
->>> +				{0, BIT(mmu->pgt->ia_bits)},
->>> +				{0, 0}
->>> +			}
->>
->> I am having a real hard time reading that indentation :) you
->> could make it look like what we have currently in ptdump_walk().
-> 
-> This patch:
-> 
-> 		.ptdump		= {
-> 			.range = (struct ptdump_range[]){
-> 				{0, BIT(mmu->pgt->ia_bits)},
-> 				{0, 0}
-> 			}
-> 		}
-> 
-> ptdump_walk():
-> 
-> 		.ptdump = {
-> 			[...]
-> 			.range = (struct ptdump_range[]){
-> 				{info->base_addr, end},
-> 				{0, 0}
-> 			}
-> 		}
-> 
-> Zero difference in indentation. Consider using a better email client,
-> or look at the applied patches.
+On Tue, Jul 21, 2026 at 3:22=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Tue, Jul 21, 2026 at 12:21:10AM +0800, Shih-Yuan Lee wrote:
+> > The driver disables the clock during PM runtime suspend, PM system
+> > suspend, and device unbinding (remove). It also disables the clock
+> > on various error unwinding paths in pxa2xx_spi_probe().
+> >
+> > However, if the clock is already disabled (for example, if the device i=
+s
+> > already runtime-suspended during driver unbinding), calling the common
+> > clock framework's clk_disable_unprepare() again leads to clock prepare/=
+enable
+> > count underflows, generating kernel warnings.
+>
+> Any real life example here?
+Yes, a concrete real-world scenario occurs during sysfs driver
+unbinding while the device is in PM runtime suspend:
 
-I did apply the patches with b4 :) I should have better explained myself.
+  1. When the system is idle, PM runtime suspends the controller,
+disabling the clock (clk_disable_unprepare()).
+  2. If the user unbinds the driver via sysfs:
+   echo 0000:00:15.4 > /sys/bus/pci/drivers/pxa2xx_spi_pci/unbind
+  pxa2xx_spi_remove() is invoked.
+  3. Without clk_enabled tracking, pxa2xx_spi_remove() unconditionally
+calls clk_disable_unprepare() a second time on the already disabled
+clock.
+  4. This triggers a Common Clock Framework (CCF) underflow warning:
+  WARN_ON(clk->enable_count =3D=3D 0)
 
-ptdump_walk does not do a tab before the "=" . That looks better:
+A similar underflow occurs if pxa2xx_spi_probe() fails and executes
+error unwinding after disabling the clock.
+>
+> > Introduce pxa2xx_spi_clk_enable() and pxa2xx_spi_clk_disable() helper
+> > functions that track the clock enable state using a new 'clk_enabled'
+> > boolean flag in struct driver_data.
+> >
+> > This ensures clk_disable_unprepare() is called only when the clock is
+> > active, preventing clock underflows during suspend transitions and unbi=
+nd.
+> > It also allows the probe function to safely unwind resource allocations
+> > without triggering clock underflows.
+>
+> ...
+>
+> Same issue, I have no cover letter in my mailbox. Please, slow down and c=
+heck
+> your email setup. Something is wrong.
+Duly noted. I will check my git send-email configuration and ensure the
+cover letter is properly sent as the thread root.
+>
+> ...
+>
+> > +static int pxa2xx_spi_clk_enable(struct driver_data *drv_data)
+> > +{
+> > +     int ret;
+> > +
+> > +     if (drv_data->clk_enabled)
+> > +             return 0;
+> > +
+> > +     ret =3D clk_prepare_enable(drv_data->ssp->clk);
+>
+> > +     if (ret =3D=3D 0)
+> > +             drv_data->clk_enabled =3D true;
+> > +
+> > +     return ret;
+>
+> Use usual pattern
+>
+>         if (ret)
+>                 return ret;
+>
+>         ...
+>         return 0;
+>
+> > +}
+Will update in the next version to follow the standard guard pattern:
 
+    static int pxa2xx_spi_clk_enable(struct driver_data *drv_data)
+    {
+        int ret;
 
-.ptdump = {
-	[---]
-	.range = (struct ptdump_range[]){
-		{info->base_addr, end},
-		{0, 0}
-	}
-}
+        if (drv_data->clk_enabled)
+            return 0;
 
-whereas after this patch, kvm_ptdump_guest_show looks like:
+        ret =3D clk_prepare_enable(drv_data->ssp->clk);
+        if (ret)
+            return ret;
 
-.ptdump		= {
-	.range = (struct ptdump_range[]){
-		{0, BIT(mmu->pgt->ia_bits)},
-		{0, 0}
-	}
-}
+        drv_data->clk_enabled =3D true;
+        return 0;
+    }
+>
+> > +static void pxa2xx_spi_clk_disable(struct driver_data *drv_data)
+> > +{
+> > +     if (drv_data->clk_enabled) {
+>
+>         if (!drv_data->clk_enabled)
+>                 return;
+>
+> > +             clk_disable_unprepare(drv_data->ssp->clk);
+> > +             drv_data->clk_enabled =3D false;
+> > +     }
+> > +}
+Will update in the next version to use early return:
 
+    static void pxa2xx_spi_clk_disable(struct driver_data *drv_data)
+    {
+        if (!drv_data->clk_enabled)
+            return;
 
-In the former, the range initialization starts almost below its corresponding
-opening bracket. That looks better to me. Since kvm_ptdump_guest_show did not expect
-"nested" declaration before, it looked fine, but after this patch you have a
-combination of doing tabs before the equal sign, and not doing the tab in
-".range = " .
+        drv_data->clk_enabled =3D false;
+        clk_disable_unprepare(drv_data->ssp->clk);
+    }
+>
+> ...
+>
+> > struct driver_data {
+>
+> >       void __iomem *lpss_base;
+> >
+> > +     bool clk_enabled;
+>
+> How is this protected against simultaneously called enable/disable on dif=
+ferent
+> CPUs?
+pxa2xx_spi_clk_enable() and pxa2xx_spi_clk_disable() are only invoked
+within serialized contexts:
 
-So my nitpick would be to drop those tabs. Feel free to ignore if you deem this
-as unnecessary churn.
+  1. Driver probe() / remove() paths (serialized by bus locks).
+  2. PM Runtime callbacks (serialized by dev->power.lock in PM core).
+  3. System suspend / resume callbacks (serialized by PM subsystem).
 
+They are never called concurrently from asynchronous contexts or worker thr=
+eads.
+>
+> >       /* Optional slave FIFO ready signal */
+> >       struct gpio_desc *gpiod_ready;
+> >  };
+>
+> Whenever you add the field, check with `pahole` that the layout is optima=
+l.
+Thanks for pointing out pahole. Checked with pahole: bool clk_enabled;
+is placed immediately after bool suspended; in struct driver_data.
+Since both are 1-byte booleans, clk_enabled fits into the existing
+struct padding byte, resulting in zero additional hole padding and keeping
+the total struct size unchanged.
 
-> 
-> 	M.
-> 
-
+Thanks,
+Shih-Yuan
 
