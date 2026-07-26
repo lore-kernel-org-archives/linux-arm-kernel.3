@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED3B7C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 14:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E073CC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 14:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YUbh/jeX6MQJU0OuMCBPWaUgK9Wq5JZDryZHeFVQHR8=; b=Uun6DzKC7tgTZcot0kEshhdwtW
-	2r/2CpGNvmpiKKRwFmbdIkXLrfESpllyJCUmxg9E6iqC3Sr0i3x26ObJMOwGyGrfZZsyh6RjEmj2I
-	G8vAlT+rVoeTVq1yzIJXxmWwt6MFDPTeWiwpdzLN38QFy+7WSEk+uVAWR1YUgctYokqtJdWjzmMp/
-	xRoUqwQhdGic5Kjz7Xuzc2R6IeYELMN39VTQh2ZCHjE/VyBOuvPsQJRzidoXin4it/gYKDMmwA/ON
-	lMMGzwLHrkoRXbV65Md2baDaE2P3wIO4WCjsDRJF5SvbOL9aVhahLWQps1s+lUmZd+3cBCJxhZcoF
-	IJW3vuaA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cEqg7VunlhEslY2F0JLU+TRpHug+45n+kFx2sgOCJbc=; b=wRFWctrsND2M4WrcbYm78Vr2K9
+	TP8fOAquB+5PHVZt2g7jCtN15BXgrXR4ba8M/0CRkUUa09/g3CuooN4u3pSyDcbp9jiKTtI3thlZ+
+	hcsMFRy1g0z0f6vvbys0d0/J/ByoHRGNwkjX4a2U/3DpRMbFTYaVkLTcldK18Do8PdXBw6VWcYmYw
+	RDuIiZc8KB4KlbZAwNWepoJZ4TtoWkA/AKEzFGO5728oNMFFQF8ggjumVDFOCMTqr77lXkB6go2Lh
+	gi/T++STCVqady2+vCVNO81ghW+MKKk1f0/LPPnZoObb6tkYCjDmoFF5+yIIcBKvz/9DtD4p7hbkN
+	buA+1XhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnzyM-00000001F71-1SEW;
-	Sun, 26 Jul 2026 14:36:58 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1wnzyU-00000001F8j-2KKY;
+	Sun, 26 Jul 2026 14:37:06 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnzyI-00000001F5u-0zm5
+	id 1wnzyK-00000001F5z-3I8k
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 14:36:56 +0000
+	Sun, 26 Jul 2026 14:36:58 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785076609;
+	t=1785076613;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=YUbh/jeX6MQJU0OuMCBPWaUgK9Wq5JZDryZHeFVQHR8=;
-	b=CzwtEhdfxc/GE4a9FO6weiX1hwjqbESUyXiFvDp97OJf0TeRNIr1qbJS3TiqOZeQg7uihK
-	XX6tWOP5ZQCLqZHOUIp2lFNA0SR1bXC2bp8IJI04qukvR3ICxbMq2+bojKu0D/qa7EoHuL
-	eClDKyQSS0XyN5jTRVkccsBd8oDfp9M=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cEqg7VunlhEslY2F0JLU+TRpHug+45n+kFx2sgOCJbc=;
+	b=heo54cw00rT64OTcdLCe8bpGs3jOk1lTBVRHrEeruaTF09tvCqWiHoioNmuxn7sTbZMIL6
+	bB5VmIayT2VfE06XJZHz+8TcH31QNuQzAe09fRA8T2WNaFua6C9C2kZph2ulMyW0uz0X8q
+	pPJKhC9XlJ3mAHu0YmoAdpCoHM7LeZc=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>
@@ -50,16 +51,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	tabba@google.com
-Subject: [PATCH 0/2] KVM: arm64: Fix host-directed debug for non-protected pKVM guests
-Date: Sun, 26 Jul 2026 15:36:41 +0100
-Message-Id: <20260726143643.303456-1-fuad.tabba@linux.dev>
+Subject: [PATCH 2/2] KVM: arm64: selftests: Add a userspace watchpoint test
+Date: Sun, 26 Jul 2026 15:36:43 +0100
+Message-Id: <20260726143643.303456-3-fuad.tabba@linux.dev>
+In-Reply-To: <20260726143643.303456-1-fuad.tabba@linux.dev>
+References: <20260726143643.303456-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_073654_926886_63C72468 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260726_073656_960266_F4A2BD72 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +76,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+debug-exceptions covers guest self-hosted debug and userspace
+single-step, but not a userspace (KVM_GUESTDBG_USE_HW) watchpoint,
+whose KVM_EXIT_DEBUG reports the accessed address in debug.arch.far.
+Add a test that installs a host-directed write watchpoint and checks
+that the reported address matches the accessed variable.
 
-Under pKVM, host-directed hardware debug of a non-protected guest
-(KVM_GUESTDBG_USE_HW) and userspace single-step never fire.
-
-When the host owns the debug registers, the world switch loads
-MDSCR_EL1 from external_mdscr_el1, where the host's MDE/KDE/SS bits
-live. flush_debug_state() copies the guest's debug_owner and the
-owner-selected debug register state to the hyp vCPU, but not
-external_mdscr_el1, so the field reaches hardware as zero and the debug
-exceptions stay disabled. Patch 1 propagates it.
-
-Patch 2 adds a debug-exceptions selftest for a userspace watchpoint,
-which the suite did not cover: it checks that the watchpoint fires and
-reports the accessed address in debug.arch.far. It fails without patch
-1 and passes with it. The existing single-step test passes even when
-stepping never fires, so it does not catch this.
-
-Found while adding self-hosted debug support for protected VMs.
-
-Based on Linux 7.2-rc4 (1590cf0329716).
-
-Cheers,
-/fuad
-
-Fuad Tabba (2):
-  KVM: arm64: Flush external_mdscr_el1 to the pKVM hyp vCPU
-  KVM: arm64: selftests: Add a userspace watchpoint test
-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 10 ++++-
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
  .../selftests/kvm/arm64/debug-exceptions.c    | 41 +++++++++++++++++++
- 2 files changed, 49 insertions(+), 2 deletions(-)
+ 1 file changed, 41 insertions(+)
 
-
-base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+index 3eb4b1b6682dc..7dc5f0b4f6adf 100644
+--- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
++++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+@@ -527,6 +527,46 @@ void test_single_step_from_userspace(int test_cnt)
+ 	kvm_vm_free(vm);
+ }
+ 
++static void guest_code_wp(void)
++{
++	write_data = 'x';
++	GUEST_DONE();
++}
++
++/*
++ * A userspace hardware watchpoint (KVM_GUESTDBG_USE_HW) must fire and report
++ * the accessed address in debug.arch.far, exercising the watchpoint exit path.
++ */
++static void test_watchpoint_from_userspace(void)
++{
++	struct kvm_guest_debug debug = {};
++	struct kvm_vcpu *vcpu;
++	struct kvm_run *run;
++	struct kvm_vm *vm;
++
++	vm = vm_create_with_one_vcpu(&vcpu, guest_code_wp);
++	run = vcpu->run;
++
++	debug.control = KVM_GUESTDBG_ENABLE | KVM_GUESTDBG_USE_HW;
++	debug.arch.dbg_wcr[0] = DBGWCR_LEN8 | DBGWCR_RD | DBGWCR_WR |
++				DBGWCR_EL1 | DBGWCR_E;
++	/*
++	 * BAS = 0xff (LEN8) requires a doubleword-aligned DBGWVR; FAR still
++	 * reports the exact accessed byte.
++	 */
++	debug.arch.dbg_wvr[0] = PC(write_data) & ~7UL;
++	vcpu_guest_debug_set(vcpu, &debug);
++
++	vcpu_run(vcpu);
++	TEST_ASSERT(run->exit_reason == KVM_EXIT_DEBUG,
++		    "Expected KVM_EXIT_DEBUG, got %u", run->exit_reason);
++	TEST_ASSERT((u64)run->debug.arch.far == PC(write_data),
++		    "Watchpoint FAR 0x%lx != accessed address 0x%lx",
++		    (u64)run->debug.arch.far, PC(write_data));
++
++	kvm_vm_free(vm);
++}
++
+ /*
+  * Run debug testing using the various breakpoint#, watchpoint# and
+  * context-aware breakpoint# with the given ID_AA64DFR0_EL1 configuration.
+@@ -600,6 +640,7 @@ int main(int argc, char *argv[])
+ 
+ 	test_guest_debug_exceptions_all(aa64dfr0);
+ 	test_single_step_from_userspace(ss_iteration);
++	test_watchpoint_from_userspace();
+ 
+ 	return 0;
+ }
 -- 
 2.39.5
 
