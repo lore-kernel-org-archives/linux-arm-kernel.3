@@ -4,119 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CF8C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 17:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0F9C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 17:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kFUfKVcWOcUWmCKlgCAV8U97HptbtlCZKYXRFc9G/HM=; b=olLwwZZzHYNxRqJC/EVaiQEs0e
-	tO28hkklInslhY7aSXODtH8dQReh0Uim1Klg+hmlvK6NrU2ZUh0+eDpMKcAha5BYkH3CVbNwgAAss
-	UXkRKYly0v2ENw1+L7/BRw5Nkr4qgdmKwQcA4s/IMvwPBDa4FhffeG4CjbGwp+maeB02FpK3/Zb80
-	PZa0i7c8rVF06tkNqPlub3l1Chb5eKZgMPLI1IchNjMxs1TppR59geJ7wdcQEL5y8Y39vrQzpP3HB
-	2pkt8oIilrGklLIuKo8RTLwaQCpYIbEss/GnHYnb4JL1tYRpkNqljPlOdAItvId1sCsVlvSNB6aib
-	Ub+noJnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Si13RHoLBWIyuPF06cIxoa9EFvca7cz+q6+0wc7xEeE=; b=p18XZiUTxdn059
+	8SzbT1EzGAIyukN3RF2AAlU1T9VzZwl7vkUqBEH7zpon7oZNzxxLg1LfiWUN+K6nDEyealdHSAMie
+	0JZIqY6pBq0rS9goQy4JIMYS8XgB3Ptl/hSRgVlW1TG0AB2/vzPI4J7+bg1w84P4FCUgtKmUnFtOX
+	bqLylGDoDMnPKPE7GxMpxvJCYbbPHjUSgUwMOCOn1Ql1R41tKIy42tet4LkExB176+fZbmSb5CEAD
+	by4CA6ZUCfdFOgrxDz2DUkuNgZQXk5Isind1lYIPgGmp7zCIiHerOxuUaTfmTrhk8SpMdbtPIxgXl
+	WTG5z/JiXU+mGbrWG2FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo2Wg-00000001QBE-3xDZ;
-	Sun, 26 Jul 2026 17:20:34 +0000
-Received: from mail-eastus2azon11010007.outbound.protection.outlook.com ([52.101.56.7] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wo2tD-00000001QrJ-2qgj;
+	Sun, 26 Jul 2026 17:43:51 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo2WZ-00000001QAS-3pfY
+	id 1wo2tB-00000001Qqw-3a9o
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 17:20:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YjITlDo8nr5x5h39ap58YsduDqFBP00TbmFQF3go1DCKKqd62MAEBgJ6koC3Q4W0JFCo+2gcWxUxxNGqN5v0d60uH9TGcC3OPiIBh6KXNMCUd9xd0z2ajdUC+mKkK7xwJJSfTkYUBbHy0bO8NHqBz2Sy2VYh7sCIQZJBDtCH3+WxGIp4/SoId2XQhke714pqFKgBoi1vLPeZoOWdIx8E/kz6+/aTBuKMo6+CWpPpx51HiES7GyBNOxeiN0vnqilBPeWn+284puVhaaaMOFRViFXS/haDTzp5+pJpC2jYa3EwAgY/UEOxQac6jOFkrcyWCKf7YcL5ezMz9c5BV1y+jQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kFUfKVcWOcUWmCKlgCAV8U97HptbtlCZKYXRFc9G/HM=;
- b=x+p0FTApt6GmRVbkasVpKolQmUT8dbwTzDpzoGER+tPEm15rbpZpUNPV1DpFV7bxo338T9yhcWuycV1l1hXr77YnpI65aUQV94p6wuJ8dqrgnOrwXIumfZEozRexKhSdiMf7+Hkw+XvbHjdISpwkTFWraOpETuh3JaB3/3/VEd+IHY3OlX8eNtQyupdTwbrS3HR6ibsN+1Ov8DXC07RUF0vIwAU/KDIZXxbcCC3kmYZm+1igT60z05mdT/VBXawK7/3PTZjb55TMk2yMsD7Z//OOyZgi6DmGeiOkeJnNZQOhrAdZNYlJGGIlm+gEGwbukeKoVOq5mHKHqREEFS9xxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kFUfKVcWOcUWmCKlgCAV8U97HptbtlCZKYXRFc9G/HM=;
- b=KYiU+NW6Gw12+syaj1GDyQSzHNZDZN9dJzJZ1dg/kSOv9lPEZKsaBYE9Iv2uHuVtaHo7G9sNVHaialI3lrHt9V+AMdsGyERl3XuQBdhx5HNUmSZHQ+NVBXCXkkAQ2O8z+t0crOg9EiYZQR42MX9CqnNHTI7OfbJrZINPMjZ50E44wBLYphOad3rc89LriBokhOkR599ifzyLCEHu8BmoNvSr2alqoyBH6LzPgduXrM8wZgdXhW+bbUDYo0VvKrK8hvrx3dnTuDfX6ft4qt6am7jlNi5VNXfXDGd3PxIuWVUBWNBsoX4ggoMdJFOcDUazGy7fOLrmpCEupscdBijX8w==
-Received: from SA0PR13CA0023.namprd13.prod.outlook.com (2603:10b6:806:130::28)
- by IA0PPFACF832414.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bdf) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Sun, 26 Jul
- 2026 17:20:21 +0000
-Received: from SN1PEPF00026369.namprd02.prod.outlook.com
- (2603:10b6:806:130:cafe::95) by SA0PR13CA0023.outlook.office365.com
- (2603:10b6:806:130::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.9 via Frontend Transport; Sun, 26
- Jul 2026 17:20:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SN1PEPF00026369.mail.protection.outlook.com (10.167.241.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Sun, 26 Jul 2026 17:20:20 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 26 Jul
- 2026 10:20:12 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Sun, 26 Jul 2026 10:20:12 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sun, 26 Jul 2026 10:20:11 -0700
-Date: Sun, 26 Jul 2026 10:20:10 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Ashish Mhetre <amhetre@nvidia.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<iommu@lists.linux.dev>, <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v9 4/4] iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat
- workaround on Tegra264
-Message-ID: <amZByocd+B+fMk/L@nvidia.com>
-References: <20260726081904.1408859-1-amhetre@nvidia.com>
- <20260726081904.1408859-5-amhetre@nvidia.com>
+	Sun, 26 Jul 2026 17:43:51 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66QH74ao1371419
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 17:43:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=Si13RHoLBWIyuPF06cIxoa
+	9EFvca7cz+q6+0wc7xEeE=; b=PgZxNITueHYgajwyqd4SiujmWwdvjfsfgV0jlo
+	U58crE0tlB77ZvmPzZPIqxdg/JziKcwP4kDUjpGdmc6wREjlsVaADb/q9n8EbZj3
+	KmQfVL0eDTsmvmpfXgaqca+blVKRBt+RqYYYMAqe94/gjWghvzvtsyOhXMA63RzR
+	0B4u9AbzSbWeWdiwJo5NuVnXjHi+E5gNfMaGGFQQzIKgNDfxFtjniAsiQR5VSCdi
+	SdOp3AcnDFyOWZK5RKbjtJYIK9nMPA/PxsbEd8+cTjZUnIowjwLwyT3u1w2+arxj
+	m4wHHnQ7kl/353txXTctyE5kOwHGqGs0RPjrkGCpfkzN+ctA==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fngysrn12-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 17:43:47 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-52769fc3f2eso25660811cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 10:43:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785087826; x=1785692626; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Si13RHoLBWIyuPF06cIxoa9EFvca7cz+q6+0wc7xEeE=;
+        b=NiiWLaNxd3E7G2Pc16ymrAM5eNtfjhn5j0l5DnlL76k48VoL9/x/Ip9RoC2/DnS8ny
+         vfopbsjjGXwaBhnQkHB+8PkGNdlQiY5hmQZTWeiWQFJleTaceO/WmV7kEnVbXLk1JuMq
+         n9v3CqcwOdpmh6nrMR5ZV4TY//7EWs/G+mWm2N6/+7pSINzfuDmvn/3aKI5N9uo+fy+h
+         kOCIDiffzA5UGdq/pZH5D2A7wsOSbnph34HWPPnlXKT4K2IWgFt/rRIHsWZfmYOBUueg
+         3vTqBCkwcRduqTh3SPm/EhnJD4x+twbvK2fxhwQ9JWVCx+bOVQ4dIbz57F5pw3dty0V0
+         PU2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785087826; x=1785692626;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Si13RHoLBWIyuPF06cIxoa9EFvca7cz+q6+0wc7xEeE=;
+        b=pYJkiKEc5jfKn/TOXsVe2s8xDhj/YuAqvi8Sd0XtuoG+VS7umfyBQ8fexKBresZ3cZ
+         aJnEpsZ4bky8f6Rn5EzBdV9U/DSRV4mXB0fFQ4blh9fGVP2qeHIvNvSS2p9cVseOlaFI
+         ghdPtEfPjk6DheoVVw/a1KLXltpHO/4qEO8Tc9kkRv1eFT6Xy9YFG1HZkF9GfTOnS1hz
+         FI3jEsuIlTV6HJIGlL7xSOLb0ZrWLeL1XP9WFgfNo4YGVWXfK2J8jF4aGm1CnQ08hYLI
+         yKcePaHzXRy7J6xTC8KB5X1DEzvLfhKZ1ZZenEU9ePGHryDtIjggfIVq2I/cA1j/Fdz5
+         IWTw==
+X-Gm-Message-State: AOJu0YwhYIRk3u6OfIaqcPoCGILHOCgRSftvtrvz/YUDzo6yO++WNnz1
+	QEhuRbyEhbAHN3WxK/GGcEuATVxaBjrMV8teOxH2Y57qNim3nkVzPAk2xCqqb86BmLfrfzIKCcy
+	VAJ6gNC+PLrfrQXf/8swGKZhujg3WnA1fuzp+Ic0w58Tmp/hz2NkhNODZZVsnAUr5YLluJ3HDmr
+	GN8w==
+X-Gm-Gg: AR+sD111/S9QWRuZiqUtFw8ib97d1cw05NI5a/o3h9iH34u/X5uFp+Jf4wXOO2ElkMz
+	Gn6zPI4Y7v52TPNJitj+o+jcvuG1I3nUy5W35Eqe5kGPat49QFPUZLo3Nx4ctVK71rtdWDz+3UE
+	2f1FXUMUIiwtnpC+dsHBeuQ1cTrBLKMOfpd0gbG0Wl3WSoPdmZUnDEMgQQEcCIsi6plfO54TjzY
+	naL8ooZyIz95Aa8irLXVXBDHs3TGQF+XueV5NIH+i2mx7EXnArgmfY7EfFNXtZJP63opBqit1e/
+	Cz8yxJwZAqW916F55DoiLhh9edyQ54shkZF+veLDWgvdG1hy9YHVGvov/3Fm9IdH5TNRIZqdgBD
+	nksgD42ro6ZSNzJO7WuVZzZqo
+X-Received: by 2002:ac8:5f47:0:b0:51c:2149:52e8 with SMTP id d75a77b69052e-529a871379dmr57979841cf.70.1785087826457;
+        Sun, 26 Jul 2026 10:43:46 -0700 (PDT)
+X-Received: by 2002:ac8:5f47:0:b0:51c:2149:52e8 with SMTP id d75a77b69052e-529a871379dmr57979701cf.70.1785087826028;
+        Sun, 26 Jul 2026 10:43:46 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.223.174])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c63bd3sm41576093f8f.27.2026.07.26.10.43.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Jul 2026 10:43:45 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 0/8] arm64: dts: exynos/google/fsd: Trivial white-space
+ changes to adjust to DTS coding style
+Date: Sun, 26 Jul 2026 19:43:33 +0200
+Message-Id: <20260726-b4-dts-coding-style-strict-v1-0-e9e3e9879d05@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260726081904.1408859-5-amhetre@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00026369:EE_|IA0PPFACF832414:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70efa891-e236-4595-864e-08deeb3a2bda
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|7416014|82310400026|36860700016|56012099006|4143699003|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 2PNIul2y/MXQMJLmGZOfBT4OXj9aGhlH+B3rMvVF/ujMsh7yXfRy1T/n7+VAUJzOfVVY+xl25HRU6rmRe4w0S4bm17jllpEWIkryexvackLZnpvBmEbZwYNi4BuznxyHO4cXqQKvqpCY8M4g13lbBKMtbwbHZchfBdN63GmMBLc90ZbiAlBzBEzeKSIAsjq6/c8rkY7YT7N0f+Bg517Z7Rph6wOisi+0E6uDWq6H0Hrpm53EpvaEccbCEWXWBwp89il6yrNwWQNTuapnI2fR2SkzqQPjZF9Qt1VOXegSjZY5ohQpATWNBz4mJLQ48NcOmkprxzYOED1zzUkms/01i5NAWW5aBEQl+6UP1tDlQ9Xm4w80DI5k0Z5MXxlQ5yu5WSEprMeH8ZQT+9iI0Chkqw3564CS0ZVwAx6cdKktkwwHFWwW/8LPebjhKUBAo7mBOQ/+rmdMij5cJoai9Mk+Ok2mk9d05ANTZbxodx2/c/3GMkKUEoXufnAfgJjuWd4HLAnI+Ywo+XRP8ow+KFUALsCOY3IoOAz0bb9npvCztkBZbKw+ij6Ioob9XKmU7MKVWOh5sKEeCj/ohLt19Ekd/orwqNarsrWlXuDEZIyCKHVAyycVgS+4pke0ZxzVAvnwsgM1EL/ZK2nEb78jh05tqzupbn5qZ66S4OcOPVxgYRvhOHQeDvFvmSOjgsRlTDqLtFucoi2oFY9lR6+UkbV49g==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(7416014)(82310400026)(36860700016)(56012099006)(4143699003)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: QUZZWSOrP8hzZOfzrtwRm8GA1ePyQ9NBzXWAVGqY3XsOFG1JMLMebHhDqmrJ5GPeTe9nbkY07mNl+2i4BLUuSHbIol9Uri2bQBaI5LXl+td/3tyFVLxr+GG1KS5MpNactIoi02a0F7t3jx35pa+1WsfcrVQELfk3TvG2coF2oKLuCoMO8FphoATq/Mj1YrTlBzeGmGDmaDvOKOw9rXqApb/E3id4lY/n2Oi++SVb7a+3SJyQ4VgDAg56GQHXFdH5MZuSxaegQzEbohW5dsUOZr39OMrn7fZQTpi/ZZC+KrJLCDwXhjdjH+xmDgwO6cdjMjseefyXSjyehD/ESULIqOZ1lcYQTfMTJvhnZxVff54tXn8yB5hoa7omN7caWcSJOwENpJ1WGV2skQHQEZk+8Z3Jl5UVHgHn5VO7KHuWsKKXd/nB3w1ZGyEwCp8IyDgy
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 17:20:20.8159
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70efa891-e236-4595-864e-08deeb3a2bda
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00026369.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFACF832414
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NQQrCMBBFr1Jm7UCMpVGvIl3YZFJHJNVMWiqld
+ 3fUbj48eLy/gFBmEjhXC2SaWHhICvtdBf52TT0hB2WwxjbG2Qa7GkMR9EPg1KOU94N0M/uCzsQ
+ 6xIM7niKBBp6ZIs+/+KX9s4zdnXz5Fjcj02vU17Jp6/oBTqPmaZMAAAA=
+X-Change-ID: 20260726-b4-dts-coding-style-strict-70f4df3789fe
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Peter Griffin <peter.griffin@linaro.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Sam Protsenko <semen.protsenko@linaro.org>,
+        =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+        Tudor Ambarus <tudor.ambarus@linaro.org>,
+        Krzysztof Kozlowski <krzk@kernel.org>, linux-fsd@tesla.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3194;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=0heBfNfOncdb0dF9IwkvyA9GBPaKA9+Er+Dg3z10Wak=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqZkdHPyln/j2ooJ2F7tYvn7cFNfhORymfCNuST
+ Dx/SbUU7VmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCamZHRwAKCRDBN2bmhouD
+ 1zSVD/4+1jmer9co03ZaY5J58u3UM2b6wO4SMgEAuZMpX282OHXbvhVsyG9lolbMXkn1KMm7ACw
+ 9XBjFwL6azYrxSvtjz4PYvPsRZOgbl7jbxJX403das1PvYD9D+pcDWE/cMPF3P3pYFH3aCt5Hkl
+ E+ljIoaXK/PukiEq2xikrr7BKgtU58YNtSCfqyU+uLDVN8vWYoYfpzoBvrpM1P+5fBIp4CLg3ao
+ LWeKwBH7hZV4YHHD+eSJw/4JaZEsqnzXP5ARWArjQ0Kcr6VPH7KqpGyzWSpzGvBn9VtpTgxHW8O
+ HxRYkpa+YYeSQTZ00baN2/iW7hO1oSfAbJXfDAJy7g1fziy6nez5p63ByA9sIWNbmpkX5nndUUy
+ Gs8LBYafbCY0nH8Z0dSRa9bLaBT5wz6xnSxQ1ykzy2ep4c9xzEJPVilz95ipBQjS1bkm9FhskNa
+ GisDYuIOALwfUFc/sH8l7E9ccUC2GilnuWQs0D3nwqAoVnMKEMW0UEYtTpoyfhEhsXLvXzr0A92
+ sUtFPsOkRUeyQC+6k3dpyH7r1SeimO56P2tBJmuWdLTbqEqsfJiKBrcIsHP7fddX+Sc2DV3iOdm
+ TI53AtHFgZzUCvszVNxbg1ZIGghsxY1wzBrX4rKjYLIoQdiNOJZkFmpWixUTQBHA40+7dXxFOxN
+ NoxHH3Bf+ZXeS3A==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI2MDE3OSBTYWx0ZWRfX2iAjzELnkRi3
+ 3hjZM11gmcUfuA1HcXdHfM/4OjwDU2zJLqXSsRZVvYdbQs9kd7/+MjIgVl6wlrGqUu0pJkveqnZ
+ LvQ5WBI79fDQwYHwtmwwqbZLqHtTAlkH6bw2jTzhtgg+scgHYjsToB4x9qj7VrJtufbd/wo7nHE
+ 2MBIySPVK/ovRlf6pFOLRa+jx4AOmT0r2F+HXWHP6+S4c2NQooxjZie1bOpN14Er13A5JjbdDv0
+ f44+4WpIW0ItrJrnibWWa7AP6LfgsahJyk47CYMHmVVPMbngnEGD+WPCwT+zMKFXk5jnpsiLlx2
+ DVrVjpmmZExfFuPq3Ql9XzAhT0Rud6y6vxGec2pTOFMpX6vA8c/TVzKbc2qxOBvqHbTIuHPpSDJ
+ 1VrHGzNiT1bVUw+vmVvzww4gdQPdP2ZopNGtObV8tPo6W9GOyfvLlkoVI3lIj+wEgWjdsGiSjT5
+ wX7ZbT6JfGscRVl6NyQ==
+X-Proofpoint-GUID: EtB2Tj9uGXY24ljZHmjoFraVbwGZjz28
+X-Authority-Analysis: v=2.4 cv=DNG/JSNb c=1 sm=1 tr=0 ts=6a664753 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=gZx7o9k1dQs2gHzPI9AA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI2MDE3OSBTYWx0ZWRfX61b3nPeKEWPk
+ y3ftzlEWx1TuziwItk24sG61wjz4JibGwlKapsHuN+oLTNR7G4FdBWAw7Ks8QPRkV/TUwwY1yXM
+ HPgScu26aTBm9FcXOSUi1byz1DVmYjQ=
+X-Proofpoint-ORIG-GUID: EtB2Tj9uGXY24ljZHmjoFraVbwGZjz28
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-26_05,2026-07-24_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 malwarescore=0 bulkscore=0 adultscore=0
+ suspectscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607260179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_102027_957539_1913F156 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20260726_104349_926922_C5DFC9C3 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,25 +174,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 26, 2026 at 08:19:04AM +0000, Ashish Mhetre wrote:
-> Nvidia Tegra264 SMMU is affected by an erratum where a TLB entry can
-> survive an invalidation that races with concurrent traffic targeting
-> the same entry. The hardware-recommended software workaround is to
-> issue every CFGI/TLBI command (each followed by CMD_SYNC) twice, and
-> that infrastructure is already in place behind
-> arm_smmu_erratum_repeat_tlbi_cfgi_key.
-> 
-> Neither IDR nor IIDR flags this Tegra264-specific bug, so hardware
-> detection is not possible. Tegra264 is device-tree-only (no ACPI/IORT
-> support) and already has a dedicated "nvidia,tegra264-smmu" compatible,
-> so DT-probe is the only viable detection path.
-> 
-> Enable the workaround on instances matching the existing
-> "nvidia,tegra264-smmu" compatible by calling static_branch_enable() on
-> arm_smmu_erratum_repeat_tlbi_cfgi_key. Document the erratum in
-> Documentation/arch/arm64/silicon-errata.rst.
-> 
-> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+Fix a few obvious dt-check-style strict warnings.  No functional impact.
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Best regards,
+Krzysztof
+
+---
+Krzysztof Kozlowski (8):
+      arm64: dts: exynos: Move 'status' to the end to match coding style
+      arm64: dts: exynos: Align continued properties and add missing blank lines
+      arm64: dts: exynos5433: Override thermal zones by phandle
+      arm64: dts: exynos: Re-order clocks and align continued properties
+      arm64: dts: google: Move 'status' to the end to match coding style
+      arm64: dts: google: Align continued properties and add missing blank lines
+      arm64: dts: fsd: Move 'status' to the end to match coding style
+      arm64: dts: fsd: Align continued properties and add missing blank lines
+
+ arch/arm64/boot/dts/exynos/exynos2200-g0s.dts      |   2 +
+ arch/arm64/boot/dts/exynos/exynos2200.dtsi         |  98 ++++
+ arch/arm64/boot/dts/exynos/exynos5433-bus.dtsi     |  29 ++
+ arch/arm64/boot/dts/exynos/exynos5433-pinctrl.dtsi |   8 +-
+ .../boot/dts/exynos/exynos5433-tm2-common.dtsi     | 167 ++++--
+ arch/arm64/boot/dts/exynos/exynos5433-tmu.dtsi     |  49 +-
+ arch/arm64/boot/dts/exynos/exynos5433.dtsi         | 571 ++++++++++++---------
+ arch/arm64/boot/dts/exynos/exynos7-espresso.dts    |  13 +-
+ .../arm64/boot/dts/exynos/exynos7-trip-points.dtsi |   7 +
+ arch/arm64/boot/dts/exynos/exynos7.dtsi            |  58 ++-
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |   4 +-
+ arch/arm64/boot/dts/exynos/exynos7870.dtsi         |   9 +-
+ .../boot/dts/exynos/exynos7885-jackpotlte.dts      |   3 +-
+ arch/arm64/boot/dts/exynos/exynos7885.dtsi         |  21 +-
+ arch/arm64/boot/dts/exynos/exynos850-e850-96.dts   |  13 +-
+ arch/arm64/boot/dts/exynos/exynos850-pinctrl.dtsi  |   1 +
+ arch/arm64/boot/dts/exynos/exynos850.dtsi          |  47 +-
+ arch/arm64/boot/dts/exynos/exynos8855.dtsi         |   5 +
+ arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts |   1 +
+ arch/arm64/boot/dts/exynos/exynos8895.dtsi         |  56 +-
+ arch/arm64/boot/dts/exynos/exynos9810.dtsi         |   9 +-
+ arch/arm64/boot/dts/exynos/exynos990-c1s.dts       |   3 +-
+ arch/arm64/boot/dts/exynos/exynos990-r8s.dts       |   3 +-
+ .../boot/dts/exynos/exynos990-x1s-common.dtsi      |   3 +-
+ arch/arm64/boot/dts/exynos/exynos990.dtsi          |   5 +-
+ arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts   |   9 +-
+ arch/arm64/boot/dts/exynos/exynosautov9.dtsi       |  86 +++-
+ arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts |   2 +
+ arch/arm64/boot/dts/exynos/exynosautov920.dtsi     |  64 +++
+ arch/arm64/boot/dts/exynos/google/gs101-oriole.dts |   2 +
+ .../boot/dts/exynos/google/gs101-pixel-common.dtsi |  12 +-
+ arch/arm64/boot/dts/exynos/google/gs101-raven.dts  |   2 +
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  81 ++-
+ arch/arm64/boot/dts/tesla/fsd-evb.dts              |   8 +-
+ arch/arm64/boot/dts/tesla/fsd.dtsi                 | 121 +++--
+ 35 files changed, 1166 insertions(+), 406 deletions(-)
+---
+base-commit: 392dc8766489bd451c5f20928d01cc24ff9eec0d
+change-id: 20260726-b4-dts-coding-style-strict-70f4df3789fe
+
+Best regards,
+--  
+Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
 
