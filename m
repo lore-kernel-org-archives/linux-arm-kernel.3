@@ -4,70 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50127C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 10:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BA8C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 10:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mGz2WCNtbikZ54FQPI83u5ljHqNmnF0+VI57cNqwmmU=; b=k3BUrqzYyDtE72uR+v8NkOkqgA
-	nNHd0vtLEJIj6u7yTJsZycO2IPDlmM0xoOMg8BJrazYclcroBplPgV1u3/eo56nDJWcg2oBejeKYZ
-	ZXzzWmvkMhnwFw+B0NUm0MY3fVQVg64Vmx+nxmn6NC7lhKJpR62NVnnYsD3Cfcxs/MT3X+m8Ee9fi
-	Sn0eQkUWNxJ1bAXP/WC2tJVfyRBAsohZYXlvy/FhcWz+qDy/DCLhd28XZqL0/bLweOoTeQefED3og
-	K/n9rTgVeD6VVVqAjQ/X4gdW6JINQNHe3Epo5KGhjJfn1zJayaUm0nd/d1GVZurrLn+7dgrzxCnqV
-	EH6nAIVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iw88qdhbLeJWjjRsO5YQ58HvJ0RtCrw2s4pHsHM+gn0=; b=bL+nlijsnHrfUV78Ezdq27O463
+	Syi0Mwv4G3ndj3vl6ATVJsvPkMPZXOa9z7JNdDXZSbaE8HBn0vyzvAK2/jyDzMWcuE9bWQrRP/mL0
+	FKNQyG80tFmevm8+gsgMRl6oWn6k6e+GG+4bniUQsdOdcsO5c4ifTxSGyqC2Fb1w0ziuRmIRmXHP+
+	i9mPxKxgrQA0K0TRs4bVDTez+f0cPUhfJDFGZLI/UT4Aq0188Vvf0G/nBtQ0M4x5YJdHbDReMgfVo
+	EtPRZVP2zDpyjyUjxjPplI8ZcAzxs+Alzs6nZle+sshitsH3GLHj0VuE8nYsiMiUUJhMc9aVl6oEc
+	XA2fu61A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnwKD-0000000151L-30Pp;
-	Sun, 26 Jul 2026 10:43:17 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1wnwV4-000000015Fw-32tu;
+	Sun, 26 Jul 2026 10:54:30 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnwKA-00000001512-3vcv
+	id 1wnwV1-000000015Fb-29aa
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 10:43:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785062595; x=1816598595;
-  h=date:from:to:cc:subject:message-id;
-  bh=7sLiP+q7Ps65rT5OjOzubFD2NDR3us32eOv0i5ZQcAE=;
-  b=i49MabZby89TAJ/zotkUO5F8HP7eYYjst57eRj6QOvvMcBv4rkHDHlV2
-   8iyvtd/ZOFebBR/rkqLYLewJsZ0IGWr2fAE8jftZ9RUq/H+cQWC7QVeWF
-   fF6ofQYSM31o17YCCe7bJxcnu+ISp1D07isFmh0CLFpdjMvgC7UwpavAm
-   fy0IrnFrtw0T6yF7b+jGiiZQHADMA5dlF+CM+bGP37sKC3bw+vjLVQUlf
-   CkIWgKiK74EUZs/0sxAo5tt9GidbF58gsexrR6UXZIUB/w/mcSF9cBwGJ
-   1la0T2XOO7i60961iNJAgFP92gOccp2z5lhOGWMLUTUHTliASw7XlH9GZ
-   A==;
-X-CSE-ConnectionGUID: AoiDv2J/QBSQy/3Qvd47Bg==
-X-CSE-MsgGUID: 7Df3Jc1qR7+oCsVrnzbGiQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11856"; a="85524577"
-X-IronPort-AV: E=Sophos;i="6.25,186,1779174000"; 
-   d="scan'208";a="85524577"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jul 2026 03:43:13 -0700
-X-CSE-ConnectionGUID: A1yp0VvMRuGehO1ZBLcE+A==
-X-CSE-MsgGUID: WgQws6aXR72FVRwDgZWLcQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,186,1779174000"; 
-   d="scan'208";a="263438458"
-Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 26 Jul 2026 03:43:12 -0700
-Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wnwJy-00000000cTu-2Q9M;
-	Sun, 26 Jul 2026 10:43:04 +0000
-Date: Sun, 26 Jul 2026 18:42:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/drivers] BUILD SUCCESS
- 6bbf8038f8cae72f08007604b8c863492970c2f6
-Message-ID: <202607261807.cMmmam5r-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Sun, 26 Jul 2026 10:54:28 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c999f162c9aso1303947a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 03:54:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785063266; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qNBNL/BUFOeMWWw5azXbSrxLm/vBF8gL62pPjavjzS2CIQmQJxH9cO+htl7WB1Abng
+         VFtjVRyLa32v0atAuLN26XKcxYR8Wso9A6NLr2E9qTRQpV1QtZVy3AdU/8T8+K+9UoQ1
+         XpH6XZPkmzftysCW557+aHMSUoEjD151GwItVTEK95bey5HSRVNDFZOZsgzxvOEG/cfr
+         htJzzeEBFCYqhIy/CR2otq3Fd3jG0NmYvBA24TDXh3g31ZcHQqb3zAijGDa7wYA9ktv7
+         G2nalA3NhEfFWiTOFx1Kj4ebXrOu2UpXwwE7K96hogZj58NqT8xQCBhPbDqYx+vKugHr
+         83yQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Iw88qdhbLeJWjjRsO5YQ58HvJ0RtCrw2s4pHsHM+gn0=;
+        fh=9OSVpASDZpoROd9YG4u7vr3OmhIc5JHPeyxV7sEGzf0=;
+        b=QfPhI8NV/k9o3XviN62UCWb93G62WK04/nypZqkufojZhFcwUDa21KgDxUAJoA/f3v
+         QOQThnC9JYmUCPx1sCKpOX9eCSzi7fThFJmxgCb+LuW8kK/wT0cPfKhzBf7x9nS0whg/
+         lvUjUStkIUl1+afPCKJTfeCr7/VC/mRjKcyc15hfsOZkO9HzdMsbxChz7wXQ4rL6uqv6
+         BQ7QWX0y99uDOW8xNBaLCuHztl9DM11xznRIzNQPNKP6dHRMuqzhA6mamsHpCB3vCbCi
+         VHYaMgvQMbIJBMtr4k694X/c+Ny08wwJfRYj+QZXWZCGzE8QQlHyoc4bs03kFpH7Kx8s
+         fUrA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785063266; x=1785668066; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Iw88qdhbLeJWjjRsO5YQ58HvJ0RtCrw2s4pHsHM+gn0=;
+        b=g8xcvoDYHsKh1/CgczFv0AfW6hl0iKxe3NBTp7sXpHyiEMzf91bESg8h8Z4sf/JR8r
+         sTeWADgnq+l6GneTKY/29hWHfs7pMlY6MXm3kdS1nXPoQn9qXW31wP5tfTNOEeaNx95k
+         1nL+/t61Q4djVB/exf1IfpVGp/+6hpgzIwPIXGNzA2CSAycYknw1BAsFCTpKpaN5Zy8u
+         xXyrpjei0voIQQNeEbWOq1mfj+ktD2fdTGdg1jhDs2gXlYt9HmoFn01ZdKbVVAb7weDZ
+         JHLjMK2JSYWX00UU36k11D0r1+hYlaiCvbLS80GDBfg/t+CF3anfArP7rTHP3OQGa7bZ
+         +omQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785063266; x=1785668066;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Iw88qdhbLeJWjjRsO5YQ58HvJ0RtCrw2s4pHsHM+gn0=;
+        b=KOf91rCpaR/NnFK/WrdkAwbz+7YLkc/4jCeULXnnzW2G0Kn7i7D2AIQHf3dMk35ubc
+         dAYLN5WgQhcDz57StV0/JfP7Rm91vfL1vDawj96Facgbzy4L7qIOmOPlTAzZAKPaSdUy
+         OtyTZYLbwWvtPpNEP0ZmdSeMfDE/2a9Hk2Nu91opUWzDG9CnLG2S52uAjMHlbIqNGwEn
+         6nx5U1Wkmr9wp5PPYbt+fOdWjNzeTbZ66PKSkeGxEjPnBc/wfZ6q9GgsdFZBjH3AXnzI
+         cWmwA47kGTuXzPX4U8097mtAfIw+QD2r4BupxoKBK8/TR7CUV621BtWcL75qCkMic19i
+         /Cgg==
+X-Forwarded-Encrypted: i=1; AHgh+RqTlTmQvdjUpmH+kyv0lt3TDe6GyE+hAh0TiCUjjVdKyJ93e88nfa8jYnbXvYqdBIyvxC8vgqJN/diK5n0aqeOe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzzz4oB25qNccqo3fU/i5eHQqpOo2unN5qcC6/VkHlqV4dm57mI
+	mzPCFjTBO9NA+wglA0ejnQJykNCG8v4jicOZsq7BreOnpBhHuKMNsRvH+UhwKGFCuZiy8TM672O
+	KUpoNeoKB4H9jXtvNRDcf4THg6FR7bmE=
+X-Gm-Gg: AR+sD121bFfs63Uaxl4eKnl4OFQ1a7uMkuMgf55UeuzA62gxvfQcZvv/ckEWPees8k+
+	I9lxTogO8oYpUaRh1C7Xh57oIjLwrMMy1MUTsTfS2clorByqmzDyFqSoPIXb/I9LWZoKHVu6K84
+	kLdsXYaV2XVU77UpN/RrIEP7S7muVUdLSsp4rjOy43/68oW7AaTCUEATAAo4F0NUIJfsM4fIesH
+	nRU33oclYGpeMUV4sDO9+DfmPsvtTxI2ou+FDHlvkNCWUEm4q2/Fdaia8fDM77g
+X-Received: by 2002:a05:6a20:918e:b0:3c3:68a5:50c8 with SMTP id
+ adf61e73a8af0-3c67e166966mr4554741637.71.1785063266062; Sun, 26 Jul 2026
+ 03:54:26 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260719-usb-ptr_err_patchset-v1-0-85f7f2e4fefb@gmail.com>
+ <20260719-usb-ptr_err_patchset-v1-1-85f7f2e4fefb@gmail.com> <al4zFG3zCD5FJ7eB@SMW015318>
+In-Reply-To: <al4zFG3zCD5FJ7eB@SMW015318>
+From: Subasri S <subasris1210@gmail.com>
+Date: Sun, 26 Jul 2026 16:24:14 +0530
+X-Gm-Features: AUfX_myX_j6xmvi1eW61hYxH97YPNgwMZ6bNH_j9w9hal-EVFSbaRcZHMpkAmFA
+Message-ID: <CABfayGP4XpfqrfQ3qWz97yLTfjqwn8xXwW9WS2g1_vceS0srXg@mail.gmail.com>
+Subject: Re: [PATCH 1/3] usb: chipidea: Use %pe to print error pointers
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Peter Chen <peter.chen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Duncan Sands <duncan.sands@free.fr>, Chas Williams <3chas3@gmail.com>, 
+	Minas Harutyunyan <hminas@synopsys.com>, Hans de Goede <hansg@kernel.org>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Badhri Jagan Sridharan <badhri@google.com>, linux-usb@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_034315_016456_6BC7D23D 
-X-CRM114-Status: UNSURE (   5.78  )
+X-CRM114-CacheID: sfid-20260726_035427_582357_C0D6716B 
+X-CRM114-Status: UNSURE (   9.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,56 +125,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
-branch HEAD: 6bbf8038f8cae72f08007604b8c863492970c2f6  Merge tag 'renesas-drivers-for-v7.3-tag1' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/drivers
+On Mon, Jul 20, 2026 at 8:09=E2=80=AFPM Frank Li <Frank.li@oss.nxp.com> wro=
+te:
+>
+> Avoid use words "This patch", just
+>
+> Fix coccinelle reported warnings:
+>
 
-elapsed time: 972m
+Sure, will follow the same in all my patches.
 
-configs tested: 36
-configs skipped: 1
+>
+> keep one is enough
+>
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Got it, will do.
+Thanks for the review. Will incorporate your review comments in the v2 patc=
+h.
 
-tested configs:
-alpha                  allnoconfig    gcc-16.1.0
-alpha                 allyesconfig    gcc-16.1.0
-alpha                    defconfig    gcc-16.1.0
-arc                   allmodconfig    gcc-16.1.0
-arc                   allyesconfig    gcc-16.1.0
-arm              bcm2835_defconfig    clang-17
-csky                  allmodconfig    gcc-16.1.0
-hexagon    randconfig-001-20260726    clang-24
-hexagon    randconfig-002-20260726    clang-24
-i386                  allmodconfig    gcc-14
-loongarch                defconfig    clang-24
-loongarch  randconfig-001-20260726    gcc-12.5.0
-loongarch  randconfig-002-20260726    gcc-14.3.0
-nios2                 allmodconfig    gcc-11.5.0
-nios2                  allnoconfig    gcc-11.5.0
-nios2      randconfig-001-20260726    gcc-11.5.0
-nios2      randconfig-002-20260726    gcc-11.5.0
-parisc                allmodconfig    gcc-16.1.0
-parisc                allyesconfig    gcc-16.1.0
-parisc                   defconfig    gcc-16.1.0
-riscv      randconfig-001-20260726    clang-24
-riscv      randconfig-002-20260726    clang-24
-s390       randconfig-001-20260726    clang-24
-s390       randconfig-002-20260726    clang-24
-sh                       defconfig    gcc-16.1.0
-sh         randconfig-001-20260726    gcc-16.1.0
-sh         randconfig-002-20260726    gcc-16.1.0
-sparc               randconfig-001    gcc-16.1.0
-sparc      randconfig-001-20260726    gcc-8.5.0
-sparc      randconfig-002-20260726    gcc-8.5.0
-sparc64    randconfig-001-20260726    gcc-8.5.0
-sparc64    randconfig-002-20260726    clang-24
-um         randconfig-001-20260726    clang-24
-um         randconfig-002-20260726    gcc-14
-xtensa     randconfig-001-20260726    gcc-8.5.0
-xtensa     randconfig-002-20260726    gcc-8.5.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best,
+Subasri
 
