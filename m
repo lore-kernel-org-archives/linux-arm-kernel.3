@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F2FC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 18:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8452BC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 18:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wRAQur8L/fejABMUOGfnExKTMwqijNNgWK29zDYECjE=; b=o4POTwzQ5LtVxA
-	3tHKAaRDbUeR0oOV8hbhzR5/oM9un0aVRNy2CM5GVjtovuAS/0QNoU9AiBHFN/Wst4uxPSFuI3Vko
-	Q30YKtz8Ky6I91O/0WSyOhvPatEYsdlie2XP7a33q1yavAm+rnsxdAadNCH1J0CgGJ99l4B499cPM
-	vB4pGUZ/nIphllggY/e+t1PsIoGJgjo/Em4BiBjq0GRoamiG1x7VuuGq/wObM7w8qM/nb8mUsmpa+
-	vL+WcM10SNOpuvdqcXzARcsOuMykQ34vP1kXyRt5b6zrP/5rdfSIx0lfuUikGgcWdVAYFEglaIRmk
-	tqCqqFqqdxii4+Zt1Meg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Content-Type:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3SlIwUm5bt7YVM6EyfiZIEgRZEN3wUHTuCE/oWFfY7s=; b=eUDnEl+36dnXjiEgDjOm3IrK8M
+	YHDJ/a+8Y2lUH7ViEOMoecwvDKquCdE/NnU0hFcnCQ9baX9R1dg3AsLhA//rbsNgfG32QTgeUozf0
+	+ziw03khuS9LpW8Q1xCzo59L89VUUCH3j5C6+RdB2XRi2GGOYtsYLMjG2oyDmdIgtKsDAb8BcKIJf
+	Yw9J61kzQq3xv9PhR8zNJZ5UhkFN2frVsFh6wimJcG/EpDkNvwPw9ADPFAie+n6VRTX1t5wp8+jaC
+	y6LBeKk+bVhX3s3htjy5vfcZ+qjr7795TFRkVCdQEU2qU1lK1aJ0sPVVVHZzjmeQZqKfSroYHJR/K
+	/lo8AjXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo3UF-00000001Tlp-0z27;
-	Sun, 26 Jul 2026 18:22:07 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wo3UM-00000001Tpy-1jeD;
+	Sun, 26 Jul 2026 18:22:14 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo3UC-00000001Tl5-1q9W
+	id 1wo3UG-00000001Tlu-3Y9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 18:22:05 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-495590dde14so21401585e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 11:22:03 -0700 (PDT)
+	Sun, 26 Jul 2026 18:22:10 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so13135675e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 11:22:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785090122; x=1785694922; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wRAQur8L/fejABMUOGfnExKTMwqijNNgWK29zDYECjE=;
-        b=arPOcQeJvIZr8N52LXknlNNMHbbvuBMOZCL7dR9OZl9PEN2+Jc2voynaProwKNTadW
-         tbbTkyhIL3OwAwYL+W+5mmbWaZ3G1hYhe0X5zeSOCCYdbSHG8t3vOAadkqXCYy/t8DPW
-         tH7k4MC6oPJqGgYSAXV5huzK8swUQ8juLv+FDHYx6d/YWnSjazODQLKopoRNAMVfQT5m
-         WhbIXAbNm+ykWaRAPPSeo/zZnsP0cELgVzVrQBME42fbCE/EVKZmY4+AY33xYCHPd+GX
-         qQlJVLmBDir44a5UUpDL645SDEScgWHr6YBA6nYnHs03xkkoqLewnSHV+SvGb6vi0KPm
-         FtQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785090122; x=1785694922;
-        h=content-transfer-encoding:mime-version:reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1785090127; x=1785694927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:reply-to:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=wRAQur8L/fejABMUOGfnExKTMwqijNNgWK29zDYECjE=;
-        b=erTDLePV3VLsuN8K9+mwv1Xx80GdcgG2u1OOFRJ0PDOLkE+6tZZWSMXWAW9L8+F7qQ
-         L0eZoQky8fXkuyvYb7nTV9Z0P2tiVteksSoHrmuu9SE6y8XB8SVw5qS4bQYCK/aKEvK7
-         kZQWRnIKqZWirqt45PrThUkCNVXW5hifURa2lCoZuELPMPOdg2kSHPzGvEIaxioJFRX9
-         IXeL1Gm9fl+zfk2Yvj4rlTnJoZzGgze/k7PXdk2GYU79cp5FPhrkf0n4+GrSW8jSCHG4
-         lsQP5vDpToNQkQRKvJnNRdgM9qX/SBvr2eNYt+TQxK98XwmOhHRtylJwE/HaPRU2UO03
-         AXZA==
-X-Forwarded-Encrypted: i=1; AHgh+RqxwevF7hLS04MdEVKNAg7FnjAYSkAjsi76O0GSbmACcPjJF6qcconfX2orCG+sDgHIVWUovv01nQTvD2tSsC0h@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGm7CS7vzx6vkpAPrAcV6LPlzQFcIOxNa1Q05Srj0S1NekqKz4
-	0bVi49djLpggsw9russtHO0TjLeYCEfxreIqkoOwUE+i8P6OPmZlgOYS
-X-Gm-Gg: AR+sD10IhuU1TCj+ym3lhfJpgn4WIQSJKwEO7iIe8Z7Oz87J5Gc9nAf5YeNuN9ntKDI
-	xsPDjiHKn1t69+z+noBHyfj6U33urnRx3HyT/Oyi250ZniI1LE2saskvnTbuqcu8Ga4cz+dWeiG
-	Z+rhXo6KO25PTsA8L/T8+9X0gwsa/g9rTT/NVwrXxMm12wxeXhqkhwv14ii0zK5Z10KiLFxn0lU
-	S3OW9BD4BKnQAblrdW3eWt3V2en7q7TIyJuD2T3lLtEibmRhvf+IvTXF202aah2vTjCmQN9ea6S
-	VOjnwScXen8TNstd1z54c4LakOJKiiz7QdJhrLEEj3uXOCFLSH6ik6CUBpugmQbAetU0/3qKT7c
-	Ow+i1y+EQZR2lDOcSL2XImHSHwBQpdGRyJQHb3CKIIb1Bmkk/tYxQI8G2EOsqfuwqsg20TZ8xSP
-	SCUhTQPPPC+I6AbA2i8fD2haF8imz1Z0YCgdJBOQ==
-X-Received: by 2002:a05:600c:8b75:b0:495:4d00:2fda with SMTP id 5b1f17b1804b1-496b56e6efemr88359835e9.2.1785090121922;
-        Sun, 26 Jul 2026 11:22:01 -0700 (PDT)
+        bh=3SlIwUm5bt7YVM6EyfiZIEgRZEN3wUHTuCE/oWFfY7s=;
+        b=k4c1ao12dzWKpThdU5IgYapIcv34xWPdfE6HB6S4R/Y/YXrCobQHsYzbuMDFjvLVPy
+         2LNW73Xiy+zSm8hZRosJwhMqIat3dCzrEiuGQTs4cRP9ieHEPo2gSTJaCZFaHUuAiDzO
+         8PzFnaXOol0o4cf5emt+18Eg8JtRrAm1vnMoAUWgIGD6R8QUaokB+qQSZeo3hkiKRZR2
+         W3uJvL+traCebHIpbxjGOHtlrCJhpT5AG4Gf24Ax7F2a8WDvWB9JmBgpGEyIWVCjuQIG
+         a+rn4SUX3gIz+Axc/B7sgq/eTBkIZUKMISKzCgkMVnQCHUlMHpdTSWbs90mIm5uMEz+y
+         CJ/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785090127; x=1785694927;
+        h=content-transfer-encoding:mime-version:reply-to:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3SlIwUm5bt7YVM6EyfiZIEgRZEN3wUHTuCE/oWFfY7s=;
+        b=EGROf1znbFNBqvdNgHhiTzA12iBEjOb6hlR0qnqiUmAdUUIkg4l+nuXbqFYnngc/tu
+         3B9fGMtRxJAf78wzTchoNocairN0xQhGoWLEsuv+5jz6l0UyELcm+dMwn60viMkU7AYH
+         7DJjVhc72CGEImAC11R1P4DwSQ0jeZ45561LUhJ+6gnBKGkSI7rjg613cwTJ3Ei/yD+h
+         /fyeoHftcvhI2j3Qtsw3OQkFnV72RpG+GyiKe+H37UibJ4rJXfk9dbZM3b8LMidjJARE
+         3MPM6d+RtmISsM2h1nANBA7jzJ/tY0qEsvpFzVeDij9dANxNtELRzhX289weSoI49q23
+         N3Vw==
+X-Forwarded-Encrypted: i=1; AHgh+RpeRg0mhjgCqOTW1rD086dpiIgN7pNwV65rLH+gbUPtf+RxYeR4h/1cujayhDuEkjvb8FlmP3Tg6WT0uQBVGP9x@lists.infradead.org
+X-Gm-Message-State: AOJu0YySATyaQlAG7Xm0d+xID2FsRCcLezl0sjWRirWhkUNlrsq2/r3A
+	EhDioMmTJVbw7T07IMVGk+K9AbF8uipMuCOe5I7J5vi09RsDsEPCXn9c
+X-Gm-Gg: AR+sD112jhMgs7yUnD7H0wqU+/M6yBg4bUgNhsy+0wUw/M4AiqMwPXL/00669cHfE/w
+	VLuqgyK8xFIMKFgbOTkvMmzUuil+Mr5dadjFTFzsI06mjz7LFO6xhDjnHIVL51K1ehXhYopA+Zb
+	feYhu6xU0nuq0yecFu7wt7rQtLZuG0+FxJI3aO/NZGrzn0OevRlrlx4mvHsNrgbe/mzzJSf22X2
+	BsvlCB+8/Ae3w5liWAN5FXDSpKvdE+2KhcUu4rII8Ig1GtVjyiEGbFcJzbAQ1lQpTEiahNa2ZP1
+	zsE25iNlFbG1H+LkpQKmrT+3ai3f82n9XefL1KLAFQ9o2PFfVFiztgtbJ1pef+hUEyD6SIIqJEw
+	2zZTW+LePas8aOITMSt++3RH5Sy18RWpj1ANcYXKbyyy6ohRw80sYc1pEKI5ayUok/pw38PXnej
+	KhkQ+pNuEBm69qXrtzB9J/UQKAmYZ14zvyua9q5w==
+X-Received: by 2002:a05:600c:a102:b0:493:c77c:108a with SMTP id 5b1f17b1804b1-496b575ded2mr58213725e9.36.1785090126740;
+        Sun, 26 Jul 2026 11:22:06 -0700 (PDT)
 Received: from slackboot (93-34-145-231.ip50.fastwebnet.it. [93.34.145.231])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b52eec24sm150748045e9.3.2026.07.26.11.22.00
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b52eec24sm150748045e9.3.2026.07.26.11.22.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jul 2026 11:22:01 -0700 (PDT)
+        Sun, 26 Jul 2026 11:22:06 -0700 (PDT)
 From: Alberto Robazza <robazzalberto@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -82,15 +83,18 @@ Cc: robazza.alberto@proton.me,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org
-Subject: [PATCH 0/3] arm64: dts: amlogic: add support for Orbbec Zora P1
-Date: Sun, 26 Jul 2026 20:21:55 +0200
-Message-ID: <20260726182158.249449-1-robazzalberto@gmail.com>
+Subject: [PATCH 1/3] dt-bindings: vendor-prefixes: add Orbbec
+Date: Sun, 26 Jul 2026 20:21:56 +0200
+Message-ID: <20260726182158.249449-2-robazzalberto@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260726182158.249449-1-robazzalberto@gmail.com>
+References: <20260726182158.249449-1-robazzalberto@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_112204_500260_D0ED674E 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260726_112208_900711_737FEA5B 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +112,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alberto Robazza <robazza.alberto@proton.me>
 
-The Orbbec Zora P1 is a vision development board based on the Amlogic
-A311D (Meson G12B) SoC, with 2/4 GiB LPDDR4, an Ampak AP6256 combo
-module (Broadcom BCM43456 Wi-Fi over SDIO and BCM4345C5 Bluetooth over
-UART_A), HDMI output and Gigabit Ethernet.
+Add the "orbbec" vendor prefix for Orbbec Inc., a manufacturer of
+3D depth cameras and embedded vision boards. The prefix is needed by
+an upcoming board compatible string ("orbbec,zora-p1") introduced by
+this series.
 
-According to specifications and how it advertise itself in the original
-dts configuration, the board is a revised version of the ODROID-N2 with
-WiFi/BT and Amlogic A311D instead of the original S922X, so the device
-tree builds on meson-g12b-a311d.dtsi and meson-g12b-odroid-n2.dtsi
-(mirroring meson-g12b-odroid-n2-plus.dts), extended with the
-board-specific GPIO wiring for the AP6256 managing, the status led is
-green instead of the original blue of the N2 and polarity is inverted.
+Link: https://www.orbbec.com/
+Signed-off-by: Alberto Robazza <robazza.alberto@proton.me>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-This series consists of:
-  Patch 1: add the "orbbec" vendor prefix.
-  Patch 2: document the "orbbec,zora-p1" board compatible.
-  Patch 3: add the meson-g12b-zora-p1.dts board file and Makefile entry.
-
-The DTW was built, validated against the amlogic.yaml binding
-(DT_SCHEMA_FILES), and the resulting DTB was boot-tested on the board.
-
-Alberto Robazza (3):
-  dt-bindings: vendor-prefixes: add Orbbec
-  dt-bindings: arm: amlogic: document Orbbec Zora P1 board compatible
-  arm64: dts: amlogic: add support for Orbbec Zora P1
-
- .../devicetree/bindings/arm/amlogic.yaml      |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../boot/dts/amlogic/meson-g12b-zora-p1.dts   | 103 ++++++++++++++++++
- 4 files changed, 107 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f36..f205df64a 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1213,6 +1213,8 @@ patternProperties:
+     description: Orient Chip Technology Co., Ltd.
+   "^oct,.*":
+     description: Octavo Systems LLC
++  "^orbbec,.*":
++    description: Orbbec Inc.
+   "^okaya,.*":
+     description: Okaya Electric America, Inc.
+   "^oki,.*":
 -- 
 2.55.0
 
