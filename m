@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD35C531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 09:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C227C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 10:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bBqEZzG/3qP7hxDl/BVOuu/JudVBqOrYm20UfGabDRQ=; b=04j+myBVTf0HEPugcLuvYMlpkn
-	J1QlKRsm7EHr7DC3mUTkWO7c60POW8UvP1xSRkcFIggEDtIRfVj4nW8lXsdNNKzbIp+VC48FAk/YX
-	SKoDKNg03RQvRTpUNtLL7jjMx6oJm5apwgqPbcm7pN1FrYP8+HneDxvimBGzjFdhv+9e4ooFgoTMf
-	FAy4/GqC/jBzVBY6GMl9PTmwG93zsU0GHAUDIabIHdZGWDTUtH7QE4zGi2sVq9oW4DUQEq0VnwCNf
-	QvP0Ra2fuWoQYONh6kNqMugMAUhFhV+yOw+hlvpYDwkeiS/IqXWFS7+gOhdShOcAkwvZxpnSJbF6L
-	WZSfh93g==;
+	bh=w7ezX4C/wGAqydZ3rjVOYg1UaOyU792jCLsACA+4PUc=; b=Wyhj74KhhhCCNOpCOLL9gvhXE6
+	mMh0Cu5D05V5d8MN+huw/Ppe5Q82w/QIYpOHntZC1L3xBtWX98ASKtnjcuVGKie+07zuNPbxiBi+G
+	S361VV6ig4nyxvier3G6su0FK9L6F9ozmZYdwwuZrIyZjRsXh6yvSWDgTP+pB67S2EqSx+amDyAFe
+	mWOpzkjq4aV5jv2BvyCrnHYfhLHd58zw6rU7ySD5mSK3qTZGci0FyuVMg3Pl7WrsxLec7IH0G158m
+	A3ZOfPJzmru05MGp6EtAJLGe/UhHRaNs1bJ1ee2K0QDL2oU/r+JsdSqfX7XiVZa0C5F8XuqaTGJvd
+	Esi7K3lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnurh-0000000129w-2Y4a;
-	Sun, 26 Jul 2026 09:09:45 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wnw2B-000000014Ub-07QC;
+	Sun, 26 Jul 2026 10:24:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnure-0000000129c-1dyh
+	id 1wnw28-000000014UF-408O
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 09:09:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785056983; x=1816592983;
-  h=date:from:to:cc:subject:message-id;
-  bh=iuCajqugv2Rsw8dWz/uBalGh+8jmv4QEMYv80kBNolQ=;
-  b=N5fDQ1TQNrkjOrXKk7mRM9Lmmi4zQXVm1O0IZafFCnS+95cs5m2uxFOQ
-   af0lJRAbfq9GMz2hwwzcCrENMfYSrdBbq/YV6tpodWsQ+gBzy+8gvDTXd
-   Wsu3mJbghxFkmyWEPOSM+6Cfh/isropO/5fd2/5yKhnDn1FCFCSNu28RB
-   9Zfzh8nBADClORA5ki2DkjnNhsGSmWWKFwdvnJByT470vpgzF4J8ZjXZD
-   i+YnuduTse/Vf0uM31booI5ILLaf2w8MNlvKIvcSu2dax/cMxyu4YZJAT
-   S4f+LDmyoMn0EWmVuMXNELaONVUPtQpeVQjh/MxOHVAsfMwVCdgR7lhwq
-   w==;
-X-CSE-ConnectionGUID: R+re/Y2DRtSltMwmbzMyJQ==
-X-CSE-MsgGUID: DlyUZ222TQah2j3x8U+HMg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11856"; a="89545737"
-X-IronPort-AV: E=Sophos;i="6.25,186,1779174000"; 
-   d="scan'208";a="89545737"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jul 2026 02:09:37 -0700
-X-CSE-ConnectionGUID: p0GBljECRjqSeoHiLNax6g==
-X-CSE-MsgGUID: I86cMoJMSr+FgEG2X1+P7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,186,1779174000"; 
-   d="scan'208";a="252796251"
-Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
-  by fmviesa009.fm.intel.com with ESMTP; 26 Jul 2026 02:09:35 -0700
-Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wnurK-00000000cRM-0sK3;
-	Sun, 26 Jul 2026 09:09:24 +0000
-Date: Sun, 26 Jul 2026 17:08:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- 0bcfbb1f786d43372319bae28ea44b5657931029
-Message-ID: <202607261757.b2IkRVc4-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_020942_531531_C2A395A4 
-X-CRM114-Status: UNSURE (   5.67  )
-X-CRM114-Notice: Please train this message.
+	Sun, 26 Jul 2026 10:24:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F63441615;
+	Sun, 26 Jul 2026 10:24:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F731F000E9;
+	Sun, 26 Jul 2026 10:24:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785061476;
+	bh=w7ezX4C/wGAqydZ3rjVOYg1UaOyU792jCLsACA+4PUc=;
+	h=From:To:Cc:Subject:Date;
+	b=GJdhuH4777ig2dUVqgkkTaSZmAquwy6SyvZlDbTvX5ZDSi87gQM0tEivm+/GYbBqf
+	 OlzgptwuvyFwbfwbQqielJKoGbpsVCcn4RS9BLbIB+opHZPgSMRynnN4+PFTM/fRE7
+	 PHKm3dSdgfimer4DhxzQANVAnHcFeH+41q1RA1hrk85X/zByYXCsFIHfjEnRd94tg4
+	 mJT8dAcGrw24+LE8Ue9lPRYnIJaXzC6lDK6MQ1WFGOUqOOUAJKt2SXBmjVFVxfaMND
+	 gnHvRbFCOlV7zJOYyZjAcGkDIMxqwfbWk2qsaEYlUKdTSz5jXHH2/ACxu4ZD4jnSTG
+	 nd48MB4VXr+/Q==
+From: Vladimir Zapolskiy <vz@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	dmaengine@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] dmaengine: imx-sdma: Remove unused imx_dma_is_ipu() inline function
+Date: Sun, 26 Jul 2026 13:24:24 +0300
+Message-ID: <20260726102424.547951-1-vz@kernel.org>
+X-Mailer: git-send-email 2.51.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +71,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: 0bcfbb1f786d43372319bae28ea44b5657931029  Merge tag 'riscv-dt-for-v7.3-early-k230' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into soc/dt
+The last user of the inline helper function imx_dma_is_ipu() was removed
+by commit bfac19e239a7 ("fbdev: mx3fb: Remove the driver") a few years
+ago, and this helper also can be safely removed.
 
-elapsed time: 876m
+Signed-off-by: Vladimir Zapolskiy <vz@kernel.org>
+---
+ include/linux/dma/imx-dma.h | 5 -----
+ 1 file changed, 5 deletions(-)
 
-configs tested: 33
-configs skipped: 0
+diff --git a/include/linux/dma/imx-dma.h b/include/linux/dma/imx-dma.h
+index 76a8de9ae151..16e491f63883 100644
+--- a/include/linux/dma/imx-dma.h
++++ b/include/linux/dma/imx-dma.h
+@@ -57,11 +57,6 @@ struct imx_dma_data {
+ 	int priority;
+ };
+ 
+-static inline int imx_dma_is_ipu(struct dma_chan *chan)
+-{
+-	return !strcmp(dev_name(chan->device->dev), "ipu-core");
+-}
+-
+ static inline int imx_dma_is_general_purpose(struct dma_chan *chan)
+ {
+ 	return !strcmp(chan->device->dev->driver->name, "imx-sdma") ||
+-- 
+2.51.0
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-alpha                  allnoconfig    gcc-16.1.0
-alpha                 allyesconfig    gcc-16.1.0
-alpha                    defconfig    gcc-16.1.0
-arc                   allmodconfig    gcc-16.1.0
-arc                   allyesconfig    gcc-16.1.0
-csky                  allmodconfig    gcc-16.1.0
-i386                  allmodconfig    gcc-14
-loongarch                defconfig    clang-24
-loongarch  randconfig-002-20260726    gcc-14.3.0
-nios2                 allmodconfig    gcc-11.5.0
-nios2                  allnoconfig    gcc-11.5.0
-nios2      randconfig-002-20260726    gcc-11.5.0
-parisc                allmodconfig    gcc-16.1.0
-parisc                allyesconfig    gcc-16.1.0
-parisc                   defconfig    gcc-16.1.0
-riscv               randconfig-001    gcc-13.4.0
-riscv      randconfig-001-20260726    clang-24
-riscv      randconfig-002-20260726    clang-24
-s390       randconfig-001-20260726    clang-24
-s390       randconfig-002-20260726    clang-24
-sh                       defconfig    gcc-16.1.0
-sh         randconfig-001-20260726    gcc-16.1.0
-sh         randconfig-002-20260726    gcc-16.1.0
-sh               rsk7264_defconfig    gcc-16.1.0
-sparc               randconfig-001    gcc-16.1.0
-sparc      randconfig-001-20260726    gcc-8.5.0
-sparc      randconfig-002-20260726    gcc-8.5.0
-sparc64    randconfig-001-20260726    gcc-8.5.0
-sparc64    randconfig-002-20260726    clang-24
-um         randconfig-001-20260726    clang-24
-um         randconfig-002-20260726    gcc-14
-xtensa     randconfig-001-20260726    gcc-8.5.0
-xtensa     randconfig-002-20260726    gcc-8.5.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
