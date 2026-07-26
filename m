@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5078FC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 13:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD4DC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 13:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ckV1U19phOeaxmxGVNQ9Q7jutnvgK/D9/0OgZzl6bI=; b=VYNIcGdyYxLmw1V0NSFXmpq4pf
-	utJq5lW4b10LklAyj1h1HsUIWI6Cxt1fMCbRA+ylTdFDNyiH+WtZjgVzMejcsg6HtmrJ9IWywpSIk
-	X+ys8N1q7DrjWUekxM/pYfFr5Tc7KMXP9TlIIprsys49otLJyh6yNXePIABZZkdzWx7vgG/z3s50j
-	5LDs/7tobcthhCOEzDiezBdoJ1DBM8zjVsPCy83HHQZCLXlXjkDYI0PvcyWvtd49uQB9L8PyeDL9p
-	XMHiOzC5ZtahmJDb8mT0Zmx7MQTNkrifeBiUM/c6JTphVOZ8WS7lK6pWb1n+I0SuPevhMi3bE4LB3
-	zRQYbx+w==;
+	bh=vYv9o26aNajOygDWeHNIH21RJDLG2bRxis67Fk4JWfk=; b=tADZCcs8P1W+Bxj0m+xMcfMg99
+	q68gXueDYntGAd/fp5TLr+NxNevdHtknMx0V8QxJeQZ5hOTPazyQpCz48JmyChh7JRuFkW+pyk97G
+	Be39+Bxe6rWAE1PMXd1v4Tt51paprc3v74dHFT02wWYkaq2u9vt4sRwprw9/GrIIbL9QMT9WVyxAU
+	fLjtYB/46mYsGFWV3J+kE19Z2UDYEMAUBtIc18Ao2odmQDe4TZ4++ONOjhgBqGz1cKgOsW6lLXwJn
+	y+4nT1gL3t9334zNmSddWwrlG9dbkNZdCg68L4srew91OJ0vm+mP2X8tzdqriokrK7rxzgQiKRZ/b
+	sgHRbjYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnz3e-00000001DEM-3zbo;
-	Sun, 26 Jul 2026 13:38:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wnzBa-00000001DOy-3UVk;
+	Sun, 26 Jul 2026 13:46:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnz3e-00000001DEG-0oKe
+	id 1wnzBZ-00000001DOo-42yl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 13:38:22 +0000
+	Sun, 26 Jul 2026 13:46:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 594DF435AE;
-	Sun, 26 Jul 2026 13:38:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 790491F000E9;
-	Sun, 26 Jul 2026 13:38:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 860BE43C9B;
+	Sun, 26 Jul 2026 13:46:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02C611F000E9;
+	Sun, 26 Jul 2026 13:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785073101;
-	bh=0ckV1U19phOeaxmxGVNQ9Q7jutnvgK/D9/0OgZzl6bI=;
+	s=k20260515; t=1785073592;
+	bh=vYv9o26aNajOygDWeHNIH21RJDLG2bRxis67Fk4JWfk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=h2yKAN8edCw7OcTToYKtDlo5VyMnTAvu+aHlR/TZgGelKuxDA/AJg1CYOH9c2hh3c
-	 tknaSPmpjcomgShMTLXkEiNbWqZrJ0uAVC7HBCJQ+Z5aI4w9AY9NSiJGoUJ48ahG2c
-	 TMV3bYjHfLtcbhoRX5lmLo2xB+7SXV+fYt1FRHo1DxkYxiYc/m6j5blwJQTWljk87h
-	 uNoYJrZoJZtiUF124AxKYaU0/GZkwifu14QE2vAb8igvC6aVll07rvcxlyPtVhjsiv
-	 IC2x2HeUbAF0XsoCs7mtHTE3WkIdsCSLpSOCpXNjlJIYxpGT3aUautKtfnzleadkWs
-	 9OZO4gqRRPOTQ==
-Date: Sun, 26 Jul 2026 14:38:16 +0100
+	b=FgYuVK64xBxjcoHZXHlxAFLpvie+0wACqlfri+/DGa3jA8ugGzrbwGXgvDLv7Q0O8
+	 vswNmi33gAqc8P+3xj7vwrbmIXcEXq4PFJ+CHDE67tQ9MjiZea6YvXmaYZDDljiXcH
+	 6EXJwyuSP7Cnfv5oQBYsDoSavEYQZj/UawNHnB2PmfVhblaT/fFN6o6w6igroxaWgc
+	 Jdm+rbO7iOIcYbplxr3KuDvwXpv7O8t5mTL6voYWaok076/+/5AkeECcGzcObMNV2Z
+	 EgH7G61RNY0PTkEk/B4fPn121bsnSL94BDa+zHvBEcFzlVSMq+gIq2/HostgzLv546
+	 5lqcXI6+P67uA==
+Date: Sun, 26 Jul 2026 14:46:26 +0100
 From: Will Deacon <will@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Liu Song <liusong@linux.alibaba.com>,
-	shechenglong <shechenglong@xfusion.com>,
-	Jonathan Marek <jonathan@marek.ca>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: proton-pack: Restore the nospectre_bhb
- command-line option
-Message-ID: <amYNyGksq324kzgN@willie-the-truck>
-References: <20260725122959.98361-1-kmehltretter@gmail.com>
+To: Naman Jain <namjain@linux.microsoft.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Pengjie Zhang <zhangpengjie2@huawei.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Saurabh Sengar <ssengar@linux.microsoft.com>
+Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
+ reaching head.S
+Message-ID: <amYPss8PK9dgg2TD@willie-the-truck>
+References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
+ <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
+ <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
+ <d52431ea-3166-459c-8f3d-988fdef63c32@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260725122959.98361-1-kmehltretter@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <d52431ea-3166-459c-8f3d-988fdef63c32@linux.microsoft.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +81,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 25, 2026 at 02:29:59PM +0200, Karl Mehltretter wrote:
-> Commit 7f1635737823 ("arm64: proton-pack: Fix hard lockup due to print in
-> scheduler context") moved the "mitigation disabled" printks into
-> spectre_print_disabled_mitigations(). For spectre-v2 and spectre-v4 only
-> the pr_info_once() calls were removed, but for spectre-bhb the whole
-> branch went with the print:
+On Fri, Jul 24, 2026 at 10:16:03AM +0530, Naman Jain wrote:
+> On 7/23/2026 11:26 AM, Anshuman Khandual wrote:
+> > On 23/07/26 8:19 AM, Jinjie Ruan wrote:
+> > > 在 2026/7/22 19:30, Naman Jain 写道:
+> > > > When a secondary CPU fails to come online, __cpu_up() falls back to
+> > > > __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
+> > > > distinguish a CPU that never executed head.S (firmware/hypervisor never
+> > > > dispatched it, so it never ran a single instruction) from one that
+> > > > entered head.S, started executing, and then got stuck somewhere in kernel
+> > > > bring-up. Add a change to let us tell those two cases apart, which
+> > > > narrows down where to look when a CPU goes missing during boot.
+> > > I previously encountered this issue when debugging the parallel startup
+> > > of ARM64 secondary cores. It is difficult for the kernel to determine
+> > > whether the secondary core is hung in the firmware or whether it has not
+> > > executed a single instruction. So I think this motive is reasonable.
+> > 
+> > Why should kernel determine the difference here ? Would not the firmware
+> > know if it has started any secondary CPU for the kernel which must have
+> > come inside head.S ? If the cpu gets hung inside firmware while starting
+> > up then the debug responsibilities belong there instead.
+> > 
+> > Still wondering what's the rationale for this change.
 > 
->   -	} else if (cpu_mitigations_off() || __nospectre_bhb) {
->   -		pr_info_once("spectre-bhb mitigation disabled ...\n");
-> 
-> spectre_bhb_enable_mitigation() therefore no longer tests __nospectre_bhb
-> or cpu_mitigations_off() and the mitigation is enabled regardless of the
-> command line. The flag survives only in its __setup handler and in
-> spectre_print_disabled_mitigations(), so the kernel prints "spectre-bhb
-> mitigation disabled by command-line option" while
-> /sys/devices/system/cpu/vulnerabilities/spectre_v2 reports "Mitigation:
-> CSV2, BHB" and the vectors are switched to EL1_VECTOR_BHB_LOOP.
-> 
-> The only remaining escape is the SPECTRE_VULNERABLE arm at the top of the
-> chain, which a CSV2 core never reaches, so from Cortex-A76 and Neoverse N1
-> onwards both nospectre_bhb and mitigations=off are ignored. Both are
-> documented in Documentation/admin-guide/kernel-parameters.txt.
-> 
-> The identical mistake was made on the neighbouring branch by the
-> immediately preceding commit 62e72463ca71 ("arm64: proton-pack: Drop print when !CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY")
-> and fixed by commit 165eb13e485c ("arm64: proton-pack: Fix hard lockup when !MITIGATE_SPECTRE_BRANCH_HISTORY");
-> this one was missed. build_bhb_mitigation() in arch/arm64/net/bpf_jit_comp.c
-> still tests both flags, so nospectre_bhb currently keeps the exception-vector
-> loop while dropping the cBPF epilogue mitigation.
-> 
-> Restore the branch. The print already lives in
-> spectre_print_disabled_mitigations(), so only the guard is needed.
-> 
-> Tested under QEMU with -cpu neoverse-n1 (CSV2, no ECBHB, no CLRBHB).
-> Before, spectre_v2 read "Mitigation: CSV2, BHB" with and without the
-> option; after, nospectre_bhb and mitigations=off both give "Mitigation:
-> CSV2, but not BHB" and a boot without either is unchanged.
-> 
-> Fixes: 7f1635737823 ("arm64: proton-pack: Fix hard lockup due to print in scheduler context")
-> Assisted-by: Claude:claude-opus-5
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
->  arch/arm64/kernel/proton-pack.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-> index 7bb6553fec08..4eaa523cdeb9 100644
-> --- a/arch/arm64/kernel/proton-pack.c
-> +++ b/arch/arm64/kernel/proton-pack.c
-> @@ -1036,6 +1036,8 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
->  		/* No point mitigating Spectre-BHB alone. */
->  	} else if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY)) {
->  		/* Do nothing */
-> +	} else if (cpu_mitigations_off() || __nospectre_bhb) {
+> Hello Anshuman,
+> This sounds fair to me. Let me elaborate the problem, beyond the scope of
+> this patch. In production, we occasionally see these crashes where one of
+> the CPU fails to bring up online, with 0x0 status code. Hypervisor may be
+> missing the telemetry, but the problem is that we don't know if the
+> secondary CPU ever started executing the instructions or is stuck somewhere
+> between the start of head.S and marking itself online at the end of
+> secondary_start_kernel().
+> There are couple of places, where we get those other status codes, but not
+> everywhere. If the issue is not easily reproducible, experiments on local
+> setups do not yield anything. That's where I am attempting to add some more
+> information in kernel to debug these issues.
 
-Can you stick this in a spectre_bhb_mitigations_off() helper that can be
-used both here and in spectre_print_disabled_mitigations(), please?
+I think this is a game of diminishing returns. There's a lot of stuff
+that the firmware/hypervisor can get wrong here and trying to detect or
+handle that in Linux is going to be a real mess. For example, if it
+enters the kernel at the wrong address, or in the wrong mode, or with
+the MMU enabled etc. It sounds like you don't have much idea about
+what happens in the failure case, so it might not even execute the code
+that you're adding correctly.
+
+It's also going to conflict heavily with the ongoing parallel bringup
+work, which significantly reworks this code.
+
+I think you need to add the debug to your hypervisor, rather than the
+kernel.
 
 Will
 
