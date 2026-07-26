@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CF8C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 08:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C11C531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 08:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EhcisO7S3xKhd+qFgL/qsAiWRfy3FqHpdtLCLP6nuMk=; b=yCDA4flWOblHzjhSRhM36fDYed
-	N1ATZ13bAUXGgZNXL35QqKhewwkiju8b2DdlE79XMWQi81IdbtDUfwEUc29eSFh8066jp5GikVDMm
-	TDsqezQ5w+0DMvcMF9qmVb5JxWOiIQZK5aDVl86XflTQ7SstkJbKN4RTta3REJP1WKYrLyM+WBJ5Z
-	TvuCPxhOTFFOui/vBtpd+ffnG+5njdN509iRsBc5mOJEn42yamsQf+I/661JA1k/2rcryFOJfwLlu
-	mvMUUflVoFd3l1ykIiqX7vRJkWVEe9RPOu8kldxF7ALVPTJehzRdu/RDa5N7OSa/l3Og1uAstcHIj
-	M/XnYByw==;
+	bh=QNgVHnR29hKv8AxhEEB/3mVV1987v41489Xs1dBqzPI=; b=MHhFZPCv0vIp/UV/q6B1JKhlyT
+	kO2xxnvuEcbxGVGcXgzBi3R4fjxVBeESSqFaDxIma1u9L89JFrpzPmyk8bQawt/VlvIIKS+aqg40K
+	zFTh+bo2JPKQxaXuVZ7QCAp7ltGMQyN3uzyeMFG0pDiLmRuLdJmkewr6pgnn8eWh5RAWPBwN9oof/
+	1Kh+nMSxpBgp2yXftvvjUKkGXvv9bpKU9JK0Jxn8u3vun7gccl2+jQUmUmUD7KSDQuCppghTOi5mC
+	CTPRjptLfFTtqUsA8n5vTvEboAcFqOPJC35nwv17+21BYzEWOjTHjp7q4GCPHU4Xv5Bwy0lXFGrqj
+	pChX1WoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnu50-000000010dT-4AwD;
-	Sun, 26 Jul 2026 08:19:27 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1wnu5K-000000010n3-2g82;
+	Sun, 26 Jul 2026 08:19:46 +0000
+Received: from mail-eastusazon11011042.outbound.protection.outlook.com ([52.101.52.42] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnu4x-000000010bu-27Kq
+	id 1wnu51-000000010dM-15bk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 08:19:24 +0000
+	Sun, 26 Jul 2026 08:19:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p2T7rSCESau4GZ6CQlvG2vUV09enRNsPc+neHIxU4OGvbzciBWezr2AGi4qc/CvqN7UUWjaJdmTo3Mzc8DiE+AnB/04CluupUgRdTPcTjzlH8cvsyIgX/IB9yhiXIUG7U+j15PLdULNJNfli0wp/+VBeG9KYKKu4fWzOpsXgAqJlFNy/wq+KIrKOJkJ0Vv/VbUTYGLB5AEhsILb6sdivoNoTUx60WUIf0b7jYgi3PnOeZPokwkcei3vGcZtKkylV/11WI4d4WMrnIz0JrIdU6xV0lGV+odWKO/qlHF8AvH8SY9/L0ItMnC5JpJw3YNuaaBckSe0KdaYTf+5JdCUfsg==
+ b=PPJpN4uhauakmPvF0Y4Y8LnEcxxvStcFE1sBXYQH5/7FmT43ylrQ3ZvvYstJhd42zepI1ujMPDNvGyC2TtWIDEf5C5vCuocHx44JKjYMXeLxDx3HnfUqhNRXOcV2UWxc06TmaK+UntZZ73XOQKK3Ctps0Y4YFc7VFqq3TbWFoXGDwWCw0kzMAfiU2Et2rqPeaaMiAsrfaN8xRzP9s18QGNo10UCcYVDvWmsbfCV7bROa60tjPLjeTzPyG3YMBQIZn5H67HZWmj4E1m24Qt9xqp6QuDfh+7/1oYUUW4LtAHzppzDU2z9uVdPSgTwRCPLW2+NY2GD6bShhn8Itd2ZcCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EhcisO7S3xKhd+qFgL/qsAiWRfy3FqHpdtLCLP6nuMk=;
- b=iwxqbLZy7IleTCMizM8p9/uC7zEbS8lKhU/gwcOMtKsrPO4UnVzqfOfrBnI3puIrTGGUdKarszXNjB6VxvJfNAZTWTqdAv2DVObVJX86KVajFhKIc4nRjfMWgIB9/sAiUktgRqok6nka+1WtIsvBVXLDaw5Zyp7vf9febuYqYAzaG9o6jLxR/l9zYD+C0aYh8hhGrBZyHNFxCex5m/Vu8elYbpol3xlu8/E3fD8OPkC1hkiHXiEwugNm2VNc9Wd1tNvEsi4UtzLMMYqt9DwOaRgd6lkaKab+AcyRSMe2BTnFPyRMr9Si57B1OKL6FpNa891Ilf3IGznFaXRrF1VxKA==
+ bh=QNgVHnR29hKv8AxhEEB/3mVV1987v41489Xs1dBqzPI=;
+ b=N7a36zsshOtS6tZVetXKmb6Yblrjmt0vSrcxMd32HfqhTxFMryJCt1PUzPJzs17DfFledDvavN1nImGXmmuZg38vged44LolFGi/dinI2vRmXRCugm3OOH5RXkrOXQsKbAl0RhkFHdicLzAygZa/DHl3k8Tuv3Pu8hfecQJuFR17Bp3Et/SKa7ezzB/+AQD8Lyj9XviR+yNEIJ6kraU63Qw2CRGuhbHNCsaNg2t1e1O6LKz3P8IXDP86796U3Phyc8s/TmbAgBrAGAIiZKUNNDdXqkHxc53AzgAJ0z40UvllGn+UHcvOrRO8g5sYIF/XqIotzDs4/QXRNup3oH8b/g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EhcisO7S3xKhd+qFgL/qsAiWRfy3FqHpdtLCLP6nuMk=;
- b=RVc8r1FWl1YNGx+MdlMUapksMV5ZvcFDNJOTdK3PdVBEXin5bhn9juq/hasMS1HGR7LJ+kwHoqa4o75tENvGNkcdI8eZK/NW6eAbqhyKNihb1xtksci4l3f66cuC4ykyCP3skr4g0pNt4UWvc3VW7iZoebY/Tb9bVqqZooML43btVcW9RKo1LnWseQ7dI74idmh1Yhg+BvPhhY5obi6xZRscVjy9/FGD2z+A4sO9ayZROTxlWjkQmkJJTBaoFogsRItpz4D/Imq/XVBhBDpLhxzD7UFxbDHwr6pLxva9MJWj1pc+hthxN/IspzJAYzdDJU71oCxea5rwSrKztiU0hg==
-Received: from MW4PR04CA0197.namprd04.prod.outlook.com (2603:10b6:303:86::22)
- by DS0PR12MB9273.namprd12.prod.outlook.com (2603:10b6:8:193::14) with
+ bh=QNgVHnR29hKv8AxhEEB/3mVV1987v41489Xs1dBqzPI=;
+ b=S/22k4y2pZm5/UQphT0LLO29uNkK2qKuBfjF+hFrmDnHB30nEgY1N+M/uI5dJ/jLvvR8FGGos5DkqUMbxPfx0mWorBUc9rmTXF9D7b55FQUXDD50Lwds3cuYd2FEY+TnQ+/D5J087btc+5ltViAW2TI+m5bqheA3ME2cyYyVjsesJWPwG3hr5jKhDN6G1SsC0TfspvFRX7fEqxlwludaeh8IrEXoWUDcgiquuW+u2RkXhMKgpggLpjUrmmslwgVeSKQZ6WGg83xkCHOdT0stmQpYfBj//hTm5HcbNOjBJQWFOUrHQh6yEOYZxcEzQBQ+VrYOwpf0EImAU1nZSNhLEw==
+Received: from SJ2PR07CA0007.namprd07.prod.outlook.com (2603:10b6:a03:505::12)
+ by IA1PR12MB6212.namprd12.prod.outlook.com (2603:10b6:208:3e4::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Sun, 26 Jul
- 2026 08:19:15 +0000
-Received: from MW1PEPF0001615C.namprd21.prod.outlook.com
- (2603:10b6:303:86:cafe::a) by MW4PR04CA0197.outlook.office365.com
- (2603:10b6:303:86::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Sun, 26 Jul
+ 2026 08:19:19 +0000
+Received: from MWH0EPF000C6193.namprd02.prod.outlook.com
+ (2603:10b6:a03:505:cafe::53) by SJ2PR07CA0007.outlook.office365.com
+ (2603:10b6:a03:505::12) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.12 via Frontend Transport; Sun,
- 26 Jul 2026 08:19:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ 26 Jul 2026 08:19:18 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- MW1PEPF0001615C.mail.protection.outlook.com (10.167.249.87) with Microsoft
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ MWH0EPF000C6193.mail.protection.outlook.com (10.167.249.107) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.292.1 via Frontend Transport; Sun, 26 Jul 2026 08:19:14 +0000
+ 15.21.270.5 via Frontend Transport; Sun, 26 Jul 2026 08:19:18 +0000
 Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 26 Jul
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 26 Jul
  2026 01:19:08 -0700
 Received: from drhqmail201.nvidia.com (10.126.190.180) by
  drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
@@ -81,9 +81,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
 	<linux-tegra@vger.kernel.org>, Ashish Mhetre <amhetre@nvidia.com>
-Subject: [PATCH v9 4/4] iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat workaround on Tegra264
-Date: Sun, 26 Jul 2026 08:19:04 +0000
-Message-ID: <20260726081904.1408859-5-amhetre@nvidia.com>
+Subject: [PATCH v9 3/4] iommu/arm-smmu-v3-iommufd: Report CFGI/TLBI-repeat erratum
+Date: Sun, 26 Jul 2026 08:19:03 +0000
+Message-ID: <20260726081904.1408859-4-amhetre@nvidia.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260726081904.1408859-1-amhetre@nvidia.com>
 References: <20260726081904.1408859-1-amhetre@nvidia.com>
@@ -94,28 +94,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW1PEPF0001615C:EE_|DS0PR12MB9273:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0be5588-513e-46ad-0040-08deeaee9475
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6193:EE_|IA1PR12MB6212:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8298cb25-6329-4af0-27a0-08deeaee96ca
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|82310400026|1800799024|36860700016|56012099006|10067099003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: w7JG+EvpFxIcxH9vOJxdZq3Bdy02VtGM9BpO5jzC/+4LBl3d4gzERz/4uJgvh7H7hseMUZbj889ysjKbGE8CLnGcmw1vwn3MaNkwthPX8FetAbusj6TaCu3GV6JwxYo/YGJcVAnR64D8VUAKcl5pH4OQrC4rFg2QMO85/QLH1+pOwfXGWZZNLa9X8qzMQNLq0isDxsp+BkuxeISg7kSCDLoVuO3EsGjeHhQG3+twLQYU31OWzNCT9ra5iXHQ83u0l09mM4rJYw37z77+zFjs1LxasI+f9z7zb3j7rkiQ1lfMsm6vSZ9an7D7pfyvl3rdHr04b5qWoknlZDuDA+d+MXNUEU0dsHprkxHtKX32clGj2jASObZL0ons8IVm/HFmOSMjdl2GRulp0NGG1OfZaKsy0eQOrNnP9aOR58/7UUv50+J1Cwq8EZ9zKDpuuKMVVsYse5bEgpDni0dC/dQ5vjcWM8/TuRzUQ9tPgwW8QtjTqQjZwh+JsUeEiYGOl49+DFd4jyLKQH0DFIq1hfVB4vQJnxpM1q1E+uYb+jiKRtSRp7mbPMulCBGGLkZaiy474cYtC31xENeFMs24jlvs3byg9Iu7WkDV/NjaY7zdRnY367oi9LiaiYzeb1T+28zuICKIA0lvkxXBCh+aAbAOu2yznAtrl9OkvPLeMqh6Byw97pRI5GuEWWOITyvtOBqg0I4mJALbJr05JCIFwrWfUQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(82310400026)(1800799024)(36860700016)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|23010399003|7416014|82310400026|376014|3023799007|11063799006|10067099003|56012099006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: eZfxQleIi+m+iAnWI9FdwrGZ2RvzTXR5h8yjvHAVf52UeFyZ2dR9dZ95LSqLpXF+7b5RVHJXG/rSlnbB07hPlvcIeCSiVg03LjKXt01VG/kcYxXX2CAxZMrokwb/64lclOQqKtr7SHI27T2rKDKEqWxhoaQ+10f5NTBqviWiwPlhY31n3zt3DOZPOK3yb+3hMRWy5yAkZC3WusN2xP5g1njb9bn6OiXds0vx+IgazUmLyHQ5IAboQ2FHKJRbMbaXLxIZMXt2B8Pv0er38F4v69/JCOA9cU3abUPs4r5x1UiqjA7EKcpq+i7/4nrE80MPddGwS7wRpaVtZKKl9FJFVcGqKRZZMT7zAeceL9h7U5Z46VHnzijEinayyzKnceDAybOL5P6sGceyO+KEzY781f5CaSlCUM9+jvPkz0OQ7ia1oz/UcXF7j2Isz/9eAG7DMQyHvaj1c178LjE3BfeO8pXSGVxKuIyLOy/FaXlA8l5OHzlWaejWuB6AxD15ikk0NjQtUd0DWiAZ9jtowSde/yr03BYjuKS5OYM+SbGKp8cxEbgiloPT23b/l8wd5tw2Tt+UfuVHM1UnjXt0Km/yBgohummgYPdLBknEPTtwXSKUUsE2TbOWYV0roouHVeXvomFc/EkV2TK88ZkWYriKVh/eklI8ZY96rUk4kRSfTjrG6jBg5+wZsqGwKz9bUcca6x/3vN7Lqv5ZDhbMNeaDwQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(7416014)(82310400026)(376014)(3023799007)(11063799006)(10067099003)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XtN0WlXc5cY9hdIODN9RkF7q64PGSRAuQmBVnuqeeD8uzX+JVPZ4VROa2yWhJ85T+bmOWJfPRCVp6npQz6RF2gYzzwYvg9Czp3J0L+9Ji/S6BeXf++tuCBEbFL5tACrPfiAOGUtYhL1O9MngOyZRLZUFO3XowRNhZETesaZBb9D4wFrrvivtHcNNVZfx+t7z0CvTwMK3kYicyKocJOuEAcBc6kRp2+kEbTgw5VCweLcO25wLfxCY7T6y6q1vN+PsTEghgeQZs0s7i4KV2U+4HT055PBRmzIq8KK0XGX4CWzWKhHxk9pWwpybdPC8ZWhUl5KXP2HyYj+POK8WsJzwdBz9AeP0mPTqqrTVIaDpLV3se7eWdB+xJ7AIx+6UXpzmxY2kgmOUrn0bhnDoh/rTND15n4SNP2kT3YE9vU/XPFqr6UCtS5ycJA4IvCUuUUef
+X-MS-Exchange-AntiSpam-MessageData-0: U8PKDWIXCs+C/+/35xyJLKnsSDcWp3bTw39qCrlRmpPTeXQaQ3/U9UJHli/eA+FXOXIpdfQk35eOk8I9JMosn3GTJk5QkyXnynq80mkuz3OjRTTCmHdR6VIs6rm/OhfL/lXrNxPj9XsyLj1O60bXBXZ8Yh/Ijz9FWrhnmBTFoqxvw1JN7wbxtemOCINF+Eh6ae4RtxlVVSGyYdFh/b55NvfLP2TRctjH93eA9Ar6ZoDqCPYU2M6uaBsuAROXEXcAH3gF6KyOyHF2gO5iAFz3Ee3X88fHu4Nw1pfTwpNigwxY8nqT8uk+oxGpo8na5FkI5oqH8QrsWeIY168BEn+NraS64ekSgnHBbUY7nHtK699oPPPnHk8okjQm2Ge18CxgoPfdoVLW4GFz8hFYDybRT0/5GHHEHVoD59NNiKB2z3WJnM49cEpfLVQUDu5D1OYx
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 08:19:14.5989
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2026 08:19:18.5028
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0be5588-513e-46ad-0040-08deeaee9475
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8298cb25-6329-4af0-27a0-08deeaee96ca
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF0001615C.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6193.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9273
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6212
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_011923_557676_A783BAC2 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260726_011927_312585_F46F7F42 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,58 +130,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nvidia Tegra264 SMMU is affected by an erratum where a TLB entry can
-survive an invalidation that races with concurrent traffic targeting
-the same entry. The hardware-recommended software workaround is to
-issue every CFGI/TLBI command (each followed by CMD_SYNC) twice, and
-that infrastructure is already in place behind
-arm_smmu_erratum_repeat_tlbi_cfgi_key.
+A guest with access to VCMDQ generates its own invalidation commands
+and must apply any invalidation errata before submitting them. If the
+host also repeats those commands, each affected invalidation is issued
+four times instead of twice.
 
-Neither IDR nor IIDR flags this Tegra264-specific bug, so hardware
-detection is not possible. Tegra264 is device-tree-only (no ACPI/IORT
-support) and already has a dedicated "nvidia,tegra264-smmu" compatible,
-so DT-probe is the only viable detection path.
+Add IOMMU_HW_INFO_ARM_SMMUV3_ERRATA_REPEAT_TLBI_CFGI to report the
+CFGI/TLBI-repeat erratum to user space. This allows the VMM to expose
+the erratum to the guest or apply the workaround itself.
 
-Enable the workaround on instances matching the existing
-"nvidia,tegra264-smmu" compatible by calling static_branch_enable() on
-arm_smmu_erratum_repeat_tlbi_cfgi_key. Document the erratum in
-Documentation/arch/arm64/silicon-errata.rst.
+Use the raw __arm_smmu_cmdq_issue_cmdlist() helper for user-provided
+invalidations so the host does not apply the workaround a second time.
+Add arm_smmu_erratum_repeat_tlbi_cfgi() to query the static key when
+populating the SMMUv3 hardware information.
 
 Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
 ---
- Documentation/arch/arm64/silicon-errata.rst | 2 ++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 +++-
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c |  7 +++++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c         |  7 ++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h         |  1 +
+ include/uapi/linux/iommufd.h                        | 13 ++++++++++++-
+ 4 files changed, 24 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 868bd9eed9a6..36c7b6c8b4e3 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -318,6 +318,8 @@ stable kernels.
- |                |                 | T241-MPAM-4,    |                             |
- |                |                 | T241-MPAM-6     |                             |
- +----------------+-----------------+-----------------+-----------------------------+
-+| NVIDIA         | T264 SMMU       | T264-SMMU-3     | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
- +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+index 85ebfdb3d2a7..25982bdbcbd9 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+@@ -33,6 +33,9 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length,
+ 	info->iidr = readl_relaxed(master->smmu->base + ARM_SMMU_IIDR);
+ 	info->aidr = readl_relaxed(master->smmu->base + ARM_SMMU_AIDR);
+ 
++	if (arm_smmu_erratum_repeat_tlbi_cfgi())
++		info->flags |= IOMMU_HW_INFO_ARM_SMMUV3_ERRATA_REPEAT_TLBI_CFGI;
++
+ 	*length = sizeof(*info);
+ 	*type = IOMMU_HW_INFO_TYPE_ARM_SMMUV3;
+ 
+@@ -400,8 +403,8 @@ int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
+ 			continue;
+ 
+ 		/* FIXME always uses the main cmdq rather than trying to group by type */
+-		ret = arm_smmu_cmdq_issue_cmdlist(smmu, &smmu->cmdq, &last->cmd,
+-						  cur - last, true);
++		ret = __arm_smmu_cmdq_issue_cmdlist(smmu, &smmu->cmdq, &last->cmd,
++						    cur - last, true);
+ 		if (ret) {
+ 			cur--;
+ 			goto out;
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index f9f2f47e0ffc..2096470a2477 100644
+index e2f1faaa0d6f..f9f2f47e0ffc 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -5391,8 +5391,10 @@ static int arm_smmu_device_dt_probe(struct platform_device *pdev,
- 	if (of_dma_is_coherent(dev->of_node))
- 		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
- 
--	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu"))
-+	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu")) {
- 		tegra_cmdqv_dt_probe(dev->of_node, smmu);
-+		static_branch_enable(&arm_smmu_erratum_repeat_tlbi_cfgi_key);
-+	}
- 
+@@ -829,11 +829,16 @@ int __arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
  	return ret;
  }
+ 
++bool arm_smmu_erratum_repeat_tlbi_cfgi(void)
++{
++	return static_branch_unlikely(&arm_smmu_erratum_repeat_tlbi_cfgi_key);
++}
++
+ static bool arm_smmu_erratum_cmd_needs_repeating(struct arm_smmu_cmd *cmd)
+ {
+ 	u8 opcode;
+ 
+-	if (!static_branch_unlikely(&arm_smmu_erratum_repeat_tlbi_cfgi_key))
++	if (!arm_smmu_erratum_repeat_tlbi_cfgi())
+ 		return false;
+ 
+ 	opcode = FIELD_GET(CMDQ_0_OP, cmd->data[0]);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 3030f07a7c85..43f4d24e7847 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1216,6 +1216,7 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+ 				struct arm_smmu_cmdq *cmdq,
+ 				struct arm_smmu_cmd *cmds, int n,
+ 				bool sync);
++bool arm_smmu_erratum_repeat_tlbi_cfgi(void);
+ 
+ #ifdef CONFIG_ARM_SMMU_V3_SVA
+ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
+diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+index fddaf14cfdd2..e9d6d89dcd89 100644
+--- a/include/uapi/linux/iommufd.h
++++ b/include/uapi/linux/iommufd.h
+@@ -602,11 +602,22 @@ struct iommu_hw_info_vtd {
+ 	__aligned_u64 ecap_reg;
+ };
+ 
++/**
++ * enum iommu_hw_info_arm_smmuv3_flags - Flags for ARM SMMUv3 hw_info
++ * @IOMMU_HW_INFO_ARM_SMMUV3_ERRATA_REPEAT_TLBI_CFGI:
++ *    If set, user space must issue TLBI/CFGI+SYNC commands twice due to
++ *    hardware erratum T264-SMMU-3. See the description at
++ *    arm_smmu_erratum_repeat_tlbi_cfgi_key.
++ */
++enum iommu_hw_info_arm_smmuv3_flags {
++	IOMMU_HW_INFO_ARM_SMMUV3_ERRATA_REPEAT_TLBI_CFGI = 1 << 0,
++};
++
+ /**
+  * struct iommu_hw_info_arm_smmuv3 - ARM SMMUv3 hardware information
+  *                                   (IOMMU_HW_INFO_TYPE_ARM_SMMUV3)
+  *
+- * @flags: Must be set to 0
++ * @flags: Combination of enum iommu_hw_info_arm_smmuv3_flags
+  * @__reserved: Must be 0
+  * @idr: Implemented features for ARM SMMU Non-secure programming interface
+  * @iidr: Information about the implementation and implementer of ARM SMMU,
 -- 
 2.50.1
 
