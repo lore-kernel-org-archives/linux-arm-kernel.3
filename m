@@ -4,70 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4559DC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 14:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30154C531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 14:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wxXmArkr7I9p8OzXN7Q07cbSHLBGjb9XXJaQk/wXaiQ=; b=JNSpbR9kPbhHiN/zZPr0rdjzBs
-	RRsuCvzFgDAGiniuEQBGpnJpoXpO9PqWAIIoYrShwDSvCfk0U44/iDpqFXf+oah5bNcTq7xPybXVX
-	8TeIGBqOcWvPb8fBialF+dQjnPHdMTDFS316V34yYkPx6sXS7oxcWnwjq7lN9TUJHfeDVgV+e4KJh
-	nuULPjvnNLcJERBKbFQI2ASDdbsZbZ8u2LiXp+sY/iMsgXrJAkrgC9+MWN0LBw71fxXkg/R8KhA3w
-	m8QqHVQaNQTWhm6ZUxiQCQ7PQGv3wCYdvy//kN58r1GBlfTncNtX+vi0Vgt7wrfOZfk9YqRhEijQ0
-	vUfSqaIA==;
+	bh=Xy1dPJ6HKi7tYjJxDc2Ha4OJQEIkMNVF9gLqcXcYzos=; b=cmQrQQkHRSJxwB89cI7L20+U/6
+	vqvuUYu2HTsMV5o2R+Sd7G/siYozqUJYOVOVV6AGIZOA5NAjujB8BYC3KfN9H3QtCI3KpxXXtm0/S
+	yb0sSFLeVVu0zwTnHAaLnShfg7zQfxpMkoTOzOhBuUTW6vu+v2gcE6rLJudKZG284R53WB6zCe9Zl
+	bDqfMRtNsSi42TLTzzXZ02TmKA/Zo7IWS7jmx2GUomvpQkjubbRB2MUkGHqtqGj4aWIOGr3pzoVdR
+	uANu43PdhQPYwzjBF+xmGHHTxEiiSgPN3Zt5zimnWGa0B2OayGGcPD0/IZnI3RLlN103iFbU/1vQJ
+	EX0Pdq1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo02q-00000001FLl-0TAS;
-	Sun, 26 Jul 2026 14:41:36 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1wo0Eh-00000001FgZ-1aAE;
+	Sun, 26 Jul 2026 14:53:51 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo02n-00000001FLO-0MtK
+	id 1wo0Ef-00000001FfX-0zSh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 14:41:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
- h=In-Reply-To: References: Subject: Cc: To: From: Message-Id: Date:
- Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
- s=fe-953a8a3ca9; t=1785076890;
- bh=wxXmArkr7I9p8OzXN7Q07cbSHLBGjb9XXJaQk/wXaiQ=;
- b=cegTEO+Tqw1ZSZXEp/iNbfGtaT7CKyclH1VJZvowD8BsnKn8izc+3x48373YcNPz50YizUIA7
- gPQQoDzPUv3CFr2rRhAxd+5OOZvNiH37I3+hILQ3kNPXHdF4qSt/pqR+J+oA4hh/sTUx6fq58fM
- anyfIQK538B6ETuSE7co6FR089UzVlK8ABl0YQ1VkRG5VIfj8OiqDOX+bgJHC1wg7Zmv7fKQ0g+
- 8UuruwXIXSKsAVuGqZhEGUdlNSnIAFl9wDShRE+r50MlVwV/piB+Oby0h0dlAL4JcUIHLxu4mh3
- oHBfGnI+8LkspO0kqt2uwkySgkNt7oe0qRlUVO0wGRXA==
-X-Forward-Email-ID: 6a661c98d1c8002293af8ddf
-X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.12.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Mime-Version: 1.0
+	Sun, 26 Jul 2026 14:53:50 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-698af3e3620so237175a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 07:53:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785077627; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fLtHjWAtOUnLqaR1GwDzR7F6nLeAXFZS3EK/Nkfgt7/eoRUoNHLfJjMJHJ3JdhzwgE
+         jGqvcyXeB7NX1VKYpfIATwuFBmRd7ZdKcS2LLw0Do0xYpWW0su/qmm3V8t9iCyKYpLZ3
+         YbTCogHgi91mmQRk9zKiTRdjkBRXSwygPJU4jWOEYePCO0LzAVBeDFERByvffQHrtox7
+         KAlbWKMpjxU3WQGcfYxU/Q26zYuESN40UA9O90eIXAqLyvRrnNh9DR+yScqslHMWGxd5
+         Tuw+8ov7QfMcwtdD0ydNerHW1P+efkgy3XNbMMnG1X/dMSX54gsLg2Ovtu6s1r4ICt8k
+         VVxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Xy1dPJ6HKi7tYjJxDc2Ha4OJQEIkMNVF9gLqcXcYzos=;
+        fh=9bxqZHYMk2GrsbM4q5BcmWM6QbQQM0iy37C+wGV9iJ0=;
+        b=rZWKlfdrB2KHnzqY1vJL0kaB7MSsrJUCxUOwZT4A5ZgeDVzLzJSH95ZVqDHsRz1aJl
+         HTtG6Cgiv1d6lPA01G3eIRqUgf5xHBBYhq0/RZfgdnHt2pt05DhQPKm53EczT6e6/RdJ
+         +1RtPr+h9q64SxyMgoTh5+OJ+0FkuU/pz8GyA+xjdYyQ0AXOMHqoqdILtOEeSeg8+ESR
+         XghkqM89g90bl28DIUR5Ssc8lIBbe2OiJJYn7qMCbd4aIqLjP5U64VV2eQySOBwh+NUA
+         3Rn4FDtU+EX6TuRR2iGazn4A9D/3Hb3or0RWYnTgNLcOYtaoh8bn56MXKBP93mbXp7ea
+         55OA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785077627; x=1785682427; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Xy1dPJ6HKi7tYjJxDc2Ha4OJQEIkMNVF9gLqcXcYzos=;
+        b=Ekd3CS3hKKyJSi/gx27tXl36itQsZdnczVRHm9k+CvbtHLfuoutQC+G2czA4/0whV/
+         +HDoJYryuyTueyCaFwRi4nypNTYY79vp3bCmb1KLdVFJJaUluW442FEO/47cNhCUqISk
+         IHKiSeUnocF3yN3JdTSht1IbPbbdT91sB45IaPzm148SkKwJfDGmgAi6EJu9ejwPgsnK
+         kGfI3eoNsF+6xLg+l/u2qDGDscVrffDxPmyaCP6ApkdiP5hv2VYmbkxs4bNYXZ0mANNJ
+         OsbQbL09BclVrM0Y1kkl6v/QFsMKV02SPqmSEqYyptO9znXjzwv73cm0tBt6mZnJFzDB
+         apAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785077627; x=1785682427;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Xy1dPJ6HKi7tYjJxDc2Ha4OJQEIkMNVF9gLqcXcYzos=;
+        b=h5uFJKqCQGue4sw9uUrfBTnr2sHSLM/fJOdwgpB53+GM7EMvPYrpZ1mQz97mKw3bQz
+         mfMwTMip2DhO8D7ARWCusjsWsodDf6OGWPFVK5hm88zKKlzsHEMCh+4aa/hhyPg87FY7
+         hJv3I5TDWDXS+nE5GS5VieNc5kMlDSGZlmKOPqqepuxvBELBcWbwWw9ZArxIWvworoRW
+         sfCSgETAParQQ0TemrAP33Vas0tEr73gQyHZywU7AI1csbUFuYAX1nFpMbmDSMshvXnb
+         XpVcXeqYSIPCMOb0vOKHJOGvZgHMcGVpZ4Dbn5hkJeEw7YsN7Mp8Wc/AasaQGZAmuvXT
+         Jk2Q==
+X-Forwarded-Encrypted: i=1; AHgh+RoFIQXQzoZUzXmPU9PAr5+S0kJtAc21EYjmu6CwNYa0jXIPfwqEl6eBjZAnI+rNU5N/1znMobT8nCd/yDMUOhDh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsjvGul+HnIigLzQIzHsivXXM2kR4BZ5SVwJD/lueFWkvYNEjB
+	PwGIvqYqxn1mWHWzptCrqLU7jJghncdT1AnaYPs+xOuKDIyHYhZn0yj9Qea9L+lFVVPiYvfxt7s
+	vF/0h1jvIVZhVnGUGC+e3mUDr2X/E9yQ=
+X-Gm-Gg: AR+sD12sZp/5r/AOh0nbv8r3oZhKMw+RBQd6yV5dJnqGfNzUuRl9IFtV2RSIaVQEMVA
+	Qk6RNcHDSV7hh0RNPQGysGaAsSOUGRabFGxxXcsiIRJD1ziU6tPeXt+uOwls8KVyJISuSr6YDV6
+	/YMnJjLjgFQc/6T1+0TWYWUV2HB3wYWdl7J9BbbHDT9VyLWJD2rF1JKbkiVjlk41M+5YkMb3xmT
+	G57/A82+muG1BSdMO19igdzBo8b4rO+au+eI/olWGyXCRPPKwl6HmWKOac6lQ==
+X-Received: by 2002:a05:6402:450e:b0:69e:1246:a86a with SMTP id
+ 4fb4d7f45d1cf-69fc0f3e1bfmr2140114a12.0.1785077626864; Sun, 26 Jul 2026
+ 07:53:46 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260721-dcphy-rx-v1-v1-0-4fc83c0ccac9@gmail.com>
+ <20260721-dcphy-rx-v1-v1-1-4fc83c0ccac9@gmail.com> <20260724-incredible-colorful-trogon-9df033@quoll>
+In-Reply-To: <20260724-incredible-colorful-trogon-9df033@quoll>
+From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
+Date: Sun, 26 Jul 2026 22:54:21 +0800
+X-Gm-Features: AUfX_myy7YsobI1pf_jlBSXk7SDYrWERjtETFkIdeKdn3VY9LKRwt38o3X4kakY
+Message-ID: <CAPwA33JUWPoWokeTFmP9RR5AzBqy2v7cEA8NUNr1-eUKyaaKYA@mail.gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: phy: rockchip,rk3588-mipi-dcphy: support
+ per-direction phys
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8; format=Flowed
-Date: Sun, 26 Jul 2026 10:41:27 -0400
-Message-Id: <DK8KY15BK9O8.382YX2M15Q0EQ@ubuntu.com>
-From: "Joshua Peisach" <jpeisach@ubuntu.com>
-To: "Sasha Finkelstein" <k@chaosmail.tech>, "Sven Peter" <sven@kernel.org>,
- "Janne Grunau" <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>, "Vinod Koul"
- <vkoul@kernel.org>, "Frank Li" <Frank.Li@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, =?utf-8?q?Martin_Povi=C5=A1er?=
- <povik+lin@cutebit.org>
-Cc: <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/2] dmaengine: apple-admac: Add support for M3
- generation
-X-Mailer: aerc 0.21.0
-References: <20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech>
-In-Reply-To: <20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_074133_497908_62F13284 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20260726_075349_291977_864A6BE5 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +122,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Jul 25, 2026 at 8:25 AM EDT, Sasha Finkelstein wrote:
-> The ADMACs present in M3 series devices (t8122 and t603x SoCs) need
-> additional register writes in order to function correctly. Add a new
-> compatible chain for those, and change the driver to do the write.
+Hi Krzysztof,
+
+Thanks for the review.
+
+> Filename must follow compatible or binding filename, so this is
+> rockchip,rk3588-mipi-dcphy.h for example.
+
+Will rename it to rockchip,rk3588-mipi-dcphy.h in v2.
+
+Thanks,
+Jason
+
+Krzysztof Kozlowski <krzk@kernel.org> =E6=96=BC 2026=E5=B9=B47=E6=9C=8824=
+=E6=97=A5=E9=80=B1=E4=BA=94 =E4=B8=8B=E5=8D=885:45=E5=AF=AB=E9=81=93=EF=BC=
+=9A
 >
-> To simplify the merge strategy, the device tree entries will be sent
-> in a future patch series.
+> On Tue, Jul 21, 2026 at 06:35:19PM +0800, Jason Yang wrote:
+> >    clocks:
+> >      maxItems: 2
+> > @@ -82,6 +92,6 @@ examples:
+> >                   <&cru SRST_S_MIPI_DCPHY0>;
+> >          reset-names =3D "m_phy", "apb", "grf", "s_phy";
+> >          rockchip,grf =3D <&mipidcphy0_grf>;
+> > -        #phy-cells =3D <1>;
+> > +        #phy-cells =3D <2>;
+> >        };
+> >      };
+> > diff --git a/include/dt-bindings/phy/phy-rockchip-samsung-dcphy.h b/inc=
+lude/dt-bindings/phy/phy-rockchip-samsung-dcphy.h
+> > new file mode 100644
+> > index 000000000000..60f6630f58b3
+> > --- /dev/null
+> > +++ b/include/dt-bindings/phy/phy-rockchip-samsung-dcphy.h
 >
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
-> Sasha Finkelstein (2):
->       dt-bindings: dma: apple,admac: Add M3 generation ADMACs
->       dmaengine: apple-admac: Add M3 generation ADMACs
->
->  Documentation/devicetree/bindings/dma/apple,admac.yaml | 10 ++++++++--
->  drivers/dma/apple-admac.c                              | 32 ++++++++++++=
-++++++++++++++++++--
->  2 files changed, 38 insertions(+), 4 deletions(-)
-> ---
-> base-commit: 0ce37745d4bfbc493f718169c3974898ffec8ee7
-> change-id: 20260725-t603x-admac-a1b07a2ccb54
+> Filename must follow compatible or binding filename, so this is
+> rockchip,rk3588-mipi-dcphy.h for example.
 >
 > Best regards,
-> -- =20
-> Sasha Finkelstein <k@chaosmail.tech>
-
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+> Krzysztof
+>
 
