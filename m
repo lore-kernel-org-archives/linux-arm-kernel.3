@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC6AC531CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 11:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD6CC531CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 11:23:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=632RwbBBibm199GNX2dzWevYniUR/dq64yJK2ZdxiqY=; b=IsZheDl5s2nIrzDMbCPVsvylLl
-	4Ng6EEcQVBxg9hv3j20gJ4hXsgvsnznmVIjZdjdsYAyT9aKvSgXv/eT5JXrSs/PfE+XvCDOLa6i44
-	TdUnrZuMXTIqqGTea141xdDhDkohcnTYaJZn/ofPW4LUQG/mK4cpKFN0JIKKoM82EEVov8j+wzfkE
-	o9V6NizALTkZY5oW/b0lvomcfXpd5VRsEiCRibdIYGqFUlNv0DjG+vVN2FX3lLXyfxYeY+yCNVOsQ
-	/QllmWkJJOG+qrxhKnNmKYWll0ncWT/xv7r4Bblr8Gzp1mxyHXr04Yy3N46rbNYKzos7ePP+2qrUO
-	xAdbi/ow==;
+	bh=msgew1ysgPiViXJb501fpHVo5cSnGRcQrQI7SElt2Ww=; b=fEd1EkQpKAGrXz3cTU50KBM+iG
+	sMVCdqJRx3Js+QuMS/tbbljnRhQP/zMDBRUbPopwwjFLIHtNipNDFWg8WPNH8DwBtarlf/Rfnmlnf
+	642wnOi9CF2UkMt1/miJzC6irA194Bpy5RYYMGOjRUCvh93YFckMCPNjF6WCN+1Wkckwj+X83TLnm
+	it3NUHPhqY0JiuigkjbGlqFu0i5mIzFze7mXCa7GTe6BdYiAGnqJxSqB/xyFQ5xiqOB9CxYGUjo+w
+	mEqso21v3GgT+klE9fbMPKchzzkmZ32TOEtupgTKMxN7GY1LdPQ179wRTh2a45UcqhmhRtVgHezI7
+	JIdY7qcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnwse-0000000161R-01u7;
-	Sun, 26 Jul 2026 11:18:52 +0000
-Received: from mail-oa1-f54.google.com ([209.85.160.54])
+	id 1wnwxQ-000000016NN-2Z5t;
+	Sun, 26 Jul 2026 11:23:48 +0000
+Received: from mail-oi1-f179.google.com ([209.85.167.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnwsc-00000001616-0PVt
+	id 1wnwxO-000000016N0-1Xik
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 11:18:51 +0000
-Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-44cb057311bso923732fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 04:18:49 -0700 (PDT)
+	Sun, 26 Jul 2026 11:23:47 +0000
+Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-4a483a552efso748791b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 04:23:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785064729; x=1785669529;
+        d=1e100.net; s=20251104; t=1785065025; x=1785669825;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=632RwbBBibm199GNX2dzWevYniUR/dq64yJK2ZdxiqY=;
-        b=BH9ktosM3WySfot1Fie65Hd6+iO0VgcF3Cq1faQ+89JStR0g1eSqjfTg5A2GyP4vtG
-         2uemQ/N0KTUttLRLO+iMIB2H9iBSNdbTl/F7SxgW/NUm2ShYw5fmgSiSG1rX4dtoS4v0
-         aWiIkYuhNC+yIWfwwonpQ0JHaYiSqb7T+UaB8L7vgjAa6XOklpGo17CGbO8N0p7FNB3P
-         sm6FYHzKOE47mzqOqKuouILHaoJlI4cwWy6TxPXLOF/DiAA/HmvwILpEGdKfdFDnrAgA
-         aKimMm9YN/2iDKqM6PpXLj3YJcPv1YAyT1lXpey8f/fKa7r+0YNamAgleRS0RSUoDttN
-         Kvuw==
-X-Forwarded-Encrypted: i=1; AHgh+RrPEwNAyNNHTtzXuk7k798YNFPu2BdBOI6gpR/lkwqaQtDeE8WjUqZDzDUqpx1QwcGwExY5MOk17u0Vtho9N48r@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCPPQ/k05DsCHz9MIXWR532xJVU81wAJ+BKenbeKROwxR7Q1r+
-	yXOcj7CMSr0XVZCsiIAGy0lfduRuL96EqRXYF4HubKNno1wecnWilxmsTJBwcLzeig==
-X-Gm-Gg: AR+sD11L4SmILncUhlZNmAuf4v0X7xQWXJ9zql0dNwIg3Xv1V6Ms8fc1kBWYkV2ZHfl
-	6Befda6WB4cR+OVAC1vaGfRMHq2SAMaOKGMea2ihsuI8CHg84WhS4kSMmeTsjN2GNIqwW/DzVq1
-	MYQ3bDRVvmIx7yBO4PP/uoUPalv14MAebIP5GJF0rG7/cCI09wnzUkeYm902HKO4gBE5yUTqE1v
-	fuoDSLin1SxXXM2P3H7KXyiBxiOUUkwpc5z6qJ5LgybnxV/9JMyfM6WVt63oYqo8LIeaiTRW0yt
-	F8xaL38eL+AwD77D/VMA7fu+je/iXVClDj0bXshbQ73bKG2+VuVLrz2WoqW3qFf6ZxKifHRW0sD
-	FHKFUR4UFMbQ3ubTu0txlvy8zrl0DoqvCV6DDOGcl3qnDm5JUG1MyfvAw2cGC1DNLmUNlwyyroH
-	PC3Y9OEOTvPpKOgi26IIdDlLAGh1g34A5Ib0lzBmjIFGnIWjRff6UgHpH9T1kUpICv7cSidj04
-X-Received: by 2002:a05:6870:391f:b0:441:a287:137d with SMTP id 586e51a60fabf-457f27493d6mr4505474fac.29.1785064728629;
-        Sun, 26 Jul 2026 04:18:48 -0700 (PDT)
-Received: from mail-oa1-f43.google.com (mail-oa1-f43.google.com. [209.85.160.43])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-457674879f7sm12969825fac.13.2026.07.26.04.18.47
+        bh=msgew1ysgPiViXJb501fpHVo5cSnGRcQrQI7SElt2Ww=;
+        b=fwpe0R2K15PplaUPj2FyJ1w8HjWkWqVZ6ku2tV1m3v3Bs5D0zQF77JoMuunB+/DIuU
+         NC6iMh3017lgyTbT2haGiFxRhWTsi2lt7LGKYIl+mt7TxNEguxxproDhrwFoab5YXWq+
+         Pbe7QRmxov71crSqvgASai6LtRCk6wFm6EHEGy1kPuG86lwBJN9PRbCb7+NyNJ0jiX9m
+         QUVzg/AED5aB8jex3YeV+OeW0EfHCXr/0yNi6p/zCz83ac4ZhTf5lFW0SUIi/o2wScrw
+         QQwk4alMh2r6kRq8W4+rOgfSfXClA+AdGReSzindXBBLdPS+QFMw5Wc+KfXkdvOvKsqR
+         8qLA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr9AH6q+5nsyB6io91oJxSTlUwTOk6gMKPxYrnuyccZhKRW1+d1XrvyOnnm62UyLOgGLrOffczEzQ5vCTPPxgJ2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3vndFAwU/+t43vU4igM7TbT8ERrhehePTM+uaRuSFZxWUJou5
+	wjFBhVUtXsydrITL1Frsj7qRfvmsX4ETlk9N8ymuK6TnBimHmwactjhakjl2puTHHw==
+X-Gm-Gg: AR+sD10tsF5Vbv+5H1qdVlZ7D0NI0Dj4mk4jnn5RqwQAtAwR6r/JdRTWhkqNJyBll0C
+	QmdF0JmAyjIVbOC1MPAobzlK1TxVS8YrgiwGu49U9bBNnErmtfsBEzvyUIU2OrstvIWHeNALwCm
+	mSYNtox12/tYma3CHtUksvDm6MLqdkAPWmbG58V9kN46v0wXxIO5tS7kVLtTB1ndi8OpO2FJamy
+	uDvSuNqrwwhcFnly4GCaLKHPTEpb2E9s7NL1tgq90pgoy/unqpoPJMYgRcHJ5HNQ202qGYV/X7X
+	77IxOO3x4eGwgY7RjzpbQE7rmnDCp8T8EzuuZR8rls1Ce9TUkr9ZCMbRLhJczSWbs2kTurkFSBT
+	tdMBmQDV2p/1tCM2icEqb8FdBFeTjNS2yni/tCxbyWkFPE17Heqb13SutrH7EhGMcQg9v7j99zT
+	ZEw660r8oB813kgsdT+Y+7FboOLtgVRUGPcY8t0+OScQ5rrwuzD/XdCikR/LSR/B9UA50nIXtT
+X-Received: by 2002:a05:6808:1b27:b0:49f:a87e:2316 with SMTP id 5614622812f47-4ab6a13988bmr4465898b6e.31.1785065025133;
+        Sun, 26 Jul 2026 04:23:45 -0700 (PDT)
+Received: from mail-oa1-f51.google.com (mail-oa1-f51.google.com. [209.85.160.51])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4ab0f2c96easm8942782b6e.17.2026.07.26.04.23.44
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Jul 2026 04:18:47 -0700 (PDT)
-Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-44cb057311bso923726fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 04:18:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rrpgv6RNq3Z6Tk9UiQyvljEEgL45wsVhFRnz0SxgVc0/kKWahkF+qoBGwLNYovom6jGMuOJZFHKhbimIFaQfOWp@lists.infradead.org
-X-Received: by 2002:a05:6871:1c7:b0:417:3441:6c54 with SMTP id
- 586e51a60fabf-457f26b3ab8mr4168574fac.27.1785064727020; Sun, 26 Jul 2026
- 04:18:47 -0700 (PDT)
+        Sun, 26 Jul 2026 04:23:44 -0700 (PDT)
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-44cedfaab6bso617896fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 04:23:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpumU0QuY4YK+O85/BopNchsbu/QnvVFjKSfgG2HX9gM87GjJm6ln9nIvFvIck1H97B/YP1yp08aR6VrOGKIBRk@lists.infradead.org
+X-Received: by 2002:a05:6870:5254:b0:44c:e350:a0b7 with SMTP id
+ 586e51a60fabf-457f26c5cdamr4287252fac.27.1785065024643; Sun, 26 Jul 2026
+ 04:23:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260720162117.32304-1-fourdollars@debian.org>
- <20260720162117.32304-5-fourdollars@debian.org> <al59LnVJQhiZq9yR@ashevche-desk.local>
-In-Reply-To: <al59LnVJQhiZq9yR@ashevche-desk.local>
+ <20260720162117.32304-8-fourdollars@debian.org> <al59d-zgEV0KCPIp@ashevche-desk.local>
+In-Reply-To: <al59d-zgEV0KCPIp@ashevche-desk.local>
 From: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
-Date: Sun, 26 Jul 2026 19:18:35 +0800
-X-Gmail-Original-Message-ID: <CAAT15mNtGTyHHdYooj=Swe1hZ1K3Jo4TkO1groi1LnVih4M+ig@mail.gmail.com>
-X-Gm-Features: AUfX_mzTCh_05ojLUq8ZB-hAiaGj-Auwe5dWIigJ-AodVsVlW5LsP53qKDqeICk
-Message-ID: <CAAT15mNtGTyHHdYooj=Swe1hZ1K3Jo4TkO1groi1LnVih4M+ig@mail.gmail.com>
-Subject: Re: [PATCH v16 4/7] spi: pxa2xx: lock out runtime autosuspend for
- Intel LPSS SPI in PIO mode
+Date: Sun, 26 Jul 2026 19:23:33 +0800
+X-Gmail-Original-Message-ID: <CAAT15mNfnXh4CDAwQjtH8ktLuah4r+LBgUfm8m-6p-fMOkp2Kg@mail.gmail.com>
+X-Gm-Features: AUfX_my8CtrOnBHu50rHPfcv1-YAcfTginQh2XY_p16uaufWTkXh2Yz8qHzk07o
+Message-ID: <CAAT15mNfnXh4CDAwQjtH8ktLuah4r+LBgUfm8m-6p-fMOkp2Kg@mail.gmail.com>
+Subject: Re: [PATCH v16 7/7] spi: pxa2xx: rename local status variable to ret
 To: Andy Shevchenko <andriy.shevchenko@intel.com>
 Cc: Mark Brown <broonie@kernel.org>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
 	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>, 
@@ -85,8 +84,8 @@ Cc: Mark Brown <broonie@kernel.org>, Mika Westerberg <mika.westerberg@linux.inte
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_041850_145185_5915C6B2 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20260726_042346_408761_A75FC303 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +100,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 3:55=E2=80=AFAM Andy Shevchenko
+On Tue, Jul 21, 2026 at 3:56=E2=80=AFAM Andy Shevchenko
 <andriy.shevchenko@intel.com> wrote:
 >
-> On Tue, Jul 21, 2026 at 12:21:13AM +0800, Shih-Yuan Lee wrote:
-> > When operating in PIO mode on Intel LPSS SPI controllers, runtime PM
-> > autosuspend clock-gates the hardware block when idle. On subsequent
-> > transfers, MMIO accesses to trigger resume are performed before the run=
-time
-> > PM state machine can wake the controller, causing PCIe Completion Timeo=
-uts.
-> > This issue does not affect DMA mode, where the DMA engine holds the req=
-uired
-> > resources, nor does it affect non-LPSS controllers.
-> >
-> > Lock out runtime PM autosuspend for LPSS SPI controllers specifically
-> > when operating in PIO mode.
-> >
-> > Acquire a runtime PM reference via pm_runtime_get_noresume() in
-> > pxa2xx_spi_probe() after registration, and release it via
-> > pm_runtime_put_noidle() in pxa2xx_spi_remove() before hardware teardown=
- to
-> > ensure the runtime PM reference held in probe is released without invok=
-ing
-> > runtime_suspend on already-unclocked hardware.
+> On Tue, Jul 21, 2026 at 12:21:16AM +0800, Shih-Yuan Lee wrote:
+> > Rename the return value variable name from 'status' to 'ret' in the
+> > pxa2xx_spi_probe(), pxa2xx_spi_suspend(), pxa2xx_spi_resume(), and
+> > pxa2xx_spi_runtime_resume() functions to conform to standard Linux kern=
+el
+> > coding conventions.
+>
 Hi Andy,
-
-Thanks for the feedback.
->
-> .runtime_suspend()
->
-> // this is how we refer to the callbacks.
-Updated the commit message to format PM callbacks as .runtime_suspend().
->
->
-> ...
->
-> > +     /* Release the PM reference held in probe for LPSS PIO mode befor=
-e
-> > +      * hardware teardown so the PM core does not invoke runtime_suspe=
-nd
-> > +      * on already-unclocked hardware.
-> > +      */
->
-> /*
->  * Keep the comment style as per SPI and many other subsystems
->  * and as in this example.
->  */
-Updated the multi-line comment in pxa2xx_spi_remove() to adhere to the
-standard Linux kernel multi-line comment style with an empty starting
-line.
+> It makes a ping-pong style of changes: Previous patches add more status u=
+ses
+> and moves, and so on. Instead, this patch should go before all that.
+Agreed. I have reordered the patch series for the next version so that
+"spi: pxa2xx: rename local status variable to ret" is placed near the
+front, eliminating all ping-pong diff churn.
 
 Thanks,
 Shih-Yuan
