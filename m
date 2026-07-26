@@ -4,64 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFD6C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 19:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66ADEC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 19:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3f9rW6ecKd7Ic3gfdbZlKXMvf2ZuM/6RpCc9u5zk40=; b=0c2Gdk6YNX5Wk4b7B4lD2VtdU/
-	n2JVCn1iWdbh2rh7VzmmTWyWkCXCnmuRIpyFVwNWlzBJqpW4XH7l3OXwJ0P6KD3JKNJ6/MBPkGmt2
-	+vixi9YLs43k7YcfCocjbINDCQJG1p+m+PfwleyD9OYcg/GJBjP4slBZmvLT4KQjrXnWDbXf8BtAC
-	j2Kw8ifLuoCMmASZLAncJaAw1IFDNMXDIZMQ6GVfp86CP6rvvjuSK02P25qKWki317wgyIOf6vqYN
-	A7P+5MlW5t3HL0OMOcCaZdmOahmfC/DjXPKK0NNHfR85NF6ZUP/XfeyK49TZJWU3VJk6WynRuvYBX
-	0WCg9DHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FDQIeXpPD+dwLpKCV5Porvy3ne6CU+pJakDyD+AScDY=; b=KxI+QjTwokR0Tj
+	76MpjfVqgOV3N0UV4XnHtCKoQ8aqgLs0XIMrLnbthay7TefRnkt8s7oPzd8AkYgETqJIp+X5H44SU
+	drjJMg3RtO49hkiBkd5EFZmF2CqQO8N8bblMoSGqA5XOIxWsY5Eq0EyFU2DU1H17jc9VFoioqcqnD
+	onrbIVjwBoc7EADdqOEB+DhImKPwRSw0SxyJ3rjk15qyuqHIwKh9fxAoDE/B5oFJNDpguNTFZf/Ms
+	1X/j0szFjHgPsP/81iq1zUNXxBgxCoRQD3WIEOcRvRcZ+04Ucu+ImDDBJGR+2p7P9hlUB9ct6Beaj
+	e9jT/pv9NApg8Y4l/xPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo45K-00000001VuA-44Gp;
-	Sun, 26 Jul 2026 19:00:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wo4l9-00000001Wzu-0qRn;
+	Sun, 26 Jul 2026 19:43:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo45K-00000001Vtn-1JLM
+	id 1wo4l6-00000001WzS-3E8V
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 19:00:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A36F641472;
-	Sun, 26 Jul 2026 19:00:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A7281F000E9;
-	Sun, 26 Jul 2026 19:00:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785092425;
-	bh=X3f9rW6ecKd7Ic3gfdbZlKXMvf2ZuM/6RpCc9u5zk40=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=CSDrblsN/1QQQe61BhPiGQ1CPKQUnex8Z1+On7HMnCHcBOJVbfvhTsnEErxoFtr9O
-	 2pu3vxDZkpItELmLvqPEbncPAHHWqFhkmUjMIyznJB6n6XsQACQQIY7QoQy/IHI65/
-	 1edd6BVNbwcH2h2AYem70gt4DTezyrAinzuL+/pkF6EKts3wldQ4M+9lWllqsRwM/3
-	 qBmmZgf8+ntr8xI832Zxe6/Ez3uw6iDm8dl7q95g94cB1u8lagdxjcgQ+gqOoktpTE
-	 nq7O+hMyy+yvJZc9/PM37HwqTzD8oCRA8No4acppvg24+kUwNievrzcdKW9GS+oLsM
-	 oqGjFEmZWcPEw==
-Date: Sun, 26 Jul 2026 20:00:19 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 2/3] iio: proximity: add driver for Sharp GP2AP070S
- proximity sensor
-Message-ID: <20260726200019.2011049e@jic23-huawei>
-In-Reply-To: <20260723-gp2ap070s-v1-2-b8ca3a4c10dd@disroot.org>
-References: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
-	<20260723-gp2ap070s-v1-2-b8ca3a4c10dd@disroot.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Sun, 26 Jul 2026 19:43:38 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66QH79mq2353114
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 19:43:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=FDQIeXpPD+dwLpKCV5Porv
+	y3ne6CU+pJakDyD+AScDY=; b=pAZEOG1UWrwTp6+Udv9XpGfugtOEAbIEc8xh32
+	izDKpGGoq0uH1WZWcQJmbJh+NgBE/f+Uy+hkdw7i28QDjdp4ViKCyfkO6VwS31Rf
+	mPq41EFbFh3JI6QUTWEmXHsgHUGiynrS2EXPL8ZkcGbth9TSJM0wOlwvSBZpQM8B
+	S9RjIOpjJQY3oPTTWsdlHzfSuVc90CxICcka85UZSEoOl5LywkG8t9kdG5gFsMwx
+	lewic+xOYkv8Oo6dLPBQixW7/Z3DgUgfa8U0YswMXMz76jIhiG6QgcCMmaHZOpAh
+	3/lvfjR7c+MmmS1k1XWZ+opI3fWzDVLKNYC2G95V8q3IShMg==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fmjufusjy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 19:43:34 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2cae455cf6dso33072975ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 12:43:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785095014; x=1785699814; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=FDQIeXpPD+dwLpKCV5Porvy3ne6CU+pJakDyD+AScDY=;
+        b=R+fg7DmBbQkWAzHwmsDlSVCE+P6YNNko8VqU0R2pI5NzqqcRLGTKyEiM0t/soPuCVC
+         f8jOmHAVLfwghEfHwFe6nFIywZ2pSjIfKXgkxWYKibWnLlXHe0XhZMvTHP+pz/fDH5/B
+         PgQGLyEdUEaM8VEwsvxd6PjDmkiNd4CY5ToOGMq8UgTE38Ue/cW3EHzuK6ZgJ/wGNDm+
+         V32ktdPer7X/fU8RsUo8ADucO2u7gTDjL8/UbQjYg4eTHK8OC7ziZsmU7CFj7y/rj7OU
+         x4CdUqVhG7FuhEYH7q0yUzq4XkHufkr5ub0kEoa42du8BzFaaM7kVmResqcHbA1JSMRz
+         n36Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785095014; x=1785699814;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=FDQIeXpPD+dwLpKCV5Porvy3ne6CU+pJakDyD+AScDY=;
+        b=fnXKTrgZlQkfn774fXmnNYawcMg5PsHVJEI5ypuU2Y0/1J4+HJKu5wBmgYNAMNQaHB
+         +FnqXhsnTblR4vGdLqX+l1sHh/GH4GFXkkxi2/qNBHTdZQ14D8iL2lcN41wgPN5HsXKd
+         ItWJgOmJZPLo78mXisJRvTTWePwrr+CoLjvPIqY7ZAR6ASypvCuRhV2HZuCf2Qkng2lk
+         OuP6nJeVTkwCMNXlRfJ+u1KwD4C1YjWHPaNYzfN7zzVjfdHNa9F/VwURwVtSXvSCqhbM
+         mUH6ZkrbSeJsW7PmN4Gt/kA/FM1BHk9Lcw66qFfv+0/bd1PUBTtrQDGCN5dMYRrYssSO
+         M8cA==
+X-Forwarded-Encrypted: i=1; AHgh+RoS33iGRN5219jCGYnBMNLsrN2wQdRLCpVG7DoSyLe4NUbzVNioJGYQYFjuQQuvXphYn7R3Vn9nS9YDAs3jaV8L@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7IayEqxv0lpaK6vlZusgzaDy5efKsVkhZXDDf/qUXR0kdkRnC
+	8ZCNC5pFZAgy0pDBEOq2nnw/1kkXBAeAokdFJZylFUnUSDeUjcnFzel+k5hDYYUo9WzfCB8vKfQ
+	mii+iLODFudwvWyaH0GLliCl9iofq8nPMkffndoOWz9vX27vzonvQp8AHa1owAPwpVe7/BSFFW6
+	iJKQ==
+X-Gm-Gg: AR+sD12kR+TlRGyhzaEv/yQVTdhkXHkUpZaeW+Yc4MnlcPobJkZ5Ua1j84wpZdvBSaM
+	uP0kPl6GLxjzL72bcy/z/GnZSw9xKACNIXIZVNxMjrIu+IgM3DcDRsbAjdpvVIyvuM4j3DYVmpL
+	JVes+ZM8cbkE8Dn+pOmEFXDYaQHfa74JfG+21Q1vub51gcpfh5wxUfnsMlt2a0pFGpiVx1QddNs
+	3xYW3SFq2dTG3YMuq/CywqmkpBufClsbzVI8wpjeDxhV3cgU57joWqTfc6Ph2kFu5fVo0xIf1Zo
+	FeRz6zUCH7P4KMDXEp2TMChlxA+c8E1fpB+XFfpIdWYGbwvkgNwH9Et9uLmpNBokFkc2mPg90qu
+	TTyKxg7GOAR6dbtJTkCoq
+X-Received: by 2002:a05:6a20:43ac:b0:3b3:2703:115 with SMTP id adf61e73a8af0-3c67dc41ae3mr5548158637.16.1785095014242;
+        Sun, 26 Jul 2026 12:43:34 -0700 (PDT)
+X-Received: by 2002:a05:6a20:43ac:b0:3b3:2703:115 with SMTP id adf61e73a8af0-3c67dc41ae3mr5548148637.16.1785095013838;
+        Sun, 26 Jul 2026 12:43:33 -0700 (PDT)
+Received: from le-cd01-lnx.qualcomm.com ([114.94.8.21])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbbb66dcd38sm2312070a12.29.2026.07.26.12.43.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Jul 2026 12:43:32 -0700 (PDT)
+From: Ze Huang <ze.huang@oss.qualcomm.com>
+Subject: [PATCH v3 0/2] drm: replace simple display pipe users with atomic
+ helpers
+Date: Mon, 27 Jul 2026 03:42:31 +0800
+Message-Id: <20260727-drm-simple-kms-removal-v3-0-de36e534f7a1@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAChjZmoC/3WOwQ6CMBBEf4Xs2SVtEYye/A/jodRVq5RitxCN4
+ d9t0auXSSaZmTdvYAqWGHbFGwJNlq3vk6lWBZir7i+E9pQ8KKEasRFrPAWHbN3QEd4dYyDnJ92
+ hkFpU0jRaqi2k8hDobJ/L8OH49Ty2NzIxr/0SgR5jIsZvDFrNhMY7Z+OuyJyenhEzGUWDagN56
+ Go5+vBaDk9y6f2+1f++TRIFtmuSRou6alS198zlY9RdhpVJ4DjP8wccL41iDAEAAA==
+X-Change-ID: 20260704-drm-simple-kms-removal-01a031c6a129
+To: Alexey Brodkin <abrodkin@synopsys.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
+        Hans de Goede <hansg@kernel.org>,
+        Alex Lanzano <lanzano.alex@gmail.com>,
+        Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+        Marian Cichy <m.cichy@pengutronix.de>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+        imx@lists.linux.dev, xen-devel@lists.xenproject.org,
+        Ze Huang <ze.huang@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785095005; l=2679;
+ i=ze.huang@oss.qualcomm.com; s=20260716; h=from:subject:message-id;
+ bh=SzrRHowXSa10BAHCyJ1LhewVqZLaXZNB44vA3ptkLd8=;
+ b=ygG0jOkfjjtOnpnb/85WRy8PlT/tiW1jcovVo98E9rFl6SsoVZpL7kFNMISeo+OC86QqJ04Aw
+ LK0RRwuDsgNBhR/dSZRqnbW+r+gFyurTl3vHzvkgzWB3HgUd6B0UHHR
+X-Developer-Key: i=ze.huang@oss.qualcomm.com; a=ed25519;
+ pk=8uGhlZHInA8NXq7G6u/g59qEcwXwuMRI7nBSnT/ijtY=
+X-Proofpoint-ORIG-GUID: 8B5fCETiUsZg6wxDKljIyrQ3OxtVs7Bh
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI2MDIwMCBTYWx0ZWRfX+gakYwsUsMyT
+ DBpGo+t+RWHUTmADAOAbbS8C/bjxWQWw1oxve0yeQO3Qf75UgAIEAa7Z6Xo2WEA5kLVkbonumo/
+ 2iPuuLK8svMA9eMd+EfUidIk4l5wpLY=
+X-Proofpoint-GUID: 8B5fCETiUsZg6wxDKljIyrQ3OxtVs7Bh
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI2MDIwMCBTYWx0ZWRfX23NXI/ETZhtc
+ VAqwkCCZ7cSkBTD5PJ35SE7J7Loj2G+hej+C/mJXpTjrtDCyXpN8zAoLNKQYnMYK2f6b5ExjdNq
+ lgvTZwkHSowc9zi/ryyV3xE2kstMJOAuSp9tDqegmzT+QpqH/+sM+mThF42p1gedihnQ58RDqO9
+ RN2EFRIbjgr+gbtRm3rl9JKRB1Y86ayy53SQlUK81gDr+rHXXaByIkBOWSSm/lHD687KUM/LWkx
+ AOWi8z3C80dnvOHyinFzX0YKLO1uY5QsGD1nFv1Bt8nWUJCwtu3c7VgEBlKi4esnSR95fI1um3P
+ sGcipZzmqQeEh5OMMGxmWSznne2wv0h2zdYJK09ivQ/W7GaVGOMwYzwGOvVjMqZPwAU7tLtzSaL
+ fHFATtPKzYVB7OVcNIT02kiK0bUJl+gEfqN7nm/mfWTiZXBzhCnMxMs4ypav1I5QI5IC5foJi4P
+ WV/627jAZbRCOPIe+Rg==
+X-Authority-Analysis: v=2.4 cv=F5ZnsKhN c=1 sm=1 tr=0 ts=6a666366 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=Aa0Oat_sKGPK8WdvVJkA:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-26_05,2026-07-24_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0 bulkscore=0
+ spamscore=0 malwarescore=0 suspectscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607260200
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260726_124336_833029_612BD80E 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,455 +173,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 22:58:34 +0530
-Kaustabh Chakraborty <kauschluss@disroot.org> wrote:
+struct drm_simple_display_pipe was meant to simplify simple DRM
+drivers, but instead adds an extra wrapper around normal DRM atomic
+helper setup. As noted in Documentation/gpu/todo.rst, remaining users
+should be converted to regular atomic helpers and stop depending on the
+simple-KMS interfaces.
 
-> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
-> Corporation. This sensor is used in mobile devices, including, but not
-> limited to - the Samsung Galaxy J6.
-> 
-> The driver has been adopted from Samsung's downstream kernel
-> implementation [1]. Due to the lack of public documentation about the
-> schematics of this device. The downstream driver acts as the secondary
-> source of information. Driver clarity has also been improved with the
-> help of the GP2AP* drivers in iio/light.
-> 
-> Link: https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c [1]
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-Hi Kaustabh
+Each patch replaces drm_simple_display_pipe_init() with explicit
+primary plane, CRTC and encoder setup, and moves the old simple-pipe
+callbacks into regular plane and CRTC helper callbacks named according
+to local driver conventions.
 
-I've tried to avoid too much duplication of the things Joshua
-already called out (and I didn't even look at sashiko yet for
-this one!)
+The conversions preserve helper behavior that used to be implicit in
+drm_simple_kms_helper.c, including plane-state validation, CRTC
+primary-plane checks, affected-plane propagation, framebuffer prepare
+handling, and existing event/vblank flow where applicable.
 
-Various comments inline.  The use of regmap is unusual so
-I'd expect to see a bit more information on why that makes sense
-(or use of regmap_bulk_read() + regcache)
+Result is less helper indirection and more explicit driver-side atomic
+wiring, with no remaining simple-KMS dependency in these drivers.
+
+Changes are build-tested only. No hardware testing has been performed.
+
+This patch is based on drm-next-2026-06-27.
+
+AI usage disclosure:
+- AI tools were also used to review the code and suggest code changes for
+  the DRM atomic conversion.
 
 Thanks,
+Ze Huang
 
-Jonathan
+Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+---
+Changes in v3:
+- Add a new preparatory patch to avoid duplicate clk_per enables in
+  imx-lcdc pipe update after CRTC enable.
+- Use commit-local atomic state in enable/update/check paths.
+- Link to v2: https://patch.msgid.link/20260716-drm-simple-kms-removal-v2-1-7e4a6b8528e6@oss.qualcomm.com/
 
+Changes in v2:
+- use 'commit' as name of struct drm_atomic_commit in atomic helpers
+- improve control flow in *_crtc_helper_atomic_check() and
+  *_plane_helper_atomic_check()
+- Moved page-flip/vblank event handling out of plane update paths and into
+  CRTC atomic_flush(), using atomic_flush and disable paths
+- decide clock disable by old crtc state
+- add calls to drm_crtc_vblank_on() and drm_crtc_vblank_off() in crtc
+  atomic_enable() and atomic_disbale()
+- test crtc_state->enable before mode size check
+- Link to v1: https://patch.msgid.link/20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com
 
-> diff --git a/drivers/iio/proximity/gp2ap070s.c b/drivers/iio/proximity/gp2ap070s.c
-> new file mode 100644
-> index 000000000000..9625f53d956e
-> --- /dev/null
-> +++ b/drivers/iio/proximity/gp2ap070s.c
-> @@ -0,0 +1,502 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * IIO driver for Sharp GP2AP070S proximity sensor.
-> + *
-> + * Copyright (C) 2026 Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Ze Huang (2):
+      drm/imx/lcdc: avoid duplicate clk_per enable
+      drm/imx: replace struct drm_simple_display_pipe with regular atomic helpers
 
-You mention basing this on the vendor driver to some extent at least.
-Perhaps a reference to that here would be good to keep clear attribution?
-If it's not enough for an extra copyright notice, it probably is enough
-as a useful source of info like the link you have above.
+ drivers/gpu/drm/imx/lcdc/imx-lcdc.c | 263 ++++++++++++++++++++++++++----------
+ 1 file changed, 190 insertions(+), 73 deletions(-)
+---
+base-commit: 3696d07837d1df13a5603d77f667685e7dfb3c53
+change-id: 20260704-drm-simple-kms-removal-01a031c6a129
 
-> + */
-> +
-> +#include <linux/i2c.h>
-> +#include <linux/iio/events.h>
-> +#include <linux/iio/iio.h>
-> +#include <linux/iio/types.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/module.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/regmap.h>
-> +#include <linux/regulator/consumer.h>
-> +
-> +#define GP2AP070S_REG_COM1		0x80
-> +#define GP2AP070S_REG_COM2		0x81
-> +#define GP2AP070S_REG_COM3		0x82
-> +#define GP2AP070S_REG_COM4		0x83
-> +#define GP2AP070S_REG_PS1		0x85
-> +#define GP2AP070S_REG_PS2		0x86
-> +#define GP2AP070S_REG_PS3		0x87
-> +#define GP2AP070S_REG_PS_THD_LO_LE16	0x88
-> +#define GP2AP070S_REG_PS_THD_HI_LE16	0x8a
-> +#define GP2AP070S_REG_OS_D0_LE16	0x8c
-> +#define GP2AP070S_REG_D0_LE16		0x90
-> +
-> +/* GP2AP070S_REG_COM1 */
-> +#define GP2AP070S_VAL_COM1_WKUP		BIT(7)
-> +#define GP2AP070S_VAL_COM1_EN		BIT(5)
-Why the VAL bit of these defines? They are field masks rather
-than values of anything.  Normally we just use the absense of
-REG to indicate what are fields.
-
-Up to you but a clean way to associate registers and the fields in them
-without needing lots of comments is to use a bit of extra white space.
-
-e.g.
-#define GP2AP070S_REG_COM1		0x80
-#define   GP2AP070S_COM1_WKUP		BIT(7)
-#define   GP2AP070S_COM1_EN		BIT(5)
-#define GP2AP070S_REG_COM2		0x81
-#define GP2AP070S_REG_COM3		0x82
-#define   GP2AP070S_COM3_INT_PULSE	BIT(1)
-#define GP2AP070S_REG_COM4		0x83
-#define   GP2AP070S_COM4_BLINK		GENMASK(2, 0)	/* LED Blink Interval */
-#define     GP2AP070S_COM4_BLINK_0ms	0
-#define     GP2AP070S_COM4_BLINK_2ms	1
-#define     GP2AP070S_COM4_BLINK_8ms	2
-
-> +
-> +/* GP2AP070S_REG_COM3 */
-> +#define GP2AP070S_VAL_COM3_INT_PULSE	BIT(1)
-> +
-> +/* GP2AP070S_REG_COM4 */
-> +#define GP2AP070S_VAL_COM1_BLINK	GENMASK(2, 0)	/* LED Blink Interval */
-Why is something in COM4 called COM1?
-
-> +
-> +#define GP2AP070S_VAL_COM1_BLINK_0ms	0
-> +#define GP2AP070S_VAL_COM1_BLINK_2ms	1
-> +#define GP2AP070S_VAL_COM1_BLINK_8ms	2
-> +#define GP2AP070S_VAL_COM1_BLINK_33ms	3
-> +#define GP2AP070S_VAL_COM1_BLINK_66ms	4
-> +#define GP2AP070S_VAL_COM1_BLINK_131ms	5
-> +#define GP2AP070S_VAL_COM1_BLINK_262ms	6
-> +#define GP2AP070S_VAL_COM1_BLINK_524ms	7
-> +
-> +/* GP2AP070S_REG_PS1 */
-> +#define GP2AP070S_VAL_PS1_RESOL		GENMASK(5, 4)	/* Resolution */
-> +
-> +#define GP2AP070S_VAL_PS1_RESOL_14ms	0
-> +#define GP2AP070S_VAL_PS1_RESOL_12ms	1
-> +#define GP2AP070S_VAL_PS1_RESOL_10ms	2
-> +#define GP2AP070S_VAL_PS1_RESOL_8ms	3
-> +
-> +/* GP2AP070S_REG_PS2 */
-> +#define GP2AP070S_VAL_PS2_IOUT		GENMASK(6, 4)	/* Current Output */
-> +#define GP2AP070S_VAL_PS2_SUM32		BIT(2)
-> +
-> +#define GP2AP070S_VAL_PS2_IOUT_0mA	0
-> +#define GP2AP070S_VAL_PS2_IOUT_24mA	1
-> +#define GP2AP070S_VAL_PS2_IOUT_89mA	2
-> +#define GP2AP070S_VAL_PS2_IOUT_130mA	3
-> +#define GP2AP070S_VAL_PS2_IOUT_190mA	4
-> +
-> +/* GP2AP070S_REG_PS3 */
-> +#define GP2AP070S_VAL_PS3_PRST		GENMASK(6, 4)	/* Repeating Measurements */
-> +
-> +struct gp2ap070s_drvdata {
-> +	struct device *dev;
-
-As below, can use regmap_get_device() and not carry a duplicate copy of dev around.
-
-> +	struct regmap *regmap;
-> +	struct regulator_bulk_data *regulators;
-
-Is this used?
-
-> +	u32 near_level;
-> +};
-> +
-> +static const struct regmap_config gp2ap070s_regmap_config = {
-> +	.reg_bits = 8,
-> +	.val_bits = 8,
-
-Given there seems to be quite a bit of checking what I assume are non
-volatile registers, enable regcache and provide all the callbacks
-so it knows what is volatile and what isn't.  You should reduce the bus
-traffic a fair bit.
-
-> +};
-
-
-> +
-> +static int gp2ap070s_read_event_config(struct iio_dev *indio_dev,
-> +				       const struct iio_chan_spec *chan,
-> +				       enum iio_event_type type,
-> +				       enum iio_event_direction dir)
-> +{
-> +	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
-> +	unsigned int value;
-> +	int ret;
-> +
-> +	if (type != IIO_EV_TYPE_THRESH)
-> +		return -EINVAL;
-> +
-> +	switch (dir) {
-> +	case IIO_EV_DIR_EITHER:
-> +		ret = regmap_read(drvdata->regmap, GP2AP070S_REG_COM3, &value);
-> +		if (ret)
-> +			return ret;
-> +
-> +		return !!(value & GP2AP070S_VAL_COM3_INT_PULSE);
-
-For these single bit gets I'd prefer a FIELD_GET() as that !! is a bit ugly to read.
-If not use a ternary to set to 1 or 0.
-
-That !! thing used to be common but Linus amongst others have expressed
-it is not great to read.
-
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int gp2ap070s_write_event_config(struct iio_dev *indio_dev,
-> +					const struct iio_chan_spec *chan,
-> +					enum iio_event_type type,
-> +					enum iio_event_direction dir,
-> +					bool state)
-> +{
-> +	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
-> +	int ret;
-> +
-> +	if (type != IIO_EV_TYPE_THRESH)
-> +		return -EINVAL;
-> +
-> +	switch (dir) {
-> +	case IIO_EV_DIR_EITHER:
-> +		if (state)
-> +			ret = regmap_set_bits(drvdata->regmap,
-> +					      GP2AP070S_REG_COM3,
-> +					      GP2AP070S_VAL_COM3_INT_PULSE);
-			reutrn regmap_set_bits()
-> +		else
-> +			ret = regmap_clear_bits(drvdata->regmap,
-> +						GP2AP070S_REG_COM3,
-> +						GP2AP070S_VAL_COM3_INT_PULSE);
-			returnn regmap_clear_bits()
-
-and you can drop the check below, the break and the final return 0;
-
-> +		if (ret)
-> +			return ret;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct iio_info gp2ap070s_iio_info = {
-> +	.read_raw = gp2ap070s_iio_read_raw,
-> +	.read_event_value = gp2ap070s_iio_read_event_value,
-> +	.write_event_value = gp2ap070s_iio_write_event_value,
-> +	.read_event_config = gp2ap070s_read_event_config,
-> +	.write_event_config = gp2ap070s_write_event_config,
-> +};
-> +
-> +static irqreturn_t gp2ap070s_irq_handler(int irq, void *private)
-> +{
-> +	struct iio_dev *indio_dev = private;
-> +	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
-> +	struct device *dev = drvdata->dev;
-> +	u16 threshold_lo, threshold_hi, distance;
-> +	__le16 value;
-> +	int ret;
-> +
-> +	ret = regmap_raw_read(drvdata->regmap, GP2AP070S_REG_PS_THD_LO_LE16,
-
-Why is raw_read needed rather than a normal bulk read?
-For these I'd assume they aren't volatile and we want caching to cut down
-on bus transfers?  If there is a reason to do it this way add a comment.
-
-> +			      &value, sizeof(value));
-> +	if (ret) {
-> +		dev_err(dev, "Failed to read low threshold value (%d)\n", ret);
-> +		return IRQ_HANDLED;
-> +	}
-> +
-> +	threshold_lo = __le16_to_cpu(value);
-
-le16_to_cpu()
-
-> +
-> +	ret = regmap_raw_read(drvdata->regmap, GP2AP070S_REG_PS_THD_HI_LE16,
-> +			      &value, sizeof(value));
-> +	if (ret) {
-> +		dev_err(dev, "Failed to read high threshold value (%d)\n", ret);
-> +		return IRQ_HANDLED;
-> +	}
-> +
-> +	threshold_hi = __le16_to_cpu(value);
-> +
-> +	ret = regmap_raw_read(drvdata->regmap, GP2AP070S_REG_D0_LE16, &value,
-> +			      sizeof(value));
-> +	if (ret) {
-> +		dev_err(dev, "Failed to read proximity distance (%d)\n", ret);
-> +		return IRQ_HANDLED;
-> +	}
-> +
-> +	distance = __le16_to_cpu(value);
-> +
-> +	if (distance >= threshold_hi) {
-
-This very racy given I'd assume distance can change between interrupt and the
-event.  A common solution to this is to make it a userspace problem and
-poke out an IIO_EV_DIR_EITHER event.
-
-> +		iio_push_event(indio_dev,
-> +			       IIO_UNMOD_EVENT_CODE(IIO_PROXIMITY, 0,
-> +						    IIO_EV_TYPE_THRESH,
-> +						    IIO_EV_DIR_RISING),
-> +			       iio_get_time_ns(indio_dev));
-
-Grab timestamp as early as you can, as nearer to the interrupt.  Typically
-top of the interrupt handler.
-
-> +	} else if (distance <= threshold_lo) {
-> +		iio_push_event(indio_dev,
-> +			       IIO_UNMOD_EVENT_CODE(IIO_PROXIMITY, 0,
-> +						    IIO_EV_TYPE_THRESH,
-> +						    IIO_EV_DIR_FALLING),
-> +			       iio_get_time_ns(indio_dev));
-> +	} else {
-> +		/*
-> +		 * If none match, then it's stuck in the threshold band gap.
-> +		 * The hardware generally does not issue interrupts here.
-
-This needs an explanation of why there isn't a race. Is the value latched on
-interrupt until we read it?
-
-> +		 */
-> +		WARN_ONCE(true, "spurious interrupt issued in proximity threshold gap\n");
-> +	}
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int gp2ap070s_probe_hw_register(struct gp2ap070s_drvdata *drvdata)
-> +{
-> +	struct device *dev = drvdata->dev;
-> +	int ret;
-> +
-> +	ret = regmap_clear_bits(drvdata->regmap, GP2AP070S_REG_COM1, ~0);
-
-write a 0 rather than clear bits when you are clearing them all.
-
-> +	if (ret)
-> +		return dev_err_probe(drvdata->dev, ret, "Failed to reset sensor\n");
-> +
-> +	ret = regmap_clear_bits(drvdata->regmap, GP2AP070S_REG_COM2, ~0);
-> +	if (ret)
-> +		return dev_err_probe(drvdata->dev, ret, "Failed to unmask interrupts\n");
-> +
-> +	ret = regmap_set_bits(drvdata->regmap, GP2AP070S_REG_COM3,
-> +			      GP2AP070S_VAL_COM3_INT_PULSE);
-> +	if (ret)
-> +		return dev_err_probe(drvdata->dev, ret, "Failed to enable interrupt\n");
-> +
-> +	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_COM4,
-> +				GP2AP070S_VAL_COM1_BLINK,
-> +				FIELD_PREP_CONST(GP2AP070S_VAL_COM1_BLINK,
-> +						 GP2AP070S_VAL_COM1_BLINK_33ms));
-> +	if (ret)
-> +		return dev_err_probe(drvdata->dev, ret, "Failed to set LED blink timing\n");
-> +
-> +	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS1,
-> +				GP2AP070S_VAL_PS1_RESOL,
-> +				FIELD_PREP_CONST(GP2AP070S_VAL_PS1_RESOL,
-> +						 GP2AP070S_VAL_PS1_RESOL_10ms));
-> +	if (ret)
-> +		return dev_err_probe(drvdata->dev, ret, "Failed to set resolution\n");
-> +
-> +	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS2,
-> +				GP2AP070S_VAL_PS2_IOUT | GP2AP070S_VAL_PS2_SUM32,
-> +				FIELD_PREP_CONST(GP2AP070S_VAL_PS2_IOUT,
-> +						 GP2AP070S_VAL_PS2_IOUT_89mA) |
-> +				GP2AP070S_VAL_PS2_SUM32);
-> +	if (ret)
-> +		return dev_err_probe(drvdata->dev, ret, "Failed to set current output\n");
-> +
-> +	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS3,
-> +				GP2AP070S_VAL_PS3_PRST,
-> +				FIELD_PREP_CONST(GP2AP070S_VAL_PS3_PRST, 3));
-> +	if (ret)
-> +		return dev_err_probe(drvdata->dev, ret, "Failed to set measurement repetitions\n");
-> +
-> +	ret = regmap_set_bits(drvdata->regmap, GP2AP070S_REG_COM1,
-> +			      GP2AP070S_VAL_COM1_WKUP | GP2AP070S_VAL_COM1_EN);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to enable sensor\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static int gp2ap070s_probe(struct i2c_client *client)
-> +{
-> +	struct device *dev = &client->dev;
-> +	struct iio_dev *indio_dev;
-> +	struct gp2ap070s_drvdata *drvdata;
-> +	int ret;
-> +
-> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*drvdata));
-> +	if (!indio_dev)
-> +		return -ENOMEM;
-> +
-> +	drvdata = iio_priv(indio_dev);
-> +	i2c_set_clientdata(client, drvdata);
-
-Is this used?  It rarely is when a driver doesn't yet have power management
-(which is fine until someone needs it!)
-
-> +
-> +	drvdata->dev = dev;
-
-It is easy to get dev from the regmap so you can just do that and not carry an
-extra copy around.  regmap_get_device().
-
-
-
-> +	drvdata->regmap = devm_regmap_init_i2c(client, &gp2ap070s_regmap_config);
-> +	if (IS_ERR(drvdata->regmap))
-> +		return dev_err_probe(dev, PTR_ERR(drvdata->regmap), "Failed to create regmap\n");
-> +
-> +	ret = devm_regulator_bulk_get_enable(dev,
-> +					     ARRAY_SIZE(gp2ap070s_regulator_names),
-> +					     gp2ap070s_regulator_names);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to get and enable regulators");
-> +
-> +	usleep_range(10000, 11000);
-
-fsleep() applies standard level of slack rather than us having to think
-about what is appropriate.
-
-> +
-> +	indio_dev->name = "gp2ap070s";
-> +	indio_dev->modes = INDIO_DIRECT_MODE;
-> +	indio_dev->channels = gp2ap070s_iio_chan_spec;
-> +	indio_dev->num_channels = ARRAY_SIZE(gp2ap070s_iio_chan_spec);
-> +	indio_dev->info = &gp2ap070s_iio_info;
-> +
-> +	device_property_read_u32(&client->dev, "proximity-near-level",
-
-Use dev for all client->dev given you defined it.
-
-> +				 &drvdata->near_level);
-For optional properties like this we are generally hardening against
-unexpected errors in a way that we didn't use to.
-
-You can use a local for the string if you prefer or just do
-	if (device_property_present(dev, "proximity-near-level")) {
-		ret = device_property_read_u32(dev, "proximity-near-level",
-					       &drvdata->near_level);
-		if (ret)
-			return dev_err_probe();
-	}
-
-> +
-> +	ret = gp2ap070s_probe_hw_register(drvdata);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = devm_request_threaded_irq(dev, client->irq, NULL,
-> +					gp2ap070s_irq_handler, IRQF_ONESHOT,
-> +					"gp2ap070s-irq", indio_dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to request IRQ");
-> +
-> +	return devm_iio_device_register(&client->dev, indio_dev);
-> +}
+Best regards,
+-- 
+Ze Huang <ze.huang@oss.qualcomm.com>
 
 
