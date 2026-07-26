@@ -4,66 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53BEC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 15:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B884FC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 15:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zizj9Zfv80ZephJVTwvLABE7brgFhnhJjP5l+ivAlo4=; b=LaYy+dr0AHbxH8kMQm6ifcDPnD
-	U5FOLHfTYKJ1m/Z/wEF1ct5D1QUsos6gBQgJJ0kMQXTEJSXyN0IxezQTPxrjEsWOfCbOVTtt0LlDk
-	1armyGh/rDuEf9fUPfvVWwS20GKlgPSykT1Efi3cx/7kLtg57M8FuP+N/iuaE/R6ScIxNaiG4Gx1v
-	XDk/j+N8uOEkOdnfuID7IPOOi2or2lrKIhvUlyku5qqeImBFTKFT7cYgfj3UxDp59F6NcLuuyJZN6
-	QnrF13krXgSBfW0gq8phUDfJSuHzJbBkXKNKvPcgkz03NWHRSq6p7p7Z+VopzTHjMOMxjyU+DEdlf
-	/Sb8LJdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WOuDrYfN3GLsqpf/rmh1B+LTpgsMcK+DLrhJbAcy2SA=; b=iIqXJnfRwj564D8fTYhbx03m9w
+	pVXA9XX4hv5N09kFzWz2rZCyAcHUl1f71EJzfu40+xhMZvPqRNw3M5YPbK25ITjvJ9oKX2L9C7Oak
+	FRCERSlXkbf9jidmFD6AlNxTj0mGd53sFfVwGjpgfVs1okgcbwOUAVb5XqFcelno6r16coOx9tGS+
+	dRYa3ey/QCeZ17v5RZ1VWHbE5MbOAHyu2jo56aTrHVKFVOQ3Zt60dq9vbXA4lfwt6L1wrqXmTbdyX
+	naxVPRrCfeCQGfn4mGsaurr/BjGfVygXn0W/4Vsga/Px2lG6m6i/BsSIfRE1HA8Qt6zPmwj3WBu23
+	VhF6jGqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo0Wd-00000001Hty-25Nq;
-	Sun, 26 Jul 2026 15:12:23 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1wo0X9-00000001Hzo-2a0s;
+	Sun, 26 Jul 2026 15:12:56 +0000
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo0WZ-00000001HtP-0z6o
+	id 1wo0X6-00000001Hyb-13BP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 15:12:21 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RoTiaCiC23c+mFSAaE7FqtF74ugYbbgRMmBIhs27LxWUaEnMZOy3zHGMVkAfrt30RQEMcmvyei5o/QO/zDqHgnG@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785078736;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Zizj9Zfv80ZephJVTwvLABE7brgFhnhJjP5l+ivAlo4=;
-	b=Ed5an+kqGfwD8pBRDUXWeBKBsbqyVmLvrFKqhTAJfynLyPvexo+F73bMmj8QwUoj4Ili72
-	0+G8FYIDZkiA/0vIZjvl+q/vB+QChys3ijEtkpflDTeoODXywoDrWxCRJZWqgBiHGZIr5c
-	fXlaimpL8T99gyKRVyZB/fK54xMIISA=
-X-Gm-Message-State: AOJu0YxBtpCdCDDjKwGvF33PqRpyrr110rCtJqhinRS8wX4DrgnCq0lD
-	vlnoUsJXclXVdSD9gYDxSyFKXek6Zzvvwfj2mmWo5/wSjSx/9LjKBv51t7nNNfHQJZcswYGzM3b
-	aAkw4CLlu3nU7pKzyfjabhjcJCx0B5X0ilpLEwj4k
-X-Received: by 2002:a05:622a:e198:20b0:4ff:c0e7:be9c with SMTP id
- d75a77b69052e-529a5c1acfamr21067511cf.0.1785078726501; Sun, 26 Jul 2026
- 08:12:06 -0700 (PDT)
+	Sun, 26 Jul 2026 15:12:53 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-664b8b65192so226287d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 08:12:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785078771; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Y+57IIwwJ1YMSMJ8+wtIYoGRvk5cez7Nj6nqOisHtI7jDK6WQ+I2YcBWoU+7PsSyGI
+         mCk6JoOCJhk9pS79XSoEFtEhJ1AORwByWvKvtNA8arPaw1Mr/Lh0WEjmkq6b/NynFcFd
+         ubl1trYfYeQD95NGJul2BBy1ctV3NAMjefkXN+DYafMI1FrwQINlDOo5omErGCPYUmuM
+         URn/wbvev354q21ymQdQTeAt70Fes6cuzlqZTpDGzviqn9JvzhRLWZ9Fjgkpo5GOgauP
+         EbUb6EfDmoC6p40PeGBuO+LLvOfuDdAt8o00Uu8+kxx8nEgep3uk6Vv+Yquf8k+Y05ta
+         qLUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WOuDrYfN3GLsqpf/rmh1B+LTpgsMcK+DLrhJbAcy2SA=;
+        fh=TmGdBfOhKa3YpP5pH/6RGVZ5le4W99wrkx8LYH7VANY=;
+        b=tCvvg/y30mr2IrbkqMviJEOO/Di0YsWIAWrK/vzqPZfIqg67l46chpFLHqAv3Lgk8l
+         N485Tq6YPjWwFBK/n3SR0T0H8CDxqKH9QAkW/u61og+vJHWNdB/I+ItMQSzvCBZgExW0
+         p7QYMtmp0YK1xrpzV5VmvqmzzeTkwGXDNvG3Zix4ODxRo6nPNMNEDrw4aaAu06HD6J2a
+         TPctG7AyYTNhahyLAYxI0XmT7AIsxXRVsc3enQzE8bZPfxZJLQzws+Hs6c+yY5oSFneB
+         rRghSayRwTLE91mj8x1RIMD3fno+SsiXlSbFZX6nhgHwtH60h2/OdpkEmW/2hHNJlRFj
+         bVPA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785078771; x=1785683571; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WOuDrYfN3GLsqpf/rmh1B+LTpgsMcK+DLrhJbAcy2SA=;
+        b=FQ1gEfZGJXE8LO5O/NBD9ybIWaC+UUutTJ8oPFyYyNb1hcFUBEAQ6GgueiHon1jgei
+         ld4Zblmc6ig4JBZ32xtHMI7P0A5836iIydKMBacu4saxjQtN8MKhMPRwxIYjt5SQGjSh
+         3TiClZnzFS0eWC+f5brDcCclqFE/0m2mF/nPJ9zvw4vFm69UDFOOgESL7KbJo4m5DHsC
+         Iz6a91e19C0cTvYjhu5ydtq7mIEEtvU8FoKOK5HYSc7tD28v+9CIrAYdyGxWwaLR127B
+         x1nSMEgRX77YBK+CHFshkphL+hxgZDvM/33opEAMId0A4AZ9JfhOC336yzgR2t+FcwDa
+         QU0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785078771; x=1785683571;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WOuDrYfN3GLsqpf/rmh1B+LTpgsMcK+DLrhJbAcy2SA=;
+        b=jDur1O1i0kWKem7RaXlyrmEV1ROVl17hKQUcuHqTM/Iliv+v711vtPUtKEwF1Hj+i8
+         p4sETfQg4dkWmWdCVIhHdebVbD3u7sL0cl2rHHEqkqw/xYc15Xl3j2bPhVY73+VNL4gF
+         4J64WLkVtZYlm6upxd6BYepBv1EflPfFhXW0uDsoD93rgMJXxrfps7KTBVxgcF/b7pLy
+         RjoZeQQQv/YFqXnwvzdLanJZ2X2Tas4QQIY90JQBuUmeO7wOepUDMVfjxSPWagNO36qj
+         UkbO/ptNNJQyAa925tLPxWKeEl2vUrKCHyh6Lt9nfv4Ai1qHK1rw0OypbfbWUQxJE9A1
+         6+nw==
+X-Forwarded-Encrypted: i=1; AHgh+RrrcBB+bnXABuiNGboZq7NKqjZWHX7QVcOKvW/WsTrGwq7dyqDu84GAjW3la83Rzz5QaZnFKkSWsQLlx4DyV+8y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/ARwG3wcYtyzUyqh3Sl27NCCs94kITrAUGsuob9tiZjzUpynm
+	W1XVRos8QBReruGSyCMihVYvm4seeqdy2B1hvJcHy1TDv7o8VqRIvSWeVYpdqI6pgXbdDr2bpgt
+	lTSFVs+WeAgIpDBE83ME/pF4hI6Doa5g=
+X-Gm-Gg: AR+sD12oE9524ft0WgvqWzGJG75fLCDbdQ/u0kxsMalJflXyzqHnwLK9WGWS6MZ2pSv
+	AOEVP2XOKjrZ0+fzMT0Kh4jucBz+vBqQNIk/Qb7V9bbhFff+7XHUvSkC3jmly3AwA5p2PPo4uZC
+	dFJQq6hxGFfSlRVJ+IsodSOwyvderGR/y+MNYJs+X1nZgQO9VwblWpsdu5nWGqUFtIzGGmo63hi
+	inSfa+cOABGjywXEPFs74oJlye8M7rahjYinu4D723wdIXugJwAKggPmofSPYEUzQ5jtiybQ5K1
+	j9JIEU04Cg+0lh+fwko=
+X-Received: by 2002:a05:690c:f07:b0:7fd:6d19:5a8d with SMTP id
+ 00721157ae682-81f69ee7e19mr14494537b3.8.1785078770663; Sun, 26 Jul 2026
+ 08:12:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260715150125.2798116-1-smostafa@google.com>
-In-Reply-To: <20260715150125.2798116-1-smostafa@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 26 Jul 2026 16:11:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyhFhooFDUsjEu_9TDkiPeOrFZLE4PEL7gFvf6Lk9ShOA@mail.gmail.com>
-X-Gm-Features: AUfX_mwy3jWyH-Tvwq789eUPJlNX89fkyt2UCwKxTp-OL1P5nSI-YyRYDYs6HZQ
-Message-ID: <CA+EHjTyhFhooFDUsjEu_9TDkiPeOrFZLE4PEL7gFvf6Lk9ShOA@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Use consistent type for pool size
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oupton@kernel.org, 
-	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	vdonnefort@google.com
+References: <20260718085728.6797-1-royalnet026@gmail.com> <20260718085728.6797-3-royalnet026@gmail.com>
+ <25922edc-4ff1-4d28-9a64-2c28b2b690cb@collabora.com> <CAEWPSH70FecQRuGtA=S8+_CnLY5sMyf1j57Uwzwv54zceS1HZg@mail.gmail.com>
+ <b8d63f61-b73e-412e-8119-ced1afdd4551@collabora.com> <CAEWPSH5j3tYNb1JKRGwa00PVnYAgCKS+B-Qz07D8Z7TJea5cMw@mail.gmail.com>
+ <1ac66aab-8985-4441-8ce1-07e2ea5183bd@collabora.com> <CAEWPSH4aB4KZsrLx2TESjPvUG0+A_Z_7uuO=5Rd-VidKU9U3eg@mail.gmail.com>
+ <e1034df6-3801-424a-ba1e-a03d61b37222@collabora.com>
+In-Reply-To: <e1034df6-3801-424a-ba1e-a03d61b37222@collabora.com>
+From: Igor Paunovic <royalnet026@gmail.com>
+Date: Sun, 26 Jul 2026 17:12:38 +0200
+X-Gm-Features: AUfX_mxNMnv89FtlmOLwDPjkbtQHb2ya9M8N3iwV5LPYpxZcnxB0jJS_Wey_JPA
+Message-ID: <CAEWPSH6BaPL+65Or+kVHGCdzRHrhaYSbZNfRwNTJQGWYvjnY5g@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] media: synopsys: hdmirx: add HDMI audio capture support
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_081220_319256_A1153CD4 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20260726_081252_323672_3F7361AB 
+X-CRM114-Status: GOOD (  32.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,97 +125,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 at 16:01, Mostafa Saleh <smostafa@google.com> wrote:
->
-> All the pool sizes in the hypervisor are "unsigned long" but when
-> they get passed to hyp_early_alloc_contig() or hyp_pool_init() they get
-> truncated to 32-bits.
->
-> That is not a big problem at the moment as to overflow this we need
-> 4G bytes of carveout (2 TB of host or guest system memory).
->
-> However when new users are added (as IOMMU) it is hard to reason
-> about the carveout size anymore.
->
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Hi Dmitry,
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+That's really helpful, thank you. The get_eld() route makes sense --
+reusing the ELD path to advertise the single wire rate (either by
+generating an ELD in the driver or teaching the CODEC an explicit RX
+rate restriction) is cleaner than what I had in mind, and having
+userspace see exactly one capture rate and resample on its own side is
+the right behavior.
 
-Cheers,
-/fuad
+I'll follow that flow -- plug event -> signal stable -> rate from ACR ->
+register CODEC -> get_eld() -- when I get to the follow-up, and I'll run
+the hdmi-codec side of it by the ASoC list since it extends the shared
+CODEC driver. I'll keep you cc'd when I post it.
 
+Thanks again for the pointer, and for the reviews and testing on this
+series.
 
-> ---
-> For example in the SMMUv3 to avoid this overflow, I add a cap
-> for the pools size to UINT_MAX to work around this:
-> https://lore.kernel.org/linux-iommu/20260715115906.2664882-9-smostafa@google.com/
-> ---
->  arch/arm64/kvm/hyp/include/nvhe/early_alloc.h | 2 +-
->  arch/arm64/kvm/hyp/include/nvhe/gfp.h         | 4 ++--
->  arch/arm64/kvm/hyp/nvhe/early_alloc.c         | 2 +-
->  arch/arm64/kvm/hyp/nvhe/page_alloc.c          | 6 +++---
->  4 files changed, 7 insertions(+), 7 deletions(-)
+Igor
+
+On Sat, Jul 25, 2026 at 7:58=E2=80=AFPM Dmitry Osipenko
+<dmitry.osipenko@collabora.com> wrote:
 >
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h b/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
-> index dc61aaa56f31..462883c4e325 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
-> @@ -7,7 +7,7 @@
->  void hyp_early_alloc_init(void *virt, unsigned long size);
->  unsigned long hyp_early_alloc_nr_used_pages(void);
->  void *hyp_early_alloc_page(void *arg);
-> -void *hyp_early_alloc_contig(unsigned int nr_pages);
-> +void *hyp_early_alloc_contig(unsigned long nr_pages);
+> Hi,
 >
->  extern struct kvm_pgtable_mm_ops hyp_early_alloc_mm_ops;
+> On 7/24/26 02:47, Igor Paunovic wrote:
+> > Hi Dmitry,
+> >
+> > Thank you -- and thank you for reviewing the whole series and testing
+> > 2/4. It went through a lot of back-and-forth since the RFC, so having
+> > it land with your Tested-by means a lot.
+> >
+> > I'll prepare the follow-ups as separate patches once this series is in:
+> >
+> > - The video_device lifetime issue on the V4L2 side (the devm-allocated
+> >   struct with video_device_release_empty that the automated review
+> >   flagged) -- as a standalone fix for the existing driver, since it's
+> >   independent of the audio support.
+> > - An atomicity fix for the GLOBAL_SWENABLE read-modify-write, now that
+> >   the audio path adds a second writer to that register alongside the
+> >   CEC code.
+> >
+> > The repeated-suspend wedge I mentioned in the cover letter I'd rather
+> > send only once I have a clean, reproducible trigger for it -- it's
+> > still under investigation and I don't want to send a fix ahead of a
+> > solid repro.
+> >
+> > The dynamic codec registration you suggested (bind on the plug event,
+> > read the actual wire sample rate and restrict the codec's rate) is the
+> > direction I'd like to explore after these, once I've looked at what it
+> > needs from hdmi_codec_ops.
 >
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/gfp.h b/arch/arm64/kvm/hyp/include/nvhe/gfp.h
-> index 3766333bace9..3a428dc40b14 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/gfp.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/gfp.h
-> @@ -29,6 +29,6 @@ void hyp_get_page(struct hyp_pool *pool, void *addr);
->  void hyp_put_page(struct hyp_pool *pool, void *addr);
+> Good plan
 >
->  /* Used pages cannot be freed */
-> -int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
-> -                 unsigned int reserved_pages);
-> +int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned long nr_pages,
-> +                 unsigned long reserved_pages);
->  #endif /* __KVM_HYP_GFP_H */
-> diff --git a/arch/arm64/kvm/hyp/nvhe/early_alloc.c b/arch/arm64/kvm/hyp/nvhe/early_alloc.c
-> index 00de04153cc6..9fef0c7d2185 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/early_alloc.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/early_alloc.c
-> @@ -21,7 +21,7 @@ unsigned long hyp_early_alloc_nr_used_pages(void)
->         return (cur - base) >> PAGE_SHIFT;
->  }
+> RE the sample rate restriction, hdmi_codec_ops has get_eld() that
+> restricts rate based on HDMI ELD [1]. For RX we could tell the exact
+> rate to CODEC without ELD or we could generate ELD in the driver, either
+> way should require extension of CODEC driver with support of RX rate
+> restriction. This way userspace will see that there is only one rate
+> available for capture, so it won't be able to choose wrong rate and will
+> resample audio itself as it needs.
 >
-> -void *hyp_early_alloc_contig(unsigned int nr_pages)
-> +void *hyp_early_alloc_contig(unsigned long nr_pages)
->  {
->         unsigned long size = (nr_pages << PAGE_SHIFT);
->         void *ret = (void *)cur;
-> diff --git a/arch/arm64/kvm/hyp/nvhe/page_alloc.c b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
-> index 57f86aa0f82f..51460d420c94 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/page_alloc.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
-> @@ -229,12 +229,12 @@ void *hyp_alloc_pages(struct hyp_pool *pool, u8 order)
->         return hyp_page_to_virt(p);
->  }
+> HDMI plug event -> signal stable -> gate audio rate from ACR -> register
+> CODEC device -> ops.get_eld() returns our ELD
 >
-> -int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
-> -                 unsigned int reserved_pages)
-> +int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned long nr_pages,
-> +                 unsigned long reserved_pages)
->  {
->         phys_addr_t phys = hyp_pfn_to_phys(pfn);
->         struct hyp_page *p;
-> -       int i;
-> +       unsigned long i;
+> [1]
+> https://elixir.bootlin.com/linux/v7.1.3/source/sound/soc/codecs/hdmi-code=
+c.c#L477
 >
->         hyp_spin_lock_init(&pool->lock);
->         pool->max_order = min(MAX_PAGE_ORDER,
 > --
-> 2.55.0.141.g00534a21ce-goog
->
+> Best regards,
+> Dmitry
 
