@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4599C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 11:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20112C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 11:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SAGuHYLzec3TiXchYLxlBSFHawNmAE0FcVZoRl9MzV0=; b=VJLTcK9PoqhJLSkDz9NsZHJHgn
-	saErd5d3pOuf3RR/Hy3Tx1sT4JxJr/Fw7tQ+C6ecybKDM/WgtdjX8VQ/nigy4zGg8ebQQMYM5wNaC
-	gb31n/knJe4y7oOz75gcS2MduLk2jODoXGsPewv5XSYxcMyIO/dYpa0yAypcirYzyPuEzQzC7uu7v
-	Bgde7JqbMyOjqCo6XFZ8fofHq/9km7IiMMQyu5x+RBiqT1sHkY6zpR/4rrpwOIMAmXlrQycbDtm4g
-	VhVhrxlNKrSLMDTouGzN91XQmQsEgk+AHlbinQ0Jr2vbnfDsVwp91xQaFH96iDQlqts4zdoqNYDYO
-	VpyrMnLg==;
+	bh=BD67O4VxjpIvpQkBY4qU/I0nnLqaoQK18bmEHcUuNU4=; b=tPEG7rQTE8qs+0/Q2KZKywXKLg
+	f3HGUABZ7jcYr7OVQjOh2M7yL9z+omBipvDtqZ6Hkx0q4v/P1rxFBZJNcnxO74w5MqMZP2J81y5lo
+	7QsXnV8U9l9LqnjJokmC36JAobieipYsXFp6iEiE+nZ3a3+PgJgkrACIcrs95ngizGPPZKdeSbZmQ
+	TbE3NuR+ef930e0ty6cotKPhBGnGmCEtl2vKDeE6C2Fls2TA3+LO+9edXYakbK+EBV6XrSGc/O9WG
+	an88Gv2TVoCIH4t/nhQ9BtYwjr6iEM3M3DFGGOjK+rrKc/7sbOb3jqEQxNQVUYecQGKbuXVt0B0q6
+	TpxGYDVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnx16-000000016Wk-0S98;
-	Sun, 26 Jul 2026 11:27:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wnx1F-000000016Y5-0rb1;
+	Sun, 26 Jul 2026 11:27:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnx14-000000016Wb-0olN
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 11:27:34 +0000
+	id 1wnx1D-000000016XW-1xHm;
+	Sun, 26 Jul 2026 11:27:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 962F841333;
+	by tor.source.kernel.org (Postfix) with ESMTP id A2AA960008;
+	Sun, 26 Jul 2026 11:27:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA52F1F00A3A;
 	Sun, 26 Jul 2026 11:27:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D95F1F000E9;
-	Sun, 26 Jul 2026 11:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785065253;
-	bh=SAGuHYLzec3TiXchYLxlBSFHawNmAE0FcVZoRl9MzV0=;
+	s=k20260515; t=1785065260;
+	bh=BD67O4VxjpIvpQkBY4qU/I0nnLqaoQK18bmEHcUuNU4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JhaPEe43r2Y9whJmEZzUG34GQC0C6KtVfXPNa219FRRpMOmJSPvn+z5KDoM7JMSks
-	 GJxCFVPR8KJ35fQoHbf3oZCbfJ/aFi2d++HzhK6BhkS8wYX46ZBLfPwI4D8MMDVYc7
-	 fT01nGVH4c8bGtADv9GBcJpvhfaz9aU4YxUAioQVYof/eRhyd0EYwIXmoWf95/ZFGW
-	 /BlYPwdjFVXziYWwIZgON9K6Ggpy33Cl9IYobondTexqbJLb2MWolqufz4FyUjRS0B
-	 g9CVnGEOeF8XIGGpd8t7lehqnBqYK3LlX2rwFtuVoPdOydLrap+utQC2eVTLUTlgZ4
-	 qWVPZJa/2VFpQ==
-Message-ID: <3f4397e4-fdf0-4c79-ad91-42c6b6f200d6@kernel.org>
-Date: Sun, 26 Jul 2026 13:27:19 +0200
+	b=bFwthwBB+8VzKDqeSOeJBOabb7INmugR1qe4ekQkgIJOA/+Ppa2tP4rRvPj2QgNCi
+	 Oo3Dsk0hRS1W4QcIPaMj0J6naWVbWJdmyH2zzIvAeHT+Vm5v8+6ot2zwblI0R/9goJ
+	 LNp25GZYNPNOYMbyL/ftVh7onSraKfduBqZ0EkOEf8Srms6yIormtf1CqD6WVQPe1G
+	 dd4GoGG8VwQdbAkcXrYbx0ZWilTg9+5QHP/mRIJ9jUX48EosfJ+LIno6k7GrarbCgH
+	 iF5Waw6r8v/p1YVvAqEMjPN9TRJu1TQ0xdXnaMJBLWUx4Ugn9YH/A+m+aZwefLUo7j
+	 Nm/IWK1BHeIiQ==
+Message-ID: <6a6bfe58-2b9b-46f2-9f16-d0abebf6337a@kernel.org>
+Date: Sun, 26 Jul 2026 13:27:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] dt-bindings: net: fix spelling errors
-To: "shaikh.kamal" <shaikhkamal2012@gmail.com>,
- Frank <Frank.Sae@motor-comm.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Clark Wang <xiaoning.wang@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
- Linux Team <linux-imx@nxp.com>,
- Christophe Roullier <christophe.roullier@foss.st.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260726052429.16807-1-shaikhkamal2012@gmail.com>
+Subject: Re: [PATCH wireless-next] dt-bindings: net: wireless: mediatek,mt76:
+ fix 'spacial' spelling
+To: "shaikh.kamal" <shaikhkamal2012@gmail.com>, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260726053817.17409-1-shaikhkamal2012@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260726052429.16807-1-shaikhkamal2012@gmail.com>
+In-Reply-To: <20260726053817.17409-1-shaikhkamal2012@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,18 +120,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/07/2026 07:24, shaikh.kamal wrote:
-> Fix spelling errors reported by codespell:
-> 
->   encompases -> encompasses (stm32-dwmac, sti-dwmac, nxp,dwmac-imx)
->   curren     -> current     (motorcomm,yt8xxx)
-> 
-> No functional change.
+On 26/07/2026 07:38, shaikh.kamal wrote:
+> Fix spelling error reported by codespell: spacial -> spatial
+> (spatial reuse). No functional change.
 > 
 > Signed-off-by: shaikh.kamal <shaikhkamal2012@gmail.com>
 > ---
->  Documentation/devicetree/bindings/net/motorcomm,yt8xxx.yaml | 4 ++--
-
+>  .../bindings/net/wireless/mediatek,mt76.yaml           | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
+> 
 
 Slow down. Same comments.
 
