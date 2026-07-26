@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC860C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 17:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5A8C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Jul 2026 18:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OG3fQOQ/VuZuHcKcajMtkmekIa5X8h+Q4MAhuhrOcMM=; b=KynpxiZm7381NcsAaxG1vyekjj
-	rTNYXM28WWBa+OEKhaqBtBjSlH+rKsF3T1sK8Aeeb47XjvZ2+LQZ7Z2sWQsiFKnm8KtDNpi7Oklv8
-	Tt51gbHMotmDrls3rOhQw6SSTPw5SDq7YxIxhxg6QzFf/gydkDR4tl2dE1N0I6JMQSK749hfR9GbP
-	Fhom6dyFEnYXO8B8bUfNwApOHIvPhiTgWJw53j9JBUKBhUZHu0iPEmwAWaX2V46mP4qwYfViEKBmW
-	rQwPCWJ7AwVAdgfZBWBweOHF+nmiWFVYHqpo9Jo1HsJZ3SmFxbQRTtcIaFJtB3jT0GkmQXT0kestU
-	oBib57SQ==;
+	bh=PdwZxxP8oqz0gMmIElZLBFtAWKuHTGQms5/kGxcVlaA=; b=FZH8OiroSyXbIOkq3VBFVgcS2d
+	rGM3mlJytldfj3BIqA/0P7zNiFurDinOn59Ly2mtEXhsBjVJEcmwJdL10jTVUWkBNQUukLWQJLztJ
+	wpHXNSH6ClVi4tW19TJ8eIZGpLwHah/IVqdq5fp8yduTfeI86s2F7ws7f4u+jbEcdHvubv5niWLmI
+	P3kkN2iFTu5cf9TVWPmiBq1mrL96YohaQr1FD/4X1Wh+Cygw1pFrKKn19vaXO/oMDTQOIAPzfw54d
+	xw3MS5rIEjqJ3Bhmb5k5EeKHXgwg4VYBNwcERjxlBZw0kBDNO4rF/TJOA4tTiXE03AHNLoLCRfYFM
+	JDAxX7yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo2yg-00000001Rec-1sTA;
-	Sun, 26 Jul 2026 17:49:30 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wo3Cf-00000001RwB-2Cwg;
+	Sun, 26 Jul 2026 18:03:57 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo2yd-00000001ReH-0bKE
+	id 1wo3Cd-00000001Rvn-1dLd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 26 Jul 2026 17:49:28 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49557167508so20168305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 10:49:26 -0700 (PDT)
+	Sun, 26 Jul 2026 18:03:56 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-ca80d708489so1305017a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 11:03:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785088164; x=1785692964; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785089034; x=1785693834; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OG3fQOQ/VuZuHcKcajMtkmekIa5X8h+Q4MAhuhrOcMM=;
-        b=lWiW4uSAVt6sqqqNvUD2YqGE8ffO36l9rJifAKQxvoPsgmiJqx7wuBzxwJAiPlG07m
-         2L4o8yJbkQMszDylBZBukSfJFaB6oL4iZ3kYI9aMrLXciB3Yqlsd1SKbwHb7JGW+QtA/
-         bEz7+v+8yo9ZDuqoEzRnT31XKNUZCj467SEljqeaGD9NKa3EPNcP8fKSwVtc8xH5BjRB
-         v6hp2FqC6XxVo4hUin2szDS+REkoCsKipg99g679SdnCLMUkR/mCrha2fqIFPq02Yq9O
-         BXlx3ADayn/zMapETfYplJ0ljHbHSuUlC3TQMBmylkPE0PZZAINFAWYt6fv5G3VFZ/e1
-         5pLA==
+        bh=PdwZxxP8oqz0gMmIElZLBFtAWKuHTGQms5/kGxcVlaA=;
+        b=mJ3aIM7++u/EF5BPlFtFJHqfnXeLLMMAKfPIKsOXn4E1WoQQ596B0FsgFIH5S9m1QI
+         LYdLON3udg5XMHKe3sX6G9yxtDULEX2gxeJbLzc0vCPMDwLBO3Jt/zKd7/L3KSAr1mM8
+         9nu6X8XpUfvkF5/6mFcWLH4PwcKE6I685PHhuNduOzN0dcVTETlbJTTj72zHwg5Q2C4N
+         2ytQcVhdyxJOJMrVwcCJWcW4yaYHwAuh4F4rh/7Ho70sjIEAA8d8x0ZtVLZ1nqV7ipu7
+         WNU814QmuDmeVTOyR/9Tvj8dncOr7JttmW4qBWqnF0b2ReylQG+W14MrUO4jdkB8MY8q
+         61zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785088164; x=1785692964;
+        d=1e100.net; s=20251104; t=1785089034; x=1785693834;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OG3fQOQ/VuZuHcKcajMtkmekIa5X8h+Q4MAhuhrOcMM=;
-        b=XNwymSXCko9apBLapC6JYf473hogDGRK8WY04Do9PE/NxUblQGQnB9N1Eiyz7jba0U
-         odAKrd4oMxTWiCD1Wkgmxn6IeZKE9Icpx1MwpK5MiFi96SHpP0GWCOf5RXGURmlbVVkC
-         uwmDbuyOw2NGjk9vK7ewXC5ED4MjqTr1p2UG2B3qTjLaeyRlfk2N7P1qY6eRKTASTfvP
-         xD6gZpBzBP4YjQthgtbBYx9RWdtzuceYLkP5j6L4ZhDSqlRBHpHMuEKNNsT8jh/24vja
-         /+i6e4YYBmP73LpAELCOGIwVWiqD/7tubH0803nn9Bk140S+kLQQNY/Ty1+eBZEHqOIW
-         81Gg==
-X-Forwarded-Encrypted: i=1; AHgh+RpNT/Wh5Qg55+e7wqy2lXtRUvw4XEzczATjHJrvPxRBMtTZPIA/VNlhmRIi1pjWzsJ0iBugvVV+rtmwFzNik2UQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7LnnGoD8ykBumBBzvBy+t6uNls/x4QE+XD8qqQ/tWDP3F2PLm
-	087X4QG79FhaP6ikW+Pn1TXv2KxyLOrOpDRu7Ahk3SS0/RgJoLJOQCYW
-X-Gm-Gg: AR+sD10N6j93PGYojs/gR88UASMhJQpoK6d+La81XeGq5fJxADaILdVQ6HkNTmVYO43
-	6mO7vxC1JBemjWowFqHrOqLOPkL/hjPwMxFO/QaJB8RSwy34Kqh1I+4TylS+8Ep1QHwDWfHnugi
-	bZHvCLzBrf/FyTFG5AbnbqzDGgctNWFmKkLkfzn0o3GrrCkP6DrOJSE4eg7E9enWiTZv6rgteDF
-	NzH6iFlQ6ZcuRbC8Q/cla82HPIOWLqXdvUZu+3Lc/4nG/GbZix/Euj1Hk9byuv4iIpiGsNWsubm
-	W9OGWy4rCzFyo/S0v0cY61OtHSArNZgfbVTFAUradMRAgoSRj5TNx+1ZRijd0KY1UBdLT0XLr8g
-	u4NqSEpTjXPm//e49kJsqycBHosgX3jHW29XaeswmuSX48Guuk7+4viODOvmAmk8GNo6+BL8kDi
-	B3VlC4yFgYen9YArFLykJICphOQ1uUOoUw9GdN6UpsJilKoHjUnvb20pL6cYLsYbIKMCwK0bWz5
-	92i1m8TqyO1jQJmOh2oYd1X9ok7Ua4aK1I617NKCT+8+tXiaMY=
-X-Received: by 2002:a05:600c:3113:b0:495:4fd4:619b with SMTP id 5b1f17b1804b1-496b56bbc22mr70116885e9.1.1785088164322;
-        Sun, 26 Jul 2026 10:49:24 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-095-114-116-215.95.114.pool.telefonica.de. [95.114.116.215])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85b9a64dsm45288820f8f.1.2026.07.26.10.49.23
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 26 Jul 2026 10:49:23 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+        bh=PdwZxxP8oqz0gMmIElZLBFtAWKuHTGQms5/kGxcVlaA=;
+        b=SEA5Ey10EBhqrPy03Q2/p+wkqNz9jBaebnVa9QhFFxWcIDjs/ey8NqLWX9Dec1oqvB
+         hUGxBmw9b/ciA84e5L0bIiAxWzv1MeBu05FJdTPgz5H9n6WIE4R6kfwePxgYOT542jCm
+         Q3NnfiQcSdqmJUIzW/n4BgRIRPU/HaDANNTc9oq3bBYqmYxbmI5dgolprUcnfutQeiPE
+         XXOpfDUpqmdcDDdOwHsUxOwoM0ezMsG5pJri83yPKjCYFTFtVPE96c3qlufzgCmTLdbv
+         rAq2SpmEQ4OOMPaCWzd5aaKsz7NImlyJokzvmmnAJq09USNl/ncAh9QUfGxtKN3sHA3g
+         7YuQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrEwa2F4ZGDRJ2V/Kx2scEgoElZwNKaQropSy/ka5OqGtUp+FP2RV9KREHQoZCnE7hZS2nhLBf2Q01h9WE3dTGQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd7Aqt/5DmBctG66rCFD5fHzk5VhbkQ9BqAHGXBr8w1Zd0KlsU
+	aXLjS9hsr5+ntt4WnF7IkgqqY+aEacfmSy4xAo5yP+F7TPel/iNgTVch
+X-Gm-Gg: AR+sD10gBUUrkjR+yEuoG7lYqB+7cWBtyje3VRF427xufSSRIwn/XQUvBvJXzJqdIdr
+	WiylqA+hFKVvkgoorDHXrXe1KaejkXmuVFLqBnzjuvt5nrqua+yzRgbHfjZFXrGoOxrPrOqcdK/
+	7eJdQZwVX9sWSfYrC/skOoLyqyXbTL8D/HmOB51GgWMU6BUn9FMmms+D+CZ/XY0bXiQ7kiv7k9V
+	twqnYul+hz0gO8sE2t0WKeTJVVqQi8yxdu1HWtUNRO9AMTcBTIG5bOMK72dQfjVy4qqujRhpHOS
+	xQtHfUwmOSC/Ywxpcx0omKsW0HgSYL8bksYJQemY0yXpmqckbvGV3DWQifMgE4s4+Oap734Tj4D
+	aIBwXU2YQj8hU9hWc8VbTtb5XcrBYV40J6i3N84dUd5rG1lvKsuFALqJsFhu55NIFJJ81p2EfCG
+	kd0JB8LVc6ens=
+X-Received: by 2002:a05:6a21:6b8c:b0:3c3:8315:80b6 with SMTP id adf61e73a8af0-3c67267e948mr7535903637.32.1785089033798;
+        Sun, 26 Jul 2026 11:03:53 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:30b7:9ffb:4fac:ad00])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-314bc3e1285sm24729671eec.5.2026.07.26.11.03.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Jul 2026 11:03:53 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: Jonathan Cameron <jic23@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>
+Cc: David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] KVM: arm64: GICv2: Don't WARN on out-of-range GICV_DIR INTID
-Date: Sun, 26 Jul 2026 19:48:03 +0200
-Message-Id: <20260726174803.5880-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Mohammad Shahid <mdshahid03@gmail.com>
+Subject: [PATCH] iio: adc: bcm_iproc_adc: Use dev_err_probe() for resource acquisition failures
+Date: Sun, 26 Jul 2026 23:33:19 +0530
+Message-ID: <20260726180319.315016-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_104927_248077_471740F2 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260726_110355_431662_D8902D3B 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +103,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vgic_v2_deactivate() passes the INTID a guest wrote to GICV_DIR straight
-to vgic_get_vcpu_irq(), and treats a failed lookup as a "can't happen"
-condition with WARN_ON_ONCE().
+From: Mohammad Shahid <mdshahid03@gmail.com>
 
-The guest can make it happen at will, though: for any INTID outside of
-the implemented SGI, PPI and SPI ranges the lookup returns NULL, since
-GICv2 has no LPIs. A guest running with EOImode==1 writing such an INTID
-to GICV_DIR triggers the WARN, and panics hosts running with
-panic_on_warn.
+Replace open-coded dev_err() and error returns with dev_err_probe()
+for failures from syscon_regmap_lookup_by_phandle() and devm_clk_get()
+in the probe path.
 
-Drop the WARN and ignore failed lookups.
+This simplifies error handling and properly handles deferred probing.
 
-Fixes: 255de897e7fb ("KVM: arm64: GICv2: Handle deactivation via GICV_DIR traps")
-Cc: stable@vger.kernel.org
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 ---
-v2:
- - Drop the WARN_ON_ONCE() instead of bounding the INTID before the
-   lookup, which duplicated the range check vgic_get_irq() already
-   performs (Marc)
- - Retitled; was "KVM: arm64: GICv2: Bound the INTID in
-   vgic_v2_deactivate()"
+ drivers/iio/adc/bcm_iproc_adc.c | 19 ++++++++-----------
+ 1 file changed, 8 insertions(+), 11 deletions(-)
 
-Link to v1: https://lore.kernel.org/r/20260725154020.37305-1-kmehltretter@gmail.com
-
- arch/arm64/kvm/vgic/vgic-v2.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index cafa3cb32bda..7182f63fc938 100644
---- a/arch/arm64/kvm/vgic/vgic-v2.c
-+++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -170,8 +170,9 @@ void vgic_v2_deactivate(struct kvm_vcpu *vcpu, u32 val)
- 	/* Make sure we're in the same context as LR handling */
- 	local_irq_save(flags);
+diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
+index cf4738b16e62..62f12eecc8b2 100644
+--- a/drivers/iio/adc/bcm_iproc_adc.c
++++ b/drivers/iio/adc/bcm_iproc_adc.c
+@@ -522,19 +522,16 @@ static int iproc_adc_probe(struct platform_device *pdev)
  
-+	/* Guest-supplied INTID: out of range yields no irq, so ignore it */
- 	irq = vgic_get_vcpu_irq(vcpu, val);
--	if (WARN_ON_ONCE(!irq))
-+	if (!irq)
- 		goto out;
+ 	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+ 			   "adc-syscon");
+-	if (IS_ERR(adc_priv->regmap)) {
+-		dev_err(&pdev->dev, "failed to get handle for tsc syscon\n");
+-		ret = PTR_ERR(adc_priv->regmap);
+-		return ret;
+-	}
++	if (IS_ERR(adc_priv->regmap))
++		return dev_err_probe(&pdev->dev,
++				     PTR_ERR(adc_priv->regmap),
++				     "failed to get handle for tsc syscon\n");
  
- 	/* See the corresponding v3 code for the rationale */
+ 	adc_priv->adc_clk = devm_clk_get(&pdev->dev, "tsc_clk");
+-	if (IS_ERR(adc_priv->adc_clk)) {
+-		dev_err(&pdev->dev,
+-			"failed getting clock tsc_clk\n");
+-		ret = PTR_ERR(adc_priv->adc_clk);
+-		return ret;
+-	}
++	if (IS_ERR(adc_priv->adc_clk))
++		return dev_err_probe(&pdev->dev,
++				     PTR_ERR(adc_priv->adc_clk),
++				     "failed getting clock tsc_clk\n");
+ 
+ 	adc_priv->irqno = platform_get_irq(pdev, 0);
+ 	if (adc_priv->irqno < 0)
 -- 
-2.51.0
+2.43.0
+
 
