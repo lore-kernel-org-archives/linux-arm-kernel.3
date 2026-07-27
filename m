@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB0BC5321C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D86C531D0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pj8Tk89tsZpvOx9qHTTO0dt2EZ+NIZVPK9ZXohL7zOM=; b=yaIS3pIxXsyWIMHAo3+36KWwTy
-	J/pxhSRXRUx7p9VUdpMfycn7drbN3NiIkbaGXCWXO5+Ysw6lAWMi2fUwcKfsyFMw3XM71zPuimKoh
-	2S2oPSXRDjXe50dFTyk8KL3NcIMjY3lxSEXIKQ7P0bT/60dPJizNHEvYrmqUomAgoME3y9H3pQ24b
-	Et5ycrvU94gT+KW7+oiNsfMiNMjuareVEP39VqIvWVo5Edv+J6BY6z+CLkeZ9PmuzSpzEPwUUyM6E
-	YJJyqiKkr/iVxayLTx3gtnFZ62lclPs6ADaoaR6X0h9nKeUFeFEqUFy25KXY+ihIVcTX6j3B2eoO/
-	asmhd38g==;
+	bh=D1hGP0hC09irIf/0gQFJj46FjEyRcWDQb2+CnpbAwpo=; b=u8ZyoMUD5N/Y2Sf7UpX+4Tn+42
+	t2wzz8xoAkyFepVGq0F7BfyGrDhvaEYPaZzg4KI4LqVyd8zApiegW4t4OTvPyMaZgQRYL/qGYEgDG
+	NsnqBG4b0WKje1mAi7pQvbHbBjhXr4mzmDKFaq+jVV0dq/8JbKsbPMrQq796F85rScPNmqIC2LnsD
+	Lrr9I6KG5ASgRZ37184KrZpoRUGdDirQzBkqr3fg4bZZ9KEJ4cRAuRMuCoJ9bJSDzaWNPPbc5TlZL
+	HJm9cruB2UOL8bT7IGgMQUBk703Er1gC8Vuq7UbPWjGHIV43/Uxu7FVyip+zZYbBasA6lGJhFMTkA
+	2ubDzu+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woIId-00000002RHt-0rYP;
-	Mon, 27 Jul 2026 10:11:07 +0000
+	id 1woIIc-00000002RHN-43Gi;
+	Mon, 27 Jul 2026 10:11:06 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woIIN-00000002RAT-1K3K
+	id 1woIIM-00000002RAR-2OcJ
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 27 Jul 2026 10:10:53 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1woIIL-000792-Ol; Mon, 27 Jul 2026 12:10:49 +0200
+	id 1woIIL-000792-14; Mon, 27 Jul 2026 12:10:49 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Mon, 27 Jul 2026 12:10:46 +0200
-Subject: [PATCH v6 4/5] dt-bindings: arm: fsl: add compatible for new Skov
- i.MX8MP variant
+Date: Mon, 27 Jul 2026 12:10:44 +0200
+Subject: [PATCH v6 2/5] dt-bindings: arm: fsl: add base compatible for Skov
+ i.MX8MP revC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-4-fa8f71dfc56f@pengutronix.de>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-2-fa8f71dfc56f@pengutronix.de>
 References: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-0-fa8f71dfc56f@pengutronix.de>
 In-Reply-To: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-0-fa8f71dfc56f@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -49,16 +49,15 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
  =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Conor Dooley <conor.dooley@microchip.com>
+ linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1327;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1189;
  i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
- bh=2T+79v3+rRaHmQFTaPBt0dDlyJhj695NNSi9XL1E+NY=;
- b=owGbwMvMwCUmtVehiCsuTInxtFoSQ1a63vLC1g9vhdxcp0y/N91e4opc0YFCq+v9zB8FKpJ2h
- ZuWfdvWUcrCIMbFICumyKKysIJP1OODZ+Q0ES6YOaxMIEMYuDgFYCI8JYwMr9TDci8ecDS8dmdq
- vsvES7lvGfflHPy/66N5RNrWwxvzIhj+JzxSreXIct33ZMuSCSVJG9vfyFj+PvSk08Cb/+o/O1Y
- nLgA=
+ bh=K5C7FIQgzC4FyQO72ZeisquxN2xDviJ4rXDa1mgC/p8=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ1a63jJG5sUtc0UneW3ta9qm0VB44M+2zk3OYr3yvrFrX
+ 5Z8Xnewo5SFQYyLQVZMkUVlYQWfqMcHz8hpIlwwc1iZQIYwcHEKwESqeBgZ5jjMC2D57lc3tbzH
+ zGbFphRFhZenugRT90am5Ulv5t42keGf0r8ou4sdidECT8wWxphKdZqe+shi73NH2snpjufbmHd
+ cAA==
 X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
  fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
@@ -66,8 +65,8 @@ X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_031051_349986_7F3D66D1 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20260727_031050_622011_6C96B088 
+X-CRM114-Status: UNSURE (   8.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,27 +82,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding a new device tree variant with a different 7"
-panel, describe the DT compatible in the binding.
+Add a generic compatible for revC-based Skov boards.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 7bb5d6ca8485a..e7f250641683e 100644
+index 86876311ec59a..7bb5d6ca8485a 100644
 --- a/Documentation/devicetree/bindings/arm/fsl.yaml
 +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1148,6 +1148,7 @@ properties:
-               - skov,imx8mp-skov-revc # SKOV i.MX8MP climate control revision C
+@@ -1145,6 +1145,7 @@ properties:
+               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
+               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
+               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
++              - skov,imx8mp-skov-revc # SKOV i.MX8MP climate control revision C
                - skov,imx8mp-skov-revc-hdmi # SKOV i.MX8MP climate control without panel
                - skov,imx8mp-skov-revc-bd500 # SKOV i.MX8MP climate control with LED frontplate
-+              - skov,imx8mp-skov-revc-jutouch-jt070tm041 # SKOV i.MX8MP climate control with 7" JuTouch panel
                - skov,imx8mp-skov-revc-jutouch-jt101tm023 # SKOV i.MX8MP climate control with 10" JuTouch panel
-               - skov,imx8mp-skov-revc-tian-g07017 # SKOV i.MX8MP climate control with 7" panel
-               - ultratronik,imx8mp-ultra-mach-sbc # Ultratronik SBC i.MX8MP based board
 
 -- 
 2.51.0
