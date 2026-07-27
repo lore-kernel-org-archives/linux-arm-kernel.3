@@ -4,144 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C8A4C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEED4C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yknk/87cst6CVy2RiTs7Ka/xhiAjbpw4Hbzw07BNm+g=; b=sJ5XrM4DgmLXZrv+kCPlE/9q2X
-	72HsL8dk8hwt5O3vmm5cFypJQo++VuqcIF7WbpeFLQ2FFokrp1pHIZai3CojfeNw0/Sq0vZZEnHU1
-	p/IgLNYEx/4dN9SDNRH9JayUGEcGWq00gHUn5/J5c58GL8Nuck0Utpl9Lj/zzspCYmGBSj7IEiT8g
-	Lp1oiceSLd5Y4WDEbsMaVsP7QjW3pVjnFU/WZzNSC41Ev3xwQNhZfswSwI28kYZ31Lf5HdvAEl/j9
-	jCmckRzn1GA++Q4DaMy5xxLquYTv6fSZsLduKW5vn12McM+nv+dZPOwfu8NQWbad39M9csjFIFV8L
-	+an4nGuA==;
+	bh=hMzu0YZPeujF4hgLIyl5V7nNY+ZvYerUPeUqAqta3NU=; b=XKjuwL4i7b/Hiyo3iNKfZGSr9Z
+	8/dKMm2GoLCvi3BFHZTyAM24QJpGO4qO5XaHv/bditioDxOGvSGcdz1lrbbdHhX5c6yXGv5yf8Atv
+	Mfs2D8WtQEy1nx8+ehp1/ZNerJ01UyXKr6S42ayEx7hO0ArX22xc2eLvfZo4bSmsGiU0vdv7zFFUM
+	pZSWdmkich9TLWdnzbziWWUw/8GWiswQgudrBexxHdeUfAYTrW3cbDfizj03xwPyz2WH0MRsuKl73
+	MGzP+Ifw8qciTPQWso5hWZwUtqsZcxfGUMMv9eWkqPw9byo7ktcY3IYG6jHoUSHna2x7ppzJfFhvs
+	44Q2Y9dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woLLy-00000002r5Y-3T1H;
-	Mon, 27 Jul 2026 13:26:46 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1woLME-00000002r94-1oDN;
+	Mon, 27 Jul 2026 13:27:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woLLw-00000002r4k-1LyZ
+	id 1woLMC-00000002r8Z-1mD6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:26:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lUkcuRAbwBjuVYLS7gx52OoPlzISLwCIPFDWQQ/bNoAIzgzgLWndS4RakKjR+y/ajj8ZlYhSQdRearu2Osm29CM6YUtgVpGyk0CioIiEdrnw4EIEe/RuSssBuy2l9WhkR2MR/iFTu8PeQxJjuDuJuOmO8EI+Ot00DcvBiECp6NwO6VZ5gZTjBBmYwdZbQt2UBTOJIMU3/KvkaErqSqHCm90m3O+9ErZx2HC4mW/Z/Xy9o21ggUw9AAcc28HnbAQvhEZI7jozDuiBf5/lf9uPHHtHnWPP463bSJZ6sF6I76KlFOdon/wDzR3wAg9llRMorS9+ZFJnkH5b0s8PeESe+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yknk/87cst6CVy2RiTs7Ka/xhiAjbpw4Hbzw07BNm+g=;
- b=j0M7RApPk25CpTi+baVkPXsZWLGYhTKkYPrW01QkAC8mDccEMn4scz1oUKSes3plWw41YLWNsrU/lF4g2wDAGHE0w9aATf2ORLpLbrqMK7u9ihsT8qGJXeXx47CQ3i5ORNAIzoxXOzWJalO9wE32YKHKXxnnSAT6oGdikOYjgPZUqlnGOpdsll9dX82ssK5o2g1t5TeagXypUecy1ME0bPdBxQgYWsugmxSIm7Z1UyAFlaMVHQ6TDc1twyjlAtdl6+lEhiQ9kjUpGW8zQ9PbaUOVlTrXxED8RNqUEq0pEoyH0F2QBlww6u9YA1FsnlYCqegKt9sJn0PIvTboYWf6IQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yknk/87cst6CVy2RiTs7Ka/xhiAjbpw4Hbzw07BNm+g=;
- b=qqe6fARZzwl0hT1n5aey9sV/b0ss+MjcnrMHCUzvN/8klLocWxc1DFB8L6rQvpzKl2yS30GbQNOkRxBziHor/JtLjvkg5sO9kebRC2kRZ4Ee3W6+rBQRDzqHuMpcUbdKnGUc/UhitCnqwmAHWpMXCOAC3h80sDNW+FKMH5DnAq/ZzkptBKtEY+ZGzz9eoFays6/GJz0wMFyeL9P/kHbhDkFk6RB8m/WQ74eBhL4c1ATOu1vT4LGug4/7bfa6zrXVG6s5VV/41oe0Y8jFRuYB2EGN4aafyYg2HzfxRAy1pssKngioQpKqSnNKhBz7j1fiUMrr0TtHks+4UmqwerBY9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by AM7PR10MB3254.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:de::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
- 2026 13:26:38 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
- 13:26:38 +0000
-Message-ID: <442783be-aa7b-4e3e-a2e5-4604b342956f@kontron.de>
-Date: Mon, 27 Jul 2026 15:26:37 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v30 7/7] arm64: dts: imx8ulp-evk: add reserved memory
- property
-To: pankaj.gupta@oss.nxp.com, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260724-imx-se-if-v30-0-ce8ba256692c@nxp.com>
- <20260724-imx-se-if-v30-7-ce8ba256692c@nxp.com>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20260724-imx-se-if-v30-7-ce8ba256692c@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR2P281CA0155.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:98::15) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	Mon, 27 Jul 2026 13:27:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D85F743AA7
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 13:26:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCC331F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 13:26:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785158819;
+	bh=hMzu0YZPeujF4hgLIyl5V7nNY+ZvYerUPeUqAqta3NU=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=Hs83fVEVIPs1CW/EchwUpduulAUtn2HGPJNdpZjXRJSEnx12nJFDxCJXvuNQZWBXJ
+	 2EUu6zE6YrJjBad1Hin+D9U+QJdJ3vSAy4CfpvN11gjiRsDDbmfxdU3v2Nr1i5JyHK
+	 dIx1LHTwS609tV6HrLS5iqdr+h+h5gAz/7+wNQ4/loc4DO2lTRymyQbyFV77WprgQC
+	 JdorA7WSiBZKogRBIQ7nLoYirElu6PMJIUE4L2FinQSc8qVEA4TwoXuFIFAat5Rkhm
+	 uk+30ex3VhiB04Q5E7G1wIRn/rLWTo1iTzh86VQaypMLatpA2TWduEqJFJo2rMx02S
+	 eqRq/akHMXrqg==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5b2aa3be376so2085968e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 06:26:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqL1zV8YR6ANuNkG4WK6rQ23W2cPwdOre1gMg8251BoZHFxBe6teG9Y3H4rSvBeIelrAGUjgyszP6mOoFgzdZpw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPqzoi+gsI7K5+Ytgo3daha+ZGAHxWpSVb+4BStP3JSONRhhuA
+	S6dgjV1aVsw81FC7YbkHJf19p1PsQRzJY7QftNvgnkWZXuDm2M/zK3ANiXuqja03oW4S287MSVh
+	Rd1Ocp3YGma5oAIayFQXgDqD/OBm5dJIHByp6SH/3cQ==
+X-Received: by 2002:a05:6512:10d5:b0:5ae:c063:6397 with SMTP id
+ 2adb3069b0e04-5b2c1b28bfemr1598059e87.15.1785158818476; Mon, 27 Jul 2026
+ 06:26:58 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 27 Jul 2026 06:26:56 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 27 Jul 2026 06:26:56 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260724155144.GA2032@sol>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AM7PR10MB3254:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7dc180d4-8a86-4f82-efa1-08deebe2b038
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|921020|56012099006|11063799006|10067099003|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: kBatAMJkGIga01U2YjuzLzha+la+TVQ1BZ5jyDOnKV2oWu/eGTQbAn0220b0uEGXEQBJn4A2lP7TNJM/X5WJPwILFMbCBOO1ECO2UIM3+TWr6w2AIXSiSrlvKmgxVciuhMGhs1fRSELyIQ6p6RpLKG86iqvhQT5E3w2cwxlo6+DqYv9nXJGQrfy3AgIFU9WY+vfeBLV7ALI0EZpHpIqcNqhNaqU0UIadnZqk/AGrtW0oVj6oVGIY3JLAh0VG/e+8ysZNTaF+5IbaKjhxOebYk0eclxXYiQA6COlzkk0gLCHx7VvI4p5ULJkdFuXAPmtN5Vy89Ws0pyTDLJ+mvzK4qIxSaob7xeZN7mMt9irAl6en02xbTsSHJ7tQpEJ6oYf8iPP+0EXNfzIWV1gRAsBGvzmSyh+cQHWpfJQQxB2obxaGOVPrM9flMQL5OoZM3DfHl04izyLam/biSieTvSIFzpyFIHpTxjHWJUZBopwTPJ1esYttwiYk57oH+iICrzQnfo8jdO+fPGEJMoNNE3dcnIao/MVcxz0jjjowgJKFPExWlCSeiIOHq9qfEPfOSzm9BW+x8t1MjO+A2JExO9PTTMjuCtnsQ7ES4C5HoELSbapbGvZaEGacGbkWDH/rtpsaQQpdbwfQ5bjzdYrnKLzWPcp2Hdfasa0rckYiRaSyAZwNwgc7NdFX/2kccOWsxuxJfin2pHDK4O3ZDQ1K1e/ESw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(921020)(56012099006)(11063799006)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c3VNd3V4dktHWHdwQzRaTnFyZ0hkbk0wWUVxRVB4VHUrWC96VFlyamVkaEh0?=
- =?utf-8?B?dTgrK0xUWThGTkppb2I2YnhFZ0tuWVVFQUFuczNRMk1oQkVybEZ6Mld5QVdy?=
- =?utf-8?B?MzZuUW5EZXhBMEFuKytrTmFVN1YxYmZvNFJ4S3NnalRaMHFubVV3UTY4d1lD?=
- =?utf-8?B?U25oVW8rUUpwQ0ZXQS9hOEZuOUdWRjN5L20vd0JVSlgxS09OQ0J4WFRQVDlQ?=
- =?utf-8?B?UHR5Z0xDWFAzM2tiTGxDL2g4ZFZrb1psU0M4YUpGc0UzRWpFS1N0dXVjc2JV?=
- =?utf-8?B?dU1GOHBvUVg2MkxjZ0RWVkw5aHU3UU5heTVndVE2NWxuSU5rUUtaWFVHdk9V?=
- =?utf-8?B?VjYydU9tQzVMN0ZRWnNPMnFld0YwelJNUnN2MlZXUlBtc1RxallNVEQwUUMz?=
- =?utf-8?B?a0NRRm9vVGxUSkt6cmowMlV1ZzhMMEJGd0lvUnBoSlZpSFRTMTlqOUtlRGxn?=
- =?utf-8?B?SmtTdkZnRFlUU1JUejBhd2JVMGV5aDBIQmtkdHdueUc4aTA2OTBzR0xUcFhQ?=
- =?utf-8?B?bVNER3dGcHQ3ZmZTN3FZUlc2MXcvSTdISHBwb3dPeE1vNHprQm4yVjV3ajhE?=
- =?utf-8?B?WVdwakxpTnB1V21CQzFIV2dVMDRIQXZzNHpwWllXZmFMTmc4L3ZFbVRTbWh3?=
- =?utf-8?B?YzBhUWdocXp6OHZRVVFaeEt4Z3RxVHZpc29qOTBoTVB4c0xjRHBQZXcrWUYx?=
- =?utf-8?B?WHRhVHdKYXV4clFOTWpKTThjTmxYZFMzQkU1YWxQMWc4OGFKSDVURFMzUzNM?=
- =?utf-8?B?MmFzb2xxNnIwQW0rRlNkQjZQU0FrSzl2cmRFYWFiTWxKUXlqTXZmL0RMVzJL?=
- =?utf-8?B?dm9FK1NqK1IrdnFOekIralU5YmNXU0xPSFRFUytsN1dGVmFSQTNJOVFkVGY0?=
- =?utf-8?B?QXlsa1R6NUgycVkrbjhYSUtYeHhMR25RVW55MVlQWEZ6NVNEOGluK1A1L0hW?=
- =?utf-8?B?UXFhMGUvYlpjUWZaM09zbUUrSzBkanpIdzBzRldpY1hTM0w4amdZRmNBNUoz?=
- =?utf-8?B?YmtiS21XS0JCMXZMYzkxK29MWWRwSGs4YnRsZEZWdm1CVEcyazh4a1NvYWF1?=
- =?utf-8?B?dUNTdGZHdkRDSW1oN1hHVldvNDk4RHZUdjIxVEhIcExoQnFLRVNpemVDZjNr?=
- =?utf-8?B?K3lKWm14dTM2RmRGdjhQNTVOc2dRc0xwK0hLMitIS202eFltZ3lGR1pGNkFT?=
- =?utf-8?B?Y0RnelBLUkloQkI0aUV4Uy9DTUFBelRVSzV2Rnh4bS80ekkwTGtubGpXVU5B?=
- =?utf-8?B?bytyTmQwRk9wM1pXaXlzRnQyc01QQU1WTS9CMkJqVkJ5VkhZRFIzaDg4RGll?=
- =?utf-8?B?RzhiSFZZTVVpdTNCd3NaYWVxeUNzSVVCYzdOandVTVpzTm9Eb3pWbHdiTE11?=
- =?utf-8?B?UGRMQ3FKb1M2dVFNeU53VGdQUmtSQ21mOFUvWUkrMldLOWpSayt6YUVtamRG?=
- =?utf-8?B?OFFOYU5kS2d3SzFhQXBzNExVcGt1d1JrTEVUVXFpUW5xMkpOR0QwNDl6UTdO?=
- =?utf-8?B?bzA3ZkZ5aVl6NUs3VlRrWVVQRzNpeTZta1kxOEtaWE5oaHhwTUhHY1dqV00y?=
- =?utf-8?B?TDRTaG0ycXdDUkdLdVVTMEQ5MmsyUzdvMXJSaHNxRWZlbXJUV2pCeGcrdUU5?=
- =?utf-8?B?Y2hwdWE2clFkVTgvcmthZjl3TFBUNFpRSjgvSVFHTllyZzFxU0dTdlloNWN1?=
- =?utf-8?B?LzZsa3NFcXRGaVFpTXlJWXV5anFrSklWVHlwY3RENW1HRVR5YUtqdmNqd1Fx?=
- =?utf-8?B?bWdvbm8vOWIxSUMxREFZc2JFR0t4TUl3L1luTTdUYUF6L3JVQmF2QVhWQVRM?=
- =?utf-8?B?TlFpM2IrV1cwUzlhSXM1eFhJOERmcHlFMzZRdGRpeitDZEdiS3BlTEptSXZG?=
- =?utf-8?B?WEgzYmVmRWJoZU5wclIwNmdIV0F0V0NhbnJTTzV6VDc1M283Z3U2cXJHcVN1?=
- =?utf-8?B?WHRyTllkOElPVXprOEQ5QlFPUzFsOFZwd0s2TXFCbEE3cHhzT1kxYnc4L3Ro?=
- =?utf-8?B?NGt6aDBzNm54SGJuSlVkQUIrTGQ1Wjl2eU50dFJaYXgwL3I1Mk9YNm8zU25W?=
- =?utf-8?B?UHFOOXljUDFlSEozQ3A3ZWludTFNSDB6OGVsYUd0Q1JTdDVUbDJRYW5UZWRn?=
- =?utf-8?B?aWd4SGhLQXhmNXRsdWwrR3J6UFBsOHc0NEhsWmFveUdJVkxMbWs3TFlFS2hF?=
- =?utf-8?B?d1g4VWcxTXBwdHFmRUY3UVF4WS93am9VVnRPV0FhSmVYcW5tYlVsc05weUQv?=
- =?utf-8?B?Uy9ua1JBdVcvZXpBRjQ4QnI2YW5jbk0xL1hVbDFDM1ZYL0V1K08vdWgxdW5q?=
- =?utf-8?B?SWJEbnBIcUhzS3BwSERqSWd6SVQrV2NJOUg0UzdVM0V4alZnZTlKazRRbW1w?=
- =?utf-8?Q?6siVAD6B8VJGLiiE=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7dc180d4-8a86-4f82-efa1-08deebe2b038
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 13:26:38.5916
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /xXK1aFzmsIQLiAHBEbc8it3yHhePx7RgzYzmLwMVTSNsTzU/70oMhL85i+iUax/h/Au5PL/bNxMb8zUYk80t5sUV/9hC1r4wMWeQQOUimE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3254
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_062644_529802_E674BD84 
-X-CRM114-Status: GOOD (  16.82  )
+References: <20260724050645.223799-1-ebiggers@kernel.org> <2026072410-drained-acts-3502@gregkh>
+ <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
+ <2026072412-decrease-sandbag-70a1@gregkh> <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
+ <20260724141414.GB1876@sol> <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
+ <2026072455-subtly-prayer-0a8a@gregkh> <20260724150932.GA6763@sol>
+ <2026072428-ungodly-outsource-b20c@gregkh> <20260724155144.GA2032@sol>
+Date: Mon, 27 Jul 2026 06:26:56 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Me_uO0oMqjyuZzs7AxjWoSyy-=rT1eshmFQcNH_3H2ygw@mail.gmail.com>
+X-Gm-Features: AUfX_mxSGJIwgP_5kRNku_9aMjFsY22xgajMAr4jyELVwyozqMhKzWVoej7PhOg
+Message-ID: <CAMRc=Me_uO0oMqjyuZzs7AxjWoSyy-=rT1eshmFQcNH_3H2ygw@mail.gmail.com>
+Subject: Re: [PATCH] crypto: qce - Remove driver
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org, 
+	Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Demi Marie Obenour <demiobenour@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,67 +91,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24.07.26 11:05, pankaj.gupta@oss.nxp.com wrote:
-> From: Pankaj Gupta <pankaj.gupta@nxp.com>
-> 
-> Reserve 1MB of DDR memory region due to EdgeLock Enclave's hardware
-> limitation restricting access to DDR addresses from 0x80000000
-> to 0xafffffff.
-> 
-> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8ulp-evk.dts | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-> index 5dea66c1e7aa..16399d921e04 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-> @@ -1,6 +1,6 @@
->  // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->  /*
-> - * Copyright 2021 NXP
-> + * Copyright 2021, 2025 NXP
->   */
->  
->  /dts-v1/;
-> @@ -37,6 +37,12 @@ linux,cma {
->  			linux,cma-default;
->  		};
->  
-> +		ele_reserved: memory@90000000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0 0x90000000 0 0x100000>;
+On Fri, 24 Jul 2026 17:51:44 +0200, Eric Biggers <ebiggers@kernel.org> said:
+> On Fri, Jul 24, 2026 at 05:25:46PM +0200, Greg Kroah-Hartman wrote:
+>> On Fri, Jul 24, 2026 at 08:09:32AM -0700, Eric Biggers wrote:
+>> > On Fri, Jul 24, 2026 at 05:04:46PM +0200, Greg Kroah-Hartman wrote:
+>> > > On Fri, Jul 24, 2026 at 02:47:48PM +0000, Bartosz Golaszewski wrote:
+>> > > > On Fri, 24 Jul 2026 16:14:14 +0200, Eric Biggers <ebiggers@kernel.org> said:
+>> > > > >
+>> > > > > And with the defaults QCE is *never* used.
+>> > > > >
+>> > > >
+>> > > > It's almost EOD here and I'm going to disconnect for the weekend but I just
+>> > > > wanted to say before I leave: this has never been a reason for an aggresive
+>> > > > removal of any driver. We remove drivers when we stop supporting entire
+>> > > > platforms, not mostly unused drivers on actively *supported* platforms where
+>> > > > they can still be used for experimentation and testing. I'm fine with dropping
+>> > > > this from arm64 defconfig but with fixes, the BROKEN tag should be removed
+>> > > > and I definitely object to removing it from the tree. How many people still
+>> > > > use greybus? Should we drop it from the kernel too? And I'm saying it as
+>> > > > a project ARA alumni. :)
+>> > >
+>> > > I agree, if someone is willing to maintain it, and there are actual
+>> > > in-kernel uses of it (meaning not just a stand-alone library that can
+>> > > never be called either by userspace or hardware), it should stay.
+>> >
+>> > What would we be considering the in-kernel uses to be, then?  Just
+>> > wiring it up to the framework is enough, regardless of actual use?
+>>
+>> I was meaning that we just don't want to have code lying around that is
+>> impossible to use.
+>>
+>> I'll defer to the subsystem maintainer if they want to remove it or not
+>> here, as that's their call, not mine.
+>>
+>> But really, if someone wants to maintain it, no matter how slow it might
+>> be, I don't see the harm in keeping it if it's not causing any other
+>> problems.
+>
+> It is consuming a lot of the community's time to help maintain,
+> including dealing with LLM-found bugs, with no clear benefit to anyone.
+> Even considering *just today* we can see someone sent a bug fix:
+> https://lore.kernel.org/linux-crypto/20260724081537.191992-2-thorsten.blum@linux.dev/
+>
 
-Instead of using a fixed address here, why not use 'alloc-ranges' to
-specify a valid range and let the kernel decide on where to reserve the
-1MB area?
+I volunteered to provide that time. What's wrong with said bug-fix?
 
-As mentioned for the other patch, I would prefer a universal default for
-the memory node in a dtsi that can be used by all imx8ulp boards. See
-[1] for the i.MX93 proposal.
+> It definitely *was* causing problems before it was disabled via the
+> crypto priority system (which made it unused in the kernel) and dropped
+> it from AF_ALG (which removed most of the unprivileged attack surface).
+> When anyone accidentally used it, it caused at least a huge performance
+> problem, and sometimes other problems too like filesystem hangs.  It was
+> an issue for years.
+>
 
-[1]
-https://patchwork.kernel.org/project/linux-arm-kernel/patch/20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-10-1a515de33093@kontron.de/
+Ok, feel free to remove it from arm64 defconfig, you can add:
 
-> +			no-map;
-> +		};
-> +
->  		m33_reserved: noncacheable-section@a8600000 {
->  			reg = <0 0xa8600000 0 0x1000000>;
->  			no-map;
-> @@ -259,6 +265,10 @@ &usdhc0 {
->  	status = "okay";
->  };
->  
-> +&hsm0 {
-> +	memory-region = <&ele_reserved>;
-> +};
-> +
->  &fec {
->  	pinctrl-names = "default", "sleep";
->  	pinctrl-0 = <&pinctrl_enet>;
-> 
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
+> If the justification for keeping it is that it is disabled anyway, then
+> I hope there's not going to be a contradictory push to enable it again.
+>
+> I don't think we should keep crypto drivers around just for
+> "experimentation and testing".
+>
+
+This goes against the linux philosophy of encouraging the upstreaming of
+drivers. This driver is a nice testing ground for the BAM pipe locking which
+can't be easily tested on NAND but which will eventually become useful for it.
+
+Is disabling it in defconfig an acceptable compromise?
+
+Bartosz
 
