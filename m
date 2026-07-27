@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BD4C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05895C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z/wNY5epuKoFyNSG5irGOIpMV4A42H3f3RVJTI9wwd8=; b=GzOTn8ANUZxXJnuHSomeFKPtlf
-	IzTHq88wfLI5943kge5X1KxuWYkinCR7Ss8zWpQ2e4MOG4P4tSO1aXHlqWDcXpHqmAyiAt9fp6QIt
-	BJ60FvGL9q+LU8SXnsT49l+Ej5pPCJyL4zZofSw5us+cR1kO2TLKs8PTUXrInlcICVCKJ3VP+zIs8
-	FTpYU8N3rI3ff7CFEUYzdpmASyrum5EBEkr7rYDfypwq4rZQqgY+5eGCdCcNrDCDlCvOCf6Aaoblo
-	9BZsQcyMPL5jgS0QhLCEqpuicHDvYLlTZv6+7bZqknzBVh2agWLvABCJF7N1DJluHtGzwKQpEr+OB
-	haz0GAYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QyC9mdpjeVMS9mEWtOssGaeZCvP0zDJ8dCOHi6clafA=; b=HGpXrtv+Yh/ujReU83qi0LQSI0
+	1Qa++l0SL1XElVoU2J15xVrWNNFDM7qV8TH5EOWurXAODQRTBoIj4yBonhyyRVi8U1WNUC+jYJY7v
+	Y0obgYfknBOMC0yzdPD02aIBbQKNOXkz5/yzBKdUmpn8OtJogLQXRwjHjWtIGuuWRvWE4DMEFPIyr
+	s3QLAyvmUMoRVipSin/GzU9mfEMNCm+arXrjGsBtxnFrsP9piOc58HbwIMuh4sNe7WzC2Bv7DcwVn
+	Giv2NxCUpM8f457FlGh/+iIcDBrqXEoEGaF7JZbaJ2EAIZ4TqaURtVj9FFhePanrVpfvIvGFAVSay
+	bz5iSQwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJXM-00000002aam-3jEG;
-	Mon, 27 Jul 2026 11:30:24 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1woJYx-00000002ahp-0vAF;
+	Mon, 27 Jul 2026 11:32:03 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJXK-00000002aa9-154y;
-	Mon, 27 Jul 2026 11:30:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785151819;
-	bh=ZFIAFTwas2rhk3bEM2JyYbhvmHOR7sbABrYjwUVNLQM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eluZNqzoifWatVLkxPgK7atnz3bqNuwlLsmhWgAt8gmaEw3yCwnr9qqvhW72bM3F1
-	 dEyCinGMU87TJAOYrWSecCipByGtNnu50ZUum9ecK1LFatVvoNMyICbnzYPWBGPXtL
-	 4tGvf/aNUyrSLd3RjFdSuPI7sye3GgjBl0VWX7BG8iiOjrUDveduub/xgLyftAa4Dz
-	 ZPTnb6wSz0nWLuknBGtjxbcIlIAZpe2fuHGeYe0QMkXF8jyf8FI7w2AIkLuuRJlg0R
-	 sudvXZUvXCgNWYKya2/4uVUATkq/7XrzQyWGxaaAw06YN2+1YIhRQegt6dtUR924IK
-	 Gx71BeqleSFiw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1741017E0213;
-	Mon, 27 Jul 2026 13:30:19 +0200 (CEST)
-Message-ID: <a3298120-f5be-4a8a-bb71-1d6923a28d6c@collabora.com>
-Date: Mon, 27 Jul 2026 13:30:18 +0200
+	id 1woJYu-00000002ahO-3Ifz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 11:32:01 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-38e3efab7e0so2009816a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 04:31:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785151919; x=1785756719; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QyC9mdpjeVMS9mEWtOssGaeZCvP0zDJ8dCOHi6clafA=;
+        b=kfAtyMkWNxwfePjtEGztWzOBCawf+joWS2s9OWRYAt5e2JQt+7TJON1N8zHmj4DVS+
+         M9Uqyi1g1f/KcvAzk4Ntt4ny1OZXFI/5hWcqvq5uifZKIUhC8xOIpHewToqTbYAMFQnv
+         wx0lZU0pPa2J2GyVH9pNfHqup1C0AQgSqxx8XoDfQ4IKyUJEeUqCLhj7cxFufBVQ1N53
+         JAb0uLt+mktyfc7JWu3cYDItTxbRW6syR8k9EkVkdfYAuykj/nk5hVNFmHowij9gF5Xj
+         nAwDnI7Gs5wGsoNAZCznTgSVtvhsWyUkgJ42bNkN8FeRrqu8Jhmzb9F0trgP+b1wrKyn
+         7qJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785151919; x=1785756719;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=QyC9mdpjeVMS9mEWtOssGaeZCvP0zDJ8dCOHi6clafA=;
+        b=XdYvF2aXp+K382J9/lkWK9Q/4pKfAr0M2NJq8K7f192Rz+AIsBFUhLhg7IummyTKUK
+         vwxZ44dJNUTjfga4IWZ3tgk3+68t5AFM1ASBlTmWsQkGPtArXe5nABgoEAK9IBWIqJHW
+         gbA/Sdb9nVQmWoPEaoAI5f13yVXgtrlWQBjUiPcY0Mww61KYQDXhpYcNZ2QGMDcdg6VZ
+         ElpFVb2IO7TpDQKBBCkkuol4u9TwAjSaLOTuUG83LkNHGHN+MdimPIj1sHbudd0t0wjN
+         2J4J2Xx9rCLpDQ6SZSJoYUEVmXi8YE5vX0IQeQvFgkhgG9VcJvB15zEkRSH1kIk2bFqT
+         IOzQ==
+X-Gm-Message-State: AOJu0Yyftu+tafwRq1E2IxfFbaA3V5liBC9rVUWYMU1YnCKkfUhUQb+1
+	fdCyTa7OfFLWLbadWD80kOSZPzp/UBSSYBLnG/JN77A4rb9otKah8z8E
+X-Gm-Gg: AR+sD13ZfI6BVP0DAVUkVb2D8a0I/wMy/8TrxX6bmzYnzspnvQSbC7ZH+NZfYm9MkS5
+	oYVudnyLQB6PtW969NLtdvyd+Xdijc8EUqUFlhRFl/D6SVg/r0JVb276YZpYPVvKRoL5hQilmF+
+	77C8QDKpqF6ggN3EIYcLK8dL2mp97QNPDFYS3b0DzzC1NxtZinWOK/VJ1UsauFn3JU5RVzZzbvU
+	+QuhsNdN/DHcyORXoCbL3g/OWaoW+63tbKweF6E19F360j7INmmx+v8jDcjwJxTTdVCTFGQ9dOr
+	+kbfc7zzcmEZr7jEBy9g8JHsUcyHcdg5YOfBI4Q9YkU0iZQaKJd9RPVR9w9rkJxSvrc6IrxRLeD
+	Ftut8VhydgwWrn7xQg8VzhmlEIDOmWNaYDEOZvlPwNMaJsYbnM6CcplAKIAXUKAjEpeXmZ4Wg
+X-Received: by 2002:a17:90b:5710:b0:38e:b3fd:d584 with SMTP id 98e67ed59e1d1-38f2aa99deemr5981029a91.15.1785151919217;
+        Mon, 27 Jul 2026 04:31:59 -0700 (PDT)
+Received: from localhost ([172.216.252.11])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38f04175c1asm4880106a91.12.2026.07.27.04.31.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 04:31:58 -0700 (PDT)
+Date: Mon, 27 Jul 2026 14:31:53 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	Christophe Leroy <chleroy@kernel.org>,
+	Roy Pledge <Roy.Pledge@nxp.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] soc: fsl: dpio: Use scope-based resource
+ management in dpaa2_io_store_create()
+Message-ID: <amdBqQfIsAjxMsqX@stanley.mountain>
+References: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
+ <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
+ <d2e5df25-c8b7-4ee6-8ebf-1725542baabd@web.de>
+ <6607bb4e-a747-4791-b93f-f82f26e4a334@web.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] arm64: dts: mediatek: alias all enabled serial
- ports
-To: Carlo Caione <ccaione@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-serial@vger.kernel.org, dlechner@baylibre.com, jstephan@baylibre.com
-References: <20260727-ccaione-genio-serial-aliases-v2-0-0f2ae41a8e89@baylibre.com>
- <20260727-ccaione-genio-serial-aliases-v2-1-0f2ae41a8e89@baylibre.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260727-ccaione-genio-serial-aliases-v2-1-0f2ae41a8e89@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6607bb4e-a747-4791-b93f-f82f26e4a334@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_043022_463965_1F8E4EA4 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260727_043200_853998_4B43775B 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,57 +105,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/27/26 09:38, Carlo Caione wrote:
-> On most MediaTek boards only serial0 is aliased, so the remaining
-> enabled uarts get first-free ttyS line numbers from the 8250 core in
-> probe order. When the console uart defers on its clocks another uart can
-> win line 0: console=ttyS0 then ends up on the wrong port and the boot
-> looks like a hang on the serial console, depending on probe order.
+On Mon, Jul 06, 2026 at 12:38:08PM +0200, Markus Elfring wrote:
+> From: Markus Elfring <elfring@users.sourceforge.net>
+> Date: Mon, 6 Jul 2026 10:34:43 +0200
 > 
-> Signed-off-by: Carlo Caione <ccaione@baylibre.com>
+> Scope-based resource management became supported for some
+> programming interfaces by contributions of Peter Zijlstra on 2023-05-26.
+> See also the commit 54da6a0924311c7cf5015533991e44fb8eb12773 ("locking:
+> Introduce __cleanup() based infrastructure").
+> 
+> * Thus use the attribute “__free(kfree)”.
+> 
+> * Reduce the scope for the local variable “ret”.
+> 
+> * Omit two kfree() calls accordingly.
+> 
+> * Omit the local variable “size” (for another memory allocation).
+
+Why?  This seems unrelated...
+
+> 
+> * Use the macro call “return_ptr(ret)” at the end.
+> 
+> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
 > ---
->   arch/arm64/boot/dts/mediatek/mt6795-sony-xperia-m5.dts    | 1 +
->   arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts              | 1 +
->   arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts  | 2 ++
->   arch/arm64/boot/dts/mediatek/mt7986a-rfb.dts              | 2 ++
->   arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi            | 1 +
->   arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r1.dts | 4 ++++
->   arch/arm64/boot/dts/mediatek/mt8195-demo.dts              | 1 +
->   arch/arm64/boot/dts/mediatek/mt8365-evk.dts               | 2 ++
->   arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi     | 2 ++
->   arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi  | 2 ++
->   arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dtsi   | 2 ++
->   arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi     | 1 +
->   12 files changed, 21 insertions(+)
+>  drivers/soc/fsl/dpio/dpio-service.c | 15 ++++-----------
+>  1 file changed, 4 insertions(+), 11 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt6795-sony-xperia-m5.dts b/arch/arm64/boot/dts/mediatek/mt6795-sony-xperia-m5.dts
-> index 0e086dd487d9..63659e240b1d 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt6795-sony-xperia-m5.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt6795-sony-xperia-m5.dts
-> @@ -20,6 +20,7 @@ aliases {
->   		mmc2 = &mmc2;
->   		serial0 = &uart0;
->   		serial1 = &uart1;
-> +		serial2 = &uart2;
->   	};
->   
->   	backlight_lcd0: backlight {
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts b/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts
-> index 8c3e2e2578bc..7bccad118d24 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts
-> @@ -20,6 +20,7 @@ / {
->   
->   	aliases {
->   		serial0 = &uart0;
-> +		serial2 = &uart2;
+> diff --git a/drivers/soc/fsl/dpio/dpio-service.c b/drivers/soc/fsl/dpio/dpio-service.c
+> index 317ca50b0c2b..b252c3c7fa65 100644
+> --- a/drivers/soc/fsl/dpio/dpio-service.c
+> +++ b/drivers/soc/fsl/dpio/dpio-service.c
+> @@ -652,23 +652,17 @@ EXPORT_SYMBOL_GPL(dpaa2_io_service_acquire);
 
-Why is that serial2 and not serial1 = &uart2?
+Missing #include <linux/cleanup.h>
 
-Cheers,
-Angelo
+>  struct dpaa2_io_store *dpaa2_io_store_create(unsigned int max_frames,
+>  					     struct device *dev)
+>  {
+> -	struct dpaa2_io_store *ret;
+> -	size_t size;
+> -
+>  	if (!max_frames || (max_frames > 32))
+>  		return NULL;
+>  
+> -	ret = kmalloc_obj(*ret);
+> +	struct dpaa2_io_store *ret __free(kfree) = kmalloc_obj(*ret);
+>  	if (!ret)
+>  		return NULL;
+>  
+>  	ret->max = max_frames;
+> -	size = max_frames * sizeof(struct dpaa2_dq) + 64;
+> -	ret->alloced_addr = kzalloc(size, GFP_KERNEL);
+> -	if (!ret->alloced_addr) {
+> -		kfree(ret);
+> +	ret->alloced_addr = kzalloc(max_frames * sizeof(struct dpaa2_dq) + 64, GFP_KERNEL);
+> +	if (!ret->alloced_addr)
+>  		return NULL;
 
->   	};
->   
->   	chosen {
+Why convert the ret allocation but not the ret->alloced_addr allocation?
+
+regards,
+dan carpenter
+
+> -	}
+>  
+>  	ret->vaddr = PTR_ALIGN(ret->alloced_addr, 64);
+>  	ret->paddr = dma_map_single(dev, ret->vaddr,
+> @@ -676,14 +670,13 @@ struct dpaa2_io_store *dpaa2_io_store_create(unsigned int max_frames,
+>  				    DMA_FROM_DEVICE);
+>  	if (dma_mapping_error(dev, ret->paddr)) {
+>  		kfree(ret->alloced_addr);
+> -		kfree(ret);
+>  		return NULL;
+>  	}
+>  
+>  	ret->idx = 0;
+>  	ret->dev = dev;
+>  
+> -	return ret;
+> +	return_ptr(ret);
+>  }
+>  EXPORT_SYMBOL_GPL(dpaa2_io_store_create);
+>  
+> -- 
+> 2.54.0
+> 
 
