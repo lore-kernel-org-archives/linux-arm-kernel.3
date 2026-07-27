@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B42C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339D5C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnWmUjAH7/KGAbRfo7IseJs1hEL0jSfFDpWwQ2aUfX0=; b=wsl8E5tkuTqf/HUGoa9K/tELoM
-	crafpEdcRkm/QytQZ0sF46c6rx5ulvLwJLGhV+TmLMkahBmnwmdyX2uDqNjhTJRuHdvJBANE+n0Sr
-	6rPAUrdmirF0jNLdeWEoGkzR1KLgnW44KO0AqxVblGDbQat7mLbQMlzlPQWStSO4blsxCZceBQKxq
-	HrQC+Xa+Ylolp6J4Ib9EM0a5LFrS/E3Hv+EsDi2CifkhVcX+xmCnsB1I/UW2jIZ9zANo5q8KRrGy4
-	pp/zUJfy7pA98uCJXjoPo0c61BeEwuqM9EGWgEybUEKXS9/ST6Pl5yGgKv5mCOLH5hwm/snNxcz1F
-	r+U1GdYA==;
+	bh=EV1H94tT0bXaCEhYUGmcekKDf0xmbKM8JtA/SimwxCY=; b=y1CyGBpDc2ADhSSdk521G4rETm
+	/duwECWUjO6gVuekFzb/81mMR3iopXRQ5ZdypqHfl1BHUCztu/34eVkwAAVweDciXny4WlQn96RXO
+	ZWtuBtqf0YELcMbh9DKy+t43PphYwaFSYDHAvJyDPgm0x54b7ZB7nYR+P68xBF04zhwwhniqpOJA0
+	9lv/wzPRirDHQB+yV2KiWc/ADmvc5GcPTTiRg2P6EIIP0d/Ja9ymhUO8LT4Jwp7DEsC8hL2tySlgK
+	zCKci8rJziX+HDMS/RTEhIwwkzEYvVmfVCHY+Y30kaXfXS/AVvQf3f1HHpTqrccbbyY9e2qEvOt4s
+	YspK0PpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOKr-00000003OQS-0UiX;
-	Mon, 27 Jul 2026 16:37:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1woP4x-00000003Vop-25HV;
+	Mon, 27 Jul 2026 17:25:27 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOJL-00000003NcB-3mzP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 27 Jul 2026 16:36:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hnWmUjAH7/KGAbRfo7IseJs1hEL0jSfFDpWwQ2aUfX0=; b=VLp5tvSHY2ORUwGBPzgfAGk2Cc
-	CxNHYbbFn8c9nZADtx9d93qY9KB0tn9O/7HmnsX0Ph8xhAnaUeAQYZRM4nR7wc6SC+U0xl4IABzfb
-	9iz3EzV8iI+3b0ZR2GccwJ2uqREg24x6wTPDlWLsspPIxm8JpIBulrPPgpOaejD9bnVYb8jsK+XTU
-	eAshSX1ls2rUTSiReny/c7CijDk6lUtP9bOsEFNkO2+M+wFHMLYhfekvbQ1059rhQUgfWOdHNMi/n
-	6Xai9CQjnXIXA4ikK8lGYyGCsOt3+vcDQJ2FIwuqxGJZUpfswe4KdXP2t6aH/+V1QID+NRtVEbumy
-	WiwfPYIw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1woOJH-00000004GvD-0hZZ
+	id 1woP4v-00000003VoG-1zkG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 16:36:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA7331688;
-	Mon, 27 Jul 2026 09:36:04 -0700 (PDT)
-Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D3EDA3F86F;
-	Mon, 27 Jul 2026 09:36:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785170168; bh=dt6wjM09wo8MAqKwtPP6BsZ2ym3CeAlNJuq/rRoZ6O0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pyVuq0sXufwq6pxldnGmOFwX5qo8AXhsCvlwm5vga4q75ntwKvakGJ6HxxlKUqsh1
-	 qev8VUGI4AYLMaJi9ppVXU/Wv2P/GHdldGgazLFgpKEW9ttI7hfpHI0+6/DFBJrY9J
-	 lOamITeYZfSrHcMSdvkDRBwc2DQa7FzMp6QLBn7w=
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com,
-	maz@kernel.org,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	ruanjinjie@huawei.com,
-	liaochang1@huawei.com
-Subject: [RFC PATCH v2 39/45] arm64: smp: Fall back to IRQ when IPI NMI request fails
-Date: Mon, 27 Jul 2026 17:34:47 +0100
-Message-Id: <20260727163453.7969-40-vladimir.murzin@arm.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20260727163453.7969-1-vladimir.murzin@arm.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+	Mon, 27 Jul 2026 17:25:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785173125; x=1816709125;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=xIc7mbEEDl2XzJ10CqzA3H5i8CNoTKHQjJm395IfRYM=;
+  b=TWYt2FLO9vGDU0irXBNcJmYgx/F+iS2Kez4jzAjB26DmFxd6DjS8PrKY
+   Ubionr3iBk4QBKDVFCzDU/YqylcYpLhk4ShtJLK86j2GPmQA8eI905N3H
+   NTvc8hvez6kjZfX8ZtUShnaJoj/3m3VPMuynjdDO4lHVFqOTT1NotvL/I
+   a56YkY+sGp3p12d+7YXa545nSTy5ETPQLTWKUYCBLsEW8HTV7eEoGmaPK
+   6ekZrK1bl9MvFXqS86+vhMxpSMUxYdRLCH63uzhLqQALIVvYpS4SlDHeQ
+   Iyqh8fwzmCpXGQlALzDehjbYZubX3i9o/LpNv+kP89Q4NlXn2rPFP32Gg
+   A==;
+X-CSE-ConnectionGUID: y5E4x8qFTxiq8PC8sYQjeg==
+X-CSE-MsgGUID: l1eDbl6dTQm/0TzC2uyeBw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11858"; a="85616624"
+X-IronPort-AV: E=Sophos;i="6.25,188,1779174000"; 
+   d="scan'208";a="85616624"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 10:25:24 -0700
+X-CSE-ConnectionGUID: eJcnvQFeQH2jgYbho+PJBA==
+X-CSE-MsgGUID: qV4n0T5IRLyMVSQ2csM7uw==
+X-ExtLoop1: 1
+Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.111.47]) ([10.125.111.47])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 10:25:22 -0700
+Message-ID: <ce2fc791-e84b-49e7-8d9b-f864ee82aa25@intel.com>
+Date: Mon, 27 Jul 2026 10:25:21 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/9] ACPI: nfit: core: drop unused assignment of
+ acpi_device_id::driver_data
+To: "Pawel Zalewski (The Capable Hub)" <pzalewski@thegoodpenguin.co.uk>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Zhang Rui <rui.zhang@intel.com>,
+ Kai-Heng Feng <kaihengf@nvidia.com>, Tony Luck <tony.luck@intel.com>,
+ Borislav Petkov <bp@alien8.de>, Hanjun Guo <guohanjun@huawei.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Shuai Xue <xueshuai@linux.alibaba.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dan Williams <djbw@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>,
+ Alison Schofield <alison.schofield@intel.com>, Ira Weiny <iweiny@kernel.org>
+Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ nvdimm@lists.linux.dev
+References: <20260727-acpi-refactor-v1-0-ff900aa326ee@thegoodpenguin.co.uk>
+ <20260727-acpi-refactor-v1-7-ff900aa326ee@thegoodpenguin.co.uk>
+Content-Language: en-US
+From: Dave Jiang <dave.jiang@intel.com>
+In-Reply-To: <20260727-acpi-refactor-v1-7-ff900aa326ee@thegoodpenguin.co.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_173611_542985_74D85590 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260727_102525_562743_8AD58ACA 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,110 +97,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Existing IPI setup logic relies on ipi_should_be_nmi() to decide
-whether to request an NMI (if supported) or an ordinary IRQ. If NMI is
-not supported, using an ordinary IRQ is acceptable.
 
-FEAT_NMI requires complementary support in the interrupt
-controller. If FEAT_NMI is present but interrupt controller support is
-absent, request_percpu_nmi() can fail.
 
-One way to prevent this would be to extend ipi_should_be_nmi() to also
-check for interrupt controller support. However, since falling back to
-an ordinary IRQ is acceptable, treat ipi_should_be_nmi() as a hint
-instead. Whether an IPI is actually registered as an NMI is determined
-by the success or failure of request_percpu_nmi(). If the request
-fails, fall back to request_irq().
+On 7/27/26 5:10 AM, Pawel Zalewski (The Capable Hub) wrote:
+> This module sets the acpi_device_id::driver_data to 0 but
+> the field is not actually used within the module, we can
+> just drop it from the table.
+> 
+> While we are at it - used a named initializer for the
+> acpi_device_id::id field to increase readability and
+> drop explicitly setting the list terminator fields.
+> 
+> Signed-off-by: Pawel Zalewski (The Capable Hub) <pzalewski@thegoodpenguin.co.uk>
 
-Track which IPIs were actually registered as NMIs and use that state
-in the per-CPU enable and disable paths. This avoids calling the
-percpu NMI helpers for an IPI that fell back to regular IRQ handling.
+Reviewed-by: Dave Jiang <dave.jiang@intel.com>
 
-Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
----
- arch/arm64/kernel/smp.c | 31 +++++++++++++++++++++++--------
- 1 file changed, 23 insertions(+), 8 deletions(-)
-
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 3dd4bc02caed..9bacdbb2aa44 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -69,11 +69,13 @@ static int nr_ipi __ro_after_init = NR_IPI;
- 
- struct ipi_descs {
- 	struct irq_desc *descs[MAX_IPI];
-+	DECLARE_BITMAP(nmi_bitmap, MAX_IPI);
- };
- 
- static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs, pcpu_ipi_desc);
- 
- #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
-+#define get_ipi_nmi_bitmap(__cpu) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->nmi_bitmap)
- 
- struct ipi_irq_ops {
- 	void (*setup)(int ipi, int ncpus);
-@@ -1051,31 +1053,44 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
- 
- static void ipi_sgi_setup(int ipi, int ncpus)
- {
-+	bool is_nmi = ipi_should_be_nmi(ipi);
- 	int err, irq, cpu;
- 
- 	if (WARN_ON_ONCE(ncpus))
- 		return;
- 
--
- 	irq = ipi_irq_base + ipi;
- 
--	if (ipi_should_be_nmi(ipi)) {
--		err = request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat);
--		WARN(err, "Could not request IRQ %d as NMI, err=%d\n", irq, err);
--	} else {
-+	/*
-+	 * Try to request NMI if it should be
-+	 */
-+	if (is_nmi && request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat)) {
-+		/*
-+		 * Fallback to regular IRQ
-+		 */
-+		is_nmi = false;
-+	}
-+
-+       /*
-+        * Otherwise regular IRQ
-+        */
-+	if (!is_nmi) {
- 		err = request_percpu_irq(irq, ipi_handler, "IPI", &irq_stat);
- 		WARN(err, "Could not request IRQ %d as IRQ, err=%d\n", irq, err);
- 	}
- 
--	for_each_possible_cpu(cpu)
-+	for_each_possible_cpu(cpu) {
- 		get_ipi_desc(cpu, ipi) = irq_to_desc(irq);
-+		if (is_nmi)
-+			set_bit(ipi, get_ipi_nmi_bitmap(cpu));
-+	}
- 
- 	irq_set_status_flags(irq, IRQ_HIDDEN);
- }
- 
- static void ipi_sgi_enable(int cpu, int ipi)
- {
--	if (ipi_should_be_nmi(ipi)) {
-+	if (test_bit(ipi, get_ipi_nmi_bitmap(cpu))) {
- 		prepare_percpu_nmi(ipi_irq_base + ipi);
- 		enable_percpu_nmi(ipi_irq_base + ipi, 0);
- 	} else {
-@@ -1085,7 +1100,7 @@ static void ipi_sgi_enable(int cpu, int ipi)
- 
- static void ipi_sgi_disable(int cpu, int ipi)
- {
--	if (ipi_should_be_nmi(ipi)) {
-+	if (test_bit(ipi, get_ipi_nmi_bitmap(cpu))) {
- 		disable_percpu_nmi(ipi_irq_base + ipi);
- 		teardown_percpu_nmi(ipi_irq_base + ipi);
- 	} else {
--- 
-2.34.1
+> ---
+>  drivers/acpi/nfit/core.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/acpi/nfit/core.c b/drivers/acpi/nfit/core.c
+> index cb771d9cadb2..5732df5d53f0 100644
+> --- a/drivers/acpi/nfit/core.c
+> +++ b/drivers/acpi/nfit/core.c
+> @@ -3515,8 +3515,8 @@ void __acpi_nfit_notify(struct device *dev, acpi_handle handle, u32 event)
+>  EXPORT_SYMBOL_GPL(__acpi_nfit_notify);
+>  
+>  static const struct acpi_device_id acpi_nfit_ids[] = {
+> -	{ "ACPI0012", 0 },
+> -	{ "", 0 },
+> +	{ .id = "ACPI0012" },
+> +	{ }
+>  };
+>  MODULE_DEVICE_TABLE(acpi, acpi_nfit_ids);
+>  
+> 
 
 
