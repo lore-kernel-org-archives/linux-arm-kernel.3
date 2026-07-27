@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6706C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8BAC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MblfPSYr7VgkHIGk47jbmEVm5pATOM0noqEz+Tr1p3M=; b=F5cstoRFmPoxGJVTdyk230fn+e
-	D5JnDY6p/w/7g4EhVkRUEn51SKTsbxk48mxxWKmJdCl4YZW9FE73WIBCKIHg/citoIfG3xrmgZwKU
-	TQyWJqxJDbUsiVNrWgUnIXcnOH/klY8O6Pdepok3yXujoEun6fad6+XuwCzSLXE1WJRKMM4oG4+Fl
-	XkL3qqMWaiNcBvdSgLgwP0N8MnagGqD1BpHGhhPVpCvsfNu0w81pJqxXMf7byz+VChjDHW/VBb70Y
-	iXExXKTU9EbN6ISDYVxs8Wfdv4tm/WjdzSG3EQRe7EGDMSHw/serDxY3lBR4M2jFQ5JaHHzy979UW
-	tlF1k6Rw==;
+	bh=r7e83iyG24rQgAXnVMhowvwQxEjwR3VglGO8SLL+liw=; b=Rj7zthkEG4q64CJlBhUsJ5T8qz
+	IueZdEkFCVdNR1d2CtnNyItxwAFjXn55v+zoJOBrWLJOUAfFr7U0+HlMbUeC1yg5EXzXebmxp56Q+
+	nx10v9jfyhuPerLGpyu5IOy0rQu2hoofuREbldovzQ1OyRd1giAW3cbKBlEm9DT6uAhS5+ayXYo9f
+	R1wZ9yiAdNXxIpW9ICnugKhIKgHskCfBKloaCGf+WCFqRc5l/c3HA9JIPBQsiq/pNsQpILw2tmIUH
+	FwExbcWjR0hx+qWSs5cFLOA6FUAt+Fw7smdXsUXPq+dwnCG7e9sy9aklF57klcDcS/X8XyEUiRoC4
+	4eD7V56A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOKn-00000003OI7-2O62;
-	Mon, 27 Jul 2026 16:37:45 +0000
+	id 1woOKo-00000003OLg-3yWp;
+	Mon, 27 Jul 2026 16:37:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOIt-00000003Mdo-03Ky
+	id 1woOJ1-00000003MjV-2LGf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 16:35:50 +0000
+	Mon, 27 Jul 2026 16:35:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 789541756;
-	Mon, 27 Jul 2026 09:35:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15CD51758;
+	Mon, 27 Jul 2026 09:35:51 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A1B943F86F;
-	Mon, 27 Jul 2026 09:35:45 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 414B03F86F;
+	Mon, 27 Jul 2026 09:35:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785170146; bh=eH5tF28U7isOjDPSK7ufRia3HLtuy/cVG8HbXoFRTFs=;
+	t=1785170155; bh=37f0sJV9txAlm1o0tE9Mler5SmLBO0QdnM0/SEDjdEg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OZdyu/NIf/oIqFWTc3sFFWtENUPRDZRPtX4rmOExs4Z3bwQYfnlJ20Gcezl74sPTw
-	 ZJ/ESGS5snLdKWe4YsVPxwuxPF0gyGojBp1zkQl1ERhtuj2Wq7cZjIBfTAL64ubZYV
-	 GfjlRLQQpobr662cGzgKtBlkhn+1KDD/XAP0grxk=
+	b=feS83TlIe1r95KcMQSekOqyWg8Eu//lAFAWgIDQY7XXEMMW5NZmz3IUob8XsaMo7N
+	 AXXVAFvvgo0GQW78mV+lcUYYYXwU4stHXRzy7a5747SmyqjeqevOLp9nv56kjdKdKg
+	 0cKNoXIg3EgIZAZeod4C+Eupc8ajd9LLrRP5R2/4=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: mark.rutland@arm.com,
@@ -47,17 +47,18 @@ Cc: mark.rutland@arm.com,
 	catalin.marinas@arm.com,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [RFC PATCH v2 21/45] arm64: gicv3: remove GIC_PRIO_PSR_I_SET
-Date: Mon, 27 Jul 2026 17:34:29 +0100
-Message-Id: <20260727163453.7969-22-vladimir.murzin@arm.com>
+Subject: [RFC PATCH v2 28/45] arm64: sysreg: Add definitions for immediate versions of MSR ALLINT
+Date: Mon, 27 Jul 2026 17:34:36 +0100
+Message-Id: <20260727163453.7969-29-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260727163453.7969-1-vladimir.murzin@arm.com>
 References: <20260727163453.7969-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_093547_142354_41657FE5 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260727_093555_696975_78337EDA 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,70 +73,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+From: Mark Brown <broonie@kernel.org>
 
-`GIC_PRIO_PSR_I_SET` was used to keep track of sections of the kernel
-where interrupts always need to reach the CPU and could not be masked
-via interrupt priorities, or DAIF bypassed the status of the PMR.
+Encodings are provided for ALLINT which allow setting of ALLINT.ALLINT
+using an immediate rather than requiring that a register be loaded with
+the value to write. Since these don't currently fit within the scheme we
+have for sysreg generation add manual encodings like we currently do for
+other similar registers such as SVCR.
 
-This flag unmasked IRQs when OR'd to GIC_PRIO_IRQON and ensured that
-that IRQs were seen as disabled by the `local_irqs_...` functions,
-as they would only check the PMR if pseudo-NMIs were enabled.
+Since it is required that these immediate versions be encoded with xzr
+as the source register, provide asm wrappers which ensure this is the
+case.
 
-This is not needed anymore as our IRQ masking APIs now know how to handle
-interrupt priorities properly and in parallel with DAIF : remove it.
-
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/asm/ptrace.h         | 2 --
- include/linux/irqchip/arm-gic-v3-prio.h | 8 --------
- 2 files changed, 10 deletions(-)
+ arch/arm64/include/asm/interrupts/common_flags.h | 16 ++++++++++++++++
+ arch/arm64/include/asm/sysreg.h                  |  2 ++
+ 2 files changed, 18 insertions(+)
 
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index e4c7e6bafa3d..cf7e51b8ef0b 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -24,8 +24,6 @@
- #define GIC_PRIO_IRQON		GICV3_PRIO_UNMASKED
- #define GIC_PRIO_IRQOFF		GICV3_PRIO_IRQ
+diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+index f034dcafccbc..c077af313d0d 100644
+--- a/arch/arm64/include/asm/interrupts/common_flags.h
++++ b/arch/arm64/include/asm/interrupts/common_flags.h
+@@ -44,6 +44,22 @@ typedef enum arm64_exc_context {
+ 	CRITICAL_CONTEXT,
+ } arm64_exc_context_t;
  
--#define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
--
- /* Additional SPSR bits not exposed in the UABI */
- #define PSR_MODE_THREAD_BIT	(1 << 0)
- #define PSR_IL_BIT		(1 << 20)
-diff --git a/include/linux/irqchip/arm-gic-v3-prio.h b/include/linux/irqchip/arm-gic-v3-prio.h
-index 44157c9abb78..464bf1d29453 100644
---- a/include/linux/irqchip/arm-gic-v3-prio.h
-+++ b/include/linux/irqchip/arm-gic-v3-prio.h
-@@ -20,17 +20,11 @@
-  * GICV3_PRIO_NMI is the PMR view of the priority of pseudo-NMIs. This can be
-  * written to the PMR to mask pseudo-NMIs.
-  *
-- * On arm64 some code sections either automatically switch back to PSR.I or
-- * explicitly require to not use priority masking. If bit GICV3_PRIO_PSR_I_SET
-- * is included in the priority mask, it indicates that PSR.I should be set and
-- * interrupt disabling temporarily does not rely on IRQ priorities.
++
++#ifdef CONFIG_ARM64_NMI
++static __always_inline void _allint_clear(void)
++{
++	asm volatile(__msr_s(SYS_ALLINT_CLR, "xzr"));
++}
++
++static __always_inline void _allint_set(void)
++{
++	asm volatile(__msr_s(SYS_ALLINT_SET, "xzr"));
++}
++#else
++static __always_inline void _allint_clear(void) {}
++static __always_inline void _allint_set(void) {}
++#endif /* CONFIG_ARM64_NMI */
++
+ static __always_inline
+ arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
+ {
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 7aa08d59d494..6d2c6bc1b985 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -179,6 +179,8 @@
+  * System registers, organised loosely by encoding but grouped together
+  * where the architected name contains an index. e.g. ID_MMFR<n>_EL1.
   */
- #define GICV3_PRIO_UNMASKED	0xe0
- #define GICV3_PRIO_IRQ		0xc0
- #define GICV3_PRIO_NMI		0x80
- 
--#define GICV3_PRIO_PSR_I_SET	(1 << 4)
--
- #ifndef __ASSEMBLER__
- 
- #define __gicv3_prio_to_ns(p)	(0xff & ((p) << 1))
-@@ -45,8 +39,6 @@ static_assert(__gicv3_prio_valid_ns(GICV3_PRIO_IRQ));
- static_assert(GICV3_PRIO_NMI < GICV3_PRIO_IRQ);
- static_assert(GICV3_PRIO_IRQ < GICV3_PRIO_UNMASKED);
- 
--static_assert(GICV3_PRIO_IRQ < (GICV3_PRIO_IRQ | GICV3_PRIO_PSR_I_SET));
--
- #endif /* __ASSEMBLER */
- 
- #endif /* __LINUX_IRQCHIP_ARM_GIC_V3_PRIO_H */
++#define SYS_ALLINT_CLR			sys_reg(0, 1, 4, 0, 0)
++#define SYS_ALLINT_SET			sys_reg(0, 1, 4, 1, 0)
+ #define SYS_SVCR_SMSTOP_SM_EL0		sys_reg(0, 3, 4, 2, 3)
+ #define SYS_SVCR_SMSTART_SM_EL0		sys_reg(0, 3, 4, 3, 3)
+ #define SYS_SVCR_SMSTOP_SMZA_EL0	sys_reg(0, 3, 4, 6, 3)
 -- 
 2.34.1
 
