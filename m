@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D9FAC54F4C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FDDC54F4D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPGToe2khYkTL3Svcz6zEupnmAPpNugGEfUWxXk3tYs=; b=rgzEv/7EfeBWCaKjV5+y4HiwIm
-	LkCdf+3ZqyI8W0Rk7w8g3SmuNQpIbIe6ytWWa0gCubCaluoGEjzTv40wi5L56uso4PFfjCPFQXW2X
-	UlQdVmnezt0HOGH53VslACTBxmhp2sSkLcRZgFtOFY8G55P3f4Oi0a4hhZF1L4r2VYynt8bN/VUKa
-	O7oW1kkm5ozem9XsNQhQc99MnsXpYASmrqIvJtX0RUAhpOoGsbjAyjMlSf7nZha7DWVJrEAQ5LTdf
-	C56IdpY+71YEsM6BkE9ATfPoZPKFrpPNTE/wFXEhMqRBTedZE7CvCDwLViPtZa7vz+ziXOAehxeL3
-	aTvGlpfg==;
+	bh=TJ/P4NONbtthg7jfF5hoYFaXe09plf5a5LKNDpHnj1I=; b=k7/OY+Vs0CZwcuH/4s2NdzGx6K
+	hfB+m9Py8rbRw75JZWH33AGsIxpH+La89SDZfBERDSLDFCP1GL5qGn/JhwLX8dVJM+LLwe9XfrPYR
+	qWpVppBeNBg4Wzx+QnH+LToDlxDDq3PaeUUeuQASXSvAsi1omJsTfLoBN7PMykYu/SeWwyZOns1Mz
+	xRgBpsG6Xzn1tw+jM8PJpXXDbE6jukP0p+YYWomejmymQSKWtebxag0sHY52Xw2mqmMfiPPQDqNNL
+	rvfz+XKUqcshOAS6VSci67aJ2SXlSiXb6iBZASIr4FfLJC2W+cUxpl5Bkyjyz2KMgT0RGetxUJbIZ
+	jM2XwKtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKyU-00000002mOo-24PY;
-	Mon, 27 Jul 2026 13:02:30 +0000
+	id 1woKyV-00000002mPv-02Da;
+	Mon, 27 Jul 2026 13:02:31 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKxs-00000002lyt-0XnJ
+	id 1woKy3-00000002m9q-1AP3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:01:53 +0000
+	Mon, 27 Jul 2026 13:02:05 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1785157310;
+	t=1785157316;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xPGToe2khYkTL3Svcz6zEupnmAPpNugGEfUWxXk3tYs=;
-	b=lC33PrlZ9DSLmy8NFGvXbxau9Y3wV4c73T4Fe8SzokmDuGnYSyUGA280AIeRF+ruaiCsnS
-	w9GN25H+sJnc7hDjLMdw9CQdhalxynqG7fX6Sk3PjIQ/alIqDDFFJWzjYMceK/vVKoSmHj
-	8cbIFx5SQo8C9c0NL77FI4IKNhW3HA+2K4i9ZqX8dK32UICLOLjqpxgAsawx5Pm242JEwN
-	c7fu5wjzv2NwhRXQ7FKtgwFiEsrq4Ls0MRdxhIRptlui/Fy1Q+Kz656QkwcZxLs3erLt1K
-	UUknJqevQ8Y9761laxzTXMd8fsSbyNhdb1bWs+Qm3zS445cMpSdkELTVqfx+ag==
-Date: Mon, 27 Jul 2026 15:00:51 +0200
-Subject: [PATCH v4 08/11] nvmem: imx-ocotp-ele: Remove the FUSE_ELE type
+	bh=TJ/P4NONbtthg7jfF5hoYFaXe09plf5a5LKNDpHnj1I=;
+	b=dHbuWjPeWKEU6ls3j/cOEmx9XpA57cf4tHV6Z/ZdO+gBtcdzBXSeMCeOMaaJYC894WnNXr
+	10gR2JU7TKg/Gf+UTikcLwDTnYBfDbkWFZMUKf9yo8Lc1Ohqpvp/znlzOZV4YnIszV1uEk
+	UqLCQGsK8r17zg3WHUvFpEzg+xuNTpUUZukUmS/+M7MuueexAopF5li1iQpSSRIF3D8ac9
+	UnIP2Q+6WVL3cJFIp3gAxmFrqrJL/AyB6OWbN+/9acxj7wSgAQsJDNfXXAQyIGCtOnpsVa
+	sw6w12+Md94RmIR+mBZM050X7u1+oXIpn4Ja3rLi7Uez67H6T0rQHc+UrEkcvw==
+Date: Mon, 27 Jul 2026 15:00:54 +0200
+Subject: [PATCH v4 11/11] arm64: dts: Enable EdgeLock Secure Enclave on all
+ i.MX91/i.MX93 boards
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-8-1a515de33093@kontron.de>
+Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-11-1a515de33093@kontron.de>
 References: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
 In-Reply-To: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -59,18 +60,18 @@ To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2820;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9582;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=VRuZKYzM4losAy2+ktkxwJxH6FIIrGyA4qs+o0vPijk=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bHW//mynqLclj24s2jvV12Czo9PjBZ4nNnBxnFnuf
- /ZCA/vejlIWBjEuBlkxRRYpfovXtmaxPvLHqqNg5rAygQxh4OIUgIl8smJkWNuw+E7GhAWZ/9/+
- NOW6+nhG9H+2xNoZYuZhuiz3uSI3JTH84Yh/Y/Yg1Dps+Ydqk9kzT6+fru9vfkiC315zs2rhG9k
- pXAA=
+ bh=wnro3oDQOkrfY9Z7n4ns/YNKLCCtMthXJ0hBKAWfOeo=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bA3jJqkZs7gDbqi+7tqxesJzwb5tuut3hNV/t1kcF
+ 7InNeNCRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwEQ4ZjL8d8mt6O89nlD0cO20
+ ztxO8729T85VvjHaoH47/Pn0bfuFnzMyzJyRF3ukwt49ZEZ8ZFqk3uEah2kXIs2NotRM5q9dNeE
+ UBwA=
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_060152_344861_1572799C 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260727_060203_482229_C2E0D442 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,93 +88,265 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-There is no use in tracking the fuses that are only accessible via
-ELE API and the current lists are incomplete. If the ELE API is
-available it will be used as primary access method anyway, otherwise
-the fuses not listed as accessible through the FSB can be considered
-invalid.
+Include the common dtsi to enable the firmware node for all boards
+based on the i.MX91 or i.MX93 SoC.
 
-No functional changes intended.
+For the TQ-Systems i.MX91 TQMa91xxCA / TQMa91xxLA SOM that already has
+a node for the reserved memory, keep the current settings.
 
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- drivers/nvmem/imx-ocotp-ele.c | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
+ arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts         |  1 +
+ arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts      |  1 +
+ arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts        |  1 +
+ arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts           |  1 +
+ arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi      |  1 +
+ arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi         | 15 ++++++++-------
+ arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi         |  1 +
+ arch/arm64/boot/dts/freescale/imx91-var-som.dtsi          |  1 +
+ arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi |  1 +
+ arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts        |  1 +
+ arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts         |  1 +
+ arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts           |  1 +
+ arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi    |  1 +
+ arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi      |  1 +
+ arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi         |  1 +
+ arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi         |  1 +
+ arch/arm64/boot/dts/freescale/imx93-var-som.dtsi          |  1 +
+ 17 files changed, 24 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-index 23e91775be5d..f691ad0cd1a1 100644
---- a/drivers/nvmem/imx-ocotp-ele.c
-+++ b/drivers/nvmem/imx-ocotp-ele.c
-@@ -19,8 +19,7 @@
+diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+index 5716febb5a50..7813a3cf215b 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+@@ -7,6 +7,7 @@
  
- enum fuse_type {
- 	FUSE_FSB = BIT(0),
--	FUSE_ELE = BIT(1),
--	FUSE_ECC = BIT(2),
-+	FUSE_ECC = BIT(1),
- 	FUSE_INVALID = -1
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-11x11-evk", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
+index 62dc1dedfb0e..b5a042a58b57 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-11x11-frdm-s", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
+index c25561574d3f..20c7e4989367 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-11x11-frdm", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
+index ea8cf14e0bc6..430c0402138b 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx91-9x9-qsb", "fsl,imx91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
+index 8b8cb3daecbb..509d869a216b 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/regulator/nxp,pca9450-regulator.h>
+ 
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "PHYTEC phyCORE-i.MX91";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
+index c99d7bc16848..ad66fea4099a 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
+@@ -7,6 +7,7 @@
+  */
+ 
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "TQ-Systems i.MX91 TQMa91xxCA / TQMa91xxLA SOM";
+@@ -31,13 +32,6 @@ linux,cma {
+ 			size = <0 0x10000000>;
+ 			linux,cma-default;
+ 		};
+-
+-		/* EdgeLock secure enclave  */
+-		ele_reserved: ele-reserved@a4120000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0 0xa4120000 0 0x100000>;
+-			no-map;
+-		};
+ 	};
+ 
+ 	/* SD2 RST# via PMIC SW_EN */
+@@ -58,6 +52,13 @@ &adc1 {
+ 	vref-supply = <&buck5>;
  };
  
-@@ -209,7 +208,7 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
- 		}
++&ele_memory {
++	/delete-property/alloc-ranges;
++	/delete-property/size;
++	reg = <0 0xa4120000 0 0x100000>;
++	no-map;
++};
++
+ &flexspi1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_flexspi1>;
+diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
+index a9e44efad13f..2e1830c33012 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
+@@ -13,6 +13,7 @@
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
  
- 		type = imx_ocotp_fuse_type(context, i);
--		if (type == FUSE_INVALID || type == FUSE_ELE) {
-+		if (type == FUSE_INVALID) {
- 			*buf++ = 0;
- 			continue;
- 		}
-@@ -352,13 +351,9 @@ static const struct nvmem_keepout imx93_ocotp_keepout[] = {
- static const struct ocotp_devtype_data imx93_ocotp_data = {
- 	.reg_off = 0x8000,
- 	.size = 2048,
--	.num_entry = 6,
-+	.num_entry = 2,
- 	.entry = {
- 		{ 0, 52, FUSE_FSB },
--		{ 63, 1, FUSE_ELE},
--		{ 128, 16, FUSE_ELE },
--		{ 182, 1, FUSE_ELE },
--		{ 188, 1, FUSE_ELE },
- 		{ 312, 200, FUSE_FSB }
- 	},
- 	.keepout = imx93_ocotp_keepout,
-@@ -368,7 +363,7 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
- static const struct ocotp_devtype_data imx94_ocotp_data = {
- 	.reg_off = 0x8000,
- 	.size = 3296, /* 103 Banks */
--	.num_entry = 10,
-+	.num_entry = 9,
- 	.entry = {
- 		{ 0, 1, FUSE_FSB | FUSE_ECC },
- 		{ 7, 1, FUSE_FSB | FUSE_ECC },
-@@ -376,7 +371,6 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
- 		{ 12, 24, FUSE_FSB },
- 		{ 36, 2, FUSE_FSB  | FUSE_ECC },
- 		{ 38, 14, FUSE_FSB },
--		{ 59, 1, FUSE_ELE },
- 		{ 525, 2, FUSE_FSB | FUSE_ECC },
- 		{ 528, 7, FUSE_FSB },
- 		{ 536, 280, FUSE_FSB },
-@@ -386,7 +380,7 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
- static const struct ocotp_devtype_data imx95_ocotp_data = {
- 	.reg_off = 0x8000,
- 	.size = 2048,
--	.num_entry = 12,
-+	.num_entry = 9,
- 	.entry = {
- 		{ 0, 1, FUSE_FSB | FUSE_ECC },
- 		{ 7, 1, FUSE_FSB | FUSE_ECC },
-@@ -394,9 +388,6 @@ static const struct ocotp_devtype_data imx95_ocotp_data = {
- 		{ 12, 24, FUSE_FSB },
- 		{ 36, 2, FUSE_FSB  | FUSE_ECC },
- 		{ 38, 14, FUSE_FSB },
--		{ 63, 1, FUSE_ELE },
--		{ 128, 16, FUSE_ELE },
--		{ 188, 1, FUSE_ELE },
- 		{ 317, 2, FUSE_FSB | FUSE_ECC },
- 		{ 320, 7, FUSE_FSB },
- 		{ 328, 184, FUSE_FSB }
+ / {
+ 	model = "Variscite DART-MX91 Module";
+diff --git a/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
+index b30a0d8a81ba..87db0abb8257 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
+@@ -11,6 +11,7 @@
+ /dts-v1/;
+ 
+ #include "imx91.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "Variscite VAR-SOM-MX91 module";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
+index f48e7947cf64..65db986fc7ba 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include <dt-bindings/usb/pd.h>
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	aliases {
+diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+index bd14ba28690c..0bd19988ce9f 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+@@ -3,6 +3,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	compatible = "fsl,imx93-11x11-frdm", "fsl,imx93";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts b/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
+index ec78c03f4788..0e5c7d1ed4ee 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "NXP i.MX93 14X14 EVK board";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+index 01c11c517986..694f114aef36 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "NXP i.MX93 9x9 Quick Start Board";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+index c79b1df339db..c9aa764cc3b8 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
+@@ -5,6 +5,7 @@
+ 
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "Kontron OSM-S i.MX93";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 325e465d0056..076716cc2095 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -12,6 +12,7 @@
+ #include <dt-bindings/regulator/nxp,pca9450-regulator.h>
+ 
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "PHYTEC phyCORE-i.MX93";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
+index ce34a296495c..159be0d5dfde 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
+@@ -6,6 +6,7 @@
+  */
+ 
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "TQ-Systems i.MX93 TQMa93xxLA/TQMa93xxCA SOM";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
+index 69495bb7fc9f..122a8a091c80 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/usb/pd.h>
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ / {
+ 	model = "Variscite DART-MX93 Module";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+index 24063bf8183d..50aec264f87c 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+@@ -7,6 +7,7 @@
+ /dts-v1/;
+ 
+ #include "imx93.dtsi"
++#include "imx93-firmware.dtsi"
+ 
+ /{
+ 	model = "Variscite VAR-SOM-MX93 module";
 
 -- 
 2.55.0
