@@ -4,108 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A150DC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35FEC531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CEcsYQM4ljco82dEKg+yhxhcPhTVO5qy8nLEQaYZrN0=; b=G7eHdOfzQRY7fUHg4DVvHpSX4I
-	O1K6RmDNKl1XQaJrhsffYyzscY0MwQGKk0Sdi/rH3qfL6HJBONOGs5xneUhLbmBqF5Dc0BHjNjqEC
-	E9SeTkYNRxBqeX1OLLaou7Yd7x6DNMDzOFfX4t13u+HiGIFYGs77I4kPzjSFXes5JNDkdk/FGhfZK
-	HZFNExHUNfI/J5qT9U6f8XAGeY+C34J8R5v2Q8bKGv4VsrMcGI8538tCfwCcNbR7YQJuy5pgLhpsz
-	i/Baw39FIZ6LSoTuywn3kappyCQYdHmZSMcsTlIn2D+GaSGL0Qgj/GGCi/0UxW0J08HwgYGd2BlP/
-	DrKf3qZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Th96/GGdOH3cqJlq6mtvUWtPUD4W0EksOiaZew2t1UQ=; b=aZJN9foc701NfSohY7NMv/LFb0
+	kjnB0HXrfzTz2N0bvHprI1qjaX/Ws2mN0ReppYH2I5MlN47s7K/XNzoQ+djLD0SdQTbSulHKGbQU6
+	ndbQYWVlybnrUTDXIx3ECVpcDrvyQ9fvZ6DbPoHgAhFG6nkWtgm94mYS1sYX/iu4qVR/pLyGoVWFJ
+	Efkt013UVz9RTmnsLzpWI+aSqLhHXw1ramm43ZdBv8bfXaH1Wr1qaEBemuJgKN5O9zOtwzCaBJLys
+	/aGkplZQugQWe87nM8yF8Y6fMcKredwR8XkMXsItGj/tCBztslhAACnBBUW7ItpBIARGKGow35Ny1
+	X3bGzN9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woEnW-000000021Xk-0Sz0;
-	Mon, 27 Jul 2026 06:26:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woEoL-000000021fd-1587;
+	Mon, 27 Jul 2026 06:27:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woEnV-000000021XW-0fOC;
-	Mon, 27 Jul 2026 06:26:45 +0000
+	id 1woEoK-000000021fB-0nKZ;
+	Mon, 27 Jul 2026 06:27:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E52C043975;
-	Mon, 27 Jul 2026 06:26:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3320F1F000E9;
-	Mon, 27 Jul 2026 06:26:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 89E55601DE;
+	Mon, 27 Jul 2026 06:27:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6FAF1F000E9;
+	Mon, 27 Jul 2026 06:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785133604;
-	bh=CEcsYQM4ljco82dEKg+yhxhcPhTVO5qy8nLEQaYZrN0=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=eLWHZk1TOQ7GHKI0f/1uiSLAD/GtGt9c3sY+i8RcJ/MOhsMVuSrOMtic/1KOpkkWA
-	 wvd2uoK30r5dwj/XtyIbdN3Fs4j2q65Tbe74CHk9rN24G35iy1/xDs2nnfr26s/1/6
-	 DG80Zs7rx/g2NaYAz6yXnZfOAB8ydbQQjUwIREDmQMwKWsGTMxJtKWhDwNijGEoEaV
-	 Jt9+4kWQDnF6mn4zbtWAu2igbfa+bbx9RUbI5N9YU6J9x9a+mxLqzgyT0r59PQNtlm
-	 qqVClLeZAEevKb4eH3+OTGY+nyH64iHJMWXwDx/4LU175NOCclrayhn1BDQj2wYcC6
-	 NadiVMi2JSTBQ==
-Message-ID: <16ede5f1-dcd4-4b43-98a9-02754796de81@kernel.org>
-Date: Mon, 27 Jul 2026 08:26:37 +0200
+	s=k20260515; t=1785133655;
+	bh=Th96/GGdOH3cqJlq6mtvUWtPUD4W0EksOiaZew2t1UQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oycPVercDWHNAWLmDRMwyR+g7ZDZNwzYG4tDfLTSXPSwa65t9WcU7x6+PWf9ZuFTy
+	 F9Po4+R7xJSaFNERf5/+bCDsJUvBxDFm4OJhu45+ZbLgQgvIkqv4FDB4a3gkBMz8ba
+	 Y/2LjLpWNrWwb2l8N83GRbedyFdc2jYpkbxvfaeBAPcaVNzB7icBo4tNo016ZBxdCq
+	 PYnnHMkWiB9QNkcTjA7D0bLnturfdIK6UypL/coK0UmjVMkjgELpV8a6MGGBRj3/Gf
+	 UuNInzps54p26dZ1X9Gvu4HEoggUVpHbFlMhcPeF/4z2YD9Mw3Z91+V4QuQdZF18wj
+	 JF0bd69+nApGA==
+Date: Mon, 27 Jul 2026 08:27:32 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Jacob Keller <jacob.e.keller@intel.com>
+Subject: Re: [PATCH net-next v12 2/3] net: airoha: fix ETS QoS stats counter
+ underflow and cross-channel corruption
+Message-ID: <amb6VD1kSVHqp0tX@lore-desk>
+References: <20260725-airoha-ethtool-priv_flags-v12-0-5136a30b2157@kernel.org>
+ <20260725-airoha-ethtool-priv_flags-v12-2-5136a30b2157@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/6] arm64: defconfig: Enable CONFIG_VIDEO_AMLOGIC_VDEC
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Zhentao Guo <zhentao.guo@amlogic.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org
-References: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
- <20260724-b4-s4-vdec-upstream-v6-6-6072a7ee7428@amlogic.com>
- <20260727-vivid-native-bloodhound-4c7ff6@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260727-vivid-native-bloodhound-4c7ff6@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zFUilOt3Gv8fzeud"
+Content-Disposition: inline
+In-Reply-To: <20260725-airoha-ethtool-priv_flags-v12-2-5136a30b2157@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,22 +76,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/07/2026 08:24, Krzysztof Kozlowski wrote:
-> On Fri, Jul 24, 2026 at 03:04:56PM +0800, Zhentao Guo wrote:
->> Enable the Amlogic V4L2 stateless video decoder driver as a module
->> in the arm64 defconfig. This driver is needed for stateless video
->> decoding support on Amlogic SoCs.
-> 
-> Which boards use it? Look at `git log` to learn how this commit should
-> be written.
+--zFUilOt3Gv8fzeud
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I already ASKED YOU this at v4 and pointing you to git log history. Not
-much improved.
+> airoha_qdma_get_tx_ets_stats() has two bugs:
+> - The hardware counters read via airoha_qdma_rr() are 32-bit values
+>   but are stored in u64 locals and subtracted from u64 baselines. When
+>   a 32-bit hardware counter wraps around, the subtraction produces a
+>   large underflow value passed to _bstats_update().
+> - The baseline counters (cpu_tx_packets, fwd_tx_packets) are stored as
+>   single per-device fields, but airoha_qdma_get_tx_ets_stats() is
+>   called with different channel values (0-3). Each call reads a
+>   different channel's hardware counter but overwrites the same
+>   baseline, corrupting the delta computation for other channels.
+>=20
+> Fix both by:
+> - Narrowing the counter locals and baselines to u32 so that 32-bit
+>   unsigned subtraction handles wrap-around naturally.
+> - Grouping the baselines into a per-channel qos_stats array so each
+>   channel tracks its own previous counter value independently.
+> - Splitting the delta addition into two statements so the first u32
+>   delta is widened to u64 on assignment and the second is added in
+>   u64 arithmetic, preventing overflow when both deltas are large.
+>=20
+> Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
+> Reviewed-by: Simon Horman <horms@kernel.org>
+> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
+> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 18 +++++++++++-------
+>  drivers/net/ethernet/airoha/airoha_eth.h |  7 ++++---
+>  2 files changed, 15 insertions(+), 10 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index d9a44a11d8db..8165084daaf5 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2521,16 +2521,20 @@ static int airoha_qdma_get_tx_ets_stats(struct ne=
+t_device *netdev, int channel,
+>  {
+>  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+>  	struct airoha_qdma *qdma =3D dev->qdma;
+> +	u32 cpu_tx_packets, fwd_tx_packets;
+> +	u64 tx_packets;
+> =20
+> -	u64 cpu_tx_packets =3D airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
+> -	u64 fwd_tx_packets =3D airoha_qdma_rr(qdma,
+> -					    REG_CNTR_VAL((channel << 1) + 1));
+> -	u64 tx_packets =3D (cpu_tx_packets - dev->cpu_tx_packets) +
+> -			 (fwd_tx_packets - dev->fwd_tx_packets);
+> +	cpu_tx_packets =3D airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
+> +	fwd_tx_packets =3D airoha_qdma_rr(qdma,
+> +					REG_CNTR_VAL((channel << 1) + 1));
+> +	tx_packets =3D (u32)(cpu_tx_packets -
+> +			   dev->qos_stats[channel].cpu_tx_packets);
+> +	tx_packets +=3D (u32)(fwd_tx_packets -
+> +			    dev->qos_stats[channel].fwd_tx_packets);
+> =20
+>  	_bstats_update(opt->stats.bstats, 0, tx_packets);
+> -	dev->cpu_tx_packets =3D cpu_tx_packets;
+> -	dev->fwd_tx_packets =3D fwd_tx_packets;
+> +	dev->qos_stats[channel].cpu_tx_packets =3D cpu_tx_packets;
+> +	dev->qos_stats[channel].fwd_tx_packets =3D fwd_tx_packets;
 
-Did you even check any commits?
+commenting on sashiko's report:
+https://sashiko.dev/#/patchset/20260725-airoha-ethtool-priv_flags-v12-0-513=
+6a30b2157%40kernel.org
 
-NAK
+- This isn't a bug introduced by this patch, but I noticed _bstats_update()=
+ is
+  called here without mutual exclusion or BH-disabled context.
+  Can a local user running 'tc -s qdisc show' invoke this dump path while t=
+he
+  software qdisc datapath is running concurrently in softirq?
+  Since _bstats_update() requires strict mutual exclusion among writers, co=
+uld
+  the lack of qdisc_lock() in this process context allow the softirq datapa=
+th
+  to preempt or run concurrently?
+  Would this concurrent access on 32-bit systems corrupt the seqcount_t ins=
+ide
+  struct gnet_stats_basic_sync and cause readers to spin infinitely?
+  - As pointed out by sashiko, this issue has not been introduced by this
+    patch. Moreover, airoha_eth driver runs just on arm64 architecture, so I
+    guess this is not a real issue.
 
-Best regards,
-Krzysztof
+Regards,
+Lorenzo
+
+> =20
+>  	return 0;
+>  }
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index 24dd16fc509a..447a5a9552bb 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -580,9 +580,10 @@ struct airoha_gdm_dev {
+>  	struct airoha_eth *eth;
+> =20
+>  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+> -	/* qos stats counters */
+> -	u64 cpu_tx_packets;
+> -	u64 fwd_tx_packets;
+> +	struct {
+> +		u32 cpu_tx_packets;
+> +		u32 fwd_tx_packets;
+> +	} qos_stats[AIROHA_NUM_QOS_CHANNELS];
+> =20
+>  	unsigned long flags;
+>  	int nbq;
+>=20
+> --=20
+> 2.55.0
+>=20
+
+--zFUilOt3Gv8fzeud
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCamb6VAAKCRA6cBh0uS2t
+rA4BAP0akbTHHixeiNxRhj7i0oQUEQ/3swX/GZcss2GkmrDwhQEAiqIETFwQfurk
+fcBPV7tvUV4oLhccOCxd2s90kInyLgs=
+=0sIR
+-----END PGP SIGNATURE-----
+
+--zFUilOt3Gv8fzeud--
 
