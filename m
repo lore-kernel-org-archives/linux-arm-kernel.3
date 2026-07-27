@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C3BC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 01:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1CFC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 01:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+DQuJXtADinBrFCl9u83kOzDJmpXPtN8cvR9o59Eeg=; b=N0y53WTytYlj87np+Qv3TwcZo5
-	1dZq5uycgFgQThPaSJoBvLGlhT6r5z/fFiJ0HK9Xan3B23pKIFuPYbGY8w6NYDJmTSPLgdQmzJj9N
-	cSbVFDh54ly+uDSyt4cM3yNYWpnfWOjZxS82WYKF0378Pi7yibkuwYor683FiFFQl4Ul8e/2SJHZo
-	0aWdt1QcIYNIY8o6rKBtdl7lysif9XXzSb0sU3OOJQntRXUfUB99xmMgJ3c5CpCzPRKQ6nkvCthHu
-	P/IpmF+JmrUtpFoozeYNv7uivSZfAiqswh55ucMHyCbtJuKFhTIXXwk40mmlUcYfNcPVuLB9kHpfJ
-	hxKchqyQ==;
+	bh=o3I//fWT/Ahu1TRVuSuKOsa5VptGAjlzU/RAQ0KA2Gs=; b=CLxkJ4zkB96DZk+X5cU5RGeP+s
+	D9+FngxwZtO7fu3GD1PGRVYZtqZAgU8RP/rz9N7Dgx2KwBP60mmDeYfKyB9c9rsIyGRjvosblRyPi
+	7Ti6Sg2cA65ZiemeA7OwaDYHJNGF5ddKsg5gYdtd5DwXWblC0cW6V/mYuy70vVXwp2zJRkX8uHl6j
+	9YZk4aJa+zsnnaSFtP/Byu9Fhnvf8ZoJWT65XXpRu8dhTZC72rU4oVtYUH+v7LpoX64iPf1FXTE3d
+	Ra6hTxNLpj+Sbp07SISvPmMthbGEEvS6Oh0L6loAkXVzvCLyQEVdIXclou9LyqCLkcb1bk0AeAvYC
+	sOuySe5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woACl-00000001mFb-1Xe4;
-	Mon, 27 Jul 2026 01:32:31 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1woAHW-00000001mRJ-3tLc;
+	Mon, 27 Jul 2026 01:37:26 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woACg-00000001mF1-3sOd;
-	Mon, 27 Jul 2026 01:32:29 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=C+DQuJXtADinBrFCl9u83kOzDJmpXPtN8cvR9o59Eeg=;
-	b=262EiEg47p4Yk/QZEwB6ElVSigThJqHw96cWY80zBP43FBPhtya38MnR6k8zkROGFHzy6yINi
-	VmQU9B2QODp5BZNQwkB/UZzVPFOlf+6R3I+hEhy8W0raS9PZQ8D8Tq6tpHNxUzlPziDZ0yz2cYQ
-	jK1Y8tqKkMpnvedw+Kyyk2M=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h7gnh056nz1T4Fq;
-	Mon, 27 Jul 2026 09:22:48 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 37B8940561;
-	Mon, 27 Jul 2026 09:32:15 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 27 Jul 2026 09:32:13 +0800
-Message-ID: <b36172d1-fdc4-480f-a60c-6da02e847709@huawei.com>
-Date: Mon, 27 Jul 2026 09:32:12 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] arm64: crash: Add crash hotplug support
-To: Mike Rapoport <rppt@kernel.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <maddy@linux.ibm.com>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <chleroy@kernel.org>,
-	<akpm@linux-foundation.org>, <baoquan.he@linux.dev>,
-	<pasha.tatashin@soleen.com>, <pratyush@kernel.org>, <thuth@redhat.com>,
-	<vladimir.murzin@arm.com>, <mark.rutland@arm.com>, <ardb@kernel.org>,
-	<james.morse@arm.com>, <leitao@debian.org>, <yeoreum.yun@arm.com>,
-	<robh@kernel.org>, <kees@kernel.org>, <coxu@redhat.com>,
-	<sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
-	<adityag@linux.ibm.com>, <hbathini@linux.ibm.com>, <makb@juniper.net>,
-	<piliu@redhat.com>, <graf@amazon.com>, <liaoyuanhong@vivo.com>,
-	<jbouron@amazon.com>, <bauerman@linux.ibm.com>, <bgwin@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <kexec@lists.infradead.org>
-References: <20260723131242.1537633-1-ruanjinjie@huawei.com>
- <amWy4u9tXoWX6Wtp@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <amWy4u9tXoWX6Wtp@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+	id 1woAHU-00000001mR1-1ac1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 01:37:25 +0000
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 27 Jul 2026 09:37:03 +0800
+Message-Id: <DK8YVZNAFKSP.1JHSI6NI6LLYZ@oss.qualcomm.com>
+Cc: "Alexey Brodkin" <abrodkin@synopsys.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Joel Stanley"
+ <joel@jms.id.au>, "Andrew Jeffery" <andrew@codeconstruct.com.au>, "Frank
+ Li" <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>, "Hans de Goede" <hansg@kernel.org>, "Alex Lanzano"
+ <lanzano.alex@gmail.com>, "Oleksandr Andrushchenko"
+ <oleksandr_andrushchenko@epam.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-kernel@vger.kernel.org>, <linux-aspeed@lists.ozlabs.org>,
+ <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+ <xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH v3 0/8] drm: replace simple display pipe users with
+ atomic helpers
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Ze Huang" <ze.huang@oss.qualcomm.com>
+To: "Linus Walleij" <linusw@kernel.org>, "Ze Huang"
+ <ze.huang@oss.qualcomm.com>
+References: <20260727-drm-simple-kms-removal-v3-0-cd5dc89858c6@oss.qualcomm.com> <CAD++jL=x2Ya_MXrO7FGF6WDzr4dv83K8-TS2AWkA2O0Dko8G4g@mail.gmail.com>
+In-Reply-To: <CAD++jL=x2Ya_MXrO7FGF6WDzr4dv83K8-TS2AWkA2O0Dko8G4g@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_183227_604218_F0945DC9 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20260726_183724_558836_EE0F34E4 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,80 +72,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon Jul 27, 2026 at 4:32 AM CST, Linus Walleij wrote:
+> Hi Ze,
+>
+> On Sun, Jul 26, 2026 at 9:45=E2=80=AFPM Ze Huang <ze.huang@oss.qualcomm.c=
+om> wrote:
+>
+>> struct drm_simple_display_pipe was meant to simplify simple DRM
+>> drivers, but instead adds an extra wrapper around normal DRM atomic
+>> helper setup. As noted in Documentation/gpu/todo.rst, remaining users
+>> should be converted to regular atomic helpers and stop depending on the
+>> simple-KMS interfaces.
+>
+> Are these patches independent of other stuff so they can be tested on
+> top of v7.2-rc1 or do they need other stuff from drm-misc-next?
+>
+> Yours,
+> Linus Walleij
 
+Hi Linus, patches are independent and can be tested on v7.2-rc1.
 
-在 2026/7/26 15:10, Mike Rapoport 写道:
-> Hi Jinjie,
-> 
-> On Thu, Jul 23, 2026 at 09:12:34PM +0800, Jinjie Ruan wrote:
->> When CPU or memory hotplug events occur, the elfcorehdr in the kdump image
->> becomes stale, potentially leading to incomplete crash dumps.
->>
->> Currently, userspace udev rules reload the entire kdump image upon such
->> events, which is inefficient and leaves kdump inactive for a long time.
->>
->> Commit 247262756121 ("crash: add generic infrastructure for crash hotplug
->> support") introduced a kernel mechanism to update only the elfcorehdr.
->> This patch set implements crash hotplug support for arm64.
->>
->> It also addresses and fixes several critical pre-existing code issues
->> and Sashiko AI review findings extracted from the previous patch set,
->> following Baoquan's suggestions.
->>
->> The major improvements and fixes included in this series are:
->>
->> - Fix powerpc memory leak, null-ptr-def and overlapping memory
->>   range truncation bug.
->>
->> - Fix several memory leaks for arm64.
->>
->> - Simplify arm64 load_other_segments().
->>
->> - Implement infrastructure for arm64 crash memory hotplug support.
->>
->> This patch set is rebased on liveupdate/crashkernel-cma.
->>
->> Link: https://lore.kernel.org/all/20260601094805.2928614-1-ruanjinjie@huawei.com/
->>
->> Jinjie Ruan (8):
->>   powerpc/crash: Fix possible memory leak in update_crash_elfcorehdr()
->>   powerpc/kexec_file: Fix null-ptr-def in extra size calculation
->>   powerpc/kexec_file: Prevent kexec range truncation
-> 
-> It's weird to see powerpc fixes in a series that adds a feature for arm64.
-> Judging by the subjects, they are completely unrelated to to crash support
-> for hotplug and should be sent as a separate set.
+I've seen others patches based on drm tree so I did the same. Would
+switch to v7.2-rc1 if that's preferred :)
 
-Hi Mike,
-
-You are right, I'll rebase and post v2 shortly, and send the powerpc
-fixes as a standalone series.
-
-> 
->>   kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
->>   arm64: kexec_file: Fix CMA page leaks in segment placement retry loops
->>   arm64: kexec_file: Fix image->elf_headers memory leak during retry
->>     loop
->>   arm64: kexec_file: Simplify load_other_segments()
->>   arm64: crash: Add crash hotplug support
->>
->>  arch/arm64/Kconfig                     |   3 +
->>  arch/arm64/include/asm/kexec.h         |  13 +++
->>  arch/arm64/kernel/Makefile             |   2 +-
->>  arch/arm64/kernel/crash.c              | 148 +++++++++++++++++++++++++
->>  arch/arm64/kernel/kexec_image.c        |   1 +
->>  arch/arm64/kernel/machine_kexec_file.c |  76 ++++++-------
->>  arch/powerpc/kexec/crash.c             |   2 +-
->>  arch/powerpc/kexec/file_load_64.c      |   2 +-
->>  arch/powerpc/kexec/ranges.c            |  12 +-
->>  include/linux/kexec.h                  |   2 +
->>  kernel/kexec_core.c                    |  25 +++--
->>  11 files changed, 223 insertions(+), 63 deletions(-)
->>  create mode 100644 arch/arm64/kernel/crash.c
->>
->> -- 
->> 2.34.1
->>
-> 
-
+Thanks,
+Ze Huang
 
