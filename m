@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249CDC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 02:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A5BC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 02:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1WNF/t9pK2HwnPJWbDOD3dXmKgsh35CNG6w7c87mKE0=; b=OPgABIAhCxEHSCOrkFVyBA3Be7
-	IiZXcLdRGLL2mLfmGQhgbdj96zeFWhcrMvL5yA2PzMsPE4PDxl2edtAdSsLaObet54466Qov8wMWB
-	xXVxr71J8tRKg9FYSNq2A/sgXLbCj7A2r6qf71cRgap6wJf088M1bxj+yaKAX2DYvWczSZ6uqUlhm
-	YiDqMx26Hp8O8MBaKKnxDKKDv7NbK0hoYFJ0TVVFNLREuodDttUiWsq7qKY9waPgsCkxaM++yDhit
-	hINNattwsEENs3sHxcoExNuwqvw4um4uKMXseW3iN2CtpRZ9zuhokQ0dD2aYl7L77Va01rbO+uC0n
-	AgIA1I3w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bdXlW+/ogTDXuEYnIcppIc28hzmU6+dYC2I3iGVVVgs=; b=HetzEN7+HTixyfCowV72A+VIaD
+	Z4pO4B7AW7RW+EANpltHHbvbRBiKptgp4WbjB7Cf/ONb1zAYBIKx9rfmzNI32rI+v1fTE7zyCxVAb
+	wnKU+WVE8B/FJf9Dr9dq1xRIYSL9M5CPtd7zzGA30mS9atVneJ10kj+Jm4JDswXvLXnwmq6kEfooC
+	/oX0QH6P6EKCKs9rBEGN7Rq8LLjUjIqgVbr0kmTA/32jxNh0rO3yJKAOdbysMNDdRvSP3T9qHnO34
+	zta0n2s1gsj98CSmG6k7QHm/y0+Z7y4LFM/dfmwfQPLYIBxtyg5xUWNXon4zoY9RNrE28IGDOoLGu
+	r76oNlAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woAo3-00000001ncC-37MU;
-	Mon, 27 Jul 2026 02:11:03 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1woAoA-00000001neT-3mIG;
+	Mon, 27 Jul 2026 02:11:10 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woAo0-00000001nbP-2P0G
+	id 1woAo9-00000001ndO-0L2q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 02:11:02 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-382ef647e20so2171457a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 19:11:00 -0700 (PDT)
+	Mon, 27 Jul 2026 02:11:10 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2cc97653887so24942505ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 19:11:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785118259; x=1785723059; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1WNF/t9pK2HwnPJWbDOD3dXmKgsh35CNG6w7c87mKE0=;
-        b=dwCmuZxjg59AiXBusFyL7YxH70KQrGoLU0II1a1oVKd1L20FZGzlXBZg8BNPPPvxqY
-         W1vIXmIufGaivYvJQOi70pRY7QW953hKbf9K3zXwK8q/Ox89Aq3dzQu4FLxVZ/r7Pi9R
-         PzpNmGPbb5HMv9OzWGiEBBKHIGsTQ7FRRsHs2C6UwJnrdhu5otr/q3Xl98x7v9v82cZb
-         jfr+vUFd7XIFveZsrM1BG4qDgI1p0CTXwrSMtaR13VzYlFzh2SMJnaj+smYVqjcXT5Cw
-         7FDtgAIkNvlIBAfQn+C6/WatFpphWllwhhjafgsBaFgHQXFEBqEXn6SiIObiN6EyqOmE
-         5N4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785118259; x=1785723059;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1785118268; x=1785723068; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1WNF/t9pK2HwnPJWbDOD3dXmKgsh35CNG6w7c87mKE0=;
-        b=MvGNITXY4Wowkr+fIsSERo/oxsr4dLvMSBPcu/Ak4XSWaAqI6y75Qne5vVDsubkQL8
-         gYxMe2oFnMG4/rE2vcMhebtmp3ZROHbG3iHcE2grKzmzDjKT4LVmy8nZyGP6IdhlJc2Q
-         mmdIsxe6s+8Zpl0WzxZK5Fe/sLjQYBex5mLJMhvB0Z+njvPfL77/+2Ff+1fBUGJM0+ki
-         tx6HW1D1cW/CIHI3dK1c7WEr3fbnIVTZR+Jpx1KutVXmWGui/KT27c1zdrV4r7ibvVkl
-         B1EOK7Xpb3URFvKeLGZWhbgE3mEN+StPmbhXAUOe9E6MFEFmDkKCvRkJCKnloOCuZEvN
-         l+KA==
-X-Forwarded-Encrypted: i=1; AHgh+Rpmg676dIjsebpPDMUgFpaMXmJRry2ByDHnLRrNDAANp2e1rIpXE7Y8cbrGPyduwB/eHNEBvzxx3GXHVMWfPXNT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw93JfIAKE/WMm8zjmqkLplAZTdPASI/MGSUOQ69Uq1GkR7TyzD
-	YvOl//PLEyxVq2RRyIxA4JZG907lfP46BO0mY9cR8t09lXSESt50a9nS
-X-Gm-Gg: AR+sD11I5MTeyHz8FlVNQRMsKJ2SjmDqdlq0azAkALWu1p3HSoYc89MGONwuiVAnoI0
-	DgeoQ9Hj3QXpxm9ck2SNLp7Jqre5GP5h6aZ26b/fI6BodFOw9NRMaaAAqNAgFikF+Tnqs0zjBFK
-	toTK2NZCHaa9TJJ6wUBpzutmA6LEo5dlGkp+j8MNBRGZpLrSWUVir7V/Shg3CPYyCBi4ksvcvMT
-	Wrewpr50zATrWBAadMZRCCZzaf4bxlExPJYanDVBOXWs7Mlg8ILUgMz15rWPlwXx2aWlG41AVCc
-	FjlX/KMD2aYcLT0Xsn3GuCoUNmylCB9QZCbYT0MQMnEQ/KT50jbR4CsfLjMNVWVsadV1Use9BTR
-	EdRPYm2/y/e+DqIYA3gGQ5s0/xzw2bdlWIaxC2vqIsT+xWVBEUswUro/5yOoZKa3en2nIUWdvNH
-	GWcPTs8X1UpQsC9RukanicVCI=
-X-Received: by 2002:a17:90b:2791:b0:38e:67e1:15b with SMTP id 98e67ed59e1d1-38f293cc2eemr6150209a91.6.1785118259380;
-        Sun, 26 Jul 2026 19:10:59 -0700 (PDT)
+        bh=bdXlW+/ogTDXuEYnIcppIc28hzmU6+dYC2I3iGVVVgs=;
+        b=VCxLWNBJaxgJVuHN159NiUwWRpavQJkVWTEjYst0V8wef0CEa0R7IVFWxN1j+ZoZOE
+         9NgAm+yOFIzGHg0XZxgnZx3K7GD7qz3fVIv3/tIZfgtTUp3SPQqYgq0R4GjGC06V5g6h
+         JweLDG5auY4l9qGDa0X5zBa/8hhGB1xju7inZigleWpsYuzFQ6p+Ofhw89TcXuhtS6Xa
+         sLDe/oQn+5rM6PrVt9780k5pFBS5zcTb5O5HfTAqPbUtNPfxvfmND2QJEZA9qbEgM5aE
+         eOc1Uk1cfaM/CEbalKU8tamu//s6B5ZljD/wBMqHpmCdFQF+/NhFxycqXphM3uPfyvjS
+         iI4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785118268; x=1785723068;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bdXlW+/ogTDXuEYnIcppIc28hzmU6+dYC2I3iGVVVgs=;
+        b=GchA1Cm6mbw0KRqhgkC6Gxx/sHisfR73f3J2iYrh5PJvO8WUFRO7+mDjN1sLI/y9qj
+         hW9GK91mpRAkei2fxK9fnZNhX0qO3uYX0kkaifN8lm117p26bOdUXlvT2HIlUqPU4vVa
+         Kg3WIjREOT/yfvlmRL0x1+AXhUuMRUW+6LnFbfX61g3qnm37dTEg7RwSQVxD5IsRp6Cv
+         0ExMPi/RtvP9St5mFctUw9hBbgU95HRWbimCsKBa1bmv3WjCqycvZHWq5xqE4bTOA3+S
+         KDXv7e/3j74QGLCIqz7u1ssdm1YknxX9DvHGTRBAM7HfY4yp4/EErWS/63HMgdHm9wgs
+         WDPw==
+X-Forwarded-Encrypted: i=1; AHgh+Rpn+peShOa7MaKCqmtmHaGqaTsXE7ys6155LyDPiVIwxIgSw6CADDw5aXy+2S4+bGp0Pi78vYZom5HwX67x/S4d@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVKQIBXkcjlfvr47bluxEBlad30N5iILFXA1EenP2HRFC0s6lF
+	lgnVHYU68oz0lkK5AIwzWqoIcIwhnSzbjZgHUsboZL/oICKYF6CkRxXT
+X-Gm-Gg: AR+sD13SLzM7LbdD+plxB1teibnbVM0uynkzQhsaereoAMR6YtmBtRJ+MnRBkVrDZHA
+	5dRsNBheqVXpJTdMWydia9ird1Md0itBf//fuXo6tTH0rEJxMUOxeQQNCqU1wNA/l4z4YBcWNF1
+	2GHqUoYhxnceSrlVY9z8OvftWK+pOL98FUA3IKUiU6f4QJGFoFwpVeUQyNLcdFZKgfKHRZu3GLF
+	2ckOMDbPo0nCEJBXUdtof+Y0vQgOeQ9/wjmLeEYvGPRGJ1h2yK3zW+sElQw4B49xOQ5vn1tzYks
+	9fSnuXAZCUJrRZeM65lO6/yevgH5BiWS2w0InTVGVQsU+/GIz/5/OENg1g7z5hnQRHv3JowLM6X
+	u+TXY4r/6cL4tHH9IrGe0UerA6pREenqeI2uTQGExwdJtgKp0xKxJycQewu7Bzdm2IvfEtlCOUL
+	VoHJG3xcFroFJouaFujMO17xo=
+X-Received: by 2002:a05:6300:85:b0:3bf:983d:e9b4 with SMTP id adf61e73a8af0-3c67ddc3cabmr6375253637.33.1785118268171;
+        Sun, 26 Jul 2026 19:11:08 -0700 (PDT)
 Received: from attina.synaptics-inc.local ([199.33.119.15])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13e53094d65sm19162200c88.13.2026.07.26.19.10.50
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13e53094d65sm19162200c88.13.2026.07.26.19.10.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jul 2026 19:10:58 -0700 (PDT)
+        Sun, 26 Jul 2026 19:11:07 -0700 (PDT)
 From: Gavin Gao <attinagaoxu@gmail.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -98,15 +99,18 @@ Cc: robh@kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 0/3] net: stmmac: dwmac-rk: add RK3576 GMAC 25M refout support
-Date: Mon, 27 Jul 2026 10:10:44 +0800
-Message-ID: <20260727021048.3375444-1-attinagaoxu@gmail.com>
+Subject: [PATCH net-next 1/3] dt-bindings: net: rockchip-dwmac: Add 25M refout clock
+Date: Mon, 27 Jul 2026 10:10:45 +0800
+Message-ID: <20260727021048.3375444-2-attinagaoxu@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260727021048.3375444-1-attinagaoxu@gmail.com>
+References: <20260727021048.3375444-1-attinagaoxu@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_191100_640677_4163203D 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260726_191109_127123_8917B054 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,38 +125,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
 Some Rockchip GMAC instances can provide a 25 MHz reference clock output
-for an external RGMII PHY. Boards already describe the MAC clock direction
-with clock_in_out = "output", but the dwmac-rk driver does not currently
-request or enable the corresponding 25 MHz reference output clock.
+for an external RGMII PHY.
 
-On RK3576, this means the REFCLKO25M_GMACx_OUT clock may be disabled by
-the common clock framework as unused, even though the board expects the
-GMAC block to provide the PHY reference clock.
+Add a clock name for this 25 MHz reference output so SoC dtsi files can
+describe it separately from the existing MAC reference clocks.
 
-This series adds an optional "clk_mac_25m_refout" clock name to the
-Rockchip DWMAC binding, wires it up for RK3576 GMAC0/GMAC1, and enables
-it from the dwmac-rk driver when the MAC is configured for RGMII output
-clock mode.
+Signed-off-by: Gavin Gao <attinagaoxu@gmail.com>
+---
+ Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-The clock remains optional, so existing device trees and SoCs are not
-affected.
-
-Tested on a PicoCOM RK3576 ACP board with a Motorcomm YT8521 PHY.
-The GMAC 25 MHz reference clock output remains active and Ethernet works.
-
-Gavin Gao (3):
-  dt-bindings: net: rockchip-dwmac: Add 25M refout clock
-  arm64: dts: rockchip: Add RK3576 GMAC 25M refout clocks
-  net: stmmac: dwmac-rk: Enable RGMII 25M refout clock
-
- .../bindings/net/rockchip-dwmac.yaml          |  1 +
- arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  8 ++---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 33 ++++++++++++++++++-
- 3 files changed, 37 insertions(+), 5 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+index 0ac7c4b47d6b..074ac274f2e0 100644
+--- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+@@ -81,6 +81,7 @@ properties:
+         - pclk_mac
+         - clk_mac_ref
+         - clk_mac_refout
++        - clk_mac_25m_refout
+         - clk_mac_speed
+ 
+   clock_in_out:
 -- 
 2.55.0
 
