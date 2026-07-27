@@ -4,64 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE362C53209
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2408C531D0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 19:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=to/gd4X6LaSNNZAdxvsgERKxojbIenZcMcO/zkvD++4=; b=bDlpLWLdYE7m8GsajJ0kH2SNz2
-	ZnWy/TUfnrxsFCW/wO9WlKr2jWoAEqWSXmsBfWeKoB7/EAioTN5mG5dMuyFuDf7Z3tSWml9xqObep
-	A6I+zsPTzQe7k0d1i94ZJ25ZsFHaBPWzTptYejev0VRJKO6A40TaliwitDq5eCKXhGmHVzyGFEzh8
-	3OFsSFqzCk8qXAYjdT2wNy/nw2GjziOfIfsW5+YLJt34TurX2yS4yuWU45/xn+C+O95KjgQrIbhOj
-	M2FLT70NseMoDTT78NqPxdsNtpBI5U0HUm8/tXT5bP2Yah83yVis3Bt/EZVqwIJQh/yCjgEhWTL1K
-	BFRWU2uA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PzxsUu8EEz6aogAVQCyar7okPKydIEKaNYl3cOU+cbs=; b=jB4KhxAGbCPZLvmkgt7j3mYL5Q
+	40AesPy8tZeORa6G7Ss8oZF85g3jL5hEap9BQYjkfVa64m/+SYb6HsicN5Cjx77DPydMH1hKurNL8
+	8/wRQkZ7pDsGLT5ZeB7kTPrgljwrpjY+Cn7Op6Q5+aN4lU+RSzpwappblsw9LqaYj0qFXpJB6nSIn
+	+wMgAHWixMOiA6KUdP98rJn4FGFHaknPGgbSoZl3q+i0JklU56qdlFjA7iVW467g8W4gd913bMzQM
+	zIe7PDFJBxeML+5rWv1dORb6oIEh9DJhSQ+VaX8AJoJm22pnCjy/rH7Tcn7y5OzRJL/Wm99lzOzWb
+	GJhd0QJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQYq-00000003iX5-2TOa;
-	Mon, 27 Jul 2026 19:00:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1woQuY-00000003kib-3FyZ;
+	Mon, 27 Jul 2026 19:22:50 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQYp-00000003iVb-143g
+	id 1woQuV-00000003khV-2uHk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 19:00:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D92FB60008;
-	Mon, 27 Jul 2026 19:00:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52FE41F000E9;
-	Mon, 27 Jul 2026 19:00:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785178820;
-	bh=to/gd4X6LaSNNZAdxvsgERKxojbIenZcMcO/zkvD++4=;
-	h=From:To:Cc:Subject:Date;
-	b=Juff+TE3lRb7sru6aoIwZMTtRRgNHaiF8m8ztEaqSeusE/7EG5oXp6jibDS1ju1+E
-	 lfoK7sYotuFnij0PmhOL8P8+IBDpAJ9ntmdQwbuH2lbzrqR6TNnR3UM4V7G79DusX/
-	 kCQ+31y1LjmNSr2yhBmZCitVzjcATuQ2IQ6v3haIu6xmlJSDf17KvLeLMLiQ79cu7f
-	 A+XkruZxBBDUBdc2581dA9zlrA92vjAz9bwn1Jq/UxgilfMvghLK+ACdNv1bsHRitE
-	 TAh/QkihD+ZZi+M82YPLGBziGVnw7exiyZ+4DvzwdBRGNgQxkTgCXcyQsgQxxdsA3w
-	 gvXIQKT3Rbtjg==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL 1/2] samsung: drivers for v7.3
-Date: Mon, 27 Jul 2026 21:00:09 +0200
-Message-ID: <20260727190010.404981-3-krzk@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	Mon, 27 Jul 2026 19:22:49 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c1c24ec9525so504474866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 12:22:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785180165; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ha1XQBanfvqftLoyNHRu5kOGKou7s56Raqv/JSoF14kQVzBAlRMz+vHuBr9tcn95bk
+         kNPWcjAgdp72LF9IQC6nE1jcjLoLsAfYyXNpj1IlMNVoCueCu/aqmmlSKBaE7iDXUCPa
+         QjI+U6OehgeyMc79qeK3DztFYn64QCcZV5QyfNkjOkXY0mTpAx5qdAJxguHwVVISAE2e
+         yztfxRAaUCaUiHbpwsAJKK9G83k3cKM5sSojowG/u9WbhkUcIYowN78XDKZuzkRjt0ei
+         I0/45Iba99cjtBuEQ2hPZHBMKcx25F7IKXMCdx1bYr19ISQQhFhxQkXO41JoGXTXj8LX
+         2s3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PzxsUu8EEz6aogAVQCyar7okPKydIEKaNYl3cOU+cbs=;
+        fh=f0m3xsfcKrIzRDE0aiWWbKVMU7KogUWcqPRix3U8pXc=;
+        b=sVIl6SXCN7OcXbwaFWkHseGjfaSDqkvDrP9dVfT9HwdFEpdTtlcZjDEra/DYmi+YdB
+         RX7FVJuAPxqpNMR44JLoIA0oE5G6m9oOGit1Bvv9ND8bUepsWsUt0Z62rRptjQ/WVgGM
+         BsPodbwyAh/lQK1ZDM3lSDdTmQBfvXubykgVDNCtgH2p5HtFdj0lZB6u/99l5inB8Htx
+         jL1i90NckMPktniOZi/eySNr9lNnTyd1z2mc1PHuEJvhUGZega27q2yEjn+H+U1z7C1y
+         IlDE4AW9aGHPW1gL9IhZBUStHd6N3d6sO8dTYLMsz1xZ8iZGIsh8itB5f9e9SB8ldVB7
+         S5Mg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785180165; x=1785784965; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PzxsUu8EEz6aogAVQCyar7okPKydIEKaNYl3cOU+cbs=;
+        b=REh6gRccMCy95qOj6eDb+X4yKv566itbJzSM20+ImlNzmaWY6NDrvnsDLCjrefVaPk
+         oXLqHMBjWgNVBB/QCwEzxm4WDhNugF8LJqHcOth732z+wyNaQgpxEz2X54Sla1NuTF+I
+         HHNkrTQGVgfz/7FbQlN6t7qgtSKt0Kx+p/UP/khIuO8zrUuwz02Z0/uQynsEfhPzvvQ6
+         5noP9S4CaJHxopRZWu0fdgCDdHW4acEcpf92Y2cpwQeutSTp778ABHL6dOqZAPxLps24
+         zc95Xu+ox3L1BIV9b/LdcqSG2HrnQx1uhjJGgW0BF/LCxY7v1rc8/BIt7dFXeHgRml+6
+         URgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785180165; x=1785784965;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PzxsUu8EEz6aogAVQCyar7okPKydIEKaNYl3cOU+cbs=;
+        b=ciQY2pqQO/VwzecpWRb8/BLzFKclBrN5j9YF4/+cSS673xnCTW5VBsUn0UZk16DWLm
+         t5oAtsRgnpkbrneyeTopmuwR3Zxw3ofZeHtedacWhw+3jlFze7KncOqkgjreN29PAjjW
+         OUvV1GX4okhBMoSNKRwJ6owBTeOxddVtlCkeexaSNJ6qs3LdGEwfpKhWBI8xdy4a5CGn
+         azLABfnajnZIq5vtwNmJsekBgcfFlrfRQ3xwn7pSD0w7DhBJ6It/WTZVXkFTKbDjEeEZ
+         vv1t8rvlA01n0BlnctzznWJLTwr57AWhAOSifSu0LNrmx2KSZANLYboXxSLzgLjtjUKw
+         hjrQ==
+X-Forwarded-Encrypted: i=1; AHgh+RolvHjxOCN2C7Sr+siiq7M2FC4e9L5/MsJUZ2wv7+lWo5X97S0mur7AvFiYcdSHFccQhbVY34rBeevD9BwtLJrw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7gqYuN8VikegFHTz/pbqy+6NodiB3Oa2lP7CfnJnr9/1ae6DX
+	kzF6foqDwSjZ/7lnDTCowaksaUAywk9C3SyV0OTn81JRztquRUY7ZWDV/QIuaAfsLsJi58PmDQT
+	7x6t+99kTM4vOIHCXzymi/FrjkQfjmLaVuf9r4GlE
+X-Gm-Gg: AR+sD12/nkLDScLJNVbIJ35/FK89zuIX1FrS3c7bjqvoDt97N4STF3fohWA7d5yqEbf
+	PSsxWhBESig7uU/UIjxp0ZcJMYTuBZRY2V8sTq8xObGhkpjFkAQV5r0IH6ffI7xxdNXNqWsvrEw
+	bJZ0IzvwEGJr2uCKrGzX0+b0E0f+Fg1I7NtYOzr1Zh2/H4OUhClbfiw/1fQRRpIv/wtlmLu57kt
+	XmKpxyoZ3JpnvswY6z8e9zkuV1dfwX4heXuufsBXUAcpu3FjRlpuZdFuSDMetLBolJDPJCCG+nO
+	icRnx8LY/hwOBFWBxupRO6YamXv8CGQX8PnbyEFsPg4NxtJ5WDqEFkbzbj1Ic5WMD0i5KVo6aQ=
+	=
+X-Received: by 2002:a17:906:eec3:b0:c1c:62b4:1ebf with SMTP id
+ a640c23a62f3a-c1f692f28c3mr17259666b.60.1785180164098; Mon, 27 Jul 2026
+ 12:22:44 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1356; i=krzk@kernel.org; h=from:subject; bh=rYIh72XF25YLtMkQ1atMR+hym/ldzSeNr/6aOYMQpt0=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqZ6q6NcocqgMAzuIwXGHz+MdwjCWeW1Qcu79Pq ClQqBIj+/aJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCamequgAKCRDBN2bmhouD 1wHSD/9n1mwjVI21ZgDi5+oUoh/x6ZWS6GDHeGSvqt7gsT1Ox9ObKyTde8MOudJTb8C8lhusNL6 QR1+fNjr+E44KUxlFD9Q/kjYkK1lGgMn8qy7dgG+OtWP7pJ3GIxlBnWxKspeyYFn+2OK1lCv+l7 PFYw+Vz6FoCVAxSIwX6qa4BG53EoWyCHaDY6xTWPsoanR1C3hwwELgwZiUcNksYiTHMHjwXVM9f TYhwo/eHypuoma8kScS5yn9afqe+1monWYwIFCrDpRIN1gnFBKvHhc7PEeuOZB24r05hxZBiJJO +41crEggSJGTHxoa/IDr46i1NlG8A1kjRDXBrS1T0pO4XiiM2e1xlhVTl+WAQB6r4CWHzcWH0iS wxhHW5zXqfC2+ukVHPVYqpCxqZbyqyjepYiHsc6yboXHD85boCFNHsBSTQFJt/emgFxDizelm4A 7+QdYDt/4EOA9noKyYp1k9NYCi2WBWdJ6auEq1/Gvn1EspmPpyh4LSEbB2cYZ4AHS6ekqPmPnFj Trzu5NfuBju52v0i74n7LLExymedxP9Ew4iRLCAiAWkm+yeENYXFqpLwVwB6RaLo3swVwkfL2Un +II4/A6+uhQE1L8fWo7r1FGcEpN6w7bio3nGgpzYg+/AzUD+lNC6w2t/UdxscVuUZMNxOn2mZVH lDxSh4MkeBo7QEg==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+References: <cover.1785153469.git.hongyan.xia@transsion.com> <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
+In-Reply-To: <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Mon, 27 Jul 2026 12:22:32 -0700
+X-Gm-Features: AUfX_myNeo2p_4eMOzizBRqY-lBcfNbJZ5LCrTo2tmMUomZNZli_Ze8j8wrUS8M
+Message-ID: <CAKwvOd=HeG=z1j2qB-SX3NQ=62ERr=KpQNZyqqp2Qy4kZ54RLw@mail.gmail.com>
+Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers __always_inline
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, Oleg Nesterov <oleg@redhat.com>, Naveen N Rao <naveen@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-mm@kvack.org" <linux-mm@kvack.org>, 
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>, 
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_122247_781773_B23C9A33 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +127,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+On Mon, Jul 27, 2026 at 5:25=E2=80=AFAM Hongyan Xia <hongyan.xia@transsion.=
+com> wrote:
+>
+> From: Hongyan Xia <hongyan.xia@transsion.com>
+>
+> Static inline should be enough to actually inline functions for most
+> compilers, but my Clang-19 somehow thinks it's better to outline them.
+> These tiny helpers then live in normal .text sections instead of
+> .noinstr sections, violating noinstr.
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+Anything special about your build or config?  For example, we've seen
+a recent influx of bugs around AutoFDO not inlining functions (despite
+constant propagating initdata constants into them) leading to modpost
+errors.
 
-are available in the Git repository at:
+Can you perhaps share your config so that someone else could repro and
+take a look?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-7.3
+Happy to follow up in our issue tracker, too.
+https://github.com/ClangBuiltLinux/linux/issues
 
-for you to fetch changes up to e131ca83dabc8bfb8c1d455d02bf2d7a7bc1198a:
+>
+> Mark them __always_inline so the compiler can never outline them.
+>
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+> ---
+>  arch/arm64/include/asm/esr.h       | 2 +-
+>  arch/arm64/include/asm/percpu.h    | 2 +-
+>  arch/arm64/include/asm/preempt.h   | 4 ++--
+>  arch/arm64/include/asm/ptrace.h    | 4 ++--
+>  arch/arm64/kernel/debug-monitors.c | 2 +-
+>  include/linux/kprobes.h            | 8 ++++----
 
-  dt-bindings: samsung: exynos-pmu: Narrow allowed reboot modes (2026-07-09 15:17:42 +0200)
+It might not be appropriate for the changes to kprobes.h to go through
+the arm64 tree, but maybe it is?
 
-----------------------------------------------------------------
-Samsung SoC drivers for v7.3
-
-1. Fix very old leak of OF node in PMU driver.
-2. Few cleanups and new bindings for ExynosAutov920 HSI0 syscon.
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (2):
-      dt-bindings: samsung: exynos-pmu: Restrict children with unevaluatedProperties
-      dt-bindings: samsung: exynos-pmu: Narrow allowed reboot modes
-
-Sanghoon Bae (1):
-      dt-bindings: soc: samsung: exynos-sysreg: Add hsi0 for ExynosAutov920
-
-Weigang He (1):
-      soc: samsung: exynos-pmu: fix of_node refcount leak in exynos_get_pmu_regmap()
-
- .../bindings/soc/samsung/exynos-pmu.yaml           | 27 +++++++++++++++++++---
- .../soc/samsung/samsung,exynos-sysreg.yaml         |  1 +
- drivers/soc/samsung/exynos-pmu.c                   |  4 ++--
- 3 files changed, 27 insertions(+), 5 deletions(-)
+--=20
+Thanks,
+~Nick Desaulniers
 
