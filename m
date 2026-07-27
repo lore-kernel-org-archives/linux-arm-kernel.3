@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B745C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CF1C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wxBpcLwQpOW2vKL5WhYL3BFfyuddH3BZqW5fz8lS/T8=; b=4EN+Io2F+75DHn7g4mcqCNGbiC
-	a68etYim1W1JRfNLGOmEEUvr5tr0LxXCTzrTdmH0Dwnk1WQonUwLxaG4lTk7c+HkdvAWH+1Yv+bL5
-	w3dkeTUWr9tl4Xq33K3uhBCIxoGh4dgMl4QFhrZr/EgJUICSFtpwn6A4Pu7GgzF9JwrQNsV2nylts
-	s4VdjJbKwoE1STNrSnPWzJCypOa+lV01f3dDkTGHec2B3iqMz2gBINLRsyHNvRAKT9vWl/2PiEIoR
-	bic1Ibf10TlzJWkGHzieMiN2TPO0kaFhcUFVXP7lT1Plc34o+JTIOtudiOBhPh1EakHbyaWrX5UEf
-	GDBTF+8A==;
+	bh=AETGy+ANMs/4mEVJOXJB8nyO+6HDkmoHxo4KA1OMiIw=; b=ALORqtaJQnEofUV2dxJYWchxul
+	NHzlMvZYPS959jpelK2NPc+/A2cXZD3V3gFQtwCFsGbE3ocgWqH3UZ3OzexfZ3i0s3zcXPA8x943r
+	5o9ja9RVYLUo/XzepCsqEylT7GXz/4MdJQBHWnwHKNgkd9jVidrrVXRBzKAZR16uTM8ZUTt80X3/o
+	fFH3ty2JaaAIC8EBQtkcYi9s+fi1XgGKaxZNpimeEJnrSMhbVMflvwEza5IRlMFiLhrArrAFkDSVa
+	bmC9mkT1L+qV+3v0jqBYG77Hn4V/c8yYrlXQYlDpky8FC2m8iHgBelGFMhLOhXwwVPBtPFFqGKCKL
+	AgeuyrLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHSE-00000002J8W-0haj;
-	Mon, 27 Jul 2026 09:16:58 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1woHSL-00000002JDQ-1YW5;
+	Mon, 27 Jul 2026 09:17:05 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHS1-00000002IzP-0M2S
+	id 1woHS5-00000002J3S-3W8j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 09:16:46 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-84830c774a0so2403834b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 02:16:44 -0700 (PDT)
+	Mon, 27 Jul 2026 09:16:51 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cbb8b54fcf8so2395992a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 02:16:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785143804; x=1785748604; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1785143809; x=1785748609; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wxBpcLwQpOW2vKL5WhYL3BFfyuddH3BZqW5fz8lS/T8=;
-        b=fBKDMOY3/1AyR0NFtlmTUaBnpS6xTQWQoX73NfGroG2WRS7IG0dk8aF5nHy7KFqA2M
-         W/yelXdLjrc6XS5K2cROORRCmNUVkUTG5AaEMG4B+ayad6UMFt4OHqQmZT2F7jEKUzHM
-         JdYhBQdi6s+1o40HqCMzTOxOFXVKlhFSP3zCM=
+        bh=AETGy+ANMs/4mEVJOXJB8nyO+6HDkmoHxo4KA1OMiIw=;
+        b=iXCSafgDjf+qTqBuE9c4tan/wMpVhe96Kqb/MRIneIvNuFrxlkHWwGZST060+SIf05
+         Ov6iq/BSKyUPM+h1HMpSbRCB3WBIg8gM7od8WbJPnJL3efGg3Ea2F7NVHx2mYZiLh32Z
+         HR1eyjwhpd+031kLLiuNcGP3kkxKckUf4U4R4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785143804; x=1785748604;
+        d=1e100.net; s=20251104; t=1785143809; x=1785748609;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wxBpcLwQpOW2vKL5WhYL3BFfyuddH3BZqW5fz8lS/T8=;
-        b=sT2uMsO6xT+7+DkzMlwDES9CKgFQsFEhIpQ6Ptoj4Y6E2VkwsIe8GpfYJI0jCTG61z
-         GukRlylY+bIMSgw3fWaqqlFQfw4cDGjrF6UMIH8y2I7KfK1NhUK7sjJXG6IpeAmqnzgy
-         kjcGcgCZoBOdsKyTpWKd25tnVVPEts45eVd/vW/Mbqw9XgML3+borZlozKlMaJZxc4JQ
-         M7pEemL6XNtli2ImBYv3ETwu0D+zPbaTV4ua1cNIp7F2G4tytBLeUIvMyFriN7zaZjTr
-         uwFPFj1CrwroIZsviOffqHr3qKQ6fdKsuIYHu4Vc9dyKiKi05f2kUaTRvcnSB4vWaq2T
-         ayyA==
-X-Forwarded-Encrypted: i=1; AHgh+RqOo5QegVmwzrFaIJNZtD5ojC72J7f2YQjiSLMtaMvI0/nrShYK1MfAqtj9RNveVQE50v4qikb3Mwop2cNC3WEG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAq/SRWEIvxQA1oJd7vJacn0ARpBrJiuRFUWWVS4g3FAS5NGpk
-	+hubqQqH/f4lLZnAJLWCxf6Xzd4xyVAR8n/JssQhI+QPTX6qjoRvBbXX3AGVpLAp2w==
-X-Gm-Gg: AR+sD13o23h/z+LTtCNQ2ZZzeQ+M/G2CTjmr1+qMQNnN5Qc2jC7qGJzIo7F5m7UchLe
-	h5IiG1pR3ODMQ8ToUpmZGHAe/cJp7XPVtO3X9t23FWZM1omiPbXBBo8mkEvZ704GKnhKi8yYB5g
-	4G4XHddJFTaHNac4dHijgTHzyXlSiP6K8mm3rseCO/Zn5H9hLqo+VMQR2iu8vsAI74kdsVHq8OL
-	QPqp3Kx90hVGfLQLKlChTKTUTGKm0nRErCmN4lF+sCXPXwpf2a0YM8Z25qq9NBnkL6/p2on/6y8
-	ObbdMEOCRkTmJIjBakpqf4zIN/4mxtU1vQUe7rH7IfNz4pqWsHIiXhz8t2B98RJ8oi2SSiC1H0w
-	jRF9Y7i9gBoFEdgcHzF67iUeobXohdz6MuTcgJehpi3BnYZaqh7stqHAdc7VASlfG/fxlMyQvRY
-	bkB7ogIk0RRyCTgL4LKNn4G1to7PUWrGF8DgteJ9Ir4VfIy7WKZeJQUYS9Kw==
-X-Received: by 2002:a05:6a21:e081:b0:3c3:6928:8b25 with SMTP id adf61e73a8af0-3c67da6f7dcmr7155408637.17.1785143804308;
-        Mon, 27 Jul 2026 02:16:44 -0700 (PDT)
+        bh=AETGy+ANMs/4mEVJOXJB8nyO+6HDkmoHxo4KA1OMiIw=;
+        b=fEA1/uDQ6aXKwtlMvtMp4yOGPLi02JwZsiHUEgojMca7xCMrtEF2yAo7omuRrcMsOG
+         RlOfNTlgn/cB5h1vJj43j1hsERaAJXhasZBh+4nWBdiOs71D8iNvrVliJbsiltuU373V
+         T2AhC7uLjTQNGEJIceVAizc7DMhXsfog2k1E5evmcJDJGn81X/+5aIK29UBmE2tpYTgV
+         vdlq75wjOMC9MYpnp7AzgY6+ap+5n3qLkeBsWpx9eC9D1fRPEsQk35mcOycBfeEBRUkU
+         /wHYFeBD7DwQ/uXA3OOSEZaiE3lxgyjH0k4SK9nWY78aaKPcc9nwdz7p6dli7TB2ZYlM
+         a7+A==
+X-Forwarded-Encrypted: i=1; AHgh+RrNPj1vK7j3gBsaxYrYhkwHlFwq9S6t0aaHfeGBriCwLVJcDsW2KA9ai70sg912PivjDkyf7dyKvhB+AygH2/4l@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo25AyLGP+f6lwy49ThXeJ4uVIW4ERQeHMRfuuAoQA6j71NyNt
+	Ve9EuEyQMGEaydx2CRt9ySpgLk3e6skFttbK/qbCrxU1wSd9e3aa2yAq8PNuW5MQug==
+X-Gm-Gg: AR+sD13VJHtfyCiVKN6PDwTYd4pQiMZz+VnAufy3NW/Tm3+vtRwUxUbKUNYdKOG9+YT
+	jId6KYGfNq3tREVgDJspK1GlMZRxkXQUDQbV/DfGqZYGD7mJtr8F1kj7hRV2I18SSnAmfUAdqkG
+	u2xTaE8fkolFoZVMcqF2O523uu0IyMnJaEpcagYr8RgKiyRrdDVUiVeTQScobK6XCbAhMjZ1UX/
+	j6m1BoFoxwpkSQIuZHPZGiRYNHbcleS68ZxTKbDAatw9kaeXMH6JmjDP52VWMWtlyURk2DyJKpw
+	wRgW+2GL4hE4pPcAxyEuLPfPP+4sV2L8vgEpTLIoT6YUQw4xOmp4toOyybtTT20DavgGAnREqf3
+	+V5P7oodgcrT2cy0IBqBhX8ZABJXJZ4HMaNaU8hbhWj8mBKb7eB718dPTNoehNDvL/CuTuecCp9
+	Y3368Te3kW/dNHjUwkUfJ/NFEkbg7wCU7XOSG34M4wlfdErF75xntoATAR1rA03jwbjxXd
+X-Received: by 2002:a05:6a21:6f8b:b0:3c3:7cfe:b32a with SMTP id adf61e73a8af0-3c67dd65e16mr7098317637.27.1785143808982;
+        Mon, 27 Jul 2026 02:16:48 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:440:c713:a2b0:6f14])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbbb662329fsm2870049a12.9.2026.07.27.02.16.40
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbbb662329fsm2870049a12.9.2026.07.27.02.16.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 02:16:43 -0700 (PDT)
+        Mon, 27 Jul 2026 02:16:48 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney@redhat.com>,
@@ -89,17 +89,17 @@ Cc: Dan Carpenter <dan.carpenter@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
 	YoungJoon Lee <getfeus@gmail.com>
-Subject: [PATCH v3 4/5] arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
-Date: Mon, 27 Jul 2026 17:15:53 +0800
-Message-ID: <20260727091555.1023910-5-wenst@chromium.org>
+Subject: [PATCH v3 5/5] arm64: dts: mediatek: mt8173: Add GPU device nodes
+Date: Mon, 27 Jul 2026 17:15:54 +0800
+Message-ID: <20260727091555.1023910-6-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
 In-Reply-To: <20260727091555.1023910-1-wenst@chromium.org>
 References: <20260727091555.1023910-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_021645_124499_DC74BB79 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20260727_021649_883521_3B5E035E 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,37 +114,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MFG_ASYNC domain, which is likely associated to the whole MFG block,
-currently specifies clk26m as its domain clock. This is bogus, since the
-clock is an external crystal with no controls. Also, the MFG block has
-a independent CLK_TOP_AXI_MFG_IN_SEL clock, which according to the block
-diagram, gates access to the hardware registers. Having this one as the
-domain clock makes much more sense. This also fixes access to the MFGTOP
-registers.
+The MediaTek MT8173 comes with a PowerVR Rogue GX6250, which is part
+of the Series6XT, another variation of the Rogue family of GPUs.
 
-Change the MFG_ASYNC domain clock to CLK_TOP_AXI_MFG_IN_SEL.
+On top of the GPU is a glue layer that handles some clock and power
+signals.
 
-Fixes: 8b6562644df9 ("arm64: dts: mediatek: Add mt8173 power domain controller")
+Add device nodes for both. While there is supposed to be two different
+power domains to the GPU, MediaTek does not have any information on how
+this is integrated internally. Assign the same GPU power domain to both.
+
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Tested-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- arch/arm64/boot/dts/mediatek/mt8173.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi | 31 ++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt8173.dtsi b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-index 78c2ccd5be13..556e806b7787 100644
+index 556e806b7787..169ba4fd183e 100644
 --- a/arch/arm64/boot/dts/mediatek/mt8173.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-@@ -505,7 +505,7 @@ power-domain@MT8173_POWER_DOMAIN_USB {
- 				};
- 				mfg_async: power-domain@MT8173_POWER_DOMAIN_MFG_ASYNC {
- 					reg = <MT8173_POWER_DOMAIN_MFG_ASYNC>;
--					clocks = <&clk26m>;
-+					clocks = <&topckgen CLK_TOP_AXI_MFG_IN_SEL>;
- 					clock-names = "mfg";
- 					#address-cells = <1>;
- 					#size-cells = <0>;
+@@ -1002,6 +1002,37 @@ u2port1: usb-phy@11291000 {
+ 			};
+ 		};
+ 
++		gpu: gpu@13000000 {
++			compatible = "mediatek,mt8173-gpu", "img,img-gx6250",
++				     "img,img-rogue";
++			reg = <0 0x13000000 0 0x10000>;
++			interrupts = <GIC_SPI 217 IRQ_TYPE_LEVEL_LOW>;
++			clocks = <&mfgtop CLK_MFG_G3D>,
++				 <&mfgtop CLK_MFG_MEM>,
++				 <&mfgtop CLK_MFG_AXI>;
++			clock-names = "core", "mem", "sys";
++			/*
++			 * Binding and GPU core HW have two power domain
++			 * inputs, but MediaTek does not have information
++			 * on how this is done internally.
++			 */
++			power-domains = <&mfgtop>, <&mfgtop>;
++			power-domain-names = "a", "b";
++		};
++
++		mfgtop: clock-controller@13fff000 {
++			compatible = "mediatek,mt8173-mfgtop";
++			reg = <0 0x13fff000 0 0x1000>;
++			clocks = <&topckgen CLK_TOP_AXI_MFG_IN_SEL>,
++				 <&topckgen CLK_TOP_MEM_MFG_IN_SEL>,
++				 <&topckgen CLK_TOP_MFG_SEL>,
++				 <&clk26m>;
++			clock-names = "sys", "mem", "core", "clk26m";
++			power-domains = <&spm MT8173_POWER_DOMAIN_MFG>;
++			#clock-cells = <1>;
++			#power-domain-cells = <0>;
++		};
++
+ 		mmsys: syscon@14000000 {
+ 			compatible = "mediatek,mt8173-mmsys", "syscon";
+ 			reg = <0 0x14000000 0 0x1000>;
 -- 
 2.55.0.229.g6434b31f56-goog
 
