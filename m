@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B3DC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6460DC531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OiklzXx8p5bBY0lwFSAP/eLHXWDp5ZhVdI0sClUc26c=; b=Y976+Tp2iRJ1T/XnFzEsh6wwBD
-	a30g99iJP3ULjPLDM77iSqvzvT+e39QpEm5FAGtesYwLBDaSc1de7694nPaXumHmYtqQ5BHubdowj
-	+ZVrb2lYLLVeeU8a2TfCt03IgBPPsRPvbMc5znI40zwEMIbLHKkidn7wqoV0JwqNP+PKxOCjO5QEW
-	FB2akWAcUB7fm00tudjNBS7Vpxo/TiPf5y0La4sx2owxhMWgbhTM8tXM5XatH/F73ikiBWQSPuOmr
-	ZVNyfAhc1vpAhtYmeDv8ulw+r7S+hYf85L3+HOKjzHuyNiNbCavZAA9gjVKlaA9V3LBCxO/UYXAkb
-	rf6l64Sg==;
+	bh=2XFj1A0MTCpEPpjG2fwzCGv45jpRHgPSYAzE1XaQ4Tk=; b=YkTfp/enN6/lQhf4jcuYCxIZM6
+	IdnHt8RB+NJ4Pi5OWatGadRy1NebyIOirAu3rMi+io9wJRJ+7FeAkMLeSamxRKe5mFGcnH943gHv2
+	6wSALt91X0ldfTa4+QxtaSh326pIkLIQY4Mrmrdv7pAz/QLvAfXmfHPtVzMCwCyPGs8buj7xUpemA
+	InhCNl9JQPIeWIZhsDTy292+cex90PXBzlT8wNxNanTX+IpjkeTKLQG+mk1UXYuh4EsB/o+aa6Kyj
+	KwZC4yyhnmNnMb7WtGUxV1RRB9Ox6tF02+nEf5p4z1HItCn8NxO1T52ObnJ1Hi5iMP/TqDDxPqw/+
+	fEKjjzVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNQ2-00000003Cwn-29U4;
-	Mon, 27 Jul 2026 15:39:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woNVV-00000003DXl-0SwS;
+	Mon, 27 Jul 2026 15:44:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNQ1-00000003Cwb-3Pp6
+	id 1woNVU-00000003DXK-16ZJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 15:39:05 +0000
+	Mon, 27 Jul 2026 15:44:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 877E040016;
-	Mon, 27 Jul 2026 15:39:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D67ED1F000E9;
-	Mon, 27 Jul 2026 15:39:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BA96E42A7D;
+	Mon, 27 Jul 2026 15:44:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13E321F000E9;
+	Mon, 27 Jul 2026 15:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785166745;
-	bh=OiklzXx8p5bBY0lwFSAP/eLHXWDp5ZhVdI0sClUc26c=;
+	s=k20260515; t=1785167083;
+	bh=2XFj1A0MTCpEPpjG2fwzCGv45jpRHgPSYAzE1XaQ4Tk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VIuydFFkDbR7M6wzVg7E2NhUc4eI1TG9hrt9IcyouTAx+xh4che7OJQvgPQP0FBdt
-	 rMfdAlEIRhluCTFT4SyRj6/szrxO73m+BayZtLpJkicU6sY4U2gNma1fWvOCFW+7fI
-	 BDvoTb1H3ohwFfrMZerEWqOD7s7lO9upZXECHZWgGaqo220Sz89ZAikEMAjB3Siezz
-	 8eaMU7HXu6Sjc5MJTflRVMGO4AY7hbbJWEtg8rYIGmB2HzlQvKB0RF+Ugd/6Y+IHDv
-	 pkoPl5r0KpdQVr/QSDi4sBV+IWUgCw2a0jNAiq/GjUGCDY5rj23fvRvmha5f+YZRuR
-	 Cd+VAJW+x0ScA==
-Date: Mon, 27 Jul 2026 17:39:02 +0200
+	b=L+NbDUYyyx8xCmqVE2KWG5duaenycIyVz7kRZu5n/FcbbgCwq+bdjD7XLpHx7DNKp
+	 /ZfcFU9y7JjwUVlY6U1uKAazs+GpPp6ZjVqmIMVkDc7TnEBS/KlNIhyJtrCDYy+uHJ
+	 XwCuCDb8AWh4r2Pb7ozAMtIr2ehnOl/6XfzIJGPRMQMHkDHbTavqoDDzMYON6F+AXD
+	 p/WafVyxdhp2d7QT3wAX71++kV6oFe/Q4ssOyj8V6k0moQOy+mojB9UuQyeuCoO3Cd
+	 4xx011KANspC8PqvXTOSqojnjRu85mW6NnefnQz8K3H0a9+c9hIekV0RNVmY3qel50
+	 KMbUucvBWh/tQ==
+Date: Mon, 27 Jul 2026 17:44:41 +0200
 From: Thierry Reding <thierry.reding@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
-	Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
-	Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+To: Manikanta Maddireddy <mmaddireddy@nvidia.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
-	Manikanta Maddireddy <mmaddireddy@nvidia.com>
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>
 Subject: Re: [PATCH v8 4/6] PCI: tegra: Add Tegra264 support
-Message-ID: <amd7fUUzD9ZLc-85@orome>
-References: <20260716-tegra264-pcie-v8-4-23e51589229b@nvidia.com>
- <20260722164442.GA742885@bhelgaas>
+Message-ID: <amd8FoDqTNV2z2vM@orome>
+References: <20260716-tegra264-pcie-v8-0-23e51589229b@nvidia.com>
+ <20260716-tegra264-pcie-v8-4-23e51589229b@nvidia.com>
+ <063777d8-cd4d-43cc-8f65-102191848c9d@nvidia.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zk2gh5hl3rqyqvvg"
+	protocol="application/pgp-signature"; boundary="gycetsy4kq6i3v5u"
 Content-Disposition: inline
-In-Reply-To: <20260722164442.GA742885@bhelgaas>
+In-Reply-To: <063777d8-cd4d-43cc-8f65-102191848c9d@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,69 +81,233 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---zk2gh5hl3rqyqvvg
+--gycetsy4kq6i3v5u
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 Subject: Re: [PATCH v8 4/6] PCI: tegra: Add Tegra264 support
 MIME-Version: 1.0
 
-On Wed, Jul 22, 2026 at 11:44:42AM -0500, Bjorn Helgaas wrote:
-> On Thu, Jul 16, 2026 at 07:07:15PM +0200, Thierry Reding wrote:
+On Fri, Jul 24, 2026 at 01:58:15PM +0530, Manikanta Maddireddy wrote:
+>=20
+>=20
+> On 16/07/26 10:37 pm, Thierry Reding wrote:
 > > From: Thierry Reding <treding@nvidia.com>
 > >=20
 > > Add a driver for the PCIe controller found on NVIDIA Tegra264 SoCs. The
 > > driver is very small, with its main purpose being to set up the address
 > > translation registers and then creating a standard PCI host using ECAM.
-> > ...
->=20
-> > + * The various memory regions used by the controller (I/O, memory, ECA=
-M) are
-> > + * set up during early boot and have hardware-level protections in pla=
-ce. If
-> > + * the DT ranges don't match what's been setup, the controller won't b=
-e able
-> > + * to write the address endpoints properly, so make sure to validate t=
-hat DT
-> > + * and firmware programming agree on these ranges.
+> >=20
+> > Signed-off-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
+> > Signed-off-by: Thierry Reding <treding@nvidia.com>
+> > ---
+> > Changes in v8:
+> > - remove controller deinitialization, firmware does this already
+> > - separately track hotplug support and link up state for clarity
+> > - select pinctrl sleep state on suspend for symmetry with resume
+> > - fail probe if the link is down and not hotplug-capable
+> > - remove WAKE# IRQ support
+> > - add err_ prefix to gotos
+> >=20
+> > Changes in v7:
+> > - select PCI_ECAM to satisfy the build dependency (Jonathan Hunter)
+> > - remove pre-silicon support patch to avoid extra build dependency
+> >=20
+> > Changes in v6:
+> > - remove unneeded pm_runtime_disable() call (Sashiko)
+> > - do not use noirq suspend/resume callbacks (Sashiko)
+> > - wrap PM ops in pm_ptr() macro (Sashiko)
+> > - use standard wait times with msleep() (Lukas Wunner)
+> > - properly check errors for wake IRQs
+> > - fix build failures /o\
+> >=20
+> > Changes in v5:
+> > - make PCIE_TEGRA264 symbol tristate
+> > - drop dependency on PCI_MSI
+> > - reorganize tegra264_pcie struct
+> > - use standard wake-gpios property
+> > - rename tegra264_pcie_bpmp_set_rp_state() to tegra264_pcie_power_off()
+> > - use dev_err() instead of dev_info() for some error messages
+> > - add clarifying comment as to why bandwidth requests aren't fatal
+> > - address some compiler warnings on 32-bit physical address platforms
+> > - drop needless comments
+> > - explicitly deinitialize controller on suspend
+> > - use devm_pm_runtime_active_enabled()
+> > - rename "free" label to "free_ecam"
+> > - use dev_err_probe() in more places
+> > - reselect default pin state during resume, not probe
+> > - return early on absence of wake GPIO
+> > - simplify BW value calculation
+> >=20
+> > Changes in v2:
+> > - specify generations applicable for PCI_TEGRA driver to avoid confusion
+> > - drop SPDX-FileCopyrightText tag
+> > - rename link_state to link_up to clarify meaning
+> > - replace memset() by an empty initializer
+> > - sanity-check only enable BAR regions
+> > - bring PCI link out of reset in case firmware didn't
+> > - use common wait times instead of defining our own
+> > - use core helpers to parse and print PCI link speed
+> > - fix multi-line comment
+> > - use dev_err_probe() more ubiquitously
+> > - fix probe sequence and error cleanup
+> > - use DEFINE_NOIRQ_DEV_PM_OPS() to avoid warnings for !PM_SUSPEND
+> > - reuse more standard registers and remove unused register definitions
+> > - use %pe and ERR_PTR() to print symbolic errors
+> > - add signed-off-by from Manikanta as the original author
+> > - add myself as author after significantly modifying the driver
+> > ---
+> >   drivers/pci/controller/Kconfig         |  10 +-
+> >   drivers/pci/controller/Makefile        |   1 +
+> >   drivers/pci/controller/pcie-tegra264.c | 485 ++++++++++++++++++++++++=
++++++++++
+> >   3 files changed, 495 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kc=
+onfig
+> > index 2247709ef6d6..3045c8aecc7e 100644
+> > --- a/drivers/pci/controller/Kconfig
+> > +++ b/drivers/pci/controller/Kconfig
+> > @@ -255,7 +255,15 @@ config PCI_TEGRA
+> >   	select IRQ_MSI_LIB
+> >   	help
+> >   	  Say Y here if you want support for the PCIe host controller found
+> > -	  on NVIDIA Tegra SoCs.
+> > +	  on NVIDIA Tegra SoCs (Tegra20 through Tegra186).
+> > +
+> > +config PCIE_TEGRA264
+> > +	tristate "NVIDIA Tegra264 PCIe controller"
+> > +	depends on ARCH_TEGRA || COMPILE_TEST
+> > +	select PCI_ECAM
+> > +	help
+> > +	  Say Y here if you want support for the PCIe host controller found
+> > +	  on NVIDIA Tegra264 SoCs.
+> >   config PCIE_RCAR_HOST
+> >   	bool "Renesas R-Car PCIe controller (host mode)"
+> > diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/M=
+akefile
+> > index ac8db283f0fe..d478743b5142 100644
+> > --- a/drivers/pci/controller/Makefile
+> > +++ b/drivers/pci/controller/Makefile
+> > @@ -7,6 +7,7 @@ obj-$(CONFIG_PCI_HYPERV_INTERFACE) +=3D pci-hyperv-intf=
+=2Eo
+> >   obj-$(CONFIG_PCI_MVEBU) +=3D pci-mvebu.o
+> >   obj-$(CONFIG_PCI_AARDVARK) +=3D pci-aardvark.o
+> >   obj-$(CONFIG_PCI_TEGRA) +=3D pci-tegra.o
+> > +obj-$(CONFIG_PCIE_TEGRA264) +=3D pcie-tegra264.o
+> >   obj-$(CONFIG_PCI_RCAR_GEN2) +=3D pci-rcar-gen2.o
+> >   obj-$(CONFIG_PCIE_RCAR_HOST) +=3D pcie-rcar.o pcie-rcar-host.o
+> >   obj-$(CONFIG_PCIE_RCAR_EP) +=3D pcie-rcar.o pcie-rcar-ep.o
+> > diff --git a/drivers/pci/controller/pcie-tegra264.c b/drivers/pci/contr=
+oller/pcie-tegra264.c
+> > new file mode 100644
+> > index 000000000000..7071f4b3b97b
+> > --- /dev/null
+> > +++ b/drivers/pci/controller/pcie-tegra264.c
+> > @@ -0,0 +1,485 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * PCIe host controller driver for Tegra264 SoC
+> > + *
+> > + * Copyright (c) 2022-2026, NVIDIA CORPORATION. All rights reserved.
 > > + */
-> > +static bool tegra264_pcie_check_ranges(struct platform_device *pdev)
+> > +
+> > +#include <linux/delay.h>
+> > +#include <linux/gpio/consumer.h>
 >=20
-> Drive-by comment: I have a bit of an aversion to boolean functions
-> named "check" because "check" is not a predicate with a true/false or
-> yes/no answer.
+> GPIO header can be removed since WAKE gpio feature is removed.
 >=20
-> "true" usually means success, which is the opposite of functions that
-> return 0 for success.
+> > +#include <linux/init.h>
+> > +#include <linux/interconnect.h>
+> > +#include <linux/interrupt.h>
 >=20
-> In this case, it looks like "if (tegra264_pcie_check_ranges())" means
-> the DT ranges match the hardware configuration.  If it were named
-> "tegra264_pcie_valid_ranges()" or similar, an "if" test like that
-> would read better.
+> Interrupt header file can be removed.
 
-Indeed, "valid ranges" is superior in this case.
+Indeed.
+
+[...]
+> > +static int tegra264_pcie_probe(struct platform_device *pdev)
+[...]
+> > +	err =3D pm_runtime_get_sync(dev);
+> > +	if (err < 0) {
+> > +		dev_err_probe(dev, err, "failed to power on device\n");
+> > +		goto err_put_bpmp;
+> > +	}
+>=20
+> pm_runtime_get_sync() increments the runtime-PM usage counter even when i=
+ts
+> resume operation returns an error. The failure path does not call
+> pm_runtime_put_noidle() and bypasses err_put_pm. Prefer
+> pm_runtime_resume_and_get(), whose failure semantics avoid the usage-coun=
+ter
+> imbalance, or explicitly balance the failed pm_runtime_get_sync().
+
+Good point. I'll replace this by pm_runtime_resume_and_get().
+
+[...]
+> > +static int tegra264_pcie_suspend(struct device *dev)
+> > +{
+> > +	/*
+> > +	 * No need to do anything device-specific here, BPMP handles the
+> > +	 * details of taking the link into L2.
+> > +	 */
+> > +
+> > +	return pinctrl_pm_select_sleep_state(dev);
+> > +}
+> > +
+> > +static int tegra264_pcie_resume(struct device *dev)
+> > +{
+> > +	struct tegra264_pcie *pcie =3D dev_get_drvdata(dev);
+> > +	int err;
+> > +
+> > +	err =3D pinctrl_pm_select_default_state(dev);
+> > +	if (err < 0) {
+> > +		dev_err(dev, "failed to configure sideband pins: %pe\n",
+> > +			ERR_PTR(err));
+> > +		return err;
+> > +	}
+> > +
+> > +	tegra264_pcie_init(pcie);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static DEFINE_SIMPLE_DEV_PM_OPS(tegra264_pcie_pm_ops,
+> > +				tegra264_pcie_suspend,
+> > +				tegra264_pcie_resume);
+>=20
+> PCI subsystem registered pm_noirq callbacks. So, controller should also
+> register to pm_noirq callbacks.
+
+Unfortunately that causes illegal uses of msleep() in no-IRQ context.
+Sashiko complains about it and is right. I don't observe any runtime
+issues with switching to the _noirq variants, but it doesn't seem right
+to stick to it.
+
+Is there any reason why this needs to be _noirq, or any benefits if it
+was?
 
 Thierry
 
---zk2gh5hl3rqyqvvg
+--gycetsy4kq6i3v5u
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpne5YACgkQ3SOs138+
-s6GQ+A//WeFzw3KoYVOzNsMrSzRoXie99HtTHVBPg/kBvr4ois0lZ3WQEHa+J2Ud
-1l5V2hv3q760uHAfQ+kvsOkJByU04WCKNXR3DphG6dEhRap42EfFan16PUWV3GCv
-eH3X+5ohtv4G+U8BPfcyvKu6rRLfHAIfCLUv4yOVr7tU6LbLTzrADExj70mQrhM7
-AzHjzmAzc323jnPOHhFg+YXFRlK+Y6VPh5zT0+EgA0JwFnOjrEf7d5JEP5HPfPuT
-AZMEf7CJnoICRMWS1SjXaNBPllgK61MVhx9EC79/6oMWi1I89+Glutlhz9GTwdVj
-Iw61t+2+vQxJQtpRQVSSBwnLnV3lRBvBbKsJZ9DSrbT8xz1BXeG2eTOGdgROD97/
-KnkgHIYzpKL68OWWeXeb2FV7uJJocRIHUpaX5MA73gIHBsArGzmkOMhp69XOAGzC
-i4a313skcX7hcUjNyKu9H0wSxf05QG9PhnICVIJb8lsD0edb5Ax19h8dwDzxiUXt
-h48iBjYNJyzDQXxyOZxhmZ7/0v55t59lMVeokZTI7NNBu9TnL7LPV1JYeGnsRsO2
-ZUy+zHcVTSGurw5UGFzAxiYnQ30lIdg7E1EMoIaVyyQnIsbmt2at7SzGoU98dCUe
-ln4VM83pPz0SXFzVEcQTVUO3YkBf2DZrjWVZ0lkDYKp429FD6Gs=
-=9cZE
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpnfOkACgkQ3SOs138+
+s6GS5g/+LJ+Fx41NKrqgEU+g86ngDsHFlxBl8sQxA7WB2+7NYBLtnaSTq/BXb4gN
+G86DJkYGEMtvaGIHR10qo0jbZi1glMTwytm3XIfkBrsBBm27kgPm0PN7Umci2L2U
+GxEocaRD0hkU8BK9vLzHwiq7DeJuBsuQiRrLdkjmpCHtOivpnzH400dcEVUbLTh4
+IozPJ9SZ1RXTc5bogvDb+hNvOATCCi+p+Q11wt7StjYtaNpU37znYQX54LTyC9ZR
+35RBhW5iomKYihnGlJ6E6nmL8OPR3QiJv6pRMuk9pFBpD2cr0qCR0f2YP4PcP6+9
+m1Q1ohfZXJDEsoZuFPbvECIaRQ2lkZhjVxVWrTUcy9skNFjtn+UjP9CFsP8ra9Up
+cVfqCoONmzsXzL29NNozNoSJq9B/EA6E9BIigvhr/9KM5R7QD3UcCIleFpmKd835
+Y7Aja91o+N6N/Sm2ddaA3bM6Zwfi2s7858n4emE2vKyaEAV2W34w+NPcMK6IHZEI
+FG+iZ8ki7WFwwZiW0w2BzzxT2UzNY+K3QLrvfwqfyoEe7LMpnukhlBwpYZcRcn2O
+ZhX92XdECmHd5rIZ7h08Aznz1cAHwO1CcgIT6kM//2y5qszXnCzAhMARyqxnaYbd
+tucCKYmhs/jMxHwOkVJAUMtB17vQRAy8BV3D3AqCQ7bhg0oLwh4=
+=z0EV
 -----END PGP SIGNATURE-----
 
---zk2gh5hl3rqyqvvg--
+--gycetsy4kq6i3v5u--
 
