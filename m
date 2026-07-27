@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FDDC54F4D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5DCC53209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJ/P4NONbtthg7jfF5hoYFaXe09plf5a5LKNDpHnj1I=; b=k7/OY+Vs0CZwcuH/4s2NdzGx6K
-	hfB+m9Py8rbRw75JZWH33AGsIxpH+La89SDZfBERDSLDFCP1GL5qGn/JhwLX8dVJM+LLwe9XfrPYR
-	qWpVppBeNBg4Wzx+QnH+LToDlxDDq3PaeUUeuQASXSvAsi1omJsTfLoBN7PMykYu/SeWwyZOns1Mz
-	xRgBpsG6Xzn1tw+jM8PJpXXDbE6jukP0p+YYWomejmymQSKWtebxag0sHY52Xw2mqmMfiPPQDqNNL
-	rvfz+XKUqcshOAS6VSci67aJ2SXlSiXb6iBZASIr4FfLJC2W+cUxpl5Bkyjyz2KMgT0RGetxUJbIZ
-	jM2XwKtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kUt65GKSqyj98NXe/npD3+O2Bp8K4k77GlLKHHo0EGc=; b=qM+N5jXJHqRFlglRNBHjfx5n72
+	s2WPC5pZXbJehcQ4EWyWN4qEw0rC/jFfr36YxS+/g5zIeDoxPxRP7ZBaJzE5KTxdtS8sPky/c/1O5
+	g28gqxVe3vUbz0+JhuDBwWvXwZGXE5gkVmA5OVGy6XMFqtbgq/dgaqk6MLAJ9IGVUNev111mqtwjA
+	tigMiI+5mCuuTpY7kE9Wxxs3jDdNYITdWsRMI/uok6jc00gJEJ2LFEP+InC7iEJGvHZhL0jNFPIxa
+	TlcnbNVY+rLrykk8jXGDnKT7lEDxlkh1m1P9mxpaBQRIfC5pUQSFBH9lgipZzXWdbvxSN1+B8sfo5
+	5rYi7Maw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKyV-00000002mPv-02Da;
-	Mon, 27 Jul 2026 13:02:31 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1woKzG-00000002muS-1yL3;
+	Mon, 27 Jul 2026 13:03:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKy3-00000002m9q-1AP3
+	id 1woKzC-00000002mqG-0f9z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:02:05 +0000
-From: Frieder Schrempf <frieder@fris.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1785157316;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TJ/P4NONbtthg7jfF5hoYFaXe09plf5a5LKNDpHnj1I=;
-	b=dHbuWjPeWKEU6ls3j/cOEmx9XpA57cf4tHV6Z/ZdO+gBtcdzBXSeMCeOMaaJYC894WnNXr
-	10gR2JU7TKg/Gf+UTikcLwDTnYBfDbkWFZMUKf9yo8Lc1Ohqpvp/znlzOZV4YnIszV1uEk
-	UqLCQGsK8r17zg3WHUvFpEzg+xuNTpUUZukUmS/+M7MuueexAopF5li1iQpSSRIF3D8ac9
-	UnIP2Q+6WVL3cJFIp3gAxmFrqrJL/AyB6OWbN+/9acxj7wSgAQsJDNfXXAQyIGCtOnpsVa
-	sw6w12+Md94RmIR+mBZM050X7u1+oXIpn4Ja3rLi7Uez67H6T0rQHc+UrEkcvw==
-Date: Mon, 27 Jul 2026 15:00:54 +0200
-Subject: [PATCH v4 11/11] arm64: dts: Enable EdgeLock Secure Enclave on all
- i.MX91/i.MX93 boards
+	Mon, 27 Jul 2026 13:03:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=kUt65GKSqyj98NXe/npD3+O2Bp8K4k77GlLKHHo0EGc=; b=mUG1p50p0fu3TYQH0hC1vDPcj9
+	GL7CM4La1Bx1Szg1lJVY/w1AX77NSpE7rCJ4ANAOmZQXR7BQeYbLLNKvP5WgVyeV+oxmIoq46UuVW
+	zTwnIbdbxMsZFItRN0v5f9u8BIGMorVuicOB/u3w6TVa5WqRyNZHZ98zlLLZCgYHtmIQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1woKz3-00EQo8-5l; Mon, 27 Jul 2026 15:03:05 +0200
+Date: Mon, 27 Jul 2026 15:03:05 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Abid Ali <dev.taqnialabs@gmail.com>
+Cc: alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org, pabeni@redhat.com
+Subject: Re: [PATCH] net: stmmac: enable MAC rx/tx after DMA start
+Message-ID: <a13d65de-75fc-413c-90e2-0f1805c6394f@lunn.ch>
+References: <ee639271-60dd-49f7-9e77-0ae47841754d@lunn.ch>
+ <20260727055715.4430-1-dev.taqnialabs@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-11-1a515de33093@kontron.de>
-References: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
-In-Reply-To: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
- Pankaj Gupta <pankaj.gupta@nxp.com>, 
- "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9582;
- i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=wnro3oDQOkrfY9Z7n4ns/YNKLCCtMthXJ0hBKAWfOeo=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bA3jJqkZs7gDbqi+7tqxesJzwb5tuut3hNV/t1kcF
- 7InNeNCRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwEQ4ZjL8d8mt6O89nlD0cO20
- ztxO8729T85VvjHaoH47/Pn0bfuFnzMyzJyRF3ukwt49ZEZ8ZFqk3uEah2kXIs2NotRM5q9dNeE
- UBwA=
-X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
- fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260727055715.4430-1-dev.taqnialabs@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_060203_482229_C2E0D442 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20260727_060314_202644_82E94A40 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,269 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
+On Mon, Jul 27, 2026 at 05:57:15AM +0000, Abid Ali wrote:
+> On Sun, Jul 26, 2026 at 18:15:20 +0000, Andrew Lunn wrote:
+> > There should be a function which is the opposite of stmmac_hw_setup(),
+> > which tears it down. What order are things done there? tear down is
+> > generally done in the opposite order to setup, so does the "Disable
+> > the MAC Rx/Tx" also need to move?
+> 
+> I have not seen the FIFO stall in the teardown in my testing,
+> but the MAC Rx/Tx should be disabled before the DMA engine is stopped.
+> For the normal path (__stmmac_release), phylink_stop() is called first
+> which triggers stmmac_mac_link_down() -> stmmac_mac_set(false), so the
+> MAC is already disabled before stmmac_stop_all_dma(). The teardown
+> order is already correct there.
 
-Include the common dtsi to enable the firmware node for all boards
-based on the i.MX91 or i.MX93 SoC.
+Thanks for checking. Please add a comment to the commit message about
+this.
 
-For the TQ-Systems i.MX91 TQMa91xxCA / TQMa91xxLA SOM that already has
-a node for the reserved memory, keep the current settings.
+> 
+> > Same comment for the opposite of stmmac_xdp_open().
+> 
+> Currently, stmmac_xdp_release() does:
+> 
+>     stmmac_stop_all_dma(priv);
+>     ...
+>     stmmac_mac_set(priv, priv->ioaddr, false);
+> 
+> The ordering is not followed here,  I'll make it follow the similar
+> ordering to (__stmmac_release) in v2.
 
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+Great.
+
+
+    Andrew
+
 ---
- arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts         |  1 +
- arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts      |  1 +
- arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts        |  1 +
- arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts           |  1 +
- arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi      |  1 +
- arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi         | 15 ++++++++-------
- arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi         |  1 +
- arch/arm64/boot/dts/freescale/imx91-var-som.dtsi          |  1 +
- arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi |  1 +
- arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts        |  1 +
- arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts         |  1 +
- arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts           |  1 +
- arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi    |  1 +
- arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi      |  1 +
- arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi         |  1 +
- arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi         |  1 +
- arch/arm64/boot/dts/freescale/imx93-var-som.dtsi          |  1 +
- 17 files changed, 24 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-index 5716febb5a50..7813a3cf215b 100644
---- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-@@ -7,6 +7,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	compatible = "fsl,imx91-11x11-evk", "fsl,imx91";
-diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
-index 62dc1dedfb0e..b5a042a58b57 100644
---- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
-@@ -7,6 +7,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	compatible = "fsl,imx91-11x11-frdm-s", "fsl,imx91";
-diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
-index c25561574d3f..20c7e4989367 100644
---- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
-@@ -7,6 +7,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	compatible = "fsl,imx91-11x11-frdm", "fsl,imx91";
-diff --git a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
-index ea8cf14e0bc6..430c0402138b 100644
---- a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
-@@ -7,6 +7,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	compatible = "fsl,imx91-9x9-qsb", "fsl,imx91";
-diff --git a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
-index 8b8cb3daecbb..509d869a216b 100644
---- a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
-@@ -11,6 +11,7 @@
- #include <dt-bindings/regulator/nxp,pca9450-regulator.h>
- 
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	model = "PHYTEC phyCORE-i.MX91";
-diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-index c99d7bc16848..ad66fea4099a 100644
---- a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-@@ -7,6 +7,7 @@
-  */
- 
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- /{
- 	model = "TQ-Systems i.MX91 TQMa91xxCA / TQMa91xxLA SOM";
-@@ -31,13 +32,6 @@ linux,cma {
- 			size = <0 0x10000000>;
- 			linux,cma-default;
- 		};
--
--		/* EdgeLock secure enclave  */
--		ele_reserved: ele-reserved@a4120000 {
--			compatible = "shared-dma-pool";
--			reg = <0 0xa4120000 0 0x100000>;
--			no-map;
--		};
- 	};
- 
- 	/* SD2 RST# via PMIC SW_EN */
-@@ -58,6 +52,13 @@ &adc1 {
- 	vref-supply = <&buck5>;
- };
- 
-+&ele_memory {
-+	/delete-property/alloc-ranges;
-+	/delete-property/size;
-+	reg = <0 0xa4120000 0 0x100000>;
-+	no-map;
-+};
-+
- &flexspi1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_flexspi1>;
-diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
-index a9e44efad13f..2e1830c33012 100644
---- a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
-@@ -13,6 +13,7 @@
- #include <dt-bindings/leds/common.h>
- #include <dt-bindings/usb/pd.h>
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	model = "Variscite DART-MX91 Module";
-diff --git a/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
-index b30a0d8a81ba..87db0abb8257 100644
---- a/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi
-@@ -11,6 +11,7 @@
- /dts-v1/;
- 
- #include "imx91.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- /{
- 	model = "Variscite VAR-SOM-MX91 module";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
-index f48e7947cf64..65db986fc7ba 100644
---- a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-common.dtsi
-@@ -4,6 +4,7 @@
-  */
- 
- #include <dt-bindings/usb/pd.h>
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	aliases {
-diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-index bd14ba28690c..0bd19988ce9f 100644
---- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-@@ -3,6 +3,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	compatible = "fsl,imx93-11x11-frdm", "fsl,imx93";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts b/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
-index ec78c03f4788..0e5c7d1ed4ee 100644
---- a/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts
-@@ -7,6 +7,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX93 14X14 EVK board";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-index 01c11c517986..694f114aef36 100644
---- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-@@ -7,6 +7,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX93 9x9 Quick Start Board";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
-index c79b1df339db..c9aa764cc3b8 100644
---- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
-@@ -5,6 +5,7 @@
- 
- #include <dt-bindings/interrupt-controller/irq.h>
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	model = "Kontron OSM-S i.MX93";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-index 325e465d0056..076716cc2095 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-@@ -12,6 +12,7 @@
- #include <dt-bindings/regulator/nxp,pca9450-regulator.h>
- 
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- /{
- 	model = "PHYTEC phyCORE-i.MX93";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
-index ce34a296495c..159be0d5dfde 100644
---- a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
-@@ -6,6 +6,7 @@
-  */
- 
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- /{
- 	model = "TQ-Systems i.MX93 TQMa93xxLA/TQMa93xxCA SOM";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
-index 69495bb7fc9f..122a8a091c80 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
-@@ -12,6 +12,7 @@
- 
- #include <dt-bindings/usb/pd.h>
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- / {
- 	model = "Variscite DART-MX93 Module";
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-index 24063bf8183d..50aec264f87c 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-@@ -7,6 +7,7 @@
- /dts-v1/;
- 
- #include "imx93.dtsi"
-+#include "imx93-firmware.dtsi"
- 
- /{
- 	model = "Variscite VAR-SOM-MX93 module";
-
--- 
-2.55.0
-
+pw-bot: cr
+	
 
