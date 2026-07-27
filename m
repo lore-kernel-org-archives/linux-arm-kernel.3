@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 658BCC5321C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC63C54EFC
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIDYXM9+LpuDl5xH7TLyFckqlHiktoL2NqyKKPRVviQ=; b=tEPqU8c8v/p8Cc7BUXX7klhIeP
-	EgVUA3sZh9fpzjwGXMyPvHronQKob2+icVtuyZCwBI24dSjIpp6SK281P6uk1XXG0FbwpOWiNVh07
-	+3qA+zGN2z3MyopHYkusyKT0BNvTVN4xekTK4XSnMFExEeCpCdgSzNclJDY0W0U9iZljazdSvpSNV
-	QK19cCcjgbUoISmTpCAVPNsw7C54P1EkM6F77gn1I9IIGwmHYpw5ntARHhshTwkYuCX+sJGAo10s8
-	De0/0e1rk58vvljf1RdwXF7+DGlkM4Luz6PaOtlokpKIR3hq5aU1OWf5oi8DtO30Ph4EkB9rE4W0a
-	l8yrJKtw==;
+	bh=x8ppdLZtCLjVPI4RaDBrwUdqdDgKZtV4FSC053+OAWk=; b=OWLl4+ALTrai0Dw362GUDHbZns
+	Knneol+3rZiAQL/1zGEavub6ebN+NghV3i/lR64ITB0enGFeiYksq3vTSeW6RN+lNEgsfcYqLIjs2
+	Sll/htcyAaBX4PvuYheJDtLJAa65mHNCX5CijtFnIaT4GjZIBWeyU26GEdBTVkHSGAvnRd8PBzy1a
+	wN6zO8re2L96oMG54ddHJi7LmbxH1Fa3AbgObyl2V+24OulFU7OfVixhB8kKdC7mCD+DKguve03Uu
+	/BDZKioXLZpARbofBuvyl+FA4VPtRhvdwlfGs+5+BrhjDIxNWWBveVvd0bJFZaqiVh2AZCIzDfF1q
+	7bPNQg4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKyU-00000002mPN-2xdJ;
+	id 1woKyU-00000002mP9-2Xez;
 	Mon, 27 Jul 2026 13:02:30 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKxx-00000002m4s-34ML
+	id 1woKxs-00000002lyu-1noC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:01:59 +0000
+	Mon, 27 Jul 2026 13:01:54 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1785157311;
+	t=1785157310;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=UIDYXM9+LpuDl5xH7TLyFckqlHiktoL2NqyKKPRVviQ=;
-	b=ZbmttIq/zAkiWEWLCzMm1/BB60jAzCRh/m5TpuajjBTFEF0EXFouwpdS/0H0rxGogVZcgK
-	IzK0TT8VdSS7fj0d4zWEzIjS9tN0VfVbVTRMfCfm1r0DshHfKs5JR2qsADILhf/NeY5SHF
-	O0pcQUbmxiP93sOP9i5YO/hOMjr4r2L3EQ58eivctWS/MBQellNGOqvldL7ExS4aK7a1WJ
-	pek2vr+3jDDb4RjMzXwhjsZy+M+4kbvdbJF0q6qi81VfoVEUmgN5+vDCkQqoDd6/fPA/Iz
-	vwWiyzQRB4KGLFWPiGdFRIAS7sydlak8yemtb5TEv0/lNnM+uWhH3Ljwk44zCw==
-Date: Mon, 27 Jul 2026 15:00:53 +0200
-Subject: [PATCH v4 10/11] arm64: dts: Add ELE firmware node and common
- include
+	bh=x8ppdLZtCLjVPI4RaDBrwUdqdDgKZtV4FSC053+OAWk=;
+	b=GgvkYbhoynX40X3V5FWSJbaotvFm11sraO+19uP0hsyP4gkZr+CMeDuKZ5DR6ufpzSG9K6
+	YJFowLVvSAnd05BK7BnnfZyMJ6wzXxtAB4HNlqgk2tIOvW3e8hhb70/zGl2pfbzpNiL7ja
+	29KYyDC6/9ier4b+y9c9URGW8+F+v2ssDLuQuZYF8JcS3zFWM7GhC3jN5hgoby80w0liaW
+	FG+SHQGue68HrHYuNiFsZPpXB/MDk372AzdQ8LGW7zxy4pmVEyBVo/goQou2JfdatsrHoD
+	quP4T3CdRSrjKvFyKfcQ88jwBV9U2lJGrEnG9Rcz8AbWmK7KLYSbdOjWDDwbhg==
+Date: Mon, 27 Jul 2026 15:00:52 +0200
+Subject: [PATCH v4 09/11] nvmem: imx-ocotp-ele: Rename FSB access map
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-10-1a515de33093@kontron.de>
+Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-9-1a515de33093@kontron.de>
 References: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
 In-Reply-To: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -60,18 +59,18 @@ To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2086;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2464;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=tJ9rSkBdmzSOcevJn11J6HTiPXh99MsoW+7PNACRN4k=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bA3XkXcFb1MiN0kVSFfxvA+7ZfR2nc3ybXUur+Yyb
- N/sYGfWUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMJH2Xwx/BVr33ebx86y3/lKh
- dnBiRbnE3UuhC8PEep+vdld7Zxzcysiw02veqaOV6XOOC542W7pXsvjCFlbuKGUGq44DE10v6L1
- iAwA=
+ bh=kt1k3M6rIt/Nylyf9emvyw7oJdH44hrhkQwxDBoUJ/8=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bLX29gsTMr868GzfGCKe+yB22tJTm9qjTB/fZny07
+ cq8LRo8HaUsDGJcDLJiiixS/Bavbc1ifeSPVUfBzGFlAhnCwMUpABNJ387w363jRF77in2ZlUvt
+ 7rOm7ec0qDpxdevZf6Ffmnbmm1kXXGFkWFNpsq9CVdLozKxlfyx2vE65ctfs7pm5DG+lxDctXMP
+ nzgwA
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_060157_939908_B0538A1C 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20260727_060152_666183_2E1A9495 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +87,85 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-Add the firmware node to SoC dtsi and to make it easier for boards to
-configure the EdgeLock Secure Enclave on i.MX93, add a common include
-file that contains sane defaults. It specifies the memory node,
-enables the ELE firmware node and adds a reference to NVMEM OCOTP
-driver.
+The table is used to declare which fuse registers are accessible
+through the FSB block. Name it accordingly to make this clearer for
+the reader.
 
-The 1MB memory area required for the firmware is placed in the first
-256MB of the DDR. Boards that require a more specific alignment can
-override this accordingly.
+No functional changes intended.
 
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |  9 +++++++
- arch/arm64/boot/dts/freescale/imx93-firmware.dtsi  | 28 ++++++++++++++++++++++
- 2 files changed, 37 insertions(+)
+ drivers/nvmem/imx-ocotp-ele.c | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-index a1a7e6a0571b..60798b216438 100644
---- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-@@ -46,6 +46,15 @@ A55_0: cpu@0 {
- 		};
- 	};
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index f691ad0cd1a1..e9b579753c78 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -33,11 +33,11 @@ struct ocotp_devtype_data {
+ 	u32 reg_off;
+ 	char *name;
+ 	u32 size;
+-	u32 num_entry;
++	u32 num_fsb_map;
+ 	u32 flag;
+ 	const struct nvmem_keepout *keepout;
+ 	unsigned int nkeepout;
+-	struct ocotp_map_entry entry[];
++	struct ocotp_map_entry fsb_map[];
+ };
  
-+	firmware {
-+		hsm0: secure-enclave {
-+			compatible = "fsl,imx93-se-ele-hsm";
-+			mbox-names = "tx", "rx";
-+			mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
-+			status = "disabled";
-+		};
-+	};
-+
- 	osc_32k: clock-osc-32k {
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
-diff --git a/arch/arm64/boot/dts/freescale/imx93-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx93-firmware.dtsi
-new file mode 100644
-index 000000000000..58614158ef90
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-firmware.dtsi
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2026 Kontron Electronics GmbH
-+ */
-+
-+/{
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_memory: ele-memory {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x10000000>;
-+			size = <0 0x100000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&hsm0 {
-+	status = "okay";
-+	memory-region = <&ele_memory>;
-+};
-+
-+&ocotp {
-+	secure-enclave = <&hsm0>;
-+};
+ struct imx_ocotp_priv {
+@@ -156,12 +156,12 @@ static enum fuse_type imx_ocotp_fuse_type(void *context, u32 index)
+ 	u32 start, end;
+ 	int i;
+ 
+-	for (i = 0; i < data->num_entry; i++) {
+-		start = data->entry[i].start;
+-		end = data->entry[i].start + data->entry[i].num;
++	for (i = 0; i < data->num_fsb_map; i++) {
++		start = data->fsb_map[i].start;
++		end = data->fsb_map[i].start + data->fsb_map[i].num;
+ 
+ 		if (index >= start && index < end)
+-			return data->entry[i].type;
++			return data->fsb_map[i].type;
+ 	}
+ 
+ 	return FUSE_INVALID;
+@@ -351,8 +351,8 @@ static const struct nvmem_keepout imx93_ocotp_keepout[] = {
+ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.size = 2048,
+-	.num_entry = 2,
+-	.entry = {
++	.num_fsb_map = 2,
++	.fsb_map = {
+ 		{ 0, 52, FUSE_FSB },
+ 		{ 312, 200, FUSE_FSB }
+ 	},
+@@ -363,8 +363,8 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ static const struct ocotp_devtype_data imx94_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.size = 3296, /* 103 Banks */
+-	.num_entry = 9,
+-	.entry = {
++	.num_fsb_map = 9,
++	.fsb_map = {
+ 		{ 0, 1, FUSE_FSB | FUSE_ECC },
+ 		{ 7, 1, FUSE_FSB | FUSE_ECC },
+ 		{ 9, 3, FUSE_FSB | FUSE_ECC },
+@@ -380,8 +380,8 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
+ static const struct ocotp_devtype_data imx95_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.size = 2048,
+-	.num_entry = 9,
+-	.entry = {
++	.num_fsb_map = 9,
++	.fsb_map = {
+ 		{ 0, 1, FUSE_FSB | FUSE_ECC },
+ 		{ 7, 1, FUSE_FSB | FUSE_ECC },
+ 		{ 9, 3, FUSE_FSB | FUSE_ECC },
 
 -- 
 2.55.0
