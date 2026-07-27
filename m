@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3455C531F9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1CAC53209
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 02:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JN7LEuMudq1mUi6BCPF5860crqnrJNZXCJN217lSS6A=; b=mg4vIRpb7kTR0elCm1ogqfZ4c+
-	NYJ2rUSsAhzHQvmoM1WhiQ/H44dNi7WzWuReJ5sgv4OHd1AKRTSpiGh5tpeoTpFGIDuAQ3FDsyPV9
-	S3AQ0nHbKIJnFTBwJL0MOpXXeoqjKRqAiF9oVDZl/0cUpkkbCPXAR+oSVgoMJxfxm/gzbfVLls/I5
-	E9O3WpiNZmP/ov1T1A5V02grg51KcCvZlgmBM4EpyLhV64bLwDcO5ILSKp3NK6nBwavf78WhDPLTx
-	VX3JtNRk/kKSjfLeQ/V4RLwhxelm4EdTzBfrbCMHJIGy2E84q29y6THO8VyfZe9jnVsFE4aFpBQj9
-	CXmU12Aw==;
+	bh=dPr6vbLu8PqQb1lWRy/QmQ4lRtcpmb3vtoKOeXxnr9U=; b=mZgHpwVeaadt0FGA50yGD39fUN
+	9TYP5yosS4ib4SwQ9S5JeKdptH8kImTh8Tw80SjjJGOn0H9iFFs1N+Jrnsngkl9rG/jTAiUts7A5H
+	rRaYLPfUUOTp/gULEf73WWfLldiMPtz3TPWo1UHs//AYj5z/ofHGFC+Ntxmm9WrARR1/2Vjuzlj7e
+	UZbSpRSLNrCAA2Rk031FCW+HSa2eGk56r5QCDcpwbwezVXc/KNmQ6+iKZewGVWrrx6ylyk9BLekZy
+	Vnp3oHJKtmlR8EqDLB73wciFz4qwKnjclVxhdq719DcX8GVrkLgoCVrrFQ8b7hinohj3cWz/KqNK3
+	xq21IK2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woAoV-00000001nlo-0vrg;
+	id 1woAoV-00000001nlw-1JPt;
 	Mon, 27 Jul 2026 02:11:31 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woAoI-00000001nhK-0Fg6
+	id 1woAoQ-00000001nhk-31di
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 27 Jul 2026 02:11:28 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c9d1fff21edso1307031a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 19:11:17 -0700 (PDT)
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-381b831d535so2711730a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 19:11:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785118277; x=1785723077; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785118286; x=1785723086; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JN7LEuMudq1mUi6BCPF5860crqnrJNZXCJN217lSS6A=;
-        b=jDprc5FSj6wSSo3UsZ5b12MDOYiEolibkuTQks9tix/0s7HZLCbZifysyMhO9DdtRV
-         +Q7UP2jDrVohdU7ou13yzxz5RaebPYrNyIBzO+eKVUWseoZig4v9l+UPhTvzxgANeDXH
-         IHhW+DUuT+Ky0m8cyO3/1fpJmdTTfMppdjKl/0Fp/AU6s0nzmWcFwXyqCTZwk234NEVW
-         yPkOP97+lLfu/ara7Vkld77YTUGHpUjVVYeVpzvxpt3yuKiFNB2xH24NGUI60hGlXNlq
-         0Surapg+Qsdscw9oKG0KuMCsXPX7PStsuK+6ZljaVigBZjtWIMMmK7Kq53wkM5iu1LCe
-         GfrQ==
+        bh=dPr6vbLu8PqQb1lWRy/QmQ4lRtcpmb3vtoKOeXxnr9U=;
+        b=ECRFSdhreVWPzyxDKEpSct0B257HrTAroMpJDCW4r6gO2moXvsToeqsMJaWEEc/sTY
+         fNgdYxlUfaKUm87+ndjHzMG7a9/mBht8K/a2bS11Qe9yUnPeiBki/eA3gqsXjcJa4TJZ
+         4zsC/vW+Oz6S+KnxxCuV5gvb2uXu/P2pYOu0hQsOAOD9GFfh5EdOSD/2Bs1QrJLKUBuh
+         oRe4Ew8cct790WvQ6k+zUeOcs58Gifoq/Rf2ebhHLCx8aHbF7vIqUqs404y5iR9yENFx
+         klh9uPnXpp3vCcxTjSPZRfRWImXSgRe1WOkiTrwrRQYljVAU8erL3IP2c2eRVkst0Oj1
+         aW6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785118277; x=1785723077;
+        d=1e100.net; s=20251104; t=1785118286; x=1785723086;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JN7LEuMudq1mUi6BCPF5860crqnrJNZXCJN217lSS6A=;
-        b=H6A2G+7xJClLumzlzojkeTxTSRo9M5rK8olTRCWMz1G57ddSE2MyZLwW09q3n4eOWI
-         O0LiX00tyNPT2xekfpH0x5kvslKNRQniXwqHsgfrBO2z6yzpO9pRfQtiwAFUGmb9fyeQ
-         tQzwYGb6vuQJsZPqUdypwf2Fa5tw0yGKvUgHtMIlj5WJMs0rQb0ezcKx0O74wwUAKrth
-         IUdGcccSIszG5RSWqhHM/tWUopwA8zsfkKjL/o3I2vXg0oZKTkGG4xvO/oJ0NYZUegPW
-         IPrY3yCpAHjl5p6OI6Fv3qoAYGi0kNsXmb/XAEFpfA0d6hm/LihikeCU6RaVna1DkgwZ
-         ov1Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rq89TG9Uni6BJnS5DwZghQrKX6QoFrWHjGGa+sh0MxWIc8Y4N7C8mFNOJ64L5MWy//MNHYI2bgOnTFChZcrye1G@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyR9ZO/FD62AQfcR1CjqcqNBBRIjZT0jllVoEDhvryL1vKJEZH
-	ozUfQTAdih3asZKRcPSx0Xvmi0+0R07YBd+W5m2t0tzkqBG06vf/2iPS
-X-Gm-Gg: AR+sD12k8jVjHOQtfQQbk+S9zJfgIzA/mfjIEuB6bzf0xQ8jO3JCkbPPvolxTAy27I7
-	AunK98LG6IabuvsGDF5crKsCSLRia4HGM+R1ZLyov4zsV8fXOOUtVpRJ2N6Qfa3ywT1HIhNxKi9
-	j/BOO1Vdjz5rPofNgYhqgoJ35aWnmnysMoecUNuu646wvu07DNEkMWWWfNAJWQvbWO114yP5UFA
-	6cpIbzBOBjyOPZ3F7YWELl31T+LFRqA7El4Pm7ZoMsT7J0SzVHz0ULS2bpSo3sdoMmKW50aCIRU
-	GlhapcakPtN6LnlwHVUNUDJ5DBwHtMWlJAcJ5fQ1xqrbLTd1vYTlqeJGbOWaKBUmkmoi3wATeBx
-	4KD6SDLbjZ4FGiOj/ARyh44jZy6QCeR5mboDJUZ8Uh0eo2lBvxnP9aEWVrAeb3F/ZJqibuceE31
-	2jNKDuYAXmtT7KoL93EEmCf+w=
-X-Received: by 2002:a05:6a21:8282:b0:3c0:9c1a:8936 with SMTP id adf61e73a8af0-3c67e131180mr5856351637.62.1785118276966;
-        Sun, 26 Jul 2026 19:11:16 -0700 (PDT)
+        bh=dPr6vbLu8PqQb1lWRy/QmQ4lRtcpmb3vtoKOeXxnr9U=;
+        b=fuLSuRD9q0bSsOluBbMeVXQmeP9NPZw6eUqfSJlAdKmw/GXmdxMNHpllxXpufPS+Mh
+         C3N5Xhsc6zfI5hzpWpFSVpSwiNoq67OIfI0++QmGv3tsY3C5+95ngNC9obEhmdBU/0W1
+         sejQBgfNyv8qwUK12L4vnAYaN8n+zvkuNERTCqzGySk+a0Cg4oP335gy2vd+YxxNLCkk
+         C97SRvUt6NIN4HXy87t9qYglovAH/8PWutmP86hsBQPCoiZZTbFY4SRYERfzLkJUEkr5
+         /65l11Bhywr/j4Y/rTqXSLOJViNBCVWlnF7mn1qHdUcSAfnUSi98BTcz1ZdzOxcWSEHb
+         yWXQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rre0LJLoJkjOSt46CZw6sGrDgZHjTIeAfsJNXDyG5yPdvQtE75kSDhrsK43n2z+lacaj6ZXHZZ/42vPm9Hf8gJl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjrTHRhnffT09bcs007G5C9xGXGNRJ/w9V8hFbI3fM3OeLTc/p
+	wIlhAOo6kK0nbExAkm7iaMmLTvAqhKE384A5Slk+Rl9i1p5G7DJ8wDnL
+X-Gm-Gg: AR+sD11NCH2bbJ7F27d0X4BSfrKlYkBf+1CBqqrT/WL+U8lzLiuZ4xzLRqnc1gNmqGa
+	Bw9pvqa+ookxw5DSORoL8MQcZ/9OIfsEwdjWRCCpb2re9qhHJFOKysVxjr+g72VgWsvopuNbM22
+	hdJrLrDwYk/lFjGdQoQuwcf3SgprQbIycN7nd/bxyHJNIL+IBxmO2hCJMt2hj3ohFdOviTOEFGl
+	GkHfv62mDyIBq1Kclp77XQYSvcacBmZEXBJhw55ljsfqFSsyXZtYnN8+DReMAqYTsT74OmJngTM
+	J/9MwET80gxN+kZ5bF8SmOB1A0nsghUOuWaqC9m6RBiQGQFXXVMshMg23txEl+GzJWaZlzOkA1Z
+	1q0t8sHxWnmf5TFgLnnFT7J0+sGVSigG1/0Q8kZ4Ahd2MPK4+154HtsbT+mQWgbcDpee2Oydr01
+	WwoD2/MtAQS2ayfGWHRKasutE=
+X-Received: by 2002:a17:90b:584f:b0:38e:79f:76c6 with SMTP id 98e67ed59e1d1-38f29641ae1mr5689783a91.24.1785118285724;
+        Sun, 26 Jul 2026 19:11:25 -0700 (PDT)
 Received: from attina.synaptics-inc.local ([199.33.119.15])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13e53094d65sm19162200c88.13.2026.07.26.19.11.08
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13e53094d65sm19162200c88.13.2026.07.26.19.11.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jul 2026 19:11:16 -0700 (PDT)
+        Sun, 26 Jul 2026 19:11:25 -0700 (PDT)
 From: Gavin Gao <attinagaoxu@gmail.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -99,17 +99,17 @@ Cc: robh@kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 2/3] arm64: dts: rockchip: Add RK3576 GMAC 25M refout clocks
-Date: Mon, 27 Jul 2026 10:10:46 +0800
-Message-ID: <20260727021048.3375444-3-attinagaoxu@gmail.com>
+Subject: [PATCH net-next 3/3] net: stmmac: dwmac-rk: Enable RGMII 25M refout clock
+Date: Mon, 27 Jul 2026 10:10:47 +0800
+Message-ID: <20260727021048.3375444-4-attinagaoxu@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260727021048.3375444-1-attinagaoxu@gmail.com>
 References: <20260727021048.3375444-1-attinagaoxu@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_191126_364235_A09A7D08 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20260726_191127_253688_A92711EB 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,48 +124,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3576 provides REFCLKO25M_GMAC0_OUT and REFCLKO25M_GMAC1_OUT clocks
-for the two GMAC instances.
+Boards can set clock_in_out = "output" to request a MAC-provided clock,
+but dwmac-rk currently does not enable the optional 25 MHz RGMII
+reference output clock. The common clock framework may therefore disable
+the clock as unused.
 
-Describe these clocks with the clk_mac_25m_refout clock name so boards
-using RGMII output clock mode can let the MAC driver manage the 25 MHz
-reference output.
+Request the optional clk_mac_25m_refout clock in RGMII output mode, set
+it to 25 MHz, and keep it enabled while the MAC clocks are enabled.
 
 Signed-off-by: Gavin Gao <attinagaoxu@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 33 ++++++++++++++++++-
+ 1 file changed, 32 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 70e67d4dccb8..f1125c2f88ab 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1692,10 +1692,10 @@ gmac0: ethernet@2a220000 {
- 			reg = <0x0 0x2a220000 0x0 0x10000>;
- 			clocks = <&cru CLK_GMAC0_125M_SRC>, <&cru CLK_GMAC0_RMII_CRU>,
- 				 <&cru PCLK_GMAC0>, <&cru ACLK_GMAC0>,
--				 <&cru CLK_GMAC0_PTP_REF>;
-+				 <&cru CLK_GMAC0_PTP_REF>, <&cru REFCLKO25M_GMAC0_OUT>;
- 			clock-names = "stmmaceth", "clk_mac_ref",
- 				      "pclk_mac", "aclk_mac",
--				      "ptp_ref";
-+				      "ptp_ref", "clk_mac_25m_refout";
- 			interrupts = <GIC_SPI 293 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-@@ -1739,10 +1739,10 @@ gmac1: ethernet@2a230000 {
- 			reg = <0x0 0x2a230000 0x0 0x10000>;
- 			clocks = <&cru CLK_GMAC1_125M_SRC>, <&cru CLK_GMAC1_RMII_CRU>,
- 				 <&cru PCLK_GMAC1>, <&cru ACLK_GMAC1>,
--				 <&cru CLK_GMAC1_PTP_REF>;
-+				 <&cru CLK_GMAC1_PTP_REF>, <&cru REFCLKO25M_GMAC1_OUT>;
- 			clock-names = "stmmaceth", "clk_mac_ref",
- 				      "pclk_mac", "aclk_mac",
--				      "ptp_ref";
-+				      "ptp_ref", "clk_mac_25m_refout";
- 			interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 643578266dfc..5e7e5e8f8d62 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -81,6 +81,7 @@ struct rk_priv_data {
+ 	struct clk_bulk_data *clks;
+ 	int num_clks;
+ 	struct clk *clk_phy;
++	struct clk *clk_mac_25m_refout;
+ 
+ 	struct reset_control *phy_reset;
+ 
+@@ -1419,6 +1420,24 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
+ 		clk_set_rate(bsp_priv->clk_phy, 50000000);
+ 	}
+ 
++	if (!bsp_priv->clock_input && phy_interface_mode_is_rgmii(phy_iface)) {
++		bsp_priv->clk_mac_25m_refout =
++			devm_clk_get_optional(dev, "clk_mac_25m_refout");
++		if (IS_ERR(bsp_priv->clk_mac_25m_refout)) {
++			ret = PTR_ERR(bsp_priv->clk_mac_25m_refout);
++			return dev_err_probe(dev, ret,
++					     "Cannot get 25M refout clock\n");
++		}
++
++		if (bsp_priv->clk_mac_25m_refout) {
++			ret = clk_set_rate(bsp_priv->clk_mac_25m_refout,
++					   25000000);
++			if (ret)
++				return dev_err_probe(dev, ret,
++						     "Cannot set 25M refout clock rate\n");
++		}
++	}
++
+ 	return 0;
+ }
+ 
+@@ -1433,9 +1452,13 @@ static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
+ 			if (ret)
+ 				return ret;
+ 
++			ret = clk_prepare_enable(bsp_priv->clk_mac_25m_refout);
++			if (ret)
++				goto err_disable_clks;
++
+ 			ret = clk_prepare_enable(bsp_priv->clk_phy);
+ 			if (ret)
+-				return ret;
++				goto err_disable_25m_refout;
+ 
+ 			if (bsp_priv->ops && bsp_priv->ops->set_clock_selection)
+ 				bsp_priv->ops->set_clock_selection(bsp_priv,
+@@ -1454,12 +1477,20 @@ static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
+ 			clk_bulk_disable_unprepare(bsp_priv->num_clks,
+ 						   bsp_priv->clks);
+ 			clk_disable_unprepare(bsp_priv->clk_phy);
++			clk_disable_unprepare(bsp_priv->clk_mac_25m_refout);
+ 
+ 			bsp_priv->clk_enabled = false;
+ 		}
+ 	}
+ 
+ 	return 0;
++
++err_disable_25m_refout:
++	clk_disable_unprepare(bsp_priv->clk_mac_25m_refout);
++err_disable_clks:
++	clk_bulk_disable_unprepare(bsp_priv->num_clks, bsp_priv->clks);
++
++	return ret;
+ }
+ 
+ static int phy_power_on(struct rk_priv_data *bsp_priv, bool enable)
 -- 
 2.55.0
 
