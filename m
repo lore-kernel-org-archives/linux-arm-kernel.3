@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B0EC53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 21:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C6DC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rMfeYsP5GdnuDCfgJKEm3wwcc5Ecr2dv1YHRl9juiCI=; b=in+ragZNNDJ6P1ToYXZR0YHfUw
-	UimVaEj/V50twhUsbv6HBa7nz1f8ykQ4P/8YJPW4tJBSHotDG1k1WROMBzSx5qxwK004E6w3y87VC
-	Rz2V1j+GoDy3tuQzaMZULhnyM2f4aUnsO5calnbEc8ptqoXeMSxLxnIc7me+awsLp8QwAUy05rXyS
-	35sVMQdQsWHki4HJyeiGdLH23FONo8BKqgViky9aWuYb+TCH+KhBK/HiWCvUPvQgJVf3A99FBMnJy
-	2ZL3Plxs6B9/hzoBY2l8eVRjn16u3A/l/6L3v1Pcc6JBnw44EZPGAYY1GEEJe1sAhqO0yr6O5HOMR
-	sjG6Mi8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZlVSQ0WoHFkexgSj1nLjs/bQmryo/c++WltacVP9aBA=; b=JAL9c0SUSDggKGHKEJhZ7DKXz0
+	4rBehFZsMI31zPc7wf42vRMc0UDAYN9/EFLPYp3wGkfWNSI4B0AhGpa4gdcgF8zUY2P0CPkeFl9pq
+	th21F4oJ9GptRemTSmFSvEWt3vPoRcDD24wyYhpxs6WZnLXy36/EtrepKlNF1W1X1qtGGE7Tt65ZD
+	zETf/RUxOmZm0S1Jb2MfdG/UNcahOcq1nmDGFKFVHTLuBqP3y5D4dF+Yho3uFAoZB9aNbQkOb5ppN
+	3In3AjEpR9+8emnNtZeKT6IThwvGZ1mELXrJeyFFwFiOd+W7gLhJ2byvecqd+D+wd3kQYJfaSzivS
+	E/ai6mbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woTD0-00000003zch-45Wi;
-	Mon, 27 Jul 2026 21:50:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woTYv-0000000405H-2SFQ;
+	Mon, 27 Jul 2026 22:12:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woTCz-00000003zcS-2yPY
+	id 1woTYu-00000004056-0MHI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 21:50:01 +0000
+	Mon, 27 Jul 2026 22:12:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FE5B4150A;
-	Mon, 27 Jul 2026 21:50:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7541F000E9;
-	Mon, 27 Jul 2026 21:49:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 66B5543D5E;
+	Mon, 27 Jul 2026 22:12:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12E871F000E9;
+	Mon, 27 Jul 2026 22:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785189000;
-	bh=rMfeYsP5GdnuDCfgJKEm3wwcc5Ecr2dv1YHRl9juiCI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YVWTMr2cX4ewrBWHXUcAbrlt/cYMv2t1rAY6OmzwAk0jxEusNqzHhIvI+IFi8gusK
-	 jeVo2x71CzuTqqbU9a+WJJEvzb73ShnQO3gqhTrXt7a2TPzCUTVkNh3hhVBylazW4/
-	 4CeRyCI/IFRdnNyAJZiu6XWl0fPPuPV/CAOpVXlO5mgkBjqTvlCxPdL58ayHHdjWJ5
-	 RjdQn+7QE6cmJ2wIBqxj7yx5OPwo/Ife3L3H08yQxcj+ptQNRXXCFsaXSPJmOUv/8M
-	 z+lqEfGJ6x5P9pMufpzSSTCyZsvQVy0wiah9b9n0VGDo1ovNXxn8YJv2O47SoUwgEy
-	 X3/tWKU4SI1CQ==
-Date: Mon, 27 Jul 2026 22:49:52 +0100
-From: Will Deacon <will@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Hongyan Xia <hongyan.xia@transsion.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>, Oleg Nesterov <oleg@redhat.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>
-Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
- __always_inline
-Message-ID: <amfSgECpzET7JHTr@willie-the-truck>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
- <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
- <CAKwvOd=HeG=z1j2qB-SX3NQ=62ERr=KpQNZyqqp2Qy4kZ54RLw@mail.gmail.com>
+	s=k20260515; t=1785190359;
+	bh=ZlVSQ0WoHFkexgSj1nLjs/bQmryo/c++WltacVP9aBA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=eiiS4PStWn+tXhuPrRrMk7VoRFpWq1n1elSpWgSkRTuQGNFaWowc6DsfPEaeVOtFc
+	 REfPvHWAFL2fbIwhcoMuSMxi7gQRGQFLODkAEaSyuSL4JWuAiF5bzdkEnlK27adg2V
+	 1RjCxEmHoqH1NDqzeuf4KavoLA/OvoeZoaXJVp5TIkDvCXXNA0jAFIDSHIGgFC9y8H
+	 aBhzSMoO4yrElYXUUA7lQubvt7x6omw8qCB6bWYNTGOusLtRPEwr7hEgCvm0KKmZYo
+	 vngxTbnHiGR/9j8qzu1nH2q1ZeLFqrIwHp5pjTuiE9+fyJXfQMBonIpEWtCy6341Uy
+	 2lDmwzIK4XjBw==
+Date: Mon, 27 Jul 2026 23:12:31 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
+ . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, James Morse
+ <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, Reinette Chatre
+ <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>, Srivathsa L
+ Rao <srivathsa.rao@oss.qualcomm.com>, Ganapatrao Kulkarni
+ <ganapatrao.kulkarni@oss.qualcomm.com>, Trilok Soni <tsoni@quicinc.com>,
+ Srinivas Ramana <sramana@qti.qualcomm.com>, Niyas Sait
+ <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 01/10] arm_mpam: let low level MSC accessors return
+ an error
+Message-ID: <20260727231231.62baa831@jic23-huawei>
+In-Reply-To: <20260723155454.1760823-2-andre.przywara@arm.com>
+References: <20260723155454.1760823-1-andre.przywara@arm.com>
+	<20260723155454.1760823-2-andre.przywara@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKwvOd=HeG=z1j2qB-SX3NQ=62ERr=KpQNZyqqp2Qy4kZ54RLw@mail.gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +81,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 12:22:32PM -0700, Nick Desaulniers wrote:
-> On Mon, Jul 27, 2026 at 5:25 AM Hongyan Xia <hongyan.xia@transsion.com> wrote:
-> >  arch/arm64/include/asm/esr.h       | 2 +-
-> >  arch/arm64/include/asm/percpu.h    | 2 +-
-> >  arch/arm64/include/asm/preempt.h   | 4 ++--
-> >  arch/arm64/include/asm/ptrace.h    | 4 ++--
-> >  arch/arm64/kernel/debug-monitors.c | 2 +-
-> >  include/linux/kprobes.h            | 8 ++++----
+On Thu, 23 Jul 2026 17:54:45 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
+
+> The upcoming MPAM-Fb support does not use MMIO primitives to access an
+> MSC, but employs a shared-memory/doorbell based firmware protocol.
+> Its complexity means that is must be able to handle errors, whereas we
+
+that it must
+
+> always assume an MMIO based MSC access succeeds today.
 > 
-> It might not be appropriate for the changes to kprobes.h to go through
-> the arm64 tree, but maybe it is?
+> Change the __mpam_read_reg() low level accessor function to return the
+> requested data through a pointer, and return an error code instead.
+> Also change the __mpam_write_reg() accessor function to return an error
+> code. At the moment this is always 0, but this will change with alternative
+> MSC access methods.
 
-They look pretty trivial, so we can take 'em with Masami's Ack once the
-rest of the series has been reviewed.
+Be consistent on paragraph formatting.  So blank line here.  Check whole
+series for such tiny consistency problems.
 
-Will
+> Change all direct users of those MSC wrappers to comply with the new
+> prototypes, though the errors are not propagated all the way up yet.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+
+Some comments inline.  A few are 'whilst you are here let us make this
+more readable'.  I was in two minds about the temporary lack of handling
+of uninitialised (looking) variables but in the interests of expediency
+I suppose we can rely on the functions never actually failing at this
+point in the series.
+
+I will note that if you did adding the returns from outer calls to inner
+you wouldn't get this problem.  However you might get other problems!
+
+> ---
+>  drivers/resctrl/mpam_devices.c | 204 +++++++++++++++++++++------------
+>  1 file changed, 130 insertions(+), 74 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index b69f99488111..912c21ce7f9f 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+
+
+
+> -static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+> +static int mpam_msc_read_idr(struct mpam_msc *msc, u64 *res)
+>  {
+> -	u64 idr_high = 0, idr_low;
+> +	u32 idr_high = 0, idr_low;
+> +	int ret;
+>  
+>  	lockdep_assert_held(&msc->part_sel_lock);
+>  
+> -	idr_low = mpam_read_partsel_reg(msc, IDR);
+> -	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+> -		idr_high = mpam_read_partsel_reg(msc, IDR + 4);
+> +	ret = mpam_read_partsel_reg(msc, IDR, &idr_low);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (FIELD_GET(MPAMF_IDR_EXT, idr_low)) {
+> +		ret = mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
+> +		if (ret)
+> +			return ret;
+> +	} 
+As a whilst you are here type of comment. I'd find this more obvious if it were
+
+	} else {
+		idr_high = 0;
+	}
+
+rather than assign a default at top of what is now a rather more complex function.
+
+>  
+> -	return (idr_high << 32) | idr_low;
+> +	*res = ((u64)idr_high << 32) | idr_low;
+> +
+> +	return 0;
+>  }
+
+
+>  
+> -static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+> +static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
+>  {
+> -	u64 esr_high = 0, esr_low;
+> +	u32 esr_high = 0, esr_low;
+> +	int ret;
+>  
+> -	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
+> -	if (msc->has_extd_esr)
+> -		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
+> +	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> +	if (ret)
+> +		return ret;
+>  
+> -	return (esr_high << 32) | esr_low;
+> +	if (msc->has_extd_esr) {
+> +		ret = __mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
+> +		if (ret)
+> +			return ret;
+> +	}
+
+Same as the other example above.  } else { esr_high = 0; }
+would be slightly clearer now this whole function has gotten more complex.
+
+> +
+> +	*res = ((u64)esr_high << 32) | esr_low;
+> +
+> +	return 0;
+>  }
+>  
+
+>  int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+> @@ -774,13 +810,13 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
+>  	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+>  
+>  	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
+> -	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
+> +	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+
+If an error were to occur and "now" not get assigned, would this being
+accessing undefined data?  If checking return values doesn't make sense
+in here it should still not result in something static analysis might
+get annoyed by.  This gets cleaned up in next patch so maybe that
+is just about ok.  Alternative would be to just initialize any such
+variables in this patch and drop those initializations in next.
+Doing it just above the code that is going to change anyway would be cleanest.
+
+	now = 0;
+	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+
+for example.
+
+Hmm. I suppose this is a bit of a special case because we know the
+calls don't return errors at this point in the set.
+
+So whilst I don't like it I'll not insist that you fix all the
+instances of this.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+
+
+
+
+
+>  	can_set = now & MSMON___NRDY;
+>  
+>  	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
+>  	/* Configuration change to try and coax hardware into setting nrdy */
+>  	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
+> -	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
+> +	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+>  	can_clear = !(now & MSMON___NRDY);
 
