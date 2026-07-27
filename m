@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65780C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 02:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2695C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 02:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bUdaTURv98MjSQYlV/jMd6eJcEfQgm5+Ty7DeSTfO1k=; b=oZcdu/E4l3Iks/g+fvUtklTJAt
-	kl6eTJreIHIkZ87Fb/vdFn/TsFw6UDVLDorlhWxM90lXaBm5s4s89FL0nxq6uTs1j+wUZ3CvRphp1
-	OQKWSzDR2yWrjRbnk1SpXUncO92j5c6V479QPhz+Gd8chKP8LM0qsUVcS1CpCWTb6KDWoXZGyXBKA
-	mLY9aYvMIh6LM/sQpcZhyvkLJUQJiVlHhq+hnHW7qlnHvhn3aVN0fyRkijGjP5VUuKqCyf12jqYvo
-	x2tMMAI+w5SLFrIA46b9IGLFqdJ7l8NyzYgcglz4tr6QRty0uk9MQzL/GX+vrBcz0pRruBFuyhtBe
-	6LWwMQQQ==;
+	bh=o1jj55WBQzGrPgrclrAZ1nETRFMg2jvvhwOjEU//pXg=; b=ObaHedeFdr8PTYAtodcVfNxNUa
+	VBxdRQ0IBYN9AerhqSmgQRr2+VMV4nw+BNBLmlai9A+d+yYRZjfiyp97kGkso1Mu+/uBtV8orwo8Q
+	1rwdc76Uo8aFXSgFltijyecBjKtyTy5OR9JcUH13WbuBDhNVt2fE2zmBAYLXNlXnyXFzPt0czQc3j
+	fe5Sjw9gFc0ApSifBVQ9ml+wUgTqMDO7aM57CA8hdSI6fKLLwHleE3eYDWdXlVUT73N32w/sq3erw
+	nUAuCJe9bA49by/y9k9aHm0HfzIx1JAy0xTJoadA/1gNiEczKYCX7MaIdP8475CxqgKv+hcWv2CeK
+	5Gb6NFBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woBCG-00000001pUG-2qO2;
-	Mon, 27 Jul 2026 02:36:04 +0000
+	id 1woBCS-00000001pXK-3HHE;
+	Mon, 27 Jul 2026 02:36:16 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woBCC-00000001pT2-3rcx
+	id 1woBCH-00000001pTP-0TdE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 02:36:03 +0000
-X-UUID: e1e24aac896311f1aa26b74ffac11d73-20260727
+	Mon, 27 Jul 2026 02:36:06 +0000
+X-UUID: e501413e896311f1aa26b74ffac11d73-20260727
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:20338929-0ee3-417c-a897-4aae2e45606e,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:96d270b7e4164c3e34c9e4e3b375b235,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.12,REQID:17e1e125-2018-486a-a267-7db0f92e14bc,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:a9fd983e214b625888e4f9f7e3e430eb,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|136|865|898,TC:nil,Content:0|1
+	5|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e1e24aac896311f1aa26b74ffac11d73-20260727
+X-UUID: e501413e896311f1aa26b74ffac11d73-20260727
 X-User: liuxixin@kylinos.cn
 Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <liuxixin@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1327643492; Mon, 27 Jul 2026 10:35:50 +0800
+	with ESMTP id 2056388121; Mon, 27 Jul 2026 10:35:56 +0800
 From: Xixin Liu <liuxixin@kylinos.cn>
 To: arm-scmi@vger.kernel.org
 Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, mturquette@baylibre.com, sboyd@kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
-Subject: [PATCH v1 2/4] firmware: arm_scpi: reject DVFS OPP count above MAX_DVFS_OPPS
+Subject: [PATCH v1 4/4] clk: scpi: register scpi-cpufreq once and clear on failure
 Date: Mon, 27 Jul 2026 10:19:15 +0800
-Message-ID: <bfebdb68118c.1785118770.git.liuxixin@kylinos.cn>
+Message-ID: <0ef515019f96.1785118770.git.liuxixin@kylinos.cn>
 In-Reply-To: <cover.1785118770.git.liuxixin@kylinos.cn>
 References: <cover.1785118770.git.liuxixin@kylinos.cn>
 MIME-Version: 1.0
@@ -59,8 +59,8 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Mailer: patches/scripts/send-local.py
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_193601_315387_464704BD 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260726_193605_455954_EA4E31C7 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scpi_dvfs_get_info() already rejected a zero opp_count, but still trusted
-any larger value from the SCP firmware. The shared-memory reply only holds
-MAX_DVFS_OPPS entries in buf.opps[]; a bigger count over-reads that array
-and then sizes the allocated OPP table incorrectly (garbage OPPs / OOB).
+scpi_clk_probe() walks clock children and, for each DVFS provider, calls
+platform_device_register_simple("scpi-cpufreq"). Two related bugs:
 
-Reject zero and out-of-range counts in one check and return -EINVAL.
+1) Multiple DVFS children each spawned another virtual cpufreq device.
+   If cpufreq_dev is already set, continue and skip a second register.
+
+2) On IS_ERR, the pointer still held ERR_PTR (e.g. -ENOMEM). remove()
+   treats any non-NULL cpufreq_dev as live and would call
+   platform_device_unregister() on the error pointer (oops). Clear
+   cpufreq_dev to NULL after the failure warn so remove() skips it.
 
 Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
 ---
- drivers/firmware/arm_scpi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/clk/clk-scpi.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scpi.c b/drivers/firmware/arm_scpi.c
-index 6056754ef48c..5db58bdfc947 100644
---- a/drivers/firmware/arm_scpi.c
-+++ b/drivers/firmware/arm_scpi.c
-@@ -630,8 +630,8 @@ static struct scpi_dvfs_info *scpi_dvfs_get_info(u8 domain)
- 	if (ret)
- 		return ERR_PTR(ret);
- 
--	if (!buf.opp_count)
--		return ERR_PTR(-ENOENT);
-+	if (!buf.opp_count || buf.opp_count > MAX_DVFS_OPPS)
-+		return ERR_PTR(-EINVAL);
- 
- 	info = kmalloc(sizeof(*info), GFP_KERNEL);
- 	if (!info)
+diff --git a/drivers/clk/clk-scpi.c b/drivers/clk/clk-scpi.c
+index 4e22ba12b157..ce6baea8f82e 100644
+--- a/drivers/clk/clk-scpi.c
++++ b/drivers/clk/clk-scpi.c
+@@ -283,10 +283,14 @@ static int scpi_clocks_probe(struct platform_device *pdev)
+ 		if (match->data != &scpi_dvfs_ops)
+ 			continue;
+ 		/* Add the virtual cpufreq device if it's DVFS clock provider */
++		if (cpufreq_dev)
++			continue;
+ 		cpufreq_dev = platform_device_register_simple("scpi-cpufreq",
+ 							      -1, NULL, 0);
+-		if (IS_ERR(cpufreq_dev))
++		if (IS_ERR(cpufreq_dev)) {
+ 			pr_warn("unable to register cpufreq device");
++			cpufreq_dev = NULL;
++		}
+ 	}
+ 	return 0;
+ }
 -- 
 2.53.0
 
