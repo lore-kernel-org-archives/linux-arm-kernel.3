@@ -4,146 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C6BC53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:00:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C16C54EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nv7+zosoBoC4GP4GH9ib4hA0NsMyg9JRA4JDNo+SPXM=; b=1DEOk89PDEhKyHVZNrtPBrYWxa
-	5rKsi/j7sscYkdMHuwyZ0WwGQEhn9p56qyxsBSF7fqrEtAZt1dhJ3tgSopwE/w4Kz9+Lkykl/rlK8
-	PWr4fuXVqzcXhMSmcqCGawa6D4TIHA8F3OaYgAKC30vQTFGFrd/SfivrCF5Vydfy1BATU4vIuRgE/
-	ciUPoJg1qEB+iKrTnDX4q165+wCNYmxnii4kpVRNipYZbGrtCSe9f4b1wPTx6MKidKAxe3+KiuYdg
-	/I5XMjXyrlwNHEcsklVtcR2VqyvlUnyVgWofqfhRSm3oXkG8dQRE7eWAi/2ASfHJGZqRN0qb+oYEM
-	uh0vSonQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=; b=de+zwGwX0vkdaaWa0HAQSx+XF3
+	F5LEDLZpCqTJLbBFdDF8QB1SxEAZdoGA5bPh1HOUyCj6MwmLTU8g16fbV/WZmDINa3D4ilH1uRSp9
+	chIunxYuzOHlekerDx0JCbReB4J1PVC5D8xBqzPFk5dxAMzme0pcRgyVzpWrozIQrp86Xfq2qUTwm
+	viDC5IBDcvrNDOGvjBIE/CRGSprKyMJ4wQTEcJIL6GPC9Zcm0SPKuDOpAqm6X8k53eJa/nF9+tG3q
+	FnH0uQuLaXtThZFFO+jfFKsb17yYcpEGi9kPos6mihOzgb6LsXwtRpfidJidvc053e3fE8RqcXn0g
+	uU3OhJ0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOgq-00000003SoO-2rtH;
-	Mon, 27 Jul 2026 17:00:32 +0000
-Received: from mail-swedencentralazon11013016.outbound.protection.outlook.com ([52.101.83.16] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1woOo6-00000003UCz-0qeG;
+	Mon, 27 Jul 2026 17:08:02 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOgn-00000003Snu-2cqA
+	id 1woOo3-00000003UBu-1AYH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 17:00:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y/P1xxHtyB62hBdpdfc7llCnYk24EYQF7jUoLAJnDxSoisnIjG6Sjc6/qBi7Fi0uSNQVBGNSboOhhgi0heTae3V0gfPKRivLy5xy36ALgSmPrL+q7Hw2BV/rHXBhs8/XZssenYc0zFSdtWCIpwPkv8RvS024GAA5hyiOI9A86HiGbBeetAvSkDFd26HkKPCrGsUXcoMu2HNsFFk2We0TvDZ1ZV8r5Aw7umNE4PXNaJLpshy7gtLuXRNllvnCVreuQSayD4SMMB8Uwg6L1NQJBb1k/FygWV834gk3zaYn+Y+R0rjEk4R/kZ5++fpMgvgxGja+J+B4mM0INUXu1DxKVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Nv7+zosoBoC4GP4GH9ib4hA0NsMyg9JRA4JDNo+SPXM=;
- b=cMxViF0ihRPirbDrX8NVirH0l/mzcqUS0uVYhhZrBgWUZLfHaN2u8J4iRirSEM3+JciPtKqTxfIz3lkYNMKSJeDky/7H69jgJMPLOnYjjtvqqgtWDdJeK5ObKSEcorx7WaYznwbr1AHlFWX26HajLm5u057L7WsIqd9ltB2utq1Or9TbvonoTnA0eGPsC+dfZTR965yjcpcxWlnRl5XNG9W58wEOtVJizu7mRFiiyP4mgqzrE6F3g220KL6IlNYBZcxNl7ySMsHL0qqfi5xaik5BGSYk3I7J2ngC22Sjwaf9RaRLl3gDWJ3zZMbiah0mF+ZO4RXPGZH7R/sHM0GBpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Nv7+zosoBoC4GP4GH9ib4hA0NsMyg9JRA4JDNo+SPXM=;
- b=R2BzN1m04ZdVzk5gqowoJPMQqiPJ1sQv3MR6uMf9gKPA35KMXkxCtlf4flif+x7c37Y7MQv/Kjd4YXKZZbNXykdTyoYt9RprBzMh4xSSjrsIFjC6HiXXWCu+QZ9UmMSUHWx1oq55MGpoPhXJ69eshjTWhde4Sa51578UX6s8tPYxlJOyvvAGKCcB6XOBkUzXRtjA/D8jIq5nhiz2O37ofuMTskIzBr1ZXopHD27q6YtYV3sG2GuVif2Va0iAQ8rsicWpUSAo4lLhUyCSc0SKQIRo2wByHrImK0ZSPz7qrfaL68amA+Bj1AplwfUjxT/jNseikf/sPz9WtWuF83BWgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBBPR04MB7803.eurprd04.prod.outlook.com (2603:10a6:10:1e5::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
- 2026 17:00:24 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
- 17:00:24 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Biwen Li <biwen.li@nxp.com>
-Subject: Re: [PATCH v3 0/4] arm64: dts: freescale: Add remoteproc support for i.MX EVKs
-Date: Mon, 27 Jul 2026 13:00:16 -0400
-Message-ID: <178517159495.2539725.6188983744595268122.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260724-imx-rproc-dts-v3-0-175381bdd02d@nxp.com>
-References: <20260724-imx-rproc-dts-v3-0-175381bdd02d@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7P220CA0007.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:326::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 27 Jul 2026 17:08:00 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-66854eebf60so337427d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 10:07:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785172077; cv=none;
+        d=google.com; s=arc-20260327;
+        b=oq2zV8n2kJelGWOxHa4birTBezDA9d2CMfknxxqd+LgwjnhIXMgdIk4tKIAvBCsJv2
+         kazNI5MX91Kt7afAQIRScOaCcBneSCF4QoWM20eb05COxU6FM0PkhXsY/iwJV4231aB0
+         pF4q9kuF9rmGoQ9RwYfB0qB24fiQYmBSm6vlUgi9aBDGBwVWB17PWX5F2KjuUjFVNqFU
+         Hgxsf4Y/3mcMQDanLKS32hzt94fpfU+jM97Q1fI42Sr/rSqz80wa2rBvj0VOjtupHEO5
+         F/vg/j4DvwwPzfxL71T4srpkFC7yQn44FNDOjMyXngrfPm9dxpj7URu7hPpSB87Gx719
+         iZuw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=;
+        fh=kwaSkY3J6+aftZsMKgYy+mJ+f4K+TNjZOMyJlP9dGAI=;
+        b=ssbPLA8qNINcIT+TUJNloOehkrEqOxmmFCJRyLF5rb/dmfZD3LSCQgUCr7TzITvB1d
+         u/RHTx9Jj+yzzULKYjBjkZ2E8cluJiub0IzMSvyIg8Jjl9zqscjIA6t+IDCtNa1oA5a7
+         Zsjx2IguFFgycEN9zppYZ8UMIDffh6wZ9G1mv122A/XX5dXKlsj2Zmhi5zd0+0BfU412
+         UOMAcIJubN2sfythkXxBvmTLEy1n1iu4d9Jn0v/9Zi0Ajq5EqoFZ1NJVXyhYzl8aAM7G
+         ItJxQlgwOSnBYYYwYOmlbmmdGgidSbdDPXdiv+lJI+7TgBAOYlN5ZG7IEnBtNovzx5OW
+         Rlog==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785172077; x=1785776877; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=;
+        b=aIq9MdK1iTfGKDTPIq/OKscmD1w+VCFQ/25rQ5YTDTlK0FraupL+2K0hLaBR1l5FGg
+         WtxFIfH0J5mherEEJWOowjgXP0ax59JEy1SlUvkUyBGfY+5yfFSx2lt9SsFsnvSUGH2W
+         Q3cWQdFwXetCpjBJyf6V8yhGHAGnEIUmat+PvMEJk+324UKJXBmm/KFq9Ha538LijK7v
+         vWyyDCDXg9Rh9DeLY/APCLMnLPrdbBNsxOmqFlXnb9Wtm2QHppqnf9sptlfP2cFJXtiY
+         +zzxAPl1bxYAmFYyJtw+KnMuQPJNYb/y66xv9DyIJE6tKeH0URP+XTb48Txg+4IhLyho
+         qBvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785172077; x=1785776877;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=;
+        b=FRzcKKmAyE0fqZLITsTatjdmfC0C91z2y5fE9O2X8fQS/PCKE4+l2iTFhjKlfK8jCU
+         saSOtkj6BZbomdS1H+aU75atSXBIhd5GsWz8kVcq9NJMOrsJnKkuwp6Fy7ZF8MjEKlq6
+         2bxj+AvGlkbWMyvBo+zx7AKeLp9wsAw+4LidYW7OzQdyKigYuwADb7XWR9a1LoT1TK2/
+         zoxQTC+3fiflaZ0W+M0fMgfMZNV9OVux4aBvJdHPBUNFLQoaAg8Wt/B65EKjDyTLp1Ey
+         /8re1/2TGTbekMomVC67SgbXI909VE1Kfgyj54b+s/hjK36BddodTXcn6UtoJmDYXUm8
+         9+pQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq5ECfTrjvM5j0+fSN9CB2iH3VhShkmCmK7TdpL+iaNBPZ3wQ5LxJlOd6K5mzUgoMDTicISFvd0pDsegDDQ3Bcg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7+If1s5W7mqCIlWTn/gbOT44xLXYDsdt+DDjU8mRLB2iTxDVE
+	kDjqcMVFJrfWDA2a4pDJ0tyERIvPMPvP5OuFU7BUWllwQ03W2k+9XQ0i/x8nWWhO4Gngd/CFOjF
+	YU9B0SpNsv7cmW1mHvTgItgs/shJXbwg=
+X-Gm-Gg: AR+sD11rWhbhbSghSgl7bxSkpT16pXKHK4gZCxPCwp89mW2wRCPlCWpmd9tvIeUJ3cB
+	CaQ0SnYmiAtpFS+5paKXMD5bk9I9UQwDWyxt40xO4S6Zwa5hoaBYhObQQ/07555TiHqIMp52+0b
+	ly01WdLbGSDMS5wdqDJ9McW1gSw9DOjRiVLy/L42X/PU9BQUViDzvM3ECT0yFlpOls4L7CCS/qN
+	NMUyyv+BhzLIFoXw7cqH5HY5huR0eMs4ACuooHalBxMrSQz4uisjqvXxlfKe0SK0hUlQv0XpR3N
+	EGqdSX1dz2GT2KLjlsHh
+X-Received: by 2002:a05:690c:c508:b0:81d:a82a:a4fa with SMTP id
+ 00721157ae682-81f918e48e9mr3545747b3.5.1785172077323; Mon, 27 Jul 2026
+ 10:07:57 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7803:EE_
-X-MS-Office365-Filtering-Correlation-Id: 638204a3-e9dc-4480-6cda-08deec008d10
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|7416014|376014|1800799024|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: G31XfVLxFIfVm/Qrcsv/FKlVB69LfFOalkkvAQB5scYdwOdcjkkHWiIw1ItGqm3h9QBySl89zbicHtvpCawVOMdlRPqfbtAXZBiSia/PdIq13zezj65LtttVu2D0YqAKNxs7Xa1nhkQQoYbL0mTo8eqHNUzzGA8pORGhHyg06pfwms59B5/9Cvh8l8BUHmFIrIEmjWIHMPj3woMraJCIgzfT+E4/c8wSK/ocwIj77mrElZP0WLxRljZj6soic4UgrVMXQJCacW0TJbsrSfInd/XS3EXNm6+UfkWNsCNvk5yyCrkqAo0ZzsM7Cewfa5wimDt6FNTdk0TmoChzXPLdhgzUyRYqCNFKKh5sWhYrOMtNsHP+KMK72cQjR/eObm546DEDUL6p2MPvXaspBjXbAC7Gf1fvj3Di3xNBO+gLODzGB+ekbalxZN0s/GR53yuOLd0h3e1sRwZZKvQGmba9QzHz2zjSr+Z81HTF8cJ/2NnX6IP++qaaRrrFI5OTPWPWB66VE/8dcN9F3H0qR1r9pCCHEbrnX56fIEVqip8K3Q4vKUvd+6eOJ4/U533Em7aebhiF8EngoCiHpU7fgdRNNB5RaqPM8jQv8iqFsvIgmN6vfIZovxgU4Lpca43pHJ2AEaVocefSMzUuN73WcLgn3ouskDh+t/99O7zQd+JS7q0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(7416014)(376014)(1800799024)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UDY4Z3Y5VTlTdWhWOEhDdEd0aHpSdkIvdWVEZWc4T0VqWUgwbm1kV3JOMC9J?=
- =?utf-8?B?dlhaaTBCMGI0czI2c01FRVF4bXpQTkZ0bWNTdkpHRERPdWVldDJkSEdaL0Nm?=
- =?utf-8?B?RVVsYVhNU1FhNnBtQmQzdmxYTlkxd0pZYmNCVHJSMWh4NkdGQmhjcFk0S2wz?=
- =?utf-8?B?MkJJblduU3NXalJySzlXaG0wcEU4RW1rQnU3ck5qL2tYeFRLb0JmVUV2bjVh?=
- =?utf-8?B?ZklMWkw2NnhLT3BQOFQ3aDl5bGVmVDREQkJkK015aXZ5b0VFa1RxQnhLM3pQ?=
- =?utf-8?B?SU0rNExmRGpEVk0yMVZ5b0NKOGxDaThheko1Z2FTTTlzWFRKcTB0VmtIRDYz?=
- =?utf-8?B?cTRadHhoY3Y1Q1hYbG5uRVQ2ankvRkdsTzdWemxIVmRucnNRdkRVUXhOaElY?=
- =?utf-8?B?Zkg1Um1mNmhnY2R0eHJiei9hbU1GSThFdkM1VFZ3Rkd3ZUFEdEgrNmhuSmQ4?=
- =?utf-8?B?K3N2V0t0TWQxNjRTL0dRMy9NbnIrM0NwUEdURXpnRWVhdTdKTmh6MjY4SXlF?=
- =?utf-8?B?WlJRWnJiUGhFcXZpWjdmbVlCelhHOVFXZ0MrWUh6NTFrb1ZORUUxV01iSGhX?=
- =?utf-8?B?dXhBc3dubUxaczBKTFRRdmI3aTYwT3hoT3JVc3RKQ0p3NEFQLzNYcWJ2eGFX?=
- =?utf-8?B?bUFrcmhRYjh2QWlGUUdEU1BEU2RCYkIzY0x3QVgrSU4ydWgvQ25tWEFVbjNG?=
- =?utf-8?B?MGdNSGlRZkhERjdjVVV1WVpIUDg0NnkxdVZkRzNONjljbS9VR2txU2x2NjdM?=
- =?utf-8?B?ZkJVZHJ0QnJ0bzB1dW4rdk1ZejM0NDB0TjhFNzRnaFZ0b3k2OENHRndnaHFY?=
- =?utf-8?B?bkI3cXNTSUhKQldvcFo3QjdiMkJUQTFISjltZ3l0Rm81Z0p3Tm82bXdyRlVa?=
- =?utf-8?B?eTdjcHRNaXFQUFRwMmtUVGxmYTROVGsrbXFuRTRBWGhqZy82WW55S0JLRFFG?=
- =?utf-8?B?aTdVWTV5cFY3QkJ0TUZuMXdhTE5pQjBYbEVORzR2YVVESExSdXI0VFBFNEpo?=
- =?utf-8?B?Y0IxZzhOMkFlU2l2RDNtejRKNC9ESmhIRlRnUEJ2NHpwVTIzQWFOK3F5REs0?=
- =?utf-8?B?MC9idUFHUnpzSm1lZ3MvNk9jTHRRK0hPMkF5azJFdHlheTV0YkJkQ1VTaDBu?=
- =?utf-8?B?UzROdHN6MHdRSWxSUWVPdkZQM2VmNWc3ajluYmJ4cEZPci9nUEpreFVYOG9h?=
- =?utf-8?B?U1NUSTJxbTliNDRQRWRKZm1NK2srRzZTWHduUkhlcHoyd1dQVkp2dCtacmxt?=
- =?utf-8?B?VlU4Sm1Qa1JVTHR4a1dyMnc5UExCNmR1c045T1QwM1J0ZERnTlNuRitOdDZk?=
- =?utf-8?B?dk80aGJUQUIvM011L1Juak1TV0krdUxRMk5CNkw0RHcwdWQ1dGNBYUZyWGpq?=
- =?utf-8?B?L3R6eGNQc2EvSWNiTHFhYmVKalUxSSs5WWhDK2tuU1VEOVZkVUlWeThtSnk2?=
- =?utf-8?B?TExJNDZBVU5nUDlsSHpIeHRDS2xQb0lhRVJCckFJak9CNUoxTmNZb0ZkUkRk?=
- =?utf-8?B?SmowNzA2NFJNTGVjNjNFQTJTdDhhRXVDZ0tZbWZCVTRPME9tRVZFR3AzL0VM?=
- =?utf-8?B?U3ZyZ0gyZDhKc3ZrenRvQ3M1eVVmWVk5SXBmK2ovZ29IODdReFZGRzFjSWxt?=
- =?utf-8?B?TExmYlRIQlVyaGpBS3Bjbml5Nk1mWE5kZzFlQTlDQ1B2cytBTlVSWGUyWlQ3?=
- =?utf-8?B?VWdyeTEvTEZ5TnFzOXhVOEV0OWpINjFMUmNua3lDSk04REpyYzQ5ZDV2OHFp?=
- =?utf-8?B?T245Y0J6YlZJV2s5OGxPNCtKaGs3OEE3Z3l2SEFXSkhoVDNqSlFLa08rb3Ur?=
- =?utf-8?B?MmpBZHo5MUU0Mm9qUzk0Sk9KTjd6cUhxeUNqMzVmQ3FiNVR4ZC9hNksyRk9w?=
- =?utf-8?B?bkpNTFYyNmxuczVNc2IwNWJtMjc1UERCMW1qZHYyRGNXMFpCdFlmUld6bzR5?=
- =?utf-8?B?R0pMUXpra2hac2lyNW1JRjUrMDJMak9CNERUVUpzcms0R0FiVTNEdFpCbUVI?=
- =?utf-8?B?d1F2bktBUStpZHpHYUhWanZySmhVMldKbWFSY2V6MGZUTU5QNTBadEI0c1o4?=
- =?utf-8?B?d2JhaWh3eHRCTno0czBxd0Q2RkNhd1dUdTBlbzBsRnMwSUdQNSt1YzRva2d0?=
- =?utf-8?B?NmFvdDJDWk5XSW5NWFZ4NjI4WldzaCt0QUNmcWtTYWVvcmJ2c1FDVEswVGo0?=
- =?utf-8?B?dWNsbUxiZW8zMFVva0pFaXdyZmNldXFPTkk2RmJ2UXM5U3YxV0hIRTFZalVr?=
- =?utf-8?B?MHhET3drejdjTW5jM3NDWTJFMGw2WE1iWi9MaFRSMFpveCt6TFJreXZDMUJi?=
- =?utf-8?B?dExGRWRLRXlkR0F3RVNTVHdFQXdONTRXYW0zTWFjaXM5c2wzWVA3bHpqQ2w5?=
- =?utf-8?Q?YhotQsMcmrPW+BPA4WOr+0w6IyFfMoVFQK7mT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 638204a3-e9dc-4480-6cda-08deec008d10
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 17:00:24.6451
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0XeUHccqeK1hLaCYbrD/OhC762lEFxgipwNf4JTrv2J90VjJEJcgHie+UVNZrmRhwnz4b/RyrG6pgaWuJ6NlAx0j7z4WdUG0kT92WwRn6OkrohgOxA0o+dQIeTywZJZ3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7803
+References: <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-0-180fb2d1f10c@gmail.com>
+ <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-4-180fb2d1f10c@gmail.com> <cb8XVJu6RUmEjMZpl7NA1g@collabora.com>
+In-Reply-To: <cb8XVJu6RUmEjMZpl7NA1g@collabora.com>
+From: Igor Paunovic <royalnet026@gmail.com>
+Date: Mon, 27 Jul 2026 19:07:46 +0200
+X-Gm-Features: AUfX_mwAp38CvxOzFNFIy663VRohFPhaabl-gVyS3Hkri8cjdi-61b1oibiQvGg
+Message-ID: <CAEWPSH7rQv-yZ+dL+mZi6Mt3rj6gUZhp3r7_Gpjy8=1OArqwUA@mail.gmail.com>
+Subject: Re: [PATCH 4/4] media: rkvdec: align bytesperline to 64 bytes in rkvdec_fill_decoded_pixfmt()
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Venkata Atchuta Bheemeswara Sarma Darbha <vdarbha0473@gmail.com>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+	Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_100029_670293_85876779 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_100759_319805_F3F80DDE 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,32 +123,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Hi
+
+> This shouldn't be needed. As you set step_width to 64,
+> v4l2_apply_frmsize_constraints() should already do the alignment.
+> Do you have more context as to when width is not aligned ?
+
+You're right that the width is aligned -- step_width =3D 64 handles that.
+This isn't the width though, it's the stride, and it only bites on the
+10-bit (Profile 2) capture format.
+
+For 8-bit NV12 the luma stride equals the width, so once the width is
+64-aligned the stride is too and this block is a no-op.
+
+The 10-bit capture format is NV15, whose luma stride is width * 5 / 4
+(bpp {5, 10}, bpp_div {4, 4} in v4l2-common.c). That isn't a multiple
+of 64 even when the width is: a 1920-wide Profile 2 frame gives a
+2400-byte stride, while the VDPU381 needs the luma stride 64-byte
+aligned (2432). v4l2_apply_frmsize_constraints() only rounds the width
+and height, and v4l2_fill_pixfmt_mp() fills the stride with alignment 1,
+so NV15 comes out unaligned and the decoded frame is corrupted without
+this. I can show the before/after on a 10-bit vector if that's useful.
+
+If you'd rather express it through the framework than with a manual
+ALIGN() here, v4l2_fill_pixfmt_mp_aligned(pixfmt, pixelformat, width,
+height, 64) produces the same bytesperline and sizeimage -- happy to
+switch to that in v2.
+
+Igor
 
 
-On Fri, 24 Jul 2026 14:17:54 +0800, Peng Fan (OSS) wrote:
-> This series adds remoteproc node and reserved memory regions for the
-> i.MX95, i.MX952 and i.MX943 EVK boards.
-> 
-> - Patch 1 adds CM7 support for imx95-19x19-evk
-> - Patch 2 adds CM7 support for imx952-evk
-> - Patch 3 adds CM7-0, CM7-1 and CM33S support for imx943-evk
-> - Patch 4, update resource table address for i.MX8ULP-EVK
-> 
-> [...]
-
-Applied, thanks!
-
-[1/4] arm64: dts: imx95-19x19-evk: Add CM7 node and related memory nodes
-      commit: db8398bb31d740e621e3309e929a06adbc664f2f
-[2/4] arm64: dts: imx952-evk: Add CM7 node and related memory nodes
-      commit: 7d1f4e4f62a1b076fb91b708a2dc74432827c3d7
-[3/4] arm64: dts: imx943-evk: Add CM7 and CM33S nodes
-      commit: 89d93ad8afedfcbc8281d07f68b18829325d73ab
-[4/4] arm64: dts: imx8ulp-evk: Update rpmsg resource table address
-      commit: d93dce11f39aaf5c2b246e68f20d47b92e99d331
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+On Mon, Jul 27, 2026 at 5:58=E2=80=AFPM Detlev Casanova
+<detlev.casanova@collabora.com> wrote:
+>
+> Hi !
+>
+> On Sunday, 26 July 2026 16:25:37 EDT Venkata Atchuta Bheemeswara Sarma Da=
+rbha
+> wrote:
+> > From: Igor Paunovic <royalnet026@gmail.com>
+> >
+> > Ensure bytesperline is 64-byte aligned and scale sizeimage accordingly.
+> >
+> > Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+> > Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> > Signed-off-by: Venkata Atchuta Bheemeswara Sarma Darbha
+> > <vdarbha0473@gmail.com> ---
+> >  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 12 ++++++++++--
+> >  1 file changed, 10 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > b/drivers/media/platform/rockchip/rkvdec/rkvdec.c index
+> > 436bb460f04e..6ab6530b1cc9 100644
+> > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > @@ -102,12 +102,20 @@ static void rkvdec_fill_decoded_pixfmt(struct
+> > rkvdec_ctx *ctx, struct v4l2_pix_format_mplane *pix_mp)
+> >  {
+> >       const struct rkvdec_variant *variant =3D ctx->dev->variant;
+> > +     struct v4l2_plane_pix_format *plane =3D &pix_mp->plane_fmt[0];
+> > +     u32 aligned_bpl;
+> >
+> >       v4l2_fill_pixfmt_mp(pix_mp, pix_mp->pixelformat, pix_mp->width,
+> > pix_mp->height);
+> >
+> > -     ctx->colmv_offset =3D pix_mp->plane_fmt[0].sizeimage;
+> > +     /* ensure bpl is 64 byte aligned and scale sizeimage accordingly.
+> */
+> > +     aligned_bpl =3D ALIGN(plane->bytesperline, 64);
+> > +     if (aligned_bpl !=3D plane->bytesperline) {
+> > +             plane->sizeimage =3D plane->sizeimage / plane-
+> >bytesperline * aligned_bpl;
+> > +             plane->bytesperline =3D aligned_bpl;
+> > +     }
+>
+> This shouldn't be needed. As you set step_width to 64,
+> v4l2_apply_frmsize_constraints() should already do the alignment.
+>
+> Do you have more context as to when width is not aligned ?
+>
+> >
+> > -     pix_mp->plane_fmt[0].sizeimage +=3D variant->ops->colmv_size(pix_=
+mp-
+> >width,
+> > pix_mp->height); +    ctx->colmv_offset =3D plane->sizeimage;
+> > +     plane->sizeimage +=3D variant->ops->colmv_size(pix_mp->width,
+> > pix_mp->height); }
+> >
+> >  static void rkvdec_reset_fmt(struct rkvdec_ctx *ctx, struct v4l2_forma=
+t *f,
+>
+> Regards,
+> Detlev.
+>
+>
+>
 
