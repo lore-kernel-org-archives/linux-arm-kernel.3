@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE9FC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 07:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE0C6C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 08:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZStcuhfdE7XxAahWW2ecan0c6zEbfCVD7CPTonvHjSo=; b=HFl7zji5TowpgTX5VhHNb0CFXE
-	0vn+Uq/sRJw1fI//l2JAOKkrMe59ZJxrSafBfK4kMpOq8kDRYXLh7dGh5xzjXJHlboXHpXS5XiMvg
-	E9/ghE7GfTQss2/ak21k2dRpcrOPWJaf4XUFbtkDEpiNPKHnYHBPLNxRwH8OKMaex13ht6FNTNqhS
-	d8e/bVlGJQCZpSXZNpquCfDln1TTuh8szmUrr8ng/Qz1FAuNhsNaUMmliN2xHd7SG2jU1EUzbhHnU
-	qrZ7Xy24FEsJ4xFQmyM8YFgw5OJ/n0RrFDHB7I1uiSMqxvsASlf1pzBjOeb0IGEtTstHlTXzunvwC
-	PxRT1WGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sVSjfAUIt9PKCQrYkQQ+sZ/X6Y4rdmN3ivPK6kPvsmw=; b=MJ+fq4Pnlv9/oQsAulp6L4Sz1V
+	/HNoVzNNJYSHv8W6OHjJYThiRxPLYAliLMGV4B3zqpf1ep6U/3smqaMC7ggAHwzKHeVnZpJhlghR8
+	IvMXWfpnUHCbfDDIy8kmhvxjWSFP1PZt0NKrxLerRjIPRv+AMfVSmb1sE4P1l88YtFcEn783emWNG
+	YekcgNrYgZ2ClnOpZXQHHUeDnuFD/JlEcUw4qRY3VehhsxLLlIBGeAd9jCXrwGWnxBc/sh9s2ABWW
+	68xbhVdz6krAwkXn+7Ba53vmMNnMoqtpCQTEJ8/+JcPvvrh6TNxjMvwCguCkNigj4iufAegSpW3L+
+	j3x5gZ1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woG4A-00000002BHR-3SeI;
-	Mon, 27 Jul 2026 07:48:02 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1woGIS-00000002C6m-2dk5;
+	Mon, 27 Jul 2026 08:02:48 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woG48-00000002BGr-2IYO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 07:48:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ZS
-	tcuhfdE7XxAahWW2ecan0c6zEbfCVD7CPTonvHjSo=; b=CBkWPhc1I89BZjYVgz
-	2ISa/fi0husOK1ZC2jKDPaF2RFEHOebY9qtFwtzHf7y/lM2AmLMIbkwnEJFcqIA6
-	318vwueZQwqLNa2xArFLKj/qz/EMjp/1zteiJgY7VP37trSOeZBwc7uxWLSnn6ZD
-	/ajRq0ym5l46ubQLp7lN4FmrU=
-Received: from fedora (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgA3UdQJDWdq26SaJw--.39752S2;
-	Mon, 27 Jul 2026 15:47:21 +0800 (CST)
-From: Ju Nan <junan76@163.com>
-To: egg12138@foxmail.com
-Cc: jpoimboe@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-modules@vger.kernel.org,
-	linux@armlinux.org.uk,
-	pmladek@suse.com,
-	Ju Nan <junan76@163.com>
-Subject: Re: [PATCH v3] ARM: module.lds: fix unwind metadata for merged .text sections
-Date: Mon, 27 Jul 2026 15:47:09 +0800
-Message-ID: <20260727074708.115112-2-junan76@163.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <tencent_08845B64E5F38EB7FA1779982A071AB4A607@qq.com>
-References: <tencent_08845B64E5F38EB7FA1779982A071AB4A607@qq.com>
+	id 1woGIO-00000002C6H-3w93;
+	Mon, 27 Jul 2026 08:02:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 88EAF202055;
+	Mon, 27 Jul 2026 10:02:42 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1woGIM-001VP2-1U;
+	Mon, 27 Jul 2026 10:02:42 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1woGIM-000000007n2-1U0y;
+	Mon, 27 Jul 2026 10:02:42 +0200
+Message-ID: <d19b673bba6cfb5c9634510ba742021a7135f6c0.camel@pengutronix.de>
+Subject: Re: [PATCH net-next v9 11/12] net: pcs: airoha: add PCS driver for
+ Airoha AN7581 SoC
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Christian Marangi <ansuelsmth@gmail.com>, Andrew Lunn	
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni	 <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Simon
+ Horman	 <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan	
+ <skhan@linuxfoundation.org>, Lorenzo Bianconi <lorenzo@kernel.org>, Heiner
+ Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Saravana Kannan	 <saravanak@kernel.org>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,  Maxime Chevallier
+ <maxime.chevallier@bootlin.com>
+Date: Mon, 27 Jul 2026 10:02:42 +0200
+In-Reply-To: <20260717065448.1498335-12-ansuelsmth@gmail.com>
+References: <20260717065448.1498335-1-ansuelsmth@gmail.com>
+	 <20260717065448.1498335-12-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgA3UdQJDWdq26SaJw--.39752S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZF48uFyrZFyDGFWDArW7CFg_yoWDurgEg3
-	Wvq34Utw17W34Duws8Ar4YyFyDWr4UWF17Jay8AFZIyr40qrsIvw1rAr90vF17Xa1xurZ3
-	ua43XrZ8uwn7tjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7VUUxR65UUUUU==
-X-Originating-IP: [2409:8a62:3e6:69d0:2c5f:9e47:5815:6758]
-X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC0wm5a2pnDQkD8wAA3x
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_004801_038897_E3DDC9F2 
-X-CRM114-Status: UNSURE (   6.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_010245_137662_6C2938A1 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +82,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I ran into exactly the same on a STM32MP157A-DK1 board (dual Cortex-A7,
-ARMv7 AEABI, CONFIG_ARM_UNWIND=y).  An out-of-tree module whose functions
-GCC had placed in .text.unlikely (merged into .text by module.lds.S) left
-its .ARM.exidx.text.unlikely section unregistered, so an Oops inside the
-module produced an empty backtrace:
+On Fr, 2026-07-17 at 08:54 +0200, Christian Marangi wrote:
+> Add PCS driver for Airoha AN7581 SoC for Ethernet/PON/PCIe/USB SERDES
+> and permit usage of external PHY or connected SFP cage. Supported modes
+> are USXGMII, 10G-BASER, 2500BASE-X, 1000BASE-X and SGMII.
+>=20
+> The driver probe and register the various needed registers and register a=
+s
+> a PCS provider for fwnode usage.
+>=20
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/net/pcs/Kconfig                    |    2 +
+>  drivers/net/pcs/Makefile                   |    2 +
+>  drivers/net/pcs/airoha/Kconfig             |   12 +
+>  drivers/net/pcs/airoha/Makefile            |    7 +
+>  drivers/net/pcs/airoha/pcs-airoha-common.c | 1324 +++++++++++++
+>  drivers/net/pcs/airoha/pcs-airoha.h        | 1311 ++++++++++++
+>  drivers/net/pcs/airoha/pcs-an7581.c        | 2093 ++++++++++++++++++++
+>  7 files changed, 4751 insertions(+)
+>  create mode 100644 drivers/net/pcs/airoha/Kconfig
+>  create mode 100644 drivers/net/pcs/airoha/Makefile
+>  create mode 100644 drivers/net/pcs/airoha/pcs-airoha-common.c
+>  create mode 100644 drivers/net/pcs/airoha/pcs-airoha.h
+>  create mode 100644 drivers/net/pcs/airoha/pcs-an7581.c
+>=20
+[...]
+> diff --git a/drivers/net/pcs/airoha/pcs-airoha-common.c b/drivers/net/pcs=
+/airoha/pcs-airoha-common.c
+> new file mode 100644
+> index 000000000000..781f89adf3ab
+> --- /dev/null
+> +++ b/drivers/net/pcs/airoha/pcs-airoha-common.c
+> @@ -0,0 +1,1324 @@
+[...]
+> +static int airoha_pcs_setup_scu(struct airoha_pcs_priv *priv,
+> +				int index, phy_interface_t interface)
+> +{
+> +	const struct airoha_pcs_match_data *data =3D priv->data;
+> +	int ret;
+> +
+> +	switch (data->port_type) {
+> +	case AIROHA_PCS_ETH:
+> +		airoha_pcs_setup_scu_eth(priv, interface);
+> +		break;
+> +	case AIROHA_PCS_PON:
+> +		airoha_pcs_setup_scu_pon(priv, interface);
+> +		break;
+> +	case AIROHA_PCS_PCIE:
+> +		airoha_pcs_setup_scu_pcie(priv, index, interface);
+> +		break;
+> +	case AIROHA_PCS_USB:
+> +		break;
+> +	}
+> +
+> +	/* TODO better handle reset from MAC */
 
-  Call trace:
-  unwind: Index not found bf102018
+What does this mean? There's a "mac" and a "phy" control in rsts.
+Should the "mac" reset be handled differently? Or is there a separate
+reset line that is controlled by the MAC itself?
 
-With this patch applied, the module's exidx is coalesced into a single
-.ARM.exidx output section, module_finalize() registers it against .text,
-and the full module backtrace is restored:
+> +	ret =3D reset_control_bulk_assert(ARRAY_SIZE(priv->rsts),
+> +					priv->rsts);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D reset_control_bulk_deassert(ARRAY_SIZE(priv->rsts),
+> +					  priv->rsts);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
 
-  Call trace:
-   do_the_crash [oops_null] from level_one+0x8/0xc [oops_null]
-   level_one [oops_null] from level_two+0x8/0xc [oops_null]
-   level_two [oops_null] from trigger_write+0x18/0x20 [oops_null]
-   trigger_write [oops_null] from full_proxy_write+0x54/0x78
-   full_proxy_write from vfs_write+0xd0/0x49c
-   vfs_write from ksys_write+0x6c/0xf4
-   ksys_write from ret_fast_syscall+0x0/0x54
-
-Tested on Linux 7.1.4
-
-Tested-by: Ju Nan <junan76@163.com>
-
+regards
+Philipp
 
