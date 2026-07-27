@@ -4,54 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2079AC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C84CC54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HNVs8+hT9kItazy6RpqgZDgK0NhhYEZGk+Px7mtigo4=; b=NGz1hSGby1rm7o
-	zIQQDbgW4oyNBMDvN2Bo6F0M/ODXDR8lsP8cuDFrKxfHoRRaOqbIYL8EEj85cckvOstrSBeP5ypOG
-	gy8bpSE7XAt3oF/ebVmwbv6C5cMOZH4X1PtoP/KqMk05bqZDmXDLgzznKK7ASelox1IBT54dhq4zN
-	POAjTbPTkMSqjAM8X3k+t+vq0aidEXY2ZSQvasLTfhptV5q1QE1RYTbIDjzhTaH9pbwh0FcxcSDDo
-	OND2lByQK2T6+oLCyDfIWcfAa6ajzNDEpaHv0H6Y5j/7C4mV+ukryEQaLdDj8BJrZtC31TdwJGM1o
-	0fs1HUrKZHOejcZuBz/A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6jRO/10N/zvQgQ5YhIHQJf/DZBZyqM7tDf/bFYg+EZU=; b=NtPlbzAAOA+fesIp8eD0zt7YsI
+	bmFwRioUQtySMyPQTdMBv36nKuOPUaPKcXZ2NxdNIyCPxLJwEA+5MSinM3OxWj9UomzJzvYBMe6B4
+	5jENgv2YeZ/LCOhPgHN2awNZuxcH8rcJCDYGRFfZYb6NVbCT1hGJm6b530olAyHrrmfWVu5HJd2im
+	0vGR9R/rFaZfBC00Xm4Z8NVf9UL8uwL2oD7FxQQcx72k2FOv1D/Nns7W9Nhj6ulDwroNRexYrmiJr
+	ztfN5nELH0VdBWJRMPIqavNJoXmU492u5m3AR26tEWYLynqCKcYu+EMVn9LjFcv8voNd0h1ppt7Ik
+	e9j8fB5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKxs-00000002lze-22Up;
+	id 1woKxs-00000002m0U-3NVf;
 	Mon, 27 Jul 2026 13:01:52 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKxi-00000002ltf-1dD2
+	id 1woKxi-00000002lu7-3Slz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:01:44 +0000
+	Mon, 27 Jul 2026 13:01:45 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1785157294;
+	t=1785157298;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HNVs8+hT9kItazy6RpqgZDgK0NhhYEZGk+Px7mtigo4=;
-	b=Mf7FqoGgHbbINxfvs/08ISE0FHazlgEtxJ57oAFhOZXnMDa7zzR6Ua5j6zMNpiLjFsbN9q
-	qPUDN/hg/4jw8OF8MSJpRWE+NAO5YRHu1TzQzM+x7tx5SB50uZTfp7dtVTofKe3LxRK/VT
-	HIkK7SNMe8b+WnkMeDfgyMc5EDd/vCRNaRFHDw70GiFS/stodBVFKzCqS+4rCmcHw/F8DW
-	0N2jy71q3m8/r+qQQx3WWNvZciKQA0b6kcJpzBSm5wobVhDNUIA+r2VMH76nPmutS6+1aw
-	fNAeEpEQ1wi//We0J+kVDKumz1kyznG60Tzx18j/oEuOJaSVVz8Obmd2G8Bfew==
-Subject: [PATCH v4 00/11] Support ELE API in i.MX OCOTP NVMEM driver
-Date: Mon, 27 Jul 2026 15:00:43 +0200
-Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6jRO/10N/zvQgQ5YhIHQJf/DZBZyqM7tDf/bFYg+EZU=;
+	b=eRdj98dR2gNRTGLEUcMd4wvGKfZ/888segVmzD4knEMYOnkxIlATOkEh9npSYnSZAFUhb7
+	4KraqSO9K3HZj/6LxbdQSGB+3BppWRsgnIHAp3qpbmHAz08W7QvK11Ev6Rm0bzvJwL4c+m
+	NcJfEStht09FXlXiPx4nzY9JJyyg8030a2CEAkuYsFrud9Svn0jBMdTZl0/OJZo+/aO3qf
+	G+xZxrzg4u8uFN38HE2IFk1cfpjxT6yzrvSC0aVQPFnmqIVlys+JlpFBwPd/cfAqjiVW5r
+	2jkPd0iQoyWYwvRFmbjVw3xYX+fbvO3paqarWa5sy86Cqb2xOuXmmTpiHi23RA==
+Date: Mon, 27 Jul 2026 15:00:47 +0200
+Subject: [PATCH v4 04/11] nvmem: imx-ocotp-ele: Add keepout table for
+ i.MX93
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XRS27DIBAG4KtYrEvE27FXvUfVhYFxQluDCxi5i
- nL34niRVt00y2FG36B/LihBdJBQ31xQhOKSC74W4qlB5jz4E2Bna40YYYooqvAypxxhmJw/YQ9
- rxnuHdNhNKw4m5BnDB+BBUmbt2ClNOKraHGF0623Ty+tep0W/gckbv02cXcohft2+Uug29/jWQ
- jHBRrcjV93RcFDP78HnGPzBAtrWFnaHW8r/D7MK6yNTynZcUqH/wPwHzB6AeYWBqY4TLqQW5hd
- 83ZOK8LnU0+Q9vvtl+qaqgkjS3tRU30Y8CEKkJB23RvWFky1bPdSeCdPkct+U9sBwNKLy129he
- HVBAQIAAA==
-X-Change-ID: 20260616-upstreaming-next-20260609-imx-ocotp-ele-a512ddf96b03
+Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-4-1a515de33093@kontron.de>
+References: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
+In-Reply-To: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
@@ -62,20 +59,19 @@ To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
  "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6460;
+ linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1912;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=YK5OdSR1QowU1r8WBPCaMWSaLr3DPL1F/O73F49XiFM=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bHrljJuTFDP2N163OFF0bQHrrv0LbAsTRQ56GO9+W
- N1qsf1iRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwET27mFkmMXd1rf6R9AlI/5N
- hye7OPf5/ra2VM27tftp1tTASStKZjAyXJkjPU1R8MKVqPLvdY6XN9mkrJxpFHKAc66z6zaZ4J6
- LjAA=
+ bh=uWHeQFtm8hXfW7ZA55vuDeShYnRX7s0r6QBPlDcypKQ=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bNVbXg0NPtmQku0GRWk7hO9WJ6xKX/zGU6ZUWaznj
+ c1+U+eOUhYGMS4GWTFFFil+i9e2ZrE+8seqo2DmsDKBDGHg4hSAiWyPZPinmmWwt2CdzfE9p09p
+ R2m2NzTFtXZvrWJ2NHq9ek7swXt9DP8T3HYF/LR2sPun87Vz0tWOc83183+Ib1rT0bdZ4chDh24
+ uAA==
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_060142_870042_14FC1DB7 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20260727_060143_011599_AC2C9D9E 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,134 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset depends on "firmware: imx: driver for NXP
-secure-enclave" [1].
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-The imx-ocotp-ele.c driver currently uses the limited FSB (fuseblock)
-to access the fuse registers. In order to gain full read/write access
-to all fuses, we need to use the Edgelock Secure Enclave firmware.
+Add an overall keepout table to describe which fuse registers are
+invalid and not accessible. No functional changes intended.
 
-This patchset does:
-
-* Add bindings to reference ELE device in OCOTP driver (patch 1)
-* Export ELE API functions (patch 3)
-* Let the OCOTP driver use the ELE API (patch 7)
-* Extend the devicetree of i.MX91/i.MX93 boards for using the ELE API
-  (patch 10/11)
-
-The rest of the patches contain cleanups that were implemented along
-the way.
-
-This was tested using the 'crucible' tool and by directly reading
-from the nvmem device on i.MX93.
-
-This still lacks support for the i.MX94 and i.MX95 as I don't have
-the hardware for testing on these platforms. As the documentations is
-incomplete it is hard to get the keepout table right without testing
-on the actual hardware. If someone else can provide the data and
-testing, I can add it in a future version. If not this can be done
-later.
-
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
-Changes in v4:
-- Reorder allOf in bindings and extend property description (thanks Krzysztof)
-- Add R-b from Krzysztof
-- Add R-b from Frank
-- Improve scope-based cleanup (thanks Frank)
-- Move firmware node from patch 11 to 10
-- Link to v3: https://patch.msgid.link/20260723-upstreaming-next-20260609-imx-ocotp-ele-v3-0-e26930345b4c@kontron.de
+ drivers/nvmem/imx-ocotp-ele.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Changes in v3:
-- Fix bindings to correctly ignore the secure-enclave property for SoCs other than i.MX93 (thanks Krzysztof)
-- Rebase on latest ELE driver patchset (v29) [1]
-- Enable ELE in all board devicetrees (suggested by Francesco)
-- Put the reserved memory somewhere in the first 256MB of DDR
-- Link to v2: https://patch.msgid.link/20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index a0d2985c6d03..dadec19ca252 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -34,6 +34,8 @@ struct ocotp_devtype_data {
+ 	u32 num_entry;
+ 	u32 flag;
+ 	nvmem_reg_read_t reg_read;
++	const struct nvmem_keepout *keepout;
++	unsigned int nkeepout;
+ 	struct ocotp_map_entry entry[];
+ };
+ 
+@@ -163,6 +165,12 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 	priv->config.read_only = true;
+ 	priv->config.add_legacy_fixed_of_cells = true;
+ 	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
++
++	if (priv->data->nkeepout) {
++		priv->config.keepout = priv->data->keepout;
++		priv->config.nkeepout = priv->data->nkeepout;
++	}
++
+ 	mutex_init(&priv->lock);
+ 
+ 	nvmem = devm_nvmem_register(dev, &priv->config);
+@@ -172,6 +180,14 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++static const struct nvmem_keepout imx93_ocotp_keepout[] = {
++	{.start = 208, .end = 252},
++	{.start = 256, .end = 512},
++	{.start = 576, .end = 728},
++	{.start = 732, .end = 752},
++	{.start = 756, .end = 1248},
++};
++
+ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 	.reg_off = 0x8000,
+ 	.reg_read = imx_ocotp_reg_read,
+@@ -185,6 +201,8 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 		{ 188, 1, FUSE_ELE },
+ 		{ 312, 200, FUSE_FSB }
+ 	},
++	.keepout = imx93_ocotp_keepout,
++	.nkeepout = ARRAY_SIZE(imx93_ocotp_keepout),
+ };
+ 
+ static const struct ocotp_devtype_data imx94_ocotp_data = {
 
-Changes in v2:
-- Adjust bindings to allow secure-enclave only for i.MX93 and improve commit message (suggested by Krzysztof)
-- Export generic ELE API functions to be used by drivers (suggested by Frank and Peng)
-- Move the fuse read/write functions to the NVMEM driver (suggested by Frank and Peng)
-- Add patch to use __free(kfree) in imx_ocotp_reg_read() to fix memory leak (reported by Sashiko)
-- Use device link to prevent SE device from being unbound while referenced (reported by Sashiko)
-- Link to v1: https://patch.msgid.link/20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de
-
-[1] https://patchwork.kernel.org/project/linux-arm-kernel/cover/20260721-imx-se-if-v29-0-04a362f4fcca@nxp.com/
-
-To: Srinivas Kandagatla <srini@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-To: Peng Fan (OSS) <peng.fan@oss.nxp.com>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux@ew.tq-group.com
-
----
-Frieder Schrempf (11):
-      dt-bindings: nvmem: imx-ocotp: Add support for secure-enclave
-      firmware: imx: ele: Fix indentation in ele_base_msg.h
-      firmware: imx: ele: Export API functions
-      nvmem: imx-ocotp-ele: Add keepout table for i.MX93
-      nvmem: imx-ocotp-ele: Remove device-specific reg_read()
-      nvmem: imx-ocotp-ele: Use scope-based cleanup helpers in imx_ocotp_reg_read()
-      nvmem: imx-ocotp-ele: Support the ELE API
-      nvmem: imx-ocotp-ele: Remove the FUSE_ELE type
-      nvmem: imx-ocotp-ele: Rename FSB access map
-      arm64: dts: Add ELE firmware node and common include
-      arm64: dts: Enable EdgeLock Secure Enclave on all i.MX91/i.MX93 boards
-
- .../devicetree/bindings/nvmem/imx-ocotp.yaml       |  23 +-
- arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts  |   1 +
- .../boot/dts/freescale/imx91-11x11-frdm-s.dts      |   1 +
- arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts |   1 +
- arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts    |   1 +
- .../boot/dts/freescale/imx91-phycore-som.dtsi      |   1 +
- arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi  |  15 +-
- arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi  |   1 +
- arch/arm64/boot/dts/freescale/imx91-var-som.dtsi   |   1 +
- arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |   9 +
- .../boot/dts/freescale/imx93-11x11-evk-common.dtsi |   1 +
- arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts |   1 +
- arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts  |   1 +
- arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts    |   1 +
- arch/arm64/boot/dts/freescale/imx93-firmware.dtsi  |  28 +++
- .../boot/dts/freescale/imx93-kontron-osm-s.dtsi    |   1 +
- .../boot/dts/freescale/imx93-phycore-som.dtsi      |   1 +
- arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi  |   1 +
- arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi  |   1 +
- arch/arm64/boot/dts/freescale/imx93-var-som.dtsi   |   1 +
- drivers/firmware/imx/ele_base_msg.c                |  42 ++--
- drivers/firmware/imx/ele_base_msg.h                |  16 +-
- drivers/firmware/imx/ele_common.c                  |  35 ++-
- drivers/firmware/imx/ele_common.h                  |  14 --
- drivers/firmware/imx/se_ctrl.c                     |   6 +-
- drivers/firmware/imx/se_ctrl.h                     |  14 +-
- drivers/nvmem/imx-ocotp-ele.c                      | 239 +++++++++++++++++----
- include/linux/firmware/imx/se_api.h                |  78 +++++++
- 28 files changed, 428 insertions(+), 107 deletions(-)
----
-base-commit: 6946cd5d0aa4dd10a414ddcb7a10844fdb0ad345
-change-id: 20260616-upstreaming-next-20260609-imx-ocotp-ele-a512ddf96b03
-prerequisite-change-id: 20240507-imx-se-if-a40055093dc6:v30
-prerequisite-patch-id: 0996915f031a1d899202c5fba75a969d6ce2a53d
-prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
-prerequisite-patch-id: d27164b5932b6d7f4bd5494e4058c84841db4d77
-prerequisite-patch-id: 6a9642b23090d9f1ae18bc8969e30217d053938b
-prerequisite-patch-id: cdd5a258a3157d609115ccf8b8606d1fcdf520e8
-prerequisite-patch-id: d6a8cd2161ea713eebeff46d12f6ae1255c24561
-prerequisite-patch-id: 1d8b2e78db2815eaace41a13d571171fb58e4221
-
-Best regards,
---  
-Frieder Schrempf <frieder.schrempf@kontron.de>
+-- 
+2.55.0
 
 
