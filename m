@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1C6C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 00:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9977AC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 01:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cePsuwFbqleCO0lprDfloU/DeGUmtkvcYNUIMucMeWg=; b=gfaqaR4Ouki83cDpSAmntfduSP
-	KHDtpqaVh8ug81sL7HHqircjWZEub4LaSUW9u59FW+ozy+1VI5fOId50T5xtNhtThYvelNMK/4LyH
-	2g89dfAQDZ1ZYxl1DuwzC0qdOe17XTpiEgc8D3w3R7W8Kt98XXwkPYlthIZf8yFwbVpMSFL0khtCB
-	8MAVuZ8prBBp9PTJqXbsayE4wBbRDyOcoxOHB7AaNEowzkRTaDfx8dEuNEhiBYyJZobjz1IB5Ky8h
-	aw4zWLYTtSFvHR6u1SGOasZ3WePrcDnrjsIyqRWE6qBrmsfotf0cH+85LvQ0vJUk2sV6V20+VgY/b
-	7NLpBw9w==;
+	bh=Wem6sNRnY30doJw+U7poipVgShNMLZwf2O/edq87Z4c=; b=3k8xgolMhsSm3wGMEBvCGGhiaW
+	NTycoqm9kSuK5ITglV/h5vy79oDJH/KmvcuL9H2s3kXhfXs3oiS5abpE0ivwYpYEK4k3PP4/P9ZdG
+	T3JWvO0MXR5PihHzG31Yx8nNM1BKzY6e29gezY6wI51ZXMARgQO3yVCKdKtU3Dm8v3y47lVeF/20u
+	a1Bg4snD8ZHfbcKnZHDDzCP6h+cEwKby2CSERLTPKrOEP5b3arvlJyY2ZSKuLSw6TwqN0utHiI06Q
+	GYljEkDXehgyiyd1i4WWAfrvh7BF5oh/Y5YyYu6ko9NYvz+eXr8kIDBF9c1ioZXhEpyKZpdifTFnh
+	rfgkegSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo9KH-00000001kEw-1Fsl;
-	Mon, 27 Jul 2026 00:36:13 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1wo9h5-00000001kiP-0LJS;
+	Mon, 27 Jul 2026 00:59:47 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wo9KC-00000001kDO-3BRE
+	id 1wo9h1-00000001ki1-3i0R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 00:36:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=cePsuwFbqleCO0lprDfloU/DeGUmtkvcYNUIMucMeWg=; 
-	b=M3sJhciDYj+wPs6LfKGT/qM9VynYmUYn/zWlVcCxF+HHeDkGuyNPkfcusRx7lZOf8QTI/fnvnN9
-	4pFvE670qS4cQsIC9g7WOWCBuRGQDHS1LyM4YYr0hdJ+qt9mHt9VM+1tT7h/bTxg3uzt57OucXAzb
-	1qBIs1V3+k0VpkOvuAy2BxslF/jyYxckOEDqkcZHKyUwFIIEdae8sUZV2NPROESy4Z4Co+V8gMam9
-	CtyCgJJKIGpslss5NraFX7fGgm5k7/vmQCjI+cDlF3nEs0VlbXVM71SBRzI287dKUPeU6Y+EwMzfv
-	GoD50ZrURqRJZ00jpa6ucoVu3RtJSzVVJBgw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1wo9K2-0000000Gz3v-0xch;
-	Mon, 27 Jul 2026 08:35:59 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 27 Jul 2026 10:35:58 +1000
-Date: Mon, 27 Jul 2026 10:35:58 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Can Peng <pengcan@kylinos.cn>
-Cc: olivia@selenic.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, danielt@kernel.org, linusw@kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] hwrng: stm32 - Fix runtime PM cleanup on registration
- failure
-Message-ID: <aman7sL1uDcwcQ4i@gondor.apana.org.au>
-References: <20260718032937.420561-1-pengcan@kylinos.cn>
+	Mon, 27 Jul 2026 00:59:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1785113974;
+	bh=Wem6sNRnY30doJw+U7poipVgShNMLZwf2O/edq87Z4c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=YAF55WGKe7CUjz1wzdmUr4eKEYEB/bTanhieEjBYhte6/JxqrMNyHj4DHHrQJO6Mb
+	 uhRXTx0SRTtXm2QRG7uNzmWwz8rs6J/6icb7XJ13zvNDka+DxeBb6XNAmb5C0pHkkw
+	 1OEx9jTmZY+Z2x4pOyEqUDW/v+y7aDH+Lytxj9bVqjyVKhU4aLMVy9vBsgYZYIa+jV
+	 lQOTiXwT3JYda5B9Gpflk6ncUO3n3votu1DGyCJeDVPATB31ahaZPNB13BXldO1ZqJ
+	 HHgL+A3/f3gZBMebZgTwtIK9Wz74lPrvo13awshfc6LuP1owwpVdqyeO7eNlLO3lTk
+	 ldqBNxkAOD+Xw==
+Received: from [192.168.68.117] (unknown [180.150.113.112])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 2D322608E3;
+	Mon, 27 Jul 2026 08:59:32 +0800 (AWST)
+Message-ID: <3a997fc11b172a5b93cb04307a6ad2bdfd5845cf.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v8 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Kyle Hsieh <kylehsieh1995@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, 	linux-kernel@vger.kernel.org
+Date: Mon, 27 Jul 2026 10:29:31 +0930
+In-Reply-To: <CAF7HswMG1HWxELQxTSaEWVeWi2Mjk8HpuM18AAVLCV5j_r467Q@mail.gmail.com>
+References: <20260615-ventura2_initial_dts-v8-0-c89f92c80447@gmail.com>
+	 <20260615-ventura2_initial_dts-v8-2-c89f92c80447@gmail.com>
+	 <de6f82c5601a4481e418270171e803340368bd2a.camel@codeconstruct.com.au>
+	 <CAF7HswMG1HWxELQxTSaEWVeWi2Mjk8HpuM18AAVLCV5j_r467Q@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260718032937.420561-1-pengcan@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_173608_803353_E86ECEAC 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20260726_175944_166907_22122090 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +75,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 18, 2026 at 11:29:37AM +0800, Can Peng wrote:
-> stm32_rng_probe() enables autosuspend and runtime PM before registering the
-> hwrng. If devm_hwrng_register() fails, probe returns with runtime PM left
-> enabled and autosuspend still selected.
-> 
-> The remove callback also only disables runtime PM and does not undo
-> pm_runtime_use_autosuspend().
-> 
-> Use devm_pm_runtime_enable() so runtime PM is unwound automatically on
-> probe failure and driver detach. Since the managed cleanup also disables
-> runtime PM,drop the remove callback.
-> 
-> Fixes: c6a97c42e399 ("hwrng: stm32 - add support for STM32 HW RNG")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Can Peng <pengcan@kylinos.cn>
-> ---
->  drivers/char/hw_random/stm32-rng.c | 10 +++-------
->  1 file changed, 3 insertions(+), 7 deletions(-)
+On Thu, 2026-07-23 at 16:40 +0800, Kyle Hsieh wrote:
+> Hi Andrew,
+>=20
+> Thanks for taking the time to review this.
+> On Wed, Jul 22, 2026 at 7:46=E2=80=AFPM Andrew Jeffery
+> <andrew@codeconstruct.com.au> wrote:
+> >=20
+> > On Mon, 2026-06-15 at 10:46 +0800, Kyle Hsieh wrote:
+> > > Ventura2 is a Rack Management Controller. It is a modular
+> > > device designed to manage liquid cooling systems and monitor hardware
+> > > states within an IT rack. The system uses an AST2600 BMC for manageme=
+nt.
+> > >=20
+> > > RMCv2 serves several critical roles:
+> > > - Detects liquid leakage at both tray and rack levels.
+> > > - Communicates with and controls liquid cooling equipment.
+> > > - Manages leakage events and executes system recovery protocols.
+> > >=20
+> > > Key hardware features include:
+> > > - An extensive I2C and IO expander topology to support comprehensive
+> > > =C2=A0 sensor monitoring and backward compatibility with legacy trays=
+.
+> > > - MCTP over I2C support for asynchronous device communications.
+> > > - A dual-flash design for BMC firmware redundancy.
+> > >=20
+> > > Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
+> > > ---
+> > > =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=
+=C2=A0=C2=A0=C2=A0 1 +
+> > > =C2=A0.../dts/aspeed/aspeed-bmc-facebook-ventura2.dts=C2=A0=C2=A0=C2=
+=A0 | 2903 ++++++++++++++++++++
+> > > =C2=A02 files changed, 2904 insertions(+)
+> >=20
+> > We now have scripts/dtc/dt-check-style. Running it over the dts with '-
+> > -mode relaxed' yields 49 instances of 'mixed-indent-chars' - these must
+> > be fixed. Further, can you please look at the output with '--mode
+> > strict', address all the warnings that are reasonable, and then discuss
+> > what's left?
+> I have fixed all 49 instances of the 'mixed-indent-chars' formatting issu=
+es.
+> I also ran it with '--mode strict' and addressed the formatting
+> warnings accordingly.
 
-Patch applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Thanks.
+
+> >=20
+> > Otherwise, there are still some concerns reported against the bindings:
+> >=20
+> > =C2=A0=C2=A0 $ make CHECK_DTBS=3Dy aspeed/aspeed-bmc-facebook-ventura2.=
+dtb W=3D1
+> > =C2=A0=C2=A0 ...
+> > =C2=A0=C2=A0=C2=A0=C2=A0 DTC [C] arch/arm/boot/dts/aspeed/aspeed-bmc-fa=
+cebook-ventura2.dtb
+> > =C2=A0=C2=A0 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb:=
+ /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: =
+['aspeed,ast2600-lhc']
+> > =C2=A0=C2=A0 /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_=
+g5/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: fan-controlle=
+r@20 (maxim,max31790): 'channel@2', 'channel@5' do not match any of the reg=
+exes: '^fan@[0-9]+$', '^pinctrl-[0-9]+$'
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 from schem=
+a $id: http://devicetree.org/schemas/hwmon/maxim,max31790.yaml
+> > =C2=A0=C2=A0 /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_=
+g5/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: i2c@400 (aspe=
+ed,ast2600-i2c-bus): Unevaluated properties are not allowed ('aspeed,hw-tim=
+eout-ms' was unexpected)
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 from schem=
+a $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml
+> > =C2=A0=C2=A0 /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_=
+g5/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: adc@48 (ti,ad=
+s1015): '#address-cells' is a required property
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 from schem=
+a $id: http://devicetree.org/schemas/iio/adc/ti,ads1015.yaml
+> > =C2=A0=C2=A0 /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_=
+g5/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb: adc@48 (ti,ad=
+s1015): '#size-cells' is a required property
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 from schem=
+a $id: http://devicetree.org/schemas/iio/adc/ti,ads1015.yaml
+> > =C2=A0=C2=A0 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb:=
+ /ahb/apb/bus@1e78a000/i2c@580/power-monitor@69: failed to match any schema=
+ with compatible: ['pmbus']
+> > =C2=A0=C2=A0 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dtb:=
+ /ahb/apb/bus@1e7a0000/syscon@0: failed to match any schema with compatible=
+: ['aspeed,ast2600-i3c-global', 'syscon']
+> >=20
+> > Can you please tidy these up?
+> The board-specific bindings have been fixed:
+> - Removed the invalid `channel@X` subnodes from the `maxim,max31790`
+> fan controller.
+> - Dropped the deprecated `aspeed,hw-timeout-ms` property from the I2C bus=
+.
+> - Removed the incomplete `ti,ads1015` ADC and generic `pmbus` power
+> monitor nodes to fully comply with upstream schemas.
+
+Thanks.
+
+>=20
+> However, the warnings for `aspeed,ast2600-lhc` and
+> `aspeed,ast2600-i3c-global` still remain.
+> Since these nodes are inherited directly from the SoC level
+> (`aspeed-g6.dtsi`), it seems their YAML bindings are not yet merged
+> upstream.
+
+Yes, it is fine to disregard these for now.
+
+Andrew
 
