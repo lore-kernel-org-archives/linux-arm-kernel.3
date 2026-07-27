@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDC3C5321C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A875EC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OICCS3yLJZnEdkP0xlPeHb8B7fyLwNgxSSOf4ztj6D8=; b=sL2LD8rLQ5H4qX
-	+QC+d1uZN/Xeho7kx5Yhy8OYcS5p10mP7JHKn8kh/62irWypG/Jp2/4aefglXAYbwgpitNw25dD54
-	Hx9qpywJpcavAO463LZ7KjS9UMRtIHevCzXj7eXLSWObB3J1PUH8b/KT5OmrbHpkyMsV3Gj9KNQBE
-	G3WNvPch1p0COfFurd6mgTklxDzcHDaGkBZCJz4gaGhqaDLNUi7jdUcSv2Ti1mJs8ecQRt/zflPeZ
-	FCgt+hZuzIj+UocVk7Heg5rLAaIe/76+KCTLfDXavDJbn4Mh7yq5JykGLfrGsDQsRCsEHXmm9uQEY
-	1P0CKVncu7KHaVVktjVg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CBfwpYWZGknAk49tg2TJoJhiClH6trZKMQ65EFXSEDI=; b=II/MlFXUr0mb8S6EwY6umnZUGg
+	WZ5TuenlEzyp9NUDF95TQ4SmnfrQUlKRcmPmLH0S7VLxYnSZsyfhrG8sNK9HHon2XRfypmbbQ1ab2
+	IjG2z0ws+Ky5RzXb5F/MoBOAybuBUSy4Xo+7LA44evUqToTh+qedQ4Du2zBUvMIkwPwRkjJp05iBt
+	0+j+L5PblftQGnibKLZlK4Dnz217GWaQuSlavpVninDBvpLZjw0o1T+NUrryBjnA2+WXFyV1oB/O9
+	edHLQHVrO6al/wHvkYkzoL+Edn65I9ZjpgHwckTR8N92Cx7EcRkXAX8XfvL1PqGLZxhGFEozvvwDu
+	QFndz8qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKAe-00000002dNg-22Vc;
-	Mon, 27 Jul 2026 12:11:00 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1woKAl-00000002dRr-3OCl;
+	Mon, 27 Jul 2026 12:11:07 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKAb-00000002dMY-1QVy
+	id 1woKAd-00000002dN9-1DHD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 12:10:58 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493f75f7172so22819495e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 05:10:55 -0700 (PDT)
+	Mon, 27 Jul 2026 12:11:01 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49553515a8bso30990775e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 05:10:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1785154254; x=1785759054; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=OICCS3yLJZnEdkP0xlPeHb8B7fyLwNgxSSOf4ztj6D8=;
-        b=TuVDVaVpBMTCNmM0k8D4LHlgKhosYzF0JmIYL998Enbvt3HsVtvHLCrTL9EepXS1lE
-         NxAdtZLlCMpYHcT9MlFackM2CajIg8F5fjGjUCfgbXGQ8ic++5b6qB1YFQWZY1M2jEK2
-         LYkhSTNm1xR733Ac12sYxp3G9ptwb2qs7Z32QIhPVcdr0VS52zdr21vyUHvTHRVDyojE
-         ZnbWvi55pqtJ5XPuOmQHHJMdRLQCV2mCta6ZkloaHrMHX4RqL6R+mtCsOfHyPZ27gn8o
-         MaV4lXpps7KXzksN6SitAaAJo1FVCLixAWRwVjx9KSa232m10BkNpqbNn67AkQmt8HaR
-         OdRg==
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1785154257; x=1785759057; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CBfwpYWZGknAk49tg2TJoJhiClH6trZKMQ65EFXSEDI=;
+        b=jWAMlj63ZQwbJX1O6T9c4b06nrysfYcIs6/ahWhnOzH6+4dKvqDOXIcxgdd+YWZJmx
+         JyKvk6p0FWkNH8UJDRfnkX8jFbVnu2a859RSszL+GmL7Lj2g4CIbfUYQ4EruvlQMyzDP
+         EkiEGVLgZunqMpB70gb9hI3z7/9j+Be39LbKagg0xiMXDAex188FzE7bmJzuifT5OMBX
+         TMsJr/TNR3iH3TSymXOzWKs8MTXSykI40Cyf/StQnSCc/kqcNLiXBuCe6BG8hVrxkRjf
+         9OqqlCMn8Oe5nj88JblgF/KEC+aodwJmOkOSrUmYh/Oq+1E2HmMH6TijSQkP2I8In5AZ
+         Zn1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785154254; x=1785759054;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=OICCS3yLJZnEdkP0xlPeHb8B7fyLwNgxSSOf4ztj6D8=;
-        b=XOX1VMZogUeE6aRSF5k8OpdQh653MUMzOugkI/ZZh54Aymano4X4DzEVk67+Bafpqi
-         r5BgOyapY/xDnHOm7slw4SFDxCAVQk4NLUE7BIe14s5d8l/zTGlMWUAVLQdjaEY0yupN
-         4WWnA8Y3SC4FKGdodj/sofBoHUJp/wvkfEgxvkkIKIod52cvUGPgryfdae6SMB6CVyQO
-         MPr7QTMOJJgv6P9959HniGk1xjlBjmMlf7mopxDwgdp3kC0Gm2lCw3SAyiqPEs6+rnEq
-         0ATFUWmtXgpc83t8nX8SJetE8Evhk5e70ZySjkoztRRIkIar3HVWfSWNM59BVtlUHrd7
-         3ZmA==
-X-Forwarded-Encrypted: i=1; AHgh+Rprb+D4SKnENoZbMGZaCzKy2RsjEgq3axGWHUTfhBVy6NjjL0NNCjw8oVeJ9gTOAf6VRkPdWWiDbqJfBRLnydCq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqDpdHZp29+NLvTME8iTOFLHNqb21spyYNrrCglYGkaYmnvzy0
-	pbF4wg/p/xgGf6bGIcX3gE6IFUOzZj6JRoNS8Zlri85gR82M6wY1JIMSLU7sxFSH4L8=
-X-Gm-Gg: AR+sD13iPnCaGM6dPxBiL1TIofo2/BDvADQbe9U+Nm35MekbC2HSQhgyoTYJuwcwOID
-	K4hsZmjxRVq5bZQMVIE1R2LzG7ZvMpEJY7vuzWvX1J71x3ZPOclh2yA9XhZ5oeNPp5dt+qeSg/R
-	ebQT7yYyeHMs+m1Kecf7OkoRmLdlFUI8ZuLj9Xq7PETz/ZBA16DiVE0iAwRDX6tEKrPNSua1hkc
-	f1HH2PZinV3wQAZQBLKQ5GdblJxdpj0caR//U5HySA0ualdqy7p367HCjlIylkiVkwI1lEYJuju
-	IlvgnQ5VxLq1bVcm3gIX7EcV6ErFOYM7b0dSjNQZI8WM8MCim0sylislFUtdjXmGSCuAT1E84tr
-	l+uL2Kp73DVPXJ9bMyLBmPUckkX506pFNu6Qg0WVMGUSAGZfGRelZaRxhxJoWPhlWAZOueAVuZH
-	H/yPTU5a0EW+XBADxkX8w=
-X-Received: by 2002:a05:600c:1d0d:b0:493:c47f:3c55 with SMTP id 5b1f17b1804b1-496b56bbc2fmr104042095e9.5.1785154253954;
-        Mon, 27 Jul 2026 05:10:53 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785154257; x=1785759057;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CBfwpYWZGknAk49tg2TJoJhiClH6trZKMQ65EFXSEDI=;
+        b=EgBa4fH14SwP9vhHBS163j325rkC9nm6YfFSrm+PpvHELb2E2E0vXivZUdrqs2rxRJ
+         58hvhjPIFUS++q0noUM+DmL39TmDGdHm2TCv4j98TfpPawB1DQDWEEBmNnzMpk5ONc56
+         g5eohqCCNU/8N85QXafk7IeU+SeByZKjL59e5rVLsgpx+W1Da2JjtJVN8vPsphsqt4NI
+         Hxbh/X3EDBJ4NYcyPCmieEsEGbiSzlD1EP+YXkqokXdsIYTF0ZPl6SioQaeyicV4YGx7
+         3vnSnAvdszB1hXiIRATUU1m42TmTsUmKi6ooSjV0t0QniKaDpHbo41VBT6MZmewGDsRc
+         NGlA==
+X-Forwarded-Encrypted: i=1; AHgh+RpK7jH++hbEn/7+NZ+xg2u+piiO7o690sLJvd+Dn0HLODfas5oE3Ol88SxmcihwTjGnDSw7IiINkq/0MdeWEciG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGFwBh7hKbaDeNQZh4bJR5CyDPxGr+wyKHZT8bJdPdELgXk237
+	QScvhU3Wo+KBGg6hGtSOrLaw2N3HTkk6aRcSLTwDf8rETmlS1ovBUTSK7P1YDB/Nr0U=
+X-Gm-Gg: AR+sD11YMgC7VJK2spfNrLQcdaKNDUV8R+vF8AuvF1FBKv1+TXtXX/uIrLvdV3JQG/z
+	FgLtAmzdcqQNMN1YLlKgBN+3iAcQetwFztCdeULHd9ZsqHtSyxpGimS+04m8od1SeKipSYbhDKX
+	m10t9jwJt1ju7DjO2mj7KurcWJ9i6xKxxMvNrn3Ti0sg0+tq90QuJy8rsyRyuxlspwjAwXeKyA9
+	xWFo8bbJv8LyIeckT7UuUi73tSumF4QlYSilSWmBq4PmeTQnzUvD3+Wr3nAJHttR6ql6zZZYU0l
+	5Cp2JHB2qNdG7WDNTHaEJyp6gMldEr3RDIBVYh2znUcPMvtHFYU3KGhpq++9EKwrdeMGW7dG6ri
+	lCl0Ef1BvMF886CXKU26N1h1x6hGgWmuSfTxzmHMAI4iKIATIIJLXVpIYPfddUoJo5t++luwohr
+	VhJBnhD8NOb7u68GaPygc=
+X-Received: by 2002:a05:600c:190c:b0:495:782e:8faf with SMTP id 5b1f17b1804b1-496b6a34b4cmr94039855e9.30.1785154257234;
+        Mon, 27 Jul 2026 05:10:57 -0700 (PDT)
 Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:7aab:bc55:e039:4aac])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b4f302f8sm211778055e9.12.2026.07.27.05.10.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b4f302f8sm211778055e9.12.2026.07.27.05.10.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 05:10:53 -0700 (PDT)
+        Mon, 27 Jul 2026 05:10:56 -0700 (PDT)
 From: "Pawel Zalewski (The Capable Hub)" <pzalewski@thegoodpenguin.co.uk>
-Subject: [PATCH 0/9] ACPI: use named initializers for acpi_device_id
-Date: Mon, 27 Jul 2026 13:10:38 +0100
-Message-Id: <20260727-acpi-refactor-v1-0-ff900aa326ee@thegoodpenguin.co.uk>
+Date: Mon, 27 Jul 2026 13:10:40 +0100
+Subject: [PATCH 2/9] ACPI: drop unused assignment of
+ acpi_device_id::driver_data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAL5KZ2oC/yXMQQ5AMBCF4avIrDWp0ZC4iljUmDIWSItIpHdXL
- L+8vP+GwF44QJPd4PmUIOuSUOQZ0GSXkZUMyYAaK12jUZY2UZ6dpX31yhl2hM4Y1CWkz5YWub5
- e2/0ORz8z7W8EYnwAYK3YLnEAAAA=
-X-Change-ID: 20260724-acpi-refactor-f4efc2f44203
+Message-Id: <20260727-acpi-refactor-v1-2-ff900aa326ee@thegoodpenguin.co.uk>
+References: <20260727-acpi-refactor-v1-0-ff900aa326ee@thegoodpenguin.co.uk>
+In-Reply-To: <20260727-acpi-refactor-v1-0-ff900aa326ee@thegoodpenguin.co.uk>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
  Bjorn Helgaas <bhelgaas@google.com>, Zhang Rui <rui.zhang@intel.com>, 
  Kai-Heng Feng <kaihengf@nvidia.com>, Tony Luck <tony.luck@intel.com>, 
@@ -98,16 +98,16 @@ Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
  nvdimm@lists.linux.dev, 
  "Pawel Zalewski (The Capable Hub)" <pzalewski@thegoodpenguin.co.uk>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785154252; l=4122;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785154252; l=7765;
  i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
- bh=hDpi+mS6ZesLKap0n94a9xm6h6ixQ5Klrug46U51A7M=;
- b=1200lUbaXeYWmclYJpq+b23CZR3Ejwn2Uth0/1cJecdaSViFrJz967y3swrowZIlhRNa0QRbk
- uGqRtfo1UCABz+VPUBqhAMuHJcnRcILUfp89Qu2pEPZ37OLyiygqmoj
+ bh=yW0W+s/ODN9UXJw4cH6nRQgB2fiTILyZAnOw5gC9ElM=;
+ b=F77XH8skjSecNPgsac0uUAbdIshHQTUalezlaATvg61TJSN+3b5lvu5y5IkcFviCOrZ8aThyT
+ kfHvPkzro09DzhsaPmbL8LD0p+22fLezrVHzyuWLcCqaY5QZCZ6mQ5E
 X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
  pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_051057_657494_097B6BF5 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20260727_051059_387932_F836EAFD 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,96 +122,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is converting lists that contain the acpi_device_id 
-struct, which is defined in the include/linux/device-id/acpi.h 
-to makes use of named initializers (which they do not use currently).
-This work is part of the on going effort in the kernel associated
-with device-ids [1]
+These modules set the acpi_device_id::driver_data to 0 but
+the field is not actually used within the module, we can
+just drop it from the table.
 
-The plan is to convert acpi_device_id::driver_data to have an anonymous 
-union, similarly to what was introduced for PCI and I2C device ID tables.
-The goal is to increase type-safety (as most of the existing casts are gone), 
-to improve readability and to make use intent a bit more clear:
-
-```
-union {
-	kernel_ulong_t driver_data;
-	const void *driver_data_ptr;
-}
-```
-
-But for that to work all lists containing the structs need to use named
-initializers first. I already have patches that implement this and touching
-a lot of kernel subsystmes that use the acpi_device_id struct and that list
-keeps on growing. Therefore, I have decided to split the series per every
-subsystem into:
-- pre-clean-ups that convert the lists to use named initializers
-- actual implementations that make some of the modules use the new driver_data_ptr
-
-That way the task can be fragmented into manageable and independent
-chunks of work and makes this effort easier to review.
-
-Tested builds on arm64 and x86-64 in Yocto on 7.2-rc5
-
-[1] https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylibre.com/
+While we are at it - use a named initializer for the
+acpi_device_id fields and drop setting the list
+terminator fields explicitly as well.
 
 Signed-off-by: Pawel Zalewski (The Capable Hub) <pzalewski@thegoodpenguin.co.uk>
 ---
-Pawel Zalewski (The Capable Hub) (9):
-      ACPI: use a named initializer for acpi_device_id
-      ACPI: drop unused assignment of acpi_device_id::driver_data
-      ACPI: pci: drop unused assignment of acpi_device_id::driver_data
-      ACPI: ghes-nvidia: use a named initializer for acpi_device_id::id
-      ACPI: amba: drop unused assignment of acpi_device_id::driver_data
-      ACPI: dptf: drop unused assignment of acpi_device_id::driver_data
-      ACPI: nfit: core: drop unused assignment of acpi_device_id::driver_data
-      ACPI: x86: use a named initializer for acpi_device_id::id
-      ACPI: use a named initializer for acpi_device_id::id
+ drivers/acpi/ac.c                | 4 ++--
+ drivers/acpi/acpi_memhotplug.c   | 4 ++--
+ drivers/acpi/acpi_pad.c          | 4 ++--
+ drivers/acpi/acpi_tad.c          | 4 ++--
+ drivers/acpi/battery.c           | 8 +++-----
+ drivers/acpi/container.c         | 8 ++++----
+ drivers/acpi/ec.c                | 6 +++---
+ drivers/acpi/hed.c               | 4 ++--
+ drivers/acpi/processor_driver.c  | 6 +++---
+ drivers/acpi/sbs.c               | 4 ++--
+ drivers/acpi/sbshc.c             | 6 +++---
+ drivers/acpi/thermal.c           | 4 ++--
+ drivers/acpi/tiny-power-button.c | 6 +++---
+ drivers/acpi/video_detect.c      | 4 ++--
+ 14 files changed, 35 insertions(+), 37 deletions(-)
 
- drivers/acpi/ac.c                 |   4 +-
- drivers/acpi/acpi_apd.c           |  42 ++--
- drivers/acpi/acpi_memhotplug.c    |   4 +-
- drivers/acpi/acpi_pad.c           |   4 +-
- drivers/acpi/acpi_platform.c      |  13 +-
- drivers/acpi/acpi_pnp.c           | 514 +++++++++++++++++++-------------------
- drivers/acpi/acpi_processor.c     |   8 +-
- drivers/acpi/acpi_tad.c           |   4 +-
- drivers/acpi/acpi_video.c         |   2 +-
- drivers/acpi/apei/ghes-nvidia.c   |   2 +-
- drivers/acpi/arm64/amba.c         |   6 +-
- drivers/acpi/battery.c            |   8 +-
- drivers/acpi/button.c             |  12 +-
- drivers/acpi/container.c          |   8 +-
- drivers/acpi/dptf/dptf_pch_fivr.c |  14 +-
- drivers/acpi/dptf/dptf_power.c    |  38 +--
- drivers/acpi/ec.c                 |   6 +-
- drivers/acpi/evged.c              |   4 +-
- drivers/acpi/fan_core.c           |   2 +-
- drivers/acpi/hed.c                |   4 +-
- drivers/acpi/nfit/core.c          |   4 +-
- drivers/acpi/pci_link.c           |   4 +-
- drivers/acpi/pci_root.c           |   4 +-
- drivers/acpi/pfr_telemetry.c      |   4 +-
- drivers/acpi/pfr_update.c         |   4 +-
- drivers/acpi/processor_driver.c   |   6 +-
- drivers/acpi/sbs.c                |   4 +-
- drivers/acpi/sbshc.c              |   6 +-
- drivers/acpi/scan.c               |  46 ++--
- drivers/acpi/thermal.c            |   4 +-
- drivers/acpi/tiny-power-button.c  |   6 +-
- drivers/acpi/video_detect.c       |   4 +-
- drivers/acpi/x86/cmos_rtc.c       |   2 +-
- drivers/acpi/x86/lpss.c           |  54 ++--
- drivers/acpi/x86/s2idle.c         |  14 +-
- drivers/acpi/x86/utils.c          |  16 +-
- include/linux/acpi.h              |   8 +-
- 37 files changed, 443 insertions(+), 446 deletions(-)
----
-base-commit: 48a5a7ab8d6ab7090564339e039c421f315de912
-change-id: 20260724-acpi-refactor-f4efc2f44203
+diff --git a/drivers/acpi/ac.c b/drivers/acpi/ac.c
+index f19d6dd43473..d6f162fe7ea4 100644
+--- a/drivers/acpi/ac.c
++++ b/drivers/acpi/ac.c
+@@ -32,8 +32,8 @@ MODULE_DESCRIPTION("ACPI AC Adapter Driver");
+ MODULE_LICENSE("GPL");
+ 
+ static const struct acpi_device_id ac_device_ids[] = {
+-	{"ACPI0003", 0},
+-	{"", 0},
++	{.id = "ACPI0003" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, ac_device_ids);
+ 
+diff --git a/drivers/acpi/acpi_memhotplug.c b/drivers/acpi/acpi_memhotplug.c
+index 1d7dfe4ee9a6..cf27765ed4d7 100644
+--- a/drivers/acpi/acpi_memhotplug.c
++++ b/drivers/acpi/acpi_memhotplug.c
+@@ -21,8 +21,8 @@
+ #define ACPI_MEMORY_DEVICE_HID			"PNP0C80"
+ 
+ static const struct acpi_device_id memory_device_ids[] = {
+-	{ACPI_MEMORY_DEVICE_HID, 0},
+-	{"", 0},
++	{ .id = ACPI_MEMORY_DEVICE_HID },
++	{ }
+ };
+ 
+ #ifdef CONFIG_ACPI_HOTPLUG_MEMORY
+diff --git a/drivers/acpi/acpi_pad.c b/drivers/acpi/acpi_pad.c
+index dc6d0091d17c..9af3b8bce686 100644
+--- a/drivers/acpi/acpi_pad.c
++++ b/drivers/acpi/acpi_pad.c
+@@ -438,8 +438,8 @@ static void acpi_pad_remove(struct platform_device *pdev)
+ }
+ 
+ static const struct acpi_device_id pad_device_ids[] = {
+-	{"ACPI000C", 0},
+-	{"", 0},
++	{ .id = "ACPI000C" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, pad_device_ids);
+ 
+diff --git a/drivers/acpi/acpi_tad.c b/drivers/acpi/acpi_tad.c
+index fc43df083738..7a2a5167e8ec 100644
+--- a/drivers/acpi/acpi_tad.c
++++ b/drivers/acpi/acpi_tad.c
+@@ -885,8 +885,8 @@ static int acpi_tad_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct acpi_device_id acpi_tad_ids[] = {
+-	{"ACPI000E", 0},
+-	{}
++	{ .id = "ACPI000E" },
++	{ }
+ };
+ 
+ static struct platform_driver acpi_tad_driver = {
+diff --git a/drivers/acpi/battery.c b/drivers/acpi/battery.c
+index f5e0eb299610..30b42967e625 100644
+--- a/drivers/acpi/battery.c
++++ b/drivers/acpi/battery.c
+@@ -56,12 +56,10 @@ module_param(cache_time, uint, 0644);
+ MODULE_PARM_DESC(cache_time, "cache time in milliseconds");
+ 
+ static const struct acpi_device_id battery_device_ids[] = {
+-	{"PNP0C0A", 0},
+-
++	{ .id = "PNP0C0A"},
+ 	/* Microsoft Surface Go 3 */
+-	{"MSHW0146", 0},
+-
+-	{"", 0},
++	{ .id = "MSHW0146"},
++	{ }
+ };
+ 
+ MODULE_DEVICE_TABLE(acpi, battery_device_ids);
+diff --git a/drivers/acpi/container.c b/drivers/acpi/container.c
+index f138a433554a..9997915233e1 100644
+--- a/drivers/acpi/container.c
++++ b/drivers/acpi/container.c
+@@ -15,10 +15,10 @@
+ #include "internal.h"
+ 
+ static const struct acpi_device_id container_device_ids[] = {
+-	{"ACPI0004", 0},
+-	{"PNP0A05", 0},
+-	{"PNP0A06", 0},
+-	{"", 0},
++	{ .id = "ACPI0004" },
++	{ .id = "PNP0A05" },
++	{ .id = "PNP0A06" },
++	{ }
+ };
+ 
+ #ifdef CONFIG_ACPI_CONTAINER
+diff --git a/drivers/acpi/ec.c b/drivers/acpi/ec.c
+index 64ad4cfa6208..fd62a455db2a 100644
+--- a/drivers/acpi/ec.c
++++ b/drivers/acpi/ec.c
+@@ -1794,9 +1794,9 @@ ec_parse_io_ports(struct acpi_resource *resource, void *context)
+ }
+ 
+ static const struct acpi_device_id ec_device_ids[] = {
+-	{"PNP0C09", 0},
+-	{ACPI_ECDT_HID, 0},
+-	{"", 0},
++	{ .id = "PNP0C09" },
++	{ .id = ACPI_ECDT_HID },
++	{ }
+ };
+ 
+ /*
+diff --git a/drivers/acpi/hed.c b/drivers/acpi/hed.c
+index 48562f53d3ab..6789ec567d21 100644
+--- a/drivers/acpi/hed.c
++++ b/drivers/acpi/hed.c
+@@ -17,8 +17,8 @@
+ #include <acpi/hed.h>
+ 
+ static const struct acpi_device_id acpi_hed_ids[] = {
+-	{"PNP0C33", 0},
+-	{"", 0},
++	{ .id = "PNP0C33" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, acpi_hed_ids);
+ 
+diff --git a/drivers/acpi/processor_driver.c b/drivers/acpi/processor_driver.c
+index cda8fd720000..c11cd0e3367f 100644
+--- a/drivers/acpi/processor_driver.c
++++ b/drivers/acpi/processor_driver.c
+@@ -36,9 +36,9 @@ MODULE_LICENSE("GPL");
+ static int acpi_processor_stop(struct device *dev);
+ 
+ static const struct acpi_device_id processor_device_ids[] = {
+-	{ACPI_PROCESSOR_OBJECT_HID, 0},
+-	{ACPI_PROCESSOR_DEVICE_HID, 0},
+-	{"", 0},
++	{ .id = ACPI_PROCESSOR_OBJECT_HID },
++	{ .id = ACPI_PROCESSOR_DEVICE_HID },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, processor_device_ids);
+ 
+diff --git a/drivers/acpi/sbs.c b/drivers/acpi/sbs.c
+index 86b7c7975852..354304c2c307 100644
+--- a/drivers/acpi/sbs.c
++++ b/drivers/acpi/sbs.c
+@@ -45,8 +45,8 @@ MODULE_PARM_DESC(cache_time, "cache time in milliseconds");
+ #define ACPI_SBS_BLOCK_MAX		32
+ 
+ static const struct acpi_device_id sbs_device_ids[] = {
+-	{"ACPI0002", 0},
+-	{"", 0},
++	{ .id = "ACPI0002" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, sbs_device_ids);
+ 
+diff --git a/drivers/acpi/sbshc.c b/drivers/acpi/sbshc.c
+index c0ffa267f96c..ac628212c048 100644
+--- a/drivers/acpi/sbshc.c
++++ b/drivers/acpi/sbshc.c
+@@ -33,9 +33,9 @@ static int acpi_smbus_hc_probe(struct platform_device *pdev);
+ static void acpi_smbus_hc_remove(struct platform_device *pdev);
+ 
+ static const struct acpi_device_id sbs_device_ids[] = {
+-	{"ACPI0001", 0},
+-	{"ACPI0005", 0},
+-	{"", 0},
++	{ .id = "ACPI0001" },
++	{ .id = "ACPI0005" },
++	{ }
+ };
+ 
+ MODULE_DEVICE_TABLE(acpi, sbs_device_ids);
+diff --git a/drivers/acpi/thermal.c b/drivers/acpi/thermal.c
+index dd7666c176a0..189011733956 100644
+--- a/drivers/acpi/thermal.c
++++ b/drivers/acpi/thermal.c
+@@ -920,8 +920,8 @@ static const struct dev_pm_ops acpi_thermal_pm_ops = {
+ #endif /* CONFIG_PM_SLEEP */
+ 
+ static const struct acpi_device_id  thermal_device_ids[] = {
+-	{ACPI_THERMAL_HID, 0},
+-	{"", 0},
++	{ .id = ACPI_THERMAL_HID },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, thermal_device_ids);
+ 
+diff --git a/drivers/acpi/tiny-power-button.c b/drivers/acpi/tiny-power-button.c
+index 92516ef84b02..5acb53090ff3 100644
+--- a/drivers/acpi/tiny-power-button.c
++++ b/drivers/acpi/tiny-power-button.c
+@@ -14,9 +14,9 @@ module_param(power_signal, int, 0644);
+ MODULE_PARM_DESC(power_signal, "Power button sends this signal to init");
+ 
+ static const struct acpi_device_id tiny_power_button_device_ids[] = {
+-	{ ACPI_BUTTON_HID_POWER, 0 },
+-	{ ACPI_BUTTON_HID_POWERF, 0 },
+-	{ "", 0 },
++	{ .id = ACPI_BUTTON_HID_POWER },
++	{ .id = ACPI_BUTTON_HID_POWERF },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, tiny_power_button_device_ids);
+ 
+diff --git a/drivers/acpi/video_detect.c b/drivers/acpi/video_detect.c
+index 458efa4fe9d4..e135f29d4093 100644
+--- a/drivers/acpi/video_detect.c
++++ b/drivers/acpi/video_detect.c
+@@ -68,8 +68,8 @@ find_video(acpi_handle handle, u32 lvl, void *context, void **rv)
+ 	struct pci_dev *dev;
+ 
+ 	static const struct acpi_device_id video_ids[] = {
+-		{ACPI_VIDEO_HID, 0},
+-		{"", 0},
++		{ .id = ACPI_VIDEO_HID },
++		{ }
+ 	};
+ 
+ 	if (acpi_dev && !acpi_match_device_ids(acpi_dev, video_ids)) {
 
-Best regards,
---  
-Pawel Zalewski (The Capable Hub) <pzalewski@thegoodpenguin.co.uk>
+-- 
+2.43.0
 
 
