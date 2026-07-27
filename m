@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5EBC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 19:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE362C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 19:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4iStQMNT3oznFv2kg8CejE5g27jqz5g151MZWuQusgM=; b=1nUWTsljdagQPvYrC6IYRS+Ev2
-	CrSzIoLeSo5zzihbxHHaiY/sCPBXepGVN/9cP4f7Jk5+cJDpfDT30qNI1WGyNOdUNOTbmLSZ7FZ1W
-	xXWaBPoBj1PASOC8ebpKZVROFtf3bVEesjgHVY5bjeS6l1ujXnd5Oc05ffotHUar6AAI8k9uyajvx
-	AsP5/PQuGWlqfCLFGIzNDclfmy0mmX6uAjuafgAzcuK9OI2crWEYzFUB5VqmzKzdAV9jeHgyVF2km
-	1aniJnG5HzzDGVnsKMFvSu3/Vk4q0JdERswZjidsGIsFfmXndJqHAzLX0BaWznCP/ufSWGOrldTza
-	LLibxB1Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=to/gd4X6LaSNNZAdxvsgERKxojbIenZcMcO/zkvD++4=; b=bDlpLWLdYE7m8GsajJ0kH2SNz2
+	ZnWy/TUfnrxsFCW/wO9WlKr2jWoAEqWSXmsBfWeKoB7/EAioTN5mG5dMuyFuDf7Z3tSWml9xqObep
+	A6I+zsPTzQe7k0d1i94ZJ25ZsFHaBPWzTptYejev0VRJKO6A40TaliwitDq5eCKXhGmHVzyGFEzh8
+	3OFsSFqzCk8qXAYjdT2wNy/nw2GjziOfIfsW5+YLJt34TurX2yS4yuWU45/xn+C+O95KjgQrIbhOj
+	M2FLT70NseMoDTT78NqPxdsNtpBI5U0HUm8/tXT5bP2Yah83yVis3Bt/EZVqwIJQh/yCjgEhWTL1K
+	BFRWU2uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQYw-00000003iaz-2vXg;
-	Mon, 27 Jul 2026 19:00:30 +0000
+	id 1woQYq-00000003iX5-2TOa;
+	Mon, 27 Jul 2026 19:00:24 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQYt-00000003iYo-0pvX
+	id 1woQYp-00000003iVb-143g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 19:00:27 +0000
+	Mon, 27 Jul 2026 19:00:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9DEBE60A5E;
-	Mon, 27 Jul 2026 19:00:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7146E1F00A3D;
-	Mon, 27 Jul 2026 19:00:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D92FB60008;
+	Mon, 27 Jul 2026 19:00:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52FE41F000E9;
+	Mon, 27 Jul 2026 19:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785178826;
-	bh=4iStQMNT3oznFv2kg8CejE5g27jqz5g151MZWuQusgM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MWUh/KLAada8qqjoQQEa2lVBBSfTe6TleecU8ttk/TZqzeSwCEqkEl8ptjAa49ePI
-	 mcOgVAW3VMkbMsErsFz5z7NkTeKhN0jumnYf03tOy9zIueoV9tOQaNqXsf0uqkC7kU
-	 TATzGEItP/w/oiT6gpnikbK3uTxAPYYNZpZwJ0ZTdJw29t6h9GsLUaCdV8w8PFzrI+
-	 k9owfenPmFTqLWW8qKS2Lt0slbULm5xXjl4RkXJUMRTFAjnR0fBu4jIlY3Ge7teqPR
-	 p9XTkz9FFDegxGoxGnuBohVwGE59Zwkfgkz44t7qCmyM8CcXedi9234R+8BqBDMhkj
-	 /fJQ1r4jXeY+w==
+	s=k20260515; t=1785178820;
+	bh=to/gd4X6LaSNNZAdxvsgERKxojbIenZcMcO/zkvD++4=;
+	h=From:To:Cc:Subject:Date;
+	b=Juff+TE3lRb7sru6aoIwZMTtRRgNHaiF8m8ztEaqSeusE/7EG5oXp6jibDS1ju1+E
+	 lfoK7sYotuFnij0PmhOL8P8+IBDpAJ9ntmdQwbuH2lbzrqR6TNnR3UM4V7G79DusX/
+	 kCQ+31y1LjmNSr2yhBmZCitVzjcATuQ2IQ6v3haIu6xmlJSDf17KvLeLMLiQ79cu7f
+	 A+XkruZxBBDUBdc2581dA9zlrA92vjAz9bwn1Jq/UxgilfMvghLK+ACdNv1bsHRitE
+	 TAh/QkihD+ZZi+M82YPLGBziGVnw7exiyZ+4DvzwdBRGNgQxkTgCXcyQsgQxxdsA3w
+	 gvXIQKT3Rbtjg==
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
@@ -54,14 +54,12 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [GIT PULL 2/2] arm64: dts: samsung: for v7.3
-Date: Mon, 27 Jul 2026 21:00:10 +0200
-Message-ID: <20260727190010.404981-4-krzk@kernel.org>
+Subject: [GIT PULL 1/2] samsung: drivers for v7.3
+Date: Mon, 27 Jul 2026 21:00:09 +0200
+Message-ID: <20260727190010.404981-3-krzk@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260727190010.404981-3-krzk@kernel.org>
-References: <20260727190010.404981-3-krzk@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1779; i=krzk@kernel.org; h=from:subject; bh=8q/iUaeAAO3trLj7UgUpcehLnoLmuEJ+JikTuSLad8c=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqZ6q7bO19C4LuRrGTY2igQZCqfXKRyqIhOH1Kb w3HXyb1heyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCamequwAKCRDBN2bmhouD 1/bcEACUgUJR7TT824i01H5LBaXzgsHJCP4z8nZTAiMdRp5UypbAjKizXmBnG8oYrTLNUE0V7Dw 5NEgkU6yxy6iEtHvukzb7CHorp/MFdlYQQeKFT22FqKna9FFpue/bKFSclqMpWF+lbGulsbow2L tUiWDkvGqj3daAh38z24Kj9zLgpxeuIb/ANUXN1t2ARfbd3rIcgThBD2NrupW3ahSUJOklwu0+1 BiZKa20dHR7a/JJdcUcrdbW9I+Dj80WRq0m+xQrpSZmb0NTd0qkr8cQi6hBRdtGJPuUfmfNDm5O V0tu3i7bUgj1AEIyqUnAdHAptaVghGD+HaKisBdtxBfQVodEl6qB2kwzmOzpiSyq8LtTuPx1lBx 180jytbc9SkCB5XsTGchfdhM+0zXO0rjBmTyvi1PsweyT3ol3C8XcObVEeeGcHsXQQ7xIuJBTES HpdEiCzwsTpVwhxr0FUF+AJUkSRh3TF2YgURBxQxvFri7bckO9Vo+0Tp7K6acCV/ph9hClHV+sw HCISoPaWbj2WXgf5ee8QROEnjI8YsZzft74Gd9kdaxhCcpq0rZqREHTQ7xL4lXnMQLOMaFZxfwA H2OLPRKITDZT2YANmzAUS1ZJwJC5HJ643Ot6AX/sECZJoCu6ucoLjLXJ4nuQvoibfnURbJHDMTa ZjX5JHKKXUGl3sQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1356; i=krzk@kernel.org; h=from:subject; bh=rYIh72XF25YLtMkQ1atMR+hym/ldzSeNr/6aOYMQpt0=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqZ6q6NcocqgMAzuIwXGHz+MdwjCWeW1Qcu79Pq ClQqBIj+/aJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCamequgAKCRDBN2bmhouD 1wHSD/9n1mwjVI21ZgDi5+oUoh/x6ZWS6GDHeGSvqt7gsT1Ox9ObKyTde8MOudJTb8C8lhusNL6 QR1+fNjr+E44KUxlFD9Q/kjYkK1lGgMn8qy7dgG+OtWP7pJ3GIxlBnWxKspeyYFn+2OK1lCv+l7 PFYw+Vz6FoCVAxSIwX6qa4BG53EoWyCHaDY6xTWPsoanR1C3hwwELgwZiUcNksYiTHMHjwXVM9f TYhwo/eHypuoma8kScS5yn9afqe+1monWYwIFCrDpRIN1gnFBKvHhc7PEeuOZB24r05hxZBiJJO +41crEggSJGTHxoa/IDr46i1NlG8A1kjRDXBrS1T0pO4XiiM2e1xlhVTl+WAQB6r4CWHzcWH0iS wxhHW5zXqfC2+ukVHPVYqpCxqZbyqyjepYiHsc6yboXHD85boCFNHsBSTQFJt/emgFxDizelm4A 7+QdYDt/4EOA9noKyYp1k9NYCi2WBWdJ6auEq1/Gvn1EspmPpyh4LSEbB2cYZ4AHS6ekqPmPnFj Trzu5NfuBju52v0i74n7LLExymedxP9Ew4iRLCAiAWkm+yeENYXFqpLwVwB6RaLo3swVwkfL2Un +II4/A6+uhQE1L8fWo7r1FGcEpN6w7bio3nGgpzYg+/AzUD+lNC6w2t/UdxscVuUZMNxOn2mZVH lDxSh4MkeBo7QEg==
 X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,39 +82,31 @@ The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-7.3
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-7.3
 
-for you to fetch changes up to a87d503a0ab077b0d9892290ab7dbec29f922eb1:
+for you to fetch changes up to e131ca83dabc8bfb8c1d455d02bf2d7a7bc1198a:
 
-  MAINTAINERS: Add entry for Samsung Exynos8855 SoC (2026-07-13 09:20:24 +0200)
-
-----------------------------------------------------------------
-Samsung DTS ARM64 changes for v7.3
-
-1. New SoC Exynos8855 (market naming: Exynos 1580) basic support with
-   its SMDK development board.  That's a 8-core SoC, released in Q4
-   2024.
-
-2. ExynosAutov920: Add HSI0 syscon node.
+  dt-bindings: samsung: exynos-pmu: Narrow allowed reboot modes (2026-07-09 15:17:42 +0200)
 
 ----------------------------------------------------------------
-Alim Akhtar (3):
-      dt-binding: ARM: samsung: Add Samsung Exynos8855
-      arm64: dts: exynos: add initial support for Samsung Exynos8855 smdk
-      MAINTAINERS: Add entry for Samsung Exynos8855 SoC
+Samsung SoC drivers for v7.3
+
+1. Fix very old leak of OF node in PMU driver.
+2. Few cleanups and new bindings for ExynosAutov920 HSI0 syscon.
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (2):
+      dt-bindings: samsung: exynos-pmu: Restrict children with unevaluatedProperties
+      dt-bindings: samsung: exynos-pmu: Narrow allowed reboot modes
 
 Sanghoon Bae (1):
-      arm64: dts: exynosautov920: Add hsi0 syscon node for PCIe PHY
+      dt-bindings: soc: samsung: exynos-sysreg: Add hsi0 for ExynosAutov920
 
- .../bindings/arm/samsung/samsung-boards.yaml       |   6 +
- MAINTAINERS                                        |   7 +
- arch/arm64/boot/dts/exynos/Makefile                |   1 +
- arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi | 574 +++++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos8855-smdk.dts     |  31 ++
- arch/arm64/boot/dts/exynos/exynos8855.dtsi         | 204 ++++++++
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi     |   6 +
- 7 files changed, 829 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi
- create mode 100644 arch/arm64/boot/dts/exynos/exynos8855-smdk.dts
- create mode 100644 arch/arm64/boot/dts/exynos/exynos8855.dtsi
+Weigang He (1):
+      soc: samsung: exynos-pmu: fix of_node refcount leak in exynos_get_pmu_regmap()
+
+ .../bindings/soc/samsung/exynos-pmu.yaml           | 27 +++++++++++++++++++---
+ .../soc/samsung/samsung,exynos-sysreg.yaml         |  1 +
+ drivers/soc/samsung/exynos-pmu.c                   |  4 ++--
+ 3 files changed, 27 insertions(+), 5 deletions(-)
 
