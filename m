@@ -4,154 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4507C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2F9C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=; b=Hf27Ptv+rwxbXsy7d008L6ovUZ
-	E5Mw93HdOBr6qrjFuHn7/AHe1YxibhP63mrZRizj62jSCP+zc/BmkGdMz7OzgvNVKwTz9iOAwSySv
-	Ye1hq/EigSLEV4dNQznfUufVRUZybXGxPjL75dsAywBkDyVOuXBIBAUkcXzUTtZxkRA7Cq2JQ0/U2
-	iruQ+SzbWWQsSJ2BREQxe6qE5eNWtS/Ab3Jm/GyfCnQmB8XIAyIOXVfosbnEu0BgvfiJ2iLpDXL7S
-	yXezT1OZEvdu4pcnKEyjsqASq+jwkh+3DWUW6cn+kSJyu5eZk0FOlV3bxRmhKSG5adznfsc7qbUVz
-	Ospnto6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wN/kx/SBk8bE5KK0ql4+gLcojF8uiq2QeEJ40jwABjk=; b=LqUCXkYh1svvrhRYHmhug/NRke
+	DXgLQIArxPbJGBHoBSwjAu4GSH3xpilOuRY1BQLuL/NdHZ1IykYR8WN8UbzqnSuVqjgewQxrM7vtJ
+	mDYQQJZrLjwVnNYLWJ7r11gbLmSefpZd3rDNfeEnYe5g0HjHXjY2WDAojZxn5i5R01MZf4X2G6Q8r
+	5ITw51d2g6kwkyZzAVwQ0rnbeLxPM5/XoVN6epiifxaTCZB5p7eO+RsnNY16pZCdnttzPE1m944sb
+	1Fchq/J736iBq+sUdRocUAE+VXiydWegFW6MWPh+Cp2+n/6x/qAWhb/P8SdmfwGk3R3kBblbGMlPe
+	SWwHyGTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHQW-00000002IhC-3JX2;
-	Mon, 27 Jul 2026 09:15:12 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1woHRm-00000002IoL-0Kbu;
+	Mon, 27 Jul 2026 09:16:30 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHQT-00000002IgB-3Q9U
+	id 1woHRi-00000002InQ-404i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 09:15:11 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 214317DA77;
-	Mon, 27 Jul 2026 09:14:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1785143702; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
-	b=XH4COWUi/uVSTTItRb/nUmfm8hm6XLb+2ccrA+RSH9hDCrCENsMx7DdG1OWFISHT6yiJar
-	na1H2WcWdnbTJhAmma6fHG2fZdoBEv0sNydB8Z028wX4I5FNCCSh+4CvoK0zBQnxUDz5sv
-	fK0AfBjzu45udqdKvJg4xwhvU+eyHcE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1785143702;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
-	b=bdm02+CDJ05kV++dhJds+LNeKzhLGoPjHgz72E0kyd3TFAyzK2ZG2IlQFCaDm8PiZrpNT2
-	rCtsIQeQl1/lYUDg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=gT14ov0W;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=59Y51aLI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1785143698; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
-	b=gT14ov0WCez/rIUxEy8m1tADx6vn9TvWYnVIlGDTGvvTkjqgKfNlsTpWeYmj3zns/HRrah
-	yetFtSmLwPTMVM2yAdcVmh9IB0etgC+Ko7dJ0vjckI/njniugxrFqPUNdwhmH9agXU+RvH
-	Vv24fXObUNvrvroqv5eY8mBjjk6l63M=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1785143698;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
-	b=59Y51aLI6YcXix+Z2oMApRzqEq+GdCAi5lSa72SMl9lcyKfcsYff4UnevNIIfGg1Xje3eG
-	/vP8AY5Z6JDlUaAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0A492779B9;
-	Mon, 27 Jul 2026 09:14:55 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Gy7HOo8hZ2r9DwAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Mon, 27 Jul 2026 09:14:55 +0000
-Date: Mon, 27 Jul 2026 10:14:54 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: Helge Deller <deller@kernel.org>
-Cc: John David Anglin <dave.anglin@bell.net>, 
-	Usama Arif <usama.arif@linux.dev>, Helge Deller <deller@gmx.de>, 
-	Matthew Wilcox <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jan Kara <jack@suse.cz>, 
-	Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 3/5] mm/parisc: constify ptep_get() argument
-Message-ID: <amchbBH5zF7Rq5LT@pedro-suse>
-References: <20260724102017.141532-1-pfalcato@suse.de>
- <20260724102017.141532-4-pfalcato@suse.de>
- <0fd713a8-e4ab-4c07-b36e-79dd138b4a86@linux.dev>
- <amNzLXuwflIZFKtI@casper.infradead.org>
- <253f7ac0-205b-42f1-9fb5-d19eceb581b6@linux.dev>
- <amOEUZlp1BxYh6_t@pedro-suse>
- <fd239383-dcbe-4daf-b337-32facef07076@linux.dev>
- <3e9dece8-4e86-4ce5-bd74-b3ec305f3003@gmx.de>
- <4606e13f-6827-45d0-b3b8-6bc26358f7ae@bell.net>
- <amT0j_bBT3CCxPcg@p100>
+	Mon, 27 Jul 2026 09:16:28 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-848479c9bd5so1741420b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 02:16:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1785143786; x=1785748586; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wN/kx/SBk8bE5KK0ql4+gLcojF8uiq2QeEJ40jwABjk=;
+        b=Xau2sxNcavRGGbpLrb1wvWvLRdZK/Q64M7zxVD2Vam9BLmvm0oTjny9C3j2mxeooyQ
+         eBvz1WdhZlmDjAulk9nv0xZfKHrX1pSrF5UkxEmRFa04Joqob+MmXrMucZZGZQ3+ZFP8
+         hS97oTB9zyJ/p5osZDc/5wt/Soaxc8w0NboMI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785143786; x=1785748586;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wN/kx/SBk8bE5KK0ql4+gLcojF8uiq2QeEJ40jwABjk=;
+        b=CrP6Awzka8bOLaX+aEYIvXNL79K2fuwKK9NsYSKdM0Ic3/lXm71oD6piU+4ICBhfBd
+         oz3i8yw8WXcU0h7S8oVoUWt7MuYtVaDS3hDZ4yCGiAf2e4Mrk6qgyI/TFRDlAjwgUYwG
+         6F6qyjXTsd1V5P2bsHCyFvYRqtepJ1ABOFle6PmKL3A90PK1mWEf+H+QIt3oWkrOyI11
+         tFwmHqui1C1WQGYqIDGLu1liwmxVO8P1DoJ/VZ/gknZ8UVJzusoZZP5xYAQsSxSnca4S
+         98d0+40ZaUcy6XnY+mhOgNkyhvgD3w53zrGw4irwLt5YUceeOAbNgU9rPG/W0SbOHspT
+         NR1w==
+X-Forwarded-Encrypted: i=1; AHgh+RrCIkhGj71Q3DxNnUtTi/rt/MXdXyyZyVL49UCYkL7DVEf05iUeIwTTR6mqxAKoJVcbSB9V6GRAy2Ja+iqJEE40@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbegkNcv+BPDizc5fOVZyzW1QvHs8a0IeBdhsferhfNUg3MOod
+	yC51Owc5LV9VD7NsU9lmaNvHrJD6jTaQnGnE7EGJuBvNEuzLNODYGlzJQjHxf//HFg==
+X-Gm-Gg: AR+sD11YsRGZc4htvAPL4pgVebnwM8whZJgDMOkw7FyTzaN0Rqlqn+BVCX27RqiK+re
+	Zn09nTGSFeAtO/xUS48tjMT3adxpOdnD+UyRMEBzLQDrAu1hZZd4HO4UQvpHq22VeHRpF9C7+Te
+	FjPxw75S0ZgrYsZ6EAVJxGYiICH5KNVp6Jvms0MLVBuk5SAK5uI8BO9rVsDpA9U86huNkm3paSG
+	0j/jZWS8KgvqV+e6/S8+B5yspqUh+tgWErMcxwXr2lF8MKMKo4yK085vJW3zPfMlPZilkVbvZk9
+	d4hlZQtihcSS+Ng0omTFlXhCduJPrZbI84PTfWxla2mQ5OM0fhpoUs77paDV4ekirTesdAk+FMJ
+	xHNJS2WKWPbx0uDTFnp53SmWnkM7GZ1DFPfuQLvDZDYJM9eXDzNp3Rf09K6xVx7NnPjtfMBacjw
+	RheIFspA/9tbu4YP1yhMQPhY5BNFKQCD4xxsb5TSybknd4cRKP5L4ER3s/qA==
+X-Received: by 2002:a05:6a20:6a09:b0:3c3:b5db:cd93 with SMTP id adf61e73a8af0-3c67d9b3da3mr7135247637.13.1785143785620;
+        Mon, 27 Jul 2026 02:16:25 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:440:c713:a2b0:6f14])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbbb662329fsm2870049a12.9.2026.07.27.02.16.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 02:16:25 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alessio Belle <alessio.belle@imgtec.com>,
+	Luigi Santivetti <luigi.santivetti@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	imagination@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	YoungJoon Lee <getfeus@gmail.com>
+Subject: [PATCH v3 0/5] powervr: MT8173 GPU support
+Date: Mon, 27 Jul 2026 17:15:49 +0800
+Message-ID: <20260727091555.1023910-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <amT0j_bBT3CCxPcg@p100>
-X-Rspamd-Action: no action
-X-Rspamd-Queue-Id: 214317DA77
-X-Spamd-Result: default: False [-2.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[34];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[bell.net,gmx.de];
-	FREEMAIL_CC(0.00)[bell.net,linux.dev,gmx.de,infradead.org,linux-foundation.org,kernel.org,arm.com,hansenpartnership.com,linux.ibm.com,ellerman.id.au,google.com,suse.com,suse.cz,nvidia.com,linux.alibaba.com,redhat.com,lists.infradead.org,vger.kernel.org,lists.ozlabs.org,kvack.org];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RL764437jfm1qe6abtk9nwyx8m)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[gmx.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,bell.net:email,linux.dev:email]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_021510_015664_F9FBE98A 
-X-CRM114-Status: GOOD (  41.22  )
+X-CRM114-CacheID: sfid-20260727_021627_046696_CDB62EE5 
+X-CRM114-Status: GOOD (  23.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,149 +111,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 25, 2026 at 07:38:23PM +0200, Helge Deller wrote:
-> * John David Anglin <dave.anglin@bell.net>:
-> > On 2026-07-25 12:27 p.m., Helge Deller wrote:
-> > > On 7/24/26 17:48, Usama Arif wrote:
-> > >>
-> > >>
-> > >> On 24/07/2026 16:32, Pedro Falcato wrote:
-> > >>> On Fri, Jul 24, 2026 at 04:03:44PM +0100, Usama Arif wrote:
-> > >>>>
-> > >>>>
-> > >>>> On 24/07/2026 15:14, Matthew Wilcox wrote:
-> > >>>>> On Fri, Jul 24, 2026 at 02:36:59PM +0100, Usama Arif wrote:
-> > >>>>>>
-> > >>>>>>
-> > >>>>>> On 24/07/2026 11:20, Pedro Falcato wrote:
-> > >>>>>>> ptep_get() does not need write access to the PTE.
-> > >>>>>>>
-> > >>>>>>> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
-> > >>>>>>> ---
-> > >>>>>>>   arch/parisc/include/asm/pgtable.h | 2 +-
-> > >>>>>>>   1 file changed, 1 insertion(+), 1 deletion(-)
-> > >>>>>>>
-> > >>>>>> hmm I think you might break build bisectibility if
-> > >>>>>> you separate out the patches, you should squash patch 3 and 4,
-> > >>>>>> with patch 1.
-> > >>>>>
-> > >>>>> I don't see how this breaks bisectability.  Can you elaborate on what
-> > >>>>> you think would break?
-> > >>>>
-> > >>>> Patch 1 does:
-> > >>>>
-> > >>>> -static inline pte_t ptep_get_lockless(pte_t *ptep)
-> > >>>> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
-> > >>>>   {
-> > >>>>       return ptep_get(ptep);
-> > >>>>   }
-> > >>>>
-> > >>>>
-> > >>>> ptep_get() takes a non-const arg till patch 3 for example for parsic.
-> > >>>> I don't think you can pass a const variable to non const function arg?
-> > >>>>
-> > >>>> So parsic won't compile in patch 1 and 2, powerprc wont compile
-> > >>>> for patches 1, 2 and 3..
-> > >>>
-> > >>> Aha, yes, nice catch! I'll have to rethink that. Maybe squashing the patches
-> > >>> would be the cleanest way forward.
-> > >>>
-> > >>
-> > >> Yes, squashing is the simplest way forward.
-> > >>
-> > >>> FWIW, the vast majority of architectures aren't doing funny things on
-> > >>> ptep_get(). E.g PA-RISC, loongarch only define these so they can use it in
-> > >>> their own asm/pgtable.h. I'd really like to delete these but I can't tell
-> > >>> if they are *actually* required.
-> > >>>
-> > >>
-> > >> Ah maybe there is something in git history on why it was needed?
-> > >>
-> > >> If not, hopefully someone from the arch lists could clarify..
-> > > I tried to remove ptep_get() and ptep_test_and_clear_young() from
-> > > arch/parisc/include/asm/pgtable.h, but this then triggers compile errors:
-> > > 
-> > >  CC      arch/parisc/kernel/asm-offsets.s
-> > > In file included from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/mm.h:31,
-> > >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pid_namespace.h:7,
-> > >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/ptrace.h:10,
-> > >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/arch/parisc/kernel/asm-offsets.c:21:
-> > > /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h: In function ‘clear_young_dirty_ptes’:
-> > > /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h:683:25: error: implicit declaration of function ‘ptep_test_and_clear_young’;
-> > > did you mean ‘pmdp_test_and_clear_young’? [-Wimplicit-function-declaration]
-> > >   683 |                         ptep_test_and_clear_young(vma, addr, ptep);
-> > >       |                         ^~~~~~~~~~~~~~~~~~~~~~~~~
-> > >       |                         pmdp_test_and_clear_young
-> > > 
-> > > So, I think the answer is, that the local copy of ptep_get() is used in the parisc implementation of
-> > > ptep_test_and_clear_young() function.
-> > > 
-> > > Switching to the default include/linux/pgtable.h seems not easy doable....
-> > 
-> > Did you remove define for __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG in parisc version of pgtable.h?
-> 
-> Indeed, I missed to remove that.
-> 
-> Usama, if you want you can add the patch below to your patch set, thus
-> simplifying your series?
+Hi everyone,
 
-It's actually my series but thanks Helge I'll pick it up!
+This is v3 of my MT8173 PowerVR GPU support series.
 
-> 
-> Helge
-> 
-> ------
-> 
-> From: Helge Deller <deller@gmx.de>
-> Date: Sat, 25 Jul 2026 19:19:55 +0200
-> Subject: [PATCH] parisc: Drop own implementations for ptep_get() and
->  ptep_test_and_clear_young()
-> 
-> Switch to the generic implementations, which are identical.
-> 
-> Suggested-by: Usama Arif <usama.arif@linux.dev>
-> Suggested-by: John David Anglin <dave.anglin@bell.net>
-> Signed-off-by: Helge Deller <deller@gmx.de>
-> 
-> diff --git a/arch/parisc/include/asm/pgtable.h b/arch/parisc/include/asm/pgtable.h
-> index 467b8547ac8b..d92dee9fef3f 100644
-> --- a/arch/parisc/include/asm/pgtable.h
-> +++ b/arch/parisc/include/asm/pgtable.h
-> @@ -432,25 +432,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
->  	return pte;
->  }
->  
-> -static inline pte_t ptep_get(pte_t *ptep)
-> -{
-> -	return READ_ONCE(*ptep);
-> -}
-> -#define ptep_get ptep_get
-> -
-> -static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
-> -		unsigned long addr, pte_t *ptep)
-> -{
-> -	pte_t pte;
-> -
-> -	pte = ptep_get(ptep);
-> -	if (!pte_young(pte)) {
-> -		return false;
-> -	}
-> -	set_pte_at(vma->vm_mm, addr, ptep, pte_mkold(pte));
-> -	return true;
-> -}
-> -
->  bool ptep_clear_flush_young(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep);
->  pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep);
->  
-> @@ -491,7 +472,6 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr,
->  #define HAVE_ARCH_UNMAPPED_AREA
->  #define HAVE_ARCH_UNMAPPED_AREA_TOPDOWN
->  
-> -#define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
->  #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
->  #define __HAVE_ARCH_PTEP_CLEAR_FLUSH
->  #define __HAVE_ARCH_PTEP_SET_WRPROTECT
+I got another inquiry on the status of this patch series, so I thought
+I'd dig it out, fix all the issues and send another version.
+
+This time around Mesa was ready for basic testing, using both vulkanmark
+and glmark2-es2-drm (with Zink). Details below.
+
+Changes since v2 (all in the clk driver patch):
+- Made COMMON_CLK_MT8173_MFGTOP depend on PM
+  - Needed since the driver implements PM domains using the generic PM
+    domain library, which also depends on PM
+  - Fixes build breakage (kernel test robot)
+- Fixed "RST_DELAY_CNT" name (Brian)
+- Dropped unused mfg_desc (Brian)
+- Added check of clk_prepare_enable()'s return value in
+  clk_mt8173_mfgtop_power_on() (Brian)
+- Saved error value for return in IS_ERR(data->clk_26m) branch
+  (Dan Carpenter / kernel test robot w/ smatch)
+
+Changes since v1:
+- Adapted to changed DT bindings
+- Dropped driver change
+- Use same power domain for "a" and "b" GPU power domains
+
+
+This series enables the PowerVR GPU found in the MT8173 SoC, found in
+some Chromebooks.
+
+This version is different from the initial powervr driver submission [1]
+in that it splits out the GPU glue layer support out of the powervr
+driver and into a separate clock and power domain driver. The glue code
+is otherwise the same, and also the same as found in the ChromeOS
+kernels, with some extra comments and macro names added where possible.
+
+Patch 1 adds a binding for the glue layer, called mfgtop. The glue layer
+contains clock and power controls for the GPU.
+
+Patch 2 adds a driver for the glue layer, implemented as a clock driver
+that also provides power domains.
+
+Patch 3 adds an entry for the MT8173 GPU and 6XT series to the PowerVR
+binding.
+
+Patch 4 corrects the clock for the GPU (called MFG) power domain.
+
+Patch 5 adds device nodes for the GPU and glue layer to the MT8173 dtsi
+file.
+
+The kernel driver successfully probes the hardware and loads the
+"rogue_4.40.2.51_v1.fw" firmware provided by Imagination Technologies [2].
+The "exp_hw_support" module parameter needs to be set for the driver to
+probe successfully.
+
+This was tested with Mesa 26.1.5 from Debian Forky. With this version
+vkmark and glmark2-es2 (over Zink) both run fine. Mesa spits out a bunch
+of warnings since the GX6250 core is not officially supported.
+
+    # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=1 vkmark
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: FINISHME: Missing reset support for brn51764
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: FINISHME: Missing reset support for brn58839
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: FINISHME: Missing support for brn62269
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINISHME: Devices without tpu_border_colour_enhanced require entries for compressed formats to be stored in the table pre-compressed.
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    =======================================================
+	vkmark 2025.01
+    =======================================================
+	Vendor ID:      0x1010
+	Device ID:      0x6250
+	Device Name:    PowerVR Rogue GX6250
+	Driver Version: 109056005
+	Device UUID:    d04cd6f3a25fd4900f89c151bccfdfcf
+    =======================================================
+    [vertex] device-local=true: FPS: 251 FrameTime: 3.984 ms
+    [vertex] device-local=false: FPS: 220 FrameTime: 4.545 ms
+    [texture] anisotropy=0:^C FPS: 223 FrameTime: 4.484 ms
+    =======================================================
+				       vkmark Score: 231
+    =======================================================
+
+    # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=1 glmark2-es2-drm
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: FINISHME: Missing reset support for brn51764
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: FINISHME: Missing reset support for brn58839
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: FINISHME: Missing support for brn62269
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINISHME: Devices without tpu_border_colour_enhanced require entries for compressed formats to be stored in the table pre-compressed.
+    Warning: DRM_CAP_ASYNC_PAGE_FLIP not supported, falling back to 'mailbox' mode for SwapInterval(0).
+    =======================================================
+	glmark2 2023.01
+    =======================================================
+	OpenGL Information
+	GL_VENDOR:      Mesa
+	GL_RENDERER:    zink Vulkan 1.2(PowerVR Rogue GX6250 (IMAGINATION_OPEN_SOURCE_MESA))
+	GL_VERSION:     OpenGL ES 2.0 Mesa 26.1.5-1
+	Surface Config: buf=32 r=8 g=8 b=8 a=8 depth=24 stencil=0 samples=0
+	Surface Size:   1366x768 fullscreen
+    =======================================================
+    [build] use-vbo=false: FPS: 49 FrameTime: 20.473 ms
+    [build] use-vbo=true: FPS: 45 FrameTime: 22.660 ms
+    [texture] texture-filter=nearest: FPS: 45 FrameTime: 22.642 ms
+    [texture] texture-filter=linear:^C FPS: 50 FrameTime: 20.172 ms
+    =======================================================
+				      glmark2 Score: 46
+    =======================================================
+
+
+Please have a look.
+
+Thanks
+ChenYu
+
+[1] https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.walker@imgtec.com/
+[2] https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
+
+Chen-Yu Tsai (5):
+  dt-bindings: clock: mediatek: Add mt8173 mfgtop
+  clk: mediatek: Add mt8173-mfgtop driver
+  dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
+  arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
+  arm64: dts: mediatek: mt8173: Add GPU device nodes
+
+ .../clock/mediatek,mt8173-mfgtop.yaml         |  70 +++++
+ .../bindings/gpu/img,powervr-rogue.yaml       |   1 +
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  33 ++-
+ drivers/clk/mediatek/Kconfig                  |  10 +
+ drivers/clk/mediatek/Makefile                 |   1 +
+ drivers/clk/mediatek/clk-mt8173-mfgtop.c      | 241 ++++++++++++++++++
+ include/dt-bindings/clock/mt8173-clk.h        |   7 +
+ 7 files changed, 362 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8173-mfgtop.yaml
+ create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
 
 -- 
-Pedro
+2.55.0.229.g6434b31f56-goog
+
 
