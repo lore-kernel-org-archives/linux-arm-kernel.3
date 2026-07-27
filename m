@@ -4,111 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C16C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74A1C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=; b=de+zwGwX0vkdaaWa0HAQSx+XF3
-	F5LEDLZpCqTJLbBFdDF8QB1SxEAZdoGA5bPh1HOUyCj6MwmLTU8g16fbV/WZmDINa3D4ilH1uRSp9
-	chIunxYuzOHlekerDx0JCbReB4J1PVC5D8xBqzPFk5dxAMzme0pcRgyVzpWrozIQrp86Xfq2qUTwm
-	viDC5IBDcvrNDOGvjBIE/CRGSprKyMJ4wQTEcJIL6GPC9Zcm0SPKuDOpAqm6X8k53eJa/nF9+tG3q
-	FnH0uQuLaXtThZFFO+jfFKsb17yYcpEGi9kPos6mihOzgb6LsXwtRpfidJidvc053e3fE8RqcXn0g
-	uU3OhJ0w==;
+	bh=eZX7KIFnW9PYFrfvOM0Y+TalnlvITSy/aTRTguXFLmA=; b=3DGiBiBoa6Q1paFTIOkeoWXNlS
+	QCezGFON6eVThAo07b4B1lwTBl5vvg2rpuWi97zbcq4HxSkrlO1PG3XHa1nrf0e0YCXNzQNFhs6Pb
+	bc8pYxd9WCgZ8U57PlILeRaB/9/una2uDDdW1lih5SAiDyK+Nj8FFMWCx6bYJPOyuOI2pUEAHLWUi
+	HgoZ9gtqyBL2v51FoggMW6lC1PRGezzNVNGkhzHTGv2QSLo7b9gZoMy4nTpEc6oXU+Ns5iC3qCrHz
+	a7dXpI0BkPKLDFnPMoEBkimyKm+xmFZTehfoe7xwkoXFaVqq7e595pzOYska0awD2xsbluP6Ejk+n
+	wB9vSYgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOo6-00000003UCz-0qeG;
-	Mon, 27 Jul 2026 17:08:02 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOo3-00000003UBu-1AYH
+	id 1woOIx-00000003Mo4-1jUB;
+	Mon, 27 Jul 2026 16:35:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woOIf-00000003MSR-207C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 17:08:00 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-66854eebf60so337427d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 10:07:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785172077; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oq2zV8n2kJelGWOxHa4birTBezDA9d2CMfknxxqd+LgwjnhIXMgdIk4tKIAvBCsJv2
-         kazNI5MX91Kt7afAQIRScOaCcBneSCF4QoWM20eb05COxU6FM0PkhXsY/iwJV4231aB0
-         pF4q9kuF9rmGoQ9RwYfB0qB24fiQYmBSm6vlUgi9aBDGBwVWB17PWX5F2KjuUjFVNqFU
-         Hgxsf4Y/3mcMQDanLKS32hzt94fpfU+jM97Q1fI42Sr/rSqz80wa2rBvj0VOjtupHEO5
-         F/vg/j4DvwwPzfxL71T4srpkFC7yQn44FNDOjMyXngrfPm9dxpj7URu7hPpSB87Gx719
-         iZuw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=;
-        fh=kwaSkY3J6+aftZsMKgYy+mJ+f4K+TNjZOMyJlP9dGAI=;
-        b=ssbPLA8qNINcIT+TUJNloOehkrEqOxmmFCJRyLF5rb/dmfZD3LSCQgUCr7TzITvB1d
-         u/RHTx9Jj+yzzULKYjBjkZ2E8cluJiub0IzMSvyIg8Jjl9zqscjIA6t+IDCtNa1oA5a7
-         Zsjx2IguFFgycEN9zppYZ8UMIDffh6wZ9G1mv122A/XX5dXKlsj2Zmhi5zd0+0BfU412
-         UOMAcIJubN2sfythkXxBvmTLEy1n1iu4d9Jn0v/9Zi0Ajq5EqoFZ1NJVXyhYzl8aAM7G
-         ItJxQlgwOSnBYYYwYOmlbmmdGgidSbdDPXdiv+lJI+7TgBAOYlN5ZG7IEnBtNovzx5OW
-         Rlog==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785172077; x=1785776877; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=;
-        b=aIq9MdK1iTfGKDTPIq/OKscmD1w+VCFQ/25rQ5YTDTlK0FraupL+2K0hLaBR1l5FGg
-         WtxFIfH0J5mherEEJWOowjgXP0ax59JEy1SlUvkUyBGfY+5yfFSx2lt9SsFsnvSUGH2W
-         Q3cWQdFwXetCpjBJyf6V8yhGHAGnEIUmat+PvMEJk+324UKJXBmm/KFq9Ha538LijK7v
-         vWyyDCDXg9Rh9DeLY/APCLMnLPrdbBNsxOmqFlXnb9Wtm2QHppqnf9sptlfP2cFJXtiY
-         +zzxAPl1bxYAmFYyJtw+KnMuQPJNYb/y66xv9DyIJE6tKeH0URP+XTb48Txg+4IhLyho
-         qBvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785172077; x=1785776877;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=c21ngjJ5XlclNkcsiWl5J6SQ+KBmH0ZVxdFOlgqSkMo=;
-        b=FRzcKKmAyE0fqZLITsTatjdmfC0C91z2y5fE9O2X8fQS/PCKE4+l2iTFhjKlfK8jCU
-         saSOtkj6BZbomdS1H+aU75atSXBIhd5GsWz8kVcq9NJMOrsJnKkuwp6Fy7ZF8MjEKlq6
-         2bxj+AvGlkbWMyvBo+zx7AKeLp9wsAw+4LidYW7OzQdyKigYuwADb7XWR9a1LoT1TK2/
-         zoxQTC+3fiflaZ0W+M0fMgfMZNV9OVux4aBvJdHPBUNFLQoaAg8Wt/B65EKjDyTLp1Ey
-         /8re1/2TGTbekMomVC67SgbXI909VE1Kfgyj54b+s/hjK36BddodTXcn6UtoJmDYXUm8
-         9+pQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5ECfTrjvM5j0+fSN9CB2iH3VhShkmCmK7TdpL+iaNBPZ3wQ5LxJlOd6K5mzUgoMDTicISFvd0pDsegDDQ3Bcg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7+If1s5W7mqCIlWTn/gbOT44xLXYDsdt+DDjU8mRLB2iTxDVE
-	kDjqcMVFJrfWDA2a4pDJ0tyERIvPMPvP5OuFU7BUWllwQ03W2k+9XQ0i/x8nWWhO4Gngd/CFOjF
-	YU9B0SpNsv7cmW1mHvTgItgs/shJXbwg=
-X-Gm-Gg: AR+sD11rWhbhbSghSgl7bxSkpT16pXKHK4gZCxPCwp89mW2wRCPlCWpmd9tvIeUJ3cB
-	CaQ0SnYmiAtpFS+5paKXMD5bk9I9UQwDWyxt40xO4S6Zwa5hoaBYhObQQ/07555TiHqIMp52+0b
-	ly01WdLbGSDMS5wdqDJ9McW1gSw9DOjRiVLy/L42X/PU9BQUViDzvM3ECT0yFlpOls4L7CCS/qN
-	NMUyyv+BhzLIFoXw7cqH5HY5huR0eMs4ACuooHalBxMrSQz4uisjqvXxlfKe0SK0hUlQv0XpR3N
-	EGqdSX1dz2GT2KLjlsHh
-X-Received: by 2002:a05:690c:c508:b0:81d:a82a:a4fa with SMTP id
- 00721157ae682-81f918e48e9mr3545747b3.5.1785172077323; Mon, 27 Jul 2026
- 10:07:57 -0700 (PDT)
+	Mon, 27 Jul 2026 16:35:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED2691713;
+	Mon, 27 Jul 2026 09:35:28 -0700 (PDT)
+Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 22F033F86F;
+	Mon, 27 Jul 2026 09:35:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785170133; bh=Mo80MBYEC39YrbeDh56RU1d8UZyashwPsX1MCGRVXPU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=J1ZB1v5VZfzSb2MFUHNAo91FHWjhR+Kj0f4IDyDPoEzB+8VnMcMPVPVWkRiy9k4I+
+	 r26125GZgfWcRfE+1Ss1RRRtnU8wl/J6QQ8euy+M+l5ipn0iNs3uyp+Xli3NNacooy
+	 71bNt7xjWb76ecKi6asJZQVlLdtSKdeLhkiDfeFM=
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com,
+	maz@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	ruanjinjie@huawei.com,
+	liaochang1@huawei.com
+Subject: [RFC PATCH v2 10/45] arm64: irqflags: Introduce arm64-specific irqflags type
+Date: Mon, 27 Jul 2026 17:34:18 +0100
+Message-Id: <20260727163453.7969-11-vladimir.murzin@arm.com>
+X-Mailer: git-send-email 2.24.0
+In-Reply-To: <20260727163453.7969-1-vladimir.murzin@arm.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
-References: <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-0-180fb2d1f10c@gmail.com>
- <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-4-180fb2d1f10c@gmail.com> <cb8XVJu6RUmEjMZpl7NA1g@collabora.com>
-In-Reply-To: <cb8XVJu6RUmEjMZpl7NA1g@collabora.com>
-From: Igor Paunovic <royalnet026@gmail.com>
-Date: Mon, 27 Jul 2026 19:07:46 +0200
-X-Gm-Features: AUfX_mwAp38CvxOzFNFIy663VRohFPhaabl-gVyS3Hkri8cjdi-61b1oibiQvGg
-Message-ID: <CAEWPSH7rQv-yZ+dL+mZi6Mt3rj6gUZhp3r7_Gpjy8=1OArqwUA@mail.gmail.com>
-Subject: Re: [PATCH 4/4] media: rkvdec: align bytesperline to 64 bytes in rkvdec_fill_decoded_pixfmt()
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Venkata Atchuta Bheemeswara Sarma Darbha <vdarbha0473@gmail.com>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
-	Francesco Saverio Pavone <pavone.lawyer@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_100759_319805_F3F80DDE 
-X-CRM114-Status: GOOD (  24.63  )
+X-CRM114-CacheID: sfid-20260727_093533_609838_96AA7BE9 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,99 +72,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 
-> This shouldn't be needed. As you set step_width to 64,
-> v4l2_apply_frmsize_constraints() should already do the alignment.
-> Do you have more context as to when width is not aligned ?
+With pseudo-NMIs enabled, we have two mechanisms that control
+interrupt masking in parallel :
+- The DAIF flags, masking at the CPU
+- The GIC PMR, masking before the CPU
 
-You're right that the width is aligned -- step_width =3D 64 handles that.
-This isn't the width though, it's the stride, and it only bites on the
-10-bit (Profile 2) capture format.
+However, our irqflags implementation currently assumes that only one
+of the two is used at a time, so both DAIF and PMR masking use the same
+`unsigned long flags` in their own way.
+This is incorrect, as some parts of the kernel will mask interrupts
+with DAIF directly or bypass the local_irq masking via the PMR,
+and makes tracking the state and changes of both in parallel impossible.
 
-For 8-bit NV12 the luma stride equals the width, so once the width is
-64-aligned the stride is too and this block is a no-op.
+The irqflags API expects `unsigned long`s to be passed around, but
+they should not be manipulated outside of the arch-specific code.
+So, we can encode the information we need however we want as long as
+we return and accept `unsigned long`s.
 
-The 10-bit capture format is NV15, whose luma stride is width * 5 / 4
-(bpp {5, 10}, bpp_div {4, 4} in v4l2-common.c). That isn't a multiple
-of 64 even when the width is: a 1920-wide Profile 2 frame gives a
-2400-byte stride, while the VDPU381 needs the luma stride 64-byte
-aligned (2432). v4l2_apply_frmsize_constraints() only rounds the width
-and height, and v4l2_fill_pixfmt_mp() fills the stride with alignment 1,
-so NV15 comes out unaligned and the decoded frame is corrupted without
-this. I can show the before/after on a 10-bit vector if that's useful.
+Introduce a union type for arm64 irqflags whose first member is
+a struct allowing us to track DAIF and PMR in parallel, and the second
+is the `unsigned long` expected by the irqflags API.
 
-If you'd rather express it through the framework than with a manual
-ALIGN() here, v4l2_fill_pixfmt_mp_aligned(pixfmt, pixelformat, width,
-height, 64) produces the same bytesperline and sizeimage -- happy to
-switch to that in v2.
+DAIF is a two byte value, to maintain compatibility with existing defines.
+PMR is a one byte value, which is the maximum amount of priority bits
+allowed by the GICv3 architecture.
 
-Igor
+Update the internal irqflags functions to use this new union and convert
+back and forth with the irqflags unsigned long.
+There should be no functional changes.
 
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+---
+ arch/arm64/include/asm/irqflags.h | 43 ++++++++++++++++++++++++++-----
+ 1 file changed, 37 insertions(+), 6 deletions(-)
 
-On Mon, Jul 27, 2026 at 5:58=E2=80=AFPM Detlev Casanova
-<detlev.casanova@collabora.com> wrote:
->
-> Hi !
->
-> On Sunday, 26 July 2026 16:25:37 EDT Venkata Atchuta Bheemeswara Sarma Da=
-rbha
-> wrote:
-> > From: Igor Paunovic <royalnet026@gmail.com>
-> >
-> > Ensure bytesperline is 64-byte aligned and scale sizeimage accordingly.
-> >
-> > Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-> > Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
-> > Signed-off-by: Venkata Atchuta Bheemeswara Sarma Darbha
-> > <vdarbha0473@gmail.com> ---
-> >  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 12 ++++++++++--
-> >  1 file changed, 10 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> > b/drivers/media/platform/rockchip/rkvdec/rkvdec.c index
-> > 436bb460f04e..6ab6530b1cc9 100644
-> > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> > @@ -102,12 +102,20 @@ static void rkvdec_fill_decoded_pixfmt(struct
-> > rkvdec_ctx *ctx, struct v4l2_pix_format_mplane *pix_mp)
-> >  {
-> >       const struct rkvdec_variant *variant =3D ctx->dev->variant;
-> > +     struct v4l2_plane_pix_format *plane =3D &pix_mp->plane_fmt[0];
-> > +     u32 aligned_bpl;
-> >
-> >       v4l2_fill_pixfmt_mp(pix_mp, pix_mp->pixelformat, pix_mp->width,
-> > pix_mp->height);
-> >
-> > -     ctx->colmv_offset =3D pix_mp->plane_fmt[0].sizeimage;
-> > +     /* ensure bpl is 64 byte aligned and scale sizeimage accordingly.
-> */
-> > +     aligned_bpl =3D ALIGN(plane->bytesperline, 64);
-> > +     if (aligned_bpl !=3D plane->bytesperline) {
-> > +             plane->sizeimage =3D plane->sizeimage / plane-
-> >bytesperline * aligned_bpl;
-> > +             plane->bytesperline =3D aligned_bpl;
-> > +     }
->
-> This shouldn't be needed. As you set step_width to 64,
-> v4l2_apply_frmsize_constraints() should already do the alignment.
->
-> Do you have more context as to when width is not aligned ?
->
-> >
-> > -     pix_mp->plane_fmt[0].sizeimage +=3D variant->ops->colmv_size(pix_=
-mp-
-> >width,
-> > pix_mp->height); +    ctx->colmv_offset =3D plane->sizeimage;
-> > +     plane->sizeimage +=3D variant->ops->colmv_size(pix_mp->width,
-> > pix_mp->height); }
-> >
-> >  static void rkvdec_reset_fmt(struct rkvdec_ctx *ctx, struct v4l2_forma=
-t *f,
->
-> Regards,
-> Detlev.
->
->
->
+diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+index a8cb5a5c93b7..1863a955d119 100644
+--- a/arch/arm64/include/asm/irqflags.h
++++ b/arch/arm64/include/asm/irqflags.h
+@@ -9,6 +9,8 @@
+ #include <asm/ptrace.h>
+ #include <asm/sysreg.h>
+ 
++#include <linux/compiler.h>
++
+ /*
+  * Aarch64 has flags for masking: Debug, Asynchronous (serror), Interrupts and
+  * FIQ exceptions, in the 'daif' register. We mask and unmask them in 'daif'
+@@ -20,6 +22,23 @@
+  * exceptions should be unmasked.
+  */
+ 
++ /*
++  * Internally, we want to independently manipulate and track the different
++  * interrupt masking mechanisms.
++  * Externally, the generic irqflags API expects unsgined longs to represent
++  * the state of interrupts, which are treated as obscure arch-specific data.
++  */
++typedef union arm64_exc_hwstate {
++	struct {
++		u16 daif;
++		u8 pmr;
++		u8 __padding[5];
++	};
++	unsigned long flags;
++} arm64_exc_hwstate_t;
++
++static_assert(sizeof(arm64_exc_hwstate_t) == sizeof(unsigned long));
++
+ static __always_inline void __daif_local_irq_enable(void)
+ {
+ 	barrier();
+@@ -79,12 +98,16 @@ static __always_inline void arch_local_irq_disable(void)
+ 
+ static __always_inline unsigned long __daif_local_save_flags(void)
+ {
+-	return read_sysreg(daif);
++	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
++
++	return hwstate.flags;
+ }
+ 
+ static __always_inline unsigned long __pmr_local_save_flags(void)
+ {
+-	return read_sysreg_s(SYS_ICC_PMR_EL1);
++	arm64_exc_hwstate_t hwstate = { .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
++
++	return hwstate.flags;
+ }
+ 
+ /*
+@@ -101,12 +124,16 @@ static __always_inline unsigned long arch_local_save_flags(void)
+ 
+ static __always_inline bool __daif_irqs_disabled_flags(unsigned long flags)
+ {
+-	return flags & PSR_I_BIT;
++	arm64_exc_hwstate_t hwstate = { .flags = flags };
++
++	return hwstate.daif & PSR_I_BIT;
+ }
+ 
+ static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
+ {
+-	return flags != GIC_PRIO_IRQON;
++	arm64_exc_hwstate_t hwstate = { .flags = flags };
++
++	return hwstate.pmr != GIC_PRIO_IRQON;
+ }
+ 
+ static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+@@ -171,15 +198,19 @@ static __always_inline unsigned long arch_local_irq_save(void)
+ 
+ static __always_inline void __daif_local_irq_restore(unsigned long flags)
+ {
++	arm64_exc_hwstate_t hwstate = { .flags = flags };
++
+ 	barrier();
+-	write_sysreg(flags, daif);
++	write_sysreg(hwstate.daif, daif);
+ 	barrier();
+ }
+ 
+ static __always_inline void __pmr_local_irq_restore(unsigned long flags)
+ {
++	arm64_exc_hwstate_t hwstate = { .flags = flags };
++
+ 	barrier();
+-	write_sysreg_s(flags, SYS_ICC_PMR_EL1);
++	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+ 	pmr_sync();
+ 	barrier();
+ }
+-- 
+2.34.1
+
 
