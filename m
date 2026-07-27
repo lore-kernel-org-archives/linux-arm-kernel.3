@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB7BC54F53
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01CFC54F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMqp6PhYXi/p9o05v9d3CibfeY92Sjja5zKLLK5iUYM=; b=QcWPQ6kxBBPL98e+AMvUVC5v3L
-	LfMFLh//LsgaNaJRQdYxs5wuX1TPlbWY+8AUmWog75gJD7+fOFN/joA8Gr1dvx2gfqpUOD5IE2EBk
-	x/dTYIDE/h4bdubPQpplyiWirMkm/BIiziaLZjLq/SvucMgUrygLMsDxNZ50zW/HkF+i1if25NxQ7
-	qYwO+DkXko6Cu5vQ0cQR99uJuBFV9Y2fErkZxLZuOPZm2YTJK+RpzYC3RvjpMvbj36cvE4RtqCCdV
-	GeZFTIRi4jA7ZkGS040eWOiL6qhuBxq9QqniccONG6R8zbVBNkQFh6QM24UGIt1uN911sNnoOTsEF
-	4HFeo28A==;
+	bh=CSkSPmYcNJjnZQGgvBsU0vXmu93KrYLvAZqqLMitCx4=; b=NwMmQCJ/CFqBgz57urd5O1vo9l
+	mCSda5Yp2kmmBHjL8FM042qibs52tCaYz4/LmJzZo5SxojVepvbZ5bEiSjQ5xUXtZNAsdfLJb9Rdr
+	LdFbXhlDfYqQ3kQFBBfIcxT4QE572YlrXP3UFOk9Gxk5o1Yq+V1wYd2OwVqHqGgJp9BFHSAa5TxYu
+	m7IRmMRGAzBc/XrN+QdGgCCZdsECIdADyrwZ28UdKKMNvAE4lhCDG6+/9KTnr1itwom7jQXgiuR2I
+	vrU3Ru8+GQPgcDlyQbFp23vg6R+l99NkPre3u0Q5QvNa61+I+c3ypjrQk3EDcg3kEitn3DVXR8ULd
+	BO67WnEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOKp-00000003OM9-0g31;
-	Mon, 27 Jul 2026 16:37:47 +0000
+	id 1woOKq-00000003OPN-200C;
+	Mon, 27 Jul 2026 16:37:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOJ6-00000003N2l-2FMI
+	id 1woOJE-00000003NP5-2m9i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 16:36:02 +0000
+	Mon, 27 Jul 2026 16:36:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2D781682;
-	Mon, 27 Jul 2026 09:35:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75B271762;
+	Mon, 27 Jul 2026 09:36:03 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 289463F86F;
-	Mon, 27 Jul 2026 09:35:59 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9F47C3F86F;
+	Mon, 27 Jul 2026 09:36:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785170160; bh=19yb51hsl+1D2HYVuGUyMrNOyUfZqLAk8r0z4d5I9pg=;
+	t=1785170167; bh=K/9m0RnILaJvsSB2iVoLmsqB5IuUPY6dQSZvNHkyVr8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bAE//NVXKajt6nHSfJSMtfMCZyFrT18nnEW3HkTfhGcdIudjrHug9495H0qNtmon4
-	 WHWHgiTRpEe33WPfE9i6XqHsF0rwXEpmxi8xIL3cn9N9ZKjQ4zg3A6c8yPb/he5+xk
-	 WQ3HYug9zMhlM9pLKB3xYHBF64sn651iGw7ZAkjs=
+	b=In3zFCKd3gEagOBcBFTP9uKp/PO8IKuNogLMh75o4fmnYkNXdE6zcQLYXVRMZP8rL
+	 j8YluyCYWE1cZ/nT9D4fons8BclCO3iJgp2Py0xTENCEzUZxaRUDeskrbp2oWjSS+j
+	 klApPZvuFaIItOKsn4B9XhQp9eFEFd46opp3J8rU=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: mark.rutland@arm.com,
@@ -47,17 +47,17 @@ Cc: mark.rutland@arm.com,
 	catalin.marinas@arm.com,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [RFC PATCH v2 32/45] arm64: nmi: Manage masking for superpriority interrupts
-Date: Mon, 27 Jul 2026 17:34:40 +0100
-Message-Id: <20260727163453.7969-33-vladimir.murzin@arm.com>
+Subject: [RFC PATCH v2 38/45] arm64: smp: Abstract SGI and LPI operations
+Date: Mon, 27 Jul 2026 17:34:46 +0100
+Message-Id: <20260727163453.7969-39-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260727163453.7969-1-vladimir.murzin@arm.com>
 References: <20260727163453.7969-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_093600_715848_A688E9E5 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20260727_093608_819070_5EE19B38 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,327 +72,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+SGI and LPI backed IPIs require different setup, enable, disable and
+send operations. These differences are currently handled by repeatedly
+checking percpu_ipi_descs. As the implementation specific logic grows,
+these checks make the common IPI code increasingly difficult to
+follow.
 
-Extend logic to handle and debug exception context/state with knowlage
-of FEAT_NMI.
-
-Take care to order writes to ALLINT relative to DAIF, as clearing
-ALLINT before DAIF could result in taking an NMI while DAIF is fully
-masked, as could setting it after DAIF.
-
-Since superpriority interrupts are not masked through DAIF like pseduo
-NMIs are, we also need to modify the assembler macros for managing
-DAIF to ensure that the masking is done in the assembly code.
-
-Note that save_and_disable_irq/restore_irq and
-save_and_disable_daif/restore_irq pairs are used in distinct
-contextes:
-
-- former is used in context of SW PAN to quickly disable/enable
-  preemption
-
-- latter is used to completely mask all exceptions.
-
-For that reason split save_and_disable_daif/restore_irq into more
-generic exception save restore pair and plumb with FEAT_NMI logic.
-
-Co-developed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Introduce an operations structure for each implementation to
+encapsulate the specific of SGI and LPI handling, leaving the common
+IPI paths generic.
 
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 ---
- arch/arm64/include/asm/assembler.h            | 20 +++++++++--
- .../include/asm/interrupts/common_flags.h     | 35 +++++++++++++++++++
- arch/arm64/include/asm/interrupts/entry.h     | 18 ++++++----
- arch/arm64/include/asm/interrupts/masking.h   |  3 +-
- arch/arm64/include/asm/irqflags.h             |  3 +-
- arch/arm64/kernel/entry.S                     | 12 +++----
- 6 files changed, 75 insertions(+), 16 deletions(-)
+ arch/arm64/kernel/smp.c | 163 +++++++++++++++++++++++++---------------
+ 1 file changed, 101 insertions(+), 62 deletions(-)
 
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 0b58b550e8dc..bcdbc308afba 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -37,11 +37,27 @@
- /*
-  * Save/restore interrupts.
-  */
--	.macro save_and_disable_daif, flags
--	mrs	\flags, daif
-+	.macro save_and_disable_exceptions, flags, tmp
-+	mrs     \flags, daif		// updates flags[9:6] with DAIF
-+#ifdef CONFIG_ARM64_NMI
-+alternative_if ARM64_NMI
-+	mrs_s	\tmp, SYS_ALLINT	// updates tmp[13] with AllInt
-+	msr_s	SYS_ALLINT_SET, xzr
-+	orr	\flags, \flags, \tmp	// now flags[13,9:6] carry pair of AllInt,DAIF
-+alternative_else_nop_endif
-+#endif
- 	msr	daifset, #0xf
- 	.endm
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 6e5b673613ca..3dd4bc02caed 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -75,11 +75,18 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs, pcpu_ipi_desc);
  
-+	.macro  restore_exceptions, flags
-+	msr     daif, \flags		// bits other than flags[9:6] are ignored
-+#ifdef CONFIG_ARM64_NMI
-+alternative_if ARM64_NMI
-+	msr_s	SYS_ALLINT, \flags	// bits other than flags[13] are ignored
-+alternative_else_nop_endif
-+#endif
-+	.endm
+ #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
+ 
+-static bool percpu_ipi_descs __ro_after_init;
++struct ipi_irq_ops {
++	void (*setup)(int ipi, int ncpus);
++	void (*disable)(int cpu, int ipi);
++	void (*enable)(int cpu, int ipi);
++	void (*send)(const cpumask_t *mask, unsigned int nr);
++};
 +
- 	.macro	save_and_disable_irq, flags
- 	mrs	\flags, daif
- 	msr	daifset, #3
-diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
-index c077af313d0d..d3e1b41ca9a2 100644
---- a/arch/arm64/include/asm/interrupts/common_flags.h
-+++ b/arch/arm64/include/asm/interrupts/common_flags.h
-@@ -20,6 +20,14 @@
- /*
-  * Exception context mapping
-  *
-+ * FEAT_NMI
-+ *
-+ * CRITICAL -> DAIF + AllInt (corresponds to the state on exception entry)
-+ * ERROR    ->  AIF + AllInt
-+ * NONMI    ->   IF + AllInt
-+ * NOIRQ    ->   IF
-+ * PROCESS  ->    0
-+ *
-  * pseudo-NMI
-  *
-  * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
-@@ -76,6 +84,7 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
- 		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
++static const struct ipi_irq_ops *ipi_ops __ro_after_init;
  
- 	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-+
- }
+ static bool crash_stop;
  
- static __always_inline
-@@ -84,6 +93,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
- 	if (system_uses_irq_prio_masking())
- 		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
+-static void ipi_setup(int cpu);
++static void ipi_enable(int cpu);
  
-+	if (system_uses_nmi())
-+               return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .allint=ALLINT_ALLINT};
-+
- 	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
- }
- 
-@@ -93,6 +105,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
- 	if (system_uses_irq_prio_masking())
- 		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
- 
-+	if (system_uses_nmi())
-+		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .allint=ALLINT_ALLINT};
-+
- 	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
- }
- 
-@@ -102,6 +117,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
- 	if (system_uses_irq_prio_masking())
- 		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
- 
-+	if (system_uses_nmi())
-+		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .allint=ALLINT_ALLINT};
-+
- 	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
- }
- 
-@@ -131,6 +149,9 @@ arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
- 	if (system_uses_irq_prio_masking())
- 		state.pmr = regs->pmr;
- 
-+	if (system_uses_nmi())
-+		state.allint = regs->pstate & PSR_ALLINT_BIT;
-+
- 	return state;
- }
- 
-@@ -150,6 +171,9 @@ void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
- 	if (system_uses_irq_prio_masking()) {
- 		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
- 			  actual.daif, actual.pmr, expected.daif, expected.pmr);
-+	} else if (system_uses_nmi()) {
-+		WARN_ONCE(1, "Unexpected DAIF+ALLINT: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
-+			  actual.daif, actual.allint, expected.daif, expected.allint);
- 	} else {
- 		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
- 			  actual.daif, expected.daif);
-@@ -194,10 +218,21 @@ void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
- 		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
- 	}
- 
-+	/*
-+	 * Try to order ALLINT writes to be consistent with the DAIF state :
-+	 * we don't want to take an NMI with DAIF masked or when it should
-+	 * be masked but isn't yet.
-+	 */
-+	if (system_uses_nmi() && hwstate.allint && force)
-+		_allint_set();
-+
- 	barrier();
- 	write_sysreg(hwstate.daif, daif);
- 	barrier();
- 
-+	if (system_uses_nmi() && !hwstate.allint && force)
-+		_allint_clear();
-+
- 	if (system_uses_irq_prio_masking() &&
- 	    hwstate.pmr == GIC_PRIO_IRQON &&
- 	    force) {
-diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
-index d66eb5d633f0..59e1a94babcb 100644
---- a/arch/arm64/include/asm/interrupts/entry.h
-+++ b/arch/arm64/include/asm/interrupts/entry.h
-@@ -10,7 +10,6 @@
- #include <asm/cpufeature.h>
- #include <asm/interrupts/common_flags.h>
- 
--
- static __always_inline
- arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
- 						  arm64_exc_hwstate_t next)
-@@ -26,7 +25,8 @@ arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
- 	if (!irqs_disabled)
- 		trace_hardirqs_on();
- 
--	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
-+	force = (system_uses_irq_prio_masking() && prev.pmr != next.pmr) ||
-+		(system_uses_nmi() && prev.allint != next.allint);
- 
- 	__arm64_update_exc_hwstate(next, force);
- 
-@@ -52,15 +52,18 @@ arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
- 
- 	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
- 		bool pnmi = system_uses_irq_prio_masking();
-+		bool nmi = system_uses_nmi();
- 
- 		WARN_ON_ONCE(context > ERROR_CONTEXT &&
- 			     prev.daif == DAIF_ERRCTX);
- 
- 		WARN_ON_ONCE(context > NONMI_CONTEXT &&
--			     prev.daif == DAIF_PROCCTX_NOIRQ);
-+			     ((nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint == ALLINT_ALLINT) ||
-+			      (!nmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
- 
- 		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
--			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
-+			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
-+			      (nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint != ALLINT_ALLINT)));
- 
- 		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
- 			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
-@@ -77,6 +80,7 @@ arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
- 
- 	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
- 		bool pnmi = system_uses_irq_prio_masking();
-+		bool nmi = system_uses_nmi();
- 
- 		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
- 			     prev.daif == DAIF_MASK);
-@@ -85,11 +89,13 @@ arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
- 			     prev.daif == DAIF_ERRCTX);
- 
- 		WARN_ON_ONCE(context < NONMI_CONTEXT &&
--			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
-+			     ((pnmi && prev.daif == DAIF_PROCCTX_NOIRQ) ||
-+			      (nmi &&  prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint == ALLINT_ALLINT)));
- 
- 		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
- 			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
--			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
-+			      (nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint != ALLINT_ALLINT) ||
-+			      (!pnmi && !nmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
- 	}
- 
- 	return __arm64_switch_exc_hwstate_to(prev, next);
-diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
-index e13852442062..1f754fdf4517 100644
---- a/arch/arm64/include/asm/interrupts/masking.h
-+++ b/arch/arm64/include/asm/interrupts/masking.h
-@@ -30,7 +30,8 @@ arm64_exc_hwstates_t local_exceptions_save_mask(arm64_exc_context_t new)
- 	 * We've just got actual HW state so we can rely on that to
- 	 * optimize some unnecessary updates.
+ #ifdef CONFIG_HOTPLUG_CPU
+ static void ipi_teardown(int cpu);
+@@ -240,7 +247,7 @@ asmlinkage notrace void secondary_start_kernel(void)
  	 */
--	force = system_uses_irq_prio_masking() && actual.pmr != state.pmr;
-+	force = (system_uses_irq_prio_masking() && actual.pmr != state.pmr) ||
-+		(system_uses_nmi() && actual.allint != state.allint);
+ 	notify_cpu_starting(cpu);
  
- 	if (!irqs_disabled)
- 		trace_hardirqs_on();
-diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
-index 03cfcd915e62..c719b7e2912e 100644
---- a/arch/arm64/include/asm/irqflags.h
-+++ b/arch/arm64/include/asm/irqflags.h
-@@ -31,8 +31,9 @@
- typedef union arm64_exc_hwstate {
- 	struct {
- 		u16 daif;
-+		u16 allint;
- 		u8 pmr;
--		u8 __padding[5];
-+		u8 __padding[3];
- 	};
- 	unsigned long flags;
- } arm64_exc_hwstate_t;
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index cb3be770f2d0..39ea3fdeb03a 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -815,7 +815,7 @@ SYM_CODE_END(__bp_harden_el1_vectors)
-  *
-  */
- SYM_FUNC_START(cpu_switch_to)
--	save_and_disable_daif x11
-+	save_and_disable_exceptions x11, x12
- 	mov	x10, #THREAD_CPU_CONTEXT
- 	add	x8, x0, x10
- 	mov	x9, sp
-@@ -839,7 +839,7 @@ SYM_FUNC_START(cpu_switch_to)
- 	ptrauth_keys_install_kernel x1, x8, x9, x10
- 	scs_save x0
- 	scs_load_current
--	restore_irq x11
-+	restore_exceptions x11
- 	ret
- SYM_FUNC_END(cpu_switch_to)
- NOKPROBE(cpu_switch_to)
-@@ -866,7 +866,7 @@ NOKPROBE(ret_from_fork)
-  * Calls func(regs) using this CPU's irq stack and shadow irq stack.
-  */
- SYM_FUNC_START(call_on_irq_stack)
--	save_and_disable_daif x9
-+	save_and_disable_exceptions x9, x10
- #ifdef CONFIG_SHADOW_CALL_STACK
- 	get_current_task x16
- 	scs_save x16
-@@ -881,10 +881,10 @@ SYM_FUNC_START(call_on_irq_stack)
+-	ipi_setup(cpu);
++	ipi_enable(cpu);
  
- 	/* Move to the new stack and call the function there */
- 	add	sp, x16, #IRQ_STACK_SIZE
--	restore_irq x9
-+	restore_exceptions x9
- 	blr	x1
+ 	numa_add_cpu(cpu);
  
--	save_and_disable_daif x9
-+	save_and_disable_exceptions x9, x10
- 	/*
- 	 * Restore the SP from the FP, and restore the FP and LR from the frame
- 	 * record.
-@@ -892,7 +892,7 @@ SYM_FUNC_START(call_on_irq_stack)
- 	mov	sp, x29
- 	ldp	x29, x30, [sp], #16
- 	scs_load_current
--	restore_irq x9
-+	restore_exceptions x9
- 	ret
- SYM_FUNC_END(call_on_irq_stack)
- NOKPROBE(call_on_irq_stack)
+@@ -916,13 +923,7 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
+ 
+ static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
+ {
+-	unsigned int cpu;
+-
+-	if (!percpu_ipi_descs)
+-		__ipi_send_mask(get_ipi_desc(0, nr), mask);
+-	else
+-		for_each_cpu(cpu, mask)
+-			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
++	ipi_ops->send(mask, nr);
+ }
+ 
+ static void arm64_backtrace_ipi(cpumask_t *mask)
+@@ -1048,53 +1049,13 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
+ 	}
+ }
+ 
+-static void ipi_setup(int cpu)
+-{
+-	int i;
+-
+-	if (WARN_ON_ONCE(!ipi_irq_base))
+-		return;
+-
+-	for (i = 0; i < nr_ipi; i++) {
+-		if (!percpu_ipi_descs) {
+-			if (ipi_should_be_nmi(i)) {
+-				prepare_percpu_nmi(ipi_irq_base + i);
+-				enable_percpu_nmi(ipi_irq_base + i, 0);
+-			} else {
+-				enable_percpu_irq(ipi_irq_base + i, 0);
+-			}
+-		} else {
+-			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+-		}
+-	}
+-}
+-
+-#ifdef CONFIG_HOTPLUG_CPU
+-static void ipi_teardown(int cpu)
++static void ipi_sgi_setup(int ipi, int ncpus)
+ {
+-	int i;
++	int err, irq, cpu;
+ 
+-	if (WARN_ON_ONCE(!ipi_irq_base))
++	if (WARN_ON_ONCE(ncpus))
+ 		return;
+ 
+-	for (i = 0; i < nr_ipi; i++) {
+-		if (!percpu_ipi_descs) {
+-			if (ipi_should_be_nmi(i)) {
+-				disable_percpu_nmi(ipi_irq_base + i);
+-				teardown_percpu_nmi(ipi_irq_base + i);
+-			} else {
+-				disable_percpu_irq(ipi_irq_base + i);
+-			}
+-		} else {
+-			disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+-		}
+-	}
+-}
+-#endif
+-
+-static void ipi_setup_sgi(int ipi)
+-{
+-	int err, irq, cpu;
+ 
+ 	irq = ipi_irq_base + ipi;
+ 
+@@ -1112,7 +1073,50 @@ static void ipi_setup_sgi(int ipi)
+ 	irq_set_status_flags(irq, IRQ_HIDDEN);
+ }
+ 
+-static void ipi_setup_lpi(int ipi, int ncpus)
++static void ipi_sgi_enable(int cpu, int ipi)
++{
++	if (ipi_should_be_nmi(ipi)) {
++		prepare_percpu_nmi(ipi_irq_base + ipi);
++		enable_percpu_nmi(ipi_irq_base + ipi, 0);
++	} else {
++		enable_percpu_irq(ipi_irq_base + ipi, 0);
++	}
++}
++
++static void ipi_sgi_disable(int cpu, int ipi)
++{
++	if (ipi_should_be_nmi(ipi)) {
++		disable_percpu_nmi(ipi_irq_base + ipi);
++		teardown_percpu_nmi(ipi_irq_base + ipi);
++	} else {
++		disable_percpu_irq(ipi_irq_base + ipi);
++	}
++}
++
++static void ipi_sgi_send(const cpumask_t *mask, unsigned int nr)
++{
++	__ipi_send_mask(get_ipi_desc(0, nr), mask);
++}
++
++static const struct ipi_irq_ops ipi_sgi_ops = {
++	.disable = ipi_sgi_disable,
++	.enable = ipi_sgi_enable,
++	.setup = ipi_sgi_setup,
++	.send = ipi_sgi_send,
++};
++
++
++static void ipi_lpi_enable(int cpu, int ipi)
++{
++	enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
++}
++
++static void ipi_lpi_disable(int cpu, int ipi)
++{
++	disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
++}
++
++static void ipi_lpi_setup(int ipi, int ncpus)
+ {
+ 	for (int cpu = 0; cpu < ncpus; cpu++) {
+ 		int err, irq;
+@@ -1132,6 +1136,44 @@ static void ipi_setup_lpi(int ipi, int ncpus)
+ 	}
+ }
+ 
++static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr) {
++	int cpu;
++
++	for_each_cpu(cpu, mask)
++		__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
++}
++
++static const struct ipi_irq_ops ipi_lpi_ops = {
++	.disable = ipi_lpi_disable,
++	.enable = ipi_lpi_enable,
++	.setup = ipi_lpi_setup,
++	.send = ipi_lpi_send,
++};
++
++static void ipi_enable(int cpu)
++{
++	int ipi;
++
++	if (WARN_ON_ONCE(!ipi_irq_base))
++		return;
++
++	for (ipi = 0; ipi < nr_ipi; ipi++)
++		ipi_ops->enable(cpu, ipi);
++}
++
++#ifdef CONFIG_HOTPLUG_CPU
++static void ipi_teardown(int cpu)
++{
++	int ipi;
++
++	if (WARN_ON_ONCE(!ipi_irq_base))
++		return;
++
++	for (ipi = 0; ipi < nr_ipi; ipi++)
++		ipi_ops->disable(cpu, ipi);
++}
++#endif
++
+ void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
+ {
+ 	int i;
+@@ -1139,18 +1181,15 @@ void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
+ 	WARN_ON(n < MAX_IPI);
+ 	nr_ipi = min(n, MAX_IPI);
+ 
+-	percpu_ipi_descs = !!ncpus;
+ 	ipi_irq_base = ipi_base;
+ 
+-	for (i = 0; i < nr_ipi; i++) {
+-		if (!percpu_ipi_descs)
+-			ipi_setup_sgi(i);
+-		else
+-			ipi_setup_lpi(i, ncpus);
+-	}
++	ipi_ops = ncpus ? &ipi_lpi_ops : &ipi_sgi_ops;
++
++	for (i = 0; i < nr_ipi; i++)
++		ipi_ops->setup(i, ncpus);
+ 
+ 	/* Setup the boot CPU immediately */
+-	ipi_setup(smp_processor_id());
++	ipi_enable(smp_processor_id());
+ }
+ 
+ void arch_smp_send_reschedule(int cpu)
 -- 
 2.34.1
 
