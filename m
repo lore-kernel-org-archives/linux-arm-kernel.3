@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91478C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 20:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CAA7C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 20:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E5fgYYcv97X3cmNAX0LPuBoe0o+iYp8x776W/oEnHq4=; b=PiX4j5rkoQtahFWv6hl4hZTgsn
-	KmxE3CVjWoMbIHnilJvlfR/SyMOyYsjl6dZaGIso3GUPSB778U9s17xSibD6wmoJqrNrkbjYCTcj1
-	Ke6vDgEt+3yP6jIQk66iPqtAO3B1xcNANNx7l+q3Z1zwYtYFQi6hCDNdPISwC408rrfqrwRYH8Cni
-	3ruRw3uMJNOCJmU9yq6JT3wIHKDZuv/n11ZFTdBTlbAmyESjN5XzR+RGNMpX+VShQ+pL6ekyQw2Fi
-	1uZaQwRUMA336vaD+q0XHZ8a299OkNkiD7PmiRqlPqJZzpc/nC6mNVh6UU4lpsIyG53aOr5/Psrf6
-	TYT8u5vQ==;
+	bh=jxhfi3VWM2ZO5rpEKIfZcY3s5wKcbQuJh8HHKhGOQwM=; b=Ce3PGVEPVcjbzRQobOeH+lZu1C
+	Dh7vvtSHqzYjFUW5d9uZMwjHPepxEMM8VV0sIeXaZNUU7DGtD5xw84KpbwHd47itFgu5+T/0/Qfw+
+	Ri3iZfhGl4Q12y0Y/RsJKA+v2EpLLa7/eShy4/MroImxJNWzNiUWRJXeOEdUu9Dp4CGMyhDfZLEcZ
+	6d92Vc4r4wcn1JfxbPIub5neHQEHZqyDr9FsU+15JFCDuoceqa3NGkEdKcUD4KEAQ5uXglulnf1Iv
+	j4AIqTJ2M2bxknbj58Ye2oRi40ZZLk/OADFX1iAAVe3QYv5NiwxddXaE6IMTvFUd0tFUFbYOcljZp
+	TJ/7ev7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woRWS-00000003nlk-0DKm;
-	Mon, 27 Jul 2026 20:02:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woRbH-00000003o65-00DZ;
+	Mon, 27 Jul 2026 20:06:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woRWQ-00000003nlc-1ue1
+	id 1woRbE-00000003o5j-3TLB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 20:01:58 +0000
+	Mon, 27 Jul 2026 20:06:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47AA641160;
-	Mon, 27 Jul 2026 20:01:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C15A81F000E9;
-	Mon, 27 Jul 2026 20:01:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F7F460008;
+	Mon, 27 Jul 2026 20:06:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46C1B1F000E9;
+	Mon, 27 Jul 2026 20:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785182517;
-	bh=E5fgYYcv97X3cmNAX0LPuBoe0o+iYp8x776W/oEnHq4=;
+	s=k20260515; t=1785182815;
+	bh=jxhfi3VWM2ZO5rpEKIfZcY3s5wKcbQuJh8HHKhGOQwM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bz3g3Pc9CCjO7t0a/ai27As//iRoXOFna0d6uiBsr0LbGLhzsMDFOnZ6gyUdtzfle
-	 ji1NSWkob04wed2uU0StlIB47TVKmRdU1bvu9+kldRtqF79wSnDzfE/3oMvn3ltAbM
-	 tZ9Pul7Uh/vHiilQgDIPpBnYGh8vzZhAqP6qc7xsX5nRwkWim00fx3exTOnYFR+I5z
-	 5lbvbNxkN38WJcYVgkH9HdJMOG01kZPIJKvtRNA2E/DQ0B6jfe9xYqW8rsw7G+6otL
-	 BHSeNVLTh3HqAn+LOua8sJrxFHCqZNcT79rO2AaoabfQwuQULNhMMqPhmtoDj4l5NT
-	 J+B6s7jZPmS8w==
-Date: Mon, 27 Jul 2026 21:01:53 +0100
+	b=YaeAYkNuQfx46iAf6KSXNj9qHCWO5lV+G+qet8NRJdQfc4wNO31nxmofjnmqa5wem
+	 ZFmwDUQDvBYNq7gS5WCJ8RzU5KDKToMrwW5lnJ6Morwd2KUriV2zYNRYM1XIn7zMb6
+	 oN0dZZY54FbxuRVxXHWsINTAbn1fGYiIrh5NO6OclOsJvtZnSsFAS1VcufY3VR8JVJ
+	 qd8HqIc0eSLtzpVxn5w2bX2y6Pem0uW/fzZ5TwpMDJ45g+xa1IiY3oPF6oCz7FbSeJ
+	 IqfKMtHD4Lz4AH6roB6cnrmtFeUN9vq07sc9cpvcsHAlN5Al7ykOGKlpeeflUBH6sV
+	 029sOVB0+MLzg==
+Date: Mon, 27 Jul 2026 21:06:52 +0100
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: Xixin Liu <liuxixin@kylinos.cn>
 Cc: arm-scmi@vger.kernel.org, cristian.marussi@arm.com,
-	mturquette@baylibre.com, sboyd@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 3/4] clk: scpi: bound-check DVFS index in
- scpi_dvfs_recalc_rate
-Message-ID: <20260727-generous-cautious-vole-829acd@sudeepholla>
+	Sudeep Holla <sudeep.holla@kernel.org>, mturquette@baylibre.com,
+	sboyd@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 4/4] clk: scpi: register scpi-cpufreq once and clear
+ on failure
+Message-ID: <20260727-towering-spicy-starling-da9cfa@sudeepholla>
 References: <cover.1785118770.git.liuxixin@kylinos.cn>
- <aa54a3b63064.1785118770.git.liuxixin@kylinos.cn>
+ <0ef515019f96.1785118770.git.liuxixin@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aa54a3b63064.1785118770.git.liuxixin@kylinos.cn>
+In-Reply-To: <0ef515019f96.1785118770.git.liuxixin@kylinos.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +73,37 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Mon, Jul 27, 2026 at 10:19:15AM +0800, Xixin Liu wrote:
-> dvfs_get_idx() may return an out-of-range index if the SCP firmware is
-> buggy or returns a stale value. Only negative indexes were rejected, so a
-> large index walked past info->opps and could treat garbage as a clock rate
-> (KASAN OOB / wrong frequency to consumers).
+> scpi_clk_probe() walks clock children and, for each DVFS provider, calls
+> platform_device_register_simple("scpi-cpufreq"). Two related bugs:
 > 
-> Treat indexes >= opp count as invalid and return 0, same as idx < 0.
+The function named above appears to be scpi_clocks_probe(), not
+scpi_clk_probe(). Fix that.
+
+> 1) Multiple DVFS children each spawned another virtual cpufreq device.
+>    If cpufreq_dev is already set, continue and skip a second register.
 > 
 
-Again this issue of out-of-bounds read is in the original SCPI clock driver.
-So include the below fixes tag:
+The registration uses id -1, so every device must be named "scpi-cpufreq".
+A second device_add() cannot register that name and must return -EEXIST;
+platform_device_register_full() then drops the second pdev.
 
-Fixes: cd52c2a4b5c4 ("clk: add support for clocks provided by SCP(System Control Processor)")
+So the above information could be misleading.
+
+Can you state it as each additional DVFS child attempts a duplicate
+registration and overwrites the first valid pointer with ERR_PTR(-EEXIST),
+rather than saying that each child spawns another device?
+
+> 2) On IS_ERR, the pointer still held ERR_PTR (e.g. -ENOMEM). remove()
+>    treats any non-NULL cpufreq_dev as live and would call
+>    platform_device_unregister() on the error pointer (oops). Clear
+>    cpufreq_dev to NULL after the failure warn so remove() skips it.
+>
+
+This also fixes bugs introduced by the original virtual device support and
+by moving registration inside the child loop. So
+
+Fixes: 9490f01e2471 ("clk: scpi: add support for cpufreq virtual device")
+Fixes: 67bcc2c5f1da ("clk: scpi: don't add cpufreq device if the scpi dvfs node is disabled")
 
 -- 
 Regards,
