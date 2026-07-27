@@ -4,77 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6A3C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD47CC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VwDBQNykuRmYGFu70OonIbUlNhBkjHVpvttegaysgv8=; b=bv8ZiCcEGV86iDNosQG2UucRvn
-	jWtFRRyvzfhx8Dj/CpuJXENym21oOUoYCgn26ppLe5JYdAM/fOUWOGhn+ewkmfIGM4NUoobkIQz7B
-	9IAhVsj4hxWMlT29zAfX3AYJywGwMOhMxst9L9KkNNTMsvodnnyoM3IT9S0k2rtwghzVtU2h96eqM
-	SGWiZHGVrgPfYw+dnnFGkbhLhQxA/WlfhIph6Xiz7aQElFYrSNnDpOkca76hXVyR1qe4OTEASQmz0
-	CpWsa8YcfbSW+mc71spx/WZ50jdYRJXgr9u9uulNg3XUooAANLosx5IvIlCVj95TeE3lRWU5WD03V
-	ETzk3esA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5HBSjs0YXmx8rxbE5f0/XZpbxIe03X0ZCU3v967/exQ=; b=YOr6qF9FTa9k94MvJotuGGP2x2
+	AJ7z+rd3hXuMdO+l9ocZl3/6XIdzsbnl+TwvmD8G6Iz3FIXfY3306wuW9KViDaDKe9IbxqX8+k5xR
+	mDD2JwuvpN4giBgWJe8vhj0v11cdRVZ41xtwPyY8YaVmGAZ8efejvxaGp6cGZNLdgpLrro9c7ZfC+
+	0danQoz2C2kKD1ugO4CnUMDALBf/oNDZmOz/m+VamP0c2wGYgakARFEAuIuNfwQ6GiQp7e8TaKitC
+	HhHFtfJrt/GJ0qq/g7YjajUAss+O+9TPgsoVdXdrn59FOqQEvrBk/xsr9afu1Iiwdzci0Tl1JVxrz
+	7QMhM/AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woLYn-00000002skn-2Vb6;
-	Mon, 27 Jul 2026 13:40:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1woLdG-00000002tPH-1JjB;
+	Mon, 27 Jul 2026 13:44:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woLYd-00000002shm-2hDj
+	id 1woLdF-00000002tPB-28VG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:39:51 +0000
+	Mon, 27 Jul 2026 13:44:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE8B9601DE;
-	Mon, 27 Jul 2026 13:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291471F000E9;
-	Mon, 27 Jul 2026 13:39:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DEAE142A4A;
+	Mon, 27 Jul 2026 13:44:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62FB11F000E9;
+	Mon, 27 Jul 2026 13:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785159590;
-	bh=VwDBQNykuRmYGFu70OonIbUlNhBkjHVpvttegaysgv8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TFO4GhTEu55l/gxs6ZO7F5k0XBouUZVcY8Wnv12bbamRwLLNatQPHWATnWdL9HxFd
-	 r+VAoaAgTR21b/eHvUDcETfFbIwCWGnUXKje8g4PFPR8/RZ0UpILnp2Hky4wLfbkbw
-	 0aWdtUxPsphaMtgoWLvGAZFZwmjICdWz9bHglTwWH05uGMIWVk49BeL4WSsism85SN
-	 pwTuRW1HUxX5BU1Qdcso1OIYwny4WZDn/iIptKCZtH1qKcpSwnCXPmrsJT9qIYEswH
-	 ZN/Z3DL7PXOWzItQHPt/nRfEq1vBLi9GLZV0I5HRxzO5kY7IvnYyrZ5/LuS7v84ITB
-	 Mq4krSTIKuoYQ==
-Date: Mon, 27 Jul 2026 14:39:45 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Srinivas Ramana <sramana@qti.qualcomm.com>,
-	Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
-Message-ID: <20260727-apricot-spider-of-jest-7a03dd@sudeepholla>
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-11-andre.przywara@arm.com>
- <20260724-finicky-knowing-foxhound-df1e56@sudeepholla>
- <amdTr8Sxw9024CN7@lpieralisi>
- <20260727-knowing-bittern-of-tempest-6deb54@sudeepholla>
- <amdeITt0wL4FG2Am@red-moon>
+	s=k20260515; t=1785159876;
+	bh=5HBSjs0YXmx8rxbE5f0/XZpbxIe03X0ZCU3v967/exQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=f2z7b51qoUf6Sutj4dP/UQlgqzQVH/sIoduN90fsornu7wBavjeVzTibtWRxCn4rh
+	 af1p74G9L+W0ulIOv/E0zlviPmRGlrTCpAeBe6UOziqgNaO8mLutQyd2Rt9bXOavbP
+	 oxuEUCa930MO+rNmegPrETeDvk6+4qw+l7dF/K4dVeZaesqkECQ+rjiWPLI9947/nS
+	 6EgoWWmXHu+CiPztjXHtWmQasSMcMjjtDAhFB8AzK2J3qIXNAGrNm2xMBXCBIfcKKP
+	 pLmlnIiOtm1gHo56xq5M2Su4ZHAX9fPZP66WIxr77+wQ5XvR2KOVaLgM6gp5DcYv+w
+	 DI8hFDl/qc7uQ==
+Message-ID: <ac1e42b2-eee5-42cc-bf1e-dfdc5225adeb@kernel.org>
+Date: Mon, 27 Jul 2026 15:44:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amdeITt0wL4FG2Am@red-moon>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] mm: constify generic pte_get*()
+To: Pedro Falcato <pfalcato@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)"
+ <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Muhammad Usama Anjum <usama.anjum@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+References: <20260724102017.141532-1-pfalcato@suse.de>
+ <20260724102017.141532-2-pfalcato@suse.de>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260724102017.141532-2-pfalcato@suse.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +130,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 03:33:21PM +0200, Lorenzo Pieralisi wrote:
-> On Mon, Jul 27, 2026 at 02:20:02PM +0100, Sudeep Holla wrote:
-> > On Mon, Jul 27, 2026 at 02:48:47PM +0200, Lorenzo Pieralisi wrote:
-
-[...]
-
-> > > 
-> > > I suppose it is to have properties parity between OF and ACPI without
-> > > having to change the driver property parsing path.
-> > > 
-> > 
-> > Yes, that was my initial thought as well. However, after looking into it
-> > further, I could not find any device tree bindings in the upstream tree.
-> > I am therefore unsure whether MPAM is supported on DT platforms.
-> > 
-> > The use of these device properties appears to have been based on DT bindings
-> > that may never have been upstreamed. As [1] suggests, the bindings were
-> > dropped before the initial merge.
-> > 
-> > Although we could rename these properties later to align with any DT bindings
-> > that are introduced, I think it would be preferable to avoid adding new
-> > properties unless they are strictly necessary.
+On 7/24/26 12:20, Pedro Falcato wrote:
+> None of the helpers need write access to the PTE. Constifying the param
+> allows for const typesafety.
 > 
-> Ah. That makes sense, if DT bindings get published the driver can be
-> reworked accordingly (if we want to improve how the code looks), this is
-> just Linux kernel internals anyway.
+> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+> ---
+>  include/linux/pgtable.h | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> As it stands the "msc-id" property is churn, that's what you are saying.
-> 
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 8c093c119e5a..dc418553e57a 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -490,7 +490,7 @@ static inline int pudp_set_access_flags(struct vm_area_struct *vma,
+>  #endif
+>  
+>  #ifndef ptep_get
+> -static inline pte_t ptep_get(pte_t *ptep)
+> +static inline pte_t ptep_get(const pte_t *ptep)
+>  {
+>  	return READ_ONCE(*ptep);
+>  }
+> @@ -739,7 +739,7 @@ static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
+>   * present bit set *unless* it is 'l'. Because get_user_pages_fast() only
+>   * operates on present ptes we're safe.
+>   */
+> -static inline pte_t ptep_get_lockless(pte_t *ptep)
+> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
+>  {
+>  	pte_t pte;
+>  
+> @@ -777,7 +777,7 @@ static inline pmd_t pmdp_get_lockless(pmd_t *pmdp)
+>   * We require that the PTE can be read atomically.
+>   */
+>  #ifndef ptep_get_lockless
+> -static inline pte_t ptep_get_lockless(pte_t *ptep)
+> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
+>  {
+>  	return ptep_get(ptep);
+>  }
 
-Indeed why add more property with names that may need to be changed with
-DT bindings in the future especially if we don't need it(IIUC it is already
-there in pdev->id unless I am missing something.
+Yes, that's a step into the right direction.
 
 -- 
-Regards,
-Sudeep
+Cheers,
 
-> > 
-> > [1] https://lore.kernel.org/all/20251107123450.664001-1-ben.horgan@arm.com/
-
+David
 
