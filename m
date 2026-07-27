@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C9EC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB93C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3skZsSAWHWds/Pvaes0a2uYpJ5JahEApGQi1xCYVmE=; b=XFAJ1LS4ecfM/kglPZbuvbwi4u
-	0aOan89SaSNuD3ElJCW6HN2g3oBAW9v7Yi45dTayC+hZErJVc5Wr4mxhGeoBjsWWlgwoEEij1n63F
-	rFsVZh+XTUMuWYUmJsN+C9bUTjTJg5G1yz6l+7UhMAvp5h1J3u2ACZG0yZFlr7fkoBLnorsQNwwtg
-	ndC0s2Wk8NHTyfDWH19HI5AxJzgyuikLoO4OZ4wLV+T1VReauSXn6K++OR194qXmUMVnrqUS7W4OA
-	o3R+Gb6hVaylPO7/mU0+t3u0hstFHZkhx/peYa/UfPSTYHFSR3TasZ1smWkkjAhFj1AVVrl2KuapS
-	wwzCXVzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MlGR9ItXAmQGjETy7LCxdY/92Agqr1/MA8xAziWH4oM=; b=Amhn2e5scYFnnPvmLbNNNrrDpA
+	1I5z7a3JJTdenxlrs9Gwj4ZY+lAE03BqVqeGzo9yQhnysNlCLczQR/ft+SXX6UqhemtiIvpRq9n1J
+	34g/6lJ7EzM4D4qHZhaspFnh46YKWZhdczwAz8cXPrrBhEQDop3/dsiz3ZDwYRweJdox83B+KO4tT
+	fhgternycgIbfldOoyedB6D+ejEOZ7NyvX3wNQo11bTukuHRLkdTgmPs25ionPFBlLft0GeHEYZ0d
+	mQTFUpUDvEszXMkau8UZiDUdVk1mAZ3ppF6hV+Ot71E59Rgr7bLz6vJhDUK74/1ersHrtIWd/ZlTx
+	byFAdxQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woF9W-000000023j3-2feQ;
-	Mon, 27 Jul 2026 06:49:30 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1woF9y-000000023m2-3D2X;
+	Mon, 27 Jul 2026 06:49:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woF9T-000000023ig-0xyO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 06:49:29 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 72DF11A11E5;
-	Mon, 27 Jul 2026 06:49:22 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 43113601BE;
-	Mon, 27 Jul 2026 06:49:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AC97D11C1205D;
-	Mon, 27 Jul 2026 08:49:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1785134957; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=L3skZsSAWHWds/Pvaes0a2uYpJ5JahEApGQi1xCYVmE=;
-	b=0/6VQATyYeKE4urAK9n+dItmhfCVw/3COJXVsJL3ynqnTquInpzp1c37NZki8Xg5Dl9Lq7
-	BzGCUA/tBnHLP+G6VJhwP0ymg+sMBH6CDo+IXjyYOVn++MYVxGO2ZvXIrcV/heWrCdk9Hr
-	ufpuDArirUX0lJ0RCkymckijtF0Acc6SWx+eIqw1fTxaeKBKCKzkw+RskNCUhJckD0NHqO
-	9VSlEgefgCgemycRjqZ8ZZnWeem01fa/cn/Fpi4Zbs0auY+brJceRf2lKFVvjG11k2MhBB
-	gcLJ4sxlVRUboGtBMU4aaSEGO6z4HkopkxHlOg4TO5dA6m9b7Y06vC9HW7bbmA==
-Message-ID: <f14a1712-8315-4e64-b23b-ac00d7f82c3a@bootlin.com>
-Date: Mon, 27 Jul 2026 08:49:11 +0200
+	id 1woF9x-000000023lq-2Y6F;
+	Mon, 27 Jul 2026 06:49:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F0BEA418EC;
+	Mon, 27 Jul 2026 06:49:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3ABB1F00A3D;
+	Mon, 27 Jul 2026 06:49:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785134996;
+	bh=MlGR9ItXAmQGjETy7LCxdY/92Agqr1/MA8xAziWH4oM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ifF85JeNmACewPI+iNuluPZO5mVGRTaEer/Y6uWO5HBXFrqpCtQifAhhqiMtaaSpA
+	 QcXtnb9yWpCBmc85kkw7GDKHyboDWsaJ0ZJxWlNLZUrJg1FQW+G5ZPCY2/WORFwh+Q
+	 rmiDATKJIIEVJj8Tv+9LM5M0PMZ+5okjD9upyypI0CRYjSoYMb9ilB2hQB5Mfk9knb
+	 I6VTf+OMShJbpDXQfqemSWe+IPSukSQCZwE2fnMlNwAILS40gSTHiCvbdAJ/0UocKj
+	 Utm/tQdv3VHtxfLFJhbIpAqPHQhrblAvzyenhhUrlwapgTwtrbHBqsOCTsu077EY5+
+	 zHu/dwYhgkC9g==
+Date: Mon, 27 Jul 2026 08:49:52 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Damon Ding <damon.ding@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Alexey Charkov <alchark@flipper.net>, 
+	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 15/16] dt-bindings: display: rockchip: dw-dp: Fix
+ sound DAI cells
+Message-ID: <20260727-luminous-spiritual-grebe-72de7b@quoll>
+References: <20260724-synopsys-dw-dp-improvements-v6-0-041d99a19c4e@collabora.com>
+ <20260724-synopsys-dw-dp-improvements-v6-15-041d99a19c4e@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/2] net: stmmac: Fix PHY attach when custom
- PCS is in use
-To: Zxyan Zhu <zxyan0222@gmail.com>, netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Hariprasad Kelam <hkelam@marvell.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260726132618.3580612-1-zxyan0222@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260726132618.3580612-1-zxyan0222@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_234927_438699_BD014999 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260724-synopsys-dw-dp-improvements-v6-15-041d99a19c4e@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 7/26/26 15:26, Zxyan Zhu wrote:
-> This series fixes the issue where stmmac platforms using a custom PCS
-> via the pcs_init callback fail to probe when no phy-handle is specified
-> in the device tree.
+On Fri, Jul 24, 2026 at 08:03:37PM +0200, Sebastian Reichel wrote:
+> The RK3588 and RK3576 DesignWare DisplayPort controllers both have two
+> possible DAI interfaces: I2S and S/PDIF. Thus an argument is needed to
+> to select the right interface.
 > 
-> Patch 1 is Russell King's phylink patch that relaxes phylink_expects_phy()
-> to allow PHYs to be attached in 802.3z inband mode.
-> 
-> Patch 2 skips the PHY attach in stmmac when a custom PCS is already
-> configured via priv->hw->phylink_pcs, avoiding the "no phy found" error
-> for platforms that manage link state entirely through the PCS.
+> In addition to that the RK3576 DisplayPort controller is configured
+> with Multi Stream Transport (MST) enabled for up to 3 displays and
+> thus has a total of 6 DAI interfaces (I2S and S/PDIF for each possible
+> stream). Meanwhile the RK3588 does not support MST and thus has only 2
+> DAI interfaces.
 
-I've tested this series on the board that saw the regression from Russell's
-first attempt, and now with the associated stmmac patch, it works :)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks for that, for the series :
+Best regards,
+Krzysztof
 
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
 
