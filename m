@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3B2C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8C49C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=saI9rGv/S+Bdjv2TjtWTjnBCwib5vXrRGmSG6mtkl/c=; b=DIf7NBJi+sSbBY2uG/+p0CQdb1
-	CnqiQrCQIwBOrvsBDJFwLz99ZOQXHHcg0gxCWkIvA2LxJ3WsagzenMRd7PkpvImYdBtEjRFuK6Hgz
-	+IvYIZlnULs2qfJph2yrJjKnn+LIhdnnWEB1PoQd5pLe16VOqEKLnJqnxSFK2P5vBmp9eBVOfBFTS
-	3P93OR6EdD8bicMwHgTKh2wH5vLef2xwIKc0X9ynAOs+YCNtSToLpDYh1k+NstkKb6cqrMmGXxOQJ
-	QGexwbKxLzg5ceiWQPRKM+Cq+SebUgxHsW1epVUqwnphGgHoIyPeki/trXNVLwdZy/eeZqq1pMpP6
-	6w+AsUNA==;
+	bh=08+hT4LC6IqwRNx8zMGRqwSU5ng6RkaDJeOtLNkTdSU=; b=wBTJ4YJD+u5gRc9pxGnCs2aeHq
+	S1EnhTfhbbSKqcoShFW0s97iJfXfVSnKoVrQYQpncUZxHTbnPMqnUGdFcctQeYb8cjydrLmw2WFlA
+	XqwidRZM56eha2BssYbXnnmy2dMSxpnj7tfU/GwyWKVxWXbr6tg5cmCDauvQnrQol+tBZm4kJCFpX
+	/52q5RmyNq//QLd91ubJ2S0moS35qwk9cL+sWOy6WvfSWX7M/4Swqw4HuZz8+mZaUSk9jHF0JYBXz
+	ujO2fuZQH9B7dthmMqDgL3yAwg46/meAUe6DjCcjL28omR3yI6APhKUwpdMxRHb2DmanmXvDEiYHa
+	aecL2LLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJME-00000002ZgY-1hUS;
-	Mon, 27 Jul 2026 11:18:54 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1woJSl-00000002a4T-05FQ;
+	Mon, 27 Jul 2026 11:25:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJMB-00000002Zfj-3Q1p
+	id 1woJSj-00000002a4N-3gM7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 11:18:52 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47362928f65so2441896f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 04:18:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785151130; x=1785755930; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=saI9rGv/S+Bdjv2TjtWTjnBCwib5vXrRGmSG6mtkl/c=;
-        b=uVd4hU0TDR457qLlR8xe05Aya+Z7M/4376YsTEES+nfUkQc+ncrbZlbbhR5OGIPdM1
-         INvGxXYW4LWOgTK2/DROSgJB190F5u8tyKxuzHJIyJ+U2We6HXAR151j1xkXg4lhaMBt
-         gKsfkDVvJWHE3Zs84EJpeHJuiSj9p/ul4PG6CR88jXzhb/vX+fP01cQs3naKidwQCWmX
-         HA8DAIEBaIeEAkdgOSan1XnbhqdZXfVKFSMVojW6QBRLoHHJy/uC1ZF+X2h05bZTFLy+
-         mmKRx52ZsowywUsgQ7VyERNkWYzIJg+qvoSAqM3cjdkXX/6ROGkCWQXATxRUbgHdZbA+
-         Xrwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785151130; x=1785755930;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=saI9rGv/S+Bdjv2TjtWTjnBCwib5vXrRGmSG6mtkl/c=;
-        b=dePxe/7JPBitUOU/gidE84S2CWrBEuLF4oB69t1IYeuyUalSVdln53Z2IAoo4k06WG
-         olpG2rlcOPDzt+vMqhX5oo8wbgplPFNhIa9H7wcRQpRNdo7mObGqyaG90uNlrihw1Sx4
-         YF3wqGLokElx7ZiTUcMB6XlRNxPhRnzAOzMWTuKgEk4aXOcV5DK/VNKlkc4wEirC0exM
-         DvKoxmRpkGncs9EDWDU+fuNjARFAH7KndUCB7h7Adj9wzM68rnqg+JK/Ecj//CLqpB+Z
-         OOn68xh/2DC8/05V5hM1h/ertLZcWWay5hro1XgPoZNy1LVM5Rg1yVRKcu3W1gupky09
-         ubdg==
-X-Gm-Message-State: AOJu0YwegzAGYzpuBDpf6WaMKX740hQRZQbp0bmYo6tU0+Y8S1samtgb
-	gXH4Mqs+kKO8V4hwJYjQeBfTpsmgvePXi15tdQmUWb/4sQq8IeXl1GmtHMP1HZ31fRs=
-X-Gm-Gg: AR+sD11WnLv2qpRG27vOCbNySUSBhsDxz7V1rCLPJWDiC2VdFva1zeJKRGA5O4RYJZQ
-	2Swvtad2wTrcT3MOE53rQlvZCyxz7+TUqcn/zVo6eKSs5/CXd3h+B/OXCIk0fKNNMbu9Gk7NAoE
-	/wrK7NIstxyIFdILbPoCcqDOzaVbDza4Sq6IlXwaOx2zTkYAKdLhQSoliRh2XtdH/QmIOJ4gCPP
-	6UJ/JY9z4ix1KHjI2ilYsXBkUEuEfl3Z7I3jNWFlidOLcPN6if8Xz4gMA69OxacXkkltZRz74yQ
-	iXQ7B7Y6sP32PLjt2wRET/mYAm0RX252CrtgsU9sSSMQYaP83ZeqUg2nFCUJVJKkol2VamI0Y9i
-	GVZx9o5e7/WgbfqHXDSZSjWUfh1hWKiseGYfqU5M6sPQqV3xwS/VYBUb176k6eO/Yz0nSbkevs5
-	ahebH01w==
-X-Received: by 2002:a05:6000:2506:b0:47f:8ff9:c9bc with SMTP id ffacd0b85a97d-47f9fc8f23cmr11076927f8f.14.1785151130010;
-        Mon, 27 Jul 2026 04:18:50 -0700 (PDT)
-Received: from [10.1.1.59] ([109.255.181.4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85bb57cfsm49134412f8f.11.2026.07.27.04.18.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 04:18:49 -0700 (PDT)
-Message-ID: <485cc8cbd03a3a61f7281ac81ba10b866a73f376.camel@linaro.org>
-Subject: Re: [PATCH 8/8] arm64: dts: fsd: Align continued properties and add
- missing blank lines
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Ivaylo
- Ivanov	 <ivo.ivanov.ivanov1@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin	 <peter.griffin@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, Sam Protsenko
- <semen.protsenko@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Krzysztof Kozlowski	 <krzk@kernel.org>, linux-fsd@tesla.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 27 Jul 2026 12:19:08 +0100
-In-Reply-To: <20260726-b4-dts-coding-style-strict-v1-8-e9e3e9879d05@oss.qualcomm.com>
-References: <20260726-b4-dts-coding-style-strict-v1-0-e9e3e9879d05@oss.qualcomm.com>
-	 <20260726-b4-dts-coding-style-strict-v1-8-e9e3e9879d05@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-8+build1 
+	Mon, 27 Jul 2026 11:25:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C907F60A79;
+	Mon, 27 Jul 2026 11:25:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2042B1F00A3D;
+	Mon, 27 Jul 2026 11:25:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785151536;
+	bh=08+hT4LC6IqwRNx8zMGRqwSU5ng6RkaDJeOtLNkTdSU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gURdEEhEMWvzjd7vCRhS6YHmdHjStShU1vGvpoiQFhv3EIePzPg0zaS2IVVaVfL0A
+	 9sLrb3O8GAXBsYHsgtmSMBkzFlidv2ecDqzVqJNV4gxjCm4tB5XZEtqieHbUu7joyq
+	 R+X8k/H7b1DwQYwB+hJuSsEIZzHRhVVFwwq7/SFYnJm00U2OBTo4AHX6RBD4kJ3y7F
+	 /2qYLedwNCmXRc0KWDfgVx4+k6uIilb2wNPFkmp1pcnnLBOMzE20vmeHketJokrJfI
+	 lMnupykmxG7Y5JbVe153paj0CXj6WyGW8X0iWfjeG6ql1OUh+IkUrPbLlEs2tCZzWm
+	 HEIZ9/i7+Nn0w==
+Date: Mon, 27 Jul 2026 12:25:16 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
+	"intel-xe@lists.freedesktop.org" <intel-xe@lists.freedesktop.org>
+Subject: Re: [REGRESSION]: [PATCH mm-hotfixes v5 3/5] x86/mm/pat: acquire
+ init_mm read lock on attribute change to avoid UAF
+Message-ID: <amc_24CTvgPj8VV1@lucifer>
+References: <20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org>
+ <20260717-series-vmap-race-fix-v5-3-606a0ac6d3e5@kernel.org>
+ <80993b70-352f-4069-84c7-39a04c061e98@intel.com>
+ <amIEC1qDW3kfeuHd@lucifer>
+ <15f365d9-b5b9-4dc1-b24c-1b6f9363e9b1@intel.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_041851_860378_7EBE5431 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <15f365d9-b5b9-4dc1-b24c-1b6f9363e9b1@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +86,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2026-07-26 at 19:43 +0200, Krzysztof Kozlowski wrote:
-> Trivial white-space only changes to adjust to DTS coding style and fix
-> dt-check-style strict warnings like:
->=20
-> =C2=A0 [required-blank-lines] child node must be preceded by a blank line
-> =C2=A0 [continuation-alignment] continuation should align to column 39 (u=
-nder < or ")
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
-> =C2=A0arch/arm64/boot/dts/tesla/fsd-evb.dts |=C2=A0 2 +
-> =C2=A0arch/arm64/boot/dts/tesla/fsd.dtsi=C2=A0=C2=A0=C2=A0 | 97 +++++++++=
-++++++++++----------------
-> =C2=A02 files changed, 55 insertions(+), 44 deletions(-)
+On Mon, Jul 27, 2026 at 02:30:57PM +0530, Borah, Chaitanya Kumar wrote:
+>
+>
+> On 7/23/2026 7:48 PM, Lorenzo Stoakes (ARM) wrote:
+> > Thanks for the report!
+> >
+> > A small note - it'd be useful for you to clearly point
+> > out the revision of next to make our life a bit easier :)
+> >
+>
+> Ack.
+>
 
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+Thanks! :)
+
+> > (another small note - running scripts/decode_stacktrace.sh would be hugely
+> > useful as these offsets aren't so useful unless I have the exact kernel
+> > binary you have with debug symbols :)
+> >
+>
+> We have not been asked for that yet but we can surely provide it if it
+> becomes absolutely necessary for debugging.
+>
+
+It would be SUPER useful if it's not too difficult to implement, thanks :)
+
+> Thank you for sending the fixes.
+>
+> CI looks good now.
+>
+> https://intel-gfx-ci.01.org/tree/linux-next/combined-alt.html?
+
+Great thanks!
+
+Cheers, Lorenzo
 
