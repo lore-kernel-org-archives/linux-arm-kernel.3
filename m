@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE0DC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:58:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F61C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wQdFBRo1TdSpxhGnQZqut65bQkPaCXrpPvYuJKTdUcs=; b=zvMNfHYSCpsZ1vrVtIlUJhfOg2
-	wjHlhjCFri5E8n0qf2ZAdRP0Qu45NHLYl/M4F8KJ642n5Ks5cOpC/lqZaaWk5FoV3viSBAntcr01u
-	vn3kFTQ05LJxQvknkZW4rE69hCAXqNw+YPdlvXraZbhYcqbi+a5t5R9+N02IFi6C7fs8P5UnfwKZj
-	t3jNlCghNAMG7/i5uqoWUlbCgtrmCACEguDNY8Aop2i0zZanu+ivY2oNJ62TNphbHKSf6L87QQCX9
-	V7lq665wAMpj38C2wr00BBniMdqaM+c59G/1JLr3eCErNNObsgBo50AYLieF5aX3jCzjKvRl3GVBo
-	iRQWDg9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W5DiJCajdy+f7EAjWHD0E6m9Wp5JC04xl4hwWKQ+e9c=; b=1r2vV5JYaKXE18RrHEwY5o5IM9
+	5KfS34wzVhHblaWjNwoqhf+mq/k53OmKjnnFtHga8AyYwL8ceYp6n/cZ1sJz11cW0tXcSH/24UCH6
+	W1BEiPQdgG+qNIZPb8q9efj7EuS2JwPACmOHie/lVzxrsxeRf43rXQB43Hf/j030xA/0MHtcGtJcM
+	6LxGRgdBxLwHJA+GjLRXZc+eaF7gEr4wMVyX8AY+PNPPbanlLeotR8IKntVEPQb50XV9WkwYMasCv
+	LIQedDznmPK4/GLAxOjLYMTPJaQ1RZ/tr4bfosP8ki1Wy1FrinBYjGYduWcNIa0AjF2G+ypGHywBo
+	t2UDg3fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNip-00000003F88-19rZ;
-	Mon, 27 Jul 2026 15:58:31 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1woNts-00000003GGk-1PUf;
+	Mon, 27 Jul 2026 16:09:56 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNim-00000003F6i-3l40;
-	Mon, 27 Jul 2026 15:58:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785167901; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=d8zZ9UX2zp2QPopT1k7QDq1kW/lQybmuIFYY4cni+yVhSUcdCfvUR9REWyU0xzjcN/ZwngpScp3aS0IDj8Bc1M/reBndeMfNbAIna5ahLRaL4OCCFpAEJf6a26Ut4sDu/ydinqi5+aifb1ZvXZV5xziocd68W03ip1/jPaBLvYU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785167901; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wQdFBRo1TdSpxhGnQZqut65bQkPaCXrpPvYuJKTdUcs=; 
-	b=PJcqBWyL/lZ3oM0JFedFk8v4RbLYkAXz0qDPXQRl1tfWDi6RSifOSm+0HIQa90NRmES/A8eJICkAxx0vGVqRgTvvcI2Aoe9c9RLuJttAthsveixa0KbBj30P0OabONCe1PP8ZpRsKu55PPsuFUJRaQl+9pHhod6nYmRzQX1XI8g=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785167901;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=wQdFBRo1TdSpxhGnQZqut65bQkPaCXrpPvYuJKTdUcs=;
-	b=YC3N2N9OWM8ivM8DM354VhFSyHScwRxUZqwYrwL1eGhWfSKUgj0kKNZGdDtTeQdi
-	puAihjPHQuqzg0YfXnHWEEDeDISIk3UacUVji07nNNPnm4LiIAsXzdzJCbf/6+l/NkB
-	arXwCrXU0xOHNzvtG7DgjVkKN5xMy4aGJe+pxYWI=
-Received: by mx.zohomail.com with SMTPS id 1785167897880403.5570477012601;
-	Mon, 27 Jul 2026 08:58:17 -0700 (PDT)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Venkata Atchuta Bheemeswara Sarma Darbha <vdarbha0473@gmail.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Igor Paunovic <royalnet026@gmail.com>,
- Francesco Saverio Pavone <pavone.lawyer@gmail.com>,
- Venkata Atchuta Bheemeswara Sarma Darbha <vdarbha0473@gmail.com>
-Subject: Re: [PATCH 4/4] media: rkvdec: align bytesperline to 64 bytes in
- rkvdec_fill_decoded_pixfmt()
-Date: Mon, 27 Jul 2026 11:58:15 -0400
-Message-ID: <cb8XVJu6RUmEjMZpl7NA1g@collabora.com>
-In-Reply-To: <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-4-180fb2d1f10c@gmail.com>
-References: <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-0-180fb2d1f10c@gmail.com>
- <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-4-180fb2d1f10c@gmail.com>
+	id 1woNtp-00000003GF8-1dCq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 16:09:55 +0000
+Received: by chaosmail.tech (Postfix) id AD6DB1C975B;
+	Mon, 27 Jul 2026 16:09:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1785168590;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W5DiJCajdy+f7EAjWHD0E6m9Wp5JC04xl4hwWKQ+e9c=;
+	b=kOaTvdlehYHPDm+GU7Q12t1KgaQxOUnODJta82BU2e8BkplpmafDs6GjZIrQo0KYFWF94D
+	prV9n4U73DtZN/VYX8QkUKU10mBV7+rnBnrySQObORqJh4bPflwwZPRQAY59sbn/9xH04r
+	MSfCc4YDBnWboAHUbPON5+kmNBmR5Uo=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Mon, 27 Jul 2026 18:09:28 +0200
+Subject: [PATCH v2 1/3] dt-bindings: usb: tps6598x: Add sn201202x/ACE3
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260727-tipd-ace3-v2-1-1345957bd635@chaosmail.tech>
+References: <20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech>
+In-Reply-To: <20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785168588; l=3417;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=HLfrMJHx/3cQgTp030Hr466tjj0ppbN8Q6eIcTsqdII=;
+ b=4GTCdPqhbJzPYWe7xZIio9s92gGfYQO2tJsiSxBB0XnqwZ6LNUMs83CcI1RNVBjgAlyFurJWQ
+ v26p6qWzq2UAgvauKjtdq9Gdls6uoBziS7x8KpMWj0l6HCfWHm9H8OD
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_085828_990227_198A88FC 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260727_090953_925596_9C534725 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +81,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi !
+A variant of tps6598x that is attached to a SPMI bus and is found on
+Apple devices starting from the M3 series
 
-On Sunday, 26 July 2026 16:25:37 EDT Venkata Atchuta Bheemeswara Sarma Darbha 
-wrote:
-> From: Igor Paunovic <royalnet026@gmail.com>
-> 
-> Ensure bytesperline is 64-byte aligned and scale sizeimage accordingly.
-> 
-> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-> Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
-> Signed-off-by: Venkata Atchuta Bheemeswara Sarma Darbha
-> <vdarbha0473@gmail.com> ---
->  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c index
-> 436bb460f04e..6ab6530b1cc9 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -102,12 +102,20 @@ static void rkvdec_fill_decoded_pixfmt(struct
-> rkvdec_ctx *ctx, struct v4l2_pix_format_mplane *pix_mp)
->  {
->  	const struct rkvdec_variant *variant = ctx->dev->variant;
-> +	struct v4l2_plane_pix_format *plane = &pix_mp->plane_fmt[0];
-> +	u32 aligned_bpl;
-> 
->  	v4l2_fill_pixfmt_mp(pix_mp, pix_mp->pixelformat, pix_mp->width,
-> pix_mp->height);
-> 
-> -	ctx->colmv_offset = pix_mp->plane_fmt[0].sizeimage;
-> +	/* ensure bpl is 64 byte aligned and scale sizeimage accordingly. 
-*/
-> +	aligned_bpl = ALIGN(plane->bytesperline, 64);
-> +	if (aligned_bpl != plane->bytesperline) {
-> +		plane->sizeimage = plane->sizeimage / plane-
->bytesperline * aligned_bpl;
-> +		plane->bytesperline = aligned_bpl;
-> +	}
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+ Documentation/devicetree/bindings/usb/apple,sn201202x.yaml | 78 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ MAINTAINERS                                                |  1 +
+ 2 files changed, 79 insertions(+)
 
-This shouldn't be needed. As you set step_width to 64, 
-v4l2_apply_frmsize_constraints() should already do the alignment.
+diff --git a/Documentation/devicetree/bindings/usb/apple,sn201202x.yaml b/Documentation/devicetree/bindings/usb/apple,sn201202x.yaml
+new file mode 100644
+index 000000000000..133a71bbedb7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/apple,sn201202x.yaml
+@@ -0,0 +1,78 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/apple,sn201202x.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Texas Instruments sn201202x Type-C Power Delivery controller
++
++maintainers:
++  - Sasha Finkelstein <k@chaosmail.tech>
++
++description: |
++  Texas Instruments sn201202x Type-C Power Delivery controller
++
++  A variant of tps6598x controller also known as Apple ACE3
++  present on hardware with Apple SoCs starting from the M3.
++
++properties:
++  compatible:
++    enum:
++      - apple,sn201202x
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: Primary irq used for tps6598x events
++      - description: Logical register selection completed
++      - description: Standby command completed
++      - description: Wakeup command completed
++
++  interrupt-names:
++    items:
++      - const: irq
++      - const: select
++      - const: sleep
++      - const: wake
++
++  connector:
++    $ref: /schemas/connector/usb-connector.yaml#
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/spmi/spmi.h>
++    spmi {
++        #address-cells = <2>;
++        #size-cells = <0>;
++        usb-pd@c {
++            compatible = "apple,sn201202x";
++            reg = <0xc SPMI_USID>;
++            interrupts = <11 IRQ_TYPE_EDGE_RISING>,
++                         <13 IRQ_TYPE_EDGE_RISING>,
++                         <17 IRQ_TYPE_EDGE_RISING>,
++                         <19 IRQ_TYPE_EDGE_RISING>;
++            interrupt-names = "irq", "select", "sleep", "wake";
++
++            connector {
++                compatible = "usb-c-connector";
++                label = "USB-C";
++
++                port {
++                    typec_ep: endpoint {
++                        remote-endpoint = <&otg_ep>;
++                    };
++                };
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ff08a65d942a..b2819ca62e0c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2610,6 +2610,7 @@ F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
+ F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+ F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+ F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
++F:	Documentation/devicetree/bindings/usb/apple,sn201202x.yaml
+ F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+ F:	Documentation/hwmon/macsmc-hwmon.rst
+ F:	arch/arm64/boot/dts/apple/
 
-Do you have more context as to when width is not aligned ?
-
-> 
-> -	pix_mp->plane_fmt[0].sizeimage += variant->ops->colmv_size(pix_mp-
->width,
-> pix_mp->height); +	ctx->colmv_offset = plane->sizeimage;
-> +	plane->sizeimage += variant->ops->colmv_size(pix_mp->width,
-> pix_mp->height); }
-> 
->  static void rkvdec_reset_fmt(struct rkvdec_ctx *ctx, struct v4l2_format *f,
-
-Regards,
-Detlev.
-
-
+-- 
+2.55.0
 
 
