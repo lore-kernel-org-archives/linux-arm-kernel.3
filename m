@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FB8C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 18:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82FD4C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 18:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLWNTKxhwPJFnyHKoMy1ON8tO9uUwDwekV424IxD1S8=; b=WbJmfagQsfcJbe04YK5L56LnBt
-	55xsFpdlRM2f1owSM/Q3sYDJViT6FdOKVXnuyFQFiPwZAh9cSyC4iG0VwKesl2V0i4D9P+zTEguhH
-	A5Zrl/vBMSxYY/Z9yVgx5eguHV//5InrP5FfANo+6cMez3KJdi1FsNWf/0ULARnn+++PB/8TCoaH4
-	5gznFWe9DSkGqKpVDuEmqZkC/rSFEd9Wo24V7xaWU4tAoKsb1Wh+EG13sjUWreS/XeW7JUz57SVjU
-	CBHp9duLAczkdPcBK1BKGX7kMDmxUVJ9hcNpHwN9NL42Yt5RpRxazlpVF3lE+9FgYhT1MAm5H9RFW
-	vgSkJwFg==;
+	bh=VX6nWC1wuEufJBrXu3pDOZQGxBJekZKOfI95BxKyKd8=; b=OxQBicGrGE8PndsvhGi5Q6z496
+	HHYWE97HdN3OehhXc1TpbtSFxNwHRXd5IHn/5hESF4gakM9l1qvc2w+g7JfNWmGzLh7Dsavy7DVdg
+	Y6mm8pog+dJUH6ztk8ataru2T92ceulcnlzrCRilqGGF0L6ooSEu+/urs4uAki8L2EPjnvK9cqEci
+	N9BVgwYvckVoD/nEmUigdKs8q7tRsmC6ufQdol2zfSJQylCpgO+ns3vk/gLT6hc9dwfUcKI2kXMNe
+	dx4nDhEW0yxuspd3ZFWpoc6xXAUiQEcyeFjlfp03ZEKWqU9pe2qZwGNS7kWN440ypbKRQ+axTq4Px
+	Gsxvq8Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQ0r-00000003dTq-3kJi;
-	Mon, 27 Jul 2026 18:25:17 +0000
+	id 1woQ12-00000003dZl-0Kmu;
+	Mon, 27 Jul 2026 18:25:28 +0000
 Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQ0o-00000003dQf-05hA
+	id 1woQ0t-00000003dU5-38ee
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 18:25:15 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47c6e9a694bso1783690f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 11:25:13 -0700 (PDT)
+	Mon, 27 Jul 2026 18:25:22 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47f904e80eeso2460794f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 11:25:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785176711; x=1785781511; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785176717; x=1785781517; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=WLWNTKxhwPJFnyHKoMy1ON8tO9uUwDwekV424IxD1S8=;
-        b=MTP/yfs2Cf9eT4TCrn1jf6gxu5eHXUE1/Lmw1iv8KRmlomTmE2SGErXaSwQs6KEcZ3
-         PKUG4FOaMjQvcb7V6OwRZsXz5gWGFw/jg4Sw/tbHEgzkiajAuYypolQT/nPBkg+3FVFt
-         8F13C7b9QGs8UQ/aAtox4ItgFiX/SY15t/gBHvg8rIXRu85FH66dmgcHCtBd2o4ftUzD
-         Open6iKaNYbBuExDv/4wWfvCDhiykJ+Z5JxO7EZCA/bHcnug34wD6rtWj3KRzRxHZqF/
-         GoqGNODjxUs4TseAnxy3UaP5IF+BeACykTBrh1ODbesf1x6jLr9Hv6K9sbtFRYUgw9mg
-         klPg==
+        bh=VX6nWC1wuEufJBrXu3pDOZQGxBJekZKOfI95BxKyKd8=;
+        b=F42tIhPO+v6T5R/XchFcnHYH7NRdG4u4wx9B3ib5OSsazOmFJftlpQg56joBUZWW+v
+         B1ZpD8/7fY6Wf6so73FH22UrMg7DvnIqx5yU5oNw+7Ec8kuGno8QyNWs9MDQPrISaEZm
+         7uFJsCzflBsefIPkBtttkrtul/RtYVA5w1KpInO/v4ZW/uWl+KEJRuF9OKuQG0HVC9MU
+         HlN9GGMWAB64JpjYGcnZOjOU248UP+jZMhGA2OYtpxOA4lI+dmBzSgwa43OHgyx3VUYA
+         rZhFRX0bY4ZT2NKeV7hbBpUExaj9cl5f883lQcd19ttKuyBf72sy+YgIPad5KpaoFrIC
+         vYaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785176711; x=1785781511;
+        d=1e100.net; s=20251104; t=1785176717; x=1785781517;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=WLWNTKxhwPJFnyHKoMy1ON8tO9uUwDwekV424IxD1S8=;
-        b=oOZ/jw1rLs8V3L8J4moB2rw3xJdIXhxT+bswdp/EKsnJx7FqqlopA3vFqOGRWX06Y/
-         JDadg/n3MA3q//eYRXEokHpgY7zYHeZKT4NClbvl/MPPwlgryNWRzBMs1IP1lw6kzOUk
-         aTpj+3jVYIF7ZIy68g2p2Ic4osuknl26oDQJRQUTLso5Oh9TOmb9CMg/TmK12q0jP6FK
-         fphmIG4eTz9HoF8WDCgB9uc5SbwIXb467jda+fOUwhm1tmwQbYBBQLruF1piFiilMjGt
-         QzQuV9S7BvGNeyFCbemNwSPk/jsbaNBzUon9mqmr1EOZW1+NftZTO1U8BQFoXOKuJgbd
-         bIlA==
-X-Forwarded-Encrypted: i=1; AHgh+RqosC/g13UAUrAZZsPmVnoZA32NPsoXC50g69Fx5OCC1P+tNnOgTh9G2XiPjJEZDukT2RWNXbJG9nTzge74/Ybe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVh82Wt1IXAU50+QhniCZr5FjXuUGiYylm1pCkyXkyVDa/Yk3h
-	jASSzhOedR5WnHx7kQH8zvkpQ0J/LBLtxFb1rKZbh/Yl3sxp95m+8+PP
-X-Gm-Gg: AR+sD13c0NYcdyI7bUrUbktbZ3zrAp809bskViIU/fuERzBt2l2iSHnkHdk8eh/hHIr
-	5cYictUyENiTIGvZDnn5tEIH6ehNiX0+S7CLITu8SPSPLlk7o4zCwrkpG584ATmxaivNt37Afae
-	rW6zmMxFBfgidMgB226hUME8O+RmkhylgslaJ74Q8BtmSme2tNLN7pA5eFnZoAlJ0TALnod5J95
-	bFJSg0rUMjp3hiMy2t0dk6vqT3LpkPV6cwfPOuWTrKNle6XX0gf1zsDkAfUqkr9A97LY0NHXqLW
-	cp7Y5aUfL7uFPz+nz1R6BODI/UKrgOuz+G5sI71D5SQ5v//WYxNw/gksubTRPxdw9RdSoU/tuQz
-	+QyhT1GVUSmHCMX4qd327Tbi+sROHApaUhTFps+DA8Icsh3QLGlEz69b946MUGRjVoJS8Hp3fYr
-	Q0EZy+9PO7LQSa
-X-Received: by 2002:a05:6000:605:b0:46e:230f:d095 with SMTP id ffacd0b85a97d-47f9fc89ac4mr11916852f8f.7.1785176711124;
-        Mon, 27 Jul 2026 11:25:11 -0700 (PDT)
+        bh=VX6nWC1wuEufJBrXu3pDOZQGxBJekZKOfI95BxKyKd8=;
+        b=nBDPcJjeEGLi+98Aded+kOJjIl14qNYtVEHo0/yWBK0r+JbCcKHSQJzGjA8+VyQA4H
+         DSvqi+y35SnnVrJ51X+4Ne8MfIBnQhygc6TKV/8c+dLlypDDAq+ofqkaGobokPRB0in+
+         EYduqVCdXQ02v7g9nWy4rdm5y6oxv6pn59iDXgtAjM2uH3+gGSrr/MyGTBWL63jQU0uJ
+         EHcov3C5DhriF1sHbVfLJNwZtnMc3MDPtawTG2YpgTgIZAUvyD98K1WH0ESwOudvmhon
+         P6X79aSlg0Az9u7DpJAJWI0YgD09WcdiHgHn8bo1JCbQbo69b1DlurHjiGBVtkmg3Igg
+         KTKg==
+X-Forwarded-Encrypted: i=1; AHgh+Rqc/fOhlG/Ud3JEo1bz3N737NjN8kr+bJkgRWNLop8FVg4F0Zz/B40P7EJowULv48CN59mhL6Tx1C5ygXjFJtNO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA9JVjB4Z2YsZ8tOgIGqErqU6qyRsxflugMv8ikUglkRwuIsHN
+	ZLnlWhgw6UH5OLINUEykxzCyUUWKKDGo48b1YNG3WCruLMEqlL0adXlY
+X-Gm-Gg: AR+sD10d4OnJRGG44QQnLkoZu1M6LTg80xIPHdlrNa0HJZI9mYEqraxf7Pfa4lFqMoh
+	PcVDcaJiqgElnk1ehBcbw068FuUKCiKiV5aEtQZZL3sblFIfxUBWwOrUahPvcgH2TPBgk/WC4+v
+	Nw+7dJypbdeTq+4oR6HP+/n0I6VPHqDh8NsLHSAqxqVhgWIVh0k5D9mVRwhczMNC1MCXCPMyp9m
+	Ue35JA1zCgjtkWpiW77xyvnaHB9XbNYyPasK2BWImwXGaXfaemxz5h0mTWLNwckvskUiDsb47X1
+	wkBdhDzPhJX50lVD58uetPP9erJIFHps9A+lOgFb+EnGjwwSzee2xg5IfaChkORVEZYyMJZddPb
+	qXX1O3tF2SAlOr+bdeNgkpgEGi17RJdi4QqECXFqH5ajhBi5yrRITLVO1I2jgOuJj0iTEBtPNvM
+	PG4+8le/TO3Zbz
+X-Received: by 2002:a05:6000:2085:b0:47d:eee8:ec40 with SMTP id ffacd0b85a97d-47fafa71ad6mr282587f8f.38.1785176716587;
+        Mon, 27 Jul 2026 11:25:16 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.51.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c53052sm50689288f8f.18.2026.07.27.11.25.05
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c53052sm50689288f8f.18.2026.07.27.11.25.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 11:25:10 -0700 (PDT)
+        Mon, 27 Jul 2026 11:25:16 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Mon, 27 Jul 2026 21:24:16 +0300
-Subject: [PATCH v8 01/12] dt-bindings: clk: zte: Add zx297520v3 top clock
- and reset controller
+Date: Mon, 27 Jul 2026 21:24:17 +0300
+Subject: [PATCH v8 02/12] dt-bindings: clk: zte: Add zx297520v3 matrix
+ clock and reset controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260727-zx29clk-v8-1-7a107b00f1dd@gmail.com>
+Message-Id: <20260727-zx29clk-v8-2-7a107b00f1dd@gmail.com>
 References: <20260727-zx29clk-v8-0-7a107b00f1dd@gmail.com>
 In-Reply-To: <20260727-zx29clk-v8-0-7a107b00f1dd@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -92,26 +92,26 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-phy@lists.infradead.org, mfd@lists.linux.dev, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=15053;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10162;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=8Fam9HPaD5lgbdWdbBnlt8P8gbE97mk4Sll/XcFHBCA=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqZ6J6m3m6OvTz/e6pHg8AWvGToAZM88OxNoaUP
- liMcRjleqKJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCameiehsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiI/7A/+NndBTpWnmEVHMTI8L+0nhoY3QYwmm4T
- kkh6qLh8HjVhDYOz7dgGMtoeH4iD7kHU97WYDgUFGtM/MywnLKDxkhST2I0b/heIf7BVWL9FVpc
- unJ+ig+fueL0RPR48fByQGREvmoqBkZDJQ6u36P5NBAGw67wFoar39DePMauo9ST4XiKCeqWQuV
- XzIFD6eVREc9mPHgj18bD8Tn3Vj3ISkuTDRuYq+f5BzcCNHxAuJ4z0ic3GV6BdfzD1NxTn6HI2x
- +AwGyzD3F8yLvPDPvZLBqRyBT2Simm89JYbb/FPJRCSwxce2GukKpL1HNe8rTU4zgQBnswKE89r
- xpsVd3USH/JJFPCMGqf9Y3wn2uDY9vtkvikqppaQXPnfGEHviP7N4roBo1uIcv8CpP/qiA+NusW
- zSBKCp21X/kupafgKXZHlcHreUmtYgsw6UW0K/j7dF2LUpHKnbUvbOq1B+mkjuunJQA/iNFjl2x
- QdA7v7UTuVB9MxCLQ4aGc+NeRVjMPpdbNBfw5gEB3YT1dZctYdIoee23A33+E9Z5MkuePjFNEkm
- QUgjXoQkZyE59Fx9T60hhno3EDMprarQUb5yComGr5AhtAeevlnb2EDUN29+qV0DUjZj2bKiZXz
- mSTX7cm/M0T/cxnJ1g0TtP2B8veDd1f13i+gDf8eoXaQKHIHnIZg=
+ bh=ffC60u8hIPOmt0qi87H1YYiy/vgKwD1XVNY3q65mPKo=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqZ6J6fgllgvIS5kdlgumbT6u1jjVMEtwHptFAo
+ K277V+pq4iJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCameiehsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiI5VA/+LSYOfOlmqLLDCXJ2AzNEEdfljAX/Ttt
+ hZriRvCGgNEmPuPiN8Rq2ZAHzq3BcGiubY7PrT4MoF6QY5IM8WppO+7qM+lRGl2O7Px4+MIU0gl
+ A2UR+tcf+3UIkOI+OVM8tYS/0kyKbP1fNgxMEH7jRg/LJZfqzrnwUrx2HylgEwzufp40SshSHCi
+ ZKd6tY+vZGqp+6XsFyZFYT6w9BlafODg+MVLOq7NTVLd9Ixj0VeulWwW/PVbc4PR+eKcx3hzmWt
+ Nti+kHCgCG3q3Si6HZXZljfOGXna3ydtqUBnva5nEKzJnvI/pbPfrGK2hTtfexgg149pw6REdT7
+ LOorC8aCxfSvid+ys3xCHL5/1aG6A5OR2l9bbJ6huz5xJg6NtyjhN4E/MohoOQ4F6HRu3M+3R0n
+ p4enS7SCOVVwB+WMIBKxvhIzzpyONlNbbqXe5JU2p4PwFmz7VhTOevwqMFb8+AfIQ4TddpOnGAg
+ r1rwN1jtgggXIzTXy6OouqOF7hgVPHQf7iN346y7NPZ4ANVFczuifW0srPvREeh9OBliSHzbcin
+ Pgv83r+SZnKCLwgkWP5+d+tE0YW5S4VUkC1kE/tkavg8vfOE5GLtFsYtYfhFSUmzlEimwtpRpjD
+ ZgRMnadSCUSDjw0m96y6+e2XAR+dXdnbXCXwPEazBhUvF3unsD14=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_112514_219889_8D3D5DE2 
-X-CRM114-Status: GOOD (  38.79  )
+X-CRM114-CacheID: sfid-20260727_112520_055780_9735466D 
+X-CRM114-Status: GOOD (  29.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,161 +126,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These SoCs have 3 clock and reset controllers: Top, Matrix and LSP.
-Clocks go from oscillator -> top -> matrix -> LSP, with a register in
-top controlling most clocks that get passed to matrix and a register in
-matrix controlling all the clocks that get passed to LSP.
+This controller contains clocks and resets for high speed devices on the
+zx297520v3 board and hardware spinlocks that I expect will be necessary
+to communicate correctly with the LTE DSP firmware blob.
 
-Generally every device has two clocks (one work clock, and one that
-connects it to the bus, I call it PCLK), two reset bits (I don't know
-what the difference is - sometimes asserting one is enough to reset the
-device, sometimes both need to be asserted). PCLK and WCLK are
-controlled by individual gates. Some devices have a mux and/or a
-divider for their work clock. Some devices, like the GPIO controller,
-only have reset bits and no clocks.
+I don't know much about the hwlocks yet other than that they exist, so
+there is no header yet adding meaning to their indices. Presumably that
+meaning doesn't exist in hardware and is de facto defined by ZTE's
+firmware blobs running on the rprocs.
 
-The top clock controller is fed by a 26 MHz external oscillator and has 4
-PLLs to generate other clock rates. ZTE's kernel mostly relies on the
-boot ROM to set up PLLs, but one LTE-related PLL is not configured
-on some boards. Therefore my driver contains code to program PLLs. It
-produces identical settings as the boot ROM for the pre-programmed
-frequencies.
-
-Not all clocks will have an explicit user in the end. I am defining a
-lot of them simply to shut them off. The boot loader sets up a few of
-the proprietary timers, which will send regular IRQs (although the
-kernel of course doesn't need to listen to them). I don't plan to add a
-driver for the proprietary timer as I see no use for them - the ARM arch
-timer works just fine. I will add a driver for the very similar
-proprietary watchdog though.
-
-The clock list in this patch is pretty complete but not exhaustive.
-There are other bits that are enabled, but I couldn't deduce what they
-are controlling by trial and error. Some of them seem to do nothing.
-Others cause an instant hang of the board when disabled. It is quite
-likely that a handful more clocks will be added in the future, but not a
-large number.
+The zte-zx297520v3-crm driver will instantiate separate MFD children for
+clocks and resets, which are handled by separate clock and reset
+drivers.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 
 ---
 
-Changes v7->v8 (all Krzysztof):
-*) Fold the PHY into the top-level node
+v7->v8:
 *) Start clock indices at 0
-*) Rename the phy include file to zte,zx297520v3-topcrm.h.
+*) Fix indentation
 
-And a non-change despite/because of new discoveries: USB has more PHY
-and DWC controls in a different controller at 0x140000. ZTE calls this
-controller SOC_SYS, and it is a textbook case for syscon: It has a lot
-of different controls: A remap flag for boot ROM, a control to bring the
-A53 up in arm32 vs aarch64 mode, the entrypoint of the LTE DSP, SDIO,
-I2S, ...
+*) Add a prose note about discovered registers that allow writing
+CNTVAL. I am not exposing them in any way because for now I see no need
+to use this functionality. It is possible that the counter resets to 0
+during standby, which means someone needs to fix it up using those
+registers.
 
-USB-wise it has a register with PHY and DWC controls: Endianness for the
-DWC2 registers, PHY clock adjustments, PHY and DWC host/device switch.
-In spite of this I think topcrm is the better home for #phy-cells: The
-USB ready flags in topcrm are essential for bringing up the USB devices
-whereas the soc_sys controls are a curiosity. Host mode only works if I
-externally inject VBUS. Clock adjustment is too inflexible to be of real
-value. Flipping the DWC registers to big endian works, but what for? If
-I find a use case for changing the default USB values in soc_sys it can
-be handled via syscon.
+Nevertheless, no syscon yet for these reasons: I have no idea how CNTVAL
+behaves during standby. It might be just fine. Standby very likely needs
+firmware handling running on the Cortex M0, which can restore CNTVAL if
+necessary. If Linux needs to do it, it can probably be done by the clock
+or MFD parent driver. Given what I've learned so far I'd rather add
+syscon later than put it in place without a clear user.
 
-soc_sys also has power controls for a few devices, including USB. This
-will be handled via #power-domain-cells.
+Details of how to manipulate CNTVAL will be in the matrix clk driver.
 
-The self-referencing reset property causes the following boot messages:
-/soc/clock-controller@13b000: Fixed dependency cycle(s) with
-    /soc/clock-controller@13b000
-/soc/clock-controller@13b000: Fixed dependency cycle(s) with
-    /soc/clock-controller@13b000
+*) A non-change in the binding text, but worth mentioning: Register
+0x118 contains gates that gate off matrix-synthesized PLL fixed
+dividers. They reinforce the understanding of the top->matrix interface
+and the adequacy of the bindings.
 
-Do I need to add post-init-providers? As far as I understand it, this
-message is informational and not a problem that needs to be addressed.
+v6->v7:
 
-Changes v6->v7:
-*) Moved the bindings back into clock/ (Krzysztof). Use clock-controller@
-in example and in the later DTSI patch.
+*) Moved it back to clock/
 
-*) With a lucky find in strings in LTE's cpko.ko blob I could make sense
-of the register that controls which clocks get passed from PLLs into
-the clock distribution inside topcrm. Importantly that also narrows
-which clocks can possibly be passed to Matrix, so I could slim down the
-bindings considerably.
+*) Remove syscon compatible again. I looked into remaining unknown
+registers and I am convinced that there is no odd misc register left
+that can't be exposed as a proper subsystem provider.
 
-*) Add a usb phy child node with the phy schema added in the previous
-patch. I don't expect the USB status register to ever be in another
-place, so the binding expresses the @84 expectation.
+The controls in 0x100 that ZTE's DRAM reading code exercises are auto
+clock gating controls and the actual mailbox is in a different
+controller.
 
-Changes v5->v6:
-Set value for syscon-reboot example (Sashiko). It was my intention to
-set only the lowest bit, and I think Sashiko is right that without
-'value' being set, all other bits are actively set to 0. It shouldn't
-matter given my understanding of the hardware (afaics all other bits are
-ignored), but actively clearing bits was not my intention.
+Unknown registers in 0x120-0x12c are a frequency voting mechanism for
+the AXI bus clock. The driver will participate in that voting rather
+than set the frequency via 0x0. If need be it could be exposed
+as #interconnect-cells, but it won't necessitate "syscon".
 
-I haven't changed the name match for "syscon-reboot". I see plenty of
-examples of hardcoding this string as opposed to having a regex for
-syscon-reboot@12345678 in other bindings.
+*) Reduce the number of input clocks to match register controls in
+topclk's input control that affect matrix and LSP.
 
-Changes v4->v5:
+*) Add DDR mux and gates. Not to change them, but to make sure CCF knows
+about which PLL is feeding the sysmem memory
 
-Rename from zte,zx297520v3-topclk to zte,zx297520v3-topcrm and move to
-soc/zte
-Fix path in MAINTAINERS
-Add syscon-reboot node to the binding
-Give the USB and HSIC PHY resets their own reset control
+Changes
+v5->v6:
+Add syscon compatible - Conor suggested this after v4 and I forgot it in v5.
+
+v4->v5:
+Move binding to soc/zte
+Remove topclk from the example
+Add #hwlock-cells for hw spinlock registers
+Add more clocks I stumbled into: sram0 and another LTE related device
+
+v3->v4:
+Split matrixclk into its own controller again because syscon/regmap
+deals poorly with device nodes that have more than one memory region. As
+a consequence I am passing all PLL outputs generated on Topclk down to
+Matrixclk.
 ---
- .../bindings/clock/zte,zx297520v3-topcrm.yaml      | 136 +++++++++++++++++++++
- MAINTAINERS                                        |   4 +
- include/dt-bindings/clock/zte,zx297520v3-clk.h     |  66 ++++++++++
- include/dt-bindings/phy/zte,zx297520v3-topcrm.h    |  12 ++
- include/dt-bindings/reset/zte,zx297520v3-reset.h   |  32 +++++
- 5 files changed, 250 insertions(+)
+ .../bindings/clock/zte,zx297520v3-matrixcrm.yaml   | 96 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ include/dt-bindings/clock/zte,zx297520v3-clk.h     | 41 +++++++++
+ include/dt-bindings/reset/zte,zx297520v3-reset.h   | 12 +++
+ 4 files changed, 150 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml b/Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
+diff --git a/Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml b/Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
 new file mode 100644
-index 000000000000..9dbca49871a0
+index 000000000000..d96f9f374447
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
-@@ -0,0 +1,136 @@
++++ b/Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
+@@ -0,0 +1,96 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/clock/zte,zx297520v3-topcrm.yaml#
++$id: http://devicetree.org/schemas/clock/zte,zx297520v3-matrixcrm.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: ZTE zx297520v3 SoC top clock and reset controller
++title: ZTE zx297520v3 SoC matrix clock and reset controller
 +
 +maintainers:
 +  - Stefan Dösinger <stefandoesinger@gmail.com>
 +
 +description: |
-+  The zx297520v3 top clock and reset controller generates clocks for core
-+  devices on the board like the main bus, USB and timers. In addition to clocks
-+  it has reset controls for peripherals, a global board reset, watchdog reset
-+  controls and a USB status register.
++  This controller contains clock and reset controls for high speed devices on
++  the zx297520v3 board: The CPU, RAM, SDIO and Ethernet clocks and resets are
++  found here. This controller requires PLL-generated clocks from Topcrm as well
++  as the fixed 26 MHz and 32 kHz oscillators found on this board.
 +
-+  The controller has two clock inputs: a 26 MHz and a 32 kHz external
-+  oscillator. They need to be provided as input clocks. The controller provides
-+  PLL output frequencies to downstream clock controllers.
++  This controller also contains hardware mutex registers for synchronization
++  with different processors on this board.
 +
-+  The USB PHY is exposed as two PHYs, one for USB and another for HSIC. Note
-+  that while the controls for both PHYs are always present, the PHYs themselves
-+  may be absent. If this is the case the controller never signals that the
-+  missing PHY is ready.
++  An additional curiosity are registers that allow setting (but not reading) the
++  ARM architected timer's CNTVAL. This is not exposed in the binding because
++  there shouldn't be a need to access it.
 +
 +  All available clocks are defined as preprocessor macros in the
-+  "include/dt-bindings/clock/zte,zx297520v3-clk.h" header. The resets are
-+  defined in the "include/dt-bindings/reset/zte,zx297520v3-reset.h" header. PHY
-+  defines are found in "include/dt-bindings/phy/zte,zx297520v3-topcrm.h".
++  "include/dt-bindings/clock/zte,zx297520v3-clk.h" header. Resets are defined in
++  the "include/dt-bindings/reset/zte,zx297520v3-reset.h" header.
 +
 +properties:
 +  compatible:
-+    items:
-+      - const: zte,zx297520v3-topcrm
-+      - const: syscon
++    const: zte,zx297520v3-matrixcrm
 +
 +  reg:
 +    maxItems: 1
@@ -289,243 +257,146 @@ index 000000000000..9dbca49871a0
 +    items:
 +      - description: 26 MHz external oscillator
 +      - description: 32 kHz external oscillator
++      - description: Main PLL output from topcrm (usually 624 MHz)
++      - description: Main PLL subdivision factor 5
++      - description: Dpll output from topcrm (usually 491.52 MHz)
++      - description: Gpll output from topcrm (usually 200 MHz)
++      - description: Gpll subdivision factor 2
++      - description: osc26m work clock from topcrm
 +
 +  clock-names:
 +    items:
 +      - const: osc26m
 +      - const: osc32k
-+
-+  interrupts:
-+    items:
-+      - description: IRQ reporting USB connection
-+      - description: IRQ reporting USB disconnection
-+      - description: IRQ reporting HSIC connection
-+      - description: IRQ reporting HSIC disconnection
-+
-+  interrupt-names:
-+    items:
-+      - const: usb-up
-+      - const: usb-down
-+      - const: hsic-up
-+      - const: hsic-down
-+
-+  resets:
-+    items:
-+      - description: USB phy reset
-+      - description: HSIC phy reset
-+
-+  reset-names:
-+    items:
-+      - const: usb
-+      - const: hsic
++      - const: mpll
++      - const: mpll-d5
++      - const: dpll
++      - const: gpll
++      - const: gpll-d2
++      - const: wclk-osc26m
 +
 +  "#clock-cells":
 +    const: 1
 +
-+  "#phy-cells":
++  "#hwlock-cells":
 +    const: 1
 +
 +  "#reset-cells":
 +    const: 1
-+
-+  syscon-reboot:
-+    type: object
-+    $ref: /schemas/power/reset/syscon-reboot.yaml#
-+    description:
-+      Reboot method for the SoC.
 +
 +required:
 +  - compatible
 +  - reg
 +  - clocks
 +  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+  - syscon-reboot
 +  - "#clock-cells"
-+  - "#phy-cells"
++  - "#hwlock-cells"
 +  - "#reset-cells"
 +
-+unevaluatedProperties: false
++additionalProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/zte,zx297520v3-reset.h>
-+    #include <dt-bindings/phy/zte,zx297520v3-topcrm.h>
 +    #include <dt-bindings/clock/zte,zx297520v3-clk.h>
++    #include <dt-bindings/reset/zte,zx297520v3-reset.h>
 +
-+    topcrm: clock-controller@13b000 {
-+        compatible = "zte,zx297520v3-topcrm", "syscon";
-+        reg = <0x0013b000 0x400>;
-+        clocks = <&osc26m>, <&osc32k>;
-+        clock-names = "osc26m", "osc32k";
-+        interrupts = <GIC_SPI 42 IRQ_TYPE_EDGE_RISING>,
-+                     <GIC_SPI 43 IRQ_TYPE_EDGE_RISING>,
-+                     <GIC_SPI 45 IRQ_TYPE_EDGE_RISING>,
-+                     <GIC_SPI 46 IRQ_TYPE_EDGE_RISING>;
-+        interrupt-names = "usb-up", "usb-down", "hsic-up", "hsic-down";
-+        resets = <&topcrm ZX297520V3_USB_PHY_RESET>,
-+                 <&topcrm ZX297520V3_HSIC_PHY_RESET>;
-+        reset-names = "usb", "hsic";
++    clock-controller@1306000 {
++        compatible = "zte,zx297520v3-matrixcrm";
++        reg = <0x01306000 0x400>;
++        clocks = <&osc26m>, <&osc32k>,
++                 <&topcrm ZX297520V3_MPLL>, <&topcrm ZX297520V3_MPLL_D5>,
++                 <&topcrm ZX297520V3_DPLL>, <&topcrm ZX297520V3_GPLL>,
++                 <&topcrm ZX297520V3_GPLL_D2>,
++                 <&topcrm ZX297520V3_GATED_OSC26M>;
++        clock-names = "osc26m", "osc32k", "mpll", "mpll-d5", "dpll", "gpll",
++                      "gpll-d2", "wclk-osc26m";
 +        #clock-cells = <1>;
-+        #phy-cells = <1>;
++        #hwlock-cells = <1>;
 +        #reset-cells = <1>;
-+
-+        syscon-reboot {
-+          compatible = "syscon-reboot";
-+          offset = <0x0>;
-+          mask = <0x1>;
-+          value = <0x1>;
-+        };
 +    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 8729cea57c3d..36619a9ff8fc 100644
+index 36619a9ff8fc..dc2972ade70f 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -3878,8 +3878,12 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+@@ -3878,6 +3878,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
  S:	Odd fixes
  F:	Documentation/arch/arm/zte/
  F:	Documentation/devicetree/bindings/arm/zte.yaml
-+F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
++F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
+ F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
  F:	arch/arm/boot/dts/zte/
  F:	arch/arm/mach-zte/
-+F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
-+F:	include/dt-bindings/phy/zte,zx297520v3-topcrm.h
-+F:	include/dt-bindings/reset/zte,zx297520v3-reset.h
- 
- ARM/ZYNQ ARCHITECTURE
- M:	Michal Simek <michal.simek@amd.com>
 diff --git a/include/dt-bindings/clock/zte,zx297520v3-clk.h b/include/dt-bindings/clock/zte,zx297520v3-clk.h
-new file mode 100644
-index 000000000000..3aed94ccc26f
---- /dev/null
+index 3aed94ccc26f..a8477e9b2a14 100644
+--- a/include/dt-bindings/clock/zte,zx297520v3-clk.h
 +++ b/include/dt-bindings/clock/zte,zx297520v3-clk.h
-@@ -0,0 +1,66 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) Stefan Dösinger.
-+ */
+@@ -63,4 +63,45 @@
+ #define ZX297520V3_HSIC_WCLK			54
+ #define ZX297520V3_HSIC_PCLK			55
+ 
++#define ZX297520V3_SYS_TIMER_WCLK		0
++#define ZX297520V3_CPU_WCLK			1
++#define ZX297520V3_CPU_PCLK			2
++#define ZX297520V3_ZSP_WCLK			3
++#define ZX297520V3_DDR_CTRL_PCLK		4
++#define ZX297520V3_DDR_CTRL_WCLK		5
++#define ZX297520V3_EDCP_WCLK			6
++#define ZX297520V3_EDCP_PCLK			7
++#define ZX297520V3_SD0_WCLK			8
++#define ZX297520V3_SD0_PCLK			9
++#define ZX297520V3_SD0_CDET			10
++#define ZX297520V3_SD1_WCLK			11
++#define ZX297520V3_SD1_PCLK			12
++#define ZX297520V3_SD1_CDET			13
++#define ZX297520V3_NAND_WCLK			14
++#define ZX297520V3_NAND_PCLK			15
++#define ZX297520V3_DMA_PCLK			16
++#define ZX297520V3_MBOX_PCLK			17
++#define ZX297520V3_PDCFG_WCLK			18
++#define ZX297520V3_PDCFG_PCLK			19
++#define ZX297520V3_SSC_WCLK			20
++#define ZX297520V3_SSC_PCLK			21
++#define ZX297520V3_AXI_WCLK			22
++#define ZX297520V3_GMAC_WCLK			23
++#define ZX297520V3_GMAC_PCLK			24
++#define ZX297520V3_GMAC_AHB			25
++#define ZX297520V3_VOU_WCLK			26
++#define ZX297520V3_VOU_PCLK			27
++#define ZX297520V3_LSP_MPLL_D5_WCLK		28
++#define ZX297520V3_LSP_MPLL_D4_WCLK		29
++#define ZX297520V3_LSP_MPLL_D6_WCLK		30
++#define ZX297520V3_LSP_MPLL_D8_WCLK		31
++#define ZX297520V3_LSP_MPLL_D12_WCLK		32
++#define ZX297520V3_LSP_OSC26M_WCLK		33
++#define ZX297520V3_LSP_OSC32K_WCLK		34
++#define ZX297520V3_LSP_PCLK			35
++#define ZX297520V3_LSP_TDM_WCLK			36
++#define ZX297520V3_LSP_DPLL_D4_WCLK		37
++#define ZX297520V3_SRAM0_PCLK			38
++#define ZX297520V3_GSM_CFG_PCLK			39
 +
-+#ifndef __DT_BINDINGS_CLOCK_ZX297520V3_H
-+#define __DT_BINDINGS_CLOCK_ZX297520V3_H
-+
-+#define ZX297520V3_M0_WCLK			0
-+#define ZX297520V3_SRAM1_PCLK			1
-+#define ZX297520V3_SRAM2_PCLK			2
-+#define ZX297520V3_UART0_WCLK			3
-+#define ZX297520V3_UART0_PCLK			4
-+#define ZX297520V3_I2C0_WCLK			5
-+#define ZX297520V3_I2C0_PCLK			6
-+#define ZX297520V3_RTC_WCLK			7
-+#define ZX297520V3_RTC_PCLK			8
-+#define ZX297520V3_LPM_GSM_WCLK			9
-+#define ZX297520V3_LPM_GSM_PCLK			10
-+#define ZX297520V3_LPM_LTE_WCLK			11
-+#define ZX297520V3_LPM_LTE_PCLK			12
-+#define ZX297520V3_LPM_TD_WCLK			13
-+#define ZX297520V3_LPM_TD_PCLK			14
-+#define ZX297520V3_LPM_W_WCLK			15
-+#define ZX297520V3_LPM_W_PCLK			16
-+#define ZX297520V3_TIMER_T08_WCLK		17
-+#define ZX297520V3_TIMER_T08_PCLK		18
-+#define ZX297520V3_TIMER_T09_WCLK		19
-+#define ZX297520V3_TIMER_T09_PCLK		20
-+#define ZX297520V3_MPLL				21
-+#define ZX297520V3_MPLL_D5			22
-+#define ZX297520V3_DPLL				23
-+#define ZX297520V3_GPLL				24
-+#define ZX297520V3_GPLL_D2			25
-+#define ZX297520V3_GATED_OSC26M			26
-+#define ZX297520V3_PMM_WCLK			27
-+#define ZX297520V3_PMM_PCLK			28
-+#define ZX297520V3_OUT0_WCLK			29
-+#define ZX297520V3_OUT1_WCLK			30
-+#define ZX297520V3_OUT2_WCLK			31
-+#define ZX297520V3_OUT32K_WCLK			32
-+#define ZX297520V3_RMIIPHY_WCLK			33
-+#define ZX297520V3_TIMER_T12_WCLK		34
-+#define ZX297520V3_TIMER_T12_PCLK		35
-+#define ZX297520V3_TIMER_T13_WCLK		36
-+#define ZX297520V3_TIMER_T13_PCLK		37
-+#define ZX297520V3_TIMER_T14_WCLK		38
-+#define ZX297520V3_TIMER_T14_PCLK		39
-+#define ZX297520V3_TIMER_T15_WCLK		40
-+#define ZX297520V3_TIMER_T15_PCLK		41
-+#define ZX297520V3_TIMER_T16_WCLK		42
-+#define ZX297520V3_TIMER_T16_PCLK		43
-+#define ZX297520V3_TIMER_T17_WCLK		44
-+#define ZX297520V3_TIMER_T17_PCLK		45
-+#define ZX297520V3_WDT_T18_WCLK			46
-+#define ZX297520V3_WDT_T18_PCLK			47
-+#define ZX297520V3_USIM1_WCLK			48
-+#define ZX297520V3_USIM1_PCLK			49
-+#define ZX297520V3_AHB_WCLK			50
-+#define ZX297520V3_AHB_PCLK			51
-+#define ZX297520V3_USB_WCLK			52
-+#define ZX297520V3_USB_PCLK			53
-+#define ZX297520V3_HSIC_WCLK			54
-+#define ZX297520V3_HSIC_PCLK			55
-+
-+#endif /* __DT_BINDINGS_CLOCK_ZX297520V3_H */
-diff --git a/include/dt-bindings/phy/zte,zx297520v3-topcrm.h b/include/dt-bindings/phy/zte,zx297520v3-topcrm.h
-new file mode 100644
-index 000000000000..b36ccf2f54ef
---- /dev/null
-+++ b/include/dt-bindings/phy/zte,zx297520v3-topcrm.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) Stefan Dösinger.
-+ */
-+
-+#ifndef __DT_BINDINGS_PHY_ZTE_ZX297520V3_TOPCRM_H
-+#define __DT_BINDINGS_PHY_ZTE_ZX297520V3_TOPCRM_H
-+
-+#define ZX297520V3_USB_PHY	0
-+#define ZX297520V3_HSIC_PHY	1
-+
-+#endif /* __DT_BINDINGS_PHY_ZTE_ZX297520V3_TOPCRM_H */
+ #endif /* __DT_BINDINGS_CLOCK_ZX297520V3_H */
 diff --git a/include/dt-bindings/reset/zte,zx297520v3-reset.h b/include/dt-bindings/reset/zte,zx297520v3-reset.h
-new file mode 100644
-index 000000000000..43db72bb59de
---- /dev/null
+index 43db72bb59de..4682d4a599c6 100644
+--- a/include/dt-bindings/reset/zte,zx297520v3-reset.h
 +++ b/include/dt-bindings/reset/zte,zx297520v3-reset.h
-@@ -0,0 +1,32 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) Stefan Dösinger.
-+ */
+@@ -29,4 +29,16 @@
+ #define ZX297520V3_HSIC_PHY_RESET		20
+ #define ZX297520V3_HSIC_RESET			21
+ 
++#define ZX297520V3_CPU_RESET			0
++#define ZX297520V3_DDR_CTRL_RESET		1
++#define ZX297520V3_EDCP_RESET			2
++#define ZX297520V3_SD0_RESET			3
++#define ZX297520V3_SD1_RESET			4
++#define ZX297520V3_NAND_RESET			5
++#define ZX297520V3_PDCFG_RESET			6
++#define ZX297520V3_SSC_RESET			7
++#define ZX297520V3_GMAC_RESET			8
++#define ZX297520V3_VOU_RESET			9
++#define ZX297520V3_LSP_RESET			10
 +
-+#ifndef __DT_BINDINGS_RESET_ZX297520V3_H
-+#define __DT_BINDINGS_RESET_ZX297520V3_H
-+
-+#define ZX297520V3_ZSP_RESET			0
-+#define ZX297520V3_UART0_RESET			1
-+#define ZX297520V3_I2C0_RESET			2
-+#define ZX297520V3_RTC_RESET			3
-+#define ZX297520V3_TIMER_T08_RESET		4
-+#define ZX297520V3_TIMER_T09_RESET		5
-+#define ZX297520V3_PMM_RESET			6
-+#define ZX297520V3_GPIO_RESET			7
-+#define ZX297520V3_GPIO8_RESET			8
-+#define ZX297520V3_TIMER_T12_RESET		9
-+#define ZX297520V3_TIMER_T13_RESET		10
-+#define ZX297520V3_TIMER_T14_RESET		11
-+#define ZX297520V3_TIMER_T15_RESET		12
-+#define ZX297520V3_TIMER_T16_RESET		13
-+#define ZX297520V3_TIMER_T17_RESET		14
-+#define ZX297520V3_WDT_T18_RESET		15
-+#define ZX297520V3_USIM1_RESET			16
-+#define ZX297520V3_AHB_RESET			17
-+#define ZX297520V3_USB_PHY_RESET		18
-+#define ZX297520V3_USB_RESET			19
-+#define ZX297520V3_HSIC_PHY_RESET		20
-+#define ZX297520V3_HSIC_RESET			21
-+
-+#endif /* __DT_BINDINGS_RESET_ZX297520V3_H */
+ #endif /* __DT_BINDINGS_RESET_ZX297520V3_H */
 
 -- 
 2.54.0
