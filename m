@@ -4,111 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6022DC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9EDC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OoBuJaeE8CnOsFliKehgGl5W43RpzT6NiHb6+7nJgeI=; b=sgdqwpsT7I118lrCn0/86yYkQf
-	OrApkiQIs2eHsEd/GVtEGmMvDSpxc+iMJ8sj7uBZkwbN3XpGpQDs8r15Mm0u7LULXlLt0p0adL13H
-	YuSkmj+whosKAA9Ca6tAU4hUHxJX4p7YPn6fNVo2GVUOHi0fh9sah8a9m+e80aEPbBM1z7JawzNwe
-	Bbba5UG5nQWHXWuHk6YPyywUHMQW75CHPzy8BJGPCn/HqSKcFW5exjzURUi3fkoelIiXILNycV0ft
-	rs6qVpivYld3ngAKoJB9Fk48U3r6RRVH4KxBKaS7fFuPqQpoBFqPWAli39YuPqemwyBwNKs9Xk37Y
-	YOiJYM0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F/kA/Y690WSDQmA6nTaxghCYq6fcNkFzKnP5KGG+KSk=; b=b895u5bZYS9TLBjIxAWtwuwWJt
+	wIoT/VnKTyAZ2O8VL41ivgrzdqJpcUW/SBO6hbJ7BpDyV68e/E7ltqm+kVdz4MEE2hJOMoqxuNIQp
+	M+hbS/sCUnvnBzcmKWmgrTw9NYJ14slf7Kz8xMFJjO5+RhAwZB5GejjEmxKKXbz16VEguiVp5CqSY
+	07vKkzFEvmTStp33xIpcXap5LaNCS5v+wZmOpAhbhbqyrBE3JmCz5lHmgr//9fqd8ZYl8/ujl08AT
+	669TEbh/F9QbHlIl9vJm2pdXcupkGg9ItT6pf6ohxR4R8QIf7mbsZm+KOE1v0uj7FQMoWb8CUy0Gh
+	9oLWIAhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJE6-00000002YSp-3qIn;
-	Mon, 27 Jul 2026 11:10:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1woJEI-00000002YWD-09ry;
+	Mon, 27 Jul 2026 11:10:42 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJE5-00000002YSU-2Qs1
+	id 1woJEF-00000002YVP-3RGl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 11:10:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4D16401E7;
-	Mon, 27 Jul 2026 11:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AECF31F000E9;
-	Mon, 27 Jul 2026 11:10:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785150628;
-	bh=OoBuJaeE8CnOsFliKehgGl5W43RpzT6NiHb6+7nJgeI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RdajOvWQqUZgxChYldtZh0Flicofo3A3adnJi17QrHv45saV6z3gLMfzS8B33d00U
-	 nTX6zjYTCllR1O84ulRq3DpE97GicL2zsnUr5Iu9IBsXibfl/BOzf6uYR8F4Wz5Lio
-	 Ctzym+sX93hF4/650OAK4jYNGekz8T60pyTTpzR+1DadsaTflcrAjuMTftZklqesvW
-	 YuqjzXZpkrrmoJ4+f77G3jw5p8XPogkIp+ZriibAcqnQYvuRworLmRqVwwAq9SUbEu
-	 6ENMaoMrr62feKBESyEfP79kuSeQuY5ospGlLZGiu/2Gc05fc6ZKbl7QNvx97i28hc
-	 rghy54ffcyesw==
-Message-ID: <666c6d07-02f1-4ae3-ae48-f9b9611f3718@kernel.org>
-Date: Mon, 27 Jul 2026 13:10:19 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] arm64: dts: exynos: Move 'status' to the end to match
+	Mon, 27 Jul 2026 11:10:41 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-698bf053053so3620299a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 04:10:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1785150638; x=1785755438; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=F/kA/Y690WSDQmA6nTaxghCYq6fcNkFzKnP5KGG+KSk=;
+        b=lH9fO2Z5M4G9IXfu9lDcFNT5lLzFwjf+u2WFL52b/JrtkW70nQXd/OEo+/S5sdidZu
+         3JiF+y/OPAKScxAuv2uddeFKLKAkLoc45aA58WxeevBGHdQsLBTgkWzPuXfFWa8dN4IW
+         3xP9aMhmJWuCrngXmn84vP/eMu57MRUz2RzkD+EcdyTr5dTQc1vneT6ow9/jwF3zSseX
+         FUmfiQ+6ljffy1TTKk7FQXxG/dQYI2uXAoHf7+GIhPVcgTcPrpX1KQqPk8+LyNsuEGyB
+         oTT+xHwfVOARjPK2hEPPNI5q6pF+Y7+60G5j85nDGgofxdAjjrV2HDKGJBi+7P/mS/pv
+         nzDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785150638; x=1785755438;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F/kA/Y690WSDQmA6nTaxghCYq6fcNkFzKnP5KGG+KSk=;
+        b=GV5Ct30t/vHz7Ya3kS/PwMvnM7lMVzH4HOwFM88E81gOe4//yBM7/+WyYyqqMizjhG
+         Jv8bguVpo0xrWCWnVSqzYmR72TtsS5wbRp4Uz+TBvVBcGD/eJpw6J31JTE8uk5kB6POV
+         P2PeLkWUPYrMi1Yr6uM6WUs2PHLnaonPr3aodkIMTKfnDxaGLgN89KJRlIpP9UmTbZwI
+         JvClqdyw2PyGtuljeHtrSyhPPvqEueJE0qO8FQ01vfzL+MKVajVONpzCDWvOc2I9LR3X
+         DHPybfAq0avrXlIahX3mItWKh7mLmvrcLD6KLBfIJBOK/2c6DINgpsC3kIOsZGmqCyOd
+         xQBg==
+X-Gm-Message-State: AOJu0YxkInvZhJ2KSGh05UfRGkzjNoH5Mgcswu0SDmUoQG6qz4+EHOKj
+	vdNZxiumXK5ZFb8s/ncNBBRrjoCpBV+YTNtupGaOJF0Kg3HZx75eAoAXySxwfjsxFqyddw+qVns
+	UDMSxzQE=
+X-Gm-Gg: AR+sD123iqdJp4tZo8BJJ9VEqGwAd8RdZ99I3DHVmqzxfAGFfXBcaWFe3uym64r7vcn
+	u3zDsUHCKM9Sb8DjC+hfkchcexgRTjYxXCPe8wGJDB1i9y8YhnnqNdX9rZiUSuhvVlG38nLmqUy
+	rosVlmwqe1eDhH2QyAu/cB03wtrr2Wsk4p9Ghv0ITyR/bQjOD4a/9iidxByIcWHHBKMIONi5dQr
+	8GLGXp/nx9MJJowi0lep8fkLaBBtUkdVHq35da3K9qFsq5H6hCRda36t3CnowU0E2M0kL3XiGOo
+	tLxYdbtq/kxTC96J63YWIqB0phugJJM3zHwaULQmqZ2zstctRKQtA8CTBGg3tnfKI0nC/wwtmf0
+	4nBYwi4hJvJEdx9ItFsolXL8sLRIjjvsJd5BGNKksknPGgzPYhrWveE8BkNovm67XR/UKKg6xYO
+	nljYiZ9g==
+X-Received: by 2002:a05:6402:3899:b0:698:c167:91f7 with SMTP id 4fb4d7f45d1cf-69fc1170687mr3269674a12.34.1785150637925;
+        Mon, 27 Jul 2026 04:10:37 -0700 (PDT)
+Received: from [10.1.1.59] ([109.255.181.4])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69fb5543ab7sm2469285a12.17.2026.07.27.04.10.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 04:10:37 -0700 (PDT)
+Message-ID: <c2c816236de472856d99d22b5f6a286844ae3dd4.camel@linaro.org>
+Subject: Re: [PATCH 7/8] arm64: dts: fsd: Move 'status' to the end to match
  coding style
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Rob Herring <robh@kernel.org>,
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Ivaylo
+ Ivanov	 <ivo.ivanov.ivanov1@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, linux-fsd@tesla.com
+ <conor+dt@kernel.org>, Peter Griffin	 <peter.griffin@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>, Sam Protsenko
+ <semen.protsenko@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Krzysztof Kozlowski	 <krzk@kernel.org>, linux-fsd@tesla.com
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+ 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 27 Jul 2026 12:10:55 +0100
+In-Reply-To: <20260726-b4-dts-coding-style-strict-v1-7-e9e3e9879d05@oss.qualcomm.com>
 References: <20260726-b4-dts-coding-style-strict-v1-0-e9e3e9879d05@oss.qualcomm.com>
- <20260726-b4-dts-coding-style-strict-v1-1-e9e3e9879d05@oss.qualcomm.com>
- <81160ceaf02ad31c4b86c00dd4bcdcf1fe624788.camel@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <81160ceaf02ad31c4b86c00dd4bcdcf1fe624788.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	 <20260726-b4-dts-coding-style-strict-v1-7-e9e3e9879d05@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-8+build1 
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_041039_860691_050BA387 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,34 +108,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/07/2026 13:04, André Draszik wrote:
-> Hi Krzysztof,
-> 
-> On Sun, 2026-07-26 at 19:43 +0200, Krzysztof Kozlowski wrote:
->> diff --git a/arch/arm64/boot/dts/exynos/exynos5433.dtsi b/arch/arm64/boot/dts/exynos/exynos5433.dtsi
->> index fa2029e280a5..17b13a586973 100644
->> --- a/arch/arm64/boot/dts/exynos/exynos5433.dtsi
->> +++ b/arch/arm64/boot/dts/exynos/exynos5433.dtsi
->> @@ -755,6 +755,7 @@ tmu_atlas0: tmu@10060000 {
->>  				<&cmu_peris CLK_SCLK_TMU0>;
->>  			clock-names = "tmu_apbif", "tmu_sclk";
->>  			#thermal-sensor-cells = <0>;
->> +
->>  			status = "disabled";
->>  		};
->>  
->> @@ -766,7 +767,9 @@ tmu_atlas1: tmu@10068000 {
->>  				<&cmu_peris CLK_SCLK_TMU0>;
->>  			clock-names = "tmu_apbif", "tmu_sclk";
->>  			#thermal-sensor-cells = <0>;
->> +
->>  			status = "disabled";
->> +
->>  		};
-> 
-> This adds an extra empty line.
-Ack
+On Sun, 2026-07-26 at 19:43 +0200, Krzysztof Kozlowski wrote:
+> 'status' property is special, thus DTS coding style expects it to be
+> always the last property preceded with a blank line, as reported by
+> dt-check-style:
+>=20
+> =C2=A0 [required-blank-lines] "status" must be preceded by a blank line
+> =C2=A0 [property-order] property 'phy-mode' out of canonical order (shoul=
+d sort before 'status')
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+> =C2=A0arch/arm64/boot/dts/tesla/fsd-evb.dts |=C2=A0 6 ++++--
+> =C2=A0arch/arm64/boot/dts/tesla/fsd.dtsi=C2=A0=C2=A0=C2=A0 | 24 +++++++++=
++++++++++++++++
+> =C2=A02 files changed, 28 insertions(+), 2 deletions(-)
 
-Best regards,
-Krzysztof
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>,
 
