@@ -4,64 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94A3C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A150DC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AxDTGNjl+A21oI8mx+eyFVoo/6K2zCypCJKaPp2Jkqg=; b=vT86lYv8QjPkdz5GnVT/pwi6M6
-	9bASWqWPYTBXP6WJL/fUKjYLYDGR4pCDJDcP8kR8iAWD8Fut87DOZNqt+IwEp4LTvbdhvv3IpNMDU
-	NW7C1RDBDb468UrXUfCSna+H7H5TbZKGG74x157C9iwxOe3H7SrAaSdGIEnXB5dVDAmPVtIKURbsb
-	/NZ7HTmqguCjGi7CSid/6HaSw9LB9SAvyfh0wcCEF7jKEa/8SyrcXkPpD9u4uooN7KuRgWVWutuuM
-	2YpmqIkJG63aerN1hjvYmw1d8BQZ5RMvybbbo5ZlLJ98pvPOS3Fee6c5M+H7kgTgfp9nBzlBMwRWV
-	tu6fA2Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CEcsYQM4ljco82dEKg+yhxhcPhTVO5qy8nLEQaYZrN0=; b=G7eHdOfzQRY7fUHg4DVvHpSX4I
+	O1K6RmDNKl1XQaJrhsffYyzscY0MwQGKk0Sdi/rH3qfL6HJBONOGs5xneUhLbmBqF5Dc0BHjNjqEC
+	E9SeTkYNRxBqeX1OLLaou7Yd7x6DNMDzOFfX4t13u+HiGIFYGs77I4kPzjSFXes5JNDkdk/FGhfZK
+	HZFNExHUNfI/J5qT9U6f8XAGeY+C34J8R5v2Q8bKGv4VsrMcGI8538tCfwCcNbR7YQJuy5pgLhpsz
+	i/Baw39FIZ6LSoTuywn3kappyCQYdHmZSMcsTlIn2D+GaSGL0Qgj/GGCi/0UxW0J08HwgYGd2BlP/
+	DrKf3qZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woElv-000000021DJ-27WG;
-	Mon, 27 Jul 2026 06:25:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1woEnW-000000021Xk-0Sz0;
+	Mon, 27 Jul 2026 06:26:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woElu-000000021CL-1cUy;
-	Mon, 27 Jul 2026 06:25:06 +0000
+	id 1woEnV-000000021XW-0fOC;
+	Mon, 27 Jul 2026 06:26:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7FFAF601ED;
-	Mon, 27 Jul 2026 06:25:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABFDD1F000E9;
-	Mon, 27 Jul 2026 06:25:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E52C043975;
+	Mon, 27 Jul 2026 06:26:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3320F1F000E9;
+	Mon, 27 Jul 2026 06:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785133505;
-	bh=AxDTGNjl+A21oI8mx+eyFVoo/6K2zCypCJKaPp2Jkqg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DWuBX3lSYwkOuism5YgEF4DtFHJTG9RrCl4sYRzFIRRe6ZmiXDSWK4VaTFuKU9FSz
-	 Zw5N22FSFXwSn04OF/WFyBo1JkKfRIxx62AlI3IoLCA7QLnlMOHCFhlEtBe+sop16Q
-	 xjclA7eNPdAYbX4hX2283Wb1xtlVG4KHpbOJL2JX7/Qigr1sivy8SU0LOpVhrIIdKL
-	 V8j/DS4tCxPsd9LPZR92kMlmu9c98Si+MlmovrY7YQQEFpaGGLG9zj6KYsenBOhJip
-	 fLDmwU6zPHAKSDzQvOt7iwkIEg1eSWXQIktyAf+Z3xUKWAY6UWGYkMZZ9WmOOuA5Dc
-	 PRQ66z9mlgWIw==
-Date: Mon, 27 Jul 2026 08:25:03 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agarwal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v12 3/3] net: airoha: defer GDM3/GDM4 WAN mode
- and GDM2 loopback to QoS offload
-Message-ID: <amb5vuzkHP1dA1ok@lore-desk>
-References: <20260725-airoha-ethtool-priv_flags-v12-0-5136a30b2157@kernel.org>
- <20260725-airoha-ethtool-priv_flags-v12-3-5136a30b2157@kernel.org>
+	s=k20260515; t=1785133604;
+	bh=CEcsYQM4ljco82dEKg+yhxhcPhTVO5qy8nLEQaYZrN0=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=eLWHZk1TOQ7GHKI0f/1uiSLAD/GtGt9c3sY+i8RcJ/MOhsMVuSrOMtic/1KOpkkWA
+	 wvd2uoK30r5dwj/XtyIbdN3Fs4j2q65Tbe74CHk9rN24G35iy1/xDs2nnfr26s/1/6
+	 DG80Zs7rx/g2NaYAz6yXnZfOAB8ydbQQjUwIREDmQMwKWsGTMxJtKWhDwNijGEoEaV
+	 Jt9+4kWQDnF6mn4zbtWAu2igbfa+bbx9RUbI5N9YU6J9x9a+mxLqzgyT0r59PQNtlm
+	 qqVClLeZAEevKb4eH3+OTGY+nyH64iHJMWXwDx/4LU175NOCclrayhn1BDQj2wYcC6
+	 NadiVMi2JSTBQ==
+Message-ID: <16ede5f1-dcd4-4b43-98a9-02754796de81@kernel.org>
+Date: Mon, 27 Jul 2026 08:26:37 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZdqQZYG4LwtHA3we"
-Content-Disposition: inline
-In-Reply-To: <20260725-airoha-ethtool-priv_flags-v12-3-5136a30b2157@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 6/6] arm64: defconfig: Enable CONFIG_VIDEO_AMLOGIC_VDEC
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Zhentao Guo <zhentao.guo@amlogic.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org
+References: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
+ <20260724-b4-s4-vdec-upstream-v6-6-6072a7ee7428@amlogic.com>
+ <20260727-vivid-native-bloodhound-4c7ff6@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260727-vivid-native-bloodhound-4c7ff6@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,133 +120,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---ZdqQZYG4LwtHA3we
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 27/07/2026 08:24, Krzysztof Kozlowski wrote:
+> On Fri, Jul 24, 2026 at 03:04:56PM +0800, Zhentao Guo wrote:
+>> Enable the Amlogic V4L2 stateless video decoder driver as a module
+>> in the arm64 defconfig. This driver is needed for stateless video
+>> decoding support on Amlogic SoCs.
+> 
+> Which boards use it? Look at `git log` to learn how this commit should
+> be written.
 
-[...]
+I already ASKED YOU this at v4 and pointing you to git log history. Not
+much improved.
 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 447a5a9552bb..fa9a8edce22f 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -572,11 +572,12 @@ struct airoha_qdma {
-> =20
->  enum airoha_dev_flags {
->  	AIROHA_DEV_F_WAN,
-> +	AIROHA_DEV_F_TX_QOS,
->  };
-> =20
->  struct airoha_gdm_dev {
-> +	struct airoha_qdma __rcu *qdma;
->  	struct airoha_gdm_port *port;
-> -	struct airoha_qdma *qdma;
->  	struct airoha_eth *eth;
-> =20
->  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-> @@ -589,6 +590,11 @@ struct airoha_gdm_dev {
->  	int nbq;
-> =20
->  	struct airoha_hw_stats stats;
-> +
-> +	/* Serialize netdev_tx_completed_queue() calls per TX queue during
-> +	 * QDMA migration.
-> +	 */
-> +	spinlock_t txq_lock[AIROHA_NUM_NETDEV_TX_RINGS];
->  };
-> =20
->  struct airoha_gdm_port {
-> @@ -712,6 +718,16 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
->  bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
->  			     struct airoha_gdm_dev *dev);
-> =20
-> +extern struct mutex flow_offload_mutex;
+Did you even check any commits?
 
-commenting on sashiko's report:
-https://sashiko.dev/#/patchset/20260725-airoha-ethtool-priv_flags-v12-0-513=
-6a30b2157%40kernel.org
+NAK
 
-- Would it be safer to namespace this mutex here to prevent potential multi=
-ple
-  definition errors during the build?
-  - I guess we can rename the mutex if required in a subsequent patch.
-
-Regards,
-Lorenzo
-
-> +
-> +static inline struct airoha_qdma *
-> +airoha_qdma_deref(struct airoha_gdm_dev *dev)
-> +{
-> +	return rcu_dereference_protected(dev->qdma,
-> +					 lockdep_rtnl_is_held() ||
-> +					 lockdep_is_held(&flow_offload_mutex));
-> +}
-> +
->  void airoha_ppe_set_xmit_frame_size(struct airoha_gdm_dev *dev);
->  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port);
->  bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index e4c3644dd6ec..33ddf0d07855 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -15,7 +15,10 @@
->  #include "airoha_regs.h"
->  #include "airoha_eth.h"
-> =20
-> -static DEFINE_MUTEX(flow_offload_mutex);
-> +/* Serialize airoha_gdm_dev flags, QDMA pointer and PPE CPU port
-> + * configuration.
-> + */
-> +DEFINE_MUTEX(flow_offload_mutex);
->  static DEFINE_SPINLOCK(ppe_lock);
-> =20
->  static const struct rhashtable_params airoha_flow_table_params =3D {
-> @@ -86,8 +89,8 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *=
-ppe)
-> =20
->  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port)
->  {
-> -	struct airoha_qdma *qdma =3D dev->qdma;
-> -	struct airoha_eth *eth =3D qdma->eth;
-> +	struct airoha_qdma *qdma =3D airoha_qdma_deref(dev);
-> +	struct airoha_eth *eth =3D dev->eth;
->  	u8 qdma_id =3D qdma - &eth->qdma[0];
->  	u32 fe_cpu_port;
-> =20
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
-rnet/airoha/airoha_regs.h
-> index 6fed63d013b4..442b48c9b991 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -375,6 +375,7 @@
-> =20
->  #define REG_SRC_PORT_FC_MAP6		0x2298
->  #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
-> +#define FC_MAP6_DEF_VALUE		0x1b1a1918
-> =20
->  #define REG_WAN_MTU0			0x2300
->  #define WAN_MTU1_MASK			GENMASK(29, 16)
->=20
-> --=20
-> 2.55.0
->=20
-
---ZdqQZYG4LwtHA3we
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCamb5vgAKCRA6cBh0uS2t
-rPLhAQDmDXiXFow88TNz76pQK/GsGAztphnhJjrwi4BZ1g6ZpAD9EdiYgEKJ2qhs
-blve37k2zfnuxM0ZG7K25L6g9k14rAg=
-=iRur
------END PGP SIGNATURE-----
-
---ZdqQZYG4LwtHA3we--
+Best regards,
+Krzysztof
 
