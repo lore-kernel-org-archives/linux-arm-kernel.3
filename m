@@ -4,64 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35FEC531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0801DC531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Th96/GGdOH3cqJlq6mtvUWtPUD4W0EksOiaZew2t1UQ=; b=aZJN9foc701NfSohY7NMv/LFb0
-	kjnB0HXrfzTz2N0bvHprI1qjaX/Ws2mN0ReppYH2I5MlN47s7K/XNzoQ+djLD0SdQTbSulHKGbQU6
-	ndbQYWVlybnrUTDXIx3ECVpcDrvyQ9fvZ6DbPoHgAhFG6nkWtgm94mYS1sYX/iu4qVR/pLyGoVWFJ
-	Efkt013UVz9RTmnsLzpWI+aSqLhHXw1ramm43ZdBv8bfXaH1Wr1qaEBemuJgKN5O9zOtwzCaBJLys
-	/aGkplZQugQWe87nM8yF8Y6fMcKredwR8XkMXsItGj/tCBztslhAACnBBUW7ItpBIARGKGow35Ny1
-	X3bGzN9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wzbvqpwJ4tVuHha4a/AUKgG69FWQ3lB+QJyk93qBqRI=; b=ED1wQ1Jt5WVZyPoKzqOajqW/IT
+	h/H1CX5sm7ojEDXURuEjKFYc4+lx9+5lseiHF4Uv+9JHVPV+faoMbeg/Wp/P6nlPSmXrgDpl1+FZI
+	g+ErdaTlOv0VvV45ZTkx1Yq+A5gtypo/YMHZdLkObcny4dOFRPVUZTalbhUxc+4G7qR7cg3br6MOS
+	VtMPMm1Tu3e1pVF9a9pxl9iszsVrU5xdNo2KQQ3sJxxNvHbPUSRm9AcWanlZpnUt5FUAHcO3Wfe26
+	m26pkXblqxp2bBakGokaefd/k2m9uYmv9afxX9riBCGpOkevitKJmdibsaWtI+FnbcRqTyZrRjcCq
+	0d+Aazbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woEoL-000000021fd-1587;
-	Mon, 27 Jul 2026 06:27:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1woEs2-000000021uP-3VOM;
+	Mon, 27 Jul 2026 06:31:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woEoK-000000021fB-0nKZ;
-	Mon, 27 Jul 2026 06:27:36 +0000
+	id 1woEs1-000000021u9-3btf;
+	Mon, 27 Jul 2026 06:31:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 89E55601DE;
-	Mon, 27 Jul 2026 06:27:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6FAF1F000E9;
-	Mon, 27 Jul 2026 06:27:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6348242DB1;
+	Mon, 27 Jul 2026 06:31:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29D9D1F000E9;
+	Mon, 27 Jul 2026 06:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785133655;
-	bh=Th96/GGdOH3cqJlq6mtvUWtPUD4W0EksOiaZew2t1UQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oycPVercDWHNAWLmDRMwyR+g7ZDZNwzYG4tDfLTSXPSwa65t9WcU7x6+PWf9ZuFTy
-	 F9Po4+R7xJSaFNERf5/+bCDsJUvBxDFm4OJhu45+ZbLgQgvIkqv4FDB4a3gkBMz8ba
-	 Y/2LjLpWNrWwb2l8N83GRbedyFdc2jYpkbxvfaeBAPcaVNzB7icBo4tNo016ZBxdCq
-	 PYnnHMkWiB9QNkcTjA7D0bLnturfdIK6UypL/coK0UmjVMkjgELpV8a6MGGBRj3/Gf
-	 UuNInzps54p26dZ1X9Gvu4HEoggUVpHbFlMhcPeF/4z2YD9Mw3Z91+V4QuQdZF18wj
-	 JF0bd69+nApGA==
-Date: Mon, 27 Jul 2026 08:27:32 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Jacob Keller <jacob.e.keller@intel.com>
-Subject: Re: [PATCH net-next v12 2/3] net: airoha: fix ETS QoS stats counter
- underflow and cross-channel corruption
-Message-ID: <amb6VD1kSVHqp0tX@lore-desk>
-References: <20260725-airoha-ethtool-priv_flags-v12-0-5136a30b2157@kernel.org>
- <20260725-airoha-ethtool-priv_flags-v12-2-5136a30b2157@kernel.org>
+	s=k20260515; t=1785133885;
+	bh=wzbvqpwJ4tVuHha4a/AUKgG69FWQ3lB+QJyk93qBqRI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=A3SrILAtExo6jZZFlwXryvbkBVFyefolqGPkrnFgmuCpyQN7shK7QEt8dhioS/JMh
+	 9TJn2G06MG0bXeG+SYEFr442F6HT7zCZ2fftpCvnDGlMAmZUKY6r6Dx4Yx7nld1fjL
+	 6KMTSgvSMkPVQuY7aUiSa4CyrLu/dBIHmh3nd+1JjelM1WMqnOOgRaPDNxTkZUJy4F
+	 Lx0S8+2BoGyef2AvcPlIu1whkrABG6iYjnCe5albf4fMH4bQHXM0gWxC1KpnWSmtmM
+	 tX0MmMsZ4Ma4P1/vOTsYHA5uClvpr+A/QYdh7+sJUiFyyY7UJbWRX5eWb3C5rpMyuI
+	 XWgA4OER3zlLQ==
+Message-ID: <0ce72645-aec6-478d-afad-b5c9f838d7ea@kernel.org>
+Date: Mon, 27 Jul 2026 08:31:17 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zFUilOt3Gv8fzeud"
-Content-Disposition: inline
-In-Reply-To: <20260725-airoha-ethtool-priv_flags-v12-2-5136a30b2157@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/6] decoder: Add V4L2 stateless H.264 decoder driver
+To: zhentao.guo@amlogic.com, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
+ <20260724-b4-s4-vdec-upstream-v6-4-6072a7ee7428@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260724-b4-s4-vdec-upstream-v6-4-6072a7ee7428@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,135 +118,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---zFUilOt3Gv8fzeud
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> airoha_qdma_get_tx_ets_stats() has two bugs:
-> - The hardware counters read via airoha_qdma_rr() are 32-bit values
->   but are stored in u64 locals and subtracted from u64 baselines. When
->   a 32-bit hardware counter wraps around, the subtraction produces a
->   large underflow value passed to _bstats_update().
-> - The baseline counters (cpu_tx_packets, fwd_tx_packets) are stored as
->   single per-device fields, but airoha_qdma_get_tx_ets_stats() is
->   called with different channel values (0-3). Each call reads a
->   different channel's hardware counter but overwrites the same
->   baseline, corrupting the delta computation for other channels.
->=20
-> Fix both by:
-> - Narrowing the counter locals and baselines to u32 so that 32-bit
->   unsigned subtraction handles wrap-around naturally.
-> - Grouping the baselines into a per-channel qos_stats array so each
->   channel tracks its own previous counter value independently.
-> - Splitting the delta addition into two statements so the first u32
->   delta is widened to u64 on assignment and the second is added in
->   u64 arithmetic, preventing overflow when both deltas are large.
->=20
-> Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
-> Reviewed-by: Simon Horman <horms@kernel.org>
-> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+On 24/07/2026 09:04, Zhentao Guo via B4 Relay wrote:
+> From: Zhentao Guo <zhentao.guo@amlogic.com>
+> 
+> Add initial support for V4L2 stateless video decoder
+> driver on Amlogic S4(S805X2) platform. In phase 1,
+> it supports 8bit H.264 bitstreams decoding. Currently
+> only progressive streams are supported.
+> 
+> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
 > ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 18 +++++++++++-------
->  drivers/net/ethernet/airoha/airoha_eth.h |  7 ++++---
->  2 files changed, 15 insertions(+), 10 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index d9a44a11d8db..8165084daaf5 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2521,16 +2521,20 @@ static int airoha_qdma_get_tx_ets_stats(struct ne=
-t_device *netdev, int channel,
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
->  	struct airoha_qdma *qdma =3D dev->qdma;
-> +	u32 cpu_tx_packets, fwd_tx_packets;
-> +	u64 tx_packets;
-> =20
-> -	u64 cpu_tx_packets =3D airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
-> -	u64 fwd_tx_packets =3D airoha_qdma_rr(qdma,
-> -					    REG_CNTR_VAL((channel << 1) + 1));
-> -	u64 tx_packets =3D (cpu_tx_packets - dev->cpu_tx_packets) +
-> -			 (fwd_tx_packets - dev->fwd_tx_packets);
-> +	cpu_tx_packets =3D airoha_qdma_rr(qdma, REG_CNTR_VAL(channel << 1));
-> +	fwd_tx_packets =3D airoha_qdma_rr(qdma,
-> +					REG_CNTR_VAL((channel << 1) + 1));
-> +	tx_packets =3D (u32)(cpu_tx_packets -
-> +			   dev->qos_stats[channel].cpu_tx_packets);
-> +	tx_packets +=3D (u32)(fwd_tx_packets -
-> +			    dev->qos_stats[channel].fwd_tx_packets);
-> =20
->  	_bstats_update(opt->stats.bstats, 0, tx_packets);
-> -	dev->cpu_tx_packets =3D cpu_tx_packets;
-> -	dev->fwd_tx_packets =3D fwd_tx_packets;
-> +	dev->qos_stats[channel].cpu_tx_packets =3D cpu_tx_packets;
-> +	dev->qos_stats[channel].fwd_tx_packets =3D fwd_tx_packets;
+>  MAINTAINERS                                        |    7 +
+>  drivers/media/platform/amlogic/Kconfig             |    1 +
+>  drivers/media/platform/amlogic/Makefile            |    1 +
+>  drivers/media/platform/amlogic/vdec/Kconfig        |   18 +
+>  drivers/media/platform/amlogic/vdec/Makefile       |    4 +
+>  drivers/media/platform/amlogic/vdec/TODO           |    7 +
+>  drivers/media/platform/amlogic/vdec/aml_vdec.c     |  736 +++++++
+>  drivers/media/platform/amlogic/vdec/aml_vdec.h     |   33 +
+>  drivers/media/platform/amlogic/vdec/aml_vdec_drv.c |  239 +++
+>  drivers/media/platform/amlogic/vdec/aml_vdec_drv.h |  172 ++
+>  drivers/media/platform/amlogic/vdec/aml_vdec_hw.c  |  538 +++++
+>  drivers/media/platform/amlogic/vdec/aml_vdec_hw.h  |  157 ++
+>  .../platform/amlogic/vdec/aml_vdec_platform.c      |   81 +
+>  .../platform/amlogic/vdec/aml_vdec_platform.h      |   46 +
+>  .../media/platform/amlogic/vdec/aml_vdec_tee_fw.c  |  240 +++
+>  .../media/platform/amlogic/vdec/aml_vdec_tee_fw.h  |   27 +
+>  drivers/media/platform/amlogic/vdec/h264.c         | 2067 ++++++++++++++++++++
+>  drivers/media/platform/amlogic/vdec/h264.h         |  299 +++
+>  drivers/media/platform/amlogic/vdec/reg_defines.h  |  177 ++
+>  19 files changed, 4850 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index a112ce9f0fa0..a27ea19907f9 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1423,6 +1423,13 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/spi/amlogic,a4-spisg.yaml
+>  F:	drivers/spi/spi-amlogic-spisg.c
+>  
+> +AMLOGIC VDEC DRIVER
+> +M:	Zhentao Guo <zhentao.guo@amlogic.com>
+> +L:	linux-media@vger.kernel.org
 
-commenting on sashiko's report:
-https://sashiko.dev/#/patchset/20260725-airoha-ethtool-priv_flags-v12-0-513=
-6a30b2157%40kernel.org
+You can drop the L:. Subsystem defines it.
 
-- This isn't a bug introduced by this patch, but I noticed _bstats_update()=
- is
-  called here without mutual exclusion or BH-disabled context.
-  Can a local user running 'tc -s qdisc show' invoke this dump path while t=
-he
-  software qdisc datapath is running concurrently in softirq?
-  Since _bstats_update() requires strict mutual exclusion among writers, co=
-uld
-  the lack of qdisc_lock() in this process context allow the softirq datapa=
-th
-  to preempt or run concurrently?
-  Would this concurrent access on 32-bit systems corrupt the seqcount_t ins=
-ide
-  struct gnet_stats_basic_sync and cause readers to spin infinitely?
-  - As pointed out by sashiko, this issue has not been introduced by this
-    patch. Moreover, airoha_eth driver runs just on arm64 architecture, so I
-    guess this is not a real issue.
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml
+> +F:	drivers/media/platform/amlogic/vdec/
+> +
+>  AMPHENOL CHIPCAP 2 DRIVER
+>  M:	Javier Carrasco <javier.carrasco.cruz@gmail.com>
+>  L:	linux-hwmon@vger.kernel.org
+> diff --git a/drivers/media/platform/amlogic/Kconfig b/drivers/media/platform/amlogic/Kconfig
+> index 458acf3d5fa8..7c541ac0d0c3 100644
+> --- a/drivers/media/platform/amlogic/Kconfig
+> +++ b/drivers/media/platform/amlogic/Kconfig
+> @@ -4,3 +4,4 @@ comment "Amlogic media platform drivers"
+>  
+>  source "drivers/media/platform/amlogic/c3/Kconfig"
+>  source "drivers/media/platform/amlogic/meson-ge2d/Kconfig"
+> +source "drivers/media/platform/amlogic/vdec/Kconfig"
+> diff --git a/drivers/media/platform/amlogic/Makefile b/drivers/media/platform/amlogic/Makefile
+> index c744afcd1b9e..7409de674c0b 100644
+> --- a/drivers/media/platform/amlogic/Makefile
+> +++ b/drivers/media/platform/amlogic/Makefile
+> @@ -2,3 +2,4 @@
+>  
+>  obj-y += c3/
+>  obj-y += meson-ge2d/
+> +obj-y += vdec/
+> diff --git a/drivers/media/platform/amlogic/vdec/Kconfig b/drivers/media/platform/amlogic/vdec/Kconfig
+> new file mode 100644
+> index 000000000000..d392967c7743
+> --- /dev/null
+> +++ b/drivers/media/platform/amlogic/vdec/Kconfig
+> @@ -0,0 +1,18 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +
+> +config VIDEO_AMLOGIC_VDEC
+> +    tristate "Amlogic Video Decoder Driver"
+> +    depends on ARCH_MESON || COMPILE_TEST
+> +    depends on VIDEO_DEV
+> +    depends on V4L_MEM2MEM_DRIVERS
+> +    depends on TEE
+> +    select VIDEOBUF2_DMA_CONTIG
+> +    select V4L2_H264
+> +    select V4L2_MEM2MEM_DEV
+> +    select MESON_CANVAS
+> +    select MESON_SM
+> +    help
+> +      This is a v4l2 driver for Amlogic video decoder driver.
+> +	  This driver is designed to support V4L2 M2M STATELESS
+> +	  interface.
 
-Regards,
-Lorenzo
+Somehow messed indentation.
 
-> =20
->  	return 0;
->  }
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 24dd16fc509a..447a5a9552bb 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -580,9 +580,10 @@ struct airoha_gdm_dev {
->  	struct airoha_eth *eth;
-> =20
->  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-> -	/* qos stats counters */
-> -	u64 cpu_tx_packets;
-> -	u64 fwd_tx_packets;
-> +	struct {
-> +		u32 cpu_tx_packets;
-> +		u32 fwd_tx_packets;
-> +	} qos_stats[AIROHA_NUM_QOS_CHANNELS];
-> =20
->  	unsigned long flags;
->  	int nbq;
->=20
-> --=20
-> 2.55.0
->=20
+...
 
---zFUilOt3Gv8fzeud
-Content-Type: application/pgp-signature; name=signature.asc
+> +err_media_dev_register:
+> +	v4l2_m2m_unregister_media_controller(dev->m2m_dev_dec);
+> +error_m2m_mc_register:
+> +	media_device_cleanup(&dev->mdev);
+> +err_vid_dev_register:
+> +	v4l2_m2m_release(dev->m2m_dev_dec);
+> +err_hw_init:
+> +	dev->dec_hw = NULL;
+> +err_dec_mem_init:
+> +	video_device_release(vfd_dec);
+> +err_device_alloc:
+> +	v4l2_device_unregister(&dev->v4l2_dev);
+> +	return ret;
+> +}
+> +
+> +static void aml_vdec_drv_remove(struct platform_device *pdev)
+> +{
+> +	struct aml_vdec_dev *dev = platform_get_drvdata(pdev);
+> +
+> +	vdec_disable(dev->dec_hw);
+> +
+> +	if (media_devnode_is_registered(dev->mdev.devnode)) {
+> +		media_device_unregister(&dev->mdev);
+> +		media_device_cleanup(&dev->mdev);
+> +	}
+> +
+> +	if (dev->m2m_dev_dec)
+> +		v4l2_m2m_release(dev->m2m_dev_dec);
+> +	if (dev->vfd)
+> +		video_unregister_device(dev->vfd);
+> +	if (dev->dec_hw) {
 
------BEGIN PGP SIGNATURE-----
+I do not understand why do you release resources conditionally. Where
+they allocated conditionally? Why probe is not releasing them the same
+way in error paths?
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCamb6VAAKCRA6cBh0uS2t
-rA4BAP0akbTHHixeiNxRhj7i0oQUEQ/3swX/GZcss2GkmrDwhQEAiqIETFwQfurk
-fcBPV7tvUV4oLhccOCxd2s90kInyLgs=
-=0sIR
------END PGP SIGNATURE-----
+> +		dev->pvdec_data->destroy_hw_resource(dev);
+> +		dev->dec_hw = NULL;
 
---zFUilOt3Gv8fzeud--
+What's the purpose of this? If this is needed, then your driver has
+serious concurrency issues which are not solved with it.
+
+
+> +	}
+> +	v4l2_device_unregister(&dev->v4l2_dev);
+> +}
+> +
+> +static const struct of_device_id aml_vdec_match[] = {
+> +	{.compatible = "amlogic,s4-vdec", .data = &aml_vdec_s4_pdata},
+
+Fix the style, so you will not re-introduce issue Uwe is fixing.
+
+
+Best regards,
+Krzysztof
 
