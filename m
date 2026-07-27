@@ -4,101 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BA7C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9C4C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 06:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZTsSQ/Qdqv/aRMjcPYSTqUT2GFSJ11xQmUiZl5tGlPA=; b=WPxa/BwNBGDzY5AVsUgtI97ljH
-	c3mmSMt9hS2evmPHKOMmhgitRIAUmQcszL0/qn4U5f+G/f6aH/PNybwq+ZwW130/2xcIo8X9C/VLp
-	5V9MnDd74F4HqcE1MlupxUv3lz7EtaZwy8EcMufE/nENxHn5g/c502dPmtSWVuWIMDk6TKY8aNcDC
-	jAWkuWu3TAJpxlMxhv894Hb4sD9lImmcDHInpCchTvspqE98GqZeG+S/35NUVpcySz/X01ppRGyD/
-	MZPdX2zwPRZImCy4PGlmUpyWcOP9UfS04kn8ssiIR2Hfo30S9WLVT0DV82MEsctx+ysNti+C3wsk5
-	7fnFCqhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+Vn8WbyyEWblz3KnQAYYyvTVb+Atq9c/OCcnEfY16xk=; b=a38+TxEfIsFYRJL+HPMCMuelFv
+	PmjO64h8p9CnSYNsuxLvI9xyJvSIA8QSFdIcvVVEbC7bsOo36WEBN0/3/DzmmdvJufAPUXf/rQ4jW
+	8YZYE1uvXJzd9TBrirGTLSlP1iZvm1Nf/O7jTDcsc3HSdRyGvUDVTyk/85Y5KEm0ORLK5iyCtjd3Q
+	+gO9Ez16uFVEOmRE+gUxOciEq6gJuB0/iMJxJLam6HMr+1w/+rKJxLve/KmPqen3mgM4SLaSt4GUB
+	I/LHoukhFGeOjCwVbMyMrgdwFrNGVX0ATXF1ZAJsMSxp4uOIpRWzY6RaMRACFHgnyYo6q36GB+W2o
+	LMieFpCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woEce-000000020NK-1FD1;
-	Mon, 27 Jul 2026 06:15:32 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1woEeP-000000020YC-2Aq5;
+	Mon, 27 Jul 2026 06:17:21 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woEcb-000000020Mv-1Djq
+	id 1woEeN-000000020Xs-1tRz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 06:15:30 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-472326ca506so1474482f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 23:15:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785132927; x=1785737727; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ZTsSQ/Qdqv/aRMjcPYSTqUT2GFSJ11xQmUiZl5tGlPA=;
-        b=CuJJHkFerdiMzMiSx9Dq+HOh8EBcdTkMMl1oQkm8I1wUNPJ0/SDP3/6NGG+ZbT1jBa
-         LbW6CEsGoYyZ8r+rntlqDrWKOROuID9oS5AZus732HETWo8tpBpUuBEEv58ETFzxSigU
-         x3E5BLIQm7BV0vG7m9I4t9lTsJBhIcr3Z9IaITNCs9hIyhOx6bSF7wtY/7xVot6IXeRh
-         phf0WyaD+ovtow8nBzHiFijGsKGrCGgk0QCR2BO3v0cnh+tjAZsm7PrrHkG3v1Yo2T9U
-         qUI94rD90owoNoU5D9AymE0e7Vt7ovbWpHAZUuOnT3KoKhYv6bnm+V0KPQWotJSZnMje
-         nJ1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785132927; x=1785737727;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ZTsSQ/Qdqv/aRMjcPYSTqUT2GFSJ11xQmUiZl5tGlPA=;
-        b=Pnw8qC1aQf1PvvIRIXfE5GYjl6OUuWf+0LFvSCKJ65gZfwEtyOtH+yZ3a5mR8aXv91
-         pccyFCVdYPNbHok/13I5llULmDgbBDvOD+j5520kfB2oKwYnt74qtRy11LUPfEZIxsKe
-         jWPmF5b9rNxZJqxiRBpxYZJrcd0Jrv6lUr4VASNjdPOHNIzYgKhDT/Z3WD2BDeAx9kos
-         18LYP5BvbWtbd7G9718bcrQH9x2D6Sew1osPPQQGSbxhXi3BpE3xi6bTeBKfPYdm8Q5X
-         F8XQgwp+Q6+yylORATWEmiwMNRYVj/oIAigkLOFg2YRxT1THQk+NhUWuhtON9aUMXusu
-         42mA==
-X-Forwarded-Encrypted: i=1; AHgh+RqY2EfX51snR2U5yhVsmyT2klYLb6EJ2hS1KeUDt9pXPN8ByuaS4SIZMMOGqQOcLgqnT5eQa/8heLaBOWgouNcV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4KWCgGaNrSI4BmBWlVKPe1tWnTlqjnaKel9ahKFqv0ykuY9dg
-	SB55JQa8TvV7ElNNorFFOsUjw0X3+KJPLi6z79lLpIm6u3fyNGf1VDLF
-X-Gm-Gg: AR+sD13YuNsfYHm1B/jH/jVRydkRZuhOHuZhMMCiQ8xJZKnfhk8hWjvz47tzMTFhL8h
-	7UKcFiF/+uYnyW4mBVy8b6OfwDlsrt3XeopoT9RTEwhM0V/3z0D/523IS6ZASDM1pbeMb5K0Mwg
-	mw1mxYb5VPuTqQbkhpxYSdo1m2PfTmfvK6VMI0TPvmcxA1ro10lu4Q22EH/iO51IDLtZldMJGaQ
-	5jEXnVGy/3SBKqCc6JZa5u/mCYmu0pUAUJP0xfFVi9edNT4ebaUXCEWiF+6yQzJTB97whgYagZ8
-	xaX2CVOZiJ4MiaadxhrMgUgfCpvUNqS3MNpcqCX7oXO/Z9vsFa6B3inZvEzHrbq11Hibrjz3+TW
-	uEQ9uuBRgpN1nvc7af5DTLrlh4jFTkbasR+/wm98IBKrrb9iL81HBh+z7sH/s+OYR2Vha6n0Kd/
-	WwKrDCk+0iZI7XZNsqEN6XeeZFHNpT1gfXZZlp8AGTswfivYGFs0ZmBA==
-X-Received: by 2002:a05:6000:41de:b0:47f:87f5:ed32 with SMTP id ffacd0b85a97d-47f9fe9ffbemr9378789f8f.46.1785132927044;
-        Sun, 26 Jul 2026 23:15:27 -0700 (PDT)
-Received: from INBSWN167928.ad.harman.com (bba-86-96-6-50.alshamil.net.ae. [86.96.6.50])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85bb57cfsm47003657f8f.11.2026.07.26.23.15.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jul 2026 23:15:26 -0700 (PDT)
-From: Abid Ali <dev.taqnialabs@gmail.com>
-Date: Mon, 27 Jul 2026 06:14:52 +0000
-Subject: [PATCH v2] net: stmmac: enable MAC rx/tx after DMA start
+	Mon, 27 Jul 2026 06:17:21 +0000
+X-UUID: cce85910898211f1aa26b74ffac11d73-20260727
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:32c4f799-0710-4d4f-9b7b-626c0de8048d,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:6e7c124cd6f1248e0b54caa7074d75af,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: cce85910898211f1aa26b74ffac11d73-20260727
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 818178798; Mon, 27 Jul 2026 14:17:10 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: ludovic.desroches@microchip.com,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	tudor.ambarus@linaro.org,
+	nicolas.ferre@microchip.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	sashiko-bot@kernel.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH RESEND v6] dma: at_hdmac: Fix use-after-free by proper tasklet cleanup
+Date: Mon, 27 Jul 2026 14:17:05 +0800
+Message-Id: <20260727061705.45169-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-stmmac-rx-fifo-block-v2-1-4dc3457d31d0@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAFv3ZmoC/4WNQQ6DIBBFr2Jm3WmAKpWueo/GBVDQSUUaMMbGe
- PdSL9Dle8l/f4PsErkMt2qD5BbKFKcC4lSBHfTUO6RnYRBMSHYVEvMcgraYVvTkI5ox2hc637T
- KXlqvpIEyfSfnaT2yj67wQHmO6XO8LPxn/wQXjhzrRhumaiMtE/c+aBrPNgbo9n3/AkYT7Tq4A
- AAA
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Abid Ali <dev.taqnialabs@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785132924; l=3209;
- i=dev.taqnialabs@gmail.com; s=20260425; h=from:subject:message-id;
- bh=fLe9G039vQ6hRWQL5QYu0XMthfFe2VADtTrit1z6nOM=;
- b=DcSjAoQAD9vywawezrGp7qHePtKZQSTza2D9e2SpMA+jhDf9Xl0+KFq73N4F/KHdY3sU6xL9X
- 0szs6JBtPjJDtn1GUU9CavqAR482V5sLC1Zv8eT6dNjbovap4EFouwS
-X-Developer-Key: i=dev.taqnialabs@gmail.com; a=ed25519;
- pk=4Syx51HH/MOySSUpi79M2ToLOdwt1yiNb338eKZBJNk=
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_231529_389421_A360D69A 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20260726_231719_823036_B4646FE1 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,96 +83,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the MAC receiver is enabled before the DMA channels are started,
-incoming frames fill the MTL FIFO with no DMA engine to drain it.
-If the PHY/Switch is already up at this point, and there is inflow
-of packets towards EMAC, the per-queue FIFO overflows within this window.
+Current cleanup paths have a use-after-free vulnerability:
+- vchan_init() creates tasklets that access at_dma_chan memory
+- free_irq() only waits for IRQ handler, NOT tasklets
+- atdma is devm-managed and freed after probe/remove
+- Running tasklets accessing freed memory → Use-After-Free!
 
-Once the FIFO is full, the MTL read controller goes idle and never
-retries delivery even if the DMA comes alive later on.
-This behaviour happens due to enabling the MAC RX path before
-the DMA setup is ready, and any delay between these events increases
-the chances of blocking the rx path permanently.
+The fix requires careful ordering:
+- free_irq() FIRST to synchronize with running IRQ handlers and prevent
+  them from scheduling new tasklets
+- Then kill tasklets to wait for already-scheduled ones to complete
+- Only then free other resources
 
-The EMAC should only accept packets after the DMAs are enabled.
-Similarly, the teardown should ensure the MAC rx/tx is stopped before
-DMA engine is stopped.
-
-Signed-off-by: Abid Ali <dev.taqnialabs@gmail.com>
----
-Changes in v2:
-- Corrected the ordering in teardown for xdp at stmmac_xdp_release().
-- Link to v1: https://lore.kernel.org/r/20260726-stmmac-rx-fifo-block-v1-1-45ab094b6c02@gmail.com
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 3591755ea..92864d7df 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3692,9 +3692,6 @@ static int stmmac_hw_setup(struct net_device *dev)
- 		priv->hw->rx_csum = 0;
- 	}
- 
--	/* Enable the MAC Rx/Tx */
--	stmmac_mac_set(priv, priv->ioaddr, true);
--
- 	/* Set the HW DMA mode and the COE */
- 	stmmac_dma_operation_mode(priv);
- 
-@@ -3750,6 +3747,9 @@ static int stmmac_hw_setup(struct net_device *dev)
- 	/* Start the ball rolling... */
- 	stmmac_start_all_dma(priv);
- 
-+	/* Enable the MAC Rx/Tx */
-+	stmmac_mac_set(priv, priv->ioaddr, true);
-+
- 	phylink_rx_clk_stop_block(priv->phylink);
- 	stmmac_set_hw_vlan_mode(priv, priv->hw);
- 	phylink_rx_clk_stop_unblock(priv->phylink);
-@@ -7109,15 +7109,15 @@ void stmmac_xdp_release(struct net_device *dev)
- 	/* Free the IRQ lines */
- 	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
- 
-+	/* Disable the MAC Rx/Tx */
-+	stmmac_mac_set(priv, priv->ioaddr, false);
-+
- 	/* Stop TX/RX DMA channels */
- 	stmmac_stop_all_dma(priv);
- 
- 	/* Release and free the Rx/Tx resources */
- 	free_dma_desc_resources(priv, &priv->dma_conf);
- 
--	/* Disable the MAC Rx/Tx */
--	stmmac_mac_set(priv, priv->ioaddr, false);
--
- 	/* set trans_start so we don't get spurious
- 	 * watchdogs during reset
- 	 */
-@@ -7189,12 +7189,12 @@ int stmmac_xdp_open(struct net_device *dev)
- 		hrtimer_setup(&tx_q->txtimer, stmmac_tx_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
- 	}
- 
--	/* Enable the MAC Rx/Tx */
--	stmmac_mac_set(priv, priv->ioaddr, true);
--
- 	/* Start Rx & Tx DMA Channels */
- 	stmmac_start_all_dma(priv);
- 
-+	/* Enable the MAC Rx/Tx */
-+	stmmac_mac_set(priv, priv->ioaddr, true);
-+
- 	ret = stmmac_request_irq(dev);
- 	if (ret)
- 		goto irq_error;
+Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
+Reported-by: sashiko-bot@kernel.org
+Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+Suggested-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
 ---
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260726-stmmac-rx-fifo-block-ef589c38f96b
+ Change in v6:
+  - Replace free_irq() in error path with disable_irq()to allow natural
+    fall-through without goto, per Frank's suggestion
+  - free_irq() now called only once, in err_desc_pool_create label
+---
+ drivers/dma/at_hdmac.c | 28 +++++++++++++++++++---------
+ 1 file changed, 19 insertions(+), 9 deletions(-)
 
-Best regards,
+diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+index e5b30a57c477..09b1aedefb45 100644
+--- a/drivers/dma/at_hdmac.c
++++ b/drivers/dma/at_hdmac.c
+@@ -1940,6 +1940,20 @@ static void at_dma_off(struct at_dma *atdma)
+ 		cpu_relax();
+ }
+ 
++static void at_dma_cleanup_channels(struct at_dma *atdma)
++{
++	struct dma_chan *chan, *_chan;
++	int i = 0;
++
++	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
++			device_node) {
++		/* Disable interrupts */
++		atc_disable_chan_irq(atdma, i++);
++		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
++		list_del(&chan->device_node);
++	}
++}
++
+ static int __init at_dma_probe(struct platform_device *pdev)
+ {
+ 	struct at_dma		*atdma;
+@@ -2105,6 +2119,8 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ err_of_dma_controller_register:
+ 	dma_async_device_unregister(&atdma->dma_device);
+ err_dma_async_device_register:
++	disable_irq(platform_get_irq(pdev, 0));
++	at_dma_cleanup_channels(atdma);
+ 	dma_pool_destroy(atdma->memset_pool);
+ err_memset_pool_create:
+ 	dma_pool_destroy(atdma->lli_pool);
+@@ -2118,23 +2134,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ static void at_dma_remove(struct platform_device *pdev)
+ {
+ 	struct at_dma		*atdma = platform_get_drvdata(pdev);
+-	struct dma_chan		*chan, *_chan;
+ 
+ 	at_dma_off(atdma);
+ 	if (pdev->dev.of_node)
+ 		of_dma_controller_free(pdev->dev.of_node);
+ 	dma_async_device_unregister(&atdma->dma_device);
+ 
+-	dma_pool_destroy(atdma->memset_pool);
+-	dma_pool_destroy(atdma->lli_pool);
+ 	free_irq(platform_get_irq(pdev, 0), atdma);
+ 
+-	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+-			device_node) {
+-		/* Disable interrupts */
+-		atc_disable_chan_irq(atdma, chan->chan_id);
+-		list_del(&chan->device_node);
+-	}
++	at_dma_cleanup_channels(atdma);
++	dma_pool_destroy(atdma->memset_pool);
++	dma_pool_destroy(atdma->lli_pool);
+ 
+ 	clk_disable_unprepare(atdma->clk);
+ }
 -- 
-Abid Ali <dev.taqnialabs@gmail.com>
+2.25.1
 
 
