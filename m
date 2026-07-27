@@ -4,96 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7272DC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 05:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A2FC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 05:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=glcWwuAzt8vXaIVcCfbsDd8hWx5GOfxvsNItjmFdoCs=; b=spbun9oz/RJWuNrtTBBXnD9+la
-	MQAVgQp9UVPc9nipek4tAyHnpJ1hNVmkXUwqiGirCiJe0zY40fujwEDqAqVUcdu96xs+3N7qIAs5m
-	nuJt3xz+qq4vbBicASZVbSbeQcFRTy0kxHJSy8f0bvPjQhPAm0rCFk4Y8JHI62Ao5ylNTA16fig4u
-	MA619wEylWWEZy+ENJSsJPDlIgxlzej6y05tQvRLQ1niJiER8bks3DxoIaUO21xaOIIzu88TPbsiU
-	vlFctY+2vxcHfZf8gXcUc9GCTj2+1taj+Oun5AakkgXhBBc1kCrv4QoqqVZSZ79uIEUTsmTJVUjQb
-	Twv99slQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IoZXYp+JA47fX37Dwu7X2/DyJitVNezjqQuaMrerkDc=; b=s+JfkZIW3OUbgCJQBbmlrueHN6
+	ifSR0bnTI4Vz0tqCv8AUKprIfA4Uxuh2JUns1NqG4kVM933D4Nx6NyfMp2NsIAY6pvWifMrm2x+TP
+	WUAFbgPPQTKq8+EeCQBLQGSkl1S7WXLQGISe/rep0tdymoZntmF6uBfRpDFoD0Yitxkg43GlEFshe
+	R6Efw7UPBA9qrFhf2FDWhI3KVnfs5qBj9cg7iZ11XYPtXMUjxcOVsNN7Oef0GDSQEVRZZpHcOD9uK
+	6A75Hly9CW2Z3XyC5VhksvTfx4fle1Ket4B8rNoSmt4mkbShEzo5rkstl8uScIdzmBQv/nV1gMiO6
+	uo0DorlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woELg-00000001zZG-3QwC;
-	Mon, 27 Jul 2026 05:58:00 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1woENM-00000001zeb-03hS;
+	Mon, 27 Jul 2026 05:59:44 +0000
+Received: from mail-westeuropeazon11010069.outbound.protection.outlook.com ([52.101.69.69] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woELe-00000001zYo-1SSA
+	id 1woENJ-00000001zeC-28nk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 05:57:59 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954c0833b4so16795475e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 22:57:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785131876; x=1785736676; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=glcWwuAzt8vXaIVcCfbsDd8hWx5GOfxvsNItjmFdoCs=;
-        b=RGmAW0W9ClO1efXbE3zzfLEVSjB0bJQMq9uisFAEWS8sU0JAjTSWMR73a2htGmVan+
-         yc9jr8B3S6qxJuOTsEdhARfRaY8vDm9GxMzaylzN26lOsOAMI6LRFHVPI4+tQwUKBwn4
-         EGj7SphvsJfHXdRmwsQWnBIbNGLyFt+5X2RUFzee3rQF7SKJtiYkp8WjPyAoUKVkCXYK
-         svQ0TKgNKmsvKzF4gJgTqawXduptGUR2CjnMVZBl5/XFAkgioyNlEVBVl1lrUZb+sfuS
-         LtpIbAOWGFBcD0Ue9cseDNfvlzB+k6PEQcX4zfv/Q4PFOeOMiv4HsJz82llsv6FjEWEG
-         E4kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785131876; x=1785736676;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=glcWwuAzt8vXaIVcCfbsDd8hWx5GOfxvsNItjmFdoCs=;
-        b=I7T5V3GdDV0iFqBtPPEXrl3/bKzHrd94YpD02g9EKBzTUrvzOLjA0bFGItKWKV2vHM
-         jVfvgxkqnP/1LijVn9JT7ih87eZC7h9NzCYd77pc6U1qdaNrelo+mgLmLeumcoBCuh5y
-         gWpkZFic805st+MY1reokGdJaaTRUtmtxV36WE06PR+PdkMNyOVBTkBcIFmbJb5ijhBK
-         YyWQeBvIalXf93P7OinWcgfNi97aNE/asnEvz6mOTijKkWZWStyB8YxaefFjPRs+Obp2
-         /2TErIZZfOjKHH7XZoAFyOdd0oB7Vm9w+eh+rpHG0o3khf3INSmfXLEpOVXG77GPQEzR
-         SKIg==
-X-Forwarded-Encrypted: i=1; AHgh+RpatgpECY6XePlksDAQLQy3x8TmCTIe9UvjAHLocQJ5FAzXTUY/xRqErvuuqgLcq5AavAIQ55ZIq2hdEGli6vtl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkFnb7mUt2vYZEOiuUwTh5SxgtqKoFsgKWGJ/VS/+wHvdaqIXC
-	CKfScSHX3Sm4uqdON0kwVYFXFKLoMQHr5zpoQ0gAzdq4c+O2HtTAqWyx
-X-Gm-Gg: AR+sD13bsOVw77Tl850zZNnkCe78L8eBAMwsIfNN9sU+V+KuF8IPGIRU4zEor5RU+iz
-	z3dknIqtryBRmqDKPdx9UhA134iEQoo10vFJK57LakdbOYYRSvCa27ALmrvgYVuf0oSpIoEtrEL
-	IjnHocXif6ARnFGmk9Apak3mABe9/gsspzXObsKSzJEayt0wEkfzT3d9iJqG954UEgNYgTSZTBI
-	hbGgxxWy9aICx250iuMA16b0lYYHgFglCh5Q6DjiuIyVy6GEmYNdXACMhcGd4Ouab5AHShrcTlu
-	0aPrTq7leniifAc90YaWYjdzWaK/QoQnTM45bQVFTu6OnFD226WwMOgOqUQpAb+y9v3rHi/ILwK
-	1anqTnSBfVp2GoTeD2d3qk51iSZNVEJTKwV/ibw7mkBVimfboEqg5c32mdNiMYes2QV3BlvrVSW
-	Jfc+pk/P8Fkl9iqWQNC0G2qZCLG5aK0niUcYf6lBmPvSEj9z17mk0erQ==
-X-Received: by 2002:a05:600c:a0d:b0:495:5b02:23b0 with SMTP id 5b1f17b1804b1-496b571dd8fmr84504225e9.26.1785131875644;
-        Sun, 26 Jul 2026 22:57:55 -0700 (PDT)
-Received: from INBSWN167928.ad.harman.com (bba-86-96-6-50.alshamil.net.ae. [86.96.6.50])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957e334f63sm172689365e9.1.2026.07.26.22.57.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jul 2026 22:57:55 -0700 (PDT)
-From: Abid Ali <dev.taqnialabs@gmail.com>
-To: andrew@lunn.ch
-Cc: alexandre.torgue@foss.st.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	dev.taqnialabs@gmail.com,
-	edumazet@google.com,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com
-Subject: Re: [PATCH] net: stmmac: enable MAC rx/tx after DMA start
-Date: Mon, 27 Jul 2026 05:57:15 +0000
-Message-ID: <20260727055715.4430-1-dev.taqnialabs@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <ee639271-60dd-49f7-9e77-0ae47841754d@lunn.ch>
-References: <ee639271-60dd-49f7-9e77-0ae47841754d@lunn.ch>
+	Mon, 27 Jul 2026 05:59:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kcv+5GWxiSA8oTwyd+n2nrQ+VtX7+j1YEFMf2dKJs8dwKAuxHFYSLijeTrjtq2Y06GDbAgKKaX50I6dGoynSLXwmshG6FaVFjTMCj91n8wbZyy3Q+GjIaYfvC28Bw5wRCpvjVcM1jLz63cykrvsN19yIi1vcZjrIaG1hio7OXSMipB/3W+bMxhNLSBl4vWFdcbLI5CNOcfJXY5MnRVFyhO0C5HtHjpbzmzldSdJfFmro26jNDjMWOIfGUwycqwIY4JgMd6qXRhXFqXFLQR8+j4FpMFVUU2T4EnR216zlos1Zw2EivPAPyrQ6KCB3YfS9Fy0rukpQUjSeYrE4cM/wew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IoZXYp+JA47fX37Dwu7X2/DyJitVNezjqQuaMrerkDc=;
+ b=C/UhlXLTZO6KHqX8rJI9t81eWzMLsXiTOTNo85LdZT2Hm+8qFXmKmeOBpkhbmfwbwQ0pJeItjuesVnQb/+4bt/zwI2bpBbCxLMGlSaPYhwUlsqwSWbxKOVoxepyLAj5Zh9Dm67YXG35TT62+6hTzA7hZPqEk36A5ygMq1yuW11Tb5Nj4aMhO9QyT4pyGaj6e56Jktdioz2C3wVk3X5Ex7ndzB/P3idW7xys/b282VsLh9AN/liH4dX0KNc7yX40xr5J0GIuGQqSdvahLcqysqeo8ViVT/bZea65E04n/sMryT38Zg6B51y0OI8ZhxufEG0w8n4QXIRSbIM8L6bEW5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IoZXYp+JA47fX37Dwu7X2/DyJitVNezjqQuaMrerkDc=;
+ b=YtJZIuT4EHeh6mmDhBXpc83dljT7CsmGPTO+HcuHym/KQpHw1OANhwibLlVewNnRPuexkCBIqA/DUV/mYrkmvPCWLiqA1MegJzgHkmaYoSJCAvHbmFxu3FCeY+PVT3aqK5WCuosKz6NnB5Atwu2i7ato6mJUPd/IPVdQeNPD6EqGyEFZTZLkNFn+v9dp+fVSOZHFSIDO5kpxW0mY32G46kSsf6JX0MgbnnproXqzrne3dmd12fpBl9Tz/u/TrVZTL7Grx9rQ/xjyKwnTlyNPtUMg6YKh7A4SoXJvbs81Wa1QRFAC/dHSKuJNlhQonUiNuI8wza0UIDNS1MWp0jPZaQ==
+Received: from AM9PR04MB8570.eurprd04.prod.outlook.com (2603:10a6:20b:435::12)
+ by DB8PR04MB7099.eurprd04.prod.outlook.com (2603:10a6:10:12b::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.11; Mon, 27 Jul
+ 2026 05:59:35 +0000
+Received: from AM9PR04MB8570.eurprd04.prod.outlook.com
+ ([fe80::c9cc:24fa:6f6d:fb03]) by AM9PR04MB8570.eurprd04.prod.outlook.com
+ ([fe80::c9cc:24fa:6f6d:fb03%4]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
+ 05:59:35 +0000
+From: Ming Qian <ming.qian@nxp.com>
+To: Fan Wu <fanwu01@zju.edu.cn>, Mirela Rabulea <mirela.rabulea@nxp.com>,
+	"mchehab@kernel.org" <mchehab@kernel.org>, Frank Li <frank.li@nxp.com>
+CC: "shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [EXT] [PATCH] media: imx-jpeg: cancel timeout worker when
+ streaming stops
+Thread-Topic: [EXT] [PATCH] media: imx-jpeg: cancel timeout worker when
+ streaming stops
+Thread-Index: AQHdAvuAx5vWS9eFlUazwMWcxSq8PLaBE8aQ
+Date: Mon, 27 Jul 2026 05:59:35 +0000
+Message-ID: <AM9PR04MB8570B0F336F244FF5F96253CE7CC2@AM9PR04MB8570.eurprd04.prod.outlook.com>
+References: <20260623103031.3051-1-fanwu01@zju.edu.cn>
+In-Reply-To: <20260623103031.3051-1-fanwu01@zju.edu.cn>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8570:EE_|DB8PR04MB7099:EE_
+x-ms-office365-filtering-correlation-id: eea42fa6-de41-4d09-2416-08deeba43c72
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|376014|7416014|366016|56012099006|38070700021|10067099003|18002099003|22082099003|5023799004|11063799006|3023799007;
+x-microsoft-antispam-message-info: jX5WY/cdJKoVxS4erQR8A3S4X1sV9usH6zRvgTbUp9NNsNpEDfLLZULJWTnmpPPyj3o2Qd2hWUytf45Pd4VDaFAf2aN6UAW4My6naD/R58DuA/cGYNH1KUyq8sSJiYTgmXqCsTr8lP7AR3Ldx+lIo1VVwmPEUhJmNJd7IE7ftu7Amg0CqYuEzaEQvw+aBypnK5MveD3+U/SX+R2BQ9uwus5UfIPjpj3Zaa4m71peiBrZMmgEG1g2IKRizqF5MTB+P+V8vJMMeKVHG05xLIieklfcm38im8raX4sN6WDS747/pHqoVoXuUjbdmHIksi8PJHgvfOQTcwhuRy1Aw8vdJP/LUkbB2Cuy4OBTNXsWzZDdjsX/DJhTCG7txCWtoTUenDIJSw/hkA9J9J+sQS+dVVdwypYxV5FVyE4y7lMNZIV8Ah1SIo7BpC5+IU7apaEIRA7IwDHFkMeyUfMHrQ8UYv1le32DKkTnU5R4GeIlqsAFIlOF9l//ANR0ubToqxBpkLyJ5Fpg2EFXKv5fjQClcY6tsBHrEAgyboywcPyIj9TrVPeZeDz2zn+PUqb/DAodLawG27zvMP1eYBOLIuAyYi0rjUjfl1ZO2v22upjRV6CefCyk1uS58F9+kCpdqpzEa+LjRmLtWRElDPyatF5mA4yX2s00XRunxS5Kg/2PkYJS6F0HIaZ39icJPZMBHC9Ynd5pCVVxC1j6oJhaskavbtMLMXZBgaWGxABn3dHNMOU=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8570.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(376014)(7416014)(366016)(56012099006)(38070700021)(10067099003)(18002099003)(22082099003)(5023799004)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?mP9ki23FjUxd5YeuX3s8FYoL+Ttclvczd7T3OYBGzSemVIqgnbg1XVXOxJ0y?=
+ =?us-ascii?Q?SfgaCcibGL/ynYFwrCxeQobEh/aEat0lY1bmeQo9cKvkaoCZMKhckheHsqNO?=
+ =?us-ascii?Q?9/DoNVuP6ogkthucDsHZ0yIfFQIjojEQhqV/UzNLRZfH8mMomYHaTB5oHelB?=
+ =?us-ascii?Q?AJ6pj/ULMSfZ2599c0Rwyna6kGAgmEKXAPIGNCwBK5upImQLU2NrMkhQoB2u?=
+ =?us-ascii?Q?7XXUavj78h8clUsA24LtsYWFq/GBxJhpaoVOHMTj/YBeKwo+zz3J0ikDGLBr?=
+ =?us-ascii?Q?0lTGJBcBpb2VpNpDgtv052t0cVRd6gV9U7jUKc+7KT0C05sedprzv6Pzr8m+?=
+ =?us-ascii?Q?Rq8qyTVtTBDDRsY0O+IOkIGxAjKqb/OfLt38xDw5Wt9orMBkHiu8AVakJt+C?=
+ =?us-ascii?Q?uscrg+xUAQ7t3Blr5ILMf5iJUDtyz8DNdNAm8Wd85/zW6l1W4qFqDdDn4BcZ?=
+ =?us-ascii?Q?6nEvW/CkKbl893jhqQbkEcCBbYelqtwoXe6+nE7/uHQxB/0CFPqprM+oMSew?=
+ =?us-ascii?Q?khGYdUt7vJDx/W4jy0LHRCQ3ly/Hx5jBuF+MR/GmvVlwd5CKMl/1S7L2DzYL?=
+ =?us-ascii?Q?bgQj89IwX39xjEui3HUIPb/zvE25jr2ue1K2NjETngQCxWd+P5RLcS1DHixU?=
+ =?us-ascii?Q?fchViRuiuFa/mPItF62ffat/YAcqyRTz0sYgpi68vk/JT7t4GiQZUt/sy1gT?=
+ =?us-ascii?Q?rKn9WGAPzKxLAunMHmhSmNlX2H2KrVyBnqD/MHNcaIzIvYghz3EPC85HpbGL?=
+ =?us-ascii?Q?M8uY1dlcivMEZB+u0bXIvJj81xVdCv5sxZd/aPPUBM/CkEQvqSSz+05Z0ryv?=
+ =?us-ascii?Q?5QHBUXzLlT0Gt3c0yACZxkPcOJFPZH+dX6v/I6lKtxd8xFYY4iL/kQdOrslE?=
+ =?us-ascii?Q?hxgvAiUTHjxiFjAU86Jhifim6wrFP5vP7jzgJVS9Up48PyqW4uNq6Edv6o78?=
+ =?us-ascii?Q?hKDWrpZz/DBDZZRzjAvi1h7OIzVunSlcsBuLKx0AQHw48HBYrpUn/JqySWxA?=
+ =?us-ascii?Q?f1TBIiEcIefsb/ZghmW0gEKOCPg2DiVkdCzGlhRlfc+Rc979Ze+MNspuekB7?=
+ =?us-ascii?Q?LXSZ2T6mVm17lYNu71NKQueKuQtBwDmqEGo3FgcR8kGnuLmxtO5+oOMuUoFM?=
+ =?us-ascii?Q?oskfD5LAX6zTfVjgMy32ej+pwGVU4sS1kA155AhSJ+/b80oDuKTBYMw1/8cG?=
+ =?us-ascii?Q?5NW+Fxn+p3KJQFPI9UMMOlH3/F/BLpZvCQY5Ry7tfZEG1MExZmx+ymZHhkaY?=
+ =?us-ascii?Q?+8vKdYNd/R1on8HT9mLjX4F1MkGLPp8Uqdu8uh9Zm+o3Xsc5XFJKS0Fi4Bza?=
+ =?us-ascii?Q?pLVn1CNsfQKOiFULQYyU8sWTQWLdOiNWNwJ3XjDPYSl2DoL94ndeowCDJXiC?=
+ =?us-ascii?Q?CGlcC5/NTwcJcOCwWQcjF6v+NqM/7t5uLqQReN3nA2aKELrcOswoamYB65Z9?=
+ =?us-ascii?Q?rz9h/yfTz9FHo6dsSY8M9PVQ0iXSl6Ju+6s34SRtuSz/dEUMUmL5FzGWXHe/?=
+ =?us-ascii?Q?seo9i9FLb/Ukd2BJJWKdTBIykD9V7zoPjwO874SxMvXEkGNLJc4Qmumi1JrC?=
+ =?us-ascii?Q?NSXWBHJZC6fXY1jQWkv4yOaJrO1Cx/Nj9CBdoO8woxyAqRvT62j3jxLwMVQR?=
+ =?us-ascii?Q?Ia0yXe59ap/9ZDTNmrRn/4RugsnlcGI/AFCTKmRztIO93Lv+6qyADjoBxPVk?=
+ =?us-ascii?Q?luGWgQjA9/hXbH2iXd1chLf10Fp2hnyfreSHE6x+5epnlrxu?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8570.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eea42fa6-de41-4d09-2416-08deeba43c72
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Jul 2026 05:59:35.4035
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: whor/pBnoVMUL1kzceui2+zeIw8QSXHXgmRuhJN5Wng5jwd1mQxBnvAXXWSgIeFJ4QLUuftHgBe/4HDUa+ZsgQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_225758_418000_A70AD2C2 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260726_225941_583476_DB74E28B 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,31 +145,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 26, 2026 at 18:15:20 +0000, Andrew Lunn wrote:
-> There should be a function which is the opposite of stmmac_hw_setup(),
-> which tears it down. What order are things done there? tear down is
-> generally done in the opposite order to setup, so does the "Disable
-> the MAC Rx/Tx" also need to move?
 
-I have not seen the FIFO stall in the teardown in my testing,
-but the MAC Rx/Tx should be disabled before the DMA engine is stopped.
-For the normal path (__stmmac_release), phylink_stop() is called first
-which triggers stmmac_mac_link_down() -> stmmac_mac_set(false), so the
-MAC is already disabled before stmmac_stop_all_dma(). The teardown
-order is already correct there.
 
-> Same comment for the opposite of stmmac_xdp_open().
+>-----Original Message-----
+>From: Fan Wu <fanwu01@zju.edu.cn>
+>Sent: Tuesday, June 23, 2026 6:31 PM
+>To: Mirela Rabulea <mirela.rabulea@nxp.com>; mchehab@kernel.org
+>Cc: shawnguo@kernel.org; s.hauer@pengutronix.de; kernel@pengutronix.de;
+>festevam@gmail.com; imx@lists.linux.dev; linux-media@vger.kernel.org;
+>linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+>stable@vger.kernel.org; Fan Wu <fanwu01@zju.edu.cn>
+>Subject: [EXT] [PATCH] media: imx-jpeg: cancel timeout worker when streami=
+ng
+>stops
+>
+>[You don't often get email from fanwu01@zju.edu.cn. Learn why this is
+>important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+>Caution: This is an external email. Please take care when clicking links o=
+r
+>opening attachments. When in doubt, report the message using the 'Report
+>this email' button
+>
+>
+>Each per-fd context ctx owns a delayed_work (ctx->task_timer, callback
+>mxc_jpeg_device_run_timeout) armed via schedule_delayed_work() at the
+>end of mxc_jpeg_device_run() to recover a stalled encode/decode job. The
+>only existing cancellation is cancel_delayed_work() in the frame-done IRQ
+>handler, which de-queues a pending work item but does not wait for a callb=
+ack
+>that has already started, and it only runs when a frame completes.
+>
+>When the fd is closed while a job is in flight (the frame-done IRQ has not=
+ fired
+>yet), nothing syncs the worker before mxc_jpeg_release() frees ctx with kf=
+ree()
+>after v4l2_m2m_ctx_release(). A queued or executing
+>mxc_jpeg_device_run_timeout() can then recover ctx through
+>container_of(&ctx->task_timer) and dereference it (ctx->mxc_jpeg, slot_dat=
+a,
+>dev_warn) after ctx has been freed.
+>
+>Cancel the worker from mxc_jpeg_stop_streaming(). The cancel cannot live i=
+n
+>mxc_jpeg_release(): mxc_jpeg_device_run() arms the timer while holding onl=
+y
+>hw_lock, not the mxc_jpeg->lock mutex that release holds, so a cancel in
+>release could still race a concurrent mxc_jpeg_device_run() that re-arms t=
+he
+>timer afterwards. mxc_jpeg_stop_streaming() instead runs inside
+>v4l2_m2m_ctx_release() -> vb2_queue_release(), i.e. after
+>v4l2_m2m_cancel_job() has set TRANS_ABORT and waited for any in-flight job
+>to finish (so __v4l2_m2m_try_queue() will not queue and
+>v4l2_m2m_try_run() will not run any further job for this context, which
+>prevents
+>mxc_jpeg_device_run() from re-arming the timer) and before the m2m context
+>is freed. cancel_delayed_work_sync() removes a pending work item and waits
+>for a running callback, so the worker can no longer race with the subseque=
+nt
+>kfree(). The cancel is placed before the buffer-release loop so a concurre=
+ntly
+>running timeout callback cannot race with it over the same buffers. If the
+>frame-done IRQ canceled a still-pending timer, this cancel is a no-op; if =
+the
+>timeout callback has already started, it waits for the callback to finish.=
+ The
+>same mxc_jpeg_stop_streaming() call is also reached from
+>VIDIOC_STREAMOFF, which drains the worker early, although STREAMOFF
+>itself does not free ctx -- the use-after-free arises only when the fd is =
+later
+>closed.
+>
+>This bug was found by static analysis.
+>
+>Fixes: cfed9632ca8e ("media: imx-jpeg: Add a timeout mechanism for each
+>frame")
+>Cc: stable@vger.kernel.org
+>Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
 
-Currently, stmmac_xdp_release() does:
+Reviewed-by: Ming Qian <ming.qian@oss.nxp.com>
 
-    stmmac_stop_all_dma(priv);
-    ...
-    stmmac_mac_set(priv, priv->ioaddr, false);
-
-The ordering is not followed here,  I'll make it follow the similar
-ordering to (__stmmac_release) in v2.
-
-Thanks,
-Abid
+>---
+> drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 2 ++
+> 1 file changed, 2 insertions(+)
+>
+>diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>index 9e4a813489c0..d85a9d196269 100644
+>--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>@@ -1735,6 +1735,8 @@ static void mxc_jpeg_stop_streaming(struct
+>vb2_queue *q)
+>
+>        dev_dbg(ctx->mxc_jpeg->dev, "Stop streaming ctx=3D%p", ctx);
+>
+>+       cancel_delayed_work_sync(&ctx->task_timer);
+>+
+>        /* Release all active buffers */
+>        for (;;) {
+>                if (V4L2_TYPE_IS_OUTPUT(q->type))
+>--
+>2.34.1
+>
 
 
