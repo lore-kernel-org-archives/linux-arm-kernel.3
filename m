@@ -4,89 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D53C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 19:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCC6C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 19:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BExrr++CeQtOIGv/JPdP57pAUZPeVdTrEbBe5GDruhA=; b=CLgNZpeVKLZJJNQWczvKedFXa7
-	69Rh98hLG43wnP/zEf4LDAdccovJUOiPT3EUznzSXUZ06ywLuF9gvdEKQsWNIno63z5iJ84DfGyB4
-	gCVFXNFSxC26otNXdhQNsqnffhr6FdYdBaq1Qt6luu2iXkZ51EF8ULyHCPsDiI2lPMxj2+pjTR57i
-	Axlnh7XJ1EIcXSSSBsd/PRZ2tigjy4Wph93mlm684+MPtgAw19WXe04dvFu1jOoRbvVRi6E0En7vc
-	fkVYdfQK9CGq/SLz09iyymzPQiKdbrCM7gTkjg+tEcdUX6NmvKMWeNW3Eyp+Kh4yUz8/Dut934GDx
-	wHegJvhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=prLTqXdtwS6Vp+/x1a38rz7nfNGj+D9MXfvAyt2XwH4=; b=apGPn88QXismRubXXNULlANhBV
+	HJGh/lVumR/oWEkR9tni5+MgDJPdltu6RE+e6a8tphcHYU0dBBxwy5lT+CrI1DzzI9FgdKbwiIXuO
+	HpmqKFqGv6iXhcGdN6r5JufYG4ADexhHUXKUHka1oe0dNK4KWC4zNngcKfowx1IjWKrPJMRTdIyx3
+	7Sh+ByEm/3FwPoWXiIXlRjpXGo+vANWJLjh9zlTYmR4JH9rIqxSb99B2MBYuzu2T5Y4RsbzhmCcaD
+	S3xw4PczRno9dvu2kJ11QDu4d7Bxhg8NbAL4EZ+IWLaQAjOyvi7dRIdXLx8X+LNrlAd4BMJcbJxji
+	Le+ZXQCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woRHA-00000003mAZ-0C6w;
-	Mon, 27 Jul 2026 19:46:12 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1woRHV-00000003mG4-1UKc;
+	Mon, 27 Jul 2026 19:46:33 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woRH7-00000003m9s-3V2W
+	id 1woRHT-00000003mEJ-07XB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 19:46:10 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-930f72317a6so202509885a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 12:46:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785181568; x=1785786368; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BExrr++CeQtOIGv/JPdP57pAUZPeVdTrEbBe5GDruhA=;
-        b=WAiglc3mhDGcvuZD05qeFDbFPhXHI0d470IlYFD3s5EFaDSJglosfIPRmmG3jyZ0MP
-         g5Aq8DXZ1wOHB6FmkeOD49hVnmWUCO3CEvky9H6Qj9sj1IMZCeea2SLuMTBYGejbmzWp
-         d87KlevgB4mH3FoDajaXRsNiF/w2ads84qNHzyA5omyKh1OToQVxa32uVngHRoYtxrKT
-         n7FohLKbwGIvTriwAu8cxk0tricSDY5OkEcewzVRWoRM26YIcZeGT8C+S0GARefPHp7r
-         dvGgIIPI5jjcB9fB6p7A8yphkm+3ajKItCW0W3LWl3t8fxZk+O9V3W25z+vmYiF0Q9tK
-         Etaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785181568; x=1785786368;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BExrr++CeQtOIGv/JPdP57pAUZPeVdTrEbBe5GDruhA=;
-        b=SOwMtii3TWBh52pwR6MIzn1NRvx70AXSbSyOV7T3pekSZish3d7tIjQ2C5pyPZ8pnf
-         6J28RsoiSRwH27cEzIo6bFgqp7ICxOke5JWk5BSv/YZZS9ac+3zmXVqJjNqROGC4EhiT
-         B+SUs2kGL0z0c9pZh5csENQJD0u14tApXyQii2gXuggSOvcplgaKzUe3DtgXugC/5080
-         SqksSJ4wuct0fIwQera2pXJoh9F27KR4vSJy4KtBINlOcREXDVvJu63m9bajI62vALn/
-         ON7RqAtb/VBQu0I+Zipgh/Cuf/ZFvZOg+patypDADCGz19t664GQ5auJN1qlaNCaoURm
-         QjFg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq/tKPA+Jm6NriU2scQZDdA57KeirOuylRP8DtWYR45MBvnx2BZz79xIG9ODkDVBlQDyzam+0LUzqrHBSxASoav@lists.infradead.org
-X-Gm-Message-State: AOJu0YynOL9SvNTJJwVSOOeIjpW9G08UpjqUmoLUPJBgLxDIQJeQQqva
-	sY6chm9qCdXCCoNhsTK8cU5VaSUOOTa4xqFU0NFFkhCKYm2w1HrwwoBT
-X-Gm-Gg: AR+sD10Og4OKUg4flPrNFFyw4C/edChFNgqXcOwdehwLUONTqgel6LRyMFyiS3DC1JA
-	eojeyzvhQ89i8LOVJnoNgpZVPlk6g48ukEd4XGQ3/ky2fQZ/ubnbCUuLbb7zRR2PJ/0KOFirNNw
-	YoUd4S4Xi+38VjQeeS+ACsdAq1H4eWnt3PuECVNMuI7mS3z7diPCUqRqD514ZTeHuw8TW/FGdXG
-	XfB+/XM1nFtq9UCYm9pHkYdA+n7A5qy4palw+65I8btLuptmI0b2WpcbOO7kdbtpMfyJBhg3/M1
-	PPJgQj6xcIBqkKhNdH//nbhPFN+MVbp+OMDCiajPxQvwXOElftRqDixu/iN07dYGvr1a75WCfeN
-	77OhM4U72NjHJvygVb+FLaCcdtUw9hhltgk5IVx1a941ZQpagNjviI+sxQNjuCS+ZP5nY6u/qiY
-	zoVrR/jwhNtPMmo9zhZCw5oUbgJAj3x+1G2JzNpPbXtC49hXpht3hU4vs8Xr4nat6FD1VbwMGqB
-	EcR4zW3YkgCAljmuxjyqSdV/Thp9+inUlTrOgsrXNURK7tmsdrxseY=
-X-Received: by 2002:a05:620a:a191:10b0:930:ab28:945c with SMTP id af79cd13be357-932fe356c16mr54818285a.50.1785181568176;
-        Mon, 27 Jul 2026 12:46:08 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-907e854f5b7sm71788406d6.20.2026.07.27.12.46.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 12:46:07 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: Jassi Brar <jassisinghbrar@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE)
-Subject: [PATCH] mailbox: bcm2835: use platform_get_irq and simplify probe
-Date: Mon, 27 Jul 2026 12:46:04 -0700
-Message-ID: <20260727194604.11061-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Mon, 27 Jul 2026 19:46:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=prLTqXdtwS6Vp+/x1a38rz7nfNGj+D9MXfvAyt2XwH4=; b=p6rVgD+cxm/uWiP2AhveEPbU0O
+	LisE0LjlqzHs1PR1RPT52p+Gxdkwk54Xr/cNJSNZ0c2S1BQBLKTh+sjl2m28k6cai8Qbz/QmIQZgS
+	bLxzzVaBrpnMHNx/HtSdWMRu/nIomBQ2V8P7QiA+yT9BThxBK/McsjBbwfoZmLEzKMck=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1woRHE-00EUk5-7n; Mon, 27 Jul 2026 21:46:16 +0200
+Date: Mon, 27 Jul 2026 21:46:16 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Zxyan Zhu <zxyan0222@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, linux@armlinux.org.uk,
+	hkallweit1@gmail.com, rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	bjorn@kernel.org
+Subject: Re: [PATCH net-next v2] net: phylink: add phylink_pcs_loopback()
+ method for PCS loopback support
+Message-ID: <73726b44-42d8-4539-b910-eeeb1650f180@lunn.ch>
+References: <20260724085224.3321663-1-zxyan0222@gmail.com>
+ <20260727093835.1708262-1-zxyan0222@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260727093835.1708262-1-zxyan0222@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_124609_902834_6673D0E8 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260727_124631_072960_D64317F9 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,85 +75,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace irq_of_parse_and_map() with platform_get_irq() for the mailbox
-interrupt lookup, and move IRQ and MMIO resource acquisition to the top
-of the probe function before any memory allocation.
+>  static int stmmac_test_phy_loopback(struct stmmac_priv *priv)
+>  {
+>  	struct stmmac_packet_attrs attr = { };
+> +	struct phylink_pcs *pcs;
+>  	int ret;
+>  
+> -	if (!priv->dev->phydev)
+> -		return -EOPNOTSUPP;
+> +	if (priv->dev->phydev) {
+> +		ret = phy_loopback(priv->dev->phydev, true, 0);
+> +		if (ret)
+> +			return ret;
+>  
+> -	ret = phy_loopback(priv->dev->phydev, true, 0);
+> -	if (ret)
+> +		attr.dst = priv->dev->dev_addr;
+> +		ret = __stmmac_test_loopback(priv, &attr);
+> +
+> +		phy_loopback(priv->dev->phydev, false, 0);
+>  		return ret;
+> +	}
+>  
+> -	attr.dst = priv->dev->dev_addr;
+> -	ret = __stmmac_test_loopback(priv, &attr);
+> +	/* Use PCS loopback for interfaces without an external PHY. */
 
-Simplify error handling throughout: use direct return of platform_get_irq
-and PTR_ERR values, remove the redundant platform_set_drvdata and
-dev_info log, and inline the final return.
+It should not be an either/or. You can have a PCS and an external PHY.
+You might actually want to test both.
 
-Assisted-by: Opencode:Big-Pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+So i think you want stmmac_test_phy_loopback() and
+stmmac_test_pcs_loopback() with the shared code in a helper.
+
+    Andrew
+
 ---
- drivers/mailbox/bcm2835-mailbox.c | 37 +++++++++++++------------------
- 1 file changed, 16 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/mailbox/bcm2835-mailbox.c b/drivers/mailbox/bcm2835-mailbox.c
-index ea12fb8d2401..0ca75c378a60 100644
---- a/drivers/mailbox/bcm2835-mailbox.c
-+++ b/drivers/mailbox/bcm2835-mailbox.c
-@@ -136,28 +136,30 @@ static struct mbox_chan *bcm2835_mbox_index_xlate(struct mbox_controller *mbox,
- static int bcm2835_mbox_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-+	void __iomem *regs;
- 	int ret = 0;
-+	int irq;
- 	struct bcm2835_mbox *mbox;
- 
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(regs))
-+		return PTR_ERR(regs);
-+
- 	mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
- 	if (mbox == NULL)
- 		return -ENOMEM;
--	spin_lock_init(&mbox->lock);
- 
--	ret = devm_request_irq(dev, irq_of_parse_and_map(dev->of_node, 0),
--			       bcm2835_mbox_irq, IRQF_NO_SUSPEND, dev_name(dev),
--			       mbox);
--	if (ret) {
--		dev_err(dev, "Failed to register a mailbox IRQ handler: %d\n",
--			ret);
--		return -ENODEV;
--	}
-+	spin_lock_init(&mbox->lock);
-+	mbox->regs = regs;
- 
--	mbox->regs = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(mbox->regs)) {
--		ret = PTR_ERR(mbox->regs);
-+	ret = devm_request_irq(dev, irq, bcm2835_mbox_irq,
-+			IRQF_NO_SUSPEND, dev_name(dev), mbox);
-+	if (ret)
- 		return ret;
--	}
- 
- 	mbox->controller.txdone_poll = true;
- 	mbox->controller.txpoll_period = 5;
-@@ -170,14 +172,7 @@ static int bcm2835_mbox_probe(struct platform_device *pdev)
- 	if (!mbox->controller.chans)
- 		return -ENOMEM;
- 
--	ret = devm_mbox_controller_register(dev, &mbox->controller);
--	if (ret)
--		return ret;
--
--	platform_set_drvdata(pdev, mbox);
--	dev_info(dev, "mailbox enabled\n");
--
--	return ret;
-+	return devm_mbox_controller_register(dev, &mbox->controller);
- }
- 
- static const struct of_device_id bcm2835_mbox_of_match[] = {
--- 
-2.55.0
-
+pw-bot: cr
 
