@@ -4,62 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B35FC53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D619C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iGjw8JNSkZGfBnUlq2+/WKJTBO6Mk7E/IPx2aQlf3Y=; b=kbkZX9Wqlp6ak/+cAWCwRVjgH0
-	JcyuoVq1Q59/hj6tN56Gkol/GuwevEqZZ2rQhjT6YPqAxb3fSg9vznPVyMMvlEoXc9ofoW2t6i3GI
-	IthxKOxPw47bEr+Fz0jS4bz8wCCQWJOasHLP6eeE7OJ4rUH+vmJJczdbOquUWPXg3VsfqwXGbAFoO
-	6TRi3cbTUukOLUH/VIk1ffyA47k2uvvJ/wuu85AMBdeRXYRpwDjWHwcuQ3qtmNKTq5EUg2Evpz0qD
-	tpNMhvrzrShhoLOXwv/hy2CPABMdCInhfObAx5P8+Ge2X3iKhTzFRZGCOFvWcBEJoCcw2Qq4PqFej
-	xTyRmmUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=omay/LPBnikBbPb67xKmcVStnfjantvN/Yp4olnCjIo=; b=rLcoCDCDnF0c0Bww4LFNJMybsn
+	G3tJPrPWQvBEiYheA2ptaWAIr8Fx4jG4IaECGNDiUrU9fyL1iTIR00LIU8+Xd8N1gg0GoFkgahRio
+	Ps5syyneJZkV2rp/thHGOclJs6jrrAAFrM564MXbsLqEo98HpQqbVFQSMfEBKMRlZA4XV4pNgJQAv
+	LNK2GDjt6UZ+BkE9Qe6AT6bbyArmgvy8YHjgWaYd39mV1ZTKY4RgxUlXrg7eDKz/e/KLnwCmcc9JT
+	tD2opSKH7e7NHy/DI51K7kN/U9YLo5fC800GYVULIGGXSQhxI6P1ce26lzXtcV3DP2ZWi5YsOKa3U
+	Qi7ojilw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woL1w-00000002nM1-44Wp;
-	Mon, 27 Jul 2026 13:06:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woL1r-00000002nJo-2MIV
+	id 1woL3u-00000002nbn-25W1;
+	Mon, 27 Jul 2026 13:08:06 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woL3s-00000002na2-3lBs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:06:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF5FC1476;
-	Mon, 27 Jul 2026 06:05:52 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E86743F66F;
-	Mon, 27 Jul 2026 06:05:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785157557; bh=mmEOawEsswncTtaCfmhbMug5h9MllDiZo3z/ZHQ47QU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bghBWnGaLgykHXNC+IELPKx7lTB+1igZl0fVFheThwlG/5u+nJGeBChEYSU6uXWBN
-	 T3qUdJXdnLhM//mcQXqzw3u92HRsXyzlrv0url3UkOwitlsbpAxtLDwBueU+33cmia
-	 lOYH2cpsT95BXmUm9EeZmM75sJFqFptGj/r5p17U=
-Message-ID: <5af733ed-a4d5-4d96-a5de-43caab9b0bd9@arm.com>
-Date: Mon, 27 Jul 2026 14:05:54 +0100
-MIME-Version: 1.0
+	Mon, 27 Jul 2026 13:08:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oUccgUC70LLFbOzGg1y5SLv1yuvKJ6XMXhFDLJWL3eqTTYK7eSfbEDanTHuQJwPnzOikG/PEKAl58tth2kjTfWyQvdz4mSyBVuAddXqlzt3c1++/JJV6NgdFOTn+VtHfEgup/6tiXitds6hYebHkCL1IyflCCfOkzJSXqkTdWt12m9nIHF6pjxv4VZjbxEJVUSnYnkX5UR4aXzV9rLPZABp1z+BPRLI2mzJjZUwDxUkKNojHElyTJ0KKJWHEc3b8+dzjkrOfJzcbVyM3x1cnCUR7U1UwK+9R9ppzg6v+aNDhxEsMRkW/Qzk9bGQHOiM+Z6Qh6YQEnm/ZpbUt8RTRXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=omay/LPBnikBbPb67xKmcVStnfjantvN/Yp4olnCjIo=;
+ b=iGPG78GQkN9TFv63fReFX8INsbk78nLBOqF9/Cm+5YWu8jKv+UWPmp4wZZRErKYxPX1mcMZVvmzMKqnTTsiIga5vnNJ6SqL86xzDYWAon5C1LnGLN3qoHosL2VclUcC5XIZ0uSIY8WS7w7IHdKr248RxUCW5+i+VUnVNHHupLeJYHE1aveNZCQqHRLuN2g78Sm+wKJaJlE9j0Vro5nOajKc8Qur/Eq+bAVbHLkDYmSvE+bK+gabxZlntPZ+X7UwVlqZRHMTyCCnCCrGihEeOV56qMpFbAX7K5L+cQy1/78yPxlis5PSwgIeFllqn+zCv8FErclzSeryGVNkhDGik/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=omay/LPBnikBbPb67xKmcVStnfjantvN/Yp4olnCjIo=;
+ b=HPg404Bv3RWmFpX14iHBeDs/aRC8pxYYbJSAMB725Kauj5hLRf42i8vPN82kZDMrHO+siH8/HvheLSi94R09vguhn7N/fVX22NoH9Y6qeW2Yls4wr83H6toRlC80QlHs5hr1Prqb6CfCaM7MzwR66u60TePp3BBpi6hpevIfBz1S5VRx9Zs8Euwn+6RRTBNL/V9drkn1eo6gWGFI+ZT9hxT9IU4gQ8yPYM1EQUKLk5ewhyZo26M9RQo74sW98ph57Bis/Ot3eCMTpK1fwrBLegnzytgUZKzmrRD+QwPCe2mlhggoftdjjtduc/m3jcCeMF2rn0X565FPi9I3W43/5w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM4PR12MB6063.namprd12.prod.outlook.com (2603:10b6:8:b1::19) by
+ PH7PR12MB9223.namprd12.prod.outlook.com (2603:10b6:510:2f2::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
+ 2026 13:07:53 +0000
+Received: from DM4PR12MB6063.namprd12.prod.outlook.com
+ ([fe80::c06b:5df:6a68:1b06]) by DM4PR12MB6063.namprd12.prod.outlook.com
+ ([fe80::c06b:5df:6a68:1b06%3]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
+ 13:07:53 +0000
+Message-ID: <35979792-3191-4432-ac96-2d9d64cb1a72@nvidia.com>
+Date: Mon, 27 Jul 2026 14:07:47 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 12/36] arm64: entry: replace DAIF helpers with entry
- helpers
-To: "Liao, Chang" <liaochang1@huawei.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, ruanjinjie@huawei.com,
- catalin.marinas@arm.com, will@kernel.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-13-vladimir.murzin@arm.com>
- <6bfbb77f-6c98-44ba-a396-b5d5287d190d@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <6bfbb77f-6c98-44ba-a396-b5d5287d190d@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712
+ broken EL2 virtual timer
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ John <therealgraysky@proton.me>, Daniel Drake <dan@reactivated.net>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20260710080958.491620-1-maz@kernel.org>
+ <325e86ea-d4d3-4c84-ae9b-f4a08c9b071b@nvidia.com>
+ <878q72rcz6.wl-maz@kernel.org>
+ <325be874-bab9-464f-84ee-99e160259923@nvidia.com>
+ <865x26do37.wl-maz@kernel.org>
+ <e5a32fcc-ca3c-4b54-a790-d2eef2c636e5@nvidia.com>
+ <8633xadlv3.wl-maz@kernel.org>
+Content-Language: en-US
+From: Jon Hunter <jonathanh@nvidia.com>
+In-Reply-To: <8633xadlv3.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: GVX0EPF0005F729.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:400::2ca) To DM4PR12MB6063.namprd12.prod.outlook.com
+ (2603:10b6:8:b1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB6063:EE_|PH7PR12MB9223:EE_
+X-MS-Office365-Filtering-Correlation-Id: 511d6ca4-6f05-4544-be26-08deebe0115a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|10070799003|11063799006|10067099003|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: US2+7QwPn6baLnDcnNuSg+SIfU0RsgElwVsah6c12OlVbD2btGl1skM6LKZHvDn3PMNV8uV9+i7cOk/34BXR9NM5IQYyLCddFiee2To0GsLOTrk+anoEudAORNs9DHBTG/XVMYf340GoOvN29MhIYidWHvkAhxR4dwiSgkGG5t4DTx8S8+P9DFqcBD/mZVw4FxanfqXHhPGRdDwS2ceP+c74dveG6thu2a+CceRejYTNUOEsuB2d49tQcJv6WHOXOiYgKE8f7su1Prh+YcQdurjTjRJ5+LMg3v9942RD553RRqtURXBxnZFJyLgo4pXWqCUP/5AXD/O2zTvvKdldgpEYH4H6EhdI8RkB6e7S4W1HGK0jXE1CpkPxOzo9RTz/ZN1975JiRyLLmCCnO6JEVvhChhSmXYt8uuuv+UfdB0yo4jLqU1dECqHxV2nqhu/9QxqTo5GKcrQvKHAHGQLK6EEboVPQrYC1svAiBzvPjim+GglZMsGjuBtvYGgvMhJxtiWO6o4hR8fDucs+XKZJ9qg/Vf52Ef9xdECDVPGmkf0f1V5CWxHaIW8vzKhDDfw9KOh39lG2kbaMs3FSDbHRwiCFeqrnb/A18VO2JNV1bvyjqUwbexMdNmoOnjiRb+aacN0oOae2LX4sOHeg8SHrxzqqayoYsaiHlgjwymlFPI4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB6063.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(10070799003)(11063799006)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0pvZDB1dVZlZndwWnRlMUNialNNOFNudU5VRGJZL0djN2ZPWFVOa0daN0Fi?=
+ =?utf-8?B?US9aRHF4WEx0RXkwUW0xREdpbENSR2cyZUpNeUNOb1huWjh2STFOTHpNa2dB?=
+ =?utf-8?B?N3FXVW4wRTN0TWNsYmdrNFJPellueXVmL05PMXhEaHJNN0xHWkdVemJlditF?=
+ =?utf-8?B?MnQwL0k1M3k2S1ZaZVJ0NHdaTWxOOXJMUWJHSHB1S1RqSWlSd0V1WnFNQVpE?=
+ =?utf-8?B?TElqd3owWEtXTldBSEpFU1J1UDFkbzRHVnQ4MXh0VGxHUWllMXhtNzhBZDNp?=
+ =?utf-8?B?eXNLWVhRN001RkY5T0FsSXF6QVhCRVZtQTd4NGcwWUNSaDFTZUptOW1PbUNN?=
+ =?utf-8?B?L09lMjRXWDQ0Q0c0cndQTC9kOElCQUlsSWREMGo0L0pka0dZNENGNUJMM2pj?=
+ =?utf-8?B?L2xSbWhVUzNmRjJWeEhXaEQwQ29jTVd0cmJxZURuNyt2eS9FM1BzYjVCT05i?=
+ =?utf-8?B?NnRmNUZoN28xRXBHWXA3WlQ3ZlVZMDdud3VvNDNQaU5YMFduT0JRZnhXbXJD?=
+ =?utf-8?B?Z0FTckg0VGRDd1l3OGhneTNESEIwWTJVcjJwNUNQcnl5dDN3SlhzVE11WVYx?=
+ =?utf-8?B?VUtoZ241UFl3QnlRK1lCeldWb1dCNHlIQkVOTVJ6QUlpRzNWcDhoVG5lc3FD?=
+ =?utf-8?B?cGdhYkxzRldFWVpyMTNjYzZ2SUwvOGFUMUVJeVlyTEIwYnRYdUZvd1FuVHQ5?=
+ =?utf-8?B?ZEhDRjFUUFpEaTBlVGVjT1dub0NxQW81MXgxMjlBUVdGMEt6bEIxRks5N29i?=
+ =?utf-8?B?THlPbm8zUjFnc0tFZk1NZG1TQWxDNEJVL2l1UmwwT0pCYkNrUjZlWFZscWRG?=
+ =?utf-8?B?VGs1amw2ZVdDZTg5bHFYeERUZEJ3a3BjTVQzb2ZRNVRUbWtZNlVYQS9XeldM?=
+ =?utf-8?B?cDQ5QlBBMGxibWRUVzluRG5NaTUybFpMaGMzdmpGY0lOOWM5UlRacGJCUmt0?=
+ =?utf-8?B?a1BvSVZKaThiZU16M3lXWC9idi9iSUZLM0FnWDlUbjRkT3pxUU1kTkZxbWZv?=
+ =?utf-8?B?ZHJjUi9lU3BUdlA5NUJqdFRoaWR2ZGdndFk0TFB6eFRvRnVCcHBXSVJ5R1c5?=
+ =?utf-8?B?WXVnaDJJUHpGSTIvSkl2VVNZV3FNbWxMUjFZRTJuZU9QczJWb2JRN3hvWGl5?=
+ =?utf-8?B?aVB4UCtnTE9iQzFHa0NmZTBENHNMMnpHQkhEbksxcnVMbHYyN2MvTTJwMVZ5?=
+ =?utf-8?B?bjR4V1cwSkEvTWVYb29PVGlXZytmTktJaFBTVldSbE1xT0JlVzNmakNVbGlK?=
+ =?utf-8?B?L21McVl2OGhQb3l1THRMaWk0V1kwOGpydFpmNGZiRjFyT2I2TXM2RzMweEVl?=
+ =?utf-8?B?cithYzJtNTJ0U1hmVWZVa1d0Z0lkdDlsWWJKWFB2VmQ1RVdFZlg1UnpuVEg3?=
+ =?utf-8?B?dnJ3S2ZZalhpWE52dlRXMEsyVDFMS0FnemhuSFJWSFcxUUhvdjIyT1Q1alQ4?=
+ =?utf-8?B?bGZFem12VWdtc3lSWXFmR1lQOWVhdnJsOE9mTmNHaTVDU1BweThDWWpNM3NV?=
+ =?utf-8?B?eURhRzU3SWxmV20zbWZORDFPNE5waTk0N2VpZWFuSlZSRUxyTXdvbWU1VU02?=
+ =?utf-8?B?Zjk2Ry9GN0F1enBXZmNxV01vZU1abGxtRjVLRFhDN1F5UmYydFgzWkNYb0xN?=
+ =?utf-8?B?SklXc0RvVGxLSUExYndLbXRuOVExUldlcUZXd0IzN1RpQVdWTGNyY2twSHo1?=
+ =?utf-8?B?clppVnFhcEMyMzJCc05OcnhwckJDRHZvUTFpYUtCMU1udnJJRGp5RTdzK0hX?=
+ =?utf-8?B?WmVadjl5MFhOdE1DTlkzeHRya3p1K01ubVAvK0ZmaUZuVHFsTDlXWmp5QWdn?=
+ =?utf-8?B?WXJ4OUFHbEhBNXExRGwwZFdCc1FPZytGV1VMaTRFZitwSWpuQTBQRnFUYWMz?=
+ =?utf-8?B?ZE9QZHo4NVd4NVl2SDlmcHRvVDNJWkIxc2FGZGVYbUFVdkVkS0ZGUzJicnlZ?=
+ =?utf-8?B?Y2oyN2FURjFqZnozaXBQb1FmbmRUOG01b25iaHNEMjBjeDlHZ2U2L21FbW03?=
+ =?utf-8?B?cUNpNWNYOUo0YXplTEt1aVpoMXd2ekFHZ3FtYVc0SGVhQllhcDkwSkpRNnpl?=
+ =?utf-8?B?SWpKanNreTErbTFISmg0NjdNd3liS1Z5NnVqcWVHRnVFd01vaFhsU09OL1Za?=
+ =?utf-8?B?TkNpT2FDaG1NcEVGcGFMUGVyL0JlWHBRdVIzTzNIdStaanBsYzJid0FRSEcr?=
+ =?utf-8?B?YWVVZldHbFNYTTFMejBNYUhzcElBZ1RJTlU4aDAxdlhNYnh6a3BaYzFpZGZO?=
+ =?utf-8?B?a3BFK1prb1JFbFI2WUVWU3JTeEgraGttNE9ZZ24zMUZlbEZhZXhSclhtdC82?=
+ =?utf-8?B?TS9zN0xEQnNPVmluOVVLR1pBY09uV0w3QXExSUduMEFoUUtuQktCUmhFdEFi?=
+ =?utf-8?Q?/g3i1N/4wLa70CHOn+zkDkoCOYb4eh0Qrc1oxcOyQ5GCR?=
+X-MS-Exchange-AntiSpam-MessageData-1: k1OiTFO37hxaxg==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 511d6ca4-6f05-4544-be26-08deebe0115a
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB6063.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 13:07:53.0893
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HVTkTZVjS7mbwNKAd0xTjC4fEbsu/R9HwUL7GiZjV3ru8ytVu9ZJoboW4saX2QZyqcwRHr2jIWFdzLjMEcO5mw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9223
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_060559_846946_2D78DCFB 
-X-CRM114-Status: GOOD (  30.30  )
+X-CRM114-CacheID: sfid-20260727_060804_965289_CD3E3966 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,840 +160,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 13:14, Liao, Chang wrote:
-> Hi, Vladimir and Ada,
-> 
-> 在 2026/7/9 20:13, Vladimir Murzin 写道:
->> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>
->> Replace all uses of the `local_daif_...` helpers in `entry-common.c`
->> with the new entry-specific exception masking helpers.
->>
->> Also replace `local_irq_disable()` with a switch to NOIRQ context
->> using the new helpers. This provides:
->>
->> - consistency checks for hardware state
->>
->> - a unified style for managing exception context
->>
->> Now that exception context is tracked explicitly, involuntary kernel
->> preemption can be optimized. We either preempt:
->>
->> - from PROCESS exception context, or
->>
->> - when returning from an interrupt handler, where the GIC code
->>   switches from NONMI to NOIRQ exception context
->>
->> To support this split, divide `arm64_exit_to_kernel_mode()` into
->> preempt, non-preempt, and dispatch parts.
->>
->> Remove `local_daif_inherit()`, since it is no longer used.
->>
->> Now that both the irqflags API and entry code handle DAIF and PMR
->> correctly, remove `GIC_PRIO_PSR_I_SET` from the PMR value set by
->> `kernel_entry` in `entry.S` and by `init_gic_priority_masking()` in
->> `kernel/smp.c`.
->>
->> The `local_daif_...` helpers and other specialized code still use
->> `GIC_PRIO_PSR_I_SET` for now; this commit does not change their
->> behavior.
->>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/include/asm/daifflags.h |  22 ---
->>  arch/arm64/kernel/entry-common.c   | 272 ++++++++++++++++++++---------
->>  arch/arm64/kernel/entry.S          |   2 +-
->>  arch/arm64/kernel/smp.c            |   2 +-
->>  4 files changed, 190 insertions(+), 108 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
->> index 56341578e7e3..6b14ec4d4dbe 100644
->> --- a/arch/arm64/include/asm/daifflags.h
->> +++ b/arch/arm64/include/asm/daifflags.h
->> @@ -120,28 +120,6 @@ static __always_inline void local_daif_restore(unsigned long flags)
->>  		trace_hardirqs_off();
->>  }
->>  
->> -/*
->> - * Called by synchronous exception handlers to restore the DAIF bits that were
->> - * modified by taking an exception.
->> - */
->> -static __always_inline void local_daif_inherit(struct pt_regs *regs)
->> -{
->> -	unsigned long flags = regs->pstate & DAIF_MASK;
->> -
->> -	if (!regs_irqs_disabled(regs))
->> -		trace_hardirqs_on();
->> -
->> -	if (system_uses_irq_prio_masking())
->> -		gic_write_pmr(regs->pmr);
->> -
->> -	/*
->> -	 * We can't use local_daif_restore(regs->pstate) here as
->> -	 * system_has_prio_mask_debugging() won't restore the I bit if it can
->> -	 * use the pmr instead.
->> -	 */
->> -	write_sysreg(flags, daif);
->> -}
->> -
->>  /*
->>   * During early boot, we unmask PSR.DA before the GIC has been set up.
->>   * If we use IRQ priority masking, the PMR and PSR will be out of sync
->> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
->> index 2be42d7f4eaa..a13653b228b7 100644
->> --- a/arch/arm64/kernel/entry-common.c
->> +++ b/arch/arm64/kernel/entry-common.c
->> @@ -18,11 +18,11 @@
->>  #include <linux/thread_info.h>
->>  
->>  #include <asm/cpufeature.h>
->> -#include <asm/daifflags.h>
->>  #include <asm/esr.h>
->>  #include <asm/exception.h>
->>  #include <asm/fpsimd.h>
->>  #include <asm/irq_regs.h>
->> +#include <asm/interrupts/entry.h>
->>  #include <asm/kprobes.h>
->>  #include <asm/mmu.h>
->>  #include <asm/processor.h>
->> @@ -52,12 +52,11 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
->>   * After this function returns it is not safe to call regular kernel code,
->>   * instrumentable code, or any code which may trigger an exception.
->>   */
->> -static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
->> -					      irqentry_state_t state)
->> +static void noinstr __arm64_exit_to_kernel_mode(struct pt_regs *regs,
->> +						irqentry_state_t state,
->> +						arm64_exc_hwstate_t hwstate)
->>  {
->> -	local_irq_disable();
->> -	irqentry_exit_to_kernel_mode_preempt(regs, state);
->> -	local_daif_mask();
->> +	arm64_mask_exc_context(hwstate);
->>  	mte_check_tfsr_exit();
->>  	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
->>  }
->> @@ -69,6 +68,30 @@ static __always_inline void arm64_syscall_enter_from_user_mode(struct pt_regs *r
->>  	sme_enter_from_user_mode();
->>  }
->>  
->> +/*
->> + * We are returning from the context which allows involuntary kernel preemption
->> + */
->> +static void noinstr arm64_exit_to_kernel_mode_preempt(struct pt_regs *regs,
->> +						      irqentry_state_t state,
->> +						      arm64_exc_hwstate_t hwstate)
->> +{
->> +	irqentry_exit_to_kernel_mode_preempt(regs, state);
->> +	__arm64_exit_to_kernel_mode(regs, state, hwstate);
->> +}
->> +
->> +static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
->> +					      irqentry_state_t state,
->> +					      arm64_exc_hwstate_t hwstate)
->> +{
->> +	if (!arch_irqs_disabled_flags(hwstate.flags)) {
->> +		hwstate = arm64_lift_exc_context(hwstate, NOIRQ_CONTEXT);
->> +		arm64_exit_to_kernel_mode_preempt(regs, state, hwstate);
->> +		return;
->> +	}
->> +
->> +	__arm64_exit_to_kernel_mode(regs, state, hwstate);
->> +}
->> +
->>  /*
->>   * Handle IRQ/context state management when entering from user mode.
->>   * Before this function is called it is not safe to call regular kernel code,
->> @@ -82,11 +105,12 @@ static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
->>  	sme_enter_from_user_mode();
->>  }
->>  
->> -static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs)
->> +static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs,
->> +							    arm64_exc_hwstate_t hwstate)
->>  {
->> -	local_irq_disable();
->> +	hwstate = arm64_lift_exc_context(hwstate, NOIRQ_CONTEXT);
->>  	syscall_exit_to_user_mode_prepare(regs);
->> -	local_daif_mask();
->> +	arm64_mask_exc_context(hwstate);
-> To be honest, arm64_mask_exc_context() is not quite self-explanatory. To make the code
-> more readable, could we use arm64_lift_exc_context(hwstate, CRITICAL_CONTEXT) directly
-> here instead?
-> 
 
-That suggestion is similar to one of my early implementations. One
-piece of offline feedback I received was that, in most cases, we
-only need simple unmask/mask operations, with only a few cases
-requiring something more involved. The idea was therefore to keep
-the common and boring cases using unmask/mask, while using
-drop/lift only for the non-trivial cases so they immediately stand
-out.
+On 23/07/2026 11:46, Marc Zyngier wrote:
 
-I'm more than happy to revisit if there is consesus on use expicit
-drop/lift everywhere...
+...
 
+>> Hmmm, I am looking at this spec [0] and it says ...
+>>
+>> "The GIC-400 implements the interrupt types:
+>>    16 Software Generated Interrupts (SGIs).
+>>    6 external Private Peripheral Interrupts (PPIs) for each processor.
+>>    1 internal PPI for each processor."
+>>
+>> The table in [1] shows interrupts for non-sec, sec, virt and
+>> hypervisor timers, but I don't see a hyp-virt.
+> 
+> This documentation was never updated past 2012, which predates ARMv8.1
+> (go complain to ARM). But the IP does support it:
+> 
+> [    0.000000] Machine model: Khadas VIM3L
+> [...]
+> [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+> [    0.000000] Root IRQ handler: gic_handle_irq
+> [    0.000000] GIC: Using split EOI/Deactivate mode
+> [    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+> [    0.000000] arch_timer: cp15 timer running at 24.00MHz (hyp-virt).
+> [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+> [    0.000000] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+> 
+> GIC400, A55 cores. Produced by one of the worse SoC vendor on this
+> side of the galaxy.
+> 
+> And the signal you are looking for is the one labelled as "Legacy FIQ
+> signal" (PPI12, aka INTID 28). The labels are purely indicative of
+> what you *could* connect to it, not a requirement.
+> 
+> Anyway, this is beside the point. Even if the IP didn't support it,
+> you shouldn't end-up with a design that explicitly contradict the
+> architecture, because that's the contract SW relies on.
 
->>  	sme_exit_to_user_mode();
->>  	mte_check_tfsr_exit();
->>  	exit_to_user_mode();
->> @@ -97,11 +121,12 @@ static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs
->>   * After this function returns it is not safe to call regular kernel code,
->>   * instrumentable code, or any code which may trigger an exception.
->>   */
->> -static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
->> +static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs,
->> +						    arm64_exc_hwstate_t hwstate)
->>  {
->> -	local_irq_disable();
->> +	hwstate = arm64_lift_exc_context(hwstate, NOIRQ_CONTEXT);
->>  	irqentry_exit_to_user_mode_prepare(regs);
->> -	local_daif_mask();
->> +	arm64_mask_exc_context(hwstate);
->>  	sme_exit_to_user_mode();
->>  	mte_check_tfsr_exit();
->>  	exit_to_user_mode();
-> Looking through the exception exit paths from EL0 to user mode, they all seem to boil down
-> to two distinct patterns of exception mask transitions:
-> 
-> 1. Interrupts (e.g., el0_interrupt): Transition goes from NOIRQ_CONTEXT to CRITICAL_CONTEXT.
-> 2. Other exceptions (e.g., el0_svc, el0_error, ret_from_fork): Transition goes from
->    PROCESS_CONTEXT to CRITICAL_CONTEXT.
-> 
-> Currently, these two helper functions share a lot of duplicate boilerplate code and
-> hide these transitions behind less self-explanatory helpers like arm64_mask_exc_context().
-> To make the state-machine transitions explicit and unify the exit flow, I would suggest
-> reworking these helpers as follows:
-> 
-> /* Prepare for syscall exit by lifting the implicit PROCESS_CONTEXT to NOIRQ_CONTEXT */
-> static __always_inline arm64_exc_hwstate_t
-> arm64_syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
-> {
-> 	arm64_exc_hwstate_t hwstate =
-> 		arm64_lift_exc_context(arm64_exc_hwstate_of_context(PROCESS_CONTEXT), NOIRQ_CONTEXT);
-> 	syscall_exit_to_user_mode_prepare(regs);
-> 	return hwstate;
-> }
-> 
-> /* Prepare for other EL0 exceptions exit by lifting the inherited hwstate to NOIRQ_CONTEXT */
-> static __always_inline arm64_exc_hwstate_t
-> arm64_exit_to_user_mode_prepare(struct pt_regs *regs, arm64_exc_hwstate_t hwstate)
-> {
-> 	hwstate = arm64_lift_exc_context(hwstate, NORIRQ_CONTEXT);
-> 	irqentry_exit_to_user_mode_prepare(regs);
-> 	return hwstate;
-> }
-> 
-> /* Finalize the exit by lifting to CRITICAL_CONTEXT before entering assembly world */
-> static __always_inline
-> void arm64_exit_to_user_mode(arm64_exc_hwstate_t hwstate)
-> {
-> 	arm64_lift_exc_context(hwstate, CRITICAL_CONTEXT);
-> 	sme_exit_to_user_mode();
-> 	mte_check_tfsr_exit();
-> 	exit_to_user_mode();
-> }
-> 
-> asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
-> {
-> 	arm64_exc_hwstate_t hwstate = arm64_syscall_exit_to_user_mode_prepare(regs);
-> 	arm64_exit_to_user_mode(hwstate);
-> }
-> 
+Got it. Armed with this information I went back to the h/w folks and was 
+able to track down the right person. I have now learnt that this timer 
+interrupt is hooked up to PPI15 for Tegra194 and using that I now see ...
 
-I don't have a strong opinion on this. If there is strong support
-for going that way, I'm happy to follow. The only thing I'd point
-out is that this would probably need to be a separate patch,
-either as a preparatory step or as a later optimization.
+[    0.000000] Machine model: NVIDIA Jetson AGX Xavier Developer Kit
+...
+[    0.000000] arch_timer: cp15 timer running at 31.25MHz (hyp-virt).
 
-Cheers
-Vladimir
+I will post a patch to fix this for Tegra194.
 
->> @@ -109,7 +134,10 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
->>  
->>  asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
->>  {
->> -	arm64_syscall_exit_to_user_mode(regs);
->> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(PROCESS_CONTEXT);
->> +
->> +	arm64_syscall_exit_to_user_mode(regs, hwstate);
->> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->>  /*
->> @@ -315,63 +343,69 @@ UNHANDLED(el1t, 64, error)
->>  static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
->>  {
->>  	unsigned long far = read_sysreg(far_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->> -	local_daif_inherit(regs);
->> +	hwstate = arm64_inherit_exc_context(regs);
->>  	do_mem_abort(far, esr, regs);
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->>  }
->>  
->>  static void noinstr el1_pc(struct pt_regs *regs, unsigned long esr)
->>  {
->>  	unsigned long far = read_sysreg(far_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->> -	local_daif_inherit(regs);
->> +	hwstate = arm64_inherit_exc_context(regs);
->>  	do_sp_pc_abort(far, esr, regs);
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->>  }
->>  
->>  static void noinstr el1_undef(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->> -	local_daif_inherit(regs);
->> +	hwstate = arm64_inherit_exc_context(regs);
->>  	do_el1_undef(regs, esr);
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->>  }
->>  
->>  static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->> -	local_daif_inherit(regs);
->> +	hwstate = arm64_inherit_exc_context(regs);
->>  	do_el1_bti(regs, esr);
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->>  }
->>  
->>  static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->> -	local_daif_inherit(regs);
->> +	hwstate = arm64_inherit_exc_context(regs);
->>  	do_el1_gcs(regs, esr);
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->>  }
->>  
->>  static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->> -	local_daif_inherit(regs);
->> +	hwstate = arm64_inherit_exc_context(regs);
->>  	do_el1_mops(regs, esr);
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->>  }
->>  
->>  static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
->> @@ -431,12 +465,13 @@ static void noinstr el1_brk64(struct pt_regs *regs, unsigned long esr)
->>  
->>  static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->> -	local_daif_inherit(regs);
->> +	hwstate = arm64_inherit_exc_context(regs);
->>  	do_el1_fpac(regs, esr);
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->>  }
->>  
->>  asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->> @@ -486,16 +521,20 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->>  	default:
->>  		__panic_unhandled(regs, "64-bit el1h sync", esr);
->>  	}
->> +
->> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->>  static __always_inline void __el1_pnmi(struct pt_regs *regs,
->>  				       void (*handler)(struct pt_regs *))
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	state = irqentry_nmi_enter(regs);
->> +	hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
->>  	do_interrupt_handler(regs, handler);
->> -	local_daif_mask();
->> +	arm64_mask_exc_context(hwstate);
->>  	irqentry_nmi_exit(regs, state);
->>  }
->>  
->> @@ -506,21 +545,32 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->>  
->>  	state = arm64_enter_from_kernel_mode(regs);
->>  
->> +	arm64_unmask_exc_context(NONMI_CONTEXT);
->> +
->>  	irq_enter_rcu();
->>  	do_interrupt_handler(regs, handler);
->>  	irq_exit_rcu();
->>  
->> -	arm64_exit_to_kernel_mode(regs, state);
->> +	/*
->> +	 * If pseudo-NMIs are enabled and the interrupted context had
->> +	 * IRQs unmasked, the interrupt handler will have cleared DAIF
->> +	 * and switched to PMR masking in order to handle
->> +	 * NMIs. Otherwise it would keep IF.  In both cases on return
->> +	 * we effectivly have NOIRQ_CONTEXT - keep track of it
->> +	 */
->> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
->> +	arm64_exit_to_kernel_mode_preempt(regs, state, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
->>  }
->> +
->>  static void noinstr el1_interrupt(struct pt_regs *regs,
->>  				  void (*handler)(struct pt_regs *))
->>  {
->> -	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
->> -
->>  	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
->>  		__el1_pnmi(regs, handler);
->>  	else
->>  		__el1_irq(regs, handler);
->> +
->> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->>  asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
->> @@ -536,28 +586,31 @@ asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
->>  asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
->>  {
->>  	unsigned long esr = read_sysreg(esr_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->> -	local_daif_restore(DAIF_ERRCTX);
->> +	hwstate = arm64_unmask_exc_context(ERROR_CONTEXT);
->>  	state = irqentry_nmi_enter(regs);
->>  	do_serror(regs, esr);
->> -	local_daif_mask();
->> +	arm64_mask_exc_context(hwstate);
->>  	irqentry_nmi_exit(regs, state);
->>  }
->>  
->>  static void noinstr el0_da(struct pt_regs *regs, unsigned long esr)
->>  {
->>  	unsigned long far = read_sysreg(far_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_mem_abort(far, esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_ia(struct pt_regs *regs, unsigned long esr)
->>  {
->>  	unsigned long far = read_sysreg(far_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  
->>  	/*
->>  	 * We've taken an instruction abort from userspace and not yet
->> @@ -568,114 +621,139 @@ static void noinstr el0_ia(struct pt_regs *regs, unsigned long esr)
->>  		arm64_apply_bp_hardening();
->>  
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_mem_abort(far, esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_fpsimd_acc(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_fpsimd_acc(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_sve_acc(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_sve_acc(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_sme_acc(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_sme_acc(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_fpsimd_exc(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_fpsimd_exc(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_sys(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_sys(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_pc(struct pt_regs *regs, unsigned long esr)
->>  {
->>  	unsigned long far = read_sysreg(far_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  
->>  	if (!is_ttbr0_addr(instruction_pointer(regs)))
->>  		arm64_apply_bp_hardening();
->>  
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_sp_pc_abort(far, esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_sp(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_sp_pc_abort(regs->sp, esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_undef(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_undef(regs, esr);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_bti(struct pt_regs *regs)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_bti(regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_mops(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_mops(regs, esr);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_gcs(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_gcs(regs, esr);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	bad_el0_sync(regs, 0, esr);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	if (!is_ttbr0_addr(regs->pc))
->>  		arm64_apply_bp_hardening();
->>  
->> @@ -683,12 +761,13 @@ static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
->>  	debug_exception_enter(regs);
->>  	do_breakpoint(esr, regs);
->>  	debug_exception_exit(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> -	arm64_exit_to_user_mode(regs);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	bool step_done;
->>  
->>  	if (!is_ttbr0_addr(regs->pc))
->> @@ -702,50 +781,56 @@ static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
->>  	 * the single-step is complete.
->>  	 */
->>  	step_done = try_step_suspended_breakpoints(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	if (!step_done)
->>  		do_el0_softstep(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_watchpt(struct pt_regs *regs, unsigned long esr)
->>  {
->>  	/* Watchpoints are the only debug exception to write FAR_EL1 */
->>  	unsigned long far = read_sysreg(far_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  
->>  	arm64_enter_from_user_mode(regs);
->>  	debug_exception_enter(regs);
->>  	do_watchpoint(far, esr, regs);
->>  	debug_exception_exit(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> -	arm64_exit_to_user_mode(regs);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_brk64(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_brk64(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_svc(struct pt_regs *regs)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->>  	arm64_syscall_enter_from_user_mode(regs);
->>  	cortex_a76_erratum_1463225_svc_handler();
->>  	fpsimd_syscall_enter();
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_svc(regs);
->> -	arm64_syscall_exit_to_user_mode(regs);
->> +	arm64_syscall_exit_to_user_mode(regs, hwstate);
->>  	fpsimd_syscall_exit();
->>  }
->>  
->>  static void noinstr el0_fpac(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_fpac(regs, esr);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
->> @@ -814,6 +899,8 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
->>  	default:
->>  		el0_inv(regs, esr);
->>  	}
->> +
->> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->>  static void noinstr el0_interrupt(struct pt_regs *regs,
->> @@ -821,7 +908,7 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
->>  {
->>  	arm64_enter_from_user_mode(regs);
->>  
->> -	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
->> +	arm64_unmask_exc_context(NONMI_CONTEXT);
->>  >  	if (regs->pc & BIT(55))
->>  		arm64_apply_bp_hardening();
->> @@ -830,7 +917,14 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
->>  	do_interrupt_handler(regs, handler);
->>  	irq_exit_rcu();
->>  
->> -	arm64_exit_to_user_mode(regs);
->> +	/*
->> +	 * For the same reason as in el1_irq() we effectivly
->> +	 * have NOIRQ_CONTEXT on return from handler - keep
->> +	 * track of it
->> +	 */
->> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
->> +	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
->> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->>  static void noinstr __el0_irq_handler_common(struct pt_regs *regs)
->> @@ -856,15 +950,17 @@ asmlinkage void noinstr el0t_64_fiq_handler(struct pt_regs *regs)
->>  static void noinstr __el0_error_handler_common(struct pt_regs *regs)
->>  {
->>  	unsigned long esr = read_sysreg(esr_el1);
->> +	arm64_exc_hwstate_t hwstate;
->>  	irqentry_state_t state;
->>  
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_ERRCTX);
->> +	hwstate = arm64_unmask_exc_context(ERROR_CONTEXT);
->>  	state = irqentry_nmi_enter(regs);
->>  	do_serror(regs, esr);
->>  	irqentry_nmi_exit(regs, state);
->> -	local_daif_restore(DAIF_PROCCTX);
->> -	arm64_exit_to_user_mode(regs);
->> +	hwstate = arm64_drop_exc_context(hwstate, PROCESS_CONTEXT);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->>  asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
->> @@ -875,27 +971,33 @@ asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
->>  #ifdef CONFIG_COMPAT
->>  static void noinstr el0_cp15(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_cp15(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_svc_compat(struct pt_regs *regs)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_syscall_enter_from_user_mode(regs);
->>  	cortex_a76_erratum_1463225_svc_handler();
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_el0_svc_compat(regs);
->> -	arm64_syscall_exit_to_user_mode(regs);
->> +	arm64_syscall_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  static void noinstr el0_bkpt32(struct pt_regs *regs, unsigned long esr)
->>  {
->> +	arm64_exc_hwstate_t hwstate;
->> +
->>  	arm64_enter_from_user_mode(regs);
->> -	local_daif_restore(DAIF_PROCCTX);
->> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->>  	do_bkpt32(esr, regs);
->> -	arm64_exit_to_user_mode(regs);
->> +	arm64_exit_to_user_mode(regs, hwstate);
->>  }
->>  
->>  asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
->> @@ -946,6 +1048,8 @@ asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
->>  	default:
->>  		el0_inv(regs, esr);
->>  	}
->> +
->> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->>  }
->>  
->>  asmlinkage void noinstr el0t_32_irq_handler(struct pt_regs *regs)
->> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
->> index f63049ac32dc..cb3be770f2d0 100644
->> --- a/arch/arm64/kernel/entry.S
->> +++ b/arch/arm64/kernel/entry.S
->> @@ -316,7 +316,7 @@ alternative_else_nop_endif
->>  
->>  	mrs_s	x20, SYS_ICC_PMR_EL1
->>  	str	w20, [sp, #S_PMR]
->> -	mov	x20, #GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET
->> +	mov	x20, #GIC_PRIO_IRQON
->>  	msr_s	SYS_ICC_PMR_EL1, x20
->>  
->>  .Lskip_pmr_save\@:
->> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
->> index d46022f72075..b91cf163aac7 100644
->> --- a/arch/arm64/kernel/smp.c
->> +++ b/arch/arm64/kernel/smp.c
->> @@ -185,7 +185,7 @@ static void init_gic_priority_masking(void)
->>  	WARN_ON(!(cpuflags & PSR_I_BIT));
->>  	WARN_ON(!(cpuflags & PSR_F_BIT));
->>  
->> -	gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
->> +	gic_write_pmr(GIC_PRIO_IRQON);
->>  }
->>  
->>  /*
-> 
-> -- BR Liao, Chang
-> 
+Jon
+
+-- 
+nvpublic
 
 
