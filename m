@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9CEC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 08:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E585C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 08:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SCmGYQYvTEf351a469pe44RgiJyCzUCfUVrveP/GI5I=; b=SMpoyWtqbQQUg890aAPay+1B+D
-	SgKsp9UVDi7/eti/HboZCtOkSuYqg3S8/vRzo90L8OxZLBKIS8tCg3l6P8/fZWnir5sOTDhDpKVsE
-	HWG38FNAluyoM/6IgOJQ9jip7RPAMw1rQ41xb6HilfhiPl6yhKYv5yxRWoo8ZjEOpVlxcawoouZVf
-	dNhtlBB5kaQfK0C5OemzLXCdlVwZbfcpozZ2HimHM1/9O3iXMNjSG7Eic4/gEhAmGERMY76OmsM8x
-	H1iRg2jbBcVI1cck26ne0kRpdRavLKG+GMN0e8Uwlu0SouW1QZUL1RfkMDLbmzgT7KWmF5zOhaLo6
-	4wEfpg0Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4CxWBQDeU5xVUZ5kekhvvHmx15qwBTQL8qybV6/TlUs=; b=n0ol3tQ3ZLgMVIu/8Ir+zEpxwD
+	DSZMtMGhtTJbj1sP7vkLmjiBpVqJmuoAdN2aT/mdF4bDZ6kLnnvQ69khMYvzYsEToz7ggPHBssPE3
+	shdXqVWzDTgUEBYSAuP2YCQf5iqbifFyZ2PYzCJ1LqCWnc7Hmp5F4pwQQosu1wYlDDKjsuse9wLu1
+	WGY3Kb7Odx+GCKo3RuyFl/KcyLzLD32maFET1fYhRbnhHKJPmm2lkn1xUoLw2xVNsswJlq7ARR7wj
+	hEq7VDVV5KAGY0WoTFXK2ZLQHdvMtwcpY6nxp/Jp4zRfvN+hfTSTtqL+M6cfahqDYpFFNDvWkSU+O
+	dqVt5kvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGxz-00000002GN6-1U8S;
-	Mon, 27 Jul 2026 08:45:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1woH2V-00000002Gdh-3a8G;
+	Mon, 27 Jul 2026 08:50:23 +0000
+Received: from [2a0f:4ac0::3a11] (helo=mail.cyberchaos.dev)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGxx-00000002GMy-47UQ
+	id 1woH2S-00000002Gd7-2qBq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 08:45:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7ADFE43261;
-	Mon, 27 Jul 2026 08:45:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8A91F00A3A;
-	Mon, 27 Jul 2026 08:45:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785141941;
-	bh=SCmGYQYvTEf351a469pe44RgiJyCzUCfUVrveP/GI5I=;
-	h=From:To:Cc:Subject:Date;
-	b=HFN1D11DivCImlY0/SMRRS43msSnwEjSBsWPeJA40cDJ+sYtSMk5zZGVKALL/aKdU
-	 UtUtFAZRFQUZgrHdPL6yjKsGwXuStdY5GzB1IPjU7UxNwadNXbuBhYNhUMfXNrTO6C
-	 Xhia/lC1XEWQ+qIA3MWIESqK8LJCUu6ODBtcHm3BG9Q5ImBm7sKYPkK4NBiD1/dV33
-	 jEO0vJul90izJcpGFSXXkLH19vpu5KgG7z6F09fMFQ4FZQXPeQFRvUD2r1PnYeNwdK
-	 g5Nd7qgEd0kFJ2cQx5Knu2l7lIgKHK5eAcudSR11rDtXnqJdW1OH00CGoJtozNvAXZ
-	 s2sIRZCFw9J0g==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org
-Subject: [PATCH v2] powerpc: Move CONFIG_QE_GPIO to SoC
-Date: Mon, 27 Jul 2026 10:45:37 +0200
-Message-ID: <9a7131d15a94e2017877e628f0e97f9aa2e0aae9.1785140877.git.chleroy@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	Mon, 27 Jul 2026 08:50:21 +0000
+Message-ID: <a6602971-87f8-4365-9ec2-dfe3a1ccfeb6@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1785142201;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4CxWBQDeU5xVUZ5kekhvvHmx15qwBTQL8qybV6/TlUs=;
+	b=BE0AFRENAJ2UYvSuzj+AWbyilZ8oTXTQO56nKU42/MZmWf3/sO3HFk5Ofhvo4zmModtyau
+	PLc2q+wTzDZVSoQAUkeVeFxhxnBuQRt+I5pd4LdnkY8mamlhpMddp0SRQaBrlhbV20ORIi
+	ri2oeU8LRkBS+hWg2hIxpG/wiWBZIPw=
+Date: Mon, 27 Jul 2026 10:49:57 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2442; i=chleroy@kernel.org; h=from:subject:message-id; bh=B4hOgD0R97s0zSf2lKkhvcdFwj3V1Wug4B7VlY2ZxuE=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWSlS229GLsr21EzqPmua63bu6XNpwWLtfwv7ot42Pxta ULxTI2pHaUsDGJcDLJiiizH/3PvmtH1JTV/6i59mDmsTCBDGLg4BWAi7EWMDM//Lg2rjf71ul1z 9/1Zm67yL7UOfsnCJFc+6bbMxMCMzNsM/0uL983c+T+eedXOxkl5mx+7+5zt2nbRZeLmVOE5Zs/ nybEDAA==
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
+Subject: Re: [PATCH v2] arch: arm64: add early_param idle=<wfi|yield|nop>
+To: Will Deacon <will@kernel.org>, Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260711-arm64-idle-param-v2-1-0ab67652a435@cyberchaos.dev>
+ <amE5bX0jey6WS0U1@willie-the-truck>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+In-Reply-To: <amE5bX0jey6WS0U1@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_015020_917548_7B942DBA 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +70,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 7aa1aa6ecec2 ("QE: Move QE from arch/powerpc to drivers/soc")
-moved QE into drivers/soc including gpio.c but left CONFIG_QE_GPIO
-in powerpc's Kconfig.
+On 7/22/26 23:43, Will Deacon wrote:
+> On Sat, Jul 11, 2026 at 09:35:25AM +0200, Yureka Lilian wrote:
+>> diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
+>> index e278e060e78a..2452990ed37a 100644
+>> --- a/arch/arm64/lib/delay.c
+>> +++ b/arch/arm64/lib/delay.c
+>> @@ -15,6 +15,8 @@
+>>   
+>>   #include <clocksource/arm_arch_timer.h>
+>>   
+>> +#include "../kernel/idle.h"
+>> +
+>>   #define USECS_TO_CYCLES(time_usecs)			\
+>>   	xloops_to_cycles((time_usecs) * 0x10C7UL)
+>>   
+>> @@ -49,7 +51,8 @@ void __delay(unsigned long cycles)
+>>   		 * Start with WFIT. If an interrupt makes us resume
+>>   		 * early, use a WFET loop to complete the delay.
+>>   		 */
+>> -		wfit(end);
+>> +		if (likely(idle == ARM64_IDLE_WFI))
+>> +			wfit(end);
+> Rather than scatter the idle implementation check across all users of
+> WFI*, why not move this into the macro itself? That way, the callers can
+> all stay like they are but the macro behaves as specified.
+>
+> Will
 
-Move it to SoC as well as it is the only place it is used:
+In practise, I could only find the following uses of WFI / WFIT / wfi() 
+/ wfit() in arm64 code: 1) the default idle loop and delay() function; 
+arguably the only "real" users 2) parking cores after different kinds of 
+unexpected situations / crashes.
 
-  drivers/soc/fsl/qe/Makefile:obj-$(CONFIG_QE_GPIO)       += gpio.o qe_ports_ic.o
-  include/soc/fsl/qe/qe.h:#ifdef CONFIG_QE_GPIO
-  include/soc/fsl/qe/qe.h:#endif /* CONFIG_QE_GPIO */
+Just to confirm, you are suggesting to add the conditionals to 
+arch/arm64/include/asm/barrier.h, and have wfi() and wfit() macros not 
+actually do WFI / WFIT depending on the value of the idle param?
 
-There is also a dependency in USB subsystem for CONFIG_USB_FHCI_HCD:
+I'm torn about this: We should maybe first discuss what effect idle= 
+should have: Should it prevent WFI running anywhere in the kernel when 
+idle=nop, OR is its intended use case to change the default arm64 
+implementations for idle and delay, while still allowing other parts of 
+the kernel to use WFI (for example, for custom cpuidle implementation)? 
+I think the existing nohlt parameter, which disables all idle states, is 
+more fitting for the first goal, even though it currently does not 
+prevent the wfit in the delay function.
 
-  drivers/usb/host/Kconfig:	depends on QE_GPIO && QUICC_ENGINE
+For preventing WFI anywhere, I think alternatives patching based on the 
+earlyparam would be the most reliable way to achieve that, and second 
+most reliable way is putting the conditional in the wfi() / wfit() macros.
 
-Because that USB driver selects CONFIG_FSL_GTM which is specific to
-powerpc, it has to depend on CONFIG_PPC.
+But my assumption is that what we want to achieve is actually closer to 
+changing only the default idle implementation, while allowing an idle 
+state registered at later point to still do its thing (including using 
+WFI for this purpose). And for this (and to be more flexible with other 
+idle modes e.g. yield), what I proposed in this patch makes more sense, 
+and I'm relatively confident it will fulfill the Apple Silicon use case 
+without adding many more scattered checks other than these two.
+Does this make sense?
 
-Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
----
-v2: Add a dependency on CONFIG_PPC for CONFIG_USB_FHCI_HCD
----
- arch/powerpc/platforms/Kconfig | 8 --------
- drivers/soc/fsl/qe/Kconfig     | 8 ++++++++
- drivers/usb/host/Kconfig       | 1 +
- 3 files changed, 9 insertions(+), 8 deletions(-)
 
-diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kconfig
-index c4e61843d9d9..2f797ac6f1b3 100644
---- a/arch/powerpc/platforms/Kconfig
-+++ b/arch/powerpc/platforms/Kconfig
-@@ -228,14 +228,6 @@ config TAU_AVERAGE
- 
- 	  If in doubt, say N here.
- 
--config QE_GPIO
--	bool "QE GPIO support"
--	depends on QUICC_ENGINE
--	select GPIOLIB
--	help
--	  Say Y here if you're going to use hardware that connects to the
--	  QE GPIOs.
--
- config CPM2
- 	bool "Enable support for the CPM2 (Communications Processor Module)"
- 	depends on (FSL_SOC_BOOKE && PPC32) || PPC_82xx
-diff --git a/drivers/soc/fsl/qe/Kconfig b/drivers/soc/fsl/qe/Kconfig
-index eb03f42ab978..b35a8fd30ebf 100644
---- a/drivers/soc/fsl/qe/Kconfig
-+++ b/drivers/soc/fsl/qe/Kconfig
-@@ -67,3 +67,11 @@ config QE_USB
- 	default y if USB_FSL_QE
- 	help
- 	  QE USB Controller support
-+
-+config QE_GPIO
-+	bool "QE GPIO support"
-+	depends on QUICC_ENGINE
-+	select GPIOLIB
-+	help
-+	  Say Y here if you're going to use hardware that connects to the
-+	  QE GPIOs.
-diff --git a/drivers/usb/host/Kconfig b/drivers/usb/host/Kconfig
-index b3b1ec696bf5..10cff12a3f31 100644
---- a/drivers/usb/host/Kconfig
-+++ b/drivers/usb/host/Kconfig
-@@ -611,6 +611,7 @@ config USB_UHCI_ASPEED
- config USB_FHCI_HCD
- 	tristate "Freescale QE USB Host Controller support"
- 	depends on QE_GPIO && QUICC_ENGINE
-+	depends on PPC
- 	select FSL_GTM
- 	select QE_USB
- 	help
--- 
-2.54.0
+Thanks!
+
+— Yureka
+
 
 
