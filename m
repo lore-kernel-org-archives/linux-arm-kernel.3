@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA81C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 18:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D004C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 18:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLf4jEdNQ3a8U1r9I6rVIwBuhXSWDd0BCBTUaYYL+EY=; b=KgExu+pQ3DnLQr/SvtwZyjtKpq
-	hz187f3y84Lk5daKFHfDq31idml0IrYOLHxe1UjgyUTNmP8Getq8TibAUMizoAWgMtXRpjPPz7z/S
-	OawXo0FgXFDhVqbCXVoVKuSTJVJp8YPGun0VROEMjLtKy8h7311SDv+SRbD4S/iEPOj0OO9INF9Xq
-	ghd927LG+UzUdLcIqss1vtKfDxwRhj/X7EQaz+5PmoeN3RQQ2C/aNZvX8KLzdJWejcIcnIaYQWurn
-	0z4JSmJ6d67CYeVv5rqg3hc0dsPvUNlL70WozKor5n4feoGTvt84vKiXn2PysFOs5j/sy6z4hmkeQ
-	IbiKUi0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JlQNF4yHtnpvNhFrRalK9y5HMb8J8DOXcYWlwHyoEec=; b=0Ck4OBqB+9vuny3WKhvZWPfmst
+	h2ghP3XPoP7NMLGRYcFuD2BjKhUYF1Zpb5iHUGk18mwn/K57TvFuJ3yFeYTwOlJF7Nrxyq0Lmnc3/
+	AG5LsHlBYKGdp8ZH2SPtfsZLRXQvejd9qlhEnPD3qCSfkQIvpYqu7YNinoJAzzJNdAcGWg+D/FY4L
+	cuUftgo8JklvGVCGPuWS5yBdT01Hy3Ui/x8QY0H5kaNPwD0o4as7dFbWBXTYeF2nQ3sufFh4qCCSv
+	589sbhBInReTq4XdSuqOwunfwLU7qB4Y65CarYJ63sE1G7upcHp5tIQNBc5JEaZGIjqNuOp4RwLp/
+	gLSHg/gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQ28-00000003eYM-0yUK;
-	Mon, 27 Jul 2026 18:26:36 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1woQ5g-00000003fQG-2ZRY;
+	Mon, 27 Jul 2026 18:30:16 +0000
+Received: from confino.investici.org ([93.190.126.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woQ1w-00000003eLr-07Xc
+	id 1woQ5c-00000003fOl-2X5s
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 18:26:29 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-495437bb891so1570765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 11:26:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785176782; x=1785781582; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pLf4jEdNQ3a8U1r9I6rVIwBuhXSWDd0BCBTUaYYL+EY=;
-        b=jvxwY7ecuzQvxbuZ9B1DcoFNvFmjWshamfoRGRkMSNMRiPaQNVWusdjptgj+zBuEcK
-         QILhqxR5EUouFzngqrIItta/ckSzteG4VI4td5ONeGS3zdyaCBMejRGFqcdTHHqKeAS5
-         8I9357kzC0YIH/AuBEwcH+ia9s/m/mDjHUPCw1KSp7otyocBuhTRc2qY4zvlku3SloWK
-         etXrFO3i6112mzcvIIAMr4vU72TXLykpntnC5izR4V9lPMAIylaUpW8nABrzWxiHDghg
-         JrEKzTiIQ8Gz/onzPHxjKhUKxNSM84Sj1eTcjnrJivGWiKQE2kot2ZwBd1XT4USClqof
-         rilQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785176782; x=1785781582;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pLf4jEdNQ3a8U1r9I6rVIwBuhXSWDd0BCBTUaYYL+EY=;
-        b=ibSWNQ08Z40Yvq5I7MH4BiQaNbQAjMCd8fD9Tn1oAmmynMcxk9c2EjfhtslPF+8sW4
-         SW7U0oYryrqv/DdoUT5K75yIQj0K2n6K7KUNdVT6JTl1V5yDqWtKwzicBq8Sbgu11h8I
-         zzd3b7BrJDk5KaHZOimNLTezFaCoF6hvI0ChkvyTC1vU387fS/S5MROeL1VQwzVkM4Gu
-         b6lUktyORtDuzdM1NL4jpTydtCQFNYKzk/ZMP7+YMMuxPJf87blwPdD54/NBMvce4PYt
-         xf/O3y1m9cg0GgyGTsB0+caprYCySznbtNEU/O+1k2H+JsIAx+WTDA3J/SLH/RvjzQk0
-         4fYg==
-X-Forwarded-Encrypted: i=1; AHgh+RrV1/w8DGW8LmjbbbF6GEJAiAS72zGZswYRLSTRTELpGjUirzMHJmyAdlilOMKuHctEq7hHtIGNwuToA/IW2UOb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj+1cetBcM57jBmblXNFMx+FDfBvxagqCTsObtrPLxftDg3Ph3
-	Bx1X+1D5JOlko5e6+U9gZReFi6W+JF49wpMLfM5hJNTNPiXJGD6Juy3H
-X-Gm-Gg: AR+sD126uVKRAVbooydi7VoLLyX6z6NJZhBq+xSTiDnOgDd1u0QaK2TJN0p8uwD4tWa
-	FfY8WNSTaImWOMQpoi1foDUrOEHTNCk0EgJkXTiRUrPLC48W2BVhMaxchinvI0frsxr4Kfw5eqk
-	86A/Ye6ovcyYpV9u6/Vg6QwIrRzl8FjusoXk7KOi5zaTVJMaKKt5f/awV+mD2D+lzWzMHzSa916
-	MV5HRWdhOc11qVErx2m/ITHhVQ4t7zMJk04LTnzkBmhnA27vGMjDer+hm3inU/qr8blgMQ+YgfT
-	yFEyMyT6mHqP5LqpnrcZYOXBiFkk1UROHLmK0BXKrvGaabNix+X1RIdIVTO7FkXx4D4tgZPSPRO
-	Tqb45YICNHR2QZWKZndcYQ8ND8Zfa+9dfLs7vetQmByefdHQG1xm4EExsbkij/rdn8IZ3NqIR8W
-	rw4SJl7IidsxBj
-X-Received: by 2002:a05:600c:6090:b0:494:1f7:8057 with SMTP id 5b1f17b1804b1-496c46395e8mr9197315e9.1.1785176781689;
-        Mon, 27 Jul 2026 11:26:21 -0700 (PDT)
-Received: from [192.168.0.2] ([197.250.51.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c53052sm50689288f8f.18.2026.07.27.11.26.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 11:26:21 -0700 (PDT)
-From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Mon, 27 Jul 2026 21:24:26 +0300
-Subject: [PATCH v8 11/12] reset: zte: Add a zx297520v3 reset driver
+	Mon, 27 Jul 2026 18:30:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1785177006;
+	bh=JlQNF4yHtnpvNhFrRalK9y5HMb8J8DOXcYWlwHyoEec=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hR/lQT8OIYsdwwJTh1Tc4/tj85NxrmWd7eaXU4w/JLKYiyRn10JCmUVC45h7Mys2w
+	 IXsV8/7fgzfjOtSTSprSr4gJM7QQVZXJqgiUx067tdAyTjeIosRza//9dfL0sQNOdH
+	 7c3DuKVaQPTK6iFTY0fFX+K69Af3/gjMsOOcffTw=
+Received: from mx1.investici.org (unknown [127.0.0.1])
+	by confino.investici.org (Postfix) with ESMTP id 4h86b26bllz1142;
+	Mon, 27 Jul 2026 18:30:06 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4h86b161rtz10xk;
+	Mon, 27 Jul 2026 18:30:05 +0000 (UTC)
+From: Bradley Morgan <include@grrlz.net>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kunit-dev@googlegroups.com,
+	linux-kselftest@vger.kernel.org,
+	Bradley Morgan <include@grrlz.net>
+Subject: [RFC PATCH] KVM: arm64: Add KUnit tests for stage 2 walker memcache consumption
+Date: Mon, 27 Jul 2026 18:30:05 +0000
+Message-ID: <20260727183005.10377-1-include@grrlz.net>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260727-zx29clk-v8-11-7a107b00f1dd@gmail.com>
-References: <20260727-zx29clk-v8-0-7a107b00f1dd@gmail.com>
-In-Reply-To: <20260727-zx29clk-v8-0-7a107b00f1dd@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-phy@lists.infradead.org, mfd@lists.linux.dev, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13103;
- i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=a6YLkKuSs4kJPaLRasXH9nzSp+z52nGcqRGH62P/fZ4=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqZ6J7Fuv2tLvcZeKsC/LkvyqmN6TPp/37diL+k
- +/HV3lrOIOJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCameiexsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiLOjw//Vi+RMdP+BC8l8ucqzUIqbQs8YMYcFh7
- rteAqZFo5LJbWP0cNhZBJ7zgAfQnMYq1Lfjrq80ko+0BHtVUVtU1uVpHRha8J1dU+itV7xw+Zxd
- x0LfMEfVF7aXiErUXkZxWz2hZ/U96mXqP/sZk6VCaMGv0hDVQXw7AtA6WoNwl+X7UhqHp68HDGc
- CQedqGDxMjvdHKaknyyTisH1hLtv8w72SXoiOL4mXDOFHnqOrJxo+6jphPXL8v3XMTVDEfLSda8
- fGhTMetVdqzwnO/ClS392xxDzNrpdRPu6v/lzJH3tXHrE81VCGSzFL+ljWb34njB5rgYQuIicOd
- h/N2InBlz/O3E6EbZkBzSZtBlI8doDHvCWc3wPjyfLhiRy7Fdk4VkQkjAVSVUboWgxvO++bsJeI
- Wrhgw1kytmXiq0MXCXRRMTG+5RSsHqkNL73ehwaHLGlV5nVMNtQ7lkly5jtQ8pGI360dxUP7BvZ
- u+qqTXOzs4cW7tuR7UMlXNKj8V37GcO15jegUoouK9gB1ByIhTaXx8NYwUQMJFfy0Pb9x8YgXk5
- OApNuTPLRGw/BJP76+tGdQdLSKLjQJgcWF8iwJX+sUtrxUuZRWKkKCOMN2p71QtzkkK7uI3qrtA
- QQoYD3LuHv84xE1fEgVygerrsoZ7QxJNNlSLrajMV6MWAHRyEUdE=
-X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
- fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_112624_128884_1EC97D98 
-X-CRM114-Status: GOOD (  28.55  )
+X-CRM114-CacheID: sfid-20260727_113013_164684_19BFF720 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,327 +78,334 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This drives the MFD child devices created by the zte-zx297520v3-crm
-driver.
+The stage 2 walker in hyp/pgtable.c takes every dependency through
+struct kvm_pgtable_mm_ops, so it can be exercised against a mock
+allocator with a bounded page budget: the same shape as the memcache a
+fault handler stages before calling kvm_pgtable_stage2_map().
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+Granularity changes that dirty logging forces at fault time (collapse
+of pages into a block when logging stops, block splits when it starts)
+consume that budget in ways that today only surface under a running
+guest on arm64 hardware. Pin the walker allocation contract down at
+unit level instead: a fresh page mapping must succeed with a stocked
+cache and fail cleanly with ENOMEM on an empty one, and coalescing
+pages back into a block must consume no cache pages at all.
+
+All map calls pass KVM_PGTABLE_WALK_SKIP_BBM_TLBI and SKIP_CMO since
+no hardware walker can ever observe the tables under test.
+
+Run with:
+
+  tools/testing/kunit/kunit.py run --arch=arm64 'kvm-stage2-pgtable.*'
+
+Assisted-by: Claude:fable-5 # Told me about this, also helped with writing
+Signed-off-by: Bradley Morgan <include@grrlz.net>
 ---
+Hey, I tested these tests, they work, Feel free to review in your own time! 
+This series was inspired by Fuads selftests [1]
 
-v8: Select MFD_SYSCON for COMPILE_TESTing this driver without the MFD
-parent driver.
+[1] https://lore.kernel.org/all/20260717130317.1953574-8-fuad.tabba@linux.dev/
 
-v7:
-Add MODULE_DEVICE_TABLE (Philipp)
-Add DDR control and LSP resets
+ arch/arm64/kvm/Kconfig        |  11 ++
+ arch/arm64/kvm/Makefile       |   2 +
+ arch/arm64/kvm/pgtable_test.c | 252 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 265 insertions(+)
+ create mode 100644 arch/arm64/kvm/pgtable_test.c
 
-v6:
-Add a comment wrt checking all bits in .status() (Philipp)
-include cleanup (Philipp, Sashiko)
-
-v5:
-Make top and matrix MFD children instead of aux devices
-Split USB PHY reset into its own reset ID
-Remove USB reset wait code - this will be handled via syscon from a
-future minimal phy-zx29-usb driver
----
- MAINTAINERS                          |   1 +
- drivers/reset/Kconfig                |  12 ++
- drivers/reset/Makefile               |   1 +
- drivers/reset/reset-zte-zx297520v3.c | 237 +++++++++++++++++++++++++++++++++++
- 4 files changed, 251 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 692f005cb2c4..2db95644cf98 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3885,6 +3885,7 @@ F:	arch/arm/boot/dts/zte/
- F:	arch/arm/mach-zte/
- F:	drivers/clk/zte/
- F:	drivers/mfd/zte-zx297520v3-crm.c
-+F:	drivers/reset/reset-zte-zx297520v3.c
- F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
- F:	include/dt-bindings/phy/zte,zx297520v3-topcrm.h
- F:	include/dt-bindings/reset/zte,zx297520v3-reset.h
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index d009eb0849a3..97f41574d81d 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -404,6 +404,18 @@ config RESET_UNIPHIER_GLUE
- 	  on UniPhier SoCs. Say Y if you want to control reset signals
- 	  provided by the glue layer.
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 449154f9a485..07d681c886ad 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -44,6 +44,17 @@ menuconfig KVM
  
-+config RESET_ZTE_ZX297520V3
-+	tristate "ZTE zx297520v3 Reset Driver"
-+	depends on MFD_ZTE_ZX297520V3_CRM || COMPILE_TEST
-+	default SOC_ZX297520V3
-+	select MFD_SYSCON
+ if KVM
+ 
++config KVM_PGTABLE_KUNIT_TEST
++	bool "KUnit tests for the stage 2 page table walker" if !KUNIT_ALL_TESTS
++	depends on KUNIT=y
++	default KUNIT_ALL_TESTS
 +	help
-+	  This enables the reset controllers for ZTE zx297520v3 SoCs. The reset
-+	  controllers are required for booting this board and are part of the
-+	  clock and reset management controllers on this board, so you will also
-+	  need MFD_ZTE_ZX297520V3_CRM. Enable this if you are building a kernel
-+	  for a ZTE zx297520v3 based board.
++	  Say Y here to run unit tests for the stage 2 page table walker
++	  in hyp/pgtable.c against a mock allocator, covering how map and
++	  collapse operations consume the fault handler memcache.
 +
- config RESET_ZYNQ
- 	bool "ZYNQ Reset Driver" if COMPILE_TEST
- 	default ARCH_ZYNQ
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 3e52569bd276..9a8a48d44dc4 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -50,5 +50,6 @@ obj-$(CONFIG_RESET_TI_TPS380X) += reset-tps380x.o
- obj-$(CONFIG_RESET_TN48M_CPLD) += reset-tn48m.o
- obj-$(CONFIG_RESET_UNIPHIER) += reset-uniphier.o
- obj-$(CONFIG_RESET_UNIPHIER_GLUE) += reset-uniphier-glue.o
-+obj-$(CONFIG_RESET_ZTE_ZX297520V3) += reset-zte-zx297520v3.o
- obj-$(CONFIG_RESET_ZYNQ) += reset-zynq.o
- obj-$(CONFIG_RESET_ZYNQMP) += reset-zynqmp.o
-diff --git a/drivers/reset/reset-zte-zx297520v3.c b/drivers/reset/reset-zte-zx297520v3.c
++	  If unsure, say N.
++
+ config PTDUMP_STAGE2_DEBUGFS
+ 	bool "Present the stage-2 pagetables to debugfs"
+ 	depends on DEBUG_KERNEL
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 59612d2f277c..d4b506e3389b 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -32,6 +32,8 @@ kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
+ 
+ kvm-$(CONFIG_NVHE_EL2_TRACING) += hyp_trace.o
+ 
++kvm-$(CONFIG_KVM_PGTABLE_KUNIT_TEST) += pgtable_test.o
++
+ always-y := hyp_constants.h hyp-constants.s
+ 
+ define rule_gen_hyp_constants
+diff --git a/arch/arm64/kvm/pgtable_test.c b/arch/arm64/kvm/pgtable_test.c
 new file mode 100644
-index 000000000000..9636530e37bd
+index 000000000000..f2585a646c07
 --- /dev/null
-+++ b/drivers/reset/reset-zte-zx297520v3.c
-@@ -0,0 +1,237 @@
++++ b/arch/arm64/kvm/pgtable_test.c
+@@ -0,0 +1,252 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (C) 2026 Stefan Dösinger
-+ */
-+#include <dt-bindings/reset/zte,zx297520v3-reset.h>
-+#include <linux/reset-controller.h>
-+#include <linux/platform_device.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/regmap.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+#include <linux/errno.h>
-+#include <linux/bits.h>
-+#include <linux/err.h>
-+
-+/* Most devices on the zx297520v3 SoC have one reset bit per clock line. As a rule of thumb, the
-+ * lower bit disconnects the device from the bus, similarly to turning off PCLK - registers read 0
-+ * or hang indefinitely. Unlike PCLK, this reset may have a lingering effect after deasserting.
-+ * E.g. timers will be disabled, but retain their counter value.
++ * KUnit tests for the KVM stage 2 page table walker (hyp/pgtable.c).
 + *
-+ * The other bit resets the actual device registers.
++ * The walker takes all of its dependencies through kvm_pgtable_mm_ops,
++ * so these tests plug in a mock allocator with a bounded page budget
++ * and assert exactly how map and collapse operations consume it. A
++ * fault path that fails to stage enough memory for a stage 2 update
++ * shows up here as a clean ENOMEM at unit level, rather than as a
++ * WARN or worse under a running guest on arm64 hardware.
 + *
-+ * For some devices, e.g. GMAC, both reset bits behave in the same way: They disconnect the device
-+ * and registers will have their default state after deasserting. For devices that have two reset
-+ * bits, both need to be deasserted for the device to function.
++ * All map calls pass KVM_PGTABLE_WALK_SKIP_BBM_TLBI and SKIP_CMO
++ * since no hardware walker can ever observe these tables.
 + */
-+struct zte_reset_reg {
-+	u32 mask;
-+	u16 reg;
++#include <kunit/test.h>
++
++#include <linux/kvm_host.h>
++#include <linux/sizes.h>
++
++#include <asm/cpufeature.h>
++#include <asm/kvm_pgtable.h>
++#include <asm/sysreg.h>
++
++#define TEST_PHYS_SHIFT		40
++#define TEST_IPA		SZ_1G
++/* Never dereferenced: CMOs are skipped and leaf PAs are never followed. */
++#define TEST_PA			(4UL * SZ_1G)
++#define TEST_WALK_FLAGS		(KVM_PGTABLE_WALK_SKIP_BBM_TLBI | \
++				 KVM_PGTABLE_WALK_SKIP_CMO)
++
++/* Stands in for the fault handler memcache: a bounded page budget. */
++struct test_memcache {
++	int avail;
++	int allocated;
 +};
 +
-+struct zte_reset_data {
-+	const struct zte_reset_reg *resets;
-+	unsigned int num;
++static void *test_zalloc_page(void *arg)
++{
++	struct test_memcache *mc = arg;
++
++	if (!mc || mc->avail <= 0)
++		return NULL;
++
++	mc->avail--;
++	mc->allocated++;
++	return (void *)get_zeroed_page(GFP_KERNEL);
++}
++
++static void *test_zalloc_pages_exact(size_t size)
++{
++	return alloc_pages_exact(size, GFP_KERNEL | __GFP_ZERO);
++}
++
++static void test_free_pages_exact(void *addr, size_t size)
++{
++	free_pages_exact(addr, size);
++}
++
++static void test_get_page(void *addr)
++{
++	get_page(virt_to_page(addr));
++}
++
++static void test_put_page(void *addr)
++{
++	put_page(virt_to_page(addr));
++}
++
++static int test_page_count(void *addr)
++{
++	return page_count(virt_to_page(addr));
++}
++
++static void *test_phys_to_virt(phys_addr_t phys)
++{
++	return __va(phys);
++}
++
++static phys_addr_t test_virt_to_phys(void *addr)
++{
++	return __pa(addr);
++}
++
++static void test_cmo_nop(void *addr, size_t size)
++{
++}
++
++static struct kvm_pgtable_mm_ops test_mm_ops;
++
++static void test_free_unlinked_table(void *addr, s8 level)
++{
++	kvm_pgtable_stage2_free_unlinked(&test_mm_ops, addr, level);
++}
++
++static struct kvm_pgtable_mm_ops test_mm_ops = {
++	.zalloc_page		= test_zalloc_page,
++	.zalloc_pages_exact	= test_zalloc_pages_exact,
++	.free_pages_exact	= test_free_pages_exact,
++	.free_unlinked_table	= test_free_unlinked_table,
++	.get_page		= test_get_page,
++	.put_page		= test_put_page,
++	.page_count		= test_page_count,
++	.phys_to_virt		= test_phys_to_virt,
++	.virt_to_phys		= test_virt_to_phys,
++	.dcache_clean_inval_poc	= test_cmo_nop,
++	.icache_inval_pou	= test_cmo_nop,
 +};
 +
-+struct zte_reset {
-+	struct reset_controller_dev rcdev;
-+	struct regmap *map;
-+	const struct zte_reset_reg *resets;
++struct pgtable_test_ctx {
++	struct kvm *kvm;
++	struct kvm_pgtable pgt;
++	struct test_memcache mc;
 +};
 +
-+static inline struct zte_reset *to_zte_reset(struct reset_controller_dev *rcdev)
++static void pgtable_test_init_ctx(struct kunit *test,
++				  struct pgtable_test_ctx *ctx)
 +{
-+	return container_of(rcdev, struct zte_reset, rcdev);
++	u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
++	u64 mmfr1 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR1_EL1);
++	struct kvm_s2_mmu *mmu;
++
++	if (PAGE_SIZE != SZ_4K)
++		kunit_skip(test, "test expects 4K pages");
++
++	ctx->kvm = kunit_kzalloc(test, sizeof(*ctx->kvm), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ctx->kvm);
++
++	mmu = &ctx->kvm->arch.mmu;
++	mmu->arch = &ctx->kvm->arch;
++	mmu->vtcr = kvm_get_vtcr(mmfr0, mmfr1, TEST_PHYS_SHIFT);
++
++	KUNIT_ASSERT_EQ(test,
++			kvm_pgtable_stage2_init(&ctx->pgt, mmu, &test_mm_ops),
++			0);
 +}
 +
-+static int zx29_rst_assert(struct reset_controller_dev *rcdev, unsigned long id)
++/* Table pages needed to take one page mapping from the PGD to a leaf. */
++static int pgtable_test_max_tables(struct pgtable_test_ctx *ctx)
 +{
-+	struct zte_reset *rst = to_zte_reset(rcdev);
-+
-+	return regmap_clear_bits(rst->map, rst->resets[id].reg, rst->resets[id].mask);
++	return KVM_PGTABLE_LAST_LEVEL - ctx->pgt.start_level;
 +}
 +
-+static int zx29_rst_deassert(struct reset_controller_dev *rcdev, unsigned long id)
++static void stage2_map_page_stocked_memcache(struct kunit *test)
 +{
-+	struct zte_reset *rst = to_zte_reset(rcdev);
++	struct pgtable_test_ctx ctx = {};
++	kvm_pte_t pte = 0;
++	s8 level = 0;
++	int ret;
 +
-+	return regmap_set_bits(rst->map, rst->resets[id].reg, rst->resets[id].mask);
++	pgtable_test_init_ctx(test, &ctx);
++
++	ctx.mc.avail = pgtable_test_max_tables(&ctx);
++	ret = kvm_pgtable_stage2_map(&ctx.pgt, TEST_IPA, PAGE_SIZE, TEST_PA,
++				     KVM_PGTABLE_PROT_RW, &ctx.mc,
++				     TEST_WALK_FLAGS);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++	KUNIT_EXPECT_GT(test, ctx.mc.allocated, 0);
++
++	KUNIT_EXPECT_EQ(test,
++			kvm_pgtable_get_leaf(&ctx.pgt, TEST_IPA, &pte, &level),
++			0);
++	KUNIT_EXPECT_TRUE(test, kvm_pte_valid(pte));
++	KUNIT_EXPECT_EQ(test, level, (s8)KVM_PGTABLE_LAST_LEVEL);
++	KUNIT_EXPECT_EQ(test,
++			kvm_pgtable_stage2_pte_prot(pte) & KVM_PGTABLE_PROT_RW,
++			KVM_PGTABLE_PROT_RW);
++
++	kvm_pgtable_stage2_destroy(&ctx.pgt);
 +}
 +
-+static int zx29_rst_status(struct reset_controller_dev *rcdev, unsigned long id)
++static void stage2_map_page_empty_memcache(struct kunit *test)
 +{
-+	struct zte_reset *rst = to_zte_reset(rcdev);
-+	int res;
++	struct pgtable_test_ctx ctx = {};
++	int ret;
 +
-+	/* Devices with two reset bits need both deasserted to work. So only report them as
-+	 * deasserted if both bits are set.
-+	 *
-+	 * assert()/deassert() will always clear/set both. The only reason a device might be in a
-+	 * hybrid state is an unexpected handover state from the bootloader.
++	pgtable_test_init_ctx(test, &ctx);
++
++	/*
++	 * A fault path that reaches the walker without staging memory
++	 * must fail cleanly instead of installing a partial mapping.
 +	 */
-+	res = regmap_test_bits(rst->map, rst->resets[id].reg, rst->resets[id].mask);
-+	if (res < 0)
-+		return res;
++	ctx.mc.avail = 0;
++	ret = kvm_pgtable_stage2_map(&ctx.pgt, TEST_IPA, PAGE_SIZE, TEST_PA,
++				     KVM_PGTABLE_PROT_RW, &ctx.mc,
++				     TEST_WALK_FLAGS);
++	KUNIT_EXPECT_EQ(test, ret, -ENOMEM);
++	KUNIT_EXPECT_EQ(test, ctx.mc.allocated, 0);
 +
-+	return !res;
++	kvm_pgtable_stage2_destroy(&ctx.pgt);
 +}
 +
-+static const struct reset_control_ops zx29_rst_ops = {
-+	.assert		= zx29_rst_assert,
-+	.deassert	= zx29_rst_deassert,
-+	.status		= zx29_rst_status,
-+};
-+
-+static const struct zte_reset_reg zx297520v3_top_resets[] = {
-+	/* This bit is set by ZTE's cpko.ko blob, it looks like a reset bit for the LTE DSP
-+	 * coprocessor. Clocks for it are in matrixcrm.
-+	 */
-+	[ZX297520V3_ZSP_RESET]       = { .reg = 0x13c, .mask = BIT(0)            },
-+
-+	[ZX297520V3_UART0_RESET]     = { .reg =  0x78, .mask = BIT(6)  | BIT(7)  },
-+	[ZX297520V3_I2C0_RESET]      = { .reg =  0x74, .mask = BIT(8)  | BIT(9)  },
-+	/* Only one reset. Bit 5 is settable but does not do anything observable */
-+	[ZX297520V3_RTC_RESET]       = { .reg =  0x74, .mask = BIT(4)            },
-+	[ZX297520V3_TIMER_T08_RESET] = { .reg =  0x78, .mask = BIT(4)  | BIT(5)  },
-+	[ZX297520V3_TIMER_T09_RESET] = { .reg =  0x78, .mask = BIT(2)  | BIT(3)  },
-+	/* Only one reset. Bit 0 is settable but does not do anything observable */
-+	[ZX297520V3_PMM_RESET]       = { .reg =  0x74, .mask = BIT(1)            },
-+
-+	/* I haven't found any clocks for GPIO. It probably wouldn't make much
-+	 * sense anyway. Only one reset bit per controller.
-+	 */
-+	[ZX297520V3_GPIO_RESET]      = { .reg =  0x74, .mask = BIT(3)            },
-+	[ZX297520V3_GPIO8_RESET]     = { .reg =  0x74, .mask = BIT(2)            },
-+
-+	[ZX297520V3_TIMER_T12_RESET] = { .reg =  0x74, .mask = BIT(6)  | BIT(7)  },
-+	[ZX297520V3_TIMER_T13_RESET] = { .reg =  0x7c, .mask = BIT(0)  | BIT(1)  },
-+	[ZX297520V3_TIMER_T14_RESET] = { .reg =  0x7c, .mask = BIT(2)  | BIT(3)  },
-+	[ZX297520V3_TIMER_T15_RESET] = { .reg =  0x74, .mask = BIT(10) | BIT(11) },
-+	[ZX297520V3_TIMER_T16_RESET] = { .reg =  0x7c, .mask = BIT(4)  | BIT(5)  },
-+	[ZX297520V3_TIMER_T17_RESET] = { .reg = 0x12c, .mask = BIT(0)  | BIT(1)  },
-+	[ZX297520V3_WDT_T18_RESET]   = { .reg =  0x74, .mask = BIT(12) | BIT(13) },
-+	[ZX297520V3_USIM1_RESET]     = { .reg =  0x74, .mask = BIT(14) | BIT(15) },
-+	[ZX297520V3_AHB_RESET]       = { .reg =  0x70, .mask = BIT(0)  | BIT(1)  },
-+
-+	/* USB reset. 0x84 returns the USB device status (0x1 for HSIC up, 0x2 for USB up, but
-+	 * all 3 bits (PCLK, WCLK, PHY) need to be deasserted for the device to report ready.
-+	 * Thus polling the status is the responsibility of the USB PHY driver.
-+	 */
-+	[ZX297520V3_USB_PHY_RESET]   = { .reg =  0x80, .mask = BIT(3)            },
-+	[ZX297520V3_USB_RESET]       = { .reg =  0x80, .mask = BIT(4) | BIT(5)   },
-+	[ZX297520V3_HSIC_PHY_RESET]  = { .reg =  0x80, .mask = BIT(0)            },
-+	[ZX297520V3_HSIC_RESET]      = { .reg =  0x80, .mask = BIT(1) | BIT(2)   },
-+};
-+
-+static const struct zte_reset_data zx297520v3_topreset_data = {
-+	.resets = zx297520v3_top_resets,
-+	.num = ARRAY_SIZE(zx297520v3_top_resets),
-+};
-+
-+static const struct zte_reset_reg zx297520v3_matrix_resets[] = {
-+	[ZX297520V3_CPU_RESET]       = { .reg =  0x28, .mask = BIT(1)            },
-+	[ZX297520V3_DDR_CTRL_RESET]  = { .reg = 0x100, .mask = BIT(10) | BIT(11) },
-+	[ZX297520V3_EDCP_RESET]      = { .reg =  0x68, .mask = BIT(0)            },
-+	[ZX297520V3_SD0_RESET]       = { .reg =  0x58, .mask = BIT(1)            },
-+	[ZX297520V3_SD1_RESET]       = { .reg =  0x58, .mask = BIT(0)            },
-+	[ZX297520V3_NAND_RESET]      = { .reg =  0x58, .mask = BIT(4)            },
-+	[ZX297520V3_PDCFG_RESET]     = { .reg =  0x94, .mask = BIT(20)           },
-+	[ZX297520V3_SSC_RESET]       = { .reg =  0x94, .mask = BIT(24)           },
-+	[ZX297520V3_GMAC_RESET]      = { .reg = 0x114, .mask = BIT(0)  | BIT(1)  },
-+	[ZX297520V3_VOU_RESET]       = { .reg = 0x16c, .mask = BIT(0)            },
-+	[ZX297520V3_LSP_RESET]       = { .reg =  0x80, .mask = BIT(0)            },
-+};
-+
-+static const struct zte_reset_data zx297520v3_matrixreset_data = {
-+	.resets = zx297520v3_matrix_resets,
-+	.num = ARRAY_SIZE(zx297520v3_matrix_resets),
-+};
-+
-+static const struct zte_reset_reg zx297520v3_lsp_resets[] = {
-+	[ZX297520V3_TIMER_L1_RESET]  = { .reg = 0x04,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_WDT_L2_RESET]    = { .reg = 0x08,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_WDT_L3_RESET]    = { .reg = 0x0c,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_PWM_RESET]       = { .reg = 0x10,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_I2S0_RESET]      = { .reg = 0x14,  .mask = BIT(8)  | BIT(9)  },
-+	/* 0x18: Not writeable */
-+	[ZX297520V3_I2S1_RESET]      = { .reg = 0x1c,  .mask = BIT(8)  | BIT(9)  },
-+	/* 0x20: Not writeable */
-+	[ZX297520V3_QSPI_RESET]      = { .reg = 0x24,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_UART1_RESET]     = { .reg = 0x28,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_I2C1_RESET]      = { .reg = 0x2c,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_SPI0_RESET]      = { .reg = 0x30,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_TIMER_LB_RESET]  = { .reg = 0x34,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_TIMER_LC_RESET]  = { .reg = 0x38,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_UART2_RESET]     = { .reg = 0x3c,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_WDT_LE_RESET]    = { .reg = 0x40,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_TIMER_LF_RESET]  = { .reg = 0x44,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_SPI1_RESET]      = { .reg = 0x48,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_TIMER_L11_RESET] = { .reg = 0x4c,  .mask = BIT(8)  | BIT(9)  },
-+	[ZX297520V3_TDM_RESET]       = { .reg = 0x50,  .mask = BIT(8)  | BIT(9)  },
-+};
-+
-+static const struct zte_reset_data zx297520v3_lspreset_data = {
-+	.resets = zx297520v3_lsp_resets,
-+	.num = ARRAY_SIZE(zx297520v3_lsp_resets),
-+};
-+
-+static int reset_zx297520v3_probe(struct platform_device *pdev)
++static void stage2_collapse_pages_into_block(struct kunit *test)
 +{
-+	const struct platform_device_id *id = platform_get_device_id(pdev);
-+	struct device *dev = &pdev->dev;
-+	struct device_node *of_node = dev->parent->of_node;
-+	const struct zte_reset_data *data;
-+	struct zte_reset *rst;
++	struct pgtable_test_ctx ctx = {};
++	int ret, before, i;
++	kvm_pte_t pte = 0;
++	s8 level = 0;
++	u64 off;
 +
-+	if (!id)
-+		return -ENODEV;
-+	data = (const struct zte_reset_data *)id->driver_data;
++	pgtable_test_init_ctx(test, &ctx);
 +
-+	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
-+	if (!rst)
-+		return -ENOMEM;
++	/* Fault the whole block range in at page granularity. */
++	ctx.mc.avail = pgtable_test_max_tables(&ctx) + 1;
++	for (i = 0; i < SZ_2M / PAGE_SIZE; i++) {
++		off = (u64)i * PAGE_SIZE;
++		ret = kvm_pgtable_stage2_map(&ctx.pgt, TEST_IPA + off,
++					     PAGE_SIZE, TEST_PA + off,
++					     KVM_PGTABLE_PROT_RW, &ctx.mc,
++					     TEST_WALK_FLAGS);
++		KUNIT_ASSERT_EQ(test, ret, 0);
++	}
 +
-+	rst->resets = data->resets;
-+	rst->rcdev.owner = THIS_MODULE;
-+	rst->rcdev.nr_resets = data->num;
-+	rst->rcdev.ops = &zx29_rst_ops;
-+	rst->rcdev.of_node = of_node;
-+	rst->rcdev.dev = dev;
++	KUNIT_ASSERT_EQ(test,
++			kvm_pgtable_get_leaf(&ctx.pgt, TEST_IPA, &pte, &level),
++			0);
++	KUNIT_ASSERT_EQ(test, level, (s8)KVM_PGTABLE_LAST_LEVEL);
 +
-+	rst->map = device_node_to_regmap(of_node);
-+	if (IS_ERR(rst->map))
-+		return dev_err_probe(dev, PTR_ERR(rst->map), "Cannot get parent syscon regmap\n");
++	/*
++	 * Coalescing the pages back into a block replaces a table with
++	 * a leaf, so it must consume nothing from the memcache. This is
++	 * the transition that disabling dirty logging forces at fault
++	 * time.
++	 */
++	before = ctx.mc.avail;
++	ret = kvm_pgtable_stage2_map(&ctx.pgt, TEST_IPA, SZ_2M, TEST_PA,
++				     KVM_PGTABLE_PROT_RW, &ctx.mc,
++				     TEST_WALK_FLAGS);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++	KUNIT_EXPECT_EQ(test, ctx.mc.avail, before);
 +
-+	return devm_reset_controller_register(dev, &rst->rcdev);
++	KUNIT_EXPECT_EQ(test,
++			kvm_pgtable_get_leaf(&ctx.pgt, TEST_IPA, &pte, &level),
++			0);
++	KUNIT_EXPECT_TRUE(test, kvm_pte_valid(pte));
++	KUNIT_EXPECT_EQ(test, level, (s8)(KVM_PGTABLE_LAST_LEVEL - 1));
++
++	kvm_pgtable_stage2_destroy(&ctx.pgt);
 +}
 +
-+static const struct platform_device_id reset_zx297520v3_ids[] = {
-+	{
-+		.name = "zx297520v3-topreset",
-+		.driver_data = (kernel_ulong_t)&zx297520v3_topreset_data,
-+	},
-+	{
-+		.name = "zx297520v3-matrixreset",
-+		.driver_data = (kernel_ulong_t)&zx297520v3_matrixreset_data,
-+	},
-+	{
-+		.name = "zx297520v3-lspreset",
-+		.driver_data = (kernel_ulong_t)&zx297520v3_lspreset_data,
-+	},
-+	{ }
++static struct kunit_case stage2_pgtable_test_cases[] = {
++	KUNIT_CASE(stage2_map_page_stocked_memcache),
++	KUNIT_CASE(stage2_map_page_empty_memcache),
++	KUNIT_CASE(stage2_collapse_pages_into_block),
++	{}
 +};
-+MODULE_DEVICE_TABLE(platform, reset_zx297520v3_ids);
 +
-+static struct platform_driver reset_zx297520v3 = {
-+	.probe = reset_zx297520v3_probe,
-+	.driver = {
-+		.name = "reset-zx297520v3",
-+	},
-+	.id_table = reset_zx297520v3_ids,
++static struct kunit_suite stage2_pgtable_suite = {
++	.name = "kvm-stage2-pgtable",
++	.test_cases = stage2_pgtable_test_cases,
 +};
-+module_platform_driver(reset_zx297520v3);
 +
-+MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
-+MODULE_DESCRIPTION("ZTE zx297520v3 reset driver");
-+MODULE_LICENSE("GPL");
-
++kunit_test_suite(stage2_pgtable_suite);
 -- 
-2.54.0
+2.47.3
 
 
