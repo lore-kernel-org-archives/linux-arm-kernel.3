@@ -4,69 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7570C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 05:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7272DC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 05:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jw2uiP8cUGCdhPv/LxU9CPv+frywgpyLX4urRLZhxvw=; b=vbAKtfK+noAEF6pLkKOAWRPdnV
-	KD6xNfcZtVWbY6zlDp+OM16phuwWBEn0hlXjchrOLly1B2LrXsnXQJCI3Cbl/yQx/FjnfVfkPhX0Y
-	B8MNa86tLtnNz3PsWRL775VQi5nAjWPiSN2fhQ42CJHHAxY32smyOmMclxUCGKpzN9/o+dlzMa15m
-	25bM890knwyaaFjpw2KB2SxMhkZ6iOZVUJY6YgBLqiY0H2I3cna+KIjvmTi3p1jsxAhveTOx+tvWC
-	cWQ9IcTwM7zHi7qm1Hda8xER3urNAF7Qh8WFPNhqOsk49A0USops6i/mVRwPKJfmTdD0wWbwFktNU
-	WJ2Ap2bA==;
+	bh=glcWwuAzt8vXaIVcCfbsDd8hWx5GOfxvsNItjmFdoCs=; b=spbun9oz/RJWuNrtTBBXnD9+la
+	MQAVgQp9UVPc9nipek4tAyHnpJ1hNVmkXUwqiGirCiJe0zY40fujwEDqAqVUcdu96xs+3N7qIAs5m
+	nuJt3xz+qq4vbBicASZVbSbeQcFRTy0kxHJSy8f0bvPjQhPAm0rCFk4Y8JHI62Ao5ylNTA16fig4u
+	MA619wEylWWEZy+ENJSsJPDlIgxlzej6y05tQvRLQ1niJiER8bks3DxoIaUO21xaOIIzu88TPbsiU
+	vlFctY+2vxcHfZf8gXcUc9GCTj2+1taj+Oun5AakkgXhBBc1kCrv4QoqqVZSZ79uIEUTsmTJVUjQb
+	Twv99slQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woE2Z-00000001z5o-19z3;
-	Mon, 27 Jul 2026 05:38:15 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woE2X-00000001z5R-2LmB
+	id 1woELg-00000001zZG-3QwC;
+	Mon, 27 Jul 2026 05:58:00 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woELe-00000001zYo-1SSA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 05:38:14 +0000
-Received: from [10.7.58.6] (unknown [4.194.122.162])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 926BA20B7166;
-	Sun, 26 Jul 2026 22:37:52 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 926BA20B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1785130675;
-	bh=Jw2uiP8cUGCdhPv/LxU9CPv+frywgpyLX4urRLZhxvw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CmE9F8/jlZtTcF9dHjxwTinRAqbe0e88Z9h4nAJbbiTZkkAeNrzrlyQiWkloWWY3G
-	 FymA/q3zeS4GGJ7U/lW8V513b2VPtrvyGk7ayEEkvADHfp8WKx0T/SLkznoKo9pCYh
-	 hjH4ch5K3oHTgLnbpm4+hl0jIGpi+NlujR9UoOdk=
-Message-ID: <45ab9640-14b7-48d7-89e2-109aa3935539@linux.microsoft.com>
-Date: Mon, 27 Jul 2026 11:08:05 +0530
+	Mon, 27 Jul 2026 05:57:59 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954c0833b4so16795475e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 26 Jul 2026 22:57:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785131876; x=1785736676; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=glcWwuAzt8vXaIVcCfbsDd8hWx5GOfxvsNItjmFdoCs=;
+        b=RGmAW0W9ClO1efXbE3zzfLEVSjB0bJQMq9uisFAEWS8sU0JAjTSWMR73a2htGmVan+
+         yc9jr8B3S6qxJuOTsEdhARfRaY8vDm9GxMzaylzN26lOsOAMI6LRFHVPI4+tQwUKBwn4
+         EGj7SphvsJfHXdRmwsQWnBIbNGLyFt+5X2RUFzee3rQF7SKJtiYkp8WjPyAoUKVkCXYK
+         svQ0TKgNKmsvKzF4gJgTqawXduptGUR2CjnMVZBl5/XFAkgioyNlEVBVl1lrUZb+sfuS
+         LtpIbAOWGFBcD0Ue9cseDNfvlzB+k6PEQcX4zfv/Q4PFOeOMiv4HsJz82llsv6FjEWEG
+         E4kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785131876; x=1785736676;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=glcWwuAzt8vXaIVcCfbsDd8hWx5GOfxvsNItjmFdoCs=;
+        b=I7T5V3GdDV0iFqBtPPEXrl3/bKzHrd94YpD02g9EKBzTUrvzOLjA0bFGItKWKV2vHM
+         jVfvgxkqnP/1LijVn9JT7ih87eZC7h9NzCYd77pc6U1qdaNrelo+mgLmLeumcoBCuh5y
+         gWpkZFic805st+MY1reokGdJaaTRUtmtxV36WE06PR+PdkMNyOVBTkBcIFmbJb5ijhBK
+         YyWQeBvIalXf93P7OinWcgfNi97aNE/asnEvz6mOTijKkWZWStyB8YxaefFjPRs+Obp2
+         /2TErIZZfOjKHH7XZoAFyOdd0oB7Vm9w+eh+rpHG0o3khf3INSmfXLEpOVXG77GPQEzR
+         SKIg==
+X-Forwarded-Encrypted: i=1; AHgh+RpatgpECY6XePlksDAQLQy3x8TmCTIe9UvjAHLocQJ5FAzXTUY/xRqErvuuqgLcq5AavAIQ55ZIq2hdEGli6vtl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkFnb7mUt2vYZEOiuUwTh5SxgtqKoFsgKWGJ/VS/+wHvdaqIXC
+	CKfScSHX3Sm4uqdON0kwVYFXFKLoMQHr5zpoQ0gAzdq4c+O2HtTAqWyx
+X-Gm-Gg: AR+sD13bsOVw77Tl850zZNnkCe78L8eBAMwsIfNN9sU+V+KuF8IPGIRU4zEor5RU+iz
+	z3dknIqtryBRmqDKPdx9UhA134iEQoo10vFJK57LakdbOYYRSvCa27ALmrvgYVuf0oSpIoEtrEL
+	IjnHocXif6ARnFGmk9Apak3mABe9/gsspzXObsKSzJEayt0wEkfzT3d9iJqG954UEgNYgTSZTBI
+	hbGgxxWy9aICx250iuMA16b0lYYHgFglCh5Q6DjiuIyVy6GEmYNdXACMhcGd4Ouab5AHShrcTlu
+	0aPrTq7leniifAc90YaWYjdzWaK/QoQnTM45bQVFTu6OnFD226WwMOgOqUQpAb+y9v3rHi/ILwK
+	1anqTnSBfVp2GoTeD2d3qk51iSZNVEJTKwV/ibw7mkBVimfboEqg5c32mdNiMYes2QV3BlvrVSW
+	Jfc+pk/P8Fkl9iqWQNC0G2qZCLG5aK0niUcYf6lBmPvSEj9z17mk0erQ==
+X-Received: by 2002:a05:600c:a0d:b0:495:5b02:23b0 with SMTP id 5b1f17b1804b1-496b571dd8fmr84504225e9.26.1785131875644;
+        Sun, 26 Jul 2026 22:57:55 -0700 (PDT)
+Received: from INBSWN167928.ad.harman.com (bba-86-96-6-50.alshamil.net.ae. [86.96.6.50])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957e334f63sm172689365e9.1.2026.07.26.22.57.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 26 Jul 2026 22:57:55 -0700 (PDT)
+From: Abid Ali <dev.taqnialabs@gmail.com>
+To: andrew@lunn.ch
+Cc: alexandre.torgue@foss.st.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	dev.taqnialabs@gmail.com,
+	edumazet@google.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com
+Subject: Re: [PATCH] net: stmmac: enable MAC rx/tx after DMA start
+Date: Mon, 27 Jul 2026 05:57:15 +0000
+Message-ID: <20260727055715.4430-1-dev.taqnialabs@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <ee639271-60dd-49f7-9e77-0ae47841754d@lunn.ch>
+References: <ee639271-60dd-49f7-9e77-0ae47841754d@lunn.ch>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
- reaching head.S
-To: Will Deacon <will@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- Jinjie Ruan <ruanjinjie@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>,
- Fuad Tabba <fuad.tabba@linux.dev>, Thomas Gleixner <tglx@kernel.org>,
- Pengjie Zhang <zhangpengjie2@huawei.com>,
- mrigendrachaubey <mrigendra.chaubey@gmail.com>,
- Saurabh Sengar <ssengar@linux.microsoft.com>
-References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
- <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
- <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
- <d52431ea-3166-459c-8f3d-988fdef63c32@linux.microsoft.com>
- <amYPss8PK9dgg2TD@willie-the-truck>
-Content-Language: en-US
-From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <amYPss8PK9dgg2TD@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_223813_652255_7E4B0957 
-X-CRM114-Status: GOOD (  26.98  )
+X-CRM114-CacheID: sfid-20260726_225758_418000_A70AD2C2 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,72 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Jul 26, 2026 at 18:15:20 +0000, Andrew Lunn wrote:
+> There should be a function which is the opposite of stmmac_hw_setup(),
+> which tears it down. What order are things done there? tear down is
+> generally done in the opposite order to setup, so does the "Disable
+> the MAC Rx/Tx" also need to move?
 
+I have not seen the FIFO stall in the teardown in my testing,
+but the MAC Rx/Tx should be disabled before the DMA engine is stopped.
+For the normal path (__stmmac_release), phylink_stop() is called first
+which triggers stmmac_mac_link_down() -> stmmac_mac_set(false), so the
+MAC is already disabled before stmmac_stop_all_dma(). The teardown
+order is already correct there.
 
-On 7/26/2026 7:16 PM, Will Deacon wrote:
-> On Fri, Jul 24, 2026 at 10:16:03AM +0530, Naman Jain wrote:
->> On 7/23/2026 11:26 AM, Anshuman Khandual wrote:
->>> On 23/07/26 8:19 AM, Jinjie Ruan wrote:
->>>> 在 2026/7/22 19:30, Naman Jain 写道:
->>>>> When a secondary CPU fails to come online, __cpu_up() falls back to
->>>>> __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
->>>>> distinguish a CPU that never executed head.S (firmware/hypervisor never
->>>>> dispatched it, so it never ran a single instruction) from one that
->>>>> entered head.S, started executing, and then got stuck somewhere in kernel
->>>>> bring-up. Add a change to let us tell those two cases apart, which
->>>>> narrows down where to look when a CPU goes missing during boot.
->>>> I previously encountered this issue when debugging the parallel startup
->>>> of ARM64 secondary cores. It is difficult for the kernel to determine
->>>> whether the secondary core is hung in the firmware or whether it has not
->>>> executed a single instruction. So I think this motive is reasonable.
->>>
->>> Why should kernel determine the difference here ? Would not the firmware
->>> know if it has started any secondary CPU for the kernel which must have
->>> come inside head.S ? If the cpu gets hung inside firmware while starting
->>> up then the debug responsibilities belong there instead.
->>>
->>> Still wondering what's the rationale for this change.
->>
->> Hello Anshuman,
->> This sounds fair to me. Let me elaborate the problem, beyond the scope of
->> this patch. In production, we occasionally see these crashes where one of
->> the CPU fails to bring up online, with 0x0 status code. Hypervisor may be
->> missing the telemetry, but the problem is that we don't know if the
->> secondary CPU ever started executing the instructions or is stuck somewhere
->> between the start of head.S and marking itself online at the end of
->> secondary_start_kernel().
->> There are couple of places, where we get those other status codes, but not
->> everywhere. If the issue is not easily reproducible, experiments on local
->> setups do not yield anything. That's where I am attempting to add some more
->> information in kernel to debug these issues.
-> 
-> I think this is a game of diminishing returns. There's a lot of stuff
-> that the firmware/hypervisor can get wrong here and trying to detect or
-> handle that in Linux is going to be a real mess. For example, if it
-> enters the kernel at the wrong address, or in the wrong mode, or with
-> the MMU enabled etc. It sounds like you don't have much idea about
-> what happens in the failure case, so it might not even execute the code
-> that you're adding correctly.
+> Same comment for the opposite of stmmac_xdp_open().
 
-That is true. I agree. While we cannot and should not worry about adding 
-logs for each of these firmware failure points in kernel, do you see any 
-merit in adding any of this information to the kernel to at least narrow 
-down the problem?
+Currently, stmmac_xdp_release() does:
 
-Or, can I safely consider 0x0 unknown error in CPU bring-up to be 
-definitely a result of firmware/Hypervisor issues?
+    stmmac_stop_all_dma(priv);
+    ...
+    stmmac_mac_set(priv, priv->ioaddr, false);
 
-Regards,
-Naman
+The ordering is not followed here,  I'll make it follow the similar
+ordering to (__stmmac_release) in v2.
 
-> 
-> It's also going to conflict heavily with the ongoing parallel bringup
-> work, which significantly reworks this code.
-> 
-> I think you need to add the debug to your hypervisor, rather than the
-> kernel.
-> 
-> Will
-
+Thanks,
+Abid
 
 
