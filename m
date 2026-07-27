@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC54AC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017FCC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6mzhEupD5KseqBDjMqsuSY2ghmb9l0u8APYTIUdn3P0=; b=uX6oZR2haVt9u31BzJLTN04hRd
-	eW2CYMtPUR0/4OnWiD2ooNycnnUxyGdc5QcZ0A82sphHB5kP2/65AsStd0H+5lXIDqsC0GJiP96Wg
-	pG9XZ1ZKhA08ZWIgd+MxFPXGR8BkMkC2c+wUMj2ztjzxJ+LRo5ySO03Jd8Yxhqxul/2oYTKF+SoRx
-	hrK6Lw5w8h0/eRnf2F0ePuLfJfARPjh54q0QaaM/UBPoJYl5ipAqhVXY87kKFPssoaDS4gGDTX0yl
-	WgQixLYQOTI7fCR0qEVIWZiYPCHmp0ASL9dBiKWBVM0aKWcfaQ8bvOskNAfLnAytIRTO5fBVbGJmx
-	pv3Y37Lw==;
+	bh=Zg3XpQecv0mXXRMsDgxjkw4kFjHnoHcsHChO/11NzsA=; b=VH2RVlfG2VUzcGDae5NQQfGEkm
+	PYu6htObIhGptydZCfp9xY7dGIfAQsIUk7De3TSJt3j5jl8sPKU+c6qudQI0VeoM/o9Ha0m9m+Nj6
+	5Yn4HG8sxurzIns+MB6l8EdvqPTcFZCBWhiCUVbXYqwreUlQuAhQIs/+nBhzJ6084Bd/ow0Y2Uz+R
+	53SjJnCS5YdrDEaRUTfE7zyIrMxLoOXG8Kw+FHLV3FpcHQwzlB6UDJi1MHA1P5dqCpKjJm33bJgue
+	9UBzNyLim5AakuPhuDQaOsdBgnC+ENZMYM/hTEONtecr2u4VkG4dvXDeitMwI+L3fLOO1RYjL8MPL
+	8TKcPcAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKDp-00000002eUF-0JPy;
-	Mon, 27 Jul 2026 12:14:17 +0000
-Received: from mout.web.de ([212.227.15.4])
+	id 1woKEs-00000002ecU-1KeO;
+	Mon, 27 Jul 2026 12:15:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKDl-00000002eTt-2ztY
+	id 1woKEs-00000002ecO-00bC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 12:14:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1785154448; x=1785759248; i=markus.elfring@web.de;
-	bh=6mzhEupD5KseqBDjMqsuSY2ghmb9l0u8APYTIUdn3P0=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=hzsFM23aIdJXEv8fwddR3btBUKm2iiOzU1YMx0fp5EpzBy5FoTZd4fQ4Mk/OP94c
-	 bPA2Hpb4fzN0gnMHmDSnQDHMQsuPMGv2gAOAnOM7Ormre5TVxbHDJiJZ1KKy+Byz3
-	 kD8K1Hg0bZUsMtd+mal3Wm/OnolWilSu9wwdgPbu/t1tIOa5U2ep92MDs463kIGa1
-	 0OAEcl7YMy9Bx0T2Ip4PtbmEqB0opJ+6lgoSatKbwWkfJmYPqeKTFg0Jz7yGtwhCg
-	 gYhxphRlnwIU2S6Hlv/1F/++MNFAsBQ6+WovB+suNx184rvGZRr3ZCbuiXeNbHkAF
-	 jv0CD8B3h23tNMR1QQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MCogm-1wfYnI2uHo-00C79l; Mon, 27
- Jul 2026 14:14:08 +0200
-Message-ID: <54b81978-7a92-4193-8a03-346ccc7857ec@web.de>
-Date: Mon, 27 Jul 2026 14:14:05 +0200
+	Mon, 27 Jul 2026 12:15:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8350143E4E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 12:15:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68C541F00A3A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 12:15:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785154520;
+	bh=Zg3XpQecv0mXXRMsDgxjkw4kFjHnoHcsHChO/11NzsA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=OWNby+HGAepxfSKuvxBG+TQEypvr39SSAUxEEu2K9UoUkXYZVRipxktclrFqgDuDp
+	 /cwncd5mau4QL/VEKj5R0c1tqZoN0Ly2Aw2PkpNnWnfQDorOcgYi1SW0CB7fsKaCn/
+	 OV/xjYY8x7KM1nmeFChGO6NBUDi92HS59SxLzHJ1OGtYtH+3NYFpqttkpO+xKjIxd2
+	 vdtBHdSJw921f1kqEzyfWzxXEW3EZXJNqna7/k7yHPi79JocorcYqah/9AoLO765D2
+	 /uiCVl3l1DDCumqddowDWlllssex/5BsGmMKNRA5xFmjnHLeH8HzWg9QE1LCWQ6Km0
+	 jRyrxaI3iB9Yg==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-39c86945164so20595441fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 05:15:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqbfNOYrblo9FwI3qh15oHisP19T1onzW36Nwin6csMAmmnoh1KGe9Nrs/AThD/oE/mPp8urDdM73E79wN0ltUG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzleWWHBURkZgSw5UQMO8Ux3rP98aJuj4sP3UJw5RwoGlz40aPG
+	waY9LBMc/5KC0Z4kPC85I19EDJA3SWUqgePEBnIHX+Fc37O/LGdkdGpNcdUNUYteerQWsujmlvo
+	ZT2HKzWOPSADxq9XDgzvBDMldHHoUZOs=
+X-Received: by 2002:a05:651c:1504:b0:39e:b3b2:e95f with SMTP id
+ 38308e7fff4ca-39f2879f23dmr13514141fa.18.1785154518609; Mon, 27 Jul 2026
+ 05:15:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 2/2] soc: fsl: dpio: Use scope-based resource management in
- dpaa2_io_create()
-To: Dan Carpenter <error27@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org
-Cc: Christophe Leroy <chleroy@kernel.org>,
- Ioana Ciornei <ioana.ciornei@nxp.com>, Roy Pledge <Roy.Pledge@nxp.com>,
- LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
- <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
- <d2e5df25-c8b7-4ee6-8ebf-1725542baabd@web.de>
- <f47abd6e-9337-404c-a24f-39a9dd7454d2@web.de>
- <amdB2K43gRBDhBPI@stanley.mountain>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <amdB2K43gRBDhBPI@stanley.mountain>
-Content-Type: text/plain; charset=UTF-8
+References: <20260727-acpi-refactor-v1-0-ff900aa326ee@thegoodpenguin.co.uk>
+In-Reply-To: <20260727-acpi-refactor-v1-0-ff900aa326ee@thegoodpenguin.co.uk>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Mon, 27 Jul 2026 14:15:00 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0iVareeeAj-hECFasHtVKvZfFZXb6vqTz_BGQQVzSDk7A@mail.gmail.com>
+X-Gm-Features: AUfX_mwnO5VxOfQHtV3WXK2XDax9MNHWMK_aInuBMDBRO8AF87-O7Mc0F0MkYFQ
+Message-ID: <CAJZ5v0iVareeeAj-hECFasHtVKvZfFZXb6vqTz_BGQQVzSDk7A@mail.gmail.com>
+Subject: Re: [PATCH 0/9] ACPI: use named initializers for acpi_device_id
+To: "Pawel Zalewski (The Capable Hub)" <pzalewski@thegoodpenguin.co.uk>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Zhang Rui <rui.zhang@intel.com>, 
+	Kai-Heng Feng <kaihengf@nvidia.com>, Tony Luck <tony.luck@intel.com>, 
+	Borislav Petkov <bp@alien8.de>, Hanjun Guo <guohanjun@huawei.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Shuai Xue <xueshuai@linux.alibaba.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Dan Williams <djbw@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>, 
+	Dave Jiang <dave.jiang@intel.com>, Alison Schofield <alison.schofield@intel.com>, 
+	Ira Weiny <iweiny@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, nvdimm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:vNsg5tIS4FQGMfscrQqKkpulvFqP4ldw9YpVgBHs5Hzxru7IxrU
- +yWM/Ua3ny1RnZ1wQSPGLiqkXeF9KDGk1wU0Kz9c1oTP13n7rOHKn/zihZLD7hKV8KvgCWF
- QfOu4AzNG8JIwK+OjL69UP/MgCEMjtXf86okpvH+0WKC0w0/iFMJawvfuYQ/oAhOSuI5dov
- JhTTNEkEWqJXHBijjz87A==
-UI-OutboundReport: notjunk:1;M01:P0:LuIo1rHKq2w=;sewYNS3PuJpbJnnVNFOy0FC9OFT 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
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_051414_125844_A78AAF9A 
-X-CRM114-Status: UNSURE (   5.01  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,25 +89,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> Scope-based resource management became supported for some
->> programming interfaces by contributions of Peter Zijlstra on 2023-05-26=
-.
->> See also the commit 54da6a0924311c7cf5015533991e44fb8eb12773 ("locking:
->> Introduce __cleanup() based infrastructure").
->>
->> * Thus use the attribute =E2=80=9C__free(kfree)=E2=80=9D.
->>
->> * Omit two kfree() calls accordingly.
->>
->> * Reduce the scopes for the local variables =E2=80=9Cobj=E2=80=9D
->>   and =E2=80=9Cqman_256_cycles_per_ns=E2=80=9D.
->=20
-> Why?  No one does this except bcachefs and that was removed.
-Have you still got development difficulties with scope reductions for
-selected local variables?
-https://elixir.bootlin.com/linux/v7.2-rc4/source/include/linux/cleanup.h#L=
-142-L146
+On Mon, Jul 27, 2026 at 2:10=E2=80=AFPM Pawel Zalewski (The Capable Hub)
+<pzalewski@thegoodpenguin.co.uk> wrote:
+>
+> This series is converting lists that contain the acpi_device_id
+> struct, which is defined in the include/linux/device-id/acpi.h
+> to makes use of named initializers (which they do not use currently).
+> This work is part of the on going effort in the kernel associated
+> with device-ids [1]
+>
+> The plan is to convert acpi_device_id::driver_data to have an anonymous
+> union, similarly to what was introduced for PCI and I2C device ID tables.
+> The goal is to increase type-safety (as most of the existing casts are go=
+ne),
+> to improve readability and to make use intent a bit more clear:
+>
+> ```
+> union {
+>         kernel_ulong_t driver_data;
+>         const void *driver_data_ptr;
+> }
+> ```
+>
+> But for that to work all lists containing the structs need to use named
+> initializers first. I already have patches that implement this and touchi=
+ng
+> a lot of kernel subsystmes that use the acpi_device_id struct and that li=
+st
+> keeps on growing. Therefore, I have decided to split the series per every
+> subsystem into:
+> - pre-clean-ups that convert the lists to use named initializers
+> - actual implementations that make some of the modules use the new driver=
+_data_ptr
+>
+> That way the task can be fragmented into manageable and independent
+> chunks of work and makes this effort easier to review.
+>
+> Tested builds on arm64 and x86-64 in Yocto on 7.2-rc5
+>
+> [1] https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@bayl=
+ibre.com/
+>
+> Signed-off-by: Pawel Zalewski (The Capable Hub) <pzalewski@thegoodpenguin=
+.co.uk>
+> ---
+> Pawel Zalewski (The Capable Hub) (9):
+>       ACPI: use a named initializer for acpi_device_id
+>       ACPI: drop unused assignment of acpi_device_id::driver_data
+>       ACPI: pci: drop unused assignment of acpi_device_id::driver_data
+>       ACPI: ghes-nvidia: use a named initializer for acpi_device_id::id
+>       ACPI: amba: drop unused assignment of acpi_device_id::driver_data
+>       ACPI: dptf: drop unused assignment of acpi_device_id::driver_data
+>       ACPI: nfit: core: drop unused assignment of acpi_device_id::driver_=
+data
+>       ACPI: x86: use a named initializer for acpi_device_id::id
+>       ACPI: use a named initializer for acpi_device_id::id
+>
+>  drivers/acpi/ac.c                 |   4 +-
+>  drivers/acpi/acpi_apd.c           |  42 ++--
+>  drivers/acpi/acpi_memhotplug.c    |   4 +-
+>  drivers/acpi/acpi_pad.c           |   4 +-
+>  drivers/acpi/acpi_platform.c      |  13 +-
+>  drivers/acpi/acpi_pnp.c           | 514 +++++++++++++++++++-------------=
+------
+>  drivers/acpi/acpi_processor.c     |   8 +-
+>  drivers/acpi/acpi_tad.c           |   4 +-
+>  drivers/acpi/acpi_video.c         |   2 +-
+>  drivers/acpi/apei/ghes-nvidia.c   |   2 +-
+>  drivers/acpi/arm64/amba.c         |   6 +-
+>  drivers/acpi/battery.c            |   8 +-
+>  drivers/acpi/button.c             |  12 +-
+>  drivers/acpi/container.c          |   8 +-
+>  drivers/acpi/dptf/dptf_pch_fivr.c |  14 +-
+>  drivers/acpi/dptf/dptf_power.c    |  38 +--
+>  drivers/acpi/ec.c                 |   6 +-
+>  drivers/acpi/evged.c              |   4 +-
+>  drivers/acpi/fan_core.c           |   2 +-
+>  drivers/acpi/hed.c                |   4 +-
+>  drivers/acpi/nfit/core.c          |   4 +-
+>  drivers/acpi/pci_link.c           |   4 +-
+>  drivers/acpi/pci_root.c           |   4 +-
+>  drivers/acpi/pfr_telemetry.c      |   4 +-
+>  drivers/acpi/pfr_update.c         |   4 +-
+>  drivers/acpi/processor_driver.c   |   6 +-
+>  drivers/acpi/sbs.c                |   4 +-
+>  drivers/acpi/sbshc.c              |   6 +-
+>  drivers/acpi/scan.c               |  46 ++--
+>  drivers/acpi/thermal.c            |   4 +-
+>  drivers/acpi/tiny-power-button.c  |   6 +-
+>  drivers/acpi/video_detect.c       |   4 +-
+>  drivers/acpi/x86/cmos_rtc.c       |   2 +-
+>  drivers/acpi/x86/lpss.c           |  54 ++--
+>  drivers/acpi/x86/s2idle.c         |  14 +-
+>  drivers/acpi/x86/utils.c          |  16 +-
+>  include/linux/acpi.h              |   8 +-
+>  37 files changed, 443 insertions(+), 446 deletions(-)
+> ---
 
-Regards,
-Markus
+So we can talk about this after 7.3-rc1 is out.
+
+Thanks!
 
