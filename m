@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6509C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06405C531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PdChf34NPygE7Q5966uC0Ds2ATGeYxfhSYCD1dwrFFk=; b=ht8RclzGO+qkCM/P56/AL/n2aT
-	233huAraiTZphuJmbgx4bNdbSA1D5TGv/V6sYlx3TrZ48Wv8wy2boUJaomxj7tzm3IOItESrbQZ5K
-	3rcR9kGCAiytpjC7aJk/qQyPunzbJYcVvSKInJArDWydfzLa8EwuVT495rrimFD3cIj6MnlXqmigt
-	BJuAb9lG5mZwAB37U2EecewgtrNODP0QtzfVe4aCqt++8BLL6r71Ia5TkuOSWUHZzRu3hUPkWVZtf
-	IkMqRFWv3QqhInSZEwteWprQgvlMl34w3uF44KeuwDXoLgIceQJ1KxYM1Mk5U8R/xXKVHLOg647C3
-	QpD9ZfEw==;
+	bh=F6SH6kstKaYwU8GK5Doa9WNEi+8KjiPHRsc67uA80ec=; b=Px0m8+zRgj3A/sGEhyrzl1s5r2
+	oYQA600kivW03fUVCeI0qMjVRqurPhaFW5WOMEDQpwtyB64ylmsM5shD3ZV21xqdrgZ7dmlw2AEdh
+	E1P77e6YLcqISobxnQEHOijDbA4s+UFirvTnR2wxmcRCOhHr5arSgV3p9Mvp6FW4NyMX7xjHWISU4
+	pPGl3xu4JLDZZBD08ualQA8SH6RPUmBe1C2yp35b6YfJac8HWvPjb4xgSgZziJcQEuO/trx92Uy8F
+	4sq0Q49YzT3tIlb8905Ctjnwc5hb86r8qgLILmNNCLU9yGT5684SHAoHEXBnI1XubS4imjZiapWvY
+	GhZAW3uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOIy-00000003MqW-2jH7;
-	Mon, 27 Jul 2026 16:35:52 +0000
+	id 1woOIt-00000003Mht-07jr;
+	Mon, 27 Jul 2026 16:35:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOIj-00000003MRO-1KPX
+	id 1woOIX-00000003MRO-3sgX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 16:35:38 +0000
+	Mon, 27 Jul 2026 16:35:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95C5D16F8;
-	Mon, 27 Jul 2026 09:35:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6762E1713;
+	Mon, 27 Jul 2026 09:35:20 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C09CC3F86F;
-	Mon, 27 Jul 2026 09:35:35 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8D8553F86F;
+	Mon, 27 Jul 2026 09:35:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785170136; bh=enG2ED6JAWaC4z9Z7TYqQpwZ+95L2bnDYvCf+SoKcq8=;
+	t=1785170124; bh=WPSasZYnFbBCBuqOGXoOJfr5I7S7v3nP7bx+/ug1sNo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Lo/w6qvMynVqg/8vyXBxXsyuaBHKwSjnzbZg3cG+XVr1Ql4DuYarzchKISuFy9QkL
-	 WQDy4QD0zg2u5Z1yt4Wwbky3rhDweetn/8LBNAx6PMKMEmOqE3JOtqRGVY82vLpLEs
-	 JOD7RMyKmHOkErhbPaMVqUPY0czrJ8lsPhYqabTQ=
+	b=M3qode9N6SDBkNRvjW30GRwuWcLDtdLPEIBEkG2kAsj5SJocsg4qfjtoKVRieSkvQ
+	 NmyAHAlRxOvMXrvSlkjXRdgqFi6t3tDmdS1laZG58PR2cWt7Zgoe2kBrHOPJf/MqJ8
+	 1xiJTOXtHUm8TSjRRHMI/Mx8Q0Aj7jtOvMMBECCA=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: mark.rutland@arm.com,
@@ -47,17 +47,17 @@ Cc: mark.rutland@arm.com,
 	catalin.marinas@arm.com,
 	ruanjinjie@huawei.com,
 	liaochang1@huawei.com
-Subject: [RFC PATCH v2 13/45] arm64: process: Use helper to check exception state
-Date: Mon, 27 Jul 2026 17:34:21 +0100
-Message-Id: <20260727163453.7969-14-vladimir.murzin@arm.com>
+Subject: [RFC PATCH v2 03/45] arm64: hibernate: mask DAIF before restoring hibernated kernel
+Date: Mon, 27 Jul 2026 17:34:11 +0100
+Message-Id: <20260727163453.7969-4-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260727163453.7969-1-vladimir.murzin@arm.com>
 References: <20260727163453.7969-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_093537_396626_85F34E52 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260727_093526_076509_E2253CD8 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,58 +72,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-debug_switch_state() explicitly checks the hardware exception state
-for both the pseudo-NMI and non-NMI paths. The expected state matches
-the NOIRQ_CONTEXT exception context introduced alongside the exception
-masking helpers and state checkers.
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 
-Use the helper instead of open-coding these checks.
+The arm64 hibernate code manages the exception masking in an unsound
+way, leading to potential crashes and/or warnings during resume.
 
+When a hibernation image is saved in `swsusp_arch_suspend()`, all DAIF
+exceptions are masked (by virtue of `local_daif_save()`), and the
+suspended image is saved assuming that all DAIF exceptions will remain
+masked when the image is restored.
+
+When a hibernation image is resumed by `swsusp_arch_resume()`, only
+interrupts are masked (by virtue of `local_irq_disable()` in
+`resume_target_kernel()`). When pseudo-NMI is enabled the DAIF.IF bits
+will be clear, and regardless of pseudo-NMI the DAIF.DA bits will be
+clear.
+
+This means that there are two problems:
+
+(1) It is possible to take Debug, SError, or pseudo-NMI exceptions
+    during the resume process. This is unsafe, as during the resume
+    process both the old ane new kernels will tranisently be in an
+    inconsistent state, and swsusp_arch_suspend_exit() won't retain
+    an executable mapping of any exception vectors.
+
+    Any exception taken here will be fatal and silent.
+
+(2) When re-entering the resumed kernel, some DAIF bits will be clear
+    unexpectedly. This permits Debug, SError, or pseudo-NMI exceptions
+    to be taken for a short period while the resumed kernel is not yet
+    in a consistent state.
+
+    This is detected by CONFIG_ARM64_DEBUG_PRIORITY_MASKING.
+
+Avoid these issues by masking all DAIF exceptions during resume.
+
+Fixes: 82869ac57b5d ("arm64: kernel: Add support for hibernate/suspend-to-disk")
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/kernel/process.c | 21 ++-------------------
- 1 file changed, 2 insertions(+), 19 deletions(-)
+ arch/arm64/kernel/hibernate.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 581f80e9b9b7..0fd09136d398 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -51,6 +51,7 @@
- #include <asm/exec.h>
- #include <asm/fpsimd.h>
- #include <asm/gcs.h>
-+#include <asm/interrupts/common_flags.h>
- #include <asm/mmu_context.h>
- #include <asm/mpam.h>
- #include <asm/mte.h>
-@@ -703,25 +704,7 @@ void update_sctlr_el1(u64 sctlr)
+diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+index 9717568518ba..1eb1c1074c5b 100644
+--- a/arch/arm64/kernel/hibernate.c
++++ b/arch/arm64/kernel/hibernate.c
+@@ -465,9 +465,21 @@ int __nocfi swsusp_arch_resume(void)
+ 	if (el2_reset_needed())
+ 		__hyp_set_vectors(el2_vectors);
  
- static inline void debug_switch_state(void)
- {
--	if (system_uses_irq_prio_masking()) {
--		unsigned long daif_expected = 0;
--		unsigned long daif_actual = read_sysreg(daif);
--		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
--		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
--
--		WARN_ONCE(daif_actual != daif_expected ||
--			  pmr_actual != pmr_expected,
--			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
--			  daif_actual, pmr_actual,
--			  daif_expected, pmr_expected);
--	} else {
--		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
--		unsigned long daif_actual = read_sysreg(daif);
--
--		WARN_ONCE(daif_actual != daif_expected,
--			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
--			  daif_actual, daif_expected);
--	}
-+	arm64_debug_exc_context(NOIRQ_CONTEXT);
++	/*
++	 * It is necessary to mask all DAIF exceptions here as:
++	 *
++	 * - The copy of swsusp_arch_suspend_exit() in the hibernation
++	 *   text cannot handle taking any exceptions.
++	 *
++	 * - The suspended kernel masked all DAIF exceptions in
++	 *   swsusp_arch_resume(), and expects to be re-entered in the
++	 *   same state : with all DAIF exceptions masked.
++	 */
++	local_daif_save();
+ 	hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
+ 		       resume_hdr.reenter_kernel, restore_pblist,
+ 		       resume_hdr.__hyp_stub_vectors, virt_to_phys(zero_page));
++	unreachable();
+ 
+ 	return 0;
  }
- 
- /*
 -- 
 2.34.1
 
