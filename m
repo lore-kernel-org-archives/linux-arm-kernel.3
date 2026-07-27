@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B1BC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF560C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPvuz+aL88c21S8YC4GLGVYZg37SgTBgz+cPgSwl5YY=; b=XOIsaJ5vLW9QKOBgVMhKsWB2cz
-	39wqXxh6Nvah7oTsVrsNqHY3Oz4tskZUWFnnKZFlFCZfjeSAQS324agmJXjUNhV0HoIV1utCx8GDa
-	Ll0gyUX4BwejpaSzJQK4NHCTvHIelkweUK06qurSs/QRTbOjcx+ZVbKleuc4uS4FEzqFsIArmnNJR
-	Y3lNgJzP6q37TEBU/1CYQy6K2zhhpHX00mPEP7QoR+poWWxbgw80mssB75jF5g99UUFlRkF+izSsq
-	xXZFAA2qmOcx6SGFospepKZWi8xrSmn7653/BNVyhWXIUUeeJmyzX6b7UAjGYKv0mg7I5RjtDzyMs
-	EWfpD51g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tm4bX5EaMEcOm+KUpSmElRPonEmmie0f+X4ECTvvYHI=; b=IjcU+1a7WsFFhUwiP9ox0leG7c
+	4mpCVbJDPLQkzNIuFODVZUzmw8qvM2n32+jkWZq4fd/a5N1Bwx51wQpioDOVAWlC42coE3/a2Cg5N
+	iNMSQZOYLnc0Tb01D7Bcb8cPMYHTNlQLV+GBIesA/XBt08tCrdPgnfNPoAWhNFXmlneLDFwk3Wl4E
+	N4Dnvt6HBS95ZtQkdKm96j9GY1R/ERHYbemQbOk8AxA50eSjTaIsLi1hX0a2kgtmmRgpeNKb9o7vP
+	aqRMI7Pv5HhW2fM/Vb7K3faYQbbV5VyxH9mgVqu2E9P3mcDGP0TvtWIwEct/myqTRw6DYZQQ29zOE
+	rRcznbGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woINd-00000002SRS-1T3s;
-	Mon, 27 Jul 2026 10:16:17 +0000
+	id 1woIPn-00000002SzI-2ocp;
+	Mon, 27 Jul 2026 10:18:31 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woINc-00000002SRE-3eY1;
-	Mon, 27 Jul 2026 10:16:16 +0000
+	id 1woIPm-00000002Sz0-24vG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 10:18:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2746F601ED;
-	Mon, 27 Jul 2026 10:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE0021F000E9;
-	Mon, 27 Jul 2026 10:16:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EAB60601DE;
+	Mon, 27 Jul 2026 10:18:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE4C1F000E9;
+	Mon, 27 Jul 2026 10:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785147375;
-	bh=aPvuz+aL88c21S8YC4GLGVYZg37SgTBgz+cPgSwl5YY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aeXLGKxn+RhuEpjDFbt/ECV2BxYK5diVi7xVn6tULU7vDF7IK7Nil1nVqd/uTLs0a
-	 j54JY+fifjoQHmXB9CR+jCM4rvP6pUcAJpAIgW91yTz1VWA8cFXD1DZoURmpEUqlBo
-	 Tq8KvwKyQ4fOEXf51Jdb/5lt35sWrjNBv7X3ON5nEjg++ndjFL8fdwh7RQt7DAiufK
-	 NEu++wGQ+modaUWU4wmPBGb6eEqXBiiWFcOGq4t079CkA4z0301GVt3RVtw+hHhHy4
-	 jlT37q6tmmybvVR0a4m6cIFpSFH0potJvfTJYgzoIW0uyrUmfcVfT1diLwjHu9fMt5
-	 gbvr2kjjgFHYQ==
-Date: Mon, 27 Jul 2026 13:16:01 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
-Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Brendan Jackman <jackmanb@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
-	Juergen Gross <jgross@suse.com>
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Message-ID: <amcv4Q_jxriraFzU@kernel.org>
-References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
- <amDe_3KFBc9CcIbo@google.com>
+	s=k20260515; t=1785147509;
+	bh=tm4bX5EaMEcOm+KUpSmElRPonEmmie0f+X4ECTvvYHI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jYxixka0FlhauT4YJqj3Jfq5JgaoHCfQuUzMJ940VOmDeZ2ucrFT10LpKaeOY5aX9
+	 Fsb5w94VOsRF+1E04eufzieRAL9zebAV/UEr9GkHBO93efzHnJQ0DngR2pSHa6LKJd
+	 +FuvAr+gmMUSr8aqIKFMZVwWd/D1qTTjLq6RMR/bpST2nvoUyDmXhooRO5Z5g/2RcK
+	 NlpFszwwKZ/FueD8GbXIeoQcouRlVvm5i7djRDiB9Os99FONj7gH9LS2Y62GBq+0Q5
+	 TImTyF+igaEB/3WT6ZThTL/BNkADmgUkG+2hUrLnXUqRwzxJpHcuJXjd8lRGb7jDxI
+	 jd7HvIhSy/8Ew==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-usb@vger.kernel.org
+Subject: Re: [PATCH v2] powerpc: Move CONFIG_QE_GPIO to SoC
+Date: Mon, 27 Jul 2026 12:17:59 +0200
+Message-ID: <178514745088.65524.3935355950831235390.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <9a7131d15a94e2017877e628f0e97f9aa2e0aae9.1785140877.git.chleroy@kernel.org>
+References: <9a7131d15a94e2017877e628f0e97f9aa2e0aae9.1785140877.git.chleroy@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=708; i=chleroy@kernel.org; h=from:subject:message-id; bh=uN4DlDlGUY5Xyerk30O+tWmKQX/egw2gDnpOL+pthDo=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWSlG0Qz821INK3tnj4tvcWuuDhDnvHzm75w1sots+dsm 1Bb3Xeqo5SFQYyLQVZMkeX4f+5dM7q+pOZP3aUPM4eVCWQIAxenAEzkqxHD/1IbnygBmyABewNf k6W31CSKzc/dcb2nKKO6Tz9s7i8RPoY/3MtW8bV8UmjQ67UI2mC3Y8XEf2kvrvlkTPB+8N3404R aFgA=
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <amDe_3KFBc9CcIbo@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +78,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Adrian,
 
-On Wed, Jul 22, 2026 at 03:17:19PM +0000, Adrian Barnaś wrote:
-> On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
+On Mon, 27 Jul 2026 10:45:37 +0200, Christophe Leroy (CS GROUP) wrote:
+> Commit 7aa1aa6ecec2 ("QE: Move QE from arch/powerpc to drivers/soc")
+> moved QE into drivers/soc including gpio.c but left CONFIG_QE_GPIO
+> in powerpc's Kconfig.
 > 
-> Hi Mike,
+> Move it to SoC as well as it is the only place it is used:
 > 
-> > Once this settles, the next step I'm planning is to convert arm64. This
-> > would be much more involved than loongarch and riscv together, so I
-> > didn't even aspire to include arm64 in the first RFC. That said, I have
-> > a very ugly arm64 prototype that rewrites arch/arm64/pageattr.c to use
-> > the generic CPA infrastructure and replaces the existing implementation
-> > of page table splits for systems that support bbml2. But there's a lot
-> > of yak shaving there to get from a PoC to actual patches.
+>   drivers/soc/fsl/qe/Makefile:obj-$(CONFIG_QE_GPIO)       += gpio.o qe_ports_ic.o
+>   include/soc/fsl/qe/qe.h:#ifdef CONFIG_QE_GPIO
+>   include/soc/fsl/qe/qe.h:#endif /* CONFIG_QE_GPIO */
 > 
-> Could you share your PoC for ARM64. I can help you with that and align my
-> execmem rox cache for ARM64  changes to the desired shape of this API.
+> [...]
 
-It's too ugly and more importantly it cuts too many edges. 
-I'll try to bring it into a better shape and will share then Really Soon :)
- 
-> Best regards,
-> Adrian
+Applied, thanks!
 
+[1/1] powerpc: Move CONFIG_QE_GPIO to SoC
+      commit: 6599935a1e4be0354326086ea6c73dcb8f43b881
+
+Best regards,
 -- 
-Sincerely yours,
-Mike.
+Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 
