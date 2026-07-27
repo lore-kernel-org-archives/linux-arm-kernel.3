@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361F8C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3AC4C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MhDFgFWw4dRynh3xb8krNzOwzq/udnrrAoiD2bS2QJc=; b=B5wXzfDcBLU/cyJqR2nFtk7jNV
-	nBhjcQAOxWoThbkLdvrx2d3mOElWlDYmoHbz/LkkZlmtvydOV25lqIX/MHV84FUmkAuT72QtwEqz7
-	PMD6P9rA3Z9v6RVK4EIG40AYsZ6mnAVYtxdJSciMUki6Y94k/ccJiXAWWdvkYIHoKUGqdbJdV16VD
-	8OrgVwcUHzCDJaLlQp5r6rP5+8bXHFvvqA1NOm/C931DkH2AJe4SNqQy/0CySq8Yo+I3SRNuL3ubP
-	ln+4AoEkAkGVSp+XVxLoeievp6+5ZnF8oQU9IIY4tyPbUM6YyDIK8Ce8j/A1CQqOlRN03nkOQ4gJ8
-	A31P2kQQ==;
+	bh=pr+yXJ1zx4RlPju5kOdUktz6qmzd6euktFiv0KaUpN0=; b=mVTNRdyCCHOgOE1MV/Tjn+VNsh
+	YPJeYfOTAIthJornCaUvq78lsywLT3qYhO4b8xjjaCJ++7licZyNwz97tRl/3C4F1VlICvkHc2Vl2
+	HpF0mCmoIgZtZMlmTvVpERs433MievajI+FtdID+5f+eBcS2BdsejJE8cLUOpQFr/a7rOs/svG0gr
+	Jq7H8Ul/XXvCg5ZJFAjrYuLtqxTmnYYBECpr7bVHqrKD4u0z8cqk3kze/FD6LbbVAXZYL892JM9jT
+	mcKIBAr888c9gT6+os9Edek6gv+Ab1ArHaMS/NBHwTT1l20Vt+Szkge8fCGbmXGfG/cpejXcox0Mx
+	Mg3/yXGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woU0p-000000042H0-3X2z;
-	Mon, 27 Jul 2026 22:41:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woU3X-000000042Te-1drK;
+	Mon, 27 Jul 2026 22:44:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woU0o-000000042Gs-14qB
+	id 1woU3W-000000042TG-1iQ7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 22:41:30 +0000
+	Mon, 27 Jul 2026 22:44:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F24640741;
-	Mon, 27 Jul 2026 22:41:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 898371F000E9;
-	Mon, 27 Jul 2026 22:41:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5257D60008;
+	Mon, 27 Jul 2026 22:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3FA61F000E9;
+	Mon, 27 Jul 2026 22:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785192089;
-	bh=MhDFgFWw4dRynh3xb8krNzOwzq/udnrrAoiD2bS2QJc=;
+	s=k20260515; t=1785192257;
+	bh=pr+yXJ1zx4RlPju5kOdUktz6qmzd6euktFiv0KaUpN0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=nLNmvOjZoUi5/YfUo7JlIKbjI1XyVnHnVTO3e6w8bzdSQEErx03/maa1MAqXel7Lf
-	 +N2MbEmOcsGodpN8t9vl+jUkU6CixqgH5FXRES6zlKgGfc++ZOB7lWDRhKm/anzpKG
-	 z4rVymt8iXBobnWuM0Yfu4YT9gzY+DXyH7WvLT67vLyYn4HhFv/DLGrzsSWudHlmsa
-	 EfDXLPfFSGotwaf89kw+ksnJESYzQ0NR7hIHtsnbSfiap1VY2PHLfDkTWQ3I0sr3Y3
-	 /F/zIDHVxpx92flC99mb92xhubAusVWU7Yl/7BumswBR89Riy8+8aDqAmdh37R4k7P
-	 rjcjIKjIKywwg==
-Date: Mon, 27 Jul 2026 23:41:24 +0100
+	b=i/Hl7HGk8uQM91MvyyJgoBz/+ijmz5VmWHNnyYAUxYfXSkPKivRVEtRp8KInZVDHJ
+	 3dH+pGFf+0jF7UOdNnzXswVqjt+Obi3JRbngQO/50UxhyvEGQqAHSpdzCjE/U0e0w+
+	 jgu3g17VdveCbqK80mQqEb+DC+XwmQmAeCIyCJWtCLkLpc2j912Rq0UvBRiVD8uH3x
+	 zJrcUxjL5xvS+LHaumTjKdshPtp/obqVRtRBxQWhVf1NrsU3KTj1WdbyQQEVN4Ujou
+	 AQHF+eHQYP+HVMfmnSYW/ypgFxvJaF+KumIMzGPQLdDUe9lzYDPZvM1I66Ovh701K3
+	 +UVuX8HxM/3xQ==
+Date: Mon, 27 Jul 2026 23:44:10 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
@@ -57,12 +57,12 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
  linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 04/10] arm_mpam: propagate MSC access errors for
- msmon helpers
-Message-ID: <20260727234124.4834835c@jic23-huawei>
-In-Reply-To: <20260723155454.1760823-5-andre.przywara@arm.com>
+Subject: Re: [PATCH v4 05/10] arm_mpam: propagate MSC access errors for
+ __ris_msmon_read()
+Message-ID: <20260727234410.1504cfff@jic23-huawei>
+In-Reply-To: <20260723155454.1760823-6-andre.przywara@arm.com>
 References: <20260723155454.1760823-1-andre.przywara@arm.com>
-	<20260723155454.1760823-5-andre.przywara@arm.com>
+	<20260723155454.1760823-6-andre.przywara@arm.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -81,15 +81,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 17:54:48 +0200
+On Thu, 23 Jul 2026 17:54:49 +0200
 Andre Przywara <andre.przywara@arm.com> wrote:
 
-> Allow the helper functions for msmon accesses to return an error, and
-> propagate read and write errors from the lower level up.
+> Allow the function for RIS accesses to return an error, and propagate
+> read and write errors from the lower level up.
+> This function is a bit special, since it can be called via an SMP
+> helper, so the prototype must stay as void. So propagate any errors
+> using the "err" field in the struct passed in as the sole argument to
+> that function.
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-I'd take another look at this one and consider if a few more blank
-lines would help with readability. Otherwise LGTM
-
 Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+
 
