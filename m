@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D70EC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A36ACC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rILz7wtfonvqpyG5c3H5MGKD51F3LkusCc5Lk22A8tw=; b=BHj/2nVFAcGesPpAEanJMfacew
-	b8OnERlcvyVwg3e2AC9tOOY0WGyAXSf89nA4Ytmuft0WMpAZw4STwGyecaylOIZusiQ9/QBJdqaPw
-	PAv7CZyhVwKI3rIrEGYXDf0bl+TpoepcB/9wTgbdNozsg1Cn4yPfFxPNedYtVBoh/v1Buydz4S+ri
-	i9JdyWjRDBHZPB/c7gYw8bNUe3dh/7wAqeqrXocMcwobsDMBNoowCJICY2CFrr2IoaeYo2Wqd4mLE
-	5XTuqoW3k/VBJltHnYb6MSJqpe2x4/UT7wDZQs3Q9cQmB30R/Fq/S0hCXmCB95fEpVNPk8MR6PEd8
-	GthRmJ9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QNqDz7+fyo1hY4ldh6Vv+Mpnt1WXdUVRp9SJriXBn7o=; b=l7ax8RUf6X8VKUeYwcWCsijMSm
+	Qn1aYKpaEJkue0kdbGcKMOcTVn3AtfS7UoQgmNamGemWjZlqIOsORaVZ91w5l9bEPp7sIWWZMQMPM
+	X0hilJhVpd4cVfvQTSZlS9ntY9nMxwHjhxhs4CubmM7Fy3yBrzzfExU/BJPzNIja/FxteT0TeOYrL
+	2nf08cuQGe69X//vD6tU/kwq+hxVGYTlxT1CcPM3n3tmHx1TnNkxwL5oujPRYPoJ8Pj6ShDbL1bVj
+	RMnOXEOqnaiBShZiOE0PIAsUFQ/opc08g8daIp24Gy1bF2FbnFO/u66Z306QQtuOIjR256vppon0E
+	5ZGujY2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woK0C-00000002cWT-2wxq;
-	Mon, 27 Jul 2026 12:00:12 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woK0A-00000002cVa-1bnL
+	id 1woK3Z-00000002ce5-0mxi;
+	Mon, 27 Jul 2026 12:03:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woK3X-00000002cd2-06ft
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 12:00:11 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1785153591;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rILz7wtfonvqpyG5c3H5MGKD51F3LkusCc5Lk22A8tw=;
-	b=l+dqrzXU0ezzpa4jwucaaZP3mvNR7xBv2+wWm7RNSDpfCceoK0Nbd9ynHpfN+aS1W5MyF8
-	h46ebnRT2kVW+Jbzrb+bAtCbIndTVdqov5nd5stFcKHE+EDUc9R35A1w7jaWJXJopaf4HB
-	ymrDJ+hF7nDXWZuUYcTXBxBq+QdCEn/t9pL+AjEWiADvtBTfPqQ/3qwp74OBNn4QJwNoVa
-	ZD5YWLbjVU0C0Q6viY2zb18tCv5ps+bnq16XZx5ybSjI/TF6mD9Q/E4sqJXnPOn8BBDm0+
-	arC6B7NQhfBPNxA3ZtWGCztzLpKDWHrtiF942ReR4wyK1zOnGde3HNzk+gvoCQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1785153591;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rILz7wtfonvqpyG5c3H5MGKD51F3LkusCc5Lk22A8tw=;
-	b=t1rl//il0I3uF34i2WLNAaP+jeSDiuWIUpDruy5uOPOxcCcmdYu33tcDFe+LoL1ARkvsWF
-	XrnaSPgtfuKXtFCA==
-To: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>, 'Karl Mehltretter'
- <kmehltretter@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-serial@vger.kernel.org"
- <linux-serial@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-rt-devel@lists.linux.dev"
- <linux-rt-devel@lists.linux.dev>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Petr Mladek <pmladek@suse.com>, Steven Rostedt
- <rostedt@goodmis.org>, Clark Williams <clrkwllms@kernel.org>, "Toshiyuki
- Sato (Fujitsu)" <fj6611ie@fujitsu.com>
-Subject: RE: [PATCH v2 2/2] serial: amba-pl011: keep console clock enabled
- for atomic writes
-In-Reply-To: <TYXPR01MB15199DA567AF4541DD79359FBD7CC2@TYXPR01MB15199.jpnprd01.prod.outlook.com>
-References: <20260724213348.77418-1-kmehltretter@gmail.com>
- <20260724213348.77418-3-kmehltretter@gmail.com>
- <TYXPR01MB15199DA567AF4541DD79359FBD7CC2@TYXPR01MB15199.jpnprd01.prod.outlook.com>
-Date: Mon, 27 Jul 2026 14:05:50 +0206
-Message-ID: <87pl0863t5.fsf@jogness.linutronix.de>
+	Mon, 27 Jul 2026 12:03:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17DC3143D;
+	Mon, 27 Jul 2026 05:03:32 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3847A3F86F;
+	Mon, 27 Jul 2026 05:03:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785153816; bh=UuZ5SNCWn87Voxt+QpWuTLGoK25xwa8suwRocSvq+Hk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=dCinzq0CNKlyA2GBwBXlZL1JJGGe8RTvzTBN4JxAwVMBbKgSn1lIqxfhnsfiDgoR0
+	 s/Cq6FpE9cCv62ZQsXlc5n/Zo0XOOCN7SJj7KHYKeNpGGVA6aLDsNgqiNTE5VpU2HM
+	 QTobcbGVRIJ8ZsEwhiF1PKXYeSVVx2hTc4T8nnaQ=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	catalin.marinas@arm.com,
+	joro@8bytes.org
+Cc: jpb@kernel.org,
+	jgg@nvidia.com,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 0/2] iommu/arm-smmu-v3: Fix SVA vs. HAFT issues
+Date: Mon, 27 Jul 2026 13:03:27 +0100
+Message-ID: <cover.1785153415.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_050010_612377_D5EC0614 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260727_050339_189367_7322813D 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +71,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Toshiyuki,
+v1: https://lore.kernel.org/all/878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com/
+v2: https://lore.kernel.org/all/cover.1784814923.git.robin.murphy@arm.com/
 
-On 2026-07-27, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com> wrote:
-> Regarding Petr's comment [1] as well, I'm concerned about the
-> potential impact when the clk remains enabled during periods without
-> console output.
+Further to v2, work around the contentious CD update.
 
-Can you elaborate on your concerns? Do you actually need such low-power
-_and_ kernel logging directly on serial?
+Thanks,
+Robin.
 
-> When creating nbcon patch, I saw a similar patch [2] from the past.
-> Have you considered coordinating with the clk subsystem implementation
-> for this?
 
-AFAICT there was no real justification for enabling clocks per write
-other than because we can. A lot has changed since 2013 and neither
-spin_locks nor raw_spin_locks are appropriate because atomic printing
-can occur in _any_ context (including NMI's).
+Robin Murphy (2):
+  arm64: Add override for MMFR1.HAFDBS
+  iommu/arm-smmu-v3: Add HAFT support for SVA
 
-If the amba-pl011 insists on enabling clocks per write, I would
-recommend not implementing the write_atomic() callback. Since I assume a
-significant amount of users _will_ want atomic printing support, perhaps
-you can add a Kconfig to toggle building with clock-disabling and no
-atomic, or clock-always-on and atomic.
+ .../admin-guide/kernel-parameters.txt         |  3 +++
+ arch/arm64/kernel/pi/idreg-override.c         |  2 ++
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   | 24 +++++++++++--------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  9 ++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  3 +++
+ 5 files changed, 30 insertions(+), 11 deletions(-)
 
-Note that there is also CON_NBCON_ATOMIC_UNSAFE available, if the driver
-wants to somehow blindly enable clocks on panic in order to unsafely
-dump panic logs.
+-- 
+2.54.0.dirty
 
-John Ogness
-
-> [1] https://lore.kernel.org/all/al4KdsU9YLOmwDoV@pathway.suse.cz/
-> [2] https://lore.kernel.org/all/1359475526-17523-1-git-send-email-walimisdev@gmail.com/
 
