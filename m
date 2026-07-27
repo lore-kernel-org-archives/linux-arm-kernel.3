@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B43FC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4FBC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pf+luVJXN+5Mt1F/LugFNGoO7JFSxApPShAsXbvlFwQ=; b=kyzstZQLS7qTTAEkgE0M31suyG
-	GZ8NG7untSBJoCu3DmcbZyWpzyrxbzQRv+coqCOT/Fmtd7yqPSUEeyNp1TOtVBysg7SKQ7s/ZTQeO
-	caZRn/bItzHIPnonueHGEPvZsb5n4H8l8JzB72Ii6/3Mh6/OQJ8TcdUetzr3Il9SCRBX8lkmpj5W0
-	IvsgbP+avph1zPZkU+s4cVlpXpUsiPcOe9CQR018KdWoztn2caxS3cKOiOO2giFh+Pq1R6wZ6Vb8+
-	L7WZmYOxa71MGxls9GVhNm+b2Nmkyk3b/X1rfu6dXhiKxT83aQAl4uobB/hJfhyFAk7fbRbd9LAsS
-	ideq/xFg==;
+	bh=KMmXB3Hz2HVQkjI02T1LhdZYeO7c9DM5ga0yqzGQqk8=; b=nZpWPhY/YCmVPKuCfPyMCC2bt6
+	uFdGIk4MxzNgKWHdUD5NO+j+77aF91ZE9xsc4KiDx+rCEujlCZw3Ey4XfCw+8OXdOMWHynIx71cVO
+	vZX2xnp/0qPhgrfih2mTL/vO2wpiEHvhFlcOv5MncrlR8lPQZLgOd3sRcFPFM75NZe9uVfEPFgFgH
+	WjJ7VPwskqjE5G2ixsCq0TWqmAOgeuTvD5pThkq22YsEc/srVmydDYJvOj5MpdbZc/jW3ZMrLobs0
+	reqdmDNOm+ednXv4a1KgMkb+smhcD5a320FQ1hKQ88MzsLJuJOpdoDCFTllX9CBwN/Mbkk1Z/Ssqc
+	J81ZLDVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKRS-00000002gaB-0dSN;
-	Mon, 27 Jul 2026 12:28:22 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1woKRa-00000002gfB-1JqO;
+	Mon, 27 Jul 2026 12:28:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKRK-00000002gU9-33yX
+	id 1woKRS-00000002gaF-28QW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 12:28:16 +0000
+	Mon, 27 Jul 2026 12:28:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1785155295; x=1816691295;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=bCA8BUnUCacAeM9L4GkNBcOulMHRN3ZMV7gjy96hcXs=;
-  b=WaMIGqEe14BE+RNEG5hnEjKKSTgVvgnpwmVDlQlnLivmnlOn76ozOtR8
-   DxTG/keR9/ZehCJ5PIfpOU8mKO09QWtpJa8Gv7dHc9f3xhHSdF+hoy/B3
-   YaIvqh/w1L0+XDR1FHTZmsM4fLKd8vT27ggMCdYXP4REiZx3VvftD3wvu
-   T5MRiQURFBzviI/Qao9dYslMkho1x6XXLzPHnOlmN+NEABrkV7Yr5DPnV
-   tmk87mOiLK1L9fCeKyx3A1SJLcM+Q5YnBLONbIG2gt6RprgGJf1YCuwv4
-   MeaqKlvwyNgbwwY+oPnHEl6dJTanAVdU0JHrsbrIFWd+Y6m4RMnTwl75z
-   w==;
-X-CSE-ConnectionGUID: qJWgCWuHSbOjQZNB4z2p0A==
-X-CSE-MsgGUID: ln4Hm5EzSxOGslR4Q8UEjQ==
+  t=1785155302; x=1816691302;
+  h=from:to:subject:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding;
+  bh=Av6eeg2ekqj+HOs2zrQPFQA1RnGOcXg/+B9uTPlD7J8=;
+  b=ufm+zAK5Je6u0C2BJQVbZwDwhlADW2PeJ6NpjY0NAJMFC//0ufs620vA
+   O4vC5eJbaAulN70bmYNeEOasHlKy3cmlqLSwKSyF/GwfQNQcWHJDI7+S3
+   4+6VTriw6AUZ7YOLUx3H2YuIu5Y0g/brw5AiBwc5PKrATCu4ivPEk2dic
+   pJWJYrllafBNIpugvz6Vobu8P2I+k37KYBlK6ACAQA2BJh2fw3swvA2bE
+   jbM+S8Np2v3oN/kUcqScflXEr9BjP0ypjMOsC4krkVmq7/o8okHUC40GW
+   zhmi0q03kFmhKdPFKSz1fhUQdcJFkx2Daz3gLYJesOTVGDKiwkmV0w/V2
+   A==;
+X-CSE-ConnectionGUID: u1lwqlS2TZaRZCDD2h+pYg==
+X-CSE-MsgGUID: 0erGazzNR/a50LU+sSnktA==
 X-IronPort-AV: E=Sophos;i="6.25,188,1779174000"; 
-   d="scan'208";a="292591710"
+   d="scan'208";a="60344933"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Jul 2026 05:28:12 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 05:28:19 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 27 Jul 2026 05:27:57 -0700
+ 15.2.2562.43; Mon, 27 Jul 2026 05:28:16 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 27 Jul 2026 05:27:48 -0700
+ 15.1.2507.58 via Frontend Transport; Mon, 27 Jul 2026 05:28:07 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -66,10 +66,9 @@ To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<mazziesaccount@gmail.com>, <linux-iio@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
-CC: Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 07/16] dt-bindings: nvmem: microchip,sama7g5-otpc: add sama7d65 and dt node example
-Date: Mon, 27 Jul 2026 17:56:24 +0530
-Message-ID: <20260727122633.117435-8-varshini.rajendran@microchip.com>
+Subject: [PATCH v4 09/16] nvmem: microchip-otpc: nvmem: add emulation mode and OTP access validation
+Date: Mon, 27 Jul 2026 17:56:26 +0530
+Message-ID: <20260727122633.117435-10-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260727122633.117435-1-varshini.rajendran@microchip.com>
 References: <20260727122633.117435-1-varshini.rajendran@microchip.com>
@@ -77,9 +76,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_052814_784921_E5C7D7E6 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_052822_619293_11569988 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,59 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for sama7d65 and a dt node example that shows tag can be used
-to reference a packet stored in the OTP memory.
+Add validation of OTP memory accessibility and emulation mode status
+during probe.
+
+When the boot packet is not configured, emulation mode allows access to
+the other packets. When both are not available an informational message
+is logged to help with debugging.
 
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../nvmem/microchip,sama7g5-otpc.yaml         | 28 +++++++++++++++++--
- 1 file changed, 25 insertions(+), 3 deletions(-)
+ drivers/nvmem/microchip-otpc.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-index cc25f2927682..04b44660554e 100644
---- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-+++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-@@ -20,9 +20,15 @@ allOf:
+diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
+index a17f82afdc37..6b0184423463 100644
+--- a/drivers/nvmem/microchip-otpc.c
++++ b/drivers/nvmem/microchip-otpc.c
+@@ -18,6 +18,7 @@
+ #define MCHP_OTPC_CR_READ		BIT(6)
+ #define MCHP_OTPC_MR			(0x4)
+ #define MCHP_OTPC_MR_ADDR		GENMASK(31, 16)
++#define MCHP_OTPC_MR_EMUL		BIT(7)
+ #define MCHP_OTPC_AR			(0x8)
+ #define MCHP_OTPC_SR			(0xc)
+ #define MCHP_OTPC_SR_READ		BIT(6)
+@@ -343,7 +344,8 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+ {
+ 	struct nvmem_device *nvmem;
+ 	struct mchp_otpc *otpc;
+-	u32 size;
++	bool emul_enable;
++	u32 size, mr_val;
+ 	int ret;
  
- properties:
-   compatible:
--    items:
--      - const: microchip,sama7g5-otpc
--      - const: syscon
-+    oneOf:
-+      - items:
-+          - const: microchip,sama7g5-otpc
-+          - const: syscon
-+      - items:
-+          - enum:
-+              - microchip,sama7d65-otpc
-+          - const: microchip,sama7g5-otpc
-+          - const: syscon
+ 	otpc = devm_kzalloc(&pdev->dev, sizeof(*otpc), GFP_KERNEL);
+@@ -355,10 +357,22 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+ 		return PTR_ERR(otpc->base);
  
-   reg:
-     maxItems: 1
-@@ -48,4 +54,20 @@ examples:
-         };
-     };
+ 	otpc->dev = &pdev->dev;
++
++	mr_val = readl_relaxed(otpc->base + MCHP_OTPC_MR);
++	emul_enable = mr_val & MCHP_OTPC_MR_EMUL;
++	if (emul_enable)
++		dev_info(otpc->dev, "Emulation mode enabled\n");
++
+ 	ret = mchp_otpc_init_packets_list(otpc, &size);
+ 	if (ret)
+ 		return ret;
  
-+  - |
-+    efuse@e8c00000 {
-+        compatible = "microchip,sama7d65-otpc", "microchip,sama7g5-otpc", "syscon";
-+        reg = <0xe8c00000 0x100>;
++	if (!size) {
++		dev_warn(otpc->dev, "Cannot access OTP memory\n");
++		if (!emul_enable)
++			dev_info(otpc->dev, "Boot packet not programmed and emulation mode disabled\n");
++	}
 +
-+        nvmem-layout {
-+            compatible = "fixed-layout";
-+            #address-cells = <1>;
-+            #size-cells = <1>;
-+
-+            calib@41435354 {
-+                reg = <0x41435354 0x2c>;    /* Temp calib data packet TAG */
-+            };
-+        };
-+    };
-+
- ...
+ 	mchp_nvmem_config.dev = otpc->dev;
+ 	mchp_nvmem_config.add_legacy_fixed_of_cells = true;
+ 	mchp_nvmem_config.size = size;
 -- 
 2.34.1
 
