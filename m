@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66862C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E9BC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NkLPH6/pG1QKxQFoZVVjyOIy26h52EOkhnvic+LoJGI=; b=d+Cbb8AdlDP2xlO8yyJY15It3o
-	6W2fxSO/VVcizR4Dr/3HyR44jYMriVNZskCIUjkVxP4eXYM5TFaIL179kWL2gkL9ug47O69F/ixNF
-	9UNorxLqwSLABPRrxSfItLTVqX/j0fNFBI40CqFiNqExHv8vjCmmGGx+AW/AK/mQh4uWtYsjNfqo9
-	/xTaUyPVNYBzUoJ5fSzaTwBg+uTQEqhix+ttJj+BcNJ0CX64B87h9QAaYteNBDk6UaZ8WsmKKZMu5
-	gxqup4VCVRLq3gVOPVyyBCTH0WmtcKR36PLgLLkdbTtXwQ4oWK3y22dVuHDg4VU2PrZplEQzPHyrO
-	P9PzVW4Q==;
+	bh=VvEhKcJ2ZVZIzvdPXLbXyAox3SL2pO0W3068N1UeoMg=; b=zikQSvolNbCmUDkMkBKAxQaROx
+	hNeRttH3UUUTiTE2piyubTVTlMrBQ0VEOzmXa/rC7zHKr7FbYl0C940cuEnIDovIsL0FODCvf7Nus
+	R9OpPfWXy42rhmQTYKVR0TXkipFyrPx5aaSVvtvOtH9Ex77GigXJLl1qoflC7h0yUXmoy2sdtmN1o
+	DPJ/BR1s9S9U+8OBVrvsn4sVAjtX5FzacxBm9XWw5/pc1crPQztqFSka9BNcC56fLzbE6OaSzZ2Fr
+	Te5Qw5oiKglsboUvpb/O4iXz1FgEIr6MujQrSZ3pLMli8TMqhpQqrHpmuhWoOK7oJA9EW53HoIaz8
+	3tRO5PvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woIus-00000002Wki-3OHm;
-	Mon, 27 Jul 2026 10:50:38 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woIuo-00000002Wk0-1rNp
+	id 1woIxu-00000002Wwh-0R2s;
+	Mon, 27 Jul 2026 10:53:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woIxs-00000002WwH-0mTi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 10:50:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=NkLPH6/pG1QKxQFoZVVjyOIy26h52EOkhnvic+LoJGI=;
-	b=x7xLRq6ZkYT0Ul95doRBYSSnpAh5sUTjppMZp2Qc5da9r1lZMGeAK8qEYbFmU+vWx9jF+GDSG
-	P/EOLa1Sus306/JlJBMQdWQb8bmOIyfK9tFQzMCuu6ZNQAnz/ZHOdOxaLcfdSODeKR0+JZNxE/v
-	6fIO/oz+N9RCCHbwifoIwSE=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h7w9b3bV7z1T4Fq;
-	Mon, 27 Jul 2026 18:40:51 +0800 (CST)
-Received: from whupemo200006.china.huawei.com (unknown [7.152.185.252])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3D87F4057F;
-	Mon, 27 Jul 2026 18:50:19 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- whupemo200006.china.huawei.com (7.152.185.252) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 27 Jul 2026 18:50:18 +0800
-Subject: Re: [PATCH] irqchip/gic: Simplify Maintenance Interrupt ACPI parsing
-To: Marc Zyngier <maz@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, <radu@rendec.net>, Sascha Bischoff
-	<sascha.bischoff@arm.com>
-References: <20260725155941.114322-1-maz@kernel.org>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <6be4973f-e601-8781-36c2-848a45d372f5@huawei.com>
-Date: Mon, 27 Jul 2026 18:50:12 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Mon, 27 Jul 2026 10:53:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0307D143D;
+	Mon, 27 Jul 2026 03:53:39 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0ABBF3F86F;
+	Mon, 27 Jul 2026 03:53:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785149623; bh=7WpwP8RisrxnArjb2LK5kEATiDum+IBvXOvgLgkJm6c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sbtuWqmQYn9269wgUse/Rtj71CbSRnD6TElxQDFKMGbYdmWesPYBJdvdbR3GzHBB/
+	 AmMc/nUI1r5ExsyP52QqsPN9VsEK3TXB43MKsg5v4GzUvcRu/7uHw8fjy7m0jbsQmE
+	 QETa8MrZxMizcuWF/YcIaAknmugdqFxzrgikFxio=
+Message-ID: <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
+Date: Mon, 27 Jul 2026 11:53:37 +0100
 MIME-Version: 1.0
-In-Reply-To: <20260725155941.114322-1-maz@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
+ feature
+To: Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+ Daniel Mentz <danielmentz@google.com>, Mostafa Saleh <smostafa@google.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kernel-team@android.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org,
+ willmcvicker@google.com, jyescas@google.com
+References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
+ <amYIuhYenP4-qHyV@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <amYIuhYenP4-qHyV@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- whupemo200006.china.huawei.com (7.152.185.252)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_035034_948161_31BD168B 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260727_035344_281050_C57A6607 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/7/25 23:59, Marc Zyngier wrote:
-> The ACPI spec describes the vgic Maintenance Interrupt with attributes
-> indicating whether the signalling is Level or Edge. While this
-> superficially looks like a sensible thing to do, it doesn't actually
-> make much sense.
+On 26/07/2026 2:16 pm, Will Deacon wrote:
+> On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
+>> These two patches add support for a new "arm,instdata-override" DT property
+>> that enables the override of the instruction/data attribute of incoming
+>> traffic to Data by setting the INSTCFG override bits.
+>>
+>> It is intended to be specified when the smmu can't guarantee that these
+>> attributes are provided correctly from the client device.
 > 
-> By construction, this interrupt is Level, and cannot be anything
-> else, as the hypervisor actively needs to interact with the vgic
-> for the level to drop. This indicates a state, and not an event.
+> This is going to need an in-tree user and a much more detailed
+> description of what is being worked around before we consider this for
+> inclusion.
 > 
-> Get rid of this nonsense, always register the corresponding GSI as
-> Level, and let the user know that they run on quality FW should
-> the interrupt be advertised as Edge.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-v3.c | 10 +++-------
->  drivers/irqchip/irq-gic.c    |  8 ++++----
->  2 files changed, 7 insertions(+), 11 deletions(-)
+> In particular, if a particular client is emitting data reads as
+> instructions, then a better work around would be to avoid mapping its
+> domains using IOMMU_NOEXEC. But I can't tell what's going on from the
+> limited description provided here.
 
-Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
+Unless it's also emitting the privileged bit and thus falling foul of 
+the implicit Unpriv-W -> Priv-XN rule, but then we also have the means 
+to deal with devices which actually do that themselves (hello pl330...), 
+so that would seemingly only leave the case of some innocent piece of 
+AMBA-interfaced IP which doesn't expect to need special attributes, but 
+the system integrator has gone out of their way to tie the AxPROT bits 
+to some wacky value, which I would put in "erratum workaround" territory.
 
 Thanks,
-Zenghui
+Robin.
 
