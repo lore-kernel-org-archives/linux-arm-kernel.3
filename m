@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0544C5321C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48997C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 13:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3ty1n3pB66/J0W8hWvA8Cri+8z31CFZgFbeFSf27es=; b=KINEIdteTWxDJb8qAXs2ux6oxU
-	Eu1/mnwDuHKEJTXGLL9ccXFeUb7/G7Ri1f/tMqHAFPsSaiCEaPnkrN+879+gxBrSGe+ptKrRMXBrA
-	F7PwJ/csVF7eKjM5+4wS89sJOcFHtFT/9OlXnkijFfOAUapTbUfzC+2q9DZGr78Dx5VNZcPZ9tN3L
-	o4dw1suJgb8TlCvivt8P8GIpDVbQRN7sWMSgDYR24JkLnHI2RcbLU9La+NSvl9Vdyu36fMja1Y68a
-	bs4mDP2uec3zDSboF2fQ2+rdI+4/xg6PsRLhxPAfL0GK32fPztbgxYKJk9vnj1MDFGUBo9QuhjYng
-	EX3QTnog==;
+	bh=yGBPtD9ie0DyLwH1f2dlE1nuJiVdHix342UhgcF+mR4=; b=j1+rySNi9iE/CevyVEra+Lomx7
+	40EJI0zIbnVS5Zr50uXXDlMJXzgprPyZMssoFIDKmt8vjl6/McK20SdYCaEoFC36twklCkzDP9OQE
+	ngopoBFykOd2JZYEFFss/KIHj51VhCoik9iQwZNXQXX/zXxzm7Kkp60Sur5aJ2tIgoBoSywHOZbkX
+	R+4wQ7oLw4/s3yHPAS/138mK4aJ9BP0syMAeVnOMffDcg0EU0EJX60zqwsy5MxfQdvHO7oYCuNmkO
+	Z0s63EEwJYsOHEQ15tFy8tKNN8el//wpMzat1XvIXQ0Dt8J7IBmzu96TNovjvMgn1yac+03ddAWNo
+	05QimXfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKxs-00000002m00-2Zci;
-	Mon, 27 Jul 2026 13:01:52 +0000
+	id 1woKyU-00000002mOU-1alH;
+	Mon, 27 Jul 2026 13:02:30 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKxi-00000002ltz-0vTx
+	id 1woKxr-00000002lyn-3E7f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 13:01:45 +0000
+	Mon, 27 Jul 2026 13:01:53 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1785157298;
+	t=1785157305;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=T3ty1n3pB66/J0W8hWvA8Cri+8z31CFZgFbeFSf27es=;
-	b=AoIU4udcVtrvloL0RAUojzM9mVJGcwtKEARhov52yCu9wo2oPByV91TNb1H9IoH+AlA7AR
-	FvxxxwhJVneFRZeqXbGWjHJgHVFUcmACeTaqTz3tv6qcCmOOBYjcDjd+3qWsEQ3Noc/iWW
-	q5d4rnTw1LyrAmP87yL+tFkMfXXcQMkGjha9Oo1D40sZXuM05zy9a/C8MrzkkDSSVdHYUq
-	EYvaub9OmiV3phMbFx/1xhb9pjokL2H8biyPTALyQS8/qWgHlWF3UUuwPALlTKJ+Bujz3m
-	unl3wJmTkpU3V3x9D8WulWsEt3X3Xf3knJyiv7XLIXVk1xWjLUDecqvtUrtRtw==
-Date: Mon, 27 Jul 2026 15:00:46 +0200
-Subject: [PATCH v4 03/11] firmware: imx: ele: Export API functions
+	bh=yGBPtD9ie0DyLwH1f2dlE1nuJiVdHix342UhgcF+mR4=;
+	b=n+0yX0Pgl+apvukCozApPDoNkVyuHr7jaikBTJEX44V/doL1Mp1yFAcGYZDDvXPXsyNp6E
+	qW7252ObZ0Nr30ArjQceNdFos5UCrDJ19bBcPMWx5rTj+j26kEJ49x2ulfc+OY0be6gS6/
+	nanLoful+/ISCbI0fWt8xJolfLd9n/AEbadcaySEXUWC3SjlA5OUJp3HX9HG2mAuO1diW0
+	m22rEAEvh6hTujFQzLkJgEUVFnQwQfDKQML7tHe57dHU/r8QqhpTA4B4oe40QVyUpCZ5pY
+	5R9kf7SMX3HpZ7y7Ipo6bug0KOdNUKcMxZFn9Zlqf42Ljwr20TzfszZUqFJmoQ==
+Date: Mon, 27 Jul 2026 15:00:50 +0200
+Subject: [PATCH v4 07/11] nvmem: imx-ocotp-ele: Support the ELE API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-3-1a515de33093@kontron.de>
+Message-Id: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-7-1a515de33093@kontron.de>
 References: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
 In-Reply-To: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -59,18 +59,18 @@ To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux@ew.tq-group.com, Frieder Schrempf <frieder.schrempf@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13673;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8080;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=9kYctPws8ziiBjjJl/zAI3aZm7jEa0WQaazitIF1VVw=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bNWKp6t3ZYhs6rSIibtdWrnhXGvW8juP9ywVzavZE
- Sl4Qn9uRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwESYaxj+Z3v6aIUXPhddVrbt
- b737Uv+dDDZ2s0PPHdwgpty72vfbToZ/tsVbFy15UlX5hL/eUrUn0ts248Ry4/muKtoXvnr1ZfS
- yAQA=
+ bh=DvcLO2Fyxr+o9nG/93tzl57ORNBaVKVRS8Y98wPkkiE=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISs9bPXuE8dbVv66XW+xgm+TzLG5263/Cc5j7rT47NB+b
+ DEj540dHaUsDGJcDLJiiixS/Bavbc1ifeSPVUfBzGFlAhnCwMUpABO5dpmRYX1zp/40m3KjObPX
+ 3JU81zw9d6LTBPPGhNmvi1olTWdf5GVk6H47fZn70673aZIXP1xiucgVv+ps9LcKiyZtxUs7TtQ
+ vYgMA
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_060142_878415_91C38841 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20260727_060151_976901_56C4ECA4 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,379 +87,262 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-Export generic ELE API functions to send and receive messages. This
-allows drivers to implement functions based on the ELE API.
+The fuses inside the Edgelock Secure Enclave are currently not
+accessed via its API but through the FSB block which provides
+limited access to some fuses.
 
-Assisted-by: Claude:claude-opus-4-8
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The ELE API allows us to access all fuses with read/write
+permissions. Therefore use it as primary method and only fall
+back to the limited FSB if the ELE API is not available.
+
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- drivers/firmware/imx/ele_base_msg.c | 42 ++++++++++----------
- drivers/firmware/imx/ele_common.c   | 35 ++++++++++++++++-
- drivers/firmware/imx/ele_common.h   | 14 -------
- drivers/firmware/imx/se_ctrl.c      |  6 +--
- drivers/firmware/imx/se_ctrl.h      | 14 +------
- include/linux/firmware/imx/se_api.h | 78 +++++++++++++++++++++++++++++++++++++
- 6 files changed, 137 insertions(+), 52 deletions(-)
+ drivers/nvmem/imx-ocotp-ele.c | 168 +++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 167 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
-index 28b835f2880f..a4ab45efdd63 100644
---- a/drivers/firmware/imx/ele_base_msg.c
-+++ b/drivers/firmware/imx/ele_base_msg.c
-@@ -8,6 +8,7 @@
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index 010b53001323..23e91775be5d 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -7,10 +7,12 @@
+ 
  #include <linux/cleanup.h>
- #include <linux/completion.h>
- #include <linux/dma-mapping.h>
+ #include <linux/device.h>
 +#include <linux/firmware/imx/se_api.h>
- #include <linux/genalloc.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+ #include <linux/nvmem-provider.h>
+ #include <linux/of.h>
++#include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/if_ether.h>	/* ETH_ALEN */
+@@ -45,8 +47,109 @@ struct imx_ocotp_priv {
+ 	struct nvmem_config config;
+ 	struct mutex lock;
+ 	const struct ocotp_devtype_data *data;
++	struct se_if_priv *se_data;
+ };
  
- #include "ele_base_msg.h"
-@@ -106,8 +107,8 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
- 		}
- 	}
- 
--	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
--			    ELE_GET_INFO_REQ, ELE_GET_INFO_REQ_MSG_SZ, true);
-+	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
-+				ELE_GET_INFO_REQ, ELE_GET_INFO_REQ_MSG_SZ, true);
- 
- 	tx_msg->data[0] = upper_32_bits(get_info_addr);
- 	tx_msg->data[1] = lower_32_bits(get_info_addr);
-@@ -120,8 +121,8 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
- 		return ret;
- 	}
- 
--	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_GET_INFO_REQ,
--				      ELE_GET_INFO_RSP_MSG_SZ, true);
-+	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_GET_INFO_REQ,
-+					  ELE_GET_INFO_RSP_MSG_SZ, true);
- 	if (ret < 0) {
- 		ele_get_info_cleanup(priv, get_info_data, get_info_addr, get_info_len);
- 		return ret;
-@@ -156,16 +157,16 @@ int ele_ping(struct se_if_priv *priv)
- 	if (!rx_msg)
- 		return -ENOMEM;
- 
--	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
--			    ELE_PING_REQ, ELE_PING_REQ_SZ, true);
-+	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
-+				ELE_PING_REQ, ELE_PING_REQ_SZ, true);
- 
- 	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_PING_REQ_SZ,
- 			       rx_msg, ELE_PING_RSP_SZ);
- 	if (ret < 0)
- 		return ret;
- 
--	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_PING_REQ,
--				      ELE_PING_RSP_SZ, true);
-+	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_PING_REQ,
-+					  ELE_PING_RSP_SZ, true);
- 
- 	return ret;
- }
-@@ -196,8 +197,9 @@ int ele_service_swap(struct se_if_priv *priv,
- 	if (!rx_msg)
- 		return -ENOMEM;
- 
--	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
--			    ELE_SERVICE_SWAP_REQ, ELE_SERVICE_SWAP_REQ_MSG_SZ, true);
-+	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
-+				ELE_SERVICE_SWAP_REQ, ELE_SERVICE_SWAP_REQ_MSG_SZ,
-+				true);
- 
- 	tx_msg->data[0] = flag;
- 	tx_msg->data[1] = addr_size;
-@@ -212,8 +214,8 @@ int ele_service_swap(struct se_if_priv *priv,
- 	if (ret < 0)
- 		return ret;
- 
--	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_SERVICE_SWAP_REQ,
--				      ELE_SERVICE_SWAP_RSP_MSG_SZ, true);
-+	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_SERVICE_SWAP_REQ,
-+					  ELE_SERVICE_SWAP_RSP_MSG_SZ, true);
- 	if (ret)
- 		return ret;
- 
-@@ -248,8 +250,8 @@ int ele_fw_authenticate(struct se_if_priv *priv, dma_addr_t contnr_addr,
- 	if (!rx_msg)
- 		return -ENOMEM;
- 
--	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
--			    ELE_FW_AUTH_REQ, ELE_FW_AUTH_REQ_SZ, true);
-+	imx_se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
-+				ELE_FW_AUTH_REQ, ELE_FW_AUTH_REQ_SZ, true);
- 
- 	tx_msg->data[0] = lower_32_bits(contnr_addr);
- 	tx_msg->data[1] = 0;
-@@ -260,8 +262,8 @@ int ele_fw_authenticate(struct se_if_priv *priv, dma_addr_t contnr_addr,
- 	if (ret < 0)
- 		return ret;
- 
--	ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_FW_AUTH_REQ,
--				      ELE_FW_AUTH_RSP_MSG_SZ, true);
-+	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_FW_AUTH_REQ,
-+					  ELE_FW_AUTH_RSP_MSG_SZ, true);
- 
- 	return ret;
- }
-@@ -286,8 +288,8 @@ int ele_debug_dump(struct se_if_priv *priv)
- 	if (!rx_msg)
- 		return -ENOMEM;
- 
--	se_fill_cmd_msg_hdr(priv, &tx_msg->header, ELE_DEBUG_DUMP_REQ,
--			    ELE_DEBUG_DUMP_REQ_SZ, true);
-+	imx_se_fill_cmd_msg_hdr(priv, &tx_msg->header, ELE_DEBUG_DUMP_REQ,
-+				ELE_DEBUG_DUMP_REQ_SZ, true);
- 
- 	msg_ex_cnt = 0;
- 	do {
-@@ -298,8 +300,8 @@ int ele_debug_dump(struct se_if_priv *priv)
- 		if (ret < 0)
- 			return ret;
- 
--		ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_DEBUG_DUMP_REQ,
--					      ELE_DEBUG_DUMP_RSP_SZ, true);
-+		ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_DEBUG_DUMP_REQ,
-+						  ELE_DEBUG_DUMP_RSP_SZ, true);
- 		if (ret) {
- 			dev_err(priv->dev, "Dump_Debug_Buffer Error: %x.", ret);
- 			break;
-diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
-index fbb6e584341a..f9c56fd42af0 100644
---- a/drivers/firmware/imx/ele_common.c
-+++ b/drivers/firmware/imx/ele_common.c
-@@ -3,11 +3,26 @@
-  * Copyright 2025 NXP
-  */
- 
-+#include <linux/export.h>
++/* ELE commands and message sizes used for OCOTP fuse access. */
++#define ELE_READ_FUSE_REQ		0x97
++#define ELE_READ_FUSE_REQ_MSG_SZ	0x08
++#define ELE_READ_FUSE_RSP_MSG_SZ	0x0c
 +
- #include "ele_base_msg.h"
- #include "ele_common.h"
- #include "ele_fw_api.h"
- #include "se_ctrl.h"
- 
-+/* Fill a command message header with a given command ID and length in bytes. */
-+int imx_se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se_msg_hdr *hdr,
-+			u8 cmd, u32 len, bool is_base_api)
-+{
-+	hdr->tag = priv->if_defs->cmd_tag;
-+	hdr->ver = (is_base_api) ? priv->if_defs->base_api_ver : priv->if_defs->fw_api_ver;
-+	hdr->command = cmd;
-+	hdr->size = len >> 2;
++#define ELE_WRITE_FUSE			0xd6
++#define ELE_WRITE_FUSE_REQ_MSG_SZ	0x0c
++#define ELE_WRITE_FUSE_RSP_MSG_SZ	0x0c
 +
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(imx_se_fill_cmd_msg_hdr);
-+
- int se_chk_tx_msg_hdr(struct se_if_device_ctx *dev_ctx, struct se_msg_hdr *header)
- {
- 	struct se_if_priv *priv = dev_ctx->priv;
-@@ -261,6 +276,21 @@ int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
- 	return err;
- }
- 
 +/*
-+ * Send/receive blocking call for external drivers, operating on the SE
-+ * interface private data (the misc device context is resolved internally).
++ * imx_ocotp_se_read_fuse() - Request the secure enclave FW to read a fuse.
++ * @priv: handle to the secure-enclave interface.
++ * @fuse_id: fuse identifier to read.
++ * @value: location to store the read fuse value.
++ *
++ * Secure enclaves like the EdgeLock Enclave manage the fuses. This requests
++ * the FW to read the fuse and returns the value reported by the FW.
++ *
++ * Return: 0 on success, a negative error code otherwise.
 + */
-+int imx_se_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
-+			void *rx_msg, int exp_rx_msg_sz)
++static int imx_ocotp_se_read_fuse(struct se_if_priv *priv, u16 fuse_id, u32 *value)
 +{
++	int ret;
++
 +	if (!priv)
 +		return -EINVAL;
 +
-+	return ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, tx_msg_sz,
-+				rx_msg, exp_rx_msg_sz);
-+}
-+EXPORT_SYMBOL_GPL(imx_se_msg_send_rcv);
++	struct se_api_msg *tx_msg __free(kfree) = kzalloc(ELE_READ_FUSE_REQ_MSG_SZ, GFP_KERNEL);
++	if (!tx_msg)
++		return -ENOMEM;
 +
- static bool check_hdr_exception_for_sz(struct se_if_priv *priv,
- 				       struct se_msg_hdr *header)
++	struct se_api_msg *rx_msg __free(kfree) = kzalloc(ELE_READ_FUSE_RSP_MSG_SZ, GFP_KERNEL);
++	if (!rx_msg)
++		return -ENOMEM;
++
++	ret = imx_se_fill_cmd_msg_hdr(priv, &tx_msg->header, ELE_READ_FUSE_REQ,
++				      ELE_READ_FUSE_REQ_MSG_SZ, true);
++	if (ret)
++		return ret;
++
++	tx_msg->data[0] = fuse_id;
++
++	ret = imx_se_msg_send_rcv(priv, tx_msg, ELE_READ_FUSE_REQ_MSG_SZ,
++				  rx_msg, ELE_READ_FUSE_RSP_MSG_SZ);
++	if (ret < 0)
++		return ret;
++
++	ret = imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_READ_FUSE_REQ,
++					  ELE_READ_FUSE_RSP_MSG_SZ, true);
++	if (ret)
++		return ret;
++
++	*value = rx_msg->data[1];
++
++	return 0;
++}
++
++/*
++ * imx_ocotp_se_write_fuse() - Request the secure enclave FW to write a fuse.
++ * @priv: handle to the secure-enclave interface.
++ * @fuse_id: fuse identifier to write to.
++ * @value: value to write to the fuse.
++ *
++ * Secure enclaves like the EdgeLock Enclave manage the fuses. This requests
++ * the FW to program the fuse with the given value.
++ *
++ * Return: 0 on success, a negative error code otherwise.
++ */
++static int imx_ocotp_se_write_fuse(struct se_if_priv *priv, u16 fuse_id, u32 value)
++{
++	int ret;
++
++	if (!priv)
++		return -EINVAL;
++
++	struct se_api_msg *tx_msg __free(kfree) = kzalloc(ELE_WRITE_FUSE_REQ_MSG_SZ, GFP_KERNEL);
++	if (!tx_msg)
++		return -ENOMEM;
++
++	struct se_api_msg *rx_msg __free(kfree) = kzalloc(ELE_WRITE_FUSE_RSP_MSG_SZ, GFP_KERNEL);
++	if (!rx_msg)
++		return -ENOMEM;
++
++	ret = imx_se_fill_cmd_msg_hdr(priv, &tx_msg->header, ELE_WRITE_FUSE,
++				      ELE_WRITE_FUSE_REQ_MSG_SZ, true);
++	if (ret)
++		return ret;
++
++	tx_msg->data[0] = (32 << 16) | (fuse_id << 5);
++	tx_msg->data[1] = value;
++
++	ret = imx_se_msg_send_rcv(priv, tx_msg, ELE_WRITE_FUSE_REQ_MSG_SZ,
++				  rx_msg, ELE_WRITE_FUSE_RSP_MSG_SZ);
++	if (ret < 0)
++		return ret;
++
++	return imx_se_val_rsp_hdr_n_status(priv, rx_msg, ELE_WRITE_FUSE,
++					   ELE_WRITE_FUSE_RSP_MSG_SZ, true);
++}
++
+ static enum fuse_type imx_ocotp_fuse_type(void *context, u32 index)
  {
-@@ -402,8 +432,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 	}
- }
+ 	struct imx_ocotp_priv *priv = context;
+@@ -72,6 +175,7 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
+ 	u32 count, index, num_bytes;
+ 	enum fuse_type type;
+ 	u32 *buf;
++	int ret;
+ 	int i;
+ 	u8 skipbytes;
  
--int se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
--			    u8 msg_id, u8 sz, bool is_base_api)
-+int imx_se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
-+				u8 msg_id, u8 sz, bool is_base_api)
- {
- 	struct se_msg_hdr *header = &msg->header;
- 	u32 status;
-@@ -450,6 +480,7 @@ int se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
+@@ -92,6 +196,18 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
+ 	buf = p;
  
+ 	for (i = index; i < (index + count); i++) {
++		/*
++		 * All fuse registers can be read via ELE. If the SE device is
++		 * available, always prefer it.
++		 */
++		if (priv->se_data) {
++			ret = imx_ocotp_se_read_fuse(priv->se_data, i, buf++);
++			if (ret)
++				return ret;
++
++			continue;
++		}
++
+ 		type = imx_ocotp_fuse_type(context, i);
+ 		if (type == FUSE_INVALID || type == FUSE_ELE) {
+ 			*buf++ = 0;
+@@ -109,6 +225,29 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
  	return 0;
- }
-+EXPORT_SYMBOL_GPL(imx_se_val_rsp_hdr_n_status);
- 
- int se_save_imem_state(struct se_if_priv *priv, struct se_imem_buf *imem)
- {
-diff --git a/drivers/firmware/imx/ele_common.h b/drivers/firmware/imx/ele_common.h
-index b63a3fbf087a..8f0739960d4d 100644
---- a/drivers/firmware/imx/ele_common.h
-+++ b/drivers/firmware/imx/ele_common.h
-@@ -28,20 +28,6 @@ int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
- 		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz);
- 
- void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg);
--
--int se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
--			    u8 msg_id, u8 sz, bool is_base_api);
--
--/* Fill a command message header with a given command ID and length in bytes. */
--static inline void se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se_msg_hdr *hdr,
--				       u8 cmd, u32 len, bool is_base_api)
--{
--	hdr->tag = priv->if_defs->cmd_tag;
--	hdr->ver = (is_base_api) ? priv->if_defs->base_api_ver : priv->if_defs->fw_api_ver;
--	hdr->command = cmd;
--	hdr->size = len >> 2;
--}
--
- int se_save_imem_state(struct se_if_priv *priv, struct se_imem_buf *imem);
- 
- int se_restore_imem_state(struct se_if_priv *priv, struct se_imem_buf *imem);
-diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
-index 3c14964830a6..53f252d2f111 100644
---- a/drivers/firmware/imx/se_ctrl.c
-+++ b/drivers/firmware/imx/se_ctrl.c
-@@ -911,9 +911,9 @@ static int se_ioctl_cmd_snd_rcv_rsp_handler(struct se_if_device_ctx *dev_ctx,
- 		"message received, start transmit to user");
- 
- 	rsp_status_err =
--		se_val_rsp_hdr_n_status(priv, rx_msg, tx_msg->header.command,
--					cmd_snd_rcv_rsp_info.rx_buf_sz,
--					tx_msg->header.ver == priv->if_defs->base_api_ver);
-+		imx_se_val_rsp_hdr_n_status(priv, rx_msg, tx_msg->header.command,
-+					    cmd_snd_rcv_rsp_info.rx_buf_sz,
-+					    tx_msg->header.ver == priv->if_defs->base_api_ver);
- 
- 	if (!rsp_status_err) {
- 		err = se_dev_ctx_cpy_out_data(dev_ctx);
-diff --git a/drivers/firmware/imx/se_ctrl.h b/drivers/firmware/imx/se_ctrl.h
-index af7738ad76cd..76082e8b977c 100644
---- a/drivers/firmware/imx/se_ctrl.h
-+++ b/drivers/firmware/imx/se_ctrl.h
-@@ -7,6 +7,7 @@
- #define SE_CTRL_H
- 
- #include <linux/bitfield.h>
-+#include <linux/firmware/imx/se_api.h>
- #include <linux/miscdevice.h>
- #include <linux/mailbox_client.h>
- #include <linux/semaphore.h>
-@@ -95,22 +96,9 @@ struct se_if_device_ctx {
- 	struct kref refcount;
  };
  
--/* Header of the messages exchange with the EdgeLock Enclave */
--struct se_msg_hdr {
--	u8 ver;
--	u8 size;
--	u8 command;
--	u8 tag;
--}  __packed;
--
- #define SE_MU_HDR_SZ		4
- #define SE_MU_HDR_WORD_SZ	1
++static int imx_ocotp_reg_write(void *context, unsigned int offset, void *val, size_t bytes)
++{
++	struct imx_ocotp_priv *priv = context;
++	u32 word = offset >> 2;
++	u32 *buf = val;
++
++	/* allow only writing one complete OTP word at a time */
++	if ((bytes != 4) || (offset % 4 != 0))
++		return -EINVAL;
++
++	/*
++	 * The ELE API returns an error when writing an all-zero value. As
++	 * OTP fuse bits can not be switched from 1 to 0 anyway, skip these
++	 * values.
++	 */
++	if (!*buf)
++		return 0;
++
++	guard(mutex)(&priv->lock);
++
++	return imx_ocotp_se_write_fuse(priv->se_data, word, *buf);
++}
++
+ static int imx_ocotp_cell_pp(void *context, const char *id, int index,
+ 			     unsigned int offset, void *data, size_t bytes)
+ {
+@@ -135,6 +274,7 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
++	struct platform_device *se_pdev;
+ 	struct imx_ocotp_priv *priv;
+ 	struct nvmem_device *nvmem;
  
--struct se_api_msg {
--	struct se_msg_hdr header;
--	u32 data[];
--};
--
- struct se_if_defines {
- 	const u8 se_if_type;
- 	u8 cmd_tag;
-diff --git a/include/linux/firmware/imx/se_api.h b/include/linux/firmware/imx/se_api.h
-index b1c4c9115d7b..90104ecaaede 100644
---- a/include/linux/firmware/imx/se_api.h
-+++ b/include/linux/firmware/imx/se_api.h
-@@ -11,4 +11,82 @@
- #define SOC_ID_OF_IMX8ULP		0x084d
- #define SOC_ID_OF_IMX93			0x9300
+@@ -148,16 +288,39 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 	if (IS_ERR(priv->base))
+ 		return PTR_ERR(priv->base);
  
-+/**
-+ * struct se_msg_hdr - Header of the messages exchanged with the secure enclave.
-+ * @ver: API version the message conforms to (base or firmware API version).
-+ * @size: Message size in 32-bit words, including the header.
-+ * @command: Command identifier.
-+ * @tag: Message tag identifying it as a command or a response.
-+ */
-+struct se_msg_hdr {
-+	u8 ver;
-+	u8 size;
-+	u8 command;
-+	u8 tag;
-+}  __packed;
++	struct device_node *np __free(device_node) = of_parse_phandle(pdev->dev.of_node,
++								      "secure-enclave", 0);
++	if (!np) {
++		dev_info(dev, "missing or invalid SE handle, using readonly FSB\n");
++	} else {
++		se_pdev = of_find_device_by_node(np);
++		if (!se_pdev)
++			return dev_err_probe(dev, -ENODEV, "failed to find SE device\n");
 +
-+/**
-+ * struct se_api_msg - A message exchanged with the secure enclave.
-+ * @header: Message header describing the command and its length.
-+ * @data: Command or response payload, sized per @header.size.
-+ */
-+struct se_api_msg {
-+	struct se_msg_hdr header;
-+	u32 data[];
-+};
++		priv->se_data = platform_get_drvdata(se_pdev);
++		if (!priv->se_data) {
++			put_device(&se_pdev->dev);
++			return dev_err_probe(dev, -EPROBE_DEFER, "SE device not ready\n");
++		}
 +
-+/* Opaque handle to a secure-enclave interface instance. */
-+struct se_if_priv;
++		if (!device_link_add(dev, &se_pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER)) {
++			put_device(&se_pdev->dev);
++			return dev_err_probe(dev, -EINVAL, "failed to link to SE device\n");
++		}
 +
-+/**
-+ * imx_se_fill_cmd_msg_hdr() - Populate the header of a command message.
-+ * @priv: Secure-enclave interface instance the command targets.
-+ * @hdr: Message header to be filled in.
-+ * @cmd: Command identifier to place in the header.
-+ * @len: Total message length in bytes, including the header.
-+ * @is_base_api: %true to tag the message with the base API version, %false to
-+ *               use the firmware API version.
-+ *
-+ * Fill in the tag, version, command and size fields of @hdr so that the message
-+ * can be sent to the secure enclave.
-+ *
-+ * Return: 0 on success.
-+ */
-+int imx_se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se_msg_hdr *hdr,
-+			    u8 cmd, u32 len, bool is_base_api);
++		put_device(&se_pdev->dev);
++	}
 +
-+/**
-+ * imx_se_msg_send_rcv() - Send a command to the secure enclave and wait for the
-+ *                         response.
-+ * @priv: Secure-enclave interface instance to communicate with.
-+ * @tx_msg: Buffer holding the command message to send.
-+ * @tx_msg_sz: Size of the command message in bytes.
-+ * @rx_msg: Buffer receiving the response message.
-+ * @exp_rx_msg_sz: Expected size of the response message in bytes.
-+ *
-+ * Blocking send/receive helper for external drivers. The transaction is
-+ * serialized internally and the misc device context is resolved from @priv.
-+ *
-+ * Return: number of bytes received on success, or a negative error code.
-+ */
-+int imx_se_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
-+			void *rx_msg, int exp_rx_msg_sz);
+ 	priv->config.dev = dev;
+ 	priv->config.name = "ELE-OCOTP";
+ 	priv->config.id = NVMEM_DEVID_AUTO;
+ 	priv->config.owner = THIS_MODULE;
+ 	priv->config.size = priv->data->size;
+ 	priv->config.reg_read = imx_ocotp_reg_read;
++	priv->config.reg_write = imx_ocotp_reg_write;
+ 	priv->config.word_size = 1;
+ 	priv->config.stride = 1;
+ 	priv->config.priv = priv;
+-	priv->config.read_only = true;
+ 	priv->config.add_legacy_fixed_of_cells = true;
+ 	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
+ 
+@@ -166,6 +329,9 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 		priv->config.nkeepout = priv->data->nkeepout;
+ 	}
+ 
++	if (!priv->se_data)
++		priv->config.read_only = true;
 +
-+/**
-+ * imx_se_val_rsp_hdr_n_status() - Validate a response header and status code.
-+ * @priv: Secure-enclave interface instance the response came from.
-+ * @msg: Response message to validate.
-+ * @msg_id: Command identifier the response is expected to match.
-+ * @sz: Expected response size in bytes.
-+ * @is_base_api: %true if the command used the base API version, %false if it
-+ *               used the firmware API version.
-+ *
-+ * Check that the response tag, command identifier, size and API version match
-+ * the expectations, and that the enclave reported a successful status.
-+ *
-+ * Return: 0 if the response is valid and successful, or a negative error code.
-+ */
-+int imx_se_val_rsp_hdr_n_status(struct se_if_priv *priv, struct se_api_msg *msg,
-+				u8 msg_id, u8 sz, bool is_base_api);
-+
- #endif /* __SE_API_H__ */
+ 	mutex_init(&priv->lock);
+ 
+ 	nvmem = devm_nvmem_register(dev, &priv->config);
 
 -- 
 2.55.0
