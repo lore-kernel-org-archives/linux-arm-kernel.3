@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3AC4C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9530FC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pr+yXJ1zx4RlPju5kOdUktz6qmzd6euktFiv0KaUpN0=; b=mVTNRdyCCHOgOE1MV/Tjn+VNsh
-	YPJeYfOTAIthJornCaUvq78lsywLT3qYhO4b8xjjaCJ++7licZyNwz97tRl/3C4F1VlICvkHc2Vl2
-	HpF0mCmoIgZtZMlmTvVpERs433MievajI+FtdID+5f+eBcS2BdsejJE8cLUOpQFr/a7rOs/svG0gr
-	Jq7H8Ul/XXvCg5ZJFAjrYuLtqxTmnYYBECpr7bVHqrKD4u0z8cqk3kze/FD6LbbVAXZYL892JM9jT
-	mcKIBAr888c9gT6+os9Edek6gv+Ab1ArHaMS/NBHwTT1l20Vt+Szkge8fCGbmXGfG/cpejXcox0Mx
-	Mg3/yXGA==;
+	bh=/Beq88uOHJ24V0VZGHYge0LPzaDqSYHq/p4rqe8cWWo=; b=b/vz7ss7nkCU/VMgUrXUGrTqDt
+	21vkJ9UeGEfr1Vqm29IVz2v5n4SeKC6jrZVMf/9AtT696pfWHWqwwACbXoO52d5sVzZZsDfKQVV/c
+	qmn2aBwbMiLD65GGJXxusweE9e9b3bKYekzBJoLCKHaaLi0Q4KsGo3oIkmVRMmvUr/ME/tW7mq3lF
+	IC/kc2iCuLeJHXZFJpVvai3xtnfg0ROwnyA4NHguRCdfD6744vBZ4B+15BatN+opTbAXofhkl8ERP
+	mPt2M08q3VczpTMbIIWsLLcFQodvMKoMPNU6OixIgXDGrX6fngPk+TTDDgS8xGSiOwFRhAmgJkwm5
+	gkbNNp/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woU3X-000000042Te-1drK;
-	Mon, 27 Jul 2026 22:44:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1woU6F-000000042b5-31rQ;
+	Mon, 27 Jul 2026 22:47:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woU3W-000000042TG-1iQ7
+	id 1woU6E-000000042az-0tBq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 22:44:18 +0000
+	Mon, 27 Jul 2026 22:47:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5257D60008;
-	Mon, 27 Jul 2026 22:44:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3FA61F000E9;
-	Mon, 27 Jul 2026 22:44:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 82E0641E68;
+	Mon, 27 Jul 2026 22:47:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6474D1F000E9;
+	Mon, 27 Jul 2026 22:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785192257;
-	bh=pr+yXJ1zx4RlPju5kOdUktz6qmzd6euktFiv0KaUpN0=;
+	s=k20260515; t=1785192425;
+	bh=/Beq88uOHJ24V0VZGHYge0LPzaDqSYHq/p4rqe8cWWo=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=i/Hl7HGk8uQM91MvyyJgoBz/+ijmz5VmWHNnyYAUxYfXSkPKivRVEtRp8KInZVDHJ
-	 3dH+pGFf+0jF7UOdNnzXswVqjt+Obi3JRbngQO/50UxhyvEGQqAHSpdzCjE/U0e0w+
-	 jgu3g17VdveCbqK80mQqEb+DC+XwmQmAeCIyCJWtCLkLpc2j912Rq0UvBRiVD8uH3x
-	 zJrcUxjL5xvS+LHaumTjKdshPtp/obqVRtRBxQWhVf1NrsU3KTj1WdbyQQEVN4Ujou
-	 AQHF+eHQYP+HVMfmnSYW/ypgFxvJaF+KumIMzGPQLdDUe9lzYDPZvM1I66Ovh701K3
-	 +UVuX8HxM/3xQ==
-Date: Mon, 27 Jul 2026 23:44:10 +0100
+	b=G7Zy0aNh/P3V/o/7NKw0az9jiNUeMcABPPk3xNTcd+3hEPAiJ15lYuicdJQLqiIHZ
+	 y983eL0hIHIfdT38aIUZCGJ56PAZaMdPx8mP1jcRtj89tiE1QBavx/OME7Z7/cozVk
+	 cImCUffiwykKIdJlouZM3U2UtZ5o40DrpEUmtxCraYElyYlc//IuXfu1diZIN1G0av
+	 Ak2Plx1N9Eq3+kWRVSeg3QKvA3nL4DoNtc180P0mItgNPRgpBn/4ZkTYVja/ITvhsI
+	 AKq+1aYZwBv3tIlMvq0B6EFIkv0p8Re7xHTRTf6nGseUXADX1QUhz3rEB9v9nrUfNs
+	 V3NO9t1bAAHqg==
+Date: Mon, 27 Jul 2026 23:46:58 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
@@ -57,12 +57,12 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
  linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 05/10] arm_mpam: propagate MSC access errors for
- __ris_msmon_read()
-Message-ID: <20260727234410.1504cfff@jic23-huawei>
-In-Reply-To: <20260723155454.1760823-6-andre.przywara@arm.com>
+Subject: Re: [PATCH v4 06/10] arm_mpam: propagate MSC access errors for
+ state saving function
+Message-ID: <20260727234658.3568bb4a@jic23-huawei>
+In-Reply-To: <20260723155454.1760823-7-andre.przywara@arm.com>
 References: <20260723155454.1760823-1-andre.przywara@arm.com>
-	<20260723155454.1760823-6-andre.przywara@arm.com>
+	<20260723155454.1760823-7-andre.przywara@arm.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -81,17 +81,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 17:54:49 +0200
+On Thu, 23 Jul 2026 17:54:50 +0200
 Andre Przywara <andre.przywara@arm.com> wrote:
 
-> Allow the function for RIS accesses to return an error, and propagate
-> read and write errors from the lower level up.
-> This function is a bit special, since it can be called via an SMP
-> helper, so the prototype must stay as void. So propagate any errors
-> using the "err" field in the struct passed in as the sole argument to
-> that function.
+> Allow the mpam_save_mbwu_state() function to return an error, and
+> propagate read and write errors from the lower level up.
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
