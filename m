@@ -4,134 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CDDC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 14:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA170C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 14:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fOZzPWdWQAhwg+7NNyuvTtkNRqjeCuQxDx7m0J2Gz18=; b=Zo8+OGSEdxhAix+icsHOSAMDt1
-	0rFYNZitAUlCwn/aVxZ0ID/UgUYeEPzUlpuCl+Gq696wgt5jaiu+XxtUAfCctdd7JLjuFjCdAS2Pd
-	fkiDgJdYo51GlaSIjHppZN6rcRP8WY3uOdyEGAjImZ+I/x1aPF3+AG7WQ2N2u8Obc32Z6cJAGNSVv
-	1FCQWHMBSUIW4a36D9TJ6p3O5Q6p1Tn1VExa2Bd7oSnn1BGqY6XKdc8n43ld1JThhPcnCfPFhBy48
-	yQjgbWJkePAqgITf7DLI6smpKcR/Cx4bM/eIyOVZ1JqcvjoA8bfjyG9oFzXmBS9LObMglR4RDCvIm
-	4urOs0Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M2ddgy3YMr1L131dVfH+5jVpRSPYrE1dF6J05eeKc08=; b=j0vLyBFfDdXCTjhhMmwG2vPSB/
+	mBMsESlQ5JeLjqSxqcTNe8+NjXE9hyIidhZWI7rfzvZSOVdbDOcA9SZe6ajruaiktiRRnmTr9dD+r
+	hTUDeqwv3jHu0JvvMu4thNoO9ijicawDV8LatWOpw/jfWOGzM+JNaPB1GTt1iILDkXj8mIeqNefsC
+	sOdROkb6XnHe1jdOYwCb3cuiI+M6cVbxLG3R6h6hPzoSPK5JIxHj4wS/yEEXSFEPMByco/rBtkzW4
+	TRfRGtP0gLsfvvcvXPP6EGDrHr857y90r9guRVf4qmLSl6em8O4hWUzl5RgchsfcLIEZZi6aPrMam
+	lfxKSvDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMY3-000000031kh-0CXO;
-	Mon, 27 Jul 2026 14:43:19 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMY1-000000031jJ-0lQk
+	id 1woMgC-000000035M0-3XLv;
+	Mon, 27 Jul 2026 14:51:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woMgA-000000035LC-3r64
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 14:43:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w5//MXqlW/Q/3IvPAvTaqXxTxiGhoznFVRkJjSHsi5wooLCYn2NaQ3ximyPali7uzK3YakHD1JttOoMwUUdeoR9vAB3pa1FyeQSgofgG2a5Z8DTd5R269bqH1ytWSomY12Ru0XZedMXr3Tl/kKdYSjc/ANMsZUjl7H8desq4pqg+x9EMROKBY5i1gTeGkF/pf1D2ziNimrdcWLkBe6N5DlY9vnN25llpf6u1X3wZt/IXHEi8EvQaNsx16PmuhbzLY8NNTw30wRN2yqLG7hPMBAVKw/BQCSaNBc0PqExKdoxmYaw13oP1KkRtADmF//vLT48iNCtP0+ULHck/VyMtBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fOZzPWdWQAhwg+7NNyuvTtkNRqjeCuQxDx7m0J2Gz18=;
- b=HcVbmTZo+jhgswix6PTH85ko8MLEayKXaSKPpeXNHox3d+i7eNT1VspEwK3+H705YiqXEnS9a7KH++963G0aqOuZzG/hAeCsMXCe+ukZ+FhRaPSAYGuQONla/T3DqfQdceElUw9irhkQrSS9S3zb/EzVJ/F3hZ6jHOBVDaG9iqKdZ3AD4say1P0GWJIfbffk8UZXa9dILDKeIgbmFPG78cp4WRBYxT29VPQh7lpjYzfZvQMuPfyaNl9tWdOTzAIpdOysHjbGPNHVMDcDpCtoaO42JpqUe7LfQbruLH0iWlHRWyy0cql6uxJWg/ogODCtHbXVyzSlCGRS0bgG5qClvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fOZzPWdWQAhwg+7NNyuvTtkNRqjeCuQxDx7m0J2Gz18=;
- b=S6Urjy3o0NLovC/kNh+Wf2kg+FAkbzrF2BCH6CZtcNJ3vilSRuuUHkaA0pPOW7Y6I4vQLqWWLwLiY3qELDVl0s3DYcgsQhEFNf7J+X3M/tSad2JIkkRz+GUIa6SQ3hxrI17C81lngNvlCumxDuDFzMCp2EpoaDJ5DiBAkRjJg/5XvmYLr7d4K1fZIDJ4kRjf496i+YiHIWl+FBRZKNuiBZ1D4T7063+yyP+qf4RFUWqhnKNNrLK5rVOYN3YNib+synmPEu/7GdkUXypS3xkH/QNAN2XepZp+oYTzlhzLUtiOmChf2FJnOMJw/5/KxLcMiaMyj9v7GfCNNFDoco26Kw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA1PR04MB12173.eurprd04.prod.outlook.com (2603:10a6:102:561::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
- 2026 14:43:10 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
- 14:43:10 +0000
-Date: Mon, 27 Jul 2026 09:42:59 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v4 00/11] Support ELE API in i.MX OCOTP NVMEM driver
-Message-ID: <amduc2ISVquBlD8c@SMW015318>
-References: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de>
-X-ClientProxiedBy: PH8PR07CA0006.namprd07.prod.outlook.com
- (2603:10b6:510:2cd::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 27 Jul 2026 14:51:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5BA91682;
+	Mon, 27 Jul 2026 07:51:37 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 275623F86F;
+	Mon, 27 Jul 2026 07:51:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785163901; bh=Fv4Qq52Od0IG4/8dw1STkdtFPA5yd3S8c31Fe9oTN7E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WBKT8PqxYEsdfiqhz5lApHSw8bmvY8ZftVOYhzc7A9GWLBkAZK5ixHk/m/HgE/0sz
+	 puonVk8rEZ95mq0umcLqb56wYu1fhTwkD83/uFOgJ/KDI3IQWhtESjZWXBPTy3d5Ur
+	 Wt9HYMnpUnRlpINkpZ0BGKfYmdewHxd8E/RHLtJg=
+Message-ID: <910d1492-ad3b-4201-93c6-208be1dcde7d@arm.com>
+Date: Mon, 27 Jul 2026 15:51:32 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB12173:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6101c3ea-b14a-40e3-5a57-08deebed6145
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|23010399003|6133799003|22082099003|18002099003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: wGGsz5bm5EngGa4Hk1biMNxCMDROhcrNvLwrAQQpupWae2Gutok7XhSTr9EQ108bMciqiQbRs0XXDSxaftYGVlXUgP5JQ4u3E40UlaSqSc7OJ51LNOIxCVGK/VRjzKfU9JXSatU21us9iW2jDHHaMsWGBNkvasUXqqTlCl7xjTh9+hCqnI9AIyimrB+ECZm3FNufuqjltAh7LbBI7kleTFhfiwdbZkz+n+ElgKF2fm2UBDcovqstmIYjlm7rDX9AbmdMUee+8ofOoV2sVCWiUFoHXw0UDly7HoLKaDIwX32wPHL5zR7W4VKqaamurWcOqQt7hAhcea91XSZm0Pukz/3IYiMyBiaH2TrJELcrn3jY7efsh+gZ84nFEaV+I5Q8VLA8rqHv4JG7LP9bsQNXpRxNnKgcTh/SnL1Ngedd4tcbYvJTO9aQiYFjyMeJnIXtYZEy/SbncnYYnFHwVNGPPPE5LNeNamDEaORsPFpS32892iqVBdciFmYb26T41MzQ5dwegiEYBgFdWtpeLz+8wTDlI3h9/PTe+SiZRKUiNmKtrVIwvCIH6YLUPAv/S4I0VMNxwALrGHtx765ivVAN6WeyBFPKlRgPIpEGQFtgl6N9VYjc9gW971uK8VULSLKZy17DC3IF5sQ7hKIICGe3gLBJLhWOaErGNPssuH0W3+k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(23010399003)(6133799003)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?igdImi5XetBV3oEWI8ImQR5p7TYpcNFotP0t5NnlfA6yEng7uAbfoRoWyuZM?=
- =?us-ascii?Q?nwDW4MrDOgoMrjUtI3TmaXaXk3RpkO32eUhrjeZ0lJdqubCxOhW8XjahUz/x?=
- =?us-ascii?Q?LEpNlynT7mRkU0CmkhAFiufnOrN0rL7vYffII9V+n1UpJ7pKRe4JG3rBVujC?=
- =?us-ascii?Q?abePcn1LvkUjMDIPbY8jzSzzE/kC+w39eGvqwwJZ33l+xWz0Do5umADtehV1?=
- =?us-ascii?Q?LFh7UYFGl8Tl0pntyeI0KsgUBV7xY8hnOQGXOgtefRskBFyb/dXFR7GHWHfX?=
- =?us-ascii?Q?NW4UdZZTbZdrteXB1nJFTmD8OP3eM2uI9JRea737DbWOlg88Bd3oCvAVSy8H?=
- =?us-ascii?Q?kMSr8DgubJXqpuX3W/8fjvKgH5OgGXGK5iAf7UlGZHIHsVERw4f8sjatIc5z?=
- =?us-ascii?Q?sIvCTzeQo3R9ivgF/67TU/pDJ8rz8ueKwlGxqmaVMPI8zz8wQsLuknSl4wUX?=
- =?us-ascii?Q?S1r46DbZJrkDTjVN0LSIQtgBJV6/lOOpxdHJE6YGsCEANn3qTrZZIoYYMTD6?=
- =?us-ascii?Q?6/sFedbHVoM28YTL1ggJ4+ogFVTChknXaN+kQi7kXkmXfwHq1H+x8qZ2fZiA?=
- =?us-ascii?Q?rICAHUjuBAkN9KiPaPK+wFbcYS59FK9feLtoEFygU/6ps6OCBd4dmOkl1VAc?=
- =?us-ascii?Q?M5L6/BSehEq9ESE3Hp6bk9Xi1+HkpohEEXJaRA1ubrEZSi6Ryo3eLBSQHmGI?=
- =?us-ascii?Q?PKsicgPoH9oXl2U4QzboyvghFOwd8HbzzdY0A1sxJKqW1M8+EA0NYyasfxyB?=
- =?us-ascii?Q?+G7Tngpsr7Hu80Yha4p5JbHKhtF/8eUALh1JnDE6b+2bYk0UrJHRQGf5tQc7?=
- =?us-ascii?Q?vwxnzv8YhdBYrfkCEepmlCC+n/1pb0vu1g+AQPZrCMmtAroFX1o6UVWyWOPw?=
- =?us-ascii?Q?2Aof3yQNxt3c9JDKcikd0Mg3a0vDWEjT333Wy9IIXMACV1Oy+daEShBxICNt?=
- =?us-ascii?Q?d26PGwStkr9TKLSU74arF3LI2kiIrXB/7xz2cNBPXIQKN+G8x5hri1vEKYFn?=
- =?us-ascii?Q?xmEeyt9DT9FCRJhLCrPOUeoyZ8k3H0GJ+bPOYrzbTb1aXNto7+v8ba6NGw12?=
- =?us-ascii?Q?XbOSqWQhmO2CTNvUz0eT9MqfGqHB/olYp5eDyxyyv5+mw/7B8vJnbYujFr0n?=
- =?us-ascii?Q?Kd7uZssAG31L7zVqQZbpTLYfAns5qg6aIoCO1223WnJf8WeWWIb/Bx533ih1?=
- =?us-ascii?Q?faTk3gWu8OGslY/W95qU451rEGktIGg59RUr33f0qyU5AaGNuv+7vantzQRi?=
- =?us-ascii?Q?r6AzQXxJo3iqVCc1h50DXjZ/n/s537wCLKcNNGu/S3OtaT7Dq2+NZBqRgDsr?=
- =?us-ascii?Q?Y7aIGX/6xjufIkV6tkBLXklWHA5ZTSpFh39bv/mAqBYaB4zZdyVF+kzoS/Pl?=
- =?us-ascii?Q?wmx43snmtoWWr9s0IcFHXILWTsc9tmN6DIM31NO49Nh2rsMSHP/kZWE/z0iO?=
- =?us-ascii?Q?v2bFOj63fHa6My2vHgzbiZEOi2Hjcv60YLvNVMpCEsTi/CwYqnBShp2lXRsJ?=
- =?us-ascii?Q?UDmYGnp4K8mfyXYs3L/3d96AANg2y95+zv4G1HNrrkfMzp+NjqoupNr1c/T2?=
- =?us-ascii?Q?egRzpa7SmBHS0mHy8+Xn8itJj0TV7IXF0bQGGz9SSHzsjJQfl2DzPbIn5PyM?=
- =?us-ascii?Q?Blyx+qUDc4Vn1/v8+N9X/yESOmVpeMOVqfDOUrzYaFV8vy7bXTY+XmENeQ4r?=
- =?us-ascii?Q?92IujPxtqlesX/9VPa0HF4ToCj/BZ3hXbpCR1jPcbjnWfQy0nXUaMoGN2TAe?=
- =?us-ascii?Q?CKXPL1BwUcXM04usaTau/PnZ1z8y8tSYdtfIIsxxL7IdkA7Nyvo7?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6101c3ea-b14a-40e3-5a57-08deebed6145
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 14:43:10.6393
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KHDRZSqHopj+F6Klqm92PrRX1TSHgXOWn+AwY3E5BF64e4VFsdgrObax7T8SOy/Wsji00jID4CgVs74a9Yt9z6FiZ0sFHe8nvjfCgN682OgqSAAnkis7IBqcuPrA045R
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB12173
+User-Agent: Mozilla Thunderbird
+Subject: Re: Fixing TegraDRM on multi_v7_defconfig / Enabling DMA API with
+ tegra-smmu
+To: Mikko Perttunen <mperttunen@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-tegra@vger.kernel.org, "iommu@lists.linux.dev" <iommu@lists.linux.dev>
+References: <erKxvAxkSpOaODz6rOpDbQ@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <erKxvAxkSpOaODz6rOpDbQ@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_074317_224981_7D920834 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_075143_128423_648EBF02 
+X-CRM114-Status: GOOD (  41.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,21 +71,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 03:00:43PM +0200, Frieder Schrempf wrote:
-...
->
-> ---
-> Frieder Schrempf (11):
->       dt-bindings: nvmem: imx-ocotp: Add support for secure-enclave
->       firmware: imx: ele: Fix indentation in ele_base_msg.h
->       firmware: imx: ele: Export API functions
+On 24/07/2026 8:35 am, Mikko Perttunen wrote:
+> Greetings everyone.
+> 
+> I've been looking at enabling more CI for 32-bit Tegra platforms
+> recently, and I ran into a problem with TegraDRM not probing on
+> tegra30-cardhu, but only on multi_v7_defconfig.
+> 
+> I traced the issue to the following sequence of events:
+> 
+> 1. On multi_v7_defconfig, CONFIG_ARM_DMA_USE_IOMMU is enabled, while on
+>     tegra_defconfig it is not. This causes arm_setup_iommu_dma_ops to run
+>     on TegraDRM devices.
+> 
+> 2. Some of these devices will be placed in a single IOMMU group by the
+>     tegra-smmu driver. When arm_setup_iommu_dma_ops is called, depending
+>     on probe deferrals, the group may have only the currently probing
+>     device, or a previously deferred device and the new device.
+> 
+>     arm_setup_iommu_dma_ops calls iommu_attach_device. If the device is
+>     alone in its group, this succeeds. If not, this fails. If
+>     iommu_attach_device fails for every device in the group, everything
+>     is "fine" and TegraDRM goes to probe and work fine. Hence let's
+>     assume we have one device that succeeded the attach.
+> 
+> 3. iommu_device_use_default_domain gets called and succeeds on the first
+>     device in the group. On the second device in the group, it fails
+>     since group->owner_cnt was already 1. The custom ARM DMA IOMMU
+>     implementation uses a custom UNMANAGED domain so the domain !=
+>     default_domain check evaluates to true.
+> 
+> 4. Devices fail to probe which leads TegraDRM overall not to probe.
+> 
+> I've thought of the following options to fix this:
+> 
+> 1. Match behavior with tegra_defconfig: Figure out a way to not run
+>     arm_setup_iommu_dma_ops for this situation (ideally any multi-device
+>     group situation). However, I'd also like to enable DMA API with
+>     tegra-smmu to get rid of the manual IOMMU API code paths in TegraDRM,
+>     so this is not a particularly satisfying route.
+> 
+> 2. Improve the legacy path: Fix the ARM IOMMU DMA code to support
+>     groups, and add an exception in iommu_device_use_default_domain. But
+>     I presume we don't want such non-trivial modifications to that code
+>     at this point.
+> 
+> 3. Modernize: Support CONFIG_IOMMU_DMA on ARM -- since there is an issue
+>     with per-SoC quirks, I think this should be done one SoC at a time.
+>     So come up with a way to dynamically pick between the legacy and
+>     IOMMU_DMA paths. Perhaps if the SMMU driver explicitly requests the
+>     DMA domain type, use the modern path. Currently, CONFIG_IOMMU_DMA and
+>     CONFIG_ARM_DMA_USE_IOMMU are mutually exclusive so that has to be
+>     changed.
+> 
+> FWIW, if we are to move to using DMA API with TegraDRM, one blocker
+> would have to be resolved: boot splashes scanning out while the DMA
+> domain is being set up. Since we cannot really use the iommu-addresses
+> reserved-region device tree bindings with these old devices, my thought
+> is to leave the display memory clients in bypass in tegra-smmu until the
+> display driver has quiesced the hardware and can then call into
+> tegra-smmu to enable translation.
+> 
+> Please let me know what you think and whom I missed in the To/Cc fields.
 
-Srinivas Kandagatl:
+TBH I rather feel like the time for converting ARM to iommu-dma has 
+passed - there are drivers which rely on specific behaviours of the ARM 
+IOVA allocator which iommu-dma does not match, and meanwhile iommu-dma 
+continues to grow more server-specific features which would be nothing 
+but bloat on ARMv7 systems with <=2GB of RAM and no virtualisation. At 
+this point I'm inclined to treat the existing DMA ops as legacy code 
+like with alpha/sparc/etc.
 
-	There are depedence with firmware ele. what's plan to pick this
-patch set?
-	Will you take firmware: imx: ele: with my Ack/review-by?
+While there is technically an option 4, to have tegra-smmu do what 
+ipmmu-vmsa and mtk_iommu_v1 do and go coercing the ARM dma_iommu_mapping 
+into groups behind the arch code's back, I am also still hoping to get 
+rid of that and the messy probe_finalize step altogether. FWIW my 
+preference would be some form of option 2 - off-hand I imagine you could 
+probably get most of the way there by propagating the ARM mapping 
+through group->iommudata (ironically tegra-smmu being the only driver in 
+the way of that - looks like it could probably do its internal group 
+accounting explicitly in release_device instead), plus one or two 
+special cases to recognise ARM DMA domains in the core code as you say. 
+The more involved, but ultimately neater, option would be to turn the 
+ARM mapping inside-out and make it a proper domain cookie type with the 
+ARM code providing its own definitions of iommu_{get,put}_dma_cookie() 
+and iommu_setup_dma_ops(), so it could then work as a proper 
+IOMMU_DOMAIN_DMA default domain, and we can lose the current 
+ARM-specific identity domain bodges as well. I reckon the impact of that 
+to core code shouldn't be much worse than the existing special-cases it 
+would replace, while on the arch side it should effectively only really 
+redistribute the current arm_setup_iommu_dma_ops() path, so functionally 
+pretty low risk as well. It's just liable to be fiddly to do in 
+manageable steps rather than one giant patch changing everything at once...
 
-Frank
-
+Cheers,
+Robin.
 
