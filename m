@@ -4,115 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8E8C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 23:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66EDC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 23:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SBBRC+4dBOGUpUnVf1j+pdxrs8Bv9jF12/3OQB9wVH8=; b=Fphqc7SrFWu1P61WL3HoayWrOF
-	ATnRhLrlDyowp/c5ztNI1yrwNuizjMEXjLAu50aUJoVKukUNb7MAunR9nKgTV7X2THsFMDq/pMvA9
-	cMzORkCyZkpLt0Wx6LI9I8gohW2MNNwpPaYUWIfWSl5qOW+gInEzStlicys8rKn23U2XK5yhp/5jg
-	azYAY7+gbsFV6Ore7YidRv8JLKh/SKdmDMBPyK6kvs/afFzpUcCaUdyCwzN3yOCWP7W/v2x3JW0Pw
-	7fXjV2uFOeLBwVazgZc9chq+xeP98VxxbOdn3WphxKuOEWXH0X8hqKh/G9djSHphgkM5ppvkhDToc
-	du4oECvQ==;
+	bh=lVr5Cr9nWLKIbHjqu5Qu6E+br23QI9KJofBsQ+CVWf8=; b=qR0Ft/Aah+YXv1++6uQg2ptDWe
+	NAFnN41mfgPPCeW4Fo37Me0/avtXZ+44Mj7nf4veXyM9OrFL3GtX5oYiuQjcJ4Jsnu2Kgxnv/llKB
+	mr/kajGdLPL7HNXsp6eumAsAwy1KLIlDEmu0GIUWaGhevt2bowNk+cuIf6eLEMMsYZAH9QyuqwuS3
+	1qiq/3iVhVTJBiKtOeZ+p2TAHNgUPwmgC0lTko1XP+2mGPxhY5+GPGw+yWNhBTQ0kgo4D1UB8YFo2
+	D/g0nvoUiXxBrqmLvix7KvSXaWTxmAA0KnoNN7/fIiNmYIZ7IHGBm1qnkCJMPv2ubq1po5HDWNpSw
+	H6Q2c5WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woUWC-000000043yr-174j;
-	Mon, 27 Jul 2026 23:13:56 +0000
-Received: from mail-oo1-xc64.google.com ([2607:f8b0:4864:20::c64])
+	id 1woUf0-000000044aP-1cDs;
+	Mon, 27 Jul 2026 23:23:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woUW9-000000043xt-1Z6E
+	id 1woUey-000000044Zi-2r75
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 23:13:54 +0000
-Received: by mail-oo1-xc64.google.com with SMTP id 006d021491bc7-6ab06473488so889207eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 16:13:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785194031; x=1785798831;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SBBRC+4dBOGUpUnVf1j+pdxrs8Bv9jF12/3OQB9wVH8=;
-        b=Rt6bJCc9bm/pGP3UsTESZeKBiREJp8ZyeZQKvuPUeq65x6knCq7JgDnvAkLf8HVQlb
-         jHwdwt+4QwWWCIPmZtp5bUKb4/NkRXViaxxQM1ifKdO9sXRExWfEXzz6VMNTy/HJUdRy
-         LoyOKY1JaKnUNbztc2ZdLMpRSdl0mlZwZwnO2UvueGx3LvNslxxZp2Uhj5yAR/ZgJ/4z
-         zljYUiakDtQ0SUWXeLUf/twIgWfRqh7nBYdMqHyKWNRVkZVK6Cnynxd5zHYYBuXEAF53
-         /iybA3GHLGGuJ3msFa1YLx5dXMZEc7IJz0tluFAvmLl1s5oUo0Q7ba70eHo4FNpYMo0k
-         GnXw==
-X-Forwarded-Encrypted: i=1; AHgh+Rqh1aPZJmXIEJdrRvCHIZkFjL1CRBNVTKg3F1RrL7faNoZ8dc6tYld+kGytw9MKrCJxW59rkCAl/YhvWF/iiRVp@lists.infradead.org
-X-Gm-Message-State: AOJu0YysFmF4dZn5Ln+KGH6RRIGHnifg5nP/qVP+/wn8v88O6vrZ04Yj
-	C/VSHTd5qk5SezgpXpabDbmAMNQZ9SdPal/y+IOn1uFiq3rWFLQepdVtZb/AaJ4yRokYeLSvEKY
-	uRGM4f1sFgaMTTVfu0K6un5a/+Y7iWRKU0gm5cwKsVedRv7DaJqlhUuyQRQLaPp6C2cPUcn+3a8
-	cct3JnRSdpcRJRKMEkP11lVv5wPXXZPTOnq52ya+ZaMJdy9TSEf+dU1GvQmJ/k984mLTwrh1V19
-	wJO9iA265BNN2sUhYI4wX6xC0mp+dI=
-X-Gm-Gg: AR+sD13xq4wnRY9bqQ1XzC1TSWTyx1kHqRC3G/Z1qGfozB6wSeCEoBCAXbi1pEyW1op
-	PDB4Q0Oql8fuMWWvZU/QRB3YyIw4JGJUXdYNZtlL82LvFFfSEMFjByDOQPJedQosMXmOqpW1q8m
-	HyvXud1vQdhVQ0N9TYxDmlm7Nv0km79awtpUrb5r8R0XXAH1zO2VokVdfIJWkExygOsZLeSMUNy
-	oOE+3KVztMpskBoWcHMt7ZnnBGDD0nF7OMvtld/86hsjAqDGveJ0BM2n6DGvsI6kGpBlsCc9VyD
-	8reME4WIzGjknq+jD31L5rhz7AI+ihrYyiVAivBdOIPXLR4Ys0T3ZgBscACGANQ/w0e0anQxImo
-	DsXz8WXYrM399h5MC0ROlwl9CZFh2ZBumv92PjoxSYn6ImUUo8gUNzRsCPbXTIIsOj3vcqRAhhu
-	PISxrLT1SKjqhl28Ty3fgSMXWc5kIuriMB6Y+C
-X-Received: by 2002:a05:6820:f02f:b0:6a3:97db:4917 with SMTP id 006d021491bc7-6aaffdedd6amr7282974eaf.51.1785194031153;
-        Mon, 27 Jul 2026 16:13:51 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-25.dlp.protect.broadcom.com. [144.49.247.25])
-        by smtp-relay.gmail.com with ESMTPS id 46e09a7af769-7ee29fb48aasm1177692a34.5.2026.07.27.16.13.50
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 27 Jul 2026 16:13:51 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38ecc48b3c2so149227a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 16:13:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1785194029; x=1785798829; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SBBRC+4dBOGUpUnVf1j+pdxrs8Bv9jF12/3OQB9wVH8=;
-        b=Hx0bAAopG88sP1eKfvWiwgYHHH3KnZOvqWAgTJ/ngzBlwoeDdtBxAM9P2/6UN4q4oh
-         2Pj9muMfdD53T7lxuh6sdtyFqj8Jwi8SSH1sIOFBPa3YJfII8AKD3e9CQ7iY1FvEjiCG
-         LeOS+a3EjwWQgRRIBOfXSkUzLgTCNGVW5BuYI=
-X-Forwarded-Encrypted: i=1; AHgh+Rr4j7/JHjBm8QyYIOxpDGAGfI4mQVRAzfyFkKuGqn2Vg+ZosFRqGIzk4pt4xwiVFPbvJmF+QAMyHB4MUco2dxM4@lists.infradead.org
-X-Received: by 2002:a17:90b:2ccf:b0:387:df8f:1409 with SMTP id 98e67ed59e1d1-38f2988462emr8728040a91.42.1785194029550;
-        Mon, 27 Jul 2026 16:13:49 -0700 (PDT)
-X-Received: by 2002:a17:90b:2ccf:b0:387:df8f:1409 with SMTP id 98e67ed59e1d1-38f2988462emr8728013a91.42.1785194029098;
-        Mon, 27 Jul 2026 16:13:49 -0700 (PDT)
-Received: from stband-bld-1.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-314bc415eafsm36964437eec.7.2026.07.27.16.13.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 16:13:48 -0700 (PDT)
-From: Jim Quinlan <james.quinlan@broadcom.com>
-To: dan@reactivated.net
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	florian.fainelli@broadcom.com,
-	iommu@lists.linux.dev,
-	jgg@ziepe.ca,
-	joro@8bytes.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	nick.hollinghurst@raspberrypi.com,
-	robh@kernel.org,
-	robin.murphy@arm.com,
-	will@kernel.org
-Subject: Re: [PATCH 0/6] Add support for Broadcom BCM2712 IOMMU driver (Raspberry Pi 5)
-Date: Mon, 27 Jul 2026 19:13:43 -0400
-Message-Id: <20260727231343.1520006-1-james.quinlan@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
-References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
+	Mon, 27 Jul 2026 23:23:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C3C6F60A62;
+	Mon, 27 Jul 2026 23:22:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07BBE1F000E9;
+	Mon, 27 Jul 2026 23:22:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785194579;
+	bh=lVr5Cr9nWLKIbHjqu5Qu6E+br23QI9KJofBsQ+CVWf8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=agluquQPSC9RXPmNnIZK76eXD/aftYt5jG2hrCU6ozy+Yvs/Hh9rZGjs6btQxiqIv
+	 twQV0i+1Q8oErKN0d+v9+G8dbZK3y1NMb6IrMx/bDpdzUro2AD+i/+R00EWmYEmYNA
+	 ZL7242R45VkJ5vsiY/8g0ebJHTreb+qmnNdeDPb3264ff2GwkqBHgvEJRfYUbeG1gg
+	 glJjGxM/3anTbs6WOcvQnTpNcS17WRNT3kU4/tHHYnqIJeTrgxlbjOW6hGf1HcJ0eK
+	 ZyIdAvcMLXjvg1rYhULKdxcPAm5bXjQ5EF05kvD7YoP1OXAYBmmwEMQjaGCGxRidrQ
+	 ByDhL/v/hPyGw==
+Date: Tue, 28 Jul 2026 00:22:52 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
+ . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, James Morse
+ <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, Reinette Chatre
+ <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>, Srivathsa L
+ Rao <srivathsa.rao@oss.qualcomm.com>, Ganapatrao Kulkarni
+ <ganapatrao.kulkarni@oss.qualcomm.com>, Trilok Soni <tsoni@quicinc.com>,
+ Srinivas Ramana <sramana@qti.qualcomm.com>, Niyas Sait
+ <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+Message-ID: <20260728002252.77064c3b@jic23-huawei>
+In-Reply-To: <20260723155454.1760823-9-andre.przywara@arm.com>
+References: <20260723155454.1760823-1-andre.przywara@arm.com>
+	<20260723155454.1760823-9-andre.przywara@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_161353_417600_9B16EE2B 
-X-CRM114-Status: GOOD (  13.01  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,49 +81,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Thu, 23 Jul 2026 17:54:52 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
 
-Please give me a few days to give comment and test this on
-the Broadcom 7712, the sister chip of the RPi 2712.
+> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
+> alternative way of accessing the "Memory System Components" (MSC) in an
+> MPAM enabled system.
+> 
+> Normally the MSCs are MMIO mapped, but in some implementations this
+> might not be possible (MSC located outside of the local socket, MSC
+> mapped secure-only) or desirable (direct MMIO access too slow or needs
+> to be mediated through a control processor). MPAM-fb standardises a
+> protocol to abstract MSC accesses, building on the SCMI protocol.
+> 
+> Add functions that do an MSC read or write access by redirecting the
+> request through a firmware interface. For now this done via an ACPI
+> PCC shared memory and mailbox combination.
+> 
+> Since the protocol used is only a small subset of the full SCMI spec,
+> and the SCMI protocol has no full ACPI support anyway, open-code the
+> (simple) SCMI message generation, for just the fields we need.
+> 
+> [1] https://developer.arm.com/documentation/den0144/latest
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Just a couple of suggestions that you can ignore if you like
 
-Regards,
-Jim Quinlan
-Broadcom STB/CM
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
-> 
-> ---
-> Daniel Drake (6):
->       generic_pt: allow missing sw bit in DMA_INCOHERENT case
->       iommupt: allow full-table contiguous leaves in unit tests
->       dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
->       iommu/generic_pt: Add Broadcom BCM2712 page table format
->       iommu: Add Broadcom BCM2712 IOMMU driver
->       arm64: dts: broadcom: bcm2712: Add GPU IOMMU and IOMMU cache nodes
-> 
->  .../bindings/iommu/brcm,bcm2712-iommu.yaml         |  65 +++
->  .../bindings/iommu/brcm,bcm2712-iommuc.yaml        |  35 ++
->  arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  15 +
->  drivers/iommu/Kconfig                              |  15 +
->  drivers/iommu/Makefile                             |   1 +
->  drivers/iommu/bcm2712-iommu-cache.c                |  73 +++
->  drivers/iommu/bcm2712-iommu-cache.h                |   9 +
->  drivers/iommu/bcm2712-iommu.c                      | 587 +++++++++++++++++++++
->  drivers/iommu/generic_pt/.kunitconfig              |   1 +
->  drivers/iommu/generic_pt/Kconfig                   |  10 +
->  drivers/iommu/generic_pt/fmt/Makefile              |   2 +
->  drivers/iommu/generic_pt/fmt/bcm2712.h             | 259 +++++++++
->  drivers/iommu/generic_pt/fmt/defs_bcm2712.h        |  18 +
->  drivers/iommu/generic_pt/fmt/iommu_bcm2712.c       |  10 +
->  drivers/iommu/generic_pt/kunit_generic_pt.h        |  39 +-
->  drivers/iommu/generic_pt/pt_fmt_defaults.h         |  13 +
->  include/linux/generic_pt/common.h                  |   7 +
->  include/linux/generic_pt/iommu.h                   |  13 +
->  18 files changed, 1147 insertions(+), 25 deletions(-)
-> ---
-> base-commit: f4fb100039e96211609dfc44fb24b9e4a8a0f2f9
-> change-id: 20260712-bcm2712-iommu-submit-2e09899e65c4
-> 
-> Best regards,
-> -- 
-> Daniel Drake <dan@reactivated.net>
+> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+> new file mode 100644
+> index 000000000000..ec4bf0dd9182
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_fb.c
+> @@ -0,0 +1,197 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2024 Arm Ltd.
+
+Arm has either been working on this for rather a long time or that's a cut
+and paste.  Even if 2024 is a good start given changes during revisions
+seems reasonable to include 2026 as well.
+
+> +struct mpam_fb_read_payload {
+> +	u32 msc_id;
+> +	u32 flags;
+> +	u32 reg_offset;
+> +} __packed;
+> +
+> +struct mpam_fb_write_payload {
+
+Given these are only used in the specific functions that build the
+messages you could move the structure definitions to be local to those
+functions.
+
+Alternatively you could move all these to the header and get the advantage
+of using a union to get the maximum message size rather than a number
+currently picked out of the air.
+
+> +	u32 msc_id;
+> +	u32 flags;
+> +	u32 reg_offset;
+> +	u32 value;
+> +} __packed;
+
+
+
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index b3a6ed9ed175..e4686ff0ba2e 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+
+...
+
+> +#define MPAM_FB_PROT_HEADER_LEN	sizeof(u32)
+> +#define MPAM_FB_MAX_MSG_SIZE	(MPAM_FB_PROT_HEADER_LEN + 4 * sizeof(u32))
+
+Doesn't seem to be used until patch 10.  Might be more sensible to bring it
+in there. A spec reference might also be good for this.  I think longest
+is current the MPAM_MSC_WRITE.  A note above that one option would be
+to make this explicit by having the message structure definitions in this
+header.
+
+
+> +
+
 
