@@ -4,88 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6D4C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1938CC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bLAfO4vgeRYgxOeRuUb0Ab16fkzdVk0WYV86aUUze8s=; b=xBzn2nt555m2EYemybhB0WBEO0
-	YUYTxUcMlJ5sJsenea5SKEccyEsB/EhY5oKOYXfvZa6Zt7kpxvKp2PWjR6BV/8TJY97wG/pRG0YH6
-	meOhMKg9yhjJ7MzQC95ugv26MHZzWmoAsWS6ZZvi5e/d65ANQ/G9sSGu7s2d4D4fkAGhuPJFtsR9S
-	VPMZ9JhUigQBF474a939f4ooI3Qlvj3bujmcsuJm1bUv1wTnobVkpHr5la9Lgu/PoZ8pHX2z7CKsL
-	MIJE3i5NVCkXQfx5ZklXGLDy7Dk1J+zg6gYcAVbl+EBixtFeZDDrXLE4a/IjgbHyWKH61FFXC0Ebt
-	Yt8rcq6A==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GE2Gc7S3rQsVMvQ6VTSOfR/xqWu60Jvi8kVxQRl1IrM=; b=W434L9CeN+dcYa0ce0IwUHQj8a
+	5oFfSq2gU7Iz+8lJX8yrw8wrpJCQb4O69TlQVhoUG8yQJGORzhvhO4w16X/F121SIZSy5hdiRfNOJ
+	Jc2nE7z0g8a9RsSa923nGSwq9Cu1wf6FUfXyOWBF2zn5VrOypf9ho9mNIZIlt0RVbGNY0pON92wUh
+	ovTjxJsKDxViHcnzaOGVQ9dVwe3Z0guMP+Lcr7eDgy+cJO6yS2Yn6g0nqeechCFFO2zbk1cMKIeMR
+	yyPkJAfLCIPoJBPeRs5EnId54eS+3Fb0hrOFhnxbF3NmLkGtfkH9DMe1KtSivJi8CaTsnXDIHKAhI
+	zLFncKow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woPJO-00000003XeX-02ci;
-	Mon, 27 Jul 2026 17:40:22 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1woPM1-00000003Yyi-3inn;
+	Mon, 27 Jul 2026 17:43:05 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woPJL-00000003Xds-2uH2
+	id 1woPLz-00000003YxU-1gI5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 17:40:20 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8485ef63b68so3051740b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 10:40:18 -0700 (PDT)
+	Mon, 27 Jul 2026 17:43:04 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-848479c9bd5so2270781b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 10:43:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785174182; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TqT7NvvsTZXb2yC/5j6hfoTd0bPjZYD6E0mV8l+JXy65RGW7nRLOxmVfD9PAXAFUxi
+         +bzsR3k0DePLc9WuvrOxMCDZEmxww4Z2XUn8u3rM3SyT51zRVA7DQ/mfiTOSHSl+7AIS
+         QtHEPWI6WudyPWFxTwmInEr9bybYqDwc8OOyrwrSB8B14ikqyBi509AKyUeocFZ2qokm
+         7N2/MkwELYVkaq/VrzOuNsI1pCbTjsfk0Mkl6pTABNtTj76CPK/nbzI+5ALffJXzFFNf
+         pxfMmQpAg6m4K8tfMA0//3jKvi0GgZID54YA9AzwFqcSPHmGXs66K4z8yyHfB4eO7kI2
+         PG0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GE2Gc7S3rQsVMvQ6VTSOfR/xqWu60Jvi8kVxQRl1IrM=;
+        fh=GNbvJBCWvkMxj/Pe2h6xUZT45xhslWOy2embFtLPkYo=;
+        b=Bdf9+tdmCAjUYBnncO87/SOW/UKk2kitylPeHYO2lW9RL2CBCIpPSQ4UhbpxZMDyoH
+         ScnXr0ibJ1JnrZgbh+iHbcnYdTHC/qxnxT8mcmT9+THoX7+Pqtp2ACj9J6wqmYmlD8+/
+         k23dWj0gElBB9Gztvaw6ftIMS44qQiUmwkTVpvwuiMDdxMKrjefKVaNRE/9qw5SNBXH6
+         D9NBr+QM+m1iJAvI4e9Djn2WiImGYGo7xpPecRDD9+lTVxbuSzDWZM+1SYYRvF+fj6Mz
+         hMQnp612+AOSf/4xBpWVPcuH3cButLbOcftWb+lauZCYEpZ0SmGhGfhJZm+d1am+gSFp
+         DAiw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785174018; x=1785778818; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bLAfO4vgeRYgxOeRuUb0Ab16fkzdVk0WYV86aUUze8s=;
-        b=T8m3NGUHAWZHpCPTJkF8L8a67KPTUX4dA1uW29e2GeVv3OxQBydn4m27aj5Nyhu08a
-         qUwicpYeCb3KMeqmhTqdWwk637E4M/064GDCa0P4kMW6s7jCTbrItx0ZE1a2YxA+45NE
-         iEaDLzfqWDjM21e0LnngfJRHIy0sMSWzvtnMx+8iO9IKXrGLoQkLlQglCof+yRmTXaN9
-         PAgYlTPvVgJ/xJ442aX27FfZl7bmGnpnuVRAOwDBB9i+Pgx1Af72KCBMPXVVQxfR+rhB
-         5SlbrtjXoCl5HBimQylyud/HiwOGxX2Cp+5hHTS+BBk4g+WTvwETKT/BwxQ/2QApP3A5
-         aK8A==
+        d=gmail.com; s=20251104; t=1785174182; x=1785778982; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GE2Gc7S3rQsVMvQ6VTSOfR/xqWu60Jvi8kVxQRl1IrM=;
+        b=AYf8PYK31sUxJX4yEDHJ63ENZ5/HKyayHaJu6/BSKPl+maRV0F0VKKpxbFkRHAVGWd
+         w3VUrjRiT0py4UKgfjxlPOrYYZfiMgUKmZ2A7QFUikN6dMzr/FTdIx/YVv9l/9Rogbzi
+         gGOBscIYkF2480cmKqti8H6YrCe7dgV+IoN/o5OxW+sqnrBU3Cd85hEJzz6jhfzpoMvr
+         JLx84P373vhb4sxPaK4z7Eb/EJGZYdJ+LoLH7m5Q8Wr4dBqbaIILU4EeHJfg+GFO86sl
+         EC4lOMYxg5o1/JcRBP3ZaxV99eKVzqXpbo1cHtf5e0emP4dd3r+Iirqjob+8KttKznzZ
+         ix4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785174018; x=1785778818;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bLAfO4vgeRYgxOeRuUb0Ab16fkzdVk0WYV86aUUze8s=;
-        b=JjUtkn1V3HsbokV0PRyKIwSDOqeC2Q0DKGjvAQWDKgyeHwNJU7eP521i+LMGdslb/H
-         4yxuBCo7TAQP2X59SszDxafWu21/24sHZdAlgQjE5yCjQQS2JmbmwmQcI7faLkNaroOT
-         mSayGxXRIbfCPqHcxOl3YwTaZ142/jhW4XIOzLuni71hq2axNlqZ8i83mKAdHsykk9Or
-         GHnDA8YwIWN7y/8DtoMXEKlCaqp5K2VRebkdUFIy8KulbG/LuJBxozTNYIAtezda5bvQ
-         mBP0uQtjwp8lbK3lzgAxeV7TPzQB+O8UETmtyKYbRTq5eayCw5enrYuT8XkMuTDvbymf
-         eEQQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqfajhzBFfbZ6z8XkgzFJ4w4ArahBXoD57cyGz0VqW/A9VC9KbgGHcAnOTuBtisqKB0p/mlY6xvZL8H/pboZeBm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxJ4fr2/UlAXDxlw/E4ZstBGBANczAeNRM/t+330ZlvKDrNRVs
-	NGk0OKBu/odkSliOElWSgTehpe6Dv/5DIc7+Xkmd7Gaes2CeiyPyjSRD
-X-Gm-Gg: AR+sD10uVRJt2AH2lumMVehbQGBm7ArquELMOnjuGENZKY2Lwhbehzrei1tWW8j+/sA
-	ea2ywWeClA3+KQ6ABeiN6KnPjc4yNK4E8KB4kNTeAAQOARHszvOR1GsF8HSTzhtjk+isbWfwROE
-	qa0olBznvQoKFndl9l7FIwZfx1knfvVxU+qZEmdqorDTxQvxlzd7M6UZFo55MSay7CHbezPPDsk
-	E0D8Zr3xa91N2Oi1iSs8qn/otVJJXjQ50lBTm6hwGeFiLkTwHlvMxEW8MeuoKBLAKGPGWBFW1wS
-	4ue2XRInJKxS32Kxp3rD8PESfDalHAboFsgwBt0ZgJOD+VE72222vS+9Q6QDf8mLIdH1BAt1vTw
-	sWSfubQu9S4pR7+AzqBqERa+GdZRDIDF9m4Pkwnc+/RDfcrgLd6urNa6hgngjEeEYKou5G2FvKq
-	D5mWZhqy7CHjcjV9rbuP/59zyPl4Uely4Z7Ud4iv6Vpst8fNhYPWc=
-X-Received: by 2002:a05:6300:193:b0:3b3:f46:1efa with SMTP id adf61e73a8af0-3c6c8016bb2mr582045637.42.1785174018200;
-        Mon, 27 Jul 2026 10:40:18 -0700 (PDT)
-Received: from fabio-X870-EAGLE-WIFI7.. ([2804:1b3:a801:60b4:21e4:da15:d321:6b72])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-314bc419c52sm33850735eec.10.2026.07.27.10.40.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 10:40:17 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH] arm64: dts: rockchip: Add CSI-2 bus type to ROCK 5B+ camera overlays
-Date: Mon, 27 Jul 2026 14:40:07 -0300
-Message-ID: <20260727174007.2581714-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20251104; t=1785174182; x=1785778982;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GE2Gc7S3rQsVMvQ6VTSOfR/xqWu60Jvi8kVxQRl1IrM=;
+        b=RztY6KJJ4D0iVOD6I2YWDufqj5Vx/SbrtqQjYwHxTV1YR3V3ztSPwt7V6tNOlLzTfS
+         nqsOQwV2ftwti3i6WX0PsST//LAXf711UtteMNa4N/N5/K2hvmlKKQqsP5Dta3P8WNat
+         dN8rY3WcMB14tgw1QgeCp2v2NdHZwGW4QH7v0nWkrQ9ha07bW5HLtot1YJLNccfPytcy
+         AWNhCO7Toj/u23Nv1kki+e0RMHHFgZ+arapkhKjCN1DhDrPWEfkNx6UihYltPOmDFmbo
+         94qgmsPAEpbT8lrGwDFFrh+vg2tdHsJ/CGdi03G1Ave+4eQcP5KWLANOAW7ylkx0lPIm
+         Auaw==
+X-Forwarded-Encrypted: i=1; AHgh+RoJDgNazD+HovCoHEQqIPOwIFBHKzhV1JWGvuA9LUdQN+VBdjohXC8s94RneergO1YQmi3DiG8hXQS4thr6LpTY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIQZQFt3J5VYBBk37LvJvc7lXjXvwWkQuhJIbgt9oDXDCKMoRe
+	jiZO6/Stww28juGsPzWVFN1I5FL7iMsvAVlyrxLm3PIVcMSY+7XVV71HkPZpvvIT+juYp//ynVw
+	iv6EA3aG1YB/ELzKLEh9vZZx70e7M4w==
+X-Gm-Gg: AR+sD12rRo7G1OR2MTpr1AN7SVF0zkmZT0J4V4zSDSoyPVJ/N4+ngqKhknbFFOkpC70
+	sIApQEZFvWxDZnqllwJ2eCVfb084jLz8h71nIlycHg3gm+7VhkcjGjgo5KPGnWiwH3fpH6Q6OcV
+	fzlcNE+fprXWn8oebWYWdUAY+j0BT5zh1iZGJgbokZiDkVXLyx7RQX/vaXVvqOF61SegEAGgj2B
+	8hh++9Q8pXMRlgPT18c3wBLd09xwsGaAs//pLTLKJ44KF+9hK+1eIco/cMV+DftifSj33yFVe2e
+	U9Iq3an8qt4vorNQVA==
+X-Received: by 2002:a05:6a00:4285:b0:845:31a6:d84d with SMTP id
+ d2e1a72fcca58-84e594050a0mr7460731b3a.7.1785174182279; Mon, 27 Jul 2026
+ 10:43:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-0-180fb2d1f10c@gmail.com>
+ <20260726-b4-add-rkvdec2-vp9-vdpu381-v1-4-180fb2d1f10c@gmail.com>
+ <cb8XVJu6RUmEjMZpl7NA1g@collabora.com> <CAEWPSH7rQv-yZ+dL+mZi6Mt3rj6gUZhp3r7_Gpjy8=1OArqwUA@mail.gmail.com>
+In-Reply-To: <CAEWPSH7rQv-yZ+dL+mZi6Mt3rj6gUZhp3r7_Gpjy8=1OArqwUA@mail.gmail.com>
+From: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+Date: Mon, 27 Jul 2026 19:42:49 +0200
+X-Gm-Features: AUfX_mzH05lg1Xshmnhdl4MT0s8-l2--8m9czgeFTmnU7hUrCIbQUFu1WK57mGY
+Message-ID: <CAMhzuboSqvGxV3C1YSRqtopGm=sTo9S9YD5fh7GVHjAebH2wOw@mail.gmail.com>
+Subject: Re: [PATCH 4/4] media: rkvdec: align bytesperline to 64 bytes in rkvdec_fill_decoded_pixfmt()
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Detlev Casanova <detlev.casanova@collabora.com>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, 
+	Venkata Atchuta Bheemeswara Sarma Darbha <vdarbha0473@gmail.com>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_104019_725812_A3FEFA2B 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260727_104303_452999_1ED9BFDC 
+X-CRM114-Status: GOOD (  37.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,61 +124,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3568 MIPI CSI-2 receiver binding requires the bus-type
-property in its input endpoint.
+Hi,
 
-Specify that the Radxa CAM4K modules connected to CSI2 and CSI4 use a
-MIPI CSI-2 D-PHY bus. This fixes the following dtbs_check warning:
+> The 10-bit capture format is NV15, whose luma stride is width * 5 / 4
+> [...] while the VDPU381 needs the luma stride 64-byte aligned (2432).
+> [...] so NV15 comes out unaligned and the decoded frame is corrupted
+> without this. I can show the before/after on a 10-bit vector if that's
+> useful.
 
-endpoint: 'bus-type' is a required property
+The arithmetic is right, the hardware requirement does not reproduce here.
+I built the same tree twice, changing only this hunk, and measured on a
+Rock 5B+ (RK3588, VDPU381):
+test with ALIGN without ALIGN libvpx
+1920x1080 VP9 Profile 2, 10-bit 8f40faddd32e 8f40faddd32e 8f40faddd32e
+1080x1920 VP9 Profile 2, 10-bit 68400b913caa 68400b913caa 68400b913caa
+fluster VP9-TEST-VECTORS 224/305 224/305 -
+Both clips are the shapes that reach the ALIGN: 1920 gives an NV15 stride
+of 2400 (2400 % 64 =3D 32) and the portrait clip rounds to a capture width =
+of
+1088, stride 1360 (1360 % 64 =3D 16). md5 is of the decoded frames converte=
+d
+to I420, same pipeline for hardware and software. The 8-bit control on the
+same pipeline is byte-identical too, so the comparison is not hiding a
+conversion artefact.
+That matches what the registers ask for. The stride goes into the hardware
+as bytesperline / 16 (y_hor_virstride, uv_hor_virstride, and the VP9
+reference ones), and width * 5 / 4 with a 64-aligned width is always a
+multiple of 16, so step_width =3D 64 already guarantees the alignment the
+hardware needs. Rounding to 64 only pads the stride reported to userspace,
+for every variant and every coded format, not just the 10-bit case.
+If you did see corruption without this, I suspect the other hunk in the
+same patch was missing too. Taking the MV and reference pitch from
+bytesperline instead of the bitstream width is the part that makes the
+register value and the buffer layout agree, and it is the one I would keep.
+My A/B has that hunk on both sides, so what I varied is only the ALIGN. If
+you have a vector that fails with the pitch fix in place and the ALIGN
+removed, I would like to run it.
+One small thing on the v2 suggestion: v4l2_fill_pixfmt_mp_aligned() does
+not exist in 7.2-rc5. v4l2-common.h exports v4l2_fill_pixfmt() and
+v4l2_fill_pixfmt_mp() only, so that would be a new helper to add rather
+than a drop-in replacement.
 
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
----
- .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso | 2 ++
- .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso | 2 ++
- 2 files changed, 4 insertions(+)
+Sav
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
-index ee9ecf68a886..5c7fb960b099 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
-@@ -9,6 +9,7 @@
- 
- #include <dt-bindings/clock/rockchip,rk3588-cru.h>
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- 
- &{/} {
-@@ -80,6 +81,7 @@ &csi2 {
- 
- &csi2_in {
- 	csi2_input: endpoint {
-+		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
- 		data-lanes = <1 2 3 4>;
- 		link-frequencies = /bits/ 64 <445500000>;
- 		remote-endpoint = <&imx415_output>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
-index 8a4cf3fdbf8e..1ee9036b9095 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
-@@ -9,6 +9,7 @@
- 
- #include <dt-bindings/clock/rockchip,rk3588-cru.h>
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- 
- &{/} {
-@@ -80,6 +81,7 @@ &csi4 {
- 
- &csi4_in {
- 	csi4_input: endpoint {
-+		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
- 		data-lanes = <1 2 3 4>;
- 		link-frequencies = /bits/ 64 <445500000>;
- 		remote-endpoint = <&cam1_imx415_output>;
--- 
-2.43.0
-
+Il giorno lun 27 lug 2026 alle ore 19:07 Igor Paunovic
+<royalnet026@gmail.com> ha scritto:
+>
+> Hi
+>
+> > This shouldn't be needed. As you set step_width to 64,
+> > v4l2_apply_frmsize_constraints() should already do the alignment.
+> > Do you have more context as to when width is not aligned ?
+>
+> You're right that the width is aligned -- step_width =3D 64 handles that.
+> This isn't the width though, it's the stride, and it only bites on the
+> 10-bit (Profile 2) capture format.
+>
+> For 8-bit NV12 the luma stride equals the width, so once the width is
+> 64-aligned the stride is too and this block is a no-op.
+>
+> The 10-bit capture format is NV15, whose luma stride is width * 5 / 4
+> (bpp {5, 10}, bpp_div {4, 4} in v4l2-common.c). That isn't a multiple
+> of 64 even when the width is: a 1920-wide Profile 2 frame gives a
+> 2400-byte stride, while the VDPU381 needs the luma stride 64-byte
+> aligned (2432). v4l2_apply_frmsize_constraints() only rounds the width
+> and height, and v4l2_fill_pixfmt_mp() fills the stride with alignment 1,
+> so NV15 comes out unaligned and the decoded frame is corrupted without
+> this. I can show the before/after on a 10-bit vector if that's useful.
+>
+> If you'd rather express it through the framework than with a manual
+> ALIGN() here, v4l2_fill_pixfmt_mp_aligned(pixfmt, pixelformat, width,
+> height, 64) produces the same bytesperline and sizeimage -- happy to
+> switch to that in v2.
+>
+> Igor
+>
+>
+> On Mon, Jul 27, 2026 at 5:58=E2=80=AFPM Detlev Casanova
+> <detlev.casanova@collabora.com> wrote:
+> >
+> > Hi !
+> >
+> > On Sunday, 26 July 2026 16:25:37 EDT Venkata Atchuta Bheemeswara Sarma =
+Darbha
+> > wrote:
+> > > From: Igor Paunovic <royalnet026@gmail.com>
+> > >
+> > > Ensure bytesperline is 64-byte aligned and scale sizeimage accordingl=
+y.
+> > >
+> > > Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+> > > Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> > > Signed-off-by: Venkata Atchuta Bheemeswara Sarma Darbha
+> > > <vdarbha0473@gmail.com> ---
+> > >  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 12 ++++++++++--
+> > >  1 file changed, 10 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > > b/drivers/media/platform/rockchip/rkvdec/rkvdec.c index
+> > > 436bb460f04e..6ab6530b1cc9 100644
+> > > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > > @@ -102,12 +102,20 @@ static void rkvdec_fill_decoded_pixfmt(struct
+> > > rkvdec_ctx *ctx, struct v4l2_pix_format_mplane *pix_mp)
+> > >  {
+> > >       const struct rkvdec_variant *variant =3D ctx->dev->variant;
+> > > +     struct v4l2_plane_pix_format *plane =3D &pix_mp->plane_fmt[0];
+> > > +     u32 aligned_bpl;
+> > >
+> > >       v4l2_fill_pixfmt_mp(pix_mp, pix_mp->pixelformat, pix_mp->width,
+> > > pix_mp->height);
+> > >
+> > > -     ctx->colmv_offset =3D pix_mp->plane_fmt[0].sizeimage;
+> > > +     /* ensure bpl is 64 byte aligned and scale sizeimage accordingl=
+y.
+> > */
+> > > +     aligned_bpl =3D ALIGN(plane->bytesperline, 64);
+> > > +     if (aligned_bpl !=3D plane->bytesperline) {
+> > > +             plane->sizeimage =3D plane->sizeimage / plane-
+> > >bytesperline * aligned_bpl;
+> > > +             plane->bytesperline =3D aligned_bpl;
+> > > +     }
+> >
+> > This shouldn't be needed. As you set step_width to 64,
+> > v4l2_apply_frmsize_constraints() should already do the alignment.
+> >
+> > Do you have more context as to when width is not aligned ?
+> >
+> > >
+> > > -     pix_mp->plane_fmt[0].sizeimage +=3D variant->ops->colmv_size(pi=
+x_mp-
+> > >width,
+> > > pix_mp->height); +    ctx->colmv_offset =3D plane->sizeimage;
+> > > +     plane->sizeimage +=3D variant->ops->colmv_size(pix_mp->width,
+> > > pix_mp->height); }
+> > >
+> > >  static void rkvdec_reset_fmt(struct rkvdec_ctx *ctx, struct v4l2_for=
+mat *f,
+> >
+> > Regards,
+> > Detlev.
+> >
+> >
+> >
 
