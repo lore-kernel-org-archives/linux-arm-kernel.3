@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D04C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93284C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Os/hNsBhlrW8yY2Huxh6rA06MFVClKkCltrPKtDOtfo=; b=cMN2SmmTE8qyrGQUIxLbKkAL4E
-	Q5rcNb5BNNkrpjeqoL/ZvtwF3yiRn9esLFwnCx+U4sCzsfw2jGYM0R/fnsF3diq3RJmOCDoAeARkv
-	ul8IK2rK48rK3zAMiiCV2o6R5W60360ceuKPHI8KfqoJTYWOa0yOAcP0/pLUDfLeQX9pZlfc4wTnW
-	rFCX04pqcnPS0WcCD/ePka8nGH5UvgYIlPXfCEX5JMmseL8miGqkd/jTuIyI5lXMGuxYzbKgqN85g
-	ti6nDT9BB0ubqYFJv1t2w/2bF9ZICYsbWxHZ0ac0S251tbQBzXXKG6238C627N5DIApM8dIl+kEw1
-	YvjQm8kA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vvGJD9G3Em4wuv3pnLTAT55HTjU2fJsMmfkdhBzv54o=; b=GL9ssUNyTvB0sVCzjFIbrnV88l
+	IZQ9OJkawvAvb2drV5EyanSFrMh9u63mU3Avc03y8LxCCZOuXEKLaquY0QYgNxcJSqWnYGYdF6Ifx
+	/K9vuBDqLiNKeujhMVNodAAfKHLlDwvp099+j/qJxOQUUxjbcpvWtv2whMMkarwFvIibPRVUad+fO
+	6O3rVJv9BXPLSrIKKrnqLW6Si2OalAW3Y0mWUZi5QeQTRRqV9fmTzmxQlMuxPTs27PMdc7bInZXVL
+	eguc4YIw585mZIAO0EzIN7aBcj6PmxqNdwwM08eObLdZ+3MwVv4s2SKy/N8ryuwqRyNzhzOsJQl5x
+	krFQ2+Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woUAF-000000042kO-0wIJ;
-	Mon, 27 Jul 2026 22:51:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1woUDj-0000000431v-06gR;
+	Mon, 27 Jul 2026 22:54:51 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woUAD-000000042kG-2XFe
+	id 1woUDh-0000000431Z-0xrn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 22:51:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 02A184066A;
-	Mon, 27 Jul 2026 22:51:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E1E31F000E9;
-	Mon, 27 Jul 2026 22:51:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785192672;
-	bh=Os/hNsBhlrW8yY2Huxh6rA06MFVClKkCltrPKtDOtfo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=gMjD1WllPfwdyJuRpIT00rIIbyz5IMm2v8b9kpT9hAjCb0e6GXpXWiK3RmSKvo+ga
-	 tZXfImieApzyyp8UWAC5fC5bE5izXzCPYxQIRAX/VeEJIuqszr/G5tYArg//e9abyk
-	 w+i03CRIG71OOyj7R1sTGSZXONr3fQEocgBP2WYUc30M6QA2gsyzMn1LUhpG5Ubw56
-	 gN/Y99Nh4IGk8GbSMdFxzSvOsTV6k3pLhWes9GMATNLJvlbqlL+tFaiAOO3vP1L6c2
-	 Vp1uZ2nyKDueIp1cRaQyaUydsn/KzFLwYla4vaA6faXINVUQiUkdrcJW/P9MMQVWGW
-	 wZB8cIKdFNmCw==
-Date: Mon, 27 Jul 2026 23:51:08 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Andre Przywara
- <andre.przywara@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun
- Guo <guohanjun@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Len
- Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>, Reinette Chatre
- <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>, Srivathsa L
- Rao <srivathsa.rao@oss.qualcomm.com>, Ganapatrao Kulkarni
- <ganapatrao.kulkarni@oss.qualcomm.com>, Trilok Soni <tsoni@quicinc.com>,
- Srinivas Ramana <sramana@qti.qualcomm.com>, Niyas Sait
- <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 06/10] arm_mpam: propagate MSC access errors for
- state saving function
-Message-ID: <20260727235108.0ec96f09@jic23-huawei>
-In-Reply-To: <83336f0e-85ac-4711-9594-5edcb27eecdd@arm.com>
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
-	<20260723155454.1760823-7-andre.przywara@arm.com>
-	<20260724-important-curassow-of-support-ce4777@sudeepholla>
-	<e182f2ac-6fd9-4a25-9409-9617012584ed@arm.com>
-	<20260724-perfect-pygmy-chinchilla-447ce0@sudeepholla>
-	<83336f0e-85ac-4711-9594-5edcb27eecdd@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Mon, 27 Jul 2026 22:54:50 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2caea3f742bso39268305ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 15:54:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785192888; x=1785797688; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vvGJD9G3Em4wuv3pnLTAT55HTjU2fJsMmfkdhBzv54o=;
+        b=X4Bi8Jg9qFGgaI7ljS1ukRGMIC/gFvzYLNbZs2rK2v2RO0aIl1gz5Xocmq4vvT8EPQ
+         ynKbrCI7yZwRgSuDe4MHHI/poLabgM7E3TY4fIgtD9zzZAzGoH5Qogi9ZubM7539GeLu
+         Duzhm8sI+A9dF48xw3TUX0wfSUui6Qt8lFvjMyFAPSPpgWDoRXMxagURhtKbD+7z7VkN
+         tgp+mBt5+46yMmhad6m8jseEEJF7Ym+c91LQz+OEkCcVgW7vFJkMEKWbRNgURjk15e1A
+         uzdfb8XX1JWNGJ/0jggWhz5uiNA+3eAOQsxMzoXnryXaCfw21LjdWPqYYs0EJLoCZ2Bh
+         2GSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785192888; x=1785797688;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vvGJD9G3Em4wuv3pnLTAT55HTjU2fJsMmfkdhBzv54o=;
+        b=bnrhZvLBkyelU7QOFcg5fgOMIhZmRSBnLapkbHiXQLiRP50KrRpx5+JHdKdA8IQAJT
+         45zWwyxb0wABVejLOCazm/mb9D9ZMWc6xCEhxDeGKfF9MU9YuTZ2iDc1nWxMN93TThOk
+         M3b58+WC/u0YX2kUpcNlO8aYoWTHCCkxICNFlyy1gYYL9gwzh+nuuVQIVvPf5mdGxnSV
+         aICo+yQZdGkR3sjIsImRxs6K0lTfhF3UhThbic3PshwjxQye8PlO6KD68+4eJ2QiKS2Q
+         9m/fBWKISsiYnAO5jAot2VG5m3pC1rqUmWq6Jh7z3N8036sTbmKqZ9Y9pRYnABmyKGnf
+         g1+w==
+X-Forwarded-Encrypted: i=1; AHgh+Rr03GONUGvzighl1JRRgZl4N/Xa4hKDG2zeP//OP4HSgPxUbcJcv0L93Z/Ssoj8ToUlzpuvAiOSDHvDg31rj28t@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvJVv3n+Q//1czffMYlg2VuzNMSHcVLGSb0v0t73JBQw7t2mDq
+	Df250lfYvMcKITiDWz1Pf0pMYPzJ2yC1LyrBPTXQeFODyqyLL3QC/ci9l5x+t1RI
+X-Gm-Gg: AR+sD10Z2ZALEvzjNZMKzaegCbWFMgtSqQveiJb9NWGyfYVAxOrqrT7vn9q6iAxSKz0
+	FQ70ig4xwOlr4PSPRu+wPHzLKRCHE9Cmf4A0vUwIhbkp1AahpFppLjmfyDMemt+P29G8ArCh1DH
+	V7CiRAy0D4CevJfUuHTzOFONVZGKAu9BagQIu0Njbb/BwxYeXKUNfEN9NyW9um3uuS/0lJoc1me
+	w9KvjAPfJe9+xVCecQV+DBfzIkQmdjGycqrhjZb9V9zeyb0RaE+4VvoKr7dzRVWI9XAcvx6Plc2
+	M7RNP0xo2yCcoi9Sq0dyMb/NNPuakhnWpcpxoMJKbOfPW2PAEQKyV8Dkmzi+QbLLqk2JO8HJHwf
+	fCeBlVaQ+uboYA/53ya4BjRPLz/cGqr0Uu9tQknnC3qavgSbJ30G6dJgY77UIikxdS8AZ835RMj
+	9wkGr6Upx1onHYYvXG27hv3njRV7rVoF3HwpsZW/shutd8txt+n7Zr3GbHfzg4JHx6Rb5SOqZUx
+	edO+oqkqMgqS4Qy/lQLh89qK1sm1AMjw8xvUIsmhPv5y20/rs4OwXA=
+X-Received: by 2002:a17:902:d4cc:b0:2c9:97a8:8c17 with SMTP id d9443c01a7336-2d00f433620mr11477055ad.42.1785192888141;
+        Mon, 27 Jul 2026 15:54:48 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cfde5e2881sm41442215ad.25.2026.07.27.15.54.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 15:54:47 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Hauke Mehrtens <hauke@hauke-m.de>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ARM: dts: BCM5301X: EA9200: add wifi definitions
+Date: Mon, 27 Jul 2026 15:54:46 -0700
+Message-ID: <20260727225446.267097-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_155449_301210_CE965D16 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +103,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 17:43:12 +0100
-Ben Horgan <ben.horgan@arm.com> wrote:
+brcm,ccode-map and ieee80211-freq-limit are needed to be specified on
+some of them for proper operation.
 
-> Hi Sudeep, Andre,
-> 
-> On 7/24/26 13:27, Sudeep Holla wrote:
-> > On Fri, Jul 24, 2026 at 01:19:14PM +0200, Andre Przywara wrote:  
-> >> Hi,
-> >>
-> >> On 7/24/26 12:07, Sudeep Holla wrote:  
-> >>> On Thu, Jul 23, 2026 at 05:54:50PM +0200, Andre Przywara wrote:  
-> >>>> Allow the mpam_save_mbwu_state() function to return an error, and
-> >>>> propagate read and write errors from the lower level up.
-> >>>>
-> >>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> >>>> ---
-> >>>>   drivers/resctrl/mpam_devices.c | 29 ++++++++++++++++++++++-------
-> >>>>   1 file changed, 22 insertions(+), 7 deletions(-)
-> >>>>
-> >>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> >>>> index bcff53477133..6329443c451f 100644
-> >>>> --- a/drivers/resctrl/mpam_devices.c
-> >>>> +++ b/drivers/resctrl/mpam_devices.c
-> >>>> @@ -1833,22 +1833,37 @@ static int mpam_save_mbwu_state(void *arg)
-> >>>>   		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
-> >>>>   			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> >>>> -		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> >>>> -		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-> >>>> -		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-> >>>> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-> >>>> +		ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> >>>> +		if (ret)
-> >>>> +			return ret;
-> >>>> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-> >>>> +		if (ret)
-> >>>> +			return ret;
-> >>>> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-> >>>> +		if (ret)
-> >>>> +			return ret;  
-> >>>
-> >>> How does it work in general with PCC. Now that you can fail at any point,
-> >>> what happens to the write that occurs before a failed read like above one.
-> >>> Who will take care of erasing those new writes or it doesn't matter ?  
-> 
-> At least in this particular case it doesn't matter. The MON_SEL just configures which instance of
-> the monitor we are reading or writing from and we'll just write MON_SEL again next time we want to
-> interact with a monitor.
-> 
-> >>> Just checking as I don't have much knowledge on MPAM intrinsics.  
-> >>
-> >> TBH I don't know, but I think we consider MPAM botched at this point, and
-> >> just stop the driver, similar to an error IRQ? But I am not sure this is
-> >> properly implemented at this point. The focus of these first six patches was
-> >> merely to lay the dirty groundwork for *being able* to handle errors, and do
-> >> this now rather than in the future.
-> >>  
-> 
-> I've just been discussing the error handling with James and trying to work out what we can do
-> without limiting our options going forward. Ideally, if there are transient errors we'd like to
-> retry in the kernel if it's not taking "too long" and otherwise report the error back to user space.
+Also add an nvmem definition for the MAC addresses.
 
-Agreed a retry makes sense.  Perhaps moan a fair bit via a ratelimited print though as
-it is a pretty bad sign if retries are normally needed.
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ .../dts/broadcom/bcm4709-linksys-ea9200.dts   | 57 +++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
-> For catastrophic errors, such as when the scp doesn't reply at all or that no MPAM commands are
-> going to work again we should disable MPAM. As resctrl does not anticipate errors willy nilly from
-> arch code it ends up reporting the info/last_cmd_status as "ok" even in situations when the MSC
-> accesses have failed. I notice this in at least rdtgroup_schemata_write(). Before we can report
-> proper failure information from resctrl and update last_cmd_status based on the error status from
-> the architecture code it doesn't make sense to report the errors to user space. We would likely want
-> resctrl to understand -ETIMEDOUT as well. As such, this leaves us the option of just nuking MPAM on
-> any error reported from the MPAM firmware interface. For now, we needn't do any retries and just
-> error out on the first error. It should be possible to just schedule mpam_broken_work from mpam_fb.c
-> on error.
-
-Hmm. Inelegant but I suppose that works... 
-
-> 
-> Sorry for prompting the writing of these error handling patches but they will likely come in useful
-> in the future.
-> 
-> Thanks,
-> 
-> Ben
-> 
-> > 
-> > Well, I agree to some extent, but PCC adds that failure case before which
-> > it wasn't there. So, it is hard to claim that it was botched up before so
-> > let it be. I will let James/Ben to decide if it was already botched up or
-> > PCC addition makes it fragile in terms of error handling.  
-> 
-> 
-> 
+diff --git a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
+index 87569408bb69..9041dc6bfa8d 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
+@@ -93,6 +93,63 @@ led-3 {
+ 	};
+ };
+ 
++&pcie_bridge0 {
++	pcie@0,0 {
++		device_type = "pci";
++		reg = <0x0000 0 0 0 0>;
++
++		#address-cells = <3>;
++		#size-cells = <2>;
++		ranges;
++
++		pcie@1,0 {
++			device_type = "pci";
++			reg = <0x800 0 0 0 0>;
++
++			#address-cells = <3>;
++			#size-cells = <2>;
++			ranges;
++
++			wifi@0,0 {
++				compatible = "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
++				reg = <0x0000 0 0 0 0>;
++				ieee80211-freq-limit = <5170000 5250000>;
++				brcm,ccode-map = "JP-JP-78", "US-Q2-86";
++				nvmem-cells = <&et2macaddr 2>;
++				nvmem-cell-names = "mac-address";
++			};
++		};
++
++		pcie@2,0 {
++			device_type = "pci";
++			reg = <0x1000 0 0 0 0>;
++
++			#address-cells = <3>;
++			#size-cells = <2>;
++			ranges;
++
++			wifi@0,0 {
++				compatible = "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
++				reg = <0x0000 0 0 0 0>;
++				brcm,ccode-map = "JP-JP-78", "US-Q2-86";
++				nvmem-cells = <&et2macaddr 3>;
++				nvmem-cell-names = "mac-address";
++			};
++		};
++	};
++};
++
++&pcie_bridge1 {
++	wifi@0,0 {
++		compatible = "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
++		reg = <0x0000 0 0 0 0>;
++		ieee80211-freq-limit = <5735000 5835000>;
++		brcm,ccode-map = "JP-JP-78", "US-Q2-86";
++		nvmem-cells = <&et2macaddr 4>;
++		nvmem-cell-names = "mac-address";
++	};
++};
++
+ &usb3_phy {
+ 	status = "okay";
+ };
+-- 
+2.55.0
 
 
