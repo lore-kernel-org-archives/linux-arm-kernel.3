@@ -4,61 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E5CC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 08:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385D2C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 08:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqVw4hn9qYQIGv2zQRg01CGwV4FIX3vH2ne+HmEOylA=; b=jlNsA/R/Q5GkjP1j5pPeIZpjcG
-	XgD6Iz6bRYjcpDtkfguzixYN2RjRDjf1PsK9PAYarUqjWllTan6R1KcCQu8oxq175FheELLopsjq7
-	F4Xtq0FB4hcuAZXGwYUiMYBgfvnjE/eC01d21Uw+Fdoy7UqX757RCkbp+vSH8bB+HbpfzoXOfpVCM
-	bBBb5xPTYh/oywS44egmWngLTt8N2XAXwvZOWlAxFOgralb5pK2s3wXwwHfaQHuKNhr0MEPB1SV+L
-	qr/QD3elAKQzdfT472w5TBcpyYQ2SDdBnM1vgoLF2twOUvNFK0GlOxlAYhTFg6B36ej3H5z/3Xiu9
-	NbaO09mQ==;
+	bh=hu5Iz+I8ahzmm2xeTBBWdzh9bN8uU9cXvAqP7Uxh4YA=; b=TCbShIQdcalQGApiUs95Zq8I2E
+	ks5VuXv09nw38HVkDQ+4hasEOSnNnuE3HDxyLfTBjJ8G/X4n92GEDJ4qeVPSzYEqzmzuiePgJ/ORy
+	sS7HMSh2aZMiE1uUtnkyPmOZoEhRV31hnviXsVaH8gdFtNCeS0fW2XOXuSM//T3b6NOdcZpHOrrmA
+	2yBid/U78+k8ucPVjPrB1bcJq0ASb4Z3UXXcfA4IbCdKqxR9IW7vOhRwTj3sQB0jehZiHlzDuMfFR
+	qcifi6PHMVpgUHwP++2QTRT0tJL83g9aip1JJ7NgsVZXa7Y7zkacFfFADUtIwdaXL8JyqyUGMsg4i
+	zD8R01LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGSM-00000002CvH-0zv6;
-	Mon, 27 Jul 2026 08:13:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woGUD-00000002DA1-2UMN;
+	Mon, 27 Jul 2026 08:14:57 +0000
+Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGSK-00000002Cuy-2srI
+	id 1woGUA-00000002D8i-1Rq3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 08:13:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2E564013A;
-	Mon, 27 Jul 2026 08:12:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A3621F000E9;
-	Mon, 27 Jul 2026 08:12:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785139979;
-	bh=OqVw4hn9qYQIGv2zQRg01CGwV4FIX3vH2ne+HmEOylA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=He1e+qXxG78Mw62hrMKR8jcgC9E9ssqW84dJxLuuSAv3qeEybPnW/d41RnvjZfoY6
-	 UIz8SQXAtd3ePejXZdLJs3Bb4/dcfdmABQwALQEFqRu1dJUMkvXQKp6RlmVP1CUl3h
-	 3mm9byXkbnhPGu8/H0Vxo8u9LQ+8POYboTHGK0GVDBQKpAJLL+aT40cbX/FFtGK3GV
-	 V8TwASDhXKeTy4VAdM/UnnDgJixTtvaAcj4ftV1vrG8lj0KDHRslFCN7ynrWOv+05w
-	 Ivt9rvwEa29xBs1WaOn4Rv12YxHRZiJcpXjo8KIC0yLEP37BBqngmhsSQIf4V80AGM
-	 L1vH5wRJ9yzxQ==
-Date: Mon, 27 Jul 2026 09:12:54 +0100
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, catalin.marinas@arm.com,
-	joro@8bytes.org, jpb@kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] iommu/arm-smmu-v3: Add HAFT support for SVA
-Message-ID: <amcTBlw16RKuZC8y@willie-the-truck>
-References: <cover.1784814923.git.robin.murphy@arm.com>
- <57ae366ec501a142bd20f2cc7d18b3eca8eeac25.1784814923.git.robin.murphy@arm.com>
- <amTH7xHBY2ol4LHw@nvidia.com>
- <amX25rcF-ETdnUPj@willie-the-truck>
- <amYxa51b2j/Cdw/6@nvidia.com>
+	Mon, 27 Jul 2026 08:14:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1785140094; x=1816676094;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=P7OnimFYQWkAalEgzraoPxXsrblUmypJNwaTPMgMFwo=;
+  b=SFK3R4/jqIUSVX0UI1pTQCdyYH8rjp10h8OQN8wfr8p5aFRBRd9qFOmp
+   mEa7MUSfxvcHFzz8F+Y8r+YyoatrsVfGugK7WmbcN0dUb/2pxR3X7kkr6
+   +MNqR3DBJ3OkoCZwbDl5GrcaC+oSVb6oc6CQCHumVpqt8wFrRDDOdb83L
+   WKt6iP4rTvJm3EYzeKFLBOS7IJ6Sy+REpb6AYrX0IdJeXcvX2IvuBdNX5
+   DkWLrq3Tiw8YfHvzvK3AJrb2Ye/pJRi12YFAbC5vM+brGJuiPdERvPcqN
+   3uIDMsJZmCVL+O6Vnnll7jkrCp5B32iPgLZsj3arsR99BXOdKUVVyHvDQ
+   A==;
+X-CSE-ConnectionGUID: Rbox6lMnTiS6uAJzEeg8fA==
+X-CSE-MsgGUID: LXEVlFXYS7qwckjlC1lYfQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11857"; a="248712694"
+X-IronPort-AV: E=Sophos;i="6.25,188,1779116400"; 
+   d="scan'208";a="248712694"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 17:14:50 +0900
+Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 35573C015B6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 08:14:50 +0000 (UTC)
+Received: from az2nlsmom1.o.css.fujitsu.com (unknown [10.150.26.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id DE6151800245
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 08:14:49 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.156.208])
+	by az2nlsmom1.o.css.fujitsu.com (Postfix) with SMTP id 9D98B829EFA;
+	Mon, 27 Jul 2026 08:14:41 +0000 (UTC)
+Date: Mon, 27 Jul 2026 17:14:33 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 14/37] KVM: arm64: CCA: Handle realm enter/exit
+Message-ID: <amcOp7tpRCkI29vt@FCCLS0092175.localdomain>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-15-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <amYxa51b2j/Cdw/6@nvidia.com>
+In-Reply-To: <20260715142841.80544-15-steven.price@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_011454_982157_93ECAE2B 
+X-CRM114-Status: GOOD (  30.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +101,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 26, 2026 at 01:10:19PM -0300, Jason Gunthorpe wrote:
-> On Sun, Jul 26, 2026 at 01:00:38PM +0100, Will Deacon wrote:
-> > On Sat, Jul 25, 2026 at 11:27:59AM -0300, Jason Gunthorpe wrote:
-> > > On Thu, Jul 23, 2026 at 03:19:44PM +0100, Robin Murphy wrote:
-> > > > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > > > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > > > @@ -102,6 +102,8 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
-> > > >  			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
-> > > >  		if (master->smmu->features & ARM_SMMU_FEAT_HD)
-> > > >  			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
-> > > > +		if (master->smmu->features & ARM_SMMU_FEAT_HAFT && system_supports_haft())
-> > > > +			target->data[1] |= cpu_to_le64(CTXDESC_CD_1_HAFT);
-> > > >  	} else {
-> > > >  		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_EPD0);
-> > > 
-> > > Based on the Sashiko remark and your note you should lift all the
-> > > HA/HD/HAFT bits outside this if (mm) block.
-> > > 
-> > > AFAICT it is fine for HA/HD/HAFT to be set with EPD0, the HW won't
-> > > process any PTEs so they won't have any effect.
-> > 
-> > I'm not sure about that. The spec says this about CD.HAFT:
-> 
-> Sorry I see this was unclear
-> 
-> I ment to move all *three* bits outside the if.
-> 
-> There is no reason for EPD0 to also require setting any of those three
-> bits to zero, AFAICT.
+Hi Steven, I have a comment about rec_exit_sys_reg() below.
 
-Ah, gotcha! And even if we did want to get to that configuration, I
-guess you could set EPD0, then clear HAFT, then clear HA+HD?
+On 07/15 15:28, Steven Price wrote:
+> Entering a realm is done using a SMC call to the RMM. On exit the
+> exit-codes need to be handled slightly differently to the normal KVM
+> path so define our own functions for realm enter/exit and hook them
+> in if the guest is a realm guest.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> ---
+> Changes since v13:
+>  * The RMM is now required to provide an ESR value with the correct
+>    information to emulate MMIO, so we no longer need to hardcode 0s in
+>    rec_exit_sys_reg().
+>  * The PSCI changes mean that there is a potential race when turning on
+>    a VCPU which can cause a RMI_ERROR_REC return. Exit to user space
+>    with -EAGAIN in this case.
+> Changes since v12:
+>  * Call guest_state_{enter,exit}_irqoff() around rmi_rec_enter().
+>  * Add handling of the IRQ exception case where IRQs need to be briefly
+>    enabled before exiting guest timing.
+> Changes since v8:
+>  * Introduce kvm_rec_pre_enter() called before entering an atomic
+>    section to handle operations that might require memory allocation
+>    (specifically completing a RIPAS change introduced in a later patch).
+>  * Updates to align with upstream changes to hpfar_el2 which now (ab)uses
+>    HPFAR_EL2_NS as a valid flag.
+>  * Fix exit reason when racing with PSCI shutdown to return
+>    KVM_EXIT_SHUTDOWN rather than KVM_EXIT_UNKNOWN.
+> Changes since v7:
+>  * A return of 0 from kvm_handle_sys_reg() doesn't mean the register has
+>    been read (although that can never happen in the current code). Tidy
+>    up the condition to handle any future refactoring.
+> Changes since v6:
+>  * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
+>    vcpu to the error.
+>  * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
+>    this exit type.
+>  * Split code handling a RIPAS change triggered by the guest to the
+>    following patch.
+> Changes since v5:
+>  * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
+>    change on next entry rather than immediately on the exit. This allows
+>    the VMM to 'reject' a RIPAS change by refusing to continue
+>    scheduling.
+> Changes since v4:
+>  * Rename handle_rme_exit() to handle_rec_exit()
+>  * Move the loop to copy registers into the REC enter structure from the
+>    to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
+>    where the handler exits to user space and user space wants to modify
+>    the GPRS.
+>  * Some code rearrangement in rec_exit_ripas_change().
+> Changes since v2:
+>  * realm_set_ipa_state() now provides an output parameter for the
+>    top_iap that was changed. Use this to signal the VMM with the correct
+>    range that has been transitioned.
+>  * Adapt to previous patch changes.
+> ---
+>
+> [...]
+>
+> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
+> +{
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +	unsigned long esr = kvm_vcpu_get_esr(vcpu);
+> +	int rt = kvm_vcpu_sys_get_rt(vcpu);
+> +	bool is_write = (esr & ESR_ELx_SYS64_ISS_DIR_MASK) == ESR_ELx_SYS64_ISS_DIR_WRITE;
+> +	int ret;
+> +
+> +	if (is_write)
+> +		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[rt]);
 
-Will
+When rt is 31 (XZR), does exit.gprs[rt] trigger an out-of-bounds read
+since REC_RUN_GPRS is 31? Although the padding after the gprs means this
+OOB may not cause any practical issue, would it make sense to skip the
+access when rt is 31?
+
+if (is_write && rt != 31)
+    vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[rt]);
+
+> +
+> +	ret = kvm_handle_sys_reg(vcpu);
+> +	if (!is_write)
+> +		rec->run->enter.gprs[rt] = vcpu_get_reg(vcpu, rt);
+
+The same applies here:
+
+if (!is_write && rt != 31)
+    rec->run->enter.gprs[rt] = vcpu_get_reg(vcpu, rt);
+
+> +
+> +	return ret;
+> +}
 
