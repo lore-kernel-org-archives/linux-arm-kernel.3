@@ -4,78 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1ADAC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04740C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JnmBgXxFDtCMN2wDB2IoufqkaTKn0f8mfPW/klL5BI=; b=iP0s7BzMGThpxEGWb1H1L/9OCP
-	D5U7L+agHDvBIu6wdbYkv/ZjzolYgYC8Jg+pqRh6R3hJpCk7p66u8bo8yguEczV3QMmo1s1/tN2DO
-	lwUSYhqu7i2fk3pDpsura6viRvgc0mh9NR/nseJW6ky4L9fdVsPt868SSYAqkIQ4WFc6Bjemkf0Gd
-	b6M/zRm3WiFPnRfeMWYgdltooz4jqxDP6Nqih/J2tMApNuk0jdomZyET6muziBqmVBEq9caKURwAz
-	kN2H3ecw/T2mxJCumFxXqgOu7HBQUby4W9uB5ZLDRbR8I9I/LcF5FgsN8FNf48hj3Bg2e8uf/7JiM
-	bwinGosQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gn0Vn9z/RrzBL1Vp4ooUdad4+XvB5QureDLm9Fs9FIk=; b=Ik+A7NeS6t4aiJLvL4aVfPD5Vr
+	Iyht0ZZCW0ZITatb2xtHZcQ6BApG/tMz+6l7MlubnK42d18Tu2jbuoK1GR3z0tDhTn7uRmtwoPd1T
+	W6w1E6jQwrYAXS+zD0WIp1aLC9KPxiPjeqVeDOUhNbAMw7ENLtrEBgagF3dC6yRilvK4htWCn8neX
+	lQW20O2Hvy/yHSo/DsyNdOiHxnPToPZlT+DOyq1cz7XpiRB1MQPzvfpkahVnkgd56x0uVvQJFWI2n
+	hL4Xlq0mrn7KtxSEeBZGtfH3TXJtQ3k1hGftXnbcWOCI/02BLEYNhaYS5j+EYslgrUZsjBbP3Gyve
+	orO73HmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woITZ-00000002Tm7-1ri7;
-	Mon, 27 Jul 2026 10:22:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woITY-00000002Tli-1oia;
-	Mon, 27 Jul 2026 10:22:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0081601EC;
-	Mon, 27 Jul 2026 10:22:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5E151F000E9;
-	Mon, 27 Jul 2026 10:22:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785147743;
-	bh=/JnmBgXxFDtCMN2wDB2IoufqkaTKn0f8mfPW/klL5BI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gsYY3yMsnWmKGvnXvXG4cAJ9uYD/g70GCEZQyJYYALUaBP30DL0mK8UiL1pB/EbhK
-	 nc+d8D//BvpV+fsOKUHm9FDZGks+LTCZNNnpygfauGfGDeviZ7a4Gqo4kdtWxeck/h
-	 N5qCMmAK1Dz1wbvXTixVEc38OGcBuCgNrMt0sN0dX9WpHNIOzTARNfgEcid/hOxfeT
-	 3z4xkHMzT2u5IB1Guj2HJz8xjNhJ7A/m+YluYaX2fPMRcTaMbRpym80eUIvDHQmf4G
-	 ID4MUbBHhJPHP/6PWnOj7KYtY4zzJo2RU/OQ8P+F7MVjo8Q1DldhHmb47Hgfz1kxZd
-	 WoAIbmR4uVBoA==
-Date: Mon, 27 Jul 2026 13:22:09 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Borislav Petkov <bp@alien8.de>, linux-mm@kvack.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	x86@kernel.org, Juergen Gross <jgross@suse.com>
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Message-ID: <amcxUS95HBsQhvWn@kernel.org>
-References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
- <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
- <fa75382e-878a-4064-a9b1-43bd2c9dedce@intel.com>
+	id 1woIYv-00000002Ujr-0gBm;
+	Mon, 27 Jul 2026 10:27:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woIYs-00000002Uil-2DOs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 10:27:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6645143D;
+	Mon, 27 Jul 2026 03:27:45 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC6B53FA21;
+	Mon, 27 Jul 2026 03:27:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785148070; bh=q0EI4rNp2Py4ipVMPcubth22UfENKlUF51C+O+Q0xL4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rQreKK17p11RuffLSZL52pe4G7oyjENlF76bAH8Tc0miNBvJGEdSJrVFAZ2U69EzS
+	 YFJhBYHt4KuU4N6RuXOVNOGOMUBT+gBi2uH6OWdLEzrjSQadWgTd6NRuxZsl5lTdbY
+	 pMpI/WRQiaPODBFdKuph2q5yqgUrw17w3Trm+aIs=
+Message-ID: <0a10a19d-690c-42ee-aedc-83906b9fd9e0@arm.com>
+Date: Mon, 27 Jul 2026 11:27:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fa75382e-878a-4064-a9b1-43bd2c9dedce@intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] iommu/arm-smmu-v3: Add HAFT support for SVA
+To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
+Cc: catalin.marinas@arm.com, joro@8bytes.org, jpb@kernel.org,
+ iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <cover.1784814923.git.robin.murphy@arm.com>
+ <57ae366ec501a142bd20f2cc7d18b3eca8eeac25.1784814923.git.robin.murphy@arm.com>
+ <amTH7xHBY2ol4LHw@nvidia.com> <amX25rcF-ETdnUPj@willie-the-truck>
+ <amYxa51b2j/Cdw/6@nvidia.com> <amcTBlw16RKuZC8y@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <amcTBlw16RKuZC8y@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_032754_693321_337398BE 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,32 +73,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 10:03:03AM -0700, Dave Hansen wrote:
-> On 7/21/26 10:19, Borislav Petkov wrote:
-> > On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
-> >> Currently there are 6 independent implementations for set_memory and
-> >> set_direct_map APIs.
-> > So with all mm/x86/CPA patches flying around, can we first agree on which tree
-> > is going to collect everything?
-> > 
-> > And if I want to review patches in that area, what am I applying it ontop?
-> > linux-next perhaps...
-> > 
-> > Let's sort out the workflow first so that we don't get lost on fruitless bug
-> > chases and fingerpointing.
+On 27/07/2026 9:12 am, Will Deacon wrote:
+> On Sun, Jul 26, 2026 at 01:10:19PM -0300, Jason Gunthorpe wrote:
+>> On Sun, Jul 26, 2026 at 01:00:38PM +0100, Will Deacon wrote:
+>>> On Sat, Jul 25, 2026 at 11:27:59AM -0300, Jason Gunthorpe wrote:
+>>>> On Thu, Jul 23, 2026 at 03:19:44PM +0100, Robin Murphy wrote:
+>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>> @@ -102,6 +102,8 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
+>>>>>   			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
+>>>>>   		if (master->smmu->features & ARM_SMMU_FEAT_HD)
+>>>>>   			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
+>>>>> +		if (master->smmu->features & ARM_SMMU_FEAT_HAFT && system_supports_haft())
+>>>>> +			target->data[1] |= cpu_to_le64(CTXDESC_CD_1_HAFT);
+>>>>>   	} else {
+>>>>>   		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_EPD0);
+>>>>
+>>>> Based on the Sashiko remark and your note you should lift all the
+>>>> HA/HD/HAFT bits outside this if (mm) block.
+>>>>
+>>>> AFAICT it is fine for HA/HD/HAFT to be set with EPD0, the HW won't
+>>>> process any PTEs so they won't have any effect.
+>>>
+>>> I'm not sure about that. The spec says this about CD.HAFT:
+>>
+>> Sorry I see this was unclear
+>>
+>> I ment to move all *three* bits outside the if.
+>>
+>> There is no reason for EPD0 to also require setting any of those three
+>> bits to zero, AFAICT.
 > 
-> Just practically, I think this series needs to be ignored for a bit. Bug
-> fixes first, features and cleanups second.
+> Ah, gotcha! And even if we did want to get to that configuration, I
+> guess you could set EPD0, then clear HAFT, then clear HA+HD?
 
-Ignored is a bit strong, I'd still love to get feedback on the concept.
- 
-> When the time is right, it probably needs to get get acks from all the
-> affected architectures and go through mm. Folks can ack it now, but I
-> don't think anyone should even consider merging it until ~7.3-rc1.
+Indeed, it also occurred to me on the way home on Friday that in this 
+case we probably could get away with just setting HA/HD/HAFT 
+consistently in all SVA CDs irrespective of the mm. Strictly, EPD0 only 
+forbids *new* walks from using TTB0, so there might potentially be some 
+outstanding PTE updates still made in the window between the config 
+update and the TLBI at the end of arm_smmu_mm_release(), but that 
+shouldn't be harmful.
 
-FWIF, I didn't plan to send non-RFC version before 7.3-rc1.
+Lemme spin a v3...
 
--- 
-Sincerely yours,
-Mike.
+Cheers,
+Robin.
+
 
