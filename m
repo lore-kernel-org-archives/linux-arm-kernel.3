@@ -4,96 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E12C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 07:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6553C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 07:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9h4E8fzpkUKefQYXbM+5aTJxB/wkrGJJdLAlPHgwa7A=; b=s5VgK1japnK2zpTT06iNe8sm0a
-	KypeMB6krTS03wSUrfnEfb6nl91xOSburOscQRklUI+ammGZ4DyI9fZTEAB5RfI18operQTbpDRAh
-	KHlHIUTwHLjNEQ69f+ZY0GlV2r+DYIH65/2Wn0t6q8yDU243b8ExZHpH58nG1pWf1OSfhkHzr/4cw
-	P8Azwfs2z48/X0CD7wfjadae0JTUuTXD30nAL3CsXHDJw0T8mcdFwAsT5nbH6WQiEjW88oI/kpqtB
-	1s4wLVqW+RA8GJlYQazY5Ja6v7yewza6t8UZAqSq0R5TrAD0Eh1fhlofGZYyMRXx4Mebl5HpkLwer
-	Ji6CnzSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bBTwnDoZdMOqzYXoILhXlhuA5G1ti3r0gY6QMNid4uE=; b=LmGnn/Mac6fmI92WeOHgpXyINK
+	k8BWB+jAZqlaHr+1RQNlLcYv8cz4YsYmH7afN5wfL4pm6eHP5hI9dfGGqQUt69/p9qbhg54kQMTnx
+	4aRi5+JYZkHoQU7W0dW8Gh10W9LYB8hqnegGLhwSWDofc0r+1iasOOiThXESahi82dMuyLjJl+unY
+	pjuOWBkSGKaJ9of8MUxfEa0crvkz+t+Lg09ZWRkLRmuuJ61kZZretuWYkdT2gFTLIm4KGjHhdeRhT
+	XfuBdYV/jicgHqom7cYyq7m+/vdt+SOFABHa8RWRMfk2rCzeIOwTh3IuYog4kXHlGXi9Wq9pmS3Ar
+	t9eaqYCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woFxF-000000029IG-02t5;
-	Mon, 27 Jul 2026 07:40:53 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1woFyh-000000029gu-1g7K;
+	Mon, 27 Jul 2026 07:42:23 +0000
+Received: from mail-northeuropeazon11012002.outbound.protection.outlook.com ([52.101.66.2] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woFwz-0000000298h-33kz
+	id 1woFyf-000000029fd-0SvT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 07:40:39 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47f84023916so2403126f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 00:40:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1785138036; x=1785742836; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9h4E8fzpkUKefQYXbM+5aTJxB/wkrGJJdLAlPHgwa7A=;
-        b=PL2TV8REoHJ8IelVvZFJY5A2KFYAPHSVvxZ2vJ7G2A3+mvzQXaffJpQkAtV1+DRWwv
-         fN3qlDcwvOHSeQsauSW1lVO2GLp3VbyjW1pBA4MYIR97TLwlEpGeDzE7nt3Q3wayrDGQ
-         TCDe97UYd2V+Fcq/fKq07iuZEuD+pEQT29E0SRyNPZXVUqF4qVQHXcX8+Zt4AdaAi/vV
-         q3U7XMjX9FBAukFfqOw78WEZxf6Gu9qvsuc6Pw0ku62Co8vG/F9+D/wKT7C5xDhMkFcO
-         qvJoo2epFHd831ydzif7Pc5ul3NteDYFEZ29ojIzf5WJjMBWoXg/PFGsct/btpnOgBYU
-         hXSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785138036; x=1785742836;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9h4E8fzpkUKefQYXbM+5aTJxB/wkrGJJdLAlPHgwa7A=;
-        b=Eetx00Zqg9yCuN6qQjkm8Fqc0lBcCYj4Z3VnwXtJrdwZIrfnFKFNNiJ11TfO3J1r1D
-         hn8WNF9WSqS/XWlYHQ5qB3uztHhAE7BLo7m94E4+WoFVh2EPcfLiVlDUg+0b9Sh5ojPE
-         ZhPmW4l1VT/FMea2/NPw7kNwE6irhJFO6vqF89uBqFTI+Un5INdwajsUjjSSGcybYOGo
-         57FdW6ufnNI3sayYcwtWmTJ9o6qsAu6bHZOs4HEOPQVZp4Ct4h+pzsaSG/08lsL62/UJ
-         R+af6ADp2Re3pmnca1hkJAG2OfJV5NY0l8/GDTopalIqQgGwQqVN1gjdJw/WEJEB1+1p
-         OmUQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8nvRhC5vIuWkH7u7sTKv03LnkYtVH6TJ2xzk8V3+CCS7W2zTrg0KIpz4YvRZ6hfMS6NPU+eD4Vix09bxDeJCv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC6XvmibHxhp0h5hlf5nhRCser64vdCRGnIxflNn+eqZ+rpWoj
-	CnhiSie2k+U5Kb44dTvXNTFgT4fxq4FtLaTjHq9Iarlbq1Snk4l6iVb5HyH1kZQMn1E=
-X-Gm-Gg: AR+sD10VEReiWfVVHSFxeDSuh4Gz+VfctU4Elyt6BJb8nOCfvc+hnde5qLJXd7lCAJg
-	NGV6sqq4pECfdOjBoTj/nhb9LizrrYCc8991m/vJLNPMtXb81Rmw0XU67LYdeRd5rWFfKuMZm1B
-	DI9u2dYTiiZCWLyI0JxyPWOMbi1+pEvcLAYoPWR5wKLSutNUev1EPnbuREKBffk9g1ExD/Cv799
-	2fQkIiOhGd8l7g7encrzwzdLjMgyNLJk4V/3X2TmWwXC62PfJ1/qpbxH15U0+Ir+W7gW8PxSlC1
-	qScV5iEx5NXvhPE3CxqqoRYf2GPV5xjTNKImHFYQjTa/yZFdBa2wqhKuvGaryoCRSMFFi07hq/Q
-	pRlXr1kIhNmn3Pc7EUiu4lev4A513AzQB9eULpro4FluK8HefsUAtCwC5sC1qIZCCxjpFGCS5Xo
-	HHlHOA7g7MLebUDk8KqMYpQPqJju6QvOwitbNRyAOrW+TcKbfdG7FoZP0u5Ngmb83ODKPR6MKLv
-	Tu5NbJg4aw505Rld4YCOl0nhA==
-X-Received: by 2002:a05:6000:4382:b0:47f:45fa:98e0 with SMTP id ffacd0b85a97d-47f9febc7e5mr8981992f8f.57.1785138035650;
-        Mon, 27 Jul 2026 00:40:35 -0700 (PDT)
-Received: from macbook.homenet.telecomitalia.it (host-87-0-90-136.retail.telecomitalia.it. [87.0.90.136])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85bb5127sm43677682f8f.10.2026.07.27.00.40.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 00:40:35 -0700 (PDT)
-From: Carlo Caione <ccaione@baylibre.com>
-Date: Mon, 27 Jul 2026 09:38:09 +0200
-Subject: [PATCH v2 2/2] serial: 8250_mtk: honor DT serial aliases
+	Mon, 27 Jul 2026 07:42:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ofLo5RsCryPSnQu9E4iiOk0hTT9m0x/oua3kea2lxiftVdfgsiIsHaYO+wEQGZCZx/UYdNlKAMjsjn/csZ0IHJG9uFZWTT2YUabHTxMh+ytHtAkjTK+U4O8L2djVqXWxBisdpq3NOMHX6OznFcQW4wZiFA2pGfeFoNX/LNWJt5G4iEWq47PFYuFBxbvxwDfpnu/Ci7kq4HiQSaLw0BcjMtkZtvKZfm+ZO6Ca7gvRlLg50n2f4c1ohhOAPQa4tlJXHDq3LBDhVxuq/C8HDgZPyqelMgVAXiNJ3/2Q8q9Evbw4hKDp2GT2SPetRnEv3hHq0YR4K7y8tH0CgILMjFLRTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bBTwnDoZdMOqzYXoILhXlhuA5G1ti3r0gY6QMNid4uE=;
+ b=ymuIx0MRCw55PcdK5QQvbelTRotbmD/ciVpbVt9IfMY06s50imycdIAXYRCqndjGYdJ4FzoQm8+uO/wcX4a3bOMvZuBGOJ6alZCG4aVNOKIuvuNHqZqqojNz5byYA1ROXRBmMSWohw5jsQ+YC55j/L0IDd6qR4p6Tu9DM6t3PVqGobvdXJrV3wZIo4n3pUFwBAU1YwuMpc0Kl8jxA/POjJgBPH1KU5Uu6huvUrATzCNczlX92EC1lKwE1EyoCLCFOJHB1Nvn8qz5uSSTrjPL6ddA1EvtSSUHBZYVHYfwQX9YjOMzDbiHn+lLUW53Zx7Z5y6yb6dp9JAIpWgipUgkVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bBTwnDoZdMOqzYXoILhXlhuA5G1ti3r0gY6QMNid4uE=;
+ b=t3IItVnaqh1akVdX1CqCb2qvJ9rkFxCW6EBOBj2FG/P7JEp+uqHUeu8avQxG7NJfvVo5LMDs3/+RMtK6ALsdFCSIyh25Wx+DIVY+t0v7fdhqKRPxv24MUWcs/zVnj24OwOReFrFFynsQlKYmz+02VsDQ+wa1Gn5ZYngtiBQsJMpvA+g+skOwdQlMDvbQINH3G5r6kaZu1uUgNHs0TsoQB1V+npb8sWct11o7knNDXIW0dlMRZv7NelD8QeZo0UyWjonwbR6OTQwS/XdQ/fXD80MydWTTqq05I82LHt6Ra3sY1YAMUHjlG+1VUqSpIXxHBFPtI5YX8P4uUhyDD+2ZLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by GV4PR04MB11331.eurprd04.prod.outlook.com (2603:10a6:150:29e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
+ 2026 07:42:15 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0245.010; Mon, 27 Jul 2026
+ 07:42:15 +0000
+Date: Mon, 27 Jul 2026 15:45:56 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Zhipeng.wang_1@oss.nxp.com
+Cc: robh@kernel.org, saravanak@kernel.org, ulfh@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, peng.fan@nxp.com, aisheng.dong@nxp.com,
+	jindong.yue@nxp.com, xuegang.liu@nxp.com,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 2/3] pmdomain: imx: scu-pd: allow building as a module
+Message-ID: <amcMtNFqcfb40Oe+@shlinux89>
+References: <20260723020524.1886806-1-Zhipeng.wang_1@oss.nxp.com>
+ <20260723020524.1886806-3-Zhipeng.wang_1@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260723020524.1886806-3-Zhipeng.wang_1@oss.nxp.com>
+X-ClientProxiedBy: JH0PR01CA0153.apcprd01.prod.exchangelabs.com
+ (2603:1096:990:7::12) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-ccaione-genio-serial-aliases-v2-2-0f2ae41a8e89@baylibre.com>
-References: <20260727-ccaione-genio-serial-aliases-v2-0-0f2ae41a8e89@baylibre.com>
-In-Reply-To: <20260727-ccaione-genio-serial-aliases-v2-0-0f2ae41a8e89@baylibre.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-serial@vger.kernel.org, dlechner@baylibre.com, jstephan@baylibre.com, 
- Carlo Caione <ccaione@baylibre.com>
-X-Mailer: b4 0.15.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|GV4PR04MB11331:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f9bf07f-b083-4b96-1935-08deebb29399
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|23010399003|19092799006|366016|56012099006|11063799006|4143699003|10067099003|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: gi5na4xEZumUNzOw1UilLaZzYdCGTKxZ/TSPYueiVfzxM9yDVWMyWJi0BvFvXt+1TMotyyh3GS1Mk0Y0Xwyg13aOHVM62FC77UF0izVv/+IQPFRtXwWzs0lEMCwKYBiqKSgPyHJ0X7WbrV+QKPcyPImP9nfTbfi8UCMariRvzkPwFmNH1qkQBLbWCjFh+ZhGjtxnx37gnHaCDegsvKA/6em2Anq1be5YSElUYrCtlGumyCyzcjWGxvg9Xllo+IrB0v+dH+d6/kQ5qtS7ymAK9Jc1LqoYsguBNoVJnkTmy0wTG8HFTlzKAStIi8YmqeeAvJ/iTyFxriRF4vhe8P6jWCC2/vhBDFbmw//q5FWaeDWfJI4E6ksa9c+5mBPwCk4jsVdoPRNmHXEfigzjvnImf6P/49E/OP+M7cEtn48nVHUfmICZiw8NITLuB/1gb49mjNMZSl7kuxENOO7r63lZw4MmklAuQLg6HIHodsWtYyAzEH1gcjv4dXZPFX2rSIaTFDQnifksVgf2V101IObZTAxai8nIF7L4AEwypY3OqHxw5EJbQYAA+f+399HEcE9jpzKhQ8DL13JprJLOqxXknDu9EtcPKfzToZ/frPkiF1YcoTyLBKp5GGMmLEHf17o4S/z7VqJGa20ODFrLeobsRVBvQCxe1UAvfa+mrnTzKYI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(23010399003)(19092799006)(366016)(56012099006)(11063799006)(4143699003)(10067099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Gu1QBU02MbFEbaZGwnkqALAJeLBUkNisklSM9PG2MyXlUXBkWmjzobf5IaOt?=
+ =?us-ascii?Q?pB7u21g5spPUd35fiRM2IMeikgFrrjQEgZIRKQKZel5Y6p3GIu5ikS2VKlAy?=
+ =?us-ascii?Q?ZeF2KtI2E/Gw8o3d66p3PPi6sWZdd92eJ85/03UMDSPB9q/y5OxVtdpVpdik?=
+ =?us-ascii?Q?F13z1uK1fEU3h0cPoutHe/VQizW7yQdD9K6rifHM6GhilMnfsrwbjLitCAfR?=
+ =?us-ascii?Q?KNau+uvlqi/f82ULhN+yKF6ymJgWQUXOqI2bIiPmDNk+/sVpy4ouEZmuE73s?=
+ =?us-ascii?Q?qz1r6h7eLj6NsHGKV8gaCk4Mp4iPDI/ln1WFM04VG/SYl3hA2G4esVUfTQiF?=
+ =?us-ascii?Q?Hpc1Z0ULuB8AeqsF42nZfVATsWVHwnqM+eWpo1mDv5leIYgnXNlE60yaOmu6?=
+ =?us-ascii?Q?GtSVNtlLOJ2ujTRVWIAC3PASPQgTs3BqDNciHqMkaIn++wCDB0CrffSPdIEd?=
+ =?us-ascii?Q?Fk40VfHk+nJbBu52ybUvmc4UASNWCBlWceKl15Au+cz305yXwdtGlkKxbQVn?=
+ =?us-ascii?Q?fsy79fVcn/Y0GtqiHJ6dMSYDrgKigOXc/VrTf8ARModWq6m6KamnFgYKc06J?=
+ =?us-ascii?Q?e4rabqXyL5Kd8E2ZFxYZicXg8A4LmEXa6EH3S2OdUebhv71c6mrlRFSO9Pze?=
+ =?us-ascii?Q?usr/dl7tP1okRQLf0oe0xiGF1el3uSCFe1Tnt2IxEfKUr550CJaotmAeASEY?=
+ =?us-ascii?Q?vHx3I0/ZoxG1UJ+/MMLfpw7LVpinTUYMALlENLvaWIB4iAJ6UZ8toZqa1zyh?=
+ =?us-ascii?Q?d2p+uP4jShryIuNC+Y8xFLajEXkx1KPjBhKfDSLAXc5D8ulVaQ/0X3Rl7VaE?=
+ =?us-ascii?Q?sV3CUN54S+XkaW+yyY8Dcb+VrmdZdb2nkZir3zHhlVrwZMUrb8GthMQweVp0?=
+ =?us-ascii?Q?jUaXVSP25ukGB0uPkwrenUDLSKx+fxgBiNBXmp1jxpIfYypqK7YeiKoz+GUJ?=
+ =?us-ascii?Q?4WYNHeag8tY4q4pCfBfDRGDrCQXlqFv/O3aPPTVuTJNS2EX4G7bNRwbQ8wkR?=
+ =?us-ascii?Q?VVUJN3MXeMuEvqXmSwSKRJj9qMJ7gyzt4cDbcHeBUj6rlZy/tqco6ozSOkg5?=
+ =?us-ascii?Q?fa4y/G2VMn3cc6D/AD99dHDqHzj70xG+Ydwkrq3uBjngSmIdfLPogw7TI3J8?=
+ =?us-ascii?Q?Ge+u8WCl0WXOj945LhrEEjJJyz0JzszJoj6UM4mRBwZcZFNqsXQ9JR/OQpb+?=
+ =?us-ascii?Q?oXRJyYJdgwtBh+XyyKcj3cKdQ02CBUmqyjjlQPAEdoI5Rd8CChQXvzyAH2mO?=
+ =?us-ascii?Q?ENlGB8Brf44NnKY/nb5R4zim/Gzn6Jy9xeVxc71RwuMt1Z2JeGbNzer4gy5A?=
+ =?us-ascii?Q?TSqIcqZOzHrgUIuQjlvPp1HQjcDEQZ3RBoVY83fG7H0IwDjtBcBYVxXORTX3?=
+ =?us-ascii?Q?V68W0IBI5om9hcNbNOhTT2A4wYvaZza5jtz4qiErn2IYm8Akeb3po/A1ybDN?=
+ =?us-ascii?Q?B/BYQf8xqyUMkTAFoGi7tKloWJgnSkVzglqkt3FXKYfk9qkFv/zxIMLIHfmv?=
+ =?us-ascii?Q?PnCI7riz9lRy4tMJjLOCKwNriJCXnnpqvQLbP19wQH81pNRV/kQHgKZKsYOq?=
+ =?us-ascii?Q?tc9VxtnDxgXlTV1swKvjOSlJvYPwZe4ziX15c5fEFGkBb3xn0t9pSRf2PV7r?=
+ =?us-ascii?Q?fjWG9qTAUOxBxTMdHkdVuzweEf3qGby2s0MZEoOGse8nFsMx7VhCz90YOVcF?=
+ =?us-ascii?Q?Jfkj++2pzvWOk7S+4YrDD32gQxuiUMOtfKeQMQ+AhtG7z4vYjqWVV9r+H4GY?=
+ =?us-ascii?Q?v+OavM8fscHhpNYo1n9MxnMlwysrZyMQG8zHvlNBHWd4UhWpjHfe?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f9bf07f-b083-4b96-1935-08deebb29399
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 07:42:15.0399
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YEzuRODzoPPJpfVQZEkHoPreV6PQhkN/xLJK6J8Ntlt7KVONKKG3LVjDcAWwGVSazn/n5M48tYX5wwEluJtaHz7rzXDwY63WkvIkuoZatqEsEPz824HSRzJyjEyz5l2x
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_004037_779234_BB4D13D3 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20260727_004221_161410_CE316FD7 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +142,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Genio board DTs provide serial aliases for all enabled UARTs, but
-the MTK 8250 driver still registered every port with the default line
-number. If uart0 deferred and another UART probed first, the 8250 core
-could still assign ttyS0 to the wrong port despite the DT aliases.
+On Thu, Jul 23, 2026 at 11:05:23AM +0900, Zhipeng.wang_1@oss.nxp.com wrote:
+>From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+>
+>Convert CONFIG_IMX_SCU_PD from bool to tristate to allow building as a
+>loadable module. This is needed on Android devices using the Generic
+>Kernel Image (GKI), where SoC-specific drivers must be built as modules
+>rather than built into the core kernel image.
+>
+>For i.MX8Q devices running Android with a GKI kernel, the SCU power
+>domain driver must be loadable. Without tristate support, power domains
+>cannot be properly initialized, preventing these systems from
+>functioning under GKI.
+>
+>Use subsys_initcall() so that when built-in the power domain provider
+>probes before its consumers (e.g. the SCU clock driver at
+>device_initcall level), fixing "failed to attached the power domain"
+>warnings at boot. When built as a module, subsys_initcall() is
+>equivalent to module_init(). No module_exit() is provided because the
+>SCU power domain provider is a system-level resource that cannot be
+>safely removed at runtime.
+>
+>Add MODULE_DEVICE_TABLE() for OF-based module autoloading.
+>
+>Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
 
-Read the serial alias during OF probe and seed uart.port.line before
-registering the port so the 8250 core reserves the requested ttyS slot.
-
-Signed-off-by: Carlo Caione <ccaione@baylibre.com>
----
- drivers/tty/serial/8250/8250_mtk.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/tty/serial/8250/8250_mtk.c b/drivers/tty/serial/8250/8250_mtk.c
-index e6a56cf54ae0..841d64f6a707 100644
---- a/drivers/tty/serial/8250/8250_mtk.c
-+++ b/drivers/tty/serial/8250/8250_mtk.c
-@@ -8,6 +8,7 @@
- #include <linux/clk.h>
- #include <linux/io.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/of_platform.h>
- #include <linux/pinctrl/consumer.h>
-@@ -521,7 +522,7 @@ static int mtk8250_probe(struct platform_device *pdev)
- 	struct uart_8250_port uart = {};
- 	struct mtk8250_data *data;
- 	struct resource *regs;
--	int irq, err;
-+	int irq, err, line;
- 	struct fwnode_handle *fwnode = dev_fwnode(&pdev->dev);
- 
- 	irq = platform_get_irq(pdev, 0);
-@@ -575,6 +576,10 @@ static int mtk8250_probe(struct platform_device *pdev)
- #endif
- 
- 	if (is_of_node(fwnode)) {
-+		line = of_alias_get_id(pdev->dev.of_node, "serial");
-+		if (line >= 0)
-+			uart.port.line = line;
-+
- 		/* Disable Rate Fix function */
- 		writel(0x0, uart.port.membase +
- 			(MTK_UART_RATE_FIX << uart.port.regshift));
-
--- 
-2.55.0
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
