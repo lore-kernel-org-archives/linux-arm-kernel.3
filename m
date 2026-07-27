@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385D2C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 08:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA338C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 08:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hu5Iz+I8ahzmm2xeTBBWdzh9bN8uU9cXvAqP7Uxh4YA=; b=TCbShIQdcalQGApiUs95Zq8I2E
-	ks5VuXv09nw38HVkDQ+4hasEOSnNnuE3HDxyLfTBjJ8G/X4n92GEDJ4qeVPSzYEqzmzuiePgJ/ORy
-	sS7HMSh2aZMiE1uUtnkyPmOZoEhRV31hnviXsVaH8gdFtNCeS0fW2XOXuSM//T3b6NOdcZpHOrrmA
-	2yBid/U78+k8ucPVjPrB1bcJq0ASb4Z3UXXcfA4IbCdKqxR9IW7vOhRwTj3sQB0jehZiHlzDuMfFR
-	qcifi6PHMVpgUHwP++2QTRT0tJL83g9aip1JJ7NgsVZXa7Y7zkacFfFADUtIwdaXL8JyqyUGMsg4i
-	zD8R01LA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qPnz/v80LXwYp0PVxXjwmAK2BJ3kZ1bk+zxjufazDlY=; b=nqnyGovo/U08yNmG/2AwpkPDbJ
+	DmSeVY6k+ctgRC+NKQK0Du4O/xxH6j6SFxCFsYrQvhaL2nBzWo1cQQEHTRyPUnAA/BuiJSHuLD+Ck
+	XzwAsktuoHXXJiOA79WvN6G33M+SM25aEkcM4HwBvRnUBz/lGoWKseFnTVMIt3BFEZAIVTgTnmo6C
+	T2v3tDUQq23TmEr0pEwGec1NDTIr80U+2RE3jXrmv4ez1drxEhc1jQnxuotBGxH8d64f4B2lLJg6z
+	iqE2yTdwjgfuUueanAYnoZIPfrdkSSfeN9KAT0urQQ1m5XOOBcsQo5l7X1EMb0oxKCQ0Byh1+xm1W
+	TiyRCzUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGUD-00000002DA1-2UMN;
-	Mon, 27 Jul 2026 08:14:57 +0000
-Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
+	id 1woGZC-00000002Dc5-0jYP;
+	Mon, 27 Jul 2026 08:20:06 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGUA-00000002D8i-1Rq3
+	id 1woGZA-00000002DbM-0wY5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 08:14:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1785140094; x=1816676094;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=P7OnimFYQWkAalEgzraoPxXsrblUmypJNwaTPMgMFwo=;
-  b=SFK3R4/jqIUSVX0UI1pTQCdyYH8rjp10h8OQN8wfr8p5aFRBRd9qFOmp
-   mEa7MUSfxvcHFzz8F+Y8r+YyoatrsVfGugK7WmbcN0dUb/2pxR3X7kkr6
-   +MNqR3DBJ3OkoCZwbDl5GrcaC+oSVb6oc6CQCHumVpqt8wFrRDDOdb83L
-   WKt6iP4rTvJm3EYzeKFLBOS7IJ6Sy+REpb6AYrX0IdJeXcvX2IvuBdNX5
-   DkWLrq3Tiw8YfHvzvK3AJrb2Ye/pJRi12YFAbC5vM+brGJuiPdERvPcqN
-   3uIDMsJZmCVL+O6Vnnll7jkrCp5B32iPgLZsj3arsR99BXOdKUVVyHvDQ
-   A==;
-X-CSE-ConnectionGUID: Rbox6lMnTiS6uAJzEeg8fA==
-X-CSE-MsgGUID: LXEVlFXYS7qwckjlC1lYfQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11857"; a="248712694"
-X-IronPort-AV: E=Sophos;i="6.25,188,1779116400"; 
-   d="scan'208";a="248712694"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 17:14:50 +0900
-Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 35573C015B6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 08:14:50 +0000 (UTC)
-Received: from az2nlsmom1.o.css.fujitsu.com (unknown [10.150.26.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id DE6151800245
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 08:14:49 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.156.208])
-	by az2nlsmom1.o.css.fujitsu.com (Postfix) with SMTP id 9D98B829EFA;
-	Mon, 27 Jul 2026 08:14:41 +0000 (UTC)
-Date: Mon, 27 Jul 2026 17:14:33 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 14/37] KVM: arm64: CCA: Handle realm enter/exit
-Message-ID: <amcOp7tpRCkI29vt@FCCLS0092175.localdomain>
-References: <20260715142841.80544-1-steven.price@arm.com>
- <20260715142841.80544-15-steven.price@arm.com>
+	Mon, 27 Jul 2026 08:20:05 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-38dc69c74b8so2009951a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 01:20:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785140403; x=1785745203; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qPnz/v80LXwYp0PVxXjwmAK2BJ3kZ1bk+zxjufazDlY=;
+        b=hP163aKr+b5t1zQuHRoPwttN1aVYJG83ZxalCWx2wHuPQ30qFHS7q32iIiiec17uV2
+         Ax7rhehSKTuS+usszSCZOv+Y++LW4E3deX4S/Z7QG1dVPGgHbZM/iRuZ3Z87gqtdp8Uy
+         12YXFBm8MHWoldrOr+PjAwwS5WoI01WCtlM7G9wDfpDAzRHLUaYjCZ2EhgC3T7GMSpk4
+         YLufNJdAl7nY4YKb9MmHY++kOXLv+QW6azyh00usy3cSTQMMYszuMFj/Icwdrpjkm9EP
+         78oxlQq2G6j1KDuxAwEiiNa/4gZeifVHRrdbnmBI7IiRlVBsPWA6/wVTRuLGf4/NQD4F
+         4AqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785140403; x=1785745203;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qPnz/v80LXwYp0PVxXjwmAK2BJ3kZ1bk+zxjufazDlY=;
+        b=JFZxGU2OyctK8q6iDZuHa2pkvSoIznZhiom9Db4Nu3AWgK5tfttgvV+c/c/XD5pixZ
+         ljMRyRNRqLeGgwbJy7Xh/nkHV6MdTc2J0Un9rvkZwvSjqZmXtfpvwhbQvTaYreVMyyxk
+         ivqHZxuMwNmmDFXckCJre98BzBqVEOCcprMFdLXENo14sVT7aW3kpYCiawCKm6/G123m
+         8qARPaAvHZjvYGovhEaGZv1ijeDgy/EX2lvlb39klJOMRZ1NjyDYFjNaLaSD+bXLzTLd
+         kLwwj1wmHxnBfzxLt5hkjUlLtpFNcTjoBnRp8LY2e65Ore/uh5QOIHo7nVZcfY0Ri96k
+         upVA==
+X-Forwarded-Encrypted: i=1; AHgh+RogTo5vAjHkh1wjWcx0X51M3o8gWNPmqbpuSFmfShspKLxWstYlt7zybvKj3n+00RaOj5fhivA5XblaC0aWcE3z@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEvHRQzMHV+XW6xyr8hTELTFhjVImrf6HUVa89GhFmALaAxkbu
+	JKegwxbkws3lZo5r5urk381as8OADoIpVxZetv26zfKRURxBBXTuUlYf
+X-Gm-Gg: AR+sD108TzsBsoySAehewdvcvKY1pQXmyxFY8/OQxvKXjfiAlelnWWpHqEWj64P+sg2
+	e4KA1NNtgmj/mkSQYILD2wI0UazYWnjU1/3gV0WHpmZP6BVWxovjQM9cNp/31nRxpGyp6XCm03Z
+	XyjtTx1h7nFvumtKMW2YTGuiw08eZVgxy7+IB6bhEtGuGVZta6LasePS8iSDBXNRSKb04oxCHqQ
+	n554Qj2MgTAWzEWJYAueuWDB/EXZPZJqykJyOLd7BJIQ+abljpank4SUxVU6dRmajGhSOsBC9Hx
+	8nl3lb44Aje3lmwHKQGgdJKVT8FpgmklHSSaLuOFyZdH7/Vr+sSDIUk2fGwmO5qbBtuLa68ixh3
+	VX20zX3BhoHHzuCCdLemF4NYSpRsMl5ifv0VQT9d3WG67rq/yOc7W7nIjBeaU2Dc7mvrPGuhtNK
+	TDmI4VcgdEC9OsAbCy6a3rzYQRhoK94Fbfiyw4FXhgSdjbtqxiNCqk2AVEw5/g
+X-Received: by 2002:a17:90b:268b:b0:38d:eaec:4396 with SMTP id 98e67ed59e1d1-38f293caf01mr7455177a91.11.1785140402768;
+        Mon, 27 Jul 2026 01:20:02 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38f292aed12sm2629156a91.4.2026.07.27.01.20.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 01:20:02 -0700 (PDT)
+From: Zi-Yu Chen <zychennvt@gmail.com>
+To: Andi Shyti <andi.shyti@kernel.org>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Zi-Yu Chen <zychennvt@gmail.com>
+Subject: [PATCH v7 0/3] i2c: ma35d1: Add support for MA35D1 I2C controller
+Date: Mon, 27 Jul 2026 16:18:56 +0800
+Message-Id: <20260727081859.1737223-1-zychennvt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260715142841.80544-15-steven.price@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_011454_982157_93ECAE2B 
-X-CRM114-Status: GOOD (  30.22  )
+X-CRM114-CacheID: sfid-20260727_012004_271713_D0160D4C 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,98 +104,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven, I have a comment about rec_exit_sys_reg() below.
+This series adds support for the I2C controller found in the Nuvoton
+MA35D1 SoC. The driver supports controller and optional target mode
+and runtime power management.
 
-On 07/15 15:28, Steven Price wrote:
-> Entering a realm is done using a SMC call to the RMM. On exit the
-> exit-codes need to be handled slightly differently to the normal KVM
-> path so define our own functions for realm enter/exit and hook them
-> in if the guest is a realm guest.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
-> Changes since v13:
->  * The RMM is now required to provide an ESR value with the correct
->    information to emulate MMIO, so we no longer need to hardcode 0s in
->    rec_exit_sys_reg().
->  * The PSCI changes mean that there is a potential race when turning on
->    a VCPU which can cause a RMI_ERROR_REC return. Exit to user space
->    with -EAGAIN in this case.
-> Changes since v12:
->  * Call guest_state_{enter,exit}_irqoff() around rmi_rec_enter().
->  * Add handling of the IRQ exception case where IRQs need to be briefly
->    enabled before exiting guest timing.
-> Changes since v8:
->  * Introduce kvm_rec_pre_enter() called before entering an atomic
->    section to handle operations that might require memory allocation
->    (specifically completing a RIPAS change introduced in a later patch).
->  * Updates to align with upstream changes to hpfar_el2 which now (ab)uses
->    HPFAR_EL2_NS as a valid flag.
->  * Fix exit reason when racing with PSCI shutdown to return
->    KVM_EXIT_SHUTDOWN rather than KVM_EXIT_UNKNOWN.
-> Changes since v7:
->  * A return of 0 from kvm_handle_sys_reg() doesn't mean the register has
->    been read (although that can never happen in the current code). Tidy
->    up the condition to handle any future refactoring.
-> Changes since v6:
->  * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
->    vcpu to the error.
->  * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
->    this exit type.
->  * Split code handling a RIPAS change triggered by the guest to the
->    following patch.
-> Changes since v5:
->  * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
->    change on next entry rather than immediately on the exit. This allows
->    the VMM to 'reject' a RIPAS change by refusing to continue
->    scheduling.
-> Changes since v4:
->  * Rename handle_rme_exit() to handle_rec_exit()
->  * Move the loop to copy registers into the REC enter structure from the
->    to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
->    where the handler exits to user space and user space wants to modify
->    the GPRS.
->  * Some code rearrangement in rec_exit_ripas_change().
-> Changes since v2:
->  * realm_set_ipa_state() now provides an output parameter for the
->    top_iap that was changed. Use this to signal the VMM with the correct
->    range that has been transitioned.
->  * Adapt to previous patch changes.
-> ---
->
-> [...]
->
-> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long esr = kvm_vcpu_get_esr(vcpu);
-> +	int rt = kvm_vcpu_sys_get_rt(vcpu);
-> +	bool is_write = (esr & ESR_ELx_SYS64_ISS_DIR_MASK) == ESR_ELx_SYS64_ISS_DIR_WRITE;
-> +	int ret;
-> +
-> +	if (is_write)
-> +		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[rt]);
+The implementation has been tested on the Nuvoton MA35D1 SOM board.
 
-When rt is 31 (XZR), does exit.gprs[rt] trigger an out-of-bounds read
-since REC_RUN_GPRS is 31? Although the padding after the gprs means this
-OOB may not cause any practical issue, would it make sense to skip the
-access when rt is 31?
+Changes in v7:
+	- Disable IRQ before clearing i2c->msg.
+	- Support	CONFIG_PM=n, and simplify runtime PM setup accordingly.
+	- Remove redundant register access in runtime suspend/resume callbacks.
+	- Defer clearing i2c->target until after pm_runtime_put_sync() in ma35d1_unreg_target().
+	- Enable interrupts alongside I2C enable in ma35d1_i2c_reset().
+  v6: https://lore.kernel.org/r/20260720030616.1067660-1-zychennvt@gmail.com/
+Changes in v6:
+  - Patch 2 (driver):
+		- Removed dynamic IRQ toggling helpers for simpler interrupt management.
+		Address review feedback:
+		- Added zero-length read quirk.
+		- Set i2c->msg to NULL on timeout to avoid use-after-free.
+		- Cleared hardware registers on target unregistration to release the bus.
+		- Protected suspend-path register writes with a spinlock.
+		- Validated clock-frequency to prevent division-by-zero.
+		- Removed incorrect I2C_M_IGNORE_NAK handling.
+		- Corrected a comment typo in the receive data path.		
+  - Patch 3 (dts):
+    - use a generic functional name audio-codec@1a
+  v5: https://lore.kernel.org/r/20260630012106.3616821-1-zychennvt@gmail.com/
 
-if (is_write && rt != 31)
-    vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[rt]);
+Changes in v5:
+  - Patch 2 (driver):
+    - Add spinlock protection for MA35_CTL0 register access.
+    - Add NULL pointer check for i2c->msg in the ISR.
+    - Use devres-managed cleanup (devm_add_action_or_reset) for runtime PM.
+    - Use pm_runtime_force_suspend/resume() for Controller mode 
+      system sleep.
+    - Control I2CEN bit enabling/disabling via runtime PM.
+    - Refactor arbitration lost handling in state machines.
+    - Remove unsupported I2C_FUNC_PROTOCOL_MANGLING flag.
+    - Clean up readl_poll_timeout() parameters, retry loop, and
+      unused macros.
+  v4: https://lore.kernel.org/r/20260610030208.2020275-1-zychennvt@gmail.com/
 
-> +
-> +	ret = kvm_handle_sys_reg(vcpu);
-> +	if (!is_write)
-> +		rec->run->enter.gprs[rt] = vcpu_get_reg(vcpu, rt);
+Changes in v4:
+  - Patch 1 (dt-bindings):
+    - Update example interrupt number.
+  - Patch 2 (driver):
+    - Remove redundant spinlocks and fix 'irq' type to signed.
+    - Fix target address recovery in ma35d1_i2c_reset().
+    - Refactor IRQ handler for multi-msg reads and NACK/IGNORE_NAK.
+    - Fix timeout UAF via explicit IRQ disabling during recovery.
+    - Drop IRQF_SHARED and fix PM paths in probe/unregistration.
+    - Limit suspend/resume wakeup logic to target mode only.
+  - Patch 3 (dts):
+    - Add missing i2c0 node to dtsi.
+    - Switch SoM configuration from i2c1 to i2c2 with updated pinctrl.
+    - Add nau8822 audio codec node under i2c2 on the SoM board.
+    - Drop redundant i2c0 alias and clean up dtsi property ordering.
+  v3: https://lore.kernel.org/r/20260512073953.564323-1-zychennvt@gmail.com/
 
-The same applies here:
+Changes in v3:
+  - Fix minor DTS formatting issues (whitespace, missing newline)  
+  v2: https://lore.kernel.org/r/20260316063726.41048-1-zychennvt@gmail.com
 
-if (!is_write && rt != 31)
-    rec->run->enter.gprs[rt] = vcpu_get_reg(vcpu, rt);
+Changes in v2:
+  - Overall:
+    - Rebase on linux-i2c/i2c-next
+    - Switched terminology from "master/slave" to "controller/target".  
+  - Patch 1 (dt-bindings):
+    - Simplified description and fixed 'reg' size in example.
+  - Patch 2 (driver):
+    - Modernized using devm_*, generic device properties, and FIELD_PREP/GENMASK.
+    - Optimized power management by moving clock control to runtime PM.
+    - Simplified code by removing redundant .remove(), .owner, and inlines.
+    - Added dev_err_probe() and default bus frequency handling.
+  - Patch 3 (dts):
+    - Moved i2c aliases to board dts and reordered nodes alphabetically.
+  v1: https://lore.kernel.org/r/20260302020822.13936-1-zychennvt@gmail.com
 
-> +
-> +	return ret;
-> +}
+Zi-Yu Chen (3):
+  dt-bindings: i2c: nuvoton,ma35d1-i2c: Add MA35D1 I2C controller
+  i2c: ma35d1: Add Nuvoton MA35D1 I2C driver support
+  arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
+
+ .../bindings/i2c/nuvoton,ma35d1-i2c.yaml      |  63 ++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  20 +
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  72 ++
+ drivers/i2c/busses/Kconfig                    |  13 +
+ drivers/i2c/busses/Makefile                   |   1 +
+ drivers/i2c/busses/i2c-ma35d1.c               | 759 ++++++++++++++++++
+ 6 files changed, 928 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
+ create mode 100644 drivers/i2c/busses/i2c-ma35d1.c
+
+-- 
+2.34.1
+
 
