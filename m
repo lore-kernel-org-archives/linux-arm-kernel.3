@@ -4,68 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6460DC531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB02C531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2XFj1A0MTCpEPpjG2fwzCGv45jpRHgPSYAzE1XaQ4Tk=; b=YkTfp/enN6/lQhf4jcuYCxIZM6
-	IdnHt8RB+NJ4Pi5OWatGadRy1NebyIOirAu3rMi+io9wJRJ+7FeAkMLeSamxRKe5mFGcnH943gHv2
-	6wSALt91X0ldfTa4+QxtaSh326pIkLIQY4Mrmrdv7pAz/QLvAfXmfHPtVzMCwCyPGs8buj7xUpemA
-	InhCNl9JQPIeWIZhsDTy292+cex90PXBzlT8wNxNanTX+IpjkeTKLQG+mk1UXYuh4EsB/o+aa6Kyj
-	KwZC4yyhnmNnMb7WtGUxV1RRB9Ox6tF02+nEf5p4z1HItCn8NxO1T52ObnJ1Hi5iMP/TqDDxPqw/+
-	fEKjjzVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=; b=ARitHzPsUogSj2TTbyj+0vySkV
+	EJwKW6CN4TmorEhN3tGxH8GwYimcxmuQU6ao2NmVx93ahfcw52le1IqCRtQN711UdJw7rT8XtFV9Q
+	M379RZlPPEZUdyuYptl/gKTj9c+0NViHlooKYsDSDh8eAG+RA/HGPKaSM4++0Za89pGzLs/BxxxHL
+	TiW+YN1Nt8AduFOwdy/mmlgDcPtcHLSIfC0ZdszUaODevEwr++6WNcVtY+h3ssJLj/rQ86Evidpm0
+	iynLTvdMYFyEVcnIB6oKQuShjlw7DycpvbqjD3JnkHKiSrJ2+J4pAos8CBcHHPWy2Kxf9WXNeWMYN
+	/lJ0ztZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNVV-00000003DXl-0SwS;
-	Mon, 27 Jul 2026 15:44:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1woNZr-00000003E7M-3K7z;
+	Mon, 27 Jul 2026 15:49:15 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNVU-00000003DXK-16ZJ
+	id 1woNZo-00000003E6b-1stM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 15:44:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA96E42A7D;
-	Mon, 27 Jul 2026 15:44:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13E321F000E9;
-	Mon, 27 Jul 2026 15:44:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785167083;
-	bh=2XFj1A0MTCpEPpjG2fwzCGv45jpRHgPSYAzE1XaQ4Tk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=L+NbDUYyyx8xCmqVE2KWG5duaenycIyVz7kRZu5n/FcbbgCwq+bdjD7XLpHx7DNKp
-	 /ZfcFU9y7JjwUVlY6U1uKAazs+GpPp6ZjVqmIMVkDc7TnEBS/KlNIhyJtrCDYy+uHJ
-	 XwCuCDb8AWh4r2Pb7ozAMtIr2ehnOl/6XfzIJGPRMQMHkDHbTavqoDDzMYON6F+AXD
-	 p/WafVyxdhp2d7QT3wAX71++kV6oFe/Q4ssOyj8V6k0moQOy+mojB9UuQyeuCoO3Cd
-	 4xx011KANspC8PqvXTOSqojnjRu85mW6NnefnQz8K3H0a9+c9hIekV0RNVmY3qel50
-	 KMbUucvBWh/tQ==
-Date: Mon, 27 Jul 2026 17:44:41 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>
-Subject: Re: [PATCH v8 4/6] PCI: tegra: Add Tegra264 support
-Message-ID: <amd8FoDqTNV2z2vM@orome>
-References: <20260716-tegra264-pcie-v8-0-23e51589229b@nvidia.com>
- <20260716-tegra264-pcie-v8-4-23e51589229b@nvidia.com>
- <063777d8-cd4d-43cc-8f65-102191848c9d@nvidia.com>
+	Mon, 27 Jul 2026 15:49:14 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-4955cd5da3dso1212599b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 08:49:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785167351; cv=none;
+        d=google.com; s=arc-20260327;
+        b=i2FzUtfCOotq6axHHfvtMv8EoEq2DuRtr7pvVAklQU70xk0eGF8P4q9j7olavJtV1k
+         46VquvCVROYNpX3mxzalLtNIPcRYBOzfkJfhNvREETfWc+NS9344YIsn4xj24YaclOiM
+         fUPhdMfD20mNi/aAyGtJsg0Sh7nJCu4DXYDLH3SLxmQE+J39isnly0HvaiDUkdoofCh1
+         DUTpNHUEwlf01p45fjT4IQ5yF6657gUV1DP9KBh/I7SwxAFp8D/GdumktFKHG1Q9WJt9
+         qyiWSJPOQvK3FcSkJ0cHhvEEMxEiWHGPSb781c0/LIz8lQq8IhaVTt9iEw89jk6ZhVho
+         995w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=;
+        fh=VmuFC+6OZkf62barrK/qaM9SujfOx4LAsjtF8SloIgg=;
+        b=q2md0/xCbDaIJnuWMrWLV3NGJTEjDx2uTHzYyTkkAtW5xtAQcjG0kqsVGRzEPlg+gQ
+         LeMaM5R1VlKAGUaTW8R2QcL3FDmgJo5ABW1DtNg6c+VpDPF6xLflx5/M1sHLOQJYuGrm
+         qXkro8E29k98r209VI4vrnXOusSptXnnSKaNfu0HJEK+1zqM12LJyhRzEBwqYE+I5PXU
+         IdwPAKq/ZRFzTithlmmPiW4ysaRpuDC0aYGwVk/eEfWZllIxichxpzvDMa+MQBKilQTM
+         5crX5Sx8qoGmDkYbTQpOgU5q/IPHwKMsJusewZi1dXd1z9HmAsvyGT8Rr0+dxTaYEEyF
+         Y+0A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785167351; x=1785772151; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=;
+        b=WfnQe/Pw7qj4lYnsq+nQz1g0+LR426xloJ7hsrEwjl0k0qXMuDeO2UXXz9bign12bQ
+         jXMb+cdILZ05ykGIE6YEkUvKcO0bpyXXPYyYOmrhjaPFMUxHhkk4Krtc0iIggefiBCFz
+         v/scLyAMCS8xYYBI2mGxk1zq1XBQQ6syxezVH8yBKutQr9MhB1emEAe3waLrxsR4wBNO
+         QGAUqaWR/L3nY912UN4somXVHca7yRVujN0han6PZidhLjpxrf4LFv8wTBXxW3F1AQRs
+         Rc6JT3TELqzcsNdgYyIZXZrLRUc0Kw3205/+fURVrfJ+kDsBl352+swdrgVSdikEKtbn
+         TIxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785167351; x=1785772151;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=;
+        b=DJovdIcPfim6vcUb4+yhJ72cldzu7uljV8A1jJrTo8igeSq7+UXLvoZOAA/6nDicBX
+         X9uXQbE4nF0st12pw1bENCGltlH/cKNqE0ILtp0lrHnFPi/f7a1GanJbo1LE5Rl/cgx1
+         tbKSwsI73gShkMoYKVctoSYT3HHi14cV4iIKLI6jDFQGX+Nx5q1y4Z6ndsrvExPjODTD
+         qfMzUlQli8u8Y16jMv1nDTeQmgJd+EA8TR/Qgb9H2h++saGe/jhkR+Cq8FG4VMaD74Qc
+         F1a76SliJ8XIZLSdAG+khSKmgYl8UqIsU3myh1d+D7ax/rBVyDduXNjjCEQUD4+mCShy
+         5IEg==
+X-Forwarded-Encrypted: i=1; AHgh+RoeCeKr0PHr+TBOxJHJUW5J5t6b584AWsx4iyBdxBOuEikwvGKGibqTws6WedXEedX25a9ydAYZLiQmtLVfULof@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTemZw79RQ9fZS4X5SuQsQQ3tQBw6+flyRMxVZ4OFbmwMtSzqQ
+	XApFmSGLpkrBS7mxx8xUhD8nAQ41i5xCaandUP3PUKHyN2D+DMZiy1rMfjc+rmXmlg2Itxzdcvs
+	vU1Ja4uQyUg2713JK0LeBP29AvyiNmHE=
+X-Gm-Gg: AR+sD12xJ8ygvV/+r/7f4IbS7Nog+ZY1uovblZ0GBCqGAXS7PTJk/8E1EaazC04rIst
+	gsXq1KtgyZOWwIgR+6FXptfm9bSZ4ytNtnOr16i5LCmY5GOJc7/DiXRX+BFB3IbG6SUyuQBVT+5
+	mn8t7VW/H/revy9qhx/NhRQKgA3j4Pp/8g/6+aXF5l61n2D1nMvZNsIxXtV23Z+R2ZR6Pk9rh8P
+	8tri3liGKVg96099g6tfGw3Ig95r2ShgFUtikcHHocAib3Hrqv1yiRjlcJEB7QA+QmCYHGAwiYS
+	A0JAZIv9cexoOg13cHg=
+X-Received: by 2002:a05:6808:bd6:b0:489:5d05:552c with SMTP id
+ 5614622812f47-4ab6a057c69mr7313742b6e.18.1785167350906; Mon, 27 Jul 2026
+ 08:49:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gycetsy4kq6i3v5u"
-Content-Disposition: inline
-In-Reply-To: <063777d8-cd4d-43cc-8f65-102191848c9d@nvidia.com>
+References: <20260727091555.1023910-1-wenst@chromium.org>
+In-Reply-To: <20260727091555.1023910-1-wenst@chromium.org>
+From: YoungJoon Lee <getfeus@gmail.com>
+Date: Tue, 28 Jul 2026 00:48:57 +0900
+X-Gm-Features: AUfX_mzZIAlliZ6SyEB3Z-mqC0yAJJDeNAn1Qi3wrTwtKld-OCTs0GYYwDDse00
+Message-ID: <CA+m4KrCkk_p213=JVVcuxjvO2tCREw7_mL596xu-RWJ0Dz3p5w@mail.gmail.com>
+Subject: Re: [PATCH v3 0/5] powervr: MT8173 GPU support
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alessio Belle <alessio.belle@imgtec.com>, Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, imagination@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_084912_545549_60D26081 
+X-CRM114-Status: GOOD (  38.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,234 +126,360 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---gycetsy4kq6i3v5u
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v8 4/6] PCI: tegra: Add Tegra264 support
-MIME-Version: 1.0
+I tested patches 1/5 through 5/5 from the MT8173 PowerVR v3 series on
+an Acer Chromebook R13 (Google Elm), which uses an MT8173 SoC and a
+PowerVR Rogue GX6250 GPU with BVNC 4.40.2.51.
 
-On Fri, Jul 24, 2026 at 01:58:15PM +0530, Manikanta Maddireddy wrote:
->=20
->=20
-> On 16/07/26 10:37 pm, Thierry Reding wrote:
-> > From: Thierry Reding <treding@nvidia.com>
-> >=20
-> > Add a driver for the PCIe controller found on NVIDIA Tegra264 SoCs. The
-> > driver is very small, with its main purpose being to set up the address
-> > translation registers and then creating a standard PCI host using ECAM.
-> >=20
-> > Signed-off-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-> > Signed-off-by: Thierry Reding <treding@nvidia.com>
-> > ---
-> > Changes in v8:
-> > - remove controller deinitialization, firmware does this already
-> > - separately track hotplug support and link up state for clarity
-> > - select pinctrl sleep state on suspend for symmetry with resume
-> > - fail probe if the link is down and not hotplug-capable
-> > - remove WAKE# IRQ support
-> > - add err_ prefix to gotos
-> >=20
-> > Changes in v7:
-> > - select PCI_ECAM to satisfy the build dependency (Jonathan Hunter)
-> > - remove pre-silicon support patch to avoid extra build dependency
-> >=20
-> > Changes in v6:
-> > - remove unneeded pm_runtime_disable() call (Sashiko)
-> > - do not use noirq suspend/resume callbacks (Sashiko)
-> > - wrap PM ops in pm_ptr() macro (Sashiko)
-> > - use standard wait times with msleep() (Lukas Wunner)
-> > - properly check errors for wake IRQs
-> > - fix build failures /o\
-> >=20
-> > Changes in v5:
-> > - make PCIE_TEGRA264 symbol tristate
-> > - drop dependency on PCI_MSI
-> > - reorganize tegra264_pcie struct
-> > - use standard wake-gpios property
-> > - rename tegra264_pcie_bpmp_set_rp_state() to tegra264_pcie_power_off()
-> > - use dev_err() instead of dev_info() for some error messages
-> > - add clarifying comment as to why bandwidth requests aren't fatal
-> > - address some compiler warnings on 32-bit physical address platforms
-> > - drop needless comments
-> > - explicitly deinitialize controller on suspend
-> > - use devm_pm_runtime_active_enabled()
-> > - rename "free" label to "free_ecam"
-> > - use dev_err_probe() in more places
-> > - reselect default pin state during resume, not probe
-> > - return early on absence of wake GPIO
-> > - simplify BW value calculation
-> >=20
-> > Changes in v2:
-> > - specify generations applicable for PCI_TEGRA driver to avoid confusion
-> > - drop SPDX-FileCopyrightText tag
-> > - rename link_state to link_up to clarify meaning
-> > - replace memset() by an empty initializer
-> > - sanity-check only enable BAR regions
-> > - bring PCI link out of reset in case firmware didn't
-> > - use common wait times instead of defining our own
-> > - use core helpers to parse and print PCI link speed
-> > - fix multi-line comment
-> > - use dev_err_probe() more ubiquitously
-> > - fix probe sequence and error cleanup
-> > - use DEFINE_NOIRQ_DEV_PM_OPS() to avoid warnings for !PM_SUSPEND
-> > - reuse more standard registers and remove unused register definitions
-> > - use %pe and ERR_PTR() to print symbolic errors
-> > - add signed-off-by from Manikanta as the original author
-> > - add myself as author after significantly modifying the driver
-> > ---
-> >   drivers/pci/controller/Kconfig         |  10 +-
-> >   drivers/pci/controller/Makefile        |   1 +
-> >   drivers/pci/controller/pcie-tegra264.c | 485 ++++++++++++++++++++++++=
-+++++++++
-> >   3 files changed, 495 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kc=
-onfig
-> > index 2247709ef6d6..3045c8aecc7e 100644
-> > --- a/drivers/pci/controller/Kconfig
-> > +++ b/drivers/pci/controller/Kconfig
-> > @@ -255,7 +255,15 @@ config PCI_TEGRA
-> >   	select IRQ_MSI_LIB
-> >   	help
-> >   	  Say Y here if you want support for the PCIe host controller found
-> > -	  on NVIDIA Tegra SoCs.
-> > +	  on NVIDIA Tegra SoCs (Tegra20 through Tegra186).
-> > +
-> > +config PCIE_TEGRA264
-> > +	tristate "NVIDIA Tegra264 PCIe controller"
-> > +	depends on ARCH_TEGRA || COMPILE_TEST
-> > +	select PCI_ECAM
-> > +	help
-> > +	  Say Y here if you want support for the PCIe host controller found
-> > +	  on NVIDIA Tegra264 SoCs.
-> >   config PCIE_RCAR_HOST
-> >   	bool "Renesas R-Car PCIe controller (host mode)"
-> > diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/M=
-akefile
-> > index ac8db283f0fe..d478743b5142 100644
-> > --- a/drivers/pci/controller/Makefile
-> > +++ b/drivers/pci/controller/Makefile
-> > @@ -7,6 +7,7 @@ obj-$(CONFIG_PCI_HYPERV_INTERFACE) +=3D pci-hyperv-intf=
-=2Eo
-> >   obj-$(CONFIG_PCI_MVEBU) +=3D pci-mvebu.o
-> >   obj-$(CONFIG_PCI_AARDVARK) +=3D pci-aardvark.o
-> >   obj-$(CONFIG_PCI_TEGRA) +=3D pci-tegra.o
-> > +obj-$(CONFIG_PCIE_TEGRA264) +=3D pcie-tegra264.o
-> >   obj-$(CONFIG_PCI_RCAR_GEN2) +=3D pci-rcar-gen2.o
-> >   obj-$(CONFIG_PCIE_RCAR_HOST) +=3D pcie-rcar.o pcie-rcar-host.o
-> >   obj-$(CONFIG_PCIE_RCAR_EP) +=3D pcie-rcar.o pcie-rcar-ep.o
-> > diff --git a/drivers/pci/controller/pcie-tegra264.c b/drivers/pci/contr=
-oller/pcie-tegra264.c
-> > new file mode 100644
-> > index 000000000000..7071f4b3b97b
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/pcie-tegra264.c
-> > @@ -0,0 +1,485 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * PCIe host controller driver for Tegra264 SoC
-> > + *
-> > + * Copyright (c) 2022-2026, NVIDIA CORPORATION. All rights reserved.
-> > + */
-> > +
-> > +#include <linux/delay.h>
-> > +#include <linux/gpio/consumer.h>
->=20
-> GPIO header can be removed since WAKE gpio feature is removed.
->=20
-> > +#include <linux/init.h>
-> > +#include <linux/interconnect.h>
-> > +#include <linux/interrupt.h>
->=20
-> Interrupt header file can be removed.
+For clarity, I applied the five actual patches numbered 1/5 through
+5/5. The 0/5 cover letter itself was not applied.
 
-Indeed.
+Kernel:
+  Linux 7.1.3-stb-cbm-pvr-v3
 
-[...]
-> > +static int tegra264_pcie_probe(struct platform_device *pdev)
-[...]
-> > +	err =3D pm_runtime_get_sync(dev);
-> > +	if (err < 0) {
-> > +		dev_err_probe(dev, err, "failed to power on device\n");
-> > +		goto err_put_bpmp;
-> > +	}
->=20
-> pm_runtime_get_sync() increments the runtime-PM usage counter even when i=
-ts
-> resume operation returns an error. The failure path does not call
-> pm_runtime_put_noidle() and bypasses err_put_pm. Prefer
-> pm_runtime_resume_and_get(), whose failure semantics avoid the usage-coun=
-ter
-> imbalance, or explicitly balance the failed pm_runtime_get_sync().
+Relevant kernel configuration:
+  CONFIG_DRM_POWERVR=3Dm
+  CONFIG_COMMON_CLK_MT8173_MFGTOP=3Dy
 
-Good point. I'll replace this by pm_runtime_resume_and_get().
+Kernel command line:
+  powervr.exp_hw_support=3D1
 
-[...]
-> > +static int tegra264_pcie_suspend(struct device *dev)
-> > +{
-> > +	/*
-> > +	 * No need to do anything device-specific here, BPMP handles the
-> > +	 * details of taking the link into L2.
-> > +	 */
-> > +
-> > +	return pinctrl_pm_select_sleep_state(dev);
-> > +}
-> > +
-> > +static int tegra264_pcie_resume(struct device *dev)
-> > +{
-> > +	struct tegra264_pcie *pcie =3D dev_get_drvdata(dev);
-> > +	int err;
-> > +
-> > +	err =3D pinctrl_pm_select_default_state(dev);
-> > +	if (err < 0) {
-> > +		dev_err(dev, "failed to configure sideband pins: %pe\n",
-> > +			ERR_PTR(err));
-> > +		return err;
-> > +	}
-> > +
-> > +	tegra264_pcie_init(pcie);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static DEFINE_SIMPLE_DEV_PM_OPS(tegra264_pcie_pm_ops,
-> > +				tegra264_pcie_suspend,
-> > +				tegra264_pcie_resume);
->=20
-> PCI subsystem registered pm_noirq callbacks. So, controller should also
-> register to pm_noirq callbacks.
+Firmware:
+  powervr/rogue_4.40.2.51_v1.fw
 
-Unfortunately that causes illegal uses of msleep() in no-IRQ context.
-Sashiko complains about it and is right. I don't observe any runtime
-issues with switching to the _noirq variants, but it doesn't seem right
-to stick to it.
+The driver probes successfully, loads the firmware, and initializes the
+DRM device:
 
-Is there any reason why this needs to be _noirq, or any benefits if it
-was?
+  [    6.110569] powervr 13000000.gpu:
+                 [drm] Running on unknown hardware; expect issues.
+  [    6.117454] powervr 13000000.gpu:
+                 [drm] loaded firmware
+                 powervr/rogue_4.40.2.51_v1.fw
+  [    6.118010] powervr 13000000.gpu:
+                 [drm] FW version v1.0 (build 6476056 OS)
+  [    6.122992] [drm] Initialized powervr 1.0.0
+                 for 13000000.gpu on minor 1
 
-Thierry
+The following DRM device nodes are created:
 
---gycetsy4kq6i3v5u
-Content-Type: application/pgp-signature; name="signature.asc"
+  /dev/dri/card0
+  /dev/dri/card1
+  /dev/dri/renderD128
 
------BEGIN PGP SIGNATURE-----
+However, on a clean boot, without manually running vulkaninfo, vkcube,
+or another Vulkan application, the driver reports that the GPU has been
+lost approximately six seconds after DRM initialization:
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpnfOkACgkQ3SOs138+
-s6GS5g/+LJ+Fx41NKrqgEU+g86ngDsHFlxBl8sQxA7WB2+7NYBLtnaSTq/BXb4gN
-G86DJkYGEMtvaGIHR10qo0jbZi1glMTwytm3XIfkBrsBBm27kgPm0PN7Umci2L2U
-GxEocaRD0hkU8BK9vLzHwiq7DeJuBsuQiRrLdkjmpCHtOivpnzH400dcEVUbLTh4
-IozPJ9SZ1RXTc5bogvDb+hNvOATCCi+p+Q11wt7StjYtaNpU37znYQX54LTyC9ZR
-35RBhW5iomKYihnGlJ6E6nmL8OPR3QiJv6pRMuk9pFBpD2cr0qCR0f2YP4PcP6+9
-m1Q1ohfZXJDEsoZuFPbvECIaRQ2lkZhjVxVWrTUcy9skNFjtn+UjP9CFsP8ra9Up
-cVfqCoONmzsXzL29NNozNoSJq9B/EA6E9BIigvhr/9KM5R7QD3UcCIleFpmKd835
-Y7Aja91o+N6N/Sm2ddaA3bM6Zwfi2s7858n4emE2vKyaEAV2W34w+NPcMK6IHZEI
-FG+iZ8ki7WFwwZiW0w2BzzxT2UzNY+K3QLrvfwqfyoEe7LMpnukhlBwpYZcRcn2O
-ZhX92XdECmHd5rIZ7h08Aznz1cAHwO1CcgIT6kM//2y5qszXnCzAhMARyqxnaYbd
-tucCKYmhs/jMxHwOkVJAUMtB17vQRAy8BV3D3AqCQ7bhg0oLwh4=
-=z0EV
------END PGP SIGNATURE-----
+  [   12.084078] powervr 13000000.gpu:
+                [drm] *ERROR* GPU device lost
 
---gycetsy4kq6i3v5u--
+The relevant boot sequence is therefore:
+
+  [    6.110569] PowerVR probe begins
+  [    6.117454] Firmware is loaded
+  [    6.118010] Firmware version is reported
+  [    6.122992] DRM initialization completes
+  [   12.084078] GPU device lost
+
+The unused-regulator shutdown occurs considerably later:
+
+  [   31.712124] vgpu: disabling
+
+Therefore, the later "vgpu: disabling" message does not appear to be
+the immediate cause of the device loss. The GPU is reported lost about
+20 seconds before that regulator shutdown message.
+
+After the failure, regulator_summary reports:
+
+  vgpu  0  0  0  normal  1000mV  0mA  700mV  1350mV
+
+This output was collected after the GPU had already been reported lost,
+so I do not know whether the regulator state was different during probe
+or immediately before the failure.
+
+The PowerVR-related clocks appear enabled in clk_summary:
+
+  mfg_26m       26000000 Hz
+
+  mem_mfg_in_sel
+    rate:       455000000 Hz
+    enable:     1
+    prepare:    1
+
+  mfg_mem
+    rate:       455000000 Hz
+    enable:     1
+    prepare:    1
+    consumer:   13000000.gpu
+    clock name: mem
+
+  mfg_sel
+    rate:       455000000 Hz
+    enable:     1
+    prepare:    1
+
+  mfg_g3d
+    rate:       455000000 Hz
+    enable:     1
+    prepare:    1
+    consumer:   13000000.gpu
+    clock name: core
+
+  axi_mfg_in_sel
+    rate:       208000000 Hz
+    enable:     2
+    prepare:    2
+    consumer:   power-domain@7
+
+  mfg_axi
+    rate:       208000000 Hz
+    enable:     1
+    prepare:    1
+    consumer:   13000000.gpu
+    clock name: sys
+
+I also installed Mesa 26.1.5 and vulkan-powervr 26.1.5 and tested the
+Vulkan ICD with:
+
+  PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 \
+  VK_DRIVER_FILES=3D/usr/share/vulkan/icd.d/powervr_mesa_icd.json \
+  vulkaninfo --summary
+
+The PowerVR ICD was found and loaded. Before hanging, Mesa printed:
+
+  WARNING: powervr is not a conformant Vulkan implementation,
+           testing use only.
+
+  FINISHME: Missing reset support for brn51764
+  FINISHME: Missing reset support for brn58839
+  FINISHME: Missing support for brn62269
+  FINISHME: Devices without tpu_border_colour_enhanced require entries
+            for compressed formats to be stored in the table
+            pre-compressed.
+
+The vulkaninfo process then remained in uninterruptible sleep:
+
+  PID   STAT  WCHAN             COMMAND
+  3244  Dl+   synchronize_srcu  vulkaninfo --summary
+
+It could not be terminated normally while in that state, and a reboot
+was required.
+
+However, the clean-boot log shows that "GPU device lost" occurs even
+without starting vulkaninfo manually. The vulkaninfo hang may therefore
+be a consequence of the GPU already being in the lost state, rather than
+the original cause of the failure.
+
+At this point, the following parts appear to work:
+
+  - MT8173 GPU device-tree node probing
+  - MFGTOP clock registration
+  - PowerVR kernel module probing
+  - Firmware loading
+  - Firmware version reporting
+  - DRM device initialization
+  - Creation of card1 and renderD128
+
+The remaining problem is that the GPU becomes lost approximately six
+seconds after initialization.
+
+Could this be related to an interrupt not being delivered, firmware
+heartbeat handling, reset sequencing, runtime PM, a missing regulator
+consumer relationship, or another MT8173-specific power-domain
+requirement?
+
+Please let me know which additional kernel debug options, DRM debug
+settings, tracepoints, interrupt statistics, register dumps, or test
+patches would be useful. I have physical access to the device and can
+build and test further kernel changes.
+
+Thank you for working on MT8173 support.
+
+Best regards,
+YoungJoon Lee
+
+2026=E5=B9=B47=E6=9C=8827=E6=97=A5(=E6=9C=88) 18:16 Chen-Yu Tsai <wenst@chr=
+omium.org>:
+>
+> Hi everyone,
+>
+> This is v3 of my MT8173 PowerVR GPU support series.
+>
+> I got another inquiry on the status of this patch series, so I thought
+> I'd dig it out, fix all the issues and send another version.
+>
+> This time around Mesa was ready for basic testing, using both vulkanmark
+> and glmark2-es2-drm (with Zink). Details below.
+>
+> Changes since v2 (all in the clk driver patch):
+> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
+>   - Needed since the driver implements PM domains using the generic PM
+>     domain library, which also depends on PM
+>   - Fixes build breakage (kernel test robot)
+> - Fixed "RST_DELAY_CNT" name (Brian)
+> - Dropped unused mfg_desc (Brian)
+> - Added check of clk_prepare_enable()'s return value in
+>   clk_mt8173_mfgtop_power_on() (Brian)
+> - Saved error value for return in IS_ERR(data->clk_26m) branch
+>   (Dan Carpenter / kernel test robot w/ smatch)
+>
+> Changes since v1:
+> - Adapted to changed DT bindings
+> - Dropped driver change
+> - Use same power domain for "a" and "b" GPU power domains
+>
+>
+> This series enables the PowerVR GPU found in the MT8173 SoC, found in
+> some Chromebooks.
+>
+> This version is different from the initial powervr driver submission [1]
+> in that it splits out the GPU glue layer support out of the powervr
+> driver and into a separate clock and power domain driver. The glue code
+> is otherwise the same, and also the same as found in the ChromeOS
+> kernels, with some extra comments and macro names added where possible.
+>
+> Patch 1 adds a binding for the glue layer, called mfgtop. The glue layer
+> contains clock and power controls for the GPU.
+>
+> Patch 2 adds a driver for the glue layer, implemented as a clock driver
+> that also provides power domains.
+>
+> Patch 3 adds an entry for the MT8173 GPU and 6XT series to the PowerVR
+> binding.
+>
+> Patch 4 corrects the clock for the GPU (called MFG) power domain.
+>
+> Patch 5 adds device nodes for the GPU and glue layer to the MT8173 dtsi
+> file.
+>
+> The kernel driver successfully probes the hardware and loads the
+> "rogue_4.40.2.51_v1.fw" firmware provided by Imagination Technologies [2]=
+.
+> The "exp_hw_support" module parameter needs to be set for the driver to
+> probe successfully.
+>
+> This was tested with Mesa 26.1.5 from Debian Forky. With this version
+> vkmark and glmark2-es2 (over Zink) both run fine. Mesa spits out a bunch
+> of warnings since the GX6250 core is not officially supported.
+>
+>     # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 vkmark
+>     WARNING: powervr is not a conformant Vulkan implementation, testing u=
+se only.
+>     WARNING: powervr is not a conformant Vulkan implementation, testing u=
+se only.
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: F=
+INISHME: Missing reset support for brn51764
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: F=
+INISHME: Missing reset support for brn58839
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: =
+FINISHME: Missing support for brn62269
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINIS=
+HME: Devices without tpu_border_colour_enhanced require entries for compres=
+sed formats to be stored in the table pre-compressed.
+>     WARNING: powervr is not a conformant Vulkan implementation, testing u=
+se only.
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>         vkmark 2025.01
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>         Vendor ID:      0x1010
+>         Device ID:      0x6250
+>         Device Name:    PowerVR Rogue GX6250
+>         Driver Version: 109056005
+>         Device UUID:    d04cd6f3a25fd4900f89c151bccfdfcf
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>     [vertex] device-local=3Dtrue: FPS: 251 FrameTime: 3.984 ms
+>     [vertex] device-local=3Dfalse: FPS: 220 FrameTime: 4.545 ms
+>     [texture] anisotropy=3D0:^C FPS: 223 FrameTime: 4.484 ms
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>                                        vkmark Score: 231
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>
+>     # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 glmark2-es2-drm
+>     WARNING: powervr is not a conformant Vulkan implementation, testing u=
+se only.
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: F=
+INISHME: Missing reset support for brn51764
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: F=
+INISHME: Missing reset support for brn58839
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: =
+FINISHME: Missing support for brn62269
+>     MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINIS=
+HME: Devices without tpu_border_colour_enhanced require entries for compres=
+sed formats to be stored in the table pre-compressed.
+>     Warning: DRM_CAP_ASYNC_PAGE_FLIP not supported, falling back to 'mail=
+box' mode for SwapInterval(0).
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>         glmark2 2023.01
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>         OpenGL Information
+>         GL_VENDOR:      Mesa
+>         GL_RENDERER:    zink Vulkan 1.2(PowerVR Rogue GX6250 (IMAGINATION=
+_OPEN_SOURCE_MESA))
+>         GL_VERSION:     OpenGL ES 2.0 Mesa 26.1.5-1
+>         Surface Config: buf=3D32 r=3D8 g=3D8 b=3D8 a=3D8 depth=3D24 stenc=
+il=3D0 samples=3D0
+>         Surface Size:   1366x768 fullscreen
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>     [build] use-vbo=3Dfalse: FPS: 49 FrameTime: 20.473 ms
+>     [build] use-vbo=3Dtrue: FPS: 45 FrameTime: 22.660 ms
+>     [texture] texture-filter=3Dnearest: FPS: 45 FrameTime: 22.642 ms
+>     [texture] texture-filter=3Dlinear:^C FPS: 50 FrameTime: 20.172 ms
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>                                       glmark2 Score: 46
+>     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>
+>
+> Please have a look.
+>
+> Thanks
+> ChenYu
+>
+> [1] https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.walke=
+r@imgtec.com/
+> [2] https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powe=
+rvr
+>
+> Chen-Yu Tsai (5):
+>   dt-bindings: clock: mediatek: Add mt8173 mfgtop
+>   clk: mediatek: Add mt8173-mfgtop driver
+>   dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
+>   arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
+>   arm64: dts: mediatek: mt8173: Add GPU device nodes
+>
+>  .../clock/mediatek,mt8173-mfgtop.yaml         |  70 +++++
+>  .../bindings/gpu/img,powervr-rogue.yaml       |   1 +
+>  arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  33 ++-
+>  drivers/clk/mediatek/Kconfig                  |  10 +
+>  drivers/clk/mediatek/Makefile                 |   1 +
+>  drivers/clk/mediatek/clk-mt8173-mfgtop.c      | 241 ++++++++++++++++++
+>  include/dt-bindings/clock/mt8173-clk.h        |   7 +
+>  7 files changed, 362 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt81=
+73-mfgtop.yaml
+>  create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
+>
+> --
+> 2.55.0.229.g6434b31f56-goog
+>
 
