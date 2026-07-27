@@ -4,57 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E2DC53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5574C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 17:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t5Q4ijmgMjKnU+9LIjcY0dZtKwKFuHlQnsscP9xRfKo=; b=MYlloWIX6aAYQvQuG05Vsh/BaO
-	Z64hH+OqtG9rxcTlvPhzR6jdZccA1aHaJgLh5ah3MmQ7GkzhyvtA8XxljpU3K/FaRcfadRtijoJAe
-	BylbDhUsnSzguzrtYhylrGVu6xvfVfVgXUJXDXsNnBVPysAiyhjH3+EV5dCCyKhxkk7+bDf9MEK6M
-	6xlbEhRGGZyltjFzLEkWieC7mC9izd/tPNS4Pcisye9obHpv9GGn1AVd+1X1AukZDvu7pgPJbaNhI
-	T4IOJ5ciHppXJrsTtKdjx2RCaL/g39tDQcGYR4U6z3W6sZyqhJkL22nYU5zyarglZlBp54Rnz0Jgm
-	HNPuuucA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iHM+/WLyePWLsKyHfC5j5up/2UP+yAIPXSaCgc96zBc=; b=3pmlCyt2K4AFNa
+	y93IbKRV9eC6bsH5kweRIC+VSrlz0jrF3WCjPcS0SKbSGUxjoeVVeUa0MdnzoDbSzISvo4UT1cpU1
+	Lon9fzSozzGGoGI3GAO9zY6xFTBM5ki/I3nJIxXd6fQsE00LT24UoVi2wg0VSzMRV+H+2BjkX1PT/
+	fzZcWQcKxWYh4CHljmA1Baf0/+lZ+BKcqdkfKy+ieU6pwhvmZGmaHVmg/pgQ7V0z7VUTqewp5MIpg
+	U+KWTITJA8yH0UDPZBsTL4J8RBf9jfNfHqB2PnS65/3zA+b55/6a6uOEEKYdA8Z/SUz6VOAi+068F
+	2QK5Hyc6ppzuoQ251j4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woP8a-00000003WHv-0hpy;
-	Mon, 27 Jul 2026 17:29:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1woPAc-00000003WYJ-3ixA;
+	Mon, 27 Jul 2026 17:31:18 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woP8Y-00000003WHl-2l6s
+	id 1woPAZ-00000003WW6-1jn1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 17:29:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A33D60A5E;
-	Mon, 27 Jul 2026 17:29:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3514F1F000E9;
-	Mon, 27 Jul 2026 17:29:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785173349;
-	bh=t5Q4ijmgMjKnU+9LIjcY0dZtKwKFuHlQnsscP9xRfKo=;
-	h=From:To:Cc:Subject:Date;
-	b=Jj8RVaooChr64g6dSC6spIp5P/w9009J+kLlPTUTt8AtNaXpWz/CCLu3Lwp1UULai
-	 f7Ruc1q8heBlpKCrK4a3LQzitV8Tj469QsFlQGajlIrS4gls5nSviO5OgUxcZY82tB
-	 +m3uAxXdH/WhxVrwGf04QOppUUqCtJPzMBCpT2Dm7RhaLLkTcYoAjZdiQ55/203vsJ
-	 temTJM05Ee3DWb0SmyQNw/aMidiFDv3316nAh5EPtmQILuP/EWSfsIYtJmKcl6/Xty
-	 m+zRPI5yo7mAqiaPONgzbg2FHzFsQfOTJCBvxkwWqni1F1SxopVZmK79CSj9TH8I/i
-	 52XTL9mZv/LrQ==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>,
-	linux-clk@vger.kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: [GIT PULL] Qualcomm clock fixes for v7.2
-Date: Mon, 27 Jul 2026 12:29:07 -0500
-Message-ID: <20260727172907.21229-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	Mon, 27 Jul 2026 17:31:17 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id F0F4320226F;
+	Mon, 27 Jul 2026 19:31:08 +0200 (CEST)
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <s.trumtrar@pengutronix.de>)
+	id 1woPAS-001aZh-2m;
+	Mon, 27 Jul 2026 19:31:08 +0200
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Subject: [PATCH v7 0/5] arm64: dts: imx8mp-skov: add new 7" variant
+Date: Mon, 27 Jul 2026 19:31:03 +0200
+Message-Id: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v7-0-ca8a0446166a@pengutronix.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIANiVZ2oC/53Qu07DMBQG4FepPGPkHN+STiAWRgY2xJD40rioc
+ RQ7VlCVd8cJQyuRJSyWjvXr+318RcEMzgR0PFzRYJILznd5kA8HpNq6OxnsdJ4REBCEAsdJYoK
+ j753C7jKVlx6HL5+wjgGfx+hH1WLpunxS3aiGcVLTSqHM9YOxblqrPtDb8/vLK/r8vQ5jczYqL
+ jVLsHUh+uF7fVIq1vj+9lTkYEGAcw1UMFo99aY7jXHwnZsetVm7E9x0BnKHDjlooJGVVZDxYlO
+ nN12SYodOc1BLZqWhtoSKbursXhc7dLboVhFVliAVgU2d3+m7fobnoJC2rrkxpLFiUxf/1UUO2
+ rq0ssgbcGH/6PM8/wCGrFqc1AIAAA==
+X-Change-ID: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
+ =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2795;
+ i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
+ bh=IOdVwCGpHURAxEFNbq3+rF/5Sm3cTKnDoNdRAap04qk=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ1b61Nvvqp6cauyf/FFObC9TwD9bto3aXTuXqrBoVBt/4
+ vuStGldRykLgxgXg6yYIovKwgo+UY8PnpHTRLhg5rAygQxh4OIUgIn0pzD8d9m0v0rJUF/pg0jX
+ JI6vX/98d804Gn9wp+rSNY8yD0y6acrIcONrnIzT4o77i48Wiqem3PzH7e98L9R4okAD5+Xnd5i
+ ceAE=
+X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
+ fpr=24A1780E1548F0495996140A1ABD20720A5E5622
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_103115_601200_36B2BC01 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,42 +88,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add a new board variant for the Skov i.MX8MP based family of boards.
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+This variant uses a different 7" panel than the existing ones.
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+---
+Changes in v7:
+- address more of sashikos rightful feedback
+- Link to v6: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-0-fa8f71dfc56f@pengutronix.de
 
-are available in the Git repository at:
+Changes in v6:
+- address sashikos rightful feedback
+- Link to v5: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-0-67faa5ee0bf6@pengutronix.de
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-fixes-for-7.2
+Changes in v5:
+- convert to overlays
+- Link to v4: https://patch.msgid.link/20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de
 
-for you to fetch changes up to 1aa4e2ed7caafbbbedff89fb226a982413469baf:
+Changes in v4:
+- fix Makefile sort order
+- add touchscreen fallback compatible
+- fix lvds_bridge comment
+- Link to v3: https://patch.msgid.link/20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de
 
-  dt-bindings: clock: Replace bouncing emails (2026-07-11 10:24:07 -0500)
+Changes in v3:
+- rebase to v7.2-rc1
+- Link to v2: https://patch.msgid.link/20260427-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v2-0-e2b79fc24391@pengutronix.de
 
-----------------------------------------------------------------
-Qualcomm clock fixes for v7.2
+Changes in v2:
+- rebase to v7.1-rc1
+- Link to v1: https://patch.msgid.link/20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-0-10255d236439@pengutronix.de
 
-Fix the Eliza display clock controller to avoid RCG stall. Revert the
-rework of the "PHY mux" clock, as this broke PCIe on several different
-targets.
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Søren Andersen <san@skov.dk>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
 
-Drop (and correct one) bouncing maintainer email addresses in DeviceTree
-bindings.
+---
+Steffen Trumtrar (5):
+      arm64: dts: freescale: imx8mp: fix sort order
+      dt-bindings: arm: fsl: add base compatible for Skov i.MX8MP revC
+      arm64: dts: imx8mp-skov-revc: convert to overlays
+      dt-bindings: arm: fsl: add compatible for new Skov i.MX8MP variant
+      arm64: dts: imx8mp-skov: support new 7inch panel board
 
-----------------------------------------------------------------
-Konrad Dybcio (1):
-      Revert "clk: qcom: regmap-phy-mux: Rework the implementation"
+ Documentation/devicetree/bindings/arm/fsl.yaml     |  2 +
+ arch/arm64/boot/dts/freescale/Makefile             | 11 ++++-
+ .../imx8mp-skov-revc-jutouch-jt070tm041.dtso       | 53 ++++++++++++++++++++++
+ ...ts => imx8mp-skov-revc-jutouch-jt101tm023.dtso} | 44 +++++-------------
+ ...07017.dts => imx8mp-skov-revc-tian-g07017.dtso} | 42 +++++------------
+ .../boot/dts/freescale/imx8mp-skov-revc-touch.dts  | 45 ++++++++++++++++++
+ 6 files changed, 133 insertions(+), 64 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
 
-Krzysztof Kozlowski (2):
-      clk: qcom: dispcc-eliza: Fix disp_cc_mdss_mdp_clk_src RCG stall on Eliza EVK
-      dt-bindings: clock: Replace bouncing emails
+Best regards,
+--  
+Steffen Trumtrar <s.trumtrar@pengutronix.de>
 
- .../bindings/clock/qcom,gcc-msm8953.yaml           |  2 -
- .../bindings/clock/qcom,ipq9574-gcc.yaml           |  1 -
- .../bindings/clock/qcom,ipq9574-nsscc.yaml         |  1 -
- .../bindings/clock/samsung,exynosautov9-clock.yaml |  2 +-
- drivers/clk/qcom/clk-regmap-phy-mux.c              | 52 +++++++---------------
- drivers/clk/qcom/dispcc-eliza.c                    |  2 +-
- 6 files changed, 19 insertions(+), 41 deletions(-)
 
