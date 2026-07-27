@@ -4,114 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB02C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBD5C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=; b=ARitHzPsUogSj2TTbyj+0vySkV
-	EJwKW6CN4TmorEhN3tGxH8GwYimcxmuQU6ao2NmVx93ahfcw52le1IqCRtQN711UdJw7rT8XtFV9Q
-	M379RZlPPEZUdyuYptl/gKTj9c+0NViHlooKYsDSDh8eAG+RA/HGPKaSM4++0Za89pGzLs/BxxxHL
-	TiW+YN1Nt8AduFOwdy/mmlgDcPtcHLSIfC0ZdszUaODevEwr++6WNcVtY+h3ssJLj/rQ86Evidpm0
-	iynLTvdMYFyEVcnIB6oKQuShjlw7DycpvbqjD3JnkHKiSrJ2+J4pAos8CBcHHPWy2Kxf9WXNeWMYN
-	/lJ0ztZg==;
+	bh=fLjL6nVlQh1x9nM4QKnjIi7Cr5AqMJw0rNAplgkz3sk=; b=d+WZhKqfatKo3qsuh2ZR8WLnjS
+	bjXJxdaRE1y6IrsWykhP4rkh6QB7Oie2/FdArQnqqrofRkxzkCMUh2DcBWw00GJNwZ2umTo8MrDsh
+	aRD4KEEYCXVkWVGNCiKeuYbA8EoLQEoXrsRBriQosnko/sz1s8aL41OzK68mKsBomjafXWOkUgdZ6
+	rTOE1gWQyvJ5r1pLi7qDODeh9qj+X7pCKX4mI0M/xltKAUnvczEzHV0Gdax+6hcHirc5+k7HjP8mA
+	mzIYG4Pyhv4Wf3bSvG2DeRBjJxwA8m5mmt3CnzgK8zvjQ7yXypagn3tUwQr7l0Ypb8ZfLSl1FkD+U
+	pMb+R5YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNZr-00000003E7M-3K7z;
-	Mon, 27 Jul 2026 15:49:15 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1woNeb-00000003EXx-3EYy;
+	Mon, 27 Jul 2026 15:54:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNZo-00000003E6b-1stM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 15:49:14 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-4955cd5da3dso1212599b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 08:49:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785167351; cv=none;
-        d=google.com; s=arc-20260327;
-        b=i2FzUtfCOotq6axHHfvtMv8EoEq2DuRtr7pvVAklQU70xk0eGF8P4q9j7olavJtV1k
-         46VquvCVROYNpX3mxzalLtNIPcRYBOzfkJfhNvREETfWc+NS9344YIsn4xj24YaclOiM
-         fUPhdMfD20mNi/aAyGtJsg0Sh7nJCu4DXYDLH3SLxmQE+J39isnly0HvaiDUkdoofCh1
-         DUTpNHUEwlf01p45fjT4IQ5yF6657gUV1DP9KBh/I7SwxAFp8D/GdumktFKHG1Q9WJt9
-         qyiWSJPOQvK3FcSkJ0cHhvEEMxEiWHGPSb781c0/LIz8lQq8IhaVTt9iEw89jk6ZhVho
-         995w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=;
-        fh=VmuFC+6OZkf62barrK/qaM9SujfOx4LAsjtF8SloIgg=;
-        b=q2md0/xCbDaIJnuWMrWLV3NGJTEjDx2uTHzYyTkkAtW5xtAQcjG0kqsVGRzEPlg+gQ
-         LeMaM5R1VlKAGUaTW8R2QcL3FDmgJo5ABW1DtNg6c+VpDPF6xLflx5/M1sHLOQJYuGrm
-         qXkro8E29k98r209VI4vrnXOusSptXnnSKaNfu0HJEK+1zqM12LJyhRzEBwqYE+I5PXU
-         IdwPAKq/ZRFzTithlmmPiW4ysaRpuDC0aYGwVk/eEfWZllIxichxpzvDMa+MQBKilQTM
-         5crX5Sx8qoGmDkYbTQpOgU5q/IPHwKMsJusewZi1dXd1z9HmAsvyGT8Rr0+dxTaYEEyF
-         Y+0A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785167351; x=1785772151; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=;
-        b=WfnQe/Pw7qj4lYnsq+nQz1g0+LR426xloJ7hsrEwjl0k0qXMuDeO2UXXz9bign12bQ
-         jXMb+cdILZ05ykGIE6YEkUvKcO0bpyXXPYyYOmrhjaPFMUxHhkk4Krtc0iIggefiBCFz
-         v/scLyAMCS8xYYBI2mGxk1zq1XBQQ6syxezVH8yBKutQr9MhB1emEAe3waLrxsR4wBNO
-         QGAUqaWR/L3nY912UN4somXVHca7yRVujN0han6PZidhLjpxrf4LFv8wTBXxW3F1AQRs
-         Rc6JT3TELqzcsNdgYyIZXZrLRUc0Kw3205/+fURVrfJ+kDsBl352+swdrgVSdikEKtbn
-         TIxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785167351; x=1785772151;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1j2/Vmhav9hp+xwE98aMBcISKaxMX/xLgtMgIxAU990=;
-        b=DJovdIcPfim6vcUb4+yhJ72cldzu7uljV8A1jJrTo8igeSq7+UXLvoZOAA/6nDicBX
-         X9uXQbE4nF0st12pw1bENCGltlH/cKNqE0ILtp0lrHnFPi/f7a1GanJbo1LE5Rl/cgx1
-         tbKSwsI73gShkMoYKVctoSYT3HHi14cV4iIKLI6jDFQGX+Nx5q1y4Z6ndsrvExPjODTD
-         qfMzUlQli8u8Y16jMv1nDTeQmgJd+EA8TR/Qgb9H2h++saGe/jhkR+Cq8FG4VMaD74Qc
-         F1a76SliJ8XIZLSdAG+khSKmgYl8UqIsU3myh1d+D7ax/rBVyDduXNjjCEQUD4+mCShy
-         5IEg==
-X-Forwarded-Encrypted: i=1; AHgh+RoeCeKr0PHr+TBOxJHJUW5J5t6b584AWsx4iyBdxBOuEikwvGKGibqTws6WedXEedX25a9ydAYZLiQmtLVfULof@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTemZw79RQ9fZS4X5SuQsQQ3tQBw6+flyRMxVZ4OFbmwMtSzqQ
-	XApFmSGLpkrBS7mxx8xUhD8nAQ41i5xCaandUP3PUKHyN2D+DMZiy1rMfjc+rmXmlg2Itxzdcvs
-	vU1Ja4uQyUg2713JK0LeBP29AvyiNmHE=
-X-Gm-Gg: AR+sD12xJ8ygvV/+r/7f4IbS7Nog+ZY1uovblZ0GBCqGAXS7PTJk/8E1EaazC04rIst
-	gsXq1KtgyZOWwIgR+6FXptfm9bSZ4ytNtnOr16i5LCmY5GOJc7/DiXRX+BFB3IbG6SUyuQBVT+5
-	mn8t7VW/H/revy9qhx/NhRQKgA3j4Pp/8g/6+aXF5l61n2D1nMvZNsIxXtV23Z+R2ZR6Pk9rh8P
-	8tri3liGKVg96099g6tfGw3Ig95r2ShgFUtikcHHocAib3Hrqv1yiRjlcJEB7QA+QmCYHGAwiYS
-	A0JAZIv9cexoOg13cHg=
-X-Received: by 2002:a05:6808:bd6:b0:489:5d05:552c with SMTP id
- 5614622812f47-4ab6a057c69mr7313742b6e.18.1785167350906; Mon, 27 Jul 2026
- 08:49:10 -0700 (PDT)
+	id 1woNeY-00000003EXB-3jKa;
+	Mon, 27 Jul 2026 15:54:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785167644;
+	bh=m/4LIVR30IBua4ghe8uxIwH1JxrU1wTrekYPUFn2Rys=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YFUuvbNi1+0GTNVtDtnF6tPnEvMf1kZ5wTgo6KSmp6GDFgDPMzihJY4SDrMy45HoG
+	 aRZ3F4h7/V6GaB0/8ER5EZ3ZaCfBB1Q4ixiiH1uyO7spXsuqy+V8g0LHDHULPIs/Wp
+	 TD9y6ioYsW241FwuDcOheZtyTOc/80dwwnsjSMVZNtvMEy08GzI05F9Ii4NqCuOwUB
+	 y5qe00SBfnl1jfwDJg68XZM3z3oovC1ki9DtwOHuHa0ANWrHBikwhJfmFrUw4jQj9t
+	 1RcXKUTdWU7/4QpIu8l0nlGEnD5M4Hg0LXs9d5LCF0pOkT+zFW0y9/rBdh4bd8jDh0
+	 CbYVoG9jTp2FQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7ACC617E051A;
+	Mon, 27 Jul 2026 17:54:03 +0200 (CEST)
+Message-ID: <5c7e81e7-28e1-4993-ac4e-724ec7664ebf@collabora.com>
+Date: Mon, 27 Jul 2026 17:54:02 +0200
 MIME-Version: 1.0
-References: <20260727091555.1023910-1-wenst@chromium.org>
-In-Reply-To: <20260727091555.1023910-1-wenst@chromium.org>
-From: YoungJoon Lee <getfeus@gmail.com>
-Date: Tue, 28 Jul 2026 00:48:57 +0900
-X-Gm-Features: AUfX_mzZIAlliZ6SyEB3Z-mqC0yAJJDeNAn1Qi3wrTwtKld-OCTs0GYYwDDse00
-Message-ID: <CA+m4KrCkk_p213=JVVcuxjvO2tCREw7_mL596xu-RWJ0Dz3p5w@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] powervr: MT8173 GPU support
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Alessio Belle <alessio.belle@imgtec.com>, Luigi Santivetti <luigi.santivetti@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, imagination@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+To: Thorsten Leemhuis <regressions@leemhuis.info>,
+ Gary Bisson <bisson.gary@gmail.com>, Adam Thiede <me@adamthiede.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Esben Haabendal <esben@geanix.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Matthias Brugger <matthias.bgg@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+ <8733xko1ms.fsf@geanix.com>
+ <0f719c00-3cf5-4403-afbf-713b07255981@collabora.com> <aleM9Wy9otpd6Je3@owl5>
+ <aRN3_2FHX8XmTcwduTAPwz4UFde4B0tbB09ajyeUg5qZxiIYMmbvMkG7CPoNTl4iySYMZawbLMWijO47R22gkg==@protonmail.internalid>
+ <65558ccc-4f2c-492d-8c74-627d27dce864@collabora.com>
+ <87h5m0mkca.fsf@geanix.com> <alpTEPsy-SIQv_Oc@owl5>
+ <b26a4890-12e9-4995-a71d-d0b7458b1570@leemhuis.info> <amdTnudq48tZUTG2@owl5>
+ <1826ddd9-6edd-4481-a31d-6cbb083b3a56@leemhuis.info>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <1826ddd9-6edd-4481-a31d-6cbb083b3a56@leemhuis.info>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_084912_545549_60D26081 
-X-CRM114-Status: GOOD (  38.51  )
+X-CRM114-CacheID: sfid-20260727_085407_118979_5D060C7C 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,360 +87,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 7/27/26 16:23, Thorsten Leemhuis wrote:
+> On 7/27/26 14:48, Gary Bisson wrote:
+>> On Mon, Jul 27, 2026 at 02:28:56PM +0200, Thorsten Leemhuis wrote:
+>>> [top-posting to facilitate]
+>>>
+>>> Gary, Angelo, what's the status here? It looks like this fell through
+>>> the cracks -- or was this issue fixed in between somehow? If yes: great!
+>>> If not: Would be good to finally resolve this, as we are long past "fix
+>>> within a week" rule of thumb from Linus:
+>>> https://www.kernel.org/doc/html/latest/process/handling-regressions.html#on-how-quickly-regressions-should-be-fixed
+>>
+>> Not much happened I'm afraid. The status as I see is:
+>> - this patch is necessary to have TI SN65DSI83 working
+>> - this patch also follows the DRM guidelines saying that HS clock must
+>>    be enabled during pre_enable (see previous answer / [1])
+>> - this patch has been successfully tested against MIPI-DSI panels (by
+>>    Angelo) and LVDS panels via TI bridge (by myself)
+>> - Adam reported an issue with another bridge (PS8640) where resume is
+>>    broken
+>> - Esben offered a patch to the TI bridge that would fix the issue we
+>>    were seeing in the first place.
+>>
+>> But for the last two points, I'm not sure this calls for a revert yet:
+>> - enabling HS clock in pre_enable still is what should be done [1]
+>> - maybe the issue Adam is facing is due to the bridge driver instead as
+>>    it could not be reproduced with another setup
+>> - Esben patch would break the SN65DSI83 init sequence, suggesting that
+>>    the culprit really is the MIPI bridge for not following the HS clock
+>>    requirement in pre_enable instead [2]
+> It's tricky, yes, but I suspect the right time for a revert was weeks
+> ago. What Linus afaics basically wants in situations like this (espe.
+> with two reporters) boils down to "something broke recently, no fix was
+> found within a week or maybe two, so we go back to the previous state to
+> restart from there -- and this is nothing bad, that's just done to buy
+> us time."
+> 
+> If something is right by some hardware or DRM specs often doesn't matter
+> much. What makes this tricky is the fact that the revert might cause a
+> regression for those that relied on the functionally the change brought.
+> But I suspect even then Linus prefers a revert, as it's a recent change
+> that only went into 7.1. The quoted from Linus on this page cover this iirc:
+> https://www.kernel.org/doc/html/latest/process/handling-regressions.html#quotes-from-linus-about-regression
+> 
+> If we can't agree on this, we maybe should ask Simona or Airlied for advice.
+> 
+> Ciao, Thorsten
 
-I tested patches 1/5 through 5/5 from the MT8173 PowerVR v3 series on
-an Acer Chromebook R13 (Google Elm), which uses an MT8173 SoC and a
-PowerVR Rogue GX6250 GPU with BVNC 4.40.2.51.
+Thorsten,
+I agree with you, and it's fine for me to get this commit reverted, for the sake
+of following the rule (which is something I agree about: as a user, the last thing
+that should happen is to be afraid of what breaks if I update my system!!!!),
+even though reverting this actually breaks anything that is not PS8640.
 
-For clarity, I applied the five actual patches numbered 1/5 through
-5/5. The 0/5 cover letter itself was not applied.
+......though......
 
-Kernel:
-  Linux 7.1.3-stb-cbm-pvr-v3
+Everyone, please, look at how fundamentally broken PS8640 is... Qualcomm people had
+the same issue as what is currently happening here.
 
-Relevant kernel configuration:
-  CONFIG_DRM_POWERVR=3Dm
-  CONFIG_COMMON_CLK_MT8173_MFGTOP=3Dy
+They had to fix their DSI driver, as it was kind-of broken in a vagualy similar way
+compared to MediaTek - and then they found out that they needed (and upstreamed) a
+*hack* that had to be done specifically for the PS8640 Bridge [1]: their issue was
+never really resolved, as then the same bridge started casually working for unknown
+reasons (is it still working?), so they removed the hack [2] and called it a day.
 
-Kernel command line:
-  powervr.exp_hw_support=3D1
+[1]: 
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/drivers/gpu/drm/msm/dsi/dsi_manager.c?h=next-20260726&id=ec7981e6c614254937b37ce0af9eac09901c05c5
+[2]: 
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/drivers/gpu/drm/msm/dsi/dsi_manager.c?h=next-20260726&id=9e15123eca7942caa8a3e1f58ec0df7d088df149
 
-Firmware:
-  powervr/rogue_4.40.2.51_v1.fw
+Especially in [2], the assmption from Dmitry sadly isn't correct, because this is
+happening now on MediaTek, and here Runtime PM makes sure that the PS8640 is also
+being enabled "a wee bit" earlier than DSI... but that doesn't seem to be enough.
 
-The driver probes successfully, loads the firmware, and initializes the
-DRM device:
 
-  [    6.110569] powervr 13000000.gpu:
-                 [drm] Running on unknown hardware; expect issues.
-  [    6.117454] powervr 13000000.gpu:
-                 [drm] loaded firmware
-                 powervr/rogue_4.40.2.51_v1.fw
-  [    6.118010] powervr 13000000.gpu:
-                 [drm] FW version v1.0 (build 6476056 OS)
-  [    6.122992] [drm] Initialized powervr 1.0.0
-                 for 13000000.gpu on minor 1
+Now, here I'm kind of shotgunning at the driver, but I wonder if anyone can try
+the following patch before reverting this commit in mtk_dsi? Adam?
 
-The following DRM device nodes are created:
+---
+  drivers/gpu/drm/bridge/parade-ps8640.c | 1 +
+  1 file changed, 1 insertion(+)
 
-  /dev/dri/card0
-  /dev/dri/card1
-  /dev/dri/renderD128
+diff --git a/drivers/gpu/drm/bridge/parade-ps8640.c 
+b/drivers/gpu/drm/bridge/parade-ps8640.c
+index 96332721cb69..54ebf2fc8d1c 100644
+--- a/drivers/gpu/drm/bridge/parade-ps8640.c
++++ b/drivers/gpu/drm/bridge/parade-ps8640.c
+@@ -665,6 +665,7 @@ static int ps8640_probe(struct i2c_client *client)
 
-However, on a clean boot, without manually running vulkaninfo, vkcube,
-or another Vulkan application, the driver reports that the GPU has been
-lost approximately six seconds after DRM initialization:
+  	ps_bridge->bridge.of_node = dev->of_node;
+  	ps_bridge->bridge.type = DRM_MODE_CONNECTOR_eDP;
++	ps_bridge->bridge.pre_enable_prev_first = true;
 
-  [   12.084078] powervr 13000000.gpu:
-                [drm] *ERROR* GPU device lost
+  	/*
+  	 * Get MIPI DSI resources early. These can return -EPROBE_DEFER so
+-- 
+2.55.0
 
-The relevant boot sequence is therefore:
-
-  [    6.110569] PowerVR probe begins
-  [    6.117454] Firmware is loaded
-  [    6.118010] Firmware version is reported
-  [    6.122992] DRM initialization completes
-  [   12.084078] GPU device lost
-
-The unused-regulator shutdown occurs considerably later:
-
-  [   31.712124] vgpu: disabling
-
-Therefore, the later "vgpu: disabling" message does not appear to be
-the immediate cause of the device loss. The GPU is reported lost about
-20 seconds before that regulator shutdown message.
-
-After the failure, regulator_summary reports:
-
-  vgpu  0  0  0  normal  1000mV  0mA  700mV  1350mV
-
-This output was collected after the GPU had already been reported lost,
-so I do not know whether the regulator state was different during probe
-or immediately before the failure.
-
-The PowerVR-related clocks appear enabled in clk_summary:
-
-  mfg_26m       26000000 Hz
-
-  mem_mfg_in_sel
-    rate:       455000000 Hz
-    enable:     1
-    prepare:    1
-
-  mfg_mem
-    rate:       455000000 Hz
-    enable:     1
-    prepare:    1
-    consumer:   13000000.gpu
-    clock name: mem
-
-  mfg_sel
-    rate:       455000000 Hz
-    enable:     1
-    prepare:    1
-
-  mfg_g3d
-    rate:       455000000 Hz
-    enable:     1
-    prepare:    1
-    consumer:   13000000.gpu
-    clock name: core
-
-  axi_mfg_in_sel
-    rate:       208000000 Hz
-    enable:     2
-    prepare:    2
-    consumer:   power-domain@7
-
-  mfg_axi
-    rate:       208000000 Hz
-    enable:     1
-    prepare:    1
-    consumer:   13000000.gpu
-    clock name: sys
-
-I also installed Mesa 26.1.5 and vulkan-powervr 26.1.5 and tested the
-Vulkan ICD with:
-
-  PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 \
-  VK_DRIVER_FILES=3D/usr/share/vulkan/icd.d/powervr_mesa_icd.json \
-  vulkaninfo --summary
-
-The PowerVR ICD was found and loaded. Before hanging, Mesa printed:
-
-  WARNING: powervr is not a conformant Vulkan implementation,
-           testing use only.
-
-  FINISHME: Missing reset support for brn51764
-  FINISHME: Missing reset support for brn58839
-  FINISHME: Missing support for brn62269
-  FINISHME: Devices without tpu_border_colour_enhanced require entries
-            for compressed formats to be stored in the table
-            pre-compressed.
-
-The vulkaninfo process then remained in uninterruptible sleep:
-
-  PID   STAT  WCHAN             COMMAND
-  3244  Dl+   synchronize_srcu  vulkaninfo --summary
-
-It could not be terminated normally while in that state, and a reboot
-was required.
-
-However, the clean-boot log shows that "GPU device lost" occurs even
-without starting vulkaninfo manually. The vulkaninfo hang may therefore
-be a consequence of the GPU already being in the lost state, rather than
-the original cause of the failure.
-
-At this point, the following parts appear to work:
-
-  - MT8173 GPU device-tree node probing
-  - MFGTOP clock registration
-  - PowerVR kernel module probing
-  - Firmware loading
-  - Firmware version reporting
-  - DRM device initialization
-  - Creation of card1 and renderD128
-
-The remaining problem is that the GPU becomes lost approximately six
-seconds after initialization.
-
-Could this be related to an interrupt not being delivered, firmware
-heartbeat handling, reset sequencing, runtime PM, a missing regulator
-consumer relationship, or another MT8173-specific power-domain
-requirement?
-
-Please let me know which additional kernel debug options, DRM debug
-settings, tracepoints, interrupt statistics, register dumps, or test
-patches would be useful. I have physical access to the device and can
-build and test further kernel changes.
-
-Thank you for working on MT8173 support.
-
-Best regards,
-YoungJoon Lee
-
-2026=E5=B9=B47=E6=9C=8827=E6=97=A5(=E6=9C=88) 18:16 Chen-Yu Tsai <wenst@chr=
-omium.org>:
->
-> Hi everyone,
->
-> This is v3 of my MT8173 PowerVR GPU support series.
->
-> I got another inquiry on the status of this patch series, so I thought
-> I'd dig it out, fix all the issues and send another version.
->
-> This time around Mesa was ready for basic testing, using both vulkanmark
-> and glmark2-es2-drm (with Zink). Details below.
->
-> Changes since v2 (all in the clk driver patch):
-> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
->   - Needed since the driver implements PM domains using the generic PM
->     domain library, which also depends on PM
->   - Fixes build breakage (kernel test robot)
-> - Fixed "RST_DELAY_CNT" name (Brian)
-> - Dropped unused mfg_desc (Brian)
-> - Added check of clk_prepare_enable()'s return value in
->   clk_mt8173_mfgtop_power_on() (Brian)
-> - Saved error value for return in IS_ERR(data->clk_26m) branch
->   (Dan Carpenter / kernel test robot w/ smatch)
->
-> Changes since v1:
-> - Adapted to changed DT bindings
-> - Dropped driver change
-> - Use same power domain for "a" and "b" GPU power domains
->
->
-> This series enables the PowerVR GPU found in the MT8173 SoC, found in
-> some Chromebooks.
->
-> This version is different from the initial powervr driver submission [1]
-> in that it splits out the GPU glue layer support out of the powervr
-> driver and into a separate clock and power domain driver. The glue code
-> is otherwise the same, and also the same as found in the ChromeOS
-> kernels, with some extra comments and macro names added where possible.
->
-> Patch 1 adds a binding for the glue layer, called mfgtop. The glue layer
-> contains clock and power controls for the GPU.
->
-> Patch 2 adds a driver for the glue layer, implemented as a clock driver
-> that also provides power domains.
->
-> Patch 3 adds an entry for the MT8173 GPU and 6XT series to the PowerVR
-> binding.
->
-> Patch 4 corrects the clock for the GPU (called MFG) power domain.
->
-> Patch 5 adds device nodes for the GPU and glue layer to the MT8173 dtsi
-> file.
->
-> The kernel driver successfully probes the hardware and loads the
-> "rogue_4.40.2.51_v1.fw" firmware provided by Imagination Technologies [2]=
-.
-> The "exp_hw_support" module parameter needs to be set for the driver to
-> probe successfully.
->
-> This was tested with Mesa 26.1.5 from Debian Forky. With this version
-> vkmark and glmark2-es2 (over Zink) both run fine. Mesa spits out a bunch
-> of warnings since the GX6250 core is not officially supported.
->
->     # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 vkmark
->     WARNING: powervr is not a conformant Vulkan implementation, testing u=
-se only.
->     WARNING: powervr is not a conformant Vulkan implementation, testing u=
-se only.
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: F=
-INISHME: Missing reset support for brn51764
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: F=
-INISHME: Missing reset support for brn58839
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: =
-FINISHME: Missing support for brn62269
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINIS=
-HME: Devices without tpu_border_colour_enhanced require entries for compres=
-sed formats to be stored in the table pre-compressed.
->     WARNING: powervr is not a conformant Vulkan implementation, testing u=
-se only.
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->         vkmark 2025.01
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->         Vendor ID:      0x1010
->         Device ID:      0x6250
->         Device Name:    PowerVR Rogue GX6250
->         Driver Version: 109056005
->         Device UUID:    d04cd6f3a25fd4900f89c151bccfdfcf
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->     [vertex] device-local=3Dtrue: FPS: 251 FrameTime: 3.984 ms
->     [vertex] device-local=3Dfalse: FPS: 220 FrameTime: 4.545 ms
->     [texture] anisotropy=3D0:^C FPS: 223 FrameTime: 4.484 ms
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->                                        vkmark Score: 231
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->
->     # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 glmark2-es2-drm
->     WARNING: powervr is not a conformant Vulkan implementation, testing u=
-se only.
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: F=
-INISHME: Missing reset support for brn51764
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: F=
-INISHME: Missing reset support for brn58839
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: =
-FINISHME: Missing support for brn62269
->     MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINIS=
-HME: Devices without tpu_border_colour_enhanced require entries for compres=
-sed formats to be stored in the table pre-compressed.
->     Warning: DRM_CAP_ASYNC_PAGE_FLIP not supported, falling back to 'mail=
-box' mode for SwapInterval(0).
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->         glmark2 2023.01
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->         OpenGL Information
->         GL_VENDOR:      Mesa
->         GL_RENDERER:    zink Vulkan 1.2(PowerVR Rogue GX6250 (IMAGINATION=
-_OPEN_SOURCE_MESA))
->         GL_VERSION:     OpenGL ES 2.0 Mesa 26.1.5-1
->         Surface Config: buf=3D32 r=3D8 g=3D8 b=3D8 a=3D8 depth=3D24 stenc=
-il=3D0 samples=3D0
->         Surface Size:   1366x768 fullscreen
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->     [build] use-vbo=3Dfalse: FPS: 49 FrameTime: 20.473 ms
->     [build] use-vbo=3Dtrue: FPS: 45 FrameTime: 22.660 ms
->     [texture] texture-filter=3Dnearest: FPS: 45 FrameTime: 22.642 ms
->     [texture] texture-filter=3Dlinear:^C FPS: 50 FrameTime: 20.172 ms
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->                                       glmark2 Score: 46
->     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
->
->
-> Please have a look.
->
-> Thanks
-> ChenYu
->
-> [1] https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.walke=
-r@imgtec.com/
-> [2] https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powe=
-rvr
->
-> Chen-Yu Tsai (5):
->   dt-bindings: clock: mediatek: Add mt8173 mfgtop
->   clk: mediatek: Add mt8173-mfgtop driver
->   dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
->   arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
->   arm64: dts: mediatek: mt8173: Add GPU device nodes
->
->  .../clock/mediatek,mt8173-mfgtop.yaml         |  70 +++++
->  .../bindings/gpu/img,powervr-rogue.yaml       |   1 +
->  arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  33 ++-
->  drivers/clk/mediatek/Kconfig                  |  10 +
->  drivers/clk/mediatek/Makefile                 |   1 +
->  drivers/clk/mediatek/clk-mt8173-mfgtop.c      | 241 ++++++++++++++++++
->  include/dt-bindings/clock/mt8173-clk.h        |   7 +
->  7 files changed, 362 insertions(+), 1 deletion(-)
->  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt81=
-73-mfgtop.yaml
->  create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
->
-> --
-> 2.55.0.229.g6434b31f56-goog
->
+Cheers,
+Angelo
 
