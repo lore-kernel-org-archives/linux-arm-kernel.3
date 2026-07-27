@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015C3C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 20:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC54C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 20:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=74xEo+CE1QfFvSvj5MoWqgDNpT3h+VRY/LZDapbI2A4=; b=A280cluYZtGogfVwX6HDvVMYPP
-	P1/IWlzYmZsAAaqdhOh1LPX3+Gl6TfwlH+T72vpYODHQYI7Pxfpkj9u/QWDBo/6I2PWdwONIcEylX
-	/Jbg8iHEc+fnYrqcDxBlXtAc/TQ0im6Gaj7ShNrdpHmTGmGDq3GzojNOAhGqdOyiJ9+NxidlGvDgu
-	1ZDIcx3LpRuuPP3igRlDYch8eMfBV3RPkL6DjIVWCtX6yiSADd1IYPqR1vNCu0rK4zh8rVB2AbdlQ
-	Q8ct5Y+DXPpgti4uuDX4flRmUTcx2WTHSpOCQyA+z9JX7suBi3nEJ0RQwAsvtb7GCi6MFPimesecK
-	gP5hihAg==;
+	bh=QQhmr0nJ4FYcFxbYZ6TeBxNTTLZMEraFxqtg2lSum+k=; b=3v97596xdsDwWfzeFgiWEtUa7h
+	X5+U7wTsQLqdfWRl2cREhSzSgJHsBRYHgu4fr/oi5LqUy7dkunZJ66QNvlS39PzqMb8CabiGBFzES
+	hg7sueW1RxPZERJgDR0EG6AXnEINtRT4tv6jCwuGUy0JcHc4t/s5h02qhTK1BRaBvYhprgdkwFPmn
+	OoWpzTwvYQE3eKIs5wr/sgaql/+l9GQrgqvqcFiNRFmToqwZrfzyzTZoDEanrPUsl1CRBg9/dH2uB
+	12wDr3lXy+dhn8fUO2r2CAudHzceDlDRG1ALyGHOdFeJk/MHiMNRBbUK++xhUogkai3P6GTz6DpiP
+	Iykxf9mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woRzl-00000003qen-38kW;
-	Mon, 27 Jul 2026 20:32:17 +0000
+	id 1woS04-00000003qmN-1sHP;
+	Mon, 27 Jul 2026 20:32:36 +0000
 Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woRzj-00000003qdW-11DE
+	id 1woRzv-00000003qiO-0qwB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 20:32:16 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2cf50c6f235so38250425ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 13:32:14 -0700 (PDT)
+	Mon, 27 Jul 2026 20:32:32 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ce98cb8165so4083425ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 13:32:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785184334; x=1785789134; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785184346; x=1785789146; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=74xEo+CE1QfFvSvj5MoWqgDNpT3h+VRY/LZDapbI2A4=;
-        b=aSXmfSVjCmbZfPaePZ3yZtY55Zcv3np6vrTtEZGj81vmG9aOMfWF+6YgZwa4dxMB7V
-         rPJdqHAFlt3U39Tu5aIrutef0Anp2f/neUcrLN4FXfGdC//0DLVki6z1hFqLB0uEobc/
-         +/EpSvzKtYLfsPY8rpl1rxglwDXjRN3mfqSuoYjitdXRAeN70lt5GPRigULhmc4kp20e
-         GwDzXmHRQRsPK5s7eHKLFgjtKiSk17EaK40xzO6+ZtvJNDs9W0F4swqVaFem0BFjdVD8
-         cwFd7GhTCPwyVh90sivycP+WO7Z8MgCqY0cCSbnoQH+oLxFCgOS7iiXIzv5HtO4zf6cv
-         5aZA==
+        bh=QQhmr0nJ4FYcFxbYZ6TeBxNTTLZMEraFxqtg2lSum+k=;
+        b=dk74QfcmvkbAxe8vLIvL4qeisffSyFGAOqv9zU8yo+WmChnCGP/surojxlK4sYyhpq
+         6WogXec5Z9rI2ynoyS+GRLfBd/bj42kMr1yNdui7FeAGcn2QizKy4ycIjQ0oOj9GtfYh
+         cJqn09wZkL3+qBYquCd1fK9SAy4UbRFtpTDoKKeKFB9/Wetcmy4nJX23u3FzyBLjb3FK
+         9HElckMsgEf5zAn0OjxZ8SJQM+2afIxcv9L/AjNgf65HKxQHtkzbAuwI6kG+JvJiQb4F
+         159UV6TL2x9dZcDDDj8LFzZa9PdkInWOInO9WpMztjTaLlq1kcfHWmDqHc5maaHL+TIP
+         TWbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785184334; x=1785789134;
+        d=1e100.net; s=20251104; t=1785184346; x=1785789146;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=74xEo+CE1QfFvSvj5MoWqgDNpT3h+VRY/LZDapbI2A4=;
-        b=jyYL0FkLe+RHriDRs88GLvUAW9UeNFYKF9AmsQ7nZ1kpS+rUJsvElt/bsU6fambbqT
-         91BlIgH0Kh/7ecSlLqVvshQ4gkLfcDXUG1kDftt+tU8gUaWrwwMJcUs9HpPQ2Tv2/MuE
-         mn5oTAwUQf/OPfiRnp3esvaHmm6fta5J/gJfewtPM1nPz2Q1N2BIQOhfdA0ySLhoblW/
-         bnrD/4+vS6zrg+phT+deHhPJhzKHdOvwISaJNssmeri2NEmIT4cq93fPBpj9mgAMq3/j
-         rNJLqRkqvZ8duwOo+qsrWoX8XZ7y6vaDPpTxwhn3unIN4ewAM0/KVLiqyJsric3Ac0De
-         j1cA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro6kfvQ/X/+WLHrYFhK5FwY4BL0lvFIV12IKMhErTDepPeVT8qUTvNe5tfLqdCxUiZ5MUkqwGqlxykG1gK15GPo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8OTP/o+hXy+104g1M+JWIpSo6lcgq7JTKBzyGqX+i07I8jsn/
-	/Wy92wgjujDsx91PvEW6/E2oLpfvQloYaV83et/Ilo31DvxnFGOMbuas
-X-Gm-Gg: AR+sD12KcxJcJmGNP9xVIHUz7yw1HOUP23Hn/DrlciscrmDMZtjVqrUgFKrSdfTarDA
-	iSGEDN9OaB5TQk1mXW72u/XTAQh6Kh8/4MeM/uO8adyn9PshANQcuu0uX4PmEurTMPO0OuiCr7c
-	jLoAGzSCTcAT+KqpXbB5wu28ItYmLOScfoeuuudaSZBX/MTm5USqRnqidx9JtfyIf7dIIgP5CoB
-	zq5IstIrL4mVxS6+YEDihdDV5v7s2nsL4vP6uyDAUVOrwvhm322f0yNsjQZfU7GCLGrbp3BooNX
-	dbp2RT7Nmlp8HB6bCUkKAO2MInadK2sYqavHdKI/IzSP6GFYXG/YgzY5foq68bFjWCTVzjCXlMN
-	QmV+EuRONPbqty6TOeVUEXef1GUdV5AkcvJrSAjnfV1bdsOG8sbKt6d5OKea/+/TYxSkD/VtzYA
-	cR0lA7
-X-Received: by 2002:a17:902:c401:b0:2cf:bf3e:4812 with SMTP id d9443c01a7336-2d00f3d7f32mr6986165ad.2.1785184334272;
-        Mon, 27 Jul 2026 13:32:14 -0700 (PDT)
+        bh=QQhmr0nJ4FYcFxbYZ6TeBxNTTLZMEraFxqtg2lSum+k=;
+        b=NGvrP51t63Cc3SIs3GCssXmcoIrDDKvOzyLGjiGtdyzg/GKiJ27JGhIK+z/iM/I1Aq
+         uFaFbSfEVun30kWfi4W93nvzyTP1HedlW/qhxGufFJw5B+00sFblREwMMvXLsL9jYI55
+         I+oSheFh2Q/CWJzi2fyC8Xr07cgUHL+I49VUQ61kDzEJJlLI7yOEe5i6TlNp4wiMlXbE
+         sFQkve1GoTMXlWQtyUmkqShPjPKAvx3tOHni6/k0g3RRbWno+wvjkUKjegOAZgwjVy66
+         jUIMMsE4RGAevwul5bwjeGxIMycaqAxoNrNZpgg6D6OlVt0FeNmWwvfAM8Pk8HU0z3CV
+         GijA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr28Vuub3iZxpVL+tfV1FejufXcQWcXAVv8BOo9HYAJU4v3RsakPXy/3+NjTpZ9iGOk3jMM7ReiK1thAUa9P6v1@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywij+Njm0Jv9Olo0llHkHha69tLeFlZsmfzOMXolQIc2JQs5mtD
+	HWED9MAwD7EmK2BcEWowJk6npxTIXVrD0QNqkbHmc3offHiTlBGPf2DB2HC2dg==
+X-Gm-Gg: AR+sD107t/C057KhbWq1WDFXTJo9lDRtnL6qg0sb+Z28QX35JFrfYlUfDxOKLqwsckV
+	cm5Q1j6dzPTbUBwILmjGgmLCMeExre/1yPSVxep09LZWcIwHsPOpzI0cNFFeJadiXSeZW7tfqnI
+	8NZCs07wqSbxi4B3AvKzrfJQlPweQQ7ddy4ndU6jaYEpluFF6PnwS3uZ1Zy5BM7TJTYrVpNqrgY
+	Iwd6vVuOGGrEyS9rQCCH3tHbtjTVD7hCFrl/eV+7M8Cz3jrHMDNLY3eT41kpQZMELYjlLuMMmgU
+	ARJxBR6f2CcxtIFdIpIVyZn3Bjhs/YFdaMd2PmcH8LuOjsRByg329m997sN2k50fM+uBy9ZsekI
+	0K/t6XW1SPxsbasv6C0UE6HdWBpXTdnFEBQwLhdIMB+oTGspfbOhF4x1VEBKys5TsTIpbePbThA
+	16fFKy
+X-Received: by 2002:a17:902:fd8f:b0:2ca:53f7:3c69 with SMTP id d9443c01a7336-2d012086408mr2626055ad.9.1785184346359;
+        Mon, 27 Jul 2026 13:32:26 -0700 (PDT)
 Received: from cryptic.lan ([2001:569:7fab:e200:3789:64f9:8855:c0af])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cfde59b768sm41551805ad.4.2026.07.27.13.32.12
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cfde59b768sm41551805ad.4.2026.07.27.13.32.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 13:32:12 -0700 (PDT)
+        Mon, 27 Jul 2026 13:32:25 -0700 (PDT)
 From: Allen Pais <allen.lkml@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Frank Li <Frank.Li@kernel.org>
@@ -77,19 +77,21 @@ Cc: Allen Pais <allen.lkml@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	Arnd Bergmann <arnd@arndb.de>,
 	Kees Cook <kees@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 17/64] dmaengine: ste_dma40: convert per-channel tasklet to dma_chan BH
-Date: Mon, 27 Jul 2026 13:28:45 -0700
-Message-ID: <119d257968c0a337b7e439fe71b59636e7fb37c3.1785183549.git.allen.lkml@gmail.com>
+Subject: [PATCH v2 20/64] dmaengine: xilinx-dpdma: kill vchan BH on remove
+Date: Mon, 27 Jul 2026 13:28:48 -0700
+Message-ID: <8b19dea06fbd41cc1cd6425c20485614598747fd.1785183549.git.allen.lkml@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1785183549.git.allen.lkml@gmail.com>
 References: <20260108080332.2341725-1-allen.lkml@gmail.com> <cover.1785183549.git.allen.lkml@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_133215_284302_79BC5FC6 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260727_133229_380774_BC45B7AC 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,71 +106,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the per-channel tasklet with the shared dma_chan BH helper.
-The handler continues to run in softirq context while dmaengine owns
-the common scheduling and teardown mechanism.
+virt-dma now dispatches completion callbacks through per-channel BH
+work. Cancel that work when removing a channel, while retaining the
+driver's separate error-handling tasklet.
 
 Signed-off-by: Allen Pais <allen.lkml@gmail.com>
 ---
- drivers/dma/ste_dma40.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+ drivers/dma/xilinx/xilinx_dpdma.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
-index 0d9ffa3e2663..f279a093a81f 100644
---- a/drivers/dma/ste_dma40.c
-+++ b/drivers/dma/ste_dma40.c
-@@ -461,8 +461,6 @@ struct d40_base;
-  * @phy_chan: Pointer to physical channel which this instance runs on. If this
-  * point is NULL, then the channel is not allocated.
-  * @chan: DMA engine handle.
-- * @tasklet: Tasklet that gets scheduled from interrupt context to complete a
-- * transfer and call client callback.
-  * @client: Cliented owned descriptor list.
-  * @pending_queue: Submitted jobs, to be issued by issue_pending()
-  * @active: Active descriptor.
-@@ -489,7 +487,6 @@ struct d40_chan {
- 	bool				 busy;
- 	struct d40_phy_res		*phy_chan;
- 	struct dma_chan			 chan;
--	struct tasklet_struct		 tasklet;
- 	struct list_head		 client;
- 	struct list_head		 pending_queue;
- 	struct list_head		 active;
-@@ -1587,13 +1584,13 @@ static void dma_tc_handle(struct d40_chan *d40c)
- 	}
+diff --git a/drivers/dma/xilinx/xilinx_dpdma.c b/drivers/dma/xilinx/xilinx_dpdma.c
+index d9a3542c4531..2ec82064fd2e 100644
+--- a/drivers/dma/xilinx/xilinx_dpdma.c
++++ b/drivers/dma/xilinx/xilinx_dpdma.c
+@@ -1685,6 +1685,7 @@ static void xilinx_dpdma_chan_remove(struct xilinx_dpdma_chan *chan)
+ 		return;
  
- 	d40c->pending_tx++;
--	tasklet_schedule(&d40c->tasklet);
-+	dma_chan_schedule_bh(&d40c->chan);
- 
+ 	tasklet_kill(&chan->err_task);
++	dma_chan_kill_bh(&chan->vchan.chan);
+ 	list_del(&chan->vchan.chan.device_node);
  }
  
--static void dma_tasklet(struct tasklet_struct *t)
-+static void dma_tasklet(struct dma_chan *chan)
- {
--	struct d40_chan *d40c = from_tasklet(d40c, t, tasklet);
-+	struct d40_chan *d40c = container_of(chan, struct d40_chan, chan);
- 	struct d40_desc *d40d;
- 	unsigned long flags;
- 	bool callback_active;
-@@ -1641,7 +1638,7 @@ static void dma_tasklet(struct tasklet_struct *t)
- 	d40c->pending_tx--;
- 
- 	if (d40c->pending_tx)
--		tasklet_schedule(&d40c->tasklet);
-+		dma_chan_schedule_bh(&d40c->chan);
- 
- 	spin_unlock_irqrestore(&d40c->lock, flags);
- 
-@@ -2815,7 +2812,7 @@ static void __init d40_chan_init(struct d40_base *base, struct dma_device *dma,
- 		INIT_LIST_HEAD(&d40c->client);
- 		INIT_LIST_HEAD(&d40c->prepare_queue);
- 
--		tasklet_setup(&d40c->tasklet, dma_tasklet);
-+		dma_chan_init_bh(&d40c->chan, dma_tasklet);
- 
- 		list_add_tail(&d40c->chan.device_node,
- 			      &dma->channels);
 -- 
 2.43.0
 
