@@ -4,60 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9213CC5321C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E548AC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BkEMByAhU2rfTSgPLTY7SgTKxZ+xSp3fIMqwE5OsBYk=; b=GPDVG3Mc23lkA0e4zLBet6aVVY
-	GgbespqAlj1ptXdG0L/aIrOX51sXtwMDb/0SyQCFUorqfQ0ZRI+CT5YUvg3R+4jgIBgk/23AawD+f
-	u7mqYXeJyxoNzkALeRwSnOcxlAYrFYAsOT8b47sJaJP+dnH+guh1XgpIQP424shxehOAd0KVIkTmo
-	J9O3Ph5mRHV/mWVgqGjiFwX88FtNsDI8EP0wZrnTcvTIWnLHqdvgwz6WCcvkAd3/ymLPH290UUtkR
-	qkHwPdmRUMtBce1koRz/M3RdAtLTeRD7ufHFUqGaDjN4khSpw1oWZaqPYXh3E5k6XdwEJN63swmKk
-	Fmn3DTdQ==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oIw+cOF+jRX3nkh6neZHJ3ZXms9UEu4kIGlmRAilHSI=; b=c1t5y+LhUMVDEeFyKtnn9YbRbn
+	f7AeLMj+R5LwiHh1fqfFJsJ3R0Rl1AHY2lgm8/gNw9eJVV5G5S6VvbzkJvwPChVT+aFcPhYX0UDpQ
+	5W2fh4AxeS/i4YGT3T/aA54SPCJ5zfmuCWwMYTKe7zRsdvd6R2TSR44dIYsrywV5UbhNrOVjUYRdo
+	nIOO230Iz5WBmAL4YWTaemBTas9Ba2WxAQZW6Ocqvw7tLa3sn6mbEBYKKPLvgOKoXls5phaykkwV+
+	84dRuFV6r5ZlLiznNb2P2LYbCRYaaxL5gpR581yuXB62Cwly87AKTO9d8MLNz7pEAZnyibOL7xWBo
+	gDbUgtbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woK3l-00000002chK-1OhN;
-	Mon, 27 Jul 2026 12:03:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woK3Z-00000002cdk-0CYI
+	id 1woK74-00000002cyZ-3HzP;
+	Mon, 27 Jul 2026 12:07:18 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woK72-00000002cyD-2PbG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 12:03:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79F881596;
-	Mon, 27 Jul 2026 05:03:34 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A54103F86F;
-	Mon, 27 Jul 2026 05:03:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785153818; bh=pPbk3JrquoOrp7mUJ2q1dVdxnnLQvl3I6n/QjgbKBBQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S3yFmYsSSanHZBACdAo989g4AKDAdOVvp1VurOoMv5tZ4XejtSK8FL3yqk9I/Hnn+
-	 G5srGczrKQtrW3KwqJQCsNYoYOtug5ZXf00hSVpPizIpQMYJOQczH31jZN+bCs5RqJ
-	 cdAvC+dH2xnJsxpR3F3iJ1pOhLmoIYJR7CLM1UW4=
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	catalin.marinas@arm.com,
-	joro@8bytes.org
-Cc: jpb@kernel.org,
-	jgg@nvidia.com,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 2/2] iommu/arm-smmu-v3: Add HAFT support for SVA
-Date: Mon, 27 Jul 2026 13:03:29 +0100
-Message-ID: <829b1d7eee64869d5c4231e80747367acb41b82b.1785153415.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.54.0.dirty
-In-Reply-To: <cover.1785153415.git.robin.murphy@arm.com>
-References: <cover.1785153415.git.robin.murphy@arm.com>
+	Mon, 27 Jul 2026 12:07:17 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-84e84a6c4bfso404926b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 05:07:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785154035; x=1785758835; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oIw+cOF+jRX3nkh6neZHJ3ZXms9UEu4kIGlmRAilHSI=;
+        b=gn2bLE8cg5emocEa0IVWEnZfcPs1MT1cxUq7T+Y/5Qs80yEcAubyJjQLv+vOG/pn22
+         YFQGvMxGoB0qqVy5i+Emu24IHWKCgK0Pvef1kTLm2zxhFVfU6sDh7epYzCwfRSzULTQx
+         cNnzZWDABHkcE4SuZhuBgiMlvVLXFuz5PYgsaF0D7K0B7LMjgbrjq72HMGJLIRQGyLHr
+         nLxWj8QV1eP/845nQUT3hHXmlc2D81RUA+GeUXnyiQFTOOAymOn1U/6pp2IVbtLWzW5H
+         G6wqsiWnpRSQ1I9HzCBraOKd2fyJzttU7zKmx3m4mke5zzhqTJ6927HdP2DOHNyhW60O
+         vcbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785154035; x=1785758835;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oIw+cOF+jRX3nkh6neZHJ3ZXms9UEu4kIGlmRAilHSI=;
+        b=rJIGOVt90hsw+BVAFnYNOBWqQcQYZ5YaVHMIdQcPP50R/wKEsQX3rPrwa6n6C0DG+7
+         zvI+9Zf2F9YxKSNvtSVv+uz9M/cxPw7RYhWuJf0yhzJTC9jwilqK/04VL1fPaDZ4F2/T
+         DivKQYANyZfNi+71tFWVL2CC5MACrbNsPDIx6K6+7ko3yJ+QJJ3SxleA0wFLnMZOjJXH
+         bOqPsVxp08QHLmgZBItXVi9BXUI7PmklhyQEu7eWSD8FiwADoFXTc25L8iqLked9vARQ
+         guM8S3lty36RGt1s3X1FDhubW9GtPHi8KsK+j5TtGP16GnK527vBdiJ1ELdvYsSMKbtx
+         Xdnw==
+X-Forwarded-Encrypted: i=1; AHgh+RqtkXhHLAxYcTH1asnz4OySyVGKGsX/equGbg7gnzbvDcJ7K891FT21ZfFPR+PSuxNT7MDHJjsljGYFncze8c/W@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyTKY/BktcsqHhxkD2/DQtdrv5MvloRYRHpOSupZJWG27Ey3sy
+	RQrbzjY+1i1xZOxkAtmMTkQf/O7/IaS/lCs0a+sSKAxLgsm7zV80H16/
+X-Gm-Gg: AR+sD122qVGTNn4Z2CGzSmSdF4ia20XniALPVPYjoxlG5wivP9g93wADz18wbzqbe7u
+	pZin8RwG+NgREsE7t4j7BFotd5erUVBBOax4a6TSGKMdMnAbEemHd0C1/FHo+i/BZ1spUASXvht
+	D3rHFLCM7/zpskbXG/4iao1z989UpCAE4kVVe+aYtaWizeA88b0+Pdlp0h1+tVoRFhQncCQ2YKk
+	ecfgjgvPzSqDlukQ0R9H5pD+/3Wj1zDvmVZYjUgvg31eK2+xb8hvBfKIrAnZHU6CQkYBdYyRdV9
+	8O6eada7vTEqUDcYKDUFIQgMvUpAMqwdPkLLEDD7AZuiZf1G5IBUX90kTq4o6PXMtBAj9kVOrVD
+	Jkf8FR8G6Hj9ntw3gtQf5t1FV9mhwER0o+WJOIPSgpsGAnCebJNXQnbCre1HcGE2OeWLYKHx8zs
+	xn
+X-Received: by 2002:a05:6a00:928f:b0:842:446a:4cb5 with SMTP id d2e1a72fcca58-84e4df6f4dbmr7705050b3a.0.1785154035317;
+        Mon, 27 Jul 2026 05:07:15 -0700 (PDT)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e533d1637sm2935168b3a.33.2026.07.27.05.07.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 05:07:14 -0700 (PDT)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: andrew+netdev@lunn.ch,
+	rmk+kernel@armlinux.org.uk,
+	alexandre.torgue@foss.st.com
+Cc: davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	hkallweit1@gmail.com,
+	mcoquelin.stm32@gmail.com,
+	maxime.chevallier@bootlin.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v2] net: phylink: add phylink_pcs_loopback() method for PCS loopback support
+Date: Mon, 27 Jul 2026 20:07:04 +0800
+Message-Id: <20260727120704.2319467-1-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_050341_191329_A78A90E4 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20260727_050716_626030_DB38777B 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,133 +109,251 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since table access flags cannot be software-managed, if process
-pagetables are using HAFT then SVA must require the SMMU to support and
-enable it too, otherwise page aging is liable to get out of whack.
+Some Ethernet MAC drivers (such as stmmac) need to perform PCS-level
+loopback for selftest purposes when no external PHY is present. Add a
+new phylink_pcs_loopback() method that allows MAC drivers to request
+PCS loopback mode through the phylink framework.
 
-For unbinding, we can't disable HAFT atomically with HA as might be
-desired, but luckily we can get away with just not disabling HA either.
+Implement the pcs_loopback callback in the stmmac integrated PCS
+using the GMAC_AN_CTRL_ELE register bit. Add a helper function
+stmmac_selftest_get_pcs() in stmmac selftests to unify PCS lookup
+across glue driver PCS and integrated PCS. Update the selftest
+enable/disable paths to use the new helper.
 
-Cc: <stable@vger.kernel.org>
-Fixes: 62df5870ebf7 ("arm64: Enable ARCH_HAS_NONLEAF_PMD_YOUNG")
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
 ---
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  | 17 +++++++
+ .../stmicro/stmmac/stmmac_selftests.c         | 51 ++++++++++++++++---
+ drivers/net/phy/phylink.c                     | 19 +++++++
+ include/linux/phylink.h                       | 16 ++++++
+ 4 files changed, 95 insertions(+), 8 deletions(-)
 
-v3: Make all HTTU settings unconditional WRT mm.
+v2:
+  - Implement pcs_loopback callback in stmmac integrated PCS using
+    GMAC_AN_CTRL_ELE register bit.
+  - Add stmmac_selftest_get_pcs() helper to unify PCS lookup across glue
+    driver PCS and integrated PCS.
+  - Add NULL check in phylink_pcs_loopback() wrapper.
+v1: https://lore.kernel.org/netdev/20260724085224.3321663-1-zxyan0222@gmail.com/
 
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   | 24 +++++++++++--------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  9 ++++++-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  3 +++
- 3 files changed, 25 insertions(+), 11 deletions(-)
+Note on loopback direction:
+The pcs_loopback callback uses a simple enable/disable boolean, matching
+the existing phy_loopback() API. Direction is not needed at this level:
+selftest loopback is always host-side (TX looped back to RX). The
+future ethtool user-space loopback API can handle direction selection
+at a higher layer.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-index 1ed8a6f29dc4..4cd60d3c450a 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-@@ -92,16 +92,6 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
- 
- 		target->data[1] = cpu_to_le64(virt_to_phys(mm->pgd) &
- 					      CTXDESC_CD_1_TTB0_MASK);
--
--		/*
--		 * Enable Hardware Access and Dirty updates (DBM) if supported.
--		 * This is safe to enable by default, as PTE_WRITE and PTE_DBM
--		 * share the same bit.
--		 */
--		if (master->smmu->features & ARM_SMMU_FEAT_HA)
--			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
--		if (master->smmu->features & ARM_SMMU_FEAT_HD)
--			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
- 	} else {
- 		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_EPD0);
- 
-@@ -114,6 +104,17 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
- 			target->data[0] &=
- 				cpu_to_le64(~(CTXDESC_CD_0_S | CTXDESC_CD_0_R));
+Note on phylink_set_loopback() vs phylink_pcs_loopback():
+This patch follows the same pattern as phy_loopback() - a direct
+callback on the PCS object. Keeping the API minimal avoids introducing
+a new phylink-level loopback abstraction with location enumeration
+before Björn's ethtool loopback series lands upstream. Once that
+series is merged, phylink_pcs_loopback() can serve as a building block
+for a higher-level phylink_set_loopback() if needed.
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+index df37af5ab837..90a21a2f7e87 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+@@ -168,6 +168,22 @@ static void dwmac_integrated_pcs_an_restart(struct phylink_pcs *pcs)
  	}
-+	/*
-+	 * Enable Hardware Access and Dirty updates (DBM) if supported. This is
-+	 * safe to enable by default, as PTE_WRITE and PTE_DBM share the same bit,
-+	 * while the EPD0 config can't get as far as fetching any PTEs anyway.
-+	 */
-+	if (master->smmu->features & ARM_SMMU_FEAT_HA)
-+		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
-+	if (master->smmu->features & ARM_SMMU_FEAT_HD)
-+		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
-+	if (master->smmu->features & ARM_SMMU_FEAT_HAFT && system_supports_haft())
-+		target->data[1] |= cpu_to_le64(CTXDESC_CD_1_HAFT);
+ }
  
- 	/*
- 	 * MAIR value is pretty much constant and global, so we can just get it
-@@ -211,6 +212,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
- 	if (system_supports_bbml2_noabort())
- 		feat_mask |= ARM_SMMU_FEAT_BBML2;
- 
-+	if (system_supports_haft())
-+		feat_mask |= ARM_SMMU_FEAT_HAFT;
++static int dwmac_integrated_pcs_loopback(struct phylink_pcs *pcs, bool enable)
++{
++	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
++	void __iomem *an_control = spcs->base + GMAC_AN_CTRL(0);
++	u32 ctrl;
 +
- 	if ((smmu->features & feat_mask) != feat_mask)
- 		return false;
++	ctrl = readl(an_control);
++	if (enable)
++		ctrl |= GMAC_AN_CTRL_ELE;
++	else
++		ctrl &= ~GMAC_AN_CTRL_ELE;
++	writel(ctrl, an_control);
++
++	return 0;
++}
++
+ static const struct phylink_pcs_ops dwmac_integrated_pcs_ops = {
+ 	.pcs_inband_caps = dwmac_integrated_pcs_inband_caps,
+ 	.pcs_enable = dwmac_integrated_pcs_enable,
+@@ -175,6 +191,7 @@ static const struct phylink_pcs_ops dwmac_integrated_pcs_ops = {
+ 	.pcs_get_state = dwmac_integrated_pcs_get_state,
+ 	.pcs_config = dwmac_integrated_pcs_config,
+ 	.pcs_an_restart = dwmac_integrated_pcs_an_restart,
++	.pcs_loopback = dwmac_integrated_pcs_loopback,
+ };
  
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index a10affb483a4..14e5b3f08962 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4921,10 +4921,14 @@ static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
+ void stmmac_integrated_pcs_irq(struct stmmac_priv *priv, u32 status,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index 29e824bd90ca..77a457b2fa5c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -19,6 +19,7 @@
+ #include <net/udp.h>
+ #include <net/tc_act/tc_gact.h>
+ #include "stmmac.h"
++#include "stmmac_pcs.h"
  
- static void arm_smmu_get_httu(struct arm_smmu_device *smmu, u32 reg)
+ struct stmmachdr {
+ 	__be32 version;
+@@ -374,23 +375,51 @@ static int stmmac_test_mac_loopback(struct stmmac_priv *priv)
+ 	return __stmmac_test_loopback(priv, &attr);
+ }
+ 
++static struct phylink_pcs *stmmac_selftest_get_pcs(struct stmmac_priv *priv)
++{
++	/* Try glue driver's PCS first, then the integrated PCS. */
++	if (priv->hw->phylink_pcs)
++		return priv->hw->phylink_pcs;
++
++	if (priv->integrated_pcs)
++		return &priv->integrated_pcs->pcs;
++
++	return NULL;
++}
++
+ static int stmmac_test_phy_loopback(struct stmmac_priv *priv)
  {
--	u32 fw_features = smmu->features & (ARM_SMMU_FEAT_HA | ARM_SMMU_FEAT_HD);
-+	u32 fw_features = smmu->features & (ARM_SMMU_FEAT_HA | ARM_SMMU_FEAT_HD |
-+					    ARM_SMMU_FEAT_HAFT);
- 	u32 hw_features = 0;
+ 	struct stmmac_packet_attrs attr = { };
++	struct phylink_pcs *pcs;
+ 	int ret;
  
- 	switch (FIELD_GET(IDR0_HTTU, reg)) {
-+	case IDR0_HTTU_ACCESS_DIRTY_HAFT:
-+		hw_features |= ARM_SMMU_FEAT_HAFT;
-+		fallthrough;
- 	case IDR0_HTTU_ACCESS_DIRTY:
- 		hw_features |= ARM_SMMU_FEAT_HD;
- 		fallthrough;
-@@ -5256,6 +5260,9 @@ static int arm_smmu_device_acpi_probe(struct platform_device *pdev,
- 		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
+-	if (!priv->dev->phydev)
+-		return -EOPNOTSUPP;
++	if (priv->dev->phydev) {
++		ret = phy_loopback(priv->dev->phydev, true, 0);
++		if (ret)
++			return ret;
  
- 	switch (FIELD_GET(ACPI_IORT_SMMU_V3_HTTU_OVERRIDE, iort_smmu->flags)) {
-+	case IDR0_HTTU_ACCESS_DIRTY_HAFT:
-+		smmu->features |= ARM_SMMU_FEAT_HAFT;
-+		fallthrough;
- 	case IDR0_HTTU_ACCESS_DIRTY:
- 		smmu->features |= ARM_SMMU_FEAT_HD;
- 		fallthrough;
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index c909c9a88538..61a7df5afb99 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -40,6 +40,7 @@ struct arm_vsmmu;
- #define IDR0_HTTU			GENMASK(7, 6)
- #define IDR0_HTTU_ACCESS		1
- #define IDR0_HTTU_ACCESS_DIRTY		2
-+#define IDR0_HTTU_ACCESS_DIRTY_HAFT	3
- #define IDR0_COHACC			(1 << 4)
- #define IDR0_TTF			GENMASK(3, 2)
- #define IDR0_TTF_AARCH64		2
-@@ -369,6 +370,7 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
- #define CTXDESC_CD_0_ASET		(1UL << 47)
- #define CTXDESC_CD_0_ASID		GENMASK_ULL(63, 48)
+-	ret = phy_loopback(priv->dev->phydev, true, 0);
+-	if (ret)
++		attr.dst = priv->dev->dev_addr;
++		ret = __stmmac_test_loopback(priv, &attr);
++
++		phy_loopback(priv->dev->phydev, false, 0);
+ 		return ret;
++	}
  
-+#define CTXDESC_CD_1_HAFT		(1UL << 3)
- #define CTXDESC_CD_1_TTB0_MASK		GENMASK_ULL(51, 4)
+-	attr.dst = priv->dev->dev_addr;
+-	ret = __stmmac_test_loopback(priv, &attr);
++	/* Use PCS loopback for interfaces without an external PHY. */
++	pcs = stmmac_selftest_get_pcs(priv);
++	if (pcs) {
++		ret = phylink_pcs_loopback(pcs, true);
++		if (ret)
++			return ret;
  
- /*
-@@ -921,6 +923,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_FEAT_HD		(1 << 22)
- #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
- #define ARM_SMMU_FEAT_BBML2		(1 << 24)
-+#define ARM_SMMU_FEAT_HAFT		(1 << 25)
- 	u32				features;
+-	phy_loopback(priv->dev->phydev, false, 0);
+-	return ret;
++		attr.dst = priv->dev->dev_addr;
++		ret = __stmmac_test_loopback(priv, &attr);
++
++		phylink_pcs_loopback(pcs, false);
++		return ret;
++	}
++
++	return -EOPNOTSUPP;
+ }
  
- #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
+ static int stmmac_test_mmc(struct stmmac_priv *priv)
+@@ -1986,6 +2015,9 @@ void stmmac_selftest_run(struct net_device *dev,
+ 			ret = -EOPNOTSUPP;
+ 			if (dev->phydev)
+ 				ret = phy_loopback(dev->phydev, true, 0);
++			else
++				ret = phylink_pcs_loopback(stmmac_selftest_get_pcs(priv),
++							   true);
+ 			if (!ret)
+ 				break;
+ 			fallthrough;
+@@ -2019,6 +2051,9 @@ void stmmac_selftest_run(struct net_device *dev,
+ 			ret = -EOPNOTSUPP;
+ 			if (dev->phydev)
+ 				ret = phy_loopback(dev->phydev, false, 0);
++			else
++				ret = phylink_pcs_loopback(stmmac_selftest_get_pcs(priv),
++							   false);
+ 			if (!ret)
+ 				break;
+ 			fallthrough;
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 59dfe35afa54..69242caffaef 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -997,6 +997,25 @@ int phylink_pcs_pre_init(struct phylink *pl, struct phylink_pcs *pcs)
+ }
+ EXPORT_SYMBOL_GPL(phylink_pcs_pre_init);
+ 
++/**
++ * phylink_pcs_loopback() - Enable or disable loopback at the PCS
++ * @pcs: a pointer to a &struct phylink_pcs.
++ * @enable: true to enable loopback, false to disable
++ *
++ * Enable or disable loopback mode at the PCS level. This is used by MAC
++ * drivers for selftest purposes when no external PHY is present.
++ *
++ * Returns 0 on success, negative error code on failure.
++ */
++int phylink_pcs_loopback(struct phylink_pcs *pcs, bool enable)
++{
++	if (pcs && pcs->ops->pcs_loopback)
++		return pcs->ops->pcs_loopback(pcs, enable);
++
++	return -EOPNOTSUPP;
++}
++EXPORT_SYMBOL_GPL(phylink_pcs_loopback);
++
+ static void phylink_mac_config(struct phylink *pl,
+ 			       const struct phylink_link_state *state)
+ {
+diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+index 2bc0db3d52ac..66c7016d4acd 100644
+--- a/include/linux/phylink.h
++++ b/include/linux/phylink.h
+@@ -518,6 +518,7 @@ struct phylink_pcs {
+  *		    the MAC.
+  * @pcs_pre_init: configure PCS components necessary for MAC hardware
+  *                initialization e.g. RX clock for stmmac.
++ * @pcs_loopback: enable/disable loopback mode at the PCS.
+  */
+ struct phylink_pcs_ops {
+ 	int (*pcs_validate)(struct phylink_pcs *pcs, unsigned long *supported,
+@@ -542,6 +543,7 @@ struct phylink_pcs_ops {
+ 	void (*pcs_disable_eee)(struct phylink_pcs *pcs);
+ 	void (*pcs_enable_eee)(struct phylink_pcs *pcs);
+ 	int (*pcs_pre_init)(struct phylink_pcs *pcs);
++	int (*pcs_loopback)(struct phylink_pcs *pcs, bool enable);
+ };
+ 
+ #if 0 /* For kernel-doc purposes only. */
+@@ -717,8 +719,22 @@ void pcs_enable_eee(struct phylink_pcs *pcs);
+  */
+ int pcs_pre_init(struct phylink_pcs *pcs);
+ 
++/**
++ * pcs_loopback() - Enable or disable loopback at the PCS
++ * @pcs: a pointer to a &struct phylink_pcs.
++ * @enable: true to enable loopback, false to disable
++ *
++ * Enable or disable loopback mode at the PCS level. This is used by MAC
++ * drivers for selftest purposes when no external PHY is present.
++ *
++ * Returns 0 on success, or a negative error code on failure.
++ */
++int pcs_loopback(struct phylink_pcs *pcs, bool enable);
++
+ #endif
+ 
++int phylink_pcs_loopback(struct phylink_pcs *pcs, bool enable);
++
+ struct phylink *phylink_create(struct phylink_config *,
+ 			       const struct fwnode_handle *,
+ 			       phy_interface_t,
+
+base-commit: 1df10cef2d1e7f9f2fb7eddb67fc70d3abf101f9
 -- 
-2.54.0.dirty
+2.34.1
 
 
