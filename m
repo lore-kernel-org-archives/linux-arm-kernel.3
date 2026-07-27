@@ -4,84 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D704AC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4507C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jQVuTn532BqjpTrDnFAQRKU9WCgFqRlZl4YckJ5oZK8=; b=qxXCKFCSS+v2+ynvbrDaE6Maky
-	yId36iT2J5qTWKrZJWFyzxZvW8euBd1vI2tUgwr14ypZwUmLlZBkShhUUHWZChy3LNN+BPetvgXmh
-	yDwDaPY2iKOBd3PT4pCRm+2uToiRI5fDvJR4E1LivwZjrSR5zXjyeluLQyg3NN/RNp+eU6zpwbYMy
-	b96Pt/Km3niXt5VX1uK3EORv8LXJz96GffYrY+nOsS3LaZlzmD1Rd2DPLYe8SrLS9Ff10vAZVXZVQ
-	2HdercM5DPZYdL/DLi3rtX81HlT8fpC47/Nph+H+RaL7zOhKnhtn+1RiyoDpW/ddTIbxEj/nx96P/
-	LO5CBi8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=; b=Hf27Ptv+rwxbXsy7d008L6ovUZ
+	E5Mw93HdOBr6qrjFuHn7/AHe1YxibhP63mrZRizj62jSCP+zc/BmkGdMz7OzgvNVKwTz9iOAwSySv
+	Ye1hq/EigSLEV4dNQznfUufVRUZybXGxPjL75dsAywBkDyVOuXBIBAUkcXzUTtZxkRA7Cq2JQ0/U2
+	iruQ+SzbWWQsSJ2BREQxe6qE5eNWtS/Ab3Jm/GyfCnQmB8XIAyIOXVfosbnEu0BgvfiJ2iLpDXL7S
+	yXezT1OZEvdu4pcnKEyjsqASq+jwkh+3DWUW6cn+kSJyu5eZk0FOlV3bxRmhKSG5adznfsc7qbUVz
+	Ospnto6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHM4-00000002IL9-3VUQ;
-	Mon, 27 Jul 2026 09:10:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1woHQW-00000002IhC-3JX2;
+	Mon, 27 Jul 2026 09:15:12 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHM3-00000002IKx-2V4I;
-	Mon, 27 Jul 2026 09:10:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=jQVuTn532BqjpTrDnFAQRKU9WCgFqRlZl4YckJ5oZK8=; b=Dw5g0y4LTO5kakunbJPxd6OVqA
-	TsqS+RmdQmEOb2iKADZv6dx+0OBVh0NIdNXRE+joU4dU+nE5MhMKCVEWBv8AI9fjF2fQVUKzVpzVs
-	8CGhwa1gA8lCthsrqUAmxZ1ika4lnmGwEvfkNweALIkKRmxFrqov57k2khPdW+JkwVKLon9xCBwZn
-	5AGGQ7EBiNk94b5gcvTervmy4Wgtq12hbvr/g4PYOhqMSgopFjCNcqm6al/MqUajZHQrX5U+zQbVe
-	XjxCzeuBOFJ1E5GFbybLLDGVkx8aNqEOw8AHAX4hqi6NLAWva9m94MSitLohFq7rs0M01BdqXNw/C
-	v2/bR4qA==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1woHLy-00000003wSJ-1gYz;
-	Mon, 27 Jul 2026 09:10:32 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66R99XML02986159, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1785143373; bh=jQVuTn532BqjpTrDnFAQRKU9WCgFqRlZl4YckJ5oZK8=;
-	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	b=YbZtaMzsnaOn9Pdzjxk305YQUGe1fDBlfnzviCILeO9i67V7dsoeyKwktqlqymYWv
-	 p+NViYqhdmKkWVtUTvry46TTS15lQLS/1Y3rkjBA6fpRuy5KgBI0OCJZIfkySkFNq7
-	 xTe+g2PpHiTU3Wa0FFmCnOGUSB0wKXkfpGV4Rw07m73L1R7Z/DeDokEvsRDo8HuZEP
-	 uGcG0mGOq+myGymXS2JJO3qxg4QBq70j34FZXGELJOzKqy8W39N4S7B7q8RIembBh4
-	 rfMJoQbSjRL20rg1Y8YSOSdwa9Ll7xHdni/BVTF8XtOzuQX9p3CTAldHDJ6CHBKneL
-	 87PYHJesuC4Wg==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66R99XML02986159
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 27 Jul 2026 17:09:33 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 27 Jul 2026 17:09:33 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 27 Jul 2026 17:09:33 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 27 Jul 2026 17:09:33 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <soc@kernel.org>
-CC: <james.tai@realtek.com>, <eleanor.lin@realtek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>
-Subject: [GIT PULL 1/1] arm64: realtek: Device tree updates for v7.3
-Date: Mon, 27 Jul 2026 17:09:33 +0800
-Message-ID: <20260727090933.908156-1-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
+	id 1woHQT-00000002IgB-3Q9U
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 09:15:11 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 214317DA77;
+	Mon, 27 Jul 2026 09:14:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1785143702; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
+	b=XH4COWUi/uVSTTItRb/nUmfm8hm6XLb+2ccrA+RSH9hDCrCENsMx7DdG1OWFISHT6yiJar
+	na1H2WcWdnbTJhAmma6fHG2fZdoBEv0sNydB8Z028wX4I5FNCCSh+4CvoK0zBQnxUDz5sv
+	fK0AfBjzu45udqdKvJg4xwhvU+eyHcE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1785143702;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
+	b=bdm02+CDJ05kV++dhJds+LNeKzhLGoPjHgz72E0kyd3TFAyzK2ZG2IlQFCaDm8PiZrpNT2
+	rCtsIQeQl1/lYUDg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=gT14ov0W;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=59Y51aLI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1785143698; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
+	b=gT14ov0WCez/rIUxEy8m1tADx6vn9TvWYnVIlGDTGvvTkjqgKfNlsTpWeYmj3zns/HRrah
+	yetFtSmLwPTMVM2yAdcVmh9IB0etgC+Ko7dJ0vjckI/njniugxrFqPUNdwhmH9agXU+RvH
+	Vv24fXObUNvrvroqv5eY8mBjjk6l63M=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1785143698;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Nofef/k2ghi2COUtOHG8Fiu5zrxha6Onv0LZX52ftP4=;
+	b=59Y51aLI6YcXix+Z2oMApRzqEq+GdCAi5lSa72SMl9lcyKfcsYff4UnevNIIfGg1Xje3eG
+	/vP8AY5Z6JDlUaAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0A492779B9;
+	Mon, 27 Jul 2026 09:14:55 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id Gy7HOo8hZ2r9DwAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Mon, 27 Jul 2026 09:14:55 +0000
+Date: Mon, 27 Jul 2026 10:14:54 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: Helge Deller <deller@kernel.org>
+Cc: John David Anglin <dave.anglin@bell.net>, 
+	Usama Arif <usama.arif@linux.dev>, Helge Deller <deller@gmx.de>, 
+	Matthew Wilcox <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jan Kara <jack@suse.cz>, 
+	Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Nico Pache <npache@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 3/5] mm/parisc: constify ptep_get() argument
+Message-ID: <amchbBH5zF7Rq5LT@pedro-suse>
+References: <20260724102017.141532-1-pfalcato@suse.de>
+ <20260724102017.141532-4-pfalcato@suse.de>
+ <0fd713a8-e4ab-4c07-b36e-79dd138b4a86@linux.dev>
+ <amNzLXuwflIZFKtI@casper.infradead.org>
+ <253f7ac0-205b-42f1-9fb5-d19eceb581b6@linux.dev>
+ <amOEUZlp1BxYh6_t@pedro-suse>
+ <fd239383-dcbe-4daf-b337-32facef07076@linux.dev>
+ <3e9dece8-4e86-4ce5-bd74-b3ec305f3003@gmx.de>
+ <4606e13f-6827-45d0-b3b8-6bc26358f7ae@bell.net>
+ <amT0j_bBT3CCxPcg@p100>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+In-Reply-To: <amT0j_bBT3CCxPcg@p100>
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 214317DA77
+X-Spamd-Result: default: False [-2.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[34];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[bell.net,gmx.de];
+	FREEMAIL_CC(0.00)[bell.net,linux.dev,gmx.de,infradead.org,linux-foundation.org,kernel.org,arm.com,hansenpartnership.com,linux.ibm.com,ellerman.id.au,google.com,suse.com,suse.cz,nvidia.com,linux.alibaba.com,redhat.com,lists.infradead.org,vger.kernel.org,lists.ozlabs.org,kvack.org];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	R_RATELIMIT(0.00)[to_ip_from(RL764437jfm1qe6abtk9nwyx8m)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[gmx.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,bell.net:email,linux.dev:email]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_101030_814347_1232A865 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_021510_015664_F9FBE98A 
+X-CRM114-Status: GOOD (  41.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +166,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+On Sat, Jul 25, 2026 at 07:38:23PM +0200, Helge Deller wrote:
+> * John David Anglin <dave.anglin@bell.net>:
+> > On 2026-07-25 12:27 p.m., Helge Deller wrote:
+> > > On 7/24/26 17:48, Usama Arif wrote:
+> > >>
+> > >>
+> > >> On 24/07/2026 16:32, Pedro Falcato wrote:
+> > >>> On Fri, Jul 24, 2026 at 04:03:44PM +0100, Usama Arif wrote:
+> > >>>>
+> > >>>>
+> > >>>> On 24/07/2026 15:14, Matthew Wilcox wrote:
+> > >>>>> On Fri, Jul 24, 2026 at 02:36:59PM +0100, Usama Arif wrote:
+> > >>>>>>
+> > >>>>>>
+> > >>>>>> On 24/07/2026 11:20, Pedro Falcato wrote:
+> > >>>>>>> ptep_get() does not need write access to the PTE.
+> > >>>>>>>
+> > >>>>>>> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+> > >>>>>>> ---
+> > >>>>>>>   arch/parisc/include/asm/pgtable.h | 2 +-
+> > >>>>>>>   1 file changed, 1 insertion(+), 1 deletion(-)
+> > >>>>>>>
+> > >>>>>> hmm I think you might break build bisectibility if
+> > >>>>>> you separate out the patches, you should squash patch 3 and 4,
+> > >>>>>> with patch 1.
+> > >>>>>
+> > >>>>> I don't see how this breaks bisectability.  Can you elaborate on what
+> > >>>>> you think would break?
+> > >>>>
+> > >>>> Patch 1 does:
+> > >>>>
+> > >>>> -static inline pte_t ptep_get_lockless(pte_t *ptep)
+> > >>>> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
+> > >>>>   {
+> > >>>>       return ptep_get(ptep);
+> > >>>>   }
+> > >>>>
+> > >>>>
+> > >>>> ptep_get() takes a non-const arg till patch 3 for example for parsic.
+> > >>>> I don't think you can pass a const variable to non const function arg?
+> > >>>>
+> > >>>> So parsic won't compile in patch 1 and 2, powerprc wont compile
+> > >>>> for patches 1, 2 and 3..
+> > >>>
+> > >>> Aha, yes, nice catch! I'll have to rethink that. Maybe squashing the patches
+> > >>> would be the cleanest way forward.
+> > >>>
+> > >>
+> > >> Yes, squashing is the simplest way forward.
+> > >>
+> > >>> FWIW, the vast majority of architectures aren't doing funny things on
+> > >>> ptep_get(). E.g PA-RISC, loongarch only define these so they can use it in
+> > >>> their own asm/pgtable.h. I'd really like to delete these but I can't tell
+> > >>> if they are *actually* required.
+> > >>>
+> > >>
+> > >> Ah maybe there is something in git history on why it was needed?
+> > >>
+> > >> If not, hopefully someone from the arch lists could clarify..
+> > > I tried to remove ptep_get() and ptep_test_and_clear_young() from
+> > > arch/parisc/include/asm/pgtable.h, but this then triggers compile errors:
+> > > 
+> > >  CC      arch/parisc/kernel/asm-offsets.s
+> > > In file included from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/mm.h:31,
+> > >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pid_namespace.h:7,
+> > >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/ptrace.h:10,
+> > >                  from /home/cvs/parisc/git-kernel/linus-linux-2.6/arch/parisc/kernel/asm-offsets.c:21:
+> > > /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h: In function ‘clear_young_dirty_ptes’:
+> > > /home/cvs/parisc/git-kernel/linus-linux-2.6/include/linux/pgtable.h:683:25: error: implicit declaration of function ‘ptep_test_and_clear_young’;
+> > > did you mean ‘pmdp_test_and_clear_young’? [-Wimplicit-function-declaration]
+> > >   683 |                         ptep_test_and_clear_young(vma, addr, ptep);
+> > >       |                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+> > >       |                         pmdp_test_and_clear_young
+> > > 
+> > > So, I think the answer is, that the local copy of ptep_get() is used in the parisc implementation of
+> > > ptep_test_and_clear_young() function.
+> > > 
+> > > Switching to the default include/linux/pgtable.h seems not easy doable....
+> > 
+> > Did you remove define for __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG in parisc version of pgtable.h?
+> 
+> Indeed, I missed to remove that.
+> 
+> Usama, if you want you can add the patch below to your patch set, thus
+> simplifying your series?
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+It's actually my series but thanks Helge I'll pick it up!
 
-are available in the Git repository at:
+> 
+> Helge
+> 
+> ------
+> 
+> From: Helge Deller <deller@gmx.de>
+> Date: Sat, 25 Jul 2026 19:19:55 +0200
+> Subject: [PATCH] parisc: Drop own implementations for ptep_get() and
+>  ptep_test_and_clear_young()
+> 
+> Switch to the generic implementations, which are identical.
+> 
+> Suggested-by: Usama Arif <usama.arif@linux.dev>
+> Suggested-by: John David Anglin <dave.anglin@bell.net>
+> Signed-off-by: Helge Deller <deller@gmx.de>
+> 
+> diff --git a/arch/parisc/include/asm/pgtable.h b/arch/parisc/include/asm/pgtable.h
+> index 467b8547ac8b..d92dee9fef3f 100644
+> --- a/arch/parisc/include/asm/pgtable.h
+> +++ b/arch/parisc/include/asm/pgtable.h
+> @@ -432,25 +432,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>  	return pte;
+>  }
+>  
+> -static inline pte_t ptep_get(pte_t *ptep)
+> -{
+> -	return READ_ONCE(*ptep);
+> -}
+> -#define ptep_get ptep_get
+> -
+> -static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+> -		unsigned long addr, pte_t *ptep)
+> -{
+> -	pte_t pte;
+> -
+> -	pte = ptep_get(ptep);
+> -	if (!pte_young(pte)) {
+> -		return false;
+> -	}
+> -	set_pte_at(vma->vm_mm, addr, ptep, pte_mkold(pte));
+> -	return true;
+> -}
+> -
+>  bool ptep_clear_flush_young(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep);
+>  pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep);
+>  
+> @@ -491,7 +472,6 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr,
+>  #define HAVE_ARCH_UNMAPPED_AREA
+>  #define HAVE_ARCH_UNMAPPED_AREA_TOPDOWN
+>  
+> -#define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+>  #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
+>  #define __HAVE_ARCH_PTEP_CLEAR_FLUSH
+>  #define __HAVE_ARCH_PTEP_SET_WRPROTECT
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/yu_chun/linux.git/ tags/realtek-dt-v7.3
-
-for you to fetch changes up to 3c778f0c9fa36b6b9a26bd2146df24ed4e830ba4:
-
-  arm64: dts: realtek: Add GPIO support for RTD1625 (2026-07-16 10:34:53 +0800)
-
-----------------------------------------------------------------
-arm64: realtek: Device tree updates for v7.3
-
-This pull request includes the following Realtek DT updates for
-v7.3, please pull the following:
-
-- Add GPIO node support for the RTD1625 SoC.
-- Marc adds the missing the EL2 virtual timer interrupt.
-
-----------------------------------------------------------------
-Marc Zyngier (1):
-      arm64: dts: realtek: Add EL2 virtual timer interrupt
-
-Yu-Chun Lin (1):
-      arm64: dts: realtek: Add GPIO support for RTD1625
-
- arch/arm64/boot/dts/realtek/kent.dtsi    | 41 +++++++++++++++++++++++++++++++-
- arch/arm64/boot/dts/realtek/rtd16xx.dtsi |  3 ++-
- 2 files changed, 42 insertions(+), 2 deletions(-)
+-- 
+Pedro
 
