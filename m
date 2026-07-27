@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E979C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 20:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB03EC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 20:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gXGy0SHh8jrpSx+7uq/1tK4RtoEe8AnmCidff/RRwQA=; b=2e1sxcmD+cyf5OdTZap/QqiGq8
-	o4t/fHJ1/Z2b6J/SgYi6arI+nb4djQ0TV+cWGXZ3bSj+ZHQ58iXm3WEP0qsj3S5hl5oN8EjIm5W5c
-	vN4tVCUwchqvIkicBUCe9v0WwjX1eG4Lwz6Rdzz5kD5TdnBwhnw5fmCv2Rl7iTeklfRitNh4mNrUo
-	DPDkbVdp3B/br6vBQcC9FcjUeaI+lReUTvsm/V1AdrOkP0/qYTD3siS0BwSyC8WmCiqR20gV9PdLB
-	G7po68sXyrWNkazc/BEOX7WoirT5WPu618QpfbLVv/w3kX6wfmylq4fASbfWx5RfP9sWfQdik0H/1
-	GUp9mRaQ==;
+	bh=6kb7OSZLeatZJg4qKTXz/3tlja7deBGMwFWUzjzH7tQ=; b=4UI9FzhRpvUuyhQEZcv0mZn1gw
+	mHx3gGsTS/mB/89tA/L+k19glury5dhiBj9bGox7jo87Jo2BC9n9+FhCn1byKFVwBk98E5F9+mLnZ
+	vFUfzl/r7pXQSqS39zEsNPBWzBD4J6BvCVeCkKoeH0lsmvkrBiSiRJp8hjHjLqHMdhJaJ07nB3tCS
+	q7PnBC8WhTK9x+AIjsGYOVQ0ksC/Qd9j2lZeJWJAMjzCyqW6ZvkY46VZ0o07NvBYOysZ+oCDTKufV
+	I5iFeAqQYwWPrUQ8glUpi5jVQfE6+lf27xsxPw32tSkz4kyw/YqGInm0HLWyQ4EgLaigA/DBr6QKd
+	zTEDpYfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woSCM-00000003sjF-2W3Q;
-	Mon, 27 Jul 2026 20:45:18 +0000
-Received: from out13-173.antispamcloud.com ([185.201.17.173])
+	id 1woSCZ-00000003soj-1kyg;
+	Mon, 27 Jul 2026 20:45:31 +0000
+Received: from out12-174.antispamcloud.com ([185.201.16.174])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woSCI-00000003shZ-1PSP;
-	Mon, 27 Jul 2026 20:45:17 +0000
+	id 1woSCL-00000003sht-13ok;
+	Mon, 27 Jul 2026 20:45:18 +0000
 Received: from s1041.use1.mysecurecloudhost.com ([192.250.231.249])
 	by mx198.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <dan@reactivated.net>)
-	id 1woSC0-00FDyW-1i; Mon, 27 Jul 2026 22:45:00 +0200
+	id 1woSC2-00FE1H-89; Mon, 27 Jul 2026 22:45:04 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=reactivated.net; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gXGy0SHh8jrpSx+7uq/1tK4RtoEe8AnmCidff/RRwQA=; b=xKzrLGTCjD0Wvn8T+2CSK9mmEP
-	5gbte8SftUeRnlxAxEqHb0B26+LrCi46ypwLbXHFqIeFqsadp32pbjWpGAljUAdCCDCfPIlxrkV0m
-	eyg/cpQlU1hhzyjDxvuPE045aHjivZXnIQU1LgXrRjJJoqzCkGANWLd8aN+xar40oEvURFxakr97W
-	uSHPotntrvNVOu5fnKR2HNsayjhsDn5q1XNSYUbNa6A3lPsfdkMLRhNjKxUViYdsOiC+TkRY94xw6
-	OaR2G3A+jJGvgz2jcXnjGXFESJf3VXi5vKUnJkwSUi4CvuSgnSQjpqQsvt6KQwzc7wL9KP5vjdrdE
-	M4WZHVgQ==;
+	bh=6kb7OSZLeatZJg4qKTXz/3tlja7deBGMwFWUzjzH7tQ=; b=ToJkmVUGB2fPKqtK6AEzo4XCgi
+	oxL4tnTpkckgPCyp7FPv0jup4Zuy97gi0jFSqaBpVO2bmmkD1DluQ4YJQt9PRtUhvxGAhRAQ4IqtJ
+	+j/yhF33037iBxn8Bw907b4v52XSFJSVdVMUVjyMNHmUUTFk8D6NCQv0sUzygssXIi3WUHCInH6Zi
+	bcnpFh1uwQj0jk1edlKYz4hXMQBPZMv8yYX3d/kYSjVYMrNz3IxQKzl1sfibuBO7xyxHCMGzMrgqC
+	7vLor5d5Yw0CRLCIUAL+U19T3be0CKAa1p72gplj/blTqAo22Jx92AUiGlRjpnBJk5Jlkfdi6bVFl
+	aHRMtCXg==;
 Received: from [188.251.249.2] (port=52006 helo=[192.168.1.123])
 	by s1041.use1.mysecurecloudhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.4)
 	(envelope-from <dan@reactivated.net>)
-	id 1woSBv-0000000AlhO-40wY;
-	Mon, 27 Jul 2026 20:44:51 +0000
+	id 1woSC0-0000000AlhO-1NID;
+	Mon, 27 Jul 2026 20:44:56 +0000
 From: Daniel Drake <dan@reactivated.net>
-Date: Mon, 27 Jul 2026 21:43:56 +0100
-Subject: [PATCH v2 1/5] generic_pt: allow missing sw bit in DMA_INCOHERENT
- case
+Date: Mon, 27 Jul 2026 21:43:57 +0100
+Subject: [PATCH v2 2/5] dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-bcm2712-iommu-submit-v2-1-0247b5c03de8@reactivated.net>
+Message-Id: <20260727-bcm2712-iommu-submit-v2-2-0247b5c03de8@reactivated.net>
 References: <20260727-bcm2712-iommu-submit-v2-0-0247b5c03de8@reactivated.net>
 In-Reply-To: <20260727-bcm2712-iommu-submit-v2-0-0247b5c03de8@reactivated.net>
 To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -78,36 +77,36 @@ X-Spampanel-Domain: s1041.use1.mysecurecloudhost.com
 X-Spampanel-Username: 192.250.231.249
 Authentication-Results: antispamcloud.com; auth=pass smtp.auth=192.250.231.249@s1041.use1.mysecurecloudhost.com
 X-Spampanel-Outgoing-Class: ham
-X-Spampanel-Outgoing-Evidence: Combined (0.02)
+X-Spampanel-Outgoing-Evidence: SB/global_tokens (0.00675305950777)
 X-Recommended-Action: accept
-X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuUrXUfs4B29vl3sm0928Wg7TGSVRZSTQZ6D
- d1+lfooj8iu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
- M0i5ZAms0EHrvcCaVIM9P/1xMDIkquwg7ai9+tqqGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuXz4UJeeABNWpW4GmXZonq67PwMvKALXrlW
+ plrcUrm++iu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
+ M0i5ZAms0EHrvcCaVINRCX/Ri5AcP+9Th+oaBXuDGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
  EetczWAIN4GsiK0O3K+JEByc7IobeB7itP8hgjDRserKv4bhb/pXHHNX+LCF5x5jewa7FkNWBb39
- uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKclZzoe+TZdeH39wA4E
- grA4pE2PuLHIFQdBY9qb1rRWgyz0f29FZkQs6Ir87R/YNAsKIxDIUtFmywXPGNvcLD4XAsy6ZgPN
- XtV1vaLx7+UgEWK01AxdI+KkSxKhiIoeJ0jQMvgrc1wie1AEvvcTmPTytX698+ztXsH6JaapNvQF
- 04irJjZh1zuwKVTcv9YdmjlVE03CQCv1OPOxZ3EyKTJGzDaNnaI/TSpIu7J1HoIZoPraGaqADwsr
- hpLSznzcewLJhIQpMZXNN5waPWBxruZklS+QlzUpPwM5oicrBfHSx0cq8sPOf6wGW9u/lWd24hqp
- yYmhcu01nwGh48ZvjBXmHyxxk8Sjs3o9/k8nLBnptL51csmNAdXgD5+6bU9gO3ZLn/njN5eSj526
- f3kLYY1T/P2g+PQ+l1DstpeYEVfxMxGAKIaxTMjXXNk1i3Bzs815ElLTCa2tTtJNS6kAj74zV8Jw
- 2Fxq1Vd7xIu/TP3zx09ZxKUjiSltDxNYVDOGVSYSMZzCFfNlTB1XVH7neYUsHgYpny0exHkD4v2T
- MMb8rpk5QFK0AS+w7oZEh675gBR0cXT+dF0NxOWKiLIVw46C5KEt00Sv6nHHHAoc3/Q83cLqzhpS
- 0znDaGCPRF8atS6+/IVQTbUJupnRiHmHNLRPMKbVSbsDMLsDJjzehgqGk6S9HXdEGxiktrX59Amx
- O5gvPpyylyRksDtvh9EglVwlXarBbY/5t7CstIBQE8o/YSFDpQ3A7hHzYZTDTFQbY0uqoOhT9kj8
- 8PvWZJaonRQv++DuIQUs/5JJj4C/n4CILhif+3TxP9sd7y15THR2QZzkg3RQrvacrkZ+DYAj4Ojj
- HQAEwWflr/1yylAR2QMesXOVLbMF4pTjWB0otgBwB1GjG9/7eW4VzmKFOpkivUGpcgYFRrqmiqIy
- cv2/2+nkpYsEMysPur9wmiDBurOy6iR92AkV20DuvQ+xF0HoW5AQikKYGfM1Wxpi+aM7bRAnIOLo
- KQ0J9yQ0dfrf1qMUYpmRgnAod+6ZVPr8gZAM4Wbf+qcjHi4H/kJJ2RqjS9NOIeNn/VZF/HyORicl
- 1WGsneIWpF1Xu3oZ/FZQiE2Ny7dG9R/2gMGq0KWAzmMf+ibVDnUBndNaXaq/kyxZOii4y6zwY127
- 8R9pzC31fkjBqL4nASEz1JNCESIPL2LJqBM7qaqIrXo0c6G6fvFF//i6zRUhEWyJzIkwSFAW0Pw8
- uiKeSByqtznmWyRPJzMvReGPtOJKZj6+qwdjWpxBAv2JzzLwY1278R9pzC31fkjBqL4n6ihrjW1z
- DU0jv8+sl3B5Xg==
+ uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKefuLbx+lGq0svfyhth
+ j0R6Iny++hg9dJLqN5zmWqF/oHgMZXS6X/fIHYslsKU0yPHM4JpSMI47HiFQBsGlm5AyO3cajqKP
+ N2TQucmsPqkADN9YaMSDrgb8f3EnZj8JSSVcMQtcPaBj0oM3kYoQzFFh/1fSrLRlrfqhJUG8z4R9
+ /uECIyfb59UKcPyKB7/seAhbEXLAIlQO41grCDpV7x4SG0sbLPkEPwaTR9JCgIIwUaKDJQlUrg+c
+ sO2wlDq1j4FhXBjpwUH3T5DwogMcW3n9eq+zqef+wJHXDp70tdmxlpLzlnjbD/7Y4GiVM0Vs+iZc
+ VYJfyg12CBbscT1cNN1Jsfa3HCw6gGU1+SdwTBKf9HkMLWk/C0vLNlLzxrmqyasitZFgJIlVn1LH
+ h1zXo+HQWBsS3EZt9a+xyS/dOq7TUqYyGJZd46kBXaReSYigCAhlVRgJDS0AzAOltsq3PRbZ63Kg
+ QzPNdZuTKxU6aj16VjYz3CPunnl+LI7l5fzInLuGrwLN0VeqvzLlcRxwGgEvNMtirEVgSD8PZy6W
+ zRj7WHIZl76lsW55eQV2n2lY9hpC2YtTBQO/Nu6TVwO6CV7e9KZY7AUftyem5JXm2HSubn2WKeN5
+ PBvIRkiU4E8H4e7X9sw5VBsaDF9CxNBjABkH3hTMjGc3lQAtuckU+MNQlLpWhjjykqbde3UjWoF9
+ cBo9q3T2iWmfFRW/Psbz8QFVy0V5rN3M2TZ9grsaBV7hOgCSkfEzb1aIdlnbLZp4DCYOuNFQ+5eG
+ III/qgXB3gv2NI/ukWuQBNrXV+EmIqM8SxKOhcObZXWnkEw+6F9CGyYC9AhR1ZLKC40YaZQ+trtn
+ c3HOUHNRces2OQfEVEXjAs8s5hViH5FzumxHh1EFHPyizxFc684o/A69h/CvHI/GeXW8oEyu47TQ
+ DqTi6GKwcIp24VOsP5eu885wo+t+ynT3Y80OmAux3oN13+ztUzneZGHdcUfaxYq0ZH+Cc9iqnocR
+ WxNUEo38DE53aa5lZFsy2onypIM6qetbKE/25wcBEyyBLXoMm5I9GX4+l7O/frx6h4LvvXllTrDW
+ JQYgIwBr3Z1SFe+4OrB9Rro7EpOy1Um2iVRPSUxhtw3wz3yqYcOpyKA69LF1Ge2GaGfxmfp09oMS
+ l8c4ShQ//ve+MHzjs9MOb3HXByN6cty/LT6lgOv2AzRyYGlsi3xQeIJ6TM5o5F89lTjPCn99uwfA
+ g5wm8t3Xj/LzZ5s/OJg1L2asZ/4te3BTDYEBZZ1yPQnIH5IVn/pKnch3lmmwSrgldH+Ps9MOb3HX
+ ByN6cty/LT6lgO+c9AHZZ12442bv/l3jZJg=
 X-Report-Abuse-To: spam@quarantine16.antispamcloud.com
 X-Complaints-To: abuse@master.antispamcloud.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_134514_686015_C2AF2C2B 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20260727_134517_298763_05902216 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,99 +121,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When working with a iommu with PT_FEAT_DMA_INCOHERENT set, generic_pt
-will attempt to use a spare "SW" bit in the hardware page tables to
-denote when a thread has flushed the CPU cache after modifying an entry.
-This means that other threads know that they are not working with
-cached/unflushed data, if they come across the same entry.
-
-In the case where no SW bit is implemented, an undefined reference to
-__pt_no_sw_bit() is created, causing a linker error in order to prompt
-the developer to implement this feature.
-
-For BCM2712 IOMMU, no SW bit is available at the hardware level, so we now
-need to permit this case.
-
-Introduce a PT_FEAT_NO_SW_BIT flag to allow for this: this will avoid the
-sw_bit codepaths, so no undefined reference is created. __map_range() will
-fall back to defensive flushing every time it reads the PT, ensuring
-that all data that may have just been manipulated by another thread gets
-flushed and made iommu-visible immediately.
+Add bindings for the Broadcom BCM2712 IOMMUs and their shared TLB cache.
 
 Signed-off-by: Daniel Drake <dan@reactivated.net>
 ---
- drivers/iommu/generic_pt/iommu_pt.h        | 13 ++++++++-----
- drivers/iommu/generic_pt/pt_fmt_defaults.h |  7 +++++++
- include/linux/generic_pt/common.h          |  7 +++++++
- 3 files changed, 22 insertions(+), 5 deletions(-)
+ .../bindings/iommu/brcm,bcm2712-iommu.yaml         | 48 ++++++++++++++++++++++
+ .../bindings/iommu/brcm,bcm2712-iommuc.yaml        | 35 ++++++++++++++++
+ 2 files changed, 83 insertions(+)
 
-diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
-index c2752151c80a..54f9c311d0ac 100644
---- a/drivers/iommu/generic_pt/iommu_pt.h
-+++ b/drivers/iommu/generic_pt/iommu_pt.h
-@@ -484,7 +484,8 @@ static inline int pt_iommu_new_table(struct pt_state *pts,
- 
- 	if (pts_feature(pts, PT_FEAT_DMA_INCOHERENT)) {
- 		flush_writes_item(pts);
--		pt_set_sw_bit_release(pts, SW_BIT_CACHE_FLUSH_DONE);
-+		if (!pts_feature(pts, PT_FEAT_NO_SW_BIT))
-+			pt_set_sw_bit_release(pts, SW_BIT_CACHE_FLUSH_DONE);
- 	}
- 
- 	if (IS_ENABLED(CONFIG_DEBUG_GENERIC_PT)) {
-@@ -702,10 +703,12 @@ static int __map_range(struct pt_range *range, void *arg, unsigned int level,
- 			 * release of the cache flush so that this can acquire
- 			 * visibility at the iommu.
- 			 */
--			if (pts_feature(&pts, PT_FEAT_DMA_INCOHERENT) &&
--			    !pt_test_sw_bit_acquire(&pts,
--						    SW_BIT_CACHE_FLUSH_DONE))
--				flush_writes_item(&pts);
-+			if (pts_feature(&pts, PT_FEAT_DMA_INCOHERENT)) {
-+				if (pts_feature(&pts, PT_FEAT_NO_SW_BIT) ||
-+				    !pt_test_sw_bit_acquire(&pts,
-+							    SW_BIT_CACHE_FLUSH_DONE))
-+					flush_writes_item(&pts);
-+			}
- 		}
- 
- 		/*
-diff --git a/drivers/iommu/generic_pt/pt_fmt_defaults.h b/drivers/iommu/generic_pt/pt_fmt_defaults.h
-index 69fb7c2314ca..72f341645294 100644
---- a/drivers/iommu/generic_pt/pt_fmt_defaults.h
-+++ b/drivers/iommu/generic_pt/pt_fmt_defaults.h
-@@ -249,6 +249,13 @@ static inline unsigned int pt_max_sw_bit(struct pt_common *common)
- 	return 0;
- }
- 
-+/*
-+ * In the DMA_INCOHERENT case, if no SW bit has been defined, produce a linker
-+ * error (undefined symbol __pt_no_sw_bit) to alert the developer that this
-+ * should be implemented. Alternatively, if this is not supported by the
-+ * underlying hardware, PT_FEAT_NO_SW_BIT can be set, enabling sw-bit-less
-+ * operation with a defensive flushing performance penalty.
-+ */
- extern void __pt_no_sw_bit(void);
- static inline bool pt_test_sw_bit_acquire(struct pt_state *pts,
- 					  unsigned int bitnr)
-diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
-index 07ef1c8341a4..9e8001f7b069 100644
---- a/include/linux/generic_pt/common.h
-+++ b/include/linux/generic_pt/common.h
-@@ -139,6 +139,13 @@ enum pt_features {
- 	 * sub structure with information about which levels were changed.
- 	 */
- 	PT_FEAT_DETAILED_GATHER,
-+	/**
-+	 * @PT_FEAT_NO_SW_BIT: No software bit is available to denote when a
-+	 * thread has flushed the CPU cache after modifying an entry. Only
-+	 * set this if you cannot implement pt_sw_bit() due to hardware
-+	 * limitations.
-+	 */
-+	PT_FEAT_NO_SW_BIT,
- 	/* private: */
- 	PT_FEAT_FMT_START,
- };
+diff --git a/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
+new file mode 100644
+index 000000000000..af4d8bac10e5
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
+@@ -0,0 +1,48 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/brcm,bcm2712-iommu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom BCM2712 IOMMU
++
++maintainers:
++  - Daniel Drake <dan@reactivated.net>
++
++description:
++  The BCM2712 IOMMU provides address translation for various hardware blocks
++  on the BCM2712 SoC, such as the VC6 display pipeline.
++
++properties:
++  compatible:
++    const: brcm,bcm2712-iommu
++
++  reg:
++    maxItems: 1
++
++  '#iommu-cells':
++    const: 0
++
++  brcm,iommu-cache:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the shared IOMMU cache. The IOMMUC is a shared hardware block
++      that provides centralized Translation Lookaside Buffer (TLB) caching and
++      invalidation.
++
++required:
++  - compatible
++  - reg
++  - '#iommu-cells'
++  - brcm,iommu-cache
++
++additionalProperties: false
++
++examples:
++  - |
++    iommu@5200 {
++        compatible = "brcm,bcm2712-iommu";
++        reg = <0x5200 0x80>;
++        brcm,iommu-cache = <&iommuc>;
++        #iommu-cells = <0>;
++    };
+diff --git a/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommuc.yaml b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommuc.yaml
+new file mode 100644
+index 000000000000..f22e9be2c473
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommuc.yaml
+@@ -0,0 +1,35 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/brcm,bcm2712-iommuc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom BCM2712 Shared IOMMU Cache (IOMMUC)
++
++maintainers:
++  - Daniel Drake <dan@reactivated.net>
++
++description: |
++  The BCM2712 IOMMU Cache (IOMMUC) provides a shared Translation Lookaside
++  Buffer (TLB) cache used by the primary BCM2712 IOMMUs to speed up address
++  translations.
++
++properties:
++  compatible:
++    const: brcm,bcm2712-iommuc
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    iommuc: iommu-cache@1001000 {
++        compatible = "brcm,bcm2712-iommuc";
++        reg = <0x1001000 0x100>;
++    };
 
 -- 
 2.55.0
