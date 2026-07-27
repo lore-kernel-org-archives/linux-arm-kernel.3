@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9DDC53209
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB602C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 22:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/B0Dz5xPAtVHWPdSgpthRGmFg8JLYxSC+bHoGBmOXFg=; b=mMCT6UDdwCVljhoqlmAJARK0YA
-	zENuCbEoIonHV/BvWeO4b6wsSILfungyXBGnyt9hux2Bsq+drzps2nqkdp6xvzaXcjhv+IzTVDs36
-	ZfH8ZdA/J+EWH9Rr8A7WBSbNUaddsQNUg/CaGF42E6L7Dxy0WYFBL48DRqWEp+x4VcTi2IPXQxBYt
-	54GV2NWFMdnCxVU1f3U81n21VnIq4vg7PlDtYYJwBS6vbso8NX43wdQBp+IxAEzV0xb2JK/owSQMV
-	H5a2Br0Eew+55qlX7ft+BFifI0SOdJny5tJqcMORYoMBT+yYcZID6mW2F3xyrXDQxwELBbT1QbV+g
-	U0snPInA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGUzNoTlced3kJpSWbCqS1844JxyRpE5REsVBSmrlIc=; b=o2wZmz5npJ7be/LCBqdAoe1puX
+	XtoFhEAmUAZdi84lJlN8iG9kraB+75yhbZIfxPRtNROq5DsrkOTnLi7lyvor7JI4OIXSfV461RBqR
+	khn2x9tuI/ibAdHpqE7JdKqL6etYum5nJoLwdhy5eXG2ZC8tEwLSvp2b4PFCqDieVQIRFR6NrMtY9
+	HHdy0RlH53lfk+/bxxLl+/UZ3ZuOIfs6MS+q7n6QRBoWBW07APE/9ALuCTBCzwdfg9RsJC8IV+OnR
+	WTjJr0ayU8FkPyGd7pnonflfLd5uHgj5f3NbHVBqVwSJTyICwD3Zv+mLvBYBTxl7tIXWoLUKCEAro
+	dWfZBeBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woThV-000000040vt-3TUe;
-	Mon, 27 Jul 2026 22:21:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1woTkl-000000041Cb-0m1L;
+	Mon, 27 Jul 2026 22:24:55 +0000
+Received: from esa9.hc1455-7.c3s2.iphmx.com ([139.138.36.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woThV-000000040vU-0hf2
+	id 1woTki-000000041C1-0Mce
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 22:21:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D8B76013A;
-	Mon, 27 Jul 2026 22:21:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 328881F000E9;
-	Mon, 27 Jul 2026 22:21:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785190891;
-	bh=/B0Dz5xPAtVHWPdSgpthRGmFg8JLYxSC+bHoGBmOXFg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=mU2h3NmCvFhZPzXzJ6UJez5rSbTTqvAdfsuvF0Xld78GH/XSbcqeHlfwqV0NcOcoi
-	 6Z2oP8XIput9YN+SqUSy1PPsAdBwvasu5pGWcQygm0+xSS8hy3bqsvq322opbNd65y
-	 AIAjVyiAe1/BvdLPpQXQDSUNnXffUVJDfjC8ZMFw6ex50VqWUZrKaoac+YJCdlarO2
-	 cc4dFSm/VjJxj7lLHjSgZwJ7sEa8ElVDDZ0WFRRjgpEjSgAVqYG7GM2uoMKWSP4KjQ
-	 HdWfLXCZgZclXO45zC6AnSY1iuDQKbQUxRd/EMUeLAnk6AzqVt7yLcqPxMVDHZPT4l
-	 r9Tt13JPUb6UA==
-Date: Mon, 27 Jul 2026 23:21:25 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
- . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, James Morse
- <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, Reinette Chatre
- <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>, Srivathsa L
- Rao <srivathsa.rao@oss.qualcomm.com>, Ganapatrao Kulkarni
- <ganapatrao.kulkarni@oss.qualcomm.com>, Trilok Soni <tsoni@quicinc.com>,
- Srinivas Ramana <sramana@qti.qualcomm.com>, Niyas Sait
- <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 02/10] arm_mpam: propagate MSC access errors for
- hw_probe functions
-Message-ID: <20260727232125.357fd22c@jic23-huawei>
-In-Reply-To: <20260723155454.1760823-3-andre.przywara@arm.com>
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
-	<20260723155454.1760823-3-andre.przywara@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Mon, 27 Jul 2026 22:24:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1785191095; x=1816727095;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3EuTfDhU7UqVMvj85eqJNeuNbQJACnt857e5rAiZhGQ=;
+  b=MKSIDpcHLnbB1jq0ctoNI8KZreAt0xExW5KQWNjedcFbNIk/exCkD3jk
+   CIaKgoIB/dqD8yYnj6ufkwNNR4hO/kPi55emOR1vfe7zWhgYMHE88U67x
+   1zmxh5N0/1UYCpQMUbfqMEgSh6y5/f5YENaSIuNlPvjuhNAgtICzAstd3
+   Ko+xw33TVEBtQDQIaR3mU2ZXLyHy2LHsuZ+aLuydLwAmLuRPQnPKZT4K+
+   cvaA3w6dmIa8lqcxB05b6nbxjrvw+o6Sy56kK72YpvQJqgSqIvX3cs2mV
+   Ib2NidSsuqxchfBgu60PhAyznS3+34csaBpCIjesR5iSX7v+Bt/GAJJ00
+   Q==;
+X-CSE-ConnectionGUID: jiRt+Dy0S36MjjKCCAwdzw==
+X-CSE-MsgGUID: AQ6SrObATG2Dt1Ohe9hdTg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11858"; a="236205721"
+X-IronPort-AV: E=Sophos;i="6.25,189,1779116400"; 
+   d="scan'208";a="236205721"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2026 07:24:50 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 17F4D1000349
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 22:24:47 +0000 (UTC)
+Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id BD8ED1000846
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 22:24:46 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTPS id 1CE69405E2F;
+	Mon, 27 Jul 2026 22:24:41 +0000 (UTC)
+Date: Tue, 28 Jul 2026 07:24:39 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v4 0/6] KVM: arm64: nv: Implement nested stage-2 reverse
+ map
+Message-ID: <amfap0e5dhQgo4eW@sm-arm-grace07>
+References: <20260714115926.2044757-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260714115926.2044757-1-weilin.chang@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_152452_711757_52858E30 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,112 +103,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jul 2026 17:54:46 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
-
-> Allow the functions probing for MSC hardware and features to return an
-> error, and propagate read and write errors from the lower level up.
-> This uses some "scoped cleanup" functions like scoped_guard() and
-> ACQUIRE() to avoid the complexity of error handling when a lock has been
-> taken. Since the mon_sel_lock is a bit special (even more so in an
-> upcoming patch), we define a new GUARD type for it.
+On Tue, Jul 14, 2026 at 12:59:19PM +0100, Wei-Lin Chang wrote:
+> Hi,
 > 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Hi Andre
-
-A couple of whites space comments inline.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-> ---
->  drivers/resctrl/mpam_devices.c  | 127 +++++++++++++++++++++-----------
->  drivers/resctrl/mpam_internal.h |   8 ++
->  2 files changed, 91 insertions(+), 44 deletions(-)
+> This is v4 of optimizing the shadow s2 mmu unmapping during MMU
+> notifiers. The general theme stays the same, but various
+> improvements/fixes are added. Thanks for all the feedback. Please see
+> below for the changes.
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 912c21ce7f9f..ecd45a585942 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
+> * Changes from v3 [1]:
+> 
+>   - Rebased on to the latest kvmarm/fixes.
+> 
+>   - Removed commit "KVM: arm64: Move shadow_pt_debugfs_dentry to reduce
+>     holes in kvm_s2_mmu" because the current shadow ptdump code is found
+>     to be buggy and the proposed fix removes shadow_pt_debugfs_dentry [2].
+> 
+>   - Rename some variables to improve readability e.g. ipa ->
+>     canonical_ipa, fault_ipa -> nested_ipa.
+> 
+>   - Skip reverse map optimization when !mmu->nested_stage2_enabled,
+>     and just unmap the canonical IPA range during MMU notifiers.
+> 
+>   - Change comment above the code that checks whether an identical
+>     reverse map already exists in kvm_record_nested_revmap() from saying
+>     it could be a permission update to saying another parallel stage-2
+>     fault could have inserted an identical reverse map. This is because
+>     permission update won't trigger kvm_record_nested_revmap().
+> 
+>   - Add helpers for checking maple tree entry flags VALID_ENTRY and
+>     UNKNOWN_IPA, also warn if both are set at the same time.
+> 
+>   - Test canonical IPA alignment with the mapping size during reverse
+>     map insertion.
+> 
+>   - Move clean up of kvm_unmap_gfn_range() to its own patch.
+> 
+>   - Avoid naming variables with "*dir*", as it can be misunderstood to
+>     be related to directories.
+> 
+>   - Use mas_find() instead of mas_find_range() as mas_find_range()
+>     returns every range including empty/NULL ranges, for our use case
+>     we only want to iterate over non-NULL ranges.
+> 
+>   - Added a trace point to track when the reverse map maple tree becomes
+>     "broken" i.e. maple tree insertion failure.
+> 
+> Thanks!
+> 
+> [1]: https://lore.kernel.org/kvmarm/20260510145338.322962-1-weilin.chang@arm.com/
+> [2]: https://lore.kernel.org/kvmarm/20260630121005.1130996-1-weilin.chang@arm.com/
 
->  
->  static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  {
-> +	int ret;
->  	u64 idr;
->  	u16 partid_max;
->  	u8 ris_idx, pmg_max;
-> @@ -1021,11 +1047,14 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	}
->  
->  	/* Grab an IDR value to find out how many RIS there are */
-> -	mutex_lock(&msc->part_sel_lock);
-> -	mpam_msc_read_idr(msc, &idr);
-> -	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
-> -
-> -	mutex_unlock(&msc->part_sel_lock);
-> +	scoped_guard(mutex, &msc->part_sel_lock) {
-> +		ret = mpam_msc_read_idr(msc, &idr);
-> +		if (ret)
-> +			return ret;
+Thanks for the update. I know this series is sitll being discussed, but I
+went ahead testing the kernel with your proposed hello_nested seltest on a Grace
+CPU. 
 
-Aim for formatting consistency.  I'd put a blank line here and
-in similar locations to keep each read / error check block separate...
+Before this series applied:
+real    0m2.869s
+user    0m0.003s
+sys     0m2.862s
 
-> +		ret = mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
->  	mpam_enable_quirks(msc);
->  
-> @@ -1036,10 +1065,15 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
->  
->  	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
-> -		mutex_lock(&msc->part_sel_lock);
-> -		__mpam_part_sel(ris_idx, 0, msc);
-> -		mpam_msc_read_idr(msc, &idr);
-> -		mutex_unlock(&msc->part_sel_lock);
-> +		scoped_guard(mutex, &msc->part_sel_lock) {
-> +			ret = __mpam_part_sel(ris_idx, 0, msc);
-> +			if (ret)
-> +				return ret;
-> +
-Just like you have done here.
-> +			ret = mpam_msc_read_idr(msc, &idr);
-> +			if (ret)
-> +				return ret;
-> +		}
->  
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 04d1a59f02af..0c3f6a040b20 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -162,6 +162,14 @@ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
->  	raw_spin_lock_init(&msc->_mon_sel_lock);
->  }
->  
-> +DEFINE_GUARD(mon_sel,
-> +	     struct mpam_msc *,
-> +	     mpam_mon_sel_lock(_T),
-> +	     mpam_mon_sel_unlock(_T));
-Why wrap so much.  Something like:
-DEFINE_GUARD(mon_sel, struct mpam_msc *,
-	     mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+After this series applied:
+real    0m0.027s
+user    0m0.001s
+sys     0m0.005s
 
-or all on one line seems fine to me.
+It reduces the time needed for the VM tear-down paths. I will test this series again 
+when v5 comes out, since I've git this a try;
 
+Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
 
+Thanks,
+Itaru.
 
-> +DEFINE_GUARD_COND(mon_sel, _lock,
-> +		  mpam_mon_sel_lock(_T),
-> +		  _RET);
-> +
-
-Similar.
-
->  /* Bits for mpam features bitmaps */
->  enum mpam_device_features {
->  	mpam_feat_cpor_part,
-
+> 
+> Wei-Lin Chang (6):
+>   KVM: arm64: Use a variable for the canonical GPA in kvm_s2_fault_map()
+>   KVM: arm64: nv: Avoid full shadow s2 unmap
+>   KVM: arm64: nv: Add nested revmap broken tracepoint
+>   KVM: arm64: Refactor kvm_unmap_gfn_range() with common variables
+>   KVM: arm64: nv: Remove reverse map entries during TLBI handling
+>   KVM: arm64: nv: Create nested IPA direct map to speed up reverse map
+>     removal
+> 
+>  arch/arm64/include/asm/kvm_host.h   |   9 +
+>  arch/arm64/include/asm/kvm_nested.h |   6 +
+>  arch/arm64/kvm/mmu.c                |  42 +++--
+>  arch/arm64/kvm/nested.c             | 280 +++++++++++++++++++++++++++-
+>  arch/arm64/kvm/sys_regs.c           |   3 +
+>  arch/arm64/kvm/trace_arm.h          |  27 +++
+>  6 files changed, 349 insertions(+), 18 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
