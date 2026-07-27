@@ -4,140 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC16C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 07:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE5FC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 07:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a/vKa2JeZkI/5C9TSf3Hz5OA1iXYFDFM1Y8yctsC1Sk=; b=kJU43RlSHPQqbvlXE7BEDQL/Jj
-	soe7ixDC05Av7+eGyH7k517fBEfKf4FZxZZep7plXhdAJow2lExYPGwSYJBvyeXK+W0//Yh6emXyz
-	5MXBk+hJ4nfZqjO1BGLo0dQcCY+68+Tqg2EqJ3OhOJObjvSMFoqrttKRUjyR7vLn/YibS/ZCGELAj
-	NTItIgzGMzr1tIXhW7g5ixC1l7F8GB3cS2MJ9FTX06udOPuNS63QqK1R7F1vhFBqzlv/V8F8dVJaB
-	jKuzeAp43Whw+bG2iyN0zGPKjTHq/n1M8e7Jp202HbPYc7PfvORVWjLrHKY4kT0xmH/SYZ5npK0e+
-	XlptiMag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+/mmi/yKE1XX17GxFkgO2afry/vumxMd+JoqMLh+sdI=; b=H8ABnwjigluChYQfJYnWv/hBD2
+	+jB42BaQyDnqHQo7pvBNDR24e1ED0t6q9JaQ9QKXQjqit5dDnUD+DtFIvi5/TByyxrQj66FQQPSZ2
+	/P0ofiF9EHQSsRugme1V6YKCRiaMDp/3kZjVzNO7De02dyJMLSkY5+RmRHtajW4Gf3MP2UBmMHXgd
+	cFT6RVIrNb0vdjspD+sKG+hwH28tW4qlvcTtmQpm/6+xDVpYO/xlsAO44B5msQ2unm/ACpToZ+ujH
+	aHKm9W5RZSJaAtKCyZCulTuLuV4+5cb92N2O+tn94FeIEoCrMbTyAAiA5trnUdIYf2it5h/daAIU1
+	cysMgs4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woFW6-000000025jZ-0Ysh;
-	Mon, 27 Jul 2026 07:12:50 +0000
-Received: from mail-koreacentralazon11023143.outbound.protection.outlook.com ([40.107.44.143] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1woFXo-00000002669-0C0o;
+	Mon, 27 Jul 2026 07:14:36 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woFVx-000000025hz-2DW7;
-	Mon, 27 Jul 2026 07:12:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z6DC7PPp9cK0jYkb3TSXwLJ8OoTECnmUAvuEMzK6HEmhJzTuSFYjVZnmAvUIhq8JmKaSMNjkcrN+SL+8UkhBe6Mx+Q7t7e7UasofMsUlc3KMnyITGNZtwZvshoeSR+irzPZPsdPKgfXl9B4dDBWiCBRf9eZ3+N4k3pAuAg9Kq+MV8x20CgPNMEctC0VStkoh5bCL0/ugVGPq9j1ri+BSWw1HQx4eTKaZojKv/0+ZwuSn9tx730h9LqDZ+b6FK4QJHoBhN+QNrzfa86vCaXL+rXH90gZrZVE9+5eB+cIbMICjtnO3aDoSBMuzzoA06TxSZ5Q0jWvjuyniCYUs8Ced1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a/vKa2JeZkI/5C9TSf3Hz5OA1iXYFDFM1Y8yctsC1Sk=;
- b=R83VLbKOWXe7YfvzR/mBnz+SzrGjGklA1s7G8QCv/5gviWkjO2Kbp+RM8I24l47/V01NKdXAyt1b0OUHXI2gdm2chId7RLwyRnh+OH70iqX0rylmkAG7Ea6a3D6QOICa5FkBD9s03zpeYdnoKctSsTu3UmoZ6MR2SpFgxK/jl3nttDxG6pnI++xRBMbtktlul4urY8giK88daH8fWsTbdh7qxsMGAoEDzNWL/Sm6YbFPjPnAGz8B7xHOwzaGDmY5ugtSx3OWwDYYLsMii7I+5WRH4eAAQkKD8KnxP9qsXJpJxi5KTTE7c6F3XxF4eedkvEsgm0HSq9Pl1YDlfhOTfw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a/vKa2JeZkI/5C9TSf3Hz5OA1iXYFDFM1Y8yctsC1Sk=;
- b=OSYLJDz3UbErVYyaeP+6BzCerU79qOqs6LIbka13KZiLV2JWzgh8s7IOK52Gmdrcsl+LbifoeWZJHxYo0yRaoaJgpa6hBmhBzfNkB37J0GdAvQQ9HQwStYpH5HC4aCyk4wdIH26DZdOrEUj5cICV+mKFuSO8v0xWISt4E24lpN1mNww5hfkl9HncIK6C2YDXfUMx2bkA8Swj+9ZYzH26sr46A8lJw0k/PWztMRJ30tPJK9SHPXrew59Ci1PXiLcOB5qH6r+9ryx8kshiQCVXpLJQTNV9AQMG1L4+pTaCIJI4+e/BotYmhth5pvfg4V3H98g6IjXXDOHliJUtvcjqjQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com (2603:1096:820:51::12)
- by SEYPR03MB7891.apcprd03.prod.outlook.com (2603:1096:101:173::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
- 2026 07:12:33 +0000
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e]) by KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e%6]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
- 07:12:32 +0000
-Message-ID: <3ecfe659-1f8f-46b2-9f1d-6a3b06734093@amlogic.com>
-Date: Mon, 27 Jul 2026 15:12:30 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] decoder: Add V4L2 stateless H.264 decoder driver
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260724-b4-s4-vdec-upstream-v6-0-6072a7ee7428@amlogic.com>
- <20260724-b4-s4-vdec-upstream-v6-4-6072a7ee7428@amlogic.com>
- <0ce72645-aec6-478d-afad-b5c9f838d7ea@kernel.org>
-From: Zhentao Guo <zhentao.guo@amlogic.com>
-In-Reply-To: <0ce72645-aec6-478d-afad-b5c9f838d7ea@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI3PR01CA0014.apcprd01.prod.exchangelabs.com
- (2603:1096:4:296::10) To KL1PR03MB5521.apcprd03.prod.outlook.com
- (2603:1096:820:51::12)
+	id 1woFXk-00000002659-3RtS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 07:14:34 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-9305a2121a1so205205385a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 00:14:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785136471; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hBY7YK6AlyNiwfCeLvsQXtzU7lpmRvdBmdIVQztlt48BsaNMpo8XhcDblArpTKXY8C
+         HjkjmVaaD4CrTiesDA1ChVkrKBJipbI9e3jVvpEDWEcqL6PX7VrQ0yeo5BGSQ6Jj6kg+
+         AF+4+o+rCyocOI9yzG2P5zyt6ROMfNsRRZeoHFex4ZuZqkI82vYFrMu7EDacqV4zn2JG
+         2By1uOt17ofLgzQSt7uycNmOX3e5jT4sC2LTXinA3fAcyeUDQ1g6CPJ819jC1Zn/jH9s
+         /X4gfeKl/qL1LgCafHp1ngodkVkfr9O4axhCGDRgunA5ClqdJj1+xPpaBfz4aOEY83iJ
+         cmVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+/mmi/yKE1XX17GxFkgO2afry/vumxMd+JoqMLh+sdI=;
+        fh=+oabfv8O5rZgwm6Y6ygBXCMOSEBX60Yi9GuzA8gsKKo=;
+        b=Jj+EO+Mm4N8huEREIAzt6xVOJsEWwCEfZ50Rphs9COtMJNPJVZsXJKcSLrr+rjRog8
+         yfbZDGq2SKrPr3XYpIZDpXe7lcEECO9h8qJ4XCSTZ8qXvICfYMVe/U6KNrYy3qxdkGSV
+         xGW/stUTGdQpEKlysTWjAnzVHHqhBYPfgPXbLb41SyOpXRp3w6E1veo02Jt3lh04iLaw
+         YTyz+vQ5GPraRCOMkCthTTOEmT9eyZXdvh+DDkoYA9raH2ZGHBdf7G6FxJDVgckF2O1d
+         xYgua1vQLRvIZkNoZEOua5QSFqx1H7YxRk4X4t2/yp4/2HpDZYdt8ImME3yx/wh4jvy/
+         DDbg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785136471; x=1785741271; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+/mmi/yKE1XX17GxFkgO2afry/vumxMd+JoqMLh+sdI=;
+        b=B5Qy8sRba4VnhZ6ZRv38vPqJvqTaoxWO19LwWiB2BuAq16XH93Rpd3/DqmziEj6mDh
+         AvC0uK75jG/fM0sJzIqu0hEoRl62fWXc6h0686vZbrmyJ6sjTf2dqng8HPmCQu/bxbGM
+         /lp3vMGDI3lCzbTO7kXNStfPtTpGetb41m7hVNuhVAkn2Xe1tsCaL/PvL5SBs+gHsLtr
+         a2i810A3FJj+N2ID/Kyi/l88G2JqalVBUIDNf2uQ2Gx6BnJM3h5OcqN5gdmxHb6z7qd6
+         S6DuoOANy4uktx/2VIlMYgVyDE7P3JBvXEVhS1yfeiKzkTeAIcdHFw9sfGwPoLNhtN71
+         A2dQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785136471; x=1785741271;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+/mmi/yKE1XX17GxFkgO2afry/vumxMd+JoqMLh+sdI=;
+        b=S0RtX+BKLRx0AuuAlQicIRNFPkdf0OEQ4wrin+QK01twSo235KrRu9iQWmotyj6JxC
+         YG+S5gIQ/aUWoJD3vHPszRNAQh9u7KUIHnjZt0+wwqAH+QhiTYW6an88m1noyZ+dtVCY
+         BosYW3MTIORSqGkV1u323KxNpBvg6LFBL0VpN5bL2TrR5vtOBZuD/O21vJPshufROt4A
+         z1LpjPrgvJvG5dxMqGW4PGcl6TZ1ydqWG95cwfkDPf8KdMmDsZz4QSaE7vtguWu2DKOk
+         Lr9Dg4rsjubW2vkqI1iWx7S0AeBwfJRwNCYZT9yquSu1YiAPcTdFPbH5YaeRkDJUUMjz
+         Uxuw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqhjn2QBQA+ItMdCjrVWLIsHF8nl+YucW3VnYGopIigQPnOisDi6ImxPC7baeEYmB8R/2q2en/EaZinhTWsGM62@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw46YfKNcLihdvY0HWk2+a7q4wyDPSxG1GvmbRI9+PrPuWBE4B
+	FGHoC9/hIk5PiNJJKzGVEzK6BMjAX/Q0N+NAodnZeAAwz8XyabzDEgHeS/h3kUOxv63FsAguDau
+	GPFrC9KO7Cs2sAhPKDs8aluYFR68iDXk=
+X-Gm-Gg: AR+sD11Mc8YfX/1iQ7Gau2CUy9C9g0/HoSwfMOMZEgE7T7BbEBTwXvNfixPHTN4Ia/d
+	6KWrBVgaOVYaEbY3YDddUhGuhN/9OlnDSNAqCEGd7s0OqkX18cHRBUUdl+VGoC8/zIetv54wNMY
+	aaKNVhA6WRrcb3/MqDWpEgBM+Bin0rRQh9XlkClbfN5w3eZVAAILTBuLK+U8CvuKSCf4u/tSmdh
+	ANzzoEaNt9eIXRkvzQ+trPMdPFFPxRH0votD0X/V7U9LknUcFnrHyUJzGXiZixx1UfDvlSYkwi8
+	Th14/Cfh0+skORi11w==
+X-Received: by 2002:a05:620a:271c:b0:92e:c118:18b0 with SMTP id
+ af79cd13be357-932df725cdfmr696946585a.79.1785136470873; Mon, 27 Jul 2026
+ 00:14:30 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5521:EE_|SEYPR03MB7891:EE_
-X-MS-Office365-Filtering-Correlation-Id: ebb084c3-0479-40f0-465d-08deebae6d55
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|7416014|4143699003|11063799006|56012099006|10067099003|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: EzjrWutk1X9jBQ3466IZA+e1702G+WDClGmFn+vma+U3Jo9ERvh05g6VQRMky8e/0g0ZEvCYYV69VasBHAywGBOCXA0rCpbmPxPKIL2A03bnRiimLBQ/P9/PxXncCV5vzzefWtjKQiIJrUxEL/H0qHznWee2Z4+wIn2fUgpl8qbKxPjujA58liAP3YH4tn+xq88SRIK4UBDywJeCwCXLozdYeup6qSv42G0m3QpcTH7RKy/gO3lASIoZtQMcao04mhR2mBqLsj1mmGA4P+913V46wkkVbvOU3MRTHU9az1CNNq7Us2X17RJnMm5hvgqY2T5Z034pWTS1zl/Oa9D536BgY8PGTKt8TL27CqovJaFYyrFHQFhHZO3PMvIOELEgWUMhQjCLlGj8K3I7aee99A3918bMMLHqOVYd2+dc1a7QMQx/nujEY7dpAYMUzfXzsF/doDlCh4RaJ2rDSlub4TYSRbZeNqvYUKo6p61BBqduqSCX8m7oMCjJ3Z1fCYy4ai2nMzmUxaf7fNSO3XgXkwDGbJ6WLUI+XdVilyiLYrbfFkwxT7Tr9EdPBH80f832tnJ4P6S0mwZhFgmBSkbPT6WmkecSNUvkBlOM/Av8ychtWN/NCZrhdT94UUUtxaaQhpN7EsB1dU11DXiuIsuKkGrYVgHZj5Vf2A48MNfu0NA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5521.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(7416014)(4143699003)(11063799006)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bEJlTG10OU9VMTBMRnpNckEzMnNGVVRlYnYzWmV5V2xnN0VyQmxuMUZNOXhO?=
- =?utf-8?B?NHJ2dGFReHptbWdVQWF2Y0IzQVowS0g5VWFSdTJrSEY4U1ZJam5pWnBpbUZI?=
- =?utf-8?B?VWU3eG5ab2dwd2l5NVJpNEhGeHJWUkNPZlBKTCswemJBbWUvckw2ayt1M3pK?=
- =?utf-8?B?NGw3ZG1qKzlVUk50TXdsM2JmczA3TyttcEhuODR5ZVY5ajJkMlRYd0NTc0U4?=
- =?utf-8?B?MzhJQ2tiNUFqRm9YMW5TM0hFY1hzRGIxdC9zUmdMSWtJRUUzd2dwRkYyN3Mx?=
- =?utf-8?B?cy9EM2pVSHh1QW5nMy8zdXZrQys1V0Yya2hMWDBMV2RVTFU1Z2JpcU1qMXdX?=
- =?utf-8?B?R0dJd29CNlRuNmlPaW1ydnQ4K29mSWlWSEtFYUZyTmZFdHFHaGRsbjk0TTZC?=
- =?utf-8?B?ZXB1SHlJQUNiNlYyaWRPNlVuRjJ4Wm1IZDlQaDQ1OS9PaTlveG5DVWNsbkY1?=
- =?utf-8?B?SEx4SnUrcUdGdlVMeWlUcDE5cVVNSTZSNDBIWmR0c0NUanVrc2tqb0VVdVJH?=
- =?utf-8?B?N3BCekF4Ymg1N1FIWEZ1c0hlL0NRQk9kdHF5OHNNM2VLd1NFUWEzMGlqMlpx?=
- =?utf-8?B?R0VFS001VFE2STBoSWhkbGhYcUJTL0lwTFAwWTZnTk44UVJWbDFnc25Qay9J?=
- =?utf-8?B?UXJ1SkZFU0Zaa1d0TTFrTXVQQldEV3pFUlk4RlY3bjRXM05QUlJTV2lzcllk?=
- =?utf-8?B?ck9PZzNyV3hRT2pmS3dTTjh2eWtaaUFaazZZZTRoc1pVMjNXVVlnV3FPbUkw?=
- =?utf-8?B?alNTTlEzVnZFZEk5L01lbGM5V2VmanRYaDBSK21GWW9HczBGOUgrd2xLOTFo?=
- =?utf-8?B?WnRFUEpIZTVnRU05QmF2ZDlDTVhEV09ic2pWNkI2dmRGVVJBQjVrVWtJclpM?=
- =?utf-8?B?aXM4eXlTa1RiaWRmUUhjUkNQSEdicG91UU9CcUpudDFvZEJ5N2J3ZlZWeEd3?=
- =?utf-8?B?NnFtMUd6UjUwdGZNeE45bTNPMGF2TzFHZkhZd0l3SmhtRGJBR2ZMamNHc0dU?=
- =?utf-8?B?Zkd5dm9BcXJQcDhZYWVvWXZnRUNXY0paMlhPbmgwazdmU2s0VGptNjQrM2VQ?=
- =?utf-8?B?VlBuNlhGQ3ZFcFpYaHh0bDNKUjhubkxZeWVRbDhUOFBnNEpma0FSRmppT1pk?=
- =?utf-8?B?WUdybDBTNllDQ0dCK0xkOERKTlJmZHVLbzh1NmlmMWhoRDVhYlZjZXRwYWdu?=
- =?utf-8?B?eEkxSzVQVFc2QklQZDBiWlJrOFQrZHg1Tkp2a2trekQxanJua05uMjdGWkZy?=
- =?utf-8?B?VTl6NUUyaXJ0OGwzL3M3ZE5HL05HQndtcEtiYnFpaDFGc0lrbnUveTlETDBo?=
- =?utf-8?B?eERCZUNWYmJ2RmlrNEl0S3N1b0JRWGhkdGh1RjBrYmpTRXpDaE1POFo5aE5U?=
- =?utf-8?B?QTdOaGhZNUZHOEY0S3pjRjV3cjNSc3pFclFFZ0RjVnpnaHN2QW9rSWtzbUs2?=
- =?utf-8?B?dWNwNWdaTGlvMW1NRWRDbTNvdmVsOWZSQ3UyQ3FTZGFORFR2ME1rbWl0dy9H?=
- =?utf-8?B?WGVMT3EwVjJKUVpzMkNuNklwOHBXVjVxWE95L0Z5U1RVNjAwM0ZoT1laNDVT?=
- =?utf-8?B?UXgzUVIrOFNxbjlZTWNHUnFMK2d5aWducHJkQ3hVNEYrNGtYNGdtR2RIS3J0?=
- =?utf-8?B?V1FlTVRnNGxpVHljcGJFM05Lc05KNCtob2dYN2haeGl2N2hFbE1RY2ovTVZB?=
- =?utf-8?B?OUl2eDR1WmZjai9DNjRpQ1VPRVl1bjRKeC85a29adlA1RmJySU9lMVl1WkVz?=
- =?utf-8?B?L2hqdUtrSHQ1K0d4eUlOYkxUYktWYzdYc2V0S0ZOclMzUTg0U2IzWUNkMEhw?=
- =?utf-8?B?UDNybXUyaTJrYWs3SDgvbmVFaVFhdll4RVdkVXkrbjQ1Z0k1RE45SlhHUzZu?=
- =?utf-8?B?TTE1eUFUbnZ4dWtnQ09PZkdMWW5xbUVmNDZWR2NKWU5JbUdCemNHMXNUUW5Q?=
- =?utf-8?B?dTgzczlkOXc4ZmF5ZG1JSWgwYXlROVFTTStPWGJVLzRjUWNvdFZUbFhhWVdr?=
- =?utf-8?B?YVJ0REVpeEY1d2xHMVloeVllbmdOajE5MFBSUWE1cXg4QWgxMW1ZL2hLZXpa?=
- =?utf-8?B?a1MzdlYxM3Fra3NjZmZ6SGpwV3lnYXdFdjR0d3hXb3dnMy9ZV3l2YUhNM0Zo?=
- =?utf-8?B?YUFDSnJ1MTgwbDlEbWpZR2lnMHN5cmVvRGtvNGpzRkg1MnlzbjN2Z0Y3WHB6?=
- =?utf-8?B?MmczUFNvSXVrQm03UkhxeXVUTlV5cC8rcDMwYklOb0l4YXNtNngxdlVkTzd3?=
- =?utf-8?B?aVhEMjY2Z2ozSkpZTDFVeFEvZXhLNC9GRDNrWU1Sd3ozY2pHU2JTMElnNGg0?=
- =?utf-8?B?Qm9OdXZvanlZODV1UWwrRGlrRWRXVHdWcGlPN3JuajBzbndsYlVTUT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ebb084c3-0479-40f0-465d-08deebae6d55
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5521.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 07:12:32.5441
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: khznn/iYZkm01IWGfLFZzlz4Ex/z4ambjS52RCVQI6bpnzYxOcIckPIB4kIsWsehsKq7rMvIWCY3lqH+V3X3YA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7891
+References: <20260727021048.3375444-1-attinagaoxu@gmail.com>
+In-Reply-To: <20260727021048.3375444-1-attinagaoxu@gmail.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Mon, 27 Jul 2026 11:14:18 +0400
+X-Gm-Features: AUfX_mx7QqYbJPKColdFHefAnfy7L2wNcFUU2ZgtkbVju2YipXpKoC8heF-3qZs
+Message-ID: <CABjd4YyohxfbVufd1pwJGsm8a8f3Cm6rJiz=WLz=jBjAQRLj4A@mail.gmail.com>
+Subject: Re: [PATCH net-next 0/3] net: stmmac: dwmac-rk: add RK3576 GMAC 25M
+ refout support
+To: Gavin Gao <attinagaoxu@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, heiko@sntech.de, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, richardcochran@gmail.com, 
+	nicolas.frattaroli@collabora.com, sebastian.reichel@collabora.com, 
+	sashal@kernel.org, chaoyi.chen@rock-chips.com, amadeus@jmu.edu.cn, 
+	rmk+kernel@armlinux.org.uk, horms@kernel.org, alok.a.tiwari@oracle.com, 
+	david.wu@rock-chips.com, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_001241_751800_6D9C90F6 
-X-CRM114-Status: GOOD (  26.73  )
+X-CRM114-CacheID: sfid-20260727_001432_863802_F51DF369 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,173 +126,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Gavin,
 
-> On 24/07/2026 09:04, Zhentao Guo via B4 Relay wrote:
->> From: Zhentao Guo <zhentao.guo@amlogic.com>
->>
->> Add initial support for V4L2 stateless video decoder
->> driver on Amlogic S4(S805X2) platform. In phase 1,
->> it supports 8bit H.264 bitstreams decoding. Currently
->> only progressive streams are supported.
->>
->> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
->> ---
->>   MAINTAINERS                                        |    7 +
->>   drivers/media/platform/amlogic/Kconfig             |    1 +
->>   drivers/media/platform/amlogic/Makefile            |    1 +
->>   drivers/media/platform/amlogic/vdec/Kconfig        |   18 +
->>   drivers/media/platform/amlogic/vdec/Makefile       |    4 +
->>   drivers/media/platform/amlogic/vdec/TODO           |    7 +
->>   drivers/media/platform/amlogic/vdec/aml_vdec.c     |  736 +++++++
->>   drivers/media/platform/amlogic/vdec/aml_vdec.h     |   33 +
->>   drivers/media/platform/amlogic/vdec/aml_vdec_drv.c |  239 +++
->>   drivers/media/platform/amlogic/vdec/aml_vdec_drv.h |  172 ++
->>   drivers/media/platform/amlogic/vdec/aml_vdec_hw.c  |  538 +++++
->>   drivers/media/platform/amlogic/vdec/aml_vdec_hw.h  |  157 ++
->>   .../platform/amlogic/vdec/aml_vdec_platform.c      |   81 +
->>   .../platform/amlogic/vdec/aml_vdec_platform.h      |   46 +
->>   .../media/platform/amlogic/vdec/aml_vdec_tee_fw.c  |  240 +++
->>   .../media/platform/amlogic/vdec/aml_vdec_tee_fw.h  |   27 +
->>   drivers/media/platform/amlogic/vdec/h264.c         | 2067 ++++++++++++++++++++
->>   drivers/media/platform/amlogic/vdec/h264.h         |  299 +++
->>   drivers/media/platform/amlogic/vdec/reg_defines.h  |  177 ++
->>   19 files changed, 4850 insertions(+)
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index a112ce9f0fa0..a27ea19907f9 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -1423,6 +1423,13 @@ S:     Maintained
->>   F:   Documentation/devicetree/bindings/spi/amlogic,a4-spisg.yaml
->>   F:   drivers/spi/spi-amlogic-spisg.c
->>
->> +AMLOGIC VDEC DRIVER
->> +M:   Zhentao Guo <zhentao.guo@amlogic.com>
->> +L:   linux-media@vger.kernel.org
-> You can drop the L:. Subsystem defines it.
-OK, got it. I'll drop this.
+On Mon, Jul 27, 2026 at 6:10=E2=80=AFAM Gavin Gao <attinagaoxu@gmail.com> w=
+rote:
 >
->> +S:   Maintained
->> +F:   Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml
->> +F:   drivers/media/platform/amlogic/vdec/
->> +
->>   AMPHENOL CHIPCAP 2 DRIVER
->>   M:   Javier Carrasco <javier.carrasco.cruz@gmail.com>
->>   L:   linux-hwmon@vger.kernel.org
->> diff --git a/drivers/media/platform/amlogic/Kconfig b/drivers/media/platform/amlogic/Kconfig
->> index 458acf3d5fa8..7c541ac0d0c3 100644
->> --- a/drivers/media/platform/amlogic/Kconfig
->> +++ b/drivers/media/platform/amlogic/Kconfig
->> @@ -4,3 +4,4 @@ comment "Amlogic media platform drivers"
->>
->>   source "drivers/media/platform/amlogic/c3/Kconfig"
->>   source "drivers/media/platform/amlogic/meson-ge2d/Kconfig"
->> +source "drivers/media/platform/amlogic/vdec/Kconfig"
->> diff --git a/drivers/media/platform/amlogic/Makefile b/drivers/media/platform/amlogic/Makefile
->> index c744afcd1b9e..7409de674c0b 100644
->> --- a/drivers/media/platform/amlogic/Makefile
->> +++ b/drivers/media/platform/amlogic/Makefile
->> @@ -2,3 +2,4 @@
->>
->>   obj-y += c3/
->>   obj-y += meson-ge2d/
->> +obj-y += vdec/
->> diff --git a/drivers/media/platform/amlogic/vdec/Kconfig b/drivers/media/platform/amlogic/vdec/Kconfig
->> new file mode 100644
->> index 000000000000..d392967c7743
->> --- /dev/null
->> +++ b/drivers/media/platform/amlogic/vdec/Kconfig
->> @@ -0,0 +1,18 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR MIT)
->> +
->> +config VIDEO_AMLOGIC_VDEC
->> +    tristate "Amlogic Video Decoder Driver"
->> +    depends on ARCH_MESON || COMPILE_TEST
->> +    depends on VIDEO_DEV
->> +    depends on V4L_MEM2MEM_DRIVERS
->> +    depends on TEE
->> +    select VIDEOBUF2_DMA_CONTIG
->> +    select V4L2_H264
->> +    select V4L2_MEM2MEM_DEV
->> +    select MESON_CANVAS
->> +    select MESON_SM
->> +    help
->> +      This is a v4l2 driver for Amlogic video decoder driver.
->> +       This driver is designed to support V4L2 M2M STATELESS
->> +       interface.
-> Somehow messed indentation.
-I'll fix the indentation problem in the next revision.
-> ...
+> Hi,
 >
->> +err_media_dev_register:
->> +     v4l2_m2m_unregister_media_controller(dev->m2m_dev_dec);
->> +error_m2m_mc_register:
->> +     media_device_cleanup(&dev->mdev);
->> +err_vid_dev_register:
->> +     v4l2_m2m_release(dev->m2m_dev_dec);
->> +err_hw_init:
->> +     dev->dec_hw = NULL;
->> +err_dec_mem_init:
->> +     video_device_release(vfd_dec);
->> +err_device_alloc:
->> +     v4l2_device_unregister(&dev->v4l2_dev);
->> +     return ret;
->> +}
->> +
->> +static void aml_vdec_drv_remove(struct platform_device *pdev)
->> +{
->> +     struct aml_vdec_dev *dev = platform_get_drvdata(pdev);
->> +
->> +     vdec_disable(dev->dec_hw);
->> +
->> +     if (media_devnode_is_registered(dev->mdev.devnode)) {
->> +             media_device_unregister(&dev->mdev);
->> +             media_device_cleanup(&dev->mdev);
->> +     }
->> +
->> +     if (dev->m2m_dev_dec)
->> +             v4l2_m2m_release(dev->m2m_dev_dec);
->> +     if (dev->vfd)
->> +             video_unregister_device(dev->vfd);
->> +     if (dev->dec_hw) {
-> I do not understand why do you release resources conditionally. Where
-> they allocated conditionally? Why probe is not releasing them the same
-> way in error paths?
-
-These resources are allocated unconditionally in probe, so they should 
-be released unconditionally as well.
-
-I was being overly cautious here to avoid potential double-free 
-scenarios. But in fact these resources are only released in remove(), so 
-the conditional is redundant. I'll drop it in the next revision.
-
+> Some Rockchip GMAC instances can provide a 25 MHz reference clock output
+> for an external RGMII PHY. Boards already describe the MAC clock directio=
+n
+> with clock_in_out =3D "output", but the dwmac-rk driver does not currentl=
+y
+> request or enable the corresponding 25 MHz reference output clock.
 >
->> +             dev->pvdec_data->destroy_hw_resource(dev);
->> +             dev->dec_hw = NULL;
-> What's the purpose of this? If this is needed, then your driver has
-> serious concurrency issues which are not solved with it.
+> On RK3576, this means the REFCLKO25M_GMACx_OUT clock may be disabled by
+> the common clock framework as unused, even though the board expects the
+> GMAC block to provide the PHY reference clock.
 >
-Do you mean the statement 'dev->dec_hw = NULL;'? Actuallyin the remove 
-callback, all resources are at the end of their lifecycle and no other 
-path will access this pointer. This was just my coding habit, nulling 
-out pointers after freeing them. I'll drop it if you think this is 
-unnecessary.
->> +     }
->> +     v4l2_device_unregister(&dev->v4l2_dev);
->> +}
->> +
->> +static const struct of_device_id aml_vdec_match[] = {
->> +     {.compatible = "amlogic,s4-vdec", .data = &aml_vdec_s4_pdata},
-> Fix the style, so you will not re-introduce issue Uwe is fixing.
-Thanks for the reminder. I will refer to Uwe's patch and improve this.
+> This series adds an optional "clk_mac_25m_refout" clock name to the
+> Rockchip DWMAC binding, wires it up for RK3576 GMAC0/GMAC1, and enables
+> it from the dwmac-rk driver when the MAC is configured for RGMII output
+> clock mode.
 >
+> The clock remains optional, so existing device trees and SoCs are not
+> affected.
 >
-> Best regards,
-> Krzysztof
+> Tested on a PicoCOM RK3576 ACP board with a Motorcomm YT8521 PHY.
+> The GMAC 25 MHz reference clock output remains active and Ethernet works.
+>
+> Gavin Gao (3):
+>   dt-bindings: net: rockchip-dwmac: Add 25M refout clock
+>   arm64: dts: rockchip: Add RK3576 GMAC 25M refout clocks
+>   net: stmmac: dwmac-rk: Enable RGMII 25M refout clock
+>
+>  .../bindings/net/rockchip-dwmac.yaml          |  1 +
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  8 ++---
+>  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 33 ++++++++++++++++++-
+>  3 files changed, 37 insertions(+), 5 deletions(-)
 
-BRs
+Can you please try something like this [1] instead?
 
-Zhentao
+[1] https://lore.kernel.org/linux-rockchip/20260719034555.3623003-1-gahing@=
+gahingwoo.com/
 
+The GMAC on RK3576 neither produces nor consumes the clock. CRU is the
+producer, and PHY is the consumer. So the GMAC driver shouldn't be the
+one to enable it, nor should the dwmac binding have anything to do
+with it.
+
+Have a look at how other boards already upstream handle this. For
+example, the RK3576 EVB1 uses a similar arrangement but with a
+different PHY.
+
+Best regards,
+Alexey
 
