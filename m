@@ -4,108 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91405C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D65C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qrf+cQHv5Vv+z0/Mz71+VHG/Bq7CHBbW0NMXtSbt1xc=; b=jF3JFzmjZkKxmVLiUysDxDsVk5
-	WnOHkWwfOfFvEBF+IQiDgAmWlZftlagY40H6CU2eiUwC7SDgc0fqoIS8jVgfQeq14MiVkw5cUayCj
-	oW+glz2HDKoe9ydMdoSaaeqCevu9UnhEuFzJdTsn5N/TMpmXb1JaFxk/7TvNWD5OfXOCFi8PErIrs
-	OdseJEgABGe1+RHuVHJ6P6wK848iNJWh9OQIq3NFSmS8Yj9oDV/g0qqpUKX7iodHhtZql9SuJ2lQb
-	WoNirqrBPwTBJQz/EzzlFeE8HIocVN9WyOxVp454GAuidb+yfFSzaDCWJt9vFguZbgTbxl5t5D0YP
-	jDFNrk0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/amaEOPXodvRCGzBV5IZS9UU/2WniCVnyRWnkghVEbQ=; b=LhfP0aHmwDfm8Mso+wKD4/aQpT
+	s8cBrUCT+dvmdYHZH+Lwz7wY/SdOaq0SGpptyao2OlYqU/H0XTpUiDoaBjjatq+oDUUWOdraU8+NF
+	pgKpvacU1zIHV4Gjf6Hmb8tOl/kP5L14VjuJvmuD0vjrSeQIB/l2iIu6CzudbGRKM2w+A/l0Mg97w
+	JhzlLW/0R5rmEeALo1mlD2V7SPjgAVjOotWOcnUSyhz/NoZWo42YZpAusgvaXDUQYX4x0I+Y5pWXL
+	t7+2hNbhYiA5RtfsVYg9RUE72ybuEhU2CTJYuPU2buA8qeaBsREuhXu4YKu9l+n/tYt65KZTTRmt5
+	dF4cNJFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKIx-00000002eud-3qLn;
-	Mon, 27 Jul 2026 12:19:35 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1woKOF-00000002f9n-1nmm;
+	Mon, 27 Jul 2026 12:25:03 +0000
+Received: from mout.web.de ([212.227.15.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKIv-00000002eu6-126h
+	id 1woKOD-00000002f8w-0Il3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 12:19:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pcBx1i6ulJMvZm12Eokbhh+Ut2Bc+sJTFcKcco7jHeiTjDZOiJQTfEeDYDVeBhvASykd5FMHegyA5ui2ziMzFASK3+7MKGtiIMFuvSbr+HwzGN7lghLjnhXPk5ju6Jc8qZMHQkunseay5AugdTYrnkNVrbpBre6ADwtLQKajJ8IFPmu6DHBA21lH+l//0HiAiDLMKBZT6sukIllW51vurbRkJxI7wWtDbfRtDBVKTkgeq3B4cmcv+o+x6YyyRmcLjAdfX/hZpTeydYZ7CLTiwPDKwDFDObV33pzXwKyfIzdO/Zuxkp+YaKcLCmHASuQkkSvyEDKuX410awURCU980w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Qrf+cQHv5Vv+z0/Mz71+VHG/Bq7CHBbW0NMXtSbt1xc=;
- b=zVYBY5hmFl/lZdC5jhIZeZIkl6IVnneYTKGZ5yq/X6nwpoMdeCAKEAffHiE8zdlKn267ztIDqJ/4GxA1W3AQTmWo4Le8fwwZuc6wB06czj9oDDOgJOtFd/CJQzIoHyjr2LxwBylI9FiBdodtg/3tU778zf58DIhHrn30y3+sGi9GqAaA9u96WwzOqeqk6PzVlIKlg561Skq/sqbEfbY77CdZ7bC/tFJ3m0RfSJg0gabS/Ni5dq5n6GD3B83C2QIut7u2cpT6vUNMtkUngv77dewxg3bOlJB23OvUtzifRaQjndaVicevkOfkehRB2J8rftM4pjCBxEb8y/mo3N8yAQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Qrf+cQHv5Vv+z0/Mz71+VHG/Bq7CHBbW0NMXtSbt1xc=;
- b=CdWKYNlBbDFNqVOhJ2a4ClU3YHxt5Q/Gid8G2mJSZbRvlj3EfGooZ2UC6YcVxyqblL1NLeQ0UPDUMUObtQaEJYrmGnNPQnGLHlqPB/TBXkwyF+mgoxNs9k4rKjyrSHkRE4JznBfcmrEojI47JZ0fvcNKlqkj8zStrGt8jYb27vU=
-Received: from SJ0PR05CA0055.namprd05.prod.outlook.com (2603:10b6:a03:33f::30)
- by CH2PR12MB4199.namprd12.prod.outlook.com (2603:10b6:610:a7::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
- 2026 12:19:23 +0000
-Received: from SJ1PEPF000023D1.namprd02.prod.outlook.com
- (2603:10b6:a03:33f:cafe::3c) by SJ0PR05CA0055.outlook.office365.com
- (2603:10b6:a03:33f::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.9 via Frontend Transport; Mon, 27
- Jul 2026 12:19:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF000023D1.mail.protection.outlook.com (10.167.244.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Mon, 27 Jul 2026 12:19:23 +0000
-Received: from xsjarunbala50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 27 Jul
- 2026 07:19:20 -0500
-From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<michal.simek@amd.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <git@amd.com>, Jay Buddhabhatti
-	<jay.buddhabhatti@amd.com>
-Subject: [PATCH] arm64: versal-net: Add retention state for cpu idle
-Date: Mon, 27 Jul 2026 05:18:42 -0700
-Message-ID: <20260727121842.3410495-1-jay.buddhabhatti@amd.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 27 Jul 2026 12:25:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1785155097; x=1785759897; i=markus.elfring@web.de;
+	bh=/amaEOPXodvRCGzBV5IZS9UU/2WniCVnyRWnkghVEbQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=miLDaXbyzTJjssXS8l1zdVRKzwdD6hGqnCx98A9skgK2YRpPjyCsVGUUBwU8EaO2
+	 YFeGQsNFYF6dZWB4fwrI+FfhHm1gnSnbMb5u3zdUnukuW1U/TetvSEbRFOiBku7Kd
+	 YpdT7ERmcBxM9s9p5SHd8FH5baKPWRK4J1H9OWHrpWpnQ1Evtm/q+MEjaNCuLwxIz
+	 Fd3ipP3mFmSnV2muElUcl7zbsZSnN8ctCu3ABqH/fK8i7Hs5RbQ+XaO7Sfl3CKw6u
+	 5ahdzRm9RxzR+lInU+u9GoMFK91MkNZ0Pj9Hkr0/R/wTEtni5WdJBE0RBd2dtaY3o
+	 I5oDl2s+h6eocs5DXw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MRk0k-1wPXDH1rly-00S7Zl; Mon, 27
+ Jul 2026 14:24:57 +0200
+Message-ID: <802ea627-4bae-4267-b1fa-7da2499f2ab6@web.de>
+Date: Mon, 27 Jul 2026 14:24:55 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D1:EE_|CH2PR12MB4199:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a0f96c7-6e68-495b-4b73-08deebd94aff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|23010399003|1800799024|6133799003|18002099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: 28Sr+1Y/r8jQto9m8VOJy37fRoDa+U2WNPdlmzTAhC2u0spxTsWvPf4xpBnddiRZGc0EwckWeTx3x6+gvc0/alu3yfxsCO71tz5ujnRKBveO6KFOL5gz+GPHD27JJde0k16SfHV9gTB/kvwAmyxVz0BdDPqFNf9DwlfVcV+mY7GVWA07qm8Jy9ixP4kCxQ8/HmGfH1dcxigAIWAE46dlna+CdSsVFUlyb8ESzSRxGu2ZiM8lC7H2/Rmyzn14GFzl/OtgHixSVC2Jgm3FOEhnWRk3mB7UWgIlcyadlOG/vAyf4hGMwDf4ckrIHxQpw4JRt6Oh7LVqYuU+c1O/NJS5hcH+WY+/owWM04FHKN4ZrJrwZ+NwyW8JbEqNjymMcHiYDbraBBdxaLkroFEZ4/M7FMEg9YNb4NqY1ZNmlKaLHVND/FfDSLzW57Mf1ZSGfkm6Iq9FeAj3ZBPmS8jBEYD/XeZfg603WZCEi8Zpjid2UaHg+UVmqaZZAlYBEjn2IqVLlQhaTvvcDqZr7tbHWVLSRhuzC6ZceRfxrrSY1fJJB+49O8mV5hf5Z/YmoJFFrN9uEpf8HS91BYfjkWAHyIBbHyiOyiJu8Zn86Arm1m5EaOTwPXTt37n6vLF050NoQQgpbtajtz9cmHWGVS0S0wkuwoOYuowep69u+x5VrFeGQZoak8kCd7xa8FkE54ZAab8sxfIjJMZjcuSCUHCH+rAxzA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(23010399003)(1800799024)(6133799003)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: p5f/mhxLWjKeBl9iNbAPkzKoRqT8r+ImgssIfsZ9P+7zl1qRVkk0Imsp0734CVuvloeeeMz7o6g/Pq+9jdL2GPTeegWxIU7rzyJrmTa0sWq9vbJmQJUIaummoHdyG4fh8URNWpLtQFMhqvVEzX6kqMeaA40xltcb4Y2v5eO+qYL5102rlYtBrH8faGc5rLaGV/XKjtb3yQ0/CjzDpt695IdJ/UtocYr9dtNmYvW8dj6oULVSAG+EOrpRm5CChQ8uk35n4WIW8wt2tJJBtqIvEh0Ppvf1ccsFh5SBl94k6GxYsQkGtEOOkc6V/Zh7X0cq9XJuvzRbXK02hx5TNWQOQFXXVYvuqycqXQLziWywUHHS0JE2tETCOKRL6Svc//0MorrJGejeQpy6H93Ssfwlvb4UnZbTTbUxMfYeG3WFUzY4dXSRzxtbNtB2C3+1rA6X
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 12:19:23.0507
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a0f96c7-6e68-495b-4b73-08deebd94aff
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D1.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4199
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2 1/2] soc: fsl: dpio: Use scope-based resource management in
+ dpaa2_io_store_create()
+To: Ioana Ciornei <ioana.ciornei@nxp.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Cc: Christophe Leroy <chleroy@kernel.org>, Roy Pledge <Roy.Pledge@nxp.com>,
+ LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
+ <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
+ <d2e5df25-c8b7-4ee6-8ebf-1725542baabd@web.de>
+ <6607bb4e-a747-4791-b93f-f82f26e4a334@web.de>
+ <y2h44um2grcbecnpkck44cvudugha6df2itq2uy5y46whxjouh@yy2kebig3ia5>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <y2h44um2grcbecnpkck44cvudugha6df2itq2uy5y46whxjouh@yy2kebig3ia5>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:F/cIw0T/BV6XsIydacBmp7oxmIQWuxhB8VrShAifUep+B0A4eEw
+ XspKZt0NZ2JbWTJAMoukGAoMGjMJ9fumg5HZark9uy1fPdzMbfrA3tSDQ1Li9JoSpeiZFuX
+ ODgTriycLgfv3ZtAnwBGQyk6s1RaR9fdVRfksvVvOXr3K8xCqPP9yzxHhhumQtnljwyekwH
+ nPVskoTItPy16inN2I3aA==
+UI-OutboundReport: notjunk:1;M01:P0:uq9q16Ou37k=;uqrA8SQIQkHf8kVLE9DXrJbnaPT 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_051933_334787_E1DEA20C 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260727_052501_409776_A1263A67 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,196 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the sleep state and replace it with a retention state for CPU idle.
-The sleep state powers down the CPU core, and the wake-up time cannot be
-guaranteed because the firmware may be busy handling other tasks at the time
-of the wake-up request. This leads to unpredictable and potentially high
-wake-up latency during CPU idle.
+>> Scope-based resource management became supported for some
+>> programming interfaces by contributions of Peter Zijlstra on 2023-05-26=
+.
+>> See also the commit 54da6a0924311c7cf5015533991e44fb8eb12773 ("locking:
+>> Introduce __cleanup() based infrastructure").
+>>
+>> * Thus use the attribute =E2=80=9C__free(kfree)=E2=80=9D.
+>>
+>> * Reduce the scope for the local variable =E2=80=9Cret=E2=80=9D.
+>=20
+> Please don't. Let all the variables be defined at the start of each func=
+tion.
 
-Replace the sleep state with a retention state to avoid this dependency on
-firmware. The retention state uses a PSCI suspend parameter of 0: the
-core simply executes WFI and retains its context without being powered off.
-Since wake-up from WFI is handled entirely in hardware, it is effectively
-immediate (a few cycles) and does not depend on firmware availability.
+Do we stumble on another coding style preferences conflict here?
+https://elixir.bootlin.com/linux/v7.2-rc4/source/include/linux/cleanup.h#L=
+142-L146
 
-As the core is not powered down, the local timer is retained and
-"local-timer-stop" is dropped. The entry/exit latency and min-residency
-are set to the nominal minimum (1 us), allowing the cpuidle governor to
-select the state even for very short idle windows.
 
-Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
----
- arch/arm64/boot/dts/xilinx/versal-net.dtsi | 43 +++++++++++-----------
- 1 file changed, 21 insertions(+), 22 deletions(-)
+>> * Omit two kfree() calls accordingly.
+>>
+>> * Omit the local variable =E2=80=9Csize=E2=80=9D (for another memory al=
+location).
+>=20
+> Please remove this change, not related to the intention of the patch.
+What does hinder to perform the required size determination as a direct pa=
+rameter
+for a kzalloc() call?
 
-diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-index 15f767608e67..792bed588ae1 100644
---- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-+++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-@@ -103,7 +103,7 @@ cpu0: cpu@0 {
- 			enable-method = "psci";
- 			reg = <0>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -133,7 +133,7 @@ cpu100: cpu@100 {
- 			enable-method = "psci";
- 			reg = <0x100>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -163,7 +163,7 @@ cpu200: cpu@200 {
- 			enable-method = "psci";
- 			reg = <0x200>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -193,7 +193,7 @@ cpu300: cpu@300 {
- 			enable-method = "psci";
- 			reg = <0x300>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -223,7 +223,7 @@ cpu10000: cpu@10000 {
- 			enable-method = "psci";
- 			reg = <0x10000>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -253,7 +253,7 @@ cpu10100: cpu@10100 {
- 			enable-method = "psci";
- 			reg = <0x10100>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -283,7 +283,7 @@ cpu10200: cpu@10200 {
- 			enable-method = "psci";
- 			reg = <0x10200>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -313,7 +313,7 @@ cpu10300: cpu@10300 {
- 			enable-method = "psci";
- 			reg = <0x10300>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -343,7 +343,7 @@ cpu20000: cpu@20000 {
- 			enable-method = "psci";
- 			reg = <0x20000>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -373,7 +373,7 @@ cpu20100: cpu@20100 {
- 			enable-method = "psci";
- 			reg = <0x20100>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -403,7 +403,7 @@ cpu20200: cpu@20200 {
- 			enable-method = "psci";
- 			reg = <0x20200>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -433,7 +433,7 @@ cpu20300: cpu@20300 {
- 			enable-method = "psci";
- 			reg = <0x20300>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -463,7 +463,7 @@ cpu30000: cpu@30000 {
- 			enable-method = "psci";
- 			reg = <0x30000>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -493,7 +493,7 @@ cpu30100: cpu@30100 {
- 			enable-method = "psci";
- 			reg = <0x30100>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -523,7 +523,7 @@ cpu30200: cpu@30200 {
- 			enable-method = "psci";
- 			reg = <0x30200>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -553,7 +553,7 @@ cpu30300: cpu@30300 {
- 			enable-method = "psci";
- 			reg = <0x30300>;
- 			operating-points-v2 = <&cpu_opp_table>;
--			cpu-idle-states = <&CPU_SLEEP_0>;
-+			cpu-idle-states = <&CPU_RETENTION_0>;
- 			d-cache-size = <0x10000>; /* 64kB */
- 			d-cache-line-size = <64>;
- 			/* 4 ways set associativity */
-@@ -636,13 +636,12 @@ llc: l4-cache { /* LLC inside CMN */
- 		idle-states {
- 			entry-method = "psci";
- 
--			CPU_SLEEP_0: cpu-sleep-0 {
-+			CPU_RETENTION_0: cpu-retention-0 {
- 				compatible = "arm,idle-state";
--				arm,psci-suspend-param = <0x40000000>;
--				local-timer-stop;
--				entry-latency-us = <300>;
--				exit-latency-us = <600>;
--				min-residency-us = <10000>;
-+				arm,psci-suspend-param = <0>;
-+				entry-latency-us = <1>;
-+				exit-latency-us = <1>;
-+				min-residency-us = <1>;
- 			};
- 		};
- 	};
--- 
-2.34.1
-
+Regards,
+Markus
 
