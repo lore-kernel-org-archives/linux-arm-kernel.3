@@ -4,92 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43121C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 23:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8E8C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 23:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HAXeyuUpUBJGi5ANL/++tSq9bwO41CdynEC3Uob6++w=; b=BIWcIrTA9vyeCZzJXS18Y5tvpr
-	UYuBqqzETNxF/kE0HEx1selVBKUuLrXoZyY/wkqXEoInomQ0OX479ORNxrFRQhxqHtoj3zNQKIXlA
-	trkOXBt+bbURsUOGu8kAS9vitAiEA+W5o8gld0gcKaPUCWTG6tFmTgnPQlzXyIGNz+ZT73I+MSFud
-	aequNs4rGXk/tjhshy/kz/SIJi3ltK7x0D4XjLwJ53DjBH+v+y1R/7sj5fO5vaQETdKNirjR3oyB0
-	IKUkwANbW0+8VdgUQ5JoqBTXlFoQ9aIjvM+ubym8l02YBA90ftQ4N05zfjALs+tGyvA4C+O9NthCf
-	xjp96JYQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SBBRC+4dBOGUpUnVf1j+pdxrs8Bv9jF12/3OQB9wVH8=; b=Fphqc7SrFWu1P61WL3HoayWrOF
+	ATnRhLrlDyowp/c5ztNI1yrwNuizjMEXjLAu50aUJoVKukUNb7MAunR9nKgTV7X2THsFMDq/pMvA9
+	cMzORkCyZkpLt0Wx6LI9I8gohW2MNNwpPaYUWIfWSl5qOW+gInEzStlicys8rKn23U2XK5yhp/5jg
+	azYAY7+gbsFV6Ore7YidRv8JLKh/SKdmDMBPyK6kvs/afFzpUcCaUdyCwzN3yOCWP7W/v2x3JW0Pw
+	7fXjV2uFOeLBwVazgZc9chq+xeP98VxxbOdn3WphxKuOEWXH0X8hqKh/G9djSHphgkM5ppvkhDToc
+	du4oECvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woUIk-000000043L8-34W8;
-	Mon, 27 Jul 2026 23:00:02 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1woUWC-000000043yr-174j;
+	Mon, 27 Jul 2026 23:13:56 +0000
+Received: from mail-oo1-xc64.google.com ([2607:f8b0:4864:20::c64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woUIi-000000043KR-0DE2
+	id 1woUW9-000000043xt-1Z6E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 23:00:01 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-92e5c9211d2so271334485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 15:59:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785193198; x=1785797998; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HAXeyuUpUBJGi5ANL/++tSq9bwO41CdynEC3Uob6++w=;
-        b=tF8lQ1BQcyJuWLrExG5unAjPcmDwKhwS/w8L+mVR6dkC/j8eGpZCpw5J/L75x75uJR
-         xsYsnduI4dt0RLIn68WVgrMfIh/IiCK/IQODCq2/D8s3IqLMKXhDLcSIrzydq0gsa3Pc
-         GAHqYE890PX0raRr/bYcD897h73Fvf085evmiq6XtyH58OarQbRV3vD5AKeI2MUASqnM
-         dQ3t+OYCVLsM8/dpa/n/9AcfRF7uMMcsqBmHeQ5Zxg/aVwWwGv26uVV0NWP6ZhymE4RU
-         M1bK5De07ulFdWnvxYsIE1b9SVPG4RsKJH5/84TiPl8O9clQU0CpX7/9VpOQ4R0HIacf
-         GzPw==
+	Mon, 27 Jul 2026 23:13:54 +0000
+Received: by mail-oo1-xc64.google.com with SMTP id 006d021491bc7-6ab06473488so889207eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 16:13:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785193198; x=1785797998;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1785194031; x=1785798831;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SBBRC+4dBOGUpUnVf1j+pdxrs8Bv9jF12/3OQB9wVH8=;
+        b=Rt6bJCc9bm/pGP3UsTESZeKBiREJp8ZyeZQKvuPUeq65x6knCq7JgDnvAkLf8HVQlb
+         jHwdwt+4QwWWCIPmZtp5bUKb4/NkRXViaxxQM1ifKdO9sXRExWfEXzz6VMNTy/HJUdRy
+         LoyOKY1JaKnUNbztc2ZdLMpRSdl0mlZwZwnO2UvueGx3LvNslxxZp2Uhj5yAR/ZgJ/4z
+         zljYUiakDtQ0SUWXeLUf/twIgWfRqh7nBYdMqHyKWNRVkZVK6Cnynxd5zHYYBuXEAF53
+         /iybA3GHLGGuJ3msFa1YLx5dXMZEc7IJz0tluFAvmLl1s5oUo0Q7ba70eHo4FNpYMo0k
+         GnXw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqh1aPZJmXIEJdrRvCHIZkFjL1CRBNVTKg3F1RrL7faNoZ8dc6tYld+kGytw9MKrCJxW59rkCAl/YhvWF/iiRVp@lists.infradead.org
+X-Gm-Message-State: AOJu0YysFmF4dZn5Ln+KGH6RRIGHnifg5nP/qVP+/wn8v88O6vrZ04Yj
+	C/VSHTd5qk5SezgpXpabDbmAMNQZ9SdPal/y+IOn1uFiq3rWFLQepdVtZb/AaJ4yRokYeLSvEKY
+	uRGM4f1sFgaMTTVfu0K6un5a/+Y7iWRKU0gm5cwKsVedRv7DaJqlhUuyQRQLaPp6C2cPUcn+3a8
+	cct3JnRSdpcRJRKMEkP11lVv5wPXXZPTOnq52ya+ZaMJdy9TSEf+dU1GvQmJ/k984mLTwrh1V19
+	wJO9iA265BNN2sUhYI4wX6xC0mp+dI=
+X-Gm-Gg: AR+sD13xq4wnRY9bqQ1XzC1TSWTyx1kHqRC3G/Z1qGfozB6wSeCEoBCAXbi1pEyW1op
+	PDB4Q0Oql8fuMWWvZU/QRB3YyIw4JGJUXdYNZtlL82LvFFfSEMFjByDOQPJedQosMXmOqpW1q8m
+	HyvXud1vQdhVQ0N9TYxDmlm7Nv0km79awtpUrb5r8R0XXAH1zO2VokVdfIJWkExygOsZLeSMUNy
+	oOE+3KVztMpskBoWcHMt7ZnnBGDD0nF7OMvtld/86hsjAqDGveJ0BM2n6DGvsI6kGpBlsCc9VyD
+	8reME4WIzGjknq+jD31L5rhz7AI+ihrYyiVAivBdOIPXLR4Ys0T3ZgBscACGANQ/w0e0anQxImo
+	DsXz8WXYrM399h5MC0ROlwl9CZFh2ZBumv92PjoxSYn6ImUUo8gUNzRsCPbXTIIsOj3vcqRAhhu
+	PISxrLT1SKjqhl28Ty3fgSMXWc5kIuriMB6Y+C
+X-Received: by 2002:a05:6820:f02f:b0:6a3:97db:4917 with SMTP id 006d021491bc7-6aaffdedd6amr7282974eaf.51.1785194031153;
+        Mon, 27 Jul 2026 16:13:51 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-25.dlp.protect.broadcom.com. [144.49.247.25])
+        by smtp-relay.gmail.com with ESMTPS id 46e09a7af769-7ee29fb48aasm1177692a34.5.2026.07.27.16.13.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 27 Jul 2026 16:13:51 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38ecc48b3c2so149227a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 16:13:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1785194029; x=1785798829; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HAXeyuUpUBJGi5ANL/++tSq9bwO41CdynEC3Uob6++w=;
-        b=sliLGoQQ+SB+UJZ9zYeS5dHPZcR2uw93PrXj3r9N4UAUvKyo9XxDwU/2vmZr7qgB1n
-         qCVgaqX/5NaphOkU8tXr+lZO1sT+j+LhWskYw8sBPYPmzUAEjBiz1YU3KCyMgG8DwSgl
-         uDhDAAdMLQAsyJ4hK3XoSArF1tB+HRH+tIt4alHMjUi/umVDzc8yBNzKSEpWlrKGMX5W
-         X14hNFhPFJTyfRGy2E5bHDEHsLo1irGJh6rPxhlxxHATZhIgtnBIi653m0oAFilsh83O
-         FNKcBxTPHg9zC/7BG/WKusCzyWLqxpwQmIwXiVf1ECItcrcJWdu+Kqrv1EyNiESpleBs
-         0a/A==
-X-Forwarded-Encrypted: i=1; AHgh+RplVyIlKgM4HxGOQUfEjKsC2kLPdU8o79cMRKxu/+zkMjUNDsVzHFivM6vgJFBTioHS3nEsbFXmEXBWtthL2Gn/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzstCRDCdRlVigKyIYtv+JKOj+vV7aGA7WjPztpQqVUTZoD1hjt
-	JkV76to1QeO1OAYK30lHlN0+ebBBA1wB1r2jY56JVGMVISlRmFWbzGGg
-X-Gm-Gg: AR+sD12WaL6Nf36ncpSeM0kOOClCyeSBj1Qf1BIXV5oGFB/3y2GB68K3CHvONQV3ldT
-	A6Re2J3SPpjWq5ya+c73VyTAp1/9nrGAYQXrUxl8Z2CNd4j5FxlJqN7mhbK+X1J/UYJpNfximNd
-	n9wtNOiIag6uke7LVxgOB040tSFTqTFI0qhtLP5tiwfXMYsPECvn/flYOo6/6nGICv9wnDu8sdX
-	3+k3xH5qEjrJ34XQg5YRSlPUhuHZHWAwOOqbm9kZ7yb5I2XNlrJeVICa23s5agL974igV4elhlL
-	GhMx51FfY8A1yP5tkiwsGi1NFVbOlEPnqPqFXOdkHXTwf6AQMY7JN7XZYUkulucvI+Z0hDaT0Rp
-	Rq558kKnsnI3jkoRQOdqRwnPfC3sI1R3l/5Uc6fK5Eiyc1iiRQlmdmoNaL9Kg5qeuC74ObPGE+Q
-	pUJDvGMhHj6wJp6cJsVqTDHB7f+UK/BV+jR3ZzOsD3qcTjLO6OxnqX10tFTJUtUtbaipdmZx0GL
-	86JTI05MllmE5PtYVDLZbGgAHw+qdKPJRRIos549teQ0M6RxGafJkh2nJnrrGYR8A==
-X-Received: by 2002:a05:620a:4109:b0:922:d336:1990 with SMTP id af79cd13be357-93301f45ab0mr2372685a.18.1785193198479;
-        Mon, 27 Jul 2026 15:59:58 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-932de54b3f6sm711220885a.18.2026.07.27.15.59.56
+        bh=SBBRC+4dBOGUpUnVf1j+pdxrs8Bv9jF12/3OQB9wVH8=;
+        b=Hx0bAAopG88sP1eKfvWiwgYHHH3KnZOvqWAgTJ/ngzBlwoeDdtBxAM9P2/6UN4q4oh
+         2Pj9muMfdD53T7lxuh6sdtyFqj8Jwi8SSH1sIOFBPa3YJfII8AKD3e9CQ7iY1FvEjiCG
+         LeOS+a3EjwWQgRRIBOfXSkUzLgTCNGVW5BuYI=
+X-Forwarded-Encrypted: i=1; AHgh+Rr4j7/JHjBm8QyYIOxpDGAGfI4mQVRAzfyFkKuGqn2Vg+ZosFRqGIzk4pt4xwiVFPbvJmF+QAMyHB4MUco2dxM4@lists.infradead.org
+X-Received: by 2002:a17:90b:2ccf:b0:387:df8f:1409 with SMTP id 98e67ed59e1d1-38f2988462emr8728040a91.42.1785194029550;
+        Mon, 27 Jul 2026 16:13:49 -0700 (PDT)
+X-Received: by 2002:a17:90b:2ccf:b0:387:df8f:1409 with SMTP id 98e67ed59e1d1-38f2988462emr8728013a91.42.1785194029098;
+        Mon, 27 Jul 2026 16:13:49 -0700 (PDT)
+Received: from stband-bld-1.and.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-314bc415eafsm36964437eec.7.2026.07.27.16.13.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 15:59:57 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: devicetree@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: BCM5301X: panamera: add phy-mode to switch
-Date: Mon, 27 Jul 2026 15:59:54 -0700
-Message-ID: <20260727225954.268155-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Mon, 27 Jul 2026 16:13:48 -0700 (PDT)
+From: Jim Quinlan <james.quinlan@broadcom.com>
+To: dan@reactivated.net
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	florian.fainelli@broadcom.com,
+	iommu@lists.linux.dev,
+	jgg@ziepe.ca,
+	joro@8bytes.org,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	nick.hollinghurst@raspberrypi.com,
+	robh@kernel.org,
+	robin.murphy@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH 0/6] Add support for Broadcom BCM2712 IOMMU driver (Raspberry Pi 5)
+Date: Mon, 27 Jul 2026 19:13:43 -0400
+Message-Id: <20260727231343.1520006-1-james.quinlan@broadcom.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
+References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_160000_093622_03F628CA 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_161353_417600_9B16EE2B 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +127,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-phy-mode is needed for CPU ports based on the documentation.
+Hello,
 
-Fixes dtbs_checks warning:
+Please give me a few days to give comment and test this on
+the Broadcom 7712, the sister chip of the RPi 2712.
 
-switch@0 (brcm,bcm53125): ports:port@8: 'phy-mode' is a required property
-from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml
+Regards,
+Jim Quinlan
+Broadcom STB/CM
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts b/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts
-index e02a7a902f72..372601f0d56d 100644
---- a/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts
-@@ -183,6 +183,7 @@ port@4 {
- 					sw1_p8: port@8 {
- 						reg = <8>;
- 						ethernet = <&sw0_p0>;
-+						phy-mode = "internal";
- 						label = "cpu";
- 
- 						fixed-link {
--- 
-2.55.0
-
+> 
+> ---
+> Daniel Drake (6):
+>       generic_pt: allow missing sw bit in DMA_INCOHERENT case
+>       iommupt: allow full-table contiguous leaves in unit tests
+>       dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
+>       iommu/generic_pt: Add Broadcom BCM2712 page table format
+>       iommu: Add Broadcom BCM2712 IOMMU driver
+>       arm64: dts: broadcom: bcm2712: Add GPU IOMMU and IOMMU cache nodes
+> 
+>  .../bindings/iommu/brcm,bcm2712-iommu.yaml         |  65 +++
+>  .../bindings/iommu/brcm,bcm2712-iommuc.yaml        |  35 ++
+>  arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  15 +
+>  drivers/iommu/Kconfig                              |  15 +
+>  drivers/iommu/Makefile                             |   1 +
+>  drivers/iommu/bcm2712-iommu-cache.c                |  73 +++
+>  drivers/iommu/bcm2712-iommu-cache.h                |   9 +
+>  drivers/iommu/bcm2712-iommu.c                      | 587 +++++++++++++++++++++
+>  drivers/iommu/generic_pt/.kunitconfig              |   1 +
+>  drivers/iommu/generic_pt/Kconfig                   |  10 +
+>  drivers/iommu/generic_pt/fmt/Makefile              |   2 +
+>  drivers/iommu/generic_pt/fmt/bcm2712.h             | 259 +++++++++
+>  drivers/iommu/generic_pt/fmt/defs_bcm2712.h        |  18 +
+>  drivers/iommu/generic_pt/fmt/iommu_bcm2712.c       |  10 +
+>  drivers/iommu/generic_pt/kunit_generic_pt.h        |  39 +-
+>  drivers/iommu/generic_pt/pt_fmt_defaults.h         |  13 +
+>  include/linux/generic_pt/common.h                  |   7 +
+>  include/linux/generic_pt/iommu.h                   |  13 +
+>  18 files changed, 1147 insertions(+), 25 deletions(-)
+> ---
+> base-commit: f4fb100039e96211609dfc44fb24b9e4a8a0f2f9
+> change-id: 20260712-bcm2712-iommu-submit-2e09899e65c4
+> 
+> Best regards,
+> -- 
+> Daniel Drake <dan@reactivated.net>
 
