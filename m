@@ -4,61 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9B0C531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 05:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B53DC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 05:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C7u7qt0q5CoQ4f3u+rALRaPoEix+wn4Qau2fUG98YwQ=; b=f8sjqTgjpy7K3MUReN2z6oXQ1Z
-	zQgOIz5XtwUfR02g/BfDa13YkOKGgSaiKtcPLbQ0yvUpk3DtySN4NSAZHxyR1GP42+106+x8ggIwk
-	WtbIiT/0B3m+ASRIpzPjHhq625hhtuzKXSrUjey0WJJth8OPzv3vM5MCqtX6Y4rGNt+D3NJxbwMUl
-	8ESL74d1eBQ5r0A+HzSODDJ9arY0Z31AhthWDs04wv7jOCOOS0aU/aGg+64VkaPeEZLqRX0RwGs81
-	HY+WeYzZzB4GuwV3BItFGd2wHyA+N473T+/56I+QIccUwIXpBdPTZe0EtN7ejLsE2aT0a/VzgFmuF
-	CyEOHiyw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L/ntJXRRr4OjhqHMMsGyMYGgYHo0I2TwRLv/2jgZoyw=; b=jZOmokdd2nF/gXccbXGDR0LkKz
+	AnP1ojf9wQqgo8l78RqV1Ze4oWbAA8OGrty9PcALfwkcHOFu9tqEeVqN7WXi3osiLH8At6MNSxf4z
+	ZZf5R9S1IIzZ5kxvYrfy/59c/Vi2h+ejl2lAsOwmpsvgirIKAacCfABi3lwl8shnGzrlZuAwC75lZ
+	O+CxwOuAtVJ2+YvqNCgZCgL0znCggTk3930IGPA1kYWrQRcEgRmijOpo1EeW/qpqXEgXwSnHSnVfn
+	cwAtC+8oY/Nf07g34b7Ccxiy0Sr+A/p6wLmkh6IhX7P2i5Ct+L0t9lW9Wnrwj6aDdaiTIYFGVWARJ
+	FoGUw34w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woDnX-00000001xtn-2rZl;
-	Mon, 27 Jul 2026 05:22:43 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1woDue-00000001ygh-2Oix;
+	Mon, 27 Jul 2026 05:30:04 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woDnT-00000001xqj-0WgC
+	id 1woDua-00000001yfn-0gUF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 05:22:42 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8B2B4118321;
-	Mon, 27 Jul 2026 07:22:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1785129746; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=C7u7qt0q5CoQ4f3u+rALRaPoEix+wn4Qau2fUG98YwQ=;
-	b=EvKRMMvyeQkVrUDsdyf9MBofKMZQk5cPoCYNjZeJt45cTSlWqdEF5HwNFyAX7kBa9g5+ax
-	hrG2S+8c3STQLQl96mvWFIUM0+KG52I9Ywo6aB5+5pySOzMo0/8zgjyTusPzj8p+hWSRjR
-	Ij752wcUBcf9FUJWON2YXiXxACLqV2Gjm4s48wcedriTDkw659GLdlvpgUAQHqrh7Wpons
-	BufOkIGwdK0HxsYvy3JTkYUJ4TE7Jg0GUF6ADtcYK/9ypjFm5hmc337lgua/q6F+DamkOj
-	03j1JSEk8S+fM4MCTjKJ3HmgefxyXFvNUhADyy8Fe8csmcisHV9dIjGmENEQgg==
-From: Heiko Schocher <hs@nabladev.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org,
-	Heiko Schocher <hs@nabladev.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Tom Rix <trix@redhat.com>,
-	Xu Yilun <yilun.xu@intel.com>,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH v3] driver: fpga: xilinx-selectmap: add csi and rdwr support
-Date: Mon, 27 Jul 2026 07:22:10 +0200
-Message-ID: <20260727052218.4079979-1-hs@nabladev.com>
-X-Mailer: git-send-email 2.55.0
+	Mon, 27 Jul 2026 05:30:03 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66R1iSTB3757592;
+	Mon, 27 Jul 2026 00:29:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=L/ntJXRRr4OjhqHMMsGyMYGgYHo0I2TwRLv/2jgZo
+	yw=; b=MnrFi00PHkUiY8OmJXKOAISQ2zyNGCwNYSGtZ028QpwRU5tYC0ocA+fCJ
+	Km+Bf+Gk6Ty/N7XqRw7jQ8VOCJVOvL/Ymmybjwx40981wbZZFkbrotGsVFgar6eB
+	BLRVaFlW7Flzj6uLFii5/4X+2oAzHYDr26p2cgj+AyQA8XNj18Vg4VSXinwftbUp
+	o6Vx69Z9bRAq2gnzeGPxUo0n9z27pjlCS3GABDtf/fpuS5eovxY0Lj8CCyFcLaZo
+	vdwi8b7sW0IWs4PhkIllQSAoLSoS5hFvs+vWLObcA+dPhOdUkUZAwqzaykvKP6UH
+	WU7QCHQL6duMkCbuepi0VrRFHRhOQ==
+Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010062.outbound.protection.outlook.com [52.101.85.62])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4fne5kuxxu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 27 Jul 2026 00:29:48 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mVgk9cozfgBJTohEIH//ncXQaMCyhWBkQ7Atx87dU2vMacKkUhOxnbMBY9LjcjY3iMrxJUaA18qcK4+U0jK2FtmIGnrEqQr07d6dF1aglBQMbAxjdwVSH5UJA8iO0TTYWOFe0Err9CZCbPOHcR/au1anz+Wn/6g0lWsqj0x8HArvZwfvXIl4iXbg4cj+SFDOY/73YKaQQY1m6NqdUezVLzs3CU4jSHvX/RpvVGL3qX0cYz6yMZ0lDoUKKi5R/3/iEKL7ZcT3+gI/yvQqHX9RwnW7/N2GbtZ4JrzmbSZS/GY97rSSjivGKAqosomL1x0nBAsMRLC2HcQVmoKv/pC+1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L/ntJXRRr4OjhqHMMsGyMYGgYHo0I2TwRLv/2jgZoyw=;
+ b=hvNF83j0I9mJg89t5NRfa0G52KMA68ARnjtyH301V5QZGkWSS8f3J/mT2iBG7MQ+bRddIAjWh/5FdB6Jgl/n1u9J3nJnYxofp+1gA8BsWSYpobUwFge8aaDB9KoIyVvtDWM+OkHMnt9Q48O6S46RiNtiW923ozGl3jO6lF0gvHWwD6mUyDw7pW0yX/ji65hRRc3s9nC8TRzDK16kDH0k4Xte/jB7eUAx9mRfok3Ypexr7A37bEKBQ0g/C9SIqao9ohaJD7T/UDKgmR5lceAK9HTm3f3ZyhrqGFWv3/FL2x0IhJe5i0SYiKGcRl1h3l/pvFWwzZxCPpJpsMe3CMNzZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L/ntJXRRr4OjhqHMMsGyMYGgYHo0I2TwRLv/2jgZoyw=;
+ b=JZypQVwrybraKT+XG31efozNUn0UT1E5p/WMxO/9HlssbnXK3gSFrBlrDq4uPqUP/QnNT9zw/ISKRcq1eIw5DSxlEN6Y7owzIUtON62c9B/PsDFob2jqvg2uMLnsWtxgld+i96o9pHWiaOi34rmaX8T/pf2L4k4lWfQrZtsLC6E=
+Received: from CY5PR13CA0052.namprd13.prod.outlook.com (2603:10b6:930:11::34)
+ by CY8PR10MB7368.namprd10.prod.outlook.com (2603:10b6:930:7f::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
+ 2026 05:29:45 +0000
+Received: from CY4PEPF0000EE31.namprd05.prod.outlook.com
+ (2603:10b6:930:11:cafe::22) by CY5PR13CA0052.outlook.office365.com
+ (2603:10b6:930:11::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Mon,
+ 27 Jul 2026 05:29:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CY4PEPF0000EE31.mail.protection.outlook.com (10.167.242.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Mon, 27 Jul 2026 05:29:44 +0000
+Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 27 Jul
+ 2026 00:29:44 -0500
+Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 27 Jul
+ 2026 00:29:44 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 27 Jul 2026 00:29:44 -0500
+Received: from [172.24.17.28] (lt5cg60819vj.dhcp.ti.com [172.24.17.28])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66R5TaXf4042529;
+	Mon, 27 Jul 2026 00:29:37 -0500
+Message-ID: <107e93d2-cf73-4d57-8b8b-7892ab964dbf@ti.com>
+Date: Mon, 27 Jul 2026 10:59:36 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/18] arm64: dts: ti: k3-j721e: Add overlay for fusion
+ application daughter board
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
+        <festevam@gmail.com>, <andersson@kernel.org>, <geert@linux-m68k.org>,
+        <dmitry.baryshkov@oss.qualcomm.com>, <arnd@arndb.de>,
+        <ebiggers@kernel.org>, <luca.weiss@fairphone.com>,
+        <michal.simek@amd.com>, <sven@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+        <r-donadkar@ti.com>, <devarsht@ti.com>
+References: <20260713113423.2310443-1-y-abhilashchandra@ti.com>
+ <20260713113423.2310443-8-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20260713113423.2310443-8-y-abhilashchandra@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE31:EE_|CY8PR10MB7368:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5936329e-f5bb-4908-65d3-08deeba01103
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|36860700016|82310400026|18002099003|10067099003|22082099003|56012099006|4143699003|3023799007|13003099007;
+X-Microsoft-Antispam-Message-Info: 3uEyRKnoFAYS6jvJsSTMX3ABOOfBFUat9l1Fr/bx+nf1rSziCTBebcSL368NYophH6Bddk+Eq5Hfg2ioe+nTbDTk4MtlE1UqyKiBVoYRukL/Ry8sTOrdjcuwvrGBprF/72O7e+aczotET+4j0IB4JzoDdzZN0kyPRsd85ntE/TTk6pwExhNpou2HVBpOv3feeMfSabj/3qzRpAFyzkN/oTRrVSqe+ZEpONSYza0pVmrCAtH0r/4KJF1wJmueQyNbe8dnLQCW0Q0X5NbVM670rndk+3ThpDo/7rGbCX0tYO/+WN5cC+jq6KS/OJR4aylDTreKgPda4pgbR4ZRp5LQ0u7EcxIHOIQPZ2IrA/5fKFFuybtpoWg5R84PsUKj53bbDfkIkgv7WpdZIu5mKHmOD6Sv3fL/1CEDTIdopjZwuesP9SZojrK+GMZyDlEces1XRKQ3mLTBdrBCcGXqGxlyoYBqtPoEK0w1mDvNzYCAW60AQ/GHbzznWwGOK/yHdWLM4aihhg5HS7XsKpQXp17lwtCn+QnELywRkiLaXv9ZggtMVwpmLn/+Zt5JIAtPNOkVZL9E7r2yOKskrneNKjPtRi4i17kDkxnMQ3obONOKDaf1MRtPsbYfhnV2kh/wngNFA18PEla4gLbRbMcj73tI7A==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(18002099003)(10067099003)(22082099003)(56012099006)(4143699003)(3023799007)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4q1L+oVWuxKK6ol18A0ZLogRxNJvUDJ8bTksi4ZzZh6mbx9eMb0xIePdFRHAfcizbiSCZ7joVpPpq1sHiwTMTlYF6X3ys2zxrEFSjV7Jtf+6jRLoGCE2pO02bgeL65cjvlbWp3m6DX3Carz5HIvsgjXcudlidW3xaMeClNx/os3TpLw0toyWsmB/4x9bS/eNHl5KucuP9Jhu6tfuBqXTEDG4dzF64EEJpX5r1IRY9kyp5uIF9BG1dP+yGKh/1zEPzGF/txtP+6Ky+XRBpuM1EhzTa+3pivZNm8u4cqoVr/CGxXoPr5YvmB5ZsMarKLRfyDw+9oxGVHoXhWn/L7VblcbaqxnmW/5LRrj3QGt3mni13DEHVEJbKK+8gv/77AjH4b/MmNNepaYBE0bMAVQhXmxY2hzQgHvekP0mbjmA8VbleYzOe6qlC2pTjZ5K1HJY
+X-Exchange-RoutingPolicyChecked: UEeF9SeI8r9RvtCrTQG2mOPT2vGMXMfuHebU54q2Z1QXLeS/kySNyQUxgD1HIg0Viqs6Eb8KCgVPVHoQzM9WxwxySK/9OMdafzVHIqRzwSO4fAGBo/OpRtDmwmMP1nfisYB6avUoiHlWFc94U5aE9giczSraI5vziLUHQ7fK8f2mKgqYrpyiewN/XjbqSMrYPekGqFKHNDhp6jgR2g/dSMlCIoDVKDb9J2j0E/1NB5wMT164yehT+vEwoys4DwOAwjQdhhQTzLTOsFMmuQaewNlWzV44jfrHcpbVv6OnfqVBl/w5d956YKSVUuV/Xe29x2rqBuHZJLM5jZjFo615Sw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 05:29:44.5105
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5936329e-f5bb-4908-65d3-08deeba01103
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE31.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB7368
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI3MDA1MiBTYWx0ZWRfX0sQs4QOUa0AJ
+ iCGOOc/ZYay3BX+p4Ilo7wUa0gqqWr1kP+lS+vipDkibJf4je2u04iDAEb6lFAxMr1ZBNzWIpV/
+ WSOmXCPVZL8jEBllVDQERmvuaE08XNQ=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI3MDA1MiBTYWx0ZWRfX+6CUUcEONkLb
+ e5ppHas6imTgoX9BIDjq/vPyEPkotJr84AT55aY0S+z+zZOhJwkMyxp9jRJUr1tS4h28qwm5vI7
+ h4J7dga0v36ySz9SHUF7c0i4tAGqtft/DwrXHZubzX2Y3uPf8rpYoYb1KrKWkKADPNqml+3EELl
+ h7AVcqnqdSlreRBmRk505LVO2YuXovfeYzf66dFwNR+Zx8+Owmb0fCzNCQ2Yrx+qIlqcIHHSw0N
+ pY21yLBHsGl4ocs6P9GuvyIBzG9E5Gc3sTlwRybq0WVLTD5v8vCR8AZopEORElEpS6I1laxBOLq
+ bSkbyT2c2ChCZwupYrk8uyzzkia20kmAZ8AorQfp4+YnjQsWzazz8bsSfIDrxSCvwSicgsge6CA
+ ZRbputSDjRvJD/JL8tL4h3F5o3uo3qa9iTYPr+2iJpHt3mK+5MPy1SQ87Pv+uKMC6EqBfKxUWr3
+ 555eE8OlifCfrZ7QEHA==
+X-Authority-Analysis: v=2.4 cv=X/ti7mTe c=1 sm=1 tr=0 ts=6a66eccc cx=c_pps
+ a=TAA+lrqbVY7ItQ3T6C2wEw==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=gO1vWkAQAl3rybz1DQOp:22 a=iY-8cndAAAAA:8 a=sozttTNsAAAA:8
+ a=TavsJCUsWUQ5puhj2-EA:9 a=QEXdDO2ut3YA:10 a=spcmYsBHvreeK_59bKkA:22
+X-Proofpoint-ORIG-GUID: wHfIidp2joux_k5cwvikr-1IXP3TLnJM
+X-Proofpoint-GUID: wHfIidp2joux_k5cwvikr-1IXP3TLnJM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-27_01,2026-07-24_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 priorityscore=1501 adultscore=0 malwarescore=0
+ spamscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607270052
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260726_222239_536112_A9E62701 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20260726_223000_340961_685907B4 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,131 +185,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current driver requests the optional CSI_B and RDWR_B GPIOs but
-only configures their initial output state and never changes them
-afterwards. As a result, CSI_B and RDWR_B remain inactive throughout
-the configuration process.
+Thanks for patch
 
-This may work on systems with a single FPGA where these signals do not
-need to be controlled by software, but it does not support systems
-with multiple FPGAs sharing a SelectMAP interface.
+On 7/13/2026 5:04 PM, Yemike Abhilash Chandra wrote:
+> From: Vaishnav Achath <vaishnav.a@ti.com>
+> 
+> Fusion application daughter board [1] can be used to connect multiple
+> FPDLink-III based sensors to TI EVMs. The board has two DS90UB960
+> deserializers, each of which aggregates input from up to 4x FPDLink-III
+> sensors. Up to 8x sensors can simultaneously stream over the two CSI RX
+> ports on J721E.
+J721E to same of board, please
 
-On systems with multiple FPGAs sharing the same SelectMAP data bus,
-the driver must actively control these signals during configuration.
+> 
+> [1]: https://svtronics.com/product/fusion-application-daughter-board-evm577pfusion-v1-0/?srsltid=AfmBOooMsRAd5ibFOGJaKbjsC3j9-loTPK2wWqsqPq2Adj55g1nPluxX
+> 
+> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+> ---
+> Changelog:
+> Changes in v2:
+> - Add missing bus-type property in csi2_phy0 endpoint for cdns_csi2rx0 (sashiko)
+> - Fix minor DTS styling and whitespace inconsistencies in port definitions (sashiko)
+> - Remove unused gpio.h header (sashiko)
+> 
+>  arch/arm64/boot/dts/ti/Makefile               |   4 +
+> [..]
+> +		deserializer_0_ports: ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			port@0 {
+> +				reg = <0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			port@1 {
+> +				reg = <1>;
+> +				status = "disabled";
+> +			};
+> +
+> +			port@2 {
+> +				reg = <2>;
+> +				status = "disabled";
+> +			};
+> +
+> +			port@3 {
+> +				reg = <3>;
+> +				status = "disabled";
+> +			};
+> +
+> +			/* CSI-2 TX */
+> +			port@4 {
+> +				reg = <4>;
+> +				ds90ub960_0_csi_out: endpoint {
+> +					data-lanes = <1 2 3 4>;
+> +					clock-lanes = <0>;
+> +					link-frequencies = /bits/ 64 <800000000>;
+> +					remote-endpoint = <&csi2_phy0>;
+> +				};
+> +			};
+> +
+> +			port@5 {
+> +				reg = <5>;
+> +				status = "disabled";
+> +			};
 
-CSI_B (Chip Select, active low) selects the target FPGA. It is asserted
-before configuration data is transferred and deasserted afterwards so
-that only the intended device responds to bus transactions.
+Little confused here on port number,
+I am wondering, why 5 ports are defined.
 
-RDWR_B (Read/Write, active low) controls the transfer direction on the
-SelectMAP interface. A low level selects write cycles, while a high
-level selects read cycles. During FPGA configuration the driver drives
-RDWR_B low before transferring the bitstream and restores it to its
-reading (high state) afterwards.
+as per DS90UB960, one single part can have 4 input (from sensors)
+and 2 port output (towards SOC) page 5 from [0].
 
-Store the optional GPIO descriptors and toggle both signals around the
-configuration data transfer, allowing multiple FPGAs to safely share a
-single SelectMAP interface.
 
-Tested on an AM625 based board with two Xilinx FPGAs connected to the
-GPMC bus.
 
-Signed-off-by: Heiko Schocher <hs@nabladev.com>
----
+https://www.ti.com/lit/ds/symlink/ds90ub960-q1.pdf
 
-Changes in v3:
-- use 0 (deasserted state) and 1 (asserted state) in gpio_set_value()
-  as commented from Micahl
-- rewrite commit message as requested from Xu Yilun
-  - describe what rdwr_b and csi_b do, and why this change is needed
-    for more than one FPGA.
-- add comment before asserting the signals, why they are asserted
-  in this order.
 
-Changes in v2:
-- add comments from Michal
-  - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
-    as validate_desc() checks this in gpiod_set_value() call.
-  - initialize the gpio variables csi_b/rdwr_b immediately with
-    the return value from devm_gpiod_get_optional(), so we can
-    drop local gpio variable at all
-
- drivers/fpga/xilinx-selectmap.c | 32 +++++++++++++++++++++++++-------
- 1 file changed, 25 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
-index d0cbb5fdfe3a..35078206a3a3 100644
---- a/drivers/fpga/xilinx-selectmap.c
-+++ b/drivers/fpga/xilinx-selectmap.c
-@@ -19,6 +19,8 @@
- struct xilinx_selectmap_conf {
- 	struct xilinx_fpga_core core;
- 	void __iomem *base;
-+	struct gpio_desc *csi_b;
-+	struct gpio_desc *rdwr_b;
- };
- 
- #define to_xilinx_selectmap_conf(obj) \
-@@ -30,16 +32,30 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
- 	struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
- 	size_t i;
- 
-+	/*
-+	 * Assert CSI_B and select write mode.
-+	 *
-+	 * UG570 states in note 4 in Figure "Continuous x8 SelectMAP Data
-+	 * Loading", RDWR_B should be asserted before CSI_B to avoid
-+	 * causing an ABORT on the next CCLK.
-+	 *
-+	 * To be sure, set first RDWR_B pin before activate CSI_B
-+	 */
-+	gpiod_set_value(conf->rdwr_b, 1);
-+	gpiod_set_value(conf->csi_b, 1);
-+
- 	for (i = 0; i < count; ++i)
- 		writeb(buf[i], conf->base);
- 
-+	gpiod_set_raw_value(conf->csi_b, 0);
-+	gpiod_set_raw_value(conf->rdwr_b, 0);
-+
- 	return 0;
- }
- 
- static int xilinx_selectmap_probe(struct platform_device *pdev)
- {
- 	struct xilinx_selectmap_conf *conf;
--	struct gpio_desc *gpio;
- 	void __iomem *base;
- 
- 	conf = devm_kzalloc(&pdev->dev, sizeof(*conf), GFP_KERNEL);
-@@ -56,15 +72,17 @@ static int xilinx_selectmap_probe(struct platform_device *pdev)
- 	conf->base = base;
- 
- 	/* CSI_B is active low */
--	gpio = devm_gpiod_get_optional(&pdev->dev, "csi", GPIOD_OUT_HIGH);
--	if (IS_ERR(gpio))
--		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
-+	conf->csi_b = devm_gpiod_get_optional(&pdev->dev, "csi",
-+					      GPIOD_OUT_HIGH);
-+	if (IS_ERR(conf->csi_b))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(conf->csi_b),
- 				     "Failed to get CSI_B gpio\n");
- 
- 	/* RDWR_B is active low */
--	gpio = devm_gpiod_get_optional(&pdev->dev, "rdwr", GPIOD_OUT_HIGH);
--	if (IS_ERR(gpio))
--		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
-+	conf->rdwr_b = devm_gpiod_get_optional(&pdev->dev, "rdwr",
-+					       GPIOD_OUT_HIGH);
-+	if (IS_ERR(conf->rdwr_b))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(conf->rdwr_b),
- 				     "Failed to get RDWR_B gpio\n");
- 
- 	return xilinx_core_probe(&conf->core);
----
-base-commit: 58717b2a1365d06c8c64b72aa948541b53fe31eb
-
--- 
-2.55.0
-
+> +		};
+> +
+> [..]
 
