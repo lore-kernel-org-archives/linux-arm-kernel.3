@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E9BC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5077C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 10:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VvEhKcJ2ZVZIzvdPXLbXyAox3SL2pO0W3068N1UeoMg=; b=zikQSvolNbCmUDkMkBKAxQaROx
-	hNeRttH3UUUTiTE2piyubTVTlMrBQ0VEOzmXa/rC7zHKr7FbYl0C940cuEnIDovIsL0FODCvf7Nus
-	R9OpPfWXy42rhmQTYKVR0TXkipFyrPx5aaSVvtvOtH9Ex77GigXJLl1qoflC7h0yUXmoy2sdtmN1o
-	DPJ/BR1s9S9U+8OBVrvsn4sVAjtX5FzacxBm9XWw5/pc1crPQztqFSka9BNcC56fLzbE6OaSzZ2Fr
-	Te5Qw5oiKglsboUvpb/O4iXz1FgEIr6MujQrSZ3pLMli8TMqhpQqrHpmuhWoOK7oJA9EW53HoIaz8
-	3tRO5PvA==;
+	bh=P9qRE0eLqMtz9rnfDFKuf3rnw9cbt+HdSl7w2HOjV+w=; b=IoYqZiqGQQgJigp0RGLYovFPGF
+	9tnhhDMgJXb6DxXrEY6QT51kUdziRYv2V3ZUVRxpek8uhkQ6x05GsqvMO0u4xbkFy+N0xprKOFIM2
+	Em8EsZ5sEGtKM49uLHAOSSaYZhMzSl6rdccCQsjZUKotUdoK80VYFJlbj5SZ24aTxcjOrcVDAWA/V
+	+mPzkFjmgFfng4KpemIMt+RYNtMIxDZhKrzBwj7hbxAr+x61QmHyXvgWVRUh9gLYeA3//egm/7JX9
+	rhWbUUkDbnVnovp0ehcVOxpIc70OuJERdO/aAyMGDz9oY/XuwT2JXf7Z7271mntSNaz4DI3ccOMjH
+	fH6RSe4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woIxu-00000002Wwh-0R2s;
-	Mon, 27 Jul 2026 10:53:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woIxs-00000002WwH-0mTi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 10:53:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0307D143D;
-	Mon, 27 Jul 2026 03:53:39 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0ABBF3F86F;
-	Mon, 27 Jul 2026 03:53:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785149623; bh=7WpwP8RisrxnArjb2LK5kEATiDum+IBvXOvgLgkJm6c=;
+	id 1woJ1D-00000002XFE-2Ljt;
+	Mon, 27 Jul 2026 10:57:11 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woJ1B-00000002XEZ-2AQD;
+	Mon, 27 Jul 2026 10:57:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785149825;
+	bh=jQQ4etZmqiYuEsbm4/OMVb1AlonMQGwUbaT1/gx2CSQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sbtuWqmQYn9269wgUse/Rtj71CbSRnD6TElxQDFKMGbYdmWesPYBJdvdbR3GzHBB/
-	 AmMc/nUI1r5ExsyP52QqsPN9VsEK3TXB43MKsg5v4GzUvcRu/7uHw8fjy7m0jbsQmE
-	 QETa8MrZxMizcuWF/YcIaAknmugdqFxzrgikFxio=
-Message-ID: <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
-Date: Mon, 27 Jul 2026 11:53:37 +0100
+	b=deJNRFHpubJ3qKa4IjLG3bGKg52YdaXIC8Kl4L14FKOSOVSO3EfKTZEkKbDn7FCaF
+	 hdpkfqLaI9+WDSpFLdTgfcmD5KTnPWxdz9WE+ppmY1ODOLP96ndh9jN+CH/8KlQq8o
+	 JyAc+m2k/JblZnwgPHF8r/TFcNqcbTeThA2wP2SyMpiVlqJR3hJbi/N/dY33Du2AuX
+	 rKJZ8HjVXuE9PlzJp1+0r1U2LhinBK9rOHv7asuUzHldDjx1dUmPxqASnIGkg5lPfg
+	 Bdr4F1D8nq97uhtvfhhT5EAm85Iaywb9ocq/GpyDR+GiuofzsmRT4xfR/9aiErHvew
+	 S4lfu/VbIwlZQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0E18917E015B;
+	Mon, 27 Jul 2026 12:57:05 +0200 (CEST)
+Message-ID: <dd1e30ae-46fd-4083-a306-98e2d23be120@collabora.com>
+Date: Mon, 27 Jul 2026 12:57:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
- feature
-To: Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Pranjal Shrivastava <praan@google.com>,
- Daniel Mentz <danielmentz@google.com>, Mostafa Saleh <smostafa@google.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- kernel-team@android.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org,
- willmcvicker@google.com, jyescas@google.com
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <amYIuhYenP4-qHyV@willie-the-truck>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <amYIuhYenP4-qHyV@willie-the-truck>
+Subject: Re: [PATCH v1] pmdomain: mediatek: Fix MT8183 hang on boot
+To: Brady Norander <brady.norander@mainlining.org>,
+ Dmitry Osipenko <dmitry.osipenko@collabora.com>,
+ Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260722132729.302067-1-dmitry.osipenko@collabora.com>
+ <fe909054-5c9d-42f5-bbc1-66ca0ace72de@mainlining.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <fe909054-5c9d-42f5-bbc1-66ca0ace72de@mainlining.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_035344_281050_C57A6607 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20260727_035709_740324_CE311549 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +77,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/07/2026 2:16 pm, Will Deacon wrote:
-> On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
->> These two patches add support for a new "arm,instdata-override" DT property
->> that enables the override of the instruction/data attribute of incoming
->> traffic to Data by setting the INSTCFG override bits.
+On 7/25/26 07:11, Brady Norander wrote:
+> On 7/22/26 09:27, Dmitry Osipenko wrote:
+>> Depending on firmware, part of the MFG domains may be left ON at boot
+>> leaving only some MFG cores powered, to let the ACP to prefetch the GPU
+>> region when the display controller is brought up. This doesn't play well
+>> with an eventual delay in probing Panfrost when the display controller is
+>> fully set up, as that would make genpd's sync_state() to power off the
+>> domain while ACP tries to prefetch: this is causing an AXI stall,
+>> effectively freezing the AP indefinitely. In order to prevent this from
+>> happening, the sync_state() functionality must be obliterated on all of
+>> the MFG domains: while this guarantees a power leakage if the bootloader
+>> boots the kernel with MFG PDs partially powered on, this is the only way
+>> to ensure stable operation of the SoC during boot on devices with such
+>> firmware because, of course, those will never officially receive a
+>> firmware update.
 >>
->> It is intended to be specified when the smmu can't guarantee that these
->> attributes are provided correctly from the client device.
+>> Fixes Kappa Chromebook hanging during system boot.
 > 
-> This is going to need an in-tree user and a much more detailed
-> description of what is being worked around before we consider this for
-> inclusion.
-> 
-> In particular, if a particular client is emitting data reads as
-> instructions, then a better work around would be to avoid mapping its
-> domains using IOMMU_NOEXEC. But I can't tell what's going on from the
-> limited description provided here.
+> I also saw this same issue on my MT8192 Hayato Chromebook, and I also saw an issue 
+> on my MT8183 and MT8186 Chromebooks where the audio was broken. I fixed all of 
+> those issues by setting the GENPD_FLAG_NO_STAY_ON flag on all domains. I held off 
+> from submitting that change as I was unsure if it was the "correct" way to handle 
+> it, but perhaps it is. Either way, this issue is not specific to only MT8183.
 
-Unless it's also emitting the privileged bit and thus falling foul of 
-the implicit Unpriv-W -> Priv-XN rule, but then we also have the means 
-to deal with devices which actually do that themselves (hello pl330...), 
-so that would seemingly only leave the case of some innocent piece of 
-AMBA-interfaced IP which doesn't expect to need special attributes, but 
-the system integrator has gone out of their way to tie the AxPROT bits 
-to some wacky value, which I would put in "erratum workaround" territory.
+Audio is something a bit different I believe.
 
-Thanks,
-Robin.
+For MFG on MT8183 specifically (and potentially same generation or even slightly
+older) there's an issue that is very specific and described in the description
+of this commit.
+
+So, specifically for audio, I think that there may be something else that is
+wrong if you're seeing such a behavior - as in, some dependencies may be missing
+from somewhere (some devicetree node), or something else.
+
+In any case, I'm always open for discussion, of course.
 
