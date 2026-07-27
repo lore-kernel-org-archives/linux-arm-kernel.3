@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73ABAC531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 14:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF309C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 14:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptCiNT74n2ClApn0GPmUaC404n0sknElOCX6NQwLjW0=; b=OstnThLiVpBMVuw4GlCLHRpFJW
-	6ks0rSCEp4etqNd81K5Fs7fKgi8dXQBe26pFeHRcVyqN5NSM1ZhlpsiXCiVzlQruVoFeWzjJ+92a/
-	vzmG4Qej9XtF7AoVDNtA/otEZezphdNFJfHQMIwP3o4uIJBdJgEMgE6jQyOa97zs3nPBZjuCC5E8A
-	791ukyw+OiCG9Mte87sLmAbxRmvu1nDzewbfH+byAbBnggUj4bNvSee47TfAuLQ2F6Iw20NL1j8Jk
-	uEUU3ikRB9imO0bq3b08Xz1G3mpP6r9RkwrbISPRbi2VljoYVSjhE4y7mJIs17Z0LwM3qYqZAwTrz
-	PX5cnMQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7tHghUuh4abL0fwwnOGlOayUFDXuWG+n5PvNG2j5QBw=; b=vww9Aq53hDEDh1Ffn/wYLQtu6R
+	bC5ydd7iAvFGirijS/KEVZARAkSm0bVv1gyTi0xqUgu516h4+Mz33c7QupR9H4Ql+rSI7HSsq+4/1
+	qEA9duQL288mW7GsW4wdb2tEPjF7JVaaTTPIy3mFQ/LgntD3SrIJl3R3aZ8agup5AQQFhek8Y3yuh
+	gXuzcD3qEGheVHx7guiJjL8OAqIggd5MZy8vl1TvTPF27/iCgzHohzBrfYumBWoftGuTwYALBVd1u
+	zzN/cb9lP9NneTl2qICOAbwZWLAecF3f2heSiR9OGb0x+Idh1fp2XGGx/t/DhVtOl0uxTHQO9he2D
+	cF/7WdEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMJP-00000002zRV-16Ry;
-	Mon, 27 Jul 2026 14:28:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woMKz-00000002zhV-1weM;
+	Mon, 27 Jul 2026 14:29:49 +0000
+Received: from out-170.mta1.migadu.com ([95.215.58.170])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMJO-00000002zRO-0ncv
+	id 1woMKv-00000002zfs-3v9w
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 14:28:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6B71403DE;
-	Mon, 27 Jul 2026 14:28:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612161F000E9;
-	Mon, 27 Jul 2026 14:28:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785162489;
-	bh=ptCiNT74n2ClApn0GPmUaC404n0sknElOCX6NQwLjW0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SvKvXXRd7ea3f/0AmXK7+cSSqgTyE/JREJX+W4fmWFUoXtiNbIXyAvKkAHzNuBynu
-	 y8tLAI4uPBxubfJGOxi050VNRH9jEyJhYYoz/k7AH9BMKkcXtflVxflSBuv2aqYMqO
-	 ZbA94Ind3ewx2l8/mrvmu4ceVFUaZuddAB51Vtywt2vq7smcWeya1GMurP5nxtG6Iv
-	 2PZw6n0x6dSTblPwqlA+ax7bRVyCEHyoVnBGQJ0nnl5tlPFxKGsYyJ7RlypQMZeMXp
-	 qy4YMEoLH7MBUnSD7FtC2y/vDhgnbLf+mnkGRt8gwOuBhIju6CPBr4JvlyXK5c+Ayb
-	 IMPuxdYMaBNiw==
-Date: Mon, 27 Jul 2026 15:28:03 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
-Cc: Cristian Marussi <Cristian.Marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"d-gole@ti.com" <d-gole@ti.com>,
-	"david@kernel.org" <david@kernel.org>,
-	Elif Topuz <Elif.Topuz@arm.com>,
-	"etienne.carriere@st.com" <etienne.carriere@st.com>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
-	"james.quinlan@broadcom.com" <james.quinlan@broadcom.com>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>,
-	"kernel-team@meta.com" <kernel-team@meta.com>,
-	"leitao@kernel.org" <leitao@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Lukasz Luba <Lukasz.Luba@arm.com>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	"peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>,
-	Philip Radford <Philip.Radford@arm.com>,
-	"puranjay@kernel.org" <puranjay@kernel.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	"subrahmanya.lingappa@oss.qualcomm.com" <subrahmanya.lingappa@oss.qualcomm.com>,
-	"usama.arif@linux.dev" <usama.arif@linux.dev>,
-	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
-Subject: Re: [PATCH v6 00/22] Introduce SCMI Telemetry support
-Message-ID: <20260727-bouncy-slim-badger-bad63e@sudeepholla>
-References: <DB9PR08MB86510C934D2EF25F625A5F38FFCC2@DB9PR08MB8651.eurprd08.prod.outlook.com>
+	Mon, 27 Jul 2026 14:29:47 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785162579;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=7tHghUuh4abL0fwwnOGlOayUFDXuWG+n5PvNG2j5QBw=;
+	b=g3M+DqJkQz7oVE7zYcnCb3KUfo0PuPSR/Dp6zubbXXsm8bnX9toxZx/W8oEBBSpY8cvZdP
+	Zkf0hJ/aJ/hY+gSQS39O/06Y3kgBfy3kLsFuLTSuVMyoRmnweLX7hJfdqk0ScnsFARuor1
+	croZ7gE4Yzs+dCd/ZRysqs8/yibw01o=
+From: Leon Hwang <leon.hwang@linux.dev>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>
+Cc: bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH 0/2] arm64: ftrace: enable single ftrace_ops for direct calls
+Date: Mon, 27 Jul 2026 22:28:42 +0800
+Message-ID: <20260727142844.21212-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DB9PR08MB86510C934D2EF25F625A5F38FFCC2@DB9PR08MB8651.eurprd08.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_072946_117706_CC1DEB59 
+X-CRM114-Status: UNSURE (   6.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,32 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fayssal,
+Beyond the DIRECT_CALLS support on arm64 [1], select
+HAVE_SINGLE_FTRACE_DIRECT_OPS for arm64, which enables the BPF
+tracing_multi link on arm64 [2].
 
-On Mon, Jul 27, 2026 at 01:53:45PM +0000, Fayssal Benmlih wrote:
-> Hi Cristian,
-> 
-> Thanks for V6. It addresses a useful subset of the V5 feedback: the
-> uninitialized feature flags, signed exponent, group bounds, bool casts,
-> SHMTI enumeration loop, scoped ioctl magic, compat support, binary-only
-> interface, ABI information, reset, and oversized mmap requests are fixed.
-> 
+All tracing_multi link selftests are passed on arm64.
 
-Appreciate your efforts in reviewing this series. But the below format
-of dumping all the review comments in one place is neither the normal
-mailing list practice nor much useful for other reviewer to follow as
-one need to map/follow these when reading corresponding code which is
-painful IMO.
+ cd tools/testing/selftests/bpf
+ ./test_progs -a 'tracing_multi_*'
+ #545/1   tracing_multi_attach_rollback/put:OK
+ #545/2   tracing_multi_attach_rollback/unlink:OK
+ #545     tracing_multi_attach_rollback:OK
+ #546     tracing_multi_bench_attach:OK
+ #547/1   tracing_multi_test/skel_api:OK
+ #547/2   tracing_multi_test/link_api_pattern:OK
+ #547/3   tracing_multi_test/link_api_ids:OK
+ #547/4   tracing_multi_test/module_skel_api:OK
+ #547/5   tracing_multi_test/module_link_api_pattern:OK
+ #547/6   tracing_multi_test/module_link_api_ids:OK
+ #547/7   tracing_multi_test/intersect:OK
+ #547/8   tracing_multi_test/cookies:OK
+ #547/9   tracing_multi_test/session:OK
+ #547/10  tracing_multi_test/attach_api_fails:OK
+ #547/11  tracing_multi_test/fentry_direct_access:OK
+ #547/12  tracing_multi_test/fexit_direct_access:OK
+ #547/13  tracing_multi_test/fsession_direct_access:OK
+ #547/14  tracing_multi_test/fentry_after_multi:OK
+ #547     tracing_multi_test:OK
+ Summary: 3/16 PASSED, 0 SKIPPED, 0 FAILED
 
-You can look at other threads on the list for reference or we even have
-an AI(sashiko) which does inline reviewing[1].
+ ./test_progs -a 'fill_link_info/tracing_multi_*'
+ #132/11  fill_link_info/tracing_multi_link_info:OK
+ #132/12  fill_link_info/tracing_multi_invalid_ubuff:OK
+ #132     fill_link_info:OK
+ Summary: 1/2 PASSED, 0 SKIPPED, 0 FAILED
 
-It will be really helpful if you can switch to that mode for future versions
-or comments.
+Links:
+[1] https://lore.kernel.org/all/20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev/
+[2] https://github.com/kernel-patches/bpf/pull/12986
+
+Leon Hwang (2):
+  arm64: ftrace: enable single ftrace_ops for direct calls
+  selftests/bpf: Enable tracing_multi tests on arm64
+
+ arch/arm64/Kconfig                                     | 2 ++
+ arch/arm64/kernel/ftrace.c                             | 3 +--
+ tools/testing/selftests/bpf/prog_tests/tracing_multi.c | 9 +++++++--
+ tools/testing/selftests/bpf/test_progs.h               | 6 ++++++
+ 4 files changed, 16 insertions(+), 4 deletions(-)
 
 -- 
-Regards,
-Sudeep
+2.55.0
 
-[1] https://sashiko.dev/#/patchset/20260724144430.1440170-1-cristian.marussi@arm.com
 
