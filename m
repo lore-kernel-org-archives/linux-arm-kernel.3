@@ -4,165 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6829DC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518EAC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 12:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=44rzlthw92Pyb3IiSzSQiDvHWraFwPuyNqv1IZJTnr0=; b=BpK4f2ZA9EGtLCgAf4nAft2NnV
-	Ydv3M241zIVjWWXqIFLRpumDxMWcSiVJvwANZ5/ubLhUPTe0v+FlwjgXWUszTf+xzdAep58++Hl5R
-	lfo5vwbwVG0LRQG/gOrTMutUg+EpYtU9Wr/wG6skJ6inEM+kO+odx98uR9eibhOpXV7zfFFPnDIw3
-	vyS2JL2ejYjf9Ei5AcuRL7HWXUp87pTFGvUbc9dXyaygfHXlOnyOdHuhPrks0BUaaRgUQd5Zew/Dv
-	IPfQ0jHPPmQAuL82rJVbJTxzt5j2VUAr5h8tkjK91tWgYTSV75W+dEbXPprHEMdruXc9je0sZOjnG
-	X/wtSBUg==;
+	bh=7RowLfg12x8H+6/XlFJ3+Pbac5D+6d+PVUGCR1eeAB4=; b=Fi4QEknjFB8X9VSoti1SrBBtjc
+	SA8jVIXEAFrb0j0S7t164grybO7XeNHisttHto1HKwr1jFrag8E+hMcP2yvSvijCbMrnsCJEgfia3
+	2JFOeDcE1nOYYVv7lUfzpe6w6I9bxrL0fMpp3hCAq/1XboljsxxxOt8ls8Pzq0gWav8D8iOI+4gLP
+	mUQMb+TSQDTh7bxdXkbHHF85LlFthjEEDL/OdJqTqPXsSbCrxasifdgm2ESsAXDDCHa0JcyiCrJMz
+	DxSSi5QTbuE/1wKAI5Vgvu/IZqR/sicfM3NwjNgqRJMGxKgPc/QgDaYz6m9nmw+5zYVbRLO7l7eYo
+	REAhTQBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKYm-00000002ilP-1Rig;
-	Mon, 27 Jul 2026 12:35:56 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1woKPM-00000002fPV-0D1V;
+	Mon, 27 Jul 2026 12:26:12 +0000
+Received: from mail-koreacentralazon11023138.outbound.protection.outlook.com ([40.107.44.138] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woKYi-00000002ijH-3w6S
+	id 1woKPH-00000002fJ3-2snt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 12:35:54 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66RAMOs73571613
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 12:35:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=44rzlthw92Pyb3IiSzSQiDvH
-	WraFwPuyNqv1IZJTnr0=; b=OvlEfZJa2Gb68W5vnOidmz+1rY7r3EwR1TsK6esL
-	APGXdea8+9tVyHs8yQGHF79EJ9vB1o7oM5tkOQbg2VmmnAl4g2L4Hogu+o1Jq0pQ
-	Hl5xDaNCJtnQAqTl9BQpU1p+JlYoPGBbeNABgvpqZErCs29WsCvuUmeor/oc774y
-	pQl8Kr02kzLsQKIdnv/2FpP9MtpyWiVwdzAE+LE9Xsy2J2FngW47uTv/junf8/M3
-	KWWbLvr9ssvqfhwGLZK9wtPcEb279z0UiEgMeBg3sj48POOil+FL6h1l8RtmuE2i
-	8ePEY9kzaAlWC3Aaj0oDbw8IpORtKdSOidkjSr+wAaktKw==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fp30g16up-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 12:35:51 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c96b4f58ddcso2015854a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 05:35:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785155751; x=1785760551; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=44rzlthw92Pyb3IiSzSQiDvHWraFwPuyNqv1IZJTnr0=;
-        b=fW+m7tCmF3oRdlDVqnbBBbyLF/FWLkaslVU0IQrvTk0d1SMfTwRDyJFHOu5YbYOIQe
-         pFk5Zyz/y6PZVWiNLYAu1EZ6rdYtuCEDu1Sgy+FotDwGRHKbI4REL8QRqLoEP9ZZgRO/
-         IPJe6JNX7oA7E4cHfh0p9bqEjzggGAB7RBzM9mnFJx+kZwAcMIZvw62y1GFE/sYzLQ0I
-         C16pXQNI2KK6w0WbrPeXEz/bCe43d1LHsrvNIkkfd6TsFTCYpC6MSjgNpk/X3pPq4FsK
-         pIYTnwslLK7DtWTgqdxZHa3hsrSeI7l9ZYdcWIVDILVNckBGuXed5I9+25Gum3bjhNQg
-         cAEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785155751; x=1785760551;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=44rzlthw92Pyb3IiSzSQiDvHWraFwPuyNqv1IZJTnr0=;
-        b=Jq3L7bKoAcxutBzDs/XXWf9gKl6UvSuN3q1j8fG30b+Qs+TB9nyzWreq4rwBFR5RQX
-         2KznKhd38zG2HbslAW65Ng8iglhWVwEfRVVaa3n4WNEHEgjp9278aEvorPweyklHFlSP
-         NoWb6tuEIPO2Dg8srsJX/y+OIsM1mW00STndxCxY7xFZUyxJf5XXEX6hoR0FxMGglLcx
-         J6p7m7b5+R97YIT0WlFkyqd2X65i7cYQ7VeUtoy9d7bMybec07QAm+nh8vtUcd8onO3h
-         FtdULbIbIXIAHDI/U9n+FlThY5HLethAT+Lw7agYW4lXn0tYMy/1MPkDSlD0JPD9k/UP
-         60jg==
-X-Forwarded-Encrypted: i=1; AHgh+Roff2MExRGrmLAegfhCt3BEKvKqeAu2zSLRwgpC4DcM/AugXBvNDlpn27j2biQ6nyGxkfX2ijNc1tt5exbZJdOm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxzt+3r2vNKPadFHFMrRGE0SWKUzQd+W4YQz0XXDvSoviIvcwKD
-	0GJzyI3KQ+VPDUvDo0aUnlFqWtrSq/pFasHL/hh2uo+4JDRvrOeLZ2lYX1KnzM2b73Yp5QXGY8B
-	cuGYHnNTn6p4QIYvGCPCA/Fvqckf8BXZpcr8HaeDlwFzYwvztJaQwgPkppn6t7dlIMG9zht+EBu
-	EfOw==
-X-Gm-Gg: AR+sD11Um1DMA2CIoLHb7zKo3Hgu74Vg8ij6a+tPCzGMklbsybYNa1AXCNDD8OmF84W
-	0RW//GSTK1GkVHDqEu8fwYkXfTve+0cNRUe2X28Cx3L6MmhvFw6U9mlgul52L0m+8FIpHEy/YWa
-	LDe80hifVQDzdUW5SLN92t18edsAv4WH8PRLdqkw5uBBl19MJMj/bB1r38OEZujaMJMBU+Q9e6d
-	boZT/foKY1EkdwKAm6QNDrhy7Rz3dJPhitgTn0a6+4RBMkHdh7D5U19cdSwvNYroIsRd64S3rCY
-	M9zNejsQwa1H+bA/MnCDomQYdwxCqsQsElOb/aBBI1/HxfiryYLqsrnzwRSeFSKYkDTNpc73h6J
-	O5H88K4XnB57IbFPIzTy4yOHBlyk=
-X-Received: by 2002:a05:6a21:3990:b0:3c3:890f:6d75 with SMTP id adf61e73a8af0-3c67d9b4670mr7490830637.2.1785155750482;
-        Mon, 27 Jul 2026 05:35:50 -0700 (PDT)
-X-Received: by 2002:a05:6a21:3990:b0:3c3:890f:6d75 with SMTP id adf61e73a8af0-3c67d9b4670mr7490750637.2.1785155749813;
-        Mon, 27 Jul 2026 05:35:49 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-314bc5a04b2sm29439425eec.28.2026.07.27.05.35.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 05:35:49 -0700 (PDT)
-Date: Mon, 27 Jul 2026 18:05:33 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Konrad Dybcio <konradybcio@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Avri Altman <avri.altman@sandisk.com>,
-        Bart Van Assche <bvanassche@acm.org>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        "Martin K. Petersen" <martin.petersen@oracle.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-hardening@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        linux-scsi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 1/3] soc: qcom: smem: Use 'unsigned int' instead of
- 'unsigned'
-Message-ID: <20260727123533.hz53oknuy3xwzw5z@hu-mojha-hyd.qualcomm.com>
-References: <20260727-topic-smem_dramc-v5-0-66188b3e338d@oss.qualcomm.com>
- <20260727-topic-smem_dramc-v5-1-66188b3e338d@oss.qualcomm.com>
+	Mon, 27 Jul 2026 12:26:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NsDDOHSwX7v48S7rWTMnIvCUDTVzKm4MMUQzEsg0XMlSBQ5wwojgIztNXYviMYMJEUg8A4mctInyxRE8/PFp0Na0jswfjXv/I0fajUuM79zcR3j19M6mYeL1dBVmGGb2TdIIf24U4DRzHxkzwXiMhCqwh9OpRe0OEkAD2zldVQoWFF/eA4Vqz2Ex9WNTyuY/Wtz+nGj9CMhdqCZ6TR4U6A8VGJJqr5XIw9rdCxqYEoqmL4IWfpKusj3SQWOVOWI/ihdIdgVBwWWCVtwa5cOiAUjCJ5QMcw3Zk2sEqPrVHjEJ8HakhMTynB2NUjVc+0FwcihnL/vsZD9iWnww0gd3Uw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7RowLfg12x8H+6/XlFJ3+Pbac5D+6d+PVUGCR1eeAB4=;
+ b=Jophs2XYgm7hkmvbE5F6lVaGeS7GBmt+Z92kFoj02UBb4kVI6JUCDpnBCM0sLFeK5y2UBtzW7UUOCyP7t3RmvLTThMM+YYLDlhyQoM0dTesUkhej+8ZcQzPvVT8z4Glu7Q1vNHW8RX+Y0YKRGUQAac9c83BbzCj/W3KnC2XXlfm+D1SSnL7+abzTJN8bwOeMbuLVP9WPVyk0nW+ZRQ1I7tOMV7p3UnK0DKWE1PReZsNu2mMBW+jRNLd4Lzd83cv0+zcIZCxCtyDzntSjSTsAN286GBEjeyqNBygoLWqmySDBelbWF4DhkhDI0b5uBc39M8uXTyPG9tPWUj5twzWosQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=transsion.com; dmarc=pass action=none
+ header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7RowLfg12x8H+6/XlFJ3+Pbac5D+6d+PVUGCR1eeAB4=;
+ b=kofkcH6Y/dncY6qV6pl7gx/scA5x/fOASe+dCVell1qx+GWcJjZ65s19jAiltIHfHKPp7Z3TqWcs0kF5OY6DPvw005rYMasK3hZm1YoZI0cgOwZYzQzU88BynfnYCGgHsBdilsGyF++2mejYHvlB9v2YVPyZ3XqFgSCk+/3Nxew=
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ (2603:1096:820:c7::13) by TY2PPF7B73AC350.apcprd04.prod.outlook.com
+ (2603:1096:408::add) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.8; Mon, 27 Jul
+ 2026 12:25:45 +0000
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3%3]) with mapi id 15.21.0270.009; Mon, 27 Jul 2026
+ 12:25:45 +0000
+From: Hongyan Xia <hongyan.xia@transsion.com>
+To: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+CC: Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: [RFC PATCH 7/9] arm64/kprobes: Drop the KPROBE_HIT_SS reentry special
+ case
+Thread-Topic: [RFC PATCH 7/9] arm64/kprobes: Drop the KPROBE_HIT_SS reentry
+ special case
+Thread-Index: AQHdHcMMTPNIXTHkr0uH/DLZrZAyEA==
+Date: Mon, 27 Jul 2026 12:25:45 +0000
+Message-ID: <c936364fb1c8f7f21d6659282ab1c9211ed9930a.1785153469.git.hongyan.xia@transsion.com>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+In-Reply-To: <cover.1785153469.git.hongyan.xia@transsion.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=transsion.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|TY2PPF7B73AC350:EE_
+x-ms-office365-filtering-correlation-id: 124609dd-c463-49ab-5c8e-08deebda2ea0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|11063799006|56012099006|10067099003|3023799007|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: LSpBnomRjDiZ6umfPFp7EZRkjlmipLIi/S/0hI73vD5HkOxv8O8bLpnDBwy7YGSL6EVthziYJyCAMWD391B+OblZYyxBd4rLUywf9gZW/bUu8HPjRhdvqclglBPxfdfIMu3ql97jkBpem0zZNoFeyxUoLNThkDs+P2fvKMprg/4WpQp4wU7JW6E3Z7SGBlPZl4HiVtVbziMyTXcz/GwlyMTYPEnFvz3KktTzFbCMh8JutMI4arG1tRCCW6bMekSit2CjQ87M3EKtkijfpZfQDOKmISfgAm6GOgCdII78hb5fXAL8Y8FwLXMV3/iBFoOSioBR6vRMxKRsWA1Mojgm/1n33BMMULn3mRcuvZh8eo4EtVPttnI4iNiurc3YjyJi0B18ic5jXG0Ms77xAgzykwuxgRw1yYZs5O4gxHyGOIbRVNYKeq8DnHpHDcwhG+u84PP09Z7Uygyyr27FCU1xgT6AJPTDZ4HthxqJAXu42hw4duFSHlfH0nrbee7GrHsS1vf8uM4uz7+MLkiUNfFvLXgakRQv6b+3ip9WuG+rGMSTS2lZgj3Arr5nE3InHzobKUqYnf7BqWzNT0j6VGa9PJjbMB1tXXINZf1U5iiCyBfE8gGhT6a3yR4LViOJw5jjmxV+vRpv1G0unREIRVPR52jpsiB7CPSTONGf9reQssx9fXLv+RCTRjBPkjtaQbv1zZ3VDCdDurOvAW+mAudJS5G9n4wCqu7HN+a4I8W7GG0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0401MB6196.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(11063799006)(56012099006)(10067099003)(3023799007)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?PdWrpLLUCTupIAQ/6CSjjiMuvPzFgUU4rk7s3xkMMKkA9dYZjSi2cmez0j?=
+ =?iso-8859-1?Q?3KXOE3XYHnp9+CprzWSgimhwEzA4LSh5QWC1zgq4CInWvfbUcpmQ4T/mV6?=
+ =?iso-8859-1?Q?J72AHdMbD68Xg7hh7XOesv3UqJCxInaO1+TLOhnB5cPTyTivvVWWRrTVH0?=
+ =?iso-8859-1?Q?zqJ9Yn7k8GKHxioCLZXtAyn6KMrx/Qt0S+zvUK82CV13A2dqzIoWqDWxHL?=
+ =?iso-8859-1?Q?6Z2sSl2ujpzweEERlVocyFks0ByrlSD2HjY/TM8KlCgwUsKx23pkM+mqVY?=
+ =?iso-8859-1?Q?LS1gIxH4BldDqvEfoIm4gKIeJYYAVOLYQb503dj7up5+94iON076DyV0Ex?=
+ =?iso-8859-1?Q?0I8nUuy68Lcs3VRonBh6uoi9EdSHM7yA+shBuFQlLHkrKKD8qVlIjHQBHq?=
+ =?iso-8859-1?Q?LL8I8ZdJMvD1a+kTyz7QH8lArKHRndSG7QdGx62IV0IDsXggz/mDKuG7aM?=
+ =?iso-8859-1?Q?/ikvjqri6HiMwTzPlDbFjt96U/YCccGYwjMa122pGEh9m1nC6LFtABWhTc?=
+ =?iso-8859-1?Q?SqEMkP0Dtly7eo2fOwaXmMNCZ6050tHcDq2jJD7/kGunDpymhazsfYOfLH?=
+ =?iso-8859-1?Q?vcGskdBPiRD88YWp55ORGZxml6avOQgpGWiQgR1De6ewvtgJGbyK14hXpd?=
+ =?iso-8859-1?Q?Vf6KC1kANtFZdIxrUcTrqbCeLS6w0bF6d2meNHsrMO1ppXdjIvU/RwcBvX?=
+ =?iso-8859-1?Q?uUqGL7mFfRyES0jh+n0WWgowEFrBE4+ay/gUpn1gg9avd9L/V4PEnfGrVp?=
+ =?iso-8859-1?Q?73fBzQQDzavbxltpeCvZOypDE3dbVxGleInip5z8ReuFxOXsn/eK3VWbsI?=
+ =?iso-8859-1?Q?YdceWcDEH4B8lH/7stZ8HBzxVi/8NzKCLPQqBKbk91VArIVkOph11Y5Hv7?=
+ =?iso-8859-1?Q?My9QKbrQAQA54SpT369liY7LiL7vc+pxz5VC1y+OTSJfegsXg5lMymC954?=
+ =?iso-8859-1?Q?RwRW+kmxtAunk43JueiveSlQ8q299lYfOOsZ5vsLx71XHCWbAmmG9zSp0J?=
+ =?iso-8859-1?Q?qNXR2SJ9BPW58PFAWmJH1/Kt8wH7OLVCcbqQ786z2BfiZHM4BqHHstCKK9?=
+ =?iso-8859-1?Q?X6EGo9sQ2eMLvtvV84G6CdsyfY+/vChBUeMuFVUdmWH6ujcYIZQ2fKmbM3?=
+ =?iso-8859-1?Q?QE/mF+djg0/bzdSfSuy+FuQr3ZFw42cA0HfEejSr8O+T12tluuhjWsxCW9?=
+ =?iso-8859-1?Q?uV44HK8024hUkFY3RW7vQnd19DO6nQXh6nLnqw5rDEXQjtcSSQ6QDH17Gz?=
+ =?iso-8859-1?Q?8eGfnJI3BTXEXAYbjcdePsDX/T5hdf8O3vaypETQJyBEWgj5CXBi2TwVn5?=
+ =?iso-8859-1?Q?LXQMhxcF37X6Q7+TM/sGJ9scz5SGdZKNDLFKfUCfvsrj3iEy/K8xA9Jx4o?=
+ =?iso-8859-1?Q?oU6kyltWzKqEA5U4CzqbpeXA8r5VJL3bQEkoscuOt3/GLEjkxjwzpWnfZU?=
+ =?iso-8859-1?Q?siygQ4EZbPFVjPkHa/E9pp2pqvDXdPRpeOnC/UVo8ocOD+CPzleYNNzH43?=
+ =?iso-8859-1?Q?GWvcTJofPS4VJJJWWjjWhsQcaIG4vnsHc9B/z4c7xMdNjtquUY9OadZVA2?=
+ =?iso-8859-1?Q?jA0IiXC0DILIGzLvriTmGm757zWmtnNALtlNi8NW6y8hD+53Zrs2dfE5oh?=
+ =?iso-8859-1?Q?/fybw5WoMTtwBVNEtywdbhAxKiENLWAYf3LIPdK8/ofBSjZBV90w3g0an9?=
+ =?iso-8859-1?Q?OKCoJdOS0iMMLv0caACZH/j9eXfi2LZr6qEt7yS+tfve20rALfqdvu73xH?=
+ =?iso-8859-1?Q?M9u3ZcmVaZWPuabhKvtksHrNsWnpaxDn51VPMtVnFHC1TwKHjZ1khU+kXM?=
+ =?iso-8859-1?Q?cV308kmt1g=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260727-topic-smem_dramc-v5-1-66188b3e338d@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=Wac8rUhX c=1 sm=1 tr=0 ts=6a6750a7 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=EZmpetop0t0RzpqVzL8A:9 a=CjuIK1q_8ugA:10
- a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI3MDEyMiBTYWx0ZWRfX5Paou8ErX5hv
- 4zpNfVp6Gi1HQGo7lD7nkEIc8ga+3vHl2w5IIamExAHv+IUkbizBLXYI/jLxSfp7Repg8OXhF0y
- mxKL/koqQOrP6/BfASLHZEZt8Z1fQmU=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI3MDEyMiBTYWx0ZWRfX5WDetfp8WMwt
- 7/wEL/acwYXRWNyeKhQDmvTHXSbpqq5ksc4X21rnM6LbcftlY2wkZmUWqciEwOTc+OZz0BeaOaN
- NIRZBiUmBbM8ZOGFPtAkXQwdG8dCrH+Y/Rz4yqFLYp/NMv64I3/WH7/LBxU2g8hq6t+dwCrbtlt
- Wg+3nXmIYRwnctqvcjMj+XIImD+/+v9CsGkbU5GCfdO10fYJRMZvjDZyrpi0D5xEWvr0FsgNvuG
- jM2s+SdT3u5BTGnOsMXUUpQ3UF1fR6aERpfQ4tagbc5bJAuT1anwJvdZK8QMmUNnVe3utzm01ue
- xeoNJgcXThe3UW6CpgM/4Ra+gc3iGkLuhqfeIc+Y8YHaVazqsHtvxYq+gRhMDnns59USRPoe8Ws
- 068jSxsy9kgYzWNgRRzVSJUU08oQv9g6rkwnGhQsfkiaUGeL7cdFs0eJ7VHQPK0rxfKeSJgsSyr
- jI5hXygBW5xtTYnYlbQ==
-X-Proofpoint-GUID: dg0JWdFUnXoIHfFHaebY7asXnrbkWD7M
-X-Proofpoint-ORIG-GUID: dg0JWdFUnXoIHfFHaebY7asXnrbkWD7M
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-27_03,2026-07-24_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501
- bulkscore=0 impostorscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607270122
+X-OriginatorOrg: transsion.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 124609dd-c463-49ab-5c8e-08deebda2ea0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Jul 2026 12:25:45.0539
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: IO5J0xcbNXBABkF+fihNRpA91RSzRkPDoFNaF4VmNIZt1zEYy6UFblhmPgJizPpOzA8/6w+nQRQVM+ngMrRboZBF7LS0sbDG7RchPSzgkR8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF7B73AC350
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_053553_091586_CCD0260E 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260727_052607_735427_1D320DC6 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,19 +143,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 11:59:27AM +0200, Konrad Dybcio wrote:
-> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> 
-> checkpatch.pl reports:
-> 
-> WARNING: Prefer 'unsigned int' to bare use of 'unsigned'
-> 
-> Convert the SMEM driver to use the less ambiguous type instead.
-> 
-> Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-
-Reviewed-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-
--- 
--Mukesh Ojha
+From: Hongyan Xia <hongyan.xia@transsion.com>=0A=
+=0A=
+With the debug exception path noinstr from the vectors down to the=0A=
+kprobe handlers and the only instrumentable code in the flow confined to=0A=
+instrumentation_begin()/end() windows, a kprobe hit while another probe=0A=
+is in KPROBE_HIT_SS can no longer happen.=0A=
+=0A=
+Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>=0A=
+---=0A=
+ arch/arm64/include/asm/kprobes.h   |  6 ------=0A=
+ arch/arm64/kernel/probes/kprobes.c | 21 +--------------------=0A=
+ 2 files changed, 1 insertion(+), 26 deletions(-)=0A=
+=0A=
+diff --git a/arch/arm64/include/asm/kprobes.h b/arch/arm64/include/asm/kpro=
+bes.h=0A=
+index a694f7d34f45..bff8ba9c1689 100644=0A=
+--- a/arch/arm64/include/asm/kprobes.h=0A=
++++ b/arch/arm64/include/asm/kprobes.h=0A=
+@@ -26,12 +26,6 @@=0A=
+ struct prev_kprobe {=0A=
+ 	struct kprobe *kp;=0A=
+ 	unsigned int status;=0A=
+-=0A=
+-	/*=0A=
+-	 * The original DAIF state of the outer kprobe, saved here before=0A=
+-	 * a nested kprobe overwrites kcb->saved_irqflag during reentry.=0A=
+-	 */=0A=
+-	unsigned long saved_irqflag;=0A=
+ };=0A=
+ =0A=
+ /* per-cpu kprobe control block */=0A=
+diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/=
+kprobes.c=0A=
+index 4172998d48d9..1658b6acd803 100644=0A=
+--- a/arch/arm64/kernel/probes/kprobes.c=0A=
++++ b/arch/arm64/kernel/probes/kprobes.c=0A=
+@@ -176,13 +176,6 @@ static void noinstr save_previous_kprobe(struct kprobe=
+_ctlblk *kcb)=0A=
+ 	kcb->prev_kprobe.kp =3D kprobe_running();=0A=
+ 	kcb->prev_kprobe.status =3D kcb->kprobe_status;=0A=
+ =0A=
+-	/*=0A=
+-	 * Save the outer kprobe's original DAIF flags before the nested=0A=
+-	 * kprobe calls kprobes_save_local_irqflag() and overwrites=0A=
+-	 * kcb->saved_irqflag. Without this, the outer kprobe will restore=0A=
+-	 * the wrong DAIF state and leave interrupts permanently masked.=0A=
+-	 */=0A=
+-	kcb->prev_kprobe.saved_irqflag =3D kcb->saved_irqflag;=0A=
+ }=0A=
+ =0A=
+ static void noinstr restore_previous_kprobe(struct kprobe_ctlblk *kcb)=0A=
+@@ -190,12 +183,6 @@ static void noinstr restore_previous_kprobe(struct kpr=
+obe_ctlblk *kcb)=0A=
+ 	__this_cpu_write(current_kprobe, kcb->prev_kprobe.kp);=0A=
+ 	kcb->kprobe_status =3D kcb->prev_kprobe.status;=0A=
+ =0A=
+-	/*=0A=
+-	 * Restore the outer kprobe's saved_irqflag so that when its=0A=
+-	 * single-step completes, kprobes_restore_local_irqflag() uses=0A=
+-	 * the correct original DAIF value.=0A=
+-	 */=0A=
+-	kcb->saved_irqflag =3D kcb->prev_kprobe.saved_irqflag;=0A=
+ }=0A=
+ =0A=
+ static void noinstr set_current_kprobe(struct kprobe *p)=0A=
+@@ -258,18 +245,12 @@ static int noinstr reenter_kprobe(struct kprobe *p,=
+=0A=
+ 	switch (kcb->kprobe_status) {=0A=
+ 	case KPROBE_HIT_SSDONE:=0A=
+ 	case KPROBE_HIT_ACTIVE:=0A=
+-	case KPROBE_HIT_SS:=0A=
+-		/*=0A=
+-		 * A probe can be hit while another kprobe is preparing or=0A=
+-		 * executing its XOL single-step instruction. This is still a=0A=
+-		 * recoverable one-level reentry, so handle it in the same way as=0A=
+-		 * reentry from KPROBE_HIT_ACTIVE or KPROBE_HIT_SSDONE.=0A=
+-		 */=0A=
+ 		instrumentation_begin();=0A=
+ 		kprobes_inc_nmissed_count(p);=0A=
+ 		instrumentation_end();=0A=
+ 		setup_singlestep(p, regs, kcb, 1);=0A=
+ 		break;=0A=
++	case KPROBE_HIT_SS:=0A=
+ 	case KPROBE_REENTER:=0A=
+ 		instrumentation_begin();=0A=
+ 		pr_warn("Failed to recover from reentered kprobes.\n");=0A=
+-- =0A=
+2.47.3=0A=
+=0A=
 
