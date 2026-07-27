@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7834AC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE38C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 09:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f92hIRjdAfi8dO1Ae1NXgqQO4SelfPR5I1pGnLv2azI=; b=Ai7D2jJRBlWoIgDn5Z5NaP/KUN
-	PCniS0mwT0Vsj3NIUAincklc9n+NAPNPP7aq4YrZdN7dsBaW6ZSM9ZXQh6ZKIKen9b3nTBEpCLkYU
-	hKvnRym+FZGe440YbPdDDMU52Zaivl2AucHjIugqv36ygv24WnDyzFSA6n19nXIRlSwaflmtY75KB
-	KlDdMdMQniklyxIrCgaVd8tJJlKDWrasmDzcXbtoYnwwmowIa6g+Ekxlud+0lp2mo7ChR8OOyRxcJ
-	DhCsKivLmugdzyVnO+IBMY6u/yqGo2StXJ/iVEwQoEWvC9ETKlXDuPAP4cbATEF6HIqsQYr0CmNKN
-	+ksbtlgA==;
+	bh=aKrDYlhR6SDQbCTlfl2xuP5WP5hDrGYStieG9YKwsXQ=; b=279h3X5w7uv3KlOg8wTvyo8+Rs
+	CjReNYCNugV3cYaiBzFHfeeb478vGqpSvdnAGVkLb7z+CcyF9zw+BpnQrhx6RDjtBgffMT3gCARf7
+	Lnz5bHpeAcr5y8Cp+fFgsKmtv7YlYTHjK4rgctYdlZBZGkG1PouJElnPw7xsUB+DtXp0As+xAnVOU
+	/fLRtM5E72CMfx06J7kYvplLXpcFicycCVbpjipLeLr+ezuAM0DPAehYmVLLOPgfPRY/EpABn4JJa
+	Yx+pdpcMxLfIJPrvaYMDf00V3lkSPWmaDUcOllQ0/jtaVGmQGTZsSyAQUC77Y6kj0rITvtHMvoBYC
+	/Oec/eyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHrN-00000002MB2-3FAw;
-	Mon, 27 Jul 2026 09:42:57 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1woHvP-00000002Mx8-1CLf;
+	Mon, 27 Jul 2026 09:47:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woHrE-00000002M7j-1nF0
+	id 1woHvO-00000002Mwm-0Jjx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 09:42:51 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1woHqw-00009N-3O; Mon, 27 Jul 2026 11:42:30 +0200
-From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Mon, 27 Jul 2026 11:42:13 +0200
-Subject: [PATCH v5 1/5] arm64: dts: freescale: imx8mp: fix sort order
+	Mon, 27 Jul 2026 09:47:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 878A0601DE;
+	Mon, 27 Jul 2026 09:47:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C56B1F000E9;
+	Mon, 27 Jul 2026 09:47:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785145625;
+	bh=aKrDYlhR6SDQbCTlfl2xuP5WP5hDrGYStieG9YKwsXQ=;
+	h=Date:Subject:To:References:Cc:From:In-Reply-To;
+	b=Tutd9l/SYstDt45jLYidI4LJML/z/7DIWAk99X3pJcu+O0UnOCF4SoDQ6ezkAvQs/
+	 Yz+6bJOUYb0qF04ohMj++b5DGLUoYRRKlg1ri/2JyqCWvVwkLDNcRHN7LAyZvpm82o
+	 Z3DHu8DRRX+TcIX68HrlYmYeuk16df7uyoXA2U+NcU163UQNJZdr2ajRGJHCmx1TXi
+	 uBlYesK8lRnZdXAxKyfXPqDFoo2lSbwyGmCfeO5VnjuaaER15HKl9bwspIFmf4vq3o
+	 inmk7F/7ZKrhcNblqZYB7tci4WC4fYFqdS/WYM8l+/2WGnFGNH8raUo/F86+pDwivf
+	 t8RHW+hVGCoNg==
+Message-ID: <877f0d7a-6eb9-4305-be24-20e97bb3edcb@kernel.org>
+Date: Mon, 27 Jul 2026 11:47:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-1-67faa5ee0bf6@pengutronix.de>
-References: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-0-67faa5ee0bf6@pengutronix.de>
-In-Reply-To: <20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-0-67faa5ee0bf6@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
- =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1163;
- i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
- bh=wQKESMrFfIsdJApQUUQVBX9ydRXn0z+ypmdY0HIYG6E=;
- b=owGbwMvMwCUmtVehiCsuTInxtFoSQ1a6BkukU+OJgq7GKUFLn3wPa56wxPnw03+hDWfFuPXLf
- 7dHPtrdUcrCIMbFICumyKKysIJP1OODZ+Q0ES6YOaxMIEMYuDgFYCIyagy/2aZcNao0DXw4uzRP
- Z93WA3Ux1e92X+MKbvpbeGbjhuX7TjEy9IR3MdoukKlcsyXH63tnZUGA1fGFfYUuLZrB+xvFuN8
- zAAA=
-X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
- fpr=24A1780E1548F0495996140A1ABD20720A5E5622
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_024248_478691_0C818222 
-X-CRM114-Status: GOOD (  10.23  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] soc: fsl: dpio: Remove redundant dev_err()
+To: Pan Chuang <panchuang@vivo.com>, Ioana Ciornei <ioana.ciornei@nxp.com>
+References: <20260723024748.30105-1-panchuang@vivo.com>
+Content-Language: fr-FR
+Cc: Roy Pledge <Roy.Pledge@nxp.com>,
+ "open list:FREESCALE SOC DRIVERS" <linuxppc-dev@lists.ozlabs.org>,
+ "open list:DPAA2 DATAPATH I/O (DPIO) DRIVER" <linux-kernel@vger.kernel.org>,
+ "moderated list:FREESCALE SOC DRIVERS" <linux-arm-kernel@lists.infradead.org>
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20260723024748.30105-1-panchuang@vivo.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx8mp-skov-revc-jutouch should be alphabetically before the
-imx8mp-skov-revc-tian variant.
+Hi Ioana,
 
-Sort the entries in the correct order.
+Le 23/07/2026 à 04:47, Pan Chuang a écrit :
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() automatically logs
+> detailed error messages on failure. Remove the now-redundant
+> driver-specific dev_err() calls.
+> 
+> Signed-off-by: Pan Chuang <panchuang@vivo.com>
 
-Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I plan to take this patch for v7.3, do you agree with this change ?
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 8ddaab127ab9c..b46f452f4b988 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -434,8 +434,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-hdmi.dtb
--dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
+Thanks
+Christophe
 
--- 
-2.51.0
+> ---
+>   drivers/soc/fsl/dpio/dpio-driver.c | 6 +-----
+>   1 file changed, 1 insertion(+), 5 deletions(-)
+> 
+> diff --git a/drivers/soc/fsl/dpio/dpio-driver.c b/drivers/soc/fsl/dpio/dpio-driver.c
+> index 9e3fddd8f5a9..d5198ffc4455 100644
+> --- a/drivers/soc/fsl/dpio/dpio-driver.c
+> +++ b/drivers/soc/fsl/dpio/dpio-driver.c
+> @@ -102,12 +102,8 @@ static int register_dpio_irq_handlers(struct fsl_mc_device *dpio_dev, int cpu)
+>   				 0,
+>   				 dev_name(&dpio_dev->dev),
+>   				 &dpio_dev->dev);
+> -	if (error < 0) {
+> -		dev_err(&dpio_dev->dev,
+> -			"devm_request_irq() failed: %d\n",
+> -			error);
+> +	if (error < 0)
+>   		return error;
+> -	}
+>   
+>   	/* set the affinity hint */
+>   	if (irq_set_affinity_hint(irq->virq, cpumask_of(cpu)))
 
 
