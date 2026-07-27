@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05895C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3276C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QyC9mdpjeVMS9mEWtOssGaeZCvP0zDJ8dCOHi6clafA=; b=HGpXrtv+Yh/ujReU83qi0LQSI0
-	1Qa++l0SL1XElVoU2J15xVrWNNFDM7qV8TH5EOWurXAODQRTBoIj4yBonhyyRVi8U1WNUC+jYJY7v
-	Y0obgYfknBOMC0yzdPD02aIBbQKNOXkz5/yzBKdUmpn8OtJogLQXRwjHjWtIGuuWRvWE4DMEFPIyr
-	s3QLAyvmUMoRVipSin/GzU9mfEMNCm+arXrjGsBtxnFrsP9piOc58HbwIMuh4sNe7WzC2Bv7DcwVn
-	Giv2NxCUpM8f457FlGh/+iIcDBrqXEoEGaF7JZbaJ2EAIZ4TqaURtVj9FFhePanrVpfvIvGFAVSay
-	bz5iSQwA==;
+	bh=zEenGUm5RioXWNnfd2RzwGu/SqP7QkoWXITZGeqYw+o=; b=vOG/Y/rkuBFAXpWIld2YrpSkGU
+	wXgdNcHP7d+5FONQGf0K+MROvM/qf/DyVm4nWej346h0sdKNBpoU/H+zm6GgKORItD98q8BO4QBWX
+	8v1OxRWajzDhJEsE29I1jNNFFv2psrkNxqn5JetrHhaNR3wFe250mM13WYbxPoqcv444KrOhTI0SX
+	XdqWMRD34RyhW9Erqy/GRwJ6uRz2Eoqj1md/Hj7uxqYAA474xK9+k+stTWRT/foox8kCu2HOg2vww
+	MF+xIYJWD4EYpfT8IXzB/wCDLEb/xvHv2RxcupCCyxow7RwWjTkp279eiSepwu1mqlE+7GzZ6yO+v
+	cD5FrcZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJYx-00000002ahp-0vAF;
-	Mon, 27 Jul 2026 11:32:03 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1woJZh-00000002anB-1ZxE;
+	Mon, 27 Jul 2026 11:32:49 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJYu-00000002ahO-3Ifz
+	id 1woJZf-00000002amK-0Ee6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 11:32:01 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-38e3efab7e0so2009816a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 04:31:59 -0700 (PDT)
+	Mon, 27 Jul 2026 11:32:48 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-84a4d8fd6ecso2526938b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 04:32:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785151919; x=1785756719; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785151966; x=1785756766; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :content-type:mime-version:references:message-id:subject:cc:to:from
          :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QyC9mdpjeVMS9mEWtOssGaeZCvP0zDJ8dCOHi6clafA=;
-        b=kfAtyMkWNxwfePjtEGztWzOBCawf+joWS2s9OWRYAt5e2JQt+7TJON1N8zHmj4DVS+
-         M9Uqyi1g1f/KcvAzk4Ntt4ny1OZXFI/5hWcqvq5uifZKIUhC8xOIpHewToqTbYAMFQnv
-         wx0lZU0pPa2J2GyVH9pNfHqup1C0AQgSqxx8XoDfQ4IKyUJEeUqCLhj7cxFufBVQ1N53
-         JAb0uLt+mktyfc7JWu3cYDItTxbRW6syR8k9EkVkdfYAuykj/nk5hVNFmHowij9gF5Xj
-         nAwDnI7Gs5wGsoNAZCznTgSVtvhsWyUkgJ42bNkN8FeRrqu8Jhmzb9F0trgP+b1wrKyn
-         7qJg==
+        bh=zEenGUm5RioXWNnfd2RzwGu/SqP7QkoWXITZGeqYw+o=;
+        b=Bt280v47lu0wQ56bn48GBVrPeOZT6gcMPUk3nFWy5o4MnufwvjIrjKqFsrhM30uUio
+         Szmz3Q54KXKbit25QOkN/F4iYG9C2Bgn6JpY8ahXPgtPvic4yUd1KsRzo8UG6/fnM5XA
+         u5lmt4nVZRHLrL6Xd9EOhUcRz2uWTR+7dV5CgoGFyRKJDJPay9YJP9sTgCMcotUkvkls
+         X9ESP7122IO+cY/x1JQp6Ufd17lImx21SyU59vP7cHmPLfqSTQcG7GCs2R4UpCCi3UeI
+         1FHED9NywzAiHLNdS4UE6G/CLHS7a20Fc0ai4tl4+/R0NqiXcM4lUzKvODz8/w1OZFEA
+         q3pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785151919; x=1785756719;
+        d=1e100.net; s=20251104; t=1785151966; x=1785756766;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :content-type:mime-version:references:message-id:subject:cc:to:from
          :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=QyC9mdpjeVMS9mEWtOssGaeZCvP0zDJ8dCOHi6clafA=;
-        b=XdYvF2aXp+K382J9/lkWK9Q/4pKfAr0M2NJq8K7f192Rz+AIsBFUhLhg7IummyTKUK
-         vwxZ44dJNUTjfga4IWZ3tgk3+68t5AFM1ASBlTmWsQkGPtArXe5nABgoEAK9IBWIqJHW
-         gbA/Sdb9nVQmWoPEaoAI5f13yVXgtrlWQBjUiPcY0Mww61KYQDXhpYcNZ2QGMDcdg6VZ
-         ElpFVb2IO7TpDQKBBCkkuol4u9TwAjSaLOTuUG83LkNHGHN+MdimPIj1sHbudd0t0wjN
-         2J4J2Xx9rCLpDQ6SZSJoYUEVmXi8YE5vX0IQeQvFgkhgG9VcJvB15zEkRSH1kIk2bFqT
-         IOzQ==
-X-Gm-Message-State: AOJu0Yyftu+tafwRq1E2IxfFbaA3V5liBC9rVUWYMU1YnCKkfUhUQb+1
-	fdCyTa7OfFLWLbadWD80kOSZPzp/UBSSYBLnG/JN77A4rb9otKah8z8E
-X-Gm-Gg: AR+sD13ZfI6BVP0DAVUkVb2D8a0I/wMy/8TrxX6bmzYnzspnvQSbC7ZH+NZfYm9MkS5
-	oYVudnyLQB6PtW969NLtdvyd+Xdijc8EUqUFlhRFl/D6SVg/r0JVb276YZpYPVvKRoL5hQilmF+
-	77C8QDKpqF6ggN3EIYcLK8dL2mp97QNPDFYS3b0DzzC1NxtZinWOK/VJ1UsauFn3JU5RVzZzbvU
-	+QuhsNdN/DHcyORXoCbL3g/OWaoW+63tbKweF6E19F360j7INmmx+v8jDcjwJxTTdVCTFGQ9dOr
-	+kbfc7zzcmEZr7jEBy9g8JHsUcyHcdg5YOfBI4Q9YkU0iZQaKJd9RPVR9w9rkJxSvrc6IrxRLeD
-	Ftut8VhydgwWrn7xQg8VzhmlEIDOmWNaYDEOZvlPwNMaJsYbnM6CcplAKIAXUKAjEpeXmZ4Wg
-X-Received: by 2002:a17:90b:5710:b0:38e:b3fd:d584 with SMTP id 98e67ed59e1d1-38f2aa99deemr5981029a91.15.1785151919217;
-        Mon, 27 Jul 2026 04:31:59 -0700 (PDT)
+        bh=zEenGUm5RioXWNnfd2RzwGu/SqP7QkoWXITZGeqYw+o=;
+        b=WhK/ngHaho71sBSW0tSMLq1ilfFexd+c0fbx79RqkERFBkK2kuB3iWOyD67ENlC2/J
+         oDAM+RxHG3rgLVVbaSGxXCXOjJBpfXnIkkozcjHULkm4EQ1N3RsqFIlDwTs/01R/9/XV
+         5beFPvSLyBk8dx/vtf7dtedzqUM4mhDidMmANIUBclwZk+urALsQfBzbK/U+Ch66h1wB
+         hwnxWZXP1C13ipp2z+a8jNnHVEXzCCTdb7giHH6xA/h7ox/kAnyCUuSEtNGsAE632a+y
+         jOsbJ3+fB/6vj2zFN/BqjIzJ/MkWsVfU1iUs6JxaH0KFLwS/ElSqkhwPSM3C0Swt9ZPX
+         dpQg==
+X-Gm-Message-State: AOJu0YxjqgrE9L18JOrM0NKgfZVpkktlniNTVhlqF79Ecssy+g572G8L
+	W9Sqa/wNMWFKKqoJIl9v0WzVDlL7seW4876RwwtcGJyitoGhivS5RyNE
+X-Gm-Gg: AR+sD13WMOtWFg2ta0xqBqYBMCTuh+q94atRatDNisza3Uz7uDzjMvYe8Jg1fBeYyR/
+	woUd2J5vNJhjPt2CcX3ouYXi3FRnz8/BvPyJVAkl4cdT1P9Y0I6ZE9sg8b2YMWN9bDkLG5M2urh
+	NzqDHO/dNForHzC026TULthGsg+qXWdqR1dLH0cDddkkrtQsrUpbsqlyMR6OG0u91/f6VPBX29h
+	vTskSRl3ve0dkilA1pTtJTLpTpQD1wpobhIbiGJlfZAxBMQLYAgJqznkMBUx07hMxqDye62HpPN
+	Tb00eaTcddAOvvPRAbui8CNnNmmf1dqeQAcFU+4OvLhTGWf6TB/g60T5xYSOJQB5f+NVPgmkVm7
+	3uZxruYHrX0p5LJU5Is6Ucxq6L5dPYebNxixFhOX2cyRr/5c+lF0wLmRbYpyXvhhIqcZf5fXNOI
+	0MmS/41d8=
+X-Received: by 2002:a05:6a00:f03:b0:848:469b:3d19 with SMTP id d2e1a72fcca58-84e59462fcemr6582221b3a.29.1785151966109;
+        Mon, 27 Jul 2026 04:32:46 -0700 (PDT)
 Received: from localhost ([172.216.252.11])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38f04175c1asm4880106a91.12.2026.07.27.04.31.57
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53253d70sm2900157b3a.2.2026.07.27.04.32.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 04:31:58 -0700 (PDT)
-Date: Mon, 27 Jul 2026 14:31:53 +0300
+        Mon, 27 Jul 2026 04:32:45 -0700 (PDT)
+Date: Mon, 27 Jul 2026 14:32:40 +0300
 From: Dan Carpenter <error27@gmail.com>
 To: Markus Elfring <Markus.Elfring@web.de>
 Cc: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
@@ -76,21 +77,21 @@ Cc: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
 	Roy Pledge <Roy.Pledge@nxp.com>,
 	LKML <linux-kernel@vger.kernel.org>,
 	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] soc: fsl: dpio: Use scope-based resource
- management in dpaa2_io_store_create()
-Message-ID: <amdBqQfIsAjxMsqX@stanley.mountain>
+Subject: Re: [PATCH v2 2/2] soc: fsl: dpio: Use scope-based resource
+ management in dpaa2_io_create()
+Message-ID: <amdB2K43gRBDhBPI@stanley.mountain>
 References: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
  <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
  <d2e5df25-c8b7-4ee6-8ebf-1725542baabd@web.de>
- <6607bb4e-a747-4791-b93f-f82f26e4a334@web.de>
+ <f47abd6e-9337-404c-a24f-39a9dd7454d2@web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <6607bb4e-a747-4791-b93f-f82f26e4a334@web.de>
+In-Reply-To: <f47abd6e-9337-404c-a24f-39a9dd7454d2@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_043200_853998_4B43775B 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20260727_043247_100236_DAD3EE1C 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,9 +106,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 12:38:08PM +0200, Markus Elfring wrote:
+On Mon, Jul 06, 2026 at 12:40:09PM +0200, Markus Elfring wrote:
 > From: Markus Elfring <elfring@users.sourceforge.net>
-> Date: Mon, 6 Jul 2026 10:34:43 +0200
+> Date: Mon, 6 Jul 2026 11:18:39 +0200
 > 
 > Scope-based resource management became supported for some
 > programming interfaces by contributions of Peter Zijlstra on 2023-05-26.
@@ -116,79 +117,15 @@ On Mon, Jul 06, 2026 at 12:38:08PM +0200, Markus Elfring wrote:
 > 
 > * Thus use the attribute “__free(kfree)”.
 > 
-> * Reduce the scope for the local variable “ret”.
-> 
 > * Omit two kfree() calls accordingly.
 > 
-> * Omit the local variable “size” (for another memory allocation).
+> * Reduce the scopes for the local variables “obj”
+>   and “qman_256_cycles_per_ns”.
 
-Why?  This seems unrelated...
-
-> 
-> * Use the macro call “return_ptr(ret)” at the end.
-> 
-> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-> ---
->  drivers/soc/fsl/dpio/dpio-service.c | 15 ++++-----------
->  1 file changed, 4 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/soc/fsl/dpio/dpio-service.c b/drivers/soc/fsl/dpio/dpio-service.c
-> index 317ca50b0c2b..b252c3c7fa65 100644
-> --- a/drivers/soc/fsl/dpio/dpio-service.c
-> +++ b/drivers/soc/fsl/dpio/dpio-service.c
-> @@ -652,23 +652,17 @@ EXPORT_SYMBOL_GPL(dpaa2_io_service_acquire);
-
-Missing #include <linux/cleanup.h>
-
->  struct dpaa2_io_store *dpaa2_io_store_create(unsigned int max_frames,
->  					     struct device *dev)
->  {
-> -	struct dpaa2_io_store *ret;
-> -	size_t size;
-> -
->  	if (!max_frames || (max_frames > 32))
->  		return NULL;
->  
-> -	ret = kmalloc_obj(*ret);
-> +	struct dpaa2_io_store *ret __free(kfree) = kmalloc_obj(*ret);
->  	if (!ret)
->  		return NULL;
->  
->  	ret->max = max_frames;
-> -	size = max_frames * sizeof(struct dpaa2_dq) + 64;
-> -	ret->alloced_addr = kzalloc(size, GFP_KERNEL);
-> -	if (!ret->alloced_addr) {
-> -		kfree(ret);
-> +	ret->alloced_addr = kzalloc(max_frames * sizeof(struct dpaa2_dq) + 64, GFP_KERNEL);
-> +	if (!ret->alloced_addr)
->  		return NULL;
-
-Why convert the ret allocation but not the ret->alloced_addr allocation?
+Why?  No one does this except bcachefs and that was removed.
 
 regards,
 dan carpenter
 
-> -	}
->  
->  	ret->vaddr = PTR_ALIGN(ret->alloced_addr, 64);
->  	ret->paddr = dma_map_single(dev, ret->vaddr,
-> @@ -676,14 +670,13 @@ struct dpaa2_io_store *dpaa2_io_store_create(unsigned int max_frames,
->  				    DMA_FROM_DEVICE);
->  	if (dma_mapping_error(dev, ret->paddr)) {
->  		kfree(ret->alloced_addr);
-> -		kfree(ret);
->  		return NULL;
->  	}
->  
->  	ret->idx = 0;
->  	ret->dev = dev;
->  
-> -	return ret;
-> +	return_ptr(ret);
->  }
->  EXPORT_SYMBOL_GPL(dpaa2_io_store_create);
->  
-> -- 
-> 2.54.0
-> 
+
 
