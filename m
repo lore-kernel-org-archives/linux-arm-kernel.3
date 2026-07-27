@@ -4,145 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9100CC531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 14:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE59C531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 14:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPszo4t5s5hvBz8+kvxdko8yfSKLDumvMRmMl6QmYes=; b=Eb3MOyBSOZ202MKNE8zP71gVnz
-	j6QJjzR+rU2Tr3y7vlxN4ExyrQ3qG3w0+xyrqIUgR5KGJNGIwEbbHk0mfk2eZr/cc4GjwZq65KoGN
-	eJADzaZldXeliYw6UrufST73PwnHCmd2M61vjiIik/k9d/RKCEhoS3haLm3MCoHDipOKXpKZGFipH
-	Fai9Vyz+0gTz7fIM7DlSdJmm766n2U+oLStuSirltDNFDLmVeenKbned8mdbmkX/lrayO1L46wnz/
-	F4oy7/HksaIFNsZj8gk48aVj9nflGi1GNdg+8Xhm/C+IA8vPhes5qjKYOvliX56IsKsfnuNtr3Xix
-	FgYJ9AtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KfcU5H+Dkc55kRl5OSkSuyA//fHfe+3ucaRyL28Jci8=; b=eGjsxgLJdRq9ixBRZy0AdHsON6
+	ZL6q5M4UXzxASt84hxNgF7qgG8/GAVnJwLt3wn34rDFEDRK9cYOKwhc5/glbH35D8zcQJuvewreiZ
+	ya8aEk3i9YYwPBcHEC8CxZNxq4ye587aIoPqhaKZHm1VHxCB2JJTmWhk6L5eGWbq4sc/2zgdD1ADC
+	6r9OxpZGfXAMJBZjvf1MXiDq3yN+Cn4PbufkgEkaTscWSXu1mh8c4fuQV8+/VB6iDBvZ18lhajZkU
+	+BnA5X3g58qndEV+ucJHxuLnxZnVSQdV3ClrhijiExktKWBQ6fuoh4gJUC0+aIuBY6MEj8uxiNVOc
+	7fHLAw4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMBs-00000002xvA-0Lte;
-	Mon, 27 Jul 2026 14:20:24 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1woMFP-00000002yfq-2hfy;
+	Mon, 27 Jul 2026 14:24:03 +0000
+Received: from relay.yourmailgateway.de ([46.38.247.119])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMBq-00000002xuZ-30wk
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 14:20:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S4qDxmRCDyOp4odGvZutM+V50U9fYBg/rXXJct+PiBC/OAZXEZ3H2sLXKVdbTXpMEL0QzVFqhyunLGeAvw0jPOd8FrPFGkLB1VcLVBWtXG16TDAC6hVcAhivyjqk0ZStTtDWJodZb3vfupqnDywSYZ363poEjG4hjT7SpBJRHas9/SyMj7KIZHODt1wkYOy17lVZq7WgM5+A0PK0ulGdLSXMrZ18fan/II0ewvoEBBhMhTvNPnSCxAP7v0b8zZkUF9scosQ0LR3/tMJ5guRSR5n3Dd4VDVYcA5JNpmvJGQvw8TSOqU0PmPfgW2jD+DXvswgfRvTgAkgAXf9H3938dg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zPszo4t5s5hvBz8+kvxdko8yfSKLDumvMRmMl6QmYes=;
- b=EeTPyxVEpNE6Mus/24nceG8sEaA0DAqnL23pWcnQWZJwNgE12dXuAw+q7rnDT3V+v4Hj1R6hKIqxhxjuqiayPPu2e4g2lOsb+8FLB/OL8ZSWnmmjQYWQVBXcDE4ZTgwaZnHO/IKv57IlltP8joJVHAOo6H00wC1N9kjdT0dxGiAHJvClG5YHg7g9Ck5YTtx1D0Rowa+HG8KSvhJbCqPSjIt/SJKaE79XDo3tG7B4zNZbRgjUH7iEwIu2HtK7V3e25kke0nhGwaKYiOITqcElBVhBqT1pMYlPsyg1Jfrd8s0F1XR2k8II0Ff3vV3yKDW7U3mp9ml3/j0aaphQG57gkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zPszo4t5s5hvBz8+kvxdko8yfSKLDumvMRmMl6QmYes=;
- b=QgW8t/rc/nweT3gbM5f0RDAuU/CJtt5cPKrURkWZucXj/T+LlDGygt9vCWZVqE7fvRI5ZHp+u+px96nqHY64D3HRMmfUTOBmdrl3NeUXEL+Wa8qE2I+x8ArPXGfObWgHZ9lwmLnozX21tmUaaTFcFyriLI4RX65xruPSOBWztiJQjWbEl8acPGQSDBnpvWLWkmQnW/RfjNXCsULHEZCc0sQ6l8w5ZTTWLKNfZ8toRnO3Tw494D2iw4tEY9Dsiblu6euEms2RuUePzB8okjNuA2oi7SWYyCm7aqRk0s8iyehG3R0n71ILD/HPWv43Lg3kpAJ4GUzoIWes7DVE1YXWEQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB11538.eurprd04.prod.outlook.com (2603:10a6:800:2ca::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
- 2026 14:20:18 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
- 14:20:17 +0000
-From: Frank.Li@oss.nxp.com
-To: mirela.rabulea@nxp.com,
-	mchehab@kernel.org,
-	Fan Wu <fanwu01@zju.edu.cn>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] media: imx-jpeg: finish the job on device_run() error paths
-Date: Mon, 27 Jul 2026 10:20:10 -0400
-Message-ID: <178516199439.2421069.16061546765189005821.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260624003208.12400-1-fanwu01@zju.edu.cn>
-References: <20260624003208.12400-1-fanwu01@zju.edu.cn>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7PR04CA0090.namprd04.prod.outlook.com
- (2603:10b6:806:121::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1woMFM-00000002yep-2Grc;
+	Mon, 27 Jul 2026 14:24:02 +0000
+Received: from mors-relay-8404.netcup.net (localhost [127.0.0.1])
+	by mors-relay-8404.netcup.net (Postfix) with ESMTPS id 4h816M5wNBz8CwK;
+	Mon, 27 Jul 2026 16:23:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1785162203;
+	bh=JBhZ+LwoQ70+qErV2cTCemtVryLVM0RxTuEG+2Y3/co=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=f2/2sxdFVhE94wwd/yWnIycOJh85rGDGpXQf71t2SYYDe4U+iSLNHJd8sUrzcZmaB
+	 HPIoqQvSKphfyTmKBJXpjXOBTYrYKmi7JsliX2RN8lwJUA/wl6rTMT1oXG8Drs8hKB
+	 rB3xT8wfUN2oOH9lSje2PQkTXmJngjvF5qrUxXM2cumLdwjWoViQWpwJtMCMiWnb0T
+	 wanxcSKA98IMuBPfNroyvvV/dD7Qp1GRQthFvDNiat7NqEw02qPj8YhcfUmLn10s96
+	 JIG8vb0OjwjevlH0ml8bPMHAydxfektsxPewXwXBbIzjLTp++CQgWc+zs7/XoKxHhZ
+	 w23KkSOKbfZSQ==
+Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-8404.netcup.net (Postfix) with ESMTPS id 4h816M5BSGz4xtW;
+	Mon, 27 Jul 2026 16:23:23 +0200 (CEST)
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4h816K0sHxz8svG;
+	Mon, 27 Jul 2026 16:23:21 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 1FA265FA76;
+	Mon, 27 Jul 2026 16:23:16 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <1826ddd9-6edd-4481-a31d-6cbb083b3a56@leemhuis.info>
+Date: Mon, 27 Jul 2026 16:23:15 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11538:EE_
-X-MS-Office365-Filtering-Correlation-Id: 891b4273-6e23-42b7-0e14-08deebea2edd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|23010399003|366016|18002099003|22082099003|10067099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: Ko/HYBYWVgVpCxQZ8gNG3uv2VQqaLIWEPqfrloPZZWgx0pa3vvAy2tfr3khHQnML/kSaamVByXaF8RfdwCxr4qyIN23jfp725SrWnbtpgUiceuFg62yP/38Z4QkY72zCV3Aac/aiqxFhu9sL1zPOcaCz0gKG42u511sYTjW0sjEyRIiQlnik7y4wd9Y6dVPODY7VnLnZl3Y7c0HBG5b9MojEdCXriP5BsuJNCGFQsvpMzlBP6jRbbpr65PI9I88hnKA4CKygfyY5cpzHHoNiJvIW5NiYTZPbFE4PQarhdi5oosf0EmvAgfXEwo9uTCC4dpGDOcYr2xBc5f8lUfMUxroXE75pVEx2icFg1NES07FvYlUSUqo4bJIoAgI6ltibll63hZDZ1yygEsG/EwS1TTSgm1mGo2jxidbgW+6p0i1tKTx+wnMyG9SmBz10lpCzgx/h1G9lpochR6G6VDYx44C/MNhnRtiwTIKSMr9EK8uc8ZNUIIARDHSCGnFkdvPvUw0pSswWckryBvDAEb7E7+7viI7jY1cKcGqoRG0jT8i4/JSwI3l1L4Xprs4qUvAw2O4g9WLemCZhmgrHsuSLuQk/SvzFmBTu4oHkgkYZt5EzZbNRgvJr8Q6xNA/TQpNw9g5+iojSkKczU6MV2cdhCh4DXd6M/iXQMPKKEQaMg04=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(23010399003)(366016)(18002099003)(22082099003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K1JTMFhqdEdST3Y2dW5UWjEwdEpvdlZNc1k5OWxJcFkvREgzdUN1OXcrL3px?=
- =?utf-8?B?amVrb0pQY1dtRGpBT1A3NVNzZ1NQT1ZKb2hFQmZ0d1JMaExxakthQ0I5bG9n?=
- =?utf-8?B?Qm1jODMvZnNxMGJyaGovVGMyN0toQU5pSyszYXpLalJzVmhOMjZUTE1KOStz?=
- =?utf-8?B?dUFzcXpINDRKUVJ4akg4ZS9mZ0FMSk00Q2w4K2tsVnJFaGZBYTVaT01CbUtK?=
- =?utf-8?B?ZkJubTkwc0FaRWdlNmJmNFc2MDR3SkZkKzBTN2p6TlZ1Ti9NUWQrTjdsUG5Z?=
- =?utf-8?B?eEVlZU5jYXVaMXAwOHJrRHhmNHE0UTlXSlJOaHNGdUd1N2Q2L1hKb25lMXlI?=
- =?utf-8?B?VC9ZQnBadXplQlFUY0RNdEhHRmNndzNDL1FtQnVYTjlxdnhzZUgxeEJwd3dw?=
- =?utf-8?B?RVNjWnU4cWx6QzRWYnFrUkVZZmxYMkxkQW4wOGxVR1E1cWx1ckhjQ3RrTUx2?=
- =?utf-8?B?Tnd6ckNCMlZwS09hTTRkZEZGaE0yWVQydDlwdVVrZEwrVWhoZ3RLWTIzSExt?=
- =?utf-8?B?MFF2NTc3eWFnTys4Si9yWWZCZDJyWkZsY012dEZOWWE2Y2dhb3UxNjkzRWIr?=
- =?utf-8?B?WjVBR253WlZQdDhFUWpxTlBLckxxOWVQRFhWN3BHVlAxR0pla2dtSTltc1Fw?=
- =?utf-8?B?dlRaYXZXY1hXYjBod0d2VUc1cFJXWEZqZWRWbkpESWZKV3JrM3YrSUNkSjI2?=
- =?utf-8?B?MXdUV2k2V2FDd0dVQUZ2ME1nUTFQeHEvQjZpU1pEQ21IUTEwQmJwQk9GZTAv?=
- =?utf-8?B?U0VleEc0VWkyb2k2bXZkQU9CazZmVXNnR2dsY1BlZ3VaYTl3UDZDb3ZOVTJu?=
- =?utf-8?B?UWdTZXR3ZFA0TG95b09lSjdXQmhKUEFGOGttVVVqRUdGY3cxT3QxRmhvZGRD?=
- =?utf-8?B?Z1hHaG1MU243S2JheDg3VVB3RElxRkxaMDJVMkwyYkhNd2NweXQxV1Bianls?=
- =?utf-8?B?K3ZqVWRtZ3NFSkJSNi9pdHRpczd2cGVJaHZ5MzZOb2JtTGQwTEl0M3hBQnFr?=
- =?utf-8?B?Y0VnUSt0aDg2STlGendhbmlkTlFTQS9Pd0trSGpxTEFVbmltbjN2TXJhalhh?=
- =?utf-8?B?ZXVzeWtCclBCaHhyMVBoaGIvWEVjTCt3aTllK0RBYnNXc3NHNnRxcG1wYjdj?=
- =?utf-8?B?dlNWZWZaNmNkK01kZFZkL2J4YjQrU3hYRExBcVNkY1VqanUwOVBpOEY4K29r?=
- =?utf-8?B?eDNMbXZGenRDclZoSlh0bVhwM1MzaG0vazFnR1J1TFRHZGU3Vk9CeUxBbzVh?=
- =?utf-8?B?Q0NtWk8vUVNySXpLbG9LdWVDdEh5aXI4cE5CMHNqTi9wZnZnckp3NEF5NkZr?=
- =?utf-8?B?dHVNT1RzSkhGMm1oMElyakdCVjV1WlZjelhMa3BraVRseGNBSFRGTzdRK0xq?=
- =?utf-8?B?c2xJQ29pT0NxRVBNVmlXV2pEOVRDcUd3SHRRc3N1VFhxQjd6b3JCOWNuQ05r?=
- =?utf-8?B?ZklFU0VpSzVLajFzajdFdys2R0IxL1cvblFwOVlMYmlYRW16akI3UC9WMXN0?=
- =?utf-8?B?YzVHQUdHYVdMQVA3MmxTbWtLQ1N3d01HMndrcE9PdUhKN1FmYWhScDdKVlpE?=
- =?utf-8?B?cmRRYUJSQjJ0RjFBdWZ5KzE4QjBHWUtkaEJZOVlPVzIydlB0SWZRMi9peEN6?=
- =?utf-8?B?MVFrSlV0TkFyZllVUHRpaUQ0TkZqa3JsUEJweDdxdFVPYnNYL0QrSUZaeWhv?=
- =?utf-8?B?K0hKVldtYk0zVnh3UmhIK2ZKSGdnc3EzMDRqTDB3UGpoS2luU283R3JlNkhz?=
- =?utf-8?B?TnpIQ01ETkwwb2RPZ0wwZjNUazFUQXdwc2VnaDdsa2Jrd0tGdWRaQ3lLNjNE?=
- =?utf-8?B?eGhzM0RRUjB4bC9XMzZRRUtuSWNKTm9CWlJWQzZxODRmK2dIYXFsa3Q0UHl6?=
- =?utf-8?B?RG9xcjRNR09ZSGFTMEszaFVWN21hbm0wcmgxS1NiYjNMZXI1ejBuVnYvTk5n?=
- =?utf-8?B?OHZveS9tWEJJVG5Oajd6K2hMNjNaWlNzaUdmc09TZkllekVvSWc1S2s4aUVV?=
- =?utf-8?B?dC8xNldPUy85VHd4aTcvbE9ZejlMQnQrQlRQK1VjYlRaQzZtWVBKNGI1SU1M?=
- =?utf-8?B?QThmb0RVVUVsWHVtV2FnMFp0bXZZK3Z6TExkbE9KZjdMVFdvQWg1VlprS29h?=
- =?utf-8?B?aGsxMnVENUZvbjAxaTJuMFdzU1diK2Zva1dwVVI0YW4wSWZ6TGNjR2xpUjBz?=
- =?utf-8?B?NW9FSmtweUtRNGU1UWYwM1VXKzY5c21vTSs4Q2dna2kwa2VxeUFzb0xKQWNt?=
- =?utf-8?B?c3BUd0xSaDhpdkp3VWE1bnQ2Uk02dGY2YVVWOEMzTjYvRzNkRlo0RWNjN21z?=
- =?utf-8?B?S3kwWlhWQWtUSHh4NUk2YWsrM0FBdmNYRnppZEhCRHd5RHlhQnJpdUh1aDNX?=
- =?utf-8?Q?Q7rmYcW4Q21vzMt4=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 891b4273-6e23-42b7-0e14-08deebea2edd
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 14:20:17.6506
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1FnBthADLkJRyXR8wbQdcq7LnHafik7cfQ8VsP/DN9HT+kE2TJS18u2awjO1sr8nqx/gjbZC81lx7jdPWOSTop2c/4aqOjCQWHPnFjRB3T9NYy5VjH57AK115rYmQHyq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11538
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+To: Gary Bisson <bisson.gary@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, Esben Haabendal <esben@geanix.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Adam Thiede <me@adamthiede.com>,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+ <8733xko1ms.fsf@geanix.com>
+ <0f719c00-3cf5-4403-afbf-713b07255981@collabora.com> <aleM9Wy9otpd6Je3@owl5>
+ <aRN3_2FHX8XmTcwduTAPwz4UFde4B0tbB09ajyeUg5qZxiIYMmbvMkG7CPoNTl4iySYMZawbLMWijO47R22gkg==@protonmail.internalid>
+ <65558ccc-4f2c-492d-8c74-627d27dce864@collabora.com>
+ <87h5m0mkca.fsf@geanix.com> <alpTEPsy-SIQv_Oc@owl5>
+ <b26a4890-12e9-4995-a71d-d0b7458b1570@leemhuis.info> <amdTnudq48tZUTG2@owl5>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <amdTnudq48tZUTG2@owl5>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-PPP-Message-ID: <178516219658.2742281.2869505277937587540@mxe9fb.netcup.net>
+X-Rspamd-Server: rspamd-worker-8404
+X-Rspamd-Queue-Id: 1FA265FA76
+X-NC-CID: 43uR6QNMyemn/nPkJoEiLbUEjzWk0VHzRbV5Th599RFa0TAAe38=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_072022_757753_EDBCF803 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_072400_903394_9DBF86F7 
+X-CRM114-Status: GOOD (  23.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,27 +101,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Wed, 24 Jun 2026 00:32:08 +0000, Fan Wu wrote:
-> mxc_jpeg_device_run() returns early through a shared "end" label on several
-> error paths (no free slot, mxc_jpeg_alloc_slot_data() failure, or missing
-> buffers or queue data), and none of them calls v4l2_m2m_job_finish().
-> Since the delayed work is queued only after the hardware is started, those
-> paths neither finish the job directly nor queue timeout work that could
-> finish it later. The job is left with TRANS_RUNNING set, so the
-> wait_event() in v4l2_m2m_cancel_job() (reached from v4l2_m2m_ctx_release()
-> at close) waits indefinitely and the close hangs.
+On 7/27/26 14:48, Gary Bisson wrote:
+> On Mon, Jul 27, 2026 at 02:28:56PM +0200, Thorsten Leemhuis wrote:
+>> [top-posting to facilitate]
+>>
+>> Gary, Angelo, what's the status here? It looks like this fell through
+>> the cracks -- or was this issue fixed in between somehow? If yes: great!
+>> If not: Would be good to finally resolve this, as we are long past "fix
+>> within a week" rule of thumb from Linus:
+>> https://www.kernel.org/doc/html/latest/process/handling-regressions.html#on-how-quickly-regressions-should-be-fixed
 > 
-> [...]
+> Not much happened I'm afraid. The status as I see is:
+> - this patch is necessary to have TI SN65DSI83 working
+> - this patch also follows the DRM guidelines saying that HS clock must
+>   be enabled during pre_enable (see previous answer / [1])
+> - this patch has been successfully tested against MIPI-DSI panels (by
+>   Angelo) and LVDS panels via TI bridge (by myself)
+> - Adam reported an issue with another bridge (PS8640) where resume is
+>   broken
+> - Esben offered a patch to the TI bridge that would fix the issue we
+>   were seeing in the first place.
+> 
+> But for the last two points, I'm not sure this calls for a revert yet:
+> - enabling HS clock in pre_enable still is what should be done [1]
+> - maybe the issue Adam is facing is due to the bridge driver instead as
+>   it could not be reproduced with another setup
+> - Esben patch would break the SN65DSI83 init sequence, suggesting that
+>   the culprit really is the MIPI bridge for not following the HS clock
+>   requirement in pre_enable instead [2]
+It's tricky, yes, but I suspect the right time for a revert was weeks
+ago. What Linus afaics basically wants in situations like this (espe.
+with two reporters) boils down to "something broke recently, no fix was
+found within a week or maybe two, so we go back to the previous state to
+restart from there -- and this is nothing bad, that's just done to buy
+us time."
 
-Applied, thanks!
+If something is right by some hardware or DRM specs often doesn't matter
+much. What makes this tricky is the fact that the revert might cause a
+regression for those that relied on the functionally the change brought.
+But I suspect even then Linus prefers a revert, as it's a recent change
+that only went into 7.1. The quoted from Linus on this page cover this iirc:
+https://www.kernel.org/doc/html/latest/process/handling-regressions.html#quotes-from-linus-about-regression
 
-[1/1] media: imx-jpeg: finish the job on device_run() error paths
-      commit: 84cf16d021a20ff35ec50833af531deabea71992
+If we can't agree on this, we maybe should ask Simona or Airlied for advice.
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Ciao, Thorsten
 
