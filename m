@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD85AC531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAA5C531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 15:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pimLA8PXpe/KB2O0/HbQ+QwyvJSF7KITGTCYTL5PK8=; b=24yY6GQm21UfgU0lOjOBq9qQ1A
-	lwIibx4MT4KaI7Q7Nbs5yJYrLwszjfwLzX6dxB1l6DQgUbJsnzRsyK7jJiNvo2rwI8FqjvlgQNSYd
-	/xltmvon196Y+XWF5lT/dkTmxLGOR7mO43I7MQMxGJZuh7BQO18WHb8/B8LNAYj5oduMZNj+w3M5T
-	n3F14lc+s9Yk1maYhYBIDNps+R+8GQXWLepV/5tupd5FpXAc4z40Lxq5lN3HcIIVuCthEwqutTmJz
-	Dk4Ljs3q1l9Bt2PTU7Cl8MyHKtANpuaQ5Nn4lr4iQrfHQvmPbV4c8h9s3+nHHSzlun5PtJusRz6tX
-	mY1WT5SA==;
+	bh=rH0dfJwx6TaUJRP9778eSVp+cuHpBPdxCqvvTxPFEdM=; b=pHem+PXMWLGGoVvOfstRFosyLQ
+	/HGy9M69OiMMYfByRt8RPGMisw7AfqSUHdJwCoUlHjIlPwcXTS4myfETYd7mXm6CdeBFv2bxA7DxN
+	tUztSbjZK6FCP/a/CK6lR+/0KzVof2Qzrw7P4beP2YOcpYiZZP2pMH09w1pkY9GfHtfWu9neLIKxA
+	E0E3luArs/SnQ3JMGM9cEAhPnTi1Pwva37KiAkUlXwdjU251Y38fYomy601Z0OC4/ODbD90FZhGC9
+	NRtcMUBJgzx+icYJHV+8A4JIB7F+7OKDvgJ0qiXqNVTc0n4/du2CSuN1tN6fTaGjQn3SmfAgXewbb
+	OWJf4OIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNMg-00000003BjY-1xV2;
-	Mon, 27 Jul 2026 15:35:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woNN5-00000003BrO-2m78;
+	Mon, 27 Jul 2026 15:36:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNMf-00000003Bj7-04sT;
-	Mon, 27 Jul 2026 15:35:37 +0000
+	id 1woNN3-00000003Bqu-47Jx;
+	Mon, 27 Jul 2026 15:36:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 533674070E;
-	Mon, 27 Jul 2026 15:35:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53C21F000E9;
-	Mon, 27 Jul 2026 15:35:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6438741576;
+	Mon, 27 Jul 2026 15:36:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B419D1F000E9;
+	Mon, 27 Jul 2026 15:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785166536;
-	bh=6pimLA8PXpe/KB2O0/HbQ+QwyvJSF7KITGTCYTL5PK8=;
+	s=k20260515; t=1785166561;
+	bh=rH0dfJwx6TaUJRP9778eSVp+cuHpBPdxCqvvTxPFEdM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kPGyshABvDxW3Ih+0CYOdp7ZetMFxAj2p4xEAoU4nrm+vWZ44ccOoqz64YO5hUEEG
-	 QvHaF3VO65kWPjOh2uqE1OaZIMSaFqAu3K9HnsjbqXYyuqX5n8xaapj4qeHA/5wr+4
-	 92YRfeMwxNcWOCMZr921uKVmanLykM2B8wSC+vT45+s6HjCs+MOT/P4ytTm/yhm1nB
-	 mBYgbIvIorqVh8Iqh/Z60kRsAA4NObO39857pZVg5SmgqnrOHER9MrVKuDU2FJuO3Y
-	 3rt3l1Z/Hni31UcWyk/3RJbV88Q9trPXsexJgI2uyXEDHzVwhEul1+RiSgFf6KyOEI
-	 R4zKa6Bw3KdsQ==
-Date: Mon, 27 Jul 2026 17:35:33 +0200
+	b=VR0PAk25kOTzE8THqAMeXyIQ4iDVWM4cRIM07AXEHoe/7C/k/ktnbEHFIWB8fJeQj
+	 VjNd1r5ZFVqeMOoBTDTlUS0MEY4OGSnwJAXzBIEUvMnewMoWOWDHjMULcPcaoSLK2z
+	 a7aPaVwplqFn+8mNoq1biGH2vNiSKFWmL/hRwdRp5ZvQmBim74pLuCmuTKHXGiSvPZ
+	 sNEcCsoZnPdqbHixGkvHC+yysAjMjqmx2WTTOlNp1Rh401XT3XgyxxE4YCaK4bqBT1
+	 3kbMqNHU24jY2NCnD5v0NKGwkjWGgtF99j1vSPP9hJpBZccswonp6S8m7iTYTGNC3R
+	 daVrbOWXZhdyg==
+Date: Mon, 27 Jul 2026 17:35:58 +0200
 From: Thierry Reding <thierry.reding@kernel.org>
 To: Jerome Brunet <jbrunet@baylibre.com>
 Cc: Andrew Lunn <andrew@lunn.ch>, 
@@ -53,16 +53,16 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
 	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v2 2/7] clk: qcom: clean-up simple provider misuse of the
- consumer API
-Message-ID: <amd6vhL9bX0YmjE3@orome>
+Subject: Re: [PATCH v2 3/7] clk: renesas: clean-up simple provider misuse of
+ the consumer API
+Message-ID: <amd61_Itb8wOTq0H@orome>
 References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
- <20260724-clk-provider-simple-clean-v2-2-56f306156d25@baylibre.com>
+ <20260724-clk-provider-simple-clean-v2-3-56f306156d25@baylibre.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zq5ldklgurjwxspu"
+	protocol="application/pgp-signature"; boundary="d7jdk6oml7vjgb7j"
 Content-Disposition: inline
-In-Reply-To: <20260724-clk-provider-simple-clean-v2-2-56f306156d25@baylibre.com>
+In-Reply-To: <20260724-clk-provider-simple-clean-v2-3-56f306156d25@baylibre.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +78,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---zq5ldklgurjwxspu
+--d7jdk6oml7vjgb7j
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 2/7] clk: qcom: clean-up simple provider misuse of the
- consumer API
+Subject: Re: [PATCH v2 3/7] clk: renesas: clean-up simple provider misuse of
+ the consumer API
 MIME-Version: 1.0
 
-On Fri, Jul 24, 2026 at 11:03:53AM +0200, Jerome Brunet wrote:
+On Fri, Jul 24, 2026 at 11:03:54AM +0200, Jerome Brunet wrote:
 > Clock provider should not be using the consumer interface.
 > In other words, a provider should not be dealing with struct clk.
 >=20
@@ -96,33 +96,30 @@ On Fri, Jul 24, 2026 at 11:03:53AM +0200, Jerome Brunet wrote:
 > Reviewed-by: Brian Masney <bmasney@redhat.com>
 > Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 > ---
->  drivers/clk/qcom/clk-hfpll.c | 4 ++--
->  drivers/clk/qcom/clk-krait.c | 2 +-
->  drivers/clk/qcom/clk-rcg.c   | 4 ++--
->  drivers/clk/qcom/clk-rcg2.c  | 2 +-
->  4 files changed, 6 insertions(+), 6 deletions(-)
+>  drivers/clk/renesas/r9a06g032-clocks.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Reviewed-by: Thierry Reding <treding@nvidia.com>
 
---zq5ldklgurjwxspu
+--d7jdk6oml7vjgb7j
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpnesUACgkQ3SOs138+
-s6EEqxAAlCFaxoVTCA1CfgRp8dzwZafYmIYgEsE0ClMOdVhcykkwkw+zzREQzNWw
-zrNc8zItDXLD59chu4jB1t5x3EUCI0fm0ykDZzAvFdWGIam/VRhf+5fFE0LlKMLC
-b3C/IFiDNgi4b+iSQYBVAxsPIxXXTiCtua/+8Hfkc049kvL5g+q0Z+snYb6nWRvt
-+It5/oxa3V/Gbb02LDDOyoJudwBB2AuMyBWQIgpLly214d7YySjLH75z5RIjzklN
-XeD+uB6bfmKllsYQzn8Gg3IXQS0JDQMaAUGWMQV828p5fiDPRZFo/fHXN+2wkLk9
-wDdJTU4u6WcZ7s//S/KMekniPws8XtvC2Qf/X0JC5WeZbKW5cPn5KGIZfEjaZfGv
-MVVB7C6coPw4pK8S4enaKy+iEvCsbWSTqa9D1Zlj5yo+7X0gghxJ02FFeahPb2pH
-QS6xzkZZkIWaihgjvJ93QmV01HmV8YIY5c2gPayBfjHacGtT+VeY4CqQrhpH8q3Q
-wR2akmStfmHdp4RUHXCUKHwG3hVi0BOJtFxYjl2yTQPPesgNk7MP8tmObDyK0wRD
-3ObUnCOiWqqQV8JbpMo3d9cbrdcnN0S5fTEb7ETSaVVTzwn4YXQpjSPWeiGLQKVE
-RxiLGS6vCX5VSLCFMhFxQwB2bcol+N4e+sibrz68qhc99kNk1aU=
-=kezw
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpnet4ACgkQ3SOs138+
+s6HboA//b1oIVu6KgMhWD7qHih0fVg+6Q3uvEb6OaReWRKDnD3Nqllw7sGwwDz5D
+kcOBUi3cZBA0RzeiEphBBZ9Tp4kHSIi7RRYW3W+RNHqYHHe1tkqUyJwbrKVawxEA
+e6CZMYf754GInAjT1QnThDGLTCK2ufz9jo2ljLyBhPkS1kuqJcLHIrXO52LdAvEh
+BwCzJDc5lpSVOnsaHh+bx1qUFRgcI5p/LOyfkhhFMGxpT4OnHZMJlZRdKfQti3QZ
+Pbk73asqPr5USZXPiPj8RRce9EwuKvq5+UppVu6MHKiP/Kq6jwPAcgVGYBf1+w2n
+cKtNv4/xKTEDBwcaZQ2I5VyCsoA4dLGj+q2ZvAvdtjI7xYziBrwRzQSYhZYtMeaK
+mSEmRzoZuOjcfajc1Gi4r920wTMcRgSnuLodSVQGxThjnDD7pPZSeP/PiXc+Q7pG
+C3z656rLQjarmY1iua5rt57KAwkr4kC0iuoHnGJuj2jcxOINB870xeTmjP15jzKB
+KjhvHs/g9wItAZcDYVaeQlN1sWv7doDJNp7U4b8xqB9ZIk29RcHYfdaSlTbxtVuW
+CVbxn10yKOVPws4Aq/M7vai+p8nxcSA4MdK6obo8lvcLf3h0s+BFhRkDQ0CEmfIr
+bolWFbEuM9bXdBRTMeA1FjyuThd6KZIokWYXTHif5SMV8hrTwf4=
+=VEtD
 -----END PGP SIGNATURE-----
 
---zq5ldklgurjwxspu--
+--d7jdk6oml7vjgb7j--
 
