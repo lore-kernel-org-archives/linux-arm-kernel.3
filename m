@@ -4,146 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5EDAC531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F51EC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIca20BqWDTlOAOSPQPSrS2FVo0+d9r+PwsLRpFcIDo=; b=qHiG+4aggL98t9fIWDF5uJM+CH
-	D20YQuMA0pPDCRkNxNQKtUucJEM28nSXS4PpKiGaD8Qwjwx7+yV+4jwWey5FMLdeC4maz4KXJGUTY
-	uqoOmoKI7CqFkYlR1rX08CaqQ6NR+sfGIp6hnvzdjas1pLmsjmDEF4+3q3mehRLIxT6OBWlQ0VtTA
-	dVRNd60o+5MyFndvPAfdvqNaHmN6EGC2Zrx+0wKzlTzOxpdK5w12k1Cq2gSPXzJgs7ZRSTh7uFG3P
-	O1faansJvPBNPGhPoPFFtnsrlX4ckhU/aDMiFQY2aIJ9/4DddKZAjuW+8Zar8Ll9cdLv5YhNHAfza
-	Mysi0a0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kO0CRx78Juq8i70OvsJ65ekpU28ajV9WCXKuSv7yYuA=; b=MiNNJvq3JAbI9/bBUNbrObxooz
+	YjPaHdIsXNvp0//oDlCcU8MF2ninaSwjDI0KMUIK/ob2kLaZSuu5ORVBI8j+pP6x5gyFDHexZLLku
+	2ua+f0liKUw/xF4+JXfldkPEYl2StfUoblh0Mh3PGR+ZSQH5rBHnzw7XkJu9d3CHI3kZqJS2Z9Gi4
+	CG9qLPXYcT9EAq6dRayWdZJIxnP9D4P2Owm6Gg/f2Lj/AiZEl1D5kt5DAVhv7sm1xZxMJ7jp+f42L
+	uIndQcyolI9YZFbTRU5sUEICH5jfJn4m5hE770pCBUFGxsp82dkZB17prvOQCDVBKrQEplv8vEGei
+	ku/ztWsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOHx-00000003MHT-3yRP;
-	Mon, 27 Jul 2026 16:34:49 +0000
-Received: from mail-norwayeastazon11013040.outbound.protection.outlook.com ([40.107.159.40] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1woOIA-00000003MKC-0VAI;
+	Mon, 27 Jul 2026 16:35:02 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woOHw-00000003MGv-0gE5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 16:34:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c1vuskB1kf0izTGe4qdXW4yQRFxSVUx3GMYihgCJ+Pkr6gL9vxDMmPgYkKtLHKYXTHOa5CSsmuqYjj/0d8SMQVLxJkf3PfXXtx/wCVmKJIyatGU32OmMDk4dw5jwvhaZiVmIOA52mBG4xgnhpn6i+ggXIBDSegZdrTVpGw5j9/2J3jn8eJfXr1sZEO73r9RPEqavp5aDhze28StkDGxHma6chrhVv5siuLB0XE1KLZw+Igh7tISjM1ynD2eoINGtgkwjFtTdGhRdyRMr3ngbhhusHCiGbMmlAMKGORINNll1KG/Yu/X2qp87wr0s1TfGD26SQ0SF1DzV1cVuyUp46Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YIca20BqWDTlOAOSPQPSrS2FVo0+d9r+PwsLRpFcIDo=;
- b=Sl2z3tLMRUE9rWZY+wzUXVQ62/jQkRbwOUMYTtmVbCzPaVOYYw8hKbT+UXkHifTmGVQfrhHSYARjIoe4lGv0bG6sXr0Ui61iuJ/JPpjvmwW9v8saeJRlL4wCpsWQJJDD99O07LiRNr+YpqcsmMIgmDDyfleucUeB0x47XjVooqrp++XuI9QM9O0yiDkTIcMbqrAl4TQrTMyTwME6ze9TJKZrv3mIlk9A3Mygyk2ZbqOUACeGzz9bQGASIO1GmbauMyzeEARRU4zA3n6iBaYq9RMK3bMotqfN8NC0wbAbubu1roFr/rzQG6cAdeikIu3W7VpopCmLha2cnxoRPMVVgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YIca20BqWDTlOAOSPQPSrS2FVo0+d9r+PwsLRpFcIDo=;
- b=NhMF/s16OuoUHj3fNk5fE7yh9SeHswfWBXayoBLtdPcKWNDeZWS5OFLTxR6tHdJ/0vuJ1xoXTfM/1Xgo7ZCI0E8+VkBCyevRrSA4IGlmoDF3TzD6vQFKkJcEVV/qtuBUc8z0uZcuQoJCmA+ZA5KExBsrXNItMTAD48orHZJH8AyFH+mVD+tq5iEfV8XYj7KxK3O1p5zaMYVw54gHKaxRJa3aXOEK5lhLhapKJRjzYTY5tKuu47uXsZFj8EvZDl1JDUBo89LegjOUyT3N0VI6zIdMS4BWDULhdx685ILi0QXvs28AIaWOwAdSAK2nJyf2q8F0AvbzIrpcnG4ivfb8Sw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU0PR04MB9493.eurprd04.prod.outlook.com (2603:10a6:10:350::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Mon, 27 Jul
- 2026 16:34:42 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.012; Mon, 27 Jul 2026
- 16:34:42 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Sherry Sun <sherry.sun@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>
-Subject: Re: [PATCH v2 0/9] arm64: dts: imx8ulp: Device tree updates for i.MX 8ULP EVK boards
-Date: Mon, 27 Jul 2026 12:34:35 -0400
-Message-ID: <178517006282.2521127.16503703124624562470.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260720-imx8ulp-dts-v2-0-d05c67676f53@nxp.com>
-References: <20260720-imx8ulp-dts-v2-0-d05c67676f53@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8P222CA0009.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:2d7::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1woOHz-00000003MHl-3zIm;
+	Mon, 27 Jul 2026 16:34:53 +0000
+Received: from smtp1.mailbox.org (unknown [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4h841z4v4WzMlJ8;
+	Mon, 27 Jul 2026 18:34:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=adamthiede.com;
+	s=MBO0001; t=1785170087;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=kO0CRx78Juq8i70OvsJ65ekpU28ajV9WCXKuSv7yYuA=;
+	b=JwB7z/GgtbpAZgbjRhiyHgGQw+8bk/z7K6PVXDz4naudWDvb4OyZyUtOBCuJGJNLXLXk1i
+	zvRtB6AxTWt/CIIGPT2UYIs5hEWM3U7pXX+gHMOlXz9DIZRCrP0yfTotaXI1W+uD/olWOm
+	sPq9YmPD8C/QwH0MSJRSzukKs7SgxC6baJIsdKjaXNydj0hZRx662zd67ARiUBGgvKvfRv
+	8e+19PyxjZ+qxH/EjfOykwFn7/GZ+CrwLDRVNZy/Tnq77jVVZ86DM5ewPSBgXZXrL/BEwx
+	KTjgSvUvrhLZfklvtxd4tgPhVq68as3jEJXVzG+9+sdbvVuJ5YiL1b6yw7AW1Q==
+Message-ID: <806f042f-cf40-451a-8412-eb4a5e31963f@adamthiede.com>
+Date: Mon, 27 Jul 2026 11:34:40 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU0PR04MB9493:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0451487d-0d79-452d-9715-08deebfcf5df
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|1800799024|366016|7416014|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: DmqXL/BKTX0f/BZrj3O5i02pbl6meHFv9cLtJwqGn+RRLqf2MzZdo5REDQ6gpeajzfLY4kqr/PEFkiYjO9sTHemjUKW30sitVKh8aHE1HP8z7ildhQtf6eHDecdR7l66qdhrWka1Ui7Q+F0/fskHcDIEL7ycwwb4CGyZN2UO8L2+Ed5xmKb99ocoLHmDxIfbaJ59uItln64I0BY9AU8N+d99O8sAMwrCpikrk4ipj5VaTTcJd48OvAGTHYc78RdzTG5F/LfEkcU1o1epy1BG2N9UF32CsFW1RY2WDDxD7neGKsg7uus+MPQ46BkjedkNET+vMfLfx4/8SmNWFFZyM3TRPEUC/OxKxnm09T4QcJPTF/s0ZgLY0HRsCbezVtb+TF6RfNM0RgfscEDBnq1taOiFPIMf0n+//V8vMLa5RiRPsmv0GZT1y+jwLtZojjudKZM0JKR/pfOGonzZiiN8TNFZ44W4zhhyqONvkcOokRCA1iNbDfhoLNzrtGi33E9o4zRZVUhBR9ziuOwjcKnDgAn/WzEhG/vc7MsKBj+qu1bh2mTeCzYYLKW8hA9IP5YlYh4m/2FXk4ihI+q/dZApWhzIN21Wv1nkyud14hazRJ8KvNXxuXHh/5LI0mJ2EPITQpulELZnWrlFCpKKuFKWHNVAZyRAvp4ovjjGQtc3jrw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(1800799024)(366016)(7416014)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SnpVZ0FXaFBZZDhWUjdGaGxEUHVnem0rZDgwNWtJWC9HUFVBOHY3cmpLMStl?=
- =?utf-8?B?cEZZQ1hkUk45elU3U0dVRjlMM0QrU1RYclRUTGIvNWNDd3lBOXh5aWpNbDN3?=
- =?utf-8?B?YklWTVh5WlJNcEplTDYwVmJZNlVHbDc1ek1hZ2J1NTRRc1NUQktjYTVwb1FG?=
- =?utf-8?B?M3VxZUJlMzR0TXlYSVZkb1g5TFR3ejM3UUtldlh2ZHdLRE5mbFpZSkpKNXBo?=
- =?utf-8?B?ZnNjczJzZ1hySWxpVDJ6ZEFNTWZpb0JIZzQvUG9Ma1Q2bTJkc0FVcFFhUnpX?=
- =?utf-8?B?dTBWOFVUdHUxa1h0N3J4S3ZEcGNpSkZCaGkxcnVaVU5VM3VhUTh3VkFkQkZP?=
- =?utf-8?B?QzhQKzRPM2lDUm11b1BINjdTVlE1VEtwbExDckthQnpwLzB3YlNrcTJnWUt3?=
- =?utf-8?B?SUdPcWZGeHlqMGwvU01QUmRtTnBJaUVpNzVTNEdheEx5L1ZmSCtwaDRtdCtO?=
- =?utf-8?B?SmpOUVBhY3ZsYXBxbmRMbWNWTXQ0aEVCYWF2WVZ6U3B6MTBKRm1JY01yYklC?=
- =?utf-8?B?aTlFbm9NZFVyUHYzZ1ZKSXJwdFNNZzhxVHVEWFNLMjdSd1lEQTEyUU45Rzl1?=
- =?utf-8?B?ODVqQXg0NUhGZWFIell1aFpBL2hQZkxpbnJqUmNEUzJxTDBIakNmUUlDV0Fn?=
- =?utf-8?B?dFhoR054QThMOTZDS0UyRnFwSXJRbTNkeXlEYk9Yc2pacE14Y2p2cWhNQ0R0?=
- =?utf-8?B?dVJYK1V5NWFPSUR1ckxtTlBxdXlBQWdkdExhMXVmcE55VXlaMEw4QmxLcGRH?=
- =?utf-8?B?bnlqVndDNXFYTUV5QnhTUGkrUXIzMzYrbW1NeVJjQnBFT3MwVGtRMmE4dHd6?=
- =?utf-8?B?bEx5TzF6VGxWRGFNdUZobzJqTEIvNkxiVEwyYVdDZG5qemV4RXl5emFjSmpr?=
- =?utf-8?B?K0drWSt0L1I0VDQ1Mk83bm5YWk9kMkZ3ZDl3U0Z6cFJVMXNTdTJwZklBNEJ1?=
- =?utf-8?B?NmFIZnBtMlhxMXM5QjdkcE1rUndheDZrZU1pdWhCRnJBcStvM0dUWTIyYVpL?=
- =?utf-8?B?STQzUi9lLzRBNnFya3piOFdQclJxRXBSVDFCODg3ZXBkLzdSby9RV1U3ZXNy?=
- =?utf-8?B?R1RqczA3YlRyLzBQbUJQL3FNeHU2K2RHNUpHR2lpQVFkUThYbExTMkNOakl4?=
- =?utf-8?B?WUUyL0ptVHZTY2RzQUYzSzVUcC9nMDNvN0p0Q2hsUXY0ejZFYnVYMmpCMEJH?=
- =?utf-8?B?K2h3REViQWlDczJOOVVFSkIvRitHcExrUTVnam5LN2c5Y2pQbktqbHNTdTVi?=
- =?utf-8?B?ZWtPRjJNZnhiK0tYWTJ3WWkwRTlCNmRpcW96enRvY25WYkJ4MUQ4NitLM1hO?=
- =?utf-8?B?eW5EWEFsM25heXE3NFdVU2VIWGZ6d2o4MjB4WnRHK1RNQTcxYW5wQ28yZkJN?=
- =?utf-8?B?TzJkem1KU0dYQ1IxK24zMFdTNmhQb1lnZkJpTXhFR2hsdGNrdlBLRHRzeE5x?=
- =?utf-8?B?cmMzdUcvcEJQOXVYbTU5UC9XMmo0allGMlpHTDJkS1dMYUFYV3pGZTFaeVZq?=
- =?utf-8?B?RklSOEo5clpCdjRrUk44SnhWMFc2c293RVkvaVVjcTdaRnZpdzNDTHRKSk5B?=
- =?utf-8?B?ZUFSODdJYUIwc2dFZUloTktHZGZDS25mUTFYdjJnaXdsbjRzalJRcERQTlhh?=
- =?utf-8?B?NE1TTzQzSXJwRkw3Tk1KODUyWnRZOXEyZUhWcEdLSXBRTVFSNWVPNnkyMVZS?=
- =?utf-8?B?b3g0aWV1RDhMSGhOeXgrMXJCUVFLcXg5ZWJoVnpXYUlMQm9ERmpTdTZ0bjYx?=
- =?utf-8?B?NmFjdTdGRWZZTitCOUllN25IQXpJeUpFeXhJSXlVc3Z4R0QrRTBXRVBvam94?=
- =?utf-8?B?N09ENStmZ09QbU1QN0t2VVB6TDBOTHQ1RWlpdXdnR3dEYUZNV3hNNjNqL1FH?=
- =?utf-8?B?MDUwSjczSXh3emhzNlNtUERPRnd2ZnJvbXRUR1NPZjhRa2N6amUyLzAzaWNq?=
- =?utf-8?B?dG9zTHVOU1FKZXkzUzVvZ083V0xOL1lXdUpjbWxUbEZ5M1JZaDVGcEhvanpN?=
- =?utf-8?B?UkFXUjZSem13TS9GbnpHUE9nV2hDcWg5cWhldHVCQXBsdUZTdTNzQWxWMkox?=
- =?utf-8?B?cFZadlg3SWVWWDFkbDFvZFd4TmhZbTV6T28vSUpvb2l4V2xRS1BrU0NZL0JI?=
- =?utf-8?B?dHNZbERuYXRNcFQzZVAyUGJLamJ6YmZLV0NYUFQzOW9XYnQwQ3UwMHhDNUJl?=
- =?utf-8?B?eS9KY2owMUc4YlBwYXk4cUJ2SUdvdFNkVTROSkZuYnZzMlo4aVdxbmhQVEZP?=
- =?utf-8?B?aUw3dnA5WjB1QWZhWjBDbmdlUjV4Mll5eVVnalJsZGdkWnRyMjNoNnc0dkxV?=
- =?utf-8?B?MnBwaW96MnZGNjkxc0pST2Z2SjQxNENzWm1xZ0lWRm0veG8wM2gycDY0aTJQ?=
- =?utf-8?Q?yNkYT47Fj2ugI7kSy4R2++CL0f46+9RvVH/Gw?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0451487d-0d79-452d-9715-08deebfcf5df
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2026 16:34:42.6788
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: g1G4evlo+zI8Kx0qDIw5nd8ngiGMtovsgIXkXzi9pRi4XqVLfTdsLRm0KfC9wDuFQVtCQEDm1czdraSxcXnLL3swk2V6Wk6P+8+QmL/edlY+1jkAkUDQVqhhDtkF+qbv
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9493
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Thorsten Leemhuis <regressions@leemhuis.info>,
+ Gary Bisson <bisson.gary@gmail.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Esben Haabendal <esben@geanix.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Matthias Brugger <matthias.bgg@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+ <8733xko1ms.fsf@geanix.com>
+ <0f719c00-3cf5-4403-afbf-713b07255981@collabora.com> <aleM9Wy9otpd6Je3@owl5>
+ <aRN3_2FHX8XmTcwduTAPwz4UFde4B0tbB09ajyeUg5qZxiIYMmbvMkG7CPoNTl4iySYMZawbLMWijO47R22gkg==@protonmail.internalid>
+ <65558ccc-4f2c-492d-8c74-627d27dce864@collabora.com>
+ <87h5m0mkca.fsf@geanix.com> <alpTEPsy-SIQv_Oc@owl5>
+ <b26a4890-12e9-4995-a71d-d0b7458b1570@leemhuis.info> <amdTnudq48tZUTG2@owl5>
+ <1826ddd9-6edd-4481-a31d-6cbb083b3a56@leemhuis.info>
+ <5c7e81e7-28e1-4993-ac4e-724ec7664ebf@collabora.com>
+Content-Language: en-US
+From: Adam Thiede <me@adamthiede.com>
+Autocrypt: addr=me@adamthiede.com; keydata=
+ xsBNBF+n+90BCAC2ZRLVcvdXDgfY7EppN05eNor3U7/eeiNCCEIWZkYLhikUEP1ReLGBkXpK
+ Pc70hfnKAKkCoth3IwhDty9WXMNU+iLNei4ieb2luW+UqluR6xIUIA+txahMU9YcjVaQTKf/
+ yZWO4yl6pfBPCxC2UdPZKBAdGoi5NnE0ABFNbhBETQhhBic533lZn33ByupfI3acECnQdjgQ
+ llCUpDbw4I+S/N1iFiEHcbMXH7ZB00e3IYNorZ1E9v7p++5rDY1fQ9gXpieg1vFKwSq1NJWo
+ 9xx336YjaTUbX0EwrdKd9l8AktA3yRjckaK5TAcwSQaDtHvhpbl4ebvPhtwHh699MroXABEB
+ AAHNH0FkYW0gVGhpZWRlIDxtZUBhZGFtdGhpZWRlLmNvbT7CwI4EEwEIADgCGwMFCwkIBwIG
+ FQoJCAsCBBYCAwECHgECF4AWIQQtG9pGQ7sz3tf8M/kC7fV9o/vRzgUCZL1HxQAKCRAC7fV9
+ o/vRzgyRB/wLqRCvvWhQCMgvzeKvru9wcXquhb77K8H/ByLbfiT8YBuP3lZFVh0IQhgO9Ylk
+ fIoOJE4V+jjxyOnO2d9xjGbvAmmR6yT0gfLzSVWqrC4k+V9MWLv43nrNzxt41dvo5j824FAl
+ X+zaiRZCdO8Jtxg5Elpiop2SKLi1utX1Z8i6YZh+ccJZlchUBAGUTk+D4UjK7vUcjLWT96ya
+ CtdtTfXyw36CvGOPEWfc6++Kkl/5sgej1i7biPYzu/r0vssaQYTXKSrv6Cfa3Maa89ASiTtv
+ q4qmhLnJeCrPxWlRAf6LEizeBEkOasYni2u8sp4wBezEq45Ozu45sfPkqLpPolG7zsBNBF+n
+ +90BCADBRt+vrToRBEG580n77S99qSEkbKD+oJtCVyovnjMNkg0K9UG68LIeCX/ezngiV1M8
+ JISvw5iFOuUFqGX/1hLl9wgt/YpuIrgWOp8XxkotavTCloLDvQmufJPO1L8bnnA+WgP2YgVZ
+ 5MJTj/t4DI+yQgysEjsH8aurHO2uuqgJE+xK+2dy6Cl/wskuGxObksSPmmFH5PH0Joziwrtl
+ 61ouLE2XwKbkMgIGEKkbFgbfwz3/QuLZGBni+OOtLzXeZ9wNTW/AHUPy6S9U4F+5z6/09fVT
+ tTH0cvrgAGjbASlYx2VqGONXAsxCfjulq6ryJBFlPLp949c/JTTgOojukCSbABEBAAHCwHYE
+ GAEIACACGwwWIQQtG9pGQ7sz3tf8M/kC7fV9o/vRzgUCZL1H0gAKCRAC7fV9o/vRzlamCACs
+ vHw+0heTm+BfC3S8DUST6889gidIIwdqBep1ByzetCph7Bq8Y8BlT5YTX0u/bSKkxCzFgeTm
+ vC341Q09ST2XjLAl1ZTdzGhH9gcgYyOw34pr5fPQRJLB392mPzD8YReRzciNbhWzj+DLgeVe
+ ouyfGajd6jDjkf4FEq+trQLGZhpfsKn3JnDbzBUs945D50l/vz9q/QN3qZO+H4F6g8ZeMnqo
+ FOEFN26xVtdEDr+0DNFsbgKmEzs675kdAY78ZZdbEetX/FSknxJ+FK1ZW3J7Yswwulj34AXP
+ LB49Mk8Ot7fo6mdt0DkV11JS9LmKxKvpY+KTlrKG+i7pVCSZvVUx
+In-Reply-To: <5c7e81e7-28e1-4993-ac4e-724ec7664ebf@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_093448_204749_56BE3DC0 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260727_093452_151017_7CD6EF85 
+X-CRM114-Status: GOOD (  38.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,47 +113,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Mon, 20 Jul 2026 22:12:08 +0800, Peng Fan (OSS) wrote:
-> A collection of device tree fixes and additions for the i.MX 8ULP SoC
-> and its EVK boards:
+On 7/27/26 10:54, AngeloGioacchino Del Regno wrote:
+> On 7/27/26 16:23, Thorsten Leemhuis wrote:
+>> On 7/27/26 14:48, Gary Bisson wrote:
+>>> On Mon, Jul 27, 2026 at 02:28:56PM +0200, Thorsten Leemhuis wrote:
+>>>> [top-posting to facilitate]
+>>>>
+>>>> Gary, Angelo, what's the status here? It looks like this fell through
+>>>> the cracks -- or was this issue fixed in between somehow? If yes: 
+>>>> great!
+>>>> If not: Would be good to finally resolve this, as we are long past "fix
+>>>> within a week" rule of thumb from Linus:
+>>>> https://www.kernel.org/doc/html/latest/process/handling- 
+>>>> regressions.html#on-how-quickly-regressions-should-be-fixed
+>>>
+>>> Not much happened I'm afraid. The status as I see is:
+>>> - this patch is necessary to have TI SN65DSI83 working
+>>> - this patch also follows the DRM guidelines saying that HS clock must
+>>>    be enabled during pre_enable (see previous answer / [1])
+>>> - this patch has been successfully tested against MIPI-DSI panels (by
+>>>    Angelo) and LVDS panels via TI bridge (by myself)
+>>> - Adam reported an issue with another bridge (PS8640) where resume is
+>>>    broken
+>>> - Esben offered a patch to the TI bridge that would fix the issue we
+>>>    were seeing in the first place.
+>>>
+>>> But for the last two points, I'm not sure this calls for a revert yet:
+>>> - enabling HS clock in pre_enable still is what should be done [1]
+>>> - maybe the issue Adam is facing is due to the bridge driver instead as
+>>>    it could not be reproduced with another setup
+>>> - Esben patch would break the SN65DSI83 init sequence, suggesting that
+>>>    the culprit really is the MIPI bridge for not following the HS clock
+>>>    requirement in pre_enable instead [2]
+>> It's tricky, yes, but I suspect the right time for a revert was weeks
+>> ago. What Linus afaics basically wants in situations like this (espe.
+>> with two reporters) boils down to "something broke recently, no fix was
+>> found within a week or maybe two, so we go back to the previous state to
+>> restart from there -- and this is nothing bad, that's just done to buy
+>> us time."
+>>
+>> If something is right by some hardware or DRM specs often doesn't matter
+>> much. What makes this tricky is the fact that the revert might cause a
+>> regression for those that relied on the functionally the change brought.
+>> But I suspect even then Linus prefers a revert, as it's a recent change
+>> that only went into 7.1. The quoted from Linus on this page cover this 
+>> iirc:
+>> https://www.kernel.org/doc/html/latest/process/handling- 
+>> regressions.html#quotes-from-linus-about-regression
+>>
+>> If we can't agree on this, we maybe should ask Simona or Airlied for 
+>> advice.
+>>
+>> Ciao, Thorsten
 > 
-> SoC-level (imx8ulp.dtsi):
-> - Add DMA channel properties to LPI2C, LPUART and LPSPI nodes and
->   replace hardcoded eDMA direction flags with FSL_EDMA_RX /
->   FSL_EDMA_MULTI_FIFO macros for SAI and SPDIF nodes.
-> - Add the I3C2 controller node (Silvaco IP).
-> - Correct the SRAM node base address and size to cover the full 64 KB
->   SSRAM P2 partition instead of only the last 4 KB.
-> - Add assigned-clock properties to LPUART4-7 so the clock framework
->   configures the input clock automatically during probe.
+> Thorsten,
+> I agree with you, and it's fine for me to get this commit reverted, for 
+> the sake
+> of following the rule (which is something I agree about: as a user, the 
+> last thing
+> that should happen is to be afraid of what breaks if I update my 
+> system!!!!),
+> even though reverting this actually breaks anything that is not PS8640.
 > 
-> [...]
-
-Applied, thanks!
-
-[1/9] arm64: dts: imx8ulp: Add DMA channel properties and use eDMA flag macros
-      commit: e1e3f7582bb87e849bd3e4101696992878529340
-[2/9] arm64: dts: imx8ulp: Add I3C2 controller node
-      commit: 5f3301712f42c89df861d26518121d1deefca96c
-[3/9] arm64: dts: imx8ulp: Correct SRAM node address and size to cover full SSRAM P2
-      commit: 92ccf83b8d58f9dca5752a824f0e81ac54665889
-[4/9] arm64: dts: imx8ulp: Add assigned clock properties for LPUART nodes
-      commit: c89839764bf17b76d6f53d5923a28bda140a46cc
-[5/9] arm64: dts: imx8ulp-evk: Add gpio-keys node for power button
-      commit: 011242de59d0eb69e7b8a4f42dc32cf1f5d53592
-[6/9] arm64: dts: imx8ulp-evk: Enable LPUART6 for Bluetooth
-      commit: fdcdcb8dd47e829f5bdb4e52ecce210e845ef4f7
-[7/9] arm64: dts: imx8ulp-evk: Enable LPUART7
-      commit: 35bdffecf91b8f31a526116d488022fa0f5e09ad
-[8/9] arm64: dts: imx8ulp-evk: Change the values of some PCRs of ENET
-      commit: 7108abc25f3b6f97e3098650924816ccdbc06367
-[9/9] arm64: dts: imx8ulp-9x9-evk: Rename model string to reflect die size
-      commit: c4e8b643c83d4abfbd92e7161b4975f670eff0a6
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> ......though......
+> 
+> Everyone, please, look at how fundamentally broken PS8640 is... Qualcomm 
+> people had
+> the same issue as what is currently happening here.
+> 
+> They had to fix their DSI driver, as it was kind-of broken in a vagualy 
+> similar way
+> compared to MediaTek - and then they found out that they needed (and 
+> upstreamed) a
+> *hack* that had to be done specifically for the PS8640 Bridge [1]: their 
+> issue was
+> never really resolved, as then the same bridge started casually working 
+> for unknown
+> reasons (is it still working?), so they removed the hack [2] and called 
+> it a day.
+> 
+> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux- 
+> next.git/commit/drivers/gpu/drm/msm/dsi/dsi_manager.c? 
+> h=next-20260726&id=ec7981e6c614254937b37ce0af9eac09901c05c5
+> [2]: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux- 
+> next.git/commit/drivers/gpu/drm/msm/dsi/dsi_manager.c? 
+> h=next-20260726&id=9e15123eca7942caa8a3e1f58ec0df7d088df149
+> 
+> Especially in [2], the assmption from Dmitry sadly isn't correct, 
+> because this is
+> happening now on MediaTek, and here Runtime PM makes sure that the 
+> PS8640 is also
+> being enabled "a wee bit" earlier than DSI... but that doesn't seem to 
+> be enough.
+> 
+> 
+> Now, here I'm kind of shotgunning at the driver, but I wonder if anyone 
+> can try
+> the following patch before reverting this commit in mtk_dsi? Adam?
+> 
+> ---
+>   drivers/gpu/drm/bridge/parade-ps8640.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/gpu/drm/bridge/parade-ps8640.c b/drivers/gpu/drm/ 
+> bridge/parade-ps8640.c
+> index 96332721cb69..54ebf2fc8d1c 100644
+> --- a/drivers/gpu/drm/bridge/parade-ps8640.c
+> +++ b/drivers/gpu/drm/bridge/parade-ps8640.c
+> @@ -665,6 +665,7 @@ static int ps8640_probe(struct i2c_client *client)
+> 
+>       ps_bridge->bridge.of_node = dev->of_node;
+>       ps_bridge->bridge.type = DRM_MODE_CONNECTOR_eDP;
+> +    ps_bridge->bridge.pre_enable_prev_first = true;
+> 
+>       /*
+>        * Get MIPI DSI resources early. These can return -EPROBE_DEFER so
+This does not fix the issue. I built 7.1.5 with this patch applied, and 
+without the revert.
 
