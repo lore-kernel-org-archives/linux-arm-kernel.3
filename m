@@ -4,70 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E101C531C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2C1C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 16:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bD+R7gDpHlaSy0I1sOwPGCB5kfvEOKExAflSPqhs6vg=; b=uPmY4balY/lTVciEhDTd7qSml6
-	q+kYSCaPv/m9DwNcaYjLYYX7Fgp5/G3ic4sxo0fBOKv+ghj2RRE4vBW2spn+Pcy8EL5TBtNhNjf3m
-	C1wm3nNE8O5nO1czEbmpjsROFWSIrfOAodON6EB69hYSpB6qoE2OzAhM0DKy6cywGmDnqY+Pd9y6F
-	Oded6X8NzjV6dJaE16EdWSRwByfQkwDNY3ywg3DtVVrP6rxPrZEnVWiRpL89Eecl2mZAGOnQ0CJDJ
-	0agKc0G3t3GLLGsH2J9+gAoqyE1YFgx1V5Pj7NLjCaRxSW119pHpquy4iB1QaUbokws45M6J37Nap
-	juGN04Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QW8PobFLl9VuSJ+iyJKGdmgP3JvFIctsAQhl5gtsCFo=; b=H4JY5HAaTK4n59dgSjfmtTRuS7
+	KH+fLHClqdMMWFj/o9mrjV42Nu2NotE9h0sDuYzIZx3UsWQVpaxzQGvfDYqWhbzEaw6ZT3hL3eVGs
+	sw1kY6l/JjO1oik3J6x4VF0OtKDJr7Yc2FPNwIm/TAQnYVT/XyrSGbW2fd6zbXjPdBShdP3tzN1O6
+	2BJNkY6FNHXAy5o8GDrF9tCEC0TccslG9UFOqhukbFddej+iWDIOGkZIqIsZOJpkzxdolKzXLqCxk
+	CsIIn3y8ENrokjaQ+eo7FLlUkH8/PrPVXrMmpAEJCESfaPxm2QeJPvbwbo2tOl+L/zC2XUCLqAvaM
+	t/bYWnjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNu7-00000003GKq-3HuP;
-	Mon, 27 Jul 2026 16:10:12 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1woO0q-00000003Hfj-1ivW;
+	Mon, 27 Jul 2026 16:17:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woNtp-00000003GFC-45po
+	id 1woO0o-00000003HeJ-13VZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 27 Jul 2026 16:09:57 +0000
-Received: by chaosmail.tech (Postfix) id 63B231CA44F;
-	Mon, 27 Jul 2026 16:09:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1785168592;
+	Mon, 27 Jul 2026 16:17:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785169023;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bD+R7gDpHlaSy0I1sOwPGCB5kfvEOKExAflSPqhs6vg=;
-	b=x7nVssiX3fmv02n5iVbiTRLfsG+7b81UwMOAqOkqnaIvI2vKfnP/DIf8MAJfTI6c1+Ky1o
-	n204TZDp262OByzzXPjg76hWxj7wJ3eel0QFTmZbTsZ35f5zHslK6xIg8NWzbnL0h60kyx
-	7c9nl6HiE4LFVAm2JmyF7JKv/dq9hco=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Mon, 27 Jul 2026 18:09:30 +0200
-Subject: [PATCH v2 3/3] usb: typec: tipd: Add sn201202x support
+	bh=QW8PobFLl9VuSJ+iyJKGdmgP3JvFIctsAQhl5gtsCFo=;
+	b=e9EgnTBFtwUBdOynoixpBPRQKMJaYNApHd+27Crx8WskuqjqK/7/WDTp3QTgLY3EO7Up6B
+	nCot9ONufQGsOtAsOrF/2GGLn7xUOK9LZhDAJgXQIX6alQo4RK89kAbYROJ94SkLzXoBZj
+	hyQCYry7SA8Psx6WZyWfmO9nU8yDYqw=
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
+ [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-594-k7lgG8YUOmitbVvquUTInw-1; Mon, 27 Jul 2026 12:17:02 -0400
+X-MC-Unique: k7lgG8YUOmitbVvquUTInw-1
+X-Mimecast-MFC-AGG-ID: k7lgG8YUOmitbVvquUTInw_1785169022
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-930a098ea19so313330685a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 09:17:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785169021; x=1785773821;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QW8PobFLl9VuSJ+iyJKGdmgP3JvFIctsAQhl5gtsCFo=;
+        b=naBDnWBXBXWCml4uLIuT2BP7wiXf+w4P0JJTH7nM7e4QtyNhrPBsR+kDS9VNANlKwy
+         p5IhbXtwJcUlXFfsCHgqklY+ogk8/Mh+B4MftRpd9J2fDu207QNUGqwyf9633MOJrzd2
+         xAVPj1iU0HS4hlB33oFtx7yRInNSL3j1G8mQM/zIZ1vw1Q1oIeWpvvQdaeJGf5mlC02t
+         z/cUuhqO0+QAqFdId8j/WLJh/dFlQ3eiMq3IC7R5flbm40ZLa6eFCZ2HjPbr/TA5PA0Q
+         Nj6XBEuAOHXbxm3SLkS4j1XHc4Fa/gC+BGkeeRihX6HQOwnWvDGVItawDNTSGlDxCkwz
+         vXWQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq/JW76CfY0LcejZNSVjhbjwW6+CzKXr4rveDue98My1c4hhfa4UhH2w+0BWpVy29EQV+MQ8ZJN8xcUNru8f5JI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymqdm8ckziVmuXdCMnBwq3GGJs9y3xDnZLSY13JmWGPHM8oZOv
+	3Dgp8/1d65IeUp+eU/kemDfXfCSFK0k9/gHE49Pgm3Q61nAAqvmKsvyeyj8A364JSiYH+PRJk72
+	hDCSTc45vV6r0Q2Lb3/5zM577JXxWq4GX5DtaSb8SFu07PK9D19Ay71WqGCniEvJRxROzUuq0bn
+	BS
+X-Gm-Gg: AR+sD11VLdziJhmKzW0VJXcfJPcSYkcPTZ46zkGXbIqUcP4Z/EWQOiKm3Hi9+63BQwD
+	0XAI84zZG7xcIQ058BbjSkqrbnZ76t5Fy0KPtZ4qSewmtMEJZ/b9p9u2Jefe84KeA2cFIjIlDfA
+	pzmHx02cgb5xRpEin83gZSkt3Rk10l2G35uoU/EAlbkACI56/lhTTKl6UN40uuC15e1p4pW1E0h
+	iwzLFKLEiCKQpmr6o0QlYPE1e/Ovz1WUEiVqwr0JHzIDbt1akztQpo5YjzzeYDDkGzuAH9ck9B2
+	VTULdUATs043OWKJROAoY39Q1bt7Wl9HKJUYm1C74wXKslgJuWPO3I8uK/B5csbqRJglYZz9y5+
+	KjbaFy5EZNvuLcX9WF+Yj9byB0COf6M3G5iE=
+X-Received: by 2002:a05:620a:2691:b0:915:83fa:b3e0 with SMTP id af79cd13be357-932df627547mr956644185a.5.1785169020707;
+        Mon, 27 Jul 2026 09:17:00 -0700 (PDT)
+X-Received: by 2002:a05:620a:2691:b0:915:83fa:b3e0 with SMTP id af79cd13be357-932df627547mr956637785a.5.1785169020166;
+        Mon, 27 Jul 2026 09:17:00 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-932de6724a4sm641575585a.43.2026.07.27.09.16.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 09:16:58 -0700 (PDT)
+Date: Mon, 27 Jul 2026 12:16:55 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alessio Belle <alessio.belle@imgtec.com>,
+	Luigi Santivetti <luigi.santivetti@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	YoungJoon Lee <getfeus@gmail.com>
+Subject: Re: [PATCH v3 2/5] clk: mediatek: Add mt8173-mfgtop driver
+Message-ID: <ameEd76Flq7_eUMy@redhat.com>
+References: <20260727091555.1023910-1-wenst@chromium.org>
+ <20260727091555.1023910-3-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260727-tipd-ace3-v2-3-1345957bd635@chaosmail.tech>
-References: <20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech>
-In-Reply-To: <20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>, 
- Alyssa Milburn <amilburn@zall.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785168588; l=11849;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=ZXM7IXxZOUXn1IdwoPYYuoQjNm2CioiZdjdWmg8BKC4=;
- b=LtuIt7evS+eTR/c4VssIDFWPIhAOZlC+3eHCFrpHj3kqALmLmxhoT4XxMXhIVEashJWvmHdfn
- xiUgxLgLKKqBPxltrHTGsiDwDcOQt0tWdnr6B5O4+cNhn3DOdOI5YVn
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+In-Reply-To: <20260727091555.1023910-3-wenst@chromium.org>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 2y_H6sdQ54nWGqRl83xl8AENalJrUXdKh36yS3uPosM_1785169022
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_090954_347947_6CEC5BC8 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20260727_091706_361233_68B6EE3A 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,415 +125,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for sn201202x (aka ACE3), a tipd variant that uses a very
-similar register map, that is exposed over a "logical register"
-interface on the SPMI bus.
+Hi Chen-Yu,
 
-Co-developed-by: Alyssa Milburn <amilburn@zall.org>
-Signed-off-by: Alyssa Milburn <amilburn@zall.org>
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
----
- MAINTAINERS                       |   1 +
- drivers/usb/typec/tipd/Kconfig    |  12 ++++++
- drivers/usb/typec/tipd/Makefile   |   3 ++
- drivers/usb/typec/tipd/core.c     |  20 ++++++++++
- drivers/usb/typec/tipd/spmi.c     | 288 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- drivers/usb/typec/tipd/tps6598x.h |   9 +++++
- 6 files changed, 333 insertions(+)
+On Mon, Jul 27, 2026 at 05:15:51PM +0800, Chen-Yu Tsai wrote:
+> The MFG (GPU) block on the MT8173 has a small glue layer, named MFG_TOP
+> in the datasheet, that contains clock gates, some power sequence signal
+> delays, and other unknown registers that get toggled when the GPU is
+> powered on.
+> 
+> The clock gates are exposed as clocks provided by a clock controller,
+> while the power sequencing bits are exposed as one singular power domain.
+> 
+> Tested-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+> Changes since v2:
+> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
+>   - Needed since the driver implements PM domains using the generic PM
+>     domain library, which also depends on PM
+>   - Fixes build breakage (kernel test robot)
+> - Fixed "RST_DELAY_CNT" name (Brian)
+> - Dropped unused mfg_desc (Brian)
+> - Added check of clk_prepare_enable()'s return value in
+>   clk_mt8173_mfgtop_power_on() (Brian)
+> - Saved error value for return in IS_ERR(data->clk_26m) branch
+>   (Dan Carpenter / kernel test robot w/ smatch)
+> ---
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b2819ca62e0c..821932703b60 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2641,6 +2641,7 @@ F:	drivers/soc/apple/*
- F:	drivers/spi/spi-apple.c
- F:	drivers/spmi/spmi-apple-controller.c
- F:	drivers/usb/dwc3/dwc3-apple.c
-+F:	drivers/usb/typec/tipd/spmi.c
- F:	drivers/video/backlight/apple_dwi_bl.c
- F:	drivers/watchdog/apple_wdt.c
- F:	include/dt-bindings/interrupt-controller/apple-aic.h
-diff --git a/drivers/usb/typec/tipd/Kconfig b/drivers/usb/typec/tipd/Kconfig
-index c87cbe6109ca..8177f860f89d 100644
---- a/drivers/usb/typec/tipd/Kconfig
-+++ b/drivers/usb/typec/tipd/Kconfig
-@@ -14,3 +14,15 @@ config TYPEC_TPS6598X
- 
- 	  If you choose to build this driver as a dynamically linked module, the
- 	  module will be called tps6598x.ko.
-+
-+config TYPEC_SN201202X
-+	tristate "TI SN201202x USB Power Delivery controller support"
-+	depends on SPMI
-+	select TYPEC_TPS6598X_CORE
-+	help
-+	  Say Y here to enable support for SN201202x, a TPS6598x variant
-+	  that uses SPMI as a host bus, and is found on Apple devices starting
-+	  from the M3 series.
-+
-+	  If you choose to build this driver as a dynamically linked module, the
-+	  module will be called sn201202x.ko.
-diff --git a/drivers/usb/typec/tipd/Makefile b/drivers/usb/typec/tipd/Makefile
-index c741bf44f52f..6f5ebc1e1a5f 100644
---- a/drivers/usb/typec/tipd/Makefile
-+++ b/drivers/usb/typec/tipd/Makefile
-@@ -7,3 +7,6 @@ tps6598x-core-$(CONFIG_TRACING)		+= trace.o
- 
- obj-$(CONFIG_TYPEC_TPS6598X)		+= tps6598x.o
- tps6598x-y				:= i2c.o
-+
-+obj-$(CONFIG_TYPEC_SN201202X)		+= sn201202x.o
-+sn201202x-y				:= spmi.o
-diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-index aadadfdc6ed1..6577bc2f1e0f 100644
---- a/drivers/usb/typec/tipd/core.c
-+++ b/drivers/usb/typec/tipd/core.c
-@@ -1889,6 +1889,26 @@ const struct tipd_data tipd_tps25750_data = {
- };
- EXPORT_SYMBOL_GPL(tipd_tps25750_data);
- 
-+const struct tipd_data tipd_sn201202x_data = {
-+	.irq_handler = cd321x_interrupt,
-+	.irq_mask1 = APPLE_CD_REG_INT_POWER_STATUS_UPDATE |
-+		     APPLE_CD_REG_INT_DATA_STATUS_UPDATE |
-+		     APPLE_CD_REG_INT_PLUG_EVENT,
-+	.tps_struct_size = sizeof(struct sn201202x),
-+	.remove = cd321x_remove,
-+	.register_port = cd321x_register_port,
-+	.unregister_port = cd321x_unregister_port,
-+	.trace_data_status = trace_cd321x_data_status,
-+	.trace_power_status = trace_tps6598x_power_status,
-+	.trace_status = trace_tps6598x_status,
-+	.init = cd321x_init,
-+	.read_data_status = cd321x_read_data_status,
-+	.reset = cd321x_reset,
-+	.switch_power_state = cd321x_switch_power_state,
-+	.connect = cd321x_connect,
-+};
-+EXPORT_SYMBOL_GPL(tipd_sn201202x_data);
-+
- MODULE_AUTHOR("Heikki Krogerus <heikki.krogerus@linux.intel.com>");
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("TI TPS6598x USB Power Delivery Controller Core Functions");
-diff --git a/drivers/usb/typec/tipd/spmi.c b/drivers/usb/typec/tipd/spmi.c
-new file mode 100644
-index 000000000000..7a8bba4fc448
---- /dev/null
-+++ b/drivers/usb/typec/tipd/spmi.c
-@@ -0,0 +1,288 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/interrupt.h>
-+#include <linux/of_device.h>
-+#include <linux/of_irq.h>
-+#include <linux/regmap.h>
-+#include <linux/spmi.h>
-+
-+#include "tps6598x.h"
-+
-+#define tps_to_sn(tps) container_of_const((tps), struct sn201202x, cd.tps)
-+
-+static int regmap_sn201202x_select_reg(struct spmi_device *sdev, u8 reg)
-+{
-+	int err;
-+	u8 val;
-+	bool warned = false;
-+	int attempts = 5;
-+	struct tps6598x *tps = spmi_device_get_drvdata(sdev);
-+	struct sn201202x *sn = tps_to_sn(tps);
-+
-+	reinit_completion(&sn->select_completion);
-+	err = spmi_register_zero_write(sdev, reg);
-+	if (err)
-+		return err;
-+
-+	if (!wait_for_completion_timeout(&sn->select_completion, msecs_to_jiffies(100)))
-+		return -ETIMEDOUT;
-+
-+	while (--attempts) {
-+		err = spmi_register_read(sdev, 0, &val);
-+		if (err)
-+			return err;
-+		if (val == (reg | 0x80)) {
-+			if (!warned) {
-+				dev_warn(tps->dev,
-+					 "Got interrupt but selection not complete?\n");
-+				warned = true;
-+			}
-+			msleep(20);
-+			continue;
-+		}
-+		if (val == reg)
-+			return 0;
-+		return -EIO;
-+	}
-+
-+	return -EIO;
-+}
-+
-+static int regmap_sn201202x_read(void *context,
-+				 const void *reg, size_t reg_size,
-+				 void *val, size_t val_size)
-+{
-+	int err;
-+	unsigned int offset = 0x20;
-+	size_t len;
-+	u8 addr;
-+
-+	if (reg_size != 1) {
-+		WARN_ON(1);
-+		return -EINVAL;
-+	}
-+	if (val_size > 0x40) {
-+		WARN_ON(1);
-+		return -EINVAL;
-+	}
-+
-+	addr = *(u8 *)reg;
-+
-+	err = regmap_sn201202x_select_reg(context, addr);
-+	if (err)
-+		return err;
-+
-+	while (val_size) {
-+		len = min_t(size_t, val_size, 16);
-+		err = spmi_ext_register_read(context, offset, val, len);
-+		if (err)
-+			return err;
-+		offset += len;
-+		val += len;
-+		val_size -= len;
-+	}
-+
-+	return 0;
-+}
-+
-+static int regmap_sn201202x_write(void *context, const void *data,
-+				  size_t count)
-+{
-+	int err = 0;
-+	unsigned int offset = 0xa0;
-+	size_t len;
-+	u8 addr;
-+
-+	if (count < 1) {
-+		WARN_ON(1);
-+		return -EINVAL;
-+	}
-+
-+	addr = *(u8 *)data;
-+	data += 1;
-+	count -= 1;
-+
-+	if (count > 0x40) {
-+		WARN_ON(1);
-+		return -EINVAL;
-+	}
-+
-+	err = regmap_sn201202x_select_reg(context, addr);
-+	if (err)
-+		return err;
-+
-+	while (count) {
-+		len = min_t(size_t, count, 16);
-+		err = spmi_ext_register_write(context, offset, data, len);
-+		if (err)
-+			return err;
-+		offset += len;
-+		data += len;
-+		count -= len;
-+	}
-+
-+	return err;
-+}
-+
-+static irqreturn_t sn201202x_irq(int irq, void *data)
-+{
-+	struct completion *c = data;
-+
-+	complete(c);
-+	return IRQ_HANDLED;
-+}
-+
-+static const struct regmap_bus regmap_sn201202x = {
-+	.read				= regmap_sn201202x_read,
-+	.write				= regmap_sn201202x_write,
-+	.reg_format_endian_default	= REGMAP_ENDIAN_NATIVE,
-+	.val_format_endian_default	= REGMAP_ENDIAN_NATIVE,
-+};
-+
-+static struct regmap *__devm_regmap_init_sn201202x(struct spmi_device *sdev,
-+						   const struct regmap_config *config,
-+						   struct lock_class_key *lock_key,
-+						   const char *lock_name)
-+{
-+	return __devm_regmap_init(&sdev->dev, &regmap_sn201202x, sdev, config,
-+				  lock_key, lock_name);
-+}
-+
-+#define devm_regmap_init_sn201202x(dev, config)				\
-+	__regmap_lockdep_wrapper(__devm_regmap_init_sn201202x, #config,	\
-+				dev, config)
-+
-+static const struct of_device_id sn201202x_of_match[] = {
-+	{ .compatible = "apple,sn201202x", &tipd_sn201202x_data},
-+	{}
-+};
-+
-+static int sn201202x_probe(struct spmi_device *device)
-+{
-+	const struct of_device_id *match;
-+	const struct tipd_data *data;
-+	struct sn201202x *sn;
-+	struct tps6598x *tps;
-+	int irq_select, irq_sleep, irq_wake;
-+	int ret;
-+
-+	match = of_match_device(sn201202x_of_match, &device->dev);
-+	if (!match)
-+		return -EINVAL;
-+	data = match->data;
-+
-+	sn = devm_kzalloc(&device->dev, data->tps_struct_size, GFP_KERNEL);
-+	if (!sn)
-+		return -ENOMEM;
-+	sn->sdev = device;
-+	tps = &sn->cd.tps;
-+
-+	mutex_init(&tps->lock);
-+	tps->dev = &device->dev;
-+	tps->data = data;
-+
-+	tps->irq = of_irq_get_byname(device->dev.of_node, "irq");
-+	if (tps->irq < 0)
-+		return tps->irq;
-+	irq_select = of_irq_get_byname(device->dev.of_node, "select");
-+	if (irq_select < 0)
-+		return irq_select;
-+	irq_sleep = of_irq_get_byname(device->dev.of_node, "sleep");
-+	if (irq_sleep < 0)
-+		return irq_sleep;
-+	irq_wake = of_irq_get_byname(device->dev.of_node, "wake");
-+	if (irq_wake < 0)
-+		return irq_wake;
-+
-+	init_completion(&sn->select_completion);
-+	init_completion(&sn->sleep_completion);
-+	init_completion(&sn->wake_completion);
-+
-+	ret = devm_request_irq(&device->dev, irq_select, sn201202x_irq,
-+			       0, NULL, &sn->select_completion);
-+	if (ret)
-+		return ret;
-+	ret = devm_request_irq(&device->dev, irq_sleep, sn201202x_irq,
-+			       0, NULL, &sn->sleep_completion);
-+	if (ret)
-+		return ret;
-+	ret = devm_request_irq(&device->dev, irq_wake, sn201202x_irq,
-+			       0, NULL, &sn->wake_completion);
-+	if (ret)
-+		return ret;
-+
-+	spmi_device_set_drvdata(device, tps);
-+	tps->regmap = devm_regmap_init_sn201202x(device, &tps6598x_regmap_config);
-+	if (IS_ERR(tps->regmap))
-+		return PTR_ERR(tps->regmap);
-+
-+	ret = spmi_command_wakeup(device);
-+	if (ret)
-+		return ret;
-+	if (!wait_for_completion_timeout(&sn->wake_completion, msecs_to_jiffies(100)))
-+		return -ETIMEDOUT;
-+
-+	return tipd_init(tps);
-+}
-+
-+static void sn201202x_remove(struct spmi_device *device)
-+{
-+	struct tps6598x *tps = spmi_device_get_drvdata(device);
-+	struct sn201202x *sn = tps_to_sn(tps);
-+
-+	tipd_remove(tps);
-+	spmi_command_sleep(sn->sdev);
-+}
-+
-+static int __maybe_unused sn201202x_resume(struct device *dev)
-+{
-+	struct tps6598x *tps = dev_get_drvdata(dev);
-+	struct sn201202x *sn = tps_to_sn(tps);
-+	int err;
-+
-+	reinit_completion(&sn->wake_completion);
-+	err = spmi_command_wakeup(sn->sdev);
-+	if (err)
-+		return err;
-+	if (!wait_for_completion_timeout(&sn->wake_completion, msecs_to_jiffies(100)))
-+		return -ETIMEDOUT;
-+	return tipd_resume(tps);
-+}
-+
-+static int __maybe_unused sn201202x_suspend(struct device *dev)
-+{
-+	struct tps6598x *tps = dev_get_drvdata(dev);
-+	struct sn201202x *sn = tps_to_sn(tps);
-+	int err;
-+
-+	err = tipd_suspend(tps);
-+	if (err)
-+		return err;
-+	reinit_completion(&sn->sleep_completion);
-+	err = spmi_command_sleep(sn->sdev);
-+	if (err)
-+		return err;
-+	if (!wait_for_completion_timeout(&sn->sleep_completion, msecs_to_jiffies(100)))
-+		return -ETIMEDOUT;
-+	return 0;
-+}
-+
-+MODULE_DEVICE_TABLE(of, sn201202x_of_match);
-+
-+static const struct dev_pm_ops sn201202x_pm_ops = {
-+	SET_SYSTEM_SLEEP_PM_OPS(sn201202x_suspend, sn201202x_resume)
-+};
-+
-+static struct spmi_driver sn201202x_driver = {
-+	.driver = {
-+		.name = "sn201202x",
-+		.pm = &sn201202x_pm_ops,
-+		.of_match_table = sn201202x_of_match,
-+	},
-+	.probe = sn201202x_probe,
-+	.remove = sn201202x_remove,
-+};
-+module_spmi_driver(sn201202x_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("TI SN201202x USB Power Delivery Controller Driver");
-diff --git a/drivers/usb/typec/tipd/tps6598x.h b/drivers/usb/typec/tipd/tps6598x.h
-index e57583cc9dcd..f9f03480de78 100644
---- a/drivers/usb/typec/tipd/tps6598x.h
-+++ b/drivers/usb/typec/tipd/tps6598x.h
-@@ -373,9 +373,18 @@ struct cd321x {
- 	struct usb_pd_identity cur_partner_identity;
- };
- 
-+struct sn201202x {
-+	struct cd321x cd;
-+	struct completion select_completion;
-+	struct completion sleep_completion;
-+	struct completion wake_completion;
-+	struct spmi_device *sdev;
-+};
-+
- extern const struct tipd_data tipd_cd321x_data;
- extern const struct tipd_data tipd_tps6598x_data;
- extern const struct tipd_data tipd_tps25750_data;
-+extern const struct tipd_data tipd_sn201202x_data;
- extern const struct regmap_config tps6598x_regmap_config;
- 
- int tipd_init(struct tps6598x *tps);
+[snip]
 
--- 
-2.55.0
+> +static int clk_mt8173_mfgtop_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *node = dev->of_node;
+> +	struct mt8173_mfgtop_data *data;
+> +	int ret;
+> +
+> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, data);
+> +
+> +	data->clk_data = mtk_devm_alloc_clk_data(dev, ARRAY_SIZE(mfg_clks));
+> +	if (!data->clk_data)
+> +		return -ENOMEM;
+> +
+> +	/* MTK clock gates also uses regmap */
+> +	data->regmap = device_node_to_regmap(node);
+> +	if (IS_ERR(data->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(data->regmap), "Failed to get regmap\n");
+> +
+> +	data->child_pd.np = node;
+> +	data->child_pd.args_count = 0;
+> +	ret = of_parse_phandle_with_args(node, "power-domains", "#power-domain-cells", 0,
+> +					 &data->parent_pd);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to parse power domain\n");
+> +
+> +	devm_pm_runtime_enable(dev);
+> +	/*
+> +	 * Do a pm_runtime_resume_and_get() to workaround a possible
+> +	 * deadlock between clk_register() and the genpd framework.
+> +	 */
+> +	ret = pm_runtime_resume_and_get(dev);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to runtime resume device\n");
+> +		goto put_of_node;
+> +	}
+> +
+> +	ret = mtk_clk_register_gates(dev, node, mfg_clks, ARRAY_SIZE(mfg_clks),
+> +				     data->clk_data);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to register clock gates\n");
+> +		goto put_pm_runtime;
+> +	}
+> +
+> +	data->clk_26m = clk_hw_get_clk(data->clk_data->hws[CLK_MFG_26M], "26m");
+> +	if (IS_ERR(data->clk_26m)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(data->clk_26m), "Failed to get 26 MHz clock\n");
+> +		goto unregister_clks;
+> +	}
+> +
+> +	ret = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, data->clk_data);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to add clk OF provider\n");
+> +		goto put_26m_clk;
+> +	}
+> +
+> +	data->genpd.name = "mfg-top";
+> +	data->genpd.power_on = clk_mt8173_mfgtop_power_on;
+> +	data->genpd.power_off = clk_mt8173_mfgtop_power_off;
+> +	ret = pm_genpd_init(&data->genpd, NULL, true);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to add power domain\n");
+> +		goto del_clk_provider;
+> +	}
+> +
+> +	ret = of_genpd_add_provider_simple(node, &data->genpd);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to add power domain OF provider\n");
+> +		goto remove_pd;
+> +	}
+> +
+> +	ret = of_genpd_add_subdomain(&data->parent_pd, &data->child_pd);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to link PM domains\n");
+> +		goto del_pd_provider;
+> +	}
+> +
+> +	pm_runtime_put(dev);
+> +	return 0;
+> +
+> +del_pd_provider:
+> +	of_genpd_del_provider(node);
+> +remove_pd:
+> +	pm_genpd_remove(&data->genpd);
+> +del_clk_provider:
+> +	of_clk_del_provider(node);
+> +put_26m_clk:
+> +	clk_put(data->clk_26m);
+> +unregister_clks:
+> +	mtk_clk_unregister_gates(mfg_clks, ARRAY_SIZE(mfg_clks), data->clk_data);
+> +put_pm_runtime:
+> +	pm_runtime_put(dev);
+> +put_of_node:
+> +	of_node_put(data->parent_pd.np);
+> +	return ret;
+> +}
+> +
+> +static void clk_mt8173_mfgtop_remove(struct platform_device *pdev)
+> +{
+> +	struct mt8173_mfgtop_data *data = platform_get_drvdata(pdev);
+> +	struct device_node *node = pdev->dev.of_node;
+> +
+> +	of_genpd_remove_subdomain(&data->parent_pd, &data->child_pd);
+> +	of_genpd_del_provider(node);
+> +	pm_genpd_remove(&data->genpd);
+> +	of_clk_del_provider(node);
+> +	clk_put(data->clk_26m);
+> +	mtk_clk_unregister_gates(mfg_clks, ARRAY_SIZE(mfg_clks), data->clk_data);
+
+Looking at the error labels in the probe, does the remove also need:
+
+    of_node_put(data->parent_pd.np);
+
+Otherwise this looks good. With that fixed:
+
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
