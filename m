@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0DD4C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0CBC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 27 Jul 2026 11:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uw+v6oGZww74N1CItB5AYg1IHmEGiC2o+mhgrfAjvlY=; b=c4MwvkVXhPgkmc4uI3tIAdmmhU
-	Ze16Z7CXXWYmJXwTAScaLNk0jlvre9agK2UMZ8wC0PwLw5aZOmrPPNBT6Kg01KhGSkEnJbeBxnjEb
-	w/wfmQT5N5dFVPMMEGwrGzTx6L2P/k6QfshbRozG6+HBlkV0o42M2r1PYGaj1tNlKXQR/af/JvPkB
-	o6DUlnHmHY81sFX6P8WBtK6Pd6muvYG9U0qp6pchxVkBjUaWjBWXNZMvYVfudxICD7cKvuF+7gCfZ
-	nZM9ys5lT02CKW1K0g2gkEDpRIxGM7XXUZGBE3ksYb6yWinI4yYOngjSGfFjB23Wo5/1CA3X2g6Bq
-	CSIO7Amg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n2qS5mLYUTp7Uhtq7TiQK32AVf+rs7o35+jqHSIQjdw=; b=q/Ql1MiHlOs7JM9mFZf53W4DtO
+	4Sc9hLdrzRx713hx3ZHJu18v00RES4BnuD2qS/GBb7ZpygRepOTk/PebbRT9em9OAipaFWH4Ypue2
+	2+56MwFkV6aXQWKeesMzn9ticxcVVp7sj8AostSdEFEl5GWeuqIzRhyoZ4Rcy/bxvFs2CVNgCgjT8
+	7KYNordQodtD3WqNo+bNCtEl9khv4ifjXpauUMJ8KvUPmG3r5ybt8BKJ9fGlEAZJKVdsNZEpkI9Va
+	aYEk+gvdAOVQmKNIh44E2cfutsnQidPUWLLQYt6YJPUJxCM29Td8TTFiVSZ+JeRCtWqyA23zMID8S
+	67dgdCLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJb9-00000002awf-2lr3;
-	Mon, 27 Jul 2026 11:34:19 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1woJh2-00000002bTE-1m6i;
+	Mon, 27 Jul 2026 11:40:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woJb6-00000002awF-2fmd;
-	Mon, 27 Jul 2026 11:34:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785152054;
-	bh=+iJBMuno9bVBAG8bYN02sVbSR5W7cXRvCpNBSN3BtxM=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=UumtuF/cr/VymXvalz+kCivWKOGT1tz8HPGLzXXvwuO6/xjZetm5vSTaRXa2aUj1g
-	 HoWM1cv8b5SBuVInOeg+Oy01UZo8M0rfmeg9QdJQ1ujHCmNjSCvl4FaLS3qA5BGFFg
-	 dcq9knkYzYOaZnUZE5dLfTP6XnJI/yIQoNHrn3OpLwD8TOe8IZhWF0AxwWDnSM9Fus
-	 LzPDm5+MFIAbOQk66T2udryLf/Zbwl9xAthlZ2Ap4cRlkn9cZXM4ZEH7t/jN7x4K96
-	 xYy39zHkXyKO4KGDB0lg9c7BinN2yZ+0iU6UAiQ/4EZsXiGSc+Nrhg9H21nJJNxTBr
-	 u91sIVZrCTnkw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6192E17E0213;
-	Mon, 27 Jul 2026 13:34:13 +0200 (CEST)
-Message-ID: <7eebbd9b-3a5e-4d95-bbbb-8ba3a7238383@collabora.com>
-Date: Mon, 27 Jul 2026 13:34:12 +0200
+	id 1woJh1-00000002bT7-1vHK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 27 Jul 2026 11:40:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E42B64387E;
+	Mon, 27 Jul 2026 11:40:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 970C81F000E9;
+	Mon, 27 Jul 2026 11:40:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785152422;
+	bh=n2qS5mLYUTp7Uhtq7TiQK32AVf+rs7o35+jqHSIQjdw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=T7OMLWX0gYiwKXEiXgssU5fPiaQe6F++mUD+fwHLVNHIk9HOv1Yvhh9ZRchQz32Nt
+	 LnQ5LDiAdizYA+qmqA1SVxRHHAR0hoEt/bd4mCi8k6Hq/JFkP6WuOj8ApoNfm3Ly9K
+	 iuAxRMvaicTI+NcpJiKAWEuPtZCNJ1uOO9vIJPigpr6q+2V+HODr643mVFec0Q3OrI
+	 XE3oGi3J/mM0RfCrQrwZDKOfBEgBLA8zQrBUI4xB2kD+tO8gQRyhCXqmt6Oi4fDDXH
+	 nqQ7sees8iukt4+eTNpLhy3yicdte/VE2pqIL3ZlBXQZzdpHfIAHUuH8PK7DK1aaWx
+	 A5wogUb8a0VKg==
+Date: Mon, 27 Jul 2026 14:40:15 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	stable@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v8 01/23] dma-direct: return struct page from
+ dma_direct_alloc_from_pool()
+Message-ID: <20260727114015.GL12003@unreal>
+References: <20260721115456.GI110966@unreal>
+ <yq5atsps77c5.fsf@kernel.org>
+ <20260721142921.GN110966@unreal>
+ <yq5ao6g0750v.fsf@kernel.org>
+ <20260721153321.GO110966@unreal>
+ <amEhEKQW0_HJ9cLN@ziepe.ca>
+ <20260723075704.GC110966@unreal>
+ <amTJY_CdE-uDgoGG@ziepe.ca>
+ <20260726081753.GD12003@unreal>
+ <ambdXXcfgK+cxqxa@ziepe.ca>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/13] drm/bridge: it6505: DP audio support +
- shared-DAI hw_params fix
-To: Daniel Golle <daniel@makrotopia.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Matthias Brugger <matthias.bgg@gmail.com>, Allen Chen
- <allen.chen@ite.com.tw>, Hermes Wu <hermes.wu@ite.com.tw>,
- Pin-yen Lin <treapking@chromium.org>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>
-References: <cover.1784947240.git.daniel@makrotopia.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <cover.1784947240.git.daniel@makrotopia.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_043416_845595_77211B14 
-X-CRM114-Status: GOOD (  11.36  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ambdXXcfgK+cxqxa@ziepe.ca>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/25/26 04:57, Daniel Golle wrote:
-> Revive HDMI/DP audio support for the it6505, originally posted by
-> Jiaxin Yu [1], rebased onto current -next with the review feedback
-> addressed: &client->dev is gone (the driver gained it6505->dev) and
-> "#sound-dai-cells" has since been added by commit 325af1bef5b9
-> ("dt-bindings: display: bridge: it6505: Add #sound-dai-cells").
+On Mon, Jul 27, 2026 at 01:23:57AM -0300, Jason Gunthorpe wrote:
+> On Sun, Jul 26, 2026 at 11:17:53AM +0300, Leon Romanovsky wrote:
 > 
-> Patches 1-11 fix pre-existing bugs found during review of earlier
-> versions of this series; they carry Fixes: tags and are ordered first
-> so stable trees can pick them.
+> > Currently, the phys type universally describes memory and can be
+> > reliably translated into any required representation. It is the most
+> > fundamental type we have.
 > 
-> Patch 12 wires up the it6505 audio helpers via hdmi_codec_ops,
-> unblocking the mt8186-mt6366 sound card which references it6505 as
-> the I2S3 codec. Patch 13 makes hw_params succeed with no display
-> attached, needed when the I2S bus is shared with another codec as on
-> MT8186 "steelix" Chromebooks, where the speaker path must keep
-> working regardless of the it6505 link state.
+> You cannot go from phys to page reliably unless you make assumptions
+> about the phys, that's the whole issue here. If the callchain expects
+> and intends to use a page it should really stay in a page and not take
+> a side trip to phys.
 > 
-> Tested on a MT8186 (google,steelix) Chromebook: the sound card comes
-> up, speakers, microphone and headset jack work. HDMI/DP audio output
-> itself could not be tested for lack of a suitable adapter cable.
+> I agree it would help to have some helpers that were more phys based
+> for the callchains that want that since we are mixing two fairly
+> different activities in these functions..
+
+Yes, we are agreed here.
+
 > 
+> But making phys the only output out of the pool isn't going to be an
+> improvement.
 
-Whole series is
+I don't know, phys was natural suggestion due to multiple
+page_to_phys/phys_to_page conversions down the road.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Tested-by: AngeloGioachcino Del Regno <angelogioacchino.delregno@collabora.com> # 
-Steelix Chromebook
+> 
+> BTW how does a struct page even work for decrypted memory? You can't
+> actually use it that way right? If you try to access it then you'll
+> get the wrong IPA and it should explode?
+> 
+> Maybe we should be blocking the struct page path entirely for CC
+> shared?
 
-Cheers,
-Angelo
+It will simplify things. Ultimately, this series demonstrates that
+CC users must be aware of the memory attribute (CC_SHARED) and struct
+page is too generic.
 
-> [1] https://lore.kernel.org/all/20230730180803.22570-4-jiaxin.yu@mediatek.com/
+Thanks
+
+> 
+> Jason
+> 
 
