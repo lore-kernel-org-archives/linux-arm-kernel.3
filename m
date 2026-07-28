@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5239FC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 13:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF774C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 13:35:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oobXFTHfdzXdPL+8ib1BEuopmYTDo8gYa71Yim7An58=; b=GndATxLPLxBKHR6XbpRmaRGuGN
-	2LRx4uI4MCQLitvfIwaX3Mc0WXsiE0bibLnp6nZLrK5mG7VQRG3VKlfPNJuFZR1thIrK+a4MEe8+A
-	KTt6PX7LgXkFP+OkUY0p13yNbQA3GF8z5XahjfHPlcMUgtQMfVgIKKekG0hgsPwAOTMRFtDuHX08E
-	g6SUNiFM8pE+YUj8xLFZRW5UPNRwJmWHy4MnIIkWlMEvIUuA9n6xTjoNwG2Twm+g8+UyaNrFW4Ict
-	BeV/zvWhmJbk6+iKWOxM8VMxHf3tDK3yPmtbioXG9dtYO2+ZywnAY+HM+saGoaTz4AW15WQEPE/wI
-	zeNoLnNg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=utXp4zcDsQfyziyaB24hBkxQ5Nu1E6Nzja5yWjMT/7w=; b=JVzTzRc+gShCvNjsIcWD5iQc01
+	RXSclKPdgAKdkBnbyBbV+QLZWWNSAs2lyvPUl+gkNlTv/SKCaJ4formGfTnokbqYACOy0B1M58lAq
+	uysTdineo390YGnu1emoiYDMEscATXClf2pnz3/VMohTzH7xua3fIJDlvNg8nWrEnHuySkRkLuSj7
+	uiLEP5l7PTT8FGUfiVonyJMvLWWu7Z3Fum+m0sxaeUmgbMo99ZQ6BQEbTLsAKftk6P0r5DW6fEoK6
+	hLtuaDupIrN0ROaKMtuj4X4HxqZyCvRL80not0Y7ZzblKPqtHgrSdt4yCvH1k82BLipK3VbFdjoo4
+	9eDCGhLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wohlY-00000005L6A-37BS;
-	Tue, 28 Jul 2026 13:22:40 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wohxP-00000005MNi-0EXv;
+	Tue, 28 Jul 2026 13:34:55 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wohlW-00000005L5k-02a7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 13:22:39 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ccf2360620so35929555ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 06:22:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785244956; x=1785849756; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oobXFTHfdzXdPL+8ib1BEuopmYTDo8gYa71Yim7An58=;
-        b=NZkMU8MMPslBZBjIQTeVyVg5pYRpY0cZUUfrwpzxWj4wk0Th6mVX3xCLhPQU0O7H5r
-         rn1KvI1O/rJIh2JXdkP0nehUC3EfiwJ4lBitP7mSMbcOR97zoBIN90MzbHdr2hFekktO
-         xF2LpUaACBlbi3Rw+vEKzHQbGqQ8rU+Sr/ViCJ1KRfGL9WhxNAStgXSoU1FnxMUP3Itj
-         8NjRMQ/S1Ob2YvPMxAZ1GvLuisa+v5QAq4v7bs6bbrqXlo/GzwtbUpHZ1Qm5jdjmvNev
-         VC2572rFhEa3KCoeqfYtZuw42AWDy4UhPNDUmp3po/tyxDiUl186QMGaetIXZXTkmSSQ
-         iPmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785244956; x=1785849756;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oobXFTHfdzXdPL+8ib1BEuopmYTDo8gYa71Yim7An58=;
-        b=rnYLkIz0y48yUyzB578P4xN8AfLTDeOeuV/bLsynPslGxgjbPmxCPOUjWfMP7Ou6qt
-         ZCVjJdILKvwi4dTtOyTBITy8EKK8vmcezswqLJbIHvJb0CPia4AfEfcy1Zhn8M/KQYtu
-         Prcs/0VK/vsSRD/BBsP7cWO2OY++ZRPSOicaueQstoxwNzAj8eCRK6PN732aNgq3SHtZ
-         qwWSeMCIJ5cDcMZUOEiMoPUaU3j8zeY0AJFxI1Bvibkb2UiFOms+PBWQWWZeOLREefOs
-         KpJTTc/tMF241JBE28cftv76Tu4Ajfc4zAnsF1Wo4Odg+HMYhqEJ5BZDBa99Nya0KN+j
-         WxAQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpXg4taDdDdBUqo2ZiOz2XM/QjSpI9BAEbLyK+npyN8phhD4HOX+5brP64SKVJ7QeLO9zNPnR1CtdayPyyMYrxQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH8itYTcEtpr+KiMTAPBzQqBje5KGQop7fgwb/eekQM+bh9nS1
-	0umPAnNmzgo4yDUHZ9XE8Q4ljmw3CBqdDkwlFM7hGDSsflsdlAOq773D
-X-Gm-Gg: AR+sD13Mbgdhoc/97QLSMg7TwCgAw1nTwma2/8qqovGJ9Mmrl1Caa+P24Csk2W+68Nr
-	v2Gp/wV8izkNvV1oLMxTo0/szFIWbca16ukAQgl0ef1Ax3a1cbiwMubskafKWJTKz4FCtjUQ1qe
-	bIGHVerjEX41IooVQPyGiAI2bNS35tep3coMjMvsvUKyffdFRJIIatAIApFFjdHpxWsftg0IWhA
-	UheOBKx140SesQGtdTFuLML7TsKMM+wBJq8WZIC280cT0OiiUJgFPlRyNEY4hSfj3d7k8KSJzo9
-	7A13pC6I0pdI4fi6xyPbFXcY3dC4rqTCq2dhxnf/XCHD8Q7td+BEoHm9kZXb5wOO3u3/egN3QIU
-	5RbLzbRBD+daFErElzAYGxlckTu+a7dVshHx58cCyK9JidmHVBCdu6KLu4d7SnMxSUOsU5kqVlL
-	+U
-X-Received: by 2002:a17:90b:3a4d:b0:38e:7239:b93b with SMTP id 98e67ed59e1d1-38f6a580748mr2307986a91.30.1785244956532;
-        Tue, 28 Jul 2026 06:22:36 -0700 (PDT)
-Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38f6413fe85sm1376399a91.12.2026.07.28.06.22.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 06:22:35 -0700 (PDT)
-From: Zxyan Zhu <zxyan0222@gmail.com>
-To: maxime.chevallier@bootlin.com
-Cc: andrew+netdev@lunn.ch,
-	rmk+kernel@armlinux.org.uk,
-	alexandre.torgue@foss.st.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	hkallweit1@gmail.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1wohxL-00000005MMK-1ZxV;
+	Tue, 28 Jul 2026 13:34:53 +0000
+Received: from LAPTOP-99KJFSET (unknown [58.241.16.34])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 47e1eefc9;
+	Tue, 28 Jul 2026 21:34:48 +0800 (GMT+08:00)
+From: Hongyan Xu <getshell@seu.edu.cn>
+To: toke@toke.dk,
+	afaerber@suse.de,
+	mani@kernel.org
+Cc: Hongyan Xu <getshell@seu.edu.cn>,
+	linux-wireless@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: phylink: add phylink_pcs_loopback() method for PCS loopback support
-Date: Tue, 28 Jul 2026 21:22:27 +0800
-Message-Id: <20260728132227.4051026-1-zxyan0222@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <2c0c6864-99ea-48d6-a889-c886bb91c351@bootlin.com>
-References: <2c0c6864-99ea-48d6-a889-c886bb91c351@bootlin.com>
+	linux-actions@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jianhao.xu@seu.edu.cn
+Subject: [PATCH RESEND] wifi: ath9k: stop using owl context after completion
+Date: Tue, 28 Jul 2026 21:34:46 +0800
+Message-ID: <20260728133446.692-1-getshell@seu.edu.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9fa8ef5fb103a1kunmeb964764f0b67
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDThpIVhhOGEhNTkJOGBhPH1YeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlOQ1VJT0pVSk1VSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhOQ0
+	NVSktLVUtZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=DLK7nH0O0y1856fXuyimwMP3ntkX0q1we0WWMtzcvbSIfzrg6lIIz5GFLFI2YToPaIv61MzW8NH4iZ7rpvr29j7qX12AvJpjgzgSH2TMSzn8uZO/XuORxeya+8fLp17YLsEApGjZWCgrf+o0jMnSDklU1tFg84oTDPMgNnE4xhE=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
+	bh=utXp4zcDsQfyziyaB24hBkxQ5Nu1E6Nzja5yWjMT/7w=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_062238_052979_ECE7FAD8 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260728_063452_035520_5CDEDDDB 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,22 +73,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 10:41:12AM +0200, Maxime Chevallier wrote:
-> I'm actually seriously wondering if we shouldn't just stick to MAC
-> loopback only for stmmac selftests. [...]
-> Using an external loopback (in PCS, in PHY, somewhere else...) doesn't
-> bring anything to the table given what we are testing today, which is
-> internal stmmac behaviour. The MAC loopback happens at the GMII level,
-> so everything we are currently testing happens before that.
+owl_remove() waits for eeprom_load, but both owl_fw_cb() and
+owl_nvmem_work() completed it before their last uses of ctx. The
+devm-allocated context can therefore be freed while the async path still
+dereferences it.
 
-You're right. MAC loopback at the GMII level already covers everything
-stmmac selftests actually test (DMA, filtering, VLAN, checksum offload,
-etc.). PCS acts only as external transceivers beyond the MAC boundary
-and do not bring additional test coverage.
+Take a pci_dev reference and copy ctx-owned pointers while ctx is still
+protected. Complete only after ctx is no longer needed.
+Keep the completion before owl_rescan(). Rescan can remove the device
+synchronously.
 
-Given that, I will drop this PCS loopback patch series.
+This issue was found by a static analysis tool.
 
-Thanks for the explanation!
+Signed-off-by: Hongyan Xu <getshell@seu.edu.cn>
+---
+Resend with Manivannan's current address. No code changes.
 
-Zxyan
+ .../wireless/ath/ath9k/ath9k_pci_owl_loader.c | 31 ++++++++++++-------
+ 1 file changed, 19 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+index fe1013a3a..1aefe21d2 100644
+--- a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
++++ b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+@@ -125,16 +125,19 @@ static void owl_rescan(struct pci_dev *pdev)
+ static void owl_fw_cb(const struct firmware *fw, void *context)
+ {
+ 	struct owl_ctx *ctx = context;
+-
+-	complete(&ctx->eeprom_load);
++	struct pci_dev *pdev = pci_dev_get(ctx->pdev);
+ 
+ 	if (fw) {
+-		ath9k_pci_fixup(ctx->pdev, (const u16 *)fw->data, fw->size);
+-		owl_rescan(ctx->pdev);
++		ath9k_pci_fixup(pdev, (const u16 *)fw->data, fw->size);
++		release_firmware(fw);
++		complete(&ctx->eeprom_load);
++		owl_rescan(pdev);
+ 	} else {
+-		dev_err(&ctx->pdev->dev, "no eeprom data received.\n");
++		dev_err(&pdev->dev, "no eeprom data received.\n");
++		complete(&ctx->eeprom_load);
+ 	}
+-	release_firmware(fw);
++
++	pci_dev_put(pdev);
+ }
+ 
+ static const char *owl_get_eeprom_name(struct pci_dev *pdev)
+@@ -158,19 +161,23 @@ static const char *owl_get_eeprom_name(struct pci_dev *pdev)
+ static void owl_nvmem_work(struct work_struct *work)
+ {
+ 	struct owl_ctx *ctx = container_of(work, struct owl_ctx, work);
++	struct pci_dev *pdev = pci_dev_get(ctx->pdev);
++	struct nvmem_cell *cell = ctx->cell;
+ 	void *buf;
+ 	size_t len;
+ 
+-	complete(&ctx->eeprom_load);
+-
+-	buf = nvmem_cell_read(ctx->cell, &len);
++	buf = nvmem_cell_read(cell, &len);
+ 	if (!IS_ERR(buf)) {
+-		ath9k_pci_fixup(ctx->pdev, buf, len);
++		ath9k_pci_fixup(pdev, buf, len);
+ 		kfree(buf);
+-		owl_rescan(ctx->pdev);
++		complete(&ctx->eeprom_load);
++		owl_rescan(pdev);
+ 	} else {
+-		dev_err(&ctx->pdev->dev, "no nvmem data received.\n");
++		dev_err(&pdev->dev, "no nvmem data received.\n");
++		complete(&ctx->eeprom_load);
+ 	}
++
++	pci_dev_put(pdev);
+ }
+ 
+ static int owl_nvmem_probe(struct owl_ctx *ctx)
+-- 
+2.50.1.windows.1
 
