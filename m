@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D14C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 04:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E4FC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 04:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ji6pwkGQ+ZzojlcubSeNRg5g8pZeiROG+fNezLW0/A0=; b=NyM/g033jdTUpF/nkNE1r5cOk9
-	3e6x/Zfw46nIAFO7N0Dt+Gtp3FXtdjZEPcDjzNR+pF2NDP75VTBsDYGhZ7GAI2h8RRkYD537ePLA+
-	/TAiZPC7J/jsMkLoJRaIXsFG1/cii6SN+fvxlJktwqhMijRulxdZdcdoQPZmybfrGaXfPwgA8XgyK
-	R94Ym0XoEKwhO4J1ntfA3k/pU1HjGgCImxQtHwZ0KM6/DSc37tmjuVYGPZHlCTEwBPryd/gAC/8yi
-	sf320X9PYBjXtSzuMgkAYIHS08b2lJn8aXmhCP9SSodNuK7Wfe/RGlcYPsKzuxRFt8CLGTEK3uoAI
-	s3twfkNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AhrsuWpXTmIa68Ke5EmX7LuRDSSBsZsJCI2m9X/7Jck=; b=qzWzP0tBDVo1P1PnDUxFx0ri3h
+	yLYlPHlGNJTWHFeaP6WpXJDdhHaSXSxWfLEuWys1J84fvfW3TZMMlvZptpFgxnaYcggsnmv57x3sf
+	3wFujdd+uBar7y2ndKeuIQsJh39AM2V2LUdi4WbbRA95f+HgmJBZCYmGyy5Zxd4FN2gdYv9Jeb8W6
+	oUHBUNXgTej04q8JqybvqJdyAziBX8/ErAF8QOORMaQlyJSVNQwNVADkkFa2j9UkdDCBdbm7kXVAb
+	V2rKUI00AZ/FOG1rllHlTfZX164GfmZUQEk1q1vzsdUKtsl77AglAqh7bIZt+awbU3u9eZ9pICts4
+	RUytUkmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woZk0-00000004PLE-0Ewp;
-	Tue, 28 Jul 2026 04:48:32 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1woZno-00000004PSP-1noD;
+	Tue, 28 Jul 2026 04:52:28 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woZjw-00000004PKt-2rNj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 04:48:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785214109; x=1816750109;
-  h=date:from:to:cc:subject:message-id;
-  bh=18smv+ubaVGhBUq41FBoTntjDfAUn4Dvpu3JV2RzUK4=;
-  b=dam5gTE2jlUsczGnCBfY65pUHzDZiLEwEU1uMfo7MM1lLeFcG+BO8m7i
-   L9lT/5xzU6VRBwGrWlpx1+EmK1XTNLGcNL808QzSBEx/eM36RBBm5pkdV
-   m2Y2ZeCGh4l2xQyZK8xBNcCs6Kr1eLEWmvY8eVe/9bO2V4wX6J2Nh2Y0h
-   d/855X0X9letbBXpjx64eK05By849HjcKxFHZPcKOsTYZwaS91d5t56H2
-   AECL0jkGnFVLKtQ41LIebHCuOBstjkmFOkY1L4XDW83JksXwF0XK/pdDQ
-   1grUPnAOsTRIp/0KJHyhjpvmaV5vsDQAJbL0mtEtMvIK6xp4cJSYl2EFZ
-   A==;
-X-CSE-ConnectionGUID: sej00/OARVezsNAJ20haIA==
-X-CSE-MsgGUID: qHbP3EehTma2QZ4IUkTmng==
-X-IronPort-AV: E=McAfee;i="6800,10657,11858"; a="85875536"
-X-IronPort-AV: E=Sophos;i="6.25,189,1779174000"; 
-   d="scan'208";a="85875536"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 21:48:28 -0700
-X-CSE-ConnectionGUID: RRZxegA/Tu2KZZY1eFXrUg==
-X-CSE-MsgGUID: vkRAiKgmRpCtdFvqBpx8Kg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,189,1779174000"; 
-   d="scan'208";a="264589938"
-Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
-  by fmviesa005.fm.intel.com with ESMTP; 27 Jul 2026 21:48:27 -0700
-Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1woZjr-00000000dzn-3TJG;
-	Tue, 28 Jul 2026 04:48:23 +0000
-Date: Tue, 28 Jul 2026 12:47:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:firmware/scmi] BUILD SUCCESS
- 9f7cd6a62aa754ed6b48cbd5d50de40add1bcc86
-Message-ID: <202607281207.YyNE42c0-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	id 1woZnm-00000004PRd-1aS5;
+	Tue, 28 Jul 2026 04:52:27 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1woZnd-000000004wV-1vuB;
+	Tue, 28 Jul 2026 04:52:17 +0000
+Date: Tue, 28 Jul 2026 05:52:14 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net 1/3] net: dsa: mt7530: check bus->read() errors in the
+ MDIO regmap backend
+Message-ID: <3c628e48276c2e5522c8795a6be60d11c7a76a7d.1785213071.git.daniel@makrotopia.org>
+References: <cover.1785213071.git.daniel@makrotopia.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1785213071.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_214828_780174_16C607D9 
-X-CRM114-Status: UNSURE (   5.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_215226_414630_DEF0DEC9 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +72,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git firmware/scmi
-branch HEAD: 9f7cd6a62aa754ed6b48cbd5d50de40add1bcc86  firmware: arm_scmi: Unrequest devices if driver registration fails
+bus->read() returns a negative errno on failure, but
+mt7530_regmap_read() assigns it to a u16, truncating e.g. -ETIMEDOUT
+into 0xff92, and returns success. The garbage word is then consumed as
+register data, and read-modify-write cycles write it back to the
+switch. Check both reads and propagate their errors.
 
-elapsed time: 5194m
+The same defect existed in mt7530_mii_read() since the driver was
+introduced and moved into the regmap backend unchanged.
 
-configs tested: 12
-configs skipped: 0
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+---
+ drivers/net/dsa/mt7530-mdio.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-alpha    allnoconfig    gcc-16.1.0
-alpha   allyesconfig    gcc-16.1.0
-arc     allmodconfig    gcc-16.1.0
-arc     allyesconfig    gcc-16.1.0
-csky    allmodconfig    gcc-16.1.0
-i386    allmodconfig    gcc-14
-nios2   allmodconfig    gcc-11.5.0
-nios2    allnoconfig    gcc-11.5.0
-parisc  allmodconfig    gcc-16.1.0
-parisc  allyesconfig    gcc-16.1.0
-x86_64         kexec    clang-22
-x86_64  rhel-9.4-bpf    gcc-14
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+index 11ea924a9f35..784dd58a7158 100644
+--- a/drivers/net/dsa/mt7530-mdio.c
++++ b/drivers/net/dsa/mt7530-mdio.c
+@@ -55,8 +55,15 @@ mt7530_regmap_read(void *context, unsigned int reg, unsigned int *val)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	lo = bus->read(bus, priv->mdiodev->addr, r);
+-	hi = bus->read(bus, priv->mdiodev->addr, 0x10);
++	ret = bus->read(bus, priv->mdiodev->addr, r);
++	if (ret < 0)
++		return ret;
++	lo = ret;
++
++	ret = bus->read(bus, priv->mdiodev->addr, 0x10);
++	if (ret < 0)
++		return ret;
++	hi = ret;
+ 
+ 	*val = (hi << 16) | (lo & 0xffff);
+ 
+-- 
+2.55.0
 
