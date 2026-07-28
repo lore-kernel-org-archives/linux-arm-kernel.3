@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8159CC54F98
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7563C54F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJuNsq0R54HUWt1Xt7iwFDsJyYa9pnCsrSpzmk28zOE=; b=Z7or+4GYTzi21qq/LGeGh7gipH
-	4ggn592pzxCKjokqGkrxHWHBuaMO6ACjeLM8LRbVPmUVple250CRGfXubW+4Np1VNtww8JinbZ8Qx
-	596MX5yz6841Lifvw9937AOkYSgBQwMtUS4LOUxaQGlmNhXmxuapiFAP0jTtUECZ0HtBuRXzaKcsU
-	aRciS6oyg14KAHUmw5di1rmSXyYblJ2OYp/r2/p7dSp0pty2/HLzOpUUwHCWfdU15vEu7GMj0At9T
-	tAGP2xmRt5VWoa88vUQHtGgHIOOh8TWtTzDfjkGexbjoruAxw/MOd+vgBEeLXnN9mtppekz520Zoy
-	xBXQWnWw==;
+	bh=Ssa8/RJp8NzHnWgep503LaUFBdCKt7n208Abhsx7hRg=; b=jr3go6dok9IJOKWaXwCsPS72/R
+	tWrTUnMw5BrXV2jC+pPNempNJqMRY3RY4n+4+bQm7GZ3Ed+ABKSime70Rv1r4vsWhLcs1C6ZiKOvM
+	a2IWTTNgjGKZgfOJK/fyCM3kVR7SlXpuXi2g1Au3c5RiMSWuAHZ+oVGWW0jXllGxWqxD4L+DCpL59
+	dgGdQheeQYcGuFL8aPNO4zE9XpuoFCXkeMqzcKhj8ol+9fdYzrWvv5xwrYGEAlVSdyJs4gqlGT/Zt
+	n2mtqoU/ai7MMqCMPIMrjrGg0d9GMsb0sjrBZbZ/HFhxT2TExdczy3DBtlTjr7tAQjSYfKRBIu8YS
+	Q8MD0DXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogVz-00000005ACV-02h9;
-	Tue, 28 Jul 2026 12:02:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wogW4-00000005ANa-08Ho;
+	Tue, 28 Jul 2026 12:02:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogVx-00000005A9T-0iZ0;
+	id 1wogVx-00000005AAB-30qG;
 	Tue, 28 Jul 2026 12:02:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8D4343B24;
-	Tue, 28 Jul 2026 12:02:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 81FF2C2BCFA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 137FC45130;
+	Tue, 28 Jul 2026 12:02:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E9C61C2BCFB;
 	Tue, 28 Jul 2026 12:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1785240148;
-	bh=0StYnzO+BlIiuZfxctwX7lmcEaDWryBiXL9T1hKk/fc=;
+	s=k20201202; t=1785240149;
+	bh=fhzYdWjUhIfYBbHLD/ytOg92HFn/RMJtf4eZNN9JChU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=jQaxMHPKk2uiDrApWvLTxdWtBQ3Abw2DHYML/egf6JKzfJZQLOCUj9NfHHF/yPo6h
-	 KIR9QJAINcs671RjcAGRwWcdMbmNUtcUOpYl+PfzCJe03RD2anCUhnbqgnzc1P+j1+
-	 6ZtSt42D5fGuXKuNQs2hdRLlQ+d1UmQ4XyrN3b2dFQYeFmLgec0XZ9VtNT4Ii590ZX
-	 MIL5exMZOJ2VHOHIG4A2/rdH0oM+fFnLZK6tp5PV1PilEBXAr1dZRM6oup+aVWn01n
-	 pY03Og5N+s5K5Vy1gtNqs1tqzjlUBSDDTj2mqB5QbnPuQ5OMiMsrQ7oyH/zgPFMe6A
-	 RVgb0Cc8SKJyw==
+	b=BpBzagu6M3I6VFf38kTIrgtWsRhfM/gFVvHFIZHpmMI5alEF1Djsbx1g+Wt1Nloht
+	 RDiLaSoRyC6biMRqDMERV+kOga3zfidSe5Rx0rIFqtq4RNqdEA7M5aB5hYu/n/BcoD
+	 2jDAdDipeMJhq6KKKa7eJ4IhibwFJ+HZi24v0RyqU1/c6C6j0Fy2z8awG/cy5qIwT+
+	 hJz8ZXTHlCFOzJMfJiO7XG8rKrZdC6w/Aw8/tHirDSi+VkFs64T7xQZgOf4yEoNzIn
+	 e3JsoRSPTA5awGnjMCOc7T6ELOc1mrv2chEd6o+QHwJ2bh0VcDlUgy5Z5X7FquyA3/
+	 J9swc1/3jLjTA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 61089C54F4C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8108C53219;
 	Tue, 28 Jul 2026 12:02:28 +0000 (UTC)
 From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Tue, 28 Jul 2026 14:00:29 +0200
-Subject: [PATCH v5 02/12] arm64: dts: rockchip: rk3588s-nanopi-r6: fix
- missing sdmmc cd pinctrl
+Date: Tue, 28 Jul 2026 14:00:36 +0200
+Subject: [PATCH v5 09/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove
+ bogus vcc5v0_usb regulator
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260728-nanopi-m6-v5-2-cbc1eb0d8d56@gmail.com>
+Message-Id: <20260728-nanopi-m6-v5-9-cbc1eb0d8d56@gmail.com>
 References: <20260728-nanopi-m6-v5-0-cbc1eb0d8d56@gmail.com>
 In-Reply-To: <20260728-nanopi-m6-v5-0-cbc1eb0d8d56@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,11 +60,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
  jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785240146; l=1141;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785240146; l=1672;
  i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=kI3ZjJonY+6nqEWc8m+ryhZH4GnBusVZIougapTsu48=;
- b=mZTwnP0ApdptokhifkjpEi4DCtTRju3VOwM9fuEKZAOdHqvMaEwP4NoeeC6rrr+HY2Uv3eMTG
- rypRnfaoD5KDm9rT1eZASu7Ptyxlo6SZlEhUenE3AiMd+VhCmISNpXD
+ bh=UrZzPlopCnQpNaQi4ZiWK7IzfEGC03e+DmeotQv9vOE=;
+ b=sxjyU4hawUkO6mc4VPr7YSyPFpOYyWguab8zMh0FfY0eMMSaAgQV8/nNWwsTGOuLAeLBmlAOG
+ +yZF+W2cMZmCp62ygaCyXp7LvqnYR4EDSbWVdliUwLpKSEJeUi6gofH
 X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
  pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
 X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
@@ -87,38 +87,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-The cd (card detect) pin is used, but not reserved through pinctrl.
+All USB regulators (power switches) are feed from the main vcc5v0
+supply. There is no regulator or switch in between.
 
-Fixes: 95147bb42bc1 ("arm64: dts: rockchip: Fix the SD card detection on NanoPi R6C/R6S")
 Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index 91b6eefd7abf..3ee6853b8752 100644
+index 206cc88fdaa1..5a42e7dadc92 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -421,6 +421,10 @@ rtc_int: rtc-int {
+@@ -131,16 +131,6 @@ vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
+ 		vin-supply = <&vcc_3v3_s3>;
  	};
  
- 	sdmmc {
-+		sdmmc_det_pin: sdmmc-det-pin {
-+			rockchip,pins = <0 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
- 		sd_s0_pwr: sd-s0-pwr {
- 			rockchip,pins = <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
- 		};
-@@ -496,6 +500,8 @@ &sdmmc {
- 	no-mmc;
- 	no-sdio;
- 	sd-uhs-sdr104;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc_bus4 &sdmmc_clk &sdmmc_cmd &sdmmc_det_pin>;
- 	vmmc-supply = <&vcc_3v3_sd_s0>;
- 	vqmmc-supply = <&vccio_sd_s0>;
- 	status = "okay";
+-	vcc5v0_usb: regulator-vcc5v0-usb {
+-		compatible = "regulator-fixed";
+-		regulator-name = "vcc5v0_usb";
+-		regulator-always-on;
+-		regulator-boot-on;
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		vin-supply = <&vcc5v0_sys>;
+-	};
+-
+ 	vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -150,7 +140,7 @@ vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
+ 		regulator-name = "vcc5v0_usb_otg0";
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+-		vin-supply = <&vcc5v0_usb>;
++		vin-supply = <&vcc5v0_sys>;
+ 	};
+ 
+ 	vcc5v0_host_20: regulator-vcc5v0-host-20 {
+@@ -162,7 +152,7 @@ vcc5v0_host_20: regulator-vcc5v0-host-20 {
+ 		regulator-name = "vcc5v0_host_20";
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+-		vin-supply = <&vcc5v0_usb>;
++		vin-supply = <&vcc5v0_sys>;
+ 	};
+ };
+ 
 
 -- 
 2.55.0
