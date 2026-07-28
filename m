@@ -4,107 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002CEC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 18:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB40BC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 19:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
-	Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	In-Reply-To:Content-Transfer-Encoding:Content-Type:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zRqEh40r0PnAAxBC6Ehpg1QR1kIM64rXG8fPCVXya6U=; b=Y2p/b2qXSR5bZqNBTrk1aVQTbI
-	i1rheaoVWhtqslnefmONZIZsoqXwG/gDL0G+8pDh75I4aU5Wb90PinXtUGfpHwoPNrlX9Yq7ZGLgv
-	5Y8McV8pDPb046vURY/03kvZSESbUZ0sxnh/DHr+BrzSqlxchkmV3wpGtHRKFFev2ZAzSFpLVeCwB
-	VH0Lt/Gp7RjnN/0Fe+3q4W41psgUi43mKvm5jV3kj8KEsuoSv0H8afBkGRZ9JTpi8izWjGZPcLqDD
-	uY2mXR9/nRQubGBn3R/bdL2kil1wNCBquy1nwh7ES7C1Lp1BAFRiz0XDmwFd7dpMn1zUvfi6qepw2
-	g59p+uZg==;
+	bh=PvLRbn1D0FFUnsTwLsrPMdrQNORdZ4j47n0987+Abxg=; b=tWjhbEbU0SukDTPYADmN9HtVeu
+	vkdyxZWAL5HVF701LKvIGh1hx/wEtTqjF3PYlO73QLKxYau0TCk089diP6UnywD9c8OapZs+5nrVt
+	oXyjvoExx51HfNcVhEG0vt5b8cC64Vzc11RR/X+7shvFJ4XgLltjlK66l75V3eFSJlzd+9h//pmMl
+	zgN8zDGjUNvLd/t51K9ol9PJvNQFqGQpQMvTV1zB3xMJhJjjnQFPRjZbRXdDFKT2UteEFSr50kVka
+	RjR2i1HAWRULFyd2GyV3AdCqu7zGrkBpRYQ7EAdRu+rZY7BYCvOPBwRYiUHXSNxckiEjTb4LcQRGE
+	Pp3rT+IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1womG7-000000063J8-1B00;
-	Tue, 28 Jul 2026 18:10:31 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wonDn-000000066zD-23Rr;
+	Tue, 28 Jul 2026 19:12:11 +0000
+Received: from mail-westeuropeazon11010066.outbound.protection.outlook.com ([52.101.69.66] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1womG4-000000063Hp-2tr1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 18:10:30 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47de0093c42so135263f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 11:10:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785262227; x=1785867027; darn=lists.infradead.org;
-        h=to:references:message-id:cc:date:in-reply-to:from:subject
-         :mime-version:content-type:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=zRqEh40r0PnAAxBC6Ehpg1QR1kIM64rXG8fPCVXya6U=;
-        b=Nq0UUy3GXa0cyznxKIqgKhKt2K56qKYS3hyXyNp9yT9B+YYChpBzyI3f+7ZndXj1fg
-         J3x5ryAZx07X7OlPMKRb5kOEwMw+6Z7JCY1YwoKiRLPURbarhD1ZZMxpgd/bcq/t9bSy
-         Pyy60hxoYVjwYQR+9FlcNX3Pc13q/iwJfNfGJ2ltKZzzvnoaC9EFxhfqJ5Kl2bp3dOVh
-         0guZoU+ACwtNKYK79uHDFuX3GzGWWF3QJWT2Qd/AeMrk8pUVqfZHhc3QvDJEp52GKWsi
-         LDI7ztgdd+7A45Ce8jCfdO7u8bguoYzZTPJo83P/dUh7iiveC2hGg8M8G12ymJhUhMi0
-         m37Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785262227; x=1785867027;
-        h=to:references:message-id:cc:date:in-reply-to:from:subject
-         :mime-version:content-type:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=zRqEh40r0PnAAxBC6Ehpg1QR1kIM64rXG8fPCVXya6U=;
-        b=E1o+m8b68+o6PGamY4jZQgchSwJ0ZdrCUPloswbwBvc4JGsTeGHATsg6dr9gR3Dz0M
-         W9JZGZImpVe90OBxe6kedLWiMnmlbM28SgdUtB4N0Zeko2CHf68o1PMqYLtccevX5cfQ
-         x+FrTyeHbd6VA1Lcs5zo8jzsspeLe5EjtBMGkjb+L7T2w6BCwsKSVkbxCSzdNTSOvroC
-         tBvrBwPmYpfuR08JCvjDki1c6Ch/5vs3uhB6ay6awTm+ifM8twG1RhIK8GDWlKjWx2Gw
-         4HL+QoJQVrMQL/SSUWlu90J9SE5P/V98RElPzQcHWH+z7mgL+9/4CZVGCCe5AWr8WLTp
-         T7kQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoS6Y5EwcPn+0+w2Ylx6VOUcymlKP0SagcFSPO+mNsYULCVQuRgCJa3ELHxt94s6tAx3YlZr4/gPfhdtqjHPrww@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymi4WfXJJh63Xd8Rxk59u24BAA5YjTxaQ7l1YS06mjzwptiEcE
-	rHt3DXqgFqiyVF3ueliX+o0ZmQ+eZq+4Krq4G4gkxVolWOXILGP5PGLmFYnVNKGYfQw=
-X-Gm-Gg: AR+sD12EpckP0KO+R3oLByopHsS0uhpGvKRBN4FvMqc83VHgi/nQJbg+P5HvJnVJTgV
-	DwzGM8vgYzE4wvF3r0P8WzYT4cshiJegkF3maio3hsu6y09xe3oqpEEMXF7Sg5pGhxSTRbyR09l
-	dZQMGSRTjN0t/HdYWs801rUFsOWObyltja70fov5PH8Xg/r9FAQayz21CYbvqvsKPdM8t9+pozD
-	msWB+1eCI380Az1AafAU2YLj/+0qOjMAHNpnmftWdMpukp3REf4WeKfndTHbcO8aXvy64fEoGYH
-	m2SIM5Jvz3f65xHiAMGXgLB+Z4M9evmdJJBWAO5SCj7c7hx4hsMEgor2tO517mY2rWHlJN+tlh3
-	mNFVTIYBw8epBG+0ri8AOlFf3xTbvQAofkgMjacjWFEisdEP0PIXjlI7lnX435B5h1HgqD5lefr
-	UKApXNFlQCpve7gyIdArvx5YXIvQ15gVU=
-X-Received: by 2002:a05:6000:230e:b0:47f:9720:4740 with SMTP id ffacd0b85a97d-47fb1e9f82amr4362694f8f.37.1785262226606;
-        Tue, 28 Jul 2026 11:10:26 -0700 (PDT)
-Received: from smtpclient.apple ([197.250.51.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fb6abd0a6sm800035f8f.10.2026.07.28.11.10.19
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 28 Jul 2026 11:10:25 -0700 (PDT)
-Content-Type: multipart/signed;
-	boundary="Apple-Mail=_74B8EE53-C8E5-442D-8CD5-A08FCBF83C61";
-	protocol="application/pgp-signature";
-	micalg=pgp-sha256
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH v8 01/12] dt-bindings: clk: zte: Add zx297520v3 top clock
- and reset controller
-From: =?utf-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-In-Reply-To: <20260728-proficient-boobook-of-will-2cc94a@quoll>
-Date: Tue, 28 Jul 2026 21:10:03 +0300
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Brian Masney <bmasney@redhat.com>,
- Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>,
- Lee Jones <lee@kernel.org>,
- linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-phy@lists.infradead.org,
- mfd@lists.linux.dev
-Message-Id: <3A3A0D17-7A80-40FE-AB89-DDE8E9A7F72B@gmail.com>
-References: <20260727-zx29clk-v8-0-7a107b00f1dd@gmail.com>
- <20260727-zx29clk-v8-1-7a107b00f1dd@gmail.com>
- <20260728-proficient-boobook-of-will-2cc94a@quoll>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-X-Mailer: Apple Mail (2.3864.600.51.1.1)
+	id 1wonDk-000000066wl-1ZTn;
+	Tue, 28 Jul 2026 19:12:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QPL1K8F4LtAp7nb7AfABTQUga7nQhbIGjkgqDJA9qf7pYRPGDRHpSs3jnJcmUMdz+8hAaPwXhAQ1s504qzKBu28gHfIgTD4ugZ2Zp5bjY4BHLZOtxsJO6XKU5CyTXyHnr+E2QW4RzMo85dDpqqixD1fDVWhA4Ryzghwp0njGLAeSvm6R+32UAEBe2TsSMnwa8tzqhzK55fHzmFb7xPlrEpfBJeGI6e8+rqycvFRLjsyuDdCJnkr+iWci14f1oO/fjkNeTO4qgEzacFeGBG6NV6nl0XzreZa73LY3a2rWW8BmHcFKebta51tpxcwcsEOW1Xl9RSGA17ZiUKHID6+cSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PvLRbn1D0FFUnsTwLsrPMdrQNORdZ4j47n0987+Abxg=;
+ b=heqT3klDJEaLhjMXxRpQhqDFGJ7ujro/hoe9WcSPwRTV3/mtDnYyDITUscfwR/CPrixvUEiVws2JriQsPL4KRruPQAsw60NHyxbymPzkdKeCNgZmRAnK5CX1K7wihYPt0AKTcTxdByI+xvNIKGJ7DXdyWh575+xNfiz7FgzvpSSf8vlsaOU9AgpSw8vqlYsAHAgNCjfx4rZcCGJn4bqPADx3S2KEakg4/RdwM1vuAHd5dTJ0v/+2dhdhly3P8zX3fLWPOBYZps5x1MUZRhCiqFzlHiig3NWh3h7XkrfVxXcVB/tQOIVxV7nehpAJn6wVZ5dwZfvA+UwKK70YrFXRaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PvLRbn1D0FFUnsTwLsrPMdrQNORdZ4j47n0987+Abxg=;
+ b=cEGlow5aN9V3YxeqFSCvRcvLh63KPUcXLFbritAELufpYtevLF2iOaKEqk6uXi/qlS/FTjsLdFKmlXtMd1JMkv5keBLbZ0qPoN2A3h86l2qCr2yMUpTKFUVkPrthN6N3h0oIj8Ech1Gj+JM0pO3hBuQrEubg7gtQ7EmF07b9Jy6FAsWSS8jyA7gkWvTMlaOE+Ttmqn7AGWHD9wCiPH2OYPwR0H1UPR3WhxgpecUoKU4nbETMbpM5ze4HFvSFiP6AouLZwWLTSBGaLMZ+B1hQGh+3/COGS12QicIDBYQUI/tfkQOxUijM+Ws5gNCVVSJD2fR56vn1mmtpsoHYIq6leg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB10319.eurprd04.prod.outlook.com (2603:10a6:800:231::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
+ 2026 19:11:59 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.009; Tue, 28 Jul 2026
+ 19:11:58 +0000
+Date: Tue, 28 Jul 2026 15:11:46 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Subject: Re: [PATCH 1/2] PCI: dwc: Handle return value from endpoint .init
+ callback
+Message-ID: <amj-8tqEToQF6_gY@lizhi-Precision-Tower-5810>
+References: <20260728012548.465139-1-marek.vasut+renesas@mailbox.org>
+ <20260728012548.465139-2-marek.vasut+renesas@mailbox.org>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260728012548.465139-2-marek.vasut+renesas@mailbox.org>
+X-ClientProxiedBy: PH7P220CA0148.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:327::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10319:EE_
+X-MS-Office365-Filtering-Correlation-Id: a02ee67b-24f6-48ef-be23-08deecdc18c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|19092799006|366016|23010399003|376014|18002099003|4143699003|56012099006|10067099003|5023799004|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info: aYvA0EaNnyGTRsQfb0ARcYzPuxyMdoFOVMAPGDAmT+mJRZBxMFpveb/Z1FlqeExi/ABZ6n8Sw4y3/gcTVXkvl9v00R6HAYE/vg4ct2EoQ+dZq5ojSl1aP9wgz23B+STP2/SeJMsAB2Eq28EpNpoi0h/fbdmU+Gh2h+rIG3iY+8lbKCtGB+hZCkfOGqhMIsQ1MJMGRnuuP3BO+6LFESpo0mMDTiUtRtxLi9GiZ/Lppd1Kw6nwcX0N8xzK2ceRfXXr/QLDOuRXhI5PhUKdM9IPF9TF+n4W5WrQKQFzoiaNOsgMZ5DrB/lyTvD+8fyRZKUpZMYGZ2RKEkfv+XhOrWBK21aY4uPezAnHfh53Ql5Dij1C297JEyozHvfUOaqrrEAu31VQxClMD62NdvGQ9FXpN+EJygTpLhBcJGZkCwkFEFk8qr/ymbsS6n7IKRDhZcP5XL074FLZKawijiQ6ZElRsX+ZCrH0L7gn/5pcyFeHWM0TJ5cHCD13FXp2/sH66tIiDeZ/hP+0yQC38lr341fW1K+6kh6awpax9ya8PGI9YN1ewkO7t35UfGEQrKZg8h1Q2rxwbZF+mCgzpsjJpvdkRmwp1QQg9/on7zULzuQBq6qsfpWHxLHTSINhltnLF1LG6ac6qMta3sH/FO6PRkGSx8pE4zTJQAyr0ldRmnj/fG8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(19092799006)(366016)(23010399003)(376014)(18002099003)(4143699003)(56012099006)(10067099003)(5023799004)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UXl4WFJ0VmU4ZTBKb04zQXF1bzVGK3VaSm4xd2gvcHIrOFdHT0JEbnRhNnhp?=
+ =?utf-8?B?NllPMy9mSFJIb001SHgzZi9KVGRYbHFXNzRuakt2MHlvM2JSM1hDbk00TDVm?=
+ =?utf-8?B?ZHdNQmNFdUlTV3A3OERjNy80QUs5Zk9EaW8yQXJHNWZkRVBVejZDajlmUkRy?=
+ =?utf-8?B?aGFaYStvUnJIdHhkRThUZ242WlFxTXVWdWkrbVQ5dXlBUTFQZDZqMFFOWWNi?=
+ =?utf-8?B?SzVHTndEeXozdkkvRWlERWU3d0J2dnQvMmJ2dXJUTVhXSkxYVzR4N1F6aG01?=
+ =?utf-8?B?Rk4wckRpOXdxakVRNWUwbHY0RmFWOEQ3UzBmZUtCTXFiNWFCVGhmRWxvZVd1?=
+ =?utf-8?B?OUlEa1Y0VStvZlJTekhTMllGM1phaURWek9sNEtOVGJPeDNaTCtZM25BeFB6?=
+ =?utf-8?B?ZytZQjhaaElDclFJUGVYenEvcUxydFNiVHNjbGNzOTJDZCtSUmNiOVN4RU9x?=
+ =?utf-8?B?OXlxVlZHeTVBUlFDeFc4Sk1RdDIvNmZSUExIbmd5Q2dTMGtpTjdPYWFNcHVk?=
+ =?utf-8?B?RlVQd3djTjM2aXpTdmVZUXN3SE1HT09MV1hWcXBBZHV4dXY2aXVFNmR1QVpB?=
+ =?utf-8?B?bERiRU1mcXFKUGI3TnJYSjdYMGlZZnpWMTBBbjYzcFNkdW5sSkYzN1RSakwz?=
+ =?utf-8?B?MWcyNFVkL1M0TzVmQ0xlUE40NXJlWnhXS0EzS1BzblpLdFErdHpxZXp2THRW?=
+ =?utf-8?B?cC9ua3paVUR1M1BzbGF3YkxLWFk2NFRQUmZOTUFrRWhSZy80dFBKeW1yNkpN?=
+ =?utf-8?B?ZUdZU1Z2MUtUZ01qZXlnTHZLTTlFZlEvQWpEUHZJVm1zU0dXano1a3A4MWtK?=
+ =?utf-8?B?V2NRZlN4S2hSR3NNTVhuNVIrOVpFMWwxL3pBRnAvUEdLWDBTZVkxTVZkWVVI?=
+ =?utf-8?B?dTNpZ3VZdTVvK1RGbmgzUUdiYkFqcEJsZWV1Yk5jbmtNSks2NkNBNnB4ODBH?=
+ =?utf-8?B?QjEreWZHZ29nU0VPbnBQN3YrRWEwZjEzM2F5TEhSN09nNVkxV2VycC9hT1ZI?=
+ =?utf-8?B?bERjRWpnaGpnL1NQdGZjREsvM1JpNDNJTkNOMkJwQUpkZjRJdjltVDhZUm14?=
+ =?utf-8?B?dTRaaWtILzg3cXhtZ0xxcHlzTUFzOUkvOGQ5N282VThaL0F2NjdORFVCQkZy?=
+ =?utf-8?B?b2ZZbzhlcVU2NVg5K1gwdzBYTmZRbWtNSkFWNGpyK3pDUC95TXQrMzArdFBM?=
+ =?utf-8?B?M1owZWdud0ozM3JXQ0oyQndZVjBaN2NDVVBRVVRUZG5BdGRIamRTUDkzVDVM?=
+ =?utf-8?B?ZVVjeXovWFhDV3A2Tzl0c0FuRFl5ZjhSM0xRSW0zVUFSMXphOS9HQmVnK25y?=
+ =?utf-8?B?NUJRdjUvNE5lRFIyb3paYzJrS3FkcHJPcGRLWlRrNmR6NWFkRmgvUnRsU0Vv?=
+ =?utf-8?B?emZXQitYVjdpRDhNK0h5clJsMk5DVy92WWdQdU5UVHJrM3BMUXZXMzBrQkRt?=
+ =?utf-8?B?QnE3SXlONEJEZzdGczlxNTY1KzNiSkpVSVRmcmhTSVlJc3FUS1I0YmhHZ3lK?=
+ =?utf-8?B?WHd6ZUVUazZheTBBZ0crbmlCWkpUbXpEQ1VWOHBLb1E2WE9HTGN0dDM3b0VF?=
+ =?utf-8?B?aFViYWI1Nk9lVUZPaW5ZOHpZSHRoWHRGUk1FSDgwRnpURXNvNEZ1OFE0MjR3?=
+ =?utf-8?B?UUM5TFMxTGtKOFZwVC80VC9rcFFnbTdPczdLdTVGcWVraytrTDN0RlF4UDJM?=
+ =?utf-8?B?c05aNWwxOWcvSHlBblRjRjE3dWpubTV3Z1FGeGZwVE04aEsvN0MvUEZrdG5E?=
+ =?utf-8?B?Zks5c25mb0p4ek94aWdBRlVPMnBxVElMVGMraVUrMWV3R3pZS0Y1WEVHa1BL?=
+ =?utf-8?B?cWIvTWhqV1dMY2RBWENZK2pIb0VGbFQ2VDQ0dnJ5YUtpQUl4c08rbWI1MzQx?=
+ =?utf-8?B?blpLeURlL0VqTW9TYk5nb25VRDRiSmhHb3hTc2RxQ2Zsa2lEalpJcjArMksy?=
+ =?utf-8?B?NC91dXpkWlZkeVR0Mi93V1NGUWhvTGE1L3ZjeDFTQW1Rc0hHSDhQV0l1b3NY?=
+ =?utf-8?B?UjJPcmQvdGxkdVJpb3NrSm9LanN5ZEs4eDRCcm9ETHVDZDlKTGp6TFZ6KzUz?=
+ =?utf-8?B?QUtSUXFJakdMK1E4K3U5eTdDMC9pY003Ri8zcEdHc0JtZk1hYklzMm9PM3hl?=
+ =?utf-8?B?M2pJb1N5YlhFVlJmMG1qZHg2UEw0ZWl0amlBZXFwVU0vSjJEOWtOOVFPekxR?=
+ =?utf-8?B?eDROTGd6NUR2QWV2YjRldkV3Qm1EZkFseUJCTTc0V2hpWjQva1RJUmM4Q2Ew?=
+ =?utf-8?B?NTZtdy8zRWZkeG0vTW50UnozYVJEMStIYzRaeThuT2JVS0c3N1lYYXlobFhM?=
+ =?utf-8?B?dGN4SlJOLysvd0tUUTVQWVE5VGxndlVVRXY2U0N6UDZidDE5YWpPT0hXOHNt?=
+ =?utf-8?Q?KKkOILqfkngSdwQKUteE/nzTayX6E2wqo5yI/?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a02ee67b-24f6-48ef-be23-08deecdc18c9
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 19:11:58.8679
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P1dw1090ZBswtQu4fIcXjkLY6+2tw6u6O5o2FqmOkxSPcI3vp57lU4DnM/I5Q9aaFFxeM4rwIFzjz9X3l0V/6WuhF2iSC19Qr6PVT+ayQuDb5jbj/NMJN8w68+LneqBb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10319
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_111028_749604_FC2D8F18 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20260728_121208_577109_3AD28A58 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,93 +142,225 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: imx@lists.linux.dev, Heiko Stuebner <heiko@sntech.de>, Geert Uytterhoeven <geert+renesas@glider.be>, Vignesh Raghavendra <vigneshr@ti.com>, linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank Li <Frank.Li@nxp.com>, Niklas Cassel <cassel@kernel.org>, Koichiro Den <den@valinux.co.jp>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Jesper Nilsson <jesper.nilsson@axis.com>, Magnus Damm <magnus.damm@gmail.com>, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Siddharth Vadapalli <s-vadapalli@ti.com>, Shawn Lin <shawn.lin@rock-chips.com>, Srikanth Thokala <srikanth.thokala@intel.com>, Manivannan Sadhasivam <mani@kernel.org>, Qiang Yu <qiang.yu@oss.qualcomm.com>, Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org, Qianfeng Rong <rongqianfeng@vivo.com>, Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, Minghuan Lian <minghuan.Lian@nxp.com>, Jingoo Han <jingoohan1@gmail.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Yuho Choi <dbgh9129@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 28, 2026 at 03:24:24AM +0200, Marek Vasut wrote:
+> Add return value handling for struct dw_pcie_ep_ops .init callback.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+> Cc: Anand Moon <linux.amoon@gmail.com>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Heiko Stuebner <heiko@sntech.de>
+> Cc: Jesper Nilsson <jesper.nilsson@axis.com>
+> Cc: Jingoo Han <jingoohan1@gmail.com>
+> Cc: Koichiro Den <den@valinux.co.jp>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Minghuan Lian <minghuan.Lian@nxp.com>
+> Cc: Mingkai Hu <mingkai.hu@nxp.com>
+> Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Cc: Niklas Cassel <cassel@kernel.org>
+> Cc: Qianfeng Rong <rongqianfeng@vivo.com>
+> Cc: Qiang Yu <qiang.yu@oss.qualcomm.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Roy Zang <roy.zang@nxp.com>
+> Cc: Shawn Lin <shawn.lin@rock-chips.com>
+> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Cc: Srikanth Thokala <srikanth.thokala@intel.com>
+> Cc: Vignesh Raghavendra <vigneshr@ti.com>
+> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Cc: Yuho Choi <dbgh9129@gmail.com>
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-omap@vger.kernel.org
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> Cc: linux-rockchip@lists.infradead.org
+> ---
+>  drivers/pci/controller/dwc/pci-dra7xx.c         | 4 +++-
+>  drivers/pci/controller/dwc/pci-keystone.c       | 4 +++-
+>  drivers/pci/controller/dwc/pci-layerscape-ep.c  | 6 ++++--
+>  drivers/pci/controller/dwc/pcie-artpec6.c       | 4 +++-
+>  drivers/pci/controller/dwc/pcie-designware-ep.c | 7 +++++--
+>  drivers/pci/controller/dwc/pcie-designware.h    | 2 +-
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c   | 4 +++-
+>  drivers/pci/controller/dwc/pcie-keembay.c       | 4 +++-
+>  8 files changed, 25 insertions(+), 10 deletions(-)
 
---Apple-Mail=_74B8EE53-C8E5-442D-8CD5-A08FCBF83C61
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain;
-	charset=us-ascii
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Hi Krzysztof,
-
-Thanks for the prompt review!
-
-> Am 28.07.2026 um 09:27 schrieb Krzysztof Kozlowski <krzk@kernel.org>:
->=20
->>=20
->> +  resets:
->> +    items:
->> +      - description: USB phy reset
->> +      - description: HSIC phy reset
->> +
->> +  reset-names:
->> +    items:
->> +      - const: usb
->> +      - const: hsic
->=20
-> You do not need these two. It's one device and DT does not represent
-> internal device wirings because they are redundant (deducible from the
-> compatible).
-
-Just to make sure I understand the implications: Remove the PHY resets =
-from the reset header (and driver) and have the PHY driver control them =
-directly via regmap instead of going through its reset sibling? That way =
-no self-consumption is necessary. At least that's the idea Sashiko put =
-into my head with "Could the driver interact with its own registers =
-directly?".
-
-The PHY driver would take exclusive ownership of the resets anyhow, so I =
-don't see anything in the way of just making it own the respective bits =
-in the 0x80 register through the shared regmap.
-
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - interrupts
->> +  - interrupt-names
->> +  - resets
->> +  - reset-names
->> +  - syscon-reboot
->> +  - "#clock-cells"
->> +  - "#phy-cells"
->> +  - "#reset-cells"
->> +
->> +unevaluatedProperties: false
->=20
-> This was different last time and previous code was correct.
-
-Ok, I'll keep #phy-cells and ints optional and also make it possible to =
-provide only USB or HSIC ints.
-
-
---Apple-Mail=_74B8EE53-C8E5-442D-8CD5-A08FCBF83C61
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
-	filename=signature.asc
-Content-Type: application/pgp-signature;
-	name=signature.asc
-Content-Description: Message signed with OpenPGP
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmpo8HsACgkQPRO8yFRP
-GiLPTA//VT+BJ+4K6QWEatqxIi67Rfy+A3mhALsMoPStAPoN8KELPVr+JoqLoFD8
-lz9s0uj1PXWN1CmBArx6Hzm1N35owUoP46VLnwqrIAR0gaor+PQPHJ9In5L6E6Lm
-SdUs0QfxWMV75E2IM1tTRf8MKa6SnCvEp72OAYdMgRzEd7f0vp9fV9716yb0Ej7q
-ZXG85U4f/1++S5XHoPxqFxrxunsJoX4GgVEmKyeB9N3spWjS7KykKo2UYFZEctFg
-RUiai7lO1I2X9DuFGkuVZcouCIcpB1eJHx7r3UOTwIG6kbTKHBjWoq32L2tjUY4B
-nSkU7vMfwUA387n/zdeisN6smcf0C8uH3g8PSozuzaojYQzAr5MjbmgDue2R1LQi
-wVfHBdREUJL1WHt25UgiE5EcBcrQhwxccqDuWbkXH9toxP0HUEpTn9gdB8yNdGQx
-HSLsQCaqOew5/9nPEnwn0X7q7FnnBSOYv6AQ5g96xPeuNDNQ2n8f80X8iBmy3qup
-tWM+cCViEhEkoLl0x+/XTO6vfljHztZCpv2Xey9PGs7HDtyJbBMTkcHdcCTFV9yo
-RKzQMdJgqmIfycOlUGL+eHCI1X9SGEZc7hcENPBn666TnnWf3XrsCKZNHFBCU85e
-HUylGFuzN2pdc1MzYxgwFIJhKLtsVV8pLrnR3WfCD/2F6XYb36g=
-=Oh+I
------END PGP SIGNATURE-----
-
---Apple-Mail=_74B8EE53-C8E5-442D-8CD5-A08FCBF83C61--
+>
+> diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
+> index 3fc889944f021..6ae5b27e27b32 100644
+> --- a/drivers/pci/controller/dwc/pci-dra7xx.c
+> +++ b/drivers/pci/controller/dwc/pci-dra7xx.c
+> @@ -373,12 +373,14 @@ static const struct dw_pcie_host_ops dra7xx_pcie_host_ops = {
+>  	.init = dra7xx_pcie_host_init,
+>  };
+>
+> -static void dra7xx_pcie_ep_init(struct dw_pcie_ep *ep)
+> +static int dra7xx_pcie_ep_init(struct dw_pcie_ep *ep)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>  	struct dra7xx_pcie *dra7xx = to_dra7xx_pcie(pci);
+>
+>  	dra7xx_pcie_enable_wrapper_interrupts(dra7xx);
+> +
+> +	return 0;
+>  }
+>
+>  static void dra7xx_pcie_raise_intx_irq(struct dra7xx_pcie *dra7xx)
+> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> index f1b27aed488de..602516239a573 100644
+> --- a/drivers/pci/controller/dwc/pci-keystone.c
+> +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> @@ -876,7 +876,7 @@ static const struct dw_pcie_ops ks_pcie_dw_pcie_ops = {
+>  	.write_dbi2 = ks_pcie_am654_write_dbi2,
+>  };
+>
+> -static void ks_pcie_am654_ep_init(struct dw_pcie_ep *ep)
+> +static int ks_pcie_am654_ep_init(struct dw_pcie_ep *ep)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>  	int flags;
+> @@ -885,6 +885,8 @@ static void ks_pcie_am654_ep_init(struct dw_pcie_ep *ep)
+>  	flags = PCI_BASE_ADDRESS_SPACE_MEMORY | PCI_BASE_ADDRESS_MEM_TYPE_32;
+>  	dw_pcie_writel_dbi2(pci, PCI_BASE_ADDRESS_0, APP_ADDR_SPACE_0 - 1);
+>  	dw_pcie_writel_dbi(pci, PCI_BASE_ADDRESS_0, flags);
+> +
+> +	return 0;
+>  }
+>
+>  static void ks_pcie_am654_raise_intx_irq(struct keystone_pcie *ks_pcie)
+> diff --git a/drivers/pci/controller/dwc/pci-layerscape-ep.c b/drivers/pci/controller/dwc/pci-layerscape-ep.c
+> index 8936975ff104e..527c57114dcfe 100644
+> --- a/drivers/pci/controller/dwc/pci-layerscape-ep.c
+> +++ b/drivers/pci/controller/dwc/pci-layerscape-ep.c
+> @@ -147,7 +147,7 @@ ls_pcie_ep_get_features(struct dw_pcie_ep *ep)
+>  	return pcie->ls_epc;
+>  }
+>
+> -static void ls_pcie_ep_init(struct dw_pcie_ep *ep)
+> +static int ls_pcie_ep_init(struct dw_pcie_ep *ep)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>  	struct ls_pcie_ep *pcie = to_ls_pcie_ep(pci);
+> @@ -155,10 +155,12 @@ static void ls_pcie_ep_init(struct dw_pcie_ep *ep)
+>
+>  	ep_func = dw_pcie_ep_get_func_from_ep(ep, 0);
+>  	if (!ep_func)
+> -		return;
+> +		return -ENODEV;
+>
+>  	pcie->ls_epc->msi_capable = ep_func->msi_cap ? true : false;
+>  	pcie->ls_epc->msix_capable = ep_func->msix_cap ? true : false;
+> +
+> +	return 0;
+>  }
+>
+>  static int ls_pcie_ep_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+> diff --git a/drivers/pci/controller/dwc/pcie-artpec6.c b/drivers/pci/controller/dwc/pcie-artpec6.c
+> index 5cd227dda9a10..7f0ba506dd1cf 100644
+> --- a/drivers/pci/controller/dwc/pcie-artpec6.c
+> +++ b/drivers/pci/controller/dwc/pcie-artpec6.c
+> @@ -335,7 +335,7 @@ static const struct dw_pcie_host_ops artpec6_pcie_host_ops = {
+>  	.init = artpec6_pcie_host_init,
+>  };
+>
+> -static void artpec6_pcie_ep_init(struct dw_pcie_ep *ep)
+> +static int artpec6_pcie_ep_init(struct dw_pcie_ep *ep)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>  	struct artpec6_pcie *artpec6_pcie = to_artpec6_pcie(pci);
+> @@ -344,6 +344,8 @@ static void artpec6_pcie_ep_init(struct dw_pcie_ep *ep)
+>  	artpec6_pcie_init_phy(artpec6_pcie);
+>  	artpec6_pcie_deassert_core_reset(artpec6_pcie);
+>  	artpec6_pcie_wait_for_phy(artpec6_pcie);
+> +
+> +	return 0;
+>  }
+>
+>  static int artpec6_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> index 7d2794945704e..d78fb845582b2 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> @@ -1367,8 +1367,11 @@ int dw_pcie_ep_init_registers(struct dw_pcie_ep *ep)
+>  		list_add_tail(&ep_func->list, &ep->func_list);
+>  	}
+>
+> -	if (ep->ops->init)
+> -		ep->ops->init(ep);
+> +	if (ep->ops->init) {
+> +		ret = ep->ops->init(ep);
+> +		if (ret)
+> +			goto err_remove_edma;
+> +	}
+>
+>  	dw_pcie_ep_disable_bars(ep);
+>
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index de4b245b1758c..004b433f17135 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -475,7 +475,7 @@ struct dw_pcie_rp {
+>
+>  struct dw_pcie_ep_ops {
+>  	void	(*pre_init)(struct dw_pcie_ep *ep);
+> -	void	(*init)(struct dw_pcie_ep *ep);
+> +	int	(*init)(struct dw_pcie_ep *ep);
+>  	int	(*raise_irq)(struct dw_pcie_ep *ep, u8 func_no,
+>  			     unsigned int type, u16 interrupt_num);
+>  	const struct pci_epc_features* (*get_features)(struct dw_pcie_ep *ep);
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 731d93663ccae..bd5d1a2472a40 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -469,12 +469,14 @@ static void rockchip_pcie_ep_hide_broken_ats_cap_rk3588(struct dw_pcie_ep *ep)
+>  	dw_pcie_remove_ext_capability(pci, PCI_EXT_CAP_ID_ATS);
+>  }
+>
+> -static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
+> +static int rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>
+>  	rockchip_pcie_enable_l0s(pci);
+>  	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
+> +
+> +	return 0;
+>  };
+>
+>  static int rockchip_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+> diff --git a/drivers/pci/controller/dwc/pcie-keembay.c b/drivers/pci/controller/dwc/pcie-keembay.c
+> index 42fb5f24a2230..b11e66c10fffa 100644
+> --- a/drivers/pci/controller/dwc/pcie-keembay.c
+> +++ b/drivers/pci/controller/dwc/pcie-keembay.c
+> @@ -278,12 +278,14 @@ static int keembay_pcie_setup_msi_irq(struct keembay_pcie *pcie)
+>  	return 0;
+>  }
+>
+> -static void keembay_pcie_ep_init(struct dw_pcie_ep *ep)
+> +static int keembay_pcie_ep_init(struct dw_pcie_ep *ep)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>  	struct keembay_pcie *pcie = dev_get_drvdata(pci->dev);
+>
+>  	writel(EDMA_INT_EN, pcie->apb_base + PCIE_REGS_INTERRUPT_ENABLE);
+> +
+> +	return 0;
+>  }
+>
+>  static int keembay_pcie_ep_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+> --
+> 2.53.0
+>
 
