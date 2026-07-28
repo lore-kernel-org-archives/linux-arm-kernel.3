@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78405C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11882C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VDfTALnNGJ4dV9TcMw3rH2Xy3f5JFfUvxg5LHO/nAqM=; b=dBzsNgqs9YBzlFvrP2OsGQ3Tve
-	rypH5pqP37OYFAS1lPT1giigMbQJJpEbIhHBOf2FNOPUujVrRn/UgY2596w9V/qiGKcXfGH8DmidU
-	Da7JX1fRSW6Nng5rHh0RQwKnJZxMGVKAi2+oyzYB5Wfx8von2Ba/lGS30yCUUBSfR+5sH/9HRcwi9
-	h3GMbw6o+cdMgGxZov6jSPF3B61e8PllzEkUEgG1s0H7RtBiipIsQ2XnlknQttE9ekcett+qjwLtP
-	z69BYgfblUjyUS5UIi0unzvC/jmIiIH+z9OQYWnTiWGLjylCBEYfKIUmS/78TyIzv16j/R9/93fFk
-	x0x40NVA==;
+	bh=GG3gQXNZg4KJgPZln4dmN7buJq42W584sGfTmqCRugU=; b=wWHgJVvlRLe5VBJmvBjX2bdXKj
+	jMKoqDG9PP1xnjXhwvL/k7KtdJxCQAKAJsdqb8Sr0rX3oX9hpHWZKKugJS6HojgntFY80H8Rtmat9
+	nQVsGKG7hCh80oVaG4D7J0QF9+VGnvYbnqL8fnLLrelSrS2vBmOmz28gEDhOkB6Z8p5qDMfuJ0rMZ
+	ga9+x6k4Xy3p/1mmLlpI/38ogv6XoOINlnXjUkJ1QvLBx3XqKF5sJNKB7qyv2hAU7EULiJV3+YGAY
+	KHOL+ZM/vtZ7+gV7GcgeH7rIJQF5VfQvafwupm9PjUokQlWV4h5Xs3OFhhJi6ae95Ultul67WfJxz
+	PlBZn8rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogN7-000000058Pw-1HIz;
+	id 1wogN7-000000058R7-2udz;
 	Tue, 28 Jul 2026 11:53:21 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogMs-000000058I5-13tQ
+	id 1wogMz-000000058LG-1wLT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 11:53:07 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260728115302epoutp02bd7f1852bd3fa2bc20904d808650a539~GcfERv3hw2191521915epoutp02g
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 11:53:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260728115302epoutp02bd7f1852bd3fa2bc20904d808650a539~GcfERv3hw2191521915epoutp02g
+	Tue, 28 Jul 2026 11:53:14 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260728115310epoutp0461862752a844a9e8e6fb99dd26a395bc~GcfLdLUcG3060130601epoutp04B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 11:53:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260728115310epoutp0461862752a844a9e8e6fb99dd26a395bc~GcfLdLUcG3060130601epoutp04B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1785239582;
-	bh=VDfTALnNGJ4dV9TcMw3rH2Xy3f5JFfUvxg5LHO/nAqM=;
+	s=mail20170921; t=1785239590;
+	bh=GG3gQXNZg4KJgPZln4dmN7buJq42W584sGfTmqCRugU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LYnUPTsU7dKE25E9cG1+MpOaF07OKs7t8jp7qp6NuXwAmPFWXtLb4ayyIoaP7KA41
-	 25zVQxmh8x7l1epp2QY+dhxiEv8LYi40Q6A1zfZHnFJ3RqGV6yJQUiMznj2wYjxfoQ
-	 q/U/mi5wXw41x+NEzYOMj43TeZpCK8+q4KYVfHQY=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20260728115301epcas5p41977e64305d5ac4652805e4bab099a15~GcfDvI8vV2959829598epcas5p4j;
-	Tue, 28 Jul 2026 11:53:01 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4h8YkN6VgKz2SSKZ; Tue, 28 Jul
-	2026 11:53:00 +0000 (GMT)
+	b=GzEA1RdHJLtS/IJI21XlNSmDLU13Bj/BW9CFSjxs9sSXFH/U0FIv/ZpcYq528/hTo
+	 ytvz61KvCFxEcwvBk19o1TJquTlGPG4xbdM9sdfDWTp+DYlzQUXHibv3qutT4/zS+B
+	 P3M2+z4Pm2FVeTdNWypQcEydx5mF2OwE7GtqGTuw=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260728115309epcas5p1121bdfa96758db06c4042e6b801acffe~GcfK2lhRW2742927429epcas5p1X;
+	Tue, 28 Jul 2026 11:53:09 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4h8YkX4LC6z6B9m9; Tue, 28 Jul
+	2026 11:53:08 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20260728115300epcas5p35dc4bce1b09a4d989170e67eb5d6a752~GcfCVrMZ81684116841epcas5p33;
-	Tue, 28 Jul 2026 11:53:00 +0000 (GMT)
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260728115308epcas5p12e93dfef5637137f3ed159ebc2e9bd8e~GcfJgBgLe2742927429epcas5p1S;
+	Tue, 28 Jul 2026 11:53:08 +0000 (GMT)
 Received: from bose.samsungds.net (unknown [107.108.83.9]) by
 	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260728115256epsmtip1db0510f61386b1e01e1163b71fa49d22~Gce-BgHq72235622356epsmtip1b;
-	Tue, 28 Jul 2026 11:52:56 +0000 (GMT)
+	20260728115305epsmtip1128824a6f7f1d4afcf2a461a0c9588f4~GcfG_ARpZ2207322073epsmtip1Q;
+	Tue, 28 Jul 2026 11:53:05 +0000 (GMT)
 From: "raghav.s" <raghav.s@samsung.com>
 To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
 	peter.griffin@linaro.org, alim.akhtar@samsung.com, mturquette@baylibre.com,
@@ -61,26 +61,25 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, hajun.sung@samsung.com, raghav.s@samsung.com,
 	is.gandhi@samsung.com, ts.amit@samsung.com, pokala.reddy@samsung.com
-Subject: [PATCH 05/13] dt-bindings: clock: exynos8855: add peris clock
- definitions
-Date: Tue, 28 Jul 2026 17:41:03 +0530
-Message-Id: <20260728121111.2077860-6-raghav.s@samsung.com>
+Subject: [PATCH 07/13] arm64: dts: exynos8855: add cmu_peris clock DT nodes
+Date: Tue, 28 Jul 2026 17:41:05 +0530
+Message-Id: <20260728121111.2077860-8-raghav.s@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260728121111.2077860-1-raghav.s@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260728115300epcas5p35dc4bce1b09a4d989170e67eb5d6a752
+X-CMS-MailID: 20260728115308epcas5p12e93dfef5637137f3ed159ebc2e9bd8e
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-543,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260728115300epcas5p35dc4bce1b09a4d989170e67eb5d6a752
+X-CMS-RootMailID: 20260728115308epcas5p12e93dfef5637137f3ed159ebc2e9bd8e
 References: <20260728121111.2077860-1-raghav.s@samsung.com>
-	<CGME20260728115300epcas5p35dc4bce1b09a4d989170e67eb5d6a752@epcas5p3.samsung.com>
+	<CGME20260728115308epcas5p12e93dfef5637137f3ed159ebc2e9bd8e@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_045306_611031_31D8BC2E 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20260728_045313_665847_2226187D 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,85 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree clock binding definitions for CMU_PERIS
+Add required dt node for cmu_peris block
 
 Signed-off-by: raghav.s <raghav.s@samsung.com>
 ---
- .../clock/samsung,exynos8855-clock.yaml       | 21 +++++++++++++++++++
- .../dt-bindings/clock/samsung,exynos8855.h    | 16 ++++++++++++++
- 2 files changed, 37 insertions(+)
+ arch/arm64/boot/dts/exynos/exynos8855.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/samsung,exynos8855-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynos8855-clock.yaml
-index 073c19debd0d..62277c67fec1 100644
---- a/Documentation/devicetree/bindings/clock/samsung,exynos8855-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/samsung,exynos8855-clock.yaml
-@@ -29,6 +29,7 @@ properties:
-   compatible:
-     enum:
-       - samsung,exynos8855-cmu-peric
-+      - samsung,exynos8855-cmu-peris
-       - samsung,exynos8855-cmu-top
+diff --git a/arch/arm64/boot/dts/exynos/exynos8855.dtsi b/arch/arm64/boot/dts/exynos/exynos8855.dtsi
+index 0053730b3e01..a8f5ff0a7f1a 100644
+--- a/arch/arm64/boot/dts/exynos/exynos8855.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos8855.dtsi
+@@ -141,6 +141,19 @@ soc: soc@0 {
+ 		#size-cells = <1>;
+ 		ranges = <0x0 0x0 0x0 0x20000000>;
  
-   clocks:
-@@ -68,6 +69,26 @@ allOf:
-             - const: mmc_card
-             - const: ip
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos8855-cmu-peris
++		cmu_peris: clock-controller@10030000 {
++			compatible = "samsung,exynos8855-cmu-peris";
++			reg = <0x10030000 0x8000>;
++			#clock-cells = <1>;
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (76.8 MHz)
-+            - description: CMU_PERIS GIC clock (from CMU_TOP)
-+            - description: CMU_PERIS NOC clock (from CMU_TOP)
++			clocks = <&oscclk>,
++				 <&cmu_top CLKCMU_DOUT_PERIS_GIC>,
++				 <&cmu_top CLKCMU_DOUT_PERIS_NOC>;
++			clock-names = "oscclk",
++				      "gic",
++				      "bus";
++		};
 +
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: gic
-+            - const: bus
-+
-   - if:
-       properties:
-         compatible:
-diff --git a/include/dt-bindings/clock/samsung,exynos8855.h b/include/dt-bindings/clock/samsung,exynos8855.h
-index 14369b749fb2..9efaf3e330b4 100644
---- a/include/dt-bindings/clock/samsung,exynos8855.h
-+++ b/include/dt-bindings/clock/samsung,exynos8855.h
-@@ -50,6 +50,11 @@
- #define DOUT_SHARED4_DIV4		   38
- #define FOUT_MMC_PLL_DIV1                  39
- #define FOUT_MMC_PLL_DIV2                  40
-+#define CLKCMU_MOUT_PERIS_GIC              41
-+#define CLKCMU_MOUT_PERIS_NOC              42
-+#define CLKCMU_DOUT_PERIS_GIC              43
-+#define CLKCMU_DOUT_PERIS_NOC              44
-+#define FOUT_MMC_PLL_CLKOUT_DIV2           45
- 
- /* CMU_PERIC */
- #define CLK_MOUT_PERIC_IP_USER             1
-@@ -79,4 +84,15 @@
- #define CLK_GOUT_UART_DBG_PERIC_IPCLKPORT_PCLK 25
- #define CLK_GOUT_USI_PERIC_IPCLKPORT_PCLK  26
- 
-+/* CMU_PERIS */
-+#define CLK_MOUT_PERIS_NOC_USER            1
-+#define CLK_MOUT_PERIS_GIC                 2
-+#define CLK_MOUT_PERIS_GIC_USER            3
-+#define CLK_DOUT_PERIS_NOCP                4
-+#define CLK_DOUT_PERIS_OTP                 5
-+#define CLK_GOUT_CMU_PERIS_IPCLKPORT_PCLK  6
-+#define CLK_GOUT_SYSREG_PERIS_IPCLKPORT_PCLK 7
-+#define CLK_GOUT_WDT0_PERIS_IPCLKPORT_PCLK   8
-+#define CLK_GOUT_WDT1_PERIS_IPCLKPORT_PCLK   9
-+
- #endif /* _DT_BINDINGS_CLOCK_EXYNOS8855_H */
+ 		gic: interrupt-controller@10200000 {
+ 			compatible = "arm,gic-v3";
+ 			#interrupt-cells = <3>;
 -- 
 2.34.1
 
