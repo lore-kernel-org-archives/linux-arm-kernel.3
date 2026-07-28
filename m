@@ -4,108 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D459C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E37C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cVYEtk0Fsl/xm62f6qIKmBvKUDRO9X4B5IUMFICX51g=; b=X+JiNAWvcpyWle3Pnq1zE3DZ4/
-	P8FFcLEcdp5EyEtdtuMVLitnWs3gGEXYx0cU+SaVSb0uwONe1pdW3H5Nu0VnGNyGGeTc/BAumo5IA
-	w+scHzHsyOQ7M4aO7jPD+rxY5tjjzgcM6FHbBkQLcxjKH1DYchKv8wGe5A4DrpcaxjQ6qyWtgnGSF
-	KCF9Xc3ANa1fWJOAAJg5WnYAYJFCvgaabptPUOI/cA0p0+jpChAIPS9gGkIRAITBGFg6U/9WrsERy
-	ZbL/tSH4ftwFkMi+8Ca2VHt6wtjHENhQ5ZyWmES0gCPszAZBAqETUo0Bfw8aVgOlIqku7FOlDqN9u
-	kxupY/vg==;
+	bh=byWCGpv2eswc1KL4YyWHR2TlLBP7TgIN2iX0dW1K9Uo=; b=YvOTpXlydInPXJjx2Msq54MP4i
+	EakWvBS3bBQXRqo048CgiPcHPkRluOO9xNmwE9w505VS/eyjRCN7yxL2aRVre8N0wq4ILjwuXrG1I
+	tu7lh8MzOy3uYtLt/HYvj95LGhC9ycQbMNxXiKqZZb45HVqXcq/uFD1ZxzeAQiVjdyVbzBL0Z+ROJ
+	cRYvo3qNrEPFJLDtNkbXxtmpM4O1mJoKyutDTVyNFdm/tiXTp8HOBdzX8JISMmwurSZCxtEP0qhZu
+	hrqUlKvX/JXMlvjbwozeRlua/Z7BOWUStZ2o6yWU4D8DDe2aM8E3BazfPW82U2YR/jrFhRZ49uWre
+	lhmIE59Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeAU-00000004piZ-2qda;
-	Tue, 28 Jul 2026 09:32:10 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1woeMP-00000004rOG-312y;
+	Tue, 28 Jul 2026 09:44:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeAN-00000004pg7-1ROx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 09:32:05 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47f707e5d75so2448606f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 02:32:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785231120; x=1785835920; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cVYEtk0Fsl/xm62f6qIKmBvKUDRO9X4B5IUMFICX51g=;
-        b=FT3efRvzDoF6TxsjHp4gG/ohM70mfCaw74szswpF6nzA3bk5UBg5H8TnG4yrIUMoKS
-         Psjyepcj8vSYcSACOLN8U+VsMc19FjUqMMja+0ac5dGYCDKBazOVoHje1Ki92j5AFV+L
-         s1S5iVFiUkCipUGUxF7MjlJR21d2KhxA6JWjgWM/cxwgJYuYNCoal7T6oabWhyiFSWUt
-         2deTtbYHdDJkKHuYiIBtBt/+9UzXleAoUXXDqPfpUp1WZQ4gfN0qWe7CBkGW5Hh/Ux2A
-         uMjHT6cdy3sxBQojME68rMZquQ2mUbLWKyx6QEX6k1hI4r9TK/oW/05/sLcnMeSVsbZl
-         kaag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785231120; x=1785835920;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cVYEtk0Fsl/xm62f6qIKmBvKUDRO9X4B5IUMFICX51g=;
-        b=d1f+eov+6KLqtGzlzT99jOfS9tqpaSb0ofssh37qcurVMb0fgnnvHO98H34VFBKZx7
-         ZaDBy6zsMOOQBXIcUZkOqt6Oc4Iq7jvZTMZF3BY18Ob7t1I9Q0VfRiGoWmUdWcH1MKg3
-         Wt94l7yuCg5fRyoPpUUgjDXkbIoQvWabcZyMoqUzPOc+wX/zpdoh+uFuxrpElvlskNWj
-         DzQTXtcASvOT2a2d0KA9G3b6baAuzxrlnLFfSqQQr+y9XOtjCNlf/sLhb3849t7TAe6W
-         JpyntEZDOicJTNiajSpHOv2K/kkHYvJQZ5s8CIDZW6Owkhau84E4XJwfZYkwuYFQhdh3
-         MvgQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoBGKvfAk8pnygQCLuLPNFero5uVO8BMMiLZqzevlVN9xjKVEe3MeqgcTgWK5IPEtBWMWGPtvjuajAuQx5ijQfn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhTkGrAE0/+2trLtN6hlzlvjsHWBhw/Xvr3C1REXmH4Zh3Ze3C
-	Bz8i8JWWrTrMLqki44JUD3m+DneJz/J6k3QTPICkf3kJ9k8LVcUFXFW92MgMBM94WfI4HAtb9WW
-	pg2jN
-X-Gm-Gg: AR+sD130mJqjDMwrtJiLgkCaK7bZ8oE3eyXwOiLM95fxf97b13DbuV8XiNOuS66BiTx
-	1MNKTa3GDO+ojH7YvvDHUCPhVTIvJf+krpuUkTRgf7o3XFyW+9WOhZr9zdek58p+xPQXrwles6M
-	xh4SILt7iISMiC0fVhVylIEE895GKLBT7XygwfIE7VOEEU3IPVft3Z5bInrySVYKrOp6rKvxe3h
-	DSQAWs9oEG0pjf9gsDNRqqNa80T8gqOJ3Fd37XVIHDBorhNgYa8D4wjE0HxM7iwpiUB0i7dzzLB
-	EDmEM7QhlxndJye9k1GKaQMzNNPD9m0qtVMZuhU2AaSCKD/2MAwTCN0YwOeh+uqb4nL9lCKYTeb
-	8oIdrGSr+SdHZzuRt0kGcJV3MsHegLmDtUZhR1RVMQ+NsxLbvtIW2d34wpvOceoMQhfkAVR6JI2
-	v/rEj56k6IVQje3vZuuA5lquc=
-X-Received: by 2002:a05:6000:1842:b0:47f:9759:7f0e with SMTP id ffacd0b85a97d-47fb1e5cf35mr1811410f8f.7.1785231119621;
-        Tue, 28 Jul 2026 02:31:59 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85b9a64dsm62389384f8f.1.2026.07.28.02.31.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 02:31:59 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Tue, 28 Jul 2026 11:31:56 +0200
-Subject: [PATCH 1/3] arm64: defconfig: enable the SGM3804 regulator driver
- as module
+	id 1woeMO-00000004rMp-2B8X;
+	Tue, 28 Jul 2026 09:44:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C588743E68;
+	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A0D6DC2BD00;
+	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1785231867;
+	bh=iLjI2xGY7aYfQUrOtg9XNfbu0er6ndeZCUjH8cD+5ss=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=VrbombCeDQLQbu/xDYXuPjk1selgnO31z1YbUPwcR28stYAdmEm+4fXtWzZAeU2Xt
+	 KSftJPay1T44cGD87UQpjz5FLnPKVzDEsT01pLDZ4pbp5dgu1jDdWNQfskGq3e63og
+	 KmwMVlzhYvmpkDJ2+wq4bcjmsJ/sdyx5jgNMttpVzSgGBmh6O65lpRCa8xoppahCri
+	 SBS6FMdxXPi+PuMPQv10VH0ivygR5K/mWztE/24b/HxOLCOToPxsNuu7XDUdPQBaVX
+	 Cjx9CucrF014QhjamN2UALMlodNnIGcUKdm8sZ5hoWFEAd3huJCnZX3b9AsBGO4FSw
+	 oy3h3lX2pVPBw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 813D3C53219;
+	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Tue, 28 Jul 2026 12:42:47 +0300
+Subject: [PATCH 2/3] soc: mediatek: cmdq-helper: add legacy GCE ISA support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260728-topic-sm8650-ayaneo-pocket-s2-defconfigs-v1-1-49e3ac1c8ff4@linaro.org>
-References: <20260728-topic-sm8650-ayaneo-pocket-s2-defconfigs-v1-0-49e3ac1c8ff4@linaro.org>
-In-Reply-To: <20260728-topic-sm8650-ayaneo-pocket-s2-defconfigs-v1-0-49e3ac1c8ff4@linaro.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=721;
- i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=QkAQArlDCgge7Yn3Fw0ePWELfay666Rr/KRC6eTwNLE=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBqaHcMmh2oKYipCU4ePc+D11GXsnRUwgtyYCVmU/b/
- OCElg4qJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCamh3DAAKCRB33NvayMhJ0dkDD/
- 4sSt6rPo/7A67airdzHzVKGinRHGEmtYZs5QoU7mzWLu/Q5SG2IrXvfCJ/41koV15TGMkoRgQzYcbE
- SHWpZoIdPrbA/r0kcPAuj2jkbQOVTOQUixjnLz83G2tHyrTt+ZmirrUoUpgSRtqvAuSTjShZHXVRa/
- PWG2C7pKsDlrI4QCvcJZHpVbeZ/TiFuELBss6dAf5gN7oyYtjRTkM1/Fa2pFlGXJlO8UA0jVHbjA/s
- pyJ/yD/SvydgS5epsfQ3wsuQkZ624uAYxYFGUsLV312v1UpNW1DDyQHka44j77J3px5lWrLJc+iQtf
- SMReyU6ZO9JJcC2Q1mxEH60YwxQZwtji2DGD8JEon+sySVjnFOgltitjmv7x3A6T2+lp+UmyvdbXNR
- 2snUfq/3ODzbcF5/UlYBxDHezDdV7Iy4n8Owz1HB5O6FMkrN77jUXAZ4aQO0Kz9S2x9ZCSBmnKIaPl
- 5C+I50qdLAOEIFoiQBljvlWGG3ch5USJMsy8yK9hQrabbR/zV3YcP9491KGjTE6zVjimCrzFd0wd4v
- uBfHt9tbYU93bbHNjuKHesrZB4RPnfMzWTizfgnXWErKsrncMGfrPULXGht5ybz6ePstj2/MWtaQUw
- Et7ZtCM1t+UVnjle6dx9e4BN5WfdUozMm18dizTLe1w359KXfdoGu0XqtILQ==
-X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
- fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_023203_407000_738E6391 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <20260728-6572-gce-v1-2-750bba32689e@protonmail.com>
+References: <20260728-6572-gce-v1-0-750bba32689e@protonmail.com>
+In-Reply-To: <20260728-6572-gce-v1-0-750bba32689e@protonmail.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Houlong Wei <houlong.wei@mediatek.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785231864; l=3004;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=zZ+T88ouE2HEHrb/+XDv8Cd6G79UZoiQS67bfvvjzg8=;
+ b=d+Cfv4lBlSgH8mHhR9Egf7NQmDNkbdPnCidcXHN2SrHTq2hp/DS8z69fXvHB4FeKpiTDq5Jjq
+ 2o9gl25TkoLAPLvQGia7716wO312VM3cPWmTA/dgRVaX9D1VUMK+Yqv
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,31 +84,129 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the SGM3804 regulator driver as module since it's
-used by the Ayaneo Pocket S2 board as Display voltage regulator.
+From: Roman Vivchar <rva333@protonmail.com>
 
-Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+Some SoCs, such as mt6572, have different WRITE and POLL instruction
+encoding. Instead of 16-bit offset and 8-bit subsystem ID, old GCEs have
+22-bit offset and 2-bit subsystem ID.
+
+Extend cmdq_instruction struct with additional union and struct to hold
+the legacy format of instruction encoding. Add legacy_isa to select
+legacy GCE ISA when writing instruction. Finally, add special handing
+for legacy_isa cases.
+
+While mt6572 GCE supports 22-bit offsets, the parameter type for offset
+remains 16 bit, because all mt6572 GCE mmsys consumers are in the 0xffff
+range.
+
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/soc/mediatek/mtk-cmdq-helper.c   | 55 ++++++++++++++++++++++----------
+ include/linux/mailbox/mtk-cmdq-mailbox.h |  1 +
+ 2 files changed, 39 insertions(+), 17 deletions(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 6ec8d3a69c98..97a51c238f55 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -895,6 +895,7 @@ CONFIG_REGULATOR_QCOM_USB_VBUS=m
- CONFIG_REGULATOR_RAA215300=y
- CONFIG_REGULATOR_RK808=y
- CONFIG_REGULATOR_S2MPS11=y
-+CONFIG_REGULATOR_SGM3804=y
- CONFIG_REGULATOR_TPS65132=m
- CONFIG_REGULATOR_TPS65219=y
- CONFIG_REGULATOR_VCTRL=m
+diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
+index f8ee6c9ade89..094732405080 100644
+--- a/drivers/soc/mediatek/mtk-cmdq-helper.c
++++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
+@@ -31,18 +31,27 @@ struct cmdq_instruction {
+ 		};
+ 	};
+ 	union {
+-		u16 offset;
+-		u16 event;
+-		u16 reg_dst;
+-	};
+-	union {
+-		u8 subsys;
+ 		struct {
+-			u8 sop:5;
+-			u8 arg_c_t:1;
+-			u8 src_t:1;
+-			u8 dst_t:1;
+-		};
++			union {
++				u16 offset;
++				u16 event;
++				u16 reg_dst;
++			};
++			union {
++				u8 subsys;
++				struct {
++					u8 sop:5;
++					u8 arg_c_t:1;
++					u8 src_t:1;
++					u8 dst_t:1;
++				};
++			};
++		} __packed;
++
++		struct {
++			u32 offset_legacy:22;
++			u32 subsys_legacy:2;
++		} __packed;
+ 	};
+ 	u8 op;
+ };
+@@ -219,10 +228,16 @@ int cmdq_pkt_write(struct cmdq_pkt *pkt, u8 subsys, u16 offset, u32 value)
+ {
+ 	struct cmdq_instruction inst = {
+ 		.op = CMDQ_CODE_WRITE,
+-		.value = value,
+-		.offset = offset,
+-		.subsys = subsys
++		.value = value
+ 	};
++
++	if (pkt->priv.legacy_isa) {
++		inst.offset_legacy = offset;
++		inst.subsys_legacy = subsys;
++	} else {
++		inst.offset = offset;
++		inst.subsys = subsys;
++	}
+ 	return cmdq_pkt_append_command(pkt, inst);
+ }
+ EXPORT_SYMBOL(cmdq_pkt_write);
+@@ -459,10 +474,16 @@ int cmdq_pkt_poll(struct cmdq_pkt *pkt, u8 subsys,
+ {
+ 	struct cmdq_instruction inst = {
+ 		.op = CMDQ_CODE_POLL,
+-		.value = value,
+-		.offset = offset,
+-		.subsys = subsys
++		.value = value
+ 	};
++
++	if (pkt->priv.legacy_isa) {
++		inst.offset_legacy = offset;
++		inst.subsys_legacy = subsys;
++	} else {
++		inst.offset = offset;
++		inst.subsys = subsys;
++	}
+ 	return cmdq_pkt_append_command(pkt, inst);
+ }
+ EXPORT_SYMBOL(cmdq_pkt_poll);
+diff --git a/include/linux/mailbox/mtk-cmdq-mailbox.h b/include/linux/mailbox/mtk-cmdq-mailbox.h
+index 07c1bfbdb8c4..9fcebc4ca864 100644
+--- a/include/linux/mailbox/mtk-cmdq-mailbox.h
++++ b/include/linux/mailbox/mtk-cmdq-mailbox.h
+@@ -72,6 +72,7 @@ struct cmdq_cb_data {
+ 
+ struct cmdq_mbox_priv {
+ 	u8 shift_pa;
++	bool legacy_isa;
+ 	dma_addr_t mminfra_offset;
+ };
+ 
 
 -- 
-2.34.1
+2.54.0
+
 
 
