@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4149C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B6BC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hv2EqRru8gsr8quHPDRzgpJBkeR+4eP5RVLYwkzn1/8=; b=34au3RsvJTOR7W+odIgYzx9q9e
-	ATGABEt9Rnh71arpVlguAwyXyPILTNkZwk1SyETGjrBKpWSPvFZboNWbSZ1dLZ/4K/HaS82tQeaOu
-	vhyUbWZDc8AvrWNBmmbCDBbQnAQXJvIsxgWvEK9Mj8vxnlEIhHaJjHiZntIYly8HkQ/ky7fCI5l8S
-	9gNepf8Cfcxz5qzse0g2IHzGi2GvP7CuD9slgs3xW+P5DLLmpOhrowBbTIbqy1jNd2KgJ8z0/Swoj
-	e9tUw9kEOFUsqZaLBxiVc8opUISNEoiqimNE97WoHvHbcTXHWvPvM2yoph9S3sBxmE81DQt79qLLR
-	+wR2chXQ==;
+	bh=tnqhiVTVPifAUYWtiZycC/ZSPcXsJoWNBQ104HXxAMQ=; b=j46lLla7YbxsQMz5jtNBFYgSF5
+	HTwbB6tiVaJ0xOQsDVcbnFvGz3yoVuvTzkxg6PbbLGmfEvfuQyHTEcg/7T+Eu6ZurB4h4082NokzT
+	ym/BVhGwDZxfMdVZw0fUlMYEAIalm6Uny1aQgDgCansVfsZShA5FhiFX+nkMNaFb3MZ3UfdUCK9cZ
+	1bZFJHyfjhdJ35Ne0UZvB6MERSbzIb8Lp15YIUi15S0lsZRgeCyMvqW5etNERveYSxgwMQ6vm+Dr5
+	bVS8lCXJmlX8ImU4JMCGtyLYeeAWHm7yJ9z2GAecWEBd6VTmF9qp34tR/U33A0Vy6wdYjNiriaUpM
+	H3Z28gbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woe76-00000004ost-0eHS;
+	id 1woe76-00000004otC-1dDM;
 	Tue, 28 Jul 2026 09:28:40 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woe6q-00000004ol4-1zy5
+	id 1woe6q-00000004ol3-1xBO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 09:28:25 +0000
-Received: by chaosmail.tech (Postfix) id C20341CA4B5;
+	Tue, 28 Jul 2026 09:28:26 +0000
+Received: by chaosmail.tech (Postfix) id 0C6E11CA4B2;
 	Tue, 28 Jul 2026 09:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1785230901;
+	s=mail; t=1785230900;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Hv2EqRru8gsr8quHPDRzgpJBkeR+4eP5RVLYwkzn1/8=;
-	b=gd+d7JXL+1E4NS5E2m/5spYopPlms9vzm8J0AR77NfQbBuwNX4cvFywz+w/cR8sy5tQLKO
-	0+Pw7UQPAgYrD4MUlyDTvfKp1vibxml7J/+CJZsE/N10FS/BLNItJccDg+aRD0fK3E2L87
-	ULw4BfV/Li2dhyy3sBKBty7fq4oiGh4=
+	bh=tnqhiVTVPifAUYWtiZycC/ZSPcXsJoWNBQ104HXxAMQ=;
+	b=sidVafEGZDy150GlCHevn2Y+jXwdmz2G2ZLbFQbFH+4D/sQ0zrtfsi+thcndLdnAU2iJt0
+	qgjsEB0cDMoP75NGHQzBBMNnFnLRCjOZovc6AH5CUVx4nH1zAHDPvaRDsbzsPhZ4EESubP
+	GAdhCWcmf4z/kcQj8p3qw7auRM0p9k0=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Tue, 28 Jul 2026 11:28:12 +0200
-Subject: [PATCH v2 6/7] spmi: apple: use IRQ for RX FIFO if possible
+Date: Tue, 28 Jul 2026 11:28:11 +0200
+Subject: [PATCH v2 5/7] spmi: apple: lock around FIFOs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260728-t603x-spmi-v2-6-f43e5f10e583@chaosmail.tech>
+Message-Id: <20260728-t603x-spmi-v2-5-f43e5f10e583@chaosmail.tech>
 References: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
 In-Reply-To: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -55,16 +55,16 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785230896; l=5054;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785230896; l=2563;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=X6mvWszaXQokP048a15MW5eztdRhB9OWYPy6+5cHW5Q=;
- b=gTJBQd/e7tygM7NDXeU7Y6MmoMwRYzoS7+5f6e+D6bvFgctCMVbagTm4IqVfDggfh8Dg2jKgG
- 0cTUh68Z8zrC3z7I/M/OizHAgPPYyykaBYb6zt+eGhh7a8Y6if3Ijp8
+ bh=HIGPdSOyNoSvcvIlT48bLiPi1O7LBdmNtnBM38tbtWk=;
+ b=RNPNjndqIZhH/rNXJBspeVICwnnLlnxbVOi8lpZU00YvbGLJcsJH41PIhRA8yaXG2GudGQW8U
+ ubNmbAsUBVMDqphYzhF3vLq+V5ZeYcTKEYwuFKWHGWixrykH6xK3eun
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_022824_720763_CA242610 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260728_022824_698245_968ABDA2 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,173 +81,90 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alba Mendez <me@alba.sh>
 
-The IRQ fires as soon as the reply is available, which is usually takes
-a few us instead of the 10ms sleep interval for polling
+The driver was missing locking around register interactions
 
 Signed-off-by: Alba Mendez <me@alba.sh>
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/spmi/spmi-apple-controller.c | 94 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 93 insertions(+), 1 deletion(-)
+ drivers/spmi/spmi-apple-controller.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index 2cd4ed1803d4..109c5d2c735d 100644
+index aed18b7df15c..2cd4ed1803d4 100644
 --- a/drivers/spmi/spmi-apple-controller.c
 +++ b/drivers/spmi/spmi-apple-controller.c
-@@ -11,6 +11,8 @@
-  *		spmi-pmic-arb.c Copyright (c) 2021, The Linux Foundation.
-  */
- 
-+#include <linux/completion.h>
-+#include <linux/interrupt.h>
+@@ -14,6 +14,7 @@
  #include <linux/io.h>
  #include <linux/iopoll.h>
  #include <linux/module.h>
-@@ -23,6 +25,12 @@
- #define SPMI_CMD_REG 0x4
- #define SPMI_RSP_REG 0x8
++#include <linux/mutex.h>
+ #include <linux/platform_device.h>
+ #include <linux/spmi.h>
  
-+#define SPMI_IRQ_MASK_BASE 0x20
-+#define SPMI_IRQ_ACK_BASE 0x60
-+#define SPMI_IRQ_USER_SIZE 0x20
-+
-+#define SPMI_IRQ_FIFO_RX 0
-+
- /* SPMI_RSP_REG reply word */
- #define SPMI_REPLY_FRAME_PARITY_OFFSET 16
- #define SPMI_REPLY_ACK BIT(15)
-@@ -37,6 +45,8 @@
+@@ -35,6 +36,7 @@
+ 
  struct apple_spmi {
  	void __iomem *regs;
- 	struct mutex fifo_lock;
-+	bool fifo_rx_irq;
-+	struct completion fifo_rx;
++	struct mutex fifo_lock;
  };
  
  #define poll_reg(spmi, reg, val, cond) \
-@@ -55,7 +65,19 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
+@@ -73,6 +75,8 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	size_t i = 0, j;
  	int ret;
- 	u32 status;
  
--	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-+	if (spmi->fifo_rx_irq) {
-+		ret = wait_for_completion_timeout(&spmi->fifo_rx,
-+			usecs_to_jiffies(REG_POLL_TIMEOUT_US));
-+		if (!ret)
-+			ret = -ETIMEDOUT;
-+		else if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)
-+			ret = -EIO;
-+		else
-+			ret = 0;
-+	} else {
-+		ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-+	}
-+
- 	if (ret) {
- 		dev_err(&ctrl->dev,
- 			"failed to wait for RX FIFO not empty\n");
-@@ -77,6 +99,8 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 
- 	mutex_lock(&spmi->fifo_lock);
- 
-+	reinit_completion(&spmi->fifo_rx);
++	mutex_lock(&spmi->fifo_lock);
 +
  	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
  
  	while (i < len) {
-@@ -181,10 +205,68 @@ static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
- 	return -EINVAL;
+@@ -86,7 +90,7 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 
+ 	ret = apple_spmi_wait_rx_not_empty(ctrl);
+ 	if (ret)
+-		return ret;
++		goto out;
+ 
+ 	reply = readl(spmi->regs + SPMI_RSP_REG);
+ 
+@@ -94,7 +98,8 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	while (len_read < ilen) {
+ 		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
+ 			dev_err(&ctrl->dev, "FIFO lacks reply data, controller stuck?\n");
+-			return -EIO;
++			ret = -EIO;
++			goto out;
+ 		}
+ 		rsp = readl(spmi->regs + SPMI_RSP_REG);
+ 		i = 0;
+@@ -107,6 +112,8 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
+ 		dev_warn(&ctrl->dev, "FIFO has extra data\n");
+ 
++	mutex_unlock(&spmi->fifo_lock);
++
+ 	if (!ilen && !(reply & SPMI_REPLY_ACK)) {
+ 		dev_err(&ctrl->dev, "command not acknowledged\n");
+ 		return -EIO;
+@@ -116,6 +123,10 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 		return -EIO;
+ 	}
+ 	return 0;
++
++out:
++	mutex_unlock(&spmi->fifo_lock);
++	return ret;
  }
  
-+static void apple_spmi_irq_ack_raw(struct apple_spmi *spmi, u32 irq)
-+{
-+	u32 __iomem *reg = spmi->regs + SPMI_IRQ_ACK_BASE + (irq / 32) * 4;
-+
-+	writel(BIT(irq % 32), reg);
-+}
-+
-+static void apple_spmi_irq_mask_raw(struct apple_spmi *spmi, u32 irq)
-+{
-+	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
-+
-+	writel(readl(reg) & ~BIT(irq % 32), reg);
-+}
-+
-+static void apple_spmi_irq_unmask_raw(struct apple_spmi *spmi, u32 irq)
-+{
-+	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
-+
-+	writel(readl(reg) | BIT(irq % 32), reg);
-+}
-+
-+static irqreturn_t apple_spmi_irq_handler(int irq, void *dev_id)
-+{
-+	struct apple_spmi *spmi = dev_id;
-+	bool handled = false;
-+	u32 val;
-+
-+	val = readl(spmi->regs + SPMI_IRQ_ACK_BASE + SPMI_IRQ_USER_SIZE);
-+	if (val & BIT(SPMI_IRQ_FIFO_RX)) {
-+		apple_spmi_irq_ack_raw(spmi, SPMI_IRQ_USER_SIZE * 8 + SPMI_IRQ_FIFO_RX);
-+		complete(&spmi->fifo_rx);
-+		handled = true;
-+	}
-+
-+	return handled ? IRQ_HANDLED : IRQ_NONE;
-+}
-+
-+static int apple_spmi_init_irq(struct platform_device *pdev,
-+			  struct apple_spmi *spmi, int irq)
-+{
-+	int ret;
-+
-+	for (size_t offset = 0; offset < SPMI_IRQ_USER_SIZE + 4; offset += 4) {
-+		writel(0, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
-+		writel(U32_MAX, spmi->regs + SPMI_IRQ_ACK_BASE + offset);
-+	}
-+
-+	spmi->fifo_rx_irq = true;
-+	apple_spmi_irq_unmask_raw(spmi, SPMI_IRQ_USER_SIZE * 8 + SPMI_IRQ_FIFO_RX);
-+
-+	ret = devm_request_any_context_irq(&pdev->dev, irq, apple_spmi_irq_handler, 0, NULL, spmi);
-+	if (ret < 0)
-+		return dev_err_probe(&pdev->dev, ret, "failed to request IRQ\n");
-+
-+	return 0;
-+}
-+
- static int apple_spmi_probe(struct platform_device *pdev)
- {
- 	struct apple_spmi *spmi;
- 	struct spmi_controller *ctrl;
-+	int irq;
- 	int ret;
- 
- 	ctrl = devm_spmi_controller_alloc(&pdev->dev, sizeof(*spmi));
-@@ -193,6 +275,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
+ /* Send a raw command with 1..16 input data frames */
+@@ -181,6 +192,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
  
  	spmi = spmi_controller_get_drvdata(ctrl);
- 	mutex_init(&spmi->fifo_lock);
-+	init_completion(&spmi->fifo_rx);
++	mutex_init(&spmi->fifo_lock);
  
  	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
  	if (IS_ERR(spmi->regs))
-@@ -204,6 +287,15 @@ static int apple_spmi_probe(struct platform_device *pdev)
- 	ctrl->write_cmd = spmi_write_cmd;
- 	ctrl->cmd = spmi_cmd;
- 
-+	irq = platform_get_irq_optional(pdev, 0);
-+	if (irq < 0 && irq != -ENXIO)
-+		return irq;
-+	if (irq >= 0) {
-+		ret = apple_spmi_init_irq(pdev, spmi, irq);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
 
 -- 
 2.55.0
