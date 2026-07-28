@@ -4,82 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5B3C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22498C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYcm+1VQADQZhDXtTAnvGLMsxjZQq4SUgqmssOerQ3o=; b=HfQcACSieC7eZF4oKayZ1vDolB
-	0hKb8wbqyB9UKTh2ky6W4EUZ937CNnlTMKmBASZ7aaU3yqknPuHBHDgJ78i2WbVWQ5eOVxM/IhDjP
-	oXQJXQ4DHmfwBoAiCgxfLmkTXHG+h29Ewhpy7mwBEsrKkn9CTGl7rL4eJAffc5VWZtrT5pTFQZKJz
-	b3IjU+2/okngO0zDzO/3TOENPNWGREDOx8KPuZnboJmClKao75Xn+2XpgB+odKSrIkcg7Xq68KeJo
-	/Q/OpqF1dAS5EWH+SFyArv1Bc+TBD7u/kFju7myFTorIxCq/PfB7uRWWOOJSNfiu4xnFnATAQlzDF
-	3no68+eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c5fc7ww9/HSIAlazJaxeZxfMvt8Px9TwkVtADywhlKI=; b=GdINDKbOc6Qlv3
+	v0dds8MH47HAbkSsD8+B+17mKHtlKUBBQ65SrV8DpbozH9SWVprnGuFe2ZHqzaqkIG0V/5Cqtu3OK
+	GApLQDgFZO4kdJNcjsPeh/M9MQwkSRcsMm9WSlOsiivjhaaRLJjaRnLT3j3pGv2eS7ZFWT0zj6//c
+	kVBHcmTMDkNHxQKjXyY8Du3YuHcXo3ldX2JVtilfQxaaicenNr/IfSzuYRqh+vMoAVsy+UBLzVnFz
+	qyHTf+IacHCUmWvlupxxJ4BfuLV6MZfb/6TQABG+vTTAxJy38RE9Dh8cDIPd0xTRPIqEwvZPjEWHl
+	rlxKf9DUuz25PM5xQbLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiRk-00000005QS1-3GTR;
-	Tue, 28 Jul 2026 14:06:16 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1woiT4-00000005Qdk-0SwZ;
+	Tue, 28 Jul 2026 14:07:38 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiRi-00000005QRZ-25CL;
-	Tue, 28 Jul 2026 14:06:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785247558; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=dfZh9uh3PCaWM3hn6M8DhfkjkO7SCcBlPMELKyMXzyFEafD/3tCT3V2HOBT8dUFAVdtJxWUOYQv4VppSjfuBA6bcOLjzuFzDoEz8EIK5Y2+dnICrF7VG62img1bf7Dtyoj5EnRYWydL9hRHnlQmfOnqVpVq+VkD/tbiYcUxLTlI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785247558; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CYcm+1VQADQZhDXtTAnvGLMsxjZQq4SUgqmssOerQ3o=; 
-	b=YEvKGJrYDx9/hvYPsVrozecQ6UOghDtNyQBZAfjkTqPuf63mBjkcPH+xXj/SDMOktCjPmbICK7llznKYy0Qwp2revjxNeOlvqTtnYy6Zn/rBE1n1jAekdSPAXOciflETpcySnBrc8YNTGq8jL9AookgN8NRGkg8btNlzqFKVBOk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785247558;
-	s=zmail2048; d=rong.moe; i=i@rong.moe;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:In-Reply-To:Content-Type:Content-Transfer-Encoding:Date:Date:MIME-Version:Message-Id:Reply-To;
-	bh=CYcm+1VQADQZhDXtTAnvGLMsxjZQq4SUgqmssOerQ3o=;
-	b=EVa2oQl8qfYys8CT9skQgryD0rLF6+1ArtJUiuFnGg7Dmy/4pQ3DXw3VnE9QAcIX
-	O7Gai3+oOsDLi+fVcs3ecTsWVUDjQ8ifiP1XFeojLkuMEwfmY2aE4BR8VqzcylI/z8y
-	Y2xfE9zT0Qz7mFBhMxRRGlgrkSxMXiGoqpoKXmaW0A8U7xHgD+w5ynMkiPAFK8vCyT/
-	8X1OOCs+QUr2AbF8VUCUEBAPaXXp1JPHApIyFWh14+L6wFF27hAqbQCosBWboOBz1jo
-	bN0Fi55I3JejmKq5L7FpP4uNDFoKa4J2Notw1LrSLvVFcKlbuUJD9oKTaWyuz9lKpIX
-	Y9hJroEPIw==
-Received: by mx.zohomail.com with SMTPS id 1785247556029509.12114283912604;
-	Tue, 28 Jul 2026 07:05:56 -0700 (PDT)
-Message-ID: <133c4858657c55b31affd4bff1cbd68f812de5e1.camel@rong.moe>
-Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
- MT7922/MT7925 on Ryzen platform
-From: Rong Zhang <i@rong.moe>
-To: Rafael Passos <rafael@rcpassos.me>, Marcel Holtmann
- <marcel@holtmann.org>,  Luiz Augusto von Dentz	 <luiz.dentz@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>
-Cc: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, Chris Lu
- =?Big5?Q?=28=B3=B0=B8X=AAl=29?=
-	 <Chris.Lu@mediatek.com>, Will-CY Lee =?Big5?Q?=28=A7=F5=ACF=BFo=29?=
-	 <Will-CY.Lee@mediatek.com>, SS Wu =?Big5?Q?=28=A7=C5=BE=CB=AAY=29?=
-	 <ss.wu@mediatek.com>, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-In-Reply-To: <DKA8F33O8HID.2UV2DWTLE6S48@rcpassos.me>
-References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
-	 <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
-	 <79D5F3E6-8F40-4422-BB2D-16691E377394@rong.moe>
-	 <DJRP3YO7Y0WK.20KNRZIMX1CYK@rcpassos.me>
-	 <F16A2A9A-A43F-45FE-8CC0-44A129360D47@rong.moe>
-	 <DKA8F33O8HID.2UV2DWTLE6S48@rcpassos.me>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 28 Jul 2026 22:00:48 +0800
+	id 1woiT1-00000005Qcx-1ptB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 14:07:36 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66SDPLwO2898719
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:07:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=c5fc7ww9/HSIAlazJaxeZx
+	fMvt8Px9TwkVtADywhlKI=; b=MXt5Cj+z6FZRE+LpyaUzwfxitW/j0LjVYyxKs4
+	DDqMKo1zwSgiH50T2yVEfn4SGoIHMoxjITNCxiREmOyy/UcARh7500fpbF5Wa1/H
+	4pBb1LLK9zY0BIHYT3Z+XRWMgqGSv0kF0deFZhKITBkBXbmgCdJGIxKM8e5yAyE8
+	/3AtAgTA/r7TVldQlIFwpWmPvr/sxpNT2oh6g1UYW27kK5WOrxq2AAWgaIdkMtp5
+	BPDA0VzebnbQ3g+rubBepsc6Udx7UKGjo4nE8eBv/iiRBpLN7GBOSenAbM2nm5Sm
+	k5E4MoMis0lq7S2URTUmY+7RMOUuMQa2nYbueyOkqlTmuLdA==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fpn19jdc3-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:07:33 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5bfabbb06f6so462425e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 07:07:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785247653; x=1785852453; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=c5fc7ww9/HSIAlazJaxeZxfMvt8Px9TwkVtADywhlKI=;
+        b=D4/tpTTsjbygWBXqEwnfNtFs96p7vUq53+fQo0TKQ4qk48cAd7HguZGMThlal31FmS
+         m9F/3IvksELRSAuxunGEnIZxxvSLNLSmgIdSMktECgxrRrbwZiO8wwQg7mIHpYamXH5I
+         YYaBnztgM2qayUBn3Ecb+JW4VfOgJ6hk3isxBSIa5UtvpO6fZwEdOQAHw6hdwTVlb1Fu
+         OalQXogg8ZtZEW6mWrvydfdD//HuMMvV+DI3pg6ynEhOSmwE7MAHWssK8PciaaY47bNY
+         +vulSCGUDEdQBVrmnkPLdQgCdZy9C6QirJyoBIAfCOdAZuvs7v3dd823pYhJ7Sneh1hd
+         gl0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785247653; x=1785852453;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=c5fc7ww9/HSIAlazJaxeZxfMvt8Px9TwkVtADywhlKI=;
+        b=q8tHPibR/cpoqik4OGrcRCtKic8Et5w/BB8lho3B7/j2tWAN3/kCVdm9kzyG5mhdWz
+         Ru4/t7h8npGUPwJswWm16VH8PPDJJdT+lZBztQ3B5+Q/679+jNodfB0zMA0l+lrsfmFU
+         kjMZ+pH9tHfT8oHeeWnY1zLJoVLflWBd8XoI1gMNkW63CVXV/Qy1JYiGqQmrSzb6r6jR
+         i2KsegzNUmQiFIjE4YUKdZYk9eLbbUgoz9cdoLYuPdapPtF15DbR+p2LEpf8ODSw92fC
+         ZRPYSnUlugVTxE5mMXnwZIyTXb+972ZweM4WQ5z2rmNhRF4vD4QwwHKw4gfBI5MZYjbN
+         8L8w==
+X-Forwarded-Encrypted: i=1; AHgh+RqFewkRJfxbPX9770G3J7r1B0mP6bgd7YInFPOlGofLXPRKoZGbQsaY6elq7yExZ1+WNYtQhxEFpQgqCnYeEby9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSwSVt/Fkpe2+T2BBh8YWw9rQ6DsJLlSLvp88jii0hlZjw3ywK
+	Bv6hOx/TDebHwTh+876Z3ZU6EvzEW9gY9bfX6GvwQiT9KbUOx/7uhJ7A7thzOl502wu5MjgbBcG
+	q8auPsniXxrypTgucMFI0ye+upJPOeuTIlpjkwoGHeqgv0yA1pRx3R+91RS6cz1KSnB+yXHqVma
+	d85H90B+0C7w==
+X-Gm-Gg: AR+sD10ZFwJk9EF9IKvwvAUa43f/XhGTsZrdemhkBV6IuErDoNdFSwhCZxFqRjF1Kap
+	XDsjSjR+Ciss8V4XjjswLh8vAl4EIDdNjO7vHl2mkhiin4AQMUmS2VglwA/pbScLF+CxE8j7Q0b
+	aE4M9p/HV/X7tWfXvnTUTeu8SEN0/V5eN3kH5QBwWJ/gePVVntgAJdOAchMLQJ4iGTFPG2/nIK3
+	yLKzvgy10S+oykByG7SiwqnTDbAfu1Y+WDcB7/Mme475yDG++4SdPw6feF2eFKRCKGJHzX6c+14
+	X5bhzqpj+smoya8aX7kit9/4+xt8gX9BQIMm3Euns/S/y5ON38tfBEWKFaPMOQ4GEfOqMG+ThR6
+	zfwsKkoMpc85QxxunNQ+7g+IyJlMLJQ==
+X-Received: by 2002:a05:6122:1690:b0:5bf:b500:c4f4 with SMTP id 71dfb90a1353d-5c33f87ed39mr1032840e0c.2.1785247653269;
+        Tue, 28 Jul 2026 07:07:33 -0700 (PDT)
+X-Received: by 2002:a05:6122:1690:b0:5bf:b500:c4f4 with SMTP id 71dfb90a1353d-5c33f87ed39mr1032759e0c.2.1785247652689;
+        Tue, 28 Jul 2026 07:07:32 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:d2e3:b407:476e:c977])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496c44a9451sm91612285e9.1.2026.07.28.07.07.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 07:07:31 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH 0/2] ACPI: arm64: use platform_device_set_fwnode()
+Date: Tue, 28 Jul 2026 16:07:15 +0200
+Message-Id: <20260728-acpi-arm64-pdev-set-fwnode-v1-0-b5aff9b2235a@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2-10 
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJS3aGoC/x3MSwqAIBAA0KvErBvQoR9dJVqIjjWLTDQqiO6et
+ Hyb90DmJJxhrB5IfEqWPRTougK7mrAwiisGUtSpngY0NgqatHUNRscnZj7QX2F3jNq1ylNjWqs
+ JShATe7n/fJrf9wN6ipR6bAAAAA==
+X-Change-ID: 20260728-acpi-arm64-pdev-set-fwnode-1d50f24a5c12
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Hanjun Guo <guohanjun@huawei.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+        Len Brown <lenb@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: brgl@kernel.org, linux-acpi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1068;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=X9iWrt01a0N1nePUzdckSKX+wCmzxqLgNdh/jIQjCXY=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqaLecgpRoz1EVR/xySHZvL4LJ8+fldkg2iAUqX
+ g/9ZYu95TqJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCami3nAAKCRAFnS7L/zaE
+ wweXEACiogBZUO0KpBOSfIVdcyTPkEdhiBpe49Zv7WSZD8fXBpUd2iQe2gmYKXNBg5WLgmeY8lz
+ hPf49ne0+GnnWfQX9efdQipHEGxL+RHRsilxP2eKijGNWDOs/55mm3F1PHzC626krpgbc/cw/7D
+ daEiOJX1RKDBQu1P4BYNkhN5OwPgryUTJo65GY66RTSMENj/tBPEZeZRUpLubEEComzsc+BFJ7m
+ dknDTi5kdBsB99ujnsiLXHTBGDUeMmeGQvmswGrl4AnEeYpHawsIbkckVwtOu90ucw00bNbyxoL
+ zkw5KPH5RGjxVDOK9ibZEVm1gUIlWVYft8ejf+LxEC1lJu+eA8tdPEFKtVY9YsRFdmQy1L5sbog
+ 3UhYfJSCYhPHdYmewR1x5JeN26g3DK25JcQeJK0/Bgy24jNZmQgKiPFx/n/82G0U4xaDwY5ASTq
+ HvZ+V5jbZghkXhGMg3EBgQ/ZmCaiK1Ik1+B0fdhva90uavQZgiVbUPdA8Mj49SLIykrfIfUs45j
+ MZoaEVlUCIMaS8c8VT7YizUI+unlgGeYd4Z67thOw7xtI7Wt67HcCy91KBs+wP5X5ViPRk+syxW
+ ZDRYo16U90LTnX/H03lVUmiM2KfJb2zwpJhEinSoVHLE2E9Et9A1t0tsup4zEULduLCf9pFnqmx
+ c8gD0HVkcR+BWfA==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Authority-Analysis: v=2.4 cv=TJV1jVla c=1 sm=1 tr=0 ts=6a68b7a5 cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
+ a=js6g1tapueaBODJy6MUA:9 a=QEXdDO2ut3YA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI4MDEyNSBTYWx0ZWRfXwpEJJqSOt15C
+ qbJusTtlYWRceGuabkHSfPakEhblanCRdIjKgUTgESpP4eG5A+kEFNxu6MJ8Eo94DMWsxtayveH
+ MXfFKfP71Pij8kVnUmZ/2ndon2FbZhjjQwLGWapscHgFBd6BCcsGDyJFGiAQRa4nKKzJB585R8u
+ xg6gBW+SahZP0Ln007q+H9GYO4Kjkz/61xZho+PEemPwHWWmMOj2v/TspTm/zOFQuAUB3FNkE2W
+ qG4Nzv0ciUUnl3rTT8VGxRRaDblJd52wuHtp7iCq5A/pF+mYbeOKe6yGiXTMPNt2/2OyVxG9pSr
+ WuwUqflTeWHDhIHwVcKkuMsjYtu35eyPzaqxMhOPYYXodMxGVztFmKKpLpBV1YkF7VPz/cKT6hK
+ 2nf78axz93/TifcQtHmHGJHmMzEFZZVExeaqkQJQztV/0PHgWCs1Htbly5oI4W5Z9YZhrw3AK6E
+ RdF5oJrIPr8vlqXbKyQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI4MDEyNSBTYWx0ZWRfX3wTW/FZWk2SA
+ x1ELy2avGHbu617XgzI5/T+O62AbmRVSEp9Q9cei0E2NMfvSOYdo3HVMnoBt81NMdZZAt1g/m1M
+ PjXQS5Wtu4GgRejqQKuGejjNMtPV9Io=
+X-Proofpoint-GUID: O4pE63hVoSzwAgNYory4kC2zqvqL-rRE
+X-Proofpoint-ORIG-GUID: O4pE63hVoSzwAgNYory4kC2zqvqL-rRE
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-28_03,2026-07-28_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
+ spamscore=0 impostorscore=0 bulkscore=0 phishscore=0 clxscore=1015
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607280125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_070614_574380_1E5B2E09 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20260728_070735_598340_7CDD2287 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,99 +171,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rafael,
+Note: This must go through the driver core tree where the prerequisite
+commit 8877c06885ce ("driver core: platform: provide
+platform_device_set_fwnode()") lives before the upcoming merge window!
 
-On Tue, 2026-07-28 at 10:17 -0300, Rafael Passos wrote:
-> Hi again,
->=20
-> On Mon Jul 6, 2026 at 4:39 PM -03, Rong Zhang wrote:
-> > Hi Rafael,
-> >=20
-> > Hmm, interesting. My speculation is that it doesn't matter which option=
-s are changed, but some changed options cause the BIOS to reinitialize some=
-thing. Does resetting the BIOS settings to default help?
->=20
-> I was unable to trigger the same issue again. It has been working fine
-> (even when running without your patch). I believe the reset with bios
-> config changes fixed it for good.
+A series of recent changes in platform device code provided the
+platform_device_set_fwnode() helper but later changes converted all its
+users to different APIs. The function however should be used whenever a
+dynamically allocated platform device gets a firmware node assigned so
+use it in two such cases in ACPI arm64 drivers.
 
-Oh, that's really good news. Cheers!
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+Bartosz Golaszewski (2):
+      ACPI/APMT: use platform_device_set_fwnode()
+      ACPI/IORT: use platform_device_set_fwnode()
 
->=20
->=20
-> > Could you provide more details about your device's USB and PCI topology=
-? Does the NIC's USB connect to one of the USB root hubs of the SoC (i.e., =
-CPU) or the chipset?
->=20
-> I believe its a hub connected to the chipset.
->=20
-> /:  Bus 001.Port 001: Dev 001, Class=3Droot_hub, Driver=3Dxhci_hcd/12p, 4=
-80M
->     | ...
->     |__ Port 008: Dev 004, If 0, Class=3DWireless, Driver=3Dbtusb, 480M
->=20
-> In the block diagram on the manual [1], Key "E" Wifi is tied
-> to the AMD PROM21 CHipset.
+ drivers/acpi/arm64/apmt.c | 2 +-
+ drivers/acpi/arm64/iort.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+---
+base-commit: 0d33d21e47d9dc66f91e44da3fc9220c74d93df7
+change-id: 20260728-acpi-arm64-pdev-set-fwnode-1d50f24a5c12
 
-Yes, and no.
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-The block diagram indicates that the NIC card's PCIe interface (note the
-"x1") is connected to the chipset, without any mention of its USB
-interface.
-
-Based on the bus number (001), it's more likely a root hub of the SoC
-instead of the chipset.
-
-You can check the root hub's PCI path with
-
-   realpath /sys/bus/usb/devices/usb1
-
-Then you can cross-check with the PCI topology, i.e., `lspci -tnnnvvv'.
-
->=20
->=20
-> > And I guess your device runs into the issue without any precursor? Once=
- boot, try running the script below to capture more clues into dmesg, and w=
-ait for the issue to appear.
-> >=20
-> >     #!/bin/sh
-> >=20
-> >     ddcmd()
-> >     {
-> >         echo "$*" | sudo tee /proc/dynamic_debug/control;
-> >     }
-> >=20
-> >     ddcmd file drivers/usb/core/hub.c +p
-> >     ddcmd file drivers/usb/core/driver.c +p
-> >     ddcmd func handle_tx_event +p
->=20
-> Thanks for the script! I'm learning a bit with it!
->=20
-> > I would do the below experiments if I had a buggy device like that. Som=
-e extra hardware is required though.
-> >=20
-> > Connect another NIC (w/ Bluetooth interface) to the same M.2 port after=
- triggering the enumeration failure, and see if the enumeration failure per=
-sists.
->=20
-> It is integrated (soldered) to my motherboard.
-
-Huh? How can an M.2 "Key E WiFi" expansion card being soldered to a
-"vertical M.2 socket"?
-
-AFAIK, once the metal shield(s) are unscrewed, it should be replaceable,
-see
-https://www.techpowerup.com/review/asrock-b850-steel-legend-wi-fi/4.html
-
-But it doesn't matter anyway since the issue has gone ;-)
-
-Thanks,
-Rong
-
->=20
-> [1] page 10 https://download.asrock.com/Manual/B850M%20Steel%20Legend%20W=
-iFi.pdf
->=20
-> Thanks,
-> Rafael Passos
 
