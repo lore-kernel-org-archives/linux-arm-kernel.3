@@ -4,111 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BCEC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAC9C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4CcJVu2HdCBodSbf+UYAAHPLgckCVCAk6z1RWhwvCPA=; b=RbNhdjseNVw4HHhqVbxDPbjB5f
-	B/Gsq/7zAVEXOhoiPjcAfkQE88JsVoPo/YOBIOZ5mXcA6Xd0PSQRsF4GuHcqExa4dkAdpjjqeiLvq
-	XV6uecuu/lcYZaQ34dBhd8jvpz+0Susfs2IBw4A3oO/QqMOBzPf/8zkr9VzcuoLvKOtyw7p6L+KvJ
-	tf7cQV3md2eZC+gIIrGWmIjo7tkIHxlPljkaF56StLUMzXh/YGJMyiLowsxiFhJ0suT22JWzmGWuQ
-	vCIsLZH0pvBbntPhEKUZKn7Vrh7Jq5sJYuu1+09uMij0VUseDhCkrE4kDH8BA55ON8B6hacR+HVEy
-	t7YWtcmw==;
+	bh=PRdbc4Bd8qIHCjvKbFHHIf0f948T2QgQ+azcJGToByU=; b=M3GigalWeePPOAt33JBk9ZGZ6x
+	N5VeDf+fG6RhjSpp6Z921Pyb4yzX8+yS45NlSDgPHUgupry+t+Kcttzrxmq91XgN/TLtGPq+qOO46
+	k4nnsdmUNquKIJiX8m1GEqV5FcT5eam4H8fEb5OvE5RRA+kSfueFqE3e8QRjodeKFUH8eChXe60fb
+	+rKUzrTY9xPGBx7thL21M5Kao4iTVkwUqblulnFgBUyt0M6VjvuwLsM/0wCznf88VPC735SW/t7aw
+	odZS+vdZA0m3msIUukWmvi275xYzh6fPeRQoFAt5Teu/TyWU+Zr9UF+pSllPAOSFkco3aSg46Q4Dc
+	cJ3PeMig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogrg-00000005EVo-2mf2;
-	Tue, 28 Jul 2026 12:24:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wogsE-00000005Ehg-45vy;
+	Tue, 28 Jul 2026 12:25:30 +0000
+Received: from [113.46.200.225] (helo=canpmsgout10.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogre-00000005EVT-3Fmt
+	id 1wogsB-00000005Ed1-2CDi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:24:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DA7240344;
-	Tue, 28 Jul 2026 12:24:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51F6B1F000E9;
-	Tue, 28 Jul 2026 12:24:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785241494;
-	bh=4CcJVu2HdCBodSbf+UYAAHPLgckCVCAk6z1RWhwvCPA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lW5Ox6TynyS1zZbYlvpYlxo3hjcEY3zLDeJ+k2NqEQ5ub6Y0ym1PCqvx0LV8uYlGG
-	 YSg67AQ30dmNYsNQIyErdCfVJWSq/TVkZ/VWTgLvOd63S0L86PAOVWAYWtDgfbkSoQ
-	 1bs3t/585rA3pQnAMk30OeBU6yOvFagKWn/pYJBwBpgg9ycSTKLUqcuEDQqcWO/gc0
-	 XpuqrI5TNQ18k9VQRBwT/u/OSRi6pXp+uBQzb/WDryUjOw3zo+p+d6lV+zB9uhaIH1
-	 /oD9fGt19zuUhONvLuiluTMUYJtvdl78t57Or88Yf4LTtxj7n0utc3r3gooSqJichB
-	 FJV7aO+yzE+oA==
-Message-ID: <0c948180-3112-4e92-b752-0015c55fb26c@kernel.org>
-Date: Tue, 28 Jul 2026 14:24:44 +0200
+	Tue, 28 Jul 2026 12:25:29 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=PRdbc4Bd8qIHCjvKbFHHIf0f948T2QgQ+azcJGToByU=;
+	b=mkPyn7fEa0sPLBKcIc3f1ywiM7s7SrYMYAh5rg50codsvNyicrw6aEUapiNsdtlSM5ktQZb4h
+	H15JBS67gHsDlC9i7pXoMNRDTrVZpMmeMQ4wgz/W7ahikpSKcLi5d+8lCFwT4/5+3FY4adVowCS
+	xICeyIPEGfJCNyYH13AFA3g=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4h8ZDX1PDtz1K96b;
+	Tue, 28 Jul 2026 20:15:40 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id D21F740563;
+	Tue, 28 Jul 2026 20:25:04 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 28 Jul 2026 20:25:04 +0800
+Message-ID: <f54fb8f7-2bf0-4fdb-bfc3-b11ccb924e64@huawei.com>
+Date: Tue, 28 Jul 2026 20:25:03 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/13] arm64: dts: exynos8855: add cmu_top & cmu_peric
- clock DT nodes
-To: Alim Akhtar <alim.akhtar@samsung.com>, "'raghav.s'"
- <raghav.s@samsung.com>, s.nawrocki@samsung.com, cw00.choi@samsung.com,
- peter.griffin@linaro.org, mturquette@baylibre.com, sboyd@kernel.org,
- bmasney@redhat.com, robh@kernel.org, conor+dt@kernel.org
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, hajun.sung@samsung.com, is.gandhi@samsung.com,
- ts.amit@samsung.com, pokala.reddy@samsung.com
-References: <20260728121111.2077860-1-raghav.s@samsung.com>
- <CGME20260728115256epcas5p38cbcfe68218d08301d237705388e6e62@epcas5p3.samsung.com>
- <20260728121111.2077860-5-raghav.s@samsung.com>
- <8582d4f9-1a78-4f47-bab9-c52393dffbd1@kernel.org>
- <079201dd1e8b$eca22680$c5e67380$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <079201dd1e8b$eca22680$c5e67380$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [RFC PATCH v2 34/45] arm64: nmi: Add handling of superpriority
+ interrupts as NMIs
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-35-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-35-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_052527_908464_8E31FAF6 
+X-CRM114-Status: GOOD (  29.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,48 +80,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2026 14:23, Alim Akhtar wrote:
-> Hi Krzysztof,
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Tuesday, July 28, 2026 5:30 PM
->> To: raghav.s <raghav.s@samsung.com>; s.nawrocki@samsung.com;
->> cw00.choi@samsung.com; peter.griffin@linaro.org;
->> alim.akhtar@samsung.com; mturquette@baylibre.com; sboyd@kernel.org;
->> bmasney@redhat.com; robh@kernel.org; conor+dt@kernel.org
->> Cc: linux-samsung-soc@vger.kernel.org; linux-clk@vger.kernel.org;
->> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> kernel@vger.kernel.org; hajun.sung@samsung.com;
->> is.gandhi@samsung.com; ts.amit@samsung.com;
->> pokala.reddy@samsung.com
->> Subject: Re: [PATCH 04/13] arm64: dts: exynos8855: add cmu_top &
->> cmu_peric clock DT nodes
->>
->> On 28/07/2026 14:11, raghav.s wrote:
->>> Add required dt node for cmu_top & cmu_peric block
->>>
->>> Signed-off-by: raghav.s <raghav.s@samsung.com>
->>> ---
->>>  arch/arm64/boot/dts/exynos/exynos8855.dtsi | 24
->>> ++++++++++++++++++++++
->>>  1 file changed, 24 insertions(+)
->>
->> Please organize your patches in reasonable order. DTS is never in the middle,
->> see submitting patches (both documents) and maintainer-soc profile.
->>
-> The thought was to add clks block wise and hence we see DTS coming in between but for the other blocks. 
-> e.g. patch-2 and 3 adds binding and driver for TOP and PERIC and this patch-4 adds DTS. 
-> And patch-5 and 6 adds binding and driver for PERIS and patch-7 adds DTS and so on.
-> 
-> Cover-letter should have explained this. 
-> 
-> Are you suggesting to re-order all the binding first followed by all blocks driver and then add a single DTS for all clock controller? 
-> 
-> Does current approach helps in review? 
 
-If you ask this, you did not read the docs.
 
-Best regards,
-Krzysztof
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> From: Mark Brown <broonie@kernel.org>
+> 
+> Our goal with superpriority interrupts is to use them as NMIs, taking
+> advantage of the much smaller regions where they are masked to allow
+> prompt handling of the most time-critical interrupts.
+> 
+> When an interrupt is configured with superpriority, we enter EL1 as we
+> do for any other interrupt. The presence of a superpriority interrupt
+> is indicated by a status bit in ISR_EL1. We check this bit before
+> unmasking interrupts in elX_interrupt(), and if a superpriority
+> interrupt is pending, we handle it as an NMI. Otherwise, normal
+> interrupts are handled as usual.
+> 
+> Since superpriority interrupts are always handled as NMIs, the
+> interrupt controller can rely on in_nmi() to distinguish them from
+> ordinary interrupts.
+> 
+> Enable IPIs to use superpriority interrupts as NMIs, matching the
+> existing pseudo-NMI behaviour.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/entry-common.h |  7 +++
+>  arch/arm64/kernel/entry-common.c      | 83 +++++++++++++++++++++++----
+>  arch/arm64/kernel/smp.c               |  2 +-
+>  3 files changed, 79 insertions(+), 13 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
+> index 73d82a8d8e95..0681ba91ac3b 100644
+> --- a/arch/arm64/include/asm/entry-common.h
+> +++ b/arch/arm64/include/asm/entry-common.h
+> @@ -37,6 +37,13 @@ static inline bool arch_irqentry_exit_need_resched(void)
+>  	if (system_uses_irq_prio_masking() && read_sysreg(daif))
+>  		return false;
+>  
+> +	/*
+> +	 * If AllInt is set then we must have handled an NMI, so skip
+> +	 * preemption
+> +	 */
+> +	if (system_uses_nmi() && read_sysreg_s(SYS_ALLINT))
+> +		return false;
+> +
+>  	/*
+>  	 * Preempting a task from an IRQ means we leave copies of PSTATE
+>  	 * on the stack. cpufeature's enable calls may modify PSTATE, but
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index a409cd6159a4..4d4db47ccdd2 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -31,6 +31,14 @@
+>  #include <asm/sysreg.h>
+>  #include <asm/system_misc.h>
+>  
+> +static __always_inline bool is_nmi(void)
+> +{
+> +	if (!system_uses_nmi())
+> +		return false;
+> +
+> +	return !!(read_sysreg(isr_el1) & ISR_EL1_IS);
+> +}
+> +
+>  /*
+>   * Handle IRQ/context state management when entering from kernel mode.
+>   * Before this function is called it is not safe to call regular kernel code,
+> @@ -525,8 +533,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+>  	arm64_debug_exc_context(CRITICAL_CONTEXT);
+>  }
+>  
+> -static __always_inline void __el1_pnmi(struct pt_regs *regs,
+> -				       void (*handler)(struct pt_regs *))
+> +static __always_inline void __el1_nmi(struct pt_regs *regs,
+> +				      void (*handler)(struct pt_regs *))
+>  {
+>  	arm64_exc_hwstate_t hwstate;
+>  	irqentry_state_t state;
+> @@ -545,7 +553,23 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
+>  
+>  	state = arm64_enter_from_kernel_mode(regs);
+>  
+> -	arm64_unmask_exc_context(NONMI_CONTEXT);
+> +	/*
+> +	 * For non-NMI systems, we can switch to NOIRQ context since
+> +	 * NMIs cannot occur.
+> +	 *
+> +	 * For pseudo-NMI, we must keep NONMI context until we can
+> +	 * determine the interrupt priority, which is done by the IRQ
+> +	 * handler.
+> +	 *
+> +	 * For FEAT_NMI, we already know the interrupt is an IRQ, so we
+> +	 * can switch to NOIRQ context immediately. NMIs do not
+> +	 * interfere because they follow a separate handling path and do
+> +	 * not share the IRQ handling state.
+> +	 */
+> +	if (system_uses_irq_prio_masking())
+> +		arm64_unmask_exc_context(NONMI_CONTEXT);
+> +	else
+> +		arm64_unmask_exc_context(NOIRQ_CONTEXT);
+>  
+>  	irq_enter_rcu();
+>  	do_interrupt_handler(regs, handler);
+> @@ -565,8 +589,9 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
+>  static void noinstr el1_interrupt(struct pt_regs *regs,
+>  				  void (*handler)(struct pt_regs *))
+>  {
+> -	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
+> -		__el1_pnmi(regs, handler);
+> +	/* Is there a NMI to handle? */
+> +	if (regs_irqs_disabled(regs) || is_nmi())
+> +		__el1_nmi(regs, handler);
+>  	else
+>  		__el1_irq(regs, handler);
+>  
+> @@ -580,6 +605,8 @@ asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
+>  
+>  asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
+>  {
+> +	WARN_ON_ONCE(system_uses_nmi() && (read_sysreg(isr_el1) & ISR_EL1_FS));
+> +
+>  	el1_interrupt(regs, handle_arch_fiq);
+>  }
+>  
+> @@ -903,20 +930,36 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
+>  	arm64_debug_exc_context(CRITICAL_CONTEXT);
+>  }
+>  
+> -static void noinstr el0_interrupt(struct pt_regs *regs,
+> -				  void (*handler)(struct pt_regs *))
+> +static __always_inline void __el0_nmi(struct pt_regs *regs,
+> +				      void (*handler)(struct pt_regs *))
+>  {
+> -	arm64_enter_from_user_mode(regs);
+> +	irqentry_state_t state;
+> +	arm64_exc_hwstate_t hwstate;
+>  
+> -	arm64_unmask_exc_context(NONMI_CONTEXT);
+> +	state = irqentry_nmi_enter(regs);
+> +	hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
+> +	do_interrupt_handler(regs, handler);
+> +	arm64_mask_exc_context(hwstate);
+> +	irqentry_nmi_exit(regs, state);
+> +}
+>  
+> -	if (regs->pc & BIT(55))
+> -		arm64_apply_bp_hardening();
+> +static __always_inline void __el0_irq(struct pt_regs *regs,
+> +				      void (*handler)(struct pt_regs *))
+> +{
+> +	arm64_enter_from_user_mode(regs);
+> +	/*
+> +	 * For the same reason as in el1_irq() keep NONMI
+> +	 * context for pesudo-NMI, and switch to NOIRQ
+> +	 * otherwise
+> +	 */
+> +	if (system_uses_irq_prio_masking())
+> +		arm64_unmask_exc_context(NONMI_CONTEXT);
+> +	else
+> +		arm64_unmask_exc_context(NOIRQ_CONTEXT);
+>  
+>  	irq_enter_rcu();
+>  	do_interrupt_handler(regs, handler);
+>  	irq_exit_rcu();
+> -
+>  	/*
+>  	 * For the same reason as in el1_irq() we effectivly
+>  	 * have NOIRQ_CONTEXT on return from handler - keep
+> @@ -924,6 +967,20 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
+>  	 */
+>  	arm64_debug_exc_context(NOIRQ_CONTEXT);
+>  	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
+> +}
+> +
+> +static void noinstr el0_interrupt(struct pt_regs *regs,
+> +				  void (*handler)(struct pt_regs *))
+> +{
+> +	if (regs->pc & BIT(55))
+> +		arm64_apply_bp_hardening();
+
+It seems only after enter_from_user_mode() or irqentry_nmi_enter(), it
+is safe to call normal kernel code.
+
+otherwise LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> +
+> +	/* Is there a NMI to handle? */
+> +	if (is_nmi())
+> +		__el0_nmi(regs, handler);
+> +	else
+> +		__el0_irq(regs, handler);
+> +
+>  	arm64_debug_exc_context(CRITICAL_CONTEXT);
+>  }
+>  
+> @@ -939,6 +996,8 @@ asmlinkage void noinstr el0t_64_irq_handler(struct pt_regs *regs)
+>  
+>  static void noinstr __el0_fiq_handler_common(struct pt_regs *regs)
+>  {
+> +	WARN_ON_ONCE(system_uses_nmi() && (read_sysreg(isr_el1) & ISR_EL1_FS));
+> +
+>  	el0_interrupt(regs, handle_arch_fiq);
+>  }
+>  
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index a3ca6afbf5a2..6e5b673613ca 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -1035,7 +1035,7 @@ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+>  
+>  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
+>  {
+> -	if (!system_uses_irq_prio_masking())
+> +	if (!system_uses_nmi() && !system_uses_irq_prio_masking())
+>  		return false;
+>  
+>  	switch (ipi) {
+
 
