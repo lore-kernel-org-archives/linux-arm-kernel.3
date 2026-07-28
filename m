@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5321C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF57DC54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxItAIafgzEWpgvlD1boJ4CXcti6VEwEZqB89OI68jc=; b=UYcTWTP13aqeUUViKMjuGgLsFK
-	psQeKvA/APepY151t6aXGAZcWEY5ihZR+o/YXqNtGeKek3C4ZWjxZULO7Plii1p/woahpisyS9y+f
-	hhuCEu7s2IZOd+5B4Al+vIpAqK7SEglQf3x6ntPTGpRalxn/YAcAne6xZWHLTJxVG0qFNOEaPQJrJ
-	6l5VH2KVVj1LIWDR2EKYJhHFzHeSs5iqgz6xLC1uJ0ZwsAGZBTuXsgcA05cD6RlrqPY8BevjfA339
-	U6HyP5Au0m/X4696Cl8JrSvqo5WkohYosLUHTHLGt/eLAf8DvFVTjDSEzxrvb/MKuh1oGr3EYtuzI
-	xx/TJRzA==;
+	bh=niSdBLQKknGzg8N9jW+6lT5th349IdFmUhj+0zgN8x8=; b=P3aCZKV3ICTJ9jgNv8rYql92Jj
+	iStQCFSgjlgmeNVN3/3U7MDvtcjAb9VqomakAZWCFczTJ9HKwT6uwtQcgM4JmItglom13ECSnUAT/
+	A1pCOUPi46c5uTLHLEWXQ3nfZHH6pICnQVcw4yjFZdQy4c8l4893xcTiu/iM5qjSinZFDb22TKvwx
+	gyT+2v9Y0aMIgtGAl6ThLvYTWGG6cgNl1btqOI//z3IZh2PRTHAVnRRm7JdKLHIX7bW9E6xEjLe9y
+	+ksb/n3MyrX9Nxv+5MTK8Qt0Pzaz081f3egOKfkopWL2cFNjvDCWzdC3zYxBx+RZ9zdiJQD6QFqN7
+	+nWxoadQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wop3m-00000006GZY-3znI;
+	id 1wop3m-00000006GY7-1agE;
 	Tue, 28 Jul 2026 21:09:58 +0000
-Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
+Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wop3i-00000006GVe-1uKk
+	id 1wop3Z-00000006GPW-2UAl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 21:09:55 +0000
-Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cb6dd278512so113330a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:09:54 -0700 (PDT)
+	Tue, 28 Jul 2026 21:09:46 +0000
+Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-cab041eced3so241989a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:09:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785272994; x=1785877794; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785272984; x=1785877784; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KxItAIafgzEWpgvlD1boJ4CXcti6VEwEZqB89OI68jc=;
-        b=ttzu/CLzDheSGZbnUWMjGE5uw0f5hEmO76I2KQ7VkxaAi5qS9PPFs7EA9hQXR+A4TT
-         KoCD5TBl0yY9Wwv6UwuZ/mk1Ajp88HN7f+xFa+trjUYKhom2ibma5IdA4UYwnh09OpAh
-         MXLRhjYUBgGmvEm/7S9KYfsBjOVcouxpUdCaG/Tz60ubuRYdAETgCCRAFw0ZRqKVChAY
-         Xi4slrb8xxtjGZdREFwWC+BxVJcpPipk/1JMiA2hZU63IKaguU/0dE8w5H++Pf+cSylg
-         5nYgAMwKt+IVtJNzdJA8lanUOBjQ9Psr0RS9BYFNStamn4rHNaWaxLJhS7SMyr0lCZw1
-         KG7A==
+        bh=niSdBLQKknGzg8N9jW+6lT5th349IdFmUhj+0zgN8x8=;
+        b=eViFVbCZHQiEn/VgQOrLhLf+pRazm6AYoYW3M67oUSuVjsZXvY4H+68FoIvmksIOZb
+         aM+JSM5p65+i2MOEcl7MgWwLihCaxQtCczpiczZaiL9+R7Df/ofNjNEDTDmvLbJB1iq9
+         x6UixNfiHjUI91GQkyG/+/bL4E1W++qvPC2pPJjvDoE3b2J8y9VdMkJ50HU+IiInjmeZ
+         wdiKdAS5mpfCUZX5c9QCf2ylP0cUxScdrbHkQJPIcsUBPAxu4e6phWY2+yvRPuFSO5C7
+         3Nq5JTne0DSxX+APyhqb9uETsOzQYCtaoWAj5RplP3cFmLF+ZePnhaI6dqpFe6LTLU5G
+         MXdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785272994; x=1785877794;
+        d=1e100.net; s=20251104; t=1785272984; x=1785877784;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KxItAIafgzEWpgvlD1boJ4CXcti6VEwEZqB89OI68jc=;
-        b=BCGdI+h754CS2fqqBew4p6+Qbsv3WLuAAsW9cKveN8nc5kNq3TuFXVWA7gcY4e32+C
-         ZG2F1qIg/UuhfYAajAzGJV4wzyX1jriKMM5ow5T7U+tXCbvI1QXzy6vZWvAGAz6ZWrTE
-         xHxz84gtu01V3WejlUhiTxnl9vyz+CvVO8KVmp3Q3U4iCceK2YraMgmvX4AX0VL4qRMq
-         PqngUwWyZwOibgu7hM9epbcXjos+I4WFrq6yCBnkHUPz65DDjp/Wbyj5ADTStB81/VLg
-         z0o3QTcY7xLoarVWLgmMsIh1RD/MrmFkiZilaCsL6+N5ccVWTWZoI23ZBu0vCdgDBBwg
-         Jqmg==
-X-Forwarded-Encrypted: i=1; AHgh+RqAd3eAVBGYFwml7gfvk9khk74oOR3A03crKGOddDtiiMSmqMuJQjQsN09zieJi2vJrBtM5E6T2kX3vu15PMhu3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfE6aDlXfnhIysxcig6MzXVWPnvrrZwByVwSyEGDg5Zp1gH2B9
-	hzwayTOV0N0DU7RR7ejKZcdhR07HOnJZO9k50AM9K57pN1fROu3FaoJn47rZ1BXCHaarq8keN96
-	jkA==
-X-Received: from pggg12.prod.google.com ([2002:a63:200c:0:b0:c8b:6fd:f93f])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:1645:b0:3c3:a20f:f729
- with SMTP id adf61e73a8af0-3c8aafb4adbmr5111132637.7.1785272993435; Tue, 28
- Jul 2026 14:09:53 -0700 (PDT)
-Date: Tue, 28 Jul 2026 21:09:24 +0000
+        bh=niSdBLQKknGzg8N9jW+6lT5th349IdFmUhj+0zgN8x8=;
+        b=nZRTAy2woLHKUvYoFDXLN9UwxCbWx/KN5K7P6KIWT/26sxql8F3GQFwLlqOUFwbC+2
+         uK7bgKsirNvydYZfGOArkmSeStw6CLDn4vQEYH8dE6BrmNyBBs0n0UhtWnG8rwrEl0sq
+         /X0FyEISe2z4BTfP9YDyAc2U1S9CK+NQJFH6InNoFSdUdJs2y2m7XUcNRykcjmOpSsd1
+         iMCdEGis+s69eegIohkIYxi4wxDvUrJRjikEYr1sMVTBmFpJ/ufCN0+ITtjUm0IDx1xz
+         GFfA9YcAmF4NMZkD7nWckYbohcpkP/0icsir5M2UcfSq0FkkekQXikYwAIWWiRL52rne
+         h25g==
+X-Forwarded-Encrypted: i=1; AHgh+RpRtuM9AIWZsVzZFLcHiBtHabm8y9qts/QSEs/c1/5E/OJB2jZq8EWWStmBkdwOUzH9RSKKYRQo5GBpaPU69vY1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1ZSQgNSlfn7KeHjERZo9/KnbP+uqWa3y8AIFgbOFVs10J5uVn
+	mIqSLvA80nNZcCDlIP4N1nJfYOa6vWP88xb5M+aiQw0BmLkloSFazNfhAOnsFkDh6t+YDczWHC9
+	S/g==
+X-Received: from pjbgx1.prod.google.com ([2002:a17:90b:1241:b0:38e:4a3c:2514])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2b8b:b0:389:8f6c:4d58
+ with SMTP id 98e67ed59e1d1-38f6a45d39bmr4419333a91.34.1785272983619; Tue, 28
+ Jul 2026 14:09:43 -0700 (PDT)
+Date: Tue, 28 Jul 2026 21:09:20 +0000
 In-Reply-To: <20260728210928.1050849-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260728210928.1050849-1-praan@google.com>
 X-Mailer: git-send-email 2.55.0.487.gaf234c4eb3-goog
-Message-ID: <20260728210928.1050849-9-praan@google.com>
-Subject: [PATCH v9 08/12] iommu/tegra241-cmdqv: Add a helper to quiesce VCMDQs
+Message-ID: <20260728210928.1050849-5-praan@google.com>
+Subject: [PATCH v9 04/12] iommu/tegra241-cmdqv: Restore PROD and CONS after resume
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
 	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
 	Nicolin Chen <nicolinc@nvidia.com>, Daniel Mentz <danielmentz@google.com>, 
-	linux-arm-kernel@lists.infradead.org, Pranjal Shrivastava <praan@google.com>
+	linux-arm-kernel@lists.infradead.org, Ashish Mhetre <amhetre@nvidia.com>, 
+	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_140954_508129_3E27D047 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20260728_140945_647001_AEA62CCB 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,128 +93,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The tegra241-cmdqv driver supports vCMDQs which need to be quiesced using
-the STOP_FLAG as well. The current driver implementation only uses VINTF0
-for vCMDQs owned by the kernel which need to be stopped. Add a helper
-that sets the CMDQ_PROD_STOP_FLAG on the vCMDQs as well.
+From: Ashish Mhetre <amhetre@nvidia.com>
 
-Consolidate this logic by renaming the implementation hook to
-quiesce_and_drain_queues and ensuring that the tegra241-cmdqv driver
-gates all active local virtual queues before starting the drain loop.
-Additionally, clear the STOP_FLAG in tegra241_vcmdq_hw_init() as a part
-of tegra241_cmdqv_hw_reset.
+PROD and CONS indices for vcmdqs are getting set to 0 after resume.
+Because of this the vcmdq is not consuming commands after resume.
+Fix this by restoring PROD and CONS indices after resume from
+saved pointers.
 
-Suggested-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  4 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 +-
- .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 37 +++++++++++++++++--
- 3 files changed, 37 insertions(+), 6 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 8809757ebee8..49e15d062dd5 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1013,8 +1013,8 @@ static int arm_smmu_drain_queues(struct arm_smmu_device *smmu)
- 		goto out;
- 
- 	/* Drain all implementation-specific queues */
--	if (smmu->impl_ops && smmu->impl_ops->drain_queues)
--		ret = smmu->impl_ops->drain_queues(smmu);
-+	if (smmu->impl_ops && smmu->impl_ops->quiesce_and_drain_queues)
-+		ret = smmu->impl_ops->quiesce_and_drain_queues(smmu);
- out:
- 	return ret;
- }
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 40b889998d5b..cc25f307a9e4 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -891,7 +891,7 @@ struct arm_smmu_impl_ops {
- 	size_t (*get_viommu_size)(enum iommu_viommu_type viommu_type);
- 	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
- 			  const struct iommu_user_data *user_data);
--	int (*drain_queues)(struct arm_smmu_device *smmu);
-+	int (*quiesce_and_drain_queues)(struct arm_smmu_device *smmu);
- };
- 
- /* An SMMUv3 instance */
 diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index 8ecd2052b6dd..32139797c19b 100644
+index f62e9bdabf8a..8ecd2052b6dd 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -447,6 +447,26 @@ tegra241_cmdqv_get_cmdq(struct arm_smmu_device *smmu,
- 	return &vcmdq->cmdq;
- }
- 
-+static void tegra241_cmdqv_quiesce_vintf0_lvcmdqs(struct arm_smmu_device *smmu)
-+{
-+	struct tegra241_cmdqv *cmdqv =
-+		container_of(smmu, struct tegra241_cmdqv, smmu);
-+	struct tegra241_vintf *vintf = cmdqv->vintfs[0];
-+	u16 lidx;
-+
-+	if (!READ_ONCE(vintf->enabled))
-+		return;
-+
-+	for (lidx = 0; lidx < cmdqv->num_lvcmdqs_per_vintf; lidx++) {
-+		struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
-+
-+		if (!vcmdq || !READ_ONCE(vcmdq->enabled))
-+			continue;
-+
-+		atomic_or(CMDQ_PROD_STOP_FLAG, &vcmdq->cmdq.q.llq.atomic.prod);
-+	}
-+}
-+
- static int tegra241_cmdqv_drain_vintf0_lvcmdqs(struct arm_smmu_device *smmu)
- {
- 	struct tegra241_cmdqv *cmdqv =
-@@ -467,6 +487,14 @@ static int tegra241_cmdqv_drain_vintf0_lvcmdqs(struct arm_smmu_device *smmu)
- 	if (!READ_ONCE(vintf->enabled))
- 		return 0;
- 
-+	/*
-+	 * Gate all vCMDQs by setting the STOP_FLAG in a separate,
-+	 * initial loop to ensure no new commands can be submitted
-+	 * to any secondary queue while we are waiting to drain them.
-+	 */
-+	tegra241_cmdqv_quiesce_vintf0_lvcmdqs(smmu);
-+
-+	/* Now that all queues are safely gated, drain them sequentially. */
- 	for (lidx = 0; lidx < cmdqv->num_lvcmdqs_per_vintf; lidx++) {
- 		struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
- 
-@@ -552,14 +580,17 @@ static int tegra241_vcmdq_hw_init(struct tegra241_vcmdq *vcmdq)
- 
+@@ -553,6 +553,13 @@ static int tegra241_vcmdq_hw_init(struct tegra241_vcmdq *vcmdq)
  	/* Configure and enable VCMDQ */
  	writeq_relaxed(vcmdq->cmdq.q.q_base, REG_VCMDQ_PAGE1(vcmdq, BASE));
--
- 	/*
- 	 * HW Registers reset to 0 when power-cycled. Restore them from their
- 	 * SW copies to prevent executing stale/ghost commands after resume.
- 	 */
--	writel_relaxed(vcmdq->cmdq.q.llq.prod, REG_VCMDQ_PAGE0(vcmdq, PROD));
-+	writel_relaxed(vcmdq->cmdq.q.llq.prod & CMDQ_PROD_IDX_MASK,
-+		       REG_VCMDQ_PAGE0(vcmdq, PROD));
- 	writel_relaxed(vcmdq->cmdq.q.llq.cons, REG_VCMDQ_PAGE0(vcmdq, CONS));
  
-+	/* Clear the CMDQ_PROD_STOP_FLAG */
-+	atomic_andnot(CMDQ_PROD_STOP_FLAG, &vcmdq->cmdq.q.llq.atomic.prod);
++	/*
++	 * HW Registers reset to 0 when power-cycled. Restore them from their
++	 * SW copies to prevent executing stale/ghost commands after resume.
++	 */
++	writel_relaxed(vcmdq->cmdq.q.llq.prod, REG_VCMDQ_PAGE0(vcmdq, PROD));
++	writel_relaxed(vcmdq->cmdq.q.llq.cons, REG_VCMDQ_PAGE0(vcmdq, CONS));
 +
  	ret = vcmdq_write_config(vcmdq, VCMDQ_EN);
  	if (ret) {
  		dev_err(vcmdq->cmdqv->dev,
-@@ -946,7 +977,7 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
- 	.device_reset = tegra241_cmdqv_hw_reset,
- 	.device_disable = tegra241_cmdqv_hw_disable,
- 	.device_remove = tegra241_cmdqv_remove,
--	.drain_queues = tegra241_cmdqv_drain_vintf0_lvcmdqs,
-+	.quiesce_and_drain_queues = tegra241_cmdqv_drain_vintf0_lvcmdqs,
- 	/* For user-space use */
- 	.hw_info = tegra241_cmdqv_hw_info,
- 	.get_viommu_size = tegra241_cmdqv_get_vintf_size,
 -- 
 2.55.0.487.gaf234c4eb3-goog
 
