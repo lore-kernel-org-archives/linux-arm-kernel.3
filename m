@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47B3C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CDBC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvFeSJ52Hy9OjYjsdGSFO6cUYL0PGqG3iOQEMzPpfqY=; b=Z9v/5o403GQJtV+igi23gWkbcv
-	nHsqv06YWq4HBQrKXhFK1fRFGDtJrdr6k77qdT7/xW8N0zDVqNY1myDbGmL47TEFj9VFlPxYsVAjb
-	BHF6pEOXhHROaJOubFZ0fpCOXL7h3BitS4sQ0R9wWCZRFUKNMrYCbh1lN5rDVduO11Psn//mYHpyb
-	8J7lM9nyjVr9uhw02lvK6+lJh64xUVx088rW/MQVfiRc/IQHcztnHdWug9UmwRD6cJIYU0nNIRStl
-	kZ4JLK79XhsuDX1vQy4b1+HOET/l+UyvAcV0TUr59czEEMuA32KKvzdxInrK3viQgp/eEThIf4qz5
-	yZehYUyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=icTggAy3gbl2+A7cAXhm51k/YneL2/ZKYWfIfpCPKGQ=; b=ZunPv0fQsYXFOBjdXjGAHml3GU
+	XGaP95vPBnbDS+ir9l9EsD/6i2wxRE6H6ueChffBHM9yyEGeG0leSSH+CqqZ7VSU7Zy4uBq/nLdr4
+	IRSEEdFEi759zOBJwGuDPFwQVyJCSLzOz+WYfYyY8NFOhJzNjEotoJ2j78pP8pGrg2fo5L1qiBnVx
+	caMYHde95ywUsflS5xItIQ3uN4p6XImmFt0LlyQgHk9CL0iyecYxS1o8vfDCydai2r/QtQGMD723F
+	KJWPpGV8uJjQjPkiZd3CrO0hNa43trNe0wJudAZsD11YxFCA67lf1hDcP2xST5HvT9w8VqWsoOsab
+	pqlwgwQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woe5s-00000004ocp-2iTE;
-	Tue, 28 Jul 2026 09:27:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woe6p-00000004olI-3jGK;
+	Tue, 28 Jul 2026 09:28:23 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woe5r-00000004ocX-0agL
+	id 1woe6m-00000004ojO-3J3M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 09:27:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 97E8D436B6;
-	Tue, 28 Jul 2026 09:27:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A3981F000E9;
-	Tue, 28 Jul 2026 09:27:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785230842;
-	bh=vvFeSJ52Hy9OjYjsdGSFO6cUYL0PGqG3iOQEMzPpfqY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E3pj7Y2L4G/RAxOBSkVa7jWXgajNAmVApyA0rgIkGqGmBAIt5qVRZtxwr6AchxN9D
-	 mkmB5xfNdfLsc6YOiqyuxBG4XTpVgbzDK/WLE4szFuS/rrrWdfAWTdSApSknzc8xTM
-	 WSCgwCDNFYL05fXY8DgC2jEfljAJY6P51Ffl3DDQIUseDDEGpdhtRCI7kkHtvmKnfx
-	 bU7fU0f0NQfTnt53UbhDCDrzmRhyPeVUZt8A+f4ZnbC2KLF3GMn4E+8tZEe6rMkEhh
-	 2gRtv8yNE/JvegoBC7fvL0IosmwDzievIsJIfgF0XXYdXXkNYqXaMhpYhYjxMCNyzV
-	 DzpcrFuMCNaXA==
-Date: Tue, 28 Jul 2026 10:27:17 +0100
-From: Will Deacon <will@kernel.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ljs@kernel.org
-Subject: Re: [v8 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Message-ID: <amh19c6vtDNKsl3C@willie-the-truck>
-References: <20260609214205.1260279-1-yang@os.amperecomputing.com>
- <255744ec-2a58-492c-a69a-850357440183@os.amperecomputing.com>
- <amCqBzwIYDOvRI1S@willie-the-truck>
- <79d7069b-2895-4be3-a2a0-327ad3444bf3@os.amperecomputing.com>
+	Tue, 28 Jul 2026 09:28:22 +0000
+Received: by chaosmail.tech (Postfix) id C28631C97BC;
+	Tue, 28 Jul 2026 09:28:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1785230898;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=icTggAy3gbl2+A7cAXhm51k/YneL2/ZKYWfIfpCPKGQ=;
+	b=Vt+CH3LcMECPEIqXXHOIbHdkotZRRMc63pzNPd/2DUmBH2dI3DqoZEo8wr9h+HtNxRxLV7
+	p3z3tvAcOegKq3omCiiJQSmyMRaT++cg4JAlZmxgijz4+YYhZPEU37isa1dK7geUglOZfz
+	q8peczVnmNrNkukR+1I+v1/wtN8FWnQ=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Tue, 28 Jul 2026 11:28:08 +0200
+Subject: [PATCH v2 2/7] spmi: apple: Validate FIFO state
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <79d7069b-2895-4be3-a2a0-327ad3444bf3@os.amperecomputing.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260728-t603x-spmi-v2-2-f43e5f10e583@chaosmail.tech>
+References: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
+In-Reply-To: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785230896; l=1469;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=s+zw2P+Wx9EvyJyi9jeYYrUjVBBFmgRieWNPRCaUoyU=;
+ b=pbQvEq/RK9U1Pz8LKtkCquVTrltHOLnKjP+XGzoZ6xY8IsIxQZl5MmTbZcng1WfayixOMlDZl
+ RJqaeZH5b6cDN2SnRcY6NpOoHeCqLyh06TSqqxcsdnyl2PSAzy1ytFK
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_022821_314426_C0A7DCF7 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,33 +79,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 12:50:59PM -0700, Yang Shi wrote:
-> On 7/22/26 4:31 AM, Will Deacon wrote:
-> > > Yes, it may race with memory hotplug. I missed memory hotplug for v7
-> > > Sashiko. Two options to solve it:
-> > > 
-> > > 1. Use atomic variables. Make lm_meminfo[NR_LM_TYPE] atomic_long_t, then
-> > > manipulate it with atomic ops.
-> > > 2. Protect it with a spin lock.
-> > > 
-> > > The contention for the cache line or the spin lock should be rare since
-> > > memory hotplug should happen rarely. Any preference?
-> > I'd vote for keeping it simple and using a lock. Might be worth looking
-> > at the ongoing work from Lorenzo:
-> > 
-> > https://lore.kernel.org/all/20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org/
-> 
-> Thanks, Will. Took a look at Lorenzo's work. IIUC he used init_mm mmap_lock
-> to protect vmalloc area and linear mapping collapse on x86 in order to
-> serialize against ptdump. I don't think we should use init_mm mmap_lock. We
-> want to serialize linear mapping counter update between split and memory
-> hotplug, but neither of them takes init_mm mmap_lock. We can let them take
-> init_mm mmap_lock, but it sounds too overkilling.
+From: Alba Mendez <me@alba.sh>
 
-Hmm, but if split and hotplug don't take the mmap_lock, how are they
-serialised against ptdump? From what I understood, Lorenzo's patches
-change ptdump to take it for write in order to serialise against other
-walkers.
+Check for data before reading the body of a reply, and check for
+end of data afterwards.
 
-Will
+Signed-off-by: Alba Mendez <me@alba.sh>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+ drivers/spmi/spmi-apple-controller.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+index 376cf682c43e..b4f442d0b4ad 100644
+--- a/drivers/spmi/spmi-apple-controller.c
++++ b/drivers/spmi/spmi-apple-controller.c
+@@ -78,6 +78,10 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 
+ 	/* Read SPMI data reply */
+ 	while (len_read < len) {
++		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
++			dev_err(&ctrl->dev, "FIFO lacks reply data, controller stuck?\n");
++			return -EIO;
++		}
+ 		rsp = readl(spmi->regs + SPMI_RSP_REG);
+ 		i = 0;
+ 		while ((len_read < len) && (i < 4)) {
+@@ -86,6 +90,9 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 		}
+ 	}
+ 
++	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
++		dev_warn(&ctrl->dev, "FIFO has extra data\n");
++
+ 	return 0;
+ }
+ 
+@@ -115,6 +122,9 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	/* Discard */
+ 	readl(spmi->regs + SPMI_RSP_REG);
+ 
++	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
++		dev_warn(&ctrl->dev, "FIFO has extra data\n");
++
+ 	return 0;
+ }
+ 
+
+-- 
+2.55.0
+
 
