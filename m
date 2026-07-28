@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DE9C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1298C54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyldpWdr+agt4WTnOhFl2wnppMTguRaoBzlozBAALhg=; b=v3gt1qEHjEvfJDQXDfK4DqDC2D
-	k/lxqWJ3jLmPsZ/0jPh2ay0EqRGFjtTkfpABZuoh2k88KsePFqkdzuyVGk9yqiqXHCIg6CuaNEROB
-	A3uT4KYX/bOtgAmahkWtEnPy7tPL7GApy2H8tDaWbmjrbSMY/4xv9kCMg9iyzHOHEmYMr7FTUNxBT
-	AdZ8/So9EWlrcXSdRZcc+3y4CHGhlGDEYixQnIgWMi03qJxMVMT5l+1jZfaSCytI/Bu5ZEgiRxX0T
-	5elmXCgSNOozHxxi9Ut7WFrYhaOTyy+Ubx3UbGo09s2KfDh6q4c+rLEawxRVsA5oRl52NexVY3/XE
-	liHgF86A==;
+	bh=8MIRNU+MhI0eSiQtJDok+bcOZXgSMrVDXRZo0QYi/kE=; b=xKY/VTRzTz/gA5HqadSIqI0lju
+	1554TMYBTSmn9eFkMQdcSkSHcK5DN1jyuc9tVmfvYr/MJ5+I9cDbgVs9h+265vFKKYJVDVTClut8O
+	pZHjqqf2yXNvXiYWXavTIUXWGL5UDfUIyuZGLK4jh8Lvga/JwPfVKTF8ohpjnJPmXL0DxtXl82fXR
+	mAmKqZdW8cBtYFTQNXxiqffBj2ggkIdmJSxfcBXEWY1n6na4ME0+tGg/kUN/VeQ7aeoMPzDVQmnne
+	XcTKVCSGxzrIFCbHlND4y7Oy8ayoAtxhxf72nVZaJza5V8gHEizrPG6b8vjn9CdtMyB3hg6FLiRmE
+	4XNbbg5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojIu-00000005Zey-29xZ;
+	id 1wojIu-00000005ZgD-3paq;
 	Tue, 28 Jul 2026 15:01:12 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojIl-00000005Zal-0quT
+	id 1wojIp-00000005Zc4-3w02
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:01:05 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47f93b2fe4cso2843447f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:01:02 -0700 (PDT)
+	Tue, 28 Jul 2026 15:01:09 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f7854678bso1425247f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:01:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785250861; x=1785855661; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1785250865; x=1785855665; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=kyldpWdr+agt4WTnOhFl2wnppMTguRaoBzlozBAALhg=;
-        b=Nt62Pfrmxld2RcPhSlIh8CW75UZAVq4l/43DPbR0ZRXvpTC2pDY4OLyjR0MluZLIRh
-         vuce/S3a977kY6sevhzLR4aawUQFeF6hLgKV5EpzGe0vLLhyXM5hIoHbzQ8OAciMmWta
-         /jvvRniMxVY3U/CvqaCfV3o9ovY9o+RN+O6VCASh+xCJvmbWoQcLPhbBqqrUJ29hZtWG
-         q5BfoySb9Yv+nKlkTaB/gqJ+s0d2AWvOei/dHOBzpwpHMf+mZMxfcAx41Y3KCL2YADo7
-         GYKWIpjgzjoEM7elwk1+ihduk5E29IJXkLb6MU11FWkCh4NElraZULYXJz5RMU/xBRf1
-         wpWw==
+        bh=8MIRNU+MhI0eSiQtJDok+bcOZXgSMrVDXRZo0QYi/kE=;
+        b=DlBKy9sQgZGrPCw0lp6jXqv5OpqAxpxWifX9sHjrRy68y3tizP5TGgIn3dYvx4j6gg
+         CAEd5kc64G2UF5f8zHxypuC82E55SkOF4wXr1RD7IkeleqvoyhPjEQkTITugsdSPiaMO
+         C21LqkBICdNn5MqV706MiDrj8WsHJjRgfB+PFi4PztyrVY/6s9mgssR2v0EnR/5aCiHG
+         SqKnn8/xkPAit3WDzZdV5mb2pA+c2srX7eEUwLBevtIZTTNatlrGo3qgPLHcUdzOgYju
+         1TI/RScAvcbbfxMzYuPDSCtmfE/X+6I6tgTcJ/t1Bkb23AFLsud3D4cgskjM/+NR6XwF
+         /wmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785250861; x=1785855661;
+        d=1e100.net; s=20251104; t=1785250865; x=1785855665;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kyldpWdr+agt4WTnOhFl2wnppMTguRaoBzlozBAALhg=;
-        b=nez2TBWt/Z7xfAD803mh3rCzskDrBYdIPmAD7e+yz9lJ/D2reVRq6yKcnxDX7G50FI
-         PeML+ZpaTwEDbirkzDmvixxF5eimbAr8ruDqFuDKC4pJYrMxaWCqxKSBnOVyhg8CpRtX
-         UMWzJL/B9SNuwU6FHKlHLbJYi4XIarI3k765ks8PQlcFf92z3dtS2BjhlO+DpNKxEXRE
-         PCXyiK9IOYdddYuQ1SI+jyncHTjwJN3hI/fFCTsa0GmL+qdDgnxAoGvxY8GUrT6BrlI4
-         NIz2FniShtvaK4o7pdek7/LIL4Zw3tp/2mJvnt+3WHGHR6wh93WxlsQDhx+fmZ2agV63
-         TI9w==
-X-Forwarded-Encrypted: i=1; AHgh+RrJQWRV6jbiOFW6YSM6peyAs3rNyghwKh4/XhNZn+A15Rxy54qNiF+wi8XFI0JhOrn/LVFkM/YdTSbpDefP9/Qq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVH9Nc4j5/hep8vcHZSMmyzyuTHNnRigNGZ4piqwamPdyxe8QD
-	fg95cOlZrBSp0gG78WxduqCmTqW1EO/o+yFnEtiXXZVdweJqKpGDXQ8R38BIFJ8D3xo=
-X-Gm-Gg: AR+sD11zVgLAzGv+qsrnh30FXcEigxBIdAGoPPPvYoCQJu4W36xV+yVqMwSZbHn0ieL
-	6SpU04LkuHYn/SV2J5jFOyEqeFAA/YVv9WbqwaN2rnHFUrzrpNiMeMN/TMEaFspR/ul+u8E7gXd
-	pA3RENr75rlkmtMlbusZc4XZaDUCR8onw3vARjtNMcfKvtYbRkopwgmbYyXrKJ3CbS3CM57WSB1
-	UVBqAZ6f2NE7DoyIN4nscGYdSlA7y9R83fFSmH/BhTQGV72l5nOdhoBGuH1XBDl5q7cCJTPxptT
-	QVJTpWDOeXm9AggATk2H5SfW9+7D0ArWTYH0pbPEroedreyBLVuS+bNcG5WtKIKHzTfqouvj8as
-	d5mAmTm+Iw4SVMFeSx8bermRSXtBWM64TsWUVBOS5vQEjok2a9Kzy+63DzlDOlcHO6I4n1xZVsV
-	e5oJ06bTY=
-X-Received: by 2002:a05:600c:4703:b0:493:fa66:4861 with SMTP id 5b1f17b1804b1-496c6565dfamr35119935e9.25.1785250861215;
-        Tue, 28 Jul 2026 08:01:01 -0700 (PDT)
+        bh=8MIRNU+MhI0eSiQtJDok+bcOZXgSMrVDXRZo0QYi/kE=;
+        b=SnUHM5W1JTX77bMX3b0PQj1SRmq+6EmH5HtxDto8L/I00GvvyVg5mJclY20Hq90XEC
+         s0P9U4v4peLUsuSBaURsvHpcytivvPRS2n06M7eQmFokA2ES/XEsR6vaqWXXIq3q/QVn
+         quvRIhB1SZcmNETrr/jMi0FPzNMbu0+ZN4gkWXemtH/GMsYxrjjKpmYFBSnJ4GmXjply
+         e4F+tNB5uQ00JDYU8czeBiwBFO5qDF4RtM6W1I5DzNXufHCwzM0ZTvifn4c7z4mx0ewY
+         Tb2lwvBrMfkK+LqD07P8b4NecqsAP4o55I3OOTDZ6EO2MJgCKV2NDE0GPWsPLHrBhHB1
+         8Ghg==
+X-Forwarded-Encrypted: i=1; AHgh+Rq3Cy8B76lU15Rk7SeuFtlcpwdunNd9fcdysU1rF+/GWSUlG3tt4EB78IS+kgsmRYDXkbZTnLAkn4fFD1BYpxG6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy0aJMkvrrI3hEFaRzlWBcllDIN/D9cdpdXeCrhziklHDhrEwb
+	glZ4ZriFs9BS3TJVZ/x8v0261ibN5SyhHwX7ekUu5UGfdf44Gue82eDq9EkilA7+Z18=
+X-Gm-Gg: AR+sD13EgEhqfLsCDGwVcg1jk+o/y5hSO4pC39Q2YOkAJwAuRle9JUw9OWfVBkQmwGX
+	GVEtM+LcK574gsUkdK6xueqNkZK4T7pA4idSOVdj7h2eeofEXWZuoBRSFopHScg46SYf5VCtrLy
+	LVEtI4rhLQgQ1FMp+iBLLvoVwd3JJF/0JApJNs8vfLUDt221MaVpmy5B5BZwWG8DfwewvlrMcYH
+	I64DXmOJSDi+nLCcltuq7gIhbxD84mhMFBPUPq0Ib0whnNtbatDiDr4rzSdyyJz20ZE8Uod76yh
+	8SqvOCkt/oAwOGtbk3OO5gggttcXTdMrVR2FkNHXjaEIjE6Wz4kUoHu55XflSjM0FPVFthmu6HR
+	MY8FKikKaOHNh7X3Zjck61BiOXDXqWFWow7w7eETiCp3/cuIUUvepHig8aT3IQ8gOuFYFl47+Xb
+	K8A9cmd13XJcF9RCoQ+w==
+X-Received: by 2002:a5d:6f05:0:b0:46e:624e:3c2f with SMTP id ffacd0b85a97d-47fb1f1e2cemr3407060f8f.47.1785250865033;
+        Tue, 28 Jul 2026 08:01:05 -0700 (PDT)
 Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c52fa9sm61036324f8f.20.2026.07.28.08.01.00
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c52fa9sm61036324f8f.20.2026.07.28.08.01.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 08:01:00 -0700 (PDT)
+        Tue, 28 Jul 2026 08:01:04 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Tue, 28 Jul 2026 16:00:13 +0100
-Subject: [PATCH v3 1/8] coresight: tmc-etr: Don't stop Perf cleanup for
- active sysfs reads
+Date: Tue, 28 Jul 2026 16:00:16 +0100
+Subject: [PATCH v3 4/8] coresight: tmc-etr: Prevent per-thread events from
+ sharing a sink
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260728-james-cs-multiple-per-threads-v3-1-6aee7579f1dc@linaro.org>
+Message-Id: <20260728-james-cs-multiple-per-threads-v3-4-6aee7579f1dc@linaro.org>
 References: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
 In-Reply-To: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -87,11 +87,11 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Qi Liu <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>, 
  coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>, 
- Jonathan Cameron <jic23@kernel.org>, sashiko-bot <sashiko-bot@kernel.org>
+ Jonathan Cameron <jic23@kernel.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_080103_306314_FCCA20A4 
-X-CRM114-Status: GOOD (  27.85  )
+X-CRM114-CacheID: sfid-20260728_080108_223972_14E8C1AB 
+X-CRM114-Status: GOOD (  36.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,253 +106,296 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The linked fixes commit deliberately allows reads of an old sysfs buffer
-while in Perf mode because they are separate software buffers. However
-it didn't modify tmc_disable_etr_sink() to match this relaxation. The
-result is that when a Perf event ends while the sysfs buffer is being
-read, clean up will be skipped.
+Sinks are potentially shared between multiple ETMs, and even with
+Coresight being an exclusive PMU, multiple PERF_ATTACH_TASK events in
+parallel are supported. If both of the events are owned by the same PID
+then the sink becomes shared resulting in trace from the wrong thread
+appearing in a per-thread buffer and WARNs in the driver being hit:
 
-Fix it by ignoring the sysfs_reading flag unless the active session is
-a sysfs one.
+  $ perf test -w named_threads 2 10 &
+  $ perf record -e cs_etm//u --per-thread --pid 984
 
-When sysfs and Perf share the same memory in ETR_MODE_RESRV mode, a new
-Perf session needs to overwrite an old inactive sysfs session by zeroing
-len. This avoids sysfs from reading stale data because it has a separate
-set of offsets in its etr_buf struct, even if that's backed by the same
-memory as the Perf one.
+  WARNING: drivers/hwtracing/coresight/coresight-tmc-etr.c:1654 at tmc_update_etr_buffer+0x328/0x348 [coresight_tmc], CPU#1: perf/686
+  [...]
+  Call trace:
+   tmc_update_etr_buffer+0x328/0x348 [coresight_tmc] (P)
+   etm_event_stop+0x1c8/0x260 [coresight]
+   etm_event_del+0x20/0x38 [coresight]
+   event_sched_out+0xc4/0x1c8
+   group_sched_out+0x5c/0x170
+   __pmu_ctx_sched_out+0xe8/0x148
+   ctx_sched_out+0x12c/0x178
+   perf_event_exit_task_context+0xb0/0x3a8
+   perf_event_exit_task+0xa4/0x138
+   do_exit+0x1cc/0x808
+   do_group_exit+0x7c/0xb0
+   get_signal+0x628/0x678
+   arch_do_signal_or_restart+0x98/0x1b28
+   exit_to_user_mode_loop+0x90/0x188
+   el0_svc+0x1cc/0x260
+   el0t_64_sync_handler+0x78/0x130
+   el0t_64_sync+0x198/0x1a0
 
-Reported-by: sashiko-bot <sashiko-bot@kernel.org>
-Fixes: cad5f8d399bb ("coresight: tmc-etr: Relax collection of trace from sysfs mode")
+Fix it by returning -EBUSY if an incompatible event tries to use the
+same sink. Users will only be able to use per-thread mode reliably with
+multiple threads on a system that has a dedicated sink per ETM. This
+limitation hasn't changed since this fix, it just makes the behavior
+more consistent.
+
+The identity and compatibility of a session are determined by the owning
+process, the target process, and the inheritance settings together.
+
+"Owning process" is a reference to the TGID of the caller of
+etm_setup_aux(), so any thread in that group can access the events. It
+has to be pinned at this point rather than checked at runtime via
+event->owner so that we can handle scenarios like event FDs being passed
+to child threads and original owners exiting.
+
+The "target process" is determined by taking a reference to
+event->hw.target in etm_setup_aux(), which is always called on the root
+event, so is unaffected by inheritance. Perf holds a reference to that
+task struct as long as the event exists, so it can be safely taken even
+if the task isn't live by the time mmap is called.
+
+The remaining inheritance settings are used to determine if a
+PERF_ATTACH_TASK event tracks the same child threads as another event
+with the same target on a different CPU. If not, then sinks can't be
+shared to avoid unexpected trace appearing from a child when
+inherit=false on one but not another.
+
+Fixes: 8d03cfd16a72 ("coresight: tmc-etr: Add support for CPU-wide trace scenarios")
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-tmc-etf.c | 16 ++++----
- drivers/hwtracing/coresight/coresight-tmc-etr.c | 50 +++++++++++++++++++++----
- drivers/hwtracing/coresight/coresight-tmc.h     |  7 +++-
- 3 files changed, 55 insertions(+), 18 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 53 ++++++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-etm-perf.h | 14 +++++++
+ drivers/hwtracing/coresight/coresight-tmc-etr.c  | 20 +++------
+ drivers/hwtracing/coresight/coresight-tmc.h      |  3 ++
+ include/linux/coresight.h                        |  1 +
+ 5 files changed, 77 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-index 8882b1c4cdc0..3836063031d7 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-@@ -198,7 +198,7 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
- 		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 7fb5c3d18bd5..28cf319a39da 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -251,6 +251,9 @@ static void free_event_data(struct work_struct *work)
  	}
  
--	if (drvdata->reading) {
-+	if (drvdata->sysfs_reading) {
- 		ret = -EBUSY;
- 		goto out;
- 	}
-@@ -259,7 +259,7 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	do {
- 		ret = -EINVAL;
--		if (drvdata->reading)
-+		if (drvdata->sysfs_reading)
- 			break;
- 		/*
- 		 * No need to continue if the ETB/ETF is already operated
-@@ -337,7 +337,7 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
- 
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
--	if (drvdata->reading) {
-+	if (drvdata->sysfs_reading) {
- 		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
-@@ -371,7 +371,7 @@ static int tmc_enable_etf_link(struct coresight_device *csdev,
- 	bool first_enable = false;
- 
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
--	if (drvdata->reading) {
-+	if (drvdata->sysfs_reading) {
- 		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
-@@ -401,7 +401,7 @@ static void tmc_disable_etf_link(struct coresight_device *csdev,
- 	bool last_disable = false;
- 
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
--	if (drvdata->reading) {
-+	if (drvdata->sysfs_reading) {
- 		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return;
- 	}
-@@ -718,7 +718,7 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
- 
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
--	if (drvdata->reading) {
-+	if (drvdata->sysfs_reading) {
- 		ret = -EBUSY;
- 		goto out;
- 	}
-@@ -746,7 +746,7 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
- 		__tmc_etb_disable_hw(drvdata);
- 	}
- 
--	drvdata->reading = true;
-+	drvdata->sysfs_reading = true;
- out:
- 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
-@@ -797,7 +797,7 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
- 		drvdata->buf = NULL;
- 	}
- 
--	drvdata->reading = false;
-+	drvdata->sysfs_reading = false;
- 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	/*
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index 361a433e6f0c..be0bbe036d02 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1151,7 +1151,7 @@ static int tmc_etr_enable_hw(struct tmc_drvdata *drvdata,
-  * starts at anywhere in the buffer, depending on the RRP, we adjust the
-  * @len returned to handle buffer wrapping around.
-  *
-- * We are protected here by drvdata->reading != 0, which ensures the
-+ * We are protected here by drvdata->sysfs_reading != 0, which ensures the
-  * sysfs_buf stays alive.
-  */
- ssize_t tmc_etr_get_sysfs_trace(struct tmc_drvdata *drvdata,
-@@ -1268,7 +1268,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	}
- 
--	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
-+	if (drvdata->sysfs_reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
- 		ret = -EBUSY;
- 		goto out;
- 	}
-@@ -1732,6 +1732,16 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
- 	return size;
+ 	free_percpu(event_data->path);
++	put_pid(event_data->session_id.owner);
++	if (event_data->session_id.target)
++		put_task_struct(event_data->session_id.target);
+ 	kfree(event_data);
  }
  
-+static bool tmc_perf_sysfs_shared(struct tmc_drvdata *drvdata,
-+				  struct etr_buf *perf_buf)
-+{
-+	/* In ETR_MODE_RESRV mode, sysfs and Perf share the same memory. */
-+	return perf_buf &&
-+	       drvdata->sysfs_buf &&
-+	       drvdata->sysfs_buf->mode == ETR_MODE_RESRV &&
-+	       perf_buf->mode == ETR_MODE_RESRV;
-+}
+@@ -452,6 +455,16 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 		event_data->cfg_hash = cfg_hash;
+ 	}
+ 
++	/*
++	 * Save an identity that determines if sessions are equivalent enough
++	 * for shared sinks to receive trace from other events.
++	 */
++	event_data->session_id.owner = get_task_pid(current, PIDTYPE_TGID);
++	if (event->attach_state & PERF_ATTACH_TASK) {
++		event_data->session_id.target = get_task_struct(event->hw.target);
++		event_data->session_id.inherit = event->attr.inherit;
++		event_data->session_id.inherit_thread = event->attr.inherit_thread;
++	}
+ 	mask = &event_data->mask;
+ 
+ 	/*
+@@ -1078,3 +1091,43 @@ void etm_perf_flush_workqueue(void)
+ {
+ 	flush_workqueue(etm_free_wq);
+ }
 +
- static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
++bool etm_perf_compare_session(struct etm_session_id *a,
++			      struct etm_session_id *b)
++{
++	return a->owner == b->owner &&
++	       a->target == b->target &&
++	       a->inherit == b->inherit &&
++	       a->inherit_thread == b->inherit_thread;
++}
++EXPORT_SYMBOL_GPL(etm_perf_compare_session);
++
++/*
++ * Returns true if a sink that's potentially connected to multiple ETMs can be
++ * used in parallel with another event.
++ */
++bool etm_perf_sink_can_share(struct coresight_device *csdev,
++			     struct etm_session_id *owner,
++			     struct perf_output_handle *new)
++{
++	struct etm_event_data *new_event_data = perf_get_aux(new);
++	struct etm_session_id *new_id = &new_event_data->session_id;
++
++	/* First user can always use the sink */
++	if (csdev->refcnt == 0)
++		return true;
++
++	/*
++	 * Only allow sharing if both events have the same owner and are
++	 * expected to follow the exact same set of processes. For CPU wide
++	 * events, both new and current 'target's are NULL so sharing between
++	 * all events is allowed.
++	 *
++	 * When 'target' mismatches, trace from two different PERF_ATTACH_TASK
++	 * events is prevented from appearing in a buffer targeting another
++	 * process. Inherit flags change which set of processes are followed,
++	 * even for events with the same 'target', so they must also be checked.
++	 */
++	return etm_perf_compare_session(owner, new_id);
++}
++EXPORT_SYMBOL_GPL(etm_perf_sink_can_share);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
+index 86e259cc1adf..87b3ba72d07c 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.h
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
+@@ -82,6 +82,13 @@ struct etm_filters {
+ 	bool			ssstatus;
+ };
+ 
++struct etm_session_id {
++	struct pid *owner;
++	struct task_struct *target;
++	bool inherit;
++	bool inherit_thread;
++};
++
+ /**
+  * struct etm_event_data - Coresight specifics associated to an event
+  * @work:		Handle to free allocated memory outside IRQ context.
+@@ -90,6 +97,7 @@ struct etm_filters {
+  * @snk_config:		The sink configuration.
+  * @cfg_hash:		The hash id of any coresight config selected.
+  * @path:		An array of path, each slot for one CPU.
++ * @session_id:		Reference to the session that called setup_aux()
+  */
+ struct etm_event_data {
+ 	struct work_struct work;
+@@ -98,6 +106,7 @@ struct etm_event_data {
+ 	void *snk_config;
+ 	u32 cfg_hash;
+ 	struct coresight_path * __percpu *path;
++	struct etm_session_id session_id;
+ };
+ 
+ int etm_perf_symlink(struct coresight_device *csdev, bool link);
+@@ -117,5 +126,10 @@ void etm_perf_del_symlink_cscfg(struct cscfg_config_desc *config_desc);
+ int __init etm_perf_init(void);
+ void etm_perf_exit(void);
+ void etm_perf_flush_workqueue(void);
++bool etm_perf_compare_session(struct etm_session_id *a,
++			      struct etm_session_id *b);
++bool etm_perf_sink_can_share(struct coresight_device *csdev,
++			     struct etm_session_id *owner,
++			     struct perf_output_handle *new);
+ 
+ #endif
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index be0bbe036d02..be5ed04a554f 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1746,10 +1746,10 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
  				    struct coresight_path *path)
  {
-@@ -1772,6 +1782,18 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
+ 	int rc = 0;
+-	pid_t pid;
+ 	unsigned long flags;
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct perf_output_handle *handle = path->handle;
++	struct etm_event_data *event_data = perf_get_aux(handle);
+ 	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
+ 
+ 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+@@ -1764,20 +1764,14 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
  		goto unlock_out;
  	}
  
-+	/*
-+	 * Don't use if it's shared and being read by sysfs. Sysfs may only
-+	 * start reading (the cleared zero length buffer) after the first
-+	 * tmc_enable_etr_sink_perf(), which changes the result of this check,
-+	 * so it should only be done once.
-+	 */
-+	if ((drvdata->sysfs_reading &&
-+	     tmc_perf_sysfs_shared(drvdata, etr_perf->etr_buf))) {
-+		rc = -EBUSY;
-+		goto unlock_out;
-+	}
-+
+-	/* Get a handle on the pid of the session owner */
+-	pid = etr_perf->pid;
+-
+ 	/* Do not proceed if this device is associated with another session */
+-	if (drvdata->pid != -1 && drvdata->pid != pid) {
++	if (!etm_perf_sink_can_share(csdev, &drvdata->perf_session, handle)) {
+ 		rc = -EBUSY;
+ 		goto unlock_out;
+ 	}
+ 
+-	/*
+-	 * No HW configuration is needed if the sink is already in
+-	 * use for this session.
+-	 */
+-	if (drvdata->pid == pid) {
++	/*  No HW configuration is needed if the sink is already in use. */
++	if (csdev->refcnt) {
+ 		csdev->refcnt++;
+ 		goto unlock_out;
+ 	}
+@@ -1796,10 +1790,9 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
+ 
  	rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
  	if (!rc) {
- 		/* Associate with monitored process. */
-@@ -1779,6 +1801,10 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
+-		/* Associate with monitored process. */
+-		drvdata->pid = pid;
  		coresight_set_mode(csdev, CS_MODE_PERF);
  		drvdata->perf_buf = etr_perf->etr_buf;
++		drvdata->perf_session = event_data->session_id;
  		csdev->refcnt++;
-+
-+		/* A new Perf session clears an old sysfs one if the buffer is shared */
-+		if (tmc_perf_sysfs_shared(drvdata, etr_perf->etr_buf))
-+			drvdata->sysfs_buf->len = 0;
- 	}
  
- unlock_out:
-@@ -1807,7 +1833,13 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
+ 		/* A new Perf session clears an old sysfs one if the buffer is shared */
+@@ -1853,11 +1846,10 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
+ 	/* Complain if we (somehow) got out of sync */
+ 	WARN_ON_ONCE(coresight_get_mode(csdev) == CS_MODE_DISABLED);
+ 	tmc_etr_disable_hw(drvdata);
+-	/* Dissociate from monitored process. */
+-	drvdata->pid = -1;
+ 	coresight_set_mode(csdev, CS_MODE_DISABLED);
+ 	/* Reset perf specific data */
+ 	drvdata->perf_buf = NULL;
++	drvdata->perf_session = (struct etm_session_id) {};
  
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
--	if (drvdata->reading) {
-+	/*
-+	 * In SYSFS mode an active read is responsible for disabling and
-+	 * enabling HW. Otherwise in Perf mode, an old inactive sysfs session
-+	 * may be read which Perf should ignore.
-+	 */
-+	if (drvdata->sysfs_reading &&
-+	    coresight_get_mode(csdev) == CS_MODE_SYSFS) {
- 		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
-@@ -1928,14 +1960,16 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
- 		return -EINVAL;
- 
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
--	if (drvdata->reading) {
-+	if (drvdata->sysfs_reading) {
- 		ret = -EBUSY;
- 		goto out;
- 	}
- 
- 	/*
--	 * We can safely allow reads even if the ETR is operating in PERF mode,
--	 * since the sysfs session is captured in mode specific data.
-+	 * We can safely allow reads even if the ETR is operating in PERF mode
-+	 * since sysfs has it's own buffer. For ETR_MODE_RESRV the buffers are
-+	 * shared but Perf discards sysfs data before starting a session to
-+	 * avoid corruption.
- 	 * If drvdata::sysfs_data is NULL the trace data has been read already.
- 	 */
- 	if (!drvdata->sysfs_buf) {
-@@ -1947,7 +1981,7 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
- 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
- 		__tmc_etr_disable_hw(drvdata);
- 
--	drvdata->reading = true;
-+	drvdata->sysfs_reading = true;
- out:
  	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
  
-@@ -1982,7 +2016,7 @@ int tmc_read_unprepare_etr(struct tmc_drvdata *drvdata)
- 		drvdata->sysfs_buf = NULL;
- 	}
- 
--	drvdata->reading = false;
-+	drvdata->sysfs_reading = false;
- 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	/* Free allocated memory out side of the spinlock */
 diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-index 319a354ede9f..dc1a57ab8011 100644
+index dc1a57ab8011..9b153b7910fb 100644
 --- a/drivers/hwtracing/coresight/coresight-tmc.h
 +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-@@ -221,7 +221,10 @@ struct tmc_resrv_buf {
-  * @pid:	Process ID of the process that owns the session that is using
-  *		this component. For example this would be the pid of the Perf
-  *		process.
-- * @reading:	buffer's in the reading through "/dev/xyz.tmc" entry
-+ * @sysfs_reading: Sysfs mode buffer is being read through "/dev/xyz.tmc" entry.
-+ *                Note: ETR has a separate software buffer for the two modes so
-+ *		  the device can still be read while in Perf mode if there is a
-+ *		  previous inactive sysfs session.
-  * @stop_on_flush: Stop on flush trigger user configuration.
-  * @buf:	Snapshot of the trace data for ETF/ETB.
-  * @etr_buf:	details of buffer used in TMC-ETR
-@@ -255,7 +258,7 @@ struct tmc_drvdata {
- 	struct miscdevice	crashdev;
- 	raw_spinlock_t		spinlock;
- 	pid_t			pid;
--	bool			reading;
-+	bool			sysfs_reading;
- 	bool			stop_on_flush;
- 	union {
- 		char		*buf;		/* TMC ETB */
+@@ -13,6 +13,7 @@
+ #include <linux/mutex.h>
+ #include <linux/refcount.h>
+ #include <linux/crc32.h>
++#include "coresight-etm-perf.h"
+ 
+ #define TMC_RSZ			0x004
+ #define TMC_STS			0x00c
+@@ -248,6 +249,7 @@ struct tmc_resrv_buf {
+  *		(after crash) by default.
+  * @crash_mdata: Reserved memory for storing tmc crash metadata.
+  *		 Used by ETR/ETF.
++ * @perf_session: Session identity of the Perf event currently using this sink.
+  */
+ struct tmc_drvdata {
+ 	struct clk		*atclk;
+@@ -278,6 +280,7 @@ struct tmc_drvdata {
+ 	struct etr_buf		*perf_buf;
+ 	struct tmc_resrv_buf	resrv_buf;
+ 	struct tmc_resrv_buf	crash_mdata;
++	struct etm_session_id	perf_session;
+ };
+ 
+ struct etr_buf_operations {
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index add0579cad88..1c06a9800cfe 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -715,4 +715,5 @@ int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode
+ 			       struct coresight_device *sink);
+ int coresight_get_enable_clocks(struct device *dev, struct clk **pclk,
+ 				struct clk **atclk);
++
+ #endif		/* _LINUX_COREISGHT_H */
 
 -- 
 2.34.1
