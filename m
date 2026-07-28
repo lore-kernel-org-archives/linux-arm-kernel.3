@@ -4,138 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFDFC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5374BC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vMgE8Lh8oa99QffmYZuTYSNXx5gN4ryBt5w0cehMBYM=; b=Af+N214idSAX0LvPgbnr9Jdv0Y
-	4ML8c4S5cvwpz5+j3StmCHruLT6XBLswortLXSGCQRsh2mabG4PufZpoDFCql8qEp6F8u0qttjSQJ
-	y6CejpJWxmN1jijU1AftqNzaX8F1GmNXwySMY4H3qF6X19kKtDsnZcrSOo6Hgi8Gg87VWBqCxddsh
-	NUAeta5WcWvznJRklmlLh4KFuu6cMkxNxgpzCs3xeF0LsmWhxD+n2Q1vwx6zkkoSmplfW8cwOq6Cm
-	bIX2XGPCrWv7YvNv+HnBZiOonEJ6nxxZW6km1wdvhbWBxAv5pPKb1Pzns6H/nlse35wMQaVf5ULlw
-	3lX2QVyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qWoF0fB5PNOKYnD+A4X5y/pBZZyCEll/MQB77HbZLNU=; b=xzYMIgl5wXHGLd
+	6RfYEX6dyQVgRlpo45SUoaQEHBdKTi9oG+oxGT/mMTb6dksUyKiPpUvVDKKCEiqGwavpkzl6bKQnD
+	6j4RIb4pawtGQWphVEW51DGSNdtstjNvzMxQ4epAjIn2zK4It189i2+UWBUziKeyfxqIDNGkRdLtO
+	x6gWDFUWjIgbt5dl2fqR+9mZ4YHnzWDNySEzK/2icpfptZm0yVfc57RwamvjpcmK5/CR5qmkOMb+S
+	LMhe9eGNpPeqFUl73X7GBbJAOr/gBNLY4SF6+7EPzaVuQmtKZ9xTZsYkeD8tK1Jb9iKbRPo5NuCHL
+	rXVsS+at1KtR1htqLsFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojFz-00000005ZCM-2IOE;
-	Tue, 28 Jul 2026 14:58:11 +0000
-Received: from mail-northeuropeazon11011020.outbound.protection.outlook.com ([52.101.65.20] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wojIn-00000005Zbc-1UBv;
+	Tue, 28 Jul 2026 15:01:05 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojFw-00000005ZBo-1OQn
+	id 1wojIk-00000005ZaZ-3yiu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 14:58:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v42fvQUAJtKqzRX+2dfsVP8Eezdb0i9rE9ZzqjAIKSPuqAUtm/2cA9ekAjwrnw5Cvw+s91hUkNGyytE0+vkYP98898VOdjCVWS04V/1cZgRbJFCwr6Lw/EpQBfB46dQipu2DbNmflzq5NPM7PDwSqClNQSIc0Cyvgm2m9Q44hhyoEF4PVxvIgUeLd0QXVEy0g9Gk+EKKFL1GKOb3Z8+oZZiKJgKZffN21E4H0C0+niOJ/dWDp9QCx0IuBiiZAaLjmDqeVy+GASxON3qO7Y7hf5p529ONZf9PYeuyoxyI8oOq6eTerfV0a8PHv3KLxs7DRcpxcWeclIlOf10ixjt1Kw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vMgE8Lh8oa99QffmYZuTYSNXx5gN4ryBt5w0cehMBYM=;
- b=YE49iVCnHQR3uDE0XxxtFIIxgt5Bp+7SB+CeK7JLuv4R498X+8cuBlWBV+9JIkEQz4AGgAGd/BOYV3DfbrWKq5I7JfeO8Qb0sewTxE/9n70IwOAkiPWEoU6bo2VuFJYl5iXSL364Lp73iTyryrvRKdNvj5+wl8cm2y5zDWIuWAhzlyYLOqxD4IKl9ZTxpoGKWVorDlPs4bU4jxZTEgd1g8Nh/cYjvJOdjSLmJ/WBxg+gB0+DHkWX77PgFoatJjuHC0NLXh2Wml1MMC8IMLzcod7H/hCdcJE0BXRrPbSwr8FPmVBCr0/IClmTH4s9bdBDYRhJKv+0VSl8v37PeaFyfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vMgE8Lh8oa99QffmYZuTYSNXx5gN4ryBt5w0cehMBYM=;
- b=bRXEkEkieuOVFSmw9pmhg+V9mBxTserJftjEl0PG/P5K+6R/FbWCWDUH6ADcE4qzY4vreNCYXjC7L7pBtpdYVOgvec8mCIZUnFbUlRgjVWZYuQ2m2Y9jt3dd2lSM2zygMaWcgI+VP2XntKpTh8m91KN/d/9ufYBYcmvFhM5cgRMqh2IyPB04RzZycDdUkyeFj8I7wQSQWo1pVMdmFDV9BBMTbyvhBKhW195NazOA5PQ9Q16rtaoMsiOmt2rqOwwlKQbEpOJgb+u6Tvjl25Kb1YISW2Tr4K6HZ2PGsWJRd83hNScgTQQssx3dnMyz6sdGI8IfRVrXKgodWl6Gl6FCkw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBBPR04MB7531.eurprd04.prod.outlook.com (2603:10a6:10:20c::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
- 2026 14:58:03 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.009; Tue, 28 Jul 2026
- 14:58:03 +0000
-Date: Tue, 28 Jul 2026 09:57:53 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Christian Hemp <c.hemp@phytec.de>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/4] media: nxp: imx8-isi: Implement per-stream
- reference counting for multiplexed streams
-Message-ID: <amjDcfDNmRxPSXGV@SMW015318>
-References: <20260728-isi-v5-0-1d22ab91602a@oss.nxp.com>
- <20260728-isi-v5-2-1d22ab91602a@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260728-isi-v5-2-1d22ab91602a@oss.nxp.com>
-X-ClientProxiedBy: SA0PR12CA0002.namprd12.prod.outlook.com
- (2603:10b6:806:6f::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 28 Jul 2026 15:01:04 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-4758bd3731bso1009377f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:01:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1785250860; x=1785855660; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=qWoF0fB5PNOKYnD+A4X5y/pBZZyCEll/MQB77HbZLNU=;
+        b=rcA4kXA8CcmYC07JVw5o6W+ljM24EilqYWK/R1K2DTx642tcOn2V4tmqg0H/gGs3Lf
+         R77UCBdQVSDJTcLa/0PXT+75txgIu8iMRpP4bxdyZfUXD+Lk6H7ldyFIQo5NcenPBNNQ
+         +ekcylCmLv3enHVDxS3/Vvmnx1X9732+BxJZKEaSaAbq9b7jcKy+y3wtC7YEP7nUiF1F
+         v31nHrl0VtipiEksASIujW++DYIVuKRfSNUG9WRIdnTvAw5dny/98bPt4b7Fap8yxlWy
+         GHuGQwchTSzCx1/W3uUk2hpPfry2W3JCmkyK97sRWV5nmA5+jshtmPqcBJ5lKaxt2qTT
+         Cetg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785250860; x=1785855660;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=qWoF0fB5PNOKYnD+A4X5y/pBZZyCEll/MQB77HbZLNU=;
+        b=bFCObbv4zVoP+jORlw1GmMq8619c6s3UrIoumRgspbPcIiTDlrkVC/Q+XEGXr2sf5v
+         HlUJhSn0Dyz4+zujQ5jmfSS6kjjsEVVXICNwtiH82DjBex9/kAq+qdRq3/U840r+05q/
+         Ca9AVWzpE/nkFdNwR8Ph274qi6dMCRY6tFMeolNh3JK8IRqdVoZnkGp0uIrQKNojqHKc
+         ygaCPM1bo7npqxcDp6/TY67LrJ4ajL4vk72NAW6Q2k5xx5vpaFInWd6h3x7sZvjwWEBS
+         CJjrQI/7on3DGXEFQ7h/xFr+LZhPNqOqGvi1Ph/abjUI3Qzwt8FD3bTN4oTIBUSnOPS5
+         RNiw==
+X-Forwarded-Encrypted: i=1; AHgh+RpkppFHUNa/q5kJU2lsFOYkc14xPOzjT8B+nGrr4DKerXBvbp2WyQVBYg1oewvbxfSSUmpbYweOaedHJ+QWKd3F@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3/MuD1PzmSnyHh51qtiNVLaGMB9P6LiLYiaDEa4A+bcpoMqWx
+	dobvQFGfMQOXJrtbCt4xO0U/lx+B9fPlrXGA+TVcjuTF8v6BJLAZdHCysCPZ7NXisy8=
+X-Gm-Gg: AR+sD10+KBc6KME1gTQU3gPKbdthxMvw8yXZAEVrBzhvkxjZ2NVkb7p0tKPyOXSp4HW
+	s9KPstJ3/a0aAziFVJwFiEvYQN/1wve7wz7Rh8Zie73kmbryXKwq4kw8CPXqcNfOEV42pR5tY6G
+	8Y2IdFoVY+mVVviESVC0SgTVQaGA6V3z2F7yRIIhsccQVz6VCsUYR5sjxr5CXAStPNpGQs7/enY
+	Dw6HzRawTti21BQ2vPWY+oTfJMErDus1ESyVLvVZEyW6cDV9n4agygeDwqL/hWa80fGyLUEA5KW
+	2IudzejVymbXKTokxB/+TNGb6FxGUxLktjob1aSd9k1WWHKWOPCVw8rGpWw+EENe0qhvQ/25Plq
+	bI8o5WnA6gmLtte3rX7CvvsL3YBpRWeS7B8OnaC88GYRWx6JZt2eUWTjndMHEYYvBJ8pxHZY5Pe
+	Wjf0a2F80=
+X-Received: by 2002:a05:6000:2212:b0:46b:70db:2113 with SMTP id ffacd0b85a97d-47fb1e1d7f5mr3445185f8f.0.1785250860087;
+        Tue, 28 Jul 2026 08:01:00 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c52fa9sm61036324f8f.20.2026.07.28.08.00.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 08:00:59 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v3 0/8] coresight: Prevent per-thread events from sharing a
+ sink
+Date: Tue, 28 Jul 2026 16:00:12 +0100
+Message-Id: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7531:EE_
-X-MS-Office365-Filtering-Correlation-Id: 15a45ba1-3e0e-43f7-6e09-08deecb89fd0
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|19092799006|23010399003|6133799003|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: DSopNceMj0yh9Qprowy1qaoA8VjNKAOfnWhD3Uqv5qG13DjWn9wN78oPZfKsIkF6A8DXjQf6vBha0b9P9KkJKvaF4Yx2Pgo8Ro4rQ220p/dDGCyLjSnI9Rao+/F1V62iuw/wc2FLCsDG12nFdgzMv1/+ep5tdTUsAlkQ+bc38aRzVFx6/K3UB2dcUvnd2yqtUym+hhQZc+ba+/oNBUmdWdetTlS+NFjofZh8N6bREt9LFJeB+WIgiNh/Gt0NHf5x/uy6tUsd5avZKQQk8qxJLXdYawFteDOYiO92JkguiN2nfPOmbzzdWH+jMOOsFo9FsQfYvHj9bTZ16I8tDFnbMnqN+MR8s3vb/FcScNULH8D7J4x5L0s9okw7loAe/JruOL/v/zpkgseFK7MiL/c5SMdyAvyLkMP+/u8hGUl9oetBmiOq7u2uizcd+rJibKZY2yJ3xWDIjG8atcfZiS+ZWE7W3hpFsR3b8rQL6DHGpKoh/Q8Qh1zLJkgZpEYyGxInP4lClP4K2m6qYAiC0P4xWmKSqw/VHCXOrBwH/SAyBu/DaP1fDkzUdTHQ3pPv7AlVgJ9JBfgOgSHWGNtce/JKPklQshWocEAGgyi7/Yt46wgaU8vBP0oB40eqv//HKGguw1J9Uhgd69fDBn4eWyutwxlAGBa/coG8NOqruCZcQz8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(19092799006)(23010399003)(6133799003)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sY1q9lCr4zirsEaDSuvaYuphM6XfB/pgXrD/Nbdhj8EdofeZiZmKFN4LTP4T?=
- =?us-ascii?Q?jTtswTl4FD4+Ndn4/TJHgTXg9CQ2I+oGcZ5MMLQBJH43IhrtF9tV5DQVPGWz?=
- =?us-ascii?Q?8S2kfspwgV+QuZYn/S/j13z5Aadpvrq1y+cksAUpiZ1HCl0uES4CDWfhFmJ9?=
- =?us-ascii?Q?Q5ExmbTFMrQd9PO+qWDWICQyVCgCgK+2dHxTOSfngrfLxSgvJ5FK4FUiSGkC?=
- =?us-ascii?Q?mT+OC9Mjht3OqEXEeOTNff32nyN7KlaicGNrg9B2ia4g6UVT/Al9RpxtNAKg?=
- =?us-ascii?Q?GPdm3EwbqUfoiF604YvThTKmRY47BB1KRNpAP6MhoMBKcHkkCxGgfm/vLSqy?=
- =?us-ascii?Q?aWL5iNzOHoNSnHZHnnerp/hd2Xgo24w8a8NWVnFUnNhR42Npb65fOQMYf1nx?=
- =?us-ascii?Q?Szl5geFDz74Sg2PYOfguvgpKfXgwypCSvsFklhRLJ5qNFYv5Man6zxmZp4Cz?=
- =?us-ascii?Q?3/addB3Ld9HADQYKbutjRJETZq10zFeWBfvw0NnXhN7tW+qIKoK1UPnt6DWh?=
- =?us-ascii?Q?i0x9w71c1QayEGMH3CE8KM74d1N2N+AYZZDUuzfIo5P6MRAqDscZksFaQfYc?=
- =?us-ascii?Q?3XzKd2U374C9Fpzrm3WwzNnHv3uvJ4CNBwh+0p/pXtYVQFuhaIADBzE5ADvC?=
- =?us-ascii?Q?hvpNfC9214o+zTDFOoUCntq7QRE2LXrrmjI8riR4qRHPni/QBBqw5n1ytajx?=
- =?us-ascii?Q?bK8adGTuGp8Us64O6ArGZXR76ki0ulzdNXxAuzBY6FQeC3yK6kCWyCSBSd1B?=
- =?us-ascii?Q?D41rPhVxlqWy6uIz7RE2drvrfLBtwEnLLcJWhtjaX/PYaF4OTScKWvUIBBgM?=
- =?us-ascii?Q?0Ur8bYCIP2dvZUaza5U3GsyYip95evnqHSvjEq/0yUldj/bqvsTsNPk8Q4Gs?=
- =?us-ascii?Q?Ul2sDtrhlFbpUFnPfPRrJfUWFFvpmxutp7JZ6kdgoCQAVWlql3muUpWRwF67?=
- =?us-ascii?Q?wHEkvfrwa8AxNTHholLpsRgjoKxkvW5eJmssfwU9X9JIV4+DAHvBrueJVYB+?=
- =?us-ascii?Q?bncvvyPlx8I2O/FWNFKIOF2ymXsGcuvQnYRj5Yz5F3x4Eu9xh63c9bLsFi7N?=
- =?us-ascii?Q?iTuLeyWFwC3D7bPN0nHNLx6OdJPInlWswkqH8ppWxfRnuWD3fbSKCtTIXbOK?=
- =?us-ascii?Q?FovRodtZFna8GhNYtjtGI5+Z7RA39fn4xUgtBPcvgfoKek98KgU6P3j6GCag?=
- =?us-ascii?Q?B7QA/KTmZHDIYrs4zJ9v3B3Llu38/gGvrkiL28WR1ZxiD7m5IbTLFlRtNzyB?=
- =?us-ascii?Q?NPcKpepqa3tVP1GUanG5owtci2tl3DCR7DKw768pqpA248NmkTknFYHu8cWo?=
- =?us-ascii?Q?DkeG/7PUDThObxAYr47p7LagA7FRJpnu/QSRt21dze4vqWWg1oNYis09hRGm?=
- =?us-ascii?Q?EcV/hEqx1KR8Zc656PmyvYyX2dF1y4TQWS8O1fVfWCbGnXb6xriJJ+h+7N8Q?=
- =?us-ascii?Q?52XJNUl3cJ5ThvaEsCbD+QoG1j0j32q+slxltm68Q3vMrK4K3gwi7wTp0Lkg?=
- =?us-ascii?Q?XElQxQPalCMca5nNa0Ttl2/vJASKhR30uxswgbydG3opmBy03RyodyeOP7Ji?=
- =?us-ascii?Q?L39+DqNeft4yZBeQXF50l6C4xcdGcIHRnn6k3puvkIz1iSI0DsX+e0EYljt7?=
- =?us-ascii?Q?OZcHMVygW4WkK+tXCwL3ArB6u/1srthSLj9FaKflK8AGAaQ7lxK2ZgFyXlt/?=
- =?us-ascii?Q?GRT+piQh/ECgKo2H83H+2oG4dfw+DLIBkGw58FQslBAjQWvbU+EzBbXmYW6+?=
- =?us-ascii?Q?X0szumZ4L14YMzAkCUHK1+kfzLOPRqsEoVXnH+eJIb+cbgUmhk/M?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15a45ba1-3e0e-43f7-6e09-08deecb89fd0
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 14:58:03.4445
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MIvFirRiOX0c04/QUSnaW9t2IO/UBMz/djA5VqNYekr77HIaC+U8X+pDeknptegbfRDjglw5RSuXnnATu3cBGZofOp6xDIqB+raqAIS0S7Ev2j5ve9amN+hiD+GzZt3o
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7531
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAP3DaGoC/5XNsQ6CMBDG8VchnT3TFqTo5HsYh9oeUAOUXLHRE
+ N7dQuLgZFwu+d/w+2YWkBwGdspmRhhdcH5Ike8yZlo9NAjOpmaSy5IrXsFd9xjABOgf3eTGDmF
+ Egqkl1DYAWmHlIV2VFywZI2Htnpt/uaZuXZg8vba5KNbvRz7+kKMADjavCixtoZQ2584NmvzeU
+ 8NWOsq/OJk4wbVJUqlrfvvilmV5A+BnR8oaAQAA
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
+ Suyash Mahar <smahar@meta.com>, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Qi Liu <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>, 
+ Jonathan Cameron <jic23@kernel.org>, sashiko-bot <sashiko-bot@kernel.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_075808_523596_3F2ECA07 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20260728_080103_056421_C933B729 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,233 +107,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 02:58:57PM +0800, Guoniu Zhou wrote:
-> The ISI crossbar needs to properly enable multiple streams from different
-> virtual channels on the same input pad. Currently only the first stream
-> gets enabled in hardware, subsequent streams are silently ignored.
->
-> The driver uses a single enable_count per input to track the input state.
-> When enable_count is non-zero, the code assumes the input is already active
-> and skips calling v4l2_subdev_enable_streams() for additional streams:
->
->   Call 1: enable_streams(stream 0)
->     -> enable_count == 0, enable gasket and stream 0 in hardware
->     -> enable_count = 1
->
->   Call 2: enable_streams(stream 1)
->     -> enable_count == 1, skip hardware enable
->     -> enable_count = 2
->     -> stream 1 never gets enabled
->
-> Similarly on disable, when enable_count reaches zero, ALL streams are
-> disabled regardless of which streams are actually still active.
->
-> Implement per-stream state tracking by storing the input index and stream
-> mask in the mxc_isi_pipe structure. On enable, record which input and
-> stream the pipe is receiving. On disable, clear the pipe's record and
-> check if any other pipe is still using the same input stream before
-> actually disabling it.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> ---
+Concurrent per-thread events results in a WARN on N1SDP which leads to
+the realization that per-thread events shouldn't have been sharing sinks
+in the first place.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This slips through because different per-thread events will have the
+same PID if owned by the same process, and we only check the PID and
+nothing else. That results in unexpected WARNs because it looks like we
+assumed it couldn't happen (although exclusive PMU rules allow it). But
+even if it was supported it would result in trace from the wrong thread
+in another event's per-thread buffer, so we should disallow it.
 
-> Changes in v4:
-> - Make enable/disable symmetric by checking stream_in_use
-> - Add mxc_isi_crossbar_stream_in_use() helper for both paths
->
-> Changes in v3:
-> - Change from "Fix" to "Implement" as multi-stream support is for newer
->   SoCs not present when the driver was merged (Laurent)
-> - Remove Fixes and Cc: stable tags (Laurent)
-> - Store input/input_stream in mxc_isi_pipe instead of using per-stream
->   counters array, avoiding arbitrary 64-entry limit (Laurent)
-> - Use UINT_MAX to mark pipe as inactive to distinguish from valid pad 0
->
-> Changes in v2:
-> - Use fixed-size array for enabled_count instead of dynamic allocation
-> - Use BIT_ULL() macro for u64 bitmask operations
-> - Use MXC_ISI_MAX_STREAMS (64) as loop boundary instead of num_sources
-> - Remove mxc_isi_stream_counters_alloc/free functions
-> ---
->  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  5 +-
->  .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 84 ++++++++++++++++------
->  .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    |  1 +
->  3 files changed, 67 insertions(+), 23 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> index 9bb4d430d15e..c07abdd6a1f0 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> @@ -186,7 +186,7 @@ struct mxc_isi_dma_buffer {
->  };
->
->  struct mxc_isi_input {
-> -	unsigned int			enable_count;
-> +	u64				enabled_streams;
->  };
->
->  struct mxc_isi_crossbar {
-> @@ -259,6 +259,9 @@ struct mxc_isi_pipe {
->  	u8				acquired_res;
->  	u8				chained_res;
->  	bool				chained;
-> +
-> +	unsigned int			input;
-> +	u64				input_stream;
->  };
->
->  struct mxc_isi_m2m {
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> index 9db9c6e55c2c..eacc3bb28f9c 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> @@ -330,11 +330,26 @@ static int mxc_isi_crossbar_set_routing(struct v4l2_subdev *sd,
->  	return __mxc_isi_crossbar_set_routing(sd, state, routing);
->  }
->
-> +static bool mxc_isi_crossbar_stream_in_use(struct mxc_isi_crossbar *xbar,
-> +					   unsigned int sink_pad, u64 sink_streams)
-> +{
-> +	for (unsigned int i = 0; i < xbar->isi->pdata->num_channels; ++i) {
-> +		struct mxc_isi_pipe *pipe = &xbar->isi->pipes[i];
-> +
-> +		if (pipe->input == sink_pad &&
-> +		    pipe->input_stream == sink_streams)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
->  static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
->  					   struct v4l2_subdev_state *state,
->  					   u32 pad, u64 streams_mask)
->  {
->  	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
-> +	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
->  	struct v4l2_subdev *remote_sd;
->  	struct mxc_isi_input *input;
->  	u64 sink_streams;
-> @@ -351,29 +366,44 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
->  	input = &xbar->inputs[sink_pad];
->
->  	/*
-> -	 * TODO: Track per-stream enable counts to support multiplexed
-> -	 * streams.
-> +	 * Check if any other pipe already receives the same input stream.
-> +	 * If so, just record this pipe's usage and return.
->  	 */
-> -	if (!input->enable_count) {
-> +	if (mxc_isi_crossbar_stream_in_use(xbar, sink_pad, sink_streams)) {
-> +		pipe->input = sink_pad;
-> +		pipe->input_stream = sink_streams;
-> +		return 0;
-> +	}
-> +
-> +	/* Enable the gasket when the first stream is enabled for this input. */
-> +	if (!input->enabled_streams) {
->  		ret = mxc_isi_crossbar_gasket_enable(xbar, state, remote_sd,
->  						     remote_pad, sink_pad);
->  		if (ret)
->  			return ret;
-> +	}
->
-> -		ret = v4l2_subdev_enable_streams(remote_sd, remote_pad,
-> -						 sink_streams);
-> -		if (ret) {
-> -			dev_err(xbar->isi->dev,
-> -				"failed to enable streams 0x%llx on '%s':%u: %d\n",
-> -				sink_streams, remote_sd->name, remote_pad, ret);
-> -			mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
-> -			return ret;
-> -		}
-> +	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad, sink_streams);
-> +	if (ret) {
-> +		dev_err(xbar->isi->dev,
-> +			"failed to enable streams 0x%llx on '%s':%u: %d\n",
-> +			sink_streams, remote_sd->name, remote_pad, ret);
-> +		goto err_gasket_disable;
->  	}
->
-> -	input->enable_count++;
-> +	input->enabled_streams |= sink_streams;
-> +
-> +	/* Record the input and stream for this pipe. */
-> +	pipe->input = sink_pad;
-> +	pipe->input_stream = sink_streams;
->
->  	return 0;
-> +
-> +err_gasket_disable:
-> +	if (!input->enabled_streams)
-> +		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
-> +
-> +	return ret;
->  }
->
->  static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
-> @@ -381,6 +411,7 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
->  					    u32 pad, u64 streams_mask)
->  {
->  	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
-> +	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sinks];
->  	struct v4l2_subdev *remote_sd;
->  	struct mxc_isi_input *input;
->  	u64 sink_streams;
-> @@ -396,18 +427,27 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
->
->  	input = &xbar->inputs[sink_pad];
->
-> -	input->enable_count--;
-> +	/* Clear the input and stream for this pipe. */
-> +	pipe->input = UINT_MAX;
-> +	pipe->input_stream = 0;
->
-> -	if (!input->enable_count) {
-> -		ret = v4l2_subdev_disable_streams(remote_sd, remote_pad,
-> -						  sink_streams);
-> -		if (ret)
-> -			dev_err(xbar->isi->dev,
-> -				"failed to disable streams 0x%llx on '%s':%u: %d\n",
-> -				sink_streams, remote_sd->name, remote_pad, ret);
-> +	/*
-> +	 * Check if any other pipe receives the same input stream. If so we
-> +	 * can't disable it yet, so return immediately.
-> +	 */
-> +	if (mxc_isi_crossbar_stream_in_use(xbar, sink_pad, sink_streams))
-> +		return 0;
-> +
-> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad, sink_streams);
-> +	if (ret)
-> +		dev_err(xbar->isi->dev,
-> +			"failed to disable streams 0x%llx on '%s':%u: %d\n",
-> +			sink_streams, remote_sd->name, remote_pad, ret);
-> +
-> +	input->enabled_streams &= ~sink_streams;
->
-> +	if (!input->enabled_streams)
->  		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
-> -	}
->
->  	return ret;
->  }
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> index 16085f23bc0b..c0ec59856374 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> @@ -816,6 +816,7 @@ int mxc_isi_pipe_init(struct mxc_isi_dev *isi, unsigned int id)
->  	pipe->acquired_res = 0;
->  	pipe->chained_res = 0;
->  	pipe->chained = false;
-> +	pipe->input = UINT_MAX;
->
->  	sd = &pipe->sd;
->  	v4l2_subdev_init(sd, &mxc_isi_pipe_subdev_ops);
->
-> --
-> 2.34.1
->
->
+Fix it everywhere the same PID checking logic was copy pasted. Then the
+PIDs can be dropped from a few structs as they are now unused.
+
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Changes in v3:
+- Storing and accessing event owners at runtime causes problems due to
+  various scenarios of: events (and sibling events) exiting, children
+  inheriting event FDs, PID reuse, CPU affine events that also have a
+  target process set but different inherit settings. Fix it by creating
+  a session ID in etm_setup_aux() and holding the references in it for
+  the duration of the whole session. (Leo)
+- Make the ETR buffer allocator consistent with sink sharing rules by
+  not doing numeric PID comparisons there either.
+- Fix up some Sashiko reports that it sees after interacting with cscfg
+  and taking extra references to tasks and PIDs.
+- Link to v2: https://lore.kernel.org/r/20260709-james-cs-multiple-per-threads-v2-0-10ac7ac6af0b@linaro.org
+
+Changes in v2:
+- Fix inherited events by following event->parent
+- Link to v1: https://lore.kernel.org/r/20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org
+
+---
+James Clark (8):
+      coresight: tmc-etr: Don't stop Perf cleanup for active sysfs reads
+      coresight: configfs: Don't assume active until cscfg_mgr is set
+      coresight: etm-perf: Flush workqueue before unloading module
+      coresight: tmc-etr: Prevent per-thread events from sharing a sink
+      coresight: tmc-etr: Use session ID for buffer ownership
+      coresight: tmc-etf: Prevent per-thread events from sharing a sink
+      coresight: etb10: Prevent per-thread events from sharing a sink
+      coresight: ultrasoc-smb: Prevent per-thread events from sharing a sink
+
+ drivers/hwtracing/coresight/coresight-core.c     |  28 +--
+ drivers/hwtracing/coresight/coresight-etb10.c    |  33 ++--
+ drivers/hwtracing/coresight/coresight-etm-perf.c |  79 ++++++++-
+ drivers/hwtracing/coresight/coresight-etm-perf.h |  15 ++
+ drivers/hwtracing/coresight/coresight-priv.h     |   2 -
+ drivers/hwtracing/coresight/coresight-syscfg.c   |   6 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c |   6 +-
+ drivers/hwtracing/coresight/coresight-tmc-etf.c  |  44 ++---
+ drivers/hwtracing/coresight/coresight-tmc-etr.c  | 207 +++++++++++++----------
+ drivers/hwtracing/coresight/coresight-tmc.h      |  30 ++--
+ drivers/hwtracing/coresight/coresight-trbe.c     |   3 +-
+ drivers/hwtracing/coresight/ultrasoc-smb.c       |  25 +--
+ drivers/hwtracing/coresight/ultrasoc-smb.h       |   6 +-
+ include/linux/coresight.h                        |   5 +-
+ 14 files changed, 294 insertions(+), 195 deletions(-)
+---
+base-commit: 98495b5a4d77dd22e106f462b76e1093a55b29a7
+change-id: 20260708-james-cs-multiple-per-threads-ed1d25ed1734
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
