@@ -4,40 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817B6C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 20:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8C5C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 20:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqcl2A1/Y/Zoai1qlUZXrlRzPqCbNIULxhuRqzApzxE=; b=hOPhr06yS2NM2cRI+y3MgIG/2e
-	p3vLwXb3XDArhZiegDqO0JmFcK+gfWDnQwB9AVZV//r2iRdROeTHLYsLrJe/yTRGrl60eMpFF9q4S
-	VW+MGF6c7roO3+l5ei3g5ncal+mFb/7kqzvt+OHg62Bo9TvmdIHvKmQXWJJEA1Ul93NYSU+MZZGUL
-	LXlj0fdJDFjm0FeyluYutOKfMx1hLBTyRuLdvtq5N4jmTRKorgt2EyhY2TTiCCfnb+h0/dQPibevx
-	D9dIhBiZQ9XxYbi7b5w/ufGLxQX430CIUhCQrvlfVtA666w0sb50g7XmnabDVDlwAtmF1Qp5A478M
-	D0vuAo1A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hHfDxtXRviIyVvBGh7Iys+RpSMSujoxdzUaAudT4Lqg=; b=KQE3i7gmNEnpXhk/KKaUlpHXMY
+	q2qM0VKFDjmPl3bkEoydgnP0fdl67OzI8+68bs0qOndhAx3UzNodjmFo+l90jnXu8te1DYEHuqnVg
+	ZjFs9gC7fdQ+ZQby3VmBov5wZeaJ11/OBDnRPkjxC1FNs3uhMemUTwo2b99ePpqYLCEafaJYj3f+w
+	fFMwOCAJ5PBVLGieYXWPotO1jHRrs1pIeM0O2yw4qLHLuW5pTeUjtnNpU66xgORcgp4nKZEg8gsOF
+	CUWZt+4bcpFCwXqEFlV8hNmulLb6xqOTYXRkOHnjb6ipbleM6n4/Co3DDbLuCXrr1v7vDuv7A+9Kk
+	4NdsitTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woot1-00000006FBS-15Ik;
+	id 1woot1-00000006FBk-1SnP;
 	Tue, 28 Jul 2026 20:58:51 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woosy-00000006FAo-1qtE
+	id 1woosy-00000006FAm-0LGD
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 28 Jul 2026 20:58:49 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785272326;
+	t=1785272323;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jqcl2A1/Y/Zoai1qlUZXrlRzPqCbNIULxhuRqzApzxE=;
-	b=KIZnDZYloKH0jnQ37cT+8sAqt0k7tIJ9I5+SdYZbg6ogLPIE/6xZe95NEfKzUf3jfTyn/Y
-	/80EhR8eGku8lJgd0SmLyFVwuoxiuMiYwv6ZmGhoa7mGS12nhXqhGdKCffNR2zt5R7ta3y
-	lJ+l2fU/4JlzqmzpXEAQlgqpQqM6L6w=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hHfDxtXRviIyVvBGh7Iys+RpSMSujoxdzUaAudT4Lqg=;
+	b=URnoggRLAi//Yn8I0oChl2VmZb3x2JvAVNV34sJNohP3Y1cDtn0TezrBeSMv8DmJDZr8JR
+	3IyZXXn5GnAGFcnXunvc91g64lUi1G0h2CCrKXFtCGs4OJbpWHTi6p5fgRNZJybXE/UwT/
+	1n4ZtPuyU21bEq8okCUr+SOZ8A4PtaQ=
 From: Thorsten Blum <thorsten.blum@linux.dev>
 To: Thorsten Blum <thorsten.blum@linux.dev>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
@@ -48,19 +47,18 @@ To: Thorsten Blum <thorsten.blum@linux.dev>,
 Cc: linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] crypto: atmel-ecc - drop redundant return variable
-Date: Tue, 28 Jul 2026 22:58:27 +0200
-Message-ID: <20260728205825.471233-4-thorsten.blum@linux.dev>
-In-Reply-To: <20260728205825.471233-3-thorsten.blum@linux.dev>
-References: <20260728205825.471233-3-thorsten.blum@linux.dev>
+Subject: [PATCH 1/2] crypto: atmel-ecc - simplify control flow in atmel_ecdh_set_secret
+Date: Tue, 28 Jul 2026 22:58:26 +0200
+Message-ID: <20260728205825.471233-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1094; i=thorsten.blum@linux.dev; h=from:subject; bh=WzP/RvGoPS91Jf8i1xsA0+TMgFvLbMx4vB/VMlUlAfg=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFmZ4p/a9VSipk4t4LI5uOpqg94Gz8SOHXv0K7nEPVWFr mgZrzvZUcrCIMbFICumyPJg1o8ZvqU1lZtMInbCzGFlAhnCwMUpABMxP8bwv2ie2s/rNVbnU1dJ LnwTb/bl94tm4Z9hTGm3+AyUP8ifkGb4n1jOwOz9LVmRdebO7o7A2Unxd58oLOvTdjhouazjqv1 fRgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=980; i=thorsten.blum@linux.dev; h=from:subject; bh=lD5H0k2lSGSVpGxnOKY3vZo2BDaBYInh+gMUWUUxkRk=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFmZ4p8kLCtKbWq+z6+wiJDt2OOnY7DipFH91ofzIguvC n37YSPcUcrCIMbFICumyPJg1o8ZvqU1lZtMInbCzGFlAhnCwMUpABPJ92D4Hycr3Bb4QaazbcON XxtWS6ZuWCq60To3UeFxXWi37wOGIob/uZtubF/p9+Ybx6JHW3O2rI3nMn08YwsHh6VIqcCiNX/ 38AAA
 X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_135848_726504_A8ACC7F7 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260728_135848_726016_A00B01F8 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +73,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In atmel_ecdh_generate_public_key(), drop the redundant return variable
-and return -EINVAL and 0 directly.
+Free the public key directly on I2C transaction failure and remove the
+free_public_key label to simplify the code.
 
 Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 ---
- drivers/crypto/atmel-ecc.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/crypto/atmel-ecc.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index f98782f0a2c6..0c6ab5da9299 100644
+index 21192a042fa2..f98782f0a2c6 100644
 --- a/drivers/crypto/atmel-ecc.c
 +++ b/drivers/crypto/atmel-ecc.c
-@@ -125,7 +125,6 @@ static int atmel_ecdh_generate_public_key(struct kpp_request *req)
- 	struct crypto_kpp *tfm = crypto_kpp_reqtfm(req);
- 	struct atmel_ecdh_ctx *ctx = kpp_tfm_ctx(tfm);
- 	size_t copied, nbytes;
--	int ret = 0;
+@@ -107,17 +107,14 @@ static int atmel_ecdh_set_secret(struct crypto_kpp *tfm, const void *buf,
+ 	atmel_i2c_init_genkey_cmd(cmd, DATA_SLOT_2);
  
- 	if (ctx->do_fallback) {
- 		kpp_request_set_tfm(req, ctx->fallback);
-@@ -143,9 +142,9 @@ static int atmel_ecdh_generate_public_key(struct kpp_request *req)
- 				     sg_nents_for_len(req->dst, nbytes),
- 				     ctx->public_key, nbytes);
- 	if (copied != nbytes)
--		ret = -EINVAL;
-+		return -EINVAL;
+ 	ret = atmel_i2c_send_receive(ctx->client, cmd);
+-	if (ret)
+-		goto free_public_key;
++	if (ret) {
++		kfree(public_key);
++		goto free_cmd;
++	}
  
--	return ret;
-+	return 0;
- }
+ 	memcpy(public_key, &cmd->data[RSP_DATA_IDX], ATMEL_ECC_PUBKEY_SIZE);
+ 	ctx->public_key = public_key;
  
- static int atmel_ecdh_compute_shared_secret(struct kpp_request *req)
+-	kfree(cmd);
+-	return 0;
+-
+-free_public_key:
+-	kfree(public_key);
+ free_cmd:
+ 	kfree(cmd);
+ 	return ret;
 
