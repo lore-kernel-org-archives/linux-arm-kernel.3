@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BF3C53219
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988ABC54F4C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=irkOxPEAYOTR+5YwZO+w9qlMMVucv2iMchYWL1WEcAY=; b=J9FiVTdkhMXL6lLVwsq5hS23Dc
-	O/07YCph/pdjTubI2VHgosCoxdmsxQv+KFpX2m848cmF8l4KMt0C0rogLWFb+fwB71+0p4shyzp7H
-	Sz9aGhixw0Kkh8A/eGSDt5ECHUbkbi0pwc02A86s7zlM5XzenpVumhq1EbcABmP5+gO9TFxNXfc5o
-	9IkP8GUhRdJfVjHU5zcAfB85n1jIqjyAno3+oo5uyi65bjgBNAvOHOlNXMPKGY9+pSUoQs/PGi4kA
-	/iQPfVF54Xbq//uNJ2Yxm57JWMc+R9M0OSNNv4MTxDzLFQl5OQUH2iyO755RSm3zEikEjn/dl7Odd
-	HaIDmKRw==;
+	bh=iRZNHUqbcuXxDbUm/osOIMCVeI1ZnqX7M1AdEi75dWU=; b=v5/c/qatEmD+qc81jREANng2Ae
+	Eu7ALMH+yqGpL0gxuccGCD2oV/gQdb79qhL60LzqoNvp/4PUd8ImosMCfkuhvLuu1lLDfJbuWSa+Q
+	vjywawX7tAmGdP085gBE6Ac0VkkBWMsQ9kYpLsEapHgRux4KgAIpY+adE3bhjJDfaBoCjpr8fZvjX
+	djgikdiJBPtUDAPyBX/Oxd7zs0C0oUbJ1f3i7KYORYc3jOFmX76sHsh3oHzscAIKaRD0DnqjI+XdZ
+	FX4cYlgOKaN/is2TCz5vLW2Ib1BdWP2YWzqcOBWrAQXzI67qFjg+HcadqkzqYvTlcXPkfvDGkIgw5
+	AltTt9Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeMP-00000004rO1-2bLP;
+	id 1woeMP-00000004rOb-3PBi;
 	Tue, 28 Jul 2026 09:44:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeMO-00000004rMr-2BGh;
+	id 1woeMO-00000004rMl-2BNO;
 	Tue, 28 Jul 2026 09:44:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9C9243F13;
+	by tor.source.kernel.org (Postfix) with ESMTP id BE2F760A9F;
 	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A9D93C2BCC6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8A1D7C2BCFC;
 	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1785231867;
-	bh=erZkFTXMOMihPG3tf2Kjcg3MRSbkrk4OZSGbmy7Rtk0=;
+	bh=B+Il3voZWOU+NfKjXmq5iEtbdl3/dZmOXmoyBUpXRSg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=GK4sZQWwd6EKlsXaL2KUJVaWL0WXwXyisJn7I+B3cRt5Y3tyuUFvjgaP++A6fxp86
-	 KxA8UtbjYVvyP1l5C3iCfSsrs0RWDVEqVFuT9khMC32iYLoQAvJrUj1+5FRzIni6XY
-	 7MupKd+Ac7CJaL6girxeENPQLMt3UKMSqIyYaaqy2KPvifDQUH1ckQ31luBk4zVC7F
-	 ATy59phXUaiK+ZSQRB20h77sYcrT4dryVrVP2W4BL0xy0X/C9BvZdR0l9W+6rEKel7
-	 HI74XZdSHXeCRe3Tlm4oWKR4yj46eYMV3X3MmsEshqW/lmbjIg/KkRA7lHPNkv3ht8
-	 4LWtWZ7pDylEA==
+	b=RQt1AqLwLkznKF3DKKp46q8wYr35VOCUD2WZpqzv2DotmazIQLEbjiz7cTYCaL0+Q
+	 saDA7JNK0eRSvRlquIAuVApjy0Lzsw33n+TSbGuhz8Gomlh09GtxnXaY7MJnn+P9j1
+	 8/ML9I7yQ3kid1yviyywAEhfnj2VxRU6NHDmIuwkDffZETUhQqAouBkrvq0WG5kpkI
+	 o3Z1Sn4HTcdzfZ+VJ3wSxjDsirrhAwnohTZ0makZSGHM+6M1vBmhJERfAg/5shISab
+	 sdX1tFvJVqnXgGOYwQMcXjOl2ovUy+vZhoLgorc0zS3v3XiGZMO1DqH2WfgReED3iR
+	 XzPQsZcdmtCmA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 940FEC54F54;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 69C05C54F4C;
 	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Tue, 28 Jul 2026 12:42:48 +0300
-Subject: [PATCH 3/3] mailbox: mtk-cmdq: add mt6572 support
+Date: Tue, 28 Jul 2026 12:42:46 +0300
+Subject: [PATCH 1/3] dt-bindings: mailbox: mediatek,gce-mailbox: add mt6572
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260728-6572-gce-v1-3-750bba32689e@protonmail.com>
+Message-Id: <20260728-6572-gce-v1-1-750bba32689e@protonmail.com>
 References: <20260728-6572-gce-v1-0-750bba32689e@protonmail.com>
 In-Reply-To: <20260728-6572-gce-v1-0-750bba32689e@protonmail.com>
 To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785231864; l=1755;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785231864; l=2656;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=wlNt8w4pK42NOY4pipdycMZ5TzX4r9IY7xlPIXoIXu4=;
- b=em8m3keAx8V+DEbFxfHYM9caC9+m2KxyazIAl9NkghlYodMVJLxPtOwvaJrzxthYwgXX8ILn6
- O2oPz0eD9uwAJe10xMRTPsdOBs/VuAToBRcn98foH/+ksODxndUn4dX
+ bh=gdmBpbzvMM1k4WMKvCNMXHzy/2AmitDeeVQZLFqJ/iw=;
+ b=I7l0tZVnlxUmK7WNVN5xygPbnShw33DIxbkF+tiJSu9jcvQCvXK5Q0Hy4J8iinaN/5Xq7Boxo
+ rBXW7pEw9E8Cqn2fBX/7gJn+J4xKv7IaaiduZGi1/ykm0/8rnN3YWpu
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -90,57 +90,84 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Roman Vivchar <rva333@protonmail.com>
 
-Add legacy_isa field forwarding to the cmdq helper and a platform data
-for the mt6572 GCE.
+Add a compatible string and a header for the GCE constants.
 
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- drivers/mailbox/mtk-cmdq-mailbox.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ .../bindings/mailbox/mediatek,gce-mailbox.yaml     |  1 +
+ include/dt-bindings/gce/mediatek,mt6572-gce.h      | 52 ++++++++++++++++++++++
+ 2 files changed, 53 insertions(+)
 
-diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
-index e523c84b4808..5e7bc52baaa1 100644
---- a/drivers/mailbox/mtk-cmdq-mailbox.c
-+++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-@@ -99,6 +99,7 @@ struct gce_plat {
- 	bool control_by_sw;
- 	bool sw_ddr_en;
- 	bool gce_vm;
-+	bool legacy_isa;
- 	u32 gce_num;
- };
- 
-@@ -119,6 +120,7 @@ void cmdq_get_mbox_priv(struct mbox_chan *chan, struct cmdq_mbox_priv *priv)
- 	struct cmdq *cmdq = container_of(chan->mbox, struct cmdq, mbox);
- 
- 	priv->shift_pa = cmdq->pdata->shift;
-+	priv->legacy_isa = cmdq->pdata->legacy_isa;
- 	priv->mminfra_offset = cmdq->pdata->mminfra_offset;
- }
- EXPORT_SYMBOL(cmdq_get_mbox_priv);
-@@ -787,6 +789,14 @@ static const struct dev_pm_ops cmdq_pm_ops = {
- 			   cmdq_runtime_resume, NULL)
- };
- 
-+static const struct gce_plat gce_plat_mt6572 = {
-+	.thread_nr = 14,
-+	.shift = 0,
-+	.control_by_sw = false,
-+	.legacy_isa = true,
-+	.gce_num = 1
-+};
+diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
+index 587126d03fc6..d6e93010bb94 100644
+--- a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
++++ b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
+@@ -18,6 +18,7 @@ properties:
+   compatible:
+     oneOf:
+       - enum:
++          - mediatek,mt6572-gce
+           - mediatek,mt6779-gce
+           - mediatek,mt8173-gce
+           - mediatek,mt8183-gce
+diff --git a/include/dt-bindings/gce/mediatek,mt6572-gce.h b/include/dt-bindings/gce/mediatek,mt6572-gce.h
+new file mode 100644
+index 000000000000..e6d949d76f88
+--- /dev/null
++++ b/include/dt-bindings/gce/mediatek,mt6572-gce.h
+@@ -0,0 +1,52 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) 2026 Roman Vivchar.
++ */
 +
- static const struct gce_plat gce_plat_mt6779 = {
- 	.thread_nr = 24,
- 	.shift = 3,
-@@ -848,6 +858,7 @@ static const struct gce_plat gce_plat_mt8196 = {
- };
- 
- static const struct of_device_id cmdq_of_ids[] = {
-+	{.compatible = "mediatek,mt6572-gce", .data = (void *)&gce_plat_mt6572},
- 	{.compatible = "mediatek,mt6779-gce", .data = (void *)&gce_plat_mt6779},
- 	{.compatible = "mediatek,mt8173-gce", .data = (void *)&gce_plat_mt8173},
- 	{.compatible = "mediatek,mt8183-gce", .data = (void *)&gce_plat_mt8183},
++#ifndef _DT_BINDINGS_GCE_MT6572_H
++#define _DT_BINDINGS_GCE_MT6572_H
++
++/* GCE HW thread priority */
++#define CMDQ_THR_PRIO_NORMAL		0
++#define CMDQ_THR_PRIO_HIGHEST		1
++
++/* GCE SUBSYS */
++#define SUBSYS_14XXXXXX			0
++#define SUBSYS_15XXXXXX			1
++
++/* GCE HW EVENT */
++#define CMDQ_EVENT_MUTEX0		0
++#define CMDQ_EVENT_MUTEX1		1
++#define CMDQ_EVENT_MUTEX2		2
++#define CMDQ_EVENT_MUTEX3		3
++#define CMDQ_EVENT_MUTEX4		4
++#define CMDQ_EVENT_MUTEX5		5
++#define CMDQ_EVENT_MUTEX6		6
++#define CMDQ_EVENT_MUTEX7		7
++
++#define CMDQ_EVENT_DISP_WDMA_EOF	12
++#define CMDQ_EVENT_DISP_RDMA_EOF	13
++#define CMDQ_EVENT_DISP_BLS_EOF		14
++#define CMDQ_EVENT_DISP_COLOR_EOF	15
++#define CMDQ_EVENT_DISP_OVL_EOF		16
++#define CMDQ_EVENT_MDP_TDSHP_EOF	17
++#define CMDQ_EVENT_MDP_RSZ1_EOF		18
++#define CMDQ_EVENT_MDP_RSZ0_EOF		19
++#define CMDQ_EVENT_MDP_RDMA_EOF		20
++#define CMDQ_EVENT_MDP_WDMA_EOF		21
++#define CMDQ_EVENT_MDP_WROT_EOF		22
++
++#define CMDQ_EVENT_MDP_WROT_SOF		24
++#define CMDQ_EVENT_MDP_RSZ0_SOF		25
++#define CMDQ_EVENT_MDP_RSZ1_SOF		26
++#define CMDQ_EVENT_DISP_OVL_SOF		27
++#define CMDQ_EVENT_MDP_WDMA_SOF		28
++#define CMDQ_EVENT_MDP_RDMA_SOF		29
++#define CMDQ_EVENT_DISP_WDMA_SOF	30
++#define CMDQ_EVENT_DISP_COLOR_SOF	31
++#define CMDQ_EVENT_MDP_TDSHP_SOF	32
++#define CMDQ_EVENT_DISP_BLS_SOF		33
++#define CMDQ_EVENT_DISP_RDMA_SOF	34
++#define CMDQ_EVENT_CAM_MDP		35
++
++#endif
 
 -- 
 2.54.0
