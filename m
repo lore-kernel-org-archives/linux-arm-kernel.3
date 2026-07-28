@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E99AC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AD5C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 03:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8z6+9aYLHZYdfCJA23t+r1RSEBj9B4ddSmlqXz5D9eE=; b=ii5h7sY01/BdHmwTPGkjBTPi8F
-	1S/1MBv6c9I7JdwRXI8PVU2tiu8e3dSdMUX+5vicSCFgpBJ4PvYGAUZaYe4p1+v85xWZ16g5ZtxX6
-	JXJvxH0r2REKDyHyGtyr4/jtqGrI53GexA32SlMSIW1j9fhpv87/te09WZ5DUTqR3h94hFWDiOLTx
-	9rkUDS+DwTRU72IWcn4FXsiqMYAFwxp4MPKJZpOtsqC7CgH1kUK3IdyLhAf+sOmBTEv8qnSmJ4JFk
-	UQE2tyDXiH9oy0mCQ36Q89I3kCDktYaE7sxz3Q/oqIQDp5zi7qHUS1uT0+ND3uU52jtljIxeaZDkE
-	vYdkw6Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i2OZn93lcUXhMlXo83zxXhDSCZPYVK33cbHbh70WqO4=; b=y8JI7rG3Vm6srNGSIBDpBeOni/
+	p0+y5siy3JNPhihMKReM/jBfFot16J7wZsOQjNQNIXldUS7PhLzHq8BNWVtXGbsJ2JJmDOlyHG6J9
+	977WyCFpcpm4697lgmxE0emjEEnvZEhFvzQDHsyXZzf5oTtj5P2xtSEKMwUUx0en1d7C6mdoQzoXi
+	gzArBtFQsbXKPwfbpNplcCLuZZjMxF/ZeWRLoJkIntcyRIrxiQUmhG2G60TcgjNsn3pCFDPUYX1pM
+	eQ+WDee18tP1IQClLI/NgRfl8ENXEofOAJP6EMyRv1e04OOvFtZ6Rz4NwsygtNm5pXZJtw2WqSidB
+	2t3o5xZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woY0o-00000004I4s-0CsF;
-	Tue, 28 Jul 2026 02:57:46 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1woYBc-00000004IQ5-0FuQ;
+	Tue, 28 Jul 2026 03:08:56 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woY0l-00000004I4Z-2rOB
+	id 1woYBW-00000004IOU-12zC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 02:57:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785207464; x=1816743464;
-  h=date:from:to:cc:subject:message-id;
-  bh=D7mILVUwrcsn4nC0TdJyYh4cssIOmOYUVRi3/KX4ubA=;
-  b=MECe0obkdtxn5ZfACDgl/vFUM1Vq9DOZvkrl+0B5RtbnePW56+2NE7B7
-   mva4wh901pGuZ76tpD6/0nw7ixZb/ocKgVaVvDyNAQlMmEiaLlC3fYOjZ
-   jez21vqUxwXdCmh7zvDZlGfH2JzlIBseOo7BNmIUeeUls7jyYM0NBStQG
-   THzRi6aMin4Bg5EzevETnSdGVDmea1j9uyUIE64HqN7JKm6nmU+CXTlOa
-   Ay2SV8HFjEdU9UB5AbyvZcaUk97bNC2mdihyxpougdA6+z6l0OwHab1Pi
-   0ggSWVXZZa3QAw+/FzRPe3bbbFEw/H5B8OsM1RsI3GOEmzEwvOyhMOsoX
-   A==;
-X-CSE-ConnectionGUID: lQe2o4rWROOKYgENp9QFbw==
-X-CSE-MsgGUID: WS6KhyTYTASUF2ptkwF6Dg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11858"; a="103326409"
-X-IronPort-AV: E=Sophos;i="6.25,189,1779174000"; 
-   d="scan'208";a="103326409"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 19:57:42 -0700
-X-CSE-ConnectionGUID: li0n/K4TR7KHRAg5YSU1xQ==
-X-CSE-MsgGUID: MN+OHByrTh2LCRxAGoe4Ug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,189,1779174000"; 
-   d="scan'208";a="259638775"
-Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
-  by orviesa007.jf.intel.com with ESMTP; 27 Jul 2026 19:57:41 -0700
-Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1woY0g-00000000dqV-1XAp;
-	Tue, 28 Jul 2026 02:57:38 +0000
-Date: Tue, 28 Jul 2026 10:57:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- 1df696a7d18d5a14e6482a8dd3ca6e588735ac65
-Message-ID: <202607281000.LX9VH1I9-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Tue, 28 Jul 2026 03:08:54 +0000
+X-UUID: a0f04d188a3111f1aa26b74ffac11d73-20260728
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:17281866-73e3-4b1a-8f12-c116d1f007df,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:f1b7a3b3752b4c97600e637bdbf25927,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50
+	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
+	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a0f04d188a3111f1aa26b74ffac11d73-20260728
+X-User: liuxixin@kylinos.cn
+Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <liuxixin@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 591202663; Tue, 28 Jul 2026 11:08:38 +0800
+From: Xixin Liu <liuxixin@kylinos.cn>
+To: arm-scmi@vger.kernel.org
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, mturquette@baylibre.com, sboyd@kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
+Subject: [PATCH v2 0/5] firmware/clk: arm_scpi hardening (leak, OPP bounds, cpufreq)
+Date: Tue, 28 Jul 2026 09:04:02 +0800
+Message-ID: <cover.v2.1785200642.git.liuxixin@kylinos.cn>
+In-Reply-To: <cover.1785118770.git.liuxixin@kylinos.cn>
+References: <cover.1785118770.git.liuxixin@kylinos.cn>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Mailer: patches/scripts/send-local.py
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_195743_761908_5DFA7FF8 
-X-CRM114-Status: UNSURE (   5.36  )
+X-CRM114-CacheID: sfid-20260727_200850_593796_31FD3313 
+X-CRM114-Status: UNSURE (   9.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,66 +76,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 1df696a7d18d5a14e6482a8dd3ca6e588735ac65  Merge tag 'arm-soc/for-7.2/devicetree-arm64-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
+Hi Sudeep,
 
-elapsed time: 3500m
+Thanks for reviewing v1.
 
-configs tested: 46
-configs skipped: 0
+This v2 hardens the OF SCPI firmware and clock paths against a few
+real defects found while reviewing linux-next:
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+  1) device_node leak in scpi_dev_domain_id() after
+     of_parse_phandle_with_args()
+  2) DVFS OPP count from SCP trusted beyond MAX_DVFS_OPPS (OOB read /
+     bad OPP table size)
+  3) DVFS index used as clock rate without an upper bound check
+  4) scpi-cpufreq registered once only, and cleared on register failure
+     so remove() does not unregister an ERR_PTR
+  5) use PLATFORM_DEVID_NONE instead of bare -1 for the scpi-cpufreq
+     platform device id (readability; Fixes the original registration)
 
-tested configs:
-alpha                  allnoconfig    gcc-16.1.0
-alpha                 allyesconfig    gcc-16.1.0
-alpha                    defconfig    gcc-16.1.0
-arc                   allmodconfig    gcc-16.1.0
-arc                   allyesconfig    gcc-16.1.0
-arm            imx_v6_v7_defconfig    clang-24
-csky                  allmodconfig    gcc-16.1.0
-i386                  allmodconfig    gcc-14
-i386                randconfig-011    gcc-14
-i386       randconfig-011-20260728    gcc-14
-i386       randconfig-012-20260728    gcc-14
-i386       randconfig-013-20260728    gcc-14
-i386       randconfig-014-20260728    gcc-14
-i386       randconfig-015-20260728    gcc-14
-i386       randconfig-016-20260728    gcc-14
-i386       randconfig-017-20260728    gcc-14
-loongarch                defconfig    clang-24
-nios2                 allmodconfig    gcc-11.5.0
-nios2                  allnoconfig    gcc-11.5.0
-parisc                allmodconfig    gcc-16.1.0
-parisc                allyesconfig    gcc-16.1.0
-parisc                   defconfig    gcc-16.1.0
-parisc     randconfig-001-20260728    gcc-10.5.0
-parisc     randconfig-002-20260728    gcc-10.5.0
-powerpc    randconfig-001-20260728    gcc-10.5.0
-powerpc    randconfig-002-20260728    gcc-10.5.0
-powerpc64  randconfig-001-20260728    gcc-10.5.0
-powerpc64  randconfig-002-20260728    gcc-10.5.0
-riscv      randconfig-001-20260728    gcc-14.3.0
-riscv      randconfig-002-20260728    gcc-14.3.0
-s390       randconfig-001-20260728    gcc-14.3.0
-s390       randconfig-002-20260728    gcc-14.3.0
-sh                       defconfig    gcc-16.1.0
-sh         randconfig-001-20260728    gcc-14.3.0
-sh         randconfig-002-20260728    gcc-14.3.0
-sparc               randconfig-001    gcc-11.5.0
-sparc      randconfig-001-20260728    gcc-11.5.0
-sparc      randconfig-002-20260728    gcc-11.5.0
-sparc64    randconfig-001-20260728    gcc-11.5.0
-sparc64    randconfig-002-20260728    gcc-11.5.0
-um         randconfig-001-20260728    gcc-11.5.0
-um         randconfig-002-20260728    gcc-11.5.0
-x86_64                       kexec    clang-22
-x86_64                rhel-9.4-bpf    gcc-14
-xtensa     randconfig-001-20260728    gcc-11.5.0
-xtensa     randconfig-002-20260728    gcc-11.5.0
+Changes since v1:
+- 2/5: add Fixes: 8cb7cf56c9fe ("firmware: add support for ARM System
+  Control and Power Interface(SCPI) protocol")
+- 3/5: add Fixes: cd52c2a4b5c4 ("clk: add support for clocks provided by
+  SCP(System Control Processor)")
+- 4/5: correct commit message (scpi_clocks_probe; multi-DVFS child
+  overwrites the first good cpufreq_dev with ERR_PTR(-EEXIST)) and
+  add Fixes: 9490f01e2471 / 67bcc2c5f1da
+  All per maintainer feedback; code unchanged.
+- add 5/5: clk: scpi: use PLATFORM_DEVID_NONE for scpi-cpufreq
+  (readability; Fixes: 9490f01e2471)
+- Rebased onto linux-next next-20260727 (0d33d21e47d9); 2/5 context
+  updated for kmalloc_obj() (logic unchanged).
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Please review.
+
+Thanks,
+Xixin Liu
+
+---
+
+Xixin Liu (5):
+  firmware: arm_scpi: fix device_node leak in scpi_dev_domain_id
+  firmware: arm_scpi: reject DVFS OPP count above MAX_DVFS_OPPS
+  clk: scpi: bound-check DVFS index in scpi_dvfs_recalc_rate
+  clk: scpi: register scpi-cpufreq once and clear on failure
+  clk: scpi: use PLATFORM_DEVID_NONE for scpi-cpufreq
+
+ drivers/clk/clk-scpi.c      | 10 ++++++++--
+ drivers/firmware/arm_scpi.c |  9 ++++++---
+ 2 files changed, 13 insertions(+), 6 deletions(-)
+
+-- 
+2.53.0
+
 
