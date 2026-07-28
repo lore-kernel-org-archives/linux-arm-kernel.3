@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DB6C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F207C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lSkwhKAcEsyJqT/0xqVJXtxYxIXWD0v9uCPSjTmMF2M=; b=fttadPpw8/dfU1N+isb27ipJu8
-	oK8DaeMwixXEN/4J792Kb4Zp8BH9+E4SIxiayAQCAGUY+EgvVcPB8fIImiviCUApv8R01L7uQ1eOl
-	p5NFgyeswbcglPLSH0g7YVtR48YTPOyEMUg60iILWT23vtYvbjPhxmfPjn0mvtAiwa32tYXb9iRyK
-	hjEyOqsIsq28UbndM1V3YmqqyBbZ9kPRz3U/uLjuLb394B5ayL3hCRswMbzpgGLcVWTmqfS54o+AQ
-	3SM203245MGjLAA6FESxm4CyRDHsp3+3UXF7OB311gKFKsnKPLO2Ee26yGyTDNnSTMzzMN/0/pbkZ
-	jnoqBk4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAFPdKF7awqisF2H3NWwPFuLQxRDWPQZnxcT7Rg1lG4=; b=Txetc3LJ7yRWugW4lw1/ASbnAv
+	2wSdIhLdRMIT4ULwW+1BuynFZtOPebv6WWaUG8+EY+9VEcrM6NT62qwJjBXX/ovPt6B10BXBNGS7E
+	TBSZ0E1POOtSOhfX8B/hu5HtVDu3mTMkthW1mKBDgf8uYFmtpRMevlkz5+/SJO/VXRzbp/zPMLSZL
+	QBmPvuC2Dm9LWfDqBW+o8drw34j08kdLYA6S1ubfWdLI2Vrw1fDL7IPGbzUt7e88kBUwdDMY14zfD
+	kLlNphHTUfIDm02JoWUO9f4WMAeMg58UK+UEjVypWpvBx2N25/1oeMf0geq3jhNhkdDj9W4f55rLV
+	gXukcCdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogya-00000005Fdf-1wZc;
-	Tue, 28 Jul 2026 12:32:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woh0i-00000005Fqb-3Q87;
+	Tue, 28 Jul 2026 12:34:16 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogyZ-00000005FdO-00Ra
+	id 1woh0g-00000005Fq1-0HfK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:32:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B021A40321;
-	Tue, 28 Jul 2026 12:32:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95E771F000E9;
-	Tue, 28 Jul 2026 12:31:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785241920;
-	bh=lSkwhKAcEsyJqT/0xqVJXtxYxIXWD0v9uCPSjTmMF2M=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=WEM01trD462HpzukrLQzJYedOMo/krm72PvzqlsPIr95pA22pK97BItUkKTq0RiE1
-	 BafhKgnPLjt9aVTzvU1dFa7RMbB40i5ZGyvy+Uq+GD3nlFNKGJAlh6v5YCczVVs88W
-	 XLgMqJmGuxCudWp7Pe+Yi+kgsFNJVH9ZJXfZCAW/9lfgbs+iqFLXWZDleq9blMw7mP
-	 +MH5pd841sVe9ss5f/WYkSBvsx7eS76Efavuj5k30SQrM2EWKd6eLiQqbz9Kr4x/nz
-	 YGdV+Rm3lqSrOuShxDdIBjk4LGOrgQZRl5vevgtv94weDxSm1UhqL4Mz6Y3mDajtlK
-	 HdSaygY48BoeQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	stable@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v8 01/23] dma-direct: return struct page from
- dma_direct_alloc_from_pool()
-In-Reply-To: <20260726081753.GD12003@unreal> (Leon Romanovsky's message of
-	"Sun, 26 Jul 2026 11:17:53 +0300")
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
-	<20260717180442.110954-2-aneesh.kumar@kernel.org>
-	<20260721115456.GI110966@unreal> <yq5atsps77c5.fsf@kernel.org>
-	<20260721142921.GN110966@unreal> <yq5ao6g0750v.fsf@kernel.org>
-	<20260721153321.GO110966@unreal> <amEhEKQW0_HJ9cLN@ziepe.ca>
-	<20260723075704.GC110966@unreal> <amTJY_CdE-uDgoGG@ziepe.ca>
-	<20260726081753.GD12003@unreal>
-User-Agent: mu4e 1.14.1; emacs 30.2
-Date: Tue, 28 Jul 2026 18:01:45 +0530
-Message-ID: <yq5ah5ljjnwu.fsf@kernel.org>
+	Tue, 28 Jul 2026 12:34:15 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=vAFPdKF7awqisF2H3NWwPFuLQxRDWPQZnxcT7Rg1lG4=;
+	b=X/aEwnN6q08CgCUyCqThv0GM0njjozv+C6Ib5kQPxbNXE6d6q9r2txzHYIWfHbeF6kpRmgEzj
+	tZRmfAJGPP9MOvpdzHP/O5iHmNnaVNOsRAgFt0uVYtyhb/CgzVm66sW+hWKSRU8hNAXUQ6YMgYB
+	kJAbn3obCQGv1Mox+rQiH/s=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h8ZQt73KSz1prKd;
+	Tue, 28 Jul 2026 20:24:38 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8C833202E6;
+	Tue, 28 Jul 2026 20:34:07 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 28 Jul 2026 20:34:06 +0800
+Message-ID: <be90802b-a970-4f2b-84bd-ded8567573ac@huawei.com>
+Date: Tue, 28 Jul 2026 20:34:06 +0800
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 43/45] arm64: smp: Add NMI support for LPI-backed
+ IPIs
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-44-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-44-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_053414_782344_7362656A 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,64 +80,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Leon Romanovsky <leon@kernel.org> writes:
 
-> On Sat, Jul 25, 2026 at 11:34:11AM -0300, Jason Gunthorpe wrote:
->> On Thu, Jul 23, 2026 at 10:57:04AM +0300, Leon Romanovsky wrote:
->> > On Wed, Jul 22, 2026 at 04:59:12PM -0300, Jason Gunthorpe wrote:
->> > > On Tue, Jul 21, 2026 at 06:33:21PM +0300, Leon Romanovsky wrote:
->> > > 
->> > > > Something like, but probably void* needs to be phys_addr_t:
->> > > > 
->> > > > static inline struct page *dma_phys_to_page(void *addr)
->> > > > {
->> > > > #ifdef CONFIG_DMA_DIRECT_REMAP
->> > > > 	return vmalloc_to_page(addr);
->> > > > #else
->> > > > 	return virt_to_page(addr);
->> > > > #endif
->> > > > }
->> > > 
->> > > I don't like this, we don't know for sure the addr will be in a vmap
->> > > and this will fail if it isn't.
->> > 
->> > Of course we know. The existing "#ifdef CONFIG_DMA_DIRECT_REMAP" is
->> > relevant for addresses acquired from pool.
->> 
->> Yeah, but I still don't like it :) It is hard to follow if you make
->> those kinds of leaps, someone will call this new helper on something
->> they shouldn't
->
-> This issue is straightforward to address today. Limit the scope, use
-> an appropriate function name, and add a comment indicating that the
-> function is local to and specific to the pool. The latter helps
-> AI-based review tools flag incorrect usage outside the intended scope.
->
->> 
->> > dma_phys_to_page() is a bad name for some low-level conversion function.
->> > It needs to be internal to DMA logic, in the level when we convert from
->> > phys to page.
->> 
->> I think we should not convert from phys to page, that's also easy to
->> do wrong
->
-> Perhaps I'll reiterate my complaint. DMA internals are already hard to
-> understand. Part of that complexity is necessary to support every
-> possible use case, but another part comes from a maze of types that is
-> entirely self-inflicted. I think this code only makes the latter worse.
->
-> Currently, the phys type universally describes memory and can be
-> reliably translated into any required representation. It is the most
-> fundamental type we have.
->
 
-I think we can address the suggested changes as a follow-up patch series
-on top of this.
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> LPI-backed IPIs are currently always requested and managed as regular
+> IRQs. Allow IPIs selected by ipi_should_be_nmi() to be requested as
+> NMIs, falling back to regular IRQs when the NMI request fails.
+> 
 
-How about we get this picked up for the next merge window first, so that
-we can get the CC_SHARED related changes in? The follow-up changes
-should be easier once we have agreement on the overall design, and can
-then be done as incremental cleanups.
+It seems FEAT_NMI do not support LPI interrupt.
 
--aneesh
+> Track which IPIs were successfully requested as NMIs so that the
+> per-CPU enable and disable paths use the appropriate NMI helpers.
+> 
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/kernel/smp.c | 34 +++++++++++++++++++++++++++++-----
+>  1 file changed, 29 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 9bacdbb2aa44..012633ea8347 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -1123,16 +1123,24 @@ static const struct ipi_irq_ops ipi_sgi_ops = {
+>  
+>  static void ipi_lpi_enable(int cpu, int ipi)
+>  {
+> -	enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+> +	if (test_bit(ipi, get_ipi_nmi_bitmap(cpu)))
+> +		enable_nmi(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+> +	else
+> +		enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+>  }
+>  
+>  static void ipi_lpi_disable(int cpu, int ipi)
+>  {
+> -	disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+> +	if (test_bit(ipi, get_ipi_nmi_bitmap(cpu)))
+> +		disable_nmi_nosync(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+> +	else
+> +		disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+>  }
+>  
+>  static void ipi_lpi_setup(int ipi, int ncpus)
+>  {
+> +	bool is_nmi = ipi_should_be_nmi(ipi);
+> +
+>  	for (int cpu = 0; cpu < ncpus; cpu++) {
+>  		int err, irq;
+>  
+> @@ -1141,13 +1149,29 @@ static void ipi_lpi_setup(int ipi, int ncpus)
+>  		err = irq_force_affinity(irq, cpumask_of(cpu));
+>  		WARN(err, "Could not force affinity IRQ %d, err=%d\n", irq, err);
+>  
+> -		err = request_irq(irq, ipi_handler, IRQF_NO_AUTOEN, "IPI",
+> -				  NULL);
+> -		WARN(err, "Could not request IRQ %d, err=%d\n", irq, err);
+> +		/*
+> +		 * Try to request NMI if it should be
+> +		 */
+> +		if (is_nmi && request_nmi(irq, ipi_handler, IRQF_PERCPU | IRQF_NO_AUTOEN, "IPI", NULL)) {
+> +			/*
+> +			 * Fallback to regular IRQ
+> +			 */
+> +			is_nmi = false;
+> +		}
+> +		/*
+> +		 * Otherwise regular IRQ
+> +		 */
+> +		if (!is_nmi) {
+> +			err = request_irq(irq, ipi_handler, IRQF_NO_AUTOEN, "IPI", NULL);
+> +			WARN(err, "Could not request IRQ %d, err=%d\n", irq, err);
+> +		}
+>  
+>  		irq_set_status_flags(irq, (IRQ_HIDDEN | IRQ_NO_BALANCING_MASK));
+>  
+>  		get_ipi_desc(cpu, ipi) = irq_to_desc(irq);
+> +
+> +		if (is_nmi)
+> +			set_bit(ipi, get_ipi_nmi_bitmap(cpu));
+>  	}
+>  }
+>  
+
 
