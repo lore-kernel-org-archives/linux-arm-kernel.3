@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC1AC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA740C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nalu+jHAn8oG2MOkOgH3K8VuqE2FZCyexEoTbT5+0qE=; b=OWiUVcQHvDm81FOIsalkkmH++m
-	Zf1x2wMdtCt0gAtqan3J8sKEJrDPNCUXYl8yZKcXXm4/xv1L8b6K+qbF4Fs3FJcoLxh0oyJVcs6tn
-	tIl/jWg/Hf6JqgN1+fwjb8F3zwAgJXyk0lnsxynapayJ04Qr6XqHBGCRtQeEijePOsMCBlxV9/vrh
-	Rv3TlOBoznvT6dWqQZ3oUwEOigLsYjNmfUlYxmdWMhGDvcyjnAHUkhr9OBHQGRA/p0EOx1jE7qkAl
-	mwWkFbgWZ314AKm9W2GHPkgIpniURNvIJsYiOzu9n6713mYlev4uNbP5Uy8WWesKxJCjjQ0qvHIG8
-	eVy6+UXg==;
+	bh=iyrqSXRUI9ztcQRX1Wc66j6EPgWcJakwRHdTV9058BY=; b=SBQZFWmifLE+/Q40OhxDVUqaY5
+	dwH0i8AI79NyevYczTndq6+yS9noOTqBxvnOaPqDXJKueTmXDmty6WmFiUNvMG3Vpbqw8OKhfFd8I
+	orMvvVgCrlvgBgzJGFmwfrArk/ioILwvWvqgUAiqVHcXAzUd1HV1zZJZP2wWIwTdJv5L+NamfcPYX
+	1ByNxp6PSkjXzgJFIO+KAfKY2E/UnkST0qrqt4nX2vZKVkLWnykat7mgF0YoAu3hQgbpozVedmgTv
+	3ucJzPsZMUa9INeWUZOcZWVVWFU/o7SxBdytxsYmbPhSkvXWP/qySbqEcIyNst9Y2PKBDa8a6u894
+	GwrG6HjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogTU-000000059u2-0frL;
-	Tue, 28 Jul 2026 11:59:56 +0000
+	id 1wogUE-000000059zn-1Jva;
+	Tue, 28 Jul 2026 12:00:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogTT-000000059tG-0Iff
+	id 1wogUD-000000059ze-1WiB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 11:59:55 +0000
+	Tue, 28 Jul 2026 12:00:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4AAC044E52;
-	Tue, 28 Jul 2026 11:59:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A101F00A3F;
-	Tue, 28 Jul 2026 11:59:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1AD9643416;
+	Tue, 28 Jul 2026 12:00:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D7661F000E9;
+	Tue, 28 Jul 2026 12:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785239994;
-	bh=nalu+jHAn8oG2MOkOgH3K8VuqE2FZCyexEoTbT5+0qE=;
+	s=k20260515; t=1785240041;
+	bh=iyrqSXRUI9ztcQRX1Wc66j6EPgWcJakwRHdTV9058BY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=heJes8n9WXaBrCl8l0ZCEgdYrwJB3O+6mzHN3jTb/GohegxXmHWdghduCMkCeyffG
-	 CmAAVTxeDCErzb6TrF52q5RKWCU2rauQljkFOCLAMol9Ze1tloLkSOT64AEOTRW8qE
-	 LVc3DIRJahiXfzwF4k5vpeUJi3CtK2gp5ncWvBWFW8cLpPT09G+BgF4cKPAnT7zqVd
-	 SQXbwVLy0S6F/SplKYdi4z0ekkjq0D8blAJua71Gq94WsbvDq8OClGovXMibQufQ52
-	 ZRnv3hWackEaR5V/AihykolL0BH40m4Vyk6YWyYHjS29fP6xN3HIE6+FsJHFbGyUeE
-	 C/G/fTi1goE/w==
-Message-ID: <8582d4f9-1a78-4f47-bab9-c52393dffbd1@kernel.org>
-Date: Tue, 28 Jul 2026 13:59:44 +0200
+	b=CbwscpHvO3IFjezY74QV1xiC9ad9a8mX0iyG6fpISDCyOAs2fSLgNFtGPUzC65Mlk
+	 yeAP+jNcSfjqvKt2IGS4gCjReRfL0HEWLfUCFZGQTovKtETeIz7/F5sny+YTUfkaBT
+	 22IR3qbdr7rSaO4xRinwH56ZPDVn98SIb33C7uaeRKH8+xg7n6RqIJCGPoiEz/XyEo
+	 6CuYcDTDohUcPbAh3aHhFaL+VO5PDm0dguL1XqUmBZPASCmvItK6NhapykFv/Rz5z6
+	 Um0AtgpsMtQ3lppvXeLEjXtt60jToeIuee+MJP1XRVH9U5loCw3Vr6p74hXeXu3oZp
+	 XIP/KZqw5A0/A==
+Message-ID: <3ccaa869-c0cb-4708-adc6-f01f7b4412ac@kernel.org>
+Date: Tue, 28 Jul 2026 14:00:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/13] arm64: dts: exynos8855: add cmu_top & cmu_peric
- clock DT nodes
+Subject: Re: [PATCH 06/13] clk: samsung: exynos8855: add block peris clock
+ support
 To: "raghav.s" <raghav.s@samsung.com>, s.nawrocki@samsung.com,
  cw00.choi@samsung.com, peter.griffin@linaro.org, alim.akhtar@samsung.com,
  mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com,
@@ -57,8 +57,8 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-kernel@vger.kernel.org, hajun.sung@samsung.com, is.gandhi@samsung.com,
  ts.amit@samsung.com, pokala.reddy@samsung.com
 References: <20260728121111.2077860-1-raghav.s@samsung.com>
- <CGME20260728115256epcas5p38cbcfe68218d08301d237705388e6e62@epcas5p3.samsung.com>
- <20260728121111.2077860-5-raghav.s@samsung.com>
+ <CGME20260728115305epcas5p4394f65825a0a04aa7d2bd5068507e8ca@epcas5p4.samsung.com>
+ <20260728121111.2077860-7-raghav.s@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260728121111.2077860-5-raghav.s@samsung.com>
+In-Reply-To: <20260728121111.2077860-7-raghav.s@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,15 +122,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 28/07/2026 14:11, raghav.s wrote:
-> Add required dt node for cmu_top & cmu_peric block
+> Register compatible and cmu_info data to support clocks.
+> CMU_PERIS, this provides clocks for PERIS
 > 
 > Signed-off-by: raghav.s <raghav.s@samsung.com>
 > ---
->  arch/arm64/boot/dts/exynos/exynos8855.dtsi | 24 ++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
+>  drivers/clk/samsung/clk-exynos8855.c | 117 ++++++++++++++++++++++++++-
+>  1 file changed, 114 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/clk/samsung/clk-exynos8855.c b/drivers/clk/samsung/clk-exynos8855.c
+> index 93528f0077a4..40745f04be0c 100644
+> --- a/drivers/clk/samsung/clk-exynos8855.c
+> +++ b/drivers/clk/samsung/clk-exynos8855.c
+> @@ -17,8 +17,9 @@
+>  #include "clk-exynos-arm64.h"
+>  
+>  /* NOTE: Must be equal to the last clock ID increased by one */
+> -#define CLKS_NR_TOP                     (FOUT_MMC_PLL_DIV2 + 1)
 
-Please organize your patches in reasonable order. DTS is never in the
-middle, see submitting patches (both documents) and maintainer-soc profile.
+You just added this line, so changing this is odd. Are your patches
+correctly split?
+
 
 Best regards,
 Krzysztof
