@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3327C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174B1C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=daMRxS0Kh2ADzZ81QAFwLgz+aTvbJ+pwPAdc3QnTWcc=; b=EsALYun/1C6lTR3WkCNAEx/9j+
-	fnowaWh8fTV+OVTLWkPCoG/l0JVNjCiuDW513EpxiukVFUDh6AAtw7bDmjCDt5T4GoOFXeRfWINJs
-	oh6k6d2bN2p3YrpN+jjZaO5sPw8ZngZa+bVUX5GCinXoVuFuoDXMkhpt95raR028TBxn58kTir0NL
-	Ngc+niyischql78tXNgmBiKVbmrFeeeKkC5biwbmoCpIXgMA7i3T3FLmioP4TSdOFnIrHwdM7k40f
-	0uzHZTLprCxvBraCVXSbUk1Uz9pTp/fM9xak3MF8w1DklQ27LJEaOxGT6IlqDc0UqCPFj9iikMf0n
-	EsBnWJfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4pZZxIDCbmPabbBvha42zoIjfW/WEkZrj2Rrfd/pLuc=; b=I/24udGTXXy87p6n9SaI1ow8Eo
+	MddQ9YFn+bkSqkrErBC3ElUaylP3Ff+jBQ8sVE0ztOZtSPDBPxWX0aByZWbZlEyLtiSBYIGbPHHdV
+	kS04wcDJilVcDhEw9fCal0pNlWM+Iw9xFyMXlqNHkFqPogPVHgghp52CkcVte3POdrGWwsiBbNa7X
+	W7OXf9Bcm7nkBpws6t1gYVM8izPq6KwKOojyjIf5RT4agRqqxrS/LjXa2BBlIvwd0atLfYp9BGBSg
+	4lf4An/OVoF7IxK9k42D8iDod93RC3ndyFp0veP0kShzs5jNCXIvAmjXpdVP6u49uWA5RMs74AZ2D
+	pz38ENnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woerD-00000004wNX-0Bjb;
-	Tue, 28 Jul 2026 10:16:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woeMP-00000004rNj-29NU;
+	Tue, 28 Jul 2026 09:44:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woerB-00000004wMv-2dXy
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 10:16:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7EDBC4027E;
-	Tue, 28 Jul 2026 10:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 376451F00A3A;
-	Tue, 28 Jul 2026 10:16:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785233776;
-	bh=daMRxS0Kh2ADzZ81QAFwLgz+aTvbJ+pwPAdc3QnTWcc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fkH3YMcMn01l47wwaEb8VD+GAjV+dJyhGyQNvwBvPAjHeNlrNSfyBNREXcgCR+Byi
-	 CqjbjkTpXMVJQfL+FG75ilrQLjZRbjWztjlpQ8uDmcKPkaXaQ10lCnQ6NoIS3O/VHZ
-	 7vObQ5/SbTGlecuqInz9vM+DrYy4VGejABU+KvZJWpufN72jsPy/hZeoU4u25NM8xq
-	 nC4UKnNi1e6mpy2r8/X3+hInjvydsZDP0gY2Hl2OqDiBfvDS1kxP9Wcs558nARf9xO
-	 unUFh2X5huq9oth1yBKLho9irUqBPhL8FAOcVYI0l6FflOr6LA9medmpBr3uw/28uB
-	 0celxi54LVx+Q==
-Date: Tue, 28 Jul 2026 11:16:10 +0100
-From: Will Deacon <will@kernel.org>
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] iommu/arm-smmu-v3: Shrink command/event/PRI queues in
- kdump kernel
-Message-ID: <amiBagGKn-Aym1DK@willie-the-truck>
-References: <20260706084708.8072-1-kas@kernel.org>
+	id 1woeMO-00000004rMq-2B9B;
+	Tue, 28 Jul 2026 09:44:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9ED1C43974;
+	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7B385C2BCF6;
+	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1785231867;
+	bh=h69R4j/rmpdgP8o8m1yEq9Zr1i/pxjtXgCv5NE7eh7U=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=S0jrvz2XyEqa0+e4RphZWLei9168pGEJgI3ReuwPhXYi9AsvhTZloPqIWzMXCUudI
+	 tymDdDNbjmGXtytRT97k7UkUn/cdTRbgePN4emhOvN1aIs/lYVO9L7GUdyXM/fPhx+
+	 pTQvraLHu0xnKL/9fIm1SfDE/KHLgjWroJvp0TjtK8vBQ85XHHC87NtPvs+TEehu+f
+	 Wg/W9basLnRkQVlxNGvyKmOgI8jy1LWlynUHBAnoSIqSb7Pvp6Xb4ls9r4+fffAe0n
+	 LbB59sTr6fC9vBWOfT1Z1Q52VV69RTyZqMz6ujnPLYljlOBBz2Pn1FfDj3H8Zwcr2h
+	 JYlimM7G1pI0g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 52959C531F9;
+	Tue, 28 Jul 2026 09:44:27 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Subject: [PATCH 0/3] MediaTek mt6572 GCE support
+Date: Tue, 28 Jul 2026 12:42:45 +0300
+Message-Id: <20260728-6572-gce-v1-0-750bba32689e@protonmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260706084708.8072-1-kas@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqAIBCF4avErBNMSqmrRAuz0aaFhVYE0t2zW
+ n7wv5cgYiCM0BUJAp4UafUZVVmAmbV3yGjKBsGF5EooJhslmDPIpG5UhbbWlreQ8y2gpeu76of
+ f8RgXNPu7h/t+AOT7Go1sAAAA
+X-Change-ID: 20260727-6572-gce-6a571ef4af09
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Houlong Wei <houlong.wei@mediatek.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785231864; l=2056;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=h69R4j/rmpdgP8o8m1yEq9Zr1i/pxjtXgCv5NE7eh7U=;
+ b=EldVTVr9AKUbsyuW29i/MN4bIvptSWUJkcBtHqg7ZlMHiIH+s6/QhfjjYsy6XeKaPBX6K4Q9T
+ rUbTbLADPCXCGEsPTENo+EubLfTd3etsTrGIVtb+UwCjFwOyi8JmHdV
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +86,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 09:47:08AM +0100, Kiryl Shutsemau (Meta) wrote:
-> All SMMU queues are sized from the maxima the hardware advertises in IDR1,
-> which can be several megabytes each, and are allocated at probe. The kdump
-> kernel already disables the event and PRI queues (arm_smmu_device_reset()
-> drops CR0_EVTQEN/CR0_PRIQEN) but still allocates them at full size. On
-> systems with many SMMUv3 instances that cost is paid per instance and adds
-> up to tens of megabytes of coherent DMA in the capture kernel.
-> 
-> A kdump capture kernel runs from a small crashkernel reservation and only
-> has to drive the few devices used to save the dump, so deep queues serve
-> no purpose. The queues are not on the DMA data path, so dump throughput is
-> unaffected; a shallower command queue only bounds how many commands may be
-> in flight before a sync, which does not matter for the capture kernel's
-> small device count and modest I/O.
-> 
-> Clamp every queue to a single page when is_kdump_kernel() is true. Doing
-> it in arm_smmu_init_one_queue() covers the command, event and PRI queues
-> in one place. The command queue still holds at least one batch plus a sync
-> (256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
-> command batching keeps working.
+Yes I know this one is very different from basics like previous pwrap
+and efuse...
 
-Wouldn't we be better of not allocating unused queues in the first place?
-That's what this patch does:
+This patch series adds support for the Global Command Engine found in
+the mt6572 SoC.
 
-https://lore.kernel.org/r/0b035c53cb401acde8244b805d4b6a0312b83708.1782799827.git.nicolinc@nvidia.com
+Notably, the patch 2 introduces legacy ISA format, which is used on
+mt6572, 6582 and 6592 SoCs. mt6577 doesn't have the GCE at all, mt6589
+seems to have new-ish ISA, and mt6595 is much more close to 6795/8173.
+Patch 3 adds mt6572 platform data and legacy_isa forwarding to the
+instruction JIT.
 
-so help reviewing that series would be much appreciated!
+This format was reverse engineered from the Android HAL and uses 22-bit
+offset with 2-bit subsystem ID, unlike the newer 16-bit offset and 8-bit
+subsystem ID.
+The mt6572 HAL includes workarounds for WFE and EOC instructions, emitting
+another WFE as barrier at WFE, and JUMP +8 at EOC.
+mt6582 and 6592 HAL dropped WFE barrier, but still have JUMP +8.
 
-If you want to reduce the cmdq size, I'd prefer a cmdline option rather
-than special-casing kdump (as I've had other folks ask about configuring
-the cmdq size for other reasons).
+This sounds very much like some kind of software mitigations for hardware
+bugs, but during testing on 6572 nothing bad happened so far. These
+additional instructions are not included in the patches.
 
-Will
+Note that while GCE can be used for e.g. mt6592 UFOE (which is at
+0x14013000, so outside of the u16 range), currently the driver still uses
+u16 for the offset, because I don't have any 6592 device.
+
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+Roman Vivchar (3):
+      dt-bindings: mailbox: mediatek,gce-mailbox: add mt6572
+      soc: mediatek: cmdq-helper: add legacy GCE ISA support
+      mailbox: mtk-cmdq: add mt6572 support
+
+ .../bindings/mailbox/mediatek,gce-mailbox.yaml     |  1 +
+ drivers/mailbox/mtk-cmdq-mailbox.c                 | 11 +++++
+ drivers/soc/mediatek/mtk-cmdq-helper.c             | 55 +++++++++++++++-------
+ include/dt-bindings/gce/mediatek,mt6572-gce.h      | 52 ++++++++++++++++++++
+ include/linux/mailbox/mtk-cmdq-mailbox.h           |  1 +
+ 5 files changed, 103 insertions(+), 17 deletions(-)
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260727-6572-gce-6a571ef4af09
+
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
+
+
 
