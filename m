@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383C0C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 16:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BE4C54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 16:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Content-Transfer-Encoding:Mime-Version:To:From:Cc:Subject:Message-Id:Date:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nY/9cNDgunK0zPnBuyoaT1LrnFCnyLxA3wO1Cxxn2F8=; b=Fbk7XyhUDGaqHfaK6ArVPU7U6y
-	Wzu4BNimfHVYi4WrDJXgXbb0n+M0MZAQPPNbvemG8SSmgP9M2TvEUVaCZ9Gs7IGC9JLcJfJnjx3yR
-	3k4fOSYlkhcHhBu81LPcQ113kfJTigebflZMQBQ1SimAldz9V/TCdv8MlrHhxHUyIXze0dMYitMvx
-	u5IwACt0Er85lUdVNxrcfUg8oVtl63EFgjNoAzKRQYmaFqq/oB8gbehSlz8bpNqTFxknXjJNeBuHx
-	DDwmphs5Iqwhql25P2oGSyawxdmnxsCXYzL+4IGdfwCQU5vNaw3UYdz+Ci4CyR3+A9LIobGtVbA8a
-	QHGgqGJA==;
+	bh=EYX6MBOIIBubwb97q13AIZBPELNI+rVEfPAJArkwgqQ=; b=CLFjP+ptb8L+jHmof37Wjx2G5U
+	yjKRZeM43rgP2TNfakEddY+3/35w9JUiyaiEBow1zLMXGXCVlaqPsCocm9I1HYPLKHaL1kOwInjWi
+	fB8eTwhKY+Gek/POOnJW8irxqiWbeWGR1V0DbZGpBBNPcPPWJs8QXikI+HAyfG99YEIMwIq9PzGNV
+	nL14NjmoGnkM16V38lkCZgKxVqDkjUbgYxtdrptesycvz78UfqDe1mziB4dW9e6wW7i2Z29OQkJLq
+	JjpBJXYYIjnuEwXJ16bkIQIfcDR87Prql6AnrlCZNr4rWwiGiSgpq1ZhBaOTO38/Q+1N9Cdq7dhfo
+	NRWtvljA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokMa-00000005mrF-3QHF;
-	Tue, 28 Jul 2026 16:09:04 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokMX-00000005mq1-30Cg
+	id 1wokWl-00000005oIm-2Ubr;
+	Tue, 28 Jul 2026 16:19:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wokWj-00000005oHy-1FjS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 16:09:02 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=l3F46aSmkFjbDMkvZyRLDqImJ+0Lly+fJpq91VYTlIdfGTGI3T3JkVCrm4zLtacaJjjm3Qu/8whd0mKQVnwORd58j/qc6fJxA5+XLExezed9tsmmD74uGbs+8OtTe+t0q3wivfKLXiatDHJgbxa5JQoUxIDX8dpwDmDOXF+isKhbzlj2HIZIrJOJF/tbZ1q4/1nHWo7D4sn9nT93M8k4AivQkUQbbpFjKXWeY/KQIuAzdK71t6NuE3+frkOZyt39DcRrolBf8tB9b847THB+RHxrOUIH9UmfOPMfDXKVITjgg7W6trM2L1zF5YTTn/F/S8L0c1t6SIyd8ogHdNpDjg==; s=purelymail3; d=rcpassos.me; v=1; bh=M5kzdAEoPc5rbNRA4KFaC+3yUnwETH5W42yryDQOE1E=; h=Received:Date:Subject:From:To;
-DKIM-Signature: a=rsa-sha256; b=P5zPGlB5yHHFcn3IccLp9PNbpyOLLiRLnkBkOfCwxBebxPWXMhDF824GmHB3kh0mYAKqnuUh2V2z1LNtYgjlm6GrzH/5awBF4ueoGX2ZdnGJ3AZ3KiPr+e0Zy3l1XjMtNBMe7vRNaKtdpK6mReb8hBbuJIreaUDAOQ9EWE0vIotUnSVj9R7YNm3HYKRwwX04c8YjB/utJpD8nrjkuaxIbsGixf2otmkbWYseXM4p+XB3d0GQrf4wbil3ET6/ORlMSfEE/jINnjGdUTMgXyRjJTpyJfiNt6Ft/xNzM6CVc0YvQRnda3Aw5uMwlTwlTsBl5dJCVc3XQIHWxr53q5q62A==; s=purelymail3; d=purelymail.com; v=1; bh=M5kzdAEoPc5rbNRA4KFaC+3yUnwETH5W42yryDQOE1E=; h=Feedback-ID:Received:Date:Subject:From:To;
-Feedback-ID: 45355:7809:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1239418384;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Tue, 28 Jul 2026 16:08:37 +0000 (UTC)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 28 Jul 2026 13:08:33 -0300
-Message-Id: <DKAC1T7FWOBS.15ACCNTX4EOFA@rcpassos.me>
-Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
- MT7922/MT7925 on Ryzen platform
-Cc: "Luiz Augusto von Dentz" <luiz.von.dentz@intel.com>,
- =?utf-8?b?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
- =?utf-8?b?V2lsbC1DWSBMZWUgKOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>,
- =?utf-8?b?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
- <linux-bluetooth@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-mediatek@lists.infradead.org>
-From: "Rafael Passos" <rafael@rcpassos.me>
-To: "Rong Zhang" <i@rong.moe>, "Rafael Passos" <rafael@rcpassos.me>, "Marcel
- Holtmann" <marcel@holtmann.org>, "Luiz Augusto von Dentz"
- <luiz.dentz@gmail.com>, "Matthias Brugger" <matthias.bgg@gmail.com>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: aerc 0.21.0
-References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
- <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
- <79D5F3E6-8F40-4422-BB2D-16691E377394@rong.moe>
- <DJRP3YO7Y0WK.20KNRZIMX1CYK@rcpassos.me>
- <F16A2A9A-A43F-45FE-8CC0-44A129360D47@rong.moe>
- <DKA8F33O8HID.2UV2DWTLE6S48@rcpassos.me>
- <133c4858657c55b31affd4bff1cbd68f812de5e1.camel@rong.moe>
- <DKAA9VN5E4DS.2U03T6V5HEAAE@rcpassos.me>
- <1ba1545c318214d988e899a95279b4b0f93bc24e.camel@rong.moe>
-In-Reply-To: <1ba1545c318214d988e899a95279b4b0f93bc24e.camel@rong.moe>
+	Tue, 28 Jul 2026 16:19:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88C36169E;
+	Tue, 28 Jul 2026 09:19:26 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10BF13F763;
+	Tue, 28 Jul 2026 09:19:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785255570; bh=sfp06OhXOiL+rR5JnyS0hVX5IlvUH8emx0S5amMJwYc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Wp3NWVcD8Bi/ubJgeZHqLWy+1hmR63cN19Au4oyFOdWMZ90weC8U2YzK51AHtno+v
+	 8GCRMPgp992WV+6sw0GIMVg8T9DB8Ztn9olU5U5jdy405UqqvinPR3jAKmeaLi0saJ
+	 Id2wh2+AF/SZ230JQQ0npEiIkDGF2jqvS2G+hktU=
+Message-ID: <80ec14a4-1991-4586-a292-7029706890bf@arm.com>
+Date: Tue, 28 Jul 2026 18:19:25 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+To: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260723155454.1760823-1-andre.przywara@arm.com>
+ <20260723155454.1760823-9-andre.przywara@arm.com>
+ <8daee801-ec05-4206-8816-ef7a5d527f98@oss.qualcomm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <8daee801-ec05-4206-8816-ef7a5d527f98@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_090901_844455_0491679F 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_091933_825869_415C3DF2 
+X-CRM114-Status: GOOD (  29.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +83,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rong,
-On Tue Jul 28, 2026 at 12:38 PM -03, Rong Zhang wrote:
-> You snipped too many lines. There should be a line similar to
->
->            |                               +-0c.0-[0d]----00.0  Advanced =
-Micro Devices, Inc. [AMD] XXXX [YYYY:ZZZZ]
->
-> which is the root hub.
+Hi Srivathsa,
 
-Indeed.
-+-02.1-[04-0e]----00.0-[05-0e]--+-00.0-[06]--
-|                               +-02.0-[07]----00.0  MEDIATEK Corp. MT7925 =
-(RZ717) Wi-Fi 7 160MHz [14c3:0717]
-|                               +-03.0-[08]----00.0  Realtek Semiconductor =
-Co., Ltd. RTL8125 2.5GbE Controller [10ec:8125]
-|                               +-04.0-[09]--
-|                               +-05.0-[0a]--
-|                               +-06.0-[0b]--
-|                               +-08.0-[0c]----00.0  Sandisk Corp SanDisk E=
-xtreme Pro / WD Black 2018/SN750/PC SN720 NVMe SSD [15b7:5002]
-|                               +-0c.0-[0d]----00.0  Advanced Micro Devices=
-, Inc. [AMD] 800 Series Chipset USB 3.x XHCI Controller [1022:43fc]
-|                               \-0d.0-[0e]----00.0  Advanced Micro Devices=
-, Inc. [AMD] 600 Series Chipset SATA Controller [1022:43f6]
+thanks for having a look!
 
-> In the foreseeable future I am not going to have a desktop platform ($$$)
-I was lucky to upgrade before prices went up.
-> so I can't easily debug the issue myself. Hence, it would be helpful if
-> you could reliably reproduce the issue, so that we can have an in-depth
-> debug. But let's forget it for the time being since your device works
-> fine now!
+On 7/28/26 08:27, Srivathsa L Rao wrote:
+> Hi Andre,
+> 
+> On 7/23/2026 9:24 PM, Andre Przywara wrote:
+>> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
+>> alternative way of accessing the "Memory System Components" (MSC) in an
+>> MPAM enabled system.
+>>
+>> Normally the MSCs are MMIO mapped, but in some implementations this
+>> might not be possible (MSC located outside of the local socket, MSC
+>> mapped secure-only) or desirable (direct MMIO access too slow or needs
+>> to be mediated through a control processor). MPAM-fb standardises a
+>> protocol to abstract MSC accesses, building on the SCMI protocol.
+>>
+>> Add functions that do an MSC read or write access by redirecting the
+>> request through a firmware interface. For now this done via an ACPI
+>> PCC shared memory and mailbox combination.
+>>
+>> Since the protocol used is only a small subset of the full SCMI spec,
+>> and the SCMI protocol has no full ACPI support anyway, open-code the
+>> (simple) SCMI message generation, for just the fields we need.
+>>
+>> [1] https://developer.arm.com/documentation/den0144/latest
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/Makefile        |   2 +-
+>>   drivers/resctrl/mpam_devices.c  |  27 ++++-
+>>   drivers/resctrl/mpam_fb.c       | 197 ++++++++++++++++++++++++++++++++
+>>   drivers/resctrl/mpam_internal.h |  20 ++++
+>>   include/linux/arm_mpam.h        |   2 +-
+>>   5 files changed, 240 insertions(+), 8 deletions(-)
+>>   create mode 100644 drivers/resctrl/mpam_fb.c
 
-I wouldn't mind helping debug this.
-I will look into buying the M.2 a/e -> USB and the PCI -> M.2 a/e.
-The bug first happened when I switch from Arch do Debian, months ago...
-If I can reproduce it, I will reply to this thread.
+[ ... ]
 
-Thanks,
-Rafael Passos
+>> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+>> new file mode 100644
+>> index 000000000000..ec4bf0dd9182
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_fb.c
+>> @@ -0,0 +1,197 @@
+
+[ ... ]
+
+>> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 
+>> msc_id,
+>> +                u16 reg, u32 *result, int mpam_fb_command)
+>> +{
+>> +    unsigned int token = atomic_inc_return(&mpam_fb_token);
+>> +    struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
+>> +    struct pcc_mbox_chan *chan;
+>> +    void __iomem *payload_ofs;
+>> +    u32 status;
+>> +    int ret;
+>> +
+>> +    if (!pcc_chan)
+>> +        return -ENODEV;
+>> +
+>> +    chan = pcc_chan->pcc_chan;
+>> +
+>> +    /* prune token to fit into the 10 bits inside the command 
+>> register */
+>> +    token = FIELD_GET(MPAM_MSC_TOKEN_MASK,
+>> +              FIELD_PREP(MPAM_MSC_TOKEN_MASK, token));
+>> +
+>> +    guard(mutex)(&pcc_chan->pcc_chan_lock);
+>> +
+>> +    switch (mpam_fb_command) {
+>> +    case MPAM_MSC_WRITE_CMD:
+>> +        mpam_fb_build_write_message(msc_id, reg, *result,
+>> +                        token, chan->shmem);
+>> +        break;
+>> +    case MPAM_MSC_READ_CMD:
+>> +        mpam_fb_build_read_message(msc_id, reg, token, chan->shmem);
+>> +        break;
+>> +    case MPAM_PROTOCOL_VERSION:
+>> +        mpam_fb_build_version_message(token, chan->shmem);
+>> +        break;
+>> +    }
+> 
+> The switch here has no default case. If an unrecognised command value is
+> passed (in future), it maybe safer and future proof to have a default case?
+
+Well, mpam_fb_send_request is a static function, and all callers pass in 
+constant values, so this wouldn't easily happen and be more a compile 
+time error.
+But I can of course add a defensive default check.
+
+Cheers,
+Andre
+
+>      default:
+>          return -EINVAL; ?> +
+>> +    ret = mbox_send_message(chan->mchan, NULL);
+>> +    if (ret < 0)
+>> +        return ret;
+>> +
+>> +    pcc_shmem = chan->shmem;
+>> +    payload_ofs = chan->shmem + sizeof(*pcc_shmem);
+>> +    status = readl(&pcc_shmem->command);
+>> +    if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token)
+>> +        return -ETIMEDOUT;
+>> +
+>> +    ret = readl(payload_ofs + 0x0);
+>> +    if (ret < 0) {
+>> +        switch (ret) {
+>> +        case MPAM_FB_ERR_NOT_SUPPORTED:
+>> +            return -EOPNOTSUPP;
+>> +        case MPAM_FB_ERR_INVALID_PARAMETERS:
+>> +            return -EINVAL;
+>> +        case MPAM_FB_ERR_NOT_FOUND:
+>> +            return -ENOENT;
+>> +        case MPAM_FB_ERR_OUT_OF_RANGE:
+>> +            return -ERANGE;
+>> +        default:
+>> +            return -EINVAL;
+>> +        }
+>> +    }
+>> +
+>> +    if (mpam_fb_command != MPAM_MSC_WRITE_CMD)
+>> +        *result = readl(payload_ofs + 0x4);
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 
+>> *result)
+>> +{
+>> +    return mpam_fb_send_request(msc->pcc_chan, msc->mpam_fb_msc_id,
+>> +                    reg, result, MPAM_MSC_READ_CMD);
+>> +}
+>> +
+>> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
+>> +{
+>> +    return mpam_fb_send_request(msc->pcc_chan, msc->mpam_fb_msc_id,
+>> +                    reg, &value, MPAM_MSC_WRITE_CMD);
+>> +}
+>> +
+>> +int mpam_fb_get_protocol_version(struct mpam_msc *msc)
+>> +{
+>> +    u32 version;
+>> +    int ret;
+>> +
+>> +    ret = mpam_fb_send_request(msc->pcc_chan, 0,
+>> +                   0, &version, MPAM_PROTOCOL_VERSION);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    return version;
+>> +}
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/ 
+>> mpam_internal.h
+>> index b3a6ed9ed175..e4686ff0ba2e 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -11,6 +11,7 @@
+>>   #include <linux/io.h>
+>>   #include <linux/jump_label.h>
+>>   #include <linux/llist.h>
+>> +#include <linux/mailbox_client.h>
+>>   #include <linux/mutex.h>
+>>   #include <linux/resctrl.h>
+>>   #include <linux/spinlock.h>
+>> @@ -57,6 +58,15 @@ struct mpam_garbage {
+>>       struct platform_device    *pdev;
+>>   };
+>> +struct mpam_pcc_chan {
+>> +    struct list_head    pcc_chans;
+>> +    struct mbox_client    pcc_cl;
+>> +    struct pcc_mbox_chan    *pcc_chan;
+>> +    struct mutex        pcc_chan_lock; /* only one message at a time */
+>> +    struct kref        refcount;
+>> +    int            subspace_id;
+>> +};
+>> +
+>>   struct mpam_msc {
+>>       /* member of mpam_all_msc */
+>>       struct list_head    all_msc_list;
+>> @@ -66,6 +76,8 @@ struct mpam_msc {
+>>       /* Not modified after mpam_is_enabled() becomes true */
+>>       enum mpam_msc_iface    iface;
+>> +    struct mpam_pcc_chan    *pcc_chan;
+>> +    int            mpam_fb_msc_id;    /* in its own name space */
+>>       u32            nrdy_usec;
+>>       cpumask_t        accessibility;
+>>       bool            has_extd_esr;
+>> @@ -511,6 +523,14 @@ static inline void 
+>> mpam_resctrl_offline_cpu(unsigned int cpu) { }
+>>   static inline void mpam_resctrl_teardown_class(struct mpam_class 
+>> *class) { }
+>>   #endif /* CONFIG_RESCTRL_FS */
+>> +/* MPAM-Fb Firmware-backed protocol wrappers */
+>> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 
+>> *result);
+>> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 
+>> value);
+>> +int mpam_fb_get_protocol_version(struct mpam_msc *msc);
+>> +
+>> +#define MPAM_FB_PROT_HEADER_LEN    sizeof(u32)
+>> +#define MPAM_FB_MAX_MSG_SIZE    (MPAM_FB_PROT_HEADER_LEN + 4 * 
+>> sizeof(u32))
+>> +
+>>   /*
+>>    * MPAM MSCs have the following register layout. See:
+>>    * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
+>> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+>> index f92a36187a52..002f56e15362 100644
+>> --- a/include/linux/arm_mpam.h
+>> +++ b/include/linux/arm_mpam.h
+>> @@ -12,7 +12,7 @@ struct mpam_msc;
+>>   enum mpam_msc_iface {
+>>       MPAM_IFACE_MMIO,    /* a real MPAM MSC */
+>> -    MPAM_IFACE_PCC,        /* a fake MPAM MSC */
+>> +    MPAM_IFACE_PCC,        /* using the MPAM-Fb firmware redirection */
+>>   };
+>>   enum mpam_class_types {
+> 
+> Best Regards,
+> Srivathsa
 
 
