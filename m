@@ -4,60 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448E3C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 05:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8279EC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 06:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cg3VTAgetDrYjEdpec6GupSh0sezUAXd/NAVg+bRKpA=; b=sOdwrHgZXoC3Xw1FM89qQRer3P
-	7qRZAB+vDdIAm/GFi5l/p0Ppm/NskfpTxc7YFN9DnW1x61HqIRR5v1IJJ6U+BMkHgjboGVdN8MFUI
-	N98TiVB6WjsqKiQELW+7+mQQG7FWzMUEPsBaftu0SOzzY2fSQpDm4yfS9xX44ZCZWnjOIMv9b1GLO
-	MFm/XYbAK5pYYbe+vHcOWs2SaWclzsQNkbPGI/xwaLes91MihoEozkeOJ8WLcygcYN37B68D7CdVd
-	EMcvg7OgfIqo3pu7FvEaismXjzIWy5BQjUbbmyu+rqMWy378o445kFv1Y+RC2yhH+9PnG7X2MxR1q
-	EZ0hFEHA==;
+	bh=CbvCXbFtQpKu1PcGsiDIN+pvfvebjKSVVQajKdsn1hw=; b=qw1TZpTSDDLTeZWd8OXp8CLOcD
+	DR8exenCU7KmWo6v3UuogRi9chhQyvXAjgCqmd0N1XCkrdU1mMkNMe2dJqejij81+CQAHeNAAl74X
+	i+Vqxyl65G5AnsvFsdVEreVy89OuNd1CcA19hrpRtaqMOt49aRjN67NEQyaD/jcCtgbTNR2ZqhE/a
+	NdzY4prwFcMZvH90jBZr2Cy+51aAb+/pmxZ/80S2klfBSbElm/tj5WzDHN/EauPd+J+BXzDq0NY6+
+	riztrDNJGFhAE7STZXcRyYEX6pF+KfhDFM7n3ffdDJUgHoaQPjocsat/RO1WcVTi6EVMbzW4unVTm
+	uPMEViKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woaPQ-00000004TJ2-31o8;
-	Tue, 28 Jul 2026 05:31:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woaPO-00000004TIL-0wG1
+	id 1woawi-00000004VMk-3jLI;
+	Tue, 28 Jul 2026 06:05:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woawh-00000004VMd-3oWO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 05:31:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7D411BF7;
-	Mon, 27 Jul 2026 22:31:10 -0700 (PDT)
-Received: from [10.163.132.30] (unknown [10.163.132.30])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23C243F86F;
-	Mon, 27 Jul 2026 22:31:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785216675; bh=wZU3W8LAigLkfKN16wWeaWgjzhW/ZAOdYKsv5xxz06w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nD8HglJquxYzvFHJocPd+oIV4PetDZzAsBUP5cFHnlMbOMJI1iH7zxbeUjT0wEWLa
-	 QAS1DCaMjyLidU1YnQ4SyG5znimgW7i7R3vWLnI26nE44tqG+nqAVrnpdXf7kGsktp
-	 Z6a2q6MLaRX69P3vNNn195T4JY0UzU1Fr7rK3Mv0=
-Message-ID: <15b45589-b93a-4814-ae27-76480254a4e8@arm.com>
-Date: Tue, 28 Jul 2026 11:01:08 +0530
+	Tue, 28 Jul 2026 06:05:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E7EE600FC;
+	Tue, 28 Jul 2026 06:05:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B79001F000E9;
+	Tue, 28 Jul 2026 06:05:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785218742;
+	bh=CbvCXbFtQpKu1PcGsiDIN+pvfvebjKSVVQajKdsn1hw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=BxeYDorZA7jaEsrw7vvJEj1hGYSdtx4dlxDE6j4uAbywoxB/isKS3Rk0/pbZs664B
+	 MbsJO6GCIQRnnFbilKjDwSj16SrOPm0Cyps/R60AS7TvfxTFuFAQn276FbhC5fcOfH
+	 eWqpCLNTqmT9Vkd6aItsRh0/K2ebnbeRRQrzfH4AC/giFBtXKhtt/jho2XDc981zEU
+	 +4mibibmncjOKy785ZQL8M+buQHlL8tqTChVhwP1KokJI921Mx0Gwm5bRqH+wo41Zx
+	 H8lLpiD/oYptzawpyr0eOAYdxqsTD/mBdMGpjweF8U55kBSoesE5I2DtBvjztVx7++
+	 MoCKI9a4W+Erg==
+Message-ID: <a9a2caab-f93b-448a-b846-7e739c143687@kernel.org>
+Date: Tue, 28 Jul 2026 08:05:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] coresight: coresight.h: add '*' to kernel-doc lines
-To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
-Cc: James Clark <james.clark@arm.com>, Tao Zhang <quic_taozha@quicinc.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, coresight@lists.linaro.org,
- Danilo Krummrich <dakr@kernel.org>, Mike Leach <mike.leach@arm.com>,
- Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org
-References: <20260719222456.2831456-1-rdunlap@infradead.org>
+Subject: Re: [PATCH] pinctrl: samsung: exynos: replace irq_of_parse_and_map
+ with modern APIs
+To: Rosen Penev <rosenp@gmail.com>, linux-samsung-soc@vger.kernel.org
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>,
+ "moderated list:PIN CONTROLLER - SAMSUNG"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:PIN CONTROL SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20260727194836.11689-1-rosenp@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260719222456.2831456-1-rdunlap@infradead.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260727194836.11689-1-rosenp@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_223118_434497_C34D1749 
-X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,82 +119,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 27/07/2026 21:48, Rosen Penev wrote:
+> Replace irq_of_parse_and_map() with fwnode_irq_get() for per-pin IRQ
+> lookup and of_irq_get() for the muxed EINT IRQ. The fwnode-based API
+> works with both OF and ACPI fwnodes and follows modern conventions.
+
+And what is the point of ACPI here? I see no point in such conversions
+of one call while leading everything untouched. Add proper ACPI support
+with valid ACPI tables with ENTIRE driver converted, not one call.
+
+> 
+> For the muxed EINT path, change the error handling to propagate the
+> error code rather than silently returning 0.
+
+But why?
 
 
-On 20/07/26 3:54 AM, Randy Dunlap wrote:
-> kernel-doc reports 2 (kernel-doc) lines in coresight.h that don't have
-> a beginning '*' in them, so fix these lines.
-> 
-> Also convert struct coresight_trace_id_map to kernel-doc format to
-> remove another warning.
-> 
-> Warning: include/linux/coresight.h:173 bad line:
->   connected to @src_port. NULL until the device is created
-> Warning: include/linux/coresight.h:177 bad line:
->   needs to be filtered.
-> Warning: include/linux/coresight.h:236 This comment starts with '/**',
->   but isn't a kernel-doc comment.
-> 
-> Fixes: ec9903d6cc34 ("coresight: Add support for trace filtering by source")
-> Fixes: d49c9cf15f89 ("coresight: Rename connection members to make the direction explicit")
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> ---
-> v2: rebase & resend
-> v3: rebase & resend
-> 
-> Cc: James Clark <james.clark@arm.com>
-> Cc: Tao Zhang <quic_taozha@quicinc.com>
-> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Cc: coresight@lists.linaro.org
-> Cc: Danilo Krummrich <dakr@kernel.org>
-> Cc: Mike Leach <mike.leach@arm.com>
-> Cc: Leo Yan <leo.yan@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  include/linux/coresight.h |    6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> --- linux-next-20260717.orig/include/linux/coresight.h
-> +++ linux-next-20260717/include/linux/coresight.h
-> @@ -177,11 +177,11 @@ struct coresight_desc {
->   * @dest_port:	destination's input port number @src_port is connected to.
->   * @dest_fwnode: destination component's fwnode handle.
->   * @dest_dev:	a @coresight_device representation of the component
-> -		connected to @src_port. NULL until the device is created
-> + *		connected to @src_port. NULL until the device is created
->   * @link: Representation of the connection as a sysfs link.
->   * @filter_src_fwnode: filter source component's fwnode handle.
->   * @filter_src_dev: a @coresight_device representation of the component that
-> -		needs to be filtered.
-> + *		needs to be filtered.
->   *
->   * The full connection structure looks like this, where in_conns store
->   * references to same connection as the source device's out_conns.
-> @@ -234,7 +234,7 @@ struct coresight_sysfs_link {
->  #define CORESIGHT_TRACE_IDS_MAX 128
->  
->  /**
-> - * Trace ID map.
-> + * struct coresight_trace_id_map - Trace ID map.
->   *
->   * @used_ids:	Bitmap to register available (bit = 0) and in use (bit = 1) IDs.
->   *		Initialised so that the reserved IDs are permanently marked as
-> 
-
-But still there are more warnings left in the documentation file
-even after the patch applied. Should they be fixed as well ?
-
-./scripts/kernel-doc -none include/linux/coresight.h
-Warning: include/linux/coresight.h:216 struct member 'src_dev' not described in 'coresight_connection'
-Warning: include/linux/coresight.h:216 struct member 'src_refcnt' not described in 'coresight_connection'
-Warning: include/linux/coresight.h:216 struct member 'dest_refcnt' not described in 'coresight_connection'
-Warning: include/linux/coresight.h:248 struct member 'cpu_map' not described in 'coresight_trace_id_map'
-Warning: include/linux/coresight.h:248 struct member 'lock' not described in 'coresight_trace_id_map'
-Warning: include/linux/coresight.h:312 struct member 'perf_sink_id_map' not described in 'coresight_device'
-Warning: include/linux/coresight.h:216 struct member 'src_dev' not described in 'coresight_connection'
-Warning: include/linux/coresight.h:216 struct member 'src_refcnt' not described in 'coresight_connection'
-Warning: include/linux/coresight.h:216 struct member 'dest_refcnt' not described in 'coresight_connection'
-Warning: include/linux/coresight.h:248 struct member 'cpu_map' not described in 'coresight_trace_id_map'
-Warning: include/linux/coresight.h:248 struct member 'lock' not described in 'coresight_trace_id_map'
-Warning: include/linux/coresight.h:312 struct member 'perf_sink_id_map' not described in 'coresight_device'
+Best regards,
+Krzysztof
 
