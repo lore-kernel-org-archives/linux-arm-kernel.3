@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202DCC54F52
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 19:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBD8C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 19:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+qnxHjfq6t9kvIEcBFY4jjWRY7rxCRA39LvB5vINPkY=; b=JrZacw2a+FDpx9
-	Hy1UX4mG/a4u3W+9JyNjYCZRWza4pKJ0XY1r4A6tXsCHttzAp7JQu13q/7K71yQnVqqEDHUk/VKvD
-	pTYeHlxiT6QOPiG5eqqUlaSUxaDzyk/o4mOxSAnv2n/pLSEXSTXoTRPTYAkLddx1YCYBe0ss2ImVm
-	yz3No46OnysuiPRtDM62rThPPYk0ZxUBPmSkPMZGXs8bB3dvJqzD8p+CwM6eoAH3WXfenUcXU7uC7
-	wg3tHngClXwqhqy1qhKOaSr5rzpYIELfg50UkP5z89mGUZrehDKqy+Mh0M6jNHVnXnCn4UsnqxSHI
-	k0nKGmRkt9XtwdB273GA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ferXd6iakb7it62QEva/YVmEUp8gvzZnEnMvOHm4P60=; b=ajse+Lp+u6uP4PCF9mod6lOhaW
+	n/khxvqtZ36AmtHWAFmd8OFIZtjLTaujfzwWFIWyYiOtyNDZ5iDP/UMOskHIJsTEmHiL02I062x0r
+	QEZ8CfIxt5PkZSFgQgGgSTRVgVXTm1AbR5y21DNLQimy30WzsxXMm4LAJZdy54XoOsYPOs8txQmnQ
+	zfdRYl76noW2+XR6gKl/eop56jcPYoS9WmYtNf9dcbH5srNHbfz9fp2F7pIO5s9biZexhMjHL1Fgp
+	Aptdy/917agK0E7hIjd0zy5QEGN3bncW30BVX2h9yN2BmZw6NsSkOJthiEarctodgT2TY3/VKlOBp
+	XCGYLjRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wonjb-00000006BJw-0N2g;
-	Tue, 28 Jul 2026 19:45:03 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1wonjj-00000006BME-1B1R;
+	Tue, 28 Jul 2026 19:45:11 +0000
+Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wonjY-00000006BHv-0VJi
+	id 1wonjZ-00000006BJ2-3xuP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 19:45:02 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7eb1dc6bd53so170083a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 12:44:59 -0700 (PDT)
+	Tue, 28 Jul 2026 19:45:03 +0000
+Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-456f7012050so1134428fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 12:45:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1785267898; x=1785872698; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=+qnxHjfq6t9kvIEcBFY4jjWRY7rxCRA39LvB5vINPkY=;
-        b=Vo1IVA8fjg+C84GnEWslsrZx7kCANqdhTJJ9BQ2AqDjpch8WXtZzJReuwIQ+lZ96NV
-         bQNhL3UwLomiEKLfBAm8NA/13XF7gzoo/mZ//XMxZ4YAtoNnq5iL2Sj0k4Z30YcVcIoK
-         GNyC0exU40FJn38mZMbtUKacBVs3sjrkhmjkYkln+0e2hANF2Cvj4s9kqStEq1R0e4OH
-         os2FqdO2/WtOpnlh3FbDmdxEujo2WFziUlXC2thQHOZ8Dc5Fo/xDZcf0B9l0fl9uv9Gl
-         M2QTixAWyWMIxPvaqQDmK/Qk1ryqN1kSAViJRpWvJaRFxvpZrHRZnh6D0Dl4QgGw0orL
-         kjyQ==
+        d=baylibre.com; s=google; t=1785267900; x=1785872700; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ferXd6iakb7it62QEva/YVmEUp8gvzZnEnMvOHm4P60=;
+        b=TaU6n5PKMwCI8t8ZUU7mSAIr/8vFzP76Zjmpje6Na5luq6rL2gbdOG4RSYik1mr9LG
+         hEOw/cF8A1GIqUcCGf4zLpzE0WRNt2bkl0aWPBQbPetfxxpnIUsoOiOoYGudLEgvnpJK
+         g3Ld4oCmPC9vKufTWNJwj8NepqJ5eI8eKXI9iaKcFxfwKt9CxWH3w51n5YR6hNaEg8ot
+         ibS5L0ic64WyJlCs0XCqhoBtjaC3ada4JcGZKB1zW7B2WnJEfQsviG8R6dXZzG/WPzwi
+         BOwMnZDFacdn/Gx5zu9F7jqCv+pXn+YZamu0wZvr3TarD5cMmCBSDL0umEeh6REYIDsY
+         vGVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785267898; x=1785872698;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+qnxHjfq6t9kvIEcBFY4jjWRY7rxCRA39LvB5vINPkY=;
-        b=Ph5zqRyJPO3fcTMFYXFr6D1jcSPMO1yciFfhK0TbAYYozDAgmoQ2mlrkt1w7mey8qr
-         qIAhItNwFWZwnt4H2AVRbAu4bvJ+zw/7PYnRFy7iWCLjTYZDpYxGIVwxWzhxZXh0fkqG
-         P9d//RWtOQYCl5sejeQ24XEwTxgYYD9ldz18s1ArpFAhLdbRBJrat4sNQkfK3AXa1JFN
-         ZyuWdzhrvKnEutaLEuQUpyNjxPW/tW+5/B2o6jBehdl4DvWwI1ZcJv47H7jOhXXKcexo
-         Aeg8NRtPrFTo7jNl+TNKv9hKGFacZBMjAnCJEed/kSMezUSE+tLTiM/pkDeUk5blq/8a
-         l7yg==
-X-Forwarded-Encrypted: i=1; AHgh+RpGCm197zdUj6rkJkuSUDZb4kqIe2OSOiaHtipH8HBfJ7oqKNmrdwqw+nlsO8J3cFtK3mqA7iH3ZWekFwP13+2a@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhaRgl82VylYJcgXUotK1K0ZMivf0rrSUPt8ypXKMXmr4yaBky
-	YURzf6Pr3ImFnucC6rNThC2LreoXePlcs7eDop6k1NVUsaRenwZwd4GSz/Vj/34XgEw=
-X-Gm-Gg: AR+sD10kJtdIJpjeT+DyFdA36gdP3+r3uluK0YvA+HQIHYeyVNJxs8vysTVcmzLCh3e
-	k0lG4OkaG7tVh0ZlpRwVl0EJnflB50ZkAOhuESqUHSqrVNgNG7cevQhTquEToBX6chSmJx1XAC/
-	4hbAiDIkbiDJV9dDDnn8vjAtrpUgwvyP0f5eLoTtmjiVhC87oWsTxNL+BHCJg7hOArOLf49LAEM
-	orl95Y/6A1dcP5regoUf1NpjxzEuN66arXg/Dwyl0tcatvPJPsJQBPPXXxwhSGP6Hszd0Fw4i+Z
-	88hMLa3xDiqVxWgWkfziX99jjyzu4MRExkR1xW/DH3abKn/LhZZv1Y33WZFyWPJy5LLRPsbdMFp
-	A/VAK4dvaP33CuLmW74A56tpyoIS35sG/r1LmYlWP2P1Hj5r7rLU5KNWrmn2TwYVN2K/fCMkO0r
-	V2MkQXkJ8=
-X-Received: by 2002:a05:6820:2087:b0:6a1:7790:258e with SMTP id 006d021491bc7-6ac96a456fbmr1548148eaf.18.1785267898559;
-        Tue, 28 Jul 2026 12:44:58 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785267900; x=1785872700;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ferXd6iakb7it62QEva/YVmEUp8gvzZnEnMvOHm4P60=;
+        b=S32mu/kjVnukHCtVUH2i6ra8xdlK5M4hRBW4XiWryG6PihU+uMKhLEU6fFoz0bmI3V
+         X5u1jCNiNx/8xrb/P+aR9yipNNEn9AvOz3S3UYh4FLc3ULc27iigbJRytnRHJF8e0h8N
+         o171Sr1sXQ2kozQSbadbUxEzmWJrsnhWoFCQSFSC2uL5oECFR7Oy/C2khWGLbe67NT3c
+         DX+aW/xdoLn6Wq0tUkwSxtjEe4nv6lw0ENBbYmN709utT/iDSHuR1BuoO3qdKFG0PKFE
+         SbXq7pyCuDoh0RV07KSjT5Gm7rnQK2nr9gSHqKHF4oAAwN8+guxECb1/CSseyFUdWjE9
+         nVpg==
+X-Forwarded-Encrypted: i=1; AHgh+RoFaHoD5gRW2m5XUkgVH4vuXyJyAFNXz7gKJnUN5TmjR9MyBiGLC4VA47s59y6a7vHQ61YNQ9BCcfczGwXDHeRl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOwMj+Ej3Tm8Bpdgp5cpuoT04I5fQHeZ44eR+DzNZDK48a35NX
+	LUh27+uowiGcNoJ/WOrnQJZbdxg7N0b1SMZKW+fVUw34SATYG1YkGefqxeQdN5fmKvU=
+X-Gm-Gg: AR+sD10j5MDNnMYl8so4CT932mGgJQUPi+4EsH/uguGKxEN+Gf2jWa93EmN/LhnfEqS
+	cdoB1Yz5ERYQ3YORDMwcjoxcYDohkOCty0qq1JINm+QAeK6TgHFKS38HfQLadagPijPPZykqd+A
+	4LxV8QH5b7Q7HSF1vFmoF8YoUwajj1pDSNym4yRbaOzwywERPH1fw1R0XWKO2FR/2PlS/CcFnXT
+	U29XSRSLAcJZwxDZqae+Kf0dboUcGuTsskNsbcHMSS4GjKa7sDeNpQgT4c25zfEVq4Y2a37oc2f
+	P1jWkCTJKJdT2dAPPvQ25Y7lUo3gS70Emdz87mGDfOHMy3VGswvtQIKx1Y05eQDZn6H3MIkbUkY
+	s7sxa0XXwMmxmmjt0pqIQK/0EEiLiaWyyOvDXLD3C3eanbMzcu6KEsAyyFixixQidFOse7xHPjT
+	hId44U6JY=
+X-Received: by 2002:a05:6820:823:b0:6a3:7681:1f0d with SMTP id 006d021491bc7-6ac96c650c1mr1638351eaf.21.1785267900394;
+        Tue, 28 Jul 2026 12:45:00 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:500:3026:75d1:db9d:8984])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6aca5254057sm290017eaf.4.2026.07.28.12.44.57
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6aca5254057sm290017eaf.4.2026.07.28.12.44.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 12:44:58 -0700 (PDT)
+        Tue, 28 Jul 2026 12:44:59 -0700 (PDT)
 From: "David Lechner (TI)" <dlechner@baylibre.com>
-Subject: [PATCH 0/2] arm64: dts: ti: k3-am67a-beagley-ai: GPIO improvements
-Date: Tue, 28 Jul 2026 14:44:35 -0500
-Message-Id: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
+Date: Tue, 28 Jul 2026 14:44:37 -0500
+Subject: [PATCH 2/2] arm64: dts: ti: k3-am67a-beagley-ai: Add gpio line
+ names
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBAF0KuQWTsJVhH0KsRFSz91jLakg0ZDu
- LtVl2/zFlJkgdKpWijjKSopFmw3FQ0XGwNYfDGZ2hzq1nRs8539rOxgww1vKxwmSSxxTNwed/C
- d2/umAZVhyhjl9dv789/6cFcM87ekdf0AHxGSq38AAAA=
-X-Change-ID: 20260728-arm-dts-beagleyai-gpio-info-793ed8b4d55e
+Message-Id: <20260728-arm-dts-beagleyai-gpio-info-v1-2-783ec90d54da@baylibre.com>
+References: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
+In-Reply-To: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,21 +88,20 @@ Cc: Robert Nelson <robertcnelson@gmail.com>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, "David Lechner (TI)" <dlechner@baylibre.com>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=817; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=2LtYHeta5/Q9EvymN62gVMZCQz+7wtkWlLVE2E7UFUY=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBqaQal18LUWMhjrqnpK0pfzz0Z1H2msfl19+NAD
- vym5EAFqM2JATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCamkGpQAKCRDCzCAB/wGP
- wEQuB/982hhpMKtY3Wt5Gmb0F7J3rsfasP1hDdkuvTgLrFCrACZulXjq5uGUDotjNr/8dYyY5fd
- zZ+fK1UDXDvwyX1IOWDvMab54WQ/+QXnf9iLQ/gI6Vwr7BbmN68kXhhowqP9k3Nfbx27WUvUW/d
- Y8pyIC9XZN1zDSroCMc08hyuG98ITIql2ano4UxLZ7MwvC44K6FUHkdief2Okre2RjCoMuI4CRx
- lnb4fqCLomo8vRfQZMU2lDAda9xsoaP86YSe7OYVbTJXxK+HqC8HDgfqSUoQCywpNaujc/T/cXA
- HPwQZFbPYHcnmJINlkN4mZDtBlfW50cnXH8xYU0q4TmVPQ2x
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1674; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=6NDzAas2NzocRdXIQyRlLp6OMaRnjX1tk1dYyF+MMxg=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBqaQazZEy4mSpZcVwhOr1pVGmB/zn+SLZHNZae7
+ M1fzVXTKkSJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCamkGswAKCRDCzCAB/wGP
+ wCvPB/9X776AlVD05RxR4JtcA4ai2byh711XTSm/ohs8uh2tnsKhkQtwYJ6hirT4lWm2kJy/L2a
+ 2PhqrZoyQ2Zs8tpatiSq2JfkjAW0xo1i+ARMa73tSX/2+os+doEhN2dmvPcnsqxPF2MtK1EU55f
+ h4R3oXzOVkzpo1J23Y8t4ClfBNWCUH0fMQA3wRryU8E5vOygoQB2eVwF7CqXUlTyM9vtC5Q92BQ
+ fZYn6V3WKp+5E/dDNSE8BTOiz0b4LEhu+TJZor4v+dvUHf9it3HDidudzBvfd35Gskc0LkvfeEn
+ 6kBWVd5bkY+ITzL9rzyzBFoL0HfoaRektW3Bw3//b3H3Ny1F
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_124500_170092_86DF0E27 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_124502_026185_A9257B97 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,26 +116,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is picking up a few downstream changes from [1] to make GPIOs
-easier to use that I missed when using the BeagleY-AI with a mainline
-kernel.
-
-[1]: https://openbeagle.org/beagleboard/linux/-/blob/v6.6.58-ti-arm64-r35/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai-pinmux.dtsi?ref_type=heads
+Add gpio-line-names properties to the BeagleY-AI .dts so that gpios
+can be requested by the documented name on the 40-pin header (and a
+few other board functions).
 
 Signed-off-by: David Lechner (TI) <dlechner@baylibre.com>
 ---
-David Lechner (TI) (2):
-      arm64: dts: ti: k3-am67a-beagley-ai: Add gpio ranges
-      arm64: dts: ti: k3-am67a-beagley-ai: Add gpio line names
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
- arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 45 ++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
----
-base-commit: 3652b49adac266a3d27cb41cdfdb7d8790fc3633
-change-id: 20260728-arm-dts-beagleyai-gpio-info-793ed8b4d55e
+diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+index 599d576f694f..173c091116d5 100644
+--- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
++++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+@@ -267,9 +267,32 @@ &cpsw_port1 {
+ 	status = "okay";
+ };
+ 
++&main_gpio0 {
++	gpio-line-names = "", "", "", "", "", /* 0-4 */
++			  "", "", "", "", "", /* 5-9 */
++			  "", "", "", "", "", /* 10-14 */
++			  "", "", "", "", "", /* 15-19 */
++			  "", "", "", "", "", /* 20-24 */
++			  "", "", "", "", "", /* 25-29 */
++			  "", "", "USB_RST", "GPIO27", "", /* 30-34 */
++			  "", "GPIO26", "", "GPIO4", "", /* 35-39 */
++			  "", "GPIO22", "GPIO25", "", ""; /* 40-44 */
++};
++
+ &main_gpio1 {
+ 	bootph-all;
+ 	status = "okay";
++	gpio-line-names = "", "", "", "", "", /* 0-4 */
++			  "", "", "GPIO16", "GPIO17", "GPIO21", /* 5-9 */
++			  "GPIO20", "GPIO18", "GPIO19", "GPIO15", "GPIO14", /* 10-14 */
++			  "GPIO5", "GPIO12", "GPIO6", "GPIO13", ""; /* 15-19 */
++};
++
++&mcu_gpio0 {
++	gpio-line-names = "GPIO8", "", "GPIO11", "GPIO10", "GPIO9", /* 0-4 */
++			  "", "", "GPIO23", "", "GPIO7", /* 5-9 */
++			  "GPIO24", "", "", "HDMI_RSTn", "HDMI_INTn", /* 10-14 */
++			  "", "", "GPIO3", "GPIO2", ""; /* 15-19 */
+ };
+ 
+ &main_uart0 {
 
-Best regards,
---  
-David Lechner (TI) <dlechner@baylibre.com>
+-- 
+2.43.0
 
 
