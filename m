@@ -4,113 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92216C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE7CC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBoFAKEkC+vfpGEapr3+3YEZ3mSu2No6TKaGaOQmWRI=; b=OsI94oTrEARfuVxSNcsJkJo4Lk
-	6PgxjP3U/6nnXpjnO1xmc9cxbWzq+D7kQL24gU3MavEBdabBBEz/85mmw1bdakl/Uz7Vx9tm4jH3U
-	0uG2u3S5/QvXabUvONA6MYAygFPBZKQNbGiPLXLlwDIJxaEh2AmDPVR4RZWrWIg7xuM0O+csVvj3v
-	uyCp0gNqrC51w+B+UPYOfS90KUDMScsU0iz4rFbeOJhgDGLcunEkTQ3S4Kg2VBGO9Wl1OYk3XmS9m
-	X4EN9cIOt2qcf1s537b1OtXdyc7Bh5ql+Ag8HIoE331V87SBCmJwW2C5XT9dfiZd3quWDOYOm0hPg
-	L6sTK05A==;
+	bh=5faQwISMgtl2nH8ImRGXS510RUHcjrYzSgsUcLwwm4o=; b=13chkGEsUxnqHTmuXQ18juA3/G
+	3AiVU6MVKDdpCMglp5mszV88rkaumchgHoHqHUSu9Nq54av2fzgAcqSlAjRZmCkzIKytantZQGzzJ
+	Kx3mdXYe5MnbnqsoK9cNjieOmnV93fx5TyV3nA+XR4ksvmZa9lORZeHSKoGA7UTa5F9OvAyyEioUq
+	06ZcFJ2HOZNCPspFpKE2mHioNBWhxJgN4Y/fXar9DLFo+eLm5+MhniMhsuZNrySyJ2IYziJAurQpN
+	8qpNFfxS1PHElJQ/5i/IVnFXwvD7ATwSpKjKqwg3onJNJHitUTQ3Pz/756Un0fNDsiLzF7fBZjhWW
+	hVX1CHwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woilx-00000005TiK-3oeT;
-	Tue, 28 Jul 2026 14:27:09 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1woinv-00000005Txj-2Rgt;
+	Tue, 28 Jul 2026 14:29:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woilv-00000005Thb-2MhN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 14:27:08 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-69fec8b4638so12823a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 07:27:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785248825; x=1785853625; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xBoFAKEkC+vfpGEapr3+3YEZ3mSu2No6TKaGaOQmWRI=;
-        b=YYYyc6vV478/K4kWkRq4qrTsDSuUh5tbLuJmz93P8fm4cfpWowit5KLI7wfGCDxWlE
-         zzIbGlBejyvXg6Z9LiicSkc+Z3zz3pDdw301IiDydbCopsfTKtRXdwyY676xmzfLXNe7
-         pZF2LHJcLEaFx6jM2yv2KgtUNXSRuTz95jo7I+Svk4UmVPjo3BqNAK9CHddnv/0lQ+Gl
-         SAlm8oQgTkQnMkiOODfCJ3YrZWDPOcTqo2NgetEY/Wqc4XhgrnzBtNSp9HoZK8NBjMrz
-         lYx2Dp0uj0bC9q0l35SeLaENEtvzDygXtq9y4vk6ax7G0FY+1y3Lt8ANl46Fa+FYvxWx
-         lOTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785248825; x=1785853625;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xBoFAKEkC+vfpGEapr3+3YEZ3mSu2No6TKaGaOQmWRI=;
-        b=U43Mtc6grfJxrI4LLfp95+6Fb8xiGHwttrYd2vRRyQLWlhvIGqdLazbxzbLgbVqyFJ
-         8JDhtNAXoqEVeLclqbS8QNnxQFndcq2dr7HFJ/4j6d3eEhIj8BZug6yvNsllHPYDx0SS
-         LNyFZ9BOzWgRCReFK77jt/nwNchc/Ooqe/hmdNo1s5h9MMHhMJkhkUXj46AnQZdXo4wO
-         r0+TcpbgzqdyQZfPATIUvNmOit9jnaT5PuUpmQhhy/oy6hDgi1WR5SdC3qmKX2Ye2Vfp
-         BT1J/hTiymq0jp/C7R+koRLNuLURYaihSpV+3B68/AUK1ddhMXhX1BfFe6Kq/3E2bbWp
-         rj3g==
-X-Forwarded-Encrypted: i=1; AHgh+RppIjRV2V7WytJJ9JNotAG4ndP2rSmT0qgwKwg83Ry0+rPKZ7nP9IMrD6OeLdVkVLX6mUzP8QGf7DdKKbhJAboK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+ANSZLpOO6HRZfujCjFsIvCFETSKjpHMW1bYr6Mm5I3XwMfwL
-	h3PVY+26S0Gyle+2qsZtNDy35NvLhCR0dhW0Q0i5L4FsFHygbY4hZw0zzUXp13I6CQ==
-X-Gm-Gg: AR+sD10rB2jCHVChhiVIUSPVU7lTxz/ywQtiTTSfAtPfr8g+3Lqj/wyJE4CD9cww7lE
-	Dgfr5MdYOhdmLXx5Vujql3nkS8ljBXeQDRT6f6HxhswjJdsWdPxW71YzJgmGf8GYbmd3v+tf5QX
-	UMqtfeIpR5x7/qhde1sIY08YIYgFWVza3t666m7vFFo8ToIPQl7evCY3xyQm+FJRDA1kjS+IgVO
-	2Sy9i347QyAdvhiV9KBVg8ffvm+wm03pV0FGohqcY1ePawsrIUCWFheRmfxJR3sL+RP95aZvhyd
-	+gjK1TZS5d4bw01iGRDb+M+xiKvHFVgMeIoJid4n0psiQP+JTeDXeMe7I7VtIWNsR8+LkV4Rhhj
-	i7wXzlUZrXwa4oWcwkw2HLqeJhODXqnMM3uksbArcDBRGkN9APCOAj7e9wfEJAhyLI710xHQnEK
-	h13juu1q90yQiwgBCbufu/UcemdQ5Wn5Pw5vzpzQOfSW8=
-X-Received: by 2002:a05:6402:a20f:10b0:697:e82f:e4f2 with SMTP id 4fb4d7f45d1cf-69fb80feebemr4712a12.4.1785248824492;
-        Tue, 28 Jul 2026 07:27:04 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69fb594622asm4455060a12.26.2026.07.28.07.27.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 07:27:03 -0700 (PDT)
-Date: Tue, 28 Jul 2026 14:26:56 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>, Jiri Pirko <jiri@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v8 07/23] dma-direct: swiotlb: handle swiotlb alloc/free
- outside __dma_direct_alloc_pages
-Message-ID: <ami8MLFLGrvihL_W@google.com>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-8-aneesh.kumar@kernel.org>
+	id 1woinu-00000005Tx0-2ava;
+	Tue, 28 Jul 2026 14:29:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=5faQwISMgtl2nH8ImRGXS510RUHcjrYzSgsUcLwwm4o=; b=NsDQBLNUSY2RAJRIi3YMWGGW4E
+	PneO2V0twWtTwcjPdTcb3lHIgv1MLtIMP5iV4BfNhsp4yCygUgtfx2ZgsACc73LS6CKeJue8L6PA1
+	iN5vZ4651rSbvbHGQRxPnPC8mxu+Med5iK7ThiksdCwfK0A+2hA+y2cxcePeWUKfQ2UCXiHOEp5y5
+	4xN85eFMoLi3VfxnffSxGTNHaIe15/WCf27GF2u5ilfNypH5wKcddDdYYzykfOb5WIaFHWHRyevZ2
+	mScllMxDkiRWRo2gwelReaEbDG1im/wl2FyQl7pD1cG2ge2Ljzre0KE95zY+IVxX2WQbLli5THoFT
+	qXWWzNUw==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1woinq-000000051An-1IZA;
+	Tue, 28 Jul 2026 14:29:08 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66SES7jjC3929845, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1785248887; bh=5faQwISMgtl2nH8ImRGXS510RUHcjrYzSgsUcLwwm4o=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=e9KbIqbtLrNejepj+4aJib1e/FP9dr5s/Ewn/Krsny8dBK5UE7fn5a055qKLtmZdD
+	 uLhPyTXEUvnEPKfxL+drGVY2PlFCD5zLDglNh4z3JLz0i9Y619hX3CGhhW62HpUF+j
+	 hLvemJfbjCwk/6pNWZBZjkDd0oIzedtXifYDv0Q1Ln+YMxEwLpfTkzHCKYv8tOyt/E
+	 CBf9OIh1fhpwg4w0iM+qLaBH7QsCktqesgzc0EeriqKIhvORLmKZ2Y9HtP0MQkZkTl
+	 fmYKxH6JYvOpDopvcVqNsL3r1EuvOaz5zfDvgRb9I8fGvxuGQEEMOkYHezID3PY782
+	 PmsxCKqOGwwrA==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66SES7jjC3929845
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 28 Jul 2026 22:28:07 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 28 Jul 2026 22:28:07 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
+ (10.21.1.55) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 28 Jul 2026 22:28:07 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+	<cylee12@realtek.com>, <jyanchou@realtek.com>, <bmasney@redhat.com>
+CC: <afaerber@suse.com>, <devicetree@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+	<eleanor.lin@realtek.com>
+Subject: [PATCH v11 07/11] clk: realtek: Add support for mux clock
+Date: Tue, 28 Jul 2026 22:28:02 +0800
+Message-ID: <20260728142806.1954638-8-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260728142806.1954638-1-eleanor.lin@realtek.com>
+References: <20260728142806.1954638-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717180442.110954-8-aneesh.kumar@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_072707_669678_17AE875E 
-X-CRM114-Status: GOOD (  33.08  )
+X-CRM114-CacheID: sfid-20260728_152907_042277_CB4A9F37 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,262 +98,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 11:34:25PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Move swiotlb allocation out of __dma_direct_alloc_pages() and handle it in
-> dma_direct_alloc() / dma_direct_alloc_pages().
-> 
-> This is needed for follow-up changes that simplify the handling of
-> memory encryption/decryption based on the DMA attribute flags.
-> 
-> swiotlb backing pages are already mapped decrypted by
-> swiotlb_update_mem_attributes() and rmem_swiotlb_device_init(), so
-> dma-direct should not call dma_set_decrypted() on allocation nor
-> dma_set_encrypted() on free for swiotlb-backed memory.
-> 
-> Update alloc/free paths to detect swiotlb-backed pages and skip
-> encrypt/decrypt transitions for those paths. Keep the existing highmem
-> rejection in dma_direct_alloc_pages() for swiotlb allocations.
-> 
-> Only for "restricted-dma-pool", we currently set `for_alloc = true`, while
-> rmem_swiotlb_device_init() decrypts the whole pool up front. This pool is
-> typically used together with "shared-dma-pool", where the shared region is
-> accessed after remap/ioremap and the returned address is suitable for
-> decrypted memory access. So existing code paths remain valid.
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Tested-by: Jiri Pirko <jiri@nvidia.com>
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
+Add a simple regmap-based clk_ops implementation for Realtek mux clocks.
 
-Thanks,
-Mostafa
+The implementation supports parent selection and rate determination through
+regmap-backed register access.
 
-> ---
->  include/linux/swiotlb.h |  6 ++++
->  kernel/dma/direct.c     | 71 ++++++++++++++++++++++++++++++-----------
->  kernel/dma/swiotlb.c    |  6 ++++
->  3 files changed, 65 insertions(+), 18 deletions(-)
-> 
-> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-> index 3dae0f592063..c92ff6791595 100644
-> --- a/include/linux/swiotlb.h
-> +++ b/include/linux/swiotlb.h
-> @@ -284,6 +284,8 @@ extern void swiotlb_print_info(void);
->  #ifdef CONFIG_DMA_RESTRICTED_POOL
->  struct page *swiotlb_alloc(struct device *dev, size_t size);
->  bool swiotlb_free(struct device *dev, struct page *page, size_t size);
-> +void swiotlb_free_from_pool(struct device *dev,
-> +		phys_addr_t tlb_addr, struct io_tlb_pool *pool);
->  
->  static inline bool is_swiotlb_for_alloc(struct device *dev)
->  {
-> @@ -299,6 +301,10 @@ static inline bool swiotlb_free(struct device *dev, struct page *page,
->  {
->  	return false;
->  }
-> +static inline void swiotlb_free_from_pool(struct device *dev,
-> +		phys_addr_t tlb_addr, struct io_tlb_pool *pool)
-> +{
-> +}
->  static inline bool is_swiotlb_for_alloc(struct device *dev)
->  {
->  	return false;
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index a81597f8c3ed..171c89fe99c9 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -96,14 +96,6 @@ static int dma_set_encrypted(struct device *dev, void *vaddr, size_t size)
->  	return ret;
->  }
->  
-> -static void __dma_direct_free_pages(struct device *dev, struct page *page,
-> -				    size_t size)
-> -{
-> -	if (swiotlb_free(dev, page, size))
-> -		return;
-> -	dma_free_contiguous(dev, page, size);
-> -}
-> -
->  static struct page *dma_direct_alloc_swiotlb(struct device *dev, size_t size)
->  {
->  	struct page *page = swiotlb_alloc(dev, size);
-> @@ -125,9 +117,6 @@ static struct page *__dma_direct_alloc_pages(struct device *dev, size_t size,
->  
->  	WARN_ON_ONCE(!PAGE_ALIGNED(size));
->  
-> -	if (is_swiotlb_for_alloc(dev))
-> -		return dma_direct_alloc_swiotlb(dev, size);
-> -
->  	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
->  	page = dma_alloc_contiguous(dev, size, gfp);
->  	if (page) {
-> @@ -203,6 +192,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
->  {
->  	bool remap = false, set_uncached = false;
-> +	bool mark_mem_decrypt = true;
->  	struct page *page;
->  	void *ret;
->  
-> @@ -252,11 +242,21 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  		return page ? ret : NULL;
->  	}
->  
-> +	if (is_swiotlb_for_alloc(dev)) {
-> +		page = dma_direct_alloc_swiotlb(dev, size);
-> +		if (page) {
-> +			mark_mem_decrypt = false;
-> +			goto setup_page;
-> +		}
-> +		return NULL;
-> +	}
-> +
->  	/* we always manually zero the memory once we are done */
->  	page = __dma_direct_alloc_pages(dev, size, gfp & ~__GFP_ZERO, true);
->  	if (!page)
->  		return NULL;
->  
-> +setup_page:
->  	/*
->  	 * dma_alloc_contiguous can return highmem pages depending on a
->  	 * combination the cma= arguments and per-arch setup.  These need to be
-> @@ -283,7 +283,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  			goto out_free_pages;
->  	} else {
->  		ret = page_address(page);
-> -		if (dma_set_decrypted(dev, ret, size))
-> +		if (mark_mem_decrypt && dma_set_decrypted(dev, ret, size))
->  			goto out_leak_pages;
->  	}
->  
-> @@ -300,10 +300,11 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  	return ret;
->  
->  out_encrypt_pages:
-> -	if (dma_set_encrypted(dev, page_address(page), size))
-> +	if (mark_mem_decrypt && dma_set_encrypted(dev, page_address(page), size))
->  		return NULL;
->  out_free_pages:
-> -	__dma_direct_free_pages(dev, page, size);
-> +	if (!swiotlb_free(dev, page, size))
-> +		dma_free_contiguous(dev, page, size);
->  	return NULL;
->  out_leak_pages:
->  	return NULL;
-> @@ -312,6 +313,9 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  void dma_direct_free(struct device *dev, size_t size,
->  		void *cpu_addr, dma_addr_t dma_addr, unsigned long attrs)
->  {
-> +	phys_addr_t phys;
-> +	bool mark_mem_encrypted = true;
-> +	struct io_tlb_pool *swiotlb_pool;
->  	unsigned int page_order = get_order(size);
->  
->  	if ((attrs & DMA_ATTR_NO_KERNEL_MAPPING) &&
-> @@ -340,16 +344,25 @@ void dma_direct_free(struct device *dev, size_t size,
->  	    dma_free_from_pool(dev, cpu_addr, PAGE_ALIGN(size)))
->  		return;
->  
-> +	phys = dma_to_phys(dev, dma_addr);
-> +	swiotlb_pool = swiotlb_find_pool(dev, phys);
-> +	if (swiotlb_pool)
-> +		/* Swiotlb doesn't need a page attribute update on free */
-> +		mark_mem_encrypted = false;
-> +
->  	if (is_vmalloc_addr(cpu_addr)) {
->  		vunmap(cpu_addr);
->  	} else {
->  		if (IS_ENABLED(CONFIG_ARCH_HAS_DMA_CLEAR_UNCACHED))
->  			arch_dma_clear_uncached(cpu_addr, size);
-> -		if (dma_set_encrypted(dev, cpu_addr, size))
-> +		if (mark_mem_encrypted && dma_set_encrypted(dev, cpu_addr, size))
->  			return;
->  	}
->  
-> -	__dma_direct_free_pages(dev, dma_direct_to_page(dev, dma_addr), size);
-> +	if (swiotlb_pool)
-> +		swiotlb_free_from_pool(dev, phys, swiotlb_pool);
-> +	else
-> +		dma_free_contiguous(dev, dma_direct_to_page(dev, dma_addr), size);
->  }
->  
->  struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
-> @@ -361,6 +374,15 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
->  	if (force_dma_unencrypted(dev) && dma_direct_use_pool(dev, gfp))
->  		return dma_direct_alloc_from_pool(dev, size, dma_handle, &ret, gfp);
->  
-> +	if (is_swiotlb_for_alloc(dev)) {
-> +		page = dma_direct_alloc_swiotlb(dev, size);
-> +		if (!page)
-> +			return NULL;
-> +
-> +		ret = page_address(page);
-> +		goto setup_page;
-> +	}
-> +
->  	page = __dma_direct_alloc_pages(dev, size, gfp, false);
->  	if (!page)
->  		return NULL;
-> @@ -368,6 +390,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
->  	ret = page_address(page);
->  	if (dma_set_decrypted(dev, ret, size))
->  		goto out_leak_pages;
-> +setup_page:
->  	memset(ret, 0, size);
->  	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page));
->  	return page;
-> @@ -379,16 +402,28 @@ void dma_direct_free_pages(struct device *dev, size_t size,
->  		struct page *page, dma_addr_t dma_addr,
->  		enum dma_data_direction dir)
->  {
-> +	phys_addr_t phys;
->  	void *vaddr = page_address(page);
-> +	struct io_tlb_pool *swiotlb_pool;
-> +	bool mark_mem_encrypted = true;
->  
->  	/* If page is not from an atomic pool, dma_free_from_pool_page() fails */
->  	if (IS_ENABLED(CONFIG_DMA_COHERENT_POOL) &&
->  	    dma_free_from_pool_page(dev, page, size))
->  		return;
->  
-> -	if (dma_set_encrypted(dev, vaddr, size))
-> +	phys = page_to_phys(page);
-> +	swiotlb_pool = swiotlb_find_pool(dev, phys);
-> +	if (swiotlb_pool)
-> +		mark_mem_encrypted = false;
-> +
-> +	if (mark_mem_encrypted && dma_set_encrypted(dev, vaddr, size))
->  		return;
-> -	__dma_direct_free_pages(dev, page, size);
-> +
-> +	if (swiotlb_pool)
-> +		swiotlb_free_from_pool(dev, phys, swiotlb_pool);
-> +	else
-> +		dma_free_contiguous(dev, page, size);
->  }
->  
->  #if defined(CONFIG_ARCH_HAS_SYNC_DMA_FOR_DEVICE) || \
-> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-> index 6e8db52866bf..d54154c165e5 100644
-> --- a/kernel/dma/swiotlb.c
-> +++ b/kernel/dma/swiotlb.c
-> @@ -1815,6 +1815,12 @@ bool swiotlb_free(struct device *dev, struct page *page, size_t size)
->  	return true;
->  }
->  
-> +void swiotlb_free_from_pool(struct device *dev,
-> +		phys_addr_t tlb_addr, struct io_tlb_pool *pool)
-> +{
-> +	swiotlb_release_slots(dev, tlb_addr, pool);
-> +}
-> +
->  static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
->  				    struct device *dev)
->  {
-> -- 
-> 2.43.0
-> 
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+Changes in v11:
+- Add 'rtk_' prefix into struct names and function names.
+---
+ drivers/clk/realtek/Makefile         |  1 +
+ drivers/clk/realtek/clk-regmap-mux.c | 41 ++++++++++++++++++++++++++
+ drivers/clk/realtek/clk-regmap-mux.h | 43 ++++++++++++++++++++++++++++
+ 3 files changed, 85 insertions(+)
+ create mode 100644 drivers/clk/realtek/clk-regmap-mux.c
+ create mode 100644 drivers/clk/realtek/clk-regmap-mux.h
+
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+index 90c0658a83bf..3b014240a211 100644
+--- a/drivers/clk/realtek/Makefile
++++ b/drivers/clk/realtek/Makefile
+@@ -5,3 +5,4 @@ clk-rtk-y += clk-rtk-common.o
+ clk-rtk-y += clk-pll.o
+ clk-rtk-y += freq_table.o
+ clk-rtk-y += clk-regmap-gate.o
++clk-rtk-y += clk-regmap-mux.o
+diff --git a/drivers/clk/realtek/clk-regmap-mux.c b/drivers/clk/realtek/clk-regmap-mux.c
+new file mode 100644
+index 000000000000..aecb57e58505
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-mux.c
+@@ -0,0 +1,41 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/export.h>
++#include <linux/regmap.h>
++#include "clk-regmap-mux.h"
++
++static u8 rtk_clk_regmap_mux_get_parent(struct clk_hw *hw)
++{
++	struct rtk_clk_regmap_mux *clkm = to_rtk_clk_regmap_mux(hw);
++	int num_parents = clk_hw_get_num_parents(hw);
++	u32 val;
++	int ret;
++
++	ret = regmap_read(clkm->clkr.regmap, clkm->mux_ofs, &val);
++	if (ret)
++		return 0xff;
++
++	val = (val >> clkm->shift) & clkm->mask;
++
++	return val >= num_parents ? 0xff : val;
++}
++
++static int rtk_clk_regmap_mux_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct rtk_clk_regmap_mux *clkm = to_rtk_clk_regmap_mux(hw);
++
++	return regmap_update_bits(clkm->clkr.regmap, clkm->mux_ofs,
++				  clkm->mask << clkm->shift, (u32)index << clkm->shift);
++}
++
++const struct clk_ops rtk_clk_regmap_mux_ops = {
++	.set_parent = rtk_clk_regmap_mux_set_parent,
++	.get_parent = rtk_clk_regmap_mux_get_parent,
++	.determine_rate = __clk_mux_determine_rate,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_mux_ops, "REALTEK_CLK");
+diff --git a/drivers/clk/realtek/clk-regmap-mux.h b/drivers/clk/realtek/clk-regmap-mux.h
+new file mode 100644
+index 000000000000..f19b88108876
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-mux.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#ifndef __CLK_REALTEK_CLK_REGMAP_MUX_H
++#define __CLK_REALTEK_CLK_REGMAP_MUX_H
++
++#include "clk-rtk-common.h"
++
++struct rtk_clk_regmap_mux {
++	struct rtk_clk_regmap clkr;
++	int mux_ofs;
++	unsigned int mask;
++	unsigned int shift;
++};
++
++#define __rtk_clk_regmap_mux_hw(_p) __rtk_clk_regmap_hw(&(_p)->clkr)
++
++#define __RTK_CLK_REGMAP_MUX(_name, _parents, _ops, _flags, _ofs, _sft, _mask) \
++	struct rtk_clk_regmap_mux _name = {                                    \
++		.clkr.hw.init =                                                \
++			CLK_HW_INIT_PARENTS(#_name, _parents, _ops, _flags),   \
++		.mux_ofs = _ofs,                                               \
++		.shift = _sft,                                                 \
++		.mask = _mask,                                                 \
++	}
++
++#define RTK_CLK_REGMAP_MUX(_name, _parents, _flags, _ofs, _sft, _mask)               \
++	__RTK_CLK_REGMAP_MUX(_name, _parents, &rtk_clk_regmap_mux_ops, _flags, _ofs, \
++			 _sft, _mask)
++
++static inline struct rtk_clk_regmap_mux *to_rtk_clk_regmap_mux(struct clk_hw *hw)
++{
++	struct rtk_clk_regmap *clkr = to_rtk_clk_regmap(hw);
++
++	return container_of(clkr, struct rtk_clk_regmap_mux, clkr);
++}
++
++extern const struct clk_ops rtk_clk_regmap_mux_ops;
++
++#endif /* __CLK_REALTEK_CLK_REGMAP_MUX_H */
+-- 
+2.43.0
+
 
