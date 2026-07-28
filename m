@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1651C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0FFC54EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tM9KvTvYNxgKTJQYOm/eLnzfU+IxZ3yBMLPoqd43Ca4=; b=L3CGJ92BsITkbL1yEy/mtEPLU1
-	kd7gqLozYVXoCp3v9bbTL9/XRrKIvyssahXqx6a9PiuuBzKakEBaXbVBPMVnzZ6M7rpX4fTySSIpn
-	8La0WDVr5yBX1cltaq13lu0iouuOq5DP45jJyLy3z5uLVyHL8YmMfGsCkdXPqDo8K4dNx3z9z930k
-	WpZrruN6D+0XWPZwFDuEyX/5wWDHwojUcqvrl6c+ljUuSDwp0lhAeintmrKpyrpW6aPRiLfZXVt9x
-	2cSWaOR4DJEpw03UFmVXwxItVFXR3CQ2EKQzriHg6SWKq3iWGAosDK8AL5l5qXchOiLdHYN1g6vPF
-	UwUNpkTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H7fev+SkGyN9dwqneF8wGz0L9AJDYK9rgIHDzaAUb9E=; b=fztA/hog3wuz7CkYT7MWC6poks
+	6XtU0/8/yYx6IOcIXK9cHmF/Dw7D0tsQ4Y6ZMRbydvVUgZsBhXksO+78DqLDT+X+E0Ce9Lq0i63sP
+	OsMpaubLyrTm1rfyWktaU7pCkUmnzRkg1wku5RvSv8FYtLD0f7NtNIePWM904XNZAcwPIme/bgfR0
+	1u/KVRlH5lAOoFQFssbmO8ibqoFVitgG53q6MwLhUT6BNBdu/15nUQff1ZQHlYmWgbrmp21fkquBJ
+	mf6959YzP5OblIe3QQslGXxgd42pbQbnhfJlDO7YUDVkTu88ydQj8x/+yITxJttoUDm//DxYWsAH3
+	4pG5JW9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodVN-00000004kcf-0pdl;
-	Tue, 28 Jul 2026 08:49:41 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wodZI-00000004ksJ-0AfK;
+	Tue, 28 Jul 2026 08:53:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodVK-00000004kc9-0xKz
+	id 1wodZG-00000004ks6-3t9P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 08:49:39 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=tM9KvTvYNxgKTJQYOm/eLnzfU+IxZ3yBMLPoqd43Ca4=;
-	b=VhWll1UAXXlaqNtPQcthjAy5pUa6tgVbelOoSCTnDdEdldFUU9T28EWzdYdDkrDxrLk7IVEzf
-	x3hvQHuBM5lpCAlB+pVWE41TEEPCrdzFIXzwixkjWuBvEaR3ztjB1N7exD6LT3ooi26fUn3nOqE
-	nYdohiMb2HXtR6csD31lsYk=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4h8TRm5MDzz12LDF;
-	Tue, 28 Jul 2026 16:40:04 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 31C2540579;
-	Tue, 28 Jul 2026 16:49:35 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 28 Jul 2026 16:49:30 +0800
-Message-ID: <fdb4576e-d729-432e-9fab-928ffe6b1a7c@huawei.com>
-Date: Tue, 28 Jul 2026 16:49:30 +0800
+	Tue, 28 Jul 2026 08:53:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5295D43F72;
+	Tue, 28 Jul 2026 08:53:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911061F01558;
+	Tue, 28 Jul 2026 08:53:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785228822;
+	bh=H7fev+SkGyN9dwqneF8wGz0L9AJDYK9rgIHDzaAUb9E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GdSe6iFXFbfiWRcgQvA4B2opSX9qDpHH/VMDrwDe7eL5CPuZWLqrN40c0jRqnXjvr
+	 Rkdm10UTOg8GXwcjtBmw1JscwG7flZWeT3OBjaRCqogbycJDEllKyJILE5kixtf4Vl
+	 Ghe+v6C36cWsqIFJ9CXvkMAN936xkGC+oUeJjnnH5dMukY7jmkqaBq5fk+S7P1ii0F
+	 +LDRotUSrAW3G0UsbQQUHU8BaUFOVeQ+pKgIAX5H7viSHjfsr/6DqJ9Gm4g3ddSfNs
+	 aJTjVI/DtySleeNZTf5RkbPNFY2Fv0ZhpVPHpnsZCLJR5evSr+/0VC4sOuSyxTUpM2
+	 7ykU+e0uJzdyQ==
+Date: Tue, 28 Jul 2026 10:53:38 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Umang Chheda <umang.chheda@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Ruidong Tian <tianruidong@linux.alibaba.com>, Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org, 
+	faruque.ansari@oss.qualcomm.com, avaneesh.dwivedi@oss.qualcomm.com
+Subject: Re: [PATCH v2 1/4] dt-bindings: arm: ras: Introduce bindings for ARM
+ RAS error sources
+Message-ID: <20260728-fervent-optimal-auk-7850ae@quoll>
+References: <20260720081954.1858180-1-umang.chheda@oss.qualcomm.com>
+ <20260720081954.1858180-2-umang.chheda@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware
- dirty tracking
-To: Leonardo Bras <leo.bras@arm.com>
-CC: Oliver Upton <oupton@kernel.org>, <maz@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
-	<wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
-	<caijian11@h-partners.com>, <liuyonglong@huawei.com>, <yezhenyu2@huawei.com>,
-	<yubihong@huawei.com>, <linuxarm@huawei.com>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-4-zhengtian10@huawei.com>
- <aliKo7dTZzKcWHzI@kernel.org>
- <0943eb14-9ffb-4dbb-9219-060e97bca2a7@huawei.com>
- <alpIfIOFfrudBzD5@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alpIfIOFfrudBzD5@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_014938_570989_AAC7817A 
-X-CRM114-Status: GOOD (  22.23  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260720081954.1858180-2-umang.chheda@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,162 +76,437 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 20, 2026 at 01:49:51PM +0530, Umang Chheda wrote:
+> ARMv8 and later processors implement the RAS (Reliability,
+> Availability and Serviceability) extensions, exposing hardware
+> error records through a standardised register interface.
+>=20
+> Add Device Tree bindings to describe RAS error sources.
+>=20
+> Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
+
+A nit, subject: drop second/last, redundant "bindings for". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/b=
+indings/submitting-patches.rst#L23
+
+> ---
+>  .../bindings/arm/arm,ras-error-source.yaml    | 330 ++++++++++++++++++
+>  include/dt-bindings/arm/arm-ras.h             |  11 +
+>  2 files changed, 341 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/arm/arm,ras-error-s=
+ource.yaml
+>  create mode 100644 include/dt-bindings/arm/arm-ras.h
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/arm,ras-error-source.y=
+aml b/Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml
+> new file mode 100644
+> index 000000000000..add7063a1a62
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml
+
+Filename should resemble compatible, so "arm,ras.yaml"
+
+> @@ -0,0 +1,330 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/arm,ras-error-source.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ARM RAS error source
+> +
+> +maintainers:
+> +  - Umang Chheda <umang.chheda@oss.qualcomm.com>
+> +
+> +description: |
+> +  ARMv8 and later processors implement the Reliability, Availability and
+> +  Serviceability (RAS) extensions.  Hardware blocks that support RAS exp=
+ose
+> +  one or more error records through a standardised register interface.  =
+Each
+> +  error record captures information about a detected hardware error (cac=
+he
+> +  ECC fault, TLB parity error, interconnect error, etc.) and can optiona=
+lly
+> +  signal the OS via an interrupt.
+> +
+> +  Each DT node described by this binding represents one RAS error source=
+ =E2=80=94
+> +  a hardware block that exposes a set of error records.  Error records a=
+re
+> +  accessed either through system registers (for processor-local resources
+> +  such as L1/L2 caches and TLBs) or through a memory-mapped register win=
+dow
+> +  (for shared or off-core resources such as L3 caches, SMMUs and GICs).
+> +
+> +properties:
+> +  compatible:
+> +    description:
+> +      Identifies the class of hardware block this error source belongs t=
+o.
+> +      arm,ras-processor covers processor error sources (cache, TLB, etc.=
+).
+> +      arm,ras-smmu covers SMMU error sources.
+> +      arm,ras-gic covers GIC error sources.
+> +    enum:
+> +      - arm,ras-processor
+> +      - arm,ras-smmu
+> +      - arm,ras-gic
+> +
+> +  reg:
+> +    description:
+> +      Register windows for this error source.  When absent the error rec=
+ords
+> +      are accessed through system registers (ERRSELR_EL1 + ERX*_EL1).
+> +      When present, the first range is the primary error-record window;
+> +      additional named ranges are identified by reg-names.
+> +    minItems: 1
+> +    maxItems: 4
+> +
+> +  reg-names:
+> +    description:
+> +      Names for the optional additional register windows beyond the prim=
+ary
+> +      error-record window.  err-group is the error group status register
+> +      window (ERRGSR).  fault-inject is the fault injection register win=
+dow
+> +      (ERXPFG*).  irq-config is the interrupt routing configuration wind=
+ow.
+> +    minItems: 1
+> +    maxItems: 3
+> +    items:
+> +      enum:
+> +        - err-group
+> +        - fault-inject
+> +        - irq-config
+> +
+> +  interrupts:
+> +    description:
+> +      Interrupts signalled by this error source.  The first interrupt is=
+ the
+> +      Fault Handling Interrupt (FHI), fired when a corrected error count=
+er
+> +      overflows or a deferred error is detected.  The optional second
+> +      interrupt is the Error Recovery Interrupt (ERI), fired when an
+> +      uncorrected recoverable error is detected.
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  interrupt-names:
+> +    description:
+> +      Names identifying the interrupts.  "fhi" is the Fault Handling
+> +      Interrupt; "eri" is the optional Error Recovery Interrupt.
+> +    minItems: 1
+> +    maxItems: 2
+> +    items:
+> +      enum:
+> +        - fhi
+> +        - eri
+> +
+> +  arm,group-format:
+> +    description:
+> +      Page granularity of the memory-mapped error record group register
+> +      window.  Determines the ioremap size and the number of error group
+> +      status registers (ERRGSR) available.  Required when reg is present.
+> +      Use the ARM_RAS_GROUP_* constants from <dt-bindings/arm/arm-ras.h>.
+> +      0 (ARM_RAS_GROUP_4K) is a 4 KiB window with 1 ERRGSR supporting up
+> +      to 64 records.  1 (ARM_RAS_GROUP_16K) is 16 KiB with 4 ERRGSRs and
+> +      up to 256 records.  2 (ARM_RAS_GROUP_64K) is 64 KiB with 14 ERRGSRs
+> +      and up to 896 records.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [0, 1, 2]
+> +
+> +  arm,num-records:
+> +    description:
+> +      Total number of error records in this error source, including both
+> +      implemented and unimplemented slots.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 1
+> +
+> +  arm,record-impl:
+> +    description:
+> +      Bitmap of implemented error records.  Bit N set to 1 means error
+> +      record N is present and active in this error source.  Bit N set to=
+ 0
+> +      means record N is not implemented and must be skipped.  The array
+> +      length must equal the number of ERRGSRs implied by arm,group-format
+> +      (1 element for 4K, 4 for 16K, 14 for 64K).  For system-register
+> +      nodes (no reg property) a single u64 element is used.
+> +    $ref: /schemas/types.yaml#/definitions/uint64-array
+> +    minItems: 1
+> +    maxItems: 14
+> +
+> +  arm,status-reporting:
+> +    description:
+> +      Bitmap indicating which implemented error records must be polled
+> +      directly by the OS.  Bit N set to 1 means record N does not report
+> +      through the ERRGSR and must be polled by reading its ERX_STATUS
+> +      register directly in the interrupt handler.  Bit N set to 0 means
+> +      record N reports its status through the ERRGSR and will be discove=
+red
+> +      via the ERRGSR scan path.  For system-register nodes (no reg prope=
+rty)
+> +      there is no ERRGSR, so every implemented record must be polled
+> +      directly; arm,status-reporting must equal arm,record-impl for all
+> +      system-register nodes.  Array length as for arm,record-impl.
+> +    $ref: /schemas/types.yaml#/definitions/uint64-array
+> +    minItems: 1
+> +    maxItems: 14
+> +
+> +  arm,addressing-mode:
+> +    description:
+> +      Bitmap indicating the type of address reported in the error address
+> +      register (ERX_ADDR) for each error record.  Bit N set to 0 means
+> +      record N reports a System Physical Address (SPA) that the OS can u=
+se
+> +      directly.  Bit N set to 1 means record N reports a node-specific
+> +      Logical Address (LA) that requires platform-specific translation to
+> +      obtain a SPA.  Array length as for arm,record-impl.
+> +    $ref: /schemas/types.yaml#/definitions/uint64-array
+> +    minItems: 1
+> +    maxItems: 14
+> +
+> +  # Processor error source properties (arm,ras-processor only)
+> +
+> +  cache:
+> +    description:
+> +      Phandle to the cache node (L1, L2, or L3) that this processor error
+> +      source monitors.  The referenced node must have compatible =3D "ca=
+che"
+> +      and a cache-level property identifying the level in the hierarchy.
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +  # SMMU error source properties (arm,ras-smmu only)
+> +
+> +  iommus:
+> +    description:
+> +      Phandle to the SMMU node that this error source monitors.
+> +    maxItems: 1
+> +
+> +  # GIC error source properties (arm,ras-gic only)
+> +
+> +  arm,gic-ref:
+> +    description:
+> +      Phandle to the GIC node that this error source monitors.
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +required:
+> +  - compatible
+> +  - arm,num-records
+> +  - arm,record-impl
+> +  - arm,status-reporting
+> +
+> +allOf:
+> +  - if:
+> +      required:
+> +        - reg
+> +    then:
+> +      required:
+> +        - arm,group-format
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: arm,ras-processor
+> +    then:
+> +      required:
+> +        - cache
+> +      properties:
+> +        cache: {}
+> +    else:
+> +      properties:
+> +        cache: false
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: arm,ras-smmu
+> +    then:
+> +      required:
+> +        - iommus
+> +      properties:
+> +        iommus: {}
 
 
-On 7/17/2026 11:21 PM, Leonardo Bras wrote:
-> On Fri, Jul 17, 2026 at 11:58:06AM +0800, Tian Zheng wrote:
->>
->> On 7/16/2026 3:39 PM, Oliver Upton wrote:
->>> Hi Tian,
->>>
->>> On Thu, Jul 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
->>>> -	if (prot & KVM_PGTABLE_PROT_W)
->>>> +	if (prot & KVM_PGTABLE_PROT_W) {
->>>>    		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->>>>
->>>> +		/*
->>>> +		 * No DEVICE filter needed here: relax_perms is only called
->>>> +		 * on FSC_PERM faults. Device pages always get full RW from
->>>> +		 * initial mapping and are never write-protected during
->>>> +		 * migration, so they never trigger a permission fault.
->>>> +		 */
->>>> +		if (pgt->flags & KVM_PGTABLE_S2_DBM)
->>>> +			set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->>>> +	} else {
->>>> +		/*
->>>> +		 * Clear DBM on W→RO downgrade to prevent hardware from
->>>> +		 * silently upgrading RO+DBM back to W+dirty, which would
->>>> +		 * bypass KVM's write tracking and cause data corruption.
->>>> +		 */
->>>> +		clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->>>> +	}
->>>> +
->>> This block makes it pretty evident that the DBM bit really *is* the
->>> write permission bit. I'd much rather we introduce the concept of dirty
->>> state to the page table library and migrate the abstract write
->>> permission to the DBM field, even if we don't have FEAT_HAFDBS.
->>>
-> 
-> Ohh, that's an amazing idea!
-> 
->   
->>> That way everything 'just works' from outside the page-table library:
->>> write-protecting hugepages would have the effect of clearing DBM and we
->>> can separately reap dirty state from page descriptors.
->>>
->>> If/when the architecture forces FEAT_S2PIE upon us we will need to make
->>> this change anyway since dirty state management is unconditional and
->>> handled separately from the actual permissions.
->>>
->>> Thanks,
->>> Oliver
->>
->> Hi Oliver,
->>
->> Thanks again for your insightful review. Following your suggestion, I've
->>
->> reworked the design around a unified three-state model that works regardless
->>
->> of whether FEAT_HAFDBS is implemented:
->>
->> **State table**
->> State               | DBM    | S2AP[1] | Without HTTU            | With  HTTU  (HAFDBS)
->> Non-writable   (N)  |  0     |    0    | write -> fault, inject  | write -> fault, inject
->> Writable-clean (C)  |  1     |    0    | write -> fault, sw C->D | write -> hw C->D, no fault, HDBSS logs
->> Writable-dirty (D)  |  1     |    1    | writable, no fault      | writable, no fault
->>
-> 
-> Yeah, that's how the table works with HAFDBS/HDBSS/HACDBS.
-> 
->> **Proposed changes**
->> 1. Remove KVM_PGTABLE_S2_DBM from enum kvm_pgtable_stage2_flags
->>
->> — VTCR_EL2.{HD,HDBSS,HA} enablement in kvm_arm_enable_hdbss_global()
->>
->> already keys off kvm->arch.enable_hdbss / system_supports_hdbss().
->>
-> 
-> We may need a system_support_hdbss() for the actual hdbss routines, though.
+What is with this syntax. There is no such style, drop.
 
-Yes, and sorry for the unclear phrasing. What I meant is:
 
-Setting DBM unconditionally is safe because hardware only interprets it 
-when VTCR_EL2.HD is set. That only happens in 
-kvm_arm_enable_hdbss_global() after checking both 
-system_supports_hdbss() and migration state.
+> +    else:
+> +      properties:
+> +        iommus: false
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: arm,ras-gic
+> +    then:
+> +      required:
+> +        - arm,gic-ref
+> +      properties:
+> +        arm,gic-ref: {}
 
-> 
-> 
->> 2. stage2_set_prot_attr() — set DBM unconditionally on writable pages:
->> ```
->> if (prot & KVM_PGTABLE_PROT_W) {
->>      attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->>      /* Writable-dirty: DBM=1 conveys write intent, S2AP[1]=1 marks dirty */
->>      attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->> }
->> ```
->>
->> 3. kvm_pgtable_stage2_relax_perms() — drop the else branch entirely:
->> ```
->> if (prot & KVM_PGTABLE_PROT_W) {
->>      set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->>      /* Non-writable -> Writable-dirty: restore both write intent and dirty state */
->>      set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
-> 
-> In the future, depending on the setup of HDBSS/splitting, we may want to
-> change this behavior. But for software only, it looks nice.
-> 
->> }
->> /* no else: callers passing !W (e.g. exec faults) must not touch DBM */
->> ```
->>
->> 4. kvm_pgtable_stage2_wrprotect() — unchanged: it only clears S2AP1 (D->C).
->>
->> DBM is preserved so HDBSS re-arms next round.
->>   ```
->> int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64
->> size)
->> {
->>     /* Writable-dirty -> Writable-clean: clear dirty state (S2AP_W),
->>     * preserve write intent (DBM) so HDBSS re-arms for next write.
->>      */
->>      return stage2_update_leaf_attrs(pgt, addr, size, 0,
->>                           KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
->>                           NULL, NULL,
->>                           KVM_PGTABLE_WALK_IGNORE_EAGAIN);
->> }
->> ```
->>
->> **One clarification**
->> In the three-state model above, wrprotect() clears S2AP[1] but preserves DBM
->> (D->C).
->>
->> This allows HDBSS to re-arm on the next write. If we instead cleared DBM as
->> well (->N),
->>
->> HDBSS would be permanently disabled on that page and we'd lose the benefit
->> of hardware
->>
->> dirty tracking.
->>
->>
->> So my understanding is:
->>
->> wrprotect() (dirty tracking): D->C — clears S2AP[1], preserves DBM
->>
->> mkreadonly() (true RO, future): ->N — clears both S2AP[1] and DBM
->>
->> Does this match what you had in mind?
->>
->> Looking forward to your thoughts.
->>
->> Thanks,
->> Tian
->>
->>
->   
-> Thanks!
-> Leo
-> 
+Drop. This is not an object, but phandle.
+
+> +    else:
+> +      properties:
+> +        arm,gic-ref: false
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/arm/arm-ras.h>
+> +
+> +    / {
+> +        compatible =3D "qcom,sa8775p-ride", "qcom,sa8775p";
+> +        model =3D "Qualcomm Technologies, Inc. SA8775P RAS example";
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +        interrupt-parent =3D <&intc>;
+
+Drop, irrelevant.
+
+> +
+> +        intc: interrupt-controller@17100000 {
+> +            compatible =3D "arm,gic-v3";
+> +            reg =3D <0x0 0x17100000 0x0 0x10000>,
+> +                  <0x0 0x17180000 0x0 0x100000>;
+> +            interrupt-controller;
+> +            #interrupt-cells =3D <3>;
+> +            #address-cells =3D <2>;
+> +            #size-cells =3D <2>;
+> +        };
+> +
+> +        cpus {
+> +            #address-cells =3D <2>;
+> +            #size-cells =3D <0>;
+> +
+> +            cpu0: cpu@0 {
+> +                device_type =3D "cpu";
+> +                compatible =3D "arm,armv8";
+> +                reg =3D <0x0 0x0>;
+> +                next-level-cache =3D <&l2_0>;
+> +
+> +                l2_0: l2-cache {
+> +                    compatible =3D "cache";
+> +                    cache-level =3D <2>;
+> +                    cache-unified;
+> +                    next-level-cache =3D <&l3_0>;
+> +
+> +                    l3_0: l3-cache {
+> +                        compatible =3D "cache";
+> +                        cache-level =3D <3>;
+> +                        cache-unified;
+> +                    };
+> +                };
+> +            };
+> +        };
+
+Drop all the nodes above, irrelevant.
+
+> +
+> +        /*
+> +         * Per-PE L1/L2 cache RAS error source.  System-register access,
+> +         * per-CPU PPI.  Record 0 is implemented (arm,record-impl bit 0
+> +         * set).  arm,status-reporting equals arm,record-impl because
+> +         * system-register nodes have no ERRGSR; record 0 must be polled.
+> +         */
+> +        ras-l1l2-0 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetr=
+ee-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
+
+Choose some generic name, but l1l2 does not sound like one.
+
+> +            compatible =3D "arm,ras-processor";
+> +            arm,num-records =3D <1>;
+> +            arm,record-impl =3D /bits/ 64 <0x1>;
+> +            arm,status-reporting =3D /bits/ 64 <0x1>;
+> +            cache =3D <&l2_0>;
+> +            interrupts =3D <GIC_PPI 0 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names =3D "fhi";
+
+I had impression we agreed all this is part of actual CPU/GIC/cache node
+or its subnode.
+
+Keeping it separate does not feel right, if cache is the source of error re=
+porting.
+
+> +        };
+> +
+> +        ras-l3-cluster0 {
+> +            compatible =3D "arm,ras-processor";
+> +            arm,num-records =3D <2>;
+> +            arm,record-impl =3D /bits/ 64 <0x2>;
+> +            arm,status-reporting =3D /bits/ 64 <0x2>;
+> +            cache =3D <&l3_0>;
+> +            interrupts =3D <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names =3D "fhi";
+> +        };
+> +    };
+> +
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/arm/arm-ras.h>
+> +
+> +    / {
+> +        compatible =3D "qcom,sa8775p-ride", "qcom,sa8775p";
+> +        model =3D "Qualcomm Technologies, Inc. SA8775P RAS example";
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +        interrupt-parent =3D <&gic>;
+> +
+> +        /*
+> +         * GICv3 interrupt controller with RAS support.
+> +         */
+> +        gic: interrupt-controller@17b00000 {
+> +            compatible =3D "arm,gic-v3";
+> +            reg =3D <0x0 0x17b00000 0x0 0x10000>,
+> +                  <0x0 0x17b60000 0x0 0x100000>;
+> +            interrupt-controller;
+> +            #interrupt-cells =3D <3>;
+> +        };
+> +
+> +        ras-gic-dist@17a00000 {
+> +            compatible =3D "arm,ras-gic";
+> +            reg =3D <0x0 0x17a00000 0x0 0x10000>;
+> +            reg-names =3D "err-group";
+> +            arm,group-format =3D <ARM_RAS_GROUP_4K>;
+> +            arm,num-records =3D <1>;
+> +            arm,record-impl =3D /bits/ 64 <0x1>;
+> +            arm,status-reporting =3D /bits/ 64 <0x0>;
+> +            arm,gic-ref =3D <&gic>;
+> +            interrupts =3D <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names =3D "fhi";
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/arm/arm-ras.h b/include/dt-bindings/arm/=
+arm-ras.h
+> new file mode 100644
+> index 000000000000..c2f4e1f8243e
+> --- /dev/null
+> +++ b/include/dt-bindings/arm/arm-ras.h
+
+Filename must match binding or compatible.
+
+> @@ -0,0 +1,11 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +
+> +#ifndef _DT_BINDINGS_ARM_RAS_H
+> +#define _DT_BINDINGS_ARM_RAS_H
+
+Best regards,
+Krzysztof
 
 
