@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E99C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12497C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xVF4mkeG431UaBjqsM0k0WtN0kGDgCLNowxClYevd/M=; b=JZp/AHdjXonidGXL4sbtYChR7B
-	HgEKNTpd9/ewMX8FykH/BhfbVDA3sp89s4rNJ3591jPQSTjsf20y1QtPA+dDkzr6XatFsE7skKudX
-	nCV1X1AxbkLG2u/UJmKGwYBGsOFM52re250PCEqnX/bS4X376pdDwzaf2SgGk797ewg1TANrAaacb
-	nimCtEzQUisi7QZL/IUto6LqnMFtTmCKdSWkpC2Yo8vZp7uRMDxk0A3Oy0q7rXcRuHnALnq8qGha2
-	oTuh48b2Nf2s6Xrs+wPFqXIk/j+I3O9NXsQ95b2A8P66J7AIzPAhnQ5DUWkD3FA3Cj/u5V2Px+CN/
-	n5hcOJaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kYX12eW2x3DQ1ndwH+cB2ikSIgugK2TLveb883QmQYY=; b=rV6+f1cGU+31oEU/xv3/q97nfq
+	1OFHX+iYA7Kmiy8Hv+SCeE16vQRG1OoBiq/D6J8Obnd4FlcfOGdYXrjriOGqh5YYPVb1ydjWFU78/
+	i/+gEpY50KJZ2EwHis5HCC3ch4j25sc3X2O0hSW5CmZdqXtTo0hF4Bnvei3NBGlNpdCJMyPsdWAm/
+	owBezHW6xncPQbwIsuoVwTzLtdBqhc5sWfgvNEZRvonjfLlyNgh4u6QKb3EVOEaOtdwcnyFoxA91U
+	wdjyMAljCYoex9gtoVJ4NlJx+MiZCvBq9MOENiRlFOj4XvR/QiyOADDka8JFBtQ7cXBXkEPm1ZTlA
+	yjyOKHzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wofms-000000052si-0Z7M;
-	Tue, 28 Jul 2026 11:15:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wofpd-000000053eP-2sPw;
+	Tue, 28 Jul 2026 11:18:45 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wofmd-000000052ol-28I7
+	id 1wofpb-000000053dO-02Xj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 11:15:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9162860AAD;
-	Tue, 28 Jul 2026 11:15:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B7491F000E9;
-	Tue, 28 Jul 2026 11:15:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785237338;
-	bh=xVF4mkeG431UaBjqsM0k0WtN0kGDgCLNowxClYevd/M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GcNFcxaVq8q99R3jJK+nVtOR/0Sr//p0Cc6v1f9FuDMh1e3cW0sZGjtHkIo4Ve2sH
-	 NWvNo2evGes9zLHviNLnPGfzxBAFutwLhTXgKfAFiktKonywkex6DrN3ZV4EEsCRHA
-	 nEHHY/prRZlqUmX8YYmKfyzvFEswhxc0GpXDPKvqHrUH2BXxb5HqybL4FSOhoJw/MU
-	 cCG2ASyqx2SIdwCOA+Bkhuk5n9hp6MeYSs4G1W4XOaozQ4bnaLswOrlIzAyPlMddnA
-	 pI4hmmbMIv0dSrY4nIS0+wYcvKOXwUtQF0JCQExtJDhgyRpIJZ5eGb4IL99THlF/1M
-	 dQmiEcW5tI0CA==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Liu Song <liusong@linux.alibaba.com>,
-	shechenglong <shechenglong@xfusion.com>,
-	Jonathan Marek <jonathan@marek.ca>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: proton-pack: Restore the nospectre_bhb command-line option
-Date: Tue, 28 Jul 2026 12:15:25 +0100
-Message-ID: <178523456585.2480895.13455325016626613930.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260726182253.6939-1-kmehltretter@gmail.com>
-References: <20260726182253.6939-1-kmehltretter@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 28 Jul 2026 11:18:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785237523; x=1816773523;
+  h=date:from:to:cc:subject:message-id;
+  bh=cJdzGdD3YA30v57mTw7w9KOKzZXEo+jem2i5ocTyxb8=;
+  b=Wx4tBHGasaVY8Y77SlXSJ54gbAMKSwF/6td9IRhvOV44L5cyW3QMQcMU
+   l+IKoW2mqn/yLiNe1lUGoqnI9XDNH4sFeMlPGwLm6RbkU1lzO16txZlFk
+   WN2906UkMazqfehhcGau0IMTSa4IzJoP0Z0cmweOwVjzV65rm2ebxvDWj
+   +rm4VwjnoRnUSxA9XYjZMc20b47yhhww27153jrQyweHFlu/nrYr3L+IV
+   8CMRsiK1Elm6QP0s6GDvGbTF1kli3u4eR+SAM7F0ooEL/6ixlPGBN16vC
+   j1mXfL19olnUCYc/fNT/DCQdxVEn0cf2TbJcSUZnJSNORG+vQKmGg9NtF
+   A==;
+X-CSE-ConnectionGUID: LrdTDxcaRryNXyIBH2//Zg==
+X-CSE-MsgGUID: iIh8M6M3TXqCyfF3rippSg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11858"; a="89709536"
+X-IronPort-AV: E=Sophos;i="6.25,190,1779174000"; 
+   d="scan'208";a="89709536"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2026 04:18:42 -0700
+X-CSE-ConnectionGUID: 7aOINau9SOuPOv/vrNpPVg==
+X-CSE-MsgGUID: 00g9A/fATmC5BWX9XubbsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,190,1779174000"; 
+   d="scan'208";a="255367794"
+Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
+  by fmviesa006.fm.intel.com with ESMTP; 28 Jul 2026 04:18:40 -0700
+Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wofpW-00000000eIZ-1skm;
+	Tue, 28 Jul 2026 11:18:38 +0000
+Date: Tue, 28 Jul 2026 19:17:39 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 88f46b866fe93b18abbca52085971ee382ece771
+Message-ID: <202607281926.eqt0l45c-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_041843_111192_E43AD260 
+X-CRM114-Status: UNSURE (   4.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +83,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Jul 2026 20:22:53 +0200, Karl Mehltretter wrote:
-> Commit 7f1635737823 ("arm64: proton-pack: Fix hard lockup due to print in
-> scheduler context") moved the "mitigation disabled" printks into
-> spectre_print_disabled_mitigations(). For spectre-v2 and spectre-v4 only
-> the pr_info_once() calls were removed, but for spectre-bhb the whole
-> branch went with the print:
-> 
->   -   } else if (cpu_mitigations_off() || __nospectre_bhb) {
->   -           pr_info_once("spectre-bhb mitigation disabled ...\n");
-> 
-> [...]
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 88f46b866fe93b18abbca52085971ee382ece771  soc: document merges
 
-Applied to arm64 (for-next/errata), thanks!
+elapsed time: 929m
 
-[1/1] arm64: proton-pack: Restore the nospectre_bhb command-line option
-      https://git.kernel.org/arm64/c/2f6fc0612607
+configs tested: 102
+configs skipped: 0
 
-Cheers,
--- 
-Will
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+tested configs:
+alpha                            allnoconfig    gcc-16.1.0
+alpha                           allyesconfig    gcc-16.1.0
+alpha                              defconfig    gcc-16.1.0
+arc                             allmodconfig    gcc-16.1.0
+arc                             allyesconfig    gcc-16.1.0
+arc                  randconfig-001-20260728    gcc-8.5.0
+arc                  randconfig-002-20260728    gcc-8.5.0
+arm                      imx_v6_v7_defconfig    clang-24
+arm                  randconfig-001-20260728    gcc-8.5.0
+arm                  randconfig-002-20260728    gcc-8.5.0
+arm                  randconfig-003-20260728    gcc-8.5.0
+arm                  randconfig-004-20260728    gcc-8.5.0
+arm64                         randconfig-001    gcc-14.3.0
+arm64                randconfig-001-20260728    gcc-14.3.0
+arm64                randconfig-002-20260728    gcc-14.3.0
+arm64                randconfig-003-20260728    gcc-14.3.0
+arm64                randconfig-004-20260728    gcc-14.3.0
+csky                            allmodconfig    gcc-16.1.0
+csky                 randconfig-001-20260728    gcc-14.3.0
+csky                 randconfig-002-20260728    gcc-14.3.0
+hexagon              randconfig-001-20260728    gcc-11.5.0
+hexagon              randconfig-002-20260728    gcc-11.5.0
+i386                            allmodconfig    gcc-14
+i386       buildonly-randconfig-001-20260728    gcc-14
+i386       buildonly-randconfig-002-20260728    gcc-14
+i386       buildonly-randconfig-003-20260728    gcc-14
+i386       buildonly-randconfig-004-20260728    gcc-14
+i386       buildonly-randconfig-005-20260728    gcc-14
+i386       buildonly-randconfig-006-20260728    gcc-14
+i386                 randconfig-001-20260728    gcc-14
+i386                 randconfig-002-20260728    gcc-14
+i386                 randconfig-003-20260728    gcc-14
+i386                 randconfig-004-20260728    gcc-14
+i386                 randconfig-005-20260728    gcc-14
+i386                 randconfig-006-20260728    gcc-14
+i386                 randconfig-007-20260728    gcc-14
+i386                          randconfig-011    gcc-14
+i386                 randconfig-011-20260728    gcc-14
+i386                 randconfig-012-20260728    gcc-14
+i386                 randconfig-013-20260728    gcc-14
+i386                 randconfig-014-20260728    gcc-14
+i386                 randconfig-015-20260728    gcc-14
+i386                 randconfig-016-20260728    gcc-14
+i386                 randconfig-017-20260728    gcc-14
+loongarch                          defconfig    clang-24
+loongarch            randconfig-001-20260728    gcc-11.5.0
+loongarch            randconfig-002-20260728    gcc-11.5.0
+nios2                           allmodconfig    gcc-11.5.0
+nios2                            allnoconfig    gcc-11.5.0
+nios2                randconfig-001-20260728    gcc-11.5.0
+nios2                randconfig-002-20260728    gcc-11.5.0
+parisc                          allmodconfig    gcc-16.1.0
+parisc                          allyesconfig    gcc-16.1.0
+parisc                             defconfig    gcc-16.1.0
+parisc               randconfig-001-20260728    gcc-10.5.0
+parisc               randconfig-002-20260728    gcc-10.5.0
+powerpc              randconfig-001-20260728    gcc-10.5.0
+powerpc              randconfig-002-20260728    gcc-10.5.0
+powerpc64            randconfig-001-20260728    gcc-10.5.0
+powerpc64            randconfig-002-20260728    gcc-10.5.0
+riscv                randconfig-001-20260728    gcc-14.3.0
+riscv                randconfig-002-20260728    gcc-14.3.0
+s390                 randconfig-001-20260728    gcc-14.3.0
+s390                 randconfig-002-20260728    gcc-14.3.0
+sh                                 defconfig    gcc-16.1.0
+sh                   randconfig-001-20260728    gcc-14.3.0
+sh                   randconfig-002-20260728    gcc-14.3.0
+sparc                         randconfig-001    gcc-11.5.0
+sparc                randconfig-001-20260728    gcc-11.5.0
+sparc                randconfig-002-20260728    gcc-11.5.0
+sparc64              randconfig-001-20260728    gcc-11.5.0
+sparc64              randconfig-002-20260728    gcc-11.5.0
+um                   randconfig-001-20260728    gcc-11.5.0
+um                   randconfig-002-20260728    gcc-11.5.0
+x86_64     buildonly-randconfig-001-20260728    clang-22
+x86_64     buildonly-randconfig-002-20260728    clang-22
+x86_64     buildonly-randconfig-003-20260728    clang-22
+x86_64     buildonly-randconfig-004-20260728    clang-22
+x86_64     buildonly-randconfig-005-20260728    clang-22
+x86_64     buildonly-randconfig-006-20260728    clang-22
+x86_64                                 kexec    clang-22
+x86_64               randconfig-001-20260728    gcc-12
+x86_64               randconfig-002-20260728    gcc-12
+x86_64               randconfig-003-20260728    gcc-12
+x86_64               randconfig-004-20260728    gcc-12
+x86_64               randconfig-005-20260728    gcc-12
+x86_64               randconfig-006-20260728    gcc-12
+x86_64               randconfig-011-20260728    clang-22
+x86_64               randconfig-012-20260728    clang-22
+x86_64               randconfig-013-20260728    clang-22
+x86_64               randconfig-014-20260728    clang-22
+x86_64               randconfig-015-20260728    clang-22
+x86_64               randconfig-016-20260728    clang-22
+x86_64               randconfig-071-20260728    clang-22
+x86_64               randconfig-072-20260728    clang-22
+x86_64               randconfig-073-20260728    clang-22
+x86_64               randconfig-074-20260728    clang-22
+x86_64               randconfig-075-20260728    clang-22
+x86_64               randconfig-076-20260728    clang-22
+x86_64                          rhel-9.4-bpf    gcc-14
+xtensa               randconfig-001-20260728    gcc-11.5.0
+xtensa               randconfig-002-20260728    gcc-11.5.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
