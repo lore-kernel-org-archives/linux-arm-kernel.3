@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7EB0C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2825C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Psw8OpvNMRRl6ECgSXkGuvyjb/PTRjiQBwo1OEix2zU=; b=KpgPN7dwAPqrZ6bnN7mFwepE6H
-	w70IlYiJoUHuKz0rO0yepdb8xP+fq7SbfXQHI2BEkWZMrJyYLtb34DJODOgUiSMyeGVR+Lf+m1PLH
-	AF5NUvKdrbopgvn8H5oVYN92T6Gu2tazgmcSr5+m7SO85o0yqoXMG5o3m2EveNxELOkj/AyJXz9yr
-	muGO8+PjG5Zu1/JNicq4CeDDYuH8tvkZgpv07GiXJcndmMKpiLLsrxIFAzPSwp2mf+O6olr1iH2xQ
-	bpkCfn512BFDNAyvUHadPmBmm3i0qCVt/gqW0nOVz4GEXnGOdy8/dFYS7qM2gjjP/bvDzzVmb3B/O
-	a5i7gIdA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=18jZpDmr82cXzu4NOMmd0y9EFOlXvCHHdtuE0m39VK0=; b=s7VWsgJIhASLtaH2KKBnFlHLDt
+	212tRSwhapb6pKq/ArY1CxuqGq7tg2m8oZDgIi/1XiRYDBe7SQrgT3A2OKzr8cO5R63f0IMYB2pp/
+	o9JlpWCKFWECWE/vB/7Cy3Y4EPn6xkejjE5kt8azEvOzviwKgU7MDj1vBpJvLYZ0hwt/FviIsmI9a
+	2t9xKipul2ODVHmvps3JOJEkWFzg75nNlMoQsXGD9H7YnT+0vcde8n0LISxYd5wRiXaLRE/95rkjo
+	2bYLyhlJIxwiC7l8U5jp1QuCYbWoqshuzACVMFngNKc69w/84btF2Pxy+fg1o4UZaSyLkA66wD+K1
+	rKLo9DBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojmp-00000005em7-29IK;
-	Tue, 28 Jul 2026 15:32:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojmc-00000005eh3-1dcE;
-	Tue, 28 Jul 2026 15:31:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785252711;
-	bh=jNf+NTAzPXJW2SC52yIh7wMgagupWvUDp+KApzXPS0s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=RXpBHG8isxRMlAJmWA5lj4AF5RwedtfRJLNatn3VikbQXo73BabVPf0c+evCXrUuJ
-	 RHOluL/1XPU3/BIhov3k2gT/Gi1YwEOQg07qwAOCkJybZsm9CIc2udDDfKN2cCTV5Z
-	 DARtFZpA0+uZM9nJBglQQjwDuL2msOQe8TI7OBEzeaPl4bO+5VnKRqOarhvLgpLk3s
-	 msxkRtzsQAdBBwORvIvw2NtBzElWc9pjsGjftCrqyLz/z6Y2a3YKDMSjks68sLkI4R
-	 jfkKuXchmi1LSs8aCs8LvKWDoy53ogUAQ+csGJkamX5/pye5eTsTtpbmU8tohokDXW
-	 VCGX5W3XoYV9w==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E061A17E063E;
-	Tue, 28 Jul 2026 17:31:50 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: me@adamthiede.com,
-	bisson.gary@gmail.com,
-	regressions@leemhuis.info,
-	p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ck.hu@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	stable@vger.kernel.org
-Subject: [PATCH] drm/mediatek: mtk_dsi: Enable HS clock only at pre-enable
-Date: Tue, 28 Jul 2026 17:31:45 +0200
-Message-ID: <20260728153145.578404-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.55.0
+	id 1wojpt-00000005f7g-0DJB;
+	Tue, 28 Jul 2026 15:35:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wojpq-00000005f6r-3eNI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 15:35:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2190169E;
+	Tue, 28 Jul 2026 08:35:07 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A24F63F66F;
+	Tue, 28 Jul 2026 08:35:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785252911; bh=o35aR22hjxn3cvsZtLzIVyQgXimJFv11jll7A6Gyckw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NQIpbm4Ak+LzXi2jSCRY/87CMWLbQwzUFEYVX+A60UOOcUXAZ+gbu/flKXm3rQ9Be
+	 ZFZ76BtNtZmgS74VTkeC+wTW2O9SU68N0WC9km3CUIcNOF4Wph9/jeZoJZKXl60CwX
+	 3AjsXk8hGdJSM1m1l6VHMzepiaqs8uSPjmS6jJ4A=
+Message-ID: <fb4a7883-2ef5-4ca9-b375-e1a8d3ad111d@arm.com>
+Date: Tue, 28 Jul 2026 17:35:07 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/10] arm_mpam: let low level MSC accessors return an
+ error
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260723155454.1760823-1-andre.przywara@arm.com>
+ <20260723155454.1760823-2-andre.przywara@arm.com>
+ <20260727231231.62baa831@jic23-huawei>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260727231231.62baa831@jic23-huawei>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_083154_611954_227984E3 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260728_083515_028388_EB5D32B3 
+X-CRM114-Status: GOOD (  44.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,52 +83,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock
-during pre-enable") rightfully moves the HS clock enablement to
-before atomic_enable(), but it's moving it to mtk_dsi_poweron(),
-which is not only called in the .atomic_pre_enable() callback
-for the DRM bridge, but also in the MediaTek DRM's .ddp_start()
-callback, which happens way before the bridge ones.
+Hi Jonathan,
 
-The HS clock enablement should be done at just the right time,
-otherwise some bridge chips (or some Display Driver ICs) may
-not work correctly: this is seen at least with a Parade DSI to
-eDP bridge (PS8640) on the MT8173 Elm Chromebook.
+On 7/28/26 00:12, Jonathan Cameron wrote:
+> On Thu, 23 Jul 2026 17:54:45 +0200
+> Andre Przywara <andre.przywara@arm.com> wrote:
+> 
+>> The upcoming MPAM-Fb support does not use MMIO primitives to access an
+>> MSC, but employs a shared-memory/doorbell based firmware protocol.
+>> Its complexity means that is must be able to handle errors, whereas we
+> 
+> that it must
+> 
+>> always assume an MMIO based MSC access succeeds today.
+>>
+>> Change the __mpam_read_reg() low level accessor function to return the
+>> requested data through a pointer, and return an error code instead.
+>> Also change the __mpam_write_reg() accessor function to return an error
+>> code. At the moment this is always 0, but this will change with alternative
+>> MSC access methods.
+> 
+> Be consistent on paragraph formatting.  So blank line here.  Check whole
+> series for such tiny consistency problems.
+> 
+>> Change all direct users of those MSC wrappers to comply with the new
+>> prototypes, though the errors are not propagated all the way up yet.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> 
+> Some comments inline.  A few are 'whilst you are here let us make this
+> more readable'.  I was in two minds about the temporary lack of handling
+> of uninitialised (looking) variables but in the interests of expediency
+> I suppose we can rely on the functions never actually failing at this
+> point in the series.
 
-This resolves a regression that was seen on the aforementioned
-machine, which was happening only after a suspend-resume cycle.
+I probably should have made this explicit in at least the cover letter, 
+but that was the intention: for most of the patches, the lower level 
+functions only ever return 0, so no error path will be triggered at this 
+point. This allows to code to grow more slowly, and remaining issues are 
+then fixed in later patches (7/10-9/10), before only the last patch 
+actually activates MPAM-Fb, and introduces the possibility of an error 
+return. So there is no real functional change, it's all refactoring.
+Interestingly Sashiko missed that, many complaints are about things that 
+cannot happen before patch 10/10.
 
-Cc: <stable@vger.kernel.org> # 7.1.x
-Fixes: 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock during pre-enable")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dsi.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+I will add a comment to that effect to the commit message and the cover 
+letter.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index dc0c4e867179..c729a163bda6 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -1165,8 +1165,6 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 		goto err_disable_dsi_and_digital_clk;
- 
- 	mtk_dsi_set_interrupt_enable(dsi);
--	mtk_dsi_lane_ready(dsi);
--	mtk_dsi_clk_hs_mode(dsi, 1);
- 
- 	return 0;
- 
-@@ -1284,6 +1282,9 @@ static void mtk_dsi_bridge_atomic_pre_enable(struct drm_bridge *bridge,
- 	ret = mtk_dsi_poweron(dsi);
- 	if (ret < 0)
- 		drm_err(drm, "failed to power on dsi\n");
-+
-+	mtk_dsi_lane_ready(dsi);
-+	mtk_dsi_clk_hs_mode(dsi, 1);
- }
- 
- static void mtk_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge,
--- 
-2.55.0
+> I will note that if you did adding the returns from outer calls to inner
+> you wouldn't get this problem.  However you might get other problems!
+
+Thanks for the suggestion, I might try it the next time I encounter a 
+similar problem! I briefly looked at applying it here, but already 
+struggled to identify those outer functions. So I think this "lower 
+level first" is still more comprehensible.
+
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 204 +++++++++++++++++++++------------
+>>   1 file changed, 130 insertions(+), 74 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index b69f99488111..912c21ce7f9f 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+> 
+> 
+> 
+>> -static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>> +static int mpam_msc_read_idr(struct mpam_msc *msc, u64 *res)
+>>   {
+>> -	u64 idr_high = 0, idr_low;
+>> +	u32 idr_high = 0, idr_low;
+>> +	int ret;
+>>   
+>>   	lockdep_assert_held(&msc->part_sel_lock);
+>>   
+>> -	idr_low = mpam_read_partsel_reg(msc, IDR);
+>> -	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+>> -		idr_high = mpam_read_partsel_reg(msc, IDR + 4);
+>> +	ret = mpam_read_partsel_reg(msc, IDR, &idr_low);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	if (FIELD_GET(MPAMF_IDR_EXT, idr_low)) {
+>> +		ret = mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+> As a whilst you are here type of comment. I'd find this more obvious if it were
+> 
+> 	} else {
+> 		idr_high = 0;
+> 	}
+> 
+> rather than assign a default at top of what is now a rather more complex function.
+
+I see what you mean, makes sense.
+
+>>   
+>> -	return (idr_high << 32) | idr_low;
+>> +	*res = ((u64)idr_high << 32) | idr_low;
+>> +
+>> +	return 0;
+>>   }
+> 
+> 
+>>   
+>> -static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+>> +static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
+>>   {
+>> -	u64 esr_high = 0, esr_low;
+>> +	u32 esr_high = 0, esr_low;
+>> +	int ret;
+>>   
+>> -	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
+>> -	if (msc->has_extd_esr)
+>> -		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
+>> +	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+>> +	if (ret)
+>> +		return ret;
+>>   
+>> -	return (esr_high << 32) | esr_low;
+>> +	if (msc->has_extd_esr) {
+>> +		ret = __mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+> 
+> Same as the other example above.  } else { esr_high = 0; }
+> would be slightly clearer now this whole function has gotten more complex.
+> 
+>> +
+>> +	*res = ((u64)esr_high << 32) | esr_low;
+>> +
+>> +	return 0;
+>>   }
+>>   
+> 
+>>   int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+>> @@ -774,13 +810,13 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
+>>   	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+>>   
+>>   	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
+>> -	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
+>> +	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+> 
+> If an error were to occur and "now" not get assigned, would this being
+> accessing undefined data? 
+
+But there will be no error at this point, as __mpam_read_reg() 
+unconditionally still returns 0. And this missing error code check will 
+be fixed in a later patch, before proper error returns get enabled.
+
+If checking return values doesn't make sense
+> in here it should still not result in something static analysis might
+> get annoyed by.  This gets cleaned up in next patch so maybe that
+> is just about ok.  Alternative would be to just initialize any such
+> variables in this patch and drop those initializations in next.
+> Doing it just above the code that is going to change anyway would be cleanest.
+> 
+> 	now = 0;
+> 	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+> 
+> for example.
+> 
+> Hmm. I suppose this is a bit of a special case because we know the
+> calls don't return errors at this point in the set.
+> 
+> So whilst I don't like it I'll not insist that you fix all the
+> instances of this.
+> 
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+
+Thanks!
+
+Cheers,
+Andre
+
+> 
+> 
+> 
+> 
+> 
+>>   	can_set = now & MSMON___NRDY;
+>>   
+>>   	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
+>>   	/* Configuration change to try and coax hardware into setting nrdy */
+>>   	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
+>> -	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
+>> +	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+>>   	can_clear = !(now & MSMON___NRDY);
 
 
