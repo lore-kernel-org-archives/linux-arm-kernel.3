@@ -4,54 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F1EC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C66D8C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qaoV7M8xK54TOShIe9LDJFDpBjhxfhmHY5ok78q8jf4=; b=vZjnj9o8l7OXpA
-	NbkvG0AriXYJdxlaBAaKJSWmQNX2NTCyv79GsQu8B9u0Fj8k8Au0H1m5hWkL4/Qcz0bqb0YWICsDq
-	hRSfxIt8ln0rBsCa7KkODTJHcMls9FuIbrBB93YBxqS1UspxkYeHr4Cu25P07OaGaGr1efgOiJH5V
-	UJouf3laM7Lw+qLkiUYy+rRtK4c797QZftBac3DtjbUoZbkZ8S0ZBkruqcXEHOYYJVjRDnjvdzVf8
-	9TBRUuK8PaaoIK3P5B+lRlXkDa5W7sOqg2EEF3NDZn2irqmnuXFXp1awo6H+TFgStEPWbNhADk47t
-	I2WXDQ2AEYrs4mBgWbdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cL9HSJjt1TznsddW+TpeOSxOlnQMH72fMbmXSlI1sEg=; b=XMEkbyG1BtD4eNp1kKkyDmUiiL
+	G+zm9rwaZyNj5rA09mi6l9CTRjaLm/PGOMAK8Lu2bSb1eErfWVGtnXNuEsRZK0LG1b1ZMZBqMTLIs
+	r5l5qisgkaOMNifcDkSUGzqr3Y6hYN4Cn5NYY+EZd1YhYzGXq7+YCQ0eg6Wo2QOb+8U6iYmP7Bcpw
+	exE94AD82Z5T76FAppcNnQc4lTNngxWS+x5NyGnjSD1B8GVhq8QhZtIiqSIQJV2l3f1eGLgpCOiKP
+	bWkdykH+g9NNtxyXM+0kWRmgC8ASZXzFPpU2O9S0xD6L36ATmz6Xx3txuGvdiR8znRxk8WxcZ/MGW
+	S4HvM6uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh7O-00000005HF9-3kOC;
-	Tue, 28 Jul 2026 12:41:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh6S-00000005Gbs-34td
+	id 1wohEY-00000005IBu-0GSx;
+	Tue, 28 Jul 2026 12:48:34 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wohEV-00000005IAl-1CW9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:40:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27385175D;
-	Tue, 28 Jul 2026 05:40:08 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 62E793F86F;
-	Tue, 28 Jul 2026 05:40:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785242412; bh=yLmrifSdu9uBeRu/ZTm5tps7A7KZZniygcl9x67XpLU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qOgtv3HyprGwzrGiFrITNgFRCUtCqTBbUAAnRIDVdcvgTINFdLGNJh2TAq5U3246R
-	 1x4gw2e7OwfCMpdHxLw/vvoCv9TPEDO2R2e3Xfec5PBdiYKywgdC3UATaY7yTtLA4+
-	 OMpNwDidADp+JuIux5EzIXymtfKNmtnRHmxMLHK0=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 13/13] arm64: percpu: Remove _pcp_protect*() wrappers
-Date: Tue, 28 Jul 2026 13:38:59 +0100
-Message-Id: <20260728123859.2911495-14-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260728123859.2911495-1-mark.rutland@arm.com>
-References: <20260728123859.2911495-1-mark.rutland@arm.com>
+	Tue, 28 Jul 2026 12:48:33 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4h8ZlD15Snz12LG0;
+	Tue, 28 Jul 2026 20:38:48 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7F42F202E6;
+	Tue, 28 Jul 2026 20:48:18 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
+ (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 28 Jul
+ 2026 20:48:17 +0800
+Message-ID: <649b3e33-8829-48bc-9e60-5d2935ec9cc9@hisilicon.com>
+Date: Tue, 28 Jul 2026 20:48:16 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/4] devfreq: Refcount governor modules while in use
+To: "zhenglifeng (A)" <zhenglifeng1@huawei.com>, <cwchoi00@gmail.com>,
+	<cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>,
+	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
+	<prime.zeng@hisilicon.com>
+References: <20260519113251.3745140-1-zhanjie9@hisilicon.com>
+ <20260519113251.3745140-5-zhanjie9@hisilicon.com>
+ <5e503177-95e6-460a-b6b8-39f725da34a8@huawei.com>
+ <ceb7d509-39d1-4d80-91a0-e129d0c2ce7b@hisilicon.com>
+Content-Language: en-US
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <ceb7d509-39d1-4d80-91a0-e129d0c2ce7b@hisilicon.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_054012_895593_E6FA8380 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260728_054831_649282_15423DB0 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,69 +75,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, hca@linux.ibm.com, linux-kernel@vger.kernel.org, ruanjinjie@huawei.com, yang@os.amperecomputing.com, maz@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all this_cpu_*() operations are preemptible, there are no users
-of _pcp_protect() or _pcp_protect_return().
 
-Remove them both, along with the associated comment regarding
-preemption.
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Yang Shi <yang@os.amperecomputing.com>
----
- arch/arm64/include/asm/percpu.h | 27 ---------------------------
- 1 file changed, 27 deletions(-)
+On 6/1/2026 10:03 AM, Jie Zhan wrote:
+> 
+> 
+> On 5/21/2026 4:13 PM, zhenglifeng (A) wrote:
+>> On 5/19/2026 7:32 PM, Jie Zhan wrote:
+>>> A governor module can be inserted or removed dynamically when built as a
+>>> kernel module.  'devfreq->governor' would become NULL if the governor
+>>> module is removed when it's in use.
+>>>
+>>> Add a refcount mechanism for governor modules to prevent the governor
+>>> module from being removed (except for force unload):
+>>> 1. Add an optional 'owner' member to struct devfreq_governor so the devfreq
+>>>    core can identify the module that holds the governor code.
+>>> 2. Get and put a refcount of the governor module when starting and stopping
+>>>    the governor.
+>>>
+>>> The new 'owner' field is optional:
+>>> - Common governor modules (performance, powersave, simple_ondemand,
+>>>   userspace, passive) set 'owner' to THIS_MODULE.
+>>> - Governors that are bundled into a device driver module must leave 'owner'
+>>>   NULL.  The device's lifetime already pins that module, and setting
+>>>   'owner' would create a self-reference that blocks the driver from being
+>>>   unloaded.
+>>>
+>>> As a result, a non-forced rmmod of an in-use stand-alone governor now
+>>> fails with -EBUSY, e.g.:
+>>>
+>>>   $ cat governor
+>>>   performance
+>>>   $ rmmod governor_performance
+>>>   rmmod: ERROR: Module governor_performance is in use
+>>>
+>>> Force unloads (rmmod -f, if configured) can't be blocked.
+>>>
+>>> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+>>> ---
+>>>  drivers/devfreq/devfreq.c                 | 17 ++++++++++++++++-
+>>>  drivers/devfreq/governor_passive.c        |  1 +
+>>>  drivers/devfreq/governor_performance.c    |  1 +
+>>>  drivers/devfreq/governor_powersave.c      |  1 +
+>>>  drivers/devfreq/governor_simpleondemand.c |  1 +
+>>>  drivers/devfreq/governor_userspace.c      |  1 +
+>>>  include/linux/devfreq-governor.h          | 11 +++++++++++
+>>>  7 files changed, 32 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
+>>> index 9e3e6a7348f8..1cee43636ded 100644
+>>> --- a/drivers/devfreq/devfreq.c
+>>> +++ b/drivers/devfreq/devfreq.c
+>>> @@ -345,24 +345,37 @@ static int devfreq_set_governor(struct devfreq *df,
+>>>  				 __func__, df->governor->name, ret);
+>>>  			return ret;
+>>>  		}
+>>> +		module_put(old_gov->owner);
+>>>  	}
+>>>  
+>>>  	/* Start the new governor */
+>>> +	if (!try_module_get(new_gov->owner)) {
+>>> +		df->governor = NULL;
+>>
+>> Shouldn't the old governor be restored here?
+>>
+> Yeah.  Perhaps we just move try_module_get() before stopping the old
+> governor so as to avoid another hunk of restoring governor.
 
-diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index 6785d1bc933b9..aa1fd9a09c7cb 100644
---- a/arch/arm64/include/asm/percpu.h
-+++ b/arch/arm64/include/asm/percpu.h
-@@ -343,33 +343,6 @@ PERCPU_CMPXCHG_OP(x,  , 64)
- #undef PERCPU_XCHG_OP
- #undef PERCPU_CMPXCHG_OP
- 
--/*
-- * It would be nice to avoid the conditional call into the scheduler when
-- * re-enabling preemption for preemptible kernels, but doing that in a way
-- * which builds inside a module would mean messing directly with the preempt
-- * count. If you do this, peterz and tglx will hunt you down.
-- *
-- * Not to mention it'll break the actual preemption model for missing a
-- * preemption point when TIF_NEED_RESCHED gets set while preemption is
-- * disabled.
-- */
--
--#define _pcp_protect(op, pcp, ...)					\
--({									\
--	preempt_disable_notrace();					\
--	op(raw_cpu_ptr(&(pcp)), __VA_ARGS__);				\
--	preempt_enable_notrace();					\
--})
--
--#define _pcp_protect_return(op, pcp, args...)				\
--({									\
--	typeof(pcp) __retval;						\
--	preempt_disable_notrace();					\
--	__retval = (typeof(pcp))op(raw_cpu_ptr(&(pcp)), ##args);	\
--	preempt_enable_notrace();					\
--	__retval;							\
--})
--
- #define _pcp_wrap(op, pcp, ...)						\
- ({									\
- 	op(&(pcp), __VA_ARGS__);					\
--- 
-2.30.2
+Follow up (after a long while though):
+I found it quite hard to restore the old governor here while keep the code
+clear.  I'd suggest that leaving it NULL for this rare error path.  The
+current devfreq-next code is able to handle a NULL df->governor.
 
+Thanks!
+Jie
 
