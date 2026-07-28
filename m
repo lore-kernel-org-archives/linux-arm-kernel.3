@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756C6C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732F4C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yNWWqDP8wryKVQyW/RhANsfyYEk02x1+HercPHdBo+Y=; b=4OX+wkxHTvjdxs
-	+lqnVqLHvbNP56GmDg2LQ1oXwFUEpanrVWkkEq+HvVU9dXvRNwhsaewjFe17felUij3si4hFhmcgo
-	UUHNIpsNCEiBxaUL6eFQMYuOIarqVxQOAVmD98QhcRR9Zr+hH4cNl+7qfIR6aoZhsYO8PB/MCilgI
-	wGt7ByvVicBpxB7CqCm13whOs6UCojws51ty1QmBPrEZmiQOM27H9FkcXxIhzCsgB2W8B9o1lYjnJ
-	C43wlZi21AOh9YsMqKqYs7Y6n1Iz7i01PfT3bsUMQ3Qw0nAZOOPD24aJ9ZRo5483ougC4lb0A7j8Z
-	UZtgoI4o75cffJ668ZtQ==;
+	List-Owner; bh=QYvIH7EHkfCKeFRl+YjFHki9kk8gbtXa5Bvgx0SVR2c=; b=uC/dCkh0e8PNjG
+	AEI3miLK/GYoq2MaBoR0GOe4x9Ki9GlLc23C2ujboPog6uuG9xNzkpLOCVQj8gISD2E4G4i0buumg
+	41qqU5Lq4Hr4AfkYlINjenH8U1aXYoD1ouZGoJI+n4ljrioFinYSUDeNDhtraW9d2RGaMv7/aEYZr
+	OxwMFOXFyRjFUKixxpxo6xb4ubdydKltx4SsGjF0qcm8FCulJpSUuCTGkI6g4Mf6CnH5AT9LY4Kep
+	JKeIQDPIHUiaR7yZyVwdGQkoRjsNnIYyZoxhGKBSrfZacxqI6k2tnVK40C1myKFAczhFWZ8gaqxWO
+	RXswTLvjNv2ZKwZKl0/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh69-00000005GQr-0EV1;
-	Tue, 28 Jul 2026 12:39:53 +0000
+	id 1woh6S-00000005Gbd-1FZ3;
+	Tue, 28 Jul 2026 12:40:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh65-00000005GPV-153Q
+	id 1woh68-00000005GPy-0P7i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:39:50 +0000
+	Tue, 28 Jul 2026 12:39:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CE621A9A;
-	Tue, 28 Jul 2026 05:39:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2CF0D1BC0;
+	Tue, 28 Jul 2026 05:39:47 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B351C3F86F;
-	Tue, 28 Jul 2026 05:39:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 68E6B3F86F;
+	Tue, 28 Jul 2026 05:39:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785242388; bh=TSKrCYwIYLAtwEuZITiFKuqghJNMJv2A7s4nheGUQQA=;
+	t=1785242391; bh=ubd5mRvutCqeEAsJd3TBfy4XL/5Y9V9cf3fTX26dUV0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nJLMT+tn6NZriNVutvjd5SvrSf775dyqYddSiw0VCO407rflM5lArTWXovtjxQu6J
-	 F8V7yD2G1GbCqALnt7bN4vjX1+LGA9S8KU3lE7+b+vwAAxBsD51GmptCeTjnB6Xu0q
-	 dXqWpN3LtJZJ8iEtfJLNP8ciMEfMhH1qVGpMBl/M=
+	b=YP9rdioV64XM9RT+7xZkNJyJ7bE94tsAlSFSWfqBECchtvLIrt6UudbI91YszFZgX
+	 PwPRYs+IRFOgrYQSo06wAjraEwIriz071Uy6BsTdoH5ol+qRw0syhZs/oezWTNB1WG
+	 Gn6KKoN/N2Je0K8tUDttquQhrkNlyuQ4rM6Yk/b0=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 03/13] arm64: ptrace: Always inline pt_regs_[read,write}_reg()
-Date: Tue, 28 Jul 2026 13:38:49 +0100
-Message-Id: <20260728123859.2911495-4-mark.rutland@arm.com>
+Subject: [RFC PATCH 04/13] arm64: percpu: Factor out percpu offset asm
+Date: Tue, 28 Jul 2026 13:38:50 +0100
+Message-Id: <20260728123859.2911495-5-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260728123859.2911495-1-mark.rutland@arm.com>
 References: <20260728123859.2911495-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_053949_333617_4614A5DA 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260728_053952_179097_712FF9F7 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,15 +67,14 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, peterz@infradead.org, catalin
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In subsequent patches we'll want to use pt_regs_read_reg() and
-pt_regs_write_reg() in noinstr code.
+Depending on whether the kernel runs at EL1 or EL2, the percpu offset is
+stored in either TPIDR_EL1 or TPIDR_EL2, and __kern_my_cpu_offset() uses
+an ALTERNATIVE() sequence to read the relevant TPIDR_ELx.
 
-To ensure noinstr safety, both functions must be inlined into their
-caller. As both functions are marked as 'inline' rather than
-'__always_inline', that's not strictly guaranteed, and the compiler is
-permitted to generate out-of-line copies.
-
-Mark both functions as '__always_inline' to ensure this.
+In subsequent patches we'll need to read the percpu offset in other
+assembly sequences. Factor the ALTERNATIVE sequence out of
+__kern_my_cpu_offset() into a new __KERN_ASM_CPU_OFFSET() macro so that
+we can share the code sequence.
 
 There should be no functional change as a result of this patch.
 
@@ -90,34 +89,42 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/ptrace.h | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/percpu.h | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index 39582511ad72f..a1aa668aad50e 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -268,7 +268,8 @@ static inline u64 regs_get_register(struct pt_regs *regs, unsigned int offset)
-  * Read a register given an architectural register index r.
-  * This handles the common case where 31 means XZR, not SP.
-  */
--static inline unsigned long pt_regs_read_reg(const struct pt_regs *regs, int r)
-+static __always_inline unsigned long
-+pt_regs_read_reg(const struct pt_regs *regs, int r)
- {
- 	return (r == 31) ? 0 : regs->regs[r];
+diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+index b57b2bb009677..98823c97d534c 100644
+--- a/arch/arm64/include/asm/percpu.h
++++ b/arch/arm64/include/asm/percpu.h
+@@ -29,6 +29,11 @@ static inline unsigned long __hyp_my_cpu_offset(void)
+ 	return read_sysreg(tpidr_el2);
  }
-@@ -277,8 +278,8 @@ static inline unsigned long pt_regs_read_reg(const struct pt_regs *regs, int r)
-  * Write a register given an architectural register index r.
-  * This handles the common case where 31 means XZR, not SP.
-  */
--static inline void pt_regs_write_reg(struct pt_regs *regs, int r,
--				     unsigned long val)
-+static __always_inline void
-+pt_regs_write_reg(struct pt_regs *regs, int r, unsigned long val)
+ 
++#define __KERN_ASM_CPU_OFFSET(dst)					\
++	ALTERNATIVE("mrs " dst ", tpidr_el1",				\
++		    "mrs " dst ", tpidr_el2",				\
++		       ARM64_HAS_VIRT_HOST_EXTN)
++
+ static inline unsigned long __kern_my_cpu_offset(void)
  {
- 	if (r != 31)
- 		regs->regs[r] = val;
+ 	unsigned long off;
+@@ -37,11 +42,11 @@ static inline unsigned long __kern_my_cpu_offset(void)
+ 	 * We want to allow caching the value, so avoid using volatile and
+ 	 * instead use a fake stack read to hazard against barrier().
+ 	 */
+-	asm(ALTERNATIVE("mrs %0, tpidr_el1",
+-			"mrs %0, tpidr_el2",
+-			ARM64_HAS_VIRT_HOST_EXTN)
+-		: "=r" (off) :
+-		"Q" (*(const unsigned long *)current_stack_pointer));
++	asm(
++	__KERN_ASM_CPU_OFFSET("%0")
++	: "=r" (off)
++	: "Q" (*(const unsigned long *)current_stack_pointer)
++	);
+ 
+ 	return off;
+ }
 -- 
 2.30.2
 
