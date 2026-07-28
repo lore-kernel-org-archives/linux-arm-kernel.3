@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6856BC531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB70C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TnZIBIfuAN65w+Kig7JAgaIcGU9jpuhp67GcExPOu88=; b=FKjQ2AIWVS3/kKxHtXsQ9sdQRe
-	YgjzvyRtJ0EC6w8DvCuEpFpDQ7pkCJvdS11ZVO0J7HhvNAdvL77CDwexYWEibR2bECeW9feB3WeHy
-	kApLB8j9sMAFmolAkSKpROi7bFNgCPMdNyHs2Sakza87EgX8R5YIRvmC0YqzR+xBSGizqQsv4+MCv
-	Nc4LiXyg6zlKmJpp5dHMtwUgoTQy9GlC2K+qvhc80CbJNXHTk4hp5xovS9ZxZYe6WnW5EooEgDPoa
-	3f71/whbME3nqauuj8Ar7sKyDvpc9RY+vBj4EDs6QJZ8Gi5sPdmbFMGwubHxFKAUJvcsTMUrszv6p
-	66heoZoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HyZO4cYoAtoBcOxiccZ98CUzDZNYu6JX078EzCBBAas=; b=BJKodPZ8r4wwShyk2S+xLfvqZy
+	bzqXE5h05L4lStpKDaKyWWGmdOv6zRwXAcuxjcevysq0bn9kjLMlmAnoNQiVSISZG8WXd0gClgp5T
+	F8SAjga2jui8s4zgUICNZaFMGyQ6eH+ofzpvf8WAt1zU1YeT9d3FO8mWT7V/bJu07nPwGK97yu0wq
+	ibF2/ZYMCwT3ADDHroWCfw9CdZ1CISnqtU/uw/h9ZtbIAfi+WOzE6peW6kJKt2gEGgB2aBcIVgoSh
+	lOPYUkXAgvHSvj0NFUPtE3vLpc0vI/9EsKDr6UbHg7UYeogD4o9MWYKiLGqeFuk29WCNI5Rm7iLGe
+	9wBfRACQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woezB-00000004x9u-0qQh;
-	Tue, 28 Jul 2026 10:24:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woez9-00000004x9H-20K3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 10:24:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0DE7D1A9A;
-	Tue, 28 Jul 2026 03:24:26 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88F8A3F66F;
-	Tue, 28 Jul 2026 03:24:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785234270; bh=Qmp+S4jeEmSrfkFAfQ5zyR7lzd8T38ptAobQNxd/cuU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SJoNAdegQ7YKgun3wquk6jCn/mdv9DajGXn+1hdsfPdT+pcXBg9qEg2yzQ6VpNyta
-	 yRKeNFrrELThJLda9OTQ2THOOTS49n5hTEam30QxUHBoHnctkdaAXmieiaC4TgUmV7
-	 XmLOIkBrKGhWFoiXy/YoqSi8OyRf3fcUqsNrb8FY=
-Message-ID: <22434d15-7e7c-457d-8431-b77db9448cf0@arm.com>
-Date: Tue, 28 Jul 2026 12:24:25 +0200
+	id 1wof0L-00000004xRC-1yGO;
+	Tue, 28 Jul 2026 10:25:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wof0K-00000004xQi-2cPz;
+	Tue, 28 Jul 2026 10:25:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 62633410B4;
+	Tue, 28 Jul 2026 10:25:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D54871F000E9;
+	Tue, 28 Jul 2026 10:25:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785234344;
+	bh=HyZO4cYoAtoBcOxiccZ98CUzDZNYu6JX078EzCBBAas=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cCn+S7eGwTX1IqnkX98nePTtxWir9NnzW9inTqAMSFyxmM7qu3e+OZltTR77Al23D
+	 wwG2C0iiP08N1i94tjDpAewzVTmhASxQmjY3hXfEzYL/Yi+HQ7nNf/CqOwy2DVxE1/
+	 OSgbQuyGKWwsR4oAOBiQt79RL1VdPCzpEjkKs5WgKbK5j1GUElQi36IYCHx0fwAfW2
+	 cjXapwVCQIf/wXSFi6c9TLlhmJ2kbRb/2S4W3TNp+P9tTZRIXpNoiKjqKaFBrZIbfz
+	 9JGOf9B1zblzW5ZKWXUhHnQn345joBuwSEEuHQiAvaUg+O9/RFLFFHOUQ/R0zZJZ6F
+	 fR24P9e8dCdtQ==
+Date: Tue, 28 Jul 2026 11:25:37 +0100
+From: Will Deacon <will@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Doug Anderson <dianders@chromium.org>,
+	Petr Mladek <pmladek@suse.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>,
+	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>,
+	Julien Thierry <julien.thierry.kdev@gmail.com>,
+	Lecopzer Chen <lecopzer@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/4] arm64: cross-CPU NMI via SDEI
+Message-ID: <amiDoZdszC1pB6Z2@willie-the-truck>
+References: <cover.1782744912.git.kas@kernel.org>
+ <ak_IRHwd02EjWMf8@thinkstation>
+ <amYR5VWHWC1WdFXc@willie-the-truck>
+ <amZRtS2Lu1epc0S4@thinkstation>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Ritwick Sharma <ritwick.sharma@arm.com>
-Cc: ben.horgan@arm.com, catalin.marinas@arm.com, fenghuay@nvidia.com,
- ganapatrao.kulkarni@oss.qualcomm.com, guohanjun@huawei.com,
- james.morse@arm.com, jic23@kernel.org, lee@trager.us, lenb@kernel.org,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, lpieralisi@kernel.org, rafael@kernel.org,
- reinette.chatre@intel.com, sramana@qti.qualcomm.com,
- srivathsa.rao@oss.qualcomm.com, sudeep.holla@kernel.org, tsoni@quicinc.com,
- will@kernel.org
-References: <20260723155454.1760823-9-andre.przywara@arm.com>
- <20260728100421.4047928-1-ritwick.sharma@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260728100421.4047928-1-ritwick.sharma@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_032431_563771_159FCA09 
-X-CRM114-Status: GOOD (  15.68  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amZRtS2Lu1epc0S4@thinkstation>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +82,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ritwick,
-
-On 7/28/26 12:04, Ritwick Sharma wrote:
-> On Thu, Jul 23, 2026 at 05:54:52PM +0200, Andre Przywara wrote:
+On Sun, Jul 26, 2026 at 07:35:20PM +0100, Kiryl Shutsemau wrote:
+> On Sun, Jul 26, 2026 at 02:55:49PM +0100, Will Deacon wrote:
+> > On Thu, Jul 09, 2026 at 05:16:37PM +0100, Kiryl Shutsemau wrote:
+> > > On Mon, Jun 29, 2026 at 04:07:14PM +0100, Kiryl Shutsemau wrote:
+> > > > From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+> > > > 
+> > > > A class of debug/observability features needs to interrupt a CPU that has
+> > > > its interrupts locally masked: the all-CPU backtrace behind sysrq-l /
+> > > > RCU-stall / hung-task / hard-lockup dumps, and crash_smp_send_stop()
+> > > > capturing a stuck CPU's state into the vmcore. On arm64 these need a
+> > > > mechanism that reaches a CPU spinning with DAIF masked, which a normal IPI
+> > > > cannot.
+> > > 
+> > > Gentle ping. Any feedback?
+> > > 
+> > > I'm looking forward to finding an upstreamable solution to the problem.
+> > 
+> > This is all pretty small, self-contained and it's useful to you, so I'm
+> > inclined to merge it.
 > 
->> -	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
->> +	if (msc->iface == MPAM_IFACE_MMIO)
->> +		WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+> Thanks!
 > 
-> I tested the MPAM-Fb series on an Arm AGI CPU.
-
-Many thanks for that, and for reporting on the list!
-
-> I think a similar MPAM_IFACE_MMIO check is needed in
-> mpam_msc_zero_mbwu_l(). Without this check, the mapped_hwpage_sz bounds
-> check is also performed for an MPAM-Fb MSC, which does not have an MMIO
-> mapping. I observed the following warning during testing:
+> > However, the one vague concern I have is about the direction of SDEI in
+> > the future. AFAIK, the TF-A implementation is known to have issues, it's
+> > not supported at all by R-FA and I worry that the spec is going to fall
+> > behind the architecture, particularly as FEAT_NMI becomes available.
+> > 
+> > So it would be good to understand what we're signing up to maintain here.
+> > Kiryl, do you see an (eventual) migration over to FEAT_NMI, giving us a
+> > path to deprecating SDEI altogether, or do you think the two will live
+> > alongside each other for the forseeable future?
 > 
-> [   50.638246] WARNING: drivers/resctrl/mpam_devices.c:1266 at mpam_msc_zero_mbwu_l+0x98/0xa8
-
-Ouch, you are right, I missed that one. It seems my very limited testing 
-didn't touch that code path.
-
-> There also appears to be an off-by-one issue in the calculation of
-> mapped_hwpage_sz:
+> Realistically, the foreseeable future.
 > 
-> 	msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+> FEAT_NMI is the endgame and a machine that has it needs none of this,
+> but non-FEAT_NMI parts stay in fleets for many years, so I can't
+> honestly give you a date for dropping SDEI.
+
+That's fair, I was really just trying to understand the direction. It
+sounds like you will *eventually* move to FEAT_NMI, even if it's many
+years away.
+
+> While this change is pretty self-contained, I understand that SDEI infra
+> maintenance can be a burden.
 > 
-> The current calculation records a size that is one byte smaller than
-> the actual resource. I think this should use resource_size() instead:
-> 
-> 	msc->mapped_hwpage_sz = resource_size(msc_res);
+> Is there anything on the wider SDEI infrastructure that would lower the
+> maintenance burden or keep it more out of your way -- consolidation,
+> tighter isolation, docs, help carrying it? If there's work there that
+> makes SDEI more palatable to keep while non-FEAT_NMI parts are in
+> service, I'm glad to take it on.
 
-Well spotted, I can make a separate patch for that, unless you beat me 
-to it!
+I'm somewhat trying to predict the future here, but I wouldn't be
+shocked if some whizz-bang new architecture feature interacted badly
+with SDEI, either due to outdated specs or because of a fundamental
+incompatability. In this case, I would like the option of being able to
+make new hardware support mutually exclusive with SDEI rather than try
+to hack around the mess. It sounds like that would be ok for you?
 
-Many thanks,
-Andre
-
-> 
-> Thanks,
-> Ritwick
-
+Will
 
