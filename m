@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5A6C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E63CC54EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:29:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=17lLCvzW6eIVpk5Z9oFGo0P/6y4SOcT0+PY7YSsgMGY=; b=oQTiKG1ZgNZxUMPSH/ECRYEUf3
-	IqnMCcjfN1kQ0BGnH27g1+GuGYZOXGRVO+3Z8utPTMqeSZ6iVr9V1rQEiM6TjAFi+dvwq0Uzq4n5v
-	ty6WEHn6JSz/1mlSCD/isT5msXEeRD2oK1teynQqe/XAppPa+MT0f3caPn3ZT2lUsd5KkL6aexaGZ
-	KEjhUU7mw8b6eNda7uXY2pD+zaY1/jE7NWmmv8Ep0dl6YkzdCA9BFXyJMrWDiFm1piXKIpcwD8AY/
-	88HaMmtc2xdGs/V1M43ZMMC0mexUNpxGOf/GLeYMrErHBawsu/8glg05IHan46u/ir0qonijBnb0Y
-	fD/00Gyw==;
+	bh=e25eRHyPaGpfrunghh9CMaB2BGvg6mju2YC6suLb9dg=; b=X4/4EH7zIF0MG7IiJFGGOlFcfQ
+	MXThtMBmkIOIL3YaZJdp2/Lg1LfMPlxP4x+Za6N176gFXtFdf2ICVZgYVxmtvWL8XsxbxmYlk29As
+	aJ2bd/ubRI7F7Q1Ebpoj5t6S/nAjXlV7pVdcl6Q1BI7suriJaSaTLD78M2dYnpAhYI93bBOqZw/5A
+	B3B6ApXNisHVJjOrGMsUrAhZqgLFIHYPYABxOjXnJGKR0xezVX7cC9RryjMefim7RvjBSBq4Z59kc
+	cdlRPG/2/gTVMMg3cb2z0tpadARvmML729nd28zSR8Uxr+gekV5RFqLsfA6NsEYn1vxRr2OpOoLs7
+	slgvpqXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wod3s-00000004hsq-2wzO;
-	Tue, 28 Jul 2026 08:21:16 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wodBd-00000004iNS-28xn;
+	Tue, 28 Jul 2026 08:29:17 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wod3o-00000004hsA-0eGI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 08:21:15 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=17lLCvzW6eIVpk5Z9oFGo0P/6y4SOcT0+PY7YSsgMGY=;
-	b=VRRhFtj2lAx5nD2KWZrS8gJE71gx8pS+HqIfj2Uyp5DS7mhR94De4QJjeSfUYQtsbUTDkJDz0
-	uFCeivly4JETysU/txlovMGRHXOUHI8jhXxEdVRez3BDdXvqCiyEDKzgMHv/Rq9OLdc7O5eO82U
-	01QaltAkakGzyvu63DFcoCY=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4h8Sq22zKhzpT1J;
-	Tue, 28 Jul 2026 16:11:42 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id DA91B40575;
-	Tue, 28 Jul 2026 16:20:57 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 28 Jul 2026 16:20:57 +0800
-Message-ID: <e93ae08b-64e2-4128-b1fd-910c4d197dbd@huawei.com>
-Date: Tue, 28 Jul 2026 16:20:56 +0800
+	id 1wodBa-00000004iMT-37EO;
+	Tue, 28 Jul 2026 08:29:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785227352;
+	bh=f6ahL+mDCp4GOtiCvt/A5VrHg763alI3Zyu7EZLrDO4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jbgG64dtvkMpnQhap0BIoWtTEWNeR6xJXF1mYIpzsC8tvlHd6lAqK2F0rI7SxHnnZ
+	 Qya/631YjBP3P/jh4uFND0KOMDIzYPeuYaNYYGIUcQiw0CedLdlwsgNf7yOtBo97FG
+	 o2I6RMiBEOpQJDNXbB1lRm6X8OJUE/xVUJ7Nyz3YmYNyMgQvxCDPIZmJORBjZqkapO
+	 pSXM4hMofpAz1Nk3EoAv7hV88XAFHEsDMEhimQ0PH6Otbts07LuQu7XbX6VotcEo/1
+	 d9sYooEpijM/oItOAOqmO/eKCPJWPwgmjz/SNMfH1UL3DJwjd5RMhQYK8wSEmWjcJa
+	 7KBGKahI8RCqA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1858017E063E;
+	Tue, 28 Jul 2026 10:29:12 +0200 (CEST)
+Message-ID: <9ae852e3-97bb-48bb-ba6f-bf2ab9ae8dd6@collabora.com>
+Date: Tue, 28 Jul 2026 10:29:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 12/45] arm64: interrupts: Add common exception
- state helpers
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-13-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-13-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v1] pmdomain: mediatek: Fix MT8183 hang on boot
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>,
+ Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260722132729.302067-1-dmitry.osipenko@collabora.com>
+ <CAPx+jO-1_ZpYcnPtoYxRn5vv34tiP7TXnjKZ3SaWkEzdeTfXpA@mail.gmail.com>
+ <3130633c-fbff-4b1a-a127-bd4eb678c3f6@collabora.com>
+ <CAPx+jO9-b_XyhS_CtX1ZFiH96WMYjjcvOEcO6u6CLEZq61rpaw@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAPx+jO9-b_XyhS_CtX1ZFiH96WMYjjcvOEcO6u6CLEZq61rpaw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_012112_889391_C1E44660 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20260728_012914_966688_FFEE312E 
+X-CRM114-Status: GOOD (  37.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,331 +79,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+On 7/27/26 18:48, Ulf Hansson wrote:
+> On Mon, Jul 27, 2026 at 1:04 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> On 7/24/26 17:01, Ulf Hansson wrote:
+>>> On Wed, Jul 22, 2026 at 3:28 PM Dmitry Osipenko
+>>> <dmitry.osipenko@collabora.com> wrote:
+>>>>
+>>>> Depending on firmware, part of the MFG domains may be left ON at boot
+>>>> leaving only some MFG cores powered, to let the ACP to prefetch the GPU
+>>>> region when the display controller is brought up. This doesn't play well
+>>>> with an eventual delay in probing Panfrost when the display controller is
+>>>> fully set up, as that would make genpd's sync_state() to power off the
+>>>> domain while ACP tries to prefetch: this is causing an AXI stall,
+>>>> effectively freezing the AP indefinitely. In order to prevent this from
+>>>
+>>> I haven't made any detailed investigation, but to me, it sounds like
+>>> there is a missing consumer somewhere.
+>>>
+>>> Should the ACP/panfrost devices be a consumer of the MFG domains as
+>>> well? Or perhaps, if the ACP/panfrost should rely on the display
+>>> controller to be probed and powered-on, to be able to probe?
+>>>
+>>
+>> This is about how the bootloader is leaving the display controller, the ACP,
+>> and the MFG registers before booting the kernel.
 > 
-> The entry code and the rest of the kernel require different interrupt
-> masking APIs, but all need a common representation of the hardware
-> exception state.
+> Right.
 > 
-> Introduce exception contexts that map DAIF and PMR state to the
-> corresponding masking context. Provide helpers to translate between
-> exception contexts and hardware state, verify the current state, and
-> update the hardware state.
+>>
+>> The kernel drivers themselves will reset this weird state when the HW gets
+>> to full probe so there won't be any more issue(s) from that point onwards.
+>>
+>> Actually, there would be A LOT to say about this, but I'll be very brief...
+>>
+>> Basically, before booting the kernel, the bootloader is leaving a half-assed
+>> setup to potentially support continuous splash functionality, but without it
+>> being actually used on the device(s) that we're talking about here...
 > 
-> Updating PMR is unnecessary when a caller knows that its value has not
-> changed. Allow such callers to avoid the update, while providing a
-> force option for callers that cannot rely on the previous PMR state.
+> So does that mean that the print in scpsys_add_one_domain() ("A
+> default off power domain has been ON") gets printed for these PM
+> domains?
 > 
-> Entry specific and general purpose masking APIs will be built on these
-> helpers in subsequent patches.
+
+Yeah...
+
+> If so, perhaps it would be better to turn off the PM domains (if
+> possible) before registering them with genpd?
 > 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  .../include/asm/interrupts/common_flags.h     | 208 ++++++++++++++++++
->  1 file changed, 208 insertions(+)
->  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
+
+Eh, that's not possible :-(
+
+Doing that would bring us back to square 1. The SoC will lockup.... ACP is still
+trying to constantly prefetch, and the issue here is going totally unpowered, as
+explained in the commit description - because that's the HW condition that causes
+the stall eventually.
+
+To make things "funnier" (in this case) for everyone, the ACP is always-on, of
+course, so there's no cleaner way around it.
+
+>>
+>> Again, I should put a remark on every word of that last paragraph, but this
+>> is the gist of it.
+>>
+>> If you're curious or need more information, of course I can expand a bit,
+>> there's no secret involved here, it's just that I'm avoiding to write a wall
+>> of text around that...
+>>
+>> P.S.: We've been discussing that internally and chasing this issue for months
+>> before deciding to "solve" it like this.
 > 
-> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
-> new file mode 100644
-> index 000000000000..f034dcafccbc
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
-> @@ -0,0 +1,208 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
-> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
-> +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/ptrace.h>
-> +#include <asm/sysreg.h>
-> +#include <asm/irqflags.h>
-> +
-> +#define DAIF_PROCCTX		0
-> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +
-> +/*
-> + * Exception context mapping
-> + *
-> + * pseudo-NMI
-> + *
-> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF + IRQON
-> + * NONMI    ->   IF + IRQON
-> + * NOIRQ    ->    0 + IRQOFF
-> + * PROCESS  ->    0 + IRQON
-> + *
-> + * Otherwise
-> + *
-> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF
-> + * NONMI    ->   IF
-> + * NOIRQ    ->   IF
-> + * PROCESS  ->    0
-> + */
-> +typedef enum arm64_exc_context {
-> +	PROCESS_CONTEXT,
-> +	NOIRQ_CONTEXT,
-> +	NONMI_CONTEXT,
-> +	ERROR_CONTEXT,
-> +	CRITICAL_CONTEXT,
-> +} arm64_exc_context_t;
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
-> +	switch (context) {
-> +	case PROCESS_CONTEXT:
-> +		return __arm64_exc_hwstate_of_process_context();
-> +	case NOIRQ_CONTEXT:
-> +		return __arm64_exc_hwstate_of_noirq_context();
-> +	case NONMI_CONTEXT:
-> +		return __arm64_exc_hwstate_of_nonmi_context();
-> +	case ERROR_CONTEXT:
-> +		return __arm64_exc_hwstate_of_error_context();
-> +	case CRITICAL_CONTEXT:
-> +		return __arm64_exc_hwstate_of_critical_context();
-> +	default:
-> +		BUG();
-> +	}
-> +}
+> Huh, I see, thanks for sharing.
+> 
+> I think it would be nice to clarify a little bit more in the commit
+> message, as it all kind of indicates to me that there is a missing
+> consumer or that a parent needs to be runtime resumed before a child
+> is probed.
+> 
 
-Hi Vladimir,
+Eh for both me and Dmitry the commit message looked clear, but yeah, it's surely
+just because we bashed our heads over this issue, and our knowledge makes things
+look obvious when they are definitely *not*, as you just pointed out - so thanks
+for that!
 
-Using two tables as below to map different contexts to the hwstate
-status makes the code appear more concise and clear. What do you think?
+So yeah, Dmitry, if you can please send a v2 with some more clarification in the
+commit message (practically, add the information that I shared in this topic),
+that would be awesome.
 
---- /dev/null
-+++ b/arch/arm64/include/asm/interrupts/common_flags.h
-+typedef enum arm64_exc_context {
-+       PROCESS_CONTEXT,
-+       NOIRQ_CONTEXT,
-+       NONMI_CONTEXT,
-+       ERROR_CONTEXT,
-+       CRITICAL_CONTEXT,
-+       NR_CONTEXTS,
-+} arm64_exc_context_t;
+> Or another way of looking at it, that perhaps makes better sense.
+> Based on your latest information, it seems like the PM domain isn't
+> really fully powered-on by the bootloader, but still we are telling
+> genpd that it is, leading to an inconsistent state and errors.
+> 
 
-+static const arm64_exc_hwstate_t daif_context_hwstate[] = {
-+       [PROCESS_CONTEXT]  = { .daif = DAIF_PROCCTX },
-+       [NOIRQ_CONTEXT]    = { .daif = DAIF_PROCCTX_NOIRQ },
-+       [NONMI_CONTEXT]    = { .daif = DAIF_PROCCTX_NOIRQ },
-+       [ERROR_CONTEXT]    = { .daif = DAIF_ERRCTX },
-+       [CRITICAL_CONTEXT] = { .daif = DAIF_MASK },
-+};
-+
-+static const arm64_exc_hwstate_t pseudo_nmi_context_hwstate[] = {
-+       [PROCESS_CONTEXT]  = { .daif = DAIF_PROCCTX,       .pmr =
-GIC_PRIO_IRQON },
-+       [NOIRQ_CONTEXT]    = { .daif = DAIF_PROCCTX,       .pmr =
-GIC_PRIO_IRQOFF},
-+       [NONMI_CONTEXT]    = { .daif = DAIF_PROCCTX_NOIRQ, .pmr =
-GIC_PRIO_IRQON },
-+       [ERROR_CONTEXT]    = { .daif = DAIF_ERRCTX,        .pmr =
-GIC_PRIO_IRQON },
-+       [CRITICAL_CONTEXT] = { .daif = DAIF_MASK,          .pmr =
-GIC_PRIO_IRQON },
-+};
-+
-+static __always_inline
-+arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t
-context)
-+{
-+       if (unlikely((unsigned int)context >= NR_CONTEXTS))
-+               BUG();
-+
-+       if (system_uses_irq_prio_masking())
-+               return pnmi_table[context];
-+
-+       return legacy_table[context];
-+}
-+
+Yeah, the bootloader is doing random things, leaving the PDs only partially powered
+ON (just the SRAM, which is half of the MFG_ASYNC setup, and 2D accelerator, but
+not the rest, which makes little sense because there's another parent in the middle
+that is not powered at all...) and that's why this issue is experienced.
 
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
-> +{
-> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
-> +
-> +	if (system_uses_irq_prio_masking())
-> +		state.pmr = regs->pmr;
-> +
-> +	return state;
-> +}
-> +
-> +static __always_inline
-> +void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
-> +{
-> +	arm64_exc_hwstate_t actual;
-> +
-> +	if (!IS_ENABLED(CONFIG_DEBUG_IRQFLAGS))
-> +		return;
-> +
-> +	actual.flags = arch_local_save_flags();
-> +
-> +	if (expected.flags == actual.flags)
-> +		return;
-> +
-> +	if (system_uses_irq_prio_masking()) {
-> +		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
-> +			  actual.daif, actual.pmr, expected.daif, expected.pmr);
-> +	} else {
-> +		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
-> +			  actual.daif, expected.daif);
-> +	}
-> +}
-> +
-> +static __always_inline
-> +void arm64_debug_exc_context(arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t expected = arm64_exc_hwstate_of_context(context);
-> +
-> +	arm64_debug_exc_hwstate(expected);
-> +}
-> +
-> +static __always_inline
-> +void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
-> +{
-> +	barrier();
+I think this is really just a bootloader bug in this case, so if we lived in a
+parallel universe where the MediaTek kernel drivers supported continuous splash on
+upstream... I'm mostly sure that this issue would still be there, and that this SoC
+would still randomly and spectacularly freeze without this commit.
 
-I don't understand the purpose of the barrier at the beginning and end
-of the function. Is this fix also required for the original
-implementation of local_daif_restore()?
+Cheers,
+Angelo
 
-> +
-> +	if (system_uses_irq_prio_masking() &&
-> +	    hwstate.pmr == GIC_PRIO_IRQOFF &&
-> +	    force) {
-> +		/*
-> +		 * There has been concern that the write to daif
-> +		 * might be reordered before this write to PMR.
-> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
-> +		 * "Accessing PSTATE fields":
-> +		 *   Writes to the PSTATE fields have side-effects on
-> +		 *   various aspects of the PE operation. All of these
-> +		 *   side-effects are guaranteed:
-> +		 *     - Not to be visible to earlier instructions in
-> +		 *       the execution stream.
-> +		 *     - To be visible to later instructions in the
-> +		 *       execution stream
-> +		 *
-> +		 * Also, writes to PMR are self-synchronizing, so no
-> +		 * interrupts with a lower priority than PMR is signaled
-> +		 * to the PE after the write.
-> +		 *
-> +		 * So we don't need additional synchronization here.
-> +		 */
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +	}
-> +
-> +	barrier();
 
-This barrier seems redundant and inconsistent with the comment above.
-
-> +	write_sysreg(hwstate.daif, daif);
-> +	barrier();
-> +
-> +	if (system_uses_irq_prio_masking() &&
-> +	    hwstate.pmr == GIC_PRIO_IRQON &&
-> +	    force) {
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +		pmr_sync();
-> +	}
-> +
-> +	barrier();
-> +}
-
-If we no use pesudo NMI, the barrier is not nessary,
-
-static __always_inline
-void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
-{
-    if (system_uses_irq_prio_masking() && force) {
-        if (hwstate.pmr == GIC_PRIO_IRQOFF)
-            write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-
-        write_sysreg(hwstate.daif, daif);
-        if (hwstate.pmr == GIC_PRIO_IRQON) {
-            barrier();
-            write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-            pmr_sync();
-        }
-    } else {
-        write_sysreg(hwstate.daif, daif);
-    }
-}
-
-otherwise, LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-> +
-> +static __always_inline
-> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate)
-> +{
-> +	__arm64_update_exc_hwstate(hwstate, true);
-> +}
-> +
-> +static __always_inline
-> +void arm64_update_exc_context(arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
-> +
-> +	arm64_update_exc_hwstate(hwstate);
-> +}
-> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
-
+> [...]
+> 
+> Kind regards
+> Uffe
 
