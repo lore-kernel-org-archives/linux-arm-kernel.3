@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29897C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BE9C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P/uX1h4FcYzTPCAkljgu9br+PXOPOKSPW8Ute7BEF9A=; b=LqpmyHBB7VKt9QWb+LOvYNkNdI
-	LDJM0mL6rudJ5ZnZZHNgeiJ4IOKuqM12//uO9yZErKCkpYy6z6PcW8/U1iJv2Ljmt+ACzJXhzNLVE
-	UMGQEbtpPantHOYm4oSelF0OzP8vodPhKYYuzhaMPzuPYsIForH71qj1h3qLRdqOSZw8aakutk+sy
-	x4J8UUdqUMQamMkFoSFh3LLLMc/VhRzub1h1i+nYJJkC1/oEHeF+roM2ZCveFykoK1/6IxI0FrddV
-	gDrmx+f5f+L7IRYxlBXONhHCCveWeCqZw5B7/GcOpcL1S7iZqe14DC3EgJAS89TwdUgnFFflXUx5M
-	ZbjjblPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F8oFJfNXcX3rvNozL61a5flKxGo2/aiCWCnQ35Drmb0=; b=j1yFp8W2Zzt3KHdb8Mp0CqJEl9
+	lJ5PcyOL2tTe1KmhVm3XTBoMWl46UiKw4rZsz71Ch4BYzGGtDy9BTzjyAn+rzIXiWaq+O+A8Yu2Uq
+	OkfoL8xitYbF5NyYXlf7+9Z5w06h6+hks7gMnpcNhT7MPZp+4qpmp/est5OH/KtLABv0YmrBl00/r
+	+Rq+nt2mGPyUhyFMVmhY4/zaLKOvZaLPGT1vEisAywXe16x+HYza8uoK9tL/xFWpsbCIjNkIhpuas
+	3g+RUX02ELIQPrxjxq7vn7nV32yLVhApFXIg4JnJ0x88ta+X4A8Xrma9QS509IJoKR4u16CBtPDZq
+	oPDrvRXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojjl-00000005dzo-1mwE;
-	Tue, 28 Jul 2026 15:28:57 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wojk8-00000005e61-2WRL;
+	Tue, 28 Jul 2026 15:29:20 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojji-00000005dyx-3EBr;
-	Tue, 28 Jul 2026 15:28:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785252531;
-	bh=u5GQmvOgz4Ap+OJsBET/yAI+gwsxy9J0r+fVRChxE/4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FVR5TlebV/hxNwrPhCiD7Ji0XburW7Kl8qwY+ztKJCxBPz9GnlFRTcKRElOrfVD+L
-	 JZVoqVkWeHsHP7m8XHiG3Vtd+CDmRNy9LrnMQYpK8tJjrIdvlefamXuenCU8+0jdSq
-	 OPqRoJ/v1I+WDRHK1TRB8YB6z6XcaFj95hw79wyK2gwq+qVuGaF+F51Z+RvncRdTZ5
-	 xnLt9tbKqaYVmvRVRsKpw6xuK4fiHFUkHvFYRRi2yDvl1T+tXj2rsYPbjXV3wdh8ep
-	 d4awa1OLzLnNI03rcOQCQ5b75xyZ5a1n50LcnwhlGOO09qfj9jzVCov0C1dUFML4eK
-	 8RfcoXDp6U8wQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4F5A317E015B;
-	Tue, 28 Jul 2026 17:28:50 +0200 (CEST)
-Message-ID: <a0ae9525-9288-4d13-a080-9cb3d965d536@collabora.com>
-Date: Tue, 28 Jul 2026 17:28:49 +0200
+	id 1wojk5-00000005e4c-3xLP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 15:29:19 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c1c26d7e951so570606966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:29:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785252554; x=1785857354; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=F8oFJfNXcX3rvNozL61a5flKxGo2/aiCWCnQ35Drmb0=;
+        b=DcI9k4mfNHxMmiL/55LC42vTUHz68ZxdW1R6/+Mam2uuEYdniqCkq0bT9rsCh/WX1l
+         UUfpor5psyF7bA92aMPy8G/QuJA9wFP3X4jY77L+6QugIuA+OysCfQXo39eS4ryUJLJ/
+         5CwcRPyiMxSU9JTbtbeZHyzmpwsgviwDBtOL+NUjLdqPlu913a7J/KhQmMb3XcUyC1d4
+         LNYTFnCx3ixVvjhRqiI1q9KYAF1b2c1n5weUDtX2vsvlQd1QLP1gHwyBUTgtLRD843la
+         gdyCFZ8mcJUnwz5b884fZnwJoXZ83/KuNok1wo3h1+bDserfnXu+CEFCu0PVnnwzh8IL
+         2w5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785252554; x=1785857354;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F8oFJfNXcX3rvNozL61a5flKxGo2/aiCWCnQ35Drmb0=;
+        b=fNdJO445vCUghUG5ckPMrq3pyg8BwcTybLZib38W8gsQJrrxKJBVXOVD304yDdhTGY
+         E+UDjtjjuus6gWbrXgFFyKgxr3NYzq+o+3Hg39UkOhZPoIXuydrIdlYF/LqSCdtZm+10
+         HalL5juWf98JJXutxsJ5JPtvZ3DNJ+x4y987kKhKx35cjbL2jzeBWUmXsD3CvmiAlP5h
+         77TSaYJmSY9IYjxeknR1imydtwEu2GWEjRIeF+uly3EdaOSmD22pKPx8/Oizp9kEahGp
+         vxgGRNKcviC9qbbUmSl2sVlDCdB+Ok45kAhoos0sCGQEHM//tJ1m1rtYRA2pMHmh7tId
+         eQfw==
+X-Forwarded-Encrypted: i=1; AHgh+RrzuzmIZeS5gTDDt/LaSxOq9R3227sfoXd3zFXwPNeIw9LbXCp2uozzC1ZgZLZwkq7i69IzA7bXWFlRXNSbRoGU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV1AOlp6D9t9kFV+kL7HnJzDYhqlxnqtexcDxhMs6cfqb17/sA
+	lVodZOr8rJY+W4eaTOHJekq7dM+B6AODzAkZVC9HX80p6XBAuDK/8SX16XwwmsxZPw==
+X-Gm-Gg: AR+sD13rwDHaUtehZDoKIoUdZweLz7NsNbvRN7cpzh0abqojR/E2KMOLMI+n/E+8gjU
+	2+Gtq8pod3+UjxgANHFrF2yjI94EmxBqFEvc/jY4nRVv4mbVRsG4nYSTXF28cbXsU3SOoxk1SKO
+	crAjYX50Srln3IMYlj2xGgEIyDr/ROHGMRsBaDl7DcmHI1lHnTvAH5TDKXY9953LNGNRaPPBgde
+	QSN0/2ZbqXL2+KZpDryowan5WBqdBORYr5FxQyLnan8LKS1SkfqX5dpW4xvP5puPsSMyNQjFYGI
+	aJQlWrhK/nnj74YDF7uHJI/n3sO6N1K8GGFKr83IS5ZbMDfPaNFWnXg4tyv+YqJNmVGHOr114hb
+	Zw/nQuy7x1XvN1rqVnvjtxI047J4sAxfJ1QBwgaqIAXDpEkGLYy/hd9n18hAI6Q8etw2f/k42Rj
+	Cw/OZ5prh7M11HYjX4HyC0ZVNQV21umam3BvEOHpw5JwQO8PMbBsNlLCcU
+X-Received: by 2002:a17:907:73cd:b0:c15:d0ef:a0c3 with SMTP id a640c23a62f3a-c1f7221d235mr160291866b.32.1785252553743;
+        Tue, 28 Jul 2026 08:29:13 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1f83cde4dbsm685366b.15.2026.07.28.08.29.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 08:29:12 -0700 (PDT)
+Date: Tue, 28 Jul 2026 16:29:08 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Gavin Shan <gshan@redhat.com>, Dev Jain <dev.jain@arm.com>,
+	Bradley Morgan <include@grrlz.net>, Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/7] KVM: arm64: Skip cache maintenance for
+ non-cacheable pKVM mappings
+Message-ID: <amjKxDd9expCNBwL@google.com>
+References: <20260717130317.1953574-1-fuad.tabba@linux.dev>
+ <20260717130317.1953574-2-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
-To: wens@kernel.org
-Cc: Brian Masney <bmasney@redhat.com>, Chen-Yu Tsai <wenst@chromium.org>,
- Stephen Boyd <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Alessio Belle <alessio.belle@imgtec.com>,
- Luigi Santivetti <luigi.santivetti@imgtec.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- YoungJoon Lee <getfeus@gmail.com>
-References: <20260728091804.382753-1-wenst@chromium.org>
- <amiqKRkFItYwD6oL@redhat.com>
- <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com>
- <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com>
- <CAGb2v67VRhy_xzkdwUAYhzM_sWzoXyfZ3rYSHYLYaxuve9H17w@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAGb2v67VRhy_xzkdwUAYhzM_sWzoXyfZ3rYSHYLYaxuve9H17w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260717130317.1953574-2-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_082854_988604_EF0543D1 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260728_082918_011705_E4D5BD06 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,70 +112,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/28/26 16:44, Chen-Yu Tsai wrote:
-> On Tue, Jul 28, 2026 at 10:33 PM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> On 7/28/26 15:13, Chen-Yu Tsai wrote:
->>> On Tue, Jul 28, 2026 at 9:10 PM Brian Masney <bmasney@redhat.com> wrote:
->>>>
->>>> Hi Chen-Yu,
->>>>
->>>> On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wrote:
->>>>> Hi everyone,
->>>>>
->>>>> This is v4 of my MT8173 PowerVR GPU support series.
->>>>>
->>>>> This time around Mesa was ready for basic testing, using both vulkanmark
->>>>> and glmark2-es2-drm (with Zink). Details below.
->>>>>
->>>>> Changes since v3 (all in the clk driver patch):
->>>>> - Changed pm_runtime_put() to pm_runtime_put_sync()
->>>>> - Added missing of_node_put() in remove function
->>>>>
->>>>> Changes since v2 (all in the clk driver patch):
->>>>> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
->>>>>     - Needed since the driver implements PM domains using the generic PM
->>>>>       domain library, which also depends on PM
->>>>>     - Fixes build breakage (kernel test robot)
->>>>> - Fixed "RST_DELAY_CNT" name (Brian)
->>>>> - Dropped unused mfg_desc (Brian)
->>>>> - Added check of clk_prepare_enable()'s return value in
->>>>>     clk_mt8173_mfgtop_power_on() (Brian)
->>>>> - Saved error value for return in IS_ERR(data->clk_26m) branch
->>>>>     (Dan Carpenter / kernel test robot w/ smatch)
->>>>>
->>>>> Changes since v1:
->>>>> - Adapted to changed DT bindings
->>>>> - Dropped driver change
->>>>> - Use same power domain for "a" and "b" GPU power domains
->>>>>
->>>>>
->>>>> This series enables the PowerVR GPU found in the MT8173 SoC, found in
->>>>> some Chromebooks.
->>>>
->>>> I'm making a pull for Stephen for the clk changes. Should patches 1,2,4
->>>> go through the clk tree? Patches 3,5 go through the DRM tree?
->>>
->>> Only patches 1 and 2 should go through the clock tree.
->>>
->>> Patch 3, 4, 5 can all go through the soc tree if Angelo wants to pick up
->>> DT binding patches. Otherwise I can push patch 3 through drm-misc.
->>>
->>
->> Not sure if I can really take the DRM bindings patch through soc.
->>
->> I will take the devicetree ones exactly right now, even though it's going to
->> give warnings.
->>
->> I trust that you'll make the binding get into linux-next before it's too late.
+On Fri, Jul 17, 2026 at 02:03:11PM +0100, Fuad Tabba wrote:
+> From: Bradley Morgan <include@grrlz.net>
 > 
-> Rob beat me to it. :D
+> The pKVM flush path walks its own pkvm_mappings list and cleans the
+> data cache for every mapping, unlike the generic stage-2 walker it
+> shadows, which skips non-cacheable leaves. Cleaning the cacheable
+> alias of a non-cacheable mapping is pointless and can corrupt a
+> device endpoint. Record whether a mapping is non-cacheable in spare
+> bits of nr_pages and skip cache maintenance for it.
+> 
+> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> [tabba: use Marc's anonymous bitfield in place of the open-coded mask and helpers]
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Love it!
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-Thanks Rob :-D
+> ---
+>  arch/arm64/include/asm/kvm_pkvm.h |  5 ++++-
+>  arch/arm64/kvm/pkvm.c             | 15 +++++++++------
+>  2 files changed, 13 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 74fedd9c5ff0..57afb07d6b13 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -195,7 +195,10 @@ struct pkvm_mapping {
+>  	struct rb_node node;
+>  	u64 gfn;
+>  	u64 pfn;
+> -	u64 nr_pages;
+> +	struct {
+> +		u64 nr_pages:48;
+> +		u64 nc:1;
+> +	};
+>  	u64 __subtree_last;	/* Internal member for interval tree */
+>  };
+>  
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 053e4f733e4b..f70c601dcf4c 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -369,7 +369,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
+>  
+>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+> -					mapping->nr_pages);
+> +					(u64)mapping->nr_pages);
+>  		if (WARN_ON(ret))
+>  			return ret;
+>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> @@ -473,6 +473,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  	mapping->gfn = gfn;
+>  	mapping->pfn = pfn;
+>  	mapping->nr_pages = size / PAGE_SIZE;
+> +	mapping->nc = !!(prot & (KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC));
+>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+>  
+>  	return ret;
+> @@ -503,7 +504,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	lockdep_assert_held(&kvm->mmu_lock);
+>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+> -					mapping->nr_pages);
+> +					(u64)mapping->nr_pages);
+>  		if (WARN_ON(ret))
+>  			break;
+>  	}
+> @@ -517,9 +518,11 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	struct pkvm_mapping *mapping;
+>  
+>  	lockdep_assert_held(&kvm->mmu_lock);
+> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+> -		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+> -					  PAGE_SIZE * mapping->nr_pages);
+> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+> +		if (!mapping->nc)
+> +			__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+> +						  PAGE_SIZE * mapping->nr_pages);
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -537,7 +540,7 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
+>  	lockdep_assert_held(&kvm->mmu_lock);
+>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+>  		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+> -					   mapping->nr_pages, mkold);
+> +					   (u64)mapping->nr_pages, mkold);
+>  
+>  	return young;
+>  }
+> -- 
+> 2.39.5
+> 
 
-Cheers,
-Angelo
+-- 
+-- 
+Vincent
 
