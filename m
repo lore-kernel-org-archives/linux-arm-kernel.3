@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B30C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A35C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oKJtXROx3fu4lTSaimhGhm2MQBtEFEroGU9PzY9IvkY=; b=3C7IWTpaPXiQrbMDQGhVN3BF6P
-	CiGbwO2eeix80J3xK/0eYHPXwUe884c3PnBfeMXg7/kxxwzOyRyIwTioVCKDschcOD4JZObyH7Z7K
-	x6lRc/BQ79SdgVPL3Mrn8hVEDY3brdkKmvvLddJlLnvAsSaGlu2d4S9iQSXCwj3051hX2A58mu6pe
-	entZb9H9jd/JFByP8tie8+xv+6QqhzhbdmpkM8KiGRUjveDbDgZLbWBe4S/mNLn4OIUApHBbhT+L3
-	LjWUGId7XZPCoit4w8cdkQiznbzgGC7dIJYTU5uYp1wZnJw4RgzpsYB1Qj31XM4KOsp9mdjKmqEV3
-	+6QsEI3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fQlE679JObsFJHTkpZQZUZIILuIjOEy10+IeTfWR3d4=; b=kBRFaQeXslkBAQZgr8KT6SEhqD
+	X9Q4latJNKd/bRP+yIrEUNGqNRkcdLtFrnLwHUSHfmNNftxf3Ol+ZBONWFjlJNMuc/w41sTNqHpCl
+	XBIoVdD900TCnsnNzckYShStnc1bBcMfAa7lH+oUxVi7mRvzGXoL+kjh1CXJKFzXr6SUi8t7kbbI2
+	obyPzWg/4XXdWquRof+ygthd/KPbcxSp99LRlwr+fY0wYK8A63vo43rKqErYTkGKdwCTklCAcCwdK
+	fVD4+PZk+B7+N4k9RDFf3eLga04SlFFaN7KstT7llxNt8HQiVE3xVbvEQPMd2ijnCrvXRgGf67U38
+	o4TzagGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogl3-00000005DWZ-0sTX;
-	Tue, 28 Jul 2026 12:18:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wogo0-00000005DzG-3bwy;
+	Tue, 28 Jul 2026 12:21:08 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogl1-00000005DW8-3r7s
+	id 1wogny-00000005DyN-1noo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:18:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED7F860A9E;
-	Tue, 28 Jul 2026 12:18:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 445001F000E9;
-	Tue, 28 Jul 2026 12:18:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785241082;
-	bh=oKJtXROx3fu4lTSaimhGhm2MQBtEFEroGU9PzY9IvkY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fPFTresp55rinYb2SQTzm53LiKWqICzRPjr6COkBGaVoYzGpWll9D7htcrmVSqUjz
-	 zdJLjUncSOwK4O28nm3ZqrbqihTBAqxU/C2HpzZ57juOCHQ90HCA5uQSXJiLuYvBOG
-	 7lLZVXc20ocZKQHVcq9Pv041QmxWZLaQgUpiJQMpfXSkWncNomV/In3cYqZk/8zdgZ
-	 0MOp5budlZ8FR/wXUVjiEhDo29rGwU2+Sfn8qlERSWSuWia7mSPxm360JjC3iPxjpK
-	 V7Lrl4z5USbz6dgc/dBltmnkLb9/5Omk8RBWMJm2FhPQzLlLFwriU7QIQycRW8obcc
-	 9KTwtVPb8X0lg==
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 65659F40067;
-	Tue, 28 Jul 2026 08:18:01 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Tue, 28 Jul 2026 08:18:01 -0400
-X-ME-Sender: <xms:-Z1oau8VeVoxtSWkmOuLEk7JFloulL56gZC6PZaTUCTRbnFaqi2d9g>
-    <xme:-Z1oah0Tu5wi2xp8DzNWFIV-HVRStgZAb3s51p8IZNv82uQlmaBtTgM_kOd6QuFsl
-    kIHJCu-_OPSZjAcWEqRs4nbD1xlnZPyrMbwy7gBjH8gQPH8RCGHWwk>
-X-ME-Received: <xmr:-Z1oahfDz7f7U8T2i8_mGr-ih8r9sHGpT0hp90xfBytuCOxFIUq1BVAWu9ckBQ>
-X-ME-Proxy-Cause: dmFkZTFFd/nsSnqpSmQvzVxqvwzHWaSzKqPBbSvvQe7BvijMIlW7Pibm8W9snxtWuenbkt
-    fXmF38BS7EzslH6KJfUsM5EsKiDwKkfK9LX560qLV+E5CypcBmXp8ZhqGdXBiy9AK/Nk5a
-    Km53mPal4MiglBzFuJJBeZacqbq4M1BVvYzp/KlJpSmrUFiYxDquDLb+pDoL1jpVOzFdzG
-    Tt4GOD0485OJnG3Vzi1H4fIFGkBR6l6HZ7FwXT4qfe0bJfxtd00jNBr9CdZK1omiTiaY38
-    KLpK78XWtlutDCsD8njPO6jGlTCbvlBoEqNaumlpluVdJmDs2O1Fs0xsHwZbwS+kdDKCMn
-    N5DClSzaNkylNrXDuQnVOhGRc0kBudga5SiQpTzo2r1j6qrkdlPmRwa5U1koT7ynO+Q5ie
-    WMyBWi3SS5QeiGYSp2HqSJhkVFdZpVeOKagI4OpM12pEbfJSrdGH33wT3nN1xJnPv/tt+M
-    2AbLgDGtX4g0gSQZc6mLuctzPmR2Mz5LiWwMxMYUOIm1T9cxyOVXvug5ARK9y2Pu+HqRbV
-    D7O3+T7XCn7wFSVFCpffYMGuXPxKyDUFmaD28jnb6qzqXy+7DvUtIGQJiRaC9/tJ+G5UsK
-    C5gIK0cBZmVHnGKxl1z7XuiQXpJ/3hvHfLiQP6+d2VjE/693ZZhOz4odp8wg
-X-ME-Proxy: <xmx:-Z1oarA5E8cVDsr48hLcfRa7-_nr8ZzsEx6g9b_VAywPNVZHPANJBw>
-    <xmx:-Z1oah3eIBLyfn3i1rEuDsaQUJ-hmYthgcnvrHnRNTnAAvlUSpKc2Q>
-    <xmx:-Z1oauOD0yWuD9YR2GBL3BibXzra6dM_Z3oz3yuehlFB2ra97vd6jg>
-    <xmx:-Z1oaobLAl2kAEO4g9UU-Yz4t9SRiYOzKddP7QpreacmALAnVog8TQ>
-    <xmx:-Z1oao2hK8GsSxB9Lg-hSbRe8sDblDyZXzQrporYUh3vZC5d8zJA5sgQ>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 28 Jul 2026 08:18:00 -0400 (EDT)
-Date: Tue, 28 Jul 2026 13:17:59 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	James Morse <james.morse@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Doug Anderson <dianders@chromium.org>, 
-	Petr Mladek <pmladek@suse.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, 
-	Puranjay Mohan <puranjay@kernel.org>, Usama Arif <usama.arif@linux.dev>, 
-	Breno Leitao <leitao@debian.org>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
-	Lecopzer Chen <lecopzer@gmail.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/4] arm64: cross-CPU NMI via SDEI
-Message-ID: <amiayYZA2kBSTzFB@thinkstation>
-References: <cover.1782744912.git.kas@kernel.org>
- <ak_IRHwd02EjWMf8@thinkstation>
- <amYR5VWHWC1WdFXc@willie-the-truck>
- <amZRtS2Lu1epc0S4@thinkstation>
- <amiDoZdszC1pB6Z2@willie-the-truck>
+	Tue, 28 Jul 2026 12:21:07 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2cf27856f9cso47557415ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 05:21:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785241265; x=1785846065; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fQlE679JObsFJHTkpZQZUZIILuIjOEy10+IeTfWR3d4=;
+        b=TJFGZZQMvV+WbNr7l278jhiDTyQpOny1mLOaYIzjO90qcyNCwmqygTR/IfWeDVs+ZW
+         gj9G/RlD5HwvQ6QoNnY8sjoHQejw9GSX90DyjtYNSfkuaZTg9ZMF4/nR5PYSZaEtFxqX
+         51+S/3KBkoj9IMtJxVaEOAKDbjY8Nf9BVbPUQGD24X3cK4NTozY0cBZ2ZNxSCUOPZBeG
+         jSAHrpwPx+5/5F2+6xLAeNL5cc1V0hJtkU0NqFWLeVZIqJUuuEIJF0o/6b9BcZ6N9Wak
+         JQMRgrucV9Zh4Nxxo+qF+ybp7MBhff4q51C6qxDOeSO4S7uL6YLpfEekEODeZGdGJW+U
+         Y6GQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785241265; x=1785846065;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fQlE679JObsFJHTkpZQZUZIILuIjOEy10+IeTfWR3d4=;
+        b=i/JL2SdX9S9XmAAk+ER7BPLU2nQJD/nPb2EOS7dhHGHkW4BAtIAw63p4B3gWm0W2qq
+         h05yI3rEmv0fZgDETdLxy0n2wVPsJ93cYJaW5716hSZhZLq1E5iVJjlBudibqsuXL5UC
+         ulcHdGmqfC/LRIJEk8NwWT6XI/ukR5yWzZGDVF7zWYxfpHeuaHybHbf6Dxr+KQx6Ygb/
+         l0DmTbg4RFEFxKHrNvlQhP6GV3/IyFKC/FnDML6vN29vLUBUlU3T4ycN05rQJGRoHCO2
+         hDps3wqJRC2me0e6vgzO9ZOnjENs7ueU0LMHMECIq/T0ULxiBdDCC2WKBXWCdYFGjRKX
+         tI6Q==
+X-Forwarded-Encrypted: i=1; AHgh+RryGPH4nmQC/4hKwLWFSsEJfOwziEozm/A0YMtBu9Boef2+u6dnTm2VfNVsFgals5d31VTbZ76DUX56ZK4u3J4p@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzOg9K2OIAkcrdQ7R50bYCf/etzRq1K9oCHAJZe8jxe5S19Stf
+	GxYsBG6KurVNveALjzduX21iMl/tPdsM/lvVs4iZk+yaGJkqWS54rsFlmvo6H/77gpg=
+X-Gm-Gg: AR+sD11r5eBy9aGeQG76uPRvJGTICvgDsSWTVQEQvhYPuq67Hur4TqO5btkmcLw/hJi
+	XSURCTgXIBDsT9sw88H1ylRzIuPY7L2T+MRpRzfhuPwn5OaArh9qQb6iLNkg2Ig81GanCwdBBfu
+	XSu60IdjfyyUF9F1fnPRkCU2Jq0IbtQZXU2tnFpb4Y2pIO3Slr9SHK5NapiAIeEVnhKnbaORjap
+	gEMF7uWaCAIvHs0/+JiIFKp/FBwYiJo0/DdOYZYBAepuZCwVmxoDA/iFCc8ioGJT5fCbrs80Nmo
+	qgp3pv2cMFfAetw9oJS83NzwITYSm67xEQJGB7SniqAElJZku7A571ZwH3XdpuJjRVLP3EqPqad
+	FrONM7HmZFfhHciYYWRzYWc+AW1OLnEQUwiTZwtyVxTGCp2U2tg1Q4K64p86znK0BNmFy/sLnM3
+	IgtkiG6P9q4JdMN91e1QeFSdIOvg==
+X-Received: by 2002:a05:6a20:7f8b:b0:3c3:84a5:f2be with SMTP id adf61e73a8af0-3c8aaf8d6a4mr2824475637.11.1785241265469;
+        Tue, 28 Jul 2026 05:21:05 -0700 (PDT)
+Received: from localhost.localdomain ([103.179.230.124])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13d2d1d0d1esm40391876c88.0.2026.07.28.05.21.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 05:21:04 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: ryder.lee@mediatek.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com
+Cc: robh@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH v2] PCI: mediatek-gen3: Fix 64-bit type truncation in mtk_pcie_set_trans_table()
+Date: Tue, 28 Jul 2026 12:20:23 +0000
+Message-ID: <20260728122023.3338-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amiDoZdszC1pB6Z2@willie-the-truck>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_052106_467239_59EECBB7 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,46 +105,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 11:25:37AM +0100, Will Deacon wrote:
-> > FEAT_NMI is the endgame and a machine that has it needs none of this,
-> > but non-FEAT_NMI parts stay in fleets for many years, so I can't
-> > honestly give you a date for dropping SDEI.
-> 
-> That's fair, I was really just trying to understand the direction. It
-> sounds like you will *eventually* move to FEAT_NMI, even if it's many
-> years away.
+The variables cpu_addr, pci_addr, and remaining in
+mtk_pcie_set_trans_table() are of type resource_size_t, which is 64-bit
+on 64-bit architectures.
 
-Right, that's the plan.
+Using 32-bit helpers fls(), ffs(), and BIT() causes 64-bit integer
+truncation when computing window sizes and address alignments above 4GB.
 
-> > While this change is pretty self-contained, I understand that SDEI infra
-> > maintenance can be a burden.
-> > 
-> > Is there anything on the wider SDEI infrastructure that would lower the
-> > maintenance burden or keep it more out of your way -- consolidation,
-> > tighter isolation, docs, help carrying it? If there's work there that
-> > makes SDEI more palatable to keep while non-FEAT_NMI parts are in
-> > service, I'm glad to take it on.
-> 
-> I'm somewhat trying to predict the future here, but I wouldn't be
-> shocked if some whizz-bang new architecture feature interacted badly
-> with SDEI, either due to outdated specs or because of a fundamental
-> incompatability. In this case, I would like the option of being able to
-> make new hardware support mutually exclusive with SDEI rather than try
-> to hack around the mess. It sounds like that would be ok for you?
+Fix this by switching to fls64(), __ffs64(), and BIT_ULL(). Note that
+__ffs64() uses 0-based indexing, so the '- 1' offset is removed. Additionally,
+return -ENOMEM when translation tables are exhausted to prevent silent failure.
 
-Yes, that's fine by me.
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+v2:
+ - Replaced non-existent ffs64() with __ffs64().
+ - Corrected 0-based indexing logic for __ffs64().
+ - Returned -ENOMEM on translation table resource exhaustion.
+---
+ drivers/pci/controller/pcie-mediatek-gen3.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
-I'd prefer that exclusivity at boot rather than compile time, so we can
-keep a single kernel binary across the fleet. The delivery side
-already works this way -- the arch selects one cross-CPU-NMI provider, so
-it's a boot-time decision already.
-
-The piece that isn't boot-time yet is the hardlockup detector that drives
-all this. perf and buddy are mutually exclusive at compile time. We want
-to use perf watchdog for FEAT_NMI while SDEI needs buddy.
-
-But it is solvable.
-
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index bcbd08c82a5c..67635af0ed2a 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -7,6 +7,8 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/bitops.h>
++#include <linux/bits.h>
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
+ #include <linux/delay.h>
+@@ -334,10 +336,10 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
+ 
+ 	while (remaining && (*num < PCIE_MAX_TRANS_TABLES)) {
+ 		/* Table size needs to be a power of 2 */
+-		table_size = BIT(fls(remaining) - 1);
++		table_size = BIT_ULL(fls64(remaining) - 1);
+ 
+ 		if (cpu_addr > 0) {
+-			addr_align = BIT(ffs(cpu_addr) - 1);
++			addr_align = BIT_ULL(__ffs64(cpu_addr));
+ 			table_size = min(table_size, addr_align);
+ 		}
+ 
+@@ -349,7 +351,8 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
+ 		}
+ 
+ 		table = pcie->base + PCIE_TRANS_TABLE_BASE_REG + *num * PCIE_ATR_TLB_SET_OFFSET;
+-		writel_relaxed(lower_32_bits(cpu_addr) | PCIE_ATR_SIZE(fls(table_size) - 1), table);
++		writel_relaxed(lower_32_bits(cpu_addr) | 
++				PCIE_ATR_SIZE(fls64(table_size) - 1), table);
+ 		writel_relaxed(upper_32_bits(cpu_addr), table + PCIE_ATR_SRC_ADDR_MSB_OFFSET);
+ 		writel_relaxed(lower_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_LSB_OFFSET);
+ 		writel_relaxed(upper_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_MSB_OFFSET);
+@@ -375,9 +378,11 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
+ 		(*num)++;
+ 	}
+ 
+-	if (remaining)
+-		dev_warn(pcie->dev, "not enough translate table for addr: %#llx, limited to [%d]\n",
++	if (remaining) {
++		dev_err(pcie->dev, "not enough translate table for addr: %#llx, limited to [%d]\n",
+ 			 (unsigned long long)cpu_addr, PCIE_MAX_TRANS_TABLES);
++		return -ENOMEM;
++	}
+ 
+ 	return 0;
+ }
 -- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+2.54.0
+
 
