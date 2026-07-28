@@ -4,144 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0FBC54F4D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8295C54F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYN+MWoB45b0XFF8uhtfviKg9BKAiTaAm42bln7lBx8=; b=mJ010WjyawbKAX6jVGUrw0yLAU
-	TdXq6gQTdJpZxryaLKrQfNcweeXhED2cFKmF78VXBW5fI16N5xQZG2ir6GNaG4NB0SqPJ1KzHvEaf
-	W/vAH+RdeK7BS7zaaLdKoRC7Rb4oBI7GejN/sqr1p8CToBA5ENQCLi+8PpcH+6HXSRKLiVFJar2fX
-	jJnKa/GhcT6UOprFMcMKVsex35nCYwgjxuWIZMjSk7IrhWqPCIfMqhuiauuExc/UhgbCLSFD4LpUS
-	kFD0JyjDDJK+kSMeWethdm6arBvWaw149kdc2RfQtV1a8ECSxs5+eIbESxiQNFJaA+pn8twW1P5+y
-	TGVNZBTg==;
+	bh=/vDpydFat5/uK8C1p3p1zTgtqbOgX5mMSI5XWbVTm1Y=; b=rZJGnI+LLwW/vzI22l+mADc7Vo
+	M1/ZRK+zR+mjWYtu0hftJsBj7ASOoAJ9kj7nWhZ+IZcByUwkV4hfMB31kVEposKY/fLzcI9f18koj
+	mTsbRGPgjbO+QADgux5UdtimOmnekPHEjdwvqK/aYNxXsP+QlG4PykZGkPL/LwF5AlBFST2Wrpfzd
+	hmPUTB84Qa8fDbzVyejkpKeTKIpClGbKfxJkB3fe8S+EI5aou6X5yOBl2nD6FJV2KKy1PbfoEgu0P
+	qr3C+D/Qj4ho5oSP6a15cUwtaZ268mhu/EHxm7So54Ye8FiFqEPnxflzB5YvpKZLOr1M/ojYsz3GS
+	7JHsS/lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woliu-00000005yfH-2j7Y;
-	Tue, 28 Jul 2026 17:36:14 +0000
-Received: from mail-pj1-x1063.google.com ([2607:f8b0:4864:20::1063])
+	id 1wolnQ-00000005z2l-2eG5;
+	Tue, 28 Jul 2026 17:40:52 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wolis-00000005yea-07kf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 17:36:11 +0000
-Received: by mail-pj1-x1063.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso69255a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 10:36:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785260168; x=1785864968;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=XYN+MWoB45b0XFF8uhtfviKg9BKAiTaAm42bln7lBx8=;
-        b=sMncsFwRV0p/BjIgtEDEAfBPzXpFq2RzhEFnkcAxVU1elyRxdbQkGt/S7ZnUhvyo/B
-         Cq2Y3spRUTL1iwncmD9M4Zn41IW2b/Ph8eE7Kd7Dnqeze8+W0nMf/92wJtO802tP9SLw
-         aAXTZfiUuZ6OA5hxSz+CO3KrJk/47Cw5IZemku6+g1FFinBB/PnR9PhoGr27rnR90hFn
-         HKM9vuINY+kQIQoyWSfZDWjDSby6gRGPk1wU1f7L9GfBNGxvT0xcAkNB6NCSaiYWo/wm
-         Vtqkf0Oqliv1JeTs72ZSmUwSA4t9t0pyGuUluB9Kv2jPhHn7Q+1QbZ+Cb3WeZCY77mqy
-         4fug==
-X-Forwarded-Encrypted: i=1; AHgh+Rp+91O8iNVZfHv12B/korFbk+hiCaLOatLR+AXaf4+5eYvWXpdfeRwzME8LkCd+plSpDOHLPjGaOdzuSX92IRoc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNE8XOJFd8fFgz2Fe536eXR/N4HLOHh+hqSvtlVO3O4AiPostn
-	DOU+k+PS0pCFXa7ZRiQkyxgKP1DPoBriXrZzw9SdOX48xClZQoPbjlcb8FKIFUoTNXRW4CG/pk4
-	elxlck1fxqC7mnFhzBO8qBqiNf8OZYiiCOTDtU/XoV8r4eXFBRKEVoBOx1WT6q96WBjNGZwtkwi
-	S2XLItvewafbiR8FK+7ADl8tvxxGzBqookxqE54JSKxtAhCrM0jgZnDWsiZ+m1MnIJ/j8wwefW4
-	lZfSv4S9obYWhKjQChcLXePyqQ5vIk9z1o=
-X-Gm-Gg: AR+sD105w+h5ceNkkm6xpTwdDITNOk/snCnYTDJFs+b9+FCcI4Hw0Q/kGm+MsQ6H+cA
-	lwIDF72HIhLcjKwodf84TCTaXzd3RFlnYNyDOGuuHjVHTuCWTamWG5Ebq279dLVpdwUEeZjGylM
-	xpXYTOmdAumV06XdAVz81AA8fDZzPSDmQMV4liUVb9QeRG6jR7cJakf8EeReh3UVHZmcyjfdk/l
-	atIivr5wbnNiIZ3Hn81+dVwqwCWjnU9VX7SLTXIOcpNGJgJH5flg28cjIe6ZkjnGepjZIlwwGm0
-	VNcPTWIQDSb3oh4hs2eeaaY9a/Iz3tG8XunoyocKqtt5tmb3IpkLos45LSOe4wwu6AhrtjtJlg1
-	ncLNQNataP7vsep6+9y1RHiBuXD7992iXbVh9/IH+GQSDBY8ojz3apw0PVH6X+PcM2mcBhWWfTe
-	yEFzsBJcBeGxQ/LG+8BlfmIO7QuTrr4T5laOnGoau2
-X-Received: by 2002:a17:90b:33cf:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-38f6a34e336mr3819836a91.2.1785260168141;
-        Tue, 28 Jul 2026 10:36:08 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-73.dlp.protect.broadcom.com. [144.49.247.73])
-        by smtp-relay.gmail.com with ESMTPS id a92af1059eb24-13e725dcfe6sm12781c88.0.2026.07.28.10.36.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 28 Jul 2026 10:36:08 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38dde0df80bso112491a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 10:36:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1785260165; x=1785864965; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XYN+MWoB45b0XFF8uhtfviKg9BKAiTaAm42bln7lBx8=;
-        b=J/VotuP4ub6q1ykQ5aWtVyjXCUtXh1jyl4um0bDFRBXzui+MvCaA66B73K+9T4IlOE
-         qgNZ3Ymo2Ef/ajVI9KjOIxQFOEN6hv7DIFCLtEaoIJ3Cdb5v1sIvn0r/1ZnYaoxbNwk0
-         eHBOnBEQIdJ1H1cTI8HUJ70Pmy7D7t08LuR9Y=
-X-Forwarded-Encrypted: i=1; AHgh+RpJe5jlSwq4tiuq9XYblWzBJQbjuuCgvpD9xT48/i+G0qg/TTY9DAzBqiigHgS81miubmEhwIv1IkCGn6FABlK/@lists.infradead.org
-X-Received: by 2002:a17:90b:3b41:b0:389:8f6c:4d70 with SMTP id 98e67ed59e1d1-38f6a4716aemr3632515a91.28.1785260164839;
-        Tue, 28 Jul 2026 10:36:04 -0700 (PDT)
-X-Received: by 2002:a17:90b:3b41:b0:389:8f6c:4d70 with SMTP id 98e67ed59e1d1-38f6a4716aemr3632479a91.28.1785260164236;
-        Tue, 28 Jul 2026 10:36:04 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504d3250asm687356eec.20.2026.07.28.10.36.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Jul 2026 10:36:03 -0700 (PDT)
-Message-ID: <1393e77c-a197-4ce6-b0d3-f96206145ab1@broadcom.com>
-Date: Tue, 28 Jul 2026 10:36:02 -0700
+	id 1wolnN-00000005z0p-41QP;
+	Tue, 28 Jul 2026 17:40:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785260446;
+	bh=82UQvWBJ0MN1pYXoI2DXOwYx1hsGX0PBoDUqkLLhFBs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=mu21yK1SEg5VeQed30/QcAKtXmRqrWBGD8M67GVg4kjJUijzfGbKE/4zD8RnK4ZeK
+	 UZw0VZ/6EcSDJE8t9GrMBuIm0luX2hdOi4l8YtanhOISP+PAYNMGzZn7RE92/opflz
+	 kQ9KGMsf7Iy5WCl+7lGKnTJAsc5VsiU10ie7WENOmsTEfPB2iMhLrgJszJQLDTb1Xz
+	 mPaerNHaxsewlnaYy+DWIGEt8XA4jba2QWBkDRm9u7nhrHWp+Mo9tYM8iz+8mo3XcH
+	 cj9SCVsUkFAVHflY0t4aVobtQbTMEm2g2fYvlW6XhJLuOApF/PN4oZxwOlNd1gNcPi
+	 uxiGCLghQPbGg==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 56B5117E02B6;
+	Tue, 28 Jul 2026 19:40:46 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 0C6BD48002C; Tue, 28 Jul 2026 19:40:46 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 28 Jul 2026 19:40:38 +0200
+Subject: [PATCH v7 02/18] drm/bridge: synopsys: dw-dp: Cancel pending HPD
+ work on unbind
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/16] irqchip/bcm7038-l1: clean up init failure paths
-To: Haofeng Li <920484857@qq.com>, tglx@kernel.org
-Cc: linux-kernel@vger.kernel.org, Haofeng Li <13266079573@163.com>,
- Haofeng Li <lihaofeng@kylinos.cn>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Kevin Cernekee
- <cernekee@gmail.com>, linux-mips@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260714122351.3274006-1-lihaofeng@kylinos.cn>
- <20260714132453.3302672-1-920484857@qq.com>
- <tencent_4839362F248901E45E50D9AEF6823DFA4007@qq.com>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <tencent_4839362F248901E45E50D9AEF6823DFA4007@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Message-Id: <20260728-synopsys-dw-dp-improvements-v7-2-b7640fa8cf48@collabora.com>
+References: <20260728-synopsys-dw-dp-improvements-v7-0-b7640fa8cf48@collabora.com>
+In-Reply-To: <20260728-synopsys-dw-dp-improvements-v7-0-b7640fa8cf48@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1017;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=82UQvWBJ0MN1pYXoI2DXOwYx1hsGX0PBoDUqkLLhFBs=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpo6Z0UJ+ZUP2t+PU7zzEBziXi8UH061gAQR
+ 9CLyIeGSZMKVYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqaOmdAAoJENju1/PI
+ O/qa0jYP/i7t9nQt+mTyWACAAOt27Ov5Z1PLIbaK0rreHsu1ArzqqaDwQYUCxcRZ2NFNj/RI5rV
+ qaoYMdUa5bclDy6lMYdk1XFK1DavAmBYs15gwyYL5Mv5CZ6FAQ+Ast7vlhL3NADDEaTHI6q02gI
+ FvKY3R4cOGXA+PDStowafta6AIEq0Y5MIe/M/rTkI0KR2F0+AppOsFQrPNCYiy7by1d8N84rP/0
+ m7xsh46S8ApNlwHx19EJjMXICnOr2r3ygcFs0WNQSSydgktxTA9fkaEOPDLDwN0HeP8rXPROEPO
+ lHvyZa0vL8rgNVGa3T3n3C1YfVlB0/FmVUBuRh5ZLStzjG3Z2crRwbkznZc+Ai1tI/sFIdZWqqh
+ N5kFg09QG1eYWKgA/lHumMR3TBSHbCpizhgZ9FDomk0GyXALDisNdi2woimNVLbpkR+EiYWgMpA
+ K5hJu3vhQtAdAzpX+xsvlrEpDdqHxmuFACtQsfmz5d6KIUvCAoJtlGwlcuh5cIZu2zVeQ61F+4Z
+ xR/C/3Xm5GcSiJhf5GP4DekCKVrHNI7cU3od8aqscLt12WCgrjNmwMd2kflhezDGO3NVvumyBQU
+ xKuGnpdfCk9I9HvWMiX+vO8iUtJO66np7gSe8o8euPth5m1y6EY5mwK6brCB52HjxWo4z/ybPFN
+ tQfOCQJD0i0lBRlaXV8wucQ==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_103610_085703_01D20F89 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20260728_104050_157918_61CE6DA3 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,111 +113,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 06:24, Haofeng Li wrote:
-> From: Haofeng Li <lihaofeng@kylinos.cn>
-> 
-> bcm7038_l1_init_one() stores the allocated CPU object in
-> intc->cpus[idx] before mapping its registers and parent interrupt.
-> Failures after that allocation leak the CPU object and possibly its
-> MMIO mapping.
-> 
-> A later IRQ domain allocation failure also frees intc while leaving
-> parent mappings and chained handlers installed for CPUs initialized
-> successfully. Those handlers retain intc as their data and can access
-> freed memory.
-> 
-> Free the current CPU object on local failures. Remember every parent
-> IRQ so the common error path can disable wake when it was enabled,
-> remove the chained handler, dispose the mapping, unmap the registers,
-> and free the CPU object before freeing intc.
-> 
-> Fixes: 5f7f0317ed28 ("IRQCHIP: Add new driver for BCM7038-style level 1 interrupt controllers")
-> 
-> Signed-off-by: Haofeng Li <lihaofeng@kylinos.cn>
-> ---
->   drivers/irqchip/irq-bcm7038-l1.c | 24 ++++++++++++++++++++----
->   1 file changed, 20 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-bcm7038-l1.c b/drivers/irqchip/irq-bcm7038-l1.c
-> index 54a8557ef557..b42c4f4df6bf 100644
-> --- a/drivers/irqchip/irq-bcm7038-l1.c
-> +++ b/drivers/irqchip/irq-bcm7038-l1.c
-> @@ -49,6 +49,8 @@ struct bcm7038_l1_chip {
->   
->   struct bcm7038_l1_cpu {
->   	void __iomem		*map_base;
-> +	unsigned int		parent_irq;
-> +	bool			wake_enabled;
->   	u32			mask_cache[];
->   };
->   
-> @@ -247,8 +249,11 @@ static int bcm7038_l1_init_one(struct device_node *dn, unsigned int idx,
->   		return -ENOMEM;
->   
->   	cpu->map_base = ioremap(res.start, sz);
-> -	if (!cpu->map_base)
-> +	if (!cpu->map_base) {
-> +		kfree(cpu);
-> +		intc->cpus[idx] = NULL;
+There is a race condition during device unbind: If the HPD interrupt
+started an HPD worker exactly when the unbind happens, the worker
+thread might access invalid resources. Avoid this by stopping any
+pending work immediately after disabling the interrupt.
 
-This pattern repeats below, consider creating a new label, that would do 
-the 'cpu' variable freeing and assigng intc->cpus[idx] to NULL?
+Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
->   		return -ENOMEM;
-> +	}
->   
->   	for (i = 0; i < n_words; i++) {
->   		l1_writel(~intc->irq_fwd_mask[i],
-> @@ -261,12 +266,17 @@ static int bcm7038_l1_init_one(struct device_node *dn, unsigned int idx,
->   	parent_irq = irq_of_parse_and_map(dn, idx);
->   	if (!parent_irq) {
->   		pr_err("failed to map parent interrupt %d\n", parent_irq);
-> +		iounmap(cpu->map_base);
-
-And this would belong to a new label as well
-
-> +		kfree(cpu);
-> +		intc->cpus[idx] = NULL;
-
-That new label would be used here.
-
->   		return -EINVAL;
->   	}
->   
-> -	if (of_property_read_bool(dn, "brcm,irq-can-wake"))
-> -		enable_irq_wake(parent_irq);
-> +	if (of_property_read_bool(dn, "brcm,irq-can-wake") &&
-> +	    !enable_irq_wake(parent_irq))
-> +		cpu->wake_enabled = true;
->   
-> +	cpu->parent_irq = parent_irq;
->   	irq_set_chained_handler_and_data(parent_irq, bcm7038_l1_irq_handle,
->   					 intc);
->   
-> @@ -408,7 +418,7 @@ static int bcm7038_l1_probe(struct platform_device *pdev, struct device_node *pa
->   			if (idx)
->   				break;
->   			pr_err("failed to remap intc L1 registers\n");
-> -			goto out_free;
-> +			goto out_unmap;
->   		}
->   	}
->   
-> @@ -440,6 +450,12 @@ static int bcm7038_l1_probe(struct platform_device *pdev, struct device_node *pa
->   		struct bcm7038_l1_cpu *cpu = intc->cpus[idx];
->   
->   		if (cpu) {
-> +			if (cpu->parent_irq) {
-> +				if (cpu->wake_enabled)
-> +					disable_irq_wake(cpu->parent_irq);
-> +				irq_set_chained_handler_and_data(cpu->parent_irq, NULL, NULL);
-> +				irq_dispose_mapping(cpu->parent_irq);
-> +			}
->   			if (cpu->map_base)
->   				iounmap(cpu->map_base);
->   			kfree(cpu);
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 67d9cd0bf5fd..8393f9c9b0f0 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1996,6 +1996,7 @@ EXPORT_SYMBOL_GPL(dw_dp_bind);
+ void dw_dp_unbind(struct dw_dp *dp)
+ {
+ 	disable_irq(dp->irq);
++	cancel_work_sync(&dp->hpd_work);
+ 	phy_exit(dp->phy);
+ 	drm_dp_aux_unregister(&dp->aux);
+ }
 
 -- 
-Florian
+2.53.0
 
 
