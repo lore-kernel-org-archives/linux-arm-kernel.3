@@ -4,103 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 207D3C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5B3C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0reqVvFM0eb7vRVz0DEiRClkuetBEbBFZj0i0gUKwf0=; b=IbEWOu7Pv9TAfE6/EtInPYyEOF
-	2g+MAG0UpZjnToXnIDBd0fFRaWu7lJG0L6K9tfLPw5J7IHb0JrOYJNSxRbVkYZ1WW8hMBDilN2tln
-	irlkl3L8zaPD1pexzjONchhBPdbErQPLyUoYH1qFjAvNzAJI6pLTQ/2byI3SPielntZKbbie8LNaT
-	88To0EC3Uc7dzmdRJhzc4qImhBsFWGozK3cRo8MOt3D195IKANOxZT3iG9mL6IJQkIhePcQPKUsU4
-	WAZn64SpaVfS2fycLwPoLKkPqAgR/bTPU3k1NnbKWNJ5TEtDcFGUyFFQuh3sGn17XDDgCYAopEIz8
-	JKBibzLw==;
+	bh=CYcm+1VQADQZhDXtTAnvGLMsxjZQq4SUgqmssOerQ3o=; b=HfQcACSieC7eZF4oKayZ1vDolB
+	0hKb8wbqyB9UKTh2ky6W4EUZ937CNnlTMKmBASZ7aaU3yqknPuHBHDgJ78i2WbVWQ5eOVxM/IhDjP
+	oXQJXQ4DHmfwBoAiCgxfLmkTXHG+h29Ewhpy7mwBEsrKkn9CTGl7rL4eJAffc5VWZtrT5pTFQZKJz
+	b3IjU+2/okngO0zDzO/3TOENPNWGREDOx8KPuZnboJmClKao75Xn+2XpgB+odKSrIkcg7Xq68KeJo
+	/Q/OpqF1dAS5EWH+SFyArv1Bc+TBD7u/kFju7myFTorIxCq/PfB7uRWWOOJSNfiu4xnFnATAQlzDF
+	3no68+eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiNi-00000005Q6c-0ksq;
-	Tue, 28 Jul 2026 14:02:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1woiRk-00000005QS1-3GTR;
+	Tue, 28 Jul 2026 14:06:16 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiNe-00000005Q6F-2sam
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 14:02:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785247321;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0reqVvFM0eb7vRVz0DEiRClkuetBEbBFZj0i0gUKwf0=;
-	b=McOKy73Df/ZUz9fIyQqwpM1/zpGf2KXtrWVSrWWBvhnQ41TUKKxBXTQI65+iYrUL8Z4BwU
-	hySWnlpPBe0ZRzwHv6vYzP9tF7qJumK5Hm58ekzCz1tS3L4t7ACRB1gMiZdm++Y+dbrLgC
-	b9lxp9edz45AxT+5w4SSVziTY69n4fA=
-Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com
- [74.125.224.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-137-H0Nc8KH3N46QnFmOjOYAcw-1; Tue, 28 Jul 2026 10:01:59 -0400
-X-MC-Unique: H0Nc8KH3N46QnFmOjOYAcw-1
-X-Mimecast-MFC-AGG-ID: H0Nc8KH3N46QnFmOjOYAcw_1785247319
-Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-667c40cd608so2386431d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 07:01:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785247319; x=1785852119;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0reqVvFM0eb7vRVz0DEiRClkuetBEbBFZj0i0gUKwf0=;
-        b=Nr96B29/XSMXuByIreAnFVPcGETdjjxRHnmBZOnhlbrEg6I4R9IJS2QhhNgPkqUL/J
-         6cyNB2q9SAV0fuUIfphxxr+oFPzNI7VA6ppbBG+11ZmoCv6NA4gNmhrkCYekvyE6QL5H
-         4LHaHk64BABfcGYyPIy3Bq5/2jzG8AJhTfA/pDdCN513MR5K30Pd7IixfPriIsughZS5
-         co8YPtkWINZ7f6+iGdrAUDDqquygyfZ5rf3Uvuo7u0A6T65r4dz3Wu2nEshRAZD9D5g1
-         +e9Yhd1wDbRBQFjFyW4xfRexGbTTVF8mwc2roXX/XTj9xqnOie3hVC4KS8fxUHpb6DJ+
-         MyCA==
-X-Forwarded-Encrypted: i=1; AHgh+RoXwtmd4mqkyj+k/ATGokCp2VNXZjxqpfLmr8coEPvujQV9spvGbkviyKUapbyGPJeJzHcGCn7X4l0/d32Vb98A@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC9pW+thATyhyS2znElEuA8xq0UQOUrt3XIvS2ZAjyevTyRZ9H
-	m21ZXk1s/89fMIasa+dzFjYcWod2kDE/WJiuQTBBuDXSN/viHbU9EMGZjotQMg9w2VSTLKxdV8c
-	/PLRi12P7JJ05BXK8I85rGYd1Kq3gPNFLYFsmzsAn8mLVy517evHVVMGb8KLLB60Yty8IeNpPSR
-	0q
-X-Gm-Gg: AR+sD12y4TJgdTIvI39dvufnEYC4RZSTDr7uQ4BzHjP1lfhvBBiIrEIaTnbeg90iNJE
-	r65AP0Lg/HZU/DnVp58WZDcQw9tSJdoUOukUCSQ2yAK2FzogRk4LAg2AD8WfXXAUOlEK4b7LHJy
-	gzpf90d9yifI3GKn2ACAEREX/wyK3dobiQi32OHUHJK3sToRTbfMw6CLfdPRpHdJ7v339j9fClj
-	H1mvpPYk+vKBxt1nU0Eyi5u9CIqNeKmA/Xm/5k0FP0ljGX5bsQHZ0L32saL4kSgtmktS4HVHCPL
-	llumezeeslm3r2FjD03ZsbMXtXLxVvszlllLhlDiS4LyzEYXGPZqkl1cPgfDzCsOKBNQRipYQ6b
-	Soot2EKDXiuzTeLrX6agOSE3+wX5SN9uqkvo=
-X-Received: by 2002:a53:ea06:0:b0:668:e1:628e with SMTP id 956f58d0204a3-669057e2f5cmr712332d50.29.1785247317847;
-        Tue, 28 Jul 2026 07:01:57 -0700 (PDT)
-X-Received: by 2002:a53:ea06:0:b0:668:e1:628e with SMTP id 956f58d0204a3-669057e2f5cmr712194d50.29.1785247316614;
-        Tue, 28 Jul 2026 07:01:56 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-907e869ba73sm88474666d6.25.2026.07.28.07.01.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 07:01:54 -0700 (PDT)
-Date: Tue, 28 Jul 2026 10:01:52 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Liu Changjie <liucj1228@outlook.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RESEND 3/9] clk: stm32: add STM32H7RS RCC driver
-Message-ID: <ami2UOZm0VoYRmK4@redhat.com>
-References: <MN0PR19MB60912FA1E75E4E55B2E27D34ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
- <MN0PR19MB6091885F8E6F522600B25AB9ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
+	id 1woiRi-00000005QRZ-25CL;
+	Tue, 28 Jul 2026 14:06:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1785247558; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=dfZh9uh3PCaWM3hn6M8DhfkjkO7SCcBlPMELKyMXzyFEafD/3tCT3V2HOBT8dUFAVdtJxWUOYQv4VppSjfuBA6bcOLjzuFzDoEz8EIK5Y2+dnICrF7VG62img1bf7Dtyoj5EnRYWydL9hRHnlQmfOnqVpVq+VkD/tbiYcUxLTlI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1785247558; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=CYcm+1VQADQZhDXtTAnvGLMsxjZQq4SUgqmssOerQ3o=; 
+	b=YEvKGJrYDx9/hvYPsVrozecQ6UOghDtNyQBZAfjkTqPuf63mBjkcPH+xXj/SDMOktCjPmbICK7llznKYy0Qwp2revjxNeOlvqTtnYy6Zn/rBE1n1jAekdSPAXOciflETpcySnBrc8YNTGq8jL9AookgN8NRGkg8btNlzqFKVBOk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785247558;
+	s=zmail2048; d=rong.moe; i=i@rong.moe;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:In-Reply-To:Content-Type:Content-Transfer-Encoding:Date:Date:MIME-Version:Message-Id:Reply-To;
+	bh=CYcm+1VQADQZhDXtTAnvGLMsxjZQq4SUgqmssOerQ3o=;
+	b=EVa2oQl8qfYys8CT9skQgryD0rLF6+1ArtJUiuFnGg7Dmy/4pQ3DXw3VnE9QAcIX
+	O7Gai3+oOsDLi+fVcs3ecTsWVUDjQ8ifiP1XFeojLkuMEwfmY2aE4BR8VqzcylI/z8y
+	Y2xfE9zT0Qz7mFBhMxRRGlgrkSxMXiGoqpoKXmaW0A8U7xHgD+w5ynMkiPAFK8vCyT/
+	8X1OOCs+QUr2AbF8VUCUEBAPaXXp1JPHApIyFWh14+L6wFF27hAqbQCosBWboOBz1jo
+	bN0Fi55I3JejmKq5L7FpP4uNDFoKa4J2Notw1LrSLvVFcKlbuUJD9oKTaWyuz9lKpIX
+	Y9hJroEPIw==
+Received: by mx.zohomail.com with SMTPS id 1785247556029509.12114283912604;
+	Tue, 28 Jul 2026 07:05:56 -0700 (PDT)
+Message-ID: <133c4858657c55b31affd4bff1cbd68f812de5e1.camel@rong.moe>
+Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
+ MT7922/MT7925 on Ryzen platform
+From: Rong Zhang <i@rong.moe>
+To: Rafael Passos <rafael@rcpassos.me>, Marcel Holtmann
+ <marcel@holtmann.org>,  Luiz Augusto von Dentz	 <luiz.dentz@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>
+Cc: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, Chris Lu
+ =?Big5?Q?=28=B3=B0=B8X=AAl=29?=
+	 <Chris.Lu@mediatek.com>, Will-CY Lee =?Big5?Q?=28=A7=F5=ACF=BFo=29?=
+	 <Will-CY.Lee@mediatek.com>, SS Wu =?Big5?Q?=28=A7=C5=BE=CB=AAY=29?=
+	 <ss.wu@mediatek.com>, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+In-Reply-To: <DKA8F33O8HID.2UV2DWTLE6S48@rcpassos.me>
+References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
+	 <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
+	 <79D5F3E6-8F40-4422-BB2D-16691E377394@rong.moe>
+	 <DJRP3YO7Y0WK.20KNRZIMX1CYK@rcpassos.me>
+	 <F16A2A9A-A43F-45FE-8CC0-44A129360D47@rong.moe>
+	 <DKA8F33O8HID.2UV2DWTLE6S48@rcpassos.me>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 28 Jul 2026 22:00:48 +0800
 MIME-Version: 1.0
-In-Reply-To: <MN0PR19MB6091885F8E6F522600B25AB9ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: wDjIVjyVkwN5uYU6hB_do2tNiuIMHQuImkRefBSF4u8_1785247319
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Evolution 3.56.2-10 
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_070202_902555_8F720B7B 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20260728_070614_574380_1E5B2E09 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,541 +94,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Liu,
+Hi Rafael,
 
-On Thu, Jul 23, 2026 at 11:48:58PM +0800, Liu Changjie wrote:
-> Register the active STM32H7RS system, bus and selected peripheral
-> clocks without reprogramming the PLLs used for execute-in-place.
-> Decode the PLL2 S and T outputs used by SDMMC from PLL2DIVR2.
-> Expose gates for TIM5, UART4, GPIO banks A-H and M-P, and SDMMC1.
-> 
-> Signed-off-by: Liu Changjie <liucj1228@outlook.com>
-> ---
->  drivers/clk/Kconfig         |   5 +
->  drivers/clk/Makefile        |   1 +
->  drivers/clk/clk-stm32h7rs.c | 466 ++++++++++++++++++++++++++++++++++++
->  3 files changed, 472 insertions(+)
->  create mode 100644 drivers/clk/clk-stm32h7rs.c
-> 
-> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-> index 1717ce75a..5d1562a8a 100644
-> --- a/drivers/clk/Kconfig
-> +++ b/drivers/clk/Kconfig
-> @@ -448,6 +448,11 @@ config COMMON_CLK_STM32H7
->  	help
->  	  Support for stm32h7 SoC family clocks
->  
-> +config COMMON_CLK_STM32H7RS
-> +	def_bool COMMON_CLK && MACH_STM32H7R7
-> +	help
-> +	  Support for STM32H7RS SoC family clocks
-> +
->  config COMMON_CLK_MMP2
->  	def_bool COMMON_CLK && (MACH_MMP2_DT || MACH_MMP3_DT)
->  	help
-> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-> index cc108a75a..3dcb2f525 100644
-> --- a/drivers/clk/Makefile
-> +++ b/drivers/clk/Makefile
-> @@ -98,6 +98,7 @@ obj-$(CONFIG_COMMON_CLK_SI570)		+= clk-si570.o
->  obj-$(CONFIG_COMMON_CLK_SP7021)		+= clk-sp7021.o
->  obj-$(CONFIG_COMMON_CLK_STM32F)		+= clk-stm32f4.o
->  obj-$(CONFIG_COMMON_CLK_STM32H7)	+= clk-stm32h7.o
-> +obj-$(CONFIG_COMMON_CLK_STM32H7RS)	+= clk-stm32h7rs.o
->  obj-$(CONFIG_COMMON_CLK_TPS68470)      += clk-tps68470.o
->  obj-$(CONFIG_CLK_TWL6040)		+= clk-twl6040.o
->  obj-$(CONFIG_CLK_TWL)			+= clk-twl.o
-> diff --git a/drivers/clk/clk-stm32h7rs.c b/drivers/clk/clk-stm32h7rs.c
-> new file mode 100644
-> index 000000000..b82a24822
-> --- /dev/null
-> +++ b/drivers/clk/clk-stm32h7rs.c
-> @@ -0,0 +1,466 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Clock driver for the STM32H7RS Reset and Clock Controller.
-> + *
-> + * The first-stage firmware configures the oscillators and PLLs before Linux
-> + * starts executing from external NOR.  The driver reconstructs that running
-> + * clock tree from RCC registers and gives Linux ownership of peripheral clock
-> + * gates without disturbing the XIP-critical PLL configuration.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/math64.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_clk.h>
-> +#include <linux/slab.h>
+On Tue, 2026-07-28 at 10:17 -0300, Rafael Passos wrote:
+> Hi again,
+>=20
+> On Mon Jul 6, 2026 at 4:39 PM -03, Rong Zhang wrote:
+> > Hi Rafael,
+> >=20
+> > Hmm, interesting. My speculation is that it doesn't matter which option=
+s are changed, but some changed options cause the BIOS to reinitialize some=
+thing. Does resetting the BIOS settings to default help?
+>=20
+> I was unable to trigger the same issue again. It has been working fine
+> (even when running without your patch). I believe the reset with bios
+> config changes fixed it for good.
 
-Is slab.h needed here?
+Oh, that's really good news. Cheers!
 
-> +#include <linux/spinlock.h>
-> +
-> +#include <dt-bindings/clock/stm32h7rs-clks.h>
-> +
-> +#define RCC_CR			0x000
-> +#define RCC_CFGR		0x010
-> +#define RCC_CDCFGR		0x018
-> +#define RCC_BMCFGR		0x01c
-> +#define RCC_APBCFGR		0x020
-> +#define RCC_PLLCKSELR		0x028
-> +#define RCC_PLLCFGR		0x02c
-> +#define RCC_PLL1DIVR1		0x030
-> +#define RCC_PLL1FRACR		0x034
-> +#define RCC_PLL2DIVR1		0x038
-> +#define RCC_PLL2FRACR		0x03c
-> +#define RCC_PLL3DIVR1		0x040
-> +#define RCC_PLL3FRACR		0x044
-> +#define RCC_CCIPR1		0x04c
-> +#define RCC_CCIPR2		0x050
-> +#define RCC_PLL2DIVR2		0x0c4
-> +#define RCC_AHB5ENR		0x134
-> +#define RCC_AHB4ENR		0x140
-> +#define RCC_APB1ENR1		0x148
-> +
-> +#define RCC_CR_HSIDIV_SHIFT	3
-> +#define RCC_CFGR_SWS_SHIFT	3
-> +#define RCC_CFGR_TIMPRE		BIT(15)
-> +#define RCC_PLLCFGR_FRACEN(_pll)	BIT(((_pll) - 1) * 11)
-> +#define RCC_PLL_ON(_pll)	BIT(24 + (((_pll) - 1) * 2))
-> +
-> +#define RCC_CDCFGR_CPRE_SHIFT	0
-> +#define RCC_BMCFGR_BMPRE_SHIFT	0
-> +#define RCC_APBCFGR_PPRE1_SHIFT	0
-> +#define RCC_APBCFGR_PPRE2_SHIFT	4
-> +#define RCC_APBCFGR_PPRE4_SHIFT	8
-> +#define RCC_APBCFGR_PPRE5_SHIFT	12
-> +
-> +#define RCC_CCIPR1_SDMMC12SEL	BIT(2)
-> +#define RCC_CCIPR2_UARTSEL_MASK	GENMASK(2, 0)
-> +
-> +#define HSI_RATE		64000000UL
-> +#define CSI_RATE		4000000UL
-> +
-> +static DEFINE_SPINLOCK(stm32h7rs_rcc_lock);
-> +
-> +static const u16 pll_divr_offset[] = {
-> +	RCC_PLL1DIVR1, RCC_PLL2DIVR1, RCC_PLL3DIVR1,
-> +};
-> +
-> +static const u16 pll_fracr_offset[] = {
-> +	RCC_PLL1FRACR, RCC_PLL2FRACR, RCC_PLL3FRACR,
-> +};
-> +
-> +static const u8 pll_m_shift[] = { 4, 12, 20 };
-> +
-> +enum stm32h7rs_pll_output {
-> +	PLL_P,
-> +	PLL_Q,
-> +	PLL_R,
-> +	PLL_S,
-> +	PLL_T,
-> +};
-> +
-> +static unsigned long stm32h7rs_hsi_rate(void __iomem *base)
-> +{
-> +	u32 div = (readl_relaxed(base + RCC_CR) >> RCC_CR_HSIDIV_SHIFT) & 0x3;
-> +
-> +	return HSI_RATE >> div;
-> +}
-> +
-> +static unsigned long stm32h7rs_pll_rate(void __iomem *base, unsigned int pll,
-> +					unsigned int output,
-> +					unsigned long hse_rate)
-> +{
-> +	static const u8 output_shift[] = { 9, 16, 24 };
-> +	u64 numerator;
-> +	unsigned long parent_rate;
-> +	u32 divr1, frac = 0, m, n, out_div, source;
+>=20
+>=20
+> > Could you provide more details about your device's USB and PCI topology=
+? Does the NIC's USB connect to one of the USB root hubs of the SoC (i.e., =
+CPU) or the chipset?
+>=20
+> I believe its a hub connected to the chipset.
+>=20
+> /:  Bus 001.Port 001: Dev 001, Class=3Droot_hub, Driver=3Dxhci_hcd/12p, 4=
+80M
+>     | ...
+>     |__ Port 008: Dev 004, If 0, Class=3DWireless, Driver=3Dbtusb, 480M
+>=20
+> In the block diagram on the manual [1], Key "E" Wifi is tied
+> to the AMD PROM21 CHipset.
 
-Reverse Christmas tree order.
+Yes, and no.
 
-> +
-> +	if (pll < 1 || pll > ARRAY_SIZE(pll_divr_offset) || output > PLL_T)
-> +		return 0;
-> +
-> +	if (output > PLL_R && pll != 2)
-> +		return 0;
-> +
-> +	if (!(readl_relaxed(base + RCC_CR) & RCC_PLL_ON(pll)))
-> +		return 0;
-> +
-> +	source = readl_relaxed(base + RCC_PLLCKSELR) & GENMASK(1, 0);
-> +	switch (source) {
-> +	case 0:
-> +		parent_rate = stm32h7rs_hsi_rate(base);
-> +		break;
-> +	case 1:
-> +		parent_rate = CSI_RATE;
-> +		break;
-> +	case 2:
-> +		parent_rate = hse_rate;
-> +		break;
-> +	default:
-> +		return 0;
-> +	}
-> +
-> +	m = (readl_relaxed(base + RCC_PLLCKSELR) >> pll_m_shift[pll - 1]) & 0x3f;
-> +	if (!m || !parent_rate)
-> +		return 0;
-> +
-> +	divr1 = readl_relaxed(base + pll_divr_offset[pll - 1]);
-> +	n = (divr1 & GENMASK(8, 0)) + 1;
-> +	if (readl_relaxed(base + RCC_PLLCFGR) & RCC_PLLCFGR_FRACEN(pll))
-> +		frac = (readl_relaxed(base + pll_fracr_offset[pll - 1]) >> 3) &
-> +			GENMASK(12, 0);
-> +
-> +	if (output <= PLL_R) {
-> +		out_div = ((divr1 >> output_shift[output]) &
-> +			   GENMASK(6, 0)) + 1;
-> +	} else {
-> +		u32 divr2 = readl_relaxed(base + RCC_PLL2DIVR2);
-> +		u8 shift = output == PLL_S ? 0 : 8;
-> +
-> +		out_div = ((divr2 >> shift) & GENMASK(2, 0)) + 1;
-> +	}
-> +
-> +	numerator = (u64)parent_rate * (n * 8192ULL + frac);
-> +	return div64_u64(numerator, (u64)m * 8192ULL * out_div);
+The block diagram indicates that the NIC card's PCIe interface (note the
+"x1") is connected to the chipset, without any mention of its USB
+interface.
 
-Newline before the return
+Based on the bus number (001), it's more likely a root hub of the SoC
+instead of the chipset.
 
-> +}
-> +
-> +static unsigned long stm32h7rs_ahb_rate(unsigned long parent_rate, u32 val)
-> +{
-> +	static const u16 div_table[] = { 2, 4, 8, 16, 64, 128, 256, 512 };
-> +
-> +	if (val < 8)
-> +		return parent_rate;
-> +
-> +	return parent_rate / div_table[val - 8];
-> +}
-> +
-> +static unsigned long stm32h7rs_sys_rate(void __iomem *base,
-> +					unsigned long hse_rate)
-> +{
-> +	unsigned long rate;
-> +	u32 cpre, source;
-> +
-> +	source = (readl_relaxed(base + RCC_CFGR) >> RCC_CFGR_SWS_SHIFT) & 0x7;
-> +	switch (source) {
-> +	case 0:
-> +		rate = stm32h7rs_hsi_rate(base);
-> +		break;
-> +	case 1:
-> +		rate = CSI_RATE;
-> +		break;
-> +	case 2:
-> +		rate = hse_rate;
-> +		break;
-> +	case 3:
-> +		rate = stm32h7rs_pll_rate(base, 1, PLL_P, hse_rate);
-> +		break;
-> +	default:
-> +		return 0;
-> +	}
-> +
-> +	cpre = (readl_relaxed(base + RCC_CDCFGR) >> RCC_CDCFGR_CPRE_SHIFT) & 0xf;
-> +	return stm32h7rs_ahb_rate(rate, cpre);
-> +}
-> +
-> +static unsigned long stm32h7rs_apb_rate(void __iomem *base,
-> +					unsigned long hclk_rate, u8 shift)
-> +{
-> +	u32 prescaler = (readl_relaxed(base + RCC_APBCFGR) >> shift) & 0x7;
-> +
-> +	if (prescaler < 4)
-> +		return hclk_rate;
-> +
-> +	return hclk_rate >> (prescaler - 3);
-> +}
-> +
-> +static unsigned long stm32h7rs_timer_rate(void __iomem *base,
-> +					  unsigned long hclk_rate,
-> +					  unsigned long pclk_rate)
-> +{
-> +	u32 prescaler = (readl_relaxed(base + RCC_APBCFGR) >>
-> +			 RCC_APBCFGR_PPRE1_SHIFT) & 0x7;
-> +
-> +	if (prescaler < 4)
-> +		return pclk_rate;
-> +
-> +	if (!(readl_relaxed(base + RCC_CFGR) & RCC_CFGR_TIMPRE))
-> +		return pclk_rate * 2;
-> +
-> +	return prescaler < 6 ? hclk_rate : pclk_rate * 4;
-> +}
-> +
-> +static unsigned long stm32h7rs_uart4_rate(void __iomem *base,
-> +					  unsigned long hse_rate,
-> +					  unsigned long lse_rate,
-> +					  unsigned long pclk1_rate)
-> +{
-> +	u32 source = readl_relaxed(base + RCC_CCIPR2) & RCC_CCIPR2_UARTSEL_MASK;
-> +
-> +	switch (source) {
-> +	case 0:
-> +		return pclk1_rate;
-> +	case 1:
-> +		return stm32h7rs_pll_rate(base, 2, PLL_Q, hse_rate);
-> +	case 2:
-> +		return stm32h7rs_pll_rate(base, 3, PLL_Q, hse_rate);
-> +	case 3:
-> +		return stm32h7rs_hsi_rate(base);
-> +	case 4:
-> +		return CSI_RATE;
-> +	case 5:
-> +		return lse_rate;
-> +	default:
-> +		return 0;
-> +	}
-> +}
-> +
-> +static unsigned long stm32h7rs_sdmmc1_rate(void __iomem *base,
-> +					   unsigned long hse_rate)
-> +{
-> +	if (readl_relaxed(base + RCC_CCIPR1) & RCC_CCIPR1_SDMMC12SEL)
-> +		return stm32h7rs_pll_rate(base, 2, PLL_T, hse_rate);
-> +
-> +	return stm32h7rs_pll_rate(base, 2, PLL_S, hse_rate);
-> +}
-> +
-> +static int __init h7rs_register_fixed(struct clk_hw_onecell_data *data,
-> +				      unsigned int id, const char *name,
-> +				       unsigned long rate)
-> +{
-> +	struct clk_hw *hw;
-> +
-> +	hw = clk_hw_register_fixed_rate(NULL, name, NULL, CLK_IS_CRITICAL, rate);
-> +	if (IS_ERR(hw))
-> +		return PTR_ERR(hw);
-> +
-> +	data->hws[id] = hw;
-> +	return 0;
-> +}
-> +
-> +static int __init h7rs_register_gate(struct clk_hw_onecell_data *data,
-> +				     unsigned int id, const char *name,
-> +				      const char *parent_name,
-> +				      void __iomem *base, u16 offset,
-> +				      u8 bit_idx)
-> +{
-> +	struct clk_hw *hw;
-> +
-> +	hw = clk_hw_register_gate(NULL, name, parent_name, CLK_IGNORE_UNUSED,
+You can check the root hub's PCI path with
 
-Use parent_data instead of parent_name. You can use
-clk_hw_register_gate_parent_data() here.
+   realpath /sys/bus/usb/devices/usb1
 
-> +				  base + offset, bit_idx, 0,
-> +				  &stm32h7rs_rcc_lock);
-> +	if (IS_ERR(hw))
-> +		return PTR_ERR(hw);
-> +
-> +	data->hws[id] = hw;
-> +	return 0;
-> +}
-> +
-> +struct stm32h7rs_gate {
-> +	u8 id;
-> +	u8 bit_idx;
-> +	u16 offset;
-> +	const char *name;
-> +	const char *parent_name;
-> +};
-> +
-> +static const struct stm32h7rs_gate stm32h7rs_gates[] __initconst = {
-> +	{ STM32H7RS_TIM5_CK, 3, RCC_APB1ENR1, "tim5", "tim5_ker" },
-> +	{ STM32H7RS_UART4_CK, 19, RCC_APB1ENR1, "uart4", "uart4_ker" },
-> +	{ STM32H7RS_GPIOA_CK, 0, RCC_AHB4ENR, "gpioa", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOB_CK, 1, RCC_AHB4ENR, "gpiob", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOC_CK, 2, RCC_AHB4ENR, "gpioc", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOD_CK, 3, RCC_AHB4ENR, "gpiod", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOE_CK, 4, RCC_AHB4ENR, "gpioe", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOF_CK, 5, RCC_AHB4ENR, "gpiof", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOG_CK, 6, RCC_AHB4ENR, "gpiog", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOH_CK, 7, RCC_AHB4ENR, "gpioh", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOM_CK, 12, RCC_AHB4ENR, "gpiom", "h7rs_hclk" },
-> +	{ STM32H7RS_GPION_CK, 13, RCC_AHB4ENR, "gpion", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOO_CK, 14, RCC_AHB4ENR, "gpioo", "h7rs_hclk" },
-> +	{ STM32H7RS_GPIOP_CK, 15, RCC_AHB4ENR, "gpiop", "h7rs_hclk" },
-> +	{ STM32H7RS_SDMMC1_CK, 8, RCC_AHB5ENR, "sdmmc1", "sdmmc1_ker" },
-> +};
-> +
-> +static void __init stm32h7rs_rcc_init(struct device_node *np)
-> +{
-> +	struct clk_hw_onecell_data *clk_data;
-> +	unsigned long hse_rate, lse_rate;
-> +	unsigned long sys_rate, hclk_rate;
-> +	unsigned long pclk1_rate, pclk2_rate, pclk4_rate, pclk5_rate;
-> +	unsigned long timer_rate, uart4_rate, sdmmc1_rate;
-> +	struct clk_hw *timer_hw = NULL, *uart4_hw = NULL, *sdmmc1_hw = NULL;
-> +	struct clk *input;
-> +	void __iomem *base;
-> +	unsigned int fixed_count = 0, gate_count = 0;
-> +	unsigned int i;
-> +	u32 bmpre;
-> +	int ret;
-> +
-> +	base = of_iomap(np, 0);
+Then you can cross-check with the PCI topology, i.e., `lspci -tnnnvvv'.
 
-devm_of_iomap
+>=20
+>=20
+> > And I guess your device runs into the issue without any precursor? Once=
+ boot, try running the script below to capture more clues into dmesg, and w=
+ait for the issue to appear.
+> >=20
+> >     #!/bin/sh
+> >=20
+> >     ddcmd()
+> >     {
+> >         echo "$*" | sudo tee /proc/dynamic_debug/control;
+> >     }
+> >=20
+> >     ddcmd file drivers/usb/core/hub.c +p
+> >     ddcmd file drivers/usb/core/driver.c +p
+> >     ddcmd func handle_tx_event +p
+>=20
+> Thanks for the script! I'm learning a bit with it!
+>=20
+> > I would do the below experiments if I had a buggy device like that. Som=
+e extra hardware is required though.
+> >=20
+> > Connect another NIC (w/ Bluetooth interface) to the same M.2 port after=
+ triggering the enumeration failure, and see if the enumeration failure per=
+sists.
+>=20
+> It is integrated (soldered) to my motherboard.
 
-> +	if (!base) {
-> +		pr_err("%pOF: unable to map RCC registers\n", np);
-> +		return;
-> +	}
-> +
-> +	input = of_clk_get(np, 0);
-> +	if (IS_ERR(input)) {
-> +		pr_err("%pOF: unable to get HSE input clock\n", np);
-> +		goto err_unmap;
-> +	}
-> +	hse_rate = clk_get_rate(input);
-> +	clk_put(input);
-> +
-> +	input = of_clk_get(np, 1);
-> +	if (IS_ERR(input)) {
-> +		pr_err("%pOF: unable to get LSE input clock\n", np);
-> +		goto err_unmap;
-> +	}
-> +	lse_rate = clk_get_rate(input);
-> +	clk_put(input);
-> +
-> +	clk_data = kzalloc(struct_size(clk_data, hws, STM32H7RS_MAX_CLKS),
-> +			   GFP_KERNEL);
-> +	if (!clk_data)
-> +		goto err_unmap;
-> +	clk_data->num = STM32H7RS_MAX_CLKS;
-> +
-> +	sys_rate = stm32h7rs_sys_rate(base, hse_rate);
-> +	bmpre = (readl_relaxed(base + RCC_BMCFGR) >>
-> +		  RCC_BMCFGR_BMPRE_SHIFT) & 0xf;
-> +	hclk_rate = stm32h7rs_ahb_rate(sys_rate, bmpre);
-> +	pclk1_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE1_SHIFT);
-> +	pclk2_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE2_SHIFT);
-> +	pclk4_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE4_SHIFT);
-> +	pclk5_rate = stm32h7rs_apb_rate(base, hclk_rate, RCC_APBCFGR_PPRE5_SHIFT);
-> +	timer_rate = stm32h7rs_timer_rate(base, hclk_rate, pclk1_rate);
-> +	uart4_rate = stm32h7rs_uart4_rate(base, hse_rate, lse_rate, pclk1_rate);
-> +	sdmmc1_rate = stm32h7rs_sdmmc1_rate(base, hse_rate);
-> +
-> +	if (!sys_rate || !hclk_rate || !pclk1_rate || !pclk2_rate ||
-> +	    !pclk4_rate || !pclk5_rate || !timer_rate || !uart4_rate ||
-> +	    !sdmmc1_rate) {
-> +		pr_err("%pOF: invalid boot clock configuration\n", np);
-> +		goto err_free;
-> +	}
-> +
-> +	ret = h7rs_register_fixed(clk_data, STM32H7RS_SYS_CK,
-> +				  "h7rs_sys_ck", sys_rate);
-> +	if (ret)
-> +		goto err_register;
-> +	fixed_count++;
-> +	ret = h7rs_register_fixed(clk_data, STM32H7RS_HCLK,
-> +				  "h7rs_hclk", hclk_rate);
-> +	if (ret)
-> +		goto err_register;
-> +	fixed_count++;
-> +	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK1,
-> +				  "h7rs_pclk1", pclk1_rate);
-> +	if (ret)
-> +		goto err_register;
-> +	fixed_count++;
-> +	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK2,
-> +				  "h7rs_pclk2", pclk2_rate);
-> +	if (ret)
-> +		goto err_register;
-> +	fixed_count++;
-> +	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK4,
-> +				  "h7rs_pclk4", pclk4_rate);
-> +	if (ret)
-> +		goto err_register;
-> +	fixed_count++;
-> +	ret = h7rs_register_fixed(clk_data, STM32H7RS_PCLK5,
-> +				  "h7rs_pclk5", pclk5_rate);
-> +	if (ret)
-> +		goto err_register;
-> +	fixed_count++;
-> +
-> +	timer_hw = clk_hw_register_fixed_rate(NULL, "tim5_ker", NULL,
-> +					      CLK_IS_CRITICAL, timer_rate);
-> +	if (IS_ERR(timer_hw)) {
-> +		ret = PTR_ERR(timer_hw);
-> +		timer_hw = NULL;
-> +		goto err_register;
-> +	}
-> +	uart4_hw = clk_hw_register_fixed_rate(NULL, "uart4_ker", NULL,
-> +					      CLK_IS_CRITICAL, uart4_rate);
-> +	if (IS_ERR(uart4_hw)) {
-> +		ret = PTR_ERR(uart4_hw);
-> +		uart4_hw = NULL;
-> +		goto err_register;
-> +	}
-> +	sdmmc1_hw = clk_hw_register_fixed_rate(NULL, "sdmmc1_ker", NULL,
-> +					       CLK_IS_CRITICAL, sdmmc1_rate);
-> +	if (IS_ERR(sdmmc1_hw)) {
-> +		ret = PTR_ERR(sdmmc1_hw);
-> +		sdmmc1_hw = NULL;
-> +		goto err_register;
-> +	}
-> +
-> +	for (i = 0; i < ARRAY_SIZE(stm32h7rs_gates); i++) {
-> +		const struct stm32h7rs_gate *gate = &stm32h7rs_gates[i];
-> +
-> +		ret = h7rs_register_gate(clk_data, gate->id, gate->name,
-> +					 gate->parent_name, base,
-> +					   gate->offset, gate->bit_idx);
-> +		if (ret) {
-> +			pr_err("%pOF: failed to register %s clock: %d\n",
-> +			       np, gate->name, ret);
-> +			goto err_register;
-> +		}
-> +		gate_count++;
-> +	}
-> +
-> +	ret = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, clk_data);
-> +	if (ret) {
-> +		pr_err("%pOF: failed to add clock provider: %d\n", np, ret);
-> +		goto err_register;
-> +	}
-> +
-> +	pr_info("STM32H7RS RCC: sys=%lu hclk=%lu pclk1=%lu tim5=%lu uart4=%lu sdmmc1=%lu\n",
-> +		sys_rate, hclk_rate, pclk1_rate, timer_rate, uart4_rate,
-> +		sdmmc1_rate);
-> +	return;
-> +
-> +err_register:
-> +	while (gate_count) {
-> +		const struct stm32h7rs_gate *gate;
-> +
-> +		gate = &stm32h7rs_gates[--gate_count];
-> +		clk_hw_unregister_gate(clk_data->hws[gate->id]);
-> +	}
-> +	if (sdmmc1_hw)
-> +		clk_hw_unregister_fixed_rate(sdmmc1_hw);
-> +	if (uart4_hw)
-> +		clk_hw_unregister_fixed_rate(uart4_hw);
-> +	if (timer_hw)
-> +		clk_hw_unregister_fixed_rate(timer_hw);
-> +	while (fixed_count)
-> +		clk_hw_unregister_fixed_rate(clk_data->hws[--fixed_count]);
-> +	pr_err("%pOF: failed to register clocks: %d\n", np, ret);
-> +err_free:
-> +	kfree(clk_data);
-> +err_unmap:
-> +	iounmap(base);
-> +}
-> +
-> +CLK_OF_DECLARE_DRIVER(stm32h7rs_rcc, "st,stm32h7rs-rcc", stm32h7rs_rcc_init);
+Huh? How can an M.2 "Key E WiFi" expansion card being soldered to a
+"vertical M.2 socket"?
 
-Can this be registered as a platform device instead of using CLK_OF_DECLARE_DRIVER?
+AFAIK, once the metal shield(s) are unscrewed, it should be replaceable,
+see
+https://www.techpowerup.com/review/asrock-b850-steel-legend-wi-fi/4.html
 
-Brian
+But it doesn't matter anyway since the issue has gone ;-)
 
+Thanks,
+Rong
+
+>=20
+> [1] page 10 https://download.asrock.com/Manual/B850M%20Steel%20Legend%20W=
+iFi.pdf
+>=20
+> Thanks,
+> Rafael Passos
 
