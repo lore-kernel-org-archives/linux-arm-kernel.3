@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBADC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514ACC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fQlE679JObsFJHTkpZQZUZIILuIjOEy10+IeTfWR3d4=; b=0hkKNfETgUnMlHId4Dpfr4iJcs
-	0SFOqKHSyk0+kErEs/0YOJwcZCFDNN7SO7rDXaJuNgOidj3yLqse3fzD8CXz79u5EuGkiPXlHP/GS
-	lDuZ0GlReHjsQ9nul5lZMZpG/cpQgcj+T5q6nw3jVoy4zHEC0pa0U1P0wKY5uPvtowgrcbgsODkg0
-	Nu/1/g500CQpAXWgNvqLwr01XIztyRkSBrCBg9rbIgtqZ82Gcxn3kla/LiSR/RDHIxpL9P3CNJFy9
-	hAb3yofvUMXZkti1KuhJbaG3okE69W0xJx9mNLDHwP3JW12IvIbjxQi3aeyT/xG+mY7KbBWg4Ye5N
-	XOvHUGLQ==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7TW+EIblYSmY3UAv6OXokVKqXHCwpCq6qXK9NdANI4Q=; b=oYt8J6hD8Il8eQFc9zACmLOBhk
+	mSs4BGm6Zr4F9PH0Mt85vKalFtKngpAlLtvEnXKVr+ccGD60lFWyuubLJRFf9x+bFTErmszkyF+hM
+	FwzIhJeu9Uz/F3sHAI5anNdXKIQpo3IxJ5ZMgT7mENSFeuWwdIf2PAeARJ42PuPZAb46IxOFT5v9E
+	rGYMGgedRMtMXv2hXBlsjhafYuvr6Oxo/BGNPaRmS+MxEls68d8yPEnj8+7OViQZdnLBIin2YGCdV
+	czAbGNhRnCmRYODt5Q2SirJAJjyYtmfikEmWy+LLQanSpXxpbf2Dpxxt09cwpKPAK0VqrkRXUFKU+
+	HamOzgIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogXE-00000005Boa-3NDV;
-	Tue, 28 Jul 2026 12:03:48 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogXB-00000005Bmc-1I2d
+	id 1wogXb-00000005ByO-0Y7C;
+	Tue, 28 Jul 2026 12:04:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wogXQ-00000005Buk-488M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:03:48 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-38d489b6b71so3603787a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 05:03:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785240224; x=1785845024; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fQlE679JObsFJHTkpZQZUZIILuIjOEy10+IeTfWR3d4=;
-        b=ekwWWpZQ+H8cLyplWF56B+19PNp8Jja4S2KB1DxqC6jOTGI+3qqV7jHayt8uh1lqjZ
-         2P6ejgVEupET3uS/NU9ySVrF/ZEIBLj1gevm4ETEGOPGzut874SI7ApM8zSvbRvvjdRH
-         fCQUFc1/Lx18Roih4WBrrxRBguCYFoM2pZEw6xlawkjzSjamFBdij/mYrJVtXpq76EJc
-         GldW35F7s2Rkxa24rNDHkDiHFsiPO6vkn9QOxwDXgj8FaFUrVKlcq62OgNhet10ltBG7
-         UzgeJLXLz+ANe56FHZYqt4lW9UlU7smpHMAzNQ5sdlHMjg7nOnyCiwieAB7yHgiKM7S8
-         JBTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785240224; x=1785845024;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fQlE679JObsFJHTkpZQZUZIILuIjOEy10+IeTfWR3d4=;
-        b=FB9DiVcvQ5aO6HuxHIhS/3+MdHlO+SJgGkqqy+khR94bOlpgpuN2LsbhUXu0/JXVTI
-         pI8I2hFrFrvWT/P9+nT8N8p5XRTZEDTQ54UGkAo0EjtwgRleNpwmT7U5Ak8aamDTr4UN
-         zyRUDVxWuKyWaKC3No9DFCOdMr+MikaWe4Mh1yFVdRvTxvvh7I++qUaBTfxTMGrLPqUZ
-         OedBpMLEj5xw3H8h/2yco+a7kRnGFktxfV4EVjqhvwAI04nSIx4ZekD+cud+kPxgQept
-         rn7CKEKI78yFEcf44PwcU7LkdyLy6W/Sxv5Q6468cWwxj7fUFZwBoHQnReYDA6v/iHtm
-         p1MQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpKgKaZN8DpDkOV/9i2kuB2eXbn+G9dHxZIhNq/K/rEtPWHvC1iiryJdggPleynKwp2fIQKqZD+4WwG/5/v3Ja6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfdYFqG2T1bvJ+Vd6Bs2qHHsJqHaLOUIf1jX7FZiu+ps/A+8Ol
-	PM6NkiiQekPhdl1JI4jFB/EAK1sPlD4SzxIFZv+Mu2PaS8751gFtiO8mmI0mR+FyHIA=
-X-Gm-Gg: AR+sD13ssbuRLM8xuM+bM5Vs1dNM7LXcuDI+/ZvdmNNfAPVT4hltiEpnf0kHuJxQ1DM
-	RoZ4nQTDoWuT2DCepyDto4+HkMGgeVqXSaE3WfbtEqmOxdgUxFXbBy1iIVqZcxaAUaDUeI5AV4r
-	pM+vM7VNoZnS0SMumqG3y2U7RyOiBCnl9umjhB7ystdXlXyCqN82iNC2/3h5Q+AyrKx/1w4VHTo
-	O40RBxbA7af7hlzhROquMlR0ywxe4r1Fr1GEoYgQOr58gTeg2F91EJyO4gRUBElCFt3/Jrdxuxx
-	0olJT2jHz9idKw5JffbM4hj0DdOATvFsajnhbhUBvlUbmPHM1Xsh8D1OwSdV9tnL+a9++wPSaiM
-	7oEVyzwAB4/6VUtn7/RV7R9dDt934fbVShPvUXUNh4PgDnOPaSiSGkWiL2M+cBZxQoJ3DFrxisu
-	FecUlFhBXuL0FVHGmVzGzhBMBIyg==
-X-Received: by 2002:a17:90b:39ac:b0:38d:56aa:6f32 with SMTP id 98e67ed59e1d1-38f6a4c6bbbmr2080804a91.38.1785240224085;
-        Tue, 28 Jul 2026 05:03:44 -0700 (PDT)
-Received: from localhost.localdomain ([103.179.230.124])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-314bc419c52sm42878472eec.10.2026.07.28.05.03.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 05:03:43 -0700 (PDT)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: ryder.lee@mediatek.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com
-Cc: robh@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Subject: [PATCH v2] PCI: mediatek-gen3: Fix 64-bit type truncation in mtk_pcie_set_trans_table()
-Date: Tue, 28 Jul 2026 12:03:01 +0000
-Message-ID: <20260728120301.3188-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	Tue, 28 Jul 2026 12:04:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35E3E168F;
+	Tue, 28 Jul 2026 05:03:54 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D980E3F86F;
+	Tue, 28 Jul 2026 05:03:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785240238; bh=QPMGxfL7sRTASsW/WHWUTA/jar9afmNRd3cjtJDfS60=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=lI2HlSLEWWdzGRHJUWPkDET2bYIhr+PKaIuu/cVoXdNqZOKj2PnlZn8Rx6MLNH+F0
+	 WeD7R+qbMzYIRM67Ka4N1ZcUXfJsMH78O6Hc1MPjbVUE4iwhsPzCOhFHmuEU3MKK5P
+	 vIL2NjO7vAlNUN6P5TLN9tSgX/hiZKT88cPCR3e4=
+Message-ID: <54c60aa5-6fd7-44fd-9a9c-2d7e658e8c7f@arm.com>
+Date: Tue, 28 Jul 2026 13:03:50 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] perf: Generic hotplug/cpumask for system PMUs
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org, mark.rutland@arm.com, peterz@infradead.org,
+ mingo@redhat.com, acme@kernel.org, namhyung@kernel.org
+Cc: alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, james.clark@linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1784911757.git.robin.murphy@arm.com>
+ <d85ac6d5f5f6383be5b882b6694052eac8062ced.1784911757.git.robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <d85ac6d5f5f6383be5b882b6694052eac8062ced.1784911757.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_050345_387778_F97979B4 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20260728_050401_113601_176B44FF 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,78 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The variables cpu_addr, pci_addr, and remaining in
-mtk_pcie_set_trans_table() are of type resource_size_t, which is 64-bit
-on 64-bit architectures.
+On 24/07/2026 6:48 pm, Robin Murphy wrote:
+[...]
+> @@ -12918,6 +12943,17 @@ int perf_pmu_register(struct pmu *_pmu, const char *name, int type)
+>   	INIT_LIST_HEAD(&pmu->events);
+>   	spin_lock_init(&pmu->events_lock);
+>   
+> +	/*
+> +	 * Finally, if appropriate give the PMU a chance to pick an initial CPU
+> +	 * affinity for its cpumask, or initialise any general per-CPU state.
+> +	 * Note that we're serialised against perf_event_{init,exit}_cpu()
+> +	 * themselves here by virtue of pmus_lock.
+> +	 */
+> +	if (pmu->init_cpu) {
+> +		for_each_online_cpu(cpu)
 
-Using 32-bit helpers fls(), ffs(), and BIT() causes 64-bit integer
-truncation when computing window sizes and address alignments above 4GB.
+Having thought about it, while the drivers I want to convert should all 
+be fine with a potential double-init, I guess it is true that an 
+outgoing CPU in between CPUHP_AP_PERF_ONLINE and CPUHP_TEARDOWN_CPU 
+would still be in cpu_online_mask with interrupts enabled, and thus 
+potentially able to be picked by the driver callback, and thus end up 
+inaccessible unless and until that CPU comes back again. So indeed for 
+true race elimination this probably should use perf_online_mask. I'll 
+save spamming a v3 until I get some feedback that the overall idea is 
+worth pursuing at all, though.
 
-Fix this by switching to fls64(), __ffs64(), and BIT_ULL(). Note that
-__ffs64() uses 0-based indexing, so the '- 1' offset is removed. Additionally,
-return -ENOMEM when translation tables are exhausted to prevent silent failure.
+(But I shall continue to ignore the rest of the twaddle from word-salad 
+models which apparently can't differentiate "initialise" from "allocate"...)
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
-v2:
- - Replaced non-existent ffs64() with __ffs64().
- - Corrected 0-based indexing logic for __ffs64().
- - Returned -ENOMEM on translation table resource exhaustion.
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+Thanks,
+Robin.
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index bcbd08c82a5c..67635af0ed2a 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -7,6 +7,8 @@
-  */
- 
- #include <linux/bitfield.h>
-+#include <linux/bitops.h>
-+#include <linux/bits.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/delay.h>
-@@ -334,10 +336,10 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
- 
- 	while (remaining && (*num < PCIE_MAX_TRANS_TABLES)) {
- 		/* Table size needs to be a power of 2 */
--		table_size = BIT(fls(remaining) - 1);
-+		table_size = BIT_ULL(fls64(remaining) - 1);
- 
- 		if (cpu_addr > 0) {
--			addr_align = BIT(ffs(cpu_addr) - 1);
-+			addr_align = BIT_ULL(__ffs64(cpu_addr));
- 			table_size = min(table_size, addr_align);
- 		}
- 
-@@ -349,7 +351,8 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
- 		}
- 
- 		table = pcie->base + PCIE_TRANS_TABLE_BASE_REG + *num * PCIE_ATR_TLB_SET_OFFSET;
--		writel_relaxed(lower_32_bits(cpu_addr) | PCIE_ATR_SIZE(fls(table_size) - 1), table);
-+		writel_relaxed(lower_32_bits(cpu_addr) | 
-+				PCIE_ATR_SIZE(fls64(table_size) - 1), table);
- 		writel_relaxed(upper_32_bits(cpu_addr), table + PCIE_ATR_SRC_ADDR_MSB_OFFSET);
- 		writel_relaxed(lower_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_LSB_OFFSET);
- 		writel_relaxed(upper_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_MSB_OFFSET);
-@@ -375,9 +378,11 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
- 		(*num)++;
- 	}
- 
--	if (remaining)
--		dev_warn(pcie->dev, "not enough translate table for addr: %#llx, limited to [%d]\n",
-+	if (remaining) {
-+		dev_err(pcie->dev, "not enough translate table for addr: %#llx, limited to [%d]\n",
- 			 (unsigned long long)cpu_addr, PCIE_MAX_TRANS_TABLES);
-+		return -ENOMEM;
-+	}
- 
- 	return 0;
- }
--- 
-2.54.0
-
+> +			smp_call_function_single(cpu, perf_scope_init_cpu, pmu, 1);
+> +	}
+> +
+>   	/*
+>   	 * Now that the PMU is complete, make it visible to perf_try_init_event().
+>   	 */
 
