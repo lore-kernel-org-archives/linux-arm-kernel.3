@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5410FC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC1AC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HkulgSOCZGvWgmFz9IJgFFBKyu+uGed2Tn7GqlTAY60=; b=WYNOzgfrdeF9jhOKdgLPef6hDN
-	wrWSGSjiM4Z8syRZT+9BTz5n32rNRUqIHeliRkBrJz4Pw39YXPHm0fQLkcBI90TgsMKdqm2yexym+
-	10rUpa7skqd3M4CMdjHqa6bMCcf0e1UjWAVaqjTwmLuzaXmlgYLEMYbHujpxBoHKNQmCRtTcaGpIr
-	YenyVK1o5SGBJ/n7t5l5APIJ3bXduueJEMEAurmOlwBKh5tdc5gLUY9qYpCdjQNbiYuA7E2Qjg9z6
-	NKG6IY6smCflM5UrBlysN8hSnh0Qd3J4AUM7bQ/CTsWSuVi61PZXbfvRcb8CXeFPquAmLGs0BauhD
-	1OG14fPA==;
+	bh=nalu+jHAn8oG2MOkOgH3K8VuqE2FZCyexEoTbT5+0qE=; b=OWiUVcQHvDm81FOIsalkkmH++m
+	Zf1x2wMdtCt0gAtqan3J8sKEJrDPNCUXYl8yZKcXXm4/xv1L8b6K+qbF4Fs3FJcoLxh0oyJVcs6tn
+	tIl/jWg/Hf6JqgN1+fwjb8F3zwAgJXyk0lnsxynapayJ04Qr6XqHBGCRtQeEijePOsMCBlxV9/vrh
+	Rv3TlOBoznvT6dWqQZ3oUwEOigLsYjNmfUlYxmdWMhGDvcyjnAHUkhr9OBHQGRA/p0EOx1jE7qkAl
+	mwWkFbgWZ314AKm9W2GHPkgIpniURNvIJsYiOzu9n6713mYlev4uNbP5Uy8WWesKxJCjjQ0qvHIG8
+	eVy6+UXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogSV-000000059j3-00BO;
-	Tue, 28 Jul 2026 11:58:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wogTU-000000059u2-0frL;
+	Tue, 28 Jul 2026 11:59:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogST-000000059ic-3zLM
+	id 1wogTT-000000059tG-0Iff
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 11:58:54 +0000
+	Tue, 28 Jul 2026 11:59:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23AE860A9B;
-	Tue, 28 Jul 2026 11:58:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 417541F000E9;
-	Tue, 28 Jul 2026 11:58:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4AAC044E52;
+	Tue, 28 Jul 2026 11:59:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A101F00A3F;
+	Tue, 28 Jul 2026 11:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785239932;
-	bh=HkulgSOCZGvWgmFz9IJgFFBKyu+uGed2Tn7GqlTAY60=;
+	s=k20260515; t=1785239994;
+	bh=nalu+jHAn8oG2MOkOgH3K8VuqE2FZCyexEoTbT5+0qE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=oWsh+qusUKpDaopoUAxOKyZfURSKVUy24GdTuzPwxQ8pRWJlZgRKpZ0gu1Mn/Ef+k
-	 iD6tZJEaoGLU7zrkGltPx/vaMSHHLvhczj5ex3MJqpz+SaZ5DsA93D9C/aSbGyv7Vi
-	 uIQS5QBryja4estlgw/qIlxJUE2STR1ork7994sXjFQY08KhVLMHo0ChEhOYG1QHHF
-	 djzaDkIVuiaWmD6MTwfekN3M9U9FGzA+Doew7QgvqLitoPdGLaLazwDQqjdGq+DCoO
-	 4EUN5oaLOnhX9CF+493hJeA83UIFwWgPDLZc8CAv7kP1l9KtzKgQ7uJaA7JeJQF8Ym
-	 ZTQOk154RMfAA==
-Message-ID: <b2c668f3-addb-4c82-91c6-56651a601318@kernel.org>
-Date: Tue, 28 Jul 2026 13:58:41 +0200
+	b=heJes8n9WXaBrCl8l0ZCEgdYrwJB3O+6mzHN3jTb/GohegxXmHWdghduCMkCeyffG
+	 CmAAVTxeDCErzb6TrF52q5RKWCU2rauQljkFOCLAMol9Ze1tloLkSOT64AEOTRW8qE
+	 LVc3DIRJahiXfzwF4k5vpeUJi3CtK2gp5ncWvBWFW8cLpPT09G+BgF4cKPAnT7zqVd
+	 SQXbwVLy0S6F/SplKYdi4z0ekkjq0D8blAJua71Gq94WsbvDq8OClGovXMibQufQ52
+	 ZRnv3hWackEaR5V/AihykolL0BH40m4Vyk6YWyYHjS29fP6xN3HIE6+FsJHFbGyUeE
+	 C/G/fTi1goE/w==
+Message-ID: <8582d4f9-1a78-4f47-bab9-c52393dffbd1@kernel.org>
+Date: Tue, 28 Jul 2026 13:59:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/13] clk: samsung: clk-pll: Add supoprt for pll_4313
+Subject: Re: [PATCH 04/13] arm64: dts: exynos8855: add cmu_top & cmu_peric
+ clock DT nodes
 To: "raghav.s" <raghav.s@samsung.com>, s.nawrocki@samsung.com,
  cw00.choi@samsung.com, peter.griffin@linaro.org, alim.akhtar@samsung.com,
  mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com,
@@ -56,8 +57,8 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-kernel@vger.kernel.org, hajun.sung@samsung.com, is.gandhi@samsung.com,
  ts.amit@samsung.com, pokala.reddy@samsung.com
 References: <20260728121111.2077860-1-raghav.s@samsung.com>
- <CGME20260728115245epcas5p2ffe1f7c31c6dd85161445d61a94e82e6@epcas5p2.samsung.com>
- <20260728121111.2077860-2-raghav.s@samsung.com>
+ <CGME20260728115256epcas5p38cbcfe68218d08301d237705388e6e62@epcas5p3.samsung.com>
+ <20260728121111.2077860-5-raghav.s@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260728121111.2077860-2-raghav.s@samsung.com>
+In-Reply-To: <20260728121111.2077860-5-raghav.s@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,17 +121,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2026 14:10, raghav.s wrote:
-> From: Alim Akhtar <alim.akhtar@samsung.com>
+On 28/07/2026 14:11, raghav.s wrote:
+> Add required dt node for cmu_top & cmu_peric block
 > 
-> PLLs 4313 are found in the Exynos8855 SoC and it is similar
-> to pll_531x except for CON8 offset, so re-using code for
-> pll_4313
-> 
-> Signed-off-by: Alim Akhtar <alim.akhtar@samsung.com>
 > Signed-off-by: raghav.s <raghav.s@samsung.com>
+> ---
+>  arch/arm64/boot/dts/exynos/exynos8855.dtsi | 24 ++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
 
-Looks like name duplicates login.
+Please organize your patches in reasonable order. DTS is never in the
+middle, see submitting patches (both documents) and maintainer-soc profile.
 
 Best regards,
 Krzysztof
