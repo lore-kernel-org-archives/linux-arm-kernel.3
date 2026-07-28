@@ -4,201 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D958DC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 05:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ABD9C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 05:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CygZisX1jDSG4avMpdCuej8OInvJk0m+dEkU8Au8eH0=; b=vBTk2SCsYpT/c7HirqzuP5n8uX
-	rcdtPKdqR5jy68848R4ggxNJ9It8XQJnK4/E9lojYqOCpyJMXqpQUHJkYMKm045IlFvUPSVT9u7jo
-	oCynHFNLrM3GQpjy6x6/ji+WUis/PbikwK/5crAdoK0TYqnQpTO97pWKIkh7VG39/CNDYPF7k/qXl
-	0zcFuZWmE0QyrLnFPHNEdgDABDmfy7KX56l4NQ1aNB11rQyUox61viYNz4Gp/04XICUuKD+wvQAEY
-	qOPlW4pvWsRgBhkFb4jvhwtX1mBX875cHcO4wl/NpSGOh7EaHDF68CUP4Yn4lUfSh9Mk2wa7H5q6o
-	lzzhiG8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2cbZKs/vtIm2wOWW4KeBwiWZ3tHDef1SurLGGBaT6+I=; b=kvXeNoilhffFFY7m9MZgUknl7q
+	8Om2HMysWX6mkBPoXOYnJRoPAS6mBOjTqB4kzgtRbOal/++uCCfdYNVo34brnrZjwiSK7owVrlyln
+	IQ2U3G1PWichc8Ki5Hg6mbXFHuG+cEq9DalYtsIYwKczTFUsO/dfccBrzc3wbB2qmhZwcHZrtD9ui
+	GhhIe5h1wsboTvqgqwJMELMNDB94jDpn1ikWxK19THTA7zD2OrdPQ6qw4h7poLbhRTlkUI+ZRuztW
+	G6CBDQhLGl5jnHdzSw7HjvviS95X5DpJlrgdUe524D7O3PDw2OBgXq5+3c3PlueuORtJXcJhTd+W3
+	cH1/O+Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woa4C-00000004QQM-20bx;
-	Tue, 28 Jul 2026 05:09:24 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1woaLG-00000004RSo-3Y3w;
+	Tue, 28 Jul 2026 05:27:02 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woa4A-00000004QQ0-3NjW;
-	Tue, 28 Jul 2026 05:09:23 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66S4D8pC2740408;
-	Tue, 28 Jul 2026 00:09:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=CygZisX1jDSG4avMpdCuej8OInvJk0m+dEkU8Au8e
-	H0=; b=NSA2h2KxJHZqCbOvJYwpKxNJ/AcPrUzv9GieIdRVAQ/JmHGVjwex5J5cc
-	wWxmvBGvpHbSAd3qEbVwWbqMXRO91u/dDS20cE6HwhZeWJ4Yoz0WzqPypf0kb611
-	IAHYutAKRBUhlmCAVJ4tAKhK3sDuK+lLh4sBbkP9XzFpxYbWoanJ28xnxYjvyg4p
-	sdl43xRX+1JDvh8HR+vogouOGVSwCQieNgGZ5g2afiQ+Rr82x8shStFd9MMQ6MaF
-	WBTcDJZ9B7bHxt8/jWjoOmZFN9TlLzYv9KalCQEnIQt4ML4kEfgKju/FzLwBfvTE
-	ix5exc8mZLPD/cR+9jrE+VsGbF3Cw==
-Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010038.outbound.protection.outlook.com [52.101.46.38])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4fpn6sr7qw-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 28 Jul 2026 00:09:13 -0500 (CDT)
+	id 1woaLD-00000004RRm-28Yd;
+	Tue, 28 Jul 2026 05:27:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lwkUDsw2qlKBOcKxD+DIFTAZyIDBq1ln2J4DZK4C2cEecQQZm3iXWPMcliPxQMDIF9pE4FMmNeMqUfohj9nulwTHksvjIb+FDX8nkhtO/u0NLN6Js8AWALSJJeHxqF4daIzhHYpIWrGsj70bZBglcuT4bzK8D6bu3EhRn2iOD8ciLJK9ZfImWn9EaurjqbHfTcDq7xlyRP0Wfg/DSuUkffmU/xir07h2g4J52dnsBIylBV+lQ+Hfiyp/lD00FYB3+pJ40DOdDQnOVOrznqH30Gbxut3HYAeVvoS8FrFyDkkJ1qqvDygthq93rll5dL5DwEPSl7FClTUkWnhh9ZRLrA==
+ b=mvC2U9SajpB6SW0aQNpCS4lraBX417JkI2bKPaLKnjM2jk/7Ysg7NSda07et/kWeRLwp0UIKNRcAhHN1fD7IVEbItm+huYzLvlJQBQgSsGXa/Yjt8pjl3PNnq21VhlDZuIeLJaH4V7kgBPj4yVO7XXroqfkr1ZlpKDmNFUAoDhaeCc3hCkydYXW/dyOZDHkruYsicjU9fJSjPrXv2NOrhKCfA1rqHtW+F6HZ020FKCpVlcLcZU1lDRW895KU+/dmAAEP0ePpy9pOaqi8ZjgGINpLEVI2Z5fZM3eCdHO2u7GxJmpTNWTX0YIWW1m4mmRp1yjNcxSooWjxTpMvC1tB1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CygZisX1jDSG4avMpdCuej8OInvJk0m+dEkU8Au8eH0=;
- b=DI/4R6HWxVi1isN2zmhyI52wCt/6iNC1L8usuV0sOmxlTW33e4gxij815Itvzgf5mtkMcSmxlNOETUrEYTHvJh36F6FYZDPIH7lMDjh9YBHuJViU4scajRbg+sBMPBUzD3bLhO/juOX8p4cgEfZ6s/doZJ/wdPQ52p7rnQYQ9gJe4fMpxJWW479RmWNn0OQ8Uz1ZTFsqlRBo/JBbYGrrH1vHhCuRJJHcZ6TYW3ziQQr28X+1f5fIeIgcDiNPrnoBMpLk7LEnbIeFXhLZo3JPfzABwmMnwL1DLyZjcIkosPZukUiQgJTsMGeJuitoxN+cjSmTDuVWWAASRThQepLkOQ==
+ bh=2cbZKs/vtIm2wOWW4KeBwiWZ3tHDef1SurLGGBaT6+I=;
+ b=UPuH/Qwx+I+ZHyAzJn/9NRxZfP3vn38aauXFgOR9dfLJHpfWCzbzXwkDAzv5Sik/8UAgmLImymeV6d/WTqKMaoOkk1koPM/EDiX0c6BDhX/6CBeuqrXGTEL32teP8eOFM4uYncAItnckNlBZaPCed10brrYi62RB4kNp4mneczSBl2W8dkMkx6VcrV6RPVBiOeeM4PIgD7K4vQt2SkN5AIUi0IARCt5F45jV9vjRg1c9yzAjkjkxK0q6ujkgihh8FcP5Fo2/wgTBCmnjVf+1TQ8IhYHb6w2rhx79etz1JtUjAsBjyZXRj6LBDWKQgFRe5G/eAIImGQtNFN7lGKyWGg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ 165.204.84.17) smtp.rcpttodomain=arndb.de smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CygZisX1jDSG4avMpdCuej8OInvJk0m+dEkU8Au8eH0=;
- b=gj3C2i1vQQMeX4dmAHlSxIWalrEA5SJTFuBFXSEeUK92JDvw52Xzypown58Zf2yl7H7QuDcXfM348UvRVWYLesx38I/QDbk6GN7xebgix2Oqp/wPFnYeBqXFYKKGQig7kkuLlopt2TUCeMMR2BFRc8KQxa0i9+pzc1GB5zLMd+w=
-Received: from SJ0PR05CA0113.namprd05.prod.outlook.com (2603:10b6:a03:334::28)
- by CH3PR10MB7284.namprd10.prod.outlook.com (2603:10b6:610:131::18) with
+ bh=2cbZKs/vtIm2wOWW4KeBwiWZ3tHDef1SurLGGBaT6+I=;
+ b=P7uJCwMb+iLU+Bx5XamEPnWUrZhS0vVAP+qSDX8m1IBuu9rF8tHKm7ZMCCYsfdRclidTc3TGQjRupMKCKi6+OvHV6Z83iN1fPxdEgmIAoSgN0SLRSnBKcD93gFpVClWON8asPxkwU6jGP9+tYeaxxBMh55s0g2O5fqIfWczOnII=
+Received: from MN2PR16CA0058.namprd16.prod.outlook.com (2603:10b6:208:234::27)
+ by SA0PR12MB4464.namprd12.prod.outlook.com (2603:10b6:806:9f::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
- 2026 05:09:08 +0000
-Received: from MWH0EPF000C6192.namprd02.prod.outlook.com
- (2603:10b6:a03:334:cafe::5e) by SJ0PR05CA0113.outlook.office365.com
- (2603:10b6:a03:334::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Tue,
- 28 Jul 2026 05:09:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- MWH0EPF000C6192.mail.protection.outlook.com (10.167.249.102) with Microsoft
+ 2026 05:26:53 +0000
+Received: from MN1PEPF0000F0E2.namprd04.prod.outlook.com
+ (2603:10b6:208:234:cafe::23) by MN2PR16CA0058.outlook.office365.com
+ (2603:10b6:208:234::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.13 via Frontend Transport; Tue,
+ 28 Jul 2026 05:26:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ MN1PEPF0000F0E2.mail.protection.outlook.com (10.167.242.40) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 05:09:06 +0000
-Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 28 Jul
- 2026 00:09:04 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 28 Jul
- 2026 00:09:04 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 28 Jul 2026 00:09:04 -0500
-Received: from [10.24.68.110] (uda0492258.dhcp.ti.com [10.24.68.110])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66S58slX1955238;
-	Tue, 28 Jul 2026 00:08:55 -0500
-Message-ID: <f38d195c-cff1-40f5-9db4-d9bb4e4ef156@ti.com>
-Date: Tue, 28 Jul 2026 10:42:23 +0530
+ 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 05:26:52 +0000
+Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 28 Jul
+ 2026 00:25:58 -0500
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+To: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, "Ingo
+ Molnar" <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, "Sebastian
+ Andrzej Siewior" <bigeasy@linutronix.de>, Charlie Jenkins
+	<thecharlesjenkins@gmail.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens
+	<hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+	<agordeev@linux.ibm.com>
+CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, "H. Peter Anvin" <hpa@zytor.com>, "Sean
+ Christopherson" <seanjc@google.com>, Thomas Huth <thuth@redhat.com>, "Jisheng
+ Zhang" <jszhang@kernel.org>, Ben Dooks <ben.dooks@codethink.co.uk>, "Samuel
+ Holland" <samuel.holland@sifive.com>,
+	=?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, Guo Ren
+	<guoren@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, "Sven
+ Schnelle" <svens@linux.ibm.com>
+Subject: [PATCH v6 0/8] futex: Use runtime constants for futex_hash computation
+Date: Tue, 28 Jul 2026 05:25:32 +0000
+Message-ID: <20260728052540.4728-1-kprateek.nayak@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-CC: <linux-pci@vger.kernel.org>, <imx@lists.linux.dev>,
-        Heiko Stuebner
-	<heiko@sntech.de>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        "Vignesh
- Raghavendra" <vigneshr@ti.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Niklas Cassel <cassel@kernel.org>, Koichiro Den
-	<den@valinux.co.jp>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
-	<kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Jesper Nilsson
-	<jesper.nilsson@axis.com>,
-        Magnus Damm <magnus.damm@gmail.com>,
-        <linux-rockchip@lists.infradead.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Shawn Lin <shawn.lin@rock-chips.com>,
-        Srikanth Thokala
-	<srikanth.thokala@intel.com>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        "Qiang
- Yu" <qiang.yu@oss.qualcomm.com>,
-        Bjorn Helgaas <bhelgaas@google.com>, <linux-omap@vger.kernel.org>,
-        Qianfeng Rong <rongqianfeng@vivo.com>,
-        "Mingkai
- Hu" <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>,
-        Minghuan Lian
-	<minghuan.Lian@nxp.com>,
-        Jingoo Han <jingoohan1@gmail.com>,
-        Yoshihiro Shimoda
-	<yoshihiro.shimoda.uh@renesas.com>,
-        <linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-        Nicolas Frattaroli
-	<nicolas.frattaroli@collabora.com>,
-        Yuho Choi <dbgh9129@gmail.com>, <s-vadapalli@ti.com>
-Subject: Re: [PATCH 2/2] PCI: dwc: Handle return value from endpoint .pre_init
- callback
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-References: <20260728012548.465139-1-marek.vasut+renesas@mailbox.org>
- <20260728012548.465139-3-marek.vasut+renesas@mailbox.org>
-Content-Language: en-US
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-In-Reply-To: <20260728012548.465139-3-marek.vasut+renesas@mailbox.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6192:EE_|CH3PR10MB7284:EE_
-X-MS-Office365-Filtering-Correlation-Id: 92bb7e50-2eca-47f0-49f4-08deec665978
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E2:EE_|SA0PR12MB4464:EE_
+X-MS-Office365-Filtering-Correlation-Id: 69696a21-0a54-4ba0-ec93-08deec68d507
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|36860700016|82310400026|4143699003|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: XXE1korwt/FKOhc3WdfyX1tCUaSK3TZ/aWkWtEEN0/dW/V8N05Ydh4AjNzB1kQ2djC7IpR5w49ajoDbIStL0cT/WQCxDxC9xXZymEMzgmYuIccmzYqiekJ5lOasqAtuBwClDCjSg16Zbz5UtyevcJBNS7puC3IUtr2kxZk4dizAUadlK16onZucBGZXv8ihKM66BnVi0Pn+z3pkOKbrikQdXe3ZBuepx/sP3dKx+8PgWOLRh/4bnSj9yDx4Z6ZA3vMbdxQGs7Nku15u1SgQPOzXn4NEaHsj1NVJtyACIVFneVUmciupcSQ3JT1iFUADUUBmGL+rqNatsGBnIPNQEjt7kVUMPVITezHqdMhhDN0AnFq5RaRGx3KZ6GKDE3xaNe+2EaFxYkn7W8N3okQFQLLsnkzAxNU38tNs8p/TEhlwQESjDMHuWHmJsIn7092sAmByjhKu+lq5CI0w76xcuCUTX8PsaON9rY3iqkyT4MzBuxwEjWteys/LB6KvNZqFPp+5ard/9U7uUjAxqZ1GB01cehbSCHHQv4jHVwDDt3MtsVMDPXIalYAL2MqiUs4tFQT0dIL4eRn7OMSoniEYz1gFSjDO1NjZUbOgeNdEZzOgX06gysgeYaujwMKwuxHJ9KAaee+/MPYV7Ck2QpWX8hUi+mcjAJGwxC15TzrEo+OZgPUbQuObxXWpazVcp24bYWJnUiCkhOtaqnHQr5nPrrw==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(36860700016)(82310400026)(4143699003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|376014|30052699003|82310400026|7416014|11063799006|10067099003|56012099006|6133799003|921020|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: B4dUZnbBGpKyWd60rHMeH05nCh8CAo9vmlEpSmLqgWtfTVt7fyge5vaXFuXHgRKV+QQ1fQdP5v6RSwFqyeRIEcvfDnHvxjNwxqKIXZLk5M0nFo5FDHCZ7Y4gJtgHOmd7VTQrMSMIifQMqbmiod5F2EG3b9B+zUVoS1o0VeqHrufdBH/uffwox39UayzPf/4RvDh8I+zSD+fdgF48lJf57YdMRE7Aps+KfjtjQM5Ny/gj7gEHMqJeN8qRcSa801888UzPhL8/CfuHp6LuvLAA5xaU8bX7wSi9ejd9HtbfIChHFyvAmhk+4UqJXrRdPd40AVh7DWxpqidzLPBMvt7GhwnhMBRmkTB+RgxXCVRaF7FjMncjQEALmef0MC51cSizafIJkWbPbnYTSxWwpc9LOVNJ+AGuDhx/bxMb1n4U3HsF+/TqvoKhXTTfCHH6Iewjq07nTN63n5VVM2IkXWaEHGF2eriDs1fgpt8xL5JQ1nMFyTajNIgweXZidrjGBiYQTiNVDbxQswEtT6hJtWWP6FSMYl1LIyZgz0Rg1Yuy2uK3XOkgpehhJAunRsGWGPjN7PGRj0QilyCuh+LqMRLpp0B2OM2WyKfmhiMIEjT2sBytUXehG1O7xnE+mBiA/6E0udPe/dDLHr5CJyBgkKwPbpq/4eIzbIl/LqIuo+hFQECN/lJd06DOVM+e/5ZaZ8Py
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(376014)(30052699003)(82310400026)(7416014)(11063799006)(10067099003)(56012099006)(6133799003)(921020)(18002099003)(13003099007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Gzd9ez6Znucj6z6nKy9YHrB7iW5nxgTkYYdf16Nuz9yt1c7j1TWSudTJSdft+WUKyB+4vA17I8MgGEUBTy3rpRa2f7pjICAttvDwKfsE/Vj2QVz2MnPl+caX7xXJB1/KPSNH1MHtkhrdEI+TjnB/K/SOyAnuBm35bMEFhCgm3paKHX/+0vNHbmey/KtLgKgZ8Pbz66YSlw8XwySUKF70c8H+P2o6XMB2+WshS1WINUpn/SvOiyGrE19g5Szzd5E3R60uFQV7T4hgNaNhAaZxXqak62uuRO8clctZpw/s53n0w/6i3Cq2qSjfyMe863KYynfqkNvf83XbdpQJQMKWm0LaZuVnD1fUHKVhI4FfW6J6o3SKr9ue0n0J6WH1kKcgzW2DK6l1Q2KhtBkT+fDwaoBabF8KrMK06JENtxoYsqH7BqMM4McJ4KlRyR/30C3x
-X-Exchange-RoutingPolicyChecked: cr+JFHgjpkQ6UEcdvLBjZcEoOc70IQhbNt57ByRUbZEDovbA4AbAvgPdVRXzxuJH1PE8KuTXteDQS9MnDDkKQ2dk8rLT2ikxSuTb0vFz91UygjsqTd+ufVBVJ0nR7CRS0prRVSS8sfohZTOxOiPKFFOAIKB3xIbfRgbv5vW59iHBC7H0WcIg3vGDKNKPN3Tj/f78yjQFA5TuVU6NDFVNgKa82iXvNEijBEDrhgF9fGVvFzXqrfvYcr0BPUrgu3TVAI9zMD2Lr+L+5w8+f3ffGrCuXYQ1+cs2kDUiHr/fbFyguUKq5+rcqwcRwaa0pSLBLM/apw4rZaOK67MQL3t34A==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 05:09:06.4093
+X-MS-Exchange-AntiSpam-MessageData-0: F1rkA++Z0AMNN6TYWqp6o8KodbbMN1rq+9NCwfDf0AskhFRf3FcTSVGKgEGExhRbutKi/ul/VzdpuvKNTCxzjn+nOmloDeGPitAWfVzZ2G3SlkwOc55dp4CggRiHOkcxeih8jdh5Qm8Cv+qq9PyX61rdbw2lRVLy+3v3G+laFOcce9y14zBycrGkt1zcq9YcziHMVaRDyOVn94UKhL99zheffQK9/U2/3dkoVFVSpy5uhj0Wz8ZJxVDN6DCVRD5+ja20N7wkMu0N5vfkIImRrl9M9C6XC2ts8kyxaTjO5mjtYVPr+uG3kkIxld/HmTyrlxqMyqJJ80L3k6vGLXNOTlvqK68HdfIuOeGiXq6DiSvbzvgSa+ksERo6uyzy/JIjaixFtyalQE8BcrcmNKKclamZzmvWKWCYlb9yy1svn/pPgK91SvaL+NTl39Ck7G9S
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 05:26:52.7580
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92bb7e50-2eca-47f0-49f4-08deec665978
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6192.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 69696a21-0a54-4ba0-ec93-08deec68d507
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E2.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7284
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI4MDA0NSBTYWx0ZWRfX6jZJgxPrMZD/
- UGEEY2NxWYlJKng5IapIZDKofi4Mzuw745LRBpsViE68E/wXlgdveF+EEM4fSgXP0jqERi2hWDJ
- ilbJNjnre1oHSepCoXdtPZa7DCz8BxoEdJyMJHfd06S4Hlvm38bvlI0EsoaCfdoRRfgkQI7m9dG
- KfdsLK0WC3DdSFPpFE067jQLHra8Ii2npZxxNPv+5IYLt7gYFdzqRPMyH9wcKjl7ybQGIVesLAd
- MbEKmFYat2pt1JPXo/ZB2PdU+0p2k+uXNW0cWfOrBQkrktSg4rGeqKaWrkW5MoksRljFPk49o0o
- W2hgqL0fN8dMb4rY1q2lz9B4+ZNDMExJAecBkws2EGK8W2+lsJMfYLbcBeNJzWgQS26Htqwys/R
- FhVMertccpTnUlXfBlcs8KaXlo1ljGLrnvgvXjooqmJidivvbbVzIOmpPwRNZ2Q8jw3Ko+YYr0v
- hPZtnnxXFlRpFn7doTg==
-X-Proofpoint-ORIG-GUID: KVdMH0_ZB_Rtd6aFPyhQZuXNPEAbcpfk
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI4MDA0NSBTYWx0ZWRfX+tmztf0EdklD
- dQK8hc8V7E9aDdIrCOESnWtJSidiSbySAhqBH1VZ2DbXV0ziwyo5QqGmIsYYf9ga7PVLFBME2AS
- gqoff67WLAQXlHRX12crrf16eD0K0k0=
-X-Proofpoint-GUID: KVdMH0_ZB_Rtd6aFPyhQZuXNPEAbcpfk
-X-Authority-Analysis: v=2.4 cv=dvnrzVg4 c=1 sm=1 tr=0 ts=6a683979 cx=c_pps
- a=aFbGVCYh9COm6MyaDWiF6Q==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=gO1vWkAQAl3rybz1DQOp:22 a=b3CbU_ItAAAA:8 a=sozttTNsAAAA:8
- a=bF27UdnnnCdax2b7sEsA:9 a=QEXdDO2ut3YA:10 a=Rh4KQ1K2KoEA:10
- a=Rv2g8BkzVjQTVhhssdqe:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-28_01,2026-07-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1011 phishscore=0 spamscore=0 adultscore=0
- priorityscore=1501 impostorscore=0 malwarescore=0 bulkscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607280045
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4464
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_220922_861564_EE206B70 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260727_222659_551867_80802313 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,13 +136,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/26 06:54, Marek Vasut wrote:
-> Add return value handling for struct dw_pcie_ep_ops .pre_init callback.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+tl;dr
 
-Regards,
-Siddharth.
+This series introduces runtime_const_mask_32() and uses runtime
+constants for __ro_after_init data in futex_hash() hot path. More
+information can be found on v2 at
+https://lore.kernel.org/lkml/20260316052401.18910-1-kprateek.nayak@amd.com/
+
+Notable changes in v5
+=====================
+
+Intel test robot flagged a case of compilers re-ordering the
+runtime_const usage before their initialization in futex_init() at
+https://lore.kernel.org/lkml/202607091538.58e3f39-lkp@intel.com/.
+This was fixed by adding a barrier() after the runtime_const_init() bits
+in futex_init() to prevent this re-ordering.
+
+Sashiko flagged that __fls(val), when val is 0, can be optimized by the
+compiler to consider val as non-zero and silently optimize the
+BUG_ON(!val && ...) to only consider the latter bits, skipping the !val
+check. Fix this by explicitly checking val before __fls().
+
+Testing
+=======
+
+Apart from x86, which was build and boot tested on baremetal, all the
+other architectures have been build and boot tested with cross-compile +
+QEMU with some light sanity testing on each.
+
+Patches are based on:
+
+  git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git master
+
+at commit 8d0b0ef04514 ("Merge branch into tip/master: 'x86/tdx'")
+(27-07-2026)
+
+Diffstat from v5 is essentially 5+++++-- with effectively 3 lines of
+code change and 2 newlines; Resending for convenience since adding
+parital diffs to v5 was getting too finnicky and this is easier for
+pickup.
+
+Charlie's optimization for RISC-V bits to patch slli + srli with
+andi + nop if mask fits the immediate encoding is left to a later series
+once this is merged.
+(https://lore.kernel.org/lkml/178366995930.1208691.2993932866462893112.b4-review@b4/)
+
+Few comments from checkpatch.pl have been ignored to adhere to the style
+of the particular file. If something needs addressing, please let me
+know and I'll address it with a v6.X fixups unless there is a larger
+change that will require a re-spin
+
+Everyone has been Cc'd on the cover-letter and the futex bits for the
+context. Respective arch maintainers, reviewers, and whoever got lucky
+with get_maintainer.pl have been Cc'd on their respective arch specific
+changes. Futex maintainers and the lists will be receiving the whole
+series (sorry in advance!)
+---
+changelog v5..v6:
+
+o Added a barrier after runtime_const_init() to prevent compilers from
+  re-ordering their access before the initialization in futex_init().
+  (Sashiko, Intel test robot)
+
+o Added a zero check before __fls() to prevent smart compiler
+  optimizations of a later BUG_ON(). (Sashiko)
+
+o Picked up Peter's S-o-b from his tree.
+
+o Collected tags from Charlie. (Thanks a ton!)
+
+o Rebased on latest tip.
+
+v5: https://lore.kernel.org/lkml/20260630045531.3939-1-kprateek.nayak@amd.com/
+---
+K Prateek Nayak (5):
+  arm64/runtime-const: Use aarch64_insn_patch_text_nosync() for patching
+  arm64/runtime-const: Introduce runtime_const_mask_32()
+  riscv/runtime-const: Replace open-coded placeholder with RUNTIME_MAGIC
+  riscv/runtime-const: Introduce runtime_const_mask_32()
+  s390/runtime-const: Introduce runtime_const_mask_32()
+
+Peter Zijlstra (3):
+  x86/runtime-const: Introduce runtime_const_mask_32()
+  asm-generic/runtime-const: Add dummy runtime_const_mask_32()
+  futex: Use runtime constants for __futex_hash() hot path
+
+ arch/arm64/include/asm/runtime-const.h | 63 ++++++++++++++++----
+ arch/riscv/include/asm/asm.h           |  1 +
+ arch/riscv/include/asm/runtime-const.h | 82 ++++++++++++++++++++------
+ arch/s390/include/asm/runtime-const.h  | 22 ++++++-
+ arch/x86/include/asm/runtime-const.h   | 14 +++++
+ include/asm-generic/runtime-const.h    |  1 +
+ include/asm-generic/vmlinux.lds.h      |  5 +-
+ kernel/futex/core.c                    | 44 ++++++++------
+ 8 files changed, 181 insertions(+), 51 deletions(-)
+
+
+base-commit: 8d0b0ef045143e7ebf2b4c3ad5347bc1e0e45a80
+-- 
+2.34.1
+
 
