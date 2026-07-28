@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03A4C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2358C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HfhT+ID3fPeDtksWdXaPKj48BAsIgjyAU5KW0xjSCGE=; b=Ee0CydiP50fe1yh675DRpgWc+w
-	2E9ZPzWAAWR5pmjmZvLHB3Y1H3qy1/N9hLwIM7fUvaR24hlhSHIimYa71MGTr1xljqFu6yM0ahFp1
-	yIE906oLgRiekews65Rqdxit430gGN55k1jU2QYCvb1YSUaqIr1rfXp0caPB7HiWCgUK2H+f93bu5
-	xmKM84GmKBiZFMSP4FhE8AsqdZAp0Q4G1ZIMQNRI9HuTGeGkLbtr9pTEoJE+QN9ZCRqWSPtxH+Vgp
-	mt9KAlzFS5TYVi9ue1LrbmgzfiNjWKcpHqHffAiqj1hjm9hTn5hEODgXHqQSf1JO1Uog4oRnucoFS
-	4urpajmQ==;
+	bh=JHPfV3RD6vW2cC87Nx8I0nem5pmDVBJJlTYT0fbqMW0=; b=2EJZIMhsUsHe9Y6G0UVHafHKph
+	jxfPjvv7r9yp8HSL1IzxNlLBSh5MogHUGbVIxA1xwe4QgwA13jZSG2/f3Vq+ElSsuGm/a3oPwMX4Z
+	BelxHPDJJN/U8/1oKK9QIbnIIKWxQTu6PH/o0oYcWueoUW6d1XMqJlgxHf+hLboPeMnhhyBG7l1Hu
+	cqKm05ZOeksJqp6BJPnjtl3s+zcQ2U7D0PrqyQ4WCl7Ui9DAQ9pFEZWaTpeQq6EnU1bgZttwXqrGM
+	eBf0empGgJlcczCAhn9XmYc5mIgL3zdZbgF8zr/Cf5iBRXgMavSGdYa75xDzDcUaUYamw20SD/YM2
+	En5LADjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woouu-00000006Fhn-177g;
-	Tue, 28 Jul 2026 21:00:48 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wop0E-00000006Fz7-0GMY;
+	Tue, 28 Jul 2026 21:06:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woous-00000006FhQ-0ImW;
-	Tue, 28 Jul 2026 21:00:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=HfhT+ID3fPeDtksWdXaPKj48BAsIgjyAU5KW0xjSCGE=; b=nXFp35a8/fHtQEC4CyFsp5EGXl
-	KaWzXbyWojsL2GTsNFuUJSn/UnkBPcJcgF34T2AqKNObB0cSvLg8IC2vDqwE5KJBUsimPcNBARSmG
-	qdwvZBMj4u+O4XGIZKU41rat3viDuejjTSQjLHtFOazfbcGMqCBD9UMJefuWJeami21o=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1woouc-00EhO7-Ij; Tue, 28 Jul 2026 23:00:30 +0200
-Date: Tue, 28 Jul 2026 23:00:30 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net 3/3] net: dsa: mt7530: error out on failed reads in
- MT7531 PHY polling
-Message-ID: <5f305d2f-7f5a-46b6-be73-2ab52f4ec016@lunn.ch>
-References: <cover.1785213071.git.daniel@makrotopia.org>
- <79e85d68d210cc37342978171aa6432aa2954333.1785213071.git.daniel@makrotopia.org>
+	id 1wop0C-00000006Fyx-2If8;
+	Tue, 28 Jul 2026 21:06:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 005F4418D1;
+	Tue, 28 Jul 2026 21:06:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77ABE1F000E9;
+	Tue, 28 Jul 2026 21:06:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785272775;
+	bh=JHPfV3RD6vW2cC87Nx8I0nem5pmDVBJJlTYT0fbqMW0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RTD4V4dmICcZrQHmHCByRSVOM4g7FmD4Rlx8Tc/7WrZ7Ocg6K08loPzrZupR7Vqum
+	 8xh8QIKhzs8r+1tC6mY+duoCntPjASXlplGkK0QO/7o+PZ+HEaMM95FA5qNAXKi4zw
+	 PFrZaYptH2Tbo2Bu0XBHC9pET8ZNbD8hLy+SuHovpGrNRYxequR4boeD3026UAzpd/
+	 uyJFpMiEneuuIFbkN+Mpc1Xems9fkDF1AzXSkn0fk8jivs9HVwWP6lm0Stxa5C5P3u
+	 ZTPmIXThwWAfhsxrB2av+b+RqJXPZ7koCPsyyFlaghz4E91aqYrgVkCF5jXcdAgTMX
+	 uH5b4rI8hs+ZQ==
+Date: Tue, 28 Jul 2026 15:06:14 -0600
+From: Keith Busch <kbusch@kernel.org>
+To: Pan Chuang <panchuang@vivo.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	"open list:ARM/APPLE MACHINE SUPPORT" <asahi@lists.linux.dev>,
+	"moderated list:ARM/APPLE MACHINE SUPPORT" <linux-arm-kernel@lists.infradead.org>,
+	"open list:NVM EXPRESS DRIVER" <linux-nvme@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] nvme-apple: Remove redundant dev_err_probe()
+Message-ID: <amkZxmW3hGbRvUa4@kbusch-mbp>
+References: <20260716033301.212797-1-panchuang@vivo.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <79e85d68d210cc37342978171aa6432aa2954333.1785213071.git.daniel@makrotopia.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_140046_107911_2C85E507 
-X-CRM114-Status: GOOD (  10.50  )
+In-Reply-To: <20260716033301.212797-1-panchuang@vivo.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,21 +72,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 05:52:29AM +0100, Daniel Golle wrote:
-> The MT7531 indirect PHY access functions poll MT7531_PHY_IAC through
-> a helper which returns 0 when the underlying read fails, so a failed
-> bus transaction clears MT7531_PHY_ACS_ST and the access carries on,
-> returning garbage PHY register data to phylib.
-> 
-> Poll using regmap_read_poll_timeout(), which stops on read errors and
-> propagates them. These functions hold the MDIO bus lock across the
-> whole sequence, so the unlocked regmap accesses remain correct. Remove
-> the now-unused _mt7530_unlocked_read().
-> 
-> Fixes: c288575f7810 ("net: dsa: mt7530: Add the support of MT7531 switch")
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+On Thu, Jul 16, 2026 at 11:33:01AM +0800, Pan Chuang wrote:
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() automatically logs
+> detailed error messages on failure. Remove the now-redundant
+> driver-specific dev_err_probe() calls.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
+Thanks, applied to nvme-7.3.
 
