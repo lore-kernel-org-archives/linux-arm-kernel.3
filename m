@@ -4,67 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152CBC54F4D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4335BC54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k6+R0LCxQeekp6wj7rvdvkEtiJ5BIDX3J9Wzr35njtk=; b=DFFWZgp9y6r3ZQlyjDt4cG3YAf
-	HGXenLkLVGRumK71He68i0nt27dJUy4BI9jSXdwKcNWO6xPnSDwB+9qVyZp206WzNNype8+jgS4oo
-	iTtK9qwEYnHXBcxXjmUwNCXjh0HM8WPqYHcQEkVHnedEzQeyXHn4Ohh4S5OZHjfCrXoQn7CBF2j6C
-	j5XbpcZphv9PUwGqkOFaQAQoJZHACpfVnnDYACTSswZvFk7AnCf2kyF+bnJs29hY9wfq/slctPDaj
-	+uaXUALx5tzzHvoDGAJEYlmX0MYLVFkuDw5LHe/aLv6aloAxeYdb+gTkSXna/KgBLmbCpqpNQ7/4P
-	EVw0TR/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I4ouknJ6ouyObU/Wmuf/u96aJ0ihFHT18F8q5urg/Lw=; b=i74JP07OpItNLr2pHNqQkeHqT8
+	W4zm3GSE7vDjZcyHI27twUbtUHtk0DugwesQVq/Y/5Cx4OEqna6L0FI/3cmZkQT1tU498QyAzDA+j
+	F/g8qaSdMg0j07tRjb5vpDGsyFme1Ag5jds/iHO3wxwPp2MwDkStIxxzgapCVhouiSPNec8KOXRJK
+	lACNqhgtAkuPHBgZhVZNQnrd+6eUwhX0Q51LezlVhjGuSi7E67dB2jea/mM9t5Q7l/48p4d7zR+Hu
+	etCZHOv7fSaffAsu/qGC7Pn5Gu2f9wkqBLWf5ERTlrCMuOG2/RT1p4m48AkECtqXFOy5Pjllm9UEl
+	lBGvDHZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wolei-00000005xe0-2PFQ;
-	Tue, 28 Jul 2026 17:31:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wolef-00000005xde-2l29
+	id 1wolh8-00000005xvA-3x31;
+	Tue, 28 Jul 2026 17:34:22 +0000
+Received: from mail-westus2azon11012066.outbound.protection.outlook.com ([52.101.48.66] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wolh5-00000005xui-3NCp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 17:31:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B526169E;
-	Tue, 28 Jul 2026 10:31:43 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 500643F763;
-	Tue, 28 Jul 2026 10:31:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785259907; bh=KwxVOT9RanBvHZZjm9RuSigNIRCQICh1YKEM1MGk1YA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NdB6N83X3iLpzBAs56YxTADvdNoNZXoS0zfJgLFb2XlYkQy2TH7DB2JXkyRnHUZXl
-	 MpeXExUY6kB+w7GT0Op7HI0Bud9xBTrMwOuKLk0qVrWzTWhu2yK43hZw7aYkKKUMvq
-	 LeqhuiBGAg5g3/XwD1qO7BaxvXDtzMHG5MRlXcs4=
-Date: Tue, 28 Jul 2026 18:31:43 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
-	bpf@vger.kernel.org, Florent Revest <revest@chromium.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huawei.com>
-Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
-Message-ID: <amjnf5gz0xP5PTSB@J2N7QTR9R3>
-References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+	Tue, 28 Jul 2026 17:34:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PgHyjB2gcCluxt7Btrnmb2MFpFMBPpJzCeHMGmOFtb9/OdV5zoNYOXhn/9+dErEBhnS/QMqAKZReGGEghkIpdhxxIRkW8d+gyCVB16VSo2f79Y4io6t1IVCrAh8SEm8S9mtDHzK/meGtPHxK0bf53YoYs/M/TBM1cgOwBt4Vay/OWKvHGY6zcPskjV/2JoSbxHyV3PpZtpPCnz/njYYt8C+ParsqR6o5UrUbDe4iABGXtggfLe63BFWHmhAAuRNSN0GN0TtIpqBnqkCYh/FizFArWpkY5Bvk6aWabFcZ5L5XSiGCFmHw+fK2l1X78Hl3UcE/Rn5qBiEEGerf47DXNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I4ouknJ6ouyObU/Wmuf/u96aJ0ihFHT18F8q5urg/Lw=;
+ b=u/zwCbYPXqYMlgAs8GzqgTFT+tyk1CL7VuxQlTXkRok9yQ764tSj13cFIuCOIBcMOBhgz33H9hlh4EQ1jj8DfyQ1nqoYvozuVQKFEn6NYNxiV+IyFbRpJlTDC9Uv5GlmCrOYY0CvDPPNwpMHg7LylWMEoP3ZkvtjBl0PhQfZs+sM/z8vp0i4/TzpQTCA1C5O7BrQpelvbjpEhW7YiSMkW2OuuOzF1wYa0UY6dMnJHSi59ngiwky0Ra4QACzDUjXtDRkFfXNSAlswlcUvk5zcRdOpPQm4mzFF/2JOz0ARKrS6w9728xEBze4kd38xe2bgH8MiuT9bI27Au2854oHrLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I4ouknJ6ouyObU/Wmuf/u96aJ0ihFHT18F8q5urg/Lw=;
+ b=hIrC+tCnwYkcQvRuWFAcKZes+4fO9ZaG0swUvn0hC5bqv4OBvvWg2w0EpqT9WWIkafJB2j7MlTuLde2I4jXMnmjDQ/EzggXGBXCXS6qFYhgiHlhvm0ORzjX4OLk10IothTQ2ZVMyj2LYQBth7s0rNi+Vx4/eGMWLTOsyQxh+p2/jqXawQRZnrKcfZNVA2cNmz5fq7+EvDWWVQ04N2QTrqWv7yxk0nh37RKR7EDaLjezxx/lM0t4n/CL0YiBmjxlOTckMGcsi/dpXjXLHkilkUR1caf+0VIeYg4skh6sIYMSidRc3m9Py9C08ZM4vS34+yRkaq6dLkTMHmQwzkvJ95Q==
+Received: from DS1PR07CA0019.namprd07.prod.outlook.com (2603:10b6:8:44d::10)
+ by DS7PR12MB9525.namprd12.prod.outlook.com (2603:10b6:8:251::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
+ 2026 17:34:07 +0000
+Received: from DS1PEPF0001709C.namprd05.prod.outlook.com
+ (2603:10b6:8:44d:cafe::94) by DS1PR07CA0019.outlook.office365.com
+ (2603:10b6:8:44d::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Tue,
+ 28 Jul 2026 17:34:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS1PEPF0001709C.mail.protection.outlook.com (10.167.18.106) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 17:34:07 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 28 Jul
+ 2026 10:33:45 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Jul
+ 2026 10:33:45 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Tue, 28 Jul 2026 10:33:44 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
+CC: Robin Murphy <robin.murphy@arm.com>, <joro@8bytes.org>, Kevin Tian
+	<kevin.tian@intel.com>, David Woodhouse <dwmw2@infradead.org>, Lu Baolu
+	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Pranjal Shrivastava
+	<praan@google.com>
+Subject: [PATCH v5 0/6] iommufd: Iterate the cache invalidation array in the core
+Date: Tue, 28 Jul 2026 10:33:32 -0700
+Message-ID: <cover.1785258826.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF0001709C:EE_|DS7PR12MB9525:EE_
+X-MS-Office365-Filtering-Correlation-Id: 961779af-b158-4e55-5e71-08deecce6d64
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|1800799024|7416014|376014|36860700016|56012099006|5023799004|11063799006|10067099003|6133799003|18002099003|3023799007|13003099007;
+X-Microsoft-Antispam-Message-Info: cqjTbUYC1lR+7oT6djks0bUiXFdrHmNVP4Q6hM8YqCgmZ+QNAbbHyG/ZTclPmLgiPOsRTXbO1oS4aw4QBvLcwayGW/7LD+OBzoEZHJFwXPkeyhxg/0NUCuarMqrAiGlN57jgacwciKmm1WzN89sdYpsqHU0jIcGGB7GD0/NrWEm7H9g0CVd76X8E39660pTKk6r6fBeLfPBNTf4c2t42gyxf5FnXf5gSaCw/Wjsrg7cHsHhruB1jK3obqk050UVc1iz/1WNSksbgsWXl+UDvb9J8WOnAqjbr2lgPQPaHLfdFOX92P9HkYQgjMBjyrOzdx1m/KaDQDwA6P7xSHHf/ZzxRYqEdgZY2jPZ2xpurulA+/95yLTOpU8Q2THrN2h+YRcwtVcg7liY2/dHJcTzjRw404yNoudcf3MBPcCoJ31pkFjPbQSq5+bHYEFEqb/kK95sKMx8co0QIzsjMMIyYz5x0fxfRroASgtK7bux9S9CiRhp31Hbekv5r8JQ7QAxdCUhzVmRvnfxGNqTEBAmHucHRnoRsSxcD4unaAZKkYBng3+G9jqZUHSGmEjWkleVjTa1sWsin71ekl7xGlAf7VgmBeBMbNF3XZjE5jvB9h4Te6NCAiNKT9tE3rzZhKIRi4NzlbdfSBbIfcUeGqWiR33g+xxnuxsdRcrN1aVUMQzUU7uiGGyDWhTPiLbJciEYDAEwmzVTtvwa8HeoHr1T9wA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(7416014)(376014)(36860700016)(56012099006)(5023799004)(11063799006)(10067099003)(6133799003)(18002099003)(3023799007)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Gx6qzoqvPExTM8SkRIr3Raw/i2/gYQEND+NJiZVNLQg8GzQR6PnZRg6ZFTUeP6wKnOeXlFn4MIeHY5TLuSODDLcVFdb3fNXdyAF9hMoD3dQu7oMIzlgpH2iY3QHBNT1Gv/owiGQvZbSkZNjK2rnJkksJB2uoznDdTp+Kgu7dvgQkWnx8Ynd9yBAL/MwPayU6giCVMlKDZjgAurysF4fO8ewE49CWFGhiXVfJ+EYzLvVgz5VtqgyY0A4ySfB1MRKzEVgV3K4DhaPEA9yCUb9u3I9reyOmjDmLxTEFWL5Di1cp49zIhfMnaGBg+kBnUXjsP92oYIw8I7/yhUkuzeluoPn3gUYS2f/zKQZVg/wNm1JzR9pa5r6mGfns8GfFsL3Kr0frLbZ7+qAcnF9Umiwn85o+5Zvprcawt/5WhwDBcdeI7fOCsQidrHfBpIKw/aTP
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 17:34:07.4467
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 961779af-b158-4e55-5e71-08deecce6d64
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001709C.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9525
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_103149_779325_B3126DFE 
-X-CRM114-Status: GOOD (  34.04  )
+X-CRM114-CacheID: sfid-20260728_103419_847437_531209BA 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,125 +127,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 09, 2026 at 05:19:25AM +0000, Jose Fernandez (Anthropic) wrote:
-> On arm64, HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS is currently selected
-> only when DYNAMIC_FTRACE_WITH_CALL_OPS is available. CALL_OPS, in
-> turn, is mutually exclusive with kCFI: the pre-function NOPs it needs
-> would change the offset of the pre-function type hash (see
-> baaf553d3bc3 ("arm64: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS")),
-> and the compiler support needed to reconcile the two does not exist
-> yet.
-> 
-> The result is that a CONFIG_CFI=y arm64 kernel has no
-> ftrace direct calls at all, so register_fentry() fails with -ENOTSUPP
-> and no BPF trampoline can attach: fentry/fexit, fmod_ret and BPF LSM
-> programs are all unavailable. Deployments that want both kCFI
-> hardening and BPF-based security monitoring currently have to give
-> one of them up. systemd's bpf-restrict-fs feature hits this today:
-> https://lore.kernel.org/all/20250610232418.GA3544567@ax162/
-> 
-> CALL_OPS is an optimization for direct calls, not a dependency.
-> In-BL-range trampolines are reached by a direct branch without
-> consulting the ops pointer, and out-of-range trampolines already
-> fall back to ftrace_caller, where the DIRECT_CALLS machinery
-> (call_direct_funcs() storing the trampoline in ftrace_regs, the
-> ftrace_caller tail-call) is gated on DIRECT_CALLS alone. 
+The vIOMMU cache_invalidate() and the nested-HWPT cache_invalidate_user()
+ops are each handed the full user invalidation array and must report, via
+array->entry_num, how many of its entries they handled. That makes every
+driver open-code the same array walk, with real downsides:
 
-It's true that this is not a strict functional dependency, but there is
-a substantial performance cliff here.
+ - each driver carries its own loop and sub-array bookkeeping;
+ - the ARM SMMUv3 driver allocates a buffer sized to the whole array just
+   to iterate over it;
+ - hand-rolling the loop left the ARM SMMUv3 driver with two long-standing
+   bugs:
+    1) on a conversion failure it counts commands that it converted but
+       never issued, so user space skips invalidations that never reached
+       the cmdq;
+    2) it rejects a zero-length array, which the uAPI documents as a valid
+       request that only probes the data type.
 
-With CALL_OPS we only fall back to the ftrace_ops_list_func() when there
-are multiple ops associated with a given callsite. Where we have a
-single ops for a callsite, if the direct call is out of range, the
-ftrace caller will call trace_ops::direct_call.
+The walk is identical for every driver, so move it into the iommufd core.
 
-Without CALL_OPS, if there are unrelated ops registered (attached to
-difrerent callsites), the ftrace_caller trampoline will call
-ftrace_ops_list_func(), and we'll iterate over all of the registered ops
-to find the relevant ops and trampoline, every time an out-of-range
-direct call is used.
+The core now drives the iteration:
 
-So the big questions are:
+ - it invokes the op on a sub-array starting at the first not-yet-handled
+   entry;
+ - the op handles one chunk from the front of that sub-array and reports
+   the count via array->entry_num;
+ - the core advances and re-invokes until the whole array is consumed or
+   the op returns an error.
 
-(1) How often is a direct call being made?
-(2) Where does BPF allocate its direct call trampolines?
+A driver then only has to handle one bounded chunk per call, e.g. the ARM
+SMMUv3 op copies a single cmdq batch into a fixed on-stack buffer and drops
+its whole-array allocation. An op still handling the entire array in one
+call keeps working, so each driver converts independently.
 
-From a skim of arch/arm64/mm/init.c, EXECMEM_BPF covers
-VMALLOC_START..VMALLOC_END, the vast majority of which is out-of-range
-for a BL from the core kernel or a module. So if EXECMEM_BPF is used,
-that's likely to be problematic.  Hopefully I'm missing something such
-that BPF trampolines are almost always allocated in-range of a BL?
+All the bugs fixed here are long-standing ones rather than regressions in
+this cycle, so the series targets for-next, not for-rc. The stable tag on
+the second patch takes care of the backport.
 
-When we originally implemented CALL_OPS and DIRECT_CALLS for arm64, the
-understanding was that we'd have many ops with direct calls. We believed
-that the ftrace_ops_list_func() penalty was so substantial that it
-wasn't worthwhile supporting direct calls in a configuration where
-bouncing through that would be common.
+This is on Github:
+https://github.com/nicolinc/iommufd/commits/iommufd_invalidation_loop-v5
 
-If we need to support this configuration, then I strongly suspect we
-need to make other changes too in order for it to be worthwhile.
+[Note to Jason and Will]
+This is based on the arm/smmu/updates branch, which integrates Ashish's
+CFGI/TLBI-repeat series. I've run Sashiko locally: v5 is still clean.
 
-> s390 and loongarch ship HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS this
-> way, without having CALL_OPS at all.
+Changelog
+v5
+ * Rebase on top of arm/smmu/updates branch
+ * Add "Reviewed-by" from Jason and Pranjal
+ * Patch-1: Drop the Fixes and Cc stable tags
+ * Patch-2: Reject an unsupported opcode in the validation helper
+ * Patch-2: Add an explicit NSNH_ALL case to the allowlist switch
+v4
+ https://lore.kernel.org/all/cover.1784054606.git.nicolinc@nvidia.com/
+ * Add "Reviewed-by" from Baolu and Pranjal
+ * Split the DS support out of the reject patch into a new patch-1,
+   also listing DS in the iommu_hw_info_arm_smmuv3 kdoc
+ * Patch-2: Add "!!" to the bool range assignment
+ * Patch-2: Factor the allowlist into arm_vsmmu_validate_user_cmd()
+v3
+ https://lore.kernel.org/all/cover.1783539724.git.nicolinc@nvidia.com/
+ * Patch-1: Add a minimal FEAT_DS detection and allow the two DS-only
+   range encodings on a DS-capable SMMU
+ * Patch-1: Mask the host's scale value to keep its 5-bit truncation
+v2
+ https://lore.kernel.org/all/cover.1783363477.git.nicolinc@nvidia.com/
+ * Add "Reviewed-by" from Kevin to patches 2-5
+ * Patch-1: Allow the ATC_INV Global bit gated on ssid_bits, correcting
+   the wrong every-device claim: per the spec it only broadens a single
+   device's invalidation across its PASIDs
+ * Patch-1: Move the FEAT_ATS check into the allowlist switch
+ * Patch-1: Gate the TTL range field on FEAT_RANGE_INV too
+ * Patch-1: Accept only asid_bits of the ASID field
+ * Patch-1: Reject Reserved range field value combinations
+ * Patch-1: Reject an ATC_INV Size above 52
+ * Patch-1: Add local smmu and data variables to simplify the long lines
+ * Patch-1: Document the valid-command contract in the uAPI header
+ * Patch-1: Note that unchecked out-of-range values are UNPREDICTABLE
+ * Patch-1: Note that SSID/Global are IGNORED, not RES0, when SSV == 0
+ * Patch-2: Consolidate the two invalidation loops into one
+ * Patch-2: Multiply by the size_t entry_len to avoid a u32 overflow
+ * Patch-3/5: Return 0 directly on a zero-length array
+ * Patch-4: Use a processed counter and an out label like the mock driver
+v1
+ https://lore.kernel.org/all/cover.1782767398.git.nicolinc@nvidia.com/
 
-Following from the comment regarding EXECMEM_BPF above, it looks like
-both s390 and loongarch don't define EXECMEM_BPF, and only define
-EXECMEM_DEFAULT with a subsstantially limited range, which I suspect
-keeps their direct calls within range.
+Nicolin Chen (6):
+  iommu/arm-smmu-v3: Support IDR5.DS and widen the TLBI SCALE field
+  iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation
+    commands
+  iommufd: Iterate the cache invalidation array in the core
+  iommufd/selftest: Convert cache invalidation mocks to the core array
+    loop
+  iommu/arm-smmu-v3-iommufd: Convert cache invalidation to the core
+    array loop
+  iommu/vt-d: Convert nested cache invalidation to the core array loop
 
-> Patch 1 prepares ftrace_modify_call() to build without CALL_OPS by
-> widening its #ifdef and using the existing ftrace_rec_update_ops()
-> wrapper (no functional change for current configurations). Patch 2
-> drops the CALL_OPS requirement from the DIRECT_CALLS select.
-> 
-> Configurations that keep CALL_OPS (clang !CFI, and GCC without
-> CC_OPTIMIZE_FOR_SIZE) are unchanged. We verified this: in an arm64
-> clang build, every object file is byte-identical before and after
-> the series except ftrace.o itself, and its disassembly is identical.
-> CFI builds (and GCC -Os builds) gain working direct calls, with
-> out-of-range attachments taking the ftrace_caller dispatch path
-> instead of the per-callsite fast path.
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   4 +-
+ include/linux/iommu.h                         |   6 +-
+ include/linux/iommufd.h                       |   2 +
+ include/uapi/linux/iommufd.h                  |   8 +-
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 197 ++++++++++++++----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   6 +-
+ drivers/iommu/intel/nested.c                  |  54 ++---
+ drivers/iommu/iommufd/hw_pagetable.c          |  25 ++-
+ drivers/iommu/iommufd/selftest.c              | 147 +++++++------
+ 9 files changed, 292 insertions(+), 157 deletions(-)
 
-Can you comment on how you've tested in-range vs out-of-range
-attachements here?
 
-> We tested on a 6.18.y-based kernel and on this base with clang
-> kCFI builds (CONFIG_CFI=y, enforcing) under qemu (TCG, and KVM on an
-> arm64 host) and on GB200-based arm64 hardware: fentry/fexit, fmod_ret
-> and BPF LSM programs load, attach and execute; the ftrace-direct
-> sample modules (including both modify samples, exercising
-> ftrace_modify_call()) run cleanly; no CFI violations observed. The
-> fentry_test, fexit_test, fentry_fexit, fexit_sleep, fexit_stress,
-> modify_return, tracing_struct, lsm and trampoline_count selftests and
-> the ftrace direct-call selftests (test.d/direct) pass on the new
-> configuration with results identical to a CALL_OPS kernel built from
-> the same tree, and a broader test_progs sweep showed no differences
-> attributable to this series. Without the series, all of the above
-> fail at attach time with -ENOTSUPP.
+base-commit: a86c36163c9722545d27e92bdad8418fdcaa8b1d
+-- 
+2.43.0
 
-Have you made any performance measurements, or was this just functional
-enablement?
-
-Mark.
-
-> riscv has the same gap (its DIRECT_CALLS select also requires
-> CALL_OPS, and its CALL_OPS is likewise !CFI); if this approach is
-> acceptable for arm64 we can follow up there.
-> 
-> ---
-> Jose Fernandez (Anthropic) (2):
->       arm64: ftrace: prepare ftrace_modify_call() for use without CALL_OPS
->       arm64: ftrace: allow DIRECT_CALLS without CALL_OPS
-> 
->  arch/arm64/Kconfig         | 2 +-
->  arch/arm64/kernel/ftrace.c | 5 +++--
->  2 files changed, 4 insertions(+), 3 deletions(-)
-> ---
-> base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-> change-id: 20260607-arm64-ftrace-direct-calls-152230ef7077
-> 
-> Best regards,
-> --  
-> Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
-> 
 
