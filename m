@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B778C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DCA7C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJiZXFpLnQ5pvNr1ABpUZxXJqDyWZjVowkdMMOv9maw=; b=VUPh6B48qXAb9YWg8fGLfnJQRe
-	qHpYDfdifaJKSof2bEs8TX+vvWn7eOYp4OtDRShhn85flMxK98lxHkSMYJZuJcG18YbOZQLRQYPCc
-	MQGh6juEtKWpund7im8Ns8dvm879GA7Bmvk0seK/o0sNAh5N4VT8mNAigMOOOu05q5MwQTDIX0VQk
-	N4SbbzQR7IIOMxXWbHpDqdvEqiwR6eAoTA2qFa6F+9pg6IRTBdwRiFrXO4kG2VXMYBaNwUx++YOBg
-	NVULogMMltTBhNMe+oH9AfpIPKLU7VxPcOlyzD01DPRvWoz9WnJIhWw756xZmKdCBH9lXCY+9+T7Y
-	4kGm02Ew==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=quHt3IGaKOPL78wv/QDtYvLCereMlp/accQxjxBXbGU=; b=RLDVQY/ss+uItI1kWK9nkgAo+F
+	YZ0v/8Y250Pp7hAPR7Nt5xi8+US1El5T7l9T7Ieq75KlayMcdZuMDvbS22h+MOxpFNgHa7CzFdYrc
+	TZWWUylZns0uE+jCI4b3ZMYLxqhMq9t9FxJtIEQCAhQZiH8yHZkJezu+SodBcUvhGQCZ6KqAI8Oui
+	gb9yY1KMEprt3W+Mh37gMaYb1n4p9B8GOPj3xSLxHjlPEYKd+RhWVJtNR7k7EsPddLJBGFQN+QDUV
+	84zARGZpSRCiL75tBr2xqDzNKm0tt0toDQIjlicjpy+UOaKxaMMJSMZoNtaORf1M2mOzB9pWsoyWW
+	KTAb8QSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXtC-00000004HXw-2m5V;
-	Tue, 28 Jul 2026 02:49:54 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1woXtX-00000004Haa-3TP1;
+	Tue, 28 Jul 2026 02:50:15 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXsf-00000004HW0-2ObO
+	id 1woXse-00000004HVg-1ccJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 02:49:53 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-81ec29f1d07so40827447b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 19:49:21 -0700 (PDT)
+	Tue, 28 Jul 2026 02:50:14 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-80bb41f7f3cso32915027b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 19:49:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785206960; x=1785811760; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IJiZXFpLnQ5pvNr1ABpUZxXJqDyWZjVowkdMMOv9maw=;
-        b=gY+4qACX722g6iqxIoUfHzhx7aCjuNMdBRgwhxFHngb5V51+QS6f3oTazD3npOqsxS
-         gSr23v1LkY/OQ6m2a/jiCxLpSyhq0/7upQ7oGjxKJ9Uto612tAXK9Zc0QYg7iQy/uGDP
-         Ez2vX1htpDewmxenBbcGJGbB9Uja0afz1pQazAIgclZRwMy2XZOdx14Xvrk4Se2mbEM6
-         4TIXi7U7E7L21hQetloNlzs9lnNeNmdlXAsB8ZBm8uxcNwyGug0wQ7jG6Z8hLfdyM+I4
-         XNdOOyKvanrfYu2kkS8BAujXqzI/Ao3AWCNam78Uft3YR6V6DKqK4+oNXAZEwfmYWe3J
-         PFkg==
+        d=gmail.com; s=20251104; t=1785206959; x=1785811759; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=quHt3IGaKOPL78wv/QDtYvLCereMlp/accQxjxBXbGU=;
+        b=QrvK1JCH/ZAx3KVRINFxBRIR5F4+JDf+tZ3Ev2pKWd7LmqOe8Qk0uj8fKAPj4hAGYN
+         YRz9PhogmhcxnBvSRkEb1yhUXXK94pv8xVKuguKBvBIusN3+30gUfTW1K05t/PWeXv8r
+         YwybzblQlxqPWcVd7n/N/blwq4CwGGoDySLwdBVq8a8Gzq0/kIyF7cgdUICiOjZGX598
+         UHNOqPXhQ9hyczJzEIYvxRdX/6o49C6qhh8Fv2KnwD2B7eRRKFZF6j5/EFJwXD/Tv3fY
+         pTAXfN7TI67esmK+gPljS0IwNLQLg39OB7gy7Ls/YQAzkuFcTH86Nx2BjiBePxzitAva
+         MrGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785206960; x=1785811760;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IJiZXFpLnQ5pvNr1ABpUZxXJqDyWZjVowkdMMOv9maw=;
-        b=gLMx5JMqB/DIF3HlEGJeD959qWAduqSJfYFiThBvmWufqolVWHet6ZQ2mLcDiPtVzx
-         QjVRCu+2TjdpDvWPN+ZTkQnCUdD1hDRi+UeqsOU2W7+nWHuLFEcnb/Wr07yccmVgRPte
-         8MCyb6N2UnYCjvr7EDluzx1Y6OpFvrZv+7KaJEpgK/LE2/UdaqrWEPB5EEn7SvzVziaJ
-         jMoMpZwE9a62FkUOsuOXjB/YJqIFdyOt8zNXTdMCLyrk9tEIYjDBJj+4i4uIvE2HCEkG
-         A0b8TNJdsRpzzpLyWcNurZ7EnhDUWCH7yJ6xQwBY7sqDSRAoweeMXSVAlxt7cco4+5ZQ
-         Eqcg==
-X-Forwarded-Encrypted: i=1; AHgh+RqfiHTyOEO2XCN46lHP+T38LOmevO0MH3FXtT4fOq6kxdC0EB1iwumHTo6se7jGZ8B4xoRcaoI4GSoYeTbHZtK7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzTRzNN9UwbVSIxTTkCsjcrrnL3dE9oEaDlicOvFSjbxU0r6Hp
-	HxXz7B4S+VpevAXtwI0Zka/jyCn3vryrk1QOxdptNXzeVy1pbu15EA6g
-X-Gm-Gg: AR+sD13sLCfzvPo/ksno9xjJqMo26SxpFftjKS7ngnkV5H6Bvz8lbBD2BZ8b7A6r/In
-	2vXUR+kmk7Wnv0Irn5UEv86C/M2iBf60xoqvwigfa1ZdBFG73XqD+dLxdDhLYYsVo7cedjdfxVU
-	3RqxZ6mSQCNtA3MCan3yXQpCG4xOfI+u4thbmYzuaXRxctmhfjF5lXdb633wzdGD2YPAgH+Ie2T
-	y75bMp0zwxIMpCdY+0cJHKQ92Bdm8Tr96s0WXKDYtoGe+8Ul9TfmW2HzqH5d2M0Wz8Jg/v6mzVl
-	7xSMO0csCA4JS5yFr5Vv3zUN7V5LXlOgwDafgHtV7J7bMMM/ITwMS95EZOv2Z89sDJbqHihSNsj
-	XNszYd02Hj7NX1FOWgbbaxHO8qlv5Dzv8OO0t9yZ7Gfxv1k2jmnU0tpR9BTBA3f2hNvcdTJ8SuO
-	1fHA8x8RNmMOqjxmZ3YBvBPSRveP6NRIs7h1oj
-X-Received: by 2002:a05:690c:350a:b0:7ff:1a93:be35 with SMTP id 00721157ae682-81f99106fd3mr1842047b3.16.1785206960474;
-        Mon, 27 Jul 2026 19:49:20 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785206959; x=1785811759;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=quHt3IGaKOPL78wv/QDtYvLCereMlp/accQxjxBXbGU=;
+        b=Z7mnu8d0rL4BX+ArTLJHtxpJ6+98x/r6Rmj+mJkSmDjBO5yDWWqRZnkuEL+sRH3SnM
+         XvTRv63yxVqlWZPTpjL06Qg2HSiwLu+azxuuMZtPdQglcPryYf/MWvj6bvChJiKAJ0HA
+         Oiz7qN77r55MRj7vQ6baf/iYew16vxTFvm7HusjbDdIy8DbcPH44XjsnJ00q7IbuWOb8
+         j8dryn/aec8Bk4bkrNA3JMHrdh0j0gKK4HPDS+QdTzs7tWf9kwMHq/xDHSCwvGjJq2T4
+         9sl6toeFUoAsxiAwDNDKTuHVIHP0s5MabBBIKly2YY/J5cQXBNWZnHuJksw8eHE8qZC+
+         kGVg==
+X-Forwarded-Encrypted: i=1; AHgh+RpvA8rik4upFtVQKesbGDZndi7gn5KzL7D4dCu+wTxyzqXV1Y+EkH/GHdcbkWFGKabBfkUVi704xcoUMCEKOwWT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlbX+KhgnbWv9JLP3evik4tK9aJW+wS52f1W0qaSvuiBdla4H7
+	6cEWNkk5Nal+YlLnAoFGfL1mPapi7JzwUqwHLmzsGr0GtA8dNLY4DwL+
+X-Gm-Gg: AR+sD13bcZ5RM4KqwrUscMirfvRtb2SXWZCeer+gEqEWKP5lMWm3Bk8UfOM+4SBIpmF
+	4k/A2vgr1/onK9tbKIkzsX/VxZLa1iGMQNEdzAVIAgO0nYdyXelfsRCCyr0ZWMgjNAlZ0tZTz1c
+	gOX50por3upH3ileG42WdJKxXIo300vd+URH8n40/cUCxv7ipNq7cpL57Us3nZ1N4oTUckq0gW+
+	WGzmh7/jf+H/bpY9t3fOfNWjKwM7we6NQTbIsTWVu0UN3hgqAHZpelHZaN29kYZSl6gMlUUxmsE
+	MGZeCM4EY3uSFFu8g2PRwoF65XE1m8OjjlhXcSty8IyTO/DU2B8j/Ixu5v5VBbqD0175+C59/H0
+	hRF1Kan2PZGCbnP6lLOhv4DZLzJQzm3XhaZxfKrWWswrh7RDoFD/Yv2FCKZP9ap8LNrfZeG0PDO
+	zr0G9VEnsGc34eIfHjZXchp10BEc7GH6zMJOHb
+X-Received: by 2002:a05:690c:7244:b0:81e:d009:1956 with SMTP id 00721157ae682-81f991fa998mr2277897b3.12.1785206958757;
+        Mon, 27 Jul 2026 19:49:18 -0700 (PDT)
 Received: from zenbox ([2600:1700:18fb:6011:722a:22a9:308b:2c35])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81f6579f462sm40974847b3.11.2026.07.27.19.49.19
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81f6579f462sm40974847b3.11.2026.07.27.19.49.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jul 2026 19:49:20 -0700 (PDT)
+        Mon, 27 Jul 2026 19:49:18 -0700 (PDT)
 From: Justin Suess <utilityemal77@gmail.com>
 To: Sean Young <sean@mess.org>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -84,19 +83,16 @@ Cc: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	Sashiko <sashiko-bot@kernel.org>,
-	Justin Suess <utilityemal77@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v4 1/4] media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
-Date: Mon, 27 Jul 2026 22:49:13 -0400
-Message-ID: <20260728024916.993224-2-utilityemal77@gmail.com>
+	Justin Suess <utilityemal77@gmail.com>
+Subject: [PATCH v4 0/4] media: rc: sunxi-cir: support the A523/H728/T527 IR receiver
+Date: Mon, 27 Jul 2026 22:49:12 -0400
+Message-ID: <20260728024916.993224-1-utilityemal77@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260728024916.993224-1-utilityemal77@gmail.com>
-References: <20260728024916.993224-1-utilityemal77@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_194921_621098_8FDAFA17 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260727_194920_436464_5E9A5074 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,48 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523 (sun55i) contains a newer revision of the sunxi CIR receiver.
-The reset defaults match the fixed behaviour of the older IP, so the
-device works fine when driven as an A31 CIR receiver.
+Hi,
 
-Add the A523 compatible, with allwinner,sun6i-a31-ir as the fallback.
+This series adds support for the CIR receiver on the Allwinner
+A523/T527/H728 family (sun55i).
 
-While at it, merge the standalone compatible entries into a single
-enum.
+Apologies for the hasty v3 respin.
 
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Justin Suess <utilityemal77@gmail.com>
----
- .../devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+Tested again on my X96Q Pro+ (H728) TV box with the Google TV remote that
+came in the box (using NEC keymap). Was able to press buttons and
+get readings from lirc / ir-keytable again.
 
-diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
-index 42dfe22ad5f1..18b28feacf83 100644
---- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
-+++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
-@@ -16,9 +16,10 @@ allOf:
- properties:
-   compatible:
-     oneOf:
--      - const: allwinner,sun4i-a10-ir
--      - const: allwinner,sun5i-a13-ir
--      - const: allwinner,sun6i-a31-ir
-+      - enum:
-+          - allwinner,sun4i-a10-ir
-+          - allwinner,sun5i-a13-ir
-+          - allwinner,sun6i-a31-ir
-       - items:
-           - enum:
-               - allwinner,suniv-f1c100s-ir
-@@ -27,6 +28,7 @@ properties:
-               - allwinner,sun50i-a64-ir
-               - allwinner,sun50i-h6-ir
-               - allwinner,sun50i-h616-ir
-+              - allwinner,sun55i-a523-ir
-           - const: allwinner,sun6i-a31-ir
- 
-   reg:
+Changes since v3:
+- 1/4: picked up Krzysztof's Acked-by, no other changes
+- 2/4: add /omit-if-no-ref/ and rename the PL11 node to
+  r-ir-rx-pl-pin (Chen-Yu)
+- 2/4: take the PI8 pinmux node from Andre's Avaota patch, named
+  ir-rx-pi-pin (Chen-Yu). Added Co-developed-by for Andre, and
+  his Reviewed-by is dropped, as the patch gained a hunk and a
+  node rename.
+- 4/4: drop the moved hunk. Andre stays the author, with a
+  bracketed note for the move and my Signed-off-by added
+  (Chen-Yu, Andre)
+
+Based on v7.2-rc1.
+
+v3: https://lore.kernel.org/linux-sunxi/20260722233604.3001063-1-utilityemal77@gmail.com/
+v2: https://lore.kernel.org/linux-sunxi/20260722201717.2205609-1-utilityemal77@gmail.com/
+v1: https://lore.kernel.org/linux-sunxi/20260702214750.3428694-1-utilityemal77@gmail.com/
+
+Andre Przywara (1):
+  arm64: dts: allwinner: a523: enable IR on the Avaota A1
+
+Justin Suess (3):
+  media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
+  arm64: dts: allwinner: a523: add IR receiver nodes
+  arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
+
+ .../media/allwinner,sun4i-a10-ir.yaml         |  8 +++--
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 36 +++++++++++++++++++
+ .../dts/allwinner/sun55i-h728-x96qpro+.dts    |  6 ++++
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   |  6 ++++
+ 4 files changed, 53 insertions(+), 3 deletions(-)
+
+
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
 -- 
 2.54.0
 
