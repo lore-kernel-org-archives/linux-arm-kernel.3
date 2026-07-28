@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB11C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B778C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ezikVBnXSki6nhUooCP/KeXpuFqnz8K+KhIid8hIrs=; b=nVOYNzceNWlbL70FldiBW+zd9A
-	Y2QzHsUum1XH4MZbbWa/CdDvyy6h0Owk4vvlpR3LMJ+3JBi/xonTQ3G+BrIzaK5rDQNH6+4qcFnEo
-	hYwvkIBpdPnUdkLqBL/mSyK74YjiMu2KC1yF63sx11TCt9VZHZsqpwXnIB37JDMv0Zpv/EY95Mt4m
-	eQrxEMG83BwijYvHyFp0msnvP1lAlISoJvBtnB9ZgqsVN+YlXXpThgi0FjDsEDf/uKQBk/RpBETob
-	fJH9DjevdHs3uU8mI1o+nWN78Ih8TuzLmrs5khpQr0ucPnp4Sn4oIDSAvOwitin5IjLbj0XQA1E/C
-	wl4bvN+Q==;
+	bh=IJiZXFpLnQ5pvNr1ABpUZxXJqDyWZjVowkdMMOv9maw=; b=VUPh6B48qXAb9YWg8fGLfnJQRe
+	qHpYDfdifaJKSof2bEs8TX+vvWn7eOYp4OtDRShhn85flMxK98lxHkSMYJZuJcG18YbOZQLRQYPCc
+	MQGh6juEtKWpund7im8Ns8dvm879GA7Bmvk0seK/o0sNAh5N4VT8mNAigMOOOu05q5MwQTDIX0VQk
+	N4SbbzQR7IIOMxXWbHpDqdvEqiwR6eAoTA2qFa6F+9pg6IRTBdwRiFrXO4kG2VXMYBaNwUx++YOBg
+	NVULogMMltTBhNMe+oH9AfpIPKLU7VxPcOlyzD01DPRvWoz9WnJIhWw756xZmKdCBH9lXCY+9+T7Y
+	4kGm02Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXmd-00000004HMT-0Jxl;
-	Tue, 28 Jul 2026 02:43:07 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1woXtC-00000004HXw-2m5V;
+	Tue, 28 Jul 2026 02:49:54 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXmZ-00000004HM4-1QVh
+	id 1woXsf-00000004HW0-2ObO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 02:43:05 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=9ezikVBnXSki6nhUooCP/KeXpuFqnz8K+KhIid8hIrs=;
-	b=Si0aDQ2tzlExlwEMX/Ka6FtqI37MIm6dGWnce3j4y/eUMgcaj9mw8fHNtAujyyyOuACzi6Akb
-	s/lFngOT81y85UW2s6G26JpzhEtmPBF5zZV/x0dy0PjMlapypA8i/0TXm2l+epxBYCP1b+CtkZh
-	7vfelOlkyhM8Rp77WuW4fHY=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h8KJk10XTznTbD;
-	Tue, 28 Jul 2026 10:33:26 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2EF4F40572;
-	Tue, 28 Jul 2026 10:42:54 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 28 Jul 2026 10:42:53 +0800
-Message-ID: <e3c7c161-7cd8-420a-9708-548fd9fbd39a@huawei.com>
-Date: Tue, 28 Jul 2026 10:42:52 +0800
+	Tue, 28 Jul 2026 02:49:53 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-81ec29f1d07so40827447b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 19:49:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785206960; x=1785811760; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IJiZXFpLnQ5pvNr1ABpUZxXJqDyWZjVowkdMMOv9maw=;
+        b=gY+4qACX722g6iqxIoUfHzhx7aCjuNMdBRgwhxFHngb5V51+QS6f3oTazD3npOqsxS
+         gSr23v1LkY/OQ6m2a/jiCxLpSyhq0/7upQ7oGjxKJ9Uto612tAXK9Zc0QYg7iQy/uGDP
+         Ez2vX1htpDewmxenBbcGJGbB9Uja0afz1pQazAIgclZRwMy2XZOdx14Xvrk4Se2mbEM6
+         4TIXi7U7E7L21hQetloNlzs9lnNeNmdlXAsB8ZBm8uxcNwyGug0wQ7jG6Z8hLfdyM+I4
+         XNdOOyKvanrfYu2kkS8BAujXqzI/Ao3AWCNam78Uft3YR6V6DKqK4+oNXAZEwfmYWe3J
+         PFkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785206960; x=1785811760;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IJiZXFpLnQ5pvNr1ABpUZxXJqDyWZjVowkdMMOv9maw=;
+        b=gLMx5JMqB/DIF3HlEGJeD959qWAduqSJfYFiThBvmWufqolVWHet6ZQ2mLcDiPtVzx
+         QjVRCu+2TjdpDvWPN+ZTkQnCUdD1hDRi+UeqsOU2W7+nWHuLFEcnb/Wr07yccmVgRPte
+         8MCyb6N2UnYCjvr7EDluzx1Y6OpFvrZv+7KaJEpgK/LE2/UdaqrWEPB5EEn7SvzVziaJ
+         jMoMpZwE9a62FkUOsuOXjB/YJqIFdyOt8zNXTdMCLyrk9tEIYjDBJj+4i4uIvE2HCEkG
+         A0b8TNJdsRpzzpLyWcNurZ7EnhDUWCH7yJ6xQwBY7sqDSRAoweeMXSVAlxt7cco4+5ZQ
+         Eqcg==
+X-Forwarded-Encrypted: i=1; AHgh+RqfiHTyOEO2XCN46lHP+T38LOmevO0MH3FXtT4fOq6kxdC0EB1iwumHTo6se7jGZ8B4xoRcaoI4GSoYeTbHZtK7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzTRzNN9UwbVSIxTTkCsjcrrnL3dE9oEaDlicOvFSjbxU0r6Hp
+	HxXz7B4S+VpevAXtwI0Zka/jyCn3vryrk1QOxdptNXzeVy1pbu15EA6g
+X-Gm-Gg: AR+sD13sLCfzvPo/ksno9xjJqMo26SxpFftjKS7ngnkV5H6Bvz8lbBD2BZ8b7A6r/In
+	2vXUR+kmk7Wnv0Irn5UEv86C/M2iBf60xoqvwigfa1ZdBFG73XqD+dLxdDhLYYsVo7cedjdfxVU
+	3RqxZ6mSQCNtA3MCan3yXQpCG4xOfI+u4thbmYzuaXRxctmhfjF5lXdb633wzdGD2YPAgH+Ie2T
+	y75bMp0zwxIMpCdY+0cJHKQ92Bdm8Tr96s0WXKDYtoGe+8Ul9TfmW2HzqH5d2M0Wz8Jg/v6mzVl
+	7xSMO0csCA4JS5yFr5Vv3zUN7V5LXlOgwDafgHtV7J7bMMM/ITwMS95EZOv2Z89sDJbqHihSNsj
+	XNszYd02Hj7NX1FOWgbbaxHO8qlv5Dzv8OO0t9yZ7Gfxv1k2jmnU0tpR9BTBA3f2hNvcdTJ8SuO
+	1fHA8x8RNmMOqjxmZ3YBvBPSRveP6NRIs7h1oj
+X-Received: by 2002:a05:690c:350a:b0:7ff:1a93:be35 with SMTP id 00721157ae682-81f99106fd3mr1842047b3.16.1785206960474;
+        Mon, 27 Jul 2026 19:49:20 -0700 (PDT)
+Received: from zenbox ([2600:1700:18fb:6011:722a:22a9:308b:2c35])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81f6579f462sm40974847b3.11.2026.07.27.19.49.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Jul 2026 19:49:20 -0700 (PDT)
+From: Justin Suess <utilityemal77@gmail.com>
+To: Sean Young <sean@mess.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Sashiko <sashiko-bot@kernel.org>,
+	Justin Suess <utilityemal77@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v4 1/4] media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
+Date: Mon, 27 Jul 2026 22:49:13 -0400
+Message-ID: <20260728024916.993224-2-utilityemal77@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260728024916.993224-1-utilityemal77@gmail.com>
+References: <20260728024916.993224-1-utilityemal77@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 10/45] arm64: irqflags: Introduce arm64-specific
- irqflags type
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-11-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-11-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_194304_050913_2EFC0A05 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20260727_194921_621098_8FDAFA17 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,146 +111,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The A523 (sun55i) contains a newer revision of the sunxi CIR receiver.
+The reset defaults match the fixed behaviour of the older IP, so the
+device works fine when driven as an A31 CIR receiver.
 
+Add the A523 compatible, with allwinner,sun6i-a31-ir as the fallback.
 
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> With pseudo-NMIs enabled, we have two mechanisms that control
-> interrupt masking in parallel :
-> - The DAIF flags, masking at the CPU
-> - The GIC PMR, masking before the CPU
-> 
-> However, our irqflags implementation currently assumes that only one
-> of the two is used at a time, so both DAIF and PMR masking use the same
-> `unsigned long flags` in their own way.
-> This is incorrect, as some parts of the kernel will mask interrupts
-> with DAIF directly or bypass the local_irq masking via the PMR,
-> and makes tracking the state and changes of both in parallel impossible.
-> 
-> The irqflags API expects `unsigned long`s to be passed around, but
-> they should not be manipulated outside of the arch-specific code.
-> So, we can encode the information we need however we want as long as
-> we return and accept `unsigned long`s.
-> 
-> Introduce a union type for arm64 irqflags whose first member is
-> a struct allowing us to track DAIF and PMR in parallel, and the second
-> is the `unsigned long` expected by the irqflags API.
-> 
-> DAIF is a two byte value, to maintain compatibility with existing defines.
-> PMR is a one byte value, which is the maximum amount of priority bits
-> allowed by the GICv3 architecture.
-> 
-> Update the internal irqflags functions to use this new union and convert
-> back and forth with the irqflags unsigned long.
-> There should be no functional changes.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/irqflags.h | 43 ++++++++++++++++++++++++++-----
->  1 file changed, 37 insertions(+), 6 deletions(-)
+While at it, merge the standalone compatible entries into a single
+enum.
 
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Justin Suess <utilityemal77@gmail.com>
+---
+ .../devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-> 
-> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
-> index a8cb5a5c93b7..1863a955d119 100644
-> --- a/arch/arm64/include/asm/irqflags.h
-> +++ b/arch/arm64/include/asm/irqflags.h
-> @@ -9,6 +9,8 @@
->  #include <asm/ptrace.h>
->  #include <asm/sysreg.h>
->  
-> +#include <linux/compiler.h>
-> +
->  /*
->   * Aarch64 has flags for masking: Debug, Asynchronous (serror), Interrupts and
->   * FIQ exceptions, in the 'daif' register. We mask and unmask them in 'daif'
-> @@ -20,6 +22,23 @@
->   * exceptions should be unmasked.
->   */
->  
-> + /*
-> +  * Internally, we want to independently manipulate and track the different
-> +  * interrupt masking mechanisms.
-> +  * Externally, the generic irqflags API expects unsgined longs to represent
-> +  * the state of interrupts, which are treated as obscure arch-specific data.
-> +  */
-> +typedef union arm64_exc_hwstate {
-> +	struct {
-> +		u16 daif;
-> +		u8 pmr;
-> +		u8 __padding[5];
-> +	};
-> +	unsigned long flags;
-> +} arm64_exc_hwstate_t;
-> +
-> +static_assert(sizeof(arm64_exc_hwstate_t) == sizeof(unsigned long));
-> +
->  static __always_inline void __daif_local_irq_enable(void)
->  {
->  	barrier();
-> @@ -79,12 +98,16 @@ static __always_inline void arch_local_irq_disable(void)
->  
->  static __always_inline unsigned long __daif_local_save_flags(void)
->  {
-> -	return read_sysreg(daif);
-> +	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
-> +
-> +	return hwstate.flags;
->  }
->  
->  static __always_inline unsigned long __pmr_local_save_flags(void)
->  {
-> -	return read_sysreg_s(SYS_ICC_PMR_EL1);
-> +	arm64_exc_hwstate_t hwstate = { .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
-> +
-> +	return hwstate.flags;
->  }
->  
->  /*
-> @@ -101,12 +124,16 @@ static __always_inline unsigned long arch_local_save_flags(void)
->  
->  static __always_inline bool __daif_irqs_disabled_flags(unsigned long flags)
->  {
-> -	return flags & PSR_I_BIT;
-> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
-> +
-> +	return hwstate.daif & PSR_I_BIT;
->  }
->  
->  static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
->  {
-> -	return flags != GIC_PRIO_IRQON;
-> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
-> +
-> +	return hwstate.pmr != GIC_PRIO_IRQON;
->  }
->  
->  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
-> @@ -171,15 +198,19 @@ static __always_inline unsigned long arch_local_irq_save(void)
->  
->  static __always_inline void __daif_local_irq_restore(unsigned long flags)
->  {
-> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
-> +
->  	barrier();
-> -	write_sysreg(flags, daif);
-> +	write_sysreg(hwstate.daif, daif);
->  	barrier();
->  }
->  
->  static __always_inline void __pmr_local_irq_restore(unsigned long flags)
->  {
-> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
-> +
->  	barrier();
-> -	write_sysreg_s(flags, SYS_ICC_PMR_EL1);
-> +	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->  	pmr_sync();
->  	barrier();
->  }
+diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
+index 42dfe22ad5f1..18b28feacf83 100644
+--- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
++++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
+@@ -16,9 +16,10 @@ allOf:
+ properties:
+   compatible:
+     oneOf:
+-      - const: allwinner,sun4i-a10-ir
+-      - const: allwinner,sun5i-a13-ir
+-      - const: allwinner,sun6i-a31-ir
++      - enum:
++          - allwinner,sun4i-a10-ir
++          - allwinner,sun5i-a13-ir
++          - allwinner,sun6i-a31-ir
+       - items:
+           - enum:
+               - allwinner,suniv-f1c100s-ir
+@@ -27,6 +28,7 @@ properties:
+               - allwinner,sun50i-a64-ir
+               - allwinner,sun50i-h6-ir
+               - allwinner,sun50i-h616-ir
++              - allwinner,sun55i-a523-ir
+           - const: allwinner,sun6i-a31-ir
+ 
+   reg:
+-- 
+2.54.0
 
 
