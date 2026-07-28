@@ -4,150 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6361C54F4D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 07:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33362C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 07:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIIzM3O8gKUEV5Or90sVDMe/sdHjMvPe35jbgnroq4U=; b=tLNXV6Dhr+s6l3KCY2FxzNM/2c
-	NgpxQDhQSN2s2xKtcpNOXjZ968L2Fj3yJzt0EjNheJsnn3zxUoPXOP/5rMw4Ij3rvFwabvBnCq1Ak
-	OQ4WOf1OzDxrqXKr9NfmpeFDxEs3vTA9cd3ghbwiVNZu8Pf2X9Nf934+n8zNmQd3O+xRMizQw3eKs
-	JSqRHTb63DbZapn+ws5tiSjhTudCoiGX8qeF74yB3yzrZXEIF9u86AZrZuuxY+Q0i5fmwSmK6/2rN
-	DAyZmXgwGrTWDtnc82+vREjI5v1YixxzNDlwrCdr9Zva54iXCat0qH0steyZadkf42cUE2ZCDCPk/
-	zS7WvWsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vv62RaYjANgRc+rRSRJ3+wOFoYiw7WZeuHKQnNMXiEU=; b=dmj9rop5YGrxyPM1iljrXkBAfn
+	xCRFkinjSURPNu1gg+peN0iDaOrIWgUzXhKJRmrwH1fhAnCIiVIhC5pX+VcN2XTEWcdh9+GcG0OHw
+	65wbSe6VeZzE8Cr8wiFd9+U0nbDzkYsjq2rYwRaggueFawawnO6aVWhKxjv1g1V1wM1KNJK8DRoCt
+	Ha/CL9pV3zPtu9XZ/eDMZut6gwsa+QrwEU7zLDFNXFsZ85Yu9aDKaXE6U8LkxW9P/Wgnnl0t5yf3D
+	5R1p2vjlI7CQss+eJgVm11YpeRtZ0NLwqgtPOdD9I9pnQyUeSHEZbmN7ckai5gYopWrhT/3Nzoiwo
+	WvNj/fsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woc5f-00000004coz-26XP;
-	Tue, 28 Jul 2026 07:19:03 +0000
-Received: from mail-eastus2azon11011005.outbound.protection.outlook.com ([52.101.57.5] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wocVa-00000004eM8-0Ppm;
+	Tue, 28 Jul 2026 07:45:50 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woc5c-00000004coS-427s
+	id 1wocVW-00000004eKy-46rQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 07:19:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g8kewVIIOhmZ2woJ/GUnZBRYQ3t6WA4x6c2KlFDvFr+7RPfwnJz5mT31hBeH0pcIoIEfRQQRxp+1eN2L+EM3TgImIwwE7qRjbPJIYLe2rrnfe7l7cA45PDMEGMCHEpnH3OmDZpPl/Q7pSmK6dKD9WjiY+eJ8/4i/OMYVjMnrOAzGJfSqgPLPtU5qTThI40xUu9qYCPKYNY8liTJSwSsxIvxcnq/asa2xshkSPeiNYsybztGgHEnrAfYVcDJTPrdoNAw52hbO+qbO0t07tkxg1qxLEsJXqjARAtyCeycs69b2hwyfLKE8zMrhdHSvgSmwrXpgZJmqwOIMmUdXlFFgOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pIIzM3O8gKUEV5Or90sVDMe/sdHjMvPe35jbgnroq4U=;
- b=kI852Cl0zLwagBeUWRgAm0SWPSUQvqkZ+pldTQUWjXCs/OyNS0KCVS+wK/1DssvujEcolTxXTAGSFFIDh5lhEakFff8PXvwJMWuKP9HigmerhVj2cO+ko8rFXpqr/+ttUm4Wrxhw+8ZQht0MBtQuVxcrYHRTX4enEwpDEBN4zWCrNqb06LDNZf+PeN9qtpx/7DKsmrOGd1ReQsNMSimTgw3VDdqyi6XBQTWLRpNYg1RV85SxtLg2WBRkWbK+7LEzdMel6LcYRuzqyFj7mOFhN687Q1DGKtTK30WdEMdHtnn3E3SSZjQnsnfcIsP/OGOIB2n7G010t3OikHDbtzlgkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pIIzM3O8gKUEV5Or90sVDMe/sdHjMvPe35jbgnroq4U=;
- b=evOSKxE0KySnbD5270ckfpii8Xp0AhujDEnzRbzwZBLy0YDkDoMI0V3iMqgx6XvfzdT9STo/e1IM4/TKVgNMjJpRSxrOc1OiHySvf8VmDrtTLfo7TtFfDu/zjms1e/vwdabczMabUpkCsyuCnRCewWpCc4FgH+njZ7wyDCk5xc2VaPiGE+r1A94tfWPQ4gzGnLhyv95aXV7YLBX+tl8bMMtacf8QQfxTT1aaK6KFo6/Z6OVdcD+i5ebw/KwejUX8ZHv+1hvbMNjpQHFFQGyRTldhvMPG2527kp6dGXfaGoWAKVydgLKNKNjs2RKokJhBrwUP9evLdOZuTXWFPJc/tA==
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by LV5PR03MB8412.namprd03.prod.outlook.com (2603:10b6:408:35f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Tue, 28 Jul
- 2026 07:18:54 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0270.009; Tue, 28 Jul 2026
- 07:18:54 +0000
-From: "Nazle Asmade, Muhammad Nazim Amirul"
-	<muhammad.nazim.amirul.nazle.asmade@altera.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"mcoquelin.stm32@gmail.com" <mcoquelin.stm32@gmail.com>,
-	"alexandre.torgue@foss.st.com" <alexandre.torgue@foss.st.com>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next] net: stmmac: fpe: Keep pmac always enabled
-Thread-Topic: [PATCH net-next] net: stmmac: fpe: Keep pmac always enabled
-Thread-Index: AQHdHYaabXAhVDZDKU2DeUOzpGcjdbaBBAyAgAGDl4A=
-Date: Tue, 28 Jul 2026 07:18:54 +0000
-Message-ID: <360566d8-4756-402c-ac5b-7b80764bf86c@altera.com>
-References: <20260727051303.14925-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <70cf4cfa-c329-41a5-b335-561a565627d9@bootlin.com>
-In-Reply-To: <70cf4cfa-c329-41a5-b335-561a565627d9@bootlin.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR03MB6964:EE_|LV5PR03MB8412:EE_
-x-ms-office365-filtering-correlation-id: cfc8cd1e-0fb2-4adf-be12-08deec787b97
-x-ms-exchange-atpmessageproperties: SA
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|38070700021|6133799003|56012099006|11063799006|4143699003|10067099003|22082099003|55112099003|18002099003|4133799003;
-x-microsoft-antispam-message-info: znW8tIutSClKZ668AN4naJsGCxAN7UgFEbD28hs0fH2e5q0kLrQ+Y+a3prZem8pB4tyJkO7dV0NpgbqY7CoqHSQeFKgEhqNCxr4D8PdioAOWX2czwXZ7Falnzq5pMdXxKE1RrAk7tinSRPlCw11DX0T+URK9+0z0WFga8+9xgfNzFVcoylugaowSRKibOpco9FzZqUOEp7o885viTdKnkdYzmgigxB5t9MmgCl1if1J6F/5KOmjN5h2/Id2TCeFpThqaCInDD7O+kVKDDdhXYqxLeZGvePiyDMxRafNbx61EIwhO2T4Ef7N6Ihb6SxlMubYNXFBQdcs5r8UFXWsx/0AGrVd7ndMnCyeMRsWKc+StpTD5pfT2xSYEygy84SjC6pHrPZX3i9pyo0mcMc6NW9Zy0e6lyADG3K9nPy6GHxB9eZ7MlFV0IQTaHV8eD/wo2rGrQHgMTiNLl5pew/5a6FOJfYjcy34tloMrH8vZG1XCFDxuL96wFFUcFCbceBkuF5ROklshVEsY46N88scxlyQQj3RM35ENGshqAIwdHfVbT360WdbUNJz0i4fPcAN+QPDofaRpf4kKprRraXA27BacyNki82k7u8X1IeY2Tz+9zSNfBg1fwdLqS5/nNUg8VUtGxa1m7IHRV7AV9Ezvfov7CQ2ipSdsXjVZYT85LIk=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(38070700021)(6133799003)(56012099006)(11063799006)(4143699003)(10067099003)(22082099003)(55112099003)(18002099003)(4133799003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 2
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cUNqbmU2dlVHeHM0SGs3RG9XcUhMd3c3akx6eS9DcjV1dnBWN09weXNLL1Zm?=
- =?utf-8?B?eDk1UFdwWTFEaUFQNlh5RUNydUc2SEVEWFI5R25EOEJJSUZqV1JGMjVwMisv?=
- =?utf-8?B?NnhWZlhlQW5xdFFzakFLN1Z6TFNuRnJEbHIxbXJMT24wMmt4eTN3akpyUFpL?=
- =?utf-8?B?ME5nc2FGd1JTSGJXczRsL0sxK0JvMGExWDdZK09HNmNQbkhxWVJ0MmdZc2Rh?=
- =?utf-8?B?QWVsTWJVYzBFbmhvWU5zdTBvZlp5dElWSGRJSmpYbW5jOTA5d1pDZVczNFk4?=
- =?utf-8?B?N25LeEU2VzRDc1gzWHU0UkdvL0tJeDJhTW14ZjViS2s1OVR4VWFROGNpQnRM?=
- =?utf-8?B?TWFLZVUyWngxeWl6dk5NNFVuN0pnQllmU3N2RjJ6bld1Mmx6V0w4aU9MR0xJ?=
- =?utf-8?B?UjBac0hmWWtNOFRoY05MSlpvWnNvY01NSi9EdFpXd0NOQTh0YUtvbWRwUGh4?=
- =?utf-8?B?dnlPOEg2RUNWSVppRDBDZ0dRQWVGT3lpZ0JwRlZYQVp0Z0FVY2luNm9XNUJr?=
- =?utf-8?B?aWVIaTNycVVCOURmajRDSTZ4NVlocFdmYmRBMVUzWWFnNmx4QitNUG9mTENQ?=
- =?utf-8?B?cXkwUUg4UnVoL0tUamtTaCsvN3gwUDgybkdnWVZsMGlKKzRvcWxFeWZlcU9x?=
- =?utf-8?B?bEJKa3lqK094b25NZHNhVkRrbllBazhsSHdyRm9qRGw1QzlXU3JZdWxhc0JH?=
- =?utf-8?B?SXBMSlFiWVpVeGJmYURBaUd1aEhWOCsvZFFWYWdEQUptcFRGQUNIZlpHcHlv?=
- =?utf-8?B?V1hVS1o1QUdBbkZkSERld3Rua0VSUGpyV2FkUzNjSHFxbXg5NEYrM2ZDZ2JG?=
- =?utf-8?B?R0FaZStoU0VLYkcrTSthU3lpbi9WNUY1WVNGcnRibXkrRkdSV1lmVVBJS1pu?=
- =?utf-8?B?TG5rYVg0U2hOSjUyYkYybkdZUFFlM1U3Y2RuVGhUQnVLOEpvYW9yM3o2cExL?=
- =?utf-8?B?c3BCM3MrZzMxUHhNYmFXejhDaWZmditqcWpGUE05eGZWSjRRS0N4TmFjZ3BV?=
- =?utf-8?B?d2dEclRiU2l5ZGZlUEVnWHFacHZEVkZ5RGdaVnBvU2ZjTGZnSmg1R3VYbU5v?=
- =?utf-8?B?ZUZlcCsxak91QnNtOWoxRHpkZ3Q3ejNoWlBLbjJWMHRRUDduODJLc2VnVEMr?=
- =?utf-8?B?bldNTU1RbnRMS1J0eWxyelRNRUFFK3hod3krTEkyamRqZ1ZJZHprUFZjbEo3?=
- =?utf-8?B?OG9JeUpmSGlEVnRHZ0F4UmN3OFFFRkVUMFhvVVE1aEtpSVBpSGh6VGZhY29Y?=
- =?utf-8?B?YVRFbVo1NUhNOWd1c3hwcTdtMVdpcnlPanVoTSttajJ0OU5rVWhmZjZzMjJP?=
- =?utf-8?B?Ym4zRkdPSTlBbXVFdGd6Y0YwUmRMalR6ODhuUHNIdzlvMk1oUG10Zi9jd2Ex?=
- =?utf-8?B?RWhodGg2VnVSRXViSXF1b1kvNlNNYjV3M3c0QjFiVldQNmlGTUE0c1JET0di?=
- =?utf-8?B?NHNKcm0vcHNjWm9oVkxBT3F1TDgxYWFqKzhCeFJOcm5OV21WU0twWmlyRVJr?=
- =?utf-8?B?Y09PWHNnQWVmWUFmTHdKNGg0RWRvNlJzbjNlQ1NyK2grZ1BycEJhc2JBTzd0?=
- =?utf-8?B?VWhlZFVpZEVyYUs4TjM5bGRGSERmNFJvazI2d1FkK3JaWDdnOGdrN2QyVkIv?=
- =?utf-8?B?SUIrdHdKbTZjT0FnZVFnVitkb2NveC9BU3NjOUx0bkpYN21BZ0NZOGNneVlE?=
- =?utf-8?B?YUUvb1FZLzlxQjRCZDJ0OGg2c1RnVzNzZGxqeXk5VjZQUHlDZmFEN3ExMnNN?=
- =?utf-8?B?eUlPZ09tWFZEdTFNREgxZGRLRFJNSEZuVUM1M3JJV2NlcVRiOHJaelFONXhw?=
- =?utf-8?B?a09GNUgvZU5CWVZxdnhhb0t5bGR0RmJSblEzcXFSbEk4YlNwZGZiVVJWdkUr?=
- =?utf-8?B?MFlnaUdjNk8vRTE2aVArWGE2SkhpdUNUcC9BQ2VOQnNXRitjSm5PanRnNUkv?=
- =?utf-8?B?TnpLTis5andsMHJVT0s4RU1WSUgxTzlvTzh3eGo5OTQ1ZFpXUnU5UGphYk9F?=
- =?utf-8?B?WGVadnI2WkRSbWQ2SWpXWkZaK1FvT1k2alYwU0tNMTVGb1dwVEVHVXRRWjU4?=
- =?utf-8?B?SnIzNTlMYnMvZ2cvcGR6N3I1WGNPY2RVNGRIY25vdkFHdjRZMDRKdm1tM0dL?=
- =?utf-8?B?N0xDcEQwcDFXQmZuTkRVNGdDMDF0MGRucmJJb08yK1NYMFlHVFY5dmViYjhG?=
- =?utf-8?B?NjlOZ2FXUzl1dWhobnBPLy8vdUVEcUZ4ZTZNMlJ6dnlWOVdjMzMwYmRQRHRv?=
- =?utf-8?B?VytFT0t0Q2xva0swY1pBbW5MM1J4SkhrdFpPMmhmZTJkL3Y3SVE0Zk9MRlE5?=
- =?utf-8?B?dEMyUG1kejBWMHJwQmJPSU8vbVlzZ2FLQmdnNWVjODlkY2pGa0lER2RSa0Np?=
- =?utf-8?Q?q8XjeNMStfZiiC9M0UxZjaGfjLE6/D0SXat7ed/KHjU3L?=
-x-ms-exchange-antispam-messagedata-1: VayQNcoR8OXFGlEfrTK5Es4wFbHeUft87GE=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <EA26D3C0A1EE214EA098819489D8E647@namprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Tue, 28 Jul 2026 07:45:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785224747; x=1816760747;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version:content-transfer-encoding;
+  bh=Qwwo+RjO5/E+/gdt7oUP1BpkpYefVSpeX8tj12d2Y98=;
+  b=h0fJFTBRwNMCprOp3SdVZ3I1behbyCI5Tef6v+AsucG3euTnu8wPj2Ti
+   TrPsZ82WA9yQ0zBRzsqHWaSnJzVANoyXy0GYbWFjLfG33x/kphaayKPb/
+   KzFMZ1v9NMkAZeHdxiebICJqjONz+ODzAO22MZSfnmA1hUBqAsDOj7GQi
+   24hs2K4mZyYwUKn1WwlnNj479cSR8nm5c3nCSB1qv1EcbVE3lazIQwSTf
+   KXyAEak2jGmMHJL8RdBgVCBMzX8nfZLUH5AZAfvIJV3tfS0GegydZuOEp
+   viJg05o9eEXUrAQMTn2pxMxxviFrEWObn55Ok4AbIBzheIlTMv/KGBr3a
+   g==;
+X-CSE-ConnectionGUID: saJb83xOQTywAY+DDosWMw==
+X-CSE-MsgGUID: OuSlvqZzRaSx+SYUnQNKtw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11858"; a="85670795"
+X-IronPort-AV: E=Sophos;i="6.25,190,1779174000"; 
+   d="scan'208";a="85670795"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2026 00:45:45 -0700
+X-CSE-ConnectionGUID: CzO3WoOrS4OdZoKto+PKIQ==
+X-CSE-MsgGUID: c46EBBmlTvuz1ZaGKmwAYQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,190,1779174000"; 
+   d="scan'208";a="256292800"
+Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.76])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2026 00:45:39 -0700
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss
+ <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Daniel Stone <daniel@fooishbar.org>, Hans Verkuil
+ <hverkuil+cisco@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Samuel
+ Holland <samuel@sholland.org>, Dave Stevenson
+ <dave.stevenson@raspberrypi.com>, =?utf-8?Q?Ma=C3=ADra?= Canal
+ <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, Dmitry Baryshkov
+ <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v9 0/5] Add SCDC information to connector debugfs
+In-Reply-To: <EDiHBw8XQg-RsxQIQVIjig@collabora.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20260724-scdc-link-health-v9-0-bdda406d016d@collabora.com>
+ <1c9d3a50341129188242b1b2758fcee5eab243db@intel.com>
+ <EDiHBw8XQg-RsxQIQVIjig@collabora.com>
+Date: Tue, 28 Jul 2026 10:45:37 +0300
+Message-ID: <f18b084c3b6372da4c9e5a779696edc599a9f0a6@intel.com>
 MIME-Version: 1.0
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cfc8cd1e-0fb2-4adf-be12-08deec787b97
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jul 2026 07:18:54.6938
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: QPmc2CMI0GsIv5n0gE66pALsN7C1utGJ3zA8UpFbpDcgzbpui6FeNo6re/HyCkaTBkGiSHKO+wiEb/4fhPBhIBjDKhxBh/oNztsjT/3lohnDkC+gPd1HZZCgmAFlzOrfMwmuqOuFpb2XRhH28Jwj+g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV5PR03MB8412
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_001901_087884_47BB2959 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20260728_004547_065055_84502790 
+X-CRM114-Status: GOOD (  36.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,93 +102,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gMjcvNy8yMDI2IDQ6MTEgcG0sIE1heGltZSBDaGV2YWxsaWVyIHdyb3RlOg0KPiBIaSwNCj4N
-Cj4gT24gNy8yNy8yNiAwNzoxMywgbXVoYW1tYWQubmF6aW0uYW1pcnVsLm5hemxlLmFzbWFkZUBh
-bHRlcmEuY29tIHdyb3RlOg0KPj4gRnJvbTogTmF6aW0gQW1pcnVsIDxtdWhhbW1hZC5uYXppbS5h
-bWlydWwubmF6bGUuYXNtYWRlQGFsdGVyYS5jb20+DQo+Pg0KPj4gVGhlIHByZWVtcHRpdmUgTUFD
-IGluIERXTUFDIGlzIGFsd2F5cyBlbmFibGVkLCBtZWFuaW5nIERXTUFDIGlzIGFsd2F5cw0KPj4g
-cmVhZHkgdG8gcmVjZWl2ZSBwcmVlbXB0aXZlIG1QYWNrZXRzLiBLZWVwIHBtYWNfZW5hYmxlZCB0
-cnVlIGF0IGluaXQNCj4+IHRpbWUgYW5kIHJlamVjdCBhdHRlbXB0cyB0byBkaXNhYmxlIGl0IHZp
-YSBldGh0b29sIHNldF9tbS4NCj4+DQo+PiBUaGUgRlBFIHJlc2lkdWFsIHF1ZXVlIChmcHJxKSBj
-b250cm9scyB3aGljaCBSeCBxdWV1ZSByZWNlaXZlcyByZXNpZHVhbA0KPj4gcHJlZW1wdGl2ZSBt
-UGFja2V0cyBmcm9tIHRoZSBwbWFjLiBNb3ZlIGl0cyBjb25maWd1cmF0aW9uIGZyb20NCj4+IHN0
-bW1hY19mcGVfY29uZmlndXJlX3R4KCkgdG8gc3RtbWFjX2ZwZV9jb25maWd1cmVfcG1hYygpIHdo
-ZXJlIGl0DQo+PiBsb2dpY2FsbHkgYmVsb25ncy4NCj4+DQo+PiBBbHNvIGFkZCBhIG1pc3Npbmcg
-cmV0dXJuIGluIHN0bW1hY19mcGVfaW5pdCgpIHNvIHRoYXQgdGhlIHBtYWNfZW5hYmxlZA0KPj4g
-aW5pdGlhbGl6YXRpb24gaXMgbm90IHJlYWNoZWQgb24gaGFyZHdhcmUgd2hlcmUgRlBFIGlzIG5v
-dCBzdXBwb3J0ZWQgYnkNCj4+IHRoZSBkcml2ZXIuDQo+DQo+IENhbiB5b3Ugc3BsaXQgdGhpcyB1
-cCBpbnRvIGluZGl2aWR1YWwgcGF0Y2hlcywgb25lIGZvciB0aGUgc3RtbWFjX3NldF9tbSgpIGFu
-ZA0KPiBzdG1tYWNfZnBlX2luaXQoKSB0byB2YWxpZGF0ZSB0aGF0IHdlIGtlZXAgcG1hYyBvbiwg
-b25lIGZvciB0aGUgbWlzc2luZyByZXR1cm4sDQo+IGFuZCBvbmUgZm9yIHRoZSBwbWFjIGNvbmZp
-Z3VyYXRpb24gaW4gdGhlIHJpZ2h0IGZvbmN0aW9uID8NCg0Kc3VyZSB3aWxsIHNwbGl0IGFzIHBl
-ciB5b3VyIHN1Z2dlc3Rpb24+DQo+IEFsc28gb25lIGNvbW1lbnQgYmVsbG93IDo+DQo+PiBTaWdu
-ZWQtb2ZmLWJ5OiBSb2hhbiBHIFRob21hcyA8cm9oYW4uZy50aG9tYXNAYWx0ZXJhLmNvbT4NCj4+
-IFNpZ25lZC1vZmYtYnk6IE5hemltIEFtaXJ1bCA8bXVoYW1tYWQubmF6aW0uYW1pcnVsLm5hemxl
-LmFzbWFkZUBhbHRlcmEuY29tPg0KPj4gLS0tDQo+PiAgIC4uLi9ldGhlcm5ldC9zdG1pY3JvL3N0
-bW1hYy9zdG1tYWNfZXRodG9vbC5jICB8ICA3ICsrKysNCj4+ICAgLi4uL25ldC9ldGhlcm5ldC9z
-dG1pY3JvL3N0bW1hYy9zdG1tYWNfZnBlLmMgIHwgMzQgKysrKysrKysrKysrLS0tLS0tLQ0KPj4g
-ICAyIGZpbGVzIGNoYW5nZWQsIDI5IGluc2VydGlvbnMoKyksIDEyIGRlbGV0aW9ucygtKQ0KPj4N
-Cj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9zdG1t
-YWNfZXRodG9vbC5jIGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvc3RtbWFj
-X2V0aHRvb2wuYw0KPj4gaW5kZXggOTI1ODVkMjdhYjg4Li44ZWJkZDI0OWU1YzggMTAwNjQ0DQo+
-PiAtLS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9zdG1tYWNfZXRodG9v
-bC5jDQo+PiArKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9zdG1pY3JvL3N0bW1hYy9zdG1tYWNf
-ZXRodG9vbC5jDQo+PiBAQCAtMTA2NCw2ICsxMDY0LDEzIEBAIHN0YXRpYyBpbnQgc3RtbWFjX3Nl
-dF9tbShzdHJ1Y3QgbmV0X2RldmljZSAqbmRldiwgc3RydWN0IGV0aHRvb2xfbW1fY2ZnICpjZmcs
-DQo+PiAgICAgIGlmIChlcnIpDQo+PiAgICAgICAgICAgICAgcmV0dXJuIGVycjsNCj4+DQo+PiAr
-ICAgIGlmICghcHJpdi0+ZG1hX2NhcC5mcGVzZWwpDQo+PiArICAgICAgICAgICAgcmV0dXJuIC1F
-T1BOT1RTVVBQOw0KPj4gKw0KPj4gKyAgICAvKiBEV01BQyBhbHdheXMgaGF2ZSBwcmVlbXB0aWJs
-ZSBNQUMgZW5hYmxlZCAqLw0KPj4gKyAgICBpZiAoIWNmZy0+cG1hY19lbmFibGVkKQ0KPj4gKyAg
-ICAgICAgICAgIHJldHVybiAtRUlOVkFMOw0KPj4gKw0KPj4gICAgICBzdG1tYWNfZnBlX3NldF9h
-ZGRfZnJhZ19zaXplKHByaXYsIGZyYWdfc2l6ZSk7DQo+PiAgICAgIGV0aHRvb2xfbW1zdl9zZXRf
-bW0oJnByaXYtPmZwZV9jZmcubW1zdiwgY2ZnKTsNCj4+DQo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVy
-cy9uZXQvZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvc3RtbWFjX2ZwZS5jIGIvZHJpdmVycy9uZXQv
-ZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvc3RtbWFjX2ZwZS5jDQo+PiBpbmRleCBjNTRjNzAyMjQz
-NTEuLjJiZmE4NGFkMDRhNiAxMDA2NDQNCj4+IC0tLSBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L3N0
-bWljcm8vc3RtbWFjL3N0bW1hY19mcGUuYw0KPj4gKysrIGIvZHJpdmVycy9uZXQvZXRoZXJuZXQv
-c3RtaWNyby9zdG1tYWMvc3RtbWFjX2ZwZS5jDQo+PiBAQCAtNDcsMjAgKzQ3LDEzIEBAIHN0YXRp
-YyB2b2lkIHN0bW1hY19mcGVfY29uZmlndXJlX3R4KHN0cnVjdCBldGh0b29sX21tc3YgKm1tc3Ys
-IGJvb2wgdHhfZW5hYmxlKQ0KPj4gICAgICBzdHJ1Y3Qgc3RtbWFjX2ZwZV9jZmcgKmNmZyA9IGNv
-bnRhaW5lcl9vZihtbXN2LCBzdHJ1Y3Qgc3RtbWFjX2ZwZV9jZmcsIG1tc3YpOw0KPj4gICAgICBz
-dHJ1Y3Qgc3RtbWFjX3ByaXYgKnByaXYgPSBjb250YWluZXJfb2YoY2ZnLCBzdHJ1Y3Qgc3RtbWFj
-X3ByaXYsIGZwZV9jZmcpOw0KPj4gICAgICBjb25zdCBzdHJ1Y3Qgc3RtbWFjX2ZwZV9yZWcgKnJl
-ZyA9IGNmZy0+cmVnOw0KPj4gLSAgICB1MzIgbnVtX3J4cSA9IHByaXYtPnBsYXQtPnJ4X3F1ZXVl
-c190b191c2U7DQo+PiAgICAgIHZvaWQgX19pb21lbSAqaW9hZGRyID0gcHJpdi0+aW9hZGRyOw0K
-Pj4gLSAgICB1MzIgdmFsdWU7DQo+Pg0KPj4gLSAgICBpZiAodHhfZW5hYmxlKSB7DQo+PiArICAg
-IGlmICh0eF9lbmFibGUpDQo+PiAgICAgICAgICAgICAgY2ZnLT5mcGVfY3NyID0gU1RNTUFDX01B
-Q19GUEVfQ1RSTF9TVFNfRUZQRTsNCj4+IC0gICAgICAgICAgICB2YWx1ZSA9IHJlYWRsKGlvYWRk
-ciArIHJlZy0+cnhxX2N0cmwxX3JlZyk7DQo+PiAtICAgICAgICAgICAgdmFsdWUgJj0gfnJlZy0+
-ZnBycV9tYXNrOw0KPj4gLSAgICAgICAgICAgIC8qIEtlZXAgdGhpcyBTSElGVCwgRklFTERfUFJF
-UCgpIGV4cGVjdHMgYSBjb25zdGFudCBtYXNrIDotLyAqLw0KPj4gLSAgICAgICAgICAgIHZhbHVl
-IHw9IChudW1fcnhxIC0gMSkgPDwgX19mZnMocmVnLT5mcHJxX21hc2spOw0KPj4gLSAgICAgICAg
-ICAgIHdyaXRlbCh2YWx1ZSwgaW9hZGRyICsgcmVnLT5yeHFfY3RybDFfcmVnKTsNCj4+IC0gICAg
-fSBlbHNlIHsNCj4+ICsgICAgZWxzZQ0KPj4gICAgICAgICAgICAgIGNmZy0+ZnBlX2NzciA9IDA7
-DQo+PiAtICAgIH0NCj4+ICsNCj4+ICAgICAgd3JpdGVsKGNmZy0+ZnBlX2NzciwgaW9hZGRyICsg
-cmVnLT5tYWNfZnBlX3JlZyk7DQo+PiAgIH0NCj4+DQo+PiBAQCAtNjgsMTAgKzYxLDExIEBAIHN0
-YXRpYyB2b2lkIHN0bW1hY19mcGVfY29uZmlndXJlX3BtYWMoc3RydWN0IGV0aHRvb2xfbW1zdiAq
-bW1zdiwgYm9vbCBwbWFjX2VuYWJsDQo+PiAgIHsNCj4+ICAgICAgc3RydWN0IHN0bW1hY19mcGVf
-Y2ZnICpjZmcgPSBjb250YWluZXJfb2YobW1zdiwgc3RydWN0IHN0bW1hY19mcGVfY2ZnLCBtbXN2
-KTsNCj4+ICAgICAgc3RydWN0IHN0bW1hY19wcml2ICpwcml2ID0gY29udGFpbmVyX29mKGNmZywg
-c3RydWN0IHN0bW1hY19wcml2LCBmcGVfY2ZnKTsNCj4+ICsgICAgdTMyIG51bV9yeHEgPSBwcml2
-LT5wbGF0LT5yeF9xdWV1ZXNfdG9fdXNlOw0KPj4gICAgICBjb25zdCBzdHJ1Y3Qgc3RtbWFjX2Zw
-ZV9yZWcgKnJlZyA9IGNmZy0+cmVnOw0KPj4gICAgICB2b2lkIF9faW9tZW0gKmlvYWRkciA9IHBy
-aXYtPmlvYWRkcjsNCj4+ICAgICAgdW5zaWduZWQgbG9uZyBmbGFnczsNCj4+IC0gICAgdTMyIHZh
-bHVlOw0KPj4gKyAgICB1MzIgdmFsdWUsIHZhbHVlXzI7DQo+Pg0KPj4gICAgICBzcGluX2xvY2tf
-aXJxc2F2ZSgmcHJpdi0+aHctPmlycV9jdHJsX2xvY2ssIGZsYWdzKTsNCj4+ICAgICAgdmFsdWUg
-PSByZWFkbChpb2FkZHIgKyByZWctPmludF9lbl9yZWcpOw0KPj4gQEAgLTgzLDYgKzc3LDE0IEBA
-IHN0YXRpYyB2b2lkIHN0bW1hY19mcGVfY29uZmlndXJlX3BtYWMoc3RydWN0IGV0aHRvb2xfbW1z
-diAqbW1zdiwgYm9vbCBwbWFjX2VuYWJsDQo+Pg0KPj4gICAgICAgICAgICAgICAgICAgICAgdmFs
-dWUgfD0gcmVnLT5pbnRfZW5fYml0Ow0KPj4gICAgICAgICAgICAgIH0NCj4+ICsgICAgICAgICAg
-ICAvKiBGcmFtZSBQcmVlbXB0aW9uIFJlc2lkdWUgUXVldWUgaXMgdGhlIFJ4IFF1ZXVlIHRvIHdo
-aWNoDQo+PiArICAgICAgICAgICAgICogcmVzaWR1YWwgcHJlZW1wdGl2ZSBtUGFja2V0cyBtdXN0
-IGJlIGZvcndhcmRlZCBmcm9tIHRoZSBwbWFjLg0KPj4gKyAgICAgICAgICAgICAqLw0KPj4gKyAg
-ICAgICAgICAgIHZhbHVlXzIgPSByZWFkbChpb2FkZHIgKyByZWctPnJ4cV9jdHJsMV9yZWcpOw0K
-Pj4gKyAgICAgICAgICAgIHZhbHVlXzIgJj0gfnJlZy0+ZnBycV9tYXNrOw0KPj4gKyAgICAgICAg
-ICAgIC8qIEtlZXAgdGhpcyBTSElGVCwgRklFTERfUFJFUCgpIGV4cGVjdHMgYSBjb25zdGFudCBt
-YXNrIDotLyAqLw0KPg0KPiB5b3UgY2FuIHVzZSB1MzJfcmVwbGFjZV9iaXRzIGZvciBub24gY29u
-c3RhbnQgZXhwciA6DQp3aWxsIHVwZGF0ZSBhbmQgcmVwb3N0IGl0LCBUaGFua3MgTWF4aW1lIT4N
-Cj4gaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjcuMi1yYzQvc291cmNlL2luY2x1
-ZGUvbGludXgvYml0ZmllbGQuaCNMMjM2DQo+DQo+IChpdCdzIGF1dG9nZW5lcmF0ZWQgYW5kIG5v
-dCBkb2N1bWVudGVkLCBoZW5jZSB2ZXJ5IGhhcmQgdG8gZmluZCBJTU8pDQo+DQo+IE1heGltZQ0K
-DQo=
+On Mon, 27 Jul 2026, Nicolas Frattaroli <nicolas.frattaroli@collabora.com> =
+wrote:
+> On Monday, 27 July 2026 10:35:15 Central European Summer Time Jani Nikula=
+ wrote:
+>> On Fri, 24 Jul 2026, Nicolas Frattaroli <nicolas.frattaroli@collabora.co=
+m> wrote:
+>> > HDMI uses the DDC I2C bus for communicating various bits of link status
+>> > out of band with the actual HDMI video signal. This information can be
+>> > useful for debugging issues like questionable cables sabotaged by feli=
+ne
+>> > teeth, Enthusiast Grade cables made of cow fencing wire, and other such
+>> > problems that ruin one's media viewing plans.
+>> >
+>> > Consequently, this series exposes various bits of pertinent information
+>> > from the SCDC protocol in an HDMI connector's debugfs. To continually
+>> > poll the link status, userspace can poll the debugfs file.
+>>=20
+>> Is there a reason we can't add a character device node for this similar
+>> to DP AUX? See config DRM_DISPLAY_DP_AUX_CHARDEV.
+>
+> You already can just point tools at the ddc symlink to the i2c dev.
+>
+> The idea here is to be able to read this out of debugfs without
+> any additional external tooling needed.
+
+Fair enough, thanks.
+
+BR,
+Jani.
+
+>
+>> It's ultimately more generic than deciphering everything in kernel.
+>
+> The kernel will need to decipher this in the future anyway for HDMI 2.x
+> support, including so that it can set link status to bad when there's a
+> glut of errors.
+>
+>>=20
+>>=20
+>> BR,
+>> Jani.
+>>=20
+>>=20
+>>=20
+>>=20
+>>=20
+>> >
+>> > ---
+>> > Changes in v9:
+>> > - Unlock mode_config.mutex on disconnected connector early exit
+>> > - Calculate and print Reed-Solomon error corrections counter on !=3D 4
+>> >   lane FRL as well. Technically a functional change to an already
+>> >   reviewed patch, but I kept the R-b because it's so minor.
+>> > - Link to v8: https://patch.msgid.link/20260722-scdc-link-health-v8-0-=
+cd1dacbb85d9@collabora.com
+>> >
+>> > Changes in v8:
+>> > - Acquire mode_config mutex in an interruptible way during
+>> >   scdc_status_show to avoid racing connector state
+>> > - Remove scdc_debugfs_priv, use connector as debugfs entry priv instead
+>> > - Allocate and free state in scdc_status_show, since it doesn't need to
+>> >   persist across debugfs reads
+>> > - Check for NULL ddc in drm_scdc_read_state in the unlikely event an
+>> >   EDID with the SCDC flag was forced on a connector with no DDC
+>> > - Note: drm_connector_get() is omitted from drm_scdc_debugfs_init
+>> >   because drm_scdc_debugfs_init is called on connector construction and
+>> >   the debugfs is removed on connector destruction. Adding a redundant
+>> >   reference increase here would necessitate introducing a destruction
+>> >   callback to mirror the debugfs_init connector op for the sole purpose
+>> >   of decreasing the counter again.
+>> > - Link to v7: https://patch.msgid.link/20260721-scdc-link-health-v7-0-=
+92df1b6ad5fc@collabora.com
+>> >
+>> > Changes in v7:
+>> > - Move HDMI debugfs registration to new state helper, fix up all users
+>> >   (sun4i, vc4, bridge)
+>> > - Register scdc debugfs in new hdmi debugfs helper
+>> > - Link to v6: https://patch.msgid.link/20260611-scdc-link-health-v6-0-=
+6307875a6b5e@collabora.com
+>> >
+>> > Changes in v6:
+>> > - Fix off-by-one error in drm_scdc_read_state
+>> > - Link to v5: https://patch.msgid.link/20260604-scdc-link-health-v5-0-=
+11173b0ac3de@collabora.com
+>> >
+>> > Changes in v5:
+>> > - Read all SCDC data regardless of update flags
+>> > - Dump SCDC data as hex before the human-readable output. It's separat=
+ed
+>> >   with "\n----------------\n\n".
+>> > - No longer write 0 to read-only registers
+>> > - Add Reed-Solomon Corrections counter parsing
+>> > - Parsing has been kept. A desire was expressed to get this data witho=
+ut
+>> >   any external userspace tooling, and the kernel will need to parse it
+>> >   eventually anyway to set the link status.
+>> > - Functions have been made static as of right now, since external users
+>> >   may do another pass over the function signatures anyway.
+>> > - Link to v4: https://patch.msgid.link/20260527-scdc-link-health-v4-0-=
+622ea40a1f59@collabora.com
+>> >
+>> > Changes in v4:
+>> > - Don't use C struct bitfields for parsing status flags. Switch to
+>> >   bitwise AND for boolean flags, and FIELD_GET for multi-bit values.
+>> > - Drop the superfluous !! and parens
+>> > - Drop the __pure attributes on static functions
+>> > - Initialise stack local arrays with {}, not { 0 }.
+>> > - I've kept the print macros and %-30s format. Reason being that I don=
+'t
+>> >   want to repeat the format specifier and str_yes_no(foo) a bunch, and=
+ I
+>> >   like the %-30s format because it means all values are aligned with t=
+he
+>> >   value of the longest field, which is 30 chars long.
+>> > - Link to v3: https://patch.msgid.link/20260526-scdc-link-health-v3-0-=
+59e4a4aaead1@collabora.com
+>> >
+>> > Changes in v3:
+>> > - Add patch to change return type of drm_scdc_read/write.
+>> > - Rework error counter reading to duplicate less code.
+>> > - Also check lane 3 counter valid flag when reading its error counter.
+>> > - Use memset to clear buf for error counters, rather than doing it in
+>> >   the loop.
+>> > - Make read_error_counters not accept 0 as num_lanes; fix it up in the
+>> >   caller instead.
+>> > - Link to v2: https://patch.msgid.link/20260520-scdc-link-health-v2-0-=
+511af18cd64b@collabora.com
+>> >
+>> > Changes in v2:
+>> > - Add HDMI 2.1 SCDC status reporting
+>> > - Link to v1: https://patch.msgid.link/20260415-scdc-link-health-v1-0-=
+8e731e88eaf0@collabora.com
+>> >
+>> > To: Jani Nikula <jani.nikula@linux.intel.com>
+>> > To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+>> > To: Maxime Ripard <mripard@kernel.org>
+>> > To: Thomas Zimmermann <tzimmermann@suse.de>
+>> > To: David Airlie <airlied@gmail.com>
+>> > To: Simona Vetter <simona@ffwll.ch>
+>> > To: Andrzej Hajda <andrzej.hajda@intel.com>
+>> > To: Neil Armstrong <neil.armstrong@linaro.org>
+>> > To: Robert Foss <rfoss@kernel.org>
+>> > To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+>> > To: Jonas Karlman <jonas@kwiboo.se>
+>> > To: Jernej Skrabec <jernej.skrabec@gmail.com>
+>> > To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>> > To: Daniel Stone <daniel@fooishbar.org>
+>> > To: Hans Verkuil <hverkuil+cisco@kernel.org>
+>> > To: Chen-Yu Tsai <wens@kernel.org>
+>> > To: Samuel Holland <samuel@sholland.org>
+>> > To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+>> > To: Ma=C3=ADra Canal <mcanal@igalia.com>
+>> > To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+>> > Cc: dri-devel@lists.freedesktop.org
+>> > Cc: linux-kernel@vger.kernel.org
+>> > Cc: kernel@collabora.com
+>> > Cc: linux-arm-kernel@lists.infradead.org
+>> > Cc: linux-sunxi@lists.linux.dev
+>> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>> >
+>> > ---
+>> > Nicolas Frattaroli (5):
+>> >       drm/scdc-helper: Don't use ssize_t return type for scdc_read/wri=
+te
+>> >       drm/scdc-helper: Add scdc_status debugfs entry
+>> >       drm/scdc-helper: Implement parsing and printing HDMI 2.1 fields
+>> >       drm/debugfs: Move HDMI debugfs registration to state helper
+>> >       drm/display: hdmi-state-helper: Init SCDC debugfs for HDMI
+>> >
+>> >  drivers/gpu/drm/display/drm_bridge_connector.c  |   3 +
+>> >  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 156 +++++++++++++
+>> >  drivers/gpu/drm/display/drm_scdc_helper.c       | 289 +++++++++++++++=
+++++++++-
+>> >  drivers/gpu/drm/drm_debugfs.c                   | 157 -------------
+>> >  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c          |   1 +
+>> >  drivers/gpu/drm/vc4/vc4_hdmi.c                  |   1 +
+>> >  include/drm/display/drm_hdmi_state_helper.h     |   3 +
+>> >  include/drm/display/drm_scdc.h                  |  21 +-
+>> >  include/drm/display/drm_scdc_helper.h           | 103 ++++++++-
+>> >  9 files changed, 568 insertions(+), 166 deletions(-)
+>> > ---
+>> > base-commit: b747a63003130bef1a3d5d6ba97c94d0cee36f55
+>> > change-id: 20260413-scdc-link-health-89326013d96c
+>> >
+>> > Best regards,
+>> > --=20=20
+>> > Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>> >
+>>=20
+>>=20
+>
+>
+>
+>
+
+--=20
+Jani Nikula, Intel
 
