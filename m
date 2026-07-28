@@ -4,67 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757EBC53209
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 01:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108D3C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gAt0aFb//7A4/4ojCI627rMD2TYOoTKvOVzgtO5822o=; b=RCOVHQfW893IlhlaJV5Bdu8oC3
-	LG1DsXHkTGtNFDOSzqSMlogNt9PinrCqHdNeeztv/BYMys5xjVu9U5X4eAR0Ha5nAERIp5YbbWR6Z
-	nfXjFOPsPhSSAuJiXv9DblcMT9AjMLKmNqftGklui66apC11PZiIRWakEQ0ROC+1HGSP08jfx+56U
-	JQNPrQqPKqEe7GHaYrgeFKEkh72Lik1dGTVADccI1G/rKJqUW2ODCbYvLat6PUz44iwREPupfaTuU
-	FjRSDuaJQ0n6KvieLxS/FWtfjjbYt/pAi2bt9thVJ5xb41/RyOVX1WZHEVobJeQhZ5xVQ14br3Xmn
-	8Pl7LxSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5QXqv47OcFSVhhb3ld5qD42PCvPkJu1cY86UID8FXuI=; b=S7qJrl0EytNKF5rK1PWlprTwt9
+	thD/aG+Nan8bz0uy9bvVvKpjq2tunspsbn/52zZUg+VkIhVWBPpJxEa4VkLfDc0jY6103/ubFZJCt
+	5P70K0Td/sev/OMwwF/50EpuU/ifuQMrxV3zKMKY8n1TYWlBIy7pWBn39ARR+dQp1s5Ol8oUGxe2y
+	NZc4vxH8vyhK3b6Rb/pO970hTbLrbL9vqRplAzogbxJ1WqZIUjlutFbgfUiThAfscaN15h/G2V7HA
+	6/t+keO0751nmBKoqC2JVWAR8yvWJb74bPRtwhh3soVHPMjc1M0jdBKV5PUkuW+JGYEQi+xN2Jo9O
+	wyG9MlSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woWc0-00000004Cpa-2Yrp;
-	Tue, 28 Jul 2026 01:28:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1woXAr-00000004ECS-0ROr;
+	Tue, 28 Jul 2026 02:04:05 +0000
+Received: from mail-japaneastazon11022090.outbound.protection.outlook.com ([52.101.126.90] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woWbz-00000004CpU-4BeN
+	id 1woXAp-00000004EBu-0fkL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 01:28:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 623D9600FC;
-	Tue, 28 Jul 2026 01:28:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97481F000E9;
-	Tue, 28 Jul 2026 01:28:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785202083;
-	bh=gAt0aFb//7A4/4ojCI627rMD2TYOoTKvOVzgtO5822o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=EcZ9CYXY+6ORNqJpKDPgphZw+iyTKMJmkRFubdUHcgWIDOV7f0FbXz+BMz4URD2rF
-	 X4e3f9y5xdztiqdAUS0MCf0u6gyBZ/qVc4eDHyScYO88vIafJ1fJIiP7iBy96QZEM4
-	 1CADh3igw1O+EvLNf2P22htUrcTWn8OFlQXkRT9XnL7YmWW/NhEjILScFUm2mfMuab
-	 6svtNwcaGacZo910zNuQ/JuKsuSqQnND9L4Vp0borw1tiUrxc0DAokINbcSHhmCBGG
-	 boc01GP6xmoHTQnpiHmolRHQWFL4QjyMqntypoo7jJZA/Ja91FRpDWbsV7dfiR0rHS
-	 h1KheDOd7qBFw==
-Date: Tue, 28 Jul 2026 02:27:59 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
- james.quinlan@broadcom.com, f.fainelli@gmail.com,
- vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com,
- michal.simek@amd.com, d-gole@ti.com, elif.topuz@arm.com,
- lukasz.luba@arm.com, philip.radford@arm.com, brauner@kernel.org,
- souvik.chakravarty@arm.com, david@kernel.org,
- subrahmanya.lingappa@oss.qualcomm.com, leitao@kernel.org, kas@kernel.org,
- puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v6 06/22] firmware: arm_scmi: Add basic Telemetry
- support
-Message-ID: <20260728022759.5c485c1c@jic23-huawei>
-In-Reply-To: <20260724144430.1440170-7-cristian.marussi@arm.com>
-References: <20260724144430.1440170-1-cristian.marussi@arm.com>
-	<20260724144430.1440170-7-cristian.marussi@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Tue, 28 Jul 2026 02:04:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Hf1pC8gR511j2IOTqDT57gkYCodQOe/f8vHHw5y460wA7vOc1CvfBHjQw3m55X0B/kwrZgTht4VeUG9m4g8L4IswemfkpYeqdB/ARje+HFW+D83ra/iADc4An/hrG8TuChJeLwEuadjUYykRmdDihatiS0t2Zh+n6hkmRsJGagu+pBwZpC+gu5n55znqPVoTK2rCBg+2FI9HObyKw60Nv3y60DRdhSOTEGN8tNb6/neQ0+waS8PwWnkgg6yyTDSgNCfpF/+zJVRbXAg6KiP3qeXDKKkk099rKLKI2TLwVW2aOfSdYKXQQDPocTZkgh/BraRpjbf29BsxRZ0LG4UjPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5QXqv47OcFSVhhb3ld5qD42PCvPkJu1cY86UID8FXuI=;
+ b=xP6hWtqWn3gzAH97PHbuZZUqL3q28SQr1emw1lY2aMy7zWCyUORAv+yCowYq8DEE94h2gZPDf/fo4O22izZMP6xUq2XU2T2noD6eQ8vbOWfM2iF852gUrk7uL/XPFDxOk2h7RoyOlDcRw6a72C32SMDrLN1LYfBASzJ5OVQeKJLqOaWv3PD56iqPUzULMYv8VNw1/N1fI/B9wylfVnltJUjtszh+VOmAXKCwIlYh+cVEgkc//r7a+0VUDdUx7L2c7Pt0oWufeuvXipgqvGSUOo1uTJYlB2rpNNthG++tHUySg8e2BhT/XBzRaFePtAYoeL0Lm2ySFdkJEGfLzOYD7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=transsion.com; dmarc=pass action=none
+ header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5QXqv47OcFSVhhb3ld5qD42PCvPkJu1cY86UID8FXuI=;
+ b=DP7dBjPFtM9DeAd5JJUTXQvEnN1V2zcYe8+nnF++OwiylkQqAg7bamOFBWT+pzysrG/CesmHa4rA45EffrOw87+FZw4d5HgOOkKpcnbRtD7B5Hv6LSLc9G6A3RkjKDa90OjC8whF5C9aEQ5+gfKTKqrR8chw5sVMy0mOpf6B6eA=
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ (2603:1096:820:c7::13) by KL1PR0401MB6228.apcprd04.prod.outlook.com
+ (2603:1096:820:9b::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Tue, 28 Jul
+ 2026 02:03:34 +0000
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3%3]) with mapi id 15.21.0270.009; Tue, 28 Jul 2026
+ 02:03:33 +0000
+From: Hongyan Xia <hongyan.xia@transsion.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+CC: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>, Dennis Zhou <dennis@kernel.org>,
+	Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, Oleg Nesterov
+	<oleg@redhat.com>, Naveen N Rao <naveen@kernel.org>, "David S. Miller"
+	<davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, Bill Wendling
+	<morbo@google.com>, Justin Stitt <justinstitt@google.com>, Jiazi Li
+	<jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "linux-trace-kernel@vger.kernel.org"
+	<linux-trace-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>
+Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
+ __always_inline
+Thread-Topic: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
+ __always_inline
+Thread-Index: AQHdHcMO39AcF/TaiUWqS0RapTlJlbaBvwQAgABv3wA=
+Date: Tue, 28 Jul 2026 02:03:33 +0000
+Message-ID: <fc1ca700-64f1-4edd-bf44-44c0d3e422a7@transsion.com>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+ <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
+ <CAKwvOd=HeG=z1j2qB-SX3NQ=62ERr=KpQNZyqqp2Qy4kZ54RLw@mail.gmail.com>
+In-Reply-To: <CAKwvOd=HeG=z1j2qB-SX3NQ=62ERr=KpQNZyqqp2Qy4kZ54RLw@mail.gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=transsion.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|KL1PR0401MB6228:EE_
+x-ms-office365-filtering-correlation-id: 9a57573a-6168-4299-3c64-08deec4c6db8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|23010399003|376014|1800799024|38070700021|6133799003|5023799004|11063799006|56012099006|4143699003|10067099003|4133799003|18002099003|22082099003;
+x-microsoft-antispam-message-info: M2RERLvF36NcqliEvbIELJ+QQnTaR9nIKm2qcMKnCQrTykne4/MCKTKwjEKwU82ZcUpF4kOpPXdIX1Z6Pnik9sVtquQcNltZ7XagJe55Ehcl4FaI9K6soHxlx5hbuc5675zbD+Z3CVaMY739zOsu2fifg4NchmGgVyp6hc5aC7Jd53dAT/sU39TJz6om25fW0ilkYVUComDmVBpwKnaJsoTlpvTiIX2LONt6Sr+9i+Ik3b8pYgrMon2k6U6WS2QgYK0QbZcGyBh1aTglfUTfy/thrtULvbN6Tt8L0wqsH/i9aswTNZRwdiOztDc8OO/w/Ztwxce5rjDmwj7cMMpWQs39gR6Mk5gbCjarrFuk0V/5PsFpDTl6UC8bWDqZOLE5/93ITAz5S9jCVNwm/ik0vlgOTWRAwtg5/X9svFu6Fuw9G2WzHYePf9ivjXbUcn3Y+JiVbbdL34SOM/s1GfNp5ilU24bEJ7ln82ZsUJCDa26DWcDoXRW8rk6rhvpfAypTdTwKiPEFk6IZlbNdik2BMvJIgVebUwN8S9mJTSv9aao9mQBGSFR2fywR/IwtwBt9yRs+zZfeHTGr87c20dznV1cDZ6ag/0GTZkFJG+8E2hrTxT707pbBRO4exSg2uQzbsy7GGTwwQKU+idzPft7QGuhSU+/ilw9U5BtyG7c1m8rfxr20D4zpBnhk6RkvfSXl8XiqmeCG/vEKq75E2RBLXCpm/4N7XuwrUMIMYx3I/aM=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0401MB6196.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(23010399003)(376014)(1800799024)(38070700021)(6133799003)(5023799004)(11063799006)(56012099006)(4143699003)(10067099003)(4133799003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aFB1cThsVE1XOEpmanBFUE9nU2FaWnZqem82NTBMcmVIWTRsWWxVV0JzcHNn?=
+ =?utf-8?B?QzVMRTBaOCtrbkR2UVRSSTFpem9MaGd2WjdOREpOMFpvaHIwNnFDbUhJbmdM?=
+ =?utf-8?B?STljQ0pPNUM2ZTAwVUxrcWg5QThBampKQlJnQm5zMURNRTVzbnZNSHdnREc4?=
+ =?utf-8?B?L1ZsZjVyWW1ubjZxWVpSekJJYjkvMSthb2QwdDNvMVlZRjBFTkp2dndmY2dJ?=
+ =?utf-8?B?MC82SWtDSHpiQXZQcC8xSFBJTDIxWVZXdjF2dU5RL1hWWXhOUmhMRmFKa3lC?=
+ =?utf-8?B?aW1YTHJ2WUZ5aStzemlIaEUvMGN0QXZPMnJiNlBaVFlqbE1yaWtMOXFDcytN?=
+ =?utf-8?B?bVhSMkJkQi9VYXpIU2NUR2RhR0VLOTVHbkE1dFFUYzdvbUJ5bWdPYUFDaStX?=
+ =?utf-8?B?Sk9PSGg2c052YTRqdXlXSGhIZm1tY0pZT25nL0NieCs3V2xCNnhHejUvTGV2?=
+ =?utf-8?B?aloyZGxJWXFjWklkZ0Vad1pxSGFVYi9iUW84dXlGdDFsR1dMQlRYN2FHVEtN?=
+ =?utf-8?B?SDhxcmFTUnFWWXFsQmlicWU4ZVQzdjBSWTZ2VkxId3hNdkVIK3Q0ZXBQQUQ2?=
+ =?utf-8?B?VEFmcXRvLzIrSUw3UEk5YUVoVFMvS1JHeTVsd29BT0traXZ1Z29HVk0yazQ2?=
+ =?utf-8?B?Y0J2ZThQS3B3MzBBNnNzOXFtbTBFdTJFcTZsWDFBNTJtbTZpWnlqWkx2MDdO?=
+ =?utf-8?B?WUV6aG43TG1IL0c4M05URm1ia29XdC9rNFd1QnI3aG44VVp0TFdyeVBnNVBs?=
+ =?utf-8?B?eXVKN3NvZllxNzY2eDR2V2p3VWYxS1krNTkzVGxQS0g4Ny9zNm5tcHkyU0hT?=
+ =?utf-8?B?SnJXSkNMcWY2ditLTnQ4S2ZZOXBJUTNpWGRteGhNM1hmckZOTDZzaEpNdjV3?=
+ =?utf-8?B?TEppTEs1ZFhneU9BUnRHZ0ZBVnZ0RFF0UTFKVXo3ZnZSL0x5czl5bzRBbVlJ?=
+ =?utf-8?B?QUxUb1BvL3grdXlMWFFXbEF2eTZDOEtLcFhuMllOaWwzSmQ4ZEU0Q3k0b0J6?=
+ =?utf-8?B?WVlHRlFjWUNLVzlrVE9YMXFIbTJGbzluS001QUJ5RVJ2bCtOYlpjK0dZWnNL?=
+ =?utf-8?B?eVo3WUZtaGE5Y2xmdEVRVEQ3L1kweTFUa3VpT21NSm1yQlpTTFZ3REdZWE1q?=
+ =?utf-8?B?QWRqRkZVWTRPNVpZZ3plcHJQempwUllnNE0xcDVOVWdqSnc2TVdxWXZ5UExr?=
+ =?utf-8?B?TXJ3OFl1Z1ZaRU9LWGl6TCtJeExsekpvUS9nUCs3bzI2eHlnNUhnMVBlNGt3?=
+ =?utf-8?B?Nm03b2V1WDhoS1pCcENCTFk1SkluNnI4d0VTZm5YdU5Tcy9Jem40NzVhUzVz?=
+ =?utf-8?B?cHZqMGhZZDFQL0tDcmlDT1RqbHR5UEJac2JSNUpiM2xGMmpvNXpiZGJCZEZ5?=
+ =?utf-8?B?cXlGYkxDNm1zbW1zb3oycHBJdTNJeHBzMHZ3eVpKc202Ukt1NVVNY2hIL0ln?=
+ =?utf-8?B?T2hRbVd3NEdkZG1QSWZGbGdYSmwzdEV5VHdyck1FSFBSZFVyQkhEZ292Ymlo?=
+ =?utf-8?B?TzFpbU1jYkY4dzZFNXBCMEg2eHBIeDFvcldadHhlaGJWemV6aUt0RXBtV2x0?=
+ =?utf-8?B?QTRCNmtUd2daVXBXYmxzNVp0bi9palUwTW5ZQno4QXBoc0orbEdXQ3hHUlJC?=
+ =?utf-8?B?T2ZvZGpyOHRROGN4SVYzaFhWNjdTTmcvTVpHelVPb3gyZzNzVGdPbmkvV2Y5?=
+ =?utf-8?B?S1Nma2Z6TUdsdnRZdE5zeEpFYUY0MExhN1EybkRBSm5YZTZ3SGpKK0pSa3NQ?=
+ =?utf-8?B?K3RGVnZZcFNmUlFrbXNyTVpSVXcrR3ZiUHJHQUdFNkhaM2JTR1hlY3hNU2U0?=
+ =?utf-8?B?UnRVcm5rTlM1UVRmMDVhaXVzSndRcHErYitxWjkrYXFKOWxXQXlKYitjQ0Jz?=
+ =?utf-8?B?OGM1Mmk1VzhOTWxWa3ZnN1l0YXl1WGZjSThnTjNzblErY0wvZ3ZqZnJnSklw?=
+ =?utf-8?B?RkovMWhUbzBVVVhsUWY1RGJnQlFQWXcxc2dDVjlrQ0RnMzZkVXFDaEdnMjFI?=
+ =?utf-8?B?WVRzN1pUd2ZqZGtRSVRRNFM2UkZrdjFseWlmZkZidS9CTmcrM1psTlNIenJ1?=
+ =?utf-8?B?T3l6aExsR0NWNFZFN0xSUzVqaEQ2QUF0aU5EWWc2bWpNNzBUQy9IWThxckpp?=
+ =?utf-8?B?K3pKVm11cGxpOHhkM0c3dlZaMjVoaE92b1ZsY1NOQzNuMk5lZ0dXWjFjQWNr?=
+ =?utf-8?B?OUNXRTRTVjhEQ0VRaVFuem8zc2l6eUd0MU96ZGZEZ0hMUWpXWXpxNWxLQUMr?=
+ =?utf-8?B?S2tsQm81cWRBVFZWWXFXRExTOE1NUkg3cWc1MzVuWWVuUklXbTluZERISFQ5?=
+ =?utf-8?B?QU52ejd4aUdUZDV0dnFKdUdpNFNpSWRaK1ZBUVQ1RzhPVFZkbm5QUGJhd0M5?=
+ =?utf-8?Q?uTfm4cfHLwOhEMPc=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <1D1B5343B2466A40BF7F09CC80402663@apcprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: transsion.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a57573a-6168-4299-3c64-08deec4c6db8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jul 2026 02:03:33.5142
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: MGdWo1cy1G0yhsjWrBUH3rWyvat8HqIFd8nP9/2BWDfo2v/lyglBOjfY5cCWqNFoE8s/TgZbxKIP3DBxMR5evqoKJzQ+2xp/MkTbFHNAmEo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0401MB6228
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_190403_211226_F5958A6B 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,711 +164,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 15:44:14 +0100
-Cristian Marussi <cristian.marussi@arm.com> wrote:
-
-> Add SCMIv4.0 Telemetry basic support to enable initialization and resources
-> enumeration: add all the telemetry messages definitions and parsing logic
-> but only a few simple state gathering protocol operations.
-> 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> ---
-> v5 --> v6
->  - define uuid_line dwords as BE
->  - fixed Sashiko reviews where applicable:
->    https://sashiko.dev/#/message/20260703123601.381275-8-cristian.marussi%40arm.com
->    - fix missing le32 and bound check in variable payload parsing
->    - fix TDE duplicatin logic
->    - fix intervals cleanup - fixes also KMEMLEAK report
->    - implement proper freeinfg for group resources
->    - proper SHMTI iterations
->    - removed useless/stale static in scmi_telemetry_tde_get()
-> v4 --> v5
->  - fix de->grp_id initialization for DEs not belonging to a group
->  - removed UAPI structures dependency
->  - expose discovered SHMTIs areas in scmi_protocol.h
->  - fixes sparse warnings
-> v3 -->v4
->  - bail-out on FW_BUG errors
->  - count timestamp capable DE to track enables
-> v2 --> v3
->  - split from monolithic Telemetry patch
->  - fix checkpatch macros complaints
->  - fix ACCESS_PRIVATE usage
->  - add a few comments on allocation/enumeration lifetime
->  - use interval.num_intervals
->  - removed needless cleanup handler usage
->  - simply return from scmi_telemetry_de_lookup()
->  - fixed composing_des name length to 08X
-> ---
->  drivers/firmware/arm_scmi/Makefile    |    2 +-
->  drivers/firmware/arm_scmi/driver.c    |    2 +
->  drivers/firmware/arm_scmi/protocols.h |    1 +
->  drivers/firmware/arm_scmi/telemetry.c | 1442 +++++++++++++++++++++++++
->  include/linux/scmi_protocol.h         |  181 +++-
->  5 files changed, 1626 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/firmware/arm_scmi/telemetry.c
-> 
-> diff --git a/drivers/firmware/arm_scmi/Makefile b/drivers/firmware/arm_scmi/Makefile
-> index 780cd62b2f78..fe55b7aa0707 100644
-> --- a/drivers/firmware/arm_scmi/Makefile
-> +++ b/drivers/firmware/arm_scmi/Makefile
-> @@ -8,7 +8,7 @@ scmi-driver-$(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT) += raw_mode.o
->  scmi-transport-$(CONFIG_ARM_SCMI_HAVE_SHMEM) = shmem.o
->  scmi-transport-$(CONFIG_ARM_SCMI_HAVE_MSG) += msg.o
->  scmi-protocols-y := base.o clock.o perf.o power.o reset.o sensors.o system.o voltage.o powercap.o
-> -scmi-protocols-y += pinctrl.o
-> +scmi-protocols-y += pinctrl.o telemetry.o
->  scmi-module-objs := $(scmi-driver-y) $(scmi-protocols-y) $(scmi-transport-y)
->  
->  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += transports/
-> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> index 0f9e8dfc6137..4c200b6168a9 100644
-> --- a/drivers/firmware/arm_scmi/driver.c
-> +++ b/drivers/firmware/arm_scmi/driver.c
-> @@ -3587,6 +3587,7 @@ static int __init scmi_driver_init(void)
->  	scmi_system_register();
->  	scmi_powercap_register();
->  	scmi_pinctrl_register();
-> +	scmi_telemetry_register();
->  
->  	return platform_driver_register(&scmi_driver);
->  }
-> @@ -3605,6 +3606,7 @@ static void __exit scmi_driver_exit(void)
->  	scmi_system_unregister();
->  	scmi_powercap_unregister();
->  	scmi_pinctrl_unregister();
-> +	scmi_telemetry_unregister();
->  
->  	platform_driver_unregister(&scmi_driver);
->  
-> diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-> index b7f29003a7dc..1f9925b8f495 100644
-> --- a/drivers/firmware/arm_scmi/protocols.h
-> +++ b/drivers/firmware/arm_scmi/protocols.h
-> @@ -401,5 +401,6 @@ DECLARE_SCMI_REGISTER_UNREGISTER(sensors);
->  DECLARE_SCMI_REGISTER_UNREGISTER(voltage);
->  DECLARE_SCMI_REGISTER_UNREGISTER(system);
->  DECLARE_SCMI_REGISTER_UNREGISTER(powercap);
-> +DECLARE_SCMI_REGISTER_UNREGISTER(telemetry);
->  
->  #endif /* _SCMI_PROTOCOLS_H */
-> diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-> new file mode 100644
-> index 000000000000..372051ad1e62
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/telemetry.c
-> @@ -0,0 +1,1442 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * System Control and Management Interface (SCMI) Telemetry Protocol
-> + *
-> + * Copyright (C) 2026 ARM Ltd.
-> + */
-> +
-> +#include <linux/atomic.h>
-> +#include <linux/bitfield.h>
-> +#include <linux/device.h>
-> +#include <linux/compiler_types.h>
-> +#include <linux/completion.h>
-> +#include <linux/err.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/limits.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/refcount.h>
-> +#include <linux/slab.h>
-> +#include <linux/sprintf.h>
-> +#include <linux/string.h>
-> +#include <linux/xarray.h>
-> +
-> +#include "protocols.h"
-> +#include "notify.h"
-> +
-> +#include <trace/events/scmi.h>
-> +
-> +/* Updated only after ALL the mandatory features for that version are merged */
-> +#define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
-> +
-> +#define SCMI_TLM_TDCF_MAX_RETRIES	5
-> +
-> +enum scmi_telemetry_protocol_cmd {
-
-I'd add a comment to say where 1 and 2 went (standards across protocols I assume?)
-
-> +	TELEMETRY_LIST_SHMTI = 0x3,
-> +	TELEMETRY_DE_DESCRIPTION = 0x4,
-> +	TELEMETRY_LIST_UPDATE_INTERVALS = 0x5,
-> +	TELEMETRY_DE_CONFIGURE = 0x6,
-> +	TELEMETRY_DE_ENABLED_LIST = 0x7,
-> +	TELEMETRY_CONFIG_SET = 0x8,
-> +	TELEMETRY_READING_COMPLETE = TELEMETRY_CONFIG_SET,
-
-That is odd enough I'd add a comment or a reference to the delayed response
-section of the spec.
-
-> +	TELEMETRY_CONFIG_GET = 0x9,
-> +	TELEMETRY_RESET = 0xA,
-> +};
-> +
-> +struct scmi_msg_resp_telemetry_protocol_attributes {
-> +	__le32 de_num;
-> +	__le32 groups_num;
-> +	__le32 de_implementation_rev_dword[SCMI_TLM_DE_IMPL_MAX_DWORDS];
-
-MAX seems odd given it is always this size I think?
- 
-> +	__le32 attributes;
-> +#define SUPPORTS_SINGLE_READ(x)		(le32_get_bits((x), BIT(31)))
-> +#define SUPPORTS_CONTINUOS_UPDATE(x)	(le32_get_bits((x), BIT(30)))
-> +#define SUPPORTS_PER_GROUP_CONFIG(x)	(le32_get_bits((x), BIT(18)))
-> +#define SUPPORTS_RESET(x)		(le32_get_bits((x), BIT(17)))
-> +#define SUPPORTS_FC(x)			(le32_get_bits((x), BIT(16)))
-See below for suggestion on an extractor for the other field (or a mask definition
-at least)
-
-> +	__le32 default_blk_ts_rate;
-> +};
-> +
-> +struct scmi_telemetry_update_notify_payld {
-
-These definitions are scattered enough across the spec that I think some comments
-to helpfully tell a reader where to go look would be good.
-
-> +	__le32 agent_id;
-> +	__le32 status;
-> +	__le32 num_dwords;
-> +	__le32 array[] __counted_by(num_dwords);
-
-__counted_by_le() 
-
-as will be broken on big endian if you just use __counted_by()
-The _le variant just elides the marking when compiling for big endian.
-
-
-> +};
-> +
-> +struct scmi_shmti_desc {
-Particularly useful to have a spec reference for this one given
-the info is buried in an element of a table.
-
-> +	__le32 id;
-> +	__le32 addr_low;
-> +	__le32 addr_high;
-> +	__le32 length;
-> +	__le32 flags;
-> +};
-> +
-> +struct scmi_msg_resp_telemetry_shmti_list {
-> +	__le32 num_shmti;
-> +	struct scmi_shmti_desc desc[] __counted_by(num_shmti);
-__counted_by_le()
-> +};
-> +
-> +struct de_desc_fc {
-> +	__le32 addr_low;
-> +	__le32 addr_high;
-> +	__le32 size;
-> +};
-> +
-> +struct scmi_de_desc {
-> +	__le32 id;
-> +	__le32 grp_id;
-> +	__le32 data_sz;
-> +	__le32 attr_1;
-> +#define	IS_NAME_SUPPORTED(d)	(le32_get_bits((d)->attr_1, BIT(31)))
-> +#define	IS_FC_SUPPORTED(d)	(le32_get_bits((d)->attr_1, BIT(30)))
-> +#define	GET_DE_TYPE(d)		(le32_get_bits((d)->attr_1, GENMASK(29, 22)))
-> +#define	IS_PERSISTENT(d)	(le32_get_bits((d)->attr_1, BIT(21)))
-> +#define GET_DE_UNIT_EXP(d)						\
-> +	({								\
-> +		__u32 __signed_exp =					\
-> +			le32_get_bits((d)->attr_1, GENMASK(20, 13));	\
-> +									\
-> +		sign_extend32(__signed_exp, 7);				\
-> +	})
-Can you not do something like
-
-#define GET_DE_UNIT_EXP(d) \
-	sign_extend32(le32_get_bits(d->attr_1, GENMASK(20, 13)), 7);
-
-> +#define	GET_DE_UNIT(d)		(le32_get_bits((d)->attr_1, GENMASK(12, 5)))
-> +#define	TSTAMP_SUPPORT(d)	(le32_get_bits((d)->attr_1, GENMASK(1, 0)))
-> +	__le32 attr_2;
-> +#define	GET_DE_INSTA_ID(d)	(le32_get_bits((d)->attr_2, GENMASK(31, 24)))
-> +#define	GET_COMPO_INSTA_ID(d)	(le32_get_bits((d)->attr_2, GENMASK(23, 8)))
-> +#define	GET_COMPO_TYPE(d)	(le32_get_bits((d)->attr_2, GENMASK(7, 0)))
-> +	__le32 reserved;
-
-
-> +};
-> +
-> +#define SCMI_TDE_VAR_SZ(_t)	
-
-I'd go with a static inline function for this unless there is some
-usecase where that doesn't work
-					       \
-> +	({								       \
-> +		struct telemetry_de *__t = _t;				       \
-> +		size_t _sz = 0;						       \
-> +									       \
-> +		_sz += __t->ts_type == TSTAMP_LINE ? sizeof(__le32) : 0;       \
-> +		_sz += __t->de.fc_support ? sizeof(struct de_desc_fc) : 0;     \
-> +		_sz += __t->de.name_support ? SCMI_SHORT_NAME_MAX_SIZE : 0;    \
-> +									       \
-> +		_sz;							       \
-> +	})
-> +
-> +struct scmi_msg_resp_telemetry_de_description {
-> +	__le32 num_desc;
-> +	struct scmi_de_desc desc[] __counted_by(num_desc);
-
-__counted_by_le()
-
-How does this work when it's a variable sized element?
-
-> +};
-> +
-> +struct scmi_msg_telemetry_update_intervals {
-> +	__le32 index;
-> +	__le32 group_identifier;
-> +#define	ALL_DES_NO_GROUP	0x0
-> +#define SPECIFIC_GROUP_DES	0x1
-> +#define ALL_DES_ANY_GROUP	0x2
-
-Probably want an le32_encode_bits() or something like that for these
-similar to the macros you have going the other way.
-
-> +	__le32 flags;
-> +};
-> +
-> +struct scmi_msg_resp_telemetry_update_intervals {
-> +	__le32 flags;
-> +#define INTERVALS_DISCRETE(x)	(le32_get_bits((x), BIT(12)) == 0)
-> +	__le32 intervals[];
-> +};
-> +
-> +struct scmi_msg_telemetry_de_enabled_list {
-> +	__le32 index;
-> +	__le32 flags;
-> +};
-> +
-> +struct scmi_enabled_de_desc {
-> +	__le32 id;
-> +	__le32 mode;
-
-Maybe define an extraction macro for the mode field.
-
-I'm not sure calling the whole thing mode makes sense as most likely any  new fields
-that go in there in future won't be mode related.
-
-> +};
-> +
-> +struct scmi_msg_resp_telemetry_de_enabled_list {
-> +	__le32 flags;
-> +	struct scmi_enabled_de_desc entry[];
-> +};
-> +
-> +struct scmi_msg_telemetry_de_configure {
-> +	__le32 id;
-> +	__le32 flags;
-> +#define DE_ENABLE_NO_TSTAMP	BIT(0)
-> +#define DE_ENABLE_WTH_TSTAMP	BIT(1)
-> +#define DE_DISABLE_ALL		BIT(2)
-> +#define GROUP_SELECTOR		BIT(3)
-> +#define EVENT_DE		0
-> +#define EVENT_GROUP		1
-> +#define DE_DISABLE_ONE		0x0
-> +};
-> +
-> +struct scmi_msg_resp_telemetry_de_configure {
-> +	__le32 shmti_id;
-> +#define IS_SHMTI_ID_VALID(x)	((x) != 0xFFFFFFFF)
-> +	__le32 shmti_de_offset;
-> +	__le32 blk_ts_offset;
-> +};
-> +
-> +struct scmi_msg_telemetry_config_set {
-> +	__le32 grp_id;
-> +	__le32 control;
-> +#define TELEMETRY_ENABLE		(BIT(0))
-> +
-> +#define TELEMETRY_MODE_SET(x)		(FIELD_PREP(GENMASK(4, 1), (x)))
-
-Not an le specific call?
-
-> +#define	TLM_ONDEMAND			(0)
-> +#define	TLM_NOTIFS			(1)
-> +#define	TLM_SINGLE			(2)
-> +#define TELEMETRY_MODE_ONDEMAND		TELEMETRY_MODE_SET(TLM_ONDEMAND)
-> +#define TELEMETRY_MODE_NOTIFS		TELEMETRY_MODE_SET(TLM_NOTIFS)
-> +#define TELEMETRY_MODE_SINGLE		TELEMETRY_MODE_SET(TLM_SINGLE)
-> +
-> +#define TLM_ORPHANS			(0)
-> +#define TLM_GROUP			(1)
-> +#define TLM_ALL				(2)
-> +#define TELEMETRY_SET_SELECTOR(x)	(FIELD_PREP(GENMASK(8, 5), (x)))
-same for this one.
-
-> +#define	TELEMETRY_SET_SELECTOR_ORPHANS	TELEMETRY_SET_SELECTOR(TLM_ORPHANS)
-> +#define	TELEMETRY_SET_SELECTOR_GROUP	TELEMETRY_SET_SELECTOR(TLM_GROUP)
-> +#define	TELEMETRY_SET_SELECTOR_ALL	TELEMETRY_SET_SELECTOR(TLM_ALL)
-> +	__le32 sampling_rate;
-> +};
-> +
-> +struct scmi_msg_resp_telemetry_reading_complete {
-> +	__le32 num_dwords;
-> +	__le32 dwords[] __counted_by(num_dwords);
-__counted_by_le()
-
-> +};
-> +
-> +struct scmi_msg_telemetry_config_get {
-> +	__le32 grp_id;
-> +	__le32 flags;
-> +#define TELEMETRY_GET_SELECTOR(x)	(FIELD_PREP(GENMASK(3, 0), (x)))
-
-Seems likely wants to be an le32 specific one again.
-
-> +#define	TELEMETRY_GET_SELECTOR_ORPHANS	TELEMETRY_GET_SELECTOR(TLM_ORPHANS)
-> +#define	TELEMETRY_GET_SELECTOR_GROUP	TELEMETRY_GET_SELECTOR(TLM_GROUP)
-> +#define	TELEMETRY_GET_SELECTOR_ALL	TELEMETRY_GET_SELECTOR(TLM_ALL)
-> +};
-> +
-> +struct scmi_msg_resp_telemetry_config_get {
-> +	__le32 control;
-> +	__le32 sampling_rate;
-> +};
-> +
-> +/* TDCF */
-> +
-> +#define _I(__a)		(ioread32((void __iomem *)(__a)))
-> +
-> +#define TO_CPU_64(h, l)	((((u64)(h)) << 32) | (l))
-
-Used?  Generally these are bad idea anyway because the parameter order isn't
-obvious.
-
-> +
-> +/*
-> + * Define the behaviour of a SHMTI scan defining what information will
-> + * be gathered and which Telemetry items can be updated.
-> + */
-> +enum scan_mode {
-> +	SCAN_LOOKUP,	/* Update only value/tstamp */
-> +	SCAN_UPDATE,	/* Update also location offset */
-> +	SCAN_DISCOVERY  /* Update xa_des: allows for new DEs to be discovered */
-> +};
-> +
-> +struct fc_line {
-> +	__le32 data_low;
-> +	__le32 data_high;
-> +};
-> +
-> +struct fc_tsline {
-> +	__le32 data_low;
-> +	__le32 data_high;
-> +	__le32 ts_low;
-> +	__le32 ts_high;
-> +};
-> +
-> +struct line {
-> +	__le32 data_low;
-> +	__le32 data_high;
-> +};
-> +
-> +struct blk_tsline {
-> +	__le32 ts_low;
-> +	__le32 ts_high;
-> +};
-> +
-> +struct tsline {
-> +	__le32 data_low;
-> +	__le32 data_high;
-> +	__le32 ts_low;
-> +	__le32 ts_high;
-> +};
-> +
-> +struct uuid_line {
-> +	__be32 dwords[SCMI_TLM_DE_IMPL_MAX_DWORDS];
-> +};
-> +
-> +enum tdcf_line_types {
-> +	TDCF_DATA_LINE,
-
-Where an enum is used for spec defined values I'd always set them all
-explicitly. Makes for easy spec vs code checking and makes it clear that
-values matter.
-
-> +	TDCF_BLK_TS_LINE,
-> +	TDCF_UUID_LINE,
-> +};
-> +
-> +struct payload {
-> +	__le32 meta;
-> +#define LINE_TYPE(x)		(FIELD_GET(GENMASK(7, 4), _I(&((x)->meta))))
-
-Same as above about endianness.
-
-> +#define IS_DATA_LINE(x)		(LINE_TYPE(x) == TDCF_DATA_LINE)
-> +#define IS_BLK_TS_LINE(x)	(LINE_TYPE(x) == TDCF_BLK_TS_LINE)
-> +#define IS_UUID_LINE(x)		(LINE_TYPE(x) == TDCF_UUID_LINE)
-> +#define USE_BLK_TS(x)		(_I(&((x)->meta)) & BIT(3))
-> +#define HAS_LINE_EXT(x)		(_I(&((x)->meta)) & BIT(2))
-> +#define LINE_TS_VALID(x)	(_I(&((x)->meta)) & BIT(1))
-> +#define	DATA_INVALID(x)		(_I(&((x)->meta)) & BIT(0))
-> +#define	BLK_TS_INVALID(p)					\
-> +({								\
-> +	typeof(p) _p = (p);					\
-> +	bool invalid;						\
-> +								\
-> +	invalid  = LINE_TS_VALID(_p) || HAS_LINE_EXT(_p) ||	\
-> +			USE_BLK_TS(_p) || DATA_INVALID(_p);	\
-> +	invalid;						\
-> +})
-I'm not sure why this needs a copy of p rather than just using
-it directly and why it can't just be a simple macro.
-Don't worry if checkpatch complains about these.
-
-> +
-> +#define	UUID_INVALID(p)						\
-> +({								\
-> +	typeof(p) _p = (p);					\
-> +	bool invalid;						\
-> +								\
-> +	invalid = LINE_TS_VALID(_p) || USE_BLK_TS(_p) ||	\
-> +			DATA_INVALID(_p) || !HAS_LINE_EXT(_p);	\
-> +	invalid;						\
-> +})
-> +	__le32 id;
-> +	union {
-> +		struct line l;
-> +		struct tsline tsl;
-> +		struct blk_tsline blk_tsl;
-> +		struct uuid_line uuid_l;
-> +	};
-> +};
-
-> +struct prlg {
-> +	u32 sign_start;
-> +#define SIGNATURE_START	0x5442474E	/* TBGN */
-> +	u32 match_start;
-> +	u32 num_qwords;
-> +	u32 hdr_meta_1;
-> +#define TDCF_REVISION_GET(x)	(le32_get_bits((x)->hdr_meta_1, GENMASK(7, 0)))
-
-This rather implies wrong type and that this whole thing needs to have
-careful endianness handling.
-
-> +};
-> +
-> +struct eplg {
-> +	u32 match_end;
-> +	u32 sign_end;
-> +#define SIGNATURE_END	0x54454E44	/* TEND */
-> +};
-> +
-> +#define TDCF_EPLG_SZ	(sizeof(struct eplg))
-> +
-> +struct tdcf {
-> +	struct prlg prlg;
-> +	unsigned char payld[];
-> +};
-> +
-> +#define QWORDS(_t)	(_I(&(_t)->prlg.num_qwords))
-> +
-> +#define SHMTI_MIN_SIZE	(sizeof(struct tdcf) + TDCF_EPLG_SZ)
-> +
-> +#define TDCF_START_SIGNATURE(x)	(_I(&((x)->prlg.sign_start)))
-> +#define TDCF_START_SEQ_GET(x)	(_I(&((x)->prlg.match_start)))
-> +#define IS_BAD_START_SEQ(s)	((s) & 0x1)
-> +
-> +#define TDCF_END_SEQ_GET(e)	(_I(&((e)->match_end)))
-> +#define TDCF_END_SIGNATURE(e)	(_I(&((e)->sign_end)))
-> +#define	TDCF_BAD_END_SEQ	GENMASK(31, 0)
-> +
-> +struct telemetry_shmti {
-> +	u32 flags;
-> +	void __iomem *base;
-> +	u32 last_magic;
-> +	struct scmi_telemetry_shmti_info info;
-> +};
-> +
-> +#define SHMTI_EPLG(s)						\
-
-Why not a function? I was kind of expecting this to be used on a mix of data types
-but it seems to only be the one.
-
-> +	({							\
-> +		struct telemetry_shmti *_s = (s);		\
-> +		struct eplg __iomem *_eplg;			\
-> +								\
-> +		_eplg = _s->base + _s->info.len - TDCF_EPLG_SZ;	\
-> +		(_eplg);					\
-> +	})
-> +
-> +struct telemetry_line {
-> +	refcount_t users;
-> +	u32 last_magic;
-> +	struct payload __iomem *payld;
-> +	/* Protect line accesses  */
-
-Also only one space before *
-
-> +	struct mutex mtx;
-> +};
-> +
-> +struct telemetry_block_ts {
-> +	u64 last_ts;
-> +	u32 last_rate;
-> +	struct telemetry_line line;
-> +};
-> +
-> +#define to_blkts(l)	container_of(l, struct telemetry_block_ts, line)
-> +
-> +struct telemetry_uuid {
-> +	u32 de_impl_version[SCMI_TLM_DE_IMPL_MAX_DWORDS];
-> +	struct telemetry_line line;
-> +};
-> +
-> +#define to_uuid(l)	container_of(l, struct telemetry_uuid, line)
-> +
-> +enum timestamps {
-> +	TSTAMP_NONE,
-> +	TSTAMP_LINE,
-> +	TSTAMP_BLK
-
-Add a trailing comma. Rule of thumb is that if it doesn't have
-a terminating entry the comma should always be there even if you
-don't expect to extend it any time soon.
-
-> +};
-> +
-> +struct telemetry_de {
-> +	enum timestamps ts_type;
-> +	u32 ts_rate;
-> +	bool enumerated;
-> +	bool cached_msg;
-> +	void __iomem *base;
-> +	struct eplg __iomem *eplg;
-> +	u32 offset;
-> +	/* NOTE THAT DE data_sz is registered in scmi_telemetry_de */
-> +	u32 fc_size;
-> +	/* Protect last_val/ts/magic accesses  */
-> +	struct mutex mtx;
-> +	u64 last_val;
-> +	u64 last_ts;
-> +	u32 last_magic;
-> +	struct list_head item;
-> +	struct telemetry_block_ts *bts;
-> +	struct telemetry_uuid *uuid;
-> +	struct scmi_telemetry_de de;
-> +};
-> +
-> +#define to_tde(d)	container_of(d, struct telemetry_de, de)
-> +
-> +#define DE_ENABLED_WITH_TSTAMP	2
-> +
-> +struct telemetry_info {
-> +	bool streaming_mode;
-> +	unsigned int num_shmti;
-> +	unsigned int num_des_tstamp;
-> +	unsigned int default_blk_ts_rate;
-> +	const struct scmi_protocol_handle *ph;
-> +	struct telemetry_shmti *shmti;
-> +	struct telemetry_de *tdes;
-> +	struct scmi_telemetry_group *grps;
-> +	struct xarray xa_des;
-> +	/* Mutex to protect access to @free_des */
-> +	struct mutex free_mtx;
-> +	struct list_head free_des;
-> +	struct list_head fcs_des;
-> +	struct scmi_telemetry_info info;
-> +	atomic_t rinfo_initializing;
-> +	struct completion rinfo_initdone;
-> +	struct scmi_telemetry_res_info *rinfo;
-> +	struct scmi_telemetry_res_info *(*res_get)(struct telemetry_info *ti);
-> +};
-> +
-> +static int scmi_telemetry_tde_register(struct telemetry_info *ti,
-> +				       struct telemetry_de *tde)
-> +{
-> +	struct scmi_telemetry_res_info *rinfo = ti->rinfo;
-> +	int ret;
-> +
-> +	if (rinfo->num_des >= ti->info.base.num_des) {
-> +		ret = -ENOSPC;
-> +		goto err;
-> +	}
-> +
-> +	/* Store DE pointer by de_id ... */
-> +	ret = xa_insert(&ti->xa_des, tde->de.info->id, &tde->de, GFP_KERNEL);
-> +	if (ret)
-> +		goto err;
-> +
-> +	/* ... and in the general array */
-> +	rinfo->des[rinfo->num_des++] = &tde->de;
-> +
-> +	return 0;
-> +
-> +err:
-> +	dev_err(ti->ph->dev, "Cannot register DE for ID:0x%08X\n",
-> +		tde->de.info->id);
-> +
-
-I'd print and return at each error path given you can give a more useful
-error message perhaps.
-
-> +	return ret;
-> +}
-
-
-> +static int
-> +scmi_telemetry_protocol_attributes_get(struct telemetry_info *ti)
-> +{
-> +	struct scmi_msg_resp_telemetry_protocol_attributes *resp;
-> +	const struct scmi_protocol_handle *ph = ti->ph;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, PROTOCOL_ATTRIBUTES, 0,
-> +				      sizeof(*resp), &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	resp = t->rx.buf;
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		__le32 attr = resp->attributes;
-> +
-> +		ti->info.base.num_des = le32_to_cpu(resp->de_num);
-> +		ti->info.base.num_groups = le32_to_cpu(resp->groups_num);
-> +		for (int i = 0; i < SCMI_TLM_DE_IMPL_MAX_DWORDS; i++)
-> +			ti->info.base.de_impl_version[i] =
-> +				le32_to_cpu(resp->de_implementation_rev_dword[i]);
-> +		ti->info.single_read_support = SUPPORTS_SINGLE_READ(attr);
-> +		ti->info.continuos_update_support = SUPPORTS_CONTINUOS_UPDATE(attr);
-> +		ti->info.per_group_config_support = SUPPORTS_PER_GROUP_CONFIG(attr);
-> +		ti->info.reset_support = SUPPORTS_RESET(attr);
-> +		ti->info.fc_support = SUPPORTS_FC(attr);
-> +		ti->num_shmti = le32_get_bits(attr, GENMASK(15, 0));
-
-Given the various other macros to break up attributes_1 maybe just have one for this
-as well?  Would keep the definitions of all the fields in one place.
-
-> +		ti->default_blk_ts_rate = le32_to_cpu(resp->default_blk_ts_rate);
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-
-Very much a partial review. Sending what I have as not sure when I'll get
-back to this series.
-
-Thanks,
-
-Jonathan
+T24gNy8yOC8yMDI2IDM6MjIgQU0sIE5pY2sgRGVzYXVsbmllcnMgd3JvdGU6DQo+IE9uIE1vbiwg
+SnVsIDI3LCAyMDI2IGF0IDU6MjXigK9BTSBIb25neWFuIFhpYSA8aG9uZ3lhbi54aWFAdHJhbnNz
+aW9uLmNvbT4gd3JvdGU6DQo+Pg0KPj4gRnJvbTogSG9uZ3lhbiBYaWEgPGhvbmd5YW4ueGlhQHRy
+YW5zc2lvbi5jb20+DQo+Pg0KPj4gU3RhdGljIGlubGluZSBzaG91bGQgYmUgZW5vdWdoIHRvIGFj
+dHVhbGx5IGlubGluZSBmdW5jdGlvbnMgZm9yIG1vc3QNCj4+IGNvbXBpbGVycywgYnV0IG15IENs
+YW5nLTE5IHNvbWVob3cgdGhpbmtzIGl0J3MgYmV0dGVyIHRvIG91dGxpbmUgdGhlbS4NCj4+IFRo
+ZXNlIHRpbnkgaGVscGVycyB0aGVuIGxpdmUgaW4gbm9ybWFsIC50ZXh0IHNlY3Rpb25zIGluc3Rl
+YWQgb2YNCj4+IC5ub2luc3RyIHNlY3Rpb25zLCB2aW9sYXRpbmcgbm9pbnN0ci4NCj4NCj4gQW55
+dGhpbmcgc3BlY2lhbCBhYm91dCB5b3VyIGJ1aWxkIG9yIGNvbmZpZz8gIEZvciBleGFtcGxlLCB3
+ZSd2ZSBzZWVuDQo+IGEgcmVjZW50IGluZmx1eCBvZiBidWdzIGFyb3VuZCBBdXRvRkRPIG5vdCBp
+bmxpbmluZyBmdW5jdGlvbnMgKGRlc3BpdGUNCj4gY29uc3RhbnQgcHJvcGFnYXRpbmcgaW5pdGRh
+dGEgY29uc3RhbnRzIGludG8gdGhlbSkgbGVhZGluZyB0byBtb2Rwb3N0DQo+IGVycm9ycy4NCg0K
+SSBkb3VidCB0aGVyZSdzIGFueXRoaW5nIHNwZWNpYWwuIFRoZSBjb21waWxlciBpcyBEZWJpYW4g
+Y2xhbmcgdmVyc2lvbg0KMTkuMS43ICgzK2IxKSBpbnN0YWxsZWQgdGhyb3VnaCBhcHQgaW5zdGFs
+bCBpbiB2YW5pbGxhIHg4Nl82NCBEZWJpYW4NClRyaXhpZSwgY29tcGlsZWQgd2l0aCAnbWFrZSBM
+TFZNPTEgQVJDSD1hcm02NCBJbWFnZScuDQoNCj4gQ2FuIHlvdSBwZXJoYXBzIHNoYXJlIHlvdXIg
+Y29uZmlnIHNvIHRoYXQgc29tZW9uZSBlbHNlIGNvdWxkIHJlcHJvIGFuZA0KPiB0YWtlIGEgbG9v
+az8NCg0KU3VyZS4gTm90IHN1cmUgaG93IEkgY2FuIHNoYXJlIHRoZSBnaWFudCBjb25maWcgd2l0
+aG91dCBib21iYXJkaW5nIGFsbA0KdGhlIHJlY2lwaWVudHMuIExldCBtZSBqdXN0IHNlbmQgdG8g
+eW91IHByaXZhdGVseSBmaXJzdC4NCg0KPiBIYXBweSB0byBmb2xsb3cgdXAgaW4gb3VyIGlzc3Vl
+IHRyYWNrZXIsIHRvby4NCj4gaHR0cHM6Ly9naXRodWIuY29tL0NsYW5nQnVpbHRMaW51eC9saW51
+eC9pc3N1ZXMNCj4NCj4+DQo+PiBNYXJrIHRoZW0gX19hbHdheXNfaW5saW5lIHNvIHRoZSBjb21w
+aWxlciBjYW4gbmV2ZXIgb3V0bGluZSB0aGVtLg0KPj4NCj4+IFNpZ25lZC1vZmYtYnk6IEhvbmd5
+YW4gWGlhIDxob25neWFuLnhpYUB0cmFuc3Npb24uY29tPg0KPj4gLS0tDQo+PiAgIGFyY2gvYXJt
+NjQvaW5jbHVkZS9hc20vZXNyLmggICAgICAgfCAyICstDQo+PiAgIGFyY2gvYXJtNjQvaW5jbHVk
+ZS9hc20vcGVyY3B1LmggICAgfCAyICstDQo+PiAgIGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vcHJl
+ZW1wdC5oICAgfCA0ICsrLS0NCj4+ICAgYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9wdHJhY2UuaCAg
+ICB8IDQgKystLQ0KPj4gICBhcmNoL2FybTY0L2tlcm5lbC9kZWJ1Zy1tb25pdG9ycy5jIHwgMiAr
+LQ0KPj4gICBpbmNsdWRlL2xpbnV4L2twcm9iZXMuaCAgICAgICAgICAgIHwgOCArKysrLS0tLQ0K
+Pg0KPiBJdCBtaWdodCBub3QgYmUgYXBwcm9wcmlhdGUgZm9yIHRoZSBjaGFuZ2VzIHRvIGtwcm9i
+ZXMuaCB0byBnbyB0aHJvdWdoDQo+IHRoZSBhcm02NCB0cmVlLCBidXQgbWF5YmUgaXQgaXM/DQoN
+Ckkgc2VlIFdpbGwgaGFzIHJlcGxpZWQsIHNvIHRoaXMgbWlnaHQgYmUgYSBxdWVzdGlvbiBmb3Ig
+S3Byb2JlDQptYWludGFpbmVycy4gSSBkbyB3b25kZXIgdGhhdCwgaWYgSSBzZWUgdGhpcyBpbiBj
+bGFuZy0xOSBjb21waWxpbmcgZm9yDQphcm02NCB3aXRob3V0IGFueSBzcGVjaWFsIGNvbmZpZ3Ms
+IGV2ZW50dWFsbHkgaXQgbWlnaHQgaGFwcGVuIGZvciBvdGhlcg0KcGVvcGxlIGFmdGVyIG1vdmlu
+ZyB0byBjbGFuZy0xOT8NCg==
 
