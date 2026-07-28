@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DCDC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85795C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPcnTH8SGUY2hLYw9g0ZMAYWVqJRrTlT+jvwj9dxDqg=; b=jbXTBmkPnA6NLC7OebnPldFdfY
-	bGzWAWLFQ8KfezE5sZyYzWaOR7VPOS4I1+YmBf1fnGjeX2I+WJQGNjlWhm8TMBOUxaxsOYNhZF6DE
-	FVUH6KxKq7wsjQKH4m6D1G9C3odD5gvu12YOCTtrFAlKaYiUJL8KdAcPv5+c4j6Pfy1p7OvfkQMHO
-	7/ZfkxLQILDajnRDJ9X9IgNekKPb15o2E0PgFsJdLLQQmjsubERIqaC3J7/IaUfFJudp6iCO99j7U
-	hEZP6CAcBqgp4Obvfa8fPUNyPfUZGEwBpKKAfoaOfMLKiLh9ZxbyesbkcarO4Yd7O2/Koy/bzYLDK
-	2bdB9+Hg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OnE+b0dufgmuTUYVj4V+PdswXaAJ7opl2QehGSoGDuk=; b=hKlsPm+CqwLvj3
+	Mk8VlIEghjdGe/FHUuvUtxPYue6+UXV6m1oZlmeeiKJMSalyUCK410ahplWALpYpG+0jNavjcpdUU
+	3flfvwbg1F5PJHqpXViQdEGpqRC32+ijauhT0pMzKBhbIUeA6fXNEmgEFpj50hs8uUIspoLsT0bBP
+	sc7Q7PUwkCvZ+cA8i9NOrkoFX4IGZOimZHCQvX56Z8CMjPpbARQ+2PXiSFVt/xxM7tOUURbwp7CEd
+	BfLpOdWvg8/6sQt3YsHfnVMNw3Hr8lDB8so5DjuPoIYzX1wdMDADCIKtHunJdlhWWT7VAnVd/CD9U
+	9JUx6EobmcjSJMADI2Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokAm-00000005k3J-2sDJ;
-	Tue, 28 Jul 2026 15:56:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wokAt-00000005k5t-3SxX;
+	Tue, 28 Jul 2026 15:56:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokAk-00000005k36-2WKv
+	id 1wokAp-00000005k4K-32Yh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:56:50 +0000
+	Tue, 28 Jul 2026 15:56:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C0D660A5E;
-	Tue, 28 Jul 2026 15:56:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB0061F000E9;
-	Tue, 28 Jul 2026 15:56:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6317D4115B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 15:56:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 459841F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 15:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785254207;
-	bh=wPcnTH8SGUY2hLYw9g0ZMAYWVqJRrTlT+jvwj9dxDqg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=og/cvWzHCS8+zZkz21i2RAu7IPk0zZvRO5S9pOtFEp+zCd0tLlZKt4sELAeCtRznQ
-	 O/NrTf5cAri4GxoKUKmDpOMPT+wUWCSqdur/f2l4xBPQru6xZS/ke/V52fizZq6thI
-	 U2LGFhcPB+GL3/beWadFaQs++be0KKNRoczu8ToQDe8QqHj+TSOBeZKwXr1bkl1GkP
-	 e9COWVNErpN13xTTeXcCwaOfWnQL+UHWVH6pV7BElc+S9H/zEegARBVHUDmHpExU/i
-	 GKVtlF/2MLKERoPBs5FPqzyiqo2ySQF5WTZMKHTDut8596lvD38QKD5EOsyNx96IzI
-	 BrmdADRg+1z4w==
-Date: Tue, 28 Jul 2026 16:56:43 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, brgl@kernel.org,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] ACPI/APMT: use platform_device_set_fwnode()
-Message-ID: <20260728-energetic-mayfly-of-chivalry-4e89d8@sudeepholla>
-References: <20260728-acpi-arm64-pdev-set-fwnode-v1-0-b5aff9b2235a@oss.qualcomm.com>
- <20260728-acpi-arm64-pdev-set-fwnode-v1-1-b5aff9b2235a@oss.qualcomm.com>
+	s=k20260515; t=1785254215;
+	bh=OnE+b0dufgmuTUYVj4V+PdswXaAJ7opl2QehGSoGDuk=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=X9Yg5r8VHZU27YmZjz/p20xLSnwQ1Ctjug8iPWHroQV+CshsSMnBC4N/YZ0ln7HUF
+	 z65JfqcmIh+DT9FMjlnltu7rAUNPuwVoEiqCDz6vIGHnOX+4QUBN3gjliQJZZ2hWKu
+	 +0dTI3nMe9PVlMH2synM5U2FWoYSSIQsYZLgM/TZBy2UVEWKUtEWJu8EdllQvEmyIs
+	 tn/SF/5uJ+m8KTDjscZCdHgkg6Z6Un99QTycDkgtRyuVS2/nXH9oDFrlTDxquzWMTU
+	 ldjQmtycXoJSvsy3qtnnkRa+BMMJ34mVZ+hpCTy7NucwGqvzxX8AteRMACFkijweWo
+	 Ab54T5qOj0qvw==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39c7ce122c7so32995171fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:56:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RruJxEGV+gVDjouHx4FLc0JsA0tGscpOYWT/NriOq2FTCXPDllrsDV7YHdR/AIWzrJsA+dajBAdQF57e0qoOqfU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9LHk8l5vXruKmUkajE/+qI8o8hnNxBX3DFq5tWOZbD+46Tw/J
+	Uz5tGk5rjlBqE2PowpovtwKhwCgrcd00msn6G0T7zqj7gB6zgyV+OjYp5pONnDgPLpfFV89doci
+	YGnQyRSsjx1i7S3Yc2xa7SmCjPFb+Ht4=
+X-Received: by 2002:a2e:a9a5:0:b0:39b:35bd:e708 with SMTP id
+ 38308e7fff4ca-39f51cdef30mr5872591fa.1.1785254213689; Tue, 28 Jul 2026
+ 08:56:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260728-acpi-arm64-pdev-set-fwnode-v1-1-b5aff9b2235a@oss.qualcomm.com>
+References: <20260727194208.10082-1-rosenp@gmail.com>
+In-Reply-To: <20260727194208.10082-1-rosenp@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 28 Jul 2026 23:56:38 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66=kgwUSNtkCVLROxCfbDuf_g70Y0qZ9ucfXsTD+f2NnA@mail.gmail.com>
+X-Gm-Features: AUfX_mz7aI0nbIJpfKBate6Q0TeFbJm95gK2ISGivDgpxVudCD5tFbKP4Fr98_k
+Message-ID: <CAGb2v66=kgwUSNtkCVLROxCfbDuf_g70Y0qZ9ucfXsTD+f2NnA@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: sun6i: modernize probe and convert to fully managed
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-sunxi@lists.linux.dev, Jassi Brar <jassisinghbrar@gmail.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	"open list:MAILBOX API" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +78,183 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 04:07:16PM +0200, Bartosz Golaszewski wrote:
-> Platform devices using the split approach of calling
-> platform_device_alloc() and platform_device_add() must not assign the
-> firmware nodes manually but use the provided
-> platform_device_set_fwnode() function which additionally makes sure we
-> track the reference count of the firmware node correctly.
-> 
-> Replace the manual assignment of the firmware node with a call to
-> platform_device_set_fwnode().
-> 
+On Tue, Jul 28, 2026 at 3:42=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wrot=
+e:
+>
+> Replace irq_of_parse_and_map() with platform_get_irq() and move both
+> IRQ and MMIO resource acquisition to the top of probe, before any
+> allocations, for early error exit.
 
-I don't see platform_device_set_fwnode() in the upstream tree, is it in
--next ? I didn't see -next tag as well.
+There's no real reason for the code movement. It's going to fail once
+or maybe twice at the most. And the ones you moved are the least likely
+to fail.
 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Now I could see replacing irq_of_parse_and_map() with the more standard
+platform_get_irq(), but you haven't given a reasonable reason. And it
+should be a separate patch since it has nothing to do with streamlining
+the error handling and dropping the remove function.
+
+> Switch from devm_clk_get() + clk_prepare_enable() to
+> devm_clk_get_enabled(), which combines both operations and registers
+> devres callbacks for automatic disable/unprepare on unbind. This
+> eliminates the manual err_disable_unprepare error path and the
+> remove callback entirely.
+>
+> Use devm_mbox_controller_register() for devres-managed controller
+> registration, and drop the remove callback and platform_set_drvdata()
+> which are no longer needed.
+
+These two are what are important.
+
+> Assisted-by: Opencode:Big-Pickle
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
->  drivers/acpi/arm64/apmt.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/acpi/arm64/apmt.c b/drivers/acpi/arm64/apmt.c
-> index bb010f6164e528acd802f65afd80d65a57f5844f..c927e4f08ec2c98137d4e3c64ec1709d672ad9a2 100644
-> --- a/drivers/acpi/arm64/apmt.c
-> +++ b/drivers/acpi/arm64/apmt.c
-> @@ -99,7 +99,7 @@ static int __init apmt_add_platform_device(struct acpi_apmt_node *node,
->  	if (ret)
->  		goto dev_put;
->  
-> -	pdev->dev.fwnode = fwnode;
-> +	platform_device_set_fwnode(pdev, fwnode);
->  
+>  drivers/mailbox/sun6i-msgbox.c | 62 ++++++++++------------------------
+>  1 file changed, 18 insertions(+), 44 deletions(-)
+>
+> diff --git a/drivers/mailbox/sun6i-msgbox.c b/drivers/mailbox/sun6i-msgbo=
+x.c
+> index 6ba6920f4645..28d8636afad2 100644
+> --- a/drivers/mailbox/sun6i-msgbox.c
+> +++ b/drivers/mailbox/sun6i-msgbox.c
+> @@ -198,7 +198,17 @@ static int sun6i_msgbox_probe(struct platform_device=
+ *pdev)
+>         struct mbox_chan *chans;
+>         struct reset_control *reset;
+>         struct sun6i_msgbox *mbox;
+> +       void __iomem *regs;
+>         int i, ret;
+> +       int irq;
+> +
+> +       irq =3D platform_get_irq(pdev, 0);
+> +       if (irq < 0)
+> +               return irq;
+> +
+> +       regs =3D devm_platform_ioremap_resource(pdev, 0);
+> +       if (IS_ERR(regs))
+> +               return PTR_ERR(regs);
+>
+>         mbox =3D devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
+>         if (!mbox)
+> @@ -211,24 +221,18 @@ static int sun6i_msgbox_probe(struct platform_devic=
+e *pdev)
+>         for (i =3D 0; i < NUM_CHANS; ++i)
+>                 chans[i].con_priv =3D mbox;
+>
+> -       mbox->clk =3D devm_clk_get(dev, NULL);
+> +       mbox->clk =3D devm_clk_get_enabled(dev, NULL);
+>         if (IS_ERR(mbox->clk)) {
+>                 ret =3D PTR_ERR(mbox->clk);
+>                 dev_err(dev, "Failed to get clock: %d\n", ret);
+>                 return ret;
+>         }
+>
+> -       ret =3D clk_prepare_enable(mbox->clk);
+> -       if (ret) {
+> -               dev_err(dev, "Failed to enable clock: %d\n", ret);
+> -               return ret;
+> -       }
+> -
+>         reset =3D devm_reset_control_get_exclusive(dev, NULL);
+>         if (IS_ERR(reset)) {
+>                 ret =3D PTR_ERR(reset);
+>                 dev_err(dev, "Failed to get reset control: %d\n", ret);
+> -               goto err_disable_unprepare;
+> +               return ret;
+>         }
+>
+>         /*
+> @@ -242,25 +246,17 @@ static int sun6i_msgbox_probe(struct platform_devic=
+e *pdev)
+>         ret =3D reset_control_deassert(reset);
+>         if (ret) {
+>                 dev_err(dev, "Failed to deassert reset: %d\n", ret);
+> -               goto err_disable_unprepare;
+> +               return ret;
+>         }
+>
+> -       mbox->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> -       if (IS_ERR(mbox->regs)) {
+> -               ret =3D PTR_ERR(mbox->regs);
+> -               dev_err(dev, "Failed to map MMIO resource: %d\n", ret);
+> -               goto err_disable_unprepare;
+> -       }
+> +       mbox->regs =3D regs;
+>
+>         /* Disable all IRQs for this end of the msgbox. */
+>         writel(0, mbox->regs + LOCAL_IRQ_EN_REG);
+>
+> -       ret =3D devm_request_irq(dev, irq_of_parse_and_map(dev->of_node, =
+0),
+> -                              sun6i_msgbox_irq, 0, dev_name(dev), mbox);
+> -       if (ret) {
+> -               dev_err(dev, "Failed to register IRQ handler: %d\n", ret)=
+;
+> -               goto err_disable_unprepare;
+> -       }
+> +       ret =3D devm_request_irq(dev, irq, sun6i_msgbox_irq, 0, dev_name(=
+dev), mbox);
+> +       if (ret)
+> +               return ret;
+>
+>         mbox->controller.dev           =3D dev;
+>         mbox->controller.ops           =3D &sun6i_msgbox_chan_ops;
+> @@ -271,29 +267,8 @@ static int sun6i_msgbox_probe(struct platform_device=
+ *pdev)
+>         mbox->controller.txpoll_period =3D 5;
+>
+>         spin_lock_init(&mbox->lock);
+> -       platform_set_drvdata(pdev, mbox);
+> -
+> -       ret =3D mbox_controller_register(&mbox->controller);
+> -       if (ret) {
+> -               dev_err(dev, "Failed to register controller: %d\n", ret);
+> -               goto err_disable_unprepare;
+> -       }
+> -
+> -       return 0;
+> -
+> -err_disable_unprepare:
+> -       clk_disable_unprepare(mbox->clk);
+> -
+> -       return ret;
+> -}
+> -
+> -static void sun6i_msgbox_remove(struct platform_device *pdev)
+> -{
+> -       struct sun6i_msgbox *mbox =3D platform_get_drvdata(pdev);
+>
+> -       mbox_controller_unregister(&mbox->controller);
+> -       /* See the comment in sun6i_msgbox_probe about the reset line. */
+> -       clk_disable_unprepare(mbox->clk);
+> +       return devm_mbox_controller_register(&mbox->controller);
 
-Assuming platform_device_set_fwnode() does what is needed,
+Like Sashiko said, this doesn't compile. All devm_*() functions require
+a |struct device *| parameter.
 
-Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
 
--- 
-Regards,
-Sudeep
+Build testing your patch before sending it is a must.
+
+
+ChenYu
+
+>  }
+>
+>  static const struct of_device_id sun6i_msgbox_of_match[] =3D {
+> @@ -308,7 +283,6 @@ static struct platform_driver sun6i_msgbox_driver =3D=
+ {
+>                 .of_match_table =3D sun6i_msgbox_of_match,
+>         },
+>         .probe =3D sun6i_msgbox_probe,
+> -       .remove =3D sun6i_msgbox_remove,
+>  };
+>  module_platform_driver(sun6i_msgbox_driver);
+>
+> --
+> 2.55.0
+>
 
