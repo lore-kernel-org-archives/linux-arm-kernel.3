@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F68C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DB6C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=13ZGfNkaDmyEqxlDSi3603JVBSdLb2ouoodws9NWXGI=; b=sE1DcQwpS7TKYTJGtfpBephIh/
-	M4AO/JA8tsGoN4i23OIzyh7mOpPBnE1FnpjhC1ZmtOI8gM2yGOPD2F0gK2cApjeCcC5Jxt8LvhKPl
-	jCyRrwgDLsaldxYcGsHs2LFynVSZhc2noCq0NLEWyCh7qgBAUZRTXrepnHBVlEons+eepdlCfOGLh
-	fHdf28tSaWNJEM6YwB2L0Dy4wA7DW3JdcC6iV2ynshPR/LQcd42sprp7G8HkzeerWSVGA4lzBs5Cy
-	EOF76uDTgTaDKQZWOI0Lh0Dug8eu/L9xH+6RZjiyadB5X6MsW7+6S4XRn5Bt1b1djHl6KizZ+/mai
-	HaL9JasA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lSkwhKAcEsyJqT/0xqVJXtxYxIXWD0v9uCPSjTmMF2M=; b=fttadPpw8/dfU1N+isb27ipJu8
+	oK8DaeMwixXEN/4J792Kb4Zp8BH9+E4SIxiayAQCAGUY+EgvVcPB8fIImiviCUApv8R01L7uQ1eOl
+	p5NFgyeswbcglPLSH0g7YVtR48YTPOyEMUg60iILWT23vtYvbjPhxmfPjn0mvtAiwa32tYXb9iRyK
+	hjEyOqsIsq28UbndM1V3YmqqyBbZ9kPRz3U/uLjuLb394B5ayL3hCRswMbzpgGLcVWTmqfS54o+AQ
+	3SM203245MGjLAA6FESxm4CyRDHsp3+3UXF7OB311gKFKsnKPLO2Ee26yGyTDNnSTMzzMN/0/pbkZ
+	jnoqBk4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogxw-00000005FYn-1Lyl;
-	Tue, 28 Jul 2026 12:31:24 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wogya-00000005Fdf-1wZc;
+	Tue, 28 Jul 2026 12:32:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogxt-00000005FXv-0Ny1
+	id 1wogyZ-00000005FdO-00Ra
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:31:22 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=13ZGfNkaDmyEqxlDSi3603JVBSdLb2ouoodws9NWXGI=;
-	b=C3QgYplo1/bYVlclsviSOGVYbbroofGVAFxlDa3cInGGcrTH2XyWStcWW5XjRmIQzwuCwSiUq
-	e9eCj1Gjfg7c4nnUZX6gRfnOTVfT6G95QIDWQgF/IdXZUZ6NBjbiQgptn4mvukas+qDhma1/0ff
-	4HccgRrMgbJ1TEhFDOAsZQ8=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4h8ZMX0pbDzKm4b;
-	Tue, 28 Jul 2026 20:21:44 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1B839402AB;
-	Tue, 28 Jul 2026 20:31:13 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 28 Jul 2026 20:31:12 +0800
-Message-ID: <4dcac83c-98df-421d-862d-36c1081f5abf@huawei.com>
-Date: Tue, 28 Jul 2026 20:31:11 +0800
+	Tue, 28 Jul 2026 12:32:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B021A40321;
+	Tue, 28 Jul 2026 12:32:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95E771F000E9;
+	Tue, 28 Jul 2026 12:31:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785241920;
+	bh=lSkwhKAcEsyJqT/0xqVJXtxYxIXWD0v9uCPSjTmMF2M=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=WEM01trD462HpzukrLQzJYedOMo/krm72PvzqlsPIr95pA22pK97BItUkKTq0RiE1
+	 BafhKgnPLjt9aVTzvU1dFa7RMbB40i5ZGyvy+Uq+GD3nlFNKGJAlh6v5YCczVVs88W
+	 XLgMqJmGuxCudWp7Pe+Yi+kgsFNJVH9ZJXfZCAW/9lfgbs+iqFLXWZDleq9blMw7mP
+	 +MH5pd841sVe9ss5f/WYkSBvsx7eS76Efavuj5k30SQrM2EWKd6eLiQqbz9Kr4x/nz
+	 YGdV+Rm3lqSrOuShxDdIBjk4LGOrgQZRl5vevgtv94weDxSm1UhqL4Mz6Y3mDajtlK
+	 HdSaygY48BoeQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	stable@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v8 01/23] dma-direct: return struct page from
+ dma_direct_alloc_from_pool()
+In-Reply-To: <20260726081753.GD12003@unreal> (Leon Romanovsky's message of
+	"Sun, 26 Jul 2026 11:17:53 +0300")
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+	<20260717180442.110954-2-aneesh.kumar@kernel.org>
+	<20260721115456.GI110966@unreal> <yq5atsps77c5.fsf@kernel.org>
+	<20260721142921.GN110966@unreal> <yq5ao6g0750v.fsf@kernel.org>
+	<20260721153321.GO110966@unreal> <amEhEKQW0_HJ9cLN@ziepe.ca>
+	<20260723075704.GC110966@unreal> <amTJY_CdE-uDgoGG@ziepe.ca>
+	<20260726081753.GD12003@unreal>
+User-Agent: mu4e 1.14.1; emacs 30.2
+Date: Tue, 28 Jul 2026 18:01:45 +0530
+Message-ID: <yq5ah5ljjnwu.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 42/45] irqchip/gic-v3: Implement FEAT_GICv3_NMI
- support
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-43-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-43-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_053121_441060_A5D63A3B 
-X-CRM114-Status: GOOD (  26.79  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,289 +102,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Leon Romanovsky <leon@kernel.org> writes:
 
+> On Sat, Jul 25, 2026 at 11:34:11AM -0300, Jason Gunthorpe wrote:
+>> On Thu, Jul 23, 2026 at 10:57:04AM +0300, Leon Romanovsky wrote:
+>> > On Wed, Jul 22, 2026 at 04:59:12PM -0300, Jason Gunthorpe wrote:
+>> > > On Tue, Jul 21, 2026 at 06:33:21PM +0300, Leon Romanovsky wrote:
+>> > > 
+>> > > > Something like, but probably void* needs to be phys_addr_t:
+>> > > > 
+>> > > > static inline struct page *dma_phys_to_page(void *addr)
+>> > > > {
+>> > > > #ifdef CONFIG_DMA_DIRECT_REMAP
+>> > > > 	return vmalloc_to_page(addr);
+>> > > > #else
+>> > > > 	return virt_to_page(addr);
+>> > > > #endif
+>> > > > }
+>> > > 
+>> > > I don't like this, we don't know for sure the addr will be in a vmap
+>> > > and this will fail if it isn't.
+>> > 
+>> > Of course we know. The existing "#ifdef CONFIG_DMA_DIRECT_REMAP" is
+>> > relevant for addresses acquired from pool.
+>> 
+>> Yeah, but I still don't like it :) It is hard to follow if you make
+>> those kinds of leaps, someone will call this new helper on something
+>> they shouldn't
+>
+> This issue is straightforward to address today. Limit the scope, use
+> an appropriate function name, and add a comment indicating that the
+> function is local to and specific to the pool. The latter helps
+> AI-based review tools flag incorrect usage outside the intended scope.
+>
+>> 
+>> > dma_phys_to_page() is a bad name for some low-level conversion function.
+>> > It needs to be internal to DMA logic, in the level when we convert from
+>> > phys to page.
+>> 
+>> I think we should not convert from phys to page, that's also easy to
+>> do wrong
+>
+> Perhaps I'll reiterate my complaint. DMA internals are already hard to
+> understand. Part of that complexity is necessary to support every
+> possible use case, but another part comes from a maze of types that is
+> entirely self-inflicted. I think this code only makes the latter worse.
+>
+> Currently, the phys type universally describes memory and can be
+> reliably translated into any required representation. It is the most
+> fundamental type we have.
+>
 
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> 
-> The FEAT_GICv3_NMI GIC feature coupled with the CPU FEAT_NMI enables
-> handling NMI interrupts in HW on aarch64, by adding a superpriority
-> interrupt to the existing GIC priority scheme.
-> 
-> Implement GIC driver support for the FEAT_GICv3_NMI feature.
-> 
-> Check, through the ARM64 capabilitity infrastructure, if support
-> for FEAT_NMI was detected on the core and the system has not overridden
-> the detection and forced pseudo-NMIs enablement.
-> 
-> If FEAT_NMI is detected, it was not overridden (check embedded in the
-> system_uses_nmi() call) and the GIC supports the FEAT_GICv3_NMI
-> feature, initialize NMIs related HW GIC registers and route irq to NMI
-> handling logic.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v3.c       | 114 +++++++++++++++++++++++++++--
->  include/linux/irqchip/arm-gic-v3.h |   4 +
->  2 files changed, 111 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-> index c75acd5f9e7f..a21ed3dcf46f 100644
-> --- a/drivers/irqchip/irq-gic-v3.c
-> +++ b/drivers/irqchip/irq-gic-v3.c
-> @@ -64,6 +64,7 @@ struct gic_chip_data {
->  	u32			nr_redist_regions;
->  	u64			flags;
->  	bool			has_rss;
-> +	bool			has_nmi;
->  	unsigned int		ppi_nr;
->  	struct partition_affinity *parts;
->  	unsigned int		nr_parts;
-> @@ -89,6 +90,9 @@ static DEFINE_STATIC_KEY_TRUE(supports_deactivate_key);
->  
->  static bool pseudo_nmi_support_forbidden;
->  
-> +static DEFINE_RAW_SPINLOCK(gic_nmi_lock);
-> +
-> +
->  /*
->   * There are 16 SGIs, though we only actually use 8 in Linux. The other 8 SGIs
->   * are potentially stolen by the secure side. Some code, especially code dealing
-> @@ -252,6 +256,37 @@ enum gic_intid_range {
->  	__INVALID_RANGE__
->  };
->  
-> +#ifdef CONFIG_ARM64
-> +#include <asm/cpufeature.h>
-> +
-> +static inline bool gic_supports_v3_3_nmi(void)
-> +{
-> +	return gic_data.has_nmi && system_uses_nmi();
-> +}
-> +
-> +static inline u64 gic_read_nmiar(void)
-> +{
-> +	u64 irqstat;
-> +
-> +	irqstat = read_sysreg_s(SYS_ICC_NMIAR1_EL1);
-> +
-> +	dsb(sy);
-> +
-> +	return irqstat;
-> +}
-> +
-> +#else
-> +static inline bool gic_supports_v3_3_nmi(void)
-> +{
-> +	return false;
-> +}
-> +
-> +static inline u64 gic_read_nmiar(void)
-> +{
-> +	BUG();
-> +}
-> +#endif
-> +
->  static enum gic_intid_range __get_intid_range(irq_hw_number_t hwirq)
->  {
->  	switch (hwirq) {
-> @@ -438,6 +473,8 @@ static u32 convert_offset_index(struct irq_data *d, u32 offset, u32 *index)
->  			return GICD_ICFGRnE;
->  		case GICD_IROUTER:
->  			return GICD_IROUTERnE;
-> +		case GICD_INMIR:
-> +			return GICD_INMIRnE;
->  		default:
->  			break;
->  		}
-> @@ -467,6 +504,42 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
->  	return !!(readl_relaxed(base + offset + (index / 32) * 4) & mask);
->  }
->  
-> +static void gic_irq_configure_nmi(struct irq_data *d, bool enable)
-> +{
-> +	void __iomem *base, *addr;
-> +	unsigned long val;
-> +	u32 offset, index;
-> +
-> +	offset = convert_offset_index(d, GICD_INMIR, &index);
-> +
-> +	if (gic_irq_in_rdist(d))
-> +		base = gic_data_rdist_sgi_base();
-> +	else
-> +		base = gic_dist_base_alias(d);
-> +
-> +	addr = base + offset + (index / 32) * 4;
-> +
-> +	raw_spin_lock(&gic_nmi_lock);
-> +
-> +	val = readl_relaxed(addr);
-> +
-> +	__assign_bit(index % 32, &val, enable);
-> +
-> +	writel_relaxed(val, addr);
-> +
-> +	raw_spin_unlock(&gic_nmi_lock);
-> +}
-> +
-> +static void gic_irq_enable_nmi(struct irq_data *d)
-> +{
-> +	gic_irq_configure_nmi(d, true);
-> +}
-> +
-> +static void gic_irq_disable_nmi(struct irq_data *d)
-> +{
-> +	gic_irq_configure_nmi(d, false);
-> +}
-> +
->  static void gic_poke_irq(struct irq_data *d, u32 offset)
->  {
->  	void __iomem *base;
-> @@ -598,7 +671,7 @@ static int gic_irq_nmi_setup(struct irq_data *d)
->  {
->  	struct irq_desc *desc = irq_to_desc(d->irq);
->  
-> -	if (!gic_supports_pseudo_nmi())
-> +	if (!gic_supports_pseudo_nmi() && !gic_supports_v3_3_nmi())
->  		return -EINVAL;
->  
->  	if (gic_peek_irq(d, GICD_ISENABLER)) {
-> @@ -617,7 +690,10 @@ static int gic_irq_nmi_setup(struct irq_data *d)
->  	if (!gic_irq_in_rdist(d))
->  		desc->handle_irq = handle_fasteoi_nmi;
->  
-> -	gic_irq_set_prio(d, dist_prio_nmi);
-> +	if (gic_supports_v3_3_nmi())
-> +		gic_irq_enable_nmi(d);
-> +	else
-> +		gic_irq_set_prio(d, dist_prio_nmi);
->  
->  	return 0;
->  }
-> @@ -626,7 +702,7 @@ static void gic_irq_nmi_teardown(struct irq_data *d)
->  {
->  	struct irq_desc *desc = irq_to_desc(d->irq);
->  
-> -	if (WARN_ON(!gic_supports_pseudo_nmi()))
-> +	if (WARN_ON(!gic_supports_pseudo_nmi() && !gic_supports_v3_3_nmi()))
->  		return;
->  
->  	if (gic_peek_irq(d, GICD_ISENABLER)) {
-> @@ -645,7 +721,10 @@ static void gic_irq_nmi_teardown(struct irq_data *d)
->  	if (!gic_irq_in_rdist(d))
->  		desc->handle_irq = handle_fasteoi_irq;
->  
-> -	gic_irq_set_prio(d, dist_prio_irq);
-> +	if (gic_supports_v3_3_nmi())
-> +		gic_irq_disable_nmi(d);
-> +	else
-> +		gic_irq_set_prio(d, dist_prio_irq);
->  }
->  
->  static bool gic_arm64_erratum_2941627_needed(struct irq_data *d)
-> @@ -836,7 +915,8 @@ static void __gic_handle_nmi(u32 irqnr, struct pt_regs *regs)
->  	gic_complete_ack(irqnr);
->  
->  	if (generic_handle_domain_nmi(gic_data.domain, irqnr)) {
-> -		WARN_ONCE(true, "Unexpected pseudo-NMI (irqnr %u)\n", irqnr);
-> +		WARN_ONCE(true, "Unexpected %sNMI (irqnr %u)\n",
-> +			  gic_supports_pseudo_nmi() ? "pseudo-" : "", irqnr);
->  		gic_deactivate_unhandled(irqnr);
->  	}
->  }
-> @@ -911,7 +991,11 @@ static void __gic_handle_irq_from_irqsoff(struct pt_regs *regs)
->  
->  static void __exception_irq_entry gic_handle_irq(struct pt_regs *regs)
->  {
-> -	if (unlikely(gic_supports_pseudo_nmi() && !interrupts_enabled(regs)))
-> +	if (gic_supports_v3_3_nmi() && in_nmi()) {
-> +		u32 irqnr = gic_read_nmiar();
-> +
-> +		__gic_handle_nmi(irqnr, regs);
-> +	} else if (unlikely(gic_supports_pseudo_nmi() && !interrupts_enabled(regs)))
->  		__gic_handle_irq_from_irqsoff(regs);
->  	else
->  		__gic_handle_irq_from_irqson(regs);
-> @@ -1964,6 +2048,19 @@ static void gic_enable_pseudo_nmi(void)
->  		gic_has_relaxed_pmr_sync() ? "relaxed" : "forced");
->  
->  	static_branch_enable(&supports_pseudo_nmi);
-> +}
-> +
-> +static void gic_enable_nmi_support(void)
-> +{
-> +	if ((!gic_prio_masking_enabled() || pseudo_nmi_support_forbidden) && !gic_supports_v3_3_nmi())
-> +		return;
-> +
-> +	/*
-> +	 * Initialize pseudo-NMIs only if GIC driver cannot take advantage
-> +	 * of core (FEAT_NMI) and GIC (FEAT_GICv3_NMI) in HW
-> +	 */
-> +	if (!gic_supports_v3_3_nmi())
-> +		gic_enable_pseudo_nmi();
->  
->  	if (static_branch_likely(&supports_deactivate_key))
->  		gic_eoimode1_chip.flags |= IRQCHIP_SUPPORTS_NMI;
-> @@ -2032,6 +2129,9 @@ static int __init gic_init_bases(phys_addr_t dist_phys_base,
->  	irq_domain_update_bus_token(gic_data.domain, DOMAIN_BUS_WIRED);
->  
->  	gic_data.has_rss = !!(typer & GICD_TYPER_RSS);
-> +	gic_data.has_nmi = !!(typer & GICD_TYPER_NMI);
-> +
-> +	pr_info("Non-maskable interrupt property %s supported\n", gic_data.has_nmi ? "is" : "not");
+I think we can address the suggested changes as a follow-up patch series
+on top of this.
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+How about we get this picked up for the next merge window first, so that
+we can get the CC_SHARED related changes in? The follow-up changes
+should be easier once we have agreement on the overall design, and can
+then be done as incremental cleanups.
 
->  
->  	if (typer & GICD_TYPER_MBIS) {
->  		err = mbi_init(handle, gic_data.domain);
-> @@ -2047,7 +2147,7 @@ static int __init gic_init_bases(phys_addr_t dist_phys_base,
->  	gic_prio_init();
->  	gic_dist_init();
->  	gic_cpu_init();
-> -	gic_enable_pseudo_nmi();
-> +	gic_enable_nmi_support();
->  	gic_smp_init();
->  	gic_cpu_pm_init();
->  
-> diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-> index ea5fd2374ebe..ebccd76cadda 100644
-> --- a/include/linux/irqchip/arm-gic-v3.h
-> +++ b/include/linux/irqchip/arm-gic-v3.h
-> @@ -30,6 +30,7 @@
->  #define GICD_ICFGR			0x0C00
->  #define GICD_IGRPMODR			0x0D00
->  #define GICD_NSACR			0x0E00
-> +#define GICD_INMIR			0x0F80
->  #define GICD_IGROUPRnE			0x1000
->  #define GICD_ISENABLERnE		0x1200
->  #define GICD_ICENABLERnE		0x1400
-> @@ -39,6 +40,7 @@
->  #define GICD_ICACTIVERnE		0x1C00
->  #define GICD_IPRIORITYRnE		0x2000
->  #define GICD_ICFGRnE			0x3000
-> +#define GICD_INMIRnE			0x3B00
->  #define GICD_IROUTER			0x6000
->  #define GICD_IROUTERnE			0x8000
->  #define GICD_IDREGS			0xFFD0
-> @@ -83,6 +85,7 @@
->  #define GICD_TYPER_LPIS			(1U << 17)
->  #define GICD_TYPER_MBIS			(1U << 16)
->  #define GICD_TYPER_ESPI			(1U << 8)
-> +#define GICD_TYPER_NMI			(1U << 9)
->  
->  #define GICD_TYPER_ID_BITS(typer)	((((typer) >> 19) & 0x1f) + 1)
->  #define GICD_TYPER_NUM_LPIS(typer)	((((typer) >> 11) & 0x1f) + 1)
-> @@ -238,6 +241,7 @@
->  #define GICR_ICFGR0			GICD_ICFGR
->  #define GICR_IGRPMODR0			GICD_IGRPMODR
->  #define GICR_NSACR			GICD_NSACR
-> +#define GICR_INMIR0			GICD_INMIR
->  
->  #define GICR_TYPER_PLPIS		(1U << 0)
->  #define GICR_TYPER_VLPIS		(1U << 1)
-
+-aneesh
 
