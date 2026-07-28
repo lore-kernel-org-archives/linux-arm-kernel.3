@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038CEC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 05:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3788BC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 05:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CtpzmEzQvn5xRXFFWmRk07oAtx5sfR2PdQViSkq1RHw=; b=EAl7oeukgxH3vUV6i61uFLMTgU
-	HBDXOxJdM4D8jNr4jihf/iCXqmYEctF3N9Qm6Or9pUkaJM51oeoJlN5XMfvlSfaqTdaso1M+h6Rgw
-	JHVMrU2hSHyEFxPWee11PYWo0Czax8xF4Wnz5+NkMI2RdDox0JS9QZTVSm6Fidk/HRDuODIp9rKlH
-	++EKSu7IqEO0crbglxVMfv6DknS9C3qHIacdK1Jlxhh73NIa0I6pX+NUC2gG4M+zyMUB1w37wphus
-	0+2xC5lFbp+FPhGaGH1jzMrc14Lv+fyWDPA4o6NLLMezOdO6DmAiO3kOlYc1iWAHyxCjUjq0O0HGY
-	oKy46pmQ==;
+	bh=cVEn/QQmLfmHEgm2t6PRiUh58Scql3pQOfaYA26wDno=; b=xt9KzIkD5QtXe+vybjc9OGtrSv
+	7SWm8bJ74OgVnUWZztyusPu/pnoislnvVk/xEEP+drP1zAaVZzFTAtlxxYGj1ToowaUrPADAyltvn
+	Lje5vdyBmc0XxFtFfgUuOaOh+IKojRAXWeBwD7MrfxTxTrwmOf8i4Y6dcM7DL4tQ4wPJ239nWTm+O
+	FHf7XeHIuMlvERGwGmzzEBMMcH73bxGb9Pg4LCixlt+vgHwsDUznbEFmJxhhct5l0ZihZeMijT2g0
+	eqgUiSOkqTvpg8AScZajel0aQXo1eNNLC9OQ5w1Q0TqfNSbCjLrDFQPikbTwmc6XmaNlEJPpZ93ef
+	Ho/HIj0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woaLo-00000004Rnq-222Q;
-	Tue, 28 Jul 2026 05:27:36 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1woaM5-00000004Ryl-3EcP;
+	Tue, 28 Jul 2026 05:27:53 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woaLi-00000004RhV-3Bhl;
-	Tue, 28 Jul 2026 05:27:35 +0000
+	id 1woaM2-00000004Rwc-2oj0;
+	Tue, 28 Jul 2026 05:27:51 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uHXvwBC3aV3Sll/PWbhy43Ws7lJdkEGOboxHYZ6p0iJRxCJRXEtonHFonI8YgsSuOmG2lonCdG8Z0wPmwv2/9MF/tYN8xmmkMRJuwUBbPz086Q3NqgUGkLmS9iM3AM0KSl/m+jmsE1KZv7g53JpfX662q2KjWpBiCbct3qnpzkVrjwcxImwG66f4x8kSzHwLmUAzNAYaZv9cZ9NhDFkOlsuCPQ93Frx2/88MJ/9ktLgUhAufQcPrWPio4V26o4Bm+bf4btNdXSRe0/2DwNXDGiz1zErr3CTFQusMZSJL2KAAGYN0eIBItzZrlgDGiigkxjjzO/Sb3zWi348G+kPDTw==
+ b=UBDdz79sa/5NQaulHTThlIr8rVCY054wW152RYE2FffuuNEPWICFTkX+Obmv/FPhnOZSooJJ12HhvRIBTyX5Afa84FdyYhtbV1oZ2jC9GI0XSp4FDYnudur5QGM43q3XWsPAn7KxsS6nQEE32VJEyU+eRK9IImF0PCtMVZOFML2WD0yxsXyFzwbo9iDnibRz2Azmy1Dg53PtJsy/sk2kGsonfL9gqhsvxEtS1YGmEt2ikbZ5pPSFato+cv7Us65J3aJfSJ0hqENyGI2ZUpiBVJyBXXLMFdQiow3+j8u1o6XBLXHl+COS+wATox+z/7czuGg8eI4LomLQrKLVcU3TCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CtpzmEzQvn5xRXFFWmRk07oAtx5sfR2PdQViSkq1RHw=;
- b=p1zCNQvGqrgVzs7uRUlp85OxaRj9H16kvKipUngxgJZISVXaLjAaqYOovNYgYatklw3d+JjbcfJwTPAAg+S28QnHXgRK88vQRMokWKoh/jLjbJPT3q27H12fRZNIGFu5bAi1i/02up2Cs9fYMTaHUCl1pe5zPc5MC1Inj00jHtArQ5vdueDQAy0ZHKWRwQuc5LnQoOo7hiI32XxpK1jj1TL7iZ/gnpq7PKMxlcm9bJBznL5p2lw6JIK+zHT4nylWbxG9QQKbE3vgFxJokzRocjooT6PKbsQQPyQqnWHbgI9t4049EBa4jOwbU3Vx+Wsgsk5doPwhc4456QuZsndQuQ==
+ bh=cVEn/QQmLfmHEgm2t6PRiUh58Scql3pQOfaYA26wDno=;
+ b=c4isAez7eBZt9qxKye0RBr3kK5bIEWASqABZahMJsuWn3V3FTbVgfQueggBn5OQn/MjEKPB26vfqT2GA5Swx2cq8D9pcCIE5V63Yj2RDEBZUaQ6oG79Lp0368MPks9a1tuAQTau/6qxoVdKOI2yvm2oNWuJ/WPc5+aJVU4obwHGeZ3IReMq66Yj7MgGbp6ZZNt1tY1Avde1ScF86TgTR+xIUMT96NFSevkPM0LYnRp1cfbAMAgkAv5hJCRcTsX7uTivA9bl0rrYC8e1CxyKulSXhz8wGodox0Ryq8YmKMFacFCpz6ZffaOA//l88G7lnpMQxbEh9zWnOQv7YjDNULA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=arndb.de smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CtpzmEzQvn5xRXFFWmRk07oAtx5sfR2PdQViSkq1RHw=;
- b=QhOYPknk8agr6egRMHHkeYkiUhkeUJgprrAuAFUKYuVZDRJG4F1RwftEJUA6N2czUloUcRwr2pCscj44MCVAB9Kw/Q2HElz1SQYVR1Rj3JTXqvDIqMFHjqZzOKmqFNzsW6C5a1/noD6SuhsVy0ZSyN3KjAAP3HljzD43k/zyFoY=
-Received: from BL1PR13CA0268.namprd13.prod.outlook.com (2603:10b6:208:2ba::33)
- by CY8PR12MB9033.namprd12.prod.outlook.com (2603:10b6:930:71::7) with
+ bh=cVEn/QQmLfmHEgm2t6PRiUh58Scql3pQOfaYA26wDno=;
+ b=WIhKytxo+09Xdo0HkqNFEfSpVxNbsNJtXqOzvpp92TYm2/RfPDFq5+Xbop6SU9Y9XoKsctu6gYu6Vxd3DD3hFY0pGLndrtKKmnqHkpjeJpMt8+5ev7Rc+1qOZO7oMLtDEoNFfVtPjXUOghMIUZynDTxS3IxUz+dGLOF6qgJduuc=
+Received: from BL1PR13CA0263.namprd13.prod.outlook.com (2603:10b6:208:2ba::28)
+ by LV3PR12MB9167.namprd12.prod.outlook.com (2603:10b6:408:196::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Tue, 28 Jul
- 2026 05:27:24 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
+ 2026 05:27:42 +0000
 Received: from MN1PEPF0000F0DF.namprd04.prod.outlook.com
- (2603:10b6:208:2ba::4) by BL1PR13CA0268.outlook.office365.com
- (2603:10b6:208:2ba::33) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:208:2ba:cafe::13) by BL1PR13CA0263.outlook.office365.com
+ (2603:10b6:208:2ba::28) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Tue,
- 28 Jul 2026 05:27:24 +0000
+ 28 Jul 2026 05:27:42 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -60,27 +60,28 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb07.amd.com (165.204.84.17) by
  MN1PEPF0000F0DF.mail.protection.outlook.com (10.167.242.37) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 05:27:23 +0000
+ 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 05:27:42 +0000
 Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 28 Jul
- 2026 00:27:18 -0500
+ 2026 00:27:36 -0500
 From: K Prateek Nayak <kprateek.nayak@amd.com>
 To: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, "Ingo
  Molnar" <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, "Sebastian
  Andrzej Siewior" <bigeasy@linutronix.de>, Charlie Jenkins
-	<thecharlesjenkins@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
+	<thecharlesjenkins@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>
 CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
 	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
 	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, Jisheng Zhang <jszhang@kernel.org>, Samuel Holland
-	<samuel.holland@sifive.com>
-Subject: [PATCH v6 3/8] arm64/runtime-const: Introduce runtime_const_mask_32()
-Date: Tue, 28 Jul 2026 05:25:35 +0000
-Message-ID: <20260728052540.4728-4-kprateek.nayak@amd.com>
+	<kprateek.nayak@amd.com>, Jisheng Zhang <jszhang@kernel.org>, Guo Ren
+	<guoren@kernel.org>
+Subject: [PATCH v6 4/8] riscv/runtime-const: Replace open-coded placeholder with RUNTIME_MAGIC
+Date: Tue, 28 Jul 2026 05:25:36 +0000
+Message-ID: <20260728052540.4728-5-kprateek.nayak@amd.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260728052540.4728-1-kprateek.nayak@amd.com>
 References: <20260728052540.4728-1-kprateek.nayak@amd.com>
@@ -92,28 +93,28 @@ X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
  (10.181.42.216)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0DF:EE_|CY8PR12MB9033:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd6f166a-7952-4c05-b0a0-08deec68e7a3
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0DF:EE_|LV3PR12MB9167:EE_
+X-MS-Office365-Filtering-Correlation-Id: 677e9251-3df8-43cb-7531-08deec68f2d5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|36860700016|82310400026|1800799024|13003099007|6133799003|10067099003|11063799006|56012099006|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: SjonYxm9bvmtppxldLt6BSD4tMEbsrv3gbIpYPQ9Ex68g+rgm62G8Czzfaj31WCr9xOrpMhIVQpyYJ5kBTFMK2s3XAoEGFBP8A5Q5m8l7YhfRndc3/1OVCpBRobrDBHuUDMaBsJLJ4eH+0hmACN50qiSyV0Z6iy+kn1UGLFXzY/aKu8w6WTGWgDm4Mgg2QZO70vP+Y0yPt/NyrNHdiQsF8THg90lkcnpXA8o91tRmhDCkhzzsC9dL39CkCsbxPBr4+RDkN0PdnAkbx0ycSRY1LYzB45vi9XmtCmaPZJQoEI2Q6xnY/3u1nVHdPPkiccXwoe9MMhet1gtKx1qrMWZFg2uY46s2B4vbRCXC7+4mEuz4HJ8Trsfg03i9sNhIHlZlcj6KV8uaSz3n2I5ryQasxWLPe5t8VC0DFW91wxjPClyGY9a2MQ2PpfXl1qK9ILyZnA93wBKekvXrjoGRH5wmERIXPgCvezged9OrevNMfEnIQOEltjdReHIl00rUzyPCg2uICkxHyRyVo/GG/v3BhTIwQCnGl9scUwLfWnfOW28Vxx3fmGDJ1XXrnjPw4oV3r/hB/HxFCBUo10e+0fFhnUPY9mv9Nk6svY1doHByUsgZErOIK/RWmPdMf94ecT8TyvH9HyaN3q04eOIQ+rg62c+dNtllqFo55FXNwmO3Qc=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(36860700016)(82310400026)(1800799024)(13003099007)(6133799003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|36860700016|82310400026|1800799024|10067099003|56012099006|11063799006|22082099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: JtNt2n6jyGbE8Os3/qmXCtEAMzk47yAZ0BPSivVzd/ELVGz9N4H70HEVYLphAQF2VsSC1Sggr5Z0G9Orpniu7XOVutQv8X5yjTpd8imf4jj/cYRipx8FLgslQV/0nbqvPo7wro4bE1zD0sGqzhXqlFJA2E8xSARNybgRREssPy+jgFFKagMhCduYb/JvKsm7GSImnlm5qJZqbfzNvrMWJhl5xAj8QU1BPkk18VqrcfQdFUyM4NP9Kb6N57zALfhutvwv/yS1ttPb21MwH01W+Jbvkom4HISwdVkLb1ah3hBZ9dh8/ePfV044DNHXAcm+CCtjXhUDiNZa3Z2QW796RIYo+iRa6oCPz0n6NbFb7wYbTf9u/fNrZESY2MPQZi3H7v3qzMMmWwwifiMVhXWJYchw2TJdMGkhzbbtzaQwri0G667A2pKucVo2K7v97LHExB74dT4+cFb1CeToSi0ppEsZdIwqHROeFmgRNn/Q7cNYiXAFnMN8r8Bjjj/09s0hg0vyw3GlgVrlZO9qg/GRkZhmXq5s3X+BodFnV45H658kFtOaC0mt8cpI6TEX9Y7VlEuR7srICkSKGU8c4bHscvlAXeRfSrLY9r6bvn7Th3oEHMDAWbgZbP+gXnu9HWQ/fTAIcHynj8ITBySuDCbWECnA8+qdZA+6qCRTBu2A8iVNPObqarzhFg7FseMPx57qi//O1nfu5ykfnmB0oMzJhfUensYY8KkG/H/eVIQhSYcpIc/s44aZQUYXGub8ywuy
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(36860700016)(82310400026)(1800799024)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: l5S3iQnWDXCRgiaaQb2wv/XHEeHaJPkm8pLVF+F/4aaj5fN+7YCokYcdcJ0nExjlXrx3Twxjt/iO83oSR10e4gQrQcBbbtyY4YL9rwYeNwLuFfu4m54BVde6RRaUkHihTZUZxZ2hUZuydNAP6Rvy9n4gs0EzCIaGniZz+s5ExAd0Vq5/juAVH8pT0lxCWgmASoktWbPNAqF+RVnI21172UHaVeUfmSa3n8jbC8KEM8peJSCBE4Qdagxyaw05rFAjPyossZuyTr21axIBZcwrKMJhnezqM3OyULsePL+GNPZKHSkQTKcAY1IqxTZ8Ps7e9OzfdeU2oNFmjlL2rR7pywUZVmcSQAAlRPGvkzbzXIBVlQkd7tVUvzBWypvOYoBGvOhuegBHBSDJWt6BuxFcCD4oN4yTHuxJzByoIl8tU79o1/PFogEka0jhwMr/JnJx
+X-MS-Exchange-AntiSpam-MessageData-0: MYTjCaQLbymxog3f0mPH4HdzNwayymRQXprhZbqC2+46195LQkoAP2Uh5gIzI9YFF8Zs2nvSQnjoZmTCbeW171kwtsvLxppVnEM2EPs1lEM9PBLH0zw7Eik2kS+19JyMrkxdLfKcFHE11vTeIOD/ydt/7NUHK932sE6PesWgikCeAyUS78IdSmsvOW96v0geVlL1OyTx//d0p7Hcqq4U4HOiZxOxfOTZ1IvG6iZ6jCgQwN80VKlC9tjl7rcN2QX/plvoyTyFFbIBT/xsttptc2catcGm7A3QYP+E0Kg9USpkG46Hfl/Nt5pCUzbTAMKXe40BIxO6/EtL6k42MV+jzvZG9usri1v5Hu6wXFV477UmpJOl2lSgGGfp6DbgzQa4w1bzfjUE4Vw5HQFJ8ks6EuE1KYAUUwPYITzi0vtduPe+vBeaIchNGabZSMWB9Fd0
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 05:27:23.9770
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 05:27:42.7587
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd6f166a-7952-4c05-b0a0-08deec68e7a3
+X-MS-Exchange-CrossTenant-Network-Message-Id: 677e9251-3df8-43cb-7531-08deec68f2d5
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0DF.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB9033
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_222730_805177_E17C971A 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20260727_222750_734040_7134F26E 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,122 +129,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Futex hash computation requires a mask operation with read-only after
-init data that will be converted to a runtime constant in the subsequent
-commit.
+Define the placeholder used for lui + addi[w] patching sequence as
+RUNTIME_MAGIC and use that instead of open coding the constants in the
+inline assembly.
 
-Introduce runtime_const_mask_32 to further optimize the mask operation
-in the futex hash computation hot path. Since all the current use-cases
-are of the form GENMASK(n, 0), with n > 0, a single:
+No functional changes intended.
 
-  ubfx  w0, w0, #0, #widthm1     // w0 = w0 [widthm1:0]
-
-instruction is used for amd64 to improve instruction dinsity and
-performance.
-
-"Arm A-profile A64 Instruction Set Architecture" manual, Sec.
-"A64 -- Base Instructions" [1] for UBFX instruction highlights the
-immediate "width" is encoded as width minus 1 in imms (Bits [15:10])
-which is patched by __runtime_fixup_mask() once the mask is known.
-
-If a future use case arises that needs to tackle arbitrary mask,
-consider using:
-
-  movz  w1, #lo16, lsl #0
-  movk  w1, #hi16, lsl #16
-
-to patch the 32-bit mask in the asm block and return "__ret & (val)"
-from runtime_const_mask_32() which allows compiler to further optimize
-the logical and operation. __runtime_fixup_ptr() already patches a
-"movz, + movk lsl #16" sequence which can be reused when the need
-arises.
-
-A possible implementation for this alternate scheme can be found at [2].
-
-Assisted-by: Claude:claude-sonnet-4-6
-Suggested-by: Samuel Holland <samuel.holland@sifive.com>
-Suggested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Link: https://developer.arm.com/documentation/ddi0602/2026-03/Base-Instructions/ [1]
-Link: https://lore.kernel.org/lkml/20260430094730.31624-4-kprateek.nayak@amd.com/ [2]
+Suggested-by: Guo Ren <guoren@kernel.org>
 Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
 ---
 changelog v5..v6:
 
 o Picked up tags from Charlie. (Thanks a ton!)
-
-o Check the val before using __fls(). Flagged by Sashiko for potential
-  compiler optimizations that can consider val !=0 after an __fls() call
-  and then silently pass the BUG_ON().
 ---
- arch/arm64/include/asm/runtime-const.h | 46 ++++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
+ arch/riscv/include/asm/runtime-const.h | 38 ++++++++++++++------------
+ 1 file changed, 20 insertions(+), 18 deletions(-)
 
-diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
-index 838145bc289d..e221a868c48e 100644
---- a/arch/arm64/include/asm/runtime-const.h
-+++ b/arch/arm64/include/asm/runtime-const.h
-@@ -36,6 +36,17 @@
- 		:"r" (0u+(val)));				\
- 	__ret; })
+diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+index 900db0a103d0..1ce02605d2e4 100644
+--- a/arch/riscv/include/asm/runtime-const.h
++++ b/arch/riscv/include/asm/runtime-const.h
+@@ -15,21 +15,23 @@
  
-+#define runtime_const_mask_32(val, sym) ({			\
-+	unsigned long __ret;					\
-+	asm_inline("1:\t"					\
-+		"ubfx %w0, %w1, #0, #32\n\t"			\
-+		".pushsection runtime_mask_" #sym ",\"a\"\n\t"	\
-+		".long 1b - .\n\t"				\
-+		".popsection"					\
-+		:"=r" (__ret)					\
-+		:"r" (0u+(val)));				\
-+	__ret; })
-+
- #define runtime_const_init(type, sym) do {		\
- 	extern s32 __start_runtime_##type##_##sym[];	\
- 	extern s32 __stop_runtime_##type##_##sym[];	\
-@@ -73,6 +84,41 @@ static inline void __runtime_fixup_shift(void *where, unsigned long val)
- 	aarch64_insn_patch_text_nosync(p, insn);
- }
+ #include <linux/uaccess.h>
  
-+static inline void __runtime_fixup_mask(void *where, unsigned long val)
-+{
-+	unsigned int width = (val) ? __fls(val) + 1 : 0;
-+	__le32 *p = where;
-+	u32 insn;
++#define RUNTIME_MAGIC __ASM_STR(0x89ABCDEF)
 +
-+	/*
-+	 * XXX: Current implementation only supports patching masks of
-+	 * form GENMASK(n, 0) (n >= 0) using a single UBFX instruction
-+	 * to improve performance, density, and covers all the current
-+	 * use-cases.
-+	 *
-+	 * When the need arises to support any generic mask, and this
-+	 * BUG_ON() is tripped, consider using a:
-+	 *
-+	 *   movz %w0, #imm16
-+	 *   movk %w0, #imm16, lsl #16
-+	 *
-+	 * sequence to load the 32bit const mask, and perform a logical
-+	 * and outside the asm block before returning the result. Fixup
-+	 * can simply reuse the existing __runtime_fixup_16() to patch
-+	 * the individual mov instructions.
-+	 */
-+	BUG_ON(!val || width > 32 || (GENMASK(width - 1, 0) != val));
-+
-+	/*
-+	 * The width of the mask is encoded as (width - 1) in imms
-+	 * which is 6 bits starting at bit #10.
-+	 */
-+	insn = le32_to_cpu(*p);
-+	insn &= 0xffff03ff;
-+	insn |= ((width - 1) & 0x1f) << 10;
-+	aarch64_insn_patch_text_nosync(p, insn);
-+}
-+
- static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
- 	unsigned long val, s32 *start, s32 *end)
- {
+ #ifdef CONFIG_32BIT
+-#define runtime_const_ptr(sym)					\
+-({								\
+-	typeof(sym) __ret;					\
+-	asm_inline(".option push\n\t"				\
+-		".option norvc\n\t"				\
+-		"1:\t"						\
+-		"lui	%[__ret],0x89abd\n\t"			\
+-		"addi	%[__ret],%[__ret],-0x211\n\t"		\
+-		".option pop\n\t"				\
+-		".pushsection runtime_ptr_" #sym ",\"a\"\n\t"	\
+-		".long 1b - .\n\t"				\
+-		".popsection"					\
+-		: [__ret] "=r" (__ret));			\
+-	__ret;							\
++#define runtime_const_ptr(sym)						\
++({									\
++	typeof(sym) __ret;						\
++	asm_inline(".option push\n\t"					\
++		".option norvc\n\t"					\
++		"1:\t"							\
++		"lui	%[__ret], %%hi(" RUNTIME_MAGIC ")\n\t"		\
++		"addi	%[__ret],%[__ret], %%lo(" RUNTIME_MAGIC ")\n\t"	\
++		".option pop\n\t"					\
++		".pushsection runtime_ptr_" #sym ",\"a\"\n\t"		\
++		".long 1b - .\n\t"					\
++		".popsection"						\
++		: [__ret] "=r" (__ret));				\
++	__ret;								\
+ })
+ #else
+ /*
+@@ -46,10 +48,10 @@
+ 	".option push\n\t"					\
+ 	".option norvc\n\t"					\
+ 	"1:\t"							\
+-	"lui	%[__ret],0x89abd\n\t"				\
+-	"lui	%[__tmp],0x1234\n\t"				\
+-	"addiw	%[__ret],%[__ret],-0x211\n\t"			\
+-	"addiw	%[__tmp],%[__tmp],0x567\n\t"			\
++	"lui	%[__ret], %%hi(" RUNTIME_MAGIC ")\n\t"		\
++	"lui	%[__tmp], %%hi(" RUNTIME_MAGIC ")\n\t"		\
++	"addiw	%[__ret],%[__ret], %%lo(" RUNTIME_MAGIC ")\n\t"	\
++	"addiw	%[__tmp],%[__tmp], %%lo(" RUNTIME_MAGIC ")\n\t"	\
+ 
+ #define RISCV_RUNTIME_CONST_64_BASE				\
+ 	"slli	%[__tmp],%[__tmp],32\n\t"			\
 -- 
 2.34.1
 
