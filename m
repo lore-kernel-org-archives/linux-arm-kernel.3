@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0037C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 19:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39797C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 19:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LY5oVYdUILHJ7bMyICNzRnyWNtmpdOraX3azrsWKi/Q=; b=kvP1M1+dD0C6JKumquLs+73Cgb
-	BhxzPE4URlbywWucQsKCx53Ku1KOLnAOluQ8wNxoCumsKkE01TmM3GEmwqwT8shae80IVyWPp0Chb
-	zLKqnjImrH6KgJMIAjh0gxM3IWSf3x/XKl8NvBL2uECkybWgahckNQIyLu9f6Q9r2MvVtW634pmW4
-	nqheP1LDZrr4aGQ4uiHdV8LVrAWcKaLALGTtvMW1lKzvijBPYWRtvSMJoDj/qfHaDvEAQjoj6/MR/
-	N/qQqH+8JfacpP2AmJ5MrEEqcMa9cc3eXxELKYf5NLtSJlZwYF+v1hB+aIAzWy/JHrhK8cnttUQPX
-	urYYmLcw==;
+	bh=ktVslNyishmwLJIWQZVyJyZGaF8VrnNN5PLCkW5qv1c=; b=It0/fB+rucHUZgCOSFmXAPofjN
+	8UfrInrHaIiEEMiUnMmX6+mKXSQtdFNEkDxrLLsDyDZh+CL60MtSi0YQJwHZQOoASzhspU0h/xO2W
+	ga08pqPEG3vn8f7VQbpN1VDOcCPzOxkpPiSFinoSmTSOvKOAfdXJqGZq99B6cfYka2krpVfMG+8Gt
+	FFP1nUCj4V69tuIY+Ln4J9H/vZlI6Cwxpc8AX12FImVMPyHKdryIeFdwSc3aR4eIxaafJKIXWAQiK
+	IiObiA2ekgMbhlxDIdtpKXHGRFSQ4qbZzdSnV4JbK2UnHQOsB6BLlYGKemE/ImlP9CpUVOV2syKNA
+	whIvRr7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wonIF-000000067fx-3Zak;
-	Tue, 28 Jul 2026 19:16:47 +0000
+	id 1wonIu-00000006840-3ZMe;
+	Tue, 28 Jul 2026 19:17:28 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wonIC-000000067cQ-0N28;
+	id 1wonIB-000000067cK-3ek8;
 	Tue, 28 Jul 2026 19:16:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=LY5oVYdUILHJ7bMyICNzRnyWNtmpdOraX3azrsWKi/Q=; b=s6n2LzQSHVBxfWFaf/WwA/Gmuy
-	C9RNLdRAeKgmiDs0gIa7oy5V4y0D7uRbiVQC2inHN61PgZWjub6EWXn4HKllTHC8Xleq8B87DJ7/H
-	VLRt4yshEL9EhQ3JH3O0czaKKi7TxIMvPC9/ItTvrXGZc9I15nkyDFb6JPVF4g283bd5tHpe15v7m
-	xzLbLK4V0AxX/uodcK9MELyskCq/5fMgSkpWNgVpp/2ZPctnchpRQmCAkcUmlBIYTBuS7R0/XDR7m
-	8eRTRNV+B0SiantSzzb/IN65D42o0rYhEVhzcJl7JDErQvUJfmYmN0g4E0+wUKBRFL8pHd/HuTOG7
-	xYKTC5XA==;
+	bh=ktVslNyishmwLJIWQZVyJyZGaF8VrnNN5PLCkW5qv1c=; b=yvf0oo6JI9hw6HVT8BbmF4Bx2Q
+	XB5AplJBXaXF8KQpdH0HOyXSi89oHtRraPaGkI+oGxC9JCqPPXKpi8aPLAQZDjmgjXVm3qgUttCTP
+	2YWyBf5fgmASVSXe1pq40vY5gDe7AtnCF2TyCXjvxJFizhgvwOPHB7BaZKLAtNtQ9fJVVZjZVFpCj
+	d6xqqdqG+eLT8WT49qGVVdVPv+oQ/WgoIC9oi/Bq8J/x4QzjLkH/3CxYvJTgG2dsdASs5ruOxLTBd
+	oLCefYR3Ou8tlCRmvygo2PXPbBWmpJxTQOG6Aw0zf6P5VIJ/ZUn9sz2yTn8bZ3YbXyPQFVgezc6Sa
+	fzZ0s2LQ==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Fabio Estevam <festevam@gmail.com>
+To: linux-rockchip@lists.infradead.org,
+	Hrushiraj Gandhi <hrushirajg23@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	robh@kernel.org,
 	krzk+dt@kernel.org,
+	robh@kernel.org,
 	conor+dt@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix the rk3566-radxa-cm3 Wifi compatible
-Date: Tue, 28 Jul 2026 21:16:29 +0200
-Message-ID: <178526609464.300371.10816180268283621892.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 0/2] arm64: dts: rockchip: add Vicharak Axon board support
+Date: Tue, 28 Jul 2026 21:16:33 +0200
+Message-ID: <178526609457.300371.12562771898279698820.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260721133421.44258-1-festevam@gmail.com>
-References: <20260721133421.44258-1-festevam@gmail.com>
+In-Reply-To: <20260714053419.265523-1-hrushirajg23@gmail.com>
+References: <20260714053419.265523-1-hrushirajg23@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_121644_133618_4632F774 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_121644_049490_B0534867 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,20 +72,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 21 Jul 2026 10:34:21 -0300, Fabio Estevam wrote:
-> According to brcm,bcm4329-fmac.yaml, "brcm,bcm43455-fmac" needs the
-> "brcm,bcm4329-fmac" fallback.
+On Tue, 14 Jul 2026 11:04:17 +0530, Hrushiraj Gandhi wrote:
+> This series adds initial device tree support for the Vicharak Axon
+> single-board computer, which is based on the Rockchip RK3588 SoC.
 > 
-> Change it accordingly to fix the following dt-schema warning:
+> The Vicharak Axon is a feature-rich SBC targeting developer and embedded
+> use cases. It ships with:
 > 
-> ['brcm,bcm43455-fmac'] is too short
+>   - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
+>   - RK806 PMIC providing all SoC power domains
+>   - eMMC 5.1 (on-board) and microSD slot
+>   - Gigabit Ethernet via RGMII (RTL8211F)
+>   - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
+>   - PCIe 3.0 x4 and two PCIe 2.0 slots
+>   - SATA 3.0
+>   - USB 2.0 host ports (EHCI/OHCI)
+>   - NXP PCA9554 I/O expander for status LEDs
+>   - Haoyu HYM8563 RTC
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Fix the rk3566-radxa-cm3 Wifi compatible
-      commit: 7f1f09ed517de6b98fbd64393a3efc8b5055c2cc
+[1/2] dt-bindings: arm: rockchip: add Vicharak Axon board
+      commit: 58db5a28c85150411f3b6035b9a7eb3b23ca7789
+[2/2] arm64: dts: rockchip: add Vicharak Axon board
+      commit: c42f01f053a7be77f534c850911cd8d54777af19
 
 Best regards,
 -- 
