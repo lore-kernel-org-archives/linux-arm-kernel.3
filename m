@@ -4,78 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D70FC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1033AC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUYrDQFy3R4hJeF7p7t5Sj5/KSX9y6JZ0WLE0Suaa3E=; b=KZ/MwR3zb5+VJjrqk3+vWpJp2N
-	2yzBN542vQLf9eMdelSF8UYlmpPR9Dy2q8yi76unvBNNVS2JHCEns6F/ztTHb0bYxKS9/W9K/4Y7p
-	AdBCHOwfkjIhk4cVKKOvsrw3fuQVs9cyIQVwJ4dRrEIMxmwZY+QqC4+Y6Ep6F+nNVZPer9pwGC30u
-	pMFxL5D4hK57Avoc7j57zvw8fYroNMG9njdpMhHtDP8AX8htq9dittnDecZ14SM/e3nnyOtN4k9h5
-	mF4KXu5huFgMNYHFSUdgUGLFSzd3Z8+6WaAkC5vbRm3OjdtNoujRNYLc+nbR2NuzNq2jsOSWL03HV
-	s82Ct/ZA==;
+	bh=Dgrl60IlcgUtxV8b+GtgWbSKL9T4fkkU03nVj9x4Tu8=; b=0nD/hv2fGf4KyUGPz0nuFLzDPu
+	k5YZVEzeut4kD/YV22jDr6i+KhCGjckuRiJnMhcV6GIlmKrevOGhS0XaPguLHgqOmQ5o8kMphcA8D
+	VIxwUFBOhzTp/MllZ8aVVd4sQfIn7OWlbAcK5WZ1qqKR8E3Be8Tdl/4zMoyQxgTnk1wFbFZMjrrCx
+	/iIrdxFjpLl7pjOZ+N9p11dEYhT93KO0DxeuuWEz2N+Shq7EmMRsFHGFLxxGRMKGc+AnbqRMCTHIV
+	3+v5JXgXjbMX7PZSWn/L2HbAH7KnZydYIFOt9ithWh0ABNfuhPUoqAoUpJWfCocnmG+wpimdpgK6F
+	4BgIiUuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiTX-00000005Qp2-2E8I;
-	Tue, 28 Jul 2026 14:08:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1woiU1-00000005Qxj-0UrV;
+	Tue, 28 Jul 2026 14:08:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiTV-00000005Qnm-1tFE;
-	Tue, 28 Jul 2026 14:08:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785247681;
-	bh=p0So4y/barplVrx3qluBiammsXlH00tBB8f3bis6030=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AOjyqS7KOauFtQlydtCMP+bxZ9gbu2oRbgCIHdmyZVHxOT2BBpp+L/Z7wC34S8rmx
-	 rwK29zdstwwAxWIPf0p5L0swF8mEjFnuBjwzRUAEkeVMbAVblRw0s3rylIhKG2y7oN
-	 6pGTgTmNdPEql26tFL81U4yvjng12upMEntbYhWnwWZNnTbvB9jBPjaBK8/APBH1Aa
-	 H+UvZPiCAwvzD5cleIddHmcHeLrMqtdGmuriSxn/xcSzHOKcVZgukqmhOpnM7Nc7kl
-	 OXRY4YvdoeJlkXxL/oQM/+rpHDDFX3tDNUSyb2LAoH7hL9r44MFD0B1I5VjSRWrePy
-	 ih3vLNdceeyEw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 823A417E06EC;
-	Tue, 28 Jul 2026 16:08:00 +0200 (CEST)
-Message-ID: <6b344cc5-e07f-4a7e-b061-5f41d7ecfba1@collabora.com>
-Date: Tue, 28 Jul 2026 16:08:00 +0200
+	id 1woiTz-00000005Qx9-09zn
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 14:08:36 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66SDOF6N2655105
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:08:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Dgrl60IlcgUtxV8b+GtgWbSKL9T4fkkU03nVj9x4Tu8=; b=NSoDKo1DRTM+d2OR
+	xcEg1CPv1i2miZnJHhIKmXpRMqLAujW6GhWOPhBY0uv9AQR7A4P6Pvi/QaRi4Gfb
+	GuKIhxcWvRXsyyaRla2PP+uge6SSh/SIHcel/gxQ9OXho2SFBiNfbssTEaAIvi8G
+	22n0s8kUpjiGc2dqB7pqH7lw3WKyau8wCQDa0Zgah7No9Y86wLfxm+cTpwKPkTNG
+	khkMlFaAND0JHSVlf+6tr1cYUZCqvgOrQ0rkDmRpcPNS4RlBj5ccNdOJOuSNqvwV
+	f087lQhsUae6dRhITDfop6Zeauz66/K8sHlHuqpKQEAWm4or6M54rPRGs06G6dka
+	zfO49g==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fpvd3ggcq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:08:34 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92e63df032bso113396085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 07:08:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785247713; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KJ153SwEv0We0zW+inxCm4tLoC6GmzguIVcz5wSbw9lfQ+PhAXYWrpLOUzLW0Wn32+
+         vDZ3XZM7uuGNSzEmZUyMzmw90NKFeIU9ggEE/9ymEMBY74+NFhbGwXuxpLvj7aXRSWbl
+         JFdcaYJ6Sa01+Jvm8IObKzDYJc4BPtixJHtx6qLa/D2wt1FEXtpWUdokw8ImGI1rfoib
+         iHAtkNuoIV5uzGAzWwI5y3BjlLE9IjzBlc8k5DrWQ8UwiVnbC0UPRqoCG5aLDq414CO+
+         4Tj4qdxcBLwhAFnDjD9TR7YAJKeYrvSOzaxBM7NflxWwP8wPE0tRByynHOkZV90tRZuo
+         cZpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Dgrl60IlcgUtxV8b+GtgWbSKL9T4fkkU03nVj9x4Tu8=;
+        fh=JhqLcc/fEHVbvT2riGH/xnN801VI+G7yIrRdkME+N60=;
+        b=SGmW1HscUcPi1xTt2F80nMurgfgt4umI1y6ZqN8lmwVFEAeRm80eAdSqJmNm7gsZsH
+         WLHSrP8/07oFpU8zYuxP0TFB2mMzrMhoALFGdxtFFBjxRSV/GAQIYfWHEtODZyagSShu
+         nkGcZnGV3gBjLQucs4R6sVZoLJZARJRNTAWNldJeNIlDHGHweVjrb2MGPMHwcPE6wQY0
+         WWiQBTyWpDushfokM4gzYUq6Hi7XMz5OfTIqzRCEURJKwctHO9G7lnMdvA78C9nvAOZe
+         X39zexqRWBREslbCtXs3t58gQhaVSqb/HEXp6vM98nU6JXEfufIuCjoNYmpdgPpIRhGb
+         ncPQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785247713; x=1785852513; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Dgrl60IlcgUtxV8b+GtgWbSKL9T4fkkU03nVj9x4Tu8=;
+        b=IlnXs+nWz5Xd2/MVvdVTlvSVlWwNPCgIiV9w+MkmTrLrQ22vaRUEkY4KAF2jplPV64
+         0b6saM0gwtPQmsrZXsyaj17WtSMDlr39CkTSjIGMRXUcxrxWhDAxEVwXRhq3lwbxS+XI
+         3vy38MP/4BIYIMBF8MGPuRC0rRHmf5dHWMyAzJJmfIFMUoTV11ZQe5Sal0g/PaT9UnRV
+         YQY9rAidsb0zgS35yNJ8vljbr2vA4BQrg/9JWBQq+Y6l9tfCCEHe1gIbMakt7pp6p3kl
+         G8v7N2AuiEE4W+U2DC5RygvuZ8l129ccf8pml7w5vILwMSf2toWJrKg+i/eCaKKkxmQU
+         eldQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785247713; x=1785852513;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Dgrl60IlcgUtxV8b+GtgWbSKL9T4fkkU03nVj9x4Tu8=;
+        b=ZJgUn42mtNAkdHp9t1QMd6NieFBFB8duzsQ4km/O5AI2d9novphRSyP4DCOQ40mq1I
+         SfG0c8gpyvBeLjiuEtYy9AAR1VCwEitaNn9Fv86W3tvTEi4LGNjUtlMURPBOvvHdOA9x
+         e5UbN5WgrH69AEtIBtgsm0KsJbbqIG5fne0ovkrUcsLWxBvik3buUvOugH683aYt78J2
+         1z4cD7ZFsVnwOfsxf19MzuYRieyrLuEOuY9NLwN9tt87DUpl7jfnOPyRC3cl8Z41WBfi
+         PYtfnqshGVk5qaTB/PW4CG6gM3sY8XAYuwTuJPLHwStFfOPBwL2mUqLm/LWbVuuo5EKO
+         UZWg==
+X-Forwarded-Encrypted: i=1; AHgh+Rq9rVnclSC8Tlart+GBfIkmCnkSHp1A4YSnPJfD8TO8lsuCFD5Nn6iRoamOkSdy/SXHAhSE0XtKULh0rSN7TyX7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyLcbact7I2c1krVhNgS4/o5Yh/Ggmu9NTHkoznFIVHA4KBdyz
+	6k97kMLZYMZQwmhQgeI+10Nq00O1ecjhsEAWXyJLbC/KhiIrwNNTP2vTNtVyoWnAZe76TW3LJ9w
+	q7A6g5TpeYw71cOci4+R+mIGTUuC1UR9rB0QjIruQhMLaqvS6hDRTV47S/6pewQFKJeUDcU50yF
+	IAFZTgyhK0/b27yX1Pa6/NHVrF71ngGxPrrUrGGrKIcIlzplFxOTraCtRpqYrhdcU=
+X-Gm-Gg: AR+sD12Rzl7GUzPwTlbiQQumO5yezLdv8hVpYf3xdYn3IdY6pXFN74j/1112904EsC8
+	3rbubyW0a22JP2oeqDQW5gEqIJ653Qp0OZCb2MUhZ174EQ+gccc14BhPZ7t5q04wEJcqlRLTsor
+	gd1RDfHqY0iwv2IOuS/OFihLN52AFftFzaTpXH1IiWfgiW2TOtmLf4aOlmwTCesn4L7KylkUNwn
+	iGI7W9/r+BmTrOBB3Tk1F0CuVxo2UKVzoLY/U7yHEcxiXQYcSsUMWPYAMmyo9VGOMdN4fsN940=
+X-Received: by 2002:a05:620a:25d3:b0:929:f78f:6bf9 with SMTP id af79cd13be357-9330263c462mr233339985a.16.1785247713298;
+        Tue, 28 Jul 2026 07:08:33 -0700 (PDT)
+X-Received: by 2002:a05:620a:25d3:b0:929:f78f:6bf9 with SMTP id
+ af79cd13be357-9330263c462mr233331485a.16.1785247712676; Tue, 28 Jul 2026
+ 07:08:32 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
-To: Adam Thiede <me@adamthiede.com>,
- Thorsten Leemhuis <regressions@leemhuis.info>,
- Gary Bisson <bisson.gary@gmail.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Esben Haabendal <esben@geanix.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Matthias Brugger <matthias.bgg@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Linux kernel regressions list <regressions@lists.linux.dev>
-References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
- <8733xko1ms.fsf@geanix.com>
- <0f719c00-3cf5-4403-afbf-713b07255981@collabora.com> <aleM9Wy9otpd6Je3@owl5>
- <aRN3_2FHX8XmTcwduTAPwz4UFde4B0tbB09ajyeUg5qZxiIYMmbvMkG7CPoNTl4iySYMZawbLMWijO47R22gkg==@protonmail.internalid>
- <65558ccc-4f2c-492d-8c74-627d27dce864@collabora.com>
- <87h5m0mkca.fsf@geanix.com> <alpTEPsy-SIQv_Oc@owl5>
- <b26a4890-12e9-4995-a71d-d0b7458b1570@leemhuis.info> <amdTnudq48tZUTG2@owl5>
- <1826ddd9-6edd-4481-a31d-6cbb083b3a56@leemhuis.info>
- <5c7e81e7-28e1-4993-ac4e-724ec7664ebf@collabora.com>
- <806f042f-cf40-451a-8412-eb4a5e31963f@adamthiede.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <806f042f-cf40-451a-8412-eb4a5e31963f@adamthiede.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260728-isi-v5-0-1d22ab91602a@oss.nxp.com> <20260728-isi-v5-1-1d22ab91602a@oss.nxp.com>
+In-Reply-To: <20260728-isi-v5-1-1d22ab91602a@oss.nxp.com>
+From: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Date: Tue, 28 Jul 2026 16:08:21 +0200
+X-Gm-Features: AUfX_mw5JcxlCW6NeAN0Cy8X5f4_Rk6VWvnTqzYs1-6WgLhGTre_063E34AGeNA
+Message-ID: <CAFEp6-3jntC6xQLDLjQdMps5Lq-sOCGEtMnkFTtrCDZpngBwRQ@mail.gmail.com>
+Subject: Re: [PATCH v5 1/4] media: nxp: imx8-isi: Use BIT_ULL() for 64-bit
+ stream masks
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Christian Hemp <c.hemp@phytec.de>,
+        Stefan Riedmueller <s.riedmueller@phytec.de>,
+        Jacopo Mondi <jacopo@jmondi.org>, "Bryan O'Donoghue" <bod@kernel.org>,
+        Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>,
+        linux-media@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI4MDEyNSBTYWx0ZWRfX+oe7/04sh2tY
+ 4Ugsw6MfkDBWthxBCGoex+mLZV70BsazpCmFM51NqeV3j5EEIrRoRkqHXSut1poGsxJpF941iju
+ uWHGUHCxcgINsoHv/hLd6QwpPY3RDwk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI4MDEyNSBTYWx0ZWRfX6nKX086Vo5gw
+ zanSCiuh0zA+qgbV4AuB4DMJ/Nd4MWSWtUJLE8YRPgS2QieHGl+Am8Co1aGQC8cSQGyj4xebV7E
+ 1d/UuNAo3w1qSezz6StqOqQ4WlaXVIzf3pgWZ7+T/lmUTvQEdjXA4RaESN7D9kBQ2DaWimbYN6+
+ Hg7O3q76YZI6k4nPm3pIJPx+2ddtkmxtHmEkP4RMwf8+W5bNh8CuuqHU8srU0aUtmo2WbBUlrWe
+ WTfxjwhzLIWu+wCjEn7v50XkpuaPmDn4RUyqY3BzoTIvWgB+bGdrnYD/BaO7Xc4LukXt851tQpg
+ l6EUy1CukvxR9R/+d4L1IXmMQd+Fnj8rMg7/NmMrzlkJj2mYJYMWluPxkkXzl7HS9VINg6kokLX
+ FPfNdq/KJDIvTNZn3u/Y4ZMdD366Wwu9bPbAvMaU+HsqySAPArJrj2eaLB973lmaqubdeyfx9Gl
+ z5GI81Qj3gwr/9fyKOA==
+X-Authority-Analysis: v=2.4 cv=SqegLvO0 c=1 sm=1 tr=0 ts=6a68b7e2 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=YMgV9FUhrdKAYTUUvYB2:22 a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=LElf2VvS5UWv9C91Qe8A:9 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
+ a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: B-HGMAk-xxKjMSsbPQQmn8fIk6hZXeN_
+X-Proofpoint-GUID: B-HGMAk-xxKjMSsbPQQmn8fIk6hZXeN_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-28_03,2026-07-28_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0
+ priorityscore=1501 clxscore=1015 malwarescore=0 adultscore=0 bulkscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607280125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_070805_689966_D4E33996 
-X-CRM114-Status: GOOD (  40.70  )
+X-CRM114-CacheID: sfid-20260728_070835_084217_71139A4F 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,155 +174,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/27/26 18:34, Adam Thiede wrote:
-> On 7/27/26 10:54, AngeloGioacchino Del Regno wrote:
->> On 7/27/26 16:23, Thorsten Leemhuis wrote:
->>> On 7/27/26 14:48, Gary Bisson wrote:
->>>> On Mon, Jul 27, 2026 at 02:28:56PM +0200, Thorsten Leemhuis wrote:
->>>>> [top-posting to facilitate]
->>>>>
->>>>> Gary, Angelo, what's the status here? It looks like this fell through
->>>>> the cracks -- or was this issue fixed in between somehow? If yes: great!
->>>>> If not: Would be good to finally resolve this, as we are long past "fix
->>>>> within a week" rule of thumb from Linus:
->>>>> https://www.kernel.org/doc/html/latest/process/handling- regressions.html#on- 
->>>>> how-quickly-regressions-should-be-fixed
->>>>
->>>> Not much happened I'm afraid. The status as I see is:
->>>> - this patch is necessary to have TI SN65DSI83 working
->>>> - this patch also follows the DRM guidelines saying that HS clock must
->>>>    be enabled during pre_enable (see previous answer / [1])
->>>> - this patch has been successfully tested against MIPI-DSI panels (by
->>>>    Angelo) and LVDS panels via TI bridge (by myself)
->>>> - Adam reported an issue with another bridge (PS8640) where resume is
->>>>    broken
->>>> - Esben offered a patch to the TI bridge that would fix the issue we
->>>>    were seeing in the first place.
->>>>
->>>> But for the last two points, I'm not sure this calls for a revert yet:
->>>> - enabling HS clock in pre_enable still is what should be done [1]
->>>> - maybe the issue Adam is facing is due to the bridge driver instead as
->>>>    it could not be reproduced with another setup
->>>> - Esben patch would break the SN65DSI83 init sequence, suggesting that
->>>>    the culprit really is the MIPI bridge for not following the HS clock
->>>>    requirement in pre_enable instead [2]
->>> It's tricky, yes, but I suspect the right time for a revert was weeks
->>> ago. What Linus afaics basically wants in situations like this (espe.
->>> with two reporters) boils down to "something broke recently, no fix was
->>> found within a week or maybe two, so we go back to the previous state to
->>> restart from there -- and this is nothing bad, that's just done to buy
->>> us time."
->>>
->>> If something is right by some hardware or DRM specs often doesn't matter
->>> much. What makes this tricky is the fact that the revert might cause a
->>> regression for those that relied on the functionally the change brought.
->>> But I suspect even then Linus prefers a revert, as it's a recent change
->>> that only went into 7.1. The quoted from Linus on this page cover this iirc:
->>> https://www.kernel.org/doc/html/latest/process/handling- 
->>> regressions.html#quotes-from-linus-about-regression
->>>
->>> If we can't agree on this, we maybe should ask Simona or Airlied for advice.
->>>
->>> Ciao, Thorsten
->>
->> Thorsten,
->> I agree with you, and it's fine for me to get this commit reverted, for the sake
->> of following the rule (which is something I agree about: as a user, the last thing
->> that should happen is to be afraid of what breaks if I update my system!!!!),
->> even though reverting this actually breaks anything that is not PS8640.
->>
->> ......though......
->>
->> Everyone, please, look at how fundamentally broken PS8640 is... Qualcomm people had
->> the same issue as what is currently happening here.
->>
->> They had to fix their DSI driver, as it was kind-of broken in a vagualy similar way
->> compared to MediaTek - and then they found out that they needed (and upstreamed) a
->> *hack* that had to be done specifically for the PS8640 Bridge [1]: their issue was
->> never really resolved, as then the same bridge started casually working for unknown
->> reasons (is it still working?), so they removed the hack [2] and called it a day.
->>
->> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux- next.git/commit/ 
->> drivers/gpu/drm/msm/dsi/dsi_manager.c? 
->> h=next-20260726&id=ec7981e6c614254937b37ce0af9eac09901c05c5
->> [2]: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux- next.git/commit/ 
->> drivers/gpu/drm/msm/dsi/dsi_manager.c? 
->> h=next-20260726&id=9e15123eca7942caa8a3e1f58ec0df7d088df149
->>
->> Especially in [2], the assmption from Dmitry sadly isn't correct, because this is
->> happening now on MediaTek, and here Runtime PM makes sure that the PS8640 is also
->> being enabled "a wee bit" earlier than DSI... but that doesn't seem to be enough.
->>
->>
->> Now, here I'm kind of shotgunning at the driver, but I wonder if anyone can try
->> the following patch before reverting this commit in mtk_dsi? Adam?
->>
->> ---
->>   drivers/gpu/drm/bridge/parade-ps8640.c | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/drivers/gpu/drm/bridge/parade-ps8640.c b/drivers/gpu/drm/ bridge/ 
->> parade-ps8640.c
->> index 96332721cb69..54ebf2fc8d1c 100644
->> --- a/drivers/gpu/drm/bridge/parade-ps8640.c
->> +++ b/drivers/gpu/drm/bridge/parade-ps8640.c
->> @@ -665,6 +665,7 @@ static int ps8640_probe(struct i2c_client *client)
->>
->>       ps_bridge->bridge.of_node = dev->of_node;
->>       ps_bridge->bridge.type = DRM_MODE_CONNECTOR_eDP;
->> +    ps_bridge->bridge.pre_enable_prev_first = true;
->>
->>       /*
->>        * Get MIPI DSI resources early. These can return -EPROBE_DEFER so
-> This does not fix the issue. I built 7.1.5 with this patch applied, and without the 
-> revert.
+On Tue, Jul 28, 2026 at 8:55=E2=80=AFAM Guoniu Zhou <guoniu.zhou@oss.nxp.co=
+m> wrote:
+>
+> Use BIT_ULL() instead of BIT() for u64 stream masks to avoid incorrect
+> results on 32-bit architectures when stream IDs are 32 or greater.
+>
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
-I think I know what's going on.
+Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
 
-This is just mediatek-drm calling the ddp_start() callback, which is needed to
-start enabling the DSI, but putting the lane_ready(), hs_mode() calls in the
-mtk_dsi_poweron() function is wrong, because that's enabling the HS clock way
-before DRM bridge callbacks are executed.
-
-I said multiple times that I wanted to remove that ddp_start() and ddp_stop()
-nonsense from mediatek-drm, and I think if what I think is happening is what
-is actually happening, I have one more reason to clean up that .. stuff (more
-than what I've just done with my more-than-50-commits of cleanup).
-
-Adam, one more test please. That's not shotgunning, and I'm fairly confident
-that this is going to work.
-
----
-  drivers/gpu/drm/mediatek/mtk_dsi.c | 5 +++--
-  1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index dc0c4e867179..c729a163bda6 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -1165,8 +1165,6 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
-  		goto err_disable_dsi_and_digital_clk;
-
-  	mtk_dsi_set_interrupt_enable(dsi);
--	mtk_dsi_lane_ready(dsi);
--	mtk_dsi_clk_hs_mode(dsi, 1);
-
-  	return 0;
-
-@@ -1284,6 +1282,9 @@ static void mtk_dsi_bridge_atomic_pre_enable(struct 
-drm_bridge *bridge,
-  	ret = mtk_dsi_poweron(dsi);
-  	if (ret < 0)
-  		drm_err(drm, "failed to power on dsi\n");
-+
-+	mtk_dsi_lane_ready(dsi);
-+	mtk_dsi_clk_hs_mode(dsi, 1);
-  }
-
-  static void mtk_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge,
--- 
-2.55.0
-
-
-
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/dr=
+ivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> index 9f0231ca47a3..9db9c6e55c2c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> @@ -157,10 +157,10 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_cross=
+bar *xbar,
+>          */
+>         for_each_active_route(&state->routing, route) {
+>                 if (route->source_pad !=3D source_pad ||
+> -                   !(source_streams & BIT(route->source_stream)))
+> +                   !(source_streams & BIT_ULL(route->source_stream)))
+>                         continue;
+>
+> -               sink_streams |=3D BIT(route->sink_stream);
+> +               sink_streams |=3D BIT_ULL(route->sink_stream);
+>                 sink_pad =3D route->sink_pad;
+>         }
+>
+>
+> --
+> 2.34.1
+>
 
