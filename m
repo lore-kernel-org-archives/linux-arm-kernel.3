@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608D2C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 03:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230AEC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 03:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qwyE4LxnCP+3XQqu0+shj3uX6BTmA445AyLkY9+tLGo=; b=rxL6uAzOicLjFEx6Bqp+U2LBLu
-	pvqURQy032bArPspYZSDUaj8OGVRmDQicRlsrHGiJ/+OsyFiWdMzKFto6egXTnJ/aTJPHRCtCdLhD
-	Wjx/VYxiL0WHgalO7ANuDv1jMarL8vFVaaL6vb9+lnQZDYTixrU+2jAcVSUtoXxvTlD/AfSYdK4MX
-	YSLXHiJt7psROm1739BCNLBUHu9+vkezKgtukunG/0HGaRAIVzP7gSf1Tj3uzjFId6sF+xYrYDiqf
-	l7jqq+b7DqPUkWrtZq3jeZE1PTJ/ygVxnoX6XcLDnqpOGhRcbCasb3KpjGrb988Djgf0pzlqmLUt/
-	TfXsFbOw==;
+	bh=DzZAmQauUQhmWoPotPHLA8KOY64t+3H75IzozBpNWk0=; b=sWyjtdjKshRq5cieCfulfiBfGF
+	p56JpOZZVrklAVyGuqJFHtN4Iz41Yb4ck2pR4mqJ5h1LJpjwtV8QiM8w4HcHnXF3TP8Qjc5rJuHDm
+	TfPf5QrpZ0qHQoS+G5vuLQVjMeGybjieVg19KYVMFeHFDY5RTqqV1RR4IIDH0vQToOC/PihgzwpX2
+	KPWtoxisUhsWTgoycL6OvBEmRXnNDjB8sKFyR/FrEyXi56uJGVLltn7aJKJHKpc3zDB/MfR/7imKQ
+	LeqOQNod3oeTIQi32x670HVVMNbou6eQvhS8wJKGC54jaUQFQpHOmR4ylqtslZ/mNqGzj6dlH/xwU
+	OhOJR60A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woYBk-00000004IRs-22Lz;
-	Tue, 28 Jul 2026 03:09:04 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1woYLB-00000004JrM-4BfI;
+	Tue, 28 Jul 2026 03:18:50 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woYBa-00000004IPJ-0S65
+	id 1woYL8-00000004JqD-29mt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 03:08:55 +0000
-X-UUID: a63a73208a3111f1aa26b74ffac11d73-20260728
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:e928dc21-9b0e-4ed6-8549-c859d50b19e0,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:6396ba649926002d83267c6b55ca0a13,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a63a73208a3111f1aa26b74ffac11d73-20260728
-X-User: liuxixin@kylinos.cn
-Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liuxixin@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 747398020; Tue, 28 Jul 2026 11:08:47 +0800
-From: Xixin Liu <liuxixin@kylinos.cn>
-To: arm-scmi@vger.kernel.org
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, mturquette@baylibre.com, sboyd@kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
-Subject: [PATCH v2 3/5] clk: scpi: bound-check DVFS index in scpi_dvfs_recalc_rate
-Date: Tue, 28 Jul 2026 08:50:00 +0800
-Message-ID: <04f9ab766e07.v2.1785200642.git.liuxixin@kylinos.cn>
-In-Reply-To: <cover.v2.1785200642.git.liuxixin@kylinos.cn>
-References: <cover.1785118770.git.liuxixin@kylinos.cn> <cover.v2.1785200642.git.liuxixin@kylinos.cn>
+	Tue, 28 Jul 2026 03:18:48 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=DzZAmQauUQhmWoPotPHLA8KOY64t+3H75IzozBpNWk0=;
+	b=38FuKOIOSthq4KpehIuA4dOUq9H3SGQYTGJWWLmLHaGztE7FFkb6tJ2Gl0EFYE+erNSi5vd9R
+	vqKnty2f2/NXcIMXyzq4K4MXZBDUSNlicHPNLNWTJiomR1GnUwq6UtC8zk6F3v/KXtSx+Th8lRF
+	aSoa2gGApflfWer56E9Lt5A=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h8L5x10FvzmV8f;
+	Tue, 28 Jul 2026 11:09:09 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8ABF4402AB;
+	Tue, 28 Jul 2026 11:18:35 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 28 Jul 2026 11:18:34 +0800
+Message-ID: <7a54d1c8-bf0d-4940-8d3f-28c48fc5c18f@huawei.com>
+Date: Tue, 28 Jul 2026 11:18:33 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 09/45] arm64: entry: Avoid unnecessary
+ local_irq_disable() on kernel exit
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-10-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-10-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: patches/scripts/send-local.py
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_200854_449597_F7553045 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20260727_201847_170121_35E7BEB1 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +80,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dvfs_get_idx() may return an out-of-range index if the SCP firmware is
-buggy or returns a stale value. Only negative indexes were rejected, so a
-large index walked past info->opps and could treat garbage as a clock rate
-(KASAN OOB / wrong frequency to consumers). The missing upper bound dates
-back to the original SCPI clock driver.
 
-Treat indexes >= opp count as invalid and return 0, same as idx < 0.
 
-Fixes: cd52c2a4b5c4 ("clk: add support for clocks provided by SCP(System Control Processor)")
-Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
----
- drivers/clk/clk-scpi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> Currently, when exiting to kernel mode, we attempt involuntary
+> preemption. The preemption logic expects IRQs to be disabled, which is
+> why we call local_irq_disable() before attempting preemption.
+> 
+> However, depending on the context, local_irq_disable() may be
+> unnecessary:
+> 
+> - __el1_irq(), the non-NMI EL1 IRQ path, already has IRQs disabled, so
+>   local_irq_disable() is redundant.
+> 
+> - irqentry_exit_to_kernel_mode_preempt() immediately returns when
+>   exiting from an NMI-like context, so calling local_irq_disable()
+>   beforehand is unnecessary work.
+> 
+> Split arm64_exit_to_kernel_mode() into preempt, non-preempt, and
+> dispatch parts so that we can avoid this extra work where it is not
+> needed.
 
-diff --git a/drivers/clk/clk-scpi.c b/drivers/clk/clk-scpi.c
-index 24cee7c9fda6..3c33a9e3c690 100644
---- a/drivers/clk/clk-scpi.c
-+++ b/drivers/clk/clk-scpi.c
-@@ -85,7 +85,7 @@ static unsigned long scpi_dvfs_recalc_rate(struct clk_hw *hw,
- 	int idx = clk->scpi_ops->dvfs_get_idx(clk->id);
- 	const struct scpi_opp *opp;
- 
--	if (idx < 0)
-+	if (idx < 0 || idx >= clk->info->count)
- 		return 0;
- 
- 	opp = clk->info->opps + idx;
--- 
-2.53.0
+Make sense for me, in an NMI-like context,
+irqentry_exit_to_kernel_mode_preempt() and local_irq_disable() are both
+unnecessary.
+
+> 
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/kernel/entry-common.c | 30 +++++++++++++++++++++++++-----
+>  1 file changed, 25 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index 2be42d7f4eaa..72c03ccea59f 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -52,16 +52,36 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
+>   * After this function returns it is not safe to call regular kernel code,
+>   * instrumentable code, or any code which may trigger an exception.
+>   */
+> -static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+> -					      irqentry_state_t state)
+> +static void noinstr __arm64_exit_to_kernel_mode(struct pt_regs *regs,
+> +						irqentry_state_t state)
+>  {
+> -	local_irq_disable();
+> -	irqentry_exit_to_kernel_mode_preempt(regs, state);
+>  	local_daif_mask();
+>  	mte_check_tfsr_exit();
+>  	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
+>  }
+>  
+> +/*
+> + * We are returning from the context which allows involuntary kernel preemption
+
+Should we add the irq disabled status for preemption?
+
+We are returning from the context which allows involuntary kernel
+preemption "with irq disabled" ?
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> + */
+> +static void noinstr arm64_exit_to_kernel_mode_preempt(struct pt_regs *regs,
+> +						      irqentry_state_t state)
+> +{
+> +	irqentry_exit_to_kernel_mode_preempt(regs, state);
+> +	__arm64_exit_to_kernel_mode(regs, state);
+> +}
+> +
+> +static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+> +					      irqentry_state_t state)
+> +{
+> +	if (!regs_irqs_disabled(regs)) {
+> +		local_irq_disable();
+> +		arm64_exit_to_kernel_mode_preempt(regs, state);
+> +		return;
+> +	}
+> +
+> +	__arm64_exit_to_kernel_mode(regs, state);
+> +}
+> +
+>  static __always_inline void arm64_syscall_enter_from_user_mode(struct pt_regs *regs)
+>  {
+>  	enter_from_user_mode(regs);
+> @@ -510,7 +530,7 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
+>  	do_interrupt_handler(regs, handler);
+>  	irq_exit_rcu();
+>  
+> -	arm64_exit_to_kernel_mode(regs, state);
+> +	arm64_exit_to_kernel_mode_preempt(regs, state);
+>  }
+>  static void noinstr el1_interrupt(struct pt_regs *regs,
+>  				  void (*handler)(struct pt_regs *))
 
 
