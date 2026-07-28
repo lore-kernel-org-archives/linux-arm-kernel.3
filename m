@@ -4,133 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226EAC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 13:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171EBC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 13:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JlU3GC/lZWKWvY0pjhRkOV34jKOVc8c3N92R/QR+uY8=; b=KckTkmSPTXXSvLdlYzb+nmC3d8
-	q6OiMxWH0bK4cuPrz94UeYy8FKnSNzOhVktBfzUDoFo4B8SZmCJaDZPQPDLflMLwVzVViJ23WQB7V
-	GcFEdrctD/4fQ5Bl2bl88YWhFlQI3LRc6AxeFrCcJeqrzOPFWFLOnl4VdH11G5n+CQWJ6q8XZxDYQ
-	yUjYR8uPJg08LoU9LSZGmAnXlq7GaQQKo8lTXCBKjjqh3EFCYZWK8BDD/RIfJ8Dsv5RNdnzZ84QlA
-	svG6I3TKYv0avRFwmFIpKomKL2CZ7tAwA8Gt7zAaTnTTezhgpqABqYwiP7zxRB7yaeH/QuJ12ak3U
-	QX4O7lrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TCR9C1jZOqNcj2+4RUYXKURLxFK8ipzkgH8+WvlnyEc=; b=onrNy+5eoxLYVs/H0thwGFwRcD
+	wDeidTbKAFn251su29y99anrDlcxBoX3UZu2gswsMBLVx2re+J+KK+LVZA7V52v+D8QmV7w2GpbAh
+	s2QUmBkRHl0B2Drf16Vta4p10aJb0rs6ycQdcQhPqDpLhe6aJ3Y0Y719oy6bUftkBJ8ImvH6K2pgt
+	y9Ypos19XuXwycpYOHgJwArCo/D/j/S4SHh+DjWleRmf9NODbAYSzFTCghQ3Ize84Ydx2sm6CsjD/
+	isEM2K7kzg1CLe1QJwyQG0Q4+oiRmYcv4T5Ikxzzz+RGDRwjHqXPFRKsddd70N7R9izoqXyuKRcqn
+	+Yn6Ck2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiA3-00000005O5G-3Mrn;
-	Tue, 28 Jul 2026 13:47:59 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1woiBu-00000005OV5-0ksf;
+	Tue, 28 Jul 2026 13:49:54 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiA1-00000005O4O-0VWp;
-	Tue, 28 Jul 2026 13:47:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tIjm/P9mt/IkI3g0KaT2J9wTTN8ZaOQBl+DAo271yOPGGQqg9U3qBkIvNr/JdUh12i3L0vik/B0wOlggM13PeJtwXEv4CSNYLZbAVm3mKrikp9qa3QxpS2l64BrGWzNpyDGOXatjzZpfkjU7/4rGZMZRz9lPIAsjMNWRLQE6w0mznGzeDr+rBkBZrTWWfJlRrVnLTYoVbiJLJZBuCmBHiglUTQkLtuA2BGuU0hoaFMKWhQOvz7lzoRMtpRK836JOtaL9whtb03xn67UMScNcSwHFBcMYyQr1sPJrAqqZ6g+cJI1mO5lTsWtGPPs6AejauRt9yFec5pBbux48hDJuEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JlU3GC/lZWKWvY0pjhRkOV34jKOVc8c3N92R/QR+uY8=;
- b=HO2g+z1KpbnSePcDO0ZNKdPzOsy1n66vhEzvT5WziiCdc9tZRDILrf/wsE5J1JuvjRHxZdyer41CsxMyHiItJCMKzuWoLO5eVvMkWqDVfWurUTMvxv8KAwWKHsaN/4knA6Qx+DLCSNWYhowyCTtQm/eqoDx4x1Xg6+0+5k/TPtMEQLXLSv911SLH+MO2yN1LXcxJWhrt/D7Fjg+3zH2C4b9eQT6oNfr9qdJaQLuHWMKWT4ityMl1UEBQlh5dy3Sh988Ec95BSau/KbR5vXljReBS5cA/jXlSsxqrbN8MOzbiPhmQeJYynj0vyMeeUZ1ZuBAniJx4CFNaeZAaJFTFYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JlU3GC/lZWKWvY0pjhRkOV34jKOVc8c3N92R/QR+uY8=;
- b=KZQCYhJxM+RCOlCWPP+8yIewbcejbNOr2plDurDXtoGKDMma+/1yE3GH2yBRSNTBiMNWy4s8POEnbRoRd8Sq/ekRUEtkCkX3fpCTFKHFXkNt3m2JR46A0jsOHSfzxRzKv4cGfQF5+Wt9XQ7pQB/Jw8cBI+OeJKHZrgoJvrZsSJYnpsjT0yWUJ/CtJZGErzVUtQBhm9Flu0e+HAkIgcJn8VGd97fPe6QTU12FrdWZUPqm91LXIDyzAQRGMUmnZjivK75bpLZwKOrF+14smUhxHJdpfUTBkQqzd+lBAv1bsF/0y/ZA414e/Y5Oaua+Pq+SuE2c13cka5O9RpZO9n4qSQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
- by AM9PR04MB8666.eurprd04.prod.outlook.com (2603:10a6:20b:43d::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
- 2026 13:47:50 +0000
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023%5]) with mapi id 15.21.0270.009; Tue, 28 Jul 2026
- 13:47:50 +0000
-Date: Tue, 28 Jul 2026 16:47:46 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tanjeff Moos <tanjeff.moos@westermo.com>,
-	Michael Walle <mwalle@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v4 phy-next 0/9] RCW override for 10G Lynx dynamic
- protocol reconfiguration
-Message-ID: <20260728134746.p7zqstau6376xifj@skbuf>
-References: <20260721231603.67865-1-vladimir.oltean@nxp.com>
- <20260723150105.da2cqgtb7t5vw2d3@skbuf>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260723150105.da2cqgtb7t5vw2d3@skbuf>
-X-ClientProxiedBy: WA1PEPF00005B89.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d8::637) To AM0PR04MB6900.eurprd04.prod.outlook.com
- (2603:10a6:208:17d::10)
+	id 1woiBq-00000005OSS-2W7n;
+	Tue, 28 Jul 2026 13:49:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785246585;
+	bh=C5yYxuoznYkx6jjuInKWBoafFhEWvSyRl81rU7O0L28=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hAh/kji5iB0/IrWz1bQpl2yth3JJZrnTM9K7hhQcwfzWZLk1QmmXef26bTzAGUcNR
+	 LleJaTac6MAyAWCfYEa1OuIoIaygmYoE+F5+Okc/h6XhIJe2lL+ITfIwnnFAKFj0He
+	 Bshv2dLXnYADYdyan2vlAT1ALumzzBOFfvTBRQAoCkblN3dJYEmbuxBqCOXOT76yGP
+	 HBtCGvFEZHfRm1cHN3JnGo3/iQoyqYXnawXoPgTdzYmQiFzFGZA8ITGlKPRviMGbfi
+	 V+n6FHcr6Ex3+/YD50PzKyQ26dQyh9e8VgoqNvZJlRtZ2WO4kOSVZsVVS7PjzJKuFH
+	 AiKKsWAVU4zJQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B602C17E0678;
+	Tue, 28 Jul 2026 15:49:44 +0200 (CEST)
+Message-ID: <f3837531-2949-4741-a23e-387317485c02@collabora.com>
+Date: Tue, 28 Jul 2026 15:49:44 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|AM9PR04MB8666:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2e3ebdd-efba-42fe-6056-08deecaed0d0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|23010399003|19092799006|366016|1800799024|18002099003|22082099003|3023799007|4143699003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: BWGoUu3W1r4cDYJbnzfdzwTwsNcb+lVoLDR+30DgfKpFQIqFvlbkuztPONQa8WmtdS5J0N4GmyC3vnGuVuANmaU7do7Bs1DqPCLu6GzNl8tKUGcOjz+WMx21b2QK1uB+QiFWtmgM4nS8xS69dY37hvqgVxYav2fPs9smGpTCjsrlAc0C17mAM57ysvoabRyMyd243IyAJrSfesUV7K+r7Y3f6TkkEzR8SFj6QdSOauGKNAhmmKRGgDq7cZIxf56ZJI7EPHEE2tDBKewrauKYdbdlnLAcy/DpxXrXBEVAmAkV20MXAaxf4NzUw+3B3bAc/3MNZkx3cC+ZsBRh7kfAZ1EIQLW0du2KbQlREZj5QX+dln1VfeFZbWJb6ETTmSiaO0We7J8aUG+xhv1NvnO4MC62Hsncg8VOD/JTv3bSUOO8ULrrKptdBjFAWdTUIzATNjbMmgcuYCdrDXh9MIl5kkvgsc7Wsc0Rd6560xlc6S003iaVLtuyFWQWijoUSyeCNyfr6GiOqEi9GHlVIC7JuKbNES1ld6agjLWZU3D2hL4dngkxV1sHMMYBTzRiRGIQ1Cu7jOrKyEU+lQopKm1V2bWv8tMrdYvdzM1khEi+dQwWm2PShbQZaY1mwZok/rRBQjEfaXLg2eDPbLgrfXUDJ2zpEFwyOFPEGNs9kF7yUu0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(23010399003)(19092799006)(366016)(1800799024)(18002099003)(22082099003)(3023799007)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/6nah6eYhYNIrWqDv/jLMRpM8EgfUP/rk2yy1jssModKUOFbKJ6F3GjWmiPc?=
- =?us-ascii?Q?e3+tkeWUoGHoc8zm6w2M0/fgNnjyGJsV0/RAHA8K5dGRvQfKV55oC0VyewVA?=
- =?us-ascii?Q?IiXpuFUEAe1MXktLS/PCGW7T5MMm1ocwhDICk2VTpCvxqcFEx5sGiiDYWJe4?=
- =?us-ascii?Q?Vendp5M1nTuWHrWx0KDNaxNDjSkc35hXtDIYe9Bh/YcrejcK0ZgsDewh1wrn?=
- =?us-ascii?Q?0cQwSt3z7qAlXtS4pQR+NDoPE63I1s4tg5DkEeTMa4aBl5B1bl1WZON7J8w4?=
- =?us-ascii?Q?8QmUxsh45DOrsdXyssIa6nkEFyiW+oB2E8WYcObrORTuq4FQJJs+gOH2uUtr?=
- =?us-ascii?Q?/XdiyBflnh2NSolovwNJuygXXTPUm0mdEkbMeEqrF9EEZYFJvoGsgIKaoo5J?=
- =?us-ascii?Q?Nqw5OTklAJGYkotyFcSWP9ZmVLD/Tsxnd6efIF+UGrRL1isXLo/YHzTjxwgX?=
- =?us-ascii?Q?nWNqAQmywl7IbwR86n5qLIkQ2wPOOh5ra4fSz/ppFlingk6QxTzr/1Qj7b1O?=
- =?us-ascii?Q?XyFZV54WU5rDh9gVGT/Y0p0U1M8pqIXQySNkxvG4p3cJqKfStvOgdw4go4MA?=
- =?us-ascii?Q?LctRDBCVxWmxbJcuZVnP60S1zVx5EAFASsFFpy6rNgZfclOJZkfI9F5qIlCQ?=
- =?us-ascii?Q?w15LRdMEvvtrExeT7tdqI3qeX6GyLNQtk4b4mK02pFEzYqSUXL/N+THsa2k6?=
- =?us-ascii?Q?JxyHVuZYhZBU42pze+myy3IslE+biAUC1aGxuZfTLqh3+P5j2/G08udUO1K2?=
- =?us-ascii?Q?oJ3GQC3RW0kuGiL4gGC/ghglXJYnulCzJMU4d+vFL1J2wCWcs0Qvx74cvH6n?=
- =?us-ascii?Q?byOB2QuAnuVbxWtb3HSx6ykknBQSwryfNE0MsNAB6Rc64iVOKTQ2JPpucXo6?=
- =?us-ascii?Q?5+P2ML0DvIQg1UFzQ1BGbXLDdkc/5u9e9FLKMfp8gUN6YKLv64ohYvAHkIYq?=
- =?us-ascii?Q?j91/TtaXf4qJHvwkmYNjdQdeq1OzZq13o8cM5nCJkz3W7mHjtO/odfIunqhP?=
- =?us-ascii?Q?aBUS+hdEO0wVJbDacWx9JIqh5dAx2AJTKqMiNAO/DzaRz91VvMXPBLt1OzXJ?=
- =?us-ascii?Q?EcF3UepFDY1p0vp4PrJb/pUVsDlLYEcnq49N1vq7jXWf3LFu+LYAP7GPNqhO?=
- =?us-ascii?Q?pfugO3US5WOfm5pvXY7LO4UqRUL9hVQd9NGXZf5UDiLFNVl1NW2poACxMi+N?=
- =?us-ascii?Q?F+yEjeMQ7jHlJn8tU7RIPOt/HIW6109opSWki95wLt3GaBYLJFrbfsE3Ba7t?=
- =?us-ascii?Q?xNkZOjClK30X+GIpc5mfPSl/wAXD1ceboDRoxo7X7RZ/2Lh4h1TVWHxei1bk?=
- =?us-ascii?Q?YobUptAOFFMeJZGvuFUW71MGoiS8j0aCQtbyNXulmitk2eRO+i8oeh5DzI00?=
- =?us-ascii?Q?LQqbELhWrcQ2y0XJZFrUMRlX9fYs1Wmc1XBh6tAaZhUNyh3P9pIWedG+L1Dt?=
- =?us-ascii?Q?KxZowZGZplhSOhL4X1TGl2YRWB7GvDlJvN3zp430A7noIOda8si1Lf6er7cx?=
- =?us-ascii?Q?BCRrlB6DfL4GwrM1/YC6Rjy4NLRHmdZ5+ms0+Qqtj1M1XmO85Xezo7L4dGZC?=
- =?us-ascii?Q?uv2bHy3XW/365nCnnQk2hw7PQ1NcdG3Zsnjpo/IMLkK3/xDksRF80tRXQfuk?=
- =?us-ascii?Q?XmtS1XXBe4Ne2Ppcj7pBocCq3OHIUrTYD3KXGtWK5G33Mqc1RUoXsPuJ4Ze7?=
- =?us-ascii?Q?STTO/JSIoQBpVsZsBIAuHjA4IzBQVEQndgU7aBX8dqaCMxr8PB70W0vOomY5?=
- =?us-ascii?Q?VD6CtJlWPWb4L8sa6U1vpJSYNK75rdYhVs7LW5FSRQabXJdvWXVrlZyzUV55?=
-X-MS-Exchange-AntiSpam-MessageData-1: fHFVlo7oXjLr/UKcSFHsTvp1BZQ8XjrT/Uc=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2e3ebdd-efba-42fe-6056-08deecaed0d0
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 13:47:50.7745
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PBK2+LKgIryy3D459e7eQSgd8UhZIBc0lKKqiuG80LzOdjG10a5AnVMAJB1dU6wbhlDItK+8hRhoaJDDcTQrxg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8666
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 42/46] dt-bindings: display: mediatek: Introduce MT8196
+ 2D Sharpness Processor
+To: Rob Herring <robh@kernel.org>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
+ simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
+References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
+ <20260714114414.184512-43-angelogioacchino.delregno@collabora.com>
+ <CAL_JsqJXpY8jHEgSHcHz4QZTFEZe8PLbO6vbpxWH4qobs0MPyA@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAL_JsqJXpY8jHEgSHcHz4QZTFEZe8PLbO6vbpxWH4qobs0MPyA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_064757_180279_9D20C9A4 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20260728_064950_823496_17ADC97D 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,44 +82,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
-
-On Thu, Jul 23, 2026 at 06:01:05PM +0300, Vladimir Oltean wrote:
-> On Wed, Jul 22, 2026 at 02:15:54AM +0300, Vladimir Oltean wrote:
-> > Ioana Ciornei (4):
-> >   soc: fsl: guts: use a macro to encode the DCFG CCSR space
-> >   soc: fsl: guts: add a global structure to hold state
-> >   soc: fsl: guts: add a central fsl_guts_read() function
-> >   soc: fsl: guts: make it easier to determine on which SoC we are
-> >     running
-> > 
-> > Vladimir Oltean (5):
-> >   soc: fsl: guts: perform fsl_guts_init() error teardown in reverse
-> >     order of setup
-> >   soc: fsl: guts: make fsl_soc_data available after fsl_guts_init()
-> >   dt-bindings: fsl: layerscape-dcfg: define DCFG_DCSR region
-> >   soc: fsl: guts: implement the RCW override procedure
-> >   phy: lynx-10g: use RCW override procedure for dynamic protocol change
+On 7/28/26 15:40, Rob Herring wrote:
+> On Tue, Jul 14, 2026 at 6:45 AM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Add documentation for the Two-Dimension Sharpness Processor, or
+>> "TDSHP", found in many MediaTek SoCs including MT8196 and its
+>> variants.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   .../mediatek/mediatek,mt8196-tdshp.yaml       | 98 +++++++++++++++++++
+>>   1 file changed, 98 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
+>> new file mode 100644
+>> index 000000000000..ccd6a8443443
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
+>> @@ -0,0 +1,98 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8196-tdshp.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: MediaTek Display Two-Dimension Sharpness Processor (TDSHP)
+>> +
+>> +maintainers:
+>> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> +
+>> +description:
+>> +  The MediaTek 2D Sharpness Processor (TDSHP) is responsible for performing
+>> +  image sharpness adjustments/enhancements in a display pipeline.
+>> +  This hardware block supports adjusting the luma and contour 2d histograms,
+>> +  frequency weighting, luma-chroma gain and others, with adaptive weights.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: mediatek,mt8196-disp-tdshp
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  ports:
+>> +    $ref: /schemas/graph.yaml#/properties/ports
+>> +
+>> +    properties:
+>> +      port@0:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+>> +
+>> +      port@1:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+>> +
+>> +    required:
+>> +      - port@0
+>> +      - port@1
+>> +
+>> +  trigger-sources:
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
 > 
-> Even though I intended these changes for linux-phy (they are also
-> build-tested there), I'm fine either with these changes taken through
-> Vinod's tree with Christophe's ACK for patches 1-8, or through
-> Christophe's tree with Vinod's ACK for patch 9, really.
+> This causes a warning.
 > 
-> I see on Patchwork there's a minor issue in the commit message of patch 3/9:
-> https://patchwork.kernel.org/project/linux-phy/patch/20260721231603.67865-4-vladimir.oltean@nxp.com/
-> "WARNING: 'struture' may be misspelled - perhaps 'structure'?"
+> Seems this is in linux-next already, but no reviews?
 > 
-> Could this be fixed up while applying, if there is no other feedback?
+> Rob
 
-Do you have feedback/a preference for how these patches should be handled?
+Wow. No idea how clock-names got into the list of required properties: there is
+only one possible clock, and this doesn't need any clock-names at all.
 
-I see Vinod acked patch 9, so I guess that means his preference would be
-for you to pick up the entire series (which is indivisible).
+Same for the resizer binding.
+Sorry for the mistake.
 
-I checked that the patches apply to your soc_fsl branch:
-https://git.kernel.org/pub/scm/linux/kernel/git/chleroy/linux.git/?h=soc_fsl
-
-Thanks!
-Vladimir
+Cheers,
+Angelo
 
