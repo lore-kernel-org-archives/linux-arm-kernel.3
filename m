@@ -4,95 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4A1C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9207C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rMNFpvzy5MfR1oz3Xik6QKGfu+2zB21OUn6rfuSU1is=; b=ys8hqJgFdB9er0yI1r4lMkpd6g
-	Fls6vF02MfTKsvUKS1MaeIwuc5A8FHsyM2ptGBm8E1tma3P7lE4zHRoOO1sELpJQ9W24YehXmT/yV
-	Cn8FhcCCZ8FJNXWemvOsfhUwzHxzVTIjhT6ByGKzZG33kls5OPElVjWUsXyRI+LeMGCczywLdyZUQ
-	76S8AgGVBtt4WVmGPmknkiVz7QUkwTgjSaOxCNJ35yL/qjhv4U6NpJ/AYCNRMzziWEeGGN+0UREDW
-	KqrwkffcocIgpeIYGCfRPFH5KCFfFq2pKbnCW82HnSqDmT1+qlrqGVbuXrQ16WwOV6tPudqduVDuK
-	husDs8Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ybSKEzGQ5u2NMO+gbB/863i60nxaiJ8Z4XJDEf1OGQ=; b=Xo/31bSt1SEgEuv2tc/fjuvXf/
+	KGyfNmjH/vm2ZuLzvudKtEiPiZ4UvlBX9GF7Ksdxsvf7AbS4Tp0bw03VN+Ep7exVG1QPUt9oYk211
+	+WBqlX/ml73FlJyzgCcxxln/PCJ+xDizxZmjIDWsR9mP4HLrHF0nj2TlIQC9nMVhvrFrvlIK4DXJc
+	/JWwTJY3TEQJMMo8jS2edsf7Ykp0UOusKesnsKxAZMPcyg5tEBEuVDoaK1Ph6GQfAiXFsxapjNqtD
+	UzoY++AvCDde2FQ6qBreKp1PI7NRmROvToKDaHU5tLUzcr6SwR3ZkXyyLzUVbsnC5ygQpcRqC5/wb
+	Mo43uXzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojwJ-00000005g9Y-3tQ8;
-	Tue, 28 Jul 2026 15:41:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wojyB-00000005gOh-0afd;
+	Tue, 28 Jul 2026 15:43:51 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojwB-00000005g7w-47TV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:41:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785253305;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rMNFpvzy5MfR1oz3Xik6QKGfu+2zB21OUn6rfuSU1is=;
-	b=IkNORlI5snKxZnFiEST/omcfbm96Roiow+IzHAMufjxng1vO+QHjXAX0tyaOkgIVpiwqQw
-	2D4iRBqr1hoqQd+vAtqxFXvxzWCTDc+riK50BJvP0hPfQrmVX2a2qLMzaebQ5yM0zJsifT
-	h3FtWYsZAecctawipfZt9+o9AuAM/V0=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-61-MhvfTzKqMXeuZuuHQpivzw-1; Tue, 28 Jul 2026 11:41:44 -0400
-X-MC-Unique: MhvfTzKqMXeuZuuHQpivzw-1
-X-Mimecast-MFC-AGG-ID: MhvfTzKqMXeuZuuHQpivzw_1785253303
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-47f83450a8eso18307f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:41:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785253303; x=1785858103;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rMNFpvzy5MfR1oz3Xik6QKGfu+2zB21OUn6rfuSU1is=;
-        b=aKnX4Ahdg9xHO1CeCLNjujqEKSe3s+AIfitmtc/psTp1clnUfYtmom+aU8wE8Ma3zY
-         +hhJu9bH2V2z84zJuv2gwv3FDBq/N9cnCfmvEJITAizhIzqx0EN5ym9DYa7du4IBRWvG
-         aAn4/Q2W5336ZJZ6IBdrlw66z7jjNGRPg5WTJg1Gi3zQRtBJ40CAoBKFc/QCOYPmC2ER
-         5zDtNucRk1h649rEILcFCeAZZ5XQkaqw9ON2cBhgrbv2YirWWAzf8DyWYkhuRQFMq9bR
-         WJPNo7+eamlNZRzADpdnL7BXsJdEZnoXdUJ2fzA1ZHp3xRcY/Ci0jqhEIyjLhBdpECyF
-         Q+OA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq4Af4vfqvgkfvcyxZtnoFp3f2wTSFbcUCaYmGQZQ0LGVkALmJ4KaOne8IeignPKck2nH4oL9MzP0+W6qic5tvm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcrvZ5VMIxldfp3qW2VcR3Zw8/w4kDazHcvYp+iZfKuO05RtgH
-	qoAZrBIq/7MxxLiNPcjB5JxPZNi38dWClek9N6gVQsqfHfXbGpCbEOHib41BJ+917HkyzsNa+F0
-	4dtCtSNnzDlNYgKLbJfPdNwDo6J+dSzfSG3Dh/Gf3JxIGE61Pe+2Gf7dIPPV5mlqgzDapnbP2kO
-	ZNPwrsWJaFSko2WzspJqA3KSCVc+D/v6qpqGmdRI5CtP3M0QV8spFE6rbvZss=
-X-Gm-Gg: AR+sD11P4gEREMyE/+aNOIchGRemqy7bfv79g06RUaJQCec67JjY6tD1DGk/ujk163y
-	OLZyv5Xg79ZddyQj9nQHxYU+jy6mPT8WS9HiDLF1XQJJO2sUbUOuixixzqdwHAv/63C7RGWusDG
-	lxB7mjx7qXnmZWJuKhTXT+rXYSM68Is42n+JGpY686y84VsRlaVYJVGYPoenrq15SnPb9li3c0h
-	JTwgM3PBUgaa1H0muYNisudh9TTSrAtw6e4uwLOywv8Ij1f341l1tphCkjUpg==
-X-Received: by 2002:a05:600c:4744:b0:495:40f0:e77 with SMTP id 5b1f17b1804b1-496c6415054mr33062415e9.5.1785253302860;
-        Tue, 28 Jul 2026 08:41:42 -0700 (PDT)
-X-Received: by 2002:a05:600c:4744:b0:495:40f0:e77 with SMTP id
- 5b1f17b1804b1-496c6415054mr33062185e9.5.1785253302495; Tue, 28 Jul 2026
- 08:41:42 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260724084742.3358321-1-maz@kernel.org>
-In-Reply-To: <20260724084742.3358321-1-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Tue, 28 Jul 2026 17:41:30 +0200
-X-Gm-Features: AUfX_mxhUuq42c31F7OP6DNvw1uz5kBf-VSuqSgDiWSNEUPnMa8_Yyxglsm-09o
-Message-ID: <CABgObfbvvYDC6gyhw_FBPi7Bo35WPuaSyyVDkz7HA1M6wdx5vA@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 7.2, take #3
-To: Marc Zyngier <maz@kernel.org>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>, =?UTF-8?Q?Carlos_L=C3=B3pez?= <clopez@suse.de>, 
-	D Scott Phillips <scott@os.amperecomputing.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Vincent Donnefort <vdonnefort@google.com>, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: INbBXY2CyBZ9QpO5vm_01TN7A_N2LtlS4-Iamptsq6k_1785253303
-X-Mimecast-Originator: redhat.com
+	id 1wojy6-00000005gO8-2Ejq;
+	Tue, 28 Jul 2026 15:43:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1785253418; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kvA+SlADh2Ji4j7M+ygIfzpgQ5H0BsLWV+boQ7UTIXZ4Ea54NQFvw8JyB8U41Eaz3bFufEMyNoyBNQFnS1iqyUYOq6x6fiDF4exux3DsPX0JaxYIRJDqbA1LvgJi2EoBCl+4PMPSkK+EK6snf49CWBKRshTl/1Xl91UZaE8SQA8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1785253418; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5ybSKEzGQ5u2NMO+gbB/863i60nxaiJ8Z4XJDEf1OGQ=; 
+	b=ccG8srgWbEYplGm1rVGetwMosqKzaDobdoJ/fxwrW1P9EQbxPnlix8ERzMOBNr3R2Mz2jEwsgvaymQwozlTsSH7+r+OZ4MqCBgKBRROF/3NKcPjr6zBf01q/S7YaQgbAYa13IDHvjUpcdHh47finXib4zO4RXCQvqqKCdiRnoJc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785253418;
+	s=zmail2048; d=rong.moe; i=i@rong.moe;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:In-Reply-To:Content-Type:Content-Transfer-Encoding:Date:Date:MIME-Version:Message-Id:Reply-To;
+	bh=5ybSKEzGQ5u2NMO+gbB/863i60nxaiJ8Z4XJDEf1OGQ=;
+	b=AXHmBWltmad8orxw3C8RjAF2DPT2Jb6vE0DmfFoOWcXD1kL/LKjzuQowkpIpMc4d
+	iMBPMLU5ZF1zZLJ9yChBcxCAbMHOf7l3kuGuF6a4xmwKiztSjvIh0fv0/Ru7bn05ml1
+	tsYXw3UBS9sUKXjovPvQ40Vw/fMZJs480uTqTOPM3Xq7k325JlpEbyjDJtJO3twnd8Y
+	pgkrccmd6SLg9p+pOQUJA0ZaMh0VhB68Rjfcnf4k1T1jjbrcJMV40085vi8vHtkjeRH
+	HHW4RRLvlrlvUAztiqsnlC3QVfyKIICmg8WsY/QG5Q4Irhy93zLnQ7FTfx+LEKATZ9d
+	qqS63cV8tw==
+Received: by mx.zohomail.com with SMTPS id 178525341670299.13270915750854;
+	Tue, 28 Jul 2026 08:43:36 -0700 (PDT)
+Message-ID: <1ba1545c318214d988e899a95279b4b0f93bc24e.camel@rong.moe>
+Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
+ MT7922/MT7925 on Ryzen platform
+From: Rong Zhang <i@rong.moe>
+To: Rafael Passos <rafael@rcpassos.me>, Marcel Holtmann
+ <marcel@holtmann.org>,  Luiz Augusto von Dentz	 <luiz.dentz@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>
+Cc: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, Chris Lu
+ =?Big5?Q?=28=B3=B0=B8X=AAl=29?=
+	 <Chris.Lu@mediatek.com>, Will-CY Lee =?Big5?Q?=28=A7=F5=ACF=BFo=29?=
+	 <Will-CY.Lee@mediatek.com>, SS Wu =?Big5?Q?=28=A7=C5=BE=CB=AAY=29?=
+	 <ss.wu@mediatek.com>, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+In-Reply-To: <DKAA9VN5E4DS.2U03T6V5HEAAE@rcpassos.me>
+References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
+	 <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
+	 <79D5F3E6-8F40-4422-BB2D-16691E377394@rong.moe>
+	 <DJRP3YO7Y0WK.20KNRZIMX1CYK@rcpassos.me>
+	 <F16A2A9A-A43F-45FE-8CC0-44A129360D47@rong.moe>
+	 <DKA8F33O8HID.2UV2DWTLE6S48@rcpassos.me>
+	 <133c4858657c55b31affd4bff1cbd68f812de5e1.camel@rong.moe>
+	 <DKAA9VN5E4DS.2U03T6V5HEAAE@rcpassos.me>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Date: Tue, 28 Jul 2026 23:38:26 +0800
+MIME-Version: 1.0
+User-Agent: Evolution 3.56.2-10 
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_084148_090840_5E6DB621 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260728_084346_642479_A8F02E4C 
+X-CRM114-Status: GOOD (  27.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +96,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 10:47=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
-e:
->
-> Paolo,
->
-> Here's another set of KVM/arm64 fixes for 7.2. A bunch of fixes for
-> AI-discovered issues, with two main areas of activity:
->
-> - plugging annoying LPI mapping races
->
-> - fixing corner cases in the EL2 tracing management
->
-> The rest is a heady mix of CPU errata workaround, API tidy up and low
-> impact fixes.
->
-> Please pull,
->
->         M.
->
-> The following changes since commit 1590cf0329716306e948a8fc29f1d3ee87d398=
-9f:
->
->   Linux 7.2-rc4 (2026-07-19 13:54:41 -0700)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
-marm-fixes-7.2-3
+Hi Rafael,
 
-Pulled, thanks.
+On Tue, 2026-07-28 at 11:45 -0300, Rafael Passos wrote:
+> Hi Rong,
+>=20
+> On Tue Jul 28, 2026 at 11:00 AM -03, Rong Zhang wrote:
+> > > I believe its a hub connected to the chipset.
+> > >=20
+> > > /:  Bus 001.Port 001: Dev 001, Class=3Droot_hub, Driver=3Dxhci_hcd/12=
+p, 480M
+> > >     | ...
+> > >     |__ Port 008: Dev 004, If 0, Class=3DWireless, Driver=3Dbtusb, 48=
+0M
+> > >=20
+> > > In the block diagram on the manual [1], Key "E" Wifi is tied
+> > > to the AMD PROM21 CHipset.
+> >=20
+> > Yes, and no.
+> >=20
+> > The block diagram indicates that the NIC card's PCIe interface (note th=
+e
+> > "x1") is connected to the chipset, without any mention of its USB
+> > interface.
+> >=20
+> > Based on the bus number (001), it's more likely a root hub of the SoC
+> > instead of the chipset.
+> >=20
+> > You can check the root hub's PCI path with
+> >=20
+> >    realpath /sys/bus/usb/devices/usb1
+> >=20
+> > Then you can cross-check with the PCI topology, i.e., `lspci -tnnnvvv'.
+>=20
+> Interesting!
+>=20
+> lspci -tnnnvvv
+> -[0000:00]-+-00.0  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Rid=
+ge Root Complex [1022:14d8]
+>            +-00.2  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Rid=
+ge IOMMU [1022:14d9]
+>            +-01.0  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Rid=
+ge Dummy Host Bridge [1022:14da]
+>            +-01.1-[01-03]----00.0-[02-03]----00.0-[03]--+-00.0  Advanced =
+Micro Devices, Inc. [AMD/ATI] Navi 21 [Radeon RX 6800/6800 XT / 6900 XT] [1=
+002:73bf]
+>            |                                            \-00.1  Advanced =
+Micro Devices, Inc. [AMD/ATI] Navi 21/23 HDMI/DP Audio Controller [1002:ab2=
+8]
+>            +-02.0  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Rid=
+ge Dummy Host Bridge [1022:14da]
+>            +-02.1-[04-0e]----00.0-[05-0e]--+-00.0-[06]--
+>            |                               +-02.0-[07]----00.0  MEDIATEK =
+Corp. MT7925 (RZ717) Wi-Fi 7 160MHz [14c3:0717]
+>            |                               +-03.0-[08]----00.0  Realtek S=
+emiconductor Co., Ltd. RTL8125 2.5GbE Controller [10ec:8125]
+>            ...
 
-Paolo
+You snipped too many lines. There should be a line similar to
 
+           |                               +-0c.0-[0d]----00.0  Advanced Mi=
+cro Devices, Inc. [AMD] XXXX [YYYY:ZZZZ]
+
+which is the root hub.
+
+>=20
+>=20
+> realpath /sys/bus/usb/devices/usb1
+> /sys/devices/pci0000:00/0000:00:02.1/0000:04:00.0/0000:05:0c.0/0000:0d:00=
+.0/usb1
+
+Based on the PCIe bridge chain being so long, it now looks more likely a
+root hub of the chipset, hmm...
+
+>                 ------               --------------------
+>                 /                    |
+>         This matches the             \--and this matches the chain before
+>         root complex                    the MT7925.
+
+... and yes, it shares the same PCIe router with MT7925. I can 99%
+confirm it's a USB root hub of the chipset now.
+
+So it really seems that the MT7925 is quite uncomfortable with AMD's USB
+root hub, no matter on the SoC (my case) or the chipset (your case),
+which makes some sense as they probably share the same xHCI controller IP
+core.
+
+Because of that, I still suspect that you have encountered the same
+autoresume bug. Running into the bug is just like triggering a kill-
+switch that requires some sorts of platform reset (power cycle in my
+case, and BIOS reset in your case) to make a recover.
+
+>=20
+> Am I on the right path ?
+>=20
+> > > It is integrated (soldered) to my motherboard.
+> >=20
+> > Huh? How can an M.2 "Key E WiFi" expansion card being soldered to a
+> > "vertical M.2 socket"?
+> >=20
+> > AFAIK, once the metal shield(s) are unscrewed, it should be replaceable=
+,
+> > see
+> > https://www.techpowerup.com/review/asrock-b850-steel-legend-wi-fi/4.htm=
+l
+> >=20
+> > But it doesn't matter anyway since the issue has gone ;-)
+>=20
+> Oh ! Its vertical ! You nailed it!
+> I assumed it was soldered because there was no space there for a
+> horizontal layout (and I didnt try unscrewing it). Neat!
+
+In the foreseeable future I am not going to have a desktop platform ($$$)
+so I can't easily debug the issue myself. Hence, it would be helpful if
+you could reliably reproduce the issue, so that we can have an in-depth
+debug. But let's forget it for the time being since your device works
+fine now!
+
+Thanks,
+Rong
+
+>=20
+> Thanks,
+> Rafael Passos
 
