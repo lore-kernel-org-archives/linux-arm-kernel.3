@@ -4,151 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014E2C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54252C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U5PN1TT1lMw7TFu/s+fchO87W7nUXA/Ck6/FI9wxkQQ=; b=l+wdC6cGHw2wg4w7CpH4cvr8SL
-	jbr+nY6wXDnZgeF/2Ph/9EqraQu+Q/+C/Ng5et4/iiq7dSxIxb9o5i7M4+2z+6roNdFrcoWGaG5uG
-	r9pRCQV3WdMTRD1QkGF2rVg2NVY8ts4by9gj9MSJakRDmG6iUaT8EuTSONQfbXvXuvExQAmh7uhVR
-	Ugjkr0KaaJfVJCJRfwds82qaGI+Df1qsKHM0uQyAqUkdCBz34/eJ8beebwDzMkghI8CIrbf8yDXzW
-	kURdLxlLGbFslgSvvtvfx8oyecqme6ciS0ARfIVbrVFnPVC7QrkT+3KHUvqg1s6p8wmdq6ptPX7vN
-	Ol9QYT3g==;
+	bh=V6Dnu/BcOn6F3D3IfNT8dfH1gBGEupvmcZmtLIc3c1g=; b=Fn6hvJ5K8x57cw2boIufx25Lio
+	SLP8ZNrN3xCawzRFPTOtBFXLYWA3DI2cTQAZQkH2SWqw7lcJr/3OgVGJ++gkoiSHlQhKZQ7y8r1Lu
+	PnXootoGrzo5nNu33rXGuFYrz+TTYhFFxgiaUnX/R4XHtUXwtKLO22kSj6+T5m9cjgBDoX6iJZhcV
+	vhDObs3eIMx/neX9flYDSSOx+XBiWR3dNQUXgP2PQiFBdl5NJjegqQlyUVBWILAi8uh724W++dY/h
+	jf3Apr1Mue9mhElL/A5qy/GDddLqvrqfZDTraTmeVT420wlQPlqdaWaUsY2QeTLCZ9tGNy1YFoEA3
+	IAJ7YM1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woebM-00000004uFL-1oBy;
-	Tue, 28 Jul 2026 09:59:56 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1woecq-00000004uPz-2iJY;
+	Tue, 28 Jul 2026 10:01:28 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woebJ-00000004uEM-2YNx
+	id 1woecn-00000004uPH-2QwF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 09:59:55 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66S82WcB2129569
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 09:59:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=U5PN1TT1lMw7TFu/s+fchO87
-	W7nUXA/Ck6/FI9wxkQQ=; b=J1ev1n2UjmCEGnDr2A3w20S3xTEdMbyk2o0n2O3b
-	uydHI8Fdeh6KmvEcUuikaqnKHsiZRMxfXorFisVwty213IRNbxOFTqYqI3AhFB04
-	2CglaJ7ckrkNZ0aaVIds/BzE2qKPgBo4kTvMGXmIeTvgDk/7CSrYHgNYcCUKyoXn
-	DU/kSTJ7rAHH/q5jiwTr1yV6Pva1HsPkvCIF11KSqlLbd4hrwQv6zFfK8jXEmxXF
-	RFJthzdSlIov3kNjOQTSIFSrcJaG/I0LMHODKM3hFbk3eAJpVfGRdY15vBqD9RIr
-	YJmaYfwyqdp7xuZOpa/SyTsoQTdvKpddt177lKG98FlhfQ==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fpbn8bm08-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 09:59:52 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92e53b8a302so415610485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 02:59:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785232792; x=1785837592; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=U5PN1TT1lMw7TFu/s+fchO87W7nUXA/Ck6/FI9wxkQQ=;
-        b=MLWdk/locXQwvUBAAi9iu1ACdTEOYlWzqbPAoCY7IJ15vvmfB111Xd6YA6WNSiTQfi
-         6S5gINezNIVqXMWdtdH5W0Uz4WQVj0iXoYSHCG0aIqKv9mM2LAvWt4xJbEFqz2hImMmu
-         olhUt6JwEbXkKiIVPS7tTX+JT5jGSQjYir9ZcHVdkEC/iYBqiSF6vKvxAmnHTWlqrlfV
-         kTr1KXNdXE8wXMH805ZrbKpe01w+QZxawVjxN/hV/YzNBdJIPBFk09q1oTnwNu69HN/Q
-         hrTSYd3qvaQrBCH2OQrIg/I2FWRJn+E9UVXOr7TmQw37q/onQcVvXw1BlUXCHpiRZnTJ
-         +wFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785232792; x=1785837592;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=U5PN1TT1lMw7TFu/s+fchO87W7nUXA/Ck6/FI9wxkQQ=;
-        b=r8JhM/0JVdcoi/Najd8IVdGKNKcpiJboSnrKx/T0aEmyNePIlimDkxo1CgaCEAQwCV
-         umbkA6Lt4d6Ki/WjFueyQR088huU/28MLeqzxdEx4UMJWOgFPjNE6Sc8zcQldvjIobqn
-         mdfIc16Y0BnaCIm2yOzh1++AxG1LJC71m5xBaM9q0BDzgj0wdCWkTclT2yQgEnnDNshL
-         /fwG67Zih77n7gXn6Cytz/eNQXR1psEwPia57WXkgIsesTwi2MbOn7gbshWNVU0/WDY7
-         x/LtdXvP010aFMZmrV99e0NnKlOtGAki0Wrsa46i407Pq2/JOIjLyEHGU7qShUnMFEFc
-         QU1Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rrg0366O4MrWcWwNUcf7tQSuhVcKcwFcoPmfSEgsI5AppE3jS8Z4e5W3wxnIzUACrrMFeZPnTQcvfuNr1BsOmrW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlvCzTEIK3tYys65nMoRx78KRHnRNagaS+XpRiwEZn7YujHJaN
-	eso8v36QtgIya07wapHn7TVqEAvFIp+uc0X6mTMR/58NXKUxuBJoBLvQpxS4Mfd6/xZbRohBZX3
-	C4f55Ns1QYedPnDn5IsiPkD83QsatNDZuJ2lxjR9DoBgsIt9F+O9RO9M+QrzbanUqvPhFDepbDI
-	HoYg==
-X-Gm-Gg: AR+sD10qXCf7wYDWY4BJ3talgfxCMywFedghOvzzTXBLBx/GKYliHVZOryJM1Mt3bhW
-	6Uf0WiSFQA8ztgvceh1OUHCrLgyMVCjmz41NfF4j+5MS5h3w8sB+MbsYfnvoFZCRurhiJ2pvmT+
-	AICxgwXVGrx05C/AuvQnbHfl0Q9zEtuo7h8fNiN43ml3Rso3vhNEjzFoSoBcyfjFEf38ArKAoyP
-	Qq8YPIrhhgBqcR4p6IYXalxsqPiCsGkctaUFh/nw/mdNTMLj4g+yhxps5XF/yQHcTtrxSkBwP9h
-	4iwFv6eOPdB2JMinz+Pyerhok1pv7G0IBpqOd9WhuuW3w888Zj+OITzXyn0Xq0FmzCoyT79zYAP
-	wn4hKJO8Fbd4vRhc=
-X-Received: by 2002:ac8:59c7:0:b0:51b:f25c:2896 with SMTP id d75a77b69052e-529d6fa0310mr13120391cf.11.1785232791989;
-        Tue, 28 Jul 2026 02:59:51 -0700 (PDT)
-X-Received: by 2002:ac8:59c7:0:b0:51b:f25c:2896 with SMTP id d75a77b69052e-529d6fa0310mr13120161cf.11.1785232791475;
-        Tue, 28 Jul 2026 02:59:51 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.163.114])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496b388d5b4sm212090015e9.3.2026.07.28.02.59.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 02:59:50 -0700 (PDT)
-Date: Tue, 28 Jul 2026 12:59:47 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: guoniu.zhou@oss.nxp.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-        Frank Li <frank.li@nxp.com>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Bryan O'Donoghue <bod@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-        Peng Fan <peng.fan@nxp.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev,
-        linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-clk@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v16 2/3] dt-bindings: clock: imx95-blk-ctl: Define
- formatter child node schema
-Message-ID: <2hmw6cq6e5ba4hps46k2drdutaofcqcrczjreq7hoikmobb7rm@wbconxilsxg3>
-References: <20260728-csi_formatter-v16-0-1065ba47530a@oss.nxp.com>
- <20260728-csi_formatter-v16-2-1065ba47530a@oss.nxp.com>
+	Tue, 28 Jul 2026 10:01:27 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id F04AE1A12C6;
+	Tue, 28 Jul 2026 10:01:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B83DB601BF;
+	Tue, 28 Jul 2026 10:01:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C278711C13F19;
+	Tue, 28 Jul 2026 12:01:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785232874; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=V6Dnu/BcOn6F3D3IfNT8dfH1gBGEupvmcZmtLIc3c1g=;
+	b=ECzlfi5aqe+hP3Nyeb2r937k6WdR2ZEh2JftXD2lfQ+nlsyYgGBkzkohiHD53/xC1wyqug
+	IMB3sFnj1HzdHmSK4tEuIW6jsltItT7ieJQlwESeiWZyLwnweDqkkvbhav9IA+OSNMha2r
+	kCG8fRKu93d+BQbIKSJrHZqO/J1TQR91Q/lfmuq7vyTWpJrOm1urZCcMfy0WCXENNGxWk3
+	MEo5OqT8M7YGpy2TiTm8rr5Yj8pEBiz+41b4ikjdk2BypkTmOIAJr6Pmq2vBfZY1ZHpjk8
+	kzZ7lZGZxb77Cld87fLpO+4GkD4CPmKRyP1xEl/gA5dmrGOu6HrEiMWKM4RPZA==
+Date: Tue, 28 Jul 2026 12:01:09 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: =?utf-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] clocksource/drivers/timer-atmel-pit: Fix init failure
+ cleanup
+Message-ID: <20260728100109ca239fcb@mail.local>
+References: <20260608182016.99715-1-dbgh9129@gmail.com>
+ <CACrCO_XQn9WLVVx5NhvzAw=FuW-4R0Du58MGwOQ5q6dgGbtKYg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260728-csi_formatter-v16-2-1065ba47530a@oss.nxp.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI4MDA4NiBTYWx0ZWRfX6eDz5xLpQdRr
- LGZW75WGBGh0QoVOSL5euZhgUT4nwrt+GmX0hqv7wN/fiTCn4lk6BKFEiYMnxZ5NwqDe9UbvV6M
- T0Eha18l9O4EmSiA3l0srLCbCfcFpARAmVpFjKn20Icgh4bgKtLv7FQ/6EdVWubtMvqnLLg6wt9
- YstlpP/7Y2VVzZ2I+lGIfK0gR9XL6nmHkl9k8Gmvjdr6qOtHuAbmA94so71+jXqECqRQOCXHfAj
- bvJQJt6uOTkjgYukBqPdHp559W4VjQQiYFWikxEOlcw0PzqIVAeDUSgC2Z/Z7C3CJKkAoLo4m+o
- Dlnhjcgb7rZnNpk1mAOPLWqnJFMzyV4H0P1PjjQ/o3+Hw/cGtAHv1RUA87+u6axfDGq4FwOKzFp
- b/7OlKpKeqhbBgNvFNfzMtYEs9iGJ3JL5DbEIrUMIFe6kdfT902ijErtGoJZHZe9+nHCBv0C3Sz
- MTcsiFUYEyl6AFwpW1g==
-X-Authority-Analysis: v=2.4 cv=RO+D2Yi+ c=1 sm=1 tr=0 ts=6a687d98 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=6dw9+iwJWV8PcCi9M4lOBg==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=P1BnusSwAAAA:8 a=mdcQqFF6s0ROXEWFMbUA:9
- a=CjuIK1q_8ugA:10 a=PEH46H7Ffwr30OY-TuGO:22 a=ST-jHhOKWsTCqRlWije3:22
- a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-ORIG-GUID: S938Q2dKlrNobFko-z1cz4u2lpG4XtkG
-X-Proofpoint-GUID: S938Q2dKlrNobFko-z1cz4u2lpG4XtkG
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI4MDA4NiBTYWx0ZWRfX/zR5bquB3Do5
- BELV2wnvGdvinqHjYir2qdqKuCdntn1UwyymiXK0ziHTh/Jph9qPD7UIeczWf1Y/KPAyLejgaSj
- 7a0Q9W+C/r1gkia9emHqWJTkI/lLo0g=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-28_02,2026-07-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 phishscore=0 priorityscore=1501 spamscore=0
- lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607280086
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACrCO_XQn9WLVVx5NhvzAw=FuW-4R0Du58MGwOQ5q6dgGbtKYg@mail.gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_025953_765404_196F9915 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260728_030125_900265_C7161699 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,23 +81,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-07-28 14:14:15, guoniu.zhou@oss.nxp.com wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
-> 
-> The Camera CSR contains control registers for multiple CSI formatter IPs
-> at different register offsets. Each formatter is an independent hardware
-> block with its own clock input and media pipeline connection.
-> 
-> Define schema to allow formatter child nodes under nxp,imx95-camera-csr,
-> with 'reg' property specifying the formatter's register offset within the
-> CSR address space.
-> 
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Hello,
 
-Acked-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+On 02/07/2026 17:12:48-0400, 최유호 wrote:
+> Hi,
+> 
+> Just a gentle ping on this patch.
+> 
+> I would appreciate any feedback when you have a chance to review this.
+> 
+> Thanks
+> 
+> On Mon, 8 Jun 2026 at 14:20, Yuho Choi <dbgh9129@gmail.com> wrote:
+> >
+> > After clk_prepare_enable(data->mck) succeeds, at91sam926x_pit_dt_init()
+> > can still fail while parsing the IRQ, registering the clocksource, or
+> > requesting the IRQ. These paths only free the driver data, leaving the
+> > master clock enabled.
+> >
+> > Unwind each initialized state on failure. Stop the PIT after it has been
+> > started, dispose the IRQ mapping after it has been created, disable and
+> > put the master clock, and unmap the registers before freeing the driver
+> > data.
+> >
 
-Mauro, please let me know if you want to take this through your tree.
+This is a bit moot because if anything in the probe fails, then he
+platform will probably not boot at all.
+
+> > Fixes: 699e36e5b8e9 ("clocksource/drivers/timer-atmel-pit: Enable mck clock")
+> > Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+> > ---
+> >  drivers/clocksource/timer-atmel-pit.c | 21 ++++++++++++++++-----
+> >  1 file changed, 16 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/drivers/clocksource/timer-atmel-pit.c b/drivers/clocksource/timer-atmel-pit.c
+> > index 888b06731e54..edd427ab93e6 100644
+> > --- a/drivers/clocksource/timer-atmel-pit.c
+> > +++ b/drivers/clocksource/timer-atmel-pit.c
+> > @@ -12,7 +12,9 @@
+> >  #include <linux/clk.h>
+> >  #include <linux/clockchips.h>
+> >  #include <linux/interrupt.h>
+> > +#include <linux/io.h>
+> >  #include <linux/irq.h>
+> > +#include <linux/irqdomain.h>
+> >  #include <linux/kernel.h>
+> >  #include <linux/of.h>
+> >  #include <linux/of_address.h>
+> > @@ -185,13 +187,13 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
+> >         if (IS_ERR(data->mck)) {
+> >                 pr_err("Unable to get mck clk\n");
+> >                 ret = PTR_ERR(data->mck);
+> > -               goto exit;
+> > +               goto exit_iounmap;
+> >         }
+> >
+> >         ret = clk_prepare_enable(data->mck);
+> >         if (ret) {
+> >                 pr_err("Unable to enable mck\n");
+> > -               goto exit;
+> > +               goto exit_clk_put;
+> >         }
+
+
+Switching to devm_clk_get_enabled would avoid most of the error
+handling. Similarly, devm_ioremap could be used earlier.
+
+> >
+> >         /* Get the interrupts property */
+> > @@ -199,7 +201,7 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
+> >         if (!data->irq) {
+> >                 pr_err("Unable to get IRQ from DT\n");
+> >                 ret = -EINVAL;
+> > -               goto exit;
+> > +               goto exit_clk_disable;
+> >         }
+> >
+> >         /*
+> > @@ -227,7 +229,7 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
+> >         ret = clocksource_register_hz(&data->clksrc, pit_rate);
+> >         if (ret) {
+> >                 pr_err("Failed to register clocksource\n");
+> > -               goto exit;
+> > +               goto exit_pit_disable;
+> >         }
+> >
+> >         /* Set up irq handler */
+> > @@ -237,7 +239,7 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
+> >         if (ret) {
+> >                 pr_err("Unable to setup IRQ\n");
+> >                 clocksource_unregister(&data->clksrc);
+> > -               goto exit;
+> > +               goto exit_pit_disable;
+> >         }
+> >
+> >         /* Set up and register clockevents */
+> > @@ -256,6 +258,15 @@ static int __init at91sam926x_pit_dt_init(struct device_node *node)
+> >
+> >         return 0;
+> >
+> > +exit_pit_disable:
+> > +       pit_write(data->base, AT91_PIT_MR, 0);
+
+I doubt this write is useful.
+
+> > +       irq_dispose_mapping(data->irq);
+> > +exit_clk_disable:
+> > +       clk_disable_unprepare(data->mck);
+> > +exit_clk_put:
+> > +       clk_put(data->mck);
+> > +exit_iounmap:
+> > +       iounmap(data->base);
+> >  exit:
+> >         kfree(data);
+> >         return ret;
+> > --
+> > 2.43.0
+> >
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
