@@ -4,66 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86931C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C09C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DPhDaNKh25RJbGb+Q7emB6aEkN4cp/Ns7XJNB+mAqZI=; b=r/NC3wDjjPcyd07TiOrgIakuos
-	l3GugxnmcQPeqEVkAIlgzLPFyThQ0ZqZoWfJaumTCfMiIFv1FDzvAUasgiKhxC+csi1sbJTg0PvFE
-	f9KnhstwoCFbCFAsWwlGs4oiK1vtfo9NEcLWwhQPijbkkNNpspRCUJzXFpn02n8qXPEmL45SDzt+D
-	obrbF8aywhlvBAg6hd/uDcwzSmhtb61EvouKHgDf7vNPeCV1c37sRWrQnpUw7vFiD4PScYFdXpuHQ
-	uSrjXlrk7hQih5q9rafAdBnq8tZ9lSWXhE9znN4selT2MNsXh7s614pMYZ/QS/xyTQobPHhwdrgoL
-	7d8oTwIw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5I1AY9BLhfuJBpnfRkSYDGG1aWX86nocKReaece+rOM=; b=iA0cq1sg0zSIHntFSvpfgsd0gO
+	UefUpUBIxH0DZkrFzL7iYE5AEnpzY+vIW0CceFsJcjQ25IHEdZBajpNKrEue/3pFN/VgeGKotEMfH
+	JUjJjLnWIxT+NjsnZjO8KgwQOUZU05NTj0nJCLiC04AoNAUw7tvvqOdM18YpBaMm3wJw7TvFjJt1N
+	WCEWDzUXsF+ABKlCGnUa2XaroJhs2uHbb+LXYGoRSkwilttcNg2YCkcsAKge1Dn23bzGpDU02bIlT
+	X7Ha31ZunAo2wF8fjqYhuK4d2OEsUaS5xs9PHsl2aDtTQg/Euhen2wMPswbU9MXoiNvyMRcnwtziJ
+	BmFMHvQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodvn-00000004mXp-1LS1;
-	Tue, 28 Jul 2026 09:16:59 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wodx7-00000004mrZ-356z;
+	Tue, 28 Jul 2026 09:18:21 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodvU-00000004mP6-2QVg;
-	Tue, 28 Jul 2026 09:16:43 +0000
-X-UUID: 05d2458c8a6511f1aa26b74ffac11d73-20260728
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:a62d4715-a76f-47cc-83fd-abc701faeea0,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:cf06b6394694ad75066f2c9fe09520e6,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|865|898,TC:nil,Content:0|1
-	5|50,EDM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
-	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 05d2458c8a6511f1aa26b74ffac11d73-20260728
-X-User: lilinmao@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <lilinmao@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 862983219; Tue, 28 Jul 2026 17:16:31 +0800
-From: Linmao Li <lilinmao@kylinos.cn>
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Caesar Wang <wxt@rock-chips.com>,
-	linux-kernel@vger.kernel.org,
+	id 1wodx4-00000004mqO-22Aj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 09:18:20 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cce6a0c9c3so42097715ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 02:18:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1785230297; x=1785835097; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5I1AY9BLhfuJBpnfRkSYDGG1aWX86nocKReaece+rOM=;
+        b=kZJxqO6tVFkIjrq+lafcA5NzCvBOmfjPwTY7ftC7LEh6gIPR1yFgxn9WOKpSiRTOXL
+         WutT1jvLySx+S9Xm7a2agFyEIIA1Zr1lc6Qkx676reqC8tco186F5k6dWu7I66dQUMVZ
+         UDEcg5EZSGl6nFf0LT9wH/F0qt4L6LlR+GSk8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785230297; x=1785835097;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5I1AY9BLhfuJBpnfRkSYDGG1aWX86nocKReaece+rOM=;
+        b=kIvtay5fyreeZ3GZukRtTdW5g7KTpKpt/mRkwPh+EJf8J19c0qsmtRbKC1Zzi7iExh
+         4Z4jvQmZoov2UwmVpMtE58reR2oFUATJHlQwWgityd25mPh31geYnbrm94hUGjWAHq5p
+         MPjZrdaeHpBQRyRCa3AVtJN8LH7sGl8RDSMThUtwWN9NXx9Op5CL3pnztwcDZkgWX4AQ
+         snLKixOQ3ZzRSP3GsugSannin0pX/b0idSbWj3RGowM9nBs/Q9v8H0a+vDQvNQGVBYsX
+         OD77AY0warHGthIAw8XH8fpHSTkZkhw0glAUyZ1RChfPRG1aBg/gukIzJ60CgpTAjkKW
+         cfFw==
+X-Forwarded-Encrypted: i=1; AHgh+Rph8HiOkd/11mZUXo/rNQSCpAQ1mw+Tfz//g2kgXermzICHqKxz1pdnKQJZqWuccpAr5mCuRTtqB+49rNMIDrGj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3+DiLpJhACS3ERdMp/o3CdfKcVtF/7GL6II9mV6ObZ9DrTpzV
+	ETuAmvVNMiqv8x7/wbLXxqdMzRoD7RJlPc0ygECwq/ACq/CjtwUcidSyUK6KmS8wZA==
+X-Gm-Gg: AR+sD13FsS1mNVLyRZWJ4Egt3GEd9kuXA2z6fckNBQOe2WNFqNObXkVMYS6qde5uOYb
+	VGCgNsD7HnICF+VNU2Q8kZ1yqXfj3BTszie/FiIstySIF8qL/Wfn3oxOKcKRPcNXlR1p1x9SoD4
+	g3QlK1l3E8p33H77wp9tT1bhN2UbBTKp54JTSpWtfxB27lBBL3raPBA5iu8+VRDEeBMpqjqkg6Y
+	/HTT8hYVaVuvffYnCNW6hbYjPos5PYbhnz0JNQsJnb4l0qNcU2jMVPaZljgcgow7MLANKpMTOBu
+	vrGN/DGBWhrtoAzM+E/NXY2B+K9orOgDXTeRPnk68z4gkJSxfOZTdRgVkeVJVuQd60gh2YLgIGg
+	8k+NdL7T9NrPExAXTS6QYELoJIt835gXgyv3sPfLIlCvQvvqSFaPHFDOlX4SuEP7iC6EzRhjph3
+	BQWcsIGUvz88IG77IDGaGW9TDPvQ2ZEcQU90CUjVKoNU+niiF5hmNM/iDc6vY=
+X-Received: by 2002:a17:902:e945:b0:2cf:477f:57c5 with SMTP id d9443c01a7336-2d015ac708bmr18332045ad.1.1785230297072;
+        Tue, 28 Jul 2026 02:18:17 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:c85f:b2bb:a077:d544])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cfde81dcc1sm48616965ad.84.2026.07.28.02.18.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 02:18:16 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alessio Belle <alessio.belle@imgtec.com>,
+	Luigi Santivetti <luigi.santivetti@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Linmao Li <lilinmao@kylinos.cn>
-Subject: [PATCH 2/2] mailbox: rockchip: drop unneeded runtime pointer (pclk)
-Date: Tue, 28 Jul 2026 17:16:23 +0800
-Message-Id: <20260728091623.3691198-3-lilinmao@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260728091623.3691198-1-lilinmao@kylinos.cn>
-References: <20260728091623.3691198-1-lilinmao@kylinos.cn>
+	imagination@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	YoungJoon Lee <getfeus@gmail.com>
+Subject: [PATCH v4 0/5] powervr: MT8173 GPU support
+Date: Tue, 28 Jul 2026 17:17:58 +0800
+Message-ID: <20260728091804.382753-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_021640_921128_3972EF1C 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260728_021818_528053_48E45562 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +110,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pclk pointer is only used in rockchip_mbox_probe() and is not needed
-after probe completes.
+Hi everyone,
 
-Make it a local variable and drop it from struct rockchip_mbox, which
-saves a little bit of runtime memory.
+This is v4 of my MT8173 PowerVR GPU support series.
 
-Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
----
- drivers/mailbox/rockchip-mailbox.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+This time around Mesa was ready for basic testing, using both vulkanmark
+and glmark2-es2-drm (with Zink). Details below.
 
-diff --git a/drivers/mailbox/rockchip-mailbox.c b/drivers/mailbox/rockchip-mailbox.c
-index d55cbf7f2cb6..bc2f9dd798dd 100644
---- a/drivers/mailbox/rockchip-mailbox.c
-+++ b/drivers/mailbox/rockchip-mailbox.c
-@@ -40,7 +40,6 @@ struct rockchip_mbox_chan {
- 
- struct rockchip_mbox {
- 	struct mbox_controller mbox;
--	struct clk *pclk;
- 	void __iomem *mbox_base;
- 
- 	/* The maximum size of buf for each channel */
-@@ -166,6 +165,7 @@ static int rockchip_mbox_probe(struct platform_device *pdev)
- 	struct rockchip_mbox *mb;
- 	const struct rockchip_mbox_data *drv_data;
- 	struct resource *res;
-+	struct clk *pclk;
- 	int ret, irq, i;
- 
- 	if (!pdev->dev.of_node)
-@@ -196,9 +196,9 @@ static int rockchip_mbox_probe(struct platform_device *pdev)
- 	/* Each channel has two buffers for A2B and B2A */
- 	mb->buf_size = (size_t)resource_size(res) / (drv_data->num_chans * 2);
- 
--	mb->pclk = devm_clk_get_enabled(&pdev->dev, "pclk_mailbox");
--	if (IS_ERR(mb->pclk))
--		return dev_err_probe(&pdev->dev, PTR_ERR(mb->pclk),
-+	pclk = devm_clk_get_enabled(&pdev->dev, "pclk_mailbox");
-+	if (IS_ERR(pclk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(pclk),
- 				     "failed to get and enable pclk_mailbox clock\n");
- 
- 	for (i = 0; i < mb->mbox.num_chans; i++) {
+Changes since v3 (all in the clk driver patch):
+- Changed pm_runtime_put() to pm_runtime_put_sync()
+- Added missing of_node_put() in remove function
+
+Changes since v2 (all in the clk driver patch):
+- Made COMMON_CLK_MT8173_MFGTOP depend on PM
+  - Needed since the driver implements PM domains using the generic PM
+    domain library, which also depends on PM
+  - Fixes build breakage (kernel test robot)
+- Fixed "RST_DELAY_CNT" name (Brian)
+- Dropped unused mfg_desc (Brian)
+- Added check of clk_prepare_enable()'s return value in
+  clk_mt8173_mfgtop_power_on() (Brian)
+- Saved error value for return in IS_ERR(data->clk_26m) branch
+  (Dan Carpenter / kernel test robot w/ smatch)
+
+Changes since v1:
+- Adapted to changed DT bindings
+- Dropped driver change
+- Use same power domain for "a" and "b" GPU power domains
+
+
+This series enables the PowerVR GPU found in the MT8173 SoC, found in
+some Chromebooks.
+
+This version is different from the initial powervr driver submission [1]
+in that it splits out the GPU glue layer support out of the powervr
+driver and into a separate clock and power domain driver. The glue code
+is otherwise the same, and also the same as found in the ChromeOS
+kernels, with some extra comments and macro names added where possible.
+
+Patch 1 adds a binding for the glue layer, called mfgtop. The glue layer
+contains clock and power controls for the GPU.
+
+Patch 2 adds a driver for the glue layer, implemented as a clock driver
+that also provides power domains.
+
+Patch 3 adds an entry for the MT8173 GPU and 6XT series to the PowerVR
+binding.
+
+Patch 4 corrects the clock for the GPU (called MFG) power domain.
+
+Patch 5 adds device nodes for the GPU and glue layer to the MT8173 dtsi
+file.
+
+The kernel driver successfully probes the hardware and loads the
+"rogue_4.40.2.51_v1.fw" firmware provided by Imagination Technologies [2].
+The "exp_hw_support" module parameter needs to be set for the driver to
+probe successfully.
+
+This was tested with Mesa 26.1.5 from Debian Forky. With this version
+vkmark and glmark2-es2 (over Zink) both run fine. Mesa spits out a bunch
+of warnings since the GX6250 core is not officially supported.
+
+    # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=1 vkmark
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: FINISHME: Missing reset support for brn51764
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: FINISHME: Missing reset support for brn58839
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: FINISHME: Missing support for brn62269
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINISHME: Devices without tpu_border_colour_enhanced require entries for compressed formats to be stored in the table pre-compressed.
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    =======================================================
+	vkmark 2025.01
+    =======================================================
+	Vendor ID:      0x1010
+	Device ID:      0x6250
+	Device Name:    PowerVR Rogue GX6250
+	Driver Version: 109056005
+	Device UUID:    d04cd6f3a25fd4900f89c151bccfdfcf
+    =======================================================
+    [vertex] device-local=true: FPS: 251 FrameTime: 3.984 ms
+    [vertex] device-local=false: FPS: 220 FrameTime: 4.545 ms
+    [texture] anisotropy=0:^C FPS: 223 FrameTime: 4.484 ms
+    =======================================================
+				       vkmark Score: 231
+    =======================================================
+
+    # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=1 glmark2-es2-drm
+    WARNING: powervr is not a conformant Vulkan implementation, testing use only.
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:73: FINISHME: Missing reset support for brn51764
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:76: FINISHME: Missing reset support for brn58839
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:523: FINISHME: Missing support for brn62269
+    MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: FINISHME: Devices without tpu_border_colour_enhanced require entries for compressed formats to be stored in the table pre-compressed.
+    Warning: DRM_CAP_ASYNC_PAGE_FLIP not supported, falling back to 'mailbox' mode for SwapInterval(0).
+    =======================================================
+	glmark2 2023.01
+    =======================================================
+	OpenGL Information
+	GL_VENDOR:      Mesa
+	GL_RENDERER:    zink Vulkan 1.2(PowerVR Rogue GX6250 (IMAGINATION_OPEN_SOURCE_MESA))
+	GL_VERSION:     OpenGL ES 2.0 Mesa 26.1.5-1
+	Surface Config: buf=32 r=8 g=8 b=8 a=8 depth=24 stencil=0 samples=0
+	Surface Size:   1366x768 fullscreen
+    =======================================================
+    [build] use-vbo=false: FPS: 49 FrameTime: 20.473 ms
+    [build] use-vbo=true: FPS: 45 FrameTime: 22.660 ms
+    [texture] texture-filter=nearest: FPS: 45 FrameTime: 22.642 ms
+    [texture] texture-filter=linear:^C FPS: 50 FrameTime: 20.172 ms
+    =======================================================
+				      glmark2 Score: 46
+    =======================================================
+
+
+Please have a look.
+
+Thanks
+ChenYu
+
+[1] https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.walker@imgtec.com/
+[2] https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
+
+Chen-Yu Tsai (5):
+  dt-bindings: clock: mediatek: Add mt8173 mfgtop
+  clk: mediatek: Add mt8173-mfgtop driver
+  dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
+  arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
+  arm64: dts: mediatek: mt8173: Add GPU device nodes
+
+ .../clock/mediatek,mt8173-mfgtop.yaml         |  70 +++++
+ .../bindings/gpu/img,powervr-rogue.yaml       |   1 +
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  33 ++-
+ drivers/clk/mediatek/Kconfig                  |  10 +
+ drivers/clk/mediatek/Makefile                 |   1 +
+ drivers/clk/mediatek/clk-mt8173-mfgtop.c      | 242 ++++++++++++++++++
+ include/dt-bindings/clock/mt8173-clk.h        |   7 +
+ 7 files changed, 363 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8173-mfgtop.yaml
+ create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
+
 -- 
-2.25.1
+2.55.0.229.g6434b31f56-goog
 
 
