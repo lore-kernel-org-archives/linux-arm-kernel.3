@@ -4,115 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A703CC54F52
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 07:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E86C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 07:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GvSDrArFihkcvCKtXqCukbCZkd2fZ5Ks67ZlmWgjtZU=; b=UGtT6YeVL8Jz5Lm8Uair0k8ZgP
-	aov/BSgnZ6GuKujhHd73gygSr8sLA/QFymbtTAXuILA5FBbiXBpiHWLHphFCmMr4hAugNzOjzCuA3
-	/GCKWa9Czq4Ruf27fsOEz6iTME4V5J59+5gts5iIVApWe0gDCkJr8cQHfsEDzGt6/j6MAZj0UNu/9
-	8ovViZD8A26egz+4x4pvI7Uwp0OnbPzrFt4ArJStMVAYmkAtU1+NKUzcDP9JFinHcvzmAl0GW6vrb
-	S4X33gg9iHdmuOu9WJc6JPuINQ4nBaHtXB7V7l4ys0dFAXhFee4Rk4mbhaLEwz4KUSAa8xSSwQEYQ
-	xDBx3L9w==;
+	bh=HC8K6px3MsmeuZvvTztz5a205nXW5hBrqy+Sd1S39GI=; b=4QbfN8pS5b/MpByZLqKwubaXlj
+	RiFDY3XX1ROtbtKechVLyQriOkQ90D5AmTPqHzb9HqpFLtxkoH/1osqXuYlKXgieeZ8PjPHS/Emnv
+	QKj/pvOGQ3BDf2dzD8DHc4fVY4Tl1ALEFpXqw36P2XV2RDGEgUnWLBLEWNDpZSmrD9CiPKr9ZZzA2
+	fKaXFxOCxxid2rss/CqTGn1+FtJLv6LhnXIv+S4LHcszoGs2W7hmzoNWAKpdqJ2s6MI3Q4jed7V0F
+	1QvwXOEt9/Mp28gPluC4xw4vLRouyUkYwWN7Vnjy0+8w5JYNAVQYf/7EWxI/iHkAIxul1jvr2Ixb5
+	Wzg12l9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wocXC-00000004ecP-2Q8Q;
-	Tue, 28 Jul 2026 07:47:30 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1wocbz-00000004f91-1aRo;
+	Tue, 28 Jul 2026 07:52:27 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wocXA-00000004eav-1wcH
+	id 1wocbw-00000004f8X-0AAF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 07:47:29 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7eb6573bd52so2285095a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 00:47:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785224847; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jqhMrugYE683/EUdQNKy6dHI2/H/DszKmZFV15mWGLiJI3eHn++UooQiCU5qhByfsl
-         abU9M3QshIjxMllfBnO7f3QtsFc2bnrIXdgXiskYy+uD82zzt6NhwGcRXzoaoxlkX2Rc
-         EOpXEeHQei26sNQJEvKGhPO+Vd4Xzk1wntYae9STwfqVRdLs7D+cYC+WScGBCvGuWxPW
-         NGUZQMEKWD4I+kerbI0DDa44r+1nd1gSYFtqdfX/dT+i4021MwzRqpbSGxZyNvgUyzJd
-         QJg89vSINVbqXfgnDYsiMmyneytRsEvhkb9bgwTiDme98/kUhFhcLcUav/9NkVlUxdfx
-         m6Pw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GvSDrArFihkcvCKtXqCukbCZkd2fZ5Ks67ZlmWgjtZU=;
-        fh=ZzBQj4Me4agd+yFOkLcqwDtW2OkmI4YFtakFQZjPsN0=;
-        b=P8N2gzJ4uYENupDHwhdIWqQMB6GSHRGJ7LsghZrm6FzbLrrcExvldMZ4L/hzUz+/U/
-         +zsSvwzTQv1XVq5Ed8hZGqyN7uQzt4iBfJxCe4QotwZAQYv3vsnzFGGTKPOLUnc9QLnx
-         wQucyrqUyDJDHRIOEOETnSgWF03nBH9Thq55rXyvsAnT6k9N1+AZtt1imsAwx8XfRz0d
-         ugXwvXXk9+xvdcbUl6gl4H6CUn0sZWMdfpWiKJZPX92OxhCfiiwQDT/m781i0v6Zpkl2
-         ckNscCBtbOlv6UxEoL0N/p+CRUDChaGt4CRRqEA2YBIE6VWRDSnF+eMGo3034Q+ZqrkN
-         x5Cg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785224847; x=1785829647; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GvSDrArFihkcvCKtXqCukbCZkd2fZ5Ks67ZlmWgjtZU=;
-        b=qdNoChkQAgwUN6V2L5kVayuR3fHYv/JtyAd5rKRiX9B8cJsWRLl/JpFZPH2HnQTK9I
-         +6GANAPCmxywPkI9Co5eAFJV7m2lI3et+UaAfL9rHyoHl9/THqXaEBbRuHVPZlugAJ5l
-         pb/FaT4Yj9sZps+p0NX4yw0kl9M2WD6CYawYSCU7wVLvghfMT6YvDlXrUqxVp2pFHMe7
-         KLLE1Z55UErs7frfPBUWW3I3hmmqlKVED4vWBPoF9ZYo+SVkG4m0wXNWnMzZHpXOcBly
-         L11BzcoL4FaPrenY7QWcbPU76e7v/JsV9UURytMRyO+bsGihcpwNLQ05pJo4R2OZQ3IP
-         K1Ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785224847; x=1785829647;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GvSDrArFihkcvCKtXqCukbCZkd2fZ5Ks67ZlmWgjtZU=;
-        b=F/rC3eNV2gMhx6ecL6jrTaQdxWeM6GkdXdcoDhGjwwhQj1c01X0e33RLBCCgFy/hzp
-         sYFvkpNyIweQUhYvVUlX33oiMNKTx3WLhIcMEYSNcYuMSt/j7H25gS+X8DFJK8ACGri8
-         6j+flwgHsymcGB0ApErg1axBZBDLN7l4U7bvFr+HhNTeEpEFPgJzMrJzh8jvqvQuZApK
-         CdSQBtqXWyQseaAZMsk1AHm7w3nlaQ7MQ1DA7TgbaLPMQxXNYrsklDwqdHHEtZ0IGR32
-         MiBRhJqEVGNaXvJlmbOGNf62dAlHdLr9VeXxBdwkUmpvTz3LGoxqlrIPV0Obqk6om/hv
-         TZtA==
-X-Forwarded-Encrypted: i=1; AHgh+RpcyAx1KETIL/KuQDPJ6gr8nnqM42ti3HuWsz22J4tlpU+ElsVtX70KQR3dNVadOjdCGh/1jhPXBr6tJykvouym@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuyqRQmljdeu+f48h0UUvL5zU0dBxVpFj3lfHKk7W54C9Apoxq
-	RLF4hAnlEmKkiR2PQvv+hGhT2wHP8P6hvEC1puPqwZewK+rUoWVX1GUyfseXJTgSeW+1NRkJ/e/
-	yHgCRoiOatns2GHBl41d8RL25EjrKFfI=
-X-Gm-Gg: AR+sD13ELo/tqJ/55Yff9vNEyu6qV+NFEl8kuY+65PyA6+HzSbcdCPXZ0M7vc3NXSTE
-	ci4fPEwLrjF1l8ZfWm3oHtJpdtOtljUbQvMnRjjNb5KMYhQM0J5rT4pO6jw5GtxO05cf5hPm585
-	ayB5NgdSG5HUm61Q0xoNTtbk+ne/7PDqdaf0z7uRIZH0qjRvZtcSbOh6Fo+o4i+JC76D2OnKiyg
-	gzrfjDRXab9mBrGY0634njH9vplg8LugVwItzMQzKPC+jjhv+TpiiL9pOzHi8U5J+zwITLNne05
-	g50p7RZa9pJl0TeVDM1N3gT53s28sw==
-X-Received: by 2002:a05:6830:7309:b0:7e9:adef:4fd4 with SMTP id
- 46e09a7af769-7effef66a20mr1250145a34.11.1785224847196; Tue, 28 Jul 2026
- 00:47:27 -0700 (PDT)
+	Tue, 28 Jul 2026 07:52:26 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=HC8K6px3MsmeuZvvTztz5a205nXW5hBrqy+Sd1S39GI=;
+	b=qj31utIZHhhWoy7Z35FrTLqwTX03ROHiVzPYx2r/+enhy7BA1MUHriVaBQ9yF/gILX5KLC07P
+	FZK8Q8yF/Ots3SNMuNlMztd8MbHadBM993LqNOmpsxFuvkCM9Eq4lDrqcbQaIXR4KRoYFUUI0U6
+	WhwQMqHjMgNQEgKKZl3AJIM=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h8S9T0vV4z1T4Fq;
+	Tue, 28 Jul 2026 15:42:37 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1DE1640537;
+	Tue, 28 Jul 2026 15:52:06 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Tue, 28 Jul 2026 15:52:05 +0800
+Message-ID: <04c32cdb-c990-484f-980d-09058c194924@huawei.com>
+Date: Tue, 28 Jul 2026 15:52:05 +0800
 MIME-Version: 1.0
-References: <20260727091555.1023910-1-wenst@chromium.org> <CA+m4KrCkk_p213=JVVcuxjvO2tCREw7_mL596xu-RWJ0Dz3p5w@mail.gmail.com>
- <CAGXv+5HXf9U6CdMudVkrWL_62jktW6jYQvtrjAFGc=+UnoKQXA@mail.gmail.com>
-In-Reply-To: <CAGXv+5HXf9U6CdMudVkrWL_62jktW6jYQvtrjAFGc=+UnoKQXA@mail.gmail.com>
-From: YoungJoon Lee <getfeus@gmail.com>
-Date: Tue, 28 Jul 2026 16:47:16 +0900
-X-Gm-Features: AUfX_mxyx2qeDVnTVSDo_LY0bWU_51Hewgc7AQz54UsBBlH4uRRKFFV95aTgqR8
-Message-ID: <CA+m4KrCnZQW4WqTrKwCAvnwh2YCmObMmvtjdc=HDy5N+RiGm=Q@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] powervr: MT8173 GPU support
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Alessio Belle <alessio.belle@imgtec.com>, Luigi Santivetti <luigi.santivetti@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, imagination@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/6] KVM: arm64: Add HDBSS fault handling and buffer
+ flush
+To: Leonardo Bras <leo.bras@arm.com>, Inochi Amaoto <inochiama@gmail.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <20260709104026.2612599-6-zhengtian10@huawei.com>
+ <alTw0nwiBDWoFrjB@LeoBrasDK>
+ <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com>
+ <alYUXkub43YxkeH1@LeoBrasDK>
+ <fa0839f9-7d83-4ad1-80e2-7e7dd0280222@huawei.com>
+ <alZFVPkS3lgGdruc@LeoBrasDK>
+ <3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com>
+ <alpN16Q3MgVHJzsN@LeoBrasDK> <al8xreH4_RoL5P83@inochi.infowork>
+ <al9_oOblOF5pjSTi@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <al9_oOblOF5pjSTi@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_004728_554151_0C56D602 
-X-CRM114-Status: GOOD (  61.08  )
+X-CRM114-CacheID: sfid-20260728_005224_422455_CB98D44E 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,419 +93,415 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello ChenYu,
 
-Thank you for the clarification.
 
-I understand that the "vgpu" regulator entry is unrelated, and I will
-exclude it from further investigation.
+On 7/21/2026 10:18 PM, Leonardo Bras wrote:
+> On Tue, Jul 21, 2026 at 04:53:08PM +0800, Inochi Amaoto wrote:
+>> On Fri, Jul 17, 2026 at 04:44:24PM +0100, Leonardo Bras wrote:
+>>> On Fri, Jul 17, 2026 at 02:51:12PM +0800, Tian Zheng wrote:
+>>>>
+>>>> On 7/14/2026 10:19 PM, Leonardo Bras wrote:
+>>>>> On Tue, Jul 14, 2026 at 09:27:15PM +0800, Tian Zheng wrote:
+>>>>>> On 7/14/2026 6:50 PM, Leonardo Bras wrote:
+>>>>>>> On Tue, Jul 14, 2026 at 03:38:39PM +0800, Tian Zheng wrote:
+>>>>>>>> On 7/13/2026 10:06 PM, Leonardo Bras wrote:
+>>>>>>>>> On Thu, Jul 09, 2026 at 06:40:25PM +0800, Tian Zheng wrote:
+>>>>>>>>>> From: eillon <yezhenyu2@huawei.com>
+>>>>>>>>>>
+>>>>>>>>>> Add HDBSS fault handling for buffer full, external abort, and general
+>>>>>>>>>> protection fault (GPF) events. When the HDBSS buffer becomes full,
+>>>>>>>>>> the hardware traps to EL2 with an HDBSSF event, which is handled by
+>>>>>>>>>> setting a flush request.
+>>>>>>>>>>
+>>>>>>>>>> Add kvm_flush_hdbss_buffer() to consume HDBSS buffer entries and
+>>>>>>>>>> propagate dirty information into the userspace-visible dirty bitmap.
+>>>>>>>>>> Flush is triggered on vcpu_put, check_vcpu_requests, and
+>>>>>>>>>> sync_dirty_log.
+>>>>>>>>>>
+>>>>>>>>>> Add esr_iss2_is_hdbssf() helper for HDBSS fault detection in guest
+>>>>>>>>>> abort handling.
+>>>>>>>>>>
+>>>>>>>>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+>>>>>>>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>>>>>>>>>> ---
+>>>>>>>>>>      arch/arm64/include/asm/esr.h           |  5 +++
+>>>>>>>>>>      arch/arm64/include/asm/kvm_dirty_bit.h | 11 +++++
+>>>>>>>>>>      arch/arm64/include/asm/kvm_host.h      |  1 +
+>>>>>>>>>>      arch/arm64/kvm/arm.c                   | 14 ++++++
+>>>>>>>>>>      arch/arm64/kvm/dirty_bit.c             | 62 ++++++++++++++++++++++++++
+>>>>>>>>>>      arch/arm64/kvm/mmu.c                   |  4 ++
+>>>>>>>>>>      6 files changed, 97 insertions(+)
+>>>>>>>>>>
+>>>>>>>>>> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+>>>>>>>>>> index 81c17320a588..2e6b679b5908 100644
+>>>>>>>>>> --- a/arch/arm64/include/asm/esr.h
+>>>>>>>>>> +++ b/arch/arm64/include/asm/esr.h
+>>>>>>>>>> @@ -437,6 +437,11 @@
+>>>>>>>>>>      #ifndef __ASSEMBLER__
+>>>>>>>>>>      #include <asm/types.h>
+>>>>>>>>>>
+>>>>>>>>>> +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
+>>>>>>>>>> +{
+>>>>>>>>>> +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
+>>>>>>>>> This will return a long, which will be casted as bool.
+>>>>>>>>> In general, what I see in the kernel is something like:
+>>>>>>>>>
+>>>>>>>>> 	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
+>>>>>>>> ok!
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>>> +}
+>>>>>>>>>> +
+>>>>>>>>>>      static inline unsigned long esr_brk_comment(unsigned long esr)
+>>>>>>>>>>      {
+>>>>>>>>>>      	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
+>>>>>>>>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>>>>>>> index 84b12f0a10af..4b28000e972f 100644
+>>>>>>>>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>>>>>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>>>>>>> @@ -10,7 +10,18 @@
+>>>>>>>>>>      #include <asm/kvm_pgtable.h>
+>>>>>>>>>>      #include <asm/sysreg.h>
+>>>>>>>>>>
+>>>>>>>>>> +/* HDBSS entry field definitions */
+>>>>>>>>>> +#define HDBSS_ENTRY_VALID	BIT(0)
+>>>>>>>>>> +#define HDBSS_ENTRY_TTWL_SHIFT (1)
+>>>>>>>>>> +#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
+>>>>>>>>>> +#define HDBSS_ENTRY_TTWL(x) \
+>>>>>>>>>> +	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
+>>>>>>>>>> +#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
+>>>>>>>>>> +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
+>>>>>>>>>> +
+>>>>>>>>>>      int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
+>>>>>>>>>>      void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+>>>>>>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+>>>>>>>>>> +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
+>>>>>>>>>>
+>>>>>>>>>>      #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+>>>>>>>>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>>>>>>>>>> index c41ec6d9c45a..cecfb884a64f 100644
+>>>>>>>>>> --- a/arch/arm64/include/asm/kvm_host.h
+>>>>>>>>>> +++ b/arch/arm64/include/asm/kvm_host.h
+>>>>>>>>>> @@ -55,6 +55,7 @@
+>>>>>>>>>>      #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
+>>>>>>>>>>      #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+>>>>>>>>>>      #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+>>>>>>>>>> +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
+>>>>>>>>>>
+>>>>>>>>>>      #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+>>>>>>>>>>      				     KVM_DIRTY_LOG_INITIALLY_SET)
+>>>>>>>>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>>>>>>>>>> index bf6688245d83..566953a4e23a 100644
+>>>>>>>>>> --- a/arch/arm64/kvm/arm.c
+>>>>>>>>>> +++ b/arch/arm64/kvm/arm.c
+>>>>>>>>>> @@ -755,6 +755,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>>>>>>>>>>      		kvm_vcpu_put_hw_mmu(vcpu);
+>>>>>>>>>>      	kvm_arm_vmid_clear_active();
+>>>>>>>>>>
+>>>>>>>>>> +	if (vcpu->kvm->arch.enable_hdbss)
+>>>>>>>>>> +		kvm_flush_hdbss_buffer(vcpu);
+>>>>>>>>>> +
+>>>>>>>>>>      	vcpu_clear_on_unsupported_cpu(vcpu);
+>>>>>>>>>>      	vcpu->cpu = -1;
+>>>>>>>>>>      }
+>>>>>>>>>> @@ -1157,6 +1160,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
+>>>>>>>>>>      		if (kvm_dirty_ring_check_request(vcpu))
+>>>>>>>>>>      			return 0;
+>>>>>>>>>>
+>>>>>>>>>> +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
+>>>>>>>>>> +			kvm_flush_hdbss_buffer(vcpu);
+>>>>>>>>>> +
+>>>>>>>>>>      		check_nested_vcpu_requests(vcpu);
+>>>>>>>>>>      	}
+>>>>>>>>>>
+>>>>>>>>>> @@ -1971,7 +1977,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+>>>>>>>>>>
+>>>>>>>>>>      void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+>>>>>>>>>>      {
+>>>>>>>>>> +	/*
+>>>>>>>>>> +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
+>>>>>>>>>> +	 * before reporting dirty_bitmap to userspace. Send a request with
+>>>>>>>>>> +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
+>>>>>>>>>> +	 */
+>>>>>>>>>> +	if (!kvm->arch.enable_hdbss)
+>>>>>>>>>> +		return;
+>>>>>>>>>>
+>>>>>>>>>> +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS | KVM_REQUEST_WAIT);
+>>>>>>>>>>      }
+>>>>>>>>>>
+>>>>>>>>>>      static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+>>>>>>>>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+>>>>>>>>>> index 6c7a6ef66b5a..002366337637 100644
+>>>>>>>>>> --- a/arch/arm64/kvm/dirty_bit.c
+>>>>>>>>>> +++ b/arch/arm64/kvm/dirty_bit.c
+>>>>>>>>>> @@ -50,3 +50,65 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
+>>>>>>>>>>
+>>>>>>>>>>      	vcpu->arch.hdbss.hdbssbr_el2 = 0;
+>>>>>>>>>>      }
+>>>>>>>>>> +
+>>>>>>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
+>>>>>>>>>> +{
+>>>>>>>>>> +	int idx, curr_idx;
+>>>>>>>>>> +	u64 *hdbss_buf;
+>>>>>>>>>> +	struct kvm *kvm = vcpu->kvm;
+>>>>>>>>>> +
+>>>>>>>>>> +	if (!kvm->arch.enable_hdbss)
+>>>>>>>>>> +		return;
+>>>>>>>>>> +
+>>>>>>>>>> +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
+>>>>>>>>>> +
+>>>>>>>>>> +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
+>>>>>>>>>> +	if (curr_idx == 0 || vcpu->arch.hdbss.hdbssbr_el2 == 0)
+>>>>>>>>>> +		return;
+>>>>>>>>>> +
+>>>>>>>>>> +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
+>>>>>>>>>> +	if (!hdbss_buf)
+>>>>>>>>>> +		return;
+>>>>>>>>>> +
+>>>>>>>>>> +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
+>>>>>>>>>> +	for (idx = 0; idx < curr_idx; idx++) {
+>>>>>>>>>> +		u64 gpa;
+>>>>>>>>>> +
+>>>>>>>>>> +		gpa = hdbss_buf[idx];
+>>>>>>>>>> +		if (!(gpa & HDBSS_ENTRY_VALID))
+>>>>>>>>>> +			continue;
+>>>>>>>>>> +
+>>>>>>>>>> +		gpa &= HDBSS_ENTRY_IPA;
+>>>>>>>>>> +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
+>>>>>>>>> You mention that it does not support dirty-ring, but above function will
+>>>>>>>>> mark the page as dirty in the dirty-ring :/
+>>>>>>>>>
+>>>>>>>> In kvm_arm_enable_hdbss_global(), we explicitly check and reject HDBSS
+>>>>>>>> enablement if dirty-ring is active:
+>>>>>>>>
+>>>>>>>> ```
+>>>>>>>> if (kvm->dirty_ring_size)
+>>>>>>>>        return 0;
+>>>>>>>> ```
+>>>>>>>>
+>>>>>>>> So when kvm_flush_hdbss_buffer() runs (which requires enable_hdbss = true),
+>>>>>>>> we know for certain that
+>>>>>>>>
+>>>>>>>> kvm->dirty_ring_size == 0. Therefore, kvm_vcpu_mark_page_dirty() will always
+>>>>>>>> take the dirty_bitmap path,
+>>>>>>>>
+>>>>>>>> never the dirty-ring path.
+>>>>>>>>
+>>>>>>>> That said, I'll add a comment in kvm_flush_hdbss_buffer() before dirty ring
+>>>>>>>> mode is supported, to make this explicit:
+>>>>>>>>
+>>>>>>>> ```
+>>>>>>>> /*
+>>>>>>>>     * HDBSS is mutually exclusive with dirty-ring mode (see
+>>>>>>>>     * kvm_arm_enable_hdbss_global()), so kvm_vcpu_mark_page_dirty()
+>>>>>>>>     * will update the dirty_bitmap, not the dirty-ring.
+>>>>>>>>     */
+>>>>>>>> ```
+>>>>>>>>
+>>>>>>> Got it :)
+>>>>>>>
+>>>>>>> Out of curiosity: which issues have you found on supporting dirty-ring at
+>>>>>>> this point?
+>>>>>>>
+>>>>>>> Thanks!
+>>>>>>> Leo
+>>>>>>
+>>>>>> I haven't looked deeply into dirty-ring yet — my main concern is that if
+>>>>>> both the dirty
+>>>>>>
+>>>>>> ring and HDBSS buffer fill up, the flush path might get blocked or
+>>>>>> complicated.
+>>>>>>
+>>>>>> For now, I'm planning to match the HDBSS buffer size to the dirty ring size
+>>>>>> in v5 and test it.
+>>>>>>
+>>>>>> Ideally, the two buffers would be the same size, and the entire dirty
+>>>>>> tracking path would use
+>>>>>>
+>>>>> Ah, I see the point.
+>>>>>
+>>>>> IIRC, when dirty-ring gets full, the kernel returns to userspace with
+>>>>> run->exit_reason == KVM_EXIT_DIRTY_RING_FULL, which will warn the VMM to
+>>>>> drain the dirty-ring, and that makes space for us draining HDBSS to the
+>>>>> dirty-ring again.
+>>>>>
+>>>>> The best way to achieve that, as I remember, is to always drain
+>>>>> HDBSS as much as possible at guest_exitting. That will make more space to
+>>>>> newer HDBSS entries, and we can get userspace to drain the dirty-ring
+>>>>> earlier.
+>>>>>
+>>>>> I would say to even make HDBSS buffer half (entries) the dirty-ring. Then
+>>>>> we can generally fully drain to the dirty-ring and even report ring full
+>>>>> if the ring is above a given threshold percentage full.
+>>>>>> HDBSS exclusively — no fallback to the legacy dirty bitmap path. If that
+>>>>>> works, I think this approach should be fine.
+>>>>>>
+>>>>>> Let me know if you have any insights on dirty ring's full-buffer behavior —
+>>>>>> that would be helpful.
+>>>>>>
+>>>>>>
+>>>>> Will do!
+>>>>>
+>>>>> Thanks!
+>>>>> Leo
+>>>>
+>>>>
+>>>> Thanks for the insights — reusing PML's reservation mechanism makes sense.
+>>>>
+>>>> I think we can*keep the HDBSS buffer at 512 entries* (matching
+>>>
+>>> I recommend using a PAGESIZE (512 in 4k, but bigger in other sizes)
+>>>
+>>>> PML_LOG_NR_ENTRIES)
+>>>>
+>>>> for now, and *not expose any ioctl for userspace to configure it*. Since the
+>>>> kernel
+>>>>
+>>>> auto-enables HDBSS, a userspace size knob would be confusing.
+>>>>
+>>>
+>>> Humm, I am in favor of letting the user change it according to it's
+>>> workload. Why would that be confusing?
+>>>
+>>> (Having a default size is useful just for enabling it to work without any
+>>> change in current VMs)
+>>>
+>>>>
+>>>> The reservation logic would be:
+>>>>
+>>>> - Implement kvm_cpu_dirty_log_size() on arm64 to return the HDBSS buffer
+>>>> entry
+>>>>
+>>>> count (512, or 0 if HDBSS is not enabled)
+>>>
+>>> Why a get to log_size? does userspace need to know it's using HDBSS?
+>>>
+>>> Just a set should do, as VMMs can just try to set a value, and if it fails
+>>> (IOCTL does not exist, or invalid value), then it can just go forward.
+>>>
+>>>>
+>>>> - Reuse kvm_dirty_ring_get_rsvd_entries() to reserve space for one full
+>>>> flush:
+>>>>
+>>>> KVM_DIRTY_RING_RSVD_ENTRIES + hdbss_entries
+>>>>
+>>>> - So soft_limit = dirty_ring_size - (KVM_DIRTY_RING_RSVD_ENTRIES +
+>>>> hdbss_entries),
+>>>>
+>>>> guaranteeing a full flush always fits
+>>>>
+>>>> kvm_flush_hdbss_buffer() at guest_exit pushes via mark_page_dirty_in_slot()
+>>>> ->
+>>>>
+>>>
+>>> I think I get the point here: since we can have sw dirtying as well as
+>>> HDBSS tracking, we may get to the point that we don't have enough space to
+>>> flush hdbss -> dirty-ring, right?
+>>>
+>>>> kvm_dirty_ring_push() -> kvm_dirty_ring_soft_full, which triggers
+>>>>
+>>>> KVM_EXIT_DIRTY_RING_FULL when needed.
+>>>>
+>>>> If soft_limit is hit, KVM_REQ_DIRTY_RING_FULL is set and the next vcpu_run
+>>>> exits
+>>>>
+>>>> to userspace for QEMU to drain the ring.
+>>>
+>>> So the software dirtying routine would be affected by the soft limit, but
+>>> HADBSS exit would not. It means the dirty-ring would be effectively smaller
+>>> than specified if we are having mostly sw dirtying.
+>>>
+>>> Did I get that right?
+>>>
+>>>>
+>>>> *One more thing: *when userspace sets the dirty ring size via
+>>>>
+>>>> KVM_VM_IOCTL_ENABLE_DIRTY_LOG_RING, we already enforce that
+>>>>
+>>>> size >= kvm_dirty_ring_get_rsvd_entries(kvm) * sizeof(struct kvm_dirty_gfn)
+>>>>
+>>>> or size < PAGE_SIZE. With HDBSS, kvm_dirty_ring_get_rsvd_entries() will
+>>>> include the
+>>>>
+>>>> HDBSS entries via kvm_cpu_dirty_log_size(), so the same check will
+>>>> automatically guarantee
+>>>>
+>>>> the ring is large enough to accommodate the HDBSS buffer. No additional
+>>>> validation is needed.
+>>>>
+>>>
+>>
+> 
+> Hi Inochi,
+> 
+>> I have a small question on this, since HDBSS supports 2MiB buffer,
+>> it  will has more entries than the dirty ring.
+> 
+> The entries reserved for HDBSS are part of the dirty ring, but I get the
+> point: having a dirty-ring with 64k entries and HDBSS with 256k entries
+> (2MB/8) would be weird.
+> 
+> For the dirty-ring I think the plan is to have HDBSS buffer to be a fraction
+> of the configured dirty-ring size.
+> 
+>> If we use
+>> kvm_cpu_dirty_log_size() to reserve entries. It will always enter
+>> soft limit if the HDBSS buffer is huge.
+>>
+> 
+> Yeah, but once HDBSS is active if we enable dirty_tracking, there should
+> not be a lot of entries being added to the dirty ring that don't come from
+> HDBSS, so it should be fine. If it happens, though, it will just exit guest
+> and drain as it happens nowadays.
+> 
+> 
+>> Since I think users set large buffer expect less context switch.
+>> I think this may require some change on the dirty ring framework.
+>> At least I think the soft limit check should be adjusted.
+>>
+> 
+> That may not be the case: the memory usage of the dirty-ring is
+> (16 * dirty_ring_size * vcpus) in bytes.
+> 
+> On a VM with 1024 vcpus, only the HDBSS buffer alone would be 2GB, plus 4GB
+> of the reserved dirty-ring for that buffer.
+> 
+> Which brings the discussion: maybe we should have a buffer management
+> happen instead of using the reserving strategy: If the buffer does not fit
+> in the dirty-ring, just move the remaining entries to the start, adjust the
+> index register, and continue.
+> 
+> (On a 2MB size it would be bad, as there could be many remaining entries)
+> 
+> Alternatively, we can just keep guest_exitting until all HDBSS entries fit
+> the dirty_ring, which introduce overhead, but should work as well.
+> 
+> All options have some tradeoff, though.
+> 
+> Thanks!
+> Leo
+> 
+Hi Leo, Inochi
 
-I also noticed an important issue with my earlier "clean boot" test:
-although I had not manually started vulkaninfo, the system was still
-booting the graphical target, so GDM/GNOME had already accessed the
-PowerVR Vulkan driver.
+I agree with you — this is exactly why I mentioned earlier that I don't
+want to expose a buffer size ioctl. It would just create a hidden
+dependency on the dirty ring size, and the "right" value is really
+something the kernel should figure out on its own, not something
+userspace needs to care about.
 
-I repeated the test in a true console-only environment. In that case,
-the PowerVR driver and firmware initialized successfully and the GPU
-remained alive until I manually ran vulkaninfo. The GPU was then reported
-lost approximately two seconds after vulkaninfo entered the
-vkCreateDevice path.
+For v5, here's what I'm thinking:
 
-However, this was still tested on Linux 7.1.3 with the MT8173 v3 series
-applied. I will rebuild and retest on top of next-20260727 as you
-requested before drawing further conclusions.
+With dirty ring: auto-size the HDBSS buffer to half the ring size,
+rounding down to whatever order the hardware supports.
 
-Thank you,
+Without dirty ring (bitmap mode): just use a sensible default — like
+512 entries, or whatever size you think makes sense.
 
-YoungJoon Lee
+And implement kvm_cpu_dirty_log_size() for the reservation logic.
 
-2026=E5=B9=B47=E6=9C=8828=E6=97=A5(=E7=81=AB) 15:37 Chen-Yu Tsai <wenst@chr=
-omium.org>:
->
-> On Mon, Jul 27, 2026 at 11:49=E2=80=AFPM YoungJoon Lee <getfeus@gmail.com=
-> wrote:
-> >
-> > Hello,
-> >
-> > I tested patches 1/5 through 5/5 from the MT8173 PowerVR v3 series on
-> > an Acer Chromebook R13 (Google Elm), which uses an MT8173 SoC and a
-> > PowerVR Rogue GX6250 GPU with BVNC 4.40.2.51.
-> >
-> > For clarity, I applied the five actual patches numbered 1/5 through
-> > 5/5. The 0/5 cover letter itself was not applied.
-> >
-> > Kernel:
-> >   Linux 7.1.3-stb-cbm-pvr-v3
->
-> Please at least try linux-next. There's around 30 patches for powervr
-> between v7.1 and next-20260727, 15 if you count from v7.1 to v7.2-rc1.
->
-> > Relevant kernel configuration:
-> >   CONFIG_DRM_POWERVR=3Dm
-> >   CONFIG_COMMON_CLK_MT8173_MFGTOP=3Dy
-> >
-> > Kernel command line:
-> >   powervr.exp_hw_support=3D1
-> >
-> > Firmware:
-> >   powervr/rogue_4.40.2.51_v1.fw
-> >
-> > The driver probes successfully, loads the firmware, and initializes the
-> > DRM device:
-> >
-> >   [    6.110569] powervr 13000000.gpu:
-> >                  [drm] Running on unknown hardware; expect issues.
-> >   [    6.117454] powervr 13000000.gpu:
-> >                  [drm] loaded firmware
-> >                  powervr/rogue_4.40.2.51_v1.fw
-> >   [    6.118010] powervr 13000000.gpu:
-> >                  [drm] FW version v1.0 (build 6476056 OS)
-> >   [    6.122992] [drm] Initialized powervr 1.0.0
-> >                  for 13000000.gpu on minor 1
-> >
-> > The following DRM device nodes are created:
-> >
-> >   /dev/dri/card0
-> >   /dev/dri/card1
-> >   /dev/dri/renderD128
-> >
-> > However, on a clean boot, without manually running vulkaninfo, vkcube,
-> > or another Vulkan application, the driver reports that the GPU has been
-> > lost approximately six seconds after DRM initialization:
-> >
-> >   [   12.084078] powervr 13000000.gpu:
-> >                 [drm] *ERROR* GPU device lost
-> >
-> > The relevant boot sequence is therefore:
-> >
-> >   [    6.110569] PowerVR probe begins
-> >   [    6.117454] Firmware is loaded
-> >   [    6.118010] Firmware version is reported
-> >   [    6.122992] DRM initialization completes
-> >   [   12.084078] GPU device lost
-> >
-> > The unused-regulator shutdown occurs considerably later:
-> >
-> >   [   31.712124] vgpu: disabling
-> >
-> > Therefore, the later "vgpu: disabling" message does not appear to be
-> > the immediate cause of the device loss. The GPU is reported lost about
-> > 20 seconds before that regulator shutdown message.
-> >
-> > After the failure, regulator_summary reports:
-> >
-> >   vgpu  0  0  0  normal  1000mV  0mA  700mV  1350mV
->
-> This is unrelated. This regulator output is _really_ unused. "vgpu" is
-> just the default name on the PMIC.
->
->
-> > This output was collected after the GPU had already been reported lost,
-> > so I do not know whether the regulator state was different during probe
-> > or immediately before the failure.
-> >
-> > The PowerVR-related clocks appear enabled in clk_summary:
-> >
-> >   mfg_26m       26000000 Hz
-> >
-> >   mem_mfg_in_sel
-> >     rate:       455000000 Hz
-> >     enable:     1
-> >     prepare:    1
-> >
-> >   mfg_mem
-> >     rate:       455000000 Hz
-> >     enable:     1
-> >     prepare:    1
-> >     consumer:   13000000.gpu
-> >     clock name: mem
-> >
-> >   mfg_sel
-> >     rate:       455000000 Hz
-> >     enable:     1
-> >     prepare:    1
-> >
-> >   mfg_g3d
-> >     rate:       455000000 Hz
-> >     enable:     1
-> >     prepare:    1
-> >     consumer:   13000000.gpu
-> >     clock name: core
-> >
-> >   axi_mfg_in_sel
-> >     rate:       208000000 Hz
-> >     enable:     2
-> >     prepare:    2
-> >     consumer:   power-domain@7
-> >
-> >   mfg_axi
-> >     rate:       208000000 Hz
-> >     enable:     1
-> >     prepare:    1
-> >     consumer:   13000000.gpu
-> >     clock name: sys
-> >
-> > I also installed Mesa 26.1.5 and vulkan-powervr 26.1.5 and tested the
-> > Vulkan ICD with:
-> >
-> >   PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 \
-> >   VK_DRIVER_FILES=3D/usr/share/vulkan/icd.d/powervr_mesa_icd.json \
-> >   vulkaninfo --summary
-> >
-> > The PowerVR ICD was found and loaded. Before hanging, Mesa printed:
-> >
-> >   WARNING: powervr is not a conformant Vulkan implementation,
-> >            testing use only.
-> >
-> >   FINISHME: Missing reset support for brn51764
-> >   FINISHME: Missing reset support for brn58839
-> >   FINISHME: Missing support for brn62269
-> >   FINISHME: Devices without tpu_border_colour_enhanced require entries
-> >             for compressed formats to be stored in the table
-> >             pre-compressed.
-> >
-> > The vulkaninfo process then remained in uninterruptible sleep:
-> >
-> >   PID   STAT  WCHAN             COMMAND
-> >   3244  Dl+   synchronize_srcu  vulkaninfo --summary
-> >
-> > It could not be terminated normally while in that state, and a reboot
-> > was required.
-> >
-> > However, the clean-boot log shows that "GPU device lost" occurs even
-> > without starting vulkaninfo manually. The vulkaninfo hang may therefore
-> > be a consequence of the GPU already being in the lost state, rather tha=
-n
-> > the original cause of the failure.
-> >
-> > At this point, the following parts appear to work:
-> >
-> >   - MT8173 GPU device-tree node probing
-> >   - MFGTOP clock registration
-> >   - PowerVR kernel module probing
-> >   - Firmware loading
-> >   - Firmware version reporting
-> >   - DRM device initialization
-> >   - Creation of card1 and renderD128
-> >
-> > The remaining problem is that the GPU becomes lost approximately six
-> > seconds after initialization.
->
-> Sorry. I'm not seeing this on my device. I'm running the patches on
-> top of next-20260727 this round.
->
->
-> ChenYu
->
-> > Could this be related to an interrupt not being delivered, firmware
-> > heartbeat handling, reset sequencing, runtime PM, a missing regulator
-> > consumer relationship, or another MT8173-specific power-domain
-> > requirement?
-> >
-> > Please let me know which additional kernel debug options, DRM debug
-> > settings, tracepoints, interrupt statistics, register dumps, or test
-> > patches would be useful. I have physical access to the device and can
-> > build and test further kernel changes.
-> >
-> > Thank you for working on MT8173 support.
-> >
-> > Best regards,
-> > YoungJoon Lee
-> >
-> > 2026=E5=B9=B47=E6=9C=8827=E6=97=A5(=E6=9C=88) 18:16 Chen-Yu Tsai <wenst=
-@chromium.org>:
-> > >
-> > > Hi everyone,
-> > >
-> > > This is v3 of my MT8173 PowerVR GPU support series.
-> > >
-> > > I got another inquiry on the status of this patch series, so I though=
-t
-> > > I'd dig it out, fix all the issues and send another version.
-> > >
-> > > This time around Mesa was ready for basic testing, using both vulkanm=
-ark
-> > > and glmark2-es2-drm (with Zink). Details below.
-> > >
-> > > Changes since v2 (all in the clk driver patch):
-> > > - Made COMMON_CLK_MT8173_MFGTOP depend on PM
-> > >   - Needed since the driver implements PM domains using the generic P=
-M
-> > >     domain library, which also depends on PM
-> > >   - Fixes build breakage (kernel test robot)
-> > > - Fixed "RST_DELAY_CNT" name (Brian)
-> > > - Dropped unused mfg_desc (Brian)
-> > > - Added check of clk_prepare_enable()'s return value in
-> > >   clk_mt8173_mfgtop_power_on() (Brian)
-> > > - Saved error value for return in IS_ERR(data->clk_26m) branch
-> > >   (Dan Carpenter / kernel test robot w/ smatch)
-> > >
-> > > Changes since v1:
-> > > - Adapted to changed DT bindings
-> > > - Dropped driver change
-> > > - Use same power domain for "a" and "b" GPU power domains
-> > >
-> > >
-> > > This series enables the PowerVR GPU found in the MT8173 SoC, found in
-> > > some Chromebooks.
-> > >
-> > > This version is different from the initial powervr driver submission =
-[1]
-> > > in that it splits out the GPU glue layer support out of the powervr
-> > > driver and into a separate clock and power domain driver. The glue co=
-de
-> > > is otherwise the same, and also the same as found in the ChromeOS
-> > > kernels, with some extra comments and macro names added where possibl=
-e.
-> > >
-> > > Patch 1 adds a binding for the glue layer, called mfgtop. The glue la=
-yer
-> > > contains clock and power controls for the GPU.
-> > >
-> > > Patch 2 adds a driver for the glue layer, implemented as a clock driv=
-er
-> > > that also provides power domains.
-> > >
-> > > Patch 3 adds an entry for the MT8173 GPU and 6XT series to the PowerV=
-R
-> > > binding.
-> > >
-> > > Patch 4 corrects the clock for the GPU (called MFG) power domain.
-> > >
-> > > Patch 5 adds device nodes for the GPU and glue layer to the MT8173 dt=
-si
-> > > file.
-> > >
-> > > The kernel driver successfully probes the hardware and loads the
-> > > "rogue_4.40.2.51_v1.fw" firmware provided by Imagination Technologies=
- [2].
-> > > The "exp_hw_support" module parameter needs to be set for the driver =
-to
-> > > probe successfully.
-> > >
-> > > This was tested with Mesa 26.1.5 from Debian Forky. With this version
-> > > vkmark and glmark2-es2 (over Zink) both run fine. Mesa spits out a bu=
-nch
-> > > of warnings since the GX6250 core is not officially supported.
-> > >
-> > >     # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 vkmark
-> > >     WARNING: powervr is not a conformant Vulkan implementation, testi=
-ng use only.
-> > >     WARNING: powervr is not a conformant Vulkan implementation, testi=
-ng use only.
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:7=
-3: FINISHME: Missing reset support for brn51764
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:7=
-6: FINISHME: Missing reset support for brn58839
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:5=
-23: FINISHME: Missing support for brn62269
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: F=
-INISHME: Devices without tpu_border_colour_enhanced require entries for com=
-pressed formats to be stored in the table pre-compressed.
-> > >     WARNING: powervr is not a conformant Vulkan implementation, testi=
-ng use only.
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >         vkmark 2025.01
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >         Vendor ID:      0x1010
-> > >         Device ID:      0x6250
-> > >         Device Name:    PowerVR Rogue GX6250
-> > >         Driver Version: 109056005
-> > >         Device UUID:    d04cd6f3a25fd4900f89c151bccfdfcf
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >     [vertex] device-local=3Dtrue: FPS: 251 FrameTime: 3.984 ms
-> > >     [vertex] device-local=3Dfalse: FPS: 220 FrameTime: 4.545 ms
-> > >     [texture] anisotropy=3D0:^C FPS: 223 FrameTime: 4.484 ms
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >                                        vkmark Score: 231
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >
-> > >     # PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 glmark2-es2-drm
-> > >     WARNING: powervr is not a conformant Vulkan implementation, testi=
-ng use only.
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:7=
-3: FINISHME: Missing reset support for brn51764
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:7=
-6: FINISHME: Missing reset support for brn58839
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_job_context.c:5=
-23: FINISHME: Missing support for brn62269
-> > >     MESA: warning: ../src/imagination/vulkan/pvr_arch_border.c:244: F=
-INISHME: Devices without tpu_border_colour_enhanced require entries for com=
-pressed formats to be stored in the table pre-compressed.
-> > >     Warning: DRM_CAP_ASYNC_PAGE_FLIP not supported, falling back to '=
-mailbox' mode for SwapInterval(0).
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >         glmark2 2023.01
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >         OpenGL Information
-> > >         GL_VENDOR:      Mesa
-> > >         GL_RENDERER:    zink Vulkan 1.2(PowerVR Rogue GX6250 (IMAGINA=
-TION_OPEN_SOURCE_MESA))
-> > >         GL_VERSION:     OpenGL ES 2.0 Mesa 26.1.5-1
-> > >         Surface Config: buf=3D32 r=3D8 g=3D8 b=3D8 a=3D8 depth=3D24 s=
-tencil=3D0 samples=3D0
-> > >         Surface Size:   1366x768 fullscreen
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >     [build] use-vbo=3Dfalse: FPS: 49 FrameTime: 20.473 ms
-> > >     [build] use-vbo=3Dtrue: FPS: 45 FrameTime: 22.660 ms
-> > >     [texture] texture-filter=3Dnearest: FPS: 45 FrameTime: 22.642 ms
-> > >     [texture] texture-filter=3Dlinear:^C FPS: 50 FrameTime: 20.172 ms
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >                                       glmark2 Score: 46
-> > >     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >
-> > >
-> > > Please have a look.
-> > >
-> > > Thanks
-> > > ChenYu
-> > >
-> > > [1] https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.w=
-alker@imgtec.com/
-> > > [2] https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/=
-powervr
-> > >
-> > > Chen-Yu Tsai (5):
-> > >   dt-bindings: clock: mediatek: Add mt8173 mfgtop
-> > >   clk: mediatek: Add mt8173-mfgtop driver
-> > >   dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
-> > >   arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
-> > >   arm64: dts: mediatek: mt8173: Add GPU device nodes
-> > >
-> > >  .../clock/mediatek,mt8173-mfgtop.yaml         |  70 +++++
-> > >  .../bindings/gpu/img,powervr-rogue.yaml       |   1 +
-> > >  arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  33 ++-
-> > >  drivers/clk/mediatek/Kconfig                  |  10 +
-> > >  drivers/clk/mediatek/Makefile                 |   1 +
-> > >  drivers/clk/mediatek/clk-mt8173-mfgtop.c      | 241 ++++++++++++++++=
-++
-> > >  include/dt-bindings/clock/mt8173-clk.h        |   7 +
-> > >  7 files changed, 362 insertions(+), 1 deletion(-)
-> > >  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,=
-mt8173-mfgtop.yaml
-> > >  create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
-> > >
-> > > --
-> > > 2.55.0.229.g6434b31f56-goog
-> > >
+Does that sound reasonable? Or do you have a better idea for the bitmap
+mode default?
+
+Thanks,
+Tian
 
