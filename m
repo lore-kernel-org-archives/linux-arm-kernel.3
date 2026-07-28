@@ -4,67 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E63CC54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0A9C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e25eRHyPaGpfrunghh9CMaB2BGvg6mju2YC6suLb9dg=; b=X4/4EH7zIF0MG7IiJFGGOlFcfQ
-	MXThtMBmkIOIL3YaZJdp2/Lg1LfMPlxP4x+Za6N176gFXtFdf2ICVZgYVxmtvWL8XsxbxmYlk29As
-	aJ2bd/ubRI7F7Q1Ebpoj5t6S/nAjXlV7pVdcl6Q1BI7suriJaSaTLD78M2dYnpAhYI93bBOqZw/5A
-	B3B6ApXNisHVJjOrGMsUrAhZqgLFIHYPYABxOjXnJGKR0xezVX7cC9RryjMefim7RvjBSBq4Z59kc
-	cdlRPG/2/gTVMMg3cb2z0tpadARvmML729nd28zSR8Uxr+gekV5RFqLsfA6NsEYn1vxRr2OpOoLs7
-	slgvpqXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qXOP4XN0PqhQT+v4jXW4sP+aBgVsrUPoLsPqH/lHN1Y=; b=FvXN28npmII9RSMpo5i9zOz+un
+	nTXHJxSJfktsP9gX6MNCSlCdG8lmtK0s4xF8uTx10WGvuwbcxHiau2jMgJHUflsFtH4jlXY2Z1InY
+	9bz/VunmCZAGq9uhrtNmzIJS1dpiPcBtR9RN57o+O4WEZ9igC9aOAWFcCKKCbI5qcxHAp0TOkWHgy
+	Mti8HsgqqLDOAPmn+3CwOlUp0Id9kvgfkdRdgp/YsAdKn0Mxha1w/0h7J7IosXkuN18TRR1nSd6i0
+	nctBK9SQsvhfE8AhPoo7tv4rXirIVYfrtBjr77uI2ezG6NGDwedPbDdT1KcX8mBW8D3Gnm9zjpD2U
+	uiQo3qvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodBd-00000004iNS-28xn;
-	Tue, 28 Jul 2026 08:29:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wodDB-00000004ifT-3rfG;
+	Tue, 28 Jul 2026 08:30:55 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodBa-00000004iMT-37EO;
-	Tue, 28 Jul 2026 08:29:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785227352;
-	bh=f6ahL+mDCp4GOtiCvt/A5VrHg763alI3Zyu7EZLrDO4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jbgG64dtvkMpnQhap0BIoWtTEWNeR6xJXF1mYIpzsC8tvlHd6lAqK2F0rI7SxHnnZ
-	 Qya/631YjBP3P/jh4uFND0KOMDIzYPeuYaNYYGIUcQiw0CedLdlwsgNf7yOtBo97FG
-	 o2I6RMiBEOpQJDNXbB1lRm6X8OJUE/xVUJ7Nyz3YmYNyMgQvxCDPIZmJORBjZqkapO
-	 pSXM4hMofpAz1Nk3EoAv7hV88XAFHEsDMEhimQ0PH6Otbts07LuQu7XbX6VotcEo/1
-	 d9sYooEpijM/oItOAOqmO/eKCPJWPwgmjz/SNMfH1UL3DJwjd5RMhQYK8wSEmWjcJa
-	 7KBGKahI8RCqA==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1858017E063E;
-	Tue, 28 Jul 2026 10:29:12 +0200 (CEST)
-Message-ID: <9ae852e3-97bb-48bb-ba6f-bf2ab9ae8dd6@collabora.com>
-Date: Tue, 28 Jul 2026 10:29:11 +0200
+	id 1wodD8-00000004ief-34S8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 08:30:52 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49553515a8bso43470995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 01:30:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1785227448; x=1785832248; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qXOP4XN0PqhQT+v4jXW4sP+aBgVsrUPoLsPqH/lHN1Y=;
+        b=ctIJb+rkJp8+w8+XioSmx+Xc7WrLTzd41rzUrT5LWinGtl1wWoad3e+LQVuxCCXL0n
+         Arzg7Vm4/oVS1FHUn/c7tAIoU1gcVKK+xEN/XVmLQRmJznEcLF3gioOt65e/Cbb0aL+S
+         5ZmVBhJ44RLzxi1QxZ7HBntZBcPanPxM4ZAOXErSeyGZX2K+LDx8rxI8AxaSZxQnF+ty
+         KiqqeTsdc1mnzZWqew4O/yhDIieIjpUW/5xVUGPP9tuAvWgl8sTGLtGLRBu4Vq4RLo4V
+         nRq5io1b7msjdJmcggbiw8jBAvyP8u9wF+/F5Ccp8O4E0+1UrXpyXKsAawKEEJCfm4gp
+         iWQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785227448; x=1785832248;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qXOP4XN0PqhQT+v4jXW4sP+aBgVsrUPoLsPqH/lHN1Y=;
+        b=CUXcOjPrd+lfjljqRCdMsvb31vKO5OJmcz9PK7TQHg96DhOPJpCUw9nwg5RkjnHf9D
+         gv99P1hrQYjYlBIcL2/CTVgdLvll2blIfISPaHYnlquCXTVrXjzXz6Hu/lVrEiMTutcV
+         fngWV4di1cOFZC2ErlE0S1fC53bKazx7cDmsQ8ycPV1JGIjE6OSaZyIy1bomedyJVbCP
+         rq1pSC/6tfPj2yUBOG54m5MAfa1c9zLsoCUhgIWyDHTtL+ij6/5u0wQLSXhHG9xkB3uV
+         TQnabpnvVDwYVQZdk6PYI3WVfi+s9NgVbyS71Dd8vQKZZmJ9uhBIO9M+q4idM8ssnaqN
+         adeQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpEhh9nVe6tD4q+XcpN1XSNIT1wmGmbpOtq/c1/wxrEygdkDgJ1DHgfc7V6SsAb1kxb/0L8nKE7BWiCV6XSpYLG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd9B9Kv3emYoopExc6gn5M8/DiczqVzszKb+ilN8BzhGjJYDEB
+	BRCZmgxAIEIMt2fAgZfXJ6Wqjz2oY+n+LkROsQ4eRilcf0PEN4SW/zZbv0l6jhY+96E=
+X-Gm-Gg: AR+sD12beG6R1hzVXrAScbdqCZvAPDogEXq64W48s0Jnx0s4/IFSEMv6o8G3DiP6fJV
+	jXqOLaAlOiGuHZk57Fxg/Y8IxX6DP0VKfwMDhvE06eInIsIK1pSzBlRkne+dy76rYGb1sNfqSEC
+	MEN7rqyXh7xXGYrCGCH3xA3d8S7JsClzi6coomyXfKLBW0a2daN61cWyNoa2WjHXxq0R7NSMx1j
+	97hOwYferGYkELvn5vCBCNyH17khO1Lx+Eim4pzU3nDxn3ByhTejRlKDgjZOwQQhRb7f0QX34+i
+	Qc0REwmXr+PCzXajmI53QqT8CI0FCZ58F9YzxKylryoCP0soKU1mQ4N6tn9am5mmqNblddWyjfN
+	QahUjd25u1gJELbAZCK66HhO6LGVanUFqbzDaR+bi+UXXQLyhGprHHw6Twfv0Ck6fPIY8HuqYW3
+	vcSuMojoN5Ys02lRLSdptCVm98b+v/ZT49bEkgz7ss0zkpxxVe8bvcVuIcIA==
+X-Received: by 2002:a05:600c:3b13:b0:495:3c6d:f294 with SMTP id 5b1f17b1804b1-496c6571db3mr16805925e9.23.1785227448036;
+        Tue, 28 Jul 2026 01:30:48 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:5788:c4e1:cf35:7211? ([2a01:e0a:106d:1080:5788:c4e1:cf35:7211])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-496c44afaecsm68281745e9.2.2026.07.28.01.30.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Jul 2026 01:30:47 -0700 (PDT)
+Message-ID: <e73bf1bc-aab5-4786-b97b-803c3e118a46@linaro.org>
+Date: Tue, 28 Jul 2026 10:30:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] pmdomain: mediatek: Fix MT8183 hang on boot
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>,
- Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260722132729.302067-1-dmitry.osipenko@collabora.com>
- <CAPx+jO-1_ZpYcnPtoYxRn5vv34tiP7TXnjKZ3SaWkEzdeTfXpA@mail.gmail.com>
- <3130633c-fbff-4b1a-a127-bd4eb678c3f6@collabora.com>
- <CAPx+jO9-b_XyhS_CtX1ZFiH96WMYjjcvOEcO6u6CLEZq61rpaw@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAPx+jO9-b_XyhS_CtX1ZFiH96WMYjjcvOEcO6u6CLEZq61rpaw@mail.gmail.com>
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v4 08/15] media: meson-ir-tx: Ensure rc_free_device() is
+ called on unbind
+To: Sean Young <sean@mess.org>, linux-media@vger.kernel.org,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1785158244.git.sean@mess.org>
+ <4674de80dfb7ab8c4a66282be26260ce4e7c9055.1785158244.git.sean@mess.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <4674de80dfb7ab8c4a66282be26260ce4e7c9055.1785158244.git.sean@mess.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_012914_966688_FFEE312E 
-X-CRM114-Status: GOOD (  37.08  )
+X-CRM114-CacheID: sfid-20260728_013050_848933_43066857 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,119 +131,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/27/26 18:48, Ulf Hansson wrote:
-> On Mon, Jul 27, 2026 at 1:04 PM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> On 7/24/26 17:01, Ulf Hansson wrote:
->>> On Wed, Jul 22, 2026 at 3:28 PM Dmitry Osipenko
->>> <dmitry.osipenko@collabora.com> wrote:
->>>>
->>>> Depending on firmware, part of the MFG domains may be left ON at boot
->>>> leaving only some MFG cores powered, to let the ACP to prefetch the GPU
->>>> region when the display controller is brought up. This doesn't play well
->>>> with an eventual delay in probing Panfrost when the display controller is
->>>> fully set up, as that would make genpd's sync_state() to power off the
->>>> domain while ACP tries to prefetch: this is causing an AXI stall,
->>>> effectively freezing the AP indefinitely. In order to prevent this from
->>>
->>> I haven't made any detailed investigation, but to me, it sounds like
->>> there is a missing consumer somewhere.
->>>
->>> Should the ACP/panfrost devices be a consumer of the MFG domains as
->>> well? Or perhaps, if the ACP/panfrost should rely on the display
->>> controller to be probed and powered-on, to be able to probe?
->>>
->>
->> This is about how the bootloader is leaving the display controller, the ACP,
->> and the MFG registers before booting the kernel.
+On 7/27/26 15:18, Sean Young wrote:
+> Make rc_dev devm managed.
 > 
-> Right.
+> Fixes: dccc0c3ddf8f ("media: rc: fix race between unregister and urb/irq callbacks")
+> Signed-off-by: Sean Young <sean@mess.org>
+> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+> Cc: stable@vger.kernel.org
+> ---
+>   drivers/media/rc/meson-ir-tx.c | 6 ++----
+>   1 file changed, 2 insertions(+), 4 deletions(-)
 > 
->>
->> The kernel drivers themselves will reset this weird state when the HW gets
->> to full probe so there won't be any more issue(s) from that point onwards.
->>
->> Actually, there would be A LOT to say about this, but I'll be very brief...
->>
->> Basically, before booting the kernel, the bootloader is leaving a half-assed
->> setup to potentially support continuous splash functionality, but without it
->> being actually used on the device(s) that we're talking about here...
-> 
-> So does that mean that the print in scpsys_add_one_domain() ("A
-> default off power domain has been ON") gets printed for these PM
-> domains?
-> 
+> diff --git a/drivers/media/rc/meson-ir-tx.c b/drivers/media/rc/meson-ir-tx.c
+> index e7bb107e6a84..abb107d19e8c 100644
+> --- a/drivers/media/rc/meson-ir-tx.c
+> +++ b/drivers/media/rc/meson-ir-tx.c
+> @@ -345,7 +345,7 @@ static int meson_irtx_probe(struct platform_device *pdev)
+>   	if (ret)
+>   		return dev_err_probe(dev, ret, "irq request failed\n");
+>   
+> -	rc = rc_allocate_device(RC_DRIVER_IR_RAW_TX);
+> +	rc = devm_rc_allocate_device(dev, RC_DRIVER_IR_RAW_TX);
+>   	if (!rc)
+>   		return -ENOMEM;
+>   
+> @@ -358,10 +358,8 @@ static int meson_irtx_probe(struct platform_device *pdev)
+>   	rc->s_tx_duty_cycle = meson_irtx_set_duty_cycle;
+>   
+>   	ret = devm_rc_register_device(dev, rc);
+> -	if (ret < 0) {
+> -		rc_free_device(rc);
+> +	if (ret < 0)
+>   		return dev_err_probe(dev, ret, "rc_dev registration failed\n");
+> -	}
+>   
+>   	return 0;
+>   }
 
-Yeah...
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-> If so, perhaps it would be better to turn off the PM domains (if
-> possible) before registering them with genpd?
-> 
-
-Eh, that's not possible :-(
-
-Doing that would bring us back to square 1. The SoC will lockup.... ACP is still
-trying to constantly prefetch, and the issue here is going totally unpowered, as
-explained in the commit description - because that's the HW condition that causes
-the stall eventually.
-
-To make things "funnier" (in this case) for everyone, the ACP is always-on, of
-course, so there's no cleaner way around it.
-
->>
->> Again, I should put a remark on every word of that last paragraph, but this
->> is the gist of it.
->>
->> If you're curious or need more information, of course I can expand a bit,
->> there's no secret involved here, it's just that I'm avoiding to write a wall
->> of text around that...
->>
->> P.S.: We've been discussing that internally and chasing this issue for months
->> before deciding to "solve" it like this.
-> 
-> Huh, I see, thanks for sharing.
-> 
-> I think it would be nice to clarify a little bit more in the commit
-> message, as it all kind of indicates to me that there is a missing
-> consumer or that a parent needs to be runtime resumed before a child
-> is probed.
-> 
-
-Eh for both me and Dmitry the commit message looked clear, but yeah, it's surely
-just because we bashed our heads over this issue, and our knowledge makes things
-look obvious when they are definitely *not*, as you just pointed out - so thanks
-for that!
-
-So yeah, Dmitry, if you can please send a v2 with some more clarification in the
-commit message (practically, add the information that I shared in this topic),
-that would be awesome.
-
-> Or another way of looking at it, that perhaps makes better sense.
-> Based on your latest information, it seems like the PM domain isn't
-> really fully powered-on by the bootloader, but still we are telling
-> genpd that it is, leading to an inconsistent state and errors.
-> 
-
-Yeah, the bootloader is doing random things, leaving the PDs only partially powered
-ON (just the SRAM, which is half of the MFG_ASYNC setup, and 2D accelerator, but
-not the rest, which makes little sense because there's another parent in the middle
-that is not powered at all...) and that's why this issue is experienced.
-
-I think this is really just a bootloader bug in this case, so if we lived in a
-parallel universe where the MediaTek kernel drivers supported continuous splash on
-upstream... I'm mostly sure that this issue would still be there, and that this SoC
-would still randomly and spectacularly freeze without this commit.
-
-Cheers,
-Angelo
-
-
-> [...]
-> 
-> Kind regards
-> Uffe
+Thanks,
+Neil
 
