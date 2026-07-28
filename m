@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0FFC54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69842C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H7fev+SkGyN9dwqneF8wGz0L9AJDYK9rgIHDzaAUb9E=; b=fztA/hog3wuz7CkYT7MWC6poks
-	6XtU0/8/yYx6IOcIXK9cHmF/Dw7D0tsQ4Y6ZMRbydvVUgZsBhXksO+78DqLDT+X+E0Ce9Lq0i63sP
-	OsMpaubLyrTm1rfyWktaU7pCkUmnzRkg1wku5RvSv8FYtLD0f7NtNIePWM904XNZAcwPIme/bgfR0
-	1u/KVRlH5lAOoFQFssbmO8ibqoFVitgG53q6MwLhUT6BNBdu/15nUQff1ZQHlYmWgbrmp21fkquBJ
-	mf6959YzP5OblIe3QQslGXxgd42pbQbnhfJlDO7YUDVkTu88ydQj8x/+yITxJttoUDm//DxYWsAH3
-	4pG5JW9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IG2LsTG19/fL5TvZ5g3enSiygsLSSoCB0+jF1yBTCl0=; b=bNOZ7DX8tWwAcvNurUcXq2q30M
+	4LO/drMgogY5e7d/XK67W2l2k0hv+8E7fLLveFliv0Cl59KDoZRUIYb7HIthyAyzyD7CkGjUHGs2k
+	UDB0aB8yjhqMyyMIsCBUCj9C38MLECiuR5tD4DKZLylV2mpLcVeoLEUJMy/ve9i0CkFNMvg+V7gsR
+	cJwl2CB2V2lr5nga3cEJLCltOlsoxdXfOhlFzXMMvDN/FbW1QXbmdUZc5Gl035yxnBMbECPiWgZj4
+	5vZJZ+WGElRarYWn27gLbY3NHQr/5EhuwWgB7Jg5kf2WuQYQIxYrkOaXYTL19X+9qjV6QtR1sdOz1
+	FwH0sZTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodZI-00000004ksJ-0AfK;
-	Tue, 28 Jul 2026 08:53:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wodZT-00000004kvT-1H6A;
+	Tue, 28 Jul 2026 08:53:55 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodZG-00000004ks6-3t9P
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 08:53:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5295D43F72;
-	Tue, 28 Jul 2026 08:53:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911061F01558;
-	Tue, 28 Jul 2026 08:53:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785228822;
-	bh=H7fev+SkGyN9dwqneF8wGz0L9AJDYK9rgIHDzaAUb9E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GdSe6iFXFbfiWRcgQvA4B2opSX9qDpHH/VMDrwDe7eL5CPuZWLqrN40c0jRqnXjvr
-	 Rkdm10UTOg8GXwcjtBmw1JscwG7flZWeT3OBjaRCqogbycJDEllKyJILE5kixtf4Vl
-	 Ghe+v6C36cWsqIFJ9CXvkMAN936xkGC+oUeJjnnH5dMukY7jmkqaBq5fk+S7P1ii0F
-	 +LDRotUSrAW3G0UsbQQUHU8BaUFOVeQ+pKgIAX5H7viSHjfsr/6DqJ9Gm4g3ddSfNs
-	 aJTjVI/DtySleeNZTf5RkbPNFY2Fv0ZhpVPHpnsZCLJR5evSr+/0VC4sOuSyxTUpM2
-	 7ykU+e0uJzdyQ==
-Date: Tue, 28 Jul 2026 10:53:38 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Umang Chheda <umang.chheda@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Ruidong Tian <tianruidong@linux.alibaba.com>, Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org, 
-	faruque.ansari@oss.qualcomm.com, avaneesh.dwivedi@oss.qualcomm.com
-Subject: Re: [PATCH v2 1/4] dt-bindings: arm: ras: Introduce bindings for ARM
- RAS error sources
-Message-ID: <20260728-fervent-optimal-auk-7850ae@quoll>
-References: <20260720081954.1858180-1-umang.chheda@oss.qualcomm.com>
- <20260720081954.1858180-2-umang.chheda@oss.qualcomm.com>
+	id 1wodZN-00000004kta-0UPI;
+	Tue, 28 Jul 2026 08:53:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785228826;
+	bh=CcVl3+TM3lenS6CZAniU96vf6OOzWlsl01+972cfyeg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=F7y4XFr99qLiF31AvlBBi2K259cBdERnXBdCtOS056G49NTf72Ah2uvC9qbthUx3Y
+	 QpUAUy9FULZjeQe0PqN9mVIxmPN88/tAqsy7UMEPe1TTWXnp4AYfG7M7GdR6PSN4TS
+	 eIJukDsu8QK/1kgnxI9AdqnOzC+x7mnHwycNDz2fT7u4SDkIECvT5Q9tbs/CuHlSjx
+	 KksC3SfRiE6URP5TZNtPveaWd1F9Gz/s9319/mmI3JQXLEwjXOqSlSqmKGoxg3iiPv
+	 Y91kxNpAT+Yw6Uu74DNHcd7/PKo64iLqQa0yaQpBPyuYANuE3tSQqkWEO4x0xKRWYs
+	 5ithB9dzlq1wg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8979117E063E;
+	Tue, 28 Jul 2026 10:53:46 +0200 (CEST)
+Message-ID: <d33152e6-6033-4aab-a6d6-353c514d6565@collabora.com>
+Date: Tue, 28 Jul 2026 10:53:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260720081954.1858180-2-umang.chheda@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] pmdomain: mediatek: Fix MT8183 hang on boot
+To: Brady Norander <brady.norander@mainlining.org>,
+ Dmitry Osipenko <dmitry.osipenko@collabora.com>,
+ Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260722132729.302067-1-dmitry.osipenko@collabora.com>
+ <fe909054-5c9d-42f5-bbc1-66ca0ace72de@mainlining.org>
+ <dd1e30ae-46fd-4083-a306-98e2d23be120@collabora.com>
+ <847c99d4-6fae-4984-b6d9-e1f8bf46b300@mainlining.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <847c99d4-6fae-4984-b6d9-e1f8bf46b300@mainlining.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_015349_340672_550F525D 
+X-CRM114-Status: GOOD (  49.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,437 +79,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 01:49:51PM +0530, Umang Chheda wrote:
-> ARMv8 and later processors implement the RAS (Reliability,
-> Availability and Serviceability) extensions, exposing hardware
-> error records through a standardised register interface.
->=20
-> Add Device Tree bindings to describe RAS error sources.
->=20
-> Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
+On 7/27/26 19:38, Brady Norander wrote:
+> On 7/27/26 06:57, AngeloGioacchino Del Regno wrote:
+>> On 7/25/26 07:11, Brady Norander wrote:
+>>> On 7/22/26 09:27, Dmitry Osipenko wrote:
+>>>> Depending on firmware, part of the MFG domains may be left ON at boot
+>>>> leaving only some MFG cores powered, to let the ACP to prefetch the GPU
+>>>> region when the display controller is brought up. This doesn't play well
+>>>> with an eventual delay in probing Panfrost when the display controller is
+>>>> fully set up, as that would make genpd's sync_state() to power off the
+>>>> domain while ACP tries to prefetch: this is causing an AXI stall,
+>>>> effectively freezing the AP indefinitely. In order to prevent this from
+>>>> happening, the sync_state() functionality must be obliterated on all of
+>>>> the MFG domains: while this guarantees a power leakage if the bootloader
+>>>> boots the kernel with MFG PDs partially powered on, this is the only way
+>>>> to ensure stable operation of the SoC during boot on devices with such
+>>>> firmware because, of course, those will never officially receive a
+>>>> firmware update.
+>>>>
+>>>> Fixes Kappa Chromebook hanging during system boot.
+>>>
+>>> I also saw this same issue on my MT8192 Hayato Chromebook, and I also saw an 
+>>> issue on my MT8183 and MT8186 Chromebooks where the audio was broken. I fixed 
+>>> all of those issues by setting the GENPD_FLAG_NO_STAY_ON flag on all domains. I 
+>>> held off from submitting that change as I was unsure if it was the "correct" way 
+>>> to handle it, but perhaps it is. Either way, this issue is not specific to only 
+>>> MT8183.
+>>
+>> Audio is something a bit different I believe.
+>>
+>> For MFG on MT8183 specifically (and potentially same generation or even slightly
+>> older) there's an issue that is very specific and described in the description
+>> of this commit.
+>>
+> 
+> I do believe that the issue I'm seeing on MT8192 is very similar to the issue 
+> described on MT8183. On my MT8192 Hayato, I get the following sync_state warnings 
+> due to these two display components not having drivers which bind to them:
+> 
+>    [   25.828186] mtk-power-controller 10006000.syscon:power-controller: 
+> sync_state() pending due to 1400d000.postmask
+>    [   25.838380] mtk-power-controller 10006000.syscon:power-controller: 
+> sync_state() pending due to 1400e000.dither
+> 
+> This device boots just fine up until I reach the point where my display manager 
+> starts, where I get a full SoC hang. If I disable my display manager from starting 
+> at boot, the device boots to a shell just fine.
 
-A nit, subject: drop second/last, redundant "bindings for". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/b=
-indings/submitting-patches.rst#L23
+Eeeeeeh....
 
-> ---
->  .../bindings/arm/arm,ras-error-source.yaml    | 330 ++++++++++++++++++
->  include/dt-bindings/arm/arm-ras.h             |  11 +
->  2 files changed, 341 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/arm/arm,ras-error-s=
-ource.yaml
->  create mode 100644 include/dt-bindings/arm/arm-ras.h
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/arm,ras-error-source.y=
-aml b/Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml
-> new file mode 100644
-> index 000000000000..add7063a1a62
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml
+ > While MT8192 doesn't have ACP to > prefetch anything from the GPU,
 
-Filename should resemble compatible, so "arm,ras.yaml"
+....well..... drivers/soc/mediatek/mtk-infracfg.c - read that driver: are you still
+sure about what you're saying now? :-P
 
-> @@ -0,0 +1,330 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/arm,ras-error-source.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ARM RAS error source
-> +
-> +maintainers:
-> +  - Umang Chheda <umang.chheda@oss.qualcomm.com>
-> +
-> +description: |
-> +  ARMv8 and later processors implement the Reliability, Availability and
-> +  Serviceability (RAS) extensions.  Hardware blocks that support RAS exp=
-ose
-> +  one or more error records through a standardised register interface.  =
-Each
-> +  error record captures information about a detected hardware error (cac=
-he
-> +  ECC fault, TLB parity error, interconnect error, etc.) and can optiona=
-lly
-> +  signal the OS via an interrupt.
-> +
-> +  Each DT node described by this binding represents one RAS error source=
- =E2=80=94
-> +  a hardware block that exposes a set of error records.  Error records a=
-re
-> +  accessed either through system registers (for processor-local resources
-> +  such as L1/L2 caches and TLBs) or through a memory-mapped register win=
-dow
-> +  (for shared or off-core resources such as L3 caches, SMMUs and GICs).
-> +
-> +properties:
-> +  compatible:
-> +    description:
-> +      Identifies the class of hardware block this error source belongs t=
-o.
-> +      arm,ras-processor covers processor error sources (cache, TLB, etc.=
-).
-> +      arm,ras-smmu covers SMMU error sources.
-> +      arm,ras-gic covers GIC error sources.
-> +    enum:
-> +      - arm,ras-processor
-> +      - arm,ras-smmu
-> +      - arm,ras-gic
-> +
-> +  reg:
-> +    description:
-> +      Register windows for this error source.  When absent the error rec=
-ords
-> +      are accessed through system registers (ERRSELR_EL1 + ERX*_EL1).
-> +      When present, the first range is the primary error-record window;
-> +      additional named ranges are identified by reg-names.
-> +    minItems: 1
-> +    maxItems: 4
-> +
-> +  reg-names:
-> +    description:
-> +      Names for the optional additional register windows beyond the prim=
-ary
-> +      error-record window.  err-group is the error group status register
-> +      window (ERRGSR).  fault-inject is the fault injection register win=
-dow
-> +      (ERXPFG*).  irq-config is the interrupt routing configuration wind=
-ow.
-> +    minItems: 1
-> +    maxItems: 3
-> +    items:
-> +      enum:
-> +        - err-group
-> +        - fault-inject
-> +        - irq-config
-> +
-> +  interrupts:
-> +    description:
-> +      Interrupts signalled by this error source.  The first interrupt is=
- the
-> +      Fault Handling Interrupt (FHI), fired when a corrected error count=
-er
-> +      overflows or a deferred error is detected.  The optional second
-> +      interrupt is the Error Recovery Interrupt (ERI), fired when an
-> +      uncorrected recoverable error is detected.
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  interrupt-names:
-> +    description:
-> +      Names identifying the interrupts.  "fhi" is the Fault Handling
-> +      Interrupt; "eri" is the optional Error Recovery Interrupt.
-> +    minItems: 1
-> +    maxItems: 2
-> +    items:
-> +      enum:
-> +        - fhi
-> +        - eri
-> +
-> +  arm,group-format:
-> +    description:
-> +      Page granularity of the memory-mapped error record group register
-> +      window.  Determines the ioremap size and the number of error group
-> +      status registers (ERRGSR) available.  Required when reg is present.
-> +      Use the ARM_RAS_GROUP_* constants from <dt-bindings/arm/arm-ras.h>.
-> +      0 (ARM_RAS_GROUP_4K) is a 4 KiB window with 1 ERRGSR supporting up
-> +      to 64 records.  1 (ARM_RAS_GROUP_16K) is 16 KiB with 4 ERRGSRs and
-> +      up to 256 records.  2 (ARM_RAS_GROUP_64K) is 64 KiB with 14 ERRGSRs
-> +      and up to 896 records.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1, 2]
-> +
-> +  arm,num-records:
-> +    description:
-> +      Total number of error records in this error source, including both
-> +      implemented and unimplemented slots.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +
-> +  arm,record-impl:
-> +    description:
-> +      Bitmap of implemented error records.  Bit N set to 1 means error
-> +      record N is present and active in this error source.  Bit N set to=
- 0
-> +      means record N is not implemented and must be skipped.  The array
-> +      length must equal the number of ERRGSRs implied by arm,group-format
-> +      (1 element for 4K, 4 for 16K, 14 for 64K).  For system-register
-> +      nodes (no reg property) a single u64 element is used.
-> +    $ref: /schemas/types.yaml#/definitions/uint64-array
-> +    minItems: 1
-> +    maxItems: 14
-> +
-> +  arm,status-reporting:
-> +    description:
-> +      Bitmap indicating which implemented error records must be polled
-> +      directly by the OS.  Bit N set to 1 means record N does not report
-> +      through the ERRGSR and must be polled by reading its ERX_STATUS
-> +      register directly in the interrupt handler.  Bit N set to 0 means
-> +      record N reports its status through the ERRGSR and will be discove=
-red
-> +      via the ERRGSR scan path.  For system-register nodes (no reg prope=
-rty)
-> +      there is no ERRGSR, so every implemented record must be polled
-> +      directly; arm,status-reporting must equal arm,record-impl for all
-> +      system-register nodes.  Array length as for arm,record-impl.
-> +    $ref: /schemas/types.yaml#/definitions/uint64-array
-> +    minItems: 1
-> +    maxItems: 14
-> +
-> +  arm,addressing-mode:
-> +    description:
-> +      Bitmap indicating the type of address reported in the error address
-> +      register (ERX_ADDR) for each error record.  Bit N set to 0 means
-> +      record N reports a System Physical Address (SPA) that the OS can u=
-se
-> +      directly.  Bit N set to 1 means record N reports a node-specific
-> +      Logical Address (LA) that requires platform-specific translation to
-> +      obtain a SPA.  Array length as for arm,record-impl.
-> +    $ref: /schemas/types.yaml#/definitions/uint64-array
-> +    minItems: 1
-> +    maxItems: 14
-> +
-> +  # Processor error source properties (arm,ras-processor only)
-> +
-> +  cache:
-> +    description:
-> +      Phandle to the cache node (L1, L2, or L3) that this processor error
-> +      source monitors.  The referenced node must have compatible =3D "ca=
-che"
-> +      and a cache-level property identifying the level in the hierarchy.
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +
-> +  # SMMU error source properties (arm,ras-smmu only)
-> +
-> +  iommus:
-> +    description:
-> +      Phandle to the SMMU node that this error source monitors.
-> +    maxItems: 1
-> +
-> +  # GIC error source properties (arm,ras-gic only)
-> +
-> +  arm,gic-ref:
-> +    description:
-> +      Phandle to the GIC node that this error source monitors.
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +
-> +required:
-> +  - compatible
-> +  - arm,num-records
-> +  - arm,record-impl
-> +  - arm,status-reporting
-> +
-> +allOf:
-> +  - if:
-> +      required:
-> +        - reg
-> +    then:
-> +      required:
-> +        - arm,group-format
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: arm,ras-processor
-> +    then:
-> +      required:
-> +        - cache
-> +      properties:
-> +        cache: {}
-> +    else:
-> +      properties:
-> +        cache: false
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: arm,ras-smmu
-> +    then:
-> +      required:
-> +        - iommus
-> +      properties:
-> +        iommus: {}
+P.S.: We tried the same trick with MT8183, but that needs more than just that, and
+it's anyway a very suboptimal (and ugly) solution anyway.
 
 
-What is with this syntax. There is no such style, drop.
+> the display manager (which uses 3D accel) still 
+> appears to trigger an AXI stall (I don't know how to verify this is actually what 
+> happens, but it seems likely) and I would assume the bootloader also leaves the MFG 
+> domains partially enabled on MT8192 based on this behavior.
+> 
+
+That can be a real possibility. Try to apply the same patch on 8192 domains, and
+see if and which power domains are kept on in the MFlexGraphics island (you'll see
+a print saying that a default off domain "has been on").
 
 
-> +    else:
-> +      properties:
-> +        iommus: false
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: arm,ras-gic
-> +    then:
-> +      required:
-> +        - arm,gic-ref
-> +      properties:
-> +        arm,gic-ref: {}
+>> So, specifically for audio, I think that there may be something else that is
+>> wrong if you're seeing such a behavior - as in, some dependencies may be missing
+>> from somewhere (some devicetree node), or something else.
+>>
+> 
+> The audio issues I see on MT8183 and MT8186 also seem to have the same root cause, 
+> the bootloader leaving domains partially enabled. On my MT8183 krane I get these 
+> warnings:
+> 
+>    [   21.705672] mtk-power-controller 10006000.syscon:power-controller: 
+> sync_state() pending due to 14005000.dma-controller
+>    [   21.705677] mtk-power-controller 10006000.syscon:power-controller: 
+> sync_state() pending due to 14006000.mdp3-wdma
+>    [   21.705688] mtk-power-controller 10006000.syscon:power-controller: 
+> sync_state() pending due to 14012000.dither
+> 
+> And I get this error when attempting to play audio:
+> 
+>    [  217.282793] mt8183-audio 11220000.audio-controller:mt8183-afe-pcm: 
+> mtk_afe_pcm_pointer hw_ptr err
+> 
+> In both the MT8192 GPU case and the MT8183/8186 audio case, the issue was fixed 
+> with the following diff to not use the sync_state system to keep domains powered on:
+> 
 
-Drop. This is not an object, but phandle.
+In the audio case, since there's no stall, a cleaner solution could be to trigger a
+full reset on the ADSP and on the AFE/PCM/whatever.
 
-> +    else:
-> +      properties:
-> +        arm,gic-ref: false
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/arm/arm-ras.h>
-> +
-> +    / {
-> +        compatible =3D "qcom,sa8775p-ride", "qcom,sa8775p";
-> +        model =3D "Qualcomm Technologies, Inc. SA8775P RAS example";
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +        interrupt-parent =3D <&intc>;
+There should be a reset register for that.
 
-Drop, irrelevant.
+Alternatively, the drivers are assuming that the device starts from a clean known
+state, so some registers are not set as they are left to the initial default state:
+adding writes to force those in default state could also be an option... but then
+that depends on how many, because otherwise just asserting reset is simply a better
+option.
 
-> +
-> +        intc: interrupt-controller@17100000 {
-> +            compatible =3D "arm,gic-v3";
-> +            reg =3D <0x0 0x17100000 0x0 0x10000>,
-> +                  <0x0 0x17180000 0x0 0x100000>;
-> +            interrupt-controller;
-> +            #interrupt-cells =3D <3>;
-> +            #address-cells =3D <2>;
-> +            #size-cells =3D <2>;
-> +        };
-> +
-> +        cpus {
-> +            #address-cells =3D <2>;
-> +            #size-cells =3D <0>;
-> +
-> +            cpu0: cpu@0 {
-> +                device_type =3D "cpu";
-> +                compatible =3D "arm,armv8";
-> +                reg =3D <0x0 0x0>;
-> +                next-level-cache =3D <&l2_0>;
-> +
-> +                l2_0: l2-cache {
-> +                    compatible =3D "cache";
-> +                    cache-level =3D <2>;
-> +                    cache-unified;
-> +                    next-level-cache =3D <&l3_0>;
-> +
-> +                    l3_0: l3-cache {
-> +                        compatible =3D "cache";
-> +                        cache-level =3D <3>;
-> +                        cache-unified;
-> +                    };
-> +                };
-> +            };
-> +        };
+> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/ 
+> mediatek/mtk-pm-domains.c
+> index 9c9323c8c93a..b0868e24e241 100644
+> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> @@ -639,6 +639,7 @@ generic_pm_domain *scpsys_add_one_domain(struct scpsys *scpsys, 
+> struct device_no
+> 
+>       pd->genpd.power_off = scpsys_power_off;
+>       pd->genpd.power_on = scpsys_power_on;
+> +    pd->genpd.flags |= GENPD_FLAG_NO_STAY_ON;
+> 
+>       if (MTK_SCPD_CAPS(pd, MTK_SCPD_ACTIVE_WAKEUP))
+>           pd->genpd.flags |= GENPD_FLAG_ACTIVE_WAKEUP;
+> 
+> What isn't clear to me is why leaving display domains powered on is preventing 
+> audio from working. Maybe there is some dependency that isn't clear to me?
 
-Drop all the nodes above, irrelevant.
+It's probably due to how MediaTek SoCs are internally structured: I didn't check
+on 8186 or 83 specifically, but it's likely that the multimedia IP block (which
+also contains multimedia clock controllers, which are powered by multimedia power
+domains!!!!) is providing some clock source to some audio related gate (or PLL
+even).
 
-> +
-> +        /*
-> +         * Per-PE L1/L2 cache RAS error source.  System-register access,
-> +         * per-CPU PPI.  Record 0 is implemented (arm,record-impl bit 0
-> +         * set).  arm,status-reporting equals arm,record-impl because
-> +         * system-register nodes have no ERRGSR; record 0 must be polled.
-> +         */
-> +        ras-l1l2-0 {
+When the clock source for the whatever audio related IP is turned off, the IP is
+getting in a unclocked state (or even unpowered, depending on what's actually going
+on), so when it gets re-clocked, said IP restarts like it was reset with register
+defaults - then you get a "known and clean" (is it really clean if this is what is
+happening? ugh!) state for the initialization sequence to go on Just Fine (TM).
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetr=
-ee-basics.html#generic-names-recommendation
-If you cannot find a name matching your device, please check in kernel
-sources for similar cases or you can grow the spec (via pull request to
-DT spec repo).
+That could be an explanation... but then please take all this with a grain of salt,
+I'm doing an information dump here hoping to help you somehow with this, but I can
+not be certain of what's going on unless I really analyze the specific issue on HW.
 
-Choose some generic name, but l1l2 does not sound like one.
+> The 
+> other thing which isn't clear to me is why I never experienced the boot hang on 
+> MT8183.
 
-> +            compatible =3D "arm,ras-processor";
-> +            arm,num-records =3D <1>;
-> +            arm,record-impl =3D /bits/ 64 <0x1>;
-> +            arm,status-reporting =3D /bits/ 64 <0x1>;
-> +            cache =3D <&l2_0>;
-> +            interrupts =3D <GIC_PPI 0 IRQ_TYPE_LEVEL_HIGH>;
-> +            interrupt-names =3D "fhi";
+Luck and just the right defconfig, where the right drivers never -EPROBE_DEFER,
+and the whole boot process doesn't take "too much time". That's why.
 
-I had impression we agreed all this is part of actual CPU/GIC/cache node
-or its subnode.
+For Dmitry the hang didn't happen all the time either, it did depend on both how
+much time it was required for booting and on probe deferrals.
 
-Keeping it separate does not feel right, if cache is the source of error re=
-porting.
+> Either way, I'm experiencing issues on multiple SoCs which are fixed by 
+> allowing the domains to power off and back on.
+> 
 
-> +        };
-> +
-> +        ras-l3-cluster0 {
-> +            compatible =3D "arm,ras-processor";
-> +            arm,num-records =3D <2>;
-> +            arm,record-impl =3D /bits/ 64 <0x2>;
-> +            arm,status-reporting =3D /bits/ 64 <0x2>;
-> +            cache =3D <&l3_0>;
-> +            interrupts =3D <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
-> +            interrupt-names =3D "fhi";
-> +        };
-> +    };
-> +
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/arm/arm-ras.h>
-> +
-> +    / {
-> +        compatible =3D "qcom,sa8775p-ride", "qcom,sa8775p";
-> +        model =3D "Qualcomm Technologies, Inc. SA8775P RAS example";
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +        interrupt-parent =3D <&gic>;
-> +
-> +        /*
-> +         * GICv3 interrupt controller with RAS support.
-> +         */
-> +        gic: interrupt-controller@17b00000 {
-> +            compatible =3D "arm,gic-v3";
-> +            reg =3D <0x0 0x17b00000 0x0 0x10000>,
-> +                  <0x0 0x17b60000 0x0 0x100000>;
-> +            interrupt-controller;
-> +            #interrupt-cells =3D <3>;
-> +        };
-> +
-> +        ras-gic-dist@17a00000 {
-> +            compatible =3D "arm,ras-gic";
-> +            reg =3D <0x0 0x17a00000 0x0 0x10000>;
-> +            reg-names =3D "err-group";
-> +            arm,group-format =3D <ARM_RAS_GROUP_4K>;
-> +            arm,num-records =3D <1>;
-> +            arm,record-impl =3D /bits/ 64 <0x1>;
-> +            arm,status-reporting =3D /bits/ 64 <0x0>;
-> +            arm,gic-ref =3D <&gic>;
-> +            interrupts =3D <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>;
-> +            interrupt-names =3D "fhi";
-> +        };
-> +    };
-> diff --git a/include/dt-bindings/arm/arm-ras.h b/include/dt-bindings/arm/=
-arm-ras.h
-> new file mode 100644
-> index 000000000000..c2f4e1f8243e
-> --- /dev/null
-> +++ b/include/dt-bindings/arm/arm-ras.h
+Multiple SoCs... MediaTek? Qualcomm? NXP? And which models?
 
-Filename must match binding or compatible.
+This thing, anyway, all started since sync_state() was introduced in power domains:
+it wasn't an issue before, and AFAIK that actually made more platforms to regress.
 
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +
-> +#ifndef _DT_BINDINGS_ARM_RAS_H
-> +#define _DT_BINDINGS_ARM_RAS_H
+I'm not blaming anyone though... this only means that many platforms had some
+"hidden" bug (or an easter egg, if you wish? :-P) that was power domain related...
+..when you have such situations, it's only a matter of time until something goes
+wrong... in this case it all started going wrong with sync_state, but it could've
+been worst, or could've happened in other racy ways which would've been way harder
+to debug, etc.
 
-Best regards,
-Krzysztof
+Cheers,
+Angelo
 
+>> In any case, I'm always open for discussion, of course.
+> 
 
