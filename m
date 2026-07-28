@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F207C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965B0C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAFPdKF7awqisF2H3NWwPFuLQxRDWPQZnxcT7Rg1lG4=; b=Txetc3LJ7yRWugW4lw1/ASbnAv
-	2wSdIhLdRMIT4ULwW+1BuynFZtOPebv6WWaUG8+EY+9VEcrM6NT62qwJjBXX/ovPt6B10BXBNGS7E
-	TBSZ0E1POOtSOhfX8B/hu5HtVDu3mTMkthW1mKBDgf8uYFmtpRMevlkz5+/SJO/VXRzbp/zPMLSZL
-	QBmPvuC2Dm9LWfDqBW+o8drw34j08kdLYA6S1ubfWdLI2Vrw1fDL7IPGbzUt7e88kBUwdDMY14zfD
-	kLlNphHTUfIDm02JoWUO9f4WMAeMg58UK+UEjVypWpvBx2N25/1oeMf0geq3jhNhkdDj9W4f55rLV
-	gXukcCdA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mlk8JJ7FnZcQE8p0F+cUnb6w0Q/i8g6DjL1yyVN33cA=; b=eGmbdyMVkf0dBu09mg4q17FJUI
+	bpCD7OXJ++7U3sKoSPVk23GpOolQv2BeTPsVL784P/A+qnSKhR4hfHeTkZrN4d+UQmh90jnW6cyCt
+	zFvSUt/Cl6oMWq/uX462BvYWjxZvUOUFLMuWiCtBE4hWaPr7IxV1LGQ4uRa6sgN7nQ1WEvm1q90Qc
+	GPi0+uAAJyXpCll+3P9c+DxE8DBh2FQwkI09HuHZOogbDbnbUmejmTVFkRQkf0ufVEIRNf20GKZsZ
+	yg/uDgIIjhe15wXxck6Wcz7M4bZpgqoi1XPwsfDCReAMl9aIKOT3SB/9v52LpStx0J7HJ9GgiaGD9
+	ibRU0lOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh0i-00000005Fqb-3Q87;
-	Tue, 28 Jul 2026 12:34:16 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1woh18-00000005Fuu-067y;
+	Tue, 28 Jul 2026 12:34:42 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh0g-00000005Fq1-0HfK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:34:15 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=vAFPdKF7awqisF2H3NWwPFuLQxRDWPQZnxcT7Rg1lG4=;
-	b=X/aEwnN6q08CgCUyCqThv0GM0njjozv+C6Ib5kQPxbNXE6d6q9r2txzHYIWfHbeF6kpRmgEzj
-	tZRmfAJGPP9MOvpdzHP/O5iHmNnaVNOsRAgFt0uVYtyhb/CgzVm66sW+hWKSRU8hNAXUQ6YMgYB
-	kJAbn3obCQGv1Mox+rQiH/s=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h8ZQt73KSz1prKd;
-	Tue, 28 Jul 2026 20:24:38 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8C833202E6;
-	Tue, 28 Jul 2026 20:34:07 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 28 Jul 2026 20:34:06 +0800
-Message-ID: <be90802b-a970-4f2b-84bd-ded8567573ac@huawei.com>
-Date: Tue, 28 Jul 2026 20:34:06 +0800
+	id 1woh14-00000005Fsj-1EGJ;
+	Tue, 28 Jul 2026 12:34:39 +0000
+Received: from LAPTOP-99KJFSET (unknown [221.228.238.82])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 47e10a915;
+	Tue, 28 Jul 2026 20:34:29 +0800 (GMT+08:00)
+From: Hongyan Xu <getshell@seu.edu.cn>
+To: toke@toke.dk,
+	afaerber@suse.de,
+	manivannan.sadhasivam@linaro.org
+Cc: Hongyan Xu <getshell@seu.edu.cn>,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jianhao.xu@seu.edu.cn
+Subject: [PATCH] wifi: ath9k: stop using owl context after completion
+Date: Tue, 28 Jul 2026 20:33:42 +0800
+Message-ID: <20260728123423.781-8-getshell@seu.edu.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 43/45] arm64: smp: Add NMI support for LPI-backed
- IPIs
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-44-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-44-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-HM-Tid: 0a9fa8b82b5203a1kunm4c64fbaeeecfc
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGUkdVkgaGRpKQh4YGUNOTFYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUpVSUlDVUlIQ1VDSVlXWRYaDxIVHRRZQVlPS0hVSktJSE
+	5DQ1VKS0tVS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=jIzPNX0d6vYqddve/BIhGHXOgDi5p/DvXpxrDoJWtQ1KhQPMmyEIXs+VMkzqy9mqsWzAYo68vZUC59WTQiHH+0BZQIVujn1neisnjG1aTENWabywT19MkcPupNViVRuwuqc/tYTb/wNWK3DiqdlfqEqTLUwTjHXlR/WSajiwzqc=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
+	bh=Mlk8JJ7FnZcQE8p0F+cUnb6w0Q/i8g6DjL1yyVN33cA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_053414_782344_7362656A 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20260728_053438_515594_A937A222 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,87 +73,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+owl_remove() waits for eeprom_load, but both owl_fw_cb() and
+owl_nvmem_work() completed it before their last uses of ctx. The
+devm-allocated context can therefore be freed while the async path still
+dereferences it.
 
+Take a pci_dev reference and copy ctx-owned pointers while ctx is still
+protected. Complete only after ctx is no longer needed.
+Keep the completion before owl_rescan(). Rescan can remove the device
+synchronously.
 
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> LPI-backed IPIs are currently always requested and managed as regular
-> IRQs. Allow IPIs selected by ipi_should_be_nmi() to be requested as
-> NMIs, falling back to regular IRQs when the NMI request fails.
-> 
+This issue was found by a static analysis tool.
 
-It seems FEAT_NMI do not support LPI interrupt.
+Signed-off-by: Hongyan Xu <getshell@seu.edu.cn>
+---
+ .../wireless/ath/ath9k/ath9k_pci_owl_loader.c | 31 ++++++++++++-------
+ 1 file changed, 19 insertions(+), 12 deletions(-)
 
-> Track which IPIs were successfully requested as NMIs so that the
-> per-CPU enable and disable paths use the appropriate NMI helpers.
-> 
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/kernel/smp.c | 34 +++++++++++++++++++++++++++++-----
->  1 file changed, 29 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 9bacdbb2aa44..012633ea8347 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -1123,16 +1123,24 @@ static const struct ipi_irq_ops ipi_sgi_ops = {
->  
->  static void ipi_lpi_enable(int cpu, int ipi)
->  {
-> -	enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +	if (test_bit(ipi, get_ipi_nmi_bitmap(cpu)))
-> +		enable_nmi(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +	else
-> +		enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->  }
->  
->  static void ipi_lpi_disable(int cpu, int ipi)
->  {
-> -	disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +	if (test_bit(ipi, get_ipi_nmi_bitmap(cpu)))
-> +		disable_nmi_nosync(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +	else
-> +		disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->  }
->  
->  static void ipi_lpi_setup(int ipi, int ncpus)
->  {
-> +	bool is_nmi = ipi_should_be_nmi(ipi);
-> +
->  	for (int cpu = 0; cpu < ncpus; cpu++) {
->  		int err, irq;
->  
-> @@ -1141,13 +1149,29 @@ static void ipi_lpi_setup(int ipi, int ncpus)
->  		err = irq_force_affinity(irq, cpumask_of(cpu));
->  		WARN(err, "Could not force affinity IRQ %d, err=%d\n", irq, err);
->  
-> -		err = request_irq(irq, ipi_handler, IRQF_NO_AUTOEN, "IPI",
-> -				  NULL);
-> -		WARN(err, "Could not request IRQ %d, err=%d\n", irq, err);
-> +		/*
-> +		 * Try to request NMI if it should be
-> +		 */
-> +		if (is_nmi && request_nmi(irq, ipi_handler, IRQF_PERCPU | IRQF_NO_AUTOEN, "IPI", NULL)) {
-> +			/*
-> +			 * Fallback to regular IRQ
-> +			 */
-> +			is_nmi = false;
-> +		}
-> +		/*
-> +		 * Otherwise regular IRQ
-> +		 */
-> +		if (!is_nmi) {
-> +			err = request_irq(irq, ipi_handler, IRQF_NO_AUTOEN, "IPI", NULL);
-> +			WARN(err, "Could not request IRQ %d, err=%d\n", irq, err);
-> +		}
->  
->  		irq_set_status_flags(irq, (IRQ_HIDDEN | IRQ_NO_BALANCING_MASK));
->  
->  		get_ipi_desc(cpu, ipi) = irq_to_desc(irq);
-> +
-> +		if (is_nmi)
-> +			set_bit(ipi, get_ipi_nmi_bitmap(cpu));
->  	}
->  }
->  
-
+diff --git a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+index fe1013a3a..1aefe21d2 100644
+--- a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
++++ b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+@@ -125,16 +125,19 @@ static void owl_rescan(struct pci_dev *pdev)
+ static void owl_fw_cb(const struct firmware *fw, void *context)
+ {
+ 	struct owl_ctx *ctx = context;
+-
+-	complete(&ctx->eeprom_load);
++	struct pci_dev *pdev = pci_dev_get(ctx->pdev);
+ 
+ 	if (fw) {
+-		ath9k_pci_fixup(ctx->pdev, (const u16 *)fw->data, fw->size);
+-		owl_rescan(ctx->pdev);
++		ath9k_pci_fixup(pdev, (const u16 *)fw->data, fw->size);
++		release_firmware(fw);
++		complete(&ctx->eeprom_load);
++		owl_rescan(pdev);
+ 	} else {
+-		dev_err(&ctx->pdev->dev, "no eeprom data received.\n");
++		dev_err(&pdev->dev, "no eeprom data received.\n");
++		complete(&ctx->eeprom_load);
+ 	}
+-	release_firmware(fw);
++
++	pci_dev_put(pdev);
+ }
+ 
+ static const char *owl_get_eeprom_name(struct pci_dev *pdev)
+@@ -158,19 +161,23 @@ static const char *owl_get_eeprom_name(struct pci_dev *pdev)
+ static void owl_nvmem_work(struct work_struct *work)
+ {
+ 	struct owl_ctx *ctx = container_of(work, struct owl_ctx, work);
++	struct pci_dev *pdev = pci_dev_get(ctx->pdev);
++	struct nvmem_cell *cell = ctx->cell;
+ 	void *buf;
+ 	size_t len;
+ 
+-	complete(&ctx->eeprom_load);
+-
+-	buf = nvmem_cell_read(ctx->cell, &len);
++	buf = nvmem_cell_read(cell, &len);
+ 	if (!IS_ERR(buf)) {
+-		ath9k_pci_fixup(ctx->pdev, buf, len);
++		ath9k_pci_fixup(pdev, buf, len);
+ 		kfree(buf);
+-		owl_rescan(ctx->pdev);
++		complete(&ctx->eeprom_load);
++		owl_rescan(pdev);
+ 	} else {
+-		dev_err(&ctx->pdev->dev, "no nvmem data received.\n");
++		dev_err(&pdev->dev, "no nvmem data received.\n");
++		complete(&ctx->eeprom_load);
+ 	}
++
++	pci_dev_put(pdev);
+ }
+ 
+ static int owl_nvmem_probe(struct owl_ctx *ctx)
+-- 
+2.50.1.windows.1
 
