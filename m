@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846ADC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FFFC54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHDL/njZt5bkPcRE75CLmqvvOr2146zTLEXqYZOdkEs=; b=vpEhPCZWhpuqRPxivC+CSElCTJ
-	komZI0f1WVk4ddXbBUZYnuYzA64ifFnB+If9K1NiWRNbl1k6N6krx1uaUmNgTQS50jBuwnlYDMsvZ
-	KXxGiYCBkzL0AKpNNRyGEbin5JSIoh6FguTezOXz/fGUyxn+BnoYafpfpPkcpYqHleE3clsCZt5Pq
-	+scQmHoedJltE0qT7KTjGcflFGMm6cC7Nut4zW5b2bj7Fz51U1YSfw9nCmH3Utwt9LrTgnxbL2avO
-	uTebUMo8sFeWxG9H+EB520RPfrnCRQp4TnK/Ai3pA4staZk+zDguZbQ8WDTqO1txC2AwMAbCpmgYe
-	sU5NcN+g==;
+	bh=xo/71goV7oh7w+F8Bf5+6Jailn6SUEgOL2MvIm+2x8E=; b=kF0Tb7SeJGzx0WZBRZHAxGV7u1
+	LUY4Y1vOhEg2/UvDxszYPOYhx1H6iRWkeQJmhdd9swH12YcfoK4rco1tMNIS9Rt8J7H4+jOXz/K2G
+	JlLSxtCt3GZRiJdVH5eioO2yr8oCawHUhJI3QazvFg3oODGX4WvtBS3Zd9WkSIvGA+onZsDZJ+w8E
+	rXBzBQjk5reDk1fp0UCW/rghJManQb2IuoEpgccHeZFYhflS7eeD14yizEgBpVG+Zp3g5rBklaryd
+	KgvVSSvSPREY35nTqgKmcGmMxbWag/MRai2V7A3uU73z9+lOQP3IE8Wc8UtY33FMCaVjd9w4g8DaS
+	COsU72og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woio9-00000005U2N-3HNT;
-	Tue, 28 Jul 2026 14:29:26 +0000
+	id 1woioC-00000005U52-1okP;
+	Tue, 28 Jul 2026 14:29:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woinv-00000005TxA-2UV3;
-	Tue, 28 Jul 2026 14:29:11 +0000
+	id 1woinx-00000005TyU-2vgB;
+	Tue, 28 Jul 2026 14:29:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=oHDL/njZt5bkPcRE75CLmqvvOr2146zTLEXqYZOdkEs=; b=rgRmNnnN4Bf6Lh0BJPs7d21yp/
-	NFc4Po2i78X1RQTcwBMxQ7OdiwLaZ5IJQ8C8jYDDuBLA4FkbMTnaEQdAiBfdRb+R7VdeGfdLZd3/M
-	gnG5y8opjCw8KLApqA50N7UK+vv3frXnMGtzCpLWY2TqLWzBoOnu5Fl+OAFlZV7l+TjLPRI8Z12H6
-	u9SlbLoIjudg3Ex04XzbgcrBzUbsBG+drFDtga4xCZ4g5v/Q/IM5ygEu837imAVsQiLqprUNTJtL7
-	JGoO6wqQ5PuTbUBL8PZkkiqdPcXe1do4QQWdYVZUcwTAjiOIAym4HszTxjyDitSF6Pwa3BZpJLFax
-	GyBmFqWg==;
+	bh=xo/71goV7oh7w+F8Bf5+6Jailn6SUEgOL2MvIm+2x8E=; b=qEityp0TnoixVgI/hcwYp01eDR
+	UKc7lpeudKD6rXcK4F4Z6J99opjyhBstcytlD30LZGsl5zfJ+t50/sKLGwUsNTzm+kUNWk0mF59kh
+	HIyAthi1l0wrSk1Q4usJBhEpCaRWUkqA/h2/HwqNg/MHemnSZwwuWkAFiuoBsgcMPkggZFza47w7i
+	LSu4F4qT4d0SXgqQLXHZgXmB+y/Rp2CPSQE01lE2Bc37z5Yighz2nT1uIe0RN7YChsiDFuGRFS44R
+	H6Kz/3ukXv62iwxe2adp+WwRxT9RSBB9bOis4uEl2Fm1sLc4518e8VFEGfvep6hEXPcnnMJmNOdhv
+	r5RsVEEw==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1woinq-000000051Ak-1MzV;
-	Tue, 28 Jul 2026 14:29:10 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66SES8sfC3929855, This message is accepted by code: ctloc85258
+	id 1woinq-000000051Af-1l5w;
+	Tue, 28 Jul 2026 14:29:11 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66SES8HB03929857, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1785248888; bh=oHDL/njZt5bkPcRE75CLmqvvOr2146zTLEXqYZOdkEs=;
+	t=1785248888; bh=xo/71goV7oh7w+F8Bf5+6Jailn6SUEgOL2MvIm+2x8E=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=qbCCWnucWeh3VlwqgXnINUueG8WFAXySVDcnvWwTQ9vRuJrfVdf8aOeB5LZGeKE51
-	 EnPaPEelSTTFy1u9ZO1XFK2gpQ1eMnnHRNNVwZ2I5WusC6fKxzflMr2ZX5106ZtDmO
-	 4AnfeoxCbZdAToX6JC1FQw8Ow1HylmtYPKtg7AHKwob9En9ToDj7xb59OKcEUalFfU
-	 rquOobleBaOnjmqAhVZFYEmrJe+iapPhzf6aHUntFhrSYUoJtcXcSOHb2eB8WyAUNg
-	 EQkhxSCykJNEaxfdGSWriAu7Ttm/TNkPPtf1uUgH7bv31Sd+2AA0Aod2H314LVBDIj
-	 EIvvDdew4yxpw==
+	b=HD4ip/Hpefq6N5GUM7SafXwNy2+H0f81PutuaYU2JGom+1AuTYfgnZF6La2FbH4no
+	 NlCv81yyB9LKBWT8Tn7q8DErIB5tW4nzDTnp0PshfHtBJkLqYGx6bosjNN2zlXZJRU
+	 MKEaE4FkBhWBEtDG5BwJtaBniCFVWLD20lv0wFTC4dH2ms7WCZM1ux2AGVVOILAhfN
+	 rJ9I/xRYWPjELji2F6E12/32TevM+9vTHYU4J8qvrdLklzGRcWiA0uLjcKytuVq+rV
+	 XExe1WRVDQT6HXiw1Y5UVQ7NdVfFzQLxjoIGQ37n6itfwFr3w0Ax7N6Nm+nJ1xPOpK
+	 4z1S/gGW0PoNA==
 Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66SES8sfC3929855
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66SES8HB03929857
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
 	Tue, 28 Jul 2026 22:28:08 +0800
 Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
@@ -76,9 +76,9 @@ CC: <afaerber@suse.com>, <devicetree@vger.kernel.org>,
 	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
 	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
 	<eleanor.lin@realtek.com>
-Subject: [PATCH v11 10/11] clk: realtek: Add RTD1625-ISO clock controller driver
-Date: Tue, 28 Jul 2026 22:28:05 +0800
-Message-ID: <20260728142806.1954638-11-eleanor.lin@realtek.com>
+Subject: [PATCH v11 11/11] arm64: dts: realtek: Add clock support for RTD1625
+Date: Tue, 28 Jul 2026 22:28:06 +0800
+Message-ID: <20260728142806.1954638-12-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260728142806.1954638-1-eleanor.lin@realtek.com>
 References: <20260728142806.1954638-1-eleanor.lin@realtek.com>
@@ -86,8 +86,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_152907_221547_8BEB6D91 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20260728_152907_279687_24D37DCA 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,190 +103,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+Add the clock controller nodes and osc27m fixed clock for the
+Realtek RTD1625 SoC.
 
-Add support for the ISO (Isolation) domain clock controller on the Realtek
-RTD1625 SoC. This controller manages clocks in the always-on power domain,
-ensuring essential services remain functional even when the main system
-power is gated.
-
-Because the reset controller shares the same register space with this ISO
-clock controller, this driver also acts as the parent device and registers
-the reset controller as an auxiliary device on the auxiliary bus.
-
-Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
 Changes in v11:
-- Drop the unused two MACRO.
-- Add 'rtk_' prefix into struct names and function names.
+- None.
 ---
- drivers/clk/realtek/Makefile          |   1 +
- drivers/clk/realtek/clk-rtd1625-iso.c | 145 ++++++++++++++++++++++++++
- 2 files changed, 146 insertions(+)
- create mode 100644 drivers/clk/realtek/clk-rtd1625-iso.c
+ arch/arm64/boot/dts/realtek/kent.dtsi | 33 +++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-index 15b9eec74e36..fbf8cb0db2f0 100644
---- a/drivers/clk/realtek/Makefile
-+++ b/drivers/clk/realtek/Makefile
-@@ -9,3 +9,4 @@ clk-rtk-y += clk-regmap-mux.o
+diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
+index 8d4293cd4c03..409d46a73c91 100644
+--- a/arch/arm64/boot/dts/realtek/kent.dtsi
++++ b/arch/arm64/boot/dts/realtek/kent.dtsi
+@@ -26,6 +26,15 @@ timer {
+ 			     <GIC_PPI  9 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
  
- clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
- obj-$(CONFIG_CLK_RTD1625) += clk-rtd1625-crt.o
-+obj-$(CONFIG_CLK_RTD1625) += clk-rtd1625-iso.o
-diff --git a/drivers/clk/realtek/clk-rtd1625-iso.c b/drivers/clk/realtek/clk-rtd1625-iso.c
-new file mode 100644
-index 000000000000..cd328d3961c5
---- /dev/null
-+++ b/drivers/clk/realtek/clk-rtd1625-iso.c
-@@ -0,0 +1,145 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024-2026 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
++	clocks {
++		osc27m: osc {
++			compatible = "fixed-clock";
++			clock-frequency = <27000000>;
++			clock-output-names = "osc27m";
++			#clock-cells = <0>;
++		};
++	};
 +
-+#include <dt-bindings/clock/realtek,rtd1625-clk.h>
-+#include <linux/array_size.h>
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include "clk-regmap-gate.h"
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -141,6 +150,22 @@ rbus: bus@98000000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+ 
++			cc: clock-controller@0 {
++				compatible = "realtek,rtd1625-crt-clk";
++				reg = <0x0 0x900>;
++				clocks = <&osc27m>;
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
 +
-+#define RTD1625_ISO_CLK_MAX	19
-+#define RTD1625_ISO_S_CLK_MAX	5
++			ic: clock-controller@7088 {
++				compatible = "realtek,rtd1625-iso-clk";
++				reg = <0x7088 0x8>;
++				clocks = <&osc27m>;
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
 +
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_p4, 0, 0x4, 0, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_p3, 0, 0x4, 1, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_misc_cec0, "clk_en_misc", 0, 0x4, 2, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_cbusrx_sys, 0, 0x4, 3, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_cbustx_sys, 0, 0x4, 4, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_cbus_sys, 0, 0x4, 5, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_cbus_osc, 0, 0x4, 6, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_i2c0, 0, 0x4, 9, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_i2c1, 0, 0x4, 10, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_etn_250m, 0, 0x4, 11, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_etn_sys, 0, 0x4, 12, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_drd, 0, 0x4, 13, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_host, 0, 0x4, 14, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_u3_host, 0, 0x4, 15, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_usb, 0, 0x4, 16, 0);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_vtc, 0, 0x4, 17, 0);
-+static RTK_CLK_REGMAP_GATE(clk_en_misc_vfd, "clk_en_misc", 0, 0x4, 18, 0);
+ 			uart0: serial@7800 {
+ 				compatible = "snps,dw-apb-uart";
+ 				reg = <0x7800 0x100>;
+@@ -166,6 +191,14 @@ isom_pinctrl: pinctrl@146200 {
+ 				reg = <0x146200 0x34>;
+ 			};
+ 
++			iso_s_cc: clock-controller@146310 {
++				compatible = "realtek,rtd1625-iso-s-clk";
++				reg = <0x146310 0x8>;
++				clocks = <&osc27m>;
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
 +
-+static struct rtk_clk_regmap * const rtd1625_clk_regmap_list[] = {
-+	&clk_en_usb_p4.clkr,
-+	&clk_en_usb_p3.clkr,
-+	&clk_en_misc_cec0.clkr,
-+	&clk_en_cbusrx_sys.clkr,
-+	&clk_en_cbustx_sys.clkr,
-+	&clk_en_cbus_sys.clkr,
-+	&clk_en_cbus_osc.clkr,
-+	&clk_en_i2c0.clkr,
-+	&clk_en_i2c1.clkr,
-+	&clk_en_etn_250m.clkr,
-+	&clk_en_etn_sys.clkr,
-+	&clk_en_usb_drd.clkr,
-+	&clk_en_usb_host.clkr,
-+	&clk_en_usb_u3_host.clkr,
-+	&clk_en_usb.clkr,
-+	&clk_en_vtc.clkr,
-+	&clk_en_misc_vfd.clkr,
-+};
-+
-+static struct clk_hw_onecell_data rtd1625_iso_clk_data = {
-+	.num = RTD1625_ISO_CLK_MAX,
-+	.hws = {
-+		[RTD1625_ISO_CLK_EN_USB_P4]      = &__rtk_clk_regmap_gate_hw(&clk_en_usb_p4),
-+		[RTD1625_ISO_CLK_EN_USB_P3]      = &__rtk_clk_regmap_gate_hw(&clk_en_usb_p3),
-+		[RTD1625_ISO_CLK_EN_MISC_CEC0]   = &__rtk_clk_regmap_gate_hw(&clk_en_misc_cec0),
-+		[RTD1625_ISO_CLK_EN_CBUSRX_SYS]  = &__rtk_clk_regmap_gate_hw(&clk_en_cbusrx_sys),
-+		[RTD1625_ISO_CLK_EN_CBUSTX_SYS]  = &__rtk_clk_regmap_gate_hw(&clk_en_cbustx_sys),
-+		[RTD1625_ISO_CLK_EN_CBUS_SYS]    = &__rtk_clk_regmap_gate_hw(&clk_en_cbus_sys),
-+		[RTD1625_ISO_CLK_EN_CBUS_OSC]    = &__rtk_clk_regmap_gate_hw(&clk_en_cbus_osc),
-+		[RTD1625_ISO_CLK_EN_I2C0]        = &__rtk_clk_regmap_gate_hw(&clk_en_i2c0),
-+		[RTD1625_ISO_CLK_EN_I2C1]        = &__rtk_clk_regmap_gate_hw(&clk_en_i2c1),
-+		[RTD1625_ISO_CLK_EN_ETN_250M]    = &__rtk_clk_regmap_gate_hw(&clk_en_etn_250m),
-+		[RTD1625_ISO_CLK_EN_ETN_SYS]     = &__rtk_clk_regmap_gate_hw(&clk_en_etn_sys),
-+		[RTD1625_ISO_CLK_EN_USB_DRD]     = &__rtk_clk_regmap_gate_hw(&clk_en_usb_drd),
-+		[RTD1625_ISO_CLK_EN_USB_HOST]    = &__rtk_clk_regmap_gate_hw(&clk_en_usb_host),
-+		[RTD1625_ISO_CLK_EN_USB_U3_HOST] = &__rtk_clk_regmap_gate_hw(&clk_en_usb_u3_host),
-+		[RTD1625_ISO_CLK_EN_USB]         = &__rtk_clk_regmap_gate_hw(&clk_en_usb),
-+		[RTD1625_ISO_CLK_EN_VTC]         = &__rtk_clk_regmap_gate_hw(&clk_en_vtc),
-+		[RTD1625_ISO_CLK_EN_MISC_VFD]    = &__rtk_clk_regmap_gate_hw(&clk_en_misc_vfd),
-+	},
-+};
-+
-+static const struct rtk_clk_desc rtd1625_iso_desc = {
-+	.clk_data = &rtd1625_iso_clk_data,
-+	.clks     = rtd1625_clk_regmap_list,
-+	.num_clks = ARRAY_SIZE(rtd1625_clk_regmap_list),
-+	.aux_name = "rtd1625_iso_rst",
-+};
-+
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_irda, 0, 0x4, 6, 1);
-+static RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_ur10, 0, 0x4, 8, 1);
-+
-+static struct rtk_clk_regmap * const rtd1625_iso_s_clk_regmap_list[] = {
-+	&clk_en_irda.clkr,
-+	&clk_en_ur10.clkr,
-+};
-+
-+static struct clk_hw_onecell_data rtd1625_iso_s_clk_data = {
-+	.num = RTD1625_ISO_S_CLK_MAX,
-+	.hws = {
-+		[RTD1625_ISO_S_CLK_EN_IRDA] = &__rtk_clk_regmap_gate_hw(&clk_en_irda),
-+		[RTD1625_ISO_S_CLK_EN_UR10] = &__rtk_clk_regmap_gate_hw(&clk_en_ur10),
-+	},
-+};
-+
-+static const struct rtk_clk_desc rtd1625_iso_s_desc = {
-+	.clk_data = &rtd1625_iso_s_clk_data,
-+	.clks     = rtd1625_iso_s_clk_regmap_list,
-+	.num_clks = ARRAY_SIZE(rtd1625_iso_s_clk_regmap_list),
-+	.aux_name = "rtd1625_iso_s_rst",
-+};
-+
-+static int rtd1625_iso_probe(struct platform_device *pdev)
-+{
-+	const struct rtk_clk_desc *desc;
-+
-+	desc = of_device_get_match_data(&pdev->dev);
-+	if (!desc)
-+		return -EINVAL;
-+
-+	return rtk_clk_probe(pdev, desc);
-+}
-+
-+static const struct of_device_id rtd1625_iso_match[] = {
-+	{.compatible = "realtek,rtd1625-iso-clk", .data = &rtd1625_iso_desc},
-+	{.compatible = "realtek,rtd1625-iso-s-clk", .data = &rtd1625_iso_s_desc},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, rtd1625_iso_match);
-+
-+static struct platform_driver rtd1625_iso_driver = {
-+	.probe = rtd1625_iso_probe,
-+	.driver = {
-+		.name = "rtk-rtd1625-iso-clk",
-+		.of_match_table = rtd1625_iso_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+
-+static int __init rtd1625_iso_init(void)
-+{
-+	return platform_driver_register(&rtd1625_iso_driver);
-+}
-+subsys_initcall(rtd1625_iso_init);
-+
-+MODULE_DESCRIPTION("Realtek RTD1625 ISO Clock Controller Driver");
-+MODULE_AUTHOR("Cheng-Yu Lee <cylee12@realtek.com>");
-+MODULE_LICENSE("GPL");
-+MODULE_IMPORT_NS("REALTEK_CLK");
+ 			ve4_pinctrl: pinctrl@14e000 {
+ 				compatible = "realtek,rtd1625-ve4-pinctrl";
+ 				reg = <0x14e000 0x84>;
 -- 
 2.43.0
 
