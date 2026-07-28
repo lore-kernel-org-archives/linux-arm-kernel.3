@@ -4,140 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC56C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0FBC54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oUgbAcAqyGLxeEJv7qGz5zBTYPu6iUq9j4k2yvK0zDE=; b=Dqg+DN/hy3nqGk146Qne3DIywh
-	5Gw3ckxoWkmTJH+AnjB54OedWwoy7bWw5D43NROirSxX2uwQ6Up4CkexLj/TMM6SJAsKE2xXX0/0J
-	WbHa+xp+w59Y2LCZeUNUsxpulm9ienUul8na39uwQ0fKt0Yd7GlcrXL+o5DDiB+v+Mne376nE2G/F
-	00QTl1sVi2RBPQ4trZczRNfMMZC1xCiaveyjSKnWe7p/MIB10WDIOmPDPmeE+mCQXMEHMBe4kHRVm
-	vcj0kFgL/3MZAl3B/hfFj6OjNvgdBNUaO6n65R12/L5rb7Rh7V5ucpr+8ZQRCL+/D6hnVTCvYScIN
-	8uHFx8qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XYN+MWoB45b0XFF8uhtfviKg9BKAiTaAm42bln7lBx8=; b=mJ010WjyawbKAX6jVGUrw0yLAU
+	TdXq6gQTdJpZxryaLKrQfNcweeXhED2cFKmF78VXBW5fI16N5xQZG2ir6GNaG4NB0SqPJ1KzHvEaf
+	W/vAH+RdeK7BS7zaaLdKoRC7Rb4oBI7GejN/sqr1p8CToBA5ENQCLi+8PpcH+6HXSRKLiVFJar2fX
+	jJnKa/GhcT6UOprFMcMKVsex35nCYwgjxuWIZMjSk7IrhWqPCIfMqhuiauuExc/UhgbCLSFD4LpUS
+	kFD0JyjDDJK+kSMeWethdm6arBvWaw149kdc2RfQtV1a8ECSxs5+eIbESxiQNFJaA+pn8twW1P5+y
+	TGVNZBTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woliO-00000005yWX-1miz;
-	Tue, 28 Jul 2026 17:35:40 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1woliu-00000005yfH-2j7Y;
+	Tue, 28 Jul 2026 17:36:14 +0000
+Received: from mail-pj1-x1063.google.com ([2607:f8b0:4864:20::1063])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woliL-00000005yUs-206G
+	id 1wolis-00000005yea-07kf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 17:35:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gc48cRzH9FQOUmEiTdepEBqybJcoSSFF+w74gwDQYiB6E++tC6q6k1Ra20dbDSGapdH9q3slh8Np8i0r3AWxNsaN22YlIMLp3jpAufMHIBnJpDf5LOnOAGQ0y18lyTMV7/93XNNaRiarIFcYBAob3/qhbWt1CUp/97RzZciI9pFD0ubvezKASepcZZDDG9ot7BnQLcFFrPFWvThHyUCzQtHv1SxPCBLvjz7iBVpizvviU8WPNqWBNyAkJChafZCov6G9vH8KqxRCXlkygdiwf5g7j7b4BmjKiNpas6K4m6+3msKX9R4SEy/rxuub4m5af33Nz+XrM74/66XSzg1i9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oUgbAcAqyGLxeEJv7qGz5zBTYPu6iUq9j4k2yvK0zDE=;
- b=G2Zl8Girdt2BlgAfu0pJd7+0sGDhYAkjpDK2lQg6lNpG+Zgc6RtqmcWyVBiwNaN8eUPYm72rkGXnEkQfLw16K50JFuXLqIV9tQtfRpaBkpLErLYG0nxgerW7aROM7sFMz6ReXOFBWeASknC3N5zdimUXbsqujWuHCAPj8dt+Oo7HqqsRraRf5fsDduybdE+YXMjNjf3pL6kZFdqT0xOgS37orrNy6vytDR3cedhJWXw9q2T1B7SrGy5tDzXtOHv2JluyF1GAvDRYRNP0PtvbMu15aLVTgvqSS07uFpFhxDn4EuWTPQIlyRl84GEHtYJW7yBMmG+TYQ73bh/beUQLLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Tue, 28 Jul 2026 17:36:11 +0000
+Received: by mail-pj1-x1063.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso69255a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 10:36:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785260168; x=1785864968;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=XYN+MWoB45b0XFF8uhtfviKg9BKAiTaAm42bln7lBx8=;
+        b=sMncsFwRV0p/BjIgtEDEAfBPzXpFq2RzhEFnkcAxVU1elyRxdbQkGt/S7ZnUhvyo/B
+         Cq2Y3spRUTL1iwncmD9M4Zn41IW2b/Ph8eE7Kd7Dnqeze8+W0nMf/92wJtO802tP9SLw
+         aAXTZfiUuZ6OA5hxSz+CO3KrJk/47Cw5IZemku6+g1FFinBB/PnR9PhoGr27rnR90hFn
+         HKM9vuINY+kQIQoyWSfZDWjDSby6gRGPk1wU1f7L9GfBNGxvT0xcAkNB6NCSaiYWo/wm
+         Vtqkf0Oqliv1JeTs72ZSmUwSA4t9t0pyGuUluB9Kv2jPhHn7Q+1QbZ+Cb3WeZCY77mqy
+         4fug==
+X-Forwarded-Encrypted: i=1; AHgh+Rp+91O8iNVZfHv12B/korFbk+hiCaLOatLR+AXaf4+5eYvWXpdfeRwzME8LkCd+plSpDOHLPjGaOdzuSX92IRoc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNE8XOJFd8fFgz2Fe536eXR/N4HLOHh+hqSvtlVO3O4AiPostn
+	DOU+k+PS0pCFXa7ZRiQkyxgKP1DPoBriXrZzw9SdOX48xClZQoPbjlcb8FKIFUoTNXRW4CG/pk4
+	elxlck1fxqC7mnFhzBO8qBqiNf8OZYiiCOTDtU/XoV8r4eXFBRKEVoBOx1WT6q96WBjNGZwtkwi
+	S2XLItvewafbiR8FK+7ADl8tvxxGzBqookxqE54JSKxtAhCrM0jgZnDWsiZ+m1MnIJ/j8wwefW4
+	lZfSv4S9obYWhKjQChcLXePyqQ5vIk9z1o=
+X-Gm-Gg: AR+sD105w+h5ceNkkm6xpTwdDITNOk/snCnYTDJFs+b9+FCcI4Hw0Q/kGm+MsQ6H+cA
+	lwIDF72HIhLcjKwodf84TCTaXzd3RFlnYNyDOGuuHjVHTuCWTamWG5Ebq279dLVpdwUEeZjGylM
+	xpXYTOmdAumV06XdAVz81AA8fDZzPSDmQMV4liUVb9QeRG6jR7cJakf8EeReh3UVHZmcyjfdk/l
+	atIivr5wbnNiIZ3Hn81+dVwqwCWjnU9VX7SLTXIOcpNGJgJH5flg28cjIe6ZkjnGepjZIlwwGm0
+	VNcPTWIQDSb3oh4hs2eeaaY9a/Iz3tG8XunoyocKqtt5tmb3IpkLos45LSOe4wwu6AhrtjtJlg1
+	ncLNQNataP7vsep6+9y1RHiBuXD7992iXbVh9/IH+GQSDBY8ojz3apw0PVH6X+PcM2mcBhWWfTe
+	yEFzsBJcBeGxQ/LG+8BlfmIO7QuTrr4T5laOnGoau2
+X-Received: by 2002:a17:90b:33cf:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-38f6a34e336mr3819836a91.2.1785260168141;
+        Tue, 28 Jul 2026 10:36:08 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-73.dlp.protect.broadcom.com. [144.49.247.73])
+        by smtp-relay.gmail.com with ESMTPS id a92af1059eb24-13e725dcfe6sm12781c88.0.2026.07.28.10.36.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 28 Jul 2026 10:36:08 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38dde0df80bso112491a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 10:36:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oUgbAcAqyGLxeEJv7qGz5zBTYPu6iUq9j4k2yvK0zDE=;
- b=h30Ej/AEEryC8xJEA4c+/QRAAcQ3YSmnmp3phNy2lsYLPXg7P2bhGmVvDDa/K0x+oZ/PQc3anq1+AjhH9ZiemouYl5l8Nz+5leHRAMtfaiUOdcN/jhrhiuko2gCew5RP0N/i+D0KOaDAodik2XCuNQLXwVcfpot9ATJ9rDgHTCk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- CH0PR01MB7049.prod.exchangelabs.com (2603:10b6:610:10a::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.12; Tue, 28 Jul 2026 17:35:29 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0245.012; Tue, 28 Jul 2026
- 17:35:28 +0000
-Message-ID: <fbb62ab5-f8b9-4df0-b123-11c6609da21c@os.amperecomputing.com>
-Date: Tue, 28 Jul 2026 10:35:25 -0700
+        d=broadcom.com; s=google; t=1785260165; x=1785864965; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XYN+MWoB45b0XFF8uhtfviKg9BKAiTaAm42bln7lBx8=;
+        b=J/VotuP4ub6q1ykQ5aWtVyjXCUtXh1jyl4um0bDFRBXzui+MvCaA66B73K+9T4IlOE
+         qgNZ3Ymo2Ef/ajVI9KjOIxQFOEN6hv7DIFCLtEaoIJ3Cdb5v1sIvn0r/1ZnYaoxbNwk0
+         eHBOnBEQIdJ1H1cTI8HUJ70Pmy7D7t08LuR9Y=
+X-Forwarded-Encrypted: i=1; AHgh+RpJe5jlSwq4tiuq9XYblWzBJQbjuuCgvpD9xT48/i+G0qg/TTY9DAzBqiigHgS81miubmEhwIv1IkCGn6FABlK/@lists.infradead.org
+X-Received: by 2002:a17:90b:3b41:b0:389:8f6c:4d70 with SMTP id 98e67ed59e1d1-38f6a4716aemr3632515a91.28.1785260164839;
+        Tue, 28 Jul 2026 10:36:04 -0700 (PDT)
+X-Received: by 2002:a17:90b:3b41:b0:389:8f6c:4d70 with SMTP id 98e67ed59e1d1-38f6a4716aemr3632479a91.28.1785260164236;
+        Tue, 28 Jul 2026 10:36:04 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504d3250asm687356eec.20.2026.07.28.10.36.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Jul 2026 10:36:03 -0700 (PDT)
+Message-ID: <1393e77c-a197-4ce6-b0d3-f96206145ab1@broadcom.com>
+Date: Tue, 28 Jul 2026 10:36:02 -0700
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [v8 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260609214205.1260279-1-yang@os.amperecomputing.com>
- <255744ec-2a58-492c-a69a-850357440183@os.amperecomputing.com>
- <amCqBzwIYDOvRI1S@willie-the-truck>
- <79d7069b-2895-4be3-a2a0-327ad3444bf3@os.amperecomputing.com>
- <amh19c6vtDNKsl3C@willie-the-truck> <amh96rPdlc7UEobt@lucifer>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <amh96rPdlc7UEobt@lucifer>
+Subject: Re: [PATCH 05/16] irqchip/bcm7038-l1: clean up init failure paths
+To: Haofeng Li <920484857@qq.com>, tglx@kernel.org
+Cc: linux-kernel@vger.kernel.org, Haofeng Li <13266079573@163.com>,
+ Haofeng Li <lihaofeng@kylinos.cn>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Kevin Cernekee
+ <cernekee@gmail.com>, linux-mips@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260714122351.3274006-1-lihaofeng@kylinos.cn>
+ <20260714132453.3302672-1-920484857@qq.com>
+ <tencent_4839362F248901E45E50D9AEF6823DFA4007@qq.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <tencent_4839362F248901E45E50D9AEF6823DFA4007@qq.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CY5PR20CA0030.namprd20.prod.outlook.com
- (2603:10b6:930:3::28) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CH0PR01MB7049:EE_
-X-MS-Office365-Filtering-Correlation-Id: 296dceee-7635-4f4f-67e9-08deecce9dbf
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|4143699003|11063799006|10067099003|6133799003|56012099006|18002099003|55112099003|22082099003;
-X-Microsoft-Antispam-Message-Info: b7+fea1oPugTGccCkxqWsKus7xtH3s0tIFypK2g4zCnh+1QOqWNAQAGaSQmaBGNsa2mCJHCBxK06Cax6u+ZEYirQsXEFtzZpsTTHnaJ7yJfCVn7dLGmwRU/1RoSLAod35jL35sdssPKW9s12Iygli8a6W85Sjy5UaFbNEIMq1Ky50NWk20/NKF+EorRriH88z1qo4wQpGhIdy+YWS/F3lQgu5cKttk9JDrlkkWryZOGZ1VdKKBluhcvt00tVDdOd0sGxqt1voKAQfbAqvWmuEKzLINLQwlf6CtdVuS80zQcsBkBuYFEKXXh3MWMko6dLBpOcXenjwP/Pplav8FHAmj+79IJmQrKzX3oECjBhFn87xXouBGp4BpYJEXxxSQsiY2i30wsAl6hbgVDhBNCNx2DIKJ1MhgfM5wLNMMrt1REDxtaclMkELKkw4kyynUgnT+nK0OeTg5I8S+vaJbr5QPaoUfn7yyLYh/B9Z7K+bd0nr82xMTc6q+4WD5mVrZ0k+uvfKj4nuFs8poLTaO+kduIsz+2eWXjts4yIKMN5QV0Qnui/s60TiHYTjwruo+wdq5WE06+VtsNe+8Tv9NUo8zLd+JDmje5CdUn+/C6SjvudT/T+Om3s/zjaEgJ12G5Jd63Ue5/20LmQ8UWUa1JQcjQPeVYLYC+J07IBQ4/aPR8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(4143699003)(11063799006)(10067099003)(6133799003)(56012099006)(18002099003)(55112099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1orblN2TEIrVWdUL2x4M1JzMjM2dzgxa0dKa2x1Ulg5ZGdXZFNNNEowck5h?=
- =?utf-8?B?dERDRDhMY25pS0dBcjlMM3ZnWTA4dDlNRTZsNnJsWVAzbDk2VkJuUWNtamdO?=
- =?utf-8?B?TFNaQkRrZEJWeTkyS0x4aTB1bGJKbFVJQ2YxaGFCOWVOMnl4cFBOME13bU9M?=
- =?utf-8?B?Q3IxVW5rWFlMbzB1UU9oYUNSeGZ0d3hkNnJLb21CYWJSSDR1a1FrM1NTTXda?=
- =?utf-8?B?RCtZcm5FOEZwZzhOMmVrMmEwcVZobE5HUHh1QWpjbWJTMjI3STdRZ3pubEdl?=
- =?utf-8?B?NTVyRDNHcU1Sd2RxTWlmSDZ3QUhMaVRPYnBwamJYRUU0WUhSOHlwKzFHZVFO?=
- =?utf-8?B?VmFFN0d6WFpDcEFtVmV6WmJUMVpaUGFJREdla2xpSDlTVzZOSWQwdzJOVmp6?=
- =?utf-8?B?TUt3ZXFnbkRhazBQakdPMWl1UHFwclFZdWxIOW1GZDRGTWJlRExQUFlVbVNR?=
- =?utf-8?B?VllsMXBUVWI3WG1aTWNLRllzT2o1aWdyTWJMVG1CSng3QWlCNW5BcW5VcjJi?=
- =?utf-8?B?Zzh5MXFjSFhSNmxaSWtQb3psWllUUDRndy9lWURhTlduVkxDNGVUSVREOEdo?=
- =?utf-8?B?VTBCbm4wSm9JaEVsT1l1Z25ZWnFJRXNSYnpXWDFxcUhBc0ZKRkxlUUVqNHI1?=
- =?utf-8?B?bXVmR05NeTF6NVJFWFpkM1NacnNTQ1NSczF1YzFVanBlUmx6dmdlVW9oVUpY?=
- =?utf-8?B?K0piSjRVRklHMDZsa3czd3B3NVV3MUlQbHkvc09iOTkyc1R5Ym9lNDM2eS9Z?=
- =?utf-8?B?WkV3TFN6R3VXcjVTR3R1aUFRR1luZEQrWUNEYmkvODJuWnVwdExLOHA4N3VB?=
- =?utf-8?B?TForRDczY0drTm5WQ0Y2VFJMSGcvRzgxYXE5MWh0Y0xEYStTOTBQNkdmM1VH?=
- =?utf-8?B?bjRRSkV5YncwN1BzanYvSm5nbHUxUWI4ekxWcEgvTVVDcEJRTEw0a21RWjNQ?=
- =?utf-8?B?bU9KeWV0U2xTL3oyRGRXT0ZmR0ZJRjdQMHFtNEM5U2xQdE8wdEJIV3ltVExN?=
- =?utf-8?B?VEhsbzVldmNpYlFRMTZFL3NJY080dTcwNDRENmxMV2pqcTY3ZWEyd2VLcHJH?=
- =?utf-8?B?MG0yT1hTelBZQmRIVTRTbUo2dnZKSEFIWTVxQjM2bmN5cXR3WlpxdU90T2hz?=
- =?utf-8?B?Y3BWUDNrcEI3WEQyMkM0aFJmM0REbjNvUU9NWGgrclE2U25QamtzZXJpMXcx?=
- =?utf-8?B?cUNFOWoxc1VmdFRQS2s0eTdYZHlOR25DN2ZLY3JiTU1OQjNtK09Ma3ZFaE11?=
- =?utf-8?B?V2V1QlNoaXpUYTBCUWtOeFBoYXpVWWUrWjhaSHVRV3VJWHdBakhPTDk4K2FD?=
- =?utf-8?B?WVR2R01aN2RvTmtON25DeVhSOU13aDNpQ2pEdzFqU1dUaUlFclRyZE42UEEw?=
- =?utf-8?B?UVpOTnlTS3BORm5vcWVoUWZZbzVHQW8zeHR0dFNSNVEvVEtFS1A4NXhDRHV5?=
- =?utf-8?B?TW1QWkpvM0J0Z3hmKzY0ZEVpNlNTSzgyRXZzRnRkdlN0YTVMVVJtNzFMdXEw?=
- =?utf-8?B?QnJyTCtjamQ1dHAraWxNait3R1hHR1RheXZZNmYrZDdpbGdQOXVoL0RDck1n?=
- =?utf-8?B?c2pITGRySW5Kak9RSUpnNUJVQjBSMUtWdmZaeDBDSGh0bm1zZWk0L0Q0OXZD?=
- =?utf-8?B?N2QrR3hIaXQ3NG5DTStEK0d3enRRMFNwR3R6eHFFUXFQNitsUUMwemxFUi9E?=
- =?utf-8?B?aXRGNVBiRjhFZDJ3ZHFVQ04wcXVZWUIzMzZvMHcxZDFWNkU4ZTBvVXJwNHJF?=
- =?utf-8?B?K2NaaHVNelNycC9kVUNFWnZSd3VXOVJremVmemt1Q0J0WmtzNlJIWnBZMHNJ?=
- =?utf-8?B?dWpYVHRGMDZnRkprZnhMUGhsRlprTU1ZQlJzZGJaOGM0Qy9jVVVCRytnVlRk?=
- =?utf-8?B?UjY2bUc0T2UyMUFHU2VySVNqa1YyNW02OEl2SkF6VUdVbFREK2YxcVdGMzhR?=
- =?utf-8?B?UnBLbGxRS0x1eXhUYjhnRXpEcnFvaEZGdkRHV1JyQnBSa3dYdU9OVC9pMStP?=
- =?utf-8?B?eUlaRnJ6SkV1cGcxY00wWXBhbEphZHF4Z3VxT09lYWVqL3MzOHQ1MmlwM0ZO?=
- =?utf-8?B?MjlxVGF4c2FEdUJ4bDdITm8xVTFKQlVKN01CSlVHWEpUT3ZxYXVNVWozTkVq?=
- =?utf-8?B?aFd3VDlJUWZpTjlFaG5EdmZyUlQ0NmQxUkVLUzhXcDZxV0VoYXd5OWJyNnJU?=
- =?utf-8?B?akhabmwrNmt3ODNNYThtcWt4T1ovenVLdHRLV2ZsYzBkbHpWckdkU3FWbzRX?=
- =?utf-8?B?TjB2RFJYK1FCQmNCY1RsL3JMenRKMWRwVmJoeTI5c2JkbFlSZGg2R3kzWHRL?=
- =?utf-8?B?bzVCSWVrMmxtZFJNTkd4U2hFT1lKWjBNZW1aZGpIVDNsS3dtM1FhNFc1bG44?=
- =?utf-8?Q?IwHLIDUy7/MdcG/o=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 296dceee-7635-4f4f-67e9-08deecce9dbf
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 17:35:28.8323
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: y0gNIcgyUa0imrno1MpUGvLMK5JabJ4G0s9xY7F00a15rILrpmX4TS8hTaH6elFn5wyD00QvLb6H24WxELPwgosH+6h6aURdRB0IJ0yhmQY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR01MB7049
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_103537_555095_A3C59DEC 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20260728_103610_085703_01D20F89 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,89 +156,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/14/26 06:24, Haofeng Li wrote:
+> From: Haofeng Li <lihaofeng@kylinos.cn>
+> 
+> bcm7038_l1_init_one() stores the allocated CPU object in
+> intc->cpus[idx] before mapping its registers and parent interrupt.
+> Failures after that allocation leak the CPU object and possibly its
+> MMIO mapping.
+> 
+> A later IRQ domain allocation failure also frees intc while leaving
+> parent mappings and chained handlers installed for CPUs initialized
+> successfully. Those handlers retain intc as their data and can access
+> freed memory.
+> 
+> Free the current CPU object on local failures. Remember every parent
+> IRQ so the common error path can disable wake when it was enabled,
+> remove the chained handler, dispose the mapping, unmap the registers,
+> and free the CPU object before freeing intc.
+> 
+> Fixes: 5f7f0317ed28 ("IRQCHIP: Add new driver for BCM7038-style level 1 interrupt controllers")
+> 
+> Signed-off-by: Haofeng Li <lihaofeng@kylinos.cn>
+> ---
+>   drivers/irqchip/irq-bcm7038-l1.c | 24 ++++++++++++++++++++----
+>   1 file changed, 20 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-bcm7038-l1.c b/drivers/irqchip/irq-bcm7038-l1.c
+> index 54a8557ef557..b42c4f4df6bf 100644
+> --- a/drivers/irqchip/irq-bcm7038-l1.c
+> +++ b/drivers/irqchip/irq-bcm7038-l1.c
+> @@ -49,6 +49,8 @@ struct bcm7038_l1_chip {
+>   
+>   struct bcm7038_l1_cpu {
+>   	void __iomem		*map_base;
+> +	unsigned int		parent_irq;
+> +	bool			wake_enabled;
+>   	u32			mask_cache[];
+>   };
+>   
+> @@ -247,8 +249,11 @@ static int bcm7038_l1_init_one(struct device_node *dn, unsigned int idx,
+>   		return -ENOMEM;
+>   
+>   	cpu->map_base = ioremap(res.start, sz);
+> -	if (!cpu->map_base)
+> +	if (!cpu->map_base) {
+> +		kfree(cpu);
+> +		intc->cpus[idx] = NULL;
 
+This pattern repeats below, consider creating a new label, that would do 
+the 'cpu' variable freeing and assigng intc->cpus[idx] to NULL?
 
-On 7/28/26 4:37 AM, Lorenzo Stoakes (ARM) wrote:
-> On Tue, Jul 28, 2026 at 10:27:17AM +0100, Will Deacon wrote:
->> On Mon, Jul 27, 2026 at 12:50:59PM -0700, Yang Shi wrote:
->>> On 7/22/26 4:31 AM, Will Deacon wrote:
->>>>> Yes, it may race with memory hotplug. I missed memory hotplug for v7
->>>>> Sashiko. Two options to solve it:
->>>>>
->>>>> 1. Use atomic variables. Make lm_meminfo[NR_LM_TYPE] atomic_long_t, then
->>>>> manipulate it with atomic ops.
->>>>> 2. Protect it with a spin lock.
->>>>>
->>>>> The contention for the cache line or the spin lock should be rare since
->>>>> memory hotplug should happen rarely. Any preference?
->>>> I'd vote for keeping it simple and using a lock. Might be worth looking
->>>> at the ongoing work from Lorenzo:
->>>>
->>>> https://lore.kernel.org/all/20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org/
->>> Thanks, Will. Took a look at Lorenzo's work. IIUC he used init_mm mmap_lock
->>> to protect vmalloc area and linear mapping collapse on x86 in order to
->>> serialize against ptdump. I don't think we should use init_mm mmap_lock. We
->>> want to serialize linear mapping counter update between split and memory
->>> hotplug, but neither of them takes init_mm mmap_lock. We can let them take
->>> init_mm mmap_lock, but it sounds too overkilling.
+>   		return -ENOMEM;
+> +	}
+>   
+>   	for (i = 0; i < n_words; i++) {
+>   		l1_writel(~intc->irq_fwd_mask[i],
+> @@ -261,12 +266,17 @@ static int bcm7038_l1_init_one(struct device_node *dn, unsigned int idx,
+>   	parent_irq = irq_of_parse_and_map(dn, idx);
+>   	if (!parent_irq) {
+>   		pr_err("failed to map parent interrupt %d\n", parent_irq);
+> +		iounmap(cpu->map_base);
 
-Hi Will and Lorenzo,
+And this would belong to a new label as well
 
-I will reply both of you in the same thread because both your replies 
-are discussing the same thing.
+> +		kfree(cpu);
+> +		intc->cpus[idx] = NULL;
 
->> Hmm, but if split and hotplug don't take the mmap_lock, how are they
->> serialised against ptdump? From what I understood, Lorenzo's patches
->> change ptdump to take it for write in order to serialise against other
->> walkers.
+That new label would be used here.
 
-hotplug and ptdump is serialized by mem_hotplug_lock. We actually don't 
-serialize between split and ptdump because ptdump should either see 
-block or table. Split doesn't free any page table. There may be race, 
-but it sounds harmless IMHO.
+>   		return -EINVAL;
+>   	}
+>   
+> -	if (of_property_read_bool(dn, "brcm,irq-can-wake"))
+> -		enable_irq_wake(parent_irq);
+> +	if (of_property_read_bool(dn, "brcm,irq-can-wake") &&
+> +	    !enable_irq_wake(parent_irq))
+> +		cpu->wake_enabled = true;
+>   
+> +	cpu->parent_irq = parent_irq;
+>   	irq_set_chained_handler_and_data(parent_irq, bcm7038_l1_irq_handle,
+>   					 intc);
+>   
+> @@ -408,7 +418,7 @@ static int bcm7038_l1_probe(struct platform_device *pdev, struct device_node *pa
+>   			if (idx)
+>   				break;
+>   			pr_err("failed to remap intc L1 registers\n");
+> -			goto out_free;
+> +			goto out_unmap;
+>   		}
+>   	}
+>   
+> @@ -440,6 +450,12 @@ static int bcm7038_l1_probe(struct platform_device *pdev, struct device_node *pa
+>   		struct bcm7038_l1_cpu *cpu = intc->cpus[idx];
+>   
+>   		if (cpu) {
+> +			if (cpu->parent_irq) {
+> +				if (cpu->wake_enabled)
+> +					disable_irq_wake(cpu->parent_irq);
+> +				irq_set_chained_handler_and_data(cpu->parent_irq, NULL, NULL);
+> +				irq_dispose_mapping(cpu->parent_irq);
+> +			}
+>   			if (cpu->map_base)
+>   				iounmap(cpu->map_base);
+>   			kfree(cpu);
 
-> As for memory hotplug - ptdump already takes that lock in
-> ptdump_walk_pgd() so you'd need to add that on split I think?
-
-You mean mem_hotplug_lock, right? I don't recall memory hotplug takes 
-mmap_lock. Did I miss something?
-
->
-> So I think you need to take it in the split code and in
-> arch_report_meminfo.
->
-> So that solves that, you can get ptdump serialisation by ALSO taking the
-> init_mm read map on split.
-
-If I read your patch correctly, taking read mmap_lock in CPA is used to 
-serialize between page table attributes change and page table collapse, 
-right? We don't do page table collapse for linear mapping in ARM64 yet. 
-There is ARM64 ROX cache patchset ongoing which added page table 
-collapse, but the existing code doesn't.
-
-Shall we serialize between split and ptdump by mmap_lock? Maybe, but it 
-sounds harmless to me as I mentioned above.
-
-Even though we take mmap_lock for split, it still can't protect linear 
-mapping counter update between split and memory hotplug because memory 
-hotplug doesn't take mmap_lock if my memory is correct. The linear 
-mapping counter on x86 is protected by pgd_lock IIRC.
-
-Thanks,
-Yang
-
->
-> That way you can rely on core ptdump stuff without having to add new
-> locking in arm64-specific ptdump.
->
-> And would you also need the pgtable_split_lock in arch_report_meminfo() to
-> serialise lm_meminfo access?
->
-> (Side-note: I am going to try to implement RCU kernel page table freeing at
-> some point... so then maybe ptdump won't need the init_mm lock any
-> more. But we could still take it there for this at least :)
->
->> Will
-> Cheers, Lorenzo
+-- 
+Florian
 
 
