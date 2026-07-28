@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5374BC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A64C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qWoF0fB5PNOKYnD+A4X5y/pBZZyCEll/MQB77HbZLNU=; b=xzYMIgl5wXHGLd
-	6RfYEX6dyQVgRlpo45SUoaQEHBdKTi9oG+oxGT/mMTb6dksUyKiPpUvVDKKCEiqGwavpkzl6bKQnD
-	6j4RIb4pawtGQWphVEW51DGSNdtstjNvzMxQ4epAjIn2zK4It189i2+UWBUziKeyfxqIDNGkRdLtO
-	x6gWDFUWjIgbt5dl2fqR+9mZ4YHnzWDNySEzK/2icpfptZm0yVfc57RwamvjpcmK5/CR5qmkOMb+S
-	LMhe9eGNpPeqFUl73X7GBbJAOr/gBNLY4SF6+7EPzaVuQmtKZ9xTZsYkeD8tK1Jb9iKbRPo5NuCHL
-	rXVsS+at1KtR1htqLsFw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+OIGrkyqw2d+yA5TQnxK038Gqg7KBP2CiYzY7FjV1z8=; b=EqMtoJJHI1O5E1veLkyxLq6tsz
+	w9Y9oQtAFPdDerJfKVYftfOF+bh6w4wELVNWX6Uux9W+RbEjzaVHdcHudSntQYy1F8rE1M6PMOJUM
+	+448Z5kN4+6Yf4LRgNjzx1G6vl6sBxkiPNFL40AnY2uf8U8H0PnbakbT5mzgtc4gZ7iey9r4fp4Rq
+	am3HKfQ+w9SDQHilcUtiL39oq1qV9QCIOBma7jEDnxdPwnaj0X3BP0nuxRTWy63LYaqM/dr30DNiF
+	ksARDqgDjeUcBnSJ68eY1igJnVmfu+7JiQeTqMENymAxE5A1yYpyREMpc1XD+5rIy70WqiJdRoQ80
+	bU609Aow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojIn-00000005Zbc-1UBv;
-	Tue, 28 Jul 2026 15:01:05 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wojIu-00000005Zfp-3FYo;
+	Tue, 28 Jul 2026 15:01:12 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojIk-00000005ZaZ-3yiu
+	id 1wojIo-00000005Zbb-0HLF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:01:04 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-4758bd3731bso1009377f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:01:01 -0700 (PDT)
+	Tue, 28 Jul 2026 15:01:07 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49553515a8bso49143595e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 08:01:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785250860; x=1785855660; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=qWoF0fB5PNOKYnD+A4X5y/pBZZyCEll/MQB77HbZLNU=;
-        b=rcA4kXA8CcmYC07JVw5o6W+ljM24EilqYWK/R1K2DTx642tcOn2V4tmqg0H/gGs3Lf
-         R77UCBdQVSDJTcLa/0PXT+75txgIu8iMRpP4bxdyZfUXD+Lk6H7ldyFIQo5NcenPBNNQ
-         +ekcylCmLv3enHVDxS3/Vvmnx1X9732+BxJZKEaSaAbq9b7jcKy+y3wtC7YEP7nUiF1F
-         v31nHrl0VtipiEksASIujW++DYIVuKRfSNUG9WRIdnTvAw5dny/98bPt4b7Fap8yxlWy
-         GHuGQwchTSzCx1/W3uUk2hpPfry2W3JCmkyK97sRWV5nmA5+jshtmPqcBJ5lKaxt2qTT
-         Cetg==
+        d=linaro.org; s=google; t=1785250864; x=1785855664; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+OIGrkyqw2d+yA5TQnxK038Gqg7KBP2CiYzY7FjV1z8=;
+        b=Be7yD8L06adVhgZMWON7ynE5L0U9sKGWWG6+OY4zIjB6YQwYS/1h9VcdZ8O8TIy1jE
+         0vcFwY9ayhUkwFtLUHtRXlQGznlsMl5HoT/GtfQHjFfEC7msXGek3PLmCDvryNgcMIpb
+         /croqRk2E8/Ij32N19eUPf4h3fyhOqAsErGvhh63x4SwxlV2o4CLezixueOgKHa/mI2N
+         wNDTqL+ojUMuULQPL/kY7I7b/mNtWHZx+a+QlpOqSsIupqVCZPCjvSs3w2g6tQCEO1as
+         dSfX8/IDq7769wYuO1AS33TmT6Yt811S8ZKH8WVVlrYsvLDLCJCklNTgqP/OTDMforLY
+         w6KQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785250860; x=1785855660;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=qWoF0fB5PNOKYnD+A4X5y/pBZZyCEll/MQB77HbZLNU=;
-        b=bFCObbv4zVoP+jORlw1GmMq8619c6s3UrIoumRgspbPcIiTDlrkVC/Q+XEGXr2sf5v
-         HlUJhSn0Dyz4+zujQ5jmfSS6kjjsEVVXICNwtiH82DjBex9/kAq+qdRq3/U840r+05q/
-         Ca9AVWzpE/nkFdNwR8Ph274qi6dMCRY6tFMeolNh3JK8IRqdVoZnkGp0uIrQKNojqHKc
-         ygaCPM1bo7npqxcDp6/TY67LrJ4ajL4vk72NAW6Q2k5xx5vpaFInWd6h3x7sZvjwWEBS
-         CJjrQI/7on3DGXEFQ7h/xFr+LZhPNqOqGvi1Ph/abjUI3Qzwt8FD3bTN4oTIBUSnOPS5
-         RNiw==
-X-Forwarded-Encrypted: i=1; AHgh+RpkppFHUNa/q5kJU2lsFOYkc14xPOzjT8B+nGrr4DKerXBvbp2WyQVBYg1oewvbxfSSUmpbYweOaedHJ+QWKd3F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3/MuD1PzmSnyHh51qtiNVLaGMB9P6LiLYiaDEa4A+bcpoMqWx
-	dobvQFGfMQOXJrtbCt4xO0U/lx+B9fPlrXGA+TVcjuTF8v6BJLAZdHCysCPZ7NXisy8=
-X-Gm-Gg: AR+sD10+KBc6KME1gTQU3gPKbdthxMvw8yXZAEVrBzhvkxjZ2NVkb7p0tKPyOXSp4HW
-	s9KPstJ3/a0aAziFVJwFiEvYQN/1wve7wz7Rh8Zie73kmbryXKwq4kw8CPXqcNfOEV42pR5tY6G
-	8Y2IdFoVY+mVVviESVC0SgTVQaGA6V3z2F7yRIIhsccQVz6VCsUYR5sjxr5CXAStPNpGQs7/enY
-	Dw6HzRawTti21BQ2vPWY+oTfJMErDus1ESyVLvVZEyW6cDV9n4agygeDwqL/hWa80fGyLUEA5KW
-	2IudzejVymbXKTokxB/+TNGb6FxGUxLktjob1aSd9k1WWHKWOPCVw8rGpWw+EENe0qhvQ/25Plq
-	bI8o5WnA6gmLtte3rX7CvvsL3YBpRWeS7B8OnaC88GYRWx6JZt2eUWTjndMHEYYvBJ8pxHZY5Pe
-	Wjf0a2F80=
-X-Received: by 2002:a05:6000:2212:b0:46b:70db:2113 with SMTP id ffacd0b85a97d-47fb1e1d7f5mr3445185f8f.0.1785250860087;
-        Tue, 28 Jul 2026 08:01:00 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785250864; x=1785855664;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+OIGrkyqw2d+yA5TQnxK038Gqg7KBP2CiYzY7FjV1z8=;
+        b=Qh+EXth/EntF3VBJYUXjWlfDqJI+bn1DiTOFS86DarOATYQjex5ndo8Idpz7Wz8irT
+         nSkwlQb7sbHSRUnP7QE2hpxVheurUk3xu0WWdy7wzDxIkoBVzDbv3CiEqZNZ96iYlPXI
+         4XEUq2Hq8QEPAtL38VOlZU8cvCF2GUltjSqlGELX3ssf9kbK/XDP8IpHvW3nAq4630rw
+         jCbQkbEoikGRWHVBHUSjzIJzUPe7YzGB3EMDmch+Hm7B/2zT7V6DIdjXwPk7F/qHcHuh
+         F++xoJYQA95VSUP7SdJ6PmHYIxaTlK/rZ8xP7z/dfIfsLw86cjv+KZGu0irfDVQ+rgUg
+         37ZA==
+X-Forwarded-Encrypted: i=1; AHgh+RrKhtxP5hP3xW5Vn0Pa8KCtyXy13ZAktXOSiL/jjo8OYRJZhSsvA7OfUdMPMotnEU75JCwEmO0DI7A+BaLgKn8R@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7SZd+DWW5c/aTFx0K9cAx8Hmc7tSpdGW25zc0olIR4vKc6okD
+	j5Tfp2DIkiaLwLwAXxlyAG9lAGFwVmdpKQrnh1TaNf4fCjglpaIG2pg8Ryxh4CKkDUk=
+X-Gm-Gg: AR+sD11Doj44pVHOneo6zg82iZvjHyQSAnUUJqMNNkJNxU9Mfk/1AW4rkGQpKRqt6ad
+	nPQXG+PputfGv/y67t8zuw96zsGTmpGonc8qp9Ogclk9PyLArBmboXDOvmrNe3mGE6JXTbG/Dwn
+	dMmSPRj1jI1Wsgigvo7gW1mrkFLxBWV4leOJh/e/+U/pWs1506oa/WEGHDHkBAmdh99gA0fI4/7
+	fSu9YEaQ9fpsnt/TXCSFmlvgaMSDzTCkxAuM7v0A7W0YEKJH2Bws4MpxhFQ9yQiyo2hQJsMML0V
+	XbM7gVBiuqDWWtetxA7c3eToFbOguZMPBErvQOyQG4HLA9bIfVo+IGI6YWI4CGZcTdIYJ5FUnpC
+	/tjQ/PgP4uWH9k3AIEJ+bgFLMfgvH+tFf8aRMqWYTnXKT3Th9xxem06sD6hGUhVaWIUwSwxZuhL
+	VYZhTTHrk=
+X-Received: by 2002:a05:600c:8b55:b0:496:c977:3b6d with SMTP id 5b1f17b1804b1-496c9775067mr16629755e9.12.1785250863749;
+        Tue, 28 Jul 2026 08:01:03 -0700 (PDT)
 Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c52fa9sm61036324f8f.20.2026.07.28.08.00.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f85c52fa9sm61036324f8f.20.2026.07.28.08.01.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 08:00:59 -0700 (PDT)
+        Tue, 28 Jul 2026 08:01:03 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH v3 0/8] coresight: Prevent per-thread events from sharing a
- sink
-Date: Tue, 28 Jul 2026 16:00:12 +0100
-Message-Id: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
+Date: Tue, 28 Jul 2026 16:00:15 +0100
+Subject: [PATCH v3 3/8] coresight: etm-perf: Flush workqueue before
+ unloading module
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAP3DaGoC/5XNsQ6CMBDG8VchnT3TFqTo5HsYh9oeUAOUXLHRE
- N7dQuLgZFwu+d/w+2YWkBwGdspmRhhdcH5Ike8yZlo9NAjOpmaSy5IrXsFd9xjABOgf3eTGDmF
- Egqkl1DYAWmHlIV2VFywZI2Htnpt/uaZuXZg8vba5KNbvRz7+kKMADjavCixtoZQ2584NmvzeU
- 8NWOsq/OJk4wbVJUqlrfvvilmV5A+BnR8oaAQAA
+Message-Id: <20260728-james-cs-multiple-per-threads-v3-3-6aee7579f1dc@linaro.org>
+References: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
+In-Reply-To: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
  Suyash Mahar <smahar@meta.com>, Yeoreum Yun <yeoreum.yun@arm.com>
@@ -91,8 +90,8 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Jonathan Cameron <jic23@kernel.org>, sashiko-bot <sashiko-bot@kernel.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_080103_056421_C933B729 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260728_080106_298306_DAE6F108 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,71 +106,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Concurrent per-thread events results in a WARN on N1SDP which leads to
-the realization that per-thread events shouldn't have been sharing sinks
-in the first place.
+The work queue is never flushed on module unload, so pending work items
+can run after coresight-config is cleaned up or the .text section is
+unloaded. The global workqueue also can't be flushed manually, so change
+it to a local workqueue and flush it on exit.
 
-This slips through because different per-thread events will have the
-same PID if owned by the same process, and we only check the PID and
-nothing else. That results in unexpected WARNs because it looks like we
-assumed it couldn't happen (although exclusive PMU rules allow it). But
-even if it was supported it would result in trace from the wrong thread
-in another event's per-thread buffer, so we should disallow it.
+The init function needs to be rearranged to fix a similar problem. The
+Perf PMU can be used as soon as registration succeeds, so move it as
+late as possible so that the only failure that can follow is coresight-
+config. Failing to register coresight-config means no flush dependency
+between coresight-config and the Perf PMU will exist, so it doesn't need
+to be done.
 
-Fix it everywhere the same PID checking logic was copy pasted. Then the
-PIDs can be dropped from a few structs as they are now unused.
-
+Assisted-by: Codex:GPT-5.6-Sol
+Reported-by: sashiko-bot <sashiko-bot@kernel.org>
+Fixes: 0bcbf2e30ff2 ("coresight: etm-perf: new PMU driver for ETM tracers")
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-Changes in v3:
-- Storing and accessing event owners at runtime causes problems due to
-  various scenarios of: events (and sibling events) exiting, children
-  inheriting event FDs, PID reuse, CPU affine events that also have a
-  target process set but different inherit settings. Fix it by creating
-  a session ID in etm_setup_aux() and holding the references in it for
-  the duration of the whole session. (Leo)
-- Make the ETR buffer allocator consistent with sink sharing rules by
-  not doing numeric PID comparisons there either.
-- Fix up some Sashiko reports that it sees after interacting with cscfg
-  and taking extra references to tasks and PIDs.
-- Link to v2: https://lore.kernel.org/r/20260709-james-cs-multiple-per-threads-v2-0-10ac7ac6af0b@linaro.org
+ drivers/hwtracing/coresight/coresight-core.c     | 28 ++++++++++++++----------
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 22 +++++++++++++++----
+ drivers/hwtracing/coresight/coresight-etm-perf.h |  1 +
+ 3 files changed, 36 insertions(+), 15 deletions(-)
 
-Changes in v2:
-- Fix inherited events by following event->parent
-- Link to v1: https://lore.kernel.org/r/20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index f7b1308a759c..5e653b08a83d 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -2094,31 +2094,31 @@ static int __init coresight_init(void)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = etm_perf_init();
+-	if (ret)
+-		goto exit_bus_unregister;
+-
+ 	/* Register function to be called for panic */
+ 	ret = atomic_notifier_chain_register(&panic_notifier_list,
+ 					     &coresight_notifier);
+ 	if (ret)
+-		goto exit_perf;
++		goto exit_bus_unregister;
+ 
+-	/* initialise the coresight syscfg API */
+-	ret = cscfg_init();
++	ret = coresight_pm_setup();
+ 	if (ret)
+ 		goto exit_notifier;
+ 
+-	ret = coresight_pm_setup();
++	ret = etm_perf_init();
++	if (ret)
++		goto exit_pm;
++
++	/* initialise the coresight syscfg API */
++	ret = cscfg_init();
+ 	if (!ret)
+ 		return 0;
+ 
+-	cscfg_exit();
++	etm_perf_exit();
++exit_pm:
++	coresight_pm_cleanup();
+ exit_notifier:
+ 	atomic_notifier_chain_unregister(&panic_notifier_list,
+ 					     &coresight_notifier);
+-exit_perf:
+-	etm_perf_exit();
+ exit_bus_unregister:
+ 	bus_unregister(&coresight_bustype);
+ 	return ret;
+@@ -2127,6 +2127,12 @@ static int __init coresight_init(void)
+ static void __exit coresight_exit(void)
+ {
+ 	coresight_pm_cleanup();
++	/*
++	 * Flush Perf workqueue before the rest of Coresight is torn down
++	 * because work items touch coresight-config and also require the .text
++	 * to remain loaded.
++	 */
++	etm_perf_flush_workqueue();
+ 	cscfg_exit();
+ 	atomic_notifier_chain_unregister(&panic_notifier_list,
+ 					     &coresight_notifier);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 09b21a711a87..7fb5c3d18bd5 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -27,6 +27,7 @@
+ #include "coresight-trace-id.h"
+ 
+ static struct pmu etm_pmu;
++static struct workqueue_struct *etm_free_wq;
+ static bool etm_perf_up;
+ 
+ /*
+@@ -292,7 +293,7 @@ static void etm_free_aux(void *data)
+ {
+ 	struct etm_event_data *event_data = data;
+ 
+-	schedule_work(&event_data->work);
++	queue_work(etm_free_wq, &event_data->work);
+ }
+ 
+ /*
+@@ -1034,6 +1035,10 @@ int __init etm_perf_init(void)
+ {
+ 	int ret;
+ 
++	etm_free_wq = alloc_workqueue("coresight_etm_free", WQ_UNBOUND, 0);
++	if (!etm_free_wq)
++		return -ENOMEM;
++
+ 	etm_pmu.capabilities		= (PERF_PMU_CAP_EXCLUSIVE |
+ 					   PERF_PMU_CAP_ITRACE |
+ 					   PERF_PMU_CAP_AUX_PAUSE);
+@@ -1054,13 +1059,22 @@ int __init etm_perf_init(void)
+ 	etm_pmu.module			= THIS_MODULE;
+ 
+ 	ret = perf_pmu_register(&etm_pmu, CORESIGHT_ETM_PMU_NAME, -1);
+-	if (ret == 0)
+-		etm_perf_up = true;
++	if (ret) {
++		destroy_workqueue(etm_free_wq);
++		return ret;
++	}
+ 
+-	return ret;
++	etm_perf_up = true;
++	return 0;
+ }
+ 
+ void etm_perf_exit(void)
+ {
+ 	perf_pmu_unregister(&etm_pmu);
++	destroy_workqueue(etm_free_wq);
++}
++
++void etm_perf_flush_workqueue(void)
++{
++	flush_workqueue(etm_free_wq);
+ }
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
+index 24d929428633..86e259cc1adf 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.h
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
+@@ -116,5 +116,6 @@ int etm_perf_add_symlink_cscfg(struct device *dev,
+ void etm_perf_del_symlink_cscfg(struct cscfg_config_desc *config_desc);
+ int __init etm_perf_init(void);
+ void etm_perf_exit(void);
++void etm_perf_flush_workqueue(void);
+ 
+ #endif
 
----
-James Clark (8):
-      coresight: tmc-etr: Don't stop Perf cleanup for active sysfs reads
-      coresight: configfs: Don't assume active until cscfg_mgr is set
-      coresight: etm-perf: Flush workqueue before unloading module
-      coresight: tmc-etr: Prevent per-thread events from sharing a sink
-      coresight: tmc-etr: Use session ID for buffer ownership
-      coresight: tmc-etf: Prevent per-thread events from sharing a sink
-      coresight: etb10: Prevent per-thread events from sharing a sink
-      coresight: ultrasoc-smb: Prevent per-thread events from sharing a sink
-
- drivers/hwtracing/coresight/coresight-core.c     |  28 +--
- drivers/hwtracing/coresight/coresight-etb10.c    |  33 ++--
- drivers/hwtracing/coresight/coresight-etm-perf.c |  79 ++++++++-
- drivers/hwtracing/coresight/coresight-etm-perf.h |  15 ++
- drivers/hwtracing/coresight/coresight-priv.h     |   2 -
- drivers/hwtracing/coresight/coresight-syscfg.c   |   6 +-
- drivers/hwtracing/coresight/coresight-tmc-core.c |   6 +-
- drivers/hwtracing/coresight/coresight-tmc-etf.c  |  44 ++---
- drivers/hwtracing/coresight/coresight-tmc-etr.c  | 207 +++++++++++++----------
- drivers/hwtracing/coresight/coresight-tmc.h      |  30 ++--
- drivers/hwtracing/coresight/coresight-trbe.c     |   3 +-
- drivers/hwtracing/coresight/ultrasoc-smb.c       |  25 +--
- drivers/hwtracing/coresight/ultrasoc-smb.h       |   6 +-
- include/linux/coresight.h                        |   5 +-
- 14 files changed, 294 insertions(+), 195 deletions(-)
----
-base-commit: 98495b5a4d77dd22e106f462b76e1093a55b29a7
-change-id: 20260708-james-cs-multiple-per-threads-ed1d25ed1734
-
-Best regards,
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
