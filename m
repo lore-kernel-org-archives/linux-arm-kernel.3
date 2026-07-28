@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F78C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984D7C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNwZQCkHKwYFKkrNjWZTS93nuqW+VicG7takxDF9Vgg=; b=AHcyXw2ihE4qMbaHleTv8J1+ts
-	NMXKVy858r6ty3eyxaNpyvJbTotQ9Z99ZJI06u/+510X5Eql/39+UKqXVwxlM3je5/vDYUJp2U4J/
-	7w5s18nmyB0Q9ntz96ma342adzJ84YXZcwMSX41JpF4wTefUOrWqIWzH+b+FjURRx5pOZFIZHgmsW
-	NmwYngizWkZJaXCXRkV0zcwFU2SikQoCehTm0nFEOzRt/EpkU26hPTUZJjltjgkue+wX5+pJk1ozP
-	HwFTJc8Hlds2DE7Ek1i2n+tcLg39Z8KybzGKr+jExiAsTwRD/rDRe0HUPyYEQj3zNs+7H8CbC8NJk
-	0NLNAF+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MTokd4xXMDbwyH2Br7d5SO0e8QzcrjZpeuLHFInTGmI=; b=bPRgQdgcRsIEmarrwrqLfsbaiZ
+	xKuqljDRVo1xFzh+BiiEz11lw+dmZSdKhNADvZp0eSoNNM3M3qZvG2SbAXq1LBwiDOT7xUGs8Iq2l
+	easKVLY4wpJcw2OXU1vgG1wD7C0bmMAA2PnpgpQZJ5DqW2amy45BmSD9lmWYacEgBXR70r39ba1kI
+	R+7fUJZZJNuUDFPTV4rin7BMEjAiTP5CCANh+mQ+jt3bhw0GTI2tcfQCGqUKhjeZ2gSj+ZT7LH0Og
+	fuLobR/e7Vq3kLqCMJbFeyuUiS0ff/5P6XtQEoaklnXVlObzZE7B/AZN5z7ZW4kzb3Pl86crVunQI
+	vdX54LIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogQC-000000059Pm-1S8q;
-	Tue, 28 Jul 2026 11:56:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wogQL-000000059SV-2CuF;
+	Tue, 28 Jul 2026 11:56:41 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogQB-000000059Pc-1RGp;
-	Tue, 28 Jul 2026 11:56:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1407C40E33;
-	Tue, 28 Jul 2026 11:56:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B78B81F000E9;
-	Tue, 28 Jul 2026 11:56:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785239791;
-	bh=eNwZQCkHKwYFKkrNjWZTS93nuqW+VicG7takxDF9Vgg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eASZFug7jzWnrOF3OuHWC4dJIdUSnjJMhAZUEWqUVi4S7MXbtF5ibFVRSy4+s537i
-	 XUoY0kXJCaCx8MxtLhr+lrqq7NBntmoWdrBHhwp89a1vo6ad9Be0OIxrxYWGthQELk
-	 RqQ0blwKXaXTZmXrJFZgO2OKqLo7ZWy1fBwW1QPIGDXU1mei6Oh2U7348bqhX6Ij1F
-	 utV4CnZhplr9TkSvfz0vgnkLdUys67sBj2wznd3JK92mKYhvuAzLwbPqxgom8dj0rh
-	 GxzUUzbP6wspjvSYYLHIQ6Tlw8fhCAnoo+ZdRHNGcd1kuoMAUM8GVTYLJ4ROhBtRXu
-	 isnidYxLb535g==
-Date: Tue, 28 Jul 2026 13:56:18 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: manivannan.sadhasivam@oss.qualcomm.com, 
-	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>, 
-	Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>
-Subject: Re: [PATCH v8 1/5] PCI: dwc: ep: Clear MSI iATU mapping in
- dw_pcie_ep_cleanup()
-Message-ID: <k5zkz2wnvkb2kzwyazafghgncqefv4cvuzrwwek6xi27vvldej@o4ostebesrbm>
-References: <20260518-pci-port-reset-v8-0-eb5a7d331dfc@oss.qualcomm.com>
- <20260518-pci-port-reset-v8-1-eb5a7d331dfc@oss.qualcomm.com>
- <ameE3SBWqbiE8PJp@ryzen>
+	id 1wogQC-000000059Pb-3OFA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 11:56:35 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=MTokd4xXMDbwyH2Br7d5SO0e8QzcrjZpeuLHFInTGmI=;
+	b=lr3Zk4D356dfV9aJwyOW20ghqfZJPZ+5QQKdKGpIWOEVRAH6N5Lz/8O2+qzxEppTcgwx7PHYS
+	gAnd6C5zboDmRrcI/P6vBJteJVJSHn55eOyQQjR+DutGP1siBAdMdNhP0L+SZyfiM76rjjUXnwo
+	vPGdnDf+GDKLBOR3H9H8094=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h8YbM13LHz1prLg;
+	Tue, 28 Jul 2026 19:46:55 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id A3CC640575;
+	Tue, 28 Jul 2026 19:56:23 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 28 Jul 2026 19:56:23 +0800
+Message-ID: <57e6edc7-0be8-4ec4-950c-c6b97e0a576b@huawei.com>
+Date: Tue, 28 Jul 2026 19:56:22 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 16/45] arm64: interrupts: Introduce exception
+ masking save/restore helpers
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-17-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-17-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ameE3SBWqbiE8PJp@ryzen>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_045633_506685_87607C6F 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,46 +80,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 06:18:37PM +0200, Niklas Cassel wrote:
-> On Mon, May 18, 2026 at 08:29:13PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> > From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-> > 
-> > The MSI iATU mapping is currently only cleared when the endpoint is
-> > stopped via configfs or when the host updates the MSI address/size.
-> > This avoids redundant iATU reconfiguration every time the endpoint
-> > raises an MSI interrupt.
-> > 
-> > However, a fundamental reset triggered by PERST# assert/deassert
-> > resets all iATU inbound/outbound registers without going through the
-> > configfs stop path. If the host also retains the same MSI address/size
-> > after PERST# deassert, the driver never clears the stale MSI iATU
-> > mapping. It then continues using this stale mapping to raise the MSI
-> > interrupts, which can cause IOMMU faults and MSI failures on the host.
-> > 
-> > Fix this by clearing the MSI iATU mapping inside dw_pcie_ep_cleanup(),
-> > which is already called as part of the PERST# assert/deassert sequence.
-> > This unmaps the MSI iATU region and sets the msi_iatu_mapped flag to
-> > false, ensuring that dw_pcie_ep_raise_msi_irq() performs a fresh iATU
-> > mapping on its next invocation, regardless of whether the host changed
-> > the MSI address/size.
-> > 
-> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-> 
-> Doesn't this need a Fixes tag?
-> 
 
-It needs one yes!
 
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> Side node: It seems like this series does no longer apply on pci/next.
+> Outside the entry code, the local_daif_... helpers need to be replaced
+> so that both DAIF and PMR are handled correctly and their use can be
+> controlled more strongly.
 > 
-> Perhaps need to rebase and resend?
+> Introduce local_exceptions_save_mask() and local_exceptions_restore(),
+> which must be used as a pair. Save both the original and requested
+> exception state so that inconsistent changes between the save and
+> restore can be detected.
 > 
+> There are two cases where paired save and restore operations do not
+> make sense:
+> 
+> - when initializing a CPU, and
+> - when preparing to turn it off.
+> 
+> Handle those cases with local_exceptions_cpu_init_mask() and
+> local_exceptions_final_mask(). When CONFIG_DEBUG_IRQFLAGS is enabled,
+> enforce that these helpers are not used outside their intended
+> contexts.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/interrupts/masking.h | 89 +++++++++++++++++++++
+>  arch/arm64/kernel/irq.c                     | 32 +++++++-
+>  2 files changed, 120 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
+> 
+> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+> new file mode 100644
+> index 000000000000..fd4fb5497c7e
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/masking.h
+> @@ -0,0 +1,89 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_MASKING_H
+> +#define __ASM_INTERRUPTS_MASKING_H
+> +
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/interrupts/common_flags.h>
+> +#include <asm/ptrace.h>
+> +
+> +typedef struct arm64_exc_hwstates {
+> +	arm64_exc_hwstate_t saved;
+> +	arm64_exc_hwstate_t expected;
+> +} arm64_exc_hwstates_t;
+> +
+> +static inline
+> +arm64_exc_hwstates_t local_exceptions_save_mask(arm64_exc_context_t new)
+> +{
+> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
+> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
+> +	bool irqs_disabled = arch_irqs_disabled_flags(state.flags);
+> +	bool force;
+> +
+> +	/*
+> +	 * We've just got actual HW state so we can rely on that to
+> +	 * optimize some unnecessary updates.
+> +	 */
+> +	force = system_uses_irq_prio_masking() && actual.pmr != state.pmr;
+> +
+> +	if (!irqs_disabled)
+> +		trace_hardirqs_on();
+> +
+> +	__arm64_update_exc_hwstate(state, force);
+> +
+> +	if (irqs_disabled)
+> +		trace_hardirqs_off();
+> +
+> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
+> +}
+> +
+> +static inline void local_exceptions_restore(arm64_exc_hwstates_t states)
+> +{
+> +	bool irqs_disabled = arch_irqs_disabled_flags(states.saved.flags);
+> +
+> +	arm64_debug_exc_hwstate(states.expected);
+> +
+> +	if (!irqs_disabled)
+> +		trace_hardirqs_on();
+> +
+> +	arm64_update_exc_hwstate(states.saved);
+> +
+> +	if (irqs_disabled)
+> +		trace_hardirqs_off();
+> +}
+> +
+> +static __always_inline
+> +void __local_exceptions_cpu_init_mask(arm64_exc_context_t context)
+> +{
+> +	if (context == PROCESS_CONTEXT)
+> +		trace_hardirqs_on();
+> +
+> +	arm64_update_exc_context(context);
 
-Yep. I'm preparing th next version. Will post it asap.
+Is following miss for setup_arch()?
 
-- Mani
+      if (context == NOIRQ_CONTEXT)
+	  trace_hardirqs_off();
 
--- 
-மணிவண்ணன் சதாசிவம்
+> +}
+> +
+> +static __always_inline void __local_exceptions_final_mask(void)
+> +{
+> +	arm64_update_exc_context(CRITICAL_CONTEXT);
+> +	trace_hardirqs_off();
+> +}
+> +
+> +#ifdef CONFIG_DEBUG_IRQFLAGS
+> +void local_exceptions_cpu_init_mask(arm64_exc_context_t context);
+> +void local_exceptions_final_mask(void);
+> +#else
+> +static inline
+> +void local_exceptions_cpu_init_mask(arm64_exc_context_t context)
+> +{
+> +	__local_exceptions_cpu_init_mask(context);
+> +}
+> +
+> +static inline void local_exceptions_final_mask(void)
+> +{
+> +	__local_exceptions_final_mask();
+> +}
+> +#endif /* CONFIG_DEBUG_IRQFLAGS */
+> +#endif /* __ASM_INTERRUPTS_MASKING_H */
+> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+> index 9fafd826002b..ca98db345f92 100644
+> --- a/arch/arm64/kernel/irq.c
+> +++ b/arch/arm64/kernel/irq.c
+> @@ -21,7 +21,7 @@
+>  #include <linux/seq_file.h>
+>  #include <linux/smp.h>
+>  #include <linux/vmalloc.h>
+> -#include <asm/daifflags.h>
+> +#include <asm/interrupts/masking.h>
+>  #include <asm/exception.h>
+>  #include <asm/numa.h>
+>  #include <asm/softirq_stack.h>
+> @@ -39,6 +39,12 @@ DECLARE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+>  DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+>  #endif
+>  
+> +#ifdef CONFIG_DEBUG_IRQFLAGS
+> +/* Make sure the CPU init/tear down masking functions are only used once. */
+> +static cpumask_t irqs_masks_init_done;
+> +static cpumask_t irqs_masks_final_done;
+> +#endif
+> +
+>  static int __init init_irq_scs(void)
+>  {
+>  	int cpu;
+> @@ -133,3 +139,27 @@ void __init init_IRQ(void)
+>  		local_daif_restore(DAIF_PROCCTX_NOIRQ);
+>  	}
+>  }
+> +
+> +#ifdef CONFIG_DEBUG_IRQFLAGS
+> +void local_exceptions_cpu_init_mask(arm64_exc_context_t context)
+> +{
+> +	int cpu = smp_processor_id();
+> +
+> +	WARN_ON(cpumask_test_cpu(cpu, &irqs_masks_init_done));
+> +
+> +	__local_exceptions_cpu_init_mask(context);
+> +	cpumask_set_cpu(cpu, &irqs_masks_init_done);
+> +	cpumask_clear_cpu(cpu, &irqs_masks_final_done);
+> +}
+> +
+> +void local_exceptions_final_mask(void)
+> +{
+> +	int cpu = smp_processor_id();
+> +
+> +	WARN_ON(cpumask_test_cpu(cpu, &irqs_masks_final_done));
+> +
+> +	__local_exceptions_final_mask();
+> +	cpumask_set_cpu(cpu, &irqs_masks_final_done);
+> +	cpumask_clear_cpu(cpu, &irqs_masks_init_done);
+> +}
+> +#endif
+
 
