@@ -4,152 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108D3C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302F3C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QXqv47OcFSVhhb3ld5qD42PCvPkJu1cY86UID8FXuI=; b=S7qJrl0EytNKF5rK1PWlprTwt9
-	thD/aG+Nan8bz0uy9bvVvKpjq2tunspsbn/52zZUg+VkIhVWBPpJxEa4VkLfDc0jY6103/ubFZJCt
-	5P70K0Td/sev/OMwwF/50EpuU/ifuQMrxV3zKMKY8n1TYWlBIy7pWBn39ARR+dQp1s5Ol8oUGxe2y
-	NZc4vxH8vyhK3b6Rb/pO970hTbLrbL9vqRplAzogbxJ1WqZIUjlutFbgfUiThAfscaN15h/G2V7HA
-	6/t+keO0751nmBKoqC2JVWAR8yvWJb74bPRtwhh3soVHPMjc1M0jdBKV5PUkuW+JGYEQi+xN2Jo9O
-	wyG9MlSw==;
+	bh=RyEWZIgGoF00G9qiUl97iH+HUGBemn4hfiC+wbFVDiI=; b=ZSLQdpYf2IEDWWDe97bZn2UsYe
+	5NzGfk0ZrwwmHTlPvI4fOn22spWgqMIhknF8njQ+IfaZF7RMd8ZToOPAcCNE2qx/laMYqgAg+mHzV
+	74GFJhYYLfqIl93RACGFWwMQkDkDlfJ3cjZzp0ksT+2jW3wvgvjgLGIGH09zvOKv2LYCS26mxnyvR
+	Dbo6JcacAf15E+RwYcFbQ8Z5I42TgsyCffHKX9vVCi9J9s18W/t97uANhYgie8jmZwoCUezRh+Ed6
+	TCmnrqZorhzvb5oL5wSdWBxg2MZaz4d/vLjts6jZXDnesEoQ91y8XKiwoog4m7R+Qy3BMwxzhWe9V
+	69wSlGdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXAr-00000004ECS-0ROr;
-	Tue, 28 Jul 2026 02:04:05 +0000
-Received: from mail-japaneastazon11022090.outbound.protection.outlook.com ([52.101.126.90] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1woXGG-00000004EOU-2z7W;
+	Tue, 28 Jul 2026 02:09:40 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXAp-00000004EBu-0fkL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 02:04:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Hf1pC8gR511j2IOTqDT57gkYCodQOe/f8vHHw5y460wA7vOc1CvfBHjQw3m55X0B/kwrZgTht4VeUG9m4g8L4IswemfkpYeqdB/ARje+HFW+D83ra/iADc4An/hrG8TuChJeLwEuadjUYykRmdDihatiS0t2Zh+n6hkmRsJGagu+pBwZpC+gu5n55znqPVoTK2rCBg+2FI9HObyKw60Nv3y60DRdhSOTEGN8tNb6/neQ0+waS8PwWnkgg6yyTDSgNCfpF/+zJVRbXAg6KiP3qeXDKKkk099rKLKI2TLwVW2aOfSdYKXQQDPocTZkgh/BraRpjbf29BsxRZ0LG4UjPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5QXqv47OcFSVhhb3ld5qD42PCvPkJu1cY86UID8FXuI=;
- b=xP6hWtqWn3gzAH97PHbuZZUqL3q28SQr1emw1lY2aMy7zWCyUORAv+yCowYq8DEE94h2gZPDf/fo4O22izZMP6xUq2XU2T2noD6eQ8vbOWfM2iF852gUrk7uL/XPFDxOk2h7RoyOlDcRw6a72C32SMDrLN1LYfBASzJ5OVQeKJLqOaWv3PD56iqPUzULMYv8VNw1/N1fI/B9wylfVnltJUjtszh+VOmAXKCwIlYh+cVEgkc//r7a+0VUDdUx7L2c7Pt0oWufeuvXipgqvGSUOo1uTJYlB2rpNNthG++tHUySg8e2BhT/XBzRaFePtAYoeL0Lm2ySFdkJEGfLzOYD7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=transsion.com; dmarc=pass action=none
- header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5QXqv47OcFSVhhb3ld5qD42PCvPkJu1cY86UID8FXuI=;
- b=DP7dBjPFtM9DeAd5JJUTXQvEnN1V2zcYe8+nnF++OwiylkQqAg7bamOFBWT+pzysrG/CesmHa4rA45EffrOw87+FZw4d5HgOOkKpcnbRtD7B5Hv6LSLc9G6A3RkjKDa90OjC8whF5C9aEQ5+gfKTKqrR8chw5sVMy0mOpf6B6eA=
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- (2603:1096:820:c7::13) by KL1PR0401MB6228.apcprd04.prod.outlook.com
- (2603:1096:820:9b::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Tue, 28 Jul
- 2026 02:03:34 +0000
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3%3]) with mapi id 15.21.0270.009; Tue, 28 Jul 2026
- 02:03:33 +0000
-From: Hongyan Xia <hongyan.xia@transsion.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-CC: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>, Dennis Zhou <dennis@kernel.org>,
-	Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, Oleg Nesterov
-	<oleg@redhat.com>, Naveen N Rao <naveen@kernel.org>, "David S. Miller"
-	<davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, Bill Wendling
-	<morbo@google.com>, Justin Stitt <justinstitt@google.com>, Jiazi Li
-	<jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
-	<linux-mm@kvack.org>, "linux-trace-kernel@vger.kernel.org"
-	<linux-trace-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
-	<llvm@lists.linux.dev>
-Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
- __always_inline
-Thread-Topic: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
- __always_inline
-Thread-Index: AQHdHcMO39AcF/TaiUWqS0RapTlJlbaBvwQAgABv3wA=
-Date: Tue, 28 Jul 2026 02:03:33 +0000
-Message-ID: <fc1ca700-64f1-4edd-bf44-44c0d3e422a7@transsion.com>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
- <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
- <CAKwvOd=HeG=z1j2qB-SX3NQ=62ERr=KpQNZyqqp2Qy4kZ54RLw@mail.gmail.com>
-In-Reply-To: <CAKwvOd=HeG=z1j2qB-SX3NQ=62ERr=KpQNZyqqp2Qy4kZ54RLw@mail.gmail.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=transsion.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|KL1PR0401MB6228:EE_
-x-ms-office365-filtering-correlation-id: 9a57573a-6168-4299-3c64-08deec4c6db8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|23010399003|376014|1800799024|38070700021|6133799003|5023799004|11063799006|56012099006|4143699003|10067099003|4133799003|18002099003|22082099003;
-x-microsoft-antispam-message-info: M2RERLvF36NcqliEvbIELJ+QQnTaR9nIKm2qcMKnCQrTykne4/MCKTKwjEKwU82ZcUpF4kOpPXdIX1Z6Pnik9sVtquQcNltZ7XagJe55Ehcl4FaI9K6soHxlx5hbuc5675zbD+Z3CVaMY739zOsu2fifg4NchmGgVyp6hc5aC7Jd53dAT/sU39TJz6om25fW0ilkYVUComDmVBpwKnaJsoTlpvTiIX2LONt6Sr+9i+Ik3b8pYgrMon2k6U6WS2QgYK0QbZcGyBh1aTglfUTfy/thrtULvbN6Tt8L0wqsH/i9aswTNZRwdiOztDc8OO/w/Ztwxce5rjDmwj7cMMpWQs39gR6Mk5gbCjarrFuk0V/5PsFpDTl6UC8bWDqZOLE5/93ITAz5S9jCVNwm/ik0vlgOTWRAwtg5/X9svFu6Fuw9G2WzHYePf9ivjXbUcn3Y+JiVbbdL34SOM/s1GfNp5ilU24bEJ7ln82ZsUJCDa26DWcDoXRW8rk6rhvpfAypTdTwKiPEFk6IZlbNdik2BMvJIgVebUwN8S9mJTSv9aao9mQBGSFR2fywR/IwtwBt9yRs+zZfeHTGr87c20dznV1cDZ6ag/0GTZkFJG+8E2hrTxT707pbBRO4exSg2uQzbsy7GGTwwQKU+idzPft7QGuhSU+/ilw9U5BtyG7c1m8rfxr20D4zpBnhk6RkvfSXl8XiqmeCG/vEKq75E2RBLXCpm/4N7XuwrUMIMYx3I/aM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0401MB6196.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(23010399003)(376014)(1800799024)(38070700021)(6133799003)(5023799004)(11063799006)(56012099006)(4143699003)(10067099003)(4133799003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aFB1cThsVE1XOEpmanBFUE9nU2FaWnZqem82NTBMcmVIWTRsWWxVV0JzcHNn?=
- =?utf-8?B?QzVMRTBaOCtrbkR2UVRSSTFpem9MaGd2WjdOREpOMFpvaHIwNnFDbUhJbmdM?=
- =?utf-8?B?STljQ0pPNUM2ZTAwVUxrcWg5QThBampKQlJnQm5zMURNRTVzbnZNSHdnREc4?=
- =?utf-8?B?L1ZsZjVyWW1ubjZxWVpSekJJYjkvMSthb2QwdDNvMVlZRjBFTkp2dndmY2dJ?=
- =?utf-8?B?MC82SWtDSHpiQXZQcC8xSFBJTDIxWVZXdjF2dU5RL1hWWXhOUmhMRmFKa3lC?=
- =?utf-8?B?aW1YTHJ2WUZ5aStzemlIaEUvMGN0QXZPMnJiNlBaVFlqbE1yaWtMOXFDcytN?=
- =?utf-8?B?bVhSMkJkQi9VYXpIU2NUR2RhR0VLOTVHbkE1dFFUYzdvbUJ5bWdPYUFDaStX?=
- =?utf-8?B?Sk9PSGg2c052YTRqdXlXSGhIZm1tY0pZT25nL0NieCs3V2xCNnhHejUvTGV2?=
- =?utf-8?B?aloyZGxJWXFjWklkZ0Vad1pxSGFVYi9iUW84dXlGdDFsR1dMQlRYN2FHVEtN?=
- =?utf-8?B?SDhxcmFTUnFWWXFsQmlicWU4ZVQzdjBSWTZ2VkxId3hNdkVIK3Q0ZXBQQUQ2?=
- =?utf-8?B?VEFmcXRvLzIrSUw3UEk5YUVoVFMvS1JHeTVsd29BT0traXZ1Z29HVk0yazQ2?=
- =?utf-8?B?Y0J2ZThQS3B3MzBBNnNzOXFtbTBFdTJFcTZsWDFBNTJtbTZpWnlqWkx2MDdO?=
- =?utf-8?B?WUV6aG43TG1IL0c4M05URm1ia29XdC9rNFd1QnI3aG44VVp0TFdyeVBnNVBs?=
- =?utf-8?B?eXVKN3NvZllxNzY2eDR2V2p3VWYxS1krNTkzVGxQS0g4Ny9zNm5tcHkyU0hT?=
- =?utf-8?B?SnJXSkNMcWY2ditLTnQ4S2ZZOXBJUTNpWGRteGhNM1hmckZOTDZzaEpNdjV3?=
- =?utf-8?B?TEppTEs1ZFhneU9BUnRHZ0ZBVnZ0RFF0UTFKVXo3ZnZSL0x5czl5bzRBbVlJ?=
- =?utf-8?B?QUxUb1BvL3grdXlMWFFXbEF2eTZDOEtLcFhuMllOaWwzSmQ4ZEU0Q3k0b0J6?=
- =?utf-8?B?WVlHRlFjWUNLVzlrVE9YMXFIbTJGbzluS001QUJ5RVJ2bCtOYlpjK0dZWnNL?=
- =?utf-8?B?eVo3WUZtaGE5Y2xmdEVRVEQ3L1kweTFUa3VpT21NSm1yQlpTTFZ3REdZWE1q?=
- =?utf-8?B?QWRqRkZVWTRPNVpZZ3plcHJQempwUllnNE0xcDVOVWdqSnc2TVdxWXZ5UExr?=
- =?utf-8?B?TXJ3OFl1Z1ZaRU9LWGl6TCtJeExsekpvUS9nUCs3bzI2eHlnNUhnMVBlNGt3?=
- =?utf-8?B?Nm03b2V1WDhoS1pCcENCTFk1SkluNnI4d0VTZm5YdU5Tcy9Jem40NzVhUzVz?=
- =?utf-8?B?cHZqMGhZZDFQL0tDcmlDT1RqbHR5UEJac2JSNUpiM2xGMmpvNXpiZGJCZEZ5?=
- =?utf-8?B?cXlGYkxDNm1zbW1zb3oycHBJdTNJeHBzMHZ3eVpKc202Ukt1NVVNY2hIL0ln?=
- =?utf-8?B?T2hRbVd3NEdkZG1QSWZGbGdYSmwzdEV5VHdyck1FSFBSZFVyQkhEZ292Ymlo?=
- =?utf-8?B?TzFpbU1jYkY4dzZFNXBCMEg2eHBIeDFvcldadHhlaGJWemV6aUt0RXBtV2x0?=
- =?utf-8?B?QTRCNmtUd2daVXBXYmxzNVp0bi9palUwTW5ZQno4QXBoc0orbEdXQ3hHUlJC?=
- =?utf-8?B?T2ZvZGpyOHRROGN4SVYzaFhWNjdTTmcvTVpHelVPb3gyZzNzVGdPbmkvV2Y5?=
- =?utf-8?B?S1Nma2Z6TUdsdnRZdE5zeEpFYUY0MExhN1EybkRBSm5YZTZ3SGpKK0pSa3NQ?=
- =?utf-8?B?K3RGVnZZcFNmUlFrbXNyTVpSVXcrR3ZiUHJHQUdFNkhaM2JTR1hlY3hNU2U0?=
- =?utf-8?B?UnRVcm5rTlM1UVRmMDVhaXVzSndRcHErYitxWjkrYXFKOWxXQXlKYitjQ0Jz?=
- =?utf-8?B?OGM1Mmk1VzhOTWxWa3ZnN1l0YXl1WGZjSThnTjNzblErY0wvZ3ZqZnJnSklw?=
- =?utf-8?B?RkovMWhUbzBVVVhsUWY1RGJnQlFQWXcxc2dDVjlrQ0RnMzZkVXFDaEdnMjFI?=
- =?utf-8?B?WVRzN1pUd2ZqZGtRSVRRNFM2UkZrdjFseWlmZkZidS9CTmcrM1psTlNIenJ1?=
- =?utf-8?B?T3l6aExsR0NWNFZFN0xSUzVqaEQ2QUF0aU5EWWc2bWpNNzBUQy9IWThxckpp?=
- =?utf-8?B?K3pKVm11cGxpOHhkM0c3dlZaMjVoaE92b1ZsY1NOQzNuMk5lZ0dXWjFjQWNr?=
- =?utf-8?B?OUNXRTRTVjhEQ0VRaVFuem8zc2l6eUd0MU96ZGZEZ0hMUWpXWXpxNWxLQUMr?=
- =?utf-8?B?S2tsQm81cWRBVFZWWXFXRExTOE1NUkg3cWc1MzVuWWVuUklXbTluZERISFQ5?=
- =?utf-8?B?QU52ejd4aUdUZDV0dnFKdUdpNFNpSWRaK1ZBUVQ1RzhPVFZkbm5QUGJhd0M5?=
- =?utf-8?Q?uTfm4cfHLwOhEMPc=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <1D1B5343B2466A40BF7F09CC80402663@apcprd04.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1woXGE-00000004EO2-0KGP;
+	Tue, 28 Jul 2026 02:09:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1785204503; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ADvwHjaqTI7E0Ew6bj3umGfz0Hr7gp1rj6aB3gUM773C/DsZaYi8kEDT41qeczvA0IV3mu4P0OTpDjNk1gF6r7EwNOPXNEbxvpMJIEy0iVdU1J9l4c1iPBeOLUw8OC/zzxXQeYU9KX3Hxy51CgnSm5TJQVV6/Bb1VCfeTsnOrR0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1785204503; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=RyEWZIgGoF00G9qiUl97iH+HUGBemn4hfiC+wbFVDiI=; 
+	b=nlSDbbaQ8REpRbXiHYh4dAJk2Jp298wpYTkR1Q+qPXdmhTmbgkd8H9ItP6GBCvWkl/UzYYkqwOf6GKUxHlEfuhwBDXLHrzncKukOK7cVtOTSajfbHuLodf4WD7R6kHRRcZP+dL8I5cceRtQVe1F8Pzw7ezpJZLX/AifT4YTg65w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785204503;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=RyEWZIgGoF00G9qiUl97iH+HUGBemn4hfiC+wbFVDiI=;
+	b=R/daAVTSKLTAycVKPXjCmrhxZH0DDxBEiKhWVgKorykxEbxt8t7KEacDegxCEub9
+	h/AzVtHxD1eJEMyNv6BX1EjE7oWrc6Euc1bfL5JzxWviEJJIaq0/zyM8dHb9toFaMMZ
+	2L4JX7WXzvkWFwdMwGBHzelz54v7IbnVDHz1p+gM=
+Received: by mx.zohomail.com with SMTPS id 1785204500990426.00984876395273;
+	Mon, 27 Jul 2026 19:08:20 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 759CE180524; Tue, 28 Jul 2026 04:08:14 +0200 (CEST)
+Date: Tue, 28 Jul 2026 04:08:14 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Vinod Koul <vkoul@kernel.org>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v4 0/5] This series is split from the v15 "Add Type-C DP
+ support for RK3399 EVB
+Message-ID: <amgMXujurBrB5B0L@venus>
+References: <20260727064408.101-1-kernel@airkyi.com>
 MIME-Version: 1.0
-X-OriginatorOrg: transsion.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a57573a-6168-4299-3c64-08deec4c6db8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jul 2026 02:03:33.5142
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: MGdWo1cy1G0yhsjWrBUH3rWyvat8HqIFd8nP9/2BWDfo2v/lyglBOjfY5cCWqNFoE8s/TgZbxKIP3DBxMR5evqoKJzQ+2xp/MkTbFHNAmEo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0401MB6228
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wslejz3kxq4lsyn3"
+Content-Disposition: inline
+In-Reply-To: <20260727064408.101-1-kernel@airkyi.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/285.167.77
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_190403_211226_F5958A6B 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20260727_190938_182333_20FD467F 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,40 +93,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gNy8yOC8yMDI2IDM6MjIgQU0sIE5pY2sgRGVzYXVsbmllcnMgd3JvdGU6DQo+IE9uIE1vbiwg
-SnVsIDI3LCAyMDI2IGF0IDU6MjXigK9BTSBIb25neWFuIFhpYSA8aG9uZ3lhbi54aWFAdHJhbnNz
-aW9uLmNvbT4gd3JvdGU6DQo+Pg0KPj4gRnJvbTogSG9uZ3lhbiBYaWEgPGhvbmd5YW4ueGlhQHRy
-YW5zc2lvbi5jb20+DQo+Pg0KPj4gU3RhdGljIGlubGluZSBzaG91bGQgYmUgZW5vdWdoIHRvIGFj
-dHVhbGx5IGlubGluZSBmdW5jdGlvbnMgZm9yIG1vc3QNCj4+IGNvbXBpbGVycywgYnV0IG15IENs
-YW5nLTE5IHNvbWVob3cgdGhpbmtzIGl0J3MgYmV0dGVyIHRvIG91dGxpbmUgdGhlbS4NCj4+IFRo
-ZXNlIHRpbnkgaGVscGVycyB0aGVuIGxpdmUgaW4gbm9ybWFsIC50ZXh0IHNlY3Rpb25zIGluc3Rl
-YWQgb2YNCj4+IC5ub2luc3RyIHNlY3Rpb25zLCB2aW9sYXRpbmcgbm9pbnN0ci4NCj4NCj4gQW55
-dGhpbmcgc3BlY2lhbCBhYm91dCB5b3VyIGJ1aWxkIG9yIGNvbmZpZz8gIEZvciBleGFtcGxlLCB3
-ZSd2ZSBzZWVuDQo+IGEgcmVjZW50IGluZmx1eCBvZiBidWdzIGFyb3VuZCBBdXRvRkRPIG5vdCBp
-bmxpbmluZyBmdW5jdGlvbnMgKGRlc3BpdGUNCj4gY29uc3RhbnQgcHJvcGFnYXRpbmcgaW5pdGRh
-dGEgY29uc3RhbnRzIGludG8gdGhlbSkgbGVhZGluZyB0byBtb2Rwb3N0DQo+IGVycm9ycy4NCg0K
-SSBkb3VidCB0aGVyZSdzIGFueXRoaW5nIHNwZWNpYWwuIFRoZSBjb21waWxlciBpcyBEZWJpYW4g
-Y2xhbmcgdmVyc2lvbg0KMTkuMS43ICgzK2IxKSBpbnN0YWxsZWQgdGhyb3VnaCBhcHQgaW5zdGFs
-bCBpbiB2YW5pbGxhIHg4Nl82NCBEZWJpYW4NClRyaXhpZSwgY29tcGlsZWQgd2l0aCAnbWFrZSBM
-TFZNPTEgQVJDSD1hcm02NCBJbWFnZScuDQoNCj4gQ2FuIHlvdSBwZXJoYXBzIHNoYXJlIHlvdXIg
-Y29uZmlnIHNvIHRoYXQgc29tZW9uZSBlbHNlIGNvdWxkIHJlcHJvIGFuZA0KPiB0YWtlIGEgbG9v
-az8NCg0KU3VyZS4gTm90IHN1cmUgaG93IEkgY2FuIHNoYXJlIHRoZSBnaWFudCBjb25maWcgd2l0
-aG91dCBib21iYXJkaW5nIGFsbA0KdGhlIHJlY2lwaWVudHMuIExldCBtZSBqdXN0IHNlbmQgdG8g
-eW91IHByaXZhdGVseSBmaXJzdC4NCg0KPiBIYXBweSB0byBmb2xsb3cgdXAgaW4gb3VyIGlzc3Vl
-IHRyYWNrZXIsIHRvby4NCj4gaHR0cHM6Ly9naXRodWIuY29tL0NsYW5nQnVpbHRMaW51eC9saW51
-eC9pc3N1ZXMNCj4NCj4+DQo+PiBNYXJrIHRoZW0gX19hbHdheXNfaW5saW5lIHNvIHRoZSBjb21w
-aWxlciBjYW4gbmV2ZXIgb3V0bGluZSB0aGVtLg0KPj4NCj4+IFNpZ25lZC1vZmYtYnk6IEhvbmd5
-YW4gWGlhIDxob25neWFuLnhpYUB0cmFuc3Npb24uY29tPg0KPj4gLS0tDQo+PiAgIGFyY2gvYXJt
-NjQvaW5jbHVkZS9hc20vZXNyLmggICAgICAgfCAyICstDQo+PiAgIGFyY2gvYXJtNjQvaW5jbHVk
-ZS9hc20vcGVyY3B1LmggICAgfCAyICstDQo+PiAgIGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vcHJl
-ZW1wdC5oICAgfCA0ICsrLS0NCj4+ICAgYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9wdHJhY2UuaCAg
-ICB8IDQgKystLQ0KPj4gICBhcmNoL2FybTY0L2tlcm5lbC9kZWJ1Zy1tb25pdG9ycy5jIHwgMiAr
-LQ0KPj4gICBpbmNsdWRlL2xpbnV4L2twcm9iZXMuaCAgICAgICAgICAgIHwgOCArKysrLS0tLQ0K
-Pg0KPiBJdCBtaWdodCBub3QgYmUgYXBwcm9wcmlhdGUgZm9yIHRoZSBjaGFuZ2VzIHRvIGtwcm9i
-ZXMuaCB0byBnbyB0aHJvdWdoDQo+IHRoZSBhcm02NCB0cmVlLCBidXQgbWF5YmUgaXQgaXM/DQoN
-Ckkgc2VlIFdpbGwgaGFzIHJlcGxpZWQsIHNvIHRoaXMgbWlnaHQgYmUgYSBxdWVzdGlvbiBmb3Ig
-S3Byb2JlDQptYWludGFpbmVycy4gSSBkbyB3b25kZXIgdGhhdCwgaWYgSSBzZWUgdGhpcyBpbiBj
-bGFuZy0xOSBjb21waWxpbmcgZm9yDQphcm02NCB3aXRob3V0IGFueSBzcGVjaWFsIGNvbmZpZ3Ms
-IGV2ZW50dWFsbHkgaXQgbWlnaHQgaGFwcGVuIGZvciBvdGhlcg0KcGVvcGxlIGFmdGVyIG1vdmlu
-ZyB0byBjbGFuZy0xOT8NCg==
+
+--wslejz3kxq4lsyn3
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 0/5] This series is split from the v15 "Add Type-C DP
+ support for RK3399 EVB
+MIME-Version: 1.0
+
+Hello Chaoyi,
+
+On Mon, Jul 27, 2026 at 02:44:03PM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>=20
+> [1] https://lore.kernel.org/all/20260304094152.92-1-kernel@airkyi.com/
+>=20
+> =3D=3D=3D=3D
+> 1. Generic Type-C DP HPD bridge
+>=20
+> Currently, several USB-C controller drivers register their own DP HPD
+> bridge via aux-hpd-bridge.c, each duplicating the same logic. For
+> devicetree based platforms, the USB-C controller may vary across boards,
+> and not every USB-C controller driver implements this feature. Patch 1
+> implements a generic DP HPD bridge that monitors Type-C bus events and
+> automatically creates an HPD bridge when a Type-C port device with DP
+> SVID is registered.
+>=20
+> 2. Multiple bridge model for CDN-DP
+>=20
+> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. Patch 5
+> introduces a multi-bridge model where each PHY port gets a separate
+> encoder and bridge, allowing flexible selection of the output PHY port.
+> This is based on the DRM AUX HPD bridge rather than extcon.
+>=20
+> =3D=3D=3D=3D
+> Patch 1 adds generic USB Type-C DP HPD bridge (Dmitry, Heikki).
+> Patch 2 adds new API drm_aux_bridge_register_from_node() (Neil).
+> Patch 3 adds DRM AUX bridge support for RK3399 USBDP PHY (Neil).
+> Patch 4 drops CDN-DP's extcon dependency when Type-C is present (Dmitry).
+> Patch 5 adds multiple bridges to support PHY port selection (Dmitry, Luca=
+).
+>=20
+> Changes in v4:
+> - Link to v3: https://lore.kernel.org/all/20260717072323.96-1-kernel@airk=
+yi.com/
+> - Scan the entire typec_bus and attempt to register the hpd bridge,
+>   so as not to miss devices that were already added during initialization.
+
+While that may help with the module being loaded late, it does not
+help with triggering the module load in the first place.
+
+The module does not have any MODULE_DEVICE_TABLE() helping with
+that. So basically any system relying on the automatic hpd bridge
+registration and using a modular kernel (e.g. the arm64 defconfig or
+the kernels usually provided by Linux distributions) requires
+manually loading that module to get any graphical output.
+
+Greetings,
+
+-- Sebastian
+
+> Changes in v3:
+> - Link to v2: https://lore.kernel.org/all/20260608070805.88-1-kernel@airk=
+yi.com/
+>   (Sorry, I forgot to add the "v2" title, so it looks like v1.)
+> - Remove now-redundant call to drm_connector_attach_encoder()
+> - Rebase to v7.2-rc2
+>=20
+> Changes in v2:
+> - Link to v1: https://lore.kernel.org/all/20260521032854.103-1-kernel@air=
+kyi.com/
+> - Add copyright text.
+> - Remove useless goto.
+> - Fix incorrect function names in the documentation comments.
+> - Fix the check logic for dp->active_port (0 is valid).
+> - Fix the uninitialized prev_port.
+> - Remove duplicate logic from cdn_dp_switch_port().
+> - Fix the prototype of cdn_dp_bridge_hpd_notify().
+> - Properly release connector->fwnode.
+> - Properly release next_bridge.
+>=20
+> Chaoyi Chen (5):
+>   drm/bridge: Implement generic USB Type-C DP HPD bridge
+>   drm/bridge: aux: Add drm_aux_bridge_register_from_node()
+>   phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
+>   drm/rockchip: cdn-dp: Support handle lane info without extcon
+>   drm/rockchip: cdn-dp: Add multiple bridges to support PHY port
+>     selection
+>=20
+>  drivers/gpu/drm/bridge/Kconfig                |  10 +
+>  drivers/gpu/drm/bridge/Makefile               |   1 +
+>  drivers/gpu/drm/bridge/aux-bridge.c           |  26 +-
+>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  |  64 ++++
+>  drivers/gpu/drm/rockchip/Kconfig              |   1 +
+>  drivers/gpu/drm/rockchip/cdn-dp-core.c        | 358 ++++++++++++++----
+>  drivers/gpu/drm/rockchip/cdn-dp-core.h        |  18 +-
+>  drivers/phy/rockchip/Kconfig                  |   2 +
+>  drivers/phy/rockchip/phy-rockchip-typec.c     |  13 +-
+>  include/drm/bridge/aux-bridge.h               |   6 +
+>  10 files changed, 428 insertions(+), 71 deletions(-)
+>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+>=20
+> --=20
+> 2.53.0
+>=20
+>=20
+
+--wslejz3kxq4lsyn3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpoDwoACgkQ2O7X88g7
++pq00g/+P6xQ6MSgg91MljD+vnTg2VTasRDBvjtKt4yJqP8hXXIFvfLaJaysp2kp
+dHor49WP4MhEzAbseLecHnyzcR8uDvl0MPwNJJ6J8Fb4yCMPPT+SG79m9YaxRW2Q
+cQ+nMvDcCQOQFU0vcxEN+CzOlexgXCVrRqEiLMPKYB8qTfT7AxnWE1Lg577QHP9J
+W8EInQO1Ail9XlLypdaGFN9tozuiufX8XmvDaV+LrJf3KZvt3uqsBa0l4aAzB6/W
+pg0ZGbO7x7hIO3bvIDsS83hmGDHdeMJrfxvcoBO1aeK+DDl0JdXdiefH6AT/tiKK
+4wuvIYP4vgrtZZKJtUsSRPuy46EKJnc4ID/b/vspsyqXReypNxKN4u/PzuFtXcbh
+yGGTU7rzrOq9BwRKryiMHekpbw7VlKPiOnWDzkXrQ0NJevDnEe4iG4DkS/RugOND
+tFKvrXgGUwLo4zd0VIQ43B0PX15qmbGG+XSvuxIqdDJpSddelcl4yNmfpSm2YD9y
+/6YocqSJ4lsMmkncKjAOt0KYCef2dsFh2UhezJrZNAZEzcfLRXjUn2s6rLJBq+m5
+ab30eeOoK7iqpeISWT7MJu1dGC7+WntBG7Wvu2tOz4R37lpbttnZ4mSigwOt2X7Y
+pd34j30G3aCD+Kz/lDVrKP04yHdqCRHsTioVnTqxptb894J0wgI=
+=Fuia
+-----END PGP SIGNATURE-----
+
+--wslejz3kxq4lsyn3--
 
