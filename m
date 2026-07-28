@@ -4,98 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448A6C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 06:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E116DC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 06:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9PHCPemx3I5IiaOZkfCpXgJjCP/3isLoWalQDvmgro=; b=EI/sP0ZlY7trFBLbwe2iDCBRQn
-	DehT/aCAVTRbMLy4ZiOON4DRhl3/acqWZfgt1DVgvsx9Wc0xRKSj0Mtt6x7iYL9vmOZuhibvnKaRz
-	fA2Mw1PmpoADbAIvTyOS6oK4HP1wgx6SInIQt6go35fRXvkoTMBXfFmo5OJ8TbfHA4GDOxvD5nRMi
-	Jo+qktp4RGVqsxnkB8XyBDfuL9Vlbz3GpZPavueXyN8SmEOEfNar4Gq3oP6Q20dbDQG/q4Nnjxg8+
-	rNEuxnPaCfoyrhpEHB8FYLrpkejBtwATsaabbmo6BPaBegxi/Dq309ZUtsTPrrud7n86rl6LGoj3M
-	e6c6/Nlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sgJfoTdvfcDheJ0F1+kVzPCp5rqIdrxKXzQqtH0RqAk=; b=SWTRZCdtfl8udvGZfQy03YdG9t
+	ebnESeMIgcuLJfN+Bj15Eyj9VZUC9zXbGdlcE6DzGpIqlF3UPyP5dtt1c5hAQoUumz/fVE2UWzjER
+	54s4ZfxivRpbxxlRUjY/x6mPYafywMBisBQ/TDuoSJWqPEj70jIGX8AWwjdDjn8K55Og9WhQi9dDT
+	GOEGdzO8EDwc5ON2fvCsDRgf5GQO+LzFupVVHju+kN8KPF27N3M5nSri3gyBk0MNoOAX1t0MN3MyH
+	oxj23uD6ZNgsJplXnB7bflVBdwDENu3ZQ7/S4a4La0Wfx1NoUPuS3kwW4YazclGxxATwhhhisDyPZ
+	YzJ/0XSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wobZW-00000004YxR-2Nzp;
-	Tue, 28 Jul 2026 06:45:50 +0000
-Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
+	id 1wobiq-00000004Zu1-31Ld;
+	Tue, 28 Jul 2026 06:55:28 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wobZS-00000004Yv4-0cza
+	id 1wobio-00000004Ztc-183U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 06:45:48 +0000
-Received: by mail-pj2-x01.google.com with SMTP id d9443c01a7336-2ce7ac92dfcso31822385ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 27 Jul 2026 23:45:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785221145; x=1785825945; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=G9PHCPemx3I5IiaOZkfCpXgJjCP/3isLoWalQDvmgro=;
-        b=am+nuyhWGZQGDZUpub8mb0r92Upz2N0J7ZuxaYTm+jIIYULepZ49dzcDaa42V2KzOS
-         76LP7TK5Nk4zuoScKMyxrO2mtH1w/a00vJZT53rh6xGk/HDUvuISqGcRHs0CtJaTSgac
-         oNfMbPpJftzSGaZES45iYAX3QAcO3A5R2oHAiPQlAOqvdOUjfUnb0uAAbmg9AdVr7Zqi
-         9l6z8gK8QXNBUx56U4v73Ban/tlB6udxHhyP6/NwSMJREDuq4nJQIu6fPBWh8Fvnzxu3
-         Q3CZxuEN/dxegi05TFhoMkb139W2lBinS4GfztOsgjLrb4WCGoDe8Am7xXBOtQZEZ+3b
-         ifYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785221145; x=1785825945;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=G9PHCPemx3I5IiaOZkfCpXgJjCP/3isLoWalQDvmgro=;
-        b=dFlVTYcZweL+Yk3JlksPDw+Twuc2z843/3k9BjDzTmP9SgPKsz+Lny0ySYoVsjlB+Y
-         WJLerJs2DCXzncljg1uya3EQwAbqRb8oyRuc19oFhp3P6f0Lc0jB1qPA6uQuKDkO+8dn
-         EBVHVpiubwY6JJVqfc1Y2qAjOMkcspIU9wBgHyCFKA0m7cqYGalEqkYklRQXXiCWxr7i
-         GodibXmF6oC8mlB4BVqdjBbpPxV895aND24PLMNE1lLcCURJtGJxiHD6AwpvJOLj4UEW
-         QELmpyzXXzi6bj7EDxJBCAX00zS6QFl+Dk6BJ+V0UwSmOxB8TBdbNBMjpdwNCq/EXgFl
-         ijog==
-X-Forwarded-Encrypted: i=1; AHgh+RpPEOzk4XhX7QogkdikVwOFY6E0QyU7gqauAKvOmi/jyTwKZ3g61xxM2QnXeBx9dBomAPWGKzW0+8VrtzfPg1UG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdUo17Kv92RYU3afw3LdrnNFLVmxdozZlkBG/Hb0swAXQNLTyY
-	Tzz814tj70BSDIcftnm0Xz9vmwNN/RIicnixBFkG2m4G8Ax5kPLb2vIB
-X-Gm-Gg: AR+sD119Ucfmw+X8m78/m4qfMtea53Vffb3Tva9h8JMziFZ/EYiie3LrG3rKueyot38
-	wTUrYN4vBwC9kskgHKhrSjDuqZhrr0yhphgvZ/AME96Mns1SgN11//8qMDXl4+0HvcbBHOgzS0a
-	K6dnRTtDnisTRK4p74Ew25/1kIqQpXKRvIPA37mwd0qE2a7zKQmCCtCs8QGM4oIu6Btb0KsflZc
-	fCwLzRNeASmaIb+Z62tctmTlp7ML2jJDzHScaMNMELQ/BxTI4yjt4a+oJ8h+04pxf+Fj6q3yUk+
-	toRJTL/wd2nTahhWwtXtiLRP7Hoop+xSUhUGrfzNl2UWEOLHWn08biRB69Q9LszN3UJuTxVF9mR
-	6UsB7Y00HGYZQUZmag6lrmPQunL4YCuwzpzuD6I/KaEkIHfXy7w/t/1HtbB2yW+PBP6iQ2XbPdG
-	8V8pwI3f9LqQ==
-X-Received: by 2002:a17:903:b90:b0:2ca:d9b3:715e with SMTP id d9443c01a7336-2d015c9b773mr13766995ad.9.1785221144689;
-        Mon, 27 Jul 2026 23:45:44 -0700 (PDT)
-Received: from [10.125.112.20] ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cfde5e1e26sm46147345ad.22.2026.07.27.23.45.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Jul 2026 23:45:43 -0700 (PDT)
-Message-ID: <14ae96c1-707c-4999-bc9d-65ec74fbeff2@gmail.com>
-Date: Tue, 28 Jul 2026 14:45:32 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/10] kdump: reduce vmcore size and capture time
-To: Rob Herring <robh@kernel.org>, m.szyprowski@samsung.com
-Cc: chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, saravanak@kernel.org,
- bhe@redhat.com, rppt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- kexec@lists.infradead.org, iommu@lists.linux.dev, zhaomeijing@lixiang.com,
- catalin.marinas@arm.com, will@kernel.org, alex@ghiti.fr,
- akpm@linux-foundation.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- ruirui.yang@linux.dev, robin.murphy@arm.com
-References: <20260630074715.4126796-1-chenwandun1@gmail.com>
- <20260723234126.GA3253409-robh@kernel.org>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <20260723234126.GA3253409-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+	Tue, 28 Jul 2026 06:55:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MTocchHdl+2HPtUI9AxAfdHFaXt6xpdU33eHRAoShQy8pICz+B/0TaZb1Nh4HnT17/MHVbKuB5tvXbLf5iVsbLpseRV5JXi/07XRV2ufS8qdGuu1CvInjhEPfuS7ogsTn1v9T3trY5z84HbBTtPtEzQ5Kny4y4p0hegfRlVVS11R3xoUgu21Zto0mPNZr+wn3es4ZH3z0LUUnA+0Cw9/Gqm76NvpdSbBk0vg0Z9n8MUPC4F0oD/6lpM6eJGhsCMFIKC996hV3L6QU6dcMJvIBDM1rnZQAE5C1GOZeqz9tNtZJVLU2Aav1iArB0wpkTUHw6MarUdR8lFzNs29ZB5l6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sgJfoTdvfcDheJ0F1+kVzPCp5rqIdrxKXzQqtH0RqAk=;
+ b=HYb1e4nrbGx4OXJwFXJkcT5cghWbL5v+QmZVffdBZJW4HFiRqpb4Yjr/BU6aG8BiLlY6oAwJhJrK8sN9i3vHQMtQGWgYcdqwZ8kr5FVhhrVHhLhIpn20Y9XqphznW8XEq3fK47Je+Y5rvNz0w0Ir9R0fkf8rT2JsnStBrTlzv7JFS/mD3vwX0ZINMl605yqvUvGLpIMZ9WxVJlZkaA9RxiC+Iy14sCJdo1s91/PMBaYYB5nVYvzZtPpo+IoJoUafK3eCppiTBKboAgCTRzepzWbICdLvcshX+2ua3eqqaJ4tlmN4MyteARR21ez2t7XfzvW7qRWK+BD/gMlmgcId8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sgJfoTdvfcDheJ0F1+kVzPCp5rqIdrxKXzQqtH0RqAk=;
+ b=xBtRDmbGXYdFvMp4Er7u+5ZflpEHzqzxDJug2eSOOhfh9gZivD0Q9aK2QblVSLcagB9WuehlgLbjXFfM5eIH0GwDkLeeQl43tLMQB96GFISXjK1g6naHt8NnWI/p3cDQCNUo+Od1up+l6QC92v/Oh8dEOnWOobV5mZxlexzuIEMbj4aH/qxSXtVLFhlQdZRYQRV0jPxZqESFA4Eh0+q3sNfHyVVne1GBbLi6d/B6sF1YwxGr6Vq9c0weTjENzHnIpQj6+fjSylLMoLddwBTKK5fq2+GU2Kp6jECdprRP0haCDNkgls8fZhSHGwE5JR0zToXyd6XBPDRMWg/afjjl9A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
+ by AMDPR04MB11584.eurprd04.prod.outlook.com (2603:10a6:20b:71a::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
+ 2026 06:55:22 +0000
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0245.012; Tue, 28 Jul 2026
+ 06:55:21 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH v5 0/4] imx8-isi: Format support enhancements
+Date: Tue, 28 Jul 2026 14:58:55 +0800
+Message-Id: <20260728-isi-v5-0-1d22ab91602a@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAC9TaGoC/2XOQQ6CMBAF0KuYrq0ZypRSV97DuKB0Kl0IhBqiM
+ dzdEWLEsPyT/37mJRINkZI47l5ioDGm2LUc9H4n6qZqrySj5ywUqAIKVUhuSIAA2gFiVVvBzX6
+ gEB/zyvnCuYnp3g3PeXTMPtevt7MfMwnSE7ngXebAuFOX0qF99Ie6u4nPwqh+yihYlGKFukTta
+ u0xVFuVr1W+qJyVtmgzSxWVaLYK1woXhayU8cE4Hfhx+FfTNL0BxhoPXjoBAAA=
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Christian Hemp <c.hemp@phytec.de>, 
+ Stefan Riedmueller <s.riedmueller@phytec.de>, 
+ Jacopo Mondi <jacopo@jmondi.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Bryan O'Donoghue <bod@kernel.org>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
+ linux-media@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Guoniu Zhou <guoniu.zhou@oss.nxp.com>, stable@vger.kernel.org, 
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+ Robert Chiras <robert.chiras@nxp.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785221945; l=4448;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=FmnhNwhHSndCGiuJ1KrTkNX9u5X5tqdePZP2r3e7Flo=;
+ b=ad1RWjcOZMxAvnnD/gykp7XthSYqNHpPjhB28j3a8T7x+UBon/xQNWGR7oUPxa6K2iWqwAlPT
+ 4lXSJ+/RhYfA/MnYMCwUQFuLlL24U8YEFBLEOuFMLx5VaWeu5LKMGLL
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI2PR02CA0040.apcprd02.prod.outlook.com
+ (2603:1096:4:196::6) To GV1PR04MB11513.eurprd04.prod.outlook.com
+ (2603:10a6:150:284::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|AMDPR04MB11584:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0674b3e-d2b3-4a8b-0ac7-08deec753142
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|23010399003|1800799024|56012099006|10067099003|6133799003|11063799006|18002099003|921020|13003099007;
+X-Microsoft-Antispam-Message-Info: UAwwH2DLVWW0ke1p93OsjiRhBL/vdZRGIiA318Cb7MED72K8WSZRUZirE2ufkMV+83BSAO+DZegSdOUox6MGmKs7RPDtL8pBCreWziKd9LD1cYjr4IQtfxXzbmjOuMxu3fKh+eFeX+ICFhuNOCLATOqxOxf9Yait6QPtxQ3BVevBVQA6pdQFrqDb5A9QRoPPjcfLubICTv750y2sCxk4ec5N6BdB/AKOlwURpyhAmWnsABPOD/PtXe1OsQY7VrgZoWRzPoSpKfTPMJhXZIE4gQTQondnCWQotv5B3ftA+vmNHjssNkNbu1U8uU7KhmlFru9XiahmWhrlUJEEVCDoyRoF8BfDAsL2Z/ozKL9WmVgHWgXBoinp0cAHYftsdPKICp1CWNZzv0/t69bftz+ZealJgXfJSIQoVQj/EvDWS9n+Zzgz4g869yQOzISG1BcGAuyDtHeYtj2UI/tMRd1uBoEnoCxHx1FEEGw0RWdZs3cqXUOzFCKTEoCRdNGrvkX+uOC5krKWfjwRgfK+RAINwwJltIUPZ1DxnXLmjuAbOMtq/k0Y/kYvUypyYvcdzYT0f8wthIAMnCc5hvb0TjLnbIPumVWADr37HbUnuAhVRKvMFa1u2xiVJI7YyPmIytu/GcH1XZKysf5eQKSL8UPcsmkHHdKKf8WorjH3SXjeClptXS96+eno6siBEOKem3jcLz5L3L81eUR6Lax83S1CXA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(23010399003)(1800799024)(56012099006)(10067099003)(6133799003)(11063799006)(18002099003)(921020)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0IzWC9sZWwrQWxOQjBzQnJNODNWOEozYXQwY2ZhYjVvTW1GeFlxR3NFRldZ?=
+ =?utf-8?B?dzc3dk9CekN3SGZUZ3RadURPSGxQeUNSaXFiak1ReFZOWFNybnJGWGN2TWdM?=
+ =?utf-8?B?b0dTSkdyZThRTWtJbnRXRzVlOXRiRzNnMWhPbDhOWGVreEFSVEJTWUZKUWZJ?=
+ =?utf-8?B?QXYzRU16alB1NzR1dEJBNVJ1elVIczZoTElrSDNmVFdjc0djY25YK21IcXdp?=
+ =?utf-8?B?cWMvTm9DVnRxQkx3NkJDWTB4M2h1YVdXWDRhazFvUXRWYm9jUlZYb2xURmo1?=
+ =?utf-8?B?aGdkMnpnRTg1WHBacHNUOTh5T0hQWkc4NjU5T1NXYks3UlZrOXpHeTMzYUww?=
+ =?utf-8?B?K3Y4NllSVk9ERlQwQ2NDQlR3YVZRS2p3NG5UampVYjBGVGFTNlVqekovYUU2?=
+ =?utf-8?B?M0Zrb1VNcXlnVW9EYU15amxYaXA1MEp3OEFTaXlEdDcvekM1SS9NY1Q1eXBF?=
+ =?utf-8?B?ZGZmN0FzMU9HZk1nU0FmVDJXQ2lsTHgrVTZzQWlYQWlTaXFUUDEzcjJGc280?=
+ =?utf-8?B?dTdXUi94V2ptMU40Z3Z5ZExpTFFHblphOHBXdUZYNzByUTl4NDJBcmMwaXJ3?=
+ =?utf-8?B?Qy9oK05hank5eWlpSWdLQXdsMVhxNlV2SlRRLzQ5WUJOUWZmL0toK2orRDBZ?=
+ =?utf-8?B?N041ODRiemkyMVFhV3UySjhrc2tOMmpmVGtaOEZSRUNhRTdaUmZmU1V5VWky?=
+ =?utf-8?B?RW5QN3RrWDRxY0ZtdDdXR3NjMEhYRVUyaEZxdTZQbGZsdnlEcG1lRUFhNlVi?=
+ =?utf-8?B?SW4rVWRXYldzS2lTVXZMZVdQcHhMUFA5TEp1dGpjMUdRUUl4bmY5aHpTZ3ZP?=
+ =?utf-8?B?bTZUNlk2SVhmeFJzMVlhaWd0Q2FCbXViWUZlL1ZRay9mdHFEZU56YmJrNElt?=
+ =?utf-8?B?RUVYZDlIdzJaYnFVdTVVeTkreVpXTWNJK0M4RTJvRWVpUVloV1RkRThOYk9j?=
+ =?utf-8?B?Ym85RFUyVE5jeHZhRDQ1RkRzUTVHejhqQ1dMbGFRVmJGWTM3NVZjT2xnWmpW?=
+ =?utf-8?B?OW9uOEFCZGNGb1JvWjRCUWFEYWJDWjlib3hEd3luYUVDQzdrN2cwRFZYK2Ez?=
+ =?utf-8?B?RjBjWmtjSW5WSWxNR2Iwc1lkZUx4aGw3NUFXaEQrbjFlVjlncW51WC9Fdm41?=
+ =?utf-8?B?a053R25vV1VHREd3aVdVRjJ5bVhpeFA1RmJ2VjJ1RGQrSGtDN2lyMUJXY3dx?=
+ =?utf-8?B?Sm9QMmE0Q202YlNHWTdNRTdBa2dmTkNBVHpadit0K3IrTVErNlkzWEhoTE1B?=
+ =?utf-8?B?K3VmZ01QZmNUWVFLK29JMXRpL0FxQmFjWHVMNXV5dlJwN2tVKzVVQVlIVlhx?=
+ =?utf-8?B?UGg0aEZiZXpsOENkT1FNZjgrRngyeUhOcWFoV0Z2ZjYvNW42cnQ4RVdxaFp6?=
+ =?utf-8?B?akxsTFhDZEhPbGk0SDhiMjRzaHl6MktaSmZjdzZsaFJCQWRTbUw2a2NqTHZk?=
+ =?utf-8?B?bUY4M2pjUGhDUUZFU3NhTXNnTEZmZFU5ei8wV0xqbnNSM1M3Z0dtRWxDS2or?=
+ =?utf-8?B?SVhOMFJxZFJoY1p3UENzZWlsUmxDTFRaZnBSS0hxYmxsaCs3Q0N1RkEyU3Yz?=
+ =?utf-8?B?SW56WFlYVFpxMXZQSitBMjZjZGxURnhCeGxjMFkzb0tIbk1Ha20wWm1EZnZy?=
+ =?utf-8?B?SWZVQlM2SDBQRHNld0RIQVYxUWtlc1pvUzVFeXFKMkw0NXR3OHExSDNiT1pQ?=
+ =?utf-8?B?OEdUanJnQmdMUDZoNnpDV1lIbUJxK1RQM2tYbTFta05kODNPT050MkNVc1k5?=
+ =?utf-8?B?ZnhpS2pVM2R4dHhaSGQrakgxS0Y4bWpxbzlGZVFHWTdNK21pYlpGbUxjSXVo?=
+ =?utf-8?B?ZlpabkZDZDVEQjErM1M0ZGZKUHBOQlpwNjB2U3cxME8vVnQwaXZzKzVzZWNQ?=
+ =?utf-8?B?SkF1Wm1ZMjRNY2NUTFY0QTVLaXVISm5hTzB2WVVtNWk1a2czVkQvVkJ1azJK?=
+ =?utf-8?B?MGZLTWZkNFNUa1QzZkxwU3ltTnJJQy92ZFBjL2I2WENyWWRmSDJYcXBmaURT?=
+ =?utf-8?B?Vm5Ha0tHN1FtUy9kK1pmK0kyamlrS2xueDJHR2J6VHVmUE9PSTAxdm5QeTcy?=
+ =?utf-8?B?cXFHam5lOStCYnREWlJFOVZROEo0K2lzMXdlbDdGTjhlSWI4S21ad2tWdEpP?=
+ =?utf-8?B?eW9lZXBmVDNudkMzbXZsNmFWR3FXeUVicGsrdFJDcEgwbnVRZkhpMGRVL3pK?=
+ =?utf-8?B?TDlSNzR2Sng4Y0FZVHBUckxnZjF1dm0ybnpaUmU5c2FnNzVJdjFPeTJUTGpC?=
+ =?utf-8?B?NTFoMFdSSGdXN3o5TlFFQlNTdHdUOGFuTjQ0NW4va3hCM1dZYmZSTU5sWWhl?=
+ =?utf-8?B?RGtoc2RkRTRSM1Fhc2dLVVJ4K3dmcmlna1FXVmthdGJoUElSUHpRK0VBUkRk?=
+ =?utf-8?Q?TJB2k274gsx4zGHu1cxr8rgFLekr7yhWC6jqM?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0674b3e-d2b3-4a8b-0ac7-08deec753142
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 06:55:21.7236
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v+akaN0ZqGvvgtg5ZnnYpR2y1IIcET0bo0WK/EX5iWprImN8zl7UPOwL002A0u/D5hs4GzIZZ8whxI+jUolktz7N1F/kb9qOHvTErtPsTZyOTl87jgDYpdET8b/zhAyb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11584
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_234546_193821_12E8BEBC 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20260727_235526_328147_4EE3F931 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +168,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is a follow-up series to the imx8-isi bug fixes and format support
+patches [1]. Patches 1/6, 2/6, and 5/6 from v2 have been merged into the
+maintainer's branch (pinchart/for-next/media/nxp). This series contains
+the remaining 3 patches rebased on top of the merged changes, plus a new
+bug fix patch.
 
+Patch 1 fixes BIT() usage on 64-bit stream masks which could cause incorrect
+results on 32-bit architectures when stream IDs are 32 or greater.
 
-On 7/24/26 07:41, Rob Herring wrote:
-> On Tue, Jun 30, 2026 at 03:47:04PM +0800, Wandun Chen wrote:
->> From: Wandun Chen <chenwandun@lixiang.com>
->>
->> On SoCs that carve out large firmware-owned reserved memory (GPU
->> firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
->> those carveouts as part of system RAM even though their contents are
->> firmware state that is not useful for kernel crash analysis.
-> 
-> What about reserved regions on ACPI based systems?
+Patch 2 implements per-stream reference counting in the crossbar to properly
+enable multiple streams from different virtual channels on the same input pad.
 
-ACPI based systems already filter out these reserved regions from vmcore.
-In the EFI memory map, firmware carveouts are reported with the type
-EFI_RESERVED_TYPE. This type of memory gets the nomap flag set in
-memblock.memory (is_usable_memory() returns false in reserve_regions()
-and mark these regions with nomap flag), during prepare_elf_headers(),
-for_each_mem_range() filters out these nomap regions. Therefore, the
-memory reserved on ACPI based systems will not be dumped into the vmcore.
-> 
->> This series introduces an opt-in 'dumpable' flag [1] on struct
->> reserved_mem and uses it to filter the elfcorehdr PT_LOAD ranges on
->> DT-based architectures (arm64, riscv, loongarch). By default reserved
->> regions are treated as non-dumpable; CMA regions are explicitly opted
->> in because their pages are returned to the buddy allocator and may
->> carry key crash-analysis data.
-> 
-> I never like seeing the same change being made to each architecture. 
-> That's generally a sign of restructuring needed. loongarch and arm64 
-> prepare_elf_headers() look about the same. riscv version uses 
-> walk_system_ram_res() for some reason. 
-> 
-> Perhaps the dumpable flag belongs in memblock instead? Then at least we 
-> wouldn't need more DT APIs exposed to the arch code, and the code stays 
-> independent of the firmware API.
+Patch 3 adds support for 16-bit raw Bayer formats (SBGGR16, SGBRG16,
+SGRBG16, SRGGB16) and Y16 (16-bit monochrome).
 
-Agreed on both points. Adding the flag to memblock can indeed eliminate
-the duplicated code in prepare_elf_headers, and avoid expose APIs to the
-arch code.
+Patch 4 extends RGB format support by adding BGRA32, RGBA32, BGRX32, RGBX32,
+and ARGB2101010 formats.
 
-I will add a dumpability marker to memblock for future extensibility
-and to avoid duplicating the same code across different architectures.
+[1] https://lore.kernel.org/r/20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com
 
-I'm inclined to add a nodump flag, similar to nomap, by default all memory
-is dumpable, and only the small fraction of memory that carries this flag
-would be excluded from the vmcore, What do you think about this approach?
+Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+---
+Changes in v5:
+- Add new patch 1/4: Use BIT_ULL() for 64-bit stream masks to fix potential
+  issues on 32-bit architectures (Sashiko)
+- Patch numbering updated: v4 1/3 -> v5 2/4, v4 2/3 -> v5 3/4, v4 3/3 -> v5 4/4
+- Link to v4: https://lore.kernel.org/r/20260724-isi-v4-0-27df7b5f6060@oss.nxp.com
 
-walk_system_ram_res() in riscv could be reworked into the same form as in
-the arm64/loongarch architectures, will do in next version.
+Changes in v4:
+- [1/3] Make enable/disable symmetric by checking stream_in_use
+- [1/3] Add mxc_isi_crossbar_stream_in_use() helper for both paths
+- Link to v3: https://lore.kernel.org/r/20260723-isi-v3-0-594919eae847@oss.nxp.com
 
-> 
-> I'd really like Marek's review on the reserved memory code changes.
+Changes in v3:
+- Rebased on maintainer's branch which already includes v2 patches 1/6,
+  2/6, and 5/6 (stream ID validation fixes and color map correction)
+- Series reduced from 6 patches to 3 patches (remaining unmerged patches)
+- Patch numbering updated: v2 3/6 -> v3 1/3, v2 4/6 -> v3 2/3, v2 6/6 -> v3 3/3
+- [1/3] Change from "Fix" to "Implement" as multi-stream support is for newer
+  SoCs not present when the driver was merged (Laurent)
+- [1/3] Remove Fixes and Cc: stable tags (Laurent)
+- [1/3] Store input/input_stream in mxc_isi_pipe instead of using per-stream
+  counters array, avoiding arbitrary 64-entry limit (Laurent)
+- [1/3] Use UINT_MAX to mark pipe as inactive to distinguish from valid pad 0
+- [2/3] Remove "high-end" from description as RAW16 is common now (Laurent)
+- [2/3] Add Y16 (16-bit monochrome) format support (Laurent)
+- [2/3] Add Reviewed-by tag from Laurent
+- [3/3] Drop M2M_OUT for ABGR32/BGRA32/RGBA32 as ISI ignores alpha bits (Laurent)
+- [3/3] Remove Android requirements from commit message as alpha formats
+  cannot be used as M2M input (Laurent)
+- [3/3] Add Tested-by tag from Laurent Pinchart
+- Link to v2: https://lore.kernel.org/r/20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com
 
-Marek, could you take a look when you have a chance about the reserved
-memory code changes, I'm happy to respin and address any feedback.
+Changes in v2:
+- [1/6] Split v1 patch 1/5 into two patches: this patch fixes the core
+  for_each_active_route() bug, next patch adds additional stream
+  validation (Frank Li)
+- [2/6] New patch split from v1 1/5: adds stream ID validation on top of
+  for_each_active_route() fix (Frank Li)
+- [2/6] Remove incorrect sink_stream validation
+- [3/6] Use fixed-size array for enabled_count instead of dynamic allocation
+- [3/6] Use BIT_ULL() macro for u64 bitmask operations
+- [3/6] Use MXC_ISI_MAX_STREAMS (64) as loop boundary instead of num_sources
+- [3/6] Remove mxc_isi_stream_counters_alloc/free functions
+- [4/6] Add Reviewed-by tag from Frank Li
+- [5/6] Reword commit description for clarity (Frank Li)
+- [6/6] Add Reviewed-by tag from Frank Li
+- Link to v1: https://lore.kernel.org/r/20260629-isi-v1-0-deebfdb1b07b@oss.nxp.com
 
-> 
-> Rob
+---
+Guoniu Zhou (3):
+      media: nxp: imx8-isi: Use BIT_ULL() for 64-bit stream masks
+      media: nxp: imx8-isi: Implement per-stream reference counting for multiplexed streams
+      media: nxp: imx8-isi: Add additional 32-bit RGB format support
+
+Laurentiu Palcu (1):
+      media: nxp: imx8-isi: Add 16-bit raw Bayer format support
+
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  5 +-
+ .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 88 ++++++++++++++------
+ .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    | 31 +++++++
+ .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 96 ++++++++++++++++++++++
+ 4 files changed, 195 insertions(+), 25 deletions(-)
+---
+base-commit: 4d32fbba9d23f50d157ed4a37c9e8fbce61c904a
+change-id: 20260626-isi-00f05b044ac9
 
 Best regards,
-Wandun
+-- 
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
 
