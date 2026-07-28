@@ -4,68 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439A7C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 03:47:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E3DBC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 03:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6UZlojZPD6eR5Zmm9raJSSGpa5c7JoSLng93LMymy8=; b=EtPhplbG6JQeXTJB0uD0CYuJep
-	jka40TBN1lhK3/96W/GYaAqt9Tp1HByElkprB/VkfesGqVT7IEUfk45GZUn26mGASwQ35HmEQ5g/K
-	NHM57+USnIT/6cYm8ylI6ttuOELY6rsyXBEuEUIVEBrkCybe1LCTYnsPj7nmlS6JlftrB63HQLD4K
-	HOcS4IxpTtRzuy0labLdGntVTEs0BPUhHNDCIbjWX4UrB+97AV87duYoN0vc79fSFhNTXo2YS4X1X
-	wRp65TpNzH311eM8tm0nb8ql7fdvaouIQNrJQRPlJNtdpdLwOOzd83NkCbw0x4CaBa0RFXNvVAZL0
-	o6oi/iFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+Q/AaRtHkrZwEhe251fe440ZehwwIHjkWumaFd8LZVg=; b=QrT0jkaQ+WpJDCeDvX8N0OTaVd
+	Zi1+Dw4lpxt61qOW7uy5LOnXdoTSfF4OljdFDoHutIWMxOe7Ym8MEqmlVPTy832g1ZXjb3GHi3WZD
+	pkf8f1nhEwnshMUlL5tYSl6nguUytqu8XyRFXkR4ShWB4VfAzyhEzhTIbfd4nhF2T/MQJrrYMAHJf
+	AiysWIJy2bSRKiz+Q9xm3WCJPhhHIUH2b3bSFPZHNw1+fmsE3N7IhFFBKpYGU+gG2eUf1eVw7rB1e
+	WioCJjzV4uiUXZMhi3lZdKBe6+I4idN1zGneUO0elqogp1sj9tJqR45TPQRsarYw7CJ9Ll/2KAzeF
+	3OSEiqgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woYmT-00000004La8-24uJ;
-	Tue, 28 Jul 2026 03:47:01 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1woYo4-00000004Llo-2yY9;
+	Tue, 28 Jul 2026 03:48:40 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woYmQ-00000004LZ2-1MoK
+	id 1woYo2-00000004LlB-22de
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 03:47:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=W6UZlojZPD6eR5Zmm9raJSSGpa5c7JoSLng93LMymy8=;
-	b=pQu6rIy0b807lx5YKIbURc9BBUPob+LftllZ8wiK8Gh190PLmrCgUO725ugU3BCS4Aw2rHZ/l
-	h5HJ1z7+M2qKHQpM++0yHB/2PQCmUN3ybhrHUqdbafu+sDlejUUiXZn2C6sFvH1vvWlGocFC3Oy
-	Q4jH9+e/aYM/II41vbOSix0=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h8LkX5P6Tz1cyVf;
-	Tue, 28 Jul 2026 11:37:24 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8FA59402AB;
-	Tue, 28 Jul 2026 11:46:49 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 28 Jul 2026 11:46:48 +0800
-Message-ID: <3e95b25b-1f02-4a30-a56b-7ec809badf11@huawei.com>
-Date: Tue, 28 Jul 2026 11:46:48 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 11/45] arm64: irqflags: save and use both DAIF and
- PMR
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-12-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-12-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 28 Jul 2026 03:48:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v7fph3ziVlH2fKmeDqHBOf/pgQ12m65VqB9Ji2kBr2IjmExYSHLKm3dsFjTsSfRV39UcGzh/2fOAd28mG7gZ9Pd9qxVhZbSg6zCysk+M6n+F6ddqKf5NpqxEgh1e/5Ff4eJdg3Y6mZN04Wr1go8FZ+sXsBrHr2X6CTJgT/tuAiTzQMkCIDZzJOm7A4KohQUgx3NhfuZbLGGbZqqmY/bq4Ry+BGZSPLJlse6gAyBibEPh5GXFbxATdZni4gQ5Hw6rz4np9NjoSMczMUF5siHdUw4h9I9gQWEZDQMC3W7mTgs+dLGcjV94QZYpVZ/GxUiYQE5wozGM2bOs6polmKvksA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+Q/AaRtHkrZwEhe251fe440ZehwwIHjkWumaFd8LZVg=;
+ b=O79FpS9uUNpnoxRBkxPpTC2a2LCNkYgqbun1xdOmZsoBryufR9P3dmMdHYvqFLnAMoZmK89KXBw/SdET+nUkJ6WCmiFBnUSyrR9Ki5hJdH9Q1JWgczTjlMgAb496SX+wSw6bkjA+NL9dpN9WeFsvPX0Binuwq1qkVXR39vYOVcA/gHuyM8Fx3i0rR2DPlwe25Q/f93C1jWDwvhTh59Nd8UhYfn8l9F454Cqx6cnmDpSXsGOmq8VXfFw1L7QDTGHU5yiuCjHHybAvOajyXAWKV2rbYdQJ2yluGSArnJbxQrLFP2WIITb47aEllcWG16b9M4PhCUWAOs2y0tr9baR5+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+Q/AaRtHkrZwEhe251fe440ZehwwIHjkWumaFd8LZVg=;
+ b=OmSczWyqrzxGcq2Rj5WGNr65zk+Gx73ce+X5kdAItA6y8lJmabWT4GM1sACs8u1pnf1PtOYmZuKRTLEJbzFmmZDqIcNAoWLiegSNWIEmJoAgGBGUg4oirxBKnYnaF+X++Nt/0yPyFEvVGxecW47SlpGgz2qdQYfVWE/ecIrlqxXpCCTobPsflBS/pL29idJgSS0Et0H3l6rVnJHJBcITSTVKf5ABBJFQm2QF+3ufuZzFcF5srLuOkCubbt4Y3UP6qgOgBxZqgb2jkl+EFVdqz4kV59FiWMWwStbAAnIb8oEnbtuiRHUvisIpIIaAmTzJGXa85fN3u9lMFQsYUfilkg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by AS8PR04MB8689.eurprd04.prod.outlook.com (2603:10a6:20b:428::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
+ 2026 03:48:33 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0245.012; Tue, 28 Jul 2026
+ 03:48:33 +0000
+From: hongxing.zhu@oss.nxp.com
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Leonardo Costa <leoreis.costa@gmail.com>,
+	Leonardo Costa <leonardo.costa@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v5] PCI: imx6: Fix i.MX6Q/DL boot hang caused by improper PHY power sequencing
+Date: Tue, 28 Jul 2026 11:51:59 +0800
+Message-Id: <20260728035159.2702021-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain
+X-ClientProxiedBy: SG2P153CA0025.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::12)
+ To PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|AS8PR04MB8689:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23443dc6-84c3-4e33-2917-08deec5b188c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|366016|7416014|376014|11063799006|56012099006|10067099003|5023799004|6133799003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: gO5XIFkuLjncV9EL+VkeOMsFs+AibFSP9Fhk2gdpGdUtaWFyIoxiDMJDvfKWaxkOZWReAOol99qpCu9hANgb/o28PxHrgmGUowtmJSIBYfQ/0lVhU3VHDvX+kMLAGF0On2NDYtB+NU6Z9WsWJFb/b8IiiLD3kKNfzm5I7WSFWD0DmJcDYdYxDV+r1cS9VceJRwIFUS/QJ1GrMXI60KRdcR9OB5Udyg3exAEJQP968XKVyk6dABDcqFKCMAA7x72IZVHSqWR9pKmlO+PkkXXPYvEdTkg86mmvLnAZkWbbx62LA1NpEl+hUVnBms2LlhLg/ZHrOgtw8XDwaffitXPA7uA8Mji/CJn42z+p9aJmNyaDcrsNYU/KWlRQ/SbyjDRsU/1WSUjKMxeb2y9v+YaO1NpV3MCvVhzfK/qwHIxi3muoR/zDwNTRrc9PkpCDTNKHRkP6Eyuv787H2Brfy+9bo5sRe5R7sqE/JWpZTWJhexYxDfapj2VWQvsjDdaEYOtOIBNRGvRmoTykNTs/rKUi6p7UvPWHFsQBgNADZ4imOEBYRf1eohE1ujkBzlSDQCYrT78fPys1tEy78y7+85exD3enWmNdzwP0IKJo9zHAQV90d3hGIdKe3PcfNGKlCpmrqA/oxH6Gj9rTxlxWlyH7l2lhM9uPxNwab++cUREEECY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(366016)(7416014)(376014)(11063799006)(56012099006)(10067099003)(5023799004)(6133799003)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AW9tE+TFCnARruF7z1DulLrATp5L0sFDZmHtnRswph0HNIBU655t3Gc04gEE?=
+ =?us-ascii?Q?vPseyRee3+B8zfhwkDI0Rr1zyVquFH4oV2YuU9i9dPjcwFmrvOw3xStXkBMd?=
+ =?us-ascii?Q?mFTIdG2FKafTZNs0EtdfFnuEI+AqyUZmi9FlZmmt6ph+GZSQlXy7o0ZNVorg?=
+ =?us-ascii?Q?0KaOjQbB4jKRcQ9BmQwnneHleiZ7FIMoWM50s//KUixUzpFuAEdW5v4P4f1L?=
+ =?us-ascii?Q?aMdMCU9Y6+gIlBpam6gC8tSfF/FVpn/eRUI0GCqlST4dFNPsaYMYk9UO81oy?=
+ =?us-ascii?Q?u/EG2VRC37BqLOCpVsZ7QB1rbq+vJJpZs4YO0JHzdTXoVMeumLAfdarCViDP?=
+ =?us-ascii?Q?RO3IlncLh3B0w59bn+SIUh4bpOBLP9qn4ISnapMVlWp8NQgXeN2wYF4U+oaI?=
+ =?us-ascii?Q?mzrlKhRnvKoEcBqK0x8zQrn/buUzoyG+xDfmL4Mpnxxx5QuNDUoCNYYiYN9W?=
+ =?us-ascii?Q?O4/C6T0fpfpd8zVKmXm5xupTXGkV/JFxkxO1Oyde8GPi3p/Vxjed2bC1ZWS+?=
+ =?us-ascii?Q?sZ0DYIkTcMLRqn3Lrz3A4aHiC3oe/7O8+Z6Md+2rAf0PupYKcPbvi6wdXoY9?=
+ =?us-ascii?Q?Kew3hSQzMVVqerrIE48ykw74VURivJbFPx0kXc7xJRZyOx3iroEQxkQb7k8I?=
+ =?us-ascii?Q?rKxfAcHa0pGdhNq+hNH3IZo1uquKbs3w1B16z/HAW+6uQ7ID+uPMAxhAnBfB?=
+ =?us-ascii?Q?usGnY0RmxY45NulfaWEKz5FS4FKPVvDMD1cjcpm/1OWn8aoYy5uz7wX7aarG?=
+ =?us-ascii?Q?cUBEyrbDM8DGx43Z/vKyf6u8Vdvh/UAJGkEH5HLi6Pq7z79X+EUJIorUAGkm?=
+ =?us-ascii?Q?yspiALlwtrYZ6gm9Uf30lJ6tL9NOt0IChrTqyAwa5El/tTQNfcb6MpfP/Gyi?=
+ =?us-ascii?Q?3ttud3cXRyj9obWA3MxomSkqfeZF/68HIg+RU+nVe3bFasXPMQ+UL++ZoRJu?=
+ =?us-ascii?Q?xqp4ZrJwp8H5/z5n1Fma8wCxohxiG2qbLqGCvnDMDsIr8pxqr6H1quQvKXHW?=
+ =?us-ascii?Q?6sRY0d0H6pl7pX8PeGkdloKGoCdMxwn1sXdj+ZFBKOnIcFxs2mC5lmixJgld?=
+ =?us-ascii?Q?HkrJ5ChyZUqAy0DRFPxNG3qXK8oQtlVY+OOTNKVQF260CbRBeTgwSLAawpvc?=
+ =?us-ascii?Q?W/jjnOk3mEocfNF2lhsGzgQr919lxsIdItpko8abKpiPECwpmGvchcgJmbjr?=
+ =?us-ascii?Q?ataPzeR8qJ+yDCMwJzRH24ZHMX78sdqfR57BT6hMzcHs/NepkQxtbR0wj1nK?=
+ =?us-ascii?Q?VieWUOp+/3cQvJyb56FAAEeLBL1VJO6jQld7wUeza5JSUjkT7gCSV8MuT9A/?=
+ =?us-ascii?Q?QsaGfzv3/sNy58sy7rY961j/hqjgugPEEFUDgCQSWlAomoBeQDCE5EWcJDof?=
+ =?us-ascii?Q?FD8joC3TihWzKW3WA5NldoH6jC2zmfL9gAx0YewFBafCC8eWNy6/UF16OD/D?=
+ =?us-ascii?Q?lWKASkKMKCYibsYrh7tA+WJ7wnNN/evoSmcE0zpp/d4HuOCX9047DRSUsIkB?=
+ =?us-ascii?Q?sOcLKiKw1j66kch12vhK1ZEJAO4kat4rQHr6JQs6V/10MIxm1c/enPrFs934?=
+ =?us-ascii?Q?uu3MJtjqWH/fjvnKtT5npCr6/GziTJ1Ee+gfjmd02zg9MPI73KuFiWuwz9FR?=
+ =?us-ascii?Q?9h4l0YdVJoMWaFnO5RxfnAUqlLYj0odPe4j0EayjldSPoeE9u/1Uoqdc3Egc?=
+ =?us-ascii?Q?5ZNjUNXjRf3wKQrfX6pF0VUKArQf/SvdKgRzrSx7snigzun7o8fF06PlSot4?=
+ =?us-ascii?Q?xLyguK4CA7d8Xhm8u+lxEff9Gg1ngydvjvsv+HHiSKZmt/ySD6ID?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23443dc6-84c3-4e33-2917-08deec5b188c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 03:48:33.6109
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KWDPkzfplW50M+UkNgs38TlfxnUc/s1bNbpyShI6FvzDxpCiK12nYolRcmERsmwczCCtFrPX5AvMCWD5ObUfxx3SpWtmfDKj+bW+gg24jibEs9gnqInOA59rCqLWw4Cg
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8689
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_204659_006782_5BC23F2C 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20260727_204838_559428_D6FA6763 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,125 +148,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
+commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+introduced a boot hang on i.MX6Q/DL variants by reordering
+imx_pcie_host_init() to call imx6q_pcie_enable_ref_clk() (which powered up
+the PHY) before imx6q_pcie_core_reset() (which powered it back down).
 
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> With pseudo-NMIs enabled, both DAIF and the PMR affect interrupt masking.
-> Now that we have a type which can track both of them at the same time,
-> update our irqflags implementation to use it.
-> 
-> Save DAIF flags in all cases, as they can be manipulated directly by other
-> code, and the PMR if it is in use.
-> 
-> When checking if IRQs are disabled, now that we always save DAIF we can
-> check that the I flag is set and bypass checking the PMR if it is.
-> We can also properly check if PMR masks interrupts (PMR < GIC_PRIO_IRQON),
+Before 610fa91d9863, the sequence was:
 
-This commit message need to be updated, we now do not use "<"
+  1. imx_pcie_assert_core_reset() - power down PHY (set TEST_PD), set
+     REF_CLK_EN
+  2. imx_pcie_clk_enable() - power up PHY (clear TEST_PD), set REF_CLK_EN
+  3. Link training starts with PHY powered up (TEST_PD cleared)
+  4. Link training succeeds
 
-> now that we don't need to rely on the GIC_PRIO_PSR_I_SET bit being set in
-> the PMR to know if DAIF is already masking interrupts.
-> Update `irqs_priority_unmasked()` to align with this change.
-> 
-> This allows us to remove the `__daif_...` and `__pmr_...` versions
-> of the save and check functions, as they are now unified.
-> 
-> We can reasonably merge the two `__{daif,pmr}_irq_restore()` functions
-> in the main one, as the DAIF and PMR values are properly split now.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/irqflags.h | 118 +++++++-----------------------
->  arch/arm64/include/asm/ptrace.h   |  18 +++--
->  2 files changed, 38 insertions(+), 98 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
-> index 1863a955d119..50720a01bde4 100644
-> --- a/arch/arm64/include/asm/irqflags.h
-> +++ b/arch/arm64/include/asm/irqflags.h
-> @@ -96,135 +96,69 @@ static __always_inline void arch_local_irq_disable(void)
->  	}
->  }
->  
+After 610fa91d9863, the sequence became:
 
-[...]
+  1. imx_pcie_clk_enable() - power up PHY (clear TEST_PD), set REF_CLK_EN
+  2. imx_pcie_assert_core_reset() - power down PHY (set TEST_PD), set
+     REF_CLK_EN
+  3. imx_pcie_deassert_core_reset() - does nothing
+  4. Link training starts with PHY powered down (TEST_PD set)
+  5. Link training fails and boot hangs
 
-> -
-> -static __always_inline unsigned long __pmr_local_irq_save(void)
-> +static __always_inline unsigned long arch_local_irq_save(void)
->  {
-> -	unsigned long flags = __pmr_local_save_flags();
-> +	unsigned long flags = arch_local_save_flags();
->  
-> -	/*
-> -	 * There are too many states with IRQs disabled, just keep the current
-> -	 * state if interrupts are already disabled/masked.
-> -	 */
-> -	if (!__pmr_irqs_disabled_flags(flags))
-> +	if (system_uses_irq_prio_masking())
->  		__pmr_local_irq_disable();
-> +	else
-> +		__daif_local_irq_disable();
+To fix this:
 
+  - Remove TEST_PD PHY power control from imx6q_pcie_enable_ref_clk()
+  - Remove REF_CLK_EN control from imx6q_pcie_core_reset()
+  - Add TEST_PD PHY power control to imx6qp_pcie_core_reset(), which
+    previously relied on imx6q_pcie_enable_ref_clk() to power up the PHY by
+    clearing TEST_PD
+  - Clear TEST_PD to power on PHY in imx_pcie_deassert_core_reset()
 
-Now we do not check whether pmr is GIC_PRIO_IRQON for
-__pmr_local_irq_disable(), however, it doesn't seem to be mentioned
-in the commit message.
+These changes together ensure the correct sequence:
 
+  1. REF_CLK_EN set in clk_enable() (TEST_PD untouched)
+  2. TEST_PD set in assert_core_reset() (PHY power off)
+  3. TEST_PD cleared in deassert_core_reset() (PHY power on)
+  4. Link training starts with proper PHY state
 
-And the previous "arm64: suspend: Initialize PMR on resume" patch should
-be merged into this patch, Otherwise, you cannot understand its commit
-message or associate it with the patch.
+The i.MX6Q/DL PCIe PHY requires approximately 120us between TEST_PD
+de-assertion and link training start. Add usleep_range(200, 500) in
+imx6q_pcie_core_reset() after clearing TEST_PD to satisfy this requirement.
 
->  
->  	return flags;
->  }
->  
+Add explicit imx_pcie_assert_core_reset() calls in error paths and
+host_exit() to ensure no power leak.
 
-[..]
+Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reported-by: Leonardo Costa <leoreis.costa@gmail.com>
+Closes: https://lore.kernel.org/lkml/20260629143439.361560-1-leoreis.costa@gmail.com/
+Tested-by: Leonardo Costa <leonardo.costa@toradex.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v5:
+Update the commit log suggested by Bjorn.
 
->  }
->  
->  #endif /* __ASM_IRQFLAGS_H */
-> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-> index f7dc5fb9427d..e4c7e6bafa3d 100644
-> --- a/arch/arm64/include/asm/ptrace.h
-> +++ b/arch/arm64/include/asm/ptrace.h
-> @@ -203,14 +203,20 @@ static inline void forget_syscall(struct pt_regs *regs)
->  #define processor_mode(regs) \
->  	((regs)->pstate & PSR_MODE_MASK)
->  
-> -#define irqs_priority_unmasked(regs)					\
-> -	(system_uses_irq_prio_masking() ?				\
-> -		(regs)->pmr == GIC_PRIO_IRQON :				\
-> -		true)
-> -
->  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
->  {
-> -	return (regs->pstate & PSR_I_BIT) || !irqs_priority_unmasked(regs);
-> +	if (regs->pstate & PSR_I_BIT)
-> +		return true;
-> +
-> +	if (system_uses_irq_prio_masking()) {
-> +		WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
-> +			     regs->pmr != GIC_PRIO_IRQOFF &&
-> +			     regs->pmr != GIC_PRIO_IRQON);
-> +
-> +		return regs->pmr != GIC_PRIO_IRQON;
-> +	}
-> +
-> +	return false;
+Changes in v4:
+Refer to Sashiko' reivew of v3 patch.
+- Adjust imx_pcie_assert_core_reset() in imx_pcie_host_exit().
+- Add the delay explicitly after TEST_PD is cleared, since the PERST# GPIO
+might be optional.
 
-Looks fine to me.
+Changes in v3:
+Update the commit descriptions to address the following items.
+- Clarify the root cause of this regresssion.
+- Describe why both changes are mandatory required to fix this
+  regression.
+- Justify the delay removal also.
 
-otherwise, LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Changes in v2:
+Per Sashiko's review, invoke imx_pcie_assert_core_reset() explicitly
+in error path of imx_pcie_host_init() and imx_pcie_host_exit().
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 41 ++++++++++++++-------------
+ 1 file changed, 22 insertions(+), 19 deletions(-)
 
->  }
->  
->  #define interrupts_enabled(regs)	(!regs_irqs_disabled(regs))
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index e25f938eefe23..c94b5e991aecd 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -681,21 +681,12 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 
+ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+ {
+-	if (enable) {
+-		/* power up core phy and enable ref clock */
+-		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+-		/*
+-		 * The async reset input need ref clock to sync internally,
+-		 * when the ref clock comes after reset, internal synced
+-		 * reset time is too short, cannot meet the requirement.
+-		 * Add a ~10us delay here.
+-		 */
+-		usleep_range(10, 100);
+-		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+-	} else {
+-		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+-		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+-	}
++	if (enable)
++		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				IMX6Q_GPR1_PCIE_REF_CLK_EN);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				  IMX6Q_GPR1_PCIE_REF_CLK_EN);
+ 
+ 	return 0;
+ }
+@@ -826,6 +817,12 @@ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ 
+ static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ {
++	if (assert)
++		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				IMX6Q_GPR1_PCIE_TEST_PD);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				  IMX6Q_GPR1_PCIE_TEST_PD);
+ 	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_SW_RST,
+ 			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+ 	if (!assert)
+@@ -836,11 +833,15 @@ static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ 
+ static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ {
+-	if (!assert)
+-		return 0;
++	if (assert)
++		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				IMX6Q_GPR1_PCIE_TEST_PD);
++	else
++		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
++				  IMX6Q_GPR1_PCIE_TEST_PD);
+ 
+-	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+-	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
++	if (!assert)
++		usleep_range(200, 500);
+ 
+ 	return 0;
+ }
+@@ -1451,6 +1452,7 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 	return 0;
+ 
+ err_phy_off:
++	imx_pcie_assert_core_reset(imx_pcie);
+ 	phy_power_off(imx_pcie->phy);
+ err_phy_exit:
+ 	phy_exit(imx_pcie->phy);
+@@ -1470,6 +1472,7 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
+ 
++	imx_pcie_assert_core_reset(imx_pcie);
+ 	if (imx_pcie->phy) {
+ 		if (phy_power_off(imx_pcie->phy))
+ 			dev_err(pci->dev, "unable to power off PHY\n");
+-- 
+2.34.1
 
 
