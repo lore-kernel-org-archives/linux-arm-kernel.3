@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5482C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C33C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tR8EcFnGl3J8Tt2kJltOV9Wd4bMYRmU1WDMYbhcN7oQ=; b=i2OAodLfPvKRSziN5itpQI3YWM
-	N4XPdykCEKHx5CMqFz+OcHqY9mEkuv9ZROdEVCXFxCVbwWbQ0PU2Cn6GhGtb7c8wBIly9SeVVyzNn
-	rBeb2DBlsliAmdx/iQDPEPTHVuUAPqX7jFzDqopqd73c/GTmWGodBWnQMO6HuXkHPqSw3OGCwsuge
-	z0rO1GKWLkOC0mwMC9fjDtRTpkvoch+/fp2LlVHDnOKbBB56UeWCsHtFsG87VXDwbFdVxiYY4MKc1
-	OX2l5WGpVAOr5vXEDUgbOKzWsF5VrqQuD2lt5UYFFlFhugxYXiE6uFqzRHbapzyYsbX01z1qh7qA6
-	gl5goeTg==;
+	bh=WlmiKyS45RjP6Jk0Unm1wk0Df9MNbq2BvK85BROaIyw=; b=rhjYA5fT+qFqZzjvJveYIYKArR
+	37qOGIjg1wnvKsauIDd0YS0j55J4ia4QraI7ZFefjqDN69Cft8MVT2KZ1kqWfOAVV2m9NEPx0nYgl
+	YJKXogJSF0EkIRVU8AT5emZ99gufrjCR5AdRQP2gTQkbPkI5riUO4YR9ZnmrAbh2F1AEkgJWgvtIO
+	dnWRXHnJbUUR+EzOzi7z6Z50GrTglBI7dzmfPAf9KWWgBwV9pjOY7XxGnEqBZ9gu9JTk4J+B7Olr5
+	3AWNUrfvNKmcpcBqrETw2qEnKofoKxx5LccYZOKb7vcUxUmCN8JWLDkNVoVdcBtJOS/JFs3QqgDcA
+	OgZ5OIPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wog7Q-000000055ta-2M9A;
-	Tue, 28 Jul 2026 11:37:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wog7f-000000055yb-2yDJ;
+	Tue, 28 Jul 2026 11:37:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wog7O-000000055tF-2PbX
+	id 1wog7c-000000055xY-23jP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 11:37:06 +0000
+	Tue, 28 Jul 2026 11:37:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0C37260051;
-	Tue, 28 Jul 2026 11:37:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6222D1F000E9;
-	Tue, 28 Jul 2026 11:37:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28CFD43237;
+	Tue, 28 Jul 2026 11:37:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C1341F000E9;
+	Tue, 28 Jul 2026 11:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785238625;
-	bh=tR8EcFnGl3J8Tt2kJltOV9Wd4bMYRmU1WDMYbhcN7oQ=;
+	s=k20260515; t=1785238640;
+	bh=WlmiKyS45RjP6Jk0Unm1wk0Df9MNbq2BvK85BROaIyw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ANlo7dNE9fx5EO7d+BCxaihNg39CXQ7/a7TpyVtZ8cbCA/UwFdSxf6ZYFLdb+B2Fd
-	 u4MlYY7ycrHRPrToNH5PX8TNP6Tip6zoIq2cybB0ZJt0I0B4hDvBM3TpFiLJkou0yX
-	 kwzbX4my2TwaNHHdxEtqfkhE1BxdECWVEq2c+xZQLbqnRtOObtiHxBqzbUbywZw/FK
-	 5N86OhZFHsPdGp00q35w7WjkZku9aD7vmstfE/sFlK2bWJXw6Nkj0Bv4lmbXUOtOBu
-	 6sjoxoynf1CvdOvGDlY2JNZmTGMZga7gguD0xrs0pb9O5hn30LqfmQ2JU1kj5v8ucF
-	 k60sAyRo++BtQ==
-Date: Tue, 28 Jul 2026 12:36:58 +0100
-From: Will Deacon <will@kernel.org>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
-	peterz@infradead.org, akpm@linux-foundation.org,
-	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
-	ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
-	memxor@gmail.com, zhenglifeng1@huawei.com,
-	xueshuai@linux.alibaba.com, rdunlap@infradead.org,
-	david.laight.linux@gmail.com, broonie@kernel.org,
-	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-	konrad.wilk@oracle.com, ashok.bhat@arm.com
-Subject: Re: [PATCH v14 13/15] arm64/delay: enable testing
- smp_cond_load_relaxed_timeout()
-Message-ID: <amiUWpsL1QGf929i@willie-the-truck>
-References: <20260714073041.40250-1-ankur.a.arora@oracle.com>
- <20260714073041.40250-14-ankur.a.arora@oracle.com>
+	b=FFLzm+BzjamxA0umMXZlmuy+NQsVtww3sldK4LN7vydtjSnFD4E4o5dIIOBj8e1bY
+	 YoWvUEqv5NQCMaScNjoZNdpiwgZbVVgx4pXSdq/Qae0T3nP26jYLOsVLc3CRBOGq2Q
+	 UEbjPr0XBd7Mo0PFQlpXYuoPSR/MBtdsUSFthkR2BUVpeg3MxOkFhhrfLqiIk7YyGR
+	 DZjqZe5f0NnUHyIGlL+RSFcek4krfJTe0f+qSrerxp+amAabhndHKYFvGheBgcfX/5
+	 ZksOWw4iudVYkxxkpxe67+7BOwE0wOlTW4aV6Cbti2QFth58S22+sFOP/yt5ndjKob
+	 Dg9rjkEudxLpQ==
+Date: Tue, 28 Jul 2026 12:37:03 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com, 
+	ryan.roberts@arm.com, cl@gentwo.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [v8 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Message-ID: <amh96rPdlc7UEobt@lucifer>
+References: <20260609214205.1260279-1-yang@os.amperecomputing.com>
+ <255744ec-2a58-492c-a69a-850357440183@os.amperecomputing.com>
+ <amCqBzwIYDOvRI1S@willie-the-truck>
+ <79d7069b-2895-4be3-a2a0-327ad3444bf3@os.amperecomputing.com>
+ <amh19c6vtDNKsl3C@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260714073041.40250-14-ankur.a.arora@oracle.com>
+In-Reply-To: <amh19c6vtDNKsl3C@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +73,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello, Ankur,
+On Tue, Jul 28, 2026 at 10:27:17AM +0100, Will Deacon wrote:
+> On Mon, Jul 27, 2026 at 12:50:59PM -0700, Yang Shi wrote:
+> > On 7/22/26 4:31 AM, Will Deacon wrote:
+> > > > Yes, it may race with memory hotplug. I missed memory hotplug for v7
+> > > > Sashiko. Two options to solve it:
+> > > >
+> > > > 1. Use atomic variables. Make lm_meminfo[NR_LM_TYPE] atomic_long_t, then
+> > > > manipulate it with atomic ops.
+> > > > 2. Protect it with a spin lock.
+> > > >
+> > > > The contention for the cache line or the spin lock should be rare since
+> > > > memory hotplug should happen rarely. Any preference?
+> > > I'd vote for keeping it simple and using a lock. Might be worth looking
+> > > at the ongoing work from Lorenzo:
+> > >
+> > > https://lore.kernel.org/all/20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org/
+> >
+> > Thanks, Will. Took a look at Lorenzo's work. IIUC he used init_mm mmap_lock
+> > to protect vmalloc area and linear mapping collapse on x86 in order to
+> > serialize against ptdump. I don't think we should use init_mm mmap_lock. We
+> > want to serialize linear mapping counter update between split and memory
+> > hotplug, but neither of them takes init_mm mmap_lock. We can let them take
+> > init_mm mmap_lock, but it sounds too overkilling.
+>
+> Hmm, but if split and hotplug don't take the mmap_lock, how are they
+> serialised against ptdump? From what I understood, Lorenzo's patches
+> change ptdump to take it for write in order to serialise against other
+> walkers.
 
-On Tue, Jul 14, 2026 at 12:30:39AM -0700, Ankur Arora wrote:
-> This enables the barrier tests to be built as a module.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-> ---
->  arch/arm64/lib/delay.c               | 2 ++
->  drivers/clocksource/arm_arch_timer.c | 2 ++
->  2 files changed, 4 insertions(+)
+As for memory hotplug - ptdump already takes that lock in
+ptdump_walk_pgd() so you'd need to add that on split I think?
 
-Acked-by: Will Deacon <will@kernel.org>
+So I think you need to take it in the split code and in
+arch_report_meminfo.
 
-I think this is looking good from the arm64 side now (and appears to have
-all the relevant Acks). What's the plan to get this series merged?
+So that solves that, you can get ptdump serialisation by ALSO taking the
+init_mm read map on split.
 
-Will
+That way you can rely on core ptdump stuff without having to add new
+locking in arm64-specific ptdump.
+
+And would you also need the pgtable_split_lock in arch_report_meminfo() to
+serialise lm_meminfo access?
+
+(Side-note: I am going to try to implement RCU kernel page table freeing at
+some point... so then maybe ptdump won't need the init_mm lock any
+more. But we could still take it there for this at least :)
+
+>
+> Will
+
+Cheers, Lorenzo
 
