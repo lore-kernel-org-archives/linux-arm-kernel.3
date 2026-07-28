@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF79BC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 16:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6E1C531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 16:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O9u5qLEzN513Om7tTBxbIoKa911cL3ZjjhICsAk3Ta0=; b=NwEAeen7f9P/eTmZFmKhbjY8or
-	Me0eJ70HLRCrLpQBQQt+b/w3MkBnN1kSa7UueglwkVOmLNEQBHqh1SRWMN0YMJGS5kKs0QWIZECXS
-	rLWfNU35+CtTlnx1WvH4lkFp3KXD5UFr3M2l5BwCqKS02K05OcCTs+F+z50uPR/sIkIRiUTfCfCdb
-	CPij4cefWuWreQ/arjkyFZTJJz3VzCMWMccwrN+VvA2FhZNLiJiU9rl82lqdfqu9X24Wztfbo6OK/
-	+suvXZQSRKUQU7J86fHMRvH4PjOntgfBkeg7LSjhEwESReepbe5vnCIm00CpgaysUUv4uFHStPej6
-	2JC0BCEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x4ihzlddDwnjX93GGNgT73gs0nRUzAN0rmMgM4sElss=; b=aRQ9Gsk6R0YHE6f5CLLoGQSHZm
+	xn1Sj6LU+2CKsmecUEEed6S9vXlBCN32zLX9ADAf3/4gDTnBEPLeVZhO+uLN6+Xg/f6dQ5Njy4H8k
+	vYcTs1DOf4hqctbSgHjUt2vwSUd64D7iIEgMFLBU12ONwZ4hA35WetDhSHfGxsawYbEFjIS83zobU
+	WKQ3uql0cpie4K21TwCWI91bRADQQfqxBCLezPRs3mNwl+PtEvx/8mjEt3i01933Hpf92DpTCZ/AE
+	O2TWd2KJM4Phe+V9xJmMq4qZAc9EbP+lzqOXKRGaotA9LMCN1XngjWeItdt9I5C/AwkW+vpoOqxu7
+	LUDcqWoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokEb-00000005lNO-0rFk;
-	Tue, 28 Jul 2026 16:00:49 +0000
-Received: from mail-24431.protonmail.ch ([109.224.244.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokEX-00000005lLF-42EN;
-	Tue, 28 Jul 2026 16:00:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1785254440; x=1785513640;
-	bh=O9u5qLEzN513Om7tTBxbIoKa911cL3ZjjhICsAk3Ta0=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=CFcuX9hDoRFEIdPhuObcBEVaVxjQWI2FiWrhf8l+pqg+uxDmxwZcVN1gyXFsJij51
-	 r1E4kexzupQ07ZmDLD6ODjXQjzzLbInQSPMi2B1hq+NsboyUlKWMU2/aeEKXaleY+K
-	 hvUy7AQCleteYc2evkNi7wtqAv0Jdb7lVN0fROaelqzVGbV/wNww8iBURfsUIagmk6
-	 052/kag9A760pV1ocsaHUnvEkh1JbVADPuW/d1DyqTdBU6eKrMnenC5W63V+yqO835
-	 WWZrH0J1M99h/djzSXClecv5MRdxuLpTF/aDVjf4x6BdXbz3kfNIujdhMXRwmvhUWs
-	 Wt+lTrSkvxYdg==
-Date: Tue, 28 Jul 2026 16:00:31 +0000
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Houlong Wei <houlong.wei@mediatek.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/3] soc: mediatek: cmdq-helper: add legacy GCE ISA support
-Message-ID: <4DqPgMQaTb-zCbBTf04csJMoranOuYdtkQxgWLAAMyshzMog89Cp2d2k8v5j2g3Jx04-pj5eij-a9VdmPqLDLE641ZyKuyciNUIC2lZ_sNc=@protonmail.com>
-In-Reply-To: <79379dbb-5e15-4e30-ab1d-136a40e77af0@collabora.com>
-References: <20260728-6572-gce-v1-0-750bba32689e@protonmail.com> <20260728-6572-gce-v1-2-750bba32689e@protonmail.com> <ebf419fc-24a8-472f-8996-a134ece69f21@collabora.com> <W3cNtJeiPe6gmMpfpNJOxa6NQtOyatXIFz6FyCh7pC8jkE90WX_1g3AgQwXadoba0BdHE3com-6cCkym5VCN5d-3sobraI8O4-TGwkqnWBA=@protonmail.com> <79379dbb-5e15-4e30-ab1d-136a40e77af0@collabora.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 779905ee24277d9a19628456e16ec17556306f92
+	id 1wokHm-00000005m6V-3dbV;
+	Tue, 28 Jul 2026 16:04:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wokHj-00000005m5D-130Y
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 16:04:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F493169E;
+	Tue, 28 Jul 2026 09:03:57 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A33B23F763;
+	Tue, 28 Jul 2026 09:03:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785254641; bh=e9+N00NeQ9x1r37z54aVe+DJvWWs2shWjzXfn8Am9vQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C5YBB4yEzvF3RdmWrG9x1xwKeAziCFV76kZXwnumQPvwJ39HcBFcmKSjThfUAgH5i
+	 43m2HRqQyWkZH6W085Em5SKbA3b2cNQ54HUp/R35Q8NdBxbf0J0xTtpjj444PS3Cf3
+	 UjGzL95+YySTLMEtpGNEeU5nTUI3iG8b9e0BGatg=
+Date: Tue, 28 Jul 2026 17:03:57 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [RFC PATCH 06/13] arm64: percpu: Add infrastructure for
+ preemptible this_cpu_*() ops
+Message-ID: <amjS7WOS6psNTXbf@J2N7QTR9R3>
+References: <20260728123859.2911495-1-mark.rutland@arm.com>
+ <20260728123859.2911495-7-mark.rutland@arm.com>
+ <20260728141958.GV751831@noisy.programming.kicks-ass.net>
+ <20260728143016.GB921102@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260728143016.GB921102@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_090046_177257_C42C3879 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20260728_090403_352701_FAACA597 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,78 +67,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, catalin.marinas@arm.com, hca@linux.ibm.com, linux-kernel@vger.kernel.org, ruanjinjie@huawei.com, yang@os.amperecomputing.com, maz@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, July 28th, 2026 at 6:52 PM, AngeloGioacchino Del Regno <angelog=
-ioacchino.delregno@collabora.com> wrote:
+On Tue, Jul 28, 2026 at 04:30:16PM +0200, Peter Zijlstra wrote:
+> On Tue, Jul 28, 2026 at 04:19:58PM +0200, Peter Zijlstra wrote:
+> > On Tue, Jul 28, 2026 at 01:38:52PM +0100, Mark Rutland wrote:
+> > 
+> > > With the scheme added in this patch, this can be compiled as:
+> > > 
+> > > | <outline_this_cpu_add_u64>:
+> > > |        mrs     x2, sp_el0
+> > > |        mov     x4, #0xc80
+> > > |        strh    w4, [x2, #20]
+> > > |        mrs     x4, tpidr_el1
+> > > |        add     x3, x0, x4
+> > 
+> > Which it then recomputes, and so is harmless.
+> 
+> Here!
+> 
+> > > | 1:     ldxr    x6, [x3]
+> > > |        add     x6, x6, x1
+> > > |        stxr    w5, x6, [x3]
+> > > |        cbnz    w5, 1b
+> > 
+> > If we get here and interrupts happens, we recompute pointlessly, no harm
+> > done.
+> > 
+> > Anyway, per this sequence there is no point in ever doing the fixup. So
+> > perhaps give a better example?
+> 
+> Nevermind, brain just wasn't working right, when interrupt happens at
+> 'Here!' above, it needs the fixup, irrespective of the atomic type.
 
-> On 7/28/26 17:47, Roman Vivchar wrote:
-> > Hi Angelo,
-> >
-> > On Tuesday, July 28th, 2026 at 6:08 PM, AngeloGioacchino Del Regno <ang=
-elogioacchino.delregno@collabora.com> wrote:
-> >
-> >> On 7/28/26 11:42, Roman Vivchar via B4 Relay wrote:
-> >>> From: Roman Vivchar <rva333@protonmail.com>
-> >>>
-> >>> Some SoCs, such as mt6572, have different WRITE and POLL instruction
-> >>> encoding. Instead of 16-bit offset and 8-bit subsystem ID, old GCEs h=
-ave
-> >>> 22-bit offset and 2-bit subsystem ID.
-> >>
-> >> What about poll_addr, mask, write_s, write_s_mask and others?
-> >
-> > These don't seem to exist in all 65xx except 6595. TL;DR - old GCEs are
-> > essentially dumb compared to newer ones. They have only basics like MAS=
-K (0x2),
-> > WRITE (0x4), POLL (0x8), JUMP (0x10), WFE (0x20) and EOC (0x40). All lo=
-gical
-> > operations as well as GPR/SPR don't seem to exist.
-> >
-> > cmdq_pkt_poll_addr, write_s, write_s_mask are not used by the DRM subsy=
-stem.
-> > mask is the same across all GCEs because it takes only u32 mask without
-> > address.
-> >
-> >> Not sure that this will actually work reliably (though I'm sure you're=
- not
-> >> creating any regression).
-> >
-> > I have tested this change (on top of out-of-tree mt6572 DRM) with some
-> > dd if=3D/dev/urandom of=3D/dev/null spam + modetest, as well as igt. Se=
-ems to
-> > work without issues...
-> >
-> > Best regards,
-> > Roman
->=20
-> Alright then - look, I'd really want to pick this one up, but it's a bit =
-late
-> in the cycle and I don't really have much time left for testing.
->=20
-> I'm sure that this is fine, but please understand me - I can't take this =
-now,
-> also because I'm going on holiday very soon and can't be here to take car=
-e of
-> sudden breakages.
->=20
-> I wonder if you could resend it in the next cycle, preferrably at the beg=
-inning?
+Yep!
 
-Sure, no problem :)
+Note that the atomic type doesn't change things. We need the fixup even
+if preemption happens *within* the LDXR...STXR loop, since the inline
+sequences branches back to the LDXR, *without* recalculating the addr or
+offset, and the fixup *does not* alter the PC.
 
->=20
-> Meanwhile, I'll get this series on the Collabora trees so that it gets cy=
-cled by
-> the CI a bit (though, it's not enough, because that needs to be tested ma=
-nually).
+It's a bit awkaward to spell that out in the commit message without
+unrolling the loop :/
 
-I don't know if this one can be tested with the upstream tree (if you mean
-legacy ISA)... Most likely you need some 65xx (besides 6577 and 6595) or
-81xx, but I don't know about 81xx GCE. There's some effort for 6582 and
-6589, but none has DRM (and so GCE) so far.
-
-Best regards,
-Roman
+Mark.
 
