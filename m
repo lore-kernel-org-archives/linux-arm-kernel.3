@@ -4,123 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B50DC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152CBC54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 17:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCE/k9KLUR+wbARastUqG5zfPao24qJHyU+JFRYqt88=; b=e6deLoEGoBWIbhJMgrh/PzeEhn
-	j7mWYKDxPyX223klILwZai5TWzEOU7f2X0rnIs1tC4P2uRJmT2WX5LG2laikqBTpS5EvHhgcG4qPZ
-	16TB0tWoUrUEoyntWYsWlO3kPocMu8MaVJWypy1ZqcrCvTxTNraTbfo0+A+or2AlYmcEyoS0i3yHK
-	hJJDv4yedfFbSeiFpcwBW+WoISDvHqCaGjy+UseVUyH/+kj33ZmM8Bdj1G575ZBcF/cGdyJEiKiO4
-	rLUGDwqSIq+qekSZ27dO8OSvqFtwthsAyfOHzTToFW2KbTRssANsjxpTgWggOd5jgXhE4PC3tAWlC
-	5fgm1mdg==;
+	bh=k6+R0LCxQeekp6wj7rvdvkEtiJ5BIDX3J9Wzr35njtk=; b=DFFWZgp9y6r3ZQlyjDt4cG3YAf
+	HGXenLkLVGRumK71He68i0nt27dJUy4BI9jSXdwKcNWO6xPnSDwB+9qVyZp206WzNNype8+jgS4oo
+	iTtK9qwEYnHXBcxXjmUwNCXjh0HM8WPqYHcQEkVHnedEzQeyXHn4Ohh4S5OZHjfCrXoQn7CBF2j6C
+	j5XbpcZphv9PUwGqkOFaQAQoJZHACpfVnnDYACTSswZvFk7AnCf2kyF+bnJs29hY9wfq/slctPDaj
+	+uaXUALx5tzzHvoDGAJEYlmX0MYLVFkuDw5LHe/aLv6aloAxeYdb+gTkSXna/KgBLmbCpqpNQ7/4P
+	EVw0TR/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wolWp-00000005wHb-2TXa;
-	Tue, 28 Jul 2026 17:23:43 +0000
-Received: from mail-northcentralusazon11010015.outbound.protection.outlook.com ([52.101.193.15] helo=CH1PR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wolWn-00000005wHC-0egq
+	id 1wolei-00000005xe0-2PFQ;
+	Tue, 28 Jul 2026 17:31:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wolef-00000005xde-2l29
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 17:23:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uwTg4r5e/RKoSdEON3MXmjQ9MyJ1K+ytkmQYh/ZmPKCny0OBP4M3ln2CeeqoDRj9HwBcLMMvmAtkDJwCPXVKC7MW4G831/hG5HFn37hO7r/sU+NXeuqjkLBIMuuYmSdYF8Hiuk/ue2cYCsr60GKwXEQsvYhp3ZEeqG+kehHOj55ffDQVvVS3H3LkjyCA5YMqGZW2Gi5URP8zqXFJ/R2fAaCqebaN6pWFzw49IW8xMdNIapu6nP6GhKC7jTq6aBiTukPonfBYJXElXfIGUQTqfB4cf6q90dHIVgS3IICUE1iG6QL7hXVWJc7iEeWZCe/+sDq4A76wG9kULZQ+F75KYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XCE/k9KLUR+wbARastUqG5zfPao24qJHyU+JFRYqt88=;
- b=hu8wAuxJWIEhgXEUHNBY3QPrhTHnPLuODSBH77/qSWcZvfMCzeW8I6ffPwElGM8BZBNAoml28Ncxpga1HncK5gWYNqkrxE+M78JDzTXZOQYngsYlmsXvCrrGN8fI6FS8NNcVfkJxHpsLgDL+ODSpDHxqJXybcHEEsHYa+a2XowpNATSZEzzdI1MZTwXTKIZherEg5Qj1CvnDNR/NE1qjA4bXj5P5nXkMyLekMeEjKY+/v+gcQhq1WIBvtwNqjiAqtyetBA7Frn6kX06NUt31Qp9RWUoX/y9szs2wPrTO8eUMTIXM4lTM5/UDaWuhTfEjPrXdQdjBkAzcYgoFuAbiew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XCE/k9KLUR+wbARastUqG5zfPao24qJHyU+JFRYqt88=;
- b=HA6E3xAPD0gUF4mi0M8FZE52dNL8m2J1yDGzxeoG95fDn5ks2SUIGgO6vknM0+FrL4iasOCdE3Ro3gCRsmVcszM/1z6O3lRk7RoWFiN7iWIYRWaFHnopzSrfBiClmllGpIjvecnkQR2xC56zLsSOFp1vVyFLhZyIG92gcnvgfVhUgRjCuyUg8SlzWU1xx6Tq+M5529vWDFAYh/k+ro7OqoyqKhtt0d6YWU3i4djKRGeZjAl8ZhyhUx6KNk6nsK8Xa4tyRJo6W5KE7wrWmNCFD68/DI87xSCWbBJdIbNh288Mg1yBzMZA73O9fvhEXfaouYk87EK8ExGOWDt7NsKUZQ==
-Received: from MW4PR04CA0349.namprd04.prod.outlook.com (2603:10b6:303:8a::24)
- by DM6PR12MB4338.namprd12.prod.outlook.com (2603:10b6:5:2a2::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Tue, 28 Jul
- 2026 17:23:26 +0000
-Received: from CO1PEPF000075EE.namprd03.prod.outlook.com
- (2603:10b6:303:8a:cafe::9) by MW4PR04CA0349.outlook.office365.com
- (2603:10b6:303:8a::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Tue,
- 28 Jul 2026 17:23:25 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CO1PEPF000075EE.mail.protection.outlook.com (10.167.249.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 17:23:25 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 28 Jul
- 2026 10:23:07 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 28 Jul 2026 10:23:06 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Jul 2026 10:23:04 -0700
-Date: Tue, 28 Jul 2026 10:23:02 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: Jason Gunthorpe <jgg@nvidia.com>, Kevin Tian <kevin.tian@intel.com>,
-	"Robin Murphy" <robin.murphy@arm.com>, <joro@8bytes.org>, David Woodhouse
-	<dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Pranjal Shrivastava <praan@google.com>
-Subject: Re: [PATCH v4 0/6] iommufd: Iterate the cache invalidation array in
- the core
-Message-ID: <amjldtTZBNLWHOJR@nvidia.com>
-References: <cover.1784054606.git.nicolinc@nvidia.com>
- <20260715201521.GL3775915@nvidia.com>
- <alft3llhZ79t17j8@nvidia.com>
- <20260716151845.GO3775915@nvidia.com>
- <alkE4iUQSWeD8Vyx@nvidia.com>
- <amiSKPx6-VXBxGBK@willie-the-truck>
+	Tue, 28 Jul 2026 17:31:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B526169E;
+	Tue, 28 Jul 2026 10:31:43 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 500643F763;
+	Tue, 28 Jul 2026 10:31:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785259907; bh=KwxVOT9RanBvHZZjm9RuSigNIRCQICh1YKEM1MGk1YA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NdB6N83X3iLpzBAs56YxTADvdNoNZXoS0zfJgLFb2XlYkQy2TH7DB2JXkyRnHUZXl
+	 MpeXExUY6kB+w7GT0Op7HI0Bud9xBTrMwOuKLk0qVrWzTWhu2yK43hZw7aYkKKUMvq
+	 LeqhuiBGAg5g3/XwD1qO7BaxvXDtzMHG5MRlXcs4=
+Date: Tue, 28 Jul 2026 18:31:43 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
+	bpf@vger.kernel.org, Florent Revest <revest@chromium.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huawei.com>
+Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
+Message-ID: <amjnf5gz0xP5PTSB@J2N7QTR9R3>
+References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <amiSKPx6-VXBxGBK@willie-the-truck>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000075EE:EE_|DM6PR12MB4338:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7a83a794-6ed2-413c-ab61-08deeccceee4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|7416014|23010399003|3023799007|22082099003|4143699003|18002099003|11063799006|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: QbJGohaSTaJyLdajlSH//1Ekl/GDjBtDYDXLLjPiRzWyc52v/1ak3WpNVi6RRwlsX0sDwYls5zbmOlWydJpxyY8/gQDvj5ZnVDr3dfgf10Cv0w0TQUUbMFtselZklZ+9R9ByJikfWWKJSCuoGs1LwR7ynmFHPktyBeIPXNLVNBShw0G3mQAMHRJoO9aOcD+RMFKfV/kN3hP9b/kN5zflZhLIJ5UXVQ0VXh1JX/4fe7D2K7HtjyR0LIXOoa1loByEKfm1UuODMhU1t3DYtaETnFmDv/EDl2cts61V0MxqAzDhslZKzMD1du1Ho4yESkHKgLE9vJdzwSvelDWB5Lfd2v7e51Zsd3/RJpA2ASsZ8igeUS3pyg24KIaLL1cNvqqUR/9BpmAVI4e/ZaBdRdblCkOpCxfu6hunUCF+UI5aSOGbqtUQYpcYDGkI/JPZpmWBVe+ISJBLQluEqXiuRJDXyyEQ1ICU+dTq6QOFvXUoxknD4K9M6qjeKsrPs7artCjnG8WuiuHwYXumuHVJoh3yaVcCSxchVXtJ4l9tpvqYA6BKPXN1zNa7gd3NFNG3DXCAv/gdR5w7xIRDTQ3CsnIEyvqk5py9QxkskBwz7zSXksUXu5wnnVqZMtBgBRWYlDw8ij0qp4JPs0+zibMNplgjzZBcQDem7pG+iyeKylYCiyJwzXro5SAyBRBIAZgzfMAxxpxI6S6rI8zcSxR9X2hFBA==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(7416014)(23010399003)(3023799007)(22082099003)(4143699003)(18002099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fmSaSTO4DkxkePBim9Mb09nex42djLgVgfvFt2+tEA8xqFN/7E6PyM/9y3ZOrVHIeRi2THaeEVTM0oCf4S68L9kLJh66r4lnBS8CX0+txgrI5qY5BgJMHkrMG6H0u31GB7G1/kADA0yLyUDEsdIHBsDU8oal1E4rFVmg6BblltXo8PBEwg1AOO+4vKbRqVKxB4J5s2TOwiJpA7opl/foG7qRkoCPlgicDDeG2TwJQmql7SkXN/x/Y2S7fhsnUnTrNiaYdQPipbHuXbNE5bLdSg3Pn4pPCwxId8v6hj1zNaYphlNUZxMnqj6RDMD6GqIbpAeRQ+g12nnyIBtbsvCDsXdnWa0+r342l4zV2E4/9OshfkhUq4xbZ/mYcJ1cjf/N6XfAOqrEHBf+f1/QRUqw79xsHuxLGcY9mZEpHMgfb3A6xIgrItLk71Il+9zTamrE
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 17:23:25.7493
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a83a794-6ed2-413c-ab61-08deeccceee4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075EE.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4338
+In-Reply-To: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_102341_200196_F1E54F94 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260728_103149_779325_B3126DFE 
+X-CRM114-Status: GOOD (  34.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,43 +79,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 12:27:36PM +0100, Will Deacon wrote:
-> On Thu, Jul 16, 2026 at 09:20:50AM -0700, Nicolin Chen wrote:
-> > On Thu, Jul 16, 2026 at 12:18:45PM -0300, Jason Gunthorpe wrote:
-> > > On Wed, Jul 15, 2026 at 01:30:22PM -0700, Nicolin Chen wrote:
-> > > > On Wed, Jul 15, 2026 at 05:15:21PM -0300, Jason Gunthorpe wrote:
-> > > > > On Tue, Jul 14, 2026 at 11:48:46AM -0700, Nicolin Chen wrote:
-> > > > > > Nicolin Chen (6):
-> > > > > >   iommu/arm-smmu-v3: Support IDR5.DS and widen the TLBI SCALE field
-> > > > > >   iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation
-> > > > > >     commands
-> > > > > >   iommufd: Iterate the cache invalidation array in the core
-> > > > > >   iommufd/selftest: Convert cache invalidation mocks to the core array
-> > > > > >     loop
-> > > > > >   iommu/arm-smmu-v3-iommufd: Convert cache invalidation to the core
-> > > > > >     array loop
-> > > > > >   iommu/vt-d: Convert nested cache invalidation to the core array loop
-> > > > > 
-> > > > > I was tempted to take this through the iommufd tree, but Will, I think
-> > > > > the first two ought to go to -stable through iommu ?
-> > > > > 
-> > > > > If you do that then maybe I'll pick up the rest
-> > > > 
-> > > > PATCH-5 touches arm-smmu-v3-iommufd. Merging via the iommufd tree
-> > > > will conflict with the PATCH-2 in Ashish's series (via iommu):
-> > > > https://lore.kernel.org/all/20260714104202.1664187-1-amhetre@nvidia.com/
-> > > > 
-> > > > Maybe it needs a shared branch; and then, Ashish can rebase?
-> > > 
-> > > Urk this is a pain. I think Ashish's errata fix should go first so it
-> > > is easier to backport.
-> > 
-> > OK. I can rebase and send a v5 after Will takes Ashish's series.
+On Tue, Jun 09, 2026 at 05:19:25AM +0000, Jose Fernandez (Anthropic) wrote:
+> On arm64, HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS is currently selected
+> only when DYNAMIC_FTRACE_WITH_CALL_OPS is available. CALL_OPS, in
+> turn, is mutually exclusive with kCFI: the pre-function NOPs it needs
+> would change the offset of the pre-function type hash (see
+> baaf553d3bc3 ("arm64: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS")),
+> and the compiler support needed to reconcile the two does not exist
+> yet.
 > 
-> I've now queued the workaround from Ashish.
+> The result is that a CONFIG_CFI=y arm64 kernel has no
+> ftrace direct calls at all, so register_fentry() fails with -ENOTSUPP
+> and no BPF trampoline can attach: fentry/fexit, fmod_ret and BPF LSM
+> programs are all unavailable. Deployments that want both kCFI
+> hardening and BPF-based security monitoring currently have to give
+> one of them up. systemd's bpf-restrict-fs feature hits this today:
+> https://lore.kernel.org/all/20250610232418.GA3544567@ax162/
+> 
+> CALL_OPS is an optimization for direct calls, not a dependency.
+> In-BL-range trampolines are reached by a direct branch without
+> consulting the ops pointer, and out-of-range trampolines already
+> fall back to ftrace_caller, where the DIRECT_CALLS machinery
+> (call_direct_funcs() storing the trampoline in ftrace_regs, the
+> ftrace_caller tail-call) is gated on DIRECT_CALLS alone. 
 
-I will respin a v5 shortly.
+It's true that this is not a strict functional dependency, but there is
+a substantial performance cliff here.
 
-Thanks
-Nicolin
+With CALL_OPS we only fall back to the ftrace_ops_list_func() when there
+are multiple ops associated with a given callsite. Where we have a
+single ops for a callsite, if the direct call is out of range, the
+ftrace caller will call trace_ops::direct_call.
+
+Without CALL_OPS, if there are unrelated ops registered (attached to
+difrerent callsites), the ftrace_caller trampoline will call
+ftrace_ops_list_func(), and we'll iterate over all of the registered ops
+to find the relevant ops and trampoline, every time an out-of-range
+direct call is used.
+
+So the big questions are:
+
+(1) How often is a direct call being made?
+(2) Where does BPF allocate its direct call trampolines?
+
+From a skim of arch/arm64/mm/init.c, EXECMEM_BPF covers
+VMALLOC_START..VMALLOC_END, the vast majority of which is out-of-range
+for a BL from the core kernel or a module. So if EXECMEM_BPF is used,
+that's likely to be problematic.  Hopefully I'm missing something such
+that BPF trampolines are almost always allocated in-range of a BL?
+
+When we originally implemented CALL_OPS and DIRECT_CALLS for arm64, the
+understanding was that we'd have many ops with direct calls. We believed
+that the ftrace_ops_list_func() penalty was so substantial that it
+wasn't worthwhile supporting direct calls in a configuration where
+bouncing through that would be common.
+
+If we need to support this configuration, then I strongly suspect we
+need to make other changes too in order for it to be worthwhile.
+
+> s390 and loongarch ship HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS this
+> way, without having CALL_OPS at all.
+
+Following from the comment regarding EXECMEM_BPF above, it looks like
+both s390 and loongarch don't define EXECMEM_BPF, and only define
+EXECMEM_DEFAULT with a subsstantially limited range, which I suspect
+keeps their direct calls within range.
+
+> Patch 1 prepares ftrace_modify_call() to build without CALL_OPS by
+> widening its #ifdef and using the existing ftrace_rec_update_ops()
+> wrapper (no functional change for current configurations). Patch 2
+> drops the CALL_OPS requirement from the DIRECT_CALLS select.
+> 
+> Configurations that keep CALL_OPS (clang !CFI, and GCC without
+> CC_OPTIMIZE_FOR_SIZE) are unchanged. We verified this: in an arm64
+> clang build, every object file is byte-identical before and after
+> the series except ftrace.o itself, and its disassembly is identical.
+> CFI builds (and GCC -Os builds) gain working direct calls, with
+> out-of-range attachments taking the ftrace_caller dispatch path
+> instead of the per-callsite fast path.
+
+Can you comment on how you've tested in-range vs out-of-range
+attachements here?
+
+> We tested on a 6.18.y-based kernel and on this base with clang
+> kCFI builds (CONFIG_CFI=y, enforcing) under qemu (TCG, and KVM on an
+> arm64 host) and on GB200-based arm64 hardware: fentry/fexit, fmod_ret
+> and BPF LSM programs load, attach and execute; the ftrace-direct
+> sample modules (including both modify samples, exercising
+> ftrace_modify_call()) run cleanly; no CFI violations observed. The
+> fentry_test, fexit_test, fentry_fexit, fexit_sleep, fexit_stress,
+> modify_return, tracing_struct, lsm and trampoline_count selftests and
+> the ftrace direct-call selftests (test.d/direct) pass on the new
+> configuration with results identical to a CALL_OPS kernel built from
+> the same tree, and a broader test_progs sweep showed no differences
+> attributable to this series. Without the series, all of the above
+> fail at attach time with -ENOTSUPP.
+
+Have you made any performance measurements, or was this just functional
+enablement?
+
+Mark.
+
+> riscv has the same gap (its DIRECT_CALLS select also requires
+> CALL_OPS, and its CALL_OPS is likewise !CFI); if this approach is
+> acceptable for arm64 we can follow up there.
+> 
+> ---
+> Jose Fernandez (Anthropic) (2):
+>       arm64: ftrace: prepare ftrace_modify_call() for use without CALL_OPS
+>       arm64: ftrace: allow DIRECT_CALLS without CALL_OPS
+> 
+>  arch/arm64/Kconfig         | 2 +-
+>  arch/arm64/kernel/ftrace.c | 5 +++--
+>  2 files changed, 4 insertions(+), 3 deletions(-)
+> ---
+> base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+> change-id: 20260607-arm64-ftrace-direct-calls-152230ef7077
+> 
+> Best regards,
+> --  
+> Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+> 
 
