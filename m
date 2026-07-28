@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8841C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 01:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7B3C53209
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 01:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I3WZY5pE4MyrvdVsJ7lEyXvFZ7njqeEeoQdtEU0hhfU=; b=BZelWPPT7b/Y4QDyJI9ZOCJjYX
-	v768ZxNd6GHF+2Y2SmqvBZyQjMByjCrw9qSZEA3zufYSB5w5BWpfldCN5iwkOueYEp1xBzrt2gapG
-	+Ai3goyzz+XE2u0nOH/c02eU8LSLXNcqE8hIR6AsuUn0ToVgfXS7WMNdpT0lzbG2pDg4RTIU3rVVn
-	fiO1+7DFIkvHgoOehQApaXYkUeAD2BTVKvpKEncpWpcK2ixxWT+Hc57+Qj4GlLJR4b+tLDKb5Kf26
-	StOgwm3WRUDaj2qNrKHMOBJdX4wwvqd6OEeIR49JgkTPH42SeeT8HWcy2APajuhP7clliffvBmwbu
-	t9CjiPIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DYj3Gwonno5tuigqL6BvnWApaq+2uBwSe5vHZ9bElX0=; b=cuPIdsDdsQm4X6
+	tnvSAix9X87mKHlAO1eACd4UVKZH5iV0mWEPGdPacLVc04n7OnMxyTcqXkWTIJFxLRIAziB1oFcXD
+	t3fo6cHA0UWDZLrLKPowjWeS8yg9VHdmK29stX2lzFKWz2I2yRx6zIBSEVzVl3ruvPcNysSCG9piy
+	vN/OGxvRFPNUjhtUCUfjRyLcqwsA3kaSZeRWpJ5yz7JdR0SmuzKMSSEcBJzsPzuUbt/uU4+t3sk7q
+	tQmqIPejaugaVftkl6fthPl2I1J7tN2X0NpzayMKwCOm4XYeiYkuLgrC8t21WeAFZgHvKVdzHvx0s
+	x/DdstA/tBa/aKKQZHnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woWRt-00000004BSV-47X5;
-	Tue, 28 Jul 2026 01:17:38 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1woWaM-00000004CIb-3Zh0;
+	Tue, 28 Jul 2026 01:26:22 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woWRr-00000004BRN-0SHG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 01:17:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=I3WZY5pE4MyrvdVsJ7lEyXvFZ7njqeEeoQdtEU0hhfU=;
-	b=IULsrJRNxQtxsw1k+RpV8VHOIQSDjVs6GvmI2Fid7DgjNd+os8QGncMXkvp60dEoHjcOejucd
-	9uNMXsT61l3yNWJ+K4aAsyfXoL0BjkllstC5mvRXBuXNpnckChhdX9QxQgyT6z6eIqtPT4PFxnL
-	HtMyLZXVOzQm1C5QgRLPaZE=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h8HQF5HJRzmV99;
-	Tue, 28 Jul 2026 09:08:05 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1EA91402AB;
-	Tue, 28 Jul 2026 09:17:32 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 28 Jul 2026 09:17:31 +0800
-Message-ID: <e4ed2fa2-3342-4498-8d4e-35f5f2fdb49c@huawei.com>
-Date: Tue, 28 Jul 2026 09:17:30 +0800
+	id 1woWaI-00000004CHo-3oQP;
+	Tue, 28 Jul 2026 01:26:21 +0000
+Received: from smtp202.mailbox.org (unknown [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4h8Hq80jt3zMlGQ;
+	Tue, 28 Jul 2026 03:26:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1785201972;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=DYj3Gwonno5tuigqL6BvnWApaq+2uBwSe5vHZ9bElX0=;
+	b=ckTmdxs9OkhWuPopV5aVBYLdi56OHydKkzRRtbTY8T4A3Ptc0tuBM2m9hxcis6VT3HqRBj
+	lhW/s8J892kWxhIECWC5npbZTxko9UerUFAkWIgLWjT0u5AenX6OBaO44m+sxkoeaJgAh9
+	Lt9YfrIYi5lifDN85sk+xK03/xyP9yHMIFEvqlB1rEVogpsHtroWwvBVXabEE00vD2EYRv
+	7L4aD8PeOTBeAv3EVR0bmyTGE8Vd1jOH9PLybGEmOBM+YjAOvvf+/xVlyV0a+O4fdlNp+u
+	BbwtUFXgtvrAXIbvmmNYk3tGT4sa0QwwjgzdQMh3DEOShsiy3ouT03g0eKQLoQ==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1785201970;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=DYj3Gwonno5tuigqL6BvnWApaq+2uBwSe5vHZ9bElX0=;
+	b=hErtWioxNzYcuQSR6cgc6HhLaPgVsgNE/fEjbEgRpLqlojUzXglToYGEZBvNc74x+5aFvB
+	stnAQBGxcLHP5s8ICl817uqN+RatiCaXAaY0KQbo0kDJJEm7h0FYpwm5Dxkts7tEoK1994
+	ycpKjNEdH40z2Aa048E8GKhxQkcidD5WFIugELy7BXuJT5o6Tb7HFvToF8GqUmxf5PZ7sh
+	4L3Wdi/9c+jOYh17SfoZ976Qrrc/O4wjlGGtdDh4BmuH1MtZ33Ygx/wH/8PtJxZhbTzDn0
+	VYPhfLnDrLh+Fzw8j+wqIJ8YYoUSyTLkeYepQJ1KQZub1czTVr5PBWJ8CUvbLg==
+To: linux-pci@vger.kernel.org
+Subject: [PATCH 0/2] PCI: dwc: Handle return value from endpoint .init/.preinit callbacks
+Date: Tue, 28 Jul 2026 03:24:23 +0200
+Message-ID: <20260728012548.465139-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 03/45] arm64: hibernate: mask DAIF before restoring
- hibernated kernel
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-4-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-4-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-MBO-RS-ID: 50191466ca9f8db85b8
+X-MBO-RS-META: hmi6jyzzt1u6jydo7geudygbdrddrpon
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_181735_461384_B6650577 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20260727_182619_111612_E60F62D9 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,82 +79,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: imx@lists.linux.dev, Heiko Stuebner <heiko@sntech.de>, Geert Uytterhoeven <geert+renesas@glider.be>, Vignesh Raghavendra <vigneshr@ti.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank Li <Frank.Li@nxp.com>, Niklas Cassel <cassel@kernel.org>, Koichiro Den <den@valinux.co.jp>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Jesper Nilsson <jesper.nilsson@axis.com>, Magnus Damm <magnus.damm@gmail.com>, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Siddharth Vadapalli <s-vadapalli@ti.com>, Shawn Lin <shawn.lin@rock-chips.com>, Srikanth Thokala <srikanth.thokala@intel.com>, Marek Vasut <marek.vasut+renesas@mailbox.org>, Manivannan Sadhasivam <mani@kernel.org>, Qiang Yu <qiang.yu@oss.qualcomm.com>, Bjorn Helgaas <bhelgaas@google.com>, linux-omap@vger.kernel.org, Qianfeng Rong <rongqianfeng@vivo.com>, Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, Minghuan Lian <minghuan.Lian@nxp.com>, Jingoo Han <jingoohan1@gmail.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Yuho Choi <dbgh9129@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is a trivial preparatory change which allows checking
+the struct dw_pcie_ep_ops .init/.pre_init return values.
 
+Currently only the Layerscape PCIe controller benefits from this as
+its ls_pcie_ep_init() may fail in dw_pcie_ep_get_func_from_ep() call,
+but the Renesas R-Car Gen5 will benefit from this next.
 
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> The arm64 hibernate code manages the exception masking in an unsound
-> way, leading to potential crashes and/or warnings during resume.
-> 
-> When a hibernation image is saved in `swsusp_arch_suspend()`, all DAIF
-> exceptions are masked (by virtue of `local_daif_save()`), and the
-> suspended image is saved assuming that all DAIF exceptions will remain
-> masked when the image is restored.
-> 
-> When a hibernation image is resumed by `swsusp_arch_resume()`, only
-> interrupts are masked (by virtue of `local_irq_disable()` in
-> `resume_target_kernel()`). When pseudo-NMI is enabled the DAIF.IF bits
-> will be clear, and regardless of pseudo-NMI the DAIF.DA bits will be
-> clear.
-> 
-> This means that there are two problems:
-> 
-> (1) It is possible to take Debug, SError, or pseudo-NMI exceptions
->     during the resume process. This is unsafe, as during the resume
->     process both the old ane new kernels will tranisently be in an
->     inconsistent state, and swsusp_arch_suspend_exit() won't retain
->     an executable mapping of any exception vectors.
-> 
->     Any exception taken here will be fatal and silent.
-> 
-> (2) When re-entering the resumed kernel, some DAIF bits will be clear
->     unexpectedly. This permits Debug, SError, or pseudo-NMI exceptions
->     to be taken for a short period while the resumed kernel is not yet
->     in a consistent state.
-> 
->     This is detected by CONFIG_ARM64_DEBUG_PRIORITY_MASKING.
-> 
-> Avoid these issues by masking all DAIF exceptions during resume.
-> 
-> Fixes: 82869ac57b5d ("arm64: kernel: Add support for hibernate/suspend-to-disk")
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/kernel/hibernate.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-> index 9717568518ba..1eb1c1074c5b 100644
-> --- a/arch/arm64/kernel/hibernate.c
-> +++ b/arch/arm64/kernel/hibernate.c
-> @@ -465,9 +465,21 @@ int __nocfi swsusp_arch_resume(void)
->  	if (el2_reset_needed())
->  		__hyp_set_vectors(el2_vectors);
->  
-> +	/*
-> +	 * It is necessary to mask all DAIF exceptions here as:
-> +	 *
-> +	 * - The copy of swsusp_arch_suspend_exit() in the hibernation
-> +	 *   text cannot handle taking any exceptions.
-> +	 *
-> +	 * - The suspended kernel masked all DAIF exceptions in
-> +	 *   swsusp_arch_resume(), and expects to be re-entered in the
-> +	 *   same state : with all DAIF exceptions masked.
-> +	 */
-> +	local_daif_save();
->  	hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
->  		       resume_hdr.reenter_kernel, restore_pblist,
->  		       resume_hdr.__hyp_stub_vectors, virt_to_phys(zero_page));
-> +	unreachable();
+Since this affects many controller glues and has a huge CC list,
+I am sending this separately from the R-Car Gen5 patches.
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Marek Vasut (2):
+  PCI: dwc: Handle return value from endpoint .init callback
+  PCI: dwc: Handle return value from endpoint .pre_init callback
 
->  
->  	return 0;
->  }
+ drivers/pci/controller/dwc/pci-dra7xx.c         |  4 +++-
+ drivers/pci/controller/dwc/pci-keystone.c       |  4 +++-
+ drivers/pci/controller/dwc/pci-layerscape-ep.c  |  6 ++++--
+ drivers/pci/controller/dwc/pcie-artpec6.c       |  4 +++-
+ drivers/pci/controller/dwc/pcie-designware-ep.c | 14 ++++++++++----
+ drivers/pci/controller/dwc/pcie-designware.h    |  4 ++--
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c   |  4 +++-
+ drivers/pci/controller/dwc/pcie-keembay.c       |  4 +++-
+ drivers/pci/controller/dwc/pcie-rcar-gen4.c     |  6 ++++--
+ 9 files changed, 35 insertions(+), 15 deletions(-)
+
+---
+Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+Cc: Anand Moon <linux.amoon@gmail.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Cc: Jesper Nilsson <jesper.nilsson@axis.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>
+Cc: Koichiro Den <den@valinux.co.jp>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Minghuan Lian <minghuan.Lian@nxp.com>
+Cc: Mingkai Hu <mingkai.hu@nxp.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Niklas Cassel <cassel@kernel.org>
+Cc: Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: Qiang Yu <qiang.yu@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Roy Zang <roy.zang@nxp.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: Srikanth Thokala <srikanth.thokala@intel.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Cc: Yuho Choi <dbgh9129@gmail.com>
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-omap@vger.kernel.org
+Cc: linux-pci@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org
+
+-- 
+2.53.0
 
 
