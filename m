@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2825C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA017C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=18jZpDmr82cXzu4NOMmd0y9EFOlXvCHHdtuE0m39VK0=; b=s7VWsgJIhASLtaH2KKBnFlHLDt
-	212tRSwhapb6pKq/ArY1CxuqGq7tg2m8oZDgIi/1XiRYDBe7SQrgT3A2OKzr8cO5R63f0IMYB2pp/
-	o9JlpWCKFWECWE/vB/7Cy3Y4EPn6xkejjE5kt8azEvOzviwKgU7MDj1vBpJvLYZ0hwt/FviIsmI9a
-	2t9xKipul2ODVHmvps3JOJEkWFzg75nNlMoQsXGD9H7YnT+0vcde8n0LISxYd5wRiXaLRE/95rkjo
-	2bYLyhlJIxwiC7l8U5jp1QuCYbWoqshuzACVMFngNKc69w/84btF2Pxy+fg1o4UZaSyLkA66wD+K1
-	rKLo9DBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MFk55K1kly3QmDyy19/fsabJcJ5u/gTtXyl/wVnrSrY=; b=u8IMx8MAU6ZYN3aMnqM/u857lk
+	b4DsrH6oO0qSt7DUAKu5VBG5R36/9Q+D9iqqszN+tod7NSg/aJ/otTqaLJ+DZFcXVp8yIAs24VbRa
+	jOPgYZ+zsC0loiiTdRUE/ddefNlMhXaf+lSbedaV/XUBzHdLVyjWyohp0usCCamlTvVH6L/3ohfSZ
+	fol7GKwHTRa1wMPG1pDFEWpxMgMf5iQYq6WVYRPKSl41v/3nfZQOREZTI+U5xYOwf0IrcD0ItHfUP
+	SslyKVtSKcnh9gKVQ/HsTgvJ7TNq/1J5s31kZSnVJadrleed0jvZJYVj8GJ5gObvqtMGKBcRgManC
+	UqdSdeeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojpt-00000005f7g-0DJB;
-	Tue, 28 Jul 2026 15:35:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojpq-00000005f6r-3eNI
+	id 1wojqA-00000005fAQ-0nA3;
+	Tue, 28 Jul 2026 15:35:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wojq9-00000005fAF-2IZW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:35:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2190169E;
-	Tue, 28 Jul 2026 08:35:07 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A24F63F66F;
-	Tue, 28 Jul 2026 08:35:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785252911; bh=o35aR22hjxn3cvsZtLzIVyQgXimJFv11jll7A6Gyckw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NQIpbm4Ak+LzXi2jSCRY/87CMWLbQwzUFEYVX+A60UOOcUXAZ+gbu/flKXm3rQ9Be
-	 ZFZ76BtNtZmgS74VTkeC+wTW2O9SU68N0WC9km3CUIcNOF4Wph9/jeZoJZKXl60CwX
-	 3AjsXk8hGdJSM1m1l6VHMzepiaqs8uSPjmS6jJ4A=
-Message-ID: <fb4a7883-2ef5-4ca9-b375-e1a8d3ad111d@arm.com>
-Date: Tue, 28 Jul 2026 17:35:07 +0200
+	Tue, 28 Jul 2026 15:35:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A9052600FC;
+	Tue, 28 Jul 2026 15:35:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D75C1F000E9;
+	Tue, 28 Jul 2026 15:35:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785252932;
+	bh=MFk55K1kly3QmDyy19/fsabJcJ5u/gTtXyl/wVnrSrY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oHVlee4AjFj4Rr8cc/GVE39rWLIiCURlB3GmRiKSJRDRNVMJL4v66BJOrC8/YYLlg
+	 8OoNDHzJsSsuW7Og+m9+jPZAbm920D4Gb4htpYl623fj21fyxb0JUGLqhu/y0QSXYu
+	 l/dDL8eWwjONd3Ss5WBLSj/iaJEo23i6JOidM/FzOyQuu5EmpN7Bd6qkAjsqxmaDET
+	 K98qYzlGLL8YR10Z46EZ6hUW9AY3WEMHPxaA4Es39nfn2cdH2TW/biCkMoCyTg/wBK
+	 yTA5zc0PcUvDvZ9OlA4jjQwk9wt8lUGhpDe71B8nUKgYj1+5EBzBnst+OWQywdGwW8
+	 ZL5WQWKAQiwBg==
+Date: Tue, 28 Jul 2026 17:35:27 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, s.hauer@pengutronix.de, 
+	festevam@gmail.com, carlos.song@nxp.com, haibo.chen@nxp.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v5] i2c: imx: mark I2C adapter when hardware is powered
+ down
+Message-ID: <amjMGwf682luwT22@zenone.zhora.eu>
+References: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/10] arm_mpam: let low level MSC accessors return an
- error
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-2-andre.przywara@arm.com>
- <20260727231231.62baa831@jic23-huawei>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260727231231.62baa831@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_083515_028388_EB5D32B3 
-X-CRM114-Status: GOOD (  44.33  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,195 +71,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Carlos,
 
-On 7/28/26 00:12, Jonathan Cameron wrote:
-> On Thu, 23 Jul 2026 17:54:45 +0200
-> Andre Przywara <andre.przywara@arm.com> wrote:
+On Mon, May 25, 2026 at 11:04:00AM +0800, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
 > 
->> The upcoming MPAM-Fb support does not use MMIO primitives to access an
->> MSC, but employs a shared-memory/doorbell based firmware protocol.
->> Its complexity means that is must be able to handle errors, whereas we
+> On some i.MX platforms, certain I2C client drivers keep a periodic
+> workqueue which continues to trigger I2C transfers.
 > 
-> that it must
+> During system suspend/resume, there exists a time window between:
+>   - suspend_noirq and the system entering suspend
+>   - the system starting to resume and resume_noirq
 > 
->> always assume an MMIO based MSC access succeeds today.
->>
->> Change the __mpam_read_reg() low level accessor function to return the
->> requested data through a pointer, and return an error code instead.
->> Also change the __mpam_write_reg() accessor function to return an error
->> code. At the moment this is always 0, but this will change with alternative
->> MSC access methods.
+> In this window, the I2C controller resources such as clock and pinctrl
+> may already be disabled or not yet restored.
 > 
-> Be consistent on paragraph formatting.  So blank line here.  Check whole
-> series for such tiny consistency problems.
+> If a workqueue triggers an I2C transfer in this period, the driver
+> attempts to access I2C registers while the hardware resources are
+> unavailable, which may lead to system hang.
 > 
->> Change all direct users of those MSC wrappers to comply with the new
->> prototypes, though the errors are not propagated all the way up yet.
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Mark the I2C adapter as suspended during noirq suspend and block new
+> transfers until resume, ensuring that I2C transfers are only issued
+> when hardware resources are available.
 > 
-> Some comments inline.  A few are 'whilst you are here let us make this
-> more readable'.  I was in two minds about the temporary lack of handling
-> of uninitialised (looking) variables but in the interests of expediency
-> I suppose we can rely on the functions never actually failing at this
-> point in the series.
+> Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
 
-I probably should have made this explicit in at least the cover letter, 
-but that was the intention: for most of the patches, the lower level 
-functions only ever return 0, so no error path will be triggered at this 
-point. This allows to code to grow more slowly, and remaining issues are 
-then fixed in later patches (7/10-9/10), before only the last patch 
-actually activates MPAM-Fb, and introduces the possibility of an error 
-return. So there is no real functional change, it's all refactoring.
-Interestingly Sashiko missed that, many complaints are about things that 
-cannot happen before patch 10/10.
+merged to i2c/i2c-fixes.
 
-I will add a comment to that effect to the commit message and the cover 
-letter.
-
-> I will note that if you did adding the returns from outer calls to inner
-> you wouldn't get this problem.  However you might get other problems!
-
-Thanks for the suggestion, I might try it the next time I encounter a 
-similar problem! I briefly looked at applying it here, but already 
-struggled to identify those outer functions. So I think this "lower 
-level first" is still more comprehensible.
-
->> ---
->>   drivers/resctrl/mpam_devices.c | 204 +++++++++++++++++++++------------
->>   1 file changed, 130 insertions(+), 74 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index b69f99488111..912c21ce7f9f 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
-> 
-> 
-> 
->> -static u64 mpam_msc_read_idr(struct mpam_msc *msc)
->> +static int mpam_msc_read_idr(struct mpam_msc *msc, u64 *res)
->>   {
->> -	u64 idr_high = 0, idr_low;
->> +	u32 idr_high = 0, idr_low;
->> +	int ret;
->>   
->>   	lockdep_assert_held(&msc->part_sel_lock);
->>   
->> -	idr_low = mpam_read_partsel_reg(msc, IDR);
->> -	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
->> -		idr_high = mpam_read_partsel_reg(msc, IDR + 4);
->> +	ret = mpam_read_partsel_reg(msc, IDR, &idr_low);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (FIELD_GET(MPAMF_IDR_EXT, idr_low)) {
->> +		ret = mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
->> +		if (ret)
->> +			return ret;
->> +	}
-> As a whilst you are here type of comment. I'd find this more obvious if it were
-> 
-> 	} else {
-> 		idr_high = 0;
-> 	}
-> 
-> rather than assign a default at top of what is now a rather more complex function.
-
-I see what you mean, makes sense.
-
->>   
->> -	return (idr_high << 32) | idr_low;
->> +	*res = ((u64)idr_high << 32) | idr_low;
->> +
->> +	return 0;
->>   }
-> 
-> 
->>   
->> -static u64 mpam_msc_read_esr(struct mpam_msc *msc)
->> +static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
->>   {
->> -	u64 esr_high = 0, esr_low;
->> +	u32 esr_high = 0, esr_low;
->> +	int ret;
->>   
->> -	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
->> -	if (msc->has_extd_esr)
->> -		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
->> +	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
->> +	if (ret)
->> +		return ret;
->>   
->> -	return (esr_high << 32) | esr_low;
->> +	if (msc->has_extd_esr) {
->> +		ret = __mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
->> +		if (ret)
->> +			return ret;
->> +	}
-> 
-> Same as the other example above.  } else { esr_high = 0; }
-> would be slightly clearer now this whole function has gotten more complex.
-> 
->> +
->> +	*res = ((u64)esr_high << 32) | esr_low;
->> +
->> +	return 0;
->>   }
->>   
-> 
->>   int mpam_register_requestor(u16 partid_max, u8 pmg_max)
->> @@ -774,13 +810,13 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
->>   	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
->>   
->>   	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
->> -	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
->> +	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
-> 
-> If an error were to occur and "now" not get assigned, would this being
-> accessing undefined data? 
-
-But there will be no error at this point, as __mpam_read_reg() 
-unconditionally still returns 0. And this missing error code check will 
-be fixed in a later patch, before proper error returns get enabled.
-
-If checking return values doesn't make sense
-> in here it should still not result in something static analysis might
-> get annoyed by.  This gets cleaned up in next patch so maybe that
-> is just about ok.  Alternative would be to just initialize any such
-> variables in this patch and drop those initializations in next.
-> Doing it just above the code that is going to change anyway would be cleanest.
-> 
-> 	now = 0;
-> 	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
-> 
-> for example.
-> 
-> Hmm. I suppose this is a bit of a special case because we know the
-> calls don't return errors at this point in the set.
-> 
-> So whilst I don't like it I'll not insist that you fix all the
-> instances of this.
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-Thanks!
-
-Cheers,
-Andre
-
-> 
-> 
-> 
-> 
-> 
->>   	can_set = now & MSMON___NRDY;
->>   
->>   	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
->>   	/* Configuration change to try and coax hardware into setting nrdy */
->>   	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
->> -	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
->> +	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
->>   	can_clear = !(now & MSMON___NRDY);
-
+Thanks,
+Andi
 
