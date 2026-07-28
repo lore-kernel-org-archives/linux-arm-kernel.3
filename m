@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5949DC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5241C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RP1icAzXLBZOEuHs6IcxkLzVEHKGI5tOjFuXZMBauq4=; b=3zf+irUAkqsAgHYVBI7wIY4Eta
-	OKotJNRo0E1ulMvabpIzdgCdTTKyE8UWswGWfAcuU/9N1zbvPBFUhR7vMBMayn311NIL0B3LqmPrE
-	xIiIq5EmiOiM4DQFL8YsksU8fbTLSZxyeImhEMZfgRYCuRM2AKR5OfGUYQ2HeV4NqFcvrU/IAqUll
-	mnhl/HBU+YmJehOx0z29fk+3krgyNSxFMU6vJrHlYoNyHzjhQdkcfAiPqMN9XZUcKSnwks5YTqJiN
-	ECt15r3iEk+Wo0ZN2d5xPrkQDEkHCITR+qIybCWjJQN/rlrgu32r4ojJ6f2CEuldkJYg6aBBuuQnM
-	/7bRuQdw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MhOoxyY9XuY/7ZJoPHMRfd57Gx1dlBIuWfd2YjK3Wy4=; b=v3asdCbztcwkupLyDF5+CP+YQn
+	WkZSPMHgJktIonNU9kGR2P4eIy4uoYxGlEcqULPnvAKIAjpjI6q+4eWclZLaoI/8npWnicInd2Gd5
+	le2mQ+zxMU3Kvlk3/Bw1B+sTjDXyJRj3b6LmYtxQyt1OAaLLGSr8vV+t7KdkljEa6T981Y10ILQIA
+	BbitU1KX25JsX3OQqQIgYHJOsZx9C6rAbJEKPMt9kHl1dduWb2J1ZNgHvTSeSbWpHA2Zu/fcUJBva
+	jiKnG1d83v1VJHlTo5PYTQKxbvSO61KoNzgTXt0pTgsxau8Cq7kASmgxhAwxQcbrPFn/3KW2h2Glr
+	7uGh8qDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wopI5-00000006JQQ-01Kb;
-	Tue, 28 Jul 2026 21:24:45 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wopID-00000006JVB-14Af;
+	Tue, 28 Jul 2026 21:24:53 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wopI2-00000006JPa-1vik
+	id 1wopI5-00000006JQP-1I4B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 21:24:43 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-848761b5897so176883b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:24:42 -0700 (PDT)
+	Tue, 28 Jul 2026 21:24:46 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-848d21bbaffso322521b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:24:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785273881; x=1785878681; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RP1icAzXLBZOEuHs6IcxkLzVEHKGI5tOjFuXZMBauq4=;
-        b=W5fgz/6o57fxGi63g9kRLbtXF7kqCUSC0vQm40Dt0U4tqTIEXTH03TONWNOYqv5f7H
-         DYpglZE9yLAT4qxZqQ98Lt7fG19HVhMALfcgkqYpOUxxlEGLAokaWk23+f2lDpEbEeiY
-         legps/BiAnMKj+hP3jbLjKkM2FIcsjnXnDSUA3BX6Ig0vr5ak905EQN2wlsf7eh+NnaT
-         8W8czH8Z8sU1LvRNh+JeDXqmOHvYViKHrrXWeFy6ezlexJcJuhzgf9QYY/3zAsXlJs2w
-         TOgwTsTfcRiHNcvSJCozwQwbOKUGtd1eRA4parG178RGuHz+sPbOtRzCBZBftetHo7F7
-         qSew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785273882; x=1785878682;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1785273884; x=1785878684; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RP1icAzXLBZOEuHs6IcxkLzVEHKGI5tOjFuXZMBauq4=;
-        b=rCIDvHy0I0yA5NlyVdxz1DdFxB11lLa5G1+MM/Lkjw7ZyrCBG7zwiER0R2zWBhFJFQ
-         Q0HX2e+/5/aMUiSSi8ZfVxjtTCE4NZH6NEpACMtvVkqI6X5vxy5aWSpWXe1wrtARZvbi
-         cTnmjW+KY1zC8gyheaU0It+eTQoySNvtDYiexNrkDvb9J6jIa9CJixt3jwGd/1sPk2IZ
-         fzdAHjLFkAUTqZuCSX+fefoeILxzN6qqzDwkSrWF/JrWVI2yZDGxeXeh4Lb/UtwEfCnG
-         usQNQ2p/zHOx0Ulvh/0PvVNErGjNEEy9xqcA/C+5DOmi4tWUkFJhRHH/+KqEI5mF8z5t
-         93Bg==
-X-Forwarded-Encrypted: i=1; AHgh+RqU5vjlXPMkmyVe0twz+27cgvE6QcnOfbiVspen9FGVWKDwxoL0CJ5UiN13VpWaDt3BiFln4jlgd/y4xfoO78u2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5gIyZVn7g2ngrET97JbtEoZs9h+tcRnPR4MC8YrXzYoX+VUpA
-	e0ULVnZWcgggdn4mZ1PBTqNmwYHKaoUHClCGFCtGs1XM87pgwUUIjliPuZr3KA==
-X-Gm-Gg: AR+sD11l1RHZpKhAjFvaw4+II4P2zX88eLltJiuL2noYo3ZBDIURC1i8KOEWHVN2Thx
-	FVdITbvWJKGlXl4vSw6LhCfmkdzW68X3cC+s4u213D6yHvBsVk2gXNarOntRypZytBqWjU1sl8W
-	vq/8hnSbwZ/t+W4evo1+2Y8PKKomtxS2vMzh9cfsDBzqBNEcGiaTq3x11JYID0Xhurx/TooXX1h
-	2PJItqtpR7AsbUeAhnglLw3EEW4oFonWkzlTN4k5UJpUZ6ZyOlb6CG6tjn/i96sUP17YRc+pnxD
-	RKkNZUMeWHYjRoUmJNPKrCHaqyWgQinTH7dskTbiERm3QQmDj9oHn2Evk5tLfC7u+/xLbbFi1QT
-	Zu3ddCsjFn2D2UP98o1YPr4Akse/Mm0mPuQbO+Ue4c6N3pCtnhXoVz7n2dv6Hm/ok7ObpGsW5z8
-	o7GJOfiDE0VTtnAzzLErJSwpmVIRlB6PjRYESmLpWpjSw+TSihrwM0jj6FmpX699N0kn+WAcNqL
-	TEaMIOefwUr4noVG8nJn1bbE9EQcZIx+Oh6Zzt+gLwscHvYTE1MNcbnWox/rbhO4+8gtyQfJJD0
-	9bsXSsEzD4l52EZ99VUmfpTosD5zYd82PDHo8Oo=
-X-Received: by 2002:a05:6a00:b50:b0:848:19f6:4dfb with SMTP id d2e1a72fcca58-84e9335a753mr4385834b3a.56.1785273881527;
-        Tue, 28 Jul 2026 14:24:41 -0700 (PDT)
+        bh=MhOoxyY9XuY/7ZJoPHMRfd57Gx1dlBIuWfd2YjK3Wy4=;
+        b=gHWA8h5s/Kj9mIpLglvYI3VdExma4PEvqG7y8C7+C9FMUvzTzyyaLzOVKWCGAkX12q
+         AW+IYcLQhS8ikAKfWKdGjCs099d5+tgiO2g3fxId6ycqLURIFnRkiyWXaCCTChMCrHyI
+         tvI89nlarWUqdNWusr/h8xl7HcbNEtV0ZRQPa0b/JfDhEEjnkDR+3WDIfyFCvpyQvyTK
+         Mw/80sYH4pxMvG6ERS03ckYaoFFNWuD+mDQpeWABaOAcxSUzXdecGterqYtWmKn/8pX1
+         g7pL6EVQdgcGMMekfWsS/O+5CNCuSmZCKv3Ran3TfpYcsw8yRPU9flHttN1qXXOFN/3D
+         RE8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785273884; x=1785878684;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MhOoxyY9XuY/7ZJoPHMRfd57Gx1dlBIuWfd2YjK3Wy4=;
+        b=snhT3QKfpE2NRhJaOVmg9uPZ8v9Za9wYzYmUG7g6Pg36akvORq4vRJtahQXKc2f3+c
+         XQbjcwFsH0f/P4bfK2FfF8J8poGUEi9H8wSDqYe5AfH1TjesdiVUsnJj6/9aQzkmk1Oj
+         0plsXnqSBuQ9kpYVmnpEHp5TDfXfXNz1+FKZYFlla23n1J/TFDJIlDqwZGccwyXqlpaC
+         Cyr/s9Ce8X6q3Dijc3qLw0i8Wdu71Du43FCLDLbcLlhyCRitFfkwBTfnREHe8baQ1PI2
+         iddDC2lokwor4rcg7E5ChKXL+fs9QcV0duzz/Nhtg0PCp01E07TYhWkP3wM9lB4ib0SR
+         KfQA==
+X-Forwarded-Encrypted: i=1; AHgh+Rqy89/6eHZNb6TFxs5IStBpjWK0NnH5p1Xg2CKGyanwRyYGLcIO8B7JIXC2luJGQoEf+RcdonsK1j6LLl7FOPyt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXHh/hPpWOqCFIXraeKZEFsHusnSFakrFXKTMVBeU8p5fNqQBP
+	HaObJRoUnzHa8XXtUDzyGl15VSQeLaGpejCsD7JV2002i8Vfdu0bZOrt
+X-Gm-Gg: AR+sD1354h85zuHfP8guIBaeOY4U1TZREbcNKgWr43JsXB7QVaxMnXnAY8DvV10sl7q
+	o6+iARFeO34PPfXEbHUznEu7BjwxU2lDRdbENG9bhH5iMHhVY3wKXyg6r6jzxbpThtb7bJ9bxhe
+	J2nwYOnK5MCNRV5J9Afonw49IRGNQqOsVUHYb6A5GNFSvN5n9aFwh3oZK6ULYvAkbg3V2+Vp6vn
+	Uk+czNKyIXelrOLx6yQ+WcyjoWykc+/3MdOGpoFwm59Bdr1w/Jr/Gcmz7Z4gVGWsvYirrZJiK2w
+	R5nqmJebzYxAsAs8YEWnnpsQhetcg6iRzlCozVvEzzGkXMCXK8+s670uldxsVgHuNW1yY2zeLQ3
+	NRGo4hCOpZSWmJgSHem0zwtYY2aiI0cuu9Pk1/heW9nsBJIQadxb5r5Ys9vEpBNqvvfEroLIQHt
+	byLA1xiwaRTDdSEK6pcHmNARPuVa/fM8e4IifgIAlvAa97eBcMdURIKlTtBBL5E0jm/se27CXeK
+	NlkZ3rngW5k7Plyl3/hkrAZ26ygwLxorLE1jgKrjkbYgJffsmK/QsxEkpBN63dY70Ya4bzSFVjW
+	TzmlDxS6Pyw25oYZvNpdf4qZvuVypBD7oi7tfmY0wupbSgR9
+X-Received: by 2002:a05:6a00:10c6:b0:848:2f84:730 with SMTP id d2e1a72fcca58-84e932e462emr3887694b3a.67.1785273884409;
+        Tue, 28 Jul 2026 14:24:44 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbdb83459f6sm80892a12.14.2026.07.28.14.24.39
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbdb83459f6sm80892a12.14.2026.07.28.14.24.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 14:24:40 -0700 (PDT)
+        Tue, 28 Jul 2026 14:24:42 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-input@vger.kernel.org
 Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
@@ -78,16 +79,17 @@ Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCHv2 0/2] Input: mtk-pmic-keys: probe cleanups
-Date: Tue, 28 Jul 2026 14:24:36 -0700
-Message-ID: <20260728212438.54078-1-rosenp@gmail.com>
+Subject: [PATCHv2 1/2] Input: mtk-pmic-keys: use of_device_get_match_data()
+Date: Tue, 28 Jul 2026 14:24:37 -0700
+Message-ID: <20260728212438.54078-2-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260728212438.54078-1-rosenp@gmail.com>
+References: <20260728212438.54078-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_142442_495234_00F94E46 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_142445_352285_C0C1F6D5 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,20 +104,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace an open-coded of_match_device() lookup with
-of_device_get_match_data(), then rework the key-counting logic
-to iterate child nodes in a single pass instead of pre-counting.
+Instead of open coding it, use the proper function.
 
-v2: split patches up and add irq checks.
+All entries have a corresponding data entry so a NULL check is not
+applied here.
 
-Rosen Penev (2):
-  Input: mtk-pmic-keys: use of_device_get_match_data()
-  Input: mtk-pmic-keys: Count available keys during probe instead of
-    pre-counting
+Remove of_device.h as a result.
 
- drivers/input/keyboard/mtk-pmic-keys.c | 76 ++++++++++++--------------
- 1 file changed, 35 insertions(+), 41 deletions(-)
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/input/keyboard/mtk-pmic-keys.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
+diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keyboard/mtk-pmic-keys.c
+index c78d9f6d97c4..fd684ac16938 100644
+--- a/drivers/input/keyboard/mtk-pmic-keys.c
++++ b/drivers/input/keyboard/mtk-pmic-keys.c
+@@ -16,7 +16,6 @@
+ #include <linux/mfd/mt6397/core.h>
+ #include <linux/mfd/mt6397/registers.h>
+ #include <linux/module.h>
+-#include <linux/of_device.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+@@ -333,8 +332,6 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+ 	struct mtk_pmic_keys *keys;
+ 	const struct mtk_pmic_regs *mtk_pmic_regs;
+ 	struct input_dev *input_dev;
+-	const struct of_device_id *of_id =
+-		of_match_device(of_mtk_pmic_keys_match_tbl, &pdev->dev);
+ 
+ 	keys = devm_kzalloc(&pdev->dev, sizeof(*keys), GFP_KERNEL);
+ 	if (!keys)
+@@ -342,7 +339,7 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+ 
+ 	keys->dev = &pdev->dev;
+ 	keys->regmap = pmic_chip->regmap;
+-	mtk_pmic_regs = of_id->data;
++	mtk_pmic_regs = of_device_get_match_data(&pdev->dev);
+ 
+ 	keys->input_dev = input_dev = devm_input_allocate_device(keys->dev);
+ 	if (!input_dev) {
 -- 
 2.55.0
 
