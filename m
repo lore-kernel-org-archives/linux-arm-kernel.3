@@ -4,174 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB07AC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F07BC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k22AfubbHSpv9LTCuJEolvR0LAgXNB2jW734FuXs7vo=; b=z8XW3Ph5BS+MVJQnQjvxxED2tz
-	T8hbzjbHddeK+Vi4Y1C7GwVEMKAoYEIe49KYVpYCLijEW6NWXUrR22fN6YC0UBOuQaefI2QJAhHlk
-	bRiGg2/YXSpkNukUMmzEIkOyW+omXY1BTaHYRTrtUDaAiYhkGlX0kUkGatMghhDj2p0cSox5sMCV6
-	DCWVuMJ6kox7teipv/RfgpWNcRJRyScNf26GvbbhIpHcT8ff1DQnUTZrL6zgKodmwSAXQnCid/qGr
-	gvN7dfIFkXk505q7CXBBvxBl2Asvb7Q6HabMLeXebAD7d1NokdQnNu0/lYhJ4vgzUaql6qlpDVwcM
-	VU9pxtLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zul95q2edkfvVEgOYYXJEs/IWUfnxAxG6HlhqT6G6ZM=; b=d8a1fsYedTVSbVxF/pH8msnY87
+	2EE5ITmceglH/tiMhulwqlMUejUE6Q5YdCPHN0cYJGk1jS+AyqezzQe0SIJQPSrrS9/4hMmVOOxHy
+	V9R6xy8bE71h0XG0wz5olz0kbwbhIzVJcacGAbcfU3rnmwyOIX6wMihnra+SQvdkM5ZQBH6zpPnLr
+	yDYsY18vJCVNxTzN2S0Gr/o469n8z4UVimTgJT0i1LiXLMxCKTwJAUGzGu2B/boGk7vVTXoKE/AqG
+	1q8jtgc4amaNAyTQCy04ka2zNCNXKA0V4vMh2lwQrgXhUxphLTxRMm9pI1LUXv6wSAcRW+pjXFWya
+	hOZaBRtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeO2-00000004rua-2JS8;
-	Tue, 28 Jul 2026 09:46:10 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1woePD-00000004sT8-0ZOP;
+	Tue, 28 Jul 2026 09:47:23 +0000
+Received: from out-174.mta1.migadu.com ([95.215.58.174])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeNz-00000004rtR-3aWH
+	id 1woePA-00000004sPJ-0EBV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 09:46:09 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66S8xxq3838637;
-	Tue, 28 Jul 2026 04:45:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=k22AfubbHSpv9LTCuJEolvR0LAgXNB2jW734FuXs7
-	vo=; b=hgj02qEJdBa2R4K+NBFKREMChr6OheN1Ay0eXDLBDakegykcxRSxBwxIu
-	TKT5PFmsKsVkWH8+bKJVrzxLcevALzFPdL4GaI9CHVedwRqDvnaKTTbFF7/V/S3C
-	xHPvmdlzLugwh+QsWW2GQo/MgJukPSH54erSCkw+m59AiE53O/vBJlSMVil1iym9
-	DhB50y+HQ6IaY01zVyuDMXreefq1MPazmwYzuDDBw97ZbCxba5cBRq7j7FnrAeZr
-	oLv1+jjCwuVnDFza92FQco78ZnQsRH149K8sYfMfqKyiCKCjuqtu9+OSnJgm3ar/
-	CDafmgjDHAEDETzP/IUwOidgoeGzQ==
-Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010041.outbound.protection.outlook.com [52.101.201.41])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4fpsdk07gt-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 28 Jul 2026 04:45:54 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wV+V54Y8Ieb64ldV6kC/1I/YlyePFHkTYQ1WWTAeolbtmaKbQNWaCJX99RpNLWHQnCB7FC6Xf+3/GN7rV/Loa1DOvG1zecXw9Wcy+OLJUNGuF9CRfHJQT+hzK7l8WQ6I5ifsMLpfP/PGTbsJsqP+01iRxGA88nceOCWii2W7QPUfoSGHWK3eB2ixvRjBo+ugaj1wrcrutdB9/qvZANBjU/vxltkSKmIu/Zf5LeVdf++rCsBUT6vvtKCvqEx+6diRaYmaehnT48OaOi3wtyvw4FFFNVDKxqCqi3JBuRdPn/7Qj9Uqk3Cp9fkQxa/ileoxi1m0IBZ5ecUKtp1EvKq46g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k22AfubbHSpv9LTCuJEolvR0LAgXNB2jW734FuXs7vo=;
- b=UhaWEUUa0NuDJy6o2LZxQ/Mn4Bnx6OUoNPI30xjhYyKX01m+T2AZ7jolpffkxKiF+HmFhatswbv2KWOTNcBOYyZxJuudLb/MIkxAKMamw3AjfmqrQHtvoA+G1MG6f3POyNrp53FtYtyMIrzCsFVhHTbUaKuELv8TDz0T7lEwQ6YNzWS/K5ZE8IqmlQvA2/uSdUyjHmoasa23uV4ukKYSgJ7aOQbYQuZ4BSjKnJbndbc6IKL5J1QAcY7YYs6Z8POPbTUufaAJ5UA0wiPRSfws7kyL+Wte5LEG9f0QZFmo7zw5VUxcEJV6gLWSVYih8NCu83qQnLikn5OnFD+8v22hVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k22AfubbHSpv9LTCuJEolvR0LAgXNB2jW734FuXs7vo=;
- b=Can9KTInSavPY2P7wdtqMQcUqpdjuRHi+fKEvFKSvVTEXiYODC1v2JSIbOyrax4yUHFBOSoeAmA/cxoRHFZJmleOI9JJlLeCH4Oz2bnWJd/oro/brLfPvxMS9EgNGpiZdQrFZlV3J/0u3kLe5iGJXaDhiQiS1s+NGNxllWpQ0XM=
-Received: from SJ0PR03CA0088.namprd03.prod.outlook.com (2603:10b6:a03:331::33)
- by DM4PR10MB6063.namprd10.prod.outlook.com (2603:10b6:8:b9::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
- 2026 09:45:51 +0000
-Received: from MWH0EPF000C6187.namprd02.prod.outlook.com
- (2603:10b6:a03:331:cafe::92) by SJ0PR03CA0088.outlook.office365.com
- (2603:10b6:a03:331::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.13 via Frontend Transport; Tue,
- 28 Jul 2026 09:45:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000C6187.mail.protection.outlook.com (10.167.249.119) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 09:45:49 +0000
-Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 28 Jul
- 2026 04:45:22 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE208.ent.ti.com
- (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 28 Jul
- 2026 04:45:22 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 28 Jul 2026 04:45:22 -0500
-Received: from [10.24.51.219] (abhilash-hp.dhcp.ti.com [10.24.51.219])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66S9jE7P3045412;
-	Tue, 28 Jul 2026 04:45:15 -0500
-Message-ID: <2ea14bab-d5e9-458e-ad6d-bf077ef4da61@ti.com>
-Date: Tue, 28 Jul 2026 15:15:14 +0530
+	Tue, 28 Jul 2026 09:47:21 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RrMLMqRh71Yf4Ku5ZSBrjmjVslMMjVe2SE+zP8/TFhvW8rGNWXItcAVw/q8vXPMZzK8b73yMK/D3k6TdmuMiNpP@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785232036;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zul95q2edkfvVEgOYYXJEs/IWUfnxAxG6HlhqT6G6ZM=;
+	b=MJWASw8UR+vxkfwf/E9gi2AyZy64rwG3lRyVoU9VxI5WLEMiBNqzFUG56pxkQP3W43G5ua
+	502wZA0k+PZz81QOSrnbp166VZ+Olk13c/nvWDbYO+fKppWEFEL+0KLyMgPDrkoHibDpfR
+	Z7RIY32q5e4rPSjFFPPobx3hea+Yunk=
+X-Gm-Message-State: AOJu0YyP7XMMA05s7let65pxd3mhrJ5JADpwLAMkV1NjPFS8QaoibSk/
+	WFIBfLMKnkZm5fu/w0AvDMyfsok9oFddElwAEu7SeZWV2ZClt5QmqSIG6qfLflEZDC61KZsx2bT
+	IZGvs+WgG2TRtfD8FvJPrAQPdnGgl4YMqdpcc3aCC
+X-Received: by 2002:a05:622a:aa4d:10b0:519:b82d:fe62 with SMTP id
+ d75a77b69052e-529a766aaa6mr50860001cf.7.1785232025049; Tue, 28 Jul 2026
+ 02:47:05 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/18] arm64: dts: ti: k3-j721e-main: Add multiple
- channels for CSI2RX DMA
-To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
-        <festevam@gmail.com>, <andersson@kernel.org>, <geert@linux-m68k.org>,
-        <dmitry.baryshkov@oss.qualcomm.com>, <arnd@arndb.de>,
-        <ebiggers@kernel.org>, <luca.weiss@fairphone.com>,
-        <michal.simek@amd.com>, <sven@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
-        <r-donadkar@ti.com>, <devarsht@ti.com>
-References: <20260713113423.2310443-1-y-abhilashchandra@ti.com>
- <20260713113423.2310443-3-y-abhilashchandra@ti.com>
- <97f891c0-4210-4779-9693-494a377b3cdf@ti.com>
-Content-Language: en-US
-From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-In-Reply-To: <97f891c0-4210-4779-9693-494a377b3cdf@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6187:EE_|DM4PR10MB6063:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70a60b09-7763-4e30-db9d-08deec8d01c5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|23010399003|13003099007|6133799003|18002099003|22082099003|10067099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: Pdk5AXxDyOjTsTxCzoLIWcGLYxDG6jPE6MwKXhC3hvtKSjJZjZLieRnAz7OU2+sQuK1sahvskeldlMbE2+gdoMG7Cz4+2F3R+ayUWQht2ea8+6LKeHRoDP9rCcqpAIUXriNLZY/ahkziIetbaSX743uKTf5pLE2NW6i0q3M95I9myd7Yhp2Yn465oXMB6drB5Zieo8+3Abzcvc8+Df6c5TG87YWzbLI9hfhL1QjmyIi1gcbhQ/PHeurMqbSkV71PMDXFmsntvGzmVOjktDHOXglI1Rqtff/EVIMH7pStZohdtpSIEBGBH2VrVLkeZv7maoKDXLmjKvfyOa2YdXkdRNbkLi/1WhaZdckEbiECGLN5SQ9BvWRFjJjanv1ZZVF1BHmsYpeKkFgYqqjMNXlKHpO4wOryQwXCS0HMs51+dIPlDn/ANfEk+UGkjvYSjpJxMGKSaD2Nn0g735qlUKFDiHgQsmsjo3GjtF6iClFhJhODvZfg93xKHmEhRr8k4Q7qgO5dOUt1TtQhhJHAk+8duQrUp4NlpqckQDIeCIR5PiTJutW/UWRCe1gD77BT5yfTZqqgWIDkojm5nxArcySu+jk9D5GEeBCYGHwjhsi7+xPZdr5jD9z6Ps4slW4Zp3EVmXj8Ge4U6Ed3cIaDrQATMdjvsm2Zua6hQBqKWKWXuG/D7LYJ4hYBS4EiNdvRaYji+ZB8Lym+rLFM8O3V67awsA==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(23010399003)(13003099007)(6133799003)(18002099003)(22082099003)(10067099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jOrnKbnCN8SMS0392MT8leHiTV2mqUBwASxrb93bZodxLG5O8PYsA7mW035bU/Ag1umriET6Rc2q7EOV0nJDwZf2GaJHCbzdVSQTu5+l3Xw8NjfstP3cqU0v2BEQKoC3qNretzAOgqarR1PbDnmNSh19g6jcl69wsC37MOC3KJsyKeeumFiGMVe8E5M5LlmSKj2gIH4kKtJfXcQ9kh+v3EBcw15aX7IhcSVnv/YKJfsWEPe0L4oP/7D19l+1QBNKqHbgxSQk35U5fttdR8EKiHwA1NZ2N1yrAtoMflWuR53TF33YsanL0aXOdscPxkTQIJeSrgFJO3QsoZCOegW4LzjpTxFzrLE8j1I5uzelkv9ur+JjWiCYO2xqUbV7Y9tx94i5NQuzsnVww3QXe3nYLrI6eYQhpjD9E4CQkaQMVFWH0Q8WCYMIUKSstZetZb1j
-X-Exchange-RoutingPolicyChecked: Joksvk9VM8cJvjno67n6cKNaX249P6Y2ARW3teDeHy5Ch/vJ2LM5arqJ9agCy00dhfj5n+VvbL2vJXgaOtXB7hJSlrAF3TD6xfBAnoDfLInjy0WvAtbIBHy5fMsQvx7p6V4TkGzGcgOxUP736vRdYESqjusLvcxqXsKVLZAYBXO7Yb+hVAEeCh/bqm0PU3a3zpxDUfkZU4+dUFjGn/VrHkndECUlk1usX9ClMcCHO02H7167f153RVFN0WyCOO7aMO4fdcsX2CV4naPY4Z+bCBrSIVaVNamdw8nWxZrbNABjRZwwgPxHkLja4bfwv+YR0KiGWqTCF8sExUrCKy1nrQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 09:45:49.6154
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70a60b09-7763-4e30-db9d-08deec8d01c5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6187.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6063
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI4MDA4NCBTYWx0ZWRfX375usdI1Kq2c
- LsobvepFV6YBBJg4PJgkHHhZbr5oALb7MNcYLSjd3C5kR74d5v3AgyYeuPScJODCUQXfHUZ2+d+
- clWNl0VTN+Zm4YlIakDbv87hSV76QBc=
-X-Authority-Analysis: v=2.4 cv=e9M2j6p/ c=1 sm=1 tr=0 ts=6a687a52 cx=c_pps
- a=xSIn1YjG+VojQN1dL9/zMw==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=apn0q0EWAAAA:20 a=sozttTNsAAAA:8
- a=t6-u7qCHwSwoaeaRFcsA:9 a=QEXdDO2ut3YA:10 a=bA3UWDv6hWIuX7UZL3qL:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI4MDA4NCBTYWx0ZWRfX6ONw5FVk+Z1U
- NhQzS1DkPN0AS6iisKUoxvqKDn1FTjWGOxUSlZynv1RkjtJVLBSqbcpLvsqOXusg4yBO2NGY70/
- RwP2gVNrm2fc9KRxkY8g7QeKHOV4GfVouscNxV7HoapMYSNpCGoZpHHf6zviolz3nouuvquEi1b
- 2owj1K95vwfCsAhaeRBzZYGv4bX1im0V6Pwq4GFT4Y81bxVZBL4hzIjYsc6QPi/mdgZkG3+2hds
- fsu2GJVw2MT9uyNo92KJKVOujKuDOiF2Y488UUJCfXf5rGGYES3tFfHwkPGSmDYp5e334oXjvvb
- Dg86h++4RMcwH9XLCofjtQXfwGROv/SfTpMQZCUgUHMSOhbiV2HKZSaVRbMphZ42tQJNyHTgEB/
- AvpeXEAZweHd14SaLxwrBQRaDS9u6HF0EDfAlM+ugcnxdcWEHYwAiZhcw5HfEqrLD/8caNaqpge
- Mfuas3MFVeyQ8UWicvA==
-X-Proofpoint-GUID: 2njM0cY-vz_1tyPnOAj3XZeL_DvoC1fS
-X-Proofpoint-ORIG-GUID: 2njM0cY-vz_1tyPnOAj3XZeL_DvoC1fS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-28_02,2026-07-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 priorityscore=1501 suspectscore=0 adultscore=0
- malwarescore=0 impostorscore=0 spamscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607280084
+References: <ameGoxbn2wzBq2kL@v4bel>
+In-Reply-To: <ameGoxbn2wzBq2kL@v4bel>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 28 Jul 2026 10:46:27 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzmrSD=mPwGv2E+P0+buA=N5+HiV+QkMC=G+9zsQhPJFA@mail.gmail.com>
+X-Gm-Features: AUfX_mxBDit6wudXeLiFNj76ppjc7lUTgOi-ZIE3Da7a8Xd_yV4KRw99UJrNVE4
+Message-ID: <CA+EHjTzmrSD=mPwGv2E+P0+buA=N5+HiV+QkMC=G+9zsQhPJFA@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Don't skip VNCR invalidation when the TLB
+ size is unknown
+To: Hyunwoo Kim <imv4bel@gmail.com>
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_024607_907873_0F6D51A9 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260728_024720_409343_621D4FBF 
+X-CRM114-Status: GOOD (  32.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,78 +78,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Udit,
-Thanks for the review.
+Hi Hyunwoo,
 
-On 27/07/26 09:43, Kumar, Udit wrote:
-> 
-> 
-> On 7/13/2026 5:04 PM, Yemike Abhilash Chandra wrote:
->> From: Vaishnav Achath <vaishnav.a@ti.com>
->>
->> J721E CSI2RX SHIM layer can support up to 32 DMA channel contexts. Add
->> additional DMA channels to enable multistream support for CSI2RX.
->>
-> 
-> If hardware supports 32 channel, then why you are limiting to 16
-> channels only ?
+On Mon, 27 Jul 2026 at 17:26, Hyunwoo Kim <imv4bel@gmail.com> wrote:
+>
+> ttl_to_size() returns 0 when no size is defined for the (granule, level)
+> pair. That is the case for level 0 with 4kB pages, and for levels 0 and 1
+> with 16kB and 64kB pages. For a VNCR pseudo-TLB this happens when the
+> guest runs with SCTLR_EL2.M cleared, because __kvm_translate_va() returns
+> success with wr->level left at S1_MMU_DISABLED, and that s8 value becomes
+> level 1 as it goes through the u8 parameter of pgshift_level_to_ttl(). The
+> size is then 0 if the guest has TCR_EL2.TG0 set to 16kB or 64kB.
+>
+> kvm_invalidate_vncr_ipa() and invalidate_vncr_va() feed that 0 straight
+> into the range computation. When the size is 0 the alignment mask is 0 as
+> well, both ends of the range collapse to 0, and the first comparison, the
+> one that decides there is no overlap, is always true. As a result the
+> pseudo-TLB is skipped whatever range the caller asks for, including the
+> full IPA range passed by kvm_nested_s2_wp() and kvm_nested_s2_unmap().
+>
+> kvm_nested_s2_unmap() is called from kvm_unmap_gfn_range(). A guest that
+> meets the above conditions therefore keeps its VNCR fixmap mapping across
+> an MMU notifier that reclaims the page, and still holds a writable EL2
+> alias of that page once it has been freed and reallocated for something
+> else.
+>
+> compute_tlb_inval_range() and compute_s1_tlbi_range() already treat a size
+> of 0 as "no size information" and fall back to a conservative value. Apply
+> the same principle here, folding the range computation into a helper that
+> reports an overlap when the size is unknown. This also removes the
+> computation that was duplicated between the two functions. The result of
+> the test is unchanged for a non-zero size.
+>
+> Fixes: ebb2d8fd81b8 ("KVM: arm64: nv: Fix incorrect VNCR invalidation range calculation")
 
-While the J721E CSI2RX SHIM IP supports up to 32 DMA channel contexts, in
-the current RM configuration, only 16[1] BCDMA RX channels are allocated
-to the Linux host for CSI2RX.
+The tag looks right to me. Before that commit the mask was "pa & (size
+- 1)", so with a size of 0 both ends collapsed onto pa itself rather
+than onto 0, and the full-range unmap still overlapped. So the missed
+invalidation only starts at v6.17.
 
-Hence added channels accordingly.
 
-Thanks and Regards,
-Yemike Abhilash Chandra
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> ---
+>  arch/arm64/kvm/nested.c | 39 ++++++++++++++++++++-------------------
+>  1 file changed, 20 insertions(+), 19 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index dfb96edbdc43c6..3ac8789b458f39 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -985,6 +985,21 @@ static void invalidate_vncr(struct vncr_tlb *vt)
+>                 clear_fixmap(vncr_fixmap(vt->cpu));
+>  }
+>
+> +static bool vncr_tlb_intersects(struct vncr_tlb *vt, u64 addr,
+> +                               u64 start, u64 end)
+> +{
+> +       u64 size, tlb_start, tlb_end;
+> +
+> +       size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift, vt->wr.level));
+> +       if (!size)
+> +               return true;
 
-[1]: 
-https://github.com/u-boot/u-boot/blob/main/board/ti/j721e/rm-cfg.yaml#L1205
+I was wondering if this deserves a short comment. It is the whole
+point of the patch, and on its own an early return from a function
+called vncr_tlb_intersects() reads as if an unknown size meant "no
+overlap" rather than "assume the worst".
 
->> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
->> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 20 ++++++++++++++++----
->>   1 file changed, 16 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> index 5a8414fc5751..b1988437f52d 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> @@ -600,8 +600,14 @@ ti_csi2rx0: ticsi2rx@4500000 {
->>   		ranges;
->>   		#address-cells = <2>;
->>   		#size-cells = <2>;
->> -		dmas = <&main_udmap 0x4940>;
->> -		dma-names = "rx0";
->> +		dmas = <&main_udmap 0x4940>, <&main_udmap 0x4941>, <&main_udmap 0x4942>,
->> +		       <&main_udmap 0x4943>, <&main_udmap 0x4944>, <&main_udmap 0x4945>,
->> +		       <&main_udmap 0x4946>, <&main_udmap 0x4947>, <&main_udmap 0x4948>,
->> +		       <&main_udmap 0x4949>, <&main_udmap 0x494a>, <&main_udmap 0x494b>,
->> +		       <&main_udmap 0x494c>, <&main_udmap 0x494d>, <&main_udmap 0x494e>,
->> +		       <&main_udmap 0x494f>;
->> +		dma-names = "rx0", "rx1", "rx2", "rx3", "rx4", "rx5", "rx6", "rx7",
->> +			    "rx8", "rx9", "rx10", "rx11", "rx12", "rx13", "rx14", "rx15";
->>   		power-domains = <&k3_pds 26 TI_SCI_PD_EXCLUSIVE>;
->>   		status = "disabled";
->>   
->> @@ -656,8 +662,14 @@ ti_csi2rx1: ticsi2rx@4510000 {
->>   		ranges;
->>   		#address-cells = <2>;
->>   		#size-cells = <2>;
->> -		dmas = <&main_udmap 0x4960>;
->> -		dma-names = "rx0";
->> +		dmas = <&main_udmap 0x4960>, <&main_udmap 0x4961>, <&main_udmap 0x4962>,
->> +		       <&main_udmap 0x4963>, <&main_udmap 0x4964>, <&main_udmap 0x4965>,
->> +		       <&main_udmap 0x4966>, <&main_udmap 0x4967>, <&main_udmap 0x4968>,
->> +		       <&main_udmap 0x4969>, <&main_udmap 0x496a>, <&main_udmap 0x496b>,
->> +		       <&main_udmap 0x496c>, <&main_udmap 0x496d>, <&main_udmap 0x496e>,
->> +		       <&main_udmap 0x496f>;
->> +		dma-names = "rx0", "rx1", "rx2", "rx3", "rx4", "rx5", "rx6", "rx7",
->> +			    "rx8", "rx9", "rx10", "rx11", "rx12", "rx13", "rx14", "rx15";
->>   		power-domains = <&k3_pds 27 TI_SCI_PD_EXCLUSIVE>;
->>   		status = "disabled";
->>   
-> 
+With that and with the caveat that I am not very familiar with this
+code, but traced this while reviewing (and testing):
 
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
+
+
+
+
+> +
+> +       tlb_start = addr & ~(size - 1);
+> +       tlb_end = tlb_start + size;
+> +
+> +       return !(tlb_end <= start || tlb_start >= end);
+> +}
+> +
+>  /*
+>   * VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions, and
+>   * either can race against a vcpu not being onlined yet (no pseudo-TLB
+> @@ -1008,14 +1023,7 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+>                 return;
+>
+>         kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+> -               u64 ipa_start, ipa_end, ipa_size;
+> -
+> -               ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+> -                                                           vt->wr.level));
+> -               ipa_start = vt->wr.pa & ~(ipa_size - 1);
+> -               ipa_end = ipa_start + ipa_size;
+> -
+> -               if (ipa_end <= start || ipa_start >= end)
+> +               if (!vncr_tlb_intersects(vt, vt->wr.pa, start, end))
+>                         continue;
+>
+>                 invalidate_vncr(vt);
+> @@ -1045,28 +1053,21 @@ static void invalidate_vncr_va(struct kvm *kvm,
+>         lockdep_assert_held_write(&kvm->mmu_lock);
+>
+>         kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+> -               u64 va_start, va_end, va_size;
+> -
+> -               va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+> -                                                          vt->wr.level));
+> -               va_start = vt->gva & ~(va_size - 1);
+> -               va_end = va_start + va_size;
+> -
+>                 switch (scope->type) {
+>                 case TLBI_ALL:
+>                         break;
+>
+>                 case TLBI_VA:
+> -                       if (va_end <= scope->va ||
+> -                           va_start >= (scope->va + scope->size))
+> +                       if (!vncr_tlb_intersects(vt, vt->gva, scope->va,
+> +                                                scope->va + scope->size))
+>                                 continue;
+>                         if (vt->wr.nG && vt->wr.asid != scope->asid)
+>                                 continue;
+>                         break;
+>
+>                 case TLBI_VAA:
+> -                       if (va_end <= scope->va ||
+> -                           va_start >= (scope->va + scope->size))
+> +                       if (!vncr_tlb_intersects(vt, vt->gva, scope->va,
+> +                                                scope->va + scope->size))
+>                                 continue;
+>                         break;
+>
+> --
+> 2.43.0
+>
 
