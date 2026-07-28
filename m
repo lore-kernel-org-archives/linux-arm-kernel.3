@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C488C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16AEC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dD+5yzYswGYTYSmTNazeAQDj3/IyAwDz+u9BUEk0yZk=; b=i4NSoVSL8ocSboChQdtw0RtFDR
-	SeEsj1KeYGWnGUFzOXL5wK1cFHgJT2+KrXW44jjx8PEnvS0AFeazYdzMAK1T6IqYSsNheXwV3Da0V
-	mUQfhpaAii3L2ZuPha0SGnrXnfBt3E65PgkcK/PU5/co6cA5Ij6t6rhXB0vM2tYSb/Y/+eMSCoet/
-	mAJnb60i3VlAeIGG35NuKxFPHYVoDMWx2op5szvy3C/Q7aYYCBE43h9LFIssdJIvDMssyRRMWBYmi
-	jf76vwWIeM/TlMJoQUo4OEoyuANRBO56HrXALOuY+bsvnRoJFJFyGbZm47V2UuJdNbDJzboZH3MyJ
-	rTOVOrGQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BXD9NT1yZlFkaXVxjdMwL7vBIK75Ivf+FWUGyrR0g4o=; b=vUgUwnzW7szQS8whZI+LZa3XmV
+	yi3k3cU3KGGw+6wWXBko73VOXi23toOD6xgU9ZVyuoJ6IUnJw9t5nR0jmMlIqH+wmlMe6ZQmoeUJk
+	SIZH732v2NOaJimvNWqShb0ShMe11WLmoOTdZelxORDzt2NLJqfseybCACWhe+RZmz85magMISIiq
+	8Zwk8f369EzfCkTrSKggGQNEYiXvMtNTXySKxdEl9bOpiBTuf5zaHilQxl/qLoe+IPNVsmWeJDZ8p
+	Zgc+mMpmNIY0+7vKzSxC4WaBSAm6SdVid1oVWGiI25GxzNNhyUgTK3KzHDCc3B84zGZmtNySHdw7E
+	e7mCvpfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogtt-00000005Ewz-0wlk;
-	Tue, 28 Jul 2026 12:27:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogtq-00000005Ewc-3PYm
+	id 1wogvL-00000005FAn-25yo;
+	Tue, 28 Jul 2026 12:28:43 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wogvJ-00000005F9J-1IbE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:27:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B99E169E;
-	Tue, 28 Jul 2026 05:27:05 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3100B3F86F;
-	Tue, 28 Jul 2026 05:27:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785241629; bh=sYYt6cI0080YA60MeNLf3+IrwQthG96nJA0VrCXztJQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e/tMzIazapcHE8Y5I2uvyIENrVnHroCCalDfCKuYAiVeBjo0L7hAc1sdETKNEpFKU
-	 6xYMybDFAlq7wJYF4aXXKlFLP/K0jgov6FS0KoLcR8Mszl/9Vj0mvKgRuMwVO9UNsg
-	 c3c8z1JGdughm9tnhKM71P8o6AqovBc2afARpahE=
-Message-ID: <7219109a-82ac-4a7a-9706-e4db9c243eb5@arm.com>
-Date: Tue, 28 Jul 2026 14:27:01 +0200
+	Tue, 28 Jul 2026 12:28:42 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c9e607d81fcso2282562a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 05:28:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785241720; x=1785846520; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BXD9NT1yZlFkaXVxjdMwL7vBIK75Ivf+FWUGyrR0g4o=;
+        b=mLlMt9GB6gYb7YzT7IZiwGTCUlETKWGLerUW4+XWTmnRbWEBLUL6JqBM8r7QUZdBhZ
+         EGUVA30t/FJ/7lTFjuk2oHvhPaK/ZPn5/plQMtrCsPwCxNfaJGbzrBSIzHZDrd6qG3sI
+         wV3THMf4zEzEjRASuzHe42xFh7m2RZ73/+r7Tn8PJBwswjG/nhhGh9asoEGM0FbBWEYQ
+         YutvPgYdd6RjAqNychmfy8yqps9pDKUv3ZX5usvDETuJaIaxb1olfK5SKsmTCuwK0en1
+         qsS3gBsYqyFC2Dr8MEnfy8IVEPky7Cokdojznrb8y/3cIWNy/hq2lvQdQHjzo8kymR61
+         rnAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785241720; x=1785846520;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BXD9NT1yZlFkaXVxjdMwL7vBIK75Ivf+FWUGyrR0g4o=;
+        b=Eh/3yQ0lqsBOgOfT/byoLfM5yRBUb35X9KOcfqqIIWZk4VTrco410OVCCom7IWGBGF
+         aLIkDjd2yxM4rW/+g+r4V0zQyhKkroCSfIdHTuL7xNnUFXjc/JQY675u2C37SNJJw0rV
+         Nb0dFPlDA6omRz3K8IG5v+mJTfmNv5aOk89g2b0PrveLdys1tT4T1AHShO4Co+SDqtzs
+         E8pViGZ9897P8vpnfwFkFtrqn8v2+I1qTgbU8gz9Y5bvip5cRc0uZe3OFg8NrPFwvf+/
+         0wojMbHKyN1FZSkyvywtjZk5T/0UznLK+42YdPItO9mP9hZy6F7EBa9aLADCmvKWhAuC
+         tclg==
+X-Forwarded-Encrypted: i=1; AHgh+RrMs8kyNSw4g45EBjY3t3wKhIyEwJBHgqxATi5ZCDHx8itaYNvIMkR5olBTT37J3YL6rOCZHqEwJI8RzjiPOI4h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyju1/QSERKdyifwU4zrPrgIEL5EalA5D0wzOD9r4G5kx5ObH2D
+	Ref8IOYn6EsVbBalamv1y6yE0yaSIn3iMCqhFpTteSD8D2MQwq5e8hLm
+X-Gm-Gg: AR+sD13TQupkKFSDESyH7wuPFZmdfcvmOvVAhkFNi41Q+AEr6WYPEWBK3yWaNF4AwT9
+	dATWJ9ce4dWgEfg8O2MtQEQBB90JnTzHoPkCOXlGn0fHuaEpC992qTq8e+OqknEUyssDfx3YCNU
+	bGd+G5rqyuy+uTt9pBUkjbxjGAD5K4QHiWo3NbgddEAzf8bdOxZbJ7fLFu7/FM1uVBOKrd7Kb5P
+	CMBT0ShqyUSSZgljK/lgJrtIqi8wYPqcZI9CzqhHks7aJ5FfiTPuOTvjlgj9p2ABgIihSuSPVPC
+	3uAnOrPk2LAQXOqWJfJeFcAUDMmYPIsrmrhgrM6w6Eb0a5t39fXYn8bDiLXeic0WRT/FeF6i5Fd
+	nZCL55hLqgRL5XzHl9thr7HboZXo3ah0JUnB1fajzyC0b5RFo7GKM+4m5Ik/4NlgJ1QZ+he3gZC
+	Ke9KQaDZowfkwjGdqs/Bq5boGCvdilqJEMT9Mi
+X-Received: by 2002:a05:6a21:748a:b0:3c3:a41f:ce83 with SMTP id adf61e73a8af0-3c8ba62e7e4mr2893948637.61.1785241720223;
+        Tue, 28 Jul 2026 05:28:40 -0700 (PDT)
+Received: from localhost.localdomain ([103.179.230.124])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-314bc3e1290sm43423129eec.1.2026.07.28.05.28.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 05:28:39 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: ryder.lee@mediatek.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com
+Cc: robh@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH v3] PCI: mediatek-gen3: Fix 64-bit type truncation in mtk_pcie_set_trans_table()
+Date: Tue, 28 Jul 2026 12:28:10 +0000
+Message-ID: <20260728122810.3475-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Sudeep Holla <sudeep.holla@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-9-andre.przywara@arm.com>
- <b9502a40-8075-48fc-8ff1-3ae17741ea73@arm.com>
- <20260724-mule-of-sudden-gaiety-9e3933@sudeepholla>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260724-mule-of-sudden-gaiety-9e3933@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_052710_954745_2303874F 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20260728_052841_376334_17B49AFB 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +105,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The variables cpu_addr, pci_addr, and remaining in
+mtk_pcie_set_trans_table() are of type resource_size_t, which is 64-bit
+on 64-bit architectures.
 
-On 7/24/26 20:03, Sudeep Holla wrote:
-> On Fri, Jul 24, 2026 at 06:08:52PM +0100, Ben Horgan wrote:
->> Hi Andre,
->>
->> On 7/23/26 16:54, Andre Przywara wrote:
->>> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
->>> alternative way of accessing the "Memory System Components" (MSC) in an
->>> MPAM enabled system.
->>>
->>> Normally the MSCs are MMIO mapped, but in some implementations this
->>> might not be possible (MSC located outside of the local socket, MSC
->>> mapped secure-only) or desirable (direct MMIO access too slow or needs
->>> to be mediated through a control processor). MPAM-fb standardises a
->>> protocol to abstract MSC accesses, building on the SCMI protocol.
->>>
->>> Add functions that do an MSC read or write access by redirecting the
->>> request through a firmware interface. For now this done via an ACPI
->>> PCC shared memory and mailbox combination.
->>>
->>> Since the protocol used is only a small subset of the full SCMI spec,
->>> and the SCMI protocol has no full ACPI support anyway, open-code the
->>> (simple) SCMI message generation, for just the fields we need.
->>>
->>> [1] https://developer.arm.com/documentation/den0144/latest
->>>
->>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->>> ---
->>>   drivers/resctrl/Makefile        |   2 +-
->>>   drivers/resctrl/mpam_devices.c  |  27 ++++-
->>>   drivers/resctrl/mpam_fb.c       | 197 ++++++++++++++++++++++++++++++++
->>>   drivers/resctrl/mpam_internal.h |  20 ++++
->>>   include/linux/arm_mpam.h        |   2 +-
->>>   5 files changed, 240 insertions(+), 8 deletions(-)
->>>   create mode 100644 drivers/resctrl/mpam_fb.c
->>>
-> 
-> [...]
+Using 32-bit helpers fls(), ffs(), and BIT() causes 64-bit integer
+truncation when computing window sizes and address alignments above 4GB.
 
-[ ... ]
+Fix this by switching to fls64(), __ffs64(), and BIT_ULL(). Note that
+__ffs64() uses 0-based indexing, so the '- 1' offset is removed.
+Additionally, return -ENOMEM when translation tables are exhausted to
+prevent silent failure.
 
->>> +
->>> +	writel_relaxed(PCC_CHAN_FLAGS_IRQ, &pcc_shmem->flags);
->>
->> Are you sure it's ok to unconditionally set this irq bit? I know we found out that we do need it set
->> sometimes. What does setting it actually based on what the platform does look like?
->>
-> 
-> You need to set it if you are not polling the PCC channels for completions.
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+v3:
+ - Reformatted commit message lines to under 75 charactere.
+ - Aligned multi-line function call arguments according to checkpatch rules
+v2:
+ - Replaced non-existent ffs64() with __ffs64().
+ - Corrected 0-based indexing logic for __ffs64().
+ - Returned -ENOMEM on translation table resource exhaustion.
+---
+ drivers/pci/controller/pcie-mediatek-gen3.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
-So I was wondering about that: why does the PCC *user* need to set it 
-here? That's probably more of a protocol issue, but to me it breaks the 
-abstraction: MPAM-Fb just uses the mailbox provided via PCC, and doesn't 
-care about whether it's polling or using an interrupt, because that is a 
-PCC detail.
-So is there a way to figure this out cleanly? I only found that one 
-could possibly chase down the "struct mbox_chan" controller struct, then 
-look at txdone_method, or something similar, but that sounds very dodgy?
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index bcbd08c82a5c..e2fb6e372ede 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -7,6 +7,8 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/bitops.h>
++#include <linux/bits.h>
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
+ #include <linux/delay.h>
+@@ -334,10 +336,10 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
+ 
+ 	while (remaining && (*num < PCIE_MAX_TRANS_TABLES)) {
+ 		/* Table size needs to be a power of 2 */
+-		table_size = BIT(fls(remaining) - 1);
++		table_size = BIT_ULL(fls64(remaining) - 1);
+ 
+ 		if (cpu_addr > 0) {
+-			addr_align = BIT(ffs(cpu_addr) - 1);
++			addr_align = BIT_ULL(__ffs64(cpu_addr));
+ 			table_size = min(table_size, addr_align);
+ 		}
+ 
+@@ -349,7 +351,8 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
+ 		}
+ 
+ 		table = pcie->base + PCIE_TRANS_TABLE_BASE_REG + *num * PCIE_ATR_TLB_SET_OFFSET;
+-		writel_relaxed(lower_32_bits(cpu_addr) | PCIE_ATR_SIZE(fls(table_size) - 1), table);
++		writel_relaxed(lower_32_bits(cpu_addr) |
++		PCIE_ATR_SIZE(fls64(table_size) - 1), table);
+ 		writel_relaxed(upper_32_bits(cpu_addr), table + PCIE_ATR_SRC_ADDR_MSB_OFFSET);
+ 		writel_relaxed(lower_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_LSB_OFFSET);
+ 		writel_relaxed(upper_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_MSB_OFFSET);
+@@ -375,9 +378,11 @@ static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
+ 		(*num)++;
+ 	}
+ 
+-	if (remaining)
+-		dev_warn(pcie->dev, "not enough translate table for addr: %#llx, limited to [%d]\n",
++	if (remaining) {
++		dev_err(pcie->dev, "not enough translate table for addr: %#llx, limited to [%d]\n",
+ 			 (unsigned long long)cpu_addr, PCIE_MAX_TRANS_TABLES);
++		return -ENOMEM;
++	}
+ 
+ 	return 0;
+ }
+-- 
+2.54.0
 
-Do you have any ideas on this?
-
-Cheers,
-Andre
 
