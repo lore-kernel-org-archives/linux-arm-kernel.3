@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2160C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF9DC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1FQ6XY6OnCluEfdUGQoQsL55sNffGf4ZpkxJ+3OD6uM=; b=lCzCe4maaiG0RlVVHMylliJv/r
-	pHdoMJ3W9rgv5DrwFxxb6bdiDomtJaoR4CpkQkmoAQGtFH72MF52RWywqvT5UvmooiigLgk3BM0uD
-	PETegE+2wIrmCk/Ut6RYnrYzyUpxzFfC0Vx6KvAPfT0gt5IOVW5oneHxhu5Hjcqvm7/68h8dQfEYp
-	cxplcyh+u9HP2WtE5R7dgr7Svz4C2orhk8/j3HBYPougoqRB1rVdNcr2s/qa5Y5vViMYYPeSiHA1/
-	TB6gCyT1u/1Hji991z0IwUb3vaorRfnpetQ2MKHMu2H6VImnztXUrXyyGQ4Bm7aa/hivDogtGnojT
-	ElBIsHpA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RuAXay5q35E10UL5YkQXMGluyZMpXm84zmks4oWbdUg=; b=zIA4e5I3Gly96nTYZhIkVHWMOj
+	zO4bGxBAFbQXeAQ6FRpuZC13PEWXyZhAuw09PuEIgXLVS8jDBezD6p0FOULd7Hies+NOHDiHRMbB1
+	+uQLwPknCdGJNWPcXDoQWVhrcwEVShMNKSV0N90sr2WKD9g8LcSjTayssFf5N7j9puSHR/sD7l++U
+	562s5By+iTBuDqjGCQGF7CqCKhr/QrxYWXr9uIS8/yV1Y20gu0dni0fYB/GWTu47212PkMVSApyrb
+	ZylJtrLxhI/jTa7bD+CLgtB23Bha/NdqNHTsSE8Ecy4MDJRtXGtkqp4YC+B7PVbIUxkrGDMV8NV3D
+	vX78tcZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodvW-00000004mQS-49Da;
-	Tue, 28 Jul 2026 09:16:42 +0000
+	id 1wodve-00000004mSk-0fqX;
+	Tue, 28 Jul 2026 09:16:50 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodvT-00000004mOo-1zjp;
-	Tue, 28 Jul 2026 09:16:41 +0000
-X-UUID: 03d400e08a6511f1aa26b74ffac11d73-20260728
+	id 1wodvT-00000004mOr-27xK;
+	Tue, 28 Jul 2026 09:16:42 +0000
+X-UUID: 04c05b348a6511f1aa26b74ffac11d73-20260728
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:5bd4b022-18e4-4a7d-a0f2-95c29fe412ff,IP:0,U
-	RL:0,TC:0,Content:79,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:79
-X-CID-META: VersionHash:e7bac3a,CLOUDID:a5780a3e90f84f7614d65cefa1221d63,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:3|15|50,E
-	DM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.12,REQID:6a9f690e-e496-4a73-b272-695dbc2bbecf,IP:0,U
+	RL:0,TC:0,Content:100,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:125
+X-CID-META: VersionHash:e7bac3a,CLOUDID:d6b7cd34311be6d9ab0bb9b23191ac42,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|136|850|865|898,TC:nil,Content:3|1
+	5|50,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
+	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 03d400e08a6511f1aa26b74ffac11d73-20260728
+X-UUID: 04c05b348a6511f1aa26b74ffac11d73-20260728
 X-User: lilinmao@kylinos.cn
 Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <lilinmao@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1481726761; Tue, 28 Jul 2026 17:16:28 +0800
+	with ESMTP id 511392512; Tue, 28 Jul 2026 17:16:30 +0800
 From: Linmao Li <lilinmao@kylinos.cn>
 To: Jassi Brar <jassisinghbrar@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
@@ -53,16 +53,17 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Linmao Li <lilinmao@kylinos.cn>
-Subject: [PATCH 0/2] mailbox: rockchip: fix the pclk lifetime
-Date: Tue, 28 Jul 2026 17:16:21 +0800
-Message-Id: <20260728091623.3691198-1-lilinmao@kylinos.cn>
+Subject: [PATCH 1/2] mailbox: rockchip: disable pclk on probe failure and unbind
+Date: Tue, 28 Jul 2026 17:16:22 +0800
+Message-Id: <20260728091623.3691198-2-lilinmao@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260728091623.3691198-1-lilinmao@kylinos.cn>
+References: <20260728091623.3691198-1-lilinmao@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_021639_824065_52D2D3A7 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_021639_868938_79E14B45 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +78,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip mailbox driver enables its peripheral clock in probe() and
-never disables it: neither on the failure paths that follow, nor when the
-device is unbound, since the driver has no remove callback.
+rockchip_mbox_probe() enables the peripheral clock and then keeps going.
+None of the later failure paths - platform_get_irq(),
+devm_request_threaded_irq() and devm_mbox_controller_register() - disables
+it again. The driver has no remove callback either, so the clock also stays
+prepared and enabled once the device is unbound, and its enable count keeps
+growing over bind/unbind cycles.
 
-Patch 1 fixes that with devm_clk_get_enabled(). It stands on its own and
-is the only one relevant for stable.
+Use devm_clk_get_enabled() to tie disabling and unpreparing the clock to
+the device lifetime. It is registered before the interrupts and the mailbox
+controller, so devres releases it after both are gone.
 
-Patch 2 is a follow-up cleanup. The pclk pointer is only used in probe(),
-so it can be made local and dropped from the driver data. This mirrors
-commit 6b0eadf69bd1 ("mailbox: exynos: drop unneeded runtime pointer
-(pclk)").
+While rewriting the error path, switch it to dev_err_probe() so that a
+deferred probe is not reported as an error.
 
-Compile-tested on linux-next with CONFIG_ROCKCHIP_MBOX=y; both patches
-build cleanly with W=1. Not tested on hardware.
+Fixes: f70ed3b5dc8b ("mailbox: rockchip: Add Rockchip mailbox driver")
+Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+---
+ drivers/mailbox/rockchip-mailbox.c | 17 ++++-------------
+ 1 file changed, 4 insertions(+), 13 deletions(-)
 
-Linmao Li (2):
-  mailbox: rockchip: disable pclk on probe failure and unbind
-  mailbox: rockchip: drop unneeded runtime pointer (pclk)
-
- drivers/mailbox/rockchip-mailbox.c | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
-
-
-base-commit: c5e32e86ca02b003f86e095d379b38148999293d
+diff --git a/drivers/mailbox/rockchip-mailbox.c b/drivers/mailbox/rockchip-mailbox.c
+index a1a7dee64356..d55cbf7f2cb6 100644
+--- a/drivers/mailbox/rockchip-mailbox.c
++++ b/drivers/mailbox/rockchip-mailbox.c
+@@ -196,19 +196,10 @@ static int rockchip_mbox_probe(struct platform_device *pdev)
+ 	/* Each channel has two buffers for A2B and B2A */
+ 	mb->buf_size = (size_t)resource_size(res) / (drv_data->num_chans * 2);
+ 
+-	mb->pclk = devm_clk_get(&pdev->dev, "pclk_mailbox");
+-	if (IS_ERR(mb->pclk)) {
+-		ret = PTR_ERR(mb->pclk);
+-		dev_err(&pdev->dev, "failed to get pclk_mailbox clock: %d\n",
+-			ret);
+-		return ret;
+-	}
+-
+-	ret = clk_prepare_enable(mb->pclk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to enable pclk: %d\n", ret);
+-		return ret;
+-	}
++	mb->pclk = devm_clk_get_enabled(&pdev->dev, "pclk_mailbox");
++	if (IS_ERR(mb->pclk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(mb->pclk),
++				     "failed to get and enable pclk_mailbox clock\n");
+ 
+ 	for (i = 0; i < mb->mbox.num_chans; i++) {
+ 		irq = platform_get_irq(pdev, i);
 -- 
 2.25.1
 
