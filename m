@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25AEC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0174DC54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yKw7caf9g11sYWC9aIB1I05YdyImrElt0NfZF3BzFj8=; b=OrdwMaDBgDA2NUVz5xdZ4vfP2t
-	Zh0maeLrNiKtiXIV5JiLpgGCzn1TJJEcSRWpgr+UEhCttMBLpMSCgjjqkUIUSlnDUuyWIRrrEUa3n
-	UHja8iEVckvm95ftt4x57zJVT5bK5v4ygs5vT+XhvtBUN+r8qLPFmsv+sia7uER5NWprBlnh/DyfB
-	I0fhw+hg5YAnSWNYZZIU1Ok9ax/y+1qGosVWlH9ZdadHCEaKXDCjD5ho2dzU2TdSt15JzYx7ls+5N
-	/g2C2/iAe5FRXCUXKuqKWJE3DlFrPhr7HvInPoKdYgW03+iD+Im4yrGfBm3SoLwudZWCMDbFtKJDt
-	70O2Gesw==;
+	bh=+XBHM4Y2azxZZa9+2n0cn7/S1Zo1nqK1cbQKursEuU8=; b=gqEWI2iotM21IUgnx7ag0JLaMs
+	8OFSEdfF3qpxP2Cs849/hrr5WxwUkImUtEmi98BDZoHuRm1l6NNJ/0LIBRl+mmQz2Bsx0VGu17cno
+	gPIz/Cvuzr72Y2ugPCEIOVoVVvTNOeV9H8Udp9gP8x1lfMMZt6OlRyFsj18xaemI6iR6H7H560Lf/
+	t5JpCgh3o7pL2cgppb3eEva+PdPgVQbzHIxfgAD5yZjLiAB8djZ7TpMqkZx01ljPMXk46houTL42i
+	hlLAlpzVoy765GeP3jRqWcgI9dCF7zbWy4k/21qxCeojNsdfw41J3Orej8SQI6+Zla5N33wQVmjnu
+	GJYUX+Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojdl-00000005d8z-0oNP;
-	Tue, 28 Jul 2026 15:22:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wojfR-00000005dM2-1hFs;
+	Tue, 28 Jul 2026 15:24:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojdk-00000005d8j-0MJM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:22:44 +0000
+	id 1wojfP-00000005dLH-32xf;
+	Tue, 28 Jul 2026 15:24:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A0A4600FC;
-	Tue, 28 Jul 2026 15:22:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A752B1F000E9;
-	Tue, 28 Jul 2026 15:22:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 298C441B61;
+	Tue, 28 Jul 2026 15:24:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40C91F00A3A;
+	Tue, 28 Jul 2026 15:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785252163;
-	bh=yKw7caf9g11sYWC9aIB1I05YdyImrElt0NfZF3BzFj8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dWB0j1zSVg8/OAqbDrwzmbMbz6lsH8A9/amYwRkbuphjXxwQqtaMF4YjUMbb96OBX
-	 HrINd4z3xSGqzQL49Am1SiSjc/aSOWtGY6AJUcDB5EwYsRs6yDMctV3jcwVHM1z/sT
-	 rnqS2HuTC5aOnNbR4735yPignpu+eottmQuRLweUO9xuptjqsePGTWXUsjs0PNAXnY
-	 a4XQHgqU53/MzKyJI5yvkUI5ipa+mWSq8lgeoE23r+yWx+ux+BA70KsuTMr4ZqcWSs
-	 oAyYEvhgnmk33llNIcSl2mOtRHfXEPS5ftdNT+sXiJqk6rxL839bmzzxaIybPoOu4x
-	 +wrjQ+udy27qw==
-Date: Tue, 28 Jul 2026 08:22:41 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH] crypto: qce - Remove driver
-Message-ID: <20260728152241.GA4281@quark>
-References: <2026072410-drained-acts-3502@gregkh>
- <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
- <2026072412-decrease-sandbag-70a1@gregkh>
- <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
- <20260724141414.GB1876@sol>
- <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
- <2026072455-subtly-prayer-0a8a@gregkh>
- <20260724150932.GA6763@sol>
- <2026072428-ungodly-outsource-b20c@gregkh>
- <20260724155144.GA2032@sol>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260724155144.GA2032@sol>
+	s=k20260515; t=1785252267;
+	bh=+XBHM4Y2azxZZa9+2n0cn7/S1Zo1nqK1cbQKursEuU8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=AQXRuwAnmeNsCUMnDuyVSTCYhTop9FeluTrtQtmzhUKpET33xZQPbfMa/FsniHPe1
+	 jKfwwk1BzCkD2McI7qFj+Og0wcyJNXZUUhx4U6VMOm9Eoa9EGoypukF4qlVj3O2uB6
+	 uGvGpkG4eP5IVy+v/62ogTjydHTTIE/miaHcxSY4VEUVO7BJSKABFvx9rmLuiGi4t3
+	 KXI2mJpnvGKmIrAAlzbTHjtIADZcaTAs3cN0rufVC9R9/xiv2Alg65YXlTUfbIYiYQ
+	 rhzjx4WpOV3R2iGo4RIZUFdh2JChcxhkwF3zdsg0BDMslT6rdF0xGzd5/602iK+WFb
+	 zVIQsy6+FquJw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wojfM-00000009kmG-1Tn4;
+	Tue, 28 Jul 2026 15:24:24 +0000
+Date: Tue, 28 Jul 2026 16:24:23 +0100
+Message-ID: <86v79zcf2w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Swark Yang <syang@axiado.com>
+Cc: Rob Herring <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,	Harshit Shah <hshah@axiado.com>,	Linus
+ Walleij <linusw@kernel.org>,	Bartosz Golaszewski <brgl@kernel.org>,	Jan
+ Kotas <jank@cadence.com>,	Michal Simek <michal.simek@amd.com>,	Andi Shyti
+ <andi.shyti@kernel.org>,	=?UTF-8?B?UHJ6ZW15c8WCYXc=?= Gaj
+ <pgaj@cadence.com>,	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>,	Boris Brezillon <bbrezillon@kernel.org>,	Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,	Jiri Slaby
+ <jirislaby@kernel.org>,	Mark Brown <broonie@kernel.org>,	Mathias Nyman
+ <mathias.nyman@intel.com>,	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,	linux-i2c@vger.kernel.org,
+	linux-i3c@lists.infradead.org,	linux-serial@vger.kernel.org,
+	linux-spi@vger.kernel.org,	linux-usb@vger.kernel.org
+Subject: Re: [PATCH v3 8/8] arm64: dts: axiado: Add initial support for AX3005 SoC and eval board
+In-Reply-To: <20260716-upstream-axiado-ax3005-upstream-v3-8-c429095143ec@axiado.com>
+References: <20260716-upstream-axiado-ax3005-upstream-v3-0-c429095143ec@axiado.com>
+	<20260716-upstream-axiado-ax3005-upstream-v3-8-c429095143ec@axiado.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: syang@axiado.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, hshah@axiado.com, linusw@kernel.org, brgl@kernel.org, jank@cadence.com, michal.simek@amd.com, andi.shyti@kernel.org, pgaj@cadence.com, alexandre.belloni@bootlin.com, Frank.Li@nxp.com, bbrezillon@kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, broonie@kernel.org, mathias.nyman@intel.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, linux-i3c@lists.infradead.org, linux-serial@vger.kernel.org, linux-spi@vger.kernel.org, linux-usb@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +92,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 08:51:44AM -0700, Eric Biggers wrote:
-> It is consuming a lot of the community's time to help maintain,
-> including dealing with LLM-found bugs, with no clear benefit to anyone.
-> Even considering *just today* we can see someone sent a bug fix:
-> https://lore.kernel.org/linux-crypto/20260724081537.191992-2-thorsten.blum@linux.dev/
+On Fri, 17 Jul 2026 04:51:15 +0100,
+Swark Yang <syang@axiado.com> wrote:
+>
 
-Another example:
-https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
+[...]
 
-> It definitely *was* causing problems before it was disabled via the
-> crypto priority system (which made it unused in the kernel) and dropped
-> it from AF_ALG (which removed most of the unprivileged attack surface).
-> When anyone accidentally used it, it caused at least a huge performance
-> problem, and sometimes other problems too like filesystem hangs.  It was
-> an issue for years.
+> +	soc {
+> +		compatible = "simple-bus";
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		interrupt-parent = <&gic500>;
+> +		ranges;
+> +
+> +		gic500: interrupt-controller@40400000 {
+> +			compatible = "arm,gic-v3";
+> +			reg = <0x0 0x40400000 0x0 0x10000>,
+> +			      <0x0 0x40500000 0x0 0xc0000>;
 
-This actually seems to have been an overly-optimistic characterization!
-As per
-https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
-this driver drains the battery on every system with the module loaded,
-even when no crypto requests are actually sent to it.
+This is missing the GICC, GICH and GICV regions that are implemented
+on Cortex-A53. See the binding document.
 
-- Eric
+> +			ranges;
+> +			#interrupt-cells = <3>;
+> +			interrupt-controller;
+> +			#address-cells = <2>;
+> +			#size-cells = <2>;
+> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+> +			#redistributor-regions = <1>;
+
+This is the default, and isn't required.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
