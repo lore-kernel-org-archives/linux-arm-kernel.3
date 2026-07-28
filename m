@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171EBC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 13:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2282C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 13:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCR9C1jZOqNcj2+4RUYXKURLxFK8ipzkgH8+WvlnyEc=; b=onrNy+5eoxLYVs/H0thwGFwRcD
-	wDeidTbKAFn251su29y99anrDlcxBoX3UZu2gswsMBLVx2re+J+KK+LVZA7V52v+D8QmV7w2GpbAh
-	s2QUmBkRHl0B2Drf16Vta4p10aJb0rs6ycQdcQhPqDpLhe6aJ3Y0Y719oy6bUftkBJ8ImvH6K2pgt
-	y9Ypos19XuXwycpYOHgJwArCo/D/j/S4SHh+DjWleRmf9NODbAYSzFTCghQ3Ize84Ydx2sm6CsjD/
-	isEM2K7kzg1CLe1QJwyQG0Q4+oiRmYcv4T5Ikxzzz+RGDRwjHqXPFRKsddd70N7R9izoqXyuKRcqn
-	+Yn6Ck2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zi06wgX4NrhXeDcGXM6A7FKpeV6U5LtjTPi0mPx8QKc=; b=gdlultUO3GLvNHb+YqL8bx9teo
+	t5XPdWmQ/ARWHBDbMkh8vx4epPbKLDHOaPVqmcoQGt2ltdHjf1Nmyfgygo4GoP9msJoRD67L4r87N
+	IM74VMA+iTIBEMbH/p39Oa9MkKe4CtSzbGX0fgbJDpBgRhfDfOo1juUaQixSas3/616ZNKy+OkV4M
+	QfLWRvCAXOFAZhAuDJWsWhQzxFoZVhMRmzHr9lzbG3ne1E6vhjQzxVWWdUbuyB2UpSh1rF1VcvoFH
+	m+3zYnaYN2dB6Cc50We8jiZM5VwcQFonUG6CYGuJc6wjbm75/77JrkwC2YkTsvWaefasmyek+d8Ch
+	zBo0rIlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiBu-00000005OV5-0ksf;
-	Tue, 28 Jul 2026 13:49:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1woiFF-00000005Ovk-3CJr;
+	Tue, 28 Jul 2026 13:53:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woiBq-00000005OSS-2W7n;
-	Tue, 28 Jul 2026 13:49:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785246585;
-	bh=C5yYxuoznYkx6jjuInKWBoafFhEWvSyRl81rU7O0L28=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hAh/kji5iB0/IrWz1bQpl2yth3JJZrnTM9K7hhQcwfzWZLk1QmmXef26bTzAGUcNR
-	 LleJaTac6MAyAWCfYEa1OuIoIaygmYoE+F5+Okc/h6XhIJe2lL+ITfIwnnFAKFj0He
-	 Bshv2dLXnYADYdyan2vlAT1ALumzzBOFfvTBRQAoCkblN3dJYEmbuxBqCOXOT76yGP
-	 HBtCGvFEZHfRm1cHN3JnGo3/iQoyqYXnawXoPgTdzYmQiFzFGZA8ITGlKPRviMGbfi
-	 V+n6FHcr6Ex3+/YD50PzKyQ26dQyh9e8VgoqNvZJlRtZ2WO4kOSVZsVVS7PjzJKuFH
-	 AiKKsWAVU4zJQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B602C17E0678;
-	Tue, 28 Jul 2026 15:49:44 +0200 (CEST)
-Message-ID: <f3837531-2949-4741-a23e-387317485c02@collabora.com>
-Date: Tue, 28 Jul 2026 15:49:44 +0200
+	id 1woiFE-00000005OvY-3Eg4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 13:53:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 253D060A89;
+	Tue, 28 Jul 2026 13:53:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A66091F00A3A;
+	Tue, 28 Jul 2026 13:53:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785246799;
+	bh=zi06wgX4NrhXeDcGXM6A7FKpeV6U5LtjTPi0mPx8QKc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ovWxgwVASfFGkfTNBPvmaz9pVpVZOJZwB/N5CrGDT7hhUGvhKyEJjDsqf4CRyJ06F
+	 loAJ8BWKOTJY2crBoKmRU3X2f8v5RfhkBAjnjbjE42ckwJV3JDi4fkZb3bDduaVtHs
+	 1Ig0EwdZf2BUc/DqBtpPEGdEvqddE6ahVLa0YZdm/V5AgRP/ufvI73aJ9l8VH28Eus
+	 J8CMeElb41pmtv0kFvOfEuuGe45HMqf32VxrGxn9uoVX2zsKXcq7C6S89bcgn5Vzd0
+	 RuKUiuY4oLNH15L4EvdDxZeAj+5uDPVewgYzL7BmAsV4YmROKHYeXPap/0sBIXcNio
+	 Ec31rlTlVYJsg==
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 962ACF40068;
+	Tue, 28 Jul 2026 09:53:18 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Tue, 28 Jul 2026 09:53:18 -0400
+X-ME-Sender: <xms:TrRoarpIjNHLMfmY1_X495x0wNuALIv5d60wRaVKrU4lEJsnxymNZQ>
+    <xme:TrRoahEl05i9DzyIjFj-afCejCTgOrcXQMTkaMzic1pthC-7JQ5w3LE6mKLOLEyKN
+    ZlAKn8r3_8dGrQfRKkb_DgTQVKFakMRR3Oz_bwBFy8Z0TJEJWLXTOA>
+X-ME-Received: <xmr:TrRoam400f5udQYFnh12wcUeS4mEwo6MxrHXoiOXzKEaYETbXjDT1_ps7iDk1A>
+X-ME-Proxy-Cause: dmFkZTEOfimKXa+dIMDT+2FfHsPQI6Hsl535JXxG6sk7f2fJm2SJtIxsM//yga5mXBviZQ
+    OpIM3Ob8Z1T9YovhOYdmEyTG9hU5JbUF9VhmYSp+SzN94pd10sq+Fl/eixu3DAfZUPMqgM
+    TlTxajDxvciP2dLaY40WGPj9KGntkiuGVE5uAJ4DV29XaSDAibiOn8IrlsqnpcJ8RY8Kgt
+    pmDU27VCsOw2EZf+V9EQiHbZpkYRW57DVGD/JVDlSOmL4OLLjSNxS/EYtTeMDwGjWr5Hk/
+    8cMP3kv0PurgNMbDBC/XzNBCIplLL6ipd9DeUnn3nQmK2ptzCTgCEBkzJY8lZGLAOa07ax
+    3BTY75884uzGxObLU2KoVBPMq9frh2kaSKedFtqY3Rt0fpUTr9+jvLHZjqq6kdFrIcic29
+    1xVRDTvfKoZGsJn6AQXUmxopbiA7HZLQCG5eOr+0tzPVP1ZWfJ618QG85O1v5mrBk2E9pj
+    nYBejrEAncxlEEioiTBv8IgBia+5NEmFu5a46aTua7VmIA7TO/mGikY2myZGjG3ds2hiHh
+    QzcBb8yFzS7azZW4MW5gQWtdWRW/X7glcJf6gra7Xi7Mdy6jFxPa6lVlsiHxH48kt4jPDQ
+    Y1cLDHtoiddoXrBRMjY2Hxb046GanbYpqIJx4a6RQaF2uvwXftYv+PBt7MpQ
+X-ME-Proxy: <xmx:TrRoasBVOIbdYHx_T4QlJs70I-UWtWVH2Jvbt4jf8smo2pu10S5MMw>
+    <xmx:TrRoahRPUXhdbWZDcqtUY8o08oPobuaKP_aJrV5O7Qr_r-Pa8RaEow>
+    <xmx:TrRoasc-dxkBby-UK6k9kpiC62efbwHYaSxRm7spbc8AqHdBdl0Azg>
+    <xmx:TrRoaqQ1n2iR0Oe0KykbzzINdDlfRaCI9mIye9E1egqB9gNPaAVkDQ>
+    <xmx:TrRoao0kmppHgEgYo1rVPItvKSoG4RcI6cLTb4uQ6Zb2WMgP4a9jh-PZ>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 28 Jul 2026 09:53:18 -0400 (EDT)
+Date: Tue, 28 Jul 2026 14:53:16 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+	Jason Gunthorpe <jgg@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>, 
+	Pranjal Shrivastava <praan@google.com>, Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, 
+	Usama Arif <usama.arif@linux.dev>, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] iommu/arm-smmu-v3: Shrink command/event/PRI queues in
+ kdump kernel
+Message-ID: <amiz6GQZ-XGlH706@thinkstation>
+References: <20260706084708.8072-1-kas@kernel.org>
+ <amiBagGKn-Aym1DK@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 42/46] dt-bindings: display: mediatek: Introduce MT8196
- 2D Sharpness Processor
-To: Rob Herring <robh@kernel.org>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
- simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- tzimmermann@suse.de, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
- <20260714114414.184512-43-angelogioacchino.delregno@collabora.com>
- <CAL_JsqJXpY8jHEgSHcHz4QZTFEZe8PLbO6vbpxWH4qobs0MPyA@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAL_JsqJXpY8jHEgSHcHz4QZTFEZe8PLbO6vbpxWH4qobs0MPyA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_064950_823496_17ADC97D 
-X-CRM114-Status: GOOD (  14.07  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amiBagGKn-Aym1DK@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,91 +100,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/28/26 15:40, Rob Herring wrote:
-> On Tue, Jul 14, 2026 at 6:45 AM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> Add documentation for the Two-Dimension Sharpness Processor, or
->> "TDSHP", found in many MediaTek SoCs including MT8196 and its
->> variants.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   .../mediatek/mediatek,mt8196-tdshp.yaml       | 98 +++++++++++++++++++
->>   1 file changed, 98 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
->> new file mode 100644
->> index 000000000000..ccd6a8443443
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
->> @@ -0,0 +1,98 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8196-tdshp.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: MediaTek Display Two-Dimension Sharpness Processor (TDSHP)
->> +
->> +maintainers:
->> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> +
->> +description:
->> +  The MediaTek 2D Sharpness Processor (TDSHP) is responsible for performing
->> +  image sharpness adjustments/enhancements in a display pipeline.
->> +  This hardware block supports adjusting the luma and contour 2d histograms,
->> +  frequency weighting, luma-chroma gain and others, with adaptive weights.
->> +
->> +properties:
->> +  compatible:
->> +    const: mediatek,mt8196-disp-tdshp
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  power-domains:
->> +    maxItems: 1
->> +
->> +  ports:
->> +    $ref: /schemas/graph.yaml#/properties/ports
->> +
->> +    properties:
->> +      port@0:
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +
->> +      port@1:
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +
->> +    required:
->> +      - port@0
->> +      - port@1
->> +
->> +  trigger-sources:
->> +    maxItems: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
+On Tue, Jul 28, 2026 at 11:16:10AM +0100, Will Deacon wrote:
+> On Mon, Jul 06, 2026 at 09:47:08AM +0100, Kiryl Shutsemau (Meta) wrote:
+> > All SMMU queues are sized from the maxima the hardware advertises in IDR1,
+> > which can be several megabytes each, and are allocated at probe. The kdump
+> > kernel already disables the event and PRI queues (arm_smmu_device_reset()
+> > drops CR0_EVTQEN/CR0_PRIQEN) but still allocates them at full size. On
+> > systems with many SMMUv3 instances that cost is paid per instance and adds
+> > up to tens of megabytes of coherent DMA in the capture kernel.
+> > 
+> > A kdump capture kernel runs from a small crashkernel reservation and only
+> > has to drive the few devices used to save the dump, so deep queues serve
+> > no purpose. The queues are not on the DMA data path, so dump throughput is
+> > unaffected; a shallower command queue only bounds how many commands may be
+> > in flight before a sync, which does not matter for the capture kernel's
+> > small device count and modest I/O.
+> > 
+> > Clamp every queue to a single page when is_kdump_kernel() is true. Doing
+> > it in arm_smmu_init_one_queue() covers the command, event and PRI queues
+> > in one place. The command queue still holds at least one batch plus a sync
+> > (256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
+> > command batching keeps working.
 > 
-> This causes a warning.
+> Wouldn't we be better of not allocating unused queues in the first place?
+> That's what this patch does:
 > 
-> Seems this is in linux-next already, but no reviews?
+> https://lore.kernel.org/r/0b035c53cb401acde8244b805d4b6a0312b83708.1782799827.git.nicolinc@nvidia.com
+
+Maybe I'm reading it wrong, but I couldn't find the allocation change in
+there. That patch seems to only touch arm_smmu_device_reset() -- skipping
+the EVTQ/PRIQ base/prod/cons writes and the CR0_EVTQEN/CR0_PRIQEN enables
+instead of the current enable-then-mask-out.
+
+I went through the rest of the series too and didn't see
+arm_smmu_init_queues() or arm_smmu_init_one_queue() touched anywhere, so
+as far as I can tell the kdump kernel still allocates full-size
+evtq/priq, and the cmdq is not affected either.
+
+Is the allocation side handled somewhere else that I've missed?
+
+> so help reviewing that series would be much appreciated!
 > 
-> Rob
+> If you want to reduce the cmdq size, I'd prefer a cmdline option rather
+> than special-casing kdump (as I've had other folks ask about configuring
+> the cmdq size for other reasons).
 
-Wow. No idea how clock-names got into the list of required properties: there is
-only one possible clock, and this doesn't need any clock-names at all.
+Fair enough for the cmdq. I'm less sure what to do about evtq/priq: they
+get disabled in the kdump kernel anyway, so I don't know what a size knob
+would mean for them, other than every kdump config having to pass it to
+get back the memory.
 
-Same for the resizer binding.
-Sorry for the mistake.
+Would skipping their allocation when is_kdump_kernel() be acceptable on
+its own, or would you rather see it done differently?
 
-Cheers,
-Angelo
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
