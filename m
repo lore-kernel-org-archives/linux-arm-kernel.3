@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D08C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EE0C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oHVDl0a8hPTFmn2Ct3bwJBTDXuxqYSk0wSmd90Ydsnw=; b=nyiSOfK8xABIHW
-	ft9AABLhv7TeIuQ54ahEDnNEFiJ1eWf3PXmH3UXOSx+kKa/1JGDcLs7ADKZzWYig2nwp/MZwqU0/k
-	93OiaNNmS0egbw2gyNRhg5rukLoHCcfqX7OgtCC8zkvh7xENEreXujfaiCLqUe5LBwaZeX0nY58Gn
-	JQjHkpVLoDlsWXp7gFAq2c868O2rtT7o9lRK8PCBuOWCcCxPbgf/JyiiphTDiIt6o7MznxV8Updq8
-	xgMI2cJ+ro9Z0EsAZPtd1CUq1buHqMYzUs8wXTdrav9sRhT1yU1RCDWojAggpCr8ClvF67iFKxTHp
-	+e0on+cU+WjzMMD2QP0g==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7OFgxhjrlOClcQCwgaNlhjhHelztdxjPu3EaPafcLuY=; b=XeJyEACu/z6mrv
+	dRtPe4EZLSAHsSrd+8JFOVbR2nkOeIWJNdP2JsDvmwpy12pTWcAj03as12jteRF1QBy8qh/ZkhrQN
+	Za1b/xc38OLkC+R0oDj39GwYzqct9YSbKOzc4RDi+B801eKty3A0VpOCjewTHso/pn0tDKsStDOEN
+	be9FObIOr7YoBaR0pZqII0KnOOsbZ1bGpPTyBRFZM4aBcwBEGjThWhx7Igk/GNeH5yyoT9C9gLIly
+	UuQCpSZa5lF8jiQ4WO3wNRWJ55oO/FUILzNb2cTZNTwUgRTGgyW1SzNwLoVkYJEJ2HQrog+p+wzP3
+	N27DGCB+nxBUvEob3xDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh61-00000005GOE-3Gyo;
-	Tue, 28 Jul 2026 12:39:45 +0000
+	id 1woh68-00000005GQK-3fYk;
+	Tue, 28 Jul 2026 12:39:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh5z-00000005GNX-0SRW
+	id 1woh60-00000005GNn-0wmr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:39:44 +0000
+	Tue, 28 Jul 2026 12:39:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30EA61A9A;
-	Tue, 28 Jul 2026 05:39:36 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 261191BC0;
+	Tue, 28 Jul 2026 05:39:39 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 697093F86F;
-	Tue, 28 Jul 2026 05:39:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5D6063F86F;
+	Tue, 28 Jul 2026 05:39:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785242380; bh=sDf8G/U2jwEJKijTrykFX6woe/52UXXgD/kVNcJr1/U=;
-	h=From:To:Cc:Subject:Date:From;
-	b=DPgwmTFsquV6gpRk55zrZqCBgLpjukPuAxCL2twrXEosv4V/rITab9Ie2Gcu526/t
-	 X+7hxlIFjzJyU/3f5gYxp7rSusuIUUibT3bunzETTx5tL8lAcOgHPXVgLe5mSTfHAh
-	 h6iQOn7l0sBug8+KxmkNilduMPMueysXHOuWPNvk=
+	t=1785242383; bh=w1+YIJTVAP5jT45iufkHCyc6hDcCQv6aD2oTFAUaN5Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=e9MZfImJJQjWew8KtLyIaQAjM1i7qvWrGcWwiEJo7mFFetOKMVHhSr8m1GJVNL/5p
+	 68fnOIzemnhv1lsqLD0DGiLMejQMPynp0l5qVVkMCGJlx+0zOUCn3TFcpK/rtdY74q
+	 Y11YbY0E6vZi19/g5ivDqd99VbfEOemRgJ0jk4BQ=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 00/13] arm64: Preemptible this_cpu_*() operations
-Date: Tue, 28 Jul 2026 13:38:46 +0100
-Message-Id: <20260728123859.2911495-1-mark.rutland@arm.com>
+Subject: [RFC PATCH 01/13] arm64: preempt: Simplify and optimize __preempt_count_dec_and_test()
+Date: Tue, 28 Jul 2026 13:38:47 +0100
+Message-Id: <20260728123859.2911495-2-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260728123859.2911495-1-mark.rutland@arm.com>
+References: <20260728123859.2911495-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_053943_268546_6C273EBC 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20260728_053944_363335_18556060 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,138 +67,178 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, peterz@infradead.org, catalin
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently arm64's this_cpu_*() ops transiently disable preemption in
-order to guarantee that the address generation and memory access(es)
-occur on the same CPU, which has some unfortunate overhead. In
-particular, re-enabling preemption requires a conditional call to
-preempt_schedule[_notrace](), which has a number of adverse impacts on
-code generation.
+In arm64's __preempt_count_dec_and_test(), the final conditional load of
+'ti->preempt_count' is always executed in the common case. The
+conditional load leads to unfortunate code generation for
+preempt_enable[_notrace](), and it would be better to unconditionally
+load 'ti->preempt_count', as described below.
 
-This series reworks arm64's this_cpu_*() operations such that they do
-not need to disable preemption, avoiding the related overhead in the
-fast paths. Instead, the ope register a "PCPU GPR" critical section,
-during which which the entry code will apply a fixup to GPRs containing
-the percpu offset and the generated percpu address.
+On arm64, struct thread_info contains the following union:
 
-The scheme is described in detail in patch 6, and is similar to the
-approach Heiko Carstens applied to s390 [1].
+| union {
+|         u64             preempt_count;
+|         struct {
+|                 u32     count;
+|                 u32     need_resched;
+|         } preempt;
+| };
 
-For example, an outlined this_cpu_read() goes from:
+Note: 'need_resched' is encoded so that '0' means a reschedule is
+needed, and '1' means a reschedule is NOT needed.
 
-| <outline_this_cpu_write_u64>:
-|        paciasp
-|        stp     x29, x30, [sp, #-16]!
+The core logic of __preempt_count_dec_and_test() is:
+
+| static inline bool __preempt_count_dec_and_test(void)
+| {
+|         struct thread_info *ti = current_thread_info();
+|         u64 pc = READ_ONCE(ti->preempt_count);
+|
+|         WRITE_ONCE(ti->preempt.count, --pc);
+|
+|         return !pc || !READ_ONCE(ti->preempt_count);
+| }
+
+The '!pc' condition can only be true when both:
+
+* The initial value of 'need_resched' was 0, meaning that a reschedule
+  is needed. This should be rare.
+
+* The initial value of 'count' was exactly 1. This cannot be true for a
+  nested preempt_disable() ... preempt_enable() sequence.
+
+Hence in common cases, '!pc' will be false, and it's necessary to
+execute the final READ_ONCE(ti->preempt_count).
+
+This results in a conditional branch in the common case, as can be seen
+when __preempt_count_dec_and_test() is outlined:
+
+| <outline___preempt_count_dec_and_test>:
 |        mrs     x2, sp_el0
-|        mov     x29, sp
-|        ldr     w3, [x2, #8]
-|        add     w3, w3, #0x1
-|        str     w3, [x2, #8]
-|        mrs     x3, tpidr_el1
-|        str     x1, [x0, x3]
+|        ldr     x1, [x2, #8]
+|        mov     w0, #0x1
+|        sub     x1, x1, #0x1
+|        str     w1, [x2, #8]
+|        cbz     x1, 1f
 |        ldr     x0, [x2, #8]
+|        cmp     x0, #0x0
+|        cset    w0, eq  // eq = none
+| 1:     ret
+
+It would be better to avoid the special case for 'pc == 0', and to
+always load 'ti->preempt_count' after decrementing 'ti->preempt.count'.
+For the common cases this will remove a conditional branch. For the rare
+cases where preemption is needed initially, this only adds a single
+load, whose cost should be dominated by other factors.
+
+Remove the special case for 'pc == 0', and always load the combined
+'ti->preempt_count' after decrementing 'ti->preempt.count'.
+
+The removal of the conditional branch helps with code generation, as the
+compiler can more easily move a dependent slow path out-of-line, as
+demonstrated with the following compiled with GCC 15.2.0:
+
+| void outline_preempt_enable_notrace(void)
+| {
+|        preempt_enable_notrace();
+| }
+
+Before this patch:
+
+| <outline_preempt_enable_notrace>:
+|        mrs     x1, sp_el0
+|        ldr     x0, [x1, #8]
 |        sub     x0, x0, #0x1
-|        str     w0, [x2, #8]
+|        str     w0, [x1, #8]
 |        cbz     x0, 1f
-|        ldr     x0, [x2, #8]
+|        ldr     x0, [x1, #8]
 |        cbnz    x0, 2f
-| 1:     bl      preempt_schedule_notrace
-| 2:     ldp     x29, x30, [sp], #16
+| 1:     paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mov     x29, sp
+|        bl      preempt_schedule_notrace
+|        ldp     x29, x30, [sp], #16
+|        autiasp
+|        ret
+| 2:     ret
+
+After this patch:
+
+| <outline_preempt_enable_notrace>:
+|        mrs     x0, sp_el0
+|        ldr     w1, [x0, #8]
+|        sub     w1, w1, #0x1
+|        str     w1, [x0, #8]
+|        ldr     x0, [x0, #8]
+|        cbz     x0, 1f
+|        ret
+| 1:     paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mov     x29, sp
+|        bl      preempt_schedule_notrace
+|        ldp     x29, x30, [sp], #16
 |        autiasp
 |        ret
 
-... to:
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>
+---
+ arch/arm64/include/asm/preempt.h | 29 +++++++++++------------------
+ 1 file changed, 11 insertions(+), 18 deletions(-)
 
-| <outline_this_cpu_write_u64>:
-|        mrs     x2, sp_el0
-|        mov     w3, #0x7c60
-|        strh    w3, [x2, #20]
-|        mrs     x3, tpidr_el1
-|        str     x1, [x0, x3]
-|        strh    wzr, [x2, #20]
-|        ret
-
-Comparing defconfig before and after, the Image size is reduced by 64K, though
-.text is only reduced by ~7.5K:
-
-| [mark@lakrids:~/src/linux]% ls -al Image-defconfig-*
-| -rw-r--r-- 1 mark mark 41552384 Jul 28 11:07 Image-defconfig-after
-| -rw-r--r-- 1 mark mark 41617920 Jul 28 11:01 Image-defconfig-v7.2-rc4
-| [mark@lakrids:~/src/linux]% ls -al vmlinux-defconfig-*
-| -rwxr-xr-x 1 mark mark 158239216 Jul 28 11:07 vmlinux-defconfig-after
-| -rwxr-xr-x 1 mark mark 158699800 Jul 28 11:01 vmlinux-defconfig-v7.2-rc4
-| [mark@lakrids:~/src/linux]% size vmlinux-defconfig-*
-|    text    data     bss     dec     hex filename
-| 20323522        21028511         730840 42082873        2822239 vmlinux-defconfig-after
-| 20331206        21028447         730840 42090493        2823ffd vmlinux-defconfig-v7.2-rc4
-
-From looking at the generated code, there are some reasonable savings we
-could make with a few changes to alternatives, notably:
-
-* Patching the read of TPIDR_ELx using a callback. This would remove the
-  need for replacement instructions, saving ~12K for defconfig, and
-  meaning real instructions in .text would be packed more densely.
-  There's work underway to apply similar patching for
-  ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE.
-
-* Allowing {relocation,veneer}-free replacement sequences to be placed
-  in .altinst_rreplacement again. This would allow real instructions in
-  .text to be packed more densely, with ~80K of .text moving into
-  .altinstr_replacement where it would be freed after init.
-
-  I've thrown togther a prototype [2].
-
-I'm sending this as an RFC as:
-
-(1) I haven't had the chance to benchmark this. While I think the
-    changes look good from inspection, we should obviously get some
-    actual performance figures.
-
-(2) I haven't wired up everything for SDEI exception entry/return.
-    This should only require some mechinical rework to the
-    __sdei_asm_handler() assembly, and I've noted this as a TODO on
-    patch 6.
-
-    Patches 1 and 2 are complete as-is, and can be taken without the
-    rest of the series.
-
-(3) I'm not sure whether this_cpu_read() should use a plain LDR, or use
-    LDA[P]R when LTO is in use to match READ_ONCE(). Using LDA[P]R 
-    might require some refactoring of the existing READ_ONCE() code to
-    share the logic.
-
-    I've noted this as a question on patch 7.
-
-Thanks,
-Mark.
-
-[1] https://lore.kernel.org/linux-s390/20260526055702.1429061-1-hca@linux.ibm.com/
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/alternatives/cleanup
+diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+index 932ea4b620428..ca2ad1a8db095 100644
+--- a/arch/arm64/include/asm/preempt.h
++++ b/arch/arm64/include/asm/preempt.h
+@@ -55,30 +55,23 @@ static inline void __preempt_count_sub(int val)
+ 	WRITE_ONCE(current_thread_info()->preempt.count, pc);
+ }
  
-Mark Rutland (13):
-  arm64: preempt: Simplify and optimize __preempt_count_dec_and_test()
-  arm64: preempt: Treat should_resched() as unlikely
-  arm64: ptrace: Always inline pt_regs_[read,write}_reg()
-  arm64: percpu: Factor out percpu offset asm
-  arm64: gpr-num: Add wxN aliases for wN registers
-  arm64: percpu: Add infrastructure for preemptible this_cpu_*() ops
-  arm64: percpu: Implement preemptible read/write ops
-  arm64: percpu: Implement preemptible void RMW ops
-  arm64: percpu: Implement preemptible return RMW ops
-  arm64: percpu: Implement preemptible XCHG ops
-  arm64: percpu: Implement preemptible CMPXCHG ops
-  arm64: percpu: Implement preemptible CMPXCHG128 ops
-  arm64: percpu: Remove _pcp_protect*() wrappers
-
- arch/arm64/include/asm/gpr-num.h     |   5 +
- arch/arm64/include/asm/percpu.h      | 437 +++++++++++++++++++++------
- arch/arm64/include/asm/preempt.h     |  29 +-
- arch/arm64/include/asm/ptrace.h      |  12 +-
- arch/arm64/include/asm/thread_info.h |   1 +
- arch/arm64/kernel/asm-offsets.c      |   2 +
- arch/arm64/kernel/entry-common.c     |  38 +++
- arch/arm64/kernel/entry.S            |  13 +
- 8 files changed, 417 insertions(+), 120 deletions(-)
-
+-static inline bool __preempt_count_dec_and_test(void)
+-{
+-	struct thread_info *ti = current_thread_info();
+-	u64 pc = READ_ONCE(ti->preempt_count);
+-
+-	/* Update only the count field, leaving need_resched unchanged */
+-	WRITE_ONCE(ti->preempt.count, --pc);
+-
+-	/*
+-	 * If we wrote back all zeroes, then we're preemptible and in
+-	 * need of a reschedule. Otherwise, we need to reload the
+-	 * preempt_count in case the need_resched flag was cleared by an
+-	 * interrupt occurring between the non-atomic READ_ONCE/WRITE_ONCE
+-	 * pair.
+-	 */
+-	return !pc || !READ_ONCE(ti->preempt_count);
+-}
+-
+ static inline bool should_resched(int preempt_offset)
+ {
+ 	u64 pc = READ_ONCE(current_thread_info()->preempt_count);
+ 	return pc == preempt_offset;
+ }
+ 
++static inline bool __preempt_count_dec_and_test(void)
++{
++	/*
++	 * We must load the combined 'prempt_count' after decrementing
++	 * 'preempt.count' as an interrupt could modify 'need_resched' before
++	 * __preempt_count_sub() writes back to 'preempt.count'.
++	 */
++	__preempt_count_sub(1);
++	return should_resched(0);
++}
++
+ #ifdef CONFIG_PREEMPTION
+ 
+ void preempt_schedule(void);
 -- 
 2.30.2
 
