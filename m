@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50575C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09744C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 22:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sM4xbo+TR9mbwXpIFDrxsUvuGWDkKZ7be0Phwr5WUpI=; b=VZxj+iNV41efLb
-	9y/dLHCA4l3Kv2IYSDDSfYj1d0i2ERxn/IOLyeLdV57xbmLmm1rYGQ7xNll0dOE86szKJ6mq9iVrn
-	lK6hht4G0pzoWF5N21mlrWckdto911Tu0uGsn5S8H8j4jo7vpKmewo2uPCsTI4uQ5+rvxjFbo4CBx
-	42xX4OQPGC3GikbwuoGsznfq+ml4OucS/yS6B7/mLc8oBWhDHOVZuVx4i6OabjXGBSv8HEGnojmmx
-	3syF9ZrczL180dTfL6tme9obsPUqA887HoI4VcNJDRZ59lufx+wLFFyX31eKGnmhZoJViHyv2/LbP
-	YMBRuSZK6m6lcutDHirA==;
+	List-Owner; bh=131+oOmL38T7UgLdCmyTO5ytlpVHrsUEOd7HxcByZyw=; b=gSLIR2yw9zMF3x
+	J71Si0DdCFmCNgpuQs+3We8Fwqx9lDJytKWBizaKedmob9GRxkU4guSQ/Ih0Yj2fB6c3CJVC6NxS0
+	wiws5lRAWaVx8sFqDJdQdLO8DWOEgiB4R0xLj7/KfDAHSMTvQIpnUuZi7gaywXKa1uO56wn+4azBf
+	v08FErKHpiHDV7ZmSNqMlADGA6uonsAhNxJLtyNoAJSERHihyvr3lNsIHFCq8PvwspYMlaEn/hrIj
+	jYwDHJr/G9031eXdVsAuHzwfjwe3rxpeCqWtoagZFOT3Tim7W16azHSYLQF9zNg3/ogG5IZlpwr6G
+	V4Qwj6uccGqjp5K+/2tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wopel-00000006Mb5-499M;
-	Tue, 28 Jul 2026 21:48:11 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wopvC-00000006NYO-29K0;
+	Tue, 28 Jul 2026 22:05:10 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wopeZ-00000006MYM-1lNz
+	id 1wopvA-00000006NXx-18s5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 21:48:00 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-47f92e3c14bso308200f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:47:58 -0700 (PDT)
+	Tue, 28 Jul 2026 22:05:09 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4954dff6536so1944185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 15:05:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785275278; x=1785880078; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785276306; x=1785881106; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=sM4xbo+TR9mbwXpIFDrxsUvuGWDkKZ7be0Phwr5WUpI=;
-        b=p8VIq1b99DwdyIPxxm5C+wqyHaZYS0QgWb4fg+ema/YSQDmIkGyyKzFW9sx3PFQ52E
-         +c56oERcridHZpt8XUGhENgj4yTIevMYnQQlq2rPmYmO6+qGVsOYYwXzfbSskUDkxEvb
-         ZaaspDenSTCVdW0Etd/WVwCNRZhKG2jhC4YLR0sL4fLDey4bLyYtSwi9NC4YltdFif3c
-         QGWDKSfqCBeWSNupniK3JNOlXJ1w4Ya2h0FvCIrS6ZNrIC9qlFiesUZQ7pdkVilwKmg5
-         s/8FDSCSY7ouquiy7bg29kWqgbd4FkoEYdMK2NhTbTTi1wQ28d5pQcHN4ZNT6uvBAzYZ
-         Sd6A==
+        bh=131+oOmL38T7UgLdCmyTO5ytlpVHrsUEOd7HxcByZyw=;
+        b=MKeQg6uN9Aw4JZeIAgf8y7RV23lHcDTOKctAsqydkwfXnPiqsIt7FKIwoFm/6pcOO7
+         eeCYt74farUVCp8WniTEwLB227g9+cBrOkdLdjCHP0+WXvrJ0Qr88J2/2M4sttYC8YRW
+         W261SLFXB+LZRYi9NOt56x0GaSZ68RTcBjYWaE9yASkGAdmMvCIaR2vRB7Z1pqZYN9cW
+         1jamuNimePNEMRdRc00a0joBKc9inGDP3Ry482ojr0VxS+qNKTnk4ObFMnWHbZU7djBU
+         dzo7+/Cnz2z4t/GxLytMlaIPwR298df1d2Bq6hKqfimCr2S9djcKOK+zpxKxziDvCeY1
+         /gXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785275278; x=1785880078;
+        d=1e100.net; s=20251104; t=1785276306; x=1785881106;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=sM4xbo+TR9mbwXpIFDrxsUvuGWDkKZ7be0Phwr5WUpI=;
-        b=U9LuctS8Vu591CIlyCNKXYYCKxqabYOOHqGlBdlZcKvC/XPrW+r4cwHFYURv4ZFtlQ
-         L8UTTXZzB3oAO4G554lSPA5UKknCm+RhVY26+7o2OZbqthWCYhiM7sIEKP5Ow1KPSogI
-         2ktoXlDJ+hihWfGysA/dPCkg34pYe/8CjPDkXKCn7LTck5yThvrej+4P0MyG2vEGaOvo
-         PibWwwuIAcp5pUi0L0gKRPCcHhW8//Sufxw+fZeMmRbc/GsO6+tDi8yzjyS5TbG4iQo8
-         OlJi7lNTvqrMnn5lJz1jtWD/BVmmuizvM+FsJvokU8LSubvndRIExuaSu+JNvtkf/RD3
-         sqMg==
-X-Gm-Message-State: AOJu0YwlVATeSnTp2xql5Lay88D463HqN+8XC3LIH2S/SQ/5IaGsWEAt
-	wvSgIad4mX8BGM47MAtrn3KNfmNuE0LaHd98Jw+OVvccD8szOLHXDNjxOMFNA+3H1J4=
-X-Gm-Gg: AR+sD1107MmqI1JFNY+PKZXx0eyo8cjxCBYC33wOyPN1cAHM+Cf1tw0Hud7Y/aa9i3Z
-	MAOGf3f4ME5IDRBfirHsjO8B7QXKjQgpg5wqKyFLvs7diQGH8+jPZZ8FoLVRMrSxPeZchjNtTkk
-	Bg2YzM5xaHYi5av6deRsr0chMOw/GKTDjIEnnOXpYNH2N2rx9jF9neZYkSlnwV3LdAYflOx1j1N
-	Ntm2j7HMOZvkF64SzCxuC41ljI5aJ9Gp1Z1SjCnJEsGvscj+54mWDx4jW83iG43shTlkGs0aa0h
-	pft5aGncJcyae4nEMjWFsyM8I0ZhqUULkNJt/Aupt4u7QTN8dmKToTJXgU+gftD1pANBmgBi1wF
-	wpEAZLxi7IQmRnFLqY7UEHU0hk0d7YVDaj8PzoqxorDYr2jkE9/7e26Sy1NJfcxIeVnvNb92Nsg
-	29HhjQWevD8b7ZMfP0lCONkcuzhTs6YBFJr7WFOSg=
-X-Received: by 2002:a05:6000:2287:b0:47f:9022:8530 with SMTP id ffacd0b85a97d-47fb1ebbdcamr4799474f8f.53.1785275277489;
-        Tue, 28 Jul 2026 14:47:57 -0700 (PDT)
+        bh=131+oOmL38T7UgLdCmyTO5ytlpVHrsUEOd7HxcByZyw=;
+        b=ZDtCXaWUls6JhN6ZYwtOxwITeLNucCX/znYifynz6KPUyvmVvvJ9lL2dFyuu9nNiiX
+         YUgJvznKyc6xGF4H0ghLPkjWaXIUyovF3j4C33nY/o8KVk/dqOYeKcjoKsbpdToaCfm0
+         ZDPeVnB3K3A6CTY5/aAK/jpYm09laGxVHFVJ92RkzaqXZO/RsEpAGAI6f1/xEsLj5cuU
+         1+Ra6slwabcw3OT5O7orp3FirfoWXe+VcrOCCwzCwahB+iVl+SDhIkvVbIpCIwhDsAOh
+         aItlnCzmONzrYOXEa2uqKJoMXJ2d56x0WUmFhscRtuWmQdXL0+P6KvUCeIWXvpaq1iAv
+         L8GQ==
+X-Gm-Message-State: AOJu0YwHoBDTPlZy9x8pyoYJEItWTpOPWjAXGBH7Qb9oMGxnspIEMo6G
+	KVD3qhWrS7aHpMV5KMdphJkfoPdDrj6bbNajkNoMR1ulEOUfpLAHQ/FlE9g+4pyn2Z8=
+X-Gm-Gg: AR+sD13/qjBSGKqgxPGk8BEb8XvRGP61maIdF6rj4GWp3PpHU0dgIVeVCpF4A8qoNvS
+	A0r/kQ7QbrSmKd13voVBjHhBzSOKwiER/HWLA1xAGkniM15RA6EeYBP5HTUANoaGWkvIW0yLiR/
+	df1AOg7tztSDdo6euylL9h5P/ScA7nEXVW2kUz+/4aJTVxF6BRSgl6svOSL22uttNkkl3kzkYhd
+	IRa56fYzZFOwuZBtnPkoO/GaD7hMY2MH+6l6yco15qFLc8Tcv1ypKn6Bww9NFrgpkGGuJm0qOfH
+	l1N7wqVTCZDTHba8+7skEBBfPtnx7WhSQPyYOH+ZatOuxWMhbP5jrA9UZDuGON9fXEl5Fm+KMLR
+	wjYaGuHGwtZpg6+03tPminQxg9LdQ5WOKRDiBdDjd2bBQKKaOPoAM5ACIfGuSug9pPK0tvkpv5q
+	P3lHBIJqksCDdhpO0YoV4CDvGhaB4dtK67cSWM/X2nucm7zlBQJWkWW313z1xIts7/hOGO6YCiJ
+	s6ZWmCbl77HjUsuoK/nBa4Jbg==
+X-Received: by 2002:a05:600c:1f95:b0:490:c6c2:52 with SMTP id 5b1f17b1804b1-496c64261d4mr45033255e9.3.1785276306124;
+        Tue, 28 Jul 2026 15:05:06 -0700 (PDT)
 Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fb6aa3a88sm1967617f8f.6.2026.07.28.14.47.56
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49764d6d0f8sm8998665e9.2.2026.07.28.15.05.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 14:47:56 -0700 (PDT)
-Date: Tue, 28 Jul 2026 22:47:55 +0100
+        Tue, 28 Jul 2026 15:05:05 -0700 (PDT)
+Date: Tue, 28 Jul 2026 23:05:04 +0100
 From: David Laight <david.laight.linux@gmail.com>
 To: Mark Rutland <mark.rutland@arm.com>
 Subject: Re: [RFC PATCH 07/13] arm64: percpu: Implement preemptible
  read/write ops
-Message-ID: <20260728224755.59cfd22d@pumpkin>
+Message-ID: <20260728230504.41e2861a@pumpkin>
 In-Reply-To: <20260728123859.2911495-8-mark.rutland@arm.com>
 References: <20260728123859.2911495-1-mark.rutland@arm.com>
 	<20260728123859.2911495-8-mark.rutland@arm.com>
@@ -83,9 +84,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_144759_512136_189ADD1C 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_150508_358882_683078BB 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +106,31 @@ Mark Rutland <mark.rutland@arm.com> wrote:
 
 > Use the PCPU GPR infrastructure to implement preemptible this_cpu_read()
 > and this_cpu_write().
+> 
+> Note that this change means that this_cpu_read() will always use a plain
+> LDR, even in LTO configurations where READ_ONCE() will use LDA[P]R. I
+> am not sure whether that's ok, or whether we should similarly use
+> LDA[P]R here.
+> 
 ...
->  #define this_cpu_write_1(pcp, val)	\
-> -	_pcp_protect(__percpu_write_8, pcp, (unsigned long)val)
-> +	_pcp_wrap(__percpu_write_8, pcp, (unsigned long)val)
+> Generated code after this patch:
+> 
+> | <outline_this_cpu_write_u64>:
+> |        mrs     x2, sp_el0
+> |        mov     w3, #0x7c60
+> |        strh    w3, [x2, #20]
+> |        mrs     x3, tpidr_el1
+> |        str     x1, [x0, x3]
+> |        strh    wzr, [x2, #20]
+> |        ret
 
-Not new, but does that end up sign extending 'val' which is likely
-to be more expensive than zero extending it?
-Using '(val) + 0u + 0ul' might generate better code in some cases.
-
-Just noticed it should be (unsigned long)(val) as well.
-Otherwise this_cpu_write_n(pcp, -7 / 4) isn't going to DTRT.
+How is that likely to get scheduled on a typical arm64 cpu?
+In particular does the reuse of [wx]3 create a register dependency
+between the two instruction flows and stop then running in parallel.
+A typical x86 cpu (that anyone cares about) does register renaming
+so it wouldn't matter, but I don't know about arm.
+So it might be worth using different register for w3 and x3 (although
+that might cause a spill - which will be worse).
 
 	David
-
->  #define this_cpu_write_2(pcp, val)	\
-> -	_pcp_protect(__percpu_write_16, pcp, (unsigned long)val)
-> +	_pcp_wrap(__percpu_write_16, pcp, (unsigned long)val)
->  #define this_cpu_write_4(pcp, val)	\
-> -	_pcp_protect(__percpu_write_32, pcp, (unsigned long)val)
-> +	_pcp_wrap(__percpu_write_32, pcp, (unsigned long)val)
->  #define this_cpu_write_8(pcp, val)	\
-> -	_pcp_protect(__percpu_write_64, pcp, (unsigned long)val)
-> +	_pcp_wrap(__percpu_write_64, pcp, (unsigned long)val)
->  
->  #define this_cpu_add_1(pcp, val)	\
->  	_pcp_protect(__percpu_add_case_8, pcp, val)
-
 
