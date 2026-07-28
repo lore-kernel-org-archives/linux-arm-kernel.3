@@ -4,109 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023BFC54F52
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 19:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202DCC54F52
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 19:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cpPQ24EVyvfhB0gl5C6A7Ib14qQkrWJ9dSg9UQ/L0F0=; b=RO13f0NOedvySJBtAt9+puJDEW
-	1FX6ktCYpBvKkVIaexsHI6Qo28yJWsfR3iRNpXdMKyAd0rq7rlJIA3cZBtqzaA9yaNYzT0ppdNNjW
-	96CG2thtOzimgBdAQOlLWsOlQZdRDwTDf1ojOt+pI6XGHCMxdt4VAdA3SH2Yb5/VmkCMMc8Zh9tfX
-	3t1wDGbDhnbvdIvXfaaONwfXFBj0mfRtpulqQyAibEXEyOchEFcx9wsrNa3Jkx7ZRBSUsXoSX0V2n
-	4XrJStMbI9T1lM1ZlWdgDS7wwYVG1L0HWaCXhMre6M3BDO367EQViwKL0x7xy+Bxr9IpeD3BiuP+U
-	ylPv+08Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+qnxHjfq6t9kvIEcBFY4jjWRY7rxCRA39LvB5vINPkY=; b=JrZacw2a+FDpx9
+	Hy1UX4mG/a4u3W+9JyNjYCZRWza4pKJ0XY1r4A6tXsCHttzAp7JQu13q/7K71yQnVqqEDHUk/VKvD
+	pTYeHlxiT6QOPiG5eqqUlaSUxaDzyk/o4mOxSAnv2n/pLSEXSTXoTRPTYAkLddx1YCYBe0ss2ImVm
+	yz3No46OnysuiPRtDM62rThPPYk0ZxUBPmSkPMZGXs8bB3dvJqzD8p+CwM6eoAH3WXfenUcXU7uC7
+	wg3tHngClXwqhqy1qhKOaSr5rzpYIELfg50UkP5z89mGUZrehDKqy+Mh0M6jNHVnXnCn4UsnqxSHI
+	k0nKGmRkt9XtwdB273GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woneu-00000006B3o-2FNR;
-	Tue, 28 Jul 2026 19:40:12 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wonjb-00000006BJw-0N2g;
+	Tue, 28 Jul 2026 19:45:03 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woner-00000006B3M-1iyG
+	id 1wonjY-00000006BHv-0VJi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 19:40:11 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2cf4c37dbe6so249595ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 12:40:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785267607; cv=none;
-        d=google.com; s=arc-20260327;
-        b=lgy7bVBCIg0dV//1oSVCEndVsoxSeM0FIMVftamJ4QAzn/c9bmcikrQAtcL69T4B+A
-         jHxAMW67kR4nNY2Clg5gIR11hdW4qN7Cka86n5AM7kxG/0lWZNwf+mshs3h3OvGcV4Qb
-         pz+L8+hYnaDc4Ga190Tnm9d+SrONOoqOtU4VIg22l7Yq405Dcean439YLsxV2vLvD55o
-         QNUIqXWrAoVvSQLOkMbpql3qh5NydaxQ8CYpiE5YObFY+Kgsl/mjsSwB4bx3puD0Y/Og
-         UVLkBwouNICsPU185BOHEkfwgkcHwlSiWpLa1aX4CHoKJ6zCvWNgBG7dpVVbDqm/1TVu
-         1jFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=cpPQ24EVyvfhB0gl5C6A7Ib14qQkrWJ9dSg9UQ/L0F0=;
-        fh=x/2n+1TxciQHzNBl+jDnVN/3pAYMrurrLz3mknDi4dU=;
-        b=TBn9mRNz/5l01UnBf8V5OjTRKWxToHLzTtgCmLDa9W9mtUFmlujzILZ3uheDwc38Xu
-         7zTP7lJq4ORSmTud/cyKqRAaENE1hfMNqC3hyQ1nqqD3hZRw88dqLGbr+S/pi9+fGsDL
-         0P/LJ7f52AfnuSkpazQiRfEKSV4FykLnMsPZSwsvKtPRZ2px5p9lq3e21Z0Sg0eMB60c
-         jZ5ENpYKlh860YJ/lmST1P9EKQGylZiNaWnYD/87xM46FqxIaSNHIdYGmuU7mEvt9z0Z
-         TM+nagrD5Jo2/TlKcPWJDCimkrFufce0BPMd6KAliJ1E1IX9vhOogs8DNwi4LhheWivU
-         NlWg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 28 Jul 2026 19:45:02 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7eb1dc6bd53so170083a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 12:44:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785267607; x=1785872407; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cpPQ24EVyvfhB0gl5C6A7Ib14qQkrWJ9dSg9UQ/L0F0=;
-        b=cDuWaRXOhqeJf57VE5Rh9TBZJjR0T/kNGzjc7AloD5vyzJbnc+0r0R7wM8wKcoAYHg
-         TaokJPYnhMn/TOQLcqLCeYQJ+p9jc5x3TbE8HFLdeovVBIfPNl0auL8ej/sgWs8rz1lB
-         /khZdE5BTdHVJvNnXsqQA85VKztJrRApGtISLrymsrVf+PEoQwhLn49pONYGtD9dwvdq
-         rfTDK0uNZ2nI8NboEBIVTnApWneBBiY5xJnBYfDnoM2BXvsZ1+GQWEWMAJHh4XMQx/s/
-         ElH4oA7yCqJ6cAeSDd0wXTaLc+JzqHswFH2lQZAQ1gOr4vmERV1yDWxkBd3q0/TWJ2qL
-         j7ig==
+        d=baylibre.com; s=google; t=1785267898; x=1785872698; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=+qnxHjfq6t9kvIEcBFY4jjWRY7rxCRA39LvB5vINPkY=;
+        b=Vo1IVA8fjg+C84GnEWslsrZx7kCANqdhTJJ9BQ2AqDjpch8WXtZzJReuwIQ+lZ96NV
+         bQNhL3UwLomiEKLfBAm8NA/13XF7gzoo/mZ//XMxZ4YAtoNnq5iL2Sj0k4Z30YcVcIoK
+         GNyC0exU40FJn38mZMbtUKacBVs3sjrkhmjkYkln+0e2hANF2Cvj4s9kqStEq1R0e4OH
+         os2FqdO2/WtOpnlh3FbDmdxEujo2WFziUlXC2thQHOZ8Dc5Fo/xDZcf0B9l0fl9uv9Gl
+         M2QTixAWyWMIxPvaqQDmK/Qk1ryqN1kSAViJRpWvJaRFxvpZrHRZnh6D0Dl4QgGw0orL
+         kjyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785267607; x=1785872407;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cpPQ24EVyvfhB0gl5C6A7Ib14qQkrWJ9dSg9UQ/L0F0=;
-        b=IC2kPW6b8rsAs24khN6lviQrliumg1Eco+D2H+Coo2hhAM0cPkP16NVI+mbdgBs1mq
-         Zi99ZDkPZYDVDqmO4ew0FH95bLdUO/nlIi2yBD2SKM3xO5zBAGTG/cO7yyczlWBTHEiy
-         RCJbvXGtc9vaqoTPdwK2a8bF56/TT3c2+YWT5+KWb2XGxyFYJ17h4NWBACSXRBV1avCk
-         QAwVtbA9G+/5f+JO6LKMeEpk/MqBVB0yXemJpOAiqcgJEyZcHQAw6r5D6VqhKfQ3ObWl
-         l+nzRINWGbY43tNR+W3QO5HI4S0J4Ne642cE+Xr/lX22LCV4ofQmWRd0I7RA6pXkc/44
-         F60A==
-X-Forwarded-Encrypted: i=1; AHgh+RqFGffxYf9c/jw0k8VceuARwSRBKHNm/Kof4liyfPz1EckwMD6FZujR4gQJMN8Sd/FGGs9lPXMJxOQrndkEMS2S@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpvIel1Jb+dxpzMKNMTVXjNp9aIn0DXx2iVBvER97ZrcNvVKtX
-	+YmJ+gL7mb5jlh3gVCM/CYmH8tvfL9r8iO3wQSy1RCLVz5KGr/8oEo8LF0tcsgf9rRQP8Q+HhJT
-	6hoXnobn8mz6PQPWhs0X/fBin6Q1zG+U=
-X-Gm-Gg: AR+sD13rJL/JrRmIckiTEaImUlzMjqI3NY+Ctl/Q6hydQ2B+KoNhjjDjzRPxzzJange
-	TM9iXWuai5jRLPJnlSdKTEUv365zeCevSY0GtooVbbeAMdYZZp1qlVCWBMu1cCq2VhhptiPCcNP
-	/vNh6Ebzqy6GNz4lJu3ko+PrpcKZsFS1k7z3OmshNr5q9q82w1gTdBzTuemroEN4I07I6mzYTay
-	JXIbITo8FleSzt1kMffHWJbwabEuy9RRaN2N0z9OLmoUNZuFcVdUKdmJb3UzitVdCF+P9VzujeC
-	Gantdxu5qlht6K1XwPU4kJsLSyC6cUbDvBQh/NfNu+XO9j7dXvtTmZRZdo5jTeM0ohifYtI0wKp
-	+Zo+Okah3pVmTApUaOPzgEOKj2ndQMuoKP2APdR3M5eYx4Xxg8wkkbGOqPnQ1
-X-Received: by 2002:a17:903:18d:b0:2c9:d8c6:1db3 with SMTP id
- d9443c01a7336-2d015ca0006mr30230635ad.8.1785267607090; Tue, 28 Jul 2026
- 12:40:07 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785267898; x=1785872698;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+qnxHjfq6t9kvIEcBFY4jjWRY7rxCRA39LvB5vINPkY=;
+        b=Ph5zqRyJPO3fcTMFYXFr6D1jcSPMO1yciFfhK0TbAYYozDAgmoQ2mlrkt1w7mey8qr
+         qIAhItNwFWZwnt4H2AVRbAu4bvJ+zw/7PYnRFy7iWCLjTYZDpYxGIVwxWzhxZXh0fkqG
+         P9d//RWtOQYCl5sejeQ24XEwTxgYYD9ldz18s1ArpFAhLdbRBJrat4sNQkfK3AXa1JFN
+         ZyuWdzhrvKnEutaLEuQUpyNjxPW/tW+5/B2o6jBehdl4DvWwI1ZcJv47H7jOhXXKcexo
+         Aeg8NRtPrFTo7jNl+TNKv9hKGFacZBMjAnCJEed/kSMezUSE+tLTiM/pkDeUk5blq/8a
+         l7yg==
+X-Forwarded-Encrypted: i=1; AHgh+RpGCm197zdUj6rkJkuSUDZb4kqIe2OSOiaHtipH8HBfJ7oqKNmrdwqw+nlsO8J3cFtK3mqA7iH3ZWekFwP13+2a@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhaRgl82VylYJcgXUotK1K0ZMivf0rrSUPt8ypXKMXmr4yaBky
+	YURzf6Pr3ImFnucC6rNThC2LreoXePlcs7eDop6k1NVUsaRenwZwd4GSz/Vj/34XgEw=
+X-Gm-Gg: AR+sD10kJtdIJpjeT+DyFdA36gdP3+r3uluK0YvA+HQIHYeyVNJxs8vysTVcmzLCh3e
+	k0lG4OkaG7tVh0ZlpRwVl0EJnflB50ZkAOhuESqUHSqrVNgNG7cevQhTquEToBX6chSmJx1XAC/
+	4hbAiDIkbiDJV9dDDnn8vjAtrpUgwvyP0f5eLoTtmjiVhC87oWsTxNL+BHCJg7hOArOLf49LAEM
+	orl95Y/6A1dcP5regoUf1NpjxzEuN66arXg/Dwyl0tcatvPJPsJQBPPXXxwhSGP6Hszd0Fw4i+Z
+	88hMLa3xDiqVxWgWkfziX99jjyzu4MRExkR1xW/DH3abKn/LhZZv1Y33WZFyWPJy5LLRPsbdMFp
+	A/VAK4dvaP33CuLmW74A56tpyoIS35sG/r1LmYlWP2P1Hj5r7rLU5KNWrmn2TwYVN2K/fCMkO0r
+	V2MkQXkJ8=
+X-Received: by 2002:a05:6820:2087:b0:6a1:7790:258e with SMTP id 006d021491bc7-6ac96a456fbmr1548148eaf.18.1785267898559;
+        Tue, 28 Jul 2026 12:44:58 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:500:3026:75d1:db9d:8984])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6aca5254057sm290017eaf.4.2026.07.28.12.44.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 12:44:58 -0700 (PDT)
+From: "David Lechner (TI)" <dlechner@baylibre.com>
+Subject: [PATCH 0/2] arm64: dts: ti: k3-am67a-beagley-ai: GPIO improvements
+Date: Tue, 28 Jul 2026 14:44:35 -0500
+Message-Id: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
 MIME-Version: 1.0
-References: <20260331190053.482607-1-ojeda@kernel.org> <d47bcff5-ae97-4a27-8348-efef67ed3d98@app.fastmail.com>
- <CANiq72nFZT0ZZS1R82qVjPg4A=FEU675-3yx+tv3XVA=twnUWQ@mail.gmail.com> <18cf2372-0558-4a90-8faa-bdb2ca1cef61@app.fastmail.com>
-In-Reply-To: <18cf2372-0558-4a90-8faa-bdb2ca1cef61@app.fastmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 28 Jul 2026 21:39:54 +0200
-X-Gm-Features: AUfX_mxieED903ZVOSDzaT4nr5jZsRFAL90RWlFLtxi1t75KjzU4CBXoDz2O-m4
-Message-ID: <CANiq72nLWbdu1yW_tB1T_=JVhVeD9bnfnDvWYn0Qun0bEVcX-g@mail.gmail.com>
-Subject: Re: arm `rustdoc` Rust 1.85.0-only build error
-To: =?UTF-8?Q?Fabian_Gr=C3=BCnbichler?= <debian@fabian.gruenbichler.email>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Christian Schrrefl <chrisi.schrefl@gmail.com>, 
-	Russell King <rmk+kernel@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBAF0KuQWTsJVhH0KsRFSz91jLakg0ZDu
+ LtVl2/zFlJkgdKpWijjKSopFmw3FQ0XGwNYfDGZ2hzq1nRs8539rOxgww1vKxwmSSxxTNwed/C
+ d2/umAZVhyhjl9dv789/6cFcM87ekdf0AHxGSq38AAAA=
+X-Change-ID: 20260728-arm-dts-beagleyai-gpio-info-793ed8b4d55e
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Robert Nelson <robertcnelson@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, "David Lechner (TI)" <dlechner@baylibre.com>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=817; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=2LtYHeta5/Q9EvymN62gVMZCQz+7wtkWlLVE2E7UFUY=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBqaQal18LUWMhjrqnpK0pfzz0Z1H2msfl19+NAD
+ vym5EAFqM2JATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCamkGpQAKCRDCzCAB/wGP
+ wEQuB/982hhpMKtY3Wt5Gmb0F7J3rsfasP1hDdkuvTgLrFCrACZulXjq5uGUDotjNr/8dYyY5fd
+ zZ+fK1UDXDvwyX1IOWDvMab54WQ/+QXnf9iLQ/gI6Vwr7BbmN68kXhhowqP9k3Nfbx27WUvUW/d
+ Y8pyIC9XZN1zDSroCMc08hyuG98ITIql2ano4UxLZ7MwvC44K6FUHkdief2Okre2RjCoMuI4CRx
+ lnb4fqCLomo8vRfQZMU2lDAda9xsoaP86YSe7OYVbTJXxK+HqC8HDgfqSUoQCywpNaujc/T/cXA
+ HPwQZFbPYHcnmJINlkN4mZDtBlfW50cnXH8xYU0q4TmVPQ2x
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_124009_478069_3FD5F658 
-X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-CacheID: sfid-20260728_124500_170092_86DF0E27 
+X-CRM114-Status: UNSURE (   7.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,30 +117,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 25, 2026 at 7:19=E2=80=AFPM Fabian Gr=C3=BCnbichler
-<debian@fabian.gruenbichler.email> wrote:
->
-> Happy to report (with some delay ;)) that the next stable release of
-> Debian Trixie (13.7, planned for 12.09.2026) should contain an update
-> of rustc to 1.85.1, which got accepted into the proposed updates
-> suite today:
->
-> https://tracker.debian.org/news/1778462/accepted-rustc-1851dfsg1-1deb13u1=
--source-into-proposed-updates/
+This is picking up a few downstream changes from [1] to make GPIOs
+easier to use that I missed when using the BeagleY-AI with a mainline
+kernel.
 
-Great :) I see the update also on:
+[1]: https://openbeagle.org/beagleboard/linux/-/blob/v6.6.58-ti-arm64-r35/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai-pinmux.dtsi?ref_type=heads
 
-  https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=3D1135220
+Signed-off-by: David Lechner (TI) <dlechner@baylibre.com>
+---
+David Lechner (TI) (2):
+      arm64: dts: ti: k3-am67a-beagley-ai: Add gpio ranges
+      arm64: dts: ti: k3-am67a-beagley-ai: Add gpio line names
 
-which I was tracking in:
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 45 ++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+---
+base-commit: 3652b49adac266a3d27cb41cdfdb7d8790fc3633
+change-id: 20260728-arm-dts-beagleyai-gpio-info-793ed8b4d55e
 
-  https://github.com/Rust-for-Linux/linux/issues/350
+Best regards,
+--  
+David Lechner (TI) <dlechner@baylibre.com>
 
-I added your tracker.debian.org link and the planned release you
-mentioned there too.
-
-Thanks for the update!
-
-Cheers,
-Miguel
 
