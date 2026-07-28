@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6B5C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3B7C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 14:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+zoBoxVP0tu54EmP44Kgg99nD/WSNJ3du1BUA30wzps=; b=vfeqgdVq+olliH
-	ktyqmeA3+dQwY6midnl1lWu9ZecHmdM2wn+vocHF03uv6oztitgP78Sr43GCNrnMFi+TV44YigpDi
-	0yCDYjWoydVhL699wAvrwupO94O3VakrOO0kM6Bd7AO/7fGokf/+zASSLF2+Aq4uPX0bXjH0GJkZM
-	LRz4YX4nUJ4o1IKdEi17vNZ+DODw2tyVzgp26Q1W2RZ09Q5MUD4J6rog6I686R66qxGu4qVgpzHJL
-	Y/soKRVfj/3okdB4HXnfpuMfbY1zB290UmzoZyXh8nkWOl86lQmELyZ2KBs8Z1gf/xBycD0hf8dkO
-	Gums7szCmPWK0syKzQ+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cc5wg12tqwTBOwJ67VWXEAgClJcA4TpX/SK+bdEQpI0=; b=W0nDgZHE3BBVO5MS0XQOl/slTv
+	0RZqtI6eqP6nr8wp4tWmbcDCNzEVzcgjK+0i318hIXZUzLtFS4h0pqgFqMQ0Qyw+JqeYPj8L6TeO3
+	BANGy2Y4rMAobI5acYuAaJMgiTGCgcP9iSSVJAsVO+iXMXf4B8CuNoZ6ziuX1PUrcpEd8YvQBrmUx
+	kAAW4r70MQi2chZMj+vTjgwtn1rORoulq3wNQz5irlgsMj7vfDNVeb4Q+KnBy869lDgBlqmvXeW3g
+	CBOPUyxaHc6UDnlkNETeR1RDnZvYf03dmIa6fwNulNp2C3dpZFKbzPEH3JpmdYUHCZUC9ikplKkdQ
+	RxZUtxpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woj3T-00000005XW4-357G;
-	Tue, 28 Jul 2026 14:45:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1woj3k-00000005Xd5-043T;
+	Tue, 28 Jul 2026 14:45:32 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woj3S-00000005XVZ-1RHq
+	id 1woj3h-00000005Xbv-1jiZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 14:45:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 89C7160A89
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:45:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41D671F00A3A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:45:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785249913;
-	bh=+zoBoxVP0tu54EmP44Kgg99nD/WSNJ3du1BUA30wzps=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=JvHqpuTk00lMlu3XNouaDMT787Xmh5ZH9xAHaW5qASWPVyM9MjIS7H0CGU0mQQuab
-	 gzeYGF1Nxv3+XToSFj77YXsWsnuAm0Pyl54PJAOH3G0CpqoEYRMvEy+TTACdHOk8Qe
-	 mMZnxHR/Py7bD7SdJcCMFk4e7CgPSHuGkZqfyuh+OyL5Hmw14p1prf5nctoiKnHXee
-	 nmJJBy6ATQOgancwoqpT4Hhoxt55L+UvtmAgpFC5nQZ3iZX4KlmcNBelebHc00vsKY
-	 KwjbsVfsklTSXyl/hmZqOuWsPGgGq+adSgvQL3icu3qn6QI1GuoX2GFJwLHTD8zBhZ
-	 9C+k0pMDylctg==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-39c9bb9d2fbso35389801fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 07:45:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoJ+v4cdT1QbOXtBD8yUqxiDk+MBuCigSDfPkzFV9U7IongJ0br0ofrL9yQOQZ/5Dqx6HIvhmN4RdlqkqxvRYJZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUQf5GJEBbUN1p+h8Qujc3OjIbfQ8ywyTHzuH7LryZ1a1Lu95I
-	k1m68am99B4/PK3sRmQ7muZwMrPyD6p/B0YYfhvMt17GEC/W93/J6kQQUOqmes2aBgB7vp0kay0
-	sMU0glvSJhYbKc6uBVs4XIPyfW/kwNvk=
-X-Received: by 2002:a05:651c:1472:b0:39f:334:5417 with SMTP id
- 38308e7fff4ca-39f51e78500mr5509941fa.31.1785249911724; Tue, 28 Jul 2026
- 07:45:11 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260728091804.382753-1-wenst@chromium.org> <amiqKRkFItYwD6oL@redhat.com>
- <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com> <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com>
-In-Reply-To: <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 28 Jul 2026 22:44:58 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67VRhy_xzkdwUAYhzM_sWzoXyfZ3rYSHYLYaxuve9H17w@mail.gmail.com>
-X-Gm-Features: AUfX_mx6JNGZEk5lcOTAkXuDdaZ1OKJc8XncWYJ1mBU23rnRHL1R5sda5IuVL9U
-Message-ID: <CAGb2v67VRhy_xzkdwUAYhzM_sWzoXyfZ3rYSHYLYaxuve9H17w@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Brian Masney <bmasney@redhat.com>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Alessio Belle <alessio.belle@imgtec.com>, Luigi Santivetti <luigi.santivetti@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
-	YoungJoon Lee <getfeus@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 28 Jul 2026 14:45:30 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=eZwInGNsa6ReMfcqs8CTGI43ZysY8pZMj1Sidd+d1AfcQ7BHSVl/733uR9lN06EUrJs6OV2z20wJ2ztqJ7S6/DoH0Q6VnZ5kxmwLAYkBzBBZPLmJHmLrsF8Ua3U7QqlZVlcq6K6jjdmK61xNhxjVj+qX0vDaWXclKwSf1QwAjEKSQJ/DwtJfTZgPn66hM8TA6o28Fc2NpLEPIzibPNU9KeLmf0yWpbWIQfxHr0kLkXmVPXVLm3f/DfNdvKSDQm9TR5eR0f3WuqmMJek7nCHnC/QsGQaFSBz7EGJfK2g1gfUCLoDOvqYFX9sXozjSIaCAXmo7FNToUUtrs36k3OhslA==; s=purelymail3; d=rcpassos.me; v=1; bh=O+EunIaQuvuAl6mYIdHtaHmtFznc9bUOIDoAFlXeg5s=; h=Received:Date:From:To:Subject;
+DKIM-Signature: a=rsa-sha256; b=jlzYklcQXD/DOKtZIA648V4a8hSY2EscTLMzkfsMWamDA0RNShxDdDla6ILuZtDLkOKwbpOICG2Ke06cQnEh/6/XIazK3s3jvqOfP99O8e4dxfE03zpzbQa16ay80R+iRI7YjX3FzvveUh0fpht2G7ik+Xrsh529fRvwvO23zT81AbajB4ARWAGWgzRACgSGs3swjrMkb/p+JURiSUrYaxunZB1h5lISQwCMm8eyfMsVBfew+PjvZgIOk2wYfRvMo55hloe/quKIl7c1odtb+P1zL3eeIu7W2Q4hGLLTAbfAlQQl5e3IFYBT8FdMBcUiyiDajzBnyKFQwbdnMHd0Nw==; s=purelymail3; d=purelymail.com; v=1; bh=O+EunIaQuvuAl6mYIdHtaHmtFznc9bUOIDoAFlXeg5s=; h=Feedback-ID:Received:Date:From:To:Subject;
+Feedback-ID: 45355:7809:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 2061556761;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Tue, 28 Jul 2026 14:45:08 +0000 (UTC)
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 28 Jul 2026 11:45:03 -0300
+Message-Id: <DKAA9VN5E4DS.2U03T6V5HEAAE@rcpassos.me>
+Cc: "Luiz Augusto von Dentz" <luiz.von.dentz@intel.com>,
+ =?utf-8?b?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
+ =?utf-8?b?V2lsbC1DWSBMZWUgKOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>,
+ =?utf-8?b?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
+ <linux-bluetooth@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>
+From: "Rafael Passos" <rafael@rcpassos.me>
+To: "Rong Zhang" <i@rong.moe>, "Rafael Passos" <rafael@rcpassos.me>, "Marcel
+ Holtmann" <marcel@holtmann.org>, "Luiz Augusto von Dentz"
+ <luiz.dentz@gmail.com>, "Matthias Brugger" <matthias.bgg@gmail.com>,
+ "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
+ MT7922/MT7925 on Ryzen platform
+X-Mailer: aerc 0.21.0
+References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
+ <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
+ <79D5F3E6-8F40-4422-BB2D-16691E377394@rong.moe>
+ <DJRP3YO7Y0WK.20KNRZIMX1CYK@rcpassos.me>
+ <F16A2A9A-A43F-45FE-8CC0-44A129360D47@rong.moe>
+ <DKA8F33O8HID.2UV2DWTLE6S48@rcpassos.me>
+ <133c4858657c55b31affd4bff1cbd68f812de5e1.camel@rong.moe>
+In-Reply-To: <133c4858657c55b31affd4bff1cbd68f812de5e1.camel@rong.moe>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_074529_535250_EB7942E0 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,73 +77,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 10:33=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> On 7/28/26 15:13, Chen-Yu Tsai wrote:
-> > On Tue, Jul 28, 2026 at 9:10=E2=80=AFPM Brian Masney <bmasney@redhat.co=
-m> wrote:
-> >>
-> >> Hi Chen-Yu,
-> >>
-> >> On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wrote:
-> >>> Hi everyone,
-> >>>
-> >>> This is v4 of my MT8173 PowerVR GPU support series.
-> >>>
-> >>> This time around Mesa was ready for basic testing, using both vulkanm=
-ark
-> >>> and glmark2-es2-drm (with Zink). Details below.
-> >>>
-> >>> Changes since v3 (all in the clk driver patch):
-> >>> - Changed pm_runtime_put() to pm_runtime_put_sync()
-> >>> - Added missing of_node_put() in remove function
-> >>>
-> >>> Changes since v2 (all in the clk driver patch):
-> >>> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
-> >>>    - Needed since the driver implements PM domains using the generic =
-PM
-> >>>      domain library, which also depends on PM
-> >>>    - Fixes build breakage (kernel test robot)
-> >>> - Fixed "RST_DELAY_CNT" name (Brian)
-> >>> - Dropped unused mfg_desc (Brian)
-> >>> - Added check of clk_prepare_enable()'s return value in
-> >>>    clk_mt8173_mfgtop_power_on() (Brian)
-> >>> - Saved error value for return in IS_ERR(data->clk_26m) branch
-> >>>    (Dan Carpenter / kernel test robot w/ smatch)
-> >>>
-> >>> Changes since v1:
-> >>> - Adapted to changed DT bindings
-> >>> - Dropped driver change
-> >>> - Use same power domain for "a" and "b" GPU power domains
-> >>>
-> >>>
-> >>> This series enables the PowerVR GPU found in the MT8173 SoC, found in
-> >>> some Chromebooks.
-> >>
-> >> I'm making a pull for Stephen for the clk changes. Should patches 1,2,=
-4
-> >> go through the clk tree? Patches 3,5 go through the DRM tree?
-> >
-> > Only patches 1 and 2 should go through the clock tree.
-> >
-> > Patch 3, 4, 5 can all go through the soc tree if Angelo wants to pick u=
-p
-> > DT binding patches. Otherwise I can push patch 3 through drm-misc.
-> >
->
-> Not sure if I can really take the DRM bindings patch through soc.
->
-> I will take the devicetree ones exactly right now, even though it's going=
- to
-> give warnings.
->
-> I trust that you'll make the binding get into linux-next before it's too =
-late.
+Hi Rong,
 
-Rob beat me to it. :D
+On Tue Jul 28, 2026 at 11:00 AM -03, Rong Zhang wrote:
+>> I believe its a hub connected to the chipset.
+>>=20
+>> /:  Bus 001.Port 001: Dev 001, Class=3Droot_hub, Driver=3Dxhci_hcd/12p, =
+480M
+>>     | ...
+>>     |__ Port 008: Dev 004, If 0, Class=3DWireless, Driver=3Dbtusb, 480M
+>>=20
+>> In the block diagram on the manual [1], Key "E" Wifi is tied
+>> to the AMD PROM21 CHipset.
+>
+> Yes, and no.
+>
+> The block diagram indicates that the NIC card's PCIe interface (note the
+> "x1") is connected to the chipset, without any mention of its USB
+> interface.
+>
+> Based on the bus number (001), it's more likely a root hub of the SoC
+> instead of the chipset.
+>
+> You can check the root hub's PCI path with
+>
+>    realpath /sys/bus/usb/devices/usb1
+>
+> Then you can cross-check with the PCI topology, i.e., `lspci -tnnnvvv'.
+
+Interesting!
+
+lspci -tnnnvvv
+-[0000:00]-+-00.0  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Ridge=
+ Root Complex [1022:14d8]
+           +-00.2  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Ridge=
+ IOMMU [1022:14d9]
+           +-01.0  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Ridge=
+ Dummy Host Bridge [1022:14da]
+           +-01.1-[01-03]----00.0-[02-03]----00.0-[03]--+-00.0  Advanced Mi=
+cro Devices, Inc. [AMD/ATI] Navi 21 [Radeon RX 6800/6800 XT / 6900 XT] [100=
+2:73bf]
+           |                                            \-00.1  Advanced Mi=
+cro Devices, Inc. [AMD/ATI] Navi 21/23 HDMI/DP Audio Controller [1002:ab28]
+           +-02.0  Advanced Micro Devices, Inc. [AMD] Raphael/Granite Ridge=
+ Dummy Host Bridge [1022:14da]
+           +-02.1-[04-0e]----00.0-[05-0e]--+-00.0-[06]--
+           |                               +-02.0-[07]----00.0  MEDIATEK Co=
+rp. MT7925 (RZ717) Wi-Fi 7 160MHz [14c3:0717]
+           |                               +-03.0-[08]----00.0  Realtek Sem=
+iconductor Co., Ltd. RTL8125 2.5GbE Controller [10ec:8125]
+           ...
+
+
+realpath /sys/bus/usb/devices/usb1
+/sys/devices/pci0000:00/0000:00:02.1/0000:04:00.0/0000:05:0c.0/0000:0d:00.0=
+/usb1
+                ------               --------------------
+                /                    |
+        This matches the             \--and this matches the chain before
+        root complex                    the MT7925.
+
+Am I on the right path ?
+
+>> It is integrated (soldered) to my motherboard.
+>
+> Huh? How can an M.2 "Key E WiFi" expansion card being soldered to a
+> "vertical M.2 socket"?
+>
+> AFAIK, once the metal shield(s) are unscrewed, it should be replaceable,
+> see
+> https://www.techpowerup.com/review/asrock-b850-steel-legend-wi-fi/4.html
+>
+> But it doesn't matter anyway since the issue has gone ;-)
+
+Oh ! Its vertical ! You nailed it!
+I assumed it was soldered because there was no space there for a
+horizontal layout (and I didnt try unscrewing it). Neat!
+
+Thanks,
+Rafael Passos
+
 
