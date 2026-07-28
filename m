@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE178C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9AEAC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XUdocc9AyfaWpOM5SNPJip/RwRNo5MSCyklyHVO9Wws=; b=nEpM5DQSPxBw145dDqgBIVVX9Z
-	B80kSQGR8NZwgC/vtqjCK2bRxd4vvx+SQbfphxBh5OV2RvzAij3+kqXsVU+3IYzOK/V7XSgOVxD3X
-	rIXyYT2D1z78xoDynUjd+pTAQDJaFus1igOj7wuiefA9blduu+Tgv/tT0csVhO2uEyA70urgQX7Uu
-	JfmahdUEPYWzFoQM7/6LfDU7yDtJLj5f5eZltTwHBtRjWWRdrEG7wJ7e2zx75C/xX9i7h3UtADt+Y
-	RM7KiHLMGnqdtbcaGZrAN7ar6PwCSUx/Nhp/xvUNaaxP0AuSnqG5kg+m4IU/uwbWuYJuyUCLoWHng
-	8MOXSTyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kdGvc5zVFTVg5hEMq4ScSQ8q5bqHIRstMjtbKuPq0HA=; b=uUIsQRISYGW+zkQnv6MICoG44n
+	9JQm1Z1tLjJThckAB1Nf3BHdXa8Pe34U6DFjYu0oPqfZYQ/XOrmPqPC5H4XRSeFvrwf3o/nFk5UxZ
+	TQvzmthrV6+vD2V/ajk1t6KGnfM93lDPJORZppsMhWanl2uRb9NYjmmBGMTqJdl5kMLsiuRXVgoZO
+	ck5MK55tG9vM9lpcVNUKFTp4W3VV7NBFbjzSMuTQvAirSjHb2V3t/U6DHB3iStxMIRdaZm/eQ15YZ
+	PrM6W3xSG3Qy/F0e8794DK0O2LJe/ceGC371rAYo0HW/WcFOyhJkaYam/GDsLqDJy2xaqFn/8942D
+	cnCH4ghg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woffS-0000000529Z-42cL;
-	Tue, 28 Jul 2026 11:08:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wofmU-000000052mk-3Hxm;
+	Tue, 28 Jul 2026 11:15:30 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woffR-0000000529M-2XAW;
-	Tue, 28 Jul 2026 11:08:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XUdocc9AyfaWpOM5SNPJip/RwRNo5MSCyklyHVO9Wws=; b=F4iPhNzOmo8NpbJb+tV6CswPGi
-	+YCKtt8bsid6mcaEYcbDf3iYC8DCtCRsMy/bsVClYGCieP2r8DU303Iv4guwsi7UYqR03nOeEDkSK
-	56qpqtPT/VLc8PvXtZ5h/g7q9erG4AKjqUkG+4eIl0qMv/j/Xb932EoEnjm4KYzrDd5Fk7iwfl41u
-	grFxNPvv2ez60OT3dtPnXylCD1+t/nHHTdYxSmbEUVfTcxHTiv7zkgE7fT/yZm8u8OznQD9ribqUi
-	G+fI3woBoHEUDLnKzKsPe7ptdNYj4VnHFzS9cC7Ixype8if2pU52BCJYozxNfjNECkFbGIqBlqMED
-	OZuDKqQg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1woffL-00000004ryR-2Oyk;
-	Tue, 28 Jul 2026 11:08:07 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 1DC6330093A; Tue, 28 Jul 2026 13:08:06 +0200 (CEST)
-Date: Tue, 28 Jul 2026 13:08:06 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Thomas Huth <thuth@redhat.com>, Jisheng Zhang <jszhang@kernel.org>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	Guo Ren <guoren@kernel.org>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>
-Subject: Re: [PATCH v6 8/8] futex: Use runtime constants for __futex_hash()
- hot path
-Message-ID: <20260728110806.GJ49951@noisy.programming.kicks-ass.net>
-References: <20260728052540.4728-1-kprateek.nayak@amd.com>
- <20260728052540.4728-9-kprateek.nayak@amd.com>
- <20260728104653.GH49951@noisy.programming.kicks-ass.net>
+	id 1wofmR-000000052lN-1QM0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 11:15:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1785237323; x=1785842123; i=markus.elfring@web.de;
+	bh=kdGvc5zVFTVg5hEMq4ScSQ8q5bqHIRstMjtbKuPq0HA=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Mg/Nu7qAOyD/Fd2Ib1tHGx+URjl0/PQDpgaZrRtZHERJBuYZlkKu8XVE19v/6xB4
+	 i1s8bWKuG+zZA8Wr/+TdL585lA1bAk3TwkYjvZNYU5r7HdyTsWkaPDkFKYnfXnh+t
+	 450SaOs/SPfaXFI8VklnO2DlyRdw7E4DR6ias0tv59jS5tW6XL6CS2Fi1xgUln9Rh
+	 d/mklIRM1kJwJLGEeRM3xZt3nHKF7bEoo+gT/TU/YIVYUrqE0AGDufGgMp24Z8tm1
+	 qV+hhclHUYyTkZPdvcVQP/Ib3znORgYJS+VnQHZtbtzHZSxx/UJmxKVjYrgIfFLJq
+	 nsWWR4eQzSwv+FqR5A==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MEUWM-1wifFA3phS-001aHv; Tue, 28
+ Jul 2026 13:15:22 +0200
+Message-ID: <1bf1506a-e689-4a5a-b087-acf99e7fb1a0@web.de>
+Date: Tue, 28 Jul 2026 13:15:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260728104653.GH49951@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2 1/2] soc: fsl: dpio: Use scope-based resource management in
+ dpaa2_io_store_create()
+To: Ioana Ciornei <ioana.ciornei@nxp.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Cc: Christophe Leroy <chleroy@kernel.org>, Dan Carpenter <error27@gmail.com>,
+ James Bottomley <James.Bottomley@hansenpartnership.com>,
+ Peter Zijlstra <peterz@infradead.org>, Roy Pledge <Roy.Pledge@nxp.com>,
+ Steven Rostedt <rostedt@goodmis.org>, LKML <linux-kernel@vger.kernel.org>,
+ kernel-janitors@vger.kernel.org
+References: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
+ <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
+ <d2e5df25-c8b7-4ee6-8ebf-1725542baabd@web.de>
+ <6607bb4e-a747-4791-b93f-f82f26e4a334@web.de>
+ <y2h44um2grcbecnpkck44cvudugha6df2itq2uy5y46whxjouh@yy2kebig3ia5>
+ <802ea627-4bae-4267-b1fa-7da2499f2ab6@web.de>
+ <55dkpjlibtfurmrrzxzznq6e3dhxvo76rsrjnokkaquwktl74r@omft73n4kp52>
+ <3588f06e-7d11-4e94-b141-008e676bb28b@web.de>
+ <6woig227u5snmdsrjfuw7gfcf3vk5iwaap4yf7ow6b6s3pba7z@yg4vmdoaak3h>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <6woig227u5snmdsrjfuw7gfcf3vk5iwaap4yf7ow6b6s3pba7z@yg4vmdoaak3h>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:NXDMpQeusq0/3h0ArwYU9Ve76RPVkb0Vnr7BmOOh5yQxh9HWKac
+ /7R23POzVILDEYp4UXoZBr5RSiDrhUa7V0Y2gvQfKOExLk+FKaKnaNFuVYhcEfT3/JzypX9
+ 0Oka71ouE7dreDBeyNxjE0/0Jr/Ndp8XUS7UWtnfRO2t9WfGGjK4yA1xtXZiEIA1UVJBOpO
+ F67UYHnYBWJgyRBsIS6uw==
+UI-OutboundReport: notjunk:1;M01:P0:sFrYP3dnSpw=;lhf37Z68Ai7yNKJr1b4EWI0e57W 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
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_041527_743135_849A2AA6 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,45 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 12:46:53PM +0200, Peter Zijlstra wrote:
-> On Tue, Jul 28, 2026 at 05:25:40AM +0000, K Prateek Nayak wrote:
-> > From: Peter Zijlstra <peterz@infradead.org>
-> > 
-> > Runtime constify the read-only after init data  __futex_shift(shift_32),
-> > __futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
-> > hot path to avoid referencing global variable.
-> > 
-> > This also allows __futex_queues to be allocated dynamically to
-> > "nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
-> > (1 << CONFIG_NODES_SHIFT) worth of slots upfront.
-> > 
-> > Runtime constants are initialized before their first access and
-> > runtime_const_init() provides necessary barrier to ensure subsequent
-> > accesses are not reordered against their initialization.
-> > 
-> > No functional changes intended.
-> > 
-> >   [ prateek: Dynamically allocate __futex_queues, mark the global data
-> >     __ro_after_init since they are constified after futex_init(). ]
-> > 
-> > Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
-> > Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
-> > Signed-off-by: Peter Zijlstra <peterz@infradead.org>
-> > Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> > Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> > Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
-> > ---
-> > changelog v5..v6:
-> > 
-> > o Picked up tags from Charlie. (Thanks a ton!)
-> > 
-> > o Picked up Peter's S-o-b from his tree.
-> 
-> Right, so I also munged the Changelog in my tree to include those
-> benchmark results. I failed to actually push out those patches before
-> disappearing on holidays, but I recon I should refresh them patches and
-> re-munge the changelog?
+>> How will development concerns evolve further also according to previous=
+ clarification attempts?
+>>
+>> Clarifying confusion of our variable placement rules caused by cleanup.=
+h
+>> https://lore.kernel.org/ksummit/CAHk-=3DwhPZoi03ZwphxiW6cuWPtC3nyKYS8_B=
+ThgztCdgPWP1WA@mail.gmail.com/
+>> https://lkml.org/lkml/2025/11/18/1766
+>=20
+> My preference still stands and I do not think they contradict the views
+> expressed in the above links:
 
-With a bit of luck I didn't wreck things and this new version should now
-be available in queue/locking/core.
+It seems that more time and guidance adjustments would be needed
+to adapt development habits into further directions.
+
+
+> - Variables which do not have anything to do with cleanup.h should still
+>   be defined at the start of the function. This is the case of the
+>   qman_256_cycles_per_ns which you moved in 2/2 without any motive.
+> - In the case of a variable used with __free, if it can be done, I
+>   prefer to see the definition and initialization done at the start of
+>   the function.
+
+The discussed function implementations contain also input parameter valida=
+tion.
+Thus I imagine that it would occasionally be nicer to avoid extra data pro=
+cessing accordingly.
+
+Regards,
+Markus
 
