@@ -4,158 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195E6C54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74B9C54F4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzq2KG8ZteMRFe7Wb/ER6ccj/RBlhwy9Aahxfx9806s=; b=d8M+y7b12Xe5O5TrOanIE2wDe1
-	GClAKVfDOMVbyb7yamAnQHyP/pAQeZf7Jd7cZIceY48VzTNB6bA+ledidkq+/D+vRRpLdzAhie5jg
-	TFKGqUZApK6qTPiTDTCtD8SDyd+JN0Xf8Jm9ZXcSXYkTcC0cYfN/94SDwqhiztNx2qDCzALi8iAQt
-	iPRMIrN430u2gOLvdth2zTfA/HEZKEi5TeZgy5kf3o4lOszPQZ2Ku6FDLW2Vyt0LmPKedIXoxOB0q
-	wULbmEr7V7nPsgeDvVyhegrc4j5PprEbH0jDmzrGLQdKnFngZenqAAmHOHzmVVg0ctwV1rN5GGicH
-	w273EU/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zJDHrOTu5wskyv8HvN/sjdV2FXLFkA7DU9ndSmw5AW4=; b=RJRrcvGYFBRB3vSZh2rXkrKduN
+	j6HEOvXu0qOrm0QtBOTEisI6galfnIR0YGtcGDTx4nqIWjQjJXqW+EijVp1LABBnB4rspTvCt+IlP
+	SXJq1lOFQv7KIEE4gb41BynDImXis32tt26rgQOdhIdU93CckPQvdDU53O7GRfQqDXk8DGJj2LHtU
+	uCCp/ktSnYstd8fpzu5eF64O8kjUadZmSB6FUM8lOOb3zP3KJnZCrPxSA3N7qR+jiMQbiH5YCWvHE
+	QfQ8KjGx2F9ydoYriem7kQpSBlXMRvSeOT3iD1U+Wu6VUp5w4MzAyNgr9Qs+XZ8CPcwcBOfKenRzc
+	QmoGTxBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojQ8-00000005aws-3i39;
-	Tue, 28 Jul 2026 15:08:40 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wojQJ-00000005azK-01CV;
+	Tue, 28 Jul 2026 15:08:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojQ6-00000005aw4-0K3E
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:08:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hXBYBQ8TfP2FgZSOngqLU0Jgc24aAPr/mxXoofEndCapFLIriCI6Yj5MAYPjZCo892B9vP8WMu3iJ/QthkUF6TUkgXevop8c5jJS2ie0mBDXcxNl1NT1QeB6kRLK8CsVMh1M5+y7x+OHAIrfx47RP7AsHyep8C7D30OSROrEWKwd+zjJb0jiWAuhjnN+VaD02O7eHsVS6YeGvByaKb9/pdxfLquWh8KBZHXS9mr5nzM8W9LIZAqxO5JPhhHhiyotgJsqKh8t3T/V8QyXZLkUeUvQCMOdxZV4ErhpXmasYrBI6hPTtOPu1RskBF54RTtn4uEx5QNVSRg14RxprlVQzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nzq2KG8ZteMRFe7Wb/ER6ccj/RBlhwy9Aahxfx9806s=;
- b=ZOpRiop+TXff//AiV357oSdNuqwWmBACcLlRNfE+sWZCVeLXb9H4Vz+Nn0x/HJv/0FgX7cW+Z1ny16kbDqhPNevhCYJZQKOrHSV61cE6AsGwJz8dCULRS4UQPO8kmgebeRHsuy5tEuljjMeUzw79aAI+jd89v7LuhxuwO97bepbcEV9Ogi5+miCNcnaLcw8eVjannOj8wsDg/JTOwKXesgCJ1gTINr/S4e4GhG3tvpLEIyPQxdG5Kvs3tSRcZWzzF0Nn5lPIakd5IYRFqRQam9kckePa2kDH7OPoeRdv7oPQ6G5dP4pkdCB+/YJqjUyJKHIuBsG4PHe0QR4zoNPxQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nzq2KG8ZteMRFe7Wb/ER6ccj/RBlhwy9Aahxfx9806s=;
- b=Hjbc+BH+0gDm1sa9u+leFqw5Y3SeDxf3SN+qgcdobgdJff0i/R7ftUrJyrcIfp9SNFsXNcqVlIcCuXwxOeqvrfHRWCraUKmF3QCgG++KSVea5g+UAMwTvyGCGy2vCgQUH1SZc/AbDJ1HLBFnzfuKLkuZbB4IQFLcO/hN0zXNR048wO0IRfl/LGom0xD4AdKE0y+GKnFqJ6Kz/bm7SCaG1d2V+rwj2DFWV4DgwbsVcu5cVcY9Hfsk44r4Dp+Vdl5D467bjs9D8XD2kLNdJ5da/3paWO63IHC6/30rLugeXTnC7btfC6yHKa6u5FyrqCF8y1wILO9kTK1hjczUg8LAhg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB12640.eurprd04.prod.outlook.com (2603:10a6:800:345::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
- 2026 15:08:32 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.009; Tue, 28 Jul 2026
- 15:08:32 +0000
-From: Frank.Li@oss.nxp.com
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <frank.li@nxp.com>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	guoniu.zhou@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v16 0/3] media: nxp: Add CSI Pixel Formatter support
-Date: Tue, 28 Jul 2026 11:08:23 -0400
-Message-ID: <178525127627.3480677.16359772805058311582.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260728-csi_formatter-v16-0-1065ba47530a@oss.nxp.com>
-References: <20260728-csi_formatter-v16-0-1065ba47530a@oss.nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8PR20CA0006.namprd20.prod.outlook.com
- (2603:10b6:510:23c::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wojQG-00000005ayR-2L5n;
+	Tue, 28 Jul 2026 15:08:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785251325;
+	bh=pv+sMQ7GV/BnoPnLcF7CThx/aHByigCq7f8z/q+RkXU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jMc24RtiUREB/82DNYfJcM5dY+xEDaQlG7GAJPfC1oS47ek37AIlHr74JVk181Z5S
+	 7ql5VYRMJiPMPTRKq4FOf/VGXP1V7Lbyyce+KAA3BZ3tO6S4ONPw1kF3tc9BxgtFMl
+	 ammRPNjem9KtzJPnqKE6Mfj+anwj4msj1OXTm/FQA8mDvnPHvcudYGJTZY7SAw6Zum
+	 fequVaM+7ZEUJkxjPpBN5keA2qu7GWHOKvKOXKpIy+zKCy9ujmFLqJiGpp5mWzpJvF
+	 0gTBbMJm8dCUOd13FCoj/v5jWUTKRVrfczH0nDOkG8smA99+pw+ZE8Z+pyjpkP7icd
+	 jMeGT5eA4B1AA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C34617E028D;
+	Tue, 28 Jul 2026 17:08:45 +0200 (CEST)
+Message-ID: <ebf419fc-24a8-472f-8996-a134ece69f21@collabora.com>
+Date: Tue, 28 Jul 2026 17:08:44 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB12640:EE_
-X-MS-Office365-Filtering-Correlation-Id: af7f078a-e329-4927-b04b-08deecba16a7
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|23010399003|7416014|19092799006|1800799024|56012099006|11063799006|10067099003|6133799003|3023799007|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: HGiHdaCakNzqyzwXNUJroZx4pJot8jYxHBQkuug44U9/qeO8B1bEfLeeGqLVemw7ojcjdD7FAuqSDc/JybriymdfSp/uzDwI+QFgLf+kPSP/nLJ/mZznle2Yf862EQUEWmsXR9P3Kym4JTgJ0eDNoFFZV2uokYmpnXVLv+1VLDcTpE2cndhytYtQ5FQOXu8EOuODHdb87IBgWWgyePq5TgejJRwkWiVxcaL3G5B68UmMwSlOJ4zP68iZeDACNU+o0hFXML/qYrBwG6KteH9uKQf7etQZ4ka9lLHBkyQEJwfVJqo1B9F7RauN+dg9Y9PGRdEqV8x61EK83ibq0ey0ckDU9SaXeD7rwtkmBGvn1KGq3+fgdSYGzH+TXvQNz3GD6PiSzGi77IzEi5RgOD7XWqnsksScqW3QM8ECMFyOu/fzzzk0nJqy9AcxlPVwRdGrKRo/3pdUhq3QMisdr2V6Yf9yQk38Og556maKSaoxIEC6AwrdlHFL8S2sUIFibGCqoAK9SEB5JG6NeuHenYfLSe0YaR2ohVZrrn+LidSxXPlinLt3wTOO1Iej+GA0keK3UHqCSbnfqiJg/JmRe8gog66o4/Fsf2A3PEOuwCvH0qlIh3j/unI/l/3WoF6xj8hPEnM1qs0Oc4kcwDRn1MkOonTdgmqg6qWMhHxHpnqSw2jPoAYBYuo8AxMgLahErJ1zkllwH35sJEnoVFp3+ZZchw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(7416014)(19092799006)(1800799024)(56012099006)(11063799006)(10067099003)(6133799003)(3023799007)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c3plOFNmNGVwb0RjUjcvSkliU1dMQ2RlVGxHQmxjakIyWTZFcXZ3eXBxdWhE?=
- =?utf-8?B?T0xvZmN2bCs4YVJ3anFWWDlHdlUxVjBpQ1lZSG8wOTZ3eE5IbnVyYXcxcXR1?=
- =?utf-8?B?WStkNEFNMjU5djMwT1c5NzFxMDQzOUlaQWJVSE45WUlVc2xObFdDUnBXTXFF?=
- =?utf-8?B?c2tneXg3Y1lMZm9MS1BxaGZkaEZBeTF5QTA2WnZlUWhJa3d2TndXdFVTZjN2?=
- =?utf-8?B?YmwrenppT1FaSTdXMGc5dHhmaFVXOEVvdnlKTEt6RDdUaVB3ZE8yRlNnSGV6?=
- =?utf-8?B?eE0yMVhqRGJoOHgwdWhpZG55cmtCbmtmcnRzcGlmMVpzK0dRNjZiQmphNlJN?=
- =?utf-8?B?OTMwTVduZFk1SEIxTDBoRGtLd0IvUGlIUkZ4NTJ0Q3hZbmRBTVdSdFA2NTRj?=
- =?utf-8?B?dUlrYVNlc3hNUnlPTTl5Mlc4Y2c2NEpYbllUSkh2MWkyblBpUGd3T2YyZ1ky?=
- =?utf-8?B?UUNCWXRIKzdUdEZCYWVySy8wekZEbXFxdGpHSjRRVjg1SXg4RmFJSktRcWgz?=
- =?utf-8?B?TG9nS0t5YnFZQ0loUGJBMmFjQUhPUXQ2SUJ5SGxKYnJwalJhK2pGV0xldzFq?=
- =?utf-8?B?aUdxQXpDcWJpZEtkZ0tVWmJucFdRa1JQRWdTYWNXcHBuclo0YWxyMEgwMlpT?=
- =?utf-8?B?dDNteTdnWE5zZVNHRFB2MW5MOHpmNjlncVZWQU9aSm1EWjRielFRcGhoM1cy?=
- =?utf-8?B?b2ZJKzA5amE4SC9ycVhjMThnWExQazk0aTY4cTJBSWFXZ3Z5bkZpNUdDdCtj?=
- =?utf-8?B?YUI0NmxidUsrbjMxLytsdERCUFNxS2RIeHV0eGVMY0EyMFk3MFlDWERrb3NP?=
- =?utf-8?B?MWlKK3dGbUVpNUl2NGxGREhhelc4N1NCUjNtNUUzUEpKVXdZdDJ5SitScVdO?=
- =?utf-8?B?dllvakFkMjZ0MjE4ZHFvUkVITUFZc2toL01xZm04QzJkRXQ2N2NYTEVtcHQ1?=
- =?utf-8?B?dVdnS2ozbW5KMWlKV3R2SzBNRiszTDltaFZjb0s0QVhrK21tOTRoalU4WDJ6?=
- =?utf-8?B?eFgzVHZPYlBjTzErOUNtVWVLbk9ObnZVSTEvSXQ0cVEva2xuekFLRHRsaWZ2?=
- =?utf-8?B?OVhmRkhySkQyNktyQmxIbnhKK05KWHcwcmNIMk9UY0hpM3phaXFLYUR2UEY5?=
- =?utf-8?B?MEtBMlZCYStpNXBoMFJSS3pyYnhDMTJRNEZhcmx6Uy9XUDJ4WXRIdXl3cFdt?=
- =?utf-8?B?L28rTlBmUGVVZDNWM2QxR2RMQXlHMFpPQjB6dU9oUXRHT1ZUa1lTZFdIT2t4?=
- =?utf-8?B?VXNtRm9wN1Z6L1ZDMUpzVUk2Y3YxejBuejVOUHZFQVMxVGlZejFmNG9YSjRO?=
- =?utf-8?B?ckVOUldzdVFVRHFoTjV3NmV2KzdYbzJHa3hiNDUzZzhqTFZJSjVDY3kvTFFJ?=
- =?utf-8?B?UWJSeXR6UERZNEM0bURXQk5mWWZJTUZJMm9pK2VJcDJvUllIM0lETS96bW9T?=
- =?utf-8?B?VWVtVDNhTTBIMFlqcCtjL2tZMmFONlJUa2hndHcrTkEva01GZjNvd1VLSFh6?=
- =?utf-8?B?YStJNVMvdkxhTitJby82d2s3b3FRODhNcG9XT2NvNk1Fa2h3bE1DeG1YUkJ5?=
- =?utf-8?B?TmRhUUpKeHozWkg3Tk0zZW00NjFTV1V2anhjV1pnRTd0NVU3Z0dOb0VGL2c3?=
- =?utf-8?B?UGlOaVRRcTk4QmluSUszTzdlQjJJYWZYOXhmSnIrZ0R6Q1VyOG1OalZkYnJT?=
- =?utf-8?B?L3FZLzFxUDFLRUl5Y04xVHNJeDU2M051eHVSZlpqZXI4Qllrd214cnQ4d3NM?=
- =?utf-8?B?ZTI1VmZEZWJJT1hTcExSZ0Y3SmVIZmNTajdPVFVITDlGMGVPREVxQ1JZR2FK?=
- =?utf-8?B?Y3Z5Tk9wbXdjcXQzWG1rNVR4OVYrYmQ5U2VyUGNYZkh2YnRUSkRndmw2MkxY?=
- =?utf-8?B?TXBlUWpKN0l2VGdRR0h5d3FrWU1FMVlXOXhZRXNGL2pQZXpvcEcxZzFqRnM3?=
- =?utf-8?B?ZXpDSjY4alV0N2NOMVZQaEdidnJ6YXpwcnBSODVwK2hLSk9LSXdydG12SEox?=
- =?utf-8?B?S3d2WUdVcU1GcXpSY0J5WXRER1dLWFpmcWNtZml1a0Q2YmY0MTdxZ1RLeC8x?=
- =?utf-8?B?S2VQK0pPeXRSczFZWWNEQ1B2VFZKVFlGdUcxRzkzbzVSWDdDRjEzdWRuRVFG?=
- =?utf-8?B?d1UrOTVXSEY4d0pycWdzRUdXVW9IYTNlTC9CdkdxWW1YRVpQU0c3MTdmSjJI?=
- =?utf-8?B?Vmx0SXl2SGVzM1Frb0VIVXQxUmNxVkVOVWhIejEvYlpWUFZIR3Fabkg3R2pU?=
- =?utf-8?B?WHJqdjJoRHdHemRrOFVYeVJQTHBNeS94eW9VT2YvNTNtWXNzRnVvdTJXY2xL?=
- =?utf-8?B?TWV3M0k0OSt2elZiYkFTdnFKRTNaaUpoRDQ1Zk9yUWhwTjMzTkVNbU9XMmxO?=
- =?utf-8?Q?ZKUTuLub2fhtaK6jaPBj1WidcqbpVeSQeMmgw?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: af7f078a-e329-4927-b04b-08deecba16a7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 15:08:32.2735
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qghomww8Xkw3BhxucNXkSGL8Io3lfipezUBgnlDzUsv1X80mDoPvOXzwV9qpKdcnONvtZDjvqcRWNdA7WZcWYIUKeeUgUfiHJD0e5FOwlmN3ADmHyyYbAM613M8nP1Na
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12640
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] soc: mediatek: cmdq-helper: add legacy GCE ISA
+ support
+To: rva333@protonmail.com, Jassi Brar <jassisinghbrar@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Houlong Wei <houlong.wei@mediatek.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260728-6572-gce-v1-0-750bba32689e@protonmail.com>
+ <20260728-6572-gce-v1-2-750bba32689e@protonmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260728-6572-gce-v1-2-750bba32689e@protonmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_080838_119067_3D84CA6D 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260728_080848_761887_F73C5DFA 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,35 +79,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Tue, 28 Jul 2026 14:14:13 +0800, guoniu.zhou@oss.nxp.com wrote:
-> CSI Pixel Formatter is a module found on i.MX95. It could unpack the
-> pixels received by the formatter and reformat them to meet the pixel
-> link format requirement.
+On 7/28/26 11:42, Roman Vivchar via B4 Relay wrote:
+> From: Roman Vivchar <rva333@protonmail.com>
 > 
-> This patch series adds a new V4L2 driver for CSI Pixel Formatter.
+> Some SoCs, such as mt6572, have different WRITE and POLL instruction
+> encoding. Instead of 16-bit offset and 8-bit subsystem ID, old GCEs have
+> 22-bit offset and 2-bit subsystem ID.
+
+What about poll_addr, mask, write_s, write_s_mask and others?
+
+Not sure that this will actually work reliably (though I'm sure you're not
+creating any regression).
+
 > 
-> Background
-> ----------
-> The Camera CSR binding was upstreamed during the pre-silicon phase when
-> the hardware integration details were not fully finalized. At that time,
-> the syscon binding focused on the CSR's primary role as a shared register
-> provider for clock gating, QoS, and error handling across Camera domain IPs.
+> Extend cmdq_instruction struct with additional union and struct to hold
+> the legacy format of instruction encoding. Add legacy_isa to select
+> legacy GCE ISA when writing instruction. Finally, add special handing
+> for legacy_isa cases.
 > 
-> [...]
-
-Applied, thanks!
-
-[1/3] media: dt-bindings: Add CSI Pixel Formatter DT bindings
-      commit: c0af539f5c2841f0756f8ae98808e1eafe4538af
-[2/3] dt-bindings: clock: imx95-blk-ctl: Define formatter child node schema
-      commit: c6cc72164123f777933b0d3453fa3e3ad283e223
-[3/3] media: nxp: Add i.MX95 CSI pixel formatter v4l2 driver
-      commit: cc29462f4d0723502feff17ff1758c690c5fce4d
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> While mt6572 GCE supports 22-bit offsets, the parameter type for offset
+> remains 16 bit, because all mt6572 GCE mmsys consumers are in the 0xffff
+> range.
+> 
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>   drivers/soc/mediatek/mtk-cmdq-helper.c   | 55 ++++++++++++++++++++++----------
+>   include/linux/mailbox/mtk-cmdq-mailbox.h |  1 +
+>   2 files changed, 39 insertions(+), 17 deletions(-)
+> 
+> diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
+> index f8ee6c9ade89..094732405080 100644
+> --- a/drivers/soc/mediatek/mtk-cmdq-helper.c
+> +++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
+> @@ -31,18 +31,27 @@ struct cmdq_instruction {
+>   		};
+>   	};
+>   	union {
+> -		u16 offset;
+> -		u16 event;
+> -		u16 reg_dst;
+> -	};
+> -	union {
+> -		u8 subsys;
+>   		struct {
+> -			u8 sop:5;
+> -			u8 arg_c_t:1;
+> -			u8 src_t:1;
+> -			u8 dst_t:1;
+> -		};
+> +			union {
+> +				u16 offset;
+> +				u16 event;
+> +				u16 reg_dst;
+> +			};
+> +			union {
+> +				u8 subsys;
+> +				struct {
+> +					u8 sop:5;
+> +					u8 arg_c_t:1;
+> +					u8 src_t:1;
+> +					u8 dst_t:1;
+> +				};
+> +			};
+> +		} __packed;
+> +
+> +		struct {
+> +			u32 offset_legacy:22;
+> +			u32 subsys_legacy:2;
+> +		} __packed;
+>   	};
+>   	u8 op;
+>   };
+> @@ -219,10 +228,16 @@ int cmdq_pkt_write(struct cmdq_pkt *pkt, u8 subsys, u16 offset, u32 value)
+>   {
+>   	struct cmdq_instruction inst = {
+>   		.op = CMDQ_CODE_WRITE,
+> -		.value = value,
+> -		.offset = offset,
+> -		.subsys = subsys
+> +		.value = value
+>   	};
+> +
+> +	if (pkt->priv.legacy_isa) {
+> +		inst.offset_legacy = offset;
+> +		inst.subsys_legacy = subsys;
+> +	} else {
+> +		inst.offset = offset;
+> +		inst.subsys = subsys;
+> +	}
+>   	return cmdq_pkt_append_command(pkt, inst);
+>   }
+>   EXPORT_SYMBOL(cmdq_pkt_write);
+> @@ -459,10 +474,16 @@ int cmdq_pkt_poll(struct cmdq_pkt *pkt, u8 subsys,
+>   {
+>   	struct cmdq_instruction inst = {
+>   		.op = CMDQ_CODE_POLL,
+> -		.value = value,
+> -		.offset = offset,
+> -		.subsys = subsys
+> +		.value = value
+>   	};
+> +
+> +	if (pkt->priv.legacy_isa) {
+> +		inst.offset_legacy = offset;
+> +		inst.subsys_legacy = subsys;
+> +	} else {
+> +		inst.offset = offset;
+> +		inst.subsys = subsys;
+> +	}
+>   	return cmdq_pkt_append_command(pkt, inst);
+>   }
+>   EXPORT_SYMBOL(cmdq_pkt_poll);
+> diff --git a/include/linux/mailbox/mtk-cmdq-mailbox.h b/include/linux/mailbox/mtk-cmdq-mailbox.h
+> index 07c1bfbdb8c4..9fcebc4ca864 100644
+> --- a/include/linux/mailbox/mtk-cmdq-mailbox.h
+> +++ b/include/linux/mailbox/mtk-cmdq-mailbox.h
+> @@ -72,6 +72,7 @@ struct cmdq_cb_data {
+>   
+>   struct cmdq_mbox_priv {
+>   	u8 shift_pa;
+> +	bool legacy_isa;
+>   	dma_addr_t mminfra_offset;
+>   };
+>   
+> 
 
