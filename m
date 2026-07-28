@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE14C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB11C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 02:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RfQDYEdmRUHNrUpuV5WSYlT1Ln/TvaGRYKh3vCdBDu0=; b=Yf7/1C6BC9/XEz83iIMM7PidZU
-	GDvTLbGQ56g64IRwgAjjSXw9QzU7BDwmbHxtL4EsvNrK2+5lQGlIhXkl+RSp9ZtJhwRjDX6yb9rgE
-	DyszQw4mO2HQQvPYKo5tnVL7XEaHToI1QbySj6zEuA6Mrpj271sB4g24qS+1hM4rlYdfPd8wrl+yK
-	+GCIh8jYK/wkyIdl8K5/VJUjxgqjFDwmF947WEI/AxCIBfDZ9JEoJvgfa+p7JVHTEVWce0K99vpG+
-	JBljyR6Gzqre8CZuOy+QKXwhpVHqy7kLW4PXI/4RBY73cAWrLNkEsDgJoMst+PB9XK0slCNgKJjaa
-	tEmBBLNg==;
+	bh=9ezikVBnXSki6nhUooCP/KeXpuFqnz8K+KhIid8hIrs=; b=nVOYNzceNWlbL70FldiBW+zd9A
+	Y2QzHsUum1XH4MZbbWa/CdDvyy6h0Owk4vvlpR3LMJ+3JBi/xonTQ3G+BrIzaK5rDQNH6+4qcFnEo
+	hYwvkIBpdPnUdkLqBL/mSyK74YjiMu2KC1yF63sx11TCt9VZHZsqpwXnIB37JDMv0Zpv/EY95Mt4m
+	eQrxEMG83BwijYvHyFp0msnvP1lAlISoJvBtnB9ZgqsVN+YlXXpThgi0FjDsEDf/uKQBk/RpBETob
+	fJH9DjevdHs3uU8mI1o+nWN78Ih8TuzLmrs5khpQr0ucPnp4Sn4oIDSAvOwitin5IjLbj0XQA1E/C
+	wl4bvN+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXdt-00000004H52-0zQx;
-	Tue, 28 Jul 2026 02:34:05 +0000
-Received: from mail-m158185.netease.com ([47.251.158.185])
+	id 1woXmd-00000004HMT-0Jxl;
+	Tue, 28 Jul 2026 02:43:07 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woXdm-00000004H4H-3Q9Y;
-	Tue, 28 Jul 2026 02:34:04 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 47cc2d725;
-	Tue, 28 Jul 2026 10:33:51 +0800 (GMT+08:00)
-Message-ID: <e22072d9-7fee-4f83-9ae9-5428e45c7507@rock-chips.com>
-Date: Tue, 28 Jul 2026 10:33:48 +0800
+	id 1woXmZ-00000004HM4-1QVh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 02:43:05 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=9ezikVBnXSki6nhUooCP/KeXpuFqnz8K+KhIid8hIrs=;
+	b=Si0aDQ2tzlExlwEMX/Ka6FtqI37MIm6dGWnce3j4y/eUMgcaj9mw8fHNtAujyyyOuACzi6Akb
+	s/lFngOT81y85UW2s6G26JpzhEtmPBF5zZV/x0dy0PjMlapypA8i/0TXm2l+epxBYCP1b+CtkZh
+	7vfelOlkyhM8Rp77WuW4fHY=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h8KJk10XTznTbD;
+	Tue, 28 Jul 2026 10:33:26 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2EF4F40572;
+	Tue, 28 Jul 2026 10:42:54 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 28 Jul 2026 10:42:53 +0800
+Message-ID: <e3c7c161-7cd8-420a-9708-548fd9fbd39a@huawei.com>
+Date: Tue, 28 Jul 2026 10:42:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/5] This series is split from the v15 "Add Type-C DP
- support for RK3399 EVB
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Vinod Koul <vkoul@kernel.org>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-phy@lists.infradead.org
-References: <20260727064408.101-1-kernel@airkyi.com> <amgMXujurBrB5B0L@venus>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <amgMXujurBrB5B0L@venus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9fa692427f03a7kunm22e4635d2dc5eb
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaH00YVh9JTB1CHR8aTR8dGlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=ZCyjeSSSdnQ5MqlVWg9iw3Z33MtEjjiTFIQ9v4H2BxaLkwkpmqKqU1f4qcU0yX7DNj6E3AcGdvacJPDFOQJ7E84H6io18soSiLG9kZgbYE850m7+bAVCsM+QzcCWqsN2/qnKyg4t7pJdcXjlHeC2YLrbmo9vi6nvSHSAC5ZtW1I=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=RfQDYEdmRUHNrUpuV5WSYlT1Ln/TvaGRYKh3vCdBDu0=;
-	h=date:mime-version:subject:message-id:from;
+Subject: Re: [RFC PATCH v2 10/45] arm64: irqflags: Introduce arm64-specific
+ irqflags type
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-11-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-11-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_193400_188331_E7DF3236 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260727_194304_050913_2EFC0A05 
+X-CRM114-Status: GOOD (  25.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,107 +80,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
 
-On 7/28/2026 10:08 AM, Sebastian Reichel wrote:
-> Hello Chaoyi,
-> 
-> On Mon, Jul 27, 2026 at 02:44:03PM +0800, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> [1] https://lore.kernel.org/all/20260304094152.92-1-kernel@airkyi.com/
->>
->> ====
->> 1. Generic Type-C DP HPD bridge
->>
->> Currently, several USB-C controller drivers register their own DP HPD
->> bridge via aux-hpd-bridge.c, each duplicating the same logic. For
->> devicetree based platforms, the USB-C controller may vary across boards,
->> and not every USB-C controller driver implements this feature. Patch 1
->> implements a generic DP HPD bridge that monitors Type-C bus events and
->> automatically creates an HPD bridge when a Type-C port device with DP
->> SVID is registered.
->>
->> 2. Multiple bridge model for CDN-DP
->>
->> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. Patch 5
->> introduces a multi-bridge model where each PHY port gets a separate
->> encoder and bridge, allowing flexible selection of the output PHY port.
->> This is based on the DRM AUX HPD bridge rather than extcon.
->>
->> ====
->> Patch 1 adds generic USB Type-C DP HPD bridge (Dmitry, Heikki).
->> Patch 2 adds new API drm_aux_bridge_register_from_node() (Neil).
->> Patch 3 adds DRM AUX bridge support for RK3399 USBDP PHY (Neil).
->> Patch 4 drops CDN-DP's extcon dependency when Type-C is present (Dmitry).
->> Patch 5 adds multiple bridges to support PHY port selection (Dmitry, Luca).
->>
->> Changes in v4:
->> - Link to v3: https://lore.kernel.org/all/20260717072323.96-1-kernel@airkyi.com/
->> - Scan the entire typec_bus and attempt to register the hpd bridge,
->>   so as not to miss devices that were already added during initialization.
-> 
-> While that may help with the module being loaded late, it does not
-> help with triggering the module load in the first place.
-> 
-> The module does not have any MODULE_DEVICE_TABLE() helping with
-> that. So basically any system relying on the automatic hpd bridge
-> registration and using a modular kernel (e.g. the arm64 defconfig or
-> the kernels usually provided by Linux distributions) requires
-> manually loading that module to get any graphical output.
->
 
-Thank you for pointing this out. I will add it in v5.
-
-> Greetings,
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> -- Sebastian
+> With pseudo-NMIs enabled, we have two mechanisms that control
+> interrupt masking in parallel :
+> - The DAIF flags, masking at the CPU
+> - The GIC PMR, masking before the CPU
 > 
->> Changes in v3:
->> - Link to v2: https://lore.kernel.org/all/20260608070805.88-1-kernel@airkyi.com/
->>   (Sorry, I forgot to add the "v2" title, so it looks like v1.)
->> - Remove now-redundant call to drm_connector_attach_encoder()
->> - Rebase to v7.2-rc2
->>
->> Changes in v2:
->> - Link to v1: https://lore.kernel.org/all/20260521032854.103-1-kernel@airkyi.com/
->> - Add copyright text.
->> - Remove useless goto.
->> - Fix incorrect function names in the documentation comments.
->> - Fix the check logic for dp->active_port (0 is valid).
->> - Fix the uninitialized prev_port.
->> - Remove duplicate logic from cdn_dp_switch_port().
->> - Fix the prototype of cdn_dp_bridge_hpd_notify().
->> - Properly release connector->fwnode.
->> - Properly release next_bridge.
->>
->> Chaoyi Chen (5):
->>   drm/bridge: Implement generic USB Type-C DP HPD bridge
->>   drm/bridge: aux: Add drm_aux_bridge_register_from_node()
->>   phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
->>   drm/rockchip: cdn-dp: Support handle lane info without extcon
->>   drm/rockchip: cdn-dp: Add multiple bridges to support PHY port
->>     selection
->>
->>  drivers/gpu/drm/bridge/Kconfig                |  10 +
->>  drivers/gpu/drm/bridge/Makefile               |   1 +
->>  drivers/gpu/drm/bridge/aux-bridge.c           |  26 +-
->>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  |  64 ++++
->>  drivers/gpu/drm/rockchip/Kconfig              |   1 +
->>  drivers/gpu/drm/rockchip/cdn-dp-core.c        | 358 ++++++++++++++----
->>  drivers/gpu/drm/rockchip/cdn-dp-core.h        |  18 +-
->>  drivers/phy/rockchip/Kconfig                  |   2 +
->>  drivers/phy/rockchip/phy-rockchip-typec.c     |  13 +-
->>  include/drm/bridge/aux-bridge.h               |   6 +
->>  10 files changed, 428 insertions(+), 71 deletions(-)
->>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->>
->> -- 
->> 2.53.0
->>
->>
+> However, our irqflags implementation currently assumes that only one
+> of the two is used at a time, so both DAIF and PMR masking use the same
+> `unsigned long flags` in their own way.
+> This is incorrect, as some parts of the kernel will mask interrupts
+> with DAIF directly or bypass the local_irq masking via the PMR,
+> and makes tracking the state and changes of both in parallel impossible.
+> 
+> The irqflags API expects `unsigned long`s to be passed around, but
+> they should not be manipulated outside of the arch-specific code.
+> So, we can encode the information we need however we want as long as
+> we return and accept `unsigned long`s.
+> 
+> Introduce a union type for arm64 irqflags whose first member is
+> a struct allowing us to track DAIF and PMR in parallel, and the second
+> is the `unsigned long` expected by the irqflags API.
+> 
+> DAIF is a two byte value, to maintain compatibility with existing defines.
+> PMR is a one byte value, which is the maximum amount of priority bits
+> allowed by the GICv3 architecture.
+> 
+> Update the internal irqflags functions to use this new union and convert
+> back and forth with the irqflags unsigned long.
+> There should be no functional changes.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/irqflags.h | 43 ++++++++++++++++++++++++++-----
+>  1 file changed, 37 insertions(+), 6 deletions(-)
 
--- 
-Best, 
-Chaoyi
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> 
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index a8cb5a5c93b7..1863a955d119 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -9,6 +9,8 @@
+>  #include <asm/ptrace.h>
+>  #include <asm/sysreg.h>
+>  
+> +#include <linux/compiler.h>
+> +
+>  /*
+>   * Aarch64 has flags for masking: Debug, Asynchronous (serror), Interrupts and
+>   * FIQ exceptions, in the 'daif' register. We mask and unmask them in 'daif'
+> @@ -20,6 +22,23 @@
+>   * exceptions should be unmasked.
+>   */
+>  
+> + /*
+> +  * Internally, we want to independently manipulate and track the different
+> +  * interrupt masking mechanisms.
+> +  * Externally, the generic irqflags API expects unsgined longs to represent
+> +  * the state of interrupts, which are treated as obscure arch-specific data.
+> +  */
+> +typedef union arm64_exc_hwstate {
+> +	struct {
+> +		u16 daif;
+> +		u8 pmr;
+> +		u8 __padding[5];
+> +	};
+> +	unsigned long flags;
+> +} arm64_exc_hwstate_t;
+> +
+> +static_assert(sizeof(arm64_exc_hwstate_t) == sizeof(unsigned long));
+> +
+>  static __always_inline void __daif_local_irq_enable(void)
+>  {
+>  	barrier();
+> @@ -79,12 +98,16 @@ static __always_inline void arch_local_irq_disable(void)
+>  
+>  static __always_inline unsigned long __daif_local_save_flags(void)
+>  {
+> -	return read_sysreg(daif);
+> +	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+> +
+> +	return hwstate.flags;
+>  }
+>  
+>  static __always_inline unsigned long __pmr_local_save_flags(void)
+>  {
+> -	return read_sysreg_s(SYS_ICC_PMR_EL1);
+> +	arm64_exc_hwstate_t hwstate = { .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
+> +
+> +	return hwstate.flags;
+>  }
+>  
+>  /*
+> @@ -101,12 +124,16 @@ static __always_inline unsigned long arch_local_save_flags(void)
+>  
+>  static __always_inline bool __daif_irqs_disabled_flags(unsigned long flags)
+>  {
+> -	return flags & PSR_I_BIT;
+> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+> +	return hwstate.daif & PSR_I_BIT;
+>  }
+>  
+>  static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
+>  {
+> -	return flags != GIC_PRIO_IRQON;
+> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+> +	return hwstate.pmr != GIC_PRIO_IRQON;
+>  }
+>  
+>  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+> @@ -171,15 +198,19 @@ static __always_inline unsigned long arch_local_irq_save(void)
+>  
+>  static __always_inline void __daif_local_irq_restore(unsigned long flags)
+>  {
+> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+>  	barrier();
+> -	write_sysreg(flags, daif);
+> +	write_sysreg(hwstate.daif, daif);
+>  	barrier();
+>  }
+>  
+>  static __always_inline void __pmr_local_irq_restore(unsigned long flags)
+>  {
+> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+>  	barrier();
+> -	write_sysreg_s(flags, SYS_ICC_PMR_EL1);
+> +	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>  	pmr_sync();
+>  	barrier();
+>  }
+
 
