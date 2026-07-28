@@ -4,143 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F36C54F4D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 16:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9741FC54F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 16:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldrGXYVfZqZof6XV0b95MEUdQpAbYXx4kQK0AyVaZ1M=; b=dLnoFncmEimDyzaBuzFJU6hAeq
-	88ipew7TjMqqnojjFJSSFigjlpPs4GdREbeo2wEu0XIxaQb4Nih8nDsgdNQvpnCLPZL+hPkempbaL
-	AvTOUgtpsxjyMN1JJoT98Bh3lRDfuBtSnTSZ5gi64WRAO/9Fq1CnDzkniHpj703dtL8ysobuqOJ89
-	UVEaTZgRdLyY/89I+Km4U5PjNrF92+UAPys8noIX8OQ3lfj8BaGrCT0RrjAc1PQ4LZAv6vJVV4FBX
-	4IXKWN9hqv/15kSCYlm9Q9qXkp1B7U14yOt/hZgL3bG3s7LxchToExrgcbERp+aTP80x/xm8ygmSq
-	0sp6tLpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=VaDP40JoGOSQxXmgmR3af5oPCK1LSZo99YVjzP4O+2E=; b=VSS7KwPLTxRVLG
+	hyUD2a7WteLa8WnT/JjFwy13pQMzyY+S5qRxgDMt9FA6HUGrXMCna5R4fUhmVtWPllzLlXnM1bGvv
+	AFhZZ+EjuyheGxy09YtHaXTjaXKBIpvrARXqItwS3ClbyGbZyzmf4RmzjQND2psPC8ATBoOTjr65B
+	sj9ZBgD2xzeE0H2VQ79bs8dbhXt9fDaNiKuGbPJ/DulYbHX7ADWSHF0BxHZrn8PbJ+zS7wexKrGNe
+	AaMfjROG8y4M2jJqLzsq8RuwaSwSEDUqaq/6/pkpLV3iGied7sdrZ0e3uq8Eni7KK/Uc3CHl4vmBo
+	L7TNvCJzAuhnurJGF/pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokXh-00000005oUi-3lKP;
-	Tue, 28 Jul 2026 16:20:33 +0000
-Received: from mail-qt1-x862.google.com ([2607:f8b0:4864:20::862])
+	id 1wokoW-00000005q7W-00yp;
+	Tue, 28 Jul 2026 16:37:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokXd-00000005oT5-3oWn
+	id 1wokoU-00000005q73-3uR6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 16:20:32 +0000
-Received: by mail-qt1-x862.google.com with SMTP id d75a77b69052e-51c05dcdf49so200381cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 09:20:29 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785255629; x=1785860429;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ldrGXYVfZqZof6XV0b95MEUdQpAbYXx4kQK0AyVaZ1M=;
-        b=bjdN6iC6Gvm7ZRQA66qpHuzT0P5jZlr/Y6MJPlg77ijRUJ1z38NCNKcSaP5lu9trBJ
-         r7tS2uca/LQSf/XCldn+k8V1SucqqhgaJ0XiS0SmUECwCigbc5dIEbwyWSFHTqf2hThZ
-         ngjP+qZrwvHxN7ieZY0OilEG64HoMIse+hpwh+r9r9JdTq/6onsf2EBUMDYnwCcVdTNS
-         rw0Z3mN5+EuTw6c4IojZG55Yv786x6ROrsva2jXhNkEPuCRxfALCUP+CEjQIdF8NDIQi
-         yuE8fdFoJWENAWy+CGZELMrMXArwN7GKx5PtJ7EaQD5CenrxcMMpKzDFDglbzJp9ELOW
-         hFMQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrmTdgz1Z4vDfFj84v4waah6wdIpvUBBittP6W3q5vYEVUDg+3QnbyjIo9QPdbcaKbFoR2z9Rm4PTPD3sv9yJlk@lists.infradead.org
-X-Gm-Message-State: AOJu0YymYvSsHSgl+TX0Bh4+tT23BbwiI5CXfw3cim6GKsGkcP4pe9R4
-	aNzoEbnFiBVngyqv7bJ/3KifodPP30TuYVgFzLrbYemjwojYOchs3LH7yVAyKt+hF+5FZ8ZXIVA
-	MbGJ3n+K7g9IMPN0+JQ6lW310kllhL7zetFdfqUhu4hdtSMtGI7yKJIM0CdJ6z61kcYvgzSiE5d
-	5Bo81lzq+bfrZywJx0bmbjGx7Ct75c29J+YWycxBn1KLBTew1j4XNww7K4IfdbihQqa3hvwLfLe
-	mpa85eS0gS+m0VBAbiotKR9RnGOE4JvTWg=
-X-Gm-Gg: AR+sD13Qan8tKMZfSSwys6ujD4lUtJv9RlqdW/7otKj+z3PXqNA9FZFqEWY58emMuaH
-	B04JjxP6w6ihLz3gZtKQRRzKXXK/3GFdDBfZXs2xEThiEVDfP3zSJD3GMXjNZFsQY2b8ahtCjCJ
-	/O2QJpuJr4L2infQ+3A2qr/qHLbC7jjQll9gwaz6dd3cw+5UXuQhyR7vyykA4ds4iBE6JQu4JX9
-	Ssowov8N4fiP+QfCAyPxRbHGyN8KrxsYOu4h0cFzl/MGufxEBm7BCma+c8YF7B7wy2V1FvoU/Az
-	POlJU4WYucVN3TTe/lA9AyLYbsqrMcLPV5KcPUG4cy1bG1aKEf1Tq1YEkxz03kJnOwyjd5NShu+
-	64cfQumTLZfibO7zTD3cyA+4G1UWmYr/bLU/SI6ekCpsw9siLw6mbSqhu98K/BwneNHTJn8dfE3
-	JHnX5jbXtbjKjsEBNNyyDHKS9sxFB1CJaCHBty5zHr
-X-Received: by 2002:a05:622a:50f:b0:51c:8439:14d9 with SMTP id d75a77b69052e-529d70e6e9bmr29502751cf.54.1785255628399;
-        Tue, 28 Jul 2026 09:20:28 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-73.dlp.protect.broadcom.com. [144.49.247.73])
-        by smtp-relay.gmail.com with ESMTPS id d75a77b69052e-529e2da73c9sm29711cf.13.2026.07.28.09.20.28
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 28 Jul 2026 09:20:28 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51bff5c7035so17021cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 09:20:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1785255627; x=1785860427; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ldrGXYVfZqZof6XV0b95MEUdQpAbYXx4kQK0AyVaZ1M=;
-        b=GeNIvOXGdZmsHL3kZf5hapBg1xX+scrRJo8Dk83LKPMNSF0fbPJ4qXa3MVGHcdqO1p
-         KxPILkhpGF1OeK4ndXsZh+Fw6o4+zb1p+yaRcAgON/lfuNFSK/41vp3gdzykBfNZTEvk
-         qr2395fR5581yf0RfE3MI+8pNpnCIaKAGNjHM=
-X-Forwarded-Encrypted: i=1; AHgh+RrnuaokeqkoL3AjPgbUaxp6/QGj40dcUfx/Gdj8LHOCm9bFrcaYgE701s/MrCeSLynzfKJoZ4Af8yNCOBefrtFA@lists.infradead.org
-X-Received: by 2002:a05:622a:50f:b0:51c:8439:14d9 with SMTP id d75a77b69052e-529d70e6e9bmr29502141cf.54.1785255627665;
-        Tue, 28 Jul 2026 09:20:27 -0700 (PDT)
-X-Received: by 2002:a05:622a:50f:b0:51c:8439:14d9 with SMTP id d75a77b69052e-529d70e6e9bmr29501711cf.54.1785255627138;
-        Tue, 28 Jul 2026 09:20:27 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9081dc8a00asm2538436d6.20.2026.07.28.09.20.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Jul 2026 09:20:26 -0700 (PDT)
-Message-ID: <86243c3d-6680-4c2e-9eb2-8c1d5d390120@broadcom.com>
-Date: Tue, 28 Jul 2026 09:20:24 -0700
+	Tue, 28 Jul 2026 16:37:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E702F60A8C;
+	Tue, 28 Jul 2026 16:37:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 702EC1F000E9;
+	Tue, 28 Jul 2026 16:37:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785256673;
+	bh=VaDP40JoGOSQxXmgmR3af5oPCK1LSZo99YVjzP4O+2E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=MwZw/ie+VMuOaZJGGkyDSli4aTKGmcIXxhmj654dvcSKOlPloSaUaRxqJ6D7pWWd+
+	 ZYBfw24z09CfaOyJhubrf65ZWc5pSDK4BzDeJ4lHkQLBzczrKdveNGRHk4+QxMvCq/
+	 eAQ9jRhHaz85kZ6qSpaD3bUXFwc9/Ri3pIYipMvWCZbHJ9qws+2Yb76pLpQI3L480R
+	 CThzCvCl2QzsgSIU7NQiF7x6knRnIXBu+uwFN+EW3wkzj/GA2mdXkJA/o6Bs6ocfZy
+	 oDdBxtWAzEmOFaBTTc+MFa5XoGjTc1alEX5otaMoW7pCepT3G/gUGZPAuhuAxEytt7
+	 N35zj92SU8zUw==
+Date: Tue, 28 Jul 2026 11:37:52 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: hongxing.zhu@oss.nxp.com
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Richard Zhu <hongxing.zhu@nxp.com>,
+	Leonardo Costa <leoreis.costa@gmail.com>,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH v5] PCI: imx6: Fix i.MX6Q/DL boot hang caused by improper
+ PHY power sequencing
+Message-ID: <20260728163752.GA1328281@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: broadcom: bcm7445: Correct indentation
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- bcm-kernel-feedback-list@broadcom.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>
-References: <20260706101920.341586-2-krzysztof.kozlowski@oss.qualcomm.com>
- <20260721172801.3591970-1-florian.fainelli@broadcom.com>
- <9a415731-0de0-4cb4-b6c1-fc78806f6414@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <9a415731-0de0-4cb4-b6c1-fc78806f6414@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_092029_974983_C4BA0A9B 
-X-CRM114-Status: GOOD (  10.72  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260728035159.2702021-1-hongxing.zhu@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,27 +74,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/25/26 09:37, Krzysztof Kozlowski wrote:
-> On 21/07/2026 19:28, Florian Fainelli wrote:
->> From: Florian Fainelli <f.fainelli@gmail.com>
->>
->> On Mon,  6 Jul 2026 12:19:21 +0200, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
->>> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
->>> No functional impact (same DTB).
->>>
->>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>>
->>> ---
->>
->> Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
+On Tue, Jul 28, 2026 at 11:51:59AM +0800, hongxing.zhu@oss.nxp.com wrote:
+> From: Richard Zhu <hongxing.zhu@nxp.com>
 > 
-> It is still not there. Last commit is v7.2-rc1.
+> commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+> introduced a boot hang on i.MX6Q/DL variants by reordering
+> imx_pcie_host_init() to call imx6q_pcie_enable_ref_clk() (which powered up
+> the PHY) before imx6q_pcie_core_reset() (which powered it back down).
 > 
-> Your next branch:
-> https://github.com/Broadcom/stblinux/commits/next
-> has last commit from May 29. Something was not pushed?
+> Before 610fa91d9863, the sequence was:
+> 
+>   1. imx_pcie_assert_core_reset() - power down PHY (set TEST_PD), set
+>      REF_CLK_EN
+>   2. imx_pcie_clk_enable() - power up PHY (clear TEST_PD), set REF_CLK_EN
+>   3. Link training starts with PHY powered up (TEST_PD cleared)
+>   4. Link training succeeds
+> 
+> After 610fa91d9863, the sequence became:
+> 
+>   1. imx_pcie_clk_enable() - power up PHY (clear TEST_PD), set REF_CLK_EN
+>   2. imx_pcie_assert_core_reset() - power down PHY (set TEST_PD), set
+>      REF_CLK_EN
+>   3. imx_pcie_deassert_core_reset() - does nothing
+>   4. Link training starts with PHY powered down (TEST_PD set)
+>   5. Link training fails and boot hangs
+> 
+> To fix this:
+> 
+>   - Remove TEST_PD PHY power control from imx6q_pcie_enable_ref_clk()
+>   - Remove REF_CLK_EN control from imx6q_pcie_core_reset()
+>   - Add TEST_PD PHY power control to imx6qp_pcie_core_reset(), which
+>     previously relied on imx6q_pcie_enable_ref_clk() to power up the PHY by
+>     clearing TEST_PD
+>   - Clear TEST_PD to power on PHY in imx_pcie_deassert_core_reset()
+> 
+> These changes together ensure the correct sequence:
+> 
+>   1. REF_CLK_EN set in clk_enable() (TEST_PD untouched)
+>   2. TEST_PD set in assert_core_reset() (PHY power off)
+>   3. TEST_PD cleared in deassert_core_reset() (PHY power on)
+>   4. Link training starts with proper PHY state
+> 
+> The i.MX6Q/DL PCIe PHY requires approximately 120us between TEST_PD
+> de-assertion and link training start. Add usleep_range(200, 500) in
+> imx6q_pcie_core_reset() after clearing TEST_PD to satisfy this requirement.
+> 
+> Add explicit imx_pcie_assert_core_reset() calls in error paths and
+> host_exit() to ensure no power leak.
+> 
+> Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reported-by: Leonardo Costa <leoreis.costa@gmail.com>
+> Closes: https://lore.kernel.org/lkml/20260629143439.361560-1-leoreis.costa@gmail.com/
+> Tested-by: Leonardo Costa <leonardo.costa@toradex.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-It was not, fixed yesterday, sorry about that.
--- 
-Florian
+Applied to pci/for-linus for v7.2, thanks very much!
+
+> ---
+> Changes in v5:
+> Update the commit log suggested by Bjorn.
+> 
+> Changes in v4:
+> Refer to Sashiko' reivew of v3 patch.
+> - Adjust imx_pcie_assert_core_reset() in imx_pcie_host_exit().
+> - Add the delay explicitly after TEST_PD is cleared, since the PERST# GPIO
+> might be optional.
+> 
+> Changes in v3:
+> Update the commit descriptions to address the following items.
+> - Clarify the root cause of this regresssion.
+> - Describe why both changes are mandatory required to fix this
+>   regression.
+> - Justify the delay removal also.
+> 
+> Changes in v2:
+> Per Sashiko's review, invoke imx_pcie_assert_core_reset() explicitly
+> in error path of imx_pcie_host_init() and imx_pcie_host_exit().
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 41 ++++++++++++++-------------
+>  1 file changed, 22 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index e25f938eefe23..c94b5e991aecd 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -681,21 +681,12 @@ static int imx_pcie_attach_pd(struct device *dev)
+>  
+>  static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+>  {
+> -	if (enable) {
+> -		/* power up core phy and enable ref clock */
+> -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+> -		/*
+> -		 * The async reset input need ref clock to sync internally,
+> -		 * when the ref clock comes after reset, internal synced
+> -		 * reset time is too short, cannot meet the requirement.
+> -		 * Add a ~10us delay here.
+> -		 */
+> -		usleep_range(10, 100);
+> -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> -	} else {
+> -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+> -	}
+> +	if (enable)
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> +	else
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				  IMX6Q_GPR1_PCIE_REF_CLK_EN);
+>  
+>  	return 0;
+>  }
+> @@ -826,6 +817,12 @@ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  
+>  static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  {
+> +	if (assert)
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				IMX6Q_GPR1_PCIE_TEST_PD);
+> +	else
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				  IMX6Q_GPR1_PCIE_TEST_PD);
+>  	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_SW_RST,
+>  			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+>  	if (!assert)
+> @@ -836,11 +833,15 @@ static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  
+>  static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  {
+> -	if (!assert)
+> -		return 0;
+> +	if (assert)
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				IMX6Q_GPR1_PCIE_TEST_PD);
+> +	else
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				  IMX6Q_GPR1_PCIE_TEST_PD);
+>  
+> -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+> -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> +	if (!assert)
+> +		usleep_range(200, 500);
+>  
+>  	return 0;
+>  }
+> @@ -1451,6 +1452,7 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  	return 0;
+>  
+>  err_phy_off:
+> +	imx_pcie_assert_core_reset(imx_pcie);
+>  	phy_power_off(imx_pcie->phy);
+>  err_phy_exit:
+>  	phy_exit(imx_pcie->phy);
+> @@ -1470,6 +1472,7 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+>  	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
+>  
+> +	imx_pcie_assert_core_reset(imx_pcie);
+>  	if (imx_pcie->phy) {
+>  		if (phy_power_off(imx_pcie->phy))
+>  			dev_err(pci->dev, "unable to power off PHY\n");
+> -- 
+> 2.34.1
+> 
 
