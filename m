@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E228C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F76EC54EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhUcXStbQHEQGgrql9pf04utNrK9UGJvJvDDzUdzIwk=; b=zkuNbqMy0uhKQf/O2wqAxvxxeX
-	079eMDzLh30PlHioMMZ0uWjbm0M5aBgknNsZF3uQk0nkclO9Ac/IZHVLVuNM1VrHi+j1GutGuQDTh
-	b2/BGc6noOTa/CjCIlYI1owGrnKMlsV3fHtAYF/Yx+r4pndLfLSQM0odinglpT4PSc3cgj6+pEIIo
-	2RQ1vq0Haty3ioNJjfwplWGpKzAyReauMnTyuzvsrjikfCg7EZJo0Y3S20YWlAGmgS5ExABlIdce6
-	RbsEz+ZMGhTTe5mqG3j/p++Rf1iKJvtUiT157ANITmFXflIufHWBaLYCZ3OafUlmUPOYj0fviY6jb
-	VaX52ODA==;
+	bh=+ZnqPhGOn3Vzybpvja/5hfqkybxvBtnzPFBr9hYn61Q=; b=AHmTH33eG9QVHW5v5/YRyV4w/e
+	Ton2CTQTL/nDQ2H15eFU+i6HwCeGtde1QhpQsXFWKZluuaOyfNJ5IzRU0ZeEcY/ikCO5qYTEBDGF/
+	nN2eilTI1mszaColafwczG0rbtLLcCVa+dPSmkJ5p+ymBm8u7A2gQB1o/XlmYtT+UBm+xwRObVozS
+	BWOhH+ZvruA5vIrALNVwGeKvRnkOkHU4B4eY/Vg1k1QpNJBgV2p0/K3QolSUbFspaUcdUxnj7P5WM
+	hpnjQEu/ECOON2QXGEu5TQnm0yr0C2afNWmkNaRWYrC2MuEjSjzeXgEK4chkC4IsFtSczfSvX4vxn
+	BRmsvyKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodGH-00000004iw1-24AU;
-	Tue, 28 Jul 2026 08:34:05 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wodH3-00000004j3B-3IMt;
+	Tue, 28 Jul 2026 08:34:53 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodGF-00000004iux-01qm
+	id 1wodH0-00000004j1e-1n6p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 08:34:04 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-495437bb891so6348565e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 01:34:02 -0700 (PDT)
+	Tue, 28 Jul 2026 08:34:51 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4954a2e73a9so18834915e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 01:34:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785227641; x=1785832441; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1785227688; x=1785832488; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AhUcXStbQHEQGgrql9pf04utNrK9UGJvJvDDzUdzIwk=;
-        b=dqv+3OAP5iNczFv12y9fITo3PpBuCUyHzxU/+K9R+YW44g/l/q4THtI9G9afMJVIPy
-         /jre0hf5FqJktdofzn2MkPxOTzPWZP876dtPCn+cAYxMiw0e7JppH29Ma+WcjaghFxBK
-         6fhFPv0tRZmQWUGctB3YnPASJ5sePwy6t/TaffJ0+v8iipFAO0PSQG6RKKqNJOn5nw21
-         TvTISO3zvBBNEYvIcxbtwlZFIKpdPt3waobi1XxRzV4peeF0VBriWRKJEtXIDK3rN2P7
-         2Pgz2R1tQHc7T7CXxmM1GuUYWbrqPSlz8/2CbAQGzSBF6E+mKECREBMMLpq0dpvmISfD
-         Kjpw==
+        bh=+ZnqPhGOn3Vzybpvja/5hfqkybxvBtnzPFBr9hYn61Q=;
+        b=FvGh8ra6WBJnToO7oXnNOsCjih97lUxF6l6Hc9E1tuE5dt5KTUltE2cBN7WMctfH1N
+         AvObE4zCtfnG8pNhMiNq0gpZY8xr5qff7eioJpV/3riUOmyTW3nRI9+RdXLd4/UlqmQt
+         YbFCRYQNqpnjwgTjHgRxZgT4DoyIihFirsr1emFmY4jOpOPa4psPfDdYbSQhwwFzaMnu
+         lD3nYrnKpTDYLCIeBLDyzN+0StWnw4iuWWXrOSea14BBnESXBPj7znhXYO0DXLoys9u6
+         McKzXYdD+d32mFKHqV4l4gTzlheS8A3AjP6yjsWKe9P17nKZ7SjHbsQceHfv2ZZpIH8m
+         6vfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785227641; x=1785832441;
+        d=1e100.net; s=20251104; t=1785227688; x=1785832488;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AhUcXStbQHEQGgrql9pf04utNrK9UGJvJvDDzUdzIwk=;
-        b=ZymwH48Om79CHPhdK+KZnfIgubJ7SoI26AK79yDPaNTqI3BKkflMKuXQIR9FivGCGn
-         bEy2t6wKJI6c4c+6/Ya1bwwyR8hqBwfD6jzJTc0YWUvMkQWW0qCQ8uSRKJ0iZKaCEmvz
-         KZv099UfDhil0XQvsyAsbHt88BTg3BAWWF3KZmuP+lKhc3qCRJQT008Jgo3GWbXbh/Gu
-         ZYX1xG+n0tPctMOc7nrPi7eshLmsS7X1YtErLHMLKlMTTFtJWDpoH9rgQ2mu5WoLqmm9
-         ToBX49IqNFovSvfAkWObutsj0bOhIuqHx4BZdTR+ZLHx7VDSlSq0wi7jIiGO6zUC6CQX
-         dncg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq17d1/w8NPZVagPaPXzoI6osTplqDB5i7Q4W6bYKgAujtAXDeQlaCsrLDLD4ECvWOO419hv7UnF5jyxhsPRKkz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLI0/v8BLhA+NFaZJFOTIRdBNkk1y3Mb3zycEppmwiyhLyPIUm
-	Hs7IDgAngFZO92/zz+SwFGS5yHwsxSioWnc3Cmn50wBXz8+Q4VxTtl9JLFr7KBf1+rI=
-X-Gm-Gg: AR+sD116TdtceIvGTHal+nqcEDjPA4eGJYKHEG/25gqo+SlJR0u2w9+SFQVSYjZtN08
-	kEE7SeRf+OceRKCjEZpd2rYZZPRjMkAf8Wqh3F9vsgg/I8SP9SMVFZpabSr1XVGttberJH+Ew4G
-	OKQeyTIJxoPejCamtQHzv710R/DhM0KtAA8hKGCyQ2UwvYMCldjD1s1qdEiMLUvvjlQKtGbDj2k
-	CTUMyaSq+BHEIpxX8+9mC27EdWnycfbU/Qd2OC4as/rDA1+VrQrz6l8/LvVwXwj36Tk0Jx04y1U
-	+p4uTvwhaKJikfFx7qkE/BhMja3eXqgqXOOS9Mx566g3DEAtnhF4ydhLL4NnVBXBvVB/W6voHvE
-	mDPIgr9QVl/QxzSU4d4rJZdFtJ3c6o8FOZgd/qdLihsZtikxeSYDnevzXRtlNzJWYS6JbfvlPOT
-	1TMH6A5kJEqSo0aG32f4VxZ5etxxjFyZEahCxjDpT0qLtD4QsLC+2turwefg==
-X-Received: by 2002:a05:600c:4f92:b0:495:6b4c:fccc with SMTP id 5b1f17b1804b1-496c6575c2fmr12813725e9.10.1785227640542;
-        Tue, 28 Jul 2026 01:34:00 -0700 (PDT)
+        bh=+ZnqPhGOn3Vzybpvja/5hfqkybxvBtnzPFBr9hYn61Q=;
+        b=MmuUy1IO6vhR55OuJNEppUqaisSJF1YcyhrC6aThSKMlGefkYSxvt5hb9eR5I2Jw4M
+         gBpk4ofW/gXE/5Bauvdt2Kp4GRF5CRExciCVYtFqKqiMK60198xLKW+kZq8N+dPjauK+
+         noiCgG9MRao+Z6WSVdci04bhUr2dRt46JvH79yQLpPdkzYC+1AZ6ObJzqsxVEk2QAWHN
+         PxFhATrcx6t50B0CgeU4XO7fY8KzzJmHpk1vq4ulv+QG4SYE7lNRWBR33RFJwGR+By2Y
+         EEVvmyPZYxpn8FBr57bge0l6fVKsFjgiOf1HCJ+4e8JDfndACkoju3wQkNEAI6VaO3bd
+         oMlQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqjZR1H3YoSDyypSOJO1pNNM+5FmN+keQ+Sds3NcK8kpXSWMELaAJ1FhjYHlBew2oNWDarPK7SbXedMaCTGqac5@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywzw2FF6n78Xi7cXyJrz4WJYqAUzHrF82UABRvegIzBS5c2Zu6E
+	m5MEut/tBAnNqRBbp/JimxgQaJd8spB1P1vXhnLLG/UP8JKEMpLlNq6n3WWIkBCP+IU=
+X-Gm-Gg: AR+sD13JElYkX10MnYpe+qM+pwKhc/Jt0X3jOyTaJ8/sbr94CVMIm7byOc4+M1T5uO9
+	A+D4gR2ovcmYEdNN1x/gu34exyo/SB/luCI9EQrdI2dg8aVpnYbBi08dgOGiGIEmHiMGj3YuS/t
+	4u612MofW7+UkrFJzXk9sB/mnRW8iaZyNd0Ck1ZV9ed0tfve5NSRNhSOYfmiHiqmw+qv1QgYPrw
+	+4EcvY56xLdnf/w22D1foP+LK8jU9ogMWlotGz2UyZEr559vENolCfmls8E99ChoRiyrgLK0KCr
+	7XJ/L1rqGHPtCidMD8YXuOtdxvc4TuAN5Kix+ti2SsjodSGlJDIC9IX4+09ZGfgml5ltcRnRFwC
+	ApJDBgl9Ncg4DoTiIZ/kfCDyeoZpobSZWYtvr4wD2qMu4EhVH+fnFvD5Y/wD3cVvVY6PgpBMMrF
+	4OH8tgZ6xz2SxHz2QOevqFkg+bViapMfqdFPEJv2kt5KJwNbtfbWUGA2fQDOKgpXEbfETO
+X-Received: by 2002:a05:600c:3512:b0:490:b8c0:d470 with SMTP id 5b1f17b1804b1-496c6568ffdmr13771205e9.19.1785227688277;
+        Tue, 28 Jul 2026 01:34:48 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:5788:c4e1:cf35:7211? ([2a01:e0a:106d:1080:5788:c4e1:cf35:7211])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957f99fa7asm325811625e9.2.2026.07.28.01.33.59
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4957bfb20ddsm254637715e9.3.2026.07.28.01.34.47
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Jul 2026 01:34:00 -0700 (PDT)
-Message-ID: <55e28633-d71e-4cc5-a682-341c329054f6@linaro.org>
-Date: Tue, 28 Jul 2026 10:33:59 +0200
+        Tue, 28 Jul 2026 01:34:47 -0700 (PDT)
+Message-ID: <822ff7be-7d89-4523-99c6-051fcda9efaf@linaro.org>
+Date: Tue, 28 Jul 2026 10:34:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v2 3/3] arm64: dts: amlogic: add support for Orbbec Zora
- P1
-To: robazza.alberto@proton.me, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, khilman@baylibre.com
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-References: <20260726201647.264108-1-robazzalberto@gmail.com>
- <20260726201647.264108-4-robazzalberto@gmail.com>
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 2/3] pmdomain: amlogic: Add support for A9 power domains
+ controller
+To: xianwei.zhao@amlogic.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jianxin Pan <jianxin.pan@amlogic.com>, Ulf Hansson <ulfh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+References: <20260722-a9-pm-v1-0-1fe20a44bf2d@amlogic.com>
+ <20260722-a9-pm-v1-2-1fe20a44bf2d@amlogic.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -111,12 +115,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260726201647.264108-4-robazzalberto@gmail.com>
+In-Reply-To: <20260722-a9-pm-v1-2-1fe20a44bf2d@amlogic.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_013403_083866_15E9653B 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20260728_013450_529125_0339BE24 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,162 +136,121 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/26/26 22:16, Alberto Robazza wrote:
-> The Orbbec Zora P1 is an A311D (Meson G12B) board with 2/4 GiB DDR4,
-> an Ampak AP6256 combo module (Broadcom BCM43456 Wi-Fi over SDIO and
-> BCM4345C5 Bluetooth over UART_A), HDMI audio output.
+On 7/22/26 10:39, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > 
-> According to the original Linux dts, the board is a modded version
-> of the ODROID-N2, with Amlogic A311D instead of the original S922X
-> and WiFi and Bluetooth support.
-> So the device tree builds on meson-g12b-a311d.dtsi and
-> meson-g12b-odroid-n2.dtsi (using same vddcpu values of N2+),
-> extended with the board-specific GPIO wiring for the AP6256 handling,
-> and some modifications for the led, GPIO_ACTIVE_LOW instead of
-> GPIO_ACTIVE_HIGH and different label (it is a green led, not blue as
-> in the Odroid N2).
+> Add support for the A9 power controller, whose registers are
+> in the secure domain and should be accessed via SMC.
 > 
-> Add the "orbbec,zora-p1" compatible to the amlogic.yaml board binding
-> (the "orbbec" vendor prefix is already registered) and the new DTB to
-> the Makefile.
-> 
-> Signed-off-by: Alberto Robazza <robazzalberto@gmail.com>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
->   arch/arm64/boot/dts/amlogic/Makefile          |   1 +
->   .../boot/dts/amlogic/meson-g12b-zora-p1.dts   | 103 ++++++++++++++++++
->   2 files changed, 104 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts
+>   drivers/pmdomain/amlogic/meson-secure-pwrc.c | 69 ++++++++++++++++++++++++++++
+>   1 file changed, 69 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-> index 57bc440fa..83fb38b94 100644
-> --- a/arch/arm64/boot/dts/amlogic/Makefile
-> +++ b/arch/arm64/boot/dts/amlogic/Makefile
-> @@ -40,6 +40,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-g12b-radxa-zero2.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-s922x-bananapi-m2s.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-s922x-khadas-vim3.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-ugoos-am6.dtb
-> +dtb-$(CONFIG_ARCH_MESON) += meson-g12b-zora-p1.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-kii-pro.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-nanopi-k2.dtb
->   dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-nexbox-a95x.dtb
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts
-> new file mode 100644
-> index 000000000..fe20d39a8
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts
-> @@ -0,0 +1,103 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2026 Alberto Robazza <robazza.alberto@proton.me>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "meson-g12b-a311d.dtsi"
-> +#include "meson-g12b-odroid-n2.dtsi"
-> +
-> +/ {
-> +	compatible = "orbbec,zora-p1", "amlogic,a311d", "amlogic,g12b";
-> +	model = "Orbbec Zora P1";
-> +
-> +	leds {
-> +		//The status led on Zora is actually green, same pin as N2, but reversed polarity
-
-Use proper comment with /* and */
-
-> +		led-blue {
-> +			label = "p1:green";
-> +			gpios = <&gpio_ao GPIOAO_11 GPIO_ACTIVE_LOW>;
-> +		};
-
-Please use the new bindings with function and color properties instead if label.
-
-> +	};
-> +
-> +	sdio_pwrseq: sdio-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		reset-gpios = <&gpio GPIOX_16 GPIO_ACTIVE_LOW>;
-> +		clocks = <&wifi32k>;
-> +		clock-names = "ext_clock";
-> +	};
-> +
-> +	wifi32k: wifi32k {
-> +		compatible = "pwm-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <32768>;
-> +		pwms = <&pwm_ef 0 30518 0>;
-> +	};
-> +
-> +	sound {
-> +		model = "ZORA-P1";
-> +	};
+> diff --git a/drivers/pmdomain/amlogic/meson-secure-pwrc.c b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
+> index 1d2f371d2d7f..133549956efa 100644
+> --- a/drivers/pmdomain/amlogic/meson-secure-pwrc.c
+> +++ b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
+> @@ -16,6 +16,7 @@
+>   #include <dt-bindings/power/amlogic,t7-pwrc.h>
+>   #include <dt-bindings/power/amlogic,a4-pwrc.h>
+>   #include <dt-bindings/power/amlogic,a5-pwrc.h>
+> +#include <dt-bindings/power/amlogic,a9-pwrc.h>
+>   #include <dt-bindings/power/amlogic,s6-pwrc.h>
+>   #include <dt-bindings/power/amlogic,s7-pwrc.h>
+>   #include <dt-bindings/power/amlogic,s7d-pwrc.h>
+> @@ -175,6 +176,65 @@ static const struct meson_secure_pwrc_domain_desc a5_pwrc_domains[] = {
+>   	SEC_PD(A5_DSPA,		0),
+>   };
+>   
+> +static const struct meson_secure_pwrc_domain_desc a9_pwrc_domains[] = {
+> +	SEC_PD(A9_DSPA,		0),
+> +	SEC_PD(A9_U3HSG_U3,	0),
+> +	SEC_PD(A9_DP,		0),
+> +	SEC_PD(A9_DOS_HCODEC,	0),
+> +	SEC_PD(A9_TAHOE,	0),
+> +	SEC_PD(A9_DOS_HEVC,	0),
+> +	SEC_PD(A9_U2H,		0),
+> +	SEC_PD(A9_U3DRD_B,	0),
+> +	SEC_PD(A9_VPU_HDMI,	0),
+> +	SEC_PD(A9_U2DRD,	0),
+> +	SEC_PD(A9_U3DRD_A,	0),
+> +	SEC_PD(A9_SD_EMMC_C,	0),
+> +	SEC_PD(A9_GE2D,		0),
+> +	SEC_PD(A9_AMFC,		0),
+> +	SEC_PD(A9_EDPTX,	0),
+> +	SEC_PD(A9_OPP,		0),
+> +	SEC_PD(A9_VICP,		0),
+> +	SEC_PD(A9_SD_EMMC_A,	0),
+> +	SEC_PD(A9_SD_EMMC_B,	0),
+> +	SEC_PD(A9_ETH,		0),
+> +	SEC_PD(A9_PCIE_A,	0),
+> +	SEC_PD(A9_PCIE_B,	0),
+> +	SEC_PD(A9_NNA_4T,	0),
+> +	SEC_PD(A9_HDMIRX,	0),
+> +	SEC_PD(A9_CVE,		0),
+> +	SEC_PD(A9_ISP,		0),
+> +	SEC_PD(A9_ETH_1G,	0),
+> +	SEC_PD(A9_U3HSG_HSG,	0),
+> +	SEC_PD(A9_U3DPPHY_U3,	0),
+> +	SEC_PD(A9_U3DPPHY_DP,	0),
+> +	SEC_PD(A9_PCIE3PHY,	0),
+> +	SEC_PD(A9_U3HSG_PCIE2,	0),
+> +	SEC_PD(A9_MALI_TOP,	0),
+> +	SEC_PD(A9_AO_SED,	0),
+> +	SEC_PD(A9_AO_IR,	0),
+> +	/* UART_B is for console log, and should be always on */
+> +	SEC_PD(A9_AO_UART_B,	GENPD_FLAG_ALWAYS_ON),
+> +	SEC_PD(A9_AO_UART_C,	0),
+> +	SEC_PD(A9_AO_UART_D,	0),
+> +	SEC_PD(A9_AO_SPISG,	0),
+> +	SEC_PD(A9_AO_UART_E,	0),
+> +	SEC_PD(A9_AO_CEC,	0),
+> +	/* SRAMA is used as ATF runtime memory, and should be always on */
+> +	SEC_PD(A9_EE_SRAMA,	GENPD_FLAG_ALWAYS_ON),
+> +	SEC_PD(A9_AUDIO,	0),
+> +	/* DMC0 is for DDR PHY ana/dig and DMC, and should be always on */
+> +	SEC_PD(A9_DMC0,		GENPD_FLAG_ALWAYS_ON),
+> +	/*GIC needs to be used consistently, and should be always on */
+> +	SEC_PD(A9_GIC,		GENPD_FLAG_ALWAYS_ON),
+> +	/* DDRPHY is for DDR Work, and should be always on */
+> +	SEC_PD(A9_DDRPHY,	GENPD_FLAG_ALWAYS_ON),
+> +	SEC_PD(A9_AUCPU,	0),
+> +	SEC_PD(A9_DSI0,		0),
+> +	SEC_PD(A9_DSI1,		0),
+> +	SEC_PD(A9_CAN0,		0),
+> +	SEC_PD(A9_CAN1,		0),
 > +};
 > +
-> +&pwm_ef {
-> +	status = "okay";
-> +	pinctrl-0 = <&pwm_e_pins>;
-> +	pinctrl-names = "default";
+>   static const struct meson_secure_pwrc_domain_desc c3_pwrc_domains[] = {
+>   	SEC_PD(C3_NNA,		0),
+>   	SEC_PD(C3_AUDIO,	0),
+> @@ -425,6 +485,11 @@ static const struct meson_secure_pwrc_domain_data amlogic_secure_a5_pwrc_data =
+>   	.count = ARRAY_SIZE(a5_pwrc_domains),
+>   };
+>   
+> +static const struct meson_secure_pwrc_domain_data amlogic_secure_a9_pwrc_data = {
+> +	.domains = a9_pwrc_domains,
+> +	.count = ARRAY_SIZE(a9_pwrc_domains),
 > +};
 > +
-> +/* AP6256 Wi-Fi: Broadcom BCM43456 over SDIO. */
-> +&sd_emmc_a {
-> +	status = "okay";
-> +	pinctrl-0 = <&sdio_pins>;
-> +	pinctrl-1 = <&sdio_clk_gate_pins>;
-> +	pinctrl-names = "default", "clk-gate";
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	bus-width = <4>;
-> +	cap-sd-highspeed;
-> +	max-frequency = <100000000>;
-> +	non-removable;
-> +	disable-wp;
-> +	keep-power-in-suspend;
-> +
-> +	mmc-pwrseq = <&sdio_pwrseq>;
-> +	vmmc-supply = <&tflash_vdd>;
-> +	vqmmc-supply = <&vddao_1v8>;
-> +
-> +	wifi@1 {
-> +		compatible = "brcm,bcm4329-fmac";
-> +		reg = <1>;
-> +	};
-> +};
-> +
-> +/* AP6256 Bluetooth: Broadcom BCM4345C5 over UART_A. */
-> +&uart_A {
-> +	status = "okay";
-> +	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
-> +	pinctrl-names = "default";
-> +	uart-has-rtscts;
-> +
-> +	bluetooth {
-> +		compatible = "brcm,bcm4345c5";
-> +		shutdown-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_HIGH>;
-> +		max-speed = <2000000>;
-> +		clocks = <&wifi32k>;
-> +		clock-names = "lpo";
-> +	};
-> +};
-> +
-> +//vddcpu regulators same as Odroid N2+
+>   static const struct meson_secure_pwrc_domain_data amlogic_secure_c3_pwrc_data = {
+>   	.domains = c3_pwrc_domains,
+>   	.count = ARRAY_SIZE(c3_pwrc_domains),
+> @@ -468,6 +533,10 @@ static const struct of_device_id meson_secure_pwrc_match_table[] = {
+>   		.compatible = "amlogic,a5-pwrc",
+>   		.data = &amlogic_secure_a5_pwrc_data,
+>   	},
+> +	{
+> +		.compatible = "amlogic,a9-pwrc",
+> +		.data = &amlogic_secure_a9_pwrc_data,
+> +	},
+>   	{
+>   		.compatible = "amlogic,c3-pwrc",
+>   		.data = &amlogic_secure_c3_pwrc_data,
+> 
 
-Use proper comment with /* and */
-
-> +&vddcpu_a {
-> +	regulator-min-microvolt = <680000>;
-> +	regulator-max-microvolt = <1040000>;
-> +
-> +	pwms = <&pwm_ab 0 1500 0>;
-> +};
-> +
-> +&vddcpu_b {
-> +	regulator-min-microvolt = <680000>;
-> +	regulator-max-microvolt = <1040000>;
-> +
-> +	pwms = <&pwm_AO_cd 1 1500 0>;
-> +};
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
 Thanks,
 Neil
