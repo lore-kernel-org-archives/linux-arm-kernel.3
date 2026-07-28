@@ -4,126 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AAC8C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 05:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448E3C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 05:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrIT0vYcKIvKO0OeiMfwL3vXQ2YiWeifA0VRx84bP7c=; b=HF0AbTy91izZ5m1Mk80Lf0Vaa/
-	IjaTmRQbpYwj8Hc4MDQYXkozesMII0pdmwjxFH5cLq0ct6A8pl2Z1RIKrXTBUGF1RAs0igHAEy32v
-	2wcSWxHW2MuPufo2x913Vbrc2TyVKQeDnv1+4ePorKiO1L4A5KoHCy322700Eo68FUtQ+rjNU2KTF
-	xe7OUHZVK9SworhgPBB3HUOGW22X2haAwl+yA2H8nuq7Sq8RulYkD/vTJ/l6IU+BRfJhO+jEOxWA8
-	y5TIUI3eT+Ua8JtJNLT4Z/RRCjtr80qjiBDuwvOXWflQeTz01Cu/XEC1q6eYd9V9NKonu09IxM9CW
-	uF/JxpfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cg3VTAgetDrYjEdpec6GupSh0sezUAXd/NAVg+bRKpA=; b=sOdwrHgZXoC3Xw1FM89qQRer3P
+	7qRZAB+vDdIAm/GFi5l/p0Ppm/NskfpTxc7YFN9DnW1x61HqIRR5v1IJJ6U+BMkHgjboGVdN8MFUI
+	N98TiVB6WjsqKiQELW+7+mQQG7FWzMUEPsBaftu0SOzzY2fSQpDm4yfS9xX44ZCZWnjOIMv9b1GLO
+	MFm/XYbAK5pYYbe+vHcOWs2SaWclzsQNkbPGI/xwaLes91MihoEozkeOJ8WLcygcYN37B68D7CdVd
+	EMcvg7OgfIqo3pu7FvEaismXjzIWy5BQjUbbmyu+rqMWy378o445kFv1Y+RC2yhH+9PnG7X2MxR1q
+	EZ0hFEHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woaNO-00000004SpS-1c2h;
-	Tue, 28 Jul 2026 05:29:14 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woaNK-00000004Snd-270v;
-	Tue, 28 Jul 2026 05:29:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IamYZtttAI9ca5wRNSjf/lEN2t14Fmj4mDfCdrr6ksvt293XghudGKl81t27isUUyb/feHY//Fx+K1c3O5s4QYN2swbsnOiIPa5e+0c3APXBCwNnNrcJ1uxEg1nIeEFzbxgRJCB6tBpT/vjjH0nFXmu6hnKn7LFhD32VfG5dhrJ4ccPjqK2phoDKoL0+44nGaVt4Fd9/IyUIe27tdAgFyUec3qxd7o4HUwrjXMxm+KqEf6wSXSGSokM7qNgnSqNvLsts/Wcnn1/VHetGkpOjj49iX9wJVAP7XVo2fnHxbganL9ZmqlTkBkZcRx46Bbs1t0ltTQOpF6Flm1hOXloClw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hrIT0vYcKIvKO0OeiMfwL3vXQ2YiWeifA0VRx84bP7c=;
- b=Nnnfqi4HXZCFXtDAlPnZEbtUr6VjcWORZxWsB/3TgCV/svrcw02zGWKNqxgDdHnMU+vHAfYPNlEfn09PqFBUbPTh7Xr8ext/RUm6w90aUY3GX2SJFePLuAeI+cnvKvlj2Zhtbktx2TRgdZK2LJCZJOnVS3XBXz1A5O9D/GBtQ8to7SZbEtBhzd1VP7ywZXD8t62///YjXWRSWa3xGulNYPyclChZfyLR9ETcn9TY9nWb7ypJ9lZ5qamyLytWD34OweyoAWC6RTTlKHucX8Vx3ZxZgsw3u43N1uJosJiM0ijqHoCvplcpR7OceR7ks+KJsqy3WWD5JFHiLF6B8EyLgQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=arndb.de smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hrIT0vYcKIvKO0OeiMfwL3vXQ2YiWeifA0VRx84bP7c=;
- b=zMWrhNKYvFsLYGD9CeZq2HpfrjvIEeiCoVcrl1+XZ++yO56Tcmw48wnjrxF9CYLde35rg/+gUsJUloF5LJgrmg/G5brdyP74P5q0qBMXIKbi2ZUm57QkD41ye/Jai03mXXJo8A4WBKkbEnVZXAyNCTbMN5lrfVSLuIn2YvnwKPA=
-Received: from BL1P223CA0038.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:5b6::7)
- by DS4PR12MB9769.namprd12.prod.outlook.com (2603:10b6:8:2a9::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
- 2026 05:29:01 +0000
-Received: from MN1PEPF0000F0E0.namprd04.prod.outlook.com
- (2603:10b6:208:5b6:cafe::23) by BL1P223CA0038.outlook.office365.com
- (2603:10b6:208:5b6::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Tue,
- 28 Jul 2026 05:29:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- MN1PEPF0000F0E0.mail.protection.outlook.com (10.167.242.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Tue, 28 Jul 2026 05:29:00 +0000
-Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 28 Jul
- 2026 00:28:51 -0500
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-To: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, Charlie Jenkins
-	<thecharlesjenkins@gmail.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens
-	<hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
-	<agordeev@linux.ibm.com>
-CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, "H. Peter Anvin" <hpa@zytor.com>, "Sean
- Christopherson" <seanjc@google.com>, Thomas Huth <thuth@redhat.com>, "Jisheng
- Zhang" <jszhang@kernel.org>, Ben Dooks <ben.dooks@codethink.co.uk>, "Samuel
- Holland" <samuel.holland@sifive.com>,
-	=?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, Guo Ren
-	<guoren@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, "Sven
- Schnelle" <svens@linux.ibm.com>
-Subject: [PATCH v6 8/8] futex: Use runtime constants for __futex_hash() hot path
-Date: Tue, 28 Jul 2026 05:25:40 +0000
-Message-ID: <20260728052540.4728-9-kprateek.nayak@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260728052540.4728-1-kprateek.nayak@amd.com>
-References: <20260728052540.4728-1-kprateek.nayak@amd.com>
+	id 1woaPQ-00000004TJ2-31o8;
+	Tue, 28 Jul 2026 05:31:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1woaPO-00000004TIL-0wG1
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 28 Jul 2026 05:31:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7D411BF7;
+	Mon, 27 Jul 2026 22:31:10 -0700 (PDT)
+Received: from [10.163.132.30] (unknown [10.163.132.30])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23C243F86F;
+	Mon, 27 Jul 2026 22:31:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785216675; bh=wZU3W8LAigLkfKN16wWeaWgjzhW/ZAOdYKsv5xxz06w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nD8HglJquxYzvFHJocPd+oIV4PetDZzAsBUP5cFHnlMbOMJI1iH7zxbeUjT0wEWLa
+	 QAS1DCaMjyLidU1YnQ4SyG5znimgW7i7R3vWLnI26nE44tqG+nqAVrnpdXf7kGsktp
+	 Z6a2q6MLaRX69P3vNNn195T4JY0UzU1Fr7rK3Mv0=
+Message-ID: <15b45589-b93a-4814-ae27-76480254a4e8@arm.com>
+Date: Tue, 28 Jul 2026 11:01:08 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E0:EE_|DS4PR12MB9769:EE_
-X-MS-Office365-Filtering-Correlation-Id: a0f58109-25de-4684-31b4-08deec692148
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|36860700016|82310400026|10067099003|11063799006|6133799003|56012099006|18002099003|22082099003|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: dAi6w8BDRRi9wLppSf2/mmbKT3ORRdXZ5lNaISgQCA6/+CF9ab4Rl3TaqnxHNmtXYy2YrFk9g9iMmeVs8PWgGsIbJ0GlWzoa1QlGvf0c8aZHsTYHH9XODvQfFDgAZbSmOPvpAiOjXUDWNtHF6rQIHIJIiP9tONGjYQ14fJqhrVHzFg5iPNiD2yBaFrcSNlMvnQZ3VdbjoZqmyve4y8GHmLx6bGXPrYxmuTuAat+wN58MabLHnhScVaLkpaJkzKxgDpJv3Hxw/F2/RB9r6oDj1jOXdku/loVjEyjissKEJtxReOEXhUJOJh9ZM0TV/MFAf2wT9oTMCh4hyBF88qE6ghzM66nNSe44QP/1pmXvaURmhcw5EYgopAvvCwhqeksCQv9eQ1v8S1PE2RXzUcGjnIpYC82/PSFHisIkALit9qkMwerQuMtukQWRL1H8IZwCZjuBny29VKLNtl8gWCOvutpPvN49Bq9eyv6dCixbVINLUwzhvCsTxPA4z//UHkshGjLc1S+/pOULJO+GJjX1Vy7WOvQlp2PvtE49LZfGqk8CGhcEJq+Zq7s8lpPjMt0HAc26GNBpKelEo8FOqczxm306tHC+Zcz5eM23Uh/FPm6m/RqKl5kkmUOPLaMX7Hr0mV6YXBtNaEgv6aASUsKShNKgyywZ+XgRolqwlkIurjMEVVY+bTvsseQtPSxcoGDS4pr9N8iomXL1rUqswnOgew==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(36860700016)(82310400026)(10067099003)(11063799006)(6133799003)(56012099006)(18002099003)(22082099003)(13003099007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: FAW6YkaTuldoxmKZ3qcXztLm2Ymi3loxZZEXvcOSzkcSFdoq6QcPI452HpXWHTHS75Vu5/NdMjQ48qJSHBRNEi2sLW65m5KHjzHmu8m48FiEtZzZe/Ge9ouTpMejdXoUk3revEjYMMQma9mbCCGB1nKT3YVdTmjHFcWCFGXUjIYQwSxX34HruZSQeqcnEehHW9iB3ByKszWrdKW9h9BzPQI4fzJp0uCin7B0AM+iZn2k/qBWF78FpImlD9teDYH9z1bbsIbvfXSDV9K0ejpxVsVPlu/WqjsQwKR55czuVK//G8rWLCwwOMKbSjZz2otLoQzFkE5quSkj75xaeBj30d8mY7sMJirxo8pLZDUtA0dwZl8XhQH14X29eoX3KtB1pNUPMXhPgwUyJql7coVy4yiOeCksRqef4DZN3vCdU5OzDrzPKUtS0Ke+DGGg94zH
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2026 05:29:00.6847
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a0f58109-25de-4684-31b4-08deec692148
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E0.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9769
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] coresight: coresight.h: add '*' to kernel-doc lines
+To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
+Cc: James Clark <james.clark@arm.com>, Tao Zhang <quic_taozha@quicinc.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, coresight@lists.linaro.org,
+ Danilo Krummrich <dakr@kernel.org>, Mike Leach <mike.leach@arm.com>,
+ Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org
+References: <20260719222456.2831456-1-rdunlap@infradead.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260719222456.2831456-1-rdunlap@infradead.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_222910_755790_079DA805 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20260727_223118_434497_C34D1749 
+X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,162 +72,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peter Zijlstra <peterz@infradead.org>
 
-Runtime constify the read-only after init data  __futex_shift(shift_32),
-__futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
-hot path to avoid referencing global variable.
 
-This also allows __futex_queues to be allocated dynamically to
-"nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
-(1 << CONFIG_NODES_SHIFT) worth of slots upfront.
+On 20/07/26 3:54 AM, Randy Dunlap wrote:
+> kernel-doc reports 2 (kernel-doc) lines in coresight.h that don't have
+> a beginning '*' in them, so fix these lines.
+> 
+> Also convert struct coresight_trace_id_map to kernel-doc format to
+> remove another warning.
+> 
+> Warning: include/linux/coresight.h:173 bad line:
+>   connected to @src_port. NULL until the device is created
+> Warning: include/linux/coresight.h:177 bad line:
+>   needs to be filtered.
+> Warning: include/linux/coresight.h:236 This comment starts with '/**',
+>   but isn't a kernel-doc comment.
+> 
+> Fixes: ec9903d6cc34 ("coresight: Add support for trace filtering by source")
+> Fixes: d49c9cf15f89 ("coresight: Rename connection members to make the direction explicit")
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> ---
+> v2: rebase & resend
+> v3: rebase & resend
+> 
+> Cc: James Clark <james.clark@arm.com>
+> Cc: Tao Zhang <quic_taozha@quicinc.com>
+> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Cc: coresight@lists.linaro.org
+> Cc: Danilo Krummrich <dakr@kernel.org>
+> Cc: Mike Leach <mike.leach@arm.com>
+> Cc: Leo Yan <leo.yan@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+>  include/linux/coresight.h |    6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> --- linux-next-20260717.orig/include/linux/coresight.h
+> +++ linux-next-20260717/include/linux/coresight.h
+> @@ -177,11 +177,11 @@ struct coresight_desc {
+>   * @dest_port:	destination's input port number @src_port is connected to.
+>   * @dest_fwnode: destination component's fwnode handle.
+>   * @dest_dev:	a @coresight_device representation of the component
+> -		connected to @src_port. NULL until the device is created
+> + *		connected to @src_port. NULL until the device is created
+>   * @link: Representation of the connection as a sysfs link.
+>   * @filter_src_fwnode: filter source component's fwnode handle.
+>   * @filter_src_dev: a @coresight_device representation of the component that
+> -		needs to be filtered.
+> + *		needs to be filtered.
+>   *
+>   * The full connection structure looks like this, where in_conns store
+>   * references to same connection as the source device's out_conns.
+> @@ -234,7 +234,7 @@ struct coresight_sysfs_link {
+>  #define CORESIGHT_TRACE_IDS_MAX 128
+>  
+>  /**
+> - * Trace ID map.
+> + * struct coresight_trace_id_map - Trace ID map.
+>   *
+>   * @used_ids:	Bitmap to register available (bit = 0) and in use (bit = 1) IDs.
+>   *		Initialised so that the reserved IDs are permanently marked as
+> 
 
-Runtime constants are initialized before their first access and
-runtime_const_init() provides necessary barrier to ensure subsequent
-accesses are not reordered against their initialization.
+But still there are more warnings left in the documentation file
+even after the patch applied. Should they be fixed as well ?
 
-No functional changes intended.
-
-  [ prateek: Dynamically allocate __futex_queues, mark the global data
-    __ro_after_init since they are constified after futex_init(). ]
-
-Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
-Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
-Signed-off-by: Peter Zijlstra <peterz@infradead.org>
-Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
----
-changelog v5..v6:
-
-o Picked up tags from Charlie. (Thanks a ton!)
-
-o Picked up Peter's S-o-b from his tree.
-
-o Added a barrier after runtime_const_init() after to prevent compilers
-  from re-ordering a later runtime const usage in the init function with
-  their initialization. (Sashiko; Reported by Intel test robot with a
-  GCC14 build).
-  (https://lore.kernel.org/lkml/alNgNvhIkBfkGo1Y@xsang-OptiPlex-9020/)
----
- include/asm-generic/vmlinux.lds.h |  5 +++-
- kernel/futex/core.c               | 44 ++++++++++++++++++-------------
- 2 files changed, 29 insertions(+), 20 deletions(-)
-
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index 5659f4b5a125..53207901d4c1 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -970,7 +970,10 @@
- 		RUNTIME_CONST(ptr, __dentry_cache)			\
- 		RUNTIME_CONST(ptr, __names_cache)			\
- 		RUNTIME_CONST(ptr, __filp_cache)			\
--		RUNTIME_CONST(ptr, __bfilp_cache)
-+		RUNTIME_CONST(ptr, __bfilp_cache)			\
-+		RUNTIME_CONST(shift, __futex_shift)			\
-+		RUNTIME_CONST(mask,  __futex_mask)			\
-+		RUNTIME_CONST(ptr,   __futex_queues)
- 
- /* Alignment must be consistent with (kunit_suite *) in include/kunit/test.h */
- #define KUNIT_TABLE()							\
-diff --git a/kernel/futex/core.c b/kernel/futex/core.c
-index 233b926f5624..1eb83c9118a4 100644
---- a/kernel/futex/core.c
-+++ b/kernel/futex/core.c
-@@ -48,23 +48,19 @@
- 
- #include <vdso/futex.h>
- 
-+#include <asm/runtime-const.h>
-+
- #include "futex.h"
- #include "../locking/rtmutex_common.h"
- 
--/*
-- * The base of the bucket array and its size are always used together
-- * (after initialization only in futex_hash()), so ensure that they
-- * reside in the same cacheline.
-- */
--static struct {
--	unsigned long            hashmask;
--	unsigned int		 hashshift;
--	struct futex_hash_bucket *queues[MAX_NUMNODES];
--} __futex_data __read_mostly __aligned(2*sizeof(long));
-+static u32 __futex_mask __ro_after_init;
-+static u32 __futex_shift __ro_after_init;
-+static struct futex_hash_bucket **__futex_queues __ro_after_init;
- 
--#define futex_hashmask	(__futex_data.hashmask)
--#define futex_hashshift	(__futex_data.hashshift)
--#define futex_queues	(__futex_data.queues)
-+static __always_inline struct futex_hash_bucket **futex_queues(void)
-+{
-+	return runtime_const_ptr(__futex_queues);
-+}
- 
- struct futex_private_hash {
- 	int		state;
-@@ -395,13 +391,13 @@ __futex_hash(union futex_key *key, struct futex_private_hash *fph, struct futex_
- 		 * NOTE: this isn't perfectly uniform, but it is fast and
- 		 * handles sparse node masks.
- 		 */
--		node = (hash >> futex_hashshift) % nr_node_ids;
-+		node = runtime_const_shift_right_32(hash, __futex_shift) % nr_node_ids;
- 		if (!node_possible(node)) {
- 			node = find_next_bit_wrap(node_possible_map.bits, nr_node_ids, node);
- 		}
- 	}
- 
--	return &futex_queues[node][hash & futex_hashmask];
-+	return &futex_queues()[node][runtime_const_mask_32(hash, __futex_mask)];
- }
- 
- /**
-@@ -1921,7 +1917,7 @@ int futex_hash_allocate_default(void)
- 	 *   16 <= threads * 4 <= global hash size
- 	 */
- 	buckets = roundup_pow_of_two(4 * threads);
--	buckets = clamp(buckets, 16, futex_hashmask + 1);
-+	buckets = clamp(buckets, 16, __futex_mask + 1);
- 
- 	if (current_buckets >= buckets)
- 		return 0;
-@@ -2019,10 +2015,21 @@ static int __init futex_init(void)
- 	hashsize = max(4, hashsize);
- 	hashsize = roundup_pow_of_two(hashsize);
- #endif
--	futex_hashshift = ilog2(hashsize);
-+	__futex_mask = hashsize - 1;
-+	__futex_shift = ilog2(hashsize);
- 	size = sizeof(struct futex_hash_bucket) * hashsize;
- 	order = get_order(size);
- 
-+	__futex_queues = kcalloc(nr_node_ids, sizeof(*__futex_queues), GFP_KERNEL);
-+
-+	runtime_const_init(shift, __futex_shift);
-+	runtime_const_init(mask,  __futex_mask);
-+	runtime_const_init(ptr,   __futex_queues);
-+
-+	barrier();
-+
-+	BUG_ON(!futex_queues());
-+
- 	for_each_node(n) {
- 		struct futex_hash_bucket *table;
- 
-@@ -2036,10 +2043,9 @@ static int __init futex_init(void)
- 		for (i = 0; i < hashsize; i++)
- 			futex_hash_bucket_init(&table[i]);
- 
--		futex_queues[n] = table;
-+		futex_queues()[n] = table;
- 	}
- 
--	futex_hashmask = hashsize - 1;
- 	pr_info("futex hash table entries: %lu (%lu bytes on %d NUMA nodes, total %lu KiB, %s).\n",
- 		hashsize, size, num_possible_nodes(), size * num_possible_nodes() / 1024,
- 		order > MAX_PAGE_ORDER ? "vmalloc" : "linear");
--- 
-2.34.1
-
+./scripts/kernel-doc -none include/linux/coresight.h
+Warning: include/linux/coresight.h:216 struct member 'src_dev' not described in 'coresight_connection'
+Warning: include/linux/coresight.h:216 struct member 'src_refcnt' not described in 'coresight_connection'
+Warning: include/linux/coresight.h:216 struct member 'dest_refcnt' not described in 'coresight_connection'
+Warning: include/linux/coresight.h:248 struct member 'cpu_map' not described in 'coresight_trace_id_map'
+Warning: include/linux/coresight.h:248 struct member 'lock' not described in 'coresight_trace_id_map'
+Warning: include/linux/coresight.h:312 struct member 'perf_sink_id_map' not described in 'coresight_device'
+Warning: include/linux/coresight.h:216 struct member 'src_dev' not described in 'coresight_connection'
+Warning: include/linux/coresight.h:216 struct member 'src_refcnt' not described in 'coresight_connection'
+Warning: include/linux/coresight.h:216 struct member 'dest_refcnt' not described in 'coresight_connection'
+Warning: include/linux/coresight.h:248 struct member 'cpu_map' not described in 'coresight_trace_id_map'
+Warning: include/linux/coresight.h:248 struct member 'lock' not described in 'coresight_trace_id_map'
+Warning: include/linux/coresight.h:312 struct member 'perf_sink_id_map' not described in 'coresight_device'
 
