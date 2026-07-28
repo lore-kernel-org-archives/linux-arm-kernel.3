@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED7FC53219
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16CEC531F9
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,58 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v1UAkumH+1EWeKiYH4cUN+rYvQoUWuyKXbz54U/PDZw=; b=WyD7MZn2tMKXafYmrW1nBVFM/M
-	yrNUezKFQyOpkHjD/eO2fCBUYK44JsBi+lAl4MJndLVhXm3P9dzmkbEHFza+j4IQjk6L2I49JeRUk
-	Fttj8zL+pYFlb7uTwm26+dexgktW3CxhOVR1Ydz9DZFTPS/l0GBC+AKfE41zrIUI5PJ+xk8kJiKku
-	/o3CAYZ6GFhq27MpVkMo14u1vnBWm8byf6KwLNSYz2W8A90Ni8w+my4Kf65zuOXlkcZUaYec35tVm
-	nGjSItaBvpAnLHjBeuy4EicVCXg0mXPlxhjioXfFF1uRoGOCRbtYf1nYVGvpKxSQPXXxsHTD0u08s
-	Cd1Kt+Bw==;
+	bh=QAXXo+PhSkrJo36ImVUjmOnQ0ftX4EsaB1ZksVpLTlo=; b=I8wTydQbG2Lz+dfk5EunrSBwPq
+	PUEwxwOotTlp6IZSAQB+ti6tCSqyRfsxSL3IlMOe07uXCdiJW9LSm5CwqiG+Q1r9B420tPGZ5Zzbh
+	zMQO291Cp3Bi5nKFXN6Xlqbz/AeW/kkvTi8fJ5FL07nnPEqTfTwonvgg4DMkrFzmYV7hw+Tivo95z
+	P0fssvApaqpF0Dop+9wIaruV7OhqMOdWYjmksOuljHVFI+aHbDAVwkDz+dbDjeuMk3lrQaLd6/0Yj
+	hfcoDiNmCkaJitRaJI/fVrpCv9RJ0/T6mHput2VQhVSKzIN+zzul+wkK9d+rReF/6LrVXJts81g0/
+	WwoqZ3KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wofms-000000052sI-07kC;
+	id 1wofms-000000052t0-11Ct;
 	Tue, 28 Jul 2026 11:15:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wofma-000000052o9-0egG
+	id 1wofmf-000000052pD-3DAO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 11:15:36 +0000
+	Tue, 28 Jul 2026 11:15:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 939A04037B;
-	Tue, 28 Jul 2026 11:15:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B80911F00A3A;
-	Tue, 28 Jul 2026 11:15:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 399CC60AB0;
+	Tue, 28 Jul 2026 11:15:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D07F71F00A3E;
+	Tue, 28 Jul 2026 11:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785237335;
-	bh=v1UAkumH+1EWeKiYH4cUN+rYvQoUWuyKXbz54U/PDZw=;
+	s=k20260515; t=1785237340;
+	bh=QAXXo+PhSkrJo36ImVUjmOnQ0ftX4EsaB1ZksVpLTlo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RTVV0RhHbnYNukT6I0Qj9A9B2O4mnKjEYZU44W0ZwfANvyMazmgbQAkltRWtdTETF
-	 o4IuVxS51G3o/OhApT8JT9wZT/EmUG48xRiW2rwe++MOGp2OG9R7QiIOcDoiXsJCxy
-	 +aH9bjpFxpH53MZ3WRdXvOaujugbKE8xsMFN/A59rFFaK1Uo25FNHkIC4iFCyecuIF
-	 a/n256CvZAkLtUP9qCcxFCr6RAEATmSacbk5QKulpB4BQItDkh/IkjIK1KVylQZtbs
-	 uCcUwzgvJMRB5fzuVM+XOJSgZoeZnniPogmLh8PYXSIuaerfr2Dr4fWBrsownqYI/a
-	 dX4HLzDr1rjBA==
+	b=nArRvbYCKg21eEKy6vf51vA9HdrHSXuDmgoTk7yx8+TX1ExIRh5OWDqyGFi3MGgEt
+	 bjKtlFYpWuv45xzQ1GKjPvF9yWo7VIMT/OqbhlEG+tNeySR6EafBvBMlJP+LxLOAw8
+	 ox2xSeFn5t4fsTv7SdxFxnBumjLzeRpgtKxdql2bDW93hNq/YSTSuAD9Q483WntcMC
+	 3Jo3mnhLTEYbEYg2fHZxRpicFVvHDMp+kzUolx4mQQDse7p2I31V/ALg+Sr6sF0A8P
+	 Qsq0FyDSnEaeKg/yqE9CswG8LiW4TwOG5qHhma/jyjMbw4TlzfU+5EC97bldPGS1H+
+	 YpllvocnQ+1nA==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	nicolinc@nvidia.com,
-	jgg@ziepe.ca,
-	Ashish Mhetre <amhetre@nvidia.com>
-Cc: kernel-team@android.com,
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
 	iommu@lists.linux.dev,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v9 0/4] iommu/arm-smmu-v3: Tegra264 invalidation workaround
-Date: Tue, 28 Jul 2026 12:15:24 +0100
-Message-ID: <178523218770.339148.16144926256012413621.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v2 00/11] iommu/tegra241-cmdqv: Fix error-interrupt races and VINTF lifecycle bugs
+Date: Tue, 28 Jul 2026 12:15:26 +0100
+Message-ID: <178523230947.340181.5626643238486784200.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260726081904.1408859-1-amhetre@nvidia.com>
-References: <20260726081904.1408859-1-amhetre@nvidia.com>
+In-Reply-To: <cover.1784059577.git.nicolinc@nvidia.com>
+References: <cover.1784059577.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -81,29 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Jul 2026 08:19:00 +0000, Ashish Mhetre wrote:
-> Nvidia Tegra264 SMMUs are affected by an erratum where a TLB entry can
-> survive an invalidation that races with concurrent traffic targeting
-> the same entry. The hardware-recommended software workaround is to
-> issue every CFGI/TLBI command (each followed by CMD_SYNC) twice.
-> The second issue must execute only after the first issue's CMD_SYNC
-> has completed, giving the sequence:
+On Tue, 14 Jul 2026 13:54:57 -0700, Nicolin Chen wrote:
+> These fix a cluster of bugs reported by Sashiko during patch reviews. The
+> patches are ordered roughly most-critical-first, so some later ones fix
+> smaller pre-existing issues in the same functions that earlier patches
+> touch.
+> 
+> Issues fixed:
+>   - the error ISR racing VINTF (de)init and reading a NULL, freed, or not
+>     yet fully initialized slot
+>   - the probe fallback dereferencing an smmu freed by devm_krealloc()
+>   - a guest vSID programmed without validating its width or the device's
+>     Stream ID count
+>   - VINTF0 leaked on an init-failure path
+>   - error-map index/bounds handling and a VCMDQ base above the 48-bit limit
+>   - the error ISR flooding the kernel log under repeated guest errors
 > 
 > [...]
 
-Applied to iommu (arm/smmu/updates), thanks!
-But please check the comments from Sashiko if you get a chance:
+Applied (apart from patch 10) to iommu (arm/smmu/updates), thanks!
 
-https://sashiko.dev/#/patchset/20260726081904.1408859-1-amhetre@nvidia.com
-
-[1/4] iommu/arm-smmu-v3: Factor out CMDQ batch force-sync conditions
-      https://git.kernel.org/iommu/c/097bf4a02f2d
-[2/4] iommu/arm-smmu-v3: Add CFGI/TLBI-repeat workaround
-      https://git.kernel.org/iommu/c/95ed2da20283
-[3/4] iommu/arm-smmu-v3-iommufd: Report CFGI/TLBI-repeat erratum
-      https://git.kernel.org/iommu/c/d501d66815ee
-[4/4] iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat workaround on Tegra264
-      https://git.kernel.org/iommu/c/06b15ddcfbc0
+[01/11] iommu/tegra241-cmdqv: Publish an LVCMDQ only after it is fully initialized
+        https://git.kernel.org/iommu/c/cbc41aacd49e
+[02/11] iommu/tegra241-cmdqv: Synchronize the error ISR against VINTF (de)init
+        https://git.kernel.org/iommu/c/a491be376abd
+[03/11] iommu/tegra241-cmdqv: Harden error-map index handling in the error ISR
+        https://git.kernel.org/iommu/c/a2ee315db426
+[04/11] iommu/tegra241-cmdqv: Don't run the error ISR before probe sets up vintfs
+        https://git.kernel.org/iommu/c/5acd67ceb38d
+[05/11] iommu/tegra241-cmdqv: Don't fall back to a freed smmu after devm_krealloc()
+        https://git.kernel.org/iommu/c/d4d05f55e9da
+[06/11] iommu/tegra241-cmdqv: Free the error IRQ before tearing down VINTFs
+        https://git.kernel.org/iommu/c/61f0d437988e
+[07/11] iommu/tegra241-cmdqv: Reject a vSID wider than the SID_MATCH field
+        https://git.kernel.org/iommu/c/4379610c79bd
+[08/11] iommu/tegra241-cmdqv: Require exactly one Stream ID for a vSID
+        https://git.kernel.org/iommu/c/fb292bfc9be9
+[09/11] iommu/tegra241-cmdqv: Fix VINTF0 leak on the init-failure path
+        https://git.kernel.org/iommu/c/f40f31444773
+[11/11] iommu/tegra241-cmdqv: Rate-limit the error ISR's log message
+        https://git.kernel.org/iommu/c/a86c36163c97
 
 Cheers,
 -- 
