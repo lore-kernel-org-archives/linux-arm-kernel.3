@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82E6C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A808CC54F52
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HflH29hc6ZhQZtTm37ziBGT8nzUICFgRobqgt82X5wo=; b=RDVGvOGIFL+bhoPrYZA51A4Wti
-	BbUXvkVJziK/XSkvrqECzBoveszCWFqxtgFUOSl9b33ClW8WV2fdi5DNf2uEcIXK10TYJXz814btY
-	BuPh9LIcWZ6lgTV+ENgStth29tg1zTz29XlzV78SaB1ylN2gBdhYGFScBbHUjys8E4iIeWTXsIZ8E
-	sfWXz3whzBsVxkpYll8bWC6JiTKxfup/hv31ZI5IySTocIGnFYFYpkH9Cf+0hkQ1qgpYv37ZO+1oJ
-	R339/aJwpW/QaRRJGZ9qleMhUefaP0ayeJh27jsbDEJkPszOJK3UdsEu4KZt3BNqYmK48yRvE5f3/
-	yE0nj2BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=coBQCYguauEUFlE+zRehCazJ7YtpgsT9g1InCofXSTM=; b=Io9w0Fuhzkalq7baSuGgTCVNwO
+	bK8LmBPT5F2hUr11hlgTdoM5YM+UB+Eu7Wch6pXqlbx6kWXjDXTTZaTJOvisXB+oeaM263A6fOV2v
+	nrwBqK0wjLeRc4C8dGsOp6wh9EacF7PMuFVWtIVIS8cSsAt2vWOsI0jzkaZSiwVHr0VXsU02l4ZAA
+	GpeUwcfYF+bOhjhD/DYtslm/u1UI9vcD+sm6ScYSRlJXCFCW9ii0MLE+7qagIJpX8b3utT/O149Te
+	+NGi2Y6SZOnAKcQRzuPqnLYbrlfPBfxYGqVVg75KN9Pdn66+GYJJ2lMKcpcXwHmSAcq0t1JpoKz9O
+	vXlHZImA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogcH-00000005CMD-0EFG;
-	Tue, 28 Jul 2026 12:09:01 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wogcP-00000005CNE-0aHK;
+	Tue, 28 Jul 2026 12:09:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogcE-00000005CLa-0PRJ
+	id 1wogcK-00000005CMp-2g8M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:09:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=HflH29hc6ZhQZtTm37ziBGT8nzUICFgRobqgt82X5wo=;
-	b=OYYhdOZNdB/X7lT945qW2d65TUWuz0+bVzP8kHay6oUOhYPfm9sphqcSApNnYnV5dIDUlcOqv
-	rB4W5L+VCz40JB42b3sv7FxEFgSeWaLwhj3oRqOFNgg0EkTNRVSSklLDyRFv7lCvEsHgYcugwu3
-	qgUdHkhB//m5n+4uiJ36Jsw=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h8Ysp2YqWzmV8f;
-	Tue, 28 Jul 2026 19:59:26 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 056F840565;
-	Tue, 28 Jul 2026 20:08:53 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 28 Jul 2026 20:08:52 +0800
-Message-ID: <321b03aa-6703-4aca-a6c5-ac142d876532@huawei.com>
-Date: Tue, 28 Jul 2026 20:08:51 +0800
+	Tue, 28 Jul 2026 12:09:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 164A9436F6;
+	Tue, 28 Jul 2026 12:09:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4BC31F000E9;
+	Tue, 28 Jul 2026 12:09:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785240544;
+	bh=coBQCYguauEUFlE+zRehCazJ7YtpgsT9g1InCofXSTM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eGXgV9YQEy+iglnVsOeKzzWKZ51pMguT48dsQ8WNzvcPPyWqhIhse1zFPQy9NWsIF
+	 qR86lFypyCG8ra+bC1hW5gF+wH7jsWK+lPfg1wkaIotLjtodukmtZKhhq2BTpfMRqr
+	 b6nawRofbM/q0NSkooh8JKp2tFvaigsqZ+dWMTjlIt4LBQNzlxyMoGVcVH690kopwH
+	 UgyTOkip3FZucPLm+wg1g8QucTaKogZr3lUhBbGPAfFYJhINOM6jVtCQ2tdXv4+/ye
+	 7aVrMzkj2hvtxI5Ig/pW5pIHk/4IhA3fmIR44zXT3CU1PIARgFC1Qbfu4pB2rE1PtI
+	 aWsWTI5hPg5ig==
+Date: Tue, 28 Jul 2026 13:08:57 +0100
+From: Will Deacon <will@kernel.org>
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
+	urezki@gmail.com, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com,
+	anshuman.khandual@arm.com, david@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	rppt@kernel.org, ryan.roberts@arm.com, dev.jain@arm.com,
+	baohua@kernel.org, Wen Jiang <jiangwen6@xiaomi.com>,
+	Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH v7 2/7] arm64/vmalloc: Allow arch_vmap_pte_range_map_size
+ to batch multiple CONT_PTE
+Message-ID: <amib2d8um2ZwsMDU@willie-the-truck>
+References: <20260715120813.3609949-1-jiangwen6@xiaomi.com>
+ <20260715120813.3609949-3-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 21/45] arm64: gicv3: remove GIC_PRIO_PSR_I_SET
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-22-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-22-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_050858_779344_FF9ACD7F 
-X-CRM114-Status: GOOD (  19.88  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260715120813.3609949-3-jiangwen6@xiaomi.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,75 +75,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+On Wed, Jul 15, 2026 at 08:08:08PM +0800, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 > 
-> `GIC_PRIO_PSR_I_SET` was used to keep track of sections of the kernel
-> where interrupts always need to reach the CPU and could not be masked
-> via interrupt priorities, or DAIF bypassed the status of the PMR.
+> Allow arch_vmap_pte_range_map_size to batch across multiple CONT_PTE
+> blocks, reducing both PTE setup and TLB flush iterations.
 > 
-> This flag unmasked IRQs when OR'd to GIC_PRIO_IRQON and ensured that
-> that IRQs were seen as disabled by the `local_irqs_...` functions,
-> as they would only check the PMR if pseudo-NMIs were enabled.
+> For CONT_PTE_SIZE-aligned ranges, return a power-of-two mapping size that
+> may cover multiple CONT_PTE blocks, capped below PMD_SIZE. These sizes
+> are vmalloc mapping spans, not HugeTLB hstate sizes.
 > 
-> This is not needed anymore as our IRQ masking APIs now know how to handle
-> interrupt priorities properly and in parallel with DAIF : remove it.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-
-It seems that the reviewed-by for v1 is missing.
-
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
 > ---
->  arch/arm64/include/asm/ptrace.h         | 2 --
->  include/linux/irqchip/arm-gic-v3-prio.h | 8 --------
->  2 files changed, 10 deletions(-)
+>  arch/arm64/include/asm/vmalloc.h | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-> index e4c7e6bafa3d..cf7e51b8ef0b 100644
-> --- a/arch/arm64/include/asm/ptrace.h
-> +++ b/arch/arm64/include/asm/ptrace.h
-> @@ -24,8 +24,6 @@
->  #define GIC_PRIO_IRQON		GICV3_PRIO_UNMASKED
->  #define GIC_PRIO_IRQOFF		GICV3_PRIO_IRQ
->  
-> -#define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
-> -
->  /* Additional SPSR bits not exposed in the UABI */
->  #define PSR_MODE_THREAD_BIT	(1 << 0)
->  #define PSR_IL_BIT		(1 << 20)
-> diff --git a/include/linux/irqchip/arm-gic-v3-prio.h b/include/linux/irqchip/arm-gic-v3-prio.h
-> index 44157c9abb78..464bf1d29453 100644
-> --- a/include/linux/irqchip/arm-gic-v3-prio.h
-> +++ b/include/linux/irqchip/arm-gic-v3-prio.h
-> @@ -20,17 +20,11 @@
->   * GICV3_PRIO_NMI is the PMR view of the priority of pseudo-NMIs. This can be
->   * written to the PMR to mask pseudo-NMIs.
->   *
-> - * On arm64 some code sections either automatically switch back to PSR.I or
-> - * explicitly require to not use priority masking. If bit GICV3_PRIO_PSR_I_SET
-> - * is included in the priority mask, it indicates that PSR.I should be set and
-> - * interrupt disabling temporarily does not rely on IRQ priorities.
->   */
->  #define GICV3_PRIO_UNMASKED	0xe0
->  #define GICV3_PRIO_IRQ		0xc0
->  #define GICV3_PRIO_NMI		0x80
->  
-> -#define GICV3_PRIO_PSR_I_SET	(1 << 4)
-> -
->  #ifndef __ASSEMBLER__
->  
->  #define __gicv3_prio_to_ns(p)	(0xff & ((p) << 1))
-> @@ -45,8 +39,6 @@ static_assert(__gicv3_prio_valid_ns(GICV3_PRIO_IRQ));
->  static_assert(GICV3_PRIO_NMI < GICV3_PRIO_IRQ);
->  static_assert(GICV3_PRIO_IRQ < GICV3_PRIO_UNMASKED);
->  
-> -static_assert(GICV3_PRIO_IRQ < (GICV3_PRIO_IRQ | GICV3_PRIO_PSR_I_SET));
-> -
->  #endif /* __ASSEMBLER */
->  
->  #endif /* __LINUX_IRQCHIP_ARM_GIC_V3_PRIO_H */
+> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+> index 4ec1acd3c1b34..d665f9d687422 100644
+> --- a/arch/arm64/include/asm/vmalloc.h
+> +++ b/arch/arm64/include/asm/vmalloc.h
+> @@ -23,10 +23,14 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+>  						unsigned long end, u64 pfn,
+>  						unsigned int max_page_shift)
+>  {
+> +	unsigned long size;
+> +
+>  	/*
+>  	 * If the block is at least CONT_PTE_SIZE in size, and is naturally
+>  	 * aligned in both virtual and physical space, then we can pte-map the
+>  	 * block using the PTE_CONT bit for more efficient use of the TLB.
+> +	 * The returned mapping size may cover multiple CONT_PTE_SIZE blocks,
+> +	 * capped below PMD_SIZE.
+>  	 */
+>  	if (max_page_shift < CONT_PTE_SHIFT)
+>  		return PAGE_SIZE;
+> @@ -40,7 +44,9 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+>  	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
+>  		return PAGE_SIZE;
+> 
+> -	return CONT_PTE_SIZE;
+> +	size = min3(end - addr, 1UL << max_page_shift, PMD_SIZE >> 1);
+> +	size = rounddown_pow_of_two(size);
+> +	return size;
 
+Why does this have to be a power of two? We should be able to work with
+regions where the start and end are suitably aligned. Is it because the
+hugetlb code works in terms of shifts?
+
+Will
 
