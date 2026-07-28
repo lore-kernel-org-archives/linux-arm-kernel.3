@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE062C53209
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 00:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B38BC531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 00:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OZoYewpWj+bSF/26xO4yzFQiIfC/mpZ1c8B1kszJ0Mw=; b=RsILgOWUCCj/ufOa2aIrV5aBnS
-	UB2qIq05GOSvG+VBpTgOEZ3Gpa1mJR9oDFRrqAA5aq3fZ1aw/pAX7UqjmeYC4FtntDeyZTxoMhPCO
-	DipqBh7s+fxECPVQxG5c/F38fFDh/cekuC+aiYHHAmiMzzAkAVsqIqCEg7uQmqyu1lboApSimnPOz
-	39OivnG5JVehgJjKDEepbsD+dWtMrb6qb3PjQqWkBU0+qKesbiQVavB3JkX030w/DRCD0CPdDJheL
-	RWoraIRUgCz/BuHfs87KMyYMgPrjA4Qpj/J2uzIHfzV1KwjwlaE9qBSZVt/q3pfs/pizyVMuFxYZO
-	O/VNDygA==;
+	bh=ZfDn9fEtfbgd/pb7eTpc1EfqTer+j8fqHQ23wDO8qsw=; b=A69t6PdxddPM+Z78tz8oCqfARZ
+	+MhNnm3ZOyuAR8EtVghniVLwpEyeQZVyHIj8is+aINxdKQtn7Bx1g+/Gf1bvQ4nWZ4P2U87asAfap
+	nPgeALHYKwL9WaXdo3/nuSkbXFVniaF/RiCavUz3YYffKFXsA5Z3QDH6Ic5cZ9y5AaNPku6poiQSE
+	goEI1keoH9m3ErXlvz3dXuhtk5CehabIycI1hXg6ENKtNH0jogHWJZoUP2rq6OkdqaaFCbRkjiO4A
+	4mWTGaTz+sl1vKYQZ0InQgdnH783BJMD5I0UHPLj9XJ2pcE0WWR7fEYfWNgFaaFfzKxBQMzvcLR3T
+	w1/9L+Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woVF0-0000000477H-3YyP;
-	Tue, 28 Jul 2026 00:00:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1woVKD-000000047Hc-1rU5;
+	Tue, 28 Jul 2026 00:05:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woVEz-0000000477A-33cM
+	id 1woVKC-000000047HW-0Evc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 00:00:13 +0000
+	Tue, 28 Jul 2026 00:05:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D11841075;
-	Tue, 28 Jul 2026 00:00:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3A11F000E9;
-	Tue, 28 Jul 2026 00:00:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 69519406C6;
+	Tue, 28 Jul 2026 00:05:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E3B1F000E9;
+	Tue, 28 Jul 2026 00:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785196812;
-	bh=OZoYewpWj+bSF/26xO4yzFQiIfC/mpZ1c8B1kszJ0Mw=;
+	s=k20260515; t=1785197135;
+	bh=ZfDn9fEtfbgd/pb7eTpc1EfqTer+j8fqHQ23wDO8qsw=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Y0Y0iyM/wY+nw2B1SYNpW2uJ4/n6N0fedtveDy9IMrtD7VamdcX9/xxVgCh4eJQdj
-	 x8noIqbRuFgsFiTun6NSgVqB3HqkRBQl0wPzhA22fay2oLI/TA82cSnR7Uk9odX478
-	 VXXRd33gm+xvE/mW8vQcoJLpi1ktvmY9hCNf6cXcXrs+mR1C4Ib2IJ/Xe6imku7aJi
-	 aRmz0gd0xUieuJSmT47m7XHXOXFPqe4CX4Ht1ebtzzr5tDcZjvb0LL29F4apw6D/WS
-	 SwvPZ3wu8Auri4O2zdq4QPY5aunKswDCi0ncpx6vGnhSweHxrrKLtykmzW+85uOFKF
-	 U1qtGgUSwQPxQ==
-Date: Tue, 28 Jul 2026 01:00:04 +0100
+	b=WkKN2I6hEcZnE3J8fZikL0lqNc1BCEn9Ui/Zk/2UBj69QG7+lg+dCFrbx+o/S+7PV
+	 Rx7M+uYoCfiCclRP4JECaTQfp84zJC4KXNIM1QUpVwxmYwLEevXqSFiKYGWHL9i2Z0
+	 8rgguy6JZeta+i71JZHOl6v04U91vMAeRe2nmzEjZuvUfLbOtDtff/u2sT51/W8eur
+	 Z7A3XC3LLVsxNOCJZFsZnFOeMau0MvM8JNyhQF+322XuTN/z1KGXqE6svLKoH/NTVY
+	 H7F3KDSZEnLe/rO5bh64NWvrbh5zKUim8tXBZL1MGixoPUjfR3iq7i2Ia5/5UdLknj
+	 E6IrACJOzNMBA==
+Date: Tue, 28 Jul 2026 01:05:28 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: Cristian Marussi <cristian.marussi@arm.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -55,12 +55,11 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  souvik.chakravarty@arm.com, david@kernel.org,
  subrahmanya.lingappa@oss.qualcomm.com, leitao@kernel.org, kas@kernel.org,
  puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v6 03/22] firmware: arm_scmi: Introduce protocol
- instance notifiers
-Message-ID: <20260728010004.35fcac96@jic23-huawei>
-In-Reply-To: <20260724144430.1440170-4-cristian.marussi@arm.com>
+Subject: Re: [PATCH v6 05/22] include: trace: Add Telemetry trace events
+Message-ID: <20260728010528.6d1ff3b2@jic23-huawei>
+In-Reply-To: <20260724144430.1440170-6-cristian.marussi@arm.com>
 References: <20260724144430.1440170-1-cristian.marussi@arm.com>
-	<20260724144430.1440170-4-cristian.marussi@arm.com>
+	<20260724144430.1440170-6-cristian.marussi@arm.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -79,88 +78,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 15:44:11 +0100
+On Fri, 24 Jul 2026 15:44:13 +0100
 Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-> Allow protocols themselves to register for their own notifications and
-> provide their own notifier callbacks. Each protocol can now register one
-> unique per-protocol instance notifier block whose callback will be
-> registered on the proper notification chain as usual: such notifier will
-> be automatically removed during the protocol de-initialiazation phase.
+> Add custom traces to report Telemetry failed accesses and to report when DE
+> values are updated internally after a notification is processed.
 > 
-
-Would be nice to say why they might do this. I'm sure it becomes
-apparent later in the series, but anyone looking just this patch
-is missing that useful information.
-
-I'd also like something here to talk briefly about why it is fine to
-drop the lock briefly on the unregister side.
-
 > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> ---
+>  include/trace/events/scmi.h | 48 ++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 47 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/trace/events/scmi.h b/include/trace/events/scmi.h
+> index 703b7bb68e44..b70b26e467b8 100644
+> --- a/include/trace/events/scmi.h
+> +++ b/include/trace/events/scmi.h
 
-
-> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> index 8e06e40d1a11..0f9e8dfc6137 100644
-> --- a/drivers/firmware/arm_scmi/driver.c
-> +++ b/drivers/firmware/arm_scmi/driver.c
-...
-
-
-> @@ -2367,13 +2402,29 @@ int scmi_protocol_acquire(const struct scmi_handle *handle, u8 protocol_id)
->  void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
->  {
->  	struct scmi_info *info = handle_to_scmi_info(handle);
-> +	struct notifier_block *proto_notifier_nb = NULL;
->  	struct scmi_protocol_instance *pi;
->  
-> -	mutex_lock(&info->protocols_mtx);
-> -	pi = idr_find(&info->protocols, protocol_id);
-> -	if (WARN_ON(!pi))
-> -		goto out;
-> +	scoped_guard(mutex, &info->protocols_mtx) {
-> +		pi = idr_find(&info->protocols, protocol_id);
-> +		if (WARN_ON(!pi))
-> +			return;
 > +
-> +		proto_notifier_nb = pi->pno.nb;
-> +		/* Ensure NULL is visible */
-> +		smp_store_mb(pi->pno.nb, NULL);
-> +	}
->  
-
-I'd like to see a little commentary on safety of not holding
-the mutex over the whole sequence.  Can anything mess around
-with pi between the code getting hold of it and the release below?
-I assume the refcount is enough.
-
-> +	if (proto_notifier_nb) {
-> +		int ret;
+> +TRACE_EVENT(scmi_tlm_collect,
+> +	TP_PROTO(u64 ts, u64 de_id, u64 value, unsigned char *tag),
+> +	TP_ARGS(ts, de_id, value, tag),
 > +
-> +		ret = scmi_protocol_notifier_unregister(pi->handle, &pi->pno);
-> +		if (ret)
-
-Maybe this changes later but if not get rid of ret. It kind of suggests
-the value itself is useful in a way that isn't true.
-
-		if (scm_protocol_notifier_unregister(pi->handle, &pi->pno))
-			dev_err();
-
-> +			dev_err(handle->dev,
-> +				"Failed to release protocol notifier\n");
-> +	}
+> +	TP_STRUCT__entry(
+> +		__field(u64, ts)
+> +		__field(u64, de_id)
+> +		__field(u64, value)
+> +		__array(char, tag, TRACE_SCMI_TLM_MAX_TAG_LEN)
+> +	),
 > +
-> +	guard(mutex)(&info->protocols_mtx);
->  	if (refcount_dec_and_test(&pi->users)) {
->  		void *gid = pi->gid;
->  
-> @@ -2391,9 +2442,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
->  		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
->  			protocol_id);
->  	}
-> -
-> -out:
-> -	mutex_unlock(&info->protocols_mtx);
->  }
->  
+> +	TP_fast_assign(
+> +		__entry->ts = ts;
+> +		__entry->de_id = de_id;
+> +		__entry->value = value;
+> +		strscpy(__entry->tag, tag, TRACE_SCMI_TLM_MAX_TAG_LEN);
+> +	),
+> +
+> +	TP_printk("ts=%llu  de_id=0x%04llX  value=%016llu [%s]",
 
+Why the double spaces? I was thinking this must be a local style thing but it doesn't
+seem to be.
+
+> +		  __entry->ts, __entry->de_id, __entry->value, __entry->tag)
+> +);
+> +
 
