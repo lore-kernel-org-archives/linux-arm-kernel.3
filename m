@@ -4,67 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C59DC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F8AC54EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 09:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N7FQS09rjhftisS6H4iSKSS+hZHr6EWtct1LKvkr+Iw=; b=ynQqu6en7pJc2Q1sMBSISxpC/f
-	7d98b6B3BriC3vjlrFgRRvjg/wqZ6opEhEL0AEg7RznKLeidYthw/clcvac7f7HP3uoE/OXKdIpFz
-	rCoI5vwuXXPDIHOnGwExKvWcrheWWvOOqlk93SvpSwlJkIDAQImqClNAC5A6niiYPY6bBKEGz8waA
-	QL8dLV4WosnPd3j0frblvzvL3JDQZge7M73kuQvXmIdI0Hlt72/NXFWJGl2YGnerCDh6JOzPuaILi
-	k7Akv1H5YnNXyNbEjcQuUYQZi+1q2flzzTwb7fzNycGem3Kv1dga4+TxiJNdI/Nn3TzOILlEf1PGn
-	WuZz8F6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o059ZrmTYHc5JDt8+PppE9HDuODJT7LyjJOzcCUsK24=; b=1N4HvmIhvJ/ENANFaFj1f3nPM2
+	eYqbq1bvtsa+0iDK7Ed7pHzaz0aRRW/cQenPjOh/waF/ZFLjrMMZx3GZ4WQ1BXXgxz9WOEq8LGbba
+	u4qIBHCBOAc9+oeZXCeIBo6AC5vkBd7ev3IMYDwFFWXcwfF8jX9PPuTZKFKRlMXWKqcN5fbsYTGu3
+	8ywQ0MFgoDcy8Rjp2htiqNInsV5exo4+j8kqhn2c+tHpRHLZH3/1OjX5yZmML2/nqZDvYUChZfcdW
+	uSJzG3KOStvF+zSqWElj3LX9LdoAjVec0l72UdmT+jayhhWFDCBWW59XHKNCJhWtRkoJKWg9HJQRV
+	RLJOLbeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woe76-00000004oto-2GZL;
-	Tue, 28 Jul 2026 09:28:40 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1woe7k-00000004pJV-1cBn;
+	Tue, 28 Jul 2026 09:29:20 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woe6q-00000004ol6-2pgn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 09:28:27 +0000
-Received: by chaosmail.tech (Postfix) id 8315C1CA4EF;
-	Tue, 28 Jul 2026 09:28:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1785230902;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=N7FQS09rjhftisS6H4iSKSS+hZHr6EWtct1LKvkr+Iw=;
-	b=R15SE5lDPBsA+FFBsIpOTZsNbUJylLsjRdH7xQC8H3ylYvo+eJ/xxdw2e7hUBaAea82qR8
-	HxqJTDu36N0fERIKE0Xb7hiQcpjmjogLHZ6MYZwPyfCVDUSo7qwzXiNry8ko9vpOd0PpHj
-	nzqZ9/o+TNL9Vq3RymUMIiNqDnX1JTs=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Tue, 28 Jul 2026 11:28:13 +0200
-Subject: [PATCH v2 7/7] spmi: apple: interrupt controller functionality
-MIME-Version: 1.0
+	id 1woe7P-00000004p6U-1DvZ;
+	Tue, 28 Jul 2026 09:29:00 +0000
+X-UUID: be0757408a6611f1afed4741b24580c9-20260728
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=o059ZrmTYHc5JDt8+PppE9HDuODJT7LyjJOzcCUsK24=;
+	b=KcEHN35jjtYoOFg9fhoSIjiK38yqiSOQ4K/c6Gg6YwpVxIpWRkXemXctKlWJtU6hFgpYmZILDqtiKJADGV6JxlYFhAjwiubboz3mNwJ7aVRISTJk+n8IuE93ovgUi5KmaYZvSO/RwHjdcifMxLA29pa18VzG95fu6XwRK8cGAHU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.18,REQID:5c24f850-f5f2-4208-b68d-db759e92201e,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:8a735a6,CLOUDID:2b0c0b5e-9e7a-4d47-8812-f7f9dff5de72,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-
+	1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: be0757408a6611f1afed4741b24580c9-20260728
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1558577245; Tue, 28 Jul 2026 02:28:50 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 28 Jul 2026 17:28:47 +0800
+Received: from SG2PR04CU010.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 28 Jul 2026 17:28:47 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S0LoCF1S5sFJx1Magvr+sqDw/93dA+R++Wj+u56fRvbkPb9za0cmsJQr6WTc/ieULXlJv/vUoWH0+U47VjEr8lqk26bSIy+BA3mbpvRoXPEFzEiO7kvix4J251aefZKNS816/zK3h4XfJmFvxm+8ZOBGDex8uYcP/+Gh+jQp/qGvrZvopXKeKJj41RSsIYCFk6/w7sDkh2YBl+mRoLZHLQdibr5zQte2Oql/brCKvO+FY6dabLzAPZnquQb7IKEXOX9W/j3d6j2gI2D99nIboWFGS2CbBS30SreCIbaFbptbixnXzaBbpi9wlpNtofdlVFY+lnUE+O//qBxJDFPFUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o059ZrmTYHc5JDt8+PppE9HDuODJT7LyjJOzcCUsK24=;
+ b=URT0xQiiEAUpxkKqU88XL4pxbDddrzwvImt2k/pY+2UIGUICU+amHKfxNmT2rkGMC/BmN7TAneaiZ0S+y3XEvBeFqTCmezXhDsc3r7rN1v3cuqKtVScfDtxOPH60QHYe36wY6O94glyYkXNnlXvp0nQjOZd199SyG90d/wMfzOiDl3PCvxVQ3b03IQFldkFGMIpFZpEsyaOPPws6JD8QJVyq37OFyv2Y1kMoFBz4Tt/aQmob0sMV7MUptIGdNwFkHYl/OFHtXT+QMjhxXTrMPMyHrF+f9lZ6ZRhaoSTndon8F8LsNly9Yc5t8IXLunyigYPQmegcjdhNL+lZs3s3WQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=o059ZrmTYHc5JDt8+PppE9HDuODJT7LyjJOzcCUsK24=;
+ b=c97nGFOMDV+JEDbGJFHc5+3A7PT7zf8nXS3i++LWlTAIeQa0fIysE3tY2MbugRkm6ekpfhTfEpW08oxCe2vqTU0Koel8rf4v5gR50eib2QFjoCY7TtdTvm/4TJWZaBFZV1GB/eixeSH8Mlb+5Nkxgm/Jy6vW3wF84Z34SopHInw=
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
+ by TYSPR03MB8626.apcprd03.prod.outlook.com (2603:1096:405:8d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 28 Jul
+ 2026 09:28:44 +0000
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::a3c2:b94a:70f:e640]) by TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::a3c2:b94a:70f:e640%4]) with mapi id 15.21.0245.012; Tue, 28 Jul 2026
+ 09:28:44 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "mhun512@gmail.com"
+	<mhun512@gmail.com>, "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+CC: "ae878000@gmail.com" <ae878000@gmail.com>, "simona@ffwll.ch"
+	<simona@ffwll.ch>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "airlied@gmail.com"
+	<airlied@gmail.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH] drm/mediatek: ovl_adaptor: balance component
+ registrations
+Thread-Topic: [PATCH] drm/mediatek: ovl_adaptor: balance component
+ registrations
+Thread-Index: AQHdGSTl9LbkIqtDRUqDOHGvqXwcCbaCtKsA
+Date: Tue, 28 Jul 2026 09:28:44 +0000
+Message-ID: <7238da113aa85cf19c1cabf73911f4b7149c18f9.camel@mediatek.com>
+References: <20260721152242.47138-1-mhun512@gmail.com>
+In-Reply-To: <20260721152242.47138-1-mhun512@gmail.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|TYSPR03MB8626:EE_
+x-ms-office365-filtering-correlation-id: 846a856e-c136-4d49-8348-08deec8a9e93
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|42112799006|7416014|376014|1800799024|23010399003|56012099006|10067099003|11063799006|22082099003|18002099003|38070700021;
+x-microsoft-antispam-message-info: FeiGBAq2w/n5j/M/HcwU8UqSIM5wm7K0uTh8m4sPDzfbYli9OFCa4ZOAXPXgUiCVloSkFetswg0WO7Qo633yu6na9ICo8xv2w2mMAOMX3AhIcwVVgDcCJiMPujEXeFJtOHLqq+1fyRY5bMRThpFpmWkQ5OedP85ToaBzLpg4c090E40iCZZlgAGbT0+mdBUtBrE4RhnS3WUtQX3heNQVPWQkukss3c+UENvB+VwPZB1YXCqo1cXQ8EhdeHug2A60MD3S+R0X+FNPLRvmDoAjL0e+JgU4M6osIeBVLu4WFAWJVSaw4qms29piaQp6zOXO4e24dC/15pOjNhg/VMuwmbaC426Ci4S4c5+IY38Vf7ogHfmCES63tL+Z9xzof0kkZ6MOEEZk3amSktsgXnA3ane8Nx6Iy/+8S6hgJYJCgfbkpgYwys7StRA2lW8s6HdCwKqV6rAHZsfMSA0eFp/qfw0kGkSDStAgmT6Y0RRvDeyYSZVkdEhA/QvHbaeP6j2VgqvL/3cEx/o3Xeq63hWYnq+bWc59Pn1Ks4BAvZ2Ui9ygdfNiZddXas0dC0hP2ayX//LAybKWTj27IpoLtfXWc2Ck2maTXlvxAsIbkHKm4tNN84go1jaKIgJ6lmblyXkdZPnDYU6KGaCHbAXGcTPxF8zNUF7ilW5DE4dvJMU1OC/exIgJRri2qG6bWLdMWaQ1pBevGC4qC/W0vEKLyxYjyl3GwB+TSVWAHU94A9dkmu4=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(42112799006)(7416014)(376014)(1800799024)(23010399003)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QnhQOG5RT0k4bzVqMjVQUkVGMVdKM2l6Sjd2RG1yTjFSQlpDaU03bmN1UW5W?=
+ =?utf-8?B?K3ZEeWJidjBDU2pmNkRMelVjT2k4WTI2TDhnTkxCd3Nuc3Y5RjJEOTc2VXVt?=
+ =?utf-8?B?SWVmV2o0cjFNUlRPazhJNm1PMmwzOXlLL3ZKbVp6SzFjQi84WDUzTU5JLzdD?=
+ =?utf-8?B?akNMODhuYzNiNXJIeEJSdkFjbVZYUnA1L0lCbXAxWEZZOGF4WXVOWmp1eXVY?=
+ =?utf-8?B?NmlZVmFLV1RoZXVLeUowYUpXb3Y4VEg4TEp5SW1RUFRYRWZKOGE0cGtVQjEx?=
+ =?utf-8?B?b1BjdEc1UWNvNVpJZ2ptV3Q4TXZnMGFDNCswUGFjN0JrM09IY2dWQkpDY2dj?=
+ =?utf-8?B?TVRudm5PK0p1Si84azNKV2RnYzA2NEcyelFNSTFLeWNVTUlDbjg2QXZCUURa?=
+ =?utf-8?B?UXUzTEJiU3F0ZlVLL1EvMFpDVEEyM1d5YmtQTmRZMmpGMXVNN2J5UHV2STE2?=
+ =?utf-8?B?YkVSK0lCRythaWdaWFBRcWtEbnFPZFRFUlRXRFIyc042Sy9CaENNU1FSakh3?=
+ =?utf-8?B?Snd5eUpRa2c3dC84VHBMcTRSTG9RTWtBbmcrTllpYitZUkFQUUdxdWJMTDFH?=
+ =?utf-8?B?OFVwTS9zRWQ3TDFraU10cWVIdEpEV2h3bjZGbUxjMmtSWmlSeFRaVElIWU5Y?=
+ =?utf-8?B?bGRQNWJwd0lqTmFWclV1QklvWFpjTkhMNzZFTkxnSHU0MmNMVjVLbGlCbWkr?=
+ =?utf-8?B?VUZ0cjdEeU55QzEzcmR6SnB4OUhlRWRTME9ZcjJPUllaR3d2bWJ4ZUdHUThL?=
+ =?utf-8?B?ZXNYQWZGbWEvK04rZEVWaDlZK1FNeXYwSXc2NnQ2M29XbW40REt4TjRGTm90?=
+ =?utf-8?B?cEdYQVZESmVTQm14VW81NE85Umk1R2VzbWQ3VnlydXZEdkh4cFpKOGliTFNN?=
+ =?utf-8?B?cmw1dXFFR1QvMzBHdHhIMVg5YXNIaTFFMlVmeVNKeUEzZHV3TFdBTW5HNjN4?=
+ =?utf-8?B?bVBPN2hMUytacFNrM3ozQnV5clBaR0RDM0xsTHgyYXlNQ3hMdUhVOG5xMkVS?=
+ =?utf-8?B?aDFQUzZvWWNDeW5UNnVNcnMwWWdSSmV2YlBuYnJxZHloR2lJMHV0VkNVZ2Va?=
+ =?utf-8?B?b2JMdWNUTU5XczRQWm1HN3R1TFhwajNPZWcyd1VNSHdNanZ5d005bmxrM05D?=
+ =?utf-8?B?aFpST1JsT1l5YTdUQmhnUzNWb2NacTA1ajVUbmJRWDRsNE4xSVdxT2ZGWVNY?=
+ =?utf-8?B?Z3ZrcXNUMHlsZjNnSzl1SWVWUDVsU0NIbFZBeVloOGVYUnhDbXZvaVRBYXAx?=
+ =?utf-8?B?OTQyZ1RXSUtrY1VzWjZqdXhoTHV5RU5xdlVuYVYwdU1BL3FybkFvUE04eTdU?=
+ =?utf-8?B?UUhHTURnZlRNbkwwQkFONjBjKy94Um1nelF6RlkyRExVVElHNkZ1ejJCOWda?=
+ =?utf-8?B?TG5VZHZiRlM0OTFqWGVRc2RTT1NQUjFXYkVpWUJ2TTVzaWxpT3JnR05QQW9C?=
+ =?utf-8?B?VklYR0ZGQk9oZ1Z2YnpmdGJFcjc3d3pma1FJa1lObDZkaUJoSmViUnJzMUt3?=
+ =?utf-8?B?RU1qc2JIOFoyMkg1cU1NUEM0KzJ3eXBsZElRSHU1OUJ5cHVnL0dMWjc1ZHky?=
+ =?utf-8?B?TWFteEhFSTJrb1M0c1I3YndueStrQnhmM0NEaUNuWjBxUDRucldFaEZQU0lF?=
+ =?utf-8?B?dyt4NWZmU20wMDNGajJkcDE2clRCcXRVaHhxSlNrMWRaOXJNTWNqTGVXS3Zx?=
+ =?utf-8?B?R1JOSlBXdUhoSHlXNVhPS29lbG1jNkU4WS9SeGhpRTJoT2VwTDdLK2dQbjI1?=
+ =?utf-8?B?UHJBTnF2TmlHbUpmVTVXeFlhTU9IT2ZZeG1CUmNYaTRMa2lCRSsvM0ovN1lD?=
+ =?utf-8?B?dVlySkU0ckMrbE5qVUlSUDNLdFZSUS9aTmR3ZWtPbkQ5bGk4V1M1VHJqS3Vp?=
+ =?utf-8?B?Rm5QWEtRTjcrK2Z3VHM4cWdtbDQzcGFUZUJteFFLS2ZLOFlVS2s3OUQrVXUv?=
+ =?utf-8?B?TkxYaFRTYUx1OVBoamJLWkZEZmJ3UmxPODM4Wk43NkNyRURuWlFjN0JvejdW?=
+ =?utf-8?B?WWwzVDhrcFZOdmZnVWloMjhiTTBzSlVaQUxkZUh4b0lFa09WREFJb2lqVFZo?=
+ =?utf-8?B?RDVsc2c5VW5Ramdock5vUTBJbitBRGlRdmdoTzE3L2grMlUyNlViTStacHBR?=
+ =?utf-8?B?VENPZDh5K0RsRVQreFBpWnZudFRnL2NRWUdRR29scGJad2RjajdlaTV0R1VM?=
+ =?utf-8?B?RkQreGFyaGYwMnJ0dHhyZ1dpdmkybUtxWm9YQkdCRU4ydEx4dmRYRG1wUEhY?=
+ =?utf-8?B?NXVSMkpyNG9KbDIwV0YvNHd4ZjJaZ2syUmJ3RXd4bDRVNXpodGovZnVvdHlk?=
+ =?utf-8?B?VDVOSXNpVEtOeHcwdmtZdXoxWGNEVDh3V1NXeFlBdDF0VWRwL1Y1dz09?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260728-t603x-spmi-v2-7-f43e5f10e583@chaosmail.tech>
-References: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
-In-Reply-To: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785230896; l=6984;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=87/oAd0L+5oOzY7paukJWVDszVJnISZMTg8ih8EyBcE=;
- b=ai5qmaiqVChf5c/yDQZF2q06vqc5aS3qF1bRNZXduDdPlfzXZm67U4Ekp1XGxpRvfAV4T5srO
- wOsIBCT/17UAZg2yIxhy+D1qkJBwvjmenScGFwqTj6J8r+R+TkCJ0iD
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+Content-ID: <8DCAE90895C8794B9A3B6414F7C6242E@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: DrSBM1+nnqzwkgIXast6ey3N75IZ1rVK3jWcjosWHg4yp4cRfKYApsuPTIIhnLiwWwb9jPxX+mIEeKdpoEM7rIV0lr5vHikjsdCxEeLntO0UdhnXKZLEGx0JIxXdwQSUtlaaM0bZz8kMTYPRAzbweSuROLpTUuD5dP0DNyHZeGs3821dNNTQRQ6cs1OzTGJ7MUSaRAFifCH3EGO2duVJadoYudxvb+0Sr29u77BXJfydlFcgAyXBuwUay7B6/sD6glMDpXbxSkUyIhrvJtcfSJG6pi22NQ1oeuohy02PRT1/rwnz3Lj9E1JaOXP6ZfMV8xMX5Rrrgy9zWP1Go5pBUA==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 846a856e-c136-4d49-8348-08deec8a9e93
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jul 2026 09:28:44.2316
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4hgChXS5MEM9/5LAcaDOPIH98QiSVq1M2vEOdSohNkp3b9Gj/l07SA9pc+m9mjLYTIwr+LOP++He+hGx99ai3g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB8626
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_022824_925859_0876B1F3 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20260728_022859_354119_288EFE94 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,234 +189,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alba Mendez <me@alba.sh>
-
-Add support for interrupts sent by slave devices.
-
-Signed-off-by: Alba Mendez <me@alba.sh>
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
----
- drivers/spmi/Kconfig                 |   3 ++-
- drivers/spmi/spmi-apple-controller.c | 149 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 150 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
-index a80cf4047b86..7243863a09b4 100644
---- a/drivers/spmi/Kconfig
-+++ b/drivers/spmi/Kconfig
-@@ -13,7 +13,8 @@ if SPMI
- 
- config SPMI_APPLE
- 	tristate "Apple SoC SPMI Controller platform driver"
--	depends on ARCH_APPLE || COMPILE_TEST
-+	select IRQ_DOMAIN_HIERARCHY
-+	depends on ARCH_APPLE || (COMPILE_TEST && 64BIT)
- 	help
- 	  If you say yes to this option, support will be included for the
- 	  SPMI controller present on many Apple SoCs, including the
-diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index 109c5d2c735d..8f6a0d560da8 100644
---- a/drivers/spmi/spmi-apple-controller.c
-+++ b/drivers/spmi/spmi-apple-controller.c
-@@ -15,9 +15,12 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
-+#include <linux/spinlock.h>
- #include <linux/spmi.h>
- 
- /* SPMI Controller Registers */
-@@ -47,6 +50,9 @@ struct apple_spmi {
- 	struct mutex fifo_lock;
- 	bool fifo_rx_irq;
- 	struct completion fifo_rx;
-+	struct irq_domain *irqd;
-+	raw_spinlock_t irq_mask_lock;
-+	u64 irq_mask_cache[SPMI_IRQ_USER_SIZE / sizeof(u64)];
- };
- 
- #define poll_reg(spmi, reg, val, cond) \
-@@ -226,11 +232,123 @@ static void apple_spmi_irq_unmask_raw(struct apple_spmi *spmi, u32 irq)
- 	writel(readl(reg) | BIT(irq % 32), reg);
- }
- 
-+static void apple_spmi_irq_ack(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+
-+	apple_spmi_irq_ack_raw(spmi, d->hwirq);
-+}
-+
-+static void apple_spmi_irq_mask(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-+	apple_spmi_irq_mask_raw(spmi, d->hwirq);
-+	spmi->irq_mask_cache[d->hwirq / 64] &= ~BIT_ULL(d->hwirq % 64);
-+	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-+}
-+
-+static void apple_spmi_irq_unmask(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-+	apple_spmi_irq_unmask_raw(spmi, d->hwirq);
-+	spmi->irq_mask_cache[d->hwirq / 64] |= BIT_ULL(d->hwirq % 64);
-+	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-+}
-+
-+static int apple_spmi_irq_set_type(struct irq_data *d, unsigned int type)
-+{
-+	/* all interrupts have MSI semantics */
-+	return type == IRQ_TYPE_EDGE_RISING ? 0 : -EINVAL;
-+}
-+
-+static struct irq_chip apple_spmi_irq_chip = {
-+	.name = "apple_spmi",
-+	.irq_mask = apple_spmi_irq_mask,
-+	.irq_unmask = apple_spmi_irq_unmask,
-+	.irq_ack = apple_spmi_irq_ack,
-+	.irq_set_type = apple_spmi_irq_set_type,
-+	.flags = IRQCHIP_ONESHOT_SAFE,
-+};
-+
-+static int apple_spmi_irq_domain_map(struct irq_domain *irqd,
-+					unsigned int irq, irq_hw_number_t hw)
-+{
-+	irq_domain_set_info(irqd, irq, hw, &apple_spmi_irq_chip, irqd->host_data,
-+				handle_edge_irq, NULL, NULL);
-+	return 0;
-+}
-+
-+static int apple_spmi_irq_domain_translate(struct irq_domain *irqd,
-+					struct irq_fwspec *fwspec,
-+					unsigned long *hwirq,
-+					unsigned int *type)
-+{
-+	u32 *args = fwspec->param;
-+
-+	if (fwspec->param_count != 2)
-+		return -EINVAL;
-+
-+	if (args[0] >= SPMI_IRQ_USER_SIZE * 8)
-+		return -EINVAL;
-+	*hwirq = args[0];
-+	*type = args[1] & IRQ_TYPE_SENSE_MASK;
-+	return 0;
-+}
-+
-+static int apple_spmi_irq_domain_alloc(struct irq_domain *irqd, unsigned int virq,
-+				unsigned int nr_irqs, void *arg)
-+{
-+	unsigned int type = IRQ_TYPE_NONE;
-+	struct irq_fwspec *fwspec = arg;
-+	irq_hw_number_t hwirq;
-+	int i, ret;
-+
-+	ret = apple_spmi_irq_domain_translate(irqd, fwspec, &hwirq, &type);
-+	if (ret)
-+		return ret;
-+
-+	if (hwirq + nr_irqs > SPMI_IRQ_USER_SIZE * 8)
-+		return -EINVAL;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		ret = apple_spmi_irq_domain_map(irqd, virq + i, hwirq + i);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void apple_spmi_irq_domain_free(struct irq_domain *irqd, unsigned int virq,
-+				unsigned int nr_irqs)
-+{
-+	int i;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		struct irq_data *d = irq_domain_get_irq_data(irqd, virq + i);
-+
-+		irq_set_handler(virq + i, NULL);
-+		irq_domain_reset_irq_data(d);
-+	}
-+}
-+
-+static const struct irq_domain_ops apple_spmi_irq_domain_ops = {
-+	.translate	= apple_spmi_irq_domain_translate,
-+	.alloc		= apple_spmi_irq_domain_alloc,
-+	.free		= apple_spmi_irq_domain_free,
-+};
-+
- static irqreturn_t apple_spmi_irq_handler(int irq, void *dev_id)
- {
- 	struct apple_spmi *spmi = dev_id;
- 	bool handled = false;
--	u32 val;
-+	u64 val, offset, bit;
- 
- 	val = readl(spmi->regs + SPMI_IRQ_ACK_BASE + SPMI_IRQ_USER_SIZE);
- 	if (val & BIT(SPMI_IRQ_FIFO_RX)) {
-@@ -239,6 +357,23 @@ static irqreturn_t apple_spmi_irq_handler(int irq, void *dev_id)
- 		handled = true;
- 	}
- 
-+	for (offset = 0; offset < SPMI_IRQ_USER_SIZE; offset += sizeof(val)) {
-+		val = readq(spmi->regs + SPMI_IRQ_ACK_BASE + offset);
-+		/**
-+		 * because of other masters in the bus, we're going to get a multitude of
-+		 * interrupts we're not interested in. irq_resolve_mapping isn't very
-+		 * optimized for the nonexistent path, so instead we mask with (a locally
-+		 * cached version of) the IRQ mask
-+		 */
-+		val &= spmi->irq_mask_cache[offset / sizeof(val)];
-+		while (val) {
-+			bit = __builtin_ctzll(val);
-+			generic_handle_domain_irq(spmi->irqd, offset * 8 + bit);
-+			handled = true;
-+			val &= ~BIT(bit);
-+		}
-+	}
-+
- 	return handled ? IRQ_HANDLED : IRQ_NONE;
- }
- 
-@@ -246,12 +381,24 @@ static int apple_spmi_init_irq(struct platform_device *pdev,
- 			  struct apple_spmi *spmi, int irq)
- {
- 	int ret;
-+	struct irq_domain_info info = {
-+		.fwnode		= pdev->dev.fwnode,
-+		.hwirq_max	= ~0U,
-+		.ops		= &apple_spmi_irq_domain_ops,
-+		.host_data	= spmi,
-+	};
-+
-+	raw_spin_lock_init(&spmi->irq_mask_lock);
- 
- 	for (size_t offset = 0; offset < SPMI_IRQ_USER_SIZE + 4; offset += 4) {
- 		writel(0, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
- 		writel(U32_MAX, spmi->regs + SPMI_IRQ_ACK_BASE + offset);
- 	}
- 
-+	spmi->irqd = devm_irq_domain_instantiate(&pdev->dev, &info);
-+	if (IS_ERR(spmi->irqd))
-+		return PTR_ERR(spmi->irqd);
-+
- 	spmi->fifo_rx_irq = true;
- 	apple_spmi_irq_unmask_raw(spmi, SPMI_IRQ_USER_SIZE * 8 + SPMI_IRQ_FIFO_RX);
- 
-
--- 
-2.55.0
-
+T24gV2VkLCAyMDI2LTA3LTIyIGF0IDAwOjIyICswOTAwLCBNeWVvbmdodW4gUGFrIHdyb3RlOg0K
+PiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRh
+Y2htZW50cyB1bnRpbCB5b3UgaGF2ZSB2ZXJpZmllZCB0aGUgc2VuZGVyIG9yIHRoZSBjb250ZW50
+Lg0KPiANCj4gDQo+IFRoZSBPVkwgYWRhcHRvciByZWdpc3RlcnMgYm90aCBhbiBhZ2dyZWdhdGUg
+ZHJpdmVyIGZvciBpdHMgY2hpbGQgZGV2aWNlcw0KPiBhbmQgYSBjb21wb25lbnQgZm9yIHRoZSBt
+YWluIERSTSBhZ2dyZWdhdGUuIFByb2JlIGN1cnJlbnRseSBpZ25vcmVzIGFuDQo+IGVycm9yIGZy
+b20gcmVnaXN0ZXJpbmcgdGhlIGNoaWxkIGFnZ3JlZ2F0ZSBhbmQgbGVhdmVzIHRoYXQgYWdncmVn
+YXRlDQo+IHJlZ2lzdGVyZWQgaWYgcmVnaXN0ZXJpbmcgdGhlIERSTSBjb21wb25lbnQgZmFpbHMu
+IFRoZSByZW1vdmUgY2FsbGJhY2sNCj4gYWxzbyBsZWF2ZXMgdGhlIERSTSBjb21wb25lbnQgcmVn
+aXN0ZXJlZC4NCj4gDQo+IFRoZXNlIGltYmFsYW5jZXMgY2FuIGxlYXZlIGNvbXBvbmVudCBmcmFt
+ZXdvcmsgZW50cmllcyByZWZlcnJpbmcgdG8gYQ0KPiBkZXZpY2Ugd2hvc2UgcHJvYmUgZmFpbGVk
+IG9yIHdob3NlIGRyaXZlciBoYXMgYmVlbiBkZXRhY2hlZC4gVGhlIGFnZ3JlZ2F0ZQ0KPiB1bmJp
+bmQgY2FsbGJhY2sgYWxzbyBmYWlscyB0byB1bmRvIGNvbXBvbmVudF9iaW5kX2FsbCgpLCBsZWF2
+aW5nIGl0cyBjaGlsZA0KPiBjb21wb25lbnRzIG1hcmtlZCBhcyBib3VuZCB3aGVuIHRoZSBhZ2dy
+ZWdhdGUgaXMgcmVtb3ZlZC4NCj4gDQo+IENoZWNrIHRoZSBhZ2dyZWdhdGUgcmVnaXN0cmF0aW9u
+IHJlc3VsdCwgdW53aW5kIGl0IHdoZW4gdGhlIGNvbXBvbmVudA0KPiByZWdpc3RyYXRpb24gZmFp
+bHMsIGFuZCB1bnJlZ2lzdGVyIHRoZSBjb21wb25lbnQgYmVmb3JlIHRoZSBhZ2dyZWdhdGUgb24N
+Cj4gcmVtb3ZlLiBLZWVwIHJ1bnRpbWUgUE0gZW5hYmxlZCB1bnRpbCBib3RoIGZyYW1ld29yayBy
+ZWdpc3RyYXRpb25zIGhhdmUNCj4gYmVlbiByZW1vdmVkLCBhbmQgdW5iaW5kIGFsbCBjaGlsZCBj
+b21wb25lbnRzIGZyb20gdGhlIGFnZ3JlZ2F0ZSB1bmJpbmQNCj4gY2FsbGJhY2suDQoNClJldmll
+d2VkLWJ5OiBDSyBIdSA8Y2suaHVAbWVkaWF0ZWsuY29tPg0KDQo+IA0KPiBGaXhlczogNDUzYzMz
+NjQ2MzJhICgiZHJtL21lZGlhdGVrOiBBZGQgb3ZsX2FkYXB0b3Igc3VwcG9ydCBmb3IgTVQ4MTk1
+IikNCj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcgIyA2LjQrDQo+IENvLWRldmVsb3BlZC1i
+eTogSWphZSBLaW0gPGFlODc4MDAwQGdtYWlsLmNvbT4NCj4gU2lnbmVkLW9mZi1ieTogSWphZSBL
+aW0gPGFlODc4MDAwQGdtYWlsLmNvbT4NCj4gU2lnbmVkLW9mZi1ieTogTXllb25naHVuIFBhayA8
+bWh1bjUxMkBnbWFpbC5jb20+DQo+IC0tLQ0KPiAgZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210
+a19kaXNwX292bF9hZGFwdG9yLmMgfCA3ICsrKysrKy0NCj4gIDEgZmlsZSBjaGFuZ2VkLCA2IGlu
+c2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dw
+dS9kcm0vbWVkaWF0ZWsvbXRrX2Rpc3Bfb3ZsX2FkYXB0b3IuYyBiL2RyaXZlcnMvZ3B1L2RybS9t
+ZWRpYXRlay9tdGtfZGlzcF9vdmxfYWRhcHRvci5jDQo+IGluZGV4IGMwYWYzZTNiNS4uNmEyNTk4
+NzJiIDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2Rpc3Bfb3Zs
+X2FkYXB0b3IuYw0KPiArKysgYi9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2Rpc3Bfb3Zs
+X2FkYXB0b3IuYw0KPiBAQCAtNjI1LDYgKzYyNSw3IEBAIHN0YXRpYyB2b2lkIG10a19kaXNwX292
+bF9hZGFwdG9yX21hc3Rlcl91bmJpbmQoc3RydWN0IGRldmljZSAqZGV2KQ0KPiAgICAgICAgIHN0
+cnVjdCBtdGtfZGlzcF9vdmxfYWRhcHRvciAqcHJpdiA9IGRldl9nZXRfZHJ2ZGF0YShkZXYpOw0K
+PiANCj4gICAgICAgICBwcml2LT5jaGlsZHJlbl9ib3VuZCA9IGZhbHNlOw0KPiArICAgICAgIGNv
+bXBvbmVudF91bmJpbmRfYWxsKGRldiwgcHJpdi0+bW1zeXNfZGV2KTsNCj4gIH0NCj4gDQo+ICBz
+dGF0aWMgY29uc3Qgc3RydWN0IGNvbXBvbmVudF9tYXN0ZXJfb3BzIG10a19kaXNwX292bF9hZGFw
+dG9yX21hc3Rlcl9vcHMgPSB7DQo+IEBAIC02NTEsMTIgKzY1MiwxNSBAQCBzdGF0aWMgaW50IG10
+a19kaXNwX292bF9hZGFwdG9yX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpDQo+
+IA0KPiAgICAgICAgIHByaXYtPm1tc3lzX2RldiA9IHBkZXYtPmRldi5wbGF0Zm9ybV9kYXRhOw0K
+PiANCj4gLSAgICAgICBjb21wb25lbnRfbWFzdGVyX2FkZF93aXRoX21hdGNoKGRldiwgJm10a19k
+aXNwX292bF9hZGFwdG9yX21hc3Rlcl9vcHMsIG1hdGNoKTsNCj4gKyAgICAgICByZXQgPSBjb21w
+b25lbnRfbWFzdGVyX2FkZF93aXRoX21hdGNoKGRldiwgJm10a19kaXNwX292bF9hZGFwdG9yX21h
+c3Rlcl9vcHMsIG1hdGNoKTsNCj4gKyAgICAgICBpZiAocmV0KQ0KPiArICAgICAgICAgICAgICAg
+cmV0dXJuIGRldl9lcnJfcHJvYmUoZGV2LCByZXQsICJGYWlsZWQgdG8gYWRkIGNvbXBvbmVudCBt
+YXN0ZXJcbiIpOw0KPiANCj4gICAgICAgICBwbV9ydW50aW1lX2VuYWJsZShkZXYpOw0KPiANCj4g
+ICAgICAgICByZXQgPSBjb21wb25lbnRfYWRkKGRldiwgJm10a19kaXNwX292bF9hZGFwdG9yX2Nv
+bXBfb3BzKTsNCj4gICAgICAgICBpZiAocmV0ICE9IDApIHsNCj4gKyAgICAgICAgICAgICAgIGNv
+bXBvbmVudF9tYXN0ZXJfZGVsKGRldiwgJm10a19kaXNwX292bF9hZGFwdG9yX21hc3Rlcl9vcHMp
+Ow0KPiAgICAgICAgICAgICAgICAgcG1fcnVudGltZV9kaXNhYmxlKGRldik7DQo+ICAgICAgICAg
+ICAgICAgICByZXR1cm4gZGV2X2Vycl9wcm9iZShkZXYsIHJldCwgIkZhaWxlZCB0byBhZGQgY29t
+cG9uZW50XG4iKTsNCj4gICAgICAgICB9DQo+IEBAIC02NjYsNiArNjcwLDcgQEAgc3RhdGljIGlu
+dCBtdGtfZGlzcF9vdmxfYWRhcHRvcl9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2
+KQ0KPiANCj4gIHN0YXRpYyB2b2lkIG10a19kaXNwX292bF9hZGFwdG9yX3JlbW92ZShzdHJ1Y3Qg
+cGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPiAgew0KPiArICAgICAgIGNvbXBvbmVudF9kZWwoJnBk
+ZXYtPmRldiwgJm10a19kaXNwX292bF9hZGFwdG9yX2NvbXBfb3BzKTsNCj4gICAgICAgICBjb21w
+b25lbnRfbWFzdGVyX2RlbCgmcGRldi0+ZGV2LCAmbXRrX2Rpc3Bfb3ZsX2FkYXB0b3JfbWFzdGVy
+X29wcyk7DQo+ICAgICAgICAgcG1fcnVudGltZV9kaXNhYmxlKCZwZGV2LT5kZXYpOw0KPiAgfQ0K
+PiAtLQ0KPiAyLjUxLjANCg0K
 
