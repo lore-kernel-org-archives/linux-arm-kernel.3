@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C71DC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B51C54F52
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 12:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GVS2lbz4LtiZVKEqNl601Ws5L8on6KNb4yyGWcOY88s=; b=fXNLoX91Is7jrz
-	SPH6/a9HnxHZq4wOLOBg8kLTovMunYQIPnbzpE0ipoLPYJeJO+W2f2EzKi4Td0Mz3RUo/NdkFH6N+
-	C7XFpSU3xg2j0/CKnCwSTyMtuGYBd9ropASZHKMnNLa7mzD35y8BSuPYxhIDYzDa+p4F1hWltZdiZ
-	h04Dm7uYFDiTpY7ncXWfGV77ubu7HtgtkH2v2QkUR0QtaxF1ocp5ItuLG56AUW/c88rz0/o+zYl59
-	QyrJCE2d3lQh+FDVZWmbmozkEtoBwjaAl+i7obnZqyr3oR0bXuDsxcsWvZuJqAtilJzF1eJFVragQ
-	Dh0Hch+tjASlWeP6hK6g==;
+	List-Owner; bh=oZ/RmBeRHIXcrpdWIJTBcNeOJhMLAr0Bwp8G2dolVWE=; b=UljlF7zdq6g7nn
+	nh6CO94J8Fx6bSQzOlbDjdQ92q709eq9IR3TYJ1QyTghdHWUOU4dSi9ndndw7xPdOb3EwvVO1K7oI
+	1oKZ8pu+AirWTjkju+Zwn75QMaYRw5TqyCdadlb3pOBJlzpgSmIOksIUzYceaUNh7jhtmHgqz5onY
+	fQLGlaztx9K+WMCS7OKVQnYSLzd1W63fhCQY1o3yASf2wsL6dBvU2mJnQChjaYL+9x1bu/Ozpd5uR
+	qDV/2JXovw/2j2bohSdQAvcRnOFFv5bvti+0UG9NBp3ncLO7+5iVHHrLbYcSyg05TtfMB4Ttqvnrl
+	ZJxBfXvTa5rzdJrUmZoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh6T-00000005GeT-0roD;
+	id 1woh6T-00000005GfY-2jF7;
 	Tue, 28 Jul 2026 12:40:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woh6O-00000005GZX-3uCI
+	id 1woh6Q-00000005GaY-2AFM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 12:40:10 +0000
+	Tue, 28 Jul 2026 12:40:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE7C6175D;
-	Tue, 28 Jul 2026 05:40:03 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 036CC3F86F;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB1791A9A;
 	Tue, 28 Jul 2026 05:40:05 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 336443FB90;
+	Tue, 28 Jul 2026 05:40:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785242407; bh=hlPerUY30+ktP2DQ5eKZNoJPiBA5pdZ1S07zriVJ3l4=;
+	t=1785242410; bh=CXONZbgpJV3XTBxDzl6r6B2I+VYIBkn4/3u6O7c2NbE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CQDUADltt8rBU13RBYlMW8vcZtijstwZd3LpIcKoLe0o3Eba01nHrpH3XDnGTNn0h
-	 vo0NRqiU8dX03nPiu0lyH5OoW8h6NBWzuEwBFVMTpmq7qTOyD06JLpDVtSIpP0ikkR
-	 H9R9yTZ6mgNkyLb3iZ3DixhP0dhuWtqKdCKrCmJE=
+	b=M8Q+2pp9T6E7e7TSgqmngB0MGJS1LOztsSKL/Xf2W0mCJM+aPCwyQYEIMFZ4s7iud
+	 eQikeloAOXJsWGJCGDwLW3Z3ScyLAjlrY1N732582HqM0IYMU4O6kcjRsCMFrrVjLw
+	 KGF5eIN14zyeOddUfzYFO0lJmEPe5MyvLVKDEXIo=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 11/13] arm64: percpu: Implement preemptible CMPXCHG ops
-Date: Tue, 28 Jul 2026 13:38:57 +0100
-Message-Id: <20260728123859.2911495-12-mark.rutland@arm.com>
+Subject: [RFC PATCH 12/13] arm64: percpu: Implement preemptible CMPXCHG128 ops
+Date: Tue, 28 Jul 2026 13:38:58 +0100
+Message-Id: <20260728123859.2911495-13-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260728123859.2911495-1-mark.rutland@arm.com>
 References: <20260728123859.2911495-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_054009_057014_0958C5AF 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260728_054010_631959_53DB402E 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,65 +67,86 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, peterz@infradead.org, catalin
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the PCPU GPR infrastructure to implement all of the {8,16,32,64}-bit
-cmpxchg ops.
+Use the PCPU GPR infrastructure to implement this_cpu_cmpxchg128().
 
 Note that before this patch, the LL/SC and LSE implementation was chosen
 with an alternative branch. After this patch the implementations are
 patched inline, matching the style of the other percpu ops.
 
+The sub-optimal register shuffling before and after this patch occurs
+because we hard-code specific registers, as LLVM lacks a way to place a
+128-bit type in an even-odd pair of registers for inline assembly. We
+should be able to improve this in future.
+
 Generated code before this patch (v7.2-rc4):
 
-| <outline_this_cpu_cmpxchg_u64>:
+| <outline_this_cpu_cmpxchg128>:
 |        paciasp
 |        stp     x29, x30, [sp, #-32]!
-|        mrs     x4, sp_el0
+|        mov     x6, x0
+|        mov     x0, x2
 |        mov     x29, sp
-|        ldr     w3, [x4, #8]
-|        add     w3, w3, #0x1
-|        str     w3, [x4, #8]
-|        mrs     x3, tpidr_el1
-|        add     x3, x0, x3
-|        b       4f		// alternative branch
-|        cas     x1, x2, [x3]
-|        mov     x0, x1
-| 1:     mrs     x2, sp_el0
-|        ldr     x1, [x2, #8]
-|        sub     x1, x1, #0x1
-|        str     w1, [x2, #8]
-|        cbz     x1, 2f
-|        ldr     x1, [x2, #8]
-|        cbnz    x1, 3f
-| 2:     str     x0, [sp, #24]
+|        mov     x1, x3
+|        mrs     x2, sp_el0
+|        ldr     w7, [x2, #8]
+|        add     w7, w7, #0x1
+|        str     w7, [x2, #8]
+|        mrs     x2, tpidr_el1
+|        add     x6, x6, x2
+|        b       4f
+|        mov     x2, x4
+|        mov     x3, x5
+|        mov     x4, x6
+|        mov     x5, x0
+|        mov     x7, x1
+|        casp    x0, x1, x2, x3, [x6]
+| 1:     mrs     x3, sp_el0
+|        ldr     x2, [x3, #8]
+|        sub     x2, x2, #0x1
+|        str     w2, [x3, #8]
+|        cbz     x2, 2f
+|        ldr     x2, [x3, #8]
+|        cbnz    x2, 3f
+| 2:     stp     x0, x1, [sp, #16]
 |        bl      preempt_schedule_notrace
-|        ldr     x0, [sp, #24]
+|        ldp     x0, x1, [sp, #16]
 | 3:     ldp     x29, x30, [sp], #32
 |        autiasp
 |        ret
-| 4:     prfm    pstl1strm, [x3]
-| 5:     ldxr    x0, [x3]
-|        eor     x4, x0, x1
-|        cbnz    x4, 6f
-|        stxr    w4, x2, [x3]
-|        cbnz    w4, 5b
-| 6:     b       1b
+| 4:     prfm    pstl1strm, [x6]
+| 5:     ldxp    x8, x7, [x6]
+|        cmp     x8, x0
+|        ccmp    x7, x3, #0x0, eq
+|        b.ne    6f
+|        stxp    w2, x4, x5, [x6]
+|        cbnz    w2, 5b
+| 6:     mov     x0, x8
+|        mov     x1, x7
+|        b       1b
 
 Generated code after this patch:
 
-| <outline_this_cpu_cmpxchg_u64>:
-|        mrs     x4, sp_el0
-|        mov     w6, #0x14c0
-|        strh    w6, [x4, #20]
-|        mrs     x6, tpidr_el1
-|        add     x5, x0, x6
-|        prfm    pstl1strm, [x5]
-| 1:     ldxr    x3, [x5]
-|        eor     x7, x3, x1
-|        cbnz    x7, 2f
-|        stxr    w7, x2, [x5]
-|        cbnz    w7, 1b
-| 2:     strh    wzr, [x4, #20]
-|        mov     x0, x3
+| <outline_this_cpu_cmpxchg128>:
+|        mov     x6, x0
+|        mov     x1, x3
+|        mov     x0, x2
+|        mov     x3, x5
+|        mrs     x7, sp_el0
+|        mov     x2, x4
+|        mov     w5, #0x10a6
+|        strh    w5, [x7, #20]
+|        mrs     x5, tpidr_el1
+|        add     x4, x6, x5
+|        prfm    pstl1strm, [x4]
+| 1:     ldxp    x9, x10, [x4]
+|        cmp     x9, x0
+|        ccmp    x10, x1, #0x0, eq
+|        b.ne    2f
+|        stxp    w8, x2, x3, [x4]
+|        cbnz    w8, 1b
+| 2:     strh    wzr, [x7, #20]
+|        mov     x0, x9
+|        mov     x1, x10
 |        ret
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
@@ -139,115 +160,90 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/percpu.h | 72 +++++++++++++++++++++++++++++++--
- 1 file changed, 68 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/percpu.h | 70 +++++++++++++++++++++++++++------
+ 1 file changed, 57 insertions(+), 13 deletions(-)
 
 diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index d5b733ce49b07..c539303a2c97a 100644
+index c539303a2c97a..6785d1bc933b9 100644
 --- a/arch/arm64/include/asm/percpu.h
 +++ b/arch/arm64/include/asm/percpu.h
-@@ -278,12 +278,70 @@ __percpu_xchg_case_##sz(void __percpu *pcp, unsigned long val)		\
- 	return ret;							\
- }
- 
-+#define PERCPU_CMPXCHG_OP(w, sfx, sz)					\
-+static inline unsigned long						\
-+__percpu_cmpxchg_case_##sz(void __percpu *pcp,				\
-+			   unsigned long old,				\
-+			   unsigned long new)				\
-+{									\
-+	u16 *gprs = &current_thread_info()->pcpu_gprs;			\
-+	unsigned long addr;						\
-+	unsigned long off;						\
-+	unsigned long tmp;						\
-+	unsigned long oldval;						\
-+									\
-+	/*								\
-+	 * Sub-word sizes require explicit casting so that the LL/SC	\
-+	 * EOR+CBNZ doesn't end up interpreting non-zero upper bits of	\
-+	 * the register containing "old".				\
-+	 */								\
-+	if (sz < 32)							\
-+		old = (u##sz)old;					\
-+									\
-+	asm volatile (							\
-+	__PCPU_GPRS_BEGIN("%[gprs]", "%[pcp]", "%[off]", "%[addr]")	\
-+	ARM64_LSE_ATOMIC_INSN(						\
-+	/* LL/SC */							\
-+	"	prfm	pstl1strm, [%[addr]]\n"				\
-+	"1:	ldxr" #sfx "\t%" #w "[oldval], [%[addr]]\n"		\
-+	"	eor	%" #w "[tmp], %" #w "[oldval], %" #w "[old]\n"	\
-+	"	cbnz	%" #w "[tmp], 2f\n"				\
-+	"	stxr" #sfx "\t%w[tmp], %" #w "[new], [%[addr]]\n"	\
-+	"	cbnz	%w[tmp], 1b\n"					\
-+	"2:\n"								\
-+	,								\
-+	/* LSE atomics */						\
-+	"	mov	%[oldval], %[old]\n"				\
-+	"	cas" #sfx "\t%" #w "[oldval], %" #w "[new], [%[addr]]\n"\
-+		__nops(4)						\
-+	)								\
-+	__PCPU_GPRS_END("%[gprs]")					\
-+	: [gprs] "=Qo" (*gprs),						\
-+	  [addr] "=&r" (addr),						\
-+	  [off] "=&r" (off),						\
-+	  [tmp] "=&r" (tmp),						\
-+	  [oldval] "=&r" (oldval)					\
-+	: [pcp] "r" (pcp),						\
-+	  [old] "r" (old),						\
-+	  [new] "r" (new)						\
-+	: "memory"							\
-+	);								\
-+									\
-+	return oldval;							\
-+}
-+
- PERCPU_XCHG_OP(w, b, 8)
- PERCPU_XCHG_OP(w, h, 16)
- PERCPU_XCHG_OP(w,  , 32)
- PERCPU_XCHG_OP(x,  , 64)
- 
-+PERCPU_CMPXCHG_OP(w, b, 8)
-+PERCPU_CMPXCHG_OP(w, h, 16)
-+PERCPU_CMPXCHG_OP(w,  , 32)
-+PERCPU_CMPXCHG_OP(x,  , 64)
-+
- #undef PERCPU_XCHG_OP
-+#undef PERCPU_CMPXCHG_OP
- 
- /*
-  * It would be nice to avoid the conditional call into the scheduler when
-@@ -327,6 +385,12 @@ PERCPU_XCHG_OP(x,  , 64)
- 	(typeof(pcp))op(&(pcp), (unsigned long)(val));			\
- })
- 
-+#define _pcp_wrap_cmpxchg(op, pcp, old, new)				\
-+({									\
-+	(typeof(pcp))op(&(pcp), (unsigned long)(old),			\
-+			(unsigned long)(new));				\
-+})
-+
- #define this_cpu_read_1(pcp)		\
- 	_pcp_wrap_return(__percpu_read_8, pcp)
- #define this_cpu_read_2(pcp)		\
-@@ -391,13 +455,13 @@ PERCPU_XCHG_OP(x,  , 64)
- 	_pcp_wrap_xchg(__percpu_xchg_case_64, pcp, val)
- 
- #define this_cpu_cmpxchg_1(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_8, pcp, o, n)
- #define this_cpu_cmpxchg_2(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_16, pcp, o, n)
- #define this_cpu_cmpxchg_4(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_32, pcp, o, n)
- #define this_cpu_cmpxchg_8(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_64, pcp, o, n)
+@@ -465,19 +465,63 @@ PERCPU_CMPXCHG_OP(x,  , 64)
  
  #define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
  
+-#define this_cpu_cmpxchg128(pcp, o, n)					\
+-({									\
+-	typedef typeof(pcp) pcp_op_T__;					\
+-	u128 old__, new__, ret__;					\
+-	pcp_op_T__ *ptr__;						\
+-	old__ = o;							\
+-	new__ = n;							\
+-	preempt_disable_notrace();					\
+-	ptr__ = raw_cpu_ptr(&(pcp));					\
+-	ret__ = cmpxchg128_local((void *)ptr__, old__, new__);		\
+-	preempt_enable_notrace();					\
+-	ret__;								\
+-})
++static inline u128
++__percpu_cmpxchg_128(void __percpu *pcp, u128 old, u128 new)
++{
++	u16 *gprs = &current_thread_info()->pcpu_gprs;
++	unsigned long addr;
++	unsigned long off;
++	union __u128_halves r, o = { .full = (old) },
++			       n = { .full = (new) };
++	register unsigned long ol asm ("x0") = o.low;
++	register unsigned long oh asm ("x1") = o.high;
++	register unsigned long nl asm ("x2") = n.low;
++	register unsigned long nh asm ("x3") = n.high;
++	unsigned long rl, rh;
++	unsigned long tmp;
++
++	asm volatile (
++	__PCPU_GPRS_BEGIN("%[gprs]", "%[pcp]", "%[off]", "%[addr]")
++	ARM64_LSE_ATOMIC_INSN(
++	/* LL/SC */
++       "       prfm    pstl1strm, [%[addr]]\n"
++       "1:     ldxp    %[rl], %[rh], [%[addr]]\n"
++       "       cmp     %[rl], %[ol]\n"
++       "       ccmp    %[rh], %[oh], 0, eq\n"
++       "       b.ne    2f\n"
++       "       stxp    %w[tmp], %[nl], %[nh], [%[addr]]\n"
++       "       cbnz    %w[tmp], 1b\n"
++       "2:\n"
++	,
++	/* LSE atomics */
++	"	casp	%[ol], %[oh], %[nl], %[nh], [%[addr]]\n"
++	"	mov	%[rl], %[ol]\n"
++	"	mov	%[rh], %[oh]\n"
++	__nops(4)
++	)
++	__PCPU_GPRS_END("%[gprs]")
++	: [gprs] "=Qo" (*gprs),
++	  [addr] "=&r" (addr),
++	  [off] "=&r" (off),
++	  [tmp] "=&r" (tmp),
++	  [ol] "+&r" (ol),
++	  [oh] "+&r" (oh),
++	  [rl] "=&r" (rl),
++	  [rh] "=&r" (rh)
++	: [pcp] "r" (pcp),
++	  [nl] "r" (nl),
++	  [nh] "r" (nh)
++	: "memory", "cc"
++	);
++
++	r.low = rl;
++	r.high = rh;
++
++	return r.full;
++}
++
++#define this_cpu_cmpxchg128(pcp, o, n)	\
++	_pcp_wrap_return(__percpu_cmpxchg_128, pcp, o, n)
+ 
+ #ifdef __KVM_NVHE_HYPERVISOR__
+ extern unsigned long __hyp_per_cpu_offset(unsigned int cpu);
 -- 
 2.30.2
 
