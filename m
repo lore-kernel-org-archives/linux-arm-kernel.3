@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E1EC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F78C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 11:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YoE2mjBXgP1OrT/RVQqfz9MXzwiu1N3UhMcX3uUM1h4=; b=HFWO7oF7KMGvZXYpD5fn8GChId
-	7DHdiK2BLsDYMnbDQ2yJaibgIiQhGRu+5ArWhLZX4fd3FGeDHB16YxnidqLiIgHRPsFe8zmuGdJDr
-	DAOSx+gdSxZ9omK6TOw7hWj9UFRBSmuuZbwrf9Xue7VsgzgtDKMKC2oKun1r0qL/SIngO6us83tpH
-	blMFwck9BxzEgonxGd1J0MQZ86aLGX9xiA7LLMBOMBHL9N53U5ye5dqcMF6RX8U9QtmQvqFhjCuca
-	pHsCAB6yzde8MPPtgf5c9907DIvuFwuRyPh9rqaWCtBwysCtDmB7sqhTk+351UFpNkJankJErvoge
-	nPJbhRCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eNwZQCkHKwYFKkrNjWZTS93nuqW+VicG7takxDF9Vgg=; b=AHcyXw2ihE4qMbaHleTv8J1+ts
+	NMXKVy858r6ty3eyxaNpyvJbTotQ9Z99ZJI06u/+510X5Eql/39+UKqXVwxlM3je5/vDYUJp2U4J/
+	7w5s18nmyB0Q9ntz96ma342adzJ84YXZcwMSX41JpF4wTefUOrWqIWzH+b+FjURRx5pOZFIZHgmsW
+	NmwYngizWkZJaXCXRkV0zcwFU2SikQoCehTm0nFEOzRt/EpkU26hPTUZJjltjgkue+wX5+pJk1ozP
+	HwFTJc8Hlds2DE7Ek1i2n+tcLg39Z8KybzGKr+jExiAsTwRD/rDRe0HUPyYEQj3zNs+7H8CbC8NJk
+	0NLNAF+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogNd-000000058ky-2Rju;
-	Tue, 28 Jul 2026 11:53:53 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1wogQC-000000059Pm-1S8q;
+	Tue, 28 Jul 2026 11:56:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wogNE-000000058Ws-2IHK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 11:53:30 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260728115326epoutp014fce550c6b2e533976dac397f10fb4e9~GcfaiJUdQ1113611136epoutp01k
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 11:53:26 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260728115326epoutp014fce550c6b2e533976dac397f10fb4e9~GcfaiJUdQ1113611136epoutp01k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1785239606;
-	bh=YoE2mjBXgP1OrT/RVQqfz9MXzwiu1N3UhMcX3uUM1h4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F6TvZhle0Swx9Kox/ctaA1VNugHpqS5Pl2ExvsXDKby5404KXeiIOq61wxbkzi3qM
-	 sk9KvX6r1ioYlPzV+G25uQh1ILbnaJmJ0DiWuZ/s7sVaMfwi/qCFdkkXK2Ou91oigu
-	 S5EBJMf8GI/3PvhOaOdDtoWLkxoTDM1kryd+FKNc=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20260728115325epcas5p4491d7cf29a604b082c9bb3ebdea4b562~GcfaDyz452959829598epcas5p4U;
-	Tue, 28 Jul 2026 11:53:25 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4h8Ykr5sfYz2SSKb; Tue, 28 Jul
-	2026 11:53:24 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20260728115323epcas5p3b4a6147d08051df05c8223e75546aa88~GcfYNE0PU1872318723epcas5p3y;
-	Tue, 28 Jul 2026 11:53:23 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260728115321epsmtip1d90b584e9f031726791145aaa7b57823~GcfVpUu8U2127021270epsmtip1V;
-	Tue, 28 Jul 2026 11:53:21 +0000 (GMT)
-From: "raghav.s" <raghav.s@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	peter.griffin@linaro.org, alim.akhtar@samsung.com, mturquette@baylibre.com,
-	sboyd@kernel.org, bmasney@redhat.com, robh@kernel.org, conor+dt@kernel.org
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, hajun.sung@samsung.com, raghav.s@samsung.com,
-	is.gandhi@samsung.com, ts.amit@samsung.com, pokala.reddy@samsung.com
-Subject: [PATCH 12/13] clk: samsung: exynos8855: add block usb clock support
-Date: Tue, 28 Jul 2026 17:41:10 +0530
-Message-Id: <20260728121111.2077860-13-raghav.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260728121111.2077860-1-raghav.s@samsung.com>
+	id 1wogQB-000000059Pc-1RGp;
+	Tue, 28 Jul 2026 11:56:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1407C40E33;
+	Tue, 28 Jul 2026 11:56:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B78B81F000E9;
+	Tue, 28 Jul 2026 11:56:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785239791;
+	bh=eNwZQCkHKwYFKkrNjWZTS93nuqW+VicG7takxDF9Vgg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eASZFug7jzWnrOF3OuHWC4dJIdUSnjJMhAZUEWqUVi4S7MXbtF5ibFVRSy4+s537i
+	 XUoY0kXJCaCx8MxtLhr+lrqq7NBntmoWdrBHhwp89a1vo6ad9Be0OIxrxYWGthQELk
+	 RqQ0blwKXaXTZmXrJFZgO2OKqLo7ZWy1fBwW1QPIGDXU1mei6Oh2U7348bqhX6Ij1F
+	 utV4CnZhplr9TkSvfz0vgnkLdUys67sBj2wznd3JK92mKYhvuAzLwbPqxgom8dj0rh
+	 GxzUUzbP6wspjvSYYLHIQ6Tlw8fhCAnoo+ZdRHNGcd1kuoMAUM8GVTYLJ4ROhBtRXu
+	 isnidYxLb535g==
+Date: Tue, 28 Jul 2026 13:56:18 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: manivannan.sadhasivam@oss.qualcomm.com, 
+	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>
+Subject: Re: [PATCH v8 1/5] PCI: dwc: ep: Clear MSI iATU mapping in
+ dw_pcie_ep_cleanup()
+Message-ID: <k5zkz2wnvkb2kzwyazafghgncqefv4cvuzrwwek6xi27vvldej@o4ostebesrbm>
+References: <20260518-pci-port-reset-v8-0-eb5a7d331dfc@oss.qualcomm.com>
+ <20260518-pci-port-reset-v8-1-eb5a7d331dfc@oss.qualcomm.com>
+ <ameE3SBWqbiE8PJp@ryzen>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260728115323epcas5p3b4a6147d08051df05c8223e75546aa88
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260728115323epcas5p3b4a6147d08051df05c8223e75546aa88
-References: <20260728121111.2077860-1-raghav.s@samsung.com>
-	<CGME20260728115323epcas5p3b4a6147d08051df05c8223e75546aa88@epcas5p3.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_045329_419506_653F1F83 
-X-CRM114-Status: GOOD (  19.80  )
+In-Reply-To: <ameE3SBWqbiE8PJp@ryzen>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,194 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register compatible and cmu_info data to support clocks.
-CMU_USB, this provides clocks for USB
+On Mon, Jul 27, 2026 at 06:18:37PM +0200, Niklas Cassel wrote:
+> On Mon, May 18, 2026 at 08:29:13PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
+> > From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+> > 
+> > The MSI iATU mapping is currently only cleared when the endpoint is
+> > stopped via configfs or when the host updates the MSI address/size.
+> > This avoids redundant iATU reconfiguration every time the endpoint
+> > raises an MSI interrupt.
+> > 
+> > However, a fundamental reset triggered by PERST# assert/deassert
+> > resets all iATU inbound/outbound registers without going through the
+> > configfs stop path. If the host also retains the same MSI address/size
+> > after PERST# deassert, the driver never clears the stale MSI iATU
+> > mapping. It then continues using this stale mapping to raise the MSI
+> > interrupts, which can cause IOMMU faults and MSI failures on the host.
+> > 
+> > Fix this by clearing the MSI iATU mapping inside dw_pcie_ep_cleanup(),
+> > which is already called as part of the PERST# assert/deassert sequence.
+> > This unmaps the MSI iATU region and sets the msi_iatu_mapped flag to
+> > false, ensuring that dw_pcie_ep_raise_msi_irq() performs a fresh iATU
+> > mapping on its next invocation, regardless of whether the host changed
+> > the MSI address/size.
+> > 
+> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+> 
+> Doesn't this need a Fixes tag?
+> 
 
-Signed-off-by: raghav.s <raghav.s@samsung.com>
----
- drivers/clk/samsung/clk-exynos8855.c | 102 ++++++++++++++++++++++++++-
- 1 file changed, 101 insertions(+), 1 deletion(-)
+It needs one yes!
 
-diff --git a/drivers/clk/samsung/clk-exynos8855.c b/drivers/clk/samsung/clk-exynos8855.c
-index 293f461f26cf..7865f38a0174 100644
---- a/drivers/clk/samsung/clk-exynos8855.c
-+++ b/drivers/clk/samsung/clk-exynos8855.c
-@@ -17,10 +17,11 @@
- #include "clk-exynos-arm64.h"
- 
- /* NOTE: Must be equal to the last clock ID increased by one */
--#define CLKS_NR_TOP                     (CLKCMU_DOUT_HSI_UFS_EMBD + 1)
-+#define CLKS_NR_TOP                     (CLKCMU_DOUT_USB_USB20DRD + 1)
- #define CLKS_NR_PERIC                   (CLK_GOUT_USI_PERIC_IPCLKPORT_PCLK + 1)
- #define CLKS_NR_PERIS                   (CLK_GOUT_WDT1_PERIS_IPCLKPORT_PCLK + 1)
- #define CLKS_NR_HSI                     (CLK_GOUT_SYSREG_HSI_IPCLKPORT_PCLK  + 1)
-+#define CLKS_NR_USB                     (CLK_GOUT_SYSREG_USB_IPCLKPORT_PCLK + 1)
- 
- /* ---- CMU_TOP --------------------------------------------------------- */
- 
-@@ -62,6 +63,10 @@
- #define CMU_TOP_CLK_CON_MUX_CLKCMU_HSI_UFS_EMBD              0x1054
- #define CMU_TOP_CLK_CON_DIV_CLKCMU_HSI_NOC                   0x1850
- #define CMU_TOP_CLK_CON_DIV_CLKCMU_HSI_UFS_EMBD              0x1854
-+#define CMU_TOP_CLK_CON_MUX_CLKCMU_USB_NOC                   0x1088
-+#define CMU_TOP_CLK_CON_MUX_CLKCMU_USB_USB20DRD              0x108c
-+#define CMU_TOP_CLK_CON_DIV_CLKCMU_USB_NOC                   0x1888
-+#define CMU_TOP_CLK_CON_DIV_CLKCMU_USB_USB20DRD              0x188c
- 
- static const unsigned long top_clk_regs[] __initconst = {
- 	PLL_LOCKTIME_PLL_MMC,
-@@ -96,6 +101,10 @@ static const unsigned long top_clk_regs[] __initconst = {
- 	CMU_TOP_CLK_CON_MUX_CLKCMU_HSI_UFS_EMBD,
- 	CMU_TOP_CLK_CON_DIV_CLKCMU_HSI_NOC,
- 	CMU_TOP_CLK_CON_DIV_CLKCMU_HSI_UFS_EMBD,
-+	CMU_TOP_CLK_CON_MUX_CLKCMU_USB_NOC,
-+	CMU_TOP_CLK_CON_MUX_CLKCMU_USB_USB20DRD,
-+	CMU_TOP_CLK_CON_DIV_CLKCMU_USB_NOC,
-+	CMU_TOP_CLK_CON_DIV_CLKCMU_USB_USB20DRD,
- };
- 
- static const struct samsung_pll_clock top_pll_clks[] __initconst = {
-@@ -146,6 +155,14 @@ PNAME(mout_clkcmu_hsi_ufs_embd_p)            = { "dout_shared0_div2", "dout_shar
- 						"dout_shared1_div2", "dout_shared1_div3",
- 						"dout_shared2_div2", "dout_shared2_div3",
- 						"dout_shared3_div2", "dout_shared3_div3"};
-+PNAME(mout_clkcmu_usb_noc_p)            = { "dout_shared0_div2", "dout_shared0_div3",
-+						"dout_shared0_div4", "dout_shared1_div3",
-+						"dout_shared2_div2", "dout_shared2_div3",
-+						"dout_shared3_div2", "dout_shared3_div3"};
-+PNAME(mout_clkcmu_usb_usb20drd_p)            = { "dout_shared0_div2", "dout_shared0_div3",
-+						"dout_shared0_div4", "dout_shared1_div3",
-+						"dout_shared2_div2", "dout_shared2_div3",
-+						"dout_shared3_div2", "dout_shared3_div3"};
- 
- static const struct samsung_mux_clock top_mux_clks[] __initconst = {
- 	MUX(MOUT_SHARED0_PLL, "mout_shared0_pll", mout_shared0_pll_p,
-@@ -174,6 +191,10 @@ static const struct samsung_mux_clock top_mux_clks[] __initconst = {
- 	    mout_clkcmu_hsi_noc_p, CMU_TOP_CLK_CON_MUX_CLKCMU_HSI_NOC, 0, 3),
- 	MUX(CLKCMU_MOUT_HSI_UFS_EMBD, "mout_clkcmu_hsi_ufs_embd",
- 	    mout_clkcmu_hsi_ufs_embd_p, CMU_TOP_CLK_CON_MUX_CLKCMU_HSI_UFS_EMBD, 0, 3),
-+	MUX(CLKCMU_MOUT_USB_NOC, "mout_clkcmu_usb_noc",
-+	    mout_clkcmu_usb_noc_p, CMU_TOP_CLK_CON_MUX_CLKCMU_USB_NOC, 0, 3),
-+	MUX(CLKCMU_MOUT_USB_USB20DRD, "mout_clkcmu_usb_usb20drd",
-+	    mout_clkcmu_usb_usb20drd_p, CMU_TOP_CLK_CON_MUX_CLKCMU_USB_USB20DRD, 0, 3),
- };
- 
- static const struct samsung_div_clock top_div_clks[] __initconst = {
-@@ -198,6 +219,12 @@ static const struct samsung_div_clock top_div_clks[] __initconst = {
- 	DIV(CLKCMU_DOUT_HSI_UFS_EMBD, "dout_clkcmu_hsi_ufs_embd",
- 	    "mout_clkcmu_hsi_ufs_embd", CMU_TOP_CLK_CON_DIV_CLKCMU_HSI_UFS_EMBD,
- 	    0, 4),
-+	DIV(CLKCMU_DOUT_USB_NOC, "dout_clkcmu_usb_noc",
-+	    "mout_clkcmu_usb_noc", CMU_TOP_CLK_CON_DIV_CLKCMU_USB_NOC,
-+	    0, 4),
-+	DIV(CLKCMU_DOUT_USB_USB20DRD, "dout_clkcmu_usb_usb20drd",
-+	    "mout_clkcmu_usb_usb20drd", CMU_TOP_CLK_CON_DIV_CLKCMU_USB_USB20DRD,
-+	    0, 5),
- };
- 
- static const struct samsung_fixed_factor_clock top_fixed_factor_clks[] __initconst = {
-@@ -249,6 +276,10 @@ static const struct samsung_fixed_factor_clock top_fixed_factor_clks[] __initcon
- 		"mout_mmc_pll", 1, 2, 0),
- };
- 
-+static const struct samsung_fixed_rate_clock top_fixed_rate_clks[] __initconst = {
-+	FRATE(0, "oscclk_usb_link", NULL, 0, 19200000),
-+};
-+
- static const struct samsung_cmu_info top_cmu_info __initconst = {
- 	.pll_clks		= top_pll_clks,
- 	.nr_pll_clks		= ARRAY_SIZE(top_pll_clks),
-@@ -258,6 +289,8 @@ static const struct samsung_cmu_info top_cmu_info __initconst = {
- 	.nr_div_clks            = ARRAY_SIZE(top_div_clks),
- 	.fixed_factor_clks	= top_fixed_factor_clks,
- 	.nr_fixed_factor_clks	= ARRAY_SIZE(top_fixed_factor_clks),
-+	.fixed_clks             = top_fixed_rate_clks,
-+	.nr_fixed_clks          = ARRAY_SIZE(top_fixed_rate_clks),
- 	.nr_clk_ids             = CLKS_NR_TOP,
- 	.clk_regs               = top_clk_regs,
- 	.nr_clk_regs            = ARRAY_SIZE(top_clk_regs),
-@@ -566,6 +599,70 @@ static const struct samsung_cmu_info hsi_cmu_info __initconst = {
- 	.clk_name               = "bus",
- };
- 
-+/* ---- CMU_USB --------------------------------------------------------- */
-+
-+/* Register Offset definitions for CMU_USB (0x13000000) */
-+#define CMU_USB_PLL_CON0_MUX_CLKCMU_USB_NOC_USER                   0x600
-+#define CMU_USB_PLL_CON0_MUX_CLKCMU_USB_USB20DRD_USER              0x610
-+#define CMU_USB_CLK_CON_MUX_CLK_USB_USB20DRD                       0x1000
-+#define CMU_USB_CLK_CON_DIV_CLK_USB_NOC_DIV3                       0x1800
-+#define CMU_USB_CLK_CON_GAT_BLK_USB_UID_CMU_USB_IPCLKPORT_PCLK     0x2000
-+#define CMU_USB_CLK_CON_GAT_BLK_USB_UID_SYSREG_USB_IPCLKPORT_PCLK  0x2030
-+
-+static const unsigned long usb_clk_regs[] __initconst = {
-+	CMU_USB_PLL_CON0_MUX_CLKCMU_USB_NOC_USER,
-+	CMU_USB_PLL_CON0_MUX_CLKCMU_USB_USB20DRD_USER,
-+	CMU_USB_CLK_CON_MUX_CLK_USB_USB20DRD,
-+	CMU_USB_CLK_CON_DIV_CLK_USB_NOC_DIV3,
-+	CMU_USB_CLK_CON_GAT_BLK_USB_UID_CMU_USB_IPCLKPORT_PCLK,
-+	CMU_USB_CLK_CON_GAT_BLK_USB_UID_SYSREG_USB_IPCLKPORT_PCLK,
-+};
-+
-+/* List of parent clocks for Muxes in CMU_USB */
-+PNAME(mout_clkcmu_usb_noc_user_p) = { "oscclk", "dout_clkcmu_usb_noc" };
-+PNAME(mout_clkcmu_usb_usb20drd_user_p) = { "oscclk", "dout_clkcmu_usb_usb20drd" };
-+PNAME(mout_clk_usb_usb20drd_p) = { "oscclk_usb_link", "mout_clkcmu_usb_usb20drd_user" };
-+
-+static const struct samsung_mux_clock usb_mux_clks[] __initconst = {
-+	MUX(CLK_MOUT_USB_NOC_USER, "mout_clkcmu_usb_noc_user",
-+	    mout_clkcmu_usb_noc_user_p, CMU_USB_PLL_CON0_MUX_CLKCMU_USB_NOC_USER, 4, 1),
-+	MUX(CLK_MOUT_USB_USB20DRD_USER, "mout_clkcmu_usb_usb20drd_user",
-+	    mout_clkcmu_usb_usb20drd_user_p, CMU_USB_PLL_CON0_MUX_CLKCMU_USB_USB20DRD_USER, 4, 1),
-+	MUX(CLK_MOUT_USB_USB20DRD, "mout_clk_usb_usb20drd",
-+	    mout_clk_usb_usb20drd_p, CMU_USB_CLK_CON_MUX_CLK_USB_USB20DRD, 0, 1),
-+};
-+
-+static const struct samsung_div_clock usb_div_clks[] __initconst = {
-+	DIV(CLK_DOUT_USB_NOC_DIV3, "dout_clkcmu_usb_noc_div3",
-+	    "mout_clkcmu_usb_noc_user", CMU_USB_CLK_CON_DIV_CLK_USB_NOC_DIV3,
-+	    0, 4),
-+};
-+
-+static const struct samsung_gate_clock usb_gate_clks[] __initconst = {
-+	/* System will hang if this critical clock is gated */
-+	GATE(CLK_GOUT_CMU_USB_IPCLKPORT_PCLK, "gout_cmu_usb_ipclkport_pclk",
-+	     "mout_clkcmu_usb_noc_user",
-+	     CMU_USB_CLK_CON_GAT_BLK_USB_UID_CMU_USB_IPCLKPORT_PCLK,
-+	     21, CLK_IS_CRITICAL, 0),
-+	GATE(CLK_GOUT_SYSREG_USB_IPCLKPORT_PCLK, "gout_sysreg_usb_ipclkport_pclk",
-+	     "mout_clkcmu_usb_noc_user",
-+	     CMU_USB_CLK_CON_GAT_BLK_USB_UID_SYSREG_USB_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+};
-+
-+static const struct samsung_cmu_info usb_cmu_info __initconst = {
-+	.mux_clks               = usb_mux_clks,
-+	.nr_mux_clks            = ARRAY_SIZE(usb_mux_clks),
-+	.div_clks               = usb_div_clks,
-+	.nr_div_clks            = ARRAY_SIZE(usb_div_clks),
-+	.gate_clks              = usb_gate_clks,
-+	.nr_gate_clks           = ARRAY_SIZE(usb_gate_clks),
-+	.nr_clk_ids             = CLKS_NR_USB,
-+	.clk_regs               = usb_clk_regs,
-+	.nr_clk_regs            = ARRAY_SIZE(usb_clk_regs),
-+	.clk_name               = "bus",
-+};
-+
- static int __init exynos8855_cmu_probe(struct platform_device *pdev)
- {
- 	const struct samsung_cmu_info *info;
-@@ -590,6 +687,9 @@ static const struct of_device_id exynos8855_cmu_of_match[] = {
- 	}, {
- 		.compatible = "samsung,exynos8855-cmu-top",
- 		.data = &top_cmu_info,
-+	}, {
-+		.compatible = "samsung,exynos8855-cmu-usb",
-+		.data = &usb_cmu_info,
- 	},
- 	{ }
- };
+> 
+> Side node: It seems like this series does no longer apply on pci/next.
+> 
+> Perhaps need to rebase and resend?
+> 
+
+Yep. I'm preparing th next version. Will post it asap.
+
+- Mani
+
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
