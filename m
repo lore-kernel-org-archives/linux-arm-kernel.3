@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A53C6C531F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A0CC531F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 10:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5NLQiylXqrWyBPL2yr2b7NQ7oFXg0+MPXbRfux3ho4=; b=jWjvRpVuCsWrpfC8TbbqjzksJF
-	NigBx1l1sOf1qYe276N4Cr7oYIhMiBC9K5W8zSVvUbRyL2c9yDFbuZoF+83GmcP6kZYUry6ofVSad
-	2cqVhtTt76pmMdy6uHRdTKS2PMzEYRBvMKyDDKzw9WB5noi/FKP/lDoMWWdtSLWyNk6wkMXYiR4AE
-	6frPEdLXwYKhmR2Dx/Zj5obAzrrZ58s52tzWrhU26gxN1sHwF0lkms521tF4KvF6WHLd2A3c3ucRA
-	57+r8878xjP5nkCGbTbLT71CuRoF8Q0vMo/DSmf+PDOHa21jqtw0+BJfrbt+ZdN18rA0BLV0tiXwW
-	J+/ZII2Q==;
+	bh=LrI5jV+9lXNAqZIXhKCOO60TpJjIaMeX3ChNxpBQxyE=; b=aemFV/XsvfgW8HZYxaGmo6FuAc
+	gwI1Rpu7qo9jLfir+VGw3USAWaTcoXM+2ls4/9rVQF6x5etMRJt2THolkHG8T3NZ7wL6StM+FcjNe
+	cgNfnE7FMBdUZSTzT5Nsd4pudrcc8iZLBDIQ3W4tb4J8ETTHQBdKnc27tX8dTstJUVTAhGH/brJVC
+	yA8QzFxZO5whSDl/7H/Htnl4xCamj+RckjRRwxuC/Vg1aJ4e1Org2n9/Dl7eHEpxZLEb15+1AQR7+
+	CiCueHv1qJzQqA3tTOiIfgCtqRm7+/wPFPauE/sIoKuay3shbpBHWv30wMTbmzbyRCIqCHEnEnoPO
+	lrLcJSgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wofJ8-000000050JW-42UQ;
-	Tue, 28 Jul 2026 10:45:10 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wofKw-000000050eo-1h4s;
+	Tue, 28 Jul 2026 10:47:02 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wofJ6-000000050Il-2wW5;
-	Tue, 28 Jul 2026 10:45:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785235472; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=TS0P/0Nn92hCK1UO819Km2MemRUN+2D33lo2frqf//bJxFnoJIr7T65oIx0zivNwVD1r5lraVuz1EoSw34DwqAG5d1qClgsDfKhat0jYsUEqdTMMGe1OwmGOyCInP+3Jz2LUDnuH/d/4/8EEiLKnhm3bU2ZYqCgdqjYgTnEpPHE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785235472; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=J5NLQiylXqrWyBPL2yr2b7NQ7oFXg0+MPXbRfux3ho4=; 
-	b=IRXdtf59S7jGJhi8MXAh58hXoH8k/EH3GaQHA69kv0T6DNaI8cDTvrSfqduMO7QptuzQ5jcrKxfIkxxeLNrs4rZweTIo+Fi31iaXVoE8CSgfd+tFCSdDJjJRRXf+4/tYkggGyayV1WDcR+J09IUYcpeGoA62PXAgt6NSPXLlNsI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785235471;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=J5NLQiylXqrWyBPL2yr2b7NQ7oFXg0+MPXbRfux3ho4=;
-	b=GGua9EmJpb0QbnYEztrILvP8aRP7TwU3zXt41VIPig6tUXnnHf9Y8hCXp5NS8CCa
-	5gDr3hllYE6vRrSsLBaP3kDAj+d+kwNwy/4TIQvWH8/TTPDzUbQ3aOmFaQgrxi4EHNI
-	98OWGiPzqBJaw8WYVhjwwMX9GAeUhBsYwVS1hUas=
-Received: by mx.zohomail.com with SMTPS id 1785235470064180.6244091784373;
-	Tue, 28 Jul 2026 03:44:30 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id E2EBA181F68; Tue, 28 Jul 2026 12:44:23 +0200 (CEST)
-Date: Tue, 28 Jul 2026 12:44:23 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Vinod Koul <vkoul@kernel.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v4 0/5] This series is split from the v15 "Add Type-C DP
- support for RK3399 EVB
-Message-ID: <amh1sK_4KnD5zTlZ@venus>
-References: <20260727064408.101-1-kernel@airkyi.com>
- <amgMXujurBrB5B0L@venus>
- <e22072d9-7fee-4f83-9ae9-5428e45c7507@rock-chips.com>
+	id 1wofKt-000000050eC-2za1;
+	Tue, 28 Jul 2026 10:46:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=LrI5jV+9lXNAqZIXhKCOO60TpJjIaMeX3ChNxpBQxyE=; b=K8CCxGGrapIcqHInx/7kof6kca
+	HCFPPO5QU1klh4tiNTlKP3uNgbwrsSQDJ9nafWEGexokijPJ5vN+3+nL/JDn8Dk91aMNa7wPqJtyb
+	u1pWFl/Oax8LyTDsqOjYPlRtnq/H2aft7UIkh4zAET2xULeB5OEYbu9utOEVe9cJhicjY7cWNZc9Q
+	J3iJBOYIthtEVS0z6AAqdUEE+8rYWTv4TYZ1/5Auty0QflNhaxHrYJaPtHles362rX9/tB2ZrBebH
+	AcurUXuksS3zfrqTfO8Y/aDWsNPmn8kh8Ddi9dDI0UNfRMyNV15/dP+jZT081aEyUpe3rlYr/3kJp
+	t2nNPAnQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wofKo-0000000CzEg-1C8e;
+	Tue, 28 Jul 2026 10:46:54 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id BA9DB30093A; Tue, 28 Jul 2026 12:46:53 +0200 (CEST)
+Date: Tue, 28 Jul 2026 12:46:53 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Thomas Huth <thuth@redhat.com>, Jisheng Zhang <jszhang@kernel.org>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+	Guo Ren <guoren@kernel.org>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>
+Subject: Re: [PATCH v6 8/8] futex: Use runtime constants for __futex_hash()
+ hot path
+Message-ID: <20260728104653.GH49951@noisy.programming.kicks-ass.net>
+References: <20260728052540.4728-1-kprateek.nayak@amd.com>
+ <20260728052540.4728-9-kprateek.nayak@amd.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nrz2q7rk3saejmon"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <e22072d9-7fee-4f83-9ae9-5428e45c7507@rock-chips.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/285.228.97
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_034508_796045_E0135EF8 
-X-CRM114-Status: GOOD (  20.99  )
+In-Reply-To: <20260728052540.4728-9-kprateek.nayak@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +96,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 28, 2026 at 05:25:40AM +0000, K Prateek Nayak wrote:
+> From: Peter Zijlstra <peterz@infradead.org>
+> 
+> Runtime constify the read-only after init data  __futex_shift(shift_32),
+> __futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
+> hot path to avoid referencing global variable.
+> 
+> This also allows __futex_queues to be allocated dynamically to
+> "nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
+> (1 << CONFIG_NODES_SHIFT) worth of slots upfront.
+> 
+> Runtime constants are initialized before their first access and
+> runtime_const_init() provides necessary barrier to ensure subsequent
+> accesses are not reordered against their initialization.
+> 
+> No functional changes intended.
+> 
+>   [ prateek: Dynamically allocate __futex_queues, mark the global data
+>     __ro_after_init since they are constified after futex_init(). ]
+> 
+> Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
+> Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
+> Signed-off-by: Peter Zijlstra <peterz@infradead.org>
+> Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
+> ---
+> changelog v5..v6:
+> 
+> o Picked up tags from Charlie. (Thanks a ton!)
+> 
+> o Picked up Peter's S-o-b from his tree.
 
---nrz2q7rk3saejmon
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 0/5] This series is split from the v15 "Add Type-C DP
- support for RK3399 EVB
-MIME-Version: 1.0
+Right, so I also munged the Changelog in my tree to include those
+benchmark results. I failed to actually push out those patches before
+disappearing on holidays, but I recon I should refresh them patches and
+re-munge the changelog?
 
-Hello Chaoyi,
+> o Added a barrier after runtime_const_init() after to prevent compilers
+>   from re-ordering a later runtime const usage in the init function with
+>   their initialization. (Sashiko; Reported by Intel test robot with a
+>   GCC14 build).
+>   (https://lore.kernel.org/lkml/alNgNvhIkBfkGo1Y@xsang-OptiPlex-9020/)
 
-On Tue, Jul 28, 2026 at 10:33:48AM +0800, Chaoyi Chen wrote:
-> >> Changes in v4:
-> >> - Link to v3: https://lore.kernel.org/all/20260717072323.96-1-kernel@a=
-irkyi.com/
-> >> - Scan the entire typec_bus and attempt to register the hpd bridge,
-> >>   so as not to miss devices that were already added during initializat=
-ion.
-> >=20
-> > While that may help with the module being loaded late, it does not
-> > help with triggering the module load in the first place.
-> >=20
-> > The module does not have any MODULE_DEVICE_TABLE() helping with
-> > that. So basically any system relying on the automatic hpd bridge
-> > registration and using a modular kernel (e.g. the arm64 defconfig or
-> > the kernels usually provided by Linux distributions) requires
-> > manually loading that module to get any graphical output.
-> >
->=20
-> Thank you for pointing this out. I will add it in v5.
-
-Add what exactly? As this code is quite generic, you don't have
-anything for a MODULE_DEVICE_TABLE() (i.e. no OF, no I2C, ...).
-
-One solution I see to keep the notifier design would be to add
-
-MODULE_SOFTDEP("pre: aux-hpd-typec-dp-bridge")
-
-to some other module and piggy-back on it. Alternatively integrate
-it directly to some other module, such as "drm_display_helper",
-which already has DRM_DISPLAY_DP_HELPER and DRM_DISPLAY_DP_TUNNEL.
-Adding TypeC DP AltMode as part of it seems sensible to me.
-
-FWIW I suggest you test booting your patches work with the arm64
-defconfig before your next submission ;)
-
-Greetings,
-
--- Sebastian
-
---nrz2q7rk3saejmon
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpoh/wACgkQ2O7X88g7
-+po6mg//Ul+tqXSZBMWv39myTySZkpRAFl7a7wi9guXnO1l8taMD1Dut/6OI7XSh
-9YwrPNaNV91Ky5SlMl/Yj3/pjT/FIk10Ltd3EREWrrWJoPlZMVOVM1Rv3Rg4mzgg
-jZ7IowUe3zwG9xnITCsQ/bZ2dQkmHrnGnUoUNkcuws1QZqbUzMke/eTG7mHVeS0x
-sWTMLSyLvXQPKnDVF7/Iu7wuKUs8Ia5N6BgLqLoXIuBogrpy960yu1zyNCKNkQaH
-i6PxgcYmfo8+J9+tSxnYwCZBATn1PUDUPrDrthYSlr/eQyNKmVU6xHf4OTjRd2jG
-q4BAXrZRu1bzbYaqFbaeRJ/DSnPDnTiB2aWKT4OtMqvfDOC2aSBCxa86DaSp8ehl
-aPvi3CiBe+shpteIdY8dy4T7NUFSpJCN+ihGO5cjRuaIrHto3yyLIa4hpl8apeqn
-tyzvk60TmL0Sjnrq+K8DjuLgk5yM0Y7zb3iur+XYnzVvwifcBvqcbMWSiNzrMiau
-2GyY3PP2h0B6ExG8edpIu7vqhSlmStw8HtLNOattN4PZvqdRDg/1JEFu0V6a5Cdt
-FDwKKKwht1Kshkl41y0eGBPN3i5ym7bIeoE5GreW/1dkV+7UQlXZj473tagywHuy
-P51/AQYyjVWv51g7bhF8ZWQszkCaov53iUKMyjlWpVYA3XSYmaw=
-=ZCR1
------END PGP SIGNATURE-----
-
---nrz2q7rk3saejmon--
 
