@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6244FC54F4C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9EDC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 15:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mrOxIAfNdwTWJDcLnpqXv5maxVUX/AcXpAUf66B2atY=; b=SpDTVMJBMu0vBwYR3D2pDNJjWJ
-	yPhDWAomgV1GkpVHQVMMyw8Ow81Rs61qRsEsFnn7DF4hGzKpu0Qk8NFsEMI5mfmMQ1Cm4bEiNgUY4
-	1AeuQpwR9ICtkBB5vWFaAlQs/6oy7mKTEUc89DiemZ+2UPYRUwLqp2jutd1NXi7XnpjvJGBAeik/H
-	5OSejJ1MhSlzDHKTU6LgfOtCvhFpWG2ytDcl4xD2t+OiD8frd5AddtO1AiQeadSxeH88vHJyHXrOf
-	8Fck0siDxzWIwLtuLUFYhJkRCFDUOsq+47jkbgXf5jpXhqB9prgtcLFYT6v1Efykc5SzsKIpAwakx
-	a37LINVQ==;
+	bh=qe/VHo0JpOcsH0dSANJYDgEFC/+HxxxcdtUQi76Gx1k=; b=l9xD62okkLemlXakNbi7oJh2BZ
+	YzqyLpo7hraOdmTv4dBJ7xbV5QxmKmMCF9glXWjMRnnYOd/cBFnZigQb2zYLaUSiqdwc6/DskiMAd
+	loHV6b6K9RP5W6UvDBlCF1yw8OVajfupeWzNgluKPFCXS0ulYwXj2COAik3clm5B6yeEleXuSBNBX
+	+pvKxXCykblCQ6BmbxHhcN3irrI/ArOj84xgw+ySiWudDgGBCaADfFAF8zThmj2KztZfnuLLVUtTz
+	AESJzvaf/NZRfAiSHSrwdylQ85KsR2s4yQPBm86MI1S+jo5ymcXegRHMq9+x5fQi9GzXe/+frzw1g
+	1y8XCZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojlZ-00000005eQ2-3zvu;
-	Tue, 28 Jul 2026 15:30:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wojmC-00000005eZ7-0LSa;
+	Tue, 28 Jul 2026 15:31:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wojlY-00000005ePT-1hde
+	id 1wojmB-00000005eYw-0PS9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 15:30:48 +0000
+	Tue, 28 Jul 2026 15:31:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D555B600FC;
-	Tue, 28 Jul 2026 15:30:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F1AC1F000E9;
-	Tue, 28 Jul 2026 15:30:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B86194334F;
+	Tue, 28 Jul 2026 15:31:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1AAB1F000E9;
+	Tue, 28 Jul 2026 15:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785252647;
-	bh=mrOxIAfNdwTWJDcLnpqXv5maxVUX/AcXpAUf66B2atY=;
+	s=k20260515; t=1785252686;
+	bh=qe/VHo0JpOcsH0dSANJYDgEFC/+HxxxcdtUQi76Gx1k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RNWL2ctAHAFUtAXYu+10aBsk6Vc6+1R43xl5g5WKB220lX61TfgwKc9GGgdcTDYyv
-	 SWB9v7iz6iJ3/Zilh5KxYPJrzrO7bY+3bDGRcQIYOZnFvMPa3HdGq3PtbdDiMrGVr1
-	 ESJBRzYHuEAydCwrsc/2OZlu6RMfQyXyAu6xroZau9JJpZ4t2jYZCwrlsUPCQNbwvz
-	 OA+6pA+TdhEN8hhQGkokvjaQvQTVp/wYoyF58zhnLKyeptLeg+buXRxvOcX/Q4PwiW
-	 2swS+Oydt4jFiVNDEhdsQq0jHynT6V+QHgghhUJGXY7q7UHc3qPKIAq6ELWtwxTBjT
-	 ILdDycqcRswFA==
-Date: Tue, 28 Jul 2026 08:30:45 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-crypto@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH] crypto: qce - Remove driver
-Message-ID: <20260728153045.GB4281@quark>
-References: <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
- <2026072412-decrease-sandbag-70a1@gregkh>
- <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
- <20260724141414.GB1876@sol>
- <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
- <2026072455-subtly-prayer-0a8a@gregkh>
- <20260724150932.GA6763@sol>
- <2026072428-ungodly-outsource-b20c@gregkh>
- <20260724155144.GA2032@sol>
- <CAMRc=Me_uO0oMqjyuZzs7AxjWoSyy-=rT1eshmFQcNH_3H2ygw@mail.gmail.com>
+	b=OLsjD2TlWP71fvKmSoATb2P+cUoB5VaaRUx18FrT+NJy7edgGKU5PI7+SB46bl1bc
+	 BV27cTs1gwn73vujMlFTNp5U/7KUFGs+jzGuB0iW+6irht1rY7TK/77FxpcIGrRsxv
+	 4c3CllsUWf9GUmvi0I5b2R9Y5Xldsz/ZyH9UN1kxpwqQswCmrlr+CLZuJkckv/moX2
+	 ZeZF8wJ3MImVy/vLpo/Sq5ctYU8QYubnyBC0sJG0a2aJG9bpDEvpOfFlgRjxqH7jZa
+	 aj4tAI9W4xs78tjFclcWxC08+4aANSHkvFUHEqdhBkRocKf0Wt6LUeVIcSXAo9gGvr
+	 5r6dJ1TbvFyHQ==
+Date: Tue, 28 Jul 2026 17:31:21 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: carlos.song@oss.nxp.com
+Cc: Markus.Elfring@web.de, aisheng.dong@nxp.com, Frank.Li@nxp.com, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Carlos Song <carlos.song@nxp.com>
+Subject: Re: [PATCH v6 0/2] i2c: imx-lpi2c: fix probe error handling and
+ reset controller
+Message-ID: <amjLJuBPDA7TQqpR@zenone.zhora.eu>
+References: <20260716071957.2670263-1-carlos.song@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMRc=Me_uO0oMqjyuZzs7AxjWoSyy-=rT1eshmFQcNH_3H2ygw@mail.gmail.com>
+In-Reply-To: <20260716071957.2670263-1-carlos.song@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,11 +71,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 06:26:56AM -0700, Bartosz Golaszewski wrote:
-> Is disabling it in defconfig an acceptable compromise?
+Hi Carlos,
 
-No, that completely misses the point.  The defconfig doesn't matter all
-that much.
+> Carlos Song (2):
+>   i2c: imx-lpi2c: properly unwind resources on probe failure
+>   i2c: imx-lpi2c: reset controller in probe stage
 
-- Eric
+merged to i2c/i2c-2.
+
+Thanks,
+Andi
 
