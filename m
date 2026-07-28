@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AB5C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76793C54F56
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 21:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v6jDsLdtzLKtqY4apUWLxP6U5mjSigvgDfQ1qHvaeqM=; b=Qnoa+LFlsyyfVRJUriOEy/qvFr
-	9qlYxGxRvgJ+zQ/qdjPFvGP5AW+m3c+l+0XJ4l51Nl8LaDA3+/KXr6hhWEOrP1Fkh2cVgWp7WNL3K
-	/JQ3eKd30ey1EEELUe4xPECKiDYQTPtpoWMvFGNUxMOfUwGhWNXrDXb1s+VZKVdarDPT6Ivg+RmnY
-	+rK7ajtjI0tQyZpSZvL+eIzO+7tfYFYKPluk6Kx+AYXRdA5czkFKc5J5HXcIh4sOkI15XlthDtNsc
-	qXBFHPP6Cf5MuKGXJu8jJKhL31v5IZtKZbOfpoH3b2JmemtLtVFH6ap576PJYKt9rr5iCO41+q0Au
-	Mkw+KUuQ==;
+	bh=ItDdBz/OEznItt090HL1h2V9CWsYvmHYiIvcswmhcxs=; b=Z0Gi/bJYJlb1vhe17zAWtlIqpG
+	JxKuqkJm+3K2JfGDRHyOxy1+I2NtrnZSNmxRdDI6WyyLywBuGukP68pvVeaOh+IBJ4mu3VKlmFA5v
+	f3y6QN9O6xOySRDl0UhmcKQcpdEFiR5yY+L/YKedYu5JRXTm1IZtd30OuIDlEdtMKWrvojL1RbzpA
+	5ESVAWksNAWLRdOp3DWdUNQ9tufhpgumvEM1TKlt8e+/2rvkI3thwAf39+LfO/YFPlqkaNXIaieYF
+	zcysIqf5KG0UvQabaC5xr1WPw+ZAmSwUt6rp5OGN8KuCnlS1kTUlBQipVd2FIAaItbMtEnEvJ7BHu
+	HY4AGAVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wop3Z-00000006GPk-0IiE;
+	id 1wop3Z-00000006GQ3-0g5v;
 	Tue, 28 Jul 2026 21:09:45 +0000
 Received: from mail-pf1-x448.google.com ([2607:f8b0:4864:20::448])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wop3S-00000006GMr-1ywf
+	id 1wop3U-00000006GO1-32HA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 28 Jul 2026 21:09:39 +0000
-Received: by mail-pf1-x448.google.com with SMTP id d2e1a72fcca58-84842381150so380984b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:09:37 -0700 (PDT)
+	Tue, 28 Jul 2026 21:09:41 +0000
+Received: by mail-pf1-x448.google.com with SMTP id d2e1a72fcca58-8482b95574dso320740b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 14:09:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785272977; x=1785877777; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785272979; x=1785877779; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=v6jDsLdtzLKtqY4apUWLxP6U5mjSigvgDfQ1qHvaeqM=;
-        b=Bbk/gURb9+DnJbxjsbE4u1vn/9UnGgYySyvLJ8WZyLCR2wDtTsPWTUid/2x0HPKQDQ
-         PQFZqFloo8g1N4sP91xcjfSAAHVUBDpbG//eKMwmoRBlrJb0YChbD0S4p/l2Vvd7JO5u
-         PegK6609tfUy5nSzJ2r3DZBQ9YkRhQhZuoH2LQOfZirnBgyCLTQKe8N/jlGdd9FJrjI6
-         ryKY10vjE4+3QHjp1tMlBznNYsL114A9g4g6qwZMMAHifT3Ww71SRNKTfW0aspLNGqXh
-         eeq2T0BFI40DNj+X1o7FHK3yv5g4H5hvcDrGG5n3XVf3Je/s2X9BP3DQknN1KSN7Rw5z
-         /wSg==
+        bh=ItDdBz/OEznItt090HL1h2V9CWsYvmHYiIvcswmhcxs=;
+        b=jtP/f2Ccg4CO79s+X9ghu/nCfpJfST1/jlxFny7U3AR2i15g4v4+tDzXfzeDM4zPW0
+         uIhZSDfjT26v7XaRAZ5etyMGNG6YYiTKJPe9bhOGHZfYd6n51Z9KffWcXqzyJgyN0fKy
+         pn+LkO+K83epSnTmxTreIEFk/4TrEYQe0JSOxASSJ8xq6Lqc/LuId+Cj5CcKZju3JSod
+         lwLG9ddyk4stE0R3ZehRqdIB2O06HZJhsliN3Aj3k3g3J07lDag2YcwhNCuZQVCVV7IH
+         094djPrWZlk7wjUOvtqMj4V/ceJMPZsHGPhcgWXHa5OA41Y9MPaz8L8Lut3rzFCazjDp
+         ECOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785272977; x=1785877777;
+        d=1e100.net; s=20251104; t=1785272979; x=1785877779;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=v6jDsLdtzLKtqY4apUWLxP6U5mjSigvgDfQ1qHvaeqM=;
-        b=hkKs1Nwdp3ZUd13zuRxmGjA1OatAzNwrCP7QbWvualVyaSTttANQZuyItLLmvk6kYI
-         j6C0Wa5+6o1GErMZxqo0UwMw1sn3xCG6TFkhGU/iqAD91hBGdUrkTaGILxmGTiAremJG
-         s5ZmChJ4nxD3hFFrxBzQfBA1Tl2F9EMSgX4lFqFRCso9/ssr32uUGsv0Sx5o7+Nia1PB
-         vUCumZdlzUZ3Tw5QJXJRdiiK7roct05IuitIk9ld7fAPoX14/SNOPzMgI2X5gn0JLtE+
-         xh9pzHfugtpIoNlozo9F1Xh4io791TkMFXGRLXH7Cil0I0hdCL6LfdmqCu2LALLsZj5w
-         wrQQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpHo2LpZM3MbihBxC4cYgUh8eGbz6Pi6Y+eph44no+JkhYQ7HP75/N4XyXbi3kesQk5fZTqCAISUr7gUiD1tHh7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMHnoyY3r77LJdIKZLL6fkwK56xDAwH8mQtfxySOY5OYnhH6cn
-	r1wVckJ0F6cdQryH1iszfGS/ubG1c7PGnn/1rWZ4ZCpVW7j33LCNLfIDSk33J7a7hNSwWax6PBn
-	BYQ==
-X-Received: from pglf33.prod.google.com ([2002:a63:1021:0:b0:c92:dd1e:dc3c])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4ac6:b0:848:2f6e:e52e
- with SMTP id d2e1a72fcca58-84e9337e944mr3967580b3a.66.1785272976845; Tue, 28
- Jul 2026 14:09:36 -0700 (PDT)
-Date: Tue, 28 Jul 2026 21:09:17 +0000
+        bh=ItDdBz/OEznItt090HL1h2V9CWsYvmHYiIvcswmhcxs=;
+        b=HTrHPTpRDl0N5HyYbJYL6rU6sJlhm57wXM4QOfIKMyI3jVAgQrH4AlovxDbSJIyyR5
+         vVXCZepYjbcOWdlop/mfA16RfOaj/Wf67iAlEhdeJD9iE9b/hHahFQpo0zbou7/4xy8N
+         6pHZRcMhO99Jj+OxAX8RMzZRtr5XFyquIhBn3PTb95p4GpJwk+J6LnisujHwMaIH86io
+         s+yjma463BykYoSXGbWJLVeHl2pn0Va7VZ6nYmqOvWmxXj1HDw0EmhZv0kCqo1OgG7ch
+         GGz0GVOoW1qn6qcgT1PHoXwkyqifRjYtBNA6xuOf9/exvoijMLoSyLt6R32Rg9l58Qqg
+         Cfdg==
+X-Forwarded-Encrypted: i=1; AHgh+RqmdBYTCpcxJjECcfkWujzff6EKyEDgSVZ4QQ9w/S33kk2BQXT6ZPQsq0pPR44j6QrX43rRhVr/1kw0gv0NUuUh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzO28Z1TEc6qeVlzFrRBCYkCbXU8CUW+cNG4cRMP00An3soJ27R
+	n0sAEpip+dMDhSnsbamGLEAAi38bgmE7PNNOHCMlr/Av7i3w76iTw7nu0TOvjcDT/PlePy9OegD
+	X3g==
+X-Received: from pglf4.prod.google.com ([2002:a63:1004:0:b0:c88:b675:3609])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:7d03:b0:3b4:e4f6:4f15
+ with SMTP id adf61e73a8af0-3c8aafa2ac3mr5229665637.5.1785272979218; Tue, 28
+ Jul 2026 14:09:39 -0700 (PDT)
+Date: Tue, 28 Jul 2026 21:09:18 +0000
 In-Reply-To: <20260728210928.1050849-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260728210928.1050849-1-praan@google.com>
 X-Mailer: git-send-email 2.55.0.487.gaf234c4eb3-goog
-Message-ID: <20260728210928.1050849-2-praan@google.com>
-Subject: [PATCH v9 01/12] iommu/arm-smmu-v3: Refactor arm_smmu_setup_irqs
+Message-ID: <20260728210928.1050849-3-praan@google.com>
+Subject: [PATCH v9 02/12] iommu/arm-smmu-v3: Add a helper to drain cmd queues
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -76,8 +76,8 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	linux-arm-kernel@lists.infradead.org, Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_140938_517715_16B51C5B 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260728_140940_779159_64BE61D2 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,103 +92,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor arm_smmu_setup_irqs by splitting it into two parts, one for
-registering interrupt handlers and the other one for enabling interrupt
-generation in the hardware. This refactor helps in re-initialization of
-hardware interrupts as part of a subsequent patch that enables runtime
-power management for the arm-smmu-v3 driver.
+Before we suspend SMMU, we want to ensure that all commands (especially
+ATC_INV) have been flushed by the CMDQ, i.e. the CMDQs are empty.
+Add a helper function that polls till the queues are dained.
 
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
 Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 47 +++++++++++++--------
- 1 file changed, 30 insertions(+), 17 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 45 +++++++++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  3 ++
+ 2 files changed, 48 insertions(+)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 3a9cbd7d8a00..a11f5bcbe77d 100644
+index a11f5bcbe77d..08b83f211ab3 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4749,14 +4749,32 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- 	}
+@@ -949,6 +949,51 @@ static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
+ 					   cmds->num, true);
  }
  
-+static void arm_smmu_enable_irqs(struct arm_smmu_device *smmu)
++/*
++ * Currently, only used for CMDQ.
++ * TODO: Update to handle PRIQ & EVTQ when PRI support is added
++ */
++int arm_smmu_queue_poll_until_empty(struct arm_smmu_device *smmu,
++				    struct arm_smmu_queue *q)
++{
++	struct arm_smmu_queue_poll qp;
++	struct arm_smmu_ll_queue *llq = &q->llq;
++	int ret = 0;
++
++	queue_poll_init(smmu, &qp);
++
++	/*
++	 * The events are only generated when CMDQ becomes non-full.
++	 * Thus, wfe can't be used here, mark it false explicitly.
++	 */
++	qp.wfe = false;
++
++	do {
++		WRITE_ONCE(llq->cons, readl_relaxed(q->cons_reg));
++		if (queue_empty(llq))
++			break;
++
++		ret = queue_poll(&qp);
++
++	} while (!ret);
++
++	return ret;
++}
++
++static int arm_smmu_drain_queues(struct arm_smmu_device *smmu)
 +{
 +	int ret;
-+	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
 +
-+	if (smmu->features & ARM_SMMU_FEAT_PRI)
-+		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
++	/*
++	 * We skip the cmdq locking here since this helper is only called
++	 * from contexts (like suspend) where the caller has already
++	 * ensured that new command submissions are fully closed.
++	 */
++	ret = arm_smmu_queue_poll_until_empty(smmu, &smmu->cmdq.q);
 +
-+	ret = arm_smmu_write_reg_sync(smmu, irqen_flags,
-+				      ARM_SMMU_IRQ_CTRL, ARM_SMMU_IRQ_CTRLACK);
-+	if (ret)
-+		dev_warn(smmu->dev, "failed to enable irqs\n");
++	return ret;
 +}
 +
-+static int arm_smmu_disable_irqs(struct arm_smmu_device *smmu)
-+{
-+	return arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
-+				       ARM_SMMU_IRQ_CTRLACK);
-+}
-+
- static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
+ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused,
+ 				   struct iommu_page_response *resp)
  {
- 	int ret, irq;
--	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 43f4d24e7847..00ad2e0c257b 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1167,6 +1167,9 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+ int arm_smmu_cmdq_init(struct arm_smmu_device *smmu,
+ 		       struct arm_smmu_cmdq *cmdq);
  
- 	/* Disable IRQs first */
--	ret = arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
--				      ARM_SMMU_IRQ_CTRLACK);
-+	ret = arm_smmu_disable_irqs(smmu);
- 	if (ret) {
- 		dev_err(smmu->dev, "failed to disable irqs\n");
- 		return ret;
-@@ -4778,15 +4796,6 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
- 	} else
- 		arm_smmu_setup_unique_irqs(smmu);
- 
--	if (smmu->features & ARM_SMMU_FEAT_PRI)
--		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
--
--	/* Enable interrupt generation on the SMMU */
--	ret = arm_smmu_write_reg_sync(smmu, irqen_flags,
--				      ARM_SMMU_IRQ_CTRL, ARM_SMMU_IRQ_CTRLACK);
--	if (ret)
--		dev_warn(smmu->dev, "failed to enable irqs\n");
--
- 	return 0;
- }
- 
-@@ -4936,11 +4945,8 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 		}
- 	}
- 
--	ret = arm_smmu_setup_irqs(smmu);
--	if (ret) {
--		dev_err(smmu->dev, "failed to setup irqs\n");
--		return ret;
--	}
-+	/* Enable interrupt generation on the SMMU */
-+	arm_smmu_enable_irqs(smmu);
- 
- 	if (is_kdump_kernel())
- 		enables &= ~(CR0_EVTQEN | CR0_PRIQEN);
-@@ -5576,6 +5582,13 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- 	/* Check for RMRs and install bypass STEs if any */
- 	arm_smmu_rmr_install_bypass_ste(smmu);
- 
-+	/* Setup interrupt handlers */
-+	ret = arm_smmu_setup_irqs(smmu);
-+	if (ret) {
-+		dev_err(smmu->dev, "failed to setup irqs\n");
-+		return ret;
-+	}
++int arm_smmu_queue_poll_until_empty(struct arm_smmu_device *smmu,
++				    struct arm_smmu_queue *q);
 +
- 	/* Reset the device */
- 	ret = arm_smmu_device_reset(smmu);
- 	if (ret) {
+ static inline bool arm_smmu_master_canwbs(struct arm_smmu_master *master)
+ {
+ 	return dev_iommu_fwspec_get(master->dev)->flags &
 -- 
 2.55.0.487.gaf234c4eb3-goog
 
