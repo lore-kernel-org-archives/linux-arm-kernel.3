@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF61C54EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D63C54EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 28 Jul 2026 08:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/MYMVfnD2UGMAplCQcXJZfwGhkMUfgH8iCVLmSkxxLc=; b=wLYtSm7hT4CBt8wSFp4cfqfxF6
-	0nrvzEDE7WI8EwYLRXnV5UJVS85XUHNDkEtlMOF79g24mSxCSpr+ThTgCmWjC/I1q4LtxRg7ksOe8
-	z6aTtiiywJZAnvmgT9EsviV42Q/B+zWMEuwAUNyXHXML4XRsqnCQEFetzKQCkkN5FEUFiqQLYOSCW
-	IG5gdy3mSXkWncAuaEkKjSlX5TEbzus/G8hihGTatDThJ2kDWMXOY+90MHjo6VNCpwXKRqyuo1+7R
-	5GibZJrOeckkuLMCELdLAFCQ9R6vUueGoA3wKoF0koIiWZfq+YWeZm3f+t1Rgcs2eFyoMI8B6ssrK
-	8xM/D3rA==;
+	bh=+Pnnw3JHFaaC6x08vGFcx99YtllWt4ifCUVtU2BIzrw=; b=POTDc97LCBDRn+C5ybVFA4YA/c
+	cQjiQ485FWUeSRIvdGjd5A/qoMMkXqOP5gBtG0kO5CrHQv38VW6CiNjxZDZj3NSJPXmqIfK5qZKlG
+	qYMLnOamcLPqs4V7bH2+LaUYoIls5iPEGKcd9dd0tYC6+rG+TmYlhcYCl3TkhHpb1AG6oIALA0PZA
+	I5Z+wuCBfsALwIhmojjuKh7dAoi+8JFvHCYUtZMW6NJp7+k0IUuCUOgtQQZ0Ijur3pcCQogYoGyu+
+	jk/F4yvT9MIC5qYUsHdb303435Gus5yt/27D0MbbqeOkIXfHqbLhGiWij5e+z3JrjJ8BC0CcFPNut
+	2CNPXBww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodcb-00000004lGD-3Qph;
-	Tue, 28 Jul 2026 08:57:09 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wodcv-00000004lLG-0QhC;
+	Tue, 28 Jul 2026 08:57:29 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wodcY-00000004lFY-1WKD;
-	Tue, 28 Jul 2026 08:57:07 +0000
+	id 1wodcn-00000004lJo-0XhG;
+	Tue, 28 Jul 2026 08:57:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785229023;
-	bh=Espnjtem9bvcKUaeF4V7sJlCl/16E1+vcH39OyQyhxA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hPJBJS7QLi4Vjmi7xZtFmjRuReuaYGx0yP6leV84veSFvdQe7ls6qY16trOVe9Odf
-	 0YJPqyKfVzbzdMurUm6FypTE/868DSpVHeZ+m9ZOG3nN6o9kYXNaY2a+osDazQu1hW
-	 7QejtWtQQZvLhDrb+LAM+sh0tfUISgkU1qfe+0jU0cZ5cdGw1R2gdc+uqZ/NJWgEU4
-	 yaxi3Q3jEGzKG5TbAp+pEhAeVpZlStbKksKA0LA4Pq0ExPj0KGPdqJCi7/mSWrxnvb
-	 QtWbrcTPqvibMbRTwJC+BPMLW6TZ2gqfIXjKitFHIsNjn1eiOh1g1XJN2nAS0o/d35
-	 n8KmDlshds6CA==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	s=mail; t=1785229038;
+	bh=lUhD51bc6FbmG7QU3H2DChRpvP96MhevdBzHdhS/M5g=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=WyV6xFHQVO1MkoWRzNERwwuHvdoo1TpMtSmpAgrFCtPK56bPUjBmJLxe+ahdzPKv+
+	 xnu6ghGr6T795gabC6orDVpbRy/TeSOCNXvUUyTrl2UlIG/kkao7lF+iBoJ53nUM7Y
+	 7wVwyQY4zHuao3vr8Ana9wLGEvhg+CkBZ0eZR/zSN3EPG/y5tkclmr/WMycB/z5s42
+	 D3X7CXCJi53cbVfc7g9yPDIlAFWY9ORlBKPREM9yNlRQFTIejqZ0HM+zValwQAOb4s
+	 U+Kf1R/q4/HURt7f+RYZeqGd1dvpH/jdzc0qgWQusxfDJgeMmAQCgRTEaJLFN9M79Y
+	 yFxnnBbgxzTQQ==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0CC2917E0676;
-	Tue, 28 Jul 2026 10:57:03 +0200 (CEST)
-Message-ID: <0b63e6e9-2a0b-44c7-a0bf-66a5aac9610c@collabora.com>
-Date: Tue, 28 Jul 2026 10:57:02 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/4] AUXADC driver for the MediaTek mt6323 PMIC
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Ben Grisdale <bengris32@protonmail.ch>,
- Conor Dooley <conor.dooley@microchip.com>,
- Andy Shevchenko <andriy.shevchenko@intel.com>
-References: <20260709-mt6323-adc-v5-0-d11b8332a735@protonmail.com>
- <f2d5801c-1d12-4a61-ac23-aa24dfd0ee5c@collabora.com>
- <20260710005424.5c559b5a@jic23-huawei>
- <c11705b1-fc46-440b-a27e-0cc38f3b2d69@collabora.com>
- <92F7jsoczEi2TOWKT6Qqmppk-KE3uJjCKASTXa0RPV7nJZVfXhxdbuP9RptMsvV4_dnvJAlCh9NYvmiiO2mDGQojZoCozVKhXyOJmp2x6AM=@protonmail.com>
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 18BB917E019E;
+	Tue, 28 Jul 2026 10:57:18 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <92F7jsoczEi2TOWKT6Qqmppk-KE3uJjCKASTXa0RPV7nJZVfXhxdbuP9RptMsvV4_dnvJAlCh9NYvmiiO2mDGQojZoCozVKhXyOJmp2x6AM=@protonmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, Lee Jones <lee@kernel.org>, 
+ Roman Vivchar <rva333@protonmail.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Andy Shevchenko <andriy.shevchenko@intel.com>
+In-Reply-To: <20260709-mt6323-adc-v5-0-d11b8332a735@protonmail.com>
+References: <20260709-mt6323-adc-v5-0-d11b8332a735@protonmail.com>
+Subject: Re: (subset) [PATCH v5 0/4] AUXADC driver for the MediaTek mt6323
+ PMIC
+Message-Id: <178522903805.10327.4229525653360897202.b4-ty@b4>
+Date: Tue, 28 Jul 2026 10:57:18 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_015706_581555_0427C16C 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20260728_015721_328221_6C68DEFA 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,16 +85,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/28/26 09:58, Roman Vivchar wrote:
-> Hi Angelo,
+On Thu, 09 Jul 2026 13:52:46 +0300, Roman Vivchar wrote:
+> This series adds support for the 15-bit AUXADC hardware block found on
+> the MediaTek mt6323 PMIC.
 > 
-> Could you take a look at patch 4 (DT)?
+> The previous version of the series for all AUXADC, EFUSE and thermal
+> drivers was split after Krzysztof's comment [1].
 > 
+> Tested on the MediaTek mt6572 and mt8163 SoCs (Ben), both paired with a
+> mt6323.
+> 
+> [...]
 
-Yes, I already did, but then I forgot to pick it because ... reasons?
+Applied to v7.2-next/dts32, thanks!
 
-Thanks for the ping, btw.
+[4/4] ARM: dts: mediatek: mt6323: add AUXADC support
+      commit: 6326a6811b1af6674e3eef128df6a3825de26872
 
 Cheers,
 Angelo
+
+
 
