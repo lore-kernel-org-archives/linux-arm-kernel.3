@@ -4,71 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F802C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D71C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QKBjjNfQCqC61KXU3qhy/2fQbeIjNACPoi4zmkhWvXg=; b=DWl3SWJm0X2uPP1QYXz4Thmi2N
-	XiP1w0ptTOv6xzRGqym4aTID8nQGR+v/6/IuSjcIKCt2hC2xhR58sIgc4MkV7PWsbzDmgrqQkgiNE
-	JceJw+TnNYWZis1/MoB9e4hDVj3jIgfXHjwhGpGlbX9l3nsanQUbTF6kBMODS3pVRFrebLzd31DD3
-	5lZt3Ajz0ICXBkw1WJYWnO9ffOi1d/rKQQHQlH3/DFT9AzIZkHR5XaVobwHxLH/3qRmnevHhhzVgw
-	nz7mmVbWUxVZNUdcS/NmUiRGTHysv6WC9P/01GIXmiKqHIFBJG7TVKhSGkMtBchBQyYjS/HO1OIZx
-	zRiUhQpg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5iX3sEVovVYi3DpvUrl6PGylYfhOnizJPhWXlTW0MXY=; b=0QoDbn8SSPqjlzdbDDEkHiTjoX
+	QVnFZhxQH0AIA0YfEABIygBEo4x4TRci2iz3hq69eer50WST/i0h3D5hN2UbPIxSVHHzAPI7YCCht
+	F0AQB3FRnlxMhLS6SkJP3tjbeq+H59BlbUU8u6TmFlmuOg6i6ebx4yKR4xbhz1rKSkF/piFApN7NG
+	8buSfdBndVav+rZpwdrjSHGpB03gcRSZMhKvcKyXsBzvDfvRbPOZ+AEV54x/AAGtfSgZ7NU1SHTUF
+	umDAmKX4/gGBpFF/76HUzj8Yuez7+BwnsMCenDobt4ev8Oe8XoaHJ/fHeaUrlIOR5UbrZS6z7yKje
+	dp5XBWIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2bJ-00000007kYW-3BAn;
-	Wed, 29 Jul 2026 11:37:29 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1wp2ck-00000007kmE-0cGc;
+	Wed, 29 Jul 2026 11:38:58 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2bH-00000007kXH-1jXr
+	id 1wp2ch-00000007klB-0yMr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 11:37:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1785325025; x=1785929825; i=markus.elfring@web.de;
-	bh=QKBjjNfQCqC61KXU3qhy/2fQbeIjNACPoi4zmkhWvXg=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=GPIS/m2nhSuaaqPlrox1ViWRxB+OuzBbi3AJ8wa1+SbqHn73KoIfnXYbda0Tzb51
-	 qa7SFCdUbtQZc8r99MwLRHEU1/YHQQ/ooj7mXcxbuS2lEeEzN36VndbHRBb37BhOs
-	 e4l/IPZyeAl2RDfD6aMwJaCNbfrXDs5lLMh/726Huv/1AzoCp+8+6FgEasVqkdJAM
-	 fzdFJbRVfPAJGYAk3c4ZY72RpcjBVCOmXhvZY0C5flUYocacxxLlbHUDaCh4zcBXw
-	 mVd5338DdOr2cB6lVWbTpKFO3mmuMRvarB+prtwoTCMBHlQbucl+h0E7SGjRZSalG
-	 8wrXAufe50ZS0Vv9+w==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MyNwm-1x9koX0prw-00uY7g; Wed, 29
- Jul 2026 13:37:05 +0200
-Message-ID: <709fefd1-821a-4cd1-8598-b1179a95ce52@web.de>
-Date: Wed, 29 Jul 2026 13:36:41 +0200
+	Wed, 29 Jul 2026 11:38:56 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4720f3bf164so1309466f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 04:38:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1785325133; x=1785929933; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5iX3sEVovVYi3DpvUrl6PGylYfhOnizJPhWXlTW0MXY=;
+        b=CoZhzWMCDKx5BR1+BP3fMnMGbb8oeHcMSgO0YgLddrSsZFCtSbkENKUbJAt9+VCb6X
+         e9hAf2e7GwpxITeSt7G8szzpUClKeURJysvpJaT+K15W+8cQ7QaewDipUJInIBtMhGs7
+         Gzw6vPTT79uzqEg/sIT77evBldHD7i1DrIleTIrXZtIYWPCCxl2rOyq1fhpeHZdy0cjQ
+         h4vW44wPpL6C3HKUBRfAtzQdoYa4GbUhd5l3UvhggTeSxvzACLh5pV9QaEZtGIP6LVZn
+         477jamUfH+7JMgsGeX9LnLUzecGuLkSRIx9XDJZp8HRDORRrRuWMS8vLsE9S+cgL3+le
+         RA3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785325133; x=1785929933;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5iX3sEVovVYi3DpvUrl6PGylYfhOnizJPhWXlTW0MXY=;
+        b=BHON0MgAoYz8w6Q5pRQIHZt+PFz99gqRAHmkiRkQD/bq7diDTCxMlTpVpaZ7LBlKQT
+         UFRpMgGaSkb2RB/WcKE81yojhzOE4oBi+pCnqz0PpOL9CHC5rcgsFxqPrzKHWBGl0vlB
+         CjE/O+RdaIL/B2dnRyEGffgc6w8Yp327DZ7rF0KMxrvWYSILmUJs6FBevqef1piN5+7m
+         FgyI0cVJNt0qhwrKTbVqMXQPjdfFgJkuyRNNTm0dq8nNx15DhvPx2QyxEAS8GybmwgbQ
+         ZBqT+CQi/LmbArDMPSzBIVXQEioQ1qzu/RNq0y9gXWSaADQhkAfvx8DHy4erDua7qQCI
+         W/Aw==
+X-Forwarded-Encrypted: i=1; AHgh+RoXnc4TChpkx1lYwGIoPYK5geTvpf+1Zz4j8DXvbf5AYcgprcZgKaxLTuDDROTxEu25KK+PcLrLm95kaDHBtjHS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj772uplhcfu4WlCvEQs3ZrQOyFh9MMmB5xaVJJjeTquvIuflt
+	fJIKtG9RE+t8cwTQAqRURVYRg0oTznc6mznGRdibH6hGCeOloxksAZSm7Akftu3VdoE=
+X-Gm-Gg: AR+sD11LJLZ0uPGLFr1kiJXx6jWF2+IcwEoywD+OFYUkKb/qziZXxlL/URGn6FbrNKx
+	enPkaSMeiWB7BHMXNflkIMFLzlqbq8XZCQJK/y2e/KQDz2WVctIdH0Ca6E8ye123J4oofrEPjbT
+	XqprFh5SzsyLU08HEh0EHhMvnoDWNnCV9HyecE045210fpcjldGfLPVIxoz2p/HXcEc9pYiKfN+
+	FU45NYBDBbPlVLFLDuLzunw5rwfNjP8+LDN9C8J5r3cZRBzTmQ+u748IPfkhzcrPqVuoHK9n448
+	5Uhsfgj+PPeumUqadnZXxBG1N2ywWRSLGxWTn5cTbgKxSNyeV7F3LtL7XAkvx1Dj0re14iu2AnR
+	2r7ybW9k8bNUFSXIsKti6CMIBUWxwT4Xls4ENL8gru1bWxYTcA2S54gatlwkjrWncXJ94mniGs2
+	/PiYfZn1TXUHkxklVbd6fmp3SzuYe6jftjmGM1Bo/ebTDfWJdQ030rPBCq5jJwaoY74rZseGo=
+X-Received: by 2002:a05:6000:2c05:b0:47f:9763:9864 with SMTP id ffacd0b85a97d-47fbabee850mr2432854f8f.19.1785325133163;
+        Wed, 29 Jul 2026 04:38:53 -0700 (PDT)
+Received: from [192.168.0.101] ([109.77.24.32])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fb6b0f039sm7702125f8f.18.2026.07.29.04.38.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Jul 2026 04:38:52 -0700 (PDT)
+Message-ID: <f77aab11-0e1b-4962-9d53-0bb2fcd6486a@linaro.org>
+Date: Wed, 29 Jul 2026 12:38:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <chleroy@kernel.org>, Dan Carpenter <error27@gmail.com>,
- Ioana Ciornei <ioana.ciornei@nxp.com>, Roy Pledge <Roy.Pledge@nxp.com>
-Content-Language: en-GB, de-DE
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH v3 0/2] soc: fsl: dpio: Use scope-based resource management in
- two functions
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:cIyitOfS/CV86i/5lq0H/fhteBuknVKV/ZoCOrSyWd4vw9OFgJw
- OWQ2st7ti//rtWQXqfr3Y7XcDE3VSNFAjKncaWebIxUBv/ylk9lHLOoNS+XHeA5XZlD8Ito
- KWNfkvSC1ABn+K95/OPyfFDE5ZHnWHyGw4na1ydJsl95YcPp9+I6/sam2Vao1cyfHqxc8Cm
- CmpkH+d4nmjVXiZrvL3Dw==
-UI-OutboundReport: notjunk:1;M01:P0:lX9/bNPVHfs=;HP4BixMtBlBTbsyyX/lC9WQ14Kx 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
+Subject: Re: [PATCH v3 4/4] media: qcom: camss: use
+ fwnode_graph_for_each_endpoint_scoped() to simplify code
+To: Frank.Li@oss.nxp.com, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Dafna Hirschfeld <dafna@fastmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
+ Guoniu Zhou <guoniu.zhou@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+ Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+References: <20260625-fw_scoped-v3-0-ffd0868e498d@nxp.com>
+ <20260625-fw_scoped-v3-4-ffd0868e498d@nxp.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-GB
+In-Reply-To: <20260625-fw_scoped-v3-4-ffd0868e498d@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_043727_820861_274A6808 
-X-CRM114-Status: UNSURE (   5.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_043855_280543_36DBDC1B 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +119,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Wed, 29 Jul 2026 13:28:09 +0200
-
-Some adjustment opportunities were picked up.
-
-Markus Elfring (2):
-  Use scope-based resource management in dpaa2_io_store_create()
-  Use scope-based resource management in dpaa2_io_create()
-
-
-v3:
-* Dan Carpenter requested to add an #include directive.
-  https://lore.kernel.org/kernel-janitors/amdBqQfIsAjxMsqX@stanley.mountai=
-n/
-
-* Ioana Ciornei requested to keep variable declarations at the start of
-  function implementations.
-  https://lore.kernel.org/kernel-janitors/6woig227u5snmdsrjfuw7gfcf3vk5iwa=
-ap4yf7ow6b6s3pba7z@yg4vmdoaak3h/
-
-
-v2:
-Christophe Leroy requested to apply the attribute =E2=80=9C__free(kfree)=
-=E2=80=9D.
-https://lore.kernel.org/kernel-janitors/d95d2f4c-f3cf-44eb-b61b-79ba789167=
-4d@kernel.org/
-
-
- drivers/soc/fsl/dpio/dpio-service.c | 37 ++++++++++-------------------
- 1 file changed, 12 insertions(+), 25 deletions(-)
-
-=2D-=20
-2.54.0
-
+On 25/06/2026 15:17, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> Use fwnode_graph_for_each_endpoint_scoped() to simplify code.
+> 
+> No functional changes.
+> 
+> Reviewed-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change in v2
+> - fix typo simplify
+> - collect andy, gouniou and loic's review tags
+> ---
+>   drivers/media/platform/qcom/camss/camss.c | 17 +++++------------
+>   1 file changed, 5 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+> index 2123f6388e3d7..23f3cc30a15a5 100644
+> --- a/drivers/media/platform/qcom/camss/camss.c
+> +++ b/drivers/media/platform/qcom/camss/camss.c
+> @@ -4793,30 +4793,23 @@ static int camss_parse_endpoint_node(struct device *dev,
+>   static int camss_parse_ports(struct camss *camss)
+>   {
+>   	struct device *dev = camss->dev;
+> -	struct fwnode_handle *fwnode = dev_fwnode(dev), *ep;
+> +	struct fwnode_handle *fwnode = dev_fwnode(dev);
+>   	int ret;
+>   
+> -	fwnode_graph_for_each_endpoint(fwnode, ep) {
+> +	fwnode_graph_for_each_endpoint_scoped(fwnode, ep) {
+>   		struct camss_async_subdev *csd;
+>   
+>   		csd = v4l2_async_nf_add_fwnode_remote(&camss->notifier, ep,
+>   						      typeof(*csd));
+> -		if (IS_ERR(csd)) {
+> -			ret = PTR_ERR(csd);
+> -			goto err_cleanup;
+> -		}
+> +		if (IS_ERR(csd))
+> +			return PTR_ERR(csd);
+>   
+>   		ret = camss_parse_endpoint_node(dev, ep, csd);
+>   		if (ret < 0)
+> -			goto err_cleanup;
+> +			return ret;
+>   	}
+>   
+>   	return 0;
+> -
+> -err_cleanup:
+> -	fwnode_handle_put(ep);
+> -
+> -	return ret;
+>   }
+>   
+>   /*
+> 
+Acked-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
