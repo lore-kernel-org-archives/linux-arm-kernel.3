@@ -4,63 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C77C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 21:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B318C54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 22:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XHNnNP0x2wCRJyrSJgej4CyXt6QqDHcD5MVMn0YR8+4=; b=Qd+BvP/LxCG/rO/hrmPyFvEbWv
-	Zx9YEQfLLzGhV6I1o4sHlLQSKAkeAPRQTse14EqNZQnO1Vv7Mr1WmzET2U5AeVOa3CH+7iShi5l1s
-	KhZpHUfXWi9RxDIyL0KrZXBTxh5VZsa/QwGJroD5UDSc8d8RZaTqjOd9na3G1cNM8OpGHQoV2gHxk
-	bmrRaNlbnmH/VcMIBHAaWIClWqETdeM0uvt8epjvf4ignV4AcOXm7APC+NLIH13rWcph9eB9y5lQ9
-	8CpRQNombYDHNilpN/0VcqKG7FvTVxISbB1QLJWZzNXlzqumHAsIoYLnoZCJDDpFyfM89ihuO7Tn3
-	+EbH50Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=llMBVYyX7cwtZpXEuQ7Kx7f/0PrrkYEMPEFSnOzdNic=; b=gVe82vx293ZtxJJi5SyYXZmUmL
+	t7tXPRrcY//8aCh2awhZBvDUEUYc6uBQhwYpKqwdjsvCz7SwrMeMCfNmSPzyAf8T82SwmnzC7jCXg
+	noHyfA/XP/ACTzLUJjZVylEQGloukmPFFbUgxIIaLfusOCJKxTTgu/pNT/9vEGA7fMLmlTS4U/C7a
+	4jYGdGijy2CgAHZvaCfw/nw9Pi09S29VK4r4PoikMJ2DOfTdr2zLjbVCqAVQ23KVA+oSNUE5SFCyv
+	rTg9Zu8B+e+Y/vZ9F6e82rqj6uL6H0qrKex0/L6BGQuVlCssVxC+ybSweTkFfvI516LPN76to6yTQ
+	s5U/P/sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCEn-0000000928H-1USR;
-	Wed, 29 Jul 2026 21:54:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCEj-0000000927I-1xVh
+	id 1wpCNv-000000092Uj-1Tvg;
+	Wed, 29 Jul 2026 22:04:19 +0000
+Received: from mail-centralusazon11010045.outbound.protection.outlook.com ([52.101.61.45] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpCNs-000000092Th-2uPc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 21:54:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 418BA1684;
-	Wed, 29 Jul 2026 14:54:40 -0700 (PDT)
-Received: from e131404.arm.com (unknown [10.57.43.134])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F2863F763;
-	Wed, 29 Jul 2026 14:54:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785362084; bh=XHNnNP0x2wCRJyrSJgej4CyXt6QqDHcD5MVMn0YR8+4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=b6DbNnm46lfNZ8vZS9R63cbt98b/2emk8OCLXhdWtRnRmgjlwE0rS0EFE9j/4DmZL
-	 5J4z5tK+XQ5hVGSkXZlON0Rq+YZLHpUdxq9H5WUtCzZZ/0oO1jUgW4LD7rCKHVuVXU
-	 eCQa41StmChzeHX+mVYck4V4FhZDZmgBWPW+WJ6o=
-From: Laszlo Ersek <laszlo.ersek@arm.com>
-To: laszlo.ersek@arm.com
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Joel Stanley <joel@jms.id.au>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-hwmon@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] hwmon: remove tautological dependency expressions from Kconfig
-Date: Wed, 29 Jul 2026 23:54:27 +0200
-Message-ID: <20260729215436.2103380-1-laszlo.ersek@arm.com>
+	Wed, 29 Jul 2026 22:04:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KvAWSViPSaFBVhP/0uEsEOCHLx7cH7K8/oy/Kf43zNrIrX0fvTSQRbSGgazVtQNFQLbLj+Fh+ZXPOf5jcr4eCtqVG38NxQQ8dSdvQvAyVPAEOnsLWVyr5/iqDIMiXHWQ68H3ij+2DC03UkyxEFjrsdaisntqi6t3/JRch8MsB/NcF3b8mAm2n2VNyalMXuczGX/DzlWGAihDDORu7n5z8dKcQbcEMPeTWS4Yj8NZSQHs0Gz7wL22lg4/X6t7slWQIjdzImG6QvaGGL7ADjSqhx/HFyKn6O6HwipvTur/VKW7/nJoKaXsaLMKzUv3Zq2SydFpJakW61nUazbctk78Yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=llMBVYyX7cwtZpXEuQ7Kx7f/0PrrkYEMPEFSnOzdNic=;
+ b=x8z00roLw2WSaubvKpSg0GrowlP8q8yeRcDtz5u0ap2MSh9Mwkk4cQVGv9udiZuryxXfYwOkkPbtklgnEop7Foipr6DiaRf6a0XPI11kKj/a+JthDrUSlczxZZ1WT7j5T2OXB6hK+aPXquUoCJFE6eRhS3h8LttxzOJkQaX/XwdYxenMx26GIW+HhuIfANoc7I6cgz+izT1rIRwSBDfoZCMM8nTN3Xd+7/Cp5FTZreeghZ1Ga5oQ2bnQQoe62QIKun0Sj+c5DEf9svI+OX8EPc5LcdDWb/4x2IOftt22wNG4o0PIpGzx/MhWjOcdfIK9j6lEXL4jWH4xNfkY92XKCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=llMBVYyX7cwtZpXEuQ7Kx7f/0PrrkYEMPEFSnOzdNic=;
+ b=ikXfjuZsAe9ZmfAHD3uQrNOswadHNU5pwY0eWqKmNIOgcn8FTwARGqo/iBtu9D+6BHhaF2tkQVZGLmIUCbIKRooiT4b0p/6wCKbHsVuB6wtrrASQ/P79e8rPlIXtAW07qimPQM3na63YjPz+Gppa6ZQNs1qXjNcJpbBoe8kVHpxpfP1EeMdJVucdIAEzJnKA5SB4veOIoxhl0kksWWk3695169v53ey2f+spH8EvdM2Lsf6M/44UsDS0sqiI36XcQ7r4w3u5YFFBeDX5sgsUj57xVPltxDjDQUPy51JJFx1fgXhYmwW4zhsofn1uoXYgTb5ncTfER+LpQaMq5LOCDw==
+Received: from CH5P222CA0011.NAMP222.PROD.OUTLOOK.COM (2603:10b6:610:1ee::26)
+ by CH0PR12MB8580.namprd12.prod.outlook.com (2603:10b6:610:192::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.13; Wed, 29 Jul
+ 2026 22:04:00 +0000
+Received: from CH1PEPF0000A34C.namprd04.prod.outlook.com
+ (2603:10b6:610:1ee:cafe::68) by CH5P222CA0011.outlook.office365.com
+ (2603:10b6:610:1ee::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
+ 29 Jul 2026 22:04:00 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH1PEPF0000A34C.mail.protection.outlook.com (10.167.244.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 22:04:00 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Jul
+ 2026 15:03:42 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Jul
+ 2026 15:03:42 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Wed, 29 Jul 2026 15:03:41 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)"
+	<joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>,
+	<linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3] iommu/tegra241-cmdqv: Reject a VCMDQ base above the 48-bit hardware limit
+Date: Wed, 29 Jul 2026 15:03:29 -0700
+Message-ID: <20260729220329.805417-1-nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000A34C:EE_|CH0PR12MB8580:EE_
+X-MS-Office365-Filtering-Correlation-Id: d42c50cd-c114-4a98-c5b5-08deedbd4bb6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|23010399003|36860700016|10067099003|11063799006|56012099006|3023799007|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: QhqchuZaeZCGVvjjCUcD1rrVvkqMFq0n/cLW21KoRrVUA5J3WVFM/L5e4XoXtzqtqQZiwq7QivgK6BWszT3Helucs+GyP+5uztWTRI5mrkxZieyQHRIJDldsRogVqPhy2fAsWn6GuU/R1q0uTELwcYaukpXywmKuB33nGk4pQfbVRAAHf8j7tlqsoHAge6VmHPhWIptPOYyY4rQ7qRz63bpBmAl/oYUXMPiKGW7vgs6eYLaeR5qZvQvmX3F23QoYLsRakMkHTmQfvZ56HrM0jStYvOURgTtqRCEahHCVCtdWyODSTIL4h/YcRQcnGbWyJ/p2Ota0x9iZU1UrO1e61v2S+lEsotdAsYwTSxp6micr0ThAEryBN20NrKqxtbgNuiCggQQDcnEaSDKOZocBl0yO1OgdEOBcQBNi6bsiD2t08nv1iWP0ItPgyXwhWyfUuHswNsmxgGKe5yzTGN/7NXQynEoUEoz2AY2kKirEF6YzBe6fHBq1lEmtbsgYF0b/YfejuJvJSD1T6OPYcvn6+Aq1/Ww4snFa+bxRcDqQKygd/womLnUbCL7eb9TxnidLvArTrx+liFSPj+jmY69OKPpl+e2VZWonOkPvONKTX9LVuNj2LZTSo2cFQ2FjauBWTlkjL1tAYLQ162nrbeRQ3nE09S3j16eR1IoamXuTw0hnrb53XMHNcbzwM0q71vZL3OqGSJtQM1ZzKempQ5Efrg==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(23010399003)(36860700016)(10067099003)(11063799006)(56012099006)(3023799007)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: cut14ckjEIHEU3y1wqUyOzjkjlu8wzgTL5UtJl6pDCoLZV6TbvBrfvP+zD8VcyE8FUOoL1e8v9zL6Ao1i2JUqXdNgawwV/TIpgH0QTqb9rdTDcjj2XkrPJpl+N3y/FN/Pah/HCUf4Zbmbz06rxPWcWPvn/1qmeG7KkDW3+4wbAiEt/79xRoODYJx7pPGxWio6ur3cR2mtsZR5xxfe7ibNEvTGe3hgbpKCYqyy4+jEvHoAAag4bTfSYJx4BQBXOfHP0IqF+DPFOj/3qa7DZpPTepNOlOOzxeLqVxtCIDyLISedObsIuPsujVEALnKR1KF2pFOt86gl8Zmzg8iRFebKMNPzynwypbjIxDYiOAD5xt2AfweIJq1V9KBweEmXu+pnq0n5umiJ7YA9bWdxaAov0gY/mYLg5gE4YSasNVxfp4KLzcKqfo1sEIrttoyACWS
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 22:04:00.6452
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d42c50cd-c114-4a98-c5b5-08deedbd4bb6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000A34C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_145449_785773_F70A3B5E 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20260729_150416_780622_5ABFD1F6 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +126,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Q29tbWl0IDU1NGIzNTI5ZmUwMSAoInRoZXJtYWwvZHJpdmVycy9jb3JlOiBSZW1vdmUgdGhlIG1v
-ZHVsZSBLY29uZmlnJ3MKb3B0aW9uIikgWzFdIG9idmlhdGVkIHNvbWUgb2YgdGhlICJPcHRpb25h
-bCBkZXBlbmRlbmNpZXMiIChhcyBkZXNjcmliZWQgaW4KIkRvY3VtZW50YXRpb24va2J1aWxkL2tj
-b25maWctbGFuZ3VhZ2UucnN0IikgaW4gImRyaXZlcnMvaHdtb24vS2NvbmZpZyIuCgpOYW1lbHks
-IHNhaWQgY29tbWl0IHJlc3RyaWN0ZWQgdGhlIHZhbGlkL3Bvc3NpYmxlIHN1YnNldCBvZiB0aGUg
-ZnVsbApDYXJ0ZXNpYW4gcHJvZHVjdCAiQ09ORklHX1RIRVJNQUwgeCBDT05GSUdfVEhFUk1BTF9P
-RiIgdG8KCiAgeyAobiwgbiksICh5LCBuKSwgKHksIHkpIH0KCnRocm91Z2ggImRyaXZlcnMvdGhl
-cm1hbC9LY29uZmlnIi4gTnVtZXJpY2FsbHkgKHVzaW5nIHRyaXN0YXRlIHZhbHVlcyksCnRoaXMg
-c2V0IGNhbiBiZSBleHByZXNzZWQgYXM6CgogIHsgKDAsIDApLCAoMiwgMCksICgyLCAyKSB9CgpP
-dmVyIHRoaXMgc2V0LCB0aGUgImRyaXZlcnMvaHdtb24vS2NvbmZpZyIgdHJpc3RhdGUgZXhwcmVz
-c2lvbgoKICBUSEVSTUFMIHx8ICFUSEVSTUFMX09GCgpvciBlcXVpdmFsZW50bHksCgogIG1heChU
-SEVSTUFMLCAyLVRIRVJNQUxfT0YpCgppbnZhcmlhYmx5IGV2YWx1YXRlcyB0byAieSIgKDIpLgoK
-U2ltaWxhcmx5LCB3aXRoIFRIRVJNQUwgaGF2aW5nIGJlZW4gcmVzdHJpY3RlZCB0bwoKICB7IG4s
-IHkgfQoKb3IgbnVtZXJpY2FsbHksCgogIHsgMCwgMiB9Cgp0aGUgImRyaXZlcnMvaHdtb24vS2Nv
-bmZpZyIgdHJpc3RhdGUgZXhwcmVzc2lvbgoKICBUSEVSTUFMIHx8IFRIRVJNQUw9bgoKb3IgZXF1
-aXZhbGVudGx5LAoKICBtYXgoVEhFUk1BTCwgVEhFUk1BTD0wKQoKaW52YXJpYWJseSBldmFsdWF0
-ZXMgdG8gInkiICgyKS4gKE5vdGUgdGhhdCAiVEhFUk1BTD0wIiByZXR1cm5zIGVpdGhlciAieSIK
-KDIpIG9yICJuIiAoMCkuKQoKQ29tbWl0IGYzNzM1MzMyMGVlOSAoImh3bW9uL2RyaXZlcnMvY29y
-ZTogU2ltcGxpZnkgY29tcGxleCBkZXBlbmRlbmN5IikKWzJdLCB3aGljaCBpcyB0aGUgZmluYWwg
-Y29tbWl0IG9mIHRoZSBzZXJpZXMgdGhhdCBbMV0gaXMgdGhlIGJlZ2lubmluZyBvZiwKY2xlYW5l
-ZCB1cCB0aGUgaHdtb24gQyBzb3VyY2UgY29kZSBpbiBmYWN0OyBob3dldmVyLCBpdCBtaXNzZWQg
-dGhlCm5vdy1jb2xsYXBzZWQgZGVwZW5kZW5jaWVzIGluIEtjb25maWcuIEF0IHRoZSB0aW1lIG9m
-IFsyXSwgc2l4IG9mIHRvZGF5J3MKc3VjaCBkZXBlbmRlbmNpZXMgd2VyZSBwcmVzZW50IGluIEtj
-b25maWcuIFNpbmNlIHRoZW4sIHR3byBtb3JlIGhhdmUgYmVlbgphZGRlZCAoc3VjaCB0aGF0IHRo
-ZXkgcGVyc2lzdCwgYW55d2F5KTogb25lIGJ5IGNvbW1pdCA0ZjhkMzc0Yjc3MGEKKCJod21vbjog
-KG1heDY2NTApIGFkZCB0aGVybWFsIGNvb2xpbmcgZGV2aWNlIGNhcGFiaWxpdHkiKSwgd2hpY2gg
-d2FzCmluZGVwZW5kZW50IG9mIHRoZSBhYm92ZS1ub3RlZCBzZXJpZXMsIGFuZCBhbm90aGVyIGJ5
-IGNvbW1pdCA5ODU1Y2FmNWQ0ZWIKKCJod21vbjogYWRkIGRyaXZlciBmb3IgdGhlIGh3bW9uIHBh
-cnRzIG9mIHFuYXAtbWN1IGRldmljZXMiKSwgd2hpY2ggd2FzIGEKZGVzY2VuZGFudCBvZiB0aGUg
-c2VyaWVzLgoKUmVtb3ZlIHRoZXNlIGFsd2F5cy0ieSIgZGVwZW5kZW5jaWVzLgoKQ2M6IEFuZHJl
-dyBKZWZmZXJ5IDxhbmRyZXdAY29kZWNvbnN0cnVjdC5jb20uYXU+CkNjOiBDcmlzdGlhbiBNYXJ1
-c3NpIDxjcmlzdGlhbi5tYXJ1c3NpQGFybS5jb20+CkNjOiBHdWVudGVyIFJvZWNrIDxsaW51eEBy
-b2Vjay11cy5uZXQ+CkNjOiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPgpDYzogSm9l
-bCBTdGFubGV5IDxqb2VsQGptcy5pZC5hdT4KQ2M6IFN1ZGVlcCBIb2xsYSA8c3VkZWVwLmhvbGxh
-QGtlcm5lbC5vcmc+CkNjOiBhcm0tc2NtaUB2Z2VyLmtlcm5lbC5vcmcKQ2M6IGxpbnV4LWFybS1r
-ZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwpDYzogbGludXgtYXNwZWVkQGxpc3RzLm96bGFicy5v
-cmcKQ2M6IGxpbnV4LWh3bW9uQHZnZXIua2VybmVsLm9yZwpDYzogbGludXgta2VybmVsQHZnZXIu
-a2VybmVsLm9yZwpTaWduZWQtb2ZmLWJ5OiBMYXN6bG8gRXJzZWsgPGxhc3psby5lcnNla0Bhcm0u
-Y29tPgotLS0KCk5vdGVzOgogICAgVW50ZXN0ZWQgKGhlbmNlIFJGQykgLS0gSSBkb24ndCBrbm93
-IGhvdyB0byByZWdyZXNzaW9uLXRlc3QgdGhpcyBwYXRjaAogICAgY29tcHJlaGVuc2l2ZWx5IHll
-dCBtaW5pbWFsbHkuCgogZHJpdmVycy9od21vbi9LY29uZmlnIHwgOCAtLS0tLS0tLQogMSBmaWxl
-IGNoYW5nZWQsIDggZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9od21vbi9LY29u
-ZmlnIGIvZHJpdmVycy9od21vbi9LY29uZmlnCmluZGV4IDJiZmJjYzAzM2Q1OS4uZDNhOWM4YTNh
-NzljIDEwMDY0NAotLS0gYS9kcml2ZXJzL2h3bW9uL0tjb25maWcKKysrIGIvZHJpdmVycy9od21v
-bi9LY29uZmlnCkBAIC00MDMsNyArNDAzLDYgQEAgY29uZmlnIFNFTlNPUlNfQVJDVElDX0ZBTl9D
-T05UUk9MTEVSCiBjb25maWcgU0VOU09SU19BUk1fU0NNSQogCXRyaXN0YXRlICJBUk0gU0NNSSBT
-ZW5zb3JzIgogCWRlcGVuZHMgb24gQVJNX1NDTUlfUFJPVE9DT0wKLQlkZXBlbmRzIG9uIFRIRVJN
-QUwgfHwgIVRIRVJNQUxfT0YKIAloZWxwCiAJICBUaGlzIGRyaXZlciBwcm92aWRlcyBzdXBwb3J0
-IGZvciB0ZW1wZXJhdHVyZSwgdm9sdGFnZSwgY3VycmVudAogCSAgYW5kIHBvd2VyIHNlbnNvcnMg
-YXZhaWxhYmxlIG9uIFNDTUkgYmFzZWQgcGxhdGZvcm1zLiBUaGUgYWN0dWFsCkBAIC00MTUsNyAr
-NDE0LDYgQEAgY29uZmlnIFNFTlNPUlNfQVJNX1NDTUkKIGNvbmZpZyBTRU5TT1JTX0FSTV9TQ1BJ
-CiAJdHJpc3RhdGUgIkFSTSBTQ1BJIFNlbnNvcnMiCiAJZGVwZW5kcyBvbiBBUk1fU0NQSV9QUk9U
-T0NPTAotCWRlcGVuZHMgb24gVEhFUk1BTCB8fCAhVEhFUk1BTF9PRgogCWhlbHAKIAkgIFRoaXMg
-ZHJpdmVyIHByb3ZpZGVzIHN1cHBvcnQgZm9yIHRlbXBlcmF0dXJlLCB2b2x0YWdlLCBjdXJyZW50
-CiAJICBhbmQgcG93ZXIgc2Vuc29ycyBhdmFpbGFibGUgb24gQVJNIEx0ZCdzIFNDUCBiYXNlZCBw
-bGF0Zm9ybXMuIFRoZQpAQCAtNDM1LDcgKzQzMyw2IEBAIGNvbmZpZyBTRU5TT1JTX0FTQjEwMAog
-Y29uZmlnIFNFTlNPUlNfQVNQRUVECiAJdHJpc3RhdGUgIkFTUEVFRCBBU1QyNDAwL0FTVDI1MDAg
-UFdNIGFuZCBGYW4gdGFjaCBkcml2ZXIiCiAJZGVwZW5kcyBvbiBBUkNIX0FTUEVFRCB8fCBDT01Q
-SUxFX1RFU1QKLQlkZXBlbmRzIG9uIFRIRVJNQUwgfHwgVEhFUk1BTD1uCiAJc2VsZWN0IFJFR01B
-UAogCWhlbHAKIAkgIFRoaXMgZHJpdmVyIHByb3ZpZGVzIHN1cHBvcnQgZm9yIEFTUEVFRCBBU1Qy
-NDAwL0FTVDI1MDAgUFdNCkBAIC03ODgsNyArNzg1LDYgQEAgY29uZmlnIFNFTlNPUlNfRzc2Mgog
-Y29uZmlnIFNFTlNPUlNfR1BJT19GQU4KIAl0cmlzdGF0ZSAiR1BJTyBmYW4iCiAJZGVwZW5kcyBv
-biBHUElPTElCIHx8IENPTVBJTEVfVEVTVAotCWRlcGVuZHMgb24gVEhFUk1BTCB8fCBUSEVSTUFM
-PW4KIAloZWxwCiAJICBJZiB5b3Ugc2F5IHllcyBoZXJlIHlvdSBnZXQgc3VwcG9ydCBmb3IgZmFu
-cyBjb25uZWN0ZWQgdG8gR1BJTyBsaW5lcy4KIApAQCAtMTM1Nyw3ICsxMzUzLDYgQEAgY29uZmln
-IFNFTlNPUlNfTUFYNjYzOQogY29uZmlnIFNFTlNPUlNfTUFYNjY1MAogCXRyaXN0YXRlICJNYXhp
-bSBNQVg2NjUwIHNlbnNvciBjaGlwIgogCWRlcGVuZHMgb24gSTJDCi0JZGVwZW5kcyBvbiBUSEVS
-TUFMIHx8IFRIRVJNQUw9bgogCWhlbHAKIAkgIElmIHlvdSBzYXkgeWVzIGhlcmUgeW91IGdldCBz
-dXBwb3J0IGZvciB0aGUgTUFYNjY1MCAvIE1BWDY2NTEKIAkgIHNlbnNvciBjaGlwcy4KQEAgLTE3
-MzIsNyArMTcyNyw2IEBAIGNvbmZpZyBTRU5TT1JTX1BDODc0MjcKIGNvbmZpZyBTRU5TT1JTX05U
-Q19USEVSTUlTVE9SCiAJdHJpc3RhdGUgIk5UQyB0aGVybWlzdG9yIHN1cHBvcnQiCiAJZGVwZW5k
-cyBvbiBJSU8KLQlkZXBlbmRzIG9uIFRIRVJNQUwgfHwgIVRIRVJNQUxfT0YKIAloZWxwCiAJICBU
-aGlzIGRyaXZlciBzdXBwb3J0cyBOVEMgdGhlcm1pc3RvcnMgc2Vuc29yIHJlYWRpbmcgYW5kIGl0
-cwogCSAgaW50ZXJwcmV0YXRpb24uIFRoZSBkcml2ZXIgY2FuIGFsc28gbW9uaXRvciB0aGUgdGVt
-cGVyYXR1cmUgYW5kCkBAIC0xOTMzLDcgKzE5MjcsNiBAQCBjb25maWcgU0VOU09SU19QVDUxNjFM
-CiBjb25maWcgU0VOU09SU19QV01fRkFOCiAJdHJpc3RhdGUgIlBXTSBmYW4iCiAJZGVwZW5kcyBv
-biBQV00gfHwgQ09NUElMRV9URVNUCi0JZGVwZW5kcyBvbiBUSEVSTUFMIHx8IFRIRVJNQUw9bgog
-CWhlbHAKIAkgIElmIHlvdSBzYXkgeWVzIGhlcmUgeW91IGdldCBzdXBwb3J0IGZvciBmYW5zIGNv
-bm5lY3RlZCB0byBQV00gbGluZXMuCiAJICBUaGUgZHJpdmVyIHVzZXMgdGhlIGdlbmVyaWMgUFdN
-IGludGVyZmFjZSwgdGh1cyBpdCB3aWxsIHdvcmsgb24gYQpAQCAtMTk0NSw3ICsxOTM4LDYgQEAg
-Y29uZmlnIFNFTlNPUlNfUFdNX0ZBTgogY29uZmlnIFNFTlNPUlNfUU5BUF9NQ1VfSFdNT04KIAl0
-cmlzdGF0ZSAiUU5BUCBNQ1UgaGFyZHdhcmUgbW9uaXRvcmluZyIKIAlkZXBlbmRzIG9uIE1GRF9R
-TkFQX01DVQotCWRlcGVuZHMgb24gVEhFUk1BTCB8fCBUSEVSTUFMPW4KIAloZWxwCiAJICBTYXkg
-eWVzIGhlcmUgdG8gZW5hYmxlIHN1cHBvcnQgZm9yIGZhbiBhbmQgdGVtcGVyYXR1cmUgc2Vuc29y
-CiAJICBjb25uZWN0ZWQgdG8gYSBRTkFQIE1DVSwgYXMgZm91bmQgaW4gYSBudW1iZXIgb2YgUU5B
-UCBuZXR3b3JrCg==
+tegra241_vcmdq_alloc_smmu_cmdq() allocates the VCMDQ buffer via the common
+arm_smmu_init_one_queue(), which uses smmu->dev and its coherent DMA mask
+of DMA_BIT_MASK(smmu->oas). An SMMUv3 queue base holds a 52-bit address in
+Q_BASE_ADDR_MASK, but the VCMDQ_BASE register holds only 48 (VCMDQ_ADDR),
+so the masked write "q_base = base_dma & VCMDQ_ADDR" silently drops bits 48
+and up. The HW would then fetch its commands from a wrong memory location,
+which likely raises VCMDQ errors.
+
+Real hardware always pairs an SMMU OAS with a matching VCMDQ address field,
+so this cannot happen; it takes a VMM that gives a guest a mismatched OAS.
+Nor can the guest rely on the VMM to catch it: an SMMU CMDQ base keeps bits
+48 and up in Q_BASE_ADDR_MASK, so a trapped CMDQ_BASE write still carries
+them, while a VCMDQ base goes straight to the hardware and loses them.
+
+Reject a base_dma with bits set outside VCMDQ_ADDR, the way the user-VCMDQ
+path already does for its base_addr_pa, failing the queue init rather than
+silently truncating the base. Use dev_warn_once() rather than WARN_ON(), as
+the OAS is VMM-controlled and a WARN_ON() would let it panic a guest booted
+with panic_on_warn.
+
+Assisted-by: Claude:claude-opus-5
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+
+Changelog
+v3
+ * Rebase on arm/smmu/updates branch
+ * Update subject, commit message, and inline notes
+v2
+ https://lore.kernel.org/all/4e638ec1bbff46a358b4129e264fef66b4f37703.1784059577.git.nicolinc@nvidia.com/
+ * No change
+v1
+ https://lore.kernel.org/all/0dc3a146a3d274d7c47e525385830343cea0f675.1783054570.git.nicolinc@nvidia.com/
+
+ drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 6644075c1431e..664aff9593de8 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -672,6 +672,20 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct tegra241_vcmdq *vcmdq)
+ 	if (ret)
+ 		return ret;
+ 
++	/*
++	 * The q->base_dma is bounded by DMA_BIT_MASK of SMMU's IDR5.OAS. On a
++	 * real hardware, VCMDQ_ADDR mask and IDR5.OAS are always aligned. But
++	 * a buggy VMM might give a guest a mismatched IDR5.OAS. Spit a warning
++	 * instead of a silent truncation that would make the HW fetch commands
++	 * from a wrong memory location.
++	 */
++	if (q->base_dma & ~VCMDQ_ADDR) {
++		dev_warn_once(
++			vcmdq->cmdqv->dev,
++			"VCMDQ base %pad exceeds the 48-bit VCMDQ_ADDR limit\n",
++			&q->base_dma);
++		return -EINVAL;
++	}
+ 	/* ...override q_base to write VCMDQ_BASE registers */
+ 	q->q_base = q->base_dma & VCMDQ_ADDR;
+ 	q->q_base |= FIELD_PREP(VCMDQ_LOG2SIZE, q->llq.max_n_shift);
+
+base-commit: a86c36163c9722545d27e92bdad8418fdcaa8b1d
+-- 
+2.43.0
+
 
