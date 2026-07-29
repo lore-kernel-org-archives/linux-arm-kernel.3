@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4085EC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 22:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2326C54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 22:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TdXg7yR+M+U9WUTeE6CUFRCpZIOkk5VxyErXmmsFQ4Q=; b=dgIDZryiM/FyXwAYBFOqyD1hJW
-	N7/732pWInlKHZkOllgw0A+6dKxEKAR/NlSfjcwqrsEmveJtLtK5s7IBhQRIQ6bEyijo+R1NGmM3M
-	33KeaB52uHQhZ/QBEN+0N45Zdl1oW21kFhTgBoZyoHIoxpgR0dNY+IERyqibNFMiGOqvm10/Lymhu
-	zKdOvFKnfUCUZsYVq7I5WHdaDTEluedK9gnDseJfMddMhkz5yt4JMqQMDZRX1OSYDaG3CkIDfi3Wq
-	hsgAduF1yuWrLE9WQWRLRwmbfwrNlXcbJUMHIQNYqHAuYrp5NtRs4nyV/iF6NGMAadnP5QH2eQTRj
-	pF5YmITw==;
+	bh=gBl/PmqBGV6Hz0BTo867ohWIB5OzgHrJW2iz7/NaT0o=; b=kxFAugpwnqW87pDdLeiNhRvXe6
+	uOE8YnsKZqsUlqLZC2e4pNi9SVYgKVzh7b1YHdFLsscC01ny9GeQFCzlGxxO2VWyLm0v8+gW/psIY
+	Mj+SrkI8QETz51/NIXX4SIR++XfYYLdUSnSfS7XiZWTYI5SIRzxXn2Q6q2vV7hAODztSUTBDnp/7r
+	yoUiwvIQFNUBZDuGs18gePq5cV4+T9b+8VYTCL1c9dLp4Fvoyomsf7GO/5CkrIzL9ghpcgK3o+AOO
+	igqrTMsGbe9FlcqnEZLTo59fYfBDIJg9PguJGVF9IZYZzR7lhOxj3IXO3uP0SWo17Vj++w+f+uszl
+	F3GBoT+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCZx-00000009357-2YN0;
-	Wed, 29 Jul 2026 22:16:45 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1wpCbB-000000093Do-3npl;
+	Wed, 29 Jul 2026 22:18:01 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCZv-0000000934h-0Azu
+	id 1wpCbA-000000093DU-1JbB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 22:16:44 +0000
+	Wed, 29 Jul 2026 22:18:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785363403; x=1816899403;
+  t=1785363480; x=1816899480;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=b3JRQnveXzP6UUjUquq9YW29KWaKGru+yPHH4nB42m0=;
-  b=En3vxeByBzvlcGcGTOmQ6UyEv6GBpoZxcge5v+IuJmMh03zcAqBvftFv
-   bNmelifaDhXjYaucCsq896pWpg/kFsaBenBIMqI29bPy4cs61nvrqLlfa
-   uTvw04/G1NvjQtTXBQY7TMlH6gFbpir0NaoT3iBQm/1z64Doi0VL3feIz
-   1W7zbpU4nOHs4Q8EaSc69YFgc95GA9lNz1/ZH93LGxzfJcXoM1/ZADLWY
-   +oONlXiNrVdLd/UTyaMZabIgbx8AcPCpQXTCCp+Pszs7MdWLL7D7ZF1XV
-   xO/mg0LDQ3MEt91iuZueRy5WBPfASiEaNzv0YqUBQuJPiJDvplDVPuM9G
-   A==;
-X-CSE-ConnectionGUID: RvRgFSxCRLKhluqYxYYJzA==
-X-CSE-MsgGUID: XE30NzHJSZaCeP2wvgFICQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11859"; a="85854182"
+  bh=hzgPOTIkadimHJsYARjf7bICbVJT4Trp2C5AiJ4gD2w=;
+  b=GzavrO8VC7JUUoQFYBjC6Iy0fzonJXmWkEt6VpN6mdsTDo9I9UM1jY1z
+   Z0oQi6XbvOnbFgY6FXBb6IlPfFT6wrwDYTGqQrO0wbPXHkoJKwLM8NoAr
+   iNe9jqtu3opIty+R03kaWOigO7MPW+6MqdwIB0K6EgBKha2Mw3sSV94/O
+   nzR8unU3wE/6Hppe70BnARLjQqOWBhpZCGcCFApPfgY9sHS3yRw7Y5v5X
+   /KENX4PsjNG5CH9HsXvp3OZh9sPjGRmbd3K2uDxyW/C/D4qdA9UbxH0c8
+   sJP0XOyzQ/9zuMaAmBe1m57Tu5tuBAvwwtO3w5Ey/EN4eytYmwg7czqGD
+   g==;
+X-CSE-ConnectionGUID: 5f1lIVnUTW2xAyy9UclBKw==
+X-CSE-MsgGUID: LFyoXozMSNaqErXslrXxSQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11859"; a="85996959"
 X-IronPort-AV: E=Sophos;i="6.25,193,1779174000"; 
-   d="scan'208";a="85854182"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2026 15:16:42 -0700
-X-CSE-ConnectionGUID: jEFDDnlUTqCiqv9htaeRcA==
-X-CSE-MsgGUID: MeOVygYKT06ki+q1aZl5zw==
+   d="scan'208";a="85996959"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2026 15:17:59 -0700
+X-CSE-ConnectionGUID: V9mhva2mTfmwIT3YakpQlA==
+X-CSE-MsgGUID: xKo/5c+nR9aHOB0l4mMLKQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,193,1779174000"; 
-   d="scan'208";a="283470014"
+   d="scan'208";a="255815767"
 Received: from conormcd-mobl2.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.90])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2026 15:16:38 -0700
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2026 15:17:56 -0700
 Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id A490D11F8BD;
-	Thu, 30 Jul 2026 01:16:38 +0300 (EEST)
-Date: Thu, 30 Jul 2026 01:16:38 +0300
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 1246A11F8BD;
+	Thu, 30 Jul 2026 01:17:56 +0300 (EEST)
+Date: Thu, 30 Jul 2026 01:17:56 +0300
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
 To: Pengyu Luo <mitltlatltl@gmail.com>
@@ -69,16 +69,18 @@ Cc: Frank.Li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org
 Subject: Re: [PATCH v5 1/5] media: hi846: Fix hi846_write_reg_16 handling
-Message-ID: <amp7xqJGfhOeKaoU@kekkonen.localdomain>
+Message-ID: <amp8FBFx2jmiCIqU@kekkonen.localdomain>
 References: <20260712115012.91600-1-mitltlatltl@gmail.com>
  <20260712115553.92564-1-mitltlatltl@gmail.com>
+ <amp7xqJGfhOeKaoU@kekkonen.localdomain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260712115553.92564-1-mitltlatltl@gmail.com>
+In-Reply-To: <amp7xqJGfhOeKaoU@kekkonen.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_151643_098541_37615787 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20260729_151800_411030_91136AB6 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +95,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pengyu,
+On Thu, Jul 30, 2026 at 01:16:38AM +0300, Sakari Ailus wrote:
+> This should be first (or at least before non-fix patches) in the set.
 
-On Sun, Jul 12, 2026 at 07:55:53PM +0800, Pengyu Luo wrote:
-> hi846_write_reg_16() does not clear a positive *err value on success.
-> pm_runtime_get_if_in_use() returns a positive value when the device
-> is already in use. When hi846_set_ctrl() passes &ret holding this
-> positive value) to hi846_write_reg_16(), the function returns with ret
-> as is, the positive value propagates back as a return code, which
-> callers interpret as an error.
-> 
-> Fix this by resetting *err to 0 only when it is positive.
-> 
-> Fixes: 04fc06f6dc15 ("media: hi846: fix usage of pm_runtime_get_if_in_use()")
-> Signed-off-by: Pengyu Luo <mitltlatltl@gmail.com>
-> ---
->  drivers/media/i2c/hi846.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/media/i2c/hi846.c b/drivers/media/i2c/hi846.c
-> index a3f77b8434ca..7f069aca0fce 100644
-> --- a/drivers/media/i2c/hi846.c
-> +++ b/drivers/media/i2c/hi846.c
-> @@ -1271,6 +1271,8 @@ static void hi846_write_reg_16(struct hi846 *hi846, u16 reg, u16 val, int *err)
->  	if (*err < 0)
->  		return;
->  
-> +	*err = 0;
-
-This should be first (or at least before non-fix patches) in the set.
-
-Can you also add Cc: stable, please?
-
-> +
->  	put_unaligned_be16(reg, buf);
->  	put_unaligned_be16(val, buf + 2);
->  	ret = i2c_master_send(client, buf, sizeof(buf));
+Ah, it's already the first patch. Somehow the ordering didn't work this
+time.
 
 -- 
-Regards,
-
 Sakari Ailus
 
