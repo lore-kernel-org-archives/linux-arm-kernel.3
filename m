@@ -4,97 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F797C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FAEC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQd+PKYg2SrS9YmpMTZzmi1rzZRa5OmKfOaIKvd4BaU=; b=JXeIIymX1QiugFRctQE2wgRyfk
-	u0WPgpXd/WlC5BllEwhpeW1JGQ6t4xH6JtE9LUsvwnr3pW3j8ZRWO3pIxA+NQok6U5kbauAjHJRma
-	HGVBErpKWevz+hXeakxOTaFUyl/QZPue2VWcRR7OVxSVTbP2gtpC2FgyAr1FZpLOZGfVjK0laKWnP
-	H+hje6bEYqyR1cMu4IfxvF6jsFBGkqnsadCAP7+/Jk2iH2ZhhP8/osmK+kkTC4OIFHg3Y7oNxHtZS
-	rtajCeNw1jQgOmhq//+dFSaJKNEy76BHw8UFRXiY4UjHxU3ZS9rHkAtDkG2AOpuQt+Va14GdVWBL/
-	SyeSj13Q==;
+	bh=dTvSDJoOFtJYf3B7nrlUED5jT8s+G45mEsRbewh02LA=; b=dOv8oMu510XC0cmtePWeSemEkv
+	1Tw3yZrn+xDJ/txwjEXx91TqxnADjlkvsEJrFaRcwrz8PI8S2rhuEI0mkaJge8kem2TafIuiQew3b
+	5Wv4YujrZGqaH77+1nEbhf/C0N91cJSUIluWzUDdp0jp3fNSZFDQPtK4iexQrlikGZh1at5Y5/g4v
+	pgdS3K48H+zs8TG5WjrFvlvNgoTdWaU1h6e1Q68cy296YXxsk8FMqScBZPfA6zQ17Klsj1/kn8x8W
+	LFGkLMsExuRoXNzZnIqNHhfVg7lPY8o7GQ1jhrtAyTBKyo6ra7jPifEXePYP/uH2WVoxxl65yqRDb
+	T0bmHgAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6XV-00000008Say-3Kt2;
-	Wed, 29 Jul 2026 15:49:49 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1wp6YK-00000008Sio-3yXD;
+	Wed, 29 Jul 2026 15:50:40 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6XS-00000008SaQ-3Lxj
+	id 1wp6YH-00000008Sgt-2ogS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 15:49:48 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id BD8101D0011A;
-	Wed, 29 Jul 2026 11:49:42 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Wed, 29 Jul 2026 11:49:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1785340182;
-	 x=1785426582; bh=oQd+PKYg2SrS9YmpMTZzmi1rzZRa5OmKfOaIKvd4BaU=; b=
-	b26o47eWvoAOFjeXEWyfIbfcvKzOlhtWtolL6zXsin632c5Lhm1Ot9VuvuFRNJS3
-	t/Evg05k8gZa3d/R+VF3J0o0k0HQ7/cVzcP05P7vUl695Ie3Tvng2ZpsmbO68idY
-	knVPl+7iv1WkVLOW6Mw3krCpnTMxBbrxnWyTVFi0U5UvF5IHpYGQMPCSZ+kjIZiN
-	ECjqj/dqUv7DFlKGSTbCWUArYxoBJZWeoxr2nUgLvSdeJ6R2CYiK/EjTrj/Ca9Wp
-	gqoWIkjDIB62GYqlsUuWjIpw+GiPPA3ZgD5mWl9OkGISlVK9gGffA/Cc+wXY3Ln5
-	60rvIsCj4bG6E2yVgvkfSQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1785340182; x=
-	1785426582; bh=oQd+PKYg2SrS9YmpMTZzmi1rzZRa5OmKfOaIKvd4BaU=; b=P
-	fyeBWqT6jRFBZMuJL13w0llBqGuTGHZG5WMzeCHtd0o9GuccC3DHQTeSLpas+EyM
-	w3MMdL7MmLe3tEDHhQHHWv7ilEexzFtpx43yjO0yzMIH+mQxTUm5PbFBXjMhrKOy
-	zPBHLg7c1q1BbWeZ7Dk0+UK7Bo7lvIU42Jnstz/npSD1EX2gGWd6zBUOKvouDZ8u
-	hEL3AUHh/X9bbiNQLUyvXb88zGUnERo0fbwh/UURW/8j4Uxqz8QudfFp+vXPcs7e
-	C/Q6axR/T9G6o+MKgvK9u49IKJVAgQ6x4ZQlmmDBWU9T9p2uqyvO6yQtEKpTY73I
-	owTlOFHORlIX6diNOvImw==
-X-ME-Sender: <xms:FiFqakPzmS8KQYVzSq8Q3GmJjEzmvDJsuGiW85jwG3Rjo1c-1jY0XQ>
-    <xme:FiFqalyZbcxnYvefB1Ye22dtA7ppYCk4LSIDT-t9T6kwSf4G-liseGCZY4WjSiWMq
-    J3sNeQZnco24jGc2nZLOmfjMKx64JYsmkLQPvI8Ou94SxMLsVEQQWUJ>
-X-ME-Proxy-Cause: dmFkZTEAyhqDvJeN6sC00nrS4GH93muUtp1FPUrKchOpg0VdjiYsXIoAe2zJ3VMf/DUodn
-    RrZLFl0kfeT1+zgD3tRPqzt3Vw/YaAnP+0uH3CC1FCrlrWz7J5y4eCAY6s6XqmrYCxvrsM
-    ZTx4y4ul/tMPWDH+Pj9Xyi3i5qV0rmzz7IAiZ3DPZ+dB45MLXp3JtrVyHLfeo7likE+yTe
-    XTC+zjjvnGa0TNiLVFYXZN0clt8U5TbLmm+IMpoIKbj7vWk/GkIzD3ejs+NmhrUPXamvrO
-    iOAmTwZan0rjGdm3PsfemjCjQmAo2F4qP3JYvLDxNs/cB9xPEiqOL9zbvciDKG9+AazeeY
-    067KfJvU8iPJdV54yLFuArogXd+Ye1GQAXl/I5+N+zpUeXR8Ii3jB3kHsDDciEhseBYzlI
-    ETrdKAM50hJQFjt/SgbV88U3w3g9YG99aBzn03PMyAqByZ7THsYGtrViCWXCn41tpE7umy
-    bQV2+BS0hF1po+OGZDjXKEbERzNfysLaIAR7Xit8XT1ScmdMqCWw2nkYt8VQF8WYSwDpf9
-    Goh4vZxUvx9roqGpAuXqWtpsD3z3lVRmCMIO43TnIsc8PuiKPs0AUIMvwPOOWnFi12MRvG
-    J1PbeM2vhQdALy2wwtJzNxCLO2SLxfLyfAHzaUdTcQckVPVSdWEPbtd2CAgg
-X-ME-Proxy: <xmx:FiFqat6qCSrETiPUP21GnTsG9VleAgPpOyESj7AFZh_eJCN0BP-TBg>
-    <xmx:FiFqakOkNoKrJdElhxxu59-KFQyooXLxZJtX3C7NYg2GIgCvCJVaTQ>
-    <xmx:FiFqarvxEXeDmeIk-RbMlo8eBcvW2dHEKGlAn2iCpTcvTB-Q_gY_bA>
-    <xmx:FiFqanYNZmP2lwW5atuYwYx7gM2sTMuBiEygmJpe_Bs5iL0O-5zJEA>
-    <xmx:FiFqahYG4HTsmIPxJTcTY_vDuqCDGs9RVhIKkYsT5crc4QIh8IT6j4NV>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 6797E182007E; Wed, 29 Jul 2026 11:49:42 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 29 Jul 2026 15:50:39 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 94C4811B5A6;
+	Wed, 29 Jul 2026 17:50:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1785340223;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=dTvSDJoOFtJYf3B7nrlUED5jT8s+G45mEsRbewh02LA=;
+	b=fG5GQFr81j0+VDOkcR/TWimmki3bY3S6Bhyi/kXVV5NGtAnMoGXBRPenHZNx9phX/rzurc
+	e6C7rbOdqQzfiysZ4e01n87qdoZ6/5jFz0geyRQ9KFV/Q77c1GZrAP/uA7M2uVcGRVfgcq
+	Xy9MAJgYNPauGRxXtMoyVAR2zUWvG13Hb5y26ObxVG+HyId28QbQl7fRhOm7z9HTXP9fDF
+	qUfB5v3UuNmZR9WmhVtZIGkNi96FtWT2wTXzw9/2X5J4iby8xa83x+v2a2ryGAuJXDsGwP
+	fwqqpBH7mn6XDBjnKg45xBdBmo3acZ7HqD9TY0/fNKssvrUypj4P3Ajt9jy5RA==
+Message-ID: <59bbc6ec-e01d-4656-a0a8-bc81c3cfbbe2@nabladev.com>
+Date: Wed, 29 Jul 2026 17:50:21 +0200
 MIME-Version: 1.0
-X-ThreadId: AlS3N7dQjmI-
-Date: Wed, 29 Jul 2026 17:49:21 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Florian Fainelli" <florian.fainelli@broadcom.com>, soc@kernel.org
-Cc: "Rosen Penev" <rosenp@gmail.com>, linux-arm-kernel@lists.infradead.org,
- "Kevin Hilman" <khilman@kernel.org>, bcm-kernel-feedback-list@broadcom.com
-Message-Id: <5ed3a50d-b87d-4df6-b81a-ffc5264a553f@app.fastmail.com>
-In-Reply-To: <20260727201200.2441827-1-florian.fainelli@broadcom.com>
-References: <20260727201200.2441827-1-florian.fainelli@broadcom.com>
-Subject: Re: [GIT PULL] Broadcom devicetree fixes for 7.2
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/7] arm64: dts: imx8mp: Add DT label to SPBA5 bus
+To: Frank Li <Frank.li@oss.nxp.com>, linux-arm-kernel@lists.infradead.org
+Cc: Frank Li <Frank.Li@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260727195244.78199-1-marex@nabladev.com>
+ <178526691528.3668106.10748099183405791163.b4-ty@b4>
+ <amoclu5c3bQH2zzF@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <amoclu5c3bQH2zzF@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_084946_919571_12CC5318 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_085038_067894_1C2BF357 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,25 +76,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026, at 22:12, Florian Fainelli wrote:
-> ----------------------------------------------------------------
-> This pull request contains Broadcom ARM-based SoCs Device Tree fixes for
-> 7.2, please pull the following:
->
-> - Rosen fixes the Linksys EA9200 NVRAM DT size, the 2nd PCIe controller
->   interrupt that was duplicated, and finally removes incorrect PCIe DT
->   nodes 'ranges' properties breaking PCIe
+On 7/29/26 5:30 PM, Frank Li wrote:
+> On Tue, Jul 28, 2026 at 04:56:42PM -0400, Frank.Li@oss.nxp.com wrote:
+>> From: Frank Li <Frank.Li@nxp.com>
+>>
+>>
+>> On Mon, 27 Jul 2026 21:52:16 +0200, Marek Vasut wrote:
+>>> Add DT label to SPBA5 bus for usage in board DTs.
+>>> No functional change.
+>>
+>> Applied, thanks!
+>>
+>> [1/7] arm64: dts: imx8mp: Add DT label to SPBA5 bus
+>>        commit: 697f6889aa50996de067a8d170323535570052ad
+>> [2/7] arm64: dts: imx8mm: imx8mp: Add LVDS DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+>>        commit: 3eacea24d258ff5169d84a419b07cb5828e91718
+>> [3/7] arm64: dts: imx8mm: imx8mp: Add legacy board DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+>>        commit: 81a2094bb922290e4b52a1467037f8d2ac07ad87
+>> [4/7] arm64: dts: imx8mm: imx8mp: Add HDMI DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+>>        commit: cfdee13eba802665ecd8751fefa754a759f414c4
+>> [5/7] arm64: dts: imx8mm: imx8mp: Add CM DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+>>        commit: b26192de5d0f4635d73ad2aea43e3e83a9ef5f77
+>> [6/7] arm64: dts: imx8mm: imx8mp: Add FIO1 DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+>>        commit: dca8d10e97bd121494106f54f4577291a9bb0f13
+>> [7/7] arm64: dts: imx8mm: imx8mp: Add FIO1-Audio DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+>>        commit: 8ea2fa3fdc65f2750718aebdcf912cccde5913b8
+> 
+> Sorry, I have to drop these because met build error
+> 
+> Failed to apply 'arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo': FDT_ERR_NOTFOUND
+> 
+> Failed to apply 'arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo': FDT_ERR_NOTFOUND
+> make[3]: *** [scripts/Makefile.dtbs:94: arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtb] Error 1
+> make[3]: *** Waiting for unfinished jobs....
+> make[3]: *** [scripts/Makefile.dtbs:94: arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtb] Error 1
+> make[2]: *** [scripts/Makefile.build:549: arch/arm64/boot/dts/freescale] Error 2
+> make[1]: *** [/home/lizhi/source/linux-imx/Makefile:1629: dtbs] Error 2
+How can I reproduce this build error ?
 
-Hi Florian,
+What is the command I should run and which branch are those patches 
+applied to ?
 
-The third patch dropping the AXI bus ranges looks wrong to me,
-I've commented on the original patch submission and dropped
-this pull request from my queue.
+On current next 78bc8af4affb ("Add linux-next specific files for 
+20260729") I get this:
 
-I only have one other fix (arm64: dts: broadcom: bcm2712:
-Remove non-functional EL2 virtual timer) pending in the fixes
-branch, so we should have a few days to resolve this, but feel
-free to resend the other two fixes separately.
+next$ make W=1 CHECK_DTBS=y 
+freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtbo 
+freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtb 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtbo 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtb 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtb 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtbo 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtb 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo 
+freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtb
+   DTC 
+arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtbo
+   DTC [C] arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc.dtb
+   OVL [C] 
+arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtb
+   DTC 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtbo
+   DTC [C] arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dtb
+   OVL [C] 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtb
+   DTC 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo
+   DTC 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo
+   OVL [C] 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtb
+   DTC 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtbo
+   OVL [C] 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtb
+   DTC 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo
+   OVL [C] 
+arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtb
 
-     Arnd
 
