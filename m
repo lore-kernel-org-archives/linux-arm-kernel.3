@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A2BC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F1DC54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zmSBLl+8F6Hc7OPq2SoIxNE6jujOjyJs9nDzCNrmqRo=; b=QxGZh9Jalb3Vq5o4gFXh1TdFag
-	CuIDyyvohAKXOzs6/1coM2f8toCOmPa0atn1oOLdwzisaaDuR/exu32nawuXpUeuuGAVNuwM+pgfs
-	7f/d5tA4iDNmiuHUjBG0VsqW7g934JybFitIlD1T5XWVvmPs6hoPRMA+CR5o85vqYVEMWAUgjDBLL
-	zWq2Dz3m1e9QC8deSqaiCT7wdh7uetSxDB1m9/nen1qX8Ub9l8w7Ou08dnEZn6N48giuWSIrmPdhP
-	n/t50qoVtKphHeV/4/i0tGNI/nIkGKfrgcnX75SRR8cMhNW6UN6DH8gz1kp2R37ShDZg7mg4khCGT
-	707GAsBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KNZyrkA1MPW6blbXS+8IoLxxbhfVJfNKDO+UiPwJv1A=; b=loYiVQkT+zEK/IpxqNDDIQ/xN2
+	GdRt2XbnY6sDiarGDPYJZDvJ+v5ThYUXsWVsanNyVk9ST1vGd2lAFXhf8+PO/t6WYm505StgG0kSg
+	IxtsEhiMKMBw3yPsIofE8/0NtjJg+ZdJDQ4KLhTS+CPb6EKTV9fBJyYUkVxd8SCJtDmOktMq9LA+a
+	LjnjxT5kldgnKwlzdklKCWGmaY6UFgIcDTvGdd6MCUSv+MYrP9yAAlc/8tb+2Jy5MhrsbqJODvyoK
+	4eXi0QOardy2BbN9Jd/DOHj4nK2E1soJOYtiytb+EtMQRt6hv9UsmfXpiXmRP2FwK6fFTXmndENrj
+	6nTuYnbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1ZG-00000007YMl-3kzF;
-	Wed, 29 Jul 2026 10:31:18 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1Z0-00000007YF7-0TKO
+	id 1wp1iJ-00000007ZRW-0ziK;
+	Wed, 29 Jul 2026 10:40:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp1iE-00000007ZQG-0TKc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:31:04 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h97fJ4TTLznTVd;
-	Wed, 29 Jul 2026 18:21:28 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id DFF2E40565;
-	Wed, 29 Jul 2026 18:30:55 +0800 (CST)
-Received: from localhost.localdomain (10.50.163.32) by
- kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 29 Jul 2026 18:30:55 +0800
-From: Jie Zhan <zhanjie9@hisilicon.com>
-To: <cwchoi00@gmail.com>, <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>, <zhanjie9@hisilicon.com>,
-	<zhenglifeng1@huawei.com>, <zhangpengjie2@huawei.com>,
-	<lihuisong@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v4 4/4] devfreq: Refcount governor modules while in use
-Date: Wed, 29 Jul 2026 18:23:48 +0800
-Message-ID: <20260729102348.3857779-5-zhanjie9@hisilicon.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260729102348.3857779-1-zhanjie9@hisilicon.com>
-References: <20260729102348.3857779-1-zhanjie9@hisilicon.com>
+	Wed, 29 Jul 2026 10:40:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB9F71688;
+	Wed, 29 Jul 2026 03:40:27 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C51E53F66F;
+	Wed, 29 Jul 2026 03:40:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785321631; bh=DCWggK9HdejFC4QCwQcCIZqhPjEXoYjYmhah3dVOUWc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oxsqFAuZfkdxKLl75vbVcDb0Wzdx90Ft6r04yRCmlZnbesJVM0LV0DDFgw2WPntG0
+	 rb14Q1j/Y40/Yo9tzoFrfmUn6Y4vQXhGvzaAOXAIe+YLSP2grcM8wsSnsosuM46jiC
+	 bL7RzrSDF8WnqWmNroYOI4pTQU9VJ7s4yU/ozXA8=
+Message-ID: <d4ce9d65-cd1f-4cfe-99a9-a7ad92ee0eec@arm.com>
+Date: Wed, 29 Jul 2026 11:40:26 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemf200017.china.huawei.com (7.202.181.10)
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v5 0/5] arm_mpam: resctrl: Counter Assignment (ABMC)
+To: Gavin Shan <gshan@redhat.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jic23@kernel.org,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
+ x86@kernel.org, leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
+ usama.arif@linux.dev, kernel-team@meta.com
+References: <20260707162440.12132-1-ben.horgan@arm.com>
+ <8e36f71d-598b-45bf-a3ea-6d44ff728877@redhat.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <8e36f71d-598b-45bf-a3ea-6d44ff728877@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_033102_500872_A5EE58AC 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20260729_034034_203335_6A8A8638 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,198 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A governor module can be inserted or removed dynamically when built as a
-kernel module.  'devfreq->governor' would become NULL if the governor
-module is removed when it's in use.
+Hi Gavin,
 
-Add a refcount mechanism for governor modules to prevent the governor
-module from being removed (except for force unload):
-1. Add an optional 'owner' member to struct devfreq_governor so the devfreq
-   core can identify the module that holds the governor code.
-2. Get and put a refcount of the governor module when starting and stopping
-   the governor.
+On 7/15/26 06:44, Gavin Shan wrote:
+> On 7/8/26 2:24 AM, Ben Horgan wrote:
+>> Version 5 of this series addresses a few review comments but is pretty
+>> similar to v4. The precursors in x86/cache have been merged so there is no
+>> longer a need for this to go through there. It's likely easiest if this
+>> goes through arm64.
+>>
+>> This series adds support for memory bandwidth monitoring. Counter assignment
+>> will be used for all platforms with memory bandwidth monitors rather than just
+>> those with insufficient counters as originally proposed.
 
-The new 'owner' field is optional:
-- Common governor modules (performance, powersave, simple_ondemand,
-  userspace, passive) set 'owner' to THIS_MODULE.
-- Governors that are bundled into a device driver module must leave 'owner'
-  NULL.  The device's lifetime already pins that module, and setting
-  'owner' would create a self-reference that blocks the driver from being
-  unloaded.
+> 
+> The tests on NVidia's grace-hopper machine looks good: (a) no error or warning is seen
+> from the kunit-tests; (b) L3 cache partitioning and MBW (soft) limiting aren't broken,
+> still working to me; (c) The counter 'mbm_total_bytes' can be assigned to newly created
+> group and it gets increased when workload runs in the group.
+> 
+> Tested-by: Gavin Shan <gshan@redhat.com>
 
-As a result, a non-forced rmmod of an in-use stand-alone governor now
-fails with -EBUSY, e.g.:
+Thanks for the testing and reviews.
 
-  $ cat governor
-  performance
-  $ rmmod governor_performance
-  rmmod: ERROR: Module governor_performance is in use
+Ben
 
-Force unloads (rmmod -f, if configured) can't be blocked.
-
-Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
----
- drivers/devfreq/devfreq.c                 | 17 ++++++++++++++++-
- drivers/devfreq/governor_passive.c        |  1 +
- drivers/devfreq/governor_performance.c    |  1 +
- drivers/devfreq/governor_powersave.c      |  1 +
- drivers/devfreq/governor_simpleondemand.c |  1 +
- drivers/devfreq/governor_userspace.c      |  1 +
- include/linux/devfreq-governor.h          | 11 +++++++++++
- 7 files changed, 32 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-index 959f0b08ed36..4a01dad21c16 100644
---- a/drivers/devfreq/devfreq.c
-+++ b/drivers/devfreq/devfreq.c
-@@ -345,24 +345,37 @@ static int devfreq_set_governor(struct devfreq *df,
- 				 __func__, df->governor->name, ret);
- 			return ret;
- 		}
-+		module_put(old_gov->owner);
- 	}
- 
- 	/* Start the new governor */
-+	if (!try_module_get(new_gov->owner)) {
-+		df->governor = NULL;
-+		return -EINVAL;
-+	}
-+
- 	df->governor = new_gov;
- 	ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
- 	if (ret) {
- 		dev_warn(dev, "%s: Governor %s not started(%d)\n",
- 			 __func__, df->governor->name, ret);
-+		module_put(new_gov->owner);
- 
- 		/* Restore previous governor */
- 		df->governor = old_gov;
- 		if (!df->governor)
- 			return ret;
- 
-+		if (!try_module_get(old_gov->owner)) {
-+			df->governor = NULL;
-+			return -EINVAL;
-+		}
-+
- 		ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
- 		if (ret) {
- 			dev_err(dev, "%s: restore Governor %s failed (%d)\n",
- 				__func__, df->governor->name, ret);
-+			module_put(old_gov->owner);
- 			df->governor = NULL;
- 			return ret;
- 		}
-@@ -1051,9 +1064,11 @@ int devfreq_remove_device(struct devfreq *devfreq)
- 
- 	devfreq_cooling_unregister(devfreq->cdev);
- 
--	if (devfreq->governor)
-+	if (devfreq->governor) {
- 		devfreq->governor->event_handler(devfreq,
- 						 DEVFREQ_GOV_STOP, NULL);
-+		module_put(devfreq->governor->owner);
-+	}
- 	device_unregister(&devfreq->dev);
- 
- 	return 0;
-diff --git a/drivers/devfreq/governor_passive.c b/drivers/devfreq/governor_passive.c
-index d7feecd900f1..3e63dd200a04 100644
---- a/drivers/devfreq/governor_passive.c
-+++ b/drivers/devfreq/governor_passive.c
-@@ -449,6 +449,7 @@ static int devfreq_passive_event_handler(struct devfreq *devfreq,
- static struct devfreq_governor devfreq_passive = {
- 	.name = DEVFREQ_GOV_PASSIVE,
- 	.flags = DEVFREQ_GOV_FLAG_IMMUTABLE,
-+	.owner = THIS_MODULE,
- 	.get_target_freq = devfreq_passive_get_target_freq,
- 	.event_handler = devfreq_passive_event_handler,
- };
-diff --git a/drivers/devfreq/governor_performance.c b/drivers/devfreq/governor_performance.c
-index fdb22bf512cf..0a08b067ea6b 100644
---- a/drivers/devfreq/governor_performance.c
-+++ b/drivers/devfreq/governor_performance.c
-@@ -37,6 +37,7 @@ static int devfreq_performance_handler(struct devfreq *devfreq,
- 
- static struct devfreq_governor devfreq_performance = {
- 	.name = DEVFREQ_GOV_PERFORMANCE,
-+	.owner = THIS_MODULE,
- 	.get_target_freq = devfreq_performance_func,
- 	.event_handler = devfreq_performance_handler,
- };
-diff --git a/drivers/devfreq/governor_powersave.c b/drivers/devfreq/governor_powersave.c
-index ee2d6ec8a512..3ae296d55e3e 100644
---- a/drivers/devfreq/governor_powersave.c
-+++ b/drivers/devfreq/governor_powersave.c
-@@ -37,6 +37,7 @@ static int devfreq_powersave_handler(struct devfreq *devfreq,
- 
- static struct devfreq_governor devfreq_powersave = {
- 	.name = DEVFREQ_GOV_POWERSAVE,
-+	.owner = THIS_MODULE,
- 	.get_target_freq = devfreq_powersave_func,
- 	.event_handler = devfreq_powersave_handler,
- };
-diff --git a/drivers/devfreq/governor_simpleondemand.c b/drivers/devfreq/governor_simpleondemand.c
-index ac9c5e9e51a4..46287b279ded 100644
---- a/drivers/devfreq/governor_simpleondemand.c
-+++ b/drivers/devfreq/governor_simpleondemand.c
-@@ -119,6 +119,7 @@ static struct devfreq_governor devfreq_simple_ondemand = {
- 	.name = DEVFREQ_GOV_SIMPLE_ONDEMAND,
- 	.attrs = DEVFREQ_GOV_ATTR_POLLING_INTERVAL
- 		| DEVFREQ_GOV_ATTR_TIMER,
-+	.owner = THIS_MODULE,
- 	.get_target_freq = devfreq_simple_ondemand_func,
- 	.event_handler = devfreq_simple_ondemand_handler,
- };
-diff --git a/drivers/devfreq/governor_userspace.c b/drivers/devfreq/governor_userspace.c
-index 3906ebedbae8..b1acccc79f7f 100644
---- a/drivers/devfreq/governor_userspace.c
-+++ b/drivers/devfreq/governor_userspace.c
-@@ -135,6 +135,7 @@ static int devfreq_userspace_handler(struct devfreq *devfreq,
- 
- static struct devfreq_governor devfreq_userspace = {
- 	.name = DEVFREQ_GOV_USERSPACE,
-+	.owner = THIS_MODULE,
- 	.get_target_freq = devfreq_userspace_func,
- 	.event_handler = devfreq_userspace_handler,
- };
-diff --git a/include/linux/devfreq-governor.h b/include/linux/devfreq-governor.h
-index dfdd0160a29f..ae1721e58401 100644
---- a/include/linux/devfreq-governor.h
-+++ b/include/linux/devfreq-governor.h
-@@ -12,6 +12,7 @@
- #define __LINUX_DEVFREQ_DEVFREQ_H__
- 
- #include <linux/devfreq.h>
-+struct module;
- 
- #define DEVFREQ_NAME_LEN			16
- 
-@@ -53,6 +54,15 @@
-  * @name:		Governor's name
-  * @attrs:		Governor's sysfs attribute flags
-  * @flags:		Governor's feature flags
-+ * @owner:		Optional, module that owns this governor.
-+ *			When set (typically to THIS_MODULE), the devfreq core
-+ *			takes a reference on @owner while this governor is in
-+ *			use so that the governor module cannot be removed,
-+ *			except by a forced unload. Governors that are bundled
-+ *			into a device driver module must leave @owner NULL: the
-+ *			device's lifetime already pins that module, and setting
-+ *			@owner would create a self-reference that prevents the
-+ *			driver from being unloaded.
-  * @get_target_freq:	Returns desired operating frequency for the device.
-  *			Basically, get_target_freq will run
-  *			devfreq_dev_profile.get_dev_status() to get the
-@@ -70,6 +80,7 @@ struct devfreq_governor {
- 	const char name[DEVFREQ_NAME_LEN];
- 	const u64 attrs;
- 	const u64 flags;
-+	struct module *owner;
- 	int (*get_target_freq)(struct devfreq *this, unsigned long *freq);
- 	int (*event_handler)(struct devfreq *devfreq,
- 				unsigned int event, void *data);
--- 
-2.43.0
+> 
+> Thanks,
+> Gavin
+> 
 
 
