@@ -4,71 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC644C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 09:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B27CC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 09:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZHtLfVWn/ovegS/PZ/ROb1caUO4fsxQkBloC3mFL7ok=; b=w0O3K/QZsHHfmim3hqAY+FZhqf
-	mDo8IeRR6h+HjQS4xK3t3lZiSwQUfASrg6dbZamseZ61PzEMjxyjtD58FHelCeortUkX/a/xYpGVW
-	SYUQHEA95r7uMnLWP9+Yow9Td35otfFIHAGkKv2/xUJbtj8L0iAxDH/BWOFWvMZaJ9lIJACA7qYPY
-	KGCHIAuYwd8qhfAnkYO4gnX5z8es3dJKETw0z4cb0buC0e4RogFYfyHavSpTAdRfC+4INFyg31f4e
-	t1/Xdf/Ha7ypuPCV+NUAIhu15OrkVaLuLAHMajF3DD5cg4/85DLAK0NMXpyHjUF0KcuJ4IpzMdD8F
-	gZUs/pIA==;
+	bh=salgQx0zg68IGEBw4oYDljPNqxYepuzSJBxYIsFQ7as=; b=H4QtftRQZG2fuURSt4+ZYCzmK8
+	S1H2dnMLtXLnbzaPu/cCMTLk3AKgGFoXSM31F65fYwgFuzi/7UTfuFV2BjVVFB9eN3Lci+Oy/cMn3
+	6/SqVGw5EgihSA1Tm/OltWFCsC1n7qAKAnqVScpGPBzCr9/l8ODjErzmH771tr9Wzhm3lqLZ14qA/
+	kcokMC3fFhNYz/hzen3Nz3G+x9ekxhF75K3I62GXd46f/85DTK4h9QwvR6iPoKS3diVBzbpDtr+2l
+	PT0RJGjblUwCCDZ5C9e2AzMEcwIIH486SmSVYjkiTrPLK2DVU2p5L1085nXskzuLSqydCGDvrNG4B
+	hI9EjlZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0UE-00000007LlD-3Bgj;
-	Wed, 29 Jul 2026 09:22:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0UB-00000007Ljr-3KIw
+	id 1wp0a9-00000007N0e-1dog;
+	Wed, 29 Jul 2026 09:28:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp0a8-00000007N0U-3Gvj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 09:22:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 605E7152B;
-	Wed, 29 Jul 2026 02:21:54 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D388F3F86F;
-	Wed, 29 Jul 2026 02:21:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785316918; bh=SdgyO8G5iP25IYD5ge4DY+hn3gXYlzne0rMW3aBjlWg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eCGGK4sOSNHV138Kl45IAkTxuUag4MdNpaxeMSX8cJGgM8suLcf+U4qE7sNhEoVtL
-	 X6E3HDtjlUyZnI5zn46pybuMNskt/mcAe7tsi0KXlZHHWgBZYpf5tHtFHs3xONLooG
-	 +b0BNzwikX5QiKwR8yERLJ/8k9uhRIl+liiHH5v8=
-Message-ID: <f6ed6106-3b94-42b6-b4f5-802a063752dd@arm.com>
-Date: Wed, 29 Jul 2026 11:21:53 +0200
+	Wed, 29 Jul 2026 09:28:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DB51D60A66;
+	Wed, 29 Jul 2026 09:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A65881F000E9;
+	Wed, 29 Jul 2026 09:28:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785317286;
+	bh=salgQx0zg68IGEBw4oYDljPNqxYepuzSJBxYIsFQ7as=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=X3tXrVQwuuxI3PfEgO8BALfQdgGKLhyvvicqZgQVGYlA2y6wCjR6m3JrM2mYPYW0b
+	 6O+5/VzLaIMg56oDPvd0YtZ6hZTtV8+CoIMjOei5Xur1IrWfg6FMSQLsqWflDXPwlU
+	 aAlFjOTy1+y/JzMBibjA0eHPHGYZLy2a+ujtSdVeOqU2cWpo08+fNGcFWehaJk43I9
+	 ODb/WRJWjMiwNA1q/2rUa0z45XSkHlZzZLcO/YZOi+xyeji+m3Rn/WQWHVGEN1kEWm
+	 lT8GjTw6ybgCRjqKYA5eF2hqwmtMqot3mq1ymA20whFGpZrAVqvOLyQbRZcX3aJhl2
+	 n2F/MpYxPeidg==
+Message-ID: <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
+Date: Wed, 29 Jul 2026 11:28:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-11-andre.przywara@arm.com>
- <07375e75-972e-43af-9588-dabb0e81443f@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <07375e75-972e-43af-9588-dabb0e81443f@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+To: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: Yang Shi <yang@os.amperecomputing.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org,
+ urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org,
+ akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com,
+ agordeev@linux.ibm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+ <amCPBrdltFSE_fEf@J2N7QTR9R3>
+ <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_022159_961929_CFE0AAFF 
-X-CRM114-Status: GOOD (  29.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,259 +124,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
-
-On 7/29/26 10:56, Ben Horgan wrote:
-> Hi Andre,
+On 7/28/26 00:06, Christoph Lameter (Ampere) wrote:
+> On Wed, 22 Jul 2026, Mark Rutland wrote:
 > 
-> Just a couple of nits I spotted just now.
+>> I expect that should come with a reasonable benefit, but I don't have
+>> benchmark figures yet as I haven't finished converting the xchg and
+>> cmpxchg implementations.
+>>
+>>> It sounds like it just moved the cost from one place to the other
+>>> place and it also seems hacky TBH.
+> 
+> 
+> Yang Shi's patch has *no* critical section. There is no additional code
+> for the RMV instruction. The RMV instruction is executed on the correct
+> per cpu area. One of the reasons for the performance win is the
+> eliminattion of these critical sections. Your approach still has some form
+> of prologue and posthandling like the current preempt approach and
+> therefore will not be able to have the same performance gains.
+> 
+> The code is more efficient, there is no restart necessary and the
+> technique is already widely used on x86 for a long time.
+> 
+> Having the ability in general to map mmemory differently depending on the
+> cpu opens up a number of other optimization like
+> 
+> 1. Per Node areas. Calculations of addresses for per node data and RMV
+> operations on per node data becomes as trivial as the per cpu data
+> handling. This will further reduce and eliminate critical sections
+> currently necessary to handle per node data modifications for NUMA
+> configurations which are increasingly becoming important for large core
+> configurations on ARM64.
+> 
+> 2. Kernel text replication. Kernel text can be replicated per node or
+> per whatever memory is closer to the executing code. This avoids transfers
+> via the on chip memory busses and increases performance. We have seen
+> 20-50% on that one.
+> 
+> 3. Readonly data replication. A similar approach is possible for kernel
+> read only data.
+> 
+> 3. Read-mostly replication. This is a bit more complex and the writes
+> become more expensive since updates have to be made to all copies but
+> a read-mostly variable is rarely written and the replication will reduce
+> the latencies to reach these variables.
+> 
+> 
+> 4. Custom sets of cores that operate on shared data that is replicated
+> per node or some custom set of cores. This is for example
+> useful for network devices that have the ability to do I/O via a split
+> PCI bus or other construct where I/O lanes are duplicated to sets of
+> cores.
+> 
+> 
+> What we are proposing here is a basic new feature that simplifies code and
+> allows addititonal performance and functional features that are so far not
+> possible on ARM64.
 
-Ok, thanks, both fixed.
+Most of the features you mentioned above are not supposed to be
+architecture-specific things. IIUC, Linus strongly objected per-cpu page tables
+in the past, which suggests to me that such an arm64-only thing is not the way
+to go?
 
+-- 
 Cheers,
-Andre
 
-> 
-> On 7/23/26 16:54, Andre Przywara wrote:
->> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
->> registers through a firmware interface. This requires a shared memory
->> region to hold the message, and a mailbox to trigger the access.
->> For ACPI this is wrapped as a PCC channel, described using existing
->> ACPI abstractions.
->>
->> Add code to parse those PCC table descriptions associated with an MSC,
->> and store the parsed information in the MSC struct.
->> There can be multiple PCC channels, and each channel can serve multiple
->> MSCs, so we need to keep track of the channel usage, using a list and
->> a refcount.
->> This will be used by the MPAM-Fb access wrapper code.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/acpi/arm64/mpam.c      |   6 +-
->>   drivers/resctrl/mpam_devices.c | 127 ++++++++++++++++++++++++++++++++-
->>   2 files changed, 129 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
->> index 84963a20c3e7..ca9b8754ae5f 100644
->> --- a/drivers/acpi/arm64/mpam.c
->> +++ b/drivers/acpi/arm64/mpam.c
->> @@ -220,8 +220,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->>   	struct platform_device *pdev __free(platform_device_put) =
->>   		platform_device_alloc("mpam_msc", tbl_msc->identifier);
->>   	int next_res = 0, next_prop = 0, err;
->> -	/* pcc, nrdy, affinity and a sentinel */
->> -	struct property_entry props[4] = { 0 };
->> +	/* pcc, msc-id, nrdy, affinity and a sentinel */
->> +	struct property_entry props[5] = { 0 };
->>   	/* mmio, 2xirq, no sentinel. */
->>   	struct resource res[3] = { 0 };
->>   	struct acpi_device *companion;
->> @@ -256,6 +256,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->>   	} else if (iface == MPAM_IFACE_PCC) {
->>   		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->>   							tbl_msc->base_address);
->> +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
->> +							tbl_msc->identifier);
->>   	}
->>   
->>   	acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index fea3161ffbe9..fc4b5f87fbe9 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -19,14 +19,19 @@
->>   #include <linux/irqdesc.h>
->>   #include <linux/list.h>
->>   #include <linux/lockdep.h>
->> +#include <linux/mailbox_client.h>
->>   #include <linux/mutex.h>
->>   #include <linux/platform_device.h>
->>   #include <linux/printk.h>
->> +#include <linux/property.h>
->>   #include <linux/srcu.h>
->>   #include <linux/spinlock.h>
->>   #include <linux/types.h>
->>   #include <linux/workqueue.h>
->>   
->> +#include <acpi/pcc.h>
->> +#include <acpi/acpi_io.h>
->> +
->>   #include "mpam_internal.h"
->>   
->>   /* Values for the T241 errata workaround */
->> @@ -49,6 +54,86 @@ static LIST_HEAD(mpam_all_msc);
->>   
->>   struct srcu_struct mpam_srcu;
->>   
->> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
->> +static DEFINE_MUTEX(pcc_chan_list_lock);
->> +static LIST_HEAD(pcc_chan_list);
->> +
->> +static void mpam_pcc_chan_release(struct kref *ref)
->> +{
->> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
->> +						 refcount);
->> +
->> +	pcc_mbox_free_channel(cur->pcc_chan);
->> +	list_del(&cur->pcc_chans);
->> +	kfree(cur);
->> +}
->> +
->> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
->> +					       int subspace_id)
->> +{
->> +	struct mpam_pcc_chan *cur;
->> +	int ret;
->> +
->> +	guard(mutex)(&pcc_chan_list_lock);
->> +
->> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
->> +		if (cur->subspace_id == subspace_id) {
->> +			kref_get(&cur->refcount);
->> +
->> +			return cur;
->> +		}
->> +	}
->> +
->> +	cur = kzalloc_obj(*cur);
->> +	if (!cur)
->> +		return ERR_PTR(-ENOMEM);
->> +
->> +	cur->pcc_cl.dev = dev;
->> +	cur->pcc_cl.tx_block = true;
->> +
->> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
->> +	if (IS_ERR(cur->pcc_chan)) {
->> +		long err = PTR_ERR(cur->pcc_chan);
->> +
->> +		kfree(cur);
->> +		return ERR_PTR(err);
->> +	}
->> +
->> +	/* Timeout based on the "nominal latency" from the PCC ACPI table. */
->> +	cur->pcc_cl.tx_tout = cur->pcc_chan->latency * 5;
->> +
->> +	ret = devm_mutex_init(dev, &cur->pcc_chan_lock);
->> +	if (ret)
->> +		return ERR_PTR(ret);
->> +
->> +	cur->subspace_id = subspace_id;
->> +	kref_init(&cur->refcount);
->> +
->> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
->> +
->> +	return cur;
->> +}
->> +
->> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
->> +{
->> +	struct mpam_pcc_chan *cur, *tmp;
->> +
->> +	if (!pcc_chan)
->> +		return 0;
->> +
->> +	guard(mutex)(&pcc_chan_list_lock);
->> +
->> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
->> +		if (cur == pcc_chan) {
->> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
->> +
->> +			return 0;
->> +		}
->> +	}
->> +
->> +	return -ENOENT;
->> +}
->> +
->>   /*
->>    * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
->>    * can be enabled.
->> @@ -2201,6 +2286,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->>   {
->>   	struct mpam_msc *msc = platform_get_drvdata(pdev);
->>   
->> +	mpam_pcc_chan_put(msc->pcc_chan);
->> +
->>   	mutex_lock(&mpam_list_lock);
->>   	mpam_msc_destroy(msc);
->>   	mutex_unlock(&mpam_list_lock);
->> @@ -2211,7 +2298,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   {
->>   	int err;
->> -	u32 tmp;
->> +	u32 pcc_subspace_id;
->>   	struct mpam_msc *msc;
->>   	struct resource *msc_res;
->>   	struct device *dev = &pdev->dev;
->> @@ -2259,7 +2346,8 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   	if (err)
->>   		return ERR_PTR(err);
->>   
->> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
->> +	if (device_property_read_u32(&pdev->dev, "pcc-channel",
->> +				     &pcc_subspace_id))
->>   		msc->iface = MPAM_IFACE_MMIO;
->>   	else
->>   		msc->iface = MPAM_IFACE_PCC;
->> @@ -2275,6 +2363,41 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   		}
->>   		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->>   		msc->mapped_hwpage = io;
->> +	} else if (msc->iface == MPAM_IFACE_PCC) {
->> +		u32 msc_id;
->> +		int ret;
->> +
->> +		if (device_property_read_u32(&pdev->dev, "msc-id", &msc_id)) {
-> 
-> We have an existing local variable 'dev' we can use here...
-> 
->> +			pr_err("missing MPAM-Fb MSC identifier\n");
->> +			return ERR_PTR(-EINVAL);
->> +		}
->> +		msc->mpam_fb_msc_id = msc_id;
->> +
->> +		msc->pcc_chan = mpam_pcc_chan_get(&pdev->dev, pcc_subspace_id);
-> 
-> and here.
-> 
->> +		if (IS_ERR(msc->pcc_chan)) {
->> +			pr_err("Failed to request MSC PCC channel\n");
->> +			return ERR_CAST(msc->pcc_chan);
->> +		}
->> +
->> +		if (msc->pcc_chan->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
->> +			pr_err("MPAM-Fb PCC channel size too small.\n");
->> +			mpam_pcc_chan_put(msc->pcc_chan);
->> +			return ERR_PTR(-ENOMEM);
->> +		}
->> +		ret = mpam_fb_get_protocol_version(msc);
->> +		if (ret < 0) {
->> +			pr_err("Cannot query MPAM-Fb protocol version.\n");
->> +			mpam_pcc_chan_put(msc->pcc_chan);
->> +
->> +			/* ret is an MPAM-Fb error code, return a Linux one. */
->> +			return ERR_PTR(-EIO);
->> +		}
->> +		if ((ret >> 16) != 1) {
-> 
-> We can use FIELD_GET() to make this check clearer and to populate the error message just below.
-> 
->> +			pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
->> +			       ret >> 16, ret & 0xffff);
->> +			mpam_pcc_chan_put(msc->pcc_chan);
->> +			return ERR_PTR(-EINVAL);
->> +		}
->>   	} else {
->>   		return ERR_PTR(-EINVAL);
->>   	}
-> 
-> Thanks,
-> 
-> Ben
-> 
-
+David
 
