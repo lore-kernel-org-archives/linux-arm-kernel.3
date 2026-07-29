@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECE6C54F55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE02C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gg6ArNtx1AiAv6yPr+prFaZ5QUtx/jRFL3cP/oq9oL4=; b=qkg0f4gs7qEMMzDLSJukncWTPR
-	nB6j/HLMqCJLjVf1ZDQeLo4ftkSmgr7dtyNo/xjRxR3UHyGp4VQoP4UFJ2wuMsvpQs/XZU6WS3ilX
-	4W6sbrKPqhmRKOAZAsBqAn31/IiwlgeqlyfM+JDEgEDKsaNikLuHhjFIIC65aPJcnIFfq6YBfuYag
-	PWevZv8IlwgfW+BnCgDSz++Qh/4OM3FCWP3qFerBfMwDnstFCo9slDyt9FG4o6iJf8wXubsLOdMy1
-	xNLTBY2+9sH1SWXnpRyQYhM3ObBHZX287R6tS0h4YHWvGNFBRxezgiv8eu7l5BgxqHKp8tDGrMYm4
-	KYOUl9Hw==;
+	bh=O4KRrR5InAG6qbH+2o0ICn/FfbIaKM6RpEitfK9J2zk=; b=OwAsNvrR1WUReY5gIzukFJffhW
+	9sz/m/lZBsxsBWuM6GYHAOZuBG0IWr26l2hp4bw3cJWS42KeRy4wFdvuV/+eY7mp/WXRL4TOUXyCm
+	H5mgSfMXOkqlEBqL7VY92H0hv+WmhKyrMsV3Ke8pfECrhcmi8IZDgBVfbPEFWMT2NUnDE7P6qQCk+
+	fYFuMtj9+BC32TlaETAOhVR3W57VnIoIy61kLp8AsV/MMTJeLzQwimV61or+YxdWG5n75zP0AM2lw
+	HCjf4YExsLoHXG2bpcyJGJzi4JBygOlKohgJcctbljhyVdgMW8x5SswJ2QwYSs9GwnxBGumEJZnnV
+	gWsNKDgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8D5-00000008id7-3obJ;
-	Wed, 29 Jul 2026 17:36:51 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wp8DG-00000008iha-09Ls;
+	Wed, 29 Jul 2026 17:37:02 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8D1-00000008iaN-493a
+	id 1wp8D7-00000008ieG-1xtS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 17:36:49 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cacf197759so19430365ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 10:36:47 -0700 (PDT)
+	Wed, 29 Jul 2026 17:36:54 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cacb8416a1so13207285ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 10:36:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785346607; x=1785951407; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785346612; x=1785951412; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Gg6ArNtx1AiAv6yPr+prFaZ5QUtx/jRFL3cP/oq9oL4=;
-        b=hZ0dip/E4OYd6+jvFa/wDC6pn8FxuWI4GJDexEA32SXCGX06O0Dfpae2xmVBIPwWN0
-         At3gLXSJzDG/9jd/VE+TUtYiiolDYJ31n9G3EXqcm00kEcCRRR1xM/gu69XQ3sDlRemn
-         SKEY7FlT/yA0i9znbJRSogq1wKO0nB4809J8MvczYvBLMv9z5IoP01Ha062B/SRgLWut
-         BeT6u36Tazo0OXvbFm2UOZRncTw98y2Xy1s/6+LO60sAQY2fZaC7mlaPt9kdSD246sqy
-         gQcONo9hW+w8f8jXlLBOCPQAZCHd80wID02HpDFSyXSqiaP9c19L5obMscryKYqe/guB
-         mBmw==
+        bh=O4KRrR5InAG6qbH+2o0ICn/FfbIaKM6RpEitfK9J2zk=;
+        b=TG4EZtyTF3SDmoQ1gO1DuzLzGHsmVkRMdzmpXzBl88g81zCL2D0CIxAXfsU5UpSizQ
+         C6Zn0q02xraBLPuDjW27xVMiDcgxGBcgvmggQRV87V90hSx5TS+4CEtoXYU87kvSu8CW
+         +6Yv832PL0689DQDn5dV7HzbZrtZxT7vqaswmVO7S6Dvn8At3hFuY77kRs88whfqkHgN
+         E7rGqcQHpVVghAzboNdxS/30nGsyzJ0jVdsu+iSijoiwCRy7AVplyrlyZWPIf7vnihlY
+         w3FqUKsew+80z9M4qXSLuAwz0IbTxWhcBnYzfPgRmc8dXQmyIRbzRnZDBpiPJg49qV5f
+         wd0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785346607; x=1785951407;
+        d=1e100.net; s=20251104; t=1785346612; x=1785951412;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Gg6ArNtx1AiAv6yPr+prFaZ5QUtx/jRFL3cP/oq9oL4=;
-        b=SXlp9jOsNR3fxxQBht2RqRAtsL3xTkPAmy94vCAzaTbTNupLU5SmnEU4/R3pq1t23M
-         8lq1QJl8nhGskcG34LQ5B5efhdlnP2lUxXxrL72n3EbCkGjPfsZfE+n4yLs8RUF+yU/y
-         V8Kyr9OTO4JIfhcdcMb2sJP70Jerh13IRRzqsdg7oykTWQAIf+JdCu+vbL7uC9B+0xo3
-         3AVahIjVI9+0ZJBlE2Jk56GuOOEsyj61dAj0NlbuJm+lX4ahrngl7smer0ra94r9yXHz
-         TVJf2ZHlg/gyF4qSknN2ZXScKAaaBCwrtw2lRkAGmby8NjClqqetbzy5a6UL5smZyTNL
-         3IYA==
-X-Forwarded-Encrypted: i=1; AHgh+RoQ3fxsgapsruLAFRWJKmboC1194tt93SgDuOStm+qLwUFFgVZEsRvcJYl1QHFB4J0NGOozIHSfnTPd1MaslyLL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxH80fVjCeCqGttTKWm45fABjeuva4x+0pD3dpsdVi26cSL3z5n
-	mm7rMqRJ9M55oXboQ3FL4cn1puF5lkZR73Ej3KYnQ4/3EAxSYxFx/cXC
-X-Gm-Gg: AR+sD10uMw5wJxKyc8xkVoPbdCVBeRZMqOzndi8+sPT56Pa4r1iPhoSqWdK86CpK/lX
-	IJqnO07/gOxIjq6rFAKL+5kmcV8XXtEzvYct0ztthVfnhBCYp48ZHzKBu7qkeUR3JMxOqsvqxqE
-	JKofdb41p652ggUMgMTafMBWXv84lW8OPWbwRnrbu9YLgfLSOTgtOmKc9ouVBifEYmZS2viHSdG
-	zq0vCxEsAHY6CHGJz3M9vWQ5Zgb88sPqB5xO9QgpFF+Jay5dtCQmphHXCw7XrtzFaYsA18kkuIF
-	sR3ZVA3V4rZX9cYepfQ3/OIZxyrYUS5h91L1zjrwcUIj+2JKXS6wm5lfOkXkgkk4l5e+Cqtrh7d
-	IQqlZ26cThFIh7iSzw1bfPK/+lHHgUgHEgMBXILHsZQ1i0x4WSLpVviiJGFIxMYXIJRHdtwc/S2
-	qdJQFO27uuxpui9EqGd5lUkqwO3DEtLqsajyIsxlQqIzR2a8bugtuQ4DuTff9NJXpJapmI8Emov
-	afzoRNFqU23zgV3LzPmOANMfNY=
-X-Received: by 2002:a17:903:11ce:b0:2ca:b8fd:1a8f with SMTP id d9443c01a7336-2d016050393mr86243135ad.39.1785346606916;
-        Wed, 29 Jul 2026 10:36:46 -0700 (PDT)
+        bh=O4KRrR5InAG6qbH+2o0ICn/FfbIaKM6RpEitfK9J2zk=;
+        b=qs+NR8fp3nhs1Sz7qWAylWY8jQZGTdfaPK541pS6y8bM0VEFLmcgijqBuln8zt/9yv
+         mgtw6vySr3Y6TsgxCpSOyeG8n0pQEz4T6OvhypOwU5ECXb08HpIADoFe5GZ8G/W0jzIv
+         Kvb80VXzbYeQJ4PyTt0kQEsVFOz9vbgrpZFSKgUqEzy4VUZoalUzwefNfyGy1IqXhHxZ
+         84tiIC0YGpORAEKnmmQO3QIxPw4B/y6y4JHPnh3+4nvK8fUAEPqqBrFESy5CVdUlWzug
+         qy6ZvHzdWaK8IXN5vL4r1IXjObh+o5vPXou9zPJFKfd1aUnbPlZt8PMXKSyV+ky1iQXu
+         9VwQ==
+X-Forwarded-Encrypted: i=1; AHgh+RopCn31ML2iofBOTz0OEDWrXWBShVr42E9peuKsThMsJdZoCz2eaEx2gvPB99/0Sb2QDTN9ZCZ5D2fPVfv9jarU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFEp/hRqSZTOYqoaCroOdpNzKimGzjgvQDH2U+LY3vcd3Xc5FL
+	uoi21XPshySKItZyzaMGwEWIsTmwmZpQBNbp/mn88PiYaoYuzUpbeWUK
+X-Gm-Gg: AR+sD13/+jLvwUypZLMSYz5rumJ71yxFgv+kvs+qSHXfgTlr0XNRY7iymCN/fT7y0Sj
+	jP19GJPNCQjrWawhHarjElBtKzdIEStzXMai/Vs1W6DnIgwSarz2qQ1mtnVcTpoqST20upBTRtd
+	osl66Ci9QTp/i5idWWT7fViSyhOuz8AxQZ/2yJQw4gwSIk/PdvmtINrb6+49eDeE5z8cfsBZ0yC
+	klEyPTmii/TbJUmlHdkJuACY6tKvT9oanH+yxIOKHDEsVfBD3hbp3ZlDS5NaxXP6HiYL3qH8bK7
+	wx681c++8nFRXwy48i6UCUPPJt8T2z6zt/KE8varW4Jx+Q18N3ww1/saoAeBaw/kbBSbU/EZJwo
+	IsoA+o6nSmDFAkANhV2Ekbu4siCdj4nvQAAcaqOPWGnW4LJvBkOF6ZQOSEyDcqDCGmc4Z0GxXQB
+	1bPnY5RVnKD1TtzzrjgSi7RAfCE7Hu9jFa7GJ+DGLlzpRNNoEmUw3mugG99zlig7HmYsg9yUgPH
+	hW5zcVC3576ENAo8UHUy8zxeA2Zz6Ny0GVFqw==
+X-Received: by 2002:a17:902:d2c9:b0:2ca:cde5:29c4 with SMTP id d9443c01a7336-2d015db90afmr81414495ad.47.1785346612435;
+        Wed, 29 Jul 2026 10:36:52 -0700 (PDT)
 Received: from KRHW1CJW23.bytedance.net ([120.234.91.241])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022bf39cdsm14806045ad.55.2026.07.29.10.36.41
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022bf39cdsm14806045ad.55.2026.07.29.10.36.47
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 29 Jul 2026 10:36:46 -0700 (PDT)
+        Wed, 29 Jul 2026 10:36:52 -0700 (PDT)
 From: Zhao Li <enderaoelyther@gmail.com>
 To: Felix Fietkau <nbd@nbd.name>,
 	Lorenzo Bianconi <lorenzo@kernel.org>,
@@ -90,17 +90,17 @@ Cc: Shayne Chen <shayne.chen@mediatek.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	stable@vger.kernel.org
-Subject: [PATCH 1/2] wifi: mt76: mt7915: unlink TWT flow on MCU add failure
-Date: Thu, 30 Jul 2026 01:36:31 +0800
-Message-ID: <20260729173632.14387-2-enderaoelyther@gmail.com>
+Subject: [PATCH 2/2] wifi: mt76: mt7996: unlink TWT flow on MCU add failure
+Date: Thu, 30 Jul 2026 01:36:32 +0800
+Message-ID: <20260729173632.14387-3-enderaoelyther@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260729173632.14387-1-enderaoelyther@gmail.com>
 References: <20260729173632.14387-1-enderaoelyther@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_103648_069287_1E97D7FD 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260729_103653_529797_0E369C5D 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,7 +115,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt7915_mac_add_twt_setup() links a new flow into dev->twt_list before
+mt7996_mac_add_twt_setup() links a new flow into dev->twt_list before
 asking the MCU to add the agreement, but exits without unlinking the flow
 if the request fails. The flow-ID and table masks are only committed
 after MCU success, so the still-linked flow is invisible to the
@@ -134,25 +134,25 @@ restores the list to its pre-request state and leaves the node safe for a
 retry. Mask and agreement accounting remain untouched because none of
 it was committed before the failure.
 
-Fixes: 3782b69d03e7 ("mt76: mt7915: introduce mt7915_mac_add_twt_setup routine")
+Fixes: 98686cd21624 ("wifi: mt76: mt7996: add driver for MediaTek Wi-Fi 7 (802.11be) devices")
 Assisted-by: Codex:gpt-5.6-sol
 Assisted-by: Kimi:K3
 Cc: stable@vger.kernel.org
 Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
 ---
- drivers/net/wireless/mediatek/mt76/mt7915/mac.c | 4 +++-
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mac.c b/drivers/net/wireless/mediatek/mt76/mt7915/mac.c
-index 334c19ab2b22..1ad54a5bb374 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/mac.c
-@@ -2345,8 +2345,10 @@ void mt7915_mac_add_twt_setup(struct ieee80211_hw *hw,
- 	}
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index 0eebc8182ca9..445bd7d63cc8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -3207,8 +3207,10 @@ void mt7996_mac_add_twt_setup(struct ieee80211_hw *hw,
  	flow->tsf = le64_to_cpu(twt_agrt->twt);
  
--	if (mt7915_mcu_twt_agrt_update(dev, msta->vif, flow, MCU_TWT_AGRT_ADD))
-+	if (mt7915_mcu_twt_agrt_update(dev, msta->vif, flow, MCU_TWT_AGRT_ADD)) {
+ 	if (mt7996_mcu_twt_agrt_update(dev, &msta->vif->deflink, flow,
+-				       MCU_TWT_AGRT_ADD))
++				       MCU_TWT_AGRT_ADD)) {
 +		list_del_init(&flow->list);
  		goto unlock;
 +	}
