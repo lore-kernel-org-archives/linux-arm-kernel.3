@@ -4,72 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55990C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B9DC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hTKtf9y0sAvMzfV5x7XnlOJ9LjJuEUBlqCkfsXA/OVA=; b=pTC9W1+EsrecB6dyXUBjRU7eHJ
-	pEngafDCZk0TA1UayT6e6Npva7E31rlqjoRDISVdhrlYS5se966IIqPJhu/EJDisTVkn2MeO1FM+F
-	7ZS5JqQBBTQIn6SakEeYhNhj5oGHi7k7ouzYTkn6ePixffYUW95XXb23vABklYdSm/n/r5gueA1jU
-	FKJEOA/XYOQM/EN7bVC2gplMqIQjfkN3MjpFeFxkZX3xGQpybqO497KiSoPXjouv10VI1MX73AfnD
-	5ACnquZ3eoAAS9+PJa8Vk3jF8Uh6oSTnmpOzlm4E78S0hZkmw9OFcOfEQBDaF1Zo2ArgqejPXHqkL
-	fi7qBb5A==;
+	bh=UbuyJzASiL9nxzd8JGeNkedVLsd/xuxrRHsh8KmyIvg=; b=DMlgMh6M/EsNkEni4uC6GkAR0R
+	t268P8JTB2r1I5CeIoqvToLznBhJhqQZIaVbe/Dl3gm5dhKokygpcOfKb3xANsIOHfntp9AoCFpQn
+	k+yfH4O5r9pSpYeHjRPf/lv9JTLFYwMvlRUYhEeXky9tOR17zfjP/reMB55LQ59NQYkKuDuX1bi22
+	OdRtxLH+FpSnVeK2QBFQbAklQIrDoXU7b+YtzUOaOqwLELIw5kWlvb25a65BoF2e59IiS9CAwyhLE
+	ctONHmfGTEzRp53z6Zca7klOFPXhFU4JaBCdEnKY/XEE/u7lcakJ/cpv+qVW/iGAJOQTrlXVR9Qu3
+	MkIJjncw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp7KL-00000008aft-35bW;
-	Wed, 29 Jul 2026 16:40:17 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	id 1wp7S7-00000008cRU-0OIk;
+	Wed, 29 Jul 2026 16:48:19 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp7KH-00000008acA-2NlX
+	id 1wp7S4-00000008cQs-0Qhg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 16:40:16 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RoKWJ4FknumGoqugcvFJksnOWJ9yl4au96PwdpdViCShzaSOItxYicVHptyU2SD5yHDO5kU5PKmCiKERaVeDQbr@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785343210;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hTKtf9y0sAvMzfV5x7XnlOJ9LjJuEUBlqCkfsXA/OVA=;
-	b=or+2uQ9BtVn9YW+a4xVlZoW9E8aF8KumWyRmxDaz166Hfrs5TqKHtMk3y2jh2ySdv6MDjF
-	SBdtfA6a28WCn/JnqgwI/B5RuMlCo8zU8806NW3V6FkdqWfFf2A9Oe2HvYZfj1yvtuW8Nx
-	dJGsJuVX36MtPtajGfVn2Yd7QRF2zFk=
-X-Gm-Message-State: AOJu0YxEsOB/UX7OcvL5j1mmvppaENf2fpvkt2NcVe8rJm3RPXXTHIIy
-	FNoCCZVonLzOMGDwsV/5DWBdBgAfc3fKBmd4ZrsOvdsFlbOCueiGNiaVyeKeFFaUMOhvzF1AuJx
-	pfJG/T4CFfP010Sbri6nVsAWO+TgpDKLKfRUbY3SA
-X-Received: by 2002:a05:622a:c4:b0:517:5ac7:332e with SMTP id
- d75a77b69052e-52b34fbe0femr1827251cf.6.1785343198660; Wed, 29 Jul 2026
- 09:39:58 -0700 (PDT)
+	Wed, 29 Jul 2026 16:48:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Lg6VCA1nXxsh3Y/z/abDzLgTwNvG0h1xCEty3LUDXKIuv72m8lY341T9cwjWK0WPvMFdbim+Ur5Rg/4qij3cMj261DQLENKt0w6ZAWNd+7pfTQy3lzbnNgE94UcnURc/ohSH1Xa2RB3wfO9BjUqWudl00broRvTu3+yGznuii99DtjAtjF0NXawRYpT2fvXg/2efDrPKnjaErf3heEjO5NbLYB+V51y5eVv6HDkSa4qqM+yd/hGcpL+wLSmPs5MbI4icuTTOCd9Ko7HlyNfjPr+x5M/tpITEqNoSvNX73h8vGIFnqoPYdjCU9Px6nLjrq2j/94roDPyPnj07iMYa2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UbuyJzASiL9nxzd8JGeNkedVLsd/xuxrRHsh8KmyIvg=;
+ b=EPFYQOT9WrsQj3RcKxnaZMpJAnO8uYY/kLFztUlHwizc1/l7ZwRBZ9VGTI09MezMveG2OvxcMdYagFk9hjvN5Ue9c6oV06Z64Iesoj/iPis6RZBL+A92lrXWETZbSCwRlvXtQNG4gI7PPrHalnLPqfs5c+ou2JMm3MNKtCF5YF0wKAlkFmPX/oT9lTmEyywXAohnZ+OeUrvij1wy7rScohPU0Zv0BG1kjkSEaSC+BJ9YZ/pn+xfAgLONsmWRmlmcfQL5qLkmGdJ6ZhmHfj+3LRA+R2g+JJCo3SGB5Ve7uIT7qK8ux2hsOXm+LjOV9/zzAB4KUHCrTEmRRnb45oFQbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UbuyJzASiL9nxzd8JGeNkedVLsd/xuxrRHsh8KmyIvg=;
+ b=Tl4yr4mOVFzoLvLfNg88FTp/NBew7n6Fez37olCXZPl6xdu/MZfrpHHw14YbkYhkUrhbNdZU/WTG8HvL5KziWofGcIJS1BCxCuDXs77Fk9GugSerDs/fIp8FPHVTkyCX4IpO39DYmgGmquB63SqLR6g30Qm31Es/SrI9RV1bk1W58teoGEd0JpV9wYcP3Fmwvuidb8vNnhsCOH4W0DEaDx2PPBz/qoKxsSbrHWtOiU78p8pjFk7GUHyMlE3x6C9QHKG2AFAZWz/SvBP3xENkUAKyOS7K/4YuzTqB3+LE3JSVe7ZwUUyTe2KAPKnG6o4w47pLkv7ikO9NE1cfOb395w==
+Received: from BY5PR04CA0003.namprd04.prod.outlook.com (2603:10b6:a03:1d0::13)
+ by DS2PR12MB9568.namprd12.prod.outlook.com (2603:10b6:8:27c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
+ 2026 16:48:07 +0000
+Received: from MWH0EPF000C618B.namprd02.prod.outlook.com
+ (2603:10b6:a03:1d0:cafe::69) by BY5PR04CA0003.outlook.office365.com
+ (2603:10b6:a03:1d0::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
+ 29 Jul 2026 16:48:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MWH0EPF000C618B.mail.protection.outlook.com (10.167.249.123) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 16:48:07 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 29 Jul
+ 2026 09:47:48 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Jul
+ 2026 09:47:47 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 29 Jul 2026 09:47:46 -0700
+Date: Wed, 29 Jul 2026 09:47:45 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
+	<joro@8bytes.org>, <bhelgaas@google.com>, <kevin.tian@intel.com>,
+	<kees@kernel.org>, <smostafa@google.com>, <baolu.lu@linux.intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<skaestle@nvidia.com>, <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>,
+	<bbiber@nvidia.com>
+Subject: Re: [PATCH v2 03/11] iommu/arm-smmu-v3: Add
+ arm_smmu_drain_queue_for_iopf() helper
+Message-ID: <amousSY6qMX3felk@nvidia.com>
+References: <cover.1779944354.git.nicolinc@nvidia.com>
+ <a62db13ab63916e9a62cddeec41a74a98cdf6a8f.1779944354.git.nicolinc@nvidia.com>
+ <amkcQRVylEe_t-yP@google.com>
+ <amkqZbPJs9qly4pH@nvidia.com>
+ <ammMf5z-Gl-Wygk6@google.com>
+ <ammO+4W/dGC8kTCr@nvidia.com>
+ <ammTr2kvjpiOHkbT@google.com>
 MIME-Version: 1.0
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-11-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-11-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 29 Jul 2026 17:39:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyY3PnJLHBVWCx1Mjy09a+AztByawZxcSSVtBUfzObC_A@mail.gmail.com>
-X-Gm-Features: AUfX_myAfVdxJqe8mBkarWtUgPMModQPrWR0zonAtg_LmKu_beXtJUxWvL2MWRA
-Message-ID: <CA+EHjTyY3PnJLHBVWCx1Mjy09a+AztByawZxcSSVtBUfzObC_A@mail.gmail.com>
-Subject: Re: [PATCH v9 11/16] KVM: arm64: PMU: Protect the list of PMUs with RCU
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <ammTr2kvjpiOHkbT@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C618B:EE_|DS2PR12MB9568:EE_
+X-MS-Office365-Filtering-Correlation-Id: c29e170b-3b4a-4458-716a-08deed912a88
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|376014|7416014|36860700016|4143699003|56012099006|11063799006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 3j1m0/lUBb6nsH5GgN9EgYWE8wIldjnog6FWMtE95VuRL4xygL+c/Qs+2BDk8uizdAhqrGfvNzr95gZqH8LBAY5EFQdWr/H4SjBqh6La7n/K/2J9MQORXiL2ZFu3QI4ww4A1IFqDtsVcmh2zdfbZJ9BLWpMd7EqQ10SL8ptF/gASyYXqMQTygUQPZMYGWC0hAJuYJLvbP36Hq9QiAFVU4vai8xMSIkuVKA5IqkGRxPezyl9+GFocLpq3BIAKZzTJ8oL6pZtYZB+k6jQF/ZNxq8D0MCE2z0QBZliIkfCeSg0Kz55KqdvAINkWDeN+bZQVxd4IsQP6mMGiit5lVrZqrsOl5VkcdFILfggyugBJZZ7N/ikZrLE04YI2F3hgCNsOKZluAp09xOWO7rCjbxrBGqSjakVlruYdrEkVjKyR9GzD+bas7bHxyjfiJfLvl1P+EawdvnD4T7n4GvO5q2aGhALBVmR2UpUtnTYK65fIIL99PzTiEJSp4R2ha6LRnajQ7Mp4klXn5qc4jQnNZAKqKvzkNCnVsKusnHxm403g+mrz5fqgheK6N4MaVvHvr+eNi4xDhMrUemAWZnFzJIrxlKD8wObgvtaD/RWXA4SgDOUJWFJkQSVJwvVAhXeEbxSnOxGUpkfB9DwVM4WawFm983BTHXIZmuSblH6TTv+CQNPX+tUDXyfa30hCKZn20lvbLXUOml/Qt/upyB3s4M9FtA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(376014)(7416014)(36860700016)(4143699003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: vFiAvj98AqiA7ekeH8MhU3g5p+wLha41kWu1WcemhlDkkoCp5krNuilKgdVsec8DxiNUe72/xyse0DicGKKI7LpnK3sk8pNcyRnk1UXSYbbWSNXLYez6rSu+O4PVNAIZlti/v7k7lxh28DRXF1U6wwjKZoFwbpeJ1M7j5e5mSQu5bOyjnOHZVWcwg566npNhEnsyPbS0terGc+K6NX8b7BKpqsDqBcnmQ8IM11/zVJbubsRFMrPHqlue02QzkoQwqdKhgQLYkEdBza78UeQugJAVQ0VIQvje8CXRIsVI98n4S87MRTCkpk17Hhy4hDm4QDTsLxNBWX8JCS4JleOEONFyl0TniWwWkq79iVj1DxsSzy8nmtcFRleecIBTZPi4CqYBGzICUndtyoBvdjYxLDANRrtaCxvr+xATpGr/y2c8wBcPVHeGyO7uwRBgoc47
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 16:48:07.1436
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c29e170b-3b4a-4458-716a-08deed912a88
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9568
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_094013_900121_454A65A3 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20260729_094816_164376_6C08815F 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,109 +138,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
-<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->
-> Convert the list of PMUs to a RCU-protected list that has primitives to
-> avoid read-side contention.
->
-> Assisted-by: Codex:gpt-5.5
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+On Wed, Jul 29, 2026 at 05:46:23AM +0000, Pranjal Shrivastava wrote:
+> On Tue, Jul 28, 2026 at 10:26:19PM -0700, Nicolin Chen wrote:
+> > On Wed, Jul 29, 2026 at 05:15:43AM +0000, Pranjal Shrivastava wrote:
+> > > For PRIQ/EVTQ, my only worry was the HW producing more events,
+> > > say Device A is detached (we call drain from attach_release) but Device B
+> > > (still attached) starts an agressive DMA with multiple PRI requests/evts.
+> > > 
+> > > Maybe we should go back to snapshot based polling for that?
+> > 
+> > If you look closely, "pending" is the snapshot, regardless of the
+> > growing prod.
+> > 
+> >  * With @until_empty == false (for EVTQ/PRIQ), exit once "drained" reaches its
+> >  * target: "pending" (i.e. prod0 - cons0, frozen at the entry time):
+> >  *
+> >  *   cons0                cons                 prod0         (prod)
+> >  *     |<---- drained ---->|                     |             |
+> >  *  ---+###################+=====================+=============+--->
+> >  *     |<--------------- pending --------------->|
+> > 
+> 
+> Right, but we write back cons to cons_reg only after we see queue_empty()
+> We have a do { .. } while (!queue_empty(llq)); and then we call
+> queue_sync_cons_ovf(q). Same  for PRIQ handler.
+> 
+> IIUC the helper relies on cons_reg being updated:
+> 
+> cons = readl_relaxed(q->cons_reg);
+> drained += Q_POS(&q->llq, cons - prev);
+> 
+> Thus, if we get a storm of pri reqs / evts, we may never leave that loop
+> and queue_sync_cons_ovf(q).
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+cons_reg is updated by queue_remove_raw() every iteration inside
+that loop.
 
-Cheers,
-/fuad
+queue_sync_cons_ovf() doesn't update cons_reg unless an overflow.
 
-
-> ---
->  arch/arm64/kvm/pmu-emul.c | 18 ++++++++++--------
->  1 file changed, 10 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 9ac5f307ea31..c5c505b6fc61 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -7,9 +7,9 @@
->  #include <linux/cpu.h>
->  #include <linux/kvm.h>
->  #include <linux/kvm_host.h>
-> -#include <linux/list.h>
->  #include <linux/perf_event.h>
->  #include <linux/perf/arm_pmu.h>
-> +#include <linux/rculist.h>
->  #include <linux/uaccess.h>
->  #include <asm/kvm_emulate.h>
->  #include <kvm/arm_pmu.h>
-> @@ -20,6 +20,10 @@
->  #define MDCR_EL2_PMU_RECREATE_MASK     (MDCR_EL2_HPMN | MDCR_EL2_HPMD | \
->                                          MDCR_EL2_HLP)
->
-> +/*
-> + * arm_pmus is append-only. kvm_supports_guest_pmuv3() feeds persistent
-> + * VM state, so a true result must remain valid after the check.
-> + */
->  static LIST_HEAD(arm_pmus);
->  static DEFINE_MUTEX(arm_pmus_lock);
->
-> @@ -29,7 +33,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
->
->  bool kvm_supports_guest_pmuv3(void)
->  {
-> -       guard(mutex)(&arm_pmus_lock);
->         return !list_empty(&arm_pmus);
->  }
->
-> @@ -807,7 +810,7 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
->                 return;
->
->         entry->arm_pmu = pmu;
-> -       list_add_tail(&entry->entry, &arm_pmus);
-> +       list_add_tail_rcu(&entry->entry, &arm_pmus);
->  }
->
->  static struct arm_pmu *kvm_pmu_probe_armpmu(void)
-> @@ -816,7 +819,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
->         struct arm_pmu *pmu;
->         int cpu;
->
-> -       guard(mutex)(&arm_pmus_lock);
-> +       guard(rcu)();
->
->         /*
->          * It is safe to use a stale cpu to iterate the list of PMUs so long as
-> @@ -836,7 +839,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
->          * carried here.
->          */
->         cpu = raw_smp_processor_id();
-> -       list_for_each_entry(entry, &arm_pmus, entry) {
-> +       list_for_each_entry_rcu(entry, &arm_pmus, entry) {
->                 pmu = entry->arm_pmu;
->
->                 if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-> @@ -1088,9 +1091,9 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->         int ret = -ENXIO;
->
->         lockdep_assert_held(&kvm->arch.config_lock);
-> -       mutex_lock(&arm_pmus_lock);
-> +       guard(rcu)();
->
-> -       list_for_each_entry(entry, &arm_pmus, entry) {
-> +       list_for_each_entry_rcu(entry, &arm_pmus, entry) {
->                 arm_pmu = entry->arm_pmu;
->                 if (arm_pmu->pmu.type == pmu_id) {
->                         if (kvm_vm_has_ran_once(kvm) ||
-> @@ -1106,7 +1109,6 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->                 }
->         }
->
-> -       mutex_unlock(&arm_pmus_lock);
->         return ret;
->  }
->
->
-> --
-> 2.55.0
->
->
+Nicolin
 
