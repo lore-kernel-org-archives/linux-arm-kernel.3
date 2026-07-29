@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48228C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 599AEC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rs50z9cTs+x1OJuj2lAGciOuTjo0+2COWF0rtAbVPvk=; b=l+0RzeYD9pPjHm91Eyk56yxhfN
-	T2nvXyc33aUafIG/Nq5dkZxHpUHv17sHbNclH5F6YNyixMaiNXUDAeHUdRMhPYzXCdUKLHGWZkEnp
-	Gb3inrFg/3mphROr+TVtrEUjizCAKbhXdBOrDwMC+ZFOU41e0RDG6tdZlfwE67xbmltQA4IGGhdPt
-	wR6pzb8CxMfSHO45XiptW56LS+7sgeKqioNawbfWuuiJdWcB/feK74rxo7qNIJT0AWfcb5DT2JTd/
-	vr+zlwADTTAbl4+mGCdYgI0v4yGNE/jbWtEvuyG9xiNT/mLOoGQN+fAxcWnhcRgaalRZCipKelRIx
-	EejRkfoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7numUu4CSBH0PsQ5xf4aG2t6sq8i7IwHCDYB1qJC7FE=; b=1Vv1LQEQ1KDODI7urtY5ylE7wn
+	iylYw3qz6qekTk7yF/QEY5j3ypFFWTIe1mQ5kw0Uh5pwvgVSBjRcLk4YJPse/XN/u8tVIdLdD4rvJ
+	mrzXkrVcD+yJUEd0Y563BOqQT8G8R+475ykQITlT6g0mU1y5RQrgKHG5Ya90HwPDUnzi1u8VCL425
+	vKaGWK2lxrksnmX1ukC/7hJQdDs2PBQpNyaZ4mH4EKqt5ydEV6+aCJsEeUYPUIz091U0fzIgwY4Tk
+	jH0u6mcrHmbiBFkZmZoZhr4h8SuaX4ySaLU8A98p4ImKXigvKGF/YMFhlWi5DB2a6qHR8jTrkBKaz
+	Q41z2RiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9Br-00000008pgK-3tc5;
-	Wed, 29 Jul 2026 18:39:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9Bp-00000008pfp-1d9X
+	id 1wp9IV-00000008qGc-3gMW;
+	Wed, 29 Jul 2026 18:46:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp9IU-00000008qGU-386L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 18:39:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61F0F1684;
-	Wed, 29 Jul 2026 11:39:31 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E1AA3F66F;
-	Wed, 29 Jul 2026 11:39:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785350375; bh=wxnN+qGhBe6IuV78Od6T4NuLPnJ1LTmDsaJiSs76zMU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fOo2fY/cWfI27/+AvUJ66KuJYjF/ObPU337QH3V5fQbTqvlk25zdbKlL6r3Cc88IV
-	 At/XWAxihpM1XI9CyrbJhAawzmigGsmDBUkTzQtkiF+gJXq+iq4AMTEipERAVqE6mP
-	 QMDJRcQqctvKIUho9u9BeglC6hTHPnfqBDa+HqLw=
-Message-ID: <25ddc6ec-3a8a-4ae5-8f33-e6c71ff354b5@arm.com>
-Date: Wed, 29 Jul 2026 19:39:33 +0100
+	Wed, 29 Jul 2026 18:46:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D883D6001D;
+	Wed, 29 Jul 2026 18:46:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6AB81F000E9;
+	Wed, 29 Jul 2026 18:46:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785350789;
+	bh=7numUu4CSBH0PsQ5xf4aG2t6sq8i7IwHCDYB1qJC7FE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hJOdybfcdmzfnZvu7dcAODD8H26LQRXyNgFLABtPYQCJs5NpYUdOhRTZRpAUi/5XD
+	 xxBZLdoTitdNtkG8H+qCo/GGE7v8I4ySa+0dYDZyRvzni+sXTRpdu2x1CERezj1SAt
+	 mCMBfuWO0tvduBbUuTvn/1hYuLY26p4cbWXtWtBVYeKmk/BrCEoTB29ZbDP0ESNLyP
+	 kGLaDa4NJk1u7TPAuxn1fLbYYugXYbTcITTVrvjkD67Z9LOyh6fRk62kEYkqg/2n11
+	 fMpzq8+IPuq0utSDPMNwllZnH7V0sDSBssFUOYjDgSl2OYRQC7sV/pDPxKsVxktFVO
+	 HW7j6jdtk8flw==
+Date: Wed, 29 Jul 2026 19:46:26 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Nat Gurumoorthy <natg@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH] firmware: arm_ffa: Call ffa_rxtx_umap before calling
+ ffa_rxtx_map
+Message-ID: <20260729-nostalgic-accurate-raccoon-ab7d7e@sudeepholla>
+References: <20260729162731.1383875-1-natg@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] perf/arm-cmn: Rename filter variables for clarity
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: will@kernel.org, mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- ilkka@os.amperecomputing.com, leo.yan@arm.com
-References: <cover.1785252273.git.robin.murphy@arm.com>
- <ae87ea9530b3c2073874035a244f34baf7915def.1785252273.git.robin.murphy@arm.com>
- <20260729102014.000019ea@oss.qualcomm.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260729102014.000019ea@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_113937_508989_BD8759EB 
-X-CRM114-Status: GOOD (  18.50  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260729162731.1383875-1-natg@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,81 +69,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/07/2026 6:20 pm, Jonathan Cameron wrote:
-> On Tue, 28 Jul 2026 16:59:21 +0100
-> Robin Murphy <robin.murphy@arm.com> wrote:
+On Wed, Jul 29, 2026 at 09:27:31AM -0700, Nat Gurumoorthy wrote:
+> In ffa_probe call ffa_rxtx_unmap before calling ffa_rxtx_map. It is
+> possible that crash or a kexec can leave crb_ffa with old mappings.
+> A call to ffa_rxtx_map will fail and leave crb_ffa interface unavalable.
+> The unmap makes crb_ffa forget old mappings and allows new mappings
+> to be set up. In kernels where arm_ffa is built in, module exit
+> routine ffa_exit will never get called during kexec operation. This
+> leaves behind stale mapping. New kernel's ffa_probe call to ffa_rxtx_map
+> will fail and crb_ffa driver will not be available.
 > 
->> CMN has already grown many more event-specific filters than the original
->> Occupancy ID, but since they are all independent of each other we've
->> just overloaded them onto the same name. Before we add yet more, and
->> they begin to overlap, rename all our "occupid" variables to "filter" so
->> that things can be a bit clearer and more consistent (but leaving the
->> format attribute itself, to avoid UAPI concerns).
-> Hi Robin,
-> 
-> Drive by review... I'm a bit confused.
-> The print out change isn't a ABI change?  I'd at least mention what changes
-> around that in the commit message.
-> 
-> Jonathan
-> 
->>
->> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
->> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
->> ---
->>
->> v2: No change
->>
->>   drivers/perf/arm-cmn.c | 53 ++++++++++++++++++++++--------------------
->>   1 file changed, 28 insertions(+), 25 deletions(-)
->>
->> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
->> index 50402bc4a21d..2a8a67da72c3 100644
->> --- a/drivers/perf/arm-cmn.c
->> +++ b/drivers/perf/arm-cmn.c
-> ...
-> 
->> @@ -709,8 +709,8 @@ static ssize_t arm_cmn_event_show(struct device *dev,
->>   				  eattr->type, eattr->eventid);
->>   
->>   	if (eattr->fsel > SEL_NONE)
->> -		return sysfs_emit(buf, "type=0x%x,eventid=0x%x,occupid=0x%x\n",
->> -				  eattr->type, eattr->eventid, eattr->occupid);
->> +		return sysfs_emit(buf, "type=0x%x,eventid=0x%x,filter=0x%x\n",
->> +				  eattr->type, eattr->eventid, eattr->filter);
-> 
-> Changing the format of this smells like ABI change to me.
 
-This is not a change per the event alias ABI itself[1], since that 
-contract is only that these aliases may contain *some* symbolic terms 
-which are to be dynamically resolved from the corresponding "format" 
-attributes. Both the "occupid" and "filter" format names yield the same 
-result, so tools simply parsing the sysfs aliases from scratch as 
-intended are entirely unaffected.
+This is not a proper solution, what about the notifications and other
+states.
 
-The potential UAPI concern alluded to is between *those* tools and any 
-higher-level scripts driving them - if those scripts contain 
-already-copied or manually-generated event specifiers using an 
-"occupid=" term then they would start failing if perf tool (or 
-equivalent) could no longer resolve the "occupid" format. Thus although 
-we're free to stop referring to it from our own event aliases, we can't 
-just remove the old format name altogether. Because unfortunately, such 
-scripts definitely do exist[2].
+Now that we have proper probe and remove, just assign or call remove
+from shutdown callback which IIRC gets called in kexec. So something like
+below is a proper fix IMO(not compiled or tested)
 
-Anyone who was reading the sysfs event attributes expecting to see 
-something they already know would have missed the point of the whole 
-mechanism so hard I wouldn't even know what to say...
+Regards,
+Sudeep
 
-Thanks,
-Robin.
+-->8
 
-[1] i.e. Documentation/ABI/testing/sysfs-bus-event_source-devices-events
-[2] 
-https://gitlab.arm.com/telemetry-solution/telemetry-solution/-/blob/main/tools/topdown_tool/topdown_tool/cmn_probe/common.py?ref_type=heads#L311
+firmware: arm_ffa: Tear down driver during shutdown
 
-> 
->>   
->>   	return sysfs_emit(buf, "type=0x%x,eventid=0x%x\n", eattr->type,
->>   			  eattr->eventid);
+The platform core invokes a driver's shutdown callback, rather than its
+remove callback, while preparing devices for a normal kexec. Without a
+shutdown callback, the FF-A driver leaves notifications, partition devices,
+and the RX/TX mapping active before the replacement kernel is booted.
 
+Use ffa_remove() for shutdown so the existing cleanup runs before a normal
+kexec and other orderly system shutdowns.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_ffa/driver.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 8654b3365c9b..28abc808fd32 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -2225,6 +2225,7 @@ static void ffa_remove(struct platform_device *pdev)
+ static struct platform_driver ffa_driver = {
+ 	.probe = ffa_probe,
+ 	.remove = ffa_remove,
++	.shutdown = ffa_remove,
+ 	.driver = {
+ 		.name = FFA_PLATFORM_NAME,
+ 	},
+--
+2.43.0
 
