@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01A0C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC61C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ZPPlW5g4w1AsF53iFpKYDXkhl/izo/iIyII9m7u4XM=; b=dmOG8HOcAwn4VyPNk4C4f2nAAH
-	RaANtW8EoCY1cBF03XhdINQEh7sAkozIhDDDJ2LDtEzNY19TJdFcylbpLZJLz39G25doAVjYjAIf2
-	WsjjQFd61QnQVb2iISJL7gMFvgufZXv1ztm4rnYuC6dz+8GGt67toaE++gKaQIYhCtvkwdVuMFH0G
-	9ZO9p1PaYqDgE7pajHr7F5qDuT24a0uKFyKMkInOn+4j6iNEx8Sy+5yPtbZy46sxxK+qhrOCqYVMU
-	1WGILtUhJPEqEO+19aKpvNQsZ09hVoS89tSZAC/hXI90mxKEcA2REq5/Ay0sC9PXG48KfOwi5c5w+
-	Ihkojaeg==;
+	bh=pT6ME6+uuPUFrDLhBZ77UVbhr4cwcY1ivaQIEa4otBU=; b=i+xcN67whnDV1hBmHMZN51Vmje
+	d9Vr8zdJk+lUmriu8ZuQdsdothaPAgnAZ0GVvwjS/a0/iJKNIpSbBs3MA/7Urv/EkZ027dIxuj8SO
+	gvM9Ru3iQj13oB9ccy+SFX255fGenEC04mxw89YHfC44hkOemyWhozPU6QHf+/IysJGGqPOhFnxTn
+	qWC/Lp4zlDVV5cQj3Y42cf6gH8QuYqLyRj7ThURH+5o3+msHMWJj3L8Zs1DRkJXgj3bNbJ3qPsg0h
+	ULNPlFA4HToFB8yCck6s6Q3wW6ylCLusBjySOnOXv+T0dKNf9US2M54NV0NJ0IxSUYycbq2gWBSZ8
+	1jdhflXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3AY-00000007qm1-2A31;
+	id 1wp3AY-00000007qn5-3p0B;
 	Wed, 29 Jul 2026 12:13:54 +0000
-Received: from mail-wr1-x447.google.com ([2a00:1450:4864:20::447])
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3AK-00000007qd3-0lpr
+	id 1wp3AR-00000007qhp-1ZHE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 12:13:41 +0000
-Received: by mail-wr1-x447.google.com with SMTP id ffacd0b85a97d-47f84ac1990so656882f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:13:39 -0700 (PDT)
+	Wed, 29 Jul 2026 12:13:48 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4954b1c6310so8264975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:13:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785327218; x=1785932018; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785327225; x=1785932025; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6ZPPlW5g4w1AsF53iFpKYDXkhl/izo/iIyII9m7u4XM=;
-        b=mZurY+WcLsa8poEnyWOj0g7if5yUoKfjyXZ0jy7KkfEPVct8nL5C8KDII9hltrVIOS
-         fIzdBjaB2apvUSs4QbMA8qOpeHq2CbFeI/NGkfqohuNKx/JKgD+I55aKJEoRIM1U/c+o
-         nSHKGRmPiKb9bVPqKXxQcI2MORPeGD8Ylr/24wFbHy43koJRHR5GurirzMfCOjbu5hsU
-         6B4atOnrLRUDJKMj1EYf4e7DtMz5qfjCcb+9I+NgEuD710w9A3UU79PTiRnGtJ2qVxa/
-         PvgHHwYuztM1aKaFiqkEk2NbLZmGrntck7YbrdrXgKMkANw91oPvCzUV7EpLparFlNfq
-         LT6Q==
+        bh=pT6ME6+uuPUFrDLhBZ77UVbhr4cwcY1ivaQIEa4otBU=;
+        b=IcKaLhVHq5HD51tkUHsBstC9ZaolJZr+1g5aeq+4XQ3q7sixnhWGuUqukdC2qVizRe
+         Cx2cxJb8Jja+nmHI4JToQ/mtoegY5OAoiaheVf67PLkyFHH2uNbwtUd8+3XGKEo/2jGe
+         5CU607XxzskXTTJxMllhadeUfXuLF0CazdERY1IISGVf/MXcvzHZlBSid6IFR5JNcTdd
+         Jr341JwUXvZIJk3XFljqN3f7CIgtHNFvyNcnek2tKwV52Q+qXpMCWJmp4vEK+GZoC2Ff
+         mkk2hHcVBSUKykaYe32DSxqmWUp72Hv1bVuIMMx7UCZLs0311bRT2lYAxcGsuicRxC2L
+         UwMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785327218; x=1785932018;
+        d=1e100.net; s=20251104; t=1785327225; x=1785932025;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6ZPPlW5g4w1AsF53iFpKYDXkhl/izo/iIyII9m7u4XM=;
-        b=ilh1uSn0PSWI4nmV143aMTW5bWGrc4IK6h5t99gUoyx/P1R0j4wjP2P0YF5IB++xXl
-         0YG5OUJkURnmpgATp81miudrTk3xr4ZB81OqibNq4i1YbzE7H2ozPkWVrv3nGvrxl7/a
-         UsfngNzQHkaVPIUOWt4c8AR1B4pkPCXixsmHNUboCiJ9wVIF4oHwfgvgNZR/orNUyaLk
-         NioYG6an7PSA1NZE+9mendgGYnavZeDQ6y9KlfzLosdr6E9ZdTtKc9bRVpXH/myI+Fus
-         Y5ppgpE2XAw37rGnt32+rFqwfsqIWEUfHWuVAkjbC+Ic6f9JZpuSk8PXO4U0i8DIathd
-         WhRQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq2Yj1ZymYdsMdMhaBUdGOY6TJ1kKbc/PT05Q8rR8xKAuMxXXCshPtSkxQYPUPQjXm+Z9JLA/FsQOaBHwN+VQNP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1NtnkVpruY0Fmvj1flVdMO5eTP6lXIBc7XCJ6Eyaa6dmof6jK
-	NwPonGXsoTYnxcwzs6/NZUMrt6lk4cOMi769czndPAUXaWXCZc1DAt8gRKG5lampSzO6PYC9VGx
-	UR2s70acCRvPZx/B8Pv4PEXZaMocmNQ==
-X-Received: from wmoi21.prod.google.com ([2002:a05:600c:4815:b0:495:5890:8f69])
+        bh=pT6ME6+uuPUFrDLhBZ77UVbhr4cwcY1ivaQIEa4otBU=;
+        b=Ok+rwz+0K5Nn5gNFWtsmgdkw57SsqDtS8QGGIgrq1ItiM4RKCwMnrT5TVtEgz6jP6Q
+         qKuZsU35h/HaI7tVyHEjW61j+mgFnRFig8isBBy/V1Y9Xs7P44238xGOqzyFLvjnU9gY
+         81awcVb7iC29ZviBwEe/XquM0zP9auDkRfezmATRuhxFDMTJ86LIo263z20l8XVhb+C8
+         yHp+Og6OKJtzv4EhidG1OL1pcC0puMRHZQjyKd1Fq5BR9MHyedf9Fkhm9UwhPm5Sskti
+         zwcBJ+TZiKMGPyEL3l+UweO9onu4udZsI4tGfvPIBExb4AaLxXQu8w2llCNLd14oL06Y
+         Bx0w==
+X-Forwarded-Encrypted: i=1; AHgh+Rr3AV3LGAJHUPTC7IWkv5TcSvRZbAUT3N9nD3GBuRgPJ0sH1MvelFjul3M1KQPFxfqi42H8070KOkHZ8HFxa5sR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzz3NvUC5u7kDd1f4DNuVka+de5r/Rhs3D+DUfmBL6ff1tRj+7I
+	+ls0AsZqGQme9Nf+hRCimfto1dJdWil3542uND2bxYsZT1O32FiHyNvCydZHne1iYpRrGAWcNzn
+	NV7TeNR5+LiBhOCxiM2meNgL7uLJFAg==
+X-Received: from wmsk18.prod.google.com ([2002:a05:600d:8492:b0:496:c04d:501e])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:b85:b0:496:c0f6:78d6 with SMTP id 5b1f17b1804b1-496c653e5e2mr81145145e9.2.1785327217395;
- Wed, 29 Jul 2026 05:13:37 -0700 (PDT)
-Date: Wed, 29 Jul 2026 12:13:03 +0000
+ 2002:a05:600c:4e52:b0:496:df96:ea8 with SMTP id 5b1f17b1804b1-496df9611bamr36752175e9.17.1785327224777;
+ Wed, 29 Jul 2026 05:13:44 -0700 (PDT)
+Date: Wed, 29 Jul 2026 12:13:06 +0000
 In-Reply-To: <20260729121306.1519473-2-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260729121306.1519473-2-sebastianene@google.com>
 X-Mailer: git-send-email 2.55.0.487.gaf234c4eb3-goog
-Message-ID: <20260729121306.1519473-5-sebastianene@google.com>
-Subject: [PATCH v8 3/7] KVM: arm64: Support FFA_NOTIFICATION_UNBIND in host handler
+Message-ID: <20260729121306.1519473-8-sebastianene@google.com>
+Subject: [PATCH v8 6/7] KVM: arm64: Support FFA_NOTIFICATION_INFO_GET in host handler
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
 	fuad.tabba@linux.dev, will@kernel.org
@@ -78,8 +78,9 @@ Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
 	yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_051340_241565_DD3C3EF7 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260729_051347_416049_FDBFAD8F 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Verify the arguments of the FF-A notification unbind call and forward
-the message to Trustzone.
+Allow the host to send FF-A notification queries to Trustzone and proxy
+these messages from pKVM.
 
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 25 ++++++++++++++++++++++++-
- 1 file changed, 24 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 2 --
+ 1 file changed, 2 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 331d9d0d8287..d52d7c4d5e7f 100644
+index c22fe4514741..712811e89435 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -678,7 +678,6 @@ static bool ffa_call_supported(u64 func_id)
+@@ -678,8 +678,6 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_RXTX_MAP:
  	case FFA_MEM_DONATE:
  	case FFA_MEM_RETRIEVE_REQ:
-        /* Optional notification interfaces added in FF-A 1.1 */
--	case FFA_NOTIFICATION_UNBIND:
- 	case FFA_NOTIFICATION_SET:
- 	case FFA_NOTIFICATION_GET:
- 	case FFA_NOTIFICATION_INFO_GET:
-@@ -897,6 +896,27 @@ static void do_ffa_notif_bind(struct arm_smccc_1_2_regs *res,
- 	hyp_smccc_1_2_smc(args, res);
- }
- 
-+static void do_ffa_notif_unbind(struct arm_smccc_1_2_regs *res,
-+				struct kvm_cpu_context *ctxt)
-+{
-+	DECLARE_REG(u32, endp_id, ctxt, 1);
-+	DECLARE_REG(u32, reserved, ctxt, 2);
-+	struct arm_smccc_1_2_regs *args;
-+
-+	if (reserved) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	if (FIELD_GET(FFA_NOTIF_RECEIVER_ENDP_MASK, endp_id) != HOST_FFA_ID) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	args = (void *)&ctxt->regs.regs[0];
-+	hyp_smccc_1_2_smc(args, res);
-+}
-+
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
- 	struct arm_smccc_1_2_regs res;
-@@ -962,6 +982,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_NOTIFICATION_BIND:
- 		do_ffa_notif_bind(&res, host_ctxt);
- 		goto out_handled;
-+	case FFA_NOTIFICATION_UNBIND:
-+		do_ffa_notif_unbind(&res, host_ctxt);
-+		goto out_handled;
- 	}
- 
- 	if (ffa_call_supported(func_id))
+-       /* Optional notification interfaces added in FF-A 1.1 */
+-	case FFA_NOTIFICATION_INFO_GET:
+ 	/* Optional interfaces added in FF-A 1.2 */
+ 	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
+ 	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
 -- 
 2.55.0.487.gaf234c4eb3-goog
 
