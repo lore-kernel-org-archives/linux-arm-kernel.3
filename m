@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEA0C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 09:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141BDC54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 09:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rVWe5ODzftWQQE1QOzNJsn1dodqJktnAFjucY5GchBw=; b=PeqTmsDoCpCPsrDO/OGeT78XhT
-	/taGUw/n1vKpaRH+DZX9YRyCG5juiZWITT+7xP1nen4GPoHui1HuFA93gEg4oru614lipQYIB51db
-	/IfY+Q/ps+2AMcOnFrYvgkcsXtpREzKCMysbz9EoHvlzHBVyLKOikAXlRsrN8bfNNJQbVT40OW0PU
-	bsA0jjiylj5FHxJTFQtTis1sj5yfJExOo4b63EIVMZigo04vcLVHNZtpe+0chtC5czhA6r8eZCFUX
-	1Afvbw2/T+q4gu8XGxsWJnokgrT2NzpaUIKE7+aAXe/gVnR0V9HQq/6cZc8c+g5hCtcTcZw8f6SKJ
-	/AvlaFPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6LOzzspZUA4rNVaGF/4ILR4pTU8q5zeUbIg7i83Gjpw=; b=e9YzHmS6WCE34Vs1IyHpMhkg+P
+	HhIGMVcc476B1I6M/s2j3PIsmz9RF2ZIr5Bl2IYrP6huBsZ1aozReWGuQj4ZWtdRKTuZBIhX/3aux
+	W4DvCquKwspa27+eQsd+7kEJnSYgLzcOTgkodQB6ePZrmZug3HOPJyed/naiXRYiRw21J4rpt28Fh
+	zI2tXKy9O6k0nKmr72R5zriP1bJCCYnOUOF6F5MELZaN18aD4EzoABzbg08+ryATwFuo3sZdIJqrZ
+	SPvpCifyoGAvDv102WwZApK7cIXvyjTzWhy9Rtu4tx0e+DKvfqC+MZHOpeXvEL4RN4JqfJIMneofy
+	aNsbAEzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0Ky-00000007KWY-2QSZ;
-	Wed, 29 Jul 2026 09:12:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wp0Lf-00000007Keu-37TV;
+	Wed, 29 Jul 2026 09:13:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0Kw-00000007KWG-3keZ
+	id 1wp0Ld-00000007Kec-3b4g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 09:12:27 +0000
+	Wed, 29 Jul 2026 09:13:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 55CCA60A5E;
-	Wed, 29 Jul 2026 09:12:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59B311F000E9;
-	Wed, 29 Jul 2026 09:12:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9AB71402E1;
+	Wed, 29 Jul 2026 09:13:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1385A1F000E9;
+	Wed, 29 Jul 2026 09:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785316346;
-	bh=rVWe5ODzftWQQE1QOzNJsn1dodqJktnAFjucY5GchBw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=fmYctjJMMA7/7frnc50f9MyYchxw4mNhE8nxqKRJbBTF3vxh6wtKL39KOSOmElIQf
-	 GMc4XxgP0ITOd2bmTM74SkHL5KnX4asXHQH5kkjX852UARxu34sdmKbu8qj2apVnr8
-	 VOpjWNg7FMFfh+OWq/DanLr0koaKCi1DOabJAOB+WKVW8AoDkGXywLNTdydf7PSIt/
-	 EcUKXc2J9kGpE91GJ9aLZRVmARcxYvFbASBoyY9hDuj+HgduO6Zqg9qZC7koFjsdcC
-	 GmaUoS9qVnn7gM5CAyxM+9Lb02D0fTypf461LBjjULMVkc5OSYmpDVLpDxP0WNWv2Q
-	 yZ4wi60UF5uwQ==
-Message-ID: <634717bf-d188-4de1-8465-31e31ea3642e@kernel.org>
-Date: Wed, 29 Jul 2026 11:12:20 +0200
+	s=k20260515; t=1785316389;
+	bh=6LOzzspZUA4rNVaGF/4ILR4pTU8q5zeUbIg7i83Gjpw=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=NTrQYIaG/ehk3iBfKYQ4h5VsyLIi9R25YASP+VfHEeqJLRKgGBvkPSyD3Z9S8z4Mj
+	 IF3b3Y7zHwM1Ki87LSJnQvxxpFux7arhN+PB36u7RYtulEQwTh6IzxDRfys1GB1PYP
+	 wQB4ruCqa5tgtepcLoDAHeF9+Xnzu0Vu+PAcp95Nt1fNRZMvtXWiwCJpv5J0FxkUcN
+	 Rb9r9HrCA3JCEOWqEBO0cYpVmnNO7ADrIAeTCDv5mUNlZOFS4StYS2PO33vIrkV7ae
+	 H8zXXtL5Jf4+s89pxC57mJ/77Uat6XV1Wh/ahQsyAMIHiwd/azsjJ8TLnt5OedZG+Y
+	 rEpctXEsvldqg==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v8 00/23] dma-mapping: Track shared DMA state through
+ direct, pool and swiotlb paths
+In-Reply-To: <ami7DMIlYHbcEt_6@google.com>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <ami7DMIlYHbcEt_6@google.com>
+Date: Wed, 29 Jul 2026 14:42:56 +0530
+Message-ID: <yq5azezaf9bb.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/22] Introduce SCMI Telemetry support
-To: Cristian Marussi <cristian.marussi@arm.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-doc@vger.kernel.org
-Cc: sudeep.holla@kernel.org, james.quinlan@broadcom.com,
- f.fainelli@gmail.com, vincent.guittot@linaro.org, etienne.carriere@st.com,
- peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org,
- elif.topuz@arm.com, lukasz.luba@arm.com, philip.radford@arm.com,
- brauner@kernel.org, souvik.chakravarty@arm.com,
- subrahmanya.lingappa@oss.qualcomm.com, leitao@kernel.org, kas@kernel.org,
- puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-References: <20260724144430.1440170-1-cristian.marussi@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <20260724144430.1440170-1-cristian.marussi@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +93,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Mostafa Saleh <smostafa@google.com> writes:
 
-> NOTE THAT from v3 onwards the firmware interface level NOW supports ONLY
-> the latest SCMI v4.0 specification [0].
-> 
-> TODO
-> ----
->  - [ABI]: add genric events supports -> generation counter/updates
->  - [ABI]: add Secondary UUID support
->  - [ABI]: add BATCHED DE_CONFIG and add per-de status to BATCH READS
->  - [ABI]: more DOCS
->  - [ABI]: some more dediceate space to grow all around the structures
->  - (maybe) TLM chardev open-exclusive mode to ease userspace co-ordination
->  - a few residual sparse to fix... 
+> On Fri, Jul 17, 2026 at 11:34:18PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> This series tracks confidential-computing shared DMA state through the
+>> dma-direct, dma-pool, and swiotlb paths so that encrypted and decrypted
+>> DMA buffers are handled consistently.
+>> 
+>> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
+>> shared/decrypted buffer handling. This series consolidates the
+>> force_dma_unencrypted() checks in the top-level functions and ensures
+>> that the remaining DMA interfaces use DMA attributes to make the correct
+>> decisions.
+>> 
+>> The series separates mapping and allocation state:
+>> - DMA_ATTR_CC_SHARED describes the DMA address attribute requested for a
+>>   mapping. It tells the DMA mapping path that the DMA address must target
+>>   shared/decrypted memory.
+>> - __DMA_ATTR_ALLOC_CC_SHARED is an internal DMA-mapping attribute used only
+>>   by allocation paths after the DMA core decides that the backing pages
+>>   must be allocated as shared/decrypted memory.
+>> 
+>> The series:
+>> - moves swiotlb-backed allocations out of __dma_direct_alloc_pages(),
+>> - uses __DMA_ATTR_ALLOC_CC_SHARED through the dma-direct alloc/free paths
+>> - teaches the atomic DMA pools to track encrypted versus decrypted
+>>   state
+>> - tracks swiotlb pool encryption state and enforces strict pool
+>>   selection
+>> - centralizes encrypted/decrypted pgprot handling in dma_pgprot() using
+>>   DMA attributes
+>> - passes DMA attributes down to dma_capable() so capability checks can
+>>   validate whether the selected DMA address encoding matches
+>>   DMA_ATTR_CC_SHARED
+>> - makes dma_direct_map_phys() choose the DMA address encoding from
+>>   DMA_ATTR_CC_SHARED and fall back to swiotlb when a shared DMA request
+>>   cannot use the direct mapping, which lets arm64 and x86 CCA guests stop
+>>   relying on SWIOTLB_FORCE for DMA mappings
+>> - use the selected swiotlb pool state to derive the returned DMA
+>>   address
+>> - reports CC_ATTR_GUEST_MEM_ENCRYPT for arm64 Realms, powerpc secure
+>>   guests, and s390 protected virtualization guests.
+>> 
+>
+> This series has been getting bigger, going through it again, I see
+> that patches (1, 2, 3, 4, 5, 16, 20, 22) are not really related to the
+> shared DMA work and are either fixes for exisiting bugs or clean ups.
+> Would it make sense to have those separated?
+>
 
-Is this a TODO list as in "must be tackled before this can be merged" or rather
-a "future works" list?
+Some of these fixes were originally at the end of the series. However,
+it was suggested that they be moved earlier to make backporting easier.
+The changes are kept as a single series because of the code dependencies
+and to make it easier for Sashiko to apply and review them.
 
-Especially the "[ABI]: some more dediceate space to grow all around the
-structures" sounds like something we would want before considering merging it?
+One of the reasons I'm also requesting that this be picked up for -next
+is to avoid continuing to add more changes to the series at this stage.
 
--- 
-Cheers,
-
-David
+-aneesh
 
