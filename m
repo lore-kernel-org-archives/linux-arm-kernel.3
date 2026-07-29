@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3135AC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA03C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvCS92adBOMqcSwKtopSqRFpX+KFLdA+oInUug96Q/4=; b=s8mL94F8YjYqnUJW1YV/g511Xs
-	d9ywefkhdzq8Wo5NvuyeyR2j04jLwGpAIJC9KkLn3Bb2rx5PeBqagsewHoGpYT0JtACT5yq9/CRQH
-	1bYp5e0H4DjHSaBqb0QT4Ux6T6Bm8SbJYyK/gNUlQeZKd7ev/us2sltexgJrTq+IPgoNtWjvIbWrx
-	MKw+3rVRRwXSfBopnP6iDaaqxZnkBHYxjagc09sHalfnsPYf7/0EomoqwTkeubfpLgYhhLefyaAsH
-	Wqgv3yN8bHa0BeznuS2C123cjjkAUBkheykANt8lLFI3foqFOX7Ast6S9r7ubKXilSb2EpPMV02jN
-	TcAH29hA==;
+	bh=c/W1fqK7GrdRxdJRx517NJ0wj5HQ/50koQW2iNa5L7Y=; b=wEYvVXBGgI4Wh+dJP8N/vnxSZB
+	6jM7b8Tk1j0xuH4nPvot7PoZo/I8tzuasHVYtSCeWbOWmyQAPhfjaMUWVDLFsv2NDVJ/7dRFf/IhC
+	hJB2AnbRxJP1PHdEHBD91r8SkurO0iagj2DQiFPu4bItcdN38NRTjdknAFVA7ZyY+4HR9Jr9gbTPk
+	5rcIJ4aFm0bKP8VKlrBl1L0IatkINKnXXVwWDW0UZSaFSKDgfbkauK1dUVKRhjfO95656ITPuXz/w
+	+P3vcXT4XwrV13eeANOihpDbpWWWiwMuQlsEiqYormyOlzCXasOtOc+1LqKvqjJHWJlhU0XptVSUq
+	V0ETXC4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2gw-00000007lMR-0VP1;
-	Wed, 29 Jul 2026 11:43:18 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wp2h9-00000007lTr-40Hi;
+	Wed, 29 Jul 2026 11:43:31 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2gr-00000007lKU-36QD
+	id 1wp2gu-00000007lLI-1vG0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 11:43:15 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84e0688b859so453667b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 04:43:13 -0700 (PDT)
+	Wed, 29 Jul 2026 11:43:17 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8485bd28dd0so866941b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 04:43:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785325393; x=1785930193; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785325395; x=1785930195; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gvCS92adBOMqcSwKtopSqRFpX+KFLdA+oInUug96Q/4=;
-        b=l0YwRqK0S2015j8H0ucU+inVv2lByXOQtDea2wQTf50Pt4u7TlDrQuAf7AgXzwRj4V
-         T3zDd7qcQ3wyx2vNS/apjg/iXaxTmo9qtDAfh6IsJfU7zsxGj62hggVlwtxspO5Eu0FD
-         6DwBPYbquyK78pqNg/tk9m1AvobsMBvM2wQZRk7kLAc03Wb0ySSt6oXfSiB1tlvsGxo8
-         ZoqJs1Xy/gx6hdHf30NfRaa74Cmm/Z7e8dgaAI5URhOIPraYITyFAF2t+wzOiX4GXoiV
-         qH1XwCqcSyjc9brkV02rbWdti/Jhbca0fUWxClKEUPv8xXDDcWu870WQItjAJbz20vYN
-         x9Mg==
+        bh=c/W1fqK7GrdRxdJRx517NJ0wj5HQ/50koQW2iNa5L7Y=;
+        b=EGuOu1wa++3oyEY+NuNZ57SayHCJJ+xk1DIKWV/n7lcat+zkKllU+gopoVQcL+CPxi
+         uuP2H1YHa7tadXglu36iZtrEmZVXHbBBZvOJ+MeGynU+Jt1e5Muw2frTB+ol04AL59PP
+         YUQQ5NrwreEHXEyjH6dSezH84zBz4wWrjye80u+W75NI9o9ixHehZjGgfJbxtqJg5+nW
+         PGlWZ5GNozOura97WDP47jHHRX+yvLu0v7WcQND8AeZKE6xtTwN4MdlO1dwg9JlEgQC8
+         PKbLXVWk22OF6k2/v0B+AD4MaE7bSHclNya0wjz8xdDLvyOZRjF3WhOGNEnnQt7jVqwt
+         TQlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785325393; x=1785930193;
+        d=1e100.net; s=20251104; t=1785325395; x=1785930195;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gvCS92adBOMqcSwKtopSqRFpX+KFLdA+oInUug96Q/4=;
-        b=RkaYMalNI434BVH+gtLowcdIWm2AUVWnl2pmVmfH7ttpxs+K5RAy61MMp8MGIRgsnc
-         wWiK8lURsSa8BwthilzrP6vJ2c9CHJJkzVYBwrbjix/8gYYV5QBmeNB8Ar94KKOW1jGe
-         LowXmcULSbf6vY7ZeUTtcVBZh7dL2WDXO+v48Gre96qnZk9dTD+RR2jBMO4Alj+zBP66
-         Iqqoz9UCWThfUq3HyhjSXCe0AABv1ZIaXcu5w5VVK/qSks7FKhRoPPywImKEeHbDlSaj
-         ex8wO+r7cwPsHREu+GQRpBUl9k2lmKNpyaHD7PedGWCGU/ngztP/S4ZgEHPPT9ANIMQ9
-         KgQA==
-X-Forwarded-Encrypted: i=1; AHgh+RrJ/O71EufVPLK+Rmhozxd779L1TD0IIFcLRZr6jb8/WivEzB6ujx9kxd3MxvohGbXVDx+OHSGvvYeT08AiMPes@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKxGkdA62aFpLDFaZnfzdGBi69vQTccNTqjPuk5KjOAy3xx3rO
-	ewTx1Cm13uhLvVY8QjsLL+xQlWwdT1Fxu3twtSc8n+Tbg5XSKl9SQ3cT
-X-Gm-Gg: AR+sD13XS0GMTzplMUunI5z4m0K3/CTKE8+1pZ4hmplU3SV/lB5IIFqubxRonfIvNoo
-	gTYw2/XWeoAbHDBtA1U7h36iMcTQzsFZiQHtErYOMd1v7+y/7vWiIYCoB8vcvu9Z9jY1x+ppqj8
-	2ys4hWkLqWBGdfc+YL9YfjXqFjQiINENkkRCZs2uBi9C3oFkTXLFGVQF/eYPdRGTRHokb6Bd7AW
-	p1kUUATuPSJqr4tGEOY6Xzv+cacoAO11ekSwTR/fB4E5zT//IkrfhVobZJnoPqVbYd/9PiwwWoP
-	UpPur856cCXg1Zdx+fk0vJlzQ6xI7XnfII3eJ1dT426L+uYW3oFxPX+ok9YrDKtwq2Og52hfN62
-	nTc6ZoVkPuTQcw+t77+WFlJUbtppDnTp0uFEZ2O8rDLbSP7HMGJ8vhPlCvowtpp0Td6FkoXTxFD
-	4nS5aBJhOo1OUafas03hw+LMRHSf4QzwvPiXgpLeWQZFqj9K++4eaeLKDkdEnnPt/9yO7a7jlu8
-	mnnPT1Vb/P4CICI4aON9B8WUghDGOErLIbYl/9Z6GpCEYk=
-X-Received: by 2002:a05:6a00:9a3:b0:842:5b63:6112 with SMTP id d2e1a72fcca58-84e93252b23mr6496795b3a.32.1785325392498;
-        Wed, 29 Jul 2026 04:43:12 -0700 (PDT)
+        bh=c/W1fqK7GrdRxdJRx517NJ0wj5HQ/50koQW2iNa5L7Y=;
+        b=NQTqV3fTRoI4IpNqjW4WOduFfNeuuXgHP6Seggka2Juu1EmWAOVNmldWFqcS/WJj77
+         6X+575CHOmwqONYNi/IzoVR4Ql/cRYuLCO0SYyasqM6XWJMF0IRgiunpeEvyipfi5/gc
+         Iv4d3BOUK4nZzqBk7XRmESvBQOBjAg+omw0A9zTQGPpdmnhJoTKPOzsdqgTOXEsPEHoX
+         C8iFa1w30CL+Di01fvdwZ8qYYbvASvCMImtoI/U/4PKyVs5oZ48R463+MoaMgaB5jYqa
+         gxyJ0uLtfkHGCZau8wM9UDpaPtCbSlv1k8/k9HyYxYNwBTTWSYaU1I9G5GJmC4bfqKl5
+         WYkA==
+X-Forwarded-Encrypted: i=1; AHgh+RrojQGcl/Higcbqo2jGw1eVm3wbWD3DnRa68e+C9UD3IAcQ+1/QAN6jiELviy6jVPduZGRdhWcpsCrSKqQlVPbc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyzd2DYwjrEsNPoKLMlSMcC58FPx46azh+wsiX+kcBS5zayZaed
+	pdZ/K9XAl1G0MSLT5AkhH+/Cev8HsmltsGurY8kqmrUFh0flXH+ZaSe1
+X-Gm-Gg: AR+sD10zBUlGoxLp2c+MW+UFajppifd+9LrlPLxdPJ5JDEhMBkbFBCtxiUQc5YjMWah
+	A2gZDuJ/ICbZIcIskWHiBSm7fFYcE9PGIvQLOR5uH0Wjp4RgqSYr+4jf8+BaItbpb9TloNzoQCE
+	zsJQPquJaKES8yPkWGIX+5C3m660WUHuDyeTSJCAAcqLcD2qVYVMYIX7SMqRm77khv7nKIw6sMh
+	5HVZZgHVY7Vz8UFe3hnmidAQEu7VF7ANUZ44LvWnfTf+DbG0R4AGOrZTanxBWTf4Qu9SFRz50YH
+	UCDKAIAv8O+yJ89Ac5Tzf1jBWMY+Jrri1SRXCYUIY3GXaTsbf6Ex4FwdO9wqUJnqtTG3ooZ/15x
+	Jby0/wgJuNDdXw0FqukC8+6351k4LkXFtLuZAjeDGSESaZ33cdzN5wqHUBkHVjd8Qp/Sj4qll+n
+	svi/KfK6Fh+hogwx1/D6IDSDhKBqSwhUuq3kDxQJnhFZ1N4CX8tKti5qOvHvlSRgm06aFx6hXQg
+	B8wzdk5hYnD5WXy8NAwJgL9EH5k8XNN8nU=
+X-Received: by 2002:a05:6a00:298b:b0:848:3f91:da82 with SMTP id d2e1a72fcca58-84e93258a6bmr6621278b3a.32.1785325395379;
+        Wed, 29 Jul 2026 04:43:15 -0700 (PDT)
 Received: from cosmo-ubuntu-2404.. (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea03cbd1csm1263532b3a.53.2026.07.29.04.43.09
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea03cbd1csm1263532b3a.53.2026.07.29.04.43.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 04:43:12 -0700 (PDT)
+        Wed, 29 Jul 2026 04:43:15 -0700 (PDT)
 From: Cosmo Chou <chou.cosmo@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -82,17 +82,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	cosmo.chou@quantatw.com,
 	Cosmo Chou <chou.cosmo@gmail.com>
-Subject: [PATCH v2 2/4] ARM: dts: aspeed: bletchley: Fix style warnings
-Date: Wed, 29 Jul 2026 19:43:10 +0800
-Message-ID: <20260729114312.3947300-3-chou.cosmo@gmail.com>
+Subject: [PATCH v2 3/4] ARM: dts: aspeed: bletchley: Add second source PCA9532 LED controllers
+Date: Wed, 29 Jul 2026 19:43:11 +0800
+Message-ID: <20260729114312.3947300-4-chou.cosmo@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260729114312.3947300-1-chou.cosmo@gmail.com>
 References: <20260729114312.3947300-1-chou.cosmo@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_044313_818777_4A7DEA41 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260729_044316_530574_656689B5 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,1149 +107,545 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the device tree to resolve all strict mode warnings reported
-by scripts/dtc/dt-check-style.
-
-Changes include:
-- Sorting properties into their canonical order.
-- Reordering child nodes alphabetically.
-- Aligning multi-line continuation strings.
-- Inserting required blank lines before child nodes and status
-  properties.
-- Removing unused node labels to resolve unused-labels warnings.
-- Wrap lines exceeding 80 columns.
-
-No functional changes.
+Add alternative PCA9532 LED controllers at address 0x66 to support boards
+populated with the PCA9532 instead of the primary PCA9552 at 0x67.
 
 Signed-off-by: Cosmo Chou <chou.cosmo@gmail.com>
 ---
- .../aspeed/aspeed-bmc-facebook-bletchley.dts  | 540 ++++++++++--------
- 1 file changed, 298 insertions(+), 242 deletions(-)
+ .../aspeed/aspeed-bmc-facebook-bletchley.dts  | 422 ++++++++++++++++++
+ 1 file changed, 422 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
-index b022bdd02c1e..e1fa3a18ea5c 100644
+index e1fa3a18ea5c..3da1cf9bbb99 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
-@@ -10,8 +10,8 @@
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/gpio/aspeed-gpio.h>
+ #include <dt-bindings/usb/pd.h>
+ #include <dt-bindings/leds/leds-pca955x.h>
++#include <dt-bindings/leds/leds-pca9532.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
  #include <dt-bindings/i2c/i2c.h>
  
- / {
--	model = "Facebook Bletchley BMC";
- 	compatible = "facebook,bletchley-bmc", "aspeed,ast2600";
-+	model = "Facebook Bletchley BMC";
- 
- 	aliases {
- 		serial4 = &uart5;
-@@ -22,329 +22,361 @@ chosen {
+@@ -86,6 +87,66 @@ led-7 {
+ 		};
  	};
  
- 	memory@80000000 {
--		device_type = "memory";
- 		reg = <0x80000000 0x80000000>;
--	};
--
--	iio-hwmon {
--		compatible = "iio-hwmon";
--		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
--			<&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
--			<&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>,
--			<&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
--	};
--
--	spi1_gpio: spi {
--		compatible = "spi-gpio";
--		#address-cells = <1>;
--		#size-cells = <0>;
--
--		sck-gpios = <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
--		mosi-gpios = <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH>;
--		miso-gpios = <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH>;
--		num-chipselects = <1>;
--		cs-gpios = <&gpio0 ASPEED_GPIO(Z, 0) GPIO_ACTIVE_LOW>;
--
--		tpm@0 {
--			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
--			spi-max-frequency = <33000000>;
--			reg = <0>;
--		};
--	};
--
--	front_gpio_leds {
--		compatible = "gpio-leds";
--		led-0 {
--			label = "sys_log_id";
--			default-state = "off";
--			gpios = <&front_leds 0 GPIO_ACTIVE_LOW>;
--		};
-+		device_type = "memory";
- 	};
- 
- 	fan_gpio_leds {
- 		compatible = "gpio-leds";
-+
- 		led-0 {
--			label = "fan0_blue";
--			retain-state-shutdown;
- 			default-state = "on";
- 			gpios = <&fan_leds 8 GPIO_ACTIVE_HIGH>;
-+			label = "fan0_blue";
-+			retain-state-shutdown;
- 		};
-+
- 		led-1 {
--			label = "fan1_blue";
--			retain-state-shutdown;
- 			default-state = "on";
- 			gpios = <&fan_leds 9 GPIO_ACTIVE_HIGH>;
-+			label = "fan1_blue";
-+			retain-state-shutdown;
- 		};
-+
- 		led-2 {
--			label = "fan2_blue";
--			retain-state-shutdown;
- 			default-state = "on";
- 			gpios = <&fan_leds 10 GPIO_ACTIVE_HIGH>;
-+			label = "fan2_blue";
-+			retain-state-shutdown;
- 		};
-+
- 		led-3 {
--			label = "fan3_blue";
--			retain-state-shutdown;
- 			default-state = "on";
- 			gpios = <&fan_leds 11 GPIO_ACTIVE_HIGH>;
-+			label = "fan3_blue";
-+			retain-state-shutdown;
- 		};
-+
- 		led-4 {
--			label = "fan0_amber";
--			retain-state-shutdown;
- 			default-state = "off";
- 			gpios = <&fan_leds 12 GPIO_ACTIVE_HIGH>;
-+			label = "fan0_amber";
-+			retain-state-shutdown;
- 		};
-+
- 		led-5 {
--			label = "fan1_amber";
--			retain-state-shutdown;
- 			default-state = "off";
- 			gpios = <&fan_leds 13 GPIO_ACTIVE_HIGH>;
-+			label = "fan1_amber";
-+			retain-state-shutdown;
- 		};
-+
- 		led-6 {
--			label = "fan2_amber";
--			retain-state-shutdown;
- 			default-state = "off";
- 			gpios = <&fan_leds 14 GPIO_ACTIVE_HIGH>;
-+			label = "fan2_amber";
-+			retain-state-shutdown;
- 		};
-+
- 		led-7 {
-+			default-state = "off";
-+			gpios = <&fan_leds 15 GPIO_ACTIVE_HIGH>;
- 			label = "fan3_amber";
- 			retain-state-shutdown;
-+		};
-+	};
-+
-+	front_gpio_leds {
++	fan_gpio_leds_alt {
 +		compatible = "gpio-leds";
 +
 +		led-0 {
- 			default-state = "off";
--			gpios = <&fan_leds 15 GPIO_ACTIVE_HIGH>;
-+			gpios = <&front_leds 0 GPIO_ACTIVE_LOW>;
-+			label = "sys_log_id";
++			default-state = "on";
++			gpios = <&fan_leds_alt 8 GPIO_ACTIVE_HIGH>;
++			label = "fan0_blue";
++			retain-state-shutdown;
++		};
++
++		led-1 {
++			default-state = "on";
++			gpios = <&fan_leds_alt 9 GPIO_ACTIVE_HIGH>;
++			label = "fan1_blue";
++			retain-state-shutdown;
++		};
++
++		led-2 {
++			default-state = "on";
++			gpios = <&fan_leds_alt 10 GPIO_ACTIVE_HIGH>;
++			label = "fan2_blue";
++			retain-state-shutdown;
++		};
++
++		led-3 {
++			default-state = "on";
++			gpios = <&fan_leds_alt 11 GPIO_ACTIVE_HIGH>;
++			label = "fan3_blue";
++			retain-state-shutdown;
++		};
++
++		led-4 {
++			default-state = "off";
++			gpios = <&fan_leds_alt 12 GPIO_ACTIVE_HIGH>;
++			label = "fan0_amber";
++			retain-state-shutdown;
++		};
++
++		led-5 {
++			default-state = "off";
++			gpios = <&fan_leds_alt 13 GPIO_ACTIVE_HIGH>;
++			label = "fan1_amber";
++			retain-state-shutdown;
++		};
++
++		led-6 {
++			default-state = "off";
++			gpios = <&fan_leds_alt 14 GPIO_ACTIVE_HIGH>;
++			label = "fan2_amber";
++			retain-state-shutdown;
++		};
++
++		led-7 {
++			default-state = "off";
++			gpios = <&fan_leds_alt 15 GPIO_ACTIVE_HIGH>;
++			label = "fan3_amber";
++			retain-state-shutdown;
 +		};
 +	};
 +
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		presence-sled1-switch {
-+			gpios = <&gpio0 ASPEED_GPIO(H, 2) GPIO_ACTIVE_LOW>;
-+			label = "presence-sled1";
-+			linux,code = <ASPEED_GPIO(H, 2)>;
-+		};
-+
-+		presence-sled2-switch {
-+			gpios = <&gpio0 ASPEED_GPIO(H, 3) GPIO_ACTIVE_LOW>;
-+			label = "presence-sled2";
-+			linux,code = <ASPEED_GPIO(H, 3)>;
-+		};
-+
-+		presence-sled3-switch {
-+			gpios = <&gpio0 ASPEED_GPIO(H, 4) GPIO_ACTIVE_LOW>;
-+			label = "presence-sled3";
-+			linux,code = <ASPEED_GPIO(H, 4)>;
-+		};
-+
-+		presence-sled4-switch {
-+			gpios = <&gpio0 ASPEED_GPIO(H, 5) GPIO_ACTIVE_LOW>;
-+			label = "presence-sled4";
-+			linux,code = <ASPEED_GPIO(H, 5)>;
-+		};
-+
-+		presence-sled5-switch {
-+			gpios = <&gpio0 ASPEED_GPIO(H, 6) GPIO_ACTIVE_LOW>;
-+			label = "presence-sled5";
-+			linux,code = <ASPEED_GPIO(H, 6)>;
-+		};
-+
-+		presence-sled6-switch {
-+			gpios = <&gpio0 ASPEED_GPIO(H, 7) GPIO_ACTIVE_LOW>;
-+			label = "presence-sled6";
-+			linux,code = <ASPEED_GPIO(H, 7)>;
+ 	front_gpio_leds {
+ 		compatible = "gpio-leds";
+ 
+@@ -162,6 +223,24 @@ led-1 {
  		};
  	};
  
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
-+			      <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
-+			      <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>,
-+			      <&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
-+	};
++	sled1_gpio_leds_alt {
++		compatible = "gpio-leds";
 +
- 	sled1_gpio_leds {
- 		compatible = "gpio-leds";
-+
- 		led-0 {
--			label = "sled1_amber";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled1_leds 0 GPIO_ACTIVE_LOW>;
++		led-0 {
++			default-state = "keep";
++			gpios = <&sled1_leds_alt 0 GPIO_ACTIVE_LOW>;
 +			label = "sled1_amber";
 +			retain-state-shutdown;
- 		};
++		};
 +
- 		led-1 {
--			label = "sled1_blue";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled1_leds 1 GPIO_ACTIVE_LOW>;
++		led-1 {
++			default-state = "keep";
++			gpios = <&sled1_leds_alt 1 GPIO_ACTIVE_LOW>;
 +			label = "sled1_blue";
 +			retain-state-shutdown;
- 		};
- 	};
- 
++		};
++	};
++
  	sled2_gpio_leds {
  		compatible = "gpio-leds";
+ 
+@@ -180,6 +259,24 @@ led-1 {
+ 		};
+ 	};
+ 
++	sled2_gpio_leds_alt {
++		compatible = "gpio-leds";
 +
- 		led-0 {
--			label = "sled2_amber";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled2_leds 0 GPIO_ACTIVE_LOW>;
++		led-0 {
++			default-state = "keep";
++			gpios = <&sled2_leds_alt 0 GPIO_ACTIVE_LOW>;
 +			label = "sled2_amber";
 +			retain-state-shutdown;
- 		};
++		};
 +
- 		led-1 {
--			label = "sled2_blue";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled2_leds 1 GPIO_ACTIVE_LOW>;
++		led-1 {
++			default-state = "keep";
++			gpios = <&sled2_leds_alt 1 GPIO_ACTIVE_LOW>;
 +			label = "sled2_blue";
 +			retain-state-shutdown;
- 		};
- 	};
- 
++		};
++	};
++
  	sled3_gpio_leds {
  		compatible = "gpio-leds";
+ 
+@@ -198,6 +295,24 @@ led-1 {
+ 		};
+ 	};
+ 
++	sled3_gpio_leds_alt {
++		compatible = "gpio-leds";
 +
- 		led-0 {
--			label = "sled3_amber";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled3_leds 0 GPIO_ACTIVE_LOW>;
++		led-0 {
++			default-state = "keep";
++			gpios = <&sled3_leds_alt 0 GPIO_ACTIVE_LOW>;
 +			label = "sled3_amber";
 +			retain-state-shutdown;
- 		};
++		};
 +
- 		led-1 {
--			label = "sled3_blue";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled3_leds 1 GPIO_ACTIVE_LOW>;
++		led-1 {
++			default-state = "keep";
++			gpios = <&sled3_leds_alt 1 GPIO_ACTIVE_LOW>;
 +			label = "sled3_blue";
 +			retain-state-shutdown;
- 		};
- 	};
- 
++		};
++	};
++
  	sled4_gpio_leds {
  		compatible = "gpio-leds";
+ 
+@@ -216,6 +331,24 @@ led-1 {
+ 		};
+ 	};
+ 
++	sled4_gpio_leds_alt {
++		compatible = "gpio-leds";
 +
- 		led-0 {
--			label = "sled4_amber";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled4_leds 0 GPIO_ACTIVE_LOW>;
++		led-0 {
++			default-state = "keep";
++			gpios = <&sled4_leds_alt 0 GPIO_ACTIVE_LOW>;
 +			label = "sled4_amber";
 +			retain-state-shutdown;
- 		};
++		};
 +
- 		led-1 {
--			label = "sled4_blue";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled4_leds 1 GPIO_ACTIVE_LOW>;
++		led-1 {
++			default-state = "keep";
++			gpios = <&sled4_leds_alt 1 GPIO_ACTIVE_LOW>;
 +			label = "sled4_blue";
 +			retain-state-shutdown;
- 		};
- 	};
- 
++		};
++	};
++
  	sled5_gpio_leds {
  		compatible = "gpio-leds";
+ 
+@@ -234,6 +367,24 @@ led-1 {
+ 		};
+ 	};
+ 
++	sled5_gpio_leds_alt {
++		compatible = "gpio-leds";
 +
- 		led-0 {
--			label = "sled5_amber";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled5_leds 0 GPIO_ACTIVE_LOW>;
++		led-0 {
++			default-state = "keep";
++			gpios = <&sled5_leds_alt 0 GPIO_ACTIVE_LOW>;
 +			label = "sled5_amber";
 +			retain-state-shutdown;
- 		};
++		};
 +
- 		led-1 {
--			label = "sled5_blue";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled5_leds 1 GPIO_ACTIVE_LOW>;
++		led-1 {
++			default-state = "keep";
++			gpios = <&sled5_leds_alt 1 GPIO_ACTIVE_LOW>;
 +			label = "sled5_blue";
 +			retain-state-shutdown;
- 		};
- 	};
- 
++		};
++	};
++
  	sled6_gpio_leds {
  		compatible = "gpio-leds";
+ 
+@@ -252,6 +403,24 @@ led-1 {
+ 		};
+ 	};
+ 
++	sled6_gpio_leds_alt {
++		compatible = "gpio-leds";
 +
- 		led-0 {
--			label = "sled6_amber";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled6_leds 0 GPIO_ACTIVE_LOW>;
++		led-0 {
++			default-state = "keep";
++			gpios = <&sled6_leds_alt 0 GPIO_ACTIVE_LOW>;
 +			label = "sled6_amber";
 +			retain-state-shutdown;
- 		};
++		};
 +
- 		led-1 {
--			label = "sled6_blue";
--			retain-state-shutdown;
- 			default-state = "keep";
- 			gpios = <&sled6_leds 1 GPIO_ACTIVE_LOW>;
++		led-1 {
++			default-state = "keep";
++			gpios = <&sled6_leds_alt 1 GPIO_ACTIVE_LOW>;
 +			label = "sled6_blue";
 +			retain-state-shutdown;
- 		};
- 	};
- 
--	gpio-keys {
--		compatible = "gpio-keys";
-+	spi {
-+		compatible = "spi-gpio";
-+		#address-cells = <1>;
-+		cs-gpios = <&gpio0 ASPEED_GPIO(Z, 0) GPIO_ACTIVE_LOW>;
-+		miso-gpios = <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH>;
-+		mosi-gpios = <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH>;
-+		num-chipselects = <1>;
-+		sck-gpios = <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
-+		#size-cells = <0>;
- 
--		presence-sled1-switch {
--			label = "presence-sled1";
--			gpios = <&gpio0 ASPEED_GPIO(H, 2) GPIO_ACTIVE_LOW>;
--			linux,code = <ASPEED_GPIO(H, 2)>;
--		};
--		presence-sled2-switch {
--			label = "presence-sled2";
--			gpios = <&gpio0 ASPEED_GPIO(H, 3) GPIO_ACTIVE_LOW>;
--			linux,code = <ASPEED_GPIO(H, 3)>;
--		};
--		presence-sled3-switch {
--			label = "presence-sled3";
--			gpios = <&gpio0 ASPEED_GPIO(H, 4) GPIO_ACTIVE_LOW>;
--			linux,code = <ASPEED_GPIO(H, 4)>;
--		};
--		presence-sled4-switch {
--			label = "presence-sled4";
--			gpios = <&gpio0 ASPEED_GPIO(H, 5) GPIO_ACTIVE_LOW>;
--			linux,code = <ASPEED_GPIO(H, 5)>;
--		};
--		presence-sled5-switch {
--			label = "presence-sled5";
--			gpios = <&gpio0 ASPEED_GPIO(H, 6) GPIO_ACTIVE_LOW>;
--			linux,code = <ASPEED_GPIO(H, 6)>;
--		};
--		presence-sled6-switch {
--			label = "presence-sled6";
--			gpios = <&gpio0 ASPEED_GPIO(H, 7) GPIO_ACTIVE_LOW>;
--			linux,code = <ASPEED_GPIO(H, 7)>;
-+		tpm@0 {
-+			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
-+			reg = <0>;
-+			spi-max-frequency = <33000000>;
- 		};
- 	};
- 
- 	vbus_sled1: vbus_sled1 {
- 		compatible = "regulator-fixed";
--		regulator-name = "vbus_sled1";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		gpio = <&sled1_ioexp 1 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		gpio = <&sled1_ioexp 1 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vbus_sled1";
- 	};
- 
- 	vbus_sled2: vbus_sled2 {
- 		compatible = "regulator-fixed";
--		regulator-name = "vbus_sled2";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		gpio = <&sled2_ioexp 1 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		gpio = <&sled2_ioexp 1 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vbus_sled2";
- 	};
- 
- 	vbus_sled3: vbus_sled3 {
- 		compatible = "regulator-fixed";
--		regulator-name = "vbus_sled3";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		gpio = <&sled3_ioexp 1 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		gpio = <&sled3_ioexp 1 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vbus_sled3";
- 	};
- 
- 	vbus_sled4: vbus_sled4 {
- 		compatible = "regulator-fixed";
--		regulator-name = "vbus_sled4";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		gpio = <&sled4_ioexp 1 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		gpio = <&sled4_ioexp 1 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vbus_sled4";
- 	};
- 
- 	vbus_sled5: vbus_sled5 {
- 		compatible = "regulator-fixed";
--		regulator-name = "vbus_sled5";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		gpio = <&sled5_ioexp 1 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		gpio = <&sled5_ioexp 1 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vbus_sled5";
- 	};
- 
- 	vbus_sled6: vbus_sled6 {
- 		compatible = "regulator-fixed";
--		regulator-name = "vbus_sled6";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		gpio = <&sled6_ioexp 1 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		gpio = <&sled6_ioexp 1 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vbus_sled6";
- 	};
- };
- 
- &mac2 {
--	status = "okay";
- 	phy-mode = "rgmii";
--	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_rgmii3_default>;
-+	pinctrl-names = "default";
++		};
++	};
 +
-+	status = "okay";
- 
- 	fixed-link {
--		speed = <1000>;
- 		full-duplex;
-+		speed = <1000>;
- 	};
- };
- 
- &fmc {
- 	status = "okay";
-+
- 	flash@0 {
--		status = "okay";
--		m25p,fast-read;
- 		label = "bmc";
- 		spi-max-frequency = <50000000>;
-+		m25p,fast-read;
-+
-+		status = "okay";
- #include "openbmc-flash-layout-128.dtsi"
- 	};
-+
- 	flash@1 {
--		status = "okay";
--		m25p,fast-read;
- 		label = "alt-bmc";
- 		spi-max-frequency = <50000000>;
-+		m25p,fast-read;
-+
-+		status = "okay";
- 	};
- };
- 
- &spi2 {
--	status = "okay";
--	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_spi2_default>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
- 
- 	flash@0 {
--		status = "okay";
--		m25p,fast-read;
- 		label = "pnor";
- 		spi-max-frequency = <50000000>;
-+		m25p,fast-read;
-+
-+		status = "okay";
- 	};
- };
- 
- &i2c0 {
- 	status = "okay";
- 
--	sled1_fusb302: typec-portc@22 {
-+	typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
-@@ -354,13 +386,15 @@ sled1_fusb302: typec-portc@22 {
- 
- 		connector {
- 			compatible = "usb-c-connector";
-+			data-role = "dual";
- 			label = "USB-C";
-+			op-sink-microwatt = <10000000>;
- 			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
- 			power-role = "dual";
--			data-role = "dual";
--			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			op-sink-microwatt = <10000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
- 		};
+ 	spi {
+ 		compatible = "spi-gpio";
+ 		#address-cells = <1>;
+@@ -430,6 +599,35 @@ eeprom@54 {
+ 		reg = <0x54>;
  	};
  
-@@ -369,11 +403,11 @@ mp5023@40 {
- 		reg = <0x40>;
- 	};
- 
--	sled1_ioexp41: pca9536@41 {
-+	pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
--		gpio-controller;
- 		#gpio-cells = <2>;
++	sled1_leds_alt: pca9532@66 {
++		compatible = "nxp,pca9532";
++		reg = <0x66>;
++		#gpio-cells = <2>;
 +		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED1_SWD_MUX", "SLED1_XRES_SWD_N",
-@@ -400,38 +434,39 @@ sled1_leds: pca9552@67 {
++
++		gpio-line-names =
++		"led-sled1-amber","led-sled1-blue","SLED1_RST_IOEXP","SLED1_MD_REF_PWM",
++		"","","","",
++		"","","","",
++		"","","","";
++
++		led-0 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-1 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-2 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-3 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++	};
++
+ 	sled1_leds: pca9552@67 {
  		compatible = "nxp,pca9552";
  		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
+@@ -520,6 +718,35 @@ eeprom@54 {
+ 		reg = <0x54>;
+ 	};
  
- 		gpio-line-names =
- 		"led-sled1-amber","led-sled1-blue","SLED1_RST_IOEXP","SLED1_MD_REF_PWM",
- 		"","","","",
- 		"","","","",
- 		"","","","";
++	sled2_leds_alt: pca9532@66 {
++		compatible = "nxp,pca9532";
++		reg = <0x66>;
++		#gpio-cells = <2>;
++		gpio-controller;
 +
-+		#size-cells = <0>;
- 	};
- 
- 	sled1_ioexp: pca9539@76 {
- 		compatible = "nxp,pca9539";
- 		reg = <0x76>;
--		gpio-controller;
- 		#gpio-cells = <2>;
--
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 0) IRQ_TYPE_LEVEL_LOW>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED1_MS_DETECT1","SLED1_VBUS_BMC_EN","SLED1_INA230_ALERT","SLED1_P12V_STBY_ALERT",
- 		"SLED1_SSD_ALERT","SLED1_MS_DETECT0","SLED1_RST_CCG5","SLED1_FUSB302_INT",
- 		"SLED1_MD_STBY_RESET","SLED1_MD_IOEXP_EN_FAULT","SLED1_MD_DIR","SLED1_MD_DECAY",
- 		"SLED1_MD_MODE1","SLED1_MD_MODE2","SLED1_MD_MODE3","power-host1";
++		gpio-line-names =
++		"led-sled2-amber","led-sled2-blue","SLED2_RST_IOEXP","SLED2_MD_REF_PWM",
++		"","","","",
++		"","","","",
++		"","","","";
 +
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(M, 0) IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
- 
- &i2c1 {
- 	status = "okay";
- 
--	sled2_fusb302: typec-portc@22 {
-+	typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
-@@ -441,13 +476,15 @@ sled2_fusb302: typec-portc@22 {
- 
- 		connector {
- 			compatible = "usb-c-connector";
-+			data-role = "dual";
- 			label = "USB-C";
-+			op-sink-microwatt = <10000000>;
- 			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
- 			power-role = "dual";
--			data-role = "dual";
--			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			op-sink-microwatt = <10000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
- 		};
- 	};
- 
-@@ -456,11 +493,11 @@ mp5023@40 {
- 		reg = <0x40>;
- 	};
- 
--	sled2_ioexp41: pca9536@41 {
-+	pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED2_SWD_MUX", "SLED2_XRES_SWD_N",
-@@ -487,38 +524,39 @@ sled2_leds: pca9552@67 {
++		led-0 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-1 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-2 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-3 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++	};
++
+ 	sled2_leds: pca9552@67 {
  		compatible = "nxp,pca9552";
  		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
+@@ -610,6 +837,35 @@ eeprom@54 {
+ 		reg = <0x54>;
+ 	};
  
- 		gpio-line-names =
- 		"led-sled2-amber","led-sled2-blue","SLED2_RST_IOEXP","SLED2_MD_REF_PWM",
- 		"","","","",
- 		"","","","",
- 		"","","","";
++	sled3_leds_alt: pca9532@66 {
++		compatible = "nxp,pca9532";
++		reg = <0x66>;
++		#gpio-cells = <2>;
++		gpio-controller;
 +
-+		#size-cells = <0>;
- 	};
- 
- 	sled2_ioexp: pca9539@76 {
- 		compatible = "nxp,pca9539";
- 		reg = <0x76>;
--		gpio-controller;
- 		#gpio-cells = <2>;
--
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 1) IRQ_TYPE_LEVEL_LOW>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED2_MS_DETECT1","SLED2_VBUS_BMC_EN","SLED2_INA230_ALERT","SLED2_P12V_STBY_ALERT",
- 		"SLED2_SSD_ALERT","SLED2_MS_DETECT0","SLED2_RST_CCG5","SLED2_FUSB302_INT",
- 		"SLED2_MD_STBY_RESET","SLED2_MD_IOEXP_EN_FAULT","SLED2_MD_DIR","SLED2_MD_DECAY",
- 		"SLED2_MD_MODE1","SLED2_MD_MODE2","SLED2_MD_MODE3","power-host2";
++		gpio-line-names =
++		"led-sled3-amber","led-sled3-blue","SLED3_RST_IOEXP","SLED3_MD_REF_PWM",
++		"","","","",
++		"","","","",
++		"","","","";
 +
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(M, 1) IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
- 
- &i2c2 {
- 	status = "okay";
- 
--	sled3_fusb302: typec-portc@22 {
-+	typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
-@@ -528,13 +566,15 @@ sled3_fusb302: typec-portc@22 {
- 
- 		connector {
- 			compatible = "usb-c-connector";
-+			data-role = "dual";
- 			label = "USB-C";
-+			op-sink-microwatt = <10000000>;
- 			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
- 			power-role = "dual";
--			data-role = "dual";
--			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			op-sink-microwatt = <10000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
- 		};
- 	};
- 
-@@ -543,11 +583,11 @@ mp5023@40 {
- 		reg = <0x40>;
- 	};
- 
--	sled3_ioexp41: pca9536@41 {
-+	pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED3_SWD_MUX", "SLED3_XRES_SWD_N",
-@@ -574,38 +614,39 @@ sled3_leds: pca9552@67 {
++		led-0 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-1 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-2 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-3 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++	};
++
+ 	sled3_leds: pca9552@67 {
  		compatible = "nxp,pca9552";
  		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
+@@ -700,6 +956,35 @@ eeprom@54 {
+ 		reg = <0x54>;
+ 	};
  
- 		gpio-line-names =
- 		"led-sled3-amber","led-sled3-blue","SLED3_RST_IOEXP","SLED3_MD_REF_PWM",
- 		"","","","",
- 		"","","","",
- 		"","","","";
++	sled4_leds_alt: pca9532@66 {
++		compatible = "nxp,pca9532";
++		reg = <0x66>;
++		#gpio-cells = <2>;
++		gpio-controller;
 +
-+		#size-cells = <0>;
- 	};
- 
- 	sled3_ioexp: pca9539@76 {
- 		compatible = "nxp,pca9539";
- 		reg = <0x76>;
--		gpio-controller;
- 		#gpio-cells = <2>;
--
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 2) IRQ_TYPE_LEVEL_LOW>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED3_MS_DETECT1","SLED3_VBUS_BMC_EN","SLED3_INA230_ALERT","SLED3_P12V_STBY_ALERT",
- 		"SLED3_SSD_ALERT","SLED3_MS_DETECT0","SLED3_RST_CCG5","SLED3_FUSB302_INT",
- 		"SLED3_MD_STBY_RESET","SLED3_MD_IOEXP_EN_FAULT","SLED3_MD_DIR","SLED3_MD_DECAY",
- 		"SLED3_MD_MODE1","SLED3_MD_MODE2","SLED3_MD_MODE3","power-host3";
++		gpio-line-names =
++		"led-sled4-amber","led-sled4-blue","SLED4_RST_IOEXP","SLED4_MD_REF_PWM",
++		"","","","",
++		"","","","",
++		"","","","";
 +
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(M, 2) IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
- 
- &i2c3 {
- 	status = "okay";
- 
--	sled4_fusb302: typec-portc@22 {
-+	typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
-@@ -615,13 +656,15 @@ sled4_fusb302: typec-portc@22 {
- 
- 		connector {
- 			compatible = "usb-c-connector";
-+			data-role = "dual";
- 			label = "USB-C";
-+			op-sink-microwatt = <10000000>;
- 			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
- 			power-role = "dual";
--			data-role = "dual";
--			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			op-sink-microwatt = <10000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
- 		};
- 	};
- 
-@@ -630,11 +673,11 @@ mp5023@40 {
- 		reg = <0x40>;
- 	};
- 
--	sled4_ioexp41: pca9536@41 {
-+	pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED4_SWD_MUX", "SLED4_XRES_SWD_N",
-@@ -661,38 +704,39 @@ sled4_leds: pca9552@67 {
++		led-0 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-1 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-2 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-3 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++	};
++
+ 	sled4_leds: pca9552@67 {
  		compatible = "nxp,pca9552";
  		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
+@@ -790,6 +1075,35 @@ eeprom@54 {
+ 		reg = <0x54>;
+ 	};
  
- 		gpio-line-names =
- 		"led-sled4-amber","led-sled4-blue","SLED4_RST_IOEXP","SLED4_MD_REF_PWM",
- 		"","","","",
- 		"","","","",
- 		"","","","";
++	sled5_leds_alt: pca9532@66 {
++		compatible = "nxp,pca9532";
++		reg = <0x66>;
++		#gpio-cells = <2>;
++		gpio-controller;
 +
-+		#size-cells = <0>;
- 	};
- 
- 	sled4_ioexp: pca9539@76 {
- 		compatible = "nxp,pca9539";
- 		reg = <0x76>;
--		gpio-controller;
- 		#gpio-cells = <2>;
--
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 3) IRQ_TYPE_LEVEL_LOW>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED4_MS_DETECT1","SLED4_VBUS_BMC_EN","SLED4_INA230_ALERT","SLED4_P12V_STBY_ALERT",
- 		"SLED4_SSD_ALERT","SLED4_MS_DETECT0","SLED4_RST_CCG5","SLED4_FUSB302_INT",
- 		"SLED4_MD_STBY_RESET","SLED4_MD_IOEXP_EN_FAULT","SLED4_MD_DIR","SLED4_MD_DECAY",
- 		"SLED4_MD_MODE1","SLED4_MD_MODE2","SLED4_MD_MODE3","power-host4";
++		gpio-line-names =
++		"led-sled5-amber","led-sled5-blue","SLED5_RST_IOEXP","SLED5_MD_REF_PWM",
++		"","","","",
++		"","","","",
++		"","","","";
 +
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(M, 3) IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
- 
- &i2c4 {
- 	status = "okay";
- 
--	sled5_fusb302: typec-portc@22 {
-+	typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
-@@ -702,13 +746,15 @@ sled5_fusb302: typec-portc@22 {
- 
- 		connector {
- 			compatible = "usb-c-connector";
-+			data-role = "dual";
- 			label = "USB-C";
-+			op-sink-microwatt = <10000000>;
- 			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
- 			power-role = "dual";
--			data-role = "dual";
--			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			op-sink-microwatt = <10000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
- 		};
- 	};
- 
-@@ -717,11 +763,11 @@ mp5023@40 {
- 		reg = <0x40>;
- 	};
- 
--	sled5_ioexp41: pca9536@41 {
-+	pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED5_SWD_MUX", "SLED5_XRES_SWD_N",
-@@ -748,38 +794,39 @@ sled5_leds: pca9552@67 {
++		led-0 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-1 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-2 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-3 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++	};
++
+ 	sled5_leds: pca9552@67 {
  		compatible = "nxp,pca9552";
  		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
+@@ -880,6 +1194,35 @@ eeprom@54 {
+ 		reg = <0x54>;
+ 	};
  
- 		gpio-line-names =
- 		"led-sled5-amber","led-sled5-blue","SLED5_RST_IOEXP","SLED5_MD_REF_PWM",
- 		"","","","",
- 		"","","","",
- 		"","","","";
++	sled6_leds_alt: pca9532@66 {
++		compatible = "nxp,pca9532";
++		reg = <0x66>;
++		#gpio-cells = <2>;
++		gpio-controller;
 +
-+		#size-cells = <0>;
- 	};
- 
- 	sled5_ioexp: pca9539@76 {
- 		compatible = "nxp,pca9539";
- 		reg = <0x76>;
--		gpio-controller;
- 		#gpio-cells = <2>;
--
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 4) IRQ_TYPE_LEVEL_LOW>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED5_MS_DETECT1","SLED5_VBUS_BMC_EN","SLED5_INA230_ALERT","SLED5_P12V_STBY_ALERT",
- 		"SLED5_SSD_ALERT","SLED5_MS_DETECT0","SLED5_RST_CCG5","SLED5_FUSB302_INT",
- 		"SLED5_MD_STBY_RESET","SLED5_MD_IOEXP_EN_FAULT","SLED5_MD_DIR","SLED5_MD_DECAY",
- 		"SLED5_MD_MODE1","SLED5_MD_MODE2","SLED5_MD_MODE3","power-host5";
++		gpio-line-names =
++		"led-sled6-amber","led-sled6-blue","SLED6_RST_IOEXP","SLED6_MD_REF_PWM",
++		"","","","",
++		"","","","",
++		"","","","";
 +
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(M, 4) IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
- 
- &i2c5 {
- 	status = "okay";
- 
--	sled6_fusb302: typec-portc@22 {
-+	typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
-@@ -789,13 +836,15 @@ sled6_fusb302: typec-portc@22 {
- 
- 		connector {
- 			compatible = "usb-c-connector";
-+			data-role = "dual";
- 			label = "USB-C";
-+			op-sink-microwatt = <10000000>;
- 			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
- 			power-role = "dual";
--			data-role = "dual";
--			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			op-sink-microwatt = <10000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
- 		};
- 	};
- 
-@@ -804,11 +853,11 @@ mp5023@40 {
- 		reg = <0x40>;
- 	};
- 
--	sled6_ioexp41: pca9536@41 {
-+	pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED6_SWD_MUX", "SLED6_XRES_SWD_N",
-@@ -835,31 +884,32 @@ sled6_leds: pca9552@67 {
++		led-0 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-1 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-2 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-3 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++	};
++
+ 	sled6_leds: pca9552@67 {
  		compatible = "nxp,pca9552";
  		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"led-sled6-amber","led-sled6-blue","SLED6_RST_IOEXP","SLED6_MD_REF_PWM",
- 		"","","","",
- 		"","","","",
- 		"","","","";
-+
-+		#size-cells = <0>;
+@@ -993,6 +1336,85 @@ tmp421@4d {
+ 		reg = <0x4d>;
  	};
  
- 	sled6_ioexp: pca9539@76 {
- 		compatible = "nxp,pca9539";
- 		reg = <0x76>;
--		gpio-controller;
- 		#gpio-cells = <2>;
--
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 5) IRQ_TYPE_LEVEL_LOW>;
++	fan_leds_alt: pca9532@66 {
++		compatible = "nxp,pca9532";
++		reg = <0x66>;
++		#gpio-cells = <2>;
 +		gpio-controller;
- 
- 		gpio-line-names =
- 		"SLED6_MS_DETECT1","SLED6_VBUS_BMC_EN","SLED6_INA230_ALERT","SLED6_P12V_STBY_ALERT",
- 		"SLED6_SSD_ALERT","SLED6_MS_DETECT0","SLED6_RST_CCG5","SLED6_FUSB302_INT",
- 		"SLED6_MD_STBY_RESET","SLED6_MD_IOEXP_EN_FAULT","SLED6_MD_DIR","SLED6_MD_DECAY",
- 		"SLED6_MD_MODE1","SLED6_MD_MODE2","SLED6_MD_MODE3","power-host6";
 +
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(M, 5) IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
- 
-@@ -908,9 +958,8 @@ front_leds: pca9552@67 {
++		gpio-line-names =
++		"presence-fan0","presence-fan1",
++		"presence-fan2","presence-fan3",
++		"power-fan0-good","power-fan1-good",
++		"power-fan2-good","power-fan3-good",
++		"","","","",
++		"","","","";
++
++		led-0 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-1 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-2 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-3 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-4 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-5 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-6 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-7 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-8 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-9 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-10 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-11 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-12 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-13 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-14 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++
++		led-15 {
++			type = <PCA9532_TYPE_GPIO>;
++		};
++	};
++
+ 	fan_leds: pca9552@67 {
  		compatible = "nxp,pca9552";
  		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"led-fault-identify","power-p5v-stby-good",
-@@ -918,6 +967,8 @@ front_leds: pca9552@67 {
- 		"","","","",
- 		"","","","",
- 		"","","","";
-+
-+		#size-cells = <0>;
- 	};
- };
- 
-@@ -928,8 +979,8 @@ adm1278@11 {
- 		compatible = "adi,adm1278";
- 		reg = <0x11>;
- 		shunt-resistor-micro-ohms = <300>;
--		adi,volt-curr-sample-average = <128>;
- 		adi,power-sample-average = <128>;
-+		adi,volt-curr-sample-average = <128>;
- 	};
- 
- 	tmp421@4c {
-@@ -946,9 +997,8 @@ fan_leds: pca9552@67 {
- 		compatible = "nxp,pca9552";
- 		reg = <0x67>;
- 		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-controller;
- 
- 		gpio-line-names =
- 		"presence-fan0","presence-fan1",
-@@ -957,11 +1007,14 @@ fan_leds: pca9552@67 {
- 		"power-fan2-good","power-fan3-good",
- 		"","","","",
- 		"","","","";
-+
-+		#size-cells = <0>;
- 	};
- };
- 
- &i2c13 {
- 	multi-master;
-+
- 	status = "okay";
- 
- 	//USB Debug Connector
-@@ -973,9 +1026,6 @@ ipmb13@10 {
- };
- 
- &gpio0 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_gpiov2_unbiased_default>;
--
- 	gpio-line-names =
- 	/*A0-A7*/	"","","","","","","","",
- 	/*B0-B7*/	"FUSB302_SLED1_INT_N","FUSB302_SLED2_INT_N",
-@@ -1029,28 +1079,33 @@ &gpio0 {
- 			"BSM_FLASH_LATCH_N","FUSB302_SLED5_INT_N",
- 			"","","","",
- 	/*Z0-Z7*/	"","","","","","","","";
-+
-+	pinctrl-0 = <&pinctrl_gpiov2_unbiased_default>;
-+	pinctrl-names = "default";
- };
- 
- &adc0 {
-+	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
-+		    &pinctrl_adc2_default &pinctrl_adc3_default
-+		    &pinctrl_adc4_default &pinctrl_adc5_default
-+		    &pinctrl_adc6_default &pinctrl_adc7_default>;
-+	pinctrl-names = "default";
-+
- 	aspeed,int-vref-microvolt = <2500000>;
--	status = "okay";
- 
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
--		&pinctrl_adc2_default &pinctrl_adc3_default
--		&pinctrl_adc4_default &pinctrl_adc5_default
--		&pinctrl_adc6_default &pinctrl_adc7_default>;
-+	status = "okay";
- };
- 
- &adc1 {
-+	pinctrl-0 = <&pinctrl_adc8_default &pinctrl_adc9_default
-+		    &pinctrl_adc10_default &pinctrl_adc11_default
-+		    &pinctrl_adc12_default &pinctrl_adc13_default
-+		    &pinctrl_adc14_default &pinctrl_adc15_default>;
-+	pinctrl-names = "default";
-+
- 	aspeed,int-vref-microvolt = <2500000>;
--	status = "okay";
- 
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_adc8_default &pinctrl_adc9_default
--		&pinctrl_adc10_default &pinctrl_adc11_default
--		&pinctrl_adc12_default &pinctrl_adc13_default
--		&pinctrl_adc14_default &pinctrl_adc15_default>;
-+	status = "okay";
- };
- 
- &mdio0 {
-@@ -1081,12 +1136,13 @@ &emmc {
- 
- &pinctrl {
- 	pinctrl_gpiov2_unbiased_default: gpiov2 {
--		pins = "AD14";
- 		bias-disable;
-+		pins = "AD14";
- 	};
- };
- 
- &wdt1 {
--	status = "okay";
- 	aspeed,reset-type = "soc";
-+
-+	status = "okay";
- };
 -- 
 2.43.0
 
