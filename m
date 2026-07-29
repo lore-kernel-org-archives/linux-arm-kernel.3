@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BF5C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD1DFC54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNJqLN7sFIUtuHus3k+ynCwt+hngsQGxhV0EYDj7h8Q=; b=Kma7/7rQYf4yZGo+EAtGq2f2Pw
-	EyBMSWXnP1SWsGW3/E7L26uYtuELEBOqAYL3iwujpy8fkRrSftvQL5Y/QZuMxt5ygG8ZxeTrdEyUe
-	OCeWkTW9PBlj+lSxmFm2hGWI5//pHALDObrUmm/+4ilanyvTx4GAkuHYf8GGUpAB3uxY1e4MVcJuS
-	nea/XyToAn/LIbtDvMFaUIzJOEDFepDhxSLYbg6Gd/+g9I+krdN9wEeUar3V87nm4FCPvvUuYmspl
-	qcyCRCLFC+c9Ut1T3h+ouof119Aqp2BHnFpV8D/6kTo5fDF0X/QXsbst+F9IJAyZEx3t+Iz1MKR9x
-	lhPMPF/w==;
+	bh=CqjYc7dDru0kL8YLEcuxLULPz2o0kXFfzdXcedJdC2Y=; b=f6r0woo1N6/x4xL/ijOfZUz6Qi
+	Zm9vj9dx6kRDxyQY1bCuZO3XhZ5LQfd8eY/iE/wS5dstfG29tqcCHLT18IAKxiEEfxpx1ieCtx/sM
+	MqvI0JjzS77i7YNxBysY3KKvaATLD1Cy3eVS5EexuEr8R6X7EuF/tgRaVJToir9gUYaKJoyDxQos/
+	EGV4shOriEKCTTAn/0noyNmZ3K/Wbqx7rSrtdtSXDdaZEoMVgfEj7rUvzk0dTa5X90XXOL2r/dl7V
+	SyJrHMU4qeJ6kSf44i2sStcUHQCLSKGxNlVA3QfKVkToLWd1yvzp02JtlzLiAU4YcxCNxAbYmeVPA
+	DfNZA2rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1nr-00000007a7q-0cS9;
-	Wed, 29 Jul 2026 10:46:23 +0000
+	id 1wp1ny-00000007aBz-1pca;
+	Wed, 29 Jul 2026 10:46:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1nl-00000007a68-2npQ
+	id 1wp1nw-00000007a9l-00y8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:46:19 +0000
+	Wed, 29 Jul 2026 10:46:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40B38168F;
-	Wed, 29 Jul 2026 03:46:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3A7B1688;
+	Wed, 29 Jul 2026 03:46:22 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59C743F66F;
-	Wed, 29 Jul 2026 03:46:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EED7E3F66F;
+	Wed, 29 Jul 2026 03:46:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785321976; bh=MScJpOAXXAfbQ2u1dA0zQvloHLJtfbWH0IBTDlX9ou8=;
+	t=1785321986; bh=29KJvYtZhLDWSDN98h2HJ49voDEmV5ePH1jVPl+9zog=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=e/MmoJw4DqtRP7j6iVYsL3vdEnFBhovh0MugXM3mIgj6/8pkz+m9kEipEAUv6NYka
-	 UeDJTzfGLsIwseivZ6Mhsyr9dzsCARxip0pKCRykeIsxoo3ym4+FE3Af6tB3ExX3Wo
-	 h+26Q0BYL37fExFp9uluuy6n1kSotDlINE/C6jZA=
+	b=u8i/Gl88D07lb5k4+Cgxsdi0M/R14ubYZK1UxBLc5XTDNRvyCulTwXzwdBsPzh9WO
+	 7ZH4JnZC6Ysq/2yUDhZs1cX1HtLhTGA601OLFUb29zcdxUec/kSYiH3dMkBWcNqh8a
+	 U6EdzPt7lGEEwYIFlD2OoNNWx71k9YDdo91OVYiA=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -71,19 +71,20 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org
-Subject: [PATCH v3 01/11] KVM: arm64: HDBSS bits
-Date: Wed, 29 Jul 2026 11:45:36 +0100
-Message-ID: <20260729104548.3439958-2-leo.bras@arm.com>
+Subject: [PATCH v3 03/11] arm64/sysreg: Add HACDBS consumer and base registers
+Date: Wed, 29 Jul 2026 11:45:38 +0100
+Message-ID: <20260729104548.3439958-4-leo.bras@arm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260729104548.3439958-1-leo.bras@arm.com>
 References: <20260729104548.3439958-1-leo.bras@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12475; i=leo.bras@arm.com; h=from:subject; bh=MScJpOAXXAfbQ2u1dA0zQvloHLJtfbWH0IBTDlX9ou8=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb17l4ymw1v+kXVbjKDLp4O1+s2vScrcy1F8KLRSoE FFP4mjpKGVhEONikBVTZJF9NH8Vz/cpGUeu/FgAM4eVCWQIAxenAExEYj4jQ4tff0sen4f/B8f+ rZN85bb0zbcO3XTvVt/FU9PCvHh/WjP84VR+5/Jo3SMfs2UTvpeELItVnKX2+vYbdaUuq5PcU4L 28wEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1258; i=leo.bras@arm.com; h=from:subject; bh=29KJvYtZhLDWSDN98h2HJ49voDEmV5ePH1jVPl+9zog=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb16ds/nkne4E/xide58mbtsRFRztXPs0rnV78f6D3 U/cc55adJSyMIhxMciKKbLIPpq/iuf7lIwjV34sgJnDygQyhIGLUwAmsiaKkWHl1b2y+czBz16f rqoT3TL/UOqDNa0bDf77etk76hxkY1di+F+cHSHeYBz0X40tUqhealZivuAUpS1nzJImiXzN2nU /lRcA
 X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_034618_124158_C075C731 
-X-CRM114-Status: GOOD (  30.23  )
+X-CRM114-CacheID: sfid-20260729_034628_117921_C5874449 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,383 +99,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All those bits should come from a future version of HDBSS patchset:
-https://lore.kernel.org/all/20260709104026.2612599-1-zhengtian10@huawei.com/
-
-I added them here in order to fulfill the dependencies and be able to
-easily build and test this patchset, but this particular patch should *not*
-be merged upstream.
-
-It also sets a default nonzero value for chunksize, which will force eager
-splitting, and allow this patchset to be properly tested. While
-lazy-splitting should be possible in the next HDBSS patchset, it introduces
-no new behaviours in how HACDBS shoud work, so having eager splitting
-should be enough for testing.
+They will be used on a later commit to make use of the FEAT_HACDBS
+mechanism if available.
 
 Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/cpufeature.h    |  5 +++++
- arch/arm64/include/asm/kvm_dirty_bit.h | 12 ++++++++++++
- arch/arm64/include/asm/kvm_pgtable.h   |  3 +++
- arch/arm64/kernel/cpufeature.c         | 12 ++++++++++++
- arch/arm64/kvm/dirty_bit.c             | 16 ++++++++++++++++
- arch/arm64/kvm/hyp/pgtable.c           | 15 +++++++++++++--
- arch/arm64/kvm/mmu.c                   |  8 ++++++--
- arch/arm64/kvm/Makefile                |  2 +-
- arch/arm64/tools/cpucaps               |  1 +
- 9 files changed, 69 insertions(+), 5 deletions(-)
- create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
- create mode 100644 arch/arm64/kvm/dirty_bit.c
+ arch/arm64/tools/sysreg | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index a57870fa96db..bdfab086fd94 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -856,20 +856,25 @@ static inline bool system_supports_poe(void)
- static inline bool system_supports_gcs(void)
- {
- 	return alternative_has_cap_unlikely(ARM64_HAS_GCS);
- }
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 7cb61aca3797..50ec9751b44d 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4627,20 +4627,50 @@ EndEnum
+ Enum	9:8	IRGN0
+ 	0b00	NC
+ 	0b01	WBWA
+ 	0b10	WT
+ 	0b11	WBnWA
+ EndEnum
+ Field	7:6	SL0
+ Field	5:0	T0SZ
+ EndSysreg
  
- static inline bool system_supports_haft(void)
- {
- 	return cpus_have_final_cap(ARM64_HAFT);
- }
- 
-+static inline bool system_supports_hdbss(void)
-+{
-+	return cpus_have_final_cap(ARM64_HAS_HDBSS);
-+}
++Sysreg	HACDBSBR_EL2	3	4	2	3	4
++Res0	63:56
++Field	55:12	BADDR
++Field	11	EN
++Res0	10:4
++UnsignedEnum	3:0	SZ
++	0b0000	4K
++	0b0001	8K
++	0b0010	16K
++	0b0011	32K
++	0b0100	64K
++	0b0101	128K
++	0b0110	256K
++	0b0111	512K
++	0b1000	1M
++	0b1001	2M
++EndEnum
++EndSysreg
 +
- static __always_inline bool system_supports_mpam(void)
- {
- 	return alternative_has_cap_unlikely(ARM64_MPAM);
- }
- 
- static __always_inline bool system_supports_mpam_hcr(void)
- {
- 	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
- }
- 
-diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-new file mode 100644
-index 000000000000..dd16438f0651
---- /dev/null
-+++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Ltd.
-+ * Author: Leonardo Bras <leo.bras@arm.com>
-+ */
++Sysreg	HACDBSCONS_EL2	3	4	2	3	5
++UnsignedEnum	63:62	ERR_REASON
++	0b00	NOF
++	0b01	STRUCTF
++	0b10	IPAF
++	0b11	IPAHACF
++EndEnum
++Res0	61:19
++Field	18:0	INDEX
++EndSysreg
 +
-+#ifndef __ARM64_KVM_DIRTY_BIT_H__
-+#define __ARM64_KVM_DIRTY_BIT_H__
-+
-+#include <asm/kvm_pgtable.h>
-+
-+#endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb..646ff88e0258 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -86,20 +86,22 @@ typedef u64 kvm_pte_t;
- #define KVM_PTE_LEAF_ATTR_HI		GENMASK(63, 50)
+ Sysreg	GCSCR_EL2	3	4	2	5	0
+ Fields	GCSCR_ELx
+ EndSysreg
  
- #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
+ Sysreg	GCSPR_EL2	3	4	2	5	1
+ Fields	GCSPR_ELx
+ EndSysreg
  
- #define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
- #define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
- #define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
- 
- #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
- 
-+#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
-+
- #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
- 
- #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
- 					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
- 					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
- 
- /* pKVM invalid pte encodings */
- #define KVM_INVALID_PTE_TYPE_MASK	GENMASK(63, 60)
- #define KVM_INVALID_PTE_ANNOT_MASK	~(KVM_PTE_VALID | \
- 					  KVM_INVALID_PTE_TYPE_MASK)
-@@ -246,20 +248,21 @@ struct kvm_pgtable_mm_ops {
- };
- 
- /**
-  * enum kvm_pgtable_stage2_flags - Stage-2 page-table flags.
-  * @KVM_PGTABLE_S2_IDMAP:	Only use identity mappings.
-  * @KVM_PGTABLE_S2_AS_S1:	Final memory attributes are that of Stage-1.
-  */
- enum kvm_pgtable_stage2_flags {
- 	KVM_PGTABLE_S2_IDMAP			= BIT(0),
- 	KVM_PGTABLE_S2_AS_S1			= BIT(1),
-+	KVM_PGTABLE_S2_DBM			= BIT(2),
- };
- 
- /**
-  * enum kvm_pgtable_prot - Page-table permissions and attributes.
-  * @KVM_PGTABLE_PROT_UX:	Unprivileged execute permission.
-  * @KVM_PGTABLE_PROT_PX:	Privileged execute permission.
-  * @KVM_PGTABLE_PROT_X:		Privileged and unprivileged execute permission.
-  * @KVM_PGTABLE_PROT_W:		Write permission.
-  * @KVM_PGTABLE_PROT_R:		Read permission.
-  * @KVM_PGTABLE_PROT_DEVICE:	Device attributes.
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120..aa327eebaf1c 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2124,20 +2124,25 @@ static bool has_nested_virt_support(const struct arm64_cpu_capabilities *cap,
- 
- 	return true;
- }
- 
- static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
- 			  int __unused)
- {
- 	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
- }
- 
-+static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
-+{
-+	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
-+}
-+
- bool cpu_supports_bbml2_noabort(void)
- {
- 	/*
- 	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
- 	 * as possible. This list is therefore an allow-list of known-good
- 	 * implementations that both support BBML2 and additionally, fulfill the
- 	 * extra constraint of never generating TLB conflict aborts when using
- 	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
- 	 * kernel contexts difficult to prove safe against recursive aborts).
- 	 *
-@@ -2774,20 +2779,27 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		 * cannot be emulated in software (no access fault will occur).
- 		 * Therefore this should be used only if it's supported system
- 		 * wide.
- 		 */
- 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
- 		.capability = ARM64_HAFT,
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
- 	},
- #endif
-+	{
-+		.desc = "Hardware Dirty state tracking structure (HDBSS)",
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.capability = ARM64_HAS_HDBSS,
-+		.matches = has_vhe_hdbss,
-+		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
-+	},
- 	{
- 		.desc = "CRC32 instructions",
- 		.capability = ARM64_HAS_CRC32,
- 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64ISAR0_EL1, CRC32, IMP)
- 	},
- 	{
- 		.desc = "Speculative Store Bypassing Safe (SSBS)",
- 		.capability = ARM64_SSBS,
-diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-new file mode 100644
-index 000000000000..32fe938d6bf7
---- /dev/null
-+++ b/arch/arm64/kvm/dirty_bit.c
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 ARM Ltd.
-+ * Author: Leonardo Bras <leo.bras@arm.com>
-+ */
-+
-+#include <asm/kvm_dirty_bit.h>
-+
-+/* HDBSS entry field definitions */
-+#define HDBSS_ENTRY_VALID BIT(0)
-+#define HDBSS_ENTRY_TTWL_SHIFT (1)
-+#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
-+#define HDBSS_ENTRY_TTWL(x) \
-+	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
-+#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
-+#define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b74dd5ce1efd..0e2ab3fc6910 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -724,23 +724,27 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
- 		attr = KVM_S2_MEMATTR(pgt, NORMAL);
- 	}
- 
- 	r = stage2_set_xn_attr(prot, &attr);
- 	if (r)
- 		return r;
- 
- 	if (prot & KVM_PGTABLE_PROT_R)
- 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
- 
--	if (prot & KVM_PGTABLE_PROT_W)
-+	if (prot & KVM_PGTABLE_PROT_W) {
- 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
- 
-+		if (pgt->flags & KVM_PGTABLE_S2_DBM)
-+			attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
-+	}
-+
- 	if (!kvm_lpa2_is_enabled())
- 		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
- 
- 	attr |= KVM_PTE_LEAF_ATTR_LO_S2_AF;
- 	attr |= prot & KVM_PTE_LEAF_ATTR_HI_SW;
- 	*ptep = attr;
- 
- 	return 0;
- }
- 
-@@ -1360,23 +1364,27 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
- 	kvm_pte_t xn = 0, set = 0, clr = 0;
- 	s8 level;
- 	int ret;
- 
- 	if (prot & KVM_PTE_LEAF_ATTR_HI_SW)
- 		return -EINVAL;
- 
- 	if (prot & KVM_PGTABLE_PROT_R)
- 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
- 
--	if (prot & KVM_PGTABLE_PROT_W)
-+	if (prot & KVM_PGTABLE_PROT_W) {
- 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
- 
-+		if (pgt->flags & KVM_PGTABLE_S2_DBM)
-+			set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
-+	}
-+
- 	if (prot & KVM_PGTABLE_PROT_X) {
- 		ret = stage2_set_xn_attr(prot, &xn);
- 		if (ret)
- 			return ret;
- 
- 		set |= xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
- 		clr |= ~xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
- 	}
- 
- 	ret = stage2_update_leaf_attrs(pgt, addr, 1, set, clr, NULL, &level, flags);
-@@ -1581,20 +1589,23 @@ int __kvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
- 	u64 vtcr = mmu->vtcr;
- 	u32 ia_bits = VTCR_EL2_IPA(vtcr);
- 	u32 sl0 = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
- 	s8 start_level = VTCR_EL2_TGRAN_SL0_BASE - sl0;
- 
- 	pgd_sz = kvm_pgd_pages(ia_bits, start_level) * PAGE_SIZE;
- 	pgt->pgd = (kvm_pteref_t)mm_ops->zalloc_pages_exact(pgd_sz);
- 	if (!pgt->pgd)
- 		return -ENOMEM;
- 
-+	if (system_supports_hdbss())
-+		flags |= KVM_PGTABLE_S2_DBM;
-+
- 	pgt->ia_bits		= ia_bits;
- 	pgt->start_level	= start_level;
- 	pgt->mm_ops		= mm_ops;
- 	pgt->mmu		= mmu;
- 	pgt->flags		= flags;
- 	pgt->force_pte_cb	= force_pte_cb;
- 
- 	/* Ensure zeroed PGD pages are visible to the hardware walker */
- 	dsb(ishst);
- 	return 0;
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 6c941aaa10c6..e086c01a9325 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1020,22 +1020,26 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
- 
- 	mmu->last_vcpu_ran = alloc_percpu(typeof(*mmu->last_vcpu_ran));
- 	if (!mmu->last_vcpu_ran) {
- 		err = -ENOMEM;
- 		goto out_destroy_pgtable;
- 	}
- 
- 	for_each_possible_cpu(cpu)
- 		*per_cpu_ptr(mmu->last_vcpu_ran, cpu) = -1;
- 
--	 /* The eager page splitting is disabled by default */
--	mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-+	 /* The eager page splitting is disabled by default if system has no HDBSS */
-+	if (system_supports_hdbss())
-+		mmu->split_page_chunk_size = 256 * 1024 * PAGE_SIZE;
-+	else
-+		mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-+
- 	mmu->split_page_cache.gfp_zero = __GFP_ZERO;
- 
- 	mmu->pgd_phys = __pa(pgt->pgd);
- 
- 	if (kvm_is_nested_s2_mmu(kvm, mmu))
- 		kvm_init_nested_s2_mmu(mmu);
- 
- 	return 0;
- 
- out_destroy_pgtable:
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 59612d2f277c..6faacd857346 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -17,21 +17,21 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
- 	 inject_fault.o va_layout.o handle_exit.o config.o \
- 	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
- 	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
- 	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
- 	 vgic/vgic.o vgic/vgic-init.o \
- 	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
- 	 vgic/vgic-v3.o vgic/vgic-v4.o \
- 	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
- 	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
- 	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
--	 vgic/vgic-v5.o
-+	 vgic/vgic-v5.o dirty_bit.o
- 
- kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
- kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
- kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
- 
- kvm-$(CONFIG_NVHE_EL2_TRACING) += hyp_trace.o
- 
- always-y := hyp_constants.h hyp-constants.s
- 
- define rule_gen_hyp_constants
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 9b85a84f6fd4..a87706c9d160 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -62,20 +62,21 @@ HAS_RASV1P1_EXTN
- HAS_RNG
- HAS_SB
- HAS_STAGE2_FWB
- HAS_TCR2
- HAS_TIDCP1
- HAS_TLB_RANGE
- HAS_VA52
- HAS_VIRT_HOST_EXTN
- HAS_WFXT
- HAS_XNX
-+HAS_HDBSS
- HAFT
- HW_DBM
- KVM_HVHE
- KVM_PROTECTED_MODE
- MISMATCHED_CACHE_TYPE
- MPAM
- MPAM_HCR
- MTE
- MTE_ASYMM
- MTE_FAR
+ Sysreg	HDBSSBR_EL2	3	4	2	3	2
+ Res0	63:56
 -- 
 2.55.0
 
