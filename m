@@ -4,108 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD316C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 03:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3942CC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 03:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5SQzLZmnmAyoTu35635s72269K1LO99EjP1yPHjEts=; b=VLEDFiiYzLLObhs+JnZoGaeeVR
-	YHmyz2gzThTY/ybbaelr9WbukcMmMOtQcf5aQgnXmvEyBZ68SKUwLdVDBLhWPZwSaCsD/YrkP3vez
-	3fztJYYmJT37dxvfJ/bcUdrpfvd6ZOX4EGd6MhA6U7UcCb8FQGx2LwJ9vEu6htyOAlx8JVpFnmcYX
-	9IgZjFFREqRX6T2348Xf71nNGqMKmx8Fy7Y7GYaVVWOxN+I9gQN8+dFX4wfrot/eHnTxyxCrenfwG
-	hXvmoyygZtQc/TSPo9my66XKVJWKqzTe7iKso6K9xkccXPuoX7WQ7hPlVadcFTbdXmTXvFs0XWT2H
-	gvWqRzSA==;
+	bh=9hCeIFdpiZGdMUyND76+nFTdqMQ1AhaFCYWKinOxaws=; b=skKFS5Qk9VZxzkNaNHHKf06cW1
+	CR59R4J1rGWNGLpBjhAhd3DHt+WJWvQdiZYgYnjoXINwkTFSr7poMIL2lFIlN6zgY5JgNG+gyBNeT
+	c7jk2dpKvV9AceFbCWQg/bzQxvSppxKFA8VyewokzTiOQs2n+rWx83VI2mfQK/6Ikb0oM1f09BHhj
+	zFCTA06UE4JOdnPOw1Si62XBTf3G9mv51HpuNHBtbHgLLEmMkS5/UuEYpVkQlBAM4uxqx4lbRipe5
+	DPqIsW1QcJ4tdKYOUtDGPI5JvFaFQhPz1LslQ6a3z/ShRMvHalC9PUOHFzClbe3mnCFKrYjImdED/
+	1Byz7FlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wovDQ-00000006m4N-159O;
-	Wed, 29 Jul 2026 03:44:20 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1wovFF-00000006mDC-3euj;
+	Wed, 29 Jul 2026 03:46:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wovDN-00000006m3R-3S8L
+	id 1wovFE-00000006mD4-10Gk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 03:44:19 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-81eff3ddba4so8881117b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 20:44:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785296657; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nj9RQ18eDF93vAwHpezTaMF0PwZzyYG2hl1V53X/b6LMohEZQ8O+4tqgZc4bkKkMlz
-         gqjscyHIGjoJN+1t1ZwXBNeFRYF9JuPdmA0+bwJPHZsPa8kQHhoUWDFrcgDc5U1nPYAC
-         qYRn/E6XgtKsw2GurbE59zLz+Zms6jD+MZ5T0DTSNMBbRqI9+76CaeYEOQbgSRgq0iCP
-         HCxTaeAV8rFAYycsZgRinYvNYHpWAUFlhhGpNMdf8K3XJn1hs0k0cQttlYpaKh81AXMG
-         R9KS7zWjQwiQfT5k/dqPYjcDIYp2knFPjs5jLdMgrM77gWGjrgL1qURaSuiunwtlIlCq
-         smjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Q5SQzLZmnmAyoTu35635s72269K1LO99EjP1yPHjEts=;
-        fh=y2B1fRItNuaDL+bn0BeMJTop1ekHs4LP5QDoLgfd3Lg=;
-        b=WqBCL6XZqKPZf8Bz1qjUl/6Kc2OkAvp4LfdRaC1/TL/BUyfT1XpfuHBvUX2FR3bJm0
-         bo15ivN6xETSziTqsh8wAwCoQC8IGvvpqCJshCSAlZj0Kltbyn7D766m1l5Z39Kkzx76
-         gTYlDxfIzUeqNzrxYdbfKRA5N0ZdAeDrAGfrfz7EVxiGoAFJjjl3DtF2pw7VE0jZ+pCe
-         tpIQSH1JqW2UUmyrfoBxT7K9MJNBFMwAbq8HPIt7hOOva5uR5gHPFxmBSykNtbssXkL6
-         jPJjt1hTlCjwkMbwMP+i50vVpJOTmnckEmN/pwZcs9d+bo0tysoIJ0zqjf23NiTt0yhK
-         X3oQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785296657; x=1785901457; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Q5SQzLZmnmAyoTu35635s72269K1LO99EjP1yPHjEts=;
-        b=CTnCtXdzef/jdfggN8bF2V4699tyq6rqNSvi8Dn6KfFpFlkNu0IqNHPHiZJnPU2uBb
-         C1e5wXLKnrBbsCYtnW5SgMzwu7N3K137HvUQ9Ne11+gBdmx4308ReSrCCVRIBZQWns80
-         PbFkl0O7oBcGySyL9tSiYWkLUx6SuOjajcBYQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785296657; x=1785901457;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q5SQzLZmnmAyoTu35635s72269K1LO99EjP1yPHjEts=;
-        b=eQZ9WFaL58jG9Z9hvfK6GiTKrMAxFoK795Ij7DwvxT+XpYWCGxoXnisrSbEmYwfI2O
-         XU2jP4P51c0siCmg2KsGWwFbIi2Mu6wF8NXRpBSL8TQNYY6TnViL9GbJ2Q/v2SqezGLJ
-         /WQxXMFTl9SVk0VoURWfaCFciE4KI1cQeEohqMA7jc5MbJGzjxkW77cYDkN/PhkRMuAi
-         Yrz+D8rdJfUZBeK7Ffpf9UNGawpX13keQXhu4FQSfwWLzTH9FC+qYkOLI0892Kn1qKy9
-         EeWqyPO9zQWjxFbg901dKwHsNpUzTLQDyiPILh6mfOYKfVVB/FZzgcpAFj5YYgj3KShj
-         6SYA==
-X-Forwarded-Encrypted: i=1; AHgh+RqffuUV9I9bPKenYSZukXAiN+sHDPUdFoBa1nwfHgtERLi57AQLJu5S1Qthd+liX+FTz0t8g+PMZ7RSCI15QqKY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7MTPTfasq76VOY7VablxbA3cbM23ZQ6ltUFFrL+Pc8WQpz1ZH
-	upTNXYstoavWrDgbnCJilBJkte8N0fL0QrESLogPN1Z53pu934RrRo5iPnw6sXi2oio8leXl+f0
-	fUa4bUYTmWMjBPebCym9s+hyoyGBNGvFMbXcyuxEW
-X-Gm-Gg: AR+sD12abIKOwRhSI4yMSb8ZFmX29Z3rqcB6H90QEmsTMMAM/wNV8MkCIxMnS9hzXe6
-	F7axVjGFTHvdgrXmuLub24c7BpDlLNaKo02IP+h5q+lb57B0mwFw+ShQO4Bdhc8g0Qw9UcZDHnX
-	ftZ9wmHlh4J6elv8PDc/hpvjlhO5jeEGo7wyXhEaZi3kgbVMG0+dMxi5+SYx/exW4GkWbadBLH6
-	QUure6GG1SZsofMByFvMAxDKR5SGUO6Io4lgtXaXr2cf6BXqhBkiZDm+Yhtw6a1r1NCB2lqSh8V
-	aKhj9NsuLE3U9r50oOAHNzPJALGOZ0sC8jICEyYonepETuCL1bSvXGQB09taZ7c19Bw01Qr1fiQ
-	=
-X-Received: by 2002:a05:690c:3343:b0:808:f9bb:3832 with SMTP id
- 00721157ae682-81f9912e26amr22006057b3.22.1785296656671; Tue, 28 Jul 2026
- 20:44:16 -0700 (PDT)
+	Wed, 29 Jul 2026 03:46:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A3E243BC0
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 03:46:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5507E1F00AC4
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 03:46:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785296771;
+	bh=9hCeIFdpiZGdMUyND76+nFTdqMQ1AhaFCYWKinOxaws=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=dMRmYAe9PSokY48x6I7M3dDK7nXQfEJnBksN/UzmcwZWenaaIMXt6FKt1fjQEDMhC
+	 hGvtY3teJTuNZ5/6ZMHptKw0VNgTtDyMlDPzUpx61rlKxRLwdwQsqwmyJLqF9vQEBN
+	 MR1jrpdP2oYbcY1SpNCQnzHC9Qtyy+q0aeRb0a/ip2GN9EHMWW91C38xv2FpEVXLtC
+	 niJ5gRr+fPJc/MM5a1DVscvZ1req/o7hpaK+4lMClIXt/FgGpvO6EhqlSxQlVkLU8b
+	 d/9wrCXkYpchrXqcyIeqMHTSENMgQ5dl03ddVBUzHcfxUfigxDcS5ujmVhIYaCpVvh
+	 SJYhY/gKChB5A==
+Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-92e622cc874so30485285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 20:46:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoZgZKmLkoR5+iWe/+pjZqB5Es1jKU4eumvGbMraaj6Ruo4fuZYFXMjnxz8E+kQ2ZbdfS4/zII+Jx0pRcNeX8yp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyO+OcWZmbMtxzwV+hCnnDCgpfmId13zQ1YKrqft+iChy6WdmVt
+	uGQc88f8muDmlp5Y61iD/eHBOeKBUcDNc+8xpXmi9Sj2xoM8VHskdcGl962yk1JA9IRrNDJu89U
+	RcBoCu7TjJAq90lNyQ0q626RVl9gd6tI=
+X-Received: by 2002:a05:620a:258d:b0:92e:4867:95af with SMTP id
+ af79cd13be357-9330264e639mr479318185a.73.1785296770680; Tue, 28 Jul 2026
+ 20:46:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260728212438.54078-1-rosenp@gmail.com> <20260728212438.54078-3-rosenp@gmail.com>
-In-Reply-To: <20260728212438.54078-3-rosenp@gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 29 Jul 2026 11:44:04 +0800
-X-Gm-Features: AUfX_mySigGaf9N_bx5P2m2Z30yXuSp7TjHLme6C1EdwCx1nkTn3oRTu9esXu2Y
-Message-ID: <CAGXv+5EVSc4=ug=GU6Gvdu0UatqM1DD48i-c3AEb4p0GwktRvg@mail.gmail.com>
-Subject: Re: [PATCHv2 2/2] Input: mtk-pmic-keys: Count available keys during
- probe instead of pre-counting
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-input@vger.kernel.org, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+References: <20260715120813.3609949-3-jiangwen6@xiaomi.com> <20260721181729.305137-1-devnexen@gmail.com>
+In-Reply-To: <20260721181729.305137-1-devnexen@gmail.com>
+From: Barry Song <baohua@kernel.org>
+Date: Wed, 29 Jul 2026 11:45:59 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4wWhvKA=BmPwCrGv06kq07QMP6CKES1mGUnx=HmiDPGLw@mail.gmail.com>
+X-Gm-Features: AUfX_mxEu5tKUyNHmfuUECxYL_B8CLwg9_b_6o8Uh7pr6aO8ZRt_yR9G9xuE8h8
+Message-ID: <CAGsJ_4wWhvKA=BmPwCrGv06kq07QMP6CKES1mGUnx=HmiDPGLw@mail.gmail.com>
+Subject: Re: [PATCH v7 2/7] arm64/vmalloc: Allow arch_vmap_pte_range_map_size
+ to batch multiple CONT_PTE
+To: David Carlier <devnexen@gmail.com>
+Cc: jiangwenxiaomi@gmail.com, dev.jain@arm.com, david@kernel.org, 
+	urezki@gmail.com, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_204418_037514_751DB658 
-X-CRM114-Status: GOOD (  28.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,192 +80,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 5:25=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wrot=
-e:
+On Wed, Jul 22, 2026 at 2:17=E2=80=AFAM David Carlier <devnexen@gmail.com> =
+wrote:
 >
-> Replace the separate of_get_available_child_count() pre-count and
-> validation step with a single pass through
-> for_each_child_of_node_scoped().  Skip unavailable child nodes and
-> bail if more than MTK_PMIC_MAX_KEY_COUNT available keys are found.
-
-This actually fixes a small bug. The pre-count only gets the number
-of available keys, but the subsequent for_each_child block doesn't
-skip over the unavailable ones, so if an unavailable node is in
-the middle of the tree, there could end up being a mismatch.
-
-> Set nkeys after the loop so suspend/resume iterate only over
-> initialized entries.  Use a local key variable in the loop for
-> clarity.
+> Barry, Wen - the returned span is capped at PMD_SIZE >> 1 but only
+> checked for CONT_PTE_SIZE alignment. In the batched vmap() path pages
+> are only contiguous within a naturally aligned block, so when a PMD
+> boundary splits a batch the next region starts mid block and the span
+> runs past the contiguous run - set_huge_pte_at() maps the wrong pages,
+> tail of the array left unmapped, no warning.
 >
-> Add an irq > 0 guard to the suspend/resume wakeup paths so that
-> uninitialized key entries are safely skipped.
-
-You are trying to do too much in one patch. These other fixes should be
-in separate patches.
-
-And why not just modify the driver to keep "nkeys", so that it knows
-how many entries are valid? No use in iterating over empty entries.
-
-
-> Assisted-by: OpenCode:BigPickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/input/keyboard/mtk-pmic-keys.c | 71 ++++++++++++--------------
->  1 file changed, 34 insertions(+), 37 deletions(-)
+> What do you think of clamping the span to the pfn physical alignment,
+> like 8xx does:
 >
-> diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keybo=
-ard/mtk-pmic-keys.c
-> index fd684ac16938..e2ced6e5165a 100644
-> --- a/drivers/input/keyboard/mtk-pmic-keys.c
-> +++ b/drivers/input/keyboard/mtk-pmic-keys.c
-> @@ -267,7 +267,7 @@ static int mtk_pmic_keys_suspend(struct device *dev)
->         int index;
->
->         for (index =3D 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
-> -               if (keys->keys[index].wakeup) {
-> +               if (keys->keys[index].irq > 0 && keys->keys[index].wakeup=
-) {
->                         enable_irq_wake(keys->keys[index].irq);
->                         if (keys->keys[index].irq_r > 0)
->                                 enable_irq_wake(keys->keys[index].irq_r);
-> @@ -283,7 +283,7 @@ static int mtk_pmic_keys_resume(struct device *dev)
->         int index;
->
->         for (index =3D 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
-> -               if (keys->keys[index].wakeup) {
-> +               if (keys->keys[index].irq > 0 && keys->keys[index].wakeup=
-) {
->                         disable_irq_wake(keys->keys[index].irq);
->                         if (keys->keys[index].irq_r > 0)
->                                 disable_irq_wake(keys->keys[index].irq_r)=
-;
-> @@ -324,13 +324,13 @@ MODULE_DEVICE_TABLE(of, of_mtk_pmic_keys_match_tbl)=
-;
->  static int mtk_pmic_keys_probe(struct platform_device *pdev)
->  {
->         int error, index =3D 0;
-> -       unsigned int keycount;
->         struct mt6397_chip *pmic_chip =3D dev_get_drvdata(pdev->dev.paren=
-t);
->         struct device_node *node =3D pdev->dev.of_node;
->         static const char *const irqnames[] =3D { "powerkey", "homekey" }=
-;
->         static const char *const irqnames_r[] =3D { "powerkey_r", "homeke=
-y_r" };
->         struct mtk_pmic_keys *keys;
->         const struct mtk_pmic_regs *mtk_pmic_regs;
-> +       struct mtk_pmic_keys_info *key;
->         struct input_dev *input_dev;
->
->         keys =3D devm_kzalloc(&pdev->dev, sizeof(*keys), GFP_KERNEL);
-> @@ -353,45 +353,42 @@ static int mtk_pmic_keys_probe(struct platform_devi=
-ce *pdev)
->         input_dev->id.product =3D 0x0001;
->         input_dev->id.version =3D 0x0001;
->
-> -       keycount =3D of_get_available_child_count(node);
-> -       if (keycount > MTK_PMIC_MAX_KEY_COUNT ||
-> -           keycount > ARRAY_SIZE(irqnames)) {
-> -               dev_err(keys->dev, "too many keys defined (%d)\n", keycou=
-nt);
-> -               return -EINVAL;
-> -       }
-> -
->         for_each_child_of_node_scoped(node, child) {
-> -               keys->keys[index].regs =3D &mtk_pmic_regs->keys_regs[inde=
-x];
-> -
-> -               keys->keys[index].irq =3D
-> -                       platform_get_irq_byname(pdev, irqnames[index]);
-> -               if (keys->keys[index].irq < 0)
-> -                       return keys->keys[index].irq;
-> -
-> -               if (mtk_pmic_regs->key_release_irq) {
-> -                       keys->keys[index].irq_r =3D platform_get_irq_byna=
-me(pdev,
-> -                                                                        =
- irqnames_r[index]);
-> -
-> -                       if (keys->keys[index].irq_r < 0)
-> -                               return keys->keys[index].irq_r;
-> +               if (index >=3D MTK_PMIC_MAX_KEY_COUNT) {
-> +                       dev_err(&pdev->dev, "too many keys defined\n");
-> +                       return -EINVAL;
->                 }
->
-> -               error =3D of_property_read_u32(child,
-> -                       "linux,keycodes", &keys->keys[index].keycode);
-> -               if (error) {
-> -                       dev_err(keys->dev,
-> -                               "failed to read key:%d linux,keycode prop=
-erty: %d\n",
-> -                               index, error);
-> -                       return error;
-> +               if (of_device_is_available(child)) {
+>         while (!IS_ALIGNED(PFN_PHYS(pfn), size))
+>                 size >>=3D 1;
 
-Instead of re-indenting the whole block and making the diff huge and
-unreadable, please make this skip over the remaining code when the
-condition fails, i.e.:
+Thanks, David.
 
-                  if (!of_device_is_available(child))
-                          continue;
+I noticed that 8xx has simplified this to a simple
 
-Or better yet, just use for_each_available_child_of_node_scoped() { ... }
-instead.
+    if (!IS_ALIGNED(PFN_PHYS(pfn), size))
 
-I normally suggest people read the API docs (either on docs.kernel.org
-or the kernel-doc sections in the code) to find better suited constructs
-to use.
+Could we do the same here?
 
+diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmal=
+loc.h
+index d665f9d68742..a27101e24f76 100644
+--- a/arch/arm64/include/asm/vmalloc.h
++++ b/arch/arm64/include/asm/vmalloc.h
+@@ -46,6 +46,8 @@ static inline unsigned long
+arch_vmap_pte_range_map_size(unsigned long addr,
 
-Thanks
-ChenYu
+        size =3D min3(end - addr, 1UL << max_page_shift, PMD_SIZE >> 1);
+        size =3D rounddown_pow_of_two(size);
++       if (!IS_ALIGNED(PFN_PHYS(pfn), size) || size < CONT_PTE_SIZE)
++               return PAGE_SIZE;
+        return size;
+ }
 
-> +                       key =3D &keys->keys[index];
-> +                       key->regs =3D &mtk_pmic_regs->keys_regs[index];
-> +
-> +                       key->irq =3D platform_get_irq_byname(pdev, irqnam=
-es[index]);
-> +                       if (key->irq < 0)
-> +                               return key->irq;
-> +
-> +                       if (mtk_pmic_regs->key_release_irq) {
-> +                               key->irq_r =3D platform_get_irq_byname(pd=
-ev, irqnames_r[index]);
-> +                               if (key->irq_r < 0)
-> +                                       return key->irq_r;
-> +                       }
-> +
-> +                       error =3D of_property_read_u32(child, "linux,keyc=
-odes", &key->keycode);
-> +                       if (error) {
-> +                               dev_err(keys->dev,
-> +                                       "failed to read key:%d linux,keyc=
-ode property: %d\n",
-> +                                       index, error);
-> +                               return error;
-> +                       }
-> +
-> +                       if (of_property_present(child, "wakeup-source"))
-> +                               key->wakeup =3D true;
-> +
-> +                       error =3D mtk_pmic_key_setup(keys, key);
-> +                       if (error)
-> +                               return error;
->                 }
 >
-> -               if (of_property_read_bool(child, "wakeup-source"))
-> -                       keys->keys[index].wakeup =3D true;
-> -
-> -               error =3D mtk_pmic_key_setup(keys, &keys->keys[index]);
-> -               if (error)
-> -                       return error;
-> -
->                 index++;
->         }
->
-> --
-> 2.55.0
->
->
+> Cheers.
 
