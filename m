@@ -4,85 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D268C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6FFBC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bj9zUQeAnHt3kbxhKKqsrB/Vw/2J1kCjeLL3HysJ+OQ=; b=PT92PFvw/k0phMnaWVSusnLC/v
-	I0tRx0QRHzCuNIi+dbhPbn1hnTj34QbrkHJCaBwExGVPMzZ0KotM7rvPrA9X+t2ox1b0ZBiOIc14o
-	XEReS9uXiHJMac+cKZ0ECUuJKVyp343roDKdLxeFZ4TfMX8PSq0ZKzLMUNgERgEnuuohuYj0dB2Gl
-	TX7p9ph0tOMvwOTbCRfw6sIhYaFsIEl+xm7ezFnJXvy3WwdeyZfn+amh5DgeNaJ5rYW9CA+tGPU6v
-	Sk2eC0K0cqttgbkK4HOj4TH8mDV226IoPJtc09bzgaeJSscn5Fy7yb/pnftwjfAv+W0moXC7w8Ff0
-	5vk0j58w==;
+	bh=wY2z2naCN/wW7JTS6rmtxDUEVDrtu2VWnySFhQoTtls=; b=eGX/t+8P094D0dFelNQjUOUVlT
+	v7pt5+hxWxOPxJcC3BS3ZbzAXJjztGdKJwpf0uW36eEXdIW0JQf0CQnGJ9RcbtB1yyy84TpjeTgOr
+	xsX5Km9UU+HctfcprxCMdCwZloCTSBnrNE6tN9PQnvldb7i0S5J8KutvI2RN77r1CoeV1UN7QiGaF
+	3njSHK0AxjcseOfddb9ZwRvyT6XDQS6OegS9LEG5jmX6ALAeDp3iMnTcrcOb6p6QoQnu0oBSWuI7g
+	0qP9p4sP36YpnCPlQaZv3vw4nX322jGdmPnT7uEe2hvJmx7wltVORng5gbV6AG8BqnILpYl7GwixD
+	3/JWmSEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3cg-00000007wUB-3rWT;
-	Wed, 29 Jul 2026 12:42:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wp3hy-00000007xCg-3Bx7;
+	Wed, 29 Jul 2026 12:48:26 +0000
+Received: from mail-westeuropeazon11010064.outbound.protection.outlook.com ([52.101.69.64] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3cf-00000007wTy-2XJn
+	id 1wp3hw-00000007xCD-1FCi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 12:42:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DBC15408FA;
-	Wed, 29 Jul 2026 12:42:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71AFC1F00A3A;
-	Wed, 29 Jul 2026 12:42:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785328976;
-	bh=Bj9zUQeAnHt3kbxhKKqsrB/Vw/2J1kCjeLL3HysJ+OQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=fk51lgHOMjZ7UJy7rfHUcnROpoZJbqgvZ+c4OYkSOe9jR6EyxJQLtCRvfMrkzVzx/
-	 Rf5/RAEHf7GArTBqQ2VB+DFRw0QyG2ql7V72s/sHnBfMKNLGNkKhrriLiArX2QJ6cx
-	 1qjqorspgFLmPUCGw/ASAMk1xr2Hf3oQaNKGeNdpiutzp0s+nYTRSZ/CF0deF+AX7m
-	 j+0tciNij7lI/yw9EWy9c9F87NR3fNmwd7IBMyco2FdZOP3CL96MBIgHeLxBgXTGUm
-	 RadyiuP8fXfsneErpOdP7H1gRrbUQIP2TUtweQLf125QqSdmlDtS8C9gom80W6A0AG
-	 Isf/jYJgsYTQQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
- reference
-In-Reply-To: <amnRB98ZZIysHuM3@google.com>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-13-aneesh.kumar@kernel.org>
- <ami_mpd_1pF4Tmdu@google.com> <yq5a5x1ygo7z.fsf@kernel.org>
- <amnRB98ZZIysHuM3@google.com>
-Date: Wed, 29 Jul 2026 18:12:38 +0530
-Message-ID: <yq5acxw6dl1d.fsf@kernel.org>
+	Wed, 29 Jul 2026 12:48:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LGN+1CRss2RT5g6wDwZnAzGOXqWh59xGpK6xXwDCg8Byrl/iYjvy71zsJXcouaSdPUwTCKHO9IuMeIve2Kq8uKVfdaOW+h5RAu3Zc5hPnvdZShs+sZchRBwR1L8ftDVDKii5IhEicyjCE040HBgCBxv+TXLRrD35i4z+nJlFP3MBbTaAZCV6Pd3D9rySSartB4KwAkHEv+H34QOoBKT/Elx8ewESnPj7b0G0lcyx4p+eNm4N60uQ4msv71sIxrJP4YY5DzvEjCS5XzF8WT1H8re6yZG9TeZgFJy6sb6VYQPoDjCPCYGeQERHQ2MkBnuEsMOSaKICt5PJ24uNNe1cXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wY2z2naCN/wW7JTS6rmtxDUEVDrtu2VWnySFhQoTtls=;
+ b=uvDvEcObhxEWKNcaLI1u34P9BbofVEZjslim30FU2Rj2w8bub0dCnRbwoLltjVW5B0YZi+zr74d7qYA54baxFxvm4mCddi9Sn3EfgXO7XwkTHs/BfQyOu1oipA9D1+471LlgOo5cNhEhEXuvPZh5zUMY1ZTgsb4/2Jc0DnN0r9WURG44sRC8duDpqVJbc4/EbZhH4YNi3h0Go1As786Y8WS8ZRHLDN/zuQ1lLAsO6KRshOiwIFktBgcB41HUblkZQXJrzNA7Pw+d1ve6u4A+BGDD9wJ8ZEZ5v3TKSNbSMS/0TVrJnWRYZEwyzDFgGRFb5wCV6A68GdsGZzR8m9TKRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wY2z2naCN/wW7JTS6rmtxDUEVDrtu2VWnySFhQoTtls=;
+ b=rSZBU55x4osTsO2PFmcEijcONhwQjNljRSkBnazGPt6tm+29nbI6eDFDuAbAdlu/+Ph/S6NG/cGQ7441tGWS0Vx07kU7/cXa/WNKHY5KEE5dhEVqqNGMh/COGgxrNbo5RLIWYzEzl0hXuMZM9mIxG81RAaYZ8taCQl/pxg1YUhzBO8fEA35sjBendFuEIepzW9NYPOUQDEmUcOYlusgKbd+g95l5UBwuvI55dpCq4i9rfwxezmNdub2m6k19n5CsvzTxUbUsmJ1mXxhljP8IO2YbjAz4m//QGQ21qolZyFdi9uIo6yd50nVmwWU9437mCNyIxYtG6n4gk23Qe3utPA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by MI9PR04MB170442.eurprd04.prod.outlook.com (2603:10a6:290:c3::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.13; Wed, 29 Jul
+ 2026 12:48:20 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0245.010; Wed, 29 Jul 2026
+ 12:48:19 +0000
+Date: Wed, 29 Jul 2026 20:52:04 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Ivan T. Ivanov" <iivanov@suse.de>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Frank Li <frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH] arm64: errata: Add NXP iMX8QM workaround for A53 cache
+ coherency issue
+Message-ID: <amn3dMLIuxYFFtoN@shlinux89>
+References: <20260729-imx8qm-cache-coherency-v1-1-c9864e280437@nxp.com>
+ <amnNAJC4yHVsZaN8@J2N7QTR9R3.cambridge.arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amnNAJC4yHVsZaN8@J2N7QTR9R3.cambridge.arm.com>
+X-ClientProxiedBy: SI2P153CA0001.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::7)
+ To AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|MI9PR04MB170442:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd24c3e2-3ded-4f53-1a04-08deed6faad9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|23010399003|6133799003|22082099003|18002099003|3023799007|4143699003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: RZp5jO17YugGs1jk6N8GYy/E6s8cDvsI1jGiEoE1rEdx5NxAwihMA6EqLK3aqxsh3UKhqG9Xwc5LpvZUjjHHk0H7McBDWxxx1gA60JT+CwHALSfyftnUZUoGk6fpIk8gowYeklyIuEceT4xCcONQpINkK5a2w6JrYRSvOoR0rPyqHID6IBJrU4m97km/bhFb1xglIVinZVJT9svhMynTfxsDQ0i4TXfYIvwe1upyb8fMrXwI26IWydQ8BeNnoLSlDzRZj3CYw3nqzq4HshCkpx/QZRLYwSdXZjyIcvMmcAZCu3laJ1W87c40zT87Xzn1ys9wRipAvT/chdYQHnzN0FLc+AtKlQoME4oXO4MF1pxUpGJpr5kEOOXgv9WkPtWp3N0xN4rhEzF76YEdY/QhhMcM3i9ynju0Jevr3cHjtBBHB9/qtncsNyu2Ls66Dk3dtTfzqXT6cRgxqVs1m1P2JDbWzpQ+wSTPAEyjCw1xF9IZanizST3EI2tKKYK4lLtX4QYv9ESKcIZaPe6UDx8PFBsDE3dU2vSrBk3o+4lXcJQGLhaw/DZataE2pYp4e60j6DTr5JflhF6BdxijAVkW+SwEnrCxK2fH9gRX5S+a0ZEq59mPm/GZgPFAW1xXRzi2k/Sys/cfYxg8KzIO8Ehx9ZMa5cQEHrorB+mDwbp/1bs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(23010399003)(6133799003)(22082099003)(18002099003)(3023799007)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xQEUPgVt9QrS0Fp1ag9oRvFQkxzw3XItC6JCtlblM+5LwcJzPGBlUdzMyRaq?=
+ =?us-ascii?Q?RvbbnNBQMgT1ajz01XhspIOXTzsi//5s7pS1GCyz29gMRH75TMeL5OtCpLy4?=
+ =?us-ascii?Q?0JYo47C8c80CQo2y32G4a5htKKSEwzztTI8yJO2NCPQFgmv8Q4MO8Rsvjh7C?=
+ =?us-ascii?Q?BRdDMqFN6z5KIhg+06PsTr2u0r97fP4jn0LbQZVS5SFtFLPaoPpaw+dSDQHk?=
+ =?us-ascii?Q?csCpedm2vU/JGwywhpS+REeFwYIbF4RLqBKnbusKVmdTTXo9AK/RuMOzLUaK?=
+ =?us-ascii?Q?5N0HY7rjAC5iV1Bohat67ABVw+jHCrNwD9rENi9S8ilMVICtzCjHpglFaNX4?=
+ =?us-ascii?Q?ersvtQndAgFMSMs9v3tkOeETUYVIvh/R+lGyDhMNhXuYk3Q+hN+kv0p4bnlf?=
+ =?us-ascii?Q?AXy7RZGCc9Nwq3alJzlUbxgr4rI0xCOo61JZRfgdlk8DsoEoea7n2gto+uah?=
+ =?us-ascii?Q?VnXtu6bicDRV8zB8fvxpILD0LIWBLX+8UXQTzodxNk3xFEbL4CSdqAxzcAB4?=
+ =?us-ascii?Q?h75Y5MVgm4HFnBoI7KW8TcOBTs+KCQrmowz1UvXZE05nX3G7XVZw50Qcf762?=
+ =?us-ascii?Q?JeVEnV2aEauCQA7AzgA705N6/OvaeOrZletFGGamr9Y9ELkMz82dTEde/YtE?=
+ =?us-ascii?Q?TIwkcBi28arR7hhaoabCsgIvJb4gvq9s/dqQaZogwxI6pigxEPJN7/t22O2J?=
+ =?us-ascii?Q?c+L6ojj33HNsZkuvJdwZiwr1J3MJCaIvHrAA2sX2dxB8zNkoVhuz3Bsf//G3?=
+ =?us-ascii?Q?v7Ptd4N+YQw6dkPQUJwQXALO9iEXLHVGszG2O8IlM+ceTquc88T+QYTYAx8g?=
+ =?us-ascii?Q?FaoaPzZD53n4OeVymF4NZqBNNPno8vc1OHoQa6pSZeVHxQApowUkZyfV22uw?=
+ =?us-ascii?Q?roxGLOVMPXDSVjBvwNM00JSA53VRcCT1BGL0DPH3Q1laDJeDBZBS+9nECDc9?=
+ =?us-ascii?Q?QOZ5gXV/ixybYCwFmkHz8GifMD+GYFjMkx7+g6gE2eyaWTNE7SBkptkSbNZA?=
+ =?us-ascii?Q?9XSjVqdH5/qybvjIiIimtWIDqtVgq0kkDzJioLpP0l8GXPwPA7AoSzTZC7cv?=
+ =?us-ascii?Q?HEPc71v/8YQWDU3H9an6KK4v9Si6r11rg2FtDVUxfJ6DHOM2FWPm3Q0x+4wQ?=
+ =?us-ascii?Q?g2lnF6aNNoXavpelu1QnStU5LcuMMNDGO9Pxn55jHEwN4EZ8zeKomsM+NvFv?=
+ =?us-ascii?Q?RLe9GHkFnHtKSWyh2DRYBUB3XImHEMDMbi8yxFKuELOcqyhUGOLgPM5F/YZT?=
+ =?us-ascii?Q?KiSyZiizQflGPFsUp3+MlKnIYa4BW87FYTz6bz5Y8LuMgTtnQjIbTwmy9q3W?=
+ =?us-ascii?Q?f5c6kzL1735rVUm2Wrw+5qnRDJxkHsDMlOJkByCe2Fw6WF8oAtkbSAQqH73j?=
+ =?us-ascii?Q?2RruDA9A5cFfkGH7m5LRxE4G1NHy32KRjqWymPTAEThdpzZJak7/BlHCC/ng?=
+ =?us-ascii?Q?VuVBT0w9kLny8MF3+zC7CbQziSk2AAFi2aD4hPWaJRg4rfXwHP1VIUhPDhya?=
+ =?us-ascii?Q?WjGwZVzQeZXpXOcKHVRyMMYS0x5cpdCHs9ErYjeKNukZ8+ATglpMwWBM/db0?=
+ =?us-ascii?Q?HA2zob3sd1mfPogMcjaePd8w9HiiBXeS2siGLvuzlgrpwSysGqnK01yWG/ar?=
+ =?us-ascii?Q?vmMOjKu2kj8Rr0hAtPvVl3JLivcHl+2F3QjqUeqpARp4hRa4h3QKAYwH74V2?=
+ =?us-ascii?Q?iu6DN2N6ikXaCuiP3wZ25FJ6p5kIPpq30uHe4eEMpQ24mLipsdpc6VddrKeN?=
+ =?us-ascii?Q?LPkYBhVF0VjEYxxvX48wE2ReYF7l4E0GboF3AR59onsjUkjej9N4?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd24c3e2-3ded-4f53-1a04-08deed6faad9
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 12:48:19.8089
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: raWWHo0GO5IRqzJui768DZdoXeUz0QWmiYc1H5jllI4EwluaeklpffxQgV1fUMIM8nM+GV9IFlIO958zDNHnUH7efLMa2P3O3kwB0ui52nlorTmnmLKBq3b54qY4p1+y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB170442
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_054824_340887_7384830D 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,51 +146,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mostafa Saleh <smostafa@google.com> writes:
+Hi Mark,
 
-> On Wed, Jul 29, 2026 at 02:35:36PM +0530, Aneesh Kumar K.V wrote:
->> Mostafa Saleh <smostafa@google.com> writes:
->> 
->> > On Fri, Jul 17, 2026 at 11:34:30PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> >> Change swiotlb_tbl_map_single() to take the DMA mapping attributes by
->> >> reference and update the direct callers accordingly.
->> >> 
->> >> This is a preparatory change for a follow-up patch which updates the
->> >> attributes based on the selected swiotlb pool. Keeping the signature change
->> >> separate makes the follow-up patch easier to review.
->> >> 
->> >
->> > I do not understand the point of this, why would
->> > swiotlb_tbl_map_single() force attrs over the caller which should
->> > already know the context (whether DMA is shared or not) which case
->> > would this be useful to force from the SWIOTLB code?
->> >
->> 
->> The mapping request was for private memory, but the device could not use
->> it because the dma_capable() (force_dma_unencrypted() == true) check
->> failed. As a result, dma_direct_map_phys() allocated a swiotlb bounce
->> buffer, which is shared. Since the DMA now targets the shared bounce
->> buffer rather than the original private memory, the attributes must be
->> updated to reflect the new shared mapping.
->> 
->> dma_addr = phys_to_dma(dev, phys);
->> if (unlikely(!dma_capable(dev, dma_addr, size, true)))
->> 	if (is_swiotlb_active(dev))
->> 		return swiotlb_map(dev, phys, size, dir, attrs);
->> 
->> 
->
-> But it does not make sense to me to have it in such a low level
-> function, and it shouldn't change the attrs that was passed.
->
-> dma_direct_map_phys() is the right place to do this it should set
-> the correct attrs before calling swiotlb_map().
->
+Thanks for your reviewing.
 
-There is a possibility that we may support io_tlb_mem with cc_shared =
-false in the future. As a result, only swiotlb_map() knows which type of
-bounce buffer was used, making it the only place where the attributes
-can be updated correctly.
+On Wed, Jul 29, 2026 at 10:50:56AM +0100, Mark Rutland wrote:
+>On Wed, Jul 29, 2026 at 11:28:52AM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
+>> 
+>> According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
+>> suffers from a serious cache coherency issue (ERR050104). The upper
+>> bits, above bit 35, of the ARADDR and ACADDR buses within the Arm A53
+>> subsystem have been incorrectly connected. This causes some TLBI and IC
+>> maintenance operations exchanged between the A53 and A72 core clusters
+>> to be corrupted.
+>> 
+>> The workaround requires:
+>> 
+>>   - Downgrading targeted TLBI operations to broadcast-all variants.
+>>     Instead of patching the low-level __TLBI_1 macro (which interferes
+>>     with the REPEAT_TLBI workaround and causes excessive over-
+>>     invalidation), redirect high-level TLB flush functions
+>>     (flush_tlb_mm, __do_flush_tlb_range, flush_tlb_kernel_range,
+>>     __flush_tlb_kernel_pgtable) to use VMALLE1IS via static key checks.
+>> 
+>>   - Upgrading IC IVAU to IC IALLUIS for both kernel (via ALTERNATIVE in
+>>     invalidate_icache_by_line) and EL0 userspace (via trap-and-upgrade
+>>     in user_cache_maint_handler with SCTLR_EL1.UCI=0).
+>> 
+>>   - Disabling KVM since correct TLB maintenance cannot be guaranteed
+>>     for guests without the proper devicetree.
+>> 
+>>   - No need to touch SMMU Broadcast TLB Maintenance (BTM) since i.MX8QM
+>>     does not support broadcast TLB.
+>> 
+>> SoC detection uses devicetree compatible string "fsl,imx8qm" since the
+>> boot CPU MIDR_EL1 (0x410fd034) and AIDR_EL1 (0) are not unique to this
+>> SoC.
+>> 
+>> [1] https://www.nxp.com/docs/en/errata/IMX8_1N94W.pdf
+>
+>[...]
+>
+>> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104)) {
+>> +		__tlbi(vmalle1is);
+>> +	} else {
+>> +		switch (flags & (TLBF_NOWALKCACHE | TLBF_NOBROADCAST)) {
+>> +		case TLBF_NONE:
+>> +			__flush_s1_tlb_range_op(vae1is, start, pages, stride,
+>> +						asid, tlb_level);
+>> +			break;
+>> +		case TLBF_NOWALKCACHE:
+>> +			__flush_s1_tlb_range_op(vale1is, start, pages, stride,
+>> +						asid, tlb_level);
+>> +			break;
+>> +		case TLBF_NOBROADCAST:
+>> +			/* Combination unused */
+>> +			BUG();
+>> +			break;
+>> +		case TLBF_NOWALKCACHE | TLBF_NOBROADCAST:
+>> +			__flush_s1_tlb_range_op(vale1, start, pages, stride,
+>> +						asid, tlb_level);
+>> +			break;
+>> +		}
+>>  	}
+>
+>Are you sure the workaround needs to be applied for the TLBF_NOBROADCAST
+>cases? The NXP document lists non-broadcast TLBI instructions, but I
+>strongly suspect that's in error, as those shouldn't result in
+>transactions over the core's external interfaces.
 
--aneesh
+I think you are right, TLBF_NOBROADCAST should not be applied with the
+workaround.
+
+I will use below if this looks good to you.
+
+ if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104) &&
+     !(flags & TLBF_NOBROADCAST)) {
+         __tlbi(vmalle1is);
+ } else {
+ ...
+ }
+
+>
+>[...]
+>
+>> @@ -585,6 +585,12 @@ static void user_cache_maint_handler(unsigned long esr, struct pt_regs *regs)
+>>  		__user_cache_maint("dc civac", address, ret);
+>>  		break;
+>>  	case ESR_ELx_SYS64_ISS_CRM_IC_IVAU:	/* IC IVAU */
+>> +		if (cpus_have_final_cap(ARM64_WORKAROUND_NXP_ERR050104)) {
+>> +			/* ERR050104: upgrade IC IVAU to IC IALLUIS */
+>> +			asm volatile("ic ialluis");
+>> +			ret = 0;
+>> +			break;
+>> +		}
+>>  		__user_cache_maint("ic ivau", address, ret);
+>>  		break;
+>
+>This doesn't address my feedback on v1:
+>
+>  https://lore.kernel.org/all/ZIHisLL9FXlbuMLJ@FVFF77S0Q05N/
+
+Sorry for missing this one.
+
+>
+>... which I see Sashiko has also spotted.
+>
+>Please make this:
+>
+>	 case ESR_ELx_SYS64_ISS_CRM_IC_IVAU:     /* IC IVAU */
+>	 	__user_cache_maint("ic ivau", address, ret)
+>		if (cpus_have_final_cap(ARM64_WORKAROUND_NXP_ERR050104) && !ret)
+>			asm volatile("ic ialluis");
+>		break;
+>
+>If there's a reason that doesn't work, please explain that reason.
+
+It should be ok.  I will take your suggestion in next version.
+
+Thanks,
+Peng
+
+>
+>Mark.
+>
+>
 
