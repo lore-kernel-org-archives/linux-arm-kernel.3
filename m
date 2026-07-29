@@ -4,95 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2287C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8C8C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VyFx2U/VszxvRM92qAy54Y4oL0XsKZy0mURmPScFf8w=; b=d2jnHNNrtc0czfrXcxI506hC+D
-	HLKuWm3fdSa0qLvlksyl7/b+s7VNUtgllc9jJ2rdvecCCVNPaw02uaIJsmox6rLiN8k7ULAoIRmR8
-	v0gGVQauoF5W71FOcrazODirHQQVOwAw2fVHuClyt7v+GKE49pkm1JjpFUnPDdjau/8u36rpax3kr
-	uhjXg9Ocr4K/S6VOnG+S7q5x5pYJ6JPyJ94z8jizuZzVOmcHriIDQIlZmqo7AK9y24HO/dZ46QA8Q
-	IB6AF+q1yqRiHXQOwXTyVxhsXq7fMZsf6Zcap9g2Dorwjxu6Tye+rCcWxGTYRNi7AzMEcLr+0F9sS
-	T66KQ9FA==;
+	bh=1mrR0h5a2tnzaiN6M63ThlKTtbHhhDFOkDL005+wWy0=; b=06OVt0AF/UxV5Ps39BJvKuqAng
+	l4E3m6yhIbau+Kw5a5ERsKy76fqGauvHoG/S2peK6nPhIAZe+QEESDzzLlXDOlcr8rPRbLHfv5Igj
+	6TtVndUI19V+16OvpOjeh15bLXqrACGwdvGUWwoftXf6PkAfpe4iZHlYxW5XaZWEHkYMoA9cED23i
+	6hnXnpod78rdDQXfsBl8AGMLkBU9aj9HT+Ngt1cc33z6ygaZmAIB0o6pL/WHu62coFlYUdCXanXGX
+	SfgPq+YI91Vd9DzFQNmQVQlfihQFDRudO974PUAyVuDRTV0ZFkA7/JeBXxFE4l0MFWxpCVOevfQ0E
+	wzq4YF/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1zW-00000007f4g-3vHH;
-	Wed, 29 Jul 2026 10:58:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wp2AS-00000007geb-19am;
+	Wed, 29 Jul 2026 11:09:44 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1zV-00000007f4W-4B7B
+	id 1wp2AP-00000007gdM-1qbj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:58:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F40DE60A99;
-	Wed, 29 Jul 2026 10:58:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A42181F00A3A;
-	Wed, 29 Jul 2026 10:58:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785322704;
-	bh=VyFx2U/VszxvRM92qAy54Y4oL0XsKZy0mURmPScFf8w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=eIXHdDcyltbN2unLeeeA8hK4cDT8x9vCiL57PIRrPd8uu0RllQdrFCsSPV9xq0JOz
-	 2td1zXirKskj7jqLT9/fBwWgLbd0FrsgX120H9v5OdS4JJDGZmc4bFfpUgVWfrcw0j
-	 fa2k7XiTnH2vqPviyLvVAv8n9Wo1xlFJHxdVLNICu3jeIV8jOuN1kY0T+21mllbYuc
-	 kukncjy49nsuNQkxKeSsqYklKJ731WbThmJOBWxKh20tLBkr7NvhdclaFB8YH0WHwF
-	 5HaZgBKQ4P5WgNGbk4ZRjrfM2y/EQcEraqYxDWPap85WhD0TVWsxMJ8oVBD+VHEVNe
-	 8i4uxTOESTYWA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wp1zS-0000000A4TC-1yAO;
-	Wed, 29 Jul 2026 10:58:22 +0000
-Date: Wed, 29 Jul 2026 11:58:21 +0100
-Message-ID: <86qzkmcbaq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 13/37] KVM: arm64: CCA: Support timers in realm RECs
-In-Reply-To: <dff2eee7-09cf-4f85-8dec-c7c243f3ba0f@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
-	<20260715142841.80544-14-steven.price@arm.com>
-	<861pcoeqk5.wl-maz@kernel.org>
-	<dff2eee7-09cf-4f85-8dec-c7c243f3ba0f@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 29 Jul 2026 11:09:42 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4957eefd361so5867755e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 04:09:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1785323379; x=1785928179; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1mrR0h5a2tnzaiN6M63ThlKTtbHhhDFOkDL005+wWy0=;
+        b=IzuS+iMr+iFGo4+1U3c5v4yjkxJHY+MRfDzBgU5k2T9bNTLO0CBb6adOFznN8QTNUV
+         4Xgyg1V+t09hTcLRNgIXA5jIS1g89GStGo6oMiVgpQEqTJ5K5/inI1DvHKPdRiCyDxlG
+         ERxFOIRhKvDlws+/IWDbd2ntHqn4sBcPsEu2rGM5qWohoxQAVG9ep5C/380R25rUDZW8
+         yAnOrix9eLws3GTANBytjGrQk7BQDk2mzArTJN1hi6SdTCsGGcgrXFt3Wb1ovSxnZhAf
+         hwRcQX2Xgt5w1IiEnpgkvr81drqEt3vZY3fyt0oXqzEFNeuHzc+rsJyuX864mYIVYDQm
+         4+ag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785323379; x=1785928179;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1mrR0h5a2tnzaiN6M63ThlKTtbHhhDFOkDL005+wWy0=;
+        b=Qgn/NpLpDJHblMtXPOLY7a9BeYyS9hFaaZVS1qv/8JT09sCRE7Iuqxo4Z5t0FlT6q+
+         OFmF5L18HBDN/hB9ERNGgg2JSOPDBsp05TwnUK3H059hqileou1GoD5PnNsNQwtqyjiS
+         S8hmPVUJifaFUWBsQYtFbkBeLIYlGYP7ENO/ciDTN1DO1GHC5UIj87YVqgRlfGwglrNx
+         LwH/2BtFCnKYJXtHWfZeFb9C3mct/nE50mJed+6/OusPQVAKhvxL3qCx92vO8IzFgT/V
+         Np4A9GbQWhgZT6bO5EzGXaaf7TlldjOCT8wZ7ZxpjrsCmROTobTLixgDjp4/27yeKBuS
+         1SUg==
+X-Forwarded-Encrypted: i=1; AHgh+RoBQ1x2L+NeFMB6kZRAnRemU/Dd55dpFnZ0Ye8r1spmVY87MEEgvCvx8LbRXaydCOlfCSun0rUnKV0n9W7+IaRA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMJqBg6sJSBsYMneg+8rMng/ZRUe8Tcgwct6Pb23LJiKbkW5Xc
+	XrgPxeyQPN9spAOgnOzvRsG3zUnvkuKtzYJnPnsmFs/+5hIeYnUk/NcD9LKNQgn2Bn8=
+X-Gm-Gg: AR+sD11SFIoYW/IV03oHVYI9k/zHuqzeleo8pfMMFC+s2Zn1Wjp8Xpb85MwOLyUGdzT
+	Mbn4R4TtpNRFrSiPoeZLaFnpl7jyBkYe9NdIwTpThfqty2Jk8TMMRamUAkwyPPtbsqgdX7SBWh7
+	ly24Ikd8vXGcTJQOZV+NSD6n+w74djK80bhjm1jvfXs/gNNLIH1YI7LojD8brIDZLsd9QqBowpr
+	q/BP2FeWyY5gb61X5KpSMBrA6wANToF0r0TMAQQMawIknRUkK1zPu2saiNxu6MvsEwQ00zHGerm
+	5TIZAoP0RQdvJbbfums0+qiemdxOQEdHukm2ZmNDF8CucNx94i7YpsmrGqLS9oPCE12vlcPTADG
+	tSTkeS84Qa4rNWNujL5zDs2XOc0mFoGVt/FIdkgsu/lCQ0jarM7i0wChYjXQw+KxA5Hits+3MHX
+	TkR6nt5h41ikw99xuF7Bx2CrvEQUa358Wm+xzivAdCubzqJINWJ3v7Kc4MUEoeJeo=
+X-Received: by 2002:a05:600c:3b13:b0:495:5890:8f6c with SMTP id 5b1f17b1804b1-496c653d3dcmr82110535e9.7.1785323378759;
+        Wed, 29 Jul 2026 04:09:38 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4976bd7c4c2sm50189635e9.14.2026.07.29.04.09.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2026 04:09:38 -0700 (PDT)
+Date: Wed, 29 Jul 2026 13:09:36 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>,
+	'Karl Mehltretter' <kmehltretter@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-rt-devel@lists.linux.dev" <linux-rt-devel@lists.linux.dev>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Clark Williams <clrkwllms@kernel.org>
+Subject: Re: [PATCH v2 2/2] serial: amba-pl011: keep console clock enabled
+ for atomic writes
+Message-ID: <amnfcOod6ayqfNda@pathway.suse.cz>
+References: <20260724213348.77418-1-kmehltretter@gmail.com>
+ <20260724213348.77418-3-kmehltretter@gmail.com>
+ <TYXPR01MB15199DA567AF4541DD79359FBD7CC2@TYXPR01MB15199.jpnprd01.prod.outlook.com>
+ <87pl0863t5.fsf@jogness.linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87pl0863t5.fsf@jogness.linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_040941_497990_902C15F0 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,84 +113,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Jul 2026 11:47:03 +0100,
-Steven Price <steven.price@arm.com> wrote:
+On Mon 2026-07-27 14:05:50, John Ogness wrote:
+> Hi Toshiyuki,
 > 
-> On 27/07/2026 10:21, Marc Zyngier wrote:
-> > On Wed, 15 Jul 2026 15:28:15 +0100,
-> > Steven Price <steven.price@arm.com> wrote:
-> >>
-> >> The RMM keeps track of the timer while the realm REC is running, but on
-> >> exit to the normal world KVM is responsible for handling the timers.
-> >>
-> >> A later patch adds the support for propagating the timer values from the
-> >> exit data structure and calling kvm_realm_timers_update().
-> >>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> ---
-> >> Changes since v14:
-> >>  * Special case in kvm_timer_vcpu_load()/kvm_timer_vcpu_put() the timer
-> >>    handling.
-> >> Changes since v12:
-> >>  * Adapt to upstream changes.
-> >> Changes since v11:
-> >>  * Drop the kvm_is_realm() check from timer_set_offset(). We already
-> >>    ensure that the offset is 0 when calling the function.
-> >> Changes since v10:
-> >>  * KVM_CAP_COUNTER_OFFSET is now already hidden by a previous patch.
-> >> Changes since v9:
-> >>  * No need to move the call to kvm_timer_unblocking() in
-> >>    kvm_timer_vcpu_load().
-> >> Changes since v7:
-> >>  * Hide KVM_CAP_COUNTER_OFFSET for realm guests.
-> >> ---
-> >>  arch/arm64/kvm/arch_timer.c  | 38 +++++++++++++++++++++++++++++++++---
-> >>  include/kvm/arm_arch_timer.h |  2 ++
-> >>  2 files changed, 37 insertions(+), 3 deletions(-)
-> >>
-> >> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> >> index 4155fe89b58a..fdd68f1f5b7b 100644
-> >> --- a/arch/arm64/kvm/arch_timer.c
-> >> +++ b/arch/arm64/kvm/arch_timer.c
-> >> @@ -482,6 +482,20 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
-> >>  			    timer_ctx);
-> >>  }
-> >>  
-> >> +void kvm_realm_timers_update(struct kvm_vcpu *vcpu)
-> >> +{
-> >> +	struct arch_timer_cpu *arch_timer = &vcpu->arch.timer_cpu;
-> >> +	int i;
-> >> +
-> >> +	for (i = 0; i < NR_KVM_EL0_TIMERS; i++) {
-> >> +		struct arch_timer_context *timer = &arch_timer->timers[i];
-> >> +		bool status = timer_get_ctl(timer) & ARCH_TIMER_CTRL_IT_STAT;
-> >> +		bool level = kvm_timer_enabled(timer) && status;
-> >> +
-> >> +		kvm_timer_update_irq(vcpu, level, timer);
-> >> +	}
-> >> +}
-> >> +
-> > 
-> > Why do we need this? What is so special about CCA that it cannot use
-> > the existing timer flow?
+> On 2026-07-27, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com> wrote:
+> > Regarding Petr's comment [1] as well, I'm concerned about the
+> > potential impact when the clk remains enabled during periods without
+> > console output.
 > 
-> CCA is a little special because the timer context is owned by the RMM
-> while the realm is executing. It's the RMM which actually loads/saves
-> the timer registers not KVM.
+> Can you elaborate on your concerns? Do you actually need such low-power
+> _and_ kernel logging directly on serial?
+
+Good point!
+
+> > When creating nbcon patch, I saw a similar patch [2] from the past.
+> > Have you considered coordinating with the clk subsystem implementation
+> > for this?
 > 
-> The RMM returns some of the timer state on every exit, and the host is
-> responsible for updating the interrupt status (as the host controls the
-> GIC emulation).
+> AFAICT there was no real justification for enabling clocks per write
+> other than because we can. A lot has changed since 2013 and neither
+> spin_locks nor raw_spin_locks are appropriate because atomic printing
+> can occur in _any_ context (including NMI's).
+> 
+> If the amba-pl011 insists on enabling clocks per write, I would
+> recommend not implementing the write_atomic() callback. Since I assume a
+> significant amount of users _will_ want atomic printing support, perhaps
+> you can add a Kconfig to toggle building with clock-disabling and no
+> atomic, or clock-always-on and atomic.
+> 
+> Note that there is also CON_NBCON_ATOMIC_UNSAFE available, if the driver
+> wants to somehow blindly enable clocks on panic in order to unsafely
+> dump panic logs.
 
-But KVM relies on the timers being live when the vcpu is loaded. So
-the first port of call should be for CCA to adapt to KVM, and not the
-other way around.
+I personally vote for removing the enable_clock()/disable_clock()
+from the console->write_*() callbacks. It was an interesting power
+optimization. But I believe that the chance to see kernel messages
+in critical situations is more important.
 
-You can always make sure that the timers are in the registers at the
-point where you reach the KVM code.
+Also I guess that the serial port is _not_ used on devices powered
+by baterry in production. It might be used when debugging and
+it is exatly the situation where the messages are important.
 
-	M.
+Best Regards,
+Petr
 
--- 
-Without deviation from the norm, progress is not possible.
+> John Ogness
+> 
+> > [1] https://lore.kernel.org/all/al4KdsU9YLOmwDoV@pathway.suse.cz/
+> > [2] https://lore.kernel.org/all/1359475526-17523-1-git-send-email-walimisdev@gmail.com/
 
