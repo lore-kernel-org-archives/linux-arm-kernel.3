@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D7DC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CE4C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyQHIrHzEIRVvJxb8M/9pBU653zzCUKZkOmCl7dwP+M=; b=t/unJNeofMgAXUkOlpprRqPZAv
-	SL06dMvsxZlNI0K1mQXSTdpQLDjbSmnrXHv350yv1dcrqF5rl4Q2087x1sMwB5DWhhCVn4nkviMqM
-	2frhoHWZuPfdoGdlSHVOa7R1x03uqTpdjRsAA0QS9NbhUfOWP5jN3tsP7fMeVFo3sm5lC2em18MWq
-	TWuihrDDlplghqfWZCPDA1I0ZTGOFJqh8sCHFBp7VtjkSIPfcd2lp+F7+vgYaxGGRRNlIttEBltBa
-	zslXXj8JXtrCdU/vXDr1SokS0ZURomH62b2IWXpz5GI8kKIQjLZzfLQ8jzj/UTMZitAhxl73uPZed
-	Hz5uQ66w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BAmImkqu1SFwL8NSZDIz5I9w1IjXZHC7hoAV+KdJnaA=; b=2/75iR+5qtPKSFcS2VkeujOukp
+	IK+j5h0Prym7pTOVet75NwcXpBD1ScIMEqFJXOoar4h24Pnk2HngKrH7midhOg+zuOD9ahF6VDfCK
+	QXcxNLpX46wHE5Zabxjf5EGu8ze98uMrs8fI+avOa4kqyktvMYRRjFRLeT3m3lXOGFwPdh05xKDRe
+	HUDXXRCwn17oJWv+dRJPjnjahUjXq5s6/EWRQAfOHq1hDH1OrKlEPHs9xkjg+oNljSjdBAOvwUkiZ
+	i5vw3NywaXX8RmzhKGiiIWyMvuLsBy2y8n67r95j/4nRzr15IQpL4GV0tmeKxbSlcjqTa8fC34GJC
+	4w5WDMug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp33K-00000007pDr-49Ge;
-	Wed, 29 Jul 2026 12:06:26 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wp3AE-00000007qag-0Fec;
+	Wed, 29 Jul 2026 12:13:34 +0000
+Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp33H-00000007pCn-3bd4
+	id 1wp3AB-00000007qZn-208J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 12:06:26 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=JyQHIrHzEIRVvJxb8M/9pBU653zzCUKZkOmCl7dwP+M=;
-	b=DAbWHdbh2eTE7RHZl7Ju7PsRLLgdeQVi0OVqDaCrcZ8tts1ZmiRCao1NNXjssUtQ3vplhoEct
-	dAPZRHndm4bzjtY3NhEvPUFnY9fQOnWxwpaqasyE2/mgKcWR3Boi441950vdNVejgf69Dla8nmm
-	k2ejTaYYUyHqMv7qo0l0od0=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h99mD3hQ3z1cyQ2;
-	Wed, 29 Jul 2026 19:56:44 +0800 (CST)
-Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
-	by mail.maildlp.com (Postfix) with ESMTPS id 23A3D40565;
-	Wed, 29 Jul 2026 20:06:10 +0800 (CST)
-Received: from [10.67.120.233] (10.67.120.233) by
- whupemo200004.china.huawei.com (7.152.184.18) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 29 Jul 2026 20:06:07 +0800
-Message-ID: <ab2cedfe-5887-4d78-915d-8eca1addca5d@huawei.com>
-Date: Wed, 29 Jul 2026 20:06:06 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] perf hisi-ptt: Fix PTT trace TLP header parsing
-To: James Clark <james.clark@linaro.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wuyifan50@huawei.com>, <rostedt@goodmis.org>,
-	<mhiramat@kernel.org>, <mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
-	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
-	<mike.leach@arm.com>, <leo.yan@linux.dev>, <peterz@infradead.org>,
-	<mingo@redhat.com>, <acme@kernel.org>, <namhyung@kernel.org>,
-	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
-	<jolsa@kernel.org>, <irogers@google.com>, <adrian.hunter@intel.com>,
-	<wangyushan12@huawei.com>
-References: <20260729060220.624250-1-liusizhe5@huawei.com>
- <20260729060220.624250-3-liusizhe5@huawei.com>
- <d748b44b-d81c-4ea7-ac7d-03a3c72e9e14@linaro.org>
-From: Sizhe Liu <liusizhe5@huawei.com>
-In-Reply-To: <d748b44b-d81c-4ea7-ac7d-03a3c72e9e14@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.233]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- whupemo200004.china.huawei.com (7.152.184.18)
+	Wed, 29 Jul 2026 12:13:32 +0000
+Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4954fe32d6eso4687655e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:13:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785327209; x=1785932009; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BAmImkqu1SFwL8NSZDIz5I9w1IjXZHC7hoAV+KdJnaA=;
+        b=W7NvTPh4N4aqAKVn3ltU+wfKUV+P+Lzhhgq7Z3CUtXF3vwDlk/7IdJhx6LCXbUf2nr
+         B9fhAWKQGIRXTdEnXj1nwIgi0s5eAh0B36V6xBblu+hQsKUQ6bOwHEZXIjRX/tmcdF5G
+         MdnQdW2U4hKui7wdTOJdKa4FJhTIkz0aIboSsnDEfDO+u+x3UBjliRtxJmgr0VnFX3Rs
+         WNM14U8DtHLickBrsViISfOGwiDlvVaDU/MaMU0ZxEYlTuntYuLG1aSBXXB5Zbr14SNx
+         bBc/w3zHOICWMare/0uk+l6FrTWSUHpk8TJd21u4OPKryUZ+D5QODiYplIwX7sCEXWJR
+         JVkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785327209; x=1785932009;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BAmImkqu1SFwL8NSZDIz5I9w1IjXZHC7hoAV+KdJnaA=;
+        b=M201YMBlOOFxlCYHbPd/BtsW/LU6Kgop2o1E3kyEe/xtPBO23VPW4bmcns4c8+fDnv
+         ik8OHZdIsH7L3+XHfoesX5A5mbdna6U34pJ3yn3U4Aw/LapPDKNSkSeUHG2BLUNQTC0n
+         TjTlvGasDE4VCqrTOAG52eZkQr1NbEN0uhk9RT2f8wfLrVPvCBMKsjHxlavUXNH7MZfK
+         AHx2xMaY40jE78SynAUCgY+G0+hHmfJdWC5PQOMlNmdwWAupmagXD1XUPB0Pnp3kZOOD
+         DbybpWdYwlHDB3lvOxWmdrrUKtP5kOjAO1RVmRfwLBnW3JwT2es4kNzAPy5krDLiQFlE
+         oDkQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro6lAr86MaCyvwDMvKo/zQKCm1EmUl6PVtnDCA8UuyjgLNLYCQswHg+tPcYTLBmnf5VK2o0X5NgjVYeUOmHjy74@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5iAMVYjPgC94Xy2bdlFtrjZEisfG9m06Y18x0h3NuLRFO9Kbp
+	re7GsBJyETHmXLxnZ6zUQydFdrgMAbEwtIyUsdsvcsMJ/FSV1+0jxHrE4iRDoqArDz+XmxpDh1W
+	D1BZ/Tt97+0tn7mkHyJfKKD4oYi6svw==
+X-Received: from wmbjj19.prod.google.com ([2002:a05:600c:6a13:b0:495:54c7:8c97])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4eca:b0:493:e460:1f6 with SMTP id 5b1f17b1804b1-496c60ba34amr69095735e9.0.1785327208512;
+ Wed, 29 Jul 2026 05:13:28 -0700 (PDT)
+Date: Wed, 29 Jul 2026 12:13:00 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.487.gaf234c4eb3-goog
+Message-ID: <20260729121306.1519473-2-sebastianene@google.com>
+Subject: [PATCH v8 0/7] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
+	fuad.tabba@linux.dev, will@kernel.org
+Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, mrigendra.chaubey@gmail.com, perlarsen@google.com, 
+	sebastianene@google.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_050624_228144_440A00A5 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20260729_051331_531361_D83A330A 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,261 +91,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
+FF-A proxy. This restriction was preventing the use of asynchronous
+signaling mechanisms defined by the Arm FF-A specification to
+communicate with the secure services.
+While these calls are markes as optional, there is no reason why the
+hypervisor proxy would block them because:
 
-On 2026/7/29 18:16, James Clark wrote:
->
->
-> On 29/07/2026 7:02 am, Sizhe Liu wrote:
->> TLP Headers traced by HiSilicon PCIe tune and trace device (PTT) in
->> 4DW format are shown in the document as below:
->> bits [31:30] [ 29:25 ][24][23][22][21][    20:11   ][    10:0 ]
->> |-----|---------|---|---|---|---|-------------|-------------|
->> DW0  [ Fmt ][  Type  ][T9][T8][TH][SO][   Length   ][    Time ]
->> DW1  [                     Header DW1 ]
->> DW2  [                     Header DW2 ]
->> DW3  [                     Header DW3 ]
->>
->> Problem:
->> The DW0 bit field layout of the hisi_ptt_4dw union does not match the
->> actual bit ordering in little-endian memory, causing incorrect field
->> decoding.
->>
->> Test on Kunpeng 930 SOC, generating data flow with `iperf` commands:
->> - server side:
->>      iperf -s
->> - client side:
->>      iperf -c $ip_addr -t 30
->>
->> Trace the TLP headers with hisi_ptt on server side at the same time:
->>    perf record -e 
->> hisi_ptt12_0/type=4,filter=0x05101,direction=2,format=0/ \
->>    --max-size 50M -o perf.data &
->> The trace aims to capture completion TLPs, learn more in the document:
->>    https://docs.kernel.org/trace/hisi-ptt.html
->>
->> Decode perf.data with hisi_ptt decoder:
->>    perf report -D
->>
->> The hisi_ptt decoder produces the following result:
->> [...perf headers and other information]
->> . ... HISI PTT data: size 8388608 bytes
->> .  00000000: 68 87 20 94                                 Format 3 
->> Type 1a T9 0 T8 1 TH 1 SO 1 Length 10 Time 4a1
->> .  00000004: 40 00 00 00                                 Header DW1
->> .  00000008: 40 00 01 51                                 Header DW2
->> .  0000000c: 00 00 00 00                                 Header DW3
->> [...other hisi_ptt TLP headers]
->>
->> According to PCIe r5.0 2.2.1, the Fmt & Type of Cpl/CplD is supposed 
->> to be
->> 8b'00001010' / 8b'01001010'
->> However, the Format & Type decoder analyzing result is 8b'01111010'.
->> It does not match field encodings of any TLP messages.
->>
->> Correct decoder result should be:
->> [...perf headers and other information]
->> . ... HISI PTT data: size 8388608 bytes
->> .  00000000: 94 20 87 68                                 Format 2 
->> Type a T9 0 T8 0 TH 0 SO 1 Length 10 Time 768
->> .  00000004: 00 00 00 40                                 Header DW1
->> .  00000008: 51 01 00 40                                 Header DW2
->> .  0000000c: 00 00 00 00                                 Header DW3
->> [...other hisi_ptt TLP headers]
->>
->> To solve the problem:
->> 1. Drop the union and C bitfield struct, store the raw DW value in
->> a plain uint32_t, and extract the fields with FIELD_GET() against
->> GENMASK/BIT masks declared in the header so they can be reused by
->> other translation units. The masks are portable across endianness and
->> compilers.
->>
->> 2. Print all DW hex values in big-endian byte order for readability,
->> matching the bit field layout shown in the 4DW format diagram.
->>
->> Cc: stable@vger.kernel.org
->> Fixes: 5e91e57e6809 ("perf auxtrace arm64: Add support for parsing 
->> HiSilicon PCIe Trace packet")
->> Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
->> ---
->>   Documentation/trace/hisi-ptt.rst              | 28 +++++------
->>   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 46 +++++++++----------
->>   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   | 12 +++++
->>   3 files changed, 49 insertions(+), 37 deletions(-)
->>
->> diff --git a/Documentation/trace/hisi-ptt.rst 
->> b/Documentation/trace/hisi-ptt.rst
->> index 6eef28ebb0c7..f6a2655f99e5 100644
->> --- a/Documentation/trace/hisi-ptt.rst
->> +++ b/Documentation/trace/hisi-ptt.rst
->> @@ -285,20 +285,20 @@ according to the format described previously 
->> (take 8DW as an example):
->>       [...perf headers and other information]
->>       . ... HISI PTT data: size 4194304 bytes
->>       .  00000000: 00 00 00 00 Prefix
->> -    .  00000004: 01 00 00 60 Header DW0
->> -    .  00000008: 0f 1e 00 01 Header DW1
->> -    .  0000000c: 04 00 00 00 Header DW2
->> -    .  00000010: 40 00 81 02 Header DW3
->> -    .  00000014: 33 c0 04 00 Time
->> +    .  00000004: 60 00 00 01 Header DW0
->> +    .  00000008: 01 00 1e 0f Header DW1
->> +    .  0000000c: 00 00 00 04 Header DW2
->> +    .  00000010: 02 81 00 40 Header DW3
->> +    .  00000014: 00 04 c0 33 Time
->>       .  00000020: 00 00 00 00 Prefix
->> -    .  00000024: 01 00 00 60 Header DW0
->> -    .  00000028: 0f 1e 00 01 Header DW1
->> -    .  0000002c: 04 00 00 00 Header DW2
->> -    .  00000030: 40 00 81 02 Header DW3
->> -    .  00000034: 02 00 00 00 Time
->> +    .  00000024: 60 00 00 01 Header DW0
->> +    .  00000028: 01 00 1e 0f Header DW1
->> +    .  0000002c: 00 00 00 04 Header DW2
->> +    .  00000030: 02 81 00 40 Header DW3
->> +    .  00000034: 00 00 00 02 Time
->>       .  00000040: 00 00 00 00 Prefix
->> -    .  00000044: 01 00 00 60 Header DW0
->> -    .  00000048: 0f 1e 00 01 Header DW1
->> -    .  0000004c: 04 00 00 00 Header DW2
->> -    .  00000050: 40 00 81 02 Header DW3
->> +    .  00000044: 60 00 00 01 Header DW0
->> +    .  00000048: 01 00 1e 0f Header DW1
->> +    .  0000004c: 00 00 00 04 Header DW2
->> +    .  00000050: 02 81 00 40 Header DW3
->>       [...]
->> diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c 
->> b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
->> index c48b2ce7c4a3..c1e169561087 100644
->> --- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
->> +++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
->> @@ -10,6 +10,7 @@
->>   #include <endian.h>
->>   #include <byteswap.h>
->>   #include <linux/bitops.h>
->> +#include <linux/kernel.h>
->>   #include <stdarg.h>
->>     #include "../color.h"
->> @@ -73,29 +74,20 @@ static const char * const 
->> hisi_ptt_4dw_pkt_field_name[] = {
->>       [HISI_PTT_4DW_HEAD3]    = "Header DW3",
->>   };
->>   -union hisi_ptt_4dw {
->> -    struct {
->> -        uint32_t format : 2;
->> -        uint32_t type : 5;
->> -        uint32_t t9 : 1;
->> -        uint32_t t8 : 1;
->> -        uint32_t th : 1;
->> -        uint32_t so : 1;
->> -        uint32_t len : 10;
->> -        uint32_t time : 11;
->> -    };
->> -    uint32_t value;
->> -};
->> -
->>   static void hisi_ptt_print_pkt(const unsigned char *buf, int pos, 
->> const char *desc)
->>   {
->>       const char *color = PERF_COLOR_BLUE;
->> +    uint32_t value;
->> +    uint8_t byte;
->>       int i;
->>   +    value = le32_to_cpu(*(__le32 *)(buf + pos));
->>       printf(".");
->>       color_fprintf(stdout, color, "  %08x: ", pos);
->> -    for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++)
->> -        color_fprintf(stdout, color, "%02x ", buf[pos + i]);
->> +    for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
->> +        byte = (value >> (24 - i * 8)) & 0xFF;
->> +        color_fprintf(stdout, color, "%02x ", byte);
->> +    }
->>       for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
->>           color_fprintf(stdout, color, "   ");
->>       color_fprintf(stdout, color, "  %s\n", desc);
->> @@ -122,22 +114,30 @@ static int hisi_ptt_8dw_pkt_desc(const unsigned 
->> char *buf, int pos)
->>   static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
->>   {
->>       const char *color = PERF_COLOR_BLUE;
->> -    union hisi_ptt_4dw dw0;
->> +    uint8_t byte;
->> +    uint32_t dw;
->>       int i;
->>   -    dw0.value = *(uint32_t *)(buf + pos);
->> +    dw = le32_to_cpu(*(__le32 *)(buf + pos));
->
-> Sashiko and the comment in generic.h say to use get_unaligned_le32() 
-> for unaligned data. It looks like this always is aligned but it's not 
-> enforced by the function, so to avoid anyone wondering if it's correct 
-> I would just use get_unaligned_le32().
->
-> With that:
->
-> Reviewed-by: James Clark <james.clark@linaro.org>
->
-> Sashiko also says there is another endianess issue in 
-> hisi_ptt_check_packet_type(). Up to you whether you want to fix it or 
-> not: 
-> https://sashiko.dev/#/patchset/20260729060220.624250-1-liusizhe5%40huawei.com
->
-Thanks for the review and the Reviewed-by tag.
-I agree with using get_unaligned_le32(), to make it more robust. I'am 
-updating it in the next version along with other endianess issuses.
+1. Host is the Sole Non-Secure Endpoint: The Host operates as the
+   only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
+   Because all forwarded notifications are inherently attributed to
+   the Host by the SPMC, there is no risk of VM ID spoofing
+   originating from the Normal World.
 
-Regards,
-Sizhe
->>       printf(".");
->>       color_fprintf(stdout, color, "  %08x: ", pos);
->> -    for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++)
->> -        color_fprintf(stdout, color, "%02x ", buf[pos + i]);
->> +    for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
->> +        byte = (dw >> (24 - i * 8)) & 0xFF;
->> +        color_fprintf(stdout, color, "%02x ", byte);
->> +    }
->>       for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
->>           color_fprintf(stdout, color, "   ");
->>         color_fprintf(stdout, color,
->>                 "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
->> -              "Format", dw0.format, "Type", dw0.type, "T9", dw0.t9,
->> -              "T8", dw0.t8, "TH", dw0.th, "SO", dw0.so, "Length",
->> -              dw0.len, "Time", dw0.time);
->> +              "Format", FIELD_GET(HISI_PTT_HEAD0_4DW_FORMAT, dw),
->> +              "Type", FIELD_GET(HISI_PTT_HEAD0_4DW_TYPE, dw),
->> +              "T9", FIELD_GET(HISI_PTT_HEAD0_4DW_T9, dw),
->> +              "T8", FIELD_GET(HISI_PTT_HEAD0_4DW_T8, dw),
->> +              "TH", FIELD_GET(HISI_PTT_HEAD0_4DW_TH, dw),
->> +              "SO", FIELD_GET(HISI_PTT_HEAD0_4DW_SO, dw),
->> +              "Length", FIELD_GET(HISI_PTT_HEAD0_4DW_LEN, dw),
->> +              "Time", FIELD_GET(HISI_PTT_HEAD0_4DW_TIME, dw));
->>   }
->>     static int hisi_ptt_4dw_pkt_desc(const unsigned char *buf, int pos)
->> diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h 
->> b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
->> index 6772b16b817b..3b349fcc24ae 100644
->> --- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
->> +++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
->> @@ -9,12 +9,24 @@
->>     #include <stddef.h>
->>   #include <stdint.h>
->> +#include <linux/bits.h>
->> +#include <linux/bitfield.h>
->>     #define HISI_PTT_8DW_CHECK_MASK        GENMASK(31, 11)
->>   #define HISI_PTT_IS_8DW_PKT        GENMASK(31, 11)
->>   #define HISI_PTT_MAX_SPACE_LEN        10
->>   #define HISI_PTT_FIELD_LENGTH        4
->>   +/* Header DW0 fields for 4DW format */
->> +#define HISI_PTT_HEAD0_4DW_TIME        GENMASK_U32(10, 0)
->> +#define HISI_PTT_HEAD0_4DW_LEN        GENMASK_U32(20, 11)
->> +#define HISI_PTT_HEAD0_4DW_SO        BIT_U32(21)
->> +#define HISI_PTT_HEAD0_4DW_TH        BIT_U32(22)
->> +#define HISI_PTT_HEAD0_4DW_T8        BIT_U32(23)
->> +#define HISI_PTT_HEAD0_4DW_T9        BIT_U32(24)
->> +#define HISI_PTT_HEAD0_4DW_TYPE        GENMASK_U32(29, 25)
->> +#define HISI_PTT_HEAD0_4DW_FORMAT    GENMASK_U32(31, 30)
->> +
->>   enum hisi_ptt_pkt_type {
->>       HISI_PTT_4DW_PKT,
->>       HISI_PTT_8DW_PKT,
->
->
+2. No Memory Pointers or Addresses: The FFA_NOTIFICATION_* ABIs
+   operate strictly via register-based parameters, passing only
+   VM IDs, VCPU IDs, flags, and bitmaps. Because these calls do
+   not contain memory addresses, offsets, or pointers, forwarding
+   them doesn't pose a risk of memory-based confused deputy attack
+   (e.g., tricking the SPMC into overwriting protected memory).
+
+The pKVM proxy behaves as a relayer and it doesn't currently have its
+own FF-A ID(only the host has the ID 0). The behavior of the setup
+flow is covered by the spec in the: '10.9 Notification support without
+a Hypervisor'.
+
+While at it, enforce the MBZ/SBZ fields defined by the spec to prevent
+odd behavior when a new version starts making use of the reserved
+registers.
+
+---
+v8:
+- rebased on 7.2-rc3
+- no other changes
+
+Changes in v7:
+- rebased on 7.2-rc1
+- collected the Ack from Will
+- check for major version as well when doing the SBZ/MBZ enforcement
+
+Changes in v6:
+- applied Will's feedback and re-ordered the patch series so that we
+  apply the MBZ enforcement at the end of the series
+- update ffa_check_unused_args_sbz so that we take into account the FF-A
+  version because the spec changed the list of unused parameter registers
+  for 64-bit SMCs from v1.1 to v1.2
+
+Changes in v5:
+- handle 32-bit smc variants correctly when doing the MBZ enforcement
+- add check for FFA_FEATURES
+- handle missing FFA_FN64_NOTIFICATION_INFO_GET
+- collected the Review tags from Vincent, thank you 
+
+Changes in v4:
+- previous series(v3) had serious issues with the patch number and it
+  appeared like it used a mixed bag from v2 as well. Resend this to
+  restore the correct order of the patches.
+- fix strict check in ffa_check_unused_args_sbz and make it "<= 17"
+- check the receiver endpoint Id in
+  FFA_NOTIFICATION_BIND/FFA_NOTIFICATION_UNBIND instead of the sender
+- use hyp_smccc_1_2_smc all along 
+- check the receiver endpoit Id when doing FFA_NOTIFICATION_GET  
+
+Changes in v3:
+- applied Will's suggestion to use the introduced method
+  ffa_check_unused_args_sbz for existing calls and added a new
+patch in the beggining of the series to do this.
+- merged the handling of
+  FFA_NOTIFICATION_BITMAP_CREATE/FFA_NOTIFICATION_BITMAP_DESTROY into
+one patch as Vincent suggested and create one handler for both.
+
+Changes in v2:
+- enforce the MBZ/SBZ fields
+- split the calls into separate patches
+- rebase on 7.1-rc7
+
+v7:
+https://lore.kernel.org/all/20260629093558.2425257-1-sebastianene@google.com/
+v6:
+https://lore.kernel.org/all/20260626074545.433234-1-sebastianene@google.com/
+v5:
+https://lore.kernel.org/all/20260623115354.632361-1-sebastianene@google.com/
+v4:
+https://lore.kernel.org/all/20260616154149.2763214-1-sebastianene@google.com/
+v3:
+https://lore.kernel.org/all/20260616105417.2578670-1-sebastianene@google.com/
+v2:
+https://lore.kernel.org/all/20260608165549.1479409-1-sebastianene@google.com/
+v1:
+https://lore.kernel.org/all/20260501114447.2389222-2-sebastianene@google.com/
+
+Sebastian Ene (7):
+  KVM: arm64: Forward FFA_NOTIFICATION_BITMAP calls to Trustzone
+  KVM: arm64: Support FFA_NOTIFICATION_BIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_UNBIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_SET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_GET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_INFO_GET in host handler
+  KVM: arm64: Enforce strict SBZ checks in the FF-A proxy
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 220 ++++++++++++++++++++++++++++++++--
+ 1 file changed, 212 insertions(+), 8 deletions(-)
+
+-- 
+2.55.0.487.gaf234c4eb3-goog
+
 
