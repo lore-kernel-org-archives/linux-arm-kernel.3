@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C62C54F5C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087A8C53200
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 04:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VoeIURJE57Surf6bb4y3czM+qCCNVa4flFM5/ODdgSM=; b=Ztaj0nY955HLd6bA4jpqZJULlj
-	0UXe5zV7fqdIaYf1D5xQbS198gx4mq8oLHW9x0yWxuel+gs1ub5eLcxnufpspJq7M5vFzZy+Tox9R
-	ETSXBVFKKgME2Rw6BMnI0cWxi3VCW8bwnBG1bRGxh5n0a1xlqSzNP1ibsfij1k60BaqBwThHlbxu4
-	9ReTt8fnsZ9LuIYlDforf8jVKKC6JApvu7HTIYG5CeJDqT1n9NG/j11SZv6+mklGbvfTkh17nfFSm
-	Ql99UeBrrumF0FlHVHQNQC61YZN18o9cw13wIGgK60l7kbYzhpY4nEbsNbSiGQ0s3FcqvXmAWnf4+
-	hFjlc1pA==;
+	bh=oZhAxwtFfw6e6w8/vaOT4mzELJXtwkBgBsblB4UwOfw=; b=jkC3/rpdk5A3oRS5+pCvtSdJvV
+	ifjaxPZDD+k38mcoIlEV8zoff9i08FjtVWC0ITLqHXfF3YhAiMnFj65dPGmTU3pYdFeETL/uodoS+
+	dEHTzzJbLcJNCcDWU7a0EnG/Qf3vq+QWJ2bEkJYE7cQA5bT+PNVpoR1t9Hr9Sp+gA6xADyUeXwNEy
+	xSf4G+/UH5BKXH1bp6Jf4l9UyL7QT94Wqu63fuqhmQM3YIw6pH+LkdennOZMozWyprYT1ySt0MN9g
+	9hTyYFOVYSgM91T1VjVt3Ex+U0ukoqSszt3i3GkubeMAfSRhHlgWjj0InPfBFbSgDpKGiX3AelSJG
+	MFUGHELg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowHh-00000006sMI-2Adp;
-	Wed, 29 Jul 2026 04:52:49 +0000
+	id 1wowHi-00000006sMz-2pLP;
+	Wed, 29 Jul 2026 04:52:50 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowHf-00000006sLL-3Ijb;
-	Wed, 29 Jul 2026 04:52:47 +0000
+	id 1wowHg-00000006sLg-17lr;
+	Wed, 29 Jul 2026 04:52:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1818E44FC2;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3AB054513E;
 	Wed, 29 Jul 2026 04:52:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D626CC2BCF7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 00747C4AF0B;
 	Wed, 29 Jul 2026 04:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1785300766;
-	bh=c2VrE8rb1zoFDS/P2/5rT/iLBv1+HHpu9wwoYvKp7nQ=;
+	s=k20201202; t=1785300767;
+	bh=vYnyrVV6m13Ed/pDKHyIAJ+t3bsrUYebXUpxHHek//I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=DxxkuFllRRY6RdMV40XQh2kosmUX2aLdS+z1/ZtEGmjpkZC0DFbVEeVw8UicGxAnb
-	 V1QY9y+CfjP2pNIQjHZ1ArzKzNDK7K+VEDmvuY3HFIluKpQHiZ+GFFOQOI+I64CYGH
-	 caXy1f+gCt1vZh2g9Q3tQV+GDLx7jkXH+jwwsr6HJt6afHnq68e/QxFobNUiPV9STb
-	 VQPX6WnShYGklIfGaVJAJt1xUWMdyvSS2CMMk0658fi+CyshrFLtanSRnRaP5XYouD
-	 4qC2RQ9tbJqfSl+qzK5lgy5wRT8o/CX0XlGh6ZLT8Mxoe6Y7/CjBDKupgNLo3n3cIU
-	 iY3BKcSM/gdZA==
+	b=nDiG6o0nclLJpEPKFmsgjEKodCBG/sr4t8d3zMljpvF2lFiTJxokztviA71KlavRE
+	 uTVFCsCWwOO4BA13hoUjrSKv6vSphoMG2khTDpe5vp/sRif68No6OBD5QvcU4O8Qht
+	 lcHCdgGvH4wOWBv6cQFRKrxJitQ54HMM5zGB4aBro7nMXpAqpmlfjLwfdL65Y70dgJ
+	 Wp3MF4HVS1PKkyyQOeve+OxsUaHANf/UN67KtCU5WExDwxrfz63rSv0J7SH9UinZBp
+	 MsNWMzeE8r3wriKmQEo/3ggJLcAcjXpSSuf0qARzaywcfLVI4fxMO4/Y78qHzzAX+J
+	 7+c+83PKt9kzw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8549C53200;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8D15C54F5C;
 	Wed, 29 Jul 2026 04:52:46 +0000 (UTC)
 From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
-Date: Wed, 29 Jul 2026 10:22:27 +0530
-Subject: [PATCH v9 1/5] PCI: dwc: ep: Clear MSI iATU mapping in
- dw_pcie_ep_cleanup()
+Date: Wed, 29 Jul 2026 10:22:29 +0530
+Subject: [PATCH v9 3/5] PCI: host-common: Add link down handling for Root
+ Ports
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260729-pci-port-reset-v9-1-53570b92064d@oss.qualcomm.com>
+Message-Id: <20260729-pci-port-reset-v9-3-53570b92064d@oss.qualcomm.com>
 References: <20260729-pci-port-reset-v9-0-53570b92064d@oss.qualcomm.com>
 In-Reply-To: <20260729-pci-port-reset-v9-0-53570b92064d@oss.qualcomm.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, 
@@ -72,18 +72,19 @@ Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
  mani@kernel.org, Lukas Wunner <lukas@wunner.de>, 
  Richard Zhu <hongxing.zhu@nxp.com>, Brian Norris <briannorris@chromium.org>, 
  Wilson Ding <dingwei@marvell.com>, Frank Li <Frank.Li@nxp.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>
 X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1889;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5045;
  i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=IujD1rr4tXecCkUgBteCHlwjfNA1jOOLnFWO5BjVWVI=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqaYcckthZyzkNWhp+mo4GfBWetSuqCMaJXIHPW
- g8AFj4xaDeJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCammHHAAKCRBVnxHm/pHO
- 9coXB/4/3XGgA/mHMhh18ubewWKhqoN8jpYSXpGZ5QthV5FyzLGbiDkMNrQlptcLpy3gkp/v5uh
- 4p7JcQ9evq/4I7ElMbR/7W/pEzBKzOGSfBx/P0VlJWZ3JB3m5l2cIxVawsYej3bQhUGpeSzInyW
- kyXfw6jxizzT6hHCh2ueogeFn9MYr23mKXEuDLANJjnWWPb/XaZ4tghU4cJuW2KqjRCq7U3hiiN
- tPzcsxu2UVJre3R11ulQv7rbad1CBfxIMLRlGj5/aULFnccG7q1LfNygVg6y2PI0g1pvP9x4twI
- 0fHIwtlW1iW4/eSNTiz/R8WdUOpqgSOz5M4M4EeIfjO98F2r
+ bh=FFkpE2OojMeJ55G69r9Mkff2gjUgGan5va971rIppUs=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqaYcciuamGWxObwvcK9F266CX+RGpkJdMwhoWH
+ cH7l6PiLvqJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCammHHAAKCRBVnxHm/pHO
+ 9ebhB/9PI5JeFWbWf1nD8zrabnPr0l0E6ijEeICZMcuO5pfSaH3uQNXBcAJHS8+5XxpA4nKsQgx
+ CW8yMUjwqSHWqblmJf3xojLH5gR6YSW5CA5yTkV3xJ5hLcEZTzy5uAELOSxX4lODSw0X/yDfrsX
+ xp/IuERsvHL+dWQZL+VEJdYxLeKaubbdwwWFptIAK3NyOAOzbRwnQ1sWD9Qe+MJ/B5yagFb8E4g
+ 3hgN4PH6HAcRUwusgKkc/FqccKz0XkQ0k50m3KcfjaIv0e3CPMSou+hgJfbM/yp5r2FzgblbCF+
+ LKaVAEJCk0zDcvZGmCjwxktmcqTJalPtZXKRNt9Y+oxE8J3L
 X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-Endpoint-Received: by B4 Relay for
@@ -104,49 +105,135 @@ Reply-To: manivannan.sadhasivam@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+From: Manivannan Sadhasivam <mani@kernel.org>
 
-The MSI iATU mapping is currently only cleared when the endpoint is
-stopped via configfs or when the host updates the MSI address/size.
-This avoids redundant iATU reconfiguration every time the endpoint
-raises an MSI interrupt.
+The PCI link, when down, needs to be recovered to bring it back. But on
+some platforms, that cannot be done in a generic way as link recovery
+procedure is platform specific. So add a new API
+pci_host_handle_link_down() that could be called by the host bridge drivers
+for a specific Root Port when the link goes down.
 
-However, a fundamental reset triggered by PERST# assert/deassert
-resets all iATU inbound/outbound registers without going through the
-configfs stop path. If the host also retains the same MSI address/size
-after PERST# deassert, the driver never clears the stale MSI iATU
-mapping. It then continues using this stale mapping to raise the MSI
-interrupts, which can cause IOMMU faults and MSI failures on the host.
+The API accepts the 'pci_dev' corresponding to the Root Port which observed
+the link down event. If CONFIG_PCIEAER is enabled, the API calls
+pcie_do_recovery() function with 'pci_channel_io_frozen' as the state. This
+will result in the execution of the AER Fatal error handling code. Since
+the link down recovery is pretty much the same as AER Fatal error handling,
+pcie_do_recovery() helper is reused here.
 
-Fix this by clearing the MSI iATU mapping inside dw_pcie_ep_cleanup(),
-which is already called as part of the PERST# assert/deassert sequence.
-This unmaps the MSI iATU region and sets the msi_iatu_mapped flag to
-false, ensuring that dw_pcie_ep_raise_msi_irq() performs a fresh iATU
-mapping on its next invocation, regardless of whether the host changed
-the MSI address/size.
+AER error_detected() callback will be triggered for all of the downstream
+devices, but not for Root Port itself as there is nothing to do for the
+Root Ports in the callbacks. Finally, pci_host_reset_root_port() will be
+called for the Root Port, which will reset the Root Port using
+'reset_root_port' callback to recover the link. Once that's done, resume
+message will be broadcasted to the bridge and the downstream devices,
+indicating successful link recovery.
 
-Fixes: 8719c64e76bf ("PCI: dwc: ep: Cache MSI outbound iATU mapping")
+But if CONFIG_PCIEAER is not enabled in the kernel, only
+pci_host_reset_root_port() API will be called, which will in turn call
+pci_bus_error_reset() to just reset the Root Port as there is no way we
+could inform the drivers about link recovery.
+
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Tested-by: Brian Norris <briannorris@chromium.org>
+Tested-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/pci/controller/dwc/pcie-designware-ep.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/pci/controller/pci-host-common.c | 35 ++++++++++++++++++++++++++++++++
+ drivers/pci/controller/pci-host-common.h |  1 +
+ drivers/pci/pci.c                        |  1 +
+ drivers/pci/pcie/err.c                   |  1 +
+ 4 files changed, 38 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
-index 7d2794945704..31402ae218c7 100644
---- a/drivers/pci/controller/dwc/pcie-designware-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-@@ -1153,6 +1153,11 @@ void dw_pcie_ep_cleanup(struct dw_pcie_ep *ep)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index 2ce6f4b66133..363d3f970b10 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -13,9 +13,11 @@
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/of_pci.h>
++#include <linux/pci.h>
+ #include <linux/pci-ecam.h>
+ #include <linux/platform_device.h>
  
-+	if (ep->msi_iatu_mapped) {
-+		dw_pcie_ep_unmap_addr(ep->epc, 0, 0, ep->msi_mem_phys);
-+		ep->msi_iatu_mapped = false;
++#include "../pci.h"
+ #include "pci-host-common.h"
+ 
+ /**
+@@ -342,5 +344,38 @@ bool pci_host_common_d3cold_possible(struct pci_host_bridge *bridge,
+ }
+ EXPORT_SYMBOL_GPL(pci_host_common_d3cold_possible);
+ 
++static pci_ers_result_t pci_host_reset_root_port(struct pci_dev *dev)
++{
++	int ret;
++
++	pci_lock_rescan_remove();
++	ret = pci_bus_error_reset(dev);
++	pci_unlock_rescan_remove();
++	if (ret) {
++		pci_err(dev, "Failed to reset Root Port: %d\n", ret);
++		return PCI_ERS_RESULT_DISCONNECT;
 +	}
 +
- 	dwc_pcie_debugfs_deinit(pci);
- 	dw_pcie_edma_remove(pci);
++	pci_info(dev, "Root Port has been reset\n");
++
++	return PCI_ERS_RESULT_RECOVERED;
++}
++
++static void pci_host_recover_root_port(struct pci_dev *port)
++{
++#if IS_ENABLED(CONFIG_PCIEAER)
++	pcie_do_recovery(port, pci_channel_io_frozen, pci_host_reset_root_port);
++#else
++	pci_host_reset_root_port(port);
++#endif
++}
++
++void pci_host_handle_link_down(struct pci_dev *port)
++{
++	pci_info(port, "Recovering Root Port due to Link Down\n");
++	pci_host_recover_root_port(port);
++}
++EXPORT_SYMBOL_GPL(pci_host_handle_link_down);
++
+ MODULE_DESCRIPTION("Common library for PCI host controller drivers");
+ MODULE_LICENSE("GPL v2");
+diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+index 9f0f36a32221..51afd65d3c4a 100644
+--- a/drivers/pci/controller/pci-host-common.h
++++ b/drivers/pci/controller/pci-host-common.h
+@@ -48,6 +48,7 @@ int pci_host_common_init(struct platform_device *pdev,
+ 			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops);
+ void pci_host_common_remove(struct platform_device *pdev);
++void pci_host_handle_link_down(struct pci_dev *port);
+ 
+ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+ 	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index 12e099489690..ff6d5d059b21 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -5700,6 +5700,7 @@ int pci_bus_error_reset(struct pci_dev *bridge)
+ {
+ 	return pci_reset_bridge(bridge, PCI_RESET_NO_RESTORE);
  }
++EXPORT_SYMBOL_GPL(pci_bus_error_reset);
+ 
+ int pci_try_reset_bridge(struct pci_dev *bridge)
+ {
+diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
+index 13b9d9eb714f..d77403d8855b 100644
+--- a/drivers/pci/pcie/err.c
++++ b/drivers/pci/pcie/err.c
+@@ -292,3 +292,4 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+ 
+ 	return status;
+ }
++EXPORT_SYMBOL_GPL(pcie_do_recovery);
 
 -- 
 2.51.0
