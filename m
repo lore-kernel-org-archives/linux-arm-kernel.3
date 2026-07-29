@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA91C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0DAC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mABh2OQBhAUA7eN+87r478yGoqxajXeOENCfKZxWJeA=; b=3ggm22j6fJniw3pZ5HVljNWLXT
-	0G/nyqBphCCyTTbttLWIyYfzHn369o0IfFcw/3rw8r33oMfHOTDFR8QbADwM4GVTiMHhYPUBNfl2q
-	2UPk0m4oXsY3vtZO5OfNNampma7VTLhyMoPg7IXKKhLVoWV0yHyMOGU0eEppdfqei46qDuOqbvSu8
-	hriMiPbOv6AEK+egrotR+mqpjvmeGQZH6UfO4JUvsxHyJT5L+BPnycw/zbq94Y92wccteeDKRLx75
-	KcevVmw85J0LeKfawMlgu+7hibJyLMxQd3ThzYyDwn/oJlEMW3vRjmR8dkk8AJZNSq3yAwlkk+d0y
-	aqFi8LTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pm2Nrp7Imh72FuDU5pPppeehnA/Ha/4A3yBMluiIZH4=; b=v5f8MWLLhJz61BNksBi+Cye1ae
+	fDgObibLqJMKFvyo7J+Fl9rxr24UKRLeNkPg8wofROy+hyCg7oJ39GdlW9JiTJAi2FIFisUeADVQ3
+	gdvwg/K8WT3zPPELSlVL02BDVajCk1nuuxA1wyvjyJm4Adse3x3qj2cTtgpfAj0USfewf8SLPaegx
+	3q92ugI63WVG/qwkR6GDFIEdSKQnDBOA+05FszA+ZVoCbsXmi5j30W3quPJZPkWN3DrX76DEZw57S
+	TTGGiDYL9SetQHRVJ7sOMDJbp3U2tiSjV5OwE404sCbKUA46AfuH5m/VhQMF2iCegs04eucG8kwMi
+	KwiYbk8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp65L-00000008NXq-2g8k;
-	Wed, 29 Jul 2026 15:20:43 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wp66v-00000008NqP-0BbS;
+	Wed, 29 Jul 2026 15:22:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp65I-00000008NWj-0lgO;
-	Wed, 29 Jul 2026 15:20:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=mABh2OQBhAUA7eN+87r478yGoqxajXeOENCfKZxWJeA=; b=S/3Q0Bnq4xPJ4O8no5JeqAx3On
-	L9u7qtyvrLbPLK4sNmOsNDmzx9YGxap/s+dXIkE2DVu1ePPrSMnIV79P7QE9N5XcLzNxY09nJ3xCF
-	rEEgJamiwBjfHBhSX9+f8Bz+22fl2aj3ZRymXrTXZIV2N+Thzq55RYVYtQhl50/RwmGEKqAe5Bhi9
-	qZ+EKCMhKWJ0nD4k4/RSkthYkuh2tL43W+0nlOMTkyxN9NjgW8j2PDHfREpLbzMmdW36IwtGhWVVG
-	i/W+ZxBUrMtVlZieZ0H0WZJ/58Ih5M3OwisS3zcDQ/thjEONoREPev7ACzSt4YaVIO6oJmSsSWMJj
-	FRPC5c7g==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
- Jiaxing Hu <gahing@gahingwoo.com>
-Cc: chaoyi.chen@rock-chips.com, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, iommu@lists.linux.dev,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiaxing Hu <gahing@gahingwoo.com>
-Subject: Re: [RFC PATCH v2 2/8] pmdomain/rockchip: add optional per-domain power-on
- settle delay
-Date: Wed, 29 Jul 2026 17:20:20 +0200
-Message-ID: <3322194.D8ZAKjAxdT@diego>
-In-Reply-To: <20260718031146.3368811-3-gahing@gahingwoo.com>
-References: <20260718031146.3368811-1-gahing@gahingwoo.com>
- <20260718031146.3368811-3-gahing@gahingwoo.com>
+	id 1wp66u-00000008Nq2-0sfJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 29 Jul 2026 15:22:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pm2Nrp7Imh72FuDU5pPppeehnA/Ha/4A3yBMluiIZH4=; b=D1MEXqnW00vo9XqGC4iEYxWN1m
+	s6Muit33t810hCzAnFre3MfwzNUDPJSYF/PLuReOVxiOP6iYh3X7orQyz0yFPCGaVn0vTTZpPcIcK
+	m8vSyW/wAaC3JUhmMxMmsBbENVWewRoz7yCTins4cCIzH3koRTMfJOiUPiERfpEG4Ym5Lhe4bModV
+	9biV7SoYfKbtAAn/DL3a4hMrT+S8ZPhUsfgouKchsZ4PmBzyrVZCkE0K9qonDU9VMm+cOMFOEWYYY
+	kC0ZScFLToem0MaxMQNEgPCDYIF2mPPdlO2fVYaisWcp6jA1VXit4FG2fl1iDCqZufJPU2UOsqSKE
+	RmW3W0mA==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wp66q-00000005wlY-2SxP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jul 2026 15:22:19 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 413CB1A1300;
+	Wed, 29 Jul 2026 15:22:01 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 078DB6039A;
+	Wed, 29 Jul 2026 15:22:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1212C11C14FF4;
+	Wed, 29 Jul 2026 17:21:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785338520; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=pm2Nrp7Imh72FuDU5pPppeehnA/Ha/4A3yBMluiIZH4=;
+	b=yg11ygwCPHXsInhwI2RvhudDxTtt6qLEl1eKqq9BFv4JKYR0cyKCFjigq48ct3Cm251irR
+	AIinH5hNkagJFmmCnnj5ykP11y4MQFLygGr8WXWO49BZlPwhBfmxP0MNRxnT4h54t76tFd
+	8Xn7hU2aNZzpEqFI3QDkrCeZzaXP4w6qIfw+2cNcm2T6Id04b0473lpx+EzBApfUV9arl8
+	EmIQtWlbDs61ttvU6o19hvFVah0bxq71brHeWtFqJK7neRDSQsatDsQ2II+tD1giep4F6Y
+	rODJ5gsyDSsLadzjDEWpeTRSr1cB+MGY/SbKEkeYFb1JaupdTnvIR5exOhx0EA==
+Date: Wed, 29 Jul 2026 17:21:56 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, Paul
+ Louvel <paul.louvel@bootlin.com>
+Subject: Re: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
+Message-ID: <20260729172156.4371a8bc@bootlin.com>
+In-Reply-To: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
+References: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_082040_399159_1139C448 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20260729_162216_776410_779FE82A 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,197 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 18. Juli 2026, 05:11:40 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Jiaxing Hu:
-> The RK3576 NPU domains need a short settle time after the idle
-> request is released before the QoS registers behind the domain are
-> written: restoring QoS immediately after de-idle can raise an SError
-> on the register access while the NoC is still settling (observed on
-> ROCK 4D as a panic inside rockchip_pd_power() during NPU runtime-PM
-> cycling).
->=20
-> The vendor kernel handles this with a per-domain delay_us field
-> applied between the de-idle request and the QoS restore, carrying
-> 15us for the RK3576 NPUTOP domain.  Mirror that: add delay_us to
-> rockchip_domain_info, honor it in rockchip_pd_power() right before
-> rockchip_pmu_restore_qos(), and set 15us for NPUTOP, NPU0 and NPU1
-> (the two core domains power-cycle constantly under runtime PM and
-> showed the same symptom during bring-up).  All other domains keep 0,
-> so nothing changes for them.
->=20
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+Hi Christophe,
+
+On Wed, 29 Jul 2026 16:10:36 +0200
+"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> wrote:
+
+> Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
+> proper platform driver") qe_add_gpiochips() was walking the device
+> tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
+> 
+> After that commit the discovery is handled by the platform core,
+> therefore it is necessary to call of_platform_default_populate() on
+> the par_io node.
+> 
+> Fixes: 156460811def ("soc: fsl: qe: Change GPIO driver to a proper platform driver")
+> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 > ---
->  drivers/pmdomain/rockchip/pm-domains.c | 51 ++++++++++++++------------
->  1 file changed, 28 insertions(+), 23 deletions(-)
->=20
-> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/ro=
-ckchip/pm-domains.c
-> index 490bbb1d1..1787f62ba 100644
-> --- a/drivers/pmdomain/rockchip/pm-domains.c
-> +++ b/drivers/pmdomain/rockchip/pm-domains.c
-> @@ -59,6 +59,7 @@ struct rockchip_domain_info {
->  	u32 pwr_offset;
->  	u32 mem_offset;
->  	u32 req_offset;
-> +	u32 delay_us;
->  };
-> =20
->  struct rockchip_pmu_info {
-> @@ -185,7 +186,7 @@ struct rockchip_pmu {
->  	.need_regulator =3D regulator,			\
+>  drivers/soc/fsl/qe/qe_io.c | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+> 
+> diff --git a/drivers/soc/fsl/qe/qe_io.c b/drivers/soc/fsl/qe/qe_io.c
+> index a5e2d0e5ab51..02ca556c8db0 100644
+> --- a/drivers/soc/fsl/qe/qe_io.c
+> +++ b/drivers/soc/fsl/qe/qe_io.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/errno.h>
+>  #include <linux/module.h>
+>  #include <linux/ioport.h>
+> +#include <linux/of_platform.h>
+>  
+>  #include <asm/io.h>
+>  #include <soc/fsl/qe/qe.h>
+> @@ -184,3 +185,17 @@ int par_io_of_config(struct device_node *np)
+>  	return 0;
 >  }
-> =20
-> -#define DOMAIN_M_O_R_G(_name, p_offset, pwr, status, m_offset, m_status,=
- r_status, r_offset, req, idle, ack, g_mask, wakeup)	\
-> +#define DOMAIN_M_O_R_G(_name, p_offset, pwr, status, m_offset, m_status,=
- r_status, r_offset, req, idle, ack, g_mask, delay, wakeup)	\
-
-DOMAIN_M_O_R_G describes the fields it sets (mask, offset,  regulator clk-u=
-ngate)
-
-So if you're adding the new wakeup delay that is specific to this one
-implementation-variant, please also add a _W the name DOMAIN_M_O_R_G_W
-
-
-Otherwise looks good.
-
-
-Heiko
->  {							\
->  	.name =3D _name,					\
->  	.pwr_offset =3D p_offset,				\
-> @@ -200,6 +201,7 @@ struct rockchip_pmu {
->  	.req_mask =3D (req),				\
->  	.idle_mask =3D (idle),				\
->  	.clk_ungate_mask =3D (g_mask),			\
-> +	.delay_us =3D (delay),				\
->  	.ack_mask =3D (ack),				\
->  	.active_wakeup =3D wakeup,			\
->  }
-> @@ -244,8 +246,8 @@ struct rockchip_pmu {
->  #define DOMAIN_RK3568(name, pwr, req, wakeup)		\
->  	DOMAIN_M(name, pwr, pwr, req, req, req, wakeup)
-> =20
-> -#define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, r=
-eq, idle, g_mask, wakeup)	\
-> -	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_of=
-fset, req, idle, idle, g_mask, wakeup)
-> +#define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, r=
-eq, idle, g_mask, delay, wakeup)	\
-> +	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_of=
-fset, req, idle, idle, g_mask, delay, wakeup)
-> =20
->  /*
->   * Dynamic Memory Controller may need to coordinate with us -- see
-> @@ -612,7 +614,6 @@ static int rockchip_do_pmu_set_power_domain(struct ro=
-ckchip_pm_domain *pd,
->  			return ret;
->  	}
-> =20
-> -
->  	ret =3D readx_poll_timeout_atomic(rockchip_pmu_domain_is_on, pd, is_on,
->  					is_on =3D=3D on, 0, 10000);
->  	if (ret) {
-> @@ -667,6 +668,9 @@ static int rockchip_pd_power(struct rockchip_pm_domai=
-n *pd, bool power_on)
->  		if (ret < 0)
->  			goto out;
-> =20
-> +		if (pd->info->delay_us)
-> +			udelay(pd->info->delay_us);
+>  EXPORT_SYMBOL(par_io_of_config);
 > +
->  		rockchip_pmu_restore_qos(pd);
->  	}
-> =20
-> @@ -1286,25 +1290,26 @@ static const struct rockchip_domain_info rk3568_p=
-m_domains[] =3D {
->  };
-> =20
->  static const struct rockchip_domain_info rk3576_pm_domains[] =3D {
-> -	[RK3576_PD_NPU]		=3D DOMAIN_RK3576("npu",    0x0, BIT(0),  BIT(0), 0,  =
-     0x0, 0,       0,       0,       false),
-> -	[RK3576_PD_NVM]		=3D DOMAIN_RK3576("nvm",    0x0, BIT(6),  0,      BIT(=
-6),  0x4, BIT(2),  BIT(18), BIT(2),  false),
-> -	[RK3576_PD_SDGMAC]	=3D DOMAIN_RK3576("sdgmac", 0x0, BIT(7),  0,      BI=
-T(7),  0x4, BIT(1),  BIT(17), 0x6,     false),
-> -	[RK3576_PD_AUDIO]	=3D DOMAIN_RK3576("audio",  0x0, BIT(8),  0,      BIT=
-(8),  0x4, BIT(0),  BIT(16), BIT(0),  false),
-> -	[RK3576_PD_PHP]		=3D DOMAIN_RK3576("php",    0x0, BIT(9),  0,      BIT(=
-9),  0x0, BIT(15), BIT(15), BIT(15), false),
-> -	[RK3576_PD_SUBPHP]	=3D DOMAIN_RK3576("subphp", 0x0, BIT(10), 0,      BI=
-T(10), 0x0, 0,       0,       0,       false),
-> -	[RK3576_PD_VOP]		=3D DOMAIN_RK3576("vop",    0x0, BIT(11), 0,      BIT(=
-11), 0x0, 0x6000,  0x6000,  0x6000,  false),
-> -	[RK3576_PD_VO1]		=3D DOMAIN_RK3576("vo1",    0x0, BIT(14), 0,      BIT(=
-14), 0x0, BIT(12), BIT(12), 0x7000,  false),
-> -	[RK3576_PD_VO0]		=3D DOMAIN_RK3576("vo0",    0x0, BIT(15), 0,      BIT(=
-15), 0x0, BIT(11), BIT(11), 0x6800,  false),
-> -	[RK3576_PD_USB]		=3D DOMAIN_RK3576("usb",    0x4, BIT(0),  0,      BIT(=
-16), 0x0, BIT(10), BIT(10), 0x6400,  true),
-> -	[RK3576_PD_VI]		=3D DOMAIN_RK3576("vi",     0x4, BIT(1),  0,      BIT(1=
-7), 0x0, BIT(9),  BIT(9),  BIT(9),  false),
-> -	[RK3576_PD_VEPU0]	=3D DOMAIN_RK3576("vepu0",  0x4, BIT(2),  0,      BIT=
-(18), 0x0, BIT(7),  BIT(7),  0x280,   false),
-> -	[RK3576_PD_VEPU1]	=3D DOMAIN_RK3576("vepu1",  0x4, BIT(3),  0,      BIT=
-(19), 0x0, BIT(8),  BIT(8),  BIT(8),  false),
-> -	[RK3576_PD_VDEC]	=3D DOMAIN_RK3576("vdec",   0x4, BIT(4),  0,      BIT(=
-20), 0x0, BIT(6),  BIT(6),  BIT(6),  false),
-> -	[RK3576_PD_VPU]		=3D DOMAIN_RK3576("vpu",    0x4, BIT(5),  0,      BIT(=
-21), 0x0, BIT(5),  BIT(5),  BIT(5),  false),
-> -	[RK3576_PD_NPUTOP]	=3D DOMAIN_RK3576("nputop", 0x4, BIT(6),  0,      BI=
-T(22), 0x0, 0x18,    0x18,    0x18,    false),
-> -	[RK3576_PD_NPU0]	=3D DOMAIN_RK3576("npu0",   0x4, BIT(7),  0,      BIT(=
-23), 0x0, BIT(1),  BIT(1),  0x1a,    false),
-> -	[RK3576_PD_NPU1]	=3D DOMAIN_RK3576("npu1",   0x4, BIT(8),  0,      BIT(=
-24), 0x0, BIT(2),  BIT(2),  0x1c,    false),
-> -	[RK3576_PD_GPU]		=3D DOMAIN_RK3576("gpu",    0x4, BIT(9),  0,      BIT(=
-25), 0x0, BIT(0),  BIT(0),  BIT(0),  false),
-> +	/*                                               name    p_offset pwr  =
-    status  r_status r_offset req      idle     g_mask   delay wakeup */
-> +	[RK3576_PD_NPU]		=3D DOMAIN_RK3576("npu",    0x0, BIT(0),  BIT(0), 0,  =
-     0x0, 0,       0,       0,       0,    false),
-> +	[RK3576_PD_NVM]		=3D DOMAIN_RK3576("nvm",    0x0, BIT(6),  0,      BIT(=
-6),  0x4, BIT(2),  BIT(18), BIT(2),  0,    false),
-> +	[RK3576_PD_SDGMAC]	=3D DOMAIN_RK3576("sdgmac", 0x0, BIT(7),  0,      BI=
-T(7),  0x4, BIT(1),  BIT(17), 0x6,     0,    false),
-> +	[RK3576_PD_AUDIO]	=3D DOMAIN_RK3576("audio",  0x0, BIT(8),  0,      BIT=
-(8),  0x4, BIT(0),  BIT(16), BIT(0),  0,    false),
-> +	[RK3576_PD_PHP]		=3D DOMAIN_RK3576("php",    0x0, BIT(9),  0,      BIT(=
-9),  0x0, BIT(15), BIT(15), BIT(15), 0,    false),
-> +	[RK3576_PD_SUBPHP]	=3D DOMAIN_RK3576("subphp", 0x0, BIT(10), 0,      BI=
-T(10), 0x0, 0,       0,       0,       0,    false),
-> +	[RK3576_PD_VOP]		=3D DOMAIN_RK3576("vop",    0x0, BIT(11), 0,      BIT(=
-11), 0x0, 0x6000,  0x6000,  0x6000,  0,    false),
-> +	[RK3576_PD_VO1]		=3D DOMAIN_RK3576("vo1",    0x0, BIT(14), 0,      BIT(=
-14), 0x0, BIT(12), BIT(12), 0x7000,  0,    false),
-> +	[RK3576_PD_VO0]		=3D DOMAIN_RK3576("vo0",    0x0, BIT(15), 0,      BIT(=
-15), 0x0, BIT(11), BIT(11), 0x6800,  0,    false),
-> +	[RK3576_PD_USB]		=3D DOMAIN_RK3576("usb",    0x4, BIT(0),  0,      BIT(=
-16), 0x0, BIT(10), BIT(10), 0x6400,  0,    true),
-> +	[RK3576_PD_VI]		=3D DOMAIN_RK3576("vi",     0x4, BIT(1),  0,      BIT(1=
-7), 0x0, BIT(9),  BIT(9),  BIT(9),  0,    false),
-> +	[RK3576_PD_VEPU0]	=3D DOMAIN_RK3576("vepu0",  0x4, BIT(2),  0,      BIT=
-(18), 0x0, BIT(7),  BIT(7),  0x280,   0,    false),
-> +	[RK3576_PD_VEPU1]	=3D DOMAIN_RK3576("vepu1",  0x4, BIT(3),  0,      BIT=
-(19), 0x0, BIT(8),  BIT(8),  BIT(8),  0,    false),
-> +	[RK3576_PD_VDEC]	=3D DOMAIN_RK3576("vdec",   0x4, BIT(4),  0,      BIT(=
-20), 0x0, BIT(6),  BIT(6),  BIT(6),  0,    false),
-> +	[RK3576_PD_VPU]		=3D DOMAIN_RK3576("vpu",    0x4, BIT(5),  0,      BIT(=
-21), 0x0, BIT(5),  BIT(5),  BIT(5),  0,    false),
-> +	[RK3576_PD_NPUTOP]	=3D DOMAIN_RK3576("nputop", 0x4, BIT(6),  0,      BI=
-T(22), 0x0, 0x18,    0x18,    0x18,    15,   false),
-> +	[RK3576_PD_NPU0]	=3D DOMAIN_RK3576("npu0",   0x4, BIT(7),  0,      BIT(=
-23), 0x0, BIT(1),  BIT(1),  0x1a,    15,   false),
-> +	[RK3576_PD_NPU1]	=3D DOMAIN_RK3576("npu1",   0x4, BIT(8),  0,      BIT(=
-24), 0x0, BIT(2),  BIT(2),  0x1c,    15,   false),
-> +	[RK3576_PD_GPU]		=3D DOMAIN_RK3576("gpu",    0x4, BIT(9),  0,      BIT(=
-25), 0x0, BIT(0),  BIT(0),  BIT(0),  0,    false),
->  };
-> =20
->  static const struct rockchip_domain_info rk3588_pm_domains[] =3D {
->=20
+> +static int __init par_io_populate(void)
+> +{
+> +	struct device_node *np = of_find_node_by_name(NULL, "par_io");
+> +
+> +	if (!np)
+> +		return 0;
+> +
+> +	of_platform_default_populate(np, NULL, NULL);
+> +	of_node_put(np);
+> +
+> +	return 0;
+> +}
+> +arch_initcall(par_io_populate);
 
 
+The par_io node is a sub-node of the soc@xxx node.
+The soc@xxx node is simple-bus compatible. This child node should be
+populated.
 
+Why do we need this additional of_platform_default_populate?
 
+Also par_io node has a compatible. Maybe the related driver should call
+of_platform_populate() to populate children of par_io if needed. If this
+driver is missing, maybe it should be created.
+
+Do I miss something?
+
+Best regards,
+Hervé
 
