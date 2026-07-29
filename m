@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB05EC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7BCC54F52
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxC1M/tdYdJGtRmXFQtTEmCh3s7ouo0vpWRbZF137vk=; b=tC22RvgcKFNQJMW8CMD+6NmwFT
-	kiiy00HLHvENkAVSE68lEOJSv0NegdrmFdmozLjwVBNP64UTiAmn/pOGIBQhF6AcAwODtZtUB/Dug
-	vFc/HtSEEQYPR85PJ05HDaekNOD5YmFUh01Y9uRPUg/6vYJJ9fgOkv39b3EDNwaKQIWsJq8l3hvkr
-	51qBJ1rr23blKs20QMkwAFEqeHZgxRIQMRw21bWWmJjYT+l+TRVVhSyyan8R+1+PpwhHo15mAQoMC
-	xENlNp/zsLrSMiE6Suwx6jfwEqSKvAyjncGwwuehT1K66EO6bvDz0krohrWIb3l7DBpbo3KRLeDXN
-	387n9QKA==;
+	bh=SAdQkwU2PwOEodUlK/BSONJFJ2kfYX96n54l5W4YDwY=; b=cGug32uWOExLnmSpZx5IA5i4h5
+	JkfNtGHHGfUP/RenwK5oMkNDgpzKFibSLFQCa/FkoLfxThq5E9HKNXj+0IGwzYrZ02jEnm9pgcAkp
+	tO1XqDhc34vzh245naoXWsMVj9RkyssG5qgY+5oqE+uFP3SGACggX1Gj1hasYip+l56fAdeLAut7Y
+	MKP8RvmeVH07jPAXxpGWF5ZRnUq7FI3w7zWWpxKZ4xZErOTB9/62cW1VOgCb198CZ211cJX8g5VoV
+	ud/36+we13bxPyNaQfPvmvqY1ymR+GpfMR/BwZZ9RpuHH8N4QIm3rmYZh5zlzaCGyaaHn+2A6vCpa
+	UzYFu9pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp18U-00000007SGl-1YC5;
-	Wed, 29 Jul 2026 10:03:38 +0000
+	id 1wp18Y-00000007SQ0-2pm1;
+	Wed, 29 Jul 2026 10:03:42 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp188-00000007S12-3bts;
-	Wed, 29 Jul 2026 10:03:18 +0000
+	id 1wp18G-00000007S5E-0ilf;
+	Wed, 29 Jul 2026 10:03:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785319394;
-	bh=3HvR2i0TeyW7ntE6wt26ah4Fl34lpJceNTjjoyWnRHM=;
+	s=mail; t=1785319401;
+	bh=nmMkXcxJLcyi5jJSE7u+jNN//+j9QNGYv6dVLzwOIgI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lEN91WhinsLffcKUXOHiPNC3DN8jHGHdHjgNf7uyC1qmo/M33CX8DYXHphObtiSI2
-	 EG5grcWOXAH3wa4XMXH6RN7V3DZefH4irCsVX2OJyyNSp8GIxauKASOm/yWibyFFDT
-	 MLJuWzvtZmAd2mZD/naRxjRhdUlve7PQf6PJGFNI39Kt4idVF3ghX022ZOs1ZSgHso
-	 f0TogkDzLLjFzGJiXSiTauwlJ1fWBfw92II7MrEqs7/5i8/FHTtmz/2B03oNZMR17b
-	 fnXYsGeYCbtpXFWD8LNj8q6RkQnDL8gg4i0FQjqbtLJlLzkhH13WLIGBYoF3DYE2LA
-	 HbxtW5Z6TQKbw==
+	b=HP8GZ3hJiuhB5hkdQyhSkpwlK+Z5IwGeVe7ETdvj227waPj3BNGXOu87dNKWT3DlI
+	 h192bfL7DyPi3dRyZJyxlUEs1Z4NN8BZQkQENyH0V0E/q23G+3KekjeSXSVa6Fm6S5
+	 zm+jhO8kRceHcVJVos71dp7IBY6/1nmg294nbNfV9j4Wypbgfir/1PYiVXV3oMtmMa
+	 d2aHx8Wsd1BulZKX9EcHcQfqrl0nfZ9qGHwguR/PrdF6OO55ri1GnH9vRlkl9lScYa
+	 si2wY3iV8t0Lu1lq4XTGHtTNJyI/THRvz3Iw3Lpg54o1cUkv+o38kVcRKTNZSurss1
+	 1YghktQ3gp20A==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2344C17E08A2;
-	Wed, 29 Jul 2026 12:03:13 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9065E17E08A2;
+	Wed, 29 Jul 2026 12:03:20 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 29 Jul 2026 12:02:48 +0200
-Subject: [PATCH v4 04/24] dt-bindings: clock: mediatek: reorder MT8186
- compatibles
+Date: Wed, 29 Jul 2026 12:02:54 +0200
+Subject: [PATCH v4 10/24] clk: mediatek: pll: Add BAR reset register
+ offsets
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260729-mt8189-clocks-system-base-v4-4-e356b813a64c@collabora.com>
+Message-Id: <20260729-mt8189-clocks-system-base-v4-10-e356b813a64c@collabora.com>
 References: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
 In-Reply-To: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -67,20 +67,19 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+ netdev@vger.kernel.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785319387; l=2561;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785319387; l=2982;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=3HvR2i0TeyW7ntE6wt26ah4Fl34lpJceNTjjoyWnRHM=;
- b=irEGvJdiJBy8F5Nc6satMhKeIoTPr9QxNq4YfngJ0JWgZQm8GYVAVvmboBSo3+HThK/AJDXnj
- b1CqN0I8bRSDAq3H8zoYbhbUC8IH8hNKBIdudJsa35y3ReDHtkhIuYk
+ bh=nmMkXcxJLcyi5jJSE7u+jNN//+j9QNGYv6dVLzwOIgI=;
+ b=a1RidghG79JOU3GtpHU5tmwM89ANwdY5s+tG1K/ip2V08gHJqbleAusPP5Icr+wlKw3Hu/UEk
+ HAihp8ugk+kDi0CwFwEfX4bOcrDn7x+iYLr8mK2JOlym0mFKbtQxpFu
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_030317_107577_36ECFED8 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_030324_375495_58A9F580 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,67 +94,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to prepare regrouping several Mediatek SoC clock controller
-dt-bindings files into the MT8186 ones, reorder the MT8186 clock
-controller compatibles so they are sorted alphanumerically.
+Currently, the register offset to handle BAR reset, for PLLs that
+support it, is hardcoded to CON0.
+On MT8189 SoC, there are separate status, set and clr registers to
+handle this, so differents offsets are needed.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Add the new fields for offsets and addresses to the MTK PLL data
+structure and modify mtk_clk_register_pll_ops function to compute the
+new register addresses so they are available for clock operation usage.
+
+Also, replace reset BAR address computing by its computed address
+from MTK PLL data structure in prepare/unprepare callbacks.
+
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- .../bindings/clock/mediatek,mt8186-clock.yaml           | 17 +++++++++--------
- .../bindings/clock/mediatek,mt8186-sys-clock.yaml       |  4 ++--
- 2 files changed, 11 insertions(+), 10 deletions(-)
+ drivers/clk/mediatek/clk-pll.c | 18 ++++++++++++++----
+ drivers/clk/mediatek/clk-pll.h |  6 ++++++
+ 2 files changed, 20 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-index 539149c945d0..756b937bb7c4 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-@@ -23,18 +23,19 @@ properties:
-   compatible:
-     items:
-       - enum:
--          - mediatek,mt8186-imp_iic_wrap
--          - mediatek,mt8186-mfgsys
--          - mediatek,mt8186-wpesys
--          - mediatek,mt8186-imgsys1
--          - mediatek,mt8186-imgsys2
--          - mediatek,mt8186-vdecsys
--          - mediatek,mt8186-vencsys
-           - mediatek,mt8186-camsys
-           - mediatek,mt8186-camsys_rawa
-           - mediatek,mt8186-camsys_rawb
--          - mediatek,mt8186-mdpsys
-+          - mediatek,mt8186-imgsys1
-+          - mediatek,mt8186-imgsys2
-+          - mediatek,mt8186-imp_iic_wrap
-           - mediatek,mt8186-ipesys
-+          - mediatek,mt8186-mdpsys
-+          - mediatek,mt8186-mfgsys
-+          - mediatek,mt8186-vdecsys
-+          - mediatek,mt8186-vencsys
-+          - mediatek,mt8186-wpesys
+diff --git a/drivers/clk/mediatek/clk-pll.c b/drivers/clk/mediatek/clk-pll.c
+index ee478bc64085..4b0f7e2bfc5a 100644
+--- a/drivers/clk/mediatek/clk-pll.c
++++ b/drivers/clk/mediatek/clk-pll.c
+@@ -249,9 +249,9 @@ int mtk_pll_prepare(struct clk_hw *hw)
+ 	udelay(20);
+ 
+ 	if (pll->data->flags & HAVE_RST_BAR) {
+-		r = readl(pll->base_addr + REG_CON0);
++		r = readl(pll->rst_bar_addr);
+ 		r |= pll->data->rst_bar_mask;
+-		writel(r, pll->base_addr + REG_CON0);
++		writel(r, pll->rst_bar_addr);
+ 	}
+ 
+ 	return 0;
+@@ -263,9 +263,9 @@ void mtk_pll_unprepare(struct clk_hw *hw)
+ 	u32 r;
+ 
+ 	if (pll->data->flags & HAVE_RST_BAR) {
+-		r = readl(pll->base_addr + REG_CON0);
++		r = readl(pll->rst_bar_addr);
+ 		r &= ~pll->data->rst_bar_mask;
+-		writel(r, pll->base_addr + REG_CON0);
++		writel(r, pll->rst_bar_addr);
+ 	}
+ 
+ 	__mtk_pll_tuner_disable(pll);
+@@ -352,6 +352,16 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
+ 		pll->en_set_addr = base + data->en_set_reg;
+ 	if (data->en_clr_reg)
+ 		pll->en_clr_addr = base + data->en_clr_reg;
 +
-   reg:
-     maxItems: 1
++	if (data->rst_bar_reg)
++		pll->rst_bar_addr = base + data->rst_bar_reg;
++	else
++		pll->rst_bar_addr = pll->base_addr + REG_CON0;
++	if (data->rst_bar_set_reg)
++		pll->rst_bar_set_addr = base + data->rst_bar_set_reg;
++	if (data->rst_bar_clr_reg)
++		pll->rst_bar_clr_addr = base + data->rst_bar_clr_reg;
++
+ 	pll->hw.init = &init;
+ 	pll->data = data;
  
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-index f8acc02cafee..6733dafbde16 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-@@ -27,10 +27,10 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - mediatek,mt8186-apmixedsys
-+          - mediatek,mt8186-infracfg_ao
-           - mediatek,mt8186-mcusys
-           - mediatek,mt8186-topckgen
--          - mediatek,mt8186-infracfg_ao
--          - mediatek,mt8186-apmixedsys
-       - const: syscon
+diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
+index d6d34840c09d..3aaf3a7654b5 100644
+--- a/drivers/clk/mediatek/clk-pll.h
++++ b/drivers/clk/mediatek/clk-pll.h
+@@ -49,6 +49,9 @@ struct mtk_pll_data {
+ 	u32 en_reg;
+ 	u32 en_set_reg;
+ 	u32 en_clr_reg;
++	u32 rst_bar_reg;
++	u32 rst_bar_set_reg;
++	u32 rst_bar_clr_reg;
+ 	u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
+ 	u8 pcw_chg_bit;
+ 	u8 fenc_sta_bit;
+@@ -75,6 +78,9 @@ struct mtk_clk_pll {
+ 	void __iomem	*en_set_addr;
+ 	void __iomem	*en_clr_addr;
+ 	void __iomem	*fenc_addr;
++	void __iomem	*rst_bar_addr;
++	void __iomem	*rst_bar_set_addr;
++	void __iomem	*rst_bar_clr_addr;
+ 	const struct mtk_pll_data *data;
+ };
  
-   reg:
 
 -- 
 2.55.0
