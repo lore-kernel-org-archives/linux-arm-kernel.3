@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D45C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 07:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456DBC54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 07:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Np3TxTdvKcS8g72nvKid+BqIJi+sR4NF+QJPQi54MKI=; b=EzijZ7wZg+sXNFIfbeigyUlV+J
-	T6fE/EZuxIGTrKvcklsYwtiMdDT6Z4yM3EhIWOssJuJf752xqFW2CZg/O9VWfzPGAkz9ThipyBm1O
-	D6vM0IWIMsZXg17ylqTJRis2uzkgiQwQiKUYpc59s8EN809cYY8MUD4lDvt+GfGVEyoIG5UL5FrtH
-	sqiwW7hkY7xL2chomVZlhoYHkrUXmPPzQQUxqoH5mXON9d/I+HN1H+3UK3ynGiL3p/wrOdK47nCVK
-	WrSajZMZzhaV7hmaW8ZhqzdMIbCDJwOA9XFD7u+/L/cDGwgWZRoWpvt6iDtjg47VKV6LxCe/UANXs
-	HV3WEJZA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kNKMfFoLrxfVgkUmO/8mblNHEBodyP1KuT76nV4WYpo=; b=HzimSbyxS0qPXX2qKVtBW0aZqH
+	PvEl8ZD8FAWrWuFwDeq4ZPS/pfAthpUYjDgvVBKoQ9LpNbxufhnAuB71EhH7joNO5j+u5H070ktRc
+	vdVOPu7llqDU+pcwaNLayBNue7pZWe4klftfRroOtYEQHeSvF7R0DVFqKHBPf9khbvYA9mDbm4MKU
+	ygtcNCBurMexkLLuNvxQ8roQZmd+G7pKuavpJDEZflJ+2oWQr2L+brJurwC5UaAkgnw3ToA4SEuHD
+	ATcq89xGJNs/uAjM2C8UIyaiq3de+/7p+qhynKygRtOwGy+NU+6nJfxH3KlTkbqTi5oVww4RfY8GB
+	zQznECtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woywF-000000079JV-1KFQ;
-	Wed, 29 Jul 2026 07:42:51 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1woywN-000000079Lc-1oVN;
+	Wed, 29 Jul 2026 07:42:59 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woywD-000000079JA-2Ia1
+	id 1woywK-000000079KS-1auu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 07:42:50 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cab973140bso9677355ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 00:42:49 -0700 (PDT)
+	Wed, 29 Jul 2026 07:42:58 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ce98cb8165so6732795ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 00:42:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785310968; x=1785915768; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Np3TxTdvKcS8g72nvKid+BqIJi+sR4NF+QJPQi54MKI=;
-        b=fCDqc/VObIy/0ngCa7BVgXJeXt/n+EZnJ5npPabHhJWUEM2pO2q3WAg1rol/NFg2Od
-         Acc3O6hQMWSu+/WaIBPtMrX2DEAPDWr1O8hNLDzpbVcveMXRFC518h2Ye4MUMueNA7/h
-         ZEQ0z049OnmWqwd/EXj0SJ2Kgs3E/wYSTSc5JNFND2vMXXkLBPKTYj1PtlOAJ4gT7GWj
-         Dx3+b1xIBNqNOnpwSY/l6u5Kc9IrvmvQKXYUPt7uRqrB40D1DAKGlsDGb0ji8JZJiuPp
-         wkp47kp6dI6RngygwnvTcNqci/0e/HdONcl7C0As+gckis8S6beWpXT2O0LepTv2Ushh
-         Agyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785310968; x=1785915768;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1785310975; x=1785915775; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Np3TxTdvKcS8g72nvKid+BqIJi+sR4NF+QJPQi54MKI=;
-        b=otgDIi8ygm3ckRZkh3r/p4vziNf0ldgWa5hGz9SFBSxkiAwcndHPX1pzIcbgQHzayL
-         fPGjk8jYQwNwIr8pWh+vm/4pMclFDoc0Y1rKowWXShhYbaqOtLyvDRmTt0xsTnalle4n
-         34R9W8GLdWM9H/zuVpQecJn79bg+u2A3EcDeA80Hm9ARpn6xhpqufW0nWfAK3oJA+I/m
-         JwxPptD7X2q6xk6/XuCHXp2vM/Tpw4AcEuEZNG6OPwtb5RLk/0LxyBV8Nfw6ePCMbmZs
-         ucQ2MC9x2ahcthihc+8th5mcSPrPSPYyLw2QWMyMWYgI6w7eTLKf+7ScgX4sHDMT+7kh
-         S34w==
-X-Forwarded-Encrypted: i=1; AHgh+RqVE/dhefd6fbCB4A2t07ucSqVQIXn6ph7+lUU7SCgvyeRH/Zeraoq42wCr9Fhc6Bao9+N6N7yPxc9Qi8IE3XV5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzlr75o8vPY+sgiGCuYjhqS8Rf6VMCgQ1dv3hGpGpI8hsDz8Atq
-	OnNOYac7EKT6STeT8xIMt2meKsY1j7Nu8Mg3mhqUtddHQxtE9QKzCF42
-X-Gm-Gg: AR+sD11RuBIWQvIeWiueoOH5lnEz+kk0SwsPt+xlA0oWVX0ZSaiFOlVgYR6i5gIqSAd
-	DT7Or7gqlvOsTweEnwA7m1L8FEQcNczekpY4rkDQb6Bv6F+mGXvonhDl1afxi23cwtq+s1EVUEo
-	604yLc/8JCfhpVGRLIjsf4VSSZECMr9O9FKu/+8chGVQh1LSK4M8FMKNc8Wih36KV207as0fQip
-	yk6/qVmjHwE++6vzMg3vpFnKvgshju8CHVB3xACz8Y/kam0YZE1Zu6Q/OMITFrEUcJIJmOWfuNq
-	geLbPw5SaIDHJUWhIn/GR38UAgORFHw552dN0do46GAUhKEvM+cc83MKiNdtpR3v49dpyGhVzol
-	9+GO2fKTW8k8aIXBy5E3w6TA7lvWPjJMtwJLgKkYQmv7oLIQHbqiNOT5uEFx+OepbmVj2HzPUC3
-	rKHCGoLvQCvz9KOS0QqMS2UEkxTNqF2swpPS4sPeTvGdYPp+DElLxWMpL1jnfqq+KxPdRQjg==
-X-Received: by 2002:a17:902:ebc2:b0:2cc:6817:d9bc with SMTP id d9443c01a7336-2d015f31b41mr63997355ad.38.1785310968545;
-        Wed, 29 Jul 2026 00:42:48 -0700 (PDT)
+        bh=kNKMfFoLrxfVgkUmO/8mblNHEBodyP1KuT76nV4WYpo=;
+        b=WlVw50RtIzyy44daRMBrf+ypjpqueq3xfn/UBBMz8rtTYIAsXt6iU4Osa9EktLRv1U
+         DESHvPVqQnpNsPDwiGf9U0rQsY7bbvT3Yetj5RGEIJ1LPoVs67hzA9BqNa5nroWZN+TL
+         Q0bALcMVJb4C3SOiBXVx88y5pk26snzCeIoR3cRfHmSU4lIRkB1Rw+aV75+KlQMFg8u4
+         SQE6sptY3WOvfeINDd22zMw1UoPNTfruA+tyrcLq/WcwNw3Hf9ZfmyIP5liFwkfNQqa0
+         iyux7A4jfZ9rfDOarddCJETttUPWuyLohbtBhmlW4W6Mbr0l40h+hePTjQjPs20qMsmN
+         K82g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785310975; x=1785915775;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kNKMfFoLrxfVgkUmO/8mblNHEBodyP1KuT76nV4WYpo=;
+        b=mEt8HJVsg3pOdCHtMNH//Dd5tnAwCGbLwqZcpPwmB3rH6DLzk1LOVwUpvpMzsdIRKQ
+         kTXl2Mp+8+ym2No8zHhX0THAKIlPXWZJA+C4KA+w7h2pi2kHj2yg1Yjtx8k48cCmGUze
+         X7f9vtFvh+2+8jv7VnEGLvssRJNTdAAjQ0/0ZNMzeBefJQdF2EZw7peCW4aIaIMJ5maI
+         jsEBmRsYD6TyMXZtiKfUiivNSSTjCgADK4FpW4kNwsCa9PEryi1mnv0kE3gqgVkCjLGa
+         se6+FLZvccmtN8EUVFRSKQNXlFkIq/aRdo9qirRAxSjmPyBL3uRmQAib/Lc7wbYcgppd
+         XH+g==
+X-Forwarded-Encrypted: i=1; AHgh+RouKRwbojt621Jt86r1z6koQIGbkNWhMZywcfcmdIKEj93NIMgEbkvOtszARyizmCiFBoMPHtfBjwCF1v4vNj6k@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJOQNAjl0Z7wEPz30PnKwt+KURRWCZzDj6nQwaHXl5jXcV+11A
+	9SYr92PvmRUvX71Woeucy9xD+zSvXczNqRs4z+bzpnaUJ4qONEnJnKfE
+X-Gm-Gg: AR+sD10Gc/qmyN105eUouyiXhy96ssO508xC0ZzN9iyETMlt19CKizfBqJhaqxTTdE1
+	LJmkgTeMah4EXids1Ki8iShCF31b2E7loVNYshvHTgJ6B4CW3D4sLU3C0Z4hchjK3YSsJkXoRos
+	M1RokC+HiPjUOPExMqz2Nuq+vHHkWWQRHlSnl6l1tJkxM8u45ovKBLyGELbBA/SbvVBlaookjdw
+	7LXg0nuHG8JGpIU99lGnhjpvPYGwTGcB5DbxfWDPIQIjVjxFA2PwY5aRqp/HgXplh9Ik8CQAs6W
+	fBVpblneBdg7eDx3a0gKVVWGrqWOM88Vtz9nySM61a7dyNEnxg8VCBWGFYFgmyvAVLym5Hjr0U3
+	dGoOp91ryEXI75FaYklzLZMvxGMMr0v8/Vh/kj8RD4yfE7GZV/Cpqv9/RDLdWPQt0zRCRn6m5tb
+	PlBwq5NA11O8KOMCL8XtKQpr8grPGSc0m/XM9wcVcbo/L94y+fkSCZp7zpexs=
+X-Received: by 2002:a17:903:46c6:b0:2ca:e496:5f19 with SMTP id d9443c01a7336-2d0267522d0mr13767845ad.19.1785310975421;
+        Wed, 29 Jul 2026 00:42:55 -0700 (PDT)
 Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022bf888csm7154505ad.64.2026.07.29.00.42.42
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022bf888csm7154505ad.64.2026.07.29.00.42.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 00:42:48 -0700 (PDT)
+        Wed, 29 Jul 2026 00:42:54 -0700 (PDT)
 From: Zxyan Zhu <zxyan0222@gmail.com>
 To: netdev@vger.kernel.org
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -87,15 +88,17 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Zxyan Zhu <zxyan0222@gmail.com>
-Subject: [PATCH net-next v3 0/2] net: stmmac: Fix PHY attach when custom PCS is in use
-Date: Wed, 29 Jul 2026 15:42:35 +0800
-Message-Id: <20260729074237.2624940-1-zxyan0222@gmail.com>
+Subject: [PATCH net-next v3 1/2] net: stmmac: Skip PHY attach if custom PCS is in use
+Date: Wed, 29 Jul 2026 15:42:36 +0800
+Message-Id: <20260729074237.2624940-2-zxyan0222@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260729074237.2624940-1-zxyan0222@gmail.com>
+References: <20260729074237.2624940-1-zxyan0222@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_004249_588466_F0E884C3 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260729_004256_429036_6997BC36 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +113,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes the issue where stmmac platforms using a custom PCS
-via the pcs_init callback fail to probe when no phy-handle is specified
-in the device tree.
+When a platform provides a custom PCS via the pcs_init callback,
+the MAC's phylink_pcs is already configured. In this case, no
+traditional PHY device is needed.
 
-Patch 1 skips the PHY attach in stmmac when a custom PCS is already
-configured via priv->hw->phylink_pcs and phy_addr is invalid, avoiding
-the "no phy found" error for platforms that manage link state entirely
-through the PCS.
+Without this, stmmac_init_phy() falls through to the no-phy-node
+path and errors out with "no phy found" when the DT has no
+phy-handle for such interfaces.
 
-Patch 2 is Russell King's phylink patch that relaxes phylink_expects_phy()
-to allow PHYs to be attached in 802.3z inband mode.
+Skip the PHY attach when priv->hw->phylink_pcs is set and
+phy_addr is invalid.
 
-v3:
-- Move the priv->hw->phylink_pcs check inside the "addr < 0" branch
-  to avoid skipping the phy_addr fallback for boards with both a PCS
-  and a PHY
-- Reverse patch order: stmmac fix first, phylink change second
-
-v2:
-- Include Russell's phylink patch as prerequisite
-- This is now a 2-patch series targeting net-next
-
-Zxyan Zhu (1):
-  net: stmmac: Skip PHY attach if custom PCS is in use
-
-Russell King (Oracle) (1):
-  net: phylink: allow PHYs to be attached in 802.3z inband mode
-
+Fixes: f0ef433fc264 ("net: stmmac: introduce pcs_init/pcs_exit stmmac operations")
+Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+---
  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
- drivers/net/phy/phylink.c                         | 8 ++------
- 2 files changed, 6 insertions(+), 6 deletions(-)
+ 1 file changed, 4 insertions(+)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 562d20830b94..575132b9cdbf 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1347,6 +1347,10 @@ static int stmmac_init_phy(struct net_device *dev)
+ 		struct phy_device *phydev;
+ 
+ 		if (addr < 0) {
++			/* If a custom PCS is in use, no PHY is needed */
++			if (priv->hw->phylink_pcs)
++				return 0;
++
+ 			netdev_err(priv->dev, "no phy found\n");
+ 			return -ENODEV;
+ 		}
 -- 
 2.34.1
 
