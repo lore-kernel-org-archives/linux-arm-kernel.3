@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41766C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40214C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xpR48eIXR1Ci0/Y8C1oaWZVWu8i3+nXBnNEaQ1vsjLQ=; b=OiQEYZUXkxPOg4AQYf/m5uCLY0
-	UhiWKQoWAmvydg5Bn3l+8Y979rVFvX8g9n7tQIRZjISzXeONxU2zGHFZwN//+T0u4KB5WVgPitwP5
-	3D0jMLQf2iRHAmhNfIHlvuzqTZutyICh5CKIbhn8aN9H/NNTth7ZNbjpkXChPMDmUSaNj342nx5hr
-	o/T71qwkvvjh2KMlMwJtqnq48W6qmcvmhkgm/B9mWzHTS42Th4SImXfysrQojgxUFS93kWT5WGmJR
-	zuWQoKds2ttxoPPaa9Ts9FvGANqJrWV2BQ8NMR8vVXclNcgGi8y42Zvwf6O9UjtAzKeMKwnu1oit9
-	KL3K6+Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qrhiXX1L+JvZgDAMjgvJ3cU7nxAOktkpPsbmQm53UfU=; b=xCy2PHUlXZ1lKIWLLCLqV7/jWh
+	jey1fqEbjoJF5STJuWPVohSizW1H7sBFv1JyXwBKdSIsm8MujY+elxEwoQC+CEvQmfGpR9ZM6Fnvp
+	vHw37fZIcWXLNkYB6apxiX8+C8Ix2NqYxI3d4N/5JSleBqCL2zo20XarbZQIFISfNRwW0w/VJW5cg
+	UwhNUI5e90dv1KcF2xGfuKn+80Q4h91rLL0cAWLiee0H/Q2R/1HS5zb3TNlA21v9Qp2F2jGZaRGOo
+	k5N2HneIGtT3u3ZawHWEJsqUXK0HTnXOKOZgdso+RJojsbzy9n9o8ukAfk1xmWYrfU64gG9dPpKuk
+	hfcFpR/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6pq-00000008VNA-1sAL;
-	Wed, 29 Jul 2026 16:08:46 +0000
-Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6po-00000008VLv-3LwE
+	id 1wp6rP-00000008Vsa-3nfh;
+	Wed, 29 Jul 2026 16:10:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp6rN-00000008Vrx-0h4i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 16:08:45 +0000
-Received: by mail-pj2-x02.google.com with SMTP id 98e67ed59e1d1-381c69ad0d9so587536a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 09:08:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785341323; x=1785946123; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xpR48eIXR1Ci0/Y8C1oaWZVWu8i3+nXBnNEaQ1vsjLQ=;
-        b=n+tDinOVkQaOTXfevQRTqdUawEKJOMZweQc3nmg33Lmd7x+3xwcWQPemBX5Qi85bXK
-         twZxCH8T5Q7SD5g5Rj4DNAkfiAjdYxODthmdocRo8skgroi+SF/6gmqGWfW+IagPf6z8
-         IPFx4Oob3RSLvOmXG2+I6Q6BoT4x6L9Acjsrjo6uSt0QGTfhdhTzJXgcqWiKPMIyVSM4
-         wKSScIIYxFU1IEgpNRl2Uu909p2lmWK/C6Fe/02SNTPeR6wWEvhQI2PvYpcHH7AN0F9t
-         aV1TolSyzNlmTFNzExFOne2d5tV17rLi5GLV76Jzwhe98XgA8RhxH2roa4Kty6z2dBVe
-         4HJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785341323; x=1785946123;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xpR48eIXR1Ci0/Y8C1oaWZVWu8i3+nXBnNEaQ1vsjLQ=;
-        b=a1unZRUpVatB0sOJvqsLwuorTw+mM2qXeFryTs5B1UxuZVatKZgfHM9j5c+rlNmBIx
-         KhaxB0PmDW4KKfzIa/0p++CmwXhC8luutjKznkLFyaKXtvxTLIuE5sUTeNf3Caf82R8n
-         lKLH5MpaFOn+I5jvf0u/C45asFHZLE8v8IFaD+hsKpttr791kcbIGx9/HrHZgl4bF/aF
-         SkJUjxAjRySbJ6P3HDsdCLwUkm7EHjmq5QiFX3STXwyuseVavvnvDr4eF+F6QILsAwMH
-         e1e27mBe/dBrqnfcJXThan4YvVq8TBkF9zvED9Tsat0OOF1GzLvtbS3FEN5RLYjS/AZ9
-         sP8Q==
-X-Forwarded-Encrypted: i=1; AHgh+RorsedJF0pxo6oLGgx3JwcZ0fcLz5hKyoH4xnVbFlJT+D7o/h8SLbx5X5EMbhwlhFSn9QAVByJHfFHHvsR+l8xI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRchhbpsxhG3UEfFkUNX9NGghO/ebc8LpozvW6mV71UKVEUH3m
-	eLip7khVlvipcJCrW2TyBUg4DrN8Ikc6FzUnE58CCvVZ45DoRyD+1jTn
-X-Gm-Gg: AR+sD10MMGqCicyTnUQhTWlO8TVzm5AvWGT6wS364MJTcTZEvxR8kyUePjou+RodVek
-	RelxASdxXrOt0vAwxa673NPiJXMQD//MQsCvWOsFb+yT+xY21ZbE7dtliLTP6nrm15bOY5Ke9mQ
-	QF1Glbft3uDGW6DiDCkYpoFZ2puuqSpMVnCg03tI9APH3k5nQ9A4v0a9qDf5STiu3s4qQotvJDQ
-	iA73Zhb5o7w5LjMKwQxW8L6hI9rpq0wy2nrr9jXjZdbb8zIAIVLP+qDVn6EL7+vrHLFYI1SV/k/
-	gkQ8kp/KQJclSqGdT0BdKS1B2szJ5Y0pJrfehUF7FgxvTE7KRsrthUn2QLDxAR+zHYf0R+mGLOe
-	Bzqo1FNcGEs+eloYHDvRl4L5Bg5QwsMdttl5nAA2FibqA9pLoQI4f4XCNA48t8kzWh/2aeF964a
-	uImy2+coMkAtH8FsXA5tKjZdnpz6bAQUbGi67EmZWZhpkc4gNHNjWzPQ==
-X-Received: by 2002:a17:90b:4ed0:b0:37f:fb1d:63fa with SMTP id 98e67ed59e1d1-38f6a373a5amr7799688a91.15.1785341323530;
-        Wed, 29 Jul 2026 09:08:43 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:41::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38f64111008sm2958119a91.2.2026.07.29.09.08.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 09:08:42 -0700 (PDT)
-Date: Wed, 29 Jul 2026 09:08:27 -0700
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, anthony.l.nguyen@intel.com, 
-	przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, saeedm@nvidia.com, tariqt@nvidia.com, 
-	mbloch@nvidia.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org, 
-	john.fastabend@gmail.com, sdf@fomichev.me, maxime.chevallier@bootlin.com, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, aleksander.lobakin@intel.com, 
-	horms@kernel.org, magnus.karlsson@intel.com, witu@nvidia.com, 
-	alice.kernel@fastmail.im, dtatulea@nvidia.com, yoong.siang.song@intel.com, 
-	martin.lau@kernel.org, intel-wired-lan@lists.osuosl.org, linux-kernel@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, bpf@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, leon@kernel.org, AutonomousCodeSecurity@microsoft.com, 
-	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>
-Subject: Re: [PATCH net 0/6] xsk: harden TX metadata validation against races
-Message-ID: <amolBkuwEasuthzu@devvm7509.cco0.facebook.com>
-References: <20260727161959.885642-1-sdf@fomichev.me>
- <amnKVlHTITILY8H8@boxer>
+	Wed, 29 Jul 2026 16:10:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DEBD1684;
+	Wed, 29 Jul 2026 09:10:14 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBBFD3F66F;
+	Wed, 29 Jul 2026 09:10:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785341418; bh=JwewTWPWHrVRBufGOAzQK3lsMiLYldjE0rmtmDG81Y8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lfJoOj6QJfDoloY4MKQPCDlncI4/LPmv+V9UCfCJOKp5enVAUmr7PXg0LHcnwze6F
+	 dfcWdi7jeBBlS3uOdifbBCAYsMJrQHG+ZzlDhZxyYoMpqQQJ/0yiOYA3DkSIzHr6YG
+	 kDkkWq4uvZxN+uKP0BA5jvr/ZSkMxQqOFpwdIXrE=
+Message-ID: <f26fde3c-3772-454b-b70c-176b3efaf02c@arm.com>
+Date: Wed, 29 Jul 2026 17:10:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <amnKVlHTITILY8H8@boxer>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v5 08/10] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260729134124.2506269-1-andre.przywara@arm.com>
+ <20260729134124.2506269-9-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260729134124.2506269-9-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_090844_851703_848C86B8 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20260729_091021_456063_5E14AC08 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,65 +83,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/29, Maciej Fijalkowski wrote:
-> On Mon, Jul 27, 2026 at 09:19:53AM -0700, Stanislav Fomichev wrote:
-> > Cen Zhang reported a KASAN out-of-bounds read when AF_XDP is configured
-> > with a TX metadata area smaller than struct xsk_tx_metadata. The metadata
-> > is also shared with user space, so reading its flags more than once can
-> > produce inconsistent validation and processing decisions.
-> > 
-> > Require enough space for the flags and one request field, validate the
-> > launch-time field against the configured metadata length, and use one
-> > snapshot of the flags while processing each request. Carry the validated
-> > decision through completion handling so later user-space changes cannot
-> > enable an unrequested completion timestamp.
+Hi Andre,
+
+On 7/29/26 14:41, Andre Przywara wrote:
+> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
+> alternative way of accessing the "Memory System Components" (MSC) in an
+> MPAM enabled system.
 > 
-> Stan,
+> Normally the MSCs are MMIO mapped, but in some implementations this
+> might not be possible (MSC located outside of the local socket, MSC
+> mapped secure-only) or desirable (direct MMIO access too slow or needs
+> to be mediated through a control processor). MPAM-fb standardises a
+> protocol to abstract MSC accesses, building on the SCMI protocol.
 > 
-> I'm taking week off and I see one sashiko-reported issue which is not a
-> pre-existing one. Hope you could clarify it and unless no one picks the
-> review of this set i'll get back at it next week.
+> Add functions that do an MSC read or write access by redirecting the
+> request through a firmware interface. For now this done via an ACPI
+> PCC shared memory and mailbox combination.
+> 
+> Since the protocol used is only a small subset of the full SCMI spec,
+> and the SCMI protocol has no full ACPI support anyway, open-code the
+> (simple) SCMI message generation, for just the fields we need.
+> 
+> [1] https://developer.arm.com/documentation/den0144/latest
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/resctrl/Makefile        |   2 +-
+>  drivers/resctrl/mpam_devices.c  |  52 ++++++--
+>  drivers/resctrl/mpam_fb.c       | 214 ++++++++++++++++++++++++++++++++
+>  drivers/resctrl/mpam_internal.h |  22 ++++
+>  include/linux/arm_mpam.h        |   2 +-
+>  5 files changed, 279 insertions(+), 13 deletions(-)
+>  create mode 100644 drivers/resctrl/mpam_fb.c
+> 
+> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+> index 4f6d0e81f9b8..097c036724e9 100644
+> --- a/drivers/resctrl/Makefile
+> +++ b/drivers/resctrl/Makefile
+> @@ -1,5 +1,5 @@
+>  obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
+> -mpam-y						+= mpam_devices.o
+> +mpam-y						+= mpam_devices.o mpam_fb.o
+>  mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
+>  
+>  ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index f6910ab3bbc2..abe1e628928f 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -83,6 +83,16 @@ static DECLARE_WORK(mpam_broken_work, &mpam_disable);
+>  /* When mpam is disabled, the printed reason to aid debugging */
+>  static char *mpam_disable_reason;
+>  
+> +void mpam_fb_disable_mpam(int err)
+> +{
+> +	static char mpam_fb_reason[32];
+> +
+> +	snprintf(mpam_fb_reason, sizeof(mpam_fb_reason), "MPAM-Fb error %d",
+> +		 err);
+> +	mpam_disable_reason = mpam_fb_reason;
+> +	schedule_work(&mpam_broken_work);
+> +}
+> +
 
-Went through the issues, I don't think it found anything interesting.
-Everything is pre-existing, but still worth addressing, will send
-those fixes separately.
+[...]
 
-> >  static inline struct xsk_tx_metadata *
-> >  __xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
-> >  {
-> >  	struct xsk_tx_metadata *meta;
-> > +	u64 flags;
-> >  
-> >  	if (!pool->tx_metadata_len)
-> >  		return NULL;
-> >  
-> >  	meta = data - pool->tx_metadata_len;
-> > -	if (unlikely(!xsk_buff_valid_tx_metadata(meta)))
-> > +	if (unlikely(!xsk_buff_valid_tx_metadata(pool, meta, &flags)))
-> >  		return NULL; /* no way to signal the error to the user */
-> >  
-> >  	return meta;
-> The snapshotted flags are validated for size compliance in
-> xsk_buff_valid_tx_metadata() but then discarded, returning the
-> un-snapshotted user memory pointer (meta) to the driver.
-> Later in the zero-copy driver path, xsk_tx_metadata_request() re-reads
-> meta->flags directly from user memory:
-> include/net/xdp_sock.h:xsk_tx_metadata_request() {
->     ...
->     if (meta->flags & XDP_TXMD_FLAGS_LAUNCH_TIME)
->         ops->tmo_request_launch_time(meta->request.launch_time, priv);
->     ...
-> }
-> Does this create a Time-of-Check to Time-of-Use (TOCTOU) race condition in
-> the zero-copy TX metadata validation where userspace can concurrently enable
-> launch time after the size validation?
+> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
+> +				u16 reg, u32 *result, int mpam_fb_command)
+> +{
+> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
+> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
+> +	struct pcc_mbox_chan *chan;
+> +	void __iomem *payload_ofs;
+> +	u32 status;
+> +	int ret;
+> +
+> +	if (!pcc_chan)
+> +		return -ENODEV;
+> +
+> +	chan = pcc_chan->pcc_chan;
+> +
+> +	/* prune token to fit into the 10 bits inside the command register */
+> +	token = FIELD_GET(MPAM_MSC_TOKEN_MASK,
+> +			  FIELD_PREP(MPAM_MSC_TOKEN_MASK, token));
+> +
+> +	guard(mutex)(&pcc_chan->pcc_chan_lock);
+> +
+> +	switch (mpam_fb_command) {
+> +	case MPAM_MSC_WRITE_CMD:
+> +		mpam_fb_build_write_message(msc_id, reg, *result,
+> +					    token, chan->shmem);
+> +		break;
+> +	case MPAM_MSC_READ_CMD:
+> +		mpam_fb_build_read_message(msc_id, reg, token, chan->shmem);
+> +		break;
+> +	case MPAM_PROTOCOL_VERSION_CMD:
+> +		mpam_fb_build_version_message(token, chan->shmem);
+> +		break;
+> +	default:
+> +		dev_err(pcc_chan->pcc_cl.dev, "unsupported MPAM-Fb command %d\n",
+> +			mpam_fb_command);
+> +		ret = -EINVAL;
+> +		goto out_err;
+> +	}
+> +
+> +	ret = mbox_send_message(chan->mchan, NULL);
+> +	if (ret < 0)
+> +		goto out_err;
+> +
+> +	pcc_shmem = chan->shmem;
+> +	payload_ofs = chan->shmem + sizeof(*pcc_shmem);
+> +	status = readl(&pcc_shmem->command);
+> +	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token) {
+> +		ret = -ETIMEDOUT;
+> +
+> +		goto out_err;
+> +	}
+> +
+> +	ret = readl(payload_ofs + 0x0);
+> +	if (ret < 0) {
+> +		switch (ret) {
+> +		case MPAM_FB_ERR_NOT_SUPPORTED:
+> +			ret = -EOPNOTSUPP;
+> +			break;
+> +		case MPAM_FB_ERR_INVALID_PARAMETERS:
+> +			ret = -EINVAL;
+> +			break;
+> +		case MPAM_FB_ERR_NOT_FOUND:
+> +			ret = -ENOENT;
+> +			break;
+> +		case MPAM_FB_ERR_OUT_OF_RANGE:
+> +			ret = -ERANGE;
+> +			break;
+> +		default:
+> +			ret = -EINVAL;
+> +		}
+> +
+> +		goto out_err;
+> +	}
+> +
+> +	if (mpam_fb_command != MPAM_MSC_WRITE_CMD)
+> +		*result = readl(payload_ofs + 0x4);
+> +
+> +	return 0;
+> +
+> +out_err:
+> +	mpam_fb_disable_mpam(ret);
 
-For this, yes, it is explained in the commit message:
+Given that the 'ret' here is just used to create the log message we could provide more information
+just by indicating if we timed out waiting for firmware response or by giving the mpam_fb error code.
 
-  Note that only xsk_skb_metadata is properly using the flags,
-  __xsk_buff_get_metadata ignores them. Next commits address that.
+Thanks,
 
-And eventually addressed in "[PATCH net 6/6] xsk: validate metadata when
-processing requests". Couldn't find a less confusing way to split the
-patches..
+Ben
+
 
