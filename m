@@ -4,60 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E556AC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 22:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1CDC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 22:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=0U5DHx/vibag0y1MX3xU73yi1W1IoWaz0Zw0N4cnjm8=; b=dcA0Deq+drgacq
-	zjFgIE7zhdSVFZsRNQmtk7OtS+aB+8e1d2ZIpaa+uBsy47/fs6+PZOHkdh85E20x2/LgwxhuE8t+c
-	o7IMNQJeQ2Eaj4Z65Dna5e6Wk9oxp7PmSZqxM2lWjaeCb724CVnbkCtFkx29SZ+fLwLJAyIXtg6Ht
-	EkokeA/onsgSAvYYNazxvBSuMasQsW0nkbBSkCTQjGqEu3eoB4hBFVVycM1PVJ6Geu5dPmT6Qo9GM
-	NhQZ+sf2ktmwl3W6WxcjzvTWCGth1NyHN12K4AYDwV5kwX3JM2XhRZdT+DNRpGTAlyfnYhVeT27EA
-	bMjufAxU0m4K6yvLV2Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h9u9uRgNdOHE3Hm6tQKrXhbypx1MeLyG0qZtrVKyk00=; b=vR2qbgNl9vRAKc4yjiO7O3kEls
+	YydjrzHHFGbvBQwvrdkiuoSZ9m4ZICZNO9GNx1o8ypyFbObBPqGdXrAYWIdsl4d7aNa7B0MImo6pv
+	eUnZ1yYq+6rwf55JQwNqz4pi0/5oURIiP7OHdPlXxM5tAr/iUhzvz/mGGAzIrnSlETCNjh4WcWwqG
+	mgIHIrojK6BkqgdOwqzTljgVN7rhZZg5V4XmTpNulK7Hba3sf20OJFpE7vrcPDaV7N9PYYDvIyoV0
+	d70AtiXKKCkUElXvd4fkth3AfjLqcdD1vz9jYPWVr7IjAvbU7+uIp3DzhwrcBMZGaLf3Dw3Pl6ent
+	aOimgIjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCmb-000000093uN-3QDb;
-	Wed, 29 Jul 2026 22:29:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wpD2E-000000094tp-0lwu;
+	Wed, 29 Jul 2026 22:45:58 +0000
+Received: from mail-vk1-xa2f.google.com ([2607:f8b0:4864:20::a2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCma-000000093uG-3Om1
+	id 1wpD2B-000000094tQ-1yht
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 22:29:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3241A41892;
-	Wed, 29 Jul 2026 22:29:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAAC31F000E9;
-	Wed, 29 Jul 2026 22:29:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785364188;
-	bh=0U5DHx/vibag0y1MX3xU73yi1W1IoWaz0Zw0N4cnjm8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=npp3Pj8SkNgFweE8i7YmpVumas1g6oBVU96OUQlUBjDF0LDtQtyvi0MXqoszHv9Zo
-	 JeiOqIxP5uWNrvyn20RfxtmonJj11aq66qxyQGRk7zC6KkogYC5OdOQzqzPSPYzDsI
-	 5qJAX2BODA7CPf1JWuyzsQqkuYhK9bceTAr7Sh2zd3nKPpVugbymxRUCeLxfBKgu24
-	 rlO8MR1tujqfrwgfgdekPiZoLV5nvG5m9xe4A+gUmlpuMohfBk9QKMXwRwIdIU+VEW
-	 UIVXncmw//H5yU5PTt9ftkoInE/0s4Zoj4gFd9nMA5Dcm3oXM/rLmZ9+8GnA3EgoOj
-	 9VRQj3AnIsixg==
-Date: Wed, 29 Jul 2026 17:29:46 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: hongxing.zhu@oss.nxp.com
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Richard Zhu <hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms
- with RC power loss
-Message-ID: <20260729222946.GA1466768@bhelgaas>
+	Wed, 29 Jul 2026 22:45:57 +0000
+Received: by mail-vk1-xa2f.google.com with SMTP id 71dfb90a1353d-5bf9506704fso519718e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 15:45:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785365153; x=1785969953; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=h9u9uRgNdOHE3Hm6tQKrXhbypx1MeLyG0qZtrVKyk00=;
+        b=X7qaw4ZV/24NwNpoqFcTPTi5+IZKnddZBzlGkncCaC01fH5lcDaxL8Z6g/Izo6PXmz
+         4v52vQGLMvzHWboUY4y0tXJls/vpq3/osDag7lGfQFDThc3TA5OUvZfaD8ASoWKNs7pP
+         5Uefa4JF9vqG+AI7LDJThiz71KD4pAIMs3re69/Ml0kfKTjiGfqDBbw6TFBVs4upbfqA
+         1t054bL+to6XnFePCL1QKS10UshYk7xlFPkEZIZl4KEQcuvHsZIobhwQxFSDg9OTO7XA
+         XfX4sWei8QANA/SjkVR+v4STffvjiFof6b/fTR1WCFPymHTZayUL5xmLCwrK+Ui3xkLQ
+         Wweg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785365153; x=1785969953;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=h9u9uRgNdOHE3Hm6tQKrXhbypx1MeLyG0qZtrVKyk00=;
+        b=KaK5jtOIlcFG7BdxaOE/KElYy+1qHxQbsZE0gFIoStow/Z2tg7znY3v01hKoEgCHVq
+         cDlvr5o6y4/xqxtvdX9KeyJSOrxCybLDa8gEkTUv9b3dUJT2mIhLPovIvEAB26jOYBtY
+         WSy52sLdzBltq1S3Js9GXJq191iY4ck01Db6bySKbvgVsseU9e49ems78QdVNieK4XEz
+         hsqNrjR1PduBIrpbym4JrMjbzvtrLE8a4h9CSXtGtpITDcPOMC3IbM5pX7m8AviLFrG6
+         qDSUd0H9B34uC0Ev/ixbRMcLc4E8H7wIaXB2ErCR8adO593ZWOgTQwZKCv1O7ym7d6zk
+         H1Ig==
+X-Forwarded-Encrypted: i=1; AHgh+Rp49Tpsfk4tq7k2q4MzPVVcEu1SpYsdK2T1bcGgvU+4FDonQqcKNiFNc3yzJhGOvNAJsCCJZdMjX7zee3Vz3tRN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlGM1xbFEuQPWR+fcCY/jSCv41n+D2TBF3B+xrNShDESgc3qUJ
+	/uVxBYiR+DnPrI4y8u6MXUk0CSBwdgXYZfDuYYaB4pZS5mLkOW83FSQg
+X-Gm-Gg: AR+sD10s9WD9zVyPMMv/qfBtJOKTMczffL8mO55MmVLOEPhmLdf2i8eE6mmIcE/r2g8
+	GUAXqiJmksO3ksZkOcxEoveGTvE/57zyRh9H1SNW3xeddW5IAa8GRcNyDoNIBsL2cEHAN9Y00LX
+	ehPjlb8OqC5/ZU6NviVaIjHhMvk+FIkA835MemcZgsKCCtTBOgWyJVV+pcJNPv6LqBpXk3Ob5iF
+	nXUhvBygsPt1/MRdpd49OzIJEwn8L50h8zBAvZCmP8Wsux5yQ/f+dt31YWBH+nCdlvIdy4Fml3t
+	kh/S3VskHUB7OrsLMRthLLvrL6tRkqg9U9DBKoOAXs7+38hTDsOoNByfqRxq3BfGZUBOOWJL6oD
+	KE3w/Fc6N/w3fmEtp5x/jKp1CskJJ/C1GciGkhlmWIqnb9H6P6xEsrV7vE+GWeqafhxh8aQEOmJ
+	+e87vrBi+Zq0OiK4J6dOLe+CmEHuoPcUgV4/qCGxTKh5iiudJwEuMtFw+bGoAYpRTDXIXdnTPsT
+	qc6cEnJItHwYSLPV4ddxd53riMSAnKBTaasYw==
+X-Received: by 2002:a05:6122:4684:b0:5bd:c27a:dafd with SMTP id 71dfb90a1353d-5c365fb257emr35318e0c.3.1785365153129;
+        Wed, 29 Jul 2026 15:45:53 -0700 (PDT)
+Received: from fabio-X870-EAGLE-WIFI7.. ([2804:1b3:a801:60b4:a913:91a7:b883:6046])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c366570bd9sm24356e0c.8.2026.07.29.15.45.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2026 15:45:52 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: kuba@kernel.org
+Cc: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	qiangqing.zhang@nxp.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux@armlinux.org.uk,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH net] net: stmmac: Select sleep pin state after suspending phylink
+Date: Wed, 29 Jul 2026 19:45:35 -0300
+Message-ID: <20260729224535.506598-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717074121.3214222-1-hongxing.zhu@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_154555_526698_E0396280 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,122 +109,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 03:41:21PM +0800, hongxing.zhu@oss.nxp.com wrote:
-> From: Richard Zhu <hongxing.zhu@nxp.com>
-> 
-> Some platforms like i.MX power off their PCIe RC controllers during
-> system suspend, requiring full re-initialization on resume. These
-> platforms need to enter L2 state to properly notify endpoints before
-> power loss.
-> 
-> According to PCIe base spec r7.0, sec 5.2, the system software should
-> transition the device into D3Hot before broadcasting the PME_Turn_Off
-> message to initiate L2 entry. However, some endpoint devices fail the
-> D3cold capability check in pci_host_common_d3cold_possible(), which
-> would normally prevent L2 entry.
+From: Clark Wang <xiaoning.wang@nxp.com>
 
-Wakeup devices that don't support PME from D3cold will fail the D3cold
-capability check, but I don't think those are the problem you're
-solving.
+When MAC Wake-on-LAN is disabled, stmmac_suspend() selects the sleep
+pinctrl state before calling phylink_suspend().
 
-This appears to handle devices that are not in D3hot, and that's not a
-property of the endpoint; it's a property of its driver.  Is the
-problem here that some driver didn't put its device in D3hot?
+phylink_suspend() may access PHY registers over MDIO while stopping or
+reconfiguring the PHY. If selecting the sleep state muxes the MDC and
+MDIO pins away from the MDIO bus function, these accesses no longer work.
 
-> For platforms where the RC loses power during suspend, L2 entry is
-> essential regardless of D3cold support, as the link will be lost anyway.
-> Add a suspend_poweroff flag to force L2 entry in such cases, and enable
-> it for i.MX PCIe controllers.
-> 
-> Note: This violates the spec requirement that devices be in D3Hot before
-> PME_Turn_Off, but is necessary for proper operation on platforms with RC
-> power loss during suspend.
+Select the sleep pin state only after phylink_suspend() has completed.
 
-If the device isn't in D3hot, it may still be active, and I think the
-PME_Turn_Off will abort any DMAs in progress, which doesn't sound like
-proper operation of the endpoint.
+Keep the transition conditional on MAC Wake-on-LAN being disabled so
+that the pins remain active when the MAC must receive wake-up packets.
 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
-> Changes in v2:
-> - Rename the new added flag.
-> - Update commit description and comments.
-> 
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c             | 11 +++++++++++
->  drivers/pci/controller/dwc/pcie-designware-host.c | 10 ++++++++--
->  drivers/pci/controller/dwc/pcie-designware.h      |  8 ++++++++
->  3 files changed, 27 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 98e1db751132a..5a43bf396521b 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1957,6 +1957,17 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		 */
->  		imx_pcie_add_lut_by_rid(imx_pcie, 0);
->  	} else {
-> +		/*
-> +		 * i.MX RC is powered off during suspend, requiring L2 entry
-> +		 * to notify endpoints before power loss. Some endpoints fail
-> +		 * the D3cold capability check, which would normally prevent
-> +		 * L2 entry. Force L2 entry anyway since the link will be lost
-> +		 * when RC powers off.
-> +		 *
-> +		 * Note: Per PCIe spec r7.0 sec 5.2, devices should be in D3Hot
-> +		 * before PME_Turn_Off. This may not be guaranteed here.
-> +		 */
-> +		pci->pp.suspend_poweroff = true;
->  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
->  			pci->pp.skip_l23_ready = true;
->  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 06722259d2e37..95a31d65e1ca9 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -1222,14 +1222,20 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
->  
->  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  {
-> -	bool pme_capable = false;
-> +	bool d3cold, pme_capable = false;
->  	int ret = 0;
->  	u32 val;
->  
->  	if (!dw_pcie_link_up(pci))
->  		goto stop_link;
->  
-> -	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
-> +	d3cold = pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable);
-> +	/*
-> +	 * Enter L2 if D3cold is possible, or if the platform loses RC power
-> +	 * during suspend (in which case L2 entry is required to notify
-> +	 * endpoints before power loss, regardless of D3cold support).
-> +	 */
-> +	if (!d3cold && !pci->pp.suspend_poweroff)
->  		return 0;
->  
->  	if (pci->pp.ops->pme_turn_off) {
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index de4b245b1758c..3ce7d30d9a4d5 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -471,6 +471,14 @@ struct dw_pcie_rp {
->  	bool			native_ecam;
->  	bool                    skip_l23_ready;
->  	bool			skip_pwrctrl_off;
-> +	/*
-> +	 * suspend_poweroff: Force L2 entry during suspend even when D3cold
-> +	 * capability check fails. Used on platforms where RC loses power
-> +	 * during suspend and must notify endpoints via L2 entry before
-> +	 * power loss. May not meet PCIe spec requirement for devices to be
-> +	 * in D3Hot before PME_Turn_Off.
-> +	 */
-> +	bool                    suspend_poweroff;
->  };
->  
->  struct dw_pcie_ep_ops {
-> -- 
-> 2.34.1
-> 
+Fixes: 90702dcd19c0 ("net: stmmac: fix MAC not working when system resume back with WoL active")
+Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+[fabio: Reworded subject/commit log for clarity and made it priv->wolopts conditional]
+Signed-off-by: Fabio Estevam <festevam@gmail.com>
+---
+Based on the NXP kernel fix:
+
+https://github.com/nxp-imx/linux-imx/commit/7905fa71ed07d8c2f1da88ad9fffd5ac5e89461f
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 0de4bc949913..36ab66ad80fd 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -8183,13 +8183,15 @@ int stmmac_suspend(struct device *dev)
+ 		priv->irq_wake = 1;
+ 	} else {
+ 		stmmac_mac_set(priv, priv->ioaddr, false);
+-		pinctrl_pm_select_sleep_state(priv->device);
+ 	}
+ 
+ 	mutex_unlock(&priv->lock);
+ 
+ 	rtnl_lock();
+ 	phylink_suspend(priv->phylink, !!priv->wolopts);
++
++	if (!priv->wolopts)
++		pinctrl_pm_select_sleep_state(priv->device);
+ 	rtnl_unlock();
+ 
+ 	if (stmmac_fpe_supported(priv))
+-- 
+2.43.0
+
 
