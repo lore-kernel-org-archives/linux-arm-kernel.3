@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948A7C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3742AC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+0LXEe7UlZ4qE3eCV8kvgvRPi2NEvsLxrOQzLx6Yvk=; b=ihQ3KOzVO/EmwOOQE1K5uizU9O
-	NC6a5M61MgJwx3LVt5Awvh+qH6kxvEGPSEDchhfOOvpfjrKfHb20fVYGR+lvNycuCjyI+2RRcm6XU
-	2T41QvZHKALM+eyoSfwNAY1fni1sIn8pnBTLeRGgGXKVYG+eoRjS3vPgupUz7cq34kxX3hR1wDkx/
-	ZST2gxTVxRCwKXpsErCzQ+5HzoB9X2hlSRcq2mBcDHs/xeyJkPri7ONLCl/essENTPWt/Y/vuTc1P
-	g1puBz89YLctXpWZwEw5pWlWsWSacnNDW5uEFOI75xb1DKePnmXc4n6lCERqcUYnpvMYwd67H2xKH
-	pnyyF0yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oi3z5OGmFTcAu6ua8IwxSpW3BCYGUVzFL1IOvsxUp2E=; b=gQT48ya8TCXTuW/GIH3UiRVDju
+	cBIJ0jEflAI4SCAFaIwsC6ygEJwJhdRSu71SbK+kqof7RuvKHmOVJfUW25dB3+OsNgkjGwFwQvc7V
+	1FYIf5p8HMLg+CIfpsp5N3of/8zbVjQ3Hs7qxdMazwiCDf9LnHWb3ieoieFB/EgRfjSZ/FrGyeHt5
+	1ezl42fUvrsHPHG5wU2ES81x59bR4PE31EmSls1ay3Y9q2nXiAfB3Lh9rcy7kE/UdfDBeMjqMdMGo
+	dT+mjzouvvodceiRYqJk8px+CgtRFWzn+bVn/42arLNxdO+9IqStY1tyc2R9wR2nCs1uGo6+IWmDA
+	ywqdZviQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowbJ-00000006umK-36mL;
-	Wed, 29 Jul 2026 05:13:05 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1wowe5-00000006v0m-0rPi;
+	Wed, 29 Jul 2026 05:15:57 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowbF-00000006uln-2Una
+	id 1wowe0-00000006v0Q-40lW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 05:13:04 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260729051255epoutp033d513f9b641b00e91d66a1567c6b4003~Gqq--RZ1J1811818118epoutp03d
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:12:55 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260729051255epoutp033d513f9b641b00e91d66a1567c6b4003~Gqq--RZ1J1811818118epoutp03d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1785301975;
-	bh=v+0LXEe7UlZ4qE3eCV8kvgvRPi2NEvsLxrOQzLx6Yvk=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=ImEz2bE2DQwyOlD9ImSCB6sD71ilIpBKhuZMl+YqhySZZjNjJTCMiAfKW1pikGDhc
-	 XL6eqv4+D9ETaHYa08bBGil3RWwzJf3Uz83sXXPaKBgfZTZwwgyxM0oDmFC7QCpOkc
-	 dbcq8TIH/nUzENW8M2/zqBhC5Khqi+yAW+2wsQEY=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20260729051254epcas5p1dbd4553584214715ce68952415a0e4b4~Gqq-iW52o2997629976epcas5p1c;
-	Wed, 29 Jul 2026 05:12:54 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4h90pF5GGYz3hhT9; Wed, 29 Jul
-	2026 05:12:53 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260729051253epcas5p13c6aaadd8335f3a07aba4f2e53cc10c5~Gqq_A6A3d1861518615epcas5p1C;
-	Wed, 29 Jul 2026 05:12:53 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260729051250epsmtip2c6d7f586025d0da44e0e2bfeaf1ba87d~Gqq7-YRyG0581705817epsmtip2X;
-	Wed, 29 Jul 2026 05:12:50 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Alexandru Chimac'" <alex@chimac.ro>, "'Krzysztof Kozlowski'"
-	<krzk@kernel.org>, "'Sylwester Nawrocki'" <s.nawrocki@samsung.com>,
-	"'Chanwoo Choi'" <cw00.choi@samsung.com>, "'Peter	Griffin'"
-	<peter.griffin@linaro.org>, "'Michael Turquette'" <mturquette@baylibre.com>,
-	"'Stephen Boyd'" <sboyd@kernel.org>, "'Brian Masney'" <bmasney@redhat.com>,
-	"'Rob Herring'" <robh@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>,
-	"'Krzysztof Kozlowski'" <krzk+dt@kernel.org>
-Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <20260722-exynos9610-clocks-v3-3-c672a2a30889@chimac.ro>
-Subject: RE: [PATCH v3 3/5] clk: samsung: clk-pll: Add support for pll_1061x
-Date: Wed, 29 Jul 2026 10:42:49 +0530
-Message-ID: <07e101dd1f18$e83ab2a0$b8b017e0$@samsung.com>
+	Wed, 29 Jul 2026 05:15:54 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2cab97c86bdso42525ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 22:15:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785302152; x=1785906952; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oi3z5OGmFTcAu6ua8IwxSpW3BCYGUVzFL1IOvsxUp2E=;
+        b=aNtdW2+sbup12AKWTqOQiOzUGjKNRCJGD+mTFilECQiWMnBCUDC7LFqH8Gr9/6RIkZ
+         T7LfLOW89jPyJokdpx8j2OPImTMl48aQSKaLGVqxcdk4oQ9EmzpjzMnf+NONYDnhV4uD
+         uNz7v7J3nEtG5OyrgXNAfgzCktP5ioZ+YMvtxdLyrAlRIWr/tEmKF4zEhblWzTP+/IKi
+         bf0zDKExk9O1T4eAiVPzpOXo5PZ2OJCOJGnhl/X+eUQRL9dH2frUcGX4jxAIXzWTwvnx
+         ABHAnAmO8OWjF0/8FGNcaMNJG6PUQy7zksADvtxFdf4qi0g3Z5F1Wj6nLLTLeY51DEoS
+         zOyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785302152; x=1785906952;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oi3z5OGmFTcAu6ua8IwxSpW3BCYGUVzFL1IOvsxUp2E=;
+        b=pUHqYlIFHI296nbGW+VNgYYcMzgev9wBPWcmCEFGsP0KW/FU2ToczcbRcg13uTJoz0
+         wOEU4dxcsvS5OrmJHXT9DlbmTG7JjdJsSq5pj4LeyxLLlz4zPxzG5RP9zdjuchEqXQH/
+         iwZ9xO7myI+uuVgjbpubc/WBVbh250QQpccR4aKc7UYGTLeK/VmSEeyjo5nHzeMh8Y9B
+         R64Eg1ONJBkS64YdLuosQKuf1hV4cbt23e4LYCpd9T3egWCTjNtc4cMAuE5NkioE0e+z
+         IGFEGD+BXL5ZSyd1TxlDA+JHyJpf25CiJWiKIB9q8lm6accpsuDDjpOkJrQQEMcdxcP1
+         8Y8w==
+X-Forwarded-Encrypted: i=1; AHgh+Rq54PZquHRXD/Hsz4iWCp/aWehg2OVZE+0OsyT3uUvGYksEfRrH+kDj0jQY5qHUSAae99c8gKYrFkjOfCriYx0k@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbZDWkkWsZafqyAVzlgt3KnSTYV1BNXyL5icRUpo2hohVKZqmD
+	0eyvsbUK1zjYsbVPo4F2yJzIbXJ8zkkUvn47A26EbS9onU9ePYEEmxFhOVukDs6mqA==
+X-Gm-Gg: AR+sD12XZaJfBvux4rOMuW07oocXFue1RYF59RwVO1slvM+ECUV/MJ1PJQtu9ax8RyB
+	xcG6Jz8Jpe6NHk1xN6Ghsg0zkzNGXS1Ah1yrJd1/XjaEAmavF035cEALIBFSaIff27cfOBsyLVJ
+	whEW0kYDCAhtsViRbQyI/GWCpuJXezNWq/RJO6SXHUL0QepB9HdbSLCZfaInvbk9nOfwfSv+ORd
+	JTdFf3T6FlKcAXMM5ISKje1O/4XQhWApQr/2dKzK9AC6z8VvlSLnR4qnUI3+QSPtZXOm9kNlalb
+	m5cvHnwtF2/EPUNkacBeUCwILC1uWhW2nY6LC9u/J4yJA7e8ig9h1pAr162AZ0Lkem1zwBV1XF8
+	9/Yg2HyVlm6lnPjxUYqZ/OoRzn9YuU1oBgBzelyvYhdt/YK3u0fC7i87at6cDlndhYF01LyQGjy
+	Zt6evIQvYZeSxpSpHVo2OXLo0mFjpHN9asUzXib6YvuDQ5bYBhXjzjN4DNZtC/mYqwzvCYakF47
+	bX1JmWAYJPyDrZQTBV0rr4=
+X-Received: by 2002:a17:902:e014:b0:2cf:4353:f117 with SMTP id d9443c01a7336-2d026c5c8c4mr1262155ad.0.1785302151338;
+        Tue, 28 Jul 2026 22:15:51 -0700 (PDT)
+Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea0051591sm789220b3a.19.2026.07.28.22.15.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 22:15:50 -0700 (PDT)
+Date: Wed, 29 Jul 2026 05:15:43 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	bhelgaas@google.com, kevin.tian@intel.com, kees@kernel.org,
+	smostafa@google.com, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	skaestle@nvidia.com, mmarrid@nvidia.com, skolothumtho@nvidia.com,
+	bbiber@nvidia.com
+Subject: Re: [PATCH v2 03/11] iommu/arm-smmu-v3: Add
+ arm_smmu_drain_queue_for_iopf() helper
+Message-ID: <ammMf5z-Gl-Wygk6@google.com>
+References: <cover.1779944354.git.nicolinc@nvidia.com>
+ <a62db13ab63916e9a62cddeec41a74a98cdf6a8f.1779944354.git.nicolinc@nvidia.com>
+ <amkcQRVylEe_t-yP@google.com>
+ <amkqZbPJs9qly4pH@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHTw+ptVoCYShTtVq94NkBsvgZUugKcCweMAdasPym2cxLvQA==
-Content-Language: en-us
-X-CMS-MailID: 20260729051253epcas5p13c6aaadd8335f3a07aba4f2e53cc10c5
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260722204419epcas5p4199c800b0a94ff523f0e9e9c5aaeeaba
-References: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
-	<CGME20260722204419epcas5p4199c800b0a94ff523f0e9e9c5aaeeaba@epcas5p4.samsung.com>
-	<20260722-exynos9610-clocks-v3-3-c672a2a30889@chimac.ro>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amkqZbPJs9qly4pH@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_221302_315657_334C73B3 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260728_221553_002323_9CC4C9FD 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,58 +109,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandru
+On Tue, Jul 28, 2026 at 03:17:09PM -0700, Nicolin Chen wrote:
+> On Tue, Jul 28, 2026 at 09:16:49PM +0000, Pranjal Shrivastava wrote:
+> > The following is a unified drain_queue helper, that also attempts to
+> > address Sashiko's concerns. This applies on top of my runtime PM v9
+> > series [1], please see if it works for you:
+> > 
+> > Subject: [PATCH] iommu/arm-smmu-v3: Add a unified arm_smmu_drain_queue()  helper
+> > 
+> > Introduce a unified arm_smmu_drain_queue() helper to replace queue
+> > specific polling loops. The helper handles both snapshot-based cohort
+> > draining (for IOPF) and full queue draining (required for Runtime PM).
+> > 
+> > The Runtime PM explicitly gates the CMDQ (via CMDQ_PROD_STOP_FLAG) prior
+> > to draining, this allows a single, snapshot-based target to natively
+> > handle all drain scenarios.
+> 
+> [..] 
+> >  	queue_poll_init(smmu, &qp);
+> > +	qp.wfe = is_cmdq;
+> 
+> The callers of this drain() will be RPM and PRI, either of which
+> needs busy-waiting. So, I have added a different drain() helper.
+> I run Sashiko locally; it also gives a clean result.
+> 
 
-> -----Original Message-----
-> From: Alexandru Chimac <alex=40chimac.ro>
-> Sent: Thursday, July 23, 2026 2:14 AM
-> To: Krzysztof Kozlowski <krzk=40kernel.org>; Sylwester Nawrocki
-> <s.nawrocki=40samsung.com>; Chanwoo Choi <cw00.choi=40samsung.com>;
-> Peter Griffin <peter.griffin=40linaro.org>; Alim Akhtar
-> <alim.akhtar=40samsung.com>; Michael Turquette
-> <mturquette=40baylibre.com>; Stephen Boyd <sboyd=40kernel.org>; Brian
-> Masney <bmasney=40redhat.com>; Rob Herring <robh=40kernel.org>; Conor
-> Dooley <conor+dt=40kernel.org>; Alexandru Chimac <alex=40chimac.ro>;
-> Krzysztof Kozlowski <krzk+dt=40kernel.org>
-> Cc: linux-samsung-soc=40vger.kernel.org; linux-clk=40vger.kernel.org;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> kernel=40vger.kernel.org
-> Subject: =5BPATCH v3 3/5=5D clk: samsung: clk-pll: Add support for pll_10=
-61x
->=20
-> These PLLs are found in the Exynos9610 and Exynos9810 SoCs, and are simil=
-ar
-> to pll_1460x (using CON3 instead of CON1), so the code for that can handl=
-e
-> this PLL with a few small adaptations.
->=20
-It is good to mention that PLL_1061x is a fractional type PLL and used to s=
-upply BLK_MMC and AUD, atleast on 9610 SoC
+Ahh my bad. I meant to set qp.wfe = false, is_cmdq is a rebase remnant...
 
-> Signed-off-by: Alexandru Chimac <alex=40chimac.ro>
-> ---
->  drivers/clk/samsung/clk-pll.c =7C 29 ++++++++++++++++++++++-------
-> drivers/clk/samsung/clk-pll.h =7C  1 +
->  2 files changed, 23 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.=
-c index
-> e74552846ba3..2cda87235fa2 100644
-> --- a/drivers/clk/samsung/clk-pll.c
-> +++ b/drivers/clk/samsung/clk-pll.c
-> =40=40 -781,15 +781,20 =40=40 static unsigned long
-> samsung_pll46xx_recalc_rate(struct clk_hw *hw,
->  	u64 fvco =3D parent_rate;
->=20
->  	pll_con0 =3D readl_relaxed(pll->con_reg);
-> -	pll_con1 =3D readl_relaxed(pll->con_reg + 4);
-> -	mdiv =3D (pll_con0 >> PLL46XX_MDIV_SHIFT) & ((pll->type =3D=3D
-> pll_1460x) ?
-> +	if (pll->type =3D=3D pll_1061x)
-> +		pll_con1 =3D readl_relaxed(pll->con_reg + 0xc);
-Actually this is PLL_CON3 in UM, not suggesting to use a new variable but a=
- comment here will help.=20
-Thanks=21
+> Commit:
+> https://github.com/nicolinc/iommufd/commit/d10325ff40fd45c476bc98d484d8dd2cdc7fdf95
+> 
 
+Thanks for sharing this, looks good from the CMDQ side (since we call
+this when new CMDQ submissions are gated).
+
+For PRIQ/EVTQ, my only worry was the HW producing more events,
+say Device A is detached (we call drain from attach_release) but Device B
+(still attached) starts an agressive DMA with multiple PRI requests/evts.
+
+Maybe we should go back to snapshot based polling for that?
+Anyway, we can discuss this when the series is posted.
+
+> This will be in my pri-v3 series:
+> https://github.com/nicolinc/iommufd/commits/smmuv3_pri-v3
+> 
+> We have too many SMMUv3 under review now. So, I will post it once
+> some of them are merged.
+> 
+> Nicolin
+
+Thanks,
+Praan
 
