@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5072EC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 13:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A0FDC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 14:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYVkarbGTlgISBurccqc2jqkuYXw9q5Rk/awuWQnUDQ=; b=qFr8IZ7XY11feOE3tmB+btXcvn
-	6dQk+2kL71eBJL+gxEnAs27ZrBlNtaIBpRZFGRGMPafejo+lWB8btABeJy73JU2qx2u5kOgGgcbDs
-	dG+VvS556opYii95Gj9y/fYGj9sE7cMsujldzSykr9i57s7Y8Kc1fsFXt3xZ9AEIla+kP44chxzcz
-	joIb2yM7HckCbd3w8LJOpFdO4MkJMMaR1OgYVXJJOAxNXWILfAXJDL6NFTbcTokt17djgWQ/6SFof
-	pIo9c2yWIl/rOd3pEawWdcSDDJrTRpNg9Mu1pUfpbXRf74Ttlzc27px67B1UoGURgmBd1XxtfTfdK
-	0zLpkwIA==;
+	bh=LE0auUINu/x6r3MKpGL6ong08p31tBcJtb4U+bAewvE=; b=iY3k4nZlR2AxmoWd4kqxXBMOlK
+	Yhdo1eOuo8zRL3j3p6kL2MIJu/pyz5sDHz7ptheL94MVuMrLqSIX0vJbmaWGnYII0z0cjcah+DImK
+	aoRgOY5nFNwPpM4OgFft4vCxXGWSTtix9+7p1Hc13hcfpLwfZAo3JBP6z0/cRc0Dp0XzYTLyaEDxB
+	N1BkweH9+8eT5uL9iJH/BnHyPmwqQRel2I+/7vhfbh2Xr09mWTCWIIpnPonEak46k39ivReQ1eAQT
+	D17HYJFNssARyz03uXdXWA/nlhViYONOMZsM8MLENDdmwjqhaJIVz42Qzmf2RFr5Y0n9F0P9fvFGW
+	5ZXe+EAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp4n8-00000008Bij-3MDl;
-	Wed, 29 Jul 2026 13:57:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wp4sR-00000008CFt-1pJL;
+	Wed, 29 Jul 2026 14:03:19 +0000
+Received: from out-179.mta0.migadu.com ([91.218.175.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp4n8-00000008BiR-161b
+	id 1wp4sP-00000008CEs-1TX0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 13:57:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE89C40113;
-	Wed, 29 Jul 2026 13:57:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE1D61F00A3E;
-	Wed, 29 Jul 2026 13:57:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785333468;
-	bh=fYVkarbGTlgISBurccqc2jqkuYXw9q5Rk/awuWQnUDQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Bt+hF+KdOEUbsvd8Ebt+v3bsvf2lC1rPuBjvhOQtryDvrj0/6QwfoxSSMvEqoKL3N
-	 PLhUiSUCTzLYwsrs5wzQZe+Fp4I+JPksLt/KM71OyVdOt6kL3zqUrNjXOBLYcjwyOu
-	 E5ose4lx0hl6Twtbz2iBZ5zsigpeTclK3o3bP6JeRh0QREiWtqkEUu6WudW84QKbgm
-	 BzWPOT4VPfk0vfk72NQY7hJm43EjKGFJt2MMmGSJZ4nERu2gp4lN0GDRTREePNiz0y
-	 2Dg0cFqiZTkD1QoU3llLDLVyOLb6lhpyH7cjuC+Yi2NLXrjUxVey0el3O4GlbKG8Mt
-	 P2fIsGMuBvrUg==
-Date: Wed, 29 Jul 2026 15:57:39 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: hongxing.zhu@oss.nxp.com
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v3] PCI: imx6: Update MPLLB bandwidth to improve i.MX95
- Gen3 PCIe stability
-Message-ID: <jtpctss4hz3djqd4ukq634ujfk5jdud6c6r6apgo2syrsubqz2@jivsombtim3v>
-References: <20260714024107.4113926-1-hongxing.zhu@oss.nxp.com>
+	Wed, 29 Jul 2026 14:03:18 +0000
+Date: Wed, 29 Jul 2026 14:02:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785333781;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LE0auUINu/x6r3MKpGL6ong08p31tBcJtb4U+bAewvE=;
+	b=LrgSg9yRhS5W6xpkWx9r9+eDJkKcDzCNDS9+j6/SbnNx7o1wA6fzFR1r67s/mndVmEfaim
+	RZtbpkihgWk1BnX65qwR4pDAyWvKTUhW+0X24ftnH+8hmcZUDkFCO9B7z9WHutNEx2YbwM
+	pefAngwFnMiQOtvHGUzT0YMZIBj5fKk=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, bpf@vger.kernel.org, 
+	Florent Revest <revest@chromium.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huawei.com>
+Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
+Message-ID: <amn7cBQ-cqs2XlKV@linux.dev>
+References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+ <amjnf5gz0xP5PTSB@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260714024107.4113926-1-hongxing.zhu@oss.nxp.com>
+In-Reply-To: <amjnf5gz0xP5PTSB@J2N7QTR9R3>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_070317_685663_3B13FB5C 
+X-CRM114-Status: GOOD (  29.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,77 +74,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 10:41:07AM +0800, hongxing.zhu@oss.nxp.com wrote:
-> From: Richard Zhu <hongxing.zhu@nxp.com>
-> 
-> Bandwidth marginality was observed during i.MX95 Gen3 PCIe tests with
-> the default MPLLB_BANDWIDTH value. This margin degradation worsens
-> across voltage and temperature (VT) variations and different test
-> matrices, potentially causing link stability issues.
-> 
-> Testing with MPLLB_BANDWIDTH value of 140 (0x8c) shows significant
-> improvement in bandwidth margins across all VT conditions and test
-> scenarios.
-> 
-> Implement PHY register write helper function and configure:
-> - MPLLB_BW_OVRD_IN = 140 (0x8c) for improved bandwidth margin
-> - MPLLB_BW_OVRD_EN to enable the override
-> 
-> This ensures robust PCIe Gen3 performance across all operating
-> conditions.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
-> Changes in v3:
-> Regarding Frank's comments, refine naming consistency and clarity.
-> 
-> Changes in v2:
-> Update the register name and bit definitions.
-> Don't move IMX95_PCIE_PHY_CR_PARA_SEL settings.
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 26 ++++++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 53f3da6ab30d5..fadf14de10f7c 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -80,6 +80,17 @@
->  #define IMX95_SID_MASK				GENMASK(5, 0)
->  #define IMX95_MAX_LUT				32
->  
-> +#define IMX95_PCIE_PHY_REG_ADDR			0x3008
-> +#define IMX95_PCIE_PHY_REG_EN			BIT(31)
-> +#define IMX95_PCIE_PHY_REG_ADDR_MASK		GENMASK(15, 0)
-> +#define IMX95_PCIE_PHY_REG_DATA			0x300c
-> +#define IMX95_PCIE_PHY_MPLLB_OVRD_IN		0x2004
-> +/* BIT(10): Override enable for mpllb_bandwidth[15:0] */
-> +#define IMX95_PCIE_PHY_MPLLB_OVRD_BW_EN		0x400
+Hi Mark,
 
-Use BIT(10) please.
+Thanks for the review, answers inline.
 
-> +/* Register offset: Override value for mpllb_bandwidth[15:0] */
-> +#define IMX95_PCIE_PHY_MPLLB_BW_IN		0x2005
-> +#define IMX95_PCIE_PHY_MPLLB_BW_VAL		0x8c
+On Tue, Jul 28, 2026 at 06:31:43PM +0100, Mark Rutland wrote:
+> So the big questions are:
+>
+> (1) How often is a direct call being made?
 
-Is it possible to define individual bits?
+The workloads that want this are always-on. In our case a BPF LSM
+security monitor covers file, exec and socket hooks, so it sits on
+syscall-rate paths on busy machines, and fentry-based observability
+behaves the same way. That is why we measured per-call dispatch cost
+below.
 
-> +
->  #define IMX95_PCIE_RST_CTRL			0x3010
->  #define IMX95_PCIE_COLD_RST			BIT(0)
->  
-> @@ -269,6 +280,16 @@ static int imx95_pcie_select_ref_clk_src(struct imx_pcie *imx_pcie)
->  	return 0;
->  }
->  
-> +static void imx95_pcie_phy_write(struct imx_pcie *imx_pcie, int addr, u16 data)
-> +{
-> +	udelay(200);
+> (2) Where does BPF allocate its direct call trampolines?
+>
+> From a skim of arch/arm64/mm/init.c, EXECMEM_BPF covers
+> VMALLOC_START..VMALLOC_END, the vast majority of which is out-of-range
+> for a BL from the core kernel or a module. So if EXECMEM_BPF is used,
+> that's likely to be problematic.  Hopefully I'm missing something such
+> that BPF trampolines are almost always allocated in-range of a BL?
 
-Why is this delay at the start of this function?
+You're not missing anything. BPF trampolines come from bpf_prog_pack,
+which allocates via EXECMEM_BPF, and we confirmed the consequence at
+runtime. Across every boot and attach in the measurements below, the
+trampoline landed in the same execmem slot while the kernel text moved
+with KASLR, 50-90 TB out of BL range. Only a handful of boots, but
+EXECMEM_BPF spans all of vmalloc and has no reason to land near
+kernel text, so I would expect out-of-range to be the common case
+here rather than the exception.
 
-- Mani
+> When we originally implemented CALL_OPS and DIRECT_CALLS for arm64, the
+> understanding was that we'd have many ops with direct calls. We believed
+> that the ftrace_ops_list_func() penalty was so substantial that it
+> wasn't worthwhile supporting direct calls in a configuration where
+> bouncing through that would be common.
+>
+> If we need to support this configuration, then I strongly suspect we
+> need to make other changes too in order for it to be worthwhile.
 
--- 
-மணிவண்ணன் சதாசிவம்
+Agreed. One idea I would like your opinion on is an in-range
+allocation preference for BPF trampolines, since execmem seems to
+have the shape for it on arm64 already. EXECMEM_DEFAULT prefers the
+module_direct_base window ("prefer to allocate within direct branch
+range of the kernel") and falls back when that neighborhood is full,
+while EXECMEM_BPF spans all of vmalloc with no preference. Giving
+trampolines the same preference would need no new dispatch machinery,
+and the measurements below suggest it recovers 93% of the gap to the
+CALL_OPS baseline. Does that direction sound right to you, or is
+there something in the CALL_OPS design that argues against it? If it
+holds up I am happy to write it as a follow-up to this series.
+
+> Following from the comment regarding EXECMEM_BPF above, it looks like
+> both s390 and loongarch don't define EXECMEM_BPF, and only define
+> EXECMEM_DEFAULT with a subsstantially limited range, which I suspect
+> keeps their direct calls within range.
+
+That matches our reading. Their limited EXECMEM_DEFAULT ranges keep
+direct calls in range by construction, same idea as the above.
+
+> Can you comment on how you've tested in-range vs out-of-range
+> attachements here?
+
+Reachability is decided per attach at patch time.
+ftrace_find_callable_addr() picks the direct BL when the target is in
+range and ftrace_caller when it is not. In our runs we read the live
+trampoline and patch-site addresses from /proc/kallsyms and computed
+the BL-range verdict for every attach, and every attach came out
+out-of-range. So all of the original series validation was
+out-of-range too, per the allocation behavior above.
+
+To get numbers for the in-range side we forced it on a test rig
+instead of writing the real change. A small bench-only patch (six
+lines) makes arch_alloc_bpf_trampoline() allocate from
+execmem_alloc(EXECMEM_MODULE_TEXT, ...) instead of bpf_prog_pack, and
+the guest boots with nokaslr so the module window is always within
+reach. From there the existing reach check does the rest and patches
+the direct BL by itself. So the rig only tells us what in-range is
+worth, the allocator preference above is what I would actually
+implement.
+
+> Have you made any performance measurements, or was this just functional
+> enablement?
+
+The original posting was functional enablement, so after your review
+we measured the per-call cost. The rig is a KVM guest with 8 vcpus on
+an arm64 Graviton metal host, 6.18.36 with this series, fentry on
+__arm64_sys_getpid, 20M calls per run, per-call overhead taken as
+traced minus untraced. Six passes across three fresh boots per
+configuration, ranges below are min to max over those six passes.
+
+  CALL_OPS baseline (CFI off):              17.8-18.3 ns
+  series path, out-of-range, no other ops:  34.5-35.6 ns  (~2.0x)
+  same, plus N unrelated ftrace_ops
+  (function tracer on vfs_read):
+    N=1                                     41 ns
+    N=4                                     53 ns
+    N=8                                     68 ns
+    N=16                                    98 ns
+  in-range trampoline (rig above):          18.7-19.4 ns  (~1.2 ns more)
+
+The extra-ops rows are the ftrace_ops_list_func() cost you were
+worried about, a straight 3.9 ns per registered op, and paid
+everywhere since the traced callsite never matches their filter. The
+in-range trampoline closes 93% of the gap to baseline, though the
+passes still sit a bit above, so not quite identical.
+
+Thanks,
+Jose
 
