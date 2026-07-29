@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D74C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 06:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A846EC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 06:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hA/U9ooyyT4N+H8fqyLDL8P4Nj8V96DYvGvtGFRQdSo=; b=XrmXh2cu+pTymTZLAlxDysrbNX
-	qU9u2bBeMb+dTw3Mw3J3l50uL5tSRnhTEKPo+iDXhrjbrTwQ1dIcD7X8g7Aot+TQydxewJeaVpppB
-	tLBFDzZlrLDOOYznMOY727HHTgBH0DRF62F04p7I5QhM5p4AOTLu37kj/DTjZTDEf3F4dz2Vr4Uhc
-	ug6UmugxD9UN65tUcCeby2U/E/eurjdOFGXIEOBNFo57YMy1SekW1/zlT4fzlzGB8neyjfiHREaXT
-	zB+/fJTAbEIHDcQdT7K8soikf9qUnSw85dEpvH4FANOHxO58J2Kfoi1ApK3npH7A0LTiGhZDOXVW5
-	Bjjv0whA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gvf5TT4THTQo8Vgq5kQVKZIB4tzxRyZ0EIxkRmLPp9c=; b=Zai8uAIlNLU13xSb0GhOO7fkeJ
+	egimYYybSLxvf5xYe2GqLFipnD5VVjaQizRyaibZUk2WRWGUU9rWSqXYioq2oHPDm6aFabOqBQ3jW
+	enwuCg+hzlg7tIu5OTuIZkzldKbzoEH8THpW3GzTshsDaZo8UiDNmr2OsfyNTWJIecFvz29CyDGJG
+	3rGK/3Qn6g/zQn/sPK+F1lJ0xFn49zi/mm1v0G9QIUgGyqfa3JfwaSM7V7DHeS+Ljd/416vgJHlCx
+	/ko4f6adA5ATnFAvCQYXV+of57PCtr0ZXDbbN/Vxk0WXWQOPiX6pcY0cDJv5EvcoO9ZfQG25onF88
+	WS1qhutw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woxh6-000000070z7-1OCR;
-	Wed, 29 Jul 2026 06:23:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1woxkZ-000000071ER-3N8d;
+	Wed, 29 Jul 2026 06:26:43 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woxh4-000000070ys-3P1g;
-	Wed, 29 Jul 2026 06:23:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E14E860A65;
-	Wed, 29 Jul 2026 06:23:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3843B1F000E9;
-	Wed, 29 Jul 2026 06:23:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785306185;
-	bh=hA/U9ooyyT4N+H8fqyLDL8P4Nj8V96DYvGvtGFRQdSo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=X3AAutlg1b0d4uaufadLTBrecOm+SBXOXEarl8Ydbk8/Y8BafAFkmwbbjM25ZJy2O
-	 H4nXwNfzmeysu8+jK54ARg1JAbp86xbroWSSRpqx65NmtMsxp1Ht9CZ+F48fN/WGjD
-	 RYmaF4BUDcbOohQa+GReRzqoRS3llCRlf4M3hJTxWtfNztC6WgCFjIgtLShfx7jQHw
-	 UMOP6FGbhqUsFfs6XaBUBUWJlJpFR29Dv/JbusdYGrUjWL6jA1SSjErmIApE69X09G
-	 MiPdBVY97Z90ibrM0phck2sEKDP091Drqqd7rL8hpJcQsvbSNBZg8EjecLQ5YBpmXg
-	 O9LVRVsO94Rug==
-Date: Wed, 29 Jul 2026 08:22:59 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Vladimir Oltean <olteanv@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Chester A. Unal" <chester.a.unal@arinc9.com>, 
-	Daniel Golle <daniel@makrotopia.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v19 01/10] dt-bindings: net: dsa: Document
- support for Airoha AN8855 DSA Switch
-Message-ID: <20260729-mystic-goat-from-asgard-d6c2d8@quoll>
-References: <20260728154846.1828945-1-ansuelsmth@gmail.com>
- <20260728154846.1828945-2-ansuelsmth@gmail.com>
+	id 1woxkW-000000071Dx-0dzV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jul 2026 06:26:41 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 5C65E4E40FD4;
+	Wed, 29 Jul 2026 06:26:37 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2F7366039A;
+	Wed, 29 Jul 2026 06:26:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C11DA11C14993;
+	Wed, 29 Jul 2026 08:26:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785306392; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Gvf5TT4THTQo8Vgq5kQVKZIB4tzxRyZ0EIxkRmLPp9c=;
+	b=Y0Z7OUKqTitpQC4pDdj2I4WkZwnECbktc3br1Fr8iShkM7wTDbH/k9Kz782dLjGs8OqDZH
+	5l5FRhHKhOwT3gj5i5oH1C0Q+VMOstsWQVZwDs4T+j3SKFAfRtuDus45jDSHkkoxTAq3nd
+	qpMPIcRSGlVJWYI/3w3lEKBs+qSuVH5M8aw6GJl/51E/LSVYUAm/Se6xPGAS24TlL10P+X
+	x5w78hKJJ1wG4xrvUiXVQ0I6LGKZA1otfuXBle0WfTJpgwJcU94/it3tQRnhFDNDo+aCql
+	+borfurKAmqo3Srh7VeEwJMSZgIfW7IVxxBsDZZSXE8H4wEDhYvqJJ7VwTtbQA==
+Message-ID: <22d95b3a-752f-46fc-be0f-497e78f9f189@bootlin.com>
+Date: Wed, 29 Jul 2026 08:26:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260728154846.1828945-2-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/3] net: stmmac: fpe: Enforce pmac_enabled in
+ set_mm and keep it on at init
+To: muhammad.nazim.amirul.nazle.asmade@altera.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260729015247.25774-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <20260729015247.25774-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260729015247.25774-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260728_232640_420279_4816947B 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 05:48:28PM +0200, Christian Marangi wrote:
-> Document support for Airoha AN8855 5-port Gigabit Switch.
-> 
-> It does expose the 5 Internal PHYs on the MDIO bus and each port
-> can access the Switch register space by configuring the PHY page.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Hi,
 
-Just one SoB.
+On 7/29/26 03:52, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> 
+> The preemptive MAC in DWMAC is always enabled, meaning DWMAC is always
+> ready to receive preemptive mPackets. Initialize pmac_enabled to true
+> at init time and reject attempts to disable it via ethtool set_mm.
+> 
+> Also add a missing fpesel capability check in stmmac_set_mm() to return
+> -EOPNOTSUPP early on hardware without FPE support.
+> 
+> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-Best regards,
-Krzysztof
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 7 +++++++
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c     | 5 +++++
+>  2 files changed, 12 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+> index 92585d27ab88..8ebdd249e5c8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+> @@ -1064,6 +1064,13 @@ static int stmmac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+>  	if (err)
+>  		return err;
+>  
+> +	if (!priv->dma_cap.fpesel)
+> +		return -EOPNOTSUPP;
+> +
+> +	/* DWMAC always have preemptible MAC enabled */
+> +	if (!cfg->pmac_enabled)
+> +		return -EINVAL;
+> +
+>  	stmmac_fpe_set_add_frag_size(priv, frag_size);
+>  	ethtool_mmsv_set_mm(&priv->fpe_cfg.mmsv, cfg);
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> index c54c70224351..2f880c5e35b0 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> @@ -176,6 +176,11 @@ void stmmac_fpe_init(struct stmmac_priv *priv)
+>  	if ((!priv->fpe_cfg.reg || !priv->hw->mac->fpe_map_preemption_class) &&
+>  	    priv->dma_cap.fpesel)
+>  		dev_info(priv->device, "FPE is not supported by driver.\n");
+> +
+> +	/* The preemptive MAC in DWMAC is always enabled, so initialize
+> +	 * pmac_enabled to true to reflect the hardware state.
+> +	 */
+> +	priv->fpe_cfg.mmsv.pmac_enabled = true;
+>  }
+>  
+>  int stmmac_fpe_get_add_frag_size(struct stmmac_priv *priv)
 
 
