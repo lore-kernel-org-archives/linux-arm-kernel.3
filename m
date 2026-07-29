@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF50AC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 04:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897B2C54F55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 04:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CtxMSCKPf+Wkvxjg59JNH0r+l1IpWdwQef0QPwiYwRU=; b=wpi9Ep8sZg3W7u
-	q+8qJ+dO2kZCr/Ki7nWTEbiCHO4ppDosrCvWVMcDSw5BanEN/vGguP9K+gKXaB5gwHRxvAkJAqGNd
-	g2+fdApmn3Ub8R0LXT5eOnBoQ/wM5TKugw5YkfhFEQHYw2YtpDBb2cdHufB1xW5AB+IzlcUMh9Cn3
-	SFnL3zulKQrCdMMN/oHIal5JgWBLPJAF37ej5Ub5AbqHtzschgH3gljb6VwxSP9WGqYxZHIW1THFc
-	K7Wp8hdI2JFS5FsLPmfPLVat68fVhwCfF5dsyuTWcOdQB4GPhehEJth770nO0Oc62ubLbmngRgvK3
-	V+suKFBvcOAOIep5h3OA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SwqXi3s+7bKrl3ieYy/Rj7PmwzuD7ksY7TvO4BL5PyA=; b=wcJXktXqWo/OxJkjm6sDvQfOjF
+	TgJ55gG/BK6cw5ylAJKt37/XE28psU21w4sLAEUQuOU9Du4p3l+cP6xTVY4PES/4Plt5gSLu8NH31
+	mK24uS359qk9KD40AHV9UVBb6efX6M8ea/FklJNO0O8voGxROGrE7PF3buoXEhljDx9v3qV8nC7TK
+	SbmwhEJGnaPY11m6oZ67Rmd8nXzZ+WUYc5ArdrSYwjVO34CvyGLYBWqh1C9eMV1UV5NizF4TxyxyQ
+	KRzIlks30eMliJ+mW0FeGtOg2m6qk42SgpsJcX2avTQviAyOckUicbt3POerA3hKB1djW1GHkv3TW
+	j8V/ROZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wovWD-00000006o4A-30b2;
-	Wed, 29 Jul 2026 04:03:45 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wovwS-00000006pLx-3a9u;
+	Wed, 29 Jul 2026 04:30:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wovWA-00000006o2s-2y5s
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 04:03:44 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CtxMSCKPf+Wkvxjg59JNH0r+l1IpWdwQef0QPwiYwRU=;
-	b=QQTQUSXE5bcIbql9XtaH44Hmjk3s80+QgXa320Nob/iTVDkDG11zqneVzQwJGYOzuJAqUNBsP
-	xdRk/blw8GIIHr09qT21JJez413QyXERYatIQ9b1d6UwKqOjTLZNfj+wlnSPhyzz1cG3vu59ZFn
-	7DteTHYyavVXxmKXj3VJ75o=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4h8z3f3066zpSvQ;
-	Wed, 29 Jul 2026 11:54:22 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 57D2D40538;
-	Wed, 29 Jul 2026 12:03:39 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 29 Jul 2026 12:03:38 +0800
-Message-ID: <e2486a36-c582-4dd5-9f9b-dc5dad030e0e@huawei.com>
-Date: Wed, 29 Jul 2026 12:03:37 +0800
+	id 1wovwM-00000006pLN-2Tk6;
+	Wed, 29 Jul 2026 04:30:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1785299446; x=1816835446;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=6ZLh78q8Jaw0bAiBJiGm3g23mqhcGsqF49qC1ZG3cCU=;
+  b=q5yeN0n1AQv6fDoFVKh9doGlnyCI6vEz80hIPC2RbsYkxntLlrZLPAaV
+   j5eSjYH6Ci4tLd6MbY8nbaR3DRI/XAgTE4qZX0d+P5jxM+2R2+ENjyZwC
+   W2zcgdNM+1LK4/7zHjLYhQEhgspLibf67zu39lXlGOChJjDsmm3VHZmnN
+   OXKLhy8UMgOCsUe+o1XWElDQlGdRBf7b3mISLO07fFU6xdMl2d/z10420
+   ILe7eVpKvvxlDiqD0u59bvwWZpuH5uVdRZdhtSlENBa2Wmgi2ApZkU/JV
+   ibzGqBJ5c00x7VAyvykae+xQMXIZqjtV1fEtzi0AyxOLaROtcWfAmgBdt
+   g==;
+X-CSE-ConnectionGUID: B4BuE8L6TnWO95OPcfEFFQ==
+X-CSE-MsgGUID: ZWaCPhS6TJK1TB+xBrF68A==
+X-IronPort-AV: E=Sophos;i="6.25,191,1779174000"; 
+   d="scan'208";a="60446878"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2026 21:30:43 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.43; Tue, 28 Jul 2026 21:30:43 -0700
+Received: from che-ll-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 28 Jul 2026 21:30:35 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <pratyush@kernel.org>, <mwalle@kernel.org>,
+	<takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
+	<richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <srini@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<linux@armlinux.org.uk>, <richardcochran@gmail.com>, <arnd@arndb.de>,
+	<linusw@kernel.org>, <michael@walle.cc>, <linux-mtd@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
+CC: Manikandan Muralidharan <manikandan.m@microchip.com>
+Subject: [PATCH v6 0/7] Read MAC address from SST vendor specific SFDP region
+Date: Wed, 29 Jul 2026 10:00:19 +0530
+Message-ID: <20260729043026.1811147-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 04/13] arm64: percpu: Factor out percpu offset asm
-To: Mark Rutland <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260728123859.2911495-1-mark.rutland@arm.com>
- <20260728123859.2911495-5-mark.rutland@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260728123859.2911495-5-mark.rutland@arm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_210343_137615_AB110999 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20260728_213047_116782_2BAEC66F 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,73 +85,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, peterz@infradead.org, maz@kernel.org, hca@linux.ibm.com, linux-kernel@vger.kernel.org, yang@os.amperecomputing.com, catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Some Microchip/SST QSPI flashes (e.g. the SST26VF064BEUI) are factory
+programmed with globally unique, write-protected EUI-48 and EUI-64
+identifiers stored in a vendor-specific SFDP parameter table. On boards
+that have no on-board EEPROM (sama5d27_wlsom1, sama5d29 curiosity,
+sam9x75 curiosity) this is a reliable source for an Ethernet MAC address,
+instead of relying on a U-Boot-provided or random address.
+
+The series exposes the SFDP as a generic NVMEM framework with no vendor
+code in the SPI NOR core:
+ - The SPI NOR core exposes the entire SFDP as a generic read-only NVMEM
+   device, rooted at a new "sfdp" child node of the flash.
+ - A new NVMEM layout driver (drivers/nvmem/layouts/) locates the
+   Microchip vendor parameter table at runtime and presents the EUI-48 as
+   a "mac-address" cell.
+ - Arbitrary parameters can be read with a standard fixed-layout
+   (known offset) or with an nvmem-layout parser (location discovered at runtime).
+
+Changes in v6:
+ - 3/7 - Move the SFDP NVMEM registration from sfdp.c into core.c, since
+         sfdp.c is only for parsing the tables;use of_get_compatible_child()
+		 instead of the open-coded child-node lookup.
+ - 2/7, 6/7, 7/7 - Add Reviewed-by: Linus Walleij.
+
+Changes in v5:
+ - 1/7 and 5/7 - Add R-b tags
+ - 3/7- Rework the comments, function name and commit message.Check all the nodes
+        (for_each_available_child) for the right compatible "jedec,sfdp" instead
+		of node name.
+
+Changes in v4:
+ - Rework per v3 review: remove the vendor-specific SFDP handling from the
+   SPI NOR core; expose the whole SFDP as a generic read-only NVMEM device
+   and move the EUI extraction into an nvmem-layout driver.
+ - Introduce a new nvmem-layout driver to discover the vendor-table location
+   at runtime; no offset hardcoded in the device tree.
+ - Describe the SFDP via a dedicated "sfdp" subnode (compatible
+   "jedec,sfdp"), which also resolves the v3 dtbs_check "Unevaluated
+   properties ('nvmem-layout')" warning.
+ - Reverse the stored EUI bytes into canonical MAC order.
+ - Enable the layout in sama5_defconfig.
+
+ Changes in v3:
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+   binding in sama5d27_wlsom1
+ - 3/3 - add nvmem-layout in qspi node for EUI48 MAC Address and nvmem cell
+   properties for macb node in sama5d27_wlsom1
+
+Changes in v2:
+ - 1/3 - parse the SST vendor table, read and store the addresses
+  into a resource - managed space. Register the addresses
+  into NVMEM framework
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+  binding
+
+v5: https://lore.kernel.org/linux-devicetree/20260721052859.171341-1-manikandan.m@microchip.com/
+
+Manikandan Muralidharan (7):
+  dt-bindings: mtd: jedec,spi-nor: allow the SFDP to be exposed via
+    NVMEM
+  dt-bindings: nvmem: layouts: add Microchip/SST SFDP EUI layout
+  mtd: spi-nor: sfdp: expose the SFDP as a read-only NVMEM device
+  nvmem: layouts: add Microchip/SST SFDP EUI layout driver
+  ARM: dts: microchip: sama5d27_wlsom1: use fixed-partitions for QSPI
+    flash
+  ARM: dts: microchip: sama5d27_wlsom1: read MAC address from QSPI SFDP
+  ARM: configs: sama5: enable Microchip/SST SFDP EUI NVMEM layout
+
+ .../bindings/mtd/jedec,spi-nor.yaml           |  18 ++
+ .../layouts/microchip,sst26vf-sfdp-eui.yaml   |  60 ++++++
+ .../bindings/nvmem/layouts/nvmem-layout.yaml  |   1 +
+ MAINTAINERS                                   |   6 +
+ .../dts/microchip/at91-sama5d27_wlsom1.dtsi   |  61 +++---
+ .../dts/microchip/at91-sama5d27_wlsom1_ek.dts |   2 +
+ arch/arm/configs/sama5_defconfig              |   1 +
+ drivers/mtd/spi-nor/core.c                    |  91 +++++++++
+ drivers/nvmem/layouts/Kconfig                 |  10 +
+ drivers/nvmem/layouts/Makefile                |   1 +
+ drivers/nvmem/layouts/sst26vf-sfdp-eui.c      | 182 ++++++++++++++++++
+ 11 files changed, 411 insertions(+), 22 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/layouts/microchip,sst26vf-sfdp-eui.yaml
+ create mode 100644 drivers/nvmem/layouts/sst26vf-sfdp-eui.c
 
 
-在 2026/7/28 20:38, Mark Rutland 写道:
-> Depending on whether the kernel runs at EL1 or EL2, the percpu offset is
-> stored in either TPIDR_EL1 or TPIDR_EL2, and __kern_my_cpu_offset() uses
-> an ALTERNATIVE() sequence to read the relevant TPIDR_ELx.
-> 
-> In subsequent patches we'll need to read the percpu offset in other
-> assembly sequences. Factor the ALTERNATIVE sequence out of
-> __kern_my_cpu_offset() into a new __KERN_ASM_CPU_OFFSET() macro so that
-> we can share the code sequence.
-
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-> 
-> There should be no functional change as a result of this patch.
-> 
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Yang Shi <yang@os.amperecomputing.com>
-> ---
->  arch/arm64/include/asm/percpu.h | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-> index b57b2bb009677..98823c97d534c 100644
-> --- a/arch/arm64/include/asm/percpu.h
-> +++ b/arch/arm64/include/asm/percpu.h
-> @@ -29,6 +29,11 @@ static inline unsigned long __hyp_my_cpu_offset(void)
->  	return read_sysreg(tpidr_el2);
->  }
->  
-> +#define __KERN_ASM_CPU_OFFSET(dst)					\
-> +	ALTERNATIVE("mrs " dst ", tpidr_el1",				\
-> +		    "mrs " dst ", tpidr_el2",				\
-> +		       ARM64_HAS_VIRT_HOST_EXTN)
-> +
->  static inline unsigned long __kern_my_cpu_offset(void)
->  {
->  	unsigned long off;
-> @@ -37,11 +42,11 @@ static inline unsigned long __kern_my_cpu_offset(void)
->  	 * We want to allow caching the value, so avoid using volatile and
->  	 * instead use a fake stack read to hazard against barrier().
->  	 */
-> -	asm(ALTERNATIVE("mrs %0, tpidr_el1",
-> -			"mrs %0, tpidr_el2",
-> -			ARM64_HAS_VIRT_HOST_EXTN)
-> -		: "=r" (off) :
-> -		"Q" (*(const unsigned long *)current_stack_pointer));
-> +	asm(
-> +	__KERN_ASM_CPU_OFFSET("%0")
-> +	: "=r" (off)
-> +	: "Q" (*(const unsigned long *)current_stack_pointer)
-> +	);
->  
->  	return off;
->  }
+base-commit: fc02acf6ac0ccde0c805c2daa9148683cdd01ba8
+-- 
+2.43.0
 
 
