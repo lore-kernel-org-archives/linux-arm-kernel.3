@@ -4,86 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A11C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B1DBC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7BZQAJ04IfTNc0CkDFzgPEWJ5U0mGWd/ronQVT6SGBw=; b=QO1k+wJYQnjiAQXayC/tGjkUBb
-	VYaSh8AKQYIpKcO6rfpIq51TtZa0Zi73ccFKQaulWayfmdZatvI7uoUDLhAQHd3QnhWbc6a32fsjE
-	ennhXdbhI1xPphe9CuclqKEpmfM/qMXM9wVqG60CRZYbGiqmEuGaWebNVhXaWRlu/iNq7+X60tpS7
-	uAoGahfIwOzOFwUzhxAp2s3uPwZp+TAc9kd0jSeSho5+AD8+lr7PQomS9ZRNYrTqoZJ6Tr0Fzntoc
-	6rEow3rfkmaLMtD0EjLvGjHfGYIEa1iAeGZrdebot1LftFliR9ayzG8Amch/XZqldM1CSJmEpIy1R
-	ZoLXB26Q==;
+	bh=XZhVGx2M8iOI7b0Qk6w6OOBniMXSCzyM1lZLJihM2lc=; b=eCXewQUDJLAjDdO0Wrx2TyLDVB
+	QCoWStK5VNVufcOK5srhPghmyL1B+Hywz/tUx81Hfs3ObB+ktKEj5g2UHcBFX1kcSeEMnJIfU+N37
+	hQX7geCNMrSEGHtxt1sWIsMzvcEAcIIZkQTH5lpCqpFc9ne+NCW8jesVTd7swFOrBk0fenRagFZ+B
+	0CPcrXiNfvpsyrgicEPWudTYpXh29kZKTlebMgTJWAcXbNORucD3lwdABQK2HjrVXGYxoZW6Bjv3v
+	dd27VRcyAnqrrRNeivcn7abp2Ln0EKSDYWcOIW2B9rXJHhdDzmxieMNsKMcKh/QjWb3MnxoUXbldi
+	234eBLhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp688-00000008OAL-09Hc;
-	Wed, 29 Jul 2026 15:23:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wp6AE-00000008OjV-3DOO;
+	Wed, 29 Jul 2026 15:25:46 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp680-00000008O5w-1HBq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Jul 2026 15:23:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7BZQAJ04IfTNc0CkDFzgPEWJ5U0mGWd/ronQVT6SGBw=; b=LXBqh7HpMppvi2RRxUyBfokr1W
-	iklbuEU9COtKuuxT3NgsF67t2PGvEDae5oK2FFeG8QJbeRs8nTBpOVliZ67qTcJyg0JfwYdyEKb4j
-	iMr8Hsvt6Wjpk7CQhH1HZuyQkGEQeVGcsbqNx2SsnUySgRjIhf/lKc9Rktdl40179HlFVaVIYvCd3
-	eVMvpnqKOdCYYgmvIj/Q/Q/cwaUq5jnUKM5SWJy/uX0AnWg6xpCi0DJAQegWsKJ6HbExr1p1AeUqY
-	UB43uLTL1dsb/A/z8fisRZbmd0H2FiCmvYj5NBnA4UFjnOF6LgUks/3QWsTJIXvOiHk660GxNliY5
-	W/isr2bA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wp67x-00000005wrx-03sf
+	id 1wp6AC-00000008Oj3-2yO9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 15:23:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56E3A1684;
-	Wed, 29 Jul 2026 08:23:18 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A1BAD3F763;
-	Wed, 29 Jul 2026 08:23:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785338602; bh=6HpZg3HTf+dCj1Efa/gkF7FZ9+bHwZGO9kLymlTaf9M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Yrz7TVUAHRSB36VjRm1//NZMBIaL+MHHh4Rv2vuxoIqFgR9IJHuQJ4GmN6eGnE9Oc
-	 QwWYI+HfUr5B5cmXFQ7lC6GnrSvXvfHa4kI2FUTg65RlbmZZ4V+akm0y5YYxxhNWlV
-	 8/MwjWb1JWbBgJp19ohf5pZhMWiCh2QmRu87Fe3M=
-Message-ID: <881a3224-fb19-4ded-ae7e-3f7ae139fe52@arm.com>
-Date: Wed, 29 Jul 2026 16:23:18 +0100
+	Wed, 29 Jul 2026 15:25:45 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c96d7933910so127238a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 08:25:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785338743; x=1785943543; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XZhVGx2M8iOI7b0Qk6w6OOBniMXSCzyM1lZLJihM2lc=;
+        b=TFX7KjDamPjasKH5dhwKcbBcUE27kXGmDnB65NqCAA3YTcczxnT1SjLOZIWuffpyBb
+         Z9vaN20WJLNv8I9NCQ6Yva4MTJjs2B7JdrbwkWkwSDR58MFQ1I5psNrXIqFnOas8xde+
+         bs8AsN5Y/M31kOYk6UyJQUV8rCDjJ3aFotXyhA/6RSqcvhZpL3QVNEBELpQCihoOOvAm
+         sn/ofzKwBRFDFZiOVhaTN/Lmyn5Zf8hsyq3fPhbS+Jgy6N5bRlbpSBx8a+GrX3uvpSOg
+         zhLf/N1CAVAeNJjWuI86e4xs90R/Iygr4n5cPdBdcrWp7kWPg0Ie+XEkKqOyRh7A+JYM
+         dELQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785338743; x=1785943543;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XZhVGx2M8iOI7b0Qk6w6OOBniMXSCzyM1lZLJihM2lc=;
+        b=NrdwPS4n27ZxyhdYICjJLmyBL8Bf9J7ExcbIGqZ0blvYxJsBECHaXIwi1JUCWOX0TG
+         nuZgQ8SBzO+01QJeDpMmvhCFJCUsu1odTt1ICIh+egncGZ6wA/8+uEbjKroBS6Qce1pK
+         eL639FbfqXbtQDO46ysUjBMskLYB1vCXL0SED94Lo60+vgu9FYmPZIG1Dw+V7qmy0QvT
+         58iKLgpSU5lpP6jVHYFs48SHeTvX+3Jo4MkaUsrkvnE8PfNf6P1y5WR5qRE5VTMFZLSM
+         4JWECv7mOMi5KOEuSBKnqQk90eiOPkgkQIOgg7N7XsXh3qcl2abUh4OEmviPCevqrb+x
+         jJIg==
+X-Forwarded-Encrypted: i=1; AHgh+RpQDBCR7MN/S5F4Xvl91bX75CFdmBhMTXa4OKB4vG2AOk0xah6fdZuWLkEpM09KbNztVDd4qHkLsX86TCHkLgtt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXUWRZr/Ni1/kUVTI2zyynHq6+yi5vpBEMoTfQbfxg6qhx3OKV
+	t0xnNgzQvAjxV/1c5TZFcGhEFButqu5K9uSxoKd79twCV/fxrKuNwuer
+X-Gm-Gg: AR+sD10ioieb+96m/OnG4XVYS+5GS1wNlq8yYZVQJjHAaDDMsKK0hXOzKBypa+yIAX+
+	AsVt/mRYEfDC2FjJ9qoL/jgZayJjCXyScA8yoFfgWVh41Hc+HoJjONAVSP5DL/8a03i47M8QLBq
+	ifzvcDAIlGxQH5Q1Dhh6yn0acjSNC1PJ0RQ6bl9jSvI+I1RYsUIKqXONL4N34UFIU7INpLxZGBo
+	Kw1fKcE+NM62bZXVoRweQ0DC17GH6HpdGN4yA4iY5XXZP2e4IuSxCb9tC6/9Fi7/2x4jYd4Gkh/
+	djfD4Gsvm9TlkQQoWNO17NoOjP9hFjXIfU+dGziYV53xJ/kDbJKs0LRrpQgRKzIFP1WdrV2+GqO
+	h/DiYNOCW6BziuMhqA0BaQgLe1GWEwsEHMUya9MzVRACTnc0eGgf3BxJpa/U9ULyFQCg8SN3MKF
+	BdVEUSXs8txWXkXAv5t5e6t+q+uXv7DHV1zBQHOuJ8oAqTOoWlj3i410Yyp+o8uAYtaG7/80IvM
+	rbBGgya35JXxKv0xwMHOPjXHgUK4Sx2M/sC2to0G8jWm4ARxd+YDyv+PydEZTw=
+X-Received: by 2002:a05:6a21:3212:b0:3c6:61b9:9162 with SMTP id adf61e73a8af0-3c8ba675ae0mr7418062637.3.1785338743236;
+        Wed, 29 Jul 2026 08:25:43 -0700 (PDT)
+Received: from debian.lan ([155.117.85.23])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea0055133sm1619666b3a.18.2026.07.29.08.25.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2026 08:25:42 -0700 (PDT)
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+To: akpm@linux-foundation.org
+Cc: xueyuan.chen21@gmail.com,
+	linux-mm@kvack.org,
+	david@kernel.org,
+	ljs@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	luto@kernel.org,
+	peterz@infradead.org,
+	lance.yang@linux.dev,
+	usama.arif@linux.dev,
+	jannh@google.com,
+	yang@os.amperecomputing.com,
+	rppt@kernel.org,
+	ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	liam@infradead.org,
+	npache@redhat.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org
+Subject: Re: [PATCH v5 0/3] mm: make persistent huge zero folio read-only
+Date: Wed, 29 Jul 2026 23:25:31 +0800
+Message-ID: <20260729152531.1966932-1-xueyuan.chen21@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260727113530.5cd347581a66b3279490a604@linux-foundation.org>
+References: <20260727113530.5cd347581a66b3279490a604@linux-foundation.org>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v5 09/10] arm_mpam: change error IRQ to use a threaded IRQ
- handler
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-10-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260729134124.2506269-10-andre.przywara@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_162325_421851_C7072323 
-X-CRM114-Status: GOOD (  31.13  )
+X-CRM114-CacheID: sfid-20260729_082544_749063_A5AF1D83 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,135 +127,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
 
-On 7/29/26 14:41, Andre Przywara wrote:
-> When an MPAM MSC gets into an error condition, it can trigger an error
-> IRQ. We cannot really do much about those errors, but we at least query
-> and log the error, then disable MPAM functionality.
-> 
-> This error report relies on reading the MSC's error status register
-> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
-> MSC accesses, since they involve mailbox routines that might sleep.
-> The same is true for clearing the interrupt at the source, which
-> requires an MSC access as well.
-> 
-> Change the error IRQ to use a threaded IRQ handler, with an empty hard
-> IRQ routine, and doing all the MSC accesses (to access the status and
-> disable the IRQ line) in the threaded part. The change is minimal, we
-> just check for the first MSC access error and bail out early.
-> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
-> threaded IRQ here.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/resctrl/mpam_devices.c | 42 ++++++++++++++++++++++------------
->  1 file changed, 28 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index abe1e628928f..e535603d2c7d 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2659,9 +2659,11 @@ static int mpam_disable_msc_ecr(void *_msc)
->  	return 0;
->  }
->  
-> +/* threaded IRQ handler for shared IRQs, to allow MPAM-Fb accesses to sleep */
+On Mon, Jul 27, 2026 at 11:35:30AM -0700, Andrew Morton wrote:
+>On Mon, 27 Jul 2026 22:34:23 +0800 Xueyuan Chen <xueyuan.chen21@gmail.com> wrote:
+>
+>> The persistent huge zero folio is shared globally and should stay zero
+>> after initialization. As Jann Horn pointed out[1], kernel bugs have ended
+>> up writing to pages that were meant to be read-only, including in
+>> security-sensitive cases. Making the folio read-only in the direct map
+>> turns such writes into faults instead of silent zero-page corruption.
+>> 
+>> This series adds set_direct_map_ro_noflush() so mm code can make a
+>> direct-map range read-only, then uses it for the persistent huge zero
+>> folio. The helper is direct-map specific, takes an address-based range as
+>> discussed for set_direct_map* helpers[2], and leaves TLB invalidation to
+>> the caller.
+>
+>Thanks.  AI review asked about a few things, some pre-existing.  Includes
+>a possible pre-existing ARM barrier issue in arch/arm64/mm/pageattr.c
+>	https://sashiko.dev/#/patchset/20260727143426.1077133-1-xueyuan.chen21@gmail.com
+>
 
-This comment seems incomplete. The same handler is used for the PPI hardirq.
->  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  {
->  	u64 reg;
-> +	int ret;
->  	u16 partid;
->  	u8 errcode, pmg, ris;
->  
-> @@ -2670,13 +2672,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  					   &msc->accessibility)))
->  		return IRQ_NONE;
->  
-> -	mpam_msc_read_esr(msc, &reg);
-> +	ret = mpam_msc_read_esr(msc, &reg);
+Hi Andrew,
 
-This is also called for MMIO accesses and the checks in the reads and writes call smp_processor_id()
-which will give warnings if we are preemptible. There is also a similar to check higher up in this
-handler. We need to choose in what context we call things based on whether we are using MMIO
-accesses or MPAM-Fb.
+Thanks. The highmem case is valid. A highmem folio has no permanent
+direct-map mapping, so v6 will skip the permission update and TLB flush
+in that case.
 
-Thanks,
+The huge_zero_pfn race is addressed by Lorenzo's mm-hotfixes series:
 
-Ben
+https://lore.kernel.org/r/20260728-fix-refcounted-huge-zero-v1-0-3f261f5447b4@kernel.org
 
-> +	if (ret) {
-> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
-> +
-> +		/* Try out best here ... */
-> +		goto out_disable;
-> +	}
->  
->  	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->  	if (!errcode)
->  		return IRQ_NONE;
->  
-> -	/* Clear level triggered irq */
-> +	/* Clear level triggered irq. Ignore errors, we need to proceed. */
->  	mpam_msc_clear_esr(msc);
->  
->  	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
-> @@ -2687,19 +2695,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  			   msc->id, mpam_errcode_names[errcode], partid, pmg,
->  			   ris);
->  
-> -	/* Disable this interrupt. */
-> +out_disable:
-> +	/* Disable this interrupt. Ignore errors, we need to proceed anyway. */
->  	mpam_disable_msc_ecr(msc);
->  
-> -	/* Are we racing with the thread disabling MPAM? */
-> -	if (!mpam_is_enabled())
-> -		return IRQ_HANDLED;
-> -
->  	/*
-> -	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
-> -	 * unregister the interrupt from the threaded part of the handler.
-> +	 * Schedule the teardown work. We have to defer it as we can't
-> +	 * unregister the interrupt from the threaded part of a handler.
-> +	 * Check whether we are racing with the thread disabling MPAM.
->  	 */
-> -	mpam_disable_reason = "hardware error interrupt";
-> -	schedule_work(&mpam_broken_work);
-> +	if (mpam_is_enabled()) {
-> +		mpam_disable_reason = "hardware error interrupt";
-> +		schedule_work(&mpam_broken_work);
-> +	}
->  
->  	return IRQ_HANDLED;
->  }
-> @@ -2735,6 +2743,11 @@ static int mpam_register_irqs(void)
->  		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
->  		/* We anticipate sharing the interrupt with other MSCs */
->  		if (irq_is_percpu(irq)) {
-> +			if (msc->iface != MPAM_IFACE_MMIO) {
-> +				dev_err(&msc->pdev->dev,
-> +					"Only MMIO MSCs can use per-CPU interrupts\n");
-> +				return -EINVAL;
-> +			}
->  			err = request_percpu_irq(irq, &mpam_ppi_handler,
->  						 "mpam:msc:error",
->  						 msc->error_dev_id);
-> @@ -2746,9 +2759,10 @@ static int mpam_register_irqs(void)
->  					       &_enable_percpu_irq, &irq,
->  					       true);
->  		} else {
-> -			err = devm_request_irq(&msc->pdev->dev, irq,
-> -					       &mpam_spi_handler, IRQF_SHARED,
-> -					       "mpam:msc:error", msc);
-> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
-> +							NULL, &mpam_spi_handler,
-> +							IRQF_SHARED | IRQF_ONESHOT,
-> +							"mpam:msc:error", msc);
->  			if (err)
->  				return err;
->  		}
+I don't think the MTE report needs a change. Commit 1d0cb4c8864a
+("arm64: mte: Ensure the cleared tags are visible before setting the
+PTE") added the smp_wmb() specifically for this ordering.
 
+I'll send v6 shortly.
+
+Thanks
+Xueyuan
 
