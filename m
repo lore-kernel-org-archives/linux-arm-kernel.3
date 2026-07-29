@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49FC8C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0573C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gUdqR2Hxxm0m0RqPyLuS7KiUs0HH+0wvNQWmKBLU3XU=; b=1nPOGW65ZVFQ8CIuT3AigqkZ0/
-	pcJi3A5J7kbqprJrD5IqwAiY3Q/NQ0U1UyNuOSUf6svKGQQsHvQ5HDje1wYV1nXaQf8IL0NG6DBy9
-	qrTt1NQUIsnnvDPrrXXsgWu9aX0PLkEgLPDx7fM5g2M9Eg+2Uo6teTi6AKjqUbBq18m3v12WiEvTe
-	saLu1sWQc/8M13ngAO+NenYs+wMEkZFOAwGzns/Pcm8ok1G29B2bbSePTdJgf4KtnvRfmFGplcBCL
-	tyUhe2SuY00DKQY284t+1Pq/kNxoD6gn9INjIRA3ELQ5MpmxqgwaMLK70qAj0xrWB/tI10FEBf9I8
-	8/IMgyAQ==;
+	bh=ZB7fkr+8u1itkrDNGFxMlw0+3hPrJQV3CvlOA1XIJ28=; b=0UDTfrdlTxxYeZZtdbXF+ZItfW
+	dFLhyaRyeLFK8STZ+YV4jfcNPOiVl4xkwMRZiBMj3+tYGNi07rPQXu41VDF8n/co5XqOLwv4OtpJk
+	0D2NRAjrIPx15Uc9A2amuSt1waz4ylHnMZyl7rdIY7cBD6zGNR0qZ5IbnQ53WiIWHn9lqxPRJtabS
+	5lFe1gVDbb/mT1u0aoKK69p4mJ//nEpUzbPoMa42PNUa0SPSwQIlok2BUmlm0VeJ8MphVM0lcanQi
+	wNY8CXsuyvrO20iCAnlGK9EqPyvFB5nI1NQlyD4ey+BrF3p36XkpIxvOXF8OXVYwaWj4dSQyYoCDh
+	WvoCqeZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2hA-00000007lUB-0DnC;
-	Wed, 29 Jul 2026 11:43:32 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wp2i2-00000007ln5-1DZ2;
+	Wed, 29 Jul 2026 11:44:26 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2gx-00000007lMs-0NYH
+	id 1wp2hz-00000007lmZ-2T6U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 11:43:21 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8487088510aso819503b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 04:43:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785325398; x=1785930198; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gUdqR2Hxxm0m0RqPyLuS7KiUs0HH+0wvNQWmKBLU3XU=;
-        b=eJy6oq9EoppMbpVpJ5uWlI78Hni4JTEKkQSyNCRtUOTbm4xolerR97nbTgOeeI3LkF
-         UsMJYm4/jHxafenYppg70qG6EfCaZQJEqVFE3lA3qCx2Qv8NWQIu2enPcOjwQOQZvxwZ
-         aJMHZeVSok1kHKGqPJH8gORUiDtqHbkhx7SBNUWVXkIJaWKL7oroP9ByjK1OsP/68teW
-         f9iRTZMnhm6HKIwnIoZtrnOu3T0+Tcoxu5/My1Mezfx4TbV1ywcn8C3EgWyqcJnlv8Lb
-         BLKkW4ojeNSJllWnlG1AcmtScC1q9rCaehuXluIDw7sdx1XygEILKV3SKShYUz/MLyZF
-         uPrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785325398; x=1785930198;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gUdqR2Hxxm0m0RqPyLuS7KiUs0HH+0wvNQWmKBLU3XU=;
-        b=P/3rpZU800RQequDlgK1YbpU2JyGrNXwCDcAMZ7Eh0r3HgTPNr8rMX2/q8ABiiZ1PG
-         bs4lpRG1om86szuNodwPhWa0GE5jXs4MUG7eV6sQOqkrytlSGjRLXiAJlJ2LdLaYp4Ms
-         NTxvzPeEMjQDBZTHHyx8hRPNS+xxNyKOGgkuM09u/50NB3mjB9Wx//+3NTVQsG3qZZVf
-         sub/Hi66nn59FOW8oFvdylnIzYHCeh+a/6Jy7OIIPkTjk827qBhtZ8PnBZyTuemSfdpD
-         IhA1TWOc3UPzWXLtoZFAOZK0SuWKGOjn2zNrU/FKMa7Fj9+LGaqj3BWR1uyPJFEaJpiy
-         cYSA==
-X-Forwarded-Encrypted: i=1; AHgh+RquQqgVBJY1QlQd0F6F2Zlycae6fF26OmgB0bIYufEl2AH+Izifg8lKuJo0l3HQGUnI4Mlc4ONiW0s1vIWADQ9q@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXzc32OuqZGboasWj4kiFy9Tn6PPDT9AlJbtD6rq/hazrSKncd
-	GMVtAePcXQRRjUtTG31Eu4hRR6qNzDG4iEmPiTz5LNNDbOp6dZbyHACv
-X-Gm-Gg: AR+sD10luswkNbDZ/bHbNssWVEvDsjrHrqkPbgw17LrDT1PnOerMfWOz1Bjltwv1hCz
-	Vu3mqfYESS3BcGovW0+Xh2tNclCcTayCb6VT+8tZaiwR/oOyYsMqTwr/VSZfkERdvj9wC++ALYp
-	pcGuWMM2F3k+SYM+sgdL6FP1SUm0g8+5xd9egaocCLRTc81w+M2OaV2b3HiKMGISJt9jhhDVhyM
-	C0afgUGH5WsTbrBIsh+QmPer+BbT4NvhtIsxKWZf8+Ycw4FU6C64HAWMRp7Vgs6ZhecJLF4hjTG
-	beRzQHaV4RPPWOifnAimIU+IjpVm5ByJU4RQkyPHn/hbGfcJSp36wB0c7PAly4lSA5dEdJqV/2s
-	onuoK3hrAMyq63sjNMrS2r9ymD4FnSKwH2DGNkIBSm8xS4fdKIi7NiJ/HMlpzmj2TZs0qQYvfTx
-	fKdLizQxA9/1B+vS0/s2nwLKwht6SyZ3K5e+Lotd1D3iW8EgBSmDM1HhEvIdD8PYcsLk9GrMyWK
-	a3dCYKSxeEJu4sbImxNyleUnoaZio11Yvg=
-X-Received: by 2002:a05:6a00:2e84:b0:84e:1a9d:d879 with SMTP id d2e1a72fcca58-84e93246ae3mr6928584b3a.28.1785325398098;
-        Wed, 29 Jul 2026 04:43:18 -0700 (PDT)
-Received: from cosmo-ubuntu-2404.. (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea03cbd1csm1263532b3a.53.2026.07.29.04.43.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 04:43:17 -0700 (PDT)
-From: Cosmo Chou <chou.cosmo@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	cosmo.chou@quantatw.com,
-	Cosmo Chou <chou.cosmo@gmail.com>
-Subject: [PATCH v2 4/4] ARM: dts: aspeed: bletchley: Add second source ISL1208 RTC
-Date: Wed, 29 Jul 2026 19:43:12 +0800
-Message-ID: <20260729114312.3947300-5-chou.cosmo@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260729114312.3947300-1-chou.cosmo@gmail.com>
-References: <20260729114312.3947300-1-chou.cosmo@gmail.com>
+	Wed, 29 Jul 2026 11:44:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1785325448; x=1785930248; i=markus.elfring@web.de;
+	bh=ZB7fkr+8u1itkrDNGFxMlw0+3hPrJQV3CvlOA1XIJ28=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:From:To:
+	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=g9tDIkoFu34RCfnV+WVYBiTvDOn8jL8VlOYVxpcUtj9GEIFjiAJiGOqUzByNa19U
+	 JZLTKm80AB0ELdhyp92iHqorbugrpzAQq1ZWc9TiPIwGPL2TOs4LVOIpIMByTGcCf
+	 BoqVnXeG2tHggs+8GvxGyf+ow05EkDMJuBWiLB08zG0gJPGJRvEt6gJ7qQB4eRSLl
+	 b/DNv/lRazXrkDGayIsAqKgU9vsCukmsj5TPC4eZgbzWcwBsmA4RfT79zFGpCJ5ib
+	 KULt/rs8BudP8sz8GFU9+5BWUQkMNWwLxtQRzK/ONCYo0JRP7x2dNojOUelWodFym
+	 bIK9i/0ioRiZKYGJLA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MbkWQ-1xNYRS0WKs-00bYaV; Wed, 29
+ Jul 2026 13:44:08 +0200
+Message-ID: <d03db8ee-0b75-43da-9e0a-056cd7c28967@web.de>
+Date: Wed, 29 Jul 2026 13:44:06 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH v3 2/2] soc: fsl: dpio: Use scope-based resource management in
+ dpaa2_io_create()
+From: Markus Elfring <Markus.Elfring@web.de>
+To: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <chleroy@kernel.org>, Dan Carpenter <error27@gmail.com>,
+ Ioana Ciornei <ioana.ciornei@nxp.com>, Roy Pledge <Roy.Pledge@nxp.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>
+References: <709fefd1-821a-4cd1-8598-b1179a95ce52@web.de>
+Content-Language: en-GB, de-DE
+In-Reply-To: <709fefd1-821a-4cd1-8598-b1179a95ce52@web.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:JWfvhv9xaM9no0/+wK+mo5Nbg7cGTOCcrv9o8GrPo6qDck+r0Sd
+ 5fJMqJmzmiBx/pvvn5/8ptgnC8OKJv+raLf65JdB3dP/nH5dAX+ucAhnSRKvewhKpWIHyBi
+ 4yBzqDsxf2pwy/KCWRuX8MXv+/zi2x6bRXthsPzQE3y/DKUU9jvNxKVQHX+fIWf3qQuRIc7
+ I0WJiKQPkBB8i4zZR9RMg==
+UI-OutboundReport: notjunk:1;M01:P0:4RP72vNzfQI=;WVcJkbU3Q/ep+YTeJnH0bkdXyDC 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 sQ1Hn0u6jCwRnVFiVjy7KyI7vL/ubUkjA85yxvABnFCT8R3fl90Bh3v4/b0m7Fnqur1yeMVr6 mamRDBCT5CizZilwlhahbY/spjdmQ6I/o+A57aUO5orhHcFeh/VurEvpXGM37foPQjrr4Dnbf 18TqIdLIT/tuIhrUEiKg773K2Zr10d4mZv62HtOBRY/J3vHNNnLADaRJAenjAC14DFRnkpXZs q1shJPIiN8MAJzl5IzvN2ncRoY5kTRODLfA0OYT4NYYEK1OAfB/RpY9HAZzKdk5OGfHrENYYH gs1ve1FcGHyvD3yA00cRuPkuDjuK0Qlz6FhwQDv/qxsZu9Be1l+xTC3NOaMm7hAggtg3oJZo5 rLTA4hTgHKrFDVMy4V/89SJ8vvJN03qcjkIeWPNEYUVJA7UXpIAXV4SyK1BGfqUflv8G4woR7 mOarDkqmuo1CozO7GzrrF1rifDb5ZCLvD+pPSlU/Ti2JxMGit2XFlVwHFDQapcxpD+1EAAqV5 p0px/2ZgK/N7JQLzBwLSei4RWxUh+HVimWX4lHau5r/ghPQS9T7Bl+bgqPFxHCgjYdNGefukr slJeTULH5Y/HTkgskRDn0Qijq29phayJl6EKgr49NL1pBBHLNl3wQ17ZfQ5nXmO4LM1QQyZ9x A3MFCM5YyUVmT2uPc4NS/f5ZmILOE+olOPfXWYOaRsUs9ZVkdt/lWj0eFAFOGurKU3yYOQEO+ v4pWPpDArtdVfMy7hVjdXqSgPXS26aB2wvllJF/ea+LLqVzccXpynKpfKLxC1UPOQTtx/p5TN ra62+Da9sRoiLRWRuM7q5O7SugtLG8+L6Z5CzN7qln27tWxxRuT8B/Hsw5NjpQ2RMXY70Pwzl eqicB6TSOU2hO1la9Dje9hKVNmUYOI+C3bAyn3AV87MHFRW5JOIVCe7S3SDyoMd9hyNxAJYol dg8ZgkGgF8SF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_044319_921238_4DD5A57F 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_044423_921701_9113CF12 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,31 +84,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add alternative ISL1208 RTC at address 0x6f to support boards populated
-with the ISL1208 instead of the primary PCF85263 at 0x51.
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Wed, 29 Jul 2026 12:46:56 +0200
 
-Signed-off-by: Cosmo Chou <chou.cosmo@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+Scope-based resource management became supported for some
+programming interfaces by contributions of Peter Zijlstra on 2023-05-26.
+See also the commit 54da6a0924311c7cf5015533991e44fb8eb12773 ("locking:
+Introduce __cleanup() based infrastructure").
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
-index 3da1cf9bbb99..01dbbda3e4b6 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
-@@ -1269,6 +1269,11 @@ eeprom@56 {
- 		compatible = "atmel,24c64";
- 		reg = <0x56>;
- 	};
+* Move some source code from the implementation of the function
+  =E2=80=9Cdpaa2_io_create=E2=80=9D to a new function.
+
+* Use the attribute =E2=80=9C__free(kfree)=E2=80=9D for the local variable=
+ =E2=80=9Cobj=E2=80=9D.
+
+* Omit two kfree() calls accordingly.
+
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/soc/fsl/dpio/dpio-service.c | 46 +++++++++++++++--------------
+ 1 file changed, 24 insertions(+), 22 deletions(-)
+
+diff --git a/drivers/soc/fsl/dpio/dpio-service.c b/drivers/soc/fsl/dpio/dp=
+io-service.c
+index b621755d8988..4ff99928e9c6 100644
+=2D-- a/drivers/soc/fsl/dpio/dpio-service.c
++++ b/drivers/soc/fsl/dpio/dpio-service.c
+@@ -121,31 +121,15 @@ static void dpaa2_io_dim_work(struct work_struct *w)
+ 	dim->state =3D DIM_START_MEASURE;
+ }
+=20
+-/**
+- * dpaa2_io_create() - create a dpaa2_io object.
+- * @desc: the dpaa2_io descriptor
+- * @dev: the actual DPIO device
+- *
+- * Activates a "struct dpaa2_io" corresponding to the given config of an =
+actual
+- * DPIO object.
+- *
+- * Return a valid dpaa2_io object for success, or NULL for failure.
+- */
+-struct dpaa2_io *dpaa2_io_create(const struct dpaa2_io_desc *desc,
+-				 struct device *dev)
++static inline
++struct dpaa2_io *dpaa2_io_create_impl(const struct dpaa2_io_desc *desc, s=
+truct device *dev)
+ {
+-	struct dpaa2_io *obj =3D kmalloc_obj(*obj);
+ 	u32 qman_256_cycles_per_ns;
++	struct dpaa2_io *obj __free(kfree) =3D kmalloc_obj(*obj);
+=20
+ 	if (!obj)
+ 		return NULL;
+=20
+-	/* check if CPU is out of range (-1 means any cpu) */
+-	if (desc->cpu !=3D DPAA2_IO_ANY_CPU && desc->cpu >=3D num_possible_cpus(=
+)) {
+-		kfree(obj);
+-		return NULL;
+-	}
+-
+ 	obj->dpio_desc =3D *desc;
+ 	obj->swp_desc.cena_bar =3D obj->dpio_desc.regs_cena;
+ 	obj->swp_desc.cinh_bar =3D obj->dpio_desc.regs_cinh;
+@@ -160,10 +144,8 @@ struct dpaa2_io *dpaa2_io_create(const struct dpaa2_i=
+o_desc *desc,
+ 	obj->swp_desc.qman_256_cycles_per_ns =3D qman_256_cycles_per_ns;
+ 	obj->swp =3D qbman_swp_init(&obj->swp_desc);
+=20
+-	if (!obj->swp) {
+-		kfree(obj);
++	if (!obj->swp)
+ 		return NULL;
+-	}
+=20
+ 	INIT_LIST_HEAD(&obj->node);
+ 	spin_lock_init(&obj->lock_mgmt_cmd);
+@@ -195,6 +177,26 @@ struct dpaa2_io *dpaa2_io_create(const struct dpaa2_i=
+o_desc *desc,
+ 	return obj;
+ }
+=20
++/**
++ * dpaa2_io_create() - create a dpaa2_io object.
++ * @desc: the dpaa2_io descriptor
++ * @dev: the actual DPIO device
++ *
++ * Activates a "struct dpaa2_io" corresponding to the given config of an =
+actual
++ * DPIO object.
++ *
++ * Return a valid dpaa2_io object for success, or NULL for failure.
++ */
++struct dpaa2_io *dpaa2_io_create(const struct dpaa2_io_desc *desc,
++				 struct device *dev)
++{
++	/* check if CPU is out of range (-1 means any cpu) */
++	if (desc->cpu !=3D DPAA2_IO_ANY_CPU && desc->cpu >=3D num_possible_cpus(=
+))
++		return NULL;
 +
-+	rtc@6f {
-+		compatible = "isil,isl1208";
-+		reg = <0x6f>;
-+	};
- };
- 
- &i2c7 {
--- 
-2.43.0
++	return dpaa2_io_create_impl(desc, dev);
++}
++
+ /**
+  * dpaa2_io_down() - release the dpaa2_io object.
+  * @d: the dpaa2_io object to be released.
+=2D-=20
+2.55.0
 
 
