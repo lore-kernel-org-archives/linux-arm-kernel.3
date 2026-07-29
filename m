@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D50C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C8BC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7xKPnebnrnj3oQ7O4pCZSku+N29w0+f4UqiJMIJTas=; b=AHfNA24zewZuqbOsc1eQI0vb0S
-	BDlJMHKdd2qc0A1EZ0jDkrCMISvxs2NeZyRD+HF7uQN/U6GddkriGgy8CCWApLr10mNQVuV4hJx9X
-	dMNRq04D9YMVcy1HKsHJs7uoM6pikW/nqVjqy/y8OmRu2WbrQrpVfj+UMDJvcIMrZ7n2k431LET0C
-	HBs9QTaxHr593ahDhIDkn74ApjBMVWS8nO439RFVvREmsK10FQRXv8g/LRzKrmUojPEwimXh7GMB3
-	wfqpilOUr4e4ARBI9uivt+ekmc5Jb5x0k9YUvy0uxXQYrXwxbYXtrccT0P8cN1G+El7cwI11MMohr
-	mMohNqiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2MD0uIT8ybnFNo/naO0cM//mhD9i97KkKC1yqOwHN8g=; b=HCBvmqaPQVeNdAHM3YJZEHvFg9
+	zzebp8Mr6mIObEYJMMthRRv9O8og+BJVjAlAVyknFn+CC6ojNWUBjX+QWIGtlrImDv5KBk4MOK4wI
+	px7xJnk594cXf5SG1IIqmPwbQnHCKgba3kx1RZzRcIDNCLIpjaWQCATG+CxUQR6saM//GioSNLh8o
+	SYaXc2mGmXnG3mucNx7EllA5Udei3F7Q0rUiIr3OL+xUYv56WIwpW5Z9XKN4u/x4aeJZ4AZqZkn3Y
+	28v5289lYwdTYSEWgTnp6//BlbbA3fpMNuXB52SMfG67qJxyxvyQEmPx2tIk61FpbSoe0WbnPYkNi
+	2eFvgfSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp76W-00000008XjV-0R4v;
-	Wed, 29 Jul 2026 16:26:00 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1wp78I-00000008Y4N-1bYG;
+	Wed, 29 Jul 2026 16:27:50 +0000
+Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp76T-00000008XiI-2UJR
+	id 1wp78F-00000008Y3p-3Nau
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 16:25:58 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RrFHv/9mtAV19G9WdEUMt6TGAJ5Qx124CaS6CTNr2z+19j/lED2FIYRnhIcNPev1IdVTuZfwBXkq20WCrsnODyX@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785342354;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I7xKPnebnrnj3oQ7O4pCZSku+N29w0+f4UqiJMIJTas=;
-	b=m3e3OM86UNfb6sCdvSz5lOZ/ZLQqKGlleSJyBbCyi+UgjNWRfQLAA34dIlNe7Np7bXJ2Xt
-	zq6eE55jl8GGkdJbKIF6zGBj5dYnqrYXT9uQXToDLIQ9oT72hefgn9QEfaftpY+usaqPZ0
-	A030ntCy6NkpFqUI5mrOHLSSWwzUkbs=
-X-Gm-Message-State: AOJu0YyXGAezeLsvnV/10auwcEzRpa1Ic1j23u9tc9JXLz4T/uwgGSLk
-	NI4p29XzUsuivjQ411jWznU64l5/Gy40X04+AQ8KTgQqdFpALSs3t4qltFNPjJwu4X5uUdkeUCs
-	CIKPrcceHyXU/Aaym6m4p7bcaFeiDbnXECfmilnFh
-X-Received: by 2002:a05:622a:411b:b0:51c:6b7:d3de with SMTP id
- d75a77b69052e-52b350e5b35mr1825161cf.5.1785342329701; Wed, 29 Jul 2026
- 09:25:29 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-9-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-9-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 29 Jul 2026 17:24:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTy1O=Hnw16vKL813sCpjBV7j61jr+BU+9G6dvVePNSwAA@mail.gmail.com>
-X-Gm-Features: AUfX_myMVHKAsG5Q9-sL8f-xMHSuN9ptYr1gLGLLFeAl95SgQeRj9hCI0TZ8ETs
-Message-ID: <CA+EHjTy1O=Hnw16vKL813sCpjBV7j61jr+BU+9G6dvVePNSwAA@mail.gmail.com>
-Subject: Re: [PATCH v9 09/16] arm64: errata: Require Apple IMPDEF PMUv3 traps
- on all CPUs
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
+	Wed, 29 Jul 2026 16:27:48 +0000
+Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-848544a8496so1254084b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 09:27:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785342466; x=1785947266; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2MD0uIT8ybnFNo/naO0cM//mhD9i97KkKC1yqOwHN8g=;
+        b=P7YrRa9iKmCf4jp32UxfYd27XmiClmT9E1WMV2uLjUWyJqjmnujTDmw1m26yYbPSXN
+         dBA+sui/Qw8xRx9TKEGyA4Z7ozNJ7oamTYmbQcVMU/ajvxlAvMB5NiDOhEWJ66ogtsVr
+         R86RIBHNu9diZYw6REMvwfAvHd7EM09B5kJhwhlofL9N0jwCpqIuOJxl8JGot1Htnh4O
+         d2AtRsyrg2IizpSMToykS5VFyzsGwPLlsbIERH2tDiyfhquXVyGkOVXmxsR9lmJDkhte
+         11AsNTqeFt2AAdephrCfnyRQGPw6Q22nn+hcuF2jJ3RWk92EvJ7ApSrkok6fNs1BB2nc
+         Racg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785342466; x=1785947266;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2MD0uIT8ybnFNo/naO0cM//mhD9i97KkKC1yqOwHN8g=;
+        b=PYnDnSbgRVwEDwv16Mz6l6KR7ObBiQuJwuv5VD8//+Xg1YhS5820n0WkVacs3U2ikq
+         olZqu+BgVWrbwdU5SCOoT7O9LDBoMz+ANmRUP0+wrJ4f02eVPkyca7PL1CX0W85r692V
+         0Rlo4gs9uZKH519sF2LodSDkFKCMxnL/1ftM4Ok7Xl9Wq5PJTqyv7ywJ3hypz46NSfL7
+         ukTAbDnoTLQvsNLxpprc8lLs2neWjld2+x0TBG+8m2j4dHTGOaZdPvvX6Vn/EqRCYtQM
+         Zbb+vFAyc333ydKRerSbZac6WfWdfMB5jAyeapotstoFYwE1kQL7Vqu5eou+8FH1iXF/
+         ldsg==
+X-Gm-Message-State: AOJu0Yx4/1DcBxuHjRHNWbEUbrzf0DV7Anbufr366iQlw1OjgPqwBoqq
+	k++zlm/w0I+EBUSF2HtMwYMUcNMgHr3t4dNkVQ4msF9485lqBTjMqstnb3mvWLqk1tdfoGHVtw=
+	=
+X-Received: from pfaw9.prod.google.com ([2002:a05:6a00:ab89:b0:84a:37df:a3b1])
+ (user=natg job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:22ca:b0:84e:24df:3873
+ with SMTP id d2e1a72fcca58-84e9316e1bemr7196238b3a.32.1785342466117; Wed, 29
+ Jul 2026 09:27:46 -0700 (PDT)
+Date: Wed, 29 Jul 2026 09:27:31 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.487.gaf234c4eb3-goog
+Message-ID: <20260729162731.1383875-1-natg@google.com>
+Subject: [PATCH] firmware: arm_ffa: Call ffa_rxtx_umap before calling ffa_rxtx_map
+From: Nat Gurumoorthy <natg@google.com>
+To: sudeep.holla@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Nat Gurumoorthy <natg@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_092557_772734_670CB2C0 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260729_092747_857904_131C9F51 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,56 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
-<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->
-> KVM relies on ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS as a system-wide
-> precondition for PMUv3 emulation on affected Apple CPUs. A local CPU
-> erratum is too weak for that: once the workaround is enabled, a late CPU
-> that misses it may still be onlined.
->
-> Make the workaround an all-early-CPU capability instead. The matcher is
-> still local because it depends on MIDR_EL1, but the capability is only
-> advertised if all early CPUs match. A late CPU that misses an advertised
-> capability is therefore rejected.
->
-> Although kept in the errata capability table, this capability describes
-> optional trap support rather than a workaround required for safe CPU
-> operation. A late CPU may therefore match it when the system does not.
-> KVM treats an IMPDEF PMU as unimplemented unless the capability was
-> finalized system-wide, so the additional trap support remains unused.
->
-> Fixes: bed9b8ec8c71 ("KVM: arm64: Advertise PMUv3 if IMPDEF traps are present")
-> Assisted-by: Codex:gpt-5.5
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+In ffa_probe call ffa_rxtx_unmap before calling ffa_rxtx_map. It is
+possible that crash or a kexec can leave crb_ffa with old mappings.
+A call to ffa_rxtx_map will fail and leave crb_ffa interface unavalable.
+The unmap makes crb_ffa forget old mappings and allows new mappings
+to be set up. In kernels where arm_ffa is built in, module exit
+routine ffa_exit will never get called during kexec operation. This
+leaves behind stale mapping. New kernel's ffa_probe call to ffa_rxtx_map
+will fail and crb_ffa driver will not be available.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Nat Gurumoorthy <natg@google.com>
+---
+ drivers/firmware/arm_ffa/driver.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Cheers,
-/fuad
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 8654b3365c9b..44d095bc8569 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -2168,6 +2168,11 @@ static int ffa_probe(struct platform_device *pdev)
+ 		goto free_pages;
+ 	}
+ 
++	/*
++	 * Force unmap before mapping in case previous crash/kexec
++	 * has existing mapping.
++	 */
++	ffa_rxtx_unmap();
+ 	ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
+ 			   virt_to_phys(drv_info->rx_buffer),
+ 			   rxtx_bufsz / FFA_PAGE_SIZE);
+-- 
+2.55.0.487.gaf234c4eb3-goog
 
-
-
-> ---
->  arch/arm64/kernel/cpu_errata.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index 1995e1198648..a5ae628204a1 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -1005,7 +1005,7 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->         {
->                 .desc = "Apple IMPDEF PMUv3 Traps",
->                 .capability = ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS,
-> -               .type = ARM64_CPUCAP_LOCAL_CPU_ERRATUM,
-> +               .type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
->                 .matches = has_impdef_pmuv3,
->                 .cpu_enable = cpu_enable_impdef_pmuv3_traps,
->         },
->
-> --
-> 2.55.0
->
->
 
