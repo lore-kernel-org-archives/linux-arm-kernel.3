@@ -4,116 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424B1C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68D1C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMLIJy5K+V1KFSJoFVS5kB5zbFlvRA0wTQQev5uwOYM=; b=gpNKzz6IFErvs9nGmtYEm64g2+
-	zW1xkb0nR413+ia21DUKAAwYRgZSGpHBQJ9Mue5sNLHpgXEZ3H6QJ0Hm84cARGJNfRaDImDHNnsFI
-	yq2+q7Viae1abF45nYPhEMyHFGdmZCe2kGMnCKT023rH3JtwFdFRQP1OZ15dAHTC6Xzf1bSqQgAzk
-	qaMzV1Lega+Ve4kyJs8xIQiDu+iotX9k/QqTAP6GvRyQ8Z00fDDjdTi2tkRqs50rXoZc+p462eWnQ
-	/KUPcjiXvfvhEfiTy3XTmt//hv4N5kdlBYfd5ghb/c2xKMSIAAVk+i+FuDOTSSYV/zZL3Ry5i4rEv
-	6YXB1rHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lDhpdhv1V/2Mmx+BQS7lBsREzTSL9OED0Q1oe1sMhkQ=; b=ugF7Ne3cjwH/Ln2Se13dIbYSDu
+	RQcsaMPlrjNZrI/879DM7HJ2tCMTbTx3pB/LRQQ3Q7fsqZzbGtPb64CKw+6t3aHnJa5Ev7a2Rkwpl
+	sCG56CzGAXjwPbzA7KjxCHbG6vMRDoYbwvIBx4LAhhLxcXes4R8aTg49w5DKWxC7M9CmZo21qumUu
+	dpS0J4XWsFLPVeOISnM9vupv8kYwouvNlO0t55jUwaRB4E27Ez84M+yCMMud+eaIVl5YnvktUwa38
+	59gY1KGipxE3RMlxtO37nJN0Clt78LRiHW/elIvlVuKaWcIyXBA5KW4qPIEBvIdakMga65DoKqkuJ
+	+q7Fo45g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2vu-00000007oGn-3XN4;
-	Wed, 29 Jul 2026 11:58:46 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wp2zH-00000007oh2-1OBa;
+	Wed, 29 Jul 2026 12:02:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2vr-00000007oFp-3lVD
+	id 1wp2zF-00000007ogP-1MZm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 11:58:45 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66TBI56t3953689;
-	Wed, 29 Jul 2026 11:58:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=IMLIJy
-	5K+V1KFSJoFVS5kB5zbFlvRA0wTQQev5uwOYM=; b=obE8Cn4lQtm0TRPp1PPCCp
-	OVdkhqiP8tOz2EBjQp7u58YYrCT0O/RFUrQisuI20kCmT/yZYd3cIwghedHJOjNy
-	TVGYcMNd7SXbjgjP410Mdko++Q5SX6v4DoTeV85hEV3Gmfx+MgRGsLiVZgappiVw
-	tsFeCFLqDCRK9prsrXaBGPtPFM2ZBSXMHwbEb0sayn/AeoCIEEjq5DqPeQ2KoIp1
-	W1+FbvIyUwAEZTNYziptoxoOD5I/pKLWdPB7KCn2iwSNwI+GANApMxcLDFaK6mQT
-	Ivpesxs8WVyP4ZStsGSjl9RhIS/tX5wbWLV30ub2zjz9v4yb7gPtRvPvJS2DmGdg
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuyj9pca-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Jul 2026 11:58:33 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66TBuF85014077;
-	Wed, 29 Jul 2026 11:58:32 GMT
-Received: from smtprelay06.dal12v.mail.ibm.com ([172.16.1.8])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fn9pgebjq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Jul 2026 11:58:32 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
-	by smtprelay06.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66TBwW5j31785566
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 29 Jul 2026 11:58:32 GMT
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1A75358053;
-	Wed, 29 Jul 2026 11:58:32 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 34B1358043;
-	Wed, 29 Jul 2026 11:58:28 +0000 (GMT)
-Received: from [9.43.93.217] (unknown [9.43.93.217])
-	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 29 Jul 2026 11:58:27 +0000 (GMT)
-Message-ID: <9759b052-d95a-4835-b252-146ec114db0d@linux.ibm.com>
-Date: Wed, 29 Jul 2026 17:28:26 +0530
+	Wed, 29 Jul 2026 12:02:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6934A60A66
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 12:02:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DB1E1F00ACF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 12:02:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785326532;
+	bh=lDhpdhv1V/2Mmx+BQS7lBsREzTSL9OED0Q1oe1sMhkQ=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=TfheBuyNx4ybA2qvyXwHgUsFRk7A/VQMSxA5wEpghnvZXwDmJ2LAOM3NBzQ7+iFHK
+	 qtL4H8pmgrqUeGpUHofgDiEGVkQAILC8pZ02iANY+wB6jT9IQasH74oOJlHvDzigI1
+	 YEQNEzCx3DQetMHY9oV2y//gVUHf8mlS6FsLfRF3SCScRVeYhCBnydxKHugQfitwbE
+	 S7RPeaU5Swd18E05iWxI8ikqXGIBjhfAzJveUWRpNmf6zBPEyXtcfV0CVmUsIwC3Ql
+	 1xsjGpYvbpsTTGmiEZCGOdl6oGFu+tIwAiW/oUw1SRQXw7Iak9xEZbPad+GpganjIi
+	 ElixZJAkZQ0vA==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39c9107baa7so6490011fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:02:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpRADkhcagUSdzP2HpN+wcagWs4V9DL8IVjEn7VxZ/kGnRrPZWTNLPMt2bRINsRQ4vHiXsyS4M2w9OupdBvZZdi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6n4eQr3OGnSlQVz/wjLCk1Xuev+uE2VlhVXGD6f+9qn5rk6H6
+	55bxG9XoQqBalHpyepr4RMo/bU3aAUNGSBLc9AyE1rl1A2IOQmeKw0ol+fVseaoyfqnfpDbmSXR
+	m+hYKFm2i5Kbwfjru+yLSYQD4Tr8mctU/6GSybQUrKg==
+X-Received: by 2002:a2e:bc11:0:b0:39c:7059:10 with SMTP id 38308e7fff4ca-39f51eee674mr11861711fa.39.1785326530728;
+ Wed, 29 Jul 2026 05:02:10 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 29 Jul 2026 05:02:08 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 29 Jul 2026 05:02:08 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260728152241.GA4281@quark>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] powerpc: Move CONFIG_QE_GPIO to SoC
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin
- <npiggin@gmail.com>, Qiang Zhao <qiang.zhao@nxp.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org
-References: <9a7131d15a94e2017877e628f0e97f9aa2e0aae9.1785140877.git.chleroy@kernel.org>
-Content-Language: en-US
-From: Madhavan Srinivasan <maddy@linux.ibm.com>
-In-Reply-To: <9a7131d15a94e2017877e628f0e97f9aa2e0aae9.1785140877.git.chleroy@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI5MDA5NyBTYWx0ZWRfX9Qv12SdRGKdV
- O5qBuw0QJRqxOr846gYR7O0pkNDka9+aQ4yrR9w+L7dV2gzzmwb7B29A64hQp0Rfc5+58G3dKdB
- rL7SdV51sCHUy23o5kblRGg6j8DQMIM=
-X-Proofpoint-GUID: 804KBYjedgKlQRFvQnsJPgulInbxiJP-
-X-Proofpoint-ORIG-GUID: _u5JEvL4JraQDTsUjubds0jTmKLLyyWZ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI5MDA5NyBTYWx0ZWRfXx5i973mDxkzk
- dT5ySa4qiycRmNfyhAu1Baz+z5KZt77pq3/FHKrM2cXCVKa27Ww/a4XoLtshs2GwzwMV6KVexgY
- HJpOhw8c5N4fPWVVsMUZI6iqNtdEtLiySnZLc90l6/ltuMtDdv80gmofcmOU/FzroLWl4hQQGGh
- eDAonRXrU7ej9EhH4F9bIZZD4Fr2+wvMJ9WboiDnnFO7zOr9kGn+fnFmKAgL8x5IjOL8BtANTN5
- yY35dkcLatzgSKmGV0RyDK3Mc/MyMinTjX8IFO+lvkrQoszntUTvQtTZ4uO844W3XeRTXVe7hhh
- Q3DtzbSgi/J01gylhJM8xAV2m0eM0cwtdecmi359QMohtmKZCUKuF3tieTGtvMyjXlu4kZwpWsB
- kI/UTXZ2i5Mm5AjfnW9ZNzT97SK0guC3YAgHa8VJc40hjld5A6s+9xbtShCUvaCiAfgQYfI/QfE
- z1VJXtUv9fEPgB7MDkQ==
-X-Authority-Analysis: v=2.4 cv=X5Vi7mTe c=1 sm=1 tr=0 ts=6a69eaea cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=VwQbUJbxAAAA:8 a=IKTH_r9ZaJ-rAjPogqsA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-29_04,2026-07-28_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 impostorscore=0 lowpriorityscore=0 phishscore=0
- priorityscore=1501 malwarescore=0 spamscore=0 suspectscore=0 bulkscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607290097
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_045844_059082_FF5D7F32 
-X-CRM114-Status: GOOD (  24.82  )
+References: <2026072410-drained-acts-3502@gregkh> <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
+ <2026072412-decrease-sandbag-70a1@gregkh> <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
+ <20260724141414.GB1876@sol> <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
+ <2026072455-subtly-prayer-0a8a@gregkh> <20260724150932.GA6763@sol>
+ <2026072428-ungodly-outsource-b20c@gregkh> <20260724155144.GA2032@sol> <20260728152241.GA4281@quark>
+Date: Wed, 29 Jul 2026 05:02:08 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mch_3fFqq+khutEMQG3P-ojBE2dnLy_U2_gDV4e1ro6aA@mail.gmail.com>
+X-Gm-Features: AUfX_mynAmI1M4yUWJz7xnT60AuUua6HXQnjCMgvWNABYi_64AGSY4Ma6_uoTVQ
+Message-ID: <CAMRc=Mch_3fFqq+khutEMQG3P-ojBE2dnLy_U2_gDV4e1ro6aA@mail.gmail.com>
+Subject: Re: [PATCH] crypto: qce - Remove driver
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org, 
+	Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Demi Marie Obenour <demiobenour@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,83 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 28 Jul 2026 17:22:41 +0200, Eric Biggers <ebiggers@kernel.org> said:
+> On Fri, Jul 24, 2026 at 08:51:44AM -0700, Eric Biggers wrote:
+>> It is consuming a lot of the community's time to help maintain,
+>> including dealing with LLM-found bugs, with no clear benefit to anyone.
+>> Even considering *just today* we can see someone sent a bug fix:
+>> https://lore.kernel.org/linux-crypto/20260724081537.191992-2-thorsten.blum@linux.dev/
+>
+> Another example:
+> https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
+>
+>> It definitely *was* causing problems before it was disabled via the
+>> crypto priority system (which made it unused in the kernel) and dropped
+>> it from AF_ALG (which removed most of the unprivileged attack surface).
+>> When anyone accidentally used it, it caused at least a huge performance
+>> problem, and sometimes other problems too like filesystem hangs.  It was
+>> an issue for years.
+>
+> This actually seems to have been an overly-optimistic characterization!
+> As per
+> https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
+> this driver drains the battery on every system with the module loaded,
+> even when no crypto requests are actually sent to it.
+>
 
-On 7/27/26 2:15 PM, Christophe Leroy (CS GROUP) wrote:
-> Commit 7aa1aa6ecec2 ("QE: Move QE from arch/powerpc to drivers/soc")
-> moved QE into drivers/soc including gpio.c but left CONFIG_QE_GPIO
-> in powerpc's Kconfig.
->
-> Move it to SoC as well as it is the only place it is used:
->
->    drivers/soc/fsl/qe/Makefile:obj-$(CONFIG_QE_GPIO)       += gpio.o qe_ports_ic.o
->    include/soc/fsl/qe/qe.h:#ifdef CONFIG_QE_GPIO
->    include/soc/fsl/qe/qe.h:#endif /* CONFIG_QE_GPIO */
->
-> There is also a dependency in USB subsystem for CONFIG_USB_FHCI_HCD:
->
->    drivers/usb/host/Kconfig:	depends on QE_GPIO && QUICC_ENGINE
->
-> Because that USB driver selects CONFIG_FSL_GTM which is specific to
-> powerpc, it has to depend on CONFIG_PPC.
+Are you seriously complaining about people sending fixes to a driver we want
+to see fixed? We don't remove maintained drivers, this has been the kernel
+policy for years. Unfortunately if we want to fix it, then it'll take some
+work involving sending patches to the mailing list.
 
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
+I think it's time for Herbert to decide before I respin any of the series in
+progress.
 
-
->
-> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-> ---
-> v2: Add a dependency on CONFIG_PPC for CONFIG_USB_FHCI_HCD
-> ---
->   arch/powerpc/platforms/Kconfig | 8 --------
->   drivers/soc/fsl/qe/Kconfig     | 8 ++++++++
->   drivers/usb/host/Kconfig       | 1 +
->   3 files changed, 9 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kconfig
-> index c4e61843d9d9..2f797ac6f1b3 100644
-> --- a/arch/powerpc/platforms/Kconfig
-> +++ b/arch/powerpc/platforms/Kconfig
-> @@ -228,14 +228,6 @@ config TAU_AVERAGE
->   
->   	  If in doubt, say N here.
->   
-> -config QE_GPIO
-> -	bool "QE GPIO support"
-> -	depends on QUICC_ENGINE
-> -	select GPIOLIB
-> -	help
-> -	  Say Y here if you're going to use hardware that connects to the
-> -	  QE GPIOs.
-> -
->   config CPM2
->   	bool "Enable support for the CPM2 (Communications Processor Module)"
->   	depends on (FSL_SOC_BOOKE && PPC32) || PPC_82xx
-> diff --git a/drivers/soc/fsl/qe/Kconfig b/drivers/soc/fsl/qe/Kconfig
-> index eb03f42ab978..b35a8fd30ebf 100644
-> --- a/drivers/soc/fsl/qe/Kconfig
-> +++ b/drivers/soc/fsl/qe/Kconfig
-> @@ -67,3 +67,11 @@ config QE_USB
->   	default y if USB_FSL_QE
->   	help
->   	  QE USB Controller support
-> +
-> +config QE_GPIO
-> +	bool "QE GPIO support"
-> +	depends on QUICC_ENGINE
-> +	select GPIOLIB
-> +	help
-> +	  Say Y here if you're going to use hardware that connects to the
-> +	  QE GPIOs.
-> diff --git a/drivers/usb/host/Kconfig b/drivers/usb/host/Kconfig
-> index b3b1ec696bf5..10cff12a3f31 100644
-> --- a/drivers/usb/host/Kconfig
-> +++ b/drivers/usb/host/Kconfig
-> @@ -611,6 +611,7 @@ config USB_UHCI_ASPEED
->   config USB_FHCI_HCD
->   	tristate "Freescale QE USB Host Controller support"
->   	depends on QE_GPIO && QUICC_ENGINE
-> +	depends on PPC
->   	select FSL_GTM
->   	select QE_USB
->   	help
+Thanks,
+Bartosz
 
