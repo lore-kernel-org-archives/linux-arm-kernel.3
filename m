@@ -4,69 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5F2C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EB5C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ETDvRVLoFd8Kn+xtd3X2yg3Wj607hdJ9xcrOiy6lh68=; b=39WaB+jkaJT6MPYBTwB/JzYOGY
-	i2OWhJHKVCCOimMxiHAE0Gx5/7zmGegJuNuS/0DeChtR2wLL/DF9OotRw4dqbGZNRNJE+iYhVzqs9
-	0d5J5cM/JoYm6HOzsEjaQ+HZ9b3aWm1cbHrNIS5NdyeLfBBj6vbBFthQzVsOWi4Ug10PFLtgeFalW
-	CKoDZ3LfKRH+pDqeEG69wnfcdPp5J4KvV0pX2GWu51sFAxJ+4F3VjxwOhiH5UlwLFHEkaov9bD7ly
-	QAAIugiYwZ15l6srsNZ6zz3vJWem1vRTpXJoW8bi0HCk8mKfd8m7av/NqeNgURJgayshDEzEcy+ve
-	ZA6XvDHw==;
+	bh=JteUNebrq8Y5BoF6qFLQtjZt8zz9HlOcVSVsWZpTXkA=; b=c/hxY7NpWmX4b/bXcuDtA/PWJ9
+	E/YeYIcVtKwm7SuqhoWPJcxQFG/aNtYV0W+HcpeR3XVQuqdNDyrhoHqfpK5hlxGHIEjXdUE7j10Sp
+	RbdoVAXwj8JYrFbMLpq0REQrY6hCkzFkJMph+cD8WFqx0bKEKh3Q3iCavvwRWSIoajKgxBfZORQr8
+	6FlyAH1VsGT9idHftreeVnKlxwpL09f0K3yGa+PYl+Efr63cd0JFW1hxab0QNlqN7uXqK8OQzQENI
+	sbndRtde6vAP7mNj0b3wTM46dtQWEVKeFuiLZzgW/lx4bph76oQfyfFEdcJ+rKi7rALrMi2CTbQ3b
+	elBpGTVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozFK-00000007BeQ-1Eb0;
-	Wed, 29 Jul 2026 08:02:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wozGB-00000007BsO-0Ary;
+	Wed, 29 Jul 2026 08:03:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozFI-00000007Bdz-2tv9
+	id 1wozG9-00000007Bs7-3DOa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 08:02:32 +0000
+	Wed, 29 Jul 2026 08:03:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0524C438CB;
-	Wed, 29 Jul 2026 08:02:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 641201F000E9;
-	Wed, 29 Jul 2026 08:02:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CCC8411F0;
+	Wed, 29 Jul 2026 08:03:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449DA1F000E9;
+	Wed, 29 Jul 2026 08:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785312151;
-	bh=ETDvRVLoFd8Kn+xtd3X2yg3Wj607hdJ9xcrOiy6lh68=;
+	s=k20260515; t=1785312205;
+	bh=JteUNebrq8Y5BoF6qFLQtjZt8zz9HlOcVSVsWZpTXkA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DhOSZ2XIZzmUHm5UHLW4cink/2JeNlJqCtKvUsqJhNX4vGUTQGseKrwMZM0s9Eopv
-	 DgZ+ywXKt70saNOe+MrDvY+uDZSpsEKHcHsECiK6Aw/JPwEWyekxrKtk81AEgzkLRh
-	 1IHO+/xa7DNg6NyAQQVzOKvAU0rMAyuL7OyKvXkN/5ID7xRNmSe7JB5ncVuUuQqDud
-	 wcgd/dHJmF3dxDgJZWX3vC1/dKXedt2gtokpp2XvpG3s59JKFrabF2TqPyA8XNpEL8
-	 1R+CA8jlcLA4csqcXj9rPjlAUAX9AyHPetSw3nTQA4BgcpDxoJkGkj/ky+Okcz+hl9
-	 BCJROv4sKQosA==
-Message-ID: <15904301-fd03-45e5-b909-dfce52449726@kernel.org>
-Date: Wed, 29 Jul 2026 10:02:27 +0200
+	b=IQ179P4CWgJQUfIO/xTq6P8zIgK/o1owHEh2nTPZngI7nTSouMh1AAPQGX2SPtybA
+	 9TNXfo9m0yvDhta7jDb+MjlOM2UPaKBX6ll6ehaYxKrFmGHtkCJCgNwwZYXl0RZ/B6
+	 0mEjmr1SfBPBoXAMwSPV3ZVrywogrGNy1UCka6tQnyDJUmv/1z7pQPylwCbvK8LRyI
+	 3i83/lt0DkSA6bGzzWCpRajoLUkcSs/IaBEdUgYlnY5PODfPvLa/M1wdw3LG5ubFso
+	 5pH8H4j2+JCn0VVtW4HoWrC3k/eSYM+NKpRaG+XeObT2VvRbmtjcuZGx7TCISUsDmc
+	 a42YPQ2BWxJyg==
+Message-ID: <986fac76-3bcd-4523-a902-701027aff1bf@kernel.org>
+Date: Wed, 29 Jul 2026 10:03:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] crypto: qce - Remove driver
-To: Eric Biggers <ebiggers@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
- Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Demi Marie Obenour <demiobenour@gmail.com>,
- Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-References: <2026072410-drained-acts-3502@gregkh>
- <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
- <2026072412-decrease-sandbag-70a1@gregkh>
- <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
- <20260724141414.GB1876@sol>
- <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
- <2026072455-subtly-prayer-0a8a@gregkh> <20260724150932.GA6763@sol>
- <2026072428-ungodly-outsource-b20c@gregkh> <20260724155144.GA2032@sol>
- <20260728152241.GA4281@quark>
+Subject: Re: [PATCH v2 1/2] dt-bindings: gpio: Add Axiado SGPIO controller
+To: Petar Stepanovic <pstepanovic@axiado.com>, Tzu-Hao Wei <twei@axiado.com>,
+ Swark Yang <syang@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+ SriNavmani A <srinavmani@axiado.com>, Karthikeyan Mitran <kmitran@axiado.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260729-axiado-ax3000-sgpio-controller-v2-0-976f4ed11438@axiado.com>
+ <20260729-axiado-ax3000-sgpio-controller-v2-1-976f4ed11438@axiado.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Konrad Dybcio <konradybcio@kernel.org>
-In-Reply-To: <20260728152241.GA4281@quark>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260729-axiado-ax3000-sgpio-controller-v2-1-976f4ed11438@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,40 +119,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/28/26 5:22 PM, Eric Biggers wrote:
-> On Fri, Jul 24, 2026 at 08:51:44AM -0700, Eric Biggers wrote:
->> It is consuming a lot of the community's time to help maintain,
->> including dealing with LLM-found bugs, with no clear benefit to anyone.
->> Even considering *just today* we can see someone sent a bug fix:
->> https://lore.kernel.org/linux-crypto/20260724081537.191992-2-thorsten.blum@linux.dev/
-> 
-> Another example:
-> https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
-> 
->> It definitely *was* causing problems before it was disabled via the
->> crypto priority system (which made it unused in the kernel) and dropped
->> it from AF_ALG (which removed most of the unprivileged attack surface).
->> When anyone accidentally used it, it caused at least a huge performance
->> problem, and sometimes other problems too like filesystem hangs.  It was
->> an issue for years.
-> 
-> This actually seems to have been an overly-optimistic characterization!
-> As per
-> https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
-> this driver drains the battery on every system with the module loaded,
-> even when no crypto requests are actually sent to it.
+On 29/07/2026 09:02, Petar Stepanovic wrote:
+> +description: |
+> +  The Axiado SGPIO controller provides a serial GPIO expansion interface
+> +  that multiplexes multiple GPIO signals over a small set of physical lines.
+> +
+> +  The controller operates as a shift-based interface, where output values
+> +  are serialized on a data output line and input values are sampled from a
+> +  data input line in synchronization with a shift clock. A latch signal is
+> +  used to update output states after each transfer cycle.
+> +
+> +  The interface uses data output (DOUT), data input (DIN), shift clock
+> +  (SCLK), and latch signal (LATCH).
+> +
+> +  Each SGPIO position provides one fixed-direction input GPIO and one
+> +  fixed-direction output GPIO. Input GPIOs support edge-triggered
+> +  interrupts.
+> +
+> +  GPIOs are organized in banks of 32 signals, with registers controlling
+> +  output values, input sampling, and interrupt status. The number of GPIO
+> +  lines depends on the hardware variant.
+> +
+> +  The controller detects changes on input GPIOs. Interrupt events are
+> +  aggregated and signaled through a single interrupt line to the parent
+> +  interrupt controller.
+> +
+> +  Register access is performed over the APB bus. The SGPIO shift clock is
+> +  derived from the APB clock using a programmable divider.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - axiado,ax3000-sgpio
+> +      - axiado,ax3005-sgpio
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    description:
+> +      APB clock used for register access and SGPIO shift clock generation
+> +    maxItems: 1
+> +
+> +  bus-frequency:
+> +    description: SGPIO shift clock frequency in Hz
+> +    minimum: 1
 
-Unfortunately removing it drains way more battery, because the buses
-never hit sync_state and are kept at their maximum frequencies:
+Such property is not allowed. Why you cannot calculate it automatically?
 
-[   18.021823] qnoc-glymur interconnect-1: sync_state() pending due to 1dfa000.crypto
-[   18.029605] qnoc-glymur 16e0000.interconnect: sync_state() pending due to 1dfa000.crypto
+> +
+> +  gpio-controller: true
+> +
+> +  '#gpio-cells':
+> +    const: 2
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 2
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  ngpios:
+> +    description:
+> +      Number of SGPIO positions. Each position provides one input GPIO and
+> +      one output GPIO.
+> +    enum: [128, 512]
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: axiado,ax3000-sgpio
+> +    then:
+> +      properties:
+> +        ngpios:
+> +          const: 128
 
-(it transiently also pins DRAM and friends to max-freq which absolutely
-kills battery life)
+else what? 3005 has 512? Then these are implied by compatible, no?
 
-I understand your concerns given the past handling of this driver,
-however I believe the nuclear option comes with way too much fallout..
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - bus-frequency
+> +  - gpio-controller
+> +  - '#gpio-cells'
+> +  - interrupt-controller
+> +  - '#interrupt-cells'
+> +  - interrupts
+> +  - ngpios
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    sgpio@a000 {
 
-Konrad
+git grep sgpio@
+
+No results (except well known poor coding style platform). I already
+commented on this.
+
+> +        compatible = "axiado,ax3005-sgpio";
+> +        reg = <0xa000 0x800>;
+> +        clocks = <&apb_clk>;
+> +        bus-frequency = <1000000>;
+> +        gpio-controller;
+Best regards,
+Krzysztof
 
