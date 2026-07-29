@@ -4,70 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B78C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2960C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nej5rDE9D8Ou8TET/t/E6sIPHZFBGYU+Isgtq9cqzkQ=; b=qWAj5jXOMEPu0Pd2l8N5VR+vBI
-	hUm9oLExo8YGf38KjauUxm9aceQ7Y1NzJAjt9LxqNPcKhT8szaaOpZ14bIq0PTXsqMObR/mRRbwip
-	Xwfb9sBKk/XZBS4K08LLWGeQ8qNbowwXY0PLff9E+OMexnwS6j0+TViUq00tIxg8RfQMBlABdfKtu
-	VyFC+FLesRvGJC5VEVN1gFJxhpvRZQUtPi8ohK2hEP/bPVeTz6xfwxK4Up6ExYQxED1pRoAhV/Js+
-	oN/6utBn6u4NnOZRxU33xeNjd290Ew2RPhA+E6CVjwH5Dpl9iz7CEwFPeMAj/LMW1i9Et3mdp/azE
-	ZRwz+Fhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PpUrkAYPFOVA1pV5Hqor5M/8KfkA4Zbov6foGmLt584=; b=pDdDM2CaXmzPVenI5l9ab7FvGo
+	9VYmQzSSZsTRZGSKaIWnKjAzb9CGyruIdknVqGhLm3TyXFmXBn+oyiFaTH8+WQA8E0ySD7wpf1OqV
+	7bWvlkQGoFQSaOX1rjaywjeO2nCPmetv3LvKo0kIG94Z5Y6n7n8EFyQf7T/wcxbfYM80EQYotnHSi
+	pOiCe0q1SaWA2X6ucoe5zXJ6FHBfyFJURlaxOKWQqOqqDc8t26wshbzE4nrwLe7zzZTcyfDwmxp/w
+	UV/Rx9fpTfgGrUvZDEmRUbk7hGRoZZmnCOO0bJ2V6UzsKTOsRBo8Zi+fUIIyiyBlfz23205nvTSqF
+	wGjfy9xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp831-00000008hQ9-0vy9;
-	Wed, 29 Jul 2026 17:26:27 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1wp8Bm-00000008iQP-1QR6;
+	Wed, 29 Jul 2026 17:35:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp82y-00000008hPI-0Tzn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 17:26:25 +0000
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 5516D9D7AF;
-	Wed, 29 Jul 2026 19:26:21 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id YwPuHWlpuxWt; Wed, 29 Jul 2026 19:26:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1785345980; bh=nMjFaRoJNGnbz+t5zveKj4iOLSf/Wb8jM6TD9XURS+Q=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To;
-	b=PsV07BatffL5jN3ImqbbcQv+gur5q/xysu6e5JICwMI9lxzOvSI9sCAnqiZDA7QVT
-	 mPkbxMsSjpCE8PgzaamveMgcSu2pGBcQKiFCQK7lhxICTjuLPMlXX7f+DuERrWhB/I
-	 WU3KR30ZAnEVnwMIboFqSPZuXmYqka4DutprVZ42NCi7g8w+oN0W04f2Ly1ul5fQW2
-	 I5Fzs5skSlgupEx4jRX5z7+UHcjONQATcj1ui0fLwuIOnVhzw8TNino8U05W6LfFMT
-	 3r9wNwBcZ1YhChkCUgdA+NRVCb7VyWBV39o7avsjXGKfHUerm4lBc8vIRNsLzeQtUF
-	 yfKpi6wGkGD+g==
-Mime-Version: 1.0
+	id 1wp8Bk-00000008iPm-0RfF;
+	Wed, 29 Jul 2026 17:35:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=PpUrkAYPFOVA1pV5Hqor5M/8KfkA4Zbov6foGmLt584=; b=0VN8FIB2IsiVhWK2p21wuwWWqr
+	1s2Yll/671IrZG4xK0SXvE8kKTBU/U/Fv3UrEqxR74QvYcjemQlGi/1E4a3TWcqmJB6/mM1qaXzcc
+	zZv56SvcjWWgUwXh6KwjztEA3TQhdXMY1vpwbcbOCZ5PEoGjIlwcUvw75Ympun009ppy+aIa7jy5G
+	EfbfxdsNwAyZk9gGi1qvURU0dDfByTiKUvzoZsTVnA2Y6yJ5KI+WF9rFV6gdh7Nl+BDJ2WbLSY4aE
+	xGDRT3R1XlGB0an+5X0wZGPVG0tPftDJHEVSLGxjb+r8mus24Ii9963sc/AzkjILveFkNybI5kacS
+	g+NuHZSg==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
+Date: Wed, 29 Jul 2026 19:35:22 +0200
+Message-ID: <12148936.RiKt1P0BV1@diego>
+In-Reply-To: <CABjd4Yy7kzPFxSakaGqY18hyJCfQf5neCoHBdm4DueFrfnda0A@mail.gmail.com>
+References: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
+ <29759328.czjnFlTdjD@diego>
+ <CABjd4Yy7kzPFxSakaGqY18hyJCfQf5neCoHBdm4DueFrfnda0A@mail.gmail.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 29 Jul 2026 22:56:07 +0530
-Message-Id: <DKB8BQP42BAT.3TZICIQBS85Z3@disroot.org>
-Cc: "Jonathan Cameron" <jic23@kernel.org>, "David Lechner"
- <dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- "Andy Shevchenko" <andy@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Peter Griffin" <peter.griffin@linaro.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
-Subject: Re: [PATCH 1/3] dt-bindings: iio: proximity: add Sharp GP2AP070S
- proximity sensor
-From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
-To: "Joshua Crofts" <joshua.crofts1@gmail.com>, "Kaustabh Chakraborty"
- <kauschluss@disroot.org>
-References: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
- <20260723-gp2ap070s-v1-1-b8ca3a4c10dd@disroot.org>
- <20260723234751.5ff138bd@systembl0wer>
-In-Reply-To: <20260723234751.5ff138bd@systembl0wer>
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_102624_581107_7499468B 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260729_103528_174510_2572F73D 
+X-CRM114-Status: GOOD (  42.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +69,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-23 23:47 +02:00, Joshua Crofts wrote:
-> On Thu, 23 Jul 2026 22:58:33 +0530
-> Kaustabh Chakraborty <kauschluss@disroot.org> wrote:
->
->> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
->> Corporation. Unlike the other GP2AP* schemas, this is strictly a
->> proximity sensor and NOT an ambient light sensor.
->>=20
->> For power supplies, it expects two voltage supplies, one for core and
->> other for driving the infrared LED which is used to measure proximity
->> distance.
->>=20
->> This chip has been used in production mobile devices such as the Samsung
->> Galaxy J6.
->>=20
->> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->> ---
->
-> ...
->
->> +  vdd-supply:
->> +    description: Voltage supply for the internal circuitry
->> +
->> +  vled-supply:
->> +    description: Voltage supply for the IR LED
->> +
->> +  proximity-near-level: true
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->
-> vdd-supply and vled-supply are definitely required.
+Am Mittwoch, 29. Juli 2026, 18:32:08 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Alexey Charkov:
+> On Wed, Jul 29, 2026 at 6:46=E2=80=AFPM Heiko St=C3=BCbner <heiko@sntech.=
+de> wrote:
+> >
+> > Am Montag, 20. Oktober 2025, 14:31:12 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Heiko Stuebner:
+> > > Am Montag, 20. Oktober 2025, 10:50:58 Mitteleurop=C3=A4ische Sommerze=
+it schrieb Alexey Charkov:
+> > > >
+> > > > On Mon, Oct 20, 2025 at 12:31=E2=80=AFPM Heiko Stuebner <heiko@snte=
+ch.de> wrote:
+> > > > >
+> > > > > Am Montag, 20. Oktober 2025, 10:19:51 Mitteleurop=C3=A4ische Somm=
+erzeit schrieb Alexey Charkov:
+> > > > > > On Thu, Sep 25, 2025 at 12:38=E2=80=AFAM Alexey Charkov <alchar=
+k@gmail.com> wrote:
+> > > > > > >
+> > > > > > > Add support for the Rockchip W552793DBA-V10 LCD+touchscreen a=
+ssembly which
+> > > > > > > comes physically attached to Rockchip RK3576 EVB1 boards.
+> > > > > > >
+> > > > > > > The display part is driven by the on-chip MIPI DSI controller=
+, and the
+> > > > > > > touchscreen is connected over I2C.
+> > > > > > >
+> > > > > > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > > > > > > ---
+> > > > > > > Note that backlight support is left out for now, as it depend=
+s on PWM
+> > > > > > > support [0] which has not yet been merged.
+> > > > > > >
+> > > > > > > A workaround is simply `gpioset -c 0 13=3D1` to set the respe=
+ctive GPIO
+> > > > > > > pin high and thus to light up the display unconditionally.
+> > > > > > >
+> > > > > > > [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a64=
+34b0ce60c@collabora.com/
+> > > > > > > ---
+> > > > > > >  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++=
+++++++++++++++++++
+> > > > > > >  1 file changed, 89 insertions(+)
+> > > > > >
+> > > > > > Hi Heiko,
+> > > > > >
+> > > > > > Any thoughts about this one? Can we perhaps get it merged for -=
+next?
+> > > > >
+> > > > > Does the gpio-backlight work on that device?
+> > > > > That would make the gpioset hack unnecessary.
+> > > >
+> > > > I've got a local patch using pwm-gpio and pwm-backlight as a stop-g=
+ap
+> > > > solution, but I don't think it's worth merging upstream, because the
+> > > > backlight is supposed to be driven by the hardware PWM on the same =
+pin
+> > > > (not bit-banging the GPIO line). After all, Nicolas has been workin=
+g on
+> > > > adding a proper hardware PWM driver for RK3576.
+> > > >
+> > > > The display itself works without PWM support, and so does the touch=
+screen.
+> > >
+> > > Right now, I don't think we have an actual timeline if/when Nicolas w=
+ill
+> > > be able to work on the pwm again. So my idea was if we want to
+> > > integrate the baclight as you described below, to have an actual usab=
+le
+> > > display and then when the new pwm has landed switch over to that one?
+> >
+> > With the ELCE around the corner we're nearing the year-mark here ;-)
+> > (And I'm surprised, I remembered this pending patch)
+>=20
+> I've been hoping that Nicolas' PWM series gets further along in the meant=
+ime :)
+>=20
+> > So how about integrating your gpio-pwm backlight for the time being?
+>=20
+> Could do that, but I'm worried if it would immediately become set in
+> stone because DT is ABI, making it hard to switch to a "proper"
+> hardware-driven PWM once Nicolas' series lands.
 
-Only marking vdd-supply as required as some chips are able to draw LED
-power from vdd-supply instead of its own regulator.
+The backlight subsystem is using dev_name() to name the sysfs node.
+So if you keep the node name to "backlight", the backlight device stays the
+same.
+
+I guess the question is if you also consider the brightness levels as
+unchangeable, though I would assume any sane system should just read
+max_brightness and adjust accordingly.
+
+Also this is an eval-board ... so you won't have any actual real-world
+users :-) .
+
+So, personally I don't see the big hickup here, but we'll do what you
+think best.
+
+
+Heiko
+
+> > Or alternatively just going with a gpio-backlight, like the Anbernic Vi=
+ta did:
+> >
+> >         /*
+> >          * LEDs and Backlights can be controlled as a PWM, but PWM
+> >          * support is not yet available.
+> >          */
+> >         gpio_backlight: backlight {
+> >                 compatible =3D "gpio-backlight";
+> >                 gpios =3D <&gpio2 RK_PC4 GPIO_ACTIVE_HIGH>;
+> >                 pinctrl-0 =3D <&led_backlight_h>;
+> >                 pinctrl-names =3D "default";
+> >         };
+>=20
+> In the case of RK3576 EVB1 enabling it at full power is eye-burning
+> bright, so some sort of PWM is definitely warranted.
+>=20
+> Best regards,
+> Alexey
+>=20
+
+
+
+
 
