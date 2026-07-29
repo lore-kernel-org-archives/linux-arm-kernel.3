@@ -4,125 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E6EC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:30:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E0AC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gsasmbp0e7Rsv8S5FAS0ots0cPKU2zruq7kflrsHZ3E=; b=ay5ypEECRgH7wKzuWEKurOj7VX
-	4J0QRMaeID/fOKtPTLhN9FhXaYD0GUr/boA2LpfABCnrfbGAl8xcY/xp9+V7rohK1rvB/MVmuv3lw
-	yFqdmDdDhahgRe+6O214EJ9Rty+ggFMcLdyQ1Q4bhU5Fb5z3iF7i9+hfjaxNkNvPYiuqWag212qni
-	YZh1g0uQEHAP5mfvgqebxS0m1vNquuSV7vynFkghc6vjwsuldbasy52769ExxolM3yHkaNGPXXjDZ
-	zK+qGxSRUTMcnEaI5mLBaDNeXRECI74ffQxCjqoK0l/e+c0ctr3giz0ameWACP9eNggz5ey8oFkxN
-	Cg9cDmaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f+AGVRNa1SzZhkLyKFGlOYMYOvwt5zE8+rjSL4vSATU=; b=KDfVqSynpg1xEGEgZ2ey9PVzQ+
+	Hzno0+CFciBnLm4bz6LokWlld+tHbaH1IGM5BVZmWO8N9VVVgV0GXacwd+HtxTa9zPsH57IJdRuSO
+	GNEFxMd5TVZUOz/XsAZSGYwP86v41WV5sWS7+jzkNai7Xn6RsaTRF7iKPjEzTL5Xq05HXoWgr2VCW
+	ITNtbf0EHuWL0s4ZLQJ4D0GYOHWuuL3QWH0R30/PmE1Ko/GHnGk1Yc03yGbhS9KXg2ANZOR0osEdV
+	1nm127z7ldxs3941CWzb1OeGFyeREZzVH0ovVM4OfrUxtTmZ2KzeX1BJgDM8OJgS+hWXwoVTlbPqx
+	kq3Bu4aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2U7-00000007iwE-2ET4;
-	Wed, 29 Jul 2026 11:30:03 +0000
-Received: from mail-northeuropeazon11012054.outbound.protection.outlook.com ([52.101.66.54] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wp2Ux-00000007j3A-3Tyy;
+	Wed, 29 Jul 2026 11:30:55 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2U5-00000007ivD-2IJT
+	id 1wp2Uv-00000007j2b-1R26
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 11:30:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F+k00qnaeY0G5S4Mk/Jpe7ulT1fIPPxingxaGAmk10IPnDu3u/LnD0gyq0f+QLRCzYzHlwiymlNALCikb+Efzb1nNs35qRr1LCorqVpCakydy+wB/xqs7pxxL6wznBrnkYBrXBAyQLWBBtAjHCHD/cCEmIPA1nr4tVMDG5XKsU1aKX2cNtLawQIgXmnsye7mAIHTJkvEzg2md6V5EQoVLtzSLaJbOLk/+lvlOBYRlWTFCHy1iykL9n5a6LlmmSXmuUSlAtJspr6qDe5BRmw3y1qGT6xs7ePm1tsLVvwVssBKl/r1f2wt/+bvf4B3EssSlZvWfdy5QuP9m/i7nLjLxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Gsasmbp0e7Rsv8S5FAS0ots0cPKU2zruq7kflrsHZ3E=;
- b=WMuGY2tVNtTzjS3RYO9B6tzl56uXDJxjVz5mGPJoO9RcI/oNcrBKoCu/rJmfS+OkIthskvFMYKKpELSXb5hl7i2YI5BOGVTTnGzN3vWxP+1sAVp4azkYjrYKe2SIUK2t+N/1csrB6ZSddTavWNsrTaw6oJS2KW/AqjBU9eOXgt24n4OjT3t38Q3V37hbPFWwRyS+o2tRGVita/wJM/3NQFLt0CFTFQ6ZZqP+nU39F5tkPUERdeEUFs6JfJ4sx9ks471fbr9v7K//DB/V8hv0pUkTPLXzXDlyd1Ey+aVM/Am1mvIeXhoMXZLZEsJgImPU3urI6pqdx4NHgKya2TqLjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Gsasmbp0e7Rsv8S5FAS0ots0cPKU2zruq7kflrsHZ3E=;
- b=l4GAjyYME58tqKPh/TZSp+p9UjxTAS12ywRU9TO/MLg1BB3luadDp0fbYworHrXloy2UdZtVevwbq7bLbQ/I4j7zvfV953OyZMK6kZLqEDC9T2H2EqfykMy2BNty6/ggXiE9MLwvttup8MzRV05So7aHxHu79UP4yPUvVUHDZNPg7JmmC3kNC6NTHHkadpXWAhQ0OsJ8EIui0JkYKORk7RZDda03IKrj14MaDlEEZQ7WSf3V9zrqkBp8WYxs4eWNKGcNvLYIdHCv7+tKuXobUC5ntSpRPik2JLFYz/RO4fSHXxuSOi+b7tEKHudiQM08lj1ici4m00YwQIzQlOCJeQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13) by VI0PR04MB10544.eurprd04.prod.outlook.com
- (2603:10a6:800:26c::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
- 2026 11:29:56 +0000
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd%6]) with mapi id 15.21.0245.012; Wed, 29 Jul 2026
- 11:29:56 +0000
-Date: Wed, 29 Jul 2026 14:29:52 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Li Yang <leoyang.li@nxp.com>, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	Frank Li <Frank.Li@nxp.com>, Guanhua Gao <guanhua.gao@nxp.com>, 
-	Roy Pledge <Roy.Pledge@nxp.com>
-Subject: Re: [PATCH v3] soc: fsl: fix kernel-doc warnings and typos
-Message-ID: <wzbqqb5szbgbujwjsb2qfhhpy5mcp276bauj4j6h4irabvdeoa@zscbuxq6yuxu>
-References: <20260728004924.904210-1-rdunlap@infradead.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260728004924.904210-1-rdunlap@infradead.org>
-X-ClientProxiedBy: FR4P281CA0300.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e7::11) To GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13)
+	Wed, 29 Jul 2026 11:30:54 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BB69B4E40FD4;
+	Wed, 29 Jul 2026 11:30:51 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8A0136039A;
+	Wed, 29 Jul 2026 11:30:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D092611C14D10;
+	Wed, 29 Jul 2026 13:30:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785324646; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=f+AGVRNa1SzZhkLyKFGlOYMYOvwt5zE8+rjSL4vSATU=;
+	b=lDdc18OQJAWS83HE6BFVKDefips09iGZ0t/q81THNYNQ8HRedejVpxxwSZEMgG69CzcVx/
+	UaA/Ok2GH/YyXKwxqzKPZ6m0p62jwpEC0hXFIfzvd02VKi8ZKjqVAqysXr3rpXatVqIXoj
+	aERRzMQhfdfOwKdguTXxtrbvvPAv8bDN6FBJ/y7O29SpejIdbe2xQnkrbcvkMb0y+rJst5
+	Mzc0VCA+42LnnIOAXuehc9nLI0SBiGmJs402/4HPMaUXWwxFZDMwP9wZtj1w3F1XHtYj98
+	FKbPuFwFyzZ2w5ixhLw77MeUQrGuuWyPO8fXdvVa235bBdDrIG505HZA27QXDw==
+Message-ID: <bbc44e43-2fb4-4ab7-9829-bd9bfde4e532@bootlin.com>
+Date: Wed, 29 Jul 2026 13:30:41 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|VI0PR04MB10544:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51757a1a-155e-41bb-9633-08deed64b793
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|19092799006|366016|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: zGrGjBRHLeJr6FUM929nI945I+hNJwxyITO7MxnGMvxy7S92pPTqNP8SsHNoBYUtWGX0hHK2qvNMNR6c/v0npvLBFUFvo1/bI4ovqEMrBbyC4x0c5VpxzfxraHt6/VYTWYD0Li1R1LBa6LxI/JJxkrvCkPV229zxkRtbS5Ou6o+8Q8kxRjphDtHsg1MaLosu44n6v2Jghyk5fKkClU8HRBRAVDrJjvqJRjRKE9wpaqAOCzLI/cfx4PlKgND5l7YDnskGjGY7JzXTZ5Rl6zhsxFFVidXOxxi+5yOuZa1WNgEwxCAXqGMl05qLu8mz/wE6IIxCJ1ZTo1wAgQ9QPQK9Fe0zIR+0nMf09VJrqmumD0VN/kgokFsK6uHvOxZJH04jA1Ayck0r+gqiJNKcn3qFLZvWUoV7b7vY5aJ+kMaIFwW/oyDa1s8LYUSKYT44i1u6rCxYXQE6QVLnW7h98RjNuzIpL24Ac59lA8VDzKhLrGthTlzwPhJFqryL2T8yB1cw5FjQ46ZHdZTLukSORY+vk1PTgxR1U1Kn4qAZFRBDjVDwfvcfGO7bxtgBN34YQogKoMteQvCZ+sFw8HhE+jM//LeAS/3acZyT1NtN8uaxoua0e3ZPKRJXyKINTf9I1bPW1EBT0Yglxrq0S6W+j4QvMIMugedKxNshHqDVayQ6hy0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(19092799006)(366016)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t/U7qrovKy0TIAQDNkcmIPRDm2NgvqbkyZy4MDYVcDlRkK6UXOU4p9U1sVwT?=
- =?us-ascii?Q?yvunhtPO+X8xFtlP+asyfQbWA3m9EMyE0d7P0EVwkw2y2hXcXbvXFZGx/6a7?=
- =?us-ascii?Q?NVps1sfqnxq7E/4y2HIkuuivc7aypL3QKA6pXZwLVerM+fhy6RsSR8iojTp9?=
- =?us-ascii?Q?+8LX23KRp0k6+00CM/LoX2+nlebJ+pz82fgLKVwAlEqQ/Hh1Bu1LWCNmU9CV?=
- =?us-ascii?Q?ehFIt4vvT2gIu6Pe8PRBVasz7IQxkId3++KVdfnvb/AzRhsMbx96kcqaLTQm?=
- =?us-ascii?Q?/Csa5JQsJX3mugufd7J2QDGNjZCSsHSAUF1xLmWYw4T64FpN5TToscARIcfS?=
- =?us-ascii?Q?ltK9CXkMOGN7ZB9Y00ymu0ESVLHkPxyRTYjtsf/UIFAKQKakucO85UHSDT78?=
- =?us-ascii?Q?NRwCG+qWGp1i9Vn/BIUvBfBZhMr9Z7Bpmv+sJ8zjcwYY8fTvPxH6Zyyxtqcq?=
- =?us-ascii?Q?Aaede2TlTLymUdoyJfTkBjbETXSnelCrNO8sTIRvCYTAinnUIuoKoy/6ANWH?=
- =?us-ascii?Q?MwwTrLq34txzgzOgd8JbykZG4DIGiNNlmSDE8B9WfrGyotS4j8eBtulKYT6H?=
- =?us-ascii?Q?EpLk/yYVgVxgGI3aeOxOo4zKx7/14RPn+JEQPI/zDqgLdtUFlzxz6z7ai1V4?=
- =?us-ascii?Q?4c/+m73DF7kc4MBAUvo1xUbPc/Kgi/JnggqbpJvhmkQYL10HIbwxocgcH46T?=
- =?us-ascii?Q?vXG+Wv31M8lWCBs8L8UoVWDGhU+XKjn7LKK+hy4uReHRpd1SAzS7lOEvU2sb?=
- =?us-ascii?Q?CpomV1PQBgcjASoS2veTwzRZou3AOCZYhjSmevu50HeebXh+9ixZOaaHk4M0?=
- =?us-ascii?Q?qrtDtcQqK14B7Xd+1zmsww2CIw0dSZLlpjkiFvOIdrm9CV+nqbXQ5ZqpROE7?=
- =?us-ascii?Q?bcXHYp1aWHtU+aVI1EjlAfH4O/ejwi/xp8vftYpCqit1S/zUZxfOFUFdZleK?=
- =?us-ascii?Q?RoASigMpLWMcJMzqRsjv+Vs9xG977Lcj6TH7tPtjWs/CFaViYpeVLFRtZoxE?=
- =?us-ascii?Q?08dZja9L7Tdb24UhnOgjejQwm80B/Gut1kHs6OpLeDOQ2KWjcl4clI0ZqWNS?=
- =?us-ascii?Q?ypmC56jJzS8gGYb8btTzbkvTszYkMH+jPAXhA6GL7JM5aP7HHtrKXG5SSeLX?=
- =?us-ascii?Q?zyeBiQsbK6KtLTyX0NQE7oMYdXStlzUYs1vqoySH8J9CG9nl3LqfgMhqPNkc?=
- =?us-ascii?Q?fx89THxEHLjYqN9kHBzHHFn3x6tGjU14vZ0nixZIG94db+PHKcQyUqeSXWks?=
- =?us-ascii?Q?fWCYdEhXXSep142tKkaj4B5xmmbynIO9qqFtazwTh7F1pZMl8xBEixgKVmWM?=
- =?us-ascii?Q?F/Mxs0vb/aHqIl5nC7zOKSGRfiKNH+GET1wx5qZvJKaHKVPpLBA/p2anOmeF?=
- =?us-ascii?Q?qlJAb50Xw6RRAQ/ySDEhtHWV/p7/T75zRIYVcjMgkNF71+BvBHAeAiUaBzZp?=
- =?us-ascii?Q?6b55vgpKU6ooiLoS9p3So0lyOg8DtyemLrOw0LBaKszHJJoEonNPTyn1ANl2?=
- =?us-ascii?Q?MwPCYDiiAVsigp67bdsB+EFc9OJ2/NMn9De9z1znXKfZcyeRcjfhZ00zmcXJ?=
- =?us-ascii?Q?URTlbw9oz4pvxH0Y9NpeIn/52iB5BraQVGlLAHoCRekAA6E7V1lBSPPG6cuf?=
- =?us-ascii?Q?RiBHSHYqcSY9qKg66i3BQulIqmFzfBku3dojQIMfqEFnkXTNxP22goNinPvg?=
- =?us-ascii?Q?VqEe1IoKoaT1VFfhdMYdCh1tF/rJpiFb9SN7CbGjNb1IOc9elY86Eo1cQ2Sk?=
- =?us-ascii?Q?V76Q8enNrg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51757a1a-155e-41bb-9633-08deed64b793
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 11:29:56.6888
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Gfw7BB/yfNWvjeg6fLyn9N2UqfMudy9JvqzUvFaoFs9tP1fVLCjCFnIN8b6DRbkIs1iAlOXjTczBVpj0tTdFeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10544
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 0/5] net: stmmac: Fix double VLAN 802.1ad tag handling
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ joabreu@synopsys.com, jun.ann.lai@intel.com, yi.fang.gan@intel.com,
+ boon.khai.ng@altera.com, matthew.gerlach@altera.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260729095110.164157-1-ovidiu.panait.rb@renesas.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260729095110.164157-1-ovidiu.panait.rb@renesas.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_043001_588670_F2050917 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_043053_546267_AEB310AD 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,14 +80,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 05:49:24PM -0700, Randy Dunlap wrote:
-> Correct spelling of "list".
-> 
-> Fix a kernel-doc warning by describing the nested structure completely:
-> 
-> include/soc/fsl/dpaa2-fd.h:52: warning: Function parameter or member 'simple' not described in 'dpaa2_fd'
-> 
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Hi Ovidiu,
 
-Reviewed-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+On 7/29/26 11:51, Ovidiu Panait wrote:
+> Currently, hardware VLAN stripping is broken for 802.1ad tags. vlan_rx_hw()
+> hardcodes ETH_P_8021Q when putting the hardware tag into the skb, rather
+> than using the actual protocol from the packet. Because of this, packets
+> that contain an 802.1ad outer tag are incorrectly passed up the stack as
+> having an 802.1Q tag.
+> 
+> This issue was observed on the Renesas RZ/V2H platform (which has a dwmac4
+> IP), when testing QinQ ping:
+> 
+>   # DUT
+>   ip link add link end0 name end0.100 type vlan proto 802.1ad id 100
+>   ip link add link end0.100 name end0.100.200 type vlan proto 802.1q id 200
+>   ip addr add 172.16.3.2/24 dev end0.100.200
+>   ip link set end0 up
+>   ip link set end0.100 up
+>   ip link set end0.100.200 up
+> 
+>   # Peer
+>   ip link add link eth0 name eth0.100 type vlan proto 802.1ad id 100
+>   ip link add link eth0.100 name eth0.100.200 type vlan proto 802.1q id 200
+>   ip addr add 172.16.3.1/24 dev eth0.100.200
+>   ip link set eth0 up
+>   ip link set eth0.100 up
+>   ip link set eth0.100.200 up
+>   ping 172.16.3.2
+>     -- FAIL --
+> 
+> This series addresses the issue for both dwmac4 and dwxgmac2:
+> - dwmac4: since dwmac4 does not expose the tag type in the RDES3
+>   descriptor, it cannot support hardware double VLAN stripping correctly.
+>   This series disables double VLAN stripping for it, so the 802.1ad tags
+>   are left in place and are handled by the software VLAN path.
+> 
+> - dwxgmac2: the RDES3 descriptor does report the type, so the code was
+>   updated to read it instead of hardcoding ETH_P_8021Q.
+> 
+> Note: patch 5/5 was compile tested only, as I do not have the hardware.
+> However, it uses the same codepath as dwmac4, so it has the same issue.
+
+I was able to reproduce the issue on imx8mp, and indeed this series fixes it.
+
+I'll try to do a more thorough review soon, but this is a good finding, thanks
+for fixing that :)
+
+Maxime
+
 
