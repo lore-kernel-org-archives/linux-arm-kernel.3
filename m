@@ -4,120 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B13C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 09:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B81AC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 09:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zy9/6gNOLHqXQWipPdS69eP+Kmz+zBhH2QuHKEz3Sic=; b=IiabCx/QxTssxeoI4LidLD9uKe
-	gwmfTX2yfSI9RCtWc2rk28tnaSVVhyQ2uHPKizUja9uHMLEgXk2FtF4/Au33VYAFnsHJOuXwcJ+wj
-	mktr8IbQHuxx4v3Y1Qu28xY7WQn4XORV9lrMOolUx1z1SMCGsadf7uj3Pl2aw94KMECiFDxd9RlZK
-	a7oBQi4za1knIwXpHTUvy1zYFl6yJ1f8LEXozOzZNpnUw3mmOi8YoE0loZ2PldJUw3vhP92KpkV/9
-	g5ntbQU72mQb9ZGJOWrZUPUGgf72KTE8MvqK5xmMaDm8Y28lG2wK5vfMDUDy4sQ8qxvV44m19TjB5
-	QYkPgzFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ws6jekRp725+CUB/ik6VEMYjaMqurDpFHylb+6nQgbg=; b=ZC6Gz6WXkwZdCgfo5HJReQze9J
+	7wUpjYpcaPSNSBPD2ayKd5sGdEHkqnEzUoRMAD2Xj2fuUc0Jjr+OsGXhd/HPQqG6ZhcoFAmAcTIXG
+	xHwSPYFpBDUs1LKqoIjATvbViKQe3DiDDaokHw+aLDopP4BIl+uK/Xbn7OjrHgSF8uMm17kTRKHs+
+	5xDN02MoMn6KP4SqiAUfOMZNPtGwKUYDkBURLS+STVjOa6Nj5DDNm0eVwgRYPEvkiKr4UgnhPLsu3
+	tgH9Am9ECFdVevV6EfCvZnVo0mkcoT6H2nQ8h0aE0yp/mvWUULgVb/nd9h908oWNaszWjPMsV1ffl
+	TER0IJMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0xS-00000007R5p-3pzd;
-	Wed, 29 Jul 2026 09:52:14 +0000
-Received: from mail-japanwestazhn15010017.outbound.protection.outlook.com ([52.102.194.17] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1wp130-00000007RiW-2fo4;
+	Wed, 29 Jul 2026 09:57:58 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0xL-00000007R1b-3cwg
+	id 1wp12x-00000007RiA-03gj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 09:52:09 +0000
+	Wed, 29 Jul 2026 09:57:57 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66T7ggGd1823318;
+	Wed, 29 Jul 2026 04:57:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=Ws6jekRp725+CUB/ik6VEMYjaMqurDpFHylb+6nQg
+	bg=; b=gcis+qdHSIM5zJxb/9C+i0wlfqrLVA9vRr4q0XbTMriji+kUUVW0bQZm1
+	oe3+tRiWPN4Yyp4vVVp9EKoQepQV91cxoxrWI2tSUG8AdUbpVm4zYhMphm3AtTcE
+	hn1KcUJPnFUXN3JZ/Djso8WbOC9yzOs820AbSivT44Eld3OTesT0OJQFO0C3btUM
+	IntOzoMaMvNCbjjvqqhwAuBjzqTluksSkIMecg+xl5+TgeH9Ou7LTaLCNv689vzg
+	/MZJzHbFTwWsk6fdPRtHZbTEzrFRL5Rgc8b+IcxpQedbEfBBVZPzHt1XZrdKbxww
+	urwyaXdPs8Si48w1ntABlxUwiGzaQ==
+Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013039.outbound.protection.outlook.com [40.93.201.39])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fpvexq4rg-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 29 Jul 2026 04:57:50 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wmPEM/zupQj59e7yesQQCdYKin+5fhTc56O27Ya0kDT4WMfoTu9D1RxwHC+kXEdPLij4I/3xrpbJAfCoh0m0lBD0lEzHhZgNY0SNag1MIwNAJnrEFyONyu6Te7QP61cJ0k3f8nWM2HguWCBfd24mbzZ06ct4jvZjjbH+4tg4JAa2Dx3e5S6TtYwZeQyZETHO+nF+q3EAKfK0EIdXxtLfOYhIKmU1GBu7qllI8/7syxcfRXMhPOSV69fsyHBF1AM89CTKkGG++iJMX0UY1waGn/B8w7/czd03fQyFTatvnz/58tYHsl+QQQWy8/O7Hl9ZtvO85HXdNnmz9miTWjtplg==
+ b=oAIhqz0ve+5wWnOOmyaChIwVNSZSEioNcZWZSjz0YnIWqdvuUnZyJ0Upikhx7WBzyU5nWkOjaKAVGegWZFlIaiWw0nUWQC8xVAPTAVi0Pauag4+6mPX2NJ+tj6MWcCkbJ5NOO87cqtWy6eJQp+MHBphQJq9DoHDNq/9SM+jyFIv6giuh9AZYgZGZxr8QRxHnXehdMwaYRy9vpQY+p5xR1/KKnDRSgONWmArbQqsZ/ViS1RDeNDSoTxoCmQMPW/axTCYSeECnK9QnnkDiTWe1qcqG7eYSDiwXb5ZV0GWnuRKcfbYRCdp5SLvQByq0+42t+E6yeh0i7jl/WraHdj8Utg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zy9/6gNOLHqXQWipPdS69eP+Kmz+zBhH2QuHKEz3Sic=;
- b=j09zzJN8spWHpWqrUAyb+Y+J9GHbSUbWyVDyT3v56NRk6Lija4X3nWMeiKdG0UvLR5Auz9GUqQYWwJfKuB529OfnmOq7PZPkEUqFnqdZvGtvGWV57+0kUSRMDMCVPFKGOB0NOS/dIHLEVimOaGjdNjNxtcqJY1hrn8mIWr/ulwUj1cOQ3twOH2LVTVhGDzwspM5966IsOiLqZMWwOj3noRjk1q8dboLWD6vG15HtBh5sZZeaDfiV0BP/IKyYc1npAnGWYds1gtXdUkY1rC0G3zBqYs4Zf8eMn3eZRKLTDs2DiG7npAled+MYqiLcm9M/MhOTn4M6v2QM9+dVttsg5Q==
+ bh=Ws6jekRp725+CUB/ik6VEMYjaMqurDpFHylb+6nQgbg=;
+ b=XKZdGEjt5vH7/p2mrCAUEc1+Hqqr71vZRGQgtYdzb4tXltPOc0Ly58TBom1bxMEBfp0hr765NO3PUV/ErDgD5/QHWEWbCsvwvtAqvIFO3xvPWy6TrzUwppcxJA4BGOjEV00fPY2Y0gw+fDqPWvk/cFcx5mOsoa+TtpsHvaM8ElF9+Rdi8Bf1rjswSefuDw2f4mFCCEny0ilDANsHpqQn3QHh5hQNsSfat4lAzIIxMHmZua4nOsJyzIC/v8hSHfi+5KplF1zcmWgFHQ3bMyNj7WbwR+4cTOvV3PuDpRtUeBZtmS69c5PYebX5/8QffgjNabIbiIx547IeH2HAjFM7PQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 8.62.32.50) smtp.rcpttodomain=altera.com smtp.mailfrom=renesas.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zy9/6gNOLHqXQWipPdS69eP+Kmz+zBhH2QuHKEz3Sic=;
- b=JbV80vWvFi+S9IXNUs4AumUlEtoM4nVuBYphO+vMnA4YoH2iU9lhaHl7eDl1G4/aIA1i3PxdF5ob9tQJtI/2cYVny94n4ssgoD25cKYWmRzy7sXDAwaQKypQDQOtkIFdFvJCCzudhctrtGKkh6MzdAtyl/RB5q00IXddRlfw2SM=
-Received: from OS3PR01CA0039.jpnprd01.prod.outlook.com (2603:1096:604:dd::8)
- by TYCPR01MB11332.jpnprd01.prod.outlook.com (2603:1096:400:3c0::7) with
+ bh=Ws6jekRp725+CUB/ik6VEMYjaMqurDpFHylb+6nQgbg=;
+ b=smMtaKbApB0DNUfTnlIy0kA5kQJMClo60ZH0/LD2rXJ7PirzuUHpG6MP64Ju5+LDKJw/fLIWZIrK5OSmm/vJbXsdqChFtZCKtByLdnm94R6nVCx803+HTN/yzM0WxnsKTkHcK+r1ai7OMP8ZpG3FtiOvYttI+0sMFp9eN3hRnzI=
+Received: from IA4P221CA0008.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:559::6)
+ by DM3PR10MB7912.namprd10.prod.outlook.com (2603:10b6:0:43::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
- 2026 09:52:03 +0000
-Received: from OS3PEPF0000003E.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:604:dd:cafe::13) by OS3PR01CA0039.outlook.office365.com
- (2603:1096:604:dd::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
- 29 Jul 2026 09:52:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 8.62.32.50)
- smtp.mailfrom=renesas.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=renesas.com;
-Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
- 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=8.62.32.50; helo=ejcrelay005p.adwin.renesas.com; pr=E
-Received: from ejcrelay005p.adwin.renesas.com (8.62.32.50) by
- OS3PEPF0000003E.mail.protection.outlook.com (10.167.240.7) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
- via Frontend Transport; Wed, 29 Jul 2026 09:52:03 +0000
-Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.40])
-	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id 9C246300027E;
-	Wed, 29 Jul 2026 18:51:55 +0900 (JST)
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com,
-	jun.ann.lai@intel.com,
-	yi.fang.gan@intel.com,
-	boon.khai.ng@altera.com,
-	matthew.gerlach@altera.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Subject: [PATCH net 5/5] net: stmmac: Fix double VLAN stripping on dwxgmac2
-Date: Wed, 29 Jul 2026 09:51:09 +0000
-Message-ID: <20260729095110.164157-6-ovidiu.panait.rb@renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260729095110.164157-1-ovidiu.panait.rb@renesas.com>
-References: <20260729095110.164157-1-ovidiu.panait.rb@renesas.com>
+ 2026 09:57:45 +0000
+Received: from BN2PEPF00004FBD.namprd04.prod.outlook.com
+ (2603:10b6:208:559:cafe::b) by IA4P221CA0008.outlook.office365.com
+ (2603:10b6:208:559::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
+ 29 Jul 2026 09:57:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN2PEPF00004FBD.mail.protection.outlook.com (10.167.243.183) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 09:57:45 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 29 Jul
+ 2026 04:57:45 -0500
+Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 29 Jul
+ 2026 04:57:44 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 29 Jul 2026 04:57:44 -0500
+Received: from [10.24.50.130] (uda0132425.dhcp.ti.com [10.24.50.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66T9vfHr1057433;
+	Wed, 29 Jul 2026 04:57:41 -0500
+Message-ID: <7ee50408-aa33-4d16-b8ff-f5e2dc59104b@ti.com>
+Date: Wed, 29 Jul 2026 15:27:38 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] arm64: dts: ti: k3-am67a-beagley-ai: GPIO
+ improvements
+To: "David Lechner (TI)" <dlechner@baylibre.com>, Nishanth Menon <nm@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: Robert Nelson <robertcnelson@gmail.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS3PEPF0000003E:EE_|TYCPR01MB11332:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: bb2febf0-28b1-4d02-cc0f-08deed570ae2
+X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBD:EE_|DM3PR10MB7912:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3720a116-1419-420b-7309-08deed57d6db
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|34020700016|82310400026|23010399003|376014|36860700016|1800799024|921020|6133799003|56012099006|11063799006|10067099003|22082099003|18002099003|12100799066;
-X-Microsoft-Antispam-Message-Info: TLrjHHpO7nPQJ+vjckyF+r9ZFAR1q2OllL4OJUL9OIyC5jHLWAXl1yA5sWujM4SUjI6cX2SDjC5VBtZ4Lv8gcoiRCMVIRYNEDh3j0BmNWnjTAoluOsCa874/i9pVYjTgj37zt9HEy5ck4qoZRqei8SiQ86SjWjuwxwnHQZ7UNdAcC5FsmqkxB1MYdYdTULRb11t9taUj73rnCzr2yVTf7h+chux/sILDMqHjPOQoTWM3yV/YuSjyy26O8v0w7/vdvLKQ9GCWfmRTfB9FagLA1ND6tXeywJCDW/ZAYYC4Repu6hPKp2wEjh0s75W7CrueaP1D3ciaOD/lLnGuzf5ND6tD5WT308BPIA1iMZQ57BIbZJFLilNoiPyqc70T2v7An+28k20cWny7lTmR7pTFqe605yxcg08iXe9r8ha6RQcp4yQyJYN9eByt+wAJXtnLMtVmD7GahBfdImvIk8g+YWYciHwYuEPIxL/DnCsCthBmdH3uVvhoKeM0ojomQiJQqW8elaf6a29Xan4cxrdLuMeTEpmTBwqQG5eWyyakhSIWnrNfL4ob5xBAqeEbSys5knd/FTMnZhDoKYmBJJlNTCd9lWSNJGHEokOw4j22RXrRYsNyIddeZ3RSD5i5+fVcMJWCB4t/3g05WuGFv6aZFAjKk7Bzaapaf7VGe62ikwHj4fdhi+vyJwVkNtdZRgA6MxDXJmAOEy2T/4cgb4R/zrhwOfQP3POIKsvfSmgC8lYHSvxlxz3K0WnwGtRO70qR
-X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(34020700016)(82310400026)(23010399003)(376014)(36860700016)(1800799024)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003)(12100799066);DIR:OUT;SFP:1501;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|82310400026|1800799024|13003099007|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: NRRY/3FWfBvEBgsNidEV7kJjY32iZbIhcNjsaDstIcJSbAcc+ean3Xtz1Ow0HpzzjqcIVIfxltDguY4hEQF4GEGaCFnTbDWxplF7hpRdMKQrBPOhpnYJsgou5Bgxo1m4la+eIpQTo0zEZ6QVIMnzQN37VbvgqTpsnOuoVR+EvBVHt6v08To6M8OTMj6r9XEN30WGdbNXn1d7JOSKLIoNi8Tjr6CWa+ia7G6D84TdgTvKPstLL48wS4ek6jrBWZF1+4RMxFVj8uR2Qwt8wVl3VaafK4R3mysLbGEC2KwIJE+VFiXge8VoHZdgkNjoK8AqaF2HgtfsEBHw+wRLbsKjClm2WVdPCH3I/y1h3F0ZumDDfK4VH70olmEdderv2iC8IyLYMypszG5+KAFQQy1FbM42X0dBRWg6hPYzkWhaUuE/KoUnblfGZUu7OBlQCDg85U6GnLBFQmvS2amhq97atroJaCnKFxufuimF7zy9UlIgfgY5Ko6OH5f3eGMS891r05JBlkwtKjiByFnTtE3l88DfibrkR1jq+NuTtahVRnpHLfD4rvOZGcqe51WvRYG0YOUL2CV+Na2bGDDbAOLgnVASI51oIVyB6iG70n/BAPfMu9pLI3aLzFzgjTKPVXk132uMdqf+V6h0FmX2f4ch3g==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(13003099007)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SoBvhGvJ4cMLOQJd9GbVFTZxTh6VNAReuo6cQShXJdYs/WPTAUNatw8YQr8NS8/+IOLIJWiE/RuLon0lNG1xJqQ/6xOYZK1aIqZtuc0hnvimt2V1zidJYLRBVHJNjCFkKcIolPwYgam2oMJktnII4XHEW56CQmAg7Z8d9yT1panAhcLCo1l+4T3Mt2P9KBF1KRGf9mVmE+8GmBYTfaD3gM5ML4P6Nh/fMR5ld0ppQglbPZiUwlhgPk+DsKwvF0k+5nopOmVBkOLr/H2F4Rxt73JaQsBIwy+iBTQajbMkjClO9te4qhNKRW+SklsDsXdmbTh3HRvshbLlk9K7bXBxvND5qvaI1chCO6ocbE+ul0XIrLwwNfffeNO0J3dAqfqNkowsLOBUHrYF1V/cDp/WKOLY689oLPfzv8jU/Hu/WSMVY3Kx57l6K6L3m3uGJnxO
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 09:52:03.3108
+X-MS-Exchange-AntiSpam-MessageData-0: ZvVEmD1/2v5SKBdhq1mP5FZTY7fV2WniKUPwzrgKHK9zYwTomA20Df2ulKF18WxFl3QyTRgV3+GnyRw/7xEIMti42hnZDsFlzdsvdtFlM879rLvlDFV4Xtv0YDrV8cC7z/13QmgA3HGFnE928+kGZBy8I2P+PWOM/5MjOjDpq1k9R/+ep0AqgbI590ORGotpQikZsGDD5xcMosGJQvF/wCFCyq589pZOm2m+tTdUTapJqYfm5g63lSs4sqq3qF86Ux3oZcXF7uB6q2ybAFzt6rzcR7bOa2Hbc3DvGQpsxdK1WrYCr5z+gCnSnfDiE/LuKNtuz7Yv48kUR6k/b78WTXn3UYAE2Zc/pubudmcEBOYFR9+mk9Xq9LyGNb6PkTBw12OKwh3pxjjJpKkT39NC63BQnOJKLvudzoY73tMkNF/wAo/cx4tP5JQKcuaQJOW2
+X-Exchange-RoutingPolicyChecked: q52LG3n5ioArBB5swSarJcMCLPHHzqv+M7lViciCfbNzt3Vs6Qn+/WD1EMkbcJcRhRbbdr4Yc6x3R/xuNCDgN42VCTppywOCa/P9BeA01qpGVDfjqgjIso3lVWtodpwj1CEUWFFXh9EQO457jf9R09z1RrO8XZbDGfUqV1IKEMecLmjvQvFVatENjIuWe/qhKAk/tuI/h3rmU+XxxChp8NTYFndcWNdY3ZxZBOYOyuBGg7zwumHwxJnoqEQ1xCPD2AW5awrs8m9vO2kooD/7zqnQMOBL3psI3B+rZTd7F2krAni+ZAHZb1OMLQJcMDyRJC2GhfFvKjfTeT8vMiKH/Q==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 09:57:45.4689
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb2febf0-28b1-4d02-cc0f-08deed570ae2
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay005p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: OS3PEPF0000003E.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3720a116-1419-420b-7309-08deed57d6db
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBD.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB11332
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR10MB7912
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI5MDA4MSBTYWx0ZWRfXwuQVgUP7i2au
+ 9OkXej+Rv43UOl3JRrB+d9s8OOv7iiAAyjJnIyhtKLtFookag19Dai3K7M3tVbeV7PbYaqeksWO
+ ultK6hpRrkjhX6wocoxt2CUu+ux77ZhzkkbmzHeBeWzR7UlqY9hthHZ9X8SEd/ZPxV8cSHHUsPl
+ fdG3axVRMKi6Ur/+XZHQTvcUJVNNYuND3nP1oNfaR4ApcJkBPiN1XkXNbdP3YmSGbnUAfvBRdup
+ g5zg8DoX+Npg6dLamAH1sTEOwXoDh6B3NNfuoKeGPjBrdo1+W5nTIzTBC09tPleBIKuox16HQqe
+ 4VbjIdMz0PflqhxaaG1o4lELfYP/z3vqvHhQoN27Y0VFQ4cmMquMX7v0R3tGyhcs7HG8psVVsFv
+ Aw3W2cYpCwvlUtBBZ9F3XGa58IEGzUbHBhaTDk0u6VoN+94pTwwvPTfHYtSTNMP4R8Hdq0XKXNu
+ Fu/mkDgLBiesJavgMMA==
+X-Proofpoint-ORIG-GUID: QlK_KfppBd7B_udbcupHYfof84bSGZrz
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI5MDA4MSBTYWx0ZWRfX7OQhRpTtblN5
+ qQ3SG+7JljtYW0DhbbPqph5/RI6XD+oEIgEC8kcPhdEGvZROLmHJ4CUQArsF+3KdENQtjyKbpQV
+ QQYWqg1Co8BDyKH4MxuUTNIWITenK24=
+X-Proofpoint-GUID: QlK_KfppBd7B_udbcupHYfof84bSGZrz
+X-Authority-Analysis: v=2.4 cv=IYW3n2qa c=1 sm=1 tr=0 ts=6a69ce9e cx=c_pps
+ a=OPuTCcLOD/60NKbq+Taa8g==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22 a=xVOUUHzFAAAA:8
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=IpJZQVW2AAAA:8 a=tpI_4JZHAtK4UwZ1lhQA:9
+ a=QEXdDO2ut3YA:10 a=BFkDlhTjP3qpOTzr41qL:22 a=IawgGOuG5U0WyFbmm1f5:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-29_03,2026-07-28_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1011 bulkscore=0 lowpriorityscore=0 adultscore=0
+ malwarescore=0 priorityscore=1501 impostorscore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607290081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_025207_906165_6998982C 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20260729_025755_286238_72BDF4F6 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,90 +182,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, vlan_rx_hw() hardcodes ETH_P_8021Q when passing stripped
-VLAN tags up the stack. If the MAC strips an 802.1ad outer tag, it is
-incorrectly reported as an 802.1Q tag, breaking QinQ.
+Hi David,
 
-Fix this by adding a new get_rx_vlan_type() descriptor op so the driver
-can read the actual type of the stripped tag. Implement this for dwxgmac2
-only, which exposes the outer tag type in the RDES3 descriptor.
+On 29/07/26 01:14, David Lechner (TI) wrote:
+> This is picking up a few downstream changes from [1] to make GPIOs
+> easier to use that I missed when using the BeagleY-AI with a mainline
+> kernel.
+> 
+> [1]: https://openbeagle.org/beagleboard/linux/-/blob/v6.6.58-ti-arm64-r35/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai-pinmux.dtsi?ref_type=heads
+> 
+Above had to be reverted due to reasons mentioned here:
+https://lore.kernel.org/all/20250221091447.595199-2-mwalle@kernel.org/
 
-dwmac4 does not expose the tag type in the descriptor, so it does not
-implement the op and keeps the ETH_P_8021Q fallback, as before.
+> Signed-off-by: David Lechner (TI) <dlechner@baylibre.com>
+> ---
+> David Lechner (TI) (2):
+>       arm64: dts: ti: k3-am67a-beagley-ai: Add gpio ranges
+>       arm64: dts: ti: k3-am67a-beagley-ai: Add gpio line names
+> 
+>  arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 45 ++++++++++++++++++++++++++
+>  1 file changed, 45 insertions(+)
+> ---
+> base-commit: 3652b49adac266a3d27cb41cdfdb7d8790fc3633
+> change-id: 20260728-arm-dts-beagleyai-gpio-info-793ed8b4d55e
+> 
+> Best regards,
+> --  
+> David Lechner (TI) <dlechner@baylibre.com>
+> 
 
-Fixes: 534df0c1724b ("net: stmmac: dwxgmac2: Add support for HW-accelerated VLAN stripping")
-Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
----
- .../net/ethernet/stmicro/stmmac/dwxgmac2_descs.c  | 15 +++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/hwif.h        |  2 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c |  6 +++++-
- 3 files changed, 22 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-index 6719ac6e395b..4fbd2442d918 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-@@ -61,6 +61,20 @@ static void dwxgmac2_set_rx_owner(struct dma_desc *p, int disable_rx_ic)
- 	p->des3 |= cpu_to_le32(flags);
- }
- 
-+static u16 dwxgmac2_wrback_get_rx_vlan_type(struct dma_desc *p)
-+{
-+	u32 et_lt = FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3));
-+
-+	switch (et_lt) {
-+	case XGMAC_ET_LT_VLAN_STAG:
-+	case XGMAC_ET_LT_DVLAN_STAG_STAG:
-+	case XGMAC_ET_LT_DVLAN_STAG_CTAG:
-+		return ETH_P_8021AD;
-+	default:
-+		return ETH_P_8021Q;
-+	}
-+}
-+
- static u16 dwxgmac2_wrback_get_rx_vlan_tci(struct dma_desc *p)
- {
- 	return le32_to_cpu(p->des0) & XGMAC_RDES0_VLAN_TAG_MASK;
-@@ -350,6 +364,7 @@ const struct stmmac_desc_ops dwxgmac210_desc_ops = {
- 	.rx_status = dwxgmac2_get_rx_status,
- 	.set_tx_owner = dwxgmac2_set_tx_owner,
- 	.set_rx_owner = dwxgmac2_set_rx_owner,
-+	.get_rx_vlan_type = dwxgmac2_wrback_get_rx_vlan_type,
- 	.get_rx_vlan_tci = dwxgmac2_wrback_get_rx_vlan_tci,
- 	.get_rx_vlan_valid = dwxgmac2_wrback_get_rx_vlan_valid,
- 	.get_rx_frame_len = dwxgmac2_get_rx_frame_len,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 66837caafa84..eb6aacc0dfbc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -56,6 +56,8 @@ struct stmmac_desc_ops {
- 	/* Clear interrupt on tx frame completion. When this bit is
- 	 * set an interrupt happens as soon as the frame is transmitted */
- 	void (*set_tx_ic)(struct dma_desc *p);
-+	/* Get the VLAN tag type of the descriptor */
-+	u16 (*get_rx_vlan_type)(struct dma_desc *p);
- 	/* Get the tag of the descriptor */
- 	u16 (*get_rx_vlan_tci)(struct dma_desc *p);
- 	/* Get the valid status of descriptor */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-index 9b5b3f11f699..4bb639c717f8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-@@ -212,8 +212,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
- {
- 	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
- 		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
-+		u16 type = ETH_P_8021Q;
- 
--		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
-+		if (hw->desc->get_rx_vlan_type)
-+			type = hw->desc->get_rx_vlan_type(rx_desc);
-+
-+		__vlan_hwaccel_put_tag(skb, htons(type), vid);
- 	}
- }
- 
 -- 
-2.34.1
+Regards
+Vignesh
+https://ti.com/opensource
 
 
