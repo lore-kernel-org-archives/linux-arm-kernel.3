@@ -4,63 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F125EC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 00:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1106C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 00:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j8PbTbY2wedKvmEe4vPFLG8ALhOZp0GgcpYiFZK/Frc=; b=kgFQRrBmTAf2vsnZCtsiF1f3dg
-	90EC7fSOPedewVdvazDL8JrlabTeDSYh1BQV6sPu0PqiZ1h/V+dlCHGp3h2Ir0/wxUfGs8905wSZt
-	/B0FaaVefJ/65hkAB4y5gSTzOPvXjFeSEeCG8b0/CwQYL7S1lhLfPr/9ysq0u9xahK5sw8KHtWUGd
-	WTdIgFg1V9Aiv7VujgYdSVNZ4+16sLx2PejoNNXwusA/CZNo/1L55Wya9bSxgtZ8LtLZFC6qIKtwN
-	OIHWm3WJbxBZb8YCSBFB/+jT7hPuNVL3klSjqcRxRy0QE/NNNJZ7zKqcvASjwAyOVQCBlYree3cun
-	9e0fXCeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kyoFypV4ziVMyYM4rNHMecvIB5wpcxkRGbJyRri9dnY=; b=POJSpzus6ivnvCuilHh5RKPDHN
+	goG7VaSzhMiGcIemVzOQOJwu4i4vkjlFVLDHNceRSFAtxR0f0fTfO5hIbR5QRC2Lrc39gqn1jhlKF
+	3pP0nn+nfVbaOX9sgfWmuilH9ScgK/9tFIbK83o/UlK08VfzXA8A3X2043WbJCjLxsNMGYGNAyB3s
+	qpP3LnqUdr32bRKDMEcKEEfAGihDK7dH65nIO+rjBGuPcCPosaY1XvJlTyLr6Ynm6yeTwpi1Pv8At
+	3cXXILtxZ2mLlvOunw67nbHikmlIkWG1j7oPldFMZkovHcQo4jUCkI6qUq2A48eVMjv6UmU/opDAn
+	qRJyAarA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1worqe-00000006VIx-3pHn;
-	Wed, 29 Jul 2026 00:08:36 +0000
-Received: from mail-ot1-f79.google.com ([209.85.210.79])
+	id 1worr0-00000006VLo-0YyC;
+	Wed, 29 Jul 2026 00:08:58 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1worqb-00000006VIc-3JSV
+	id 1worqw-00000006VKp-3pRR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 00:08:35 +0000
-Received: by mail-ot1-f79.google.com with SMTP id 46e09a7af769-7eb6a8c61deso328601a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 17:08:32 -0700 (PDT)
+	Wed, 29 Jul 2026 00:08:56 +0000
+Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-4a427e628a9so148763b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 17:08:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785283733; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PmFeFR8/28W7aqFxDx9mMIxAyrOA5XQgqN/lGIp1atKl+o9Wpkz8yIXhJLj5bzGoHf
+         SlFUL2r/ZCB+rSDFDZ2x/raJOCdSqzufzXOeNjC3Jo7kRWntHQjDUtZky/lz8L/cfVMD
+         EzfSnO7pJJxOhhQtmk5Qy/bi4o/8CQBEClylxPiQ7/j6G5Z9PjcceAROFHYt7+kzxuqm
+         O8jksZfmaWGjJ+sR7tw53fgTYFFOwxpegfN42A6vkohloZZUQFCECB/oSXpm7w9qmmR3
+         fZ+gsmw6sBDhkCZeuc+EF+F37NFnJRi9TQaN+xlMWI3/8aX377qzHplQOy6HFGaKTHFf
+         dJHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kyoFypV4ziVMyYM4rNHMecvIB5wpcxkRGbJyRri9dnY=;
+        fh=RiWV3YOFj92pmiryQgO/dQ3GBEY9zy9JcSBF5J1Keek=;
+        b=napsEvw3s8U19SH1X7FPgMTAlHYy5hF/M5YSnJBWVgSDkKkFnI+TYEN5BEkfxRy4wV
+         6MMV6FGpHqpcwYxE24f4U4eAmcKWdH5Ia2Ue6L2kEm5aNaRbaggSA/v00VTXTSpYYfeU
+         r8hkxg9DUmy1ldvKeVaFa/YlcUhbPe18oXIbKPycia4c6EwUCG9Y+rgOqSXVymuFoBTM
+         vjXEKVJ31a8OhGpVMeUFk6uL9euKjQ4AFokKRdwpMEvuOHdaP/u53fVY7Rs6hbD3pfkA
+         6VVKz9VS3jTnKVTP5Rn0qE8rEWmViqO8OErsjUf55/+u5TwIkYfsEn5byoqpHD+3wnWa
+         Mq9g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785283733; x=1785888533; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kyoFypV4ziVMyYM4rNHMecvIB5wpcxkRGbJyRri9dnY=;
+        b=Z/RBCAFlO/R7umNx8sl43wW2qSp4maIqsqbVUdavY1yhXp3PVY/qhFYZ3rx2TtX++f
+         3+u2m9fyKAQhLsmF2ll4/vBtpFaZqwFZsqsDbp1OC/aUp1rjPzmMpe9h11u+CiaT80xm
+         U+rb7DFvLvXnAJz8Ti0AsmtoYYF1EPaD9AAcZkhRg8ENPMkJ1/sIeuN9kxh2RkIW7e/5
+         UUnuAhaSZqicLmL/qGz7u1stH57UeMo+YP3+9gbf+15yVrHZNNXMBg0Xza4WY/qTYKrr
+         psEOq//IxC5GjGxuhRla8aYbkY66LQUM5ThZ17UOXhUgc9sN+oTW9dTLXlmozHgdADpz
+         savA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785283711; x=1785888511;
-        h=content-type:to:from:subject:message-id:date:mime-version
+        d=1e100.net; s=20251104; t=1785283733; x=1785888533;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=j8PbTbY2wedKvmEe4vPFLG8ALhOZp0GgcpYiFZK/Frc=;
-        b=sU6vE8uvqmQjLFw5dBoZcAX9c7CGLJDGw3MqtUAuPkunW+SAnbDe9ObhIAdbaWRQbO
-         +czOu0uaZ82mTVgRkDjSAhfzAyxKllCLSo9A8xgEaJXnp/TX/fDze9pSZXAUNX+LrqvZ
-         eCop/vV6SfmW6ccIe3Jt2HFMAqG/upA0X/cvqAbZl/puQTHsdyfIUltA9HYMCbAUYWMD
-         AW+jR5APg2xFKH+nyyy+XREJKg0H+xMctWHUZs3WBEVi113K9Rfx4opErQG86IUtTJjZ
-         RJ1QAlvFZOYjSrVJCq931kKE39/WPl9sswtP1NMCqEVThKye6tJDVjqJZOtb3CXUVw/3
-         57Ow==
-X-Gm-Message-State: AOJu0YzMxrEsXxtvNUcwhHgtrrVrX5WEx9HgyPFhzQJWMN7XCLYdtiY4
-	QZJcyFWhM48iFRVlmel413A4ILPJ/+Cqk+oeuMOjfGXJN22DO1yGVPjimB8nhqqofvpENf+8TCH
-	neWYVhCqNuV+ZlGSx2fAx5obg8kESrzsOHnI0uOmP0ZxYtioBDVbzqr2eECsojQ==
+        bh=kyoFypV4ziVMyYM4rNHMecvIB5wpcxkRGbJyRri9dnY=;
+        b=nhtxev9pLc/E98P9e+OPFfIYwo4EF5Q07ABfAiY3jaAIlstVIs7sE1uF9q8EtCdLSt
+         M61iDxd6CK4Ud3TGigk0va9gWVhsM3FiY/ok9h0LG3QouFKASKUYanOo52d6Tg/d0iH8
+         EW8cbYcqD+RlrJm68rtViKvWcQTJTDb4lTAF91/eW5NtQn2ICZixRZC7gTK/cp1/CPpf
+         B0+9oM2XWwV8CYQrxydb1Xns203cpgZzrSdiNogJafwX2Lo2iz1gXVsDzAJ3HR+onYwh
+         iWYEjh0dot2d9ZLR0hFIGuLL+t/SqQiQEvk9XnKonoYvwJpdX9WgkQOIaHVOhDiN+bja
+         3SHQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr8ngGCS/TpWwNlCbJyOtLgHQS6Pg05bNIYwyKHo088JPzqxD5EZ7fgRHdv06tYXznPFIdjP5qXc5kRCxslGkfj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfMPsMBQidtgIAFuGWr/PwQNzuBZcF11q7KuWOB1relJrXjkGR
+	gYS5/+/fu5ujHQoXWD7pTWYugEfc0e4BgzzkT0idp1cunWqQk9Y8CAKOVbA5J9hHu4idi4UWdzY
+	bulbtxwqwkUQmpid1bSnsvmvCqTht3PY=
+X-Gm-Gg: AR+sD11ZBBaEaA7VaGLzlZKKpBF9wLxDS5cJKFZbWdxSS0QDA6UsOCA+y7qPDBLIyVA
+	97EAIuPXHA3iHRAOSAcMbVjPxLWAOQx1cANQINwn0j8aquOkNyGOWnU33I7PENd+6r/mD0gA6RF
+	/Lcxg7wOoubRKOS9Xne7LwVOsEE8BCH2Oldcrk2LAqNDhPWeniFVoboI2kaQBZLrjtAmXjLNBF5
+	Z88e6JGpfB8Q40SSUlogF0Q66W3SOJWFObxk30VNVj21gUXPwj3NJOyidHOyXvwHjUyGATa2ae9
+	af1nZ911eeS/mpLb6wsy5ysQdz0sEhHsYfoRnnjKO4IWt84JgPn1Bo1A/8plcW5mtDkHXyCUc+l
+	RPZz4LWrdVmseCQ==
+X-Received: by 2002:a05:6808:220f:b0:496:2b3:ae71 with SMTP id
+ 5614622812f47-4ad5b9cb9dfmr3003896b6e.18.1785283732989; Tue, 28 Jul 2026
+ 17:08:52 -0700 (PDT)
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:144a:b0:495:28f0:7d with SMTP id
- 5614622812f47-4ad5bd567ebmr2574834b6e.33.1785283711326; Tue, 28 Jul 2026
- 17:08:31 -0700 (PDT)
-Date: Tue, 28 Jul 2026 17:08:31 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6a69447f.6bd615f2.c0aa.0002.GAE@google.com>
-Subject: [syzbot] [kernel?] WARNING in its_msi_teardown
-From: syzbot <syzbot+229d761b8a110e6de517@syzkaller.appspotmail.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, syzkaller-bugs@googlegroups.com, tglx@kernel.org
+References: <20260728091804.382753-1-wenst@chromium.org> <amiqKRkFItYwD6oL@redhat.com>
+ <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com>
+ <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com> <CAGb2v67VRhy_xzkdwUAYhzM_sWzoXyfZ3rYSHYLYaxuve9H17w@mail.gmail.com>
+ <a0ae9525-9288-4d13-a080-9cb3d965d536@collabora.com>
+In-Reply-To: <a0ae9525-9288-4d13-a080-9cb3d965d536@collabora.com>
+From: YoungJoon Lee <getfeus@gmail.com>
+Date: Wed, 29 Jul 2026 09:08:40 +0900
+X-Gm-Features: AUfX_mxJyiSm31bWY5a0snpvZu7asEtmvztGs1v4_zBGPb9VpXQsQKFqM4tmGnM
+Message-ID: <CA+m4KrAvATV9qMMN9h+tKcPdrHRp7-jFJ0-Jq3DeCZLi3Z6RsA@mail.gmail.com>
+Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: wens@kernel.org, Brian Masney <bmasney@redhat.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Alessio Belle <alessio.belle@imgtec.com>, Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_170833_899841_EE009372 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_170855_325654_2C3B0036 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,127 +128,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Chen-Yu,
 
-syzbot found the following issue on:
+Thank you for posting the v4 series.
 
-HEAD commit:    b66b0005b6ce Merge branches 'for-next/fixes' and 'for-next..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-kernelci
-console output: https://syzkaller.appspot.com/x/log.txt?x=15f7d746580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=72c97575381cec47
-dashboard link: https://syzkaller.appspot.com/bug?extid=229d761b8a110e6de517
-compiler:       Debian clang version 22.1.8 (++20260613092233+e80beda6e255-1~exp1~20260613092250.77), Debian LLD 22.1.8
-userspace arch: arm64
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1667e09e580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=17525fde580000
+I tested the complete v4 series on my MT8173 Chromebook, but I am
+seeing a GPU device loss as soon as Mesa initializes the Vulkan device.
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/63e3226301fe/disk-b66b0005.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/b268844cbd22/vmlinux-b66b0005.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/9440dfc93d1e/Image-b66b0005.gz.xz
+My current setup is:
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+229d761b8a110e6de517@syzkaller.appspotmail.com
+  Board: Google Elm / Acer Chromebook R13 (CB5-312T)
+  Kernel:
+    linux-next next-20260727
+    commit: 33d6e5134c70446eddafbb3fd5ad088e848a7ad6
+    (next-20260727-5-g33d6e5134c70)
 
- el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:121
- do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
- el0_svc+0x64/0x260 arch/arm64/kernel/entry-common.c:736
- el0t_64_sync_handler+0x48/0x148 arch/arm64/kernel/entry-common.c:755
- el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:594
-------------[ cut here ]------------
-WARNING: drivers/irqchip/irq-gic-v3-its.c:2251 at its_lpi_free drivers/irqchip/irq-gic-v3-its.c:2251 [inline], CPU#0: syz.0.18/4916
-WARNING: drivers/irqchip/irq-gic-v3-its.c:2251 at its_msi_teardown+0x3a4/0x424 drivers/irqchip/irq-gic-v3-its.c:3644, CPU#0: syz.0.18/4916
-Modules linked in:
-CPU: 0 UID: 0 PID: 4916 Comm: syz.0.18 Not tainted syzkaller #0 PREEMPT 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 07/02/2026
-pstate: 83400005 (Nzcv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-pc : its_lpi_free drivers/irqchip/irq-gic-v3-its.c:2251 [inline]
-pc : its_msi_teardown+0x3a4/0x424 drivers/irqchip/irq-gic-v3-its.c:3644
-lr : its_lpi_free drivers/irqchip/irq-gic-v3-its.c:2251 [inline]
-lr : its_msi_teardown+0x3a4/0x424 drivers/irqchip/irq-gic-v3-its.c:3644
-sp : ffff800098017560
-x29: ffff8000980175f0 x28: ffff0000cfc75930 x27: 1fffe00019f8eb26
-x26: 1fffe00019f8eb22 x25: ffff0000c13e1000 x24: dfff800000000000
-x23: ffff700013002eac x22: 00000000fffffff4 x21: ffff800098017580
-x20: ffff0000c1e07ce0 x19: ffff0000cfc75900 x18: 00000000ffffffff
-x17: 70202c31206c6176 x16: 0000000000000001 x15: 0000000000000000
-x14: 0000000000000000 x13: 0000000000000001 x12: 0000000000000000
-x11: 0000000000000000 x10: 0000000000000003 x9 : 0000000000000000
-x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
-x5 : 00000000ffffffff x4 : 0000000000000cc0 x3 : ffff800081ba1c7c
-x2 : 00000000fffffff4 x1 : ffff0000cfb10000 x0 : 0000000000000000
-Call trace:
- its_lpi_free drivers/irqchip/irq-gic-v3-its.c:2251 [inline] (P)
- its_msi_teardown+0x3a4/0x424 drivers/irqchip/irq-gic-v3-its.c:3644 (P)
- its_msi_teardown+0xa0/0xb8 drivers/irqchip/irq-gic-its-msi-parent.c:249
- msi_remove_device_irq_domain+0x16c/0x27c kernel/irq/msi.c:1127
- msi_device_data_release+0x38/0x9c kernel/irq/msi.c:293
- dr_node_release+0x4c/0x5c drivers/base/devres.c:122
- release_nodes+0xac/0x108 drivers/base/devres.c:546
- devres_release_all+0x138/0x1a4 drivers/base/devres.c:576
- device_unbind_cleanup+0x80/0x1c8 drivers/base/dd.c:597
- __device_release_driver drivers/base/dd.c:1354 [inline]
- device_release_driver_internal+0x19c/0x20c drivers/base/dd.c:1372
- device_release_driver+0x28/0x38 drivers/base/dd.c:1395
- pci_stop_dev drivers/pci/remove.c:27 [inline]
- pci_stop_bus_device+0x108/0x14c drivers/pci/remove.c:93
- pci_stop_and_remove_bus_device+0x84/0xd0 drivers/pci/remove.c:128
- pci_stop_and_remove_bus_device_locked+0x24/0x38 drivers/pci/remove.c:136
- remove_store+0xdc/0x148 drivers/pci/pci-sysfs.c:523
- dev_attr_store+0x6c/0x90 drivers/base/core.c:2505
- sysfs_kf_write+0xe0/0x108 fs/sysfs/file.c:145
- kernfs_fop_write_iter+0x260/0x3b8 fs/kernfs/file.c:345
- new_sync_write fs/read_write.c:595 [inline]
- vfs_write+0x51c/0xa0c fs/read_write.c:687
- ksys_write+0x12c/0x228 fs/read_write.c:739
- __do_sys_write fs/read_write.c:750 [inline]
- __se_sys_write fs/read_write.c:747 [inline]
- __arm64_sys_write+0x7c/0x90 fs/read_write.c:747
- __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
- invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
- el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:121
- do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
- el0_svc+0x64/0x260 arch/arm64/kernel/entry-common.c:736
- el0t_64_sync_handler+0x48/0x148 arch/arm64/kernel/entry-common.c:755
- el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:594
-irq event stamp: 1608
-hardirqs last  enabled at (1607): [<ffff8000868e3f4c>] irqentry_exit_to_kernel_mode_after_preempt include/linux/irq-entry-common.h:507 [inline]
-hardirqs last  enabled at (1607): [<ffff8000868e3f4c>] arm64_exit_to_kernel_mode+0x80/0x94 arch/arm64/kernel/entry-common.c:62
-hardirqs last disabled at (1608): [<ffff8000868dfe78>] el1_brk64+0x20/0x54 arch/arm64/kernel/entry-common.c:425
-softirqs last  enabled at (1528): [<ffff800084c10fac>] __alloc_skb+0x1c0/0x610 net/core/skbuff.c:698
-softirqs last disabled at (1526): [<ffff800084c10f94>] local_bh_disable include/linux/bottom_half.h:20 [inline]
-softirqs last disabled at (1526): [<ffff800084c10f94>] __alloc_skb+0x1a8/0x610 net/core/skbuff.c:697
----[ end trace 0000000000000000 ]---
-pci 0000:00:01.0: [1af4:1005] type 00 class 0x00ff00 conventional PCI endpoint
-pci 0000:00:01.0: BAR 0 [io  0x1000-0x101f]
-pci 0000:00:01.0: BAR 1 [mem 0x10110080-0x101100bf]
-pci 0000:00:01.0: BAR 1 [mem 0x10110080-0x101100bf]: assigned
-pci 0000:00:01.0: BAR 0 [io  0x1000-0x101f]: assigned
-virtio-pci 0000:00:01.0: virtio_pci: leaving for legacy driver
+  Kernel release: 7.2.0-rc5-next-20260727-stb-cbm-next-pvr-v4+
 
+  Mesa: 26.1.5
+  vulkan-powervr: 26.1.5
+  Firmware:
+    rogue_4.40.2.51_v1.fw
+    SHA256:
+    f44b7056992fb4057c987dcd7073468bec628aa56cb9815b1162f1cb7c1d73f2
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+All five patches applied cleanly. The PowerVR driver probes, loads the
+firmware, and creates the DRM render node successfully.
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+However, when I run the following from an SSH session without GDM or
+another graphical session running:
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+  PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 vulkaninfo --summary
 
-If you want syzbot to run the reproducer, reply with:
-#syz test: git://repo/address.git branch-or-commit-hash
-If you attach or paste a git patch, syzbot will apply it before testing.
+Mesa prints the expected GX6250 warnings:
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
+  Missing reset support for brn51764
+  Missing reset support for brn58839
+  Missing support for brn62269
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
+The command then hangs, and the kernel reports:
 
-If you want to undo deduplication, reply with:
-#syz undup
+  powervr 13000000.gpu: [drm] *ERROR* GPU device lost
+
+There are no additional timeout, MMU fault, firmware, clock, or runtime
+PM messages immediately before the device-lost message.
+
+I originally also observed the same failure when GDM started GNOME
+Shell, but reproducing it with vulkaninfo from a non-graphical SSH
+session indicates that this is not specific to Mutter or GNOME.
+
+Since your cover letter reports that vkmark and glmark2-es2-drm work
+with Mesa 26.1.5, I suspect that there may be a difference in the
+kernel configuration or another part of the test environment.
+
+Could you please share the following details from your working setup?
+
+  1. The exact Chromebook board/model used for testing
+  2. The exact kernel base commit
+  3. The kernel configuration, or at least the relevant DRM, PM,
+     generic power-domain, IOMMU, and MediaTek clock options
+  4. Whether CONFIG_DRM_POWERVR was built-in or built as a module
+  5. The firmware SHA256
+  6. The kernel command line and bootloader used
+  7. Whether `vulkaninfo --summary` also completes successfully
+
+My current relevant configuration includes:
+
+CONFIG_PM_SLEEP=3Dy
+CONFIG_PM=3Dy
+CONFIG_PM_GENERIC_DOMAINS=3Dy
+CONFIG_MODULES=3Dy
+CONFIG_DMA_SHARED_BUFFER=3Dy
+CONFIG_DRM_POWERVR=3Dm
+CONFIG_DRM_MEDIATEK=3Dy
+CONFIG_SYNC_FILE=3Dy
+CONFIG_COMMON_CLK_MT8173_MFGTOP=3Dy
+CONFIG_IOMMU_SUPPORT=3Dy
+CONFIG_ARM_SMMU=3Dy
+CONFIG_MTK_IOMMU=3Dy
+
+I would be happy to test additional patches or provide any further
+logs, kernel configuration, or debugging information if that would
+help.
+
+Thanks,
+YoungJoon Lee
+
+2026=E5=B9=B47=E6=9C=8829=E6=97=A5(=E6=B0=B4) 0:28 AngeloGioacchino Del Reg=
+no
+<angelogioacchino.delregno@collabora.com>:
+>
+> On 7/28/26 16:44, Chen-Yu Tsai wrote:
+> > On Tue, Jul 28, 2026 at 10:33=E2=80=AFPM AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com> wrote:
+> >>
+> >> On 7/28/26 15:13, Chen-Yu Tsai wrote:
+> >>> On Tue, Jul 28, 2026 at 9:10=E2=80=AFPM Brian Masney <bmasney@redhat.=
+com> wrote:
+> >>>>
+> >>>> Hi Chen-Yu,
+> >>>>
+> >>>> On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wrote:
+> >>>>> Hi everyone,
+> >>>>>
+> >>>>> This is v4 of my MT8173 PowerVR GPU support series.
+> >>>>>
+> >>>>> This time around Mesa was ready for basic testing, using both vulka=
+nmark
+> >>>>> and glmark2-es2-drm (with Zink). Details below.
+> >>>>>
+> >>>>> Changes since v3 (all in the clk driver patch):
+> >>>>> - Changed pm_runtime_put() to pm_runtime_put_sync()
+> >>>>> - Added missing of_node_put() in remove function
+> >>>>>
+> >>>>> Changes since v2 (all in the clk driver patch):
+> >>>>> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
+> >>>>>     - Needed since the driver implements PM domains using the gener=
+ic PM
+> >>>>>       domain library, which also depends on PM
+> >>>>>     - Fixes build breakage (kernel test robot)
+> >>>>> - Fixed "RST_DELAY_CNT" name (Brian)
+> >>>>> - Dropped unused mfg_desc (Brian)
+> >>>>> - Added check of clk_prepare_enable()'s return value in
+> >>>>>     clk_mt8173_mfgtop_power_on() (Brian)
+> >>>>> - Saved error value for return in IS_ERR(data->clk_26m) branch
+> >>>>>     (Dan Carpenter / kernel test robot w/ smatch)
+> >>>>>
+> >>>>> Changes since v1:
+> >>>>> - Adapted to changed DT bindings
+> >>>>> - Dropped driver change
+> >>>>> - Use same power domain for "a" and "b" GPU power domains
+> >>>>>
+> >>>>>
+> >>>>> This series enables the PowerVR GPU found in the MT8173 SoC, found =
+in
+> >>>>> some Chromebooks.
+> >>>>
+> >>>> I'm making a pull for Stephen for the clk changes. Should patches 1,=
+2,4
+> >>>> go through the clk tree? Patches 3,5 go through the DRM tree?
+> >>>
+> >>> Only patches 1 and 2 should go through the clock tree.
+> >>>
+> >>> Patch 3, 4, 5 can all go through the soc tree if Angelo wants to pick=
+ up
+> >>> DT binding patches. Otherwise I can push patch 3 through drm-misc.
+> >>>
+> >>
+> >> Not sure if I can really take the DRM bindings patch through soc.
+> >>
+> >> I will take the devicetree ones exactly right now, even though it's go=
+ing to
+> >> give warnings.
+> >>
+> >> I trust that you'll make the binding get into linux-next before it's t=
+oo late.
+> >
+> > Rob beat me to it. :D
+>
+> Love it!
+>
+> Thanks Rob :-D
+>
+> Cheers,
+> Angelo
 
