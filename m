@@ -4,57 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2960C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E414C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PpUrkAYPFOVA1pV5Hqor5M/8KfkA4Zbov6foGmLt584=; b=pDdDM2CaXmzPVenI5l9ab7FvGo
-	9VYmQzSSZsTRZGSKaIWnKjAzb9CGyruIdknVqGhLm3TyXFmXBn+oyiFaTH8+WQA8E0ySD7wpf1OqV
-	7bWvlkQGoFQSaOX1rjaywjeO2nCPmetv3LvKo0kIG94Z5Y6n7n8EFyQf7T/wcxbfYM80EQYotnHSi
-	pOiCe0q1SaWA2X6ucoe5zXJ6FHBfyFJURlaxOKWQqOqqDc8t26wshbzE4nrwLe7zzZTcyfDwmxp/w
-	UV/Rx9fpTfgGrUvZDEmRUbk7hGRoZZmnCOO0bJ2V6UzsKTOsRBo8Zi+fUIIyiyBlfz23205nvTSqF
-	wGjfy9xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r9lmLVYjr93Girs1odAHEeMDnIJQvCQg1I6d0OHkOeA=; b=2nHKZ+O13jrFsm8FF9UXCDdW8u
+	lsbnwUW1BiAkgwNKKAuaFYCVl4mDh4bl12u2nU5noeATSQ6NJCE4O16R8Va6YHgg9aFSfI1uMl0eP
+	gQAqPPcm72c3TpjW763lDsSfmyywrb4ldkJxmaLJHRb6Wi+bRy+JgcfethDGrW5kfvlj/Tar133p/
+	iC1Wi3nj1WOs6MKamWo/KMEoXf3QzkkpviFIJuddsDHreqX/Wz0/WGOJI9Ejsx4+rz9Y9GZg2Ojmd
+	YfrSJy3GDFaMf0Nsi4RLg5g7t3AjJtarXGi4LV0y6MJnYjkz4UJTxx1I8gg9OYzKZFCTiFdY1/nJk
+	Mz+i51tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Bm-00000008iQP-1QR6;
-	Wed, 29 Jul 2026 17:35:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wp8Cy-00000008iZD-2mHN;
+	Wed, 29 Jul 2026 17:36:44 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Bk-00000008iPm-0RfF;
-	Wed, 29 Jul 2026 17:35:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=PpUrkAYPFOVA1pV5Hqor5M/8KfkA4Zbov6foGmLt584=; b=0VN8FIB2IsiVhWK2p21wuwWWqr
-	1s2Yll/671IrZG4xK0SXvE8kKTBU/U/Fv3UrEqxR74QvYcjemQlGi/1E4a3TWcqmJB6/mM1qaXzcc
-	zZv56SvcjWWgUwXh6KwjztEA3TQhdXMY1vpwbcbOCZ5PEoGjIlwcUvw75Ympun009ppy+aIa7jy5G
-	EfbfxdsNwAyZk9gGi1qvURU0dDfByTiKUvzoZsTVnA2Y6yJ5KI+WF9rFV6gdh7Nl+BDJ2WbLSY4aE
-	xGDRT3R1XlGB0an+5X0wZGPVG0tPftDJHEVSLGxjb+r8mus24Ii9963sc/AzkjILveFkNybI5kacS
-	g+NuHZSg==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
-Date: Wed, 29 Jul 2026 19:35:22 +0200
-Message-ID: <12148936.RiKt1P0BV1@diego>
-In-Reply-To: <CABjd4Yy7kzPFxSakaGqY18hyJCfQf5neCoHBdm4DueFrfnda0A@mail.gmail.com>
-References: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
- <29759328.czjnFlTdjD@diego>
- <CABjd4Yy7kzPFxSakaGqY18hyJCfQf5neCoHBdm4DueFrfnda0A@mail.gmail.com>
+	id 1wp8Cw-00000008iYP-2i2Z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jul 2026 17:36:43 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2caea3f742bso16110865ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 10:36:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785346601; x=1785951401; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=r9lmLVYjr93Girs1odAHEeMDnIJQvCQg1I6d0OHkOeA=;
+        b=ThspChvjEWTerxF4v+u36gVNAlUck5mMrPZvSjzCM6oHm7KQur9OUlPnf+aMey/WCg
+         e9GibLFOHtEcXsh45fR7uQ8FfAy1Y2S2OB67igFhvuC8WxiwlCSsh4FIMZo03qFKlU/u
+         7FR3d5CTi60YvrR+6OYMLel1wJXZ0iak9cKsEx5KMrm8nT4DhUprtYOr+m04jNQ6xWKh
+         5Ya5aehR/pUnIt0aIdZv+n/q+e9VlD3X/62Pfe2ePZbbuoZvjOAL3qFz1LZa1dkTybnA
+         KNTTxV7VeIyJ4KAwNm5I/Rk4D7cRL+z1ZvUuZUc+pOePZYnTqDju3y/1EGOZGrYDWWHd
+         mfTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785346601; x=1785951401;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r9lmLVYjr93Girs1odAHEeMDnIJQvCQg1I6d0OHkOeA=;
+        b=obBiETYcyFJku8Vi52joDWxwKZB3OT21LYo117HFFV/VfKiSwHmkDBRkqWojE6q8UM
+         ipkpuJwfH7351kVPM0a1E1f0G4LO6sc450sJGfP1JUnZ5ks0PiIjmTSvQ2HpXAUG4S0Y
+         5xtTNM93vsfMIHUu5Vyd9d5Ebq/plp18jSKNZ7+X+465RtUVnL6lLEe0xal+hyrw47VX
+         +T992pSSBnRZm2twZcjp/BGV4+syvVxdHRu/kdYCYn1AtV9VlEVX86UkZlk2dkt4+Apc
+         v28agDfNjosBusP9mHZAGcqNVJZGGE8KXuAtXIFdjUnY5sqGT4xEFUZ3KPecXnfwgfER
+         mW/Q==
+X-Forwarded-Encrypted: i=1; AHgh+RrWCAdS3oV7tpFU2YS6D/Yxcl9yMnrqJQOWCEUp8FtIlOcRClCgwk1jmuZz+ZUl24n2JW8RwaKMMTR1rHE6SDVP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUvJoQNE4bW0nRgkxZBB0vtBxoyZRokIou886Hr+EP/hTeicGB
+	bzXD3nM48e2AYMAVsEnok3ee+LEPDh2SOgSZh/hwN3GcC/lfA/RZQqF8
+X-Gm-Gg: AR+sD11YaJAnscFevQsApazupiKjmg3SNYUFHiujMHmBxjtnAeVAKbeI3W2xbxs42E1
+	w+Npv/U4gePYQ054RoofTk8WUv0Rg8FSOhAc2zmn4WDEVnNbJf61a2AD541cc+8UDAPHz5cmlgq
+	ONL+Yd89elOFSUh7T0l6mUQ3s7E3Gkomvk0hT+j/QUz0uo6Eec+oew7A2x+ttFet7kNDLdnxJOv
+	ghHVgy/kiEA6ZtpkX3lu1QRsdDOeDGnquVMONXe0xp0VUVl+4pLvAixpQTulRQy4vSEclsHXJTS
+	OJxPdJ0weH0jdgbPTuNnrZ/wGmR1Y1ZiW4xPTc38U9qZPBPIsJDAUZ07QE11b2tlrHJIGiEcfYF
+	EktHZ/ldQDQsd/UnPaTrOrrRBgNM0lkyUeoxywlbCqysQP2VmwPAnO6HV7AEmdfm2i6FmJkhW8V
+	98flFEBH/rnlIy/2JIouyk7VJ4G6h22sLYmowbcH6cIIv7iZkGLOP6aO2jhxB6/UR4Y41VQltY/
+	lahK4Lb2tr9eO5WS75+r1xwA/ajdIbBkwiYOg==
+X-Received: by 2002:a17:902:f54f:b0:2ca:f40a:be76 with SMTP id d9443c01a7336-2d015d94cb0mr78650655ad.36.1785346601182;
+        Wed, 29 Jul 2026 10:36:41 -0700 (PDT)
+Received: from KRHW1CJW23.bytedance.net ([120.234.91.241])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022bf39cdsm14806045ad.55.2026.07.29.10.36.35
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 29 Jul 2026 10:36:40 -0700 (PDT)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>
+Cc: Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rex Lu <rex.lu@mediatek.com>,
+	Peter Chiu <chui-hao.chiu@mediatek.com>,
+	Chad Monroe <chad@monroe.io>,
+	Howard Hsu <howard-yh.hsu@mediatek.com>,
+	StanleyYP Wang <StanleyYP.Wang@mediatek.com>,
+	MeiChia Chiu <meichia.chiu@mediatek.com>,
+	Bo Jiao <Bo.Jiao@mediatek.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 0/2] wifi: mt76: unlink TWT flows when MCU ADD fails
+Date: Thu, 30 Jul 2026 01:36:30 +0800
+Message-ID: <20260729173632.14387-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_103528_174510_2572F73D 
-X-CRM114-Status: GOOD (  42.50  )
+X-CRM114-CacheID: sfid-20260729_103642_688886_25749F52 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,127 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 29. Juli 2026, 18:32:08 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Alexey Charkov:
-> On Wed, Jul 29, 2026 at 6:46=E2=80=AFPM Heiko St=C3=BCbner <heiko@sntech.=
-de> wrote:
-> >
-> > Am Montag, 20. Oktober 2025, 14:31:12 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Heiko Stuebner:
-> > > Am Montag, 20. Oktober 2025, 10:50:58 Mitteleurop=C3=A4ische Sommerze=
-it schrieb Alexey Charkov:
-> > > >
-> > > > On Mon, Oct 20, 2025 at 12:31=E2=80=AFPM Heiko Stuebner <heiko@snte=
-ch.de> wrote:
-> > > > >
-> > > > > Am Montag, 20. Oktober 2025, 10:19:51 Mitteleurop=C3=A4ische Somm=
-erzeit schrieb Alexey Charkov:
-> > > > > > On Thu, Sep 25, 2025 at 12:38=E2=80=AFAM Alexey Charkov <alchar=
-k@gmail.com> wrote:
-> > > > > > >
-> > > > > > > Add support for the Rockchip W552793DBA-V10 LCD+touchscreen a=
-ssembly which
-> > > > > > > comes physically attached to Rockchip RK3576 EVB1 boards.
-> > > > > > >
-> > > > > > > The display part is driven by the on-chip MIPI DSI controller=
-, and the
-> > > > > > > touchscreen is connected over I2C.
-> > > > > > >
-> > > > > > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > > > > > > ---
-> > > > > > > Note that backlight support is left out for now, as it depend=
-s on PWM
-> > > > > > > support [0] which has not yet been merged.
-> > > > > > >
-> > > > > > > A workaround is simply `gpioset -c 0 13=3D1` to set the respe=
-ctive GPIO
-> > > > > > > pin high and thus to light up the display unconditionally.
-> > > > > > >
-> > > > > > > [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a64=
-34b0ce60c@collabora.com/
-> > > > > > > ---
-> > > > > > >  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++=
-++++++++++++++++++
-> > > > > > >  1 file changed, 89 insertions(+)
-> > > > > >
-> > > > > > Hi Heiko,
-> > > > > >
-> > > > > > Any thoughts about this one? Can we perhaps get it merged for -=
-next?
-> > > > >
-> > > > > Does the gpio-backlight work on that device?
-> > > > > That would make the gpioset hack unnecessary.
-> > > >
-> > > > I've got a local patch using pwm-gpio and pwm-backlight as a stop-g=
-ap
-> > > > solution, but I don't think it's worth merging upstream, because the
-> > > > backlight is supposed to be driven by the hardware PWM on the same =
-pin
-> > > > (not bit-banging the GPIO line). After all, Nicolas has been workin=
-g on
-> > > > adding a proper hardware PWM driver for RK3576.
-> > > >
-> > > > The display itself works without PWM support, and so does the touch=
-screen.
-> > >
-> > > Right now, I don't think we have an actual timeline if/when Nicolas w=
-ill
-> > > be able to work on the pwm again. So my idea was if we want to
-> > > integrate the baclight as you described below, to have an actual usab=
-le
-> > > display and then when the new pwm has landed switch over to that one?
-> >
-> > With the ELCE around the corner we're nearing the year-mark here ;-)
-> > (And I'm surprised, I remembered this pending patch)
->=20
-> I've been hoping that Nicolas' PWM series gets further along in the meant=
-ime :)
->=20
-> > So how about integrating your gpio-pwm backlight for the time being?
->=20
-> Could do that, but I'm worried if it would immediately become set in
-> stone because DT is ABI, making it hard to switch to a "proper"
-> hardware-driven PWM once Nicolas' series lands.
+mt7915 and mt7996 link a TWT flow into the device list before asking the
+MCU to add the agreement. If that request fails, the accounting masks
+remain clear but the embedded flow node stays linked.
 
-The backlight subsystem is using dev_name() to name the sysfs node.
-So if you keep the node name to "backlight", the backlight device stays the
-same.
+A retry can corrupt the list by reinitializing the same linked node. If
+the station is removed instead, the mask-gated teardown skips the flow,
+leaving a dangling node for later scheduling and debugfs walks. The two
+patches restore the list to its pre-request state on the MCU ADD failure
+path, split per driver because their Fixes targets differ.
 
-I guess the question is if you also consider the brightness levels as
-unchangeable, though I would assume any sane system should just read
-max_brightness and adjust accordingly.
+MCU DELETE failures are deliberately outside this series. Deciding
+whether to drop host bookkeeping while firmware may retain an agreement
+requires separate ownership and accounting treatment.
 
-Also this is an eval-board ... so you won't have any actual real-world
-users :-) .
+Zhao Li (2):
+  wifi: mt76: mt7915: unlink TWT flow on MCU add failure
+  wifi: mt76: mt7996: unlink TWT flow on MCU add failure
 
-So, personally I don't see the big hickup here, but we'll do what you
-think best.
+ drivers/net/wireless/mediatek/mt76/mt7915/mac.c | 4 +++-
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 4 +++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
 
-Heiko
-
-> > Or alternatively just going with a gpio-backlight, like the Anbernic Vi=
-ta did:
-> >
-> >         /*
-> >          * LEDs and Backlights can be controlled as a PWM, but PWM
-> >          * support is not yet available.
-> >          */
-> >         gpio_backlight: backlight {
-> >                 compatible =3D "gpio-backlight";
-> >                 gpios =3D <&gpio2 RK_PC4 GPIO_ACTIVE_HIGH>;
-> >                 pinctrl-0 =3D <&led_backlight_h>;
-> >                 pinctrl-names =3D "default";
-> >         };
->=20
-> In the case of RK3576 EVB1 enabling it at full power is eye-burning
-> bright, so some sort of PWM is definitely warranted.
->=20
-> Best regards,
-> Alexey
->=20
-
-
-
-
+base-commit: 57aa1718d5953dd532137d43b696c68545c2e0b3
+-- 
+2.50.1 (Apple Git-155)
 
