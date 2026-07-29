@@ -4,113 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1CAC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B8EC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEkdeq10zZmR1kctz1fIkkTbV43ha873suiUEwLT1nI=; b=EfUc+DJEYPR40ep50S2p2PI7nG
-	3od/w9W8FIZtIDTVM1LCXfWGxWlnTw1O4y+jC1W5xcUYHRS3N9mtq1M+ogpvtBaTFpYYBWNaMa+FC
-	82c+kkewqpknuioOkhlDyifLUxgEpxBLYb3GyJbfCRM5Tpp4OPJ9O/Cw8Cqp+fkUKTvsTecTLbzTb
-	fM4+MCQ8uY89Tm9hPbzRtsaIvdPvM+ZHbZ7GaoA8/qlgeQGhY9aL9nDd3fNc1W2dWi82UWyIEl2h5
-	pIfBVsDVIHjttUnrAS3ZKh/7MZqz8ObNgC6i5qDtqS0IEvuhKxM6ob4jhWxU/kK3/A3+S8Gl7DtpV
-	ke2mr7yA==;
+	bh=IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=; b=jq1jY5M0O3XBKbnEqzjQoPprk2
+	eGyZH5XgQ+b8gKl7kzKsQv+mwuEGLozORuw0swy7OwgbUQFYavDR2JMAOk4euAyJlH1ToumS7rLUQ
+	MJpWN86lw47LY1Rj/6WlfIKgw4IU2opAPx2N0YIF3wqUb4E6DBnqOLIVRF0NrAeTBWoxpT0QFoRl1
+	H9W+jCV/9naiT59ytTwy7SVaTojnDA7hEMsv+KyYLTpA+WygHzm7wEMf0f4vpNe6rvfC0KA3/uCbl
+	eCpW2Y4lwCEwF9sofkdMsRB0KUw2n5/YPrEmSsLc19RFmuSTZ8eqWkPLZNDClDRfOJnw+5FnNfXEB
+	NAQzbHwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp971-00000008ooA-0C8r;
-	Wed, 29 Jul 2026 18:34:39 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wp9Ao-00000008pW1-2vDc;
+	Wed, 29 Jul 2026 18:38:34 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp96v-00000008om2-0xmp
+	id 1wp9Am-00000008pVB-3GIm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 18:34:37 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6a051b737d8so1284052a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 11:34:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785350071; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cSCEIMFsAxLhaxUXtMxCN/862DPjE72KhQz7HwKUS1sVwlCIr4urLlColNUW2PCDZI
-         623rA1l0kb1O4Ok26L5SAA0bl+KrDhe+GPGTCKpuG65KP6nGo4Y8z2HcspzmiaiZSZHg
-         XRVqpqCAeopcf5oJYgGV4pq1dryE+K7N5AZ7mYnzpyyW4xTElB4pqcuEnQF2CpQ5Sr44
-         IgGuLmDl/B1MYOSU+8QWVeDaLDZ81/4zQO7oQszwOXg2WURrYczxpfNk7yywpLe0dGLb
-         RZcFwly1Gbrq13934Pob8aYe+RIVzr4djuV25x+Uzn5uONhjwNprMR49IFJnsFFbe3kw
-         ++/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=dEkdeq10zZmR1kctz1fIkkTbV43ha873suiUEwLT1nI=;
-        fh=nnQKaEmPlIRc5nHjLnkeLt42BOIVracmr7CFdpUsgW0=;
-        b=W6HihIUPSr9y3XmvZJz0GJBsjr1HNYFy6C5XYiFynMyL68gb9pWHQlq/qzusJFZXSl
-         BWvnUftLvPy9gtdGt4MVVTg3p61EcUM5cweOQMT4fRyTUWFLg/I0aH4QD+JZrBLeg9Hm
-         jR86kWC+FvXoRmvSae8Z8cmkEeSZK1uNKoQCeL/IK3wVa2wMFmLMwFzOCtjVod/CJ8rK
-         +OdZ8U8LV92RBLHcA6X+NdCSbakiAGmtUwObZJx6QXdcOtbFqQMacimsxhcfGQxLQ3FV
-         DasfRuxEyYzDp+heimHl4Foix8NznOBA+A6WXdEIzkQl0Nrhh1+xsy+iANd2jteveoc0
-         4+sw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 29 Jul 2026 18:38:34 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66TIR6S92793972
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 18:38:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=; b=IUdFm++d4NUmQswu
+	39S7YtjshS+upAZ8BGHmVcIt9JmaSvqcltUOuPSJ/8VnTeMad1ELdRxv30H6IWq2
+	agbehCo+HidY7wqwbMVSkooTVdFSO2zVrO7akVmHyY02Q1lM5wQirR0Tugs5HHp1
+	O7hTQ7zHtB6QKOQefZonxsL8w5V4XAwCCHDIfcW56j2eG1oCGDgiNpIj5IxBi33D
+	W0wKANkZm0CGPJrxe5Nk+88mL7RRNOqq4fhGWQQbJ/IttypCZf56twIqzYy6TcjB
+	vfZsFS1vy74z/t6//WOY77yytC3T/Ok0yXsIA+Cbr0SrPyKTu5vBREDBf+V68kIz
+	Pc32QQ==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fqgrcj3q3-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 18:38:31 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cb835525b13so1608831a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 11:38:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785350071; x=1785954871; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=dEkdeq10zZmR1kctz1fIkkTbV43ha873suiUEwLT1nI=;
-        b=q9xyd76YWimo8N3cNois6PlZKiwPKInWUDiiQ2WIzmD8xRacPnu12ylbz4iN8UM28i
-         ESx3OR/+5xy3XITgsYTRnLGjiI96BWFOWgtpcTluz3NrVXmj5F0iJxNWE1pkEILFlyQ4
-         ZUnJNzwbTux28JOozrdafXdPXn+D2+a5tXKUe9VCBSIDo3ggz+McvggndMwS9aYWHLMx
-         AeUqhBoMCTDuWmfsUPN0Tu2Sq+EGa1ANJAepYMcbNo0z2GiqrNE5wNHs5dEJ8da9XbbR
-         u26GwqwZNV7z+0EBrBrBRVxe1DcGNg+A8s4iOKCHHAEeJqSz4BAFBtEfavtsL3yMQz4A
-         HKjQ==
+        d=oss.qualcomm.com; s=google; t=1785350310; x=1785955110; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=;
+        b=g+8I/htCcfdmnF/7Gx8s17WcZhMZkW38LMk1LqwBRAY8yr9fyhCvQ3F0J2IOOGg8Vy
+         2LIZ9JE25IM6q61TDLovl21jz1bRRY9/Rx0AYfFweDuxq2iHXTq+j06lB97BmjAzCIEi
+         wOqyXvefpzm37yv73Jom53IzbRSNbzhgb2R1kJw8jg/yEaSfQhQye2qkVgUWZwDeVPnj
+         qFuEuHWXJf8oiZwxc8Y7CuECPPpi4dHOgZzp/vWtd3X5oRxxY7w1cW1rVe8eIFJh1vpQ
+         qHz7rNpZXPNMWQpAUsiMtRlVaFdn5k0q4mc9q1p5NmFaXZGH9LAg1I19ivQPVDvLc7n0
+         xk3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785350071; x=1785954871;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1785350310; x=1785955110;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=dEkdeq10zZmR1kctz1fIkkTbV43ha873suiUEwLT1nI=;
-        b=V6qO+6dcjFOIn9QW42Y/HtW37M6l0qAZ/TayMV8ZT4L8ghswrZWjwmwod3voOoe6HP
-         FzwvfwYgva6V0+sAUj4hrm6Rz/cmJN5ESDMbDrs/dVTFasm1CLFUzlp0u76q+30e23Ku
-         33J9fdeG4yMgXmF7dKgaR+TjNf2H8h78zoQAxc6MY4WKoti30QLXYh6fAGBwJ1ij7pL1
-         WnH/we5pyOM2eT3l3dmJk4LI0RiWedLSmhi94LcQzS9VA9tniLEdu66TEsWQ6aWuAIXw
-         fkEZWH7Y+PxtWypv78BTtBOSDvkLCadxhJfk2k4cKo3NTjfPGkpUjXUJcnyRXCK0rwYj
-         nAkQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rqr51Ni+84RoRMXm5CUihSJSF92Cwo8WYFmNjrZfgVcbMRvCU1YegVgukEuXrOu/TGo8Zul+rFZ5hk4rCunhSyE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzo3EIey4H9KG/OxFBErqvXAy3AN9d/qvfyufoEAkCDOMCSevls
-	tuCH3aZ/fOmux5r1wvgsoxBxf5fxbkxdfTNL6meHYfTBR647v0JVM/Ki0L6teZ7z0I7ukQwqjlt
-	DI8rt8qFdwyOfGiZkr/CzdeF9+A97CFk=
-X-Gm-Gg: AR+sD11/HsnrV7QqdV5/tsSeVMIbyW2HI7H8xRZrYM/WPSwTRuIq/ukLZNgGxLUiQEP
-	gKL1IPm1GcA/SJs9jnG0y1F31GYmyNPoJE+UGqAvD4/N1H80eRlE89wxsjg84Hs6UHOHt5q7smX
-	+kf8reZh4luGg33e6JuVdo5MB37MpLYshAd5w0cHpM8cngKdBhvM7IxIbx+N6bxNCIAFWrCHUmX
-	qlNRSwzvPQe1k+BT1IrmJ47VATICPVtAZSRDqyiJ04zUQT9yvAWprbndSTikW6IYQPyp7w5oHtW
-	5muabx+9k0FCxfr1Fxl2bfYYDq/LdjreH/dvh3dCrdykMT78qlSTyXTOi4tz1Jsr6I5LzUtYQXf
-	B7kt+sjkMz0JXqsTqb5imeM4k4J9D+qrUMjj/wc6EnFIWZNmedniYgbjn1OFkUf90lrIVREeQFW
-	eabf1/IzLD0H7vqEDJ0DIRNGOlklaXrxVvzAaJtzeRBGcbMrQvfnr2NTw=
-X-Received: by 2002:a05:6402:2345:b0:698:50ea:2d97 with SMTP id
- 4fb4d7f45d1cf-6a034ab91cfmr4406703a12.20.1785350070955; Wed, 29 Jul 2026
- 11:34:30 -0700 (PDT)
+        bh=IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=;
+        b=GdRRv3VwFWDmEIGH+MuHaru4fhrb+EdCtFITYOkVUXmkFkv/2oeiodMAIT2OanPQGM
+         6pXYS7rFCc+CKdS/0xKfUfz2TxXtfZXXdDhqIxNWl+PvGnihAjV0RpJEQLHmt7teSsmb
+         +O7BrIRrJOEeed0GzUY3rIe6zagJoG/Bt6auO5vw1CO1b6x5kxCPXB5jQJPm+3biNofK
+         18RPLjBrJNjGELa/QPPHMegYmJufLIQp/zA1qzy+/tc5mLaMtCqFuwFZDoMqDRvnMvIc
+         qeoZqi79MdVtflfU1Z+JaT+PcldG67JiygG4Hwle/E0q9iyOYlNGTp1H4yi/ieUukr48
+         fntQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqMj+FKNS9foicdld8x22/wxR34kasldNGdR494nHozFkiTkBavgV3vdNZr2diEhXOpfgoST7ePPwV/QedYN+zP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmZRUJjQRNQQ5ATcyq+3MlYzhDBvLv70GjcxT1qAhSUg/j2SM1
+	nlUTIBctpk2RqEl5Ep+Pqxu2J/RDRbiTgwJ7a/d4EM4GUkdbt1aRPdT6SbJaM9qGi89zRMNoRFG
+	fum1EFq1R8YN3TgQ2SYc7ge7428TpVAihQbYy5hyZPbYZVlwPOYBDP6ShF3WHOHVZGk2OkvNwNq
+	CJ7A==
+X-Gm-Gg: AR+sD10QbsHqX/w6C4gPoapoPf+4tf8gw/3vZGmbvuP6BxBOQgRxegaGBY20Tu4Db6y
+	0LZ5HVuWD40EDHMsUfh9/+KVAIxQDKXqFaX5Z6iqK40kQJ10azR2V2rOQvLnygyfH30eL9kCXE0
+	jutiezZ2mNAf7Zns0s5AayRq0j1xnw+GqtGXPz8v9VJVbl7vyB/iS2AN5i9nwxiwC3QigBlqVix
+	nRhgfN1fzdG4tRhyFjalJbsx3r8vUM0EWQcMJwvss63osczaNLFcT1J6WHwCKILp0yVO/NqJeRc
+	wQemw5WqJD1dUvqHAL/cv+ETdGJimv8WDp1lWFlXxz2MUzJ+mlVoEn2d1lhVIHY5qY2zvX5AtaE
+	RUIvK3cxcUa5ST+J/oxs8xmyW4A==
+X-Received: by 2002:a05:6a21:1f83:b0:3c4:3454:38a1 with SMTP id adf61e73a8af0-3c8ba5f7878mr8739583637.58.1785350310532;
+        Wed, 29 Jul 2026 11:38:30 -0700 (PDT)
+X-Received: by 2002:a05:6a21:1f83:b0:3c4:3454:38a1 with SMTP id adf61e73a8af0-3c8ba5f7878mr8739565637.58.1785350310099;
+        Wed, 29 Jul 2026 11:38:30 -0700 (PDT)
+Received: from localhost ([50.35.46.84])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504d3250asm11010600eec.20.2026.07.29.11.38.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2026 11:38:29 -0700 (PDT)
+Date: Wed, 29 Jul 2026 11:38:12 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Yushan Wang <wangyushan12@huawei.com>, will@kernel.org,
+        mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, u.kleine-koenig@baylibre.com,
+        linuxarm@huawei.com, liuyonglong@huawei.com, prime.zeng@hisilicon.com,
+        wangzhou1@hisilicon.com, wuyifan50@huawei.com
+Subject: Re: [PATCH 1/3] drivers/perf: hisi: Consolidate uncore PMU cpuhp
+ states
+Message-ID: <20260729113812.000006fc@oss.qualcomm.com>
+In-Reply-To: <18bd7977-c0d2-47c0-aaa4-a787ef935597@arm.com>
+References: <20260724025238.3411328-1-wangyushan12@huawei.com>
+	<20260724025238.3411328-2-wangyushan12@huawei.com>
+	<18bd7977-c0d2-47c0-aaa4-a787ef935597@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20260728212438.54078-1-rosenp@gmail.com> <20260728212438.54078-3-rosenp@gmail.com>
- <CAGXv+5EVSc4=ug=GU6Gvdu0UatqM1DD48i-c3AEb4p0GwktRvg@mail.gmail.com>
-In-Reply-To: <CAGXv+5EVSc4=ug=GU6Gvdu0UatqM1DD48i-c3AEb4p0GwktRvg@mail.gmail.com>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Wed, 29 Jul 2026 11:34:17 -0700
-X-Gm-Features: AUfX_mxHHY_oKlFmxwUp_dDYkgE3HyOB09yEzi4_yjeUnpEenThghULANdcA5Us
-Message-ID: <CAKxU2N8VeE+xPGZ-41nqDCtk_LA_PvgzjrUbnOZ-5JmEb-uKHg@mail.gmail.com>
-Subject: Re: [PATCHv2 2/2] Input: mtk-pmic-keys: Count available keys during
- probe instead of pre-counting
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-input@vger.kernel.org, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: kNrkUJroRjmf2tTiX3E1gtGB0dsgsyWG
+X-Authority-Analysis: v=2.4 cv=Id+3n2qa c=1 sm=1 tr=0 ts=6a6a48a7 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=7CQSdrXTAAAA:8 a=i0EeH86SAAAA:8 a=EUspDBNiAAAA:8 a=YgQoG-XJdNmCr4bRT3EA:9
+ a=CjuIK1q_8ugA:10 a=x9snwWr2DeNwDh03kgHS:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: kNrkUJroRjmf2tTiX3E1gtGB0dsgsyWG
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI5MDE0MyBTYWx0ZWRfX2X3XuWU4UbkL
+ cPCzuCZRjdDEVrHDEfwgrrsWI6ODK7aGwzdVBDeTrQ7keIVlx3QKozIUUTXOpUhNMwmvUpnnhME
+ +ouGUm2niYQANFtqaOCzRgZObdbIjvI=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI5MDE0MyBTYWx0ZWRfX8Yi2KWGrylAY
+ BgZLrvrQRz/SESwXUFRm3kYYvFcy5s9D6DvC1Z3TJrWQ8CRf9vcz+8fGPZQpwJqBrlQnZE+XQl/
+ GV8JtB6+KhfYodpDRwoLVSo149/ihaVlGZEmXNJ0IV8fV3MB7zlfcaFjvI6luxEtTJnynaXB2mR
+ PN+mYR8CZ4ls+bbapa1OYSRdHK1WzJIDTgqlc761yIz29Qt//FP0nIejT2gP1p/tF5cAy4Ie18o
+ f928T9eqIFIDS1vo8jE9EKeFcBSHyJVyp7MNp3f39bFiSkXG9AuTtTKpKxMw76MXIl+uC+YoO+N
+ Q9GOJCgGTGR6oHu7YzCtmrY5a+UKq8iUnlvSOEYE6z2t+BOzkxttwCIwoweAJ5hU2UB9QeUf6Zn
+ NpG8pilDtN9PFAY1BXyUGXLYPXJpYRNHqNVr7Ss9knL7v0J9m/ID30r9d2lIj1tREtFpyEYhOlu
+ PMRDYXGHwAAxUtdC8jQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-29_07,2026-07-29_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 clxscore=1015
+ adultscore=0 malwarescore=0 spamscore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607290143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_113433_377489_12C0F847 
-X-CRM114-Status: GOOD (  34.18  )
+X-CRM114-CacheID: sfid-20260729_113832_938449_6C335C42 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,200 +154,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 8:44=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> On Wed, Jul 29, 2026 at 5:25=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wr=
-ote:
-> >
-> > Replace the separate of_get_available_child_count() pre-count and
-> > validation step with a single pass through
-> > for_each_child_of_node_scoped().  Skip unavailable child nodes and
-> > bail if more than MTK_PMIC_MAX_KEY_COUNT available keys are found.
->
-> This actually fixes a small bug. The pre-count only gets the number
-> of available keys, but the subsequent for_each_child block doesn't
-> skip over the unavailable ones, so if an unavailable node is in
-> the middle of the tree, there could end up being a mismatch.
->
-> > Set nkeys after the loop so suspend/resume iterate only over
-> > initialized entries.  Use a local key variable in the loop for
-> > clarity.
-> >
-> > Add an irq > 0 guard to the suspend/resume wakeup paths so that
-> > uninitialized key entries are safely skipped.
->
-> You are trying to do too much in one patch. These other fixes should be
-> in separate patches.
->
-> And why not just modify the driver to keep "nkeys", so that it knows
-> how many entries are valid? No use in iterating over empty entries.
->
->
-> > Assisted-by: OpenCode:BigPickle
-> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+On Mon, 27 Jul 2026 13:41:59 +0100
+Robin Murphy <robin.murphy@arm.com> wrote:
+
+> On 24/07/2026 3:52 am, Yushan Wang wrote:
+> > Every HiSilicon uncore PMU driver allocates its own static cpuhp state
+> > even though they all register identical online/offline callbacks. This
+> > wastes slots in the cpuhp state enum and needlessly fragments the
+> > hotplug state space.
+> > 
+> > Move the cpuhp state setup into the shared hisi_uncore_pmu framework:
+> > register a single dynamic state (CPUHP_AP_ONLINE_DYN) at framework
+> > module init and export it for all HiSilicon uncore PMU drivers to use.
+> > Drop the now-unused static CPUHP_AP_PERF_ARM_HISI_* entries from
+> > include/linux/cpuhotplug.h.
+> > 
+> > The L3C PMU driver keeps a private dynamic state because it has its own
+> > hotplug callbacks for migrating multiple per-CPU interrupt affinities,
+> > but switches from its former static slot to CPUHP_AP_ONLINE_DYN for
+> > consistency.
+> > 
+> > No intended functional changes.
+> > 
+> > Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 > > ---
-> >  drivers/input/keyboard/mtk-pmic-keys.c | 71 ++++++++++++--------------
-> >  1 file changed, 34 insertions(+), 37 deletions(-)
-> >
-> > diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/key=
-board/mtk-pmic-keys.c
-> > index fd684ac16938..e2ced6e5165a 100644
-> > --- a/drivers/input/keyboard/mtk-pmic-keys.c
-> > +++ b/drivers/input/keyboard/mtk-pmic-keys.c
-> > @@ -267,7 +267,7 @@ static int mtk_pmic_keys_suspend(struct device *dev=
-)
-> >         int index;
-> >
-> >         for (index =3D 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
-> > -               if (keys->keys[index].wakeup) {
-> > +               if (keys->keys[index].irq > 0 && keys->keys[index].wake=
-up) {
-> >                         enable_irq_wake(keys->keys[index].irq);
-> >                         if (keys->keys[index].irq_r > 0)
-> >                                 enable_irq_wake(keys->keys[index].irq_r=
-);
-> > @@ -283,7 +283,7 @@ static int mtk_pmic_keys_resume(struct device *dev)
-> >         int index;
-> >
-> >         for (index =3D 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
-> > -               if (keys->keys[index].wakeup) {
-> > +               if (keys->keys[index].irq > 0 && keys->keys[index].wake=
-up) {
-> >                         disable_irq_wake(keys->keys[index].irq);
-> >                         if (keys->keys[index].irq_r > 0)
-> >                                 disable_irq_wake(keys->keys[index].irq_=
-r);
-> > @@ -324,13 +324,13 @@ MODULE_DEVICE_TABLE(of, of_mtk_pmic_keys_match_tb=
-l);
-> >  static int mtk_pmic_keys_probe(struct platform_device *pdev)
-> >  {
-> >         int error, index =3D 0;
-> > -       unsigned int keycount;
-> >         struct mt6397_chip *pmic_chip =3D dev_get_drvdata(pdev->dev.par=
-ent);
-> >         struct device_node *node =3D pdev->dev.of_node;
-> >         static const char *const irqnames[] =3D { "powerkey", "homekey"=
- };
-> >         static const char *const irqnames_r[] =3D { "powerkey_r", "home=
-key_r" };
-> >         struct mtk_pmic_keys *keys;
-> >         const struct mtk_pmic_regs *mtk_pmic_regs;
-> > +       struct mtk_pmic_keys_info *key;
-> >         struct input_dev *input_dev;
-> >
-> >         keys =3D devm_kzalloc(&pdev->dev, sizeof(*keys), GFP_KERNEL);
-> > @@ -353,45 +353,42 @@ static int mtk_pmic_keys_probe(struct platform_de=
-vice *pdev)
-> >         input_dev->id.product =3D 0x0001;
-> >         input_dev->id.version =3D 0x0001;
-> >
-> > -       keycount =3D of_get_available_child_count(node);
-> > -       if (keycount > MTK_PMIC_MAX_KEY_COUNT ||
-> > -           keycount > ARRAY_SIZE(irqnames)) {
-> > -               dev_err(keys->dev, "too many keys defined (%d)\n", keyc=
-ount);
-> > -               return -EINVAL;
-> > -       }
-> > -
-> >         for_each_child_of_node_scoped(node, child) {
-> > -               keys->keys[index].regs =3D &mtk_pmic_regs->keys_regs[in=
-dex];
-> > -
-> > -               keys->keys[index].irq =3D
-> > -                       platform_get_irq_byname(pdev, irqnames[index]);
-> > -               if (keys->keys[index].irq < 0)
-> > -                       return keys->keys[index].irq;
-> > -
-> > -               if (mtk_pmic_regs->key_release_irq) {
-> > -                       keys->keys[index].irq_r =3D platform_get_irq_by=
-name(pdev,
-> > -                                                                      =
-   irqnames_r[index]);
-> > -
-> > -                       if (keys->keys[index].irq_r < 0)
-> > -                               return keys->keys[index].irq_r;
-> > +               if (index >=3D MTK_PMIC_MAX_KEY_COUNT) {
-> > +                       dev_err(&pdev->dev, "too many keys defined\n");
-> > +                       return -EINVAL;
-> >                 }
-> >
-> > -               error =3D of_property_read_u32(child,
-> > -                       "linux,keycodes", &keys->keys[index].keycode);
-> > -               if (error) {
-> > -                       dev_err(keys->dev,
-> > -                               "failed to read key:%d linux,keycode pr=
-operty: %d\n",
-> > -                               index, error);
-> > -                       return error;
-> > +               if (of_device_is_available(child)) {
->
-> Instead of re-indenting the whole block and making the diff huge and
-> unreadable, please make this skip over the remaining code when the
-> condition fails, i.e.:
->
->                   if (!of_device_is_available(child))
->                           continue;
-Yeah probably better.
->
-> Or better yet, just use for_each_available_child_of_node_scoped() { ... }
-> instead.
-In v1 this is exactly what I did and was told not to.
->
-> I normally suggest people read the API docs (either on docs.kernel.org
-> or the kernel-doc sections in the code) to find better suited constructs
-> to use.
->
->
-> Thanks
-> ChenYu
->
-> > +                       key =3D &keys->keys[index];
-> > +                       key->regs =3D &mtk_pmic_regs->keys_regs[index];
-> > +
-> > +                       key->irq =3D platform_get_irq_byname(pdev, irqn=
-ames[index]);
-> > +                       if (key->irq < 0)
-> > +                               return key->irq;
-> > +
-> > +                       if (mtk_pmic_regs->key_release_irq) {
-> > +                               key->irq_r =3D platform_get_irq_byname(=
-pdev, irqnames_r[index]);
-> > +                               if (key->irq_r < 0)
-> > +                                       return key->irq_r;
-> > +                       }
-> > +
-> > +                       error =3D of_property_read_u32(child, "linux,ke=
-ycodes", &key->keycode);
-> > +                       if (error) {
-> > +                               dev_err(keys->dev,
-> > +                                       "failed to read key:%d linux,ke=
-ycode property: %d\n",
-> > +                                       index, error);
-> > +                               return error;
-> > +                       }
-> > +
-> > +                       if (of_property_present(child, "wakeup-source")=
-)
-> > +                               key->wakeup =3D true;
-> > +
-> > +                       error =3D mtk_pmic_key_setup(keys, key);
-> > +                       if (error)
-> > +                               return error;
-> >                 }
-> >
-> > -               if (of_property_read_bool(child, "wakeup-source"))
-> > -                       keys->keys[index].wakeup =3D true;
-> > -
-> > -               error =3D mtk_pmic_key_setup(keys, &keys->keys[index]);
-> > -               if (error)
-> > -                       return error;
-> > -
-> >                 index++;
-> >         }
-> >
-> > --
-> > 2.55.0
-> >
-> >
+> >   drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  | 34 +++---------------
+> >   drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 34 +++---------------
+> >   drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 34 +++---------------
+> >   drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  | 21 +++++------
+> >   drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 35 ++----------------
+> >   drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 35 ++----------------
+> >   drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 34 +++---------------
+> >   drivers/perf/hisilicon/hisi_uncore_pmu.c      | 25 +++++++++++++
+> >   drivers/perf/hisilicon/hisi_uncore_pmu.h      |  2 ++
+> >   drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 34 +++---------------
+> >   drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   | 36 ++-----------------
+> >   include/linux/cpuhotplug.h                    |  6 ----
+> >   12 files changed, 67 insertions(+), 263 deletions(-)  
+> 
+> Neat! Seems like a pretty nice win already, plus it only makes a 
+> conversion easier if my generic hotplug idea takes off :)
+> 
+> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+Hi Yushan,
+
+Nice indeed.  It always irritated me to see that block of code cut
+and paste so often + that it stopped use of module_platform_driver()
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
