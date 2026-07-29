@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 003ACC54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F5BC54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MgvBuiLRj24R5eL34h27DbmmXIsCnSbcavTOpGhYHMk=; b=ekz+lQvM2CI/XGtuWlHiw1bz+O
-	4AVKNOQn5DToubcup76XRh8U5uImWogQc5TdEnStAIi6Utg4xXi5vPzLL58xiTGBwG+mRGIGXMbvC
-	6x7KT1WcNgvfHU+P1MxjDedkTotPeQVMgrnIOKMaOB9U30sokfAaYkVDc8A4VjQxm+8kRbRWS3qJ7
-	U8Ew7amNsz1cdccJIgQdbJHUnkTN6QgN4I6bMSSitVx1Taj2Jw4k5eItplvI2sknShy3RruomtgmM
-	RyWXDbd6Z/0ZV3rXbkX4Il1dLcuds4jGuGG7K43qrhptWaudtAnnOYb8Fp/9UhCvv0Re3b/j8b5KE
-	hVAOmsFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iYrzl69BfWthDSpuWWFsb6fPKMdMihwMRTVL8q8fdNg=; b=UxGLXepo/Dy+jaADWVAJjVTXng
+	YpEtsA/+OWmRv7SjQqdI81NLPtMJzYrE2Ljy84LzNgT2UXg5QK0XnzLF2kF7Mo40Zxb3W7Hi6QNP8
+	zzep4dY3iuP8uak51cXdyPSuwRPd4Hd6pVeB0eu3aLz4lXajbqf3LOGZv69dDsYAGkzwHIGRyCgLz
+	hOSxtqfrSKBWMjut/LKKDxc37NAU02vyn71+M160I7rDSjW4FsrSqBu/QwiEm6clZl3FWKn6tj1fy
+	tJJAG3xNIxvWFm048TB/6wBkdHEt83nG6mwb+lJMeqkwwAg1heOvxpfgyTlLJV/YVUYVlYXJsW3N9
+	J40c4Spw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2dh-00000007kza-1tBf;
-	Wed, 29 Jul 2026 11:39:57 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1wp2gg-00000007lHM-3VyL;
+	Wed, 29 Jul 2026 11:43:02 +0000
+Received: from mout.web.de ([212.227.15.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2de-00000007kyh-1jyK
+	id 1wp2ge-00000007lGm-19Jz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 11:39:55 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RqLcH+F7Q2/3F0XgvhFs9G3g38b6ccJJcMfp60bfGC6k+46AqoHF1E8IhCuDUBBjKFA5/0fW9aJKnwtAB6Osr03@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785325189;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MgvBuiLRj24R5eL34h27DbmmXIsCnSbcavTOpGhYHMk=;
-	b=lkkxeAS5VmpUoZI6FV9X2hrhfhw7VHtHGjwwV2NlbxJlxMfS9bBYtuspae4vjdEjFRUzV2
-	oxWf9gmGxA4qj8zjPd9abM9XJF6ZIvbM7Y4OOxIMfcJhRs+U1dQxvUy2F6s3OkJtasJ2IY
-	ibmxEBn6pvLjFi66qPbcaOwhtG1omSw=
-X-Gm-Message-State: AOJu0YxVH2GK6L0uW8TjKs7g/tbW8MGqgL1uarDhAXIORzxMI/LlEMAv
-	7YOSro7V3XgR0yC7kyjwmsw7K8OX3TCnIfsfbOHyH3hbzyub1L96qsZ3V8gttiWn7oHTqYIz7YY
-	KUkJqzQVQ9HKw5ESQeNgfAg/MshVZibckeSxo6Mln
-X-Received: by 2002:a05:622a:8359:b0:516:ccc0:ee38 with SMTP id
- d75a77b69052e-52b2cc84a3emr5917821cf.9.1785325173789; Wed, 29 Jul 2026
- 04:39:33 -0700 (PDT)
+	Wed, 29 Jul 2026 11:43:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1785325347; x=1785930147; i=markus.elfring@web.de;
+	bh=iYrzl69BfWthDSpuWWFsb6fPKMdMihwMRTVL8q8fdNg=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:From:To:
+	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=nCsug9o55P0Ta9yynN9wePHG6LyI7QWPXS6LFUaAKg8yInnSInJY6JjQyjR49Oqe
+	 8XUK0w08x5/KW32zKuC9+78eNQfwvsUHwPfNgp4iz/S4q985HjHiTH+2v8xMI7Jso
+	 6De/VRzGKUAybdML1sQzeE9nK/tJllDxQ/NLkR9piHoHU8HCc1HKPsD0TFw27j7v6
+	 cgHhpzHh8FQSAo2g5/PhTNYqO2uzdSx4yuEtjLbWDPSokkz5pX83BzIhEl2T9b9wk
+	 +UCH3K1QHiYDjCggREJFeJQmsWN8gVRRpDwhnveDO59CPp5xWoJN0RyY9bTRFrS90
+	 UELZGbUMk98JWdmOsA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MN6BN-1wYC7K1QvN-00IWe5; Wed, 29
+ Jul 2026 13:42:27 +0200
+Message-ID: <398b98c0-010c-41a5-8c54-2eccb5e6c7aa@web.de>
+Date: Wed, 29 Jul 2026 13:42:24 +0200
 MIME-Version: 1.0
-References: <20260722202702.4165917-1-congkai@amazon.com>
-In-Reply-To: <20260722202702.4165917-1-congkai@amazon.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 29 Jul 2026 12:38:56 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyMjsF6jp98TQhc+xBm3+p7wykeK-JMvybU+mjyu5gveA@mail.gmail.com>
-X-Gm-Features: AUfX_myrOBKJjGr1oQQJhjpP2gtOW_slUtGnIubwUV7eVBsMrgW-SzxzJTTjCds
-Message-ID: <CA+EHjTyMjsF6jp98TQhc+xBm3+p7wykeK-JMvybU+mjyu5gveA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] KVM: arm64: Expose PMMIR_EL1.SLOTS to guests
-To: Congkai Tan <congkai@amazon.com>
-Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Haris Okanovic <harisokn@amazon.com>, 
-	Geoff Blake <blakgeof@amazon.com>, Stanislav Spassov <stanspas@amazon.de>, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH v3 1/2] soc: fsl: dpio: Use scope-based resource management in
+ dpaa2_io_store_create()
+From: Markus Elfring <Markus.Elfring@web.de>
+To: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <chleroy@kernel.org>, Dan Carpenter <error27@gmail.com>,
+ Ioana Ciornei <ioana.ciornei@nxp.com>, Roy Pledge <Roy.Pledge@nxp.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>
+References: <709fefd1-821a-4cd1-8598-b1179a95ce52@web.de>
+Content-Language: en-GB, de-DE
+In-Reply-To: <709fefd1-821a-4cd1-8598-b1179a95ce52@web.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:4HCnUZUS4TZ7P0z/XYniV2A2jzoE42R/ZDtVew8c7nfXUaordxd
+ ZZ/FYL2aJ6mMyUUfWFWkIGXAI2EETMZQUVD24LVzg9ET6smUYVXO/7uu2uNUjIn/QDOG1k5
+ r9is7IWT8huaIVbldzrBdfXzWqmCLg3NXSz7reYN4J698CYdCsg+WJwnO3mNl0PJkkoc85h
+ um6VvSHB5U6e38G5zyA4A==
+UI-OutboundReport: notjunk:1;M01:P0:0Ud9trrHUpE=;XEvDGhFAHHVIjUmbwoWz3wNwKph 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_043954_657364_413208DB 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_044300_610098_88CB4C0B 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +84,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 at 21:27, Congkai Tan <congkai@amazon.com> wrote:
-...
->
-> Congkai Tan (3):
->   KVM: arm64: Expose PMMIR_EL1.SLOTS under strict PMUv3 UAPI
->   KVM: arm64: Advertise STALL_SLOT* in PMCEID1 under strict PMUv3 UAPI
->   KVM: arm64: Add KVM_ARM_VCPU_PMU_V3_STRICT vCPU feature
->
-> Oliver Upton (1):
->   KVM: arm64: Ignore writes to PMCR_EL0.N when using strict UAPI
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Wed, 29 Jul 2026 10:54:15 +0200
 
-Tested on QEMU: boot, get-reg-list, and vpmu_counter_access pass. This
-doesn't exercise the KVM_ARM_VCPU_PMU_V3_STRICT runtime path, and the
-series adds no functional selftest for the flag.
+Scope-based resource management became supported for some
+programming interfaces by contributions of Peter Zijlstra on 2023-05-26.
+See also the commit 54da6a0924311c7cf5015533991e44fb8eb12773 ("locking:
+Introduce __cleanup() based infrastructure").
 
-For the series:
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+* Move some source code from the implementation of the function
+  =E2=80=9Cdpaa2_io_store_create=E2=80=9D to a new function.
 
-Cheers,
-/fuad
+* Use the attribute =E2=80=9C__free(kfree)=E2=80=9D for the local variable=
+ =E2=80=9Cret=E2=80=9D.
+
+* Omit two kfree() calls accordingly.
+
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/soc/fsl/dpio/dpio-service.c | 47 +++++++++++++++--------------
+ 1 file changed, 25 insertions(+), 22 deletions(-)
+
+diff --git a/drivers/soc/fsl/dpio/dpio-service.c b/drivers/soc/fsl/dpio/dp=
+io-service.c
+index 317ca50b0c2b..b621755d8988 100644
+=2D-- a/drivers/soc/fsl/dpio/dpio-service.c
++++ b/drivers/soc/fsl/dpio/dpio-service.c
+@@ -4,6 +4,7 @@
+  * Copyright 2016-2019 NXP
+  *
+  */
++#include <linux/cleanup.h>
+ #include <linux/types.h>
+ #include <linux/fsl/mc.h>
+ #include <soc/fsl/dpaa2-io.h>
+@@ -638,37 +639,20 @@ EXPORT_SYMBOL_GPL(dpaa2_io_service_acquire);
+  * assist with parsing those results.
+  */
+=20
+-/**
+- * dpaa2_io_store_create() - Create the dma memory storage for dequeue re=
+sult.
+- * @max_frames: the maximum number of dequeued result for frames, must be=
+ <=3D 32.
+- * @dev:        the device to allow mapping/unmapping the DMAable region.
+- *
+- * The size of the storage is "max_frames*sizeof(struct dpaa2_dq)".
+- * The 'dpaa2_io_store' returned is a DPIO service managed object.
+- *
+- * Return pointer to dpaa2_io_store struct for successfully created stora=
+ge
+- * memory, or NULL on error.
+- */
+-struct dpaa2_io_store *dpaa2_io_store_create(unsigned int max_frames,
+-					     struct device *dev)
++static inline
++struct dpaa2_io_store *dpaa2_io_store_create_impl(unsigned int max_frames=
+, struct device *dev)
+ {
+-	struct dpaa2_io_store *ret;
+ 	size_t size;
++	struct dpaa2_io_store *ret __free(kfree) =3D kmalloc_obj(*ret);
+=20
+-	if (!max_frames || (max_frames > 32))
+-		return NULL;
+-
+-	ret =3D kmalloc_obj(*ret);
+ 	if (!ret)
+ 		return NULL;
+=20
+ 	ret->max =3D max_frames;
+ 	size =3D max_frames * sizeof(struct dpaa2_dq) + 64;
+ 	ret->alloced_addr =3D kzalloc(size, GFP_KERNEL);
+-	if (!ret->alloced_addr) {
+-		kfree(ret);
++	if (!ret->alloced_addr)
+ 		return NULL;
+-	}
+=20
+ 	ret->vaddr =3D PTR_ALIGN(ret->alloced_addr, 64);
+ 	ret->paddr =3D dma_map_single(dev, ret->vaddr,
+@@ -676,7 +660,6 @@ struct dpaa2_io_store *dpaa2_io_store_create(unsigned =
+int max_frames,
+ 				    DMA_FROM_DEVICE);
+ 	if (dma_mapping_error(dev, ret->paddr)) {
+ 		kfree(ret->alloced_addr);
+-		kfree(ret);
+ 		return NULL;
+ 	}
+=20
+@@ -685,6 +668,26 @@ struct dpaa2_io_store *dpaa2_io_store_create(unsigned=
+ int max_frames,
+=20
+ 	return ret;
+ }
++
++/**
++ * dpaa2_io_store_create() - Create the dma memory storage for dequeue re=
+sult.
++ * @max_frames: the maximum number of dequeued result for frames, must be=
+ <=3D 32.
++ * @dev:        the device to allow mapping/unmapping the DMAable region.
++ *
++ * The size of the storage is "max_frames*sizeof(struct dpaa2_dq)".
++ * The 'dpaa2_io_store' returned is a DPIO service managed object.
++ *
++ * Return pointer to dpaa2_io_store struct for successfully created stora=
+ge
++ * memory, or NULL on error.
++ */
++struct dpaa2_io_store *dpaa2_io_store_create(unsigned int max_frames,
++					     struct device *dev)
++{
++	if (!max_frames || (max_frames > 32))
++		return NULL;
++
++	return dpaa2_io_store_create_impl(max_frames, dev);
++}
+ EXPORT_SYMBOL_GPL(dpaa2_io_store_create);
+=20
+ /**
+=2D-=20
+2.55.0
+
 
