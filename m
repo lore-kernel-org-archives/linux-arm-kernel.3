@@ -4,72 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0774BC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 19:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC743C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 19:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6RdMoQ7TRONjplxch2Jr2tfEGLhzUYaVY+oPPESaChU=; b=pgcltG8FwxKcTkq9s8lkgCOIVA
-	AMYbhCPk/9C11v/k87qlTJGt9RZ4uJnx+8h8GrMv0nYh62oPVgHzyUmT45QTya7XycOWy02/h6G9Q
-	i/og+VhhsURLeYRuUKI07JV8lGnWaabqu4NNUXEVlXyWlRSWzpDUIa0ZnWFQT/ezc0YFkZIT/gkP2
-	NohYHsUEkUOMLmlqRPqD+6Y+J9YUZ+HuPYx1DN8dzC5NjamJPPlEFJQ9o3jVdNqPkTfD9hb7ficFx
-	vQsMY6pbZZPy3Nq7enw0knVtQeRYIkxUa5HnS9+9sfHhsGeSrT5SACmYgLMLPU4X2WE1mwds4rNGa
-	AKDdhzvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MWF0TqDK6M8CvlCqxinOE+Ni+PgaeU7TOG2bdcnA8zs=; b=SWHVfsfNLLs5829bf7WPgtSE5j
+	PrPYXp/sXhTdNmd1uXM5pS3c51JMk9cWDo5jSUcwpFgLn6rxXN3IG1l0t89PS2Db5SbnpcFQlVv+H
+	v1YSaRW9jPh9uN7UQp3mBv3FfCxmgLyCqvca3sNlet9c9JL0pk8L6szinrLVdCJTXmfGyUreakqtE
+	MI1D1Rf050l+9X24HmYbvmX7Z/OptZMIGDQ1sxMEnfQQjDGUeIRH7Coj2HrnSWg/wtD3JhwCCbkj2
+	Ngm2cFAMdM9ZyOUVh9N0oTbI65fDGo61Chy403/rV0zRKxfWMw17zAMw9X/vW5MSU4sFqLrGD+MIc
+	Dtxuagbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9kX-00000008sAM-3OHT;
-	Wed, 29 Jul 2026 19:15:29 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
+	id 1wp9pV-00000008sVE-1IuH;
+	Wed, 29 Jul 2026 19:20:37 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9kV-00000008s9a-1XHs
+	id 1wp9pT-00000008sUn-0UcK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 19:15:28 +0000
-X-Forwarded-Encrypted: i=1; AHgh+Rrbr9s+o8kYgxzjQHVgscitGVu2QaRI9+CNIBoDoCm+ON6lYpkgdeK2+WzlZ3t9PDU4fK2dREhBi0Z4B8cc9iFB@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785352522;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6RdMoQ7TRONjplxch2Jr2tfEGLhzUYaVY+oPPESaChU=;
-	b=cfm6Uo9RB4zWqz94gDe12xqZkYPst1LAriXNWkyoDYdjkXyYEdEZD1vjvBkinLF5/XwklQ
-	FlsqLwO3oMovPDYWleAUubmTUg+mfy9V3z5y5DIXZ/OzjsJ1wQtodn6JZZTeuAF6aESSnc
-	LNRa16NDDz5flSsRXUuYEvwe9dymuX0=
-X-Gm-Message-State: AOJu0YwxWXTYONp+dNq3d7HH1Jo6UTF7U1MRpT8tB3Sf71NUrnSIclW3
-	1HsDj19hCWUpiIfRZFzFEcHgq7YKIvyDLzIp1s+3R38rymJspEldT6zsfZSP9wrIG/XqWYU83+r
-	aP/HGvkIPS3RPBkR9ZpYowS8NR28wr2GxWlfeA9rL
-X-Received: by 2002:ac8:6106:0:b0:519:b82d:fe62 with SMTP id
- d75a77b69052e-52b3784b752mr459921cf.7.1785352511041; Wed, 29 Jul 2026
- 12:15:11 -0700 (PDT)
+	Wed, 29 Jul 2026 19:20:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NUOAMJQBVC5BE/5mjtjwQ/Tz4ncsxKnvrJj7b4e/f8dRNQGUPOyXEZilWhTpRuw0Bi9difQu8ftuGNKAbWlUWQzwFQp6/mylmjy1Jka0p/NKjebwtNu8l/gpdvRFQDoKbyoOoOfsVjsUI/uFtxu8fF20gPbSQxkRDW93BU6O8y4xaqONIoNoHr1AVH7MOE8IHbchXYPzZc3Y4NUUm5IjTNZrEE9md92+BUvpGd42DKubFdSx0h8k3YdnLI3D1NqY1luO1nbZbxEZZh01jvM7ByBzoBeAh0B0WZaumq9wmmZnlbT4YMvRq1wuuuepnl7yShF8dxr0NfQp+sikdNtMVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MWF0TqDK6M8CvlCqxinOE+Ni+PgaeU7TOG2bdcnA8zs=;
+ b=wLuhc0ZkQgDiZVJOUxwcL4fOfPRmIZSQ6BP669+krvOYLJu1owGC1q6SFKqCEzlnaktBOfa8krPhydm8A8GhCRFx5X+NHiKwIgPVSvYqywGOohdnhOyKH7U2lEEVH3V275NCKkIQxZlVuAraotcpvDvv2S993NEPELFo8Z7GxMAfUG3WUF9uJDp3/+A3bgPFblgsWstNTs0DyRkcXo5g7eMZwLjgD7t7ASTOYkgxf2NOMWvGNuvutDCNWD3dwqyuwQTjAQ1BYSsP4CidpprmaQFzkkU1VKGUh7LZkcgBdKCw3HWKq4YJ+z9Cisuu8V+Vo+kJC2o4WMeQRFKoytejnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MWF0TqDK6M8CvlCqxinOE+Ni+PgaeU7TOG2bdcnA8zs=;
+ b=kakNgmDoUWd5uGpyWYe2Y5BrcFHZV+a9rOQiJmvIn4KgheBa2C7g7rHrwzQovwmtTIFmpSAyDFT4BFtgKdpmgTrY/1oyFdPpCfftM+VZREve3cWA9ypFGC1a8NNPulLgwkL0B4t+3PIYbRUE08IMAApOMbiKLF6FbKnzeu3LtTM79XVUSvveuRfW5j2WoUx4XrGL7ChkJwuF95S7iMOUofE00mnv6v3oEnVY3zffzcGrw93coKCi3PmuLlaTKPWAtSeWdJHJvNejWTR9G/wRBlZAbT6zrGNJPzlpAUFqcL2VE9V6liCpGaC3l54AA9G7ggjU6czhn9iShsBWBXCOMQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA4PR04MB7775.eurprd04.prod.outlook.com (2603:10a6:102:c3::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
+ 2026 19:20:30 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.009; Wed, 29 Jul 2026
+ 19:20:29 +0000
+From: Frank.Li@oss.nxp.com
+To: soc@kernel.org,
+	arm@kernel.org
+Cc: Frank.Li@nxp.com,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	krzysztof.kozlowski@oss.qualcomm.com,
+	lech.perczak@gmail.com,
+	Max.Merchel@ew.tq-group.com,
+	sherry.sun@nxp.com
+Subject: ARM: dts: imx device tree updates for v7.3
+Date: Wed, 29 Jul 2026 15:20:18 -0400
+Message-ID: <20260729192020.523281-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SA9P223CA0024.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:806:26::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-15-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-15-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 29 Jul 2026 20:14:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwfUjVtXwj52Oe0Gbt7n99S0OmUmQmPm2zHf59V-ii-Ww@mail.gmail.com>
-X-Gm-Features: AUfX_mzAWeAj1VZbwdEOyYlhWbcnTGqxChe8dN2ESb6R_ooem2wymLvHTc4GB94
-Message-ID: <CA+EHjTwfUjVtXwj52Oe0Gbt7n99S0OmUmQmPm2zHf59V-ii-Ww@mail.gmail.com>
-Subject: Re: [PATCH v9 15/16] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA4PR04MB7775:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98cdd5c9-17a5-485a-42a5-08deeda67391
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|366016|1800799024|23010399003|56012099006|11063799006|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: cmO+N4+bl85Hpvg7PQrGDbNPjp3PF140KtlZlU2lYtrLsOJA4biv/tJ7ENEqcKgLjmagP4cRJeUu0d/fxYYS609cwE+lZVbFuG2crGF4saBFIr1fmxSrQ4a+3UQF2vcmL+Op7RPZK/z1GipQ51SNfC2Rfd3ulMoBBUrhOEyUJU51U0TGwajs8B+UpzdaFo4s0D+p+INGjDnu5VqG+8kciCKyD8gLzK55b14Z1a4D7FAkya/2lny6QG4GJLy17v5ipzRSQe/ihIDnbp2eTF2H/V4eBAg139Ia14Lz+PIX0IKAmoSLwA+x7fNkUqaLMEqyKSE2n+JKtMhL1siDX7ujCJhJ8LRN759HnXouUxVqyBe6d4vxwWb5TwqfX8F0XID7usuvAw7e5IfRa1n2ksBxUM7u4wFxACJ8lFt/ZybXGrPuAg6BHAbkxH8tFyWioEy9zyHQ2TLbxVAJZn6qBRdTmTXrFp5IGQSrie7SymQBFPSuDEFOoVr6gbIa14O9PbdpKpUfKYd3ImSHfnvsA+gX8+k/wmNHXcGYI56o0JGaBK6mZSTmHy0D4N/maok5hQnfg5U/1Iq8dljs6/2uxhanMV+0lrTfDy/MbfxNRqh69xR01LeRhTedYwFI6aP2qxIcFGKjtMScgkZkm93I7b4q5WSwFIJqBeZm5vgpu4UUSsQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(1800799024)(23010399003)(56012099006)(11063799006)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nLnlohyxE1Kto2rZ8REqCKZttpVvVPx2oFUr9KGmph2OT08mqu2Lp+YQhoHf?=
+ =?us-ascii?Q?RkDyhVaiuvgbV/848+lSRpKeuT4WTi40gpNCZzDN+BVKENzu9gpiBODAyeZW?=
+ =?us-ascii?Q?f/G3wB7MQAWOvxGJPzCmQgkeRyptS8TBNKMd37PZ/dwg6vrvFddpp7j+hHHJ?=
+ =?us-ascii?Q?v1HJffE0nAX194kwGGHWpp8Z5e5alYQ2IrgnQkPvseLJLwEhngiVCFHSwtcM?=
+ =?us-ascii?Q?wFC9UthucCPQF75mpqAEui/acpQydFf829C6Fq18qzVHQ1OP+v54w6taWyvH?=
+ =?us-ascii?Q?RXN5XkQ/k7E2bvgIlHvBFKZROunuP8OGWMEGXzsYMlfChhBLzj+QLWCeQLJe?=
+ =?us-ascii?Q?/QUFqmhBT9lDcm1CSssM9u+zsrArgbxx2rWN/4Va5q6zobaADWlIi6n65/e4?=
+ =?us-ascii?Q?Bs18lpQuqBlp9misKdbp8/K9ACZvZq6TOpPOnIP5NsizOOv6h2Zf9jslKn10?=
+ =?us-ascii?Q?Sr46paTB5KuoWiEa3sC+UugEbYxDei5tRO+rTt/09IHUyyFWW15xOUnMrZpy?=
+ =?us-ascii?Q?ukvKjzhGBe1MNWvkwpdDZx2UvS9ZDfdnri2qJbUlRYv7FlFw+UzADFG41UPo?=
+ =?us-ascii?Q?HjQDjvcH1ufpRMtf/0OcnjKucFlo0ExE3uioITpNxyf2dEZYxGt5XHmvc/iN?=
+ =?us-ascii?Q?7wjzDDxs4NjjoOVOiNK3IL12k8g8KxHrk8/KCjw0wENXG3A98OoU6TeYIiXe?=
+ =?us-ascii?Q?6HnMIE17eXXvoKCTdIcBukmPG1eAWVoJRgPL0EXdejpwndGXU9WmFFjbSxV4?=
+ =?us-ascii?Q?VWOUt+bxKG+xan99y109Y1bl27grNdAEgvhpvHxE6q7PagYLir5IqvGY5sJB?=
+ =?us-ascii?Q?4qAFNJRTiJo2F1zm+4LMVJIAD1DKyBNnF3MSCGHEm+HV0oLU7f4YVA44tAe2?=
+ =?us-ascii?Q?2GTfzWwxolRjP3/ucWXo9GfCs6x+Q7T6ryNOIsuygnX2HDodPpTnvBWNjUUO?=
+ =?us-ascii?Q?feKEmO4L4QvqCyHvmuTd+ZkWM4Ya7OXD58FYKxEOS10S20eYFVSsw8szlUdJ?=
+ =?us-ascii?Q?gs4IpuY1edpCX2HZ2PD/AWHR3PYVDFYxqHMBe9HXUTgonhP+NeV2kP8bQj+X?=
+ =?us-ascii?Q?1uU3xsJx1MthDZWCsTuL5xk8agntUvr92qtj3j57HQNOo0Yyn4nYX6nGz6Gv?=
+ =?us-ascii?Q?eGF9fsD72JUcVmRwqqc1Qqpw5UuFpK9fFO+ZxxlMx9C8AY+UjtfTDlojnqIw?=
+ =?us-ascii?Q?9KtBq5SNHiF4sJXR4nP+btHZIi3FtQC3oFZrWO1++XgaELA4Ow+d8g2Ub9+H?=
+ =?us-ascii?Q?5W+usI77ARN8SMMFSvuSY52N8ILpv8AvyXZ50vNy0oV+v/oozsju5+dU9QUU?=
+ =?us-ascii?Q?XdCAp9xl5x1xPoHJLDOr24DuuI60/4JJBq9qeY/t8bjMUMrrqjsuPHwNku9Z?=
+ =?us-ascii?Q?l7UzyS+D4t5N/uG3Sz5QaSG2x8zuyMYbNALJhF7c693i5Onrt1z13fVe5m9i?=
+ =?us-ascii?Q?VFXiNZfbTJNG/W9qgO++6aN1P6NruRYCXI2OpnoSa5NB0mQ+cNpBIOioAVy0?=
+ =?us-ascii?Q?wxGSXYA4fg2zuPHbFasX6ipFwm9hHAc0jvDbrdKwEgY7IBGa5TmKjLclVk7v?=
+ =?us-ascii?Q?tSckh9+5mtRmUGSBJjmJHIfCppR1ZFElnc4J6DLsgsMZibzbin6bEc24js3e?=
+ =?us-ascii?Q?Ot0K/X7MGEHPd/THrXG59pQxcd3xQ4PlQYDwGcqb3MCKmxKuZIBR7VAmjS0w?=
+ =?us-ascii?Q?JDEybtKk9zvOBgwk94zmV3KKojMRbwptk6kPTIhWbauYg8D3YVap9LMrzQX7?=
+ =?us-ascii?Q?m6wINFD0ECXVakCj1cLheFGIImzRWslENT8VQkCwNz0k9jDAj7lU?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98cdd5c9-17a5-485a-42a5-08deeda67391
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 19:20:29.5048
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 38Rgth0pLginjPsl2PoQ5KDLvsLHW11AXJI/2PItF9AEMHmUjJh+CQFdkDlC73Nfc9y/xZp1cRDMajh0EvlNaCTkh206Ss6tl2+VfXQz5j/Oss1ABVJdNvlSEmrH38pc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7775
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_121527_718798_58F589DF 
-X-CRM114-Status: GOOD (  31.78  )
+X-CRM114-CacheID: sfid-20260729_122035_172843_5E78E426 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,211 +141,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
-<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->
-> Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
-> create a "fixed-counters-only" PMU.
->
-> Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
-> attribute provides a getter that facilitates kernel and userspace
-> debugging/testing.
->
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+From: Frank.Li@nxp.com
 
-In terms of the UAPI policy, I have no strong opinion. In terms of the
-implementation, it looks correct to me. FILTER/SET_PMU and
-FIXED_COUNTERS_ONLY are mutually exclusive both ways, and the EXPLICIT
-flag keeps that from blocking the default-PMU path.
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-Cheers,
-/fuad
+are available in the Git repository at:
 
-> ---
->  Documentation/virt/kvm/devices/vcpu.rst | 30 ++++++++++++++++++++++++++----
->  arch/arm64/include/uapi/asm/kvm.h       |  1 +
->  arch/arm64/kvm/pmu-emul.c               | 30 +++++++++++++++++++++++++++---
->  tools/arch/arm64/include/uapi/asm/kvm.h |  1 +
->  4 files changed, 55 insertions(+), 7 deletions(-)
->
-> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-> index 66e714f2fcfa..1d592e70bdea 100644
-> --- a/Documentation/virt/kvm/devices/vcpu.rst
-> +++ b/Documentation/virt/kvm/devices/vcpu.rst
-> @@ -74,7 +74,8 @@ irqchip.
->          -ENODEV  PMUv3 not supported or GIC not initialized
->          -ENXIO   PMUv3 not properly configured or in-kernel irqchip not
->                   configured as required prior to calling this attribute
-> -        -EBUSY   PMUv3 already initialized or a VCPU has already run
-> +        -EBUSY   PMUv3 already initialized, a VCPU has already run or
-> +                 FIXED_COUNTERS_ONLY has already been set
->          -EINVAL  Invalid filter range
->          =======  ======================================================
->
-> @@ -116,14 +117,14 @@ using event 0x11 (CPU_CYCLES).
->
->  :Returns:
->
-> -        =======  ====================================================
-> +        =======  ===========================================================
->          -EBUSY   PMUv3 already initialized, a VCPU has already run or
-> -                  an event filter has already been set
-> +                  an event filter or FIXED_COUNTERS_ONLY has already been set
->          -EFAULT  Error accessing the PMU identifier
->          -ENXIO   PMU not found
->          -ENODEV  PMUv3 not supported or GIC not initialized
->          -ENOMEM  Could not allocate memory
-> -        =======  ====================================================
-> +        =======  ===========================================================
->
->  Request that the VCPU uses the specified hardware PMU when creating guest events
->  for the purpose of PMU emulation. The PMU identifier can be read from the "type"
-> @@ -165,6 +166,27 @@ explicitly selected, or the number of counters is out of range for the
->  selected PMU. Selecting a new PMU cancels the effect of setting this
->  attribute.
->
-> +1.6 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
-> +------------------------------------------------------
-> +
-> +:Parameters: no additional parameter in kvm_device_attr.addr
-> +
-> +:Returns:
-> +
-> +        =======  ==================================================
-> +        -EBUSY   PMUv3 already initialized, a VCPU has already run,
-> +                 an event filter has already been set or
-> +                 a hardware PMU has already been specified
-> +        -ENXIO   Attempted to get before setting
-> +        -ENODEV  Attempted to set while PMUv3 not supported
-> +        =======  ==================================================
-> +
-> +If set, KVM emulates PMUv3 without programmable event counters.
-> +
-> +When this attribute is enabled, the vCPU can run on any physical CPU
-> +that has a PMU, regardless of the underlying implementation. This
-> +attribute is VM-scoped.
-> +
->  2. GROUP: KVM_ARM_VCPU_TIMER_CTRL
->  =================================
->
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index 1c13bfa2d38a..39a1a1e412e6 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -437,6 +437,7 @@ enum {
->  #define   KVM_ARM_VCPU_PMU_V3_FILTER           2
->  #define   KVM_ARM_VCPU_PMU_V3_SET_PMU          3
->  #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS  4
-> +#define   KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY      5
->  #define KVM_ARM_VCPU_TIMER_CTRL                1
->  #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER                0
->  #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER                1
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 1ec09ef28467..ff5d5f66a9c0 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -1118,8 +1118,8 @@ int kvm_arm_set_default_pmu(struct kvm *kvm)
->          * affines the VMM to a particular cluster of cores.
->          *
->          * In any case, userspace should just do the sane thing and use the UAPI
-> -        * to select a PMU type directly. But, be wary of the baggage being
-> -        * carried here.
-> +        * to select a PMU type directly, or request fixed-counters-only
-> +        * emulation. But, be wary of the baggage being carried here.
->          */
->         struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu(raw_smp_processor_id());
->
-> @@ -1144,11 +1144,13 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->                 arm_pmu = entry->arm_pmu;
->                 if (arm_pmu->pmu.type == pmu_id) {
->                         if (kvm_vm_has_ran_once(kvm) ||
-> +                           kvm_pmu_fixed_counters_only(kvm) ||
->                             (kvm->arch.pmu_filter && kvm->arch.arm_pmu != arm_pmu)) {
->                                 ret = -EBUSY;
->                                 break;
->                         }
->
-> +                       set_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags);
->                         kvm_arm_set_pmu(kvm, arm_pmu);
->                         cpumask_copy(kvm->arch.supported_cpus, &arm_pmu->supported_cpus);
->                         ret = 0;
-> @@ -1159,6 +1161,22 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->         return ret;
->  }
->
-> +static int kvm_arm_pmu_v3_set_pmu_fixed_counters_only(struct kvm_vcpu *vcpu)
-> +{
-> +       struct kvm *kvm = vcpu->kvm;
-> +
-> +       lockdep_assert_held(&kvm->arch.config_lock);
-> +
-> +       if (kvm_vm_has_ran_once(kvm) || kvm->arch.pmu_filter ||
-> +           test_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags))
-> +               return -EBUSY;
-> +
-> +       set_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
-> +       kvm->arch.nr_pmu_counters = 0;
-> +
-> +       return 0;
-> +}
-> +
->  static int kvm_arm_pmu_v3_set_nr_counters(struct kvm_vcpu *vcpu, unsigned int n)
->  {
->         struct kvm *kvm = vcpu->kvm;
-> @@ -1236,7 +1254,7 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->                      filter.action != KVM_PMU_EVENT_DENY))
->                         return -EINVAL;
->
-> -               if (kvm_vm_has_ran_once(kvm))
-> +               if (kvm_vm_has_ran_once(kvm) || kvm_pmu_fixed_counters_only(kvm))
->                         return -EBUSY;
->
->                 if (!kvm->arch.pmu_filter) {
-> @@ -1281,6 +1299,8 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->
->                 return kvm_arm_pmu_v3_set_nr_counters(vcpu, n);
->         }
-> +       case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
-> +               return kvm_arm_pmu_v3_set_pmu_fixed_counters_only(vcpu);
->         case KVM_ARM_VCPU_PMU_V3_INIT:
->                 return kvm_arm_pmu_v3_init(vcpu);
->         }
-> @@ -1307,6 +1327,9 @@ int kvm_arm_pmu_v3_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->                 irq = vcpu->arch.pmu.irq_num;
->                 return put_user(irq, uaddr);
->         }
-> +       case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
-> +               if (kvm_pmu_fixed_counters_only(vcpu->kvm))
-> +                       return 0;
->         }
->
->         return -ENXIO;
-> @@ -1320,6 +1343,7 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->         case KVM_ARM_VCPU_PMU_V3_FILTER:
->         case KVM_ARM_VCPU_PMU_V3_SET_PMU:
->         case KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
-> +       case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
->                 if (kvm_vcpu_has_pmu(vcpu))
->                         return 0;
->         }
-> diff --git a/tools/arch/arm64/include/uapi/asm/kvm.h b/tools/arch/arm64/include/uapi/asm/kvm.h
-> index 1c13bfa2d38a..39a1a1e412e6 100644
-> --- a/tools/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/tools/arch/arm64/include/uapi/asm/kvm.h
-> @@ -437,6 +437,7 @@ enum {
->  #define   KVM_ARM_VCPU_PMU_V3_FILTER           2
->  #define   KVM_ARM_VCPU_PMU_V3_SET_PMU          3
->  #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS  4
-> +#define   KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY      5
->  #define KVM_ARM_VCPU_TIMER_CTRL                1
->  #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER                0
->  #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER                1
->
-> --
-> 2.55.0
->
->
+  git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-dt-7.3
+
+for you to fetch changes up to 6db9b23f3c0ebda050a4d38fda2b59db146ca161:
+
+  ARM: dts: ls1021a-iot: rename display@0 to display0 (2026-07-24 16:43:00 -0400)
+
+----------------------------------------------------------------
+ARM: dts: imx device tree updates for v7.3
+
+Cleanup CHECK_DTBS warnings:
+- Remove undocumented properties (nand-ecc-*, clock-names, default-state)
+- Rename display@0 to display0 (ls1021a-iot)
+- Add led suffix to node names (ls1021a-moxa-uc-8410a)
+- Replace spansion,s25fl164k with jedec,spi-nor (ls1021a-moxa-uc-8410a)
+- Use ethernet-phy-ieee802.3-c22 compatible string (ls1021a-moxa-uc-8410a)
+- Rename eim-cs1 node to eim-cs1-bus (imx53-ard)
+- Add power-supply for LCD panel (ls1021a-twr)
+- Add fsl,ls1021aqds-fpga compatible string (ls1021a-qds)
+
+Fixes:
+- Change #io-channel-cells to 1 for voltage divider (imx6dl-plym2m)
+
+New features:
+- Describe Bluetooth controller (imx7d-pico)
+- Add power-supply to PCIe Root Port (imx6sx-sdb, imx6qdl-sabresd)
+
+----------------------------------------------------------------
+Frank Li (15):
+      dt-bindings: fsl,fpga-qixis: Add fsl,ls1021aqds-fpga compatible string
+      ARM: dts: ls1021a-qds: add compatible string "fsl,ls1021aqds-fpga" for on boards FPGA chip
+      dt-bindings: soc: imx: Add fsl,eim-bus
+      ARM: dts: imx53-ard: change node name eim-cs1 to eim-cs1-bus
+      ARM: dts: ls1021a-moxa-uc-8410a: add led suffix to fix CHECK_DTBS warnings
+      ARM: dts: ls1021a-twr: add power-supply for lcd panel
+      ARM: dts: ls1021a-moxa-uc-8410a: use compatible string ethernet-phy-ieee802.3-c22
+      ARM: dts: ls1021a-moxa-uc-8410a: replace spansion,s25fl164k with jedec,spi-nor
+      ARM: dts: ls1021a-moxa-uc-8410a: remove undocument property default-state of gpio-keys
+      ARM: dts: imx6dl-plym2m: change #io-channel-cells to 1 of voltage divider
+      ARM: dts: imx53-smd: remove undocument property clock-names of ovti,ov5642
+      ARM: dts: imx6ul-isiot: remove undocument property clock-names of fsl,sgtl5000
+      ARM: dts: imx6ull-engicam-microgea: remove nand-ecc-strength and nand-ecc-step-size
+      dt-bindings: display: imx: Add deprecated property display and display0
+      ARM: dts: ls1021a-iot: rename display@0 to display0
+
+Krzysztof Kozlowski (1):
+      ARM: dts: nxp: ls: Correct indentation
+
+Lech Perczak (1):
+      ARM: dts: imx7d-pico: describe Bluetooth controller
+
+Max Merchel (2):
+      ARM: dts: imx6ul-tqma6ul: add nvmem-layout
+      ARM: dts: imx6qdl-tqma6: add nvmem-layout
+
+Sherry Sun (2):
+      ARM: dts: imx6qdl-sabresd: Add power supply property to Root Port node
+      ARM: dts: imx6sx-sdb: Add power supply property to Root Port node
+
+ .../devicetree/bindings/board/fsl,fpga-qixis.yaml  |  1 +
+ .../devicetree/bindings/bus/fsl,spba-bus.yaml      |  4 ++-
+ .../bindings/display/fsl,ls1021a-dcu.yaml          | 22 ++++++++++++++++
+ arch/arm/boot/dts/nxp/imx/imx53-ard.dts            |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx53-smd.dts            |  1 -
+ arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts        |  4 +--
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi     |  2 ++
+ arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi      | 10 ++++++++
+ arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi      | 10 ++++++++
+ arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi          |  2 ++
+ arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi        |  1 -
+ .../boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi    | 10 ++++++++
+ .../boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi |  2 --
+ arch/arm/boot/dts/nxp/imx/imx7d-pico.dtsi          | 23 +++++++++++++++++
+ arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts           |  4 +--
+ arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dts | 29 +++++++++++-----------
+ arch/arm/boot/dts/nxp/ls/ls1021a-qds.dts           |  4 +--
+ arch/arm/boot/dts/nxp/ls/ls1021a-twr.dts           |  3 ++-
+ 18 files changed, 105 insertions(+), 29 deletions(-)
 
