@@ -4,119 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F57BC54F55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 07:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8BB6C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 07:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yp6HJ/M/gKo6BWfYlzfczKxcKIGNOWqobBVHeknXyMo=; b=4oqZzQzs+8CDGYkyLqkUniXFEh
-	3NGCGF73v2Ks8AOVmj47tg1/3AvNEDhjVffK/dq5Qpt0vknhPxEqXT41tOT69cUrgLp/xDDUt8jM3
-	+9oVaBOEhf546Y4Uxp6TckagT+IVOdV5Yb862TYj2G/OhzLa4J4rtyXX81RVTfzINUAG45MsG75h9
-	FeEY5ASUQ04wWWDHC8bnVuYxYhjxbErOQ/aEExDWt5UQ059m/uCoM4C1hLXhsW6aoe1BpPhU+FThX
-	UnG1DJCZyzJXYOBBbvzzawDq64vH9LxSAv+aQofPRsvhRXytD3fNGfbYBSvkrOE/L6m1TDDtHLws9
-	NqnyiM9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A+MFMBHe9pqr23bsgrNpHn5jti8OoeGqbUd0ny+Bo9w=; b=Xxl44cd6PQalrt7OOLtanWQQry
+	OMBrZFkAjnaObim4fucIMqnG2uxRA7OXH0gsAfovwnVOozEKKkKKxEJupeqo/CjAEBC7QeaQYK7Pk
+	pzyWZRsD9nBK3BRykBpz33A7/2h6OAVi2zcBFhwvEZl6S+WLiThD78hxKohRCr1EdVUmKf5s9zRZr
+	orQsQUhy86JgtIWN0OK8xIXUgPYwvkLG/nAbfVSPy4JRUFGB9JOfW42lyelgRcdZMYuvaI9ru5QRx
+	GskDNVR4bSQAsiZ9UF2tFDlGzM8Yoqusj3Nm/xLi2FLtGZnqnwS1PFi9qZ+vzIjRE4wpkRXoLw0ND
+	fVjU7xMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woyJG-000000074cS-3iTf;
-	Wed, 29 Jul 2026 07:02:34 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1woyMB-000000074v1-1rCR;
+	Wed, 29 Jul 2026 07:05:35 +0000
+Received: from mail-westus3azon11012061.outbound.protection.outlook.com ([40.107.209.61] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woyIx-000000074YT-3uMI
+	id 1woyM8-000000074uV-2FeE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 07:02:18 +0000
+	Wed, 29 Jul 2026 07:05:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PGqTbU9Vb/1zFga1E9d3aDIoRZ2z4xJ6/geGIYUMFJe0Nu+6OLIe2L1iaPsllGeOdYyNjUaJbr/cyT+oaDS+H+y2cAhzinyRiF4U582udIQqBOpHLTAWpAc7PxSK2UKoTJf6EGnP3iQyp6j3g2gMzrCj5nMOCDhrdFakOv67m8MP+RyJgTf9Mzk6ioSlAeAePgWKTmubtH63kkaKflCSkmTN54woUz6aB/GfQrzUsmOOR37NSItl9HcThmJO5I9K/DaE/B+wxAarr9UB17diIUymXYyH+rDVwPUeTRLicAAkbIN6Ha9wz7VGn3RdiSuUgjGO2KfVkZ4+PVrYDGipow==
+ b=tb4ten0W66VPpZyLbtbstPviSGsgRBhfi1OPm1WowB2h40RILUlrKoFvd/8c9C6r8ZiFKE7LJ9GogmAzeaSp3jhVP3LIqB4i/TFijjXoS87rFKLYvBeGFizx+oDcB5CPr3XEXJrvWKn8hH+IyFsnwjK2WGeK0GH9nj/Tt+9maG4mxbqC+yfecWTZyFepWZfaE7dIXRWNslmOU/rx8taUFVJm5DzfYYP27sMyodVUmqbflLNPhsAHKzX6ZHWl9RvOsbyZbk17iyyTwmxnjMub9kCTybSdojhxL3/FCBkiS4Fbi2YFGD2WQKmLBuV84D9NIDFygVI2i+oZBmO2eWKruQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yp6HJ/M/gKo6BWfYlzfczKxcKIGNOWqobBVHeknXyMo=;
- b=N4eQiTK7hmiKzDhuMygKTDmzu5N+gMrce1du2ggDtnZGlXSjtz1JylYKdCnHHtdYGOpOdEU6anB1L525MAR4+p4srTv6jgAJ1Mh1zwkU4UCx5n4blfdGZ7kTiVmEJ4O47AvIgZEWtoji1DZdcnKROYraIuIK/LbDarf8D4aQtlLdAqM6PFSZJwv6kCuvwf8X2q0jOXQS1oNOv3nneM5YNaC6vsxe52cqfywzBOiCgWtlJ7zMaFXpW3TZC4keDV4DZGi5+zDIT6S4RgQbYZtnE7vRF37hIOcvthTTALmZtfsyZ8+Lk0RTSUPjWdJzchSuUyl2rBEFJa3xSfl8Om/DnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
+ bh=A+MFMBHe9pqr23bsgrNpHn5jti8OoeGqbUd0ny+Bo9w=;
+ b=v6Z1PLhVmhD0fKzZa9Bg9lU9wKx7OzLMj7RimkJZRjBDxzKs8x03kvNjRO/o+7NXPIGNLYscD3P0rrBCnCBJz9lzNe5v0aea3L8O06yv/zFsT4xvvZwhx5MbsF666av2emzyGt6i+XRdESzYkhCAJ/YkRpPZsTpjn/DWASh7jnCmb5ypEl6+Uhz4Qc3zpK8rkcJWeBFSJwUS6b7j4uggN4oraZ3JvjveWyt+2w1qabBQFYOdYEgsjWCrhpz3kb14/NaGkgWTD4DUV83TgU6yz4CK/gvr+RZPkQlNj9X2Az/DfM68OAQYVoAXD5Wuo8D9749P4bzRb2f6IQyID4Shpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yp6HJ/M/gKo6BWfYlzfczKxcKIGNOWqobBVHeknXyMo=;
- b=TugRCvy9vpVoBoAjfnC+xm4BMnROYZprvrR6szjAG0iJ3ITZ+jhZFI2JGZI5KekjMhNK+ViwDqz7FnkvmnAb5llfnmHG6g5/VKPSoyAyS3FXicZbWq/Sd6KUrpT9ELZLhUhDnBlMsF3kne7MAqojME5XQNt0MZ6zfZBes1ADX9DZbgbES/iW+zZ+fLi4peJE8Zb3J/5b1+Wyzo7bgn7RbzqjCnGVPGOWR5k3DwBRsllvoji9++1qBwOvaA31jeMbZTfHd0+Y57CGDQ3TsdiyeHWrZCoNZR1SO1jSvWZ6qf187rSuaY7pmIsitJomww1GN0DSXTUtcm2APUXNYNy1zQ==
-Received: from CH0PR03CA0303.namprd03.prod.outlook.com (2603:10b6:610:118::16)
- by MWHPR18MB988536.namprd18.prod.outlook.com (2603:10b6:303:29f::14) with
+ bh=A+MFMBHe9pqr23bsgrNpHn5jti8OoeGqbUd0ny+Bo9w=;
+ b=2W3kFliyhlhgf1LxRK9DyrcP8J+m42bNTocomPN82DtZEJLEq1wKsfs+tGv8zSmPH9HXUUZxqEhrdpXk7Z6TsOXSyZADUQX27Gi61Xp3M38dD5NxsWQxYnjpVroaoxcfv2V5WozIVIbrxa06S7wqz1FWsFLAESQJBqRmoO/wMxQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB7366.namprd12.prod.outlook.com (2603:10b6:806:2b3::8)
+ by CY8PR12MB7514.namprd12.prod.outlook.com (2603:10b6:930:92::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 29 Jul
- 2026 07:02:07 +0000
-Received: from DS2PEPF000061C8.namprd02.prod.outlook.com
- (2603:10b6:610:118:cafe::2b) by CH0PR03CA0303.outlook.office365.com
- (2603:10b6:610:118::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
- 29 Jul 2026 07:02:07 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
- client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
-Received: from smtp.corp.axiado.com (64.62.143.114) by
- DS2PEPF000061C8.mail.protection.outlook.com (10.167.23.75) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
- via Frontend Transport; Wed, 29 Jul 2026 07:02:07 +0000
-Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTP id B0B5E4186B5D;
-	Wed, 29 Jul 2026 00:02:06 -0700 (PDT)
-From: Petar Stepanovic <pstepanovic@axiado.com>
-Date: Wed, 29 Jul 2026 00:02:04 -0700
-Subject: [PATCH v2 2/2] gpio: axiado: add SGPIO controller support
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
+ 2026 07:05:25 +0000
+Received: from SA1PR12MB7366.namprd12.prod.outlook.com
+ ([fe80::ec75:5e87:d973:77e6]) by SA1PR12MB7366.namprd12.prod.outlook.com
+ ([fe80::ec75:5e87:d973:77e6%5]) with mapi id 15.21.0270.009; Wed, 29 Jul 2026
+ 07:05:24 +0000
+Message-ID: <9c6b14ca-a9e3-45ae-961e-46c20b0eb446@amd.com>
+Date: Wed, 29 Jul 2026 12:35:17 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] firmware: xilinx: Add support to clear TF-A PM
+ state
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+ Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+Cc: michal.simek@amd.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, ptsm@linux.microsoft.com,
+ radhey.shyam.pandey@amd.com
+References: <20260724095301.2890001-1-jay.buddhabhatti@amd.com>
+ <20260724101948.2895263-1-jay.buddhabhatti@amd.com>
+ <20260724101948.2895263-2-jay.buddhabhatti@amd.com>
+ <20260724-stirring-bloodhound-of-sufficiency-5bedff@sudeepholla>
+Content-Language: en-US
+From: Jay Buddhabhatti <jbuddhab@amd.com>
+In-Reply-To: <20260724-stirring-bloodhound-of-sufficiency-5bedff@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260729-axiado-ax3000-sgpio-controller-v2-2-976f4ed11438@axiado.com>
-References: <20260729-axiado-ax3000-sgpio-controller-v2-0-976f4ed11438@axiado.com>
-In-Reply-To: <20260729-axiado-ax3000-sgpio-controller-v2-0-976f4ed11438@axiado.com>
-To: Petar Stepanovic <pstepanovic@axiado.com>, 
- Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>, 
- SriNavmani A <srinavmani@axiado.com>, 
- Karthikeyan Mitran <kmitran@axiado.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785308526; l=23377;
- i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
- bh=gu41BMQUXObzcCkp8CRxef+7ZWgXCwU2oD6y7g+cxXg=;
- b=GH8SNDp90xq/5ayGAvKe5B2kJMDw56o3f+eFxxo/6wn5aNMExnhGIdzoUxPxgzC4LpHV3wtWz
- CML3aJymFYyAH9culwKvFZam9R8mqQEiNEzaeH5J9jYKs4S/FdEWTW7
-X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
- pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: PNYP287CA0119.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:2b3::17) To SA1PR12MB7366.namprd12.prod.outlook.com
+ (2603:10b6:806:2b3::8)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF000061C8:EE_|MWHPR18MB988536:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2c257393-9c28-441e-b84c-08deed3f4da6
+X-MS-TrafficTypeDiagnostic: SA1PR12MB7366:EE_|CY8PR12MB7514:EE_
+X-MS-Office365-Filtering-Correlation-Id: 45be5730-e713-44a8-17ae-08deed3fc309
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|56012099006|10067099003|3023799007|921020|18002099003|6133799003|22082099003;
-X-Microsoft-Antispam-Message-Info: GScdYA+5ChJ1c+w8zv8rfShguh4znTyGlsfzCNgDvl+pnMUvreOPGsj1yXgAkm4YkW4WFNAzLo+B4gepu2njilOpM22a14NwrKm0HsennYpyQAx05dqPOz5DjfWGlkLIl29Z1J0UJYQifPJKEIjR1VyG010NsL/+oseHHhzuhUc30/3uflKo/NYMp75rIEtg2T6653LIkPAaA+YJ35k7xsrS54VU2kB1zQnabtuAM65hAovnv/O5KG0Qvo1f3XsLJOVapo9WDTnN21YUkzv3s9NZ01sGUlfTFxcrDfdWkzG5SfhjCU7gYxSKJ1MO5ewbDU1OZW0H46BTbZutMCSA+zSc5Wt9KB0kcQ5ib5NuYEuGALGGvCXBkXoHOQnb/qZ4ClMuTmlGTXt0U3R1ds+IlPrCSnlvenqhrgDTrdI3xI6fvzBBH4uRzRRD5vrLehaWemid5eBZEHO3Sfg1Nm5OQp224UpsDGUck6yWZYLEtVSdxLmaj1GpkeSJvwUNdKqUEzd1jtipbqA0RSu53haSSI7OJHGD8fczIL4dN6+K69YSDQocKLDJgMXQw/X4jGUfPz20g1NEpNYvYPXbYGHeHRTLE9oQGNBh+A7euJQnuP1mU3w3F8JTFKDdg/iUYBXEuTCeCWkTAI6Uf0t8O3/dPGYxO9xnv2eG+AdtqlOgiiHHT6PXTfmwlzIpPvZ83myqURCAOzxcXDc+Q+Igk2CoeK25lYj7iWwsAHZop+8Qqq0G1n5dsRU3UMvr3rhH4ptX
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(56012099006)(10067099003)(3023799007)(921020)(18002099003)(6133799003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|4143699003|6133799003|56012099006|11063799006|10067099003|5023799004|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: REUEiciSvvrYnISNH7FxqSflqA4NJJl2jfzdr4ODx3s3nOD0KC+OK8TWVZ58NDKDKRgacDIhkIt8knTu/CLIXY59wv2epObTFr7dktFi2uFmhEjVOPM+UkcXhH/88z7d/GnSMy4TkhQYjevfJuKVKl+YMhMglOdqMEL6+oVOO+0OCM4hxsS9aBL6jb/5wmZB8Sob/gWswF0akMXeVlqL5Awvr3sd0wliaKEpR/cI+by+JKP9IM2R/iQGu9TYujU2eIkGlbL2yumH57ly4k1EWyEiHTxTnDQMIN9Ss5Ck4t8j7ZKuyKIj9YEEn//WnvM1jznGbM0qP0vZ1a7xdZPKHZXaQLWxg6miO6qCt6knCQh/h56N5y51eRLmjIw1kbY2f4xkwDouT1IbQmLx/1h5NN/gWouGKqiDbEm92zna7VwFX99EYX6neolS01VD67wwQ6SsFZz/TiWlITM0lpXX1Ds99wl9M9WW35EmbW47JizVht37QZPGwsGbbbR/TAD7MMpqyQa/dEIP2r7wXs7uNYsRvQtQfObNWkHKjxu+dLfTlj5jiMyQ0ShneahEb8fgwKeMQR5MXMEijyvUNXULj/Mi8x77CzE+ULbHASh/QMVkp+8XvjkhectQmw59lEJKJE+9eWZrr05eN0Z0WPdDlvdvQdMhatBzq/M5I5NN/Sw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7366.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(4143699003)(6133799003)(56012099006)(11063799006)(10067099003)(5023799004)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6A0jPdt3UH+Sz594q6Yy/RjIPp/dL4+weNIDoZ4amajisizepZ3tfslbFRbzEb4eNVPhX8nmXYdSixSELGR/z1E18vGNNN7zZbGns7uB6ExsHLfjBBvSV58rElA7VnuzB5sA53LJ+XDjCjIKDZXMO0GIWzFG12tb0k4QyPykxTNiizAc1grSpJ5KKTGc8gR87HzMjYhQY3EdOzcjg0W/epsLi1KvDgCIB/ksaIZdZkiJLMC8stZEFlyDirKOMQ4Fr0A/GrxFcCBf2tnBkfTpNIVlGxDhpk7P7aeNPaEt15TR3lbh2518g0vQr+vXHDIyodf6rNgpVZfm68fjBxVmmJqpSnUVL1RMFsqRSRuQErdTdGlGOplXEqf+TnKVTaAGe758K0w9C7T+fCUbC6FyKQkJcePByoOWb/WFOvmAe9GRNSW+RXWIl9+Pnzp7rAQf
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 07:02:07.2578
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aTdrejlYeVZvWWFDSjU5T1gyWjRENnV3c1dwTmdPOS9Va1Y5aDdtb1ZGenYv?=
+ =?utf-8?B?T25EeGJkdmRZcWFXUkV0UEdGSGxpT2ZKZzFYblRtU1JWVm94NGl5SzJYeVRN?=
+ =?utf-8?B?bEljT3dQRHphQXlFZ3d6QkFIWHE3QnU2a3NCbUpYK0JhTlowQ0dTVkcrS2p2?=
+ =?utf-8?B?d2pMZXA5Yy9PNEtabWxJa0tKcHEvWUNwZHpNVjlCZVR2QUhmVnd3bWtUNTkw?=
+ =?utf-8?B?dWROZFVrZkJyWFRZSmx1ME1SUDVQMTdYTHFPN0N6TUFwZlhmMkFvYWs5ZDhP?=
+ =?utf-8?B?bWJIbmhhdHUxYUlGV2d1cnN5TUtZRGsxblM0OFdMZkxEVmw3c0l6cEJMOVpV?=
+ =?utf-8?B?VDlna0RyZzFpQ05TVmVzN2REYWtLUHpuZmJWUTVWNmNQR25uVVlmcERZMmRJ?=
+ =?utf-8?B?bDNwY0tYQmhMWk5XYjNiTGhnQ2FCRTJ6N2tZbjhGVnRRYWpZTWFkcUtVTSts?=
+ =?utf-8?B?T3BtTmRRUVBJYzdaOUtiK1BPUHRTdktWdjVvTTUvWDRZSHZGVUNqMEsyc1po?=
+ =?utf-8?B?TnhMN09MaEVPZWtMOUVCSzF5ZDBrazdHdzdoc3I4MFQxVmtxZTJCTnZvRWNG?=
+ =?utf-8?B?SENBQmQxNkpjWkN3dWRvSEVFWDdGSDRhVVVaMCtXeENxTHFBM3oyN0o0TkpL?=
+ =?utf-8?B?SHRLbTl3c0h5eElwRXM3ZmVnTDhRVFZOakFTSkFpVklTOW4waklZMjFOTHNs?=
+ =?utf-8?B?aTFwS2R3ZGpjWkFhWjlmem5EVkhDcWlncDhsb0YzYmdUelJFNjh4SXA0NlZL?=
+ =?utf-8?B?QmFLZjk5bmJ5b011VWVUYm1aRFNjL2E4ditnRE1jK2F4ZFVCWHpqTjQ2bDVs?=
+ =?utf-8?B?T2t3WitieHFPZHFvN0ljUHBpY2RPVGtjcS9LY09JT1MwUXg2cCtLQnlxL3pF?=
+ =?utf-8?B?WFFaMWd6TXd3YmxQOXRWWGoxVXQwYzNsbjBMbzdkWkkvaXBuUllwY1NsRkpF?=
+ =?utf-8?B?NEpOcXB0bkZrVTBiWC9zOERFMDV6T1ZnQXJYckpIZVlsN1hsR0MwTFdWRWlB?=
+ =?utf-8?B?SlhaZW9ZRHVQWWl5dDc2UzZoYnNDaVg3MVF0SmdBYnpnWktWQ3owRDBsVW1u?=
+ =?utf-8?B?YnBSdm9xVUliNXVZS1g4U1FzdndQNzhvN0lEeHZ6V2ZrWjhwNnJxRDRNNEVD?=
+ =?utf-8?B?MGZqZitzQ0dGVUpOMXlRdGMyNUc2T2pTOTlvVzg5YllSN2Z1N3g2WFliYlpq?=
+ =?utf-8?B?SGF4S1NuKzF0SnlDNldrWnI2WnJXNkdrMm5TV2tnVzU5aWQvVldVVjQrZHBH?=
+ =?utf-8?B?OFFjSVFDWXJMbE9ZU2pTZzdCdVFDYXZtNENIZElNL0lQWElibEFTejVnWXAx?=
+ =?utf-8?B?R0NiQmNWeGljbWtFWU5PSGwxOFVHc2hwOEt5UFc1NTBpMDdjSC9DVEFYTWdV?=
+ =?utf-8?B?WHgrd2s5UDFWVzFZNXVzd1ZnMkYyemZOM20yY3pid3BhMTNzaGNBQ2RrQXJM?=
+ =?utf-8?B?UzVLUC9hSVN3TGZnNzNFa3dYa2c3TW5EZm83Ynp4NFRZY0pGNTVDVUNYVnpy?=
+ =?utf-8?B?NUd0VTBjdEkrYm0rak1qWDJKazdNc04xem5idHU5bTFwMzM4TWM5NlFQSWpi?=
+ =?utf-8?B?VTBGc0lLOGxlTEdnMFlFQ292V2lHdy9uV0pjNVc2ZFVObHBLMHVBMWhHTTFm?=
+ =?utf-8?B?UEQ4bFhseWc1d0gwcDAvUi9GcTJCZFpnNHEwWmFXMUd6RENVOVR6bVNLSVZ5?=
+ =?utf-8?B?aUVIamtRWVdtUllGQXQ1NEE5YnI0NThPdFgyV0krc1RON202K3pjOCt3S3M1?=
+ =?utf-8?B?SmRTVnZmUDRsa3JydDRSQVEvc3BnZzlvMG1hc21FTmZBSVdIQWo5TzNJUVdB?=
+ =?utf-8?B?RWkrMWZHVXU3TDMrUEFuOTBta0hyajlFcjVWYXZqQzlFcEkzNVlsS2NkUzEy?=
+ =?utf-8?B?ODVyMlg2R1RUOURkc3l0clRXbGJBVUM4ZFlDVjZzdlZURTRYRUd3OFZ6Qlh1?=
+ =?utf-8?B?T3dYb0lUcmtTenNnOE03RHM1a1ViYm1qa0tsVExxdjJ6c2FqMWQxSFQ5ZUlp?=
+ =?utf-8?B?RzI3RCs1Q0dSbjREZnUyc1BOQXdkUk1FbXhlYTR1WTU4S3p1R2M5WkFDb0xK?=
+ =?utf-8?B?UlJlZk9BOU5ZV2gwbWcxd1ZubGVFSzg4UERucFZEeWxicFhsN0M5c3F0cklH?=
+ =?utf-8?B?M1FqUDc1M2doVnI5WDJyL01wWDJ4WjhoeU11cXA2MStvTnFoM2FzUDI4Skli?=
+ =?utf-8?B?WEFpcHVYQ3pNRFJKY0crK3ZTbmU4Yk5WVDZreElGYTVvQmsramtLRmNteHhK?=
+ =?utf-8?B?R2FwbFNmUFJQSFpBQ2s3UndEcjdVS0w1RHdGc1JTNXVld3hoWWxvY1NoelRW?=
+ =?utf-8?B?TVlGb0twOVRRUWRvQ05sY2tYRTVFa3hxRnZ1S1dNdkpRajZCamxPdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45be5730-e713-44a8-17ae-08deed3fc309
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7366.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 07:05:24.5737
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c257393-9c28-441e-b84c-08deed3f4da6
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C8.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR18MB988536
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nYduPZuF6U0Y4ERNBX21TkEZ6OMhrDoI2NtYCB2zyXrr95F6jdDQmsLxHXUBd/Csl8kLmaeQWR/Vmfnkh3yI+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7514
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_000216_465839_030AA6BB 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20260729_000532_635235_9DB7A9BF 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,876 +151,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Axiado SGPIO controller.
+Hi Sudeep,
 
-Each SGPIO position provides one input GPIO and one output GPIO with
-fixed directions. The driver registers the controller as a gpio_chip,
-supports interrupts on input GPIOs, and uses regmap for register access.
+Thanks for the review. Replies inline.
 
-Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
----
- MAINTAINERS                      |   1 +
- drivers/gpio/Kconfig             |  18 +
- drivers/gpio/Makefile            |   1 +
- drivers/gpio/gpio-axiado-sgpio.c | 795 +++++++++++++++++++++++++++++++++++++++
- 4 files changed, 815 insertions(+)
+On 7/24/2026 4:43 PM, Sudeep Holla wrote:
+> On Fri, Jul 24, 2026 at 03:19:46AM -0700, Jay Buddhabhatti wrote:
+>> Currently, during a kexec restart, only the kernel is reloaded, while the
+>> TF-A specific data remain unchanged. This leads to a mismatch between the
+>> kernel state and the TF-A firmware state like SGI number and shutdown
+>> scope variable.
+>>
+> 
+> Avoid using TF-A in general as it can be any other firmware as well.
+> You can always generalise as PSCI or EL3 firmware.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fc613271f435..dd556d9252bb 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4414,6 +4414,7 @@ M:	Prasad Bolisetty <pbolisetty@axiado.com>
- L:	linux-gpio@vger.kernel.org
- S:	Supported
- F:	Documentation/devicetree/bindings/gpio/axiado,sgpio.yaml
-+F:	drivers/gpio/gpio-axiado-sgpio.c
- 
- AXIS ARTPEC ARM64 SoC SUPPORT
- M:	Jesper Nilsson <jesper.nilsson@axis.com>
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index 28cf6d2e83c2..80db12d908bb 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -204,6 +204,24 @@ config GPIO_ATH79
- 	  Select this option to enable GPIO driver for
- 	  Atheros AR71XX/AR724X/AR913X SoC devices.
- 
-+config GPIO_AXIADO_SGPIO
-+	bool "Axiado SGPIO support"
-+	depends on OF_GPIO
-+	depends on ARCH_AXIADO || COMPILE_TEST
-+	select GPIOLIB_IRQCHIP
-+	select REGMAP_MMIO
-+	help
-+	  Enable support for the Axiado Serial GPIO (SGPIO) controller.
-+
-+	  The SGPIO controller provides a serialized interface for
-+	  controlling multiple GPIO signals over a limited number of
-+	  physical lines. Each SGPIO position provides one fixed-direction
-+	  input GPIO and one fixed-direction output GPIO. Interrupts are
-+	  supported on input GPIOs.
-+
-+	  This driver integrates with the Linux GPIO subsystem and
-+	  exposes the controller as a standard GPIO provider.
-+
- config GPIO_RASPBERRYPI_EXP
- 	tristate "Raspberry Pi 3 GPIO Expander"
- 	default RASPBERRYPI_FIRMWARE
-diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-index 4d0e900402fc..6ae73dbe7102 100644
---- a/drivers/gpio/Makefile
-+++ b/drivers/gpio/Makefile
-@@ -40,6 +40,7 @@ obj-$(CONFIG_GPIO_ARIZONA)		+= gpio-arizona.o
- obj-$(CONFIG_GPIO_ASPEED)		+= gpio-aspeed.o
- obj-$(CONFIG_GPIO_ASPEED_SGPIO)		+= gpio-aspeed-sgpio.o
- obj-$(CONFIG_GPIO_ATH79)		+= gpio-ath79.o
-+obj-$(CONFIG_GPIO_AXIADO_SGPIO)		+= gpio-axiado-sgpio.o
- obj-$(CONFIG_GPIO_BCM_KONA)		+= gpio-bcm-kona.o
- obj-$(CONFIG_GPIO_BCM_XGS_IPROC)	+= gpio-xgs-iproc.o
- obj-$(CONFIG_GPIO_BD71815)		+= gpio-bd71815.o
-diff --git a/drivers/gpio/gpio-axiado-sgpio.c b/drivers/gpio/gpio-axiado-sgpio.c
-new file mode 100644
-index 000000000000..91e63239c99d
---- /dev/null
-+++ b/drivers/gpio/gpio-axiado-sgpio.c
-@@ -0,0 +1,795 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (c) 2022-2026 Axiado Corporation
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/cleanup.h>
-+#include <linux/clk.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/interrupt.h>
-+#include <linux/irq.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/spinlock.h>
-+#include <linux/types.h>
-+
-+struct sgpio_reg_offsets {
-+	u32 mux_0;
-+	u32 preset_0;
-+	u32 count_0;
-+	u32 pos_0;
-+
-+	u32 mux_1;
-+	u32 ld;
-+	u32 ld_ss;
-+
-+	u32 preset_1;
-+	u32 count_1;
-+	u32 pos_1;
-+
-+	u32 mux_2;
-+	u32 dout;
-+	u32 dout_ss;
-+
-+	u32 preset_2;
-+	u32 count_2;
-+	u32 pos_2;
-+
-+	u32 mux_3;
-+	u32 preset_3;
-+	u32 count_3;
-+	u32 pos_3;
-+
-+	u32 mux_4;
-+	u32 oe;
-+	u32 oe_ss;
-+
-+	u32 preset_4;
-+	u32 count_4;
-+	u32 pos_4;
-+
-+	u32 mask;
-+	u32 ctrl_en;
-+	u32 ctrl_en_pos;
-+
-+	u32 din_ss;
-+	u32 status;
-+};
-+
-+static const struct sgpio_reg_offsets sgpio_offsets_512 = {
-+	.mux_0 = 0x000,
-+	.preset_0 = 0x1dc,
-+	.count_0 = 0x1f0,
-+	.pos_0 = 0x204,
-+
-+	.mux_1 = 0x004,
-+	.ld = 0x014,
-+	.ld_ss = 0x0d8,
-+
-+	.preset_1 = 0x1e0,
-+	.count_1 = 0x1f4,
-+	.pos_1 = 0x208,
-+
-+	.mux_2 = 0x008,
-+	.dout = 0x054,
-+	.dout_ss = 0x158,
-+
-+	.preset_2 = 0x1e4,
-+	.count_2 = 0x1f8,
-+	.pos_2 = 0x20c,
-+
-+	.mux_3 = 0x00c,
-+	.preset_3 = 0x1e8,
-+	.count_3 = 0x1fc,
-+	.pos_3 = 0x210,
-+
-+	.mux_4 = 0x010,
-+	.oe = 0x0d4,
-+	.oe_ss = 0x1d8,
-+
-+	.preset_4 = 0x1ec,
-+	.count_4 = 0x200,
-+	.pos_4 = 0x214,
-+
-+	.mask = 0x224,
-+	.ctrl_en = 0x218,
-+	.ctrl_en_pos = 0x21c,
-+
-+	.din_ss = 0x198,
-+	.status = 0x228,
-+};
-+
-+static const struct sgpio_reg_offsets sgpio_offsets_128 = {
-+	.mux_0 = 0x000,
-+	.preset_0 = 0x08c,
-+	.count_0 = 0x0a0,
-+	.pos_0 = 0x0b4,
-+
-+	.mux_1 = 0x004,
-+	.ld = 0x014,
-+	.ld_ss = 0x048,
-+
-+	.preset_1 = 0x090,
-+	.count_1 = 0x0a4,
-+	.pos_1 = 0x0b8,
-+
-+	.mux_2 = 0x008,
-+	.dout = 0x024,
-+	.dout_ss = 0x068,
-+
-+	.preset_2 = 0x094,
-+	.count_2 = 0x0a8,
-+	.pos_2 = 0x0bc,
-+
-+	.mux_3 = 0x00c,
-+	.preset_3 = 0x098,
-+	.count_3 = 0x0ac,
-+	.pos_3 = 0x0c0,
-+
-+	.mux_4 = 0x010,
-+	.oe = 0x044,
-+	.oe_ss = 0x088,
-+
-+	.preset_4 = 0x09c,
-+	.count_4 = 0x0b0,
-+	.pos_4 = 0x0c4,
-+
-+	.mask = 0x0d4,
-+	.ctrl_en = 0x0c8,
-+	.ctrl_en_pos = 0x0cc,
-+
-+	.din_ss = 0x078,
-+	.status = 0x0d8,
-+};
-+
-+#define MAX_SGPIO_PINS 512
-+#define MAX_OFFSET_REG 16
-+#define MAX_SLICE_COUNT 5
-+
-+struct ax3000_slice_info {
-+	u32 out_mux;
-+	u32 sgpio_mux;
-+	u32 slice_mux;
-+	u32 reg[MAX_OFFSET_REG];
-+	u32 reg_ss[MAX_OFFSET_REG];
-+	u32 preset;
-+	u32 count;
-+	u32 pos;
-+};
-+
-+struct ax3000_sgpio {
-+	u32 preset_value;
-+	u32 count_value;
-+	u32 pos_reg;
-+	struct ax3000_slice_info
-+		slices[MAX_SLICE_COUNT]; /* 0=clk,1=load,2=out,3=in,4=oe */
-+	spinlock_t lock;
-+	struct mutex output_lock;
-+	u32 ngpios;
-+	u32 max_sgpio_pins;
-+	u32 max_offset_regs;
-+	struct gpio_chip chip;
-+	u32 irq_unmasked[MAX_SGPIO_PINS];
-+	unsigned int irq_type[MAX_SGPIO_PINS];
-+	struct regmap *regmap;
-+	u32 regmap_base_offset;
-+	const struct sgpio_reg_offsets *regs;
-+};
-+
-+struct axiado_sgpio_soc_data {
-+	const struct sgpio_reg_offsets *regs;
-+	u32 max_sgpio_pins;
-+	u32 max_offset_regs;
-+};
-+
-+static const struct axiado_sgpio_soc_data ax3000_sgpio_data = {
-+	.regs = &sgpio_offsets_128,
-+	.max_sgpio_pins = 128,
-+	.max_offset_regs = 4,
-+};
-+
-+static const struct axiado_sgpio_soc_data ax3005_sgpio_data = {
-+	.regs = &sgpio_offsets_512,
-+	.max_sgpio_pins = 512,
-+	.max_offset_regs = 16,
-+};
-+
-+static int sgpio_set_irq_type(struct irq_data *d, unsigned int type);
-+static void sgpio_mask_irq(struct irq_data *d);
-+static void sgpio_unmask_irq(struct irq_data *d);
-+static void sgpio_irq_shutdown(struct irq_data *d);
-+
-+static const struct irq_chip axiado_sgpio_irqchip = {
-+	.name = "axiado-sgpio",
-+	.irq_mask = sgpio_mask_irq,
-+	.irq_unmask = sgpio_unmask_irq,
-+	.irq_set_type = sgpio_set_irq_type,
-+	.irq_shutdown = sgpio_irq_shutdown,
-+	.flags = IRQCHIP_IMMUTABLE | IRQCHIP_MASK_ON_SUSPEND,
-+	GPIOCHIP_IRQ_RESOURCE_HELPERS,
-+};
-+
-+static int ax3000_sgpio_set(struct gpio_chip *chip, unsigned int offset,
-+			     int value)
-+{
-+	struct ax3000_sgpio *sgpio = gpiochip_get_data(chip);
-+	u32 position = (offset / 2) % 32;
-+	u32 bank = (offset / 2) / 32;
-+	u32 val;
-+	int ret;
-+
-+	if (!(offset % 2))
-+		return -EINVAL;
-+
-+	guard(mutex)(&sgpio->output_lock);
-+
-+	val = sgpio->slices[2].reg_ss[bank];
-+
-+	if (value)
-+		val |= BIT(position);
-+	else
-+		val &= ~BIT(position);
-+
-+	ret = regmap_write(sgpio->regmap,
-+			   sgpio->regmap_base_offset + sgpio->regs->dout_ss +
-+			   bank * sizeof(u32), val);
-+	if (ret)
-+		return ret;
-+
-+	sgpio->slices[2].reg_ss[bank] = val;
-+
-+	return 0;
-+}
-+
-+static int ax3000_sgpio_get_direction(struct gpio_chip *chip,
-+				      unsigned int offset)
-+{
-+	if (!(offset % 2))
-+		return GPIO_LINE_DIRECTION_IN;
-+
-+	return GPIO_LINE_DIRECTION_OUT;
-+}
-+
-+static int ax3000_sgpio_get(struct gpio_chip *chip, unsigned int offset)
-+{
-+	struct ax3000_sgpio *sgpio = gpiochip_get_data(chip);
-+	u32 position = (offset / 2) % 32;
-+	u32 bank = (offset / 2) / 32;
-+	u32 val;
-+
-+	if (!(offset % 2)) {
-+		guard(spinlock_irqsave)(&sgpio->lock);
-+
-+		val = sgpio->slices[3].reg_ss[bank];
-+	} else {
-+		guard(mutex)(&sgpio->output_lock);
-+
-+		val = sgpio->slices[2].reg_ss[bank];
-+	}
-+
-+	return !!(val & BIT(position));
-+}
-+
-+static int ax3000_sgpio_dir_in(struct gpio_chip *chip, unsigned int offset)
-+{
-+	if (!(offset % 2))
-+		return 0;
-+
-+	return -EINVAL;
-+}
-+
-+static int ax3000_sgpio_dir_out(struct gpio_chip *chip, unsigned int offset,
-+				int value)
-+{
-+	/* Even offsets represent input GPIOs. */
-+	if (!(offset % 2))
-+		return -EINVAL;
-+
-+	return ax3000_sgpio_set(chip, offset, value);
-+}
-+
-+static irqreturn_t sgpio_irq_handler(int irq, void *arg)
-+{
-+	struct ax3000_sgpio *sgpio = (struct ax3000_sgpio *)arg;
-+	u32 status, new_value;
-+	u32 changed_value;
-+	int bit, reg_ptr;
-+	int ret, i;
-+
-+	/* Read-on-clear (ACK) parent cause */
-+	ret = regmap_read(sgpio->regmap,
-+			  sgpio->regmap_base_offset + sgpio->regs->status,
-+			  &status);
-+	if (ret)
-+		return IRQ_NONE;
-+
-+	status >>= 16;
-+
-+	bool has_shifted_layout = (sgpio->max_offset_regs == MAX_OFFSET_REG);
-+
-+	reg_ptr = has_shifted_layout ? 16 - DIV_ROUND_UP(sgpio->ngpios, 32) : 0;
-+
-+	for (i = 0; i < DIV_ROUND_UP(sgpio->ngpios, 32); i++, reg_ptr++) {
-+		if (status & BIT(reg_ptr)) {
-+			ret = regmap_read(sgpio->regmap,
-+					  sgpio->regmap_base_offset +
-+					  sgpio->regs->din_ss +
-+					  reg_ptr * sizeof(u32),
-+					  &new_value);
-+			if (ret)
-+				continue;
-+
-+			{
-+				guard(spinlock_irqsave)(&sgpio->lock);
-+				changed_value = sgpio->slices[3].reg_ss[i] ^ new_value;
-+				sgpio->slices[3].reg_ss[i] = new_value;
-+			}
-+
-+			while (changed_value) {
-+				irq_hw_number_t hwirq;
-+				unsigned int position;
-+				unsigned int type;
-+				bool rising;
-+
-+				bit = __ffs(changed_value);
-+				changed_value &= ~BIT(bit);
-+
-+				position = i * 32 + bit;
-+				hwirq = position * 2;
-+
-+				rising = !!(new_value & BIT(bit));
-+				type = READ_ONCE(sgpio->irq_type[position]);
-+
-+				if (rising &&
-+				    !(type & IRQ_TYPE_EDGE_RISING))
-+					continue;
-+
-+				if (!rising &&
-+				    !(type & IRQ_TYPE_EDGE_FALLING))
-+					continue;
-+
-+				if (READ_ONCE(sgpio->irq_unmasked[position])) {
-+					unsigned int child_irq;
-+
-+					child_irq = irq_find_mapping(sgpio->chip.irq.domain,
-+								     hwirq);
-+					if (child_irq)
-+						handle_nested_irq(child_irq);
-+				}
-+			}
-+		}
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static void sgpio_hw_init(struct ax3000_sgpio *sgpio)
-+{
-+	bool has_shifted_layout = (sgpio->max_offset_regs == MAX_OFFSET_REG);
-+	u32 position;
-+	u32 bank;
-+	int i;
-+
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->mask, 0);
-+
-+	/* slice A0, Clock Pin - 0 */
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->mux_0, 0x306);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->preset_0,
-+		     sgpio->preset_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->count_0,
-+		     sgpio->count_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->pos_0, 0x1f001f);
-+
-+	/* Slice B1, Data Load Pin - 1 */
-+	bank = (sgpio->ngpios - 1) / 32;
-+	position = (sgpio->ngpios - 1) % 32;
-+
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->mux_1,
-+		     has_shifted_layout ? 0x30c : 0x304);
-+
-+	for (i = 0; i < bank; i++) {
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->ld +
-+				     (i * 4),
-+			     0xffffffff);
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->ld_ss +
-+				     (i * 4),
-+			     0xffffffff);
-+	}
-+
-+	if (position) {
-+		u32 val;
-+
-+		val = sgpio->slices[1].reg_ss[i];
-+		val |= GENMASK(position, 0);
-+
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->ld +
-+				     (i * 4),
-+			     val);
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->ld_ss +
-+				     (i * 4),
-+			     val);
-+	}
-+
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->preset_1,
-+		     sgpio->preset_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->count_1,
-+		     sgpio->count_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->pos_1,
-+		     sgpio->pos_reg);
-+
-+	/* Slice C2, Data Out Pin - 2 */
-+	bank = sgpio->ngpios / 32;
-+	position = sgpio->ngpios % 32;
-+
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->mux_2,
-+		     has_shifted_layout ? 0x30c : 0x304);
-+
-+	for (i = 0; i < bank; i++) {
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->dout +
-+				     (i * 4),
-+			     sgpio->slices[2].reg_ss[i]);
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->dout_ss +
-+				     (i * 4),
-+			     sgpio->slices[2].reg_ss[i]);
-+	}
-+
-+	if (position) {
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->dout +
-+				     (i * 4),
-+			     sgpio->slices[2].reg_ss[i]);
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->dout_ss +
-+				     (i * 4),
-+			     sgpio->slices[2].reg_ss[i]);
-+	}
-+
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->preset_2,
-+		     sgpio->preset_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->count_2,
-+		     sgpio->count_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->pos_2,
-+		     sgpio->pos_reg);
-+
-+	/* Slice D3, Data In Pin - 3 */
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->mux_3, 0x14C);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->preset_3,
-+		     sgpio->preset_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->count_3,
-+		     sgpio->count_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->pos_3,
-+		     sgpio->pos_reg);
-+
-+	/* Slice E4, Output Enable for respective pins */
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->mux_4,
-+		     has_shifted_layout ? 0x10c : 0x104);
-+	regmap_write(sgpio->regmap, sgpio->regmap_base_offset + sgpio->regs->oe,
-+		     0xffffffff);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->oe_ss,
-+		     0xffffffff);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->preset_4,
-+		     sgpio->preset_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->count_4,
-+		     sgpio->count_value);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->pos_4, 0x1f001f);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->ctrl_en, 0xffff);
-+	regmap_write(sgpio->regmap,
-+		     sgpio->regmap_base_offset + sgpio->regs->ctrl_en_pos,
-+		     0xffff);
-+}
-+
-+static int axiado_sgpio_irq_enable(struct ax3000_sgpio *sgpio)
-+{
-+	return regmap_write(sgpio->regmap,
-+			    sgpio->regmap_base_offset + sgpio->regs->mask,
-+			    0xdfff);
-+}
-+
-+static int sgpio_set_irq_type(struct irq_data *d, unsigned int type)
-+{
-+	struct gpio_chip *chip = irq_data_get_irq_chip_data(d);
-+	struct ax3000_sgpio *sgpio = gpiochip_get_data(chip);
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+	unsigned int position;
-+
-+	/* Only even GPIO offsets represent SGPIO inputs. */
-+	if (hwirq & 1)
-+		return -EINVAL;
-+
-+	position = hwirq / 2;
-+	if (position >= sgpio->ngpios)
-+		return -EINVAL;
-+
-+	type &= IRQ_TYPE_SENSE_MASK;
-+
-+	switch (type) {
-+	case IRQ_TYPE_EDGE_BOTH:
-+	case IRQ_TYPE_EDGE_RISING:
-+	case IRQ_TYPE_EDGE_FALLING:
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	WRITE_ONCE(sgpio->irq_type[position], type);
-+	irq_set_handler_locked(d, handle_edge_irq);
-+
-+	return 0;
-+}
-+
-+static void sgpio_mask_irq(struct irq_data *d)
-+{
-+	struct gpio_chip *chip = irq_data_get_irq_chip_data(d);
-+	struct ax3000_sgpio *sgpio = gpiochip_get_data(chip);
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+
-+	WRITE_ONCE(sgpio->irq_unmasked[hwirq / 2], 0);
-+	gpiochip_disable_irq(chip, hwirq);
-+}
-+
-+static void sgpio_unmask_irq(struct irq_data *d)
-+{
-+	struct gpio_chip *chip = irq_data_get_irq_chip_data(d);
-+	struct ax3000_sgpio *sgpio = gpiochip_get_data(chip);
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+
-+	gpiochip_enable_irq(chip, hwirq);
-+	WRITE_ONCE(sgpio->irq_unmasked[hwirq / 2], 1);
-+}
-+
-+static void sgpio_irq_shutdown(struct irq_data *d)
-+{
-+	sgpio_mask_irq(d);
-+}
-+
-+static void axiado_sgpio_irq_init_valid_mask(struct gpio_chip *chip,
-+					 unsigned long *valid_mask,
-+					 unsigned int ngpios)
-+{
-+	unsigned int offset;
-+
-+	/* Only even offsets represent input GPIOs. */
-+	for (offset = 1; offset < ngpios; offset += 2)
-+		clear_bit(offset, valid_mask);
-+}
-+
-+static int axiado_sgpio_init_input_cache(struct ax3000_sgpio *sgpio)
-+{
-+	unsigned int num_banks = DIV_ROUND_UP(sgpio->ngpios, 32);
-+	unsigned int reg_ptr;
-+	unsigned int i;
-+	int ret;
-+
-+	reg_ptr = sgpio->max_offset_regs == MAX_OFFSET_REG ?
-+		  MAX_OFFSET_REG - num_banks : 0;
-+
-+	for (i = 0; i < num_banks; i++, reg_ptr++) {
-+		ret = regmap_read(sgpio->regmap,
-+				  sgpio->regmap_base_offset +
-+				  sgpio->regs->din_ss +
-+				  reg_ptr * sizeof(u32),
-+				  &sgpio->slices[3].reg_ss[i]);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct regmap_config regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+};
-+
-+static int sgpio_probe(struct platform_device *pdev)
-+{
-+	const struct axiado_sgpio_soc_data *soc_data;
-+	struct gpio_irq_chip *girq;
-+	struct ax3000_sgpio *sgpio;
-+	unsigned long apb_freq;
-+	struct clk *apb_clk;
-+	void __iomem *base;
-+	u32 sgpio_freq;
-+	int irq, rc;
-+	u32 pos;
-+
-+	sgpio = devm_kzalloc(&pdev->dev, sizeof(*sgpio), GFP_KERNEL);
-+	if (!sgpio)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&sgpio->lock);
-+	mutex_init(&sgpio->output_lock);
-+
-+	sgpio->regmap = dev_get_regmap(pdev->dev.parent, NULL);
-+
-+	if (sgpio->regmap) {
-+		rc = device_property_read_u32(&pdev->dev, "reg",
-+					      &sgpio->regmap_base_offset);
-+		if (rc)
-+			return dev_err_probe(&pdev->dev, rc,
-+					     "Failed to read reg property\n");
-+
-+		dev_info(&pdev->dev, "Using regmap with base offset: 0x%x\n",
-+			 sgpio->regmap_base_offset);
-+	} else {
-+		base = devm_platform_ioremap_resource(pdev, 0);
-+		if (IS_ERR(base))
-+			return PTR_ERR(base);
-+
-+		sgpio->regmap =
-+			devm_regmap_init_mmio(&pdev->dev, base, &regmap_config);
-+
-+		if (IS_ERR(sgpio->regmap))
-+			return PTR_ERR(sgpio->regmap);
-+
-+		sgpio->regmap_base_offset = 0;
-+
-+		dev_info(&pdev->dev, "Using MMIO regmap\n");
-+	}
-+
-+	rc = device_property_read_u32(&pdev->dev, "ngpios", &sgpio->ngpios);
-+	if (rc)
-+		return dev_err_probe(&pdev->dev, rc,
-+				     "Failed to read ngpios property\n");
-+
-+	soc_data = device_get_match_data(&pdev->dev);
-+	if (!soc_data)
-+		return -EINVAL;
-+
-+	sgpio->regs = soc_data->regs;
-+	sgpio->max_sgpio_pins = soc_data->max_sgpio_pins;
-+	sgpio->max_offset_regs = soc_data->max_offset_regs;
-+
-+	if (!sgpio->ngpios ||
-+	    (sgpio->ngpios != 128 && sgpio->ngpios != 512) ||
-+	    sgpio->ngpios > sgpio->max_sgpio_pins)
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+				     "Invalid ngpios value: %u\n",
-+				     sgpio->ngpios);
-+
-+	apb_clk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(apb_clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(apb_clk),
-+				     "Failed to get and enable APB clock\n");
-+
-+	rc = device_property_read_u32(&pdev->dev, "bus-frequency",
-+				      &sgpio_freq);
-+	if (rc)
-+		return dev_err_probe(&pdev->dev, rc,
-+				     "Failed to read bus-frequency\n");
-+
-+	apb_freq = clk_get_rate(apb_clk);
-+
-+	if (!apb_freq || !sgpio_freq || sgpio_freq > apb_freq)
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+				     "Invalid SGPIO bus frequency\n");
-+
-+	sgpio->preset_value = (apb_freq / sgpio_freq) - 1;
-+	sgpio->count_value = sgpio->preset_value;
-+
-+	pos = sgpio->ngpios - 1;
-+	sgpio->pos_reg = FIELD_PREP(GENMASK(31, 16), pos) |
-+			 FIELD_PREP(GENMASK(15, 0), pos);
-+
-+	sgpio_hw_init(sgpio);
-+
-+	rc = axiado_sgpio_init_input_cache(sgpio);
-+	if (rc)
-+		return dev_err_probe(&pdev->dev, rc,
-+				     "Failed to initialize input cache\n");
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	rc = devm_request_threaded_irq(&pdev->dev, irq, NULL, sgpio_irq_handler,
-+				       IRQF_ONESHOT, dev_name(&pdev->dev), sgpio);
-+
-+	if (rc)
-+		return dev_err_probe(&pdev->dev, rc, "Failed to request IRQ\n");
-+
-+	sgpio->chip.parent = &pdev->dev;
-+	sgpio->chip.ngpio = sgpio->ngpios * 2;
-+	sgpio->chip.get_direction = ax3000_sgpio_get_direction;
-+	sgpio->chip.direction_input = ax3000_sgpio_dir_in;
-+	sgpio->chip.direction_output = ax3000_sgpio_dir_out;
-+	sgpio->chip.get = ax3000_sgpio_get;
-+	sgpio->chip.set = ax3000_sgpio_set;
-+	sgpio->chip.can_sleep = true;
-+	sgpio->chip.label = dev_name(&pdev->dev);
-+	sgpio->chip.base = -1;
-+
-+	girq = &sgpio->chip.irq;
-+
-+	gpio_irq_chip_set_chip(girq, &axiado_sgpio_irqchip);
-+	girq->handler = handle_bad_irq;
-+	girq->default_type = IRQ_TYPE_NONE;
-+	girq->init_valid_mask = axiado_sgpio_irq_init_valid_mask;
-+	girq->threaded = true;
-+	girq->parent_handler = NULL;
-+	girq->num_parents = 0;
-+	girq->parents = NULL;
-+
-+	rc = devm_gpiochip_add_data(&pdev->dev, &sgpio->chip, sgpio);
-+	if (rc < 0)
-+		return dev_err_probe(&pdev->dev, rc,
-+				     "Could not register gpiochip\n");
-+
-+	rc = axiado_sgpio_irq_enable(sgpio);
-+	if (rc)
-+		return dev_err_probe(&pdev->dev, rc,
-+				     "Failed to enable interrupts\n");
-+
-+	platform_set_drvdata(pdev, sgpio);
-+
-+	return 0;
-+}
-+
-+static void sgpio_remove(struct platform_device *pdev)
-+{
-+	struct ax3000_sgpio *sgpio = platform_get_drvdata(pdev);
-+
-+	/* Disable interrupts in hardware */
-+	if (sgpio->regs) {
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->mask,
-+			     0x0);
-+		regmap_write(sgpio->regmap,
-+			     sgpio->regmap_base_offset + sgpio->regs->ctrl_en,
-+			     0x0);
-+	}
-+}
-+
-+static const struct of_device_id axiado_sgpio_of_match[] = {
-+	{ .compatible = "axiado,ax3000-sgpio", .data = &ax3000_sgpio_data },
-+	{ .compatible = "axiado,ax3005-sgpio", .data = &ax3005_sgpio_data },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, axiado_sgpio_of_match);
-+
-+static struct platform_driver sgpio_driver = {
-+	.driver = {
-+		.name = KBUILD_MODNAME,
-+		.of_match_table = axiado_sgpio_of_match,
-+	},
-+	.probe = sgpio_probe,
-+	.remove = sgpio_remove,
-+};
-+
-+module_platform_driver(sgpio_driver);
-+MODULE_DESCRIPTION("Axiado Serial GPIO Driver");
-+MODULE_AUTHOR("Axiado Corporation");
-+MODULE_LICENSE("GPL");
+Agreed. Updated the commit message and in-patch comments to refer to
+"EL3 firmware" / "secure firmware" rather than TF-A.
 
--- 
-2.34.1
+> 
+>> For example, the kernel registers an SGI number with TF-A so that TF-A can
+>> notify the kernel of events via that SGI. TF-A stores this SGI number in
+>> its internal state. After a kexec, the newly loaded kernel re-registers
+>> and may request a different SGI number, but the stale value programmed in
+>> TF-A remains, so event notifications are delivered on the old SGI and are
+>> missed by the new kernel. The shutdown scope variable has a similar stale
+>> state problem.
+>>
+> 
+> Doesn't it reset it every time CPU_OFF or CPU_ON is called ?
+
+No. The SGI registration is done once via zynqmp_pm_register_sgi() when
+the event manager driver probes; it programs the SGI number into EL3 PM
+state. On CPU hotplug, the kernel only enables/disables the per-CPU IRQ
+(enable_percpu_irq() / disable_percpu_irq() in xlnx_event_manager.c);
+it does not re-register the SGI with EL3 on CPU_ON or clear that
+registration on CPU_OFF.
+
+So while SGI delivery is per-CPU from the GIC side, the SGI number EL3
+uses to raise the interrupt is subsystem-global state held in EL3, not
+per-CPU state that is reset by CPU hotplug.
+
+> 
+>> To resolve this, the TF_A_CLEAR_PM_STATE PM API is introduced to clear
+>> TF-A-specific state during kexec. On a graceful reboot, this API is
+>> triggered by zynqmp_firmware_shutdown(), while in a crash kernel scenario,
+>> it is invoked by zynqmp_firmware_probe() in the reloaded kernel.
+>>
+> 
+> I don't see the need for such an API just for kexec needs. You must deal
+> with it as part of CPU_ON as it should start with clean slate as SGIs are
+> per CPU, no ?
+
+Handling this purely in the CPU_ON path would require either EL3 to
+clear/re-init this PM state on every CPU bring-up, or the kernel to
+re-register the SGI on every CPU_ON. Neither happens today. CPU_ON is
+not the point at which this state is established or torn down; driver
+probe/shutdown is. That is why the platform firmware exposes
+TF_A_CLEAR_PM_STATE - to reset EL3 PM subsystem state when the OS is
+replaced without a full firmware reload.
+
+The kexec cleanup is therefore a targeted reset at the OS transition
+boundary (zynqmp_firmware_shutdown() on graceful kexec, 
+zynqmp_firmware_probe() on kdump), not a general CPU hotplug hook. 
+Given the above, I believe adding a dedicated API and invoking it at the 
+kexec boundary is the correct approach.
+
+Thanks,
+Jay
+
+> 
 
 
