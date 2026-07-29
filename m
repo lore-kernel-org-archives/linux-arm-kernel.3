@@ -4,106 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A141EC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 02:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB342C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 03:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z0l4Bp+5+Y4yFZ5XasMMueRCytlXMKNfVRo7vlTlFys=; b=RadZ/bypVa8wiCUJrplPrT8bWa
-	Ew5FEHIdplDKobq1awA8HaDKPInjNVC2WY5qFbcY7iPRhwx861pvDh49XvSGTk6wVEgFRyvEGT2fO
-	y6fds65T55yc3TXC2p1bzamMrLRLT9A9OalSFKnzTJ8aSRBxUjad5jnhe0w6YlCkNCB4YzrHWPyHz
-	8gvvxwPAlx/A8HxKWwjLm2UnuLmP+yMqIPC/jxIeUcg6tKgwQJD5rF9Ycvwx0TQI5asMl/v5Th/1U
-	fE4HcuRxEsTMIyCkh5pIfU7MXNodwkIanJBCxGt8uTtSDbTeaLwLCbHQT9wQGp/AS0vtTBMqrTvEM
-	Vcy2704w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lgglAX+vAkQE2ZN1RbOOio5KCd/AGkNzi00z18kvesc=; b=NrJbGfKI7MXBsucDPlPECp1Cdg
+	0ew59OMZI9a43V+3LBb2IKeXaELw/+xafruW58JC+jSuEZ4WZi+sE2m4uWjUtpbFMM6EGS31+14U5
+	KF1rvZz8JKRlrYU2i7isETZASIwbPQiIi7vpLchL3zr1VtgTf/2aR76ePNGRXPoJax75EKWknhg/Z
+	gUnZYce7RYyP0tYRodtU08gKQNCmg+OgqZDPGAsrhkwG4f9H135NS8ASR12azqMQXrU3s0rxvquNa
+	0+jyyeVd6+EBjYHuu0jKl7lXC+4UfaF1YhuUWyCosWFhbKUdI2GY98uEJW15Z2W5BSBTar3vAk/Hn
+	KunOKTPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wouS7-00000006izQ-3wHN;
-	Wed, 29 Jul 2026 02:55:27 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1wouii-00000006jcG-2ulQ;
+	Wed, 29 Jul 2026 03:12:36 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wouS2-00000006iys-0p4r;
-	Wed, 29 Jul 2026 02:55:26 +0000
-Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66SItqfk2091613;
-	Wed, 29 Jul 2026 02:55:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=Z0l4Bp+5+Y4yFZ5XasMMueRCytlXMKNfVRo7vlTlFys=; b=
-	Lf7kTEK0akjzIKseRwobzotSPLwF38iG8WLyF5wkg4H8qdbrBBSZUaFbVEbZrqO6
-	fk6tHcggIOyKHSu+fl9wMpoTdzwDDGD3FIc915P8GTLyJaV4PttBjBwurG74ogvE
-	Gi/tD6mER42AW5Q86RwWo1SoNkRzuceoIivnPE7Kl10/UagX4yJWXBX50LwKiE9q
-	MW1Q7P3uilD5/aGLeVkoXH3dHn0iOxq8umd1KOezupUQGdB6xlqRG+LQKp96rewt
-	OVxzPOeGlQQRFOGB7CNJNiOnNs/IiXKCSgsxK+Tldxp+XOBAqT020B2HoPRtSXWb
-	aTtNrH04sFjA80aCwybwUQ==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4fmqyyd83q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 29 Jul 2026 02:55:15 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 66T2o5NO001420;
-	Wed, 29 Jul 2026 02:55:14 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4fnh87p0mm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 29 Jul 2026 02:55:14 +0000 (GMT)
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 66T2t8jT012133;
-	Wed, 29 Jul 2026 02:55:13 GMT
-Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 4fnh87p0jb-5;
-	Wed, 29 Jul 2026 02:55:13 +0000 (GMT)
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-To: alim.akhtar@samsung.com, bvanassche@acm.org,
-        James.Bottomley@HansenPartnership.com, linux-scsi@vger.kernel.org,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Avri Altman <avri.altman@sandisk.com>, ed.tsai@mediatek.com
-Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, wsd_upstream@mediatek.com,
-        peter.wang@mediatek.com, alice.chao@mediatek.com,
-        naomi.chu@mediatek.com, chun-hung.wu@mediatek.com
-Subject: Re: [PATCH v3 0/3] ufs: Add callback for vendor-specific RTT capability
-Date: Tue, 28 Jul 2026 22:54:59 -0400
-Message-ID: <178508193507.4027291.7150424989200322423.b4-ty@oracle.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260615055802.105479-1-ed.tsai@mediatek.com>
-References: <20260615055802.105479-1-ed.tsai@mediatek.com>
+	id 1wouie-00000006jZR-0YaH;
+	Wed, 29 Jul 2026 03:12:34 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=lgglAX+vAkQE2ZN1RbOOio5KCd/AGkNzi00z18kvesc=;
+	b=Xm8NPMfqUhq7S0aeaRYxg863ELYLowmpFX/AHTX2lHkKHSVdW7QQzuFRPkiSrwbx5Ls1L+xVe
+	LN5sx5POdE2uyqCSMkCI5KgPlLdQA4TgbHXaToOGtfY0hzfsDHar4jrunEQok2pr7gplyy17JQK
+	qjZynPBSYfkGRQsfWtC8334=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4h8xwF5jZkz1K96b;
+	Wed, 29 Jul 2026 11:02:53 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6A45540586;
+	Wed, 29 Jul 2026 11:12:19 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 29 Jul
+ 2026 11:12:17 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
+	<baoquan.he@linux.dev>, <rppt@kernel.org>, <pasha.tatashin@soleen.com>,
+	<pratyush@kernel.org>, <thuth@redhat.com>, <mark.rutland@arm.com>,
+	<jic23@kernel.org>, <james.morse@arm.com>, <ardb@kernel.org>,
+	<leitao@debian.org>, <yeoreum.yun@arm.com>, <sourabhjain@linux.ibm.com>,
+	<robh@kernel.org>, <kees@kernel.org>, <coxu@redhat.com>, <makb@juniper.net>,
+	<piliu@redhat.com>, <graf@amazon.com>, <ebiggers@kernel.org>,
+	<jbouron@amazon.com>, <bgwin@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kexec@lists.infradead.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v2 0/5] arm64: crash: Add crash hotplug support
+Date: Wed, 29 Jul 2026 11:12:30 +0800
+Message-ID: <20260729031235.2840255-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-29_01,2026-07-28_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- lowpriorityscore=0 mlxscore=0 suspectscore=0 adultscore=0 mlxlogscore=952
- bulkscore=0 phishscore=0 spamscore=0 malwarescore=0 classifier=spam adjust=0
- reason=mlx scancount=1 engine=8.19.0-2606160000 definitions=main-2607290021
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI5MDAyMSBTYWx0ZWRfX8CIH5Lx9gjXp
- AjTPolwFrdrU2iIJa22IXKEzYmF+Vidr8tapzLtEcEGEzPfSNwFLHSckgs4WJkX6Kcn2u4dXMtX
- u+2GCnu1eCl1Rr8hn+MT1rO8VA1uDten1y6/VMFTxJQ/GyAHS20r
-X-Proofpoint-GUID: lrzFVhjw-w_ldy1upAbIsbKIMs9ldxqp
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI5MDAyMSBTYWx0ZWRfXzd7THBL1SPuC
- xqgzgPB4q3znGF9RhyprQbaujWRZGlL4Jg9rvcaLcYTwKLLFZYz1mttQcLOeKljB+ejMbCndSJC
- Pzt4x4yY/B67WP0xwMC6cZFrhyJlOtxpvCRWtO2eMjCE0lypycFEUc/qjxfjj2enrqUAPd35pvU
- fY5ZzTo8ROH3ooVXTrPht65ZGWO3ntCZlOFOTUO5A8hM1KPEwLfOcFwDduCB5LLHe3UgdxYrXJi
- EPRy8CMm1RlNpGSbfLCHgFYcOVKboaYANT8qWNAVHOPl1DEWIk+cVIuqABbleNv2XD2J6nNCEpS
- Npui57bA2EaOg9GsJXar2Of8NRLrRIvVkBtvfpM0Y19ocja5bk/WJESbpKbahYIepJq1HSFsGlV
- 6WjefCyf4mHlRHD/zLIYBEiOWVNgPJ0Lvg6UORcXZFHAfTotaG3etE4D2R1sH1PudckOeIQfZyk
- D5W/qNQF+y5g93poGsA==
-X-Authority-Analysis: v=2.4 cv=HNnz0Itv c=1 sm=1 tr=0 ts=6a696b93 cx=c_pps
- a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=jiCTI4zE5U7BLdzWsZGv:22 a=BqU2WV_vvsyTyxaotp0D:22 a=VwQbUJbxAAAA:8
- a=mpaa-ttXAAAA:8 a=AHtIWjdTHCXrM6kK-bEA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: lrzFVhjw-w_ldy1upAbIsbKIMs9ldxqp
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_195522_355950_7CB92BE5 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260728_201232_806403_E58672DB 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,28 +82,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Jun 2026 13:57:14 +0800, ed.tsai@mediatek.com wrote:
+When CPU or memory hotplug events occur, the elfcorehdr in the kdump
+image becomes stale, potentially leading to incomplete crash dumps.
 
-> The first patch adds the get_hba_nortt() callback to the UFS core layer,
-> allowing vendor drivers to provide dynamic, platform-specific RTT
-> capability handling.
-> 
-> The second patch implements this callback in the MediaTek UFS driver,
-> distinguishing between legacy platforms (which require the RTT to be
-> limited to 2) and newer MT6995 B0+ platforms (which can use the value
-> from the capability register directly).
-> 
-> [...]
+Currently, userspace udev rules reload the entire kdump image upon such
+events, which is inefficient and leaves kdump inactive for a long time.
 
-Applied to 7.3/scsi-queue, thanks!
+Commit 247262756121 ("crash: add generic infrastructure for crash hotplug
+support") introduced a kernel mechanism to update only the elfcorehdr.
+This patch set implements crash hotplug support for arm64.
 
-[1/3] ufs: core: Add get_hba_nortt callback for vendor-specific RTT capability
-      https://git.kernel.org/mkp/scsi/c/e7896d02cb4d
-[2/3] ufs: mediatek: Implement get_hba_nortt callback for RTT capability
-      https://git.kernel.org/mkp/scsi/c/75f529a7bcd4
-[3/3] ufs: core: Remove max_num_rtt field from ufs_hba_variant_ops
-      https://git.kernel.org/mkp/scsi/c/7ebadbae3dd7
+As Baoquan suggested, it also addresses and fixes several
+pre-existing code issues and Sashiko AI review findings extracted
+from the previous patch set.
+
+The major improvements and fixes included in this series are:
+- Fix several memory leaks for arm64.
+- Simplify arm64 load_other_segments().
+- Implement infrastructure for arm64 crash memory hotplug support.
+
+This patch set is rebased on liveupdate/crashkernel-cma.
+
+Link: https://lore.kernel.org/all/20260601094805.2928614-1-ruanjinjie@huawei.com/
+
+Changes in v2:
+- Split out Powerpc bugfix patch as Mike suggested.
+- Use phys_to_virt() instead of __va() in update_crash_elfcorehdr().
+- Convert pnum_hdr_sz() to a function.
+- Only assign elfcorehdr_index after kexec_add_buffer succeeds, considering
+  crash_handle_hotplug_event() already performs validity check on
+  elfcorehdr_index:
+  - We can safely remove the check for CPU hotplug
+    in arch_crash_handle_hotplug_event().
+  - The elfcorehdr_index's segment mem will be valid in
+    update_crash_elfcorehdr(), so we can safely remove the NULL check.
+- Simplify the commit message.
+- v1: https://lore.kernel.org/all/20260723131242.1537633-1-ruanjinjie@huawei.com/#t
+
+Jinjie Ruan (5):
+  kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
+  arm64: kexec_file: Fix CMA page leaks in segment placement retry loops
+  arm64: kexec_file: Fix image->elf_headers memory leak in retry loop
+  arm64: kexec_file: Simplify load_other_segments()
+  arm64: crash: Add crash hotplug support
+
+ arch/arm64/Kconfig                     |   3 +
+ arch/arm64/include/asm/kexec.h         |  16 +++
+ arch/arm64/kernel/Makefile             |   2 +-
+ arch/arm64/kernel/crash.c              | 143 +++++++++++++++++++++++++
+ arch/arm64/kernel/kexec_image.c        |   1 +
+ arch/arm64/kernel/machine_kexec_file.c |  78 +++++++-------
+ include/linux/kexec.h                  |   2 +
+ kernel/kexec_core.c                    |  25 +++--
+ 8 files changed, 216 insertions(+), 54 deletions(-)
+ create mode 100644 arch/arm64/kernel/crash.c
 
 -- 
-Martin K. Petersen
+2.34.1
+
 
