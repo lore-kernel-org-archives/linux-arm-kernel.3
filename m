@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2326C54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 22:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E556AC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 22:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBl/PmqBGV6Hz0BTo867ohWIB5OzgHrJW2iz7/NaT0o=; b=kxFAugpwnqW87pDdLeiNhRvXe6
-	uOE8YnsKZqsUlqLZC2e4pNi9SVYgKVzh7b1YHdFLsscC01ny9GeQFCzlGxxO2VWyLm0v8+gW/psIY
-	Mj+SrkI8QETz51/NIXX4SIR++XfYYLdUSnSfS7XiZWTYI5SIRzxXn2Q6q2vV7hAODztSUTBDnp/7r
-	yoUiwvIQFNUBZDuGs18gePq5cV4+T9b+8VYTCL1c9dLp4Fvoyomsf7GO/5CkrIzL9ghpcgK3o+AOO
-	igqrTMsGbe9FlcqnEZLTo59fYfBDIJg9PguJGVF9IZYZzR7lhOxj3IXO3uP0SWo17Vj++w+f+uszl
-	F3GBoT+Q==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=0U5DHx/vibag0y1MX3xU73yi1W1IoWaz0Zw0N4cnjm8=; b=dcA0Deq+drgacq
+	zjFgIE7zhdSVFZsRNQmtk7OtS+aB+8e1d2ZIpaa+uBsy47/fs6+PZOHkdh85E20x2/LgwxhuE8t+c
+	o7IMNQJeQ2Eaj4Z65Dna5e6Wk9oxp7PmSZqxM2lWjaeCb724CVnbkCtFkx29SZ+fLwLJAyIXtg6Ht
+	EkokeA/onsgSAvYYNazxvBSuMasQsW0nkbBSkCTQjGqEu3eoB4hBFVVycM1PVJ6Geu5dPmT6Qo9GM
+	NhQZ+sf2ktmwl3W6WxcjzvTWCGth1NyHN12K4AYDwV5kwX3JM2XhRZdT+DNRpGTAlyfnYhVeT27EA
+	bMjufAxU0m4K6yvLV2Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCbB-000000093Do-3npl;
-	Wed, 29 Jul 2026 22:18:01 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1wpCmb-000000093uN-3QDb;
+	Wed, 29 Jul 2026 22:29:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpCbA-000000093DU-1JbB
+	id 1wpCma-000000093uG-3Om1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 22:18:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785363480; x=1816899480;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hzgPOTIkadimHJsYARjf7bICbVJT4Trp2C5AiJ4gD2w=;
-  b=GzavrO8VC7JUUoQFYBjC6Iy0fzonJXmWkEt6VpN6mdsTDo9I9UM1jY1z
-   Z0oQi6XbvOnbFgY6FXBb6IlPfFT6wrwDYTGqQrO0wbPXHkoJKwLM8NoAr
-   iNe9jqtu3opIty+R03kaWOigO7MPW+6MqdwIB0K6EgBKha2Mw3sSV94/O
-   nzR8unU3wE/6Hppe70BnARLjQqOWBhpZCGcCFApPfgY9sHS3yRw7Y5v5X
-   /KENX4PsjNG5CH9HsXvp3OZh9sPjGRmbd3K2uDxyW/C/D4qdA9UbxH0c8
-   sJP0XOyzQ/9zuMaAmBe1m57Tu5tuBAvwwtO3w5Ey/EN4eytYmwg7czqGD
-   g==;
-X-CSE-ConnectionGUID: 5f1lIVnUTW2xAyy9UclBKw==
-X-CSE-MsgGUID: LFyoXozMSNaqErXslrXxSQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11859"; a="85996959"
-X-IronPort-AV: E=Sophos;i="6.25,193,1779174000"; 
-   d="scan'208";a="85996959"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2026 15:17:59 -0700
-X-CSE-ConnectionGUID: V9mhva2mTfmwIT3YakpQlA==
-X-CSE-MsgGUID: xKo/5c+nR9aHOB0l4mMLKQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,193,1779174000"; 
-   d="scan'208";a="255815767"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.90])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2026 15:17:56 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 1246A11F8BD;
-	Thu, 30 Jul 2026 01:17:56 +0300 (EEST)
-Date: Thu, 30 Jul 2026 01:17:56 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Pengyu Luo <mitltlatltl@gmail.com>
-Cc: Frank.Li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	festevam@gmail.com, hverkuil@kernel.org, imx@lists.linux.dev,
-	kernel@pengutronix.de, krzk+dt@kernel.org, martink@posteo.de,
-	mchehab@kernel.org, robh@kernel.org, s.hauer@pengutronix.de,
-	sebastian.krzyszkowiak@puri.sm,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v5 1/5] media: hi846: Fix hi846_write_reg_16 handling
-Message-ID: <amp8FBFx2jmiCIqU@kekkonen.localdomain>
-References: <20260712115012.91600-1-mitltlatltl@gmail.com>
- <20260712115553.92564-1-mitltlatltl@gmail.com>
- <amp7xqJGfhOeKaoU@kekkonen.localdomain>
+	Wed, 29 Jul 2026 22:29:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3241A41892;
+	Wed, 29 Jul 2026 22:29:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAAC31F000E9;
+	Wed, 29 Jul 2026 22:29:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785364188;
+	bh=0U5DHx/vibag0y1MX3xU73yi1W1IoWaz0Zw0N4cnjm8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=npp3Pj8SkNgFweE8i7YmpVumas1g6oBVU96OUQlUBjDF0LDtQtyvi0MXqoszHv9Zo
+	 JeiOqIxP5uWNrvyn20RfxtmonJj11aq66qxyQGRk7zC6KkogYC5OdOQzqzPSPYzDsI
+	 5qJAX2BODA7CPf1JWuyzsQqkuYhK9bceTAr7Sh2zd3nKPpVugbymxRUCeLxfBKgu24
+	 rlO8MR1tujqfrwgfgdekPiZoLV5nvG5m9xe4A+gUmlpuMohfBk9QKMXwRwIdIU+VEW
+	 UIVXncmw//H5yU5PTt9ftkoInE/0s4Zoj4gFd9nMA5Dcm3oXM/rLmZ9+8GnA3EgoOj
+	 9VRQj3AnIsixg==
+Date: Wed, 29 Jul 2026 17:29:46 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: hongxing.zhu@oss.nxp.com
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Richard Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms
+ with RC power loss
+Message-ID: <20260729222946.GA1466768@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <amp7xqJGfhOeKaoU@kekkonen.localdomain>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_151800_411030_91136AB6 
-X-CRM114-Status: UNSURE (   7.26  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260717074121.3214222-1-hongxing.zhu@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,12 +72,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 01:16:38AM +0300, Sakari Ailus wrote:
-> This should be first (or at least before non-fix patches) in the set.
+On Fri, Jul 17, 2026 at 03:41:21PM +0800, hongxing.zhu@oss.nxp.com wrote:
+> From: Richard Zhu <hongxing.zhu@nxp.com>
+> 
+> Some platforms like i.MX power off their PCIe RC controllers during
+> system suspend, requiring full re-initialization on resume. These
+> platforms need to enter L2 state to properly notify endpoints before
+> power loss.
+> 
+> According to PCIe base spec r7.0, sec 5.2, the system software should
+> transition the device into D3Hot before broadcasting the PME_Turn_Off
+> message to initiate L2 entry. However, some endpoint devices fail the
+> D3cold capability check in pci_host_common_d3cold_possible(), which
+> would normally prevent L2 entry.
 
-Ah, it's already the first patch. Somehow the ordering didn't work this
-time.
+Wakeup devices that don't support PME from D3cold will fail the D3cold
+capability check, but I don't think those are the problem you're
+solving.
 
--- 
-Sakari Ailus
+This appears to handle devices that are not in D3hot, and that's not a
+property of the endpoint; it's a property of its driver.  Is the
+problem here that some driver didn't put its device in D3hot?
+
+> For platforms where the RC loses power during suspend, L2 entry is
+> essential regardless of D3cold support, as the link will be lost anyway.
+> Add a suspend_poweroff flag to force L2 entry in such cases, and enable
+> it for i.MX PCIe controllers.
+> 
+> Note: This violates the spec requirement that devices be in D3Hot before
+> PME_Turn_Off, but is necessary for proper operation on platforms with RC
+> power loss during suspend.
+
+If the device isn't in D3hot, it may still be active, and I think the
+PME_Turn_Off will abort any DMAs in progress, which doesn't sound like
+proper operation of the endpoint.
+
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+> Changes in v2:
+> - Rename the new added flag.
+> - Update commit description and comments.
+> 
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c             | 11 +++++++++++
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 10 ++++++++--
+>  drivers/pci/controller/dwc/pcie-designware.h      |  8 ++++++++
+>  3 files changed, 27 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 98e1db751132a..5a43bf396521b 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -1957,6 +1957,17 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  		 */
+>  		imx_pcie_add_lut_by_rid(imx_pcie, 0);
+>  	} else {
+> +		/*
+> +		 * i.MX RC is powered off during suspend, requiring L2 entry
+> +		 * to notify endpoints before power loss. Some endpoints fail
+> +		 * the D3cold capability check, which would normally prevent
+> +		 * L2 entry. Force L2 entry anyway since the link will be lost
+> +		 * when RC powers off.
+> +		 *
+> +		 * Note: Per PCIe spec r7.0 sec 5.2, devices should be in D3Hot
+> +		 * before PME_Turn_Off. This may not be guaranteed here.
+> +		 */
+> +		pci->pp.suspend_poweroff = true;
+>  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+>  			pci->pp.skip_l23_ready = true;
+>  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 06722259d2e37..95a31d65e1ca9 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1222,14 +1222,20 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+>  
+>  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  {
+> -	bool pme_capable = false;
+> +	bool d3cold, pme_capable = false;
+>  	int ret = 0;
+>  	u32 val;
+>  
+>  	if (!dw_pcie_link_up(pci))
+>  		goto stop_link;
+>  
+> -	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
+> +	d3cold = pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable);
+> +	/*
+> +	 * Enter L2 if D3cold is possible, or if the platform loses RC power
+> +	 * during suspend (in which case L2 entry is required to notify
+> +	 * endpoints before power loss, regardless of D3cold support).
+> +	 */
+> +	if (!d3cold && !pci->pp.suspend_poweroff)
+>  		return 0;
+>  
+>  	if (pci->pp.ops->pme_turn_off) {
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index de4b245b1758c..3ce7d30d9a4d5 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -471,6 +471,14 @@ struct dw_pcie_rp {
+>  	bool			native_ecam;
+>  	bool                    skip_l23_ready;
+>  	bool			skip_pwrctrl_off;
+> +	/*
+> +	 * suspend_poweroff: Force L2 entry during suspend even when D3cold
+> +	 * capability check fails. Used on platforms where RC loses power
+> +	 * during suspend and must notify endpoints via L2 entry before
+> +	 * power loss. May not meet PCIe spec requirement for devices to be
+> +	 * in D3Hot before PME_Turn_Off.
+> +	 */
+> +	bool                    suspend_poweroff;
+>  };
+>  
+>  struct dw_pcie_ep_ops {
+> -- 
+> 2.34.1
+> 
 
