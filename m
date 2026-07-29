@@ -4,101 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98A5C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA69C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HW3LEfjTPLKPIEhN48PB0+fej5z0A3OPZy5r028XBjo=; b=uBPwYNaWmHsM8WHZHsQpmD8Vd6
-	D/Krb5eOxSKNel3qlPlDotBSK++JM/vEsuJcZA7bFES0fI4plGhQyRSLiir589c7tu39aKtp3scfO
-	iJEhXlK+nyuXjHhVMAnfiV/BfD05p/HdH14UFZRK6jPzioQGb1HF4QwZjSjgc1lEcWVRHc896GbQc
-	QZpNQOLOm5oQFBmRELd8M5v/tvyIPw0yvri9G79abZdmQ6VkqOI7Vnxa6Ga5TOEk9WAvhBGFi1Djh
-	HhjXOs6FtL6FIq/UmGoUgtvc0TbXhaRGND4neMyV1ptM5+2D0X6qww8YGBnEDreyjrNdp0rRdkVMp
-	NuZ2nM6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NnH+ZSEhlCd4rHV81aslMU0DtNzllincRE46KqIsoI8=; b=IpEfXCPqSNn0m0EAMsIcVOXscd
+	KYQHEguVIMUYvFNnVAsz4Bwlx217Y6Gp5vYMIDiq/kqJQb95HacKognuNvPzHraDhvkqddFUUovnp
+	5ekWns1+6O+cXof1Er7abp9KMhJLonNvcDgLiL/pdUbof82MAQdQnEI9TijpSgrF5h4Z/uksqEDq6
+	MaMWs2NeUo9i9UjRJyWOZulfjDfjDhYv5MDPJEKUtx1IW/D3jVo4/mjqp26wikrJAY4mDwtcWhAuN
+	niqQ4Z/qhu4tdNb/RxwaeM3TgPrjKw+EEN1qbHeoVDBHazpJE8JN7s7i4xH/772emkaT3GKhiFuR8
+	hG7EXqPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1Lm-00000007W1y-2rEw;
-	Wed, 29 Jul 2026 10:17:22 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1wp1Mk-00000007WKC-3xu2;
+	Wed, 29 Jul 2026 10:18:22 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1Lk-00000007W1E-0q0Z
+	id 1wp1Mh-00000007WIr-3JNM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:17:21 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-69f7130b47dso1121383a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 03:17:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785320238; x=1785925038; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HW3LEfjTPLKPIEhN48PB0+fej5z0A3OPZy5r028XBjo=;
-        b=bIgP519Yusi5tYy5iwiw1whJTfeQrGfH91Nvydv92heAwxQhOuZ62lM30GVrn0EBiN
-         UhbB5lu1lGS8jxiUQ4tlVe12dvydAMiESAiEcT3jhM5Fr+iLK9PWd1TpyOS2Nii1W3V0
-         NFkLi564dlbVY5ioPtDk/zTBIAC5EoHcAOXNn6lM3BydyJdLSC2D5xqbbeIDaKlFC7tF
-         SWRjcfea84duOccu2SLGdiSE+9UuYH7HSHQu1Bdnj4cKj90F3dSoUmY/9rMKD7+aXoGk
-         XTzMbPMtEfwWABlkoQrUYUZ+YDQ1PaGK8xBSEv1uxZfXMzjeLLj5ah+NHb2Tmd6X/7xY
-         863g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785320238; x=1785925038;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HW3LEfjTPLKPIEhN48PB0+fej5z0A3OPZy5r028XBjo=;
-        b=W4HEPi0KkW7GTK+d81CjELU73fYW5PYG72sPGHRLq3SaOOsEjWTouDZwdJQub3hgqm
-         1g8VH39xAPzls/Evnyh+G/SnQoe3ke3NYDg9qrlkyPPHE+7q4fHLht4VdlqqOpVc00PH
-         T9ttINeS3K3nroORDKgXFwh33yS4ufyj1EAhd49S7gP9B9jEn9UMH4WJjHoZNoeGqGtG
-         PrssjkXAIoTLCeiRXlBWdpLaqfWUctZyh9Gw/UBPwbNLqXP6ePEZ7hjbgvAomAcu85s0
-         Tqrm32On4sFzvMmHi/o78g0II92jV7RTTeKmfoqLr7hwkKGZ2gQCctf5FcHlqRfAmHZx
-         J+7Q==
-X-Forwarded-Encrypted: i=1; AHgh+RqaYiCkpxRWTnrjHAMGs3s23yiCwQTuetIjbOe7gXPJ+dTlNXgt+OEKMxaxALdg+YsU8MNDlGXmQSbi02o+BvBh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHXrRtOMxN2AOA1Fx4PWF7PwQz0eu+irCfLwcoxBv12UTm+cnx
-	Se5yHFfnW1W4UPziJ5k3POSXXZmG01EacSNR+sLS0s/roQoTCa7R0uGwh4Zu7SPIPMc=
-X-Gm-Gg: AR+sD121G/M/q52Zldeok8SbU1i6OKq32mKE3d7jBEd1vDjGUPOiLoHsdk8VNtq31N4
-	Rpc8+AObscOGcznP3j7nOaoyD6XDYmeATsLFpjI3Vlxxg7/AMfpntd/RHbWdltchW2BO+AzB8IS
-	62VlzC49thQU6/TSGZRMTxm/E71UdaApEyTEghGq4ducDdQxu/O8on03vSb7NWxzmVFA6sp+D4n
-	oT7And0QQPeq6XSE6/vKq/O+hqx+jXeB/QiO2JRwGaYL430sKE6T23l4DaoaDEDV8RAZe45rSWb
-	iblS2hJsreYidDsYpON+14t4ET/MVonySYiGBXa2ZCZpfMzVQsr0AkYIvPRvdbv5PXvLxT4/pRq
-	QveHSsvXWDsnzf+gK+qvCF+9ddvBEMcK0RHaVtJD51EvZ4nFW6C0/NcJKNKYc2nNHIZs/j31zmj
-	3QhY/ggEESZqrT27j1pLS06U+nq9F5y+Kfm9QUZee3boTOX6a10oI04SdFfPKcwK4q+CWVrp+O+
-	bBH
-X-Received: by 2002:a05:6402:42c4:b0:698:aa88:56d1 with SMTP id 4fb4d7f45d1cf-6a034a88210mr3501753a12.25.1785320238373;
-        Wed, 29 Jul 2026 03:17:18 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a050c5cf0bsm632696a12.23.2026.07.29.03.17.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jul 2026 03:17:16 -0700 (PDT)
-Message-ID: <29c574cf-eeda-4d29-a840-000d62ace604@linaro.org>
-Date: Wed, 29 Jul 2026 11:17:14 +0100
+	Wed, 29 Jul 2026 10:18:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cw8K+PCkscQKneeyhLXbQMWSuz+hcfLH7n1YD5sVfxRM5JXujPscy8YIRD7sxO1Q0fNwEzagDuf2KRzBaokR8ozn8hD/nm3V2mXpSw4OLhJw8lQ/d7gg/YvIielDeCMn6Lkl/RWPC92mybZQ6yuX9+d/nJBBQojMCPHbI4AjNtrjBoS5H5Zd+98Q/J265D2G75AvYdzM9FvKMM5r8QF1qgUmC/LfTvFrbRISrFHncBZGLkuxfPT4OCTsCW7/SpjEVL0iRZG75QxtTwZ7t3d0GN2Gzlchhrdy74vJpsbtWSdqgiZbOL7MxLrlGamcrs9+LGLIS0ylAadyblKskRjGPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NnH+ZSEhlCd4rHV81aslMU0DtNzllincRE46KqIsoI8=;
+ b=dwURToChGxCl/wxq0W95ecx+SyC5XRY58VAYiXP670+KbEkuh5yvDU8O05Q01znRLo73gWJzmU7h8j1396c8843ZtMcEj4jtDu07VdIONuVtyDTBvvdAI8+nSSoWtMhFpH2vueyNGfwIaHTdh3Q20Fv9jXVQ2a+XJ3lQ8Yk/UONKSTNk3n7O8bZIQd702fYerAt+7X00eKYnEwozRunowAdwp7vJKO5Mc7YaMz17fHID8wREU5WdauW+HBk1+qT+xPoCcMlEtPEE+bq2Dx1QtxKdYeOZd3lQmANohNoZU5+pjXWPhsuufEQeyfGl4vqxh6SmlmQ4AYZbxlPDCtgS0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NnH+ZSEhlCd4rHV81aslMU0DtNzllincRE46KqIsoI8=;
+ b=uOFIN5CyHH5+ykBnPeLXgq3LLAzYcpLKePkB6MEUdfNclRagYmayKG32fv3xel0YNPoms7H9lvFBN+DfVJUvEtaZZAb8/8aYH6VUu41lwjes/qdCxqg2RFYR+oTcA23MQevzvjDIbeOne7MqUXfdJCv96QmmjSd8ATbe+T3lrBA=
+Received: from SJ0PR03CA0261.namprd03.prod.outlook.com (2603:10b6:a03:3a0::26)
+ by DM3PR12MB9413.namprd12.prod.outlook.com (2603:10b6:8:1af::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
+ 2026 10:18:13 +0000
+Received: from CO1PEPF000066E6.namprd05.prod.outlook.com
+ (2603:10b6:a03:3a0:cafe::14) by SJ0PR03CA0261.outlook.office365.com
+ (2603:10b6:a03:3a0::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
+ 29 Jul 2026 10:18:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CO1PEPF000066E6.mail.protection.outlook.com (10.167.249.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 10:18:12 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 29 Jul
+ 2026 05:18:11 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 29 Jul
+ 2026 05:18:11 -0500
+Received: from xhdrdevl202.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Wed, 29 Jul 2026 05:18:09 -0500
+From: Rajesh Gugulothu <rajesh.gugulothu@amd.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, "Mauro Carvalho
+ Chehab" <mchehab@kernel.org>, Michal Simek <michal.simek@amd.com>
+CC: <rajesh.gugulothu@amd.com>, <linux-media@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
+Date: Wed, 29 Jul 2026 15:48:08 +0530
+Message-ID: <20260729101808.3904212-1-rajesh.gugulothu@amd.com>
+X-Mailer: git-send-email 2.44.4
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] perf hisi-ptt: Fix spelling and abbreviation errors
-To: Sizhe Liu <liusizhe5@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linuxarm@huawei.com, prime.zeng@hisilicon.com,
- wuyifan50@huawei.com, rostedt@goodmis.org, mhiramat@kernel.org,
- mathieu.desnoyers@efficios.com, corbet@lwn.net, skhan@linuxfoundation.org,
- bhelgaas@google.com, yangyccccc@gmail.com, jic23@kernel.org,
- john.g.garry@oracle.com, will@kernel.org, mike.leach@arm.com,
- leo.yan@linux.dev, peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
- namhyung@kernel.org, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, wangyushan12@huawei.com
-References: <20260729060220.624250-1-liusizhe5@huawei.com>
- <20260729060220.624250-2-liusizhe5@huawei.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260729060220.624250-2-liusizhe5@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E6:EE_|DM3PR12MB9413:EE_
+X-MS-Office365-Filtering-Correlation-Id: 881049b6-84a8-4210-4e51-08deed5ab248
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|23010399003|36860700016|1800799024|6133799003|18002099003|3023799007|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: NDMX7YPshkuLLVGFUWFHW+nGZhUn4xZrB+X5YzqDYBnSUwh5AyEFj78fzh76PK2V9qJfdjI5Rdldl3n7gmOgyvXxgt4OEAxzSCwKBjn3upEI+A2hQp2ougOohF65Sp4Lblacr1+urWvVehu07NNqhAWVt2kOcgT1/umfaLIaMMR/xA50GPsE4x7ZIDGIT3NW31nJQRKvvBAUDTv9wsZVZAXTNcXCQCJPj9hjKOm2KgJ7CDFHw+R0IXs+LsSMRZRYC+uDQhCb5opDBi6tEkM00P3zXtgB6xfuxLiBcWYMACVGctV+ChsX5S8ZzmqsCKyN1vIFCUs7NVaCRfmCMZqAhB+BMlj7v2XcdMfg4iCEgNbSUiM+EC+ekhm4vVTCh6blui38TsmzcM6bC4oVqtj0S+tsoccTM4hxldnyIY/5F4f9sNAU9L5CLRWNqqlKPXX1w0/1/WBjCM5GX5jEtG8moX283k38quk3j0lpMM71y4SherXmEOkg9Cb+NUq9twSBP/9TehyuDYlhRhoDtHjZs8l+RpOnh5SVEbkiLkLKvvkpVpRNMk/XLz5vIMPf5QwGXAuvIbl3JgTJANHmFp1lVeyWWB+E8jQFZlmnmrkaJGy3Rt0CPEM4/CFSGjDMgv74UVK0xVMFbbp5rhB4fGCgaVZHLzSgv2lG8A2OKUoVrIPxwUdb3j/UPgY6lBAl2Qs3LhptWuSi4zsdghoOxXnqNA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(23010399003)(36860700016)(1800799024)(6133799003)(18002099003)(3023799007)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: t+jDlNRpx95usllQ1krvvS4Ks9I1/3BoKI3F2rANg85DBudkjvgM0K8mmX7B0ZH93GhqgXKQsjbGpAn2iKSTB2UHGUNvLHqt0Qwa0lQ+bsiYdZRtFO1rEjn2Iim+ltmLHJJE5zoZSRARjIhygrcy3XtGEULtiQNypwMttdoIw6ITfyfbUqu6sBBaS29ayiNPXjr+iMky82FuPkVnzq7PRqqsrdpQpwjqiMe8cczHbFi3polB3EOXCCkIoTampQQH2BCl2R9hmG+42mrzl3Zdwlt3l7IqPKszgEA1NyIkACv0TWo31QTs+cJ69z5QRQT25G5k9TYXFrgy7DyDt2aQH5gI2BCN9DMnGIsCqK4U9aoiOPwmtRwReAa14qrUytLerr3Yek8pHYsXlngj0OCY8jwfh1QzieMG0lfC9ruxP2YI9l0HfdCTyt2NgCBIREKH
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 10:18:12.5761
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 881049b6-84a8-4210-4e51-08deed5ab248
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9413
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_031720_268496_95E24330 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20260729_031819_828801_94D57EC0 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,113 +123,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This update enables the vtc to set the pixel clock based on the
+specified timing parameters. A new fps field is added to struct
+xvtc_config and the pixel rate is computed as fps * hsize * vsize.
+After setting the rate, the actual clock rate is read back and a
+warning is emitted if it deviates beyond a small tolerance.
 
+The pixel rate is computed in unsigned long arithmetic to avoid a 32-bit
+overflow in the fps * hsize * vsize product.
 
-On 29/07/2026 7:02 am, Sizhe Liu wrote:
-> Fix spelling and abbreviation errors in the PTT packet decoder:
-> - HISI_PTT_FIELD_LENTH -> HISI_PTT_FIELD_LENGTH
-> - hisi_ptt_8dw_kpt_desc -> hisi_ptt_8dw_pkt_desc
-> - hisi_ptt_4dw_kpt_desc -> hisi_ptt_4dw_pkt_desc
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 5e91e57e6809 ("perf auxtrace arm64: Add support for parsing HiSilicon PCIe Trace packet")
+Signed-off-by: Rajesh Gugulothu <rajesh.gugulothu@amd.com>
+---
+ drivers/media/platform/xilinx/xilinx-vtc.c | 19 +++++++++++++++++++
+ drivers/media/platform/xilinx/xilinx-vtc.h |  1 +
+ 2 files changed, 20 insertions(+)
 
-Probably doesn't need a fixes tag, but:
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-> Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
-> ---
->   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 20 +++++++++----------
->   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   |  2 +-
->   2 files changed, 11 insertions(+), 11 deletions(-)
-> 
-> diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-> index a17c423a526d..c48b2ce7c4a3 100644
-> --- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-> +++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-> @@ -94,26 +94,26 @@ static void hisi_ptt_print_pkt(const unsigned char *buf, int pos, const char *de
->   
->   	printf(".");
->   	color_fprintf(stdout, color, "  %08x: ", pos);
-> -	for (i = 0; i < HISI_PTT_FIELD_LENTH; i++)
-> +	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++)
->   		color_fprintf(stdout, color, "%02x ", buf[pos + i]);
->   	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
->   		color_fprintf(stdout, color, "   ");
->   	color_fprintf(stdout, color, "  %s\n", desc);
->   }
->   
-> -static int hisi_ptt_8dw_kpt_desc(const unsigned char *buf, int pos)
-> +static int hisi_ptt_8dw_pkt_desc(const unsigned char *buf, int pos)
->   {
->   	int i;
->   
->   	for (i = 0; i < HISI_PTT_8DW_TYPE_MAX; i++) {
->   		/* Do not show 8DW check field and reserved fields */
->   		if (i == HISI_PTT_8DW_CHK_AND_RSV0 || i == HISI_PTT_8DW_RSV1) {
-> -			pos += HISI_PTT_FIELD_LENTH;
-> +			pos += HISI_PTT_FIELD_LENGTH;
->   			continue;
->   		}
->   
->   		hisi_ptt_print_pkt(buf, pos, hisi_ptt_8dw_pkt_field_name[i]);
-> -		pos += HISI_PTT_FIELD_LENTH;
-> +		pos += HISI_PTT_FIELD_LENGTH;
->   	}
->   
->   	return hisi_ptt_pkt_size[HISI_PTT_8DW_PKT];
-> @@ -128,7 +128,7 @@ static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
->   	dw0.value = *(uint32_t *)(buf + pos);
->   	printf(".");
->   	color_fprintf(stdout, color, "  %08x: ", pos);
-> -	for (i = 0; i < HISI_PTT_FIELD_LENTH; i++)
-> +	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++)
->   		color_fprintf(stdout, color, "%02x ", buf[pos + i]);
->   	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
->   		color_fprintf(stdout, color, "   ");
-> @@ -140,16 +140,16 @@ static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
->   		      dw0.len, "Time", dw0.time);
->   }
->   
-> -static int hisi_ptt_4dw_kpt_desc(const unsigned char *buf, int pos)
-> +static int hisi_ptt_4dw_pkt_desc(const unsigned char *buf, int pos)
->   {
->   	int i;
->   
->   	hisi_ptt_4dw_print_dw0(buf, pos);
-> -	pos += HISI_PTT_FIELD_LENTH;
-> +	pos += HISI_PTT_FIELD_LENGTH;
->   
->   	for (i = 0; i < HISI_PTT_4DW_TYPE_MAX; i++) {
->   		hisi_ptt_print_pkt(buf, pos, hisi_ptt_4dw_pkt_field_name[i]);
-> -		pos += HISI_PTT_FIELD_LENTH;
-> +		pos += HISI_PTT_FIELD_LENGTH;
->   	}
->   
->   	return hisi_ptt_pkt_size[HISI_PTT_4DW_PKT];
-> @@ -158,7 +158,7 @@ static int hisi_ptt_4dw_kpt_desc(const unsigned char *buf, int pos)
->   int hisi_ptt_pkt_desc(const unsigned char *buf, int pos, enum hisi_ptt_pkt_type type)
->   {
->   	if (type == HISI_PTT_8DW_PKT)
-> -		return hisi_ptt_8dw_kpt_desc(buf, pos);
-> +		return hisi_ptt_8dw_pkt_desc(buf, pos);
->   
-> -	return hisi_ptt_4dw_kpt_desc(buf, pos);
-> +	return hisi_ptt_4dw_pkt_desc(buf, pos);
->   }
-> diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-> index e78f1b5bc836..6772b16b817b 100644
-> --- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-> +++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-> @@ -13,7 +13,7 @@
->   #define HISI_PTT_8DW_CHECK_MASK		GENMASK(31, 11)
->   #define HISI_PTT_IS_8DW_PKT		GENMASK(31, 11)
->   #define HISI_PTT_MAX_SPACE_LEN		10
-> -#define HISI_PTT_FIELD_LENTH		4
-> +#define HISI_PTT_FIELD_LENGTH		4
->   
->   enum hisi_ptt_pkt_type {
->   	HISI_PTT_4DW_PKT,
+diff --git a/drivers/media/platform/xilinx/xilinx-vtc.c b/drivers/media/platform/xilinx/xilinx-vtc.c
+index 92fec7bb4..695eb2a46 100644
+--- a/drivers/media/platform/xilinx/xilinx-vtc.c
++++ b/drivers/media/platform/xilinx/xilinx-vtc.c
+@@ -141,6 +141,9 @@
+ 
+ #define XVTC_GENERATOR_GLOBAL_DELAY		0x0104
+ 
++/* Value of 1 = .01% */
++#define XVTC_CLK_MAX_PCT_ERR			1
++
+ /**
+  * struct xvtc_device - Xilinx Video Timing Controller device structure
+  * @xvip: Xilinx Video IP device
+@@ -175,10 +178,26 @@ int xvtc_generator_start(struct xvtc_device *xvtc,
+ 			 const struct xvtc_config *config)
+ {
+ 	int ret;
++	unsigned long s_rate;
++	unsigned long g_rate;
++	unsigned long clk_err;
+ 
+ 	if (!xvtc->has_generator)
+ 		return -ENXIO;
+ 
++	s_rate = (unsigned long)config->fps * config->hsize * config->vsize;
++	ret = clk_set_rate(xvtc->xvip.clk, s_rate);
++	if (ret < 0)
++		return ret;
++
++	/* Verify that the clock is within a reasonable tolerance. */
++	g_rate = clk_get_rate(xvtc->xvip.clk);
++	clk_err = (abs(g_rate - s_rate) * 10000) / (s_rate);
++	if (clk_err > XVTC_CLK_MAX_PCT_ERR)
++		dev_warn(xvtc->xvip.dev,
++			 "Failed to set clk rate: %lu, actual rate: %lu\n",
++			 s_rate, g_rate);
++
+ 	ret = clk_prepare_enable(xvtc->xvip.clk);
+ 	if (ret < 0)
+ 		return ret;
+diff --git a/drivers/media/platform/xilinx/xilinx-vtc.h b/drivers/media/platform/xilinx/xilinx-vtc.h
+index 855845911..0f360ed55 100644
+--- a/drivers/media/platform/xilinx/xilinx-vtc.h
++++ b/drivers/media/platform/xilinx/xilinx-vtc.h
+@@ -27,6 +27,7 @@ struct xvtc_config {
+ 	unsigned int vsync_start;
+ 	unsigned int vsync_end;
+ 	unsigned int vsize;
++	unsigned int fps;
+ };
+ 
+ struct xvtc_device *xvtc_of_get(struct device_node *np);
+-- 
+2.34.1
 
 
