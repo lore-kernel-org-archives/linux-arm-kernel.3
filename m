@@ -4,125 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1003C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 14:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6E2C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 14:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VrzGFMnJSG8RS1Ua9Ap8Q6qp41waby9L/H9BOPTAg8Q=; b=aTd7zmUXiBvF2ok8MqU7GoCdGb
-	mdZFsdL551lrBiFs42s1JObyQIlrjS/LN4IlJ2yTO5wXJ+pmaf1lMGgB8trjZxix1UrIfDCXALl3I
-	Q9yWJkd0yiiGyK5/6vH2pmuB/z4/SIFWSk5T7nyLbP6NdWBtnjJTvSNCtEGw5xtK6jdgtBfSaGpg3
-	LUtkTatyy0VX/F1foawYz3OMtmM1RDwUYOfVAMAIObhOhN0YNllmsq/DAkCb6pgwQwacwA8MJzuef
-	ARCSj+V5yX/5vfvZRbgB8tZbaedWoYQ8g5RV5uudQ1wP1iOXeRHbSbT5pwBd5JZjIPbsTmMjK2W9b
-	YrNuRhZg==;
+	bh=/TqhIhqUpzpOOzDUBk7hCfNYEZnFrNF+Qqh8CxlP3wY=; b=d8JpGAhNli4/00uy2vPAiKXXpo
+	3O/2qYrsWMSNTHrkE09WjGfdZ4xU0k+ayTR/u9ypNQgnyF798+Yjl5KjvmVsf196oSq8GVmKQgtO9
+	jA1hiwZqFMNI72z6cZFk831y3vIyg9v3nYBlKg9tvhjB4WKvzzmnm8aYmCPJm72Y3j7ABrLjJjfm3
+	TfxxgYC2FVTxl5cWHI+ahbaQJuQnijSD3GWetAcCJclAKgJQvl5pkXuy7hWw9Bf2Drfy7UblVe3AJ
+	cpAIxXc0i4r8FbRRzV580rpdFTXb30loeggD5EjtS5Nfx+jG3Wrvynk+GEIcCS5PePMi0HblWX/AT
+	VXWGDkZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp4wi-00000008Cqp-0evN;
-	Wed, 29 Jul 2026 14:07:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp4wg-00000008CqP-34rm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Jul 2026 14:07:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=VrzGFMnJSG8RS1Ua9Ap8Q6qp41waby9L/H9BOPTAg8Q=; b=VVuq1YhBv08T24iSi/SxpMqvSM
-	1dH1itI77n98RCxSggYN2qwcYpVg8EqKKo5jjn0xm9t8E+TUR1CLCOTgaVUE78OQbbYWyuaFqV5f4
-	k3dnNLJ/Vy0Mxcy8qKUdJPlC8qdjLI/3UDbJHVoI1WP/V0S13/2bb5J2FNiCyq8Ui/LQy/5obRPTz
-	o+kRzkP0MMMjhIexrvZU/An3qAyFsuW9DvVYHB67tdCee7ZovJl9TYxYw6hf9WSvcCN1OeU/3BrlE
-	YJsDBfc42RMhhczkRX8tQuztBxCBWMNmNEAN8wsbZbkZEPCvfmTbE5qAjE+VQ0Gm/5ENj6ym7tUAC
-	SJbCu6cA==;
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wp4wd-00000005sze-2U57
+	id 1wp3Mn-00000007u3M-24Ig;
+	Wed, 29 Jul 2026 12:26:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp3MS-00000007tlf-0xyx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 14:07:41 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6a063d211ebso795427a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 07:07:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785334057; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ZKCr4jT4wztsIYm4IZopGIhWpZxlUONyR05+gUNr/4JpSM+CKsh9QrfVjjRXfHyf3+
-         xh9MXS8vIueuS3yZuZ/xhU9ydL2varE5qadfswQt2tsksAqwksozuR6x8SwHo+vVD5Iw
-         uqj3Ohl5jQimfw3/rFBrm5lMBm8wI6biVClrvJeFJ7sSVhGNI7fdvW3JFw8UWBsNVc6Q
-         8Y4TsnAbVVHU+2XYXSoHGLqsXbJtm2kEcgig4Op1YlEPZ8QYXokQm4JqUBFZyORW1CKz
-         o5pRzvpUWGi0M9Dr2aNzZ2nGZ7sVVbx0MWoNAgmFUBDd/64v94UVGiWSvNw7RWETy+V3
-         gM1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=VrzGFMnJSG8RS1Ua9Ap8Q6qp41waby9L/H9BOPTAg8Q=;
-        fh=QQg7npvG0Ihd3tS5bSW0MWf0lgLW19haRM2cDEDg2cg=;
-        b=Tcz89IONyULVJKCkNx/teF8z6CPGoJbua2tkz9t84yi9zt4I+qH7Gavd2ID5nNsRWT
-         QxPfG8LVzZHTU2Io+hQ+ic7DAvBY0d81Dj5rMo3cHmZ8kZnykXXdp21m8eWjBDK/3EQI
-         n7DnTxoYoFDfk91ZFvC9bjD8xA2cZplNgnjXA0S5w39L98mZigURTzW80zK1OH8y5XcI
-         udMAksbZWZGKtAl7KUAKpRWFxPGt8TFulq3H9xdiiZXe0kq9EyUlBQ1JwQ4LH2t/kxdc
-         2QXkuT18YTGoQk2iWNTgda8WbY75lPlYF0okr28npMjKlk9cjO8mg8o5cB+0IRcKtIC7
-         Qpng==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785334057; x=1785938857; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VrzGFMnJSG8RS1Ua9Ap8Q6qp41waby9L/H9BOPTAg8Q=;
-        b=O1F3tH9NxPQhdpZAIyvaZzOP94SEYn1S135PSvSwI74R/JQ1KjCatnTaXx3zcDy0Uv
-         0RhU5kICAzegUuPJ7ZODBxQnWJ91m3rd2Qw17I6pynLEwQwwcxjvVIC+Rp3x0dXEVT0r
-         16kWtiFzLtcfwUIRjNo9MnUX8IQAwQ508/Wu2UBpC3j1N1TgvSSlkvHIJawntEmf5HQB
-         5451StW8cVGle9GV+RjSHyRo3cU8fp8zMjEKaK9P9mRvPtQWSdT6YJ9bhdiubpjkTQhQ
-         SDlKV0q+Wi04Q2aqC+6zWf+iPr4cLHCKwFJ4Dd2RUeT9R0iqTyLg9M2luKltPce0Beze
-         zohA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785334057; x=1785938857;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VrzGFMnJSG8RS1Ua9Ap8Q6qp41waby9L/H9BOPTAg8Q=;
-        b=AGq/3nufU7qg0TvMQlfvATJ577AT30V+jAB8sLOIKTN1/bsRC7sXMifSkpyPIO1jkM
-         rE8za9RJfVNlUGvhxW6/m/p5wA0ThtcMyb3aIWpTDb65avkk+HecGlr7+VNpTXT/7YUU
-         1m6LONt05t0+cwmeCWa2piOnwS9ds0mQ1BryJ6AJRrUz35JpD7pKF27ZoSBcgsmMJP2q
-         ywU1G1RXiDxXHHqXA3F4HjiEHEcjDpcnt/EY628lF4QYC2Wl0WnTIoU0DmtolNxOeKYb
-         eK5sUgJD71UnoWu97elb6vdaoBCSlmq7vz9wSVW4gnOqMdJuW8qg/a75BC1iHSoFARLW
-         NZkw==
-X-Forwarded-Encrypted: i=1; AHgh+RpwO0O3I6K7HjJNjbxBEBPzrGf7zRXPEp3DNwo0ybo4P9LlCE0thTj2hd7ZsM5iOenJy/Zv8mHPFlzMkZxguwKs@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpp/XwwkFaPMi7HJ2er0IxeVVaNuqUzwv9WfwVhpPbqVGNFAvr
-	BFvzmYb+MCo6539xRSmcWkF7adPsKPkEsA5hfX869NRpZdOLj9BwL1CyfPzZwlHGS3UZjaRWggp
-	icBnaHX1clQHUr6Btt3ZDNV8iYqERBUQ=
-X-Gm-Gg: AR+sD12feKvvx0B6RfpT/RQwUlUxMVICbQdyH9U9sKAam3V+iIHYwSU/rcMBJE3zgfg
-	0yGEpRrAB78zfV3ogtRG1mHcfwQFAf8KE661rqg79vOcnA3dfO/AYUFoQBWZ15BqrmDQkf1H6sx
-	nUy1mPCIrXMdT/nyX6u/HQ67CnlR1DZdbRrSleaLroc376NR9eD8UsSotI9jstq0g5u8n6TmNV+
-	IWUugu0vmLIlkTmdishANVJEnZCjt0E3g3vr2qUYqxeq0t2dUO9csfrNMbWDFpW1ShXlQAMlyh9
-	kz6+bUzhsXefJWmnSIJmkbEakhrqpuPYyAgbWigclymiYLijWWmzVxJSk5tPy0Zfml1VImE7ohQ
-	3i6m9JP87/8DiAGzyN+iLhNG0TkF1AQfHGT5RO0oAd2iXVle02XsWSSXlu51UXrUE
-X-Received: by 2002:a17:906:9c8a:b0:c1c:332b:7611 with SMTP id
- a640c23a62f3a-c1f7250305bmr372713166b.65.1785334057138; Wed, 29 Jul 2026
- 07:07:37 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
- <20260728-arm-dts-beagleyai-gpio-info-v1-2-783ec90d54da@baylibre.com>
-In-Reply-To: <20260728-arm-dts-beagleyai-gpio-info-v1-2-783ec90d54da@baylibre.com>
-From: Robert Nelson <robertcnelson@gmail.com>
-Date: Wed, 29 Jul 2026 09:07:07 -0500
-X-Gm-Features: AUfX_mwiRGtPxSNnFBSea-x0qqLP9Q9SD_5RU2rCzNqnBoXpjkML7G6TFOH4u-s
-Message-ID: <CAOCHtYjeBV3JK+cJt2Acc7Q_s6r1Pox2JTkk6n5UuFG+HEwCAA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-am67a-beagley-ai: Add gpio line names
-To: "David Lechner (TI)" <dlechner@baylibre.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	Wed, 29 Jul 2026 12:26:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 435EB1688;
+	Wed, 29 Jul 2026 05:26:07 -0700 (PDT)
+Received: from a085714.blr.arm.com (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BA9433F66F;
+	Wed, 29 Jul 2026 05:26:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785327971; bh=B5C06n+nHY3GH1lL7Fz8Op3mIJsdyU/2KKr0Mpz2km8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dbby0wkQjJDxhPwa2B5hoe4l1aUU3Z2WfTysZOLj6vDiaOlnStimYU/uzN9QvveMo
+	 uHc+bX4xreeuGiw6Ykl8RGuIfEjaSwDGyhEq0sR3lsMYh9AKmcJzhD6W1GwxoJvXos
+	 yyCP7YIYoXD0ajUAKxB6pW/qG2DGgAx7pDefUVJY=
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: [PATCH 15/17] arm64/mm: Add an abstraction level for tlbi_op
+Date: Wed, 29 Jul 2026 17:54:50 +0530
+Message-ID: <20260729122452.3797443-16-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260729122452.3797443-1-anshuman.khandual@arm.com>
+References: <20260729122452.3797443-1-anshuman.khandual@arm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_150739_847598_F5BB1BBF 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_052612_348705_3EEF5941 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,20 +78,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 2:45=E2=80=AFPM David Lechner (TI)
-<dlechner@baylibre.com> wrote:
->
-> Add gpio-line-names properties to the BeagleY-AI .dts so that gpios
-> can be requested by the documented name on the 40-pin header (and a
-> few other board functions).
->
-> Signed-off-by: David Lechner (TI) <dlechner@baylibre.com>
+From: Linu Cherian <linu.cherian@arm.com>
 
-Acked-by: Robert Nelson <robertcnelson@gmail.com>
+With FEAT_D128, a new instruction aka TLBIP is being introduced for the TLB
+-by-range operations which has an argument size of 128 bit.
 
-Regards,
+Add an abstraction level to void (*tlbi_op)(u64 arg) helpers to support the
+D128 variations when applicable.
 
---=20
-Robert Nelson
-https://rcn-ee.com/
+No functional changes are introduced with this patch.
+
+Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+ arch/arm64/include/asm/tlbflush.h | 70 ++++++++++++++++---------------
+ 1 file changed, 37 insertions(+), 33 deletions(-)
+
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index e0e84332f51b..c103380ec87e 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -130,49 +130,53 @@ static inline void sme_dvmsync_batch(void)
+ 
+ #define TLBI_TTL_UNKNOWN	INT_MAX
+ 
+-typedef void (*tlbi_op)(u64 arg);
++typedef u64 tlbi_arg_t;
++#define __tlbi_wrapper(op, arg)		__tlbi(op, arg)
++#define __tlbi_user_wrapper(op, arg)	__tlbi_user(op, arg)
+ 
+-static __always_inline void vae1is(u64 arg)
++typedef void (*tlbi_op)(tlbi_arg_t arg);
++
++static __always_inline void vae1is(tlbi_arg_t arg)
+ {
+-	__tlbi(vae1is, arg);
+-	__tlbi_user(vae1is, arg);
++	__tlbi_wrapper(vae1is, arg);
++	__tlbi_user_wrapper(vae1is, arg);
+ }
+ 
+-static __always_inline void vae2is(u64 arg)
++static __always_inline void vae2is(tlbi_arg_t arg)
+ {
+-	__tlbi(vae2is, arg);
++	__tlbi_wrapper(vae2is, arg);
+ }
+ 
+-static __always_inline void vale1(u64 arg)
++static __always_inline void vale1(tlbi_arg_t arg)
+ {
+-	__tlbi(vale1, arg);
+-	__tlbi_user(vale1, arg);
++	__tlbi_wrapper(vale1, arg);
++	__tlbi_user_wrapper(vale1, arg);
+ }
+ 
+-static __always_inline void vale1is(u64 arg)
++static __always_inline void vale1is(tlbi_arg_t arg)
+ {
+-	__tlbi(vale1is, arg);
+-	__tlbi_user(vale1is, arg);
++	__tlbi_wrapper(vale1is, arg);
++	__tlbi_user_wrapper(vale1is, arg);
+ }
+ 
+-static __always_inline void vale2is(u64 arg)
++static __always_inline void vale2is(tlbi_arg_t arg)
+ {
+-	__tlbi(vale2is, arg);
++	__tlbi_wrapper(vale2is, arg);
+ }
+ 
+-static __always_inline void vaale1is(u64 arg)
++static __always_inline void vaale1is(tlbi_arg_t arg)
+ {
+-	__tlbi(vaale1is, arg);
++	__tlbi_wrapper(vaale1is, arg);
+ }
+ 
+-static __always_inline void ipas2e1(u64 arg)
++static __always_inline void ipas2e1(tlbi_arg_t arg)
+ {
+-	__tlbi(ipas2e1, arg);
++	__tlbi_wrapper(ipas2e1, arg);
+ }
+ 
+-static __always_inline void ipas2e1is(u64 arg)
++static __always_inline void ipas2e1is(tlbi_arg_t arg)
+ {
+-	__tlbi(ipas2e1is, arg);
++	__tlbi_wrapper(ipas2e1is, arg);
+ }
+ 
+ static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
+@@ -443,32 +447,32 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+  *    operations can only span an even number of pages. We save this for last to
+  *    ensure 64KB start alignment is maintained for the LPA2 case.
+  */
+-static __always_inline void rvae1is(u64 arg)
++static __always_inline void rvae1is(tlbi_arg_t arg)
+ {
+-	__tlbi(rvae1is, arg);
+-	__tlbi_user(rvae1is, arg);
++	__tlbi_wrapper(rvae1is, arg);
++	__tlbi_user_wrapper(rvae1is, arg);
+ }
+ 
+-static __always_inline void rvale1(u64 arg)
++static __always_inline void rvale1(tlbi_arg_t arg)
+ {
+-	__tlbi(rvale1, arg);
+-	__tlbi_user(rvale1, arg);
++	__tlbi_wrapper(rvale1, arg);
++	__tlbi_user_wrapper(rvale1, arg);
+ }
+ 
+-static __always_inline void rvale1is(u64 arg)
++static __always_inline void rvale1is(tlbi_arg_t arg)
+ {
+-	__tlbi(rvale1is, arg);
+-	__tlbi_user(rvale1is, arg);
++	__tlbi_wrapper(rvale1is, arg);
++	__tlbi_user_wrapper(rvale1is, arg);
+ }
+ 
+-static __always_inline void rvaale1is(u64 arg)
++static __always_inline void rvaale1is(tlbi_arg_t arg)
+ {
+-	__tlbi(rvaale1is, arg);
++	__tlbi_wrapper(rvaale1is, arg);
+ }
+ 
+-static __always_inline void ripas2e1is(u64 arg)
++static __always_inline void ripas2e1is(tlbi_arg_t arg)
+ {
+-	__tlbi(ripas2e1is, arg);
++	__tlbi_wrapper(ripas2e1is, arg);
+ }
+ 
+ static __always_inline void __tlbi_range(tlbi_op op, u64 addr,
+-- 
+2.43.0
+
 
