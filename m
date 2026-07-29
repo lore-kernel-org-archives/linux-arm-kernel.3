@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739C8C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D268C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HbiqMD+wNgf/uak20PPJVEhWm20pEqxlGI705rh+Bvc=; b=tN+qsUio9kQlsmxmNXq8lOqEJl
-	2oKtwtT6yKQxVj0T1hbMwvYwaTsw4jRuH2vVmseXHjVRasVgQSUZXO5ipsUeIWBedv/JuRHBCJB5D
-	v15ia3XKsxRyRhDdkyKihbJcIGS5fhit9RNclEDR2vI8n2/xjxNhUftJ8kledvs2bGJVgiIQgCwyf
-	B97/UGvlseVY0ncBa+Sqic+Psvnu7/SV/VgV/d3vIiqf0YSHdtQbmcDsM0/wtRTb8Nr3nMiNyAtUQ
-	PVem+ozjV6bosdkWJRo7ZMuzey1ldP74tDHFpH+iwFCqCWoqmTY8aG5gCjdnD13zDjvnz4kGH6Tkf
-	iMJs/uiQ==;
+	bh=Bj9zUQeAnHt3kbxhKKqsrB/Vw/2J1kCjeLL3HysJ+OQ=; b=PT92PFvw/k0phMnaWVSusnLC/v
+	I0tRx0QRHzCuNIi+dbhPbn1hnTj34QbrkHJCaBwExGVPMzZ0KotM7rvPrA9X+t2ox1b0ZBiOIc14o
+	XEReS9uXiHJMac+cKZ0ECUuJKVyp343roDKdLxeFZ4TfMX8PSq0ZKzLMUNgERgEnuuohuYj0dB2Gl
+	TX7p9ph0tOMvwOTbCRfw6sIhYaFsIEl+xm7ezFnJXvy3WwdeyZfn+amh5DgeNaJ5rYW9CA+tGPU6v
+	Sk2eC0K0cqttgbkK4HOj4TH8mDV226IoPJtc09bzgaeJSscn5Fy7yb/pnftwjfAv+W0moXC7w8Ff0
+	5vk0j58w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3YP-00000007vyG-04UT;
-	Wed, 29 Jul 2026 12:38:33 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wp3cg-00000007wUB-3rWT;
+	Wed, 29 Jul 2026 12:42:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3YM-00000007vxX-1uHM
+	id 1wp3cf-00000007wTy-2XJn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 12:38:31 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49558ce01afso6227485e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:38:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1785328708; x=1785933508; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HbiqMD+wNgf/uak20PPJVEhWm20pEqxlGI705rh+Bvc=;
-        b=EIbS1gMuiEvxzMHoCpa4Hj2r8x2SZafsYKNHuHsLHHiTE9K2Y7G5PL+X/z/JzQiAP4
-         zeyGww8hrc65pMhDnGR8nTBfvMPojLJ1t9pjlY7liOcND/xndmBy6kGA9xESwfyRHTM7
-         bgBLnGSWGbxza9R1MoBBfrju9c4bif8J6QVg/+KFBmghsbb+3an7VaKg2GkE2IMxZ2eZ
-         UFECiE7M6BtCzQtbQSNuzUazXey6B2iSDU/9c+WMvsouTXd+i2WFWu7I9A9q+pcWmc2e
-         00QOl9KizJDa6TOb9Ipw9Wr1gru8e2CQzwXtZCsFvaVTHxUg7y2Bbjhykoe0J7wfGfZ0
-         Ut9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785328708; x=1785933508;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HbiqMD+wNgf/uak20PPJVEhWm20pEqxlGI705rh+Bvc=;
-        b=ixHGZxks6/sPsqI9USX3Y2VWhxnGPKZ/u/A+EN9JWy63LBs8Vi7k1uhigacj+bvVE5
-         aNM43QmclxK+NVYA6ssCinIaDz4cogc7Z/yREnZdaBxbqCbShlWIMlQT24EQVGPXKP7c
-         g0WI7vi6fHDou9tMbW3bhSGeXJYoH74D0pwzTHD9SBqyXy8f7Ji6hSfy5/RUp6fztpZn
-         orPG3w2U1hOpkfBVaKU8VDzqc0yxUqKn9qee6Byx6tbVU7jUSB3rsLk8fRD69lsAHaoJ
-         3fxui1xXcglXbYc3k8vGYt7H5Gn2pXp1P9DsvEEkOGcL5uA97cX+HuRuPlPfQejC7DJI
-         SuHA==
-X-Forwarded-Encrypted: i=1; AHgh+RoqKmXFxPl9+yNSqyIn82c+2eGHBQEmDFoz4DoKvWVkvfZ+b0eogoPIBGUMXapVJyXDgGvhU6Wkbp3pI3MqRPr6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjCxKdolNO45qh1XCl06IOZGNdxk3qGRm5Z0Al8yVtZAqCyEjL
-	S0IjcRG/fGqdUybie6FHdgAEFw/JceReyiM+z9pPhNoEJVYaYHRk+AaEDZIZ3f87Ri0=
-X-Gm-Gg: AR+sD10drX11PbWV9+AVR+AjatpUR5fBPEOzQNfXHByblcdwySvN51yonL8oUAE2ydC
-	u2vUGydS4YdqsjNxaEItV7xifoL9gouzuU2gxTj36XygWUeIQ13spLC2wspaJ/HR0AaSeN1OAC6
-	Cpoqs9C7TnN+4/KoDbXl3MxCQE8R4sGxkkh4imbcqTeOHmdB4pbqJETOfkDQ7C41nl5rwGqM0KW
-	0X9FwB8hjQnYrLFh/FvEM4456Y0y/LcxbsqwskyQeN7gLH+Fs9CzrIlOqbZI9jywn8yNNjMZPtL
-	x+FaLJB61jBPJqWOru9/dwj4cWYRPJ3hpP5HLOQfcU35OVYU4iWl9RaXX0xon9p2YWQ/yZmVpVX
-	vTIVGs+soWofdoOyGXKrrlr/CJhZrlcIlGjI9cCfkPAcAuQhmcMTrbPIJxmxyOp0FSt8qmBlCMa
-	vv8lEL1Yz9A4x2Yg0Vfy4t4DBe/J+8fKtLL4Urad1bkpGk1sIOz9WQJebYYqW5APcRq5/EM1evU
-	xrcI/mIdLrpznvaHvfo12TnGGl7XNmxeIG7Gx3G60ucQQSTJmJxPFoxj0tHow==
-X-Received: by 2002:a05:600c:470d:b0:496:c249:dd9b with SMTP id 5b1f17b1804b1-496c6431be1mr70896085e9.13.1785328708527;
-        Wed, 29 Jul 2026 05:38:28 -0700 (PDT)
-Received: from localhost (p200300f65f47db0401da7fd03a16a046.dip0.t-ipconnect.de. [2003:f6:5f47:db04:1da:7fd0:3a16:a046])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47fb6b2768fsm7708739f8f.37.2026.07.29.05.38.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 05:38:27 -0700 (PDT)
-Date: Wed, 29 Jul 2026 14:38:26 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: "raghav.s" <raghav.s@samsung.com>
-Cc: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com, 
-	peter.griffin@linaro.org, alim.akhtar@samsung.com, mturquette@baylibre.com, 
-	sboyd@kernel.org, bmasney@redhat.com, robh@kernel.org, conor+dt@kernel.org, 
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, hajun.sung@samsung.com, 
-	is.gandhi@samsung.com, ts.amit@samsung.com, pokala.reddy@samsung.com
-Subject: Re: [PATCH 03/13] clk: samsung: exynos8855: add block top and peric
- clock support
-Message-ID: <amnz5qkX_zeeVUjU@monoceros>
-References: <20260728121111.2077860-1-raghav.s@samsung.com>
- <CGME20260728115251epcas5p19aaf5fc01e0f847bc2adcec67bebda3a@epcas5p1.samsung.com>
- <20260728121111.2077860-4-raghav.s@samsung.com>
+	Wed, 29 Jul 2026 12:42:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DBC15408FA;
+	Wed, 29 Jul 2026 12:42:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71AFC1F00A3A;
+	Wed, 29 Jul 2026 12:42:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785328976;
+	bh=Bj9zUQeAnHt3kbxhKKqsrB/Vw/2J1kCjeLL3HysJ+OQ=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=fk51lgHOMjZ7UJy7rfHUcnROpoZJbqgvZ+c4OYkSOe9jR6EyxJQLtCRvfMrkzVzx/
+	 Rf5/RAEHf7GArTBqQ2VB+DFRw0QyG2ql7V72s/sHnBfMKNLGNkKhrriLiArX2QJ6cx
+	 1qjqorspgFLmPUCGw/ASAMk1xr2Hf3oQaNKGeNdpiutzp0s+nYTRSZ/CF0deF+AX7m
+	 j+0tciNij7lI/yw9EWy9c9F87NR3fNmwd7IBMyco2FdZOP3CL96MBIgHeLxBgXTGUm
+	 RadyiuP8fXfsneErpOdP7H1gRrbUQIP2TUtweQLf125QqSdmlDtS8C9gom80W6A0AG
+	 Isf/jYJgsYTQQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
+ reference
+In-Reply-To: <amnRB98ZZIysHuM3@google.com>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <20260717180442.110954-13-aneesh.kumar@kernel.org>
+ <ami_mpd_1pF4Tmdu@google.com> <yq5a5x1ygo7z.fsf@kernel.org>
+ <amnRB98ZZIysHuM3@google.com>
+Date: Wed, 29 Jul 2026 18:12:38 +0530
+Message-ID: <yq5acxw6dl1d.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="upw3ihnr2pijnj4s"
-Content-Disposition: inline
-In-Reply-To: <20260728121111.2077860-4-raghav.s@samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_053830_511415_CB585BFF 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +97,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Mostafa Saleh <smostafa@google.com> writes:
 
---upw3ihnr2pijnj4s
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH 03/13] clk: samsung: exynos8855: add block top and peric
- clock support
-MIME-Version: 1.0
+> On Wed, Jul 29, 2026 at 02:35:36PM +0530, Aneesh Kumar K.V wrote:
+>> Mostafa Saleh <smostafa@google.com> writes:
+>> 
+>> > On Fri, Jul 17, 2026 at 11:34:30PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> >> Change swiotlb_tbl_map_single() to take the DMA mapping attributes by
+>> >> reference and update the direct callers accordingly.
+>> >> 
+>> >> This is a preparatory change for a follow-up patch which updates the
+>> >> attributes based on the selected swiotlb pool. Keeping the signature change
+>> >> separate makes the follow-up patch easier to review.
+>> >> 
+>> >
+>> > I do not understand the point of this, why would
+>> > swiotlb_tbl_map_single() force attrs over the caller which should
+>> > already know the context (whether DMA is shared or not) which case
+>> > would this be useful to force from the SWIOTLB code?
+>> >
+>> 
+>> The mapping request was for private memory, but the device could not use
+>> it because the dma_capable() (force_dma_unencrypted() == true) check
+>> failed. As a result, dma_direct_map_phys() allocated a swiotlb bounce
+>> buffer, which is shared. Since the DMA now targets the shared bounce
+>> buffer rather than the original private memory, the attributes must be
+>> updated to reflect the new shared mapping.
+>> 
+>> dma_addr = phys_to_dma(dev, phys);
+>> if (unlikely(!dma_capable(dev, dma_addr, size, true)))
+>> 	if (is_swiotlb_active(dev))
+>> 		return swiotlb_map(dev, phys, size, dir, attrs);
+>> 
+>> 
+>
+> But it does not make sense to me to have it in such a low level
+> function, and it shouldn't change the attrs that was passed.
+>
+> dma_direct_map_phys() is the right place to do this it should set
+> the correct attrs before calling swiotlb_map().
+>
 
-Hello,
+There is a possibility that we may support io_tlb_mem with cc_shared =
+false in the future. As a result, only swiotlb_map() knows which type of
+bounce buffer was used, making it the only place where the attributes
+can be updated correctly.
 
-On Tue, Jul 28, 2026 at 05:41:01PM +0530, raghav.s wrote:
-> +#include <linux/mod_devicetable.h>
-> [...]
-> +#include <linux/platform_device.h>
-
-<linux/platform_device.h> already makes sure that of_device_id
-is available and <linux/mod_devicetable.h> will go away soon.
-
-So please don't #include the latter.
-
-Best regards
-Uwe
-
---upw3ihnr2pijnj4s
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpp9D8ACgkQj4D7WH0S
-/k5ORAf/Wc6gzSRyNn1+1FIXBR6MXs+6IigrmrQ45vjkC74pGi8j6I1XeucCzzuf
-1MhDeQy6g8vGye7y9b0BY3nTOx4Lp71Zbgl5eF30pEKPBi8A29Nz6y0yfEjFfbS7
-Vprcpq2dl7yiq22DXzzRBG1/XXhrjG3Pq2NPlpq6GSDvCMlZi32b2L3soaUWPgKX
-0sjawB7A1voa8wd+tXglN4kpRiLsPK9aRac8r8SPIhAu47zAJTlbfNWLR43a6vsa
-VFQzmBIw5G+rfDjtBYaLwxNtvlan+97F/lQzGWG3JxTwuEg58TM7GmSdnJ92jWRP
-Tyk6i+iZlV8rbsX9EW8g/KllvAmioA==
-=kgeI
------END PGP SIGNATURE-----
-
---upw3ihnr2pijnj4s--
+-aneesh
 
