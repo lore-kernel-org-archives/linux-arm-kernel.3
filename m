@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C494DC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B94C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JYL+RTPpZr6pSZ7cHRtkecPpLyhLgLldTl1fBtQvsw=; b=vDLg/1tWc1wPjV0gmrODdlm8yN
-	T/zcftNxjP3a3bzhmioEu1Jm3srvHs0jRg8y8qs70GklY8DE6JPWDC146VSOD4fBI8aIhICX4QJez
-	QrCNJxU7agjtE+ye6OXgiQyMc7yzs8i/X2jBtAGMHfejwW4lmLnrLo66ZM/RszlnAUpC7yvczaV+u
-	ZUl4dIkT/hKGaZO4GNSUh6l3/Gr5KfjKhbxNjGkbXY05u6klSTjl4LAKIAB4D+3fiJCi84o8Vo/MB
-	lDgvnBNqjNSkLq/dbTYNw2mTqnLb275CXufIfocjH372xYWFmf8AEPlyW8EwCgMR9fA7jMtaH4SUR
-	hkKeiM9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NqepJk0Mo2biIWd5IKYSCeDa2QQNS/dPcnLon1EB8CE=; b=njX/N7sfBaFdctBjtbAJqDph65
+	b5MYXKzVvKn24gODqwc3EelH4n7CPXMrS0GvLQXfZYmDZn2+8shGmqsZah9YSXrqlv3rHx449zlij
+	Tztzlxj9VM9oWPa2asaPaiZwZPCIXs455qt2a753s/XduPTayJYrKglTl3o2IsbW0ZUKy8Vy+dsf+
+	E/XYTlbebQYypto8JL52NxZisGcYUJlY3f8iqeDIoOlHtj9yMWErmXC1OGiZgzzoJ1xaEqFRG7aWS
+	ubbJr+f4wD0XmnVtpARscLkIo5aLTZ0qShiLm+aq2/UmMAg2gWtB6ZkOW7mfmk+eYzWoc+ah69fUi
+	e+EdNcgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozbp-00000007ES5-063N;
-	Wed, 29 Jul 2026 08:25:49 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1wozoB-00000007Fj7-1efD;
+	Wed, 29 Jul 2026 08:38:35 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozbl-00000007ERO-3SK8
+	id 1wozo7-00000007Fhp-3Lqn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 08:25:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1785313508; x=1785918308; i=markus.elfring@web.de;
-	bh=8JYL+RTPpZr6pSZ7cHRtkecPpLyhLgLldTl1fBtQvsw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=i9TLnh68Ljnt7U5o1qZP6cdOlsUE2HJR8AGw0SgRWsYfYJ0Fy4gpXdf5uIbc7ktx
-	 8HPJllG+E2tfkurxJ2fd8dALalbWrK7ASVu2TdP8AgDjFSyzjjzozvJNapQmZmA6d
-	 f6EiZoNkhGwxAgn7cImnJXg6KB6oWqLDD5AKVgsqXlrIgUIQ5W7sVnLZSX3b5RyKg
-	 sg147EL+itzG76PPYPok8VMTRaG6UiPXQjDTRSlk+q1OFHTfUhALbWAsYzSzeLBMN
-	 dlLzz9IuWrBHWXch9x11IhNIWL2GmbBbLpXzzDBS1sWJ71gSb8JnBk6ziAKIbEv7J
-	 +d8F/ucEJqw7W7m0kA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MpU1w-1xIUrH427Y-00pKEm; Wed, 29
- Jul 2026 10:25:08 +0200
-Message-ID: <1764334d-7f3c-411e-be52-a3ccfd3a23b4@web.de>
-Date: Wed, 29 Jul 2026 10:24:32 +0200
+	Wed, 29 Jul 2026 08:38:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1785314305; bh=mQusrFz3OyuSWO9NxPU1k1JP8a64bekTduq9i8UdhqI=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=kSyrsvfuzVPAK6yMZO0m5K31ueXpTo7gtNJxYlQylag4AfA5cOH950+70TbTrTzSw
+	 nIZKttmaEXTZJYVowZJ1hekfUEdbYtSJzfUft3h9YwOtdLQpVg7ZCmmkEMfg51eO+Y
+	 yuFSZ1XJpBJS185dcwb0Et+oY2GIlggLFI78KiLw=
+Date: Wed, 29 Jul 2026 10:38:25 +0200
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: linux-sunxi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] clk: sunxi-ng: Change NKMP algorithm for finding factors
+Message-ID: <5r4fxm7e2ooagq55nst2hblyeixrk7p3hijqra4sehzbfionvu@fwkwxhrjcfue>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20260725122645.2270876-1-megi@xff.cz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] soc: fsl: dpio: Use scope-based resource
- management in dpaa2_io_store_create()
-To: Dan Carpenter <error27@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org
-Cc: Christophe Leroy <chleroy@kernel.org>,
- Ioana Ciornei <ioana.ciornei@nxp.com>, Roy Pledge <Roy.Pledge@nxp.com>,
- LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
- <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
- <d2e5df25-c8b7-4ee6-8ebf-1725542baabd@web.de>
- <6607bb4e-a747-4791-b93f-f82f26e4a334@web.de>
- <amdBqQfIsAjxMsqX@stanley.mountain>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <amdBqQfIsAjxMsqX@stanley.mountain>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:ObDRxJtwkZ4LCGeru0ZHe2PWh988gwAImJx6FDvaZeyIpkHBVlN
- 0rncOg+3yDoHxhq7akW6NyexpOo9KTtreY7YOLx2eWYinc8pyHb0enTZx3s87Hkb4ol/a58
- 7K3yTlkV8I3wYE27nRTj75Xb2T00fc6BBQcBVMwuANm9Z7aUaS9VcgqtHqEH2XJJ+WFsM9o
- mCEUQisuiGebCWJV9wmGA==
-UI-OutboundReport: notjunk:1;M01:P0:tqFxq9AEN4k=;xe3j96KpqLKEXRXIVblYxIZOhLz Fsws9o6YXIBtzdTRrM4+fMJDNUiPY6xZ64TSy5stIdI3BPttCM9IcSmBskXdljvbnnd8OBX8t WOrrP817IhzrvBa3EV6IzTWEmRv72vmyv8ubS08Dndb7rt6XU0eodL+mxqZ4LI4kleWzE/Qgf Mstls5Rrtd2XK24PQIU1LAHXER2upYu6yojthhaWMaHaa2fOU48Vzw2cHz0HEH3293ebRfv5v KL5OoiL9W2ldf8a5YAezxGF9VVwPQ4Pcv6s+be0OYPf81ycN5LanX972VSNiCiqRkRAUAPAtk uUgVbQsaeHbWr3jQDHW8JB0yPBDyE5W3RL0z1wviGY6l15W/JbJQ+6y9kctV4EB7edbLoe+jU ferVVDw7sbuR5IiT5AQ5cD7XFN8iBjwz6uCvbcAEcOqXK5ECGmwvA47AVRSeft107eiplXgBb ZVWi6NvIPJY/ngnY5gW80rot+/TKpUK7Pa+NdXTyrlq9/TzrEsFvdaaRpEY7uxT5kSDXzrICO tFibxXfbQcvyJwzZE6NlgUETaOk354PdVlnL0GWG64deKaKy5QveLk2yLFU8c6tsqzAknQvI5 FoM6hCbsWGEAyUrhoGqJu5IHxtQ7pLBtKLP7SV0rfIoHinG6dSLwzZToRX5luWS7x9zAi3pJa m+dPOM5YdjcKvvgr27Dksi3zExLeRjoAJ3t8QTL+EVuQ378YDr/JPJ/QZ40xQ46TEcLlfZ+tN 6BxQHZLL75zUCmBH6BZBA6AABRckHrESwW14aQ4v78aAWQ3cisKLaaOhol3W5FBkab8/9bHPq cmQIz5QEWIV1y7UjULmyi+R5KpvDSLJyIZBnmzBeE5dUTRMrAKfustNkw827jTZ5cgpUEFV/F /mJ8HOaSKEMfOBCqxq3yVHRmeofJ50pQd7ySurzYgyFAj/bMbA4NqYIn6atigJhZmQkwQI1dq 9e7WZTUA4Pls36boiWCztsQWHpW9yI78HGWe5qKuBRrIByQKvF6qtF8tt8et7TjVyougRNwIz 2LOkymLkFk5h4n8X0H8PQPlo6XFyKEQpJdia1nIEbOTWgcxChytTxetTaXidrL3X1QCkADY4z laxXVN8vbWl3J6ln5cB8fMlTkJckxy+MjkwL/0FtbLDwQ3oHoNMb+H/pXKwKtp2Dc1Z/iqDRb uFaLZ/7VYR2ucD/XThiZNruY3AL+aWAdW5qx7tCiyZ+4w8cQm+CjRM0awn+oQj3cz5/MP7tPV p6rGrBX8+IQsQnlUXyTt52MIe7R17m6YWOhodIm1SlsVdsItoCfGwek6bu5zlNN3cmW7U0ift 2QrCdSd/dgPoZPPUMzoAZwmvDajsYs5BCZVO5ZxnQtYKwxZyQd74XIarVCFH2Io5clmdnpfbH mvB8ZSbd4LuN7a5Ty7nS+6urx8voO08L8/7v+9HRpANf77WueiosICvwUYDZNvzNMZnQTWPAF mVHx3kKT+I5rwW2vsTqmpkBs+JlRnWpt9zjxSPuVXSc1XK7Gw4XSM2hGYG9kMgNEDSdCAVn1b MQxVN+bB84FNIKBO5SENhz3dDadoZOoEVkytNgxTRKojmWVB32mZGYKP91qO2WWvAlOLj4PRJ g5Sl0s7KHkdu3WDrmUqoApSd29n5Jr+SeuX/hZMnT/AlH/j/2Ir4rk33TlGMrVSVPoR518GZu m7os01Pr/ruqrtPsoAGXLctkQGo+vT3ejhW7HI7Akxz0N7VzAN6X+dTHGnsMqyOU9E4cqV1bd SMeVr70prg6AQAjc8zR4PdNSAJAh6Q3AS14jPceanAY9EMzQUUpim/nuqXVI3LoixWDcQh0B4 ywfsB7/m9FqDnCzfzjHH+vV/Yv0zIvLzANKh3MDFhtTxFsSyb6YX1wmoCEXOYQaqqX1DAVdGf c0pNvbJMCxghcjK45w0CYZZKYv5LTLq0H5O3C8t6ob06XqMgiZmf1jnCahaKjJKWrbZvxIPF2 TRsfbLu7sGyY6B73Y/fOk2xCZ7Igl37VfoaxVT2VdebAbF4i1OoXVCVi/z5hKzcGfoKydHV9R Kxd2kD/rbiG7Ku2YlGjvkxhWRUBVlFzEPzlVIfW9cTDdinvV4bg2GUqLIwDV0DQmSAaNzRYeG vp9aV0jtrdDZzKDij0AwrgvlZeZw4A0IYWfCuHzMhxDK3zdRSMyiDnVIYIakLFiC5n+BAe7sq 59sVbnK9CsDZs5h8LHl2Q+rucj8gyt8f5SOZlUvXWkDTKaIYM9M7BNhkRS4OYlgyeSVVN+sBt WT/FTQwnJSZJZHEICs3CvE3aBR06xvJYfjmI4kXU40eb8Le3NH2gNk+xF5fPKl0x5sfDdo4/K DWee7Y+9Nh5wICG41S7YA2xXEwX0ySooACByqxeG1/Wu5Sq6T5iCKqGRacNtitjsUs0xF6n+6 275O0v5pdsz7R8hDsyT6WkGfSwdQc3YBnLyxaxmZaa2HYs/cElzbu3Dq2MDXcx0GE3hGnApd4 xqf5BegGfw4K6mjjoKfFuC0c2y3i8GJ+aJASpZ/0iVb8Jm0k/VcNJmosPOR0L0rq5Nm9iEETD S4s+xN7w9XWlXNV/2cr3/BKJ3nEWdVS9/d1d5n32EidivRdDe0VtPoU6DIO2qjRbgac4xzyF5 XakY3IbXzNWwow81zlj8YqlMHRZyCaHoezyrgXGeqzGT+E0owHF0cejiiIbW8rGsdal0tcsev pvmyxy5k6Kzy2MULKH0f/eLe+1J4ku5hL7nzhEcLgeOmnwBlAK8n7pmAHX08kdlaW/129iKp+ M75rIItm4s3zOkcaj2DqeiZq1/65+FeKdexoYdBrinxzha+LUXucqhF0eLDiBMfEcQtCvBA17 oCeJWFOVxc7TJvwBE+9kzIMO5mXsrfSeDNlJdmiH5khY1fq6WAupifRHGKrpBv+jF60VU8ZGI wFuZg8f1FhGYFd5r7ZzCYgeSmh4kddBwjpg1qpTLzW6ZCCVFKKC8Ksspcvgf2Tg8gNpKr3/JV vSz2MA5uYIcjB/I7lpixO4S5+NG3psys+MKBiA6Ljlr2uY7zLSHEeQVdlTxRkMvVGkMK6tuA5 IlL06SkLPLSfTsacDecfnW4hNQRkkcBpNveeh8KXkGl3wuZxLFZXcSynMvluvN0EQsEbi3tfI AZ+Ac57XF3VCBbOghrLvO9ToO8GFSrpoWfLksnucUijRkZHLHZ5isqUTiLd82nOMpPx8UobuG pXmM0b54XWE74OdMK5BGeWmvvpjXjAKQZ8iZkeSgjwPk9+ZbyxFdFc2o2dZaZXR25wim4bpSY lCJuCcGAzs5SW2ZdveycNP3k205u03YycaN8JVZEySs1eCa/8UfxEhCkBxdcY1NR67a58GpUS IqHsRrTTspcE8s9KcklCLJB8cNFFraMXzi7wyelbApwjLUGxSreqLHpsuF62lIxso6YHDMMua ZOYZ+zBxdSL+vV8qR1lplL3yt0/x0z7f1oocEuh42r4U2oXE9nBqkcOnQSpviq5mthlQolUfl R/xVuRfRqGB3IZbeIHfrOJqRNPsx6FJ4+1lM3WfCTwSBflyRwjlgjeFU61K1+KcCrcwxvE4s4 OnefhFgvIuWs0QGId7BNQbeCAAtThybesKtzF6l5yZ2FruRzasWZHQ38xjh1jbnctbLANRxBM o04NzUqxOuIUpKje0GnSWqE5vPKLK1Lcsv/nH1mq65uwL+hYLYcTVm8NhT/VdS+oXkIiV7PKC WUS4xCN6Y/9bifMEf5m9Ao5B0g+pEabULFo8rivWdIRYg6Bdax1cS5Wt/e02jztDEtjvHSMZg ppa+7W5Ye0OvMk7l7IqvV3RzLBuHR6kLNPsFtQBsPEHXl+RWAk2kRqbVD3FbBys+3iSmP6yyG YlTYIIKreBNZFND0W5KSoFW+S9AaOukEpBHTVkDtX7GeplPsA/Yyyo8SB4R6+hyRrKo6/wrLg
- BGntsAcYaMHEROwMXNtR2LzTju9SFL3R8FaQgpsdGFg2k6q/kKOtsicS0zm3w33VLwjLAYSBB V9P8ng1N8Ud/fTRlK0s8rNSUXu2kw4NE3RHgL06TOgfJ4nQsfxfQ9aFQrW/CMezh5ISrXONgJ bhkOHcaJlGw8KObR1RsMDdpUVnqe/3Ve/Cn/zIXvXYsW49xoNIYyGWdTBbF4rtGSjZPVU9XqR MbAbPc/4uIYMbuVMKFCbY6dT9huOcWBWnLdaTDnqjFke96t4EYktDZmHX+/74Ah4lP9RbuHVx U1WH6L0hqmRhtDsj+rJdZFWnCbIpsMxiglOYo5FylXBghbZyZ0QnX7e3kBmWxh3bFQbxZktvm T3n+H98paK/U891eTPCVxg9C+mwuaG+4M65SyaYYd1dE+QTj2Qr53Sme1mfWwTZpzDUHTjziB McUYabdeIcRNyshpn0voDEcTmWM9UL9abuU+9MYgSTLzktbNEFLDIIC1a3RKt44Bb9CfT96tE 1Kiwr4YC2iO65cjdgLbBYCvO96tsEoa7vURlWm6qqWu2pT2RkB2gihiBQOEAVrpbdSy0L+mVF OWi5XOV8fE918utqgjervEvIPEzKTeohm5DbVZ1teDQoDdMXJ4S67tNnkhQZUaUT7YJT/Pj8n 9RDKOacvFsk2ZLRG+L2BbvLd8mFFGzKCoNlLbeLF0PwfF8Trfu7NXU9fykHOo7nJPob3OYM79 9tp8qGrOCc0aQirS0tHNiYrsZ0efGU6rpKmF3UtTfdLfh/hI1Ix99c46bT6zwneGA8pv/GpZS hEp9uHZ+wlcOnHLbw6ULnmoU6HxP4NmvjmfBLvSiHV2XNdkAXZH3jUYLxocbGQ6q2OYFMVszb B6Y6EFSsgkOvmo1oLP9RSYdl45hNAMNJGZnGo449ThTOeXmUyUj45Ef15co0Xa2jhQBZMdbGe UK6nTSdlCt5N4WNSvXfuUK5ynpelK4hTJshWl9C7kaAE0MoskURm3HdxGOXTAPpmIXZ33f67U u8rgMTuDKzDyU5Fjn1VuQoIKYUCIZbWb39mnf2dkKHxceO8l1/YanDs6Eeq3x3z+7ZwrANT/P ud+1oX6pZ//OE66lboRsEe3pRvRDBFQJGa6KedI9xz6R3MT6T0uVRSKRNkLWgiGEkRU7dUIp9 WhJ8P+Jam6LGErWgPO3mftBGQSrqHo2SegNOews6hP5N1QGl178OWzHGx/sd4d2u2R4olgqaG L05p6Foysgu+iJNJWTscYzTJahDIm6dIFnGmRL93r58cUW/rjOZRywjdszamVI78T8Wxbozj+ ZC3PPlMNvvaZV7fsHEvXIM8pkWDgP5Nk+LoBYvTbSZxFnpnusQLKtmVppu5V2C0ICabfE3Pye EEyhZZhfHHNPM28t2LuZQ5jE2feiOeylheWcQRbSF6XR4ypFm0ybPxNe2GQQOj8FrYaTwDNOw aULym2/svrAv6DYeMqhqcR8tYXzNLTS1iAtrnGn5pqbX88YgmIQLbVvQ8KqVn9UBcjw9e//xw 0q6/LwEfnzPUVSfp/K2p/6ICxOcmaQ2NULviNeKlHaiCbhg/JVrfVtVCTyIL5GlBa3Gygwwhf o05saxQOcv5ixHpdJzA87hQcUmowhTnarpjl+wGz9whQHvEUe62TiKveSaVNOFRwH29qyEExv DQ+IET4wc3rQQ7SKIh/vc9js7kj8/IsLA+41s/bKjqPTKH9EysmtGrIjR/yXTHSJjMstoMgZy GAQD4Cz6gNklhP2h3YqeOk3AlBcrYQDPNDMkN1DyVaW0/t+kpQktLBUJC/p+5CdYNxPWYVtRV 2Y3Zo1iftkRiUheNo7XvRPH0cPeHU+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260725122645.2270876-1-megi@xff.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_012546_152016_09CDDED9 
-X-CRM114-Status: UNSURE (   5.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_013832_437237_3BC341F2 
+X-CRM114-Status: GOOD (  33.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +75,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
->> +++ b/drivers/soc/fsl/dpio/dpio-service.c
-=E2=80=A6
->> -	size =3D max_frames * sizeof(struct dpaa2_dq) + 64;
->> -	ret->alloced_addr =3D kzalloc(size, GFP_KERNEL);
->> -	if (!ret->alloced_addr) {
->> -		kfree(ret);
->> +	ret->alloced_addr =3D kzalloc(max_frames * sizeof(struct dpaa2_dq) + =
-64, GFP_KERNEL);
->> +	if (!ret->alloced_addr)
->>  		return NULL;
->=20
-> Why convert the ret allocation but not the ret->alloced_addr allocation?
-I suggest to reconsider the suggested influence of the attribute =E2=80=9C=
-__free(kfree)=E2=80=9D
-once more also according to data structure members.
+On Sat, Jul 25, 2026 at 02:26:40PM +0200, megi xff wrote:
+> From: Ondrej Jirman <megi@xff.cz>
+> 
+> Current algorithm is very slow. It searches inefficiently in a brute
+> force manner through all possibilities all the time.
+> 
+> Eg. it does >1500 iterations on every rate change twice, because
+> ccu_nkmp_find_best() function is called multiple times per rate
+> change.
+> 
+> New algorithm determines correct NKMP factors typically in 1 to 3
+> iterations if precise factors can be determined for M = 1, P = 1,
+> which is a typical case. If CPU clock frequency can't be derived
+> precisely this drops to average 8 iterations needed to determine
+> the factors.
+> 
+> The results are identical to the original algorithm, except in cases
+> where the original algorithm does not try to satisfy SoC PLL clock
+> constraints, like N*K range 10..88 or P factor being limited to output
+> frequency < 240 MHz.
+> 
+> These restrictions are based on A64 SoC datasheet. Although they
+> are sometimes not documented for other Allwinner SoC variants or are
+> slightly different, this is still a significant improvement over
+> not respecting any physical restrictions at all, as the previous
+> algorithm did not. Hardcoding the values if fine, until someone
+> finds some reason for not to.
 
-Regards,
-Markus
+I withdraw this patch. I reworked it with clock specific settings for these PLL
+specific constraints (instead of hardcoding) and I'll run the new version for
+a while before submitting again.
+
+Best regards,
+	o.
+
+> 
+> Motivation for this patch is that cpufreq schedutil scheduler thread
+> manages to load one core to 70% all the time just doing these calculations
+> while the core is running at just 24MHz during frequency changes.
+> This helps improve the performance significantly.
+>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> ---
+> Sorry, I don't know how to avoid overlong lines here, other than
+> maybe not indenting 3 toplevel for blocks and keeping all of them
+> at the same level.
+> 
+>  drivers/clk/sunxi-ng/ccu_nkmp.c | 80 ++++++++++++++++++++++-----------
+>  1 file changed, 55 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/clk/sunxi-ng/ccu_nkmp.c b/drivers/clk/sunxi-ng/ccu_nkmp.c
+> index 25efb5b37607..c39b19891431 100644
+> --- a/drivers/clk/sunxi-ng/ccu_nkmp.c
+> +++ b/drivers/clk/sunxi-ng/ccu_nkmp.c
+> @@ -32,40 +32,70 @@ static unsigned long ccu_nkmp_calc_rate(unsigned long parent,
+>  static unsigned long ccu_nkmp_find_best(unsigned long parent, unsigned long rate,
+>  					struct _ccu_nkmp *nkmp)
+>  {
+> +	unsigned long _k, _m, _p;
+> +	unsigned long max_p = rate >= 240000000 ? 1 : nkmp->max_p;
+> +	unsigned approx;
+>  	unsigned long best_rate = 0;
+> -	unsigned long best_n = 0, best_k = 0, best_m = 0, best_p = 0;
+> -	unsigned long _n, _k, _m, _p;
+>  
+> -	for (_k = nkmp->min_k; _k <= nkmp->max_k; _k++) {
+> -		for (_n = nkmp->min_n; _n <= nkmp->max_n; _n++) {
+> +	for (approx = 0; approx <= 1; approx++) {
+> +		for (_p = nkmp->min_p; _p <= max_p; _p <<= 1) {
+>  			for (_m = nkmp->min_m; _m <= nkmp->max_m; _m++) {
+> -				for (_p = nkmp->min_p; _p <= nkmp->max_p; _p <<= 1) {
+> -					unsigned long tmp_rate;
+> -
+> -					tmp_rate = ccu_nkmp_calc_rate(parent,
+> -								      _n, _k,
+> -								      _m, _p);
+> -
+> -					if (tmp_rate > rate)
+> -						continue;
+> -
+> -					if ((rate - tmp_rate) < (rate - best_rate)) {
+> -						best_rate = tmp_rate;
+> -						best_n = _n;
+> -						best_k = _k;
+> -						best_m = _m;
+> -						best_p = _p;
+> +				u64 nk = (u64)rate * _m * _p;
+> +				unsigned long nk_rem = do_div(nk, parent);
+> +
+> +				if (nk_rem != 0 && !approx)
+> +					continue;
+> +
+> +				if (nk < 10 || nk > 88)
+> +					continue;
+> +
+> +				for (_k = nkmp->min_k; _k <= nkmp->max_k; _k++) {
+> +					if (approx) {
+> +						u64 _n = (u64)rate * _m * _p;
+> +						unsigned long tmp_rate;
+> +
+> +						do_div(_n, parent * _k);
+> +
+> +						if (_n < nkmp->min_n || _n > nkmp->max_n)
+> +							continue;
+> +
+> +						tmp_rate = ccu_nkmp_calc_rate(parent,
+> +									      _n, _k,
+> +									      _m, _p);
+> +						if (tmp_rate > rate)
+> +							continue;
+> +
+> +						if ((rate - tmp_rate) < (rate - best_rate)) {
+> +							best_rate = tmp_rate;
+> +							nkmp->n = _n;
+> +							nkmp->k = _k;
+> +							nkmp->m = _m;
+> +							nkmp->p = _p;
+> +						}
+> +					} else {
+> +						u64 _n = nk;
+> +						unsigned long _n_rem = do_div(_n, _k);
+> +
+> +						if (_n < nkmp->min_n || _n > nkmp->max_n)
+> +							continue;
+> +
+> +						if (_n_rem == 0) {
+> +							nkmp->n = _n;
+> +							nkmp->k = _k;
+> +							nkmp->m = _m;
+> +							nkmp->p = _p;
+> +							return ccu_nkmp_calc_rate(parent,
+> +										  nkmp->n,
+> +										  nkmp->k,
+> +										  nkmp->m,
+> +										  nkmp->p);
+> +						}
+>  					}
+>  				}
+>  			}
+>  		}
+>  	}
+>  
+> -	nkmp->n = best_n;
+> -	nkmp->k = best_k;
+> -	nkmp->m = best_m;
+> -	nkmp->p = best_p;
+> -
+>  	return best_rate;
+>  }
+>  
+> -- 
+> 2.54.0
+> 
 
