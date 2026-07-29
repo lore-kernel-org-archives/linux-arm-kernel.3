@@ -4,124 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E911BC54FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 20:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA718C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 21:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wW9Uyzmd0CgtZq/3i07ZTJx1czL9+w2DIvk/fu9rJ3I=; b=KcM0NTUtRJXpbChTG/GLCcKqE4
-	8g+knZX2Va0TOx6CuKqZDSMAlT4PsQm/9f2XltXsHpWlU8ZXst9RtMK8ceNbI2oBOmofZsOWG4NOu
-	ipQF5OGlM1r94e2xkUpZr3mWsbRhjVNWjTJygQmzWxs8kY6yA5U7VdOX92FSAkgfLJeEsNaNA3LJn
-	yShIZPTeE2l+wblTnKxi9RkZwIJoAx0lhCiaVduhE+J2lfuYFjXl5DBwnvCbmSvAxLEI973EoMH1k
-	AoKcmh7R+0mUSh2seE5Be7F7ZgHmRkfs16pPSKb9YnYmKBz8+u00RUj/B6X9EHnwrRb5hRTVoW+8o
-	EgTFbpTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g318k4aTVUNemyX/qfEfcAL4FBNIpHVejXjEULHegwA=; b=AfJ8OccQV7fAqA7ZhSvhLeKC+D
+	B/bYTcfpYjvQ8ZOBYQi+nGWwZIrIwMlNj1FVh5C8+8B02JMr9D2pYJkhCPDgnl6LerPAHn2HPCBQo
+	/vLHzGqcu47LCXhQNBZaHIIPvsoXsks59dXqzbQR7lFWsdPqhIL1yTKjSN2sza25MV2urqGLjnadl
+	H2Va2udd4mu9SWdqlkoGXgsNVAZaGmsk8VTFhsILvG0lK4WYdBKEg4bILSWnrzi/7sWg4dWMDjEkd
+	vA7RSiOqjw8c4GWEt8osnYdLuHOp6P6sytIdarYfVKd1oBQ5Vcy02soXh6jmvOscgY2Z7tQujSbM0
+	+j03l54g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpB2N-00000008y0y-2oDu;
-	Wed, 29 Jul 2026 20:37:59 +0000
-Received: from mail-westeuropeazon11010016.outbound.protection.outlook.com ([52.101.69.16] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wpBQu-00000008ylA-02Tb;
+	Wed, 29 Jul 2026 21:03:20 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpB2K-00000008y0a-1juP
+	id 1wpBQr-00000008ykh-0cQ5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 20:37:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mq0vSfr1FvaxzkNK8oh6HfOMiiWmNz3oIWFCFHLlXH9X/41dHtS7dg71vckhvE2IbZvUFywab9tfPZGuc3k0RG35YjsdGzKKJBCXAVH8l7xv2Dbz+ZpefZP4vdcbYTWm5H5CSJ0IMP/1ESYW9HqeNmXQBpwBRNNpbRIGt2cha3EoDYK9Im8lJ4wwtgA3lPSpc9H3HjXHkLy6jscBpCi8MLuucTs9oKviwuGq7EwXOxWJagtDxXlmAahb5grQIwmFtYETqTeOJuRAvpaE9zjgWcw42axYBLqj7eRGT0IThqUmjmmIaAkxjoM8fABkERrkv/foSdXbDkNh6mvnLU52Qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wW9Uyzmd0CgtZq/3i07ZTJx1czL9+w2DIvk/fu9rJ3I=;
- b=vhfpfz5GSDJ/c1eulZLaIy7mXkmBCOqGIMl1oebMAKLnK6wU97RJvGdh3/zA2u6EaYUQ18hQcHO3pzqWtPUVoMqUHRiimGewfdvvXL3si2Trcoo/DZ0eOr0hg9ezh8mG4v8u2MV6stnBGGtPORF+j5repApCK14CcBH8c0jC+EkLjet0oV29mmZcm3RJIBOm/S76fqqPLfjHZktoHA81acQBjnb+smCFf9jgsDHhKm56LYgtf2vW7TjDPKdJRaVmIHkaxLJb5F33Ot6I8ptxPqdAfW9onFw1iczTbxjPJeRSR16Jo2pLyr6Mb9NjufZhSS5TWddVnpC0oknG3vjkag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wW9Uyzmd0CgtZq/3i07ZTJx1czL9+w2DIvk/fu9rJ3I=;
- b=vlRFRV2HjbDRDw7MLjEK7uL+/WA3QeKVtkduibtNJtk4LuL2mGvYAGFpdQAaKQLvB9FUaMH19tQojVnAyvVm1gVG8MRcByDg+vQ6+2fbi0gsY05052KZXkyVJMvf9Y4TJBSR+wqWVfXy0Vc9SjiGf/LfHxKqWKoCkKa/vOyYeR4JrfpM4AOVHRm6FW/f3P2X8HUKwG/bT/eXCMt0dv2pMHVBtzdP2D3zn3zhYviDuQFjuCZItt1wVlSE6F0cjRIXt44Jy74xhh2cCwzvb6mkN5l4+cm9QlaY6XP8aLoITv/J69oj6aXT7nSY9B25Nfm660zvmnZZCvY/vpiKHUrKGA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI1PR04MB7183.eurprd04.prod.outlook.com (2603:10a6:800:128::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.13; Wed, 29 Jul
- 2026 20:37:52 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.012; Wed, 29 Jul 2026
- 20:37:51 +0000
-Date: Wed, 29 Jul 2026 15:37:44 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: tglx@kernel.org, radu@rendec.net, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] irqchip: imx-irqsteer: Call pm_runtime_disable() on
- remove
-Message-ID: <ampkmBMGBCJM0-SA@SMW015318>
-References: <20260729201634.490317-1-festevam@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260729201634.490317-1-festevam@gmail.com>
-X-ClientProxiedBy: PH8PR15CA0004.namprd15.prod.outlook.com
- (2603:10b6:510:2d2::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 29 Jul 2026 21:03:18 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-69c7ab350e9so2318113a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 14:03:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785358993; cv=none;
+        d=google.com; s=arc-20260327;
+        b=F+73U3g9MnM4mC+nxHfd8paztf3hEaCzbkgCHOP64hvMwG9mXEKheJoh4noADOFLT4
+         KCPmgfFRJWZ8rP2juHE2xyzWiSgZDj5QpYNtCQIHhVfGvsekTjlVYEhAujtnb2PZUc9A
+         UYOc08drSjwOWXV4yNHXbbXQ/4AOn1d/FAToD8Pegug4KjSez/v6Y0uMM1Lo3t8zQH9u
+         AuzCr66N5qAGkKJId90R2W1IYPHzy+sAAsm73Of8ZCijv8gO/X2/3FA5ZZiFOi+AacH3
+         tSOMNb3sBnV4cKMtzWkC5arYuHDhuX/NZ4+TZMLjn/7+dMYj/Q1cewW+i3SXeBhrZtb/
+         fL/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g318k4aTVUNemyX/qfEfcAL4FBNIpHVejXjEULHegwA=;
+        fh=8omkE3oh1aLbgMhD3kKd8M7RZ25kC1pMp3D0+Sy8nWA=;
+        b=F/aCZBOYJ/DI8JD/DKsLj6OwTUj8uNwhCAtEOWu0Mgkbyoj1xrz5QgW/0U5+AF1FAJ
+         6T1cu4uNWWJWwNLughSeAjLuCvgWQ0C3KnOI1bqgUxFM3d31Wv9uGJ7xajI5idGBdF2Z
+         eVS7NbLU6Y8oE3zBUAJEsDTdCpKqdMSPYkkVgEI/Pux3syZIu7i4rGP4Yx+/lDNxUueG
+         bx8ZvIQz+eP8yQZZ3+Rmj8rPvXolFNwhYAyGPS7dkVgjvk3vlH0aXhSkQOyK5n/ZEu5b
+         onHVsBgzYm8uUzLgHscGsbyjpxy+89DzGtcKCvGqqe8V23pzWjRH4xI6GWy+zD69d5qF
+         TBTA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785358993; x=1785963793; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=g318k4aTVUNemyX/qfEfcAL4FBNIpHVejXjEULHegwA=;
+        b=nhVFl6O1XF48TE4R+BJ0LxsNGYTPqTRb7qGnSoq90htriT0dwOJOCbrwSubKj4D0TJ
+         OCxUn2L2B53rJE04dsQexCQKV9p6hlyd/KSZ43dDpDPm9RV8pRGmDMDAdmn3RnKYljHZ
+         hCvCQOwLMLKuiyspB4mXyt7rbVTqX0GBy8wBzbJMSqt/HHzje7ZNSsyyGE3lPmqSB2/z
+         iLHrch8Vb72Yb7V10w04PPIgXooZ7hVe5C5PX0gnbQOSxReHaf7LUBi0wXxkgzxkiajp
+         EBPiQowmiKVE7EMr3WbfK9+hh8s1wwo8vdpo523iUii81ptY+CUrkh779oLFiMny6ImL
+         lBdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785358993; x=1785963793;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=g318k4aTVUNemyX/qfEfcAL4FBNIpHVejXjEULHegwA=;
+        b=BfBeQ3KM4BQVy3YF+5lMSgvngvWE9Y/uIB/Cc65WCydPTlEbLm4hHD3p2gAodLwA65
+         hWtQ13ePW4oB5gjdQkic17G2kxB+euu2qipMcuX0x3CwLj6hrSVUuwjL/81/zWhgQASL
+         u3IY8I/F3sV+gQog/ut1cyavD0x1epydzYpAc1IrUvllGck90nRO65vk/bAX+dV1QcsF
+         6mgUyLs1KI0s3Put1MdiYgpHtuHl5bxMhlZHY3OhWnwbaDp6Bd17LU50z0DbNK+yMXr7
+         877nl4Ay9ZiNoS/7xGDpn5tTWfbCy91Rj7s997J6aZ4Ms+5ykzRu31+8xfz8yPqwYIJX
+         6Uzg==
+X-Forwarded-Encrypted: i=1; AHgh+RomxOapRWiQ41I/wWB2gjt3s/xT8lhZar03NvdGS1FSJg5WiK3coorq5vUBSI9te6Sqs0uGz2FOPHi88lg6o0gj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuwE1W6Bo3y5MwlFbuvAP7mQQI9EpmZJ9B9ImUMYlI8IZHNj4D
+	cjRYbmno9B7wt5KUaJEntns3i1bDfaZRwl/Wj61JjTwq0+PYdE3kZhXShhtxTchyAB8hmQbBQG3
+	adz/HQfw+ucEBKr+Qoll9gveyVXaCrf4=
+X-Gm-Gg: AR+sD108fdWRxUkG6i5gXkewhYzx93WBRFf/PwDmp5dvH8ELN5TFgZtCg7qaNeYPxnQ
+	mzRX3hoIyler3sHkh7413CcqsNl9hQb1MX4p+TzDsrkoJ5r8pCe73jg81VzAVYLHMhe1BvgurOk
+	nHHuxJIzgyU/bxqxo98TxWqOGxEXKQoOAPZI+OlkeW3FkyVbAunULzjBgDP4/bn8jiDg5TFjNRV
+	RHRU81DlEdkuLQ5w0JhO4LYCrkkNM4KzCr039yQ37Sle08ZzDs61brEd7VMF3NwV7/rnIWAnQmY
+	B7IZ3qFsVSmB3Arps3jv+5zL9IZNANxUrFY59jHc6cNOPZNr6J74yURa/1DX4sbJjZJRjGEH3qC
+	JDmlfA4be77IW9ihT5G0+gOo9L6c5r2V8xiQAID8rwaywbvbQjnJroQw/SceYpN8386+R9jB0f5
+	JUnkZapsClx7ps3JFsXC3oRSyNz+k+drSawIoUgwdPfbOXgYniutwqNMM=
+X-Received: by 2002:a05:6402:51cc:b0:698:6084:db7f with SMTP id
+ 4fb4d7f45d1cf-6a07b7fc1admr21670a12.10.1785358992379; Wed, 29 Jul 2026
+ 14:03:12 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB7183:EE_
-X-MS-Office365-Filtering-Correlation-Id: 202952d1-9abe-43b6-8126-08deedb14296
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|1800799024|376014|56012099006|10067099003|18002099003|22082099003|6133799003|11063799006;
-X-Microsoft-Antispam-Message-Info: F4D8Y5bVMz1ExrJPLx/pWIBMFfroZwy/kufiHah87pOaOUHV6oFn5Gh4JQk4hlQhscUA8vJI5caxOlINbX7h4A8je3bkmqLMDUBHFP2R+eAiT5jEmSa3wZzzyo3Y553FWXEa5NRR2FwQ8n7UW49FjGC1mdLwAO+0lOqqLQg4uWYEwgPq893nXtrjdOX/WNz9aL/K0Y+TeUVqDtw4IPC26y4iT+NpZqbu5D6OUYzq9aeb5hHIhE3EE6tBKLJ+2wGYwux5/O0qD+6szSh5ueI4HnLL26ssD/Q0A2n2DhDoz3IOGjzBh9/B/HGyft1Biaq1i9KaDmzZoQQ3xKqe8OUNFAf2ZgqAImw+TvRpddFQvPXkbVW5r9jgEW1dsk4JTxKuZb1c0EQkuNOzHTozwLjqcV0obse0bF26LAFPSjiAgXdSmoFp3YgjFx3PV+LCZEjw518qPvC5E8eU+bpSffLWHu+LSjRVf4BQ9UQN4EBEMC/gdflVHbeCFJOEZdHUklvzHcNxXaE2v2YFAu/xHklzjw+1Mutnfuq3zwOazDCWJlwANSMdme2sCQ3rqZ2zsGfItffLoLW0B4pbnCqIreGcrYGk/nP059MBiLo3jY3anQQObVIp4NLSwRWybxQMdnDacpfUwVR+j1cV8SV0tVctWUDh5+e3hZpA72BbmAuLDG8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(1800799024)(376014)(56012099006)(10067099003)(18002099003)(22082099003)(6133799003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VvKcWIIVOUc9+dgH5YvvpTYObmxcDTiFpRy0EdJgGm5ibIxdTC89pjpucSM+?=
- =?us-ascii?Q?jQ9HbhvaWomHHsG8UuRVagScFPbLc8xxgbSkIhglQfGQK+g2aox9LXu/Bx5L?=
- =?us-ascii?Q?bnLLttC0Fz5ro3RxmerBSTETYRPNnvnx9CMetZclHZaFoMN6t6hDnJ+H0T4y?=
- =?us-ascii?Q?yCqfltawlogNbniBy6QFnr3iicAnEuNO8KsGJznkj71/eHE+EtaSWm9unG6O?=
- =?us-ascii?Q?EA4ziVelN54/gBigvv4aEp1uXWgDy+PchquQlGOPW9sg02ea5aIb51oOoBo8?=
- =?us-ascii?Q?CNjuF7TFhutXjb6ZlpyKJx297EGp9oWxho+lm5urCQe/qEZlKbMO91XofXT/?=
- =?us-ascii?Q?pYsvIl/dUrRtxQ56yvWFqBc0GQ7TDSYMgzhZLq9pZHCbvWP/UDHqn6n2J1Ln?=
- =?us-ascii?Q?QMNyDgJLJEXKIHXqHsqTpS8CTloJUaauYiFZzAx/0LvOhWNdAA+2WgW9lbYI?=
- =?us-ascii?Q?ss3xOQcvegzqDvdeyclf8IDW4DppNCq7r2ponRu6Xrmli1dtBn0eIyPrA+7F?=
- =?us-ascii?Q?tWPOFtpo/gyVg1FNz7tNnyMiksZjs7GbShh3e1a8VhxwBLy3BE7GBD47EIqp?=
- =?us-ascii?Q?e+i5u/iVJUaISyBaKRMjGa+xpOrD/hsQBiTpGS984O1zq+XKB8YL8dJWh6p6?=
- =?us-ascii?Q?LR5WvaXpw/81y/Z5uuD5lrm7sRfiyT+43Ux+89nkI/rnpBbV1vtmr9tOOC+x?=
- =?us-ascii?Q?B/9kGQpvPwk9pQZQOXw/2CfRxUw4TJrYLwO+9lfjdKP5RUq7h8mOrLiaPH+/?=
- =?us-ascii?Q?e9EzjN35R28E/eXamh9+7M78a0EEJMmrUba3mD6ka0b23EsTqsC863lwi3DG?=
- =?us-ascii?Q?1kPdVQMFSypCWNLRNo3c5ZwafCBDyVyR4ey6qAUD2sO2dctdIHg3RfOtN0bN?=
- =?us-ascii?Q?QAHHBJWPFngPM3cElLIFo9JfFYdbP678Onft8D4zXHQHBzy0bnf8td6AXapT?=
- =?us-ascii?Q?0wMEHAwa7kxhhw1LcwxxLpp+B695F1ecMsi/A9SVAslBDSkUv8SCY+ccnU5L?=
- =?us-ascii?Q?H8SOH3RNt0ozV/LW05zBREMPsEGNT0N40SyAz+M6E55EQsWe9Xn40BtBpKA1?=
- =?us-ascii?Q?Gie+DnZMkLLrt1FGBstSe6Srb4PZi8Rf823bNB4NQvW4zJP6GVlE1c0X4MCi?=
- =?us-ascii?Q?NPeaksjs9K5d29tqs4g4FZ+LTKljp+IFWeJXSnuyISTTLf4D3lHyMSKicHV7?=
- =?us-ascii?Q?RAIHCb4Hwq2UMzcFiv8Lk5l0Ewdu8RkJbZJiakrK0qCp4UOaXiDvpPBzz6hz?=
- =?us-ascii?Q?c6G/n1/o3RKwNEufsQLiGYjqcpixl7If9pV0Ap80cEKoAFFUqdD+5Vf15mwP?=
- =?us-ascii?Q?m40UQ7Nz/TuD4PJl20uNdhrIx5cCrJzzZojKmOGZR0QsXnzbZ6SFo7Ific1Q?=
- =?us-ascii?Q?EO1vnNmqMJYDQ7iqt4RJ7Jh1PGcO0CjydXEpHVkbr2cM5tnaCVr0bZxc1ATf?=
- =?us-ascii?Q?1NqFTHerfwyFgM2uWjhDtqyMC3aoU2ginXwR9cNKTjfmImJQvEQxSBZ/bVQU?=
- =?us-ascii?Q?ADtTFHXVd9LhY5ZWVi5JY6Z6xOsOMChB7AwTwHe4/7nnzdHkWpEc9WjsaWtR?=
- =?us-ascii?Q?9fftLQb2dGvbK2NDuhhI94YqYNqyjd9tDSyBAY4i1QH3c5i6yj09nGXYjMIj?=
- =?us-ascii?Q?FNjPZ6ZQAe/o+r8o2XgGMxvcxlGfxnBDtcoLdjiIOaZvDYmmofZccEzLtMuh?=
- =?us-ascii?Q?wqKj9R9AoHiLrg/OrAFYasnEuq0DCMyOiJBkzjtyNCGNbemU6lY5eM6p9G+3?=
- =?us-ascii?Q?C3dTsVosvxxO0tNe6rhZhKUmqyYqnCciTEee4A8UoXmbzvaficHe?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 202952d1-9abe-43b6-8126-08deedb14296
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 20:37:51.8432
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZRVLVucwnm9vIz3gk1yTKD0vpdNjETm0rDI7KMrnfJ93yautQOOp3or0TJ0UiwDdqp5O0y793jQFLpoGuKrgg/w2CHY5HSJz3FnUD10CreW5Aa+pmQeW4RD+OaUdBHv+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7183
+References: <20260727194836.11689-1-rosenp@gmail.com> <a9a2caab-f93b-448a-b846-7e739c143687@kernel.org>
+In-Reply-To: <a9a2caab-f93b-448a-b846-7e739c143687@kernel.org>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Wed, 29 Jul 2026 14:03:01 -0700
+X-Gm-Features: AUfX_mx4flmj0fEXemuqhYXtdVH7XNcN1VvGWawpVJXNy6WEVYqTNmVDorddp_Y
+Message-ID: <CAKxU2N_bPw+_Lw6mSYF9Bj1KT=-y7oJ-_v2rhPBmULjU2p5KyQ@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: samsung: exynos: replace irq_of_parse_and_map
+ with modern APIs
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, 
+	"moderated list:PIN CONTROLLER - SAMSUNG" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:PIN CONTROL SUBSYSTEM" <linux-gpio@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_133756_458785_8D69C8AC 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260729_140317_210308_621C32F8 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,43 +123,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 05:16:34PM -0300, Fabio Estevam wrote:
-> imx_irqsteer_probe() enables runtime PM, but imx_irqsteer_remove()
-> does not disable it.
+On Mon, Jul 27, 2026 at 11:05=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
 >
-> Consequently, runtime PM remains enabled after unbinding the device,
-> and rebinding it triggers:
+> On 27/07/2026 21:48, Rosen Penev wrote:
+> > Replace irq_of_parse_and_map() with fwnode_irq_get() for per-pin IRQ
+> > lookup and of_irq_get() for the muxed EINT IRQ. The fwnode-based API
+> > works with both OF and ACPI fwnodes and follows modern conventions.
 >
-> Unbalanced pm_runtime_enable!
+> And what is the point of ACPI here? I see no point in such conversions
+> of one call while leading everything untouched. Add proper ACPI support
+> with valid ACPI tables with ENTIRE driver converted, not one call.
+Avoids having to call to_of_node. ACPI in the description should be removed=
+.
 
-can change to use devm_pm_runtime_enable()?
-
-Frank
-
+As far as fwnode is concerned, fwnode APIs are used earlier in the
+driver, probably for the same reason. fwnode_irq_get didn't exist when
+this driver was written so of_irq_get + to_of_node made sense.
 >
-> Disable runtime PM when removing the device.
+> >
+> > For the muxed EINT path, change the error handling to propagate the
+> > error code rather than silently returning 0.
 >
-> Fixes: 4730d2233311 ("irqchip/imx-irqsteer: Add runtime PM support")
-> Signed-off-by: Fabio Estevam <festevam@gmail.com>
-> ---
->  drivers/irqchip/irq-imx-irqsteer.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
-> index 87b07f517be3..a695ba31db9a 100644
-> --- a/drivers/irqchip/irq-imx-irqsteer.c
-> +++ b/drivers/irqchip/irq-imx-irqsteer.c
-> @@ -276,6 +276,8 @@ static void imx_irqsteer_remove(struct platform_device *pdev)
->  	struct irqsteer_data *irqsteer_data = platform_get_drvdata(pdev);
->  	int i;
->
-> +	pm_runtime_disable(&pdev->dev);
-> +
->  	for (i = 0; i < irqsteer_data->irq_count; i++) {
->  		if (!irqsteer_data->irq[i])
->  			break;
-> --
-> 2.43.0
+> But why?
+of_irq_get can return -EPROBE_DEFER.
 >
 >
+> Best regards,
+> Krzysztof
 
