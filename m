@@ -4,142 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B8EC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48228C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=; b=jq1jY5M0O3XBKbnEqzjQoPprk2
-	eGyZH5XgQ+b8gKl7kzKsQv+mwuEGLozORuw0swy7OwgbUQFYavDR2JMAOk4euAyJlH1ToumS7rLUQ
-	MJpWN86lw47LY1Rj/6WlfIKgw4IU2opAPx2N0YIF3wqUb4E6DBnqOLIVRF0NrAeTBWoxpT0QFoRl1
-	H9W+jCV/9naiT59ytTwy7SVaTojnDA7hEMsv+KyYLTpA+WygHzm7wEMf0f4vpNe6rvfC0KA3/uCbl
-	eCpW2Y4lwCEwF9sofkdMsRB0KUw2n5/YPrEmSsLc19RFmuSTZ8eqWkPLZNDClDRfOJnw+5FnNfXEB
-	NAQzbHwA==;
+	bh=rs50z9cTs+x1OJuj2lAGciOuTjo0+2COWF0rtAbVPvk=; b=l+0RzeYD9pPjHm91Eyk56yxhfN
+	T2nvXyc33aUafIG/Nq5dkZxHpUHv17sHbNclH5F6YNyixMaiNXUDAeHUdRMhPYzXCdUKLHGWZkEnp
+	Gb3inrFg/3mphROr+TVtrEUjizCAKbhXdBOrDwMC+ZFOU41e0RDG6tdZlfwE67xbmltQA4IGGhdPt
+	wR6pzb8CxMfSHO45XiptW56LS+7sgeKqioNawbfWuuiJdWcB/feK74rxo7qNIJT0AWfcb5DT2JTd/
+	vr+zlwADTTAbl4+mGCdYgI0v4yGNE/jbWtEvuyG9xiNT/mLOoGQN+fAxcWnhcRgaalRZCipKelRIx
+	EejRkfoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9Ao-00000008pW1-2vDc;
-	Wed, 29 Jul 2026 18:38:34 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9Am-00000008pVB-3GIm
+	id 1wp9Br-00000008pgK-3tc5;
+	Wed, 29 Jul 2026 18:39:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp9Bp-00000008pfp-1d9X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 18:38:34 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66TIR6S92793972
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 18:38:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=; b=IUdFm++d4NUmQswu
-	39S7YtjshS+upAZ8BGHmVcIt9JmaSvqcltUOuPSJ/8VnTeMad1ELdRxv30H6IWq2
-	agbehCo+HidY7wqwbMVSkooTVdFSO2zVrO7akVmHyY02Q1lM5wQirR0Tugs5HHp1
-	O7hTQ7zHtB6QKOQefZonxsL8w5V4XAwCCHDIfcW56j2eG1oCGDgiNpIj5IxBi33D
-	W0wKANkZm0CGPJrxe5Nk+88mL7RRNOqq4fhGWQQbJ/IttypCZf56twIqzYy6TcjB
-	vfZsFS1vy74z/t6//WOY77yytC3T/Ok0yXsIA+Cbr0SrPyKTu5vBREDBf+V68kIz
-	Pc32QQ==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fqgrcj3q3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 18:38:31 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cb835525b13so1608831a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 11:38:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785350310; x=1785955110; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=;
-        b=g+8I/htCcfdmnF/7Gx8s17WcZhMZkW38LMk1LqwBRAY8yr9fyhCvQ3F0J2IOOGg8Vy
-         2LIZ9JE25IM6q61TDLovl21jz1bRRY9/Rx0AYfFweDuxq2iHXTq+j06lB97BmjAzCIEi
-         wOqyXvefpzm37yv73Jom53IzbRSNbzhgb2R1kJw8jg/yEaSfQhQye2qkVgUWZwDeVPnj
-         qFuEuHWXJf8oiZwxc8Y7CuECPPpi4dHOgZzp/vWtd3X5oRxxY7w1cW1rVe8eIFJh1vpQ
-         qHz7rNpZXPNMWQpAUsiMtRlVaFdn5k0q4mc9q1p5NmFaXZGH9LAg1I19ivQPVDvLc7n0
-         xk3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785350310; x=1785955110;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IB5IgmdZ2AgFFTI+wd22TsO3SWHmh33/Yh0U0TdgPnw=;
-        b=GdRRv3VwFWDmEIGH+MuHaru4fhrb+EdCtFITYOkVUXmkFkv/2oeiodMAIT2OanPQGM
-         6pXYS7rFCc+CKdS/0xKfUfz2TxXtfZXXdDhqIxNWl+PvGnihAjV0RpJEQLHmt7teSsmb
-         +O7BrIRrJOEeed0GzUY3rIe6zagJoG/Bt6auO5vw1CO1b6x5kxCPXB5jQJPm+3biNofK
-         18RPLjBrJNjGELa/QPPHMegYmJufLIQp/zA1qzy+/tc5mLaMtCqFuwFZDoMqDRvnMvIc
-         qeoZqi79MdVtflfU1Z+JaT+PcldG67JiygG4Hwle/E0q9iyOYlNGTp1H4yi/ieUukr48
-         fntQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqMj+FKNS9foicdld8x22/wxR34kasldNGdR494nHozFkiTkBavgV3vdNZr2diEhXOpfgoST7ePPwV/QedYN+zP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmZRUJjQRNQQ5ATcyq+3MlYzhDBvLv70GjcxT1qAhSUg/j2SM1
-	nlUTIBctpk2RqEl5Ep+Pqxu2J/RDRbiTgwJ7a/d4EM4GUkdbt1aRPdT6SbJaM9qGi89zRMNoRFG
-	fum1EFq1R8YN3TgQ2SYc7ge7428TpVAihQbYy5hyZPbYZVlwPOYBDP6ShF3WHOHVZGk2OkvNwNq
-	CJ7A==
-X-Gm-Gg: AR+sD10QbsHqX/w6C4gPoapoPf+4tf8gw/3vZGmbvuP6BxBOQgRxegaGBY20Tu4Db6y
-	0LZ5HVuWD40EDHMsUfh9/+KVAIxQDKXqFaX5Z6iqK40kQJ10azR2V2rOQvLnygyfH30eL9kCXE0
-	jutiezZ2mNAf7Zns0s5AayRq0j1xnw+GqtGXPz8v9VJVbl7vyB/iS2AN5i9nwxiwC3QigBlqVix
-	nRhgfN1fzdG4tRhyFjalJbsx3r8vUM0EWQcMJwvss63osczaNLFcT1J6WHwCKILp0yVO/NqJeRc
-	wQemw5WqJD1dUvqHAL/cv+ETdGJimv8WDp1lWFlXxz2MUzJ+mlVoEn2d1lhVIHY5qY2zvX5AtaE
-	RUIvK3cxcUa5ST+J/oxs8xmyW4A==
-X-Received: by 2002:a05:6a21:1f83:b0:3c4:3454:38a1 with SMTP id adf61e73a8af0-3c8ba5f7878mr8739583637.58.1785350310532;
-        Wed, 29 Jul 2026 11:38:30 -0700 (PDT)
-X-Received: by 2002:a05:6a21:1f83:b0:3c4:3454:38a1 with SMTP id adf61e73a8af0-3c8ba5f7878mr8739565637.58.1785350310099;
-        Wed, 29 Jul 2026 11:38:30 -0700 (PDT)
-Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504d3250asm11010600eec.20.2026.07.29.11.38.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 11:38:29 -0700 (PDT)
-Date: Wed, 29 Jul 2026 11:38:12 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Yushan Wang <wangyushan12@huawei.com>, will@kernel.org,
-        mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, u.kleine-koenig@baylibre.com,
-        linuxarm@huawei.com, liuyonglong@huawei.com, prime.zeng@hisilicon.com,
-        wangzhou1@hisilicon.com, wuyifan50@huawei.com
-Subject: Re: [PATCH 1/3] drivers/perf: hisi: Consolidate uncore PMU cpuhp
- states
-Message-ID: <20260729113812.000006fc@oss.qualcomm.com>
-In-Reply-To: <18bd7977-c0d2-47c0-aaa4-a787ef935597@arm.com>
-References: <20260724025238.3411328-1-wangyushan12@huawei.com>
-	<20260724025238.3411328-2-wangyushan12@huawei.com>
-	<18bd7977-c0d2-47c0-aaa4-a787ef935597@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Wed, 29 Jul 2026 18:39:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61F0F1684;
+	Wed, 29 Jul 2026 11:39:31 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E1AA3F66F;
+	Wed, 29 Jul 2026 11:39:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785350375; bh=wxnN+qGhBe6IuV78Od6T4NuLPnJ1LTmDsaJiSs76zMU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fOo2fY/cWfI27/+AvUJ66KuJYjF/ObPU337QH3V5fQbTqvlk25zdbKlL6r3Cc88IV
+	 At/XWAxihpM1XI9CyrbJhAawzmigGsmDBUkTzQtkiF+gJXq+iq4AMTEipERAVqE6mP
+	 QMDJRcQqctvKIUho9u9BeglC6hTHPnfqBDa+HqLw=
+Message-ID: <25ddc6ec-3a8a-4ae5-8f33-e6c71ff354b5@arm.com>
+Date: Wed, 29 Jul 2026 19:39:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] perf/arm-cmn: Rename filter variables for clarity
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: will@kernel.org, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ ilkka@os.amperecomputing.com, leo.yan@arm.com
+References: <cover.1785252273.git.robin.murphy@arm.com>
+ <ae87ea9530b3c2073874035a244f34baf7915def.1785252273.git.robin.murphy@arm.com>
+ <20260729102014.000019ea@oss.qualcomm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260729102014.000019ea@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: kNrkUJroRjmf2tTiX3E1gtGB0dsgsyWG
-X-Authority-Analysis: v=2.4 cv=Id+3n2qa c=1 sm=1 tr=0 ts=6a6a48a7 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=7CQSdrXTAAAA:8 a=i0EeH86SAAAA:8 a=EUspDBNiAAAA:8 a=YgQoG-XJdNmCr4bRT3EA:9
- a=CjuIK1q_8ugA:10 a=x9snwWr2DeNwDh03kgHS:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: kNrkUJroRjmf2tTiX3E1gtGB0dsgsyWG
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI5MDE0MyBTYWx0ZWRfX2X3XuWU4UbkL
- cPCzuCZRjdDEVrHDEfwgrrsWI6ODK7aGwzdVBDeTrQ7keIVlx3QKozIUUTXOpUhNMwmvUpnnhME
- +ouGUm2niYQANFtqaOCzRgZObdbIjvI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI5MDE0MyBTYWx0ZWRfX8Yi2KWGrylAY
- BgZLrvrQRz/SESwXUFRm3kYYvFcy5s9D6DvC1Z3TJrWQ8CRf9vcz+8fGPZQpwJqBrlQnZE+XQl/
- GV8JtB6+KhfYodpDRwoLVSo149/ihaVlGZEmXNJ0IV8fV3MB7zlfcaFjvI6luxEtTJnynaXB2mR
- PN+mYR8CZ4ls+bbapa1OYSRdHK1WzJIDTgqlc761yIz29Qt//FP0nIejT2gP1p/tF5cAy4Ie18o
- f928T9eqIFIDS1vo8jE9EKeFcBSHyJVyp7MNp3f39bFiSkXG9AuTtTKpKxMw76MXIl+uC+YoO+N
- Q9GOJCgGTGR6oHu7YzCtmrY5a+UKq8iUnlvSOEYE6z2t+BOzkxttwCIwoweAJ5hU2UB9QeUf6Zn
- NpG8pilDtN9PFAY1BXyUGXLYPXJpYRNHqNVr7Ss9knL7v0J9m/ID30r9d2lIj1tREtFpyEYhOlu
- PMRDYXGHwAAxUtdC8jQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-29_07,2026-07-29_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 clxscore=1015
- adultscore=0 malwarescore=0 spamscore=0 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607290143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_113832_938449_6C335C42 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20260729_113937_508989_BD8759EB 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,52 +73,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jul 2026 13:41:59 +0100
-Robin Murphy <robin.murphy@arm.com> wrote:
-
-> On 24/07/2026 3:52 am, Yushan Wang wrote:
-> > Every HiSilicon uncore PMU driver allocates its own static cpuhp state
-> > even though they all register identical online/offline callbacks. This
-> > wastes slots in the cpuhp state enum and needlessly fragments the
-> > hotplug state space.
-> > 
-> > Move the cpuhp state setup into the shared hisi_uncore_pmu framework:
-> > register a single dynamic state (CPUHP_AP_ONLINE_DYN) at framework
-> > module init and export it for all HiSilicon uncore PMU drivers to use.
-> > Drop the now-unused static CPUHP_AP_PERF_ARM_HISI_* entries from
-> > include/linux/cpuhotplug.h.
-> > 
-> > The L3C PMU driver keeps a private dynamic state because it has its own
-> > hotplug callbacks for migrating multiple per-CPU interrupt affinities,
-> > but switches from its former static slot to CPUHP_AP_ONLINE_DYN for
-> > consistency.
-> > 
-> > No intended functional changes.
-> > 
-> > Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-> > ---
-> >   drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  | 34 +++---------------
-> >   drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 34 +++---------------
-> >   drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 34 +++---------------
-> >   drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  | 21 +++++------
-> >   drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 35 ++----------------
-> >   drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 35 ++----------------
-> >   drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 34 +++---------------
-> >   drivers/perf/hisilicon/hisi_uncore_pmu.c      | 25 +++++++++++++
-> >   drivers/perf/hisilicon/hisi_uncore_pmu.h      |  2 ++
-> >   drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 34 +++---------------
-> >   drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   | 36 ++-----------------
-> >   include/linux/cpuhotplug.h                    |  6 ----
-> >   12 files changed, 67 insertions(+), 263 deletions(-)  
+On 29/07/2026 6:20 pm, Jonathan Cameron wrote:
+> On Tue, 28 Jul 2026 16:59:21 +0100
+> Robin Murphy <robin.murphy@arm.com> wrote:
 > 
-> Neat! Seems like a pretty nice win already, plus it only makes a 
-> conversion easier if my generic hotplug idea takes off :)
+>> CMN has already grown many more event-specific filters than the original
+>> Occupancy ID, but since they are all independent of each other we've
+>> just overloaded them onto the same name. Before we add yet more, and
+>> they begin to overlap, rename all our "occupid" variables to "filter" so
+>> that things can be a bit clearer and more consistent (but leaving the
+>> format attribute itself, to avoid UAPI concerns).
+> Hi Robin,
 > 
-> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-Hi Yushan,
+> Drive by review... I'm a bit confused.
+> The print out change isn't a ABI change?  I'd at least mention what changes
+> around that in the commit message.
+> 
+> Jonathan
+> 
+>>
+>> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+>> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+>> ---
+>>
+>> v2: No change
+>>
+>>   drivers/perf/arm-cmn.c | 53 ++++++++++++++++++++++--------------------
+>>   1 file changed, 28 insertions(+), 25 deletions(-)
+>>
+>> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+>> index 50402bc4a21d..2a8a67da72c3 100644
+>> --- a/drivers/perf/arm-cmn.c
+>> +++ b/drivers/perf/arm-cmn.c
+> ...
+> 
+>> @@ -709,8 +709,8 @@ static ssize_t arm_cmn_event_show(struct device *dev,
+>>   				  eattr->type, eattr->eventid);
+>>   
+>>   	if (eattr->fsel > SEL_NONE)
+>> -		return sysfs_emit(buf, "type=0x%x,eventid=0x%x,occupid=0x%x\n",
+>> -				  eattr->type, eattr->eventid, eattr->occupid);
+>> +		return sysfs_emit(buf, "type=0x%x,eventid=0x%x,filter=0x%x\n",
+>> +				  eattr->type, eattr->eventid, eattr->filter);
+> 
+> Changing the format of this smells like ABI change to me.
 
-Nice indeed.  It always irritated me to see that block of code cut
-and paste so often + that it stopped use of module_platform_driver()
+This is not a change per the event alias ABI itself[1], since that 
+contract is only that these aliases may contain *some* symbolic terms 
+which are to be dynamically resolved from the corresponding "format" 
+attributes. Both the "occupid" and "filter" format names yield the same 
+result, so tools simply parsing the sysfs aliases from scratch as 
+intended are entirely unaffected.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+The potential UAPI concern alluded to is between *those* tools and any 
+higher-level scripts driving them - if those scripts contain 
+already-copied or manually-generated event specifiers using an 
+"occupid=" term then they would start failing if perf tool (or 
+equivalent) could no longer resolve the "occupid" format. Thus although 
+we're free to stop referring to it from our own event aliases, we can't 
+just remove the old format name altogether. Because unfortunately, such 
+scripts definitely do exist[2].
+
+Anyone who was reading the sysfs event attributes expecting to see 
+something they already know would have missed the point of the whole 
+mechanism so hard I wouldn't even know what to say...
+
+Thanks,
+Robin.
+
+[1] i.e. Documentation/ABI/testing/sysfs-bus-event_source-devices-events
+[2] 
+https://gitlab.arm.com/telemetry-solution/telemetry-solution/-/blob/main/tools/topdown_tool/topdown_tool/cmn_probe/common.py?ref_type=heads#L311
+
+> 
+>>   
+>>   	return sysfs_emit(buf, "type=0x%x,eventid=0x%x\n", eattr->type,
+>>   			  eattr->eventid);
+
 
