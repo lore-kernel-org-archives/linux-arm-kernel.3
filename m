@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EE0C54F52
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E54C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1GUhHvNgssZ2AXYt8VqyIutMVu+TKXKtjkFZFs0JjUs=; b=WwUCZrMWDnc5nVTsVOoMnVY87Y
-	za7zEsLU+5jkK5oBxEH+RIrx+A7rP9ZBSWyU6yCnQIR0pnGf7LYTYXvX4fj/9D53ZwXjEiRWjTpV+
-	Pz/dSecusTFbBjmQBegU5rPz/8bCiNZgGXQA50aB677UnzYT7WFLLCvtO0s7UgGDFiYeNinHicrSA
-	CKh2ueHJOl8kLlQmAJ8+p6wQkJ0qgJjgdN5JBF0ynp5vFAE3Edn02HDYS81BVjOzXr5HWJ0K5UDs5
-	mqeBENpgj9ls/lmewztYTMvajrpCdX/EYgM0gWWv3aM6hwsmFoo+MC7tnxLxQsR3G8SYA4VS6dNFN
-	1xk+oszQ==;
+	bh=+jfcgmQAOXmuCdraolZpgMHGSZixkkhdGZeDUQ5WFI4=; b=P2p+q1xsPoH9ILpEKHbBqGAuGE
+	ID+fAJWiLOLymQ+qtQz+KRaQlOZsUKtrkzk1dbgMw2/haBuoMP+qKwLDZCoAR2GU5FWZGEIar8bxp
+	aj2tlBC2WQA/w8lJpIXKGLipudsYiKfL5g+pNUNvO/7wQFOpV0mkhVbRG0XRwUq2AxUpWqOn1y4h/
+	vSSljWgB3UUO1WdmmcbXV9OUC8modwW7yfeRPnnHyomP0D7OvHiUsuhdPRKGEy2VZkZZVsetxdVrv
+	6S6WdHDgQTXijluwtmYCFLGTxxO3fvsVS+YklkzDKPlqYJwqXt+qlC2StE7bJeXmXu6jtlsBrPTGC
+	1S13FoSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1oP-00000007aVf-2VC3;
+	id 1wp1oP-00000007aV3-1Yfe;
 	Wed, 29 Jul 2026 10:46:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1oL-00000007aS8-1y1T
+	id 1wp1oB-00000007aJY-2cTt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:46:54 +0000
+	Wed, 29 Jul 2026 10:46:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4A6A1688;
-	Wed, 29 Jul 2026 03:46:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E2F2169C;
+	Wed, 29 Jul 2026 03:46:38 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10C553F66F;
-	Wed, 29 Jul 2026 03:46:47 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B63C3F66F;
+	Wed, 29 Jul 2026 03:46:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785322012; bh=bZDXjHEwJQPT1x7IW48rJE1aQjLeiRavudNPamkB5AY=;
+	t=1785322002; bh=aw5sPzqPRRpkFm3WvnzCcEQ9jGxH/WVes+YRlljODd0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OLe5I7KYce+mv/wWPqFlQk23F/9n45aMnOH9pomP4sftQrx9zJUscelJ84R6YANVk
-	 b5Ay3V41hylJctJC9N/CbYTSir2hxQmmlVi8Aa3yw2T0yoEhrJhDfQnLEs45Sm9n1y
-	 WGFyrgDuHkE28ZxEs5arKjBjPaJgzwrWB+MkZdpU=
+	b=nYvPch934inBbHjoVgQzgXjqR/cL+ECnWRhoWCwk367VP1rNFbPmDeH4kyPLXFGF+
+	 qCCPb/MsmfV4H5ypVfCvOZ53022PKvdByl2yNwmCMM7lzt873/yQDDpCTgqaqfaE4w
+	 6tuP5L9F0Wtt8l6o7UuEYtPAJTidpKWxBSJD/t20=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -71,19 +71,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org
-Subject: [PATCH v3 08/11] kvm/dirty_ring: Introduce get_memslot and move helpers to header
-Date: Wed, 29 Jul 2026 11:45:43 +0100
-Message-ID: <20260729104548.3439958-9-leo.bras@arm.com>
+Subject: [PATCH v3 06/11] KVM: arm64: Add hardware-accelerated dirty-bitmap cleaning routine
+Date: Wed, 29 Jul 2026 11:45:41 +0100
+Message-ID: <20260729104548.3439958-7-leo.bras@arm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260729104548.3439958-1-leo.bras@arm.com>
 References: <20260729104548.3439958-1-leo.bras@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4996; i=leo.bras@arm.com; h=from:subject; bh=bZDXjHEwJQPT1x7IW48rJE1aQjLeiRavudNPamkB5AY=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb17rki/LVDs1i2vqmuvupaFBvievtL/cnySRevW3f bj645VXOkpZGMS4GGTFFFlkH81fxfN9SsaRKz8WwMxhZQIZwsDFKQATqb/H8N9PLqpmyj91hWn/ CmcYn1zPdHZCf/ydiTfMPL6KMs++5BDN8M/AcK+9u/j8TyEWhg6XfIpmOEneuSMcEBAqMW+f7eW te7gB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9370; i=leo.bras@arm.com; h=from:subject; bh=aw5sPzqPRRpkFm3WvnzCcEQ9jGxH/WVes+YRlljODd0=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb147HzU3ZW3+xKd1wrrlrgfntdR5KwdI1U3gnD31g utMjVUBHaUsDGJcDLJiiiyyj+av4vk+JePIlR8LYOawMoEMYeDiFICJtM5hZJj7aMuMpXuXdcXs SXj522leyz75KRmnexzdnHPX80T3FAUwMjS+bptz2vTXxDyxG9ctunaK6THvqwn/cMBlYXxPefv +TEYA
 X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_034653_583199_432A1586 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260729_034643_853759_CC672012 
+X-CRM114-Status: GOOD (  29.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,149 +98,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dirty-ring entry struct carries a slot number which is used to return
-a struct memslot*. That struct carry important information such as
-memory offset of that memory slot, which is used to calculate the guest
-physical address of the page which needs to be marked clean.
+Implement arm64 version of kvm_arch_dirty_log_clear() making use of
+FEAT_HACDBS.
 
-In order to fetch that memslot information without duplicating code, split
-that part of kvm_reset_dirty_gfn() into a new helper
-kvm_dirty_ring_get_memslot().
+It works by transversing the dirty-bitmap and converting the set bits into
+HDBSS entries in a 64-page blocks granularity.
 
-Along with that, make it available on kvm_dirty_ring.h other helpers such
-as kvm_dirty_gfn_harvested() and kvm_dirty_gfn_set_invalid() which will be
-useful on implementing arch specific dirty-ring cleaning accelerators.
+The resulting HDBSS array is then fed to the HACDBS mechanism that walks
+the pagetable marking writable-dirty pages as writable-clean.
+
+In case of error, rewrite all unprocessed entries, including the faulting
+one, to the dirty-bitmap and fall back to generic software cleaning.
+
+In case of the options to "manual protect + init set" are enabled, do
+the hugepage splitting in the same fashion as the generic software
+cleaning, i.e. in 64-page blocks. For that, remove the static qualifier
+from kvm_mmu_split_huge_pages() and make the function available on
+kvm_host.h.
 
 Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 ---
- include/linux/kvm_dirty_ring.h | 12 ++++++++++++
- virt/kvm/dirty_ring.c          | 30 ++++++++++++++++--------------
- 2 files changed, 28 insertions(+), 14 deletions(-)
+ arch/arm64/include/asm/kvm_dirty_bit.h |  24 ++++
+ include/linux/kvm_host.h               |   3 +
+ arch/arm64/kvm/dirty_bit.c             | 163 +++++++++++++++++++++++++
+ arch/arm64/kvm/mmu.c                   |   4 +-
+ 4 files changed, 192 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/kvm_dirty_ring.h b/include/linux/kvm_dirty_ring.h
-index eb10d87adf7d..190d97fce4a4 100644
---- a/include/linux/kvm_dirty_ring.h
-+++ b/include/linux/kvm_dirty_ring.h
-@@ -77,18 +77,30 @@ bool kvm_use_dirty_bitmap(struct kvm *kvm);
- bool kvm_arch_allow_write_without_running_vcpu(struct kvm *kvm);
- u32 kvm_dirty_ring_get_rsvd_entries(struct kvm *kvm);
- int kvm_dirty_ring_alloc(struct kvm *kvm, struct kvm_dirty_ring *ring,
- 			 int index, u32 size);
- int kvm_dirty_ring_reset(struct kvm *kvm, struct kvm_dirty_ring *ring,
- 			 int *nr_entries_reset);
- void kvm_dirty_ring_push(struct kvm_vcpu *vcpu, u32 slot, u64 offset);
+diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+index dd16438f0651..d368a23a84b3 100644
+--- a/arch/arm64/include/asm/kvm_dirty_bit.h
++++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+@@ -2,11 +2,35 @@
+ /*
+  * Copyright (C) 2026 ARM Ltd.
+  * Author: Leonardo Bras <leo.bras@arm.com>
+  */
  
- bool kvm_dirty_ring_check_request(struct kvm_vcpu *vcpu);
+ #ifndef __ARM64_KVM_DIRTY_BIT_H__
+ #define __ARM64_KVM_DIRTY_BIT_H__
  
-+static inline bool kvm_dirty_gfn_harvested(struct kvm_dirty_gfn *gfn)
+ #include <asm/kvm_pgtable.h>
+ 
++int __kvm_arch_dirty_log_clear(struct kvm *kvm,
++			       struct kvm_memory_slot *memslot,
++			       struct kvm_clear_dirty_log *log,
++			       unsigned long *bitmap,
++			       bool *flush);
++
++static inline bool kvm_arch_dirty_clear_enabled(struct kvm *kvm)
 +{
-+	return smp_load_acquire(&gfn->flags) & KVM_DIRTY_GFN_F_RESET;
++	return system_supports_hacdbs() &&  kvm->arch.mmu.pgt &&
++	       (kvm->arch.mmu.pgt->flags & KVM_PGTABLE_S2_DBM);
 +}
 +
-+static inline void kvm_dirty_gfn_set_invalid(struct kvm_dirty_gfn *gfn)
++static inline int kvm_arch_dirty_log_clear(struct kvm *kvm,
++					   struct kvm_memory_slot *memslot,
++					   struct kvm_clear_dirty_log *log,
++					   unsigned long *bitmap,
++					   bool *flush)
 +{
-+	smp_store_release(&gfn->flags, 0);
++	if (!kvm_arch_dirty_clear_enabled(kvm))
++		return -EPERM;
++
++	return __kvm_arch_dirty_log_clear(kvm, memslot, log, bitmap, flush);
 +}
 +
-+struct kvm_memory_slot *kvm_dirty_ring_get_memslot(struct kvm *kvm, u32 slot);
+ #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index ab8cfaec82d3..7ea6ed7ce203 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1662,20 +1662,23 @@ void kvm_arch_disable_virtualization_cpu(void);
+ bool kvm_vcpu_has_events(struct kvm_vcpu *vcpu);
+ int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu);
+ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu);
+ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu);
+ bool kvm_arch_dy_runnable(struct kvm_vcpu *vcpu);
+ bool kvm_arch_dy_has_pending_interrupt(struct kvm_vcpu *vcpu);
+ bool kvm_arch_vcpu_preempted_in_kernel(struct kvm_vcpu *vcpu);
+ void kvm_arch_pre_destroy_vm(struct kvm *kvm);
+ void kvm_arch_create_vm_debugfs(struct kvm *kvm);
+ 
++int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
++			     phys_addr_t end);
 +
- /* for use in vm_operations_struct */
- struct page *kvm_dirty_ring_get_page(struct kvm_dirty_ring *ring, u32 offset);
- 
- void kvm_dirty_ring_free(struct kvm_dirty_ring *ring);
- 
- #endif /* CONFIG_HAVE_KVM_DIRTY_RING */
- 
- #endif	/* KVM_DIRTY_RING_H */
-diff --git a/virt/kvm/dirty_ring.c b/virt/kvm/dirty_ring.c
-index 572b854edf74..807c45fb1fc7 100644
---- a/virt/kvm/dirty_ring.c
-+++ b/virt/kvm/dirty_ring.c
-@@ -43,32 +43,44 @@ static u32 kvm_dirty_ring_used(struct kvm_dirty_ring *ring)
- static bool kvm_dirty_ring_soft_full(struct kvm_dirty_ring *ring)
+ #ifndef __KVM_HAVE_ARCH_VM_ALLOC
+ /*
+  * All architectures that want to use vzalloc currently also
+  * need their own kvm_arch_alloc_vm implementation.
+  */
+ static inline struct kvm *kvm_arch_alloc_vm(void)
  {
- 	return kvm_dirty_ring_used(ring) >= ring->soft_limit;
+ 	return kzalloc_obj(struct kvm, GFP_KERNEL_ACCOUNT);
  }
+ #endif
+diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+index 33826bbd16d9..5a6266205295 100644
+--- a/arch/arm64/kvm/dirty_bit.c
++++ b/arch/arm64/kvm/dirty_bit.c
+@@ -183,10 +183,173 @@ static int dirty_bit_clear(struct kvm *kvm, u64 *hw_entries, int size)
+ 	 * later in generic dirty-cleaning code already performs a DSB before
+ 	 * doing the TLBI.
+ 	 */
  
- static bool kvm_dirty_ring_full(struct kvm_dirty_ring *ring)
- {
- 	return kvm_dirty_ring_used(ring) >= ring->size;
+ 	preempt_disable();
+ 	preempt_notifier_unregister(&save.notifier);
+ 	preempt_enable();
+ 
+ 	return ret;
  }
- 
--static void kvm_reset_dirty_gfn(struct kvm *kvm, u32 slot, u64 offset, u64 mask)
-+static inline struct kvm_memory_slot *
-+__kvm_dirty_ring_get_memslot(struct kvm *kvm, u32 slot)
- {
--	struct kvm_memory_slot *memslot;
- 	int as_id, id;
- 
- 	as_id = slot >> 16;
- 	id = (u16)slot;
- 
- 	if (as_id >= kvm_arch_nr_memslot_as_ids(kvm) || id >= KVM_USER_MEM_SLOTS)
--		return;
-+		return NULL;
- 
--	memslot = id_to_memslot(__kvm_memslots(kvm, as_id), id);
-+	return id_to_memslot(__kvm_memslots(kvm, as_id), id);
++
++static inline void hdbss_to_bitmap(u64 *hdbss_array, int start, int end,
++				   unsigned long *dirty_bitmap,
++				   unsigned long long offset)
++{
++	u64 w = (gpa_to_gfn(hdbss_array[start]) - offset) / BITS_PER_LONG;
++	u64 mask = 0;
++	int idx = start;
++
++	/*
++	 * Entries should be in order, since they were extracted from
++	 * the dirty-bitmap, so batching the atomic writes is efficient.
++	 */
++
++	do {
++		u64 entry = (gpa_to_gfn(hdbss_array[idx]) - offset);
++
++		if (entry / BITS_PER_LONG == w) {
++			mask |= BIT(entry % BITS_PER_LONG);
++		} else {
++			atomic_long_or(mask, (atomic_long_t *)&dirty_bitmap[w]);
++			w = entry / BITS_PER_LONG;
++			mask = BIT(entry % BITS_PER_LONG);
++		}
++	} while (++idx < end);
++	atomic_long_or(mask, (atomic_long_t *)&dirty_bitmap[w]);
 +}
 +
-+struct kvm_memory_slot *kvm_dirty_ring_get_memslot(struct kvm *kvm, u32 slot)
++static inline int mask_to_hdbss(unsigned long *mask, u64 *hw_entries, const gfn_t offset,
++				u64 ttwl, int idx, int entries_sz)
 +{
-+	return __kvm_dirty_ring_get_memslot(kvm, slot);
++	while (idx < entries_sz) {
++		int j = __ffs(*mask);
++		u64 a = gfn_to_gpa(offset + j);
++
++		hw_entries[idx++] = (a & HDBSS_ENTRY_IPA) |
++				    ttwl |
++				    HDBSS_ENTRY_VALID;
++
++		*mask &= ~BIT(j);
++		if (!*mask)
++			break;
++	}
++
++	return idx;
 +}
 +
-+static void kvm_reset_dirty_gfn(struct kvm *kvm, u32 slot, u64 offset, u64 mask)
++int __kvm_arch_dirty_log_clear(struct kvm *kvm,
++			       struct kvm_memory_slot *memslot,
++			       struct kvm_clear_dirty_log *log,
++			       unsigned long *bitmap,
++			       bool *flush)
 +{
-+	struct kvm_memory_slot *memslot;
++	int ret = 0;
++	int idx = 0;
++	unsigned long *dirty_bitmap = memslot->dirty_bitmap;
++	u64 *hw_entries;
++	const int entries_sz = PAGE_SIZE / sizeof(*hw_entries);
++	u64 ttwl;
++	u64 start, end;
++	gfn_t base_gfn;
 +
-+	memslot = __kvm_dirty_ring_get_memslot(kvm, slot);
++	hw_entries = kmalloc_objs(u64, entries_sz, GFP_KERNEL);
++	if (!hw_entries)
++		return -ENOMEM;
++
++	ttwl = HDBSS_ENTRY_TTWL(KVM_PGTABLE_LAST_LEVEL);
++
++	if (log) {
++		start = log->first_page / BITS_PER_LONG;
++		end = start + DIV_ROUND_UP(log->num_pages, BITS_PER_LONG);
++		base_gfn = memslot->base_gfn + log->first_page % BITS_PER_LONG;
++	} else {
++		start = 0;
++		end = kvm_dirty_bitmap_bytes(memslot) / sizeof(long);
++		base_gfn = memslot->base_gfn;
++	}
++
++	write_lock(&kvm->mmu_lock);
++
++	for (unsigned long i = start; i < end; i++) {
++		unsigned long mask;
++		gfn_t offset;
++		atomic_long_t *p;
++
++		if (log) { /* Clean only what is in the input bitmap */
++			mask = bitmap[i - start];
++			if (!mask)
++				continue;
++
++			p = (atomic_long_t *)&dirty_bitmap[i];
++			mask &= atomic_long_fetch_andnot(mask, p);
++		} else { /* Clean everything, save to output bitmap */
++			if (!dirty_bitmap[i])
++				continue;
++
++			mask = xchg(&dirty_bitmap[i], 0);
++			bitmap[i] = mask;
++		}
++
++		if (!mask)
++			continue;
++
++		offset = base_gfn + i * BITS_PER_LONG;
++
++		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
++			kvm_mmu_split_huge_pages(kvm,
++						 gfn_to_gpa(offset + __ffs(mask)),
++						 gfn_to_gpa(offset + __fls(mask) + 1));
++
++		do {
++			idx = mask_to_hdbss(&mask, hw_entries, offset, ttwl, idx, entries_sz);
++			if (idx >= entries_sz) {
++				ret = dirty_bit_clear(kvm, hw_entries, idx);
++				*flush = *flush || ret > 0;
++				if (ret != idx) {
++					/* Restore mask as before processing */
++					atomic_long_or(mask, (atomic_long_t *)&dirty_bitmap[i]);
++					end = i + 1;
++					goto out_err;
++				}
++				idx = 0;
++			}
++		} while (mask);
++	}
++
++	if (idx != 0) {
++		ret = dirty_bit_clear(kvm, hw_entries, idx);
++		*flush = *flush || ret > 0;
++	}
++out_err:
++	if (unlikely(idx > 0 && ret != idx)) {
++		/*
++		 * In case there is an error and not all entries in HACDBS get
++		 * cleaned, we have to mark the dirty bits back in the bitmap,
++		 * as that will be used by the software routine.
++		 */
++
++		if (ret < idx) {
++			if (!log) {
++				/*
++				 * We have to restore everything, cleaned up to
++				 * now, because software routine uses xchg, and
++				 * something may have been dirtied in the meantime
++				 */
++				for (int i = start; i < end; i++)
++					atomic_long_or(bitmap[i],
++						       (atomic_long_t *)&dirty_bitmap[i]);
++			} else {
++				/* Restore only what have not been cleaned yet */
++				hdbss_to_bitmap(hw_entries, ret, idx, dirty_bitmap,
++						memslot->base_gfn);
++			}
++		}
++
++		ret = -EAGAIN;
++	}
++
++	write_unlock(&kvm->mmu_lock);
++	kfree(hw_entries);
++
++	return ret;
++}
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index e086c01a9325..2f9d90c35668 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -110,22 +110,22 @@ static bool need_split_memcache_topup_or_resched(struct kvm *kvm)
  
- 	if (!memslot || offset >= memslot->npages ||
- 	    offset + __fls(mask) >= memslot->npages)
- 		return;
+ 	if (need_resched() || rwlock_needbreak(&kvm->mmu_lock))
+ 		return true;
  
- 	KVM_MMU_LOCK(kvm);
- 	kvm_arch_mmu_enable_log_dirty_pt_masked(kvm, memslot, offset, mask);
- 	KVM_MMU_UNLOCK(kvm);
+ 	chunk_size = kvm->arch.mmu.split_page_chunk_size;
+ 	min = kvm_mmu_split_nr_page_tables(chunk_size);
+ 	cache = &kvm->arch.mmu.split_page_cache;
+ 	return kvm_mmu_memory_cache_nr_free_objects(cache) < min;
  }
  
-@@ -81,35 +93,25 @@ int kvm_dirty_ring_alloc(struct kvm *kvm, struct kvm_dirty_ring *ring,
- 
- 	ring->size = size / sizeof(struct kvm_dirty_gfn);
- 	ring->soft_limit = ring->size - kvm_dirty_ring_get_rsvd_entries(kvm);
- 	ring->dirty_index = 0;
- 	ring->reset_index = 0;
- 	ring->index = index;
- 
- 	return 0;
- }
- 
--static inline void kvm_dirty_gfn_set_invalid(struct kvm_dirty_gfn *gfn)
--{
--	smp_store_release(&gfn->flags, 0);
--}
--
- static inline void kvm_dirty_gfn_set_dirtied(struct kvm_dirty_gfn *gfn)
+-static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
+-				    phys_addr_t end)
++int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
++			     phys_addr_t end)
  {
- 	gfn->flags = KVM_DIRTY_GFN_F_DIRTY;
- }
+ 	struct kvm_mmu_memory_cache *cache;
+ 	struct kvm_pgtable *pgt;
+ 	int ret, cache_capacity;
+ 	u64 next, chunk_size;
  
--static inline bool kvm_dirty_gfn_harvested(struct kvm_dirty_gfn *gfn)
--{
--	return smp_load_acquire(&gfn->flags) & KVM_DIRTY_GFN_F_RESET;
--}
--
- int kvm_dirty_ring_reset(struct kvm *kvm, struct kvm_dirty_ring *ring,
- 			 int *nr_entries_reset)
- {
- 	/*
- 	 * To minimize mmu_lock contention, batch resets for harvested entries
- 	 * whose gfns are in the same slot, and are within N frame numbers of
- 	 * each other, where N is the number of bits in an unsigned long.  For
- 	 * simplicity, process the current set of entries when the next entry
- 	 * can't be included in the batch.
- 	 *
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	chunk_size = kvm->arch.mmu.split_page_chunk_size;
+ 	cache_capacity = kvm_mmu_split_nr_page_tables(chunk_size);
 -- 
 2.55.0
 
