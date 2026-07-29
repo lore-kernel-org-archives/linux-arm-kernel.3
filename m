@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21E5C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CB8C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R3qjVfhbktUDNUgJiVP1xYzB255jALOQKCQPpFfPYuM=; b=cEFQiD6p6xlgV9S6r++CMNex9I
-	BKo2PLqEG5lqE2HN2BtvyMmZV+nnYl9eHQMcIVQ7qH+BkwOykhR0WVyK/Q0Q2bhRuHolrstJxlmAz
-	RXHYZF5Y+5S5Kt1MDHfUjB1vvxB/nM7itwRnofQlFVhjP94PEbdrUKojf8YLORkSnqc0D0fL9vylP
-	iwNjh3YsTU6tcwgEc82II6XTWGS6OykwTHRNBmqEcD5DWDK83v30tpEqFJVaXYrct3gU2g/ElqwDB
-	kBeN07Z1nwMIV3K2uco05s/BlaPp5uoc8pLWR8p3M97LhMlay8TJN5nGgNGXhfy2n7SbqEVBfW3NJ
-	9DZah4JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lfTYsE/6ZAFQj1QetMnj/IgohbPhMLjdhTn20RmFQNE=; b=SBWFrB/Ew5uZ1sxAQF+ohmeSWd
+	jgQpVdheGLOGoYSx5CEYwvN3A9UDTen8hEFQtqtdTJ2UUoYoeTcGGFuRU3VfJVsM3XxZtr+2CfcvH
+	0ZI14dr7O3I2csYxrRs85QzaUlcGwx58RUpO6pormwkzGKd3kBtaoPhOLmi3/e7EuklCwcXuYHZS0
+	OTRg9n7nGNuMdggxtB/jO5Dw3KJpZW3h70NMRgKrgjuXtmSF+V1gMVUB6X7xB7Qe61HT6Ks/SmyS8
+	JZC1Z3ZZUr9GEZ1AOx0tEEFd6+ZBkHggsJRYmffk9SzMSEFEDif7BuDsKeHbI0qKVIjOtVliAIlet
+	DA9B+u5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wows4-00000006whz-1z0C;
-	Wed, 29 Jul 2026 05:30:24 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wox2S-00000006xI2-0xlU;
+	Wed, 29 Jul 2026 05:41:08 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wows1-00000006whI-088R
+	id 1wox2P-00000006xHd-0hgG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 05:30:23 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B655F201D85;
-	Wed, 29 Jul 2026 07:30:17 +0200 (CEST)
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1wowrx-001pfo-26;
-	Wed, 29 Jul 2026 07:30:17 +0200
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <ore@pengutronix.de>)
-	id 1wowrx-0000000CL28-2Ar1;
-	Wed, 29 Jul 2026 07:30:17 +0200
-Date: Wed, 29 Jul 2026 07:30:17 +0200
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Zxyan Zhu <zxyan0222@gmail.com>, thomas.petazzoni@bootlin.com,
-	Alexis =?utf-8?Q?Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Wed, 29 Jul 2026 05:41:06 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8487214ad2bso849051b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 22:41:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785303664; x=1785908464; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lfTYsE/6ZAFQj1QetMnj/IgohbPhMLjdhTn20RmFQNE=;
+        b=Izac7Ki4f+bNU0u8I8sblUQZqTphlkx0mks5TnIm5G27wVsjOs9/O1h1DKavOaeo9p
+         Dg/MBGoVt/CZgISRICWyqVQKAvkcHxLBGUZDqD29SyOmh+7sEY38J147uSuIdUfk9Uox
+         HyjP8MTyMY2lm1vJANli5NGOQ+KzYzXUHwxO9+D1aCCx2Dt/D3/Vk1NsJaaBNMtVhBKn
+         N9l1nen2ujCgOVxx0d3UBNrIKbDp+CZ5k7ICMTDEnV7veCoZO/+9Sepy6IoLvSTq4Ri8
+         YfN2J7IvFBpHXlIo1nOcHA5pYSgExPz4KETBs193XRvfQhUyaj3GkDIwSvAt+1QVqGBE
+         vsIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785303664; x=1785908464;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=lfTYsE/6ZAFQj1QetMnj/IgohbPhMLjdhTn20RmFQNE=;
+        b=PXzkOSGmTaEn9wbM77RuWhGEXHN4Khw6WaMGZ3md6/L+F0hmcNcjCEHRRafIC5lOJw
+         1zAT88haxrAv7NRdcA30JK/Dpk/81KiBWgFu5kC+Q43lyHy2qqRb93gzbUp9JzPrOcKx
+         9dcmvPz4q/Sc4gkmdLKuIQwpxL/B8oTM5OZOvZO3QiQNPeiKou0poYG5hwNIIZjcXHqM
+         4wsug7wOXMVNzbJOQAjS/EXD3JnT7DFc3SLLjEAFwbTpM8PyldCKLvlKttlaZgw5ipm2
+         YS8qO1eFD2dzuBlL86Na4ue/ajJsMby6K5lApbxCb2Jr9cJENir/v+xrDKinJmhELWhD
+         KIXA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro3perLe8ax72ZZWYLbeVITOsPan1ydO1fXAAyqYcjnEtoUo4aje7nmQldWT9fuaLGRmWzHdT8SNVx23jvbbkED@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAh+QmlfN+c/nLg9EVTlvYd5LOhDCFF39u9GhNvAmSmtdRZRc7
+	bzCp9r0FY50XiqWhEtPlU/8kP9bSehifoiT5c755v/WuOsKm2NszeIgt
+X-Gm-Gg: AR+sD11bz7okMTMnKgr4UuoiUeCDl9RWKBzopiMILu3yiqOiBJMwnaQqsCCPjtQp+C8
+	t5vm1gWKLCx9jQw7o2E6SW+2NWzKgsQOPsZ1zJS+VvKBda3/lbD5Rv+mDSu2CT76nY/tzihvCAK
+	exWe6sYqhiMTGXgByo42TRLEfqs2rL+8+yFu3mjTcfQ51VxXokvat+gzlHB5ye8nSwkJ6qZlekb
+	MTbZ4MR4hxe47mQtfI4gLk+5wbFkipGfxZGz5H1ugzGmMia084oCpUdU2BRw8cPdze6ccII8rxV
+	k6Za7qi0a3vRiEfif8boccc6u86b/kjGhP5slBk/Gn9LCptW0r5JTUyVqXEnFTYlM7FZjI6/sW3
+	Jd8zzvcMLo6hEiL7Z+bYiZxyW2lClXLGxdQTpEbbN37SzblQ5HbpjW4Q3u05nApnDaAWuqCRVLU
+	pQxeIWuUjBkbW9ypsfQPGMNBnRW4WxN1MifAGwZA2IA9tnzAfzxu+KjFQraHco
+X-Received: by 2002:a05:6a00:94ee:b0:845:e08c:a4eb with SMTP id d2e1a72fcca58-84e9336c861mr5698218b3a.58.1785303663650;
+        Tue, 28 Jul 2026 22:41:03 -0700 (PDT)
+Received: from kdev.. ([108.180.130.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea02f8473sm774744b3a.31.2026.07.28.22.41.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 22:41:03 -0700 (PDT)
+From: Babanpreet Singh <bbnpreetsingh@gmail.com>
+To: William Breathitt Gray <wbg@kernel.org>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next 1/2] net: stmmac: Don't use PHY loopback for
- selftests
-Message-ID: <ammP6SaJ44fzc5bW@pengutronix.de>
-References: <20260728155728.1193169-1-maxime.chevallier@bootlin.com>
- <20260728155728.1193169-2-maxime.chevallier@bootlin.com>
+	linux-kernel@vger.kernel.org,
+	Babanpreet Singh <bbnpreetsingh@gmail.com>
+Subject: Re: [PATCH] counter: microchip-tcb-capture: Fix DT channel validation
+Date: Wed, 29 Jul 2026 05:41:02 +0000
+Message-ID: <20260729054102.7-1-bbnpreetsingh@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260714042910.7-1-bbnpreetsingh@gmail.com>
+References: <20260714042910.7-1-bbnpreetsingh@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260728155728.1193169-2-maxime.chevallier@bootlin.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_223021_220851_9C7C874D 
-X-CRM114-Status: GOOD (  29.66  )
+X-CRM114-CacheID: sfid-20260728_224105_210199_15EB6899 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,127 +102,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 05:57:26PM +0200, Maxime Chevallier wrote:
-> Stmmac selftests validate the internal behaviour of the various IPs,
-> using local loopback. The current logic is relies on PHY-side local
-> loopback if a PHY is attached, with a fallback to MAC loopback
-> otherwise.
-> 
-> However, PHY loopback is currently fragile especially for stmmac that
-> may require RXC to be provided from the PHY. Some PHYs shutdown RXC
-> while in loopback, while others will report carrier off when in local
-> loopback. This also fails when using SFP setup with a module that embeds
-> a PHY, that may also fail to enter loopback.
-> 
-> MAC loopback is done at the GMII level on dwmac, allowing the internal
-> to be just as meaningful as PHY-loopback testing.
-> 
-> Let's simplify stmmac selftests by only relying on MAC-side local
-> loopback, which makes the selftests runnable on a wider HW variety.
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  .../stmicro/stmmac/stmmac_selftests.c         | 112 ++----------------
->  1 file changed, 9 insertions(+), 103 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> index 29e824bd90ca..c0e5dee86451 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-> @@ -374,25 +374,6 @@ static int stmmac_test_mac_loopback(struct stmmac_priv *priv)
->  	return __stmmac_test_loopback(priv, &attr);
->  }
->  
-> -static int stmmac_test_phy_loopback(struct stmmac_priv *priv)
-> -{
-> -	struct stmmac_packet_attrs attr = { };
-> -	int ret;
-> -
-> -	if (!priv->dev->phydev)
-> -		return -EOPNOTSUPP;
-> -
-> -	ret = phy_loopback(priv->dev->phydev, true, 0);
-> -	if (ret)
-> -		return ret;
-> -
-> -	attr.dst = priv->dev->dev_addr;
-> -	ret = __stmmac_test_loopback(priv, &attr);
-> -
-> -	phy_loopback(priv->dev->phydev, false, 0);
-> -	return ret;
-> -}
-> -
->  static int stmmac_test_mmc(struct stmmac_priv *priv)
->  {
->  	struct stmmac_counters initial, final;
-> @@ -1815,10 +1796,6 @@ static int stmmac_test_tbs(struct stmmac_priv *priv)
->  	return ret;
->  }
->  
-> -#define STMMAC_LOOPBACK_NONE	0
-> -#define STMMAC_LOOPBACK_MAC	1
-> -#define STMMAC_LOOPBACK_PHY	2
-> -
->  static const struct stmmac_test {
->  	char name[ETH_GSTRING_LEN];
->  	int lb;
-> @@ -1826,131 +1803,96 @@ static const struct stmmac_test {
->  } stmmac_selftests[] = {
->  	{
->  		.name = "MAC Loopback               ",
-> -		.lb = STMMAC_LOOPBACK_MAC,
->  		.fn = stmmac_test_mac_loopback,
-> -	}, {
-> -		.name = "PHY Loopback               ",
-> -		.lb = STMMAC_LOOPBACK_NONE, /* Test will handle it */
-> -		.fn = stmmac_test_phy_loopback,
->  	}, {
->  		.name = "MMC Counters               ",
-> -		.lb = STMMAC_LOOPBACK_PHY,
->  		.fn = stmmac_test_mmc,
->  	}, {
->  		.name = "EEE                        ",
-> -		.lb = STMMAC_LOOPBACK_PHY,
->  		.fn = stmmac_test_eee,
+Hi William,
 
-Hm, not sure this test can be properly executed in all conditions.
-We do not support forced LPI mode from phylink perspective, and it is
-not forced by the tests. If it passes, only by accident if link partner
-local system and link partner advertise the EEE support. 
+A gentle ping on this one - it has been a couple of weeks without any
+comments, and I could not find a competing fix on the list or in
+linux-next.
 
->  	}, {
->  		.name = "Hash Filter MC             ",
-> -		.lb = STMMAC_LOOPBACK_PHY,
->  		.fn = stmmac_test_hfilt,
->  	}, {
->  		.name = "Perfect Filter UC          ",
-> -		.lb = STMMAC_LOOPBACK_PHY,
->  		.fn = stmmac_test_pfilt,
->  	}, {
->  		.name = "MC Filter                  ",
-> -		.lb = STMMAC_LOOPBACK_PHY,
->  		.fn = stmmac_test_mcfilt,
->  	}, {
->  		.name = "UC Filter                  ",
-> -		.lb = STMMAC_LOOPBACK_PHY,
->  		.fn = stmmac_test_ucfilt,
->  	}, {
->  		.name = "Flow Control               ",
-> -		.lb = STMMAC_LOOPBACK_PHY,
->  		.fn = stmmac_test_flowctrl,
+No urgency from my side; I mainly want to check the patch has not simply
+been missed. Happy to respin if you would prefer a different shape, or to
+drop it if you would rather leave the validation as it is.
 
-Interesting test, it will be cool to have it in generic form. Probably
-most of them, but it will be a lot of work.
+For convenience:
+https://lore.kernel.org/all/20260714042910.7-1-bbnpreetsingh@gmail.com/
 
-So, yes - most of this tests do not relay on the PHY, instead - on some
-kind of running link configuration. But this tests seems to not enforce
-needed link configuration before and after patches - correct?
-
-Best Regards,
-Oleksij
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Thanks,
+Baban
 
