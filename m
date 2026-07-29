@@ -4,58 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E55C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19190C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tViOkyA/B0HUKG8BRi0qjbMNTIz9tdb3LL+LdxZCQMQ=; b=dhyruYMnUEGZ9c3oZYUZ3/Zix/
-	cDtOxP3wRtdTbayymYPSSLWrr8vzUJRnP0vcpDdLDrJN35ShThAQP9irhEWJ0sGjkiukDb45S69/2
-	DFDhwK0dkW9HWzb+GM4qiOldLlOuiFkTFROD6EFaZhNAQluB4nyIBdjUj1c8Ey1tvH86ZQKys+j6B
-	NCzuro7cdefXRoVF/BRRLALcnTzUlPwf/LrkdBtgSIr/FE/fzx16clKD1ebeHyW8OgpRsKPXyOW6h
-	vOliMoHAc6B3Dvw0acv5rN2sT0F0VfS0WzY9z3mB6fcsr6P+c9vu7MfLN+4LQOeDSpvlUI6AhsPg4
-	wdrbchaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zAQa7qPVMg6o7qAX4Ka6TDwD4dKE4mXwxqe3fH0+a1s=; b=peOuBr3H6K66qx5rdWiZRZVQvz
+	OgtBuRNtvv0ASyb8lQuAVTMeKB3hmaAxa87zJndis577ouuE0FNjv9GO6NbqQgm7rXJtAm+yPfJZt
+	8i6YcXL9Q5GTnkrZk9ZGxAa9uqxc2UhmXLC0va8nefRXexJXm7yo6QExICyBo9couwv0jtwVXMGTR
+	jA+A1vXoS9JAWk1AaMiXFcln+N1X3YLiSivagqTwk/1Fo+qM9e+BPxXZgqPH6hyLJ7Vsyz2mIB7fE
+	AXfaAMjTp9hQUZDNdPDv7PNBsl1E/5Fh2B575MOk557UCcPbJqsd7MT6RjZTHbK/8WJpnRxIUig9V
+	SfTpWmTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6gs-00000008TPX-1aeC;
-	Wed, 29 Jul 2026 15:59:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wp6hO-00000008TdG-2gow;
+	Wed, 29 Jul 2026 16:00:02 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6gc-00000008TJW-3Mxc;
-	Wed, 29 Jul 2026 15:59:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=tViOkyA/B0HUKG8BRi0qjbMNTIz9tdb3LL+LdxZCQMQ=; b=Bfr8GTt3+HDBETbuAuSZ/Dj4ed
-	hhwoJkGHWto0zNltFAYR9JloFvdB1B7KomjGs6/BhiwWC+pUoFgQ0QfxIjv+GGpp9/+qX4HCjaVkn
-	6/sooYs4dsZvi1wY38x7Hqfv0egbzVv32xnRWc+YuqZF3FiHZhALiIB/0dLDpb+mt6i+Z8AVbBKW4
-	mat3+DBP+GwjJU5DD8w6yflhovGcSqVb/ZawSn8ln83IvRO9rPwmCPDGuwBrib0/z1fIgvAvQr5v4
-	MC3FqE17sJMToZ/UO3Az6LFMllobIcCSzvC5kuFQuycNmCh26e3g3G/y9WPP40W7XO0KjQDpN4W9I
-	GZlWjCzQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Drop data-mapping from Engicam PX30 Core
-Date: Wed, 29 Jul 2026 17:59:03 +0200
-Message-ID: <178534073340.533990.10934043869584032991.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260727175502.2585290-1-festevam@gmail.com>
-References: <20260727175502.2585290-1-festevam@gmail.com>
+	id 1wp6hM-00000008Tbe-2p1g
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jul 2026 16:00:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lMz1c7thiUU1ZO+vnaKggGVgzExwwNoOp4GpAV59+/XtKaHAqeAHo40fhL1A/Md7J0L/4BHyR9QApAaaBy+ikGcqdj2BVc0upx+mk2X1e0z0sI02ad/qnbbTCPEgLjD/DbOZGJeVe4sPJk6pn0t+2jMhykeXHqs0DVyq7NT9SfHfKbnBjpFp/JbnfzraDKpxgiCoAFTdrOVWMU2+bROPzAKFOTqiQaTvL8ybx0AJWzGLDmaBBYaTCi8CBEFZy4Hf2aL/FLJ8RL7Q7/ghMwj+03e9qQwOS1RvunRXsToDTkigUc8slhmrdrVjy1Rfxu35QUGYU9IVTu6QSAWPM27GoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zAQa7qPVMg6o7qAX4Ka6TDwD4dKE4mXwxqe3fH0+a1s=;
+ b=gE+yX83Zv2fcOfr9I2+p7NZMsXATqoLZ0mv6/YCM0unGxAyKw0aNA4ucdlj7hopRWzFvzsfxW/VlkzaN3yzbbmux464nlVPCsXWAfncAt0XkCBqzFoZKvQmtaua6+9/tp/0VeHscqJsmY7BFZ6WfWS1oSJxiFdBsyXumHKFkLEc4vMn+LFSaL+xOEq96e2bM6ogJyKDvCWObHKoVdF5lzkSdB/7tyRSEmF/Gt81odSEf0ulLsJwc/f1OGtBqaYc9aVKmGOYckua3itwA2UDWP+iaRjPR+SwmMw3xoPU418mN4hT9Q69BHe8QceiAmZs+y4czTv3hvwiBCxLXoNiE3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zAQa7qPVMg6o7qAX4Ka6TDwD4dKE4mXwxqe3fH0+a1s=;
+ b=ZVbxRhjxFwgfePji4HxfXO7gWRvhxlYfpl9wvsygOXCfa9UzRhX97x7f+qZrW/j2VToGSwK5FFEXb9Bym+fwLVCYSgky6MUCJllLwhQ0aTQ4/BnyaTRUoLYR9E6oKyAr97MZy/yKmjf64M5vxe8oAGip7xyjEZ8w0WnJK3eizZkPHdSPuN4vAXA9w2S/CEePT0RIh/C9YDUIP6uANSMDeFZtw7Llyk4z5NkasSz0rupLva3g2yvmeJmGbegzxGTonBqnzMNBfIRU5AMtb9Ue+9UraqOSFaZ9FVa1WDq2cJAO/EpHaCCbGKjuyo0MCefitaBNfG9g20vNMsXISI4yrQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU0PR04MB9324.eurprd04.prod.outlook.com (2603:10a6:10:357::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
+ 2026 15:59:54 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.009; Wed, 29 Jul 2026
+ 15:59:54 +0000
+Date: Wed, 29 Jul 2026 10:59:45 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/7] arm64: dts: imx8mp: Add DT label to SPBA5 bus
+Message-ID: <amojcXE2di_lwB2v@SMW015318>
+References: <20260727195244.78199-1-marex@nabladev.com>
+ <178526691528.3668106.10748099183405791163.b4-ty@b4>
+ <amoclu5c3bQH2zzF@lizhi-Precision-Tower-5810>
+ <59bbc6ec-e01d-4656-a0a8-bc81c3cfbbe2@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <59bbc6ec-e01d-4656-a0a8-bc81c3cfbbe2@nabladev.com>
+X-ClientProxiedBy: PH7PR17CA0035.namprd17.prod.outlook.com
+ (2603:10b6:510:323::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU0PR04MB9324:EE_
+X-MS-Office365-Filtering-Correlation-Id: eaf938c9-208d-45d6-e6ef-08deed8a6e1f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|19092799006|366016|1800799024|56012099006|10067099003|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: TkzUxTIHO1K2NVmoUpCto/jqlTBn53hts/pPdm6FigWLphvnj4CyDKBRlFfNGkDgDGqltAHRc7vU+I1kBEq+8/uHX441Ki0W7s6GGOnPiq5zOCg4/+Tx3pLYCFV9BkcLNmHeuOSwyOnG23HFl3np/XVPpAigsctuMoOsdr3rObqy4Fzai8SKXA553BBLR3PjTbZpICCQsHVg5ORHc3H42eqmsoLH2hRyV6Bf570XwynzAcrPfBSiacYEorJ7bPglGjHHJeczVPl4G5SIoke62+i+wA9HNdWiHy4+PkMSdxkoDzTxNKAwjfIUiKsE1J1dpSzmOTyQd8QvipFgXnHcRR6vwBCvcKLvF5EvHh8ECBhw1t1gixi/VaglO+ND6ghvQ+VDFBIl0GPN6uj8eknDr9qFYY357d1pLGbJ7t5JLkbflA4pR4naYoMI90dW/OwQPnX8x8EYFgk/v7EusplGi7v+2hA0HcNIFV8E++dSPCS/SFu6+7rR3Ilfw8kzaZKbnfyCa9md+1bAdqJ4DhB28NxR4ktAiIoxa+blidHTG/JH9kIj+EbxbeH+AuAFgfad88WgcYnsTrojpjpU2y+RUx0eg44LEBrwgfTpfQQyegZwPYOECqDXgtfxF3+8KiK5+k6Kyj1cTgfmJT6qmT0sYgay4vHNGnaZnkAI2XQi6T8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(19092799006)(366016)(1800799024)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HQWHIC53MDYCi/Oig47b+sF6gORx8g5KMA9med9XieyYvClKFBTkQzIpeqyY?=
+ =?us-ascii?Q?KXpT1UAsHrZi5u7ow5kWRkzARfp5K/7jAgFvOusPP+hMppkJJmMzfP6s/GI8?=
+ =?us-ascii?Q?kCbvBTXAdlDPlBGxcPanwVIkZG2cj7Ccqv0/wxGq+cAaqKd3sqmeJO9hyibh?=
+ =?us-ascii?Q?OrmYdhkBfGVwC6HD5ekflNTBC9Qw4Oo4HoiuIE1RwkGDA5rl/tmDi+MswEsy?=
+ =?us-ascii?Q?dxoNUv+zbBpnzol53XS40Rdj4WqXaJV+T2XV88WDfuXW8ewjYmko4UDi4CFX?=
+ =?us-ascii?Q?CoChjhnwRJHvKV5KTFHq4LNFi1fzMw+sJaWyK4m7qiQycaVdZ0VQ1ioN8YHb?=
+ =?us-ascii?Q?GHxIHb3wLFJP9MhMm2Tm7at4XUoLjMKYnYC/Dm3NcsxKRe9lY9BWkb07Tu9+?=
+ =?us-ascii?Q?cWZi6ZxvNzmxT9U4717FWy3Hx3/n1BqITcbN8cvAgrUthB2oIkJo6SGvWSct?=
+ =?us-ascii?Q?PCrrbqPx4LI4wYd5q+ANdsyMPe9rLoifhytymJnDVMclvmlJxXIz5FZfnEad?=
+ =?us-ascii?Q?qpjIg0SnWJoF0feQnZwcmrT5H3zzGB8/spFn3VyjDNk1J2a4cLvy9ljCizTf?=
+ =?us-ascii?Q?S8qaTeL4JVsSD0nEDZSrHil43PY+eRdtJUuI9xzXW+iyxlUXEPjmsCNSW09j?=
+ =?us-ascii?Q?kTubPPG2n3ML+c6hPt300CwVandEM7o269rRAQo2k0tVhx0ZEpp7wx4lFZD/?=
+ =?us-ascii?Q?r/4/JPsN1RpHIc2hfBmNsXHm9aFDfJm2xRXoYNXH216AZSgcnzc9MdyTbEHu?=
+ =?us-ascii?Q?SLe40zi7fSpBcvmHe8/x39nEkC+kxCFbUzlyxd2Dwpoe4Mg5LEkqArNWfNQ0?=
+ =?us-ascii?Q?nyyiV/QnbMbBfMveAgVnPg6NmboKaYTAf4tfxK7It1z2xiiR2veqhCmiWFsV?=
+ =?us-ascii?Q?7yvH3FG4OF9wm2YIGa7bDpKzyPlk9xC96ytpxc6FgVhsSZPybgJ4+epn7nJR?=
+ =?us-ascii?Q?Q5WF7fu/uisGomnAn1DUeOj9fAb+9tJwxUANMXlBChAdsmEMa/VRgyENZJyY?=
+ =?us-ascii?Q?GUdwxuSayVTjNvG3mBrSWTaufvfXjF2kyWIgh5DUDlcrefin7AnfNm+SX6Nj?=
+ =?us-ascii?Q?cP0e4blvEq3WsvIiuhj9CNow7/tUuZiY/5gtrFaONqcgCs0QkfPAKPC6qJh2?=
+ =?us-ascii?Q?VQ24gIiBRDXgb/OJjKABpjisL8O7VQD4cq8j6oMXUNC4wndl2xujgF3Ct2eZ?=
+ =?us-ascii?Q?mqH4TdNJnhkcRCrO3jtgiOHyZRDPosQ92gWnWdE4VEzUYtLexzjpjfqodurC?=
+ =?us-ascii?Q?L0+UYh1+14ileKKiNlkmRPQLOExGhHrUMCXuuvKYbQz+UEAi/Mt4AMHezsI+?=
+ =?us-ascii?Q?miNP7YWMhfhRiWQ85ic1KzsOYyf1tZCsktBJIdPjgxWW3+7ZPJ6nLCIrXORO?=
+ =?us-ascii?Q?85TJOd1d2N0dozyx/lnW0kDTcEaZC4ibSdSQEcx65wYDrq47zhl3AQpUAi27?=
+ =?us-ascii?Q?mTIlyodYREc6Jclb07nUqc7Mx7Z71bKCUff2eZEG7CHpMhP9c6ovw9wyhheH?=
+ =?us-ascii?Q?mLWDKNJceXEqqqoleBUP27VQ50HUGhhl3FGXEeGA6pzPJLqEq+LDCO2VbNL0?=
+ =?us-ascii?Q?J/CDcWofxRRkTP7dLTKtjYvNs0kwsf9M4C8taBMJxP9lmfVbfeGd24/pSv8i?=
+ =?us-ascii?Q?dJx8YXESNpS53/8EbL2jZ81/Y1JfzHo1Cnt7YdSW0ZZdb/fknA3LhOdrOUmw?=
+ =?us-ascii?Q?TC/3reO9MtTr7CTE25r37yvLtO+V/+v3THtMJkpe4oz/I7/3uDkiLsvFtdi5?=
+ =?us-ascii?Q?WkBnuRtSMfpL7U8d9D5M8E0thLerskbCOL0RszM1gZO9sFQlRKu8?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eaf938c9-208d-45d6-e6ef-08deed8a6e1f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 15:59:54.5049
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QbrD3yKk9eTOPQ3YHojLyQXj1Xd814LDIy4opTZ29E7AW4HWu5+sVVDG2xtgUMnrW+p7fBxYoufQjewSPMsmNpdn3V7Ppiw08aECmjzqjwiE1kD+HsJ0w4i+lFuO+uRK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_085914_844324_84DB3567 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260729_090000_722744_584579E9 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,28 +144,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 29, 2026 at 05:50:21PM +0200, Marek Vasut wrote:
+> On 7/29/26 5:30 PM, Frank Li wrote:
+> > On Tue, Jul 28, 2026 at 04:56:42PM -0400, Frank.Li@oss.nxp.com wrote:
+> > > From: Frank Li <Frank.Li@nxp.com>
+> > >
+> > >
+> > > On Mon, 27 Jul 2026 21:52:16 +0200, Marek Vasut wrote:
+> > > > Add DT label to SPBA5 bus for usage in board DTs.
+> > > > No functional change.
+> > >
+> > > Applied, thanks!
+> > >
+> > > [1/7] arm64: dts: imx8mp: Add DT label to SPBA5 bus
+> > >        commit: 697f6889aa50996de067a8d170323535570052ad
+> > > [2/7] arm64: dts: imx8mm: imx8mp: Add LVDS DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+> > >        commit: 3eacea24d258ff5169d84a419b07cb5828e91718
+> > > [3/7] arm64: dts: imx8mm: imx8mp: Add legacy board DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+> > >        commit: 81a2094bb922290e4b52a1467037f8d2ac07ad87
+> > > [4/7] arm64: dts: imx8mm: imx8mp: Add HDMI DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+> > >        commit: cfdee13eba802665ecd8751fefa754a759f414c4
+> > > [5/7] arm64: dts: imx8mm: imx8mp: Add CM DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+> > >        commit: b26192de5d0f4635d73ad2aea43e3e83a9ef5f77
+> > > [6/7] arm64: dts: imx8mm: imx8mp: Add FIO1 DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+> > >        commit: dca8d10e97bd121494106f54f4577291a9bb0f13
+> > > [7/7] arm64: dts: imx8mm: imx8mp: Add FIO1-Audio DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+> > >        commit: 8ea2fa3fdc65f2750718aebdcf912cccde5913b8
+> >
+> > Sorry, I have to drop these because met build error
+> >
+> > Failed to apply 'arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo': FDT_ERR_NOTFOUND
+> >
+> > Failed to apply 'arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo': FDT_ERR_NOTFOUND
+> > make[3]: *** [scripts/Makefile.dtbs:94: arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtb] Error 1
+> > make[3]: *** Waiting for unfinished jobs....
+> > make[3]: *** [scripts/Makefile.dtbs:94: arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtb] Error 1
+> > make[2]: *** [scripts/Makefile.build:549: arch/arm64/boot/dts/freescale] Error 2
+> > make[1]: *** [/home/lizhi/source/linux-imx/Makefile:1629: dtbs] Error 2
+> How can I reproduce this build error ?
 
-On Mon, 27 Jul 2026 14:55:02 -0300, Fabio Estevam wrote:
-> The panel-simple schema only allows data-mapping overrides for panels
-> whose mapping is not fixed by their compatible. Consequently, the property
-> on the Ampire AM-1280800N3TZQW-T00H panel fails validation:
-> 
-> (ampire,am-1280800n3tzqw-t00h): False schema does not allow ['vesa-24']
-> 
-> The panel descriptor already selects 8 bits per color and
-> MEDIA_BUS_FMT_RGB888_1X7X4_SPWG. The DRM OF helpers translate
-> "vesa-24" to that exact bus format, and panel-simple falls back to the
-> descriptor's format when the property is absent. Removing the property
-> therefore has no functional effect.
-> 
-> [...]
+Apply patch base on git@gitolite.kernel.org:pub/scm/linux/kernel/git/frank.li/linux imx/dt64 branch
 
-Applied, thanks!
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 dtbs
 
-[1/1] arm64: dts: rockchip: Drop data-mapping from Engicam PX30 Core
-      commit: 9f23009c60a3787c9bdb1eedf725a691537dfd5c
+Frank
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+>
+> What is the command I should run and which branch are those patches applied
+> to ?
+>
+> On current next 78bc8af4affb ("Add linux-next specific files for 20260729")
+> I get this:
+>
+> next$ make W=1 CHECK_DTBS=y
+> freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtbo
+> freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtb
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtbo
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtb
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtb
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtbo
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtb
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo
+> freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtb
+>   DTC arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtbo
+>   DTC [C] arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc.dtb
+>   OVL [C] arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtb
+>   DTC arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtbo
+>   DTC [C] arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dtb
+>   OVL [C] arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtb
+>   DTC arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo
+>   DTC arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo
+>   OVL [C] arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtb
+>   DTC arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtbo
+>   OVL [C] arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtb
+>   DTC arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo
+>   OVL [C] arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtb
+>
 
