@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086C8C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 14:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA74CC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 14:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zJcsJ8fR+ulIwIiOMxrp3nSK2qIbFs2gb9tc6WLrzyQ=; b=ElocVk90eeEdUda6iyVYnES/Yw
-	Ac0g27ZDKjUUAQT/7YVkSKn85HYYkcIMAIDRQlVYwzM6K0OycwOVwy6oYlQcOzm62w2pIcInwAzrB
-	4CyFf5lTZgGvOf4G98V5O2gddpPazfU6Mo3KGRZyiZFxZrUP8Eo4tkKu4uBa7J2zhs8Eowkvw6YUX
-	/LNbLLzvjCOsjyJu7EV2FRt8HwKJVoQCFkw7ZoUiVLZknDhNEwVeZtkMvuoEYPUI+2vSqOgYoDcUC
-	DR2qC51mANGIdeJwQA+bamh05gTL/0JhWFnNusg90TNWWjiEJI4Zn8y7a/OqcCbcRgoG3gI+pDUw2
-	bNvxhaog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4TywAXaaG86O5drZUM3iHk67SEw6pYNy5fCGbLy9BEs=; b=FTMWJCxuM3m7E4csxp+oIlpqvj
+	5HOw0wgw6g9np1WIVAQ4BAL1m2G7K7pCrLadWOGtRrTD85tF9M+hKEM63kuBhknbUaR4Haml3HI6d
+	WCWE/S1XTq0K14F9ZdIpeAHGD5cNA9b4bGj+L55gXppiOrnGmijjvl6GQpbm8MVDao2D3M36eBKCM
+	pgtJXyvINYIiQoxpOmYx4oNAlopP6TSLWYC+Vv6W5BzO24eDV+NtDsB1DPEQ88f/AKYOs1iG6ww+8
+	DMAI3sgkkqkXDXgHgnz7xAkb5NlfXupP7Aeg+oUgVujvosI2bVv3NAnQoa4XpHeJrNIeZ0MyPVuV5
+	uu5XVcrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp5Yc-00000008HnF-0ltT;
-	Wed, 29 Jul 2026 14:46:54 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp5YY-00000008Hmm-20vP;
-	Wed, 29 Jul 2026 14:46:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=zJcsJ8fR+ulIwIiOMxrp3nSK2qIbFs2gb9tc6WLrzyQ=; b=c2Iwj9ryzc7uaSSy6XQOv58vFx
-	ysJ3eLDDGkq65DzSjVvj1Lxj02XFVF/lGve/vr7WU6/lgoXvyTVX6bTWnHP5RjZJzMWT18EeK8kyK
-	whKrhnj8Z9zR3AbSk0ppWJvyS3roCfMvyeSaqqiJS9meUURiohi99+AWgqe5+NpPwm2S1qcvclOg7
-	uEEDgHQiYrLDspUjMEc6rFFnnknWPy47yCLvkNzoyDxmzsgnNsnVKHjIqPixQGggrwm7RMm+L9CEF
-	e6KoB5ZwPHLjyzQOuqZSp7KIdMYsYConi4zPod81125RGDJ7MHqXHggALLhACVLFmo9Dy46bxkxYw
-	YbPO3r4w==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
-Date: Wed, 29 Jul 2026 16:46:45 +0200
-Message-ID: <29759328.czjnFlTdjD@diego>
-In-Reply-To: <12339028.CDJkKcVGEf@phil>
-References: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
- <748fd61a-31fb-436f-b028-b47807a4860c@gmail.com> <12339028.CDJkKcVGEf@phil>
+	id 1wp5da-00000008IMZ-0W7t;
+	Wed, 29 Jul 2026 14:52:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp5dX-00000008IM4-0PUg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jul 2026 14:52:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DCB31684;
+	Wed, 29 Jul 2026 07:51:53 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FAB43F66F;
+	Wed, 29 Jul 2026 07:51:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785336717; bh=NZSdB7xkKKO5D9M3yjHPGpy+oFIC7CKGla9a9ileuaQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XVBDnCuReVZGP3SdEWYVaT7ipAbUs2c+f484eaJt87Ur9DPaiUvTTZ4NF+na90kes
+	 g5udnccYZ6xLq/WAo1Xc06w44riUKAmZb9N4ZQWhOcUlaZ0ipqvz3O0Znbn0LgkZvc
+	 L7dCE0YImNCJ/ERZrVLfqGCJ4/Q0e0+VjqgGrCwE=
+Message-ID: <1da9895e-eaf8-45f0-bac8-c4304a3b4f6a@arm.com>
+Date: Wed, 29 Jul 2026 15:51:53 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v5 08/10] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260729134124.2506269-1-andre.przywara@arm.com>
+ <20260729134124.2506269-9-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260729134124.2506269-9-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_074650_701431_123C21DE 
-X-CRM114-Status: GOOD (  36.50  )
+X-CRM114-CacheID: sfid-20260729_075159_216707_AEA5B50A 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,144 +83,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 20. Oktober 2025, 14:31:12 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Heiko Stuebner:
-> Am Montag, 20. Oktober 2025, 10:50:58 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Alexey Charkov:
-> >=20
-> > On Mon, Oct 20, 2025 at 12:31=E2=80=AFPM Heiko Stuebner <heiko@sntech.d=
-e> wrote:
-> > >
-> > > Am Montag, 20. Oktober 2025, 10:19:51 Mitteleurop=C3=A4ische Sommerze=
-it schrieb Alexey Charkov:
-> > > > On Thu, Sep 25, 2025 at 12:38=E2=80=AFAM Alexey Charkov <alchark@gm=
-ail.com> wrote:
-> > > > >
-> > > > > Add support for the Rockchip W552793DBA-V10 LCD+touchscreen assem=
-bly which
-> > > > > comes physically attached to Rockchip RK3576 EVB1 boards.
-> > > > >
-> > > > > The display part is driven by the on-chip MIPI DSI controller, an=
-d the
-> > > > > touchscreen is connected over I2C.
-> > > > >
-> > > > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > > > > ---
-> > > > > Note that backlight support is left out for now, as it depends on=
- PWM
-> > > > > support [0] which has not yet been merged.
-> > > > >
-> > > > > A workaround is simply `gpioset -c 0 13=3D1` to set the respectiv=
-e GPIO
-> > > > > pin high and thus to light up the display unconditionally.
-> > > > >
-> > > > > [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0=
-ce60c@collabora.com/
-> > > > > ---
-> > > > >  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++++++=
-++++++++++++++
-> > > > >  1 file changed, 89 insertions(+)
-> > > >
-> > > > Hi Heiko,
-> > > >
-> > > > Any thoughts about this one? Can we perhaps get it merged for -next?
-> > >
-> > > Does the gpio-backlight work on that device?
-> > > That would make the gpioset hack unnecessary.
-> >=20
-> > I've got a local patch using pwm-gpio and pwm-backlight as a stop-gap=20
-> > solution, but I don't think it's worth merging upstream, because the=20
-> > backlight is supposed to be driven by the hardware PWM on the same pin=
-=20
-> > (not bit-banging the GPIO line). After all, Nicolas has been working on=
-=20
-> > adding a proper hardware PWM driver for RK3576.
-> >=20
-> > The display itself works without PWM support, and so does the touchscre=
-en.
->=20
-> Right now, I don't think we have an actual timeline if/when Nicolas will
-> be able to work on the pwm again. So my idea was if we want to
-> integrate the baclight as you described below, to have an actual usable
-> display and then when the new pwm has landed switch over to that one?
+Hi Andre,
 
-With the ELCE around the corner we're nearing the year-mark here ;-)
-(And I'm surprised, I remembered this pending patch)
+On 7/29/26 14:41, Andre Przywara wrote:
+> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
+> alternative way of accessing the "Memory System Components" (MSC) in an
+> MPAM enabled system.
+> 
+> Normally the MSCs are MMIO mapped, but in some implementations this
+> might not be possible (MSC located outside of the local socket, MSC
+> mapped secure-only) or desirable (direct MMIO access too slow or needs
+> to be mediated through a control processor). MPAM-fb standardises a
+> protocol to abstract MSC accesses, building on the SCMI protocol.
+> 
+> Add functions that do an MSC read or write access by redirecting the
+> request through a firmware interface. For now this done via an ACPI
+> PCC shared memory and mailbox combination.
+> 
+> Since the protocol used is only a small subset of the full SCMI spec,
+> and the SCMI protocol has no full ACPI support anyway, open-code the
+> (simple) SCMI message generation, for just the fields we need.
+> 
+> [1] https://developer.arm.com/documentation/den0144/latest
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-So how about integrating your gpio-pwm backlight for the time being?
+[...]
 
-Or alternatively just going with a gpio-backlight, like the Anbernic Vita d=
-id:
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 2b81b6b0bf4e..a2193e7df57c 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -11,6 +11,7 @@
+>  #include <linux/io.h>
+>  #include <linux/jump_label.h>
+>  #include <linux/llist.h>
+> +#include <linux/mailbox_client.h>
+>  #include <linux/mutex.h>
+>  #include <linux/resctrl.h>
+>  #include <linux/spinlock.h>
+> @@ -57,6 +58,15 @@ struct mpam_garbage {
+>  	struct platform_device	*pdev;
+>  };
+>  
+> +struct mpam_pcc_chan {
+> +	struct list_head	pcc_chans;
+> +	struct mbox_client	pcc_cl;
+> +	struct pcc_mbox_chan	*pcc_chan;
+> +	struct mutex		pcc_chan_lock; /* only one message at a time */
+> +	struct kref		refcount;
+> +	int			subspace_id;
+> +};
+> +
+>  struct mpam_msc {
+>  	/* member of mpam_all_msc */
+>  	struct list_head	all_msc_list;
+> @@ -66,6 +76,8 @@ struct mpam_msc {
+>  
+>  	/* Not modified after mpam_is_enabled() becomes true */
+>  	enum mpam_msc_iface	iface;
+> +	struct mpam_pcc_chan	*pcc_chan;
+> +	int			mpam_fb_msc_id;	/* in its own name space */
 
-        /*
-         * LEDs and Backlights can be controlled as a PWM, but PWM
-         * support is not yet available.
-         */
-        gpio_backlight: backlight {
-                compatible =3D "gpio-backlight";
-                gpios =3D <&gpio2 RK_PC4 GPIO_ACTIVE_HIGH>;
-                pinctrl-0 =3D <&led_backlight_h>;
-                pinctrl-names =3D "default";
-        };
+This gets removed in patch 10 now. I guess you just edited the wrong patch.
 
-DSI without backlight is a quite black screen, which I'd call non-working
-still, so would require some form of backlight.
+Thanks,
 
-
-Heiko
-
-> > My temp patch goes like this:
-> >=20
-> > ---
-> >   arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 15 +++++++++++++++
-> >   1 file changed, 15 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts=20
-> > b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-> > index f20cd6f2c079..5c27fff03569 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-> > @@ -58,6 +58,14 @@ button-vol-up {
-> >   		};
-> >   	};
-> >=20
-> > +	backlight: backlight {
-> > +		compatible =3D "pwm-backlight";
-> > +		brightness-levels =3D <20 220>;
-> > +		default-brightness-level =3D <100>;
-> > +		num-interpolated-steps =3D <200>;
-> > +		pwms =3D <&lcd_bl_pwm 0 25000 0>;
-> > +	};
-> > +
-> >   	hdmi-con {
-> >   		compatible =3D "hdmi-connector";
-> >   		type =3D "a";
-> > @@ -78,6 +86,12 @@ work_led: led-0 {
-> >   		};
-> >   	};
-> >=20
-> > +	lcd_bl_pwm: pwm {
-> > +		#pwm-cells =3D <3>;
-> > +		compatible =3D "pwm-gpio";
-> > +		gpios =3D <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
-> > +	};
-> > +
-> >   	vbus5v0_typec: regulator-vbus5v0-typec {
-> >   		compatible =3D "regulator-fixed";
-> >   		regulator-name =3D "vbus5v0_typec";
-> > @@ -277,6 +291,7 @@ panel@0 {
-> >   		compatible =3D "wanchanglong,w552793baa", "raydium,rm67200";
-> >   		reg =3D <0>;
-> >=20
-> > +		backlight =3D <&backlight>;
-> >   		iovcc-supply =3D <&vcc3v3_lcd_n>;
-> >   		reset-gpios =3D <&gpio3 RK_PB5 GPIO_ACTIVE_LOW>;
-> >   		vdd-supply =3D <&vcc3v3_lcd_n>;
-> >=20
->=20
->=20
-
-
-
+Ben
 
 
