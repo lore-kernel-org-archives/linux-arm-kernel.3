@@ -4,117 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1E9C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F8BC54F5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/lJf3d7yefXbRv1ItwNTno8xNC8U/G7XgSwMCvF1oZc=; b=z9O6E3xt9WgZs+EJF3dTPpzcFc
-	VYkT2dbuML6qpW9xLwg1Y88fCOCeVjfDScF8T6lC/DRuBSV3Vyw/nja95Wmsf+ddaJDxptNDH102V
-	i+DxMKbq0MDiXh0ADojc5XwlGy0W60drOyAF8UThFsilNKMWe7kPu78gdF1SQ/w+/OiAN858MhVNj
-	3J8ZPsbstja3HQbx2KR79+BlejF1OqgW7jyFhEAf7MFSO1S9OVe4t/LvzNaOMGd8WLNAGzWWAA7v6
-	BS9wBfTkdqWUQ4Nn15SwoyTxJUNysAge6rxyjMZeXyJWXfYqJuWGDx28IUPF6rU75nibVXrhRYVNw
-	89bkzUvA==;
+	bh=E4DLZ84B2BESiFuGefIEusgQoPfjZ0wtckI0bRmiws0=; b=vJuHglPa35SbRvMDjUWeB6Qs+E
+	a/RjopyuWRxWjBxZnDRYbqiCAlYdS0p4q+ghI3ObeGqbp5QO6l4VQoqn+DeZ9/S6PNQPNqo0TlDUw
+	KNMCmRp8raHjgoKez08PctO7V93Eo5XjGBnFDzBqpeLm40nZX1AWvPYhADUmxZVG6yISy6EXJlJD2
+	C1HvbW3rGBK0HdWY9H7gVLTG9OsuESLCxXlVPTlxnUsMdWgamAjfyjyiriSKqfZKz4bz3nlvcWPXv
+	eqV1mkIc7QH1CALyEj/gz7Z+fvXtPb1GW/4H6Vz9xmww1x8S4UyHgwuEGODeBHRWBpnPB1pt7qU/D
+	T3NniFCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozqk-00000007GHS-2RbZ;
-	Wed, 29 Jul 2026 08:41:14 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1wozrQ-00000007GSP-2zNr;
+	Wed, 29 Jul 2026 08:41:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozqi-00000007GGR-1xGz
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 08:41:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ILpba5X9k2WVbFfmqmVN0UbgJBnU+ggmvB6J4prbVvtwsyuSJZiOJBrII6yRcZGYnI1OemYesxMe4YZfhi7dGht3DCSgo0LYmO50rBdi8+Uh4iEcQarfgyt0e+x6ZAwpaWchglRUgMJx0Fi1I+frtYsUZDn6Axw4e8YLJ1Gd3TE30iABeLxyIXrTd91wp/qHYLp856jddGwE0SKwB0NptXVgVp/Wsty6JNIQfXIaFXiBa0gqwxOnjknrt2UFtv2KMWTJFQ8Ndlo0sXLaXbUYck25wUENE3VP5fBBWmg8fJXt2tHb3/dS/KrfTvBST+AQ7xGMQxGZJ3SgcerZTieaJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/lJf3d7yefXbRv1ItwNTno8xNC8U/G7XgSwMCvF1oZc=;
- b=Byl/xjKuXhkff2fmf6vDFYK89XslkRSdwHO1nDHuqryCHlt4CWwDNhgL28xgYwom0ghvr3m70WPb0QUvWEQ7zgYPDBlRVprGe8kLec3fKvOtypF9pxWb80sg5v/8Ppr+ou8PU0ZnRs6Yu4KyRvOGkh0/aP2JIWx+SAFtvrP/b/KrVYFL8aAcubJDe8UDEy62jbkoqczzOfUTAYdsB6lWoXNx3ZljijmiCtxLIDK6o3bSzq9jo2MdeWgt2912rg8hIhj8G7z/NR7DAeRRwCRgsvXWj81cRuKz6qw0sEej0H+YVWlkqWThFFXwa/URc8TRIgMGx4luBpqh7Jp24idqhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/lJf3d7yefXbRv1ItwNTno8xNC8U/G7XgSwMCvF1oZc=;
- b=t+fgq3Hntp87phe05BbtGGyxGV36c4+jMl4RLnBLn+JEivaLO4uht0ldMI2qV0ohVAChOaoyhgsaZFB9xIeHTXajgvkqOpT8Bv5gZix26P9WsRSmgExEY83GPpBBq/Xi8LwqIgUewigdilW8pTHXAWMBy9nzgtZChZv6pkf77/GpiCmJyE1tqoNjMIzw2qYVclZ36ozDZkR+bIaDVWSeZsCOr5jZ5DVkQ+O5U8MilYXFfjFeFF2GwOOisBrMPUmxsz89WjqR0MffK9yIpfvqY5AwLlrgZTsMsM3RgjrdDlle6/JUBt97ycg+U8EtLH0aGL2NGacNbAS+RF/VXibCJg==
-Received: from DS7P221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:25b::13) by
- CH1PPF189669351.namprd12.prod.outlook.com (2603:10b6:61f:fc00::608) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
- 2026 08:41:06 +0000
-Received: from CY4PEPF0000EE3D.namprd03.prod.outlook.com
- (2603:10b6:8:25b:cafe::5a) by DS7P221CA0002.outlook.office365.com
- (2603:10b6:8:25b::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
- 29 Jul 2026 08:41:06 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000EE3D.mail.protection.outlook.com (10.167.242.15) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 08:41:05 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 29 Jul
- 2026 01:40:50 -0700
-Received: from nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Jul
- 2026 01:40:48 -0700
-From: Jacky Huang <jackyhuang@nvidia.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-CC: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley
-	<joel@jms.id.au>, Rob Herring <robh@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	<devicetree@vger.kernel.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<openbmc@lists.ozlabs.org>
-Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: Add NVIDIA VR-NVL BMC
-Date: Wed, 29 Jul 2026 17:40:10 +0900
-Message-ID: <20260729084013.1104891-1-jackyhuang@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <d8927b08-f743-4b1c-85ad-f64b9e5b326f@oss.qualcomm.com>
-References: <20260728085640.1001890-1-jackyhuang@nvidia.com> <20260728085640.1001890-3-jackyhuang@nvidia.com> <20260728143952.GA2121505-robh@kernel.org> <20260729060612.1085870-1-jackyhuang@nvidia.com> <d8927b08-f743-4b1c-85ad-f64b9e5b326f@oss.qualcomm.com>
+	id 1wozrO-00000007GRh-3E4u;
+	Wed, 29 Jul 2026 08:41:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EF29060A99;
+	Wed, 29 Jul 2026 08:41:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A93CA1F000E9;
+	Wed, 29 Jul 2026 08:41:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785314513;
+	bh=E4DLZ84B2BESiFuGefIEusgQoPfjZ0wtckI0bRmiws0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VU67Yz/VZt1jw8NK3WzilBxruMtwBV+ANQo/GxzLo2HOaDn+r0IVMDUAjYe8mXl0p
+	 QwaIFZSViM+cHwEDsUnKVg5QQehbmTqDtT/Jj/8/ndncGJz5bF2zRadomOk9Y5+b/k
+	 XiUEPdsmZSYexcbSnRika7PT96iR5zxUqX+4HOkZIw6hxgBYUs8y5XCI61QNTknGpV
+	 WrsCHbhzZ3gneMNQS/KR2xyM3vq07CnD59XYQoNvw2F7tsYx4c6ZfOorDxsrOi6ER8
+	 1t+Mn6RV4T3BEz9PqhsNBnzuiOv7IfTOBtwyaZo8C1QKj0axOVcXn+851b1yxd/I4+
+	 fZWLxQbonzzrg==
+Date: Wed, 29 Jul 2026 10:41:49 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alberto Robazza <robazza.alberto@proton.me>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
+	martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	Alberto Robazza <robazzalberto@gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64: dts: amlogic: add support for Orbbec Zora
+ P1
+Message-ID: <20260729-kind-funny-boar-d06d29@quoll>
+References: <20260728151636.236393-1-robazzalberto@gmail.com>
+ <20260728151636.236393-4-robazzalberto@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.230.37]
-X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3D:EE_|CH1PPF189669351:EE_
-X-MS-Office365-Filtering-Correlation-Id: 892081d3-f478-4235-14f5-08deed4d211b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700016|23010399003|1800799024|56012099006|11063799006|4143699003|18002099003|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: aRmjXhZDhmmwvheFyCobVgsMVVxL+LPTtQ2LNOqhUSb8zNT3CEdby03LSocKXwNSA8hGWkmFpA/gaSFhF1007Ysejpq8q2GIQje9PFQIQcmKux++79FPI2WtWSv4fugiYc1qYFgCDLTgH27UBdgesas5OvWDbdNs0Qdikgyetikb3oeS8Qy8MYEkI5tr9nzISUUbYL4ERiGJy0YvLAuZi7cgApoOqLtk5gurAnkuMKp6hDg0YvuTiu7gz9FDYglMe8hgXCSnjBt7/RdEqJ87js/tftOYKO5EutJ4h6fnRLuD0eAb+B9KL5jCIMnbzeR/6d00Nhi7ipGzmWnZSuTbaYc0cEQqZx7IWbbjjAr6CpWqgkegDa9weJPs4/jmXYzIXQYmsQhimcXdcLrae51QMrE7ES1x4CqyK+qp3xWyzoz6AZIJKU9n1/KBmkaQJXr9FCvw2T454lwyfQgSqHRkIPBgy6j8YKRME5nw9RK6RkYeb3ngkzxojIxPnJQe11+7nuH1hhoGY9dv0uX67SYLMl4ojrVHbHpwoTIat3ZY5HAwj9yiwmpj54up2vT8DMNrtoWASvz/VPeah9HenbZ4FnR1ARqR6KDxSYENvVh81AHagsqQtpWQH5tMmBo+NJnHoA0j/RSL6eiYYFZaLQCfhDXW6iSYMzBTqb53nLeH5KD/Yf0wi8x7/kZQtDpjvqq11ZFTOl4RjnB9qQX1MQsHzg==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700016)(23010399003)(1800799024)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: l4zKcf7DYLy88mjIPZQqS6NzqaWxCQyrFMvIgwq0/wY5I9DcGy3Pbv34d7c9rc2nyJEDzSSUmP1oKytr5sA8lQ1vz3VHPp2uG/d/oQ9hxFwHDyghK479nLTdDHiGCHiQZNB41CnmKNdVKtuXpUykECiVQr+OyAFE7eOXcF7gUH/8RDD6bas5ZFFjinqm++Dm7OIfdlOk0K0J206W9GSFMA8cT4pqAzaxCgVPe6r6CRzj6wPaNi+1/osXjjqjFOvFv8E9LKm1IwDKLN4hEe/xhCwVMzSIczgvDWPj+3fv70jZD4wF9Z2l5oTMVVdYfAjJKjSsvgRSQxBz5ZTk/uos8dSnZT4k35zOiXsV2ZtOfPiE86zfhwI8gwvPv0zos+76JnP/zkMPAa0l6GxaHmkZt5jZry7x3U8/PDnJWwkwNgXhf6bqAkbp1FYUsLpts/JA
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 08:41:05.5508
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 892081d3-f478-4235-14f5-08deed4d211b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3D.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF189669351
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_014112_503891_E09E0C61 
-X-CRM114-Status: GOOD (  10.88  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260728151636.236393-4-robazzalberto@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +72,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Tue, Jul 28, 2026 at 05:16:36PM +0200, Alberto Robazza wrote:
+> The Orbbec Zora P1 is an A311D (Meson G12B) board with 2/4 GiB DDR4,
+> an Ampak AP6256 combo module (Broadcom BCM43456 Wi-Fi over SDIO and
+> BCM4345C5 Bluetooth over UART_A).
+> 
+> According to the original Linux dts, the board is a modded version
+> of the ODROID-N2, with Amlogic A311D instead of the original S922X
+> and WiFi and Bluetooth support.
+> So the device tree builds on meson-g12b-a311d.dtsi and
+> meson-g12b-odroid-n2.dtsi (using same vddcpu values of N2+),
+> extended with the board-specific GPIO wiring for the AP6256 handling,
+> and some modifications for the led, GPIO_ACTIVE_LOW instead of
+> GPIO_ACTIVE_HIGH and different label (it is a green led, not blue as
+> in the Odroid N2).
+> Add the new DTB to the Makefile.
+> 
+> Signed-off-by: Alberto Robazza <robazzalberto@gmail.com>
+> ---
+>  arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+>  .../boot/dts/amlogic/meson-g12b-zora-p1.dts   | 105 ++++++++++++++++++
+>  2 files changed, 106 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+> index 57bc440fa..83fb38b94 100644
+> --- a/arch/arm64/boot/dts/amlogic/Makefile
+> +++ b/arch/arm64/boot/dts/amlogic/Makefile
+> @@ -40,6 +40,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-g12b-radxa-zero2.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-g12b-s922x-bananapi-m2s.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-g12b-s922x-khadas-vim3.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-g12b-ugoos-am6.dtb
+> +dtb-$(CONFIG_ARCH_MESON) += meson-g12b-zora-p1.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-kii-pro.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-nanopi-k2.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-nexbox-a95x.dtb
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts
+> new file mode 100644
+> index 000000000..d003582fd
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/amlogic/meson-g12b-zora-p1.dts
+> @@ -0,0 +1,105 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2026 Alberto Robazza <robazza.alberto@proton.me>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "meson-g12b-a311d.dtsi"
+> +#include "meson-g12b-odroid-n2.dtsi"
+> +#include <dt-bindings/leds/common.h>
+> +
+> +/ {
+> +	compatible = "orbbec,zora-p1", "amlogic,a311d", "amlogic,g12b";
+> +	model = "Orbbec Zora P1";
+> +
+> +	leds {
+> +		/* Status led on Zora is actually green, same pin as N2, but reversed polarity */
+> +		led-blue {
+> +			function = LED_FUNCTION_STATUS;
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			gpios = <&gpio_ao GPIOAO_11 GPIO_ACTIVE_LOW>;
+> +		};
+> +	};
+> +
+> +	sdio_pwrseq: sdio-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&gpio GPIOX_16 GPIO_ACTIVE_LOW>;
+> +		clocks = <&wifi32k>;
+> +		clock-names = "ext_clock";
+> +	};
+> +
+> +	wifi32k: wifi32k {
 
-On Wed, Jul 29, 2026 at 08:16:52AM +0200, Krzysztof Kozlowski wrote:
-> Why are you extending existing nodes that way instead of phandle/label?
-> You write confusing code, so that's why you have such comments.
+Please use name for all fixed clocks which matches current format
+recommendation: 'clock-<freq>' (see also the pattern in the binding for
+any other options).
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
 
-Thank you for pointing this out. I agree that the current form is unclear.
+Or any other reasonable name based on generic prefix. wifi32k is for
+sure nothing related to clock...
 
-For v5, I plan to add source labels to the existing flash nodes in
-aspeed-g6.dtsi:
 
-    fmc: spi@1e620000 {
-            fmc_flash0: flash@0 {
-                    ...
-            };
-    };
+> +		compatible = "pwm-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <32768>;
+> +		pwms = <&pwm_ef 0 30518 0>;
+> +	};
+> +
+> +	sound {
+> +		model = "ZORA-P1";
+> +	};
+> +};
 
-    spi2: spi@1e631000 {
-            spi2_flash0: flash@0 {
-                    ...
-            };
-    };
+Best regards,
+Krzysztof
 
-The board DTS will then reference them directly:
-
-    &fmc_flash0 {
-            ...
-    };
-
-    &spi2_flash0 {
-            ...
-    };
-
-This should make the references to the existing nodes explicit.
-
-Best,
-Jacky
 
