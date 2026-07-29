@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13641C53200
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89CD9C54FCD
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eBwMbpBmTtI0QKBVHkNfNnUfzP7cRj9lIdf1oKfb3xE=; b=2sI83k+V6nbn0kPcvxPrKoEdHy
-	jQjwysVmdveU/Hp7llkd4qS2KcX8DV/m7PHTvStFVY60hIzd48zflahwqRpqVqC3Cv6Ook91e+AYA
-	+1k5QFni3Pyc6CjqDVI+vFFNglX3EhmlbSY+gkGB7Xc2viHqx/gT3AIWme2+H7hLXB2f03VhDDldp
-	/67AcFpczcYkbBVrxfqVT8yAILK9nS+iHjFk0jPps/wT6zFkm5EzZsnYenwkN7D9NWgirl4Jgqbeg
-	/e5wDVTy8Y2gGD1qMjjFXa5G57ECgyKG6nEfzzoHDDJWYEiGYpUfIXntF3/VA5IN/HmcSIoQGHQoY
-	ZhLPQRog==;
+	bh=3MoRfZ5mTZnkiso48qTkwP4nMblPYT461or7JV20YEQ=; b=QOU1/ZOLINFyNAASwPoJNPSW5c
+	j0aZnuiMAb8N3QMVoPJUt9pq6fGxKiv4weJShiZ1Thzz5x/hng2ES7ZABGyp2O7r5oVBOeB9Fy6EL
+	EqlVK+c2x1v+MyRXsdx4IYsv3YMw2w8h8y4cN3Z7WHuWEi/honUPidBRdoc5KjgWj1NchpNOD4GxR
+	+O/TKAXLukThsnK2PskguByt6c7BmuaAEb2kIE3BJDglR2nsmpOagStmF2CUvsAPg2XgXdUyKQRjv
+	uNIkzQOkgT7E86wztD1umiRgH8RUkv4I4D7Ws9thejTWorkN6Oa8B8bpRhQ4MmPaMxFGTMIPhze4G
+	qYD0tcEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1ok-00000007alz-0tRb;
-	Wed, 29 Jul 2026 10:47:18 +0000
+	id 1wp1ok-00000007amb-2Pjt;
+	Wed, 29 Jul 2026 10:47:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1oX-00000007acz-38SY
+	id 1wp1oh-00000007ahI-0nhy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:47:07 +0000
+	Wed, 29 Jul 2026 10:47:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43FA9202C;
-	Wed, 29 Jul 2026 03:46:59 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F2883F66F;
-	Wed, 29 Jul 2026 03:46:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5925C168F;
+	Wed, 29 Jul 2026 03:47:07 -0700 (PDT)
+Received: from [10.57.87.210] (unknown [10.57.87.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 768863F86F;
+	Wed, 29 Jul 2026 03:47:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785322023; bh=q8b/IF40I1EjZuCj1A0d+zd8jdpLqWvWNJRxKNN3/lQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UqEE8O+2ELBgIowNaCHrxKC18Fs6lH8FOQphvvvaKdtWBgcIQc+3G1bJecIW/R2m5
-	 pNLhzFmPWaIli9F7XCj8+fzRRyrO3wccERiFpphCWaS4pkV0KwvGotDFHJpWR7SPEK
-	 3saNPP4cy/+z0i/oEiUZd9/F0WF2VDvrExBd8gtY=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Leonardo Bras <leo.bras@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Thomas Huth <thuth@redhat.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tian Zheng <zhengtian10@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: [PATCH v3 10/11] KVM: arm64: Add hardware-accelerated dirty-ring cleaning routine
-Date: Wed, 29 Jul 2026 11:45:45 +0100
-Message-ID: <20260729104548.3439958-11-leo.bras@arm.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260729104548.3439958-1-leo.bras@arm.com>
-References: <20260729104548.3439958-1-leo.bras@arm.com>
+	t=1785322031; bh=5VaYd+Kc1ISM/tP6HGmRXCrgxAtNh+AtZ1rbjw9GISE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JkYXGEdxZ2UuUIOBoJpG7QvdrgMaqvXu2dIP7QokFuk7DD+oyJW4qvlbVBEUGOm4Z
+	 3wQhhDUzxjsLFwx5XsEneUCcOE+Iv+9PlwvkE4p18AAt95ZuhE3KJHfJRks+32l2nY
+	 PdOLe0NMFvSoCL7elkz2CPZ1/lX82kZ+tZ3o9Aec=
+Message-ID: <dff2eee7-09cf-4f85-8dec-c7c243f3ba0f@arm.com>
+Date: Wed, 29 Jul 2026 11:47:03 +0100
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4468; i=leo.bras@arm.com; h=from:subject; bh=q8b/IF40I1EjZuCj1A0d+zd8jdpLqWvWNJRxKNN3/lQ=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb17vnak+/9q0F3e3rfaPmcn55m9k1WOGI3OCKhq3W R96JG7q1lHKwiDGxSArpsgi+2j+Kp7vUzKOXPmxAGYOKxPIEAYuTgGYSOZ+hv8VpjLSR3+v5NrG c3CvgZbN3DUdcxTUQ4/pSkXvPew85/cZhv+Z0UcCp0uX1noqHexpLw056Lj2UNFxJsdlHzl2cev ZxXMAAA==
-X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 13/37] KVM: arm64: CCA: Support timers in realm RECs
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-14-steven.price@arm.com> <861pcoeqk5.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <861pcoeqk5.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_034705_896948_944BC4E5 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260729_034715_338885_F0672D35 
+X-CRM114-Status: GOOD (  32.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,165 +84,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement arm64 version of kvm_arch_dirty_ring_clear() making use of
-FEAT_HACDBS.
+On 27/07/2026 10:21, Marc Zyngier wrote:
+> On Wed, 15 Jul 2026 15:28:15 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> The RMM keeps track of the timer while the realm REC is running, but on
+>> exit to the normal world KVM is responsible for handling the timers.
+>>
+>> A later patch adds the support for propagating the timer values from the
+>> exit data structure and calling kvm_realm_timers_update().
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v14:
+>>  * Special case in kvm_timer_vcpu_load()/kvm_timer_vcpu_put() the timer
+>>    handling.
+>> Changes since v12:
+>>  * Adapt to upstream changes.
+>> Changes since v11:
+>>  * Drop the kvm_is_realm() check from timer_set_offset(). We already
+>>    ensure that the offset is 0 when calling the function.
+>> Changes since v10:
+>>  * KVM_CAP_COUNTER_OFFSET is now already hidden by a previous patch.
+>> Changes since v9:
+>>  * No need to move the call to kvm_timer_unblocking() in
+>>    kvm_timer_vcpu_load().
+>> Changes since v7:
+>>  * Hide KVM_CAP_COUNTER_OFFSET for realm guests.
+>> ---
+>>  arch/arm64/kvm/arch_timer.c  | 38 +++++++++++++++++++++++++++++++++---
+>>  include/kvm/arm_arch_timer.h |  2 ++
+>>  2 files changed, 37 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+>> index 4155fe89b58a..fdd68f1f5b7b 100644
+>> --- a/arch/arm64/kvm/arch_timer.c
+>> +++ b/arch/arm64/kvm/arch_timer.c
+>> @@ -482,6 +482,20 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
+>>  			    timer_ctx);
+>>  }
+>>  
+>> +void kvm_realm_timers_update(struct kvm_vcpu *vcpu)
+>> +{
+>> +	struct arch_timer_cpu *arch_timer = &vcpu->arch.timer_cpu;
+>> +	int i;
+>> +
+>> +	for (i = 0; i < NR_KVM_EL0_TIMERS; i++) {
+>> +		struct arch_timer_context *timer = &arch_timer->timers[i];
+>> +		bool status = timer_get_ctl(timer) & ARCH_TIMER_CTRL_IT_STAT;
+>> +		bool level = kvm_timer_enabled(timer) && status;
+>> +
+>> +		kvm_timer_update_irq(vcpu, level, timer);
+>> +	}
+>> +}
+>> +
+> 
+> Why do we need this? What is so special about CCA that it cannot use
+> the existing timer flow?
 
-It works by transversing the dirty-ring and converting its entries into
-HDBSS entries based on the slot offset.
+CCA is a little special because the timer context is owned by the RMM
+while the realm is executing. It's the RMM which actually loads/saves
+the timer registers not KVM.
 
-The resulting HDBSS array is then fed to the HACDBS mechanism that walks
-the pagetable marking writable-dirty pages as writable-clean.
+The RMM returns some of the timer state on every exit, and the host is
+responsible for updating the interrupt status (as the host controls the
+GIC emulation).
 
-Only successfully cleaned entries are set as invalid on the dirty-ring, so
-in case of error, falling back to generic software cleaning will take care
-of any remaining entry in the dirty-ring.
+>>  /* Only called for a fully emulated timer */
+>>  static void timer_emulate(struct arch_timer_context *ctx)
+>>  {
+>> @@ -888,6 +902,11 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
+>>  	if (unlikely(!timer->enabled))
+>>  		return;
+>>  
+>> +	if (vcpu_is_rec(vcpu)) {
+>> +		kvm_timer_unblocking(vcpu);
+>> +		return;
+>> +	}
+>> +
+>>  	get_timer_map(vcpu, &map);
+>>  
+>>  	if (static_branch_likely(&has_gic_active_state)) {
+>> @@ -923,6 +942,12 @@ void kvm_timer_vcpu_put(struct kvm_vcpu *vcpu)
+>>  	if (unlikely(!timer->enabled))
+>>  		return;
+>>  
+>> +	if (vcpu_is_rec(vcpu)) {
+>> +		if (kvm_vcpu_is_blocking(vcpu))
+>> +			kvm_timer_blocking(vcpu);
+>> +		return;
+>> +	}
+>> +
+>>  	get_timer_map(vcpu, &map);
+>>  
+>>  	timer_save_state(map.direct_vtimer);
+>> @@ -1073,7 +1098,7 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
+>>  
+>>  	ctxt->timer_id = timerid;
+>>  
+>> -	if (!kvm_vm_is_protected(vcpu->kvm)) {
+>> +	if (!kvm_vm_is_protected(vcpu->kvm) && !vcpu_is_rec(vcpu)) {
+>>  		if (timerid == TIMER_VTIMER)
+>>  			ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
+>>  		else
+>> @@ -1104,7 +1129,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+>>  		timer_context_init(vcpu, i);
+>>  
+>>  	/* Synchronize offsets across timers of a VM if not already provided */
+>> -	if (!vcpu_is_protected(vcpu) &&
+>> +	if (!vcpu_is_protected(vcpu) && !vcpu_is_rec(vcpu) &&
+>>  	    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
+>>  		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
+>>  		timer_set_offset(vcpu_ptimer(vcpu), 0);
+>> @@ -1600,6 +1625,13 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
+>>  		return -EINVAL;
+>>  	}
+>>  
+>> +	/*
+>> +	 * We don't use mapped IRQs for Realms because the RMI doesn't allow
+>> +	 * us setting the LR.HW bit in the VGIC.
+>> +	 */
+>> +	if (vcpu_is_rec(vcpu))
+>> +		return 0;
+>> +
+> 
+> If you can't set the HW bit, then use the existing infrastructure for
+> similarly challenged systems. But I find this restriction hard to
+> swallow. What is so special about the HW bit?
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
----
- arch/arm64/include/asm/kvm_dirty_bit.h | 13 +++++
- arch/arm64/kvm/dirty_bit.c             | 77 ++++++++++++++++++++++++++
- 2 files changed, 90 insertions(+)
+The spec provides this justification for not being able to set the bit:
 
-diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-index d368a23a84b3..f785a7aad9e8 100644
---- a/arch/arm64/include/asm/kvm_dirty_bit.h
-+++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-@@ -8,29 +8,42 @@
- #define __ARM64_KVM_DIRTY_BIT_H__
- 
- #include <asm/kvm_pgtable.h>
- 
- int __kvm_arch_dirty_log_clear(struct kvm *kvm,
- 			       struct kvm_memory_slot *memslot,
- 			       struct kvm_clear_dirty_log *log,
- 			       unsigned long *bitmap,
- 			       bool *flush);
- 
-+int __kvm_arch_dirty_ring_clear(struct kvm *kvm, struct kvm_dirty_ring *ring,
-+				int *nr_entries_reset);
-+
- static inline bool kvm_arch_dirty_clear_enabled(struct kvm *kvm)
- {
- 	return system_supports_hacdbs() &&  kvm->arch.mmu.pgt &&
- 	       (kvm->arch.mmu.pgt->flags & KVM_PGTABLE_S2_DBM);
- }
- 
- static inline int kvm_arch_dirty_log_clear(struct kvm *kvm,
- 					   struct kvm_memory_slot *memslot,
- 					   struct kvm_clear_dirty_log *log,
- 					   unsigned long *bitmap,
- 					   bool *flush)
- {
- 	if (!kvm_arch_dirty_clear_enabled(kvm))
- 		return -EPERM;
- 
- 	return __kvm_arch_dirty_log_clear(kvm, memslot, log, bitmap, flush);
- }
- 
-+static inline int kvm_arch_dirty_ring_clear(struct kvm *kvm,
-+					    struct kvm_dirty_ring *ring,
-+					    int *nr_entries_reset)
-+{
-+	if (!kvm_arch_dirty_clear_enabled(kvm))
-+		return -EPERM;
-+
-+	return __kvm_arch_dirty_ring_clear(kvm, ring, nr_entries_reset);
-+}
-+
- #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-index d7e624f9b630..ca9cfefe0893 100644
---- a/arch/arm64/kvm/dirty_bit.c
-+++ b/arch/arm64/kvm/dirty_bit.c
-@@ -352,10 +352,87 @@ int __kvm_arch_dirty_log_clear(struct kvm *kvm,
- 		}
- 
- 		ret = -EAGAIN;
- 	}
- 
- 	write_unlock(&kvm->mmu_lock);
- 	kfree(hw_entries);
- 
- 	return ret;
- }
-+
-+int __kvm_arch_dirty_ring_clear(struct kvm *kvm, struct kvm_dirty_ring *ring,
-+				int *nr_entries_reset)
-+{
-+	u64 *hw_entries __free(kfree) = NULL;
-+	u64 ttwl;
-+	s64 cur_slot = S64_MAX;
-+	int i, ret;
-+	struct kvm_memory_slot *memslot;
-+
-+	if (signal_pending(current))
-+		return -EINTR;
-+
-+	ttwl = HDBSS_ENTRY_TTWL(KVM_PGTABLE_LAST_LEVEL);
-+
-+	hw_entries = kmalloc(max(ring->size * sizeof(u64), PAGE_SIZE), GFP_KERNEL);
-+	if (!hw_entries)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < ring->size; i++) {
-+		struct kvm_dirty_gfn *entry;
-+		gfn_t gfn;
-+		u32 entry_slot;
-+		u64 entry_offset;
-+
-+		entry = &ring->dirty_gfns[(ring->reset_index + i) &
-+					  (ring->size - 1)];
-+
-+		if (!kvm_dirty_gfn_harvested(entry))
-+			break;
-+
-+		entry_slot = READ_ONCE(entry->slot);
-+		entry_offset = READ_ONCE(entry->offset);
-+
-+		if (entry_slot != cur_slot) {
-+			memslot = kvm_dirty_ring_get_memslot(kvm, entry_slot);
-+			if (!memslot)
-+				return -EFAULT;
-+
-+			cur_slot = entry_slot;
-+		}
-+
-+		if (entry_offset >= memslot->npages)
-+			return -EFAULT;
-+
-+		gfn = memslot->base_gfn + entry_offset;
-+
-+		hw_entries[i] = (gfn_to_gpa(gfn) & HDBSS_ENTRY_IPA) |
-+				  ttwl | HDBSS_ENTRY_VALID;
-+	}
-+
-+	if (i == 0)
-+		return 0;
-+
-+	write_lock(&kvm->mmu_lock);
-+	ret = dirty_bit_clear(kvm, hw_entries, i);
-+	write_unlock(&kvm->mmu_lock);
-+
-+	/* Set as invalid all successfully cleaned entries */
-+	for (int j = 0; j < ret; j++) {
-+		struct kvm_dirty_gfn *entry;
-+
-+		entry = &ring->dirty_gfns[(ring->reset_index + j) &
-+					  (ring->size - 1)];
-+
-+		kvm_dirty_gfn_set_invalid(entry);
-+	}
-+
-+	/* In case of error, try software cleaning from the faulting entry */
-+	ring->reset_index += ret;
-+	*nr_entries_reset += ret;
-+
-+	if (ret < i)
-+		return -EAGAIN;
-+
-+	return ret;
-+}
--- 
-2.55.0
+XDMSDZ: The GICv3 architecture states that, if HW == '1' then the
+virtual interrupt must be linked to a physical interrupt whose state is
+Active, otherwise behavior is undefined. The RMM is unable to validate
+that invariant, so it imposes the constraint that HW == '0'.
 
+> As it stands, I don't think this is acceptable, and I really want to
+> know why you need to special-case the timer code.
+
+You're right, there's no need for this early return. Instead I should be
+able to implement an 'ops' for the realm guests which returns the
+VGIC_IRQ_SW_RESAMPLE flag.
+
+Thanks,
+Steve
 
