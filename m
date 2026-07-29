@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B574C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 03:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDAAC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 03:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=igqtNYMEL8oKIpnu2DrMNvEYzwwJSEovzlP+FnYUOCA=; b=2O0jYhgzIDLBBIMSU9y5zBNOkq
-	YNsnpDRg7+8SnhXwN+DUE3Y66LXCQ5lhtkbsXtSCufxNpybfTRjVM/vzKdG4LWkHhnS1bmcEQaBLE
-	XSYFA8wI8piAo2/dVuRPHswm+XgaEsx9vfpNLKtrjueLP2LosGqIxKLQUcG+XK+Eqx9Uy/BsP1eJd
-	2xIxPJXteJQJsYs5aqzBPeGtXZ7nCAVRrMpTdyXuq0B2tBMju9QDc38sBq9ELQ9DDISOKTHL6A4Yw
-	ckLcI/EB+VBlnOQmfE4hfMSo2wIn8HBxbbBYvP6JCBHhauBeC72DRNm8PE7ASMK/irX0rfnOv0wMZ
-	jX8i3SlQ==;
+	bh=RK4VHRefALxjC8rB7K7w3VAwG6W6KlTC58IWMIYwUgI=; b=Y/t72odi/2Dgb1/n8cZu3VeFaO
+	TTzIuT+rnvVLAHGR3ovPfLZ4S6Hly10NtjGj96rZXTjYXfJHlS22xJTY2OWqsJ8ozhzLtRc6ortVm
+	XcY5nv7y/kRZlvuDpsQ+sjVTqfqvYA7vgq8iqOl+NZJ89aY4jvfhNjTbam9Wwcv411Pzx9Sxdt4uH
+	olfqL0meq10GPIzh8L+HbdWJCFXSVNrgENSGTsgCNviinZeX3PeJKlG7XllctIeZMiNXaKzSA0har
+	+dg0VHAIsBifun/HyZL8YhCMemvAoT8kES0wAngrI5DN3FUEevUNENmYXR3gY51J0gLVqs7pgqymt
+	Rn8zmxxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wouii-00000006jbz-1kw0;
-	Wed, 29 Jul 2026 03:12:36 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wouj4-00000006jp9-3Rtg;
+	Wed, 29 Jul 2026 03:12:58 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wouie-00000006jZY-1NWT;
-	Wed, 29 Jul 2026 03:12:34 +0000
+	id 1wouif-00000006jZV-2dwK;
+	Wed, 29 Jul 2026 03:12:36 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=igqtNYMEL8oKIpnu2DrMNvEYzwwJSEovzlP+FnYUOCA=;
-	b=CtxVcq19s4/+nlwp4cUNXfDx1nZiyIWFU4uWCub+//6KtP7pZWS9arcnPlF2LC/ogoKXyeVeP
-	TCuE1W141iovkLTXAPEBXvujBx6CaVYA0od9WENgqjGwUbcGu+QPm1w6sqo05U8KePvOSjI314O
-	40wUQWbWiVj05nmSEjphxXc=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h8xwF5fB4z1prPv;
-	Wed, 29 Jul 2026 11:02:53 +0800 (CST)
+	bh=RK4VHRefALxjC8rB7K7w3VAwG6W6KlTC58IWMIYwUgI=;
+	b=cXqqzSbxz3lvEuOS9efT6kFVnZWykzECj9tiFIF8xUH5zySw0l0wtrrPJavS5/6c0ugtHU44w
+	TQx608nHzqqoqjifoGQQm3bSkj4dVZdXvljaZRoir8tVoNs8JWQj9Dkf8ZWXUzNH3gtlFlTVTbj
+	f2PJ9QOpTcwTuI1J8MwWSoI=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4h8xwG2bV2z12LHf;
+	Wed, 29 Jul 2026 11:02:54 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id ADBB040561;
-	Wed, 29 Jul 2026 11:12:22 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 616DC2025F;
+	Wed, 29 Jul 2026 11:12:24 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 29 Jul
- 2026 11:12:21 +0800
+ 2026 11:12:22 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
 	<baoquan.he@linux.dev>, <rppt@kernel.org>, <pasha.tatashin@soleen.com>,
@@ -55,9 +55,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<kexec@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2 2/5] arm64: kexec_file: Fix CMA page leaks in segment placement retry loops
-Date: Wed, 29 Jul 2026 11:12:32 +0800
-Message-ID: <20260729031235.2840255-3-ruanjinjie@huawei.com>
+Subject: [PATCH v2 3/5] arm64: kexec_file: Fix image->elf_headers memory leak in retry loop
+Date: Wed, 29 Jul 2026 11:12:33 +0800
+Message-ID: <20260729031235.2840255-4-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260729031235.2840255-1-ruanjinjie@huawei.com>
 References: <20260729031235.2840255-1-ruanjinjie@huawei.com>
@@ -68,8 +68,9 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_201232_805435_47221B29 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260728_201233_848309_2EC82168 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,62 +85,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During kexec image placement retry loops, any midway failure causes
-the loader to truncate `image->nr_segments` back to its initial state
-to purge the failed segments.
+If load_other_segments() fails after image->elf_headers is assigned,
+the memory lifecycle is safely managed by the global kimage object
+and will be freed in arch_kimage_file_post_load_cleanup().
 
-However, this truncation introduces a memory leak. The CMA pages
-allocated via kexec_add_buffer() during the failed attempt are tracked
-in the `image->segment_cma` array. Because the subsequent cleanup paths
-only iterate up to the truncated `nr_segments` boundary, these allocated
-CMA pages outside the new boundary are permanently leaked.
+However, during a retry loop in image_load(), a subsequent iteration
+will allocate a new buffer and overwrite image->elf_headers. This
+permanently leaks the stale memory from the previous iteration before
+the global cleanup can track it.
 
-Fix this by explicitly releasing the associated CMA buffers in
-the failure paths before `image->nr_segments` is reduced.
+Fix this by explicitly freeing the stale `image->elf_headers` buffer
+before assigning the newly allocated headers.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
+Cc: Thomas Huth <thuth@redhat.com>
 Cc: Breno Leitao <leitao@debian.org>
-Cc: Pratyush Yadav <pratyush@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>
 Cc: Yeoreum Yun <yeoreum.yun@arm.com>
 Cc: Baoquan He <bhe@redhat.com>
 Cc: stable@vger.kernel.org
-Fixes: 07d24902977e4 ("kexec: enable CMA based contiguous allocation")
+Fixes: 108aa503657e ("arm64: kexec_file: try more regions if loading segments fails")
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/kernel/kexec_image.c        | 1 +
- arch/arm64/kernel/machine_kexec_file.c | 5 ++++-
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/machine_kexec_file.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
-index b70f4df15a1a..ffcb7f9075e6 100644
---- a/arch/arm64/kernel/kexec_image.c
-+++ b/arch/arm64/kernel/kexec_image.c
-@@ -107,6 +107,7 @@ static void *image_load(struct kimage *image,
- 		 * We couldn't find space for the other segments; erase the
- 		 * kernel segment and try the next available hole.
- 		 */
-+		kexec_free_segment_cma(image, kernel_segment_number);
- 		image->nr_segments -= 1;
- 		kbuf.buf_min = kernel_segment->mem + kernel_segment->memsz;
- 		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
 diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index 854d872dfd0f..e48f29167b38 100644
+index e48f29167b38..2f750e5f4fcc 100644
 --- a/arch/arm64/kernel/machine_kexec_file.c
 +++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -179,7 +179,10 @@ int load_other_segments(struct kimage *image,
- 	return 0;
- 
- out_err:
--	image->nr_segments = orig_segments;
-+	while (image->nr_segments > orig_segments) {
-+		kexec_free_segment_cma(image, image->nr_segments - 1);
-+		image->nr_segments--;
-+	}
- 	kvfree(dtb);
- 	return ret;
- }
+@@ -112,6 +112,10 @@ int load_other_segments(struct kimage *image,
+ 			vfree(headers);
+ 			goto out_err;
+ 		}
++
++		if (unlikely(image->elf_headers))
++			vfree(image->elf_headers);
++
+ 		image->elf_headers = headers;
+ 		image->elf_load_addr = kbuf.mem;
+ 		image->elf_headers_sz = headers_sz;
 -- 
 2.34.1
 
