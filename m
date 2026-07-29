@@ -4,69 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F1DC54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2313DC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNZyrkA1MPW6blbXS+8IoLxxbhfVJfNKDO+UiPwJv1A=; b=loYiVQkT+zEK/IpxqNDDIQ/xN2
-	GdRt2XbnY6sDiarGDPYJZDvJ+v5ThYUXsWVsanNyVk9ST1vGd2lAFXhf8+PO/t6WYm505StgG0kSg
-	IxtsEhiMKMBw3yPsIofE8/0NtjJg+ZdJDQ4KLhTS+CPb6EKTV9fBJyYUkVxd8SCJtDmOktMq9LA+a
-	LjnjxT5kldgnKwlzdklKCWGmaY6UFgIcDTvGdd6MCUSv+MYrP9yAAlc/8tb+2Jy5MhrsbqJODvyoK
-	4eXi0QOardy2BbN9Jd/DOHj4nK2E1soJOYtiytb+EtMQRt6hv9UsmfXpiXmRP2FwK6fFTXmndENrj
-	6nTuYnbQ==;
+	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m/tVY747qQcUbCWoM+r9JhmavpQYiLXvZynECqzDeco=; b=a70/nFqGUd0SOXnZ6ctb6r3z2o
+	UBYJxk3xcJcX7mGrC0AiD4ddPGDzDFtrYl9UD+wVqv0/AQ+x05wGTOisfly3AWevGbzcpJ8Fzi4VF
+	95G0ygFhQ5JdUACscCsfuGG5xQj9OtYZM9mA6TO24/dXitFsYJLCHhZZfoPbwSNcJE2LdpkVO0Owx
+	MOvr5yXvh2AS3Jsz9Xb2CowwnPdJMMJIk3Sswm1Vo45B4NS8tHNLgFTGx/PFrySbWql/aiPRXRNyp
+	AqqML0eib04cO6ATQu1+6RBCKzhEX07VCfKaExU2bqPqTg/TGiaJKgrhObongOyIhokF2uc6C2qLp
+	c9Jj6z6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1iJ-00000007ZRW-0ziK;
-	Wed, 29 Jul 2026 10:40:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1iE-00000007ZQG-0TKc
+	id 1wp1jO-00000007Zbm-20vw;
+	Wed, 29 Jul 2026 10:41:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp1jN-00000007ZbZ-0U3e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:40:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB9F71688;
-	Wed, 29 Jul 2026 03:40:27 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C51E53F66F;
-	Wed, 29 Jul 2026 03:40:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785321631; bh=DCWggK9HdejFC4QCwQcCIZqhPjEXoYjYmhah3dVOUWc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oxsqFAuZfkdxKLl75vbVcDb0Wzdx90Ft6r04yRCmlZnbesJVM0LV0DDFgw2WPntG0
-	 rb14Q1j/Y40/Yo9tzoFrfmUn6Y4vQXhGvzaAOXAIe+YLSP2grcM8wsSnsosuM46jiC
-	 bL7RzrSDF8WnqWmNroYOI4pTQU9VJ7s4yU/ozXA8=
-Message-ID: <d4ce9d65-cd1f-4cfe-99a9-a7ad92ee0eec@arm.com>
-Date: Wed, 29 Jul 2026 11:40:26 +0100
+	Wed, 29 Jul 2026 10:41:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 32E86600B1;
+	Wed, 29 Jul 2026 10:41:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EF991F000E9;
+	Wed, 29 Jul 2026 10:41:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1785321703;
+	bh=m/tVY747qQcUbCWoM+r9JhmavpQYiLXvZynECqzDeco=;
+	h=Subject:To:Cc:From:Date;
+	b=U5FprOVUlnP1TM3/fXxzl5Iu/4Vur+YDLVHuTSa9mUH3nWOER9fwzc/+3D41BQlXi
+	 Kxy+JoVuyKKCeoHLbBBL6tV/Sj+PfkBoxJ4P7wQUB5i5f+xordCPExF1xkzRVoZCWA
+	 5Qf5sT5ONFUh+amp+4W2aw7ii1Rv56FSmUAoj5rc=
+Subject: Patch "drm/exynos: fbdev: Remove offset into screen_buffer" has been added to the 7.1-stable tree
+To: dri-devel@lists.freedesktop.org,gregkh@linuxfoundation.org,inki.dae@samsung.com,linux-arm-kernel@lists.infradead.org,m.szyprowski@samsung.com,tzimmermann@suse.de
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Wed, 29 Jul 2026 12:39:59 +0200
+Message-ID: <2026072959-cosmic-putt-d5cd@gregkh>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v5 0/5] arm_mpam: resctrl: Counter Assignment (ABMC)
-To: Gavin Shan <gshan@redhat.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jic23@kernel.org,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
- x86@kernel.org, leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
- usama.arif@linux.dev, kernel-team@meta.com
-References: <20260707162440.12132-1-ben.horgan@arm.com>
- <8e36f71d-598b-45bf-a3ea-6d44ff728877@redhat.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <8e36f71d-598b-45bf-a3ea-6d44ff728877@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_034034_203335_6A8A8638 
-X-CRM114-Status: GOOD (  12.33  )
+Content-Type: text/plain; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +64,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
 
-On 7/15/26 06:44, Gavin Shan wrote:
-> On 7/8/26 2:24 AM, Ben Horgan wrote:
->> Version 5 of this series addresses a few review comments but is pretty
->> similar to v4. The precursors in x86/cache have been merged so there is no
->> longer a need for this to go through there. It's likely easiest if this
->> goes through arm64.
->>
->> This series adds support for memory bandwidth monitoring. Counter assignment
->> will be used for all platforms with memory bandwidth monitors rather than just
->> those with insufficient counters as originally proposed.
+This is a note to let you know that I've just added the patch titled
 
-> 
-> The tests on NVidia's grace-hopper machine looks good: (a) no error or warning is seen
-> from the kunit-tests; (b) L3 cache partitioning and MBW (soft) limiting aren't broken,
-> still working to me; (c) The counter 'mbm_total_bytes' can be assigned to newly created
-> group and it gets increased when workload runs in the group.
-> 
-> Tested-by: Gavin Shan <gshan@redhat.com>
+    drm/exynos: fbdev: Remove offset into screen_buffer
 
-Thanks for the testing and reviews.
+to the 7.1-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-Ben
+The filename of the patch is:
+     drm-exynos-fbdev-remove-offset-into-screen_buffer.patch
+and it can be found in the queue-7.1 subdirectory.
 
-> 
-> Thanks,
-> Gavin
-> 
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
+
+From 760bbc58c2c833dec0ee38dd959f4f2f4084fc57 Mon Sep 17 00:00:00 2001
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Date: Mon, 11 May 2026 13:54:31 +0200
+Subject: drm/exynos: fbdev: Remove offset into screen_buffer
+
+From: Thomas Zimmermann <tzimmermann@suse.de>
+
+commit 760bbc58c2c833dec0ee38dd959f4f2f4084fc57 upstream.
+
+The screen_buffer field in struct fb_info contains the kernel address
+of the first byte of framebuffer memory. Do not add the display offset.
+This offset only describes scrolling during scanout.
+
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: 19c8b8343d9c ("drm/exynos: fixed overlay data updating.")
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: <stable@vger.kernel.org> # v3.2+
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ drivers/gpu/drm/exynos/exynos_drm_fbdev.c |    6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+--- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
+@@ -61,17 +61,13 @@ static int exynos_drm_fbdev_update(struc
+ 	struct fb_info *fbi = helper->info;
+ 	struct drm_framebuffer *fb = helper->fb;
+ 	unsigned int size = fb->width * fb->height * fb->format->cpp[0];
+-	unsigned long offset;
+ 
+ 	fbi->fbops = &exynos_drm_fb_ops;
+ 
+ 	drm_fb_helper_fill_info(fbi, helper, sizes);
+ 
+-	offset = fbi->var.xoffset * fb->format->cpp[0];
+-	offset += fbi->var.yoffset * fb->pitches[0];
+-
+ 	fbi->flags |= FBINFO_VIRTFB;
+-	fbi->screen_buffer = exynos_gem->kvaddr + offset;
++	fbi->screen_buffer = exynos_gem->kvaddr;
+ 	fbi->screen_size = size;
+ 	fbi->fix.smem_len = size;
+ 
+
+
+Patches currently in stable-queue which might be from tzimmermann@suse.de are
+
+queue-7.1/drm-tests-shmem-set-dma-mask-to-64-bit-in-drm_gem_sh.patch
+queue-7.1/drm-exynos-fbdev-remove-offset-into-screen_buffer.patch
+queue-7.1/drm-tegra-fbdev-remove-offset-into-framebuffer-memory.patch
 
