@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22DFC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81284C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovttOnJiDeqpmyIhx6sFDE+BfoHo1gmKUBQh2Vi1bb4=; b=2uDqPkcROIO9C8/ZPuOBuR72tg
-	T5Wx7nLPcv8aflKBt2zwdC6a5iF8qarzZX08Ni6AyCzglq5Oi3lXm4wpHSW+T8c63KTu5F0YjE9W+
-	OSFxMmm3wgWLrw1vygWXCvU/Ap85IyTvOjYHEjdFv2/O5ngnGgIs1v5f2XvYJyLwIFwoIrcypsLfm
-	pgr+6eIYpr5Sa/9F6cikeqYsLJO1dYIevHxr8XuLONyVp6+NEKEVYShq6gy2xXEZ6ZUzU1jfDaer7
-	RRhEvefJy8TOQ8VbGSVbvZBCPsOYlmXncicm0bA3TpC6NQBZ6VrZWHStRIZ7Jc3cB4AbyeTvNicb+
-	WbEhkBXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oni6Vg/P5vrta2IB3oW5wSxiUtRzniW6mGMAbb3BO4k=; b=q/u+Qkxb2gSpZ+hBJRQybFr0L8
+	Ag/G8sm7pKamTrcMLswirYfkxLEoK6j+k8I2SG6KFCY2fCkx108nOhetojjJHkbf90HrmbY0wh8Pc
+	tYQ0Z961C8QIR+tqAgdQ6S2FOMsbAsJnhqH3zmXKorJFzUcKaSooVuOCg3yOlYv41s0mL+ykJ+iX9
+	HKMyTBbbK0CuZ+ArZHNsHNponntH4tddTfXFi0yp+guqY7b8H34sYIBfrpX/G9DPV1i8EY+EYqVdp
+	6LBeKT3xgs+oVyRuTh8lzg3ZfbjlnDMTlpBe/qsmYJs7lAp4XxmWzul1kw+3QI44kYbcp87k54Y3J
+	h2Wo1Y9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Ek-00000008izb-2Ssd;
-	Wed, 29 Jul 2026 17:38:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wp8GC-00000008j9I-3mAz;
+	Wed, 29 Jul 2026 17:40:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Ej-00000008izS-1est
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 17:38:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD21F600AB;
-	Wed, 29 Jul 2026 17:38:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DB401F000E9;
-	Wed, 29 Jul 2026 17:38:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785346711;
-	bh=ovttOnJiDeqpmyIhx6sFDE+BfoHo1gmKUBQh2Vi1bb4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WL1ksy9k2ADLdlp4kAEC30y2vC66MEl7DPMkQPZ9mhjRebWbqd9+uLjPwZMjR75zo
-	 oA3wqOubjgP6BS1tz8Gm55mMh/FS2WyGdWiRJ1Q5kjq2P6fps9oiN5iW3MKqk9SJXD
-	 UARBLYBOeFDIryVgcHDRIYMFOvGahbXjgAh1FuUdda89ZW6GAchXekC3kzhGTLIDVI
-	 Ez3U94KDtQ4VWFVAzvNQ3Alw96pJ57TLGB8SIIqAuWR5WCD12GIVkyiKnadm1sauBW
-	 yp2Hp1ojIT5bJ0FarBl6CtCR5mC+aqrMws20zc4SUNmj71LlBRZx9gdcIuhF5MVg1D
-	 Mur3cJwH1Bhgw==
-Date: Wed, 29 Jul 2026 10:38:29 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-crypto@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	id 1wp8GA-00000008j8L-2MSs;
+	Wed, 29 Jul 2026 17:40:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=oni6Vg/P5vrta2IB3oW5wSxiUtRzniW6mGMAbb3BO4k=; b=p1Tj4hZhhbsTbQ7P0KwTEHfvl/
+	VIz7RJgrRgUlLH05WVNOKnz5xNkHhuuUqlJYtUi/AzSzk9/x92PxZP5kFuHv8VV9DfmMMvTTbY1rZ
+	4eH/7Kcls1PKgsDzKZeOQDyIr3kmjV5IMKjW2BkryFrUdUiG/WJiewcojCSSf2mlaqQm0mDiiITlj
+	YmrEHX6UuNkvdhMSPqSNldp8eNNI5SA/UvSWqju34pfM/p4xWPZxsvnBZPRka3/JbSzgIx+Jq4xQ0
+	tVkbbRN2pKi1i4Xkk/M4qRdJHyIc7za19AjhNJb/GdFMfr4wwXRjFpsISCWDDJ5CEE3xKTv1dxdjm
+	vSv3pggg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pufan Jin <2254650260@qq.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH] crypto: qce - Remove driver
-Message-ID: <20260729173829.GB4454@quark>
-References: <2026072412-decrease-sandbag-70a1@gregkh>
- <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
- <20260724141414.GB1876@sol>
- <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
- <2026072455-subtly-prayer-0a8a@gregkh>
- <20260724150932.GA6763@sol>
- <2026072428-ungodly-outsource-b20c@gregkh>
- <20260724155144.GA2032@sol>
- <20260728152241.GA4281@quark>
- <CAMRc=Mch_3fFqq+khutEMQG3P-ojBE2dnLy_U2_gDV4e1ro6aA@mail.gmail.com>
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add EmbedFire LubanCat 4 board
+Date: Wed, 29 Jul 2026 19:39:52 +0200
+Message-ID: <178534678977.563748.16244548635154085260.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <tencent_0DA92AE62C08A802ACC4FE9E47A0192C8E05@qq.com>
+References: <tencent_0DA92AE62C08A802ACC4FE9E47A0192C8E05@qq.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMRc=Mch_3fFqq+khutEMQG3P-ojBE2dnLy_U2_gDV4e1ro6aA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_104002_633282_D1421AC3 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +74,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 05:02:08AM -0700, Bartosz Golaszewski wrote:
-> On Tue, 28 Jul 2026 17:22:41 +0200, Eric Biggers <ebiggers@kernel.org> said:
-> > On Fri, Jul 24, 2026 at 08:51:44AM -0700, Eric Biggers wrote:
-> >> It is consuming a lot of the community's time to help maintain,
-> >> including dealing with LLM-found bugs, with no clear benefit to anyone.
-> >> Even considering *just today* we can see someone sent a bug fix:
-> >> https://lore.kernel.org/linux-crypto/20260724081537.191992-2-thorsten.blum@linux.dev/
-> >
-> > Another example:
-> > https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
-> >
-> Are you seriously complaining about people sending fixes to a driver we want
-> to see fixed? We don't remove maintained drivers, this has been the kernel
-> policy for years. Unfortunately if we want to fix it, then it'll take some
-> work involving sending patches to the mailing list.
 
-This again completely misses the point.  The point is that maintenance
-is a community effort, and just because you have a M: entry (without a
-git tree) doesn't mean it isn't taking time from other people too.
+On Fri, 17 Jul 2026 00:36:31 +0800, Pufan Jin wrote:
+> Add compatible string for the EmbedFire LubanCat 4 single board
+> computer based on the Rockchip RK3588S SoC.
+> 
+> 
 
-Now if it actually provided a benefit to users that generally would be
-fine.  But in reality it just causes problems (with the possible
-exception of the one point raised today where the driver is "needed" to
-power off the hardware, though that part is broken too).
+Applied, thanks!
 
-- Eric
+[1/2] dt-bindings: arm: rockchip: Add EmbedFire LubanCat 4 board
+      commit: 181a06fe549d0b2a805eb112c0f7494bdbeefecf
+[2/2] arm64: dts: rockchip: Add EmbedFire LubanCat 4 board
+      commit: 6d9430d58714909071853c0949cdc93756aa3ad4
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
