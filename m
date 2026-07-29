@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B1DC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F797C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6VHon7xksdGGcCd1w3LeE4rxQ4JdTn1VUPCXvQGSs4=; b=zOMd0DJdo+XOtYpAFbcIXswsqS
-	lt2sbZB0GKVUNpEm5VXCg0Vlq2hUEpEkuDelOapc5hCCkace3n0jFCHXgEBpm6taqr2W/5Sc8deqj
-	HnVaSMdF9bWlPe1jL5K67K/WJ7O71fVkQmtvxpS7V9rQF/+rC/n0qLBErWkzwLIEQhIeUhOLdn292
-	lZWdCOAlFv5YrzHhzOjn6IIOlH0XnL71UjT/iuVGqf5w79tTc5/KI4Zp9+KeB/7ZM47ohmbMUEs7w
-	wvmdM0H7G2rAFKh8hvWdUbSsCSSDUZSPMPZguvLcvn/em2+6Rw2P6RtQ95QqINmJAHvrBvktFkt7g
-	oO6iNtNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oQd+PKYg2SrS9YmpMTZzmi1rzZRa5OmKfOaIKvd4BaU=; b=JXeIIymX1QiugFRctQE2wgRyfk
+	u0WPgpXd/WlC5BllEwhpeW1JGQ6t4xH6JtE9LUsvwnr3pW3j8ZRWO3pIxA+NQok6U5kbauAjHJRma
+	HGVBErpKWevz+hXeakxOTaFUyl/QZPue2VWcRR7OVxSVTbP2gtpC2FgyAr1FZpLOZGfVjK0laKWnP
+	H+hje6bEYqyR1cMu4IfxvF6jsFBGkqnsadCAP7+/Jk2iH2ZhhP8/osmK+kkTC4OIFHg3Y7oNxHtZS
+	rtajCeNw1jQgOmhq//+dFSaJKNEy76BHw8UFRXiY4UjHxU3ZS9rHkAtDkG2AOpuQt+Va14GdVWBL/
+	SyeSj13Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6VG-00000008SF8-1s0S;
-	Wed, 29 Jul 2026 15:47:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wp6XV-00000008Say-3Kt2;
+	Wed, 29 Jul 2026 15:49:49 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6VF-00000008SCz-0Avl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 29 Jul 2026 15:47:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=I6VHon7xksdGGcCd1w3LeE4rxQ4JdTn1VUPCXvQGSs4=; b=SdQTdhZK6bukoR6SK4US+9MQjJ
-	NVkwN9b6a6mEph8TMiPgNxghw4JzozCfL3hQFrvhVs00u9bQhBEYy8HvpK29H+PuI6S4VKzc7nUTK
-	wc2eapXqyJ7edrqNnC7P+7ByXr90/TWl4yFnVLgoXj+hjcE3ZXWoN7w1zSRxBKjpuwCf3l09jeI4W
-	ijsaWeNRO9KO59ktFJozguhTWF0PMk4EMCgTxcQb+Z0VC1fAzMHtmU+Is5rNmIG2DrHnZqcCzkGXs
-	ttXVBqpAsX1PXc8Hyr13Vr/ImJBabJ0wt6YACNo63Iu8KTSUR1GAFopnCggYtEQ9ix7HN/MBEnxim
-	3tMjsVhw==;
-Received: from out-173.mta1.migadu.com ([95.215.58.173])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wp6VB-00000005yL4-3gBb
+	id 1wp6XS-00000008SaQ-3Lxj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 15:47:27 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RqCEkQmgOxO82AveA7OLGZg2NeYV1iWYMZ/PppK2MySNJo4pUmdCoWAAZ+jXlEg/zfMxlpUYuRqrxEYsOx1O1NR@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785340043;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I6VHon7xksdGGcCd1w3LeE4rxQ4JdTn1VUPCXvQGSs4=;
-	b=i7NHS2jlKQRyWR0g3OGctc1Gl6CLybsRvRd7cF0pZS3bEMOU7jvVbe8X8qMA/dDbe//uc0
-	Z1SlsJSGNgP8YO6Ptp/3FNiXMQGx4j3UvrOcptFLY2J+TfBD8knpls8guqV55EwZjpZpfO
-	MvHTwGvd8M+11q7bUrKbg5CkgiEHYgQ=
-X-Gm-Message-State: AOJu0Yz7zCbJqZ5/LjnZte2oSSvbv5CSBFmx6+JQpA3ZR7aTHCXY8/pn
-	1n+LNsDH57NcZQxd1GXTjAFQimGipvFwde7ct+uUheegilF+tKs11OobNk2Ur0gf9jpFHkphWEo
-	T404faVyXHAejYflbwo/49hrTwgN9feUBwT41Lm+P
-X-Received: by 2002:a05:622a:2cf:b0:50f:b69a:f4a8 with SMTP id
- d75a77b69052e-52b3514d8b8mr684631cf.7.1785340027562; Wed, 29 Jul 2026
- 08:47:07 -0700 (PDT)
+	Wed, 29 Jul 2026 15:49:48 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id BD8101D0011A;
+	Wed, 29 Jul 2026 11:49:42 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Wed, 29 Jul 2026 11:49:42 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1785340182;
+	 x=1785426582; bh=oQd+PKYg2SrS9YmpMTZzmi1rzZRa5OmKfOaIKvd4BaU=; b=
+	b26o47eWvoAOFjeXEWyfIbfcvKzOlhtWtolL6zXsin632c5Lhm1Ot9VuvuFRNJS3
+	t/Evg05k8gZa3d/R+VF3J0o0k0HQ7/cVzcP05P7vUl695Ie3Tvng2ZpsmbO68idY
+	knVPl+7iv1WkVLOW6Mw3krCpnTMxBbrxnWyTVFi0U5UvF5IHpYGQMPCSZ+kjIZiN
+	ECjqj/dqUv7DFlKGSTbCWUArYxoBJZWeoxr2nUgLvSdeJ6R2CYiK/EjTrj/Ca9Wp
+	gqoWIkjDIB62GYqlsUuWjIpw+GiPPA3ZgD5mWl9OkGISlVK9gGffA/Cc+wXY3Ln5
+	60rvIsCj4bG6E2yVgvkfSQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1785340182; x=
+	1785426582; bh=oQd+PKYg2SrS9YmpMTZzmi1rzZRa5OmKfOaIKvd4BaU=; b=P
+	fyeBWqT6jRFBZMuJL13w0llBqGuTGHZG5WMzeCHtd0o9GuccC3DHQTeSLpas+EyM
+	w3MMdL7MmLe3tEDHhQHHWv7ilEexzFtpx43yjO0yzMIH+mQxTUm5PbFBXjMhrKOy
+	zPBHLg7c1q1BbWeZ7Dk0+UK7Bo7lvIU42Jnstz/npSD1EX2gGWd6zBUOKvouDZ8u
+	hEL3AUHh/X9bbiNQLUyvXb88zGUnERo0fbwh/UURW/8j4Uxqz8QudfFp+vXPcs7e
+	C/Q6axR/T9G6o+MKgvK9u49IKJVAgQ6x4ZQlmmDBWU9T9p2uqyvO6yQtEKpTY73I
+	owTlOFHORlIX6diNOvImw==
+X-ME-Sender: <xms:FiFqakPzmS8KQYVzSq8Q3GmJjEzmvDJsuGiW85jwG3Rjo1c-1jY0XQ>
+    <xme:FiFqalyZbcxnYvefB1Ye22dtA7ppYCk4LSIDT-t9T6kwSf4G-liseGCZY4WjSiWMq
+    J3sNeQZnco24jGc2nZLOmfjMKx64JYsmkLQPvI8Ou94SxMLsVEQQWUJ>
+X-ME-Proxy-Cause: dmFkZTEAyhqDvJeN6sC00nrS4GH93muUtp1FPUrKchOpg0VdjiYsXIoAe2zJ3VMf/DUodn
+    RrZLFl0kfeT1+zgD3tRPqzt3Vw/YaAnP+0uH3CC1FCrlrWz7J5y4eCAY6s6XqmrYCxvrsM
+    ZTx4y4ul/tMPWDH+Pj9Xyi3i5qV0rmzz7IAiZ3DPZ+dB45MLXp3JtrVyHLfeo7likE+yTe
+    XTC+zjjvnGa0TNiLVFYXZN0clt8U5TbLmm+IMpoIKbj7vWk/GkIzD3ejs+NmhrUPXamvrO
+    iOAmTwZan0rjGdm3PsfemjCjQmAo2F4qP3JYvLDxNs/cB9xPEiqOL9zbvciDKG9+AazeeY
+    067KfJvU8iPJdV54yLFuArogXd+Ye1GQAXl/I5+N+zpUeXR8Ii3jB3kHsDDciEhseBYzlI
+    ETrdKAM50hJQFjt/SgbV88U3w3g9YG99aBzn03PMyAqByZ7THsYGtrViCWXCn41tpE7umy
+    bQV2+BS0hF1po+OGZDjXKEbERzNfysLaIAR7Xit8XT1ScmdMqCWw2nkYt8VQF8WYSwDpf9
+    Goh4vZxUvx9roqGpAuXqWtpsD3z3lVRmCMIO43TnIsc8PuiKPs0AUIMvwPOOWnFi12MRvG
+    J1PbeM2vhQdALy2wwtJzNxCLO2SLxfLyfAHzaUdTcQckVPVSdWEPbtd2CAgg
+X-ME-Proxy: <xmx:FiFqat6qCSrETiPUP21GnTsG9VleAgPpOyESj7AFZh_eJCN0BP-TBg>
+    <xmx:FiFqakOkNoKrJdElhxxu59-KFQyooXLxZJtX3C7NYg2GIgCvCJVaTQ>
+    <xmx:FiFqarvxEXeDmeIk-RbMlo8eBcvW2dHEKGlAn2iCpTcvTB-Q_gY_bA>
+    <xmx:FiFqanYNZmP2lwW5atuYwYx7gM2sTMuBiEygmJpe_Bs5iL0O-5zJEA>
+    <xmx:FiFqahYG4HTsmIPxJTcTY_vDuqCDGs9RVhIKkYsT5crc4QIh8IT6j4NV>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 6797E182007E; Wed, 29 Jul 2026 11:49:42 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-6-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-6-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 29 Jul 2026 16:47:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTw-nae7rEbt0-gGqLDqFR-snZg5=OMd6JwoY6=LPTYs6Q@mail.gmail.com>
-X-Gm-Features: AUfX_mws-bcJkwmI1cxhAAS_5of0TC8PZKSSoA4EmHIto-AN5EE8KREg1_-JeRk
-Message-ID: <CA+EHjTw-nae7rEbt0-gGqLDqFR-snZg5=OMd6JwoY6=LPTYs6Q@mail.gmail.com>
-Subject: Re: [PATCH v9 06/16] KVM: arm64: PMU: Recreate events after MDCR_EL2 changes
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-ThreadId: AlS3N7dQjmI-
+Date: Wed, 29 Jul 2026 17:49:21 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Florian Fainelli" <florian.fainelli@broadcom.com>, soc@kernel.org
+Cc: "Rosen Penev" <rosenp@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ "Kevin Hilman" <khilman@kernel.org>, bcm-kernel-feedback-list@broadcom.com
+Message-Id: <5ed3a50d-b87d-4df6-b81a-ffc5264a553f@app.fastmail.com>
+In-Reply-To: <20260727201200.2441827-1-florian.fainelli@broadcom.com>
+References: <20260727201200.2441827-1-florian.fainelli@broadcom.com>
+Subject: Re: [GIT PULL] Broadcom devicetree fixes for 7.2
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_164726_019864_10960216 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20260729_084946_919571_12CC5318 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,191 +109,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 at 06:44, Akihiko Odaki
-<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+On Mon, Jul 27, 2026, at 22:12, Florian Fainelli wrote:
+> ----------------------------------------------------------------
+> This pull request contains Broadcom ARM-based SoCs Device Tree fixes for
+> 7.2, please pull the following:
 >
-> MDCR_EL2.HPMN changes which counters are reserved for EL2 and thus which
-> enable control, event filter, and overflow width apply. HPMD changes EL2
-> filtering, while HLP changes the overflow width and sample period.
->
-> The existing guest MDCR_EL2 handling only requests a PMU reload for
-> HPME. Reloading enables or disables existing perf events, but does not
-> rebuild events whose attributes have become stale. Generic userspace
-> writes through KVM_SET_ONE_REG do not request a reload at all.
->
-> Route guest writes, userspace writes, and reset through a common helper.
-> Mark the vCPU's perf events for recreation when HPMN, HPMD, or HLP
-> changes. Consume the marker on the vCPU thread before reprogramming the
-> counters, which also preserves counter values and avoids creating events
-> on an arbitrary ioctl thread.
->
-> Use a setter-only accessor so register restore gains these side effects
-> without changing generic reads or rejecting register values.
->
-> Fixes: fe827f916662 ("KVM: arm64: nv: Honor MDCR_EL2.HPME")
-> Fixes: 8a34979030f6 ("KVM: arm64: nv: Apply EL2 event filtering when in hyp context")
-> Fixes: 16535d55e91f ("KVM: arm64: nv: Honor MDCR_EL2.HLP")
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+> - Rosen fixes the Linksys EA9200 NVRAM DT size, the 2nd PCIe controller
+>   interrupt that was duplicated, and finally removes incorrect PCIe DT
+>   nodes 'ranges' properties breaking PCIe
 
-Sashiko's comment seems to be worth pursuing, but that's a separate fix.
+Hi Florian,
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+The third patch dropping the AXI bus ranges looks wrong to me,
+I've commented on the original patch submission and dropped
+this pull request from my queue.
 
-Cheers,
-/fuad
+I only have one other fix (arm64: dts: broadcom: bcm2712:
+Remove non-functional EL2 virtual timer) pending in the fixes
+branch, so we should have a few days to resolve this, but feel
+free to resend the other two fixes separately.
 
-
-> ---
->  arch/arm64/kvm/pmu-emul.c | 27 +++++++++++++++++++++++++++
->  arch/arm64/kvm/sys_regs.c | 31 +++++++++++++++++++++----------
->  include/kvm/arm_pmu.h     |  3 +++
->  3 files changed, 51 insertions(+), 10 deletions(-)
->
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 5281d37634a0..9ac5f307ea31 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -17,6 +17,9 @@
->
->  #define PERF_ATTR_CFG1_COUNTER_64BIT   BIT(0)
->
-> +#define MDCR_EL2_PMU_RECREATE_MASK     (MDCR_EL2_HPMN | MDCR_EL2_HPMD | \
-> +                                        MDCR_EL2_HLP)
-> +
->  static LIST_HEAD(arm_pmus);
->  static DEFINE_MUTEX(arm_pmus_lock);
->
-> @@ -606,6 +609,21 @@ void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val)
->         }
->  }
->
-> +void kvm_pmu_handle_mdcr(struct kvm_vcpu *vcpu, u64 old, u64 val)
-> +{
-> +       u64 changed = old ^ val;
-> +
-> +       /*
-> +        * HPMN determines which counters HPMD and HLP apply to. Changes to
-> +        * these fields require new perf event filters and sample periods.
-> +        */
-> +       if (changed & MDCR_EL2_PMU_RECREATE_MASK)
-> +               vcpu->arch.pmu.events_need_recreate = true;
-> +
-> +       if (changed & (MDCR_EL2_HPME | MDCR_EL2_PMU_RECREATE_MASK))
-> +               kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> +}
-> +
->  static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc)
->  {
->         struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
-> @@ -899,7 +917,16 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
->
->  void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu)
->  {
-> +       struct kvm_pmu *pmu = &vcpu->arch.pmu;
->         u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
-> +       int i;
-> +
-> +       if (pmu->events_need_recreate) {
-> +               for (i = 0; i < KVM_ARMV8_PMU_MAX_COUNTERS; i++)
-> +                       kvm_pmu_stop_counter(kvm_vcpu_idx_to_pmc(vcpu, i));
-> +
-> +               pmu->events_need_recreate = false;
-> +       }
->
->         __vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, &=, mask);
->         __vcpu_rmw_sys_reg(vcpu, PMINTENSET_EL1, &=, mask);
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 5d5c579d4579..9e905d9be9f6 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3020,17 +3020,22 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
->         }
->
->         __vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
-> -
-> -       /*
-> -        * Request a reload of the PMU to enable/disable the counters
-> -        * affected by HPME.
-> -        */
-> -       if ((old ^ val) & MDCR_EL2_HPME)
-> -               kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> +       kvm_pmu_handle_mdcr(vcpu, old, val);
->
->         return true;
->  }
->
-> +static int set_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-> +                   u64 val)
-> +{
-> +       u64 old = __vcpu_sys_reg(vcpu, MDCR_EL2);
-> +
-> +       __vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
-> +       kvm_pmu_handle_mdcr(vcpu, old, val);
-> +
-> +       return 0;
-> +}
-> +
->  static bool access_ras(struct kvm_vcpu *vcpu,
->                        struct sys_reg_params *p,
->                        const struct sys_reg_desc *r)
-> @@ -3177,8 +3182,13 @@ static int set_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
->
->  static u64 reset_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
->  {
-> -       __vcpu_assign_sys_reg(vcpu, r->reg, vcpu->kvm->arch.nr_pmu_counters);
-> -       return vcpu->kvm->arch.nr_pmu_counters;
-> +       u64 old = __vcpu_sys_reg(vcpu, r->reg);
-> +       u64 val = vcpu->kvm->arch.nr_pmu_counters;
-> +
-> +       __vcpu_assign_sys_reg(vcpu, r->reg, val);
-> +       kvm_pmu_handle_mdcr(vcpu, old, val);
-> +
-> +       return val;
->  }
->
->  /*
-> @@ -3741,7 +3751,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->         EL2_REG_FILTERED(SCTLR2_EL2, access_vm_reg, reset_val, 0,
->                          sctlr2_el2_visibility),
->         EL2_REG_VNCR(HCR_EL2, reset_hcr, 0),
-> -       EL2_REG(MDCR_EL2, access_mdcr, reset_mdcr, 0),
-> +       SYS_REG_USER_FILTER(MDCR_EL2, access_mdcr, reset_mdcr, 0,
-> +                           NULL, set_mdcr, el2_visibility),
->         EL2_REG(CPTR_EL2, access_rw, reset_val, CPTR_NVHE_EL2_RES1),
->         EL2_REG_VNCR(HSTR_EL2, reset_val, 0),
->         EL2_REG_VNCR_FILT(HFGRTR_EL2, fgt_visibility),
-> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-> index b5e5942204fc..1971f8794c9d 100644
-> --- a/include/kvm/arm_pmu.h
-> +++ b/include/kvm/arm_pmu.h
-> @@ -32,6 +32,7 @@ struct kvm_pmu {
->         struct kvm_pmc pmc[KVM_ARMV8_PMU_MAX_COUNTERS];
->         int irq_num;
->         bool created;
-> +       bool events_need_recreate;
->  };
->
->  struct arm_pmu_entry {
-> @@ -56,6 +57,7 @@ bool kvm_pmu_should_notify_user(struct kvm_vcpu *vcpu);
->  bool kvm_pmu_update_run(struct kvm_vcpu *vcpu);
->  void kvm_pmu_software_increment(struct kvm_vcpu *vcpu, u64 val);
->  void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val);
-> +void kvm_pmu_handle_mdcr(struct kvm_vcpu *vcpu, u64 old, u64 val);
->  void kvm_pmu_set_counter_event_type(struct kvm_vcpu *vcpu, u64 data,
->                                     u64 select_idx);
->  void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu);
-> @@ -133,6 +135,7 @@ static inline bool kvm_pmu_should_notify_user(struct kvm_vcpu *vcpu)
->  static inline bool kvm_pmu_update_run(struct kvm_vcpu *vcpu) { return false; }
->  static inline void kvm_pmu_software_increment(struct kvm_vcpu *vcpu, u64 val) {}
->  static inline void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val) {}
-> +static inline void kvm_pmu_handle_mdcr(struct kvm_vcpu *vcpu, u64 old, u64 val) {}
->  static inline void kvm_pmu_set_counter_event_type(struct kvm_vcpu *vcpu,
->                                                   u64 data, u64 select_idx) {}
->  static inline int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu,
->
-> --
-> 2.55.0
->
->
+     Arnd
 
