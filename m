@@ -4,109 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FD6C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A971C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NwF6WahzMHm2895PJCZr64azvFZo3rJf0ZJJcnJOyTI=; b=ggSNnJnR6AZKebDoBqGu9K3ghL
-	FvpTMqVFUaurlrW+5KXmL7aqRbQLnIMLbqlU2JiKgvd89T5tkGLOhWOzG3SMoabcIxM1PtCWCL7yp
-	ctOjUBHBxuuw0drnjBwqO3H87UU4559X2i33WYAE2kirV0hzYUmqVoDF4KJbtrQjfkE/E4IIJsseh
-	y4k563ty7Vj4sWMe/E22E9aKc9FI6ZF5BaVyNKGN8AzJEJVviH47/d6jqUc/QMkmde9TIAdYKdB+P
-	X9cUTq6INneR8W6n3fhjW8ElGSZB0HOvT82TpaYnBoNECnwwZRN8/F3hZjC185wYwr4vfVW6hSewH
-	l3GvWbCw==;
+	bh=rcCuHqVYCKL4ZVfAAcjqS5FtBduw+dbkV1WkEbl+SbI=; b=ksja+gHzeUE9T0CVnxh5LoaE9R
+	B7fk9B0h+VlnhPsCvbGS1rtxpvdmRKCLysGORlMeV1G1ZFgl8KvNGwg7cXxlwMPai7kKVM0mT3Lc1
+	5e/u8N53bpj3z02XM4K3VGZw7Q4ezErIKM3KBEkEprf388E7OGCrbInpI4MO1An219dG3QRe/Sgh3
+	pD0BWvqJmVkZ/Ee1iKGoDePeG90xqHriySpjvH/QFMwIyhVRaloty7DgP1sdaHMz5rGODR3aYBxGt
+	BRZXRDVvfIK4VYIRt07zDGwg7Lq93OFRWcfbD+5cp4JXPEBiTwoVTi4L/bAQ7tAg4pBKAMCp9V7HG
+	rzig3Mbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8hW-00000008mWY-0FvC;
-	Wed, 29 Jul 2026 18:08:18 +0000
-Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
+	id 1wp8rQ-00000008nTs-1bg0;
+	Wed, 29 Jul 2026 18:18:32 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8hT-00000008mVY-0frt
+	id 1wp8rO-00000008nTG-0UKE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 18:08:16 +0000
-Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id D8C4014002E6;
-	Wed, 29 Jul 2026 14:08:11 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-09.internal (MEProxy); Wed, 29 Jul 2026 14:08:11 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rostedt.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1785348491;
-	 x=1785434891; bh=NwF6WahzMHm2895PJCZr64azvFZo3rJf0ZJJcnJOyTI=; b=
-	JRdh59GvEw2YJjNl4b0sb2XXDN/Wb2PCc/JW2F/OV/a7kRmZ1FITXfoI7p0tHTaa
-	PQfszlVejq3AKOGIYMQOVDwUGQBfYl9XxtIiJpAMGDFPb19lvoltUVFNTztlks+m
-	Om3B8fS/cHK/74JHMylRgDm0kSQ/X/s2bPIacOm35jJTKdriFb5QGfpQJrY9FMp9
-	loU7WNOFAV1hd+pI6vt6xPrgbEzy/j9+0r++VSFSWVmBJrcYasOnQHuDBamNUDP+
-	Pj9vL0+thOKtr2e3HD437RT4jjVTaIqyy65XLoJKhVDrTKwWbImbXZejxFV5TPZj
-	FC4mTzZlGLCfuGEtRglsfA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1785348491; x=
-	1785434891; bh=NwF6WahzMHm2895PJCZr64azvFZo3rJf0ZJJcnJOyTI=; b=b
-	+GMsB8BaZzp9S8uTtN2iW19GRLMCZGSp3VyhrRheqXMvJBLUaMENric23PgprnJD
-	nHSxBtYmlEnhyGrwozhx+cQ/0W5yS1t6L3oP2Dld7mD+CLhv+BShND6GcBiRYBaP
-	8Iy2MSEp9eAT+Q8oT76faaJF7Mh87fdOBkEJ1GnPYlvTL2Bf4GQIzP3uZfrHxaTe
-	dogakftHkBPHR29e/nmeBME5RrgL7UndR6O031XBs9L1Sf6iF+ws0WLch4hGsprZ
-	NEYtQI5v2663sQ4i5x6upgzj0Izl+uevzcFEWIYWJ3qRAimaR4lShiX0FQf/hoRD
-	aSINvusbC8nowItbuWp/w==
-X-ME-Sender: <xms:i0FqahhvI6KHKauYf_IyzQZIy7_zl0CAr-6dWfkCngQGSu2O6gNWxg>
-    <xme:i0FqamaRFOOyx-jGTE4cRmB_MMTOoDuv7vtzGXnUCgoMptFFHi9YOOIbrq7BpeUIk
-    Mb3edO6KE5cq8dGtjqfMOsqO4BNirUMEl8Z_g_DXmPx-39El-yG26o>
-X-ME-Received: <xmr:i0FqaiOaJSdwHME7YRhRV89o6RnwAiqdny4zwCKU1urScVh8w3DltkhOEzMcVLnU3tJxM4eN>
-X-ME-Proxy-Cause: dmFkZTERBjXApnrZrwfYcYubtd8IizaaJqU0kamfvzZdOJhvnPPUf06TI5DFPDTIcatc28
-    2an4NFY/41OsegM7YIizOcF3moFF5tPsTqvOEWMQ49m/J9ujLJLevMme8PQF2WUY5QmBm6
-    nz5aape8gfrzo7xjNg52J0NJs/H4wY2qB2dO5GSMsEmMJIUk/rcHiWJhe20Z6NwiObz3Zq
-    WST4S9B1DwsDaGGoeQe7/o/DEIO98FM6f2Pi93sG4xJiOjE4RmWz9v5f/bX5w5JPRan3cw
-    07qPOtAsZ2FWnKk+GUM3y2FQotAisp7eo1YGmOF5z85KHeLwJts5U1vJy5sA5C2K8HGZOk
-    3Bjp6FkzfsKLiass48861fo/4E0zzIvGq6ByRJTsHEwMciPmcsNZktiMu5OhwEmv57UMXo
-    ZKc/YcbrEZqakZat4X2VOMt1S71EUwUqpjXyCW4MoE7F5GSFUp8vdZEFBwwXM/ghCGugAU
-    BOZyy/vjfXooose5kT6eg2PhaoNf62OTrq2Cy55Rp22J22kjvzvz/vMBQW0s8QS5+IvJ9z
-    m7rnUc8W0NlQn7g+fUcB7JlG/CT+z6MrN7Aqy8BEP5cx0sxrtyVKUChNUFRs3CeFp0UnHO
-    7pl2URwtEkDfDgPeNdo14bH/g924Y+OGcIPl2hCq/P/K4kryJG6+lvlEz+OA
-X-ME-Proxy: <xmx:i0FqaiTEk4Px3IqRWyOkYSyoiqXYfXwwX1WvdWljVc7YUMXKh5-unQ>
-    <xmx:i0Fqat7fgWxLdBgGJXISIihWXY6hiTMv6aNJjTAN7jmgXHhrHMb6yw>
-    <xmx:i0FqalZt0XGFuASztUrqxEPNuEGH_xf577Ar7ulgqgxf4GO_06xlag>
-    <xmx:i0FqahZv1EOEd6ncLcch_4PePD-5cJpSomOqh2vqcgvENPJRFiuY9w>
-    <xmx:i0FqatanVUSGSY54zh1guP6xSXN33irC96kRL2jFnJmgAxSp2N8YF8xV>
-Feedback-ID: id06e481b:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 29 Jul 2026 14:08:10 -0400 (EDT)
-Date: Wed, 29 Jul 2026 14:08:46 -0400
-From: Steven Rostedt <steven@rostedt.org>
-To: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Hongyan Xia <hongyan.xia@transsion.com>, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Dennis Zhou <dennis@kernel.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, Oleg Nesterov
- <oleg@redhat.com>, Naveen N Rao <naveen@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>, Jiazi Li <jiazi.li@transsion.com>,
- Pu Hu <hupu@transsion.com>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
- <linux-mm@kvack.org>, "linux-trace-kernel@vger.kernel.org"
- <linux-trace-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
- <llvm@lists.linux.dev>
-Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
- __always_inline
-Message-ID: <20260729140846.3c18f437@gandalf.local.home>
-In-Reply-To: <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
-	<eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 29 Jul 2026 18:18:31 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-698ae09e356so1903894a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 11:18:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785349107; cv=none;
+        d=google.com; s=arc-20260327;
+        b=osBJpv0w8gmXNdNsxoKFL3iU66H7ghZSEKzcb3UmR182L96tVNLtCY2XI/LZbeYzPB
+         HzJi6TwypveAh3aTr6sKvuB/2zEwlNm19ugL5kPeEg77TSaR2Ms9mIgnVwYEI4nLS7CC
+         FLiGstA2o/4zgoRejd4SBhAosnhUHI8CLIk3x4jI1VVmyUYW9HOJeSTbJ6Z3JkHcq8ae
+         fGH3gHaQBAtQw5cLa7uQlIddyqNmiPPgHN5UEM1icZZzsd0Ybeg0+ljHKictvK3z3SDX
+         DoZB5O9qZBFhf9KepnVwjrgr/gLphuz243kBDS/63gCmpXkDqY2EGjQiYG+B4AUPlOtG
+         aXvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=rcCuHqVYCKL4ZVfAAcjqS5FtBduw+dbkV1WkEbl+SbI=;
+        fh=2LPXBxFyUdIMPW4/14g6Cz6tiusPI0cXuK1bz6JOuHU=;
+        b=RnhIC2AukkkiasQg9cEdtbFtWxla4nZc6QwJh5FncRfFWDiifwjBAOxBkyeNA5ckKd
+         l2foYv1msuRSOPIYfwnh6Y35roSFp6Lfq9vmoJdJ3zJJ2LwvJwNn1MCX2yCz0AvrU602
+         Du01a0PQIW7zJaipOY8v/ZgFn6/ug8+9Oy2pG/dOOgotl5WIkEtFAum6sBJJQHa9a/no
+         gHho8wQ+NCYWfIiZaGD2D/M4Jodu5v6bQkAfpO1Ji48W/DBNzqagWX7As6D9pYfb2Qh4
+         fc62OqE/BMy2PtadimTFg1atjcnRMYCyeWmrqWXgseGTXEUPAPCUcgsc+t9VC8QBUVAQ
+         r5Tg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785349107; x=1785953907; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rcCuHqVYCKL4ZVfAAcjqS5FtBduw+dbkV1WkEbl+SbI=;
+        b=DrvniJpemxURTWejh9LtBz9uSdjspMfbSYpJdZ3URFgZGs/yaurQZLGSv9CjqvaJjz
+         AGMCyVIobZNw8AVVzHPoPiQnyTlOaodHoWLQXtN5WqsSPyD/iZOYPthLeeFnFfOeGFJA
+         cWc+BzR/KZ+gBN9OVe6q3hQETrMSiNPYhwQBm20x8gw9OFznJ2Jk23z4KN4zOKzQfZ4G
+         KVpmYCBKbrDn0UH/GBYtVR6iLpe7CtCjBbgBjCJblLcU8xy73ct94p7ikI8JOkluGxfP
+         ogivtqr/YhNEI8/co4Gy4Au0WkHslBzjc5VAw4SjK+9Rb/EtfSIWPU6oplD9yZfO5IhW
+         x9YA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785349107; x=1785953907;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rcCuHqVYCKL4ZVfAAcjqS5FtBduw+dbkV1WkEbl+SbI=;
+        b=JCzvHaYF50inHNvAx61SauezFHOT47l3mXnphMAYQYyTQnN4bojgsFOoUJ/cn1jb6m
+         sLqKd9eYi0hahKTSOCIbHcpiXn3AQwj89z3k/+OgHq3r2xHVSLb8OmTPXBGZC4Fn/U3p
+         vH03pSZamVoQLzvHafvpDqL4QYMIS2OjJpDcPyewUWRCjH9/Ro+5Bp7k/ipuqPG9HhDR
+         4nEVVxf7u9gqHs3J7yfKQFbtMNQcOxsIUzA4BneC0m95FReNoKCzibGa6ppbOqIxqh1m
+         zUIm9JXwDNNzGcrXVdW033XW58yTvUzLY1BOlMr9cJPJP7sCq6Nmun8DJpO/qzOnzoo4
+         4Mag==
+X-Forwarded-Encrypted: i=1; AHgh+RrhXbe0X372/BwFmrX6aATMAgy+u1Dn1RYlv54m863F3h9O+WX3lS10Klb1CkXJpg/xh4dPCDDZYpuwAssc85BI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEJO5A2yB+6do3wZ5iSGqPoh/KlJ7xr0AP61fKVhgJglDx8fMy
+	+HSIk20H8Qv6geUl+B5WSM2KTHQQp/RnSM+O/gd1+g5cVYW/u8SKw3k+Fk38bCFOtCoEXCmPd7B
+	5BvMFTmoC4Z3GU2DTJHeQMAUgo5X7X3trmk9BP5U=
+X-Gm-Gg: AR+sD11hVwCC1bKs9nG7Prv8o2yUV1SaXrPx/I9jMgCtidoPuoTCSwCjlRWEkonaghT
+	wfe6E3G16WjofP4fDOWuzNytXkxkW9bXN9bDlbpkbCPJJLTJnpri+FYLqsJABcuRowIr2bb+a19
+	KHusBROeFZAwhPsn9m2mAaUH5AKfk3IxEJfce3GjDFBSyz1LWoMpeSfEcAuOCk8pSndhjAcvU2w
+	FideDI/Z5MV27tSw8YHOCm1ukD6ubhW79u9K1A20Y905OwfssY52iE+MTSsxJyPN6lsivvHW0Vl
+	IdxUsVDBGP4LxoQEKFWuXmhzr2H1NP5EiQIaZkwhh3Yi3XcZ2hhdXj+9Hx3QsYlVIz9uMOSFnDe
+	kilEfi0yD8A8vMGgGHNawV5K/9dwDQ2OhNGP6c5OJjca/WeD8aQKCHBZdZyttS9eZ1Gr819rtk5
+	AV0773OqbbuIcb3QcJpEbDifuP3G+QR0/+a7llJfebCRD3f3Hg20xYdWUmtQdyGZAtZg==
+X-Received: by 2002:a05:6402:e0c:b0:698:be4d:ca2a with SMTP id
+ 4fb4d7f45d1cf-6a034a398cfmr4241255a12.15.1785349107364; Wed, 29 Jul 2026
+ 11:18:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260716205811.800920-1-rosenp@gmail.com> <g3gtckpqgacw44jqqb5hb3oejpelxvbba47tdwsvksxbbskygp@mcwtsbypoyar>
+In-Reply-To: <g3gtckpqgacw44jqqb5hb3oejpelxvbba47tdwsvksxbbskygp@mcwtsbypoyar>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Wed, 29 Jul 2026 11:18:15 -0700
+X-Gm-Features: AUfX_mxrjUfVZ84R9XbJRtIPW_yLO3WV_Dd3HDwSinvRF3cFNjojFlllhS1HjGw
+Message-ID: <CAKxU2N_f1nN4Oo94V9MY6Q-wp66j=3kodfMs0BeXVGB9XivvNA@mail.gmail.com>
+Subject: Re: [PATCHv2] PCI: xilinx: use fwnode_irq_get() for INTx IRQ lookup
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Michal Simek <michal.simek@amd.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, 
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_110815_510332_12868779 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20260729_111830_194250_CF28E557 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,73 +126,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Masami,
-
-
-On Mon, 27 Jul 2026 12:25:48 +0000
-Hongyan Xia <hongyan.xia@transsion.com> wrote:
-
-> From: Hongyan Xia <hongyan.xia@transsion.com>
-> 
-> Static inline should be enough to actually inline functions for most
-> compilers, but my Clang-19 somehow thinks it's better to outline them.
-> These tiny helpers then live in normal .text sections instead of
-> .noinstr sections, violating noinstr.
-> 
-> Mark them __always_inline so the compiler can never outline them.
-> 
-> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-> ---
->  arch/arm64/include/asm/esr.h       | 2 +-
->  arch/arm64/include/asm/percpu.h    | 2 +-
->  arch/arm64/include/asm/preempt.h   | 4 ++--
->  arch/arm64/include/asm/ptrace.h    | 4 ++--
->  arch/arm64/kernel/debug-monitors.c | 2 +-
->  include/linux/kprobes.h            | 8 ++++----
-
-Are you OK with this patch? If so, can you ack it?
-
--- Steve
-
->  6 files changed, 11 insertions(+), 11 deletions(-)
-> 
-
-[..]
-
-> diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
-> index 8c4f3bb24429..5880445ed0f0 100644
-> --- a/include/linux/kprobes.h
-> +++ b/include/linux/kprobes.h
-> @@ -384,17 +384,17 @@ static inline void kprobe_ftrace_kill(void) {}
->  struct kprobe *get_kprobe(void *addr);
->  
->  /* kprobe_running() will just return the current_kprobe on this CPU */
-> -static inline struct kprobe *kprobe_running(void)
-> +static __always_inline struct kprobe *kprobe_running(void)
->  {
->  	return __this_cpu_read(current_kprobe);
->  }
->  
-> -static inline void reset_current_kprobe(void)
-> +static __always_inline void reset_current_kprobe(void)
->  {
->  	__this_cpu_write(current_kprobe, NULL);
->  }
->  
-> -static inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
-> +static __always_inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
->  {
->  	return this_cpu_ptr(&kprobe_ctlblk);
->  }
-> @@ -449,7 +449,7 @@ static inline struct kprobe *get_kprobe(void *addr)
->  {
->  	return NULL;
->  }
-> -static inline struct kprobe *kprobe_running(void)
-> +static __always_inline struct kprobe *kprobe_running(void)
->  {
->  	return NULL;
->  }
-
+On Wed, Jul 29, 2026 at 9:00=E2=80=AFAM Manivannan Sadhasivam <mani@kernel.=
+org> wrote:
+>
+> On Thu, Jul 16, 2026 at 01:58:11PM -0700, Rosen Penev wrote:
+> > Replace irq_of_parse_and_map() with fwnode_irq_get(dev_fwnode(dev), 0)
+> > in xilinx_pcie_parse_dt(). For an OF-backed device this is equivalent t=
+o
+> > the previous call, but uses the generic firmware-node API.
+> >
+>
+> What is the benefit of using fwnode API for OF only driver?
+I get conflicting information. Apparently of_irq_get needs a call to
+irq_dispose_mapping but fwnode_irq_get does not. irq_of_parse_and_map
+definitely does.
+>
+> - Mani
+>
+> > Unlike irq_of_parse_and_map(), fwnode_irq_get() returns a positive IRQ =
+or
+> > a negative errno and never 0 (it rewrites 0 to -EINVAL). Store the resu=
+lt
+> > in an int and check for irq < 0, returning the error (including
+> > -EPROBE_DEFER). This also adds the error handling the previous code
+> > lacked, where irq_of_parse_and_map() failures were passed straight into
+> > devm_request_irq().
+> >
+> > Built for ARM (multi_v7_defconfig + CONFIG_PCIE_XILINX) with LLVM=3D1;
+> > drivers/pci/controller/pcie-xilinx.o compiles cleanly.
+> >
+> > Assisted-by: opencode:hy3-free
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >  v2: use dev_err_probe to handle EPROBE_DEFER.
+> >  drivers/pci/controller/pcie-xilinx.c | 15 ++++++++-------
+> >  1 file changed, 8 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/control=
+ler/pcie-xilinx.c
+> > index 4aa139abac16..58532296182f 100644
+> > --- a/drivers/pci/controller/pcie-xilinx.c
+> > +++ b/drivers/pci/controller/pcie-xilinx.c
+> > @@ -20,10 +20,10 @@
+> >  #include <linux/of_address.h>
+> >  #include <linux/of_pci.h>
+> >  #include <linux/of_platform.h>
+> > -#include <linux/of_irq.h>
+> >  #include <linux/pci.h>
+> >  #include <linux/pci-ecam.h>
+> >  #include <linux/platform_device.h>
+> > +#include <linux/property.h>
+> >
+> >  #include "../pci.h"
+> >
+> > @@ -535,7 +535,7 @@ static int xilinx_pcie_parse_dt(struct xilinx_pcie =
+*pcie)
+> >       struct device *dev =3D pcie->dev;
+> >       struct device_node *node =3D dev->of_node;
+> >       struct resource regs;
+> > -     unsigned int irq;
+> > +     int irq;
+> >       int err;
+> >
+> >       err =3D of_address_to_resource(node, 0, &regs);
+> > @@ -548,7 +548,10 @@ static int xilinx_pcie_parse_dt(struct xilinx_pcie=
+ *pcie)
+> >       if (IS_ERR(pcie->reg_base))
+> >               return PTR_ERR(pcie->reg_base);
+> >
+> > -     irq =3D irq_of_parse_and_map(node, 0);
+> > +     irq =3D fwnode_irq_get(dev_fwnode(dev), 0);
+> > +     if (irq < 0)
+> > +             return irq;
+> > +
+> >       err =3D devm_request_irq(dev, irq, xilinx_pcie_intr_handler,
+> >                              IRQF_SHARED | IRQF_NO_THREAD,
+> >                              "xilinx-pcie", pcie);
+> > @@ -585,10 +588,8 @@ static int xilinx_pcie_probe(struct platform_devic=
+e *pdev)
+> >       pcie->dev =3D dev;
+> >
+> >       err =3D xilinx_pcie_parse_dt(pcie);
+> > -     if (err) {
+> > -             dev_err(dev, "Parsing DT failed\n");
+> > -             return err;
+> > -     }
+> > +     if (err)
+> > +             return dev_err_probe(dev, err, "Parsing DT failed\n");
+> >
+> >       xilinx_pcie_init_port(pcie);
+> >
+> > --
+> > 2.55.0
+> >
+>
+> --
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
