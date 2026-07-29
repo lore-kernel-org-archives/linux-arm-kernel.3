@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78A6C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B830C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f1pEajGXSVhfxT8yUIcDvk7DK4wsMWfpWBc33/y8RKk=; b=fecIVYFuQnxGbHpkqRQtR1g6bG
-	9kY464kg4mNlZJKqbDwlW7AyF5agPVpfPW6nbvgpb3ZQmDsmVJK4P4OaJLcHs9Fo6V4Et07NmA7OV
-	eoiGfo6QknbSh42Os6KHh41mdRarnHPLpPGoyRICZpQ2nHKeWRXm/eDr8V9e6zV3Br7aVHXztEs9m
-	1VtVb/ZcbUCPbYk/IOmyJae1WM81dI2z0Cbavewpa9/1tCmijsZu8Q9utfJRQssfV5aBcLbz28gjR
-	1W01amCKxdHRQXQ9Fr8xsrfcS+UAVbWwLvTJENT5IeZrsT4k9blYN0Lv7g+mhRqpL4m+AdXQYfB/r
-	hKzIAR2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LIdQn+KrP8xhzMtMyHhZVHmc0uawbm7W95bgy7yOljI=; b=K0Il6Nh4WFT1AFbN4b4osT3zbL
+	UIBk7jMoT3sqqvmn+PtJBso++O2ByB5t7y7LzbJT52cE66Ms92yEJsIHZ6krruYMFqC0oFI8b4iXw
+	F8uAERD/8XfMzT6L12woj6NouWbvMlI+glR/cIzAmwXOIodWxoHHWUPPgzNeada0yfWCuo0Ddv9NV
+	hRnoHYsxNQreq+LPm9E4QVcQmdSLmFqV3LKjdr1l7ILtoOgcOx4YbzvR+iBNrxYXyZX04Ls4aSM8Q
+	g0K0bNiDDn3S/OsR9mwYj11aTu8iFXtX2LyyYryBCum2syOiDwmHlSrNPTWiEdaW9YwNh7zkpuRw1
+	bGuD9rpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6JW-00000008Qcq-34q7;
-	Wed, 29 Jul 2026 15:35:22 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1wp6Rf-00000008RKC-3XGr;
+	Wed, 29 Jul 2026 15:43:47 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6JU-00000008Qbk-07lO
+	id 1wp6Rc-00000008RJN-3U6F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 15:35:21 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RoqwbVX/giSdqykFL9k4CVa4zQ3ydsqm5Zc4DY7/kmpF29CAlegAC0H5fyyr78gzTvw03kWfiLq67ckDV/8tPw+@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785339316;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=f1pEajGXSVhfxT8yUIcDvk7DK4wsMWfpWBc33/y8RKk=;
-	b=gyRizr4Zkyr2wC67m9Muce+NVsdz9m1fw+9fHI2RBtrrAH0K3U0OyGxFm3UTN1lVQz3DIi
-	sFG9t3inew2yslT4+EebFoH0w2AwQWfLY5eagtdnSZSWgJJnxx3FrqsQa7rckF+SO/nQRt
-	2wKANMfQ7dIG10htkeRdi4ObdQl034s=
-X-Gm-Message-State: AOJu0YyJT75RdnqKrZ8gh5Q7VT6E5mWNi6ciJwaI0XHgSLMC7l6mUn8P
-	/ekKDx/LvIMpxuq7WXXnLwj/JT4/GEg5JDcqRWb3hf7Rf/00cjfvHupZ84y4o0ILpvynLOdcwrF
-	V6Au4c/avBprPZsQEnjezk5F2bZnlwW5/cdg8jANA
-X-Received: by 2002:ac8:7dc4:0:b0:528:3186:5799 with SMTP id
- d75a77b69052e-52b35089d24mr744871cf.10.1785339304844; Wed, 29 Jul 2026
- 08:35:04 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-5-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-5-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 29 Jul 2026 16:35:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwMt8WWi_UcjET9a50v-U6oFpQm7dRbm75W1fDQOzxS1Q@mail.gmail.com>
-X-Gm-Features: AUfX_mxu8rOr8bOtktjWjxfsoHK7AgqNHWBimIK3hru5I0gqCv99uMo4IFXvW2M
-Message-ID: <CA+EHjTwMt8WWi_UcjET9a50v-U6oFpQm7dRbm75W1fDQOzxS1Q@mail.gmail.com>
-Subject: Re: [PATCH v9 05/16] KVM: arm64: PMU: Keep implemented counter mask EL-independent
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+	Wed, 29 Jul 2026 15:43:46 +0000
+Received: from mail01.layka.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 068578616C;
+	Wed, 29 Jul 2026 17:43:40 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id xLk8gZc0mQH4; Wed, 29 Jul 2026 17:43:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1785339819; bh=2A7Ua+gGboyx9Qu3yZUlx+cQ5spqoldtu1knNnc9JE8=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=OXN1/If7d5tooCBw/+/V1NtXl87ApdLG3jJbzBj6rNm3+Gq7Y0gRW0ofxXcM9bMLH
+	 eoAJaw3Eow8cecVoB32hOUHGBqRgY75c8I1nssgg+iFEmJY0qzesY1VAGRN/2nN9OO
+	 BBs0Jl6MYPyVH/OL1b7byvp51FdMxTD2m3RCSTRDXY/nkjC9y6Gxzumlo4FyIucevI
+	 n94SRroFoA2HZhrBUiR9w4A4PcMr6oXhXiC1PSTmjBKPUpa7SU44KE5sOyaTzTegpO
+	 cndn471sxcIw1kfdMxsYG3WYpbp8RnL+Dle9bxNeN3EVSdesxWxSWyJmq2mV3UDG7d
+	 lDFOZ44ktr+MA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 29 Jul 2026 21:13:25 +0530
+Message-Id: <DKB6545IAUEM.31XPRNO2FNBPM@disroot.org>
+Subject: Re: [PATCH 2/5] Input: zinitix - do not ignore non-moving fingers
+From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
+To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>, "Kaustabh Chakraborty"
+ <kauschluss@disroot.org>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Michael Srba"
+ <Michael.Srba@seznam.cz>, "Linus Walleij" <linusw@kernel.org>, "Peter
+ Griffin" <peter.griffin@linaro.org>, "Alim Akhtar"
+ <alim.akhtar@samsung.com>, <linux-input@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
+References: <20260724-zinitix-modes-v1-0-f6df7d86a878@disroot.org>
+ <20260724-zinitix-modes-v1-2-f6df7d86a878@disroot.org>
+ <amO1AWyjGltjO0lZ@google.com>
+In-Reply-To: <amO1AWyjGltjO0lZ@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_083520_347495_6FD49701 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20260729_084345_296113_6E4ADD5A 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +80,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
-<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+On 2026-07-24 12:24 -07:00, Dmitry Torokhov wrote:
+> Hi Kaustabh,
 >
-> kvm_pmu_implemented_counter_mask() derives the counter count from
-> kvm_vcpu_read_pmcr(). For a nested vCPU outside EL2, PMCR_EL0.N reflects
-> MDCR_EL2.HPMN instead of the VM-wide counter count.
+> On Fri, Jul 24, 2026 at 12:54:04AM +0530, Kaustabh Chakraborty wrote:
+>> With the ZT7548 touchscreen present in the Galaxy J6, multitouch does no=
+t
+>> work reliably. This is due to the fact that the driver reports fingers
+>> only when their state is changed, so it's either placed against the
+>> scren, moved, or drawn away from the screen.
+>>=20
+>> The function which is responsible for this is zinitix_report_finger().
+>> This function is called from the IRQ handler, under the following
+>> condition:
+>>=20
+>> 		if (p->sub_status & SUB_BIT_EXIST)
+>> 			zinitix_report_finger(bt541, i, p);
+>>=20
+>> This implies and ensures that every valid finger must have the
+>> SUB_BIT_EXIST flag.
+>>=20
+>> However, at the beginning of the function, it refuses to recognize any
+>> finger if it has none of SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE. This
+>> excludes fingers in reports which do not move from the position since
+>> the previous interrupt. Add SUB_BIT_EXIST to the list of valid bits.
 >
-> Consequently, processing a PMU reload while the saved context is L2 can
-> clear and fail to recreate state for counters reserved for EL2.
->
-> Build the implemented counter mask from nr_pmu_counters instead. Keep
-> the EL-dependent HPMN restriction in
-> kvm_pmu_accessible_counter_mask(), where it controls guest access.
->
-> Fixes: 600f6fa5c90c ("KVM: arm64: Let kvm_vcpu_read_pmcr() return an EL-dependent value for PMCR_EL0.N")
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+> This makes the check basically a no-op as SUB_BIT_EXIST would always be
+> set when we reach this function. It may very well be that we want to
+> delete this check altogether, or maybe we need to add SUB_BIT_UPDATE and
+> SUB_BIT_WAIT. I am curious what status bits you see when this condition
+> (original) triggers for you...
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+I see 0x03 [EXIST | DOWN] when the finger touches the screen, and 0x05
+[EXIST | MOVE] when it moves. When it stays in the same place (this is
+triggered in multitouch where one finger moves generating an event but
+the other is stagnant) it reports 0x01 [EXIST]. When it's lifted up it
+reports 0x08 [UP].
 
-Cheers,
-/fuad
+It looks like report_finger() is meant to be called when the finger is
+up but it isn't because EXIST is not set during the UP event. So I guess
+the solution is to remove the guard in the IRQ func and call
+report_finger() unconditionally.
 
-> ---
->  arch/arm64/kvm/pmu-emul.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+>>=20
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
+>>  drivers/input/touchscreen/zinitix.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>=20
+>> diff --git a/drivers/input/touchscreen/zinitix.c b/drivers/input/touchsc=
+reen/zinitix.c
+>> index 3421b8ffb19b..fdcb80f52c91 100644
+>> --- a/drivers/input/touchscreen/zinitix.c
+>> +++ b/drivers/input/touchscreen/zinitix.c
+>> @@ -406,7 +406,7 @@ static void zinitix_report_finger(struct bt541_ts_da=
+ta *bt541, int slot,
+>>  	u16 x, y;
+>> =20
+>>  	if (unlikely(!(p->sub_status &
+>> -		       (SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE)))) {
+>> +		       (SUB_BIT_EXIST | SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE)))) =
+{
+>>  		dev_dbg(&bt541->client->dev, "unknown finger event %#02x\n",
+>>  			p->sub_status);
+>>  		return;
+>>=20
 >
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index b4b877f31097..5281d37634a0 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -317,12 +317,12 @@ u64 kvm_pmu_accessible_counter_mask(struct kvm_vcpu *vcpu)
->
->  u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
->  {
-> -       u64 val = FIELD_GET(ARMV8_PMU_PMCR_N, kvm_vcpu_read_pmcr(vcpu));
-> +       u64 n = vcpu->kvm->arch.nr_pmu_counters;
->
-> -       if (val == 0)
-> +       if (n == 0)
->                 return BIT(ARMV8_PMU_CYCLE_IDX);
->         else
-> -               return GENMASK(val - 1, 0) | BIT(ARMV8_PMU_CYCLE_IDX);
-> +               return GENMASK(n - 1, 0) | BIT(ARMV8_PMU_CYCLE_IDX);
->  }
->
->  static void kvm_pmc_enable_perf_event(struct kvm_pmc *pmc)
->
-> --
-> 2.55.0
->
->
+> Thanks.
+
 
