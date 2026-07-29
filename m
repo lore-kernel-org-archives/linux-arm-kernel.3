@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07F6C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 06:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E929BC53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 06:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hu86WNjJ+kA/XeSuM7zN7dq8Faj07B8lKH5Il6BqR+4=; b=Sf6+DhJvRFV6x7C6UGniDnnuVJ
-	oD9DlDtSeU9Mp6Bu4S6oQ5obv14sgiqflJZatw11HKYSyUq9lpfaOrJYCdxIcBX9CJDViVUs6ZGOP
-	TTJC7a7e4U+EMGg4i2ervRB4RzlIWZhXWY2qpjGW+iSxyjv36GHrLfnG46a/9gsMpKar8oNzNakFA
-	Dkq3wy0oqsEoL3m/ERhlJiMovoZb8U5fT6+URKNdLApPKSDZanaeeUE3y43iM/LSwZDC1iduF49pg
-	SeccsxbPUjVgXNhe20ycVW5DDDq+JUelaqDRBrnxoCXFP6HzBC1oX2oESywTgbQAIlm4Htju9NxaW
-	2QzSEq8A==;
+	bh=Au3B6tmLC3tMUt51a77RTkKN+/zhxdhlLpZElLCtiTw=; b=TSg+ilaxPmNwKWqxS5AMVC4U4z
+	Jsr0mdUy4vGOGhEoScSR89OkHvvjNqUtI6hOe69oWbU/AQ5McF9Q6GYAhzM0QpqQbVMeNGPYp9o6u
+	dzzHGeVuFfnyDnsHQlfd0v//Rm3V0nXwjSFYi4kNQXoBG/eimlpRAdb03ghYoikRZM2Si0KEtVs74
+	J8+VyrXlsKA93B4rY5ZKwmKNmaDHh0izdoexf3gTtykanogMfmHiteEAOCycmvvXyGMtcEMgJ7Noa
+	Ax1wJ8ZDNA0fUxLmdIqFFW/J5TxJOXmaVEw45s1XX/RuSnodbDDMnXQKpB+ebjWWLDPq0JMlgz256
+	DhgEfMZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woxS3-00000006z9X-1LA1;
-	Wed, 29 Jul 2026 06:07:35 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1woxSB-00000006zDs-2fgk;
+	Wed, 29 Jul 2026 06:07:43 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woxS0-00000006z8C-2Yh3
+	id 1woxS7-00000006zBK-2Mql
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 06:07:33 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-84861fc51f5so287855b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 23:07:32 -0700 (PDT)
+	Wed, 29 Jul 2026 06:07:41 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-845c92bc464so534429b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 23:07:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785305252; x=1785910052; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785305259; x=1785910059; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Hu86WNjJ+kA/XeSuM7zN7dq8Faj07B8lKH5Il6BqR+4=;
-        b=Q4imaKY1tBL8pfQgMk6pw9UgDQo0rfSQAAf4hsI1gjDXaYdCgkLiMP0sZXaAmvROI1
-         nUTTo5EgWMlCPURPNK5ImWV0dqxrU7p9UInm6r6bCdcGV0TbxxV9CypYqleelgj5q1My
-         UhvI/tXeacBNHldGdxh4y4Q/olnlZZLtIuDBZ7MEp9pyG91NtuQ0sWScC236jkyopuLc
-         JBOlEOtsRzpV69eajC3i4+Zt6p0RbEGd5pmI6zLp+4NaW5ZVBqkCIb2CbKipEHcMaJXV
-         O6WwTR8KAzf1ZQkld8VrNCFm2+Dh92smEr6ELgftNB2d8MhaxGOMBVwO9Qdx2SMQu+NV
-         6xuA==
+        bh=Au3B6tmLC3tMUt51a77RTkKN+/zhxdhlLpZElLCtiTw=;
+        b=eIGwkbuszwmN4JFR+OWzBB95hyzG7omxwDIUSmNtCUZ6K6aabcoWV+w1sIYydgKSgv
+         Y9hczIJZyj/DPS3U/FUKHkC0DJz/8xgX9wrtXF6f94wcGBKYBeeIQdieolxIjFMQn7O4
+         uMCMBt7rBO4PUV33KPJ0w3oLp9xXJOcQgzy9SpRlcMkoxS+J2PisnJXFOOUgnYQ6zOYc
+         KsK3OwvN6yluLhlcVfwYzUJ1MJCwfM64QrYNVwYbBbKh1Cb687+rc7PGFqK/1VVgpNDU
+         FW5NGilzelqHC5ysD0Jak4JY4nj7Jy2OM9M5UOXPgsRgR0sGMOzWBeMmIByW28UxMEIR
+         lvqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785305252; x=1785910052;
+        d=1e100.net; s=20251104; t=1785305259; x=1785910059;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Hu86WNjJ+kA/XeSuM7zN7dq8Faj07B8lKH5Il6BqR+4=;
-        b=KTgfewjPHXak1Dp9YVlZtGfPkLzVRogQORXzGN5i22qVx3ExajT7+6HDPKE8UyrW3C
-         MsLlywjciocDIRUUFfnZmWcz4y/HXTety+ZxyLt/x2Vh5qdi2Ms1UE7MKCvhpcD0kd93
-         tmlz68onrAadgpj/SseFqTKJiAwabtirXuC/y+yDffdY0KNa2Hy0B0UJcavqGZZMifsV
-         sLh0mMfhIA0x9obIALDTJDwiyZea2+CKrBVrLZgmLAKZg8dfioovyp5ruSvW7SHqPifr
-         MU/tGCDBgBVVn7jye27z0LvssJnzTc2W04eWFB0lMFCPNKhsag0bg12K2UFJI3a1fpAB
-         XuaA==
-X-Forwarded-Encrypted: i=1; AHgh+RpbJ+peY41TfXNwSsC21HqIXQpsUPR5peqwopssJd3YbZP+UoCV94nRapfmutU9ze4WSR+RwNt/409byBDJNUrK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7jWpUCQ4DZ9aT8x9INRsoFGzdMhVa9oJ0Xz9kwc6Uh/U6zVNS
-	nnmFBaFATRUwQrq9BH6MKIzlVNJcrF0LXxutLtHqJtJn5NVzxmjWFEe1
-X-Gm-Gg: AR+sD13TEQdu1ArBDH0c4I832kvbfxNDnvviJlItzscN+02UgCHGZaYmDpaxYXtMdcI
-	mBOoXrr/LhCFgkRi7LbV4m4pa6wWUwZl5XF9/zZ1yydSwGCz3rvhnUiSSum4IQdw9ZaqR6YUHZj
-	L2UVownTIoTYVQf9cwDuUsHNGXRehZwjLmls8vcsXNaRQbW9tdTW6GzrB/oDHaB9bU3WwpE/mYQ
-	E15VmOsdsL3QlH1lSa/TLTAYW8P3e9ZYyLBkiqOPxKr+YzI6iBk6I8DhgZhFsneKKMcBD9pQqYF
-	DTLoPf/f0lboFz7pM4GJlujzQpVd4/ymMGrEbrMmGx2I+/JEUcIizQutWtm5CQMr2gVs3yaxjz/
-	dhhQs0smUZ9fjeyX3cf+KKDhBniklAmSmIfvFM4PEe0N4jPpWE1M5/pyGYFc7pgj7hcBknKkJUt
-	cc+7rWIbbkL8Ohxp7gXpCeAbIlobEPZd7i7CYcPq1PeVLQbwzxOCFhTMqsgaymkn859AqRwDdAd
-	WUGE56jW8p4TI057sgLBwjH/uwNt4tt6WtCFF8SohTa+6K47V4=
-X-Received: by 2002:a05:6a00:b91:b0:82f:38df:681c with SMTP id d2e1a72fcca58-84e931ec99amr5885268b3a.6.1785305251710;
-        Tue, 28 Jul 2026 23:07:31 -0700 (PDT)
+        bh=Au3B6tmLC3tMUt51a77RTkKN+/zhxdhlLpZElLCtiTw=;
+        b=hN5zLj/0WoG79j4Ut9IpB4nBKlbx+1xKwx66pr/T96in5rYsnMqKXkOSAOhtMrbZzR
+         VZde7RNlYXx/RKtmuEFt+jFrtVYpS5P27K2EmgsgPAXpUnfnyRs2JASVrTGrGzJnSDaI
+         cNCwUe4ZiVYdxD/a3hX7dMK1VwHftVA0M/OyvarX5y2D73rlMG7mmWRoos0cTWucl5gO
+         x/6LeiSKxmG0R3ySqTEDylXPbcH0DYGj/fg/i2KrP9z/XsuaFroVW3SJ5x1DDo5xLXdn
+         rMdAkrdgKwfjIBp2vU7L0cZ0KwrEGXMjndjXaD0zukHokB6CzrFKXu15Y0z6N2KD/6ZN
+         gJlQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp/iUWG+SevF57zBB3EVUVnuv3hFK7GUguBl+Sba0pA7jIHjCKnnjyeh+PpgBmIYu4ZuLbe9uq22noSa1lcD59L@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDR8L/4RisD6aFtTgMpMUt+seqIebd0IjCMbXt8wfOoTHGCtMn
+	iyle5VM1PQC+4zN+kQjOAuFSL3j9+evPVk34RAIELbthfUyw4v6J/kzE
+X-Gm-Gg: AR+sD12/62IyZnBMs4zVSqT2dwp14vJVBvhXnFOCB8qRw0ruPDRitON97cYnWt8eDkN
+	nrZZQcVnQX8Nj+/iGGn61KWuAULguSmXKclctR5q2xVjsyqdPGFHjLi8cQwOP5K+ZW8ELnl/ZmN
+	kLjfyl1waLbfyFUgH/wX5IDbIn3wFmgpYJvAkqUslvcVn+BHs0FbgvLLaA6atFlGj0IDsqvRmm6
+	zQJ32ADvSGFRbZO5hdcsNkfyqBs9f41G0uyG42pRoV2S5Za0JDPEqRr97V9DYPTfZqKrIB/S9Fd
+	Yni34wHhEHEaQkPLGp+r3BPeXB3KAhiKMSaKWF87ohR9lOJwuQdtAz6NSN6vnIzkU8UMAgiE83j
+	AGt3qdoukfEO/3OiTjXHO73of1q6Lx9Kfg2Gpc151G06qrNrAkz0Kv5rDngnXDVrj6dEV4Th85s
+	xwerL3Yp6BdRRgLp90MSx22GV7oaVD7efDpkSxKGg4HzJMVCoFhgt5/q2uPvi7196L9f4qBYu8f
+	yLXp0sjzqBfuaqY43nCMQ4opyOaLFJumREiikZBKx2gWtFEw5g=
+X-Received: by 2002:a05:6a00:399a:b0:848:2f74:1d5b with SMTP id d2e1a72fcca58-84e932ca215mr5555635b3a.65.1785305258751;
+        Tue, 28 Jul 2026 23:07:38 -0700 (PDT)
 Received: from debian-rockchip-rock5b-rk3588.. ([2405:9800:b670:b64b:1c6e:95da:41c0:e7b6])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea02f8473sm805504b3a.31.2026.07.28.23.07.26
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea02f8473sm805504b3a.31.2026.07.28.23.07.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 23:07:31 -0700 (PDT)
+        Tue, 28 Jul 2026 23:07:38 -0700 (PDT)
 From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
 	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
@@ -87,17 +87,17 @@ Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
 	jkoolstra@xs4all.nl,
 	Frank.li@oss.nxp.com,
 	Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Subject: [PATCH v5 1/2] media: hantro: release runtime resources when device_run fails
-Date: Wed, 29 Jul 2026 06:04:39 +0000
-Message-ID: <20260729060440.2092-2-tharitt97@gmail.com>
+Subject: [PATCH v5 2/2] media: hantro: use DEFINE_RUNTIME_DEV_PM_OPS
+Date: Wed, 29 Jul 2026 06:04:40 +0000
+Message-ID: <20260729060440.2092-3-tharitt97@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260729060440.2092-1-tharitt97@gmail.com>
 References: <20260729060440.2092-1-tharitt97@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_230732_661607_447C454F 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260728_230740_418820_567DC100 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,156 +112,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-device_run() acquires a runtime PM reference and enables the VPU clocks
-before invoking the codec-specific run callback.
+The runtime suspend and resume callbacks are currently guarded by
+CONFIG_PM. Removing the guard directly would leave the callbacks unused
+when CONFIG_PM is disabled.
 
-If clk_bulk_enable() fails, the runtime PM reference is left held. If
-the codec-specific run callback fails, both the enabled clocks and the
-runtime PM reference are left held.
+Define the PM operations with DEFINE_RUNTIME_DEV_PM_OPS() and use
+pm_ptr() when assigning them to the platform driver. This keeps the PM
+callbacks available when needed while avoiding unused-function warnings
+for CONFIG_PM=n builds.
 
-Make the clocks part of the device's runtime PM state by enabling them
-from the runtime-resume callback and disabling them from the
-runtime-suspend callback.
-
-Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
 Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 ---
- .../media/platform/verisilicon/hantro_drv.c   | 66 +++++++++++--------
- 1 file changed, 39 insertions(+), 27 deletions(-)
+ drivers/media/platform/verisilicon/hantro_drv.c | 11 +++--------
+ 1 file changed, 3 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index 2e81877f640f..d6fcd4f7f9da 100644
+index d6fcd4f7f9da..35302cf9f233 100644
 --- a/drivers/media/platform/verisilicon/hantro_drv.c
 +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -59,8 +59,7 @@ static const struct v4l2_event hantro_eos_event = {
- 	.type = V4L2_EVENT_EOS
- };
- 
--static void hantro_job_finish_no_pm(struct hantro_dev *vpu,
--				    struct hantro_ctx *ctx,
-+static void hantro_job_finish_no_pm(struct hantro_ctx *ctx,
- 				    enum vb2_buffer_state result)
- {
- 	struct vb2_v4l2_buffer *src, *dst;
-@@ -86,15 +85,13 @@ static void hantro_job_finish_no_pm(struct hantro_dev *vpu,
- 					 result);
+@@ -1284,7 +1284,6 @@ static void hantro_remove(struct platform_device *pdev)
+ 	pm_runtime_disable(vpu->dev);
  }
  
--static void hantro_job_finish(struct hantro_dev *vpu,
--			      struct hantro_ctx *ctx,
-+static void hantro_job_finish(struct hantro_ctx *ctx,
- 			      enum vb2_buffer_state result)
- {
--	pm_runtime_put_autosuspend(vpu->dev);
--
--	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
-+	struct hantro_dev *vpu = ctx->dev;
- 
--	hantro_job_finish_no_pm(vpu, ctx, result);
-+	pm_runtime_put_autosuspend(vpu->dev);
-+	hantro_job_finish_no_pm(ctx, result);
- }
- 
- void hantro_irq_done(struct hantro_dev *vpu,
-@@ -111,7 +108,7 @@ void hantro_irq_done(struct hantro_dev *vpu,
- 	if (cancel_delayed_work(&vpu->watchdog_work)) {
- 		if (result == VB2_BUF_STATE_DONE && ctx->codec_ops->done)
- 			ctx->codec_ops->done(ctx);
--		hantro_job_finish(vpu, ctx, result);
-+		hantro_job_finish(ctx, result);
- 	}
- }
- 
-@@ -127,7 +124,7 @@ void hantro_watchdog(struct work_struct *work)
- 		vpu_err("frame processing timed out!\n");
- 		if (ctx->codec_ops->reset)
- 			ctx->codec_ops->reset(ctx);
--		hantro_job_finish(vpu, ctx, VB2_BUF_STATE_ERROR);
-+		hantro_job_finish(ctx, VB2_BUF_STATE_ERROR);
- 	}
- }
- 
-@@ -170,29 +167,24 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
- static void device_run(void *priv)
- {
- 	struct hantro_ctx *ctx = priv;
-+	struct hantro_dev *vpu = ctx->dev;
- 	struct vb2_v4l2_buffer *src, *dst;
- 	int ret;
- 
- 	src = hantro_get_src_buf(ctx);
- 	dst = hantro_get_dst_buf(ctx);
- 
--	ret = pm_runtime_resume_and_get(ctx->dev->dev);
--	if (ret < 0)
--		goto err_cancel_job;
--
--	ret = clk_bulk_enable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
--	if (ret)
--		goto err_cancel_job;
-+	ret = pm_runtime_resume_and_get(vpu->dev);
-+	if (ret < 0) {
-+		hantro_job_finish_no_pm(ctx, VB2_BUF_STATE_ERROR);
-+		return;
-+	}
- 
- 	v4l2_m2m_buf_copy_metadata(src, dst);
- 
--	if (ctx->codec_ops->run(ctx))
--		goto err_cancel_job;
--
--	return;
--
--err_cancel_job:
--	hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
-+	ret = ctx->codec_ops->run(ctx);
-+	if (ret)
-+		hantro_job_finish(ctx, VB2_BUF_STATE_ERROR);
- }
- 
- static const struct v4l2_m2m_ops vpu_m2m_ops = {
-@@ -1296,10 +1288,30 @@ static void hantro_remove(struct platform_device *pdev)
+-#ifdef CONFIG_PM
  static int hantro_runtime_resume(struct device *dev)
  {
  	struct hantro_dev *vpu = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_bulk_enable(vpu->variant->num_clocks, vpu->clocks);
-+	if (ret)
-+		return ret;
-+
-+	if (vpu->variant->runtime_resume) {
-+		ret = vpu->variant->runtime_resume(vpu);
-+		if (ret)
-+			goto err_disable_clocks;
-+	}
-+
-+	return 0;
- 
--	if (vpu->variant->runtime_resume)
--		return vpu->variant->runtime_resume(vpu);
-+err_disable_clocks:
-+	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
-+	return ret;
-+}
- 
-+static int hantro_runtime_suspend(struct device *dev)
-+{
-+	struct hantro_dev *vpu = dev_get_drvdata(dev);
-+
-+	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+@@ -1314,13 +1313,9 @@ static int hantro_runtime_suspend(struct device *dev)
+ 	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
  	return 0;
  }
- #endif
-@@ -1307,7 +1319,7 @@ static int hantro_runtime_resume(struct device *dev)
- static const struct dev_pm_ops hantro_pm_ops = {
- 	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
- 				pm_runtime_force_resume)
--	SET_RUNTIME_PM_OPS(NULL, hantro_runtime_resume, NULL)
-+	SET_RUNTIME_PM_OPS(hantro_runtime_suspend, hantro_runtime_resume, NULL)
- };
+-#endif
+ 
+-static const struct dev_pm_ops hantro_pm_ops = {
+-	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+-				pm_runtime_force_resume)
+-	SET_RUNTIME_PM_OPS(hantro_runtime_suspend, hantro_runtime_resume, NULL)
+-};
++static DEFINE_RUNTIME_DEV_PM_OPS(hantro_pm_ops, hantro_runtime_suspend,
++				hantro_runtime_resume, NULL);
  
  static struct platform_driver hantro_driver = {
+ 	.probe = hantro_probe,
+@@ -1328,7 +1323,7 @@ static struct platform_driver hantro_driver = {
+ 	.driver = {
+ 		   .name = DRIVER_NAME,
+ 		   .of_match_table = of_hantro_match,
+-		   .pm = &hantro_pm_ops,
++		   .pm = pm_ptr(&hantro_pm_ops),
+ 	},
+ };
+ module_platform_driver(hantro_driver);
 -- 
 2.47.3
 
