@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037B3C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2FCC54F52
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcAuYsu0755M/LuA8SWzj9uvfmRzNP6x4Boe1U5Dos0=; b=rxUjakSNd5KPDpvUXFgerNySZO
-	Y7IivxxfyNx+Zq76WuFfOTXI3CdVSze3Y7LSLSs/B7XBnoRwOOQP2mdmwSIiGcU7KtqQCuhPNjWAm
-	fm8+ilZkrlQWMu2grvI6Ja0lGerUzPpoGEy6LHc8dANS6ULuu1/VW8OKSNw242JNc8pURwBRjd8vo
-	XIQkGZeeVSLyzMB/eTLNjIDuiCENooqCKgcb/ylMbH9RRGvYODA76CeJs8x1//bq7I2Q6nQh6rg+N
-	DCaFpw9g/p6mcMM5qrbdQiih3YZmhBMhJ1TijdDmSUHkcCTgQAJU10C27Cu/zHnkO0zhcSnCzEK1T
-	Z/eI0Zeg==;
+	bh=AN1FzAefzA61KlLKqNFjJJaocWdRcH+GLOTsXDoSoIw=; b=15AQ9wVZ2lgw5W3vmgApEtvHtf
+	aofX7FmVKSBr/4Uq1drx/NP8avXxKv8uTbrTSWpbT/qUangoGXk3pSr9itTlmRQZ4MToZbUuyiMY9
+	0JqidLY1+Klv8HAk0xw3HuYupEUTJ6JQ9FqQgw5BoQ1wPOrbhszrT5R0di2lvIDs0lfWEHVws3jCO
+	M+QCcrt/Gmvxn5jRaYofof7oDLroVvvo/v0AxsCV0LCs/b/1E8KpYV7mjaMRlQP7kyNkplvgMb/Hq
+	uE0EZ703TBtnEg71j/KXB4kMKufNhlClz5UP3kpsFd6EGW3/QIYkx02hwuz3UgBcystLlgzyZVS4S
+	iLdA6edA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1oP-00000007aVM-1xx1;
-	Wed, 29 Jul 2026 10:46:57 +0000
+	id 1wp1oj-00000007alR-42Lr;
+	Wed, 29 Jul 2026 10:47:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1oH-00000007aPD-00u2
+	id 1wp1oS-00000007aYK-1Tzr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:46:50 +0000
+	Wed, 29 Jul 2026 10:47:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DB7F202C;
-	Wed, 29 Jul 2026 03:46:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A0711688;
+	Wed, 29 Jul 2026 03:46:54 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE0183F66F;
-	Wed, 29 Jul 2026 03:46:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 486A43F66F;
+	Wed, 29 Jul 2026 03:46:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785322007; bh=ixb/OphbVvSlJT0SHXkOzrFLDyYiSyXRPu+hqyd0RzQ=;
+	t=1785322018; bh=4khYqylUpukD41WfoeMeH0nQNHvx+xJKbgU5VMe1emQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kSmc8s/RTdHvHQr3CJPgIkV9yYejP995Mbp6z8hIW6SR3nAh8saksnYlZoQ0gKFXg
-	 gYGzYrl8Jz0pRi7f6XFksW1FDr5armllNEE7R/0Am4czeDXvWTII9PQ1htvMcia0MN
-	 eVcQRrkWBvAppABZw/ydIeAhb3IwBg45y/8OPSmw=
+	b=NGfhb8SqKa01Lyjr90afa+7XRefGzvSrDnoztEcplS5uwYPXICaueFrkpcMy9ezZu
+	 TIO3i0FRFd5wDmvIiTG9nGADTL6Kh+fjgz1ncTB4y3TzsUU7AaLQ/8NLI1jnyvAbFy
+	 QUpCs3iifGNKpY9CDLCK2We3ac2xcqKxq9ldbcVU=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -71,19 +71,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org
-Subject: [PATCH v3 07/11] KVM: arm64: Dirty-bitmap: avoid splitting previously split blocks
-Date: Wed, 29 Jul 2026 11:45:42 +0100
-Message-ID: <20260729104548.3439958-8-leo.bras@arm.com>
+Subject: [PATCH v3 09/11] kvm/dirty_ring: Add arch-generic interface for hw-accelerated dirty-ring cleaning
+Date: Wed, 29 Jul 2026 11:45:44 +0100
+Message-ID: <20260729104548.3439958-10-leo.bras@arm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260729104548.3439958-1-leo.bras@arm.com>
 References: <20260729104548.3439958-1-leo.bras@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2203; i=leo.bras@arm.com; h=from:subject; bh=ixb/OphbVvSlJT0SHXkOzrFLDyYiSyXRPu+hqyd0RzQ=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb17beorjxT2HxuDzKg3uP6PXnU6+qnB3X1eUY0JRd peXu3lbRykLgxgXg6yYIovso/mreL5PyThy5ccCmDmsTCBDGLg4BWAi838zMjQyuTGb9W084fdh 44Y5WzcrlHnM3LX58MWKa70ftXu2v5nJyLBIqe9gg/yM/b6zYvl6dpZodnEc7zrPlDrVpkrhhMk UbQYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3599; i=leo.bras@arm.com; h=from:subject; bh=4khYqylUpukD41WfoeMeH0nQNHvx+xJKbgU5VMe1emQ=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb16rKFdYF7PxckjHp+sT5AU99kw+LP/j+jGuPsNLm QbT2WKFOkpZGMS4GGTFFFlkH81fxfN9SsaRKz8WwMxhZQIZwsDFKQATqb3P8L+ycyXHxU8/TW4t blARepFqVNZ+3/n3rStS14LFJfSrLuYxMlxOlV/X2fHiySG153Ud55gMipuf/3P9NGPpj40SMx6 ujmMBAA==
 X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_034649_131555_0CC8B010 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260729_034700_478515_5AFCE50C 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +98,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If previous dirty-clean already split a block, then avoid calling the
-split helper on that block again.
+Introduce kvm_arch_dirty_ring_clear() that allow implementation of
+arch-specific hardware-accelerated dirty-ring routines.
+
+A call to that is added on kvm_dirty_ring_reset() and will fall back to
+software version if not implemented, or any error was detected in the
+arch-specific routine.
+
+For an arch to implement this function, it's required to provide it in a
+asm/kvm_dirty_bit.h and have CONFIG_HAVE_KVM_HW_DIRTY_BIT=y on building.
+
+If the arch does not implement it, and thus lack above config, the
+introduced snippet is expected to be compiled-out and have zero impact at
+runtime.
 
 Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 ---
- arch/arm64/kvm/dirty_bit.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ include/linux/kvm_dirty_bit.h | 7 +++++++
+ virt/kvm/dirty_ring.c         | 5 +++++
+ 2 files changed, 12 insertions(+)
 
-diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-index 5a6266205295..d7e624f9b630 100644
---- a/arch/arm64/kvm/dirty_bit.c
-+++ b/arch/arm64/kvm/dirty_bit.c
-@@ -244,20 +244,21 @@ int __kvm_arch_dirty_log_clear(struct kvm *kvm,
- 			       bool *flush)
+diff --git a/include/linux/kvm_dirty_bit.h b/include/linux/kvm_dirty_bit.h
+index fa4f6b67b623..8492979d694e 100644
+--- a/include/linux/kvm_dirty_bit.h
++++ b/include/linux/kvm_dirty_bit.h
+@@ -11,17 +11,24 @@
+ 
+ static inline int kvm_arch_dirty_log_clear(struct kvm *kvm,
+ 					   struct kvm_memory_slot *memslot,
+ 					   struct kvm_clear_dirty_log *log,
+ 					   unsigned long *bitmap,
+ 					   bool *flush)
  {
- 	int ret = 0;
- 	int idx = 0;
- 	unsigned long *dirty_bitmap = memslot->dirty_bitmap;
- 	u64 *hw_entries;
- 	const int entries_sz = PAGE_SIZE / sizeof(*hw_entries);
- 	u64 ttwl;
- 	u64 start, end;
- 	gfn_t base_gfn;
-+	gpa_t last_split = 0;
+ 	return -ENXIO;
+ }
  
- 	hw_entries = kmalloc_objs(u64, entries_sz, GFP_KERNEL);
- 	if (!hw_entries)
- 		return -ENOMEM;
- 
- 	ttwl = HDBSS_ENTRY_TTWL(KVM_PGTABLE_LAST_LEVEL);
- 
- 	if (log) {
- 		start = log->first_page / BITS_PER_LONG;
- 		end = start + DIV_ROUND_UP(log->num_pages, BITS_PER_LONG);
-@@ -288,24 +289,29 @@ int __kvm_arch_dirty_log_clear(struct kvm *kvm,
- 
- 			mask = xchg(&dirty_bitmap[i], 0);
- 			bitmap[i] = mask;
- 		}
- 
- 		if (!mask)
- 			continue;
- 
- 		offset = base_gfn + i * BITS_PER_LONG;
- 
--		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
--			kvm_mmu_split_huge_pages(kvm,
--						 gfn_to_gpa(offset + __ffs(mask)),
--						 gfn_to_gpa(offset + __fls(mask) + 1));
-+		if (kvm_dirty_log_manual_protect_and_init_set(kvm)) {
-+			gpa_t split_start = gfn_to_gpa(offset + __ffs(mask));
-+			gpa_t split_end =  gfn_to_gpa(offset + __fls(mask) + 1);
++static inline int kvm_arch_dirty_ring_clear(struct kvm *kvm,
++					    struct kvm_dirty_ring *ring,
++					    int *nr_entries_reset)
++{
++	return -ENXIO;
++}
 +
-+			if (split_end > last_split) {
-+				kvm_mmu_split_huge_pages(kvm, split_start, split_end);
-+				last_split = ALIGN_DOWN(split_end - 1, PMD_SIZE) + PMD_SIZE;
-+			}
-+		}
+ #else /* CONFIG_HAVE_KVM_HW_DIRTY_BIT */
  
- 		do {
- 			idx = mask_to_hdbss(&mask, hw_entries, offset, ttwl, idx, entries_sz);
- 			if (idx >= entries_sz) {
- 				ret = dirty_bit_clear(kvm, hw_entries, idx);
- 				*flush = *flush || ret > 0;
- 				if (ret != idx) {
- 					/* Restore mask as before processing */
- 					atomic_long_or(mask, (atomic_long_t *)&dirty_bitmap[i]);
- 					end = i + 1;
+ #include <asm/kvm_dirty_bit.h>
+ 
+ #endif /* CONFIG_HAVE_KVM_HW_DIRTY_BIT */
+ 
+ #endif /* __KVM_DIRTY_BIT_H__ */
+diff --git a/virt/kvm/dirty_ring.c b/virt/kvm/dirty_ring.c
+index 807c45fb1fc7..3fa62894f3d2 100644
+--- a/virt/kvm/dirty_ring.c
++++ b/virt/kvm/dirty_ring.c
+@@ -1,20 +1,21 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ /*
+  * KVM dirty ring implementation
+  *
+  * Copyright 2019 Red Hat, Inc.
+  */
+ #include <linux/kvm_host.h>
+ #include <linux/kvm.h>
+ #include <linux/vmalloc.h>
+ #include <linux/kvm_dirty_ring.h>
++#include <linux/kvm_dirty_bit.h>
+ #include <trace/events/kvm.h>
+ #include "kvm_mm.h"
+ 
+ int __weak kvm_cpu_dirty_log_size(struct kvm *kvm)
+ {
+ 	return 0;
+ }
+ 
+ u32 kvm_dirty_ring_get_rsvd_entries(struct kvm *kvm)
+ {
+@@ -126,20 +127,23 @@ int kvm_dirty_ring_reset(struct kvm *kvm, struct kvm_dirty_ring *ring,
+ 	struct kvm_dirty_gfn *entry;
+ 
+ 	/*
+ 	 * Ensure concurrent calls to KVM_RESET_DIRTY_RINGS are serialized,
+ 	 * e.g. so that KVM fully resets all entries processed by a given call
+ 	 * before returning to userspace.  Holding slots_lock also protects
+ 	 * the various memslot accesses.
+ 	 */
+ 	lockdep_assert_held(&kvm->slots_lock);
+ 
++	if (kvm_arch_dirty_ring_clear(kvm, ring, nr_entries_reset) >= 0)
++		goto out;
++
+ 	while (likely((*nr_entries_reset) < INT_MAX)) {
+ 		if (signal_pending(current))
+ 			return -EINTR;
+ 
+ 		entry = &ring->dirty_gfns[ring->reset_index & (ring->size - 1)];
+ 
+ 		if (!kvm_dirty_gfn_harvested(entry))
+ 			break;
+ 
+ 		next_slot = READ_ONCE(entry->slot);
+@@ -206,20 +210,21 @@ int kvm_dirty_ring_reset(struct kvm *kvm, struct kvm_dirty_ring *ring,
+ 	 * always be left pending.
+ 	 */
+ 	if (mask)
+ 		kvm_reset_dirty_gfn(kvm, cur_slot, cur_offset, mask);
+ 
+ 	/*
+ 	 * The request KVM_REQ_DIRTY_RING_SOFT_FULL will be cleared
+ 	 * by the VCPU thread next time when it enters the guest.
+ 	 */
+ 
++out:
+ 	trace_kvm_dirty_ring_reset(ring);
+ 
+ 	return 0;
+ }
+ 
+ void kvm_dirty_ring_push(struct kvm_vcpu *vcpu, u32 slot, u64 offset)
+ {
+ 	struct kvm_dirty_ring *ring = &vcpu->dirty_ring;
+ 	struct kvm_dirty_gfn *entry;
+ 
 -- 
 2.55.0
 
