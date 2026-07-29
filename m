@@ -4,138 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA818C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 06:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEE4C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 06:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKHtUYfsERNefLZcwqJVDK/ViitxDqppw+/BYICuLjk=; b=WywV+BLZLXGxj1EvMuamhbNtZB
-	xv+A0UndDVoNbLLJPMpkTyQyA/IoBf2gxU2Li2zw6wQ9rGv6OqI5e5y8CYOQKa4dBUSrYzHAWp6W6
-	7vbpvHqYjr7CN/6ii/bKIKF2mS1w7JfmCZdebFnqbox2YAbWXRhDGqANO3gr0URkseG2uknzayu3F
-	My2D4ei32q+2Fmx166FiWgG0exigzxweEt6i4ghffOfTW7+P9Qd/KevfiGlujmRh2vn8+pi3EzGuw
-	chuBHvaLaeDX+OvpR4+8cYj+wRGi+MOiXSUIrjJ3l/fyBijHy4QjL27wSdrrtFRgdNRkxvTXYPpcT
-	xCTqCtMQ==;
+	bh=6P/AubE0czJ7eXAzcy6Adglc3QFhZgoMP5W2g7L/NHE=; b=aF5ACJip5J2S4x+3JIKJFoCABw
+	5WfwUGd9+44mdzVIdUqVWqrlav3UxgfAsF4Ky6/oqM8Wkmy1qplMB6pbHUDYGH3R3Ifmpd6uYRN+L
+	E2XZA7l3yVUZSs6Vj45fMGcsMUA4L3aKPu4d3JxLzR9WMnu3EqiCRez3/KKxxcwY2HkJfPq9+VO/k
+	sIhBbfDMD5DtH+BWwZoVyP0kz4t5Kt7CEotVbPykUhb646U06IPhO3mJVyJkg2Hpgqn9pUIiYW3QW
+	3gL8S/W7fdeaRwNiaYewYj/5ceZ1u7zMSJ1On8zpLqZ5KV+v/syEBl+vKS1+/wqrYPUXI6zXnntjR
+	HSCb8XvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woxmR-000000071b5-3tbw;
-	Wed, 29 Jul 2026 06:28:40 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1woxRR-00000006yyB-0T2J;
+	Wed, 29 Jul 2026 06:06:57 +0000
+Received: from mail-westcentralusazon11013068.outbound.protection.outlook.com ([40.93.201.68] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woxmN-000000071aK-343v
+	id 1woxRO-00000006yxL-1MjF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 06:28:37 +0000
+	Wed, 29 Jul 2026 06:06:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xYg+DP8I8rumKvuHkoZtBRg89hssqAZWA+3BYYNbAgTQ+8AIL9dwrki0/bqOHccFrR3xA9aYC7XM046dDkwu9oG7vA6bUMTdG59RBb8iFHAEcaZJkKIjcljE1Y6QauBtp1VqSMeKeaRJYsUwAbwO7clQJnzz6rDjaSrtVfxtoEI8IURUPaY7gkEPcM784+KiM37bI4M1oDe3IJHLJRhRe2gE47HxYnj/ogQj7fo9lt2jtp0Hs/DBWEtYK7ezvALr9lhBO1uZEjER2Os4gfMdL8PosG1CqtbHhst1SJF0xkWHHEB3XFentlQ018Ty3sJmPRTU4NJdC1jJO5ArxoJnWQ==
+ b=eQs5mfNFtKSFHmrIQKL/su8Qmau8keEkRgQDsaKZcSeVcTy6JivMrZ58tAWA+Mh4zEz54wghMGWP4cl/r8+XgRdGMn4xIx5dgzWwZBVSxd1i+N74runkqMjYAfqSuTldR8on4SXLLUT1xyeaurVp2+nkE0T6xiYg+bGVaBLzlnm8R+4qTJfkrPr48tRpgGv0l0BoS1bECzcyFlIoqFeTa1xtf+JMmSCJAOAVl+xSoSNorem+RwDzsS2ZU6g2XeLADF0GIQFvwG599KPWK2Bllmmey9HB5WREjaJOnCf+72CXbomrCF0iW6dF9tRGBCXMwWtf/2FNhevzWjP2lLaA3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mKHtUYfsERNefLZcwqJVDK/ViitxDqppw+/BYICuLjk=;
- b=T1GBjf2ARDZi4BfetmWIIQJ4ZYyNcXpte/MPFAnClFpeaF8bZKoGL1nyQpWjHcsO+tUFFzk5fMbGJynXmbveQCClceFNts5u2mn+zGG3fFJfmPa5xEMVcs2wk2+dlomXJ1OOdvo3Xza9wtJl413Y7yRkNjDSF2SGsqCSIXAJ5ZtfxjJbfI5pDvu/WiMR8uK6OJLcB9qK4IxU8NRBQZv69Dr1TWsWt1jJJdQYnM/21yO+lAEhcBj6cbL/NV1hTYY+l1qdhrxDGsIOnV558xRUR5qKrICmb88+wMhhog6kItRIjD/gyfd8QVIeGadxtmBqUo8p6eGTKCXpDir8qDMjbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=6P/AubE0czJ7eXAzcy6Adglc3QFhZgoMP5W2g7L/NHE=;
+ b=y4VvwOG/8jOCtvQx4AyRShsD9Siy86PquNIcgdKxVOtAeAsUOLwCnyV9QS5k9HwHQbhvigFw6z1lbIq9E7XzpBcRXdBWo9GpbLXPZsc6HPgmPXQb98cLEH0XxEYEkTt62BVcAXcEDoXe8XZI+V/RWAJVCjE2wM6qw5SbyuWetQcs2XI0bcvQWwIt6dEgOG4INx62xwPYpLLRuSu4FBfcMHuCB1Xk6B74wBPvCXG16GEITLfAq1I2NfP8UVzUkELRP1hnXBWKnOorenqtGSEITx+16NEz6p0OU3/vtQzMcXcVoLm5Ez19MFvkrbcVr4+ueTlb8dnWAWuguPsusZIRfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mKHtUYfsERNefLZcwqJVDK/ViitxDqppw+/BYICuLjk=;
- b=Pjjmkt3cdOk8hJ0v8DVvudu/TE9cPbh8Qz0cGS7SEvUtqhjd3RKPZxwZLdJAanRfmU3pz1roG95ogutbkZbWcB/fWEVdayj6dtHbshWTeXYgoklwA7//ZJjF2CxTouUtglyiIWECrKa57ECAGHTgfGIVon6i1wBMdj7vH270LLs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS4PR12MB9795.namprd12.prod.outlook.com (2603:10b6:8:29e::19)
- by PH8PR12MB6940.namprd12.prod.outlook.com (2603:10b6:510:1bf::8) with
+ bh=6P/AubE0czJ7eXAzcy6Adglc3QFhZgoMP5W2g7L/NHE=;
+ b=oTpxuneweYjDemBx51zL3YTj+wLbqffmuoMjciDywZSl/3it8gX9dzfOOgxitabUtPHXNGShaXpZEMjr0wS0lFum3YUV2xgcfiAjN2/c2KTwyQIogCTHz/rf0ezd+y5xuLZwiKTbDWUDWJtwDIBmRC3Mu9P1CisGvcp1CBx/cR1A5aMlNlqXKeGMc51xcUwcFeh6Ef83k4ihrbS5ROE/CLVhBLs2cAl2Le7x5P0xAaS+jRAKeANRY19ZxzqF2OHp2zXXvZnyrZpx6LZMwODHRe+F0hs8XRTpi0epLc2czC9tOCMk8Y7Bw3XGNzlfzq1UQa/SmN68nGaTgUAVNeRHNg==
+Received: from MW3PR06CA0018.namprd06.prod.outlook.com (2603:10b6:303:2a::23)
+ by PH8PR12MB6964.namprd12.prod.outlook.com (2603:10b6:510:1bf::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
- 2026 06:28:25 +0000
-Received: from DS4PR12MB9795.namprd12.prod.outlook.com
- ([fe80::faca:89b7:3641:91e3]) by DS4PR12MB9795.namprd12.prod.outlook.com
- ([fe80::faca:89b7:3641:91e3%6]) with mapi id 15.21.0270.009; Wed, 29 Jul 2026
- 06:28:24 +0000
-Message-ID: <cbb289a8-c0e5-4c1d-b102-006e857284d4@amd.com>
-Date: Wed, 29 Jul 2026 11:58:17 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next V2] net: axienet: Clear stale AXI DMA TX/RX
- status before re-enabling interrupts
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, michal.simek@amd.com, git@amd.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20260716124841.2761722-1-kusuma.vasana@amd.com>
- <20260724231934.1679801-1-kuba@kernel.org>
-Content-Language: en-US
-From: "Vasana, Kusuma" <Kusuma.Vasana@amd.com>
-In-Reply-To: <20260724231934.1679801-1-kuba@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0114.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:11d::12) To DS4PR12MB9795.namprd12.prod.outlook.com
- (2603:10b6:8:29e::19)
+ 2026 06:06:47 +0000
+Received: from SJ5PEPF000001F7.namprd05.prod.outlook.com
+ (2603:10b6:303:2a:cafe::21) by MW3PR06CA0018.outlook.office365.com
+ (2603:10b6:303:2a::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
+ 29 Jul 2026 06:06:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ5PEPF000001F7.mail.protection.outlook.com (10.167.242.75) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 06:06:46 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 28 Jul
+ 2026 23:06:33 -0700
+Received: from nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Jul
+ 2026 23:06:31 -0700
+From: Jacky Huang <jackyhuang@nvidia.com>
+To: Rob Herring <robh@kernel.org>
+CC: <andrew@codeconstruct.com.au>, <joel@jms.id.au>,
+	<krzysztof.kozlowski@oss.qualcomm.com>, <conor+dt@kernel.org>,
+	<andrew@lunn.ch>, <devicetree@vger.kernel.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>
+Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: Add NVIDIA VR-NVL BMC
+Date: Wed, 29 Jul 2026 15:06:09 +0900
+Message-ID: <20260729060612.1085870-1-jackyhuang@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260728143952.GA2121505-robh@kernel.org>
+References: <20260728085640.1001890-1-jackyhuang@nvidia.com> <20260728085640.1001890-3-jackyhuang@nvidia.com> <20260728143952.GA2121505-robh@kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.230.37]
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS4PR12MB9795:EE_|PH8PR12MB6940:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5255e7f9-f963-4647-e90a-08deed3a97b7
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F7:EE_|PH8PR12MB6964:EE_
+X-MS-Office365-Filtering-Correlation-Id: a991c71d-9e3f-48d0-6a32-08deed379275
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|6133799003|18002099003|22082099003|56012099006|4143699003|5023799004|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: pwsBABhFfD1yCBmbARSvPz3zTF26A9vqHFXfUHes+sLB1GqU4/87CXDvaNUoRWb0INTyRm8W7MGQpWDLG+pMP+y+JHLwbjJdADJMPNRZ/wQ6pLD7SFlAv2os1HdrDqnnDVPlMyZuomADzSU8MoGUcJKuxt1ZjaPQQldXtPw7e4EfsDTgwOJA2RmbfYNlLbF/bGLaa0ixaRLGoGniKXB5twbrkTSjcJjqaMChW047JL7f5VeDDnVXOeBHmVPsDS8PRnAqnSRC1ABYUoaazAYqoJVcdPsMlmHd0MKAmHcRKtH8JuZB+F0UXIxx08OmQ0c0NtkQtxBEvwbRbI6EUF+LS45K2qtyjQY+jqyu+ZfW3HuyEi7cq5YRpE6S5+kiCXRo7hvpxaK2mRv8KtyHn6N4i/iYotiqiZk3vwNyt6H+rB7DkMJVkKkzWaMSrWGwGYMVBRx29cztdeRNtmTa/f8gAWj79PpNnhWHEkAI55kAsvOe17DBNzIzY5ET1BzD0mhHoMD3Ln/tpWhziCWvGIm4+9aIiqvTM1K1A1wrZ5Sylx+nTMcGcPEotlZ4PpPAmsQC++kFfj/GFOMB9bJGx34ViKUO4Rf/ooWKfFfMbtSS5Mu2RTSCj6B0BdjBhdmHPydZ/ce/auNFAWhHp1LIFNj1o7qYkGWoLGo86UKP/uhq49Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB9795.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(6133799003)(18002099003)(22082099003)(56012099006)(4143699003)(5023799004)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|82310400026|1800799024|56012099006|10067099003|4143699003|11063799006|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: ykP/Wu8rkeDOeG5Yiousm+a7C7/UUM5LDteYNK5xTtSyoAltuNRIMNlKaTWgoxE0xCfv18RShSgCEM1N7rMrQxY/Dvp7J06s6PEFly6/2clwy7DB6rsx9uZJ3kb2Qb0mZsV2TAjtaj5T8HJIbm6YWJqPMI3gRbK0buaX1tkbL+PwT8sJnI3XI2Z+WhDaIqGIDNCTL/WXJNF1o7oJ0RSdAotbOsS+7D8UJQVl5o6ltMnt/0FbZbLzng3Oud0EX3vtshKmE/RbAxPzCQhPJgPSHtmkA6cmD8zzcR4HJ14ZXh6xuVVgXKlg2IL/TpyUoSZc9owIejKJq4p2mpprVu5lH+kSHMblFKF7AVoPSSQcpbSS+H5G5l4l0psBwmOmmb6zMpCtnHIDn6ota8ZNXwJGQAbZrEi6j/UrAv1dN1WjZOpSTFLzBFkGt6Igr7NyGaXuTuyEcdjPO4o2otTl8AqoqWQkMY7X+CFZX78Yrux7V9K/IIem4ZM6bgoXVSR2F3KozADh/sKwWBNd99CjKE6dNuJcv7y7MOuCchF/aoIOo/p+LHH40AVDl28RE9tn17fFLL7Hg9Yc+uEQqT30sNGtZgbjScaEz6UO+cnOGXJOezIFOW8nK0IZKgiO4tAMeBUjVjn/F2kqR9KFohUBiUoaYZsvJswlYnw7sLLuTio9DNfq18A6ecSTTJMZ3g4Hbdc8KUrVNf7Sa9pDQRf3zb5ZkA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(82310400026)(1800799024)(56012099006)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejdHVHFvbjNrdDlTVDdwM2ZERzBOVnhSMHdPaVJJdzhFMUwrdmkxOXMzMDBi?=
- =?utf-8?B?d29EQ1UzNDlOajhCbWVtZGROVDJaa2tCcmFDL3NRb09rZXh3dVRMWUY4NHA2?=
- =?utf-8?B?UmNFSytyWkM5MHpmZ20yS3J3US84NW1BZS9xOWFiSk5ZZ2IxbXhDOFZHeXNo?=
- =?utf-8?B?OWh0dG1oV3ZCSlBXM2t4Q0xXbFJPVTdWank2VmxxWDdjS3ZrM3hPU1RtTU43?=
- =?utf-8?B?aG1BRFVYUSs1QlpsU0VjRzAxdGNqVmtkSGdicFJYNlNJbVNocllFRC8wbjRs?=
- =?utf-8?B?NVQ5c2JWcUY3WDRSN3kwbzJ3cWgrbXdwK2hHN1FMVmhaamVsc2RreWMrTXVt?=
- =?utf-8?B?YW5CTHhBNjZvblFwQjExcmlRSkZ5RVRiN01wdXBHalV0Z3drTDBUR0xkbHNJ?=
- =?utf-8?B?Ykhja3I2STU0NEV1eCtBOHlPUXVPT0JZakwwMUxLMm82QzM3TzFFUFllVGlB?=
- =?utf-8?B?Zkw2ekI4cmNWbHFCZGxEODgyV0JiS1I2Y2pIY0cvRUhsMXdqellFOEdwU2FK?=
- =?utf-8?B?TUx0dUQvMUZPVzZWdjNwNWdCcGJOWkRsbTZBQjYwVTREeUY4blVqTUNiZVY4?=
- =?utf-8?B?eWFudlhrMWJUNTNlak5lK21sdFphZDhzUDE4UnlWMGdPSmJka2JqTVVxZTZl?=
- =?utf-8?B?REkvbUJ1YWYvZ3ZWK0RHeE1CQXlxUWxFVVd0SUFlU3p3aDdOZjh5TmFhcVRN?=
- =?utf-8?B?OXJWTldzN25mcTk0OXhEY3BZaFZFY0VCdFVGSU5hYTYzbk5tQmdOU2pRYzMz?=
- =?utf-8?B?S0VzeFNhY0l0dXRnZXRIZk1WSmh6Z1JZVnp5RzMzcWdZRFQ2VzJGQmlJcmpy?=
- =?utf-8?B?M0lHOW1SMjJDNnFzejVrWHZjVFVTWklJRlc4bVVBU3dtcnQwY1hGZ3N4U0ZH?=
- =?utf-8?B?cnN6OUNUWGdMTEk5VlNxK3NCR05wU3YvRmxUYlJ4bStabGpnUU80V015V2Jr?=
- =?utf-8?B?TFpIY1BQMDNMeFdLQUJJZExydDIxQStkY3VkVmxoaUprbGNBbWRxQ016bm0x?=
- =?utf-8?B?dWpOWG9XbXZQUFYxRHlkN1dqdmg5TmxnQ2k0eTFiRkoyME15Y1JwRlNCcytv?=
- =?utf-8?B?RFA3YjJ3dGc2SzgzaVllVlNPRG9VSkYvVFNJTU1McXJuZ3Q3b2dDdG1DNU5l?=
- =?utf-8?B?UG9CeUR0THpETXQxSFJ0dkFRWHZvV0hNaUd2SytwTmdKbm85NXVBd3UzVHJQ?=
- =?utf-8?B?cFhvczJ6SVNHYUNhN0RDU1luYjBzNkQ2a2dzaDZMRjlDblFreWxzcy8vU0VQ?=
- =?utf-8?B?ckF6ZkVwK3lLaFJpTE9tMVNzNkVwVGl0SmYvMFBiZzJMdW9hWGZxTjJlTG1E?=
- =?utf-8?B?L1E4Sm1ldExFRDJJMmJOUCtXbVJuSXBEajRZNGV2UnZPYlR0anU3bGlIZGRC?=
- =?utf-8?B?b1ZJSkNYVTF6L2tCSGd0eUVYSW0xZ21BeGNpb2JzQ212NmpjNk55ZE5zSUly?=
- =?utf-8?B?a0dsWTAxZ2N0WkpuYWpObGdqUVhwb3dRKzRXa0JjYWhjNWlEWmE0TnM5bWdG?=
- =?utf-8?B?c3RVcUdlWHRaZUtZNWo0cy9Zc2pnd00wRWNYNVJKS1ArWkpReHdYdHZPNDN0?=
- =?utf-8?B?NHNqWk5NVi9Yci96WmZTZGU1QVZoTkp5bDJOT1I0aUFFMzVYYThyYU1udEJI?=
- =?utf-8?B?Q0IwWTVDUTJncXdlRDRnQityZW1JakQwQjMrVGxlK1BxbDhubUorSzNITlA0?=
- =?utf-8?B?NTA1ek4rRURMNFlNelErU1RWd0hxOUVoemFraVk1TE4xWmdUMzlDNEhaSWQx?=
- =?utf-8?B?R3BmL1V5NDF3UEJENXM4bHpSMmFnZGlESzduelBQNStQTnkwTXJURmlVWUx0?=
- =?utf-8?B?RUhnWGhaWW1UUmtxd3k3MVZDQU1ibG9tcWxhWTBIL2JnOUhPMmpDOWJpekFB?=
- =?utf-8?B?V05pM3FwSUhERmVzZVRBazVHenlMbkh4MzVSdDZqOHhBRGhPcmdETHF6RjI3?=
- =?utf-8?B?SXRmQnRSbXBSOHZuSFVzVm1IdG04bXFCU0tXSEpOWU9aNE1IcVhBZm1JcXFW?=
- =?utf-8?B?NFhIZFVtOHlKMnlxMzFVSnlneHZsVStNT3EybzR6Q2RxN0doYm5adEpNKzY4?=
- =?utf-8?B?eEhZKzlCWnh4SzlsL0pMZXhNdnF0aWUrOUFzVGJKTWlWSnNpaFF3TFR3a25w?=
- =?utf-8?B?NkFLa3ZiL0dYQ010cXlxWllQakJYdTZmQURtcDZvU2JKSFBGV080ZzZsamNC?=
- =?utf-8?B?WGRlbDk3bTBFK0Z1QzVPNXRncEttcVE3ZE5kSlplcVdYMjVLQm1uNWY4dzA1?=
- =?utf-8?B?MnkxNHd4VTBtSStYeVpyK083dm5MenNiZjV4ZncxZWd2aWdKNlgxZE05VTll?=
- =?utf-8?Q?de8gUuoEv+CMeVFCmq?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5255e7f9-f963-4647-e90a-08deed3a97b7
-X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB9795.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 06:28:24.5760
+X-MS-Exchange-AntiSpam-MessageData-0: 0yY6D+pEwEpJXkThawD67qzKKl5p3l1f0knDPA6e8U4LUQQiHdHaAbc54QbVlvA9uwRMubZBZmwRxzbvuoX6E/z5OVA3FJgqdlCQd03PztO5xWtE1h4avEZMDBo+n4USUIebBlhNBoqhHb3MwR5j0QH2xMmqby8scQByc2SaHOBiEHyDlnWeMv4eiFGM5z4T7HK7GSgsJLQ84KoQ+q/LJfSxT35OuPx8CnvML4D4PUMT525d1G+DfEKEPVS8sK0P+qtX/EZIRUzQVrnAADKFjC00+A6A1vKu8O5W9ZP0vyqFbpIFuGM0Re4qQsUpOiQIDLBdSqnNQ3mlL5osOf+lFoNuWT9Rad4CfJaEbYoRaggNAsBLg2iPR/hgvaIcM1sBgDyEh24FrwK6BVw1pXgnklP88mxgXBzMT9Bz0fAMUHvnHJoacNPVXOQN3cqJtXvy
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 06:06:46.8026
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YfYvT94LIcIDVaHApgGyuTSnJINZD+Ci4gpTKQEUp/KL8txKlfTEQ77aD6g/1F0q
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6940
+X-MS-Exchange-CrossTenant-Network-Message-Id: a991c71d-9e3f-48d0-6a32-08deed379275
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F7.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6964
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_232835_781055_E30FFAD2 
-X-CRM114-Status: GOOD (  34.06  )
+X-CRM114-CacheID: sfid-20260728_230654_405738_4A10A981 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,110 +128,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Rob,
 
+Thank you very much for the review.
 
-On 7/25/2026 4:49 AM, Jakub Kicinski wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> ---
-> net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
-> 
-> This patch clears the AXI DMA IOC/DELAY status bits at the end of the TX
-> and RX NAPI poll handlers to avoid a redundant stale interrupt caused by
-> IOC/DELAY bits latched into the status register while interrupts were
-> masked in the control register during NAPI. The clear is performed
-> unconditionally, before the napi_complete_done() / CR re-enable step.
-> 
->> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> index fcf517069d16..29050c8d04e2 100644
->> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> @@ -1018,6 +1018,13 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
->>   			netif_wake_queue(ndev);
->>   	}
->>   
->> +	/* Clear stale IOC/DELAY bits that may have latched during the
->> +	 * poll window to prevent a stale interrupt when there is no
->> +	 * work pending.
->> +	 */
->> +	axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET,
->> +			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
->> +
->>   	if (packets < budget && napi_complete_done(napi, packets)) {
->>   		/* Re-enable TX completion interrupts. This should
->>   		 * cause an immediate interrupt if any TX packets are
-> 
-> [High]
-> Can this sequence race with a late completion arriving after the poll
-> loop has exited but before the SR write?
-> 
-> The AXI DMA engine writes cur_p->status and latches SR.IOC asynchronously
-> from CPU execution. The poll loop's exit condition reads cur_p->status,
-> and between that read and the unconditional SR IOC/DELAY clear that this
-> hunk adds, the hardware can set COMPLETE_MASK on the next BD and latch
-> SR.IOC for it. That legitimate notification would then be wiped by the
-> new W1C write.
-> 
-> Since napi_schedule() is only called from the ISR, and the ISR only fires
-> when the IRQ line asserts, napi_complete_done() will succeed here even
-> though a new completion has appeared. The subsequent CR re-enable would
-> then observe SR.IOC=0, so the level-sensitive line does not re-assert,
-> and the completed BD is stranded until the next unrelated completion or
-> DELAY-timer expiry moves things forward.
-> 
-> Before this patch, any SR bit latched during the poll window (whether
-> stale or from a late completion) re-asserted the IRQ line after CR
-> re-enable, which the changelog frames purely as an unnecessary stale
-> interrupt:
-> 
->      After NAPI completion, re-enabling interrupts immediately
->      re-asserts the IRQ line due to these stale status register bits,
->      even when no new work is pending.
-> 
-> Did that same behavior also serve as the recovery path for a completion
-> that lands in the SR-clear/CR-reenable window? If so, would it be worth
-> either re-checking cur_p->status after the SR clear and skipping
-> napi_complete_done() when new work has appeared, or performing the CR
-> re-enable before the SR clear so a late latch still asserts the line?
-> 
-> NAPIF_STATE_MISSED does not appear to help here because it requires a
-> napi_schedule() call, which only the ISR performs.
-> 
-> For configurations where axienet_calc_cr() does arm the DELAY timer
-> (coalesce count > 1), the stranded BD is recovered when DELAY expires:
-> 
->      /* Only set interrupt delay timer if not generating an interrupt on
->       * every packet
->       */
-> 
-> Under DIM with low traffic the coalesce count can settle at 1, in which
-> case DELAY is not armed and there is no bounded recovery for the last
-> BD of a burst until another packet arrives. Is that concern valid, or is
-> there another mechanism that ensures the last BD is drained?
-> 
->> @@ -1293,6 +1300,13 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
->>   		cur_p = &lp->rx_bd_v[lp->rx_bd_ci];
->>   	}
->>   
->> +	/* Clear stale IOC/DELAY bits that may have latched during the
->> +	 * poll window to prevent a stale interrupt when there is no
->> +	 * work pending.
->> +	 */
->> +	axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET,
->> +			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
->> +
-> 
-> The same question applies to the RX path: a completion arriving after
-> the while loop's cur_p->status check but before this SR write would have
-> its SR.IOC latch cleared, and the subsequent CR re-enable would then not
-> re-assert the line. Is there a reason the RX path is not exposed to the
-> same race?
+On Tue, Jul 28, 2026 at 09:39:52AM -0500, Rob Herring wrote:
+> > +				cp2112g: device@2 {
+>
+> This and other devices should have a compatible string and associated
+> schema. The hub probably should too.
 
+Will fix in v5.
 
-Thanks for the review. I agree and will add a BD status recheck after 
-clearing the SR to handle any completions that arrive during the race 
-window. I will address this in V3.
+> > +	flash@0 {
+>
+> Needs a compatible.
 
-Thanks,
-Kusuma
+The flash@0 node augments the corresponding node defined in
+aspeed-g6.dtsi, which already carries compatible = "jedec,spi-nor",
+so the compatible is inherited. The same applies to the flash@0
+under &spi2.
+
+> > +		status = "okay";
+>
+> okay is the default, so not needed.
+
+The flash@0 node in aspeed-g6.dtsi is status = "disabled", so the
+board file needs status = "okay" to enable it.
+
+Jacky
 
