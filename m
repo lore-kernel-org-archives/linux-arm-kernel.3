@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B74C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920C7C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IyATmwihzFeSUhE+feD/cmxnJkAdqqQ2d+HaigYUhLU=; b=D5Z5z/xmPdbTWHaRedWHFeUZFJ
-	LuD5/5ExF4HVvnem1QUm+KBgiEvJqlFKY2c1/bgaGzVm5n5rlrsOsqel5qrub3/iSS3ZBdGfVMBJC
-	OSuRxKete51JljVNnWPl6DGQ5JxWYD0Fl06AN/kXue867/4BgPsttiaESirpH7WG/3ectkqaOJKVp
-	7+WtZi3Ff763S7MO7R4sIceVSXTJ0uw0LWyS0pwwr3mJB/BqdFHiKtnUYdi96bTp4O7mdwRWE/1T2
-	aMPHjA7Bku/ETA2gAb0LtwkM6iAu4oPGEFfyDtlYFA8ojEL1CQbuu8qvd6+xELTf++kB3aoF1yDLs
-	Wq4LTcCw==;
+	bh=L441Ck/Q7FIk4UmAY8KLLYgfuDVpLj1PLGQcbjiyDSw=; b=w2ZjSFVIbLrcvNAUsqjMph76Hi
+	ePhjvklIqhIMJaV8WNUXyknTh7l0wBXjY4vqwfVtwIbJVuisxjK9Ib/h/z5IfpSHhEbsww2EeJ5h6
+	Z+HabCsfXKvp8rRPzcGBre6JJUJf8HLh7j5+P3CAq+wWxoKeDNhgUvqTaa1OQfb3Vp6Hmnqj1k2RI
+	VilptdmShZKHBg90YsudDiqhmeqokrA65UkCFJ7ZkU9jB7aLw9MToAlqv9bPte9yher0bp4BEDKIY
+	lMDvpW3lXQdIGQoFTipLr0cW4iiOtgU/xZQFIJ1c2/63Hyn8kcdUJwEwv02CHCcfKVJAhF+DP22Nu
+	NtvWDcUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp18L-00000007S9s-2KQu;
-	Wed, 29 Jul 2026 10:03:29 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wp18U-00000007SI1-3oQr;
+	Wed, 29 Jul 2026 10:03:38 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp186-00000007S0C-3MX1;
-	Wed, 29 Jul 2026 10:03:17 +0000
+	id 1wp18B-00000007S2D-08fT;
+	Wed, 29 Jul 2026 10:03:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785319392;
-	bh=m2yiWy5le2r+frQc8DgaYIgBdSKa3Pdp/bb9fJVyV0E=;
+	s=mail; t=1785319396;
+	bh=cjuFgs4kt/OXrQB8uT8Ws3+HRyObOw0jFc1fBOb+ebQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VY0l8tynlr8jEvsom93vAtzMs91Pp3GcClyFC6i56yG9BDhrcsGG21m1KqU+jott3
-	 J8zDqQiKI4Uu9vJ/qdaM7EDQ7cs6pt+qnb/+Sas3drk1V/X5SA3Qg5PmceZPvguVMG
-	 p/3vPD5X386ploer8ByoTJAwaR06Sb2DjRzteg74epbUj7qV5XjhuSkvHBNK7MNnMd
-	 DlLlEUxGYRqHKuxZucKn7K3cj5ENgArzsY2cY39CNVIqRyg+naEVbPc1dqrAl3LkqE
-	 t2o8UL6WjJTFasUug8Z2al7OBuUtOMh5PEs7FdBgdw+GvdsuLS/1AicLk+dm2C/c1c
-	 gxF69LBMKixUA==
+	b=FmGSX5QM7+UA98J4HlXPKozwVkHT47k/Jg5yrmiolEKOxbIeNgkLAeM55ietaXwi2
+	 rwNFqOhN/LGAKORNz5Vrxvy+6xNqhXO9Jbt86X5G0fs//NG4WJCfvhr0ayOOP2+AC0
+	 BRTmZaR8fEmQIMVGixULCKZ6SPkTM2KuWXo8nlsuBZn5kGN5626TkhuikwBhdOyqRt
+	 SYAB8mL/R/+U7J9/6WaprtDyYsEr3BnLfTd0PAn9pRSwiBt7TuIlY7zJgp9u+57fwy
+	 jlkxiYyQm3H6ikQr94PV8sjXxH7idoTRKb9A+ttLQJozFb5ufwU4vaPuGJt/FnOzl5
+	 U3+mhe11nTAKg==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DE49B17E08A1;
-	Wed, 29 Jul 2026 12:03:11 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 950AF17E08D8;
+	Wed, 29 Jul 2026 12:03:15 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 29 Jul 2026 12:02:47 +0200
-Subject: [PATCH v4 03/24] dt-bindings: clock: mediatek: Make '#clock-cells'
- required for MT8195
+Date: Wed, 29 Jul 2026 12:02:50 +0200
+Subject: [PATCH v4 06/24] dt-bindings: clock: mediatek: regroup MT8192
+ dt-bindings into MT8186
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260729-mt8189-clocks-system-base-v4-3-e356b813a64c@collabora.com>
+Message-Id: <20260729-mt8189-clocks-system-base-v4-6-e356b813a64c@collabora.com>
 References: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
 In-Reply-To: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -70,16 +70,16 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785319387; l=1753;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785319387; l=10330;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=m2yiWy5le2r+frQc8DgaYIgBdSKa3Pdp/bb9fJVyV0E=;
- b=M5BnADea/Tgy6H7gXKU5l45XupEPdKnzuQaCl5Qz7OgKKMkb753adKx2p9qCv3lpqgrVSPunR
- RxKcsoNe1uqBomP4+/awl1kx2X2UYmbxew8XnBQ2JhQASx6il1tkZ4J
+ bh=cjuFgs4kt/OXrQB8uT8Ws3+HRyObOw0jFc1fBOb+ebQ=;
+ b=VIhgV5DyT9D8byCrOAmZSfGqetrY4NR0nHtbH7W8jXCkLC1RnQQIuDTv/idnLG9ue5iGRoWu7
+ SAMKKAbfx/yBo+uQIn0OLgNsNfTAz5AXW2pWBnuyNKIZkCGJezDnjDm
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_030314_997487_4B9F4F9F 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260729_030319_233107_06FF19DE 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +94,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both MT8195 clock controllers dt-bindings (clock and sys-clock)
-document the '#clock-cells' property but do not enforce it as required
-property.
-As clock provider nodes should define this property in devicetrees, add
-it to the required property list in both its dt-bindings files.
+Regroup the MT8192 clock and system clock dt-bindings into MT8186 ones
+to ease maintainability and have common files for several currently
+supported SoC or new future ones, that have the same kind of clock
+controller design.
 
-Fixes: 34d3ed3b9a00 ("dt-bindings: ARM: Mediatek: Add new document bindings of MT8195 clock")
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml     | 1 +
- Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml | 1 +
- 2 files changed, 2 insertions(+)
+ .../bindings/clock/mediatek,mt8186-clock.yaml      |  20 +++
+ .../bindings/clock/mediatek,mt8186-sys-clock.yaml  |   4 +
+ .../bindings/clock/mediatek,mt8192-clock.yaml      | 192 ---------------------
+ .../bindings/clock/mediatek,mt8192-sys-clock.yaml  |  69 --------
+ 4 files changed, 24 insertions(+), 261 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml
-index fcc963aff087..94dd29c2396c 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml
-@@ -58,6 +58,7 @@ properties:
- required:
-   - compatible
-   - reg
-+  - '#clock-cells'
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
+index 0bc2da60a601..b5988d122e4d 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
+@@ -58,6 +58,26 @@ properties:
+           - mediatek,mt8188-vencsys
+           - mediatek,mt8188-wpesys
+           - mediatek,mt8188-wpesys-vpp0
++          - mediatek,mt8192-camsys
++          - mediatek,mt8192-camsys_rawa
++          - mediatek,mt8192-camsys_rawb
++          - mediatek,mt8192-camsys_rawc
++          - mediatek,mt8192-imgsys
++          - mediatek,mt8192-imgsys2
++          - mediatek,mt8192-imp_iic_wrap_c
++          - mediatek,mt8192-imp_iic_wrap_e
++          - mediatek,mt8192-imp_iic_wrap_s
++          - mediatek,mt8192-imp_iic_wrap_ws
++          - mediatek,mt8192-imp_iic_wrap_w
++          - mediatek,mt8192-imp_iic_wrap_n
++          - mediatek,mt8192-ipesys
++          - mediatek,mt8192-mdpsys
++          - mediatek,mt8192-mfgcfg
++          - mediatek,mt8192-msdc_top
++          - mediatek,mt8192-scp_adsp
++          - mediatek,mt8192-vdecsys_soc
++          - mediatek,mt8192-vdecsys
++          - mediatek,mt8192-vencsys
  
- additionalProperties: false
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
+index 199eac2034f2..41b8c61132e2 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
+@@ -35,6 +35,10 @@ properties:
+           - mediatek,mt8188-infracfg-ao
+           - mediatek,mt8188-pericfg-ao
+           - mediatek,mt8188-topckgen
++          - mediatek,mt8192-apmixedsys
++          - mediatek,mt8192-infracfg
++          - mediatek,mt8192-pericfg
++          - mediatek,mt8192-topckgen
+       - const: syscon
  
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml
-index 69f096eb168d..ba1b36fa0169 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml
-@@ -43,6 +43,7 @@ properties:
- required:
-   - compatible
-   - reg
-+  - '#clock-cells'
- 
- additionalProperties: false
- 
+   reg:
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8192-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8192-clock.yaml
+deleted file mode 100644
+index 65e4c2fddf5b..000000000000
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8192-clock.yaml
++++ /dev/null
+@@ -1,192 +0,0 @@
+-# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+-%YAML 1.2
+----
+-$id: http://devicetree.org/schemas/clock/mediatek,mt8192-clock.yaml#
+-$schema: http://devicetree.org/meta-schemas/core.yaml#
+-
+-title: MediaTek Functional Clock Controller for MT8192
+-
+-maintainers:
+-  - Chun-Jie Chen <chun-jie.chen@mediatek.com>
+-
+-description:
+-  The Mediatek functional clock controller provides various clocks on MT8192.
+-
+-properties:
+-  compatible:
+-    items:
+-      - enum:
+-          - mediatek,mt8192-scp_adsp
+-          - mediatek,mt8192-imp_iic_wrap_c
+-          - mediatek,mt8192-imp_iic_wrap_e
+-          - mediatek,mt8192-imp_iic_wrap_s
+-          - mediatek,mt8192-imp_iic_wrap_ws
+-          - mediatek,mt8192-imp_iic_wrap_w
+-          - mediatek,mt8192-imp_iic_wrap_n
+-          - mediatek,mt8192-msdc_top
+-          - mediatek,mt8192-mfgcfg
+-          - mediatek,mt8192-imgsys
+-          - mediatek,mt8192-imgsys2
+-          - mediatek,mt8192-vdecsys_soc
+-          - mediatek,mt8192-vdecsys
+-          - mediatek,mt8192-vencsys
+-          - mediatek,mt8192-camsys
+-          - mediatek,mt8192-camsys_rawa
+-          - mediatek,mt8192-camsys_rawb
+-          - mediatek,mt8192-camsys_rawc
+-          - mediatek,mt8192-ipesys
+-          - mediatek,mt8192-mdpsys
+-
+-  reg:
+-    maxItems: 1
+-
+-  '#clock-cells':
+-    const: 1
+-
+-required:
+-  - compatible
+-  - reg
+-  - '#clock-cells'
+-
+-additionalProperties: false
+-
+-examples:
+-  - |
+-    scp_adsp: clock-controller@10720000 {
+-        compatible = "mediatek,mt8192-scp_adsp";
+-        reg = <0x10720000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imp_iic_wrap_c: clock-controller@11007000 {
+-        compatible = "mediatek,mt8192-imp_iic_wrap_c";
+-        reg = <0x11007000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imp_iic_wrap_e: clock-controller@11cb1000 {
+-        compatible = "mediatek,mt8192-imp_iic_wrap_e";
+-        reg = <0x11cb1000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imp_iic_wrap_s: clock-controller@11d03000 {
+-        compatible = "mediatek,mt8192-imp_iic_wrap_s";
+-        reg = <0x11d03000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imp_iic_wrap_ws: clock-controller@11d23000 {
+-        compatible = "mediatek,mt8192-imp_iic_wrap_ws";
+-        reg = <0x11d23000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imp_iic_wrap_w: clock-controller@11e01000 {
+-        compatible = "mediatek,mt8192-imp_iic_wrap_w";
+-        reg = <0x11e01000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imp_iic_wrap_n: clock-controller@11f02000 {
+-        compatible = "mediatek,mt8192-imp_iic_wrap_n";
+-        reg = <0x11f02000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    msdc_top: clock-controller@11f10000 {
+-        compatible = "mediatek,mt8192-msdc_top";
+-        reg = <0x11f10000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    mfgcfg: clock-controller@13fbf000 {
+-        compatible = "mediatek,mt8192-mfgcfg";
+-        reg = <0x13fbf000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imgsys: clock-controller@15020000 {
+-        compatible = "mediatek,mt8192-imgsys";
+-        reg = <0x15020000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    imgsys2: clock-controller@15820000 {
+-        compatible = "mediatek,mt8192-imgsys2";
+-        reg = <0x15820000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    vdecsys_soc: clock-controller@1600f000 {
+-        compatible = "mediatek,mt8192-vdecsys_soc";
+-        reg = <0x1600f000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    vdecsys: clock-controller@1602f000 {
+-        compatible = "mediatek,mt8192-vdecsys";
+-        reg = <0x1602f000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    vencsys: clock-controller@17000000 {
+-        compatible = "mediatek,mt8192-vencsys";
+-        reg = <0x17000000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    camsys: clock-controller@1a000000 {
+-        compatible = "mediatek,mt8192-camsys";
+-        reg = <0x1a000000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    camsys_rawa: clock-controller@1a04f000 {
+-        compatible = "mediatek,mt8192-camsys_rawa";
+-        reg = <0x1a04f000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    camsys_rawb: clock-controller@1a06f000 {
+-        compatible = "mediatek,mt8192-camsys_rawb";
+-        reg = <0x1a06f000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    camsys_rawc: clock-controller@1a08f000 {
+-        compatible = "mediatek,mt8192-camsys_rawc";
+-        reg = <0x1a08f000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    ipesys: clock-controller@1b000000 {
+-        compatible = "mediatek,mt8192-ipesys";
+-        reg = <0x1b000000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    mdpsys: clock-controller@1f000000 {
+-        compatible = "mediatek,mt8192-mdpsys";
+-        reg = <0x1f000000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8192-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8192-sys-clock.yaml
+deleted file mode 100644
+index 0ebd0d60e2f6..000000000000
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8192-sys-clock.yaml
++++ /dev/null
+@@ -1,69 +0,0 @@
+-# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+-%YAML 1.2
+----
+-$id: http://devicetree.org/schemas/clock/mediatek,mt8192-sys-clock.yaml#
+-$schema: http://devicetree.org/meta-schemas/core.yaml#
+-
+-title: MediaTek System Clock Controller for MT8192
+-
+-maintainers:
+-  - Chun-Jie Chen <chun-jie.chen@mediatek.com>
+-
+-description:
+-  The Mediatek system clock controller provides various clocks and system configuration
+-  like reset and bus protection on MT8192.
+-
+-properties:
+-  compatible:
+-    items:
+-      - enum:
+-          - mediatek,mt8192-topckgen
+-          - mediatek,mt8192-infracfg
+-          - mediatek,mt8192-pericfg
+-          - mediatek,mt8192-apmixedsys
+-      - const: syscon
+-
+-  reg:
+-    maxItems: 1
+-
+-  '#clock-cells':
+-    const: 1
+-
+-  '#reset-cells':
+-    const: 1
+-
+-required:
+-  - compatible
+-  - reg
+-  - '#clock-cells'
+-
+-additionalProperties: false
+-
+-examples:
+-  - |
+-    topckgen: syscon@10000000 {
+-        compatible = "mediatek,mt8192-topckgen", "syscon";
+-        reg = <0x10000000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    infracfg: syscon@10001000 {
+-        compatible = "mediatek,mt8192-infracfg", "syscon";
+-        reg = <0x10001000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    pericfg: syscon@10003000 {
+-        compatible = "mediatek,mt8192-pericfg", "syscon";
+-        reg = <0x10003000 0x1000>;
+-        #clock-cells = <1>;
+-    };
+-
+-  - |
+-    apmixedsys: syscon@1000c000 {
+-        compatible = "mediatek,mt8192-apmixedsys", "syscon";
+-        reg = <0x1000c000 0x1000>;
+-        #clock-cells = <1>;
+-    };
 
 -- 
 2.55.0
