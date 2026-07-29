@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74B0C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 21:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 352A5C54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 21:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5AGCiCZZVKUDN8oecGt2Roy1eSGBTFQcLAn625rORCg=; b=ZKdQfXbaj+mxEIU38996gcVjJZ
-	7HKNla64SFaW++dBeAaF85iDYM6Be2cpp4x7qomfoa9gDvk/41LKWv+RNMtCb/Xs5itdFQ4BXO9ZU
-	8o9nHOmLEqWmTcavAA9+o2rGw4qrP5YPf9pGhX5cWjGs6yK+2yfi9+4nP/wIueFUPaBSHnfZFyMoW
-	NB0BJQPexnsILXlmEgn9lY18xQ1/GZ4hboBK2G1VgpismcfXXuj4Pae4PqVa4bfcRVu3wVjtx04pz
-	PPFkt53cXkTMmw2JwSnsMMLn25BzWp57HTQDIhu7HQxeeameKh1bb6tJXv4fROicI9hQ/8bLHiYdR
-	d+t14HtA==;
+	bh=Y9IKwreQkZ+6AEkQiytfvjKxcrxC+NditZ5Z6WLVaP0=; b=UfPc06s8GLePn8iLUeQXzcybJX
+	nqL/cYb4TFUMtstsDW1fSQmJGjF3xfNLBb/wUV8PgEdLWuI81TIJTht0a6koZ2bBkVCsh/kHqOqDw
+	SEDfnSy+wbAzNZ2c6bqckT0iJF8TmZCQ+jyi091D9hNCToKqG2zIhl6NirmjPrImOx8jneMDzUgDS
+	amlrBp4SFuByqOyrdDe5PL4ceA00PxnBHLyQnEdrRMYkwZxZObTbl//pVIGGUP/shp7SMkEQVS7pL
+	772X5435iE9xhERdxleJDOZnATC56VdJogAEe5nKXbD887/Cb+PuBBFf2AbhsLfg9T/QQGKK+EiBL
+	zvyi/3BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpC8F-000000091YB-0oIs;
+	id 1wpC8F-000000091Yb-1hyx;
 	Wed, 29 Jul 2026 21:48:07 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpC82-000000091UA-3lfG
+	id 1wpC8C-000000091XL-3qzx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 21:47:56 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 781B911B743;
-	Wed, 29 Jul 2026 23:47:48 +0200 (CEST)
+	Wed, 29 Jul 2026 21:48:06 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4C1AD11B689;
+	Wed, 29 Jul 2026 23:47:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1785361669; h=from:subject:date:message-id:to:cc:mime-version:
+	s=dkim; t=1785361678; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=5AGCiCZZVKUDN8oecGt2Roy1eSGBTFQcLAn625rORCg=;
-	b=IXFv8o5RpO3KyauJX/gvGmF2Iks3PKhA96Asn0eohMzhmGTlfsBykJEqdtco1Ed5TmDvf3
-	C1mc1/rCxgQ7uChuR/LttjJPfyPDVjVHaH/paMtcS3BfJtgDndXmjoc7LGK2j6dlgRSv/b
-	bakXp8psStdkvyD7K+2sxQThZ/Mi+1TQZesFuDEVL0vA1CmQdHlf8PU/DGtEk4PEhrYq3T
-	vxv3A8OnPKeIFNXaYaXM6gjpRUis7NZX+bVIntiFCo2NjaqTCO6u7CfjSWQf96wbMlj+as
-	OY5aWpol1s5ri5ode0TkYMvHODcSDr37euNpoZwQhzlpqcvC9noKovEJb7kPGg==
+	bh=Y9IKwreQkZ+6AEkQiytfvjKxcrxC+NditZ5Z6WLVaP0=;
+	b=Esq9moOlqJj9valpCbuhvP1SwaRCsnNbXXL+vZ0ubb4w779561ECuNHxmQ71kr9xZHKA1u
+	g/T5XQb9uQQoMDlXxIpzEAmjFbloX2aHvK1hwYuCBPJ0Fm7RgLLX6w5CTEUQ7WCTOuaadC
+	9Bbpu7fbNHkwt/qLq7rig4xwvx6Jjtj2+NG34Y6eundqtlbL9xU/uzl2wb5RAVL3kQaHVP
+	XzCS+J48S5uLy5R3OwFBTcsvEczNUk6Kat4fybu7ho1M8WhmKQ59CPssm6rOpfERWtZtDF
+	mRLuBKa20/4h9qCcXAd0etmpAwFsDsP8MkMjmrwSu3SgViDJsw8wGi/0UUgdww==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@nabladev.com>,
@@ -51,9 +51,9 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 4/7] arm64: dts: imx8mm: imx8mp: Add HDMI DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
-Date: Wed, 29 Jul 2026 23:47:13 +0200
-Message-ID: <20260729214723.557461-4-marex@nabladev.com>
+Subject: [PATCH v7 6/7] arm64: dts: imx8mm: imx8mp: Add FIO1 DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
+Date: Wed, 29 Jul 2026 23:47:15 +0200
+Message-ID: <20260729214723.557461-6-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260729214723.557461-1-marex@nabladev.com>
 References: <20260729214723.557461-1-marex@nabladev.com>
@@ -61,8 +61,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_144755_241723_CDDC7461 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260729_144805_308582_DFC51E88 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,9 +77,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT overlay for the DSI-to-HDMI adapter eDM-MOD-iMX8Mm-HDMI populated
-with Lontium LT9611 bridge. This adapter can be optionally populated onto
-the eDM SBC.
+Add DT overlay for feature connector expansion module eDM-MOD-iMX8Mm-FIO1
+providing additional UARTs, CAN, PWM Beeper, I2C, SPI and GPIO breakout.
+This adapter can be optionally populated onto the eDM SBC.
 
 Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
@@ -99,68 +99,68 @@ V2: Deduplicate the DTOs further
 V3: New patch split from the original megapatch
 V4: Rebase on next-20260703
 V5: No change
-V6: Move compatible and reg properties to the beginning of lt9611_codec: hdmi-bridge@3b {} node
+V6: Move compatible and reg properties to the beginning of gpio_feature: io-expander@20 { } node
 V7: No change
 ---
- arch/arm64/boot/dts/freescale/Makefile        | 12 +++
- ...l-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtsi | 94 +++++++++++++++++++
- ...l-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso | 17 ++++
- ...l-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso | 17 ++++
- 4 files changed, 140 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso
+ arch/arm64/boot/dts/freescale/Makefile        | 12 ++++
+ ...l-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtsi | 69 +++++++++++++++++++
+ ...l-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso | 59 ++++++++++++++++
+ ...l-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso | 46 +++++++++++++
+ 4 files changed, 186 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 4880f75805c3e..8406efbbb1fd6 100644
+index 5689c461ede81..c23be9fc3a224 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -120,6 +120,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8dxp-tqma8xdps-mb-smarc-2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-beacon-kit.dtb
- 
-+imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi-dtbs := \
-+	imx8mm-data-modul-edm-sbc.dtb \
-+	imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo
-+
- imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01-dtbs := \
+@@ -124,6 +124,10 @@ imx8mm-data-modul-edm-sbc-overlay-cm4-dtbs := \
  	imx8mm-data-modul-edm-sbc.dtb \
- 	imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo
-@@ -153,6 +157,8 @@ imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900-dtbs := \
- 	imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtbo
+ 	imx8mm-data-modul-edm-sbc-overlay-cm4.dtbo
  
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-data-modul-edm-sbc.dtb \
-+			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtb \
-+			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtb \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g101ice-l01.dtb \
-@@ -331,6 +337,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-beacon-kit.dtb
- DTC_FLAGS_imx8mp-cubox-m := -@
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-cubox-m.dtb
- 
-+imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi-dtbs := \
-+	imx8mp-data-modul-edm-sbc.dtb \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo
++imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1-dtbs := \
++	imx8mm-data-modul-edm-sbc.dtb \
++	imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtbo
 +
- imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01-dtbs := \
+ imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi-dtbs := \
+ 	imx8mm-data-modul-edm-sbc.dtb \
+ 	imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo
+@@ -163,6 +167,8 @@ imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900-dtbs := \
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-data-modul-edm-sbc.dtb \
+ 			  imx8mm-data-modul-edm-sbc-overlay-cm4.dtb \
+ 			  imx8mm-data-modul-edm-sbc-overlay-cm4.dtbo \
++			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtb \
++			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtbo \
+ 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtb \
+ 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo \
+ 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtb \
+@@ -347,6 +353,10 @@ imx8mp-data-modul-edm-sbc-overlay-cm7-dtbs := \
  	imx8mp-data-modul-edm-sbc.dtb \
- 	imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo
-@@ -408,6 +418,8 @@ imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902-dtbs := \
- 	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtbo
+ 	imx8mp-data-modul-edm-sbc-overlay-cm7.dtbo
  
++imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1-dtbs := \
++	imx8mp-data-modul-edm-sbc.dtb \
++	imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtbo
++
+ imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi-dtbs := \
+ 	imx8mp-data-modul-edm-sbc.dtb \
+ 	imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo
+@@ -430,6 +440,8 @@ imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902-dtbs := \
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-data-modul-edm-sbc.dtb \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtb \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo \
+ 			  imx8mp-data-modul-edm-sbc-overlay-cm7.dtb \
+ 			  imx8mp-data-modul-edm-sbc-overlay-cm7.dtbo \
++			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtb \
++			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtbo \
+ 			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtb \
+ 			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtbo \
  			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtb \
- 			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo \
- 			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g101ice-l01.dtb \
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtsi
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtsi
 new file mode 100644
-index 0000000000000..59f15d5a33a28
+index 0000000000000..905db21d57c21
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtsi
-@@ -0,0 +1,94 @@
++++ b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtsi
+@@ -0,0 +1,69 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright 2026 Marek Vasut
@@ -170,97 +170,137 @@ index 0000000000000..59f15d5a33a28
 +#include <dt-bindings/interrupt-controller/arm-gic.h>
 +
 +&{/} {
-+	hdmi-out {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con: endpoint {
-+				remote-endpoint = <&lt9611_out>;
-+			};
-+		};
++	can_osc: can-osc {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <20000000>;
 +	};
 +};
 +
-+&i2c_display {	/* Display connector I2C */
++&ecspi2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	can_fio: can@0 {
++		compatible = "microchip,mcp2515";
++		reg = <0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_can>;
++		clocks = <&can_osc>;
++		spi-max-frequency = <5000000>;
++	};
++};
++
++&i2c_feature {	/* Feature connector I2C */
 +	#address-cells = <1>;
 +	#size-cells = <0>;
 +
-+	lt9611_codec: hdmi-bridge@3b {
-+		compatible = "lontium,lt9611";
-+		reg = <0x3b>;
++	gpio_feature: io-expander@20 {
++		compatible = "nxp,pca9554";
++		reg = <0x20>;
 +		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_panel_expansion>;
-+		vcc-supply = <&buck4_reg>;	/* X400 pin 55, +3V3_S0 */
-+		vdd-supply = <&buck5_reg>;	/* X400 pin 51, +1V8_S0 */
-+
-+		/* Audio I2S not described */
-+		#sound-dai-cells = <1>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				lt9611_a: endpoint {
-+					remote-endpoint = <&mipi_dsi_bridge1_out>;
-+				};
-+			};
-+
-+			port@2 {
-+				reg = <2>;
-+
-+				lt9611_out: endpoint {
-+					remote-endpoint = <&hdmi_con>;
-+				};
-+			};
-+		};
++		pinctrl-0 = <&pinctrl_gpio_expander>;
++		#gpio-cells = <2>;
++		gpio-controller;
++		#interrupt-cells = <2>;
++		interrupt-controller;
++		interrupt-parent = <&gpio4>;
++		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"GPIO1_output", "GPIO1_input",
++			"GPIO2_output", "GPIO2_input",
++			"GPIO3_output", "GPIO3_input",
++			"PCA9511A_READY", "";
 +	};
 +
 +	eeprom@50 {
-+		compatible = "atmel,24c02";
++		compatible = "atmel,24c32";
 +		reg = <0x50>;
-+		pagesize = <16>;
++		pagesize = <32>;
 +	};
++};
++
++&uart1 {	/* J500/J501 */
++	status = "okay";
++};
++
++&uart2 {	/* RS485 J302/J303 */
++	linux,rs485-enabled-at-boot-time;
++	uart-has-rtscts;
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso
+new file mode 100644
+index 0000000000000..ad410db5f5b76
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso
+@@ -0,0 +1,59 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2022-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++#include "imx8mm-pinfunc.h"
++#include "imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtsi"
++
++&{/} {
++	beeper {
++		compatible = "pwm-beeper";
++		beeper-hz = <1000>;
++		pwms = <&pwm3 0 250000 0>;
++	};
++};
++
++&can_fio {
++	interrupts-extended = <&gpio4 25 IRQ_TYPE_LEVEL_LOW>;
 +};
 +
 +&iomuxc {
-+	/* Free &pinctrl_panel_expansion from hog for lt9611_codec above */
-+	pinctrl-0 = <&pinctrl_hog_misc>, <&pinctrl_hog_feature>,
-+		    <&pinctrl_hog_panel>, <&pinctrl_hog_sbc>;
-+};
++	pinctrl_can: can-feature-grp {
++		fsl,pins = <
++			/* CAN_INT# */
++			MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25		0x400000d6
++			/* CAN_RST# */
++			MX8MM_IOMUXC_SAI2_TXD0_GPIO4_IO26		0x6
++		>;
++	};
 +
-+&mipi_dsi {
-+	/* HDMI 148.5 MHz x2 (DDR) x3 (24bpp / 8) */
-+	samsung,burst-clock-frequency = <891000000>;
-+	samsung,esc-clock-frequency = <10000000>;
-+	status = "okay";
++	pinctrl_gpio_expander: gpio-expander-feature-grp {
++		fsl,pins = <
++			/* GPIO4_IO27 */
++			MX8MM_IOMUXC_SAI2_MCLK_GPIO4_IO27		0x6
++		>;
++	};
 +
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			mipi_dsi_bridge1_out: endpoint {
-+				clock-lanes = <0>;
-+				data-lanes = <1 2 3 4>;
-+				/* Clock and data lanes have DN/DP swapped */
-+				lane-polarities = <1 1 1 1 1>;
-+				remote-endpoint = <&lt9611_a>;
-+			};
-+		};
++	pinctrl_pwm3: pwm3-buzzer-feature-grp {
++		fsl,pins = <
++			/* Buzzer PWM output */
++			MX8MM_IOMUXC_SPDIF_TX_PWM3_OUT			0x100
++		>;
 +	};
 +};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso
++
++&pinctrl_hog_feature {
++	fsl,pins = <
++		/* GPIO5_IO04 */
++		MX8MM_IOMUXC_SPDIF_RX_GPIO5_IO4			0x6
++	>;
++};
++
++&pwm3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_pwm3>;
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso
 new file mode 100644
-index 0000000000000..334ba299a3541
+index 0000000000000..0eccb7f7c0a8c
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso
-@@ -0,0 +1,17 @@
++++ b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtso
+@@ -0,0 +1,46 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright 2022-2026 Marek Vasut
@@ -268,38 +308,44 @@ index 0000000000000..334ba299a3541
 +/dts-v1/;
 +/plugin/;
 +
-+#include "imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtsi"
++#include "imx8mp-pinfunc.h"
++#include "imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-fio1.dtsi"
 +
-+&lt9611_codec {
-+	interrupts-extended = <&gpio2 3 IRQ_TYPE_EDGE_FALLING>;
-+	reset-gpios = <&gpio2 2 GPIO_ACTIVE_HIGH>;
++&can_fio {
++	interrupts-extended = <&gpio2 10 IRQ_TYPE_LEVEL_LOW>;
 +};
 +
-+&lcdif {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso
-new file mode 100644
-index 0000000000000..d8114fd869b54
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtso
-@@ -0,0 +1,17 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2022-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
++&iomuxc {
++	pinctrl_can: can-feature-grp {
++		fsl,pins = <
++			/* CAN_INT# */
++			MX8MP_IOMUXC_SD1_RESET_B__GPIO2_IO10		0x400000d6
++		>;
++	};
 +
-+#include "imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-hdmi.dtsi"
-+
-+&lt9611_codec {
-+	interrupts-extended = <&gpio4 19 IRQ_TYPE_EDGE_FALLING>;
-+	reset-gpios = <&gpio4 0 GPIO_ACTIVE_HIGH>;
++	pinctrl_gpio_expander: gpio-expander-feature-grp {
++		fsl,pins = <
++			/* GPIO4_IO27 */
++			MX8MP_IOMUXC_SAI2_MCLK__GPIO4_IO27		0x6
++		>;
++	};
 +};
 +
-+&lcdif1 {
-+	status = "okay";
++&pinctrl_sai2 {
++	fsl,pins = <
++		MX8MP_IOMUXC_SAI2_TXFS__AUDIOMIX_SAI2_TX_SYNC	0xd6
++		MX8MP_IOMUXC_SAI2_TXD0__AUDIOMIX_SAI2_TX_DATA00	0xd6
++		MX8MP_IOMUXC_SAI2_TXC__AUDIOMIX_SAI2_TX_BCLK	0xd6
++	>;
++};
++
++&pinctrl_hog_feature {
++	fsl,pins = <
++		/* GPIO5_IO03 */
++		MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07		0x40000006
++		/* GPIO5_IO04 */
++		MX8MP_IOMUXC_GPIO1_IO08__GPIO1_IO08		0x40000006
++	>;
 +};
 -- 
 2.53.0
