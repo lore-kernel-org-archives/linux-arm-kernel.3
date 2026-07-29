@@ -4,98 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03BDC53200
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69377C54F51
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Content-Type:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bz0ySSPwLkjCZQjoAOssGTzCtgnTiGfSJWwyPJTSyPU=; b=4xuJJOsDDEJohYPR2GuKDNEj51
-	ScVIlt+Wartlbiaxqgd3RtA7l1gD8k3W+SYyDjOdw4DCpHVebj3wUz0CzKSSMf7O4+c5WB3fJUehm
-	ggucMYzsFEefobhaS/9JiI5VABBoMFSJ9xpgKqjkElSCJE+YurGosAXkXzUafHDV2okDs4lSpa+Mt
-	01fx94zazCf9NTHQOTpNOAQ3vL59GuXME+HEAmX641/nNYD6tlFtMhjqn/7bpUMUvwJISRg/krunY
-	Yo2/P0I5SAzU070PxncOl8d3RnGYBi2sy1O2Cy8NsCEX9z3eqxz4tHLa0/534bzQfNMTDCiVvlUFa
-	0N+0etCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nvabop0zm4uonzH0zzDptm+Kpsf6ujwvdHILYs5XWCY=; b=OOv+kBi21xxH42Oi/EeTXowTsN
+	Ib8n1xbOLKL7IIvY/XTIXSSckysoTg2M2i62dZh+ktfxtEH+qHl65jzvsfpe9VZNz0MdEdoNqql+M
+	u/nXXcA2UmPFxc4eNKnDYNjl27jx8q0e67/6W7LgxHpVTQCY+gh5ZZYWAQRg2RUoWjzaSDNsGEsPE
+	O+Se/BXLiFQFyE6RBby60sQTog3X6KSVcbQt/zGgY763z8i1fxYsy7vQCFU4BX6Dk9dNNjTMic083
+	jR0rm+ymHu8V52XZlU1W7TApp0VfonR8msNSRcZ77Wk9cdV2CmtlQN3Qw8V2lK/cFQNjPVdn/fAWm
+	vZJJ63AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Rj-00000008kJq-0Yob;
-	Wed, 29 Jul 2026 17:51:59 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wp8Ri-00000008kJM-3lLq;
+	Wed, 29 Jul 2026 17:51:58 +0000
+Received: from mail-106104.protonmail.ch ([79.135.106.104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8RR-00000008k9j-4C6c
+	id 1wp8RR-00000008k8v-1CtB
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 29 Jul 2026 17:51:43 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4955de8797cso8639635e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 10:51:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785347500; x=1785952300; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:reply-to:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Bz0ySSPwLkjCZQjoAOssGTzCtgnTiGfSJWwyPJTSyPU=;
-        b=Sc8XUk/5vygG9VeEyUcq3uOc78KNNCYQIjC2V93urj0oLACgigkg6L3W4FmYjderWX
-         zYHF9lBsie1uS1nl7JnVIVDuwOaSsZVXcOlmRVp5J0d3GefytH+K4NMirusYOikfnAuv
-         PPZI9066LNz1dfFiETFc+R8twGPA+OCY16tw3aEUlcCuutRtyPi2p6yQDE8c1skBy9lS
-         oAH/w+igSuqDRA63C+hyUn/g4KTP1OeSxFFB2Wwnbrv4eUBESNP22n4xjhh2MGVyWKiJ
-         +f1WOxfqZV++JTjxAP1JlUzPfDGOl16heACtewoJiZA7j39dRwf+mj0ZiRrqHzG9PcP8
-         IZzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785347500; x=1785952300;
-        h=content-transfer-encoding:mime-version:reply-to:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Bz0ySSPwLkjCZQjoAOssGTzCtgnTiGfSJWwyPJTSyPU=;
-        b=fp2MYgaBaUrCGiGLoNJPTSsk5L+8TUIWe4OqchO9q+XUOS8aU3pfMuR7DdCmfA0JpD
-         ZbEocvvxO3JUQHHGH+itt7Gv6GuDCLyy9+BG1WooT+gblNS/du+1RMX62Cbe0Q7MSGny
-         fV+QKs/nyjUl8lp4hJBLG0zXJuLPgUcWWytNE1HqHCVqdEVQ4E2Etvy2P8ddRH701cyt
-         Wh9TWno2OR7W5Ep+1DFFBDeKM896Jp6prNQPaR/5WXiGro+1h0KxjqOZKkVOSQyT/two
-         +gzaC/Is7LmY7Pb0bVKsajdwuY3Mbqt212FhLx7vmZb+8DnQV89P6MO4H0u0HlqVcv8d
-         Oh8Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rrr6XHsi4udVvYL3J6boKP/L9Inp/jgIrzsOhGdKFvTQUl58oZY/VDAqVWC56XtCWBe/FQ2L6c7/M0ijYM7/E41@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4qYbxxjIvHvV4yLh/9I6dA8XLoif9v4u1gXBdo2Uus4mU4BrI
-	lqWpqzws5I5PBzn1QTxsAgWyWibw7JMsQOmGIEiZ7CoOIKCyV+yEULfE
-X-Gm-Gg: AR+sD11jOgrXCZ7hu5Zqc2eqvcLnudWDRlPf96FB5vTQvhnWCHRsvEdJKjF0GR3U5LR
-	Fze3icdn5gFQTDtp/8BBe3WLxsU9D3o07nLld37hCvnDPsOHQhp0xNxa0dBiv+kmY9TNsvCFkQ9
-	5My5OaXwVAIBfyRGjpgm1j44Vnr/tgyoeNEFI/aOdB0TSBuVZ+cTZppRD5UDBSIAn1GaUxuH8Bp
-	G/wRbK74XXSWw+ftrItB0YTpnF//i2SL6P4e6Yzra57ef6re2E3c8KLVKWlyfW79VHAJ8TV3fcE
-	/uJFOvrW5tiOZLIVTduObupLJBUkn4RyLcX6KyB538fPznxzwlBIRA2o1wclpAncbyyfdgEytoZ
-	vMT2wwlU0R+FyOYUA/VBzyJm/RmRAaeBeoVY6yF4Nh4BCpU8H/wL2Omn1bx7fNZ8mjUEBBCPYjJ
-	11MgorjRDLDvaebskcIjINV1SovABlT9LeougdeeI72oNAd0mu7WfJuXuJ13AL2G5kf3SpEKH/C
-	mgzoeLzQz+Maq/goDYXDA==
-X-Received: by 2002:a05:600c:1c1a:b0:495:5fdf:2075 with SMTP id 5b1f17b1804b1-496c60c1c4dmr81087375e9.0.1785347500402;
-        Wed, 29 Jul 2026 10:51:40 -0700 (PDT)
-Received: from slackboot (93-34-146-61.ip50.fastwebnet.it. [93.34.146.61])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4976bd83fabsm75723775e9.15.2026.07.29.10.51.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 10:51:40 -0700 (PDT)
-From: Alberto Robazza <robazzalberto@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com
-Cc: jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	Alberto Robazza <robazzalberto@gmail.com>
-Subject: [PATCH v5 2/3] dt-bindings: arm: amlogic: document Orbbec Zora P1 board compatible
-Date: Wed, 29 Jul 2026 19:51:33 +0200
-Message-ID: <20260729175134.92909-3-robazzalberto@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260729175134.92909-1-robazzalberto@gmail.com>
-References: <20260729175134.92909-1-robazzalberto@gmail.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=bdbrvf4m5fhfffknshqtzcbnve.protonmail; t=1785347496; x=1785606696;
+	bh=Nvabop0zm4uonzH0zzDptm+Kpsf6ujwvdHILYs5XWCY=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=j3y7A7OIV58ZSQvK9RNzYnMMOrH9H5g3fVumitLIXxRBNi3uqPYKl+7pkhZaU+2pC
+	 YkbRDMmB4XIMzYhxirZlj3xs6+sPez45sE/V/KVwYKmH5EAF0k758sc2nu4vhd7P5q
+	 a37oPqBr75CgWZtnCNwdkq46J30nHktpYQJ+uWwrBfgTZsLK06gSxYEt//lGrcCClt
+	 SJoN332C2geB1MYjLx2b8BY2Eae+jD/Aw6fBKH3jE18bJqJGxQL1AGwSEC9aEk1raP
+	 nhCBVjfGgCvnSyKdmOfExTVyao4E1N9aKOfFjqKghdGNoyXJdbYBGju2EWx6PV7BG9
+	 Z43O0nyKro3+w==
+Date: Wed, 29 Jul 2026 17:51:31 +0000
+To: Ferass El Hafidi <funderscore@postmarketos.org>
+From: Robazza Alberto <robazza.alberto@proton.me>
+Cc: linux-amlogic@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Alberto Robazza <robazzalberto@gmail.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: vendor-prefixes: add Orbbec
+Message-ID: <XEr1g-aJeRsEJnbiy88DnzHi1_SQcZ0yL50jp2uYuQsQDw-eqyTfYI3xxoeVAWw7rVTwTTNPFGzA5FZBXguG5DAay2isJHh_RktUE_LWSn4=@proton.me>
+In-Reply-To: <tiy37g.1ypi45yn8qibx@postmarketos.org>
+References: <20260729141234.65037-1-robazzalberto@gmail.com> <20260729141234.65037-2-robazzalberto@gmail.com> <tiy37g.1ypi45yn8qibx@postmarketos.org>
+Feedback-ID: 89419976:user:proton
+X-Pm-Message-ID: 54e220e002fbf84dc033cd47950f2f0f59679da4
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_105142_116845_263B9F23 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_105141_496021_875CF771 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +66,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Alberto Robazza <robazza.alberto@proton.me>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the "orbbec,zora-p1" compatible for the Orbbec Zora P1 board,
-which is based on the Amlogic A311D (Meson G12B) SoC
+Thank you for the feedback. I didn't ignored, indeed the suggestion was imp=
+lemented in v4. My bad!
 
-Signed-off-by: Alberto Robazza <robazzalberto@gmail.com>
----
- Documentation/devicetree/bindings/arm/amlogic.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Regards,
+Alberto
 
-diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
-index 9f73a0054..2d6ecdada 100644
---- a/Documentation/devicetree/bindings/arm/amlogic.yaml
-+++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
-@@ -167,6 +167,7 @@ properties:
-               - bananapi,bpi-m2s
-               - khadas,vim3
-               - libretech,aml-a311d-cc
-+              - orbbec,zora-p1
-               - radxa,zero2
-           - const: amlogic,a311d
-           - const: amlogic,g12b
--- 
-2.55.0
+On Wednesday, July 29th, 2026 at 18:31, Ferass El Hafidi <funderscore@postm=
+arketos.org> wrote:
 
+> Hi Alberto,
+>=20
+> On Wed, 29 Jul 2026 14:12, Alberto Robazza <robazzalberto@gmail.com> wrot=
+e:
+> >Add the "orbbec" vendor prefix for Orbbec Inc., a manufacturer of
+> >3D depth cameras and embedded vision boards.
+> >
+> >Signed-off-by: Alberto Robazza <robazzalberto@gmail.com>
+> >---
+> > Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+> > 1 file changed, 2 insertions(+)
+> >
+>=20
+> You seem to have missed Krzysztof's Acked-by tag in this patch:
+> https://lore.kernel.org/all/20260729-unbreakable-observant-clam-ca4f6d@qu=
+oll/
+>=20
+> Reviewers will typically give out Acked-by or Reviewed-by tags to your
+> patch to signal that the patch looks good to them (typically the former t=
+ag)
+> or that they have reviewed it in great detail and approve it (typically t=
+he
+> latter tag). These tags need to be picked up and added to your patch.
+>=20
+> If you use b4 to send the patches, you can run `b4 trailers -u` each
+> time before sending a new patchset revision to the mailing list to get
+> all Acked-by and Reviewed-by tags reviewers will give to your patch.
+> If you don't use b4, you should be able to add them manually still with
+> git commands.
+>=20
+> If you don't have them added to your patch, it may sound like you
+> ignored their review. Reviewing takes effort and is time-consuming,
+> so always make sure you have all of them added.
+>=20
+> Also see: https://docs.kernel.org/process/submitting-patches.html
+>=20
+> Best regards,
+> Ferass
+>=20
+> >diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Do=
+cumentation/devicetree/bindings/vendor-prefixes.yaml
+> >index 396044f36..a42899bd2 100644
+> >--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> >+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> >@@ -1251,6 +1251,8 @@ patternProperties:
+> >     description: Option NV
+> >   "^oranth,.*":
+> >     description: Shenzhen Oranth Technology Co., Ltd.
+> >+  "^orbbec,.*":
+> >+    description: Orbbec Inc.
+> >   "^ORCL,.*":
+> >     description: Oracle Corporation
+> >   "^orisetech,.*":
+> >--
+> >2.55.0
+> >
+> >
+> >_______________________________________________
+> >linux-amlogic mailing list
+> >linux-amlogic@lists.infradead.org
+> >http://lists.infradead.org/mailman/listinfo/linux-amlogic
+> 
 
