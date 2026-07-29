@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57348C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6952FC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 11:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LjWWugs5bJ2v1tG9OeuA8PVRNMAb2EGqaY6DxBYnZtg=; b=IstJkNr51xyx/OLhhPD+M9tJml
-	75x8wryEcPQk/QOnPSE31KHLTt2/Zwo54JkSPR2gW4VvfERVBOh22sWSZxBA1O/V0N9XPfhHOolxf
-	4AoFsT+byjLHZ+rms2WI3z6xKKLcCHlHAfJSeLPrL6CiLxIEuZPu7WOD4flccY/2YnT8/JkE1Y7YM
-	MJDxs4uEwPYxHygbgBJB865c0d9jtyRe9nkZeNzqSkqVPCMbg50Hb+5PE8KpxAelUp7yzvw9vl3yX
-	cQelRZEgrZ696qYrr3s0uuufFtDtU9ttyKX5pZaFGGbDAkword+lG2i9Nd1hA34KVxKSrS15a82bJ
-	41YeCdnQ==;
+	bh=5t9Ws26kvLzh4u6vfr0WoGyh3uIWY/0IgKorSLhe2yk=; b=TVVsEwPP8SmyAedXa7KiLoy3lj
+	eWPlCx9uOHBv2EkfsRfklQLlgBCr6gM1hLWVn6iRhOTDqaxWIWZXJGmyqdgZb+9NQMcwe5LREbqOT
+	bZNW+ayh8F7oTFZTb39CkGBe5S4JnMM9T6dBWU+q2w5xQ+0Tv0xIfEFcwNFDRn6Eg63dgGDEhHBOK
+	ZaQqiHBjSjpwQjKcITYtRVqelLxPwDdG8xb0QwtLlz3B8+sMiFatZsss8UJaZQaBOq5HefahJOQuZ
+	vJV40WQ1OUujkgtTTAd9/BgWK/ILvvMopDp6hR6pdy3h0kjTyegAhwBttrtq9e6449xaKJxU6qqdt
+	m11aHM8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2ke-00000007mFy-08p8;
-	Wed, 29 Jul 2026 11:47:08 +0000
-Received: from chaosmail.tech ([77.81.229.115])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2kN-00000007mAA-0c4z
+	id 1wp2lJ-00000007mSH-0d9w;
+	Wed, 29 Jul 2026 11:47:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp2lG-00000007mPy-1OOV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 11:46:53 +0000
-Received: by chaosmail.tech (Postfix) id F30821C8806;
-	Wed, 29 Jul 2026 11:46:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1785325605;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LjWWugs5bJ2v1tG9OeuA8PVRNMAb2EGqaY6DxBYnZtg=;
-	b=X8wuNjIQ4JFCFZ6+3IXJ8dzaDB6ITTa9w3MY2F34y+X4Ra9LMxfKjxgiI5ewe0NqUxuBSp
-	GntjHZJhyYP6F4rp1dqSvXykeixqYq7yPXNjRRfkplVpsBaXMqPlSS4Ve1kubILC0M5Yci
-	q/0wJogsTRIBy+vtKkgy3Cr158e7b+8=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Wed, 29 Jul 2026 13:46:34 +0200
-Subject: [PATCH v2 1/2] dt-bindings: dma: apple,admac: Add M3 generation
- ADMACs
+	Wed, 29 Jul 2026 11:47:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8E451688;
+	Wed, 29 Jul 2026 04:47:38 -0700 (PDT)
+Received: from [10.57.41.95] (unknown [10.57.41.95])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D41B3F86F;
+	Wed, 29 Jul 2026 04:47:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785325662; bh=HkMBCAbmrFXEE9kGoDxmwgXunRUkZppUwPpF/BM2mLc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=foOyvk/YD/P95lT4XBdQFEDSgKrdW1PrQdmQte8+Y35jd52iLmQuPsHa0I04DfSf3
+	 yi4Fav4yfIXUVnjQe94RgJknoDy3rZA2Z/wsaxmWL4A2FqTGl0Ss7YDQefTBxG7Pko
+	 FN0P5I3VJuZsYk/v0ht6CwjWiMuM25bgL1xmchfo=
+Message-ID: <46d78aa2-cacb-4efd-ae62-3026f5fe9b3f@arm.com>
+Date: Wed, 29 Jul 2026 12:47:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 1/2] KVM: arm64: CCA: Add support for configuring
+ the Realm MEC policy
+Content-Language: en-GB
+To: Kohei Enju <enju.kohei@fujitsu.com>,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, cgroups@vger.kernel.org, linux-coco@lists.linux.dev,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+ =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Steven Price <steven.price@arm.com>
+References: <20260724094120.166536-1-enju.kohei@fujitsu.com>
+ <20260724094120.166536-2-enju.kohei@fujitsu.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260724094120.166536-2-enju.kohei@fujitsu.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260729-t603x-admac-v2-1-e4b2bb6ca45e@chaosmail.tech>
-References: <20260729-t603x-admac-v2-0-e4b2bb6ca45e@chaosmail.tech>
-In-Reply-To: <20260729-t603x-admac-v2-0-e4b2bb6ca45e@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>, 
- Joshua Peisach <jpeisach@ubuntu.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785325604; l=1691;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=v2dOZDaxp0DZkMeLavv70Zh+ElwareDDu7QcfDJGnaU=;
- b=/sTI5XpwcgmEEgK3zjJ9aUKOX4KzI2uNaUP0uwgeglpbtwQLzQ8QHU20w7xjpwl6+90KXFdtj
- lH2lBPHKm86DEwZdQDLMfKnOXQzxfkQg8bLFcLoOyEEtVaBBSRYdQpm
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_044651_654130_12039217 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_044746_556486_CE31026E 
+X-CRM114-Status: GOOD (  34.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +79,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The admacs seen in M3-generation SoCs (t603x, t8122) need additional
-configuration writes and so are getting a new compatible chain.
+Hello
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
----
- Documentation/devicetree/bindings/dma/apple,admac.yaml | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+Thanks for sending the patch. Please find my comments inline below.
 
-diff --git a/Documentation/devicetree/bindings/dma/apple,admac.yaml b/Documentation/devicetree/bindings/dma/apple,admac.yaml
-index 6a200cbd7d02..5b4fd8348f99 100644
---- a/Documentation/devicetree/bindings/dma/apple,admac.yaml
-+++ b/Documentation/devicetree/bindings/dma/apple,admac.yaml
-@@ -10,7 +10,7 @@ description: |
-   Apple's Audio DMA Controller (ADMAC) is used to fetch and store audio samples
-   on SoCs from the "Apple Silicon" family.
- 
--  The controller has been seen with up to 24 channels. Even-numbered channels
-+  The controller has been seen with up to 32 channels. Even-numbered channels
-   are TX-only, odd-numbered are RX-only. Individual channels are coupled to
-   fixed device endpoints.
- 
-@@ -33,6 +33,12 @@ properties:
-               - apple,t8103-admac
-               - apple,t8112-admac
-           - const: apple,admac
-+      - items:
-+          - enum:
-+              - apple,t6030-admac
-+              - apple,t6031-admac
-+          - const: apple,t8122-admac
-+      - const: apple,t8122-admac
- 
-   reg:
-     maxItems: 1
-@@ -43,7 +49,7 @@ properties:
-       Clients specify a single cell with channel number.
- 
-   dma-channels:
--    maximum: 24
-+    maximum: 32
- 
-   interrupts:
-     minItems: 4
 
--- 
-2.55.0
+On 24/07/2026 10:40, Kohei Enju wrote:
+> Introduce the KVM_ARM_RMI_CONFIG ioctl to allow userspace to configure
+> Realm VM parameters before the Realm is created.
+
+This approach is something we tried in the past. Another option is to
+add these as kvm_device_attr for the KVM VM, under a new group, e.g.,
+KVM_ARM_VM_RMI_CTRL and add the following attributes :
+
+KVM_ARM_VM_RMI_CTRL_RPV 		-> Realm Personalization Value
+KVM_ARM_VM_RMI_CTRL_MEASUREMENT_ALGO	-> Measuerment algo
+KVM_ARM_VM_RMI_CTRL_MEC_PRIVATE		-> Private MEC Policy. By default to 
+shared ?
+
+
+Marc, Oliver, thoughts ?
+
+Cheers
+Suzuki
+
+> 
+> Currently, ARM_RMI_CFG_MEC_POLICY is the only supported configuration
+> item. Its value can be ARM_RMI_MEC_POLICY_SHARED or
+> ARM_RMI_MEC_POLICY_PRIVATE. Reject the private policy if the platform
+> does not support private MECs.
+> 
+> If userspace does not explicitly configure the MEC policy,
+> ARM_RMI_MEC_POLICY_SHARED is used by default.
+
+
+
+> 
+> Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+> ---
+>   Documentation/virt/kvm/api.rst   | 29 +++++++++++++++++++++++++++++
+>   arch/arm64/include/asm/kvm_rmi.h |  4 ++++
+>   arch/arm64/kvm/arm.c             |  9 +++++++++
+>   arch/arm64/kvm/rmi.c             | 29 +++++++++++++++++++++++++++++
+>   drivers/firmware/arm_rmm/rmi.c   |  8 ++++++--
+>   include/linux/arm-rmi-cmds.h     |  1 +
+>   include/uapi/linux/kvm.h         | 17 +++++++++++++++++
+>   7 files changed, 95 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index 85bec9b4f021..e1c660e5eb34 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -6690,6 +6690,35 @@ populated data is hashed and added to the guest's Realm Initial Measurement
+>   (RIM) stored by the RMM. This can then be retrieved by the guest (using the RSI
+>   interface) to present to an attestation server.
+>   
+> +4.147 KVM_ARM_RMI_CONFIG
+> +------------------------
+> +
+> +:Capability: KVM_CAP_ARM_RMI
+> +:Architectures: arm64
+> +:Type: vm ioctl
+> +:Parameters: struct kvm_arm_rmi_config (in)
+> +:Returns: 0 on success, < 0 on error
+> +
+> +::
+> +
+> +  struct kvm_arm_rmi_config {
+> +       __u32 cfg;
+> +       union {
+> +               /* cfg == ARM_RMI_CFG_MEC_POLICY */
+> +               __u8 mec_policy;
+> +
+> +               /* Fix the size of the union */
+> +               __u8 reserved[256];
+> +       };
+> +  };
+> +
+> +Configures parameters of a Realm VM before the Realm is created.
+> +
+> +Currently, `ARM_RMI_CFG_MEC_POLICY` is the only supported configuration item.
+> +`mec_policy` must be either `ARM_RMI_MEC_POLICY_SHARED` or
+> +`ARM_RMI_MEC_POLICY_PRIVATE`. `ARM_RMI_MEC_POLICY_PRIVATE` is not supported if
+> +no private MEC is available on the platform.
+> +
+>   .. _kvm_run:
+>   
+>   5. The kvm_run structure
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 420e99fca07e..721033b132e1 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -60,6 +60,7 @@ enum realm_state {
+>    * @ia_bits: Number of valid Input Address bits in the IPA
+>    * @stage2_unmapped: The Realm stage-2 mappings have been removed
+>    * @rtts_destroyed: The non-root RTTs have been torn down
+> + * @mec_policy: MEC policy for the Realm VM
+>    */
+>   struct realm {
+>   	void *rd;
+> @@ -76,6 +77,7 @@ struct realm {
+>   	unsigned int ia_bits;
+>   	bool stage2_unmapped;
+>   	bool rtts_destroyed;
+> +	unsigned int mec_policy;
+>   };
+>   
+>   /**
+> @@ -115,6 +117,8 @@ struct kvm_arm_rmi_populate;
+>   
+>   int kvm_arm_rmi_populate(struct kvm *kvm,
+>   			 struct kvm_arm_rmi_populate *arg);
+> +struct kvm_arm_rmi_config;
+> +int kvm_arm_rmi_config(struct kvm *kvm, struct kvm_arm_rmi_config *arg);
+>   void kvm_realm_unmap_range(struct kvm *kvm,
+>   			   unsigned long ipa,
+>   			   unsigned long size,
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 3862db30779f..17302ba2844c 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2169,6 +2169,15 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>   			return -EFAULT;
+>   		return ret;
+>   	}
+> +	case KVM_ARM_RMI_CONFIG: {
+> +		struct kvm_arm_rmi_config cfg;
+> +
+> +		if (!kvm_is_realm(kvm))
+> +			return -ENXIO;
+> +		if (copy_from_user(&cfg, argp, sizeof(cfg)))
+> +			return -EFAULT;
+> +		return kvm_arm_rmi_config(kvm, &cfg);
+> +	}
+>   	default:
+>   		return -EINVAL;
+>   	}
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 06cc85fb5092..629dea5e8c47 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -572,6 +572,9 @@ static int realm_create_rd(struct kvm *kvm)
+>   	if (kvm_lpa2_is_enabled())
+>   		params->flags0 |= RMI_REALM_PARAM_FLAG_LPA2;
+>   
+> +	params->flags0 |= FIELD_PREP(RMI_REALM_PARAM_FLAG_MEC_POLICY,
+> +				     realm->mec_policy);
+> +
+>   	r = realm_init_sve_param(kvm, params);
+>   	if (r)
+>   		goto out_undelegate_tables;
+> @@ -1155,6 +1158,30 @@ int kvm_arm_rmi_populate(struct kvm *kvm,
+>   	return ret;
+>   }
+>   
+> +int kvm_arm_rmi_config(struct kvm *kvm, struct kvm_arm_rmi_config *cfg)
+> +{
+> +	guard(mutex)(&kvm->arch.config_lock);
+> +
+> +	if (kvm_realm_state(kvm) != REALM_STATE_NONE)
+> +		return -EBUSY;
+> +
+> +	switch (cfg->cfg) {
+> +	case ARM_RMI_CFG_MEC_POLICY:
+> +		if (cfg->mec_policy != ARM_RMI_MEC_POLICY_SHARED &&
+> +		    cfg->mec_policy != ARM_RMI_MEC_POLICY_PRIVATE)
+> +			return -EINVAL;
+> +
+> +		if (cfg->mec_policy == ARM_RMI_MEC_POLICY_PRIVATE &&
+> +		    rmi_mec_count() == 0)
+> +			return -EOPNOTSUPP;
+> +
+> +		kvm->arch.realm.mec_policy = cfg->mec_policy;
+> +		return 0;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+>   static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>   {
+>   	struct kvm *kvm = vcpu->kvm;
+> @@ -1474,6 +1501,8 @@ int kvm_init_realm(struct kvm *kvm)
+>   {
+>   	struct realm *realm = &kvm->arch.realm;
+>   
+> +	realm->mec_policy = ARM_RMI_MEC_POLICY_SHARED;
+> +
+>   	realm->params = (void *)get_zeroed_page(GFP_KERNEL_ACCOUNT);
+>   	realm->sro = kmalloc_obj(*realm->sro);
+>   	if (!realm->params || !realm->sro) {
+> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> index d0c083bdf251..e9632c35e7db 100644
+> --- a/drivers/firmware/arm_rmm/rmi.c
+> +++ b/drivers/firmware/arm_rmm/rmi.c
+> @@ -14,8 +14,7 @@
+>   
+>   static bool arm64_rmi_is_available;
+>   
+> -/* Currently only the first 2 registers are used by Linux */
+> -#define RMI_FEAT_REG_COUNT	2
+> +#define RMI_FEAT_REG_COUNT	5
+>   static __ro_after_init unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
+>   
+>   unsigned long rmi_feat_reg(unsigned long id)
+> @@ -27,6 +26,11 @@ unsigned long rmi_feat_reg(unsigned long id)
+>   }
+>   EXPORT_SYMBOL_GPL(rmi_feat_reg);
+>   
+> +u64 rmi_mec_count(void)
+> +{
+> +	return u64_get_bits(rmi_feat_reg(4), RMI_FEATURE_REGISTER_4_MEC_COUNT);
+> +}
+> +
+>   int rmi_delegate_range(phys_addr_t phys,
+>   		       unsigned long size,
+>   		       phys_addr_t *out_phys)
+> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+> index 138983ab4e3c..5236600421c6 100644
+> --- a/include/linux/arm-rmi-cmds.h
+> +++ b/include/linux/arm-rmi-cmds.h
+> @@ -28,6 +28,7 @@ struct rmi_sro_state {
+>   };
+>   
+>   unsigned long rmi_feat_reg(unsigned long id);
+> +u64 rmi_mec_count(void);
+>   
+>   int rmi_delegate_range(phys_addr_t phys, unsigned long size,
+>   		       phys_addr_t *out_phys);
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index adee3936d6ae..46e62327957c 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -1704,4 +1704,21 @@ struct kvm_arm_rmi_populate {
+>   	__u32 reserved;
+>   };
+>   
+> +#define KVM_ARM_RMI_CONFIG     _IOW(KVMIO, 0xd8, struct kvm_arm_rmi_config)
+> +
+> +#define ARM_RMI_CFG_MEC_POLICY		0
+> +#define ARM_RMI_MEC_POLICY_SHARED	0
+> +#define ARM_RMI_MEC_POLICY_PRIVATE	1
+> +
+> +struct kvm_arm_rmi_config {
+> +	__u32 cfg;
+> +	union {
+> +		/* cfg == ARM_RMI_CFG_MEC_POLICY */
+> +		__u8 mec_policy;
+> +
+> +		/* Reserve space for future configuration payloads. */
+> +		__u8 reserved[256];
+> +	};
+> +};
+> +
+>   #endif /* __LINUX_KVM_H */
 
 
