@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA74CC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 14:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB55C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 14:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TywAXaaG86O5drZUM3iHk67SEw6pYNy5fCGbLy9BEs=; b=FTMWJCxuM3m7E4csxp+oIlpqvj
-	5HOw0wgw6g9np1WIVAQ4BAL1m2G7K7pCrLadWOGtRrTD85tF9M+hKEM63kuBhknbUaR4Haml3HI6d
-	WCWE/S1XTq0K14F9ZdIpeAHGD5cNA9b4bGj+L55gXppiOrnGmijjvl6GQpbm8MVDao2D3M36eBKCM
-	pgtJXyvINYIiQoxpOmYx4oNAlopP6TSLWYC+Vv6W5BzO24eDV+NtDsB1DPEQ88f/AKYOs1iG6ww+8
-	DMAI3sgkkqkXDXgHgnz7xAkb5NlfXupP7Aeg+oUgVujvosI2bVv3NAnQoa4XpHeJrNIeZ0MyPVuV5
-	uu5XVcrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XDalj4wabDKvXxxdpuvhrZ8sM+mh/PoM2BIg7cLyOyM=; b=0XgweQ7AGunGgTrBcGptGqkV0Z
+	drQvStWg78sT+uctKEsWig2gWLRKO69YDPhit4jKHzxVHN3b3+sGMF1D7dHhCmVh6N1QXceRl2YYi
+	3YinEj7d3mttwDUpb8RmI+aaxIe2DeZInap34LuCUWXXmXa4ZTtIvTF2lPRD7V3rRbOm5wrjOQrhI
+	6wD8WebfTx5r/Au67n+bVoZeiOILDpy56kw86dP1Imye6W+vAR75b3FvGlPEzCsQpwaWjxgq670Bh
+	8D/D3ndNk51m43vuBe82gQk6ZCWcq0Ip2bQYvqr3OomUHOWW0QLNSOU4S7qM+T7bDOtxMoCBacYSe
+	chjfN2Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp5da-00000008IMZ-0W7t;
-	Wed, 29 Jul 2026 14:52:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp5dX-00000008IM4-0PUg
+	id 1wp5e0-00000008IQF-0ytU;
+	Wed, 29 Jul 2026 14:52:28 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp5dx-00000008IPR-153l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 14:52:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DCB31684;
-	Wed, 29 Jul 2026 07:51:53 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FAB43F66F;
-	Wed, 29 Jul 2026 07:51:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785336717; bh=NZSdB7xkKKO5D9M3yjHPGpy+oFIC7CKGla9a9ileuaQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XVBDnCuReVZGP3SdEWYVaT7ipAbUs2c+f484eaJt87Ur9DPaiUvTTZ4NF+na90kes
-	 g5udnccYZ6xLq/WAo1Xc06w44riUKAmZb9N4ZQWhOcUlaZ0ipqvz3O0Znbn0LgkZvc
-	 L7dCE0YImNCJ/ERZrVLfqGCJ4/Q0e0+VjqgGrCwE=
-Message-ID: <1da9895e-eaf8-45f0-bac8-c4304a3b4f6a@arm.com>
-Date: Wed, 29 Jul 2026 15:51:53 +0100
+	Wed, 29 Jul 2026 14:52:26 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RoYhwgczaYtbwGR+JLyuZgmV937FohTeO7n935YfFxqYKH0OKHFzD0oai8SUbA+MNB2cAvz4W5A1z5z3FLo2O1G@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785336742;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XDalj4wabDKvXxxdpuvhrZ8sM+mh/PoM2BIg7cLyOyM=;
+	b=exLgIPvIGqzIlCZtMWtnkIlpHy2g1uitdWkNYArxlGxlbmOqSr+N/CKNLirSv0onE/Xnij
+	E8WiiR7jbvb/KYvoAK/jud3d6+xwBKfWwkpgOKHavDTA2fEjTcaUZVW5E/J/QriJjAa6kq
+	IShl1Val3fO6G36lvVvPo9yHW/7de4I=
+X-Gm-Message-State: AOJu0Yy2k8qjdpdxyqolpGJhW4SIay1TtVInYMVmgBNfPHicWw1TMOh+
+	DJhHZyBWgIXiI0w6fY0f/OPp+I4k87LaMUYE5Wg7Oq923vb/Zusf1psvLHPz9MLaaVozboIiJbr
+	kLT1W6P1MYLWS94dkPwOlmcfFGKisq4BayRPT0vnk
+X-Received: by 2002:a05:622a:1312:b0:51c:ae6:a57 with SMTP id
+ d75a77b69052e-52b2cc8596amr9690121cf.11.1785336736189; Wed, 29 Jul 2026
+ 07:52:16 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v5 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-9-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260729134124.2506269-9-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260729131823.2021516-1-fuad.tabba@linux.dev>
+ <20260729131823.2021516-3-fuad.tabba@linux.dev> <amoFnupIKfDEzN0F@e143914.arm.com>
+In-Reply-To: <amoFnupIKfDEzN0F@e143914.arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 29 Jul 2026 15:51:39 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzjb+LX-+C=DkXXkVLiradjHqQN8H_df1hUVk6aoT8+vg@mail.gmail.com>
+X-Gm-Features: AUfX_mwhvTt4R2cSbWIXoLFDxC4tUlnWCCLFknIFzYSOsoQTGMFyW5qhd6pEU7I
+Message-ID: <CA+EHjTzjb+LX-+C=DkXXkVLiradjHqQN8H_df1hUVk6aoT8+vg@mail.gmail.com>
+Subject: Re: [PATCH v7 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg
+ available to HYP code
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Quentin Perret <qperret@google.com>, Sebastian Ene <sebastianene@google.com>, 
+	Hyunwoo Kim <imv4bel@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_075159_216707_AEA5B50A 
-X-CRM114-Status: GOOD (  20.17  )
+X-CRM114-CacheID: sfid-20260729_075225_440308_1730FD47 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Hi Joey,
 
-On 7/29/26 14:41, Andre Przywara wrote:
-> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
-> alternative way of accessing the "Memory System Components" (MSC) in an
-> MPAM enabled system.
-> 
-> Normally the MSCs are MMIO mapped, but in some implementations this
-> might not be possible (MSC located outside of the local socket, MSC
-> mapped secure-only) or desirable (direct MMIO access too slow or needs
-> to be mediated through a control processor). MPAM-fb standardises a
-> protocol to abstract MSC accesses, building on the SCMI protocol.
-> 
-> Add functions that do an MSC read or write access by redirecting the
-> request through a firmware interface. For now this done via an ACPI
-> PCC shared memory and mailbox combination.
-> 
-> Since the protocol used is only a small subset of the full SCMI spec,
-> and the SCMI protocol has no full ACPI support anyway, open-code the
-> (simple) SCMI message generation, for just the fields we need.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+On Wed, 29 Jul 2026 at 14:52, Joey Gouly <joey.gouly@arm.com> wrote:
 
-[...]
+...
 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 2b81b6b0bf4e..a2193e7df57c 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -11,6 +11,7 @@
->  #include <linux/io.h>
->  #include <linux/jump_label.h>
->  #include <linux/llist.h>
-> +#include <linux/mailbox_client.h>
->  #include <linux/mutex.h>
->  #include <linux/resctrl.h>
->  #include <linux/spinlock.h>
-> @@ -57,6 +58,15 @@ struct mpam_garbage {
->  	struct platform_device	*pdev;
->  };
->  
-> +struct mpam_pcc_chan {
-> +	struct list_head	pcc_chans;
-> +	struct mbox_client	pcc_cl;
-> +	struct pcc_mbox_chan	*pcc_chan;
-> +	struct mutex		pcc_chan_lock; /* only one message at a time */
-> +	struct kref		refcount;
-> +	int			subspace_id;
-> +};
-> +
->  struct mpam_msc {
->  	/* member of mpam_all_msc */
->  	struct list_head	all_msc_list;
-> @@ -66,6 +76,8 @@ struct mpam_msc {
->  
->  	/* Not modified after mpam_is_enabled() becomes true */
->  	enum mpam_msc_iface	iface;
-> +	struct mpam_pcc_chan	*pcc_chan;
-> +	int			mpam_fb_msc_id;	/* in its own name space */
+> > +/* In nVHE hyp code, registers are always in memory: use the raw accessors. */
+> > +#if defined(__KVM_NVHE_HYPERVISOR__)
+> > +#define vcpu_read_sys_reg(v, r)              __vcpu_sys_reg(v, r)
+> > +#define vcpu_write_sys_reg(v, x, r)  __vcpu_assign_sys_reg(v, r, x)
+> > +#endif
+> > +
+>
+> Does this make sense in arch/arm64/include/asm/kvm_host.h instead? Next
+> to the definitions of __vcpu_sys_reg() etc.
 
-This gets removed in patch 10 now. I guess you just edited the wrong patch.
+It could go in kvm_host.h, but not next to __vcpu_sys_reg() as
+suggested: the redirect has to come after the
+vcpu_{read,write}_sys_reg() prototypes it overrides, or the nVHE
+preprocessor expands the prototypes themselves. A placement that
+builds has to sit below those prototypes, not next to the raw
+accessors, so it wouldn't group with them the way you're suggesting
+anyway.
 
-Thanks,
+It's currently in kvm_emulate.h, after those prototypes, which is
+where Marc suggested putting it when he moved the patch off the
+earlier rename [1]. I'd prefer to keep it there.
 
-Ben
+Cheers,
+/fuad
 
+[1] https://lore.kernel.org/all/86h5m1o79h.wl-maz@kernel.org/
 
